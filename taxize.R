@@ -47,25 +47,6 @@ get_itis_xml <- function(searchterm, searchtype, by_, searchtsn='FALSE', curl=ge
   return(page)
 }
 
-# Examples: search by term and search type
-itisxml <- get_itis_xml("Quercus_douglasii", "sciname", "name")
-itisxml <- get_itis_xml("dolphin", "anymatch")
-itisxml <- get_itis_xml("inch", "comnamebeg")
-itisxml <- get_itis_xml("ferret-badger", "comname")
-itisxml <- get_itis_xml("grizzly%20bear", "comnameend")
-itisxml <- get_itis_xml("bear", "terms")
-itisxml <- get_itis_xml("buya", "itistermscomname")
-itisxml <- get_itis_xml("ursidae", "itistermssciname")
-itisxml <- get_itis_xml("french", "tsnsvernacular")
-itisxml <- 
-get_itis_xml(searchterm = "36616", searchtype = "tsnfullhir", by_ = "tsn")
-
-  # Convert xml to other formats
-pagelist <- xmlToList(itisxml)
-pagelist[1]
-
-
-
 # Function to get family names to make Phylomatic input object
 # input: x = quoted tsn number (taxonomic serial number)
 # output: family name as character
@@ -76,10 +57,6 @@ get_familyname <- function (x) {
   famname <- as.character(hier[hier$rankName == 'Family',2])
   return(famname)
 }
-get_familyname("183327") # single taxon
-laply(list("36616", "19322", "183327"), get_familyname, .progress="text") # multiple taxa
-
-
 
 # Function to get family names to make Phylomatic input object
 # AND output input string to Phylomatic for use in the function get_phylomatic_tree
@@ -105,39 +82,6 @@ get_phymat_format <- function (x, format) {
   end
 return(dat)
 }
-get_phymat_format("183327", 'isubmit') # single taxon
-dat_ <- laply(list("36616", "19322", "183327"), get_phymat_format, format='rsubmit', .progress="text") # multiple taxa
-dat_mine <- paste(dat_, collapse="%0D%0A")
-
-
-
-
-# Function to match multiple search terms
-# Needed because get_itis_xml only searches one term at a time
-# terms_: a vector of terms to search
-# searchtype = one of 'sciname', 'anymatch', 'comnamebeg', 'comname', 
-# 'comnameend', 'terms', 'itistermscomname', 'itistermssciname', or
-# 'tsnsvernacular'
-spnames <- c("Oncorhynchus_mykiss","Ailuroedus_buccoides")
-terms_ <- spnames
-searchtype <- "sciname"
-match_itsnames <- function(terms_, searchtype) {
-  
-  tempxml <- sapply(terms_, function(x) get_itis_xml(x, searchtype) )
-  tempxmllist <- lapply(tempxml, xmlToList)
-  tsns <- sapply(tempxmllist, )
-  
-}
-match_itsnames(spnames, "sciname")
-get_itis_xml("Oncorhynchus mykiss", "sciname")
-
-# E.g.
-  # input data set
-taxdat <- read.csv()
-
-  #
-match_itsnames(spnames, "sciname")
-
 
 # Format tree string, submit to Phylomatic, get newick tree
 # Submitted in POST format (not GET format)
@@ -152,7 +96,7 @@ match_itsnames(spnames, "sciname")
 # output: newick tree
 get_phylomatic_tree <- function (x, convert = TRUE, get, format, retphylo = TRUE) {
   # require igraph
-	if(!require(ape)) stop("must first install 'igraph' package.")
+  if(!require(ape)) stop("must first install 'igraph' package.")
   
   url <- "http://phylodiversity.net/phylomatic/pm/phylomatic.cgi"
   
@@ -226,41 +170,6 @@ get_phylomatic_tree <- function (x, convert = TRUE, get, format, retphylo = TRUE
 return(treenew)
 }
 
-# E.g.
-phyformat <- "annonaceae/annona/annona_cherimola
-annonaceae/annona/annona_muricata"
-
-phyformat <- "annonaceae/annona/annona_cherimola
-annonaceae/annona/annona_muricata
-fagaceae/quercus/quercus_robur
-dipterocarpaceae/shorea/shorea_parvifolia
-pandanaceae/pandanus/pandanus_minor
-poaceae/oryza/oryza_sativa
-malvaceae/durio/durio_zibethinus
-rosaceae/rubus/rubus_ulmifolius
-apocynaceae/asclepias/asclepias_curassavia
-anacardiaceae/pistacia/pistacia_lentiscus"
-
-# Using tree strings that need to be formatted within the function
-get_phylomatic_tree(phyformat, 'TRUE', 'GET', 'xml', 'TRUE')
-get_phylomatic_tree(phyformat, 'TRUE', 'GET', 'new', 'FALSE')
-get_phylomatic_tree(phyformat, 'TRUE', 'POST', 'xml', 'TRUE')
-
-tree <- get_phylomatic_tree(phyformat, 'TRUE', 'POST', 'new', 'FALSE')
-treephylo <- read.tree(text = tree)
-plot(treephylo)
-
-# using a tree string already formatted for sumission to Phylomatic (convert = 'FALSE')
-get_phylomatic_tree(dat_mine, 'FALSE', 'POST', 'new', 'TRUE')
-
-
-
-
-
-
-
-# ADD SEARCHES OF THE FOLLOWING DATABASES
+# ADD SEARCHES OF THE FOLLOWING DATABASES (any ideas on other databases to search?)
 # USDA plants database
 # 
-
-
