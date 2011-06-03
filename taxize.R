@@ -7,14 +7,14 @@ require(RCurl)
 require(plyr)
 
 # Function to search individual strings
-# Input: searchterm = any common or scientific name, 
-# searchtype = one of 'sciname', 'anymatch', 'comnamebeg', 'comname', 
-# 'comnameend', 'terms', 'itistermscomname', 'itistermssciname', or
-# 'tsnsvernacular' 
-# by_ = one of 'name' (any common or scientific name) or 'tsn' (taxonomic serial number)
-# searchtsn = one of 'TRUE' or 'FALSE'
+# Args: 
+#   searchterm = any common or scientific name, 
+#   searchtype = one of 'sciname', 'anymatch', 'comnamebeg', 'comname', 
+#     'comnameend', 'terms', 'itistermscomname', 'itistermssciname', or
+#     'tsnsvernacular' 
+#   by_ = one of 'name' (any common or scientific name) or 'tsn' (taxonomic serial number)
 # Output: xml with taxnomic information
-get_itis_xml <- function(searchterm, searchtype, by_, searchtsn='FALSE', curl=getCurlHandle()) {
+get_itis_xml <- function(searchterm, searchtype, by_, curl=getCurlHandle()) {
   base_url <- "http://www.itis.gov/ITISWebService/services/ITISService/"
   skey_ <- "srchKey="
   tkey_ <- "tsn="
@@ -46,6 +46,80 @@ get_itis_xml <- function(searchterm, searchtype, by_, searchtsn='FALSE', curl=ge
   page <- xmlTreeParse(tt)
   return(page)
 }
+
+
+# Function to get the TSN code only
+get_tsn <- function(searchterm, searchtype, by_, curl=getCurlHandle()) {
+  base_url <- "http://www.itis.gov/ITISWebService/services/ITISService/"
+  skey_ <- "srchKey="
+  tkey_ <- "tsn="
+  sciname_url <- "searchByScientificName?"
+  anymatch_url <- "searchForAnyMatch?"
+  comnamebeg_url <- "searchByCommonNameBeginsWith?"
+  comname_url <- "searchByCommonName?"
+  comnameend_url <- "searchByCommonNameEndsWith?"
+  itisterms_url <- "getITISTerms?"
+  itistermscomname_url <- "getITISTermsFromCommonName?"
+  itistermssciname_url <- "getITISTermsFromScientificName?"
+  tsnsvernacular_url <- "getTsnByVernacularLanguage?"
+  tsnfullhir_url <- "getFullHierarchyFromTSN?"
+  if(searchtype == "sciname") {bykey <- sciname_url} else
+  if(searchtype == "anymatch") {bykey <- anymatch_url} else
+  if(searchtype == "comnamebeg") {bykey <- comnamebeg_url} else
+  if(searchtype == "comname") {bykey <- comname_url} else
+  if(searchtype == "comnameend") {bykey <- comnameend_url} else
+  if(searchtype == "terms") {bykey <- itisterms_url} else
+  if(searchtype == "itistermscomname") {bykey <- itistermscomname_url} else
+  if(searchtype == "itistermssciname") {bykey <- itistermssciname_url} else
+  if(searchtype == "tsnsvernacular") {bykey <- tsnsvernacular_url} else
+  if(searchtype == "tsnfullhir") {bykey <- tsnfullhir_url} else
+    end
+  if (by_ ==  'name') { searchurl <- paste(base_url, bykey, skey_, searchterm, sep="") } else
+    if (by_ == 'tsn' ) { searchurl <- paste(base_url, bykey, tkey_, searchterm, sep="")  } 
+      end
+  tt <- getURLContent(searchurl, curl=curl)
+  page <- xmlParse(tt)
+  tsn <- xmlToList(page)[[1]][[1]]$tsn
+  return(tsn)
+}
+
+
+# Function to print taxnomic hierarchy
+printhier <- function(searchterm, searchtype, by_, curl=getCurlHandle()) {
+  base_url <- "http://www.itis.gov/ITISWebService/services/ITISService/"
+  skey_ <- "srchKey="
+  tkey_ <- "tsn="
+  sciname_url <- "searchByScientificName?"
+  anymatch_url <- "searchForAnyMatch?"
+  comnamebeg_url <- "searchByCommonNameBeginsWith?"
+  comname_url <- "searchByCommonName?"
+  comnameend_url <- "searchByCommonNameEndsWith?"
+  itisterms_url <- "getITISTerms?"
+  itistermscomname_url <- "getITISTermsFromCommonName?"
+  itistermssciname_url <- "getITISTermsFromScientificName?"
+  tsnsvernacular_url <- "getTsnByVernacularLanguage?"
+  tsnfullhir_url <- "getFullHierarchyFromTSN?"
+  if(searchtype == "sciname") {bykey <- sciname_url} else
+  if(searchtype == "anymatch") {bykey <- anymatch_url} else
+  if(searchtype == "comnamebeg") {bykey <- comnamebeg_url} else
+  if(searchtype == "comname") {bykey <- comname_url} else
+  if(searchtype == "comnameend") {bykey <- comnameend_url} else
+  if(searchtype == "terms") {bykey <- itisterms_url} else
+  if(searchtype == "itistermscomname") {bykey <- itistermscomname_url} else
+  if(searchtype == "itistermssciname") {bykey <- itistermssciname_url} else
+  if(searchtype == "tsnsvernacular") {bykey <- tsnsvernacular_url} else
+  if(searchtype == "tsnfullhir") {bykey <- tsnfullhir_url} else
+    end
+  if (by_ ==  'name') { searchurl <- paste(base_url, bykey, skey_, searchterm, sep="") } else
+    if (by_ == 'tsn' ) { searchurl <- paste(base_url, bykey, tkey_, searchterm, sep="")  } 
+      end
+  tt <- getURLContent(searchurl, curl=curl)
+  page <- xmlTreeParse(tt)
+  templist <- ldply(xmlToList(page), function(x) data.frame(c(x[3], x[4])))[,-3]
+  hier <- na.omit(templist)  
+  return(hier)
+}
+
 
 # Function to get family names to make Phylomatic input object
 # input: x = quoted tsn number (taxonomic serial number)
@@ -99,6 +173,8 @@ get_phylomatic_tree <- function (x, convert = TRUE, get, format, retphylo = TRUE
   if(!require(ape)) stop("must first install 'igraph' package.")
   
   url <- "http://phylodiversity.net/phylomatic/pm/phylomatic.cgi"
+  
+  if (length(x) > 1) { x <- paste(x, collapse = "\n") } else { x <- x }    
   
   if (convert == 'TRUE') {
     treestring <- str_replace_all(str_replace_all(x, "/", "%2F"), "\n", "%0D%0A")
