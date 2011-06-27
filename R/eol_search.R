@@ -11,7 +11,7 @@ eol_search <-
 #   -The 'page' option is not currently implemented as it doesn't seem useful
 # Examples:
 #   eol_search('Homo')
-#   eol_search('Salix', json = 'FALSE')
+#   eol_search('Salix', json = FALSE)
 
 function(terms, json = FALSE, usekey = FALSE,
   url = 'http://www.eol.org/api/search/',
