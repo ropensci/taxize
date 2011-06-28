@@ -1,5 +1,11 @@
 # Function to match taxonomic names using the Taxonomic Name Resolution Service
 
+require(XML)
+require(RCurl)
+require(stringr)
+require(plyr)
+require(RJSONIO)
+
 tnrsmatch <- 
 # Args:
 #   retrieve: either 'best' or 'all' for returning the best matched or 
@@ -12,7 +18,7 @@ tnrsmatch <-
 #   tnrsmatch(taxnames = c('helianthus annuus', 'acacia', 'saltea'), output = 'all')
 #   tnrsmatch(taxnames = c('helianthus annuus', 'acacia', 'saltea'), output = 'names')
 
-function(retrieve = 'best', taxnames, output = 'all',
+function(retrieve = 'best', taxnames, output,
   url = "http://tnrs.iplantc.org/tnrsm-svc/matchNames?retrieve=") {
   
   urlplus <- paste(url, retrieve, sep='')
