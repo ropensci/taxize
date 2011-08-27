@@ -1,10 +1,12 @@
 # Function to match taxonomic names using the Taxonomic Name Resolution Service
 
-require(XML)
-require(RCurl)
-require(stringr)
-require(plyr)
-require(RJSONIO)
+
+## these are loaded by package
+#require(XML)
+#require(RCurl)
+#require(stringr)
+#require(plyr)
+#require(RJSONIO)
 
 tnrsmatch <- 
 # Args:

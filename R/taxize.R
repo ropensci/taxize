@@ -1,10 +1,12 @@
 # Development for package taxize
 # Goal: Search taxonomic information on multiple web data bases
 # taxize.R
-require(XML)
-require(stringr)
-require(RCurl)
-require(plyr)
+
+
+#require(XML)
+#require(stringr)
+#require(RCurl)
+#require(plyr)
 
 # Function to search individual strings
 # Args: 
