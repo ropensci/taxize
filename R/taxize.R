@@ -2,7 +2,7 @@
 # Goal: Search taxonomic information on multiple web data bases
 # taxize.R
 
-
+## these are handled by package install
 #require(XML)
 #require(stringr)
 #require(RCurl)
@@ -16,7 +16,17 @@
 #     'tsnsvernacular' 
 #   by_ = one of 'name' (any common or scientific name) or 'tsn' (taxonomic serial number)
 # Output: xml with taxnomic information
-get_itis_xml <- function(searchterm, searchtype, by_, curl=getCurlHandle()) {
+get_itis_xml <- function(searchterm, searchtype = c("anymatch", "sciname", 
+                         "comnamebeg", "comname", "comnameend", "terms",
+                         "itistermscomname", "itistermssciname", "tsnvernacular",
+                         "tsnfullhir"),
+                         by_=c("name", "tsn"), curl=getCurlHandle()) {
+ 
+ searchtype <- match.arg(searchtype)
+  by_ <- match.arg(by_)
+
+  searchterm <- gsub(" ", "%20", searchterm)
+
   base_url <- "http://www.itis.gov/ITISWebService/services/ITISService/"
   skey_ <- "srchKey="
   tkey_ <- "tsn="
@@ -45,9 +55,45 @@ get_itis_xml <- function(searchterm, searchtype, by_, curl=getCurlHandle()) {
     if (by_ == 'tsn' ) { searchurl <- paste(base_url, bykey, tkey_, searchterm, sep="")  } 
       end
   tt <- getURLContent(searchurl, curl=curl)
-  page <- xmlTreeParse(tt)
+  page <- xmlParse(tt)
   return(page)
 }
+
+
+parse_itis  <- function(doc){
+# Function return the scientific name, a common name, and tsn of
+#   all matches to an itis query. <cboettig>
+# Example:
+#  tt <- get_itis_xml("Plethodon ")
+#  parse_itis(tt)
+  namespaces <- c(ax23="http://data.itis_service.itis.usgs.org/xsd")
+  nodes <- getNodeSet(doc, "//ax23:sciName/..", namespaces=namespaces)
+  sci <- sapply(nodes, function(x) xmlValue(x[["sciName"]]))
+  tsn <- sapply(nodes, function(x) xmlValue(x[["tsn"]]))
+  com <- sapply(nodes, function(x) xmlValue(x[["commonNameList"]][[1]][[1]]))
+  data.frame(sci, com, tsn)
+}
+
+
+
+
+classification <- function (x) {
+# Function to get taxonomy information. <cboettig>
+# input: x = quoted tsn number (taxonomic serial number)
+# Example:
+#   classification(685566)
+  doc <- get_itis_xml(searchterm = x, searchtype = "tsnfullhir", by_ = "tsn")
+  namespaces <- c(ax23="http://data.itis_service.itis.usgs.org/xsd")
+  nodes <- getNodeSet(doc, "//ax23:rankName", namespaces=namespaces)
+  rank <- sapply(nodes, xmlValue)
+  nodes <- getNodeSet(doc, "//ax23:taxonName", namespaces=namespaces)
+  taxon <- sapply(nodes, xmlValue)
+  nodes <- getNodeSet(doc, "//ax23:tsn", namespaces=namespaces)
+  tsn <- sapply(nodes, xmlValue) # last one is a repeat
+  data.frame(rank, taxon, tsn=tsn[-length(tsn)])
+}
+
+
 
 
 # Function to get the TSN code only
