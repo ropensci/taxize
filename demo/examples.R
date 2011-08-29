@@ -1,5 +1,7 @@
 # examples.R
-# require(taxize)
+require(taxize)
+require(plyr)
+require(XML)
 
 ######## Examples: 
 # Search by term and search type
@@ -7,12 +9,22 @@ get_itis_xml("Quercus_douglasii", "sciname", "name")
 get_itis_xml("dolphin", "anymatch", "name")
 get_itis_xml("inch", "comnamebeg", "name")
 get_itis_xml("ferret-badger", "comname", "name")
-get_itis_xml("grizzly%20bear", "comnameend", "name")
+get_itis_xml("grizzly bear", "comnameend", "name")
 get_itis_xml("bear", "terms", "name")
 get_itis_xml("buya", "itistermscomname", "name")
 get_itis_xml("ursidae", "itistermssciname", "name")
 get_itis_xml("french", "tsnsvernacular", "name")
 itisxml <- get_itis_xml("36616", "tsnfullhir", "tsn", "name")
+
+# take advantage of default arguments, spaces accepted:
+doc <- get_itis_xml("Plethodon ")
+# display pretty output for any of the above
+parse_itis(doc)
+# show classification ranks
+classification(685566)
+
+
+
 
 # Get TSN code 
 get_tsn("Quercus_douglasii", "sciname", by_="name")

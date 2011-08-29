@@ -8,8 +8,8 @@
 # Output: xml with taxnomic information
 get_itis_xml <- function(searchterm, searchtype = c("anymatch", "sciname", 
                          "comnamebeg", "comname", "comnameend", "terms",
-                         "itistermscomname", "itistermssciname", "tsnvernacular",
-                         "tsnfullhir"),
+                         "itistermscomname", "itistermssciname",
+                         "tsnsvernacular", "tsnfullhir"),
                          by_=c("name", "tsn"), curl=getCurlHandle()) {
  
  searchtype <- match.arg(searchtype)
