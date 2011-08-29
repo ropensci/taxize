@@ -6,7 +6,17 @@
 #     'tsnsvernacular' 
 #   by_ = one of 'name' (any common or scientific name) or 'tsn' (taxonomic serial number)
 # Output: xml with taxnomic information
-get_itis_xml <- function(searchterm, searchtype, by_, curl=getCurlHandle()) {
+get_itis_xml <- function(searchterm, searchtype = c("anymatch", "sciname", 
+                         "comnamebeg", "comname", "comnameend", "terms",
+                         "itistermscomname", "itistermssciname", "tsnvernacular",
+                         "tsnfullhir"),
+                         by_=c("name", "tsn"), curl=getCurlHandle()) {
+ 
+ searchtype <- match.arg(searchtype)
+  by_ <- match.arg(by_)
+
+  searchterm <- gsub(" ", "%20", searchterm)
+
   base_url <- "http://www.itis.gov/ITISWebService/services/ITISService/"
   skey_ <- "srchKey="
   tkey_ <- "tsn="
@@ -35,6 +45,9 @@ get_itis_xml <- function(searchterm, searchtype, by_, curl=getCurlHandle()) {
     if (by_ == 'tsn' ) { searchurl <- paste(base_url, bykey, tkey_, searchterm, sep="")  } 
       end
   tt <- getURLContent(searchurl, curl=curl)
-  page <- xmlTreeParse(tt)
+  page <- xmlParse(tt)
   return(page)
 }
+
+
+
