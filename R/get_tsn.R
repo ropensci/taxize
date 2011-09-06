@@ -1,5 +1,12 @@
+# get_tsn.R
+
 # Function to get the TSN code only
-get_tsn <- function(searchterm, searchtype, by_, curl=getCurlHandle()) {
+get_tsn <- function(searchterm, searchtype, by_, 
+      curl=getCurlHandle()) {
+# Args:
+#   searchterm: 
+# Examples:
+#   get_tsn("Quercus_douglasii", "sciname", by_="name")
   base_url <- "http://www.itis.gov/ITISWebService/services/ITISService/"
   skey_ <- "srchKey="
   tkey_ <- "tsn="

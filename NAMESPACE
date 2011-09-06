@@ -2,5 +2,6 @@ import(RCurl)
 import(stringr)
 import(XML)
 import(plyr)
+import(RJSONIO)
 
 export(get_itis_xml, get_tsn, printhier, get_familyname, get_phymat_format, get_phylomatic_tree, parse_itis, classification)

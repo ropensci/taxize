@@ -6,13 +6,13 @@
 # x <- "183327"
 get_phymat_format <- function (x, format) {
   temp <- get_itis_xml(searchterm = x, searchtype = "tsnfullhir", by_ = "tsn")
-  templist <- ldply(xmlToList(temp), function(x) data.frame(c(x[3], x[4])))[,-3]
-  hier <- na.omit(templist)
+  tempdf <- ldply(xmlToList(temp)$return, function(x) data.frame(c(x[3], x[4])))[,-4]
+  hier <- na.omit(tempdf)
 #   names <- tolower(as.character(hier[hier$rankName == c('Family', 'Genus', 'Species'), 2]))
   names <- tolower(c(
-    as.character(hier[hier$rankName == 'Family', 2]),
-    as.character(hier[hier$rankName == 'Genus', 2]),
-    as.character(hier[hier$rankName == 'Species', 2])))
+    as.character(hier[hier$rankName == 'Family', 3]),
+    as.character(hier[hier$rankName == 'Genus', 3]),
+    as.character(hier[hier$rankName == 'Species', 3])))
   if (format == 'isubmit') {
     dat <- paste(names[1], "/", names[2], "/", str_replace(names[3], " ", "_"), sep='')
   } else

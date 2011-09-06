@@ -6,6 +6,8 @@
 #     'tsnsvernacular' 
 #   by_ = one of 'name' (any common or scientific name) or 'tsn' (taxonomic serial number)
 # Output: xml with taxnomic information
+# Examples:
+#   xml <- get_itis_xml("Plethodon ")
 get_itis_xml <- function(searchterm, searchtype = c("anymatch", "sciname", 
                          "comnamebeg", "comname", "comnameend", "terms",
                          "itistermscomname", "itistermssciname",

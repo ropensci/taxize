@@ -3,6 +3,6 @@ Description: An interface to the Integrated Taxonomic Information System (ITIS) 
 Title: Taxnomic search and phylogeny retrieval.
 Version: 0.0-1
 License: BSD
-Author: Scott Chamberlain
+Author: Scott Chamberlain, Carl Boettiger
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com> 
 Imports: XML, RCurl (>= 1.6), stringr, plyr 

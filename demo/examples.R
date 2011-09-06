@@ -4,17 +4,23 @@ require(plyr)
 require(XML)
 
 ######## Examples: 
+#### Name matching using the TNRS
+tnrsmatch('all', c('helianthus annuus', 'acacia', 'saltea'), 'names')
+tnrsmatch(taxnames = c('helianthus annuus', 'acacia', 'saltea'), output = 'all')
+tnrsmatch(taxnames = c('helianthus annuus', 'acacia', 'saltea'), output = 'names')
+
+
 # Search by term and search type
-get_itis_xml("Quercus_douglasii", "sciname", "name")
-get_itis_xml("dolphin", "anymatch", "name")
-get_itis_xml("inch", "comnamebeg", "name")
-get_itis_xml("ferret-badger", "comname", "name")
-get_itis_xml("grizzly bear", "comnameend", "name")
-get_itis_xml("bear", "terms", "name")
-get_itis_xml("buya", "itistermscomname", "name")
-get_itis_xml("ursidae", "itistermssciname", "name")
-get_itis_xml("french", "tsnsvernacular", "name")
-itisxml <- get_itis_xml("36616", "tsnfullhir", "tsn", "name")
+doc <- get_itis_xml("Quercus_douglasii", "sciname", "name")
+doc <- get_itis_xml("dolphin", "comname", "name")
+doc <- get_itis_xml("inch", "comnamebeg", "name")
+doc <- get_itis_xml("ferret-badger", "comname", "name")
+doc <- get_itis_xml("grizzly bear", "comnameend", "name")
+doc <- get_itis_xml("bear", "terms", "name")
+doc <- get_itis_xml("buya", "itistermscomname", "name")
+doc <- get_itis_xml("ursidae", "itistermssciname", "name")
+doc <- get_itis_xml("french", "tsnsvernacular", "name")
+doc <- get_itis_xml("36616", "tsnfullhir", "tsn")
 
 # take advantage of default arguments, spaces accepted:
 doc <- get_itis_xml("Plethodon ")
@@ -30,11 +36,12 @@ classification(685566)
 get_tsn("Quercus_douglasii", "sciname", by_="name")
 
 # Print full hierarchy (calls get_itis_xml, then prints hierarchy for view)
-printhier("Quercus_douglasii")
+    # printhier doesn't seem to work
+# printhier("Plethodon", "sciname", "name") 
 
 # Convert xml to other formats
-pagelist <- xmlToList(itisxml)
-pagelist[1] # first part of the list
+# pagelist <- xmlToList(doc)
+# pagelist[1] # first part of the list
 
 
 
@@ -88,3 +95,12 @@ tree <- get_phylomatic_tree(dat_, 'TRUE', 'GET', 'new', 'TRUE')
   
   # Plot tree, etc. 
 plot(tree)
+
+
+
+
+
+
+#### EOL examples
+
+
