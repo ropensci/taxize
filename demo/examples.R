@@ -11,7 +11,6 @@ tnrsmatch(taxnames = c('helianthus annuus', 'acacia', 'saltea'), output = 'names
 
 
 # Search by term and search type
-doc <- get_itis_xml("Quercus_douglasii", "sciname", "name")
 doc <- get_itis_xml("dolphin", "comname", "name")
 doc <- get_itis_xml("inch", "comnamebeg", "name")
 doc <- get_itis_xml("ferret-badger", "comname", "name")
