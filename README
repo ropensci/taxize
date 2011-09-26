@@ -1,6 +1,8 @@
 I am developing taxize_ as a package which will allow users to search over many websites for species names (scientific and common) and download up and downstream taxonomic hierarchical information. 
 
 EOL API docs: <http://www.eol.org/api/>
+EOL API Key: start an account on EOL to get your API key <http://eol.org/users/register>
+EOL API forum: <https://eol.uservoice.com/forums/15429-encyclopedia-of-life-api>
 TNRS API docs: <http://tnrs.iplantcollaborative.org/api.html>
 ITIS API docs: <http://www.itis.gov/ws_description.html> 
 Phylomatic API docs: <http://www.phylodiversity.net/phylomatic/phylomatic_api.html>
