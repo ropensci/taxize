@@ -29,6 +29,6 @@ function(taxonConceptID, json = FALSE, usekey = FALSE, returntype = 'list',
     searchresults <- xmlToList(xmlTreeParse(xmlout))
     }
   
-  if(returntype = 'list') { return( searchresults ) } else
-    { return( ldply(searchresults, function(x) as.data.frame(x)) ) }  
+  if(returntype == 'list') { searchresults  } else
+    {  ldply(searchresults, function(x) as.data.frame(x))  }  
 }
