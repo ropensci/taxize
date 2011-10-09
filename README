@@ -6,3 +6,5 @@ EOL API forum: <https://eol.uservoice.com/forums/15429-encyclopedia-of-life-api>
 TNRS API docs: <http://tnrs.iplantcollaborative.org/api.html>
 ITIS API docs: <http://www.itis.gov/ws_description.html> 
 Phylomatic API docs: <http://www.phylodiversity.net/phylomatic/phylomatic_api.html>
+
+taxize_ rOpenSci tutorial here:  http://ropensci.org/tutorials/r-taxize-tutorial/
