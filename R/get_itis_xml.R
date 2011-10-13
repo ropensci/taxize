@@ -1,13 +1,13 @@
 # get_itis_xml.R
 
-get_itis_xml <- 
-
-function(searchterm, 
-        searchtype = c("anymatch", "sciname", "comnamebeg", "comname",
-        "comnameend", "terms", "itistermscomname", "itistermssciname",
-        "tsnsvernacular", "tsnfullhir", 'tsnhirdown'),
-        by_ = c("name", "tsn"), 
-        curl = getCurlHandle()) {
+get_itis_xml <- function(searchterm, 
+  searchtype = c("anymatch", "sciname", "comnamebeg", "comname",
+  "comnameend", "terms", "itistermscomname", "itistermssciname",
+  "tsnsvernacular", "tsnfullhir", 'tsnhirdown'),
+  by_ = c("name", "tsn"), 
+  parselist = TRUE,
+  base_url = "http://www.itis.gov/ITISWebService/services/ITISService/",
+  curl = getCurlHandle()) {
 # Function to search individual strings
 # Args: 
 #   searchterm = any common or scientific name, 
@@ -18,14 +18,16 @@ function(searchterm,
 # Output: xml with taxnomic information
 # Examples:
 #   xml <- get_itis_xml("Plethodon ")
-#   get_itis_xml(202420, 'tsnhirdown', 'tsn')
+#   parse_itis(xml)
+#   get_itis_xml('202420', 'tsnhirdown', 'tsn')
+#   get_itis_xml("36616", "tsnfullhir", "tsn")
  
   searchtype <- match.arg(searchtype)
   by_ <- match.arg(by_)
-
+     
+  # if spaces exist between search terms %20 replaces the spaces for the search string
   searchterm <- gsub(" ", "%20", searchterm)
 
-  base_url <- "http://www.itis.gov/ITISWebService/services/ITISService/"
   skey_ <- "srchKey="
   tkey_ <- "tsn="
   sciname_url <- "searchByScientificName?"
@@ -55,11 +57,13 @@ function(searchterm,
     if (by_ == 'tsn' ) { searchurl <- paste(base_url, bykey, tkey_, searchterm, sep="")  } 
       end
   tt <- getURLContent(searchurl, curl=curl)
-  xmlParse(tt)
+  if(parselist == TRUE) { xmlParse(tt) } else
+      { tt }
 }
 
-# url <- 'http://www.itis.gov/ITISWebService/services/ITISService/getHierarchyDownFromTSN'
-# args <- list(tsn = 202420)
-# getForm(url, 
+# url <- 'http://www.itis.gov/ITISWebService/services/ITISService/searchByScientificName'
+# args <- list(srchKey = 'Plethodon')
+# out <- xmlParse(getForm(url, 
 #         .params = args,
-#         curl = getCurlHandle())
+#         curl = getCurlHandle()))
+# parse_itis(out)
