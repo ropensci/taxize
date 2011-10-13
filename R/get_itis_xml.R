@@ -1,20 +1,26 @@
+# get_itis_xml.R
+
+get_itis_xml <- 
+
+function(searchterm, 
+        searchtype = c("anymatch", "sciname", "comnamebeg", "comname",
+        "comnameend", "terms", "itistermscomname", "itistermssciname",
+        "tsnsvernacular", "tsnfullhir", 'tsnhirdown'),
+        by_ = c("name", "tsn"), 
+        curl = getCurlHandle()) {
 # Function to search individual strings
 # Args: 
 #   searchterm = any common or scientific name, 
 #   searchtype = one of 'sciname', 'anymatch', 'comnamebeg', 'comname', 
 #     'comnameend', 'terms', 'itistermscomname', 'itistermssciname', or
-#     'tsnsvernacular' 
+#     'tsnsvernacular', 'tsnfullhir', 'tsnhirdown' 
 #   by_ = one of 'name' (any common or scientific name) or 'tsn' (taxonomic serial number)
 # Output: xml with taxnomic information
 # Examples:
 #   xml <- get_itis_xml("Plethodon ")
-get_itis_xml <- function(searchterm, searchtype = c("anymatch", "sciname", 
-                         "comnamebeg", "comname", "comnameend", "terms",
-                         "itistermscomname", "itistermssciname",
-                         "tsnsvernacular", "tsnfullhir"),
-                         by_=c("name", "tsn"), curl=getCurlHandle()) {
+#   get_itis_xml(202420, 'tsnhirdown', 'tsn')
  
- searchtype <- match.arg(searchtype)
+  searchtype <- match.arg(searchtype)
   by_ <- match.arg(by_)
 
   searchterm <- gsub(" ", "%20", searchterm)
@@ -32,6 +38,7 @@ get_itis_xml <- function(searchterm, searchtype = c("anymatch", "sciname",
   itistermssciname_url <- "getITISTermsFromScientificName?"
   tsnsvernacular_url <- "getTsnByVernacularLanguage?"
   tsnfullhir_url <- "getFullHierarchyFromTSN?"
+  tsnhirdown_url <- "getHierarchyDownFromTSN"
   if(searchtype == "sciname") {bykey <- sciname_url} else
   if(searchtype == "anymatch") {bykey <- anymatch_url} else
   if(searchtype == "comnamebeg") {bykey <- comnamebeg_url} else
@@ -42,14 +49,17 @@ get_itis_xml <- function(searchterm, searchtype = c("anymatch", "sciname",
   if(searchtype == "itistermssciname") {bykey <- itistermssciname_url} else
   if(searchtype == "tsnsvernacular") {bykey <- tsnsvernacular_url} else
   if(searchtype == "tsnfullhir") {bykey <- tsnfullhir_url} else
+  if(searchtype == "tsnhirdown") {bykey <- tsnhirdown_url} else
     end
   if (by_ ==  'name') { searchurl <- paste(base_url, bykey, skey_, searchterm, sep="") } else
     if (by_ == 'tsn' ) { searchurl <- paste(base_url, bykey, tkey_, searchterm, sep="")  } 
       end
   tt <- getURLContent(searchurl, curl=curl)
-  page <- xmlParse(tt)
-  return(page)
+  xmlParse(tt)
 }
 
-
-
+# url <- 'http://www.itis.gov/ITISWebService/services/ITISService/getHierarchyDownFromTSN'
+# args <- list(tsn = 202420)
+# getForm(url, 
+#         .params = args,
+#         curl = getCurlHandle())
