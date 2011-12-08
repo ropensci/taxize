@@ -4,4 +4,18 @@ import(XML)
 import(plyr)
 import(RJSONIO)
 
-export(get_itis_xml, get_tsn, printhier, get_familyname, get_phymat_format, get_phylomatic_tree, parse_itis, classification)
+export(classification,
+downstream,
+eol_hierarchy,
+eol_search,
+eolping,
+get_familyname,
+get_itis_xml,
+get_phylomatic_tree,
+get_phymat_format,
+get_tsn,
+getacceptname,
+gettaxrank,
+parse_itis,
+printhier,
+tnrsmatch)
