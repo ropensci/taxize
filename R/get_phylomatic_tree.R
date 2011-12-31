@@ -1,30 +1,31 @@
-# get_phylomatic_tree.R
-
-# Format tree string, submit to Phylomatic, get newick tree
-
-# Submitted in POST format (not GET format)
-# Version: already have in Phylomatic input format
-#   forward slash (/ -> %2F)
-#   newline (\n -> %0D%0A)
-# input: 
-#   x = phylomatic format input, 
-#   convert = one of 'TRUE' of 'FALSE'
-#   get = 'GET' or 'POST' format for submission to the website
-#   format = newick or xml output, 
-#   retphylo = return phylo tree object (TRUE or FALSE)
-# Examples:
-#   dat_ <- laply(list("36616", "19322", "183327"), get_phymat_format, 
-#        format='rsubmit', .progress="text")
-#   dat_mine <- paste(dat_, collapse="%0D%0A") # collapse and replace \n's
-#   tree <- get_phylomatic_tree(dat_mine, 'FALSE', 'GET', 'new', 'TRUE')
-#   plot(tree)
-# output: newick tree
-
-get_phylomatic_tree <- function (x, convert = TRUE, get, format, retphylo = TRUE) {
+#' Format tree string, submit to Phylomatic, get newick tree.
+#' @import XML RCurl
+#' @param x Phylomatic format input.
+#' @param convert One of 'TRUE' of 'FALSE'.
+#' @param get 'GET' or 'POST' format for submission to the website.
+#' @param format Newick (new) or xml (xml) output. 
+#' @param retphylo Return phylo tree object (TRUE or FALSE).
+#' @details Submitted in POST format (not GET format).  
+#'  Version: already have in Phylomatic input format
+#'    forward slash (/ -> %2F)
+#'    newline (\n -> %0D%0A)
+#' @return Newick formatted tree.
+#' @export
+#' @examples \dontrun{
+#' dat_ <- laply(list("36616", "19322", "183327"), get_phymat_format, 
+#'       format='rsubmit', .progress="text")
+#' dat_mine <- paste(dat_, collapse="%0D%0A") # collapse and replace \n's
+#' tree <- get_phylomatic_tree(dat_mine, 'FALSE', 'GET', 'new', 'TRUE')
+#' plot(tree)
+#' }
+get_phylomatic_tree <- 
+  
+function (x, convert = TRUE, get, format, retphylo = TRUE, 
+        url = "http://phylodiversity.net/phylomatic/pm/phylomatic.cgi") 
+{  
   # require igraph
   if(!require(ape)) stop("must first install 'igraph' package.")
   
-  url <- "http://phylodiversity.net/phylomatic/pm/phylomatic.cgi"
   
   if (length(x) > 1) { x <- paste(x, collapse = "\n") } else { x <- x }    
   
@@ -95,5 +96,5 @@ get_phylomatic_tree <- function (x, convert = TRUE, get, format, retphylo = TRUE
   } else
   if (retphylo == 'FALSE') { treenew <- treenew }
   
-return(treenew)
+treenew
 }

@@ -1,17 +1,23 @@
-# getacceptname.R
-
-getacceptname <- function(searchtsn = NA, supmess = TRUE,
+#' Retrieve accepted TSN (with accepted name).
+#' @import XML RCurl
+#' @param searchtsn Quoted TSN for a taxonomic group (character).
+#' @param supmess Suppress informative messages (default=TRUE).
+#' @param url The ITIS API url for the function (should be left to default).
+#' @param curl If using in a loop, call getCurlHandle() first and pass 
+#'    the returned value in here (avoids unnecessary footprint)
+#' @details You can print informative messages by setting supmess=FALSE.
+#' @return Names or TSNs of all downstream taxa.
+#' @export
+#' @examples \dontrun{
+#' getacceptname('208527')  # TSN accepted - good name
+#' getacceptname('504239')  # TSN not accepted - input TSN is old name
+#' }
+getacceptname <- 
+  
+function(searchtsn = NA, supmess = TRUE,
   url = "http://www.itis.gov/ITISWebService/services/ITISService/getAcceptedNamesFromTSN?tsn=",
-  curl = getCurlHandle()){
-# Retrieve accepted TSN (with accepted name)
-# Args: 
-#     searchtsn: quoted TSN for a taxonomic group (character)
-# Output: names or TSNs of all downstream taxa
-# Note: you can suppress the message output with suppressMessages()
-# Examples:
-#   getacceptname('208527')  # TSN accepted - good name
-#   getacceptname('504239')  # TSN not accepted - input TSN is old name
-    
+  curl = getCurlHandle())
+{    
     newurl <- paste(url, searchtsn, sep = '')
     tt <- getURLContent(newurl, curl=curl)  
     tt_ <- xmlParse(tt)

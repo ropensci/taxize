@@ -1,13 +1,13 @@
-# eolping.R
-
+#' Ping EOL API to see if it's working.
+#' @import XML RCurl
+#' @return XML object message about API status.
+#' @export
+#' @examples \dontrun{
+#' eolping()
+#' }
 eolping <- 
-# Args:
-#   NONE
-# Examples:
-#   eolping()
 
 function(url = 'http://www.eol.org/api/ping')
 {
-  message <- xmlToList(xmlTreeParse(getURL(url)))$message
-  return(message)
+  xmlToList(xmlTreeParse(getURL(url)))$message
 }

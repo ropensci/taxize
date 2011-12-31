@@ -1,15 +1,21 @@
-# downstream.R
+#' Retrieve all taxa names or TSNs downstream in hierarchy from given TSN.
+#' @import XML RCurl
+#' @param searchtsn Quoted TSN for a taxonomic group (character).
+#' @param attachrank Should rank be attached to the output? (default=TRUE).
+#' @param url The ITIS url for the function (should be left to default).
+#' @param curl If using in a loop, call getCurlHandle() first and pass 
+#'  the returned value in here (avoids unnecessary footprint)
+#' @return Names or TSNs of all downstream taxa in a data.frame.
+#' @export
+#' @examples \dontrun{
+#' downstream(searchtsn = '208527')
+#' }
+downstream <- 
 
-downstream <- function(searchtsn = NA, attachrank = TRUE,
+function(searchtsn = NA, attachrank = TRUE,
   url = "http://www.itis.gov/ITISWebService/services/ITISService/getHierarchyDownFromTSN?tsn=",
-  curl = getCurlHandle()){
-# Retrieve all taxa names or TSNs downstream in hierarchy from given TSN
-# Args: 
-#     searchtsn: quoted TSN for a taxonomic group (character)
-# Output: names or TSNs of all downstream taxa
-# Examples:
-#   downstream(searchtsn = '208527')
-
+  curl = getCurlHandle())
+{
     newurl <- paste(url, searchtsn, sep = '')
     tt <- getURLContent(newurl, curl=curl)  
     tt_ <- xmlParse(tt)

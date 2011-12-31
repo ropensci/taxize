@@ -1,26 +1,30 @@
-# get_itis_xml.R
-
-get_itis_xml <- function(searchterm, 
+#' Search individual strings.
+#' @import XML RCurl
+#' @param searchterm Any common or scientific name.
+#' @param searchtype One of 'sciname', 'anymatch', 'comnamebeg', 'comname', 
+#'    'comnameend', 'terms', 'itistermscomname', 'itistermssciname', or
+#'    'tsnsvernacular', 'tsnfullhir', 'tsnhirdown' .
+#' @param by_ One of 'name' (any common or scientific name) or 'tsn' 
+#'    (taxonomic serial number).
+#' @return xml with taxonomic information.
+#' @export
+#' @examples \dontrun{
+#' xml <- get_itis_xml("Plethodon ")
+#' parse_itis(xml)
+#' get_itis_xml('202420', 'tsnhirdown', 'tsn')
+#' get_itis_xml("36616", "tsnfullhir", "tsn")
+#' }
+get_itis_xml <- 
+  
+function(searchterm, 
   searchtype = c("anymatch", "sciname", "comnamebeg", "comname",
   "comnameend", "terms", "itistermscomname", "itistermssciname",
   "tsnsvernacular", "tsnfullhir", 'tsnhirdown'),
   by_ = c("name", "tsn"), 
   parselist = TRUE,
   base_url = "http://www.itis.gov/ITISWebService/services/ITISService/",
-  curl = getCurlHandle()) {
-# Function to search individual strings
-# Args: 
-#   searchterm = any common or scientific name, 
-#   searchtype = one of 'sciname', 'anymatch', 'comnamebeg', 'comname', 
-#     'comnameend', 'terms', 'itistermscomname', 'itistermssciname', or
-#     'tsnsvernacular', 'tsnfullhir', 'tsnhirdown' 
-#   by_ = one of 'name' (any common or scientific name) or 'tsn' (taxonomic serial number)
-# Output: xml with taxnomic information
-# Examples:
-#   xml <- get_itis_xml("Plethodon ")
-#   parse_itis(xml)
-#   get_itis_xml('202420', 'tsnhirdown', 'tsn')
-#   get_itis_xml("36616", "tsnfullhir", "tsn")
+  curl = getCurlHandle()) 
+{
  
   searchtype <- match.arg(searchtype)
   by_ <- match.arg(by_)

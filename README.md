@@ -1,4 +1,6 @@
-We at rOpenSci are developing taxize_ as a package which will allow users to search over many websites for species names (scientific and common) and download up and downstream taxonomic hierarchical information. 
+# `taxize`
+
+We at rOpenSci are developing `taxize` as a package which will allow users to search over many websites for species names (scientific and common) and download up and downstream taxonomic hierarchical information - and many other things. 
 
 You need API keys for Encyclopedia of Life (EOL) and the Universal Biological Indexer and Organizer (uBio). 
 
@@ -13,6 +15,6 @@ Phylomatic API docs: <http://www.phylodiversity.net/phylomatic/phylomatic_api.ht
 uBio docs: <http://www.ubio.org/index.php?pagename=xml_services>
 uBio Key: <http://www.ubio.org/index.php?pagename=form>
 
-taxize_ rOpenSci tutorial here:  http://ropensci.org/tutorials/r-taxize-tutorial/
+`taxize` rOpenSci tutorial here:  http://ropensci.org/tutorials/r-taxize-tutorial/
 
-taxize_ is part of the rOpenSci project, visit http://ropensci.org to learn more.
+`taxize` is part of the rOpenSci project, visit http://ropensci.org to learn more.

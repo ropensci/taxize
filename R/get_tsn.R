@@ -1,12 +1,23 @@
-# get_tsn.R
-
-# Function to get the TSN code only
-get_tsn <- function(searchterm, searchtype, by_, 
-      curl=getCurlHandle()) {
-# Args:
-#   searchterm: 
-# Examples:
-#   get_tsn("Quercus_douglasii", "sciname", by_="name")
+#' Get the TSN code for a search term.
+#' @import XML RCurl
+#' @param searchterm Any common or scientific name.
+#' @param searchtype One of 'sciname', 'anymatch', 'comnamebeg', 'comname', 
+#'    'comnameend', 'terms', 'itistermscomname', 'itistermssciname', or
+#'    'tsnsvernacular', 'tsnfullhir', 'tsnhirdown' .
+#' @param by_ One of 'name' (any common or scientific name) or 'tsn' 
+#'    (taxonomic serial number).
+#' @param curl If using in a loop, call getCurlHandle() first and pass 
+#'    the returned value in here (avoids unnecessary footprint)
+#' @return A taxonomic serial number (TSN).
+#' @export
+#' @examples \dontrun{
+#' get_tsn("Quercus_douglasii", "sciname", by_="name")
+#' }
+get_tsn <- 
+  
+function(searchterm, searchtype, by_, 
+      curl=getCurlHandle()) 
+{
   base_url <- "http://www.itis.gov/ITISWebService/services/ITISService/"
   skey_ <- "srchKey="
   tkey_ <- "tsn="
@@ -36,6 +47,5 @@ get_tsn <- function(searchterm, searchtype, by_,
       end
   tt <- getURLContent(searchurl, curl=curl)
   page <- xmlParse(tt)
-  tsn <- xmlToList(page)[[1]][[1]]$tsn
-  return(tsn)
+  xmlToList(page)[[1]][[1]]$tsn
 }
