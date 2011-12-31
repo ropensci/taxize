@@ -1,4 +1,4 @@
-# `taxize`
+# This is `taxize`
 
 We at rOpenSci are developing `taxize` as a package which will allow users to search over many websites for species names (scientific and common) and download up and downstream taxonomic hierarchical information - and many other things. 
 
