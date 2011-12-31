@@ -18,3 +18,12 @@ uBio Key: <http://www.ubio.org/index.php?pagename=form>
 `taxize` rOpenSci tutorial here:  http://ropensci.org/tutorials/r-taxize-tutorial/
 
 `taxize` is part of the rOpenSci project, visit http://ropensci.org to learn more.
+
+# Install
+
+```R 
+install.packages("devtools")
+require(devtools)
+install_github("rnpn", "ropensci")
+require(rnpn)
+```
