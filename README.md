@@ -24,6 +24,6 @@ uBio Key: <http://www.ubio.org/index.php?pagename=form>
 ```R 
 install.packages("devtools")
 require(devtools)
-install_github("rnpn", "ropensci")
-require(rnpn)
+install_github("taxize_", "ropensci")
+require(taxize)
 ```

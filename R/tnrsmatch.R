@@ -11,30 +11,31 @@
 #' @examples \dontrun{
 #' mynames <- c("shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus", "rubus ulmifolius", "asclepias curassavica", "pistacia lentiscus")
 #' tnrsmatch('best', mynames, 'names')
-#' tnrsmatch(retrieve = 'all', taxnames = c('helianthus annuus', 'acacia', 'saltea'), output = 'names')
+#' tnrsmatch(retrieve = 'all', taxnames = c('helianthus annuus', 'acacia', 'gossypium'), output = 'names')
 #' tnrsmatch(retrieve = 'all', taxnames = c('helianthus annuus', 'acacia', 'saltea'), output = 'all')
 #' tnrsmatch(retrieve = 'best', taxnames = c('helianthus annuus', 'acacia', 'saltea'), output = 'names')
 #' }
-tnrsmatch <- 
-
-function(retrieve = 'best', taxnames = NA, output = NA,
-  url = "http://ohmsford.iplantc.org/tnrsm-svc/matchNames?retrieve=") {
-  
-  urlplus <- paste(url, retrieve, sep='')
-  query <- function(x) {
-    taxnames_ <- paste(str_replace_all(x, ' ', '%20'), collapse=',')
-    namespart <- paste(urlplus, '&names=', taxnames_, sep='')
-    fromJSON(namespart)
-  }
-  temp <- llply(taxnames, query)
-  if (output == 'all') { return(temp) } else
+tnrsmatch <- function(retrieve = 'best', taxnames = NA, output = NA,
+  url = "http://tnrs.iplantc.org/tnrsm-svc/matchNames",
+  ..., curl = getCurlHandle()) 
+{
+  args <- list()
+  if(!is.na(retrieve))
+    args$retrieve <- retrieve
+  if(!any(is.na(taxnames)))
+    args$names <- paste(str_replace_all(taxnames, ' ', '%20'), collapse=',')
+  tt <- getForm(url,
+    .params = args,
+    ...,
+    curl = curl)
+  out <- fromJSON(tt)
+  if (output == 'all') { return(out) } else
     if (output == 'names') {
-      getdf <- function(x) {
-        outdf <- ldply(x[[1]], function(y) c(y$nameSubmitted, y$nameScientific, 
-            y$family, round(as.numeric(y$overall), 2), y$acceptance))
-        names(outdf) <- c('SubmitName','MatchName','MatchFam','MatchScore','Accept?')
-        outdf    
-      }
-      ldply(temp, getdf)
-    }
+        outdf <- llply(out[[1]], function(y) c(y$group, y$acceptedName, y$family, 
+            y$genus, round(as.numeric(y$overall), 2), y$acceptance))
+        outdf <- ldply(outdf)
+        names(outdf) <- c('Group', 'AcceptedName','MatchFam','MatchGenus','MatchScore','Accept?')
+        namesgroups <- data.frame(Group = (1:length(taxnames))-1, SubmittedNames = taxnames)
+        merge(outdf, namesgroups, by='Group')[,-1]
+      }      
 }
