@@ -7,7 +7,7 @@
 #' }
 eolping <- 
 
-function(url = 'http://www.eol.org/api/ping')
+function(url = 'http://eol.org/api/ping')
 {
   xmlToList(xmlTreeParse(getURL(url)))$message
 }

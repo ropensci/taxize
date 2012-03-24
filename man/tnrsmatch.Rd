@@ -3,7 +3,8 @@
 \title{Match taxonomic names using the Taxonomic Name Resolution Service.}
 \usage{
   tnrsmatch(retrieve = "best", taxnames = NA, output = NA,
-    url = "http://ohmsford.iplantc.org/tnrsm-svc/matchNames?retrieve=")
+    url = "http://tnrs.iplantc.org/tnrsm-svc/matchNames",
+    ..., curl = getCurlHandle())
 }
 \arguments{
   \item{Retrieve}{either 'best' or 'all' for returning the
@@ -30,7 +31,7 @@
 \dontrun{
 mynames <- c("shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus", "rubus ulmifolius", "asclepias curassavica", "pistacia lentiscus")
 tnrsmatch('best', mynames, 'names')
-tnrsmatch(retrieve = 'all', taxnames = c('helianthus annuus', 'acacia', 'saltea'), output = 'names')
+tnrsmatch(retrieve = 'all', taxnames = c('helianthus annuus', 'acacia', 'gossypium'), output = 'names')
 tnrsmatch(retrieve = 'all', taxnames = c('helianthus annuus', 'acacia', 'saltea'), output = 'all')
 tnrsmatch(retrieve = 'best', taxnames = c('helianthus annuus', 'acacia', 'saltea'), output = 'names')
 }

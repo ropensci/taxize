@@ -3,7 +3,7 @@
 \title{Search for terms in EOL database.}
 \usage{
   eol_search(terms, json = FALSE, usekey = FALSE,
-    url = "http://www.eol.org/api/search/",
+    url = "http://eol.org/api/search/",
     key = getOption("EOLApi", stop("need an API key for Encyclopedia of Life")))
 }
 \arguments{

@@ -15,9 +15,8 @@
 #' eol_search('Homo')
 #' eol_search('Salix')
 #' }
-eol_search <- 
-function(terms, json = FALSE, usekey = FALSE,
-  url = 'http://www.eol.org/api/search/',
+eol_search <- function(terms, json = FALSE, usekey = FALSE,
+  url = 'http://eol.org/api/search/',
   key = getOption("EOLApi", stop("need an API key for Encyclopedia of Life"))) 
 {
   if (json == TRUE) {

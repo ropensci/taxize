@@ -14,8 +14,6 @@ Imports:
 Collate:
     'classification.R'
     'downstream.R'
-    'eol_hierarchy.R'
-    'eol_search.R'
     'eolping.R'
     'get_familyname.R'
     'get_itis_xml.R'
@@ -27,3 +25,5 @@ Collate:
     'parse_itis.R'
     'printhier.R'
     'tnrsmatch.R'
+    'eolhierarchy.R'
+    'eolsearch.R'
