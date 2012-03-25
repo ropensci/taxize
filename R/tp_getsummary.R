@@ -1,0 +1,32 @@
+#' Return summary data a taxon name with a given id.
+#' @import XML RCurl RJSONIO plyr
+#' @param id the taxon identifier code 
+#' @param format return in json or xml format (defaults to json)
+#' @param output raw = json or xml; or df = data.frame 
+#' @param url The Tropicos url for the function (should be left to default).
+#' @param key Your Tropicos API key; loads from .Rprofile.
+#' @return List or dataframe.
+#' @export
+#' @examples \dontrun{
+#' tp_getsummary(id = 25509881)
+#' tp_getsummary(id = 25509881, output = 'raw')
+#' }
+tp_getsummary <- function(id, format = 'json', output = 'df',
+  url = 'http://services.tropicos.org/Name/',
+  key = getOption("tropicoskey", stop("need an API key for Tropicos"))) 
+{
+  if (format == 'json') {
+      urlget <- paste(url, id, '?apikey=', key, '&format=json', sep="")
+      message(urlget)
+      searchresults <- fromJSON(urlget)
+      } 
+  else {
+    urlget <- paste(url, id, '?apikey=', key, '&format=xml', sep="")
+    message(urlget)
+    xmlout <- getURL(urlget)
+    searchresults <- xmlToList(xmlTreeParse(xmlout))
+    }
+  if(output == 'df') { ldply(searchresults, function(x) x[[1]]) } else
+    { searchresults }
+}
+# http://services.tropicos.org/Name/25509881?apikey=D1CC4285-279D-4B5C-B469-861F4C1F4020&format=xml

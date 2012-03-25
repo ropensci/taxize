@@ -27,3 +27,6 @@ Collate:
     'tnrsmatch.R'
     'eolhierarchy.R'
     'eolsearch.R'
+    'tp_getacceptednames.R'
+    'tp_getsummary.R'
+    'tp_getsynonyms.R'
