@@ -2,8 +2,8 @@ Package: taxize
 Description: An interface to the Integrated Taxonomic Information System (ITIS)
     and Phylomatic.
 Title: Taxnomic search and phylogeny retrieval.
-Version: 0.0-1
-License: BSD
+Version: 0.0.1
+License: CC0
 Author: Scott Chamberlain, Carl Boettiger
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>
 Imports:
@@ -30,3 +30,5 @@ Collate:
     'tp_getacceptednames.R'
     'tp_getsummary.R'
     'tp_getsynonyms.R'
+    'tp_getnamedistributions.R'
+    'tp_getnamereferences.R'

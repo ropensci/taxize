@@ -41,4 +41,3 @@ tp_getacceptednames <- function(id, format = 'json', output = 'df',
     ldply(searchresults, getdata)
   } else { searchresults }
 }
-# http://services.tropicos.org/Name/25503923/AcceptedNames?apikey=f3e499d4-1519-42c9-afd1-685a16882f5a&format=xml

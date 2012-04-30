@@ -29,4 +29,3 @@ tp_getsummary <- function(id, format = 'json', output = 'df',
   if(output == 'df') { ldply(searchresults, function(x) x[[1]]) } else
     { searchresults }
 }
-# http://services.tropicos.org/Name/25509881?apikey=D1CC4285-279D-4B5C-B469-861F4C1F4020&format=xml

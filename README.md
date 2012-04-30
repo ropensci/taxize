@@ -27,7 +27,7 @@ The following are URL's for API documentation and where to get API keys.
 
 `taxize` is part of the rOpenSci project, visit http://ropensci.org to learn more.
 
-# Install
+# Install `taxize` from GitHub:
 
 ```R 
 install.packages("devtools")
