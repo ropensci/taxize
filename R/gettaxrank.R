@@ -1,4 +1,4 @@
-#' Retrieve taxanomic rank name from given TSN.
+#' Retrieve taxonomic rank name from given TSN.
 #' @import XML RCurl
 #' @param searchtsn Quoted TSN for a taxonomic group (character).
 #' @param url The ITIS API url for the function (should be left to default).
