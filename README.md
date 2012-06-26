@@ -36,9 +36,12 @@ install_github("taxize_", "ropensci")
 require(taxize)
 ```
 
-Example:
+Example hitting the TNRS (taxonomic names resolution service Phylotastic API):
 
 ```R 
+> require(devtools)
+> install_github("taxize_","ropensci")
+> require(taxize)
 > mynames <- c("Crepis atrabarba", "Zygadenus venenosus")
 > mynames
 [1] "Crepis atrabarba"    "Zygadenus venenosus"
