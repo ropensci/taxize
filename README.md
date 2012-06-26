@@ -35,3 +35,17 @@ require(devtools)
 install_github("taxize_", "ropensci")
 require(taxize)
 ```
+
+Example:
+
+```R 
+> mynames <- c("Crepis atrabarba", "Zygadenus venenosus")
+> mynames
+[1] "Crepis atrabarba"    "Zygadenus venenosus"
+> tnrastic(query = mynames, output = 'names')
+Your request is being processed. You can retrieve the results at http://api.phylotastic.org/tnrs/retrieve/c8b544f0794e13a61b0b63ea7952f664.
+Pausing a bit for the query to finish...
+      AcceptedName    sourceId MatchScore       submittedName
+1 Crepis atribarba iPlant TNRS       0.98    Crepis atrabarba
+2                  iPlant TNRS          1 Zygadenus venenosus
+```
