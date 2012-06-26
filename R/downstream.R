@@ -1,31 +1,52 @@
 #' Retrieve all taxa names or TSNs downstream in hierarchy from given TSN.
-#' @import XML RCurl
+#' 
+#' @import XML RCurl ritis plyr
 #' @param searchtsn Quoted TSN for a taxonomic group (character).
+#' @param outtaxlevel If not specified, function returns only direct children. 
+#'    Other options = any quoted taxonomic level below that specified in searchtsn,
+#'    e.g., 'genus' if searchtsn specifies a family
 #' @param attachrank Should rank be attached to the output? (default=TRUE).
-#' @param url The ITIS url for the function (should be left to default).
-#' @param curl If using in a loop, call getCurlHandle() first and pass 
-#'  the returned value in here (avoids unnecessary footprint)
 #' @return Names or TSNs of all downstream taxa in a data.frame.
-#' @export
+#' @author Scott Chamberlain {myrmecocystus@@gmail.com}
 #' @examples \dontrun{
-#' downstream(searchtsn = '208527')
+#' dat2 <- downstream(searchtsn = 180415, outtaxlevel = 'Species') # the superclass Osteichthyes
 #' }
-downstream <- 
-
-function(searchtsn = NA, attachrank = TRUE,
-  url = "http://www.itis.gov/ITISWebService/services/ITISService/getHierarchyDownFromTSN?tsn=",
-  curl = getCurlHandle())
+#' @export
+downstream <- function(searchtsn = NA, attachrank = TRUE,
+  outtaxlevel = c('Kingdom','Subkingdom','Phylum','Subphylum','Superclass',
+    'Class','Subclass','Infraclass','Superorder','Order','Suborder',
+    'Infraorder','Superfamily','Family','Subfamily','Tribe','Subtribe','Genus',
+    'Subgenus','Species','Subspecies','Variety','Infrakingdom','Division',
+    'Subdivision','Infradivision','Section','Subsection','Subvariety','Form',
+    'Subform','Race','Stirp','Morph','Aberration','Unspecified'))
 {
-    newurl <- paste(url, searchtsn, sep = '')
-    tt <- getURLContent(newurl, curl=curl)  
-    tt_ <- xmlParse(tt)
-    namespaces <- c(ax23="http://data.itis_service.itis.usgs.org/xsd")
-    nodes <- getNodeSet(tt_, "//ax23:taxonName/..", namespaces=namespaces)
-    sci <- sapply(nodes, function(x) xmlValue(x[["taxonName"]]))
-    tsn <- sapply(nodes, function(x) xmlValue(x[["tsn"]]))
-    dat <- data.frame(sci, tsn)
+  dat <- gethierarchydownfromtsn(searchtsn)
+  output <- list()
+  ranks <- 1
+  while(ranks > 0){
+    dat_split <- split(dat, row.names(dat)) # make a list of each row
+    addrank <- function(x) {
+      x$rankName <- gettaxonomicranknamefromtsn(x$tsn)$rankName
+      x
+    }
+    dat_split_ <- llply(dat_split, addrank)
     
-    if(!attachrank == TRUE) { dat } else
-      { ranks <- sapply(temp[,2], gettaxrank)
-        data.frame(temp, ranks) }
+    dat_matchedtaxlevel <- list()
+    dat_notmatchedtaxlevel <- list()
+    for(i in 1:length(dat_split_)) {
+      if(dat_split_[[i]]$rankName %in% outtaxlevel){
+        dat_matchedtaxlevel[[i]] <- dat_split_[[i]]
+      } else
+      { dat_notmatchedtaxlevel[[i]] <- dat_split_[[i]] }
+    }  
+    output <- dat_matchedtaxlevel # list contains rows matching outtaxlevel
+    
+    dat_notmatchedtaxlevel_df <- ldply(dat_notmatchedtaxlevel)
+    dat <- ldply(dat_notmatchedtaxlevel_df$tsn, gethierarchydownfromtsn) # get hierarchy down
+    ddd <- ldply(split(dat2, row.names(dat2)), addrank) # add rank name to each
+    
+    ranks <- unique(as.character(ddd$rankName))
+    ranks <- ranks[!ranks %in% outtaxlevel]
+  } 
+  ldply(output)
 }

@@ -32,3 +32,4 @@ Collate:
     'tp_getsynonyms.R'
     'tp_getnamedistributions.R'
     'tp_getnamereferences.R'
+    'tnrastic.R'

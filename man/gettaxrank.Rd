@@ -1,6 +1,6 @@
 \name{gettaxrank}
 \alias{gettaxrank}
-\title{Retrieve taxanomic rank name from given TSN.}
+\title{Retrieve taxonomic rank name from given TSN.}
 \usage{
   gettaxrank(searchtsn = NA,
     url = "http://www.itis.gov/ITISWebService/services/ITISService/getTaxonomicRankNameFromTSN?tsn=",
@@ -21,7 +21,7 @@
   Taxonomic rank name.
 }
 \description{
-  Retrieve taxanomic rank name from given TSN.
+  Retrieve taxonomic rank name from given TSN.
 }
 \details{
   You can print informative messages by setting
