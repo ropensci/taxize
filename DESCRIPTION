@@ -10,7 +10,9 @@ Imports:
     XML,
     RCurl (>= 1.6),
     stringr,
-    plyr
+    plyr,
+    httr,
+    RJSONIO
 Collate:
     'classification.R'
     'downstream.R'
@@ -33,3 +35,5 @@ Collate:
     'tp_getnamedistributions.R'
     'tp_getnamereferences.R'
     'tnrastic.R'
+    'gnr.R'
+    'gnr_datasources.R'
