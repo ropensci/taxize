@@ -33,6 +33,6 @@ gnr_datasources <- function(todf = FALSE,
 		fromJSON(url)
 	} else
 		{
-			ldply(mm, function(x) data.frame(x["id"], x["title"]))
+			ldply(fromJSON(url), function(x) data.frame(x["id"], x["title"]))
 		}
 }
