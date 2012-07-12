@@ -22,6 +22,9 @@ The following are URL's for API documentation and where to get API keys.
 + Tropicos (from Missouri Botanical Garden)
 	+ [API docs](http://services.tropicos.org/help)
 	+ [Get an API key](http://services.tropicos.org/help?requestkey)
++ Global Names Resolver (from EOL/GBIF)
+	+ [Use](http://resolver.globalnames.org/)
+	+ [API docs](http://resolver.globalnames.org/api)
 
 `taxize` rOpenSci tutorial here:  http://ropensci.org/tutorials/r-taxize-tutorial/
 
