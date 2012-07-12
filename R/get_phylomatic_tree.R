@@ -1,4 +1,5 @@
 #' Format tree string, submit to Phylomatic, get newick tree.
+#' 
 #' @import XML RCurl
 #' @param x Phylomatic format input.
 #' @param convert One of 'TRUE' of 'FALSE'.
@@ -10,17 +11,14 @@
 #'    forward slash (/ -> %2F)
 #'    newline (\n -> %0D%0A)
 #' @return Newick formatted tree.
-#' @export
 #' @examples \dontrun{
-#' dat_ <- laply(list("36616", "19322", "183327"), get_phymat_format, 
-#'       format='rsubmit', .progress="text")
+#' dat_ <- laply(list("36616", "19322", "183327"), get_phymat_format, format='rsubmit', .progress="text")
 #' dat_mine <- paste(dat_, collapse="%0D%0A") # collapse and replace \n's
 #' tree <- get_phylomatic_tree(dat_mine, 'FALSE', 'GET', 'new', 'TRUE')
 #' plot(tree)
 #' }
-get_phylomatic_tree <- 
-  
-function (x, convert = TRUE, get, format, retphylo = TRUE, 
+#' @export
+get_phylomatic_tree <- function (x, convert = TRUE, get, format, retphylo = TRUE, 
         url = "http://phylodiversity.net/phylomatic/pm/phylomatic.cgi") 
 {  
   # require igraph
@@ -64,9 +62,15 @@ function (x, convert = TRUE, get, format, retphylo = TRUE,
 #   format <- 'new'
   if (get == 'POST') {  
     gettree <- postForm(url,
-        format = format, 
-        tree = treestring
-        )
+    		.params = list(format = format, 
+        tree = treestring)
+    )
+#     postForm(urlcomplete, style="httppost")
+#     POST(urlcomplete)
+# #     getURLContent("http://phylodiversity.net/phylomatic/pm/phylomatic.cgi?format=xml&tree=annonaceae%2Fannona%2FAnnona_cherimola%0D%0Aannonaceae%2Fannona%2FAnnona_muricata", curl=getCurlHandle())[[1]]
+#     POST(url, query = list(
+#     	format = format, 
+#     	tree = paste(dat_, collapse="\n")))
     tree_ <- gsub("\n", "", gettree[[1]]) 
     treenew <- colldouble(tree_)
   } else
