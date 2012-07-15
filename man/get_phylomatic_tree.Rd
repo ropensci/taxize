@@ -33,8 +33,7 @@
 }
 \examples{
 \dontrun{
-dat_ <- laply(list("36616", "19322", "183327"), get_phymat_format,
-      format='rsubmit', .progress="text")
+dat_ <- laply(list("36616", "19322", "183327"), get_phymat_format, format='rsubmit', .progress="text")
 dat_mine <- paste(dat_, collapse="\%0D\%0A") # collapse and replace \\n's
 tree <- get_phylomatic_tree(dat_mine, 'FALSE', 'GET', 'new', 'TRUE')
 plot(tree)

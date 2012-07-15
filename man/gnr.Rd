@@ -2,7 +2,7 @@
 \alias{gnr}
 \title{Resolve names using Global Names Resolver.}
 \usage{
-  gnr(names, data_source_ids = NULL, output = "json",
+  gnr(names, data_source_ids = NULL, returndf = FALSE,
     url = "http://resolver.globalnames.org/name_resolvers")
 }
 \arguments{
@@ -12,8 +12,8 @@
   \item{data_source_ids}{Supply data source IDs to specify
   what data source is searched. See example below.}
 
-  \item{output}{Output format for the results, one of json
-  (default) or xml.}
+  \item{returndf}{Return data.frame or list (logical;
+  default data.frame).}
 
   \item{url}{Base url for the API; leave as is.}
 }
@@ -26,9 +26,9 @@
 }
 \examples{
 \dontrun{
-gnr(names = c("Helianthus annuus", "Homo sapiens"))
-gnr(names = c("Helianthus annuus", "Homo sapiens"), data_source_ids="12")
-gnr(names = c("Helianthus annuus", "Homo sapiens"), output="xml")
+gnr(names = c("Helianthus annuus", "Homo sapiens"), returndf = TRUE)
+gnr(names = c("Helianthus annuus", "Homo sapiens"), data_source_ids="12", returndf = TRUE)
+gnr(names = c("Asteraceae", "Plantae"), returndf = TRUE)
 }
 }
 \author{

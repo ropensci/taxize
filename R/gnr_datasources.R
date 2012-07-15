@@ -3,7 +3,7 @@
 #' Uses the Global Names Index, see \link{http://gni.globalnames.org/} 
 #' 		for information. 
 #' 
-#' @import RJSONIO
+#' @import RJSONIO plyr
 #' @param todf Parse id and name of provider to data.frame? logical (default = FALSE).
 #' @param url Base url for the API; leave as is.
 #' @author Scott Chamberlain {myrmecocystus@@gmail.com}
@@ -19,7 +19,7 @@
 #' 
 #' # give me the id for EOL
 #' out <- gnr_datasources(todf=T)
-#' out[out$title %in% "EOL", "id"]
+#' out[out$title == "EOL", "id"]
 #' 
 #' # Fuzzy search for sources with the word zoo
 #' out <- gnr_datasources(todf=T)

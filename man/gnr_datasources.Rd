@@ -28,7 +28,7 @@ gnr_datasources(todf=T)
 
 # give me the id for EOL
 out <- gnr_datasources(todf=T)
-out[out$title \%in\% "EOL", "id"]
+out[out$title == "EOL", "id"]
 
 # Fuzzy search for sources with the word zoo
 out <- gnr_datasources(todf=T)
