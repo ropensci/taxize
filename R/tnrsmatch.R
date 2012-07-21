@@ -8,6 +8,8 @@
 #' @param taxnames quoted taxonomic names to search in a vector (character).
 #' @param output 'all' for raw list output or 'names' for matched names
 #'     and their match scores, plus plant family names (character).
+#' @param getpost Use get or post for sending query. Post is sometimes needed 
+#' 		for larger URL strings.
 #' @param url The iPlant API url for the function (should be left to default).
 #' @param ... optional additional curl options (debugging tools mostly)
 #' @param curl If using in a loop, call getCurlHandle() first and pass
@@ -16,13 +18,13 @@
 #' @export
 #' @examples \dontrun{
 #' mynames <- c("shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus", "rubus ulmifolius", "asclepias curassavica", "pistacia lentiscus")
-#' tnrsmatch('best', mynames, 'names')
+#' tnrsmatch('best', mynames, 'names', 'post')
 #' tnrsmatch(retrieve = 'all', taxnames = c('helianthus annuus', 'acacia', 'gossypium'), output = 'names')
 #' tnrsmatch(retrieve = 'all', taxnames = c('helianthus annuus', 'acacia', 'saltea'), output = 'all')
 #' tnrsmatch(retrieve = 'best', taxnames = c('helianthus annuus', 'acacia', 'saltea'), output = 'names')
 #' }
-tnrsmatch <- function(retrieve = 'best', taxnames = NA, output = NA,
-  url = "http://tnrs.iplantc.org/tnrsm-svc/matchNames",
+tnrsmatch <- function(retrieve = 'best', taxnames = NA, output = NA, 
+	getpost = 'get', url = "http://tnrs.iplantc.org/tnrsm-svc/matchNames",
   ..., curl = getCurlHandle()) 
 {
   args <- list()
@@ -30,10 +32,10 @@ tnrsmatch <- function(retrieve = 'best', taxnames = NA, output = NA,
     args$retrieve <- retrieve
   if(!any(is.na(taxnames)))
     args$names <- paste(str_replace_all(taxnames, ' ', '%20'), collapse=',')
-  tt <- getForm(url,
-    .params = args,
-    ...,
-    curl = curl)
+  message("Hitting the TNRS API and matching names...")
+  if(getpost == 'get'){tt<-getForm(url, .params = args, ..., curl = curl)} else
+  	if(getpost == 'post'){tt<-postForm(url, .params = args, ..., curl = curl, style="post")} else
+  		stop("use either 'get' or 'post'")
   out <- fromJSON(tt)
   if (output == 'all') { return(out) } else
     if (output == 'names') {
@@ -43,5 +45,6 @@ tnrsmatch <- function(retrieve = 'best', taxnames = NA, output = NA,
         names(outdf) <- c('Group', 'AcceptedName','MatchFam','MatchGenus','MatchScore','Accept?')
         namesgroups <- data.frame(Group = (1:length(taxnames))-1, SubmittedNames = taxnames)
         merge(outdf, namesgroups, by='Group')[,-1]
-      }      
+      } else
+      	stop("use with 'all' or 'names'")
 }

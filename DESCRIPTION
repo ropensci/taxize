@@ -37,3 +37,4 @@ Collate:
     'tnrastic.R'
     'gnr.R'
     'gnr_datasources.R'
+    'ubio_namebank.R'

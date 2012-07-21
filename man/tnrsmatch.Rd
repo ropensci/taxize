@@ -3,6 +3,7 @@
 \title{Search Taxonomic Name Resolution Service}
 \usage{
   tnrsmatch(retrieve = "best", taxnames = NA, output = NA,
+    getpost = "get",
     url = "http://tnrs.iplantc.org/tnrsm-svc/matchNames",
     ..., curl = getCurlHandle())
 }
@@ -16,6 +17,9 @@
   \item{output}{'all' for raw list output or 'names' for
   matched names and their match scores, plus plant family
   names (character).}
+
+  \item{getpost}{Use get or post for sending query. Post is
+  sometimes needed for larger URL strings.}
 
   \item{url}{The iPlant API url for the function (should be
   left to default).}
@@ -38,7 +42,7 @@
 \examples{
 \dontrun{
 mynames <- c("shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus", "rubus ulmifolius", "asclepias curassavica", "pistacia lentiscus")
-tnrsmatch('best', mynames, 'names')
+tnrsmatch('best', mynames, 'names', 'post')
 tnrsmatch(retrieve = 'all', taxnames = c('helianthus annuus', 'acacia', 'gossypium'), output = 'names')
 tnrsmatch(retrieve = 'all', taxnames = c('helianthus annuus', 'acacia', 'saltea'), output = 'all')
 tnrsmatch(retrieve = 'best', taxnames = c('helianthus annuus', 'acacia', 'saltea'), output = 'names')

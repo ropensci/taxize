@@ -3,6 +3,7 @@
 \title{Search the Phylotastic Taxonomic Name Resolution Service}
 \usage{
   tnrastic(query = NA, output = NA, sleep = 1,
+    getpost = "get",
     url = "http://api.phylotastic.org/tnrs/submit", ...,
     curl = getCurlHandle())
 }
@@ -17,6 +18,9 @@
   \item{sleep}{Numer of seconds by which to pause by before
   retrieving the result. Defaults to 1 second. Set sleep
   for longer periods when queries contain more species.}
+
+  \item{getpost}{Use get or post for sending query. Post is
+  sometimes needed for larger URL strings.}
 
   \item{url}{The iPlant API url for the function (should be
   left to default).}
