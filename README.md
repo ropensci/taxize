@@ -25,6 +25,9 @@ The following are URL's for API documentation and where to get API keys.
 + Global Names Resolver (from EOL/GBIF)
 	+ [Use](http://resolver.globalnames.org/)
 	+ [API docs](http://resolver.globalnames.org/api)
++ Global Names Indesx (from EOL/GBIF)
+	+ [Use](http://gni.globalnames.org/)
+	+ [API docs](https://github.com/dimus/gni/wiki/api)
 
 `taxize` rOpenSci tutorial here:  http://ropensci.org/tutorials/r-taxize-tutorial/
 

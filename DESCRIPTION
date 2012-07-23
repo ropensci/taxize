@@ -38,3 +38,6 @@ Collate:
     'gnr.R'
     'gnr_datasources.R'
     'ubio_namebank.R'
+    'theplantlist.r'
+    'gni_search.R'
+    'gni_details.R'
