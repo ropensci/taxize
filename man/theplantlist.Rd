@@ -29,4 +29,3 @@
 theplantlist(dir_ = "~/mycsvilesdir") # writes to your home directory, change to where you want
 theplantlist(dir_ = "~/myfiles", family = c("Platanaceae","Winteraceae")) # just a few families
 }
-
