@@ -8,8 +8,6 @@
 #' @param searchtype One of 'sciname', 'anymatch', 'comnamebeg', 'comname', 
 #'    'comnameend', 'itistermscomname', 'itistermssciname', or
 #'    'tsnsvernacular', 'tsnfullhir', 'tsnhirdown' .
-#' @param curl If using in a loop, call getCurlHandle() first and pass 
-#'    the returned value in here (avoids unnecessary footprint)
 #' @return A taxonomic serial number (TSN), and scientific or common name, depending
 #' 		on the searchtype parameter value used. See functions in \code{ritis}.
 #' @export

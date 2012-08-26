@@ -11,10 +11,6 @@
   'comnamebeg', 'comname', 'comnameend',
   'itistermscomname', 'itistermssciname', or
   'tsnsvernacular', 'tsnfullhir', 'tsnhirdown' .}
-
-  \item{curl}{If using in a loop, call getCurlHandle()
-  first and pass the returned value in here (avoids
-  unnecessary footprint)}
 }
 \value{
   A taxonomic serial number (TSN), and scientific or common
