@@ -6,7 +6,7 @@ Version: 0.0.1
 License: CC0
 Author: Scott Chamberlain, Carl Boettiger
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>
-Depends:
+Suggests:
     ritis
 Imports:
     XML,
