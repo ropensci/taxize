@@ -64,10 +64,3 @@ function(searchterm,
   if(parselist == TRUE) { xmlParse(tt) } else
       { tt }
 }
-
-# url <- 'http://www.itis.gov/ITISWebService/services/ITISService/searchByScientificName'
-# args <- list(srchKey = 'Plethodon')
-# out <- xmlParse(getForm(url, 
-#         .params = args,
-#         curl = getCurlHandle()))
-# parse_itis(out)

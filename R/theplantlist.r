@@ -1,7 +1,7 @@
 #' Get The Plant List csv files. 
 #' 
-#' [The Plant List](http://www.theplantlist.org/). Note that there is now a 
-#' 		package on CRAN ([taxonstand](http://cran.r-project.org/web/packages/Taxonstand/)) 
+#' The Plant List \link{http://www.theplantlist.org/}. Note that there is now a 
+#' 		package on CRAN (taxonstand - \link{http://cran.r-project.org/web/packages/Taxonstand/}) 
 #' 		that uses only theplantlist.org to search plant names.
 #' 
 #' @import RCurl plyr XML
