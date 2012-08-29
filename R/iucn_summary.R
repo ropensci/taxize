@@ -1,15 +1,13 @@
-#' Get a summary from the IUCN Redlist
+#' Get a summary from the IUCN Redlist.
 #' 
 #' @import XML
-#' @param x scientific name 
+#' @param sciname Scientific name 
 #' @return A list with the following items:
 #' \item{status}{Red List Category}
 #' \item{history}{History of status}
 #' \item{distr}{Geographic distribution}
 #' \item{pop}{Population size estimates}
 #' \item{trend}{Trend of population size}
-#' \export
-#' 
 #' @examples \dontrun{
 #' ia <- iucn_summary("Panthera uncia")
 #' ia$status
@@ -18,9 +16,10 @@
 #' ia$pop
 #' ia$trend
 #' }
-
-iucn_summary <- function(x) {
-  spec <- tolower(x)
+#' @export
+iucn_summary <- function(sciname) 
+{
+  spec <- tolower(sciname)
   spec <- gsub(" ", "-", spec)
   url <- paste("http://api.iucnredlist.org/go/", spec, sep="")
   h <- htmlParse(url)
@@ -30,17 +29,11 @@ iucn_summary <- function(x) {
   distr <- xpathSApply(h, '//ul[@class="countries"]', xmlValue)
   distr <- unlist(strsplit(distr, "\n"))
   pop <- xpathSApply(h, '//div[@id="population"]/text()[preceding-sibling::br]', xmlValue)
-  pop <- do.call(rbind, lapply(strsplit(ia$pop, split=":"), rbind)) 
+  pop <- do.call(rbind, lapply(strsplit(pop, split=":"), rbind)) 
   trend <- xpathSApply(h, '//div[@id="population_trend"]', xmlValue)
-  out <- list(status = status, 
-              history = history, 
-              distr = distr, 
-              pop = pop, 
-              trend = trend)
-  return(out)
+  list(status = status, 
+       history = history, 
+       distr = distr, 
+       pop = pop, 
+       trend = trend)
 }
-
-
-
-
-
