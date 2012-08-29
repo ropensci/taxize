@@ -25,9 +25,11 @@ The following are URL's for API documentation and where to get API keys.
 + Global Names Resolver (from EOL/GBIF)
 	+ [Use](http://resolver.globalnames.org/)
 	+ [API docs](http://resolver.globalnames.org/api)
-+ Global Names Indesx (from EOL/GBIF)
++ Global Names Index (from EOL/GBIF)
 	+ [Use](http://gni.globalnames.org/)
 	+ [API docs](https://github.com/dimus/gni/wiki/api)
++ IUCN Red List 
+  + [API docs](https://www.assembla.com/spaces/sis/wiki/Red_List_API?version=3)
 
 `taxize` rOpenSci tutorial here:  http://ropensci.org/tutorials/r-taxize-tutorial/
 

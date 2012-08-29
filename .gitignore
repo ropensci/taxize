@@ -1,3 +1,7 @@
 .DS_Store
-._README.md
 .Rhistory
+.Rproj.user
+taxize_.Rproj
+.Rbuildignore
+.gitignore
+README.html

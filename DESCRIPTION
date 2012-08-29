@@ -43,3 +43,4 @@ Collate:
     'theplantlist.r'
     'gni_search.R'
     'gni_details.R'
+    'iucn.R'
