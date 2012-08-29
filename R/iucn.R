@@ -30,6 +30,7 @@ iucn_summary <- function(x) {
   distr <- xpathSApply(h, '//ul[@class="countries"]', xmlValue)
   distr <- unlist(strsplit(distr, "\n"))
   pop <- xpathSApply(h, '//div[@id="population"]/text()[preceding-sibling::br]', xmlValue)
+  pop <- do.call(rbind, lapply(strsplit(ia$pop, split=":"), rbind)) 
   trend <- xpathSApply(h, '//div[@id="population_trend"]', xmlValue)
   out <- list(status = status, 
               history = history, 
@@ -38,6 +39,8 @@ iucn_summary <- function(x) {
               trend = trend)
   return(out)
 }
+
+
 
 
 
