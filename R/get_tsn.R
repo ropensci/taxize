@@ -20,6 +20,7 @@
 #' }
 get_tsn <- function (searchterm, searchtype) 
 {
+  # fetch ritis function from args
   ritis_func <- if(searchtype == "sciname"){ "searchbyscientificname" }  else
                   if(searchtype == "anymatch") { "searchforanymatch" } else
                     if(searchtype == "comnamebeg") { "searchbycommonnamebeginswith" } else
@@ -30,6 +31,7 @@ get_tsn <- function (searchterm, searchtype)
                               if(searchtype == "tsnsvernacular") { "gettsnbyvernacularlanguage" } else
                                 if(searchtype == "tsnfullhir") { "getfullhierarchyfromtsn" } else
                                   stop("searchtype not valid!")
+  # apply ritis function
   out <- ldply(searchterm, function(x) do.call(ritis_func, list(x)))
   out <- as.character(out$tsn)
   out
