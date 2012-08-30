@@ -17,6 +17,7 @@
 #' get_tsn(searchterm="Chironomus riparius", searchtype="sciname")
 #' get_tsn(searchterm="polar bear", searchtype="comname")
 #' get_tsn(c("Chironomus riparius","Quercus douglasii"), "sciname")
+#' get_tsn(c("aa aa", "Chironomus riparius"), searchtype="sciname")
 #' }
 get_tsn <- function (searchterm, searchtype) 
 {
@@ -31,8 +32,15 @@ get_tsn <- function (searchterm, searchtype)
                               if(searchtype == "tsnsvernacular") { "gettsnbyvernacularlanguage" } else
                                 if(searchtype == "tsnfullhir") { "getfullhierarchyfromtsn" } else
                                   stop("searchtype not valid!")
-  # apply ritis function
-  out <- ldply(searchterm, function(x) do.call(ritis_func, list(x)))
-  out <- as.character(out$tsn)
+  # should return NA if spec not found
+  fun <- function(x) 
+    {
+    tsn_df <- do.call(ritis_func, list(x))
+    tsn <- as.character(tsn_df$tsn)
+    if (length(tsn) == 0)
+      tsn <- NA
+    tsn
+    }
+  out <- ldply(searchterm, fun)
   out
 }
