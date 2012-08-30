@@ -28,5 +28,5 @@ get_tsn <- function(searchterm, searchtype)
 		 					if(searchtype == "itistermssciname") { getitistermsfromscientificname(searchterm) } else
 		 						if(searchtype == "tsnsvernacular") { gettsnbyvernacularlanguage(searchterm) } else
 		 							if(searchtype == "tsnfullhir") { getfullhierarchyfromtsn(searchterm) } else
-		end
+		 							  stop("searchtype not valid!")
 }
