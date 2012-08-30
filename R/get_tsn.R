@@ -30,11 +30,6 @@ get_tsn <- function (searchterm, searchtype)
                               if(searchtype == "tsnsvernacular") { "gettsnbyvernacularlanguage" } else
                                 if(searchtype == "tsnfullhir") { "getfullhierarchyfromtsn" } else
                                   stop("searchtype not valid!")
-  if (length(searchterm) == 1) {
-    out <- do.call(ritis_func, list(searchterm))
-  } 
-  else {
-    out <- ldply(searchterm, function(x) do.call(ritis_func, list(x)))
-  }
+  out <- ldply(searchterm, function(x) do.call(ritis_func, list(x)))
   out
 }
