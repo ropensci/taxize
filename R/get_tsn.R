@@ -4,6 +4,7 @@
 #' 		\link{https://github.com/ropensci/ritis}.
 #' 
 #' @import ritis
+#' @import plyr
 #' @param searchterm Any common or scientific name.
 #' @param searchtype One of 'sciname', 'anymatch', 'comnamebeg', 'comname', 
 #'    'comnameend', 'itistermscomname', 'itistermssciname', or
@@ -17,16 +18,23 @@
 #' get_tsn(searchterm="polar bear", searchtype="comname")
 #' lapply(c("Chironomus riparius","Quercus douglasii"), get_tsn, searchtype="sciname")
 #' }
-get_tsn <- function(searchterm, searchtype) 
+get_tsn <- function (searchterm, searchtype) 
 {
-	if(searchtype == "sciname"){ searchbyscientificname(searchterm) }	else
-		if(searchtype == "anymatch") { searchforanymatch(searchterm) } else
-			if(searchtype == "comnamebeg") { searchbycommonnamebeginswith(searchterm) } else
-		 		if(searchtype == "comname") { searchbycommonname(searchterm) } else
-		 			if(searchtype == "comnameend") { searchbycommonnameendswith(searchterm) } else
-		 				if(searchtype == "itistermscomname") { getitistermsfromcommonname(searchterm) } else
-		 					if(searchtype == "itistermssciname") { getitistermsfromscientificname(searchterm) } else
-		 						if(searchtype == "tsnsvernacular") { gettsnbyvernacularlanguage(searchterm) } else
-		 							if(searchtype == "tsnfullhir") { getfullhierarchyfromtsn(searchterm) } else
-		 							  stop("searchtype not valid!")
+  ritis_func <- if(searchtype == "sciname"){ "searchbyscientificname" }  else
+                  if(searchtype == "anymatch") { "searchforanymatch" } else
+                    if(searchtype == "comnamebeg") { "searchbycommonnamebeginswith" } else
+                      if(searchtype == "comname") { "searchbycommonname" } else
+                        if(searchtype == "comnameend") { "searchbycommonnameendswith" } else
+                          if(searchtype == "itistermscomname") { "getitistermsfromcommonname" } else
+                            if(searchtype == "itistermssciname") { "getitistermsfromscientificname" } else
+                              if(searchtype == "tsnsvernacular") { "gettsnbyvernacularlanguage" } else
+                                if(searchtype == "tsnfullhir") { "getfullhierarchyfromtsn" } else
+                                  stop("searchtype not valid!")
+  if (length(searchterm) == 1) {
+    out <- do.call(ritis_func, list(searchterm))
+  } 
+  else {
+    out <- ldply(searchterm, function(x) do.call(ritis_func, list(x)))
+  }
+  out
 }
