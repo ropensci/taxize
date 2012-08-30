@@ -31,5 +31,6 @@ get_tsn <- function (searchterm, searchtype)
                                 if(searchtype == "tsnfullhir") { "getfullhierarchyfromtsn" } else
                                   stop("searchtype not valid!")
   out <- ldply(searchterm, function(x) do.call(ritis_func, list(x)))
+  out <- as.character(out$tsn)
   out
 }
