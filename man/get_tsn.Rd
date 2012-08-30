@@ -27,7 +27,8 @@
 get_tsn("Quercus douglasii", "sciname")
 get_tsn(searchterm="Chironomus riparius", searchtype="sciname")
 get_tsn(searchterm="polar bear", searchtype="comname")
-lapply(c("Chironomus riparius","Quercus douglasii"), get_tsn, searchtype="sciname")
+get_tsn(c("Chironomus riparius","Quercus douglasii"), "sciname")
+get_tsn(c("aa aa", "Chironomus riparius"), searchtype="sciname")
 }
 }
 

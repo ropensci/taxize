@@ -1,13 +1,15 @@
-#' Get a summary from the IUCN Redlist.
+#' Get a summary from the IUCN Red List.
+#' 
+#' Get a summary from the IUCN Red List (\url{http://www.iucnredlist.org/}).
 #' 
 #' @import XML
-#' @param sciname Scientific name 
+#' @param sciname Scientific name. 
 #' @return A list with the following items:
-#' \item{status}{Red List Category}
-#' \item{history}{History of status}
-#' \item{distr}{Geographic distribution}
-#' \item{pop}{Population size estimates}
-#' \item{trend}{Trend of population size}
+#' \item{status}{Red List Category.}
+#' \item{history}{History of status.}
+#' \item{distr}{Geographic distribution.}
+#' \item{pop}{Population size estimates.}
+#' \item{trend}{Trend of population size.}
 #' @examples \dontrun{
 #' ia <- iucn_summary("Panthera uncia")
 #' ia$status
@@ -16,6 +18,9 @@
 #' ia$pop
 #' ia$trend
 #' }
+#' 
+#' @author Eduard Szöcs \email{szoe8822@@uni-landau.de}
+#' 
 #' @export
 iucn_summary <- function(sciname) 
 {
