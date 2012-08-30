@@ -1,3 +1,5 @@
+#' Get a summary from the IUCN Red List.
+#' 
 #' Get a summary from the IUCN Red List (\url{http://www.iucnredlist.org/}).
 #' 
 #' @import XML
