@@ -2,8 +2,7 @@
 #' 
 #' A function to retrieve the UID-Code (Unique Identifier) of a species from NCBI taxonomy browser.
 #' 
-#' @import rentrez
-#' @import plyr
+#' @import rentrez plyr
 #' 
 #' @param sciname scientific name.
 #' @return UID for the supplied species names. NA for non-matching names.
