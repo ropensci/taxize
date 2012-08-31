@@ -25,6 +25,6 @@ get_uid <- function(sciname){
       id <- NA
     id
   }
-  out <- ldply(sciname, fun)
+  out <- laply(sciname, fun)
   out
 }
