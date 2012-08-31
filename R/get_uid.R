@@ -14,7 +14,6 @@
 #' get_uid(c("Chironomus riparius", "Chaetopteryx"))
 #' get_uid(c("Chironomus riparius", "aaa vva"))
 #' }
-
 get_uid <- function(sciname){
   fun <- function(sciname) {
     # NCBI limits requests to three per second
