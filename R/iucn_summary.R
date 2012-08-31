@@ -1,3 +1,5 @@
+#' Get a summary from the IUCN Red List.
+#' 
 #' Get a summary from the IUCN Red List (\url{http://www.iucnredlist.org/}).
 #' 
 #' @import XML
@@ -35,9 +37,9 @@ iucn_summary <- function(sciname)
   pop <- do.call(rbind, lapply(strsplit(pop, split=":"), rbind)) 
   trend <- xpathSApply(h, '//div[@id="population_trend"]', xmlValue)
   out <- list(status = status, 
-       history = history, 
-       distr = distr, 
-       pop = pop, 
-       trend = trend)
+              history = history, 
+              distr = distr, 
+              pop = pop, 
+              trend = trend)
   return(out)
 }
