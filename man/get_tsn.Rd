@@ -5,14 +5,15 @@
   get_tsn(searchterm, searchtype)
 }
 \arguments{
-  \item{searchterm}{Any common or scientific name.}
+  \item{searchterm}{A vector of common or scientific
+  names.}
 
   \item{searchtype}{One of 'sciname', 'anymatch',
   'comnamebeg', 'comname', 'comnameend'.}
 }
 \value{
-  A taxonomic serial number (TSN). If species is not found
-  NA. See functions in \code{ritis}.
+  A vector of taxonomic serial numbers (TSN). If a species
+  is not found NA. See functions in \code{ritis}.
 }
 \description{
   \code{get_tsn} uses a variety of functions from the
