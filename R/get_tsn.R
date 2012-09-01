@@ -1,32 +1,39 @@
 #' Get the TSN code for a search term.
 #' 
 #' \code{get_tsn} uses a variety of functions from the \code{ritis} package: 
-#' 		\link{https://github.com/ropensci/ritis}.
+#'   \link{https://github.com/ropensci/ritis}.
 #' 
-#' @import ritis
+#' @import ritis plyr
 #' @param searchterm Any common or scientific name.
 #' @param searchtype One of 'sciname', 'anymatch', 'comnamebeg', 'comname', 
-#'    'comnameend', 'itistermscomname', 'itistermssciname', or
-#'    'tsnsvernacular', 'tsnfullhir', 'tsnhirdown' .
-#' @return A taxonomic serial number (TSN), and scientific or common name, depending
-#' 		on the searchtype parameter value used. See functions in \code{ritis}.
+#'    'comnameend'.
+#' @return A taxonomic serial number (TSN). If species is not found NA. See functions in \code{ritis}.
 #' @export
 #' @examples \dontrun{
 #' get_tsn("Quercus douglasii", "sciname")
 #' get_tsn(searchterm="Chironomus riparius", searchtype="sciname")
 #' get_tsn(searchterm="polar bear", searchtype="comname")
-#' lapply(c("Chironomus riparius","Quercus douglasii"), get_tsn, searchtype="sciname")
+#' get_tsn(c("Chironomus riparius","Quercus douglasii"), "sciname")
+#' get_tsn(c("aa aa", "Chironomus riparius"), searchtype="sciname")
 #' }
-get_tsn <- function(searchterm, searchtype) 
+get_tsn <- function (searchterm, searchtype) 
 {
-	if(searchtype == "sciname"){ searchbyscientificname(searchterm) }	else
-		if(searchtype == "anymatch") { searchforanymatch(searchterm) } else
-			if(searchtype == "comnamebeg") { searchbycommonnamebeginswith(searchterm) } else
-		 		if(searchtype == "comname") { searchbycommonname(searchterm) } else
-		 			if(searchtype == "comnameend") { searchbycommonnameendswith(searchterm) } else
-		 				if(searchtype == "itistermscomname") { getitistermsfromcommonname(searchterm) } else
-		 					if(searchtype == "itistermssciname") { getitistermsfromscientificname(searchterm) } else
-		 						if(searchtype == "tsnsvernacular") { gettsnbyvernacularlanguage(searchterm) } else
-		 							if(searchtype == "tsnfullhir") { getfullhierarchyfromtsn(searchterm) } else
-		 							  stop("searchtype not valid!")
+  # fetch ritis function from args
+  ritis_func <- if(searchtype == "sciname"){ "searchbyscientificname" } else
+                  if(searchtype == "anymatch") { "searchforanymatch" } else
+                    if(searchtype == "comnamebeg") { "searchbycommonnamebeginswith" } else
+                      if(searchtype == "comname") { "searchbycommonname" } else
+                        if(searchtype == "comnameend") { "searchbycommonnameendswith" } else
+                          stop("searchtype not valid!")
+  fun <- function(x) 
+  {
+    tsn_df <- do.call(ritis_func, list(x))
+    tsn <- as.character(tsn_df$tsn)
+    # should return NA if spec not found
+    if (length(tsn) == 0)
+      tsn <- NA
+    tsn
+  }
+  out <- laply(searchterm, fun)
+  out
 }
