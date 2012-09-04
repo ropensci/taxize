@@ -24,5 +24,6 @@ get_uid <- function(sciname){
     id
   }
   out <- laply(sciname, fun)
+  class(out) <- "ncbi"
   out
 }
