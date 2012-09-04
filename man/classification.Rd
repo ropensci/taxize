@@ -2,7 +2,7 @@
 \alias{classification}
 \title{Get taxonomic hierarchy for a given taxon.}
 \usage{
-  classification(x)
+  classification(x, ...)
 }
 \arguments{
   \item{x}{quoted tsn number (taxonomic serial number)}
