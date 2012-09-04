@@ -1,5 +1,4 @@
 export(classification)
-export(classification_ncbi)
 export(downstream)
 export(eol_hierarchy)
 export(eolping)

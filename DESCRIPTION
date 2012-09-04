@@ -48,4 +48,3 @@ Collate:
     'gni_details.R'
     'iucn_summary.R'
     'get_uid.R'
-    'classification_ncbi.R'
