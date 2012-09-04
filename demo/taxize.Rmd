@@ -1,0 +1,169 @@
+# Install taxize (uncomment to run)
+```{r}
+# install_github("taxize_", "ropensci")
+library(taxize); library(plyr); library(ape)
+```
+
+*********
+
+# Phylomatic
+## Fetch a phylogenetic tree from Phylomatic
+```{r}
+mytree <- "asteraceae/bidens/bidens_cernua
+asteraceae/madia/madia_exigua
+asteraceae/helianthus/helianthus_annuus"
+```
+
+## Using tree strings that need to be formatted within the function
+### Return a tree in the phylo object format
+```{r}
+get_phylomatic_tree(mytree, 'TRUE', 'GET', 'xml', 'TRUE') 
+```
+
+### Return a tree in the phylo object format, using POST method
+```{r}
+get_phylomatic_tree(mytree, 'TRUE', 'POST', 'xml', 'TRUE')
+```
+
+### Return tree in newick format
+```{r}
+get_phylomatic_tree(mytree, 'TRUE', 'GET', 'new', 'FALSE')
+```
+
+### Get a tree in newick format, read using ape::read.tree, and plot
+```{r}
+tree <- get_phylomatic_tree(mytree, 'TRUE', 'POST', 'new', 'FALSE')
+treephylo <- read.tree(text = tree)
+plot(treephylo)
+```
+
+*********
+
+# Integrated Taxonomic Informaiton Service (ITIS)
+## Search by term and search type
+Note: TSN stands for Taxonomic Serial Number
+```{r}
+doc <- get_itis_xml("dolphin", "comname", "name")
+doc <- get_itis_xml("grizzly bear", "comnameend", "name")
+doc <- get_itis_xml("ursidae", "itistermssciname", "name")
+```
+
+## Take advantage of default arguments, spaces accepted, and display data.frame output
+```{r}
+doc <- get_itis_xml("Plethodon ")
+head( parse_itis(doc) )
+```
+
+## Show higher taxonomy for a given TSN
+```{r}
+classification(685566)
+```
+
+## Get a TSN from a sepcies name
+```{r}
+get_tsn("Quercus_douglasii", "sciname", by_="name")
+```
+
+
+*********
+
+# Using ITIS and Phylomatic together 
+## Use ITIS and get_phymat_format to format a string for each species to be submitted to Phylomatic
+```{r}
+dat_ <- laply(list("36616", "19322", "183327"), get_phymat_format, format='rsubmit')
+dat_
+dat_mine <- paste(dat_, collapse="%0D%0A") # collapse and replace \n's
+dat_mine
+tree <- get_phylomatic_tree(dat_mine, 'FALSE', 'GET', 'new', 'TRUE')
+tree
+plot(tree)
+```
+
+## A somewhat realistic workflow
+### User's species list 
+```{r}
+splist <- c("annona_cherimola", 'annona_muricata', "quercus_robur", 
+						"shorea_robusta", "pandanus_patina", "oryza_sativa", "durio_zibethinus")
+```
+
+### Get TSN code for each species
+```{r}
+tsns <- laply(splist, get_tsn, searchtype = "sciname", by_ = "name")
+tsns
+```
+
+### Get Phylomatic formatted strings for each species
+```{r}
+dat_ <- laply(tsns, get_phymat_format, format='rsubmit')
+dat_
+```
+
+### Send strings to Phylomatic and return newick tree
+```{r}
+tree <- get_phylomatic_tree(dat_, 'TRUE', 'GET', 'new', 'TRUE')
+tree
+```
+
+### Plot tree, etc. 
+```{r}
+plot(tree)
+```
+
+
+*********
+
+# Taxonomic Name Resolution Service
+## Name matching using the TNRS
+```{r}
+tnrsmatch('best', taxnames = c('helianthus annuus', 'acacia', 'saltea'), output = 'names') # just best names
+```
+
+*********
+
+# Global Names Resolver (GNR)
+## Get just id's and names of sources in a data.frame
+```{r highlight=TRUE}
+tail( gnr_datasources(todf=T) )
+```
+***
+## Give me the id for EOL (Encyclopedia of Life)
+```{r highlight=TRUE}
+out <- gnr_datasources(todf=T)
+out[out$title == "EOL", "id"]
+```
+***
+## Fuzzy search for sources with the word "zoo"
+```{r highlight=TRUE}
+out <- gnr_datasources(todf=T)
+outdf <- out[agrep("zoo", out$title, ignore.case=T), ]
+outdf[1:2,]
+```
+***
+## Resolve some names
+### Search for _Helianthus annuus_ and _Homo sapiens_, return a data.frame
+```{r highlight=TRUE}
+gnr(names = c("Helianthus annuus", "Homo sapiens"), returndf = TRUE)[1:2,]
+```
+***
+### Search for the same species, with only using data source 12 (i.e., EOL)
+```{r highlight=TRUE}
+gnr(names = c("Helianthus annuus", "Homo sapiens"), data_source_ids="12", returndf = TRUE)
+```
+
+*********
+# Tropicos: all Tropicos functions start with "tp_"
+## 
+```{r}
+head(tp_getacceptednames(id = 25503923))
+head(tp_getsynonyms(id = 25509881))
+```
+
+*********
+# uBio
+## Search uBio using the namebank_search API method.
+```{r}
+ubio_namebank_search(searchName = 'elephant', sci = 1, vern = 0)
+head( ubio_namebank_search(searchName = 'Helianthus annuus', sci = 1, vern = 0)[,-c(2,3)] )
+out <- lapply(list('Helianthus debilis','Astragalus aduncus'), function(x) ubio_namebank_search(searchName = x, sci = 1, vern = 0))
+head( out[[2]][,-c(2,3)] ) # just Astragalus aduncus output
+```

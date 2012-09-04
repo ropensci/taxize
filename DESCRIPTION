@@ -48,3 +48,4 @@ Collate:
     'gni_details.R'
     'iucn_summary.R'
     'get_uid.R'
+    'downstream2.R'

@@ -43,7 +43,7 @@ downstream <- function(searchtsn = NA, attachrank = TRUE,
     
     dat_notmatchedtaxlevel_df <- ldply(dat_notmatchedtaxlevel)
     dat <- ldply(dat_notmatchedtaxlevel_df$tsn, gethierarchydownfromtsn) # get hierarchy down
-    ddd <- ldply(split(dat2, row.names(dat2)), addrank) # add rank name to each
+    ddd <- ldply(split(dat, row.names(dat)), addrank) # add rank name to each
     
     ranks <- unique(as.character(ddd$rankName))
     ranks <- ranks[!ranks %in% outtaxlevel]
