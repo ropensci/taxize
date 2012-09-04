@@ -2,6 +2,7 @@
 #' @import XML RCurl plyr
 #' 
 #' @param x IDs from \code{get_tsn()} or \code{get_uid()}.
+#' @param ID type of identifier, either 'uid' or 'tsn'
 #' @return Classification of taxons in a list of data.frames.
 #' @note If IDs are supplied directly (not from the get_* functions) 
 #' use the methods classification.ncbi() or classification.tsn() directly. 
@@ -11,18 +12,23 @@
 #' classification(get_uid(c("Chironomus riparius", "aaa vva")))
 #' classification(get_tsn(c("Chironomus riparius", "aaa vva"), "sciname"))
 #' # Fails
-#' classification(1111)
-#' # Use appropiate method instead
-#' taxize:::classification.uid(315576)
+#' classification(315576)
+#' # must specify Identifier, when not used with get_*()
+#' classification(315576, ID = "uid")
 #' }
-classification <- function(x, ...){
+classification <- function(x, ID = NULL, ...){
   UseMethod("classification")
 }
 
 #'@S3method classification default
-classification.default <- function(x, ...){
-  stop("No default classification defined!\n
-       Use one of the methods taxize:::classification.tsn() or taxize:::classification.uid()")
+classification.default <- function(x, ID = NULL){
+  if(is.null(ID))
+    stop("Must specify Identifier!")
+  if(ID == 'tsn')
+    out <- taxize:::classification.tsn(x)
+  if(ID == 'uid')
+    out <- taxize:::classification.uid(x)
+  out
 }
 
 #'@method classification tsn

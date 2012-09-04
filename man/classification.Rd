@@ -4,7 +4,7 @@
 \alias{classification.uid}
 \title{Get taxonomic hierarchy for a given taxon ID.}
 \usage{
-  classification(x, ...)
+  classification(x, ID = NULL, ...)
 
   \method{classification}{tsn} (x)
 
@@ -12,6 +12,8 @@
 }
 \arguments{
   \item{x}{IDs from \code{get_tsn()} or \code{get_uid()}.}
+
+  \item{ID}{type of identifier, either 'uid' or 'tsn'}
 }
 \value{
   Classification of taxons in a list of data.frames.
@@ -29,9 +31,9 @@
 classification(get_uid(c("Chironomus riparius", "aaa vva")))
 classification(get_tsn(c("Chironomus riparius", "aaa vva"), "sciname"))
 # Fails
-classification(1111)
-# Use appropiate method instead
-taxize:::classification.uid(315576)
+classification(315576)
+# must specify Identifier, when not used with get_*()
+classification(315576, ID = "uid")
 }
 }
 
