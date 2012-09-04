@@ -13,7 +13,7 @@
 #' # Fails
 #' classification(1111)
 #' # Use appropiate method instead
-#' taxize:::classification.ncbi(315576)
+#' taxize:::classification.uid(315576)
 #' }
 classification <- function(x, ...){
   UseMethod("classification")
@@ -22,7 +22,7 @@ classification <- function(x, ...){
 #'@S3method classification default
 classification.default <- function(x, ...){
   stop("No default classification defined!\n
-       Use one of the methods taxize:::classification.tsn() or taxize:::classification.ncbi()")
+       Use one of the methods taxize:::classification.tsn() or taxize:::classification.uid()")
 }
 
 #'@method classification tsn
@@ -52,10 +52,10 @@ classification.tsn <- function(x)
 }
 
 
-#'@method classification ncbi
+#'@method classification uid
 #'@export
 #'@rdname classification
-classification.ncbi <- function(x) {
+classification.uid <- function(x) {
   fun <- function(x){
     # return NA if NA is supplied
     if(is.na(x)){
