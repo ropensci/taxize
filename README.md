@@ -31,9 +31,9 @@ The following are URL's for API documentation and where to get API keys.
 + IUCN Red List 
   + [API docs](https://www.assembla.com/spaces/sis/wiki/Red_List_API?version=3)
 
-`taxize` rOpenSci tutorial here:  http://ropensci.org/tutorials/r-taxize-tutorial/
+`taxize` rOpenSci tutorial [here](http://ropensci.org/tutorials/taxize_tutorial.html)
 
-`taxize` is part of the rOpenSci project, visit http://ropensci.org to learn more.
+`taxize` is part of the rOpenSci project, visit [our webiste](http://ropensci.org) to learn more.
 
 # Install `taxize` from GitHub:
 
