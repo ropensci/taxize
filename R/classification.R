@@ -21,15 +21,21 @@ classification.default <- function(x, ...){
 classification.tsn <- function(x) 
 {
   fun <- function(x){
-    doc <- get_itis_xml(searchterm = x, searchtype = "tsnfullhir", by_ = "tsn")
-    namespaces <- c(ax23="http://data.itis_service.itis.usgs.org/xsd")
-    nodes <- getNodeSet(doc, "//ax23:rankName", namespaces=namespaces)
-    rank <- sapply(nodes, xmlValue)
-    nodes <- getNodeSet(doc, "//ax23:taxonName", namespaces=namespaces)
-    taxon <- sapply(nodes, xmlValue)
-    nodes <- getNodeSet(doc, "//ax23:tsn", namespaces=namespaces)
-    tsn <- sapply(nodes, xmlValue) # last one is a repeat
-    data.frame(rank, taxon, tsn=tsn[-length(tsn)])
+    # return NA if NA is supplied
+    if(is.na(x)) {
+      out <- NA
+    } else {
+      doc <- get_itis_xml(searchterm = x, searchtype = "tsnfullhir", by_ = "tsn")
+      namespaces <- c(ax23="http://data.itis_service.itis.usgs.org/xsd")
+      nodes <- getNodeSet(doc, "//ax23:rankName", namespaces=namespaces)
+      rank <- sapply(nodes, xmlValue)
+      nodes <- getNodeSet(doc, "//ax23:taxonName", namespaces=namespaces)
+      taxon <- sapply(nodes, xmlValue)
+      nodes <- getNodeSet(doc, "//ax23:tsn", namespaces=namespaces)
+      tsn <- sapply(nodes, xmlValue) # last one is a repeat
+      out <- data.frame(rank, taxon, tsn=tsn[-length(tsn)])
+      out
+    }
   }
   out <- llply(x, fun)
   out
@@ -38,14 +44,19 @@ classification.tsn <- function(x)
 #'@S3method classification ncbi
 classification.ncbi <- function(x) {
   fun <- function(x){
-    baseurl <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy"
-    ID <- paste("ID=", x, sep = "")
-    searchurl <- paste(baseurl, ID, sep = "&")
-    tt <- getURL(searchurl)
-    ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)
-    out <- data.frame(ScientificName = xpathSApply(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/ScientificName", xmlValue), 
-                      Rank = xpathSApply(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/Rank", xmlValue), 
-                      UID = xpathSApply(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/TaxId", xmlValue))
+    # return NA if NA is supplied
+    if(is.na(x)){
+      out <- NA
+    } else {
+      baseurl <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy"
+      ID <- paste("ID=", x, sep = "")
+      searchurl <- paste(baseurl, ID, sep = "&")
+      tt <- getURL(searchurl)
+      ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)
+      out <- data.frame(ScientificName = xpathSApply(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/ScientificName", xmlValue), 
+                        Rank = xpathSApply(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/Rank", xmlValue), 
+                        UID = xpathSApply(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/TaxId", xmlValue))
+    }
     # NCBI limits requests to three per second
     Sys.sleep(0.33)
     return(out)
