@@ -1,12 +1,20 @@
-#' Get taxonomic hierarchy for a given taxon.
+#' Get taxonomic hierarchy for a given taxon ID.
 #' @import XML RCurl plyr
-#' @param x quoted tsn number (taxonomic serial number)
-#' @return Classification of the taxon in a data.frame.
+#' 
+#' @param x IDs from \code{get_tsn()} or \code{get_uid()}.
+#' @return Classification of taxons in a list of data.frames.
+#' @note If IDs are supplied directly (not from the get_* functions) 
+#' use the methods classification.ncbi() or classification.tsn() directly. 
+#' See examples.
 #' @export
 #' @examples \dontrun{
-#' classification(685566)
+#' classification(get_uid(c("Chironomus riparius", "aaa vva")))
+#' classification(get_tsn(c("Chironomus riparius", "aaa vva"), "sciname"))
+#' # Fails
+#' classification(1111)
+#' # Use appropiate method instead
+#' taxize:::classification.ncbi(315576)
 #' }
-
 classification <- function(x, ...){
   UseMethod("classification")
 }
@@ -14,10 +22,12 @@ classification <- function(x, ...){
 #'@S3method classification default
 classification.default <- function(x, ...){
   stop("No default classification defined!\n
-       Use classification.tsn() or classification.ncbi()")
+       Use one of the methods taxize:::classification.tsn() or taxize:::classification.ncbi()")
 }
 
-#'@S3method classification tsn
+#'@method classification tsn
+#'@export
+#'@rdname classification
 classification.tsn <- function(x) 
 {
   fun <- function(x){
@@ -41,7 +51,10 @@ classification.tsn <- function(x)
   out
 }
 
-#'@S3method classification ncbi
+
+#'@method classification ncbi
+#'@export
+#'@rdname classification
 classification.ncbi <- function(x) {
   fun <- function(x){
     # return NA if NA is supplied
