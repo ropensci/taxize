@@ -35,5 +35,6 @@ get_tsn <- function (searchterm, searchtype)
     tsn
   }
   out <- laply(searchterm, fun)
+  class(out) <- "tsn"
   out
 }
