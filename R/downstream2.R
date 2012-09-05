@@ -9,34 +9,47 @@
 #' 		Order, Class, etc. 
 #' @author Scott Chamberlain {myrmecocystus@@gmail.com}
 #' @examples \dontrun{
-#' downstream2(114989) # getting families downstream from Strepsiptera
-#' downstream2(650497) # getting families downstream from Acridoidea
+#' downstream2(tsns = 650497) # getting families downstream from Acridoidea
+#' downstream2(tsns = 114989) # getting families downstream from Strepsiptera
+#' downstream2(tsns = 99208) # getting families downstream from Class Insecta
 #' }
 #' @export
 downstream2 <- function(tsns) {
+	lets <- c(LETTERS, paste(LETTERS, LETTERS, sep=""), 
+						paste(LETTERS, LETTERS, LETTERS, sep=""), 
+						paste(LETTERS, LETTERS, LETTERS, LETTERS, sep=""), 
+						paste(LETTERS, LETTERS, LETTERS, LETTERS, LETTERS, sep=""),
+						paste(LETTERS, LETTERS, LETTERS, LETTERS, LETTERS, LETTERS, sep=""),
+						paste(LETTERS, LETTERS, LETTERS, LETTERS, LETTERS, LETTERS, LETTERS, sep=""))
 	fam <- "not" 
+	notout <- data.frame(rankName = "")
 	out <- list()
 	while(fam == "not"){
-		temp <- ldply(tsns, gettaxonomicranknamefromtsn)
-		tt <- ldply(temp$tsn, gethierarchydownfromtsn)
-		names_ <- laply(split(tt, row.names(tt)), function(x) 
-			as.character(gettaxonomicranknamefromtsn(x$tsn)$rankName) 
-		)
-		tt$rankName <- names_
-		if(nrow(tt[tt$rankName == "Family", ]) > 0) out[[fam]] <- tt[tt$rankName == "Family", ]
-		if(nrow(tt[!tt$rankName == "Family", ]) > 0) {
-			notout <- tt[!tt$rankName == "Family", ]
-			notout <- notout[!notout %in% c("Subfamily","Tribe","Genus","Species","Subspecies"), ]
+		if(!nchar(as.character(notout$rankName[[1]])) > 0){
+			temp <- ldply(tsns, gettaxonomicranknamefromtsn)
 		} else
-		{ notout <- data.frame(rankName = "Family") }
+			{ temp <- notout }
+		tt <- ldply(temp$tsn, gethierarchydownfromtsn)
+		names_ <- ldply(split(tt, row.names(tt)), function(x) 
+			gettaxonomicranknamefromtsn(x$tsn)[,c("rankName","tsn")]) 
+		tt <- merge(tt[,-3], names_[,-1], by="tsn")
+		if(nrow(tt[tt$rankName == "Family", ]) > 0) out[[sample(lets, 1)]] <- tt[tt$rankName == "Family", ]
+		if(nrow(tt[!tt$rankName == "Family", ]) > 0) {
+			notout <- tt[!tt$rankName %in% c('Family','Subfamily','Tribe','Subtribe','Genus',
+				'Subgenus','Species','Subspecies','Variety','Infrakingdom','Division',
+				'Subdivision','Infradivision','Section','Subsection','Subvariety','Form',
+				'Subform','Race','Stirp','Morph','Aberration','Unspecified'
+			), ]
+		} else
+			{ notout <- data.frame(rankName = "Family") }
 		
 		if(all(notout$rankName == "Family")) { 
 			fam <- "fam"
 		} else
-		{ 
-			tsns <- tt$tsn
-			fam <- "not" 
-		}
+			{ 
+				tsns <- notout$tsn
+				fam <- "not" 
+			}
 	}
-	out
+	ldply(out)[,-1]
 }
