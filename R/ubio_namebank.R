@@ -28,7 +28,7 @@ ubio_namebank_search <- function(searchName = NULL, searchAuth = NULL, searchYea
 			compact(list('function' = 'namebank_search', searchName = searchName, searchAuth = searchAuth,
 							searchYear = searchYear, order = order,
 							sci = sci, vern = vern, keyCode = keyCode))
-		temp <- parsed_content(GET(url, query = args))$doc$children$results
+		temp <- content(GET(url, query = args))$doc$children$results
 		toget <- c("namebankID", "nameString", "fullNameString", "packageID", 
 							 "packageName", "basionymUnit", "rankID", "rankName")
 		temp2 <- lapply(toget, function(x) sapply(xpathApply(temp, paste("//", x, sep="")), xmlValue))
