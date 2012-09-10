@@ -183,3 +183,11 @@ head( ubio_namebank_search(searchName = 'Helianthus annuus', sci = 1, vern = 0)[
 out <- lapply(list('Helianthus debilis','Astragalus aduncus'), function(x) ubio_namebank_search(searchName = x, sci = 1, vern = 0))
 head( out[[2]][,-c(2,3)] ) # just Astragalus aduncus output
 ```
+
+*********
+# IUCN
+## Query the Red List Status
+```{r}
+ia <- iucn_summary("Panthera uncia")
+ia$status
+```
