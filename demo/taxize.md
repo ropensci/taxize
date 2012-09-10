@@ -5,6 +5,16 @@
 library(taxize)
 library(plyr)
 library(ape)
+library(XML)
+require(RCurl)
+```
+
+```
+## Loading required package: RCurl
+```
+
+```
+## Loading required package: bitops
 ```
 
 
@@ -131,17 +141,109 @@ classification(685566, ID = "tsn")
 ```
 
 
-## Get a TSN from a sepcies name
+## Get a TSN from a species name
 
 ```r
-get_tsn(searchterm = "Quercus_douglasii", searchtype = "sciname")
+tsn <- get_tsn(searchterm = "Quercus_douglasii", searchtype = "sciname")
+# use classification with get_tsn together:
+classification(tsn)
 ```
 
 ```
-##       1 
-## "19322" 
-## attr(,"class")
-## [1] "tsn"
+## $`1`
+##             rank             taxon    tsn
+## 1        Kingdom           Plantae  19322
+## 2     Subkingdom    Viridaeplantae 202422
+## 3   Infrakingdom      Streptophyta 846492
+## 4       Division      Tracheophyta 846494
+## 5    Subdivision   Spermatophytina 846496
+## 6  Infradivision      Angiospermae 846504
+## 7          Class     Magnoliopsida 846505
+## 8     Superorder           Rosanae  18063
+## 9          Order           Fagales 846548
+## 10        Family          Fagaceae  19273
+## 11         Genus           Quercus  19275
+## 12       Species Quercus douglasii  19276
+```
+
+
+*********
+
+# NCBI Taxonomy Browser
+## Get Unique Identifier
+
+```r
+uids <- get_uid(c("Chironomus riparius", "Chaetopteryx"))
+```
+
+
+## And retrieve classification
+
+```r
+cl <- classification(uids)
+cl
+```
+
+```
+## [[1]]
+##               ScientificName         Rank     UID
+## 1         cellular organisms      no rank  131567
+## 2                  Eukaryota superkingdom    2759
+## 3               Opisthokonta      no rank   33154
+## 4                    Metazoa      kingdom   33208
+## 5                  Eumetazoa      no rank    6072
+## 6                  Bilateria      no rank   33213
+## 7                  Coelomata      no rank   33316
+## 8                Protostomia      no rank   33317
+## 9                  Ecdysozoa      no rank 1206794
+## 10             Panarthropoda      no rank   88770
+## 11                Arthropoda       phylum    6656
+## 12               Mandibulata      no rank  197563
+## 13              Pancrustacea      no rank  197562
+## 14                  Hexapoda   superclass    6960
+## 15                   Insecta        class   50557
+## 16                Dicondylia      no rank   85512
+## 17                 Pterygota      no rank    7496
+## 18                  Neoptera     subclass   33340
+## 19             Endopterygota   infraclass   33392
+## 20                   Diptera        order    7147
+## 21                Nematocera     suborder    7148
+## 22              Culicimorpha   infraorder   43786
+## 23             Chironomoidea  superfamily   41828
+## 24              Chironomidae       family    7149
+## 25              Chironominae    subfamily   54970
+## 26               Chironomini        tribe   72530
+## 27                Chironomus        genus    7150
+## 28 Chironomus incertae sedis      no rank 1165752
+## 
+## [[2]]
+##        ScientificName         Rank     UID
+## 1  cellular organisms      no rank  131567
+## 2           Eukaryota superkingdom    2759
+## 3        Opisthokonta      no rank   33154
+## 4             Metazoa      kingdom   33208
+## 5           Eumetazoa      no rank    6072
+## 6           Bilateria      no rank   33213
+## 7           Coelomata      no rank   33316
+## 8         Protostomia      no rank   33317
+## 9           Ecdysozoa      no rank 1206794
+## 10      Panarthropoda      no rank   88770
+## 11         Arthropoda       phylum    6656
+## 12        Mandibulata      no rank  197563
+## 13       Pancrustacea      no rank  197562
+## 14           Hexapoda   superclass    6960
+## 15            Insecta        class   50557
+## 16         Dicondylia      no rank   85512
+## 17          Pterygota      no rank    7496
+## 18           Neoptera     subclass   33340
+## 19      Endopterygota   infraclass   33392
+## 20   Amphiesmenoptera   superorder   85604
+## 21        Trichoptera        order   30263
+## 22      Integripalpia     suborder   93875
+## 23     Limnephiloidea  superfamily   41033
+## 24      Limnephilidae       family   50645
+## 25      Limnephilinae    subfamily  177669
+## 26    Chaetopterygini        tribe  492564
 ```
 
 
@@ -393,13 +495,7 @@ head(tp_getacceptednames(id = 25503923))
 ```
 
 ```
-##                    variable             value category
-## 1                    NameId          25503923  Synonym
-## 2            ScientificName       Aira pumila  Synonym
-## 3 ScientificNameWithAuthors Aira pumila Pursh  Synonym
-## 4                    Family           Poaceae  Synonym
-## 5                    NameId          25509881 Accepted
-## 6            ScientificName         Poa annua Accepted
+## Error: subscript out of bounds
 ```
 
 ```r
@@ -411,13 +507,7 @@ head(tp_getsynonyms(id = 25509881))
 ```
 
 ```
-##                    variable             value category
-## 1                    NameId          25503923  Synonym
-## 2            ScientificName       Aira pumila  Synonym
-## 3 ScientificNameWithAuthors Aira pumila Pursh  Synonym
-## 4                    Family           Poaceae  Synonym
-## 5                    NameId          25509881 Accepted
-## 6            ScientificName         Poa annua Accepted
+## Error: subscript out of bounds
 ```
 
 

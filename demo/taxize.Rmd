@@ -1,7 +1,7 @@
 # Install taxize (uncomment to run)
 ```{r}
 # install_github("taxize_", "ropensci")
-library(taxize); library(plyr); library(ape)
+library(taxize); library(plyr); library(ape); library(XML); require(RCurl)
 ```
 
 *********
@@ -59,9 +59,25 @@ head( parse_itis(doc) )
 classification(685566, ID="tsn")
 ```
 
-## Get a TSN from a sepcies name
+## Get a TSN from a species name
 ```{r}
-get_tsn(searchterm = "Quercus_douglasii", searchtype = "sciname")
+tsn <- get_tsn(searchterm = "Quercus_douglasii", searchtype = "sciname")
+# use classification with get_tsn together:
+classification(tsn)
+```
+
+*********
+
+# NCBI Taxonomy Browser
+## Get Unique Identifier
+```{r}
+uids <- get_uid(c("Chironomus riparius", "Chaetopteryx"))
+```
+
+## And retrieve classification
+```{r}
+cl <- classification(uids)
+cl
 ```
 
 
