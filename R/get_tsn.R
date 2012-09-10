@@ -32,6 +32,9 @@ get_tsn <- function (searchterm, searchtype)
     # should return NA if spec not found
     if (length(tsn) == 0)
       tsn <- NA
+    if (length(tsn) > 1)
+      warning("More then one TSN found for species '", x, "'. \nFirst TSN used!")
+      tsn <- tsn[1]
     tsn
   }
   out <- laply(searchterm, fun)
