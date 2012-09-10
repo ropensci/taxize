@@ -31,7 +31,7 @@ get_phylomatic_tree(mytree, 'TRUE', 'GET', 'new', 'FALSE')
 ```
 
 ### Get a tree in newick format, read using ape::read.tree, and plot
-```{r}
+```{r phylog1 }
 tree <- get_phylomatic_tree(mytree, 'TRUE', 'POST', 'new', 'FALSE')
 treephylo <- read.tree(text = tree)
 plot(treephylo)
@@ -56,12 +56,12 @@ head( parse_itis(doc) )
 
 ## Show higher taxonomy for a given TSN
 ```{r}
-classification(685566)
+classification(685566, ID="tsn")
 ```
 
 ## Get a TSN from a sepcies name
 ```{r}
-get_tsn("Quercus_douglasii", "sciname", by_="name")
+get_tsn(searchterm = "Quercus_douglasii", searchtype = "sciname")
 ```
 
 
@@ -69,7 +69,7 @@ get_tsn("Quercus_douglasii", "sciname", by_="name")
 
 # Using ITIS and Phylomatic together 
 ## Use ITIS and get_phymat_format to format a string for each species to be submitted to Phylomatic
-```{r}
+```{r phylog2}
 dat_ <- laply(list("36616", "19322", "183327"), get_phymat_format, format='rsubmit')
 dat_
 dat_mine <- paste(dat_, collapse="%0D%0A") # collapse and replace \n's
@@ -82,19 +82,19 @@ plot(tree)
 ## A somewhat realistic workflow
 ### User's species list 
 ```{r}
-splist <- c("annona_cherimola", 'annona_muricata', "quercus_robur", 
-						"shorea_robusta", "pandanus_patina", "oryza_sativa", "durio_zibethinus")
+splist <- c("annona cherimola", 'annona muricata', "quercus robur", 
+						"shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")
 ```
 
 ### Get TSN code for each species
 ```{r}
-tsns <- laply(splist, get_tsn, searchtype = "sciname", by_ = "name")
+tsns <- get_tsn(splist, "sciname")
 tsns
 ```
 
 ### Get Phylomatic formatted strings for each species
 ```{r}
-dat_ <- laply(tsns, get_phymat_format, format='rsubmit')
+dat_ <- laply(tsns, get_phymat_format, format = 'rsubmit')
 dat_
 ```
 
@@ -105,7 +105,7 @@ tree
 ```
 
 ### Plot tree, etc. 
-```{r}
+```{r phylog3}
 plot(tree)
 ```
 

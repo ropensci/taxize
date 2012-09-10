@@ -76,7 +76,7 @@ treephylo <- read.tree(text = tree)
 plot(treephylo)
 ```
 
-![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6.png) 
+![plot of chunk phylog1](figure/phylog1.png) 
 
 
 *********
@@ -113,22 +113,35 @@ head(parse_itis(doc))
 ## Show higher taxonomy for a given TSN
 
 ```r
-classification(685566)
+classification(685566, ID = "tsn")
 ```
 
 ```
-## Error: Must specify Identifier!
+## [[1]]
+##        rank            taxon    tsn
+## 1   Kingdom         Animalia 685566
+## 2    Phylum         Chordata 202423
+## 3 Subphylum       Vertebrata 158852
+## 4     Class         Amphibia 331030
+## 5     Order          Caudata 173420
+## 6    Family   Plethodontidae 173584
+## 7 Subfamily   Plethodontinae 173631
+## 8     Genus        Plethodon 550197
+## 9   Species Plethodon asupak 173648
 ```
 
 
 ## Get a TSN from a sepcies name
 
 ```r
-get_tsn("Quercus_douglasii", "sciname", by_ = "name")
+get_tsn(searchterm = "Quercus_douglasii", searchtype = "sciname")
 ```
 
 ```
-## Error: unused argument(s) (by_ = "name")
+##       1 
+## "19322" 
+## attr(,"class")
+## [1] "tsn"
 ```
 
 
@@ -146,7 +159,7 @@ dat_
 ```
 ## [1] "asteraceae%2Fhelianthus%2Fhelianthus_annuus"
 ## [2] "fagaceae%2Fquercus%2Fquercus_douglasii"     
-## [3] "pinaceae%2Fpinus%2Fpinus_contorta"          
+## [3] "pinaceae%2Fpinus%2Fpinus_contorta"
 ```
 
 ```r
@@ -179,26 +192,32 @@ tree
 plot(tree)
 ```
 
-![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11.png) 
+![plot of chunk phylog2](figure/phylog2.png) 
 
 
 ## A somewhat realistic workflow
 ### User's species list 
 
 ```r
-splist <- c("annona_cherimola", "annona_muricata", "quercus_robur", "shorea_robusta", 
-    "pandanus_patina", "oryza_sativa", "durio_zibethinus")
+splist <- c("annona cherimola", "annona muricata", "quercus robur", "shorea robusta", 
+    "pandanus patina", "oryza sativa", "durio zibethinus")
 ```
 
 
 ### Get TSN code for each species
 
 ```r
-tsns <- laply(splist, get_tsn, searchtype = "sciname", by_ = "name")
+tsns <- get_tsn(splist, "sciname")
 ```
 
 ```
-## Error: unused argument(s) (by_ = "name")
+## Warning: More then one TSN found for species 'quercus robur'.  First TSN
+## used!
+```
+
+```
+## Warning: More then one TSN found for species 'oryza sativa'.  First TSN
+## used!
 ```
 
 ```r
@@ -206,12 +225,9 @@ tsns
 ```
 
 ```
-##  [1] 112752 113264 113844 113877 113918 113996 114289 114413 114458 114486
-## [11] 114496 114654 114958 114967 152865 153658 154025 154044 154056 154248
-## [21] 154344 610668 650495 650496 650497 650498 650499 657459 657460 657461
-## [31] 678306 678308 709258 709259 709260 709261 709262 709263 709264 709265
-## [41] 717341
-## 181 Levels: 118840 121227 121286 121292 121296 121299 121304 ... 152853
+## [1] "506198" "18098"  "19405"  "506787" "507376" "41976"  "506099"
+## attr(,"class")
+## [1] "tsn"
 ```
 
 
@@ -223,47 +239,13 @@ dat_
 ```
 
 ```
-##  [1] "epimetopidae%2Fgeoryssidae%2Fhelophoridae"         
-##  [2] "agyrtidae%2Fhydraenidae%2Fleiodidae"               
-##  [3] "acanthocnemidae%2Fattalomimidae%2Fchaetosomatidae" 
-##  [4] "artematopodidae%2Fbrachypsectridae%2Fcantharidae"  
-##  [5] "dascillidae%2Frhipiceridae%2FNA"                   
-##  [6] "byrrhidae%2Fcallirhipidae%2Fchelonariidae"         
-##  [7] "agapythidae%2Falexiidae%2Fbiphyllidae"             
-##  [8] "aderidae%2Fanthicidae%2Farcheocrypticidae"         
-##  [9] "anobiidae%2Fbostrichidae%2Fdermestidae"            
-## [10] "belohinidae%2Fceratocanthidae%2Fdiphyllostomatidae"
-## [11] "cerambycidae%2Fchrysomelidae%2Fmegalopodidae"      
-## [12] "anthribidae%2Fattelabidae%2Fbelidae"               
-## [13] "histeridae%2Fsphaeritidae%2Fsynteliidae"           
-## [14] "buprestidae%2Fschizopodidae%2FNA"                  
-## [15] "braconidae%2Feoichneumonidae%2Fichneumonidae"      
-## [16] "agaonidae%2Faphelinidae%2Fchalcididae"             
-## [17] "archaeocynipidae%2Faustrocynipidae%2Fcynipidae"    
-## [18] "aulacidae%2Fevaniidae%2Fgasteruptiidae"            
-## [19] "austroniidae%2Fdiapriidae%2Fheloridae"             
-## [20] "bradynobaenidae%2Ffalsiformicidae%2Fformicidae"    
-## [21] "ampulicidae%2Fandrenidae%2Fangarosphecidae"        
-## [22] "ceraphronidae%2Fmaimetshidae%2Fmegaspilidae"       
-## [23] "chorotypidae%2Fepisactidae%2Feumastacidae"         
-## [24] "pneumoridae%2FNA%2FNA"                             
-## [25] "acrididae%2Fcharilaidae%2Fdericorythidae"          
-## [26] "tetrigidae%2FNA%2FNA"                              
-## [27] "cylindrachetidae%2Fripipterygidae%2Ftridactylidae" 
-## [28] "pyrgomorphidae%2FNA%2FNA"                          
-## [29] "tanaoceridae%2FNA%2FNA"                            
-## [30] "trigonopterygidae%2Fxyronotidae%2FNA"              
-## [31] "clambidae%2Fdecliniidae%2Feucinetidae"             
-## [32] "lymexylidae%2FNA%2FNA"                             
-## [33] "megalyridae%2FNA%2FNA"                             
-## [34] "serphitidae%2FNA%2FNA"                             
-## [35] "mymarommatidae%2FNA%2FNA"                          
-## [36] "stephanidae%2FNA%2FNA"                             
-## [37] "platygastridae%2Fscelionidae%2FNA"                 
-## [38] "trigonalidae%2FNA%2FNA"                            
-## [39] "bethylonymidae%2FNA%2FNA"                          
-## [40] "bethylidae%2Fchrysididae%2Fdryinidae"              
-## [41] "derodontidae%2FNA%2FNA"                            
+## [1] "annonaceae%2Fannona%2Fannona_cherimola"    
+## [2] "annonaceae%2Fannona%2Fannona_muricata"     
+## [3] "fagaceae%2Fquercus%2Fquercus_robur"        
+## [4] "dipterocarpaceae%2Fshorea%2Fshorea_robusta"
+## [5] "pandanaceae%2Fpandanus%2Fpandanus_patina"  
+## [6] "poaceae%2Foryza%2Foryza_sativa"            
+## [7] "malvaceae%2Fdurio%2Fdurio_zibethinus"
 ```
 
 
@@ -275,7 +257,16 @@ tree
 ```
 
 ```
-## NULL
+## 
+## Phylogenetic tree with 7 tips and 6 internal nodes.
+## 
+## Tip labels:
+## 	annona_cherimola, annona_muricata, quercus_robur, shorea_robusta, durio_zibethinus, pandanus_patina, ...
+## 	Node labels:
+## [1] "euphyllophyte"       "annona"              "poales_to_asterales"
+## [4] ""                    ""                    ""                   
+## 
+## Rooted; includes branch lengths.
 ```
 
 
@@ -285,25 +276,7 @@ tree
 plot(tree)
 ```
 
-```
-## Warning: no non-missing arguments to min; returning Inf
-```
-
-```
-## Warning: no non-missing arguments to max; returning -Inf
-```
-
-```
-## Warning: no non-missing arguments to min; returning Inf
-```
-
-```
-## Warning: no non-missing arguments to max; returning -Inf
-```
-
-```
-## Error: need finite 'xlim' values
-```
+![plot of chunk phylog3](figure/phylog3.png) 
 
 
 
@@ -416,7 +389,7 @@ head(tp_getacceptednames(id = 25503923))
 ```
 
 ```
-## http://services.tropicos.org/Name/25503923/AcceptedNames?apikey=f3e499d4-1519-42c9-afd1-685a16882f5a&format=json
+## http://services.tropicos.org/Name/25503923/AcceptedNames?apikey=e63f602b-f212-4c53-964c-94e70fb2707e&format=json
 ```
 
 ```
@@ -434,7 +407,7 @@ head(tp_getsynonyms(id = 25509881))
 ```
 
 ```
-## http://services.tropicos.org/Name/25509881/Synonyms?apikey=f3e499d4-1519-42c9-afd1-685a16882f5a&format=json
+## http://services.tropicos.org/Name/25509881/Synonyms?apikey=e63f602b-f212-4c53-964c-94e70fb2707e&format=json
 ```
 
 ```
@@ -457,14 +430,7 @@ ubio_namebank_search(searchName = "elephant", sci = 1, vern = 0)
 ```
 
 ```
-## Warning: text_content() deprecated. Use parsed_content(x, as = 'parsed')
-```
-
-```
-##   namebankID               nameString           fullNameString packageID
-## 1    6938660 Q2VyeWxvbiBlbGVwaGFudA== Q2VyeWxvbiBlbGVwaGFudA==        80
-##   packageName basionymUnit rankID rankName
-## 1 Cerylonidae      6938660     24  species
+## Error: $ operator is invalid for atomic vectors
 ```
 
 ```r
@@ -473,17 +439,7 @@ head(ubio_namebank_search(searchName = "Helianthus annuus", sci = 1, vern = 0)[,
 ```
 
 ```
-## Warning: text_content() deprecated. Use parsed_content(x, as = 'parsed')
-```
-
-```
-##   namebankID packageID packageName basionymUnit rankID   rankName
-## 1    2658020       598   Asterales            0     24    species
-## 2     462478       598   Asterales            0     24    species
-## 3    9073865      5634  Asteraceae            0    444         fo
-## 4    9073864      5634  Asteraceae            0    444         fo
-## 5    8624412      5634  Asteraceae      8722942    444         fo
-## 6    8291505      5634  Asteraceae            0    265 subspecies
+## Error: $ operator is invalid for atomic vectors
 ```
 
 ```r
@@ -492,11 +448,7 @@ out <- lapply(list("Helianthus debilis", "Astragalus aduncus"), function(x) ubio
 ```
 
 ```
-## Warning: text_content() deprecated. Use parsed_content(x, as = 'parsed')
-```
-
-```
-## Warning: text_content() deprecated. Use parsed_content(x, as = 'parsed')
+## Error: $ operator is invalid for atomic vectors
 ```
 
 ```r
@@ -504,12 +456,6 @@ head(out[[2]][, -c(2, 3)])  # just Astragalus aduncus output
 ```
 
 ```
-##   namebankID packageID packageName basionymUnit rankID rankName
-## 1    2843601       663     Rosales            0     24  species
-## 2    9261962      5780    Fabaceae            0    261       SP
-## 3    9261999      5780    Fabaceae            0    261       SP
-## 4    9261975      5780    Fabaceae            0    261       SP
-## 5     704148       663     Rosales            0     24  species
-## 6    8374424      5780    Fabaceae       722833    444       fo
+## Error: incorrect number of dimensions
 ```
 
