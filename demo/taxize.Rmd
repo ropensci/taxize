@@ -185,9 +185,14 @@ head( out[[2]][,-c(2,3)] ) # just Astragalus aduncus output
 ```
 
 *********
-# IUCN
-## Query the Red List Status
+# IUCN Red List
+## Query the Red List API
 ```{r}
-ia <- iucn_summary("Panthera uncia")
-ia$status
+ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
 ```
+
+### Extract Status
+```{r}
+laply(ia, function(x) x$status)
+```
+
