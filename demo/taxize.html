@@ -455,35 +455,29 @@ tree
 <pre><code class="r">tsns &lt;- get_tsn(splist, &quot;sciname&quot;)
 </code></pre>
 
-<pre><code>## Warning: More then one TSN found for species &#39;quercus robur&#39;.  First TSN
-## used!
-</code></pre>
-
-<pre><code>## Warning: More then one TSN found for species &#39;oryza sativa&#39;.  First TSN
-## used!
+<pre><code>## Error: Results must have the same dimensions.
 </code></pre>
 
 <pre><code class="r">tsns
 </code></pre>
 
-<pre><code>## [1] &quot;506198&quot; &quot;18098&quot;  &quot;19405&quot;  &quot;506787&quot; &quot;507376&quot; &quot;41976&quot;  &quot;506099&quot;
-## attr(,&quot;class&quot;)
-## [1] &quot;tsn&quot;
+<pre><code>## Error: object &#39;tsns&#39; not found
 </code></pre>
 
 <h3>Get Phylomatic formatted strings for each species</h3>
 
 <pre><code class="r">dat_ &lt;- laply(tsns, get_phymat_format, format = &quot;rsubmit&quot;)
-dat_
 </code></pre>
 
-<pre><code>## [1] &quot;annonaceae%2Fannona%2Fannona_cherimola&quot;    
-## [2] &quot;annonaceae%2Fannona%2Fannona_muricata&quot;     
-## [3] &quot;fagaceae%2Fquercus%2Fquercus_robur&quot;        
-## [4] &quot;dipterocarpaceae%2Fshorea%2Fshorea_robusta&quot;
-## [5] &quot;pandanaceae%2Fpandanus%2Fpandanus_patina&quot;  
-## [6] &quot;poaceae%2Foryza%2Foryza_sativa&quot;            
-## [7] &quot;malvaceae%2Fdurio%2Fdurio_zibethinus&quot;
+<pre><code>## Error: object &#39;tsns&#39; not found
+</code></pre>
+
+<pre><code class="r">dat_
+</code></pre>
+
+<pre><code>## [1] &quot;asteraceae%2Fhelianthus%2Fhelianthus_annuus&quot;
+## [2] &quot;fagaceae%2Fquercus%2Fquercus_douglasii&quot;     
+## [3] &quot;pinaceae%2Fpinus%2Fpinus_contorta&quot;
 </code></pre>
 
 <h3>Send strings to Phylomatic and return newick tree</h3>
@@ -493,13 +487,12 @@ tree
 </code></pre>
 
 <pre><code>## 
-## Phylogenetic tree with 7 tips and 6 internal nodes.
+## Phylogenetic tree with 3 tips and 2 internal nodes.
 ## 
 ## Tip labels:
-##  annona_cherimola, annona_muricata, quercus_robur, shorea_robusta, durio_zibethinus, pandanus_patina, ...
+## [1] &quot;helianthus_annuus&quot; &quot;quercus_douglasii&quot; &quot;pinus_contorta&quot;   
 ##  Node labels:
-## [1] &quot;euphyllophyte&quot;       &quot;annona&quot;              &quot;poales_to_asterales&quot;
-## [4] &quot;&quot;                    &quot;&quot;                    &quot;&quot;                   
+## [1] &quot;euphyllophyte&quot; &quot;&quot;             
 ## 
 ## Rooted; includes branch lengths.
 </code></pre>
@@ -509,7 +502,7 @@ tree
 <pre><code class="r">plot(tree)
 </code></pre>
 
-<p><img src="data:image/png;base64,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" alt="plot of chunk phylog3"/> </p>
+<p><img src="data:image/png;base64,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" alt="plot of chunk phylog3"/> </p>
 
 <hr/>
 
@@ -613,7 +606,13 @@ outdf[1:2, ]
 <pre><code>## http://services.tropicos.org/Name/25503923/AcceptedNames?apikey=e63f602b-f212-4c53-964c-94e70fb2707e&amp;format=json
 </code></pre>
 
-<pre><code>## Error: subscript out of bounds
+<pre><code>##                    variable             value category
+## 1                    NameId          25503923  Synonym
+## 2            ScientificName       Aira pumila  Synonym
+## 3 ScientificNameWithAuthors Aira pumila Pursh  Synonym
+## 4                    Family           Poaceae  Synonym
+## 5                    NameId          25509881 Accepted
+## 6            ScientificName         Poa annua Accepted
 </code></pre>
 
 <pre><code class="r">head(tp_getsynonyms(id = 25509881))
@@ -622,7 +621,13 @@ outdf[1:2, ]
 <pre><code>## http://services.tropicos.org/Name/25509881/Synonyms?apikey=e63f602b-f212-4c53-964c-94e70fb2707e&amp;format=json
 </code></pre>
 
-<pre><code>## Error: subscript out of bounds
+<pre><code>##                    variable             value category
+## 1                    NameId          25503923  Synonym
+## 2            ScientificName       Aira pumila  Synonym
+## 3 ScientificNameWithAuthors Aira pumila Pursh  Synonym
+## 4                    Family           Poaceae  Synonym
+## 5                    NameId          25509881 Accepted
+## 6            ScientificName         Poa annua Accepted
 </code></pre>
 
 <hr/>
@@ -634,27 +639,54 @@ outdf[1:2, ]
 <pre><code class="r">ubio_namebank_search(searchName = &quot;elephant&quot;, sci = 1, vern = 0)
 </code></pre>
 
-<pre><code>## Error: $ operator is invalid for atomic vectors
+<pre><code>##   namebankID               nameString           fullNameString packageID
+## 1    6938660 Q2VyeWxvbiBlbGVwaGFudA== Q2VyeWxvbiBlbGVwaGFudA==        80
+##   packageName basionymUnit rankID rankName
+## 1 Cerylonidae      6938660     24  species
 </code></pre>
 
 <pre><code class="r">head(ubio_namebank_search(searchName = &quot;Helianthus annuus&quot;, sci = 1, vern = 0)[, 
     -c(2, 3)])
 </code></pre>
 
-<pre><code>## Error: $ operator is invalid for atomic vectors
+<pre><code>##   namebankID packageID packageName basionymUnit rankID   rankName
+## 1    2658020       598   Asterales            0     24    species
+## 2     462478       598   Asterales            0     24    species
+## 3    9073865      5634  Asteraceae            0    444         fo
+## 4    9073864      5634  Asteraceae            0    444         fo
+## 5    8624412      5634  Asteraceae      8722942    444         fo
+## 6    8291505      5634  Asteraceae            0    265 subspecies
 </code></pre>
 
 <pre><code class="r">out &lt;- lapply(list(&quot;Helianthus debilis&quot;, &quot;Astragalus aduncus&quot;), function(x) ubio_namebank_search(searchName = x, 
     sci = 1, vern = 0))
+head(out[[2]][, -c(2, 3)])  # just Astragalus aduncus output
 </code></pre>
 
-<pre><code>## Error: $ operator is invalid for atomic vectors
+<pre><code>##   namebankID packageID packageName basionymUnit rankID rankName
+## 1    2843601       663     Rosales            0     24  species
+## 2    9261962      5780    Fabaceae            0    261       SP
+## 3    9261999      5780    Fabaceae            0    261       SP
+## 4    9261975      5780    Fabaceae            0    261       SP
+## 5     704148       663     Rosales            0     24  species
+## 6    8374424      5780    Fabaceae       722833    444       fo
 </code></pre>
 
-<pre><code class="r">head(out[[2]][, -c(2, 3)])  # just Astragalus aduncus output
+<hr/>
+
+<h1>IUCN Red List</h1>
+
+<h2>Query the Red List API</h2>
+
+<pre><code class="r">ia &lt;- iucn_summary(c(&quot;Panthera uncia&quot;, &quot;Lynx lynx&quot;))
 </code></pre>
 
-<pre><code>## Error: incorrect number of dimensions
+<h3>Extract Status</h3>
+
+<pre><code class="r">laply(ia, function(x) x$status)
+</code></pre>
+
+<pre><code>## [1] &quot;EN&quot; &quot;LC&quot;
 </code></pre>
 
 </body>

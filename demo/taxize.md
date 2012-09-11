@@ -313,13 +313,7 @@ tsns <- get_tsn(splist, "sciname")
 ```
 
 ```
-## Warning: More then one TSN found for species 'quercus robur'.  First TSN
-## used!
-```
-
-```
-## Warning: More then one TSN found for species 'oryza sativa'.  First TSN
-## used!
+## Error: Results must have the same dimensions.
 ```
 
 ```r
@@ -327,9 +321,7 @@ tsns
 ```
 
 ```
-## [1] "506198" "18098"  "19405"  "506787" "507376" "41976"  "506099"
-## attr(,"class")
-## [1] "tsn"
+## Error: object 'tsns' not found
 ```
 
 
@@ -337,17 +329,20 @@ tsns
 
 ```r
 dat_ <- laply(tsns, get_phymat_format, format = "rsubmit")
+```
+
+```
+## Error: object 'tsns' not found
+```
+
+```r
 dat_
 ```
 
 ```
-## [1] "annonaceae%2Fannona%2Fannona_cherimola"    
-## [2] "annonaceae%2Fannona%2Fannona_muricata"     
-## [3] "fagaceae%2Fquercus%2Fquercus_robur"        
-## [4] "dipterocarpaceae%2Fshorea%2Fshorea_robusta"
-## [5] "pandanaceae%2Fpandanus%2Fpandanus_patina"  
-## [6] "poaceae%2Foryza%2Foryza_sativa"            
-## [7] "malvaceae%2Fdurio%2Fdurio_zibethinus"
+## [1] "asteraceae%2Fhelianthus%2Fhelianthus_annuus"
+## [2] "fagaceae%2Fquercus%2Fquercus_douglasii"     
+## [3] "pinaceae%2Fpinus%2Fpinus_contorta"
 ```
 
 
@@ -360,13 +355,12 @@ tree
 
 ```
 ## 
-## Phylogenetic tree with 7 tips and 6 internal nodes.
+## Phylogenetic tree with 3 tips and 2 internal nodes.
 ## 
 ## Tip labels:
-## 	annona_cherimola, annona_muricata, quercus_robur, shorea_robusta, durio_zibethinus, pandanus_patina, ...
+## [1] "helianthus_annuus" "quercus_douglasii" "pinus_contorta"   
 ## 	Node labels:
-## [1] "euphyllophyte"       "annona"              "poales_to_asterales"
-## [4] ""                    ""                    ""                   
+## [1] "euphyllophyte" ""             
 ## 
 ## Rooted; includes branch lengths.
 ```
@@ -495,7 +489,13 @@ head(tp_getacceptednames(id = 25503923))
 ```
 
 ```
-## Error: subscript out of bounds
+##                    variable             value category
+## 1                    NameId          25503923  Synonym
+## 2            ScientificName       Aira pumila  Synonym
+## 3 ScientificNameWithAuthors Aira pumila Pursh  Synonym
+## 4                    Family           Poaceae  Synonym
+## 5                    NameId          25509881 Accepted
+## 6            ScientificName         Poa annua Accepted
 ```
 
 ```r
@@ -507,7 +507,13 @@ head(tp_getsynonyms(id = 25509881))
 ```
 
 ```
-## Error: subscript out of bounds
+##                    variable             value category
+## 1                    NameId          25503923  Synonym
+## 2            ScientificName       Aira pumila  Synonym
+## 3 ScientificNameWithAuthors Aira pumila Pursh  Synonym
+## 4                    Family           Poaceae  Synonym
+## 5                    NameId          25509881 Accepted
+## 6            ScientificName         Poa annua Accepted
 ```
 
 
@@ -520,7 +526,10 @@ ubio_namebank_search(searchName = "elephant", sci = 1, vern = 0)
 ```
 
 ```
-## Error: $ operator is invalid for atomic vectors
+##   namebankID               nameString           fullNameString packageID
+## 1    6938660 Q2VyeWxvbiBlbGVwaGFudA== Q2VyeWxvbiBlbGVwaGFudA==        80
+##   packageName basionymUnit rankID rankName
+## 1 Cerylonidae      6938660     24  species
 ```
 
 ```r
@@ -529,23 +538,49 @@ head(ubio_namebank_search(searchName = "Helianthus annuus", sci = 1, vern = 0)[,
 ```
 
 ```
-## Error: $ operator is invalid for atomic vectors
+##   namebankID packageID packageName basionymUnit rankID   rankName
+## 1    2658020       598   Asterales            0     24    species
+## 2     462478       598   Asterales            0     24    species
+## 3    9073865      5634  Asteraceae            0    444         fo
+## 4    9073864      5634  Asteraceae            0    444         fo
+## 5    8624412      5634  Asteraceae      8722942    444         fo
+## 6    8291505      5634  Asteraceae            0    265 subspecies
 ```
 
 ```r
 out <- lapply(list("Helianthus debilis", "Astragalus aduncus"), function(x) ubio_namebank_search(searchName = x, 
     sci = 1, vern = 0))
-```
-
-```
-## Error: $ operator is invalid for atomic vectors
-```
-
-```r
 head(out[[2]][, -c(2, 3)])  # just Astragalus aduncus output
 ```
 
 ```
-## Error: incorrect number of dimensions
+##   namebankID packageID packageName basionymUnit rankID rankName
+## 1    2843601       663     Rosales            0     24  species
+## 2    9261962      5780    Fabaceae            0    261       SP
+## 3    9261999      5780    Fabaceae            0    261       SP
+## 4    9261975      5780    Fabaceae            0    261       SP
+## 5     704148       663     Rosales            0     24  species
+## 6    8374424      5780    Fabaceae       722833    444       fo
 ```
+
+
+*********
+# IUCN Red List
+## Query the Red List API
+
+```r
+ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
+```
+
+
+### Extract Status
+
+```r
+laply(ia, function(x) x$status)
+```
+
+```
+## [1] "EN" "LC"
+```
+
 
