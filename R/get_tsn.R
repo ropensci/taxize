@@ -7,7 +7,9 @@
 #' @param searchterm A vector of common or scientific names.
 #' @param searchtype One of 'sciname', 'anymatch', 'comnamebeg', 'comname', 
 #'    'comnameend'.
-#' @return A vector of taxonomic serial numbers (TSN). If a species is not found NA. See functions in \code{ritis}.
+#' @return A vector of taxonomic serial numbers (TSN). If a species is not found NA. 
+#' If more than one TSN is found the function asks for user input.
+#' See functions in \code{ritis}.
 #' @export
 #' @examples \dontrun{
 #' get_tsn("Quercus douglasii", "sciname")
@@ -15,6 +17,9 @@
 #' get_tsn(searchterm="polar bear", searchtype="comname")
 #' get_tsn(c("Chironomus riparius","Quercus douglasii"), "sciname")
 #' get_tsn(c("aa aa", "Chironomus riparius"), searchtype="sciname")
+#' splist <- c("annona cherimola", 'annona muricata', "quercus robur", 
+#' "shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")
+#' get_tsn(splist,"sciname")
 #' }
 get_tsn <- function (searchterm, searchtype) 
 {
@@ -32,6 +37,19 @@ get_tsn <- function (searchterm, searchtype)
     # should return NA if spec not found
     if (length(tsn) == 0)
       tsn <- NA
+    if (length(tsn) > 1){
+      cat("\n
+          More than one TSN found for species '", x, "'!\n
+          Enter rowname of species to take:\n") # prompt
+      print(tsn_df)
+      take <- scan(n = 1, quiet = TRUE)
+      if(take %in% seq_along(nrow(tsn_df))){
+        cat("Input accepted, took species '", as.character(tsn_df$combinedname[take]), "'\n")
+      } else {
+        stop("Non valid input!")
+      }
+      tsn <- tsn[take]
+    }
     tsn
   }
   out <- laply(searchterm, fun)
