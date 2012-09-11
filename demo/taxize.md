@@ -301,8 +301,8 @@ plot(tree)
 ### User's species list 
 
 ```r
-splist <- c("annona cherimola", "annona muricata", "quercus robur", "shorea robusta", 
-    "pandanus patina", "oryza sativa", "durio zibethinus")
+splist <- c("annona cherimola", "annona muricata", "shorea robusta", "pandanus patina", 
+    "durio zibethinus")
 ```
 
 
@@ -310,18 +310,13 @@ splist <- c("annona cherimola", "annona muricata", "quercus robur", "shorea robu
 
 ```r
 tsns <- get_tsn(splist, "sciname")
-```
-
-```
-## Error: Results must have the same dimensions.
-```
-
-```r
 tsns
 ```
 
 ```
-## Error: object 'tsns' not found
+## [1] "506198" "18098"  "506787" "507376" "506099"
+## attr(,"class")
+## [1] "tsn"
 ```
 
 
@@ -329,20 +324,15 @@ tsns
 
 ```r
 dat_ <- laply(tsns, get_phymat_format, format = "rsubmit")
-```
-
-```
-## Error: object 'tsns' not found
-```
-
-```r
 dat_
 ```
 
 ```
-## [1] "asteraceae%2Fhelianthus%2Fhelianthus_annuus"
-## [2] "fagaceae%2Fquercus%2Fquercus_douglasii"     
-## [3] "pinaceae%2Fpinus%2Fpinus_contorta"
+## [1] "annonaceae%2Fannona%2Fannona_cherimola"    
+## [2] "annonaceae%2Fannona%2Fannona_muricata"     
+## [3] "dipterocarpaceae%2Fshorea%2Fshorea_robusta"
+## [4] "pandanaceae%2Fpandanus%2Fpandanus_patina"  
+## [5] "malvaceae%2Fdurio%2Fdurio_zibethinus"
 ```
 
 
@@ -355,12 +345,14 @@ tree
 
 ```
 ## 
-## Phylogenetic tree with 3 tips and 2 internal nodes.
+## Phylogenetic tree with 5 tips and 4 internal nodes.
 ## 
 ## Tip labels:
-## [1] "helianthus_annuus" "quercus_douglasii" "pinus_contorta"   
+## [1] "annona_cherimola" "annona_muricata"  "shorea_robusta"  
+## [4] "durio_zibethinus" "pandanus_patina" 
 ## 	Node labels:
-## [1] "euphyllophyte" ""             
+## [1] "euphyllophyte"       "annona"              "poales_to_asterales"
+## [4] ""                   
 ## 
 ## Rooted; includes branch lengths.
 ```
