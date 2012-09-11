@@ -98,8 +98,8 @@ plot(tree)
 ## A somewhat realistic workflow
 ### User's species list 
 ```{r}
-splist <- c("annona cherimola", 'annona muricata', "quercus robur", 
-						"shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")
+splist <- c("annona cherimola", 'annona muricata', 
+						"shorea robusta", "pandanus patina", "durio zibethinus")
 ```
 
 ### Get TSN code for each species
