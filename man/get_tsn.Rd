@@ -13,7 +13,9 @@
 }
 \value{
   A vector of taxonomic serial numbers (TSN). If a species
-  is not found NA. See functions in \code{ritis}.
+  is not found NA. If more than one TSN is found the
+  function asks for user input. See functions in
+  \code{ritis}.
 }
 \description{
   \code{get_tsn} uses a variety of functions from the
@@ -27,6 +29,9 @@ get_tsn(searchterm="Chironomus riparius", searchtype="sciname")
 get_tsn(searchterm="polar bear", searchtype="comname")
 get_tsn(c("Chironomus riparius","Quercus douglasii"), "sciname")
 get_tsn(c("aa aa", "Chironomus riparius"), searchtype="sciname")
+splist <- c("annona cherimola", 'annona muricata', "quercus robur",
+"shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")
+get_tsn(splist,"sciname")
 }
 }
 

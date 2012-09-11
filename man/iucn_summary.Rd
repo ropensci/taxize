@@ -8,8 +8,9 @@
   \item{sciname}{Scientific name.}
 }
 \value{
-  A list with the following items: \item{status}{Red List
-  Category.} \item{history}{History of status.}
+  A list (for every species one entry) of lists with the
+  following items: \item{status}{Red List Category.}
+  \item{history}{History of status.}
   \item{distr}{Geographic distribution.}
   \item{pop}{Population size estimates.} \item{trend}{Trend
   of population size.}
@@ -20,12 +21,15 @@
 }
 \examples{
 \dontrun{
-ia <- iucn_summary("Panthera uncia")
-ia$status
-ia$history
-ia$distr
-ia$pop
-ia$trend
+ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
+ia <- iucn_summary(c("Panthera uncia", "Lynx lynx", "aaa"))
+# extract status
+ldply(ia, function(x) x$status)
+laply(ia, function(x) x$status)
+ia[['Lynx lynx']]$history
+ia[['Panthera uncia']]$distr
+ia[[1]]$pop
+ia[[2]]$trend
 }
 }
 \author{
