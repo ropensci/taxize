@@ -32,7 +32,7 @@ iucn_summary <- function(sciname)
     spec <- gsub(" ", "-", spec)
     url <- paste("http://api.iucnredlist.org/go/", spec, sep="")
     e <- try(h <- htmlParse(url))
-    if(class(e) != "try-error"){
+    if(!inherits(e, "try-error")){
       status <- xpathSApply(h, '//div[@id ="red_list_category_code"]', xmlValue)
       history <- data.frame(year = xpathSApply(h, '//div[@class="year"]', xmlValue),
                             category = xpathSApply(h, '//div[@class="category"]', xmlValue))

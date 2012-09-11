@@ -18,8 +18,9 @@
 }
 \examples{
 \dontrun{
-downstream2(114989) # getting families downstream from Strepsiptera
-downstream2(650497) # getting families downstream from Acridoidea
+downstream2(tsns = 650497) # getting families downstream from Acridoidea
+downstream2(tsns = 114989) # getting families downstream from Strepsiptera
+downstream2(tsns = 99208) # getting families downstream from Class Insecta
 }
 }
 \author{
