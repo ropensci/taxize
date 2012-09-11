@@ -75,7 +75,7 @@ get_phylomatic_tree <- function (x, convert = TRUE, get, format, retphylo = TRUE
     treenew <- colldouble(tree_)
   } else
   
-  if (get == 'GET') {0
+  if (get == 'GET') {
     if (format == 'xml') {
       urlplus <- paste(url, "?", "format=", format, "&tree=", treestring, sep="")
       tt <- getURLContent(urlplus, curl=getCurlHandle())
