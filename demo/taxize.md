@@ -5,6 +5,16 @@
 library(taxize)
 library(plyr)
 library(ape)
+library(XML)
+require(RCurl)
+```
+
+```
+## Loading required package: RCurl
+```
+
+```
+## Loading required package: bitops
 ```
 
 
@@ -76,7 +86,7 @@ treephylo <- read.tree(text = tree)
 plot(treephylo)
 ```
 
-![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6.png) 
+![plot of chunk phylog1](figure/phylog1.png) 
 
 
 *********
@@ -113,22 +123,127 @@ head(parse_itis(doc))
 ## Show higher taxonomy for a given TSN
 
 ```r
-classification(685566)
+classification(685566, ID = "tsn")
 ```
 
 ```
-## Error: Must specify Identifier!
+## [[1]]
+##        rank            taxon    tsn
+## 1   Kingdom         Animalia 685566
+## 2    Phylum         Chordata 202423
+## 3 Subphylum       Vertebrata 158852
+## 4     Class         Amphibia 331030
+## 5     Order          Caudata 173420
+## 6    Family   Plethodontidae 173584
+## 7 Subfamily   Plethodontinae 173631
+## 8     Genus        Plethodon 550197
+## 9   Species Plethodon asupak 173648
 ```
 
 
-## Get a TSN from a sepcies name
+## Get a TSN from a species name
 
 ```r
-get_tsn("Quercus_douglasii", "sciname", by_ = "name")
+tsn <- get_tsn(searchterm = "Quercus_douglasii", searchtype = "sciname")
+# use classification with get_tsn together:
+classification(tsn)
 ```
 
 ```
-## Error: unused argument(s) (by_ = "name")
+## $`1`
+##             rank             taxon    tsn
+## 1        Kingdom           Plantae  19322
+## 2     Subkingdom    Viridaeplantae 202422
+## 3   Infrakingdom      Streptophyta 846492
+## 4       Division      Tracheophyta 846494
+## 5    Subdivision   Spermatophytina 846496
+## 6  Infradivision      Angiospermae 846504
+## 7          Class     Magnoliopsida 846505
+## 8     Superorder           Rosanae  18063
+## 9          Order           Fagales 846548
+## 10        Family          Fagaceae  19273
+## 11         Genus           Quercus  19275
+## 12       Species Quercus douglasii  19276
+```
+
+
+*********
+
+# NCBI Taxonomy Browser
+## Get Unique Identifier
+
+```r
+uids <- get_uid(c("Chironomus riparius", "Chaetopteryx"))
+```
+
+
+## And retrieve classification
+
+```r
+cl <- classification(uids)
+cl
+```
+
+```
+## [[1]]
+##               ScientificName         Rank     UID
+## 1         cellular organisms      no rank  131567
+## 2                  Eukaryota superkingdom    2759
+## 3               Opisthokonta      no rank   33154
+## 4                    Metazoa      kingdom   33208
+## 5                  Eumetazoa      no rank    6072
+## 6                  Bilateria      no rank   33213
+## 7                  Coelomata      no rank   33316
+## 8                Protostomia      no rank   33317
+## 9                  Ecdysozoa      no rank 1206794
+## 10             Panarthropoda      no rank   88770
+## 11                Arthropoda       phylum    6656
+## 12               Mandibulata      no rank  197563
+## 13              Pancrustacea      no rank  197562
+## 14                  Hexapoda   superclass    6960
+## 15                   Insecta        class   50557
+## 16                Dicondylia      no rank   85512
+## 17                 Pterygota      no rank    7496
+## 18                  Neoptera     subclass   33340
+## 19             Endopterygota   infraclass   33392
+## 20                   Diptera        order    7147
+## 21                Nematocera     suborder    7148
+## 22              Culicimorpha   infraorder   43786
+## 23             Chironomoidea  superfamily   41828
+## 24              Chironomidae       family    7149
+## 25              Chironominae    subfamily   54970
+## 26               Chironomini        tribe   72530
+## 27                Chironomus        genus    7150
+## 28 Chironomus incertae sedis      no rank 1165752
+## 
+## [[2]]
+##        ScientificName         Rank     UID
+## 1  cellular organisms      no rank  131567
+## 2           Eukaryota superkingdom    2759
+## 3        Opisthokonta      no rank   33154
+## 4             Metazoa      kingdom   33208
+## 5           Eumetazoa      no rank    6072
+## 6           Bilateria      no rank   33213
+## 7           Coelomata      no rank   33316
+## 8         Protostomia      no rank   33317
+## 9           Ecdysozoa      no rank 1206794
+## 10      Panarthropoda      no rank   88770
+## 11         Arthropoda       phylum    6656
+## 12        Mandibulata      no rank  197563
+## 13       Pancrustacea      no rank  197562
+## 14           Hexapoda   superclass    6960
+## 15            Insecta        class   50557
+## 16         Dicondylia      no rank   85512
+## 17          Pterygota      no rank    7496
+## 18           Neoptera     subclass   33340
+## 19      Endopterygota   infraclass   33392
+## 20   Amphiesmenoptera   superorder   85604
+## 21        Trichoptera        order   30263
+## 22      Integripalpia     suborder   93875
+## 23     Limnephiloidea  superfamily   41033
+## 24      Limnephilidae       family   50645
+## 25      Limnephilinae    subfamily  177669
+## 26    Chaetopterygini        tribe  492564
 ```
 
 
@@ -146,7 +261,7 @@ dat_
 ```
 ## [1] "asteraceae%2Fhelianthus%2Fhelianthus_annuus"
 ## [2] "fagaceae%2Fquercus%2Fquercus_douglasii"     
-## [3] "pinaceae%2Fpinus%2Fpinus_contorta"          
+## [3] "pinaceae%2Fpinus%2Fpinus_contorta"
 ```
 
 ```r
@@ -179,39 +294,29 @@ tree
 plot(tree)
 ```
 
-![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11.png) 
+![plot of chunk phylog2](figure/phylog2.png) 
 
 
 ## A somewhat realistic workflow
 ### User's species list 
 
 ```r
-splist <- c("annona_cherimola", "annona_muricata", "quercus_robur", "shorea_robusta", 
-    "pandanus_patina", "oryza_sativa", "durio_zibethinus")
+splist <- c("annona cherimola", "annona muricata", "shorea robusta", "pandanus patina", 
+    "durio zibethinus")
 ```
 
 
 ### Get TSN code for each species
 
 ```r
-tsns <- laply(splist, get_tsn, searchtype = "sciname", by_ = "name")
-```
-
-```
-## Error: unused argument(s) (by_ = "name")
-```
-
-```r
+tsns <- get_tsn(splist, "sciname")
 tsns
 ```
 
 ```
-##  [1] 112752 113264 113844 113877 113918 113996 114289 114413 114458 114486
-## [11] 114496 114654 114958 114967 152865 153658 154025 154044 154056 154248
-## [21] 154344 610668 650495 650496 650497 650498 650499 657459 657460 657461
-## [31] 678306 678308 709258 709259 709260 709261 709262 709263 709264 709265
-## [41] 717341
-## 181 Levels: 118840 121227 121286 121292 121296 121299 121304 ... 152853
+## [1] "506198" "18098"  "506787" "507376" "506099"
+## attr(,"class")
+## [1] "tsn"
 ```
 
 
@@ -223,47 +328,11 @@ dat_
 ```
 
 ```
-##  [1] "epimetopidae%2Fgeoryssidae%2Fhelophoridae"         
-##  [2] "agyrtidae%2Fhydraenidae%2Fleiodidae"               
-##  [3] "acanthocnemidae%2Fattalomimidae%2Fchaetosomatidae" 
-##  [4] "artematopodidae%2Fbrachypsectridae%2Fcantharidae"  
-##  [5] "dascillidae%2Frhipiceridae%2FNA"                   
-##  [6] "byrrhidae%2Fcallirhipidae%2Fchelonariidae"         
-##  [7] "agapythidae%2Falexiidae%2Fbiphyllidae"             
-##  [8] "aderidae%2Fanthicidae%2Farcheocrypticidae"         
-##  [9] "anobiidae%2Fbostrichidae%2Fdermestidae"            
-## [10] "belohinidae%2Fceratocanthidae%2Fdiphyllostomatidae"
-## [11] "cerambycidae%2Fchrysomelidae%2Fmegalopodidae"      
-## [12] "anthribidae%2Fattelabidae%2Fbelidae"               
-## [13] "histeridae%2Fsphaeritidae%2Fsynteliidae"           
-## [14] "buprestidae%2Fschizopodidae%2FNA"                  
-## [15] "braconidae%2Feoichneumonidae%2Fichneumonidae"      
-## [16] "agaonidae%2Faphelinidae%2Fchalcididae"             
-## [17] "archaeocynipidae%2Faustrocynipidae%2Fcynipidae"    
-## [18] "aulacidae%2Fevaniidae%2Fgasteruptiidae"            
-## [19] "austroniidae%2Fdiapriidae%2Fheloridae"             
-## [20] "bradynobaenidae%2Ffalsiformicidae%2Fformicidae"    
-## [21] "ampulicidae%2Fandrenidae%2Fangarosphecidae"        
-## [22] "ceraphronidae%2Fmaimetshidae%2Fmegaspilidae"       
-## [23] "chorotypidae%2Fepisactidae%2Feumastacidae"         
-## [24] "pneumoridae%2FNA%2FNA"                             
-## [25] "acrididae%2Fcharilaidae%2Fdericorythidae"          
-## [26] "tetrigidae%2FNA%2FNA"                              
-## [27] "cylindrachetidae%2Fripipterygidae%2Ftridactylidae" 
-## [28] "pyrgomorphidae%2FNA%2FNA"                          
-## [29] "tanaoceridae%2FNA%2FNA"                            
-## [30] "trigonopterygidae%2Fxyronotidae%2FNA"              
-## [31] "clambidae%2Fdecliniidae%2Feucinetidae"             
-## [32] "lymexylidae%2FNA%2FNA"                             
-## [33] "megalyridae%2FNA%2FNA"                             
-## [34] "serphitidae%2FNA%2FNA"                             
-## [35] "mymarommatidae%2FNA%2FNA"                          
-## [36] "stephanidae%2FNA%2FNA"                             
-## [37] "platygastridae%2Fscelionidae%2FNA"                 
-## [38] "trigonalidae%2FNA%2FNA"                            
-## [39] "bethylonymidae%2FNA%2FNA"                          
-## [40] "bethylidae%2Fchrysididae%2Fdryinidae"              
-## [41] "derodontidae%2FNA%2FNA"                            
+## [1] "annonaceae%2Fannona%2Fannona_cherimola"    
+## [2] "annonaceae%2Fannona%2Fannona_muricata"     
+## [3] "dipterocarpaceae%2Fshorea%2Fshorea_robusta"
+## [4] "pandanaceae%2Fpandanus%2Fpandanus_patina"  
+## [5] "malvaceae%2Fdurio%2Fdurio_zibethinus"
 ```
 
 
@@ -275,7 +344,17 @@ tree
 ```
 
 ```
-## NULL
+## 
+## Phylogenetic tree with 5 tips and 4 internal nodes.
+## 
+## Tip labels:
+## [1] "annona_cherimola" "annona_muricata"  "shorea_robusta"  
+## [4] "durio_zibethinus" "pandanus_patina" 
+## 	Node labels:
+## [1] "euphyllophyte"       "annona"              "poales_to_asterales"
+## [4] ""                   
+## 
+## Rooted; includes branch lengths.
 ```
 
 
@@ -285,25 +364,7 @@ tree
 plot(tree)
 ```
 
-```
-## Warning: no non-missing arguments to min; returning Inf
-```
-
-```
-## Warning: no non-missing arguments to max; returning -Inf
-```
-
-```
-## Warning: no non-missing arguments to min; returning Inf
-```
-
-```
-## Warning: no non-missing arguments to max; returning -Inf
-```
-
-```
-## Error: need finite 'xlim' values
-```
+![plot of chunk phylog3](figure/phylog3.png) 
 
 
 
@@ -416,7 +477,7 @@ head(tp_getacceptednames(id = 25503923))
 ```
 
 ```
-## http://services.tropicos.org/Name/25503923/AcceptedNames?apikey=f3e499d4-1519-42c9-afd1-685a16882f5a&format=json
+## http://services.tropicos.org/Name/25503923/AcceptedNames?apikey=e63f602b-f212-4c53-964c-94e70fb2707e&format=json
 ```
 
 ```
@@ -434,7 +495,7 @@ head(tp_getsynonyms(id = 25509881))
 ```
 
 ```
-## http://services.tropicos.org/Name/25509881/Synonyms?apikey=f3e499d4-1519-42c9-afd1-685a16882f5a&format=json
+## http://services.tropicos.org/Name/25509881/Synonyms?apikey=e63f602b-f212-4c53-964c-94e70fb2707e&format=json
 ```
 
 ```
@@ -457,10 +518,6 @@ ubio_namebank_search(searchName = "elephant", sci = 1, vern = 0)
 ```
 
 ```
-## Warning: text_content() deprecated. Use parsed_content(x, as = 'parsed')
-```
-
-```
 ##   namebankID               nameString           fullNameString packageID
 ## 1    6938660 Q2VyeWxvbiBlbGVwaGFudA== Q2VyeWxvbiBlbGVwaGFudA==        80
 ##   packageName basionymUnit rankID rankName
@@ -470,10 +527,6 @@ ubio_namebank_search(searchName = "elephant", sci = 1, vern = 0)
 ```r
 head(ubio_namebank_search(searchName = "Helianthus annuus", sci = 1, vern = 0)[, 
     -c(2, 3)])
-```
-
-```
-## Warning: text_content() deprecated. Use parsed_content(x, as = 'parsed')
 ```
 
 ```
@@ -489,17 +542,6 @@ head(ubio_namebank_search(searchName = "Helianthus annuus", sci = 1, vern = 0)[,
 ```r
 out <- lapply(list("Helianthus debilis", "Astragalus aduncus"), function(x) ubio_namebank_search(searchName = x, 
     sci = 1, vern = 0))
-```
-
-```
-## Warning: text_content() deprecated. Use parsed_content(x, as = 'parsed')
-```
-
-```
-## Warning: text_content() deprecated. Use parsed_content(x, as = 'parsed')
-```
-
-```r
 head(out[[2]][, -c(2, 3)])  # just Astragalus aduncus output
 ```
 
@@ -512,4 +554,25 @@ head(out[[2]][, -c(2, 3)])  # just Astragalus aduncus output
 ## 5     704148       663     Rosales            0     24  species
 ## 6    8374424      5780    Fabaceae       722833    444       fo
 ```
+
+
+*********
+# IUCN Red List
+## Query the Red List API
+
+```r
+ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
+```
+
+
+### Extract Status
+
+```r
+laply(ia, function(x) x$status)
+```
+
+```
+## [1] "EN" "LC"
+```
+
 
