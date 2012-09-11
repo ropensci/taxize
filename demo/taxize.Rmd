@@ -1,7 +1,7 @@
 # Install taxize (uncomment to run)
 ```{r}
 # install_github("taxize_", "ropensci")
-library(taxize); library(plyr); library(ape)
+library(taxize); library(plyr); library(ape); library(XML); require(RCurl)
 ```
 
 *********
@@ -31,7 +31,7 @@ get_phylomatic_tree(mytree, 'TRUE', 'GET', 'new', 'FALSE')
 ```
 
 ### Get a tree in newick format, read using ape::read.tree, and plot
-```{r}
+```{r phylog1 }
 tree <- get_phylomatic_tree(mytree, 'TRUE', 'POST', 'new', 'FALSE')
 treephylo <- read.tree(text = tree)
 plot(treephylo)
@@ -56,12 +56,28 @@ head( parse_itis(doc) )
 
 ## Show higher taxonomy for a given TSN
 ```{r}
-classification(685566)
+classification(685566, ID="tsn")
 ```
 
-## Get a TSN from a sepcies name
+## Get a TSN from a species name
 ```{r}
-get_tsn("Quercus_douglasii", "sciname", by_="name")
+tsn <- get_tsn(searchterm = "Quercus_douglasii", searchtype = "sciname")
+# use classification with get_tsn together:
+classification(tsn)
+```
+
+*********
+
+# NCBI Taxonomy Browser
+## Get Unique Identifier
+```{r}
+uids <- get_uid(c("Chironomus riparius", "Chaetopteryx"))
+```
+
+## And retrieve classification
+```{r}
+cl <- classification(uids)
+cl
 ```
 
 
@@ -69,7 +85,7 @@ get_tsn("Quercus_douglasii", "sciname", by_="name")
 
 # Using ITIS and Phylomatic together 
 ## Use ITIS and get_phymat_format to format a string for each species to be submitted to Phylomatic
-```{r}
+```{r phylog2}
 dat_ <- laply(list("36616", "19322", "183327"), get_phymat_format, format='rsubmit')
 dat_
 dat_mine <- paste(dat_, collapse="%0D%0A") # collapse and replace \n's
@@ -82,19 +98,19 @@ plot(tree)
 ## A somewhat realistic workflow
 ### User's species list 
 ```{r}
-splist <- c("annona_cherimola", 'annona_muricata', "quercus_robur", 
-						"shorea_robusta", "pandanus_patina", "oryza_sativa", "durio_zibethinus")
+splist <- c("annona cherimola", 'annona muricata', 
+						"shorea robusta", "pandanus patina", "durio zibethinus")
 ```
 
 ### Get TSN code for each species
 ```{r}
-tsns <- laply(splist, get_tsn, searchtype = "sciname", by_ = "name")
+tsns <- get_tsn(splist, "sciname")
 tsns
 ```
 
 ### Get Phylomatic formatted strings for each species
 ```{r}
-dat_ <- laply(tsns, get_phymat_format, format='rsubmit')
+dat_ <- laply(tsns, get_phymat_format, format = 'rsubmit')
 dat_
 ```
 
@@ -105,7 +121,7 @@ tree
 ```
 
 ### Plot tree, etc. 
-```{r}
+```{r phylog3}
 plot(tree)
 ```
 
@@ -167,3 +183,16 @@ head( ubio_namebank_search(searchName = 'Helianthus annuus', sci = 1, vern = 0)[
 out <- lapply(list('Helianthus debilis','Astragalus aduncus'), function(x) ubio_namebank_search(searchName = x, sci = 1, vern = 0))
 head( out[[2]][,-c(2,3)] ) # just Astragalus aduncus output
 ```
+
+*********
+# IUCN Red List
+## Query the Red List API
+```{r}
+ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
+```
+
+### Extract Status
+```{r}
+laply(ia, function(x) x$status)
+```
+
