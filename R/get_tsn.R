@@ -8,7 +8,7 @@
 #' @param searchtype One of 'sciname', 'anymatch', 'comnamebeg', 'comname', 
 #'    'comnameend'.
 #' @return A vector of taxonomic serial numbers (TSN). If a species is not found NA. 
-#' If more than one TSN is found the first hit is taken and a error-message printed.
+#' If more than one TSN is found the function asks for user input.
 #' See functions in \code{ritis}.
 #' @export
 #' @examples \dontrun{
