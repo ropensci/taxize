@@ -2,7 +2,7 @@
 \alias{get_tsn}
 \title{Get the TSN code for a search term.}
 \usage{
-  get_tsn(searchterm, searchtype)
+  get_tsn(searchterm, searchtype, verbose = TRUE)
 }
 \arguments{
   \item{searchterm}{A vector of common or scientific
@@ -10,6 +10,8 @@
 
   \item{searchtype}{One of 'sciname', 'anymatch',
   'comnamebeg', 'comname', 'comnameend'.}
+
+  \item{verbose}{should progress be printed?}
 }
 \value{
   A vector of taxonomic serial numbers (TSN). If a species

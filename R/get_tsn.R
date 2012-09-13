@@ -7,6 +7,7 @@
 #' @param searchterm A vector of common or scientific names.
 #' @param searchtype One of 'sciname', 'anymatch', 'comnamebeg', 'comname', 
 #'    'comnameend'.
+#' @param verbose should progress be printed?
 #' @return A vector of taxonomic serial numbers (TSN). If a species is not found NA. 
 #' If more than one TSN is found the function asks for user input.
 #' See functions in \code{ritis}.
@@ -21,7 +22,7 @@
 #' "shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")
 #' get_tsn(splist,"sciname")
 #' }
-get_tsn <- function (searchterm, searchtype) 
+get_tsn <- function (searchterm, searchtype, verbose = TRUE) 
 {
   # fetch ritis function from args
   ritis_func <- if(searchtype == "sciname"){ "searchbyscientificname" } else
@@ -30,21 +31,23 @@ get_tsn <- function (searchterm, searchtype)
                       if(searchtype == "comname") { "searchbycommonname" } else
                         if(searchtype == "comnameend") { "searchbycommonnameendswith" } else
                           stop("searchtype not valid!")
-  fun <- function(x) 
+  fun <- function(x, verbose) 
   {
+    if(verbose)
+      cat("\nRetrieving data for species '", x, "'")
     tsn_df <- do.call(ritis_func, list(x))
     tsn <- as.character(tsn_df$tsn)
     # should return NA if spec not found
     if (length(tsn) == 0)
       tsn <- NA
     if (length(tsn) > 1){
-      cat("\n
-          More than one TSN found for species '", x, "'!\n
-          Enter rowname of species to take:\n") # prompt
+      cat("\n\n")
       print(tsn_df)
+      cat("\nMore than one TSN found for species '", x, "'!\n
+          Enter rowname of species to take:\n") # prompt
       take <- scan(n = 1, quiet = TRUE)
-      if(take %in% seq_along(nrow(tsn_df))){
-        cat("Input accepted, took species '", as.character(tsn_df$combinedname[take]), "'\n")
+      if(take %in% seq_len(nrow(tsn_df))){
+        cat("Input accepted, took species '", as.character(tsn_df$combinedname[take]), "'.\n")
       } else {
         stop("Non valid input!")
       }
@@ -52,7 +55,7 @@ get_tsn <- function (searchterm, searchtype)
     }
     tsn
   }
-  out <- laply(searchterm, fun)
+  out <- laply(searchterm, fun, verbose)
   class(out) <- "tsn"
   out
 }
