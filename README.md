@@ -29,11 +29,18 @@ The following are URL's for API documentation and where to get API keys.
 	+ [Use](http://gni.globalnames.org/)
 	+ [API docs](https://github.com/dimus/gni/wiki/api)
 + IUCN Red List 
-  + [API docs](https://www.assembla.com/spaces/sis/wiki/Red_List_API?version=3)
+  	+ [API docs](https://www.assembla.com/spaces/sis/wiki/Red_List_API?version=3)
++ Tree of Life web project
+	+ [Their website](http://tolweb.org/tree/phylogeny.html)
+ 	+ [API docs](http://tolweb.org/tree/home.pages/downloadtree.html)
 
 `taxize` rOpenSci tutorial [here](http://ropensci.org/tutorials/taxize_tutorial.html)
 
 `taxize` is part of the rOpenSci project, visit [our webiste](http://ropensci.org) to learn more.
+
+# Development by
++ [Scott Chamberlain](http://schamberlain.github.com/scott)
++ [Eduard Szöcs](https://github.com/EDiLD)
 
 # Install `taxize` from GitHub:
 
