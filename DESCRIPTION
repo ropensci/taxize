@@ -18,7 +18,8 @@ Imports:
     stringr,
     plyr,
     httr,
-    RJSONIO
+    RJSONIO,
+    foreach
 Collate:
     'classification.R'
     'downstream.R'
@@ -49,3 +50,4 @@ Collate:
     'iucn_summary.R'
     'get_uid.R'
     'downstream2.R'
+    'plantminer.R'

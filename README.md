@@ -33,8 +33,11 @@ The following are URL's for API documentation and where to get API keys.
 + Tree of Life web project
 	+ [Their website](http://tolweb.org/tree/phylogeny.html)
  	+ [API docs](http://tolweb.org/tree/home.pages/downloadtree.html)
++ Plantminer
+	+ [Their website](http://www.plantminer.com/)
+ 	+ [API docs](http://www.plantminer.com/help)
 
-`taxize` rOpenSci tutorial [here](http://ropensci.org/tutorials/taxize_tutorial.html)
+`taxize` rOpenSci tutorial [here](https://github.com/ropensci/taxize_/wiki/taxize-tutorial)
 
 `taxize` is part of the rOpenSci project, visit [our webiste](http://ropensci.org) to learn more.
 
