@@ -22,5 +22,3 @@ You can visit the [rOpenSci wiki](https://github.com/ropensci/rOpenSci/wiki) for
 ### Get in touch: [scott@ropensci.org](mailto:scott@ropensci.org)
 
 ### Thanks for contibuting!
-
-##### an rOpenSci joint

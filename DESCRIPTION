@@ -6,10 +6,10 @@ Version: 0.0.1
 License: CC0
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com"),
-    person("Carl", "Boettiger", role = "aut",
-    email = "cboettig@gmail.com"),
     person("Eduard", "Szöcs", role = "aut",
-    email = "szoe8822@uni-landau.de"))
+    email = "szoe8822@uni-landau.de"),
+    person("Carl", "Boettiger", role = "aut",
+    email = "cboettig@gmail.com"))
 Suggests:
     ritis
 Imports:
