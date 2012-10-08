@@ -1,43 +1,55 @@
 # This is `taxize`
 
-We at rOpenSci are developing `taxize` as a package which will allow users to search over many websites for species names (scientific and common) and download up and downstream taxonomic hierarchical information - and many other things. 
+We are developing `taxize` as a package to allow users to search over many websites for species names (scientific and common) and download up and downstream taxonomic hierarchical information - and many other things. 
 
-You need API keys for Encyclopedia of Life (EOL), the Universal Biological Indexer and Organizer (uBio), and Tropicos.
+The functions in the package that hit a specific API have a prefix and suffix separated by an underscore. They follow the format of `service_whatitdoes`.  For example, `gnr_resolve` uses the Global Names Resolver API to resolve species names.  General functions in the package that don't hit a specific API don't have two words separated by an underscore, e.g., `classification`.
 
-The following are URL's for API documentation and where to get API keys. 
+You need API keys for Encyclopedia of Life (EOL), the Universal Biological Indexer and Organizer (uBio), Tropicos, and Plantminer.
+
+The following are URL's for API documentation, where to get API keys, and what prefix they have in function names. 
 
 + Encyclopedia of Life (EOL)
 	+ [API docs](http://www.eol.org/api/)
 	+ [Get an API key: start an account on EOL to get your API key] (http://eol.org/users/register)
 	+ [API forum] (https://eol.uservoice.com/forums/15429-encyclopedia-of-life-api)
+	+ function prefix: `eol`
 + Taxonomic Name Resolution Service (TNRS) 
 	+ [API docs](http://tnrs.iplantcollaborative.org/api.html)
 + Integrated Taxonomic Information Service (ITIS)
 	+ [API docs](http://www.itis.gov/ws_description.html)
+	+ function prefix: `itis`
 + Phylomatic 
 	+ [API docs](http://www.phylodiversity.net/phylomatic/phylomatic_api.html)
+	+ function prefix: `phylomatic`
 + uBio
 	+ [API docs](http://www.ubio.org/index.php?pagename=xml_services)
 	+ [Get an API key](http://www.ubio.org/index.php?pagename=form)
+	+ function prefix: `ubio`
 + Tropicos (from Missouri Botanical Garden)
 	+ [API docs](http://services.tropicos.org/help)
 	+ [Get an API key](http://services.tropicos.org/help?requestkey)
+	+ function prefix: `tp`
 + Global Names Resolver (from EOL/GBIF)
 	+ [Use](http://resolver.globalnames.org/)
 	+ [API docs](http://resolver.globalnames.org/api)
+	+ function prefix: `gnr`
 + Global Names Index (from EOL/GBIF)
 	+ [Use](http://gni.globalnames.org/)
 	+ [API docs](https://github.com/dimus/gni/wiki/api)
+	+ function prefix: `gni`
 + IUCN Red List 
   	+ [API docs](https://www.assembla.com/spaces/sis/wiki/Red_List_API?version=3)
+  	+ function prefix: `iucn`
 + Tree of Life web project
 	+ [Their website](http://tolweb.org/tree/phylogeny.html)
  	+ [API docs](http://tolweb.org/tree/home.pages/downloadtree.html)
+ 	+ function prefix: `tol`
 + Plantminer
 	+ [Their website](http://www.plantminer.com/)
  	+ [API docs](http://www.plantminer.com/help)
+ 	+ function prefix: `plantminer`
 
-`taxize` rOpenSci tutorial [here](https://github.com/ropensci/taxize_/wiki/taxize-tutorial)
+The `taxize` rOpenSci tutorial is [here](https://github.com/ropensci/taxize_/wiki/taxize-tutorial)
 
 `taxize` is part of the rOpenSci project, visit [our webiste](http://ropensci.org) to learn more.
 
