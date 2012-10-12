@@ -20,12 +20,8 @@ Imports:
     plyr,
     httr,
     RJSONIO,
-<<<<<<< HEAD
     foreach,
     ape
-=======
-    foreach
->>>>>>> parent of 52aa191... added missing Imports declarations, passes check with 6 warnings and 2 notes
 Collate:
     'classification.R'
     'get_tsn.R'
