@@ -19,7 +19,9 @@ Imports:
     plyr,
     httr,
     RJSONIO,
-    foreach
+    foreach,
+    ritis,
+    rentrez
 Collate:
     'classification.R'
     'downstream.R'
