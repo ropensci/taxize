@@ -22,7 +22,7 @@
 #' @param url Base url for the API; leave as is.
 #' @author Scott Chamberlain {myrmecocystus@@gmail.com}
 #' @return Data.frame of results.
-#' @seealso \code{\link{gnr}}, \code{\link{gnr_datasources}}, \code{\link{gni_details}}, and \code{\link{gni_parse}}.
+#' @seealso \code{\link{gnr_datasources}}, \code{\link{gni_search}}.
 #' @keywords globalnamesindex names taxonomy
 #' @examples \dontrun{
 #' gni_search(search_term = "ani*")

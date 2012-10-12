@@ -1,6 +1,6 @@
 #' Get taxonomic hierarchy for a given taxon ID.
-#' @import XML RCurl plyr
 #' 
+#' @import XML RCurl plyr
 #' @param x IDs from \code{get_tsn()} or \code{get_uid()}.
 #' @param ID type of identifier, either 'uid' or 'tsn'
 #' @return Classification of taxons in a list of data.frames.
@@ -20,7 +20,7 @@ classification <- function(x, ID = NULL, ...){
   UseMethod("classification")
 }
 
-#'@S3method classification default
+#' @S3method classification default
 classification.default <- function(x, ID = NULL){
   if(is.null(ID))
     stop("Must specify Identifier!")
@@ -31,9 +31,9 @@ classification.default <- function(x, ID = NULL){
   out
 }
 
-#'@method classification tsn
-#'@export
-#'@rdname classification
+#' @method classification tsn
+#' @export
+#' @rdname classification
 classification.tsn <- function(x) 
 {
   fun <- function(x){
@@ -58,9 +58,9 @@ classification.tsn <- function(x)
 }
 
 
-#'@method classification uid
-#'@export
-#'@rdname classification
+#' @method classification uid
+#' @export
+#' @rdname classification
 classification.uid <- function(x) {
   fun <- function(x){
     # return NA if NA is supplied

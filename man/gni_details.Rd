@@ -31,8 +31,7 @@ ldply(list(1265133, 17802847), gni_details)
   Scott Chamberlain {myrmecocystus@gmail.com}
 }
 \seealso{
-  \code{\link{gnr}}, \code{\link{gnr_datasources}},
-  \code{\link{gni_search}}, and \code{\link{gni_parse}}.
+  \code{\link{gnr_datasources}}, \code{\link{gni_search}}.
 }
 \keyword{globalnamesindex}
 \keyword{names}

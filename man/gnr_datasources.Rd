@@ -39,7 +39,8 @@ out[agrep("zoo", out$title, ignore.case=T), ]
   Scott Chamberlain {myrmecocystus@gmail.com}
 }
 \seealso{
-  \code{\link{tnrastic}} and \code{\link{tnrsmatch}}.
+  \code{\link{iplant_tnrastic}} and
+  \code{\link{iplant_tnrsmatch}}.
 }
 \keyword{names}
 \keyword{resolve}

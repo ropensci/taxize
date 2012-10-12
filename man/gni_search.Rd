@@ -52,8 +52,7 @@ gni_search(search_term = "animalia", per_page = 8, page = 1, justtotal=T)
   Scott Chamberlain {myrmecocystus@gmail.com}
 }
 \seealso{
-  \code{\link{gnr}}, \code{\link{gnr_datasources}},
-  \code{\link{gni_details}}, and \code{\link{gni_parse}}.
+  \code{\link{gnr_datasources}}, \code{\link{gni_search}}.
 }
 \keyword{globalnamesindex}
 \keyword{names}

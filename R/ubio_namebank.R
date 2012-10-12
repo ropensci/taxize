@@ -14,12 +14,12 @@
 #'    so if you use json your key is not specified at the moment
 #' @return List or dataframe of XXXX.
 #' @examples \dontrun{
-#' ubio_namebank_search(searchName = 'elephant', sci = 1, vern = 0)
-#' ubio_namebank_search(searchName = 'Helianthus annuus', sci = 1, vern = 0)
-#' lapply(list('Helianthus debilis','Astragalus aduncus'), function(x) ubio_namebank_search(searchName = x, sci = 1, vern = 0))
+#' ubio_namebank(searchName = 'elephant', sci = 1, vern = 0)
+#' ubio_namebank(searchName = 'Helianthus annuus', sci = 1, vern = 0)
+#' lapply(list('Helianthus debilis','Astragalus aduncus'), function(x) ubio_namebank(searchName = x, sci = 1, vern = 0))
 #' }
 #' @export
-ubio_namebank_search <- function(searchName = NULL, searchAuth = NULL, searchYear = NULL, 
+ubio_namebank <- function(searchName = NULL, searchAuth = NULL, searchYear = NULL, 
 		order = NULL, sci = NULL, vern = NULL, 
 		url = "http://www.ubio.org/webservices/service.php",
 		keyCode = getOption("uBioApi", stop("need an API key for uBio"))) 

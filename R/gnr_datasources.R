@@ -8,7 +8,7 @@
 #' @param url Base url for the API; leave as is.
 #' @author Scott Chamberlain {myrmecocystus@@gmail.com}
 #' @return json or xml output, your choice
-#' @seealso \code{\link{tnrastic}} and \code{\link{tnrsmatch}}.
+#' @seealso \code{\link{iplant_tnrastic}} and \code{\link{iplant_tnrsmatch}}.
 #' @keywords resolve names taxonomy
 #' @examples \dontrun{
 #' # all data sources

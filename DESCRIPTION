@@ -11,6 +11,7 @@ Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     person("Carl", "Boettiger", role = "aut",
     email = "cboettig@gmail.com"))
 Suggests:
+    rentrez,
     ritis
 Imports:
     XML,
@@ -19,30 +20,16 @@ Imports:
     plyr,
     httr,
     RJSONIO,
-    foreach
+    foreach,
+    ape
 Collate:
     'classification.R'
-    'downstream.R'
-    'eolping.R'
-    'get_familyname.R'
-    'get_itis_xml.R'
-    'get_phylomatic_tree.R'
-    'get_phymat_format.R'
     'get_tsn.R'
-    'getacceptname.R'
-    'gettaxrank.R'
-    'parse_itis.R'
-    'printhier.R'
-    'tnrsmatch.R'
-    'eolhierarchy.R'
-    'eolsearch.R'
     'tp_getacceptednames.R'
     'tp_getsummary.R'
     'tp_getsynonyms.R'
     'tp_getnamedistributions.R'
     'tp_getnamereferences.R'
-    'tnrastic.R'
-    'gnr.R'
     'gnr_datasources.R'
     'ubio_namebank.R'
     'gni_search.R'
@@ -51,3 +38,19 @@ Collate:
     'get_uid.R'
     'downstream2.R'
     'plantminer.R'
+    'eol_hierarchy.R'
+    'eol_ping.R'
+    'eol_search.R'
+    'gnr_resolve.R'
+    'iplant_tnrastic.R'
+    'iplant_tnrsmatch.R'
+    'itis_downstream.R'
+    'itis_downstream2.R'
+    'itis_get_familyname.R'
+    'itis_get_itis_xml.R'
+    'itis_get_phymat_format.R'
+    'itis_getacceptname.R'
+    'itis_gettaxrank.R'
+    'itis_parse.R'
+    'itis_printhier.R'
+    'phylomatic_tree.R'
