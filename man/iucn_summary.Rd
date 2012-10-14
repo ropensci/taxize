@@ -1,3 +1,4 @@
+\encoding{utf-8}
 \name{iucn_summary}
 \alias{iucn_summary}
 \title{Get a summary from the IUCN Red List.}
@@ -33,6 +34,6 @@ ia[[2]]$trend
 }
 }
 \author{
-  Eduard Sz??cs \email{szoe8822@uni-landau.de}
+  Eduard Szöcs \email{szoe8822@uni-landau.de}
 }
 
