@@ -1,7 +1,7 @@
 \name{itis_get_phymat_format}
 \alias{itis_get_phymat_format}
 \title{Get family names to make Phylomatic input object, and output input string
-   to Phylomatic for use in the function get_phylomatic_tree.}
+   to Phylomatic for use in the function phylomatic_tree.}
 \usage{
   itis_get_phymat_format(tsn = NA, format)
 }
@@ -18,7 +18,7 @@
 \description{
   Get family names to make Phylomatic input object, and
   output input string to Phylomatic for use in the function
-  get_phylomatic_tree.
+  phylomatic_tree.
 }
 \examples{
 \dontrun{
