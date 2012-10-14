@@ -1,6 +1,6 @@
 #' Search uBio namebank.
 #' 
-#' @import XML RCurl httr plyr
+#' @import XML RCurl plyr
 #' @param searchName (string) - term to search within name string
 #' @param searchAuth (string) - term to search within name authorship
 #' @param searchYear (string) - term to search within name year
@@ -28,7 +28,7 @@ ubio_namebank <- function(searchName = NULL, searchAuth = NULL, searchYear = NUL
 			compact(list('function' = 'namebank_search', searchName = searchName, searchAuth = searchAuth,
 							searchYear = searchYear, order = order,
 							sci = sci, vern = vern, keyCode = keyCode))
-		temp <- content(GET(url, query = args))$doc$children$results
+		temp <- xmlParse(getForm(url, .params=args))
 		toget <- c("namebankID", "nameString", "fullNameString", "packageID", 
 							 "packageName", "basionymUnit", "rankID", "rankName")
 		temp2 <- lapply(toget, function(x) sapply(xpathApply(temp, paste("//", x, sep="")), xmlValue))
