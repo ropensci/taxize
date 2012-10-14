@@ -22,6 +22,6 @@ get_uid(c("Chironomus riparius", "aaa vva"))
 }
 }
 \author{
-  Eduard Szöcs \email{szoe8822@uni-landau.de}
+  Eduard Sz??cs \email{szoe8822@uni-landau.de}
 }
 

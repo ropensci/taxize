@@ -3,11 +3,11 @@
 #' @import RCurl foreach
 #' @param plants Vector of plant species names.
 #' @param key Your api key for the plantminer.com site.  Go to 
-#' 		\link{http://www.plantminer.com/} to get your api key.  Two options for 
+#' 		\url{http://www.plantminer.com/} to get your api key.  Two options for 
 #' 		inputting your key.  1) You can input it manually within the function as 
 #' 		the second argument, or 2) you can put the key in your .Rprofile file, 
 #' 		which will then be loaded when you start R. See 
-#' 		\link{https://github.com/ropensci/rOpenSci/wiki/Installation-and-use-of-API-keys} 
+#' 		\url{https://github.com/ropensci/rOpenSci/wiki/Installation-and-use-of-API-keys} 
 #' 		for help on how to put api keys in your .Rprofile file.
 #' @return data.frame of results.
 #' @examples \dontrun{

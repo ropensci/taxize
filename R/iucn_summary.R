@@ -22,7 +22,7 @@
 #' ia[[2]]$trend
 #' }
 #' 
-#' @author Eduard Szöcs \email{szoe8822@@uni-landau.de}
+#' @author Eduard Sz??cs \email{szoe8822@@uni-landau.de}
 #' 
 #' @export
 iucn_summary <- function(sciname) 

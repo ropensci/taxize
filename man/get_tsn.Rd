@@ -22,7 +22,7 @@
 \description{
   \code{get_tsn} uses a variety of functions from the
   \code{ritis} package:
-  \link{https://github.com/ropensci/ritis}.
+  \url{https://github.com/ropensci/ritis}.
 }
 \examples{
 \dontrun{

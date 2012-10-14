@@ -16,7 +16,7 @@
 #' @export
 itis_get_phymat_format <- function(tsn = NA, format) 
 {
-  temp <- get_itis_xml(searchterm = tsn, searchtype = "tsnfullhir", by_ = "tsn")
+  temp <- itis_get_xml(searchterm = tsn, searchtype = "tsnfullhir", by_ = "tsn")
   xmllist <- xmlToList(temp)$return[-1]
   tempdf <- ldply(xmllist, function(x) data.frame(c(x[4], x[5])))[,-4]
   hier <- na.omit(tempdf)

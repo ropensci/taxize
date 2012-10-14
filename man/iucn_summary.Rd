@@ -33,6 +33,6 @@ ia[[2]]$trend
 }
 }
 \author{
-  Eduard Szöcs \email{szoe8822@uni-landau.de}
+  Eduard Sz??cs \email{szoe8822@uni-landau.de}
 }
 

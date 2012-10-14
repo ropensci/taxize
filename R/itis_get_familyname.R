@@ -9,7 +9,7 @@
 #' }
 itis_get_familyname <- function (x) 
 {
-  temp <- get_itis_xml(searchterm = x, searchtype = "tsnfullhir", by_ = "tsn")
+  temp <- itis_get_xml(searchterm = x, searchtype = "tsnfullhir", by_ = "tsn")
   tempdf <- ldply(xmlToList(temp)$return, function(x) data.frame(c(x[3], x[4])))
   as.character(tempdf[tempdf$rankName == 'Family', 3])[1]
 }

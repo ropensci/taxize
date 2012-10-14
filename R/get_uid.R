@@ -8,7 +8,7 @@
 #' @return UID for the supplied species names. NA for non-matching names.
 #' 
 #' @export
-#' @author Eduard Szöcs \email{szoe8822@@uni-landau.de}
+#' @author Eduard Sz??cs \email{szoe8822@@uni-landau.de}
 #' 
 #' @examples \dontrun{
 #' get_uid(c("Chironomus riparius", "Chaetopteryx"))
