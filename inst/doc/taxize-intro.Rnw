@@ -179,8 +179,9 @@ gnr_resolve(names = c("Helianthus annuus", "Homo sapiens"), data_source_ids="12"
 
 \section{Tropicos}
 <<>>=
-head(tp_getacceptednames(id = 25503923))
-head(tp_getsynonyms(id = 25509881))
+# need key
+#head(tp_getacceptednames(id = 25503923))
+#head(tp_getsynonyms(id = 25509881))
 @
 
 
@@ -188,10 +189,11 @@ head(tp_getsynonyms(id = 25509881))
 \section{uBio}
 \subsection{Search uBio using the namebank\_search API method}
 <<>>=
-ubio_namebank(searchName = 'elephant', sci = 1, vern = 0)
-head( ubio_namebank(searchName = 'Helianthus annuus', sci = 1, vern = 0)[,-c(2,3)] )
-out <- lapply(list('Helianthus debilis','Astragalus aduncus'), function(x) ubio_namebank(searchName = x, sci = 1, vern = 0))
-head( out[[2]][,-c(2,3)] ) # just Astragalus aduncus output
+# need key
+# ubio_namebank(searchName = 'elephant', sci = 1, vern = 0)
+# head( ubio_namebank(searchName = 'Helianthus annuus', sci = 1, vern = 0)[,-c(2,3)] )
+# out <- lapply(list('Helianthus debilis','Astragalus aduncus'), function(x) ubio_namebank(searchName = x, sci = 1, vern = 0))
+# head( out[[2]][,-c(2,3)] ) # just Astragalus aduncus output
 @
 
 
