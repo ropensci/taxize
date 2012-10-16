@@ -2,25 +2,29 @@
 \alias{downstream2}
 \title{Retrieve all taxa names or TSNs downstream in hierarchy from given TSN.}
 \usage{
-  downstream2(tsns)
+  downstream2(tsns, downto)
 }
 \arguments{
   \item{tsns}{A taxonomic serial number.}
+
+  \item{downto}{The taxonomic level you want to go down to.
+  See examples below.  The taxonomic level is not case
+  sensitive but you do have to spell it correctly. See
+  \code{data(rank_ref)} for spelling.}
 }
 \value{
   Data.frame of taxonomic information downstream to family
   from e.g., Order, Class, etc.
 }
 \description{
-  THE FUNCTION NEEDS TO BE GENERALIZED TO ANY RANK DESIRED
-  IN THE OUTPUT JUST WORKS FOR GOING DOWN TO FAMILY RIGHT
-  NOW.
+  Retrieve all taxa names or TSNs downstream in hierarchy
+  from given TSN.
 }
 \examples{
 \dontrun{
-downstream2(tsns = 650497) # getting families downstream from Acridoidea
-downstream2(tsns = 114989) # getting families downstream from Strepsiptera
-downstream2(tsns = 99208) # getting families downstream from Class Insecta
+downstream2(846509, "Genus")
+downstream2(tsns = 650497, "Family") # getting families downstream from Acridoidea
+downstream2(tsns = 180541, "Species") # getting species downstream from Ursus
 }
 }
 \author{
