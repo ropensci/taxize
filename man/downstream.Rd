@@ -1,8 +1,8 @@
-\name{downstream2}
-\alias{downstream2}
+\name{downstream}
+\alias{downstream}
 \title{Retrieve all taxa names or TSNs downstream in hierarchy from given TSN.}
 \usage{
-  downstream2(tsns, downto)
+  downstream(tsns, downto)
 }
 \arguments{
   \item{tsns}{A taxonomic serial number.}
@@ -22,12 +22,12 @@
 }
 \examples{
 \dontrun{
-downstream2(846509, "Genus")
-downstream2(tsns = 650497, "Family") # getting families downstream from Acridoidea
-downstream2(tsns = 180541, "Species") # getting species downstream from Ursus
+downstream(846509, "Genus")
+downstream(tsns = 650497, "Family") # getting families downstream from Acridoidea
+downstream(tsns = 180541, "Species") # getting species downstream from Ursus
 }
 }
 \author{
-  Scott Chamberlain {myrmecocystus@gmail.com}
+  Scott Chamberlain \email{myrmecocystus@gmail.com}
 }
 

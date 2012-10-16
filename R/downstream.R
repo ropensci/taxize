@@ -7,14 +7,14 @@
 #' 		correctly. See \code{data(rank_ref)} for spelling.
 #' @return Data.frame of taxonomic information downstream to family from e.g., 
 #' 		Order, Class, etc. 
-#' @author Scott Chamberlain {myrmecocystus@@gmail.com}
+#' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @examples \dontrun{
-#' downstream2(846509, "Genus")
-#' downstream2(tsns = 650497, "Family") # getting families downstream from Acridoidea
-#' downstream2(tsns = 180541, "Species") # getting species downstream from Ursus
+#' downstream(846509, "Genus")
+#' downstream(tsns = 650497, "Family") # getting families downstream from Acridoidea
+#' downstream(tsns = 180541, "Species") # getting species downstream from Ursus
 #' }
 #' @export
-downstream2 <- function(tsns, downto) 
+downstream <- function(tsns, downto) 
 {
 	# load rank reference data.frame
 	if(exists(as.character(substitute(rank_ref)))==TRUE){ NULL } else
