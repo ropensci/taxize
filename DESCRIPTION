@@ -36,7 +36,6 @@ Collate:
     'gni_details.R'
     'iucn_summary.R'
     'get_uid.R'
-    'downstream2.R'
     'plantminer.R'
     'eol_hierarchy.R'
     'eol_ping.R'
@@ -54,3 +53,5 @@ Collate:
     'itis_parse.R'
     'itis_printhier.R'
     'phylomatic_tree.R'
+    'getseqs.R'
+    'downstream.R'
