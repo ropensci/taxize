@@ -3,7 +3,7 @@
 #' @import XML RCurl ritis plyr
 #' @param tsns A taxonomic serial number. 
 #' @param downto The taxonomic level you want to go down to. See examples below.
-#' 		The taxonomic level is not case sensitive but you do have to spell it 
+#' 		The taxonomic level IS case sensitive, and you do have to spell it 
 #' 		correctly. See \code{data(rank_ref)} for spelling.
 #' @return Data.frame of taxonomic information downstream to family from e.g., 
 #' 		Order, Class, etc. 
@@ -19,8 +19,8 @@ downstream2 <- function(tsns, downto)
 	# load rank reference data.frame
 	if(exists(as.character(substitute(rank_ref)))==TRUE){ NULL } else
 		{ data(rank_ref); message("loaded rank_ref") }
-	downto2 <- rank_ref[grep(downto, rank_ref$ranks, ignore.case=T),"rankId"]
-	torank_ids <- rank_ref[grep(downto, rank_ref$ranks, ignore.case=T):nrow(rank_ref),"rankId"]
+	downto2 <- rank_ref[grep(downto, rank_ref$ranks),"rankId"]
+	torank_ids <- rank_ref[grep(downto, rank_ref$ranks):nrow(rank_ref),"rankId"]
 	
 	stop_ <- "not" 
 	notout <- data.frame(rankName = "")

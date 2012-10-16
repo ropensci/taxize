@@ -8,8 +8,8 @@
   \item{tsns}{A taxonomic serial number.}
 
   \item{downto}{The taxonomic level you want to go down to.
-  See examples below.  The taxonomic level is not case
-  sensitive but you do have to spell it correctly. See
+  See examples below.  The taxonomic level IS case
+  sensitive, and you do have to spell it correctly. See
   \code{data(rank_ref)} for spelling.}
 }
 \value{
