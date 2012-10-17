@@ -3,7 +3,7 @@
 #' A function to retrieve the UID-Code (Unique Identifier) of a species from NCBI taxonomy browser.
 #' 
 #' @encoding utf-8
-#' @import rentrez plyr
+#' @import plyr RCurl
 #' @param sciname scientific name.
 #' @return UID for the supplied species names. NA for non-matching names.
 #' 
@@ -16,9 +16,14 @@
 #' }
 get_uid <- function(sciname){
   fun <- function(sciname) {
+    
+    sciname <- gsub(" ", "+", sciname)
+    searchurl <- paste("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=", 
+                       sciname, sep = "")
     # NCBI limits requests to three per second
     Sys.sleep(0.33)
-    id <- entrez_search(db = "taxonomy", term = sciname)$ids
+    xml_result <- xmlParse(getURL(searchurl))    
+    id <- xpathSApply(xml_result, "//IdList/Id", xmlValue)
     if (length(id) == 0)
       id <- NA
     id
