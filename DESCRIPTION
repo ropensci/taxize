@@ -10,6 +10,8 @@ Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "szoe8822@uni-landau.de"),
     person("Carl", "Boettiger", role = "aut",
     email = "cboettig@gmail.com"))
+Suggests:
+    ritis
 Imports:
     XML,
     RCurl (>= 1.6),
@@ -18,10 +20,7 @@ Imports:
     httr,
     RJSONIO,
     foreach,
-    ape,
-Depends:
-    rentrez,
-    ritis
+    ape
 Collate:
     'classification.R'
     'get_tsn.R'
