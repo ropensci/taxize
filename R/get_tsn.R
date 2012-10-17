@@ -1,7 +1,7 @@
 #' Get the TSN code for a search term.
 #' 
 #' \code{get_tsn} uses a variety of functions from the \code{ritis} package: 
-#'   \link{https://github.com/ropensci/ritis}.
+#'   \url{https://github.com/ropensci/ritis}.
 #' 
 #' @import ritis plyr
 #' @param searchterm A vector of common or scientific names.

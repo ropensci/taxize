@@ -6,14 +6,16 @@
 \usage{
   classification(x, ID = NULL, ...)
 
-  \method{classification}{tsn} (x)
+  \method{classification}{tsn} (x, ...)
 
-  \method{classification}{uid} (x)
+  \method{classification}{uid} (x, ...)
 }
 \arguments{
   \item{x}{IDs from \code{get_tsn()} or \code{get_uid()}.}
 
   \item{ID}{type of identifier, either 'uid' or 'tsn'}
+
+  \item{...}{Currently not used}
 }
 \value{
   Classification of taxons in a list of data.frames.

@@ -3,6 +3,7 @@
 #' @import XML RCurl plyr
 #' @param x IDs from \code{get_tsn()} or \code{get_uid()}.
 #' @param ID type of identifier, either 'uid' or 'tsn'
+#' @param ... Currently not used
 #' @return Classification of taxons in a list of data.frames.
 #' @note If IDs are supplied directly (not from the get_* functions) 
 #' use the methods classification.ncbi() or classification.tsn() directly. 
@@ -21,7 +22,7 @@ classification <- function(x, ID = NULL, ...){
 }
 
 #' @S3method classification default
-classification.default <- function(x, ID = NULL){
+classification.default <- function(x, ID = NULL, ...){
   if(is.null(ID))
     stop("Must specify Identifier!")
   if(ID == 'tsn')
@@ -34,22 +35,22 @@ classification.default <- function(x, ID = NULL){
 #' @method classification tsn
 #' @export
 #' @rdname classification
-classification.tsn <- function(x) 
+classification.tsn <- function(x, ...) 
 {
   fun <- function(x){
     # return NA if NA is supplied
     if(is.na(x)) {
       out <- NA
     } else {
-      doc <- get_itis_xml(searchterm = x, searchtype = "tsnfullhir", by_ = "tsn")
-      namespaces <- c(ax23="http://data.itis_service.itis.usgs.org/xsd")
-      nodes <- getNodeSet(doc, "//ax23:rankName", namespaces=namespaces)
+      doc <- itis_get_xml(searchterm = x, searchtype = "tsnfullhir", by_ = "tsn")
+      namespaces <- c(ax23 = "http://data.itis_service.itis.usgs.org/xsd")
+      nodes <- getNodeSet(doc, "//ax23:rankName", namespaces = namespaces)
       rank <- sapply(nodes, xmlValue)
-      nodes <- getNodeSet(doc, "//ax23:taxonName", namespaces=namespaces)
+      nodes <- getNodeSet(doc, "//ax23:taxonName", namespaces = namespaces)
       taxon <- sapply(nodes, xmlValue)
-      nodes <- getNodeSet(doc, "//ax23:tsn", namespaces=namespaces)
+      nodes <- getNodeSet(doc, "//ax23:tsn", namespaces = namespaces)
       tsn <- sapply(nodes, xmlValue) # last one is a repeat
-      out <- data.frame(rank, taxon, tsn=tsn[-length(tsn)])
+      out <- data.frame(rank, taxon, tsn = tsn[-length(tsn)])
       out
     }
   }
@@ -61,7 +62,7 @@ classification.tsn <- function(x)
 #' @method classification uid
 #' @export
 #' @rdname classification
-classification.uid <- function(x) {
+classification.uid <- function(x, ...) {
   fun <- function(x){
     # return NA if NA is supplied
     if(is.na(x)){
