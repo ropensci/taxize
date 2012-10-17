@@ -1,6 +1,5 @@
 Package: taxize
-Description: An interface to the Integrated Taxonomic Information System (ITIS)
-    and Phylomatic.
+Description: Taxnomic search and phylogeny retrieval.
 Title: Taxnomic search and phylogeny retrieval.
 Version: 0.0.1
 License: CC0
@@ -10,6 +9,7 @@ Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "szoe8822@uni-landau.de"),
     person("Carl", "Boettiger", role = "aut",
     email = "cboettig@gmail.com"))
+Encoding: UTF-8
 Depends:
     ritis
 Imports:
@@ -54,3 +54,4 @@ Collate:
     'phylomatic_tree.R'
     'downstream.R'
     'get_seqs.R'
+    'taxize-package.R'
