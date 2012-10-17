@@ -1,10 +1,10 @@
 #' Get family names to make Phylomatic input object, and output input string 
-#'    to Phylomatic for use in the function get_phylomatic_tree.
+#'    to Phylomatic for use in the function phylomatic_tree.
 #'    
 #' @import XML RCurl stringr plyr
 #' @param tsn quoted tsn number (taxonomic serial number)
 #' @param format output format, isubmit (you can paste in to the Phylomatic 
-#     website), or 'rsubmit' to use in fxn get_phylomatic_tree
+#     website), or 'rsubmit' to use in fxn phylomatic_tree
 #' @return e.g., "pinaceae/pinus/pinus_contorta", in Phylomatic submission format.
 #' @examples \dontrun{
 #' dat_ <- laply(list("36616", "19322", "183327"), itis_get_phymat_format, 
@@ -16,7 +16,7 @@
 #' @export
 itis_get_phymat_format <- function(tsn = NA, format) 
 {
-  temp <- get_itis_xml(searchterm = tsn, searchtype = "tsnfullhir", by_ = "tsn")
+  temp <- itis_get_xml(searchterm = tsn, searchtype = "tsnfullhir", by_ = "tsn")
   xmllist <- xmlToList(temp)$return[-1]
   tempdf <- ldply(xmllist, function(x) data.frame(c(x[4], x[5])))[,-4]
   hier <- na.omit(tempdf)

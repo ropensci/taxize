@@ -1,6 +1,6 @@
 #' Get data sources for the Global Names Resolver.
 #' 
-#' Uses the Global Names Index, see \link{http://gni.globalnames.org/} 
+#' Uses the Global Names Index, see \url{http://gni.globalnames.org/} 
 #' 		for information. 
 #' 
 #' @import RJSONIO plyr

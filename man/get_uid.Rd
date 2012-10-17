@@ -1,3 +1,4 @@
+\encoding{utf-8}
 \name{get_uid}
 \alias{get_uid}
 \title{Get the UID codes from NCBI for species names.}

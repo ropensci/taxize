@@ -16,11 +16,10 @@
 #' @export
 downstream <- function(tsns, downto) 
 {
-	# load rank reference data.frame
-	if(exists(as.character(substitute(rank_ref)))==TRUE){ NULL } else
-		{ data(rank_ref); message("loaded rank_ref") }
-	downto2 <- rank_ref[grep(downto, rank_ref$ranks),"rankId"]
-	torank_ids <- rank_ref[grep(downto, rank_ref$ranks):nrow(rank_ref),"rankId"]
+	# load rank reference data.frame from datasets
+	rank_lookup <- data(rank_ref, package = "taxize")
+	downto2 <- rank_lookup[grep(downto, rank_lookup$ranks),"rankId"]
+	torank_ids <- rank_lookup[grep(downto, rank_lookup$ranks):nrow(rank_lookup),"rankId"]
 	
 	stop_ <- "not" 
 	notout <- data.frame(rankName = "")

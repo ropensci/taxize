@@ -1,6 +1,6 @@
 #' Resolve names using Global Names Resolver.
 #' 
-#' Uses the Global Names Index, see \link{http://gni.globalnames.org/} for information. 
+#' Uses the Global Names Index, see \url{http://gni.globalnames.org/} for information. 
 #' 
 #' @import stringr RJSONIO RCurl plyr
 #' @param names Quoted taxonomic names to be resolved in a vector.

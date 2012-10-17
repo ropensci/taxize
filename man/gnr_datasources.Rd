@@ -16,7 +16,7 @@
 }
 \description{
   Uses the Global Names Index, see
-  \link{http://gni.globalnames.org/} for information.
+  \url{http://gni.globalnames.org/} for information.
 }
 \examples{
 \dontrun{

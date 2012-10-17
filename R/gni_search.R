@@ -1,6 +1,6 @@
 #' Search for taxonomic names using the Global Names Index.
 #' 
-#' Uses the Global Names Index, see \link{http://gni.globalnames.org/} for information. 
+#' Uses the Global Names Index, see \url{http://gni.globalnames.org/} for information. 
 #' 
 #' @import stringr RJSONIO RCurl plyr
 #' @param search_term Name pattern you want to search for search term may include 
