@@ -14,11 +14,12 @@
 #' plants <- c("Myrcia lingua", "Myrcia bella", "Ocotea pulchella", 
 #' 		"Miconia", "Coffea arabica var. amarella", "Bleh")
 #' key <- yourapikey
-#' plantminer(plants)
+#' plantminer(plants, key = key)
 #' }
 #' @export
 plantminer <- function(plants, key = as.numeric(getOption("pmkey", stop("need an API key"))))
 {
+  i <- NULL
   compiled.list <- foreach (i=1:length(plants), .combine =
     rbind) %do% {
     full.name <- strsplit(plants[i], " ")[[1]]
