@@ -10,7 +10,7 @@ Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "szoe8822@uni-landau.de"),
     person("Carl", "Boettiger", role = "aut",
     email = "cboettig@gmail.com"))
-Suggests:
+Depends:
     ritis
 Imports:
     XML,
@@ -52,5 +52,5 @@ Collate:
     'itis_parse.R'
     'itis_printhier.R'
     'phylomatic_tree.R'
-    'getseqs.R'
     'downstream.R'
+    'get_seqs.R'

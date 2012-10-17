@@ -1,8 +1,8 @@
-\name{getseqs}
-\alias{getseqs}
+\name{get_seqs}
+\alias{get_seqs}
 \title{Retrieve nucleotide sequences from NCBI.}
 \usage{
-  getseqs(taxon_name, gene, seqrange, getrelated,
+  get_seqs(taxon_name, gene, seqrange, getrelated,
     writetodf = TRUE, filetowriteto)
 }
 \arguments{
@@ -22,7 +22,7 @@
   \item{writetodf}{Write resulting data.frame of results to
   a file on your machine (logical).}
 
-  \item{filewriteto}{If writetodf=TRUE, then specify the
+  \item{filetowriteto}{If writetodf=TRUE, then specify the
   file name. Default=T.}
 }
 \value{
@@ -40,24 +40,24 @@
 \examples{
 \dontrun{
 # A single species
-getseqs(taxon_name="Bombus impatiens", gene = c("coi", "co1"),
+get_seqs(taxon_name="Bombus impatiens", gene = c("coi", "co1"),
 		seqrange = "600:2000", getrelated=T, writetodf=F)
 
 # Many species, can run in parallel or not using plyr
 species <- c("Colletes similis","Halictus ligatus","Perdita trisignata")
-llply(species, getseqs, gene = c("coi", "co1"),  # notice different sp. output for Perdita
+llply(species, get_seqs, gene = c("coi", "co1"),  # notice different sp. output for Perdita
 		seqrange = "1:2000", getrelated=T, writetodf=F)
 
 # Can also run in parallel
 library(multicore); library(doMC)
 registerDoMC(cores=4)
-llply(species, getseqs, gene = c("coi", "co1"),
+llply(species, get_seqs, gene = c("coi", "co1"),
 		seqrange = "1:2000", getrelated=T, writetodf=F, .parallel=T)
 
 # Running in parallel is much faster
-system.time(llply(species, getseqs, gene = c("coi", "co1"), seqrange = "1:2000", getrelated=T, writetodf=F))
+system.time(llply(species, get_seqs, gene = c("coi", "co1"), seqrange = "1:2000", getrelated=T, writetodf=F))
 registerDoMC(cores=4)
-system.time(llply(species, getseqs, gene = c("coi", "co1"), seqrange = "1:2000", getrelated=T, writetodf=F, .parallel=T))
+system.time(llply(species, get_seqs, gene = c("coi", "co1"), seqrange = "1:2000", getrelated=T, writetodf=F, .parallel=T))
 }
 }
 \author{
