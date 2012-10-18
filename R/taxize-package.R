@@ -11,13 +11,12 @@
 #' You need API keys for Encyclopedia of Life (EOL), 
 #' the Universal Biological Indexer and Organizer (uBio), Tropicos, and Plantminer.
 #' 
-#' @encoding utf-8
 #' @name taxize-package
 #' @aliases taxize
 #' @docType package
 #' @title Taxnomic search and phylogeny retrieval.
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
-#' @author Eduard Szöcs \email{szoe8822@@uni-landau.de}
+#' @author Eduard Szoecs \email{szoe8822@@uni-landau.de}
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @keywords package
 NULL

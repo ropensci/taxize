@@ -2,13 +2,12 @@
 #' 
 #' A function to retrieve the UID-Code (Unique Identifier) of a species from NCBI taxonomy browser.
 #' 
-#' @encoding utf-8
 #' @import plyr RCurl
 #' @param sciname scientific name.
 #' @return UID for the supplied species names. NA for non-matching names.
 #' 
 #' @export
-#' @author Eduard Szöcs \email{szoe8822@@uni-landau.de}
+#' @author Eduard Szoecs \email{szoe8822@@uni-landau.de}
 #' 
 #' @examples \dontrun{
 #' get_uid(c("Chironomus riparius", "Chaetopteryx"))

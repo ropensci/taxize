@@ -2,7 +2,6 @@
 #' 
 #' Get a summary from the IUCN Red List (\url{http://www.iucnredlist.org/}).
 #' 
-#' @encoding utf-8
 #' @import XML
 #' @param sciname Scientific name. 
 #' @return A list (for every species one entry) of lists with the following items:
@@ -23,7 +22,7 @@
 #' ia[[2]]$trend
 #' }
 #' 
-#' @author Eduard Szöcs \email{szoe8822@@uni-landau.de}
+#' @author Eduard Szoecs \email{szoe8822@@uni-landau.de}
 #' 
 #' @export
 iucn_summary <- function(sciname) 
