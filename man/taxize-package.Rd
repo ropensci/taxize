@@ -1,5 +1,4 @@
 \docType{package}
-\encoding{utf-8}
 \name{taxize-package}
 \alias{taxize}
 \alias{taxize-package}
@@ -25,7 +24,7 @@
 \author{
   Scott Chamberlain \email{myrmecocystus@gmail.com}
 
-  Eduard Szöcs \email{szoe8822@uni-landau.de}
+  Eduard Szoecs \email{szoe8822@uni-landau.de}
 
   Carl Boettiger \email{cboettig@gmail.com}
 }
