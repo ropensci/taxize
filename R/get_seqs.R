@@ -50,8 +50,8 @@ get_seqs <- function(taxon_name, gene, seqrange, getrelated, writetodf=TRUE, fil
 	
 	query <- list(db = "nuccore", term = paste(taxon_name, "[Organism] AND", genes_, "AND", seqrange, "[SLEN]", collapse=" "), RetMax=500)
 	
-	out <- parsed_content(
-		GET("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi", query=query))$doc$children$eSearchResult
+	out <- 
+		xpathApply(content(GET("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi", query=query), "parsed"), "//eSearchResult")[[1]]
 	if( as.numeric(xmlValue(xpathApply(out, "//Count")[[1]]))==0 ){
 		message(paste("no sequences of ", gene, " for ", taxon_name, " - getting other sp.", sep=""))
 		if(getrelated == FALSE){
@@ -62,8 +62,8 @@ get_seqs <- function(taxon_name, gene, seqrange, getrelated, writetodf=TRUE, fil
 			message("...retrieving sequence IDs for related species...")
 			newname <- strsplit(taxon_name, " ")[[1]][[1]]
 			query <- list(db = "nuccore", term = paste(newname, "[Organism] AND", genes_, "AND", seqrange, "[SLEN]", collapse=" "), RetMax=500)
-			out <- parsed_content(
-				GET("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi", query=query))$doc$children$eSearchResult
+			out <- 
+				xpathApply(content(GET("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi", query=query), "parsed"), "//eSearchResult")[[1]]
 			if( as.numeric(xmlValue(xpathApply(out, "//Count")[[1]]))==0 ){
 				message(paste("no sequences of ", gene, " for ", taxon_name, " or ", newname, sep=""))
 				outt <- list(taxon_name, NA, NA, NA, NA, NA)
@@ -75,9 +75,8 @@ get_seqs <- function(taxon_name, gene, seqrange, getrelated, writetodf=TRUE, fil
 				## For each species = get GI number with longest sequence
 				message("...retrieving sequence ID with longest sequence length...")
 				querysum <- list(db = "nucleotide", id = paste(ids_, collapse=" ")) # construct query for species
-				outsum <- parsed_content( # API call
-					GET("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi", 
-							query=querysum))$doc$children$eSummaryResult 
+				outsum <- 
+						xpathApply(content(GET("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi", query=querysum), "parsed"), "//eSummaryResult")[[1]]
 				names <- sapply(getNodeSet(outsum[[1]], "//Item"), xmlGetAttr, name="Name") # gets names of values in summary
 				predicted <- as.character(sapply(getNodeSet(outsum, "//Item"), xmlValue)[str_detect(names, "Caption")]) #  get access numbers
 				predicted <- sapply(predicted, function(x) strsplit(x, "_")[[1]][[1]], USE.NAMES=F)
@@ -88,12 +87,12 @@ get_seqs <- function(taxon_name, gene, seqrange, getrelated, writetodf=TRUE, fil
 				df <- df[!df$predicted %in% c("XM","XR"),] # remove predicted sequences
 				gisuse <- df[which.max(x=df$length),] # picks longest sequnence length
 				if(nrow(gisuse)>1){gisuse <- gisuse[sample(nrow(gisuse), 1), ]} else 
-				{gisuse <- gisuse}
+					{gisuse <- gisuse}
 				
 				## Get sequence from previous
 				message("...retrieving sequence...")
 				queryseq <- list(db = "sequences", id = gisuse[,1], rettype = "fasta", retmode = "text")
-				outseq <- parsed_content(
+				outseq <- content(
 					GET("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi", query = queryseq))  
 				seq <- str_replace_all(str_split(str_replace(outseq, "\n", "<<<"), "<<<")[[1]][[2]], "\n", "")
 				accessnum <- str_split(outseq, "\\|")[[1]][4]
@@ -108,9 +107,9 @@ get_seqs <- function(taxon_name, gene, seqrange, getrelated, writetodf=TRUE, fil
 		## For each species = get GI number with longest sequence
 		message("...retrieving sequence ID with longest sequence length...")
 		querysum <- list(db = "nucleotide", id = paste(ids_, collapse=" ")) # construct query for species
-		outsum <- parsed_content( # API call
+		outsum <- xpathApply(content( # API call
 			GET("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi", 
-					query=querysum))$doc$children$eSummaryResult 
+					query=querysum), "parsed"), "//eSummaryResult")[[1]]
 		names <- sapply(getNodeSet(outsum[[1]], "//Item"), xmlGetAttr, name="Name") # gets names of values in summary
 		predicted <- as.character(sapply(getNodeSet(outsum, "//Item"), xmlValue)[str_detect(names, "Caption")]) #  get access numbers
 		predicted <- sapply(predicted, function(x) strsplit(x, "_")[[1]][[1]], USE.NAMES=F)
@@ -126,7 +125,7 @@ get_seqs <- function(taxon_name, gene, seqrange, getrelated, writetodf=TRUE, fil
 		## Get sequence from previous
 		message("...retrieving sequence...")
 		queryseq <- list(db = "sequences", id = gisuse[,1], rettype = "fasta", retmode = "text")
-		outseq <- parsed_content(
+		outseq <- content(
 			GET("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi", query = queryseq))  
 		seq <- str_replace_all(str_split(str_replace(outseq, "\n", "<<<"), "<<<")[[1]][[2]], "\n", "")
 		accessnum <- str_split(outseq, "\\|")[[1]][4]

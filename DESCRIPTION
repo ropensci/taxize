@@ -17,7 +17,7 @@ Imports:
     RCurl (>= 1.6),
     stringr,
     plyr,
-    httr,
+    httr (>= 0.2),
     RJSONIO,
     foreach,
     ape
