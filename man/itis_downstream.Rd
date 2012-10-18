@@ -2,23 +2,19 @@
 \alias{itis_downstream}
 \title{Retrieve all taxa names or TSNs downstream in hierarchy from given TSN.}
 \usage{
-  itis_downstream(searchtsn = NA, attachrank = TRUE,
-    outtaxlevel = c("Kingdom", "Subkingdom", "Phylum", "Subphylum", "Superclass", "Class", "Subclass", "Infraclass", "Superorder", "Order", "Suborder", "Infraorder", "Superfamily", "Family", "Subfamily", "Tribe", "Subtribe", "Genus", "Subgenus", "Species", "Subspecies", "Variety", "Infrakingdom", "Division", "Subdivision", "Infradivision", "Section", "Subsection", "Subvariety", "Form", "Subform", "Race", "Stirp", "Morph", "Aberration", "Unspecified"))
+  itis_downstream(tsns, downto)
 }
 \arguments{
-  \item{searchtsn}{Quoted TSN for a taxonomic group
-  (character).}
+  \item{tsns}{A taxonomic serial number.}
 
-  \item{outtaxlevel}{If not specified, function returns
-  only direct children.  Other options = any quoted
-  taxonomic level below that specified in searchtsn, e.g.,
-  'genus' if searchtsn specifies a family}
-
-  \item{attachrank}{Should rank be attached to the output?
-  (default=TRUE).}
+  \item{downto}{The taxonomic level you want to go down to.
+  See examples below.  The taxonomic level IS case
+  sensitive, and you do have to spell it correctly. See
+  \code{data(rank_ref)} for spelling.}
 }
 \value{
-  Names or TSNs of all downstream taxa in a data.frame.
+  Data.frame of taxonomic information downstream to family
+  from e.g., Order, Class, etc.
 }
 \description{
   Retrieve all taxa names or TSNs downstream in hierarchy
@@ -26,10 +22,12 @@
 }
 \examples{
 \dontrun{
-dat2 <- itis_downstream(searchtsn = 180415, outtaxlevel = 'Species') # the superclass Osteichthyes
+itis_downstream(846509, "Genus")
+itis_downstream(tsns = 650497, "Family") # getting families downstream from Acridoidea
+itis_downstream(tsns = 180541, "Species") # getting species downstream from Ursus
 }
 }
 \author{
-  Scott Chamberlain {myrmecocystus@gmail.com}
+  Scott Chamberlain \email{myrmecocystus@gmail.com}
 }
 

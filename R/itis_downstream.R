@@ -9,12 +9,12 @@
 #' 		Order, Class, etc. 
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @examples \dontrun{
-#' downstream(846509, "Genus")
-#' downstream(tsns = 650497, "Family") # getting families downstream from Acridoidea
-#' downstream(tsns = 180541, "Species") # getting species downstream from Ursus
+#' itis_downstream(846509, "Genus")
+#' itis_downstream(tsns = 650497, "Family") # getting families downstream from Acridoidea
+#' itis_downstream(tsns = 180541, "Species") # getting species downstream from Ursus
 #' }
 #' @export
-downstream <- function(tsns, downto) 
+itis_downstream <- function(tsns, downto) 
 {
 	# load rank reference data.frame from datasets
 	rank_lookup <- data(rank_ref, package = "taxize")
