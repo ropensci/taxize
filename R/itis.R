@@ -1,7 +1,7 @@
-#' Search individual strings.
+#' Use any function in ritis, searching by TSN or taxonomic name.
 #' 
-#' @import XML RCurl
-#' @param searchterm Any common or scientific name.
+#' @import ritis
+#' @param query Any common or scientific name.
 #' @param searchtype One of 'sciname', 'anymatch', 'comnamebeg', 'comname', 
 #'    'comnameend', 'terms', 'itistermscomname', 'itistermssciname', or
 #'    'tsnsvernacular', 'tsnfullhir', 'tsnhirdown' .
@@ -9,16 +9,15 @@
 #'    (taxonomic serial number).
 #' @param parselist Parse xml or not (defaults to TRUE). 
 #' @param base_url The base URL for the ITIS API service, leave as is.
-#' @param curl Use to speed up calls when looping, e.g.
+#' @param curl Use to speed up calls when looping
 #' @return xml with taxonomic information.
 #' @export
 #' @examples \dontrun{
-#' xml <- itis_get_xml("Plethodon ")
-#' parse_itis(xml)
-#' itis_get_xml('202420', 'tsnhirdown', 'tsn')
-#' itis_get_xml("36616", "tsnfullhir", "tsn")
+#' itis("Plethodon ")
+#' itis('202420', 'tsnhirdown', 'tsn')
+#' itis("36616", "tsnfullhir", "tsn")
 #' }
-itis_get_xml <- function(searchterm, 
+itis <- function(query, 
   searchtype = c("anymatch", "sciname", "comnamebeg", "comname",
   "comnameend", "terms", "itistermscomname", "itistermssciname",
   "tsnsvernacular", "tsnfullhir", 'tsnhirdown'),

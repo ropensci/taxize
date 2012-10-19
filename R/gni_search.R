@@ -35,7 +35,7 @@ gni_search <- function(search_term = NULL, per_page = NULL, page = NULL, justtot
 	url = "http://gni.globalnames.org/name_strings.json") 
 {
 	query <- compact(list(search_term = search_term, per_page = per_page, page = page))
-	out <- parsed_content( GET(url, query = query) )
+	out <- content( GET(url, query = query), "parsed")
 	if(justtotal == TRUE){out$name_strings_total} else
 		{
 			checknull <- function(x) {if(is.null(x)){"none"} else{x}}

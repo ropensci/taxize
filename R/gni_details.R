@@ -21,7 +21,7 @@ gni_details <- function(id = NULL, all_records = NULL,
 {
 	url2 <- paste(url, id, ".json", sep="")
 	query <- compact(list(all_records = all_records))
-	out <- parsed_content( GET(url2, query = query) )
+	out <- content( GET(url2, query = query), "parsed")
 	checknull <- function(x) {if(is.null(x)){"none"} else{x}}
 	outdf <- 
 		ldply(out$data, function(x) data.frame(t(c(checknull(x$records[[1]]$created_at),

@@ -9,7 +9,7 @@
 #' 		Order, Class, etc. 
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @examples \dontrun{
-#' itis_downstream(846509, "Genus")
+#' itis_downstream(tsns=846509, downto="Genus")
 #' itis_downstream(tsns = 650497, "Family") # getting families downstream from Acridoidea
 #' itis_downstream(tsns = 180541, "Species") # getting species downstream from Ursus
 #' }
@@ -17,9 +17,9 @@
 itis_downstream <- function(tsns, downto) 
 {
 	# load rank reference data.frame from datasets
-	rank_lookup <- data(rank_ref, package = "taxize")
-	downto2 <- rank_lookup[grep(downto, rank_lookup$ranks),"rankId"]
-	torank_ids <- rank_lookup[grep(downto, rank_lookup$ranks):nrow(rank_lookup),"rankId"]
+	data(rank_ref, package = "taxize")
+	downto2 <- rank_ref[grep(downto, rank_ref$ranks),"rankId"]
+	torank_ids <- rank_ref[grep(downto, rank_ref$ranks):nrow(rank_ref),"rankId"]
 	
 	stop_ <- "not" 
 	notout <- data.frame(rankName = "")

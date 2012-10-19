@@ -1,12 +1,10 @@
-# tests for getcommentdetailfromtsn fxn in taxize
-context("getcommentdetailfromtsn")
+# tests for gnr_datasources fxn in taxize
+context("gnr_datasources")
 
-test_that("getcommentdetailfromtsn returns the correct value", {
-	expect_that(getcommentdetailfromtsn(180543)[1,3], matches("2007-08-20 15:06:38.0"))
-	expect_that(as.character(getcommentdetailfromtsn(180541)$commentator), equals("Wilson & Reeder, eds. (2005)"))
+test_that("gnr_datasources returns the correct value", {
+	expect_that(gnr_datasources()[[1]][[1]], equals("2012-07-06T11:36:36Z"))
 })
 
-test_that("getcommentdetailfromtsn returns the correct class", {
-	expect_that(getcommentdetailfromtsn(180543), is_a("data.frame"))
-	expect_that(getcommentdetailfromtsn(180541), is_a("data.frame"))
+test_that("gnr_datasources returns the correct class", {
+	expect_that(gnr_datasources(), is_a("list"))
 })

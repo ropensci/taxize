@@ -1,15 +1,11 @@
 # tests for eol_hierarchy fxn in taxize
 context("eol_hierarchy")
 
-eol_hierarchy('34345893')
-eol_hierarchy('34345893', json = 'TRUE')
-
 test_that("eol_hierarchy returns the correct value", {
-	expect_that(getcommentdetailfromtsn(180543)[1,3], matches("2007-08-20 15:06:38.0"))
-	expect_that(as.character(getcommentdetailfromtsn(180541)$commentator), equals("Wilson & Reeder, eds. (2005)"))
+	expect_that(eol_hierarchy('34345893', json = 'TRUE', returntype="data.frame")[1,1], 
+							matches("Unknown identifier 34345893"))
 })
 
 test_that("eol_hierarchy returns the correct class", {
-	expect_that(getcommentdetailfromtsn(180543), is_a("data.frame"))
-	expect_that(getcommentdetailfromtsn(180541), is_a("data.frame"))
+	expect_that(eol_hierarchy('34345893', json = 'TRUE', returntype="data.frame"), is_a("data.frame"))
 })

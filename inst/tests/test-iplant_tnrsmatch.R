@@ -1,12 +1,14 @@
-# tests for getcommentdetailfromtsn fxn in taxize
-context("getcommentdetailfromtsn")
+# tests for iplant_tnrsmatch fxn in taxize
+context("iplant_tnrsmatch")
 
-test_that("getcommentdetailfromtsn returns the correct value", {
-	expect_that(getcommentdetailfromtsn(180543)[1,3], matches("2007-08-20 15:06:38.0"))
-	expect_that(as.character(getcommentdetailfromtsn(180541)$commentator), equals("Wilson & Reeder, eds. (2005)"))
+mynames <- c("shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus", "rubus ulmifolius", "asclepias curassavica", "pistacia lentiscus")
+
+test_that("iplant_tnrsmatch returns the correct value", {
+	expect_that(iplant_tnrsmatch(retrieve = 'all', taxnames = c('helianthus annuus', 'acacia', 'gossypium'), output = 'names')[1,2], 
+							matches("Asteraceae"))
 })
 
-test_that("getcommentdetailfromtsn returns the correct class", {
-	expect_that(getcommentdetailfromtsn(180543), is_a("data.frame"))
-	expect_that(getcommentdetailfromtsn(180541), is_a("data.frame"))
+test_that("iplant_tnrsmatch returns the correct class", {
+	expect_that(iplant_tnrsmatch(retrieve = 'all', taxnames = c('helianthus annuus', 'acacia', 'gossypium'), output = 'names'),
+							is_a("data.frame"))
 })

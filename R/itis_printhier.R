@@ -10,7 +10,8 @@
 #' }
 itis_printhier <- function(hierout = NA) 
 {
-  page <- xmlTreeParse(hierout)
-  templist <- ldply(xmlToList(page), function(x) data.frame(c(x[3], x[4])))[,-3]
-  na.omit(templist)
+#   page <- xmlTreeParse(hierout)
+#   templist <- ldply(xmlToList(page), function(x) data.frame(c(x[3], x[4])))[,-3]
+#   na.omit(templist)
+	message("itis_printhier deprecated")
 }

@@ -5,15 +5,15 @@
 #' @return Taxonomic rank name.
 #' @export
 #' @examples \dontrun{
-#' tt <- get_itis_xml("Plethodon ")
-#' itis_parse(tt)
+#' itis_parse()
 #' }
-itis_parse  <- function(doc)
+itis_parse  <- function()
 {
-  namespaces <- c(ax23="http://data.itis_service.itis.usgs.org/xsd")
-  nodes <- getNodeSet(doc, "//ax23:sciName/..", namespaces=namespaces)
-  sci <- sapply(nodes, function(x) xmlValue(x[["sciName"]]))
-  tsn <- sapply(nodes, function(x) xmlValue(x[["tsn"]]))
-  com <- sapply(nodes, function(x) xmlValue(x[["commonNameList"]][[1]][[1]]))
-  data.frame(sci, com, tsn)
+#   namespaces <- c(ax23="http://data.itis_service.itis.usgs.org/xsd")
+#   nodes <- getNodeSet(doc, "//ax23:sciName/..", namespaces=namespaces)
+#   sci <- sapply(nodes, function(x) xmlValue(x[["sciName"]]))
+#   tsn <- sapply(nodes, function(x) xmlValue(x[["tsn"]]))
+#   com <- sapply(nodes, function(x) xmlValue(x[["commonNameList"]][[1]][[1]]))
+#   data.frame(sci, com, tsn)
+	message("itis_parse deprecated")
 }
