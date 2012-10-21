@@ -1,8 +1,8 @@
-\name{tp_getnamereferences}
-\alias{tp_getnamereferences}
+\name{tp_namereferences}
+\alias{tp_namereferences}
 \title{Return all reference records for for a taxon name with a given id.}
 \usage{
-  tp_getnamereferences(id, format = "json", output = "df",
+  tp_namereferences(id, format = "json", output = "df",
     url = "http://services.tropicos.org/Name/",
     key = getOption("tropicoskey", stop("need an API key for Tropicos")))
 }
@@ -29,10 +29,10 @@
 \examples{
 \dontrun{
 # Raw json or xml
-tp_getnamereferences(id = 25509881, output = 'raw')
+tp_namereferences(id = 25509881, output = 'raw')
 
 # Output as data.frame
-tp_getnamereferences(id = 25509881)
+tp_namereferences(id = 25509881)
 }
 }
 

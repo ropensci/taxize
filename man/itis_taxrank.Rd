@@ -1,8 +1,8 @@
-\name{itis_gettaxrank}
-\alias{itis_gettaxrank}
+\name{itis_taxrank}
+\alias{itis_taxrank}
 \title{Retrieve taxonomic rank name from given TSN.}
 \usage{
-  itis_gettaxrank(query = NULL)
+  itis_taxrank(query = NULL)
 }
 \arguments{
   \item{query}{Quoted TSN for a taxonomic group (numeric),
@@ -20,7 +20,7 @@
 }
 \examples{
 \dontrun{
-itis_gettaxrank(202385)
+itis_taxrank(202385)
 }
 }
 

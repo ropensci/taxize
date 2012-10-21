@@ -1,4 +1,5 @@
 #' Return all reference records for for a taxon name with a given id.
+#' 
 #' @import XML RCurl RJSONIO plyr
 #' @param id the taxon identifier code 
 #' @param format return in json or xml format (defaults to json)
@@ -6,15 +7,15 @@
 #' @param url The Tropicos url for the function (should be left to default).
 #' @param key Your Tropicos API key; loads from .Rprofile.
 #' @return List or dataframe.
-#' @export
 #' @examples \dontrun{
 #' # Raw json or xml
-#' tp_getnamereferences(id = 25509881, output = 'raw')
+#' tp_namereferences(id = 25509881, output = 'raw')
 #' 
 #' # Output as data.frame
-#' tp_getnamereferences(id = 25509881)
+#' tp_namereferences(id = 25509881)
 #' }
-tp_getnamereferences <- function(id, format = 'json', output = 'df',
+#' @export
+tp_namereferences <- function(id, format = 'json', output = 'df',
   url = 'http://services.tropicos.org/Name/',
   key = getOption("tropicoskey", stop("need an API key for Tropicos"))) 
 {

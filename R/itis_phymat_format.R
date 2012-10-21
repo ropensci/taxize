@@ -7,9 +7,8 @@
 #     website), or 'rsubmit' to use in fxn phylomatic_tree
 #' @return e.g., "pinaceae/pinus/pinus_contorta", in Phylomatic submission format.
 #' @examples \dontrun{
-#' dat_ <- laply(list("36616", "19322", "183327"), itis_phymat_format, 
-#' 		format='rsubmit', .progress="text")
-#' tree <- phylomatic_tree(dat_, 'FALSE', 'GET', 'new', 'TRUE')
+#' dat_ <- laply(list("36616", "19322", "183327"), itis_phymat_format, format='rsubmit')
+#' tree <- phylomatic_tree(dat_, 'GET', 'new', 'TRUE')
 #' plot(tree)
 #' }
 #' @export
@@ -22,7 +21,6 @@ itis_phymat_format <- function(tsn = NA, format)
     paste(tt__[1], "/", tt__[2], "/", str_replace(tt__[3], " ", "_"), sep='')
   } else
   if (format == 'rsubmit') {
-    temp <- paste(tt__[1], "%2F", tt__[2], "%2F", str_replace(tt__[3], " ", "_"), sep='')
-    paste(temp, collapse="%0D%0A")
+    paste(tt__[1], "%2F", tt__[2], "%2F", str_replace(tt__[3], " ", "_"), sep='')
   } 
 }

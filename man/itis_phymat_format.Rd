@@ -22,9 +22,8 @@
 }
 \examples{
 \dontrun{
-dat_ <- laply(list("36616", "19322", "183327"), itis_phymat_format,
-		format='rsubmit', .progress="text")
-tree <- phylomatic_tree(dat_, 'FALSE', 'GET', 'new', 'TRUE')
+dat_ <- laply(list("36616", "19322", "183327"), itis_phymat_format, format='rsubmit')
+tree <- phylomatic_tree(dat_, 'GET', 'new', 'TRUE')
 plot(tree)
 }
 }

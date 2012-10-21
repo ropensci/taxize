@@ -1,4 +1,5 @@
-#' Return all synonyms for a taxon name with a given id.
+#' Return all accepted names for a taxon name with a given id.
+#' 
 #' @import XML RCurl RJSONIO plyr
 #' @param id the taxon identifier code 
 #' @param format return in json or xml format (defaults to json)
@@ -6,22 +7,22 @@
 #' @param url The Tropicos url for the function (should be left to default).
 #' @param key Your Tropicos API key; loads from .Rprofile.
 #' @return List or dataframe.
-#' @export
 #' @examples \dontrun{
-#' tp_getsynonyms(id = 25509881)
-#' tp_getsynonyms(id = 25509881, output = 'raw')
+#' tp_acceptednames(id = 25503923)
+#' tp_acceptednames(id = 25503923, output = 'raw')
 #' }
-tp_getsynonyms <- function(id, format = 'json', output = 'df',
+#' @export
+tp_acceptednames <- function(id, format = 'json', output = 'df',
   url = 'http://services.tropicos.org/Name/',
   key = getOption("tropicoskey", stop("need an API key for Tropicos"))) 
 {
   if (format == 'json') {
-    urlget <- paste(url, id, '/Synonyms?apikey=', key, '&format=json', sep="")
+    urlget <- paste(url, id, '/AcceptedNames?apikey=', key, '&format=json', sep="")
     message(urlget)
     searchresults <- fromJSON(urlget)
     } 
   else {
-    urlget <- paste(url, id, '/Synonyms?apikey=', key, '&format=xml', sep="")
+    urlget <- paste(url, id, '/AcceptedNames?apikey=', key, '&format=xml', sep="")
     message(urlget)
     xmlout <- getURL(urlget)
     searchresults <- xmlToList(xmlTreeParse(xmlout))

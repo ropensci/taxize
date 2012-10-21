@@ -28,15 +28,16 @@
 \examples{
 \dontrun{
 gnr_resolve(names = c("Helianthus annuus", "Homo sapiens"), returndf = TRUE)
-gnr_resolve(names = c("Helianthus annuus", "Homo sapiens"), data_source_ids="12", returndf = TRUE)
 gnr_resolve(names = c("Asteraceae", "Plantae"), returndf = TRUE)
+
+# Using data source 12 (Encyclopedia of Life)
+gnr_resolve(names = c("Helianthus annuus", "Homo sapiens"), data_source_ids="12", returndf = TRUE)
 }
 }
 \author{
   Scott Chamberlain {myrmecocystus@gmail.com}
 }
 \seealso{
-  \code{\link{iplant_tnrastic}} and
   \code{\link{iplant_tnrsmatch}}.
 }
 \keyword{names}

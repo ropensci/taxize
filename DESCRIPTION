@@ -1,6 +1,6 @@
 Package: taxize
-Description: Taxnomic search and phylogeny retrieval.
-Title: Taxnomic search and phylogeny retrieval.
+Description: Taxonomic search and phylogeny retrieval.
+Title: Taxonomic search and phylogeny retrieval.
 Version: 0.0.1
 License: CC0
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
@@ -23,11 +23,6 @@ Imports:
 Collate:
     'classification.R'
     'get_tsn.R'
-    'tp_getacceptednames.R'
-    'tp_getsummary.R'
-    'tp_getsynonyms.R'
-    'tp_getnamedistributions.R'
-    'tp_getnamereferences.R'
     'gnr_datasources.R'
     'ubio_namebank.R'
     'gni_search.R'
@@ -50,3 +45,8 @@ Collate:
     'itis_phymat_format.R'
     'itis_taxrank.R'
     'itis.R'
+    'tp_acceptednames.R'
+    'tp_namedistributions.R'
+    'tp_namereferences.R'
+    'tp_summary.R'
+    'tp_synonyms.R'

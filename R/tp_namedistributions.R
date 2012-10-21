@@ -1,4 +1,5 @@
 #' Return all distribution records for for a taxon name with a given id.
+#' 
 #' @import XML RCurl RJSONIO plyr
 #' @param id the taxon identifier code 
 #' @param format return in json or xml format (defaults to json)
@@ -6,17 +7,17 @@
 #' @param url The Tropicos url for the function (should be left to default).
 #' @param key Your Tropicos API key; loads from .Rprofile.
 #' @return List or dataframe.
-#' @export
 #' @examples \dontrun{
 #' # Raw json or xml
-#' tp_getnamedistributions(id = 25509881, output = 'raw')
+#' tp_namedistributions(id = 25509881, output = 'raw')
 #' 
 #' # Output as data.frame
-#' df <- tp_getnamedistributions(id = 25509881)
+#' df <- tp_namedistributions(id = 25509881)
 #' df[df$category %in% 'Location',] # just location data
 #' df[df$category %in% 'Reference',] # just reference data
 #' }
-tp_getnamedistributions <- function(id, format = 'json', output = 'df',
+#' @export
+tp_namedistributions <- function(id, format = 'json', output = 'df',
   url = 'http://services.tropicos.org/Name/',
   key = getOption("tropicoskey", stop("need an API key for Tropicos"))) 
 {

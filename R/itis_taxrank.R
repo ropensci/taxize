@@ -5,11 +5,11 @@
 #' 		name (character).
 #' @details You can print informative messages by setting supmess=FALSE.
 #' @return Taxonomic rank name.
-#' @export
 #' @examples \dontrun{
-#' itis_gettaxrank(202385)
+#' itis_taxrank(202385)
 #' }
-itis_gettaxrank <- function(query = NULL)
+#' @export
+itis_taxrank <- function(query = NULL)
 {
 	as.character(gettaxonomicranknamefromtsn(query)$rankName)
 }

@@ -1,8 +1,8 @@
-\name{tp_getacceptednames}
-\alias{tp_getacceptednames}
-\title{Return all accepted names for a taxon name with a given id.}
+\name{tp_summary}
+\alias{tp_summary}
+\title{Return summary data a taxon name with a given id.}
 \usage{
-  tp_getacceptednames(id, format = "json", output = "df",
+  tp_summary(id, format = "json", output = "df",
     url = "http://services.tropicos.org/Name/",
     key = getOption("tropicoskey", stop("need an API key for Tropicos")))
 }
@@ -23,13 +23,12 @@
   List or dataframe.
 }
 \description{
-  Return all accepted names for a taxon name with a given
-  id.
+  Return summary data a taxon name with a given id.
 }
 \examples{
 \dontrun{
-tp_getacceptednames(id = 25503923)
-tp_getacceptednames(id = 25503923, output = 'raw')
+tp_summary(id = 25509881)
+tp_summary(id = 25509881, output = 'raw')
 }
 }
 

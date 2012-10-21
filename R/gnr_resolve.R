@@ -10,12 +10,14 @@
 #' @param url Base url for the API; leave as is.
 #' @author Scott Chamberlain {myrmecocystus@@gmail.com}
 #' @return json or xml output, your choice
-#' @seealso \code{\link{iplant_tnrastic}} and \code{\link{iplant_tnrsmatch}}.
+#' @seealso \code{\link{iplant_tnrsmatch}}.
 #' @keywords resolve names taxonomy
 #' @examples \dontrun{
 #' gnr_resolve(names = c("Helianthus annuus", "Homo sapiens"), returndf = TRUE)
-#' gnr_resolve(names = c("Helianthus annuus", "Homo sapiens"), data_source_ids="12", returndf = TRUE)
 #' gnr_resolve(names = c("Asteraceae", "Plantae"), returndf = TRUE)
+#' 
+#' # Using data source 12 (Encyclopedia of Life)
+#' gnr_resolve(names = c("Helianthus annuus", "Homo sapiens"), data_source_ids="12", returndf = TRUE)
 #' }
 #' @export
 gnr_resolve <- function(names, data_source_ids = NULL, returndf = FALSE,

@@ -36,6 +36,7 @@ classification(get_tsn(c("Chironomus riparius", "aaa vva"), "sciname"))
 classification(315576)
 # must specify Identifier, when not used with get_*()
 classification(315576, ID = "uid")
+classification(180544, "tsn")
 }
 }
 

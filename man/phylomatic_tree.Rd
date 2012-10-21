@@ -2,14 +2,11 @@
 \alias{phylomatic_tree}
 \title{Format tree string, submit to Phylomatic, get newick tree.}
 \usage{
-  phylomatic_tree(x, convert = TRUE, get, format,
-    retphylo = TRUE,
+  phylomatic_tree(x, get, format, retphylo = TRUE,
     url = "http://phylodiversity.net/phylomatic/pm/phylomatic.cgi")
 }
 \arguments{
   \item{x}{Phylomatic format input.}
-
-  \item{convert}{One of 'TRUE' of 'FALSE'.}
 
   \item{get}{'GET' or 'POST' format for submission to the
   website.}
@@ -36,8 +33,8 @@
 }
 \examples{
 \dontrun{
-dat_ <- laply(list("36616", "19322", "183327"), itis_phymat_format, format='rsubmit', .progress="text")
-tree <- phylomatic_tree(dat_mine, 'FALSE', 'GET', 'new', 'TRUE')
+dat_ <- laply(list("36616", "19322", "183327"), itis_phymat_format, format='rsubmit')
+tree <- phylomatic_tree(dat_, 'GET', 'new', 'TRUE')
 plot(tree)
 }
 }

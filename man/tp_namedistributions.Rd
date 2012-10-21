@@ -1,8 +1,8 @@
-\name{tp_getsynonyms}
-\alias{tp_getsynonyms}
-\title{Return all synonyms for a taxon name with a given id.}
+\name{tp_namedistributions}
+\alias{tp_namedistributions}
+\title{Return all distribution records for for a taxon name with a given id.}
 \usage{
-  tp_getsynonyms(id, format = "json", output = "df",
+  tp_namedistributions(id, format = "json", output = "df",
     url = "http://services.tropicos.org/Name/",
     key = getOption("tropicoskey", stop("need an API key for Tropicos")))
 }
@@ -23,12 +23,18 @@
   List or dataframe.
 }
 \description{
-  Return all synonyms for a taxon name with a given id.
+  Return all distribution records for for a taxon name with
+  a given id.
 }
 \examples{
 \dontrun{
-tp_getsynonyms(id = 25509881)
-tp_getsynonyms(id = 25509881, output = 'raw')
+# Raw json or xml
+tp_namedistributions(id = 25509881, output = 'raw')
+
+# Output as data.frame
+df <- tp_namedistributions(id = 25509881)
+df[df$category \%in\% 'Location',] # just location data
+df[df$category \%in\% 'Reference',] # just reference data
 }
 }
 

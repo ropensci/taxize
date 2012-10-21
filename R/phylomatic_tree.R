@@ -2,7 +2,6 @@
 #' 
 #' @import XML RCurl ape
 #' @param x Phylomatic format input.
-#' @param convert One of 'TRUE' of 'FALSE'.
 #' @param get 'GET' or 'POST' format for submission to the website.
 #' @param format Newick (new) or xml (xml) output. 
 #' @param retphylo Return phylo tree object (TRUE or FALSE).
@@ -13,23 +12,16 @@
 #'    newline (\n -> %0D%0A)
 #' @return Newick formatted tree.
 #' @examples \dontrun{
-#' dat_ <- laply(list("36616", "19322", "183327"), itis_phymat_format, format='rsubmit', .progress="text")
-#' tree <- phylomatic_tree(dat_mine, 'FALSE', 'GET', 'new', 'TRUE')
+#' dat_ <- laply(list("36616", "19322", "183327"), itis_phymat_format, format='rsubmit')
+#' tree <- phylomatic_tree(dat_, 'GET', 'new', 'TRUE')
 #' plot(tree)
 #' }
 #' @export
-phylomatic_tree <- function (x, convert = TRUE, get, format, retphylo = TRUE, 
+phylomatic_tree <- function (x, get, format, retphylo = TRUE, 
         url = "http://phylodiversity.net/phylomatic/pm/phylomatic.cgi") 
-{  
-  if (length(x) > 1) { x <- paste(x, collapse = "\n") } else { x <- x }    
-  
-  if (convert == 'TRUE') {
-    treestring <- str_replace_all(str_replace_all(x, "/", "%2F"), "\n", "%0D%0A")
-  } else
-  if (convert == 'FALSE') {
-    treestring <- x
-  }
-  
+{
+  if (length(x) > 1) { x <- paste(x, collapse = "\n") } else { x <- x }
+  treestring <- str_replace_all(str_replace_all(x, "/", "%2F"), "\n", "%0D%0A")
   collapse_double_root <- function(y) {
     temp <- str_split(y, ")")[[1]]
     double <- c(length(temp)-1, length(temp))
@@ -46,7 +38,6 @@ phylomatic_tree <- function (x, convert = TRUE, get, format, retphylo = TRUE,
     tempdone <- paste(newpre, paste(allelse, collapse=""), newx, sep="")
   return(tempdone)
   }
-
   colldouble <- function(z) {
     if ( class ( try ( read.tree(text = z), silent = T ) ) %in% 'try-error') 
       { treephylo <- collapse_double_root(z) } else
@@ -54,19 +45,11 @@ phylomatic_tree <- function (x, convert = TRUE, get, format, retphylo = TRUE,
   return(treephylo)
   }
   
-#   treestring <- dat_mine
-#   format <- 'new'
   if (get == 'POST') {  
     gettree <- postForm(url,
     		.params = list(format = format, 
         tree = treestring)
     )
-#     postForm(urlcomplete, style="httppost")
-#     POST(urlcomplete)
-# #     getURLContent("http://phylodiversity.net/phylomatic/pm/phylomatic.cgi?format=xml&tree=annonaceae%2Fannona%2FAnnona_cherimola%0D%0Aannonaceae%2Fannona%2FAnnona_muricata", curl=getCurlHandle())[[1]]
-#     POST(url, query = list(
-#     	format = format, 
-#     	tree = paste(dat_, collapse="\n")))
     tree_ <- gsub("\n", "", gettree[[1]]) 
     treenew <- colldouble(tree_)
   } else
@@ -95,6 +78,5 @@ phylomatic_tree <- function (x, convert = TRUE, get, format, retphylo = TRUE,
     treenew <- read.tree(text = treenew)
   } else
   if (retphylo == 'FALSE') { treenew <- treenew }
-  
 treenew
 }
