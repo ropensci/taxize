@@ -13,5 +13,5 @@ itis_name <- function(query = NULL, get = NULL)
 {
 	tsn <- get_tsn(query, searchtype="sciname")
 	tt <- getfullhierarchyfromtsn(tsn)
-	as.character(tt[tt$rankName == capwords(get, onlyfirst=T), "rankName"])
+	as.character(tt[tt$rankName == capwords(get, onlyfirst=T), "taxonName"])
 }

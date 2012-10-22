@@ -2,8 +2,9 @@
 \alias{eol_hierarchy}
 \title{Retrieve all taxa names or TSNs downstream in hierarchy from given TSN.}
 \usage{
-  eol_hierarchy(taxonConceptID, json = FALSE,
-    usekey = FALSE, returntype = "list",
+  eol_hierarchy(taxonConceptID, common_names = NULL,
+    synonyms = NULL, usekey = FALSE,
+    returntype = "data.frame",
     url = "http://www.eol.org/api/hierarchy_entries/1.0/",
     key = getOption("EOLApi", stop("need an API key for Encyclopedia of Life")))
 }
@@ -11,12 +12,16 @@
   \item{taxonConceptID}{the EOL page identifier
   (character)}
 
-  \item{json}{return in json format (TRUE or FALSE), if
-  FALSE, returns XML}
+  \item{common_names}{Return common names or not (defaults
+  to returning them, given commonnames=0 if not)}
+
+  \item{synonyms}{Return synonyms or not (defaults to
+  returning them, given synonyms=0 if not)}
 
   \item{usekey}{use your API key or not (TRUE or FALSE)}
 
-  \item{returntype}{one of list of dataframe (character)}
+  \item{returntype}{one of "list" of "data.frame"
+  (character)}
 
   \item{url}{The EOL url for the function (should be left
   to default).}
@@ -31,14 +36,13 @@
   from given TSN.
 }
 \details{
-  Can't seem to get json format results along with
-  specifiying an API key, so if you use json your key is
-  not specified at the moment
+  It's possible to return JSON or XML with the EOL API.
+  However, this function only returns JSON for now.
 }
 \examples{
 \dontrun{
-eol_hierarchy('34345893')
-eol_hierarchy('34345893', json = 'TRUE')
+eol_hierarchy(taxonConceptID='39153621', returntype="data.frame")
+eol_hierarchy(taxonConceptID='39153621', usekey=T, returntype="data.frame")
 }
 }
 
