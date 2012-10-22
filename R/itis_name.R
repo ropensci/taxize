@@ -1,6 +1,6 @@
-#' Get family names to make Phylomatic input object.
+#' Get taxonomic names for a given taxonomic name query.
 #' 
-#' @import XML RCurl plyr
+#' @import ritis
 #' @param query TSN number (taxonomic serial number).
 #' @param get The rank of the taxonomic name to get. See data(rank_ref) for
 #' 		possible names.

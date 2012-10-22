@@ -1,6 +1,6 @@
 \name{itis_name}
 \alias{itis_name}
-\title{Get family names to make Phylomatic input object.}
+\title{Get taxonomic names for a given taxonomic name query.}
 \usage{
   itis_name(query = NULL, get = NULL)
 }
@@ -14,7 +14,7 @@
   Taxonomic name for the searched taxon.
 }
 \description{
-  Get family names to make Phylomatic input object.
+  Get taxonomic names for a given taxonomic name query.
 }
 \examples{
 \dontrun{
