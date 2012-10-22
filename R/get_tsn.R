@@ -22,7 +22,7 @@
 #' "shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")
 #' get_tsn(splist,"sciname")
 #' }
-get_tsn <- function (searchterm, searchtype, verbose = TRUE) 
+get_tsn <- function (searchterm, searchtype = "sciname", verbose = TRUE) 
 {
   # fetch ritis function from args
   ritis_func <- if(searchtype == "sciname"){ "searchbyscientificname" } else
