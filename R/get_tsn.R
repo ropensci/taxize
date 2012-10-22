@@ -34,7 +34,7 @@ get_tsn <- function (searchterm, searchtype = "sciname", verbose = TRUE)
   fun <- function(x, verbose) 
   {
     if(verbose)
-      cat("\nRetrieving data for species '", x, "'")
+      cat("\nRetrieving data for species '", x, "'\n")
     tsn_df <- do.call(ritis_func, list(x))
     tsn <- as.character(tsn_df$tsn)
     # should return NA if spec not found
@@ -49,7 +49,7 @@ get_tsn <- function (searchterm, searchtype = "sciname", verbose = TRUE)
       if(take %in% seq_len(nrow(tsn_df))){
         cat("Input accepted, took species '", as.character(tsn_df$combinedname[take]), "'.\n")
       } else {
-        stop("Non valid input!")
+        stop("Non valid input!\n")
       }
       tsn <- tsn[take]
     }
