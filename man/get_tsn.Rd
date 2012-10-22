@@ -2,7 +2,8 @@
 \alias{get_tsn}
 \title{Get the TSN code for a search term.}
 \usage{
-  get_tsn(searchterm, searchtype, verbose = TRUE)
+  get_tsn(searchterm, searchtype = "sciname",
+    verbose = TRUE)
 }
 \arguments{
   \item{searchterm}{A vector of common or scientific

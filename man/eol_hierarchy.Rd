@@ -41,6 +41,7 @@
 }
 \examples{
 \dontrun{
+eol_hierarchy(taxonConceptID=eol_search('Homo')$id[1])
 eol_hierarchy(taxonConceptID='39153621', returntype="data.frame")
 eol_hierarchy(taxonConceptID='39153621', usekey=T, returntype="data.frame")
 }

@@ -1,6 +1,6 @@
 #' Search for terms in EOL database.
 #' 
-#' @import RCurl ply RJSONIO
+#' @import RCurl plyr RJSONIO
 #' @param terms search terms (character)
 #' @param usekey use your API key or not (TRUE or FALSE)
 #' @param returntype one of "list" of "data.frame" (character)

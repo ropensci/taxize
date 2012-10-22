@@ -20,6 +20,8 @@ Imports:
     RJSONIO,
     foreach,
     ape
+Suggests:
+    testthat
 Collate:
     'classification.R'
     'get_tsn.R'
@@ -50,3 +52,4 @@ Collate:
     'tp_namereferences.R'
     'tp_summary.R'
     'tp_synonyms.R'
+    'eol_pages.R'
