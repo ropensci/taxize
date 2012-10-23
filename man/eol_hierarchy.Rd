@@ -1,16 +1,15 @@
 \name{eol_hierarchy}
 \alias{eol_hierarchy}
-\title{Retrieve all taxa names or TSNs downstream in hierarchy from given TSN.}
+\title{Retrieve all taxonomic hierarchy from given EOL taxonID.}
 \usage{
-  eol_hierarchy(taxonConceptID, common_names = NULL,
+  eol_hierarchy(taxonid, common_names = NULL,
     synonyms = NULL, usekey = FALSE,
     returntype = "data.frame",
     url = "http://www.eol.org/api/hierarchy_entries/1.0/",
     key = getOption("EOLApi", stop("need an API key for Encyclopedia of Life")))
 }
 \arguments{
-  \item{taxonConceptID}{the EOL page identifier
-  (character)}
+  \item{taxonid}{the EOL page identifier (character)}
 
   \item{common_names}{Return common names or not (defaults
   to returning them, given commonnames=0 if not)}
@@ -32,8 +31,7 @@
   List or dataframe of XXXX.
 }
 \description{
-  Retrieve all taxa names or TSNs downstream in hierarchy
-  from given TSN.
+  Retrieve all taxonomic hierarchy from given EOL taxonID.
 }
 \details{
   It's possible to return JSON or XML with the EOL API.
@@ -41,9 +39,10 @@
 }
 \examples{
 \dontrun{
-eol_hierarchy(taxonConceptID=eol_search('Homo')$id[1])
-eol_hierarchy(taxonConceptID='39153621', returntype="data.frame")
-eol_hierarchy(taxonConceptID='39153621', usekey=T, returntype="data.frame")
+pageid <- eol_search('Pomatomus')$id[1]
+out <- eol_pages(taxonconceptID=pageid)
+eol_hierarchy(out[out$nameAccordingTo == "NCBI Taxonomy", "identifier"])
+eol_hierarchy(out[out$nameAccordingTo == "Integrated Taxonomic Information System (ITIS)", "identifier"])
 }
 }
 

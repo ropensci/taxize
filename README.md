@@ -8,10 +8,11 @@ You need API keys for Encyclopedia of Life (EOL), the Universal Biological Index
 
 The following are URL's for API documentation, where to get API keys, and what prefix they have in function names. 
 
+## Currently implemented in `taxize`
 + Encyclopedia of Life (EOL)
 	+ [API docs](http://www.eol.org/api/)
-	+ [Get an API key: start an account on EOL to get your API key] (http://eol.org/users/register)
-	+ [API forum] (https://eol.uservoice.com/forums/15429-encyclopedia-of-life-api)
+	+ [Get an API key: start an account on EOL to get your API key](http://eol.org/users/register)
+	+ [API forum](https://eol.uservoice.com/forums/15429-encyclopedia-of-life-api)
 	+ function prefix: `eol`
 + Taxonomic Name Resolution Service (TNRS) 
 	+ [API docs](http://tnrs.iplantcollaborative.org/api.html)
@@ -25,10 +26,6 @@ The following are URL's for API documentation, where to get API keys, and what p
 	+ [API docs](http://www.ubio.org/index.php?pagename=xml_services)
 	+ [Get an API key](http://www.ubio.org/index.php?pagename=form)
 	+ function prefix: `ubio`
-+ Tropicos (from Missouri Botanical Garden)
-	+ [API docs](http://services.tropicos.org/help)
-	+ [Get an API key](http://services.tropicos.org/help?requestkey)
-	+ function prefix: `tp`
 + Global Names Resolver (from EOL/GBIF)
 	+ [Use](http://resolver.globalnames.org/)
 	+ [API docs](http://resolver.globalnames.org/api)
@@ -40,14 +37,20 @@ The following are URL's for API documentation, where to get API keys, and what p
 + IUCN Red List 
   	+ [API docs](https://www.assembla.com/spaces/sis/wiki/Red_List_API?version=3)
   	+ function prefix: `iucn`
-+ Tree of Life web project
-	+ [Their website](http://tolweb.org/tree/phylogeny.html)
- 	+ [API docs](http://tolweb.org/tree/home.pages/downloadtree.html)
- 	+ function prefix: `tol`
 + Plantminer
 	+ [Their website](http://www.plantminer.com/)
  	+ [API docs](http://www.plantminer.com/help)
  	+ function prefix: `plantminer`
+
+## Temporarily not implemented to resolve bugs or to complete development
++ Tropicos (from Missouri Botanical Garden)
+	+ [API docs](http://services.tropicos.org/help)
+	+ [Get an API key](http://services.tropicos.org/help?requestkey)
+	+ function prefix: `tp`
++ Tree of Life web project
+	+ [Their website](http://tolweb.org/tree/phylogeny.html)
+ 	+ [API docs](http://tolweb.org/tree/home.pages/downloadtree.html)
+ 	+ function prefix: `tol`
 
 The `taxize` rOpenSci tutorial is [here](https://github.com/ropensci/taxize_/wiki/taxize-tutorial)
 

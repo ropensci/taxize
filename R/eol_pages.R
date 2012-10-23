@@ -13,7 +13,7 @@
 #' @return JSON list object, or data.frame.
 #' @examples \dontrun{
 #' pageid <- eol_search('Pomatomus')$id[1]
-#' out <- eol_pages(page=pageid) # 
+#' out <- eol_pages(taxonconceptID=pageid)
 #' eol_hierarchy(out[out$nameAccordingTo == "NCBI Taxonomy", "identifier"])
 #' eol_hierarchy(out[out$nameAccordingTo == "Integrated Taxonomic Information System (ITIS)", "identifier"])
 #' }

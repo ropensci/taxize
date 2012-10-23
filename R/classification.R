@@ -12,11 +12,15 @@
 #' @examples \dontrun{
 #' classification(get_uid(c("Chironomus riparius", "aaa vva")))
 #' classification(get_tsn(c("Chironomus riparius", "aaa vva"), "sciname"))
-#' # Fails
-#' classification(315576)
+#' 
 #' # must specify Identifier, when not used with get_*()
 #' classification(315576, ID = "uid")
 #' classification(180544, "tsn")
+#' }
+#' 
+#' @examples \donttest{
+#' # Fails
+#' classification(315576)
 #' }
 classification <- function(x, ID = NULL, ...){
   UseMethod("classification")

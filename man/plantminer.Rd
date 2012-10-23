@@ -27,8 +27,7 @@
 \dontrun{
 plants <- c("Myrcia lingua", "Myrcia bella", "Ocotea pulchella",
 		"Miconia", "Coffea arabica var. amarella", "Bleh")
-key <- yourapikey
-plantminer(plants, key = key)
+plantminer(plants)
 }
 }
 

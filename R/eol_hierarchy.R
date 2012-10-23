@@ -1,7 +1,7 @@
-#' Retrieve all taxa names or TSNs downstream in hierarchy from given TSN.
+#' Retrieve all taxonomic hierarchy from given EOL taxonID.
 #' 
 #' @import RCurl plyr RJSONIO
-#' @param taxonConceptID the EOL page identifier (character)
+#' @param taxonid the EOL page identifier (character)
 #' @param common_names Return common names or not (defaults to returning them, 
 #' 		given commonnames=0 if not)
 #' @param synonyms Return synonyms or not (defaults to returning them, 
@@ -13,13 +13,14 @@
 #' @details It's possible to return JSON or XML with the EOL API. However, 
 #' 		this function only returns JSON for now. 
 #' @return List or dataframe of XXXX.
-#' @export
 #' @examples \dontrun{
-#' eol_hierarchy(taxonConceptID=eol_search('Homo')$id[1])
-#' eol_hierarchy(taxonConceptID='39153621', returntype="data.frame")
-#' eol_hierarchy(taxonConceptID='39153621', usekey=T, returntype="data.frame")
+#' pageid <- eol_search('Pomatomus')$id[1]
+#' out <- eol_pages(taxonconceptID=pageid)
+#' eol_hierarchy(out[out$nameAccordingTo == "NCBI Taxonomy", "identifier"])
+#' eol_hierarchy(out[out$nameAccordingTo == "Integrated Taxonomic Information System (ITIS)", "identifier"])
 #' }
-eol_hierarchy <- function(taxonConceptID, common_names = NULL, synonyms = NULL,
+#' @export
+eol_hierarchy <- function(taxonid, common_names = NULL, synonyms = NULL,
 	usekey = FALSE, returntype = 'data.frame',
   url = 'http://www.eol.org/api/hierarchy_entries/1.0/',
   key = getOption("EOLApi", stop("need an API key for Encyclopedia of Life"))) 
@@ -28,7 +29,7 @@ eol_hierarchy <- function(taxonConceptID, common_names = NULL, synonyms = NULL,
 	if(!is.null(synonyms)){synonyms<-"synonyms=0"}else{synonyms<-"synonyms=1"}
   if(usekey == TRUE){usekey_<-paste('key=',key,sep='')}else{usekey_<-NULL}
 	query <- paste("?", paste(compact(list(common_names,synonyms,usekey_)), collapse="&"),sep="")
-	urlget <- paste(url, taxonConceptID, '.json', query, sep="")
+	urlget <- paste(url, taxonid, '.json', query, sep="")
   searchresults <- fromJSON(urlget)
   
   if(returntype == 'list') { searchresults  } else

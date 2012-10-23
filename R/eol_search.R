@@ -9,12 +9,12 @@
 #' @details It's possible to return JSON or XML with the EOL API. However, 
 #' 		this function only returns JSON for now. 
 #' @return JSON list object, or data.frame.
-#' @export
 #' @examples \dontrun{
 #' eol_search('Homo')
 #' eol_search('Salix')
 #' eol_search(terms='Ursus americanus luteolus')
 #' }
+#' @export
 eol_search <- function(terms, usekey = FALSE, returntype = 'data.frame',
   url = 'http://eol.org/api/search/',
   key = getOption("EOLApi", stop("need an API key for Encyclopedia of Life"))) 

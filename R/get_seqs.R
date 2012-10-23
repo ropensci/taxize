@@ -26,7 +26,9 @@
 #' species <- c("Colletes similis","Halictus ligatus","Perdita trisignata")
 #' llply(species, get_seqs, gene = c("coi", "co1"),  # notice different sp. output for Perdita
 #' 		seqrange = "1:2000", getrelated=T, writetodf=F)
+#' }
 #' 
+#' @examples \donttest{
 #' # Can also run in parallel		
 #' library(multicore); library(doMC)
 #' registerDoMC(cores=4)
