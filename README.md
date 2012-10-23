@@ -2,13 +2,21 @@
 
 We are developing `taxize` as a package to allow users to search over many websites for species names (scientific and common) and download up and downstream taxonomic hierarchical information - and many other things. 
 
+The `taxize` rOpenSci tutorial is [here](https://github.com/ropensci/taxize_/wiki/taxize-tutorial)
+
+`taxize` is part of the rOpenSci project, visit [our webiste](http://ropensci.org) to learn more.
+
+### Development by
++ [Scott Chamberlain](http://schamberlain.github.com/scott)
++ [Eduard Szöcs](https://github.com/EDiLD)
+
 The functions in the package that hit a specific API have a prefix and suffix separated by an underscore. They follow the format of `service_whatitdoes`.  For example, `gnr_resolve` uses the Global Names Resolver API to resolve species names.  General functions in the package that don't hit a specific API don't have two words separated by an underscore, e.g., `classification`.
 
 You need API keys for Encyclopedia of Life (EOL), the Universal Biological Indexer and Organizer (uBio), Tropicos, and Plantminer.
 
 The following are URL's for API documentation, where to get API keys, and what prefix they have in function names. 
 
-## Currently implemented in `taxize`
+### Currently implemented in `taxize`
 + Encyclopedia of Life (EOL)
 	+ [API docs](http://www.eol.org/api/)
 	+ [Get an API key: start an account on EOL to get your API key](http://eol.org/users/register)
@@ -42,7 +50,7 @@ The following are URL's for API documentation, where to get API keys, and what p
  	+ [API docs](http://www.plantminer.com/help)
  	+ function prefix: `plantminer`
 
-## Temporarily not implemented to resolve bugs or to complete development
+### Temporarily not implemented to resolve bugs or to complete development
 + Tropicos (from Missouri Botanical Garden)
 	+ [API docs](http://services.tropicos.org/help)
 	+ [Get an API key](http://services.tropicos.org/help?requestkey)
@@ -52,15 +60,7 @@ The following are URL's for API documentation, where to get API keys, and what p
  	+ [API docs](http://tolweb.org/tree/home.pages/downloadtree.html)
  	+ function prefix: `tol`
 
-The `taxize` rOpenSci tutorial is [here](https://github.com/ropensci/taxize_/wiki/taxize-tutorial)
-
-`taxize` is part of the rOpenSci project, visit [our webiste](http://ropensci.org) to learn more.
-
-# Development by
-+ [Scott Chamberlain](http://schamberlain.github.com/scott)
-+ [Eduard Szöcs](https://github.com/EDiLD)
-
-# Install `taxize` from GitHub:
+### Install `taxize` from GitHub:
 
 ```R 
 install.packages("devtools")
@@ -69,7 +69,7 @@ install_github("taxize_", "ropensci")
 require(taxize)
 ```
 
-Example hitting the TNRS (taxonomic names resolution service Phylotastic API):
+### Example hitting the TNRS (taxonomic names resolution service Phylotastic API):
 
 ```R 
 > require(devtools)
