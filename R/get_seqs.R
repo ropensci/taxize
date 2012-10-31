@@ -19,8 +19,8 @@
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @examples \dontrun{
 #' # A single species
-#' get_seqs(taxon_name="Bombus impatiens", gene = c("coi", "co1"), 
-#' 		seqrange = "600:2000", getrelated=T, writetodf=F)
+#' get_seqs(taxon_name="Acipenser brevirostrum", gene = c("coi", "co1"), 
+#' 		seqrange = "1:3000", getrelated=T, writetodf=F)
 #' 
 #' # Many species, can run in parallel or not using plyr
 #' species <- c("Colletes similis","Halictus ligatus","Perdita trisignata")
@@ -58,7 +58,8 @@ get_seqs <- function(taxon_name, gene, seqrange, getrelated, writetodf=TRUE, fil
 		message(paste("no sequences of ", gene, " for ", taxon_name, " - getting other sp.", sep=""))
 		if(getrelated == FALSE){
 			message(paste("no sequences of ", gene, " for ", taxon_name, sep=""))
-			outt <- list(taxon_name, NA, NA, NA, NA, NA)
+			outoutout <- data.frame(list(taxon_name, "NA", "NA", "NA", "NA", "NA", "NA"))
+			names(outoutout) <- NULL
 		} else
 		{
 			message("...retrieving sequence IDs for related species...")
@@ -68,7 +69,8 @@ get_seqs <- function(taxon_name, gene, seqrange, getrelated, writetodf=TRUE, fil
 				xpathApply(content(GET("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi", query=query), "parsed"), "//eSearchResult")[[1]]
 			if( as.numeric(xmlValue(xpathApply(out, "//Count")[[1]]))==0 ){
 				message(paste("no sequences of ", gene, " for ", taxon_name, " or ", newname, sep=""))
-				outt <- list(taxon_name, NA, NA, NA, NA, NA)
+				outoutout <- data.frame(list(taxon_name, "NA", "NA", "NA", "NA", "NA", "NA"))
+				names(outoutout) <- NULL
 			} else
 			{
 				ids <- xpathApply(out, "//IdList//Id")
@@ -99,6 +101,10 @@ get_seqs <- function(taxon_name, gene, seqrange, getrelated, writetodf=TRUE, fil
 				seq <- str_replace_all(str_split(str_replace(outseq, "\n", "<<<"), "<<<")[[1]][[2]], "\n", "")
 				accessnum <- str_split(outseq, "\\|")[[1]][4]
 				outt <- list(taxon_name, as.character(gisuse[,3]), gisuse[,1], accessnum, gisuse[,2], seq)
+				
+				spused <- paste0(str_split(outt[[2]], " ")[[1]][1:2], collapse=" ")
+				outoutout <- data.frame(outt, spused=spused)
+				names(outoutout) <- NULL
 			}
 		}
 	} else
@@ -132,12 +138,13 @@ get_seqs <- function(taxon_name, gene, seqrange, getrelated, writetodf=TRUE, fil
 		seq <- str_replace_all(str_split(str_replace(outseq, "\n", "<<<"), "<<<")[[1]][[2]], "\n", "")
 		accessnum <- str_split(outseq, "\\|")[[1]][4]
 		outt <- list(taxon_name, as.character(gisuse[,3]), gisuse[,1], accessnum, gisuse[,2], seq)
+		
+		spused <- paste0(str_split(outt[[2]], " ")[[1]][1:2], collapse=" ")
+		outoutout <- data.frame(outt, spused=spused)
+		names(outoutout) <- NULL
 	}
-	spused <- paste0(str_split(outt[[2]], " ")[[1]][1:2], collapse=" ")
 	
 	message("...done.")
-	outoutout <- data.frame(outt, spused=spused)
-	names(outoutout) <- NULL
 	if(writetodf){
 		write.table(outoutout, file = filetowriteto, append=T, row.names=F)
 	} else
