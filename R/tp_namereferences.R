@@ -18,7 +18,7 @@
 tp_namereferences <- function(id, format = 'json', output = 'df',
   url = 'http://services.tropicos.org/Name/', key = NULL) 
 {
-	key <- getkey(key)
+	key <- getkey(key, "tropicos")
   if (format == 'json') {
     urlget <- paste(url, id, '/References?apikey=', key, '&format=json', sep="")
     message(urlget)

@@ -21,19 +21,19 @@
 #' @export
 ubio_namebank <- function(searchName = NULL, searchAuth = NULL, searchYear = NULL, 
 		order = NULL, sci = NULL, vern = NULL, 
-		url = "http://www.ubio.org/webservices/service.php",
-		keyCode = getOption("uBioApi", stop("need an API key for uBio"))) 
+		url = "http://www.ubio.org/webservices/service.php", keyCode = NULL) 
 {
-		args <- 
-			compact(list('function' = 'namebank_search', searchName = searchName, searchAuth = searchAuth,
-							searchYear = searchYear, order = order,
-							sci = sci, vern = vern, keyCode = keyCode))
-		temp <- xmlParse(getForm(url, .params=args))
-		toget <- c("namebankID", "nameString", "fullNameString", "packageID", 
-							 "packageName", "basionymUnit", "rankID", "rankName")
-		temp2 <- lapply(toget, function(x) sapply(xpathApply(temp, paste("//", x, sep="")), xmlValue))
-		out <- data.frame(do.call(cbind, temp2))
-		names(out) <- c("namebankID", "nameString", "fullNameString", "packageID", 
-										"packageName", "basionymUnit", "rankID", "rankName")
-		out
+	keyCode <- getkey(keyCode, "uBio")
+	args <- 
+		compact(list('function' = 'namebank_search', searchName = searchName, searchAuth = searchAuth,
+								 searchYear = searchYear, order = order,
+								 sci = sci, vern = vern, keyCode = keyCode))
+	temp <- xmlParse(getForm(url, .params=args))
+	toget <- c("namebankID", "nameString", "fullNameString", "packageID", 
+						 "packageName", "basionymUnit", "rankID", "rankName")
+	temp2 <- lapply(toget, function(x) sapply(xpathApply(temp, paste("//", x, sep="")), xmlValue))
+	out <- data.frame(do.call(cbind, temp2))
+	names(out) <- c("namebankID", "nameString", "fullNameString", "packageID", 
+									"packageName", "basionymUnit", "rankID", "rankName")
+	out
 }

@@ -4,8 +4,7 @@
 \usage{
   eol_pages(taxonconceptID, usekey = FALSE,
     returntype = "data.frame",
-    url = "http://eol.org/api/pages/1.0/",
-    key = getOption("EOLApi", stop("need an API key for Encyclopedia of Life")))
+    url = "http://eol.org/api/pages/1.0/", key = NULL)
 }
 \arguments{
   \item{taxonconceptID}{The taxonconceptID (numeric), which

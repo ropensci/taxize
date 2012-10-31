@@ -15,13 +15,14 @@
 #' eol_search(terms='Ursus americanus luteolus')
 #' }
 #' @export
-eol_search <- function(terms, usekey = FALSE, returntype = 'data.frame',
-  url = 'http://eol.org/api/search/',
-  key = getOption("EOLApi", stop("need an API key for Encyclopedia of Life"))) 
+eol_search <- function(terms, usekey = TRUE, returntype = 'data.frame',
+  url = 'http://eol.org/api/search/', key = NULL) 
 {     
+	key <- getkey(key, "EOL")
 	if(usekey == TRUE){usekey_<-paste('?key=',key,sep='')}else{usekey_<-NULL}
 	query <- gsub("\\s", "+", terms)
 	urlget <- paste(url, query, '.json', usekey_, sep="")
+	message(urlget)
 	searchresults <- fromJSON(urlget)
 	
 	if(returntype == 'list') { searchresults  } else

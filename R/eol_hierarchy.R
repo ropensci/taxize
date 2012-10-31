@@ -22,14 +22,15 @@
 #' @export
 eol_hierarchy <- function(taxonid, common_names = NULL, synonyms = NULL,
 	usekey = FALSE, returntype = 'data.frame',
-  url = 'http://www.eol.org/api/hierarchy_entries/1.0/',
-  key = getOption("EOLApi", stop("need an API key for Encyclopedia of Life"))) 
+  url = 'http://www.eol.org/api/hierarchy_entries/1.0/', key = NULL) 
 {
+	key <- getkey(key, "EOL")
 	if(!is.null(common_names)){common_names<-"common_names=0"}else{common_names<-"common_names=1"}
 	if(!is.null(synonyms)){synonyms<-"synonyms=0"}else{synonyms<-"synonyms=1"}
   if(usekey == TRUE){usekey_<-paste('key=',key,sep='')}else{usekey_<-NULL}
 	query <- paste("?", paste(compact(list(common_names,synonyms,usekey_)), collapse="&"),sep="")
 	urlget <- paste(url, taxonid, '.json', query, sep="")
+	message(urlget)
   searchresults <- fromJSON(urlget)
   
   if(returntype == 'list') { searchresults  } else

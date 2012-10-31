@@ -6,7 +6,7 @@
     synonyms = NULL, usekey = FALSE,
     returntype = "data.frame",
     url = "http://www.eol.org/api/hierarchy_entries/1.0/",
-    key = getOption("EOLApi", stop("need an API key for Encyclopedia of Life")))
+    key = NULL)
 }
 \arguments{
   \item{taxonid}{the EOL page identifier (character)}

@@ -2,8 +2,7 @@
 \alias{plantminer}
 \title{Search for taxonomy data from Plantminer.com}
 \usage{
-  plantminer(plants,
-    key = as.numeric(getOption("pmkey", stop("need an API key"))))
+  plantminer(plants, key = NULL)
 }
 \arguments{
   \item{plants}{Vector of plant species names.}

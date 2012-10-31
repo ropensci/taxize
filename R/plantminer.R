@@ -16,8 +16,10 @@
 #' plantminer(plants)
 #' }
 #' @export
-plantminer <- function(plants, key = as.numeric(getOption("pmkey", stop("need an API key"))))
+plantminer <- function(plants, key = NULL)
 {
+	key <- getkey(key, "pmkey")
+	
   i <- NULL
   compiled.list <- foreach (i=1:length(plants), .combine =
     rbind) %do% {

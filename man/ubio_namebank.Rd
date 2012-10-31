@@ -6,7 +6,7 @@
     searchYear = NULL, order = NULL, sci = NULL,
     vern = NULL,
     url = "http://www.ubio.org/webservices/service.php",
-    keyCode = getOption("uBioApi", stop("need an API key for uBio")))
+    keyCode = NULL)
 }
 \arguments{
   \item{searchName}{(string) - term to search within name

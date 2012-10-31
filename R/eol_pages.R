@@ -19,11 +19,12 @@
 #' }
 #' @export
 eol_pages <- function(taxonconceptID, usekey = FALSE, returntype = 'data.frame',
-	url = 'http://eol.org/api/pages/1.0/',
-	key = getOption("EOLApi", stop("need an API key for Encyclopedia of Life"))) 
+	url = 'http://eol.org/api/pages/1.0/', key = NULL) 
 {     
+	key <- getkey(key, "EOL")
 	if(usekey == TRUE){usekey_<-paste('?key=',key,sep='')}else{usekey_<-NULL}
 	urlget <- paste(url, taxonconceptID, '.json', usekey_, sep="")
+	message(urlget)
 	searchresults <- fromJSON(urlget)
 	
 	if(returntype == 'list') { searchresults  } else

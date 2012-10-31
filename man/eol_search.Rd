@@ -2,10 +2,9 @@
 \alias{eol_search}
 \title{Search for terms in EOL database.}
 \usage{
-  eol_search(terms, usekey = FALSE,
+  eol_search(terms, usekey = TRUE,
     returntype = "data.frame",
-    url = "http://eol.org/api/search/",
-    key = getOption("EOLApi", stop("need an API key for Encyclopedia of Life")))
+    url = "http://eol.org/api/search/", key = NULL)
 }
 \arguments{
   \item{terms}{search terms (character)}
