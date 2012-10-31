@@ -40,8 +40,8 @@
 \examples{
 \dontrun{
 # A single species
-get_seqs(taxon_name="Bombus impatiens", gene = c("coi", "co1"),
-		seqrange = "600:2000", getrelated=T, writetodf=F)
+get_seqs(taxon_name="Acipenser brevirostrum", gene = c("coi", "co1"),
+		seqrange = "1:3000", getrelated=T, writetodf=F)
 
 # Many species, can run in parallel or not using plyr
 species <- c("Colletes similis","Halictus ligatus","Perdita trisignata")
