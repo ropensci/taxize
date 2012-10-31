@@ -54,3 +54,4 @@ Collate:
     'tp_summary.R'
     'tp_synonyms.R'
     'zzz.R'
+    'get_genes_avail.R'
