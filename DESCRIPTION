@@ -19,9 +19,12 @@ Imports:
     httr (>= 0.2),
     RJSONIO,
     foreach,
-    ape
+    ape,
+    Taxonstand
 Suggests:
-    testthat
+    testthat,
+    roxygen2,
+    doMC
 Collate:
     'classification.R'
     'get_tsn.R'
@@ -55,3 +58,5 @@ Collate:
     'tp_synonyms.R'
     'zzz.R'
     'get_genes_avail.R'
+    'tpl_search.r'
+    'tpl_get.r'
