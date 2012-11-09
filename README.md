@@ -49,6 +49,10 @@ The following are URL's for API documentation, where to get API keys, and what p
 	+ [Their website](http://www.plantminer.com/)
  	+ [API docs](http://www.plantminer.com/help)
  	+ function prefix: `plantminer`
++ Theplantlist dot org
+	+ [Their website](http://www.theplantlist.org/)
+ 	+ API docs: There are none! We wrap functions in the [taxonstand package](http://cran.r-project.org/web/packages/Taxonstand/index.html)
+ 	+ function prefix: `tpl`
 
 ### Temporarily not implemented to resolve bugs or to complete development
 + Tropicos (from Missouri Botanical Garden)
