@@ -45,6 +45,10 @@ The following are URL's for API documentation, where to get API keys, and what p
 + IUCN Red List 
   	+ [API docs](https://www.assembla.com/spaces/sis/wiki/Red_List_API?version=3)
   	+ function prefix: `iucn`
++ Tropicos (from Missouri Botanical Garden)
+	+ [API docs](http://services.tropicos.org/help)
+	+ [Get an API key](http://services.tropicos.org/help?requestkey)
+	+ function prefix: `tp`
 + Plantminer
 	+ [Their website](http://www.plantminer.com/)
  	+ [API docs](http://www.plantminer.com/help)
@@ -55,10 +59,6 @@ The following are URL's for API documentation, where to get API keys, and what p
  	+ function prefix: `tpl`
 
 ### Temporarily not implemented to resolve bugs or to complete development
-+ Tropicos (from Missouri Botanical Garden)
-	+ [API docs](http://services.tropicos.org/help)
-	+ [Get an API key](http://services.tropicos.org/help?requestkey)
-	+ function prefix: `tp`
 + Tree of Life web project
 	+ [Their website](http://tolweb.org/tree/phylogeny.html)
  	+ [API docs](http://tolweb.org/tree/home.pages/downloadtree.html)
