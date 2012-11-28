@@ -15,9 +15,9 @@
   bar. Writes csv files to dir_.
 }
 \description{
-  The Plant List \link{http://www.theplantlist.org/}. Note
+  The Plant List \url{http://www.theplantlist.org/}. Note
   that there is now a package on CRAN (taxonstand -
-  \link{http://cran.r-project.org/web/packages/Taxonstand/})
+  \url{http://cran.r-project.org/web/packages/Taxonstand/})
   that uses only theplantlist.org to search plant names.
 }
 \details{
@@ -28,5 +28,6 @@
 \donttest{
 tpl_get(dir_ = "~/foo") # writes to your home directory, change to where you want
 tpl_get(dir_ = "~/foo2", family = c("Platanaceae","Winteraceae")) # just a few families
+}
 }
 

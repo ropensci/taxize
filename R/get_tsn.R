@@ -36,11 +36,20 @@ get_tsn <- function (searchterm, searchtype = "sciname", verbose = TRUE)
     if(verbose)
       cat("\nRetrieving data for species '", x, "'\n")
     tsn_df <- do.call(ritis_func, list(x))
-    tsn <- as.character(tsn_df$tsn)
+  
     # should return NA if spec not found
-    if (length(tsn) == 0)
+    if (nrow(tsn_df) == 0)
       tsn <- NA
-    if (length(tsn) > 1){
+    # take the one tsn from data.frame
+    if (nrow(tsn_df) == 1)
+      tsn <- tsn_df$tsn
+    # check for direct match
+    if (nrow(tsn_df) > 1){
+      direct <- match(tolower(x), tolower(tsn_df$combinedname))
+      tsn <- tsn_df$tsn[direct]
+    }
+    # user prompt
+    if (nrow(tsn_df) > 1 & !exists('direct')){
       cat("\n\n")
       print(tsn_df)
       cat("\nMore than one TSN found for species '", x, "'!\n
@@ -51,9 +60,9 @@ get_tsn <- function (searchterm, searchtype = "sciname", verbose = TRUE)
       } else {
         stop("Non valid input!\n")
       }
-      tsn <- tsn[take]
+      tsn <-  tsn_df$tsn[take]
     }
-    tsn
+    return(as.character(tsn))
   }
   out <- laply(searchterm, fun, verbose)
   class(out) <- "tsn"
