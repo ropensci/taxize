@@ -19,6 +19,9 @@
 #' unique(out$genesavail) # get list of genes available, removing non-unique ones
 #' out[grep("RAG1", out$genesavail, ignore.case=T),] # does the string 'RAG1' exist in any of the gene names
 #' 
+#' # A single species without records in NCBI
+#' out <- get_genes_avail(taxon_name="Sequoia wellingtonia", seqrange = "1:2000", getrelated=T)
+#' 
 #' # Many species, can run in parallel or not using plyr
 #' species <- c("Salvelinus alpinus","Ictalurus nebulosus","Carassius auratus")
 #' out2 <- llply(species, get_genes_avail, seqrange = "1:2000", getrelated=F)
@@ -38,19 +41,19 @@ get_genes_avail <- function(taxon_name, seqrange, getrelated=FALSE)
 	out <- 
 		xpathApply(content(GET("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi", query=query), "parsed"), "//eSearchResult")[[1]]
 	if( as.numeric(xmlValue(xpathApply(out, "//Count")[[1]]))==0 ){
-		message(paste("no sequences of ", gene, " for ", taxon_name, " - getting other sp.", sep=""))
+		message(paste("no sequences for ", taxon_name, " - getting other sp.", sep=""))
 		if(getrelated == FALSE){
-			message(paste("no sequences of ", gene, " for ", taxon_name, sep=""))
+			message(paste("no sequences for ", taxon_name, sep=""))
 			outt <- list(taxon_name, NA, NA, NA, NA, NA)
 		} else
 		{
 			message("...retrieving sequence IDs for related species...")
 			newname <- strsplit(taxon_name, " ")[[1]][[1]]
-			query <- list(db = "nuccore", term = paste(newname, "[Organism] AND", genes_, "AND", seqrange, "[SLEN]", collapse=" "), RetMax=500)
+			query <- list(db = "nuccore", term = paste(newname, "[Organism] AND", seqrange, "[SLEN]", collapse=" "), RetMax=500)
 			out <- 
 				xpathApply(content(GET("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi", query=query), "parsed"), "//eSearchResult")[[1]]
 			if( as.numeric(xmlValue(xpathApply(out, "//Count")[[1]]))==0 ){
-				message(paste("no sequences of ", gene, " for ", taxon_name, " or ", newname, sep=""))
+				message(paste("no sequences for ", taxon_name, " or ", newname, sep=""))
 				outt <- list(taxon_name, NA, NA, NA, NA, NA)
 			} else
 			{

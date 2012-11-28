@@ -34,6 +34,9 @@ out <- get_genes_avail(taxon_name="Umbra limi", seqrange = "1:2000", getrelated=
 unique(out$genesavail) # get list of genes available, removing non-unique ones
 out[grep("RAG1", out$genesavail, ignore.case=T),] # does the string 'RAG1' exist in any of the gene names
 
+# A single species without records in NCBI
+out <- get_genes_avail(taxon_name="Sequoia wellingtonia", seqrange = "1:2000", getrelated=T)
+
 # Many species, can run in parallel or not using plyr
 species <- c("Salvelinus alpinus","Ictalurus nebulosus","Carassius auratus")
 out2 <- llply(species, get_genes_avail, seqrange = "1:2000", getrelated=F)
