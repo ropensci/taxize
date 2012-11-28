@@ -1,7 +1,7 @@
 #' Get The Plant List csv files. 
 #' 
-#' The Plant List \link{http://www.theplantlist.org/}. Note that there is now a 
-#' 		package on CRAN (taxonstand - \link{http://cran.r-project.org/web/packages/Taxonstand/}) 
+#' The Plant List \url{http://www.theplantlist.org/}. Note that there is now a 
+#' 		package on CRAN (taxonstand - \url{http://cran.r-project.org/web/packages/Taxonstand/}) 
 #' 		that uses only theplantlist.org to search plant names.
 #' 
 #' @import RCurl plyr XML
@@ -12,6 +12,7 @@
 #' @examples \donttest{
 #' tpl_get(dir_ = "~/foo") # writes to your home directory, change to where you want
 #' tpl_get(dir_ = "~/foo2", family = c("Platanaceae","Winteraceae")) # just a few families
+#' }
 #' @export
 tpl_get <- function(dir_, family = NULL)
 {
