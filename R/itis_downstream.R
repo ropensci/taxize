@@ -16,8 +16,6 @@
 #' @export
 itis_downstream <- function(tsns, downto) 
 {
-	# load rank reference data.frame from datasets
-	data(rank_ref, package = "taxize")
 	downto2 <- rank_ref[grep(downto, rank_ref$ranks),"rankId"]
 	torank_ids <- rank_ref[grep(downto, rank_ref$ranks):nrow(rank_ref),"rankId"]
 	
