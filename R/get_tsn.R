@@ -46,19 +46,22 @@ get_tsn <- function (searchterm, searchtype = "sciname", verbose = TRUE)
     # check for direct match
     if (nrow(tsn_df) > 1){
       direct <- match(tolower(x), tolower(tsn_df$combinedname))
-      tsn <- tsn_df$tsn[direct]
+      if(!is.na(direct))
+        tsn <- tsn_df$tsn[direct]
     }
     # user prompt
-    if (nrow(tsn_df) > 1 & !exists('direct')){
+    if (nrow(tsn_df) > 1 & is.na(direct)){
       cat("\n\n")
       print(tsn_df)
       cat("\nMore than one TSN found for species '", x, "'!\n
-          Enter rowname of species to take:\n") # prompt
-      take <- scan(n = 1, quiet = TRUE)
+          Enter rownumber of species (other inputs will return 'NA'):\n") # prompt
+      take <- scan(n = 1, quiet = TRUE, what = 'raw')
       if(take %in% seq_len(nrow(tsn_df))){
+        take <- as.numeric(take)
         cat("Input accepted, took species '", as.character(tsn_df$combinedname[take]), "'.\n")
       } else {
-        stop("Non valid input!\n")
+        tsn <- NA
+        cat("Returned 'NA'")
       }
       tsn <-  tsn_df$tsn[take]
     }
