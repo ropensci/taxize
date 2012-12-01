@@ -16,7 +16,6 @@
 #' @export
 itis_downstream <- function(tsns, downto) 
 {
-	data(rank_ref)
 	downto2 <- rank_ref[grep(downto, rank_ref$ranks),"rankId"]
 	torank_ids <- rank_ref[grep(downto, rank_ref$ranks):nrow(rank_ref),"rankId"]
 	
