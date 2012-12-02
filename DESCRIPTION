@@ -41,7 +41,6 @@ Collate:
     'eol_search.R'
     'gnr_resolve.R'
     'iplant_tnrsmatch.R'
-    'itis_downstream.R'
     'phylomatic_tree.R'
     'get_seqs.R'
     'taxize-package.R'

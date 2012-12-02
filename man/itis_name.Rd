@@ -7,8 +7,7 @@
 \arguments{
   \item{query}{TSN number (taxonomic serial number).}
 
-  \item{get}{The rank of the taxonomic name to get. See
-  data(rank_ref) for possible names.}
+  \item{get}{The rank of the taxonomic name to get.}
 }
 \value{
   Taxonomic name for the searched taxon.

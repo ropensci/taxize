@@ -20,10 +20,3 @@
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @keywords package
 NULL
-
-#' Lookup-table for IDs of taxonomic ranks
-#' 
-#' @name rank_ref
-#' @docType data
-#' @keywords data
-NULL
