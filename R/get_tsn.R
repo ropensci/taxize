@@ -48,6 +48,8 @@ get_tsn <- function (searchterm, searchtype = "sciname", verbose = TRUE)
       direct <- match(tolower(x), tolower(tsn_df$combinedname))
       if(!is.na(direct))
         tsn <- tsn_df$tsn[direct]
+    } else {
+      direct <- NA
     }
     # user prompt
     if (nrow(tsn_df) > 1 & is.na(direct)){
