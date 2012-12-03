@@ -1,7 +1,7 @@
 # tests for itis_downstream fxn in taxize
 context("itis_downstream")
 
-data(rank_ref)
+load(system.file("extdata", "rank_ref.rda", package="taxize"), envir = .GlobalEnv)
 dat_ <- itis_downstream(tsns = 183264, "Species")
 
 test_that("itis_downstream returns the correct value", {

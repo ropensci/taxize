@@ -9,7 +9,8 @@ Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "szoe8822@uni-landau.de"),
     person("Carl", "Boettiger", role = "aut",
     email = "cboettig@gmail.com"))
-LazyData: true
+LazyLoad: yes
+LazyData: yes
 Depends:
     ritis
 Imports:
@@ -25,7 +26,8 @@ Imports:
 Suggests:
     testthat,
     roxygen2,
-    doMC
+    doMC,
+    rjson
 Collate:
     'classification.R'
     'get_tsn.R'
