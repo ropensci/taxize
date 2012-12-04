@@ -62,3 +62,4 @@ Collate:
     'get_genes_avail.R'
     'tpl_search.r'
     'tpl_get.r'
+    'itis_downstream.R'
