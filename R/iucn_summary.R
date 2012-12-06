@@ -2,7 +2,7 @@
 #' 
 #' Get a summary from the IUCN Red List (\url{http://www.iucnredlist.org/}).
 #' 
-#' @import XML
+#' @import XML plyr
 #' @param sciname Scientific name. 
 #' @return A list (for every species one entry) of lists with the following items:
 #' \item{status}{Red List Category.}

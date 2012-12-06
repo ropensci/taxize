@@ -1,8 +1,8 @@
 Package: taxize
 Description: Taxonomic search and phylogeny retrieval.
 Title: Taxonomic search and phylogeny retrieval.
-Version: 0.0.1
-Date: 2012-12-03
+Version: 0.0.2
+Date: 2012-12-06
 License: CC0
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com"),
