@@ -46,8 +46,8 @@ get_seqs <- function(taxon_name, gene, seqrange, getrelated, writetodf=TRUE, fil
 	message(paste("Working on ", taxon_name, "...", sep=""))
 	message("...retrieving sequence IDs...")
 	
-	if(length(gene) > 1){ genes_ <- paste0(gene, collapse=" OR ") } else
-		{ genes_ <- paste0(gene, collapse=" ") }
+	if(length(gene) > 1){ genes_ <- paste(gene, sep="", collapse=" OR ") } else
+		{ genes_ <- paste(gene, sep="", collapse=" ") }
 	genes_ <- paste("(", genes_, ")")
 	
 	query <- list(db = "nuccore", term = paste(taxon_name, "[Organism] AND", genes_, "AND", seqrange, "[SLEN]", collapse=" "), RetMax=500)
@@ -102,7 +102,7 @@ get_seqs <- function(taxon_name, gene, seqrange, getrelated, writetodf=TRUE, fil
 				accessnum <- str_split(outseq, "\\|")[[1]][4]
 				outt <- list(taxon_name, as.character(gisuse[,3]), gisuse[,1], accessnum, gisuse[,2], seq)
 				
-				spused <- paste0(str_split(outt[[2]], " ")[[1]][1:2], collapse=" ")
+				spused <- paste(str_split(outt[[2]], " ")[[1]][1:2], sep="", collapse=" ")
 				outoutout <- data.frame(outt, spused=spused)
 				names(outoutout) <- NULL
 			}
@@ -139,7 +139,7 @@ get_seqs <- function(taxon_name, gene, seqrange, getrelated, writetodf=TRUE, fil
 		accessnum <- str_split(outseq, "\\|")[[1]][4]
 		outt <- list(taxon_name, as.character(gisuse[,3]), gisuse[,1], accessnum, gisuse[,2], seq)
 		
-		spused <- paste0(str_split(outt[[2]], " ")[[1]][1:2], collapse=" ")
+		spused <- paste(str_split(outt[[2]], " ")[[1]][1:2], sep="", collapse=" ")
 		outoutout <- data.frame(outt, spused=spused)
 		names(outoutout) <- NULL
 	}

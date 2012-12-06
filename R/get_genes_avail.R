@@ -70,8 +70,8 @@ get_genes_avail <- function(taxon_name, seqrange, getrelated=FALSE)
 				predicted <- sapply(predicted, function(x) strsplit(x, "_")[[1]][[1]], USE.NAMES=F)
 				length_ <- as.numeric(sapply(getNodeSet(outsum, "//Item"), xmlValue)[str_detect(names, "Length")]) # gets seq lengths
 				spnames <- sapply(getNodeSet(outsum, "//Item"), xmlValue)[str_detect(names, "Title")] # gets seq lengths # get spp names
-				spused <- sapply(spnames, function(x) paste0(str_split(x, " ")[[1]][1:2], collapse=" "), USE.NAMES=F)
-				genesavail <- sapply(spnames, function(x) paste0(str_split(x, " ")[[1]][-c(1:2)], collapse=" "), USE.NAMES=F)
+				spused <- sapply(spnames, function(x) paste(str_split(x, " ")[[1]][1:2], sep="", collapse=" "), USE.NAMES=F)
+				genesavail <- sapply(spnames, function(x) paste(str_split(x, " ")[[1]][-c(1:2)], sep="", collapse=" "), USE.NAMES=F)
 				df <- data.frame(spused=spused, length=length_, genesavail=genesavail, predicted=predicted) # makes data frame
 				df <- df[!df$predicted %in% c("XM","XR"),] # remove predicted sequences		
 			}
@@ -91,8 +91,8 @@ get_genes_avail <- function(taxon_name, seqrange, getrelated=FALSE)
 		predicted <- sapply(predicted, function(x) strsplit(x, "_")[[1]][[1]], USE.NAMES=F)
 		length_ <- as.numeric(sapply(getNodeSet(outsum, "//Item"), xmlValue)[str_detect(names, "Length")]) # gets seq lengths
 		spnames <- sapply(getNodeSet(outsum, "//Item"), xmlValue)[str_detect(names, "Title")] # gets seq lengths # get spp names
-		spused <- sapply(spnames, function(x) paste0(str_split(x, " ")[[1]][1:2], collapse=" "), USE.NAMES=F)
-		genesavail <- sapply(spnames, function(x) paste0(str_split(x, " ")[[1]][-c(1:2)], collapse=" "), USE.NAMES=F)
+		spused <- sapply(spnames, function(x) paste(str_split(x, " ")[[1]][1:2], sep="", collapse=" "), USE.NAMES=F)
+		genesavail <- sapply(spnames, function(x) paste(str_split(x, " ")[[1]][-c(1:2)], sep="", collapse=" "), USE.NAMES=F)
 		df <- data.frame(spused=spused, length=length_, genesavail=genesavail, predicted=predicted) # makes data frame
 		df <- df[!df$predicted %in% c("XM","XR"),] # remove predicted sequences
 	}
