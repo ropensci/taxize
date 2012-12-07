@@ -38,9 +38,6 @@ out[agrep("zoo", out$title, ignore.case=T), ]
 \author{
   Scott Chamberlain {myrmecocystus@gmail.com}
 }
-\seealso{
-  \code{\link{iplant_tnrsmatch}}.
-}
 \keyword{names}
 \keyword{resolve}
 \keyword{taxonomy}

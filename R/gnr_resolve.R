@@ -10,7 +10,6 @@
 #' @param url Base url for the API; leave as is.
 #' @author Scott Chamberlain {myrmecocystus@@gmail.com}
 #' @return json or xml output, your choice
-#' @seealso \code{\link{iplant_tnrsmatch}}.
 #' @keywords resolve names taxonomy
 #' @examples \dontrun{
 #' gnr_resolve(names = c("Helianthus annuus", "Homo sapiens"), returndf = TRUE)

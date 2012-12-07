@@ -37,9 +37,6 @@ gnr_resolve(names = c("Helianthus annuus", "Homo sapiens"), data_source_ids="12"
 \author{
   Scott Chamberlain {myrmecocystus@gmail.com}
 }
-\seealso{
-  \code{\link{iplant_tnrsmatch}}.
-}
 \keyword{names}
 \keyword{resolve}
 \keyword{taxonomy}
