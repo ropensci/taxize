@@ -5,7 +5,11 @@ BUG FIXES
 
 * changed paste0 to paste to avoid problems on certain platforms.
 * removed all tests until the next version so that tests will not fail on any platforms.
-* 
+* plyr was missing as import for iucn_summary fxn
+
+NEW FEATURES 
+
+* added NEWS file
 
 
 taxize 0.0.1

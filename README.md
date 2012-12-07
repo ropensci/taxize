@@ -24,6 +24,7 @@ The following are URL's for API documentation, where to get API keys, and what p
 	+ function prefix: `eol`
 + Taxonomic Name Resolution Service (TNRS) 
 	+ [API docs](http://tnrs.iplantcollaborative.org/api.html)
+	+ NOTE!!!! Temporarily removed due to the API going down a lot. Will bring the function back when we build in better fail catching.
 + Integrated Taxonomic Information Service (ITIS)
 	+ [API docs](http://www.itis.gov/ws_description.html)
 	+ function prefix: `itis`
