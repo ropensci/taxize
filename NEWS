@@ -1,0 +1,16 @@
+taxize 0.0.2
+===============
+
+BUG FIXES
+
+* changed paste0 to paste to avoid problems on certain platforms.
+* removed all tests until the next version so that tests will not fail on any platforms.
+* 
+
+
+taxize 0.0.1
+===============
+
+NEW FEATURES 
+
+* released to CRAN
