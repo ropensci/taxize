@@ -1,6 +1,6 @@
 \name{itis}
 \alias{itis}
-\title{Use any function in ritis, searching by TSN or taxonomic name.}
+\title{Use any API method for the ITIS API.}
 \usage{
   itis(query, searchtype = NULL)
 }
@@ -32,8 +32,7 @@
   list.
 }
 \description{
-  Use any function in ritis, searching by TSN or taxonomic
-  name.
+  Use any API method for the ITIS API.
 }
 \examples{
 \dontrun{
