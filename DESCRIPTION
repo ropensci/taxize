@@ -61,3 +61,4 @@ Collate:
     'tpl_search.r'
     'tpl_get.r'
     'itis_downstream.R'
+    'eol_dataobjects.R'

@@ -1,5 +1,6 @@
 export(capwords)
 export(classification)
+export(eol_dataobjects)
 export(eol_hierarchy)
 export(eol_pages)
 export(eol_ping)
