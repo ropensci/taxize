@@ -37,7 +37,7 @@
 \examples{
 \dontrun{
 # Search by scientific name, can abbreviate
-itis("Plethodon", "searchbysci")
+itis(query="Plethodon", searchtype="searchbysci")
 
 # Bet an LSID code from TSN code
 itis(202420, 'getlsidfromtsn')

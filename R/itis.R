@@ -23,7 +23,7 @@
 #' 		results will be returned in a list.
 #' @examples \dontrun{
 #' # Search by scientific name, can abbreviate
-#' itis("Plethodon", "searchbysci") 
+#' itis(query="Plethodon", searchtype="searchbysci") 
 #' 
 #' # Bet an LSID code from TSN code
 #' itis(202420, 'getlsidfromtsn')
@@ -69,9 +69,13 @@ itis <- function(query, searchtype = NULL)
 	query <- sapply(query, function(x) gsub(" ", "%20", x))
 	
 	# do search
-	lapply(query, function(x) each(taxize:::searchtype)(x))
+	lapply(query, function(x) each(searchtype)(x))
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 getanymatchcount <- function(srchkey = NA,
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getAnyMatchCount',
   ..., 
@@ -88,6 +92,10 @@ getanymatchcount <- function(srchkey = NA,
   xmlToList(out)
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 getcommentdetailfromtsn <- function(tsn = NA,
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getCommentDetailFromTSN',
   ..., 
@@ -116,6 +124,10 @@ getcommentdetailfromtsn <- function(tsn = NA,
     commentator=commentator, updatedate=updatedate)
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 getcommonnamesfromtsn <- function(tsn = NA,
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getCommonNamesFromTSN',
   ..., curl = getCurlHandle() ) 
@@ -139,6 +151,10 @@ getcommonnamesfromtsn <- function(tsn = NA,
   data.frame(comname=comname, lang=lang, tsn=tsn[-length(tsn)])
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 getcoremetadatafromtsn <- function(tsn = NA,
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getCoreMetadataFromTSN',
   ..., curl = getCurlHandle() ) 
@@ -162,6 +178,10 @@ getcoremetadatafromtsn <- function(tsn = NA,
   df
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 getcoveragefromtsn <- function(tsn = NA,
    url = 'http://www.itis.gov/ITISWebService/services/ITISService/getCoverageFromTSN',
    ..., curl = getCurlHandle() ) 
@@ -185,6 +205,10 @@ getcoveragefromtsn <- function(tsn = NA,
   data.frame(rankid=rankid, taxoncoverage=taxoncoverage, tsn=tsn)
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 getcredibilityratingfromtsn <- function(tsn = NA,
    url = 'http://www.itis.gov/ITISWebService/services/ITISService/getCredibilityRatingFromTSN',
    ..., curl = getCurlHandle() ) 
@@ -206,6 +230,10 @@ getcredibilityratingfromtsn <- function(tsn = NA,
   data.frame(credrating=credrating, tsn=tsn)
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 getcredibilityratings <- function(
    url='http://www.itis.gov/ITISWebService/services/ITISService/getCredibilityRatings') 
 {
@@ -218,6 +246,10 @@ getcredibilityratings <- function(
   data.frame(credibilityValues = credibilityValues)
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 getcurrencyfromtsn <- function(tsn = NA,
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getCurrencyFromTSN',
   ..., curl = getCurlHandle() ) 
@@ -241,6 +273,10 @@ getcurrencyfromtsn <- function(tsn = NA,
   data.frame(rankid=rankid, taxoncurrency=taxoncurrency, tsn=tsn)
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 getdatedatafromtsn <- function(tsn = NA,
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getDateDataFromTSN',
   ..., curl = getCurlHandle() ) 
@@ -264,6 +300,10 @@ getdatedatafromtsn <- function(tsn = NA,
   data.frame(initialTimeStamp=initialTimeStamp, updateDate=updateDate, tsn=tsn)
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 getdescription <- function(
    url = 'http://www.itis.gov/ITISWebService/services/ITISService/getDescription') 
 {
@@ -275,6 +315,10 @@ getdescription <- function(
   sapply(nodes, xmlValue)
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 getexpertsfromtsn <- function(tsn = NA,
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getExpertsFromTSN',
   ..., curl = getCurlHandle() ) 
@@ -298,6 +342,10 @@ getexpertsfromtsn <- function(tsn = NA,
   df
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 getfullhierarchyfromtsn <- function(tsn = NA,
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN',
   ..., curl = getCurlHandle() ) 
@@ -326,6 +374,10 @@ getfullhierarchyfromtsn <- function(tsn = NA,
              taxonName=taxonName, tsn=tsn[-1])
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 getfullrecordfromlsid <- function(lsid = NA,
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getFullRecordFromLSID',
   ..., curl = getCurlHandle() ) 
@@ -341,6 +393,10 @@ getfullrecordfromlsid <- function(lsid = NA,
   xmlParse(tt)
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 getfullrecordfromtsn <- function(tsn = NA,
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getFullRecordFromTSN',
   ..., curl = getCurlHandle() ) 
@@ -356,6 +412,10 @@ getfullrecordfromtsn <- function(tsn = NA,
   xmlParse(tt)
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 getgeographicdivisionsfromtsn <- function(tsn = NA,
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getGeographicDivisionsFromTSN',
   ..., curl = getCurlHandle() ) 
@@ -379,6 +439,10 @@ getgeographicdivisionsfromtsn <- function(tsn = NA,
   df
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 getgeographicvalues <- function(
    url = 'http://www.itis.gov/ITISWebService/services/ITISService/getGeographicValues') 
 {
@@ -391,6 +455,10 @@ getgeographicvalues <- function(
   data.frame(geographicValues = geographicValues)
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 getglobalspeciescompletenessfromtsn <- function(tsn = NA,
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getGlobalSpeciesCompletenessFromTSN',
   ..., curl = getCurlHandle() ) 
@@ -414,6 +482,10 @@ getglobalspeciescompletenessfromtsn <- function(tsn = NA,
   df
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 gethierarchydownfromtsn <- function(tsn = NA,
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getHierarchyDownFromTSN',
   ..., curl = getCurlHandle() ) 
@@ -442,6 +514,10 @@ gethierarchydownfromtsn <- function(tsn = NA,
              taxonName=taxonName, tsn=tsn[-1])
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 gethierarchyupfromtsn <- function(tsn = NA,
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getHierarchyUpFromTSN',
   ..., curl = getCurlHandle() ) 
@@ -470,6 +546,10 @@ gethierarchyupfromtsn <- function(tsn = NA,
              taxonName=taxonName, tsn=tsn)
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 getitistermsfromcommonname <- function(srchkey = NA,
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getITISTermsFromCommonName',
   ..., curl = getCurlHandle() ) 
@@ -494,6 +574,10 @@ getitistermsfromcommonname <- function(srchkey = NA,
   data.frame(comname=comname[-length(comname)], nameusage=nameusage, sciname=sciname, tsn=tsn)
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 getitistermsfromscientificname <- function(srchkey = NA,
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getITISTermsFromScientificName',
   ..., curl = getCurlHandle() ) 
@@ -519,6 +603,10 @@ getitistermsfromscientificname <- function(srchkey = NA,
   data.frame(comname=comname, nameusage=nameusage, sciname=sciname, tsn=tsn)
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 getjurisdictionaloriginfromtsn <- function(tsn = NA,
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getJurisdictionalOriginFromTSN',
   ..., curl = getCurlHandle() ) 
@@ -542,6 +630,10 @@ getjurisdictionaloriginfromtsn <- function(tsn = NA,
   df
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 getjurisdictionoriginvalues <- function(
    url = 'http://www.itis.gov/ITISWebService/services/ITISService/getJurisdictionalOriginValues') 
 {
@@ -556,6 +648,10 @@ getjurisdictionoriginvalues <- function(
   data.frame(jurisdiction = jurisdiction, origin = origin)
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 getjurisdictionvalues <- function(
    url = 'http://www.itis.gov/ITISWebService/services/ITISService/getJurisdictionValues') 
 {
@@ -568,6 +664,10 @@ getjurisdictionvalues <- function(
   data.frame(jurisdictionValues = jurisdictionValues)
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 getkingdomnamefromtsn <- function(tsn = NA,
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getKingdomNameFromTSN',
   ..., curl = getCurlHandle() ) 
@@ -591,6 +691,10 @@ getkingdomnamefromtsn <- function(tsn = NA,
   df
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 getkingdomnames <- function(
    url = 'http://www.itis.gov/ITISWebService/services/ITISService/getKingdomNames') 
 {
@@ -607,6 +711,10 @@ getkingdomnames <- function(
   data.frame(kingdomId = kingdomId, kingdomName = kingdomName, tsn = tsn)
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 getlastchangedate <- function(
    url = 'http://www.itis.gov/ITISWebService/services/ITISService/getLastChangeDate') 
 {
@@ -618,6 +726,10 @@ getlastchangedate <- function(
   sapply(nodes, xmlValue)
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 getlsidfromtsn <- function(tsn = NA,
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getLSIDFromTSN',
   ..., curl = getCurlHandle() ) 
@@ -633,6 +745,10 @@ getlsidfromtsn <- function(tsn = NA,
   xmlToList(xmlParse(tt))[[1]]
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 getothersourcesfromtsn <- function(tsn = NA,
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getOtherSourcesFromTSN',
   ..., curl = getCurlHandle() ) 
@@ -657,6 +773,10 @@ getothersourcesfromtsn <- function(tsn = NA,
   df
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 getparenttsnfromtsn <- function(tsn = NA,
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getParentTSNFromTSN',
   ..., curl = getCurlHandle() ) 
@@ -680,6 +800,10 @@ getparenttsnfromtsn <- function(tsn = NA,
   df
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 getpublicationsfromtsn <- function(tsn = NA,
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getPublicationsFromTSN',
   ..., curl = getCurlHandle() ) 
@@ -705,6 +829,10 @@ getpublicationsfromtsn <- function(tsn = NA,
   df
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 getranknames <- function(
    url = 'http://www.itis.gov/ITISWebService/services/ITISService/getRankNames') 
 {
@@ -721,6 +849,10 @@ getranknames <- function(
   data.frame(kingdomName = kingdomName, rankId = rankId, rankName = rankName)
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 getrecordfromlsid <- function(lsid = NA,
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getRecordFromLSID',
   ..., curl = getCurlHandle() ) 
@@ -746,6 +878,10 @@ getrecordfromlsid <- function(lsid = NA,
   df
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 getreviewyearfromtsn <- function(tsn = NA,
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getReviewYearFromTSN',
   ..., curl = getCurlHandle() ) 
@@ -769,6 +905,10 @@ getreviewyearfromtsn <- function(tsn = NA,
   df
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 getscientificnamefromtsn <- function(tsn = NA,
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getScientificNameFromTSN',
   ..., curl = getCurlHandle() ) 
@@ -793,6 +933,10 @@ getscientificnamefromtsn <- function(tsn = NA,
   df
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 getsynonymnamesfromtsn <- function(tsn = NA,
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getSynonymNamesFromTSN',
   ..., curl = getCurlHandle() ) 
@@ -818,6 +962,10 @@ getsynonymnamesfromtsn <- function(tsn = NA,
   data.frame(name=name[[1]], tsn=tsn)
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 gettaxonauthorshipfromtsn <- function(tsn = NA,
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getTaxonAuthorshipFromTSN',
   ..., curl = getCurlHandle() ) 
@@ -841,6 +989,10 @@ gettaxonauthorshipfromtsn <- function(tsn = NA,
   df
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 gettaxonomicranknamefromtsn <- function(tsn = NA,
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getTaxonomicRankNameFromTSN',
   ..., curl = getCurlHandle() ) 
@@ -864,6 +1016,10 @@ gettaxonomicranknamefromtsn <- function(tsn = NA,
   df
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 gettaxonomicusagefromtsn <- function(tsn = NA,
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getTaxonomicUsageFromTSN',
   ..., curl = getCurlHandle() ) 
@@ -887,6 +1043,10 @@ gettaxonomicusagefromtsn <- function(tsn = NA,
   df
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 gettsnbyvernacularlanguage <- function(language = NA,
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getTsnByVernacularLanguage',
   ..., curl = getCurlHandle() ) 
@@ -909,6 +1069,10 @@ gettsnbyvernacularlanguage <- function(language = NA,
   data.frame(comname=comname, language=language, tsn=tsn)
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 gettsnfromlsid <- function(lsid = NA,
    url = 'http://www.itis.gov/ITISWebService/services/ITISService/getTSNFromLSID',
    ..., curl = getCurlHandle() ) 
@@ -927,7 +1091,10 @@ gettsnfromlsid <- function(lsid = NA,
       {"invalid TSN"}
 }
 
-
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 getunacceptabilityreasonfromtsn <- function(tsn = NA,
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getUnacceptabilityReasonFromTSN',
   ..., curl = getCurlHandle() ) 
@@ -951,6 +1118,10 @@ getunacceptabilityreasonfromtsn <- function(tsn = NA,
   df
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 getvernacularlanguages <- function(
    url = 'http://www.itis.gov/ITISWebService/services/ITISService/getVernacularLanguages') 
 {
@@ -963,6 +1134,10 @@ getvernacularlanguages <- function(
   data.frame(languageNames = languageNames)
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 searchbycommonname <- function(srchkey = NA,
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/searchByCommonName',
   ..., curl = getCurlHandle() ) 
@@ -985,6 +1160,10 @@ searchbycommonname <- function(srchkey = NA,
   data.frame(comname=comname, lang=lang, tsn=tsn[-1])
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 searchbycommonnamebeginswith <- function(srchkey = NA,
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/searchByCommonNameBeginsWith',
   ..., curl = getCurlHandle() ) 
@@ -1008,6 +1187,10 @@ searchbycommonnamebeginswith <- function(srchkey = NA,
   data.frame(comname=comname, lang=lang, tsn=tsn[-length(tsn)])
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 searchbycommonnameendswith <- function(srchkey = NA,
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/searchByCommonNameEndsWith',
   ..., curl = getCurlHandle() ) 
@@ -1030,6 +1213,10 @@ searchbycommonnameendswith <- function(srchkey = NA,
   data.frame(comname=comname, lang=lang, tsn=tsn[!nchar(tsn) == 0])
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 searchbyscientificname <- function(srchkey = NA,
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/searchByScientificName',
   ..., curl = getCurlHandle() ) 
@@ -1051,6 +1238,10 @@ searchbyscientificname <- function(srchkey = NA,
   data.frame(combinedname=combinedname, tsn=tsn)
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 searchforanymatch <- function(srchkey = NA,
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/searchForAnyMatch',
   ..., curl = getCurlHandle() ) 
@@ -1075,6 +1266,10 @@ searchforanymatch <- function(srchkey = NA,
   list(comname=comname, lang=lang, tsn=tsn[-length(tsn)], sciName=sciName)
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 searchforanymatchpaged <- function(srchkey = NA, pagesize = NA, pagenum = NA, ascend = NA,
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/searchForAnyMatchPaged',
   ..., curl = getCurlHandle() ) 
@@ -1105,6 +1300,10 @@ searchforanymatchpaged <- function(srchkey = NA, pagesize = NA, pagenum = NA, as
   list(comname=comname, lang=lang, tsn=tsn[-length(tsn)], sciName=sciName)
 }
 
+#' match count
+#' 
+#' @keywords internal
+#' @export 
 getacceptednamesfromtsn <- function(tsn = NA, supmess = TRUE,
   url = "http://www.itis.gov/ITISWebService/services/ITISService/getAcceptedNamesFromTSN",
   ...,
