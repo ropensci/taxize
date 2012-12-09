@@ -69,7 +69,7 @@ itis <- function(query, searchtype = NULL)
 	query <- sapply(query, function(x) gsub(" ", "%20", x))
 	
 	# do search
-	lapply(query, function(x) each(searchtype)(x))
+	lapply(query, function(x) each(taxize:::searchtype)(x))
 }
 
 getanymatchcount <- function(srchkey = NA,
