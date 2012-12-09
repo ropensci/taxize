@@ -3,21 +3,23 @@
 #' @import XML RCurl
 #' @param query Any common or scientific name (character), or taxonomic serial 
 #' 		number (numeric). Can supply a single query or many.
-#' @param searchtype Specify one or more of: 
-#' "getacceptednamesfromtsn","getanymatchcount","getcommentdetailfromtsn", 
-#' "getcommonnamesfromtsn","getcoremetadatafromtsn","getcoveragefromtsn",
-#' "getcredibilityratingfromtsn","getcurrencyfromtsn","getdatedatafromtsn",
-#' "getexpertsfromtsn","getfullhierarchyfromtsn","getfullrecordfromtsn",
-#' "getgeographicdivisionsfromtsn","getglobalspeciescompletenessfromtsn",
-#' "gethierarchydownfromtsn","gethierarchyupfromtsn","getitistermsfromcommonname",
-#' "getitistermsfromscientificname","getjurisdictionaloriginfromtsn",
-#' "getkingdomnamefromtsn","getlsidfromtsn","getothersourcesfromtsn",
-#' "getparenttsnfromtsn","getpublicationsfromtsn","getreviewyearfromtsn",
-#' "getscientificnamefromtsn","getsynonymnamesfromtsn","gettaxonauthorshipfromtsn",
-#' "gettaxonomicranknamefromtsn","gettaxonomicusagefromtsn",
-#' "getunacceptabilityreasonfromtsn","searchbycommonname",
-#' "searchbycommonnamebeginswith","searchbycommonnameendswith","searchbyscientificname",
-#' "searchforanymatch","searchforanymatchpaged".
+#' @param searchtype Specify one or more of ITIS API methods (see 
+#' 		\link{http://www.itis.gov/ws_description.html} for more information on 
+#' 		these methods): 
+#' 		"getacceptednamesfromtsn","getanymatchcount","getcommentdetailfromtsn", 
+#' 		"getcommonnamesfromtsn","getcoremetadatafromtsn","getcoveragefromtsn",
+#' 		"getcredibilityratingfromtsn","getcurrencyfromtsn","getdatedatafromtsn",
+#' 		"getexpertsfromtsn","getfullhierarchyfromtsn","getfullrecordfromtsn",
+#' 		"getgeographicdivisionsfromtsn","getglobalspeciescompletenessfromtsn",
+#' 		"gethierarchydownfromtsn","gethierarchyupfromtsn","getitistermsfromcommonname",
+#' 		"getitistermsfromscientificname","getjurisdictionaloriginfromtsn",
+#' 		"getkingdomnamefromtsn","getlsidfromtsn","getothersourcesfromtsn",
+#' 		"getparenttsnfromtsn","getpublicationsfromtsn","getreviewyearfromtsn",
+#' 		"getscientificnamefromtsn","getsynonymnamesfromtsn","gettaxonauthorshipfromtsn",
+#' 		"gettaxonomicranknamefromtsn","gettaxonomicusagefromtsn",
+#' 		"getunacceptabilityreasonfromtsn","searchbycommonname",
+#' 		"searchbycommonnamebeginswith","searchbycommonnameendswith","searchbyscientificname",
+#' 		"searchforanymatch","searchforanymatchpaged".
 #' @return A variety of results can be returned depending on the ritis function
 #' 		called.  If many queries or functions, or many of both, are provided, 
 #' 		results will be returned in a list.

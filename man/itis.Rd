@@ -9,7 +9,9 @@
   or taxonomic serial number (numeric). Can supply a single
   query or many.}
 
-  \item{searchtype}{Specify one or more of:
+  \item{searchtype}{Specify one or more of ITIS API methods
+  (see \link{http://www.itis.gov/ws_description.html} for
+  more information on these methods):
   "getacceptednamesfromtsn","getanymatchcount","getcommentdetailfromtsn",
   "getcommonnamesfromtsn","getcoremetadatafromtsn","getcoveragefromtsn",
   "getcredibilityratingfromtsn","getcurrencyfromtsn","getdatedatafromtsn",
