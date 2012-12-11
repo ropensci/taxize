@@ -62,3 +62,5 @@ Collate:
     'tpl_get.r'
     'itis_downstream.R'
     'eol_dataobjects.R'
+    'col_children.R'
+    'col_classification.R'

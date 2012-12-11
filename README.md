@@ -58,6 +58,9 @@ The following are URL's for API documentation, where to get API keys, and what p
 	+ [Their website](http://www.theplantlist.org/)
  	+ API docs: There are none! We wrap functions in the [taxonstand package](http://cran.r-project.org/web/packages/Taxonstand/index.html)
  	+ function prefix: `tpl`
+ + Catalogue of Life
+ 	+ [API docs](http://www.catalogueoflife.org/colwebsite/content/services)
+ 	+ function prefix: `col`
 
 ### Temporarily not implemented to resolve bugs or to complete development
 + Tree of Life web project
