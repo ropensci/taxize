@@ -61,7 +61,10 @@ The following are URL's for API documentation, where to get API keys, and what p
  + Catalogue of Life
  	+ [API docs](http://www.catalogueoflife.org/colwebsite/content/services)
  	+ function prefix: `col`
-
++ Global Invasive Species Database
+  + [Their website](http://www.issg.org/database/welcome/)
+ 	+ API docs: There are none! The function scraps the web directly
+ 	+ function prefix: `gisd`
 ### Temporarily not implemented to resolve bugs or to complete development
 + Tree of Life web project
 	+ [Their website](http://tolweb.org/tree/phylogeny.html)
