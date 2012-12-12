@@ -64,3 +64,4 @@ Collate:
     'eol_dataobjects.R'
     'col_children.R'
     'col_classification.R'
+    'gisd_isinvasive.R'
