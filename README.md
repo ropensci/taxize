@@ -58,20 +58,30 @@ The following are URL's for API documentation, where to get API keys, and what p
 	+ [Their website](http://www.theplantlist.org/)
  	+ API docs: There are none! We wrap functions in the [taxonstand package](http://cran.r-project.org/web/packages/Taxonstand/index.html)
  	+ function prefix: `tpl`
- + Catalogue of Life
++ Catalogue of Life
  	+ [API docs](http://www.catalogueoflife.org/colwebsite/content/services)
  	+ function prefix: `col`
 + Global Invasive Species Database
   + [Their website](http://www.issg.org/database/welcome/)
  	+ API docs: There are none! The function scraps the web directly
  	+ function prefix: `gisd`
+
 ### Temporarily not implemented to resolve bugs or to complete development
 + Tree of Life web project
 	+ [Their website](http://tolweb.org/tree/phylogeny.html)
  	+ [API docs](http://tolweb.org/tree/home.pages/downloadtree.html)
  	+ function prefix: `tol`
 
-### Install `taxize` from GitHub:
+### Install `taxize` 
+
++ Stable version from CRAN:
+
+```R 
+install.packages("taxize")
+require(taxize)
+```
+
++ Or, development version from GitHub:
 
 ```R 
 install.packages("devtools")
