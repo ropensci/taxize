@@ -25,8 +25,8 @@
 #' @examples \dontrun{
 #' sp <- c("Carpobrotus edulis", "Rosmarinus officinalis")
 #' ## first species is invasive, second one is not. 
-#' is.invasive(sp)
-#' is.invasive(sp, simplified.df = TRUE)
+#' gisd_isinvasive(sp)
+#' gisd_isinvasive(sp, simplify = TRUE)
 #' }
 #' 
 #' @export
@@ -55,7 +55,7 @@ gisd_isinvasive <- function(x, simplify = FALSE){
         out[i, 2] <- "Invasive"
 			}
 		}
-		message(paste("Checking species", i+1))	
+		message(paste("Checking species", i))	
 	}
 	message("Done")
 	return(out)

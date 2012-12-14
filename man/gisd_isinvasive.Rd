@@ -41,8 +41,8 @@
 \dontrun{
 sp <- c("Carpobrotus edulis", "Rosmarinus officinalis")
 ## first species is invasive, second one is not.
-is.invasive(sp)
-is.invasive(sp, simplified.df = TRUE)
+gisd_isinvasive(sp)
+gisd_isinvasive(sp, simplify = TRUE)
 }
 }
 \author{
