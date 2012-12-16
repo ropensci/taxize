@@ -48,7 +48,6 @@ Collate:
     'taxize-package.R'
     'capwords.r'
     'itis_acceptname.R'
-    'itis_name.R'
     'itis_phymat_format.R'
     'itis_taxrank.R'
     'itis.R'
@@ -67,3 +66,5 @@ Collate:
     'col_children.R'
     'col_classification.R'
     'gisd_isinvasive.R'
+    'itis_name.R'
+    'tax_name.R'

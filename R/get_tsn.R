@@ -3,7 +3,7 @@
 #' \code{get_tsn} uses a variety of functions from the \code{ritis} package: 
 #'   \url{https://github.com/ropensci/ritis}.
 #' 
-#' @import ritis plyr
+#' @import plyr
 #' @param searchterm A vector of common or scientific names.
 #' @param searchtype One of 'sciname', 'anymatch', 'comnamebeg', 'comname', 
 #'    'comnameend'.
@@ -13,7 +13,7 @@
 #' See functions in \code{ritis}.
 #' @export
 #' @examples \dontrun{
-#' get_tsn("Quercus douglasii", "sciname")
+#' get_tsn(searchterm="Quercus douglasii", searchtype="sciname")
 #' get_tsn(searchterm="Chironomus riparius", searchtype="sciname")
 #' get_tsn(searchterm="polar bear", searchtype="comname")
 #' get_tsn(c("Chironomus riparius","Quercus douglasii"), "sciname")
@@ -25,7 +25,7 @@
 get_tsn <- function (searchterm, searchtype = "sciname", verbose = TRUE) 
 {
   # fetch ritis function from args
-  ritis_func <- if(searchtype == "sciname"){ "searchbyscientificname" } else
+	searchtype <- if(searchtype == "sciname"){ "searchbyscientificname" } else
                   if(searchtype == "anymatch") { "searchforanymatch" } else
                     if(searchtype == "comnamebeg") { "searchbycommonnamebeginswith" } else
                       if(searchtype == "comname") { "searchbycommonname" } else
@@ -35,7 +35,8 @@ get_tsn <- function (searchterm, searchtype = "sciname", verbose = TRUE)
   {
     if(verbose)
       cat("\nRetrieving data for species '", x, "'\n")
-    tsn_df <- do.call(ritis_func, list(x))
+#     tsn_df <- do.call(ritis_func, list(x))
+    tsn_df <- do.call(itis, list(query=x, searchtype=searchtype))[[1]]
     
     # should return NA if spec not found
     if (nrow(tsn_df) == 0)

@@ -39,7 +39,7 @@
 \examples{
 \dontrun{
 # Search by scientific name, can abbreviate
-itis(query="Plethodon", searchtype="searchbysci")
+itis(query="Quercus douglasii", searchtype="searchbyscientificname")
 
 # Bet an LSID code from TSN code
 itis(202420, 'getlsidfromtsn')
@@ -55,10 +55,10 @@ itis(203539, "getsynonymnamesfromtsn") # no synonyms in this case
 # Use multiple queries on one call to the function
 itis(c(203539, 202420), "getsynonymnamesfromtsn")
 
-# Use multiple ritis functions
+# Use multiple ITIS functions
 itis(203539, c("getsynonymnamesfromtsn","getcommonnamesfromtsn"))
 
-# Use multiple ritis functions and multiple queries
+# Use multiple ITIS functions and multiple queries
 itis(c(203539, 202420), searchtype=c("getsynonymnamesfromtsn","getcommonnamesfromtsn"))
 }
 }
