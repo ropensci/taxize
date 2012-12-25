@@ -4,7 +4,7 @@
 #' @param query Any common or scientific name (character), or taxonomic serial 
 #' 		number (numeric). Can supply a single query or many.
 #' @param searchtype Specify one or more of ITIS API methods (see 
-#' 		\link{http://www.itis.gov/ws_description.html} for more information on 
+#' 		\url{http://www.itis.gov/ws_description.html} for more information on 
 #' 		these methods): 
 #' 		"getacceptednamesfromtsn","getanymatchcount","getcommentdetailfromtsn", 
 #' 		"getcommonnamesfromtsn","getcoremetadatafromtsn","getcoveragefromtsn",
