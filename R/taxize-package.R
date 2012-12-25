@@ -25,3 +25,8 @@ NULL
 #' @docType data
 #' @keywords data
 NULL
+#' Lookup-table for fresh_traits
+#' @name fresh_desc
+#' @docType data
+#' @keywords data
+NULL

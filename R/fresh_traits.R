@@ -1,0 +1,88 @@
+#' Query ecological parameters from freshwaterbiology.info
+#' 
+#' @import XML RCurl
+#' @param x tvt-object from fresh_validate
+#' @return data.frame
+#' 
+#' @note Currently only the Macro-invertebrate database is supported.
+#' 
+#' @author Eduard Szoecs \email{szoe8822@@uni-landau.de}
+#' @examples \dontrun{
+#' spec <- c("Acentrella sinaica",
+#' "Acentria ephemerella",
+#' "Acilius sp.",
+#' "Acroloxus lacustris",
+#' "Allotrichi pallicornis")
+#'  
+#' a <- fresh_validate(spec)
+#' a_traits <- fresh_traits(a)
+#' a_traits
+#' 
+#' ### select only respiration-modalities using lookup table
+#' data(fresh_desc)
+#' take = fresh_desc$Modality[fresh_desc$Trait == "respiration"]
+#' qu[ ,take]
+#' }
+fresh_traits <- function(x){
+  xa <- postForm("http://www.freshwaterecology.info/tvt2csv.php", .params= list(
+    btnexport='Export',
+    cbodecimaldelimiter='.',
+    'ecoparam[]'='5',
+    'ecoparam[]'='34',
+    'ecoparam[]'='37',
+    'ecoparam[]'='31',
+    'ecoparam[]'='36',
+    'ecoparam[]'='32',
+    'ecoparam[]'='1',
+    'ecoparam[]'='19',
+    'ecoparam[]'='18',
+    'ecoparam[]'='10',
+    'ecoparam[]'='11',
+    'ecoparam[]'='15',
+    'ecoparam[]'='12',
+    'ecoparam[]'='14',
+    'ecoparam[]'='13',
+    'ecoparam[]'='17',
+    'ecoparam[]'='16',
+    'ecoparam[]'='29',
+    'ecoparam[]'='120',
+    'ecoparam[]'='6',
+    'ecoparam[]'='3',
+    'ecoparam[]'='4',
+    'ecoparam[]'='25',
+    'ecoparam[]'='21',
+    'ecoparam[]'='24',
+    'ecoparam[]'='23',
+    'ecoparam[]'='28',
+    'ecoparam[]'='20',
+    'ecoparam[]'='7',
+    'ecoparam[]'='9',
+    'ecoparam[]'='8',
+    'ecoparam[]'='26',
+    'ecoparam[]'='30',
+    'ecoparam[]'='22',
+    'ecoparam[]'='27',
+    'ecoparam[]'='38',
+    txtgenus_ac_minChars='3',
+    txtgenus_id0='0',
+    txtorggroup='0',
+    txtspecies_ac_minChars='3',
+    txtspecies_id0='0'),
+                 # need curl-object from upload (cookie!)
+                 curl = x$curl,
+                 style = 'httppost',
+                 binary = TRUE)
+  
+  Sys.setlocale("LC_ALL", "C")
+  # Read binary output
+  bin <- readBin(xa, "character")
+  bin
+  # Crop binary string to table and read table
+  df <- read.table(sep = ";", header = TRUE, stringsAsFactors = FALSE,
+                   text = regmatches(bin, regexpr('Genus;Species;(.*)', bin)))
+  df
+  # First species is missing!
+  # Reset Locale
+  Sys.setlocale("LC_ALL", "")
+  return(df)
+}
