@@ -24,7 +24,8 @@ Imports:
     foreach,
     ape,
     Taxonstand,
-    NCBI2R
+    NCBI2R,
+    ritis
 Suggests:
     testthat,
     roxygen2,
@@ -69,3 +70,6 @@ Collate:
     'gisd_isinvasive.R'
     'itis_name.R'
     'tax_name.R'
+    'fresh_codes.R'
+    'fresh_traits.R'
+    'fresh_validate.R'

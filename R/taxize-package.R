@@ -25,3 +25,18 @@ NULL
 #' @docType data
 #' @keywords data
 NULL
+#' Lookup-table for fresh_traits
+#' @name fresh_desc
+#' @docType data
+#' @description Lookup-table for fresh_traits. A table with three columns: 
+#' \describe{
+#'  \item{"Modality"}{Equates to the column-names of \link{fresh_traits}}
+#'  \item{"Description"}{Description of each Modality}
+#'  \item{"Trait"}{Traits}
+#' }
+#' @examples \dontrun{
+#' data(fresh_desc)
+#' head(fresh_desc)
+#' }
+#' @keywords data
+NULL
