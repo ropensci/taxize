@@ -10,7 +10,7 @@
 #' @details This also set up a temporary cookie, which is used in other funcions like 
 #'  \link{fresh_traits} or \link{fresh_codes}.
 #' 
-#' @note Currently only the Macro-invertebrate database is supported.
+#' @note Currently only the macro-invertebrate database is supported.
 #' 
 #' @author Eduard Szoecs \email{szoe8822@@uni-landau.de}
 #' @export

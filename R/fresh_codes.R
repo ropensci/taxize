@@ -4,7 +4,7 @@
 #' @param x tvt-object; A object of class tvt as returned from \link{fresh_validate}.
 #' @return A data.frame with species Codes (AQEM, DV, TCM, Furse, Perla, Ecoprof).
 #' 
-#' @note Currently only the Macro-invertebrate database is supported.
+#' @note Currently only the macro-invertebrate database is supported.
 #' 
 #' @author Eduard Szoecs \email{szoe8822@@uni-landau.de}
 #' @export

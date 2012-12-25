@@ -7,7 +7,7 @@
 #' @description Query ecological parameters from \url{freshwaterbiology.info}. This function queries 
 #'  all parameters. If you want data only for specific traits use the \link{fresh_desc} table (see examples).
 #' 
-#' @note Currently only the Macro-invertebrate database is supported.
+#' @note Currently only the macro-invertebrate database is supported.
 #' 
 #' @author Eduard Szoecs \email{szoe8822@@uni-landau.de}
 #' @export
