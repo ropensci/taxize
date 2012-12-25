@@ -25,6 +25,8 @@
 #' a
 #' }
 fresh_validate <- function(x) {
+  if(!is.character(x))
+    stop('Need character vector as input!')
   # create temporary .txt file
   tmp_file <- paste(tempfile(), ".txt", sep = "")
   write.table(x, tmp_file, sep = ";", row.names = FALSE)

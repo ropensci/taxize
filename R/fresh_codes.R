@@ -19,6 +19,8 @@
 #' fresh_codes(a)
 #' }
 fresh_codes <- function(x){
+  if(class(x) != 'tvt')
+    stop("Object of class 'tvt' as returned by fresh_validate() needed!")
   xa <- postForm("http://www.freshwaterecology.info/tvt2csv.php", .params= list(
     ExportFeld_Codelist='1',
     ExportFeld_Shortcode='1',
