@@ -34,7 +34,9 @@ NULL
 #'  \item{"Description"}{Description of each Modality}
 #'  \item{"Trait"}{Traits}
 #' }
-#' @examples data(fresh_desc)
+#' @examples \dontrun{
+#' data(fresh_desc)
 #' head(fresh_desc)
+#' }
 #' @keywords data
 NULL

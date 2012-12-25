@@ -10,8 +10,10 @@
   \item{"Trait"}{Traits} }
 }
 \examples{
+\dontrun{
 data(fresh_desc)
 head(fresh_desc)
+}
 }
 \keyword{data}
 \keyword{datasets}

@@ -24,7 +24,8 @@ Imports:
     foreach,
     ape,
     Taxonstand,
-    NCBI2R
+    NCBI2R,
+    ritis
 Suggests:
     testthat,
     roxygen2,
