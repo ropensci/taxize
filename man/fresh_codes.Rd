@@ -1,17 +1,19 @@
 \name{fresh_codes}
 \alias{fresh_codes}
-\title{Query Codes from freshwaterbiology.info}
+\title{Query species codes from \url{freshwaterbiology.info}}
 \usage{
   fresh_codes(x)
 }
 \arguments{
-  \item{x}{tvt-object from fresh_validate}
+  \item{x}{tvt-object; A object of class tvt as returned
+  from \link{fresh_validate}.}
 }
 \value{
-  data.frame
+  A data.frame with species Codes (AQEM, DV, TCM, Furse,
+  Perla, Ecoprof).
 }
 \description{
-  Query Codes from freshwaterbiology.info
+  Query species codes from \url{freshwaterbiology.info}
 }
 \note{
   Currently only the Macro-invertebrate database is

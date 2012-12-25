@@ -1,12 +1,16 @@
-#' Query ecological parameters from freshwaterbiology.info
+#' Query ecological parameters from \url{freshwaterbiology.info}
 #' 
 #' @import XML RCurl
-#' @param x tvt-object from fresh_validate
-#' @return data.frame
+#' @param x tvt-object; A object of class tvt as returned from \link{fresh_validate}.
+#' @return A data.frame with ecological parameters for each taxon
+#' 
+#' @description Query ecological parameters from \url{freshwaterbiology.info}. This function queries 
+#'  all parameters. If you want data only for specific traits use the \link{fresh_desc} table (see examples).
 #' 
 #' @note Currently only the Macro-invertebrate database is supported.
 #' 
 #' @author Eduard Szoecs \email{szoe8822@@uni-landau.de}
+#' @export
 #' @examples \dontrun{
 #' spec <- c("Acentrella sinaica",
 #' "Acentria ephemerella",
@@ -18,10 +22,9 @@
 #' a_traits <- fresh_traits(a)
 #' a_traits
 #' 
-#' ### select only respiration-modalities using lookup table
-#' data(fresh_desc)
-#' take = fresh_desc$Modality[fresh_desc$Trait == "respiration"]
-#' qu[ ,take]
+#' ### select only current preference using lookup table
+#' take <- fresh_desc$Modality[fresh_desc$Trait == 'current preference']
+#' a_traits[ , take]
 #' }
 fresh_traits <- function(x){
   xa <- postForm("http://www.freshwaterecology.info/tvt2csv.php", .params= list(

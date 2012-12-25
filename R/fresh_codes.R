@@ -1,12 +1,13 @@
-#' Query Codes from freshwaterbiology.info
+#' Query species codes from \url{freshwaterbiology.info}
 #' 
 #' @import XML RCurl
-#' @param x tvt-object from fresh_validate
-#' @return data.frame
+#' @param x tvt-object; A object of class tvt as returned from \link{fresh_validate}.
+#' @return A data.frame with species Codes (AQEM, DV, TCM, Furse, Perla, Ecoprof).
 #' 
 #' @note Currently only the Macro-invertebrate database is supported.
 #' 
 #' @author Eduard Szoecs \email{szoe8822@@uni-landau.de}
+#' @export
 #' @examples \dontrun{
 #' spec <- c("Acentrella sinaica",
 #' "Acentria ephemerella",

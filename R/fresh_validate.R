@@ -1,15 +1,19 @@
-#' Check Species Names with the Taxa Validation Tool (TVT)
+#' Interface to the Taxa Validation Tool (TVT) of \url{http://www.freshwaterecology.info}
 #' 
 #' @import XML RCurl
-#' @param x character; vector of species names
-#' @return a data.frame with the status of submitted taxa
+#' @param x character; vector of (scientific) species names.
+#' @return a data.frame with the status of submitted taxa.
 #' 
-#' @details This also set up a temporary cookie, to use with other funcions like 
-#' \link{fresh_traits} or \link{fresh_codes}.
+#' @description Check Species Names with the Taxa Validation Tool (TVT) from 
+#'  \url{http://www.freshwaterecology.info}.
+#'  
+#' @details This also set up a temporary cookie, which is used in other funcions like 
+#'  \link{fresh_traits} or \link{fresh_codes}.
 #' 
 #' @note Currently only the Macro-invertebrate database is supported.
 #' 
 #' @author Eduard Szoecs \email{szoe8822@@uni-landau.de}
+#' @export
 #' @examples \dontrun{
 #' spec <- c("Acentrella sinaica",
 #' "Acentria ephemerella",
