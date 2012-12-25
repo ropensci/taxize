@@ -18,7 +18,7 @@
   the \link{fresh_desc} table (see examples).
 }
 \note{
-  Currently only the Macro-invertebrate database is
+  Currently only the macro-invertebrate database is
   supported.
 }
 \examples{

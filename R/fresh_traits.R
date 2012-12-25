@@ -27,6 +27,8 @@
 #' a_traits[ , take]
 #' }
 fresh_traits <- function(x){
+  if(class(x) != 'tvt')
+    stop("Object of class 'tvt' as returned by fresh_validate() needed!")
   xa <- postForm("http://www.freshwaterecology.info/tvt2csv.php", .params= list(
     btnexport='Export',
     cbodecimaldelimiter='.',
