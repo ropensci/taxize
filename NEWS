@@ -1,3 +1,17 @@
+taxize 0.0.3
+===============
+
+BUG FIXES
+* iucn_summary does not break when API returns no information
+
+NEW FEATURES
+* added integration of freshwaterecology.info via the fresh_*() functions
+* added check for invasive species status for a set of species from GISD database via gisd_isinvasive()
+* Further development with the EOL-API: eol_dataobjects()
+* tax_name()
+* added Catalogue of Life: col_classification() and col_children()
+
+
 taxize 0.0.2
 ===============
 
