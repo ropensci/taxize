@@ -63,8 +63,14 @@ The following are URL's for API documentation, where to get API keys, and what p
  	+ function prefix: `col`
 + Global Invasive Species Database
   + [Their website](http://www.issg.org/database/welcome/)
- 	+ API docs: There are none! The function scraps the web directly
+ 	+ API docs: There are none! The function scraps the web directly.
  	+ function prefix: `gisd`
++ Freshwaterecology - The Taxa and Autecology Database for Freshwater Organisms
+  + [Their website](http://www.freshwaterecology.info)
+  + API docs: There are none! The function scraps the web directly.
+  + function prefix: `fresh`
+  + Note: Currently only the macro-invertebrate database is supported!
+  
 
 ### Temporarily not implemented to resolve bugs or to complete development
 + Tree of Life web project
