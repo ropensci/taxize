@@ -6,10 +6,11 @@
 #' @details You can print informative messages by setting supmess=FALSE.
 #' @return Taxonomic rank name.
 #' @examples \dontrun{
-#' itis_taxrank(202385)
+#' itis_taxrank(query=202385)
 #' }
 #' @export
 itis_taxrank <- function(query = NULL)
 {
-	as.character(gettaxonomicranknamefromtsn(query)$rankName)
+# 	as.character(gettaxonomicranknamefromtsn(query)$rankName)
+	itis(query=query, searchtype="gettaxonomicranknamefromtsn")$rankName
 }

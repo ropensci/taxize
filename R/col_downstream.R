@@ -1,4 +1,4 @@
-#' Search Catalogue of Life for for direct children of a particular taxon.
+#' Use Catalogue of Life to get downstream taxa to a given taxonomic level.
 #' 
 #' @import RCurl XML plyr
 #' @param name The string to search for. Only exact matches found the name given 
@@ -6,8 +6,6 @@
 #' 		An * (asterisk) character denotes a wildcard; a % (percentage) character 
 #' 		may also be used. The name must be at least 3 characters long, not counting 
 #' 		wildcard characters.
-#' @param id The record ID of the specific record to return (only for scientific 
-#' 		names of species or infraspecific taxa)
 #' @param format format of the results returned. Valid values are format=xml and 
 #' 		format=php; if the format parameter is omitted, the results are returned in 
 #' 		the default XML format. If format=php then results are returned as a PHP 
@@ -25,30 +23,18 @@
 #' 		and start) are optional.
 #' @return A list of data.frame's.
 #' @examples \dontrun{
-#' # A basic example
-#' col_children(name="Apis")
+#' # Some basic examples
+#' col_downstream(name="Apis", downto="Species")
+#' col_downstream(name="Bryophyta", downto="Family")
 #' 
-#' # An example where there is no classification
-#' col_children(id=11935941)
-#' 
-#' # Use a specific year's checklist
-#' col_children(name="Apis", checklist="2012")
-#' col_children(name="Apis", checklist="2009")
-#' 
-#' # Pass in many names or many id's
-#' out <- col_children(name=c("Buteo","Apis","Accipiter","asdf"), checklist="2012")
-#' out$Apis # get just the output you want
-#' ldply(out) # or combine to one data.frame
-#' 
-#' # or pass many id's
-#' out <- col_children(id=c(2346405,2344165,2346405), checklist="2012")
-#' ldply(out) # combine to one data.frame
+#' # An example that takes a bit longer
+#' col_downstream(name=c("Plantae","Animalia"), downto="Class")
 #' }
 #' @export
-col_children <- function(name = NULL, id = NULL, format = NULL, start = NULL, 
+col_downstream <- function(name = NULL, downto, format = NULL, start = NULL, 
 	checklist = NULL, url = "http://www.catalogueoflife.org/col/webservice")
 {
-	func <- function(x, y) {
+	func <- function(name) {
 		if(is.null(checklist)){NULL} else {
 			cc <- match.arg(checklist, choices=c(2012,2011,2010,2009,2008,2007))
 			if(cc %in% c(2012,2011,2010)){
@@ -60,23 +46,48 @@ col_children <- function(name = NULL, id = NULL, format = NULL, start = NULL,
 			}
 		}
 		
-		args <- compact(list(name=x, id=y, format=format, response="full", start=start))
-		out <- getForm(url, .params = args)
-		tt <- xmlParse(out)
+		torank <- sapply(rank_ref[grep(downto, rank_ref$ranks):nrow(rank_ref),"ranks"], function(x) strsplit(x, ",")[[1]][[1]], USE.NAMES=F)
 		
-		childtaxa_id <- xpathSApply(tt, "//child_taxa//id", xmlValue)
-		childtaxa_name <- xpathSApply(tt, "//child_taxa//name", xmlValue)
-		childtaxa_rank <- xpathSApply(tt, "//child_taxa//rank", xmlValue)
-		data.frame(childtaxa_id, childtaxa_name, childtaxa_rank)
-	}
+		toget <- name
+		stop_ <- "not" 
+		notout <- data.frame(rankName = "")
+		out <- list()
+		iter <- 0
+		while(stop_ == "not"){
+			iter <- iter + 1
+			
+			searchcol <- function(x) {
+				args <- compact(list(name=x, format=format, response="full", start=start))
+				out_ <- getForm(url, .params = args)
+				tt <- xmlParse(out_)
+				
+				childtaxa_id <- xpathSApply(tt, "//child_taxa//id", xmlValue)
+				childtaxa_name <- xpathSApply(tt, "//child_taxa//name", xmlValue)
+				childtaxa_rank <- xpathSApply(tt, "//child_taxa//rank", xmlValue)
+				data.frame(childtaxa_id, childtaxa_name, childtaxa_rank)
+			}
+			tt <- ldply(toget, searchcol)
+		
+			if(nrow(tt[tt$childtaxa_rank == downto, ]) > 0) out[[iter]] <- tt[tt$childtaxa_rank == downto, ]
+			if(nrow(tt[!tt$childtaxa_rank == downto, ]) > 0) {
+				notout <- tt[!tt$childtaxa_rank %in% torank, ]
+			} else
+				{ notout <- data.frame(rankName = downto) }
+			
+			if(all(notout$childtaxa_rank == downto)) { 
+				stop_ <- "fam"
+			} else
+			{ 
+				toget <- as.character(notout$childtaxa_name)
+				stop_ <- "not" 
+			}
+			
+		} # end while loop
+		return(compact(out)[[1]])
+		
+	} # end fxn func
 	safe_func <- plyr::failwith(NULL, func)
-	if(is.null(id)){ 
-		temp <- llply(name, safe_func, y=NULL) 
-		names(temp) <- name
-		temp
-	} else { 
-		temp <- llply(id, safe_func, x=NULL) 
-		names(temp) <- id
-		temp
-	}
+	temp <- llply(name, safe_func)
+	names(temp) <- name
+	temp
 }

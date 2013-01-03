@@ -69,3 +69,4 @@ Collate:
     'gisd_isinvasive.R'
     'itis_name.R'
     'tax_name.R'
+    'col_downstream.R'

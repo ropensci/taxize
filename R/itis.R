@@ -34,18 +34,18 @@
 #' itis(36616, "getfullhierarchyfromtsn")
 #' 
 #' # Search by scientific name, then use a TSN to get its parent TSN
-#' itis("Ursus", "searchbyscientificname") # let's pick one of the TSN's
+#' itis("Ursus", "searchbyscientificname")
 #' itis(203539, "getparenttsnfromtsn") 
 #' itis(203539, "getsynonymnamesfromtsn") # no synonyms in this case
 #'
 #' # Use multiple queries on one call to the function
-#' itis(c(203539, 202420), "getsynonymnamesfromtsn")
+#' itis(query=list(203539, 202420), searchtype="getsynonymnamesfromtsn")
 #'  
 #' # Use multiple ITIS functions
 #' itis(203539, c("getsynonymnamesfromtsn","getcommonnamesfromtsn"))
 #' 
 #' # Use multiple ITIS functions and multiple queries
-#' itis(c(203539, 202420), searchtype=c("getsynonymnamesfromtsn","getcommonnamesfromtsn"))
+#' itis(query=list(203539, 202420), searchtype=c("getsynonymnamesfromtsn","getcommonnamesfromtsn"))
 #' }
 #' @export
 itis <- function(query, searchtype = NULL) 
@@ -71,7 +71,10 @@ itis <- function(query, searchtype = NULL)
 # 	query <- sapply(query, function(x) gsub(" ", "%20", x))
 	
 	# do search
-	lapply(query, function(x) each(searchtype)(x))
+# 	lapply(query, function(x) each(searchtype)(x))
+	for(i in 1:length(searchtype)) {
+		lapply(query, searchtype[i])
+	}
 }
 
 #' match count
@@ -949,7 +952,7 @@ getsynonymnamesfromtsn <- function(tsn = NA,
   message(paste(url, '?tsn=', tsn, sep=''))
   tt <- getForm(url,
     .params = args,
-    ...,
+#     ...,
     curl = curl)
   out <- xmlParse(tt)
   namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd")

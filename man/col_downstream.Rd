@@ -1,8 +1,8 @@
-\name{col_children}
-\alias{col_children}
-\title{Search Catalogue of Life for for direct children of a particular taxon.}
+\name{col_downstream}
+\alias{col_downstream}
+\title{Use Catalogue of Life to get downstream taxa to a given taxonomic level.}
 \usage{
-  col_children(name = NULL, id = NULL, format = NULL,
+  col_downstream(name = NULL, downto, format = NULL,
     start = NULL, checklist = NULL,
     url = "http://www.catalogueoflife.org/col/webservice")
 }
@@ -13,10 +13,6 @@
   (asterisk) character denotes a wildcard; a % (percentage)
   character may also be used. The name must be at least 3
   characters long, not counting wildcard characters.}
-
-  \item{id}{The record ID of the specific record to return
-  (only for scientific names of species or infraspecific
-  taxa)}
 
   \item{format}{format of the results returned. Valid
   values are format=xml and format=php; if the format
@@ -45,8 +41,8 @@
   A list of data.frame's.
 }
 \description{
-  Search Catalogue of Life for for direct children of a
-  particular taxon.
+  Use Catalogue of Life to get downstream taxa to a given
+  taxonomic level.
 }
 \details{
   You must provide one of name or id. The other parameters
@@ -54,24 +50,12 @@
 }
 \examples{
 \dontrun{
-# A basic example
-col_children(name="Apis")
+# Some basic examples
+col_downstream(name="Apis", downto="Species")
+col_downstream(name="Bryophyta", downto="Family")
 
-# An example where there is no classification
-col_children(id=11935941)
-
-# Use a specific year's checklist
-col_children(name="Apis", checklist="2012")
-col_children(name="Apis", checklist="2009")
-
-# Pass in many names or many id's
-out <- col_children(name=c("Buteo","Apis","Accipiter","asdf"), checklist="2012")
-out$Apis # get just the output you want
-ldply(out) # or combine to one data.frame
-
-# or pass many id's
-out <- col_children(id=c(2346405,2344165,2346405), checklist="2012")
-ldply(out) # combine to one data.frame
+# An example that takes a bit longer
+col_downstream(name=c("Plantae","Animalia"), downto="Class")
 }
 }
 
