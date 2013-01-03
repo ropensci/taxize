@@ -1,6 +1,5 @@
 #' Retrieve accepted TSN (with accepted name).
 #' 
-#' @import ritis
 #' @param searchtsn Quoted TSN for a taxonomic group (character).
 #' @details You can print informative messages by setting supmess=FALSE.
 #' @return Names or TSNs of all downstream taxa.

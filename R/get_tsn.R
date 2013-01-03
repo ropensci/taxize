@@ -1,7 +1,6 @@
 #' Get the TSN code for a search term.
 #' 
-#' \code{get_tsn} uses a variety of functions from the \code{ritis} package: 
-#'   \url{https://github.com/ropensci/ritis}.
+#' \code{get_tsn} uses a variety of functions from the \code{itis} function.
 #' 
 #' @import plyr
 #' @param searchterm A vector of common or scientific names.
@@ -9,8 +8,8 @@
 #'    'comnameend'.
 #' @param verbose should progress be printed?
 #' @return A vector of taxonomic serial numbers (TSN). If a species is not found NA. 
-#' If more than one TSN is found the function asks for user input.
-#' See functions in \code{ritis}.
+#' 		If more than one TSN is found the function asks for user input.
+#' 		See functions in the \code{itis} function.
 #' @export
 #' @examples \dontrun{
 #' get_tsn(searchterm="Quercus douglasii", searchtype="sciname")
@@ -24,7 +23,7 @@
 #' }
 get_tsn <- function (searchterm, searchtype = "sciname", verbose = TRUE) 
 {
-  # fetch ritis function from args
+  # fetch itis function from args
 	searchtype <- if(searchtype == "sciname"){ "searchbyscientificname" } else
                   if(searchtype == "anymatch") { "searchforanymatch" } else
                     if(searchtype == "comnamebeg") { "searchbycommonnamebeginswith" } else
@@ -35,7 +34,6 @@ get_tsn <- function (searchterm, searchtype = "sciname", verbose = TRUE)
   {
     if(verbose)
       cat("\nRetrieving data for species '", x, "'\n")
-#     tsn_df <- do.call(ritis_func, list(x))
     tsn_df <- do.call(itis, list(query=x, searchtype=searchtype))[[1]]
     
     # should return NA if spec not found

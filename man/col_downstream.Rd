@@ -14,21 +14,10 @@
   character may also be used. The name must be at least 3
   characters long, not counting wildcard characters.}
 
-  \item{format}{format of the results returned. Valid
-  values are format=xml and format=php; if the format
-  parameter is omitted, the results are returned in the
-  default XML format. If format=php then results are
-  returned as a PHP array in serialized string format,
-  which can be converted back to an array in PHP using the
-  unserialize command}
-
-  \item{start}{The first record to return. If omitted, the
-  results are returned from the first record (start=0).
-  This is useful if the total number of results is larger
-  than the maximum number of results returned by a single
-  Web service query (currently the maximum number of
-  results returned by a single query is 500 for terse
-  queries and 50 for full queries).}
+  \item{downto}{The taxonomic level you want to go down to.
+  See examples below.  The taxonomic level IS case
+  sensitive, and you do have to spell it correctly. See
+  \code{data(rank_ref)} for spelling.}
 
   \item{checklist}{The year of the checklist to query, if
   you want a specific year's checklist instead of the
@@ -45,8 +34,7 @@
   taxonomic level.
 }
 \details{
-  You must provide one of name or id. The other parameters
-  (format and start) are optional.
+  Provide only names instead of id's
 }
 \examples{
 \dontrun{
@@ -56,6 +44,9 @@ col_downstream(name="Bryophyta", downto="Family")
 
 # An example that takes a bit longer
 col_downstream(name=c("Plantae","Animalia"), downto="Class")
+
+# Using a checklist from a specific year
+col_downstream(name="Bryophyta", downto="Family", checklist="2009")
 }
 }
 

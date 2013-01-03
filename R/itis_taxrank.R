@@ -1,6 +1,5 @@
 #' Retrieve taxonomic rank name from given TSN.
 #' 
-#' @import ritis
 #' @param query Quoted TSN for a taxonomic group (numeric), or scientific
 #' 		name (character).
 #' @details You can print informative messages by setting supmess=FALSE.

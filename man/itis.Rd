@@ -29,8 +29,8 @@
 }
 \value{
   A variety of results can be returned depending on the
-  ritis function called.  If many queries or functions, or
-  many of both, are provided, results will be returned in a
+  function called.  If many queries or functions, or many
+  of both, are provided, results will be returned in a
   list.
 }
 \description{
