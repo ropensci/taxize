@@ -84,7 +84,7 @@ itis <- function(query, searchtype = NULL)
     names(out) <- searchtype
     return(out)
   } else {
-    out <- llply(query, searchtype)
+    out <- ldply(query, searchtype)
     return(out)
   } 
 }

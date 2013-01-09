@@ -34,7 +34,7 @@ get_tsn <- function (searchterm, searchtype = "sciname", verbose = TRUE)
   {
     if(verbose)
       cat("\nRetrieving data for species '", x, "'\n")
-    tsn_df <- do.call(itis, list(query=x, searchtype=searchtype))[[1]]
+    tsn_df <- do.call(itis, list(query=x, searchtype=searchtype))
     
     # should return NA if spec not found
     if (nrow(tsn_df) == 0)
