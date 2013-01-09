@@ -13,7 +13,8 @@
   \item{db}{The database to search from (character).}
 }
 \value{
-  Taxonomic name for the searched taxon.
+  Taxonomic name for the searched taxon. If the taxon is
+  not found NA is returned.
 }
 \description{
   Specify what database you want to use: itis or ncbi.
