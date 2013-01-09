@@ -72,9 +72,21 @@ itis <- function(query, searchtype = NULL)
 	
 	# do search
 # 	lapply(query, function(x) each(searchtype)(x))
-	for(i in 1:length(searchtype)) {
-		lapply(query, searchtype[i])
-	}
+# 	for(i in 1:length(searchtype)) {
+# 		lapply(query, searchtype[i])
+# 	}
+  if(length(searchtype) > 1) {
+    out <- llply(searchtype, function(x) {
+      out <- llply(query, x)
+      names(out) <- query
+      return(out)
+      })
+    names(out) <- searchtype
+    return(out)
+  } else {
+    out <- llply(query, searchtype)
+    return(out)
+  } 
 }
 
 #' match count
