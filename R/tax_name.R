@@ -6,7 +6,7 @@
 #' @param query Taxonomic name (character).
 #' @param get The rank of the taxonomic name to get (character). 
 #' @param db The database to search from (character).
-#' @return Taxonomic name for the searched taxon.
+#' @return Taxonomic name for the searched taxon. If the taxon is not found NA is returned.
 #' @examples \dontrun{
 #' # A case where itis and ncbi use the same names
 #' tax_name(query="Helianthus annuus", get="family", db="itis")
@@ -21,13 +21,23 @@ tax_name <- function(query = NULL, get = NULL, db = "itis")
 {
 	if(db=="itis"){
 		tsn <- get_tsn(query, searchtype="sciname")
-		tt <- getfullhierarchyfromtsn(tsn)
-		as.character(tt[tt$rankName == capwords(get, onlyfirst=T), "taxonName"])
+    if(is.na(tsn)) {
+      return(NA)
+    } else {
+      tt <- getfullhierarchyfromtsn(tsn)
+      out <- as.character(tt[tt$rankName == capwords(get, onlyfirst=T), "taxonName"])
+      return(out)
+    }
 	} else
 		if(db=="ncbi")	{
-			taxid <- GetTax(query)
-			hierarchy <- GetTaxInfo(taxid)$lineage
-			as.character(hierarchy[hierarchy$line.rank %in% get, "line.sciName"])	
+			uid <- get_uid(query)
+      if(is.na(uid)){
+        return(NA)
+      } else {
+  			hierarchy <- classification(uid)[[1]]
+  			out <- as.character(hierarchy[hierarchy$Rank %in% get, "ScientificName"])	
+        return(out)
+  			}
 		} else
 			stop("db must be one of itis or ncbi")
 }
