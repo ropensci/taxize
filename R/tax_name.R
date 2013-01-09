@@ -19,6 +19,12 @@
 #' @export
 tax_name <- function(query = NULL, get = NULL, db = "itis")
 {
+  if(is.null(query))
+    stop('Need to specify query!')
+  if(is.null(get))
+    stop('Need to specify get!')
+  if(length(query) > 1)
+    stop('Currently only one species per call allowed!')
 	if(db=="itis"){
 		tsn <- get_tsn(query, searchtype="sciname")
     if(is.na(tsn)) {
