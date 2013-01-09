@@ -23,6 +23,17 @@
   you want a specific year's checklist instead of the
   lastest as default (numeric).}
 
+  \item{format}{The returned format (default = NULL). If
+  NULL xml is used.  Currently only xml is supported.}
+
+  \item{start}{The first record to return (default = NULL).
+  If NULL, the results are returned from the first record
+  (start=0).  This is useful if the total number of results
+  is larger than the maximum number of results returned by
+  a single Web service query (currently the maximum number
+  of results returned by a single query is 500 for terse
+  queries and 50 for full queries).}
+
   \item{url}{The base COL url for the function (should be
   left to default).}
 }

@@ -3,6 +3,7 @@ taxize 0.0.3
 
 BUG FIXES
 * iucn_summary does not break when API returns no information
+* tax_name returns NA when taxon is not found on API
 
 NEW FEATURES
 * added integration of freshwaterecology.info via the fresh_*() functions
