@@ -27,9 +27,6 @@
 #' # Search by scientific name, can abbreviate
 #' itis(query="Quercus douglasii", searchtype="searchbyscientificname") 
 #' 
-#' # Bet an LSID code from TSN code
-#' itis(202420, 'getlsidfromtsn')
-#' 
 #' # Get the full taxonomic hierarchy for a taxon from the TSN
 #' itis(36616, "getfullhierarchyfromtsn")
 #' 
@@ -757,7 +754,7 @@ getlsidfromtsn <- function(tsn = NA,
   message(paste(url, '?tsn=', tsn, sep=''))
   tt <- getForm(url,
     .params = args,
-    ...,
+#     ...,
     curl = curl)
   xmlToList(xmlParse(tt))[[1]]
 }

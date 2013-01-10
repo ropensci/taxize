@@ -10,6 +10,8 @@
 #' @export
 itis_taxrank <- function(query = NULL)
 {
+# 	searchtype <- "gettaxonomicranknamefromtsn"
 # 	as.character(gettaxonomicranknamefromtsn(query)$rankName)
-	itis(query=query, searchtype="gettaxonomicranknamefromtsn")$rankName
+# 	itis(query=query, searchtype="gettaxonomicranknamefromtsn")$rankName	
+	ldply(query, gettaxonomicranknamefromtsn)$rankName
 }
