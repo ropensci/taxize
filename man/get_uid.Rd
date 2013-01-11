@@ -2,10 +2,13 @@
 \alias{get_uid}
 \title{Get the UID codes from NCBI for species names.}
 \usage{
-  get_uid(sciname)
+  get_uid(sciname, verbose = FALSE)
 }
 \arguments{
-  \item{sciname}{scientific name.}
+  \item{sciname}{character; scientific name.}
+
+  \item{verbose}{logical; If TRUE the actual taxon queried
+  is printed on the console.}
 }
 \value{
   UID for the supplied species names. NA for non-matching
