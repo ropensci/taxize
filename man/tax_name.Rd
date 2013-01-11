@@ -2,7 +2,8 @@
 \alias{tax_name}
 \title{Get taxonomic names for a given taxonomic name query.}
 \usage{
-  tax_name(query = NULL, get = NULL, db = "itis")
+  tax_name(query = NULL, get = NULL, db = "itis",
+    verbose = TRUE)
 }
 \arguments{
   \item{query}{Taxonomic name (character).}
@@ -11,6 +12,9 @@
   (character).}
 
   \item{db}{The database to search from (character).}
+
+  \item{verbose}{logical; If TRUE the actual taxon queried
+  is printed on the console.}
 }
 \value{
   Taxonomic name for the searched taxon. If the taxon is
