@@ -63,18 +63,20 @@ get_tsn <- function (searchterm, searchtype = "sciname", verbose = TRUE)
           Enter rownumber of species (other inputs will return 'NA'):\n") # prompt
       take <- scan(n = 1, quiet = TRUE, what = 'raw')
       
+      if(length(take) == 0)
+        take <- 'notake'
       if(take %in% seq_len(nrow(tsn_df))){
         take <- as.numeric(take)
         cat("Input accepted, took species '", as.character(tsn_df$combinedname[take]), "'.\n")
+        tsn <-  tsn_df$tsn[take]
       } else {
         tsn <- NA
-        cat("Returned 'NA'")
+        cat("\nReturned 'NA'!\n\n")
       }
-      tsn <-  tsn_df$tsn[take]
     }
     return(as.character(tsn))
   }
   out <- laply(searchterm, fun, verbose)
   class(out) <- "tsn"
-  out
+  return(out)
 }

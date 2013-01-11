@@ -2,7 +2,7 @@
 \alias{get_uid}
 \title{Get the UID codes from NCBI for species names.}
 \usage{
-  get_uid(sciname, verbose = FALSE)
+  get_uid(sciname, verbose = TRUE)
 }
 \arguments{
   \item{sciname}{character; scientific name.}
