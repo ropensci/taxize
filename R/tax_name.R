@@ -26,25 +26,30 @@ tax_name <- function(query = NULL, get = NULL, db = "itis", verbose = TRUE)
     stop('Need to specify get!')
   if(length(query) > 1)
     stop('Currently only one species per call allowed!')
-	if(db=="itis"){
+  if(!db %in% c('itis', 'ncbi'))
+    stop("db must be one of 'itis' or 'ncbi'")
+  
+  # ITIS
+	if(db == "itis"){
 		tsn <- get_tsn(query, searchtype="sciname", verbose = verbose)
     if(is.na(tsn)) {
-      return(NA)
+      out <- NA
     } else {
       tt <- getfullhierarchyfromtsn(tsn)
       out <- as.character(tt[tt$rankName == capwords(get, onlyfirst=T), "taxonName"])
-      return(out)
     }
-	} else
-		if(db=="ncbi")	{
-			uid <- get_uid(query, verbose = verbose)
-      if(is.na(uid)){
-        return(NA)
-      } else {
-  			hierarchy <- classification(uid)[[1]]
-  			out <- as.character(hierarchy[hierarchy$Rank %in% get, "ScientificName"])	
-        return(out)
-  			}
-		} else
-			stop("db must be one of itis or ncbi")
+	}
+  
+  # NCBI
+	if(db == "ncbi")	{
+		uid <- get_uid(query, verbose = verbose)
+    if(is.na(uid)){
+      out <- NA
+    } else {
+			hierarchy <- classification(uid)[[1]]
+			out <- as.character(hierarchy[hierarchy$Rank %in% get, "ScientificName"])	
+		}
+	}
+  
+  return(out)
 }
