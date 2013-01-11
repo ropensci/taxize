@@ -14,10 +14,10 @@
 #' get_uid(c("Chironomus riparius", "Chaetopteryx"))
 #' get_uid(c("Chironomus riparius", "aaa vva"))
 #' }
-get_uid <- function(sciname, verbose = FALSE){
+get_uid <- function(sciname, verbose = TRUE){
   fun <- function(sciname) {
     if(verbose)
-      cat("\nQuerying taxon '", sciname ,"'...")
+      cat("\nRetrieving data for species '", sciname, "'\n")
     sciname <- gsub(" ", "+", sciname)
     searchurl <- paste("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=", 
                        sciname, sep = "")
@@ -40,25 +40,27 @@ get_uid <- function(sciname, verbose = FALSE){
       names(df) <- c("UID", "Rank", "Division")
       rownames(df) <- 1:nrow(df)
       
+      # prompt
       cat("\n\n")
       cat("\nMore than one UID found for species '", sciname, "'!\n
-          Enter rownumber of species (other inputs will return 'NA'):\n")
-      
+          Enter rownumber of species (other inputs will return 'NA'):\n")      
       print(df)
-      
       take <- scan(n = 1, quiet = TRUE, what = 'raw')
+      
+      if(length(take) == 0)
+        take <- 'notake'
       if(take %in% seq_len(nrow(df))){
         take <- as.numeric(take)
         cat("Input accepted, took UID '", as.character(df$UID[take]), "'.\n")
         id <- as.character(df$UID[take])
       } else {
         id <- NA
-        cat("Returned 'NA'")
+        cat("\nReturned 'NA'!\n\n")
       }
     }  
     return(id)
   }
   out <- laply(sciname, fun)
   class(out) <- "uid"
-  out
+  return(out)
 }
