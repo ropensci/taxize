@@ -14,10 +14,10 @@
 #' get_uid(c("Chironomus riparius", "Chaetopteryx"))
 #' get_uid(c("Chironomus riparius", "aaa vva"))
 #' }
-get_uid <- function(sciname, verbose = FALSE){
+get_uid <- function(sciname, verbose = TRUE){
   fun <- function(sciname) {
     if(verbose)
-      cat("\nQuerying taxon '", sciname ,"'...")
+      cat("\nRetrieving data for species '", sciname, "'\n")
     sciname <- gsub(" ", "+", sciname)
     searchurl <- paste("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=", 
                        sciname, sep = "")
