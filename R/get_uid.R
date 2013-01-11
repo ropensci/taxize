@@ -3,7 +3,8 @@
 #' A function to retrieve the UID-Code (Unique Identifier) of a species from NCBI taxonomy browser.
 #' 
 #' @import plyr RCurl
-#' @param sciname scientific name.
+#' @param sciname character; scientific name.
+#' @param verbose logical; If TRUE the actual taxon queried is printed on the console.
 #' @return UID for the supplied species names. NA for non-matching names.
 #' 
 #' @export
@@ -13,8 +14,10 @@
 #' get_uid(c("Chironomus riparius", "Chaetopteryx"))
 #' get_uid(c("Chironomus riparius", "aaa vva"))
 #' }
-get_uid <- function(sciname){
+get_uid <- function(sciname, verbose = FALSE){
   fun <- function(sciname) {
+    if(verbose)
+      cat("\nQuerying taxon '", sciname ,"'...")
     sciname <- gsub(" ", "+", sciname)
     searchurl <- paste("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=", 
                        sciname, sep = "")
