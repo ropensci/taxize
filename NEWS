@@ -2,15 +2,16 @@ taxize 0.0.3
 ===============
 
 BUG FIXES
-* iucn_summary does not break when API returns no information
-* tax_name returns NA when taxon is not found on API
+* iucn_summary() does not break when API returns no information.
+* tax_name() returns NA when taxon is not found on API.
+* get_uid() asks for user input when more then one UID is found for a taxon.
 
 NEW FEATURES
-* added integration of freshwaterecology.info via the fresh_*() functions
-* added check for invasive species status for a set of species from GISD database via gisd_isinvasive()
-* Further development with the EOL-API: eol_dataobjects()
-* tax_name()
-* added Catalogue of Life: col_classification() and col_children()
+* added integration of freshwaterecology.info via the fresh_*() functions.
+* added check for invasive species status for a set of species from GISD database via gisd_isinvasive().
+* Further development with the EOL-API: eol_dataobjects().
+* tax_name().
+* added Catalogue of Life: col_classification() and col_children().
 
 
 taxize 0.0.2
@@ -20,11 +21,11 @@ BUG FIXES
 
 * changed paste0 to paste to avoid problems on certain platforms.
 * removed all tests until the next version so that tests will not fail on any platforms.
-* plyr was missing as import for iucn_summary fxn
+* plyr was missing as import for iucn_summary fxn.
 
 NEW FEATURES 
 
-* added NEWS file
+* added NEWS file.
 
 
 taxize 0.0.1
