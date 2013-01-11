@@ -54,6 +54,7 @@ fresh_validate <- function(x) {
   # Clean output
   tab <- tab[-1 , c(2,4,5,6)]
   names(tab) <- c("Status", "Genus", "Species", "Submitted")
+  rownames(tab) <- 1:nrow(tab)
   out <- list(tab = tab, curl = curl)
   class(out) <- "tvt"
   out
