@@ -5,7 +5,7 @@
   iucn_summary(sciname)
 }
 \arguments{
-  \item{sciname}{Scientific name.}
+  \item{sciname}{character; Scientific name.}
 }
 \value{
   A list (for every species one entry) of lists with the
