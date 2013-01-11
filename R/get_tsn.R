@@ -52,11 +52,17 @@ get_tsn <- function (searchterm, searchtype = "sciname", verbose = TRUE)
     }
     # user prompt
     if (nrow(tsn_df) > 1 & is.na(direct)){
+      # sort alphabetically
+      tsn_df <- tsn_df[order(tsn_df$combinedname), ]
+      rownames(tsn_df) <- 1:nrow(tsn_df)
+      
+      # prompt
       cat("\n\n")
       print(tsn_df)
       cat("\nMore than one TSN found for species '", x, "'!\n
           Enter rownumber of species (other inputs will return 'NA'):\n") # prompt
       take <- scan(n = 1, quiet = TRUE, what = 'raw')
+      
       if(take %in% seq_len(nrow(tsn_df))){
         take <- as.numeric(take)
         cat("Input accepted, took species '", as.character(tsn_df$combinedname[take]), "'.\n")
