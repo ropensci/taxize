@@ -36,7 +36,9 @@ tax_name <- function(query = NULL, get = NULL, db = "itis", verbose = TRUE)
       out <- NA
     } else {
       tt <- getfullhierarchyfromtsn(tsn)
-      out <- as.character(tt[tt$rankName == capwords(get, onlyfirst=T), "taxonName"])
+      out <- as.character(tt[tolower(tt$rankName) == tolower(get), "taxonName"])
+      if(length(out) == 0)
+        out <- NA
     }
 	}
   
@@ -47,9 +49,10 @@ tax_name <- function(query = NULL, get = NULL, db = "itis", verbose = TRUE)
       out <- NA
     } else {
 			hierarchy <- classification(uid)[[1]]
-			out <- as.character(hierarchy[hierarchy$Rank %in% get, "ScientificName"])	
+			out <- as.character(hierarchy[tolower(hierarchy$Rank) %in% tolower(get), "ScientificName"])	
+      if(length(out) == 0)
+        out <- NA
 		}
 	}
-  
   return(out)
 }

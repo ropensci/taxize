@@ -47,11 +47,12 @@ classification.tsn <- function(x, ...)
     if(is.na(x)) {
       out <- NA
     } else {
-    	getfullhierarchyfromtsn(x)
+    	out <- getfullhierarchyfromtsn(x)
     }
+    return(out)
   }
   out <- llply(x, fun)
-  out
+  return(out)
 }
 
 
@@ -71,7 +72,12 @@ classification.uid <- function(x, ...) {
       ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)
       out <- data.frame(ScientificName = xpathSApply(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/ScientificName", xmlValue), 
                         Rank = xpathSApply(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/Rank", xmlValue), 
-                        UID = xpathSApply(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/TaxId", xmlValue))
+                        UID = xpathSApply(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/TaxId", xmlValue),
+                        stringsAsFactors = FALSE)
+      out <- rbind(out, c(xpathSApply(ttp, "//TaxaSet/Taxon/ScientificName", xmlValue),
+        xpathSApply(ttp, "//TaxaSet/Taxon/Rank", xmlValue), 
+        xpathSApply(ttp, "//TaxaSet/Taxon/TaxId", xmlValue)))
+      return(out)
     }
     # NCBI limits requests to three per second
     Sys.sleep(0.33)
