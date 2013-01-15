@@ -20,6 +20,17 @@
   by an underscore, e.g., classification. You need API keys
   for Encyclopedia of Life (EOL), the Universal Biological
   Indexer and Organizer (uBio), Tropicos, and Plantminer.
+
+  \tabular{ll}{ Encyclopedia of Life (EOL) \tab eol_ \cr
+  Integrated Taxonomic Information Service (ITIS) \tab
+  itis_ \cr Phylomatic \tab phylomatic_ \cr uBio \tab ubio_
+  \cr Global Names Resolver (from EOL/GBIF) \tab gnr_ \cr
+  Global Names Index (from EOL/GBIF) \tab gni_ \cr IUCN Red
+  List \tab iucn_ \cr Tropicos (from Missouri Botanical
+  Garden) \tab tp_ \cr Plantminer \tab plantminer_ \cr
+  Theplantlist.org \tab tpl_ \cr Catalogue of Life \tab
+  col_ \cr Global Invasive Species Database \tab gisd_ \cr
+  Freshwaterecology.info \tab fresh_ \cr }
 }
 \author{
   Scott Chamberlain \email{myrmecocystus@gmail.com}
