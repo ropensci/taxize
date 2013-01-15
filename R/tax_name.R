@@ -35,7 +35,7 @@ tax_name <- function(query = NULL, get = NULL, db = "itis", verbose = TRUE)
     if(is.na(tsn)) {
       out <- NA
     } else {
-      tt <- getfullhierarchyfromtsn(tsn)
+      tt <- classification(tsn)[[1]]
       out <- as.character(tt[tolower(tt$rankName) == tolower(get), "taxonName"])
       if(length(out) == 0)
         out <- NA
