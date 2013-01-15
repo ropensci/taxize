@@ -34,7 +34,7 @@ classification.default <- function(x, ID = NULL, ...){
     out <- taxize:::classification.tsn(x)
   if(ID == 'uid')
     out <- taxize:::classification.uid(x)
-  out
+  return(out)
 }
 
 #' @method classification tsn
@@ -49,6 +49,9 @@ classification.tsn <- function(x, ...)
     } else {
     	out <- getfullhierarchyfromtsn(x)
     }
+    
+    # remove overhang
+    out <- out[1:which(out$tsn == x), ]
     return(out)
   }
   out <- llply(x, fun)
@@ -84,5 +87,5 @@ classification.uid <- function(x, ...) {
     return(out)
   }
   out <- llply(x, fun)
-  out
+  return(out)
 }
