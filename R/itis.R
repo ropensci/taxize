@@ -384,8 +384,9 @@ getfullhierarchyfromtsn <- function(tsn = NA,
   taxonName <- sapply(nodes, xmlValue)
   nodes <- getNodeSet(out, "//ax21:tsn", namespaces=namespaces)
   tsn <- sapply(nodes, xmlValue)
-  data.frame(parentName=parentName, parentTsn=parentTsn, rankName=rankName,
+  out <- data.frame(parentName=parentName, parentTsn=parentTsn, rankName=rankName,
              taxonName=taxonName, tsn=tsn[-1])
+  return(out)
 }
 
 #' match count
