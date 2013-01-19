@@ -1,8 +1,10 @@
 #' Query ecological parameters from \url{freshwaterbiology.info}
 #' 
-#' @import XML RCurl
+#' @import XML RCurl stringr
 #' @param x tvt-object; A object of class tvt as returned from \link{fresh_validate}.
-#' @return A data.frame with ecological parameters for each taxon
+#' @return A list of two data.frames:
+#' \item{citations} citations information for the retrieved data.
+#' \item{traits} ecological parameters for each taxon.
 #' 
 #' @description Query ecological parameters from \url{freshwaterbiology.info}. This function queries 
 #'  all parameters. If you want data only for specific traits use the \link{fresh_desc} table (see examples).
@@ -81,13 +83,20 @@ fresh_traits <- function(x){
   Sys.setlocale("LC_ALL", "C")
   # Read binary output
   bin <- readBin(xa, "character")
-  bin
+  
+  # Traits
   # Crop binary string to table and read table
-  df <- read.table(sep = ";", header = TRUE, stringsAsFactors = FALSE,
+  traits <- read.table(sep = ";", header = TRUE, stringsAsFactors = FALSE,
                    text = regmatches(bin, regexpr('Genus;Species;(.*)', bin)))
-  df
-  # First species is missing!
+  
+  # Citations
+  cit <- read.table(sep = ";", header = TRUE, stringsAsFactors = FALSE,
+                    text = str_match(bin, '(.+?)\\n;;;\\n\\n'))
+  citations <- cit[cit$References == 'To be cited as:', c('X', 'X.1', 'X.2')]
+  names(citations) <- c('Auhtor', 'Year', 'Title')
+  citations <- unique(citations)
+  
   # Reset Locale
   Sys.setlocale("LC_ALL", "")
-  return(df)
+  out <- list(traits = traits, citations = citations)
 }
