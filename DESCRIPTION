@@ -28,7 +28,6 @@ Imports:
 Suggests:
     testthat,
     roxygen2,
-    doMC,
     rjson
 Collate:
     'classification.R'
