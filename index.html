@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>taxize from ropensci</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="taxize -- Search web taxonomy sites and download data">
+    <meta name="description" content="taxize -- taxonomy in R">
     <meta name="author" content="Scott Chamberlain">
     <script src="http://use.edgefonts.net/source-code-pro.js"></script>
     <script src="http://use.edgefonts.net/quattrocento-sans.js"></script>
@@ -20,7 +20,7 @@
   <div class="span11 offset1">
   <div class="row">
   <br><br>
-   <h1>taxize, v0.03</h1>
+   <h1>taxize, v0.0.3</h1>
   </div>
 
   <br><br>
@@ -37,11 +37,13 @@
         <ul class="nav nav-list bs-docs-sidenav">
           <li><a href="#about"><i class="icon-chevron-right"></i> About</a></li>
           <li><a href="#installation"><i class="icon-chevron-right"></i> Installation</a></li>
-          <li><a href="#metrics"><i class="icon-chevron-right"></i> Retrieving metrics</a></li>
-          <li><a href="#download_metrics"><i class="icon-chevron-right"></i> Extracting metrics</a></li>
-          <li><a href="#workflow"><i class="icon-chevron-right"></i> Processing multiple objects</a></li>
-          <li><a href="#viz"><i class="icon-chevron-right"></i> Visualization</a></li>
-          <li><a href="#use-cases"><i class="icon-chevron-right"></i> Use-cases</a></li>
+          <li><a href="#phylomatic"><i class="icon-chevron-right"></i> Phylomatic - get a phylogeny of plant species</a></li>
+          <li><a href="#itis"><i class="icon-chevron-right"></i> Integrated Taxonomic Informaiton Service (ITIS)</a></li>
+          <li><a href="#ncbi"><i class="icon-chevron-right"></i> NCBI Taxonomy Browser</a></li>
+          <li><a href="#gnr"><i class="icon-chevron-right"></i> Global Names Resolver (GNR)</a></li>
+          <li><a href="#tropicos"><i class="icon-chevron-right"></i> Tropicos</a></li>
+          <li><a href="#ubio"><i class="icon-chevron-right"></i> Search uBio</a></li>
+          <li><a href="#iucn"><i class="icon-chevron-right"></i> IUCN Red List</a></li>
           <li><a href="#support"><i class="icon-chevron-right"></i> Support and Bugs</a></li>
           <li><a href="#license"><i class="icon-chevron-right"></i> License</a></li>
 
@@ -65,100 +67,112 @@
 
 
    <section id="installation">
- <h2>Installing rAltmetric</h2>
-A stable version is now available on <a href="http://cran.r-project.org/web/packages/rAltmetric/">CRAN</a>. <br>
+ <h2>Installing taxize</h2>
+A stable version is now available on <a href="http://cran.r-project.org/web/packages/taxize_/">CRAN</a>. <br>
    <pre><code lang="r"># Stable version from CRAN
-install.packages('rAltmetric')</code></pre>
+install.packages('taxize')
+library(taxize)</code></pre>
 
 
 <pre><code lang="r">
 # or install the development version from our GitHub repo.
 install.packages('devtools')
 library(devtools)
-install_github('rAltmetric', 'ropensci')</code></pre>
+install_github('taxize_', 'ropensci')
+library(taxize)</code></pre>
 
   </section>
 
   <br><br><br>
 
-    <section id="metrics">
-   <h2>Retrieving metrics</h2>
+    <section id="phylomatic">
+   <h2>Phylomatic - get a phylogeny of plant species</h2>
+<pre><code lang="r">> # input the taxonomic names
+> taxa <- c("Poa annua", "Abies procera", "Helianthus annuus")
+> 
+> # fetch the tree - the formatting of names and higher taxonmy is done within the function
+> tree <- phylomatic_tree(taxa=taxa, get = 'POST', informat='newick', method = "phylomatic", 
++     storedtree = "R20120829", taxaformat = "slashpath", outformat = "newick", clean = "true")
 
-There was a recent paper by <a href="http://www.nature.com/news/2010/100616/full/465860a.html">Acuna et al</a> that received a lot of attention on Twitter. What was the impact of that paper?
+Retrieving data for species ' Poa annua '
 
-  <pre><code lang="r">library(rAltmetric)
-acuna <- altmetrics(doi ='10.1038/489201a')
-> acuna
-Altmetrics on: "Future impact: Predicting scientific success"
-with doi 10.1038/489201a (altmetric_id: 942310) published in Nature.
-  provider count
-1    Feeds     9
-2  Google+     1
-3    Cited   174
-4   Tweets   157
-5 Accounts   167
-</code></pre>
+Retrieving data for species ' Abies procera '
 
-You can provide identifiers in multiple ways. You can either add it to the identifier directly or supply it as a list. Here are a few examples:
+Retrieving data for species ' Helianthus annuus '
+http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=41107
+http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=181835
+http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=36616
+> 
+> # plot the tree
+> plot(tree)</code></pre>
+  <br><br>
+  <img src="phylomatic_phylo.png" class="img-polaroid">
+  <br><br>
 
-<pre><code lang="r">altmetrics('arXiv:1106.2748')
-altmetrics('id/128838')
-altmetrics(id='128838')
-altmetrics(pmid='21460563')
-altmetrics('pmid/21460563')
-altmetrics(arXiv ='arXiv:1106.2748')
-</code></pre>
-<br>
-
-The <code>print</code> method shows only the citation counts but the actual list contains the full suite of nested metrics data. See <code>names(acuna)</code> for a complete list. Also see the help file on <code>?altmetric_data</code>.
   </section>
 
   <br><br><br>
 
-   <section id="download_metrics">
-   <h2>Extracting metric data</h2>
-  <pre><code lang="r">> altmetric_data(acuna)
-                                         title
-1 Future impact: Predicting scientific success
-              doi   nlmid            altmetric_jid     issns
-1 10.1038/489201a 0410462 4f6fa50a3cf058f610003160 0028-0836
-  journal altmetric_id schema is_oa cited_by_feeds_count
-1  Nature       942310  1.5.4 FALSE                  173
-  cited_by_gplus_count cited_by_posts_count
-1                  173                  173
-  cited_by_tweeters_count cited_by_accounts_count   score
-1                     156                     166 184.598
-  mendeley connotea citeulike pub sci com doc
-1        0        0        11  62  84   6   8
-                                                                url
-1 http://www.nature.com/nature/journal/v489/n7415/full/489201a.html
-    added_on published_on subjects scopus_subjects
-1 1347471425   1347404400  science         General
-  last_updated readers_count X1 count_all count_journal
-1   1348828350            11  1    754555         13972
-  count_similar_age_1m count_similar_age_3m
-1                22408                56213
-  count_similar_age_journal_1m count_similar_age_journal_3m
-1                          508                         1035
-  rank_all rank_journal rank_similar_age_1m
-1   754043        13759               22339
-  rank_similar_age_3m rank_similar_age_journal_1m
-1               56074                         459
-  rank_similar_age_journal_3m pct_all pct_journal
-1                         947   99.93       98.48
-  pct_similar_age_1m pct_similar_age_3m
-1              99.69              99.75
-  pct_similar_age_journal_1m pct_similar_age_journal_3m
-1                      90.35                      91.50
-                                              details_url
-1 http://www.altmetric.com/details.php?citation_id=942310
-  </code></pre>
+   <section id="itis">
+   <h2>Integrated Taxonomic Information Service (ITIS)</h2>
+   
+   <h3>Search by term and search type (Note: TSN stands for Taxonomic Serial Number)</h3>
+  <pre><code lang="r">> itis(203539, c("getsynonymnamesfromtsn","getacceptednamesfromtsn"))
+http://www.itis.gov/ITISWebService/services/ITISService/getSynonymNamesFromTSN?tsn=203539
+$getsynonymnamesfromtsn
+$getsynonymnamesfromtsn$`203539`
+     name    tsn
+1 nomatch 203539
 
-  These data can easily be written to disk as follows:
+$getacceptednamesfromtsn
+$getacceptednamesfromtsn$`203539`
+$getacceptednamesfromtsn$`203539`$submittedTsn
+[1] "203539"
 
-  <pre><code lang="R">acuna_data <- altmetric_data(acuna)
-write.csv(acuna_data, file = 'acuna_altmetrics.csv')
-</code></pre>
+$getacceptednamesfromtsn$`203539`$acceptedName
+[1] "Ursus americanus luteolus"
+
+$getacceptednamesfromtsn$`203539`$acceptedTsn
+[1] "202388"</code></pre>
+
+  <h3>Show higher taxonomy for a given TSN</h3>
+<pre><code lang="r">> classification(685566, ID = "tsn")
+http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=685566
+[[1]]
+      parentName parentTsn  rankName        taxonName    tsn
+1                            Kingdom         Animalia 202423
+2       Animalia    202423    Phylum         Chordata 158852
+3       Chordata    158852 Subphylum       Vertebrata 331030
+4     Vertebrata    331030     Class         Amphibia 173420
+5       Amphibia    173420     Order          Caudata 173584
+6        Caudata    173584    Family   Plethodontidae 173631
+7 Plethodontidae    173631 Subfamily   Plethodontinae 550197
+8 Plethodontinae    550197     Genus        Plethodon 173648
+9      Plethodon    173648   Species Plethodon asupak 685566</code></pre>
+
+<h3>Get a TSN from a species name</h3>
+<pre><code lang="r">> tsn <- get_tsn(searchterm = "Quercus_douglasii", searchtype = "sciname")
+
+Retrieving data for species ' Quercus_douglasii '
+
+# use classification with get_tsn together:
+> classification(tsn)
+http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=19322
+$`1`
+        parentName parentTsn      rankName         taxonName    tsn
+1                                  Kingdom           Plantae 202422
+2          Plantae    202422    Subkingdom    Viridaeplantae 846492
+3   Viridaeplantae    846492  Infrakingdom      Streptophyta 846494
+4     Streptophyta    846494      Division      Tracheophyta 846496
+5     Tracheophyta    846496   Subdivision   Spermatophytina 846504
+6  Spermatophytina    846504 Infradivision      Angiospermae 846505
+7     Angiospermae    846505         Class     Magnoliopsida  18063
+8    Magnoliopsida     18063    Superorder           Rosanae 846548
+9          Rosanae    846548         Order           Fagales  19273
+10         Fagales     19273        Family          Fagaceae  19275
+11        Fagaceae     19275         Genus           Quercus  19276
+12         Quercus     19276       Species Quercus douglasii  19322</code></pre>
+  
   </section>
 
   <br><br><br>
@@ -166,28 +180,9 @@ write.csv(acuna_data, file = 'acuna_altmetrics.csv')
 
     <section id="workflow">
      <h2>Workflow</h2>
-For a real world use-case, one might want to get metrics on multiple publications. If so, just read them from a spreadsheet and <code>llply</code> through them like the example below.
 
-<pre><code lang="r"># Be sure to update the path to the supplied example csv file
-doi_data <- read.csv('dois.csv', header = TRUE)
+<pre><code lang="r">
 
-> doi_data
-                         doi
-1        10.1038/nature09210
-2    10.1126/science.1187820
-3 10.1016/j.tree.2011.01.009
-4             10.1086/664183
-
-# First we should add the identifier to the list
-doi_list <- paste0("doi","/", doi_data$doi)
-
-library(plyr)
-# First, let's retrieve the metrics.
-raw_metrics <- llply(doi_list, altmetrics, .progress = 'text')
-# Now let's pull the data together.
-metric_data <- ldply(raw_metrics, altmetric_data)
-# Finally we save this to a spreadsheet for further analysis/vizualization.
-write.csv(metric_data, file = "metric_data.csv")
 </code></pre>
   </section>
 
@@ -196,14 +191,14 @@ write.csv(metric_data, file = "metric_data.csv")
     <section id="viz">
 
  <h2>Vizualization</h2>
-  For any <code>altmetric</code> object you can quickly plot the stats with a generic <code>plot</code> function. The plot overlays the <a href="http://api.altmetric.com/embeds.html"> altmetric badge and the score</a> on the top right corner. If you prefer a customized plot, create your own with the raw data generated from <code>almetric_data()</code><br><br>
-  <img src="acuna.png" class="img-polaroid">
+ 
+ 
   </section>
 
   <br><br>
   <h2>Use Cases</h2>
 <section id="use-cases">
-Need ideas for use-cases? See this fantastic <a href="http://jecologyblog.wordpress.com/2013/01/17/uptake-of-journal-of-ecology-papers-in-2012-a-comparison-of-metrics/">post</a> by the editorial board of the Journal of Ecology.
+
 </section>
 
 
@@ -214,7 +209,7 @@ Need ideas for use-cases? See this fantastic <a href="http://jecologyblog.wordpr
   For bugs, feature requests and other issues, please submit an <a href="https://github.com/ropensci/taxize_/issues">issue via Github</a>.
   <br>
 
-  For general comments, email karthik dot ram at gmail. This package is part of the rOpenSci suite of R tools. For similar packages visit <a href="http://ropensci.org">ropensci.org</a>
+  For general comments, email scott at ropensci.gmail.com . This package is part of the rOpenSci suite of R tools. For similar packages visit <a href="http://ropensci.org">ropensci.org</a>
   </section>
 
   <br><br><br>
