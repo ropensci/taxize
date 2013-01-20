@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>fresh_traits. taxize 0.0.3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="
+  Eduard Szoecs &lt;a href='mailto:szoe8822@uni-landau.de'&gt;szoe8822@uni-landau.de&lt;/a&gt;
+">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">taxize 0.0.3</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Query ecological parameters from <a href = 'freshwaterbiology.info'>freshwaterbiology.info</a></h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><span class="functioncall"><a href='fresh_traits.html'>fresh_traits</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>x</dt>
+      <dd>tvt-object; A object of class tvt as returned
+  from <a href='fresh_validate.html'>fresh_validate</a>.</dd>
+    </dl>
+    
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>A data.frame with ecological parameters for each taxon</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Query ecological parameters from
+  <a href = 'freshwaterbiology.info'>freshwaterbiology.info</a>. This function queries all
+  parameters. If you want data only for specific traits use
+  the <a href='fresh_desc.html'>fresh_desc</a> table (see examples).</p>
+  
+    </div>
+
+    <div class="Note">
+      <h2>Note</h2>
+      
+      <p>Currently only the macro-invertebrate database is
+  supported.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>## <strong>Not run</strong>: # spec <- c("Acentrella sinaica",# "Acentria ephemerella",# "Acilius sp.",# "Acroloxus lacustris",# "Allotrichi pallicornis")# # a <- fresh_validate(spec)# a_traits <- fresh_traits(a)# a_traits# # ### select only current preference using lookup table# take <- fresh_desc$Modality[fresh_desc$Trait == 'current preference']# a_traits[ , take]# ## <strong>End(Not run)</strong></div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>fresh_traits</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+    
+    <h2>Author</h2>
+    
+  Eduard Szoecs <a href='mailto:szoe8822@uni-landau.de'>szoe8822@uni-landau.de</a>
+
+    
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

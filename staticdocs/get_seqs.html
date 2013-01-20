@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>get_seqs. taxize 0.0.3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="
+  Scott Chamberlain &lt;a href='mailto:myrmecocystus@gmail.com'&gt;myrmecocystus@gmail.com&lt;/a&gt;
+">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">taxize 0.0.3</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Retrieve nucleotide sequences from NCBI.</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><span class="functioncall"><a href='get_seqs.html'>get_seqs</a></span><span class="keyword">(</span><span class="symbol">taxon_name</span><span class="keyword">,</span> <span class="symbol">gene</span><span class="keyword">,</span> <span class="symbol">seqrange</span><span class="keyword">,</span> <span class="symbol">getrelated</span><span class="keyword">,</span> <span class="argument">writetodf</span> <span class="argument">=</span> <span class="number">TRUE</span><span class="keyword">,</span> <span class="symbol">filetowriteto</span><span class="keyword">)</span></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>taxon_name</dt>
+      <dd>Scientific name to search for
+  (character).</dd>
+      <dt>gene</dt>
+      <dd>Gene (character) or genes (character vector)
+  to search for.</dd>
+      <dt>seqrange</dt>
+      <dd>Sequence range, as e.g., "1:1000"
+  (character).</dd>
+      <dt>getrelated</dt>
+      <dd>Logical, if TRUE, gets the longest
+  sequences of a species in the same genus as the one
+  searched for. If FALSE, get's nothing.</dd>
+      <dt>writetodf</dt>
+      <dd>Write resulting data.frame of results to
+  a file on your machine (logical).</dd>
+      <dt>filetowriteto</dt>
+      <dd>If writetodf=TRUE, then specify the
+  file name. Default=T.</dd>
+    </dl>
+    
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Data.frame of results.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>This function retrieves one sequences for each species,
+  picking the longest available for the given gene.</p>
+  
+    </div>
+
+    <div class="Details">
+      <h2>Details</h2>
+      
+      <p>Removes predicted sequences so you don't have to remove
+  them.  Predicted sequences are those with accession
+  numbers that have "XM_" or "XR_" prefixes.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>## <strong>Not run</strong>: # # A single species# get_seqs(taxon_name="Acipenser brevirostrum", gene = c("coi", "co1"),# 		seqrange = "1:3000", getrelated=T, writetodf=F)# # # Many species, can run in parallel or not using plyr# species <- c("Colletes similis","Halictus ligatus","Perdita trisignata")# llply(species, get_seqs, gene = c("coi", "co1"),  # notice different sp. output for Perdita# 		seqrange = "1:2000", getrelated=T, writetodf=F)# ## <strong>End(Not run)</strong></div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>get_seqs</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+    
+    <h2>Author</h2>
+    
+  Scott Chamberlain <a href='mailto:myrmecocystus@gmail.com'>myrmecocystus@gmail.com</a>
+
+    
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

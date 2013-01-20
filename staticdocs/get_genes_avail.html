@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>get_genes_avail. taxize 0.0.3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="
+  Scott Chamberlain &lt;a href='mailto:myrmecocystus@gmail.com'&gt;myrmecocystus@gmail.com&lt;/a&gt;
+">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">taxize 0.0.3</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Retrieve gene sequences available for a species from NCBI.</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><span class="functioncall"><a href='get_genes_avail.html'>get_genes_avail</a></span><span class="keyword">(</span><span class="symbol">taxon_name</span><span class="keyword">,</span> <span class="symbol">seqrange</span><span class="keyword">,</span> <span class="argument">getrelated</span> <span class="argument">=</span> <span class="number">FALSE</span><span class="keyword">)</span></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>taxon_name</dt>
+      <dd>Scientific name to search for
+  (character).</dd>
+      <dt>seqrange</dt>
+      <dd>Sequence range, as e.g., "1:1000"
+  (character).</dd>
+      <dt>getrelated</dt>
+      <dd>Logical, if TRUE, gets the longest
+  sequences of a species in the same genus as the one
+  searched for. If FALSE, get's nothing.</dd>
+    </dl>
+    
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Data.frame of results.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>This function retrieves one sequences for each species,
+  picking the longest available for the given gene.</p>
+  
+    </div>
+
+    <div class="Details">
+      <h2>Details</h2>
+      
+      <p>Removes predicted sequences so you don't have to remove
+  them.  Predicted sequences are those with accession
+  numbers that have "XM_" or "XR_" prefixes.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>## <strong>Not run</strong>: # # A single species# out <- get_genes_avail(taxon_name="Umbra limi", seqrange = "1:2000", getrelated=F)# unique(out$genesavail) # get list of genes available, removing non-unique ones# out[grep("RAG1", out$genesavail, ignore.case=T),] # does the string 'RAG1' exist in any of the gene names# # # A single species without records in NCBI# out <- get_genes_avail(taxon_name="Sequoia wellingtonia", seqrange = "1:2000", getrelated=T)# # # Many species, can run in parallel or not using plyr# species <- c("Salvelinus alpinus","Ictalurus nebulosus","Carassius auratus")# out2 <- llply(species, get_genes_avail, seqrange = "1:2000", getrelated=F)# lapply(out2, head) # see heads of all# out2df <- ldply(out2) # make data.frame of all# unique(out2df$genesavail) # get list of genes available, removing non-unique ones# out2df[grep("RAG1", out2df$genesavail, ignore.case=T),] # search across all# ## <strong>End(Not run)</strong></div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>get_genes_avail</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+    
+    <h2>Author</h2>
+    
+  Scott Chamberlain <a href='mailto:myrmecocystus@gmail.com'>myrmecocystus@gmail.com</a>
+
+    
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

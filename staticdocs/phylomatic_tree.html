@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>phylomatic_tree. taxize 0.0.3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">taxize 0.0.3</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Format tree string, submit to Phylomatic, get newick tree.</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><span class="functioncall"><a href='phylomatic_tree.html'>phylomatic_tree</a></span><span class="keyword">(</span><span class="symbol">taxa</span><span class="keyword">,</span> <span class="argument">taxnames</span> <span class="argument">=</span> <span class="number">TRUE</span><span class="keyword">,</span> <span class="argument">get</span> <span class="argument">=</span> <span class="string">"GET"</span><span class="keyword">,</span> <span class="argument">informat</span> <span class="argument">=</span> <span class="string">"newick"</span><span class="keyword">,</span> <span class="argument">method</span> <span class="argument">=</span> <span class="string">"phylomatic"</span><span class="keyword">,</span>
+  <span class="argument">storedtree</span> <span class="argument">=</span> <span class="string">"R20120829"</span><span class="keyword">,</span> <span class="argument">taxaformat</span> <span class="argument">=</span> <span class="string">"slashpath"</span><span class="keyword">,</span> <span class="argument">outformat</span> <span class="argument">=</span> <span class="string">"newick"</span><span class="keyword">,</span> <span class="argument">clean</span> <span class="argument">=</span> <span class="string">"true"</span><span class="keyword">,</span>
+      <span class="argument">url</span> <span class="argument">=</span> <span class="string">"http://phylodiversity.net/phylomatic/pmws"</span><span class="keyword">)</span></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>taxa</dt>
+      <dd>Phylomatic format input of taxa names.</dd>
+      <dt>get</dt>
+      <dd>'GET' or 'POST' format for submission to the
+  website.</dd>
+      <dt>informat</dt>
+      <dd>One of newick, nexml, or cdaordf. If
+  using a stored tree, informat should always be newick.</dd>
+      <dt>method</dt>
+      <dd>One of phylomatic or convert</dd>
+      <dt>storedtree</dt>
+      <dd>One of R20120829 (Phylomatic tree
+  R20120829 for plants), smith2011 (Smith 2011, plants), or
+  binindaemonds2007 (Bininda-Emonds 2007, mammals).</dd>
+      <dt>taxaformat</dt>
+      <dd>Only option is slashpath for now. Leave
+  as is.</dd>
+      <dt>outformat</dt>
+      <dd>One of newick, nexml, or fyt.</dd>
+      <dt>url</dt>
+      <dd>The base URL for the Phylomatic API service,
+  leave as is.</dd>
+    </dl>
+    
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Newick formatted tree.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Format tree string, submit to Phylomatic, get newick
+  tree.</p>
+  
+    </div>
+
+    <div class="Details">
+      <h2>Details</h2>
+      
+      <p>Use the web interface here
+  http://phylodiversity.net/phylomatic/</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>## <strong>Not run</strong>: # # Getting taxonomic information from ITIS, if you already have taxonomic serial numbers (TSNs)# dat_ <- laply(list("36616", "19322", "183327", "36616", "41107", "181835", "25929"), itis_phymat_format, format='isubmit')# tree <- phylomatic_tree(taxa=taxa, get = 'POST', informat='newick', method = "phylomatic",# 		storedtree = "R20120829", taxaformat = "slashpath", outformat = "newick", clean = "true")# plot(tree)# # # Input taxonomic names# taxa <- c("Poa annua", "Abies procera", "Helianthus annuus")# tree <- phylomatic_tree(taxa=taxa, get = 'POST', informat='newick', method = "phylomatic",# 		storedtree = "R20120829", taxaformat = "slashpath", outformat = "newick", clean = "true")# plot(tree)# # # Lots of names# taxa <- c("Poa annua", "Abies procera", "Helianthus annuus", "Collomia grandiflora",# 		"Ribes latifolium", "Arctostaphylos manzanita", "Phlox glabriflora", "Phlox diffusa",# 		"Datura wrightii", "Nicotiana glauca", "Nicotiana tomentosa", "Mimulus bicolor")# tree <- phylomatic_tree(taxa=taxa, get = 'POST', informat='newick', method = "phylomatic",# 		storedtree = "R20120829", taxaformat = "slashpath", outformat = "newick", clean = "true")# plot(tree, no.margin=T)# ## <strong>End(Not run)</strong></div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>phylomatic_tree</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

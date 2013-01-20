@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>gni_search. taxize 0.0.3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="
+  Scott Chamberlain myrmecocystus@gmail.com
+">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">taxize 0.0.3</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Search for taxonomic names using the Global Names Index.</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><span class="functioncall"><a href='gni_search.html'>gni_search</a></span><span class="keyword">(</span><span class="argument">search_term</span> <span class="argument">=</span> NULL<span class="keyword">,</span> <span class="argument">per_page</span> <span class="argument">=</span> NULL<span class="keyword">,</span> <span class="argument">page</span> <span class="argument">=</span> NULL<span class="keyword">,</span> <span class="argument">justtotal</span> <span class="argument">=</span> <span class="number">FALSE</span><span class="keyword">,</span> <span class="argument">url</span> <span class="argument">=</span> <span class="string">"http://gni.globalnames.org/name_strings.json"</span><span class="keyword">)</span></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>search_term</dt>
+      <dd>Name pattern you want to search for
+  search term may include following options (Note: can,
+  uni, gen, sp, ssp, au, yr work only for parsed names): *:
+  wild card Search by part of a word planta* exact: exact
+  match Search for exact match of a literal string
+  exact:Parus major ns: name string Search for literal
+  string from its beginning (other modifiers will be
+  ignored) ns:parus maj* can: canonical form Search name
+  without authors (other modifiers will be ignored)
+  can:parus major uni: uninomial Search for higher taxa
+  uni:parus gen: genus Search by genus epithet of species
+  name gen:parus sp: species Search by species epithet
+  sp:major ssp: subspecies Search by infraspecies epithet
+  ssp:major au: author Search by author word au:Shipunov
+  yr: year Search by year yr:2005</dd>
+      <dt>per_page</dt>
+      <dd>Number of items per one page (numbers
+  larger than 1000 will be decreased to 1000) (default is
+  30).</dd>
+      <dt>page</dt>
+      <dd>Page number you want to see (default is 1).</dd>
+      <dt>justtotal</dt>
+      <dd>Return only the total results found.</dd>
+      <dt>url</dt>
+      <dd>Base url for the API; leave as is.</dd>
+    </dl>
+    
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Data.frame of results.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Uses the Global Names Index, see
+  <a href = 'http://gni.globalnames.org/'>http://gni.globalnames.org/</a> for information.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>## <strong>Not run</strong>: # gni_search(search_term = "ani*")# gni_search(search_term = "ama*", per_page = 3, page = 21)# gni_search(search_term = "animalia", per_page = 8, page = 1)# gni_search(search_term = "animalia", per_page = 8, page = 1, justtotal=T)# ## <strong>End(Not run)</strong></div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>gni_search</li>
+    </ul>
+    <ul>
+      <li>globalnamesindex</li><li>names</li><li>taxonomy</li>
+    </ul> -->
+      
+    <h2>See also</h2>
+    
+  <code><a href='gnr_datasources.html'>gnr_datasources</a></code>, <code><a href='gni_search.html'>gni_search</a></code>.
+
+    
+    <h2>Author</h2>
+    
+  Scott Chamberlain myrmecocystus@gmail.com
+
+    
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>get_tsn. taxize 0.0.3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">taxize 0.0.3</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Get the TSN code for a search term.</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><span class="functioncall"><a href='get_tsn.html'>get_tsn</a></span><span class="keyword">(</span><span class="symbol">searchterm</span><span class="keyword">,</span> <span class="argument">searchtype</span> <span class="argument">=</span> <span class="string">"sciname"</span><span class="keyword">,</span> <span class="argument">verbose</span> <span class="argument">=</span> <span class="number">TRUE</span><span class="keyword">)</span></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>searchterm</dt>
+      <dd>A vector of common or scientific
+  names.</dd>
+      <dt>searchtype</dt>
+      <dd>One of 'sciname', 'anymatch',
+  'comnamebeg', 'comname', 'comnameend'.</dd>
+      <dt>verbose</dt>
+      <dd>should progress be printed?</dd>
+    </dl>
+    
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>A vector of taxonomic serial numbers (TSN). If a species
+  is not found NA.  If more than one TSN is found the
+  function asks for user input.  See functions in the
+  <code>itis</code> function.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p><code>get_tsn</code> uses a variety of functions from the
+  <code>itis</code> function.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>## <strong>Not run</strong>: # get_tsn(searchterm="Quercus douglasii", searchtype="sciname")# get_tsn(searchterm="Chironomus riparius", searchtype="sciname")# get_tsn(searchterm="polar bear", searchtype="comname")# get_tsn(c("Chironomus riparius","Quercus douglasii"), "sciname")# get_tsn(c("aa aa", "Chironomus riparius"), searchtype="sciname")# splist <- c("annona cherimola", 'annona muricata', "quercus robur",# "shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")# get_tsn(splist,"sciname")# ## <strong>End(Not run)</strong></div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>get_tsn</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>
