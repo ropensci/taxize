@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>eol_dataobjects. taxize 0.0.3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">taxize 0.0.3</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Given the identifier for a data object, return all metadata about the object.</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><span class="functioncall"><a href='eol_dataobjects.html'>eol_dataobjects</a></span><span class="keyword">(</span><span class="symbol">id</span><span class="keyword">,</span> <span class="argument">returntype</span> <span class="argument">=</span> <span class="string">"data.frame"</span><span class="keyword">,</span> <span class="argument">url</span> <span class="argument">=</span> <span class="string">"http://www.eol.org/api/data_objects/1.0/"</span><span class="keyword">,</span>
+  <span class="argument">usekey</span> <span class="argument">=</span> <span class="number">TRUE</span><span class="keyword">,</span> <span class="argument">key</span> <span class="argument">=</span> NULL<span class="keyword">)</span></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>id</dt>
+      <dd>The EOL data object identifier (character)</dd>
+      <dt>usekey</dt>
+      <dd>use your API key or not (TRUE or FALSE)</dd>
+      <dt>returntype</dt>
+      <dd>one of "list" of "data.frame"
+  (character)</dd>
+      <dt>url</dt>
+      <dd>The EOL url for the function (should be left
+  to default).</dd>
+      <dt>key</dt>
+      <dd>Your EOL API key; loads from .Rprofile.</dd>
+    </dl>
+    
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>List or dataframe.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Given the identifier for a data object, return all
+  metadata about the object.</p>
+  
+    </div>
+
+    <div class="Details">
+      <h2>Details</h2>
+      
+      <p>It's possible to return JSON or XML with the EOL API.
+  However, this function only returns JSON for now.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'><span class="functioncall"><a href='eol_dataobjects.html'>eol_dataobjects</a></span><span class="keyword">(</span><span class="argument">id</span><span class="argument">=</span><span class="string">"d72801627bf4adf1a38d9c5f10cc767f"</span><span class="keyword">)</span></div>
+<strong class='message'>http://www.eol.org/api/data_objects/1.0/d72801627bf4adf1a38d9c5f10cc767f.json?key=52987dc6505de77c6c9345e8e8068f74ffb52de6</strong>
+<strong class='message'>not sure how to parse this yet, sorry for the wait</strong>
+<div class='output'>$identifier
+[1] 1045608
+
+$scientificName
+[1] "Apis mellifera Linnaeus 1758"
+
+$richness_score
+[1] 91.8457
+
+$synonyms
+list()
+
+$vernacularNames
+list()
+
+$references
+list()
+
+$taxonConcepts
+$taxonConcepts[[1]]
+$taxonConcepts[[1]]$identifier
+[1] 39046220
+
+$taxonConcepts[[1]]$scientificName
+[1] "Apis mellifera"
+
+$taxonConcepts[[1]]$nameAccordingTo
+[1] "NCBI Taxonomy"
+
+$taxonConcepts[[1]]$canonicalForm
+[1] "Apis mellifera"
+
+$taxonConcepts[[1]]$sourceIdentfier
+[1] "7460"
+
+$taxonConcepts[[1]]$taxonRank
+[1] "Species"
+
+
+$taxonConcepts[[2]]
+$taxonConcepts[[2]]$identifier
+[1] 46497385
+
+$taxonConcepts[[2]]$scientificName
+[1] "Apis mellifera Linnaeus 1758"
+
+$taxonConcepts[[2]]$nameAccordingTo
+[1] "Integrated Taxonomic Information System (ITIS)"
+
+$taxonConcepts[[2]]$canonicalForm
+[1] "Apis mellifera"
+
+$taxonConcepts[[2]]$sourceIdentfier
+[1] "154396"
+
+$taxonConcepts[[2]]$taxonRank
+[1] "Species"
+
+
+$taxonConcepts[[3]]
+$taxonConcepts[[3]]$identifier
+[1] 47773392
+
+$taxonConcepts[[3]]$scientificName
+[1] "Apis mellifera Linnaeus 1758"
+
+$taxonConcepts[[3]]$nameAccordingTo
+[1] "Species 2000 & ITIS Catalogue of Life: May 2012"
+
+$taxonConcepts[[3]]$canonicalForm
+[1] "Apis mellifera"
+
+$taxonConcepts[[3]]$sourceIdentfier
+[1] "6845885"
+
+$taxonConcepts[[3]]$taxonRank
+[1] "Species"
+
+
+$taxonConcepts[[4]]
+$taxonConcepts[[4]]$identifier
+[1] 49379619
+
+$taxonConcepts[[4]]$scientificName
+[1] "Apis (Apis) mellifera Linnaeus 1758"
+
+$taxonConcepts[[4]]$nameAccordingTo
+[1] "Paleobiology Database"
+
+$taxonConcepts[[4]]$canonicalForm
+[1] "Apis mellifera"
+
+$taxonConcepts[[4]]$sourceIdentfier
+[1] "urn:paleodb:tn235173"
+
+$taxonConcepts[[4]]$taxonRank
+[1] "Species"
+
+
+
+$dataObjects
+$dataObjects[[1]]
+$dataObjects[[1]]$identifier
+[1] "d72801627bf4adf1a38d9c5f10cc767f"
+
+$dataObjects[[1]]$dataObjectVersionID
+[1] 21929584
+
+$dataObjects[[1]]$dataType
+[1] "http://purl.org/dc/dcmitype/StillImage"
+
+$dataObjects[[1]]$dataSubtype
+[1] ""
+
+$dataObjects[[1]]$vettedStatus
+[1] "Trusted"
+
+$dataObjects[[1]]$dataRating
+[1] 3
+
+$dataObjects[[1]]$mimeType
+[1] "image/jpeg"
+
+$dataObjects[[1]]$created
+[1] "2009-07-12T11:13:19Z"
+
+$dataObjects[[1]]$title
+[1] "Honey Bee on Mountain Mint"
+
+$dataObjects[[1]]$language
+[1] "en"
+
+$dataObjects[[1]]$license
+[1] "http://creativecommons.org/licenses/by/2.0/"
+
+$dataObjects[[1]]$source
+[1] "http://www.flickr.com/photos/38875278@N08/3730360050/"
+
+$dataObjects[[1]]$description
+[1] "A honey bee (Apis mellifera) visiting a mountain mint (Pycnanthemum muticum) blossom.&nbsp;&nbsp;The Pennsylvania Department of Agriculture is conducting a citizen scientist native bee monitoring project that will ultimately allow us ( The Pa Dept of Ag) to make reccommendations to gardeners as to what kind of plants they should plant in a garden to make it pollinator friendly.&nbsp;&nbsp;The project is in part funded by Haagen--Dazs.  For more information please visit:&nbsp;<a href=\"http://www.helpthehoneybees.com\" rel=\"nofollow\">www.helpthehoneybees.com</a>&nbsp;&nbsp;For information on the Penn State Master Gardeners, please visit:  &nbsp;horticulture.psu.edu/extension/mg&quot;"
+
+$dataObjects[[1]]$mediaURL
+[1] "http://farm3.staticflickr.com/2619/3730360050_1336b71208_b.jpg"
+
+$dataObjects[[1]]$eolMediaURL
+[1] "http://media.eol.org/content/2012/08/29/00/52840_orig.jpg"
+
+$dataObjects[[1]]$eolThumbnailURL
+[1] "http://media.eol.org/content/2012/08/29/00/52840_98_68.jpg"
+
+$dataObjects[[1]]$location
+[1] "Yorklyn, Pennsylvania, United States"
+
+$dataObjects[[1]]$latitude
+[1] 39.98937
+
+$dataObjects[[1]]$longitude
+[1] -76.64857
+
+$dataObjects[[1]]$agents
+$dataObjects[[1]]$agents[[1]]
+                                  full_name                                    homepage 
+                               "John Baker" "http://www.flickr.com/photos/38875278@N08" 
+                                       role 
+                             "photographer" 
+
+$dataObjects[[1]]$agents[[2]]
+                                          full_name 
+                               "Flickr: EOL Images" 
+                                           homepage 
+"http://www.flickr.com/groups/encyclopedia_of_life" 
+                                               role 
+                                         "provider" 
+
+
+$dataObjects[[1]]$references
+list()
+
+
+
+</div>
+<div class='input'><span class="functioncall"><a href='eol_dataobjects.html'>eol_dataobjects</a></span><span class="keyword">(</span><span class="argument">id</span><span class="argument">=</span><span class="string">"21929584"</span><span class="keyword">)</span></div>
+<strong class='message'>http://www.eol.org/api/data_objects/1.0/21929584.json?key=52987dc6505de77c6c9345e8e8068f74ffb52de6</strong>
+<strong class='message'>not sure how to parse this yet, sorry for the wait</strong>
+<div class='output'>$identifier
+[1] 1045608
+
+$scientificName
+[1] "Apis mellifera Linnaeus 1758"
+
+$richness_score
+[1] 91.8457
+
+$synonyms
+list()
+
+$vernacularNames
+list()
+
+$references
+list()
+
+$taxonConcepts
+$taxonConcepts[[1]]
+$taxonConcepts[[1]]$identifier
+[1] 39046220
+
+$taxonConcepts[[1]]$scientificName
+[1] "Apis mellifera"
+
+$taxonConcepts[[1]]$nameAccordingTo
+[1] "NCBI Taxonomy"
+
+$taxonConcepts[[1]]$canonicalForm
+[1] "Apis mellifera"
+
+$taxonConcepts[[1]]$sourceIdentfier
+[1] "7460"
+
+$taxonConcepts[[1]]$taxonRank
+[1] "Species"
+
+
+$taxonConcepts[[2]]
+$taxonConcepts[[2]]$identifier
+[1] 46497385
+
+$taxonConcepts[[2]]$scientificName
+[1] "Apis mellifera Linnaeus 1758"
+
+$taxonConcepts[[2]]$nameAccordingTo
+[1] "Integrated Taxonomic Information System (ITIS)"
+
+$taxonConcepts[[2]]$canonicalForm
+[1] "Apis mellifera"
+
+$taxonConcepts[[2]]$sourceIdentfier
+[1] "154396"
+
+$taxonConcepts[[2]]$taxonRank
+[1] "Species"
+
+
+$taxonConcepts[[3]]
+$taxonConcepts[[3]]$identifier
+[1] 47773392
+
+$taxonConcepts[[3]]$scientificName
+[1] "Apis mellifera Linnaeus 1758"
+
+$taxonConcepts[[3]]$nameAccordingTo
+[1] "Species 2000 & ITIS Catalogue of Life: May 2012"
+
+$taxonConcepts[[3]]$canonicalForm
+[1] "Apis mellifera"
+
+$taxonConcepts[[3]]$sourceIdentfier
+[1] "6845885"
+
+$taxonConcepts[[3]]$taxonRank
+[1] "Species"
+
+
+$taxonConcepts[[4]]
+$taxonConcepts[[4]]$identifier
+[1] 49379619
+
+$taxonConcepts[[4]]$scientificName
+[1] "Apis (Apis) mellifera Linnaeus 1758"
+
+$taxonConcepts[[4]]$nameAccordingTo
+[1] "Paleobiology Database"
+
+$taxonConcepts[[4]]$canonicalForm
+[1] "Apis mellifera"
+
+$taxonConcepts[[4]]$sourceIdentfier
+[1] "urn:paleodb:tn235173"
+
+$taxonConcepts[[4]]$taxonRank
+[1] "Species"
+
+
+
+$dataObjects
+$dataObjects[[1]]
+$dataObjects[[1]]$identifier
+[1] "d72801627bf4adf1a38d9c5f10cc767f"
+
+$dataObjects[[1]]$dataObjectVersionID
+[1] 21929584
+
+$dataObjects[[1]]$dataType
+[1] "http://purl.org/dc/dcmitype/StillImage"
+
+$dataObjects[[1]]$dataSubtype
+[1] ""
+
+$dataObjects[[1]]$vettedStatus
+[1] "Trusted"
+
+$dataObjects[[1]]$dataRating
+[1] 3
+
+$dataObjects[[1]]$mimeType
+[1] "image/jpeg"
+
+$dataObjects[[1]]$created
+[1] "2009-07-12T11:13:19Z"
+
+$dataObjects[[1]]$title
+[1] "Honey Bee on Mountain Mint"
+
+$dataObjects[[1]]$language
+[1] "en"
+
+$dataObjects[[1]]$license
+[1] "http://creativecommons.org/licenses/by/2.0/"
+
+$dataObjects[[1]]$source
+[1] "http://www.flickr.com/photos/38875278@N08/3730360050/"
+
+$dataObjects[[1]]$description
+[1] "A honey bee (Apis mellifera) visiting a mountain mint (Pycnanthemum muticum) blossom.&nbsp;&nbsp;The Pennsylvania Department of Agriculture is conducting a citizen scientist native bee monitoring project that will ultimately allow us ( The Pa Dept of Ag) to make reccommendations to gardeners as to what kind of plants they should plant in a garden to make it pollinator friendly.&nbsp;&nbsp;The project is in part funded by Haagen--Dazs.  For more information please visit:&nbsp;<a href=\"http://www.helpthehoneybees.com\" rel=\"nofollow\">www.helpthehoneybees.com</a>&nbsp;&nbsp;For information on the Penn State Master Gardeners, please visit:  &nbsp;horticulture.psu.edu/extension/mg&quot;"
+
+$dataObjects[[1]]$mediaURL
+[1] "http://farm3.staticflickr.com/2619/3730360050_1336b71208_b.jpg"
+
+$dataObjects[[1]]$eolMediaURL
+[1] "http://media.eol.org/content/2012/08/29/00/52840_orig.jpg"
+
+$dataObjects[[1]]$eolThumbnailURL
+[1] "http://media.eol.org/content/2012/08/29/00/52840_98_68.jpg"
+
+$dataObjects[[1]]$location
+[1] "Yorklyn, Pennsylvania, United States"
+
+$dataObjects[[1]]$latitude
+[1] 39.98937
+
+$dataObjects[[1]]$longitude
+[1] -76.64857
+
+$dataObjects[[1]]$agents
+$dataObjects[[1]]$agents[[1]]
+                                  full_name                                    homepage 
+                               "John Baker" "http://www.flickr.com/photos/38875278@N08" 
+                                       role 
+                             "photographer" 
+
+$dataObjects[[1]]$agents[[2]]
+                                          full_name 
+                               "Flickr: EOL Images" 
+                                           homepage 
+"http://www.flickr.com/groups/encyclopedia_of_life" 
+                                               role 
+                                         "provider" 
+
+
+$dataObjects[[1]]$references
+list()
+
+
+
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>eol_dataobjects</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

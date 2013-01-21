@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>getkey. taxize 0.0.3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">taxize 0.0.3</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Function to get API key.</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><span class="functioncall"><a href='getkey.html'>getkey</a></span><span class="keyword">(</span><span class="argument">x</span> <span class="argument">=</span> NULL<span class="keyword">,</span> <span class="symbol">service</span><span class="keyword">)</span></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>x</dt>
+      <dd>An API key, defaults to NULL.</dd>
+      <dt>service</dt>
+      <dd>The API data provider, used to match to
+  default guest key.</dd>
+    </dl>
+    
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Checks first to get key from your .Rprofile file for an
+  API key with the name 'tropicoskey'. If it is not found,
+  the default key is used.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'><span class="functioncall"><a href='getkey.html'>getkey</a></span><span class="keyword">(</span><span class="argument">service</span><span class="argument">=</span><span class="string">"tropicos"</span><span class="keyword">)</span></div>
+<div class='output'>[1] "f3e499d4-1519-42c9-afd1-685a16882f5a"
+</div>
+<div class='input'><span class="functioncall"><a href='getkey.html'>getkey</a></span><span class="keyword">(</span><span class="argument">service</span><span class="argument">=</span><span class="string">"EOL"</span><span class="keyword">)</span></div>
+<div class='output'>[1] "52987dc6505de77c6c9345e8e8068f74ffb52de6"
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>getkey</li>
+    </ul>
+    <ul>
+      <li>internal</li>
+    </ul> -->
+      
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

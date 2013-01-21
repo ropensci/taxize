@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>phylomatic_tree. taxize 0.0.3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">taxize 0.0.3</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Format tree string, submit to Phylomatic, get newick tree.</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><span class="functioncall"><a href='phylomatic_tree.html'>phylomatic_tree</a></span><span class="keyword">(</span><span class="symbol">taxa</span><span class="keyword">,</span> <span class="argument">taxnames</span> <span class="argument">=</span> <span class="number">TRUE</span><span class="keyword">,</span> <span class="argument">get</span> <span class="argument">=</span> <span class="string">"GET"</span><span class="keyword">,</span> <span class="argument">informat</span> <span class="argument">=</span> <span class="string">"newick"</span><span class="keyword">,</span> <span class="argument">method</span> <span class="argument">=</span> <span class="string">"phylomatic"</span><span class="keyword">,</span>
+  <span class="argument">storedtree</span> <span class="argument">=</span> <span class="string">"R20120829"</span><span class="keyword">,</span> <span class="argument">taxaformat</span> <span class="argument">=</span> <span class="string">"slashpath"</span><span class="keyword">,</span> <span class="argument">outformat</span> <span class="argument">=</span> <span class="string">"newick"</span><span class="keyword">,</span> <span class="argument">clean</span> <span class="argument">=</span> <span class="string">"true"</span><span class="keyword">,</span>
+      <span class="argument">url</span> <span class="argument">=</span> <span class="string">"http://phylodiversity.net/phylomatic/pmws"</span><span class="keyword">)</span></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>taxa</dt>
+      <dd>Phylomatic format input of taxa names.</dd>
+      <dt>get</dt>
+      <dd>'GET' or 'POST' format for submission to the
+  website.</dd>
+      <dt>informat</dt>
+      <dd>One of newick, nexml, or cdaordf. If
+  using a stored tree, informat should always be newick.</dd>
+      <dt>method</dt>
+      <dd>One of phylomatic or convert</dd>
+      <dt>storedtree</dt>
+      <dd>One of R20120829 (Phylomatic tree
+  R20120829 for plants), smith2011 (Smith 2011, plants), or
+  binindaemonds2007 (Bininda-Emonds 2007, mammals).</dd>
+      <dt>taxaformat</dt>
+      <dd>Only option is slashpath for now. Leave
+  as is.</dd>
+      <dt>outformat</dt>
+      <dd>One of newick, nexml, or fyt.</dd>
+      <dt>url</dt>
+      <dd>The base URL for the Phylomatic API service,
+  leave as is.</dd>
+    </dl>
+    
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Newick formatted tree.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Format tree string, submit to Phylomatic, get newick
+  tree.</p>
+  
+    </div>
+
+    <div class="Details">
+      <h2>Details</h2>
+      
+      <p>Use the web interface here
+  http://phylodiversity.net/phylomatic/</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'><span class="comment"># Getting taxonomic information from ITIS, if you already have taxonomic serial numbers (TSNs)</span>
+<span class="symbol">dat_</span> <span class="assignement">&lt;-</span> <span class="functioncall"><a href='http://www.inside-r.org/r-doc/plyr/laply'>laply</a></span><span class="keyword">(</span><span class="functioncall"><a href='http://www.inside-r.org/r-doc/base/list'>list</a></span><span class="keyword">(</span><span class="string">"36616"</span><span class="keyword">,</span> <span class="string">"19322"</span><span class="keyword">,</span> <span class="string">"183327"</span><span class="keyword">,</span> <span class="string">"36616"</span><span class="keyword">,</span> <span class="string">"41107"</span><span class="keyword">,</span> <span class="string">"181835"</span><span class="keyword">,</span> <span class="string">"25929"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="symbol">itis_phymat_format</span><span class="keyword">,</span> <span class="argument">format</span><span class="argument">=</span><span class="string">'isubmit'</span><span class="keyword">)</span></div>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=36616</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=19322</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=183327</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=36616</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=41107</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=181835</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=25929</strong>
+<div class='input'><span class="symbol">tree</span> <span class="assignement">&lt;-</span> <span class="functioncall"><a href='phylomatic_tree.html'>phylomatic_tree</a></span><span class="keyword">(</span><span class="argument">taxa</span><span class="argument">=</span><span class="symbol">taxa</span><span class="keyword">,</span> <span class="argument">get</span> <span class="argument">=</span> <span class="string">'POST'</span><span class="keyword">,</span> <span class="argument">informat</span><span class="argument">=</span><span class="string">'newick'</span><span class="keyword">,</span> <span class="argument">method</span> <span class="argument">=</span> <span class="string">"phylomatic"</span><span class="keyword">,</span>
+                <span class="argument">storedtree</span> <span class="argument">=</span> <span class="string">"R20120829"</span><span class="keyword">,</span> <span class="argument">taxaformat</span> <span class="argument">=</span> <span class="string">"slashpath"</span><span class="keyword">,</span> <span class="argument">outformat</span> <span class="argument">=</span> <span class="string">"newick"</span><span class="keyword">,</span> <span class="argument">clean</span> <span class="argument">=</span> <span class="string">"true"</span><span class="keyword">)</span></div>
+<strong class='error'>Error in inherits(.data, "split"): object 'taxa' not found</strong>
+<div class='input'><span class="functioncall"><a href='http://www.inside-r.org/r-doc/graphics/plot'>plot</a></span><span class="keyword">(</span><span class="symbol">tree</span><span class="keyword">)</span></div>
+<strong class='error'>Error in plot(tree): object 'tree' not found</strong>
+<div class='input'>
+<span class="comment"># Input taxonomic names</span>
+<span class="symbol">taxa</span> <span class="assignement">&lt;-</span> <span class="functioncall"><a href='http://www.inside-r.org/r-doc/base/c'>c</a></span><span class="keyword">(</span><span class="string">"Poa annua"</span><span class="keyword">,</span> <span class="string">"Abies procera"</span><span class="keyword">,</span> <span class="string">"Helianthus annuus"</span><span class="keyword">)</span>
+<span class="symbol">tree</span> <span class="assignement">&lt;-</span> <span class="functioncall"><a href='phylomatic_tree.html'>phylomatic_tree</a></span><span class="keyword">(</span><span class="argument">taxa</span><span class="argument">=</span><span class="symbol">taxa</span><span class="keyword">,</span> <span class="argument">get</span> <span class="argument">=</span> <span class="string">'POST'</span><span class="keyword">,</span> <span class="argument">informat</span><span class="argument">=</span><span class="string">'newick'</span><span class="keyword">,</span> <span class="argument">method</span> <span class="argument">=</span> <span class="string">"phylomatic"</span><span class="keyword">,</span>
+                <span class="argument">storedtree</span> <span class="argument">=</span> <span class="string">"R20120829"</span><span class="keyword">,</span> <span class="argument">taxaformat</span> <span class="argument">=</span> <span class="string">"slashpath"</span><span class="keyword">,</span> <span class="argument">outformat</span> <span class="argument">=</span> <span class="string">"newick"</span><span class="keyword">,</span> <span class="argument">clean</span> <span class="argument">=</span> <span class="string">"true"</span><span class="keyword">)</span></div>
+<div class='output'>
+Retrieving data for species ' Poa annua '
+
+Retrieving data for species ' Abies procera '
+
+Retrieving data for species ' Helianthus annuus '
+</div>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=41107</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=181835</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=36616</strong>
+<div class='input'><span class="functioncall"><a href='http://www.inside-r.org/r-doc/graphics/plot'>plot</a></span><span class="keyword">(</span><span class="symbol">tree</span><span class="keyword">)</span></div>
+<p><img src='phylomatic_tree-19.png' alt='' width='400' height='400' /></p>
+<div class='input'>
+<span class="comment"># Lots of names</span>
+<span class="symbol">taxa</span> <span class="assignement">&lt;-</span> <span class="functioncall"><a href='http://www.inside-r.org/r-doc/base/c'>c</a></span><span class="keyword">(</span><span class="string">"Poa annua"</span><span class="keyword">,</span> <span class="string">"Abies procera"</span><span class="keyword">,</span> <span class="string">"Helianthus annuus"</span><span class="keyword">,</span> <span class="string">"Collomia grandiflora"</span><span class="keyword">,</span>
+                <span class="string">"Ribes latifolium"</span><span class="keyword">,</span> <span class="string">"Arctostaphylos manzanita"</span><span class="keyword">,</span> <span class="string">"Phlox glabriflora"</span><span class="keyword">,</span> <span class="string">"Phlox diffusa"</span><span class="keyword">,</span>
+                <span class="string">"Datura wrightii"</span><span class="keyword">,</span> <span class="string">"Nicotiana glauca"</span><span class="keyword">,</span> <span class="string">"Nicotiana tomentosa"</span><span class="keyword">,</span> <span class="string">"Mimulus bicolor"</span><span class="keyword">)</span>
+<span class="symbol">tree</span> <span class="assignement">&lt;-</span> <span class="functioncall"><a href='phylomatic_tree.html'>phylomatic_tree</a></span><span class="keyword">(</span><span class="argument">taxa</span><span class="argument">=</span><span class="symbol">taxa</span><span class="keyword">,</span> <span class="argument">get</span> <span class="argument">=</span> <span class="string">'POST'</span><span class="keyword">,</span> <span class="argument">informat</span><span class="argument">=</span><span class="string">'newick'</span><span class="keyword">,</span> <span class="argument">method</span> <span class="argument">=</span> <span class="string">"phylomatic"</span><span class="keyword">,</span>
+                <span class="argument">storedtree</span> <span class="argument">=</span> <span class="string">"R20120829"</span><span class="keyword">,</span> <span class="argument">taxaformat</span> <span class="argument">=</span> <span class="string">"slashpath"</span><span class="keyword">,</span> <span class="argument">outformat</span> <span class="argument">=</span> <span class="string">"newick"</span><span class="keyword">,</span> <span class="argument">clean</span> <span class="argument">=</span> <span class="string">"true"</span><span class="keyword">)</span></div>
+<div class='output'>
+Retrieving data for species ' Poa annua '
+
+Retrieving data for species ' Abies procera '
+
+Retrieving data for species ' Helianthus annuus '
+
+Retrieving data for species ' Collomia grandiflora '
+
+Retrieving data for species ' Ribes latifolium '
+
+Retrieving data for species ' Arctostaphylos manzanita '
+
+Retrieving data for species ' Phlox glabriflora '
+
+Retrieving data for species ' Phlox diffusa '
+
+Retrieving data for species ' Datura wrightii '
+
+Retrieving data for species ' Nicotiana glauca '
+
+Retrieving data for species ' Nicotiana tomentosa '
+
+Retrieving data for species ' Mimulus bicolor '
+</div>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=41107</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=181835</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=36616</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=31037</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=895213</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=23496</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=504315</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=30930</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=30521</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=30574</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=505846</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=33245</strong>
+<div class='input'><span class="functioncall"><a href='http://www.inside-r.org/r-doc/graphics/plot'>plot</a></span><span class="keyword">(</span><span class="symbol">tree</span><span class="keyword">,</span> <span class="argument">no.margin</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span></div>
+<p><img src='phylomatic_tree-35.png' alt='' width='400' height='400' /></p></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>phylomatic_tree</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

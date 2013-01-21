@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>tax_name. taxize 0.0.3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">taxize 0.0.3</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Get taxonomic names for a given taxonomic name query.</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><span class="functioncall"><a href='tax_name.html'>tax_name</a></span><span class="keyword">(</span><span class="argument">query</span> <span class="argument">=</span> NULL<span class="keyword">,</span> <span class="argument">get</span> <span class="argument">=</span> NULL<span class="keyword">,</span> <span class="argument">db</span> <span class="argument">=</span> <span class="string">"itis"</span><span class="keyword">,</span> <span class="argument">verbose</span> <span class="argument">=</span> <span class="number">TRUE</span><span class="keyword">)</span></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>query</dt>
+      <dd>Taxonomic name (character).</dd>
+      <dt>get</dt>
+      <dd>The rank of the taxonomic name to get
+  (character).</dd>
+      <dt>db</dt>
+      <dd>The database to search from (character).</dd>
+      <dt>verbose</dt>
+      <dd>logical; If TRUE the actual taxon queried
+  is printed on the console.</dd>
+    </dl>
+    
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Taxonomic name for the searched taxon. If the taxon is
+  not found NA is returned.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Specify what database you want to use: itis or ncbi.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'><span class="comment"># A case where itis and ncbi use the same names</span>
+<span class="functioncall"><a href='tax_name.html'>tax_name</a></span><span class="keyword">(</span><span class="argument">query</span><span class="argument">=</span><span class="string">"Helianthus annuus"</span><span class="keyword">,</span> <span class="argument">get</span><span class="argument">=</span><span class="string">"family"</span><span class="keyword">,</span> <span class="argument">db</span><span class="argument">=</span><span class="string">"itis"</span><span class="keyword">)</span></div>
+<div class='output'>
+Retrieving data for species ' Helianthus annuus '
+</div>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=36616</strong>
+<div class='output'>[1] "Asteraceae"
+</div>
+<div class='input'><span class="functioncall"><a href='tax_name.html'>tax_name</a></span><span class="keyword">(</span><span class="argument">query</span><span class="argument">=</span><span class="string">"Helianthus annuus"</span><span class="keyword">,</span> <span class="argument">get</span><span class="argument">=</span><span class="string">"family"</span><span class="keyword">,</span> <span class="argument">db</span><span class="argument">=</span><span class="string">"ncbi"</span><span class="keyword">)</span></div>
+<div class='output'>
+Retrieving data for species ' Helianthus annuus '
+</div>
+<div class='output'>[1] "Asteraceae"
+</div>
+<div class='input'>
+<span class="comment"># Case where itis and ncbi use different names</span>
+<span class="functioncall"><a href='tax_name.html'>tax_name</a></span><span class="keyword">(</span><span class="argument">query</span><span class="argument">=</span><span class="string">"Helianthus annuus"</span><span class="keyword">,</span> <span class="argument">get</span><span class="argument">=</span><span class="string">"kingdom"</span><span class="keyword">,</span> <span class="argument">db</span><span class="argument">=</span><span class="string">"itis"</span><span class="keyword">)</span></div>
+<div class='output'>
+Retrieving data for species ' Helianthus annuus '
+</div>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=36616</strong>
+<div class='output'>[1] "Plantae"
+</div>
+<div class='input'><span class="functioncall"><a href='tax_name.html'>tax_name</a></span><span class="keyword">(</span><span class="argument">query</span><span class="argument">=</span><span class="string">"Helianthus annuus"</span><span class="keyword">,</span> <span class="argument">get</span><span class="argument">=</span><span class="string">"kingdom"</span><span class="keyword">,</span> <span class="argument">db</span><span class="argument">=</span><span class="string">"ncbi"</span><span class="keyword">)</span></div>
+<div class='output'>
+Retrieving data for species ' Helianthus annuus '
+</div>
+<div class='output'>[1] "Viridiplantae"
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>tax_name</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

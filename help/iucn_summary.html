@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>iucn_summary. taxize 0.0.3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="
+  Eduard Szoecs &lt;a href='mailto:szoe8822@uni-landau.de'&gt;szoe8822@uni-landau.de&lt;/a&gt;
+">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">taxize 0.0.3</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Get a summary from the IUCN Red List.</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><span class="functioncall"><a href='iucn_summary.html'>iucn_summary</a></span><span class="keyword">(</span><span class="symbol">sciname</span><span class="keyword">)</span></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>sciname</dt>
+      <dd>character; Scientific name.</dd>
+    </dl>
+    
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>A list (for every species one entry) of lists with the
+  following items: statusRed List Category.
+  historyHistory of status.
+  distrGeographic distribution.
+  popPopulation size estimates. trendTrend
+  of population size.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Get a summary from the IUCN Red List
+  (<a href = 'http://www.iucnredlist.org/'>http://www.iucnredlist.org/</a>).</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'><span class="symbol">ia</span> <span class="assignement">&lt;-</span> <span class="functioncall"><a href='iucn_summary.html'>iucn_summary</a></span><span class="keyword">(</span><span class="functioncall"><a href='http://www.inside-r.org/r-doc/base/c'>c</a></span><span class="keyword">(</span><span class="string">"Panthera uncia"</span><span class="keyword">,</span> <span class="string">"Lynx lynx"</span><span class="keyword">)</span><span class="keyword">)</span>
+<span class="symbol">ia</span> <span class="assignement">&lt;-</span> <span class="functioncall"><a href='iucn_summary.html'>iucn_summary</a></span><span class="keyword">(</span><span class="functioncall"><a href='http://www.inside-r.org/r-doc/base/c'>c</a></span><span class="keyword">(</span><span class="string">"Panthera uncia"</span><span class="keyword">,</span> <span class="string">"Lynx lynx"</span><span class="keyword">,</span> <span class="string">"aaa"</span><span class="keyword">)</span><span class="keyword">)</span></div>
+<strong class='warning'>Warning message:
+Species 'aaa' not found!
+ Returning NA!</strong>
+<div class='input'><span class="comment"># extract status</span>
+<span class="functioncall"><a href='http://www.inside-r.org/r-doc/plyr/ldply'>ldply</a></span><span class="keyword">(</span><span class="symbol">ia</span><span class="keyword">,</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">x</span><span class="keyword">)</span> <span class="symbol">x</span><span class="keyword">$</span><span class="symbol">status</span><span class="keyword">)</span></div>
+<div class='output'>             .id   V1
+1 Panthera uncia   EN
+2      Lynx lynx   LC
+3            aaa <NA>
+</div>
+<div class='input'><span class="functioncall"><a href='http://www.inside-r.org/r-doc/plyr/laply'>laply</a></span><span class="keyword">(</span><span class="symbol">ia</span><span class="keyword">,</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">x</span><span class="keyword">)</span> <span class="symbol">x</span><span class="keyword">$</span><span class="symbol">status</span><span class="keyword">)</span></div>
+<div class='output'>[1] "EN" "LC" NA  
+</div>
+<div class='input'><span class="symbol">ia</span><span class="keyword">[[</span><span class="string">'Lynx lynx'</span>]]<span class="keyword">$</span><span class="symbol">history</span></div>
+<div class='output'>  year        category
+1 2002 Near Threatened
+</div>
+<div class='input'><span class="symbol">ia</span><span class="keyword">[[</span><span class="string">'Panthera uncia'</span>]]<span class="keyword">$</span><span class="symbol">distr</span></div>
+<div class='output'> [1] "Afghanistan"        "Bhutan"             "China"              "India"             
+ [5] "Kazakhstan"         "Kyrgyzstan"         "Mongolia"           "Nepal"             
+ [9] "Pakistan"           "Russian Federation" "Tajikistan"         "Uzbekistan"        
+</div>
+<div class='input'><span class="symbol">ia</span><span class="keyword">[[</span><span class="number">1</span>]]<span class="keyword">$</span><span class="symbol">pop</span></div>
+<div class='output'>      [,1]          [,2]          
+ [1,] "Afghanistan" " 100-200?"   
+ [2,] "Bhutan"      " 100-200?"   
+ [3,] "China"       " 2,000-2,500"
+ [4,] "India"       "  200-600"   
+ [5,] "Kazakhstan"  " 180-200"    
+ [6,] "Kyrgyzstan"  " 150-500"    
+ [7,] "Mongolia"    " 500-1,000"  
+ [8,] "Nepal"       " 300-500"    
+ [9,] "Pakistan"    " 200-420"    
+[10,] "Russia"      " 150-200"    
+[11,] "Tajikistan"  " 180-220"    
+[12,] "Uzbekistan"  " 20-50"      
+</div>
+<div class='input'><span class="symbol">ia</span><span class="keyword">[[</span><span class="number">2</span>]]<span class="keyword">$</span><span class="symbol">trend</span></div>
+<div class='output'>[1] "Stable"
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>iucn_summary</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+    
+    <h2>Author</h2>
+    
+  Eduard Szoecs <a href='mailto:szoe8822@uni-landau.de'>szoe8822@uni-landau.de</a>
+
+    
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

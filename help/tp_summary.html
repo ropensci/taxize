@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>tp_summary. taxize 0.0.3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">taxize 0.0.3</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Return summary data a taxon name with a given id.</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><span class="functioncall"><a href='tp_summary.html'>tp_summary</a></span><span class="keyword">(</span><span class="symbol">id</span><span class="keyword">,</span> <span class="argument">format</span> <span class="argument">=</span> <span class="string">"json"</span><span class="keyword">,</span> <span class="argument">output</span> <span class="argument">=</span> <span class="string">"df"</span><span class="keyword">,</span> <span class="argument">url</span> <span class="argument">=</span> <span class="string">"http://services.tropicos.org/Name/"</span><span class="keyword">,</span>
+  <span class="argument">key</span> <span class="argument">=</span> NULL<span class="keyword">)</span></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>id</dt>
+      <dd>the taxon identifier code</dd>
+      <dt>format</dt>
+      <dd>return in json or xml format (defaults to
+  json)</dd>
+      <dt>output</dt>
+      <dd>raw = json or xml; or df = data.frame</dd>
+      <dt>url</dt>
+      <dd>The Tropicos url for the function (should be
+  left to default).</dd>
+      <dt>key</dt>
+      <dd>Your Tropicos API key; loads from .Rprofile.</dd>
+    </dl>
+    
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>List or dataframe.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Return summary data a taxon name with a given id.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'><span class="functioncall"><a href='tp_summary.html'>tp_summary</a></span><span class="keyword">(</span><span class="argument">id</span> <span class="argument">=</span> <span class="number">25509881</span><span class="keyword">)</span></div>
+<strong class='message'>http://services.tropicos.org/Name/25509881?apikey=f3e499d4-1519-42c9-afd1-685a16882f5a&format=json</strong>
+<div class='output'>                         .id
+1                     NameId
+2             ScientificName
+3  ScientificNameWithAuthors
+4                     Family
+5               SynonymCount
+6          AcceptedNameCount
+7                       Rank
+8           RankAbbreviation
+9       NomenclatureStatusID
+10    NomenclatureStatusName
+11                    Symbol
+12                     Genus
+13            SpeciesEpithet
+14                    Source
+15                  Citation
+16                 Copyright
+17                    Author
+                                                                                                   V1
+1                                                                                            25509881
+2                                                                                           Poa annua
+3                                                                                        Poa annua L.
+4                                                                                             Poaceae
+5                                                                                                  88
+6                                                                                                   0
+7                                                                                             species
+8                                                                                                 sp.
+9                                                                                                   1
+10                                                                                         Legitimate
+11                                                                                                  !
+12                                                                                                Poa
+13                                                                                              annua
+14                                                              http://www.tropicos.org/Name/25509881
+15 Tropicos.org. Missouri Botanical Garden. 20 Jan 2013 &lt;http://www.tropicos.org/Name/25509881&gt;
+16               © 2013 Missouri Botanical Garden - 4344 Shaw Boulevard - Saint Louis, Missouri 63110
+17                                                                                                 L.
+</div>
+<div class='input'><span class="functioncall"><a href='tp_summary.html'>tp_summary</a></span><span class="keyword">(</span><span class="argument">id</span> <span class="argument">=</span> <span class="number">25509881</span><span class="keyword">,</span> <span class="argument">output</span> <span class="argument">=</span> <span class="string">'raw'</span><span class="keyword">)</span></div>
+<strong class='message'>http://services.tropicos.org/Name/25509881?apikey=f3e499d4-1519-42c9-afd1-685a16882f5a&format=json</strong>
+<div class='output'>$NameId
+[1] 25509881
+
+$ScientificName
+[1] "Poa annua"
+
+$ScientificNameWithAuthors
+[1] "Poa annua L."
+
+$Family
+[1] "Poaceae"
+
+$SynonymCount
+[1] "88"
+
+$AcceptedNameCount
+[1] "0"
+
+$Rank
+[1] "species"
+
+$RankAbbreviation
+[1] "sp."
+
+$NomenclatureStatusID
+[1] 1
+
+$NomenclatureStatusName
+[1] "Legitimate"
+
+$Symbol
+[1] "!"
+
+$Genus
+[1] "Poa"
+
+$SpeciesEpithet
+[1] "annua"
+
+$Source
+[1] "http://www.tropicos.org/Name/25509881"
+
+$Citation
+[1] "Tropicos.org. Missouri Botanical Garden. 20 Jan 2013 &lt;http://www.tropicos.org/Name/25509881&gt;"
+
+$Copyright
+[1] "© 2013 Missouri Botanical Garden - 4344 Shaw Boulevard - Saint Louis, Missouri 63110"
+
+$Author
+[1] "L."
+
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>tp_summary</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

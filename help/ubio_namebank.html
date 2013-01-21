@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>ubio_namebank. taxize 0.0.3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">taxize 0.0.3</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Search uBio namebank.</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><span class="functioncall"><a href='ubio_namebank.html'>ubio_namebank</a></span><span class="keyword">(</span><span class="argument">searchName</span> <span class="argument">=</span> NULL<span class="keyword">,</span> <span class="argument">searchAuth</span> <span class="argument">=</span> NULL<span class="keyword">,</span> <span class="argument">searchYear</span> <span class="argument">=</span> NULL<span class="keyword">,</span> <span class="argument">order</span> <span class="argument">=</span> NULL<span class="keyword">,</span>
+  <span class="argument">sci</span> <span class="argument">=</span> NULL<span class="keyword">,</span> <span class="argument">vern</span> <span class="argument">=</span> NULL<span class="keyword">,</span> <span class="argument">url</span> <span class="argument">=</span> <span class="string">"http://www.ubio.org/webservices/service.php"</span><span class="keyword">,</span>
+      <span class="argument">keyCode</span> <span class="argument">=</span> NULL<span class="keyword">)</span></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>searchName</dt>
+      <dd>(string) - term to search within name
+  string</dd>
+      <dt>searchAuth</dt>
+      <dd>(string) - term to search within name
+  authorship</dd>
+      <dt>searchYear</dt>
+      <dd>(string) - term to search within name
+  year</dd>
+      <dt>order</dt>
+      <dd>(string) - (name or namebankID) field by
+  which the results will be sorted (default is namebankID)</dd>
+      <dt>sci</dt>
+      <dd>(int) - (sci, vern, or all) type of results to
+  be returned (default is all)</dd>
+      <dt>vern</dt>
+      <dd>(int) - (limit 1000) maximum number of
+  results to be returned (default is 1000)</dd>
+      <dt>url</dt>
+      <dd>The EOL url for the function (should be left
+  to default).</dd>
+      <dt>keyCode</dt>
+      <dd>Your uBio API key; loads from .Rprofile.
+  If you don't have one, obtain one at
+  http://www.ubio.org/index.php?pagename=form.</dd>
+    </dl>
+    
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>List or dataframe of XXXX.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Search uBio namebank.</p>
+  
+    </div>
+
+    <div class="Details">
+      <h2>Details</h2>
+      
+      <p>Can't seem to get json format results along with
+  specifiying an API key, so if you use json your key is
+  not specified at the moment</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'><span class="functioncall"><a href='ubio_namebank.html'>ubio_namebank</a></span><span class="keyword">(</span><span class="argument">searchName</span> <span class="argument">=</span> <span class="string">'elephant'</span><span class="keyword">,</span> <span class="argument">sci</span> <span class="argument">=</span> <span class="number">1</span><span class="keyword">,</span> <span class="argument">vern</span> <span class="argument">=</span> <span class="number">0</span><span class="keyword">)</span></div>
+<div class='output'>  namebankID               nameString           fullNameString packageID packageName
+1    6938660 Q2VyeWxvbiBlbGVwaGFudA== Q2VyeWxvbiBlbGVwaGFudA==        80 Cerylonidae
+  basionymUnit rankID rankName
+1      6938660     24  species
+</div>
+<div class='input'><span class="functioncall"><a href='ubio_namebank.html'>ubio_namebank</a></span><span class="keyword">(</span><span class="argument">searchName</span> <span class="argument">=</span> <span class="string">'Helianthus annuus'</span><span class="keyword">,</span> <span class="argument">sci</span> <span class="argument">=</span> <span class="number">1</span><span class="keyword">,</span> <span class="argument">vern</span> <span class="argument">=</span> <span class="number">0</span><span class="keyword">)</span></div>
+<div class='output'>   namebankID                                           nameString
+1     2658020                             SGVsaWFudGh1cyBhbm51dXM=
+2      462478                             SGVsaWFudGh1cyBhbm51dXM=
+3     9073865                     SGVsaWFudGh1cyBhbm51dXMgYW5udXVz
+4     9073864                     SGVsaWFudGh1cyBhbm51dXMgZmFsbGF4
+5     8624412             SGVsaWFudGh1cyBhbm51dXMgbGVudGljdWxhcmlz
+6     8291505                 SGVsaWFudGh1cyBhbm51dXMgamFlZ2VyaQ==
+7     8291506             SGVsaWFudGh1cyBhbm51dXMgbGVudGljdWxhcmlz
+8     8291507                 SGVsaWFudGh1cyBhbm51dXMgdGV4YW51cw==
+9     9522982                     SGVsaWFudGh1cyBhbm51dXMgYW5udXVz
+10    8694655             SGVsaWFudGh1cyBhbm51dXMgY291cGxhbmRpaQ==
+11    9522967                 SGVsaWFudGh1cyBhbm51dXMgamFlZ2VyaQ==
+12    8694670             SGVsaWFudGh1cyBhbm51dXMgbGVudGljdWxhcmlz
+13    8639718             SGVsaWFudGh1cyBhbm51dXMgcGV0aW9sYXJpcw==
+14    9093938                 SGVsaWFudGh1cyBhbm51dXMgdGV4YW51cw==
+15    8722605                     SGVsaWFudGh1cyBhbm51dXMgYW5udXVz
+16    8624388                     SGVsaWFudGh1cyBhbm51dXMgYXJpZHVz
+17    8722622             SGVsaWFudGh1cyBhbm51dXMgYXJtYXZpcnNraWo=
+18    8722638                 SGVsaWFudGh1cyBhbm51dXMgYmljb2xvcg==
+19    8722654             SGVsaWFudGh1cyBhbm51dXMgY2FsaWZvcm5pY3Vz
+20    8624359                 SGVsaWFudGh1cyBhbm51dXMgY29yb25hdHVz
+21    8722670         SGVsaWFudGh1cyBhbm51dXMgZ2FsbGFyZGlmbG9ydXM=
+22    8722680 SGVsaWFudGh1cyBhbm51dXMgZ2xvYm9zdXMgZmlzdHVsb3N1cw==
+23    8722694             SGVsaWFudGh1cyBhbm51dXMgaW50ZXJtZWRpdXM=
+24    8624391                 SGVsaWFudGh1cyBhbm51dXMgbGF0aWJhc2lz
+25    8291508             SGVsaWFudGh1cyBhbm51dXMgbGVudGljdWxhcmlz
+26    8640587             SGVsaWFudGh1cyBhbm51dXMgbGVudGljdWxhcmlz
+27    8291509             SGVsaWFudGh1cyBhbm51dXMgbWFjcm9jYXJwdXM=
+28    8722711             SGVsaWFudGh1cyBhbm51dXMgcHJpbXVsaW51cw==
+29    8291510                 SGVsaWFudGh1cyBhbm51dXMgdGV4YW51cw==
+30    8722724                 SGVsaWFudGh1cyBhbm51dXMgdW5pZmxvcnVz
+31    8722740         SGVsaWFudGh1cyBhbm51dXMgdmlub3NzaXNzaW11cw==
+32    8722761                 SGVsaWFudGh1cyBhbm51dXMgem9uYXR1cw==
+33    8722604                     SGVsaWFudGh1cyBhbm51dXMgYW5udXVz
+34    8624387                     SGVsaWFudGh1cyBhbm51dXMgYXJpZHVz
+35    8722621             SGVsaWFudGh1cyBhbm51dXMgYXJtYXZpcnNraWo=
+36    8722637                 SGVsaWFudGh1cyBhbm51dXMgYmljb2xvcg==
+37    8722653             SGVsaWFudGh1cyBhbm51dXMgY2FsaWZvcm5pY3Vz
+38    8507133                 SGVsaWFudGh1cyBhbm51dXMgY2l0cmludXM=
+39    8624358                 SGVsaWFudGh1cyBhbm51dXMgY29yb25hdHVz
+40    8694654             SGVsaWFudGh1cyBhbm51dXMgY291cGxhbmRpaQ==
+41    5864809                 SGVsaWFudGh1cyBhbm51dXMgZGViaWxpcw==
+42    9073863                     SGVsaWFudGh1cyBhbm51dXMgZmFsbGF4
+43    8722669         SGVsaWFudGh1cyBhbm51dXMgZ2FsbGFyZGlmbG9ydXM=
+44    8722679 SGVsaWFudGh1cyBhbm51dXMgZ2xvYm9zdXMgZmlzdHVsb3N1cw==
+45    8722693             SGVsaWFudGh1cyBhbm51dXMgaW50ZXJtZWRpdXM=
+46    2790331                 SGVsaWFudGh1cyBhbm51dXMgamFlZ2VyaQ==
+47     625018                 SGVsaWFudGh1cyBhbm51dXMgamFlZ2VyaQ==
+48    8624390                 SGVsaWFudGh1cyBhbm51dXMgbGF0aWJhc2lz
+49    3889596             SGVsaWFudGh1cyBhbm51dXMgbGVudGljdWxhcmlz
+50    2331311             SGVsaWFudGh1cyBhbm51dXMgbGVudGljdWxhcmlz
+51    2332208             SGVsaWFudGh1cyBhbm51dXMgbGVudGljdWxhcmlz
+52     656730             SGVsaWFudGh1cyBhbm51dXMgbGVudGljdWxhcmlz
+53    3500086         SGVsaWFudGh1cyBhbm51dXMgbGVudGlzY3VsYXJpcw==
+54    1871647         SGVsaWFudGh1cyBhbm51dXMgbGVudGlzY3VsYXJpcw==
+55    2793297             SGVsaWFudGh1cyBhbm51dXMgbWFjcm9jYXJwdXM=
+56     630162             SGVsaWFudGh1cyBhbm51dXMgbWFjcm9jYXJwdXM=
+57    8639717             SGVsaWFudGh1cyBhbm51dXMgcGV0aW9sYXJpcw==
+58    8722710             SGVsaWFudGh1cyBhbm51dXMgcHJpbXVsaW51cw==
+59    1736381                 SGVsaWFudGh1cyBhbm51dXMgamFlZ2VyaQ==
+60    1736382             SGVsaWFudGh1cyBhbm51dXMgbGVudGljdWxhcmlz
+61    1736383                 SGVsaWFudGh1cyBhbm51dXMgdGV4YW51cw==
+62    5887547             SGVsaWFudGh1cyBhbm51dXMgbGVudGljdWxhcmlz
+63    3889597                 SGVsaWFudGh1cyBhbm51dXMgdGV4YW51cw==
+64    2332209                 SGVsaWFudGh1cyBhbm51dXMgdGV4YW51cw==
+65     656731                 SGVsaWFudGh1cyBhbm51dXMgdGV4YW51cw==
+66    8722723                 SGVsaWFudGh1cyBhbm51dXMgdW5pZmxvcnVz
+67    8507134                 SGVsaWFudGh1cyBhbm51dXMgY2l0cmludXM=
+68    5864810                 SGVsaWFudGh1cyBhbm51dXMgZGViaWxpcw==
+69    1746527             SGVsaWFudGh1cyBhbm51dXMgbGVudGljdWxhcmlz
+70    5887546             SGVsaWFudGh1cyBhbm51dXMgbGVudGljdWxhcmlz
+71    1746528             SGVsaWFudGh1cyBhbm51dXMgbWFjcm9jYXJwdXM=
+72    1746529                 SGVsaWFudGh1cyBhbm51dXMgdGV4YW51cw==
+73    8722739         SGVsaWFudGh1cyBhbm51dXMgdmlub3NzaXNzaW11cw==
+74    8722760                 SGVsaWFudGh1cyBhbm51dXMgem9uYXR1cw==
+                                                                                     fullNameString
+1                                                                          SGVsaWFudGh1cyBhbm51dXM=
+2                                                                      SGVsaWFudGh1cyBhbm51dXMgTC4=
+3                                                      SGVsaWFudGh1cyBhbm51dXMgTC4gZm8uIGFubnV1cw==
+4                                          SGVsaWFudGh1cyBhbm51dXMgTC4gZm8uIGZhbGxheCBCLiBCb2l2aW4=
+5      SGVsaWFudGh1cyBhbm51dXMgTC4gZm8uIGxlbnRpY3VsYXJpcyAoRG91Z2xhcyBleCBMaW5kbC4pIEIuIEJvaXZpbg==
+6                              SGVsaWFudGh1cyBhbm51dXMgTC4gc3NwLiBqYWVnZXJpIChIZWlzZXIpIEhlaXNlcg==
+7      SGVsaWFudGh1cyBhbm51dXMgTC4gc3NwLiBsZW50aWN1bGFyaXMgKERvdWdsLiBleCBMaW5kbC4pIENvY2tlcmVsbA==
+8                                          SGVsaWFudGh1cyBhbm51dXMgTC4gc3NwLiB0ZXhhbnVzIEhlaXNlcg==
+9                                                  SGVsaWFudGh1cyBhbm51dXMgTC4gc3Vic3AuIGFubnV1cw==
+10 SGVsaWFudGh1cyBhbm51dXMgTC4gc3Vic3AuIGNvdXBsYW5kaWkgKEIuIEJvaXZpbikgw4EuIEzDtnZlICYgRC4gTMO2dmU=
+11                             SGVsaWFudGh1cyBhbm51dXMgTC4gc3Vic3AuIGphZWdlcmkgKEhlaXNlcikgSGVpc2Vy
+12 SGVsaWFudGh1cyBhbm51dXMgTC4gc3Vic3AuIGxlbnRpY3VsYXJpcyAoRG91Z2xhcyBleCBMaW5kbC4pIENvY2tlcmVsbA==
+13                     SGVsaWFudGh1cyBhbm51dXMgTC4gc3Vic3AuIHBldGlvbGFyaXMgKE51dHQuKSBBbmFzaGNoLg==
+14                                         SGVsaWFudGh1cyBhbm51dXMgTC4gc3Vic3AuIHRleGFudXMgSGVpc2Vy
+15                                                     SGVsaWFudGh1cyBhbm51dXMgTC4gdmFyLiBhbm51dXM=
+16                             SGVsaWFudGh1cyBhbm51dXMgTC4gdmFyLiBhcmlkdXMgKFJ5ZGIuKSBDb2NrZXJlbGw=
+17                                             SGVsaWFudGh1cyBhbm51dXMgTC4gdmFyLiBhcm1hdmlyc2tpag==
+18                                                     SGVsaWFudGh1cyBhbm51dXMgTC4gdmFyLiBiaWNvbG9y
+19                                             SGVsaWFudGh1cyBhbm51dXMgTC4gdmFyLiBjYWxpZm9ybmljdXM=
+20                                     SGVsaWFudGh1cyBhbm51dXMgTC4gdmFyLiBjb3JvbmF0dXMgQ29ja2VyZWxs
+21                                         SGVsaWFudGh1cyBhbm51dXMgTC4gdmFyLiBnYWxsYXJkaWZsb3J1cw==
+22                                     SGVsaWFudGh1cyBhbm51dXMgTC4gdmFyLiBnbG9ib3N1cyBmaXN0dWxvc3Vz
+23                                             SGVsaWFudGh1cyBhbm51dXMgTC4gdmFyLiBpbnRlcm1lZGl1cw==
+24                                     SGVsaWFudGh1cyBhbm51dXMgTC4gdmFyLiBsYXRpYmFzaXMgQ29ja2VyZWxs
+25     SGVsaWFudGh1cyBhbm51dXMgTC4gdmFyLiBsZW50aWN1bGFyaXMgKERvdWdsLiBleCBMaW5kbC4pIFN0ZXllcm1hcms=
+26     SGVsaWFudGh1cyBhbm51dXMgTC4gdmFyLiBsZW50aWN1bGFyaXMgKERvdWdsYXMgZXggTGluZGwuKSBTdGV5ZXJtLg==
+27                         SGVsaWFudGh1cyBhbm51dXMgTC4gdmFyLiBtYWNyb2NhcnB1cyAoREMuKSBDb2NrZXJlbGw=
+28                                                 SGVsaWFudGh1cyBhbm51dXMgTC4gdmFyLiBwcmltdWxpbnVz
+29                             SGVsaWFudGh1cyBhbm51dXMgTC4gdmFyLiB0ZXhhbnVzIChIZWlzZXIpIFNoaW5uZXJz
+30                                                 SGVsaWFudGh1cyBhbm51dXMgTC4gdmFyLiB1bmlmbG9ydXM=
+31                                             SGVsaWFudGh1cyBhbm51dXMgTC4gdmFyLiB2aW5vc3Npc3NpbXVz
+32                                                     SGVsaWFudGh1cyBhbm51dXMgTC4gdmFyLiB6b25hdHVz
+33                                                                 SGVsaWFudGh1cyBhbm51dXMgYW5udXVz
+34                                                                 SGVsaWFudGh1cyBhbm51dXMgYXJpZHVz
+35                                                         SGVsaWFudGh1cyBhbm51dXMgYXJtYXZpcnNraWo=
+36                                                             SGVsaWFudGh1cyBhbm51dXMgYmljb2xvcg==
+37                                                         SGVsaWFudGh1cyBhbm51dXMgY2FsaWZvcm5pY3Vz
+38                                                             SGVsaWFudGh1cyBhbm51dXMgY2l0cmludXM=
+39                                                             SGVsaWFudGh1cyBhbm51dXMgY29yb25hdHVz
+40                                                         SGVsaWFudGh1cyBhbm51dXMgY291cGxhbmRpaQ==
+41                                                             SGVsaWFudGh1cyBhbm51dXMgZGViaWxpcw==
+42                                                                 SGVsaWFudGh1cyBhbm51dXMgZmFsbGF4
+43                                                     SGVsaWFudGh1cyBhbm51dXMgZ2FsbGFyZGlmbG9ydXM=
+44                                             SGVsaWFudGh1cyBhbm51dXMgZ2xvYm9zdXMgZmlzdHVsb3N1cw==
+45                                                         SGVsaWFudGh1cyBhbm51dXMgaW50ZXJtZWRpdXM=
+46                                                             SGVsaWFudGh1cyBhbm51dXMgamFlZ2VyaQ==
+47                                         SGVsaWFudGh1cyBhbm51dXMgamFlZ2VyaSAoSGVpc2VyKSBIZWlzZXI=
+48                                                             SGVsaWFudGh1cyBhbm51dXMgbGF0aWJhc2lz
+49                                                         SGVsaWFudGh1cyBhbm51dXMgbGVudGljdWxhcmlz
+50                 SGVsaWFudGh1cyBhbm51dXMgbGVudGljdWxhcmlzIChEb3VnbC4gZXggTGluZGwuKSBDb2NrZXJlbGw=
+51                 SGVsaWFudGh1cyBhbm51dXMgbGVudGljdWxhcmlzIChEb3VnbC4gZXggTGluZGwuKSBTdGV5ZXJtYXJr
+52                                 SGVsaWFudGh1cyBhbm51dXMgbGVudGljdWxhcmlzIERvdWdsLiBleCBMaW5kbC4=
+53                                                     SGVsaWFudGh1cyBhbm51dXMgbGVudGlzY3VsYXJpcw==
+54                                     SGVsaWFudGh1cyBhbm51dXMgbGVudGlzY3VsYXJpcyBSb3R0Yi4sIDE5MzY=
+55                                                         SGVsaWFudGh1cyBhbm51dXMgbWFjcm9jYXJwdXM=
+56                                     SGVsaWFudGh1cyBhbm51dXMgbWFjcm9jYXJwdXMgKERDLikgQ29ja2VyZWxs
+57                                                         SGVsaWFudGh1cyBhbm51dXMgcGV0aW9sYXJpcw==
+58                                                         SGVsaWFudGh1cyBhbm51dXMgcHJpbXVsaW51cw==
+59                                 SGVsaWFudGh1cyBhbm51dXMgc3NwLiBqYWVnZXJpIChIZWlzZXIpIEhlaXNlcg==
+60         SGVsaWFudGh1cyBhbm51dXMgc3NwLiBsZW50aWN1bGFyaXMgKERvdWdsLiBleCBMaW5kbC4pIENvY2tlcmVsbA==
+61                                             SGVsaWFudGh1cyBhbm51dXMgc3NwLiB0ZXhhbnVzIEhlaXNlcg==
+62                 SGVsaWFudGh1cyBhbm51dXMgc3Vic3AuIGxlbnRpY3VsYXJpcyAoQ29ja2VyZWxsKSBDb2NrZXJlbGw=
+63                                                             SGVsaWFudGh1cyBhbm51dXMgdGV4YW51cw==
+64                                     SGVsaWFudGh1cyBhbm51dXMgdGV4YW51cyAoSGVpc2VyKSBTaGlubmVycw==
+65                                                     SGVsaWFudGh1cyBhbm51dXMgdGV4YW51cyBIZWlzZXI=
+66                                                             SGVsaWFudGh1cyBhbm51dXMgdW5pZmxvcnVz
+67                                                     SGVsaWFudGh1cyBhbm51dXMgdmFyLiBjaXRyaW51cw==
+68                                 SGVsaWFudGh1cyBhbm51dXMgdmFyLiBkZWJpbGlzIChOdXR0LikgQW5hc2hjaC4=
+69         SGVsaWFudGh1cyBhbm51dXMgdmFyLiBsZW50aWN1bGFyaXMgKERvdWdsLiBleCBMaW5kbC4pIFN0ZXllcm1hcms=
+70                                     SGVsaWFudGh1cyBhbm51dXMgdmFyLiBsZW50aWN1bGFyaXMgQ29ja2VyZWxs
+71                             SGVsaWFudGh1cyBhbm51dXMgdmFyLiBtYWNyb2NhcnB1cyAoREMuKSBDb2NrZXJlbGw=
+72                                 SGVsaWFudGh1cyBhbm51dXMgdmFyLiB0ZXhhbnVzIChIZWlzZXIpIFNoaW5uZXJz
+73                                                     SGVsaWFudGh1cyBhbm51dXMgdmlub3NzaXNzaW11cw==
+74                                                             SGVsaWFudGh1cyBhbm51dXMgem9uYXR1cw==
+   packageID   packageName basionymUnit rankID    rankName
+1        598     Asterales            0     24     species
+2        598     Asterales            0     24     species
+3       5634    Asteraceae            0    444          fo
+4       5634    Asteraceae            0    444          fo
+5       5634    Asteraceae      8722942    444          fo
+6       5634    Asteraceae            0    265  subspecies
+7       5634    Asteraceae            0    265  subspecies
+8       5634    Asteraceae            0    265  subspecies
+9       5634    Asteraceae            0    440       subsp
+10      5634    Asteraceae      9077998    440       subsp
+11      5634    Asteraceae      8624348    440       subsp
+12      5634    Asteraceae      8722942    440       subsp
+13      5634    Asteraceae       462532    440       subsp
+14      5634    Asteraceae      9093938    440       subsp
+15      5634    Asteraceae            0    415         var
+16      5634    Asteraceae       615570    415         var
+17      5634    Asteraceae            0    415         var
+18      5634    Asteraceae            0    415         var
+19      5634    Asteraceae            0    415         var
+20      5634    Asteraceae            0    415         var
+21      5634    Asteraceae            0    415         var
+22      5634    Asteraceae            0    415         var
+23      5634    Asteraceae            0    415         var
+24      5634    Asteraceae            0    415         var
+25      5634    Asteraceae            0     25     variety
+26      5634    Asteraceae      8722942    415         var
+27      5634    Asteraceae      8732841     25     variety
+28      5634    Asteraceae            0    415         var
+29      5634    Asteraceae      9093938     25     variety
+30      5634    Asteraceae            0    415         var
+31      5634    Asteraceae            0    415         var
+32      5634    Asteraceae            0    415         var
+33      5634    Asteraceae            0    415         var
+34      5634    Asteraceae       615570    415         var
+35      5634    Asteraceae            0    415         var
+36      5634    Asteraceae            0    415         var
+37      5634    Asteraceae            0    415         var
+38      5634    Asteraceae            0    415         var
+39      5634    Asteraceae            0    415         var
+40      5634    Asteraceae      9077998    440       subsp
+41        15       Plantae            0     25     variety
+42      5634    Asteraceae            0    444          fo
+43      5634    Asteraceae            0    415         var
+44      5634    Asteraceae            0    415         var
+45      5634    Asteraceae            0    415         var
+46       598     Asterales            0     54 sub-species
+47       598     Asterales            0     54 sub-species
+48      5634    Asteraceae            0    415         var
+49      5634    Asteraceae            0    416         ssp
+50      5634    Asteraceae            0    416         ssp
+51      5634    Asteraceae            0    415         var
+52       598     Asterales            0     25     variety
+53       347 Tracheobionta            0     54 sub-species
+54       347 Tracheobionta            0     54 sub-species
+55       598     Asterales            0     25     variety
+56       598     Asterales            0     25     variety
+57      5634    Asteraceae       462532    440       subsp
+58      5634    Asteraceae            0    415         var
+59       598     Asterales            0     54 sub-species
+60       598     Asterales            0     54 sub-species
+61       598     Asterales            0     54 sub-species
+62        15       Plantae            0    265  subspecies
+63      5634    Asteraceae            0    415         var
+64      5634    Asteraceae            0    415         var
+65       598     Asterales            0     25     variety
+66      5634    Asteraceae            0    415         var
+67      5634    Asteraceae            0    415         var
+68        15       Plantae            0     25     variety
+69       598     Asterales            0     25     variety
+70        15       Plantae            0     25     variety
+71       598     Asterales            0     25     variety
+72       598     Asterales            0     25     variety
+73      5634    Asteraceae            0    415         var
+74      5634    Asteraceae            0    415         var
+</div>
+<div class='input'><span class="functioncall"><a href='http://www.inside-r.org/r-doc/base/lapply'>lapply</a></span><span class="keyword">(</span><span class="functioncall"><a href='http://www.inside-r.org/r-doc/base/list'>list</a></span><span class="keyword">(</span><span class="string">'Helianthus debilis'</span><span class="keyword">,</span><span class="string">'Astragalus aduncus'</span><span class="keyword">)</span><span class="keyword">,</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">x</span><span class="keyword">)</span> <span class="functioncall"><a href='ubio_namebank.html'>ubio_namebank</a></span><span class="keyword">(</span><span class="argument">searchName</span> <span class="argument">=</span> <span class="symbol">x</span><span class="keyword">,</span> <span class="argument">sci</span> <span class="argument">=</span> <span class="number">1</span><span class="keyword">,</span> <span class="argument">vern</span> <span class="argument">=</span> <span class="number">0</span><span class="keyword">)</span><span class="keyword">)</span></div>
+<div class='output'>[[1]]
+   namebankID                                   nameString
+1     2658030                     SGVsaWFudGh1cyBkZWJpbGlz
+2      462490                     SGVsaWFudGh1cyBkZWJpbGlz
+3     8291515 SGVsaWFudGh1cyBkZWJpbGlzIGN1Y3VtZXJpZm9saXVz
+4     8291517         SGVsaWFudGh1cyBkZWJpbGlzIGRlYmlsaXM=
+5     8291567         SGVsaWFudGh1cyBkZWJpbGlzIGhpcnR1cw==
+6     8291569         SGVsaWFudGh1cyBkZWJpbGlzIHByYWVjb3g=
+7     8291571         SGVsaWFudGh1cyBkZWJpbGlzIHJ1bnlvbmlp
+8     8291518     SGVsaWFudGh1cyBkZWJpbGlzIHNpbHZlc3RyaXM=
+9     8291520     SGVsaWFudGh1cyBkZWJpbGlzIHRhcmRpZmxvcnVz
+10    8291522         SGVsaWFudGh1cyBkZWJpbGlzIHZlc3RpdHVz
+11    8849583 SGVsaWFudGh1cyBkZWJpbGlzIGN1Y3VtZXJpZm9saXVz
+12    9126844         SGVsaWFudGh1cyBkZWJpbGlzIGRlYmlsaXM=
+13    9096281         SGVsaWFudGh1cyBkZWJpbGlzIGhpcnR1cw==
+14    9093953         SGVsaWFudGh1cyBkZWJpbGlzIHByYWVjb3g=
+15    9093963         SGVsaWFudGh1cyBkZWJpbGlzIHJ1bnlvbmlp
+16    8849601     SGVsaWFudGh1cyBkZWJpbGlzIHNpbHZlc3RyaXM=
+17    8849621     SGVsaWFudGh1cyBkZWJpbGlzIHRhcmRpZmxvcnVz
+18    8849639         SGVsaWFudGh1cyBkZWJpbGlzIHZlc3RpdHVz
+19    9085531 SGVsaWFudGh1cyBkZWJpbGlzIGN1Y3VtZXJpZm9saXVz
+20    8291516 SGVsaWFudGh1cyBkZWJpbGlzIGN1Y3VtZXJpZm9saXVz
+21    9085548         SGVsaWFudGh1cyBkZWJpbGlzIGRlYmlsaXM=
+22    8722827     SGVsaWFudGh1cyBkZWJpbGlzIHB1cnB1cmV1cw==
+23    8291519     SGVsaWFudGh1cyBkZWJpbGlzIHNpbHZlc3RyaXM=
+24    9300653     SGVsaWFudGh1cyBkZWJpbGlzIHNpbHZlc3RyaXM=
+25    8291521     SGVsaWFudGh1cyBkZWJpbGlzIHRhcmRpZmxvcnVz
+26    9104829     SGVsaWFudGh1cyBkZWJpbGlzIHRhcmRpZmxvcnVz
+27    9104810         SGVsaWFudGh1cyBkZWJpbGlzIHZlc3RpdHVz
+28    8291523         SGVsaWFudGh1cyBkZWJpbGlzIHZlc3RpdHVz
+29    3875127 SGVsaWFudGh1cyBkZWJpbGlzIGN1Y3VtZXJpZm9saXVz
+30    2332210 SGVsaWFudGh1cyBkZWJpbGlzIGN1Y3VtZXJpZm9saXVz
+31     462492 SGVsaWFudGh1cyBkZWJpbGlzIGN1Y3VtZXJpZm9saXVz
+32    4966124 SGVsaWFudGh1cyBkZWJpbGlzIGN1Y3VtZXJpZm9saXVz
+33    2658031         SGVsaWFudGh1cyBkZWJpbGlzIGRlYmlsaXM=
+34     462491         SGVsaWFudGh1cyBkZWJpbGlzIGRlYmlsaXM=
+35    2790332         SGVsaWFudGh1cyBkZWJpbGlzIGhpcnR1cw==
+36     625021         SGVsaWFudGh1cyBkZWJpbGlzIGhpcnR1cw==
+37    2790333         SGVsaWFudGh1cyBkZWJpbGlzIHByYWVjb3g=
+38     625022         SGVsaWFudGh1cyBkZWJpbGlzIHByYWVjb3g=
+39    8722826     SGVsaWFudGh1cyBkZWJpbGlzIHB1cnB1cmV1cw==
+40    2790334         SGVsaWFudGh1cyBkZWJpbGlzIHJ1bnlvbmlp
+41     625023         SGVsaWFudGh1cyBkZWJpbGlzIHJ1bnlvbmlp
+42    3875128     SGVsaWFudGh1cyBkZWJpbGlzIHNpbHZlc3RyaXM=
+43    2332211     SGVsaWFudGh1cyBkZWJpbGlzIHNpbHZlc3RyaXM=
+44     462493     SGVsaWFudGh1cyBkZWJpbGlzIHNpbHZlc3RyaXM=
+45    1730313 SGVsaWFudGh1cyBkZWJpbGlzIGN1Y3VtZXJpZm9saXVz
+46    1730312         SGVsaWFudGh1cyBkZWJpbGlzIGRlYmlsaXM=
+47    1736384         SGVsaWFudGh1cyBkZWJpbGlzIGhpcnR1cw==
+48    1736385         SGVsaWFudGh1cyBkZWJpbGlzIHByYWVjb3g=
+49    1736386         SGVsaWFudGh1cyBkZWJpbGlzIHJ1bnlvbmlp
+50    1730314     SGVsaWFudGh1cyBkZWJpbGlzIHNpbHZlc3RyaXM=
+51    1730315     SGVsaWFudGh1cyBkZWJpbGlzIHRhcmRpZmxvcnVz
+52    1730316         SGVsaWFudGh1cyBkZWJpbGlzIHZlc3RpdHVz
+53    5417834 SGVsaWFudGh1cyBkZWJpbGlzIGN1Y3VtZXJpZm9saXVz
+54    5866127         SGVsaWFudGh1cyBkZWJpbGlzIGRlYmlsaXM=
+55    5864815         SGVsaWFudGh1cyBkZWJpbGlzIHByYWVjb3g=
+56    5864816     SGVsaWFudGh1cyBkZWJpbGlzIHNpbHZlc3RyaXM=
+57    5864817     SGVsaWFudGh1cyBkZWJpbGlzIHRhcmRpZmxvcnVz
+58    5864818         SGVsaWFudGh1cyBkZWJpbGlzIHZlc3RpdHVz
+59    3875129     SGVsaWFudGh1cyBkZWJpbGlzIHRhcmRpZmxvcnVz
+60    2332212     SGVsaWFudGh1cyBkZWJpbGlzIHRhcmRpZmxvcnVz
+61     462494     SGVsaWFudGh1cyBkZWJpbGlzIHRhcmRpZmxvcnVz
+62    1746533 SGVsaWFudGh1cyBkZWJpbGlzIGN1Y3VtZXJpZm9saXVz
+63    1746534     SGVsaWFudGh1cyBkZWJpbGlzIHNpbHZlc3RyaXM=
+64    1746535     SGVsaWFudGh1cyBkZWJpbGlzIHRhcmRpZmxvcnVz
+65    1746536         SGVsaWFudGh1cyBkZWJpbGlzIHZlc3RpdHVz
+66    3875130         SGVsaWFudGh1cyBkZWJpbGlzIHZlc3RpdHVz
+67    2332213         SGVsaWFudGh1cyBkZWJpbGlzIHZlc3RpdHVz
+68     462495         SGVsaWFudGh1cyBkZWJpbGlzIHZlc3RpdHVz
+                                                                                     fullNameString
+1                                                                          SGVsaWFudGh1cyBkZWJpbGlz
+2                                                                  SGVsaWFudGh1cyBkZWJpbGlzIE51dHQu
+3          SGVsaWFudGh1cyBkZWJpbGlzIE51dHQuIHNzcC4gY3VjdW1lcmlmb2xpdXMgKFRvcnIuICYgR3JheSkgSGVpc2Vy
+4                                              SGVsaWFudGh1cyBkZWJpbGlzIE51dHQuIHNzcC4gZGViaWxpcw==
+5                                      SGVsaWFudGh1cyBkZWJpbGlzIE51dHQuIHNzcC4gaGlydHVzIEhlaXNlcg==
+6              SGVsaWFudGh1cyBkZWJpbGlzIE51dHQuIHNzcC4gcHJhZWNveCAoRW5nZWxtLiAmIEdyYXkpIEhlaXNlcg==
+7                                      SGVsaWFudGh1cyBkZWJpbGlzIE51dHQuIHNzcC4gcnVueW9uaWkgSGVpc2Vy
+8                                  SGVsaWFudGh1cyBkZWJpbGlzIE51dHQuIHNzcC4gc2lsdmVzdHJpcyBIZWlzZXI=
+9                                  SGVsaWFudGh1cyBkZWJpbGlzIE51dHQuIHNzcC4gdGFyZGlmbG9ydXMgSGVpc2Vy
+10                 SGVsaWFudGh1cyBkZWJpbGlzIE51dHQuIHNzcC4gdmVzdGl0dXMgKEUuRS4gV2F0cy4pIEhlaXNlcg==
+11 SGVsaWFudGh1cyBkZWJpbGlzIE51dHQuIHN1YnNwLiBjdWN1bWVyaWZvbGl1cyAoVG9yci4gJiBBLiBHcmF5KSBIZWlzZXI=
+12                                             SGVsaWFudGh1cyBkZWJpbGlzIE51dHQuIHN1YnNwLiBkZWJpbGlz
+13                                     SGVsaWFudGh1cyBkZWJpbGlzIE51dHQuIHN1YnNwLiBoaXJ0dXMgSGVpc2Vy
+14         SGVsaWFudGh1cyBkZWJpbGlzIE51dHQuIHN1YnNwLiBwcmFlY294IChFbmdlbG0uICYgQS4gR3JheSkgSGVpc2Vy
+15                                 SGVsaWFudGh1cyBkZWJpbGlzIE51dHQuIHN1YnNwLiBydW55b25paSBIZWlzZXI=
+16                             SGVsaWFudGh1cyBkZWJpbGlzIE51dHQuIHN1YnNwLiBzaWx2ZXN0cmlzIEhlaXNlcg==
+17                             SGVsaWFudGh1cyBkZWJpbGlzIE51dHQuIHN1YnNwLiB0YXJkaWZsb3J1cyBIZWlzZXI=
+18                 SGVsaWFudGh1cyBkZWJpbGlzIE51dHQuIHN1YnNwLiB2ZXN0aXR1cyAoRS4gV2F0c29uKSBIZWlzZXI=
+19 SGVsaWFudGh1cyBkZWJpbGlzIE51dHQuIHZhci4gY3VjdW1lcmlmb2xpdXMgKFRvcnIuICYgQS4gR3JheSkgQS4gR3JheQ==
+20         SGVsaWFudGh1cyBkZWJpbGlzIE51dHQuIHZhci4gY3VjdW1lcmlmb2xpdXMgKFRvcnIuICYgR3JheSkgR3JheQ==
+21                                             SGVsaWFudGh1cyBkZWJpbGlzIE51dHQuIHZhci4gZGViaWxpcw==
+22                                             SGVsaWFudGh1cyBkZWJpbGlzIE51dHQuIHZhci4gcHVycHVyZXVz
+23                     SGVsaWFudGh1cyBkZWJpbGlzIE51dHQuIHZhci4gc2lsdmVzdHJpcyAoSGVpc2VyKSBDcm9ucS4=
+24                 SGVsaWFudGh1cyBkZWJpbGlzIE51dHQuIHZhci4gc2lsdmVzdHJpcyAoSGVpc2VyKSBDcm9ucXVpc3Q=
+25                     SGVsaWFudGh1cyBkZWJpbGlzIE51dHQuIHZhci4gdGFyZGlmbG9ydXMgKEhlaXNlcikgQ3JvbnEu
+26                 SGVsaWFudGh1cyBkZWJpbGlzIE51dHQuIHZhci4gdGFyZGlmbG9ydXMgKEhlaXNlcikgQ3JvbnF1aXN0
+27                 SGVsaWFudGh1cyBkZWJpbGlzIE51dHQuIHZhci4gdmVzdGl0dXMgKEUuIFdhdHNvbikgQ3JvbnF1aXN0
+28                 SGVsaWFudGh1cyBkZWJpbGlzIE51dHQuIHZhci4gdmVzdGl0dXMgKEUuRS4gV2F0cy4pIENyb25xLg==
+29                                                     SGVsaWFudGh1cyBkZWJpbGlzIGN1Y3VtZXJpZm9saXVz
+30                         SGVsaWFudGh1cyBkZWJpbGlzIGN1Y3VtZXJpZm9saXVzIChUb3JyLiAmIEdyYXkpIEdyYXk=
+31                     SGVsaWFudGh1cyBkZWJpbGlzIGN1Y3VtZXJpZm9saXVzIChUb3JyLiAmIEdyYXkpIEhlaXNlcg==
+32                                 SGVsaWFudGh1cyBkZWJpbGlzIGN1Y3VtZXJpZm9saXVzIFdpbGxkLiwgMTg5OA==
+33                                                             SGVsaWFudGh1cyBkZWJpbGlzIGRlYmlsaXM=
+34                                                     SGVsaWFudGh1cyBkZWJpbGlzIGRlYmlsaXMgTnV0dC4=
+35                                                             SGVsaWFudGh1cyBkZWJpbGlzIGhpcnR1cw==
+36                                                     SGVsaWFudGh1cyBkZWJpbGlzIGhpcnR1cyBIZWlzZXI=
+37                                                             SGVsaWFudGh1cyBkZWJpbGlzIHByYWVjb3g=
+38                             SGVsaWFudGh1cyBkZWJpbGlzIHByYWVjb3ggKEVuZ2VsbS4gJiBHcmF5KSBIZWlzZXI=
+39                                                         SGVsaWFudGh1cyBkZWJpbGlzIHB1cnB1cmV1cw==
+40                                                             SGVsaWFudGh1cyBkZWJpbGlzIHJ1bnlvbmlp
+41                                                 SGVsaWFudGh1cyBkZWJpbGlzIHJ1bnlvbmlpIEhlaXNlcg==
+42                                                         SGVsaWFudGh1cyBkZWJpbGlzIHNpbHZlc3RyaXM=
+43                                     SGVsaWFudGh1cyBkZWJpbGlzIHNpbHZlc3RyaXMgKEhlaXNlcikgQ3JvbnEu
+44                                                 SGVsaWFudGh1cyBkZWJpbGlzIHNpbHZlc3RyaXMgSGVpc2Vy
+45                 SGVsaWFudGh1cyBkZWJpbGlzIHNzcC4gY3VjdW1lcmlmb2xpdXMgKFRvcnIuICYgR3JheSkgSGVpc2Vy
+46                                             SGVsaWFudGh1cyBkZWJpbGlzIHNzcC4gZGViaWxpcyBOdXR0Lg==
+47                                             SGVsaWFudGh1cyBkZWJpbGlzIHNzcC4gaGlydHVzIEhlaXNlcg==
+48                     SGVsaWFudGh1cyBkZWJpbGlzIHNzcC4gcHJhZWNveCAoRW5nZWxtLiAmIEdyYXkpIEhlaXNlcg==
+49                                             SGVsaWFudGh1cyBkZWJpbGlzIHNzcC4gcnVueW9uaWkgSGVpc2Vy
+50                                         SGVsaWFudGh1cyBkZWJpbGlzIHNzcC4gc2lsdmVzdHJpcyBIZWlzZXI=
+51                                         SGVsaWFudGh1cyBkZWJpbGlzIHNzcC4gdGFyZGlmbG9ydXMgSGVpc2Vy
+52                         SGVsaWFudGh1cyBkZWJpbGlzIHNzcC4gdmVzdGl0dXMgKEUuIEUuIFdhdHMuKSBIZWlzZXI=
+53         SGVsaWFudGh1cyBkZWJpbGlzIHN1YnNwLiBjdWN1bWVyaWZvbGl1cyAoVG9yci4gJiBBLiBHcmF5KSBIZWlzZXI=
+54                                                     SGVsaWFudGh1cyBkZWJpbGlzIHN1YnNwLiBkZWJpbGlz
+55                 SGVsaWFudGh1cyBkZWJpbGlzIHN1YnNwLiBwcmFlY294IChFbmdlbG0uICYgQS4gR3JheSkgSGVpc2Vy
+56                                     SGVsaWFudGh1cyBkZWJpbGlzIHN1YnNwLiBzaWx2ZXN0cmlzIEhlaXNlcg==
+57                                     SGVsaWFudGh1cyBkZWJpbGlzIHN1YnNwLiB0YXJkaWZsb3J1cyBIZWlzZXI=
+58                         SGVsaWFudGh1cyBkZWJpbGlzIHN1YnNwLiB2ZXN0aXR1cyAoRS4gV2F0c29uKSBIZWlzZXI=
+59                                                         SGVsaWFudGh1cyBkZWJpbGlzIHRhcmRpZmxvcnVz
+60                                 SGVsaWFudGh1cyBkZWJpbGlzIHRhcmRpZmxvcnVzIChIZWlzZXIpIENyb25xLg==
+61                                             SGVsaWFudGh1cyBkZWJpbGlzIHRhcmRpZmxvcnVzIEhlaXNlcg==
+62                 SGVsaWFudGh1cyBkZWJpbGlzIHZhci4gY3VjdW1lcmlmb2xpdXMgKFRvcnIuICYgR3JheSkgR3JheQ==
+63                             SGVsaWFudGh1cyBkZWJpbGlzIHZhci4gc2lsdmVzdHJpcyAoSGVpc2VyKSBDcm9ucS4=
+64                             SGVsaWFudGh1cyBkZWJpbGlzIHZhci4gdGFyZGlmbG9ydXMgKEhlaXNlcikgQ3JvbnEu
+65                         SGVsaWFudGh1cyBkZWJpbGlzIHZhci4gdmVzdGl0dXMgKEUuIEUuIFdhdHMuKSBDcm9ucS4=
+66                                                             SGVsaWFudGh1cyBkZWJpbGlzIHZlc3RpdHVz
+67                                 SGVsaWFudGh1cyBkZWJpbGlzIHZlc3RpdHVzIChFLiBFLiBXYXRzLikgQ3JvbnEu
+68                                 SGVsaWFudGh1cyBkZWJpbGlzIHZlc3RpdHVzIChFLiBFLiBXYXRzLikgSGVpc2Vy
+   packageID   packageName basionymUnit rankID    rankName
+1        598     Asterales            0     24     species
+2        598     Asterales            0     24     species
+3       5634    Asteraceae            0    265  subspecies
+4       5634    Asteraceae            0    265  subspecies
+5       5634    Asteraceae            0    265  subspecies
+6       5634    Asteraceae            0    265  subspecies
+7       5634    Asteraceae            0    265  subspecies
+8       5634    Asteraceae            0    265  subspecies
+9       5634    Asteraceae            0    265  subspecies
+10      5634    Asteraceae            0    265  subspecies
+11      5634    Asteraceae      5885318    440       subsp
+12      5634    Asteraceae            0    440       subsp
+13      5634    Asteraceae      9096281    440       subsp
+14      5634    Asteraceae      5860408    440       subsp
+15      5634    Asteraceae      9093963    440       subsp
+16      5634    Asteraceae      8849601    440       subsp
+17      5634    Asteraceae      8849621    440       subsp
+18      5634    Asteraceae      5885319    440       subsp
+19      5634    Asteraceae      5885318    415         var
+20      5634    Asteraceae            0     25     variety
+21      5634    Asteraceae            0    415         var
+22      5634    Asteraceae            0    415         var
+23      5634    Asteraceae            0     25     variety
+24      5634    Asteraceae      8849601    415         var
+25      5634    Asteraceae            0     25     variety
+26      5634    Asteraceae      8849621    415         var
+27      5634    Asteraceae      5885319    415         var
+28      5634    Asteraceae            0     25     variety
+29      5634    Asteraceae            0    415         var
+30      5634    Asteraceae            0    415         var
+31       598     Asterales            0     54 sub-species
+32     12176        Dicots            0    265  subspecies
+33       598     Asterales            0     54 sub-species
+34       598     Asterales            0     54 sub-species
+35       598     Asterales            0     54 sub-species
+36       598     Asterales            0     54 sub-species
+37       598     Asterales            0     54 sub-species
+38       598     Asterales            0     54 sub-species
+39      5634    Asteraceae            0    415         var
+40       598     Asterales            0     54 sub-species
+41       598     Asterales            0     54 sub-species
+42      5634    Asteraceae            0    415         var
+43      5634    Asteraceae            0    415         var
+44       598     Asterales            0     54 sub-species
+45       598     Asterales            0     54 sub-species
+46       598     Asterales            0     54 sub-species
+47       598     Asterales            0     54 sub-species
+48       598     Asterales            0     54 sub-species
+49       598     Asterales            0     54 sub-species
+50       598     Asterales            0     54 sub-species
+51       598     Asterales            0     54 sub-species
+52       598     Asterales            0     54 sub-species
+53       347 Tracheobionta            0    268      subsp.
+54        15       Plantae            0    265  subspecies
+55        15       Plantae            0    265  subspecies
+56        15       Plantae            0    265  subspecies
+57        15       Plantae            0    265  subspecies
+58        15       Plantae            0    265  subspecies
+59      5634    Asteraceae            0    415         var
+60      5634    Asteraceae            0    415         var
+61       598     Asterales            0     54 sub-species
+62       598     Asterales            0     25     variety
+63       598     Asterales            0     25     variety
+64       598     Asterales            0     25     variety
+65       598     Asterales            0     25     variety
+66      5634    Asteraceae            0    415         var
+67      5634    Asteraceae            0    415         var
+68       598     Asterales            0     54 sub-species
+
+[[2]]
+   namebankID                                   nameString
+1     2843601                     QXN0cmFnYWx1cyBhZHVuY3Vz
+2     9261962                     QXN0cmFnYWx1cyBhZHVuY3Vz
+3     9261999                     QXN0cmFnYWx1cyBhZHVuY3Vz
+4     9261975                     QXN0cmFnYWx1cyBhZHVuY3Vz
+5      704148                     QXN0cmFnYWx1cyBhZHVuY3Vz
+6     8374424     QXN0cmFnYWx1cyBhZHVuY3VzIGtvdHNjaHlhbnVz
+7     8830310         QXN0cmFnYWx1cyBhZHVuY3VzIGFkdW5jdXM=
+8     8374409 QXN0cmFnYWx1cyBhZHVuY3VzIGNoYWJvcmFzaWN1cw==
+9     8830309         QXN0cmFnYWx1cyBhZHVuY3VzIGFkdW5jdXM=
+10    8374408 QXN0cmFnYWx1cyBhZHVuY3VzIGNoYWJvcmFzaWN1cw==
+11    8374423     QXN0cmFnYWx1cyBhZHVuY3VzIGtvdHNjaHlhbnVz
+                                                                                     fullNameString
+1                                                                          QXN0cmFnYWx1cyBhZHVuY3Vz
+2                                                                  QXN0cmFnYWx1cyBhZHVuY3VzIEJ1bmdl
+3                                                              QXN0cmFnYWx1cyBhZHVuY3VzIEhvaGVuLg==
+4                                                              QXN0cmFnYWx1cyBhZHVuY3VzIE0uIEJpZWIu
+5                                                              QXN0cmFnYWx1cyBhZHVuY3VzIFdpbGxkLg==
+6                      QXN0cmFnYWx1cyBhZHVuY3VzIFdpbGxkLiBmby4ga290c2NoeWFudXMgKEJvaXNzLikgUG9uZXJ0
+7                                          QXN0cmFnYWx1cyBhZHVuY3VzIFdpbGxkLiBzdWJzcC4gYWR1bmN1cw==
+8  QXN0cmFnYWx1cyBhZHVuY3VzIFdpbGxkLiBzdWJzcC4gY2hhYm9yYXNpY3VzIChCb2lzcy4gJiBIYXVzc2tuLikgUG9uZXJ0
+9                                                              QXN0cmFnYWx1cyBhZHVuY3VzIGFkdW5jdXM=
+10                                                     QXN0cmFnYWx1cyBhZHVuY3VzIGNoYWJvcmFzaWN1cw==
+11                                                         QXN0cmFnYWx1cyBhZHVuY3VzIGtvdHNjaHlhbnVz
+   packageID packageName basionymUnit rankID rankName
+1        663     Rosales            0     24  species
+2       5780    Fabaceae            0    261       SP
+3       5780    Fabaceae            0    261       SP
+4       5780    Fabaceae            0    261       SP
+5        663     Rosales            0     24  species
+6       5780    Fabaceae       722833    444       fo
+7       5780    Fabaceae            0    440    subsp
+8       5780    Fabaceae      5825062    440    subsp
+9       5780    Fabaceae            0    440    subsp
+10      5780    Fabaceae      5825062    440    subsp
+11      5780    Fabaceae       722833    444       fo
+
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>ubio_namebank</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

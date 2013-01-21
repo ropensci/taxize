@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>gni_details. taxize 0.0.3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="
+  Scott Chamberlain myrmecocystus@gmail.com
+">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">taxize 0.0.3</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Search for taxonomic name details using the Global Names Index.</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><span class="functioncall"><a href='gni_details.html'>gni_details</a></span><span class="keyword">(</span><span class="argument">id</span> <span class="argument">=</span> NULL<span class="keyword">,</span> <span class="argument">all_records</span> <span class="argument">=</span> NULL<span class="keyword">,</span> <span class="argument">url</span> <span class="argument">=</span> <span class="string">"http://gni.globalnames.org/name_strings/"</span><span class="keyword">)</span></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>id</dt>
+      <dd>Name id.</dd>
+      <dt>all_records</dt>
+      <dd>If all_records is 1, GNI returns all
+  records from all repositories for the name string (takes
+  0, or 1, default is 1).</dd>
+      <dt>url</dt>
+      <dd>Base url for the API; leave as is.</dd>
+    </dl>
+    
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Data.frame of results.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Uses the Global Names Index, see
+  <a href = 'http://gni.globalnames.org/'>http://gni.globalnames.org/</a> for information.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'><span class="functioncall"><a href='gni_details.html'>gni_details</a></span><span class="keyword">(</span><span class="argument">id</span> <span class="argument">=</span> <span class="number">17802847</span><span class="keyword">)</span></div>
+<div class='output'>                 created_at                updated_at global_id
+1 2009/09/27 10:27:31 +0000 2009/09/27 10:27:31 +0000      none
+                                                    url kingdom_id original_name_string
+1 http://www.organismnames.com/details.htm?lsid=2521957       none                 none
+         id name_rank_id name_index_id record_hash local_id nomenclatural_code_id
+1 127858346            2      98448788        none  2521957                  none
+</div>
+<div class='input'><span class="functioncall"><a href='http://www.inside-r.org/r-doc/plyr/ldply'>ldply</a></span><span class="keyword">(</span><span class="functioncall"><a href='http://www.inside-r.org/r-doc/base/list'>list</a></span><span class="keyword">(</span><span class="number">1265133</span><span class="keyword">,</span> <span class="number">17802847</span><span class="keyword">)</span><span class="keyword">,</span> <span class="symbol">gni_details</span><span class="keyword">)</span></div>
+<div class='output'>                 created_at                updated_at
+1 2009/06/30 14:58:03 +0000 2009/06/30 14:58:03 +0000
+2 2009/07/01 00:16:42 +0000 2009/07/01 00:16:42 +0000
+3 2009/07/01 02:33:11 +0000 2009/07/01 02:33:11 +0000
+4 2010/06/02 18:38:01 +0000 2010/06/02 18:38:01 +0000
+5 2009/09/27 10:27:31 +0000 2009/09/27 10:27:31 +0000
+                           global_id
+1                               none
+2                               none
+3 urn:lsid:ubio.org:namebank:8619022
+4                               none
+5                               none
+                                                                                                       url
+1                                                                    http://data.gbif.org/species/15376752
+2 http://www.ipni.org/ipni/idPlantNameSearch.do?&output_format=lsid-metadata&show_history=true&id=109888-2
+3                                               http://www.ubio.org/browser/details.php?namebankID=8619022
+4                                                                     http://www.tropicos.org/Name/8300641
+5                                                    http://www.organismnames.com/details.htm?lsid=2521957
+  kingdom_id original_name_string        id name_rank_id name_index_id record_hash
+1          2                 none  78553857            2      58383755        none
+2       none                 none  93753916         none      64823765        none
+3       none                 none 101441027         none      72497009        none
+4          2                 none 144988815            2     115750797        none
+5       none                 none 127858346            2      98448788        none
+                            local_id nomenclatural_code_id
+1                           15376752                  none
+2                           109888-2                  none
+3 urn:lsid:ubio.org:namebank:8619022                  none
+4                            8300641                  none
+5                            2521957                  none
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>gni_details</li>
+    </ul>
+    <ul>
+      <li>globalnamesindex</li><li>names</li><li>taxonomy</li>
+    </ul> -->
+      
+    <h2>See also</h2>
+    
+  <code><a href='gnr_datasources.html'>gnr_datasources</a></code>, <code><a href='gni_search.html'>gni_search</a></code>.
+
+    
+    <h2>Author</h2>
+    
+  Scott Chamberlain myrmecocystus@gmail.com
+
+    
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

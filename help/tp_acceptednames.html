@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>tp_acceptednames. taxize 0.0.3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">taxize 0.0.3</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Return all accepted names for a taxon name with a given id.</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><span class="functioncall"><a href='tp_acceptednames.html'>tp_acceptednames</a></span><span class="keyword">(</span><span class="symbol">id</span><span class="keyword">,</span> <span class="argument">format</span> <span class="argument">=</span> <span class="string">"json"</span><span class="keyword">,</span> <span class="argument">output</span> <span class="argument">=</span> <span class="string">"df"</span><span class="keyword">,</span> <span class="argument">url</span> <span class="argument">=</span> <span class="string">"http://services.tropicos.org/Name/"</span><span class="keyword">,</span>
+  <span class="argument">key</span> <span class="argument">=</span> NULL<span class="keyword">)</span></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>id</dt>
+      <dd>the taxon identifier code</dd>
+      <dt>format</dt>
+      <dd>return in json or xml format (defaults to
+  json)</dd>
+      <dt>output</dt>
+      <dd>raw = json or xml; or df = data.frame</dd>
+      <dt>url</dt>
+      <dd>The Tropicos url for the function (should be
+  left to default).</dd>
+      <dt>key</dt>
+      <dd>Your Tropicos API key; loads from .Rprofile.</dd>
+    </dl>
+    
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>List or dataframe.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Return all accepted names for a taxon name with a given
+  id.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'><span class="functioncall"><a href='tp_acceptednames.html'>tp_acceptednames</a></span><span class="keyword">(</span><span class="argument">id</span> <span class="argument">=</span> <span class="number">25503923</span><span class="keyword">)</span></div>
+<strong class='message'>http://services.tropicos.org/Name/25503923/AcceptedNames?apikey=f3e499d4-1519-42c9-afd1-685a16882f5a&format=json</strong>
+<div class='output'>                    variable
+1                     NameId
+2             ScientificName
+3  ScientificNameWithAuthors
+4                     Family
+5                     NameId
+6             ScientificName
+7  ScientificNameWithAuthors
+8                     Family
+9                ReferenceId
+10             PublicationId
+11              AuthorString
+12              ArticleTitle
+13                 Collation
+14          AbbreviatedTitle
+15                    NameId
+16            ScientificName
+17 ScientificNameWithAuthors
+18                    Family
+19                    NameId
+20            ScientificName
+21 ScientificNameWithAuthors
+22                    Family
+23               ReferenceId
+24             PublicationId
+25              AuthorString
+26              ArticleTitle
+27                 Collation
+28          AbbreviatedTitle
+29                    NameId
+30            ScientificName
+31 ScientificNameWithAuthors
+32                    Family
+33                    NameId
+34            ScientificName
+35 ScientificNameWithAuthors
+36                    Family
+37               ReferenceId
+38             PublicationId
+39              AuthorString
+40                 Collation
+41          AbbreviatedTitle
+42                    NameId
+43            ScientificName
+44 ScientificNameWithAuthors
+45                    Family
+46                    NameId
+47            ScientificName
+48 ScientificNameWithAuthors
+49                    Family
+50               ReferenceId
+51             PublicationId
+52              AuthorString
+53              ArticleTitle
+54                 Collation
+55          AbbreviatedTitle
+56                    NameId
+57            ScientificName
+58 ScientificNameWithAuthors
+59                    Family
+60                    NameId
+61            ScientificName
+62 ScientificNameWithAuthors
+63                    Family
+64               ReferenceId
+65             PublicationId
+66              AuthorString
+67              ArticleTitle
+68                 Collation
+69          AbbreviatedTitle
+70                    NameId
+71            ScientificName
+72 ScientificNameWithAuthors
+73                    Family
+74                    NameId
+75            ScientificName
+76 ScientificNameWithAuthors
+77                    Family
+78               ReferenceId
+79             PublicationId
+80              AuthorString
+81              ArticleTitle
+82                 Collation
+83          AbbreviatedTitle
+84                    NameId
+85            ScientificName
+86 ScientificNameWithAuthors
+87                    Family
+88                    NameId
+89            ScientificName
+90 ScientificNameWithAuthors
+91                    Family
+92               ReferenceId
+93             PublicationId
+94              AuthorString
+95                 Collation
+96          AbbreviatedTitle
+                                                                                                                                                                                                                                                     value
+1                                                                                                                                                                                                                                                 25503923
+2                                                                                                                                                                                                                                              Aira pumila
+3                                                                                                                                                                                                                                        Aira pumila Pursh
+4                                                                                                                                                                                                                                                  Poaceae
+5                                                                                                                                                                                                                                                 25509881
+6                                                                                                                                                                                                                                                Poa annua
+7                                                                                                                                                                                                                                             Poa annua L.
+8                                                                                                                                                                                                                                                  Poaceae
+9                                                                                                                                                                                                                                                     1289
+10                                                                                                                                                                                                                                                    1340
+11                                                                                                                                                                                                                                           D'Arcy, W. G.
+12                                                                                                                                                                            Flora of Panama. Checklist and Index. Part 1: The introduction and checklist
+13                                                                                                                                                                                                                                        17: v–xxx, 1–328
+14                                                                                                                                                                                                                  Monogr. Syst. Bot. Missouri Bot. Gard.
+15                                                                                                                                                                                                                                                25503923
+16                                                                                                                                                                                                                                             Aira pumila
+17                                                                                                                                                                                                                                       Aira pumila Pursh
+18                                                                                                                                                                                                                                                 Poaceae
+19                                                                                                                                                                                                                                                25509881
+20                                                                                                                                                                                                                                               Poa annua
+21                                                                                                                                                                                                                                            Poa annua L.
+22                                                                                                                                                                                                                                                 Poaceae
+23                                                                                                                                                                                                                                                    6706
+24                                                                                                                                                                                                                                                     626
+25                                                                                                                                                                                                                                          Swallen, J. R.
+26                                                                                                                                                                 Gramineae. ~In:~ P. C. Standley & J. A. Steyermark (eds.), Flora of Guatemala---Part II
+27                                                                                                                                                                                                                                      24(2): i–ix, 1–390
+28                                                                                                                                                                                                                                         Fieldiana, Bot.
+29                                                                                                                                                                                                                                                25503923
+30                                                                                                                                                                                                                                             Aira pumila
+31                                                                                                                                                                                                                                       Aira pumila Pursh
+32                                                                                                                                                                                                                                                 Poaceae
+33                                                                                                                                                                                                                                                25509881
+34                                                                                                                                                                                                                                               Poa annua
+35                                                                                                                                                                                                                                            Poa annua L.
+36                                                                                                                                                                                                                                                 Poaceae
+37                                                                                                                                                                                                                                                   15758
+38                                                                                                                                                                                                                                                    7936
+39                                                                                                                                                                                                                                        Hitchcock, A. S.
+40                                                                                                                                                                                                                                                  1–1051
+41                                                                                                                                                                                                                               Man. Grasses U.S. (ed. 2)
+42                                                                                                                                                                                                                                                25503923
+43                                                                                                                                                                                                                                             Aira pumila
+44                                                                                                                                                                                                                                       Aira pumila Pursh
+45                                                                                                                                                                                                                                                 Poaceae
+46                                                                                                                                                                                                                                                25509881
+47                                                                                                                                                                                                                                               Poa annua
+48                                                                                                                                                                                                                                            Poa annua L.
+49                                                                                                                                                                                                                                                 Poaceae
+50                                                                                                                                                                                                                                                   46337
+51                                                                                                                                                                                                                                                     605
+52                                                                                                                                                                                                          Soreng, R. J., L. M. Giussani & M. A. Negritto
+53                                                                                                                                                                              ~Poa~. In Catalogue of New World Grasses (Poaceae): IV. Subfamily Pooideae
+54                                                                                                                                                                                                                                             48: 505–580
+55                                                                                                                                                                                                                                 Contr. U.S. Natl. Herb.
+56                                                                                                                                                                                                                                                25503923
+57                                                                                                                                                                                                                                             Aira pumila
+58                                                                                                                                                                                                                                       Aira pumila Pursh
+59                                                                                                                                                                                                                                                 Poaceae
+60                                                                                                                                                                                                                                                25509881
+61                                                                                                                                                                                                                                               Poa annua
+62                                                                                                                                                                                                                                            Poa annua L.
+63                                                                                                                                                                                                                                                 Poaceae
+64                                                                                                                                                                                                                                                 1015183
+65                                                                                                                                                                                                                                                   18774
+66                                                                                                                                                                                                 Espejo Serna, A., A. R. López-Ferrari & J. Valdés-Reyna
+67                                                                                                                                                                                                                                                 Poaceae
+68                                                                                                                                                                                                                                   10: 7–236 [and index]
+69                                                                                                                                                                                                                       Monocot. Mexic. Sinopsis Floríst.
+70                                                                                                                                                                                                                                                25503923
+71                                                                                                                                                                                                                                             Aira pumila
+72                                                                                                                                                                                                                                       Aira pumila Pursh
+73                                                                                                                                                                                                                                                 Poaceae
+74                                                                                                                                                                                                                                                25509881
+75                                                                                                                                                                                                                                               Poa annua
+76                                                                                                                                                                                                                                            Poa annua L.
+77                                                                                                                                                                                                                                                 Poaceae
+78                                                                                                                                                                                                                                                 1024044
+79                                                                                                                                                                                                                                                   19794
+80                                                                                                                                               Soreng, R. J., G. Davidse, P. M. Peterson, F. O. Zuloaga, E. J. Judziewicz, T. S. Filgueiras & O. Morrone
+81 On-line taxonomic novelties and updates, distributional additions and corrections, and editorial changes since the four published volumes of the Catalogue of New World Grasses (Poaceae) published in Contr. U.S. Natl. Herb. vols. 39, 41, 46, and 48
+82                                                                                                                                                                                                                   http://www.tropicos.org/Project/CNWG:
+83                                                                                                                                                                                                                         Internet Cat. New World Grasses
+84                                                                                                                                                                                                                                                25503923
+85                                                                                                                                                                                                                                             Aira pumila
+86                                                                                                                                                                                                                                       Aira pumila Pursh
+87                                                                                                                                                                                                                                                 Poaceae
+88                                                                                                                                                                                                                                                40012319
+89                                                                                                                                                                                                                                                     Poa
+90                                                                                                                                                                                                                                                  Poa L.
+91                                                                                                                                                                                                                                                 Poaceae
+92                                                                                                                                                                                                                                                 1019700
+93                                                                                                                                                                                                                                                   15848
+94                                                                                                                                                                                                                                           Beetle, A. A.
+95                                                                                                                                                                                                                                                5: 1–466
+96                                                                                                                                                                                                                                            Gram. México
+    category
+1    Synonym
+2    Synonym
+3    Synonym
+4    Synonym
+5   Accepted
+6   Accepted
+7   Accepted
+8   Accepted
+9  Reference
+10 Reference
+11 Reference
+12 Reference
+13 Reference
+14 Reference
+15   Synonym
+16   Synonym
+17   Synonym
+18   Synonym
+19  Accepted
+20  Accepted
+21  Accepted
+22  Accepted
+23 Reference
+24 Reference
+25 Reference
+26 Reference
+27 Reference
+28 Reference
+29   Synonym
+30   Synonym
+31   Synonym
+32   Synonym
+33  Accepted
+34  Accepted
+35  Accepted
+36  Accepted
+37 Reference
+38 Reference
+39 Reference
+40 Reference
+41 Reference
+42   Synonym
+43   Synonym
+44   Synonym
+45   Synonym
+46  Accepted
+47  Accepted
+48  Accepted
+49  Accepted
+50 Reference
+51 Reference
+52 Reference
+53 Reference
+54 Reference
+55 Reference
+56   Synonym
+57   Synonym
+58   Synonym
+59   Synonym
+60  Accepted
+61  Accepted
+62  Accepted
+63  Accepted
+64 Reference
+65 Reference
+66 Reference
+67 Reference
+68 Reference
+69 Reference
+70   Synonym
+71   Synonym
+72   Synonym
+73   Synonym
+74  Accepted
+75  Accepted
+76  Accepted
+77  Accepted
+78 Reference
+79 Reference
+80 Reference
+81 Reference
+82 Reference
+83 Reference
+84   Synonym
+85   Synonym
+86   Synonym
+87   Synonym
+88  Accepted
+89  Accepted
+90  Accepted
+91  Accepted
+92 Reference
+93 Reference
+94 Reference
+95 Reference
+96 Reference
+</div>
+<div class='input'><span class="functioncall"><a href='tp_acceptednames.html'>tp_acceptednames</a></span><span class="keyword">(</span><span class="argument">id</span> <span class="argument">=</span> <span class="number">25503923</span><span class="keyword">,</span> <span class="argument">output</span> <span class="argument">=</span> <span class="string">'raw'</span><span class="keyword">)</span></div>
+<strong class='message'>http://services.tropicos.org/Name/25503923/AcceptedNames?apikey=f3e499d4-1519-42c9-afd1-685a16882f5a&format=json</strong>
+<div class='output'>[[1]]
+[[1]]$SynonymName
+[[1]]$SynonymName$NameId
+[1] 25503923
+
+[[1]]$SynonymName$ScientificName
+[1] "Aira pumila"
+
+[[1]]$SynonymName$ScientificNameWithAuthors
+[1] "Aira pumila Pursh"
+
+[[1]]$SynonymName$Family
+[1] "Poaceae"
+
+
+[[1]]$AcceptedName
+[[1]]$AcceptedName$NameId
+[1] 25509881
+
+[[1]]$AcceptedName$ScientificName
+[1] "Poa annua"
+
+[[1]]$AcceptedName$ScientificNameWithAuthors
+[1] "Poa annua L."
+
+[[1]]$AcceptedName$Family
+[1] "Poaceae"
+
+
+[[1]]$Reference
+[[1]]$Reference$ReferenceId
+[1] 1289
+
+[[1]]$Reference$PublicationId
+[1] 1340
+
+[[1]]$Reference$AuthorString
+[1] "D'Arcy, W. G."
+
+[[1]]$Reference$ArticleTitle
+[1] "Flora of Panama. Checklist and Index. Part 1: The introduction and checklist"
+
+[[1]]$Reference$Collation
+[1] "17: v–xxx, 1–328"
+
+[[1]]$Reference$AbbreviatedTitle
+[1] "Monogr. Syst. Bot. Missouri Bot. Gard."
+
+
+
+[[2]]
+[[2]]$SynonymName
+[[2]]$SynonymName$NameId
+[1] 25503923
+
+[[2]]$SynonymName$ScientificName
+[1] "Aira pumila"
+
+[[2]]$SynonymName$ScientificNameWithAuthors
+[1] "Aira pumila Pursh"
+
+[[2]]$SynonymName$Family
+[1] "Poaceae"
+
+
+[[2]]$AcceptedName
+[[2]]$AcceptedName$NameId
+[1] 25509881
+
+[[2]]$AcceptedName$ScientificName
+[1] "Poa annua"
+
+[[2]]$AcceptedName$ScientificNameWithAuthors
+[1] "Poa annua L."
+
+[[2]]$AcceptedName$Family
+[1] "Poaceae"
+
+
+[[2]]$Reference
+[[2]]$Reference$ReferenceId
+[1] 6706
+
+[[2]]$Reference$PublicationId
+[1] 626
+
+[[2]]$Reference$AuthorString
+[1] "Swallen, J. R."
+
+[[2]]$Reference$ArticleTitle
+[1] "Gramineae. ~In:~ P. C. Standley & J. A. Steyermark (eds.), Flora of Guatemala---Part II"
+
+[[2]]$Reference$Collation
+[1] "24(2): i–ix, 1–390"
+
+[[2]]$Reference$AbbreviatedTitle
+[1] "Fieldiana, Bot."
+
+
+
+[[3]]
+[[3]]$SynonymName
+[[3]]$SynonymName$NameId
+[1] 25503923
+
+[[3]]$SynonymName$ScientificName
+[1] "Aira pumila"
+
+[[3]]$SynonymName$ScientificNameWithAuthors
+[1] "Aira pumila Pursh"
+
+[[3]]$SynonymName$Family
+[1] "Poaceae"
+
+
+[[3]]$AcceptedName
+[[3]]$AcceptedName$NameId
+[1] 25509881
+
+[[3]]$AcceptedName$ScientificName
+[1] "Poa annua"
+
+[[3]]$AcceptedName$ScientificNameWithAuthors
+[1] "Poa annua L."
+
+[[3]]$AcceptedName$Family
+[1] "Poaceae"
+
+
+[[3]]$Reference
+[[3]]$Reference$ReferenceId
+[1] 15758
+
+[[3]]$Reference$PublicationId
+[1] 7936
+
+[[3]]$Reference$AuthorString
+[1] "Hitchcock, A. S."
+
+[[3]]$Reference$Collation
+[1] "1–1051"
+
+[[3]]$Reference$AbbreviatedTitle
+[1] "Man. Grasses U.S. (ed. 2)"
+
+
+
+[[4]]
+[[4]]$SynonymName
+[[4]]$SynonymName$NameId
+[1] 25503923
+
+[[4]]$SynonymName$ScientificName
+[1] "Aira pumila"
+
+[[4]]$SynonymName$ScientificNameWithAuthors
+[1] "Aira pumila Pursh"
+
+[[4]]$SynonymName$Family
+[1] "Poaceae"
+
+
+[[4]]$AcceptedName
+[[4]]$AcceptedName$NameId
+[1] 25509881
+
+[[4]]$AcceptedName$ScientificName
+[1] "Poa annua"
+
+[[4]]$AcceptedName$ScientificNameWithAuthors
+[1] "Poa annua L."
+
+[[4]]$AcceptedName$Family
+[1] "Poaceae"
+
+
+[[4]]$Reference
+[[4]]$Reference$ReferenceId
+[1] 46337
+
+[[4]]$Reference$PublicationId
+[1] 605
+
+[[4]]$Reference$AuthorString
+[1] "Soreng, R. J., L. M. Giussani & M. A. Negritto"
+
+[[4]]$Reference$ArticleTitle
+[1] "~Poa~. In Catalogue of New World Grasses (Poaceae): IV. Subfamily Pooideae"
+
+[[4]]$Reference$Collation
+[1] "48: 505–580"
+
+[[4]]$Reference$AbbreviatedTitle
+[1] "Contr. U.S. Natl. Herb."
+
+
+
+[[5]]
+[[5]]$SynonymName
+[[5]]$SynonymName$NameId
+[1] 25503923
+
+[[5]]$SynonymName$ScientificName
+[1] "Aira pumila"
+
+[[5]]$SynonymName$ScientificNameWithAuthors
+[1] "Aira pumila Pursh"
+
+[[5]]$SynonymName$Family
+[1] "Poaceae"
+
+
+[[5]]$AcceptedName
+[[5]]$AcceptedName$NameId
+[1] 25509881
+
+[[5]]$AcceptedName$ScientificName
+[1] "Poa annua"
+
+[[5]]$AcceptedName$ScientificNameWithAuthors
+[1] "Poa annua L."
+
+[[5]]$AcceptedName$Family
+[1] "Poaceae"
+
+
+[[5]]$Reference
+[[5]]$Reference$ReferenceId
+[1] 1015183
+
+[[5]]$Reference$PublicationId
+[1] 18774
+
+[[5]]$Reference$AuthorString
+[1] "Espejo Serna, A., A. R. López-Ferrari & J. Valdés-Reyna"
+
+[[5]]$Reference$ArticleTitle
+[1] "Poaceae"
+
+[[5]]$Reference$Collation
+[1] "10: 7–236 [and index]"
+
+[[5]]$Reference$AbbreviatedTitle
+[1] "Monocot. Mexic. Sinopsis Floríst."
+
+
+
+[[6]]
+[[6]]$SynonymName
+[[6]]$SynonymName$NameId
+[1] 25503923
+
+[[6]]$SynonymName$ScientificName
+[1] "Aira pumila"
+
+[[6]]$SynonymName$ScientificNameWithAuthors
+[1] "Aira pumila Pursh"
+
+[[6]]$SynonymName$Family
+[1] "Poaceae"
+
+
+[[6]]$AcceptedName
+[[6]]$AcceptedName$NameId
+[1] 25509881
+
+[[6]]$AcceptedName$ScientificName
+[1] "Poa annua"
+
+[[6]]$AcceptedName$ScientificNameWithAuthors
+[1] "Poa annua L."
+
+[[6]]$AcceptedName$Family
+[1] "Poaceae"
+
+
+[[6]]$Reference
+[[6]]$Reference$ReferenceId
+[1] 1024044
+
+[[6]]$Reference$PublicationId
+[1] 19794
+
+[[6]]$Reference$AuthorString
+[1] "Soreng, R. J., G. Davidse, P. M. Peterson, F. O. Zuloaga, E. J. Judziewicz, T. S. Filgueiras & O. Morrone"
+
+[[6]]$Reference$ArticleTitle
+[1] "On-line taxonomic novelties and updates, distributional additions and corrections, and editorial changes since the four published volumes of the Catalogue of New World Grasses (Poaceae) published in Contr. U.S. Natl. Herb. vols. 39, 41, 46, and 48"
+
+[[6]]$Reference$Collation
+[1] "http://www.tropicos.org/Project/CNWG:"
+
+[[6]]$Reference$AbbreviatedTitle
+[1] "Internet Cat. New World Grasses"
+
+
+
+[[7]]
+[[7]]$SynonymName
+[[7]]$SynonymName$NameId
+[1] 25503923
+
+[[7]]$SynonymName$ScientificName
+[1] "Aira pumila"
+
+[[7]]$SynonymName$ScientificNameWithAuthors
+[1] "Aira pumila Pursh"
+
+[[7]]$SynonymName$Family
+[1] "Poaceae"
+
+
+[[7]]$AcceptedName
+[[7]]$AcceptedName$NameId
+[1] 40012319
+
+[[7]]$AcceptedName$ScientificName
+[1] "Poa"
+
+[[7]]$AcceptedName$ScientificNameWithAuthors
+[1] "Poa L."
+
+[[7]]$AcceptedName$Family
+[1] "Poaceae"
+
+
+[[7]]$Reference
+[[7]]$Reference$ReferenceId
+[1] 1019700
+
+[[7]]$Reference$PublicationId
+[1] 15848
+
+[[7]]$Reference$AuthorString
+[1] "Beetle, A. A."
+
+[[7]]$Reference$Collation
+[1] "5: 1–466"
+
+[[7]]$Reference$AbbreviatedTitle
+[1] "Gram. México"
+
+
+
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>tp_acceptednames</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

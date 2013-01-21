@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>gisd_isinvasive. taxize 0.0.3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="
+  Ignasi Bartomeus &lt;a href='mailto:nacho.bartomeus@gmail.com'&gt;nacho.bartomeus@gmail.com&lt;/a&gt;
+">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">taxize 0.0.3</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Check invasive species status for a set of species from GISD database</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><span class="functioncall"><a href='gisd_isinvasive.html'>gisd_isinvasive</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">,</span> <span class="argument">simplify</span> <span class="argument">=</span> <span class="number">FALSE</span><span class="keyword">)</span></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>x</dt>
+      <dd>character; a vector of scientific species names
+  in the form of c("Genus species").</dd>
+      <dt>simplify</dt>
+      <dd>logical; returns a data.frame with the
+  species name and the values "Invasive", "Not in GISD". I
+  recomend to check first the not simplified version
+  (default), which contains raw information about the level
+  of invasiveness.</dd>
+    </dl>
+    
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>A data.frame with species names and invasiveness.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>This function check which species (both plants and
+  animals) are considered "invaders" somewhere in the
+  world.</p>
+  
+      <p>For that end, it checks GISD
+  (http://www.issg.org/database/welcome/) and returns a
+  value, either "Not in GISD" or the brief description
+  presented in GISD.</p>
+  
+      <p>Note that the webpage contains more information. Also
+  note that the function won't tell you if it's exotic in
+  your area, a lot of exotic species are not considered
+  invaders (yet).</p>
+  
+      <p>As expected, the function is as good as the database is,
+  which I find quite reliable and well maintained. The
+  database is also able to recognize a lot (but not all) of
+  the species synonyms.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'><span class="symbol">sp</span> <span class="assignement">&lt;-</span> <span class="functioncall"><a href='http://www.inside-r.org/r-doc/base/c'>c</a></span><span class="keyword">(</span><span class="string">"Carpobrotus edulis"</span><span class="keyword">,</span> <span class="string">"Rosmarinus officinalis"</span><span class="keyword">)</span>
+<span class="comment">## first species is invasive, second one is not.</span>
+<span class="functioncall"><a href='gisd_isinvasive.html'>gisd_isinvasive</a></span><span class="keyword">(</span><span class="symbol">sp</span><span class="keyword">)</span></div>
+<strong class='message'>Checking species 1</strong>
+<strong class='message'>Checking species 2</strong>
+<strong class='message'>Done</strong>
+<div class='output'>                 species
+1     Carpobrotus edulis
+2 Rosmarinus officinalis
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              status
+1 You searched for invasive species named Carpobrotus edulis:     1.  Carpobrotus edulis (succulent)        Carpobrotus edulis is a mat-forming succulent native to South Africa which is invasive primarily in coastal habitats in many parts of the world. It was often introduced as an ornamental plant or used for planting along roadsides, from which it has spread to become invasive. Its main impacts are smothering, reduced regeneration of native flora and changes to soil pH and nutrient regimes.\r\nCommon Names: balsamo, Cape fig, figue marine, freeway iceplant, ghaukum, ghoenavy, highway ice plant, higo del Cabo, higo marino, Hottentosvy, hottentot fig, Hottentottenfeige, iceplant, ikhambi-lamabulawo, Kaapsevy, patata frita, perdevy, pigface, rankvy, sea fig, sour fig, suurvy, umgongozi, vyerank\r\nSynonyms: Mesembryanthemum edule L., Mesembryanthemum edulis
+2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        Not in GISD
+</div>
+<div class='input'><span class="functioncall"><a href='gisd_isinvasive.html'>gisd_isinvasive</a></span><span class="keyword">(</span><span class="symbol">sp</span><span class="keyword">,</span> <span class="argument">simplify</span> <span class="argument">=</span> <span class="number">TRUE</span><span class="keyword">)</span></div>
+<strong class='message'>Checking species 1</strong>
+<strong class='message'>Checking species 2</strong>
+<strong class='message'>Done</strong>
+<div class='output'>                 species      status
+1     Carpobrotus edulis    Invasive
+2 Rosmarinus officinalis Not in GISD
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>gisd_isinvasive</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+    
+    <h2>Author</h2>
+    
+  Ignasi Bartomeus <a href='mailto:nacho.bartomeus@gmail.com'>nacho.bartomeus@gmail.com</a>
+
+    
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

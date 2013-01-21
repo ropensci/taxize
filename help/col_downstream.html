@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>col_downstream. taxize 0.0.3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">taxize 0.0.3</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Use Catalogue of Life to get downstream taxa to a given taxonomic level.</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><span class="functioncall"><a href='col_downstream.html'>col_downstream</a></span><span class="keyword">(</span><span class="argument">name</span> <span class="argument">=</span> NULL<span class="keyword">,</span> <span class="symbol">downto</span><span class="keyword">,</span> <span class="argument">format</span> <span class="argument">=</span> NULL<span class="keyword">,</span> <span class="argument">start</span> <span class="argument">=</span> NULL<span class="keyword">,</span> <span class="argument">checklist</span> <span class="argument">=</span> NULL<span class="keyword">,</span>
+  <span class="argument">url</span> <span class="argument">=</span> <span class="string">"http://www.catalogueoflife.org/col/webservice"</span><span class="keyword">)</span></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>name</dt>
+      <dd>The string to search for. Only exact matches
+  found the name given will be returned, unless one or
+  wildcards are included in the search string.  An *
+  (asterisk) character denotes a wildcard; a 
+  character may also be used. The name must be at least 3
+  characters long, not counting wildcard characters.</dd>
+      <dt>downto</dt>
+      <dd>The taxonomic level you want to go down to.
+  See examples below.  The taxonomic level IS case
+  sensitive, and you do have to spell it correctly. See
+  <code>data(rank_ref)</code> for spelling.</dd>
+      <dt>checklist</dt>
+      <dd>The year of the checklist to query, if
+  you want a specific year's checklist instead of the
+  lastest as default (numeric).</dd>
+      <dt>format</dt>
+      <dd>The returned format (default = NULL). If
+  NULL xml is used.  Currently only xml is supported.</dd>
+      <dt>start</dt>
+      <dd>The first record to return (default = NULL).
+  If NULL, the results are returned from the first record
+  (start=0).  This is useful if the total number of results
+  is larger than the maximum number of results returned by
+  a single Web service query (currently the maximum number
+  of results returned by a single query is 500 for terse
+  queries and 50 for full queries).</dd>
+      <dt>url</dt>
+      <dd>The base COL url for the function (should be
+  left to default).</dd>
+    </dl>
+    
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>A list of data.frame's.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Use Catalogue of Life to get downstream taxa to a given
+  taxonomic level.</p>
+  
+    </div>
+
+    <div class="Details">
+      <h2>Details</h2>
+      
+      <p>Provide only names instead of id's</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'><span class="comment"># Some basic examples</span>
+<span class="functioncall"><a href='col_downstream.html'>col_downstream</a></span><span class="keyword">(</span><span class="argument">name</span><span class="argument">=</span><span class="string">"Apis"</span><span class="keyword">,</span> <span class="argument">downto</span><span class="argument">=</span><span class="string">"Species"</span><span class="keyword">)</span></div>
+<div class='output'>$Apis
+  childtaxa_id     childtaxa_name childtaxa_rank
+1      6971712 Apis andreniformis        Species
+2      6971713        Apis cerana        Species
+3      6971714       Apis dorsata        Species
+4      6971715        Apis florea        Species
+5      6971716 Apis koschevnikovi        Species
+6      6845885     Apis mellifera        Species
+7      6971717   Apis nigrocincta        Species
+
+</div>
+<div class='input'><span class="functioncall"><a href='col_downstream.html'>col_downstream</a></span><span class="keyword">(</span><span class="argument">name</span><span class="argument">=</span><span class="string">"Bryophyta"</span><span class="keyword">,</span> <span class="argument">downto</span><span class="argument">=</span><span class="string">"Family"</span><span class="keyword">)</span></div>
+<div class='output'>$Bryophyta
+   childtaxa_id     childtaxa_name childtaxa_rank
+1      12250220       Andreaeaceae         Family
+2      12250222   Andreaeobryaceae         Family
+3      12250210       Archidiaceae         Family
+4      12250211     Aulacomniaceae         Family
+5      12250212      Bartramiaceae         Family
+6      12250213           Bryaceae         Family
+7      12250205     Catoscopiaceae         Family
+8      12250206    Hypnodendraceae         Family
+9      12250207    Lembophyllaceae         Family
+10     12250208         Meesiaceae         Family
+11     12250204       Mitteniaceae         Family
+12     12250200           Mniaceae         Family
+13     12250201 Pseudoditrichaceae         Family
+14     12250203       Racopilaceae         Family
+15     12250202     Rhizogoniaceae         Family
+16     12250198     Spiridentaceae         Family
+17     12250199         Timmiaceae         Family
+18     12250196      Buxbaumiaceae         Family
+19     12250194        Bruchiaceae         Family
+20     12250190     Bryoxiphiaceae         Family
+21     12250191      Dicnemonaceae         Family
+22     12250193        Dicranaceae         Family
+23     12250192       Ditrichaceae         Family
+24     12250188      Eustichiaceae         Family
+25     12250189 Phyllodrepaniaceae         Family
+26     12250187   Pleurophascaceae         Family
+27     12250186   Rhabdoweisiaceae         Family
+28     12250185      Sorapillaceae         Family
+29     12250184  Viridivelleraceae         Family
+30     12250182     Fissidentaceae         Family
+31     12250180       Disceliaceae         Family
+32     12250179       Ephemeraceae         Family
+33     12250178        Funariaceae         Family
+34     12250177     Gigaspermaceae         Family
+35     12250175      Oedipodiaceae         Family
+36     12250170       Splachnaceae         Family
+37     12250171   Splachnobryaceae         Family
+38     12250174        Grimmiaceae         Family
+39     12250173   Ptychomitriaceae         Family
+40     12250167       Daltoniaceae         Family
+41     12250168       Hookeriaceae         Family
+42     12250165    Amblystegiaceae         Family
+43     12250164   Brachytheciaceae         Family
+44     12250163      Entodontaceae         Family
+45     12250162       Fabroniaceae         Family
+46     12250161      Hylocomiaceae         Family
+47     12250160          Hypnaceae         Family
+48     12250159         Leskeaceae         Family
+49     12250158        Myriniaceae         Family
+50     12250157   Plagiotheciaceae         Family
+51     12250156  Pterigynandraceae         Family
+52     12250155   Sematophyllaceae         Family
+53     12250154   Stereophyllaceae         Family
+54     12250153     Thamnobryaceae         Family
+55     12250152         Theliaceae         Family
+56     12250151        Thuidiaceae         Family
+57     12250148      Echinodiaceae         Family
+58     12250149      Cyrtopodaceae         Family
+59     12250145      Fontinalaceae         Family
+60     12250146    Hydropogonaceae         Family
+61     12250144    Lepyrodontaceae         Family
+62     12250143    Prionodontaceae         Family
+63     12250141     Ptychomniaceae         Family
+64     12250142   Regmatodontaceae         Family
+65     12250140    Rutenbergiaceae         Family
+66     12250138     Trachypodaceae         Family
+67     12250139         Wardiaceae         Family
+68     12250136       Climaciaceae         Family
+69     12250134       Cryphaeaceae         Family
+70     12250135       Hedwigiaceae         Family
+71     12250133     Leptodontaceae         Family
+72     12250131     Leucodontaceae         Family
+73     12250132       Meteoriaceae         Family
+74     12250130        Neckeraceae         Family
+75     12250128      Pterobryaceae         Family
+76     12250119        Erpodiaceae         Family
+77     12250117   Helicophyllaceae         Family
+78     12250118 Microtheciellaceae         Family
+79     12250116    Orthotrichaceae         Family
+80     12250113   Rhachitheciaceae         Family
+81     12250115     Polytrichaceae         Family
+82     12250111  Bryobartramiaceae         Family
+83     12250109      Calymperaceae         Family
+84     12250110      Encalyptaceae         Family
+85     12250108         Pottiaceae         Family
+86     12250104   Schistostegaceae         Family
+87     12250106      Seligeriaceae         Family
+88     12250102       Calomniaceae         Family
+89     12250100     Tetraphidaceae         Family
+90     12250097        Sphagnaceae         Family
+
+</div>
+<div class='input'>
+<span class="comment"># An example that takes a bit longer</span>
+<span class="functioncall"><a href='col_downstream.html'>col_downstream</a></span><span class="keyword">(</span><span class="argument">name</span><span class="argument">=</span><span class="functioncall"><a href='http://www.inside-r.org/r-doc/base/c'>c</a></span><span class="keyword">(</span><span class="string">"Plantae"</span><span class="keyword">,</span><span class="string">"Animalia"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">downto</span><span class="argument">=</span><span class="string">"Class"</span><span class="keyword">)</span></div>
+<div class='output'>$Plantae
+   childtaxa_id       childtaxa_name childtaxa_rank
+1      12255426     Anthocerotopsida          Class
+2      12255861 Leiosporocerotopsida          Class
+3      12250223    Bacillariophyceae          Class
+4      12250215         Not assigned          Class
+5      12250218        Andreaeopsida          Class
+6      12250098            Bryopsida          Class
+7      12250095         Sphagnopsida          Class
+8      12250079     Bryopsidophyceae          Class
+9      12250062         Charophyceae          Class
+10     12249974        Chlorophyceae          Class
+11     12249967  Klebsormidiophyceae          Class
+12     12249962  Mesostigmatophyceae          Class
+13     12249958         Not assigned          Class
+14     12249953        Pedinophyceae          Class
+15     12249949    Pleurastrophyceae          Class
+16     12249939     Trebouxiophyceae          Class
+17     12249884          Ulvophyceae          Class
+18     12249856     Zygnematophyceae          Class
+19     12249852      Cyanidiophyceae          Class
+20     12249750          Cycadopsida          Class
+21     12255706        Equisetopsida          Class
+22     12252825         Ginkgoopsida          Class
+23     12249840        Glaucophyceae          Class
+24     12252829           Gnetopsida          Class
+25     12255698       Lycopodiopsida          Class
+26     12249846           Liliopsida          Class
+27     12247965        Magnoliopsida          Class
+28     12255865     Haplomitriopsida          Class
+29     12255870    Jungermanniopsida          Class
+30     12255939      Marchantiopsida          Class
+31     12249908            Pinopsida          Class
+32     12249709         Not assigned          Class
+33     12249691       Prasinophyceae          Class
+34     12258281         Psilotopsida          Class
+35     12255694        Marattiopsida          Class
+36     12255495       Polypodiopsida          Class
+37     12258277         Psilotopsida          Class
+38     12249589        Bangiophyceae          Class
+39     12249581  Compsopogonophyceae          Class
+40     12249408      Florideophyceae          Class
+41     12249402      Rhodellophyceae          Class
+
+$Animalia
+    childtaxa_id      childtaxa_name childtaxa_rank
+7       12254398 Archiacanthocephala          Class
+8       12254386    Eoacanthocephala          Class
+9       12254369 Palaeacanthocephala          Class
+10      12248016          Clitellata          Class
+11      12248668          Polychaeta          Class
+12      12247894           Arachnida          Class
+13      12252963        Branchiopoda          Class
+14      12257840       Cephalocarida          Class
+15      12248161           Chilopoda          Class
+16      12251443           Diplopoda          Class
+17      12252704          Entognatha          Class
+18      12248024             Insecta          Class
+19      12247834        Malacostraca          Class
+20      12247950         Maxillopoda          Class
+21      12248883         Merostomata          Class
+22      12251436        Not assigned          Class
+23      12248730           Ostracoda          Class
+24      12248035           Pauropoda          Class
+25      12248690         Pycnogonida          Class
+26      12247876           Remipedia          Class
+27      12249510            Craniata          Class
+28      12257832           Lingulata          Class
+29      12249500      Rhynchonellata          Class
+30      12249735        Gymnolaemata          Class
+31      12251705     Phylactolaemata          Class
+32      12251711        Stenolaemata          Class
+33      12248769        Not assigned          Class
+34      12247882      Actinopterygii          Class
+35      12255435            Amphibia          Class
+36      12248655      Appendicularia          Class
+37      12248652          Ascidiacea          Class
+38      12248522                Aves          Class
+39      12250554  Cephalaspidomorphi          Class
+40      12248519     Cephalochordata          Class
+41      12248844      Elasmobranchii          Class
+42      12258318         Holocephali          Class
+43      12248175            Mammalia          Class
+44      12258323              Myxini          Class
+45      12248325            Reptilia          Class
+46      12258326       Sarcopterygii          Class
+47      12248706           Thaliacea          Class
+48      12248777            Anthozoa          Class
+49      12251635             Cubozoa          Class
+50      12251597            Hydrozoa          Class
+51      12248802           Scyphozoa          Class
+52      12251560           Staurozoa          Class
+76      12247861                Nuda          Class
+77      12247850         Tentaculata          Class
+78      12248172       Eucycliophora          Class
+79      12249685          Asteroidea          Class
+80      12248059           Crinoidea          Class
+81      12249459          Echinoidea          Class
+82      12248671       Holothuroidea          Class
+83      12249771         Ophiuroidea          Class
+84      12247942       Somasteroidea          Class
+85      12253384        Not assigned          Class
+86      12253278        Not assigned          Class
+87      12253297        Not assigned          Class
+88      12253395       Enteropneusta          Class
+89      12253391       Pterobranchia          Class
+90      12254476        Not assigned          Class
+91      12248678        Not assigned          Class
+92      12248872        Not assigned          Class
+93      12256833        Not assigned          Class
+94      12254482         Aplacophora          Class
+95      12254501            Bivalvia          Class
+96      12254618         Cephalopoda          Class
+97      12247830          Gastropoda          Class
+98      12249236      Monoplacophora          Class
+99      12249239      Polyplacophora          Class
+100     12247843          Scaphopoda          Class
+101     12254968          Myxosporea          Class
+102     12254976         Adenophorea          Class
+103     12255057         Secernentea          Class
+104     12258448           Gordioida          Class
+105     12255122      Nectonematoida          Class
+107     12248040              Anopla          Class
+108     12248032              Enopla          Class
+109     12257805            Nemertea          Class
+110     12248053      Palaeonemertea          Class
+112     12255141        Not assigned          Class
+113     12253319        Not assigned          Class
+114     12256649        Not assigned          Class
+115     12253324        Not assigned          Class
+117     12253935              Acoela          Class
+118     12256278         Archoophora          Class
+119     12253889             Cestoda          Class
+120     12253958    Nemertodermatida          Class
+121     12256283           Neoophora          Class
+122     12247891     Platyhelminthes          Class
+123     12247886       Rhabditophora          Class
+124     12249315           Trematoda          Class
+125     12255329         Turbellaria          Class
+127     12254460            Calcarea          Class
+128     12248136        Demospongiae          Class
+129     12248139      Hexactinellida          Class
+130     12256150    Homoscleromorpha          Class
+131     12256139            Porifera          Class
+132     12248682        Not assigned          Class
+133     12253313        Not assigned          Class
+134     12258357         Eurotatoria          Class
+135     12258389       Pararotatoria          Class
+136     12253409   Phascolosomatidea          Class
+137     12253404        Sipunculidea          Class
+138     12255385        Eutardigrada          Class
+139     12255396    Heterotardigrada          Class
+140     12255410      Mesotardigrada          Class
+141     12248796        Not assigned          Class
+
+</div>
+<div class='input'>
+<span class="comment"># Using a checklist from a specific year</span>
+<span class="functioncall"><a href='col_downstream.html'>col_downstream</a></span><span class="keyword">(</span><span class="argument">name</span><span class="argument">=</span><span class="string">"Bryophyta"</span><span class="keyword">,</span> <span class="argument">downto</span><span class="argument">=</span><span class="string">"Family"</span><span class="keyword">,</span> <span class="argument">checklist</span><span class="argument">=</span><span class="string">"2009"</span><span class="keyword">)</span></div>
+<div class='output'>$Bryophyta
+   childtaxa_id     childtaxa_name childtaxa_rank
+1          3656        Sphagnaceae         Family
+2          3659     Tetraphidaceae         Family
+3          3661       Calomniaceae         Family
+4          3663   Schistostegaceae         Family
+5          3665      Seligeriaceae         Family
+6          3667         Pottiaceae         Family
+7          3668      Calymperaceae         Family
+8          3669      Encalyptaceae         Family
+9          3670  Bryobartramiaceae         Family
+10         3672   Rhachitheciaceae         Family
+11         3675    Orthotrichaceae         Family
+12         3676   Helicophyllaceae         Family
+13         3677 Microtheciellaceae         Family
+14         3678        Erpodiaceae         Family
+15         3674     Polytrichaceae         Family
+16         3687      Pterobryaceae         Family
+17         3689        Neckeraceae         Family
+18         3690     Leucodontaceae         Family
+19         3691       Meteoriaceae         Family
+20         3692     Leptodontaceae         Family
+21         3693       Cryphaeaceae         Family
+22         3694       Hedwigiaceae         Family
+23         3695       Climaciaceae         Family
+24         3697     Trachypodaceae         Family
+25         3698         Wardiaceae         Family
+26         3699    Rutenbergiaceae         Family
+27         3700     Ptychomniaceae         Family
+28         3701   Regmatodontaceae         Family
+29         3702    Prionodontaceae         Family
+30         3703    Lepyrodontaceae         Family
+31         3704      Fontinalaceae         Family
+32         3705    Hydropogonaceae         Family
+33         3708      Cyrtopodaceae         Family
+34         3707      Echinodiaceae         Family
+35         3710        Thuidiaceae         Family
+36         3711         Theliaceae         Family
+37         3712     Thamnobryaceae         Family
+38         3713   Stereophyllaceae         Family
+39         3714   Sematophyllaceae         Family
+40         3715  Pterigynandraceae         Family
+41         3716   Plagiotheciaceae         Family
+42         3717       Not assigned         Family
+43         3718        Myriniaceae         Family
+44         3719         Leskeaceae         Family
+45         3720          Hypnaceae         Family
+46         3721      Hylocomiaceae         Family
+47         3722       Fabroniaceae         Family
+48         3723      Entodontaceae         Family
+49         3724   Brachytheciaceae         Family
+50         3725    Amblystegiaceae         Family
+51         3727       Daltoniaceae         Family
+52         3728       Hookeriaceae         Family
+53         3730       Splachnaceae         Family
+54         3731   Splachnobryaceae         Family
+55         3735      Oedipodiaceae         Family
+56         3737     Gigaspermaceae         Family
+57         3738        Funariaceae         Family
+58         3739       Ephemeraceae         Family
+59         3740       Disceliaceae         Family
+60         3733   Ptychomitriaceae         Family
+61         3734        Grimmiaceae         Family
+62         3742     Fissidentaceae         Family
+63         3744  Viridivelleraceae         Family
+64         3745      Sorapillaceae         Family
+65         3746   Rhabdoweisiaceae         Family
+66         3747   Pleurophascaceae         Family
+67         3748      Eustichiaceae         Family
+68         3749 Phyllodrepaniaceae         Family
+69         3750     Bryoxiphiaceae         Family
+70         3751      Dicnemonaceae         Family
+71         3752       Ditrichaceae         Family
+72         3753        Dicranaceae         Family
+73         3754        Bruchiaceae         Family
+74         3756      Buxbaumiaceae         Family
+75         3758     Spiridentaceae         Family
+76         3759         Timmiaceae         Family
+77         3760           Mniaceae         Family
+78         3761 Pseudoditrichaceae         Family
+79         3762     Rhizogoniaceae         Family
+80         3763       Racopilaceae         Family
+81         3764       Mitteniaceae         Family
+82         3765     Catoscopiaceae         Family
+83         3766    Hypnodendraceae         Family
+84         3767    Lembophyllaceae         Family
+85         3768         Meesiaceae         Family
+86         3771     Aulacomniaceae         Family
+87         3772      Bartramiaceae         Family
+88         3773           Bryaceae         Family
+89         3770       Archidiaceae         Family
+90         3780       Andreaeaceae         Family
+91         3782   Andreaeobryaceae         Family
+
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>col_downstream</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

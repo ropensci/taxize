@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>eol_hierarchy. taxize 0.0.3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">taxize 0.0.3</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Retrieve all taxonomic hierarchy from given EOL taxonID.</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><span class="functioncall"><a href='eol_hierarchy.html'>eol_hierarchy</a></span><span class="keyword">(</span><span class="symbol">taxonid</span><span class="keyword">,</span> <span class="argument">common_names</span> <span class="argument">=</span> NULL<span class="keyword">,</span> <span class="argument">synonyms</span> <span class="argument">=</span> NULL<span class="keyword">,</span> <span class="argument">usekey</span> <span class="argument">=</span> <span class="number">FALSE</span><span class="keyword">,</span> <span class="argument">returntype</span> <span class="argument">=</span> <span class="string">"data.frame"</span><span class="keyword">,</span>
+  <span class="argument">url</span> <span class="argument">=</span> <span class="string">"http://www.eol.org/api/hierarchy_entries/1.0/"</span><span class="keyword">,</span> <span class="argument">key</span> <span class="argument">=</span> NULL<span class="keyword">)</span></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>taxonid</dt>
+      <dd>the EOL page identifier (character)</dd>
+      <dt>common_names</dt>
+      <dd>Return common names or not (defaults
+  to returning them, given commonnames=0 if not)</dd>
+      <dt>synonyms</dt>
+      <dd>Return synonyms or not (defaults to
+  returning them, given synonyms=0 if not)</dd>
+      <dt>usekey</dt>
+      <dd>use your API key or not (TRUE or FALSE)</dd>
+      <dt>returntype</dt>
+      <dd>one of "list" of "data.frame"
+  (character)</dd>
+      <dt>url</dt>
+      <dd>The EOL url for the function (should be left
+  to default).</dd>
+      <dt>key</dt>
+      <dd>Your EOL API key; loads from .Rprofile.</dd>
+    </dl>
+    
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>List or dataframe of XXXX.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Retrieve all taxonomic hierarchy from given EOL taxonID.</p>
+  
+    </div>
+
+    <div class="Details">
+      <h2>Details</h2>
+      
+      <p>It's possible to return JSON or XML with the EOL API.
+  However, this function only returns JSON for now.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'><span class="symbol">pageid</span> <span class="assignement">&lt;-</span> <span class="functioncall"><a href='eol_search.html'>eol_search</a></span><span class="keyword">(</span><span class="string">'Pomatomus'</span><span class="keyword">)</span><span class="keyword">$</span><span class="symbol">id</span><span class="keyword">[</span><span class="number">1</span><span class="keyword">]</span></div>
+<strong class='message'>http://eol.org/api/search/Pomatomus.json?key=52987dc6505de77c6c9345e8e8068f74ffb52de6</strong>
+<div class='input'><span class="symbol">out</span> <span class="assignement">&lt;-</span> <span class="functioncall"><a href='eol_pages.html'>eol_pages</a></span><span class="keyword">(</span><span class="argument">taxonconceptID</span><span class="argument">=</span><span class="symbol">pageid</span><span class="keyword">)</span></div>
+<strong class='message'>http://eol.org/api/pages/1.0/24805.json</strong>
+<div class='input'><span class="functioncall"><a href='eol_hierarchy.html'>eol_hierarchy</a></span><span class="keyword">(</span><span class="symbol">out</span><span class="keyword">[</span><span class="symbol">out</span><span class="keyword">$</span><span class="symbol">nameAccordingTo</span> == <span class="string">"NCBI Taxonomy"</span><span class="keyword">,</span> <span class="string">"identifier"</span><span class="keyword">]</span><span class="keyword">)</span></div>
+<strong class='message'>http://www.eol.org/api/hierarchy_entries/1.0/39153619.json?common_names=1&synonyms=1</strong>
+<div class='output'>   sourceIdentifier  taxonID parentNameUsageID taxonConceptID     scientificName
+1            131567 38500412                 0       11660866 Cellular organisms
+2              2759 38714833          38500412        2908256          Eukaryota
+3             33154 38842262          38714833        2910700       Opisthokonta
+4             33208 38913758          38842262              1            Metazoa
+5              6072 38915309          38913758       10380067          Eumetazoa
+6             33213 38920151          38915309        3014411          Bilateria
+7             33316 38931382          38920151       11995650          Coelomata
+8             33511 39145054          38931382        8814528      Deuterostomia
+9              7711 39147281          39145054            694           Chordata
+10            89593 39147686          39147281        5004126           Craniata
+11             7742 39147687          39147686        2774383         Vertebrata
+12             7776 39147688          39147687       12094272      Gnathostomata
+13           117570 39148878          39147688        4656087         Teleostomi
+14           117571 39148879          39148878       10459961       Euteleostomi
+15             7898 39148880          39148879           1905     Actinopterygii
+16           186623 39148908          39148880       12095116        Actinopteri
+17            41665 39148987          39148908        2775792        Neopterygii
+18            32443 39149008          39148987        2775808          Teleostei
+19           186624 39149256          39149008       12095400       Elopocephala
+20           186625 39149790          39149256       12095755      Clupeocephala
+21            32447 39149791          39149790       12095756        Euteleostei
+22           186839 39150305          39149791       12096153          Neognathi
+23           123365 39150333          39150305       12096174       Neoteleostei
+24           123366 39150601          39150333       12096269       Eurypterygii
+25           123367 39150813          39150601       12096393      Ctenosquamata
+26           123368 39151028          39150813        4657596      Acanthomorpha
+27           123369 39151075          39151028       12096554    Euacanthomorpha
+28           123370 39151089          39151075       12096563 Holacanthopterygii
+29            32455 39151090          39151089           8228    Acanthopterygii
+30           129947 39151232          39151090       12096677  Euacanthopterygii
+31            32485 39151366          39151232        4656110        Percomorpha
+32             8111 39152344          39151366           5184        Perciformes
+33             8112 39152345          39152344        2793360          Percoidei
+34            30864 39153618          39152345           5258        Pomatomidae
+                                                              source    taxonRank
+1  http://eol.org/pages/11660866/hierarchy_entries/38500412/overview         <NA>
+2   http://eol.org/pages/2908256/hierarchy_entries/38714833/overview superkingdom
+3   http://eol.org/pages/2910700/hierarchy_entries/38842262/overview         <NA>
+4         http://eol.org/pages/1/hierarchy_entries/38913758/overview      kingdom
+5  http://eol.org/pages/10380067/hierarchy_entries/38915309/overview         <NA>
+6   http://eol.org/pages/3014411/hierarchy_entries/38920151/overview         <NA>
+7  http://eol.org/pages/11995650/hierarchy_entries/38931382/overview         <NA>
+8   http://eol.org/pages/8814528/hierarchy_entries/39145054/overview         <NA>
+9       http://eol.org/pages/694/hierarchy_entries/39147281/overview       phylum
+10  http://eol.org/pages/5004126/hierarchy_entries/39147686/overview    subphylum
+11  http://eol.org/pages/2774383/hierarchy_entries/39147687/overview         <NA>
+12 http://eol.org/pages/12094272/hierarchy_entries/39147688/overview   superclass
+13  http://eol.org/pages/4656087/hierarchy_entries/39148878/overview         <NA>
+14 http://eol.org/pages/10459961/hierarchy_entries/39148879/overview         <NA>
+15     http://eol.org/pages/1905/hierarchy_entries/39148880/overview        class
+16 http://eol.org/pages/12095116/hierarchy_entries/39148908/overview         <NA>
+17  http://eol.org/pages/2775792/hierarchy_entries/39148987/overview         <NA>
+18  http://eol.org/pages/2775808/hierarchy_entries/39149008/overview         <NA>
+19 http://eol.org/pages/12095400/hierarchy_entries/39149256/overview         <NA>
+20 http://eol.org/pages/12095755/hierarchy_entries/39149790/overview         <NA>
+21 http://eol.org/pages/12095756/hierarchy_entries/39149791/overview         <NA>
+22 http://eol.org/pages/12096153/hierarchy_entries/39150305/overview         <NA>
+23 http://eol.org/pages/12096174/hierarchy_entries/39150333/overview         <NA>
+24 http://eol.org/pages/12096269/hierarchy_entries/39150601/overview         <NA>
+25 http://eol.org/pages/12096393/hierarchy_entries/39150813/overview         <NA>
+26  http://eol.org/pages/4657596/hierarchy_entries/39151028/overview         <NA>
+27 http://eol.org/pages/12096554/hierarchy_entries/39151075/overview         <NA>
+28 http://eol.org/pages/12096563/hierarchy_entries/39151089/overview         <NA>
+29     http://eol.org/pages/8228/hierarchy_entries/39151090/overview   superorder
+30 http://eol.org/pages/12096677/hierarchy_entries/39151232/overview         <NA>
+31  http://eol.org/pages/4656110/hierarchy_entries/39151366/overview         <NA>
+32     http://eol.org/pages/5184/hierarchy_entries/39152344/overview        order
+33  http://eol.org/pages/2793360/hierarchy_entries/39152345/overview     suborder
+34     http://eol.org/pages/5258/hierarchy_entries/39153618/overview       family
+</div>
+<div class='input'><span class="functioncall"><a href='eol_hierarchy.html'>eol_hierarchy</a></span><span class="keyword">(</span><span class="symbol">out</span><span class="keyword">[</span><span class="symbol">out</span><span class="keyword">$</span><span class="symbol">nameAccordingTo</span> == <span class="string">"Integrated Taxonomic Information System (ITIS)"</span><span class="keyword">,</span> <span class="string">"identifier"</span><span class="keyword">]</span><span class="keyword">)</span></div>
+<strong class='message'>http://www.eol.org/api/hierarchy_entries/1.0/46538152.json?common_names=1&synonyms=1</strong>
+<div class='output'>   sourceIdentifier  taxonID parentNameUsageID taxonConceptID  scientificName
+1            202423 46216568                 0              1        Animalia
+2            158852 46516964          46216568            694        Chordata
+3            331030 46517559          46516964        2774383      Vertebrata
+4            161030 46518910          46517559        2775704    Osteichthyes
+5            161061 46518934          46518910           1905  Actinopterygii
+6            553120 46518998          46518934        2775792     Neopterygii
+7            161105 46519014          46518998        2775808       Teleostei
+8            166082 46533001          46519014           8228 Acanthopterygii
+9            167640 46536049          46533001           5184     Perciformes
+10           167641 46536567          46536049        2793360       Percoidei
+11           168557 46538151          46536567           5258     Pomatomidae
+     taxonRank                                                           source
+1      kingdom       http://eol.org/pages/1/hierarchy_entries/46216568/overview
+2     division     http://eol.org/pages/694/hierarchy_entries/46516964/overview
+3  subdivision http://eol.org/pages/2774383/hierarchy_entries/46517559/overview
+4   superclass http://eol.org/pages/2775704/hierarchy_entries/46518910/overview
+5        class    http://eol.org/pages/1905/hierarchy_entries/46518934/overview
+6     subclass http://eol.org/pages/2775792/hierarchy_entries/46518998/overview
+7   infraclass http://eol.org/pages/2775808/hierarchy_entries/46519014/overview
+8   superorder    http://eol.org/pages/8228/hierarchy_entries/46533001/overview
+9        order    http://eol.org/pages/5184/hierarchy_entries/46536049/overview
+10    suborder http://eol.org/pages/2793360/hierarchy_entries/46536567/overview
+11      family    http://eol.org/pages/5258/hierarchy_entries/46538151/overview
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>eol_hierarchy</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

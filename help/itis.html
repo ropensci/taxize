@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>itis. taxize 0.0.3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">taxize 0.0.3</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Use any API method for the ITIS API.</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><span class="functioncall"><a href='itis.html'>itis</a></span><span class="keyword">(</span><span class="symbol">query</span><span class="keyword">,</span> <span class="argument">searchtype</span> <span class="argument">=</span> NULL<span class="keyword">)</span></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>query</dt>
+      <dd>Any common or scientific name (character),
+  or taxonomic serial number (numeric). Can supply a single
+  query or many.</dd>
+      <dt>searchtype</dt>
+      <dd>Specify one or more of ITIS API methods
+  (see <a href = 'http://www.itis.gov/ws_description.html'>http://www.itis.gov/ws_description.html</a> for
+  more information on these methods):
+  "getacceptednamesfromtsn","getanymatchcount","getcommentdetailfromtsn",
+  "getcommonnamesfromtsn","getcoremetadatafromtsn","getcoveragefromtsn",
+  "getcredibilityratingfromtsn","getcurrencyfromtsn","getdatedatafromtsn",
+  "getexpertsfromtsn","getfullhierarchyfromtsn","getfullrecordfromtsn",
+  "getgeographicdivisionsfromtsn","getglobalspeciescompletenessfromtsn",
+  "gethierarchydownfromtsn","gethierarchyupfromtsn","getitistermsfromcommonname",
+  "getitistermsfromscientificname","getjurisdictionaloriginfromtsn",
+  "getkingdomnamefromtsn","getlsidfromtsn","getothersourcesfromtsn",
+  "getparenttsnfromtsn","getpublicationsfromtsn","getreviewyearfromtsn",
+  "getscientificnamefromtsn","getsynonymnamesfromtsn","gettaxonauthorshipfromtsn",
+  "gettaxonomicranknamefromtsn","gettaxonomicusagefromtsn",
+  "getunacceptabilityreasonfromtsn","searchbycommonname",
+  "searchbycommonnamebeginswith","searchbycommonnameendswith","searchbyscientificname",
+  "searchforanymatch","searchforanymatchpaged".</dd>
+    </dl>
+    
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>A variety of results can be returned depending on the
+  function called.  If many queries or functions, or many
+  of both, are provided, results will be returned in a
+  list.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Use any API method for the ITIS API.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'><span class="comment"># Search by scientific name, can abbreviate</span>
+<span class="functioncall"><a href='itis.html'>itis</a></span><span class="keyword">(</span><span class="argument">query</span><span class="argument">=</span><span class="string">"Quercus douglasii"</span><span class="keyword">,</span> <span class="argument">searchtype</span><span class="argument">=</span><span class="string">"searchbyscientificname"</span><span class="keyword">)</span></div>
+<div class='output'>       combinedname   tsn
+1 Quercus douglasii 19322
+</div>
+<div class='input'>
+<span class="comment"># Get the full taxonomic hierarchy for a taxon from the TSN</span>
+<span class="functioncall"><a href='itis.html'>itis</a></span><span class="keyword">(</span><span class="number">36616</span><span class="keyword">,</span> <span class="string">"getfullhierarchyfromtsn"</span><span class="keyword">)</span></div>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=36616</strong>
+<div class='output'>        parentName parentTsn      rankName         taxonName    tsn
+1                                  Kingdom           Plantae 202422
+2          Plantae    202422    Subkingdom    Viridaeplantae 846492
+3   Viridaeplantae    846492  Infrakingdom      Streptophyta 846494
+4     Streptophyta    846494      Division      Tracheophyta 846496
+5     Tracheophyta    846496   Subdivision   Spermatophytina 846504
+6  Spermatophytina    846504 Infradivision      Angiospermae 846505
+7     Angiospermae    846505         Class     Magnoliopsida  18063
+8    Magnoliopsida     18063    Superorder         Asteranae 846535
+9        Asteranae    846535         Order         Asterales  35419
+10       Asterales     35419        Family        Asteraceae  35420
+11      Asteraceae     35420         Genus        Helianthus  36611
+12      Helianthus     36611       Species Helianthus annuus  36616
+</div>
+<div class='input'>
+<span class="comment"># Search by scientific name, then use a TSN to get its parent TSN</span>
+<span class="functioncall"><a href='itis.html'>itis</a></span><span class="keyword">(</span><span class="string">"Ursus"</span><span class="keyword">,</span> <span class="string">"searchbyscientificname"</span><span class="keyword">)</span></div>
+<div class='output'>                       combinedname    tsn
+1                  Molophilus ursus 120819
+2                             Ursus 180541
+3                   Ursus maritimus 180542
+4                      Ursus arctos 180543
+5                  Ursus americanus 180544
+6               Ursus arctos arctos 202383
+7              Ursus arctos nelsoni 202384
+8           Ursus arctos horribilis 202385
+9            Ursus arctos pruinosus 202386
+10      Ursus americanus americanus 202387
+11        Ursus americanus luteolus 202388
+12                   Ursus luteolus 203539
+13            Ammopursus ohlingerae 508723
+14  Senecio aureus var. intercursus 540550
+15 Pachydesmus crassicutis incursus 571660
+16                 Camponotus ursus 576500
+17                   Pheidole ursus 581293
+18                         Melursus 621775
+19                 Melursus ursinus 621848
+20                 Ursus thibetanus 621850
+21     Ursus thibetanus gedrosianus 622030
+22      Ursus thibetanus thibetanus 622052
+23         Ursus arctos isabellinus 622068
+24        Ursus maritimus maritimus 622083
+25          Ursus maritimus marinus 622084
+26            Pseudotropheus pursus 648889
+27                 Megathymus ursus 706715
+28         Megathymus ursus deserti 707377
+29           Megathymus ursus ursus 707378
+30          Megathymus ursus violae 707379
+31           Isohypsibius saltursus 710708
+32         Melursus ursinus ursinus 726969
+33       Melursus ursinus inornatus 726970
+34   Ursus americanus altifrontalis 726971
+35       Ursus americanus amblyceps 726972
+36  Ursus americanus californiensis 726973
+37       Ursus americanus carlottae 726974
+38      Ursus americanus cinnamomum 726975
+39        Ursus americanus emmonsii 726976
+40        Ursus americanus eremicus 726977
+41      Ursus americanus floridanus 726978
+42       Ursus americanus hamiltoni 726979
+43        Ursus americanus kermodei 726980
+44        Ursus americanus machetes 726981
+45        Ursus americanus perniger 726982
+46          Ursus americanus pugnax 726983
+47      Ursus americanus vancouveri 726984
+48          Ursus arctos alascensis 726985
+49         Ursus arctos beringianus 726986
+50        Ursus arctos californicus 726987
+51            Ursus arctos collaris 726988
+52           Ursus arctos crowtheri 726989
+53               Ursus arctos dalli 726990
+54                Ursus arctos gyas 726991
+55            Ursus arctos lasiotus 726992
+56        Ursus arctos middendorffi 726993
+57           Ursus arctos sitkensis 726994
+58        Ursus arctos stikeenensis 726995
+59            Ursus arctos syriacus 726996
+60      Ursus thibetanus formosanus 726997
+61       Ursus thibetanus japonicus 726998
+62         Ursus thibetanus laniger 726999
+63      Ursus thibetanus mupinensis 727000
+64       Ursus thibetanus ussuricus 727001
+65                Podabrus excursus 834357
+66          Acanthogonatus incursus 849781
+67               Argyrodes incursus 852210
+68                      Tinus ursus 890967
+69               Xysticus concursus 892101
+</div>
+<div class='input'><span class="functioncall"><a href='itis.html'>itis</a></span><span class="keyword">(</span><span class="number">203539</span><span class="keyword">,</span> <span class="string">"getparenttsnfromtsn"</span><span class="keyword">)</span></div>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getParentTSNFromTSN?tsn=203539</strong>
+<div class='output'>  parentTsn    tsn
+1           203539
+</div>
+<div class='input'><span class="functioncall"><a href='itis.html'>itis</a></span><span class="keyword">(</span><span class="number">203539</span><span class="keyword">,</span> <span class="string">"getsynonymnamesfromtsn"</span><span class="keyword">)</span> <span class="comment"># no synonyms in this case</span></div>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getSynonymNamesFromTSN?tsn=203539</strong>
+<div class='output'>     name    tsn
+1 nomatch 203539
+</div>
+<div class='input'>
+<span class="comment"># Use multiple queries on one call to the function</span>
+<span class="functioncall"><a href='itis.html'>itis</a></span><span class="keyword">(</span><span class="argument">query</span><span class="argument">=</span><span class="functioncall"><a href='http://www.inside-r.org/r-doc/base/list'>list</a></span><span class="keyword">(</span><span class="number">203539</span><span class="keyword">,</span> <span class="number">202420</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">searchtype</span><span class="argument">=</span><span class="string">"getsynonymnamesfromtsn"</span><span class="keyword">)</span></div>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getSynonymNamesFromTSN?tsn=203539</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getSynonymNamesFromTSN?tsn=202420</strong>
+<div class='output'>      name    tsn
+1  nomatch 203539
+2 Bacteria 202420
+</div>
+<div class='input'>
+<span class="comment"># Use multiple ITIS functions</span>
+<span class="functioncall"><a href='itis.html'>itis</a></span><span class="keyword">(</span><span class="number">203539</span><span class="keyword">,</span> <span class="functioncall"><a href='http://www.inside-r.org/r-doc/base/c'>c</a></span><span class="keyword">(</span><span class="string">"getsynonymnamesfromtsn"</span><span class="keyword">,</span><span class="string">"getcommonnamesfromtsn"</span><span class="keyword">)</span><span class="keyword">)</span></div>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getSynonymNamesFromTSN?tsn=203539</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getCommonNamesFromTSN?tsn=203539</strong>
+<div class='output'>$getsynonymnamesfromtsn
+$getsynonymnamesfromtsn$`203539`
+     name    tsn
+1 nomatch 203539
+
+
+$getcommonnamesfromtsn
+$getcommonnamesfromtsn$`203539`
+[1] getcommonnamesfromtsn
+<0 rows> (or 0-length row.names)
+
+
+</div>
+<div class='input'>
+<span class="comment"># Use multiple ITIS functions and multiple queries</span>
+<span class="functioncall"><a href='itis.html'>itis</a></span><span class="keyword">(</span><span class="argument">query</span><span class="argument">=</span><span class="functioncall"><a href='http://www.inside-r.org/r-doc/base/list'>list</a></span><span class="keyword">(</span><span class="number">203539</span><span class="keyword">,</span> <span class="number">202420</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">searchtype</span><span class="argument">=</span><span class="functioncall"><a href='http://www.inside-r.org/r-doc/base/c'>c</a></span><span class="keyword">(</span><span class="string">"getsynonymnamesfromtsn"</span><span class="keyword">,</span><span class="string">"getcommonnamesfromtsn"</span><span class="keyword">)</span><span class="keyword">)</span></div>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getSynonymNamesFromTSN?tsn=203539</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getSynonymNamesFromTSN?tsn=202420</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getCommonNamesFromTSN?tsn=203539</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getCommonNamesFromTSN?tsn=202420</strong>
+<div class='output'>$getsynonymnamesfromtsn
+$getsynonymnamesfromtsn$`203539`
+     name    tsn
+1 nomatch 203539
+
+$getsynonymnamesfromtsn$`202420`
+      name    tsn
+1 Bacteria 202420
+
+
+$getcommonnamesfromtsn
+$getcommonnamesfromtsn$`203539`
+[1] getcommonnamesfromtsn
+<0 rows> (or 0-length row.names)
+
+$getcommonnamesfromtsn$`202420`
+   comname    lang    tsn
+1 monerans English 202420
+
+
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>itis</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

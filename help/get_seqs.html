@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>get_seqs. taxize 0.0.3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="
+  Scott Chamberlain &lt;a href='mailto:myrmecocystus@gmail.com'&gt;myrmecocystus@gmail.com&lt;/a&gt;
+">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">taxize 0.0.3</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Retrieve nucleotide sequences from NCBI.</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><span class="functioncall"><a href='get_seqs.html'>get_seqs</a></span><span class="keyword">(</span><span class="symbol">taxon_name</span><span class="keyword">,</span> <span class="symbol">gene</span><span class="keyword">,</span> <span class="symbol">seqrange</span><span class="keyword">,</span> <span class="symbol">getrelated</span><span class="keyword">,</span> <span class="argument">writetodf</span> <span class="argument">=</span> <span class="number">TRUE</span><span class="keyword">,</span> <span class="symbol">filetowriteto</span><span class="keyword">)</span></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>taxon_name</dt>
+      <dd>Scientific name to search for
+  (character).</dd>
+      <dt>gene</dt>
+      <dd>Gene (character) or genes (character vector)
+  to search for.</dd>
+      <dt>seqrange</dt>
+      <dd>Sequence range, as e.g., "1:1000"
+  (character).</dd>
+      <dt>getrelated</dt>
+      <dd>Logical, if TRUE, gets the longest
+  sequences of a species in the same genus as the one
+  searched for. If FALSE, get's nothing.</dd>
+      <dt>writetodf</dt>
+      <dd>Write resulting data.frame of results to
+  a file on your machine (logical).</dd>
+      <dt>filetowriteto</dt>
+      <dd>If writetodf=TRUE, then specify the
+  file name. Default=T.</dd>
+    </dl>
+    
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Data.frame of results.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>This function retrieves one sequences for each species,
+  picking the longest available for the given gene.</p>
+  
+    </div>
+
+    <div class="Details">
+      <h2>Details</h2>
+      
+      <p>Removes predicted sequences so you don't have to remove
+  them.  Predicted sequences are those with accession
+  numbers that have "XM_" or "XR_" prefixes.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'><span class="comment"># A single species</span>
+<span class="functioncall"><a href='get_seqs.html'>get_seqs</a></span><span class="keyword">(</span><span class="argument">taxon_name</span><span class="argument">=</span><span class="string">"Acipenser brevirostrum"</span><span class="keyword">,</span> <span class="argument">gene</span> <span class="argument">=</span> <span class="functioncall"><a href='http://www.inside-r.org/r-doc/base/c'>c</a></span><span class="keyword">(</span><span class="string">"coi"</span><span class="keyword">,</span> <span class="string">"co1"</span><span class="keyword">)</span><span class="keyword">,</span>
+                <span class="argument">seqrange</span> <span class="argument">=</span> <span class="string">"1:3000"</span><span class="keyword">,</span> <span class="argument">getrelated</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">,</span> <span class="argument">writetodf</span><span class="argument">=</span><span class="symbol">F</span><span class="keyword">)</span></div>
+<strong class='message'>Working on Acipenser brevirostrum...</strong>
+<strong class='message'>...retrieving sequence IDs...</strong>
+<strong class='message'>...retrieving sequence ID with longest sequence length...</strong>
+<strong class='message'>...retrieving sequence...</strong>
+<strong class='message'>...done.</strong>
+<div class='output'>                   taxon
+1 Acipenser brevirostrum
+                                                                                                                 gene_desc
+1 Acipenser brevirostrum voucher BIOUG<CAN>:BCF-699-10 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial
+      gi_no     acc_no length
+1 186883022 EU523877.1    652
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      sequence
+1 CCTGTATTTAGTATTTGGTGCCTGAGCAGGCATAGTCGGCACAGCCCTCAGCCTTCTGATCCGTGCCGAACTGAGCCAACCCGGTGCCCTGCTTGGCGATGATCAGATCTACAATGTTATCGTCACAGCCCACGCCTTTGTCATGATTTTCTTTATAGTAATACCCATCATAATTGGCGGATTCGGAAACTGACTGGTCCCCCTAATAATTGGGGCCCCAGACATGGCATTTCCTCGCATGAACAATATGAGCTTCTGACTCCTACCCCCATCCTTCCTACTCCTTTTAGCCTCCTCTGGGGTAGAGGCCGGAGCCGGCACAGGGTGAACTGTTTACCCCCCACTGGCGGGAAACCTGGCCCATGCAGGAGCCTCTGTAGACCTAACCATTTTCTCCCTTCACCTGGCTGGGGTTTCGTCCATTTTGGGGGCTATTAATTTTATTACCACCATTATTAACATGAAACCCCCCGCAGTATCCCAATATCAGACACCTCTATTTGTGTGATCTGTATTAATCACGGCCGTACTTCTCCTACTATCACTGCCAGTGCTAGCTGCAGGGATCACAATGCTCCTAACAGACCGAAATTTAAACACCACCTTCTTTGACCCAGCCGGAGGAGGAGACCCCATCCTCTACCAACACCTA
+                  spused
+1 Acipenser brevirostrum
+</div>
+<div class='input'>
+<span class="comment"># Many species, can run in parallel or not using plyr</span>
+<span class="symbol">species</span> <span class="assignement">&lt;-</span> <span class="functioncall"><a href='http://www.inside-r.org/r-doc/base/c'>c</a></span><span class="keyword">(</span><span class="string">"Colletes similis"</span><span class="keyword">,</span><span class="string">"Halictus ligatus"</span><span class="keyword">,</span><span class="string">"Perdita trisignata"</span><span class="keyword">)</span>
+<span class="functioncall"><a href='http://www.inside-r.org/r-doc/plyr/llply'>llply</a></span><span class="keyword">(</span><span class="symbol">species</span><span class="keyword">,</span> <span class="symbol">get_seqs</span><span class="keyword">,</span> <span class="argument">gene</span> <span class="argument">=</span> <span class="functioncall"><a href='http://www.inside-r.org/r-doc/base/c'>c</a></span><span class="keyword">(</span><span class="string">"coi"</span><span class="keyword">,</span> <span class="string">"co1"</span><span class="keyword">)</span><span class="keyword">,</span>  <span class="comment"># notice different sp. output for Perdita</span>
+                <span class="argument">seqrange</span> <span class="argument">=</span> <span class="string">"1:2000"</span><span class="keyword">,</span> <span class="argument">getrelated</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">,</span> <span class="argument">writetodf</span><span class="argument">=</span><span class="symbol">F</span><span class="keyword">)</span></div>
+<strong class='message'>Working on Colletes similis...</strong>
+<strong class='message'>...retrieving sequence IDs...</strong>
+<strong class='message'>...retrieving sequence ID with longest sequence length...</strong>
+<strong class='message'>...retrieving sequence...</strong>
+<strong class='message'>...done.</strong>
+<strong class='message'>Working on Halictus ligatus...</strong>
+<strong class='message'>...retrieving sequence IDs...</strong>
+<strong class='message'>...retrieving sequence ID with longest sequence length...</strong>
+<strong class='message'>...retrieving sequence...</strong>
+<strong class='message'>...done.</strong>
+<strong class='message'>Working on Perdita trisignata...</strong>
+<strong class='message'>...retrieving sequence IDs...</strong>
+<strong class='message'>no sequences of coi for Perdita trisignata - getting other sp.no sequences of co1 for Perdita trisignata - getting other sp.</strong>
+<strong class='message'>...retrieving sequence IDs for related species...</strong>
+<strong class='message'>...retrieving sequence ID with longest sequence length...</strong>
+<strong class='message'>...retrieving sequence...</strong>
+<strong class='message'>...done.</strong>
+<div class='output'>[[1]]
+             taxon
+1 Colletes similis
+                                                                                               gene_desc
+1 Colletes similis voucher TCDB-T540 cytochrome oxidase subunit 1 (COI) gene, partial cds; mitochondrial
+      gi_no     acc_no length
+1 387931795 JQ909720.1    654
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        sequence
+1 TTTATTTTTGCTATATGAACAGGAATAATTGGTTCTTCTTTAAGAATAATTATTCGAATAGAATTAAGATCTCCTGGTATATGAATTAATAATGATCAAATTTATAATTCTATTGTTACTGCACATGCTTTTATTATAATTTTTTTTATAGTTATACCTTTTTTAATTGGRGGRTTTGGTAATTGATTAATTCCATTAATAATTGGAGCTCCTGATATAGCATTTCCTCGTATAAATAATATAAGATTTTGATTATTACCTCCTTCTTTAATTTTATTATTATTAGGAAGAATTTTATAYTCAGGAAGAGGAACTGGATGAACTGTWTATCCTCCATTATCTTCTTTAATATATCATTCTTCTTTATCTGTTGATTTAACTATTTTTTCTTTACATATTGCAGGTATTTCATCTATTATAGGATCAATAAATTTTATTGTAACAATTTTAAAAATAAAAAATTATAATTTAAATTATGATCAATTAACATTATTTTCATGATCAGTTTTTATTACAACTATTTTATTATTATTATCTTTACCTGTATTAGCRGGTGCAATTACAATATTATTAACTGATCGTAATTTAAATACTTCTTTTTTTGATCCATCTGGTGGAGGWGATCCAATTTTATATCAACATTTATTTTGATTT
+            spused
+1 Colletes similis
+
+[[2]]
+             taxon
+1 Halictus ligatus
+                                                                                                                                                           gene_desc
+1 Halictus ligatus Hali-c cytochrome oxidase subunit I (COI) gene, partial cds; and tRNA-Leu gene, complete sequence; mitochondrial genes for mitochondrial products
+     gi_no     acc_no length
+1 19913235 AF438426.1   1478
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                sequence
+1 CAATTTACCCTCCATTATCATCGATTATATATCATTCATCTTTTTCAGTAGATTTTTCTATCTTCTCCTTACATATAGCAGGAATCTCTTCAATCATAGGAGCTATTAATTTTATTGTAACTATTATTTTAATAAAAAATATTTCACTTAATATAAATCAAATCCCTCTATTTCCTTGATCAGTAAAAATTACTGCAATTTTACTTCTTCTCTCTCTTCCAGTTTTAGCAGGAGCTATTACAATATTATTAACAGATCGAAATTTAAATACATCATTTTTTGACCCTTCAGGAGGTGGAGACCCAATTTTATATCAACATTTATTTTGATTTTTCGGTCATCCTGAAGTTTACATTCTAATTTTACCTGGATTTGGATTAATTTCTCACATTATTTTTAATGAAAGAGGAAAAAAAGAAATTTTTGGTAAATTAGGTATAATTTATGCAATAATAGGAATTGGATTTTTAGGATTTATTGTATGAGCCCATCATATATTTACTGTAGGATTAGATGTAGATACACGAGCTTATTTCACATCTGCAACTATAATTATTGCTGTCCCCACAGGAATTAAAGTATTTAGATGATTAGCCACATACTGTGGTTCAAAAATTAAATTAAATCCTTCAATTAATTGATCTTTAGGTTTTATTTTTTTATTTACTATAGGAGGATTAACTGGTATTATACTATCAAATTCTTCTATTGATATTATACTACATGATACATACTACGTAATTGGTCATTTTCATTATGTTCTATCTATAGGAGCAGTATTTGCAATTATTGCAAGATTAATTCATTGATACCCCTTATTTACTGGATTAACTTTAAATAAAAAATTATTAAATATTCAATTTATCATAATATTTACTGGTGTAAATTTAACATTTTTTCCACAACATTTTTTAGGATTAATAGGTATACCTCGACGATATTCAGACTATCCTGATGCCTATTATTGTTGAAATTTAATTTCATCTATTGGTTCTTTAATTACTTTTAATAGATTAATTTTATTAATCTTTACTATATTAGAAAGATTAATTATAAAACGATTAATTTTATTTAAATATTTTCAATCATCATTAGAATGATTACAAAACTATCCCCCTTTAAGACATTCATACAATGAACTTCCTATCATTATTTTTAAATTTTAATATGGCAGAATAGTGTAATGAATTTAAGACTCATAAATAAAATTGATTAATTTTTATTAAAATTTATATTTTTATATAAATATTGCTACATGAAATATATATTCCTTTCAAGATCCTAACTCACCATTTGCAGATAATTTATTTTATTTTTATAATTTTACTATAATTACTTTAACAATAATTACTATTTCTACATTATATATATTGATTTTTATTTTAAATAATAAATATTTAAATTTAAATTTATTAAAAAATCATAATATCGAAATTCTATGAACTATTACCCCTATAATTATACTCTTAATTATCTCT
+            spused
+1 Halictus ligatus
+
+[[3]]
+               taxon
+1 Perdita trisignata
+                                                                                               gene_desc
+1 Perdita halictoides voucher Peha84 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial
+      gi_no     acc_no length
+1 156631315 EF594406.1    785
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           sequence
+1 ATTTTACCAGGATTTGGTTTAATTTCTCATATTATTTCAAATGAAAGAGGAAAAAAAGAAACCTTTGGTAATTTAGGAATAATTTATGCTATATTAGGAATTGGATTTTTAGGATTTGTAGTATGAGCTCATCATATATTTACTGTTGGAATAGATGTTGATACACGAGCATATTTTACTTCAGCTACTATAATTATTGCAGTACCTACAGGAATTAAAGTATTTAGATGATTAACTACATTTCATGGAGCAAAAATTATAAATAAACCTACATTTTTATGATCAATAGGATTTATTTTTTTATTTACAATAGGTGGTTTAACTGGAATTATACTATCAAATTCTTCAATTGATATTATTTTACATGATACTTATTATGTTGTAGGTCATTTTCATTATGTATTATCTATAGGAGCTGTTTTTGCTATTTTTAGTAGATTAGTTTTCTGATATCCTTCAATTATAAGATTAACTTTAAATAATAATTTATTAAAAATTCAATTTTATTTAATATTTATTGGTGTAAATATAACATTTTTTCCTCAACATTTTTTAGGATTAATAGGTATACCTCGACGATATTCAGATTATCCAGATGCATATATATGTTGAAATATAATTTCTTCTATAGGTTCAATTATTTCAACTAACAGAATATTTTTATTTATTTACATTATTCTAGAAAGAATAATTAAAAAACGATTAGTTTTATATAAATTTTCATTAAATTCATTAGAATGATTACAAAATTTTCCTCCAACAACTCATACATTTAATGAAATTCC
+               spused
+1 Perdita halictoides
+
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>get_seqs</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+    
+    <h2>Author</h2>
+    
+  Scott Chamberlain <a href='mailto:myrmecocystus@gmail.com'>myrmecocystus@gmail.com</a>
+
+    
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>classification. taxize 0.0.3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">taxize 0.0.3</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Get taxonomic hierarchy for a given taxon ID.</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><span class="functioncall"><a href='classification.html'>classification</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">,</span> <span class="argument">ID</span> <span class="argument">=</span> NULL<span class="keyword">,</span> <span class="symbol">...</span><span class="keyword">)</span>
+
+<span class="functioncall"><a href='classification.html'>classification</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">,</span> <span class="symbol">...</span><span class="keyword">)</span>
+
+<span class="functioncall"><a href='classification.html'>classification</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">,</span> <span class="symbol">...</span><span class="keyword">)</span></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>x</dt>
+      <dd>IDs from <code>get_tsn()</code> or <code>get_uid()</code>.</dd>
+      <dt>ID</dt>
+      <dd>type of identifier, either 'uid' or 'tsn'</dd>
+      <dt>...</dt>
+      <dd>Currently not used</dd>
+    </dl>
+    
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Classification of taxons in a list of data.frames.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Get taxonomic hierarchy for a given taxon ID.</p>
+  
+    </div>
+
+    <div class="Note">
+      <h2>Note</h2>
+      
+      <p>If IDs are supplied directly (not from the get_*
+  functions) use the methods classification.ncbi() or
+  classification.tsn() directly. See examples.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'><span class="functioncall"><a href='classification.html'>classification</a></span><span class="keyword">(</span><span class="functioncall"><a href='get_uid.html'>get_uid</a></span><span class="keyword">(</span><span class="functioncall"><a href='http://www.inside-r.org/r-doc/base/c'>c</a></span><span class="keyword">(</span><span class="string">"Chironomus riparius"</span><span class="keyword">,</span> <span class="string">"aaa vva"</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span></div>
+<div class='output'>
+Retrieving data for species ' Chironomus riparius '
+
+Retrieving data for species ' aaa vva '
+</div>
+<div class='output'>[[1]]
+              ScientificName         Rank     UID
+1         cellular organisms      no rank  131567
+2                  Eukaryota superkingdom    2759
+3               Opisthokonta      no rank   33154
+4                    Metazoa      kingdom   33208
+5                  Eumetazoa      no rank    6072
+6                  Bilateria      no rank   33213
+7                Protostomia      no rank   33317
+8                  Ecdysozoa      no rank 1206794
+9              Panarthropoda      no rank   88770
+10                Arthropoda       phylum    6656
+11               Mandibulata      no rank  197563
+12              Pancrustacea      no rank  197562
+13                  Hexapoda   superclass    6960
+14                   Insecta        class   50557
+15                Dicondylia      no rank   85512
+16                 Pterygota      no rank    7496
+17                  Neoptera     subclass   33340
+18             Endopterygota   infraclass   33392
+19                   Diptera        order    7147
+20                Nematocera     suborder    7148
+21              Culicimorpha   infraorder   43786
+22             Chironomoidea  superfamily   41828
+23              Chironomidae       family    7149
+24              Chironominae    subfamily   54970
+25               Chironomini        tribe   72530
+26                Chironomus        genus    7150
+27 Chironomus incertae sedis      no rank 1165752
+28       Chironomus riparius      species  315576
+
+[[2]]
+[1] NA
+
+</div>
+<div class='input'><span class="functioncall"><a href='classification.html'>classification</a></span><span class="keyword">(</span><span class="functioncall"><a href='get_tsn.html'>get_tsn</a></span><span class="keyword">(</span><span class="functioncall"><a href='http://www.inside-r.org/r-doc/base/c'>c</a></span><span class="keyword">(</span><span class="string">"Chironomus riparius"</span><span class="keyword">,</span> <span class="string">"aaa vva"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="string">"sciname"</span><span class="keyword">)</span><span class="keyword">)</span></div>
+<div class='output'>
+Retrieving data for species ' Chironomus riparius '
+
+Retrieving data for species ' aaa vva '
+</div>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=129313</strong>
+<strong class='error'>Error in out$tsn: $ operator is invalid for atomic vectors</strong>
+<div class='input'>
+<span class="comment"># must specify Identifier, when not used with get_*()</span>
+<span class="functioncall"><a href='classification.html'>classification</a></span><span class="keyword">(</span><span class="number">315576</span><span class="keyword">,</span> <span class="argument">ID</span> <span class="argument">=</span> <span class="string">"uid"</span><span class="keyword">)</span></div>
+<div class='output'>[[1]]
+              ScientificName         Rank     UID
+1         cellular organisms      no rank  131567
+2                  Eukaryota superkingdom    2759
+3               Opisthokonta      no rank   33154
+4                    Metazoa      kingdom   33208
+5                  Eumetazoa      no rank    6072
+6                  Bilateria      no rank   33213
+7                Protostomia      no rank   33317
+8                  Ecdysozoa      no rank 1206794
+9              Panarthropoda      no rank   88770
+10                Arthropoda       phylum    6656
+11               Mandibulata      no rank  197563
+12              Pancrustacea      no rank  197562
+13                  Hexapoda   superclass    6960
+14                   Insecta        class   50557
+15                Dicondylia      no rank   85512
+16                 Pterygota      no rank    7496
+17                  Neoptera     subclass   33340
+18             Endopterygota   infraclass   33392
+19                   Diptera        order    7147
+20                Nematocera     suborder    7148
+21              Culicimorpha   infraorder   43786
+22             Chironomoidea  superfamily   41828
+23              Chironomidae       family    7149
+24              Chironominae    subfamily   54970
+25               Chironomini        tribe   72530
+26                Chironomus        genus    7150
+27 Chironomus incertae sedis      no rank 1165752
+28       Chironomus riparius      species  315576
+
+</div>
+<div class='input'><span class="functioncall"><a href='classification.html'>classification</a></span><span class="keyword">(</span><span class="number">180544</span><span class="keyword">,</span> <span class="string">"tsn"</span><span class="keyword">)</span></div>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=180544</strong>
+<div class='output'>[[1]]
+   parentName parentTsn   rankName        taxonName    tsn
+1                          Kingdom         Animalia 202423
+2    Animalia    202423     Phylum         Chordata 158852
+3    Chordata    158852  Subphylum       Vertebrata 331030
+4  Vertebrata    331030      Class         Mammalia 179913
+5    Mammalia    179913   Subclass           Theria 179916
+6      Theria    179916 Infraclass         Eutheria 179925
+7    Eutheria    179925      Order        Carnivora 180539
+8   Carnivora    180539   Suborder       Caniformia 552303
+9  Caniformia    552303     Family          Ursidae 180540
+10    Ursidae    180540      Genus            Ursus 180541
+11      Ursus    180541    Species Ursus americanus 180544
+
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>classification</li><li>classification.tsn</li><li>classification.uid</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>get_uid. taxize 0.0.3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="
+  Eduard Szoecs &lt;a href='mailto:szoe8822@uni-landau.de'&gt;szoe8822@uni-landau.de&lt;/a&gt;
+">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">taxize 0.0.3</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Get the UID codes from NCBI for species names.</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><span class="functioncall"><a href='get_uid.html'>get_uid</a></span><span class="keyword">(</span><span class="symbol">sciname</span><span class="keyword">,</span> <span class="argument">verbose</span> <span class="argument">=</span> <span class="number">TRUE</span><span class="keyword">)</span></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>sciname</dt>
+      <dd>character; scientific name.</dd>
+      <dt>verbose</dt>
+      <dd>logical; If TRUE the actual taxon queried
+  is printed on the console.</dd>
+    </dl>
+    
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>UID for the supplied species names. NA for non-matching
+  names.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>A function to retrieve the UID-Code (Unique Identifier)
+  of a species from NCBI taxonomy browser.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'><span class="functioncall"><a href='get_uid.html'>get_uid</a></span><span class="keyword">(</span><span class="functioncall"><a href='http://www.inside-r.org/r-doc/base/c'>c</a></span><span class="keyword">(</span><span class="string">"Chironomus riparius"</span><span class="keyword">,</span> <span class="string">"Chaetopteryx"</span><span class="keyword">)</span><span class="keyword">)</span></div>
+<div class='output'>
+Retrieving data for species ' Chironomus riparius '
+
+Retrieving data for species ' Chaetopteryx '
+</div>
+<div class='output'>[1] "315576" "492549"
+attr(,"class")
+[1] "uid"
+</div>
+<div class='input'><span class="functioncall"><a href='get_uid.html'>get_uid</a></span><span class="keyword">(</span><span class="functioncall"><a href='http://www.inside-r.org/r-doc/base/c'>c</a></span><span class="keyword">(</span><span class="string">"Chironomus riparius"</span><span class="keyword">,</span> <span class="string">"aaa vva"</span><span class="keyword">)</span><span class="keyword">)</span></div>
+<div class='output'>
+Retrieving data for species ' Chironomus riparius '
+
+Retrieving data for species ' aaa vva '
+</div>
+<div class='output'>[1] "315576" NA      
+attr(,"class")
+[1] "uid"
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>get_uid</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+    
+    <h2>Author</h2>
+    
+  Eduard Szoecs <a href='mailto:szoe8822@uni-landau.de'>szoe8822@uni-landau.de</a>
+
+    
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

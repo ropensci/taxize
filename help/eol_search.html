@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>eol_search. taxize 0.0.3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">taxize 0.0.3</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Search for terms in EOL database.</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><span class="functioncall"><a href='eol_search.html'>eol_search</a></span><span class="keyword">(</span><span class="symbol">terms</span><span class="keyword">,</span> <span class="argument">usekey</span> <span class="argument">=</span> <span class="number">TRUE</span><span class="keyword">,</span> <span class="argument">returntype</span> <span class="argument">=</span> <span class="string">"data.frame"</span><span class="keyword">,</span> <span class="argument">url</span> <span class="argument">=</span> <span class="string">"http://eol.org/api/search/"</span><span class="keyword">,</span>
+  <span class="argument">key</span> <span class="argument">=</span> NULL<span class="keyword">)</span></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>terms</dt>
+      <dd>search terms (character)</dd>
+      <dt>usekey</dt>
+      <dd>use your API key or not (TRUE or FALSE)</dd>
+      <dt>returntype</dt>
+      <dd>one of "list" of "data.frame"
+  (character)</dd>
+      <dt>url</dt>
+      <dd>The EOL url for the function (should be left
+  to default).</dd>
+      <dt>key</dt>
+      <dd>Your EOL API key; loads from .Rprofile.</dd>
+    </dl>
+    
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>JSON list object, or data.frame.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Search for terms in EOL database.</p>
+  
+    </div>
+
+    <div class="Details">
+      <h2>Details</h2>
+      
+      <p>It's possible to return JSON or XML with the EOL API.
+  However, this function only returns JSON for now.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'><span class="functioncall"><a href='eol_search.html'>eol_search</a></span><span class="keyword">(</span><span class="string">'Homo'</span><span class="keyword">)</span></div>
+<strong class='message'>http://eol.org/api/search/Homo.json?key=52987dc6505de77c6c9345e8e8068f74ffb52de6</strong>
+<div class='output'>         id
+1     42268
+2    339201
+3    204370
+4    327955
+5    326448
+6    326449
+7    127643
+8   4454114
+9   4454110
+10     1653
+11  4454111
+12  4454115
+13  4454117
+14  4454121
+15 10551052
+16  4454119
+17  4454127
+18  4454113
+19 27782899
+20 10641455
+21 10557505
+22 20405495
+23 10577161
+24 10557522
+25  8824326
+26 10643114
+27 10577150
+28  8824323
+29  4454122
+30 21642106
+                                                                                              title
+1                                                                                              Homo
+2                                                             Chlorurus microrhinos (Bleeker, 1854)
+3                                                               Scarus rubroviolaceus Bleeker, 1847
+4                                                                       Homo sapiens Linnaeus, 1758
+5                                                                       Pan paniscus Schwartz, 1929
+6                                                                Pan troglodytes (Blumenbach, 1775)
+7                                                                    Hylobates lar (Linnaeus, 1771)
+8                                                                   Homo neanderthalensis King 1864
+9                                                                         Homo erectus Dubois, 1892
+10                                                                                        Hominidae
+11                                                                   Homo habilis Leakey et al 1964
+12                                                  Homo erectus heidelbergensis Schoetensack, 1908
+13 Homo floresiensis Brown, Sutikna, Morwood, Soejono, Jatmiko, Wayhu Saptomo & Rokus Awe Due, 2004
+14                                                          Homo ergaster Groves and Maz\xe1k, 1975
+15                                                                             Homininae Gray, 1825
+16                                                                 Homo rhodesiensis Woodward, 1921
+17                                                  Homo erectus pekinensis (Black & Zdansky, 1927)
+18                                                  Homo antecessor Bermudez de Castro et al., 1997
+19                                                                       Homo erectus tautavelensis
+20                                                                         Homo erectus wushanensis
+21                                                                     Homo erectus palaeojavanicus
+22                                                                   Homo gautengensis Curnoe, 2010
+23                                                             Homo erectus yuanmouensis (Hu, 1973)
+24                                                          Homo erectus soloensis Oppenoorth, 1932
+25                                                                                 Homo cepranensis
+26                                                                         Homo erectus nankinensis
+27                                                              Homo erectus lantianensis Woo, 1964
+28                                                            Homo sapiens idaltu White et al, 2003
+29                                                              Homo georgicus Gabounia et al. 2002
+30                                                                                   Homo sp. Altai
+                                     link
+1     http://eol.org/pages/42268/overview
+2    http://eol.org/pages/339201/overview
+3    http://eol.org/pages/204370/overview
+4    http://eol.org/pages/327955/overview
+5    http://eol.org/pages/326448/overview
+6    http://eol.org/pages/326449/overview
+7    http://eol.org/pages/127643/overview
+8   http://eol.org/pages/4454114/overview
+9   http://eol.org/pages/4454110/overview
+10     http://eol.org/pages/1653/overview
+11  http://eol.org/pages/4454111/overview
+12  http://eol.org/pages/4454115/overview
+13  http://eol.org/pages/4454117/overview
+14  http://eol.org/pages/4454121/overview
+15 http://eol.org/pages/10551052/overview
+16  http://eol.org/pages/4454119/overview
+17  http://eol.org/pages/4454127/overview
+18  http://eol.org/pages/4454113/overview
+19 http://eol.org/pages/27782899/overview
+20 http://eol.org/pages/10641455/overview
+21 http://eol.org/pages/10557505/overview
+22 http://eol.org/pages/20405495/overview
+23 http://eol.org/pages/10577161/overview
+24 http://eol.org/pages/10557522/overview
+25  http://eol.org/pages/8824326/overview
+26 http://eol.org/pages/10643114/overview
+27 http://eol.org/pages/10577150/overview
+28  http://eol.org/pages/8824323/overview
+29  http://eol.org/pages/4454122/overview
+30 http://eol.org/pages/21642106/overview
+                                                                                                                                                                                                                                                                                                                                            content
+1                                                                                                                                                                                                                                                                                                                         Homo Linnaeus, 1758; Homo
+2                                                                                                                  Hao; uhu; loro; Aliyakyak; Te inai; Kopahopaho; O-sha; Tegatega; Tonae; Gamesegul; Huleyo; Poxella; Rouw; Tooleh\xfb; Busalog; Molmol; Ditun; Mul-mul; Moymoy; Mol-mol; Mala boila; Tobwagabwaga; Semi-Tiaongan; Sika toki; Homo
+3  loro; Bayan; Aliyakyak; Kalat; Perencong; Maming; Fasiulimat; Fas\xfan\xfamat; Gawegaw; Y\xf3mosukin; Ketarap; Busalog; Molmol; Ditun; Mul-mul; Moy-moy; Moymoy; Angol; Mol-mol; Buntog; Mur-mur; Holoveka; Mol-mol perikohon; Mul-mul ungus; Vanga udu; Asul; Homo; Bon-ak; Bungalog; Bunog na angol; Buyos; Ulafi; Bayan bara; Mesekelatlelebt
+4                                                                                                                                       Homo sapiens Linnaeus, 1758; Homo heidelbergensis; Homo sapiens gromagnon; Homo sapiens diluvialis; Neoanthropus fosssilis; Homo sapiens fossilis; Homo predmostensis; Homo floresiensis Brown et al., 2004
+5                                                                                                                                                                                                                                                                                      Pan satyrus paniscus Schwartz, 1929.; Homo paniscus Schwartz
+6                                                               Chimpansee troglodytes; Homo troglodytes Blumenbach; Anthropopithecus troglodytes; Pan africanus Oken 1816; Simia troglodytes Blumenbach 1775; Anthropopithecus satyrus (Linnaeus 1758); Pan satyrus (Linnaeus 1758); Pithecus satyrus (Linnaeus 1758); Simia satyrus Linnaeus 1758
+7                                                                                                                                            Homo lar; Homo lar Linnaeus 1771; Hylobates albimana (Vigors & Horsfield, 1828); Hylobates longimana (Schreber, 1774); Hylobates variegates (\xc9. Geoffroy, 1812); Hylobates varius (Latreille, 1801)
+8                                                                                                                                                                                                                                                             Homo neanderthalensis; Homo sapiens neanderthalensis; Homo neanderthalensis King 1864
+9                                                                                                                                                                                                                                                   Homo erectus; Homo erectus (Dubois, 1892); Homo erectus Dubois, 1894; Homo erectus Dubois, 1892
+10                                                                                                                                                                                                            Hominidae Gray, 1825; Pongidae; Dryopithecidae; Oreopithecidae Schwalbe, 1915; Homo troglodytes Linnaeus, 1758; Pongidae Elliot, 1913
+11                                                                                                                                                                                                                                                                                                       Homo rudolfensis; Australopithecus habilis
+12                                                                                                                                                                                                                                                                                                                             Homo heidelbergensis
+13                                                                                                                                                                                        Homo floresiensis; Homo floresiensis Brown, Sutikna, Morwood, Soejono, Jatmiko, Wayhu Saptomo & Rokus Awe Due, 2004; Homo floresiensis Brown et al., 2004
+14                                                                                                                                                                                                                                                                                                            Homo georgicus; Homo erectus ergaster
+15                                                                                                                                                                                                                                                                                                                           Homo/Pan/Gorilla group
+16                                                                                                                                                                                                                                                                                              Homo rhodesiensis; Homo rhodesiensis Woodward, 1921
+17                                                                                                                                                                                                                                                           Homo erectus pekinensis (Black, 1927); Homo erectus pekinensis (Black & Zdansky, 1927)
+18                                                                                                                                                                                                                                         Homo antecessor; Homo antecessor Bermudez de Castro et al., 1997; Homo antecessor de Castro et al., 1997
+19                                                                                                                                                                                                                                                                                                                       Homo erectus tautavelensis
+20                                                                                                                                                                                                                                                                                                                         Homo erectus wushanensis
+21                                                                                                                                                                                                                                                                                                                     Homo erectus palaeojavanicus
+22                                                                                                                                                                                                                                                                                                                   Homo gautengensis Curnoe, 2010
+23                                                                                                                                                                                                                                                                                  Homo erectus yuanmouensis; Homo erectus yuanmouensis (Hu, 1973)
+24                                                                                                                                                                                                                                                                                                        Javanthropus soloensis; Homo javanthropus
+25                                                                                                                                                                                                                                                                                          Homo cepranensis; Homo cepranensis Mallegni et al, 2003
+26                                                                                                                                                                                                                                                                                                                         Homo erectus nankinensis
+27                                                                                                                                                                                                                                                               Homo erectus lantianensis (Woo Ju-Kang, 1964); Homo erectus lantianensis Woo, 1964
+28                                                                                                                                                                                                                                                              Homo sapiens idaltu White et al, 2003; Homo sapiens idaltu White, Asfaw et al. 2003
+29                                                                                                                                                                                                                                                                                              Homo georgicus; Homo georgicus Gabounia et al. 2002
+30                                                                                                                                                                                                                                                                                                                                   Homo sp. Altai
+</div>
+<div class='input'><span class="functioncall"><a href='eol_search.html'>eol_search</a></span><span class="keyword">(</span><span class="string">'Salix'</span><span class="keyword">)</span></div>
+<strong class='message'>http://eol.org/api/search/Salix.json?key=52987dc6505de77c6c9345e8e8068f74ffb52de6</strong>
+<div class='output'>        id                            title                                  link
+1    65046                            Salix   http://eol.org/pages/65046/overview
+2    32667                            Salix   http://eol.org/pages/32667/overview
+3   585446               Salix nigra Marsh.  http://eol.org/pages/585446/overview
+4   584279             Salix discolor Muhl.  http://eol.org/pages/584279/overview
+5   584378             Salix bebbiana Sarg.  http://eol.org/pages/584378/overview
+6   592439               Salix exigua Nutt.  http://eol.org/pages/592439/overview
+7   585415      Salix amygdaloides Anderss.  http://eol.org/pages/585415/overview
+8   584270                  Salix caprea L.  http://eol.org/pages/584270/overview
+9   392800            Salix interior Rowlee  http://eol.org/pages/392800/overview
+10  584245                Salix fragilis L.  http://eol.org/pages/584245/overview
+11  595817             Salix humilis Marsh.  http://eol.org/pages/595817/overview
+12  590253             Salix cordata Michx.  http://eol.org/pages/590253/overview
+13  585027               Salix lucida Muhl.  http://eol.org/pages/585027/overview
+14  585416                  Salix alba L. ?  http://eol.org/pages/585416/overview
+15 5602320              Salix babylonica L. http://eol.org/pages/5602320/overview
+16  584242                Salix purpurea L.  http://eol.org/pages/584242/overview
+17  584190               Salix viminalis L.  http://eol.org/pages/584190/overview
+18  584272                 Salix cinerea L.  http://eol.org/pages/584272/overview
+19  584180 Salix sitchensis Sanson ex Bong.  http://eol.org/pages/584180/overview
+20  585064                Salix herbacea L.  http://eol.org/pages/585064/overview
+21  585045              Salix lemmonii Bebb  http://eol.org/pages/585045/overview
+22  584252          Salix floridana Chapman  http://eol.org/pages/584252/overview
+23  585443                  Salix lanata L.  http://eol.org/pages/585443/overview
+24  592493                  Salix glauca L.  http://eol.org/pages/592493/overview
+25  590722                  Salix aurita L.  http://eol.org/pages/590722/overview
+26  585065                 Salix hastata L.  http://eol.org/pages/585065/overview
+27  592438         Salix eriocephala Michx.  http://eol.org/pages/592438/overview
+28  584185            Salix taxifolia Kunth  http://eol.org/pages/584185/overview
+29  584237               Salix pentandra L.  http://eol.org/pages/584237/overview
+30  584371             Salix arizonica Dorn  http://eol.org/pages/584371/overview
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                     content
+1                                                                                                                                                                                                                                                                                                                                                                                                        Salix L.; salix; Salix bonplandiana (H.B.K.)-Kunth; Salix L. (1753)
+2                                                                                                                                                                                                                                                                                                                                                                                            Salix L.; salix; Salix Linnaeus, 1753; Salix mollissima; Salix mollissima Ehrh.
+3                                                                                                                                                                                                                                                                                                                   Salix nigra Marsh.; Salix nigra var. altissima Sarg.; Salix nigra; Salix nigra Marshall; Salix falcata Kunth; Salix nigra var. lindheimeri C.K. Schneid.
+4                                                                                                                                                                                                                                                                                                                                                                        Salix discolor Muhl.; Salix discolor; Salix ancorifera Fernald; Salix discolor var. overi C.R. Ball
+5                                                                                           Salix bebbiana Sarg.; Salix perrostrata Rydb.; Salix bebbiana; Salix rostrata; Salix xerophila; Salix xerophila B. Flod.; Salix bebbiana var. capreifolia (Fernald) Fernald; Salix bebbiana var. luxurians (Fernald) Fernald; Salix bebbiana var. perrostrata (Rydb.) C.K. Schneid.; Salix bebbiana var. projecta (Fernald) C.K. Schneid.; Salix rostrata var. luxurians Fernald
+6  Salix exigua Nutt.; Salix parishiana Rowlee; Salix exigua var. virens Rowlee; Salix hindsiana; Salix argophylla; Salix parishiana; Salix thurberi; Salix exigua; Salix nevadensis S. Watson; Salix interior var. angustissima (Andersson) Dayton; Salix longifolia var. angustissima Andersson; Salix sessilifolia var. hindsiana (Benth.) Andersson ex Bebb; Salix hindsiana var. leucodendroides (Rowlee) C.R. Ball; Salix hindsiana var. parishiana (Rowlee) C.R. Ball
+7                                                                                                                                                                                                                                           Salix amygdaloides Anderss.; Salix amygdaloides; Salix amygdaloides Andersson; Salix amygdaloides var. wrightii (Andersson) C.K. Schneid.; Salix amygdaloides f. pilosiuscula C.K. Schneid.; Salix nigra var. wrightii Andersson
+8                                                                                                                                                                                                                                                                                                                                                                                                                                                               Salix caprea
+9                                                                                                                                                                                         Salix interior Rowlee; Salix interior var. wheeleri Rowlee; Salix rubra; Salix exigua subsp. interior (Rowlee) Cronquist; Salix interior; Salix rubra Huds.; Salix interior var. pedicellata (Andersson) C.R. Ball; Salix interior var. exterior Fernald; Salix rubra Huds. (1762)
+10                                                                                                                                                                                                                                                                                                                                                                                                                                                            Salix fragilis
+11                                                                                                                                                                                                                                                                                                                                                                                                               Salix humilis Marsh.; Salix humilis; Salix humilis Marshall
+12                                                                                                                                                                                                                                                                                                                                                                                             Salix cordata Michx.; Salix cordata; Salix syrticola; Salix syrticola Fernald
+13                                                                                                                                                                                                                                                                         Salix lucida Muhl.; Salix lucida; Salix lucida Muhl. ssp. lucida; Salix lucida ssp. lucida; Salix lucida var. angustifolia Andersson; Salix lucida var. intonsa Fernald; Salix lucida var. lucida
+14                                                                                                                                                                                                                                                                                                                                                                                     Salix alba L.; Salix alba; Salix alba L. ?; Salix alba Linnaeus; Salix alba L. (1753)
+15                                                                                                                                                                                                                                                                                                                                                                                                  Salix elegantissima K. Koch; Salix babylonica L.; Salix matsudana Koidz.
+16                                                                                                                                                                                                                                                                                                                                                                 Salix purpurea L.; Salix purpurea; Salix purpurea Linnaeus; Salix purpurea L. (1753); Salix purpurea s.l.
+17                                                                                                                                                        Salix viminalis L.; Salix serotina Pall.; Salix veriviminalis Nas.; Salix gmelinii Pall.; Salix rossica Nasarow; Salix viminalis subsp. veriviminalis Hyl.; Salix viminalis var. semiviminalis Poljakov; Salix semiviminalis E.L.Wolf; Salix rufescens Nasarow; Salix splendens Nasarow; Salix strobilacea Nasarow
+18                                                                                                                                                                                                                                                                                                                                                                                       Salix cinerea L.; Salix cinerea; Salix cinerea Linnaeus; Salix cinerea ssp. cinerea
+19                                                                                                                                                                                                                                                                                                                                                                     Salix sitchensis Sanson ex Bong.; Salix sitchensis; Salix coulteri Andersson; Salix sitchensis Sanson
+20                                                                                                                                                                                                                                                                                                                                                                                                                                         Salix herbacea L.; Salix herbacea
+21                                                                                                                                                                                                                                                                                                                                                                                                                       Salix lemmonii Bebb; Salix lemmonii; Salix austinae
+22                                                                                                                                                                                                                                                                                                                          Salix floridana Chapman; Salix chapmanii Small; Salix floridana; Salix chapmanii; Salix floridana Chapm.; Salix astatulana Murrill & E.J. Palmer
+23                                                                                                                                                                                                                                                                                                                                                                                                                                             Salix lanata L.; Salix lanata
+24                                                                                                                                                                                                                                                                                                                                                                                                                      Salix glauca L.; Salix glauca; Salix glauca Linnaeus
+25                                                                                                                                                                                                                                                                                                                                                                                                                                             Salix aurita L.; Salix aurita
+26                                                                                                                                                                                                                                                                                                                                                                                                                   Salix hastata L.; Salix hastata; Salix hastata Linnaeus
+27                                                                                                                                                                                                                                                        Salix eriocephala Michx.; Salix rigida Muhl.; Salix eriocephala; Salix rigida; Salix adenophylla; Salix cordata var. abrasa Fernald; Salix rigida var. angustata (Pursh) Fernald; Salix acutidens Rydb. in Britton
+28                                                                                                                                                                                                                                                                                                                                                                                                                                    Salix Americana; Salix (dwarf species)
+29                                                                                                                                                                                                                                                                                                                                                                                  Salix pentandra L.; Salix pentandra; Salix pentandra Linnaeus; Salix pentandra L. (1753)
+30                                                                                                                                                                                                                                                                                                                                                                                                                                     Salix arizonica Dorn; Salix arizonica
+</div>
+<div class='input'><span class="functioncall"><a href='eol_search.html'>eol_search</a></span><span class="keyword">(</span><span class="argument">terms</span><span class="argument">=</span><span class="string">'Ursus americanus luteolus'</span><span class="keyword">)</span></div>
+<strong class='message'>http://eol.org/api/search/Ursus+americanus+luteolus.json?key=52987dc6505de77c6c9345e8e8068f74ffb52de6</strong>
+<div class='output'>       id                                    title
+1 1273844 Ursus americanus luteolus Griffith, 1821
+                                   link
+1 http://eol.org/pages/1273844/overview
+                                                              content
+1 Ursus americanus luteolus Griffith, 1821; Ursus americanus luteolus
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>eol_search</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

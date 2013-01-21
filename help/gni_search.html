@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>gni_search. taxize 0.0.3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="
+  Scott Chamberlain myrmecocystus@gmail.com
+">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">taxize 0.0.3</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Search for taxonomic names using the Global Names Index.</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><span class="functioncall"><a href='gni_search.html'>gni_search</a></span><span class="keyword">(</span><span class="argument">search_term</span> <span class="argument">=</span> NULL<span class="keyword">,</span> <span class="argument">per_page</span> <span class="argument">=</span> NULL<span class="keyword">,</span> <span class="argument">page</span> <span class="argument">=</span> NULL<span class="keyword">,</span> <span class="argument">justtotal</span> <span class="argument">=</span> <span class="number">FALSE</span><span class="keyword">,</span> <span class="argument">url</span> <span class="argument">=</span> <span class="string">"http://gni.globalnames.org/name_strings.json"</span><span class="keyword">)</span></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>search_term</dt>
+      <dd>Name pattern you want to search for
+  search term may include following options (Note: can,
+  uni, gen, sp, ssp, au, yr work only for parsed names): *:
+  wild card Search by part of a word planta* exact: exact
+  match Search for exact match of a literal string
+  exact:Parus major ns: name string Search for literal
+  string from its beginning (other modifiers will be
+  ignored) ns:parus maj* can: canonical form Search name
+  without authors (other modifiers will be ignored)
+  can:parus major uni: uninomial Search for higher taxa
+  uni:parus gen: genus Search by genus epithet of species
+  name gen:parus sp: species Search by species epithet
+  sp:major ssp: subspecies Search by infraspecies epithet
+  ssp:major au: author Search by author word au:Shipunov
+  yr: year Search by year yr:2005</dd>
+      <dt>per_page</dt>
+      <dd>Number of items per one page (numbers
+  larger than 1000 will be decreased to 1000) (default is
+  30).</dd>
+      <dt>page</dt>
+      <dd>Page number you want to see (default is 1).</dd>
+      <dt>justtotal</dt>
+      <dd>Return only the total results found.</dd>
+      <dt>url</dt>
+      <dd>Base url for the API; leave as is.</dd>
+    </dl>
+    
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Data.frame of results.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Uses the Global Names Index, see
+  <a href = 'http://gni.globalnames.org/'>http://gni.globalnames.org/</a> for information.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'><span class="functioncall"><a href='gni_search.html'>gni_search</a></span><span class="keyword">(</span><span class="argument">search_term</span> <span class="argument">=</span> <span class="string">"ani*"</span><span class="keyword">)</span></div>
+<div class='output'>                                                                        name       id
+1                                                           ? Anisolabidinae 22067449
+2                                                   Abyssobairdia anisovalva  6792020
+3                              Abyssobairdia anisovalva Coles & Whatley 1989 16906825
+4                                                         Acacia anisophylla  4094695
+5                                               Acacia anisophylla S. Watson  8374388
+6                                         Acacia anisophylla S. Watson, 1886  2867899
+7                                                Acacia anisophylla S.Watson 12989995
+8                                                  Acacia anisophylla Watson 10043690
+9                                                         Acallepitrix anila 17802847
+10                                                       Acalypha anisodonta  7470489
+11                                            Acalypha anisodonta Müll. Arg. 22727968
+12                 Acalypha anisodonta Müll. Arg. var. subsericea Müll. Arg.  8350514
+13                 Acalypha anisodonta Müll. Arg. var. subvillosa Müll. Arg.  8343090
+14                                             Acalypha anisodonta Müll.Arg.  1645220
+15 Acalypha anisodonta Müller Argoviensis var. subsericea Müller Argoviensis 11653126
+16                                            Acalypha anisodonta subsericea  7470506
+17                                            Acalypha anisodonta subvillosa  7470711
+18                                       Acalypha anisodonta var. subsericea  9427903
+19                            Acalypha anisodonta var. subsericea Müll. Arg. 22719611
+20                             Acalypha anisodonta var. subsericea Müll.Arg.  1995411
+21                                       Acalypha anisodonta var. subvillosa  9418586
+22                            Acalypha anisodonta var. subvillosa Müll. Arg. 22727971
+23                             Acalypha anisodonta var. subvillosa Müll.Arg.  1995381
+24                                              Acalypha insulana anisodonta  7484054
+25                Acalypha insulana L. var. anisodonta (Müll. Arg.) Govaerts  8343037
+26                     Acalypha insulana Müll. Arg. var. anisodonta Govaerts  8343064
+27          Acalypha insulana Müll.Arg. var. anisodonta (Müll.Arg.) Govaerts 13387079
+28                                         Acalypha insulana var. anisodonta  9416432
+29                    Acalypha insulana var. anisodonta (Müll.Arg.) Govaerts  2008889
+30                                Acalypha insulana var. anisodonta Govaerts 22727969
+                                                                  lsid
+1  urn:lsid:globalnames.org:index:efef32c0-8314-5c6e-b427-7d5b121898e8
+2  urn:lsid:globalnames.org:index:10cde63a-45b7-5c35-81ee-adb3735fd760
+3  urn:lsid:globalnames.org:index:0562885c-e31a-5fff-8676-a689911bbb2e
+4  urn:lsid:globalnames.org:index:85c4f5ae-32d4-5f5d-b6fa-de2298340561
+5  urn:lsid:globalnames.org:index:dfbb0f4e-8971-5008-93b0-e2962750d9cc
+6  urn:lsid:globalnames.org:index:1ad526f3-c1ce-5d5e-be67-78f8c1761ebd
+7  urn:lsid:globalnames.org:index:5f71294d-e0d4-52bc-bd72-b086b76eb32a
+8  urn:lsid:globalnames.org:index:33f15f8b-ab01-5e09-80e0-538bc492adde
+9  urn:lsid:globalnames.org:index:35fa270e-1a07-5e5d-914c-90230dc8680a
+10 urn:lsid:globalnames.org:index:fc9ab485-93eb-5e08-8f63-dbff9eb9b3c8
+11 urn:lsid:globalnames.org:index:8dd59cb5-ebec-55cc-acc7-c03a0e1aa67a
+12 urn:lsid:globalnames.org:index:123d157c-1d96-54fa-93b6-6ca65b5eeabf
+13 urn:lsid:globalnames.org:index:619d81a4-b8c4-5359-92f5-5684fe258823
+14 urn:lsid:globalnames.org:index:13f94530-7e3e-55bf-a94c-002b1bfe9caf
+15 urn:lsid:globalnames.org:index:d66c0f43-0336-5c63-b7ba-e9677541cf92
+16 urn:lsid:globalnames.org:index:bfb9e7fb-bf1b-521b-8133-3692875b03e9
+17 urn:lsid:globalnames.org:index:29e928e8-d5af-5600-bd5c-a835c204c3ba
+18 urn:lsid:globalnames.org:index:6f5800bd-f9b8-5868-97dd-5dc3472da7fa
+19 urn:lsid:globalnames.org:index:db7dbfb7-e4db-53f7-82ab-078ce730eee4
+20 urn:lsid:globalnames.org:index:a28b009f-466c-5816-a46b-6988cace8d40
+21 urn:lsid:globalnames.org:index:fd1f69a0-5c22-5570-812b-65a46a6cfe5c
+22 urn:lsid:globalnames.org:index:072eb45f-b4e1-5b9e-9328-4e1b4c962a73
+23 urn:lsid:globalnames.org:index:afda1381-2e5e-5bd6-b0de-7887ca30562c
+24 urn:lsid:globalnames.org:index:d4aca670-8783-5a47-b2e5-c8d3c1ca03ac
+25 urn:lsid:globalnames.org:index:5ed107c6-53e5-5a95-a3ab-fed88706087f
+26 urn:lsid:globalnames.org:index:994de201-e3af-56b6-88a6-1aa619fa8f39
+27 urn:lsid:globalnames.org:index:719103d2-210c-548b-94dc-6f34db239eb0
+28 urn:lsid:globalnames.org:index:8ad9e7ac-1ef5-566a-9970-5556c7453a2f
+29 urn:lsid:globalnames.org:index:1ca4340b-cdef-5db6-8d5d-f8511e191f88
+30 urn:lsid:globalnames.org:index:e6e7fc09-007f-511d-9cfe-d4e902afc6d8
+                               uuid_hex resource_url
+1  efef32c0-8314-5c6e-b427-7d5b121898e8         none
+2  10cde63a-45b7-5c35-81ee-adb3735fd760         none
+3  0562885c-e31a-5fff-8676-a689911bbb2e         none
+4  85c4f5ae-32d4-5f5d-b6fa-de2298340561         none
+5  dfbb0f4e-8971-5008-93b0-e2962750d9cc         none
+6  1ad526f3-c1ce-5d5e-be67-78f8c1761ebd         none
+7  5f71294d-e0d4-52bc-bd72-b086b76eb32a         none
+8  33f15f8b-ab01-5e09-80e0-538bc492adde         none
+9  35fa270e-1a07-5e5d-914c-90230dc8680a         none
+10 fc9ab485-93eb-5e08-8f63-dbff9eb9b3c8         none
+11 8dd59cb5-ebec-55cc-acc7-c03a0e1aa67a         none
+12 123d157c-1d96-54fa-93b6-6ca65b5eeabf         none
+13 619d81a4-b8c4-5359-92f5-5684fe258823         none
+14 13f94530-7e3e-55bf-a94c-002b1bfe9caf         none
+15 d66c0f43-0336-5c63-b7ba-e9677541cf92         none
+16 bfb9e7fb-bf1b-521b-8133-3692875b03e9         none
+17 29e928e8-d5af-5600-bd5c-a835c204c3ba         none
+18 6f5800bd-f9b8-5868-97dd-5dc3472da7fa         none
+19 db7dbfb7-e4db-53f7-82ab-078ce730eee4         none
+20 a28b009f-466c-5816-a46b-6988cace8d40         none
+21 fd1f69a0-5c22-5570-812b-65a46a6cfe5c         none
+22 072eb45f-b4e1-5b9e-9328-4e1b4c962a73         none
+23 afda1381-2e5e-5bd6-b0de-7887ca30562c         none
+24 d4aca670-8783-5a47-b2e5-c8d3c1ca03ac         none
+25 5ed107c6-53e5-5a95-a3ab-fed88706087f         none
+26 994de201-e3af-56b6-88a6-1aa619fa8f39         none
+27 719103d2-210c-548b-94dc-6f34db239eb0         none
+28 8ad9e7ac-1ef5-566a-9970-5556c7453a2f         none
+29 1ca4340b-cdef-5db6-8d5d-f8511e191f88         none
+30 e6e7fc09-007f-511d-9cfe-d4e902afc6d8         none
+</div>
+<div class='input'><span class="functioncall"><a href='gni_search.html'>gni_search</a></span><span class="keyword">(</span><span class="argument">search_term</span> <span class="argument">=</span> <span class="string">"ama*"</span><span class="keyword">,</span> <span class="argument">per_page</span> <span class="argument">=</span> <span class="number">3</span><span class="keyword">,</span> <span class="argument">page</span> <span class="argument">=</span> <span class="number">21</span><span class="keyword">)</span></div>
+<div class='output'>                       name       id
+1 Acacia amanda G. J. Leach 12917478
+2   Acacia amanda G.J.Leach  1021068
+3            Acacia amandae  8487590
+                                                                 lsid
+1 urn:lsid:globalnames.org:index:726a5445-cb13-559e-84eb-32d10aafb2dc
+2 urn:lsid:globalnames.org:index:b06c2bff-ad14-5840-b909-f9ca7f4259f9
+3 urn:lsid:globalnames.org:index:1c3616f6-0775-5f8c-bc37-5e8c96a0bf3c
+                              uuid_hex resource_url
+1 726a5445-cb13-559e-84eb-32d10aafb2dc         none
+2 b06c2bff-ad14-5840-b909-f9ca7f4259f9         none
+3 1c3616f6-0775-5f8c-bc37-5e8c96a0bf3c         none
+</div>
+<div class='input'><span class="functioncall"><a href='gni_search.html'>gni_search</a></span><span class="keyword">(</span><span class="argument">search_term</span> <span class="argument">=</span> <span class="string">"animalia"</span><span class="keyword">,</span> <span class="argument">per_page</span> <span class="argument">=</span> <span class="number">8</span><span class="keyword">,</span> <span class="argument">page</span> <span class="argument">=</span> <span class="number">1</span><span class="keyword">)</span></div>
+<div class='output'>                                                  name       id
+1                                             Animalia        7
+2                            Animalia coprolite Type A 10064640
+3                               Animalia Linnaeus 1758 12149462
+4 Animalia Linnaeus 1758 sec. DeFelice & Eldredge 2004 13766124
+5           Animalia Linnaeus 1758 sec. Eschmeyer 1998 13766121
+6 Animalia Linnaeus 1758 sec. Margulis & Margulis 1998 13766123
+7               Animalia Linnaeus 1758 sec. Mundy 2005 13766122
+8                              Animalia Linnaeus, 1758 13820524
+                                                                 lsid
+1 urn:lsid:globalnames.org:index:dee2fad2-770c-5740-8b2d-17f138e05175
+2 urn:lsid:globalnames.org:index:51b976bc-26c4-59cc-9b28-5830a4730ae7
+3 urn:lsid:globalnames.org:index:fce8512d-cc08-5f2d-bdae-0d163cc5c42d
+4 urn:lsid:globalnames.org:index:235dc9d1-3c4f-5c02-98c7-fe140520369b
+5 urn:lsid:globalnames.org:index:82f77a5d-6764-5207-8723-cabfe5a36a3d
+6 urn:lsid:globalnames.org:index:de4dfbe3-0b94-5c25-ab9b-43aa2d024675
+7 urn:lsid:globalnames.org:index:488a6066-f155-517d-a363-33551d420839
+8 urn:lsid:globalnames.org:index:c5276afe-d4b9-5920-8992-e6daea07592d
+                              uuid_hex resource_url
+1 dee2fad2-770c-5740-8b2d-17f138e05175         none
+2 51b976bc-26c4-59cc-9b28-5830a4730ae7         none
+3 fce8512d-cc08-5f2d-bdae-0d163cc5c42d         none
+4 235dc9d1-3c4f-5c02-98c7-fe140520369b         none
+5 82f77a5d-6764-5207-8723-cabfe5a36a3d         none
+6 de4dfbe3-0b94-5c25-ab9b-43aa2d024675         none
+7 488a6066-f155-517d-a363-33551d420839         none
+8 c5276afe-d4b9-5920-8992-e6daea07592d         none
+</div>
+<div class='input'><span class="functioncall"><a href='gni_search.html'>gni_search</a></span><span class="keyword">(</span><span class="argument">search_term</span> <span class="argument">=</span> <span class="string">"animalia"</span><span class="keyword">,</span> <span class="argument">per_page</span> <span class="argument">=</span> <span class="number">8</span><span class="keyword">,</span> <span class="argument">page</span> <span class="argument">=</span> <span class="number">1</span><span class="keyword">,</span> <span class="argument">justtotal</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span></div>
+<div class='output'>[1] 8
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>gni_search</li>
+    </ul>
+    <ul>
+      <li>globalnamesindex</li><li>names</li><li>taxonomy</li>
+    </ul> -->
+      
+    <h2>See also</h2>
+    
+  <code><a href='gnr_datasources.html'>gnr_datasources</a></code>, <code><a href='gni_search.html'>gni_search</a></code>.
+
+    
+    <h2>Author</h2>
+    
+  Scott Chamberlain myrmecocystus@gmail.com
+
+    
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>itis_downstream. taxize 0.0.3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="
+  Scott Chamberlain &lt;a href='mailto:myrmecocystus@gmail.com'&gt;myrmecocystus@gmail.com&lt;/a&gt;
+">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">taxize 0.0.3</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Retrieve all taxa names or TSNs downstream in hierarchy from given TSN.</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><span class="functioncall"><a href='itis_downstream.html'>itis_downstream</a></span><span class="keyword">(</span><span class="symbol">tsns</span><span class="keyword">,</span> <span class="symbol">downto</span><span class="keyword">)</span></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>tsns</dt>
+      <dd>A taxonomic serial number.</dd>
+      <dt>downto</dt>
+      <dd>The taxonomic level you want to go down to.
+  See examples below.  The taxonomic level IS case
+  sensitive, and you do have to spell it correctly. See
+  <code>data(rank_ref)</code> for spelling.</dd>
+    </dl>
+    
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Data.frame of taxonomic information downstream to family
+  from e.g., Order, Class, etc.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Retrieve all taxa names or TSNs downstream in hierarchy
+  from given TSN.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'><span class="functioncall"><a href='itis_downstream.html'>itis_downstream</a></span><span class="keyword">(</span><span class="argument">tsns</span><span class="argument">=</span><span class="number">846509</span><span class="keyword">,</span> <span class="argument">downto</span><span class="argument">=</span><span class="string">"Genus"</span><span class="keyword">)</span></div>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getTaxonomicRankNameFromTSN?tsn=846509</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getHierarchyDownFromTSN?tsn=846509</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getTaxonomicRankNameFromTSN?tsn=11490</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getHierarchyDownFromTSN?tsn=11490</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getTaxonomicRankNameFromTSN?tsn=11530</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getHierarchyDownFromTSN?tsn=11530</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getTaxonomicRankNameFromTSN?tsn=11531</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getTaxonomicRankNameFromTSN?tsn=11540</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getTaxonomicRankNameFromTSN?tsn=11577</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getTaxonomicRankNameFromTSN?tsn=11580</strong>
+<div class='output'>    tsn parentName parentTsn   taxonName rankId rankName
+1 11531                11530      Bangia    180    Genus
+2 11540                11530    Porphyra    180    Genus
+3 11577                11530 Porphyrella    180    Genus
+4 11580                11530 Conchocelis    180    Genus
+</div>
+<div class='input'><span class="functioncall"><a href='itis_downstream.html'>itis_downstream</a></span><span class="keyword">(</span><span class="argument">tsns</span> <span class="argument">=</span> <span class="number">650497</span><span class="keyword">,</span> <span class="string">"Family"</span><span class="keyword">)</span> <span class="comment"># getting families downstream from Acridoidea</span></div>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getTaxonomicRankNameFromTSN?tsn=650497</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getHierarchyDownFromTSN?tsn=650497</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getTaxonomicRankNameFromTSN?tsn=102195</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getTaxonomicRankNameFromTSN?tsn=657479</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getTaxonomicRankNameFromTSN?tsn=657492</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getTaxonomicRankNameFromTSN?tsn=650502</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getTaxonomicRankNameFromTSN?tsn=657472</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getTaxonomicRankNameFromTSN?tsn=657473</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getTaxonomicRankNameFromTSN?tsn=657474</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getTaxonomicRankNameFromTSN?tsn=657475</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getTaxonomicRankNameFromTSN?tsn=657476</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getTaxonomicRankNameFromTSN?tsn=657477</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getTaxonomicRankNameFromTSN?tsn=657478</strong>
+<div class='output'>      tsn parentName parentTsn      taxonName rankId rankName
+1  102195 Acridoidea    650497      Acrididae    140   Family
+2  650502 Acridoidea    650497     Romaleidae    140   Family
+3  657472 Acridoidea    650497    Charilaidae    140   Family
+4  657473 Acridoidea    650497   Lathiceridae    140   Family
+5  657474 Acridoidea    650497     Lentulidae    140   Family
+6  657475 Acridoidea    650497    Lithidiidae    140   Family
+7  657476 Acridoidea    650497   Ommexechidae    140   Family
+8  657477 Acridoidea    650497    Pamphagidae    140   Family
+9  657478 Acridoidea    650497  Pyrgacrididae    140   Family
+10 657479 Acridoidea    650497    Tristiridae    140   Family
+11 657492 Acridoidea    650497 Dericorythidae    140   Family
+</div>
+<div class='input'><span class="functioncall"><a href='itis_downstream.html'>itis_downstream</a></span><span class="keyword">(</span><span class="argument">tsns</span> <span class="argument">=</span> <span class="number">180541</span><span class="keyword">,</span> <span class="string">"Species"</span><span class="keyword">)</span> <span class="comment"># getting species downstream from Ursus</span></div>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getTaxonomicRankNameFromTSN?tsn=180541</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getHierarchyDownFromTSN?tsn=180541</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getTaxonomicRankNameFromTSN?tsn=180542</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getTaxonomicRankNameFromTSN?tsn=180543</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getTaxonomicRankNameFromTSN?tsn=180544</strong>
+<strong class='message'>http://www.itis.gov/ITISWebService/services/ITISService/getTaxonomicRankNameFromTSN?tsn=621850</strong>
+<div class='output'>     tsn parentName parentTsn        taxonName rankId rankName
+1 180542      Ursus    180541  Ursus maritimus    220  Species
+2 180543      Ursus    180541     Ursus arctos    220  Species
+3 180544      Ursus    180541 Ursus americanus    220  Species
+4 621850      Ursus    180541 Ursus thibetanus    220  Species
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>itis_downstream</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+    
+    <h2>Author</h2>
+    
+  Scott Chamberlain <a href='mailto:myrmecocystus@gmail.com'>myrmecocystus@gmail.com</a>
+
+    
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

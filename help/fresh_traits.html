@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>fresh_traits. taxize 0.0.3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="
+  Eduard Szoecs &lt;a href='mailto:szoe8822@uni-landau.de'&gt;szoe8822@uni-landau.de&lt;/a&gt;
+">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">taxize 0.0.3</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Query ecological parameters from <a href = 'freshwaterbiology.info'>freshwaterbiology.info</a></h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><span class="functioncall"><a href='fresh_traits.html'>fresh_traits</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>x</dt>
+      <dd>tvt-object; A object of class tvt as returned
+  from <a href='fresh_validate.html'>fresh_validate</a>.</dd>
+    </dl>
+    
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>A data.frame with ecological parameters for each taxon</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Query ecological parameters from
+  <a href = 'freshwaterbiology.info'>freshwaterbiology.info</a>. This function queries all
+  parameters. If you want data only for specific traits use
+  the <a href='fresh_desc.html'>fresh_desc</a> table (see examples).</p>
+  
+    </div>
+
+    <div class="Note">
+      <h2>Note</h2>
+      
+      <p>Currently only the macro-invertebrate database is
+  supported.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'><span class="symbol">spec</span> <span class="assignement">&lt;-</span> <span class="functioncall"><a href='http://www.inside-r.org/r-doc/base/c'>c</a></span><span class="keyword">(</span><span class="string">"Acentrella sinaica"</span><span class="keyword">,</span>
+<span class="string">"Acentria ephemerella"</span><span class="keyword">,</span>
+<span class="string">"Acilius sp."</span><span class="keyword">,</span>
+<span class="string">"Acroloxus lacustris"</span><span class="keyword">,</span>
+<span class="string">"Allotrichi pallicornis"</span><span class="keyword">)</span>
+
+<span class="symbol">a</span> <span class="assignement">&lt;-</span> <span class="functioncall"><a href='fresh_validate.html'>fresh_validate</a></span><span class="keyword">(</span><span class="symbol">spec</span><span class="keyword">)</span>
+<span class="symbol">a_traits</span> <span class="assignement">&lt;-</span> <span class="functioncall"><a href='fresh_traits.html'>fresh_traits</a></span><span class="keyword">(</span><span class="symbol">a</span><span class="keyword">)</span>
+<span class="symbol">a_traits</span></div>
+<div class='output'>       Genus     Species ER1 ER2 ER3 ER4 ER5 ER6 ER7 ER8 ER9 ER10 ER11 ER12 ER13 ER14
+1 Acentrella     sinaica   1   2   3   4   5   6   7   8   9   10   11   12   13   14
+2   Acentria ephemerella   0   0   0   0   0   0   0   0   0    0    0    0    0    0
+3    Acilius         sp.   0   0   0   0   0   0   0   0   0    0    0    0    0    0
+4  Acroloxus   lacustris   0   0   0   0   0   0   0   0   0    0    0    0    0    0
+5                         NA  NA  NA  NA  NA  NA  NA  NA  NA   NA   NA   NA   NA   NA
+  ER15 ER16 ER17 ER18 ER19 ER20 ER21 ER22 ER23 ER24 ER25 ERX ERY Map ls er mic bio alsp
+1   15   16    0    0    0   20   21   22    0    0    0   0   0   0  0  0   0   0    0
+2    0    0    0    0    0    0    0    0    0    0    0   0   0   0  0  0   0   0    0
+3    0    0    0    0    0    0    0    0    0    0    0   0   0   0  0  0   0   0    0
+4    0    0    0    0    0    0    0    0    0    0    0   0   0   0  0  0   0   0    0
+5   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA  NA  NA  NA NA NA  NA  NA   NA
+  er.1 rasp er.2 sesp er.3 rel cou euc hyc erh mrh hrh epo mpo hpo lit pro g8h X28h l2h
+1    0    1    0    0    0   0   0   0   0   3   4   2   1   0   0   0   0   1    1   1
+2    0    0    0    0    0   0   0   0   0   0   0   0   0   0   0  10   0   0    0   0
+3    0    0    0    0    0   0   0   0   0   0   0   0   0   0   0   0   0   0    0   0
+4    0    0    0    0    0   0   0   0   0   0   0   1   2   2   1   4   0   0    0   0
+5   NA   NA   NA   NA   NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA   NA  NA
+  min  max niv sni alp sal mon smo col pla pel arg psa aka mil mal hpe alg mph pom woo
+1   0 1100   0   0   0   0   0   0   0   0   0   0   0   0   4   5   0   0   1   0   0
+2   0    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+3   0    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+4   0    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+5  NA   NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+  mad oth has hab eup prp plp pap tmp lib lip lrp rlp rhp rhb ind cos was eut vco cod
+1   0   0   0   0  10   0   0   0   0   0   0   0   0   1   0   0   0   0   1   0   1
+2   0   0   0   0   0   0   0   0   0   0   1   0   0   0   0   0   0   0   0   0   0
+3   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+4   0   0   0   0   0   0   0   0   0   0   1   0   0   0   0   0   0   0   0   0   0
+5  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+  mod war eut.1 aci neu ind.1 bws bwi thr hyr drr oth.1 X.oth.sp rivers.cold
+1   8   1     0   0   0     0   0   0   0   0   0     0        0           0
+2   0   0     0   0   0     0   0   0   0   0   0     0        0           0
+3   0   0     0   0   0     0   0   0   0   0   0     0        0           0
+4   0   0     0   0   0     0   0   0   0   0   0     0        0           0
+5  NA  NA    NA  NA  NA    NA  NA  NA  NA  NA  NA    NA       NA          NA
+  rivers.temp rivers.warm lakes.cold lakes.temp lakes.warm wetlands.cold wetlands.temp
+1           0           0          0          0          0             0             0
+2           0           0          0          0          0             0             0
+3           0           0          0          0          0             0             0
+4           0           0          0          0          0             0             0
+5          NA          NA         NA         NA         NA            NA            NA
+  wetlands.warm ecosystem.type stressor.type  si  g xeno oligo beta alpha poly si.1 g.1
+1             0              0             0 0.0  0    0     0    0     0    0  0.0   0
+2             0              0             0 0.0  0    0     0    0     0    0  0.0   0
+3             0              0             0 0.0  0    0     0    0     0    0  2.0   2
+4             0              0             0 2.2  2    0     2    4     4    0  1.5   3
+5            NA             NA            NA  NA NA   NA    NA   NA    NA   NA   NA  NA
+  xeno.1 oligo.1 beta.1 alpha.1 poly.1 si.2 g.2 xeno.2 oligo.2 beta.2 alpha.2 poly.2
+1      0       0      0       0      0  0.0   0      0       0      0       0      0
+2      0       0      0       0      0  0.0   0      1       4      4       1      0
+3      0       3      4       3      0  0.0   0      0       0      0       0      0
+4      0       5      5       0      0  2.2   4      0       2      6       2      0
+5     NA      NA     NA      NA     NA   NA  NA     NA      NA     NA      NA     NA
+  si.3 g.3 xeno.3 oligo.3 beta.3 alpha.3 poly.3 gra min.1 xyl shr gat aff pff pre par
+1  0.0   0      0       0      0       0      0   9     0   0   0   1   0   0   0   0
+2  0.0   0      0       0      0       0      0   0     0   0  10   0   0   0   0   0
+3  0.0   0      0       0      0       0      0   0     0   0   0   0   0   0  10   0
+4  1.7   3      0       5      5       0      0  10     0   0   0   0   0   0   0   0
+5   NA  NA     NA      NA     NA      NA     NA  NA    NA  NA  NA  NA  NA  NA  NA  NA
+  oth.2 sws swd bub spw ses oth.3 teg gil pls spi ves tap sur nod egd lad add unk egg
+1     0   0   0   0   0   0     0   1   1   0   0   0   0   0   0   0   0   0   0   0
+2     0   0   2   0   6   2     0   0   0   0   0   0   0   0   0   0   0   0   0   0
+3     0   0   7   0   2   0     1   0   0   0   0   0   0   0   0   0   0   0   0   0
+4     0   0   0   0  10   0     0   0   0   0   0   0   0   0   0   0   0   0   0   0
+5    NA  NA  NA  NA  NA  NA    NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+  coc hou did qui non aqp aqa aep aea hig low unk.1 l1y g1y egg.1 lar nym pup adu win
+1   0   0   0   0   0   0   0   0   0   0   0     0   1   0     0   0   0   0   0   1
+2   0   0   0   0   0   0   0   0   0   0   0     0   0   0     0   0   0   0   0   0
+3   0   0   0   0   0   0   0   0   0   0   0     0   0   0     0   0   0   0   0   0
+4   0   0   0   0   0   0   0   0   0   0   0     0   0   0     0   0   0   0   0   0
+5  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA    NA  NA  NA    NA  NA  NA  NA  NA  NA
+  spr sum aut aly win.1 spr.1 sum.1 aut.1 sho lon sev                        unv biv
+1   4   5   0   0     0     4     6     0   0   1   0 temperate,temperate (alps)   0
+2   0   0   0   0     0     0     0     0   0   0   0                          0   0
+3   0   0   0   0     0     0     0     0   0   0   0                          0   0
+4   0   0   0   0     0     0     0     0   0   0   0                          0   0
+5  NA  NA  NA  NA    NA    NA    NA    NA  NA  NA  NA                             NA
+  trv muv flx ovo fie cie fic frc vec tec ase pas rst kst oil                      x
+1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0     Acentrella sinaica
+2   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   Acentria ephemerella
+3   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0            Acilius sp.
+4   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0    Acroloxus lacustris
+5  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA Allotrichi pallicornis
+</div>
+<div class='input'>
+<span class="comment">### select only current preference using lookup table</span>
+<span class="symbol">take</span> <span class="assignement">&lt;-</span> <span class="symbol">fresh_desc</span><span class="keyword">$</span><span class="symbol">Modality</span><span class="keyword">[</span><span class="symbol">fresh_desc</span><span class="keyword">$</span><span class="symbol">Trait</span> == <span class="string">'current preference'</span><span class="keyword">]</span>
+<span class="symbol">a_traits</span><span class="keyword">[</span> <span class="keyword">,</span> <span class="symbol">take</span><span class="keyword">]</span></div>
+<div class='output'>  lib lip lrp rlp rhp rhb ind
+1   0   0   0   0   1   0   0
+2   0   1   0   0   0   0   0
+3   0   0   0   0   0   0   0
+4   0   1   0   0   0   0   0
+5  NA  NA  NA  NA  NA  NA  NA
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>fresh_traits</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+    
+    <h2>Author</h2>
+    
+  Eduard Szoecs <a href='mailto:szoe8822@uni-landau.de'>szoe8822@uni-landau.de</a>
+
+    
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>get_tsn. taxize 0.0.3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">taxize 0.0.3</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Get the TSN code for a search term.</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><span class="functioncall"><a href='get_tsn.html'>get_tsn</a></span><span class="keyword">(</span><span class="symbol">searchterm</span><span class="keyword">,</span> <span class="argument">searchtype</span> <span class="argument">=</span> <span class="string">"sciname"</span><span class="keyword">,</span> <span class="argument">verbose</span> <span class="argument">=</span> <span class="number">TRUE</span><span class="keyword">)</span></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>searchterm</dt>
+      <dd>A vector of common or scientific
+  names.</dd>
+      <dt>searchtype</dt>
+      <dd>One of 'sciname', 'anymatch',
+  'comnamebeg', 'comname', 'comnameend'.</dd>
+      <dt>verbose</dt>
+      <dd>should progress be printed?</dd>
+    </dl>
+    
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>A vector of taxonomic serial numbers (TSN). If a species
+  is not found NA.  If more than one TSN is found the
+  function asks for user input.  See functions in the
+  <code>itis</code> function.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p><code>get_tsn</code> uses a variety of functions from the
+  <code>itis</code> function.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'><span class="functioncall"><a href='get_tsn.html'>get_tsn</a></span><span class="keyword">(</span><span class="argument">searchterm</span><span class="argument">=</span><span class="string">"Quercus douglasii"</span><span class="keyword">,</span> <span class="argument">searchtype</span><span class="argument">=</span><span class="string">"sciname"</span><span class="keyword">)</span></div>
+<div class='output'>
+Retrieving data for species ' Quercus douglasii '
+</div>
+<div class='output'>      1 
+"19322" 
+attr(,"class")
+[1] "tsn"
+</div>
+<div class='input'><span class="functioncall"><a href='get_tsn.html'>get_tsn</a></span><span class="keyword">(</span><span class="argument">searchterm</span><span class="argument">=</span><span class="string">"Chironomus riparius"</span><span class="keyword">,</span> <span class="argument">searchtype</span><span class="argument">=</span><span class="string">"sciname"</span><span class="keyword">)</span></div>
+<div class='output'>
+Retrieving data for species ' Chironomus riparius '
+</div>
+<div class='output'>       1 
+"129313" 
+attr(,"class")
+[1] "tsn"
+</div>
+<div class='input'><span class="functioncall"><a href='get_tsn.html'>get_tsn</a></span><span class="keyword">(</span><span class="argument">searchterm</span><span class="argument">=</span><span class="string">"polar bear"</span><span class="keyword">,</span> <span class="argument">searchtype</span><span class="argument">=</span><span class="string">"comname"</span><span class="keyword">)</span></div>
+<div class='output'>
+Retrieving data for species ' polar bear '
+</div>
+<div class='output'>       1 
+"180542" 
+attr(,"class")
+[1] "tsn"
+</div>
+<div class='input'><span class="functioncall"><a href='get_tsn.html'>get_tsn</a></span><span class="keyword">(</span><span class="functioncall"><a href='http://www.inside-r.org/r-doc/base/c'>c</a></span><span class="keyword">(</span><span class="string">"Chironomus riparius"</span><span class="keyword">,</span><span class="string">"Quercus douglasii"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="string">"sciname"</span><span class="keyword">)</span></div>
+<div class='output'>
+Retrieving data for species ' Chironomus riparius '
+
+Retrieving data for species ' Quercus douglasii '
+</div>
+<div class='output'>[1] "129313" "19322" 
+attr(,"class")
+[1] "tsn"
+</div>
+<div class='input'><span class="functioncall"><a href='get_tsn.html'>get_tsn</a></span><span class="keyword">(</span><span class="functioncall"><a href='http://www.inside-r.org/r-doc/base/c'>c</a></span><span class="keyword">(</span><span class="string">"aa aa"</span><span class="keyword">,</span> <span class="string">"Chironomus riparius"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">searchtype</span><span class="argument">=</span><span class="string">"sciname"</span><span class="keyword">)</span></div>
+<div class='output'>
+Retrieving data for species ' aa aa '
+
+Retrieving data for species ' Chironomus riparius '
+</div>
+<div class='output'>[1] NA       "129313"
+attr(,"class")
+[1] "tsn"
+</div>
+<div class='input'><span class="symbol">splist</span> <span class="assignement">&lt;-</span> <span class="functioncall"><a href='http://www.inside-r.org/r-doc/base/c'>c</a></span><span class="keyword">(</span><span class="string">"annona cherimola"</span><span class="keyword">,</span> <span class="string">'annona muricata'</span><span class="keyword">,</span> <span class="string">"quercus robur"</span><span class="keyword">,</span>
+<span class="string">"shorea robusta"</span><span class="keyword">,</span> <span class="string">"pandanus patina"</span><span class="keyword">,</span> <span class="string">"oryza sativa"</span><span class="keyword">,</span> <span class="string">"durio zibethinus"</span><span class="keyword">)</span>
+<span class="functioncall"><a href='get_tsn.html'>get_tsn</a></span><span class="keyword">(</span><span class="symbol">splist</span><span class="keyword">,</span><span class="string">"sciname"</span><span class="keyword">)</span></div>
+<div class='output'>
+Retrieving data for species ' annona cherimola '
+
+Retrieving data for species ' annona muricata '
+
+Retrieving data for species ' quercus robur '
+
+Retrieving data for species ' shorea robusta '
+
+Retrieving data for species ' pandanus patina '
+
+Retrieving data for species ' oryza sativa '
+
+Retrieving data for species ' durio zibethinus '
+</div>
+<div class='output'>[1] "506198" "18098"  "19405"  "506787" "507376" "41976"  "506099"
+attr(,"class")
+[1] "tsn"
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>get_tsn</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>gnr_resolve. taxize 0.0.3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="
+  Scott Chamberlain myrmecocystus@gmail.com
+">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">taxize 0.0.3</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Resolve names using Global Names Resolver.</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><span class="functioncall"><a href='gnr_resolve.html'>gnr_resolve</a></span><span class="keyword">(</span><span class="symbol">names</span><span class="keyword">,</span> <span class="argument">data_source_ids</span> <span class="argument">=</span> NULL<span class="keyword">,</span> <span class="argument">returndf</span> <span class="argument">=</span> <span class="number">FALSE</span><span class="keyword">,</span> <span class="argument">url</span> <span class="argument">=</span> <span class="string">"http://resolver.globalnames.org/name_resolvers"</span><span class="keyword">)</span></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>names</dt>
+      <dd>Quoted taxonomic names to be resolved in a
+  vector.</dd>
+      <dt>data_source_ids</dt>
+      <dd>Supply data source IDs to specify
+  what data source is searched. See example below.</dd>
+      <dt>returndf</dt>
+      <dd>Return data.frame or list (logical;
+  default data.frame).</dd>
+      <dt>url</dt>
+      <dd>Base url for the API; leave as is.</dd>
+    </dl>
+    
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>json or xml output, your choice</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Uses the Global Names Index, see
+  <a href = 'http://gni.globalnames.org/'>http://gni.globalnames.org/</a> for information.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'><span class="functioncall"><a href='gnr_resolve.html'>gnr_resolve</a></span><span class="keyword">(</span><span class="argument">names</span> <span class="argument">=</span> <span class="functioncall"><a href='http://www.inside-r.org/r-doc/base/c'>c</a></span><span class="keyword">(</span><span class="string">"Helianthus annuus"</span><span class="keyword">,</span> <span class="string">"Homo sapiens"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">returndf</span> <span class="argument">=</span> <span class="number">TRUE</span><span class="keyword">)</span></div>
+<div class='output'>   data_source_id    submitted_name       name_string score                   title
+1               4 Helianthus annuus Helianthus annuus 0.988                    NCBI
+3              10 Helianthus annuus Helianthus annuus 0.988                Freebase
+5              12 Helianthus annuus Helianthus annuus 0.988                     EOL
+8             110 Helianthus annuus Helianthus annuus 0.988    Illinois Wildflowers
+11            159 Helianthus annuus Helianthus annuus 0.988                 CU*STAR
+13            166 Helianthus annuus Helianthus annuus 0.988                   nlbif
+15            169 Helianthus annuus Helianthus annuus 0.988           uBio NameBank
+2               4      Homo sapiens      Homo sapiens 0.988                    NCBI
+4              10      Homo sapiens      Homo sapiens 0.988                Freebase
+6              12      Homo sapiens      Homo sapiens 0.988                     EOL
+7             107      Homo sapiens      Homo sapiens 0.988               AskNature
+9             122      Homo sapiens      Homo sapiens 0.988                BioPedia
+10            123      Homo sapiens      Homo sapiens 0.988                   AnAge
+12            159      Homo sapiens      Homo sapiens 0.988                 CU*STAR
+14            168      Homo sapiens      Homo sapiens 0.988 Index to Organism Names
+16            169      Homo sapiens      Homo sapiens 0.988           uBio NameBank
+</div>
+<div class='input'><span class="functioncall"><a href='gnr_resolve.html'>gnr_resolve</a></span><span class="keyword">(</span><span class="argument">names</span> <span class="argument">=</span> <span class="functioncall"><a href='http://www.inside-r.org/r-doc/base/c'>c</a></span><span class="keyword">(</span><span class="string">"Asteraceae"</span><span class="keyword">,</span> <span class="string">"Plantae"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">returndf</span> <span class="argument">=</span> <span class="number">TRUE</span><span class="keyword">)</span></div>
+<div class='output'>   data_source_id submitted_name name_string score
+1               1     Asteraceae  Asteraceae  0.75
+4               3     Asteraceae  Asteraceae  0.75
+6               4     Asteraceae  Asteraceae  0.75
+8               7     Asteraceae  Asteraceae  0.75
+10              9     Asteraceae  Asteraceae  0.75
+14             12     Asteraceae  Asteraceae  0.75
+16            107     Asteraceae  Asteraceae  0.75
+18            145     Asteraceae  Asteraceae  0.75
+20            157     Asteraceae  Asteraceae  0.75
+21            159     Asteraceae  Asteraceae  0.75
+22            169     Asteraceae  Asteraceae  0.75
+2               1        Plantae     Plantae  0.75
+3               2        Plantae     Plantae  0.75
+5               3        Plantae     Plantae  0.75
+7               5        Plantae     Plantae  0.75
+9               8        Plantae     Plantae  0.75
+11              9        Plantae     Plantae  0.75
+12             10        Plantae     Plantae  0.75
+13             11        Plantae     Plantae  0.75
+15             12        Plantae     Plantae  0.75
+17            107        Plantae     Plantae  0.75
+19            157        Plantae     Plantae  0.75
+23            169        Plantae     Plantae  0.75
+                                                                    title
+1                                                       Catalogue of Life
+4                                                                    ITIS
+6                                                                    NCBI
+8                                                                 Union 4
+10                                                                  WoRMS
+14                                                                    EOL
+16                                                              AskNature
+18 Catalogue of Vascular Plant Species of Central and Northeastern Brazil
+20                                                   Belgian Species List
+21                                                                CU*STAR
+22                                                          uBio NameBank
+2                                                       Catalogue of Life
+3                                                             Wikispecies
+5                                                                    ITIS
+7                                                          Index Fungorum
+9                         Interim Register of Marine and Nonmarine Genera
+11                                                                  WoRMS
+12                                                               Freebase
+13                                                GBIF Taxonomic Backbone
+15                                                                    EOL
+17                                                              AskNature
+19                                                   Belgian Species List
+23                                                          uBio NameBank
+</div>
+<div class='input'>
+<span class="comment"># Using data source 12 (Encyclopedia of Life)</span>
+<span class="functioncall"><a href='gnr_resolve.html'>gnr_resolve</a></span><span class="keyword">(</span><span class="argument">names</span> <span class="argument">=</span> <span class="functioncall"><a href='http://www.inside-r.org/r-doc/base/c'>c</a></span><span class="keyword">(</span><span class="string">"Helianthus annuus"</span><span class="keyword">,</span> <span class="string">"Homo sapiens"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">data_source_ids</span><span class="argument">=</span><span class="string">"12"</span><span class="keyword">,</span> <span class="argument">returndf</span> <span class="argument">=</span> <span class="number">TRUE</span><span class="keyword">)</span></div>
+<div class='output'>  data_source_id    submitted_name       name_string score title
+1             12 Helianthus annuus Helianthus annuus 0.988   EOL
+2             12      Homo sapiens      Homo sapiens 0.988   EOL
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>gnr_resolve</li>
+    </ul>
+    <ul>
+      <li>names</li><li>resolve</li><li>taxonomy</li>
+    </ul> -->
+      
+    
+    <h2>Author</h2>
+    
+  Scott Chamberlain myrmecocystus@gmail.com
+
+    
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>col_children. taxize 0.0.3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">taxize 0.0.3</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Search Catalogue of Life for for direct children of a particular taxon.</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><span class="functioncall"><a href='col_children.html'>col_children</a></span><span class="keyword">(</span><span class="argument">name</span> <span class="argument">=</span> NULL<span class="keyword">,</span> <span class="argument">id</span> <span class="argument">=</span> NULL<span class="keyword">,</span> <span class="argument">format</span> <span class="argument">=</span> NULL<span class="keyword">,</span> <span class="argument">start</span> <span class="argument">=</span> NULL<span class="keyword">,</span> <span class="argument">checklist</span> <span class="argument">=</span> NULL<span class="keyword">,</span>
+  <span class="argument">url</span> <span class="argument">=</span> <span class="string">"http://www.catalogueoflife.org/col/webservice"</span><span class="keyword">)</span></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>name</dt>
+      <dd>The string to search for. Only exact matches
+  found the name given will be returned, unless one or
+  wildcards are included in the search string.  An *
+  (asterisk) character denotes a wildcard; a 
+  character may also be used. The name must be at least 3
+  characters long, not counting wildcard characters.</dd>
+      <dt>id</dt>
+      <dd>The record ID of the specific record to return
+  (only for scientific names of species or infraspecific
+  taxa)</dd>
+      <dt>format</dt>
+      <dd>format of the results returned. Valid
+  values are format=xml and format=php; if the format
+  parameter is omitted, the results are returned in the
+  default XML format. If format=php then results are
+  returned as a PHP array in serialized string format,
+  which can be converted back to an array in PHP using the
+  unserialize command</dd>
+      <dt>start</dt>
+      <dd>The first record to return. If omitted, the
+  results are returned from the first record (start=0).
+  This is useful if the total number of results is larger
+  than the maximum number of results returned by a single
+  Web service query (currently the maximum number of
+  results returned by a single query is 500 for terse
+  queries and 50 for full queries).</dd>
+      <dt>checklist</dt>
+      <dd>The year of the checklist to query, if
+  you want a specific year's checklist instead of the
+  lastest as default (numeric).</dd>
+      <dt>url</dt>
+      <dd>The base COL url for the function (should be
+  left to default).</dd>
+    </dl>
+    
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>A list of data.frame's.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Search Catalogue of Life for for direct children of a
+  particular taxon.</p>
+  
+    </div>
+
+    <div class="Details">
+      <h2>Details</h2>
+      
+      <p>You must provide one of name or id. The other parameters
+  (format and start) are optional.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'><span class="comment"># A basic example</span>
+<span class="functioncall"><a href='col_children.html'>col_children</a></span><span class="keyword">(</span><span class="argument">name</span><span class="argument">=</span><span class="string">"Apis"</span><span class="keyword">)</span></div>
+<div class='output'>$Apis
+  childtaxa_id     childtaxa_name childtaxa_rank
+1      6971712 Apis andreniformis        Species
+2      6971713        Apis cerana        Species
+3      6971714       Apis dorsata        Species
+4      6971715        Apis florea        Species
+5      6971716 Apis koschevnikovi        Species
+6      6845885     Apis mellifera        Species
+7      6971717   Apis nigrocincta        Species
+
+</div>
+<div class='input'>
+<span class="comment"># An example where there is no classification</span>
+<span class="functioncall"><a href='col_children.html'>col_children</a></span><span class="keyword">(</span><span class="argument">id</span><span class="argument">=</span><span class="number">11935941</span><span class="keyword">)</span></div>
+<div class='output'>$`11935941`
+data frame with 0 columns and 0 rows
+
+</div>
+<div class='input'>
+<span class="comment"># Use a specific year's checklist</span>
+<span class="functioncall"><a href='col_children.html'>col_children</a></span><span class="keyword">(</span><span class="argument">name</span><span class="argument">=</span><span class="string">"Apis"</span><span class="keyword">,</span> <span class="argument">checklist</span><span class="argument">=</span><span class="string">"2012"</span><span class="keyword">)</span></div>
+<div class='output'>$Apis
+  childtaxa_id     childtaxa_name childtaxa_rank
+1      6971712 Apis andreniformis        Species
+2      6971713        Apis cerana        Species
+3      6971714       Apis dorsata        Species
+4      6971715        Apis florea        Species
+5      6971716 Apis koschevnikovi        Species
+6      6845885     Apis mellifera        Species
+7      6971717   Apis nigrocincta        Species
+
+</div>
+<div class='input'><span class="functioncall"><a href='col_children.html'>col_children</a></span><span class="keyword">(</span><span class="argument">name</span><span class="argument">=</span><span class="string">"Apis"</span><span class="keyword">,</span> <span class="argument">checklist</span><span class="argument">=</span><span class="string">"2009"</span><span class="keyword">)</span></div>
+<div class='output'>$Apis
+  childtaxa_id     childtaxa_name childtaxa_rank
+1       718008 Apis andreniformis        Species
+2       718009        Apis cerana        Species
+3       718010       Apis dorsata        Species
+4       718011        Apis florea        Species
+5       718012 Apis koschevnikovi        Species
+6       718013   Apis nigrocincta        Species
+7      1926761     Apis mellifera        Species
+
+</div>
+<div class='input'>
+<span class="comment"># Pass in many names or many id's</span>
+<span class="symbol">out</span> <span class="assignement">&lt;-</span> <span class="functioncall"><a href='col_children.html'>col_children</a></span><span class="keyword">(</span><span class="argument">name</span><span class="argument">=</span><span class="functioncall"><a href='http://www.inside-r.org/r-doc/base/c'>c</a></span><span class="keyword">(</span><span class="string">"Buteo"</span><span class="keyword">,</span><span class="string">"Apis"</span><span class="keyword">,</span><span class="string">"Accipiter"</span><span class="keyword">,</span><span class="string">"asdf"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">checklist</span><span class="argument">=</span><span class="string">"2012"</span><span class="keyword">)</span>
+<span class="symbol">out</span><span class="keyword">$</span><span class="symbol">Apis</span> <span class="comment"># get just the output you want</span></div>
+<div class='output'>  childtaxa_id     childtaxa_name childtaxa_rank
+1      6971712 Apis andreniformis        Species
+2      6971713        Apis cerana        Species
+3      6971714       Apis dorsata        Species
+4      6971715        Apis florea        Species
+5      6971716 Apis koschevnikovi        Species
+6      6845885     Apis mellifera        Species
+7      6971717   Apis nigrocincta        Species
+</div>
+<div class='input'><span class="functioncall"><a href='http://www.inside-r.org/r-doc/plyr/ldply'>ldply</a></span><span class="keyword">(</span><span class="symbol">out</span><span class="keyword">)</span> <span class="comment"># or combine to one data.frame</span></div>
+<div class='output'>         .id childtaxa_id             childtaxa_name childtaxa_rank
+1      Buteo      6848078         Buteo albicaudatus        Species
+2      Buteo      6866408             Buteo albigula        Species
+3      Buteo      6848077          Buteo albonotatus        Species
+4      Buteo      6866409              Buteo archeri        Species
+5      Buteo      6848090           Buteo areophilus        Species
+6      Buteo      6866410                Buteo augur        Species
+7      Buteo      6848083            Buteo auguralis        Species
+8      Buteo      6848084         Buteo brachypterus        Species
+9      Buteo      6848079           Buteo brachyurus        Species
+10     Buteo      6848085                Buteo buteo        Species
+11     Buteo      6848086        Buteo galapagoensis        Species
+12     Buteo      6848087           Buteo hemilasius        Species
+13     Buteo      6848073          Buteo jamaicensis        Species
+14     Buteo      6848080              Buteo lagopus        Species
+15     Buteo      6848088          Buteo leucorrhous        Species
+16     Buteo      6848074             Buteo lineatus        Species
+17     Buteo      6848089         Buteo magnirostris        Species
+18     Buteo      6848082              Buteo nitidus        Species
+19     Buteo      6866411           Buteo oreophilus        Species
+20     Buteo      6848075          Buteo platypterus        Species
+21     Buteo      6848091        Buteo poecilochrous        Species
+22     Buteo      6848092            Buteo polyosoma        Species
+23     Buteo      6848081              Buteo regalis        Species
+24     Buteo      6848093             Buteo ridgwayi        Species
+25     Buteo      6848094              Buteo rufinus        Species
+26     Buteo      6848095           Buteo rufofuscus        Species
+27     Buteo      6848096           Buteo solitarius        Species
+28     Buteo      6848076            Buteo swainsoni        Species
+29     Buteo      6848097            Buteo ventralis        Species
+30      Apis      6971712         Apis andreniformis        Species
+31      Apis      6971713                Apis cerana        Species
+32      Apis      6971714               Apis dorsata        Species
+33      Apis      6971715                Apis florea        Species
+34      Apis      6971716         Apis koschevnikovi        Species
+35      Apis      6845885             Apis mellifera        Species
+36      Apis      6971717           Apis nigrocincta        Species
+37 Accipiter      6865835      Accipiter albogularis        Species
+38 Accipiter      6865837           Accipiter badius        Species
+39 Accipiter      6848034          Accipiter bicolor        Species
+40 Accipiter      6848035       Accipiter brachyurus        Species
+41 Accipiter      6848036         Accipiter brevipes        Species
+42 Accipiter      6848037        Accipiter buergersi        Species
+43 Accipiter      6865838          Accipiter butleri        Species
+44 Accipiter      6848038      Accipiter castanilius        Species
+45 Accipiter      6865839     Accipiter chionogaster        Species
+46 Accipiter      6848039    Accipiter cirrocephalus        Species
+47 Accipiter      6848040         Accipiter collaris        Species
+48 Accipiter      6848033         Accipiter cooperii        Species
+49 Accipiter      6848041        Accipiter eichhorni        Species
+50 Accipiter      6865840     Accipiter erythrauchen        Species
+51 Accipiter      6865841    Accipiter erythronemius        Species
+52 Accipiter      6848042       Accipiter erythropus        Species
+53 Accipiter      6848043        Accipiter fasciatus        Species
+54 Accipiter      6848044        Accipiter francesii        Species
+55 Accipiter      6848031         Accipiter gentilis        Species
+56 Accipiter      6848045       Accipiter griseiceps        Species
+57 Accipiter      6848046          Accipiter gularis        Species
+58 Accipiter      6848047        Accipiter gundlachi        Species
+59 Accipiter      6848048      Accipiter haplochrous        Species
+60 Accipiter      6848049    Accipiter henicogrammus        Species
+61 Accipiter      6848050          Accipiter henstii        Species
+62 Accipiter      6865842         Accipiter imitator        Species
+63 Accipiter      6848051 Accipiter luteoschistaceus        Species
+64 Accipiter      6848052 Accipiter madagascariensis        Species
+65 Accipiter      6848053    Accipiter melanochlamys        Species
+66 Accipiter      6848054     Accipiter melanoleucus        Species
+67 Accipiter      6848055       Accipiter meyerianus        Species
+68 Accipiter      6848056         Accipiter minullus        Species
+69 Accipiter      6865843            Accipiter nanus        Species
+70 Accipiter      6848057            Accipiter nisus        Species
+71 Accipiter      6848058  Accipiter novaehollandiae        Species
+72 Accipiter      6848059       Accipiter ovampensis        Species
+73 Accipiter      6848060    Accipiter poliocephalus        Species
+74 Accipiter      6848061      Accipiter poliogaster        Species
+75 Accipiter      6848062         Accipiter princeps        Species
+76 Accipiter      6848063      Accipiter rhodogaster        Species
+77 Accipiter      6848064      Accipiter rufitorques        Species
+78 Accipiter      6848065      Accipiter rufiventris        Species
+79 Accipiter      6848066        Accipiter soloensis        Species
+80 Accipiter      6848032         Accipiter striatus        Species
+81 Accipiter      6848067    Accipiter superciliosus        Species
+82 Accipiter      6848068          Accipiter tachiro        Species
+83 Accipiter      6848069      Accipiter toussenelii        Species
+84 Accipiter      6848070       Accipiter trinotatus        Species
+85 Accipiter      6848071      Accipiter trivirgatus        Species
+86 Accipiter      6865844        Accipiter ventralis        Species
+87 Accipiter      6848072         Accipiter virgatus        Species
+</div>
+<div class='input'>
+<span class="comment"># or pass many id's</span>
+<span class="symbol">out</span> <span class="assignement">&lt;-</span> <span class="functioncall"><a href='col_children.html'>col_children</a></span><span class="keyword">(</span><span class="argument">id</span><span class="argument">=</span><span class="functioncall"><a href='http://www.inside-r.org/r-doc/base/c'>c</a></span><span class="keyword">(</span><span class="number">2346405</span><span class="keyword">,</span><span class="number">2344165</span><span class="keyword">,</span><span class="number">2346405</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">checklist</span><span class="argument">=</span><span class="string">"2012"</span><span class="keyword">)</span>
+<span class="functioncall"><a href='http://www.inside-r.org/r-doc/plyr/ldply'>ldply</a></span><span class="keyword">(</span><span class="symbol">out</span><span class="keyword">)</span> <span class="comment"># combine to one data.frame</span></div>
+<div class='output'>        .id childtaxa_id   childtaxa_name childtaxa_rank
+1   2346405      2368704        Accipiter          Genus
+2   2346405      2473176         Aegypius          Genus
+3   2346405      2404380           Aquila          Genus
+4   2346405      2472884          Aviceda          Genus
+5   2346405      2404427       Busarellus          Genus
+6   2346405      2404423         Butastur          Genus
+7   2346405      2451161            Buteo          Genus
+8   2346405      2451162      Buteogallus          Genus
+9   2346405      2472785      Chelictinia          Genus
+10  2346405      2455626    Chondrohierax          Genus
+11  2346405      2403867        Circaetus          Genus
+12  2346405      2403868           Circus          Genus
+13  2346405      2396281    Dryotriorchis          Genus
+14  2346405      2455607        Elanoides          Genus
+15  2346405      2399121           Elanus          Genus
+16  2346405      2368364 Erythrotriorchis          Genus
+17  2346405      2404418      Eutriorchis          Genus
+18  2346405      2473167        Gampsonyx          Genus
+19  2346405      2404428      Geranoaetus          Genus
+20  2346405      2404419      Geranospiza          Genus
+21  2346405      2473174         Gypaetus          Genus
+22  2346405      2473172       Gypohierax          Genus
+23  2346405      2403197             Gyps          Genus
+24  2346405      2404381       Haliaeetus          Genus
+25  2346405      2473171        Haliastur          Genus
+26  2346405      2473170       Hamirostra          Genus
+27  2346405      2473168         Harpagus          Genus
+28  2346405      2403777           Harpia          Genus
+29  2346405      2404426   Harpyhaliaetus          Genus
+30  2346405      2404430       Harpyopsis          Genus
+31  2346405      2473164     Henicopernis          Genus
+32  2346405      2404433       Hieraaetus          Genus
+33  2346405      2472750     Ichthyophaga          Genus
+34  2346405      2404432       Ictinaetus          Genus
+35  2346405      2425200          Ictinia          Genus
+36  2346405      2404424       Kaupifalco          Genus
+37  2346405      2473163         Leptodon          Genus
+38  2346405      2404425     Leucopternis          Genus
+39  2346405      2404435        Lophaetus          Genus
+40  2346405      2473169     Lophoictinia          Genus
+41  2346405      2473166    Macheiramphus          Genus
+42  2346405      2404421    Megatriorchis          Genus
+43  2346405      2404420         Melierax          Genus
+44  2346405      2472969           Milvus          Genus
+45  2346405      2404429         Morphnus          Genus
+46  2346405      2403771      Necrosyrtes          Genus
+47  2346405      2473173         Neophron          Genus
+48  2346405      2404282         Oroaetus          Genus
+49  2346405      2404284          Pandion          Genus
+50  2346405      2455609        Parabuteo          Genus
+51  2346405      2473165           Pernis          Genus
+52  2346405      2404431     Pithecophaga          Genus
+53  2346405      2404283       Polemaetus          Genus
+54  2346405      2401890     Polyboroides          Genus
+55  2346405      2455608       Rostrhamus          Genus
+56  2346405      2473175        Sarcogyps          Genus
+57  2346405      2396280        Spilornis          Genus
+58  2346405      2404281        Spizaetus          Genus
+59  2346405      2404434        Spizastur          Genus
+60  2346405      2475786    Stephanoaetus          Genus
+61  2346405      2473178      Terathopius          Genus
+62  2346405      2475798           Torgos          Genus
+63  2346405      2473177      Trigonoceps          Genus
+64  2346405      2404422     Urotriorchis          Genus
+65  2344165      2399340       Acanthopus          Genus
+66  2344165      2437236    Aethammobates          Genus
+67  2344165      2493740      Afromelecta          Genus
+68  2344165      2483633     Agapanthinus          Genus
+69  2344165      2484814            Aglae          Genus
+70  2344165      2483632     Aglaomelissa          Genus
+71  2344165      2424165    Alepidosceles          Genus
+72  2344165      2417001         Allodape          Genus
+73  2344165      2423037       Allodapula          Genus
+74  2344165      2417025   Alloscirtetica          Genus
+75  2344165      2364655         Amegilla          Genus
+76  2344165      2423036        Ammobates          Genus
+77  2344165      2393436     Ammobatoides          Genus
+78  2344165      2484817           Ancyla          Genus
+79  2344165      2424163     Ancyloscelis          Genus
+80  2344165      2393366       Anthophora          Genus
+81  2344165      2370805     Anthophorula          Genus
+82  2344165      2399061             Apis          Genus
+83  2344165      2401930       Apotrigona          Genus
+84  2344165      2424836      Arhysoceble          Genus
+85  2344165      2401931    Austroplebeia          Genus
+86  2344165      2401932    Axestotrigona          Genus
+87  2344165      2437240          Biastes          Genus
+88  2344165      2435418           Bombus          Genus
+89  2344165      2493736    Brachymelecta          Genus
+90  2344165      2370808     Brachynomada          Genus
+91  2344165      2367720       Braunsapis          Genus
+92  2344165      2424837      Caenonomada          Genus
+93  2344165      2448932   Caenoprosopina          Genus
+94  2344165      2449089    Caenoprosopis          Genus
+95  2344165      2401929        Camargoia          Genus
+96  2344165      2424295      Canephorula          Genus
+97  2344165      2483453        Cemolobus          Genus
+98  2344165      2416402          Centris          Genus
+99  2344165      2401928   Cephalotrigona          Genus
+100 2344165      2368726         Ceratina          Genus
+101 2344165      2417087     Chalepogenus          Genus
+102 2344165      2426098   Chiasmognathus          Genus
+103 2344165      2424211    Chilimalopsis          Genus
+104 2344165      2425860    Cleptotrigona          Genus
+105 2344165      2402099     Coelioxoides          Genus
+106 2344165      2367719    Compsomelissa          Genus
+107 2344165      2399339    Ctenioschelus          Genus
+108 2344165      2399350     Ctenoplectra          Genus
+109 2344165      2484815   Ctenoplectrina          Genus
+110 2344165      2417100        Cubitalia          Genus
+111 2344165      2425861      Dactylurina          Genus
+112 2344165      2437781       Deltoptila          Genus
+113 2344165      2416413         Diadasia          Genus
+114 2344165      2416967        Diadasina          Genus
+115 2344165      2424277     Doeringiella          Genus
+116 2344165      2425862         Duckeola          Genus
+117 2344165      2423038      Effractapis          Genus
+118 2344165      2484820      Elaphropoda          Genus
+119 2344165      2484197       Epeoloides          Genus
+120 2344165      2370902          Epeolus          Genus
+121 2344165      2417105        Epicharis          Genus
+122 2344165      2399338        Epiclopus          Genus
+123 2344165      2423977         Eremapis          Genus
+124 2344165      2484198        Ericrocis          Genus
+125 2344165      2394011           Eucera          Genus
+126 2344165      2425960       Eucerinoda          Genus
+127 2344165      2425966      Eucondylops          Genus
+128 2344165      2399349        Eufriesea          Genus
+129 2344165      2393544         Euglossa          Genus
+130 2344165      2399033          Eulaema          Genus
+131 2344165      2399017         Exaerete          Genus
+132 2344165      2416569      Exomalopsis          Genus
+133 2344165      2417021         Exoneura          Genus
+134 2344165      2423951      Exoneurella          Genus
+135 2344165      2423952      Exoneuridia          Genus
+136 2344165      2425961       Florilegus          Genus
+137 2344165      2425864        Friesella          Genus
+138 2344165      2425865   Frieseomelitta          Genus
+139 2344165      2425713       Gaesischia          Genus
+140 2344165      2425715       Gaesochira          Genus
+141 2344165      2425866     Geniotrigona          Genus
+142 2344165      2425867       Geotrigona          Genus
+143 2344165      2484819     Habrophorula          Genus
+144 2344165      2423412        Habropoda          Genus
+145 2344165      2425716      Hamatothrix          Genus
+146 2344165      2401927    Heterotrigona          Genus
+147 2344165      2483380       Hexepeolus          Genus
+148 2344165      2437238     Holcopasites          Genus
+149 2344165      2401926      Homotrigona          Genus
+150 2344165      2399337       Hopliphora          Genus
+151 2344165      2401925      Hypotrigona          Genus
+152 2344165      2399016        Isepeolus          Genus
+153 2344165      2393397           Kelita          Genus
+154 2344165      2437789  Lanthanomelissa          Genus
+155 2344165      2402100        Leiopodus          Genus
+156 2344165      2401924    Lepidotrigona          Genus
+157 2344165      2401643    Lestrimelitta          Genus
+158 2344165      2401644     Leurotrigona          Genus
+159 2344165      2401416       Liotrigona          Genus
+160 2344165      2401417      Lisotrigona          Genus
+161 2344165      2425717    Lophothygater          Genus
+162 2344165      2401418     Lophotrigona          Genus
+163 2344165      2417075       Macrogalea          Genus
+164 2344165      2368660         Manuelia          Genus
+165 2344165      2425718       Martinapis          Genus
+166 2344165      2426099       Melanempis          Genus
+167 2344165      2424141          Melecta          Genus
+168 2344165      2399218      Melectoides          Genus
+169 2344165      2437790    Meliphilopsis          Genus
+170 2344165      2401419      Meliplebeia          Genus
+171 2344165      2396221         Melipona          Genus
+172 2344165      2475572       Meliponula          Genus
+173 2344165      2416685       Melissodes          Genus
+174 2344165      2398776     Melissoptila          Genus
+175 2344165      2423048         Melitoma          Genus
+176 2344165      2437353      Melitomella          Genus
+177 2344165      2475573       Meliwillea          Genus
+178 2344165      2476144       Mesocheira          Genus
+179 2344165      2368278      Mesonychium          Genus
+180 2344165      2417142         Mesoplia          Genus
+181 2344165      2426129    Micronychapis          Genus
+182 2344165      2426130         Mirnapis          Genus
+183 2344165      2437354          Monoeca          Genus
+184 2344165      2475574         Mourella          Genus
+185 2344165      2475571     Nannotrigona          Genus
+186 2344165      2476145    Nanorhathymus          Genus
+187 2344165      2425967        Nasutapis          Genus
+188 2344165      2437637         Neolarra          Genus
+189 2344165      2483724       Neopasites          Genus
+190 2344165      2401906      Nogueirapis          Genus
+191 2344165      2371100           Nomada          Genus
+192 2344165      2426131        Notolonia          Genus
+193 2344165      2423327    Odontotrigona          Genus
+194 2344165      2426136      Odyneropsis          Genus
+195 2344165      2483814      Oreopasites          Genus
+196 2344165      2402102         Osirinus          Genus
+197 2344165      2402101           Osiris          Genus
+198 2344165      2401900       Oxytrigona          Genus
+199 2344165      2484818       Pachymelus          Genus
+200 2344165      2426132     Pachysvastra          Genus
+201 2344165      2401901     Papuatrigona          Genus
+202 2344165      2426100   Parammobatodes          Genus
+203 2344165      2483813       Paranomada          Genus
+204 2344165      2417085   Paratetrapedia          Genus
+205 2344165      2401902      Paratrigona          Genus
+206 2344165      2401899  Paratrigonoides          Genus
+207 2344165      2367739       Parepeolus          Genus
+208 2344165      2401898     Pariotrigona          Genus
+209 2344165      2401897        Partamona          Genus
+210 2344165      2423092          Pasites          Genus
+211 2344165      2400765        Peponapis          Genus
+212 2344165      2400766     Platysvastra          Genus
+213 2344165      2401904     Platytrigona          Genus
+214 2344165      2401286          Plebeia          Genus
+215 2344165      2401961       Plebeiella          Genus
+216 2344165      2401962         Plebeina          Genus
+217 2344165      2402104       Protosiris          Genus
+218 2344165      2426120     Pseudepeolus          Genus
+219 2344165      2416973       Ptilothrix          Genus
+220 2344165      2401963     Ptilotrigona          Genus
+221 2344165      2402103        Rhathymus          Genus
+222 2344165      2426121      Rhinepeolus          Genus
+223 2344165      2426122      Rhogepeolus          Genus
+224 2344165      2487998     Rhopalolemma          Genus
+225 2344165      2400767         Santiago          Genus
+226 2344165      2401959    Scaptotrigona          Genus
+227 2344165      2402094           Scaura          Genus
+228 2344165      2437239 Schmiedeknechtia          Genus
+229 2344165      2402093      Schwarziana          Genus
+230 2344165      2402092       Schwarzula          Genus
+231 2344165      2476146      Simanthedon          Genus
+232 2344165      2493739      Sinomelecta          Genus
+233 2344165      2423035     Sphecodopsis          Genus
+234 2344165      2437235     Spinopasites          Genus
+235 2344165      2423198     Sundatrigona          Genus
+236 2344165      2400769          Svastra          Genus
+237 2344165      2401778       Svastrides          Genus
+238 2344165      2401780        Svastrina          Genus
+239 2344165      2476147   Syntrichalonia          Genus
+240 2344165      2417080     Tapinotaspis          Genus
+241 2344165      2424278  Tapinotaspoides          Genus
+242 2344165      2484816         Tarsalia          Genus
+243 2344165      2417081     Teratognatha          Genus
+244 2344165      2402091        Tetragona          Genus
+245 2344165      2475577     Tetragonilla          Genus
+246 2344165      2475578     Tetragonisca          Genus
+247 2344165      2396282      Tetragonula          Genus
+248 2344165      2401781       Tetralonia          Genus
+249 2344165      2400711    Tetraloniella          Genus
+250 2344165      2493738 Tetralonioidella          Genus
+251 2344165      2368040       Tetrapedia          Genus
+252 2344165      2402097        Tetrigona          Genus
+253 2344165      2487999       Thalestria          Genus
+254 2344165      2400712         Thygater          Genus
+255 2344165      2493737    Thyreomelecta          Genus
+256 2344165      2417188          Thyreus          Genus
+257 2344165      2417082      Toromelissa          Genus
+258 2344165      2483779    Townsendiella          Genus
+259 2344165      2400713    Trichocerapis          Genus
+260 2344165      2402096    Trichotrigona          Genus
+261 2344165      2402858       Triepeolus          Genus
+262 2344165      2402095          Trigona          Genus
+263 2344165      2417023       Trigonisca          Genus
+264 2344165      2417083     Trigonopedia          Genus
+265 2344165      2488049      Triopasites          Genus
+266 2344165      2400714      Ulugombakia          Genus
+267 2344165      2456763       Xenoglossa          Genus
+268 2344165      2476153      Xeromelecta          Genus
+269 2344165      2369017         Xylocopa          Genus
+270 2344165      2456764         Zacosmia          Genus
+271 2346405      2368704        Accipiter          Genus
+272 2346405      2473176         Aegypius          Genus
+273 2346405      2404380           Aquila          Genus
+274 2346405      2472884          Aviceda          Genus
+275 2346405      2404427       Busarellus          Genus
+276 2346405      2404423         Butastur          Genus
+277 2346405      2451161            Buteo          Genus
+278 2346405      2451162      Buteogallus          Genus
+279 2346405      2472785      Chelictinia          Genus
+280 2346405      2455626    Chondrohierax          Genus
+281 2346405      2403867        Circaetus          Genus
+282 2346405      2403868           Circus          Genus
+283 2346405      2396281    Dryotriorchis          Genus
+284 2346405      2455607        Elanoides          Genus
+285 2346405      2399121           Elanus          Genus
+286 2346405      2368364 Erythrotriorchis          Genus
+287 2346405      2404418      Eutriorchis          Genus
+288 2346405      2473167        Gampsonyx          Genus
+289 2346405      2404428      Geranoaetus          Genus
+290 2346405      2404419      Geranospiza          Genus
+291 2346405      2473174         Gypaetus          Genus
+292 2346405      2473172       Gypohierax          Genus
+293 2346405      2403197             Gyps          Genus
+294 2346405      2404381       Haliaeetus          Genus
+295 2346405      2473171        Haliastur          Genus
+296 2346405      2473170       Hamirostra          Genus
+297 2346405      2473168         Harpagus          Genus
+298 2346405      2403777           Harpia          Genus
+299 2346405      2404426   Harpyhaliaetus          Genus
+300 2346405      2404430       Harpyopsis          Genus
+301 2346405      2473164     Henicopernis          Genus
+302 2346405      2404433       Hieraaetus          Genus
+303 2346405      2472750     Ichthyophaga          Genus
+304 2346405      2404432       Ictinaetus          Genus
+305 2346405      2425200          Ictinia          Genus
+306 2346405      2404424       Kaupifalco          Genus
+307 2346405      2473163         Leptodon          Genus
+308 2346405      2404425     Leucopternis          Genus
+309 2346405      2404435        Lophaetus          Genus
+310 2346405      2473169     Lophoictinia          Genus
+311 2346405      2473166    Macheiramphus          Genus
+312 2346405      2404421    Megatriorchis          Genus
+313 2346405      2404420         Melierax          Genus
+314 2346405      2472969           Milvus          Genus
+315 2346405      2404429         Morphnus          Genus
+316 2346405      2403771      Necrosyrtes          Genus
+317 2346405      2473173         Neophron          Genus
+318 2346405      2404282         Oroaetus          Genus
+319 2346405      2404284          Pandion          Genus
+320 2346405      2455609        Parabuteo          Genus
+321 2346405      2473165           Pernis          Genus
+322 2346405      2404431     Pithecophaga          Genus
+323 2346405      2404283       Polemaetus          Genus
+324 2346405      2401890     Polyboroides          Genus
+325 2346405      2455608       Rostrhamus          Genus
+326 2346405      2473175        Sarcogyps          Genus
+327 2346405      2396280        Spilornis          Genus
+328 2346405      2404281        Spizaetus          Genus
+329 2346405      2404434        Spizastur          Genus
+330 2346405      2475786    Stephanoaetus          Genus
+331 2346405      2473178      Terathopius          Genus
+332 2346405      2475798           Torgos          Genus
+333 2346405      2473177      Trigonoceps          Genus
+334 2346405      2404422     Urotriorchis          Genus
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>col_children</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>
