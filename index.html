@@ -23,7 +23,7 @@
   </div>
 
   <div class"row"><a href="http://altmetric.com/">taxize</a> does all things taxonomic in R. taxize hits lots of web APIs for taxonomy - if we don' have it, just let us know <a href="https://github.com/ropensci/taxize_/issues">on our issues page</a>.
-    
+
   <br><br>
   <div>
    <a href="https://github.com/ropensci/taxize_/" style="color:#ffffff"> <button class="btn btn-success btn-large" style="display: block; width: 100%;"><i class="icon-white icon-download"></i>Download from GitHub</button></a>
@@ -192,7 +192,8 @@ Retrieving data for species ' Chironomus riparius '
 
 Retrieving data for species ' Chaetopteryx '
 > ## And retrieve classification
-> classification(uids)
+> out <- classification(uids)
+> lapply(out, head)
 [[1]]
               ScientificName         Rank     UID
 1         cellular organisms      no rank  131567
@@ -201,28 +202,6 @@ Retrieving data for species ' Chaetopteryx '
 4                    Metazoa      kingdom   33208
 5                  Eumetazoa      no rank    6072
 6                  Bilateria      no rank   33213
-7                Protostomia      no rank   33317
-8                  Ecdysozoa      no rank 1206794
-9              Panarthropoda      no rank   88770
-10                Arthropoda       phylum    6656
-11               Mandibulata      no rank  197563
-12              Pancrustacea      no rank  197562
-13                  Hexapoda   superclass    6960
-14                   Insecta        class   50557
-15                Dicondylia      no rank   85512
-16                 Pterygota      no rank    7496
-17                  Neoptera     subclass   33340
-18             Endopterygota   infraclass   33392
-19                   Diptera        order    7147
-20                Nematocera     suborder    7148
-21              Culicimorpha   infraorder   43786
-22             Chironomoidea  superfamily   41828
-23              Chironomidae       family    7149
-24              Chironominae    subfamily   54970
-25               Chironomini        tribe   72530
-26                Chironomus        genus    7150
-27 Chironomus incertae sedis      no rank 1165752
-28       Chironomus riparius      species  315576
 
 [[2]]
        ScientificName         Rank     UID
@@ -232,26 +211,6 @@ Retrieving data for species ' Chaetopteryx '
 4             Metazoa      kingdom   33208
 5           Eumetazoa      no rank    6072
 6           Bilateria      no rank   33213
-7         Protostomia      no rank   33317
-8           Ecdysozoa      no rank 1206794
-9       Panarthropoda      no rank   88770
-10         Arthropoda       phylum    6656
-11        Mandibulata      no rank  197563
-12       Pancrustacea      no rank  197562
-13           Hexapoda   superclass    6960
-14            Insecta        class   50557
-15         Dicondylia      no rank   85512
-16          Pterygota      no rank    7496
-17           Neoptera     subclass   33340
-18      Endopterygota   infraclass   33392
-19   Amphiesmenoptera   superorder   85604
-20        Trichoptera        order   30263
-21      Integripalpia     suborder   93875
-22     Limnephiloidea  superfamily   41033
-23      Limnephilidae       family   50645
-24      Limnephilinae    subfamily  177669
-25    Chaetopterygini        tribe  492564
-26       Chaetopteryx        genus  492549
 
 </code></pre>
   </section>
