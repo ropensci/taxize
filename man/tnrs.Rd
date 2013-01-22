@@ -3,8 +3,7 @@
 \title{Search the Phylotastic Taxonomic Name Resolution Service.}
 \usage{
   tnrs(query = NA, shortenurls = FALSE, getpost = "GET",
-    sleep = 1,
-    url = "http://api.phylotastic.org/tnrs/submit")
+    sleep = 1, url = "http://taxosaurus.org/submit")
 }
 \arguments{
   \item{query}{Quoted taxonomic names to search in a vector

@@ -3,7 +3,7 @@
 \title{Get sources for the Phylotastic Taxonomic Name Resolution Service.}
 \usage{
   tnrs_sources(source = NULL,
-    url = "http://api.phylotastic.org/tnrs/sources")
+    url = "http://taxosaurus.org/sources")
 }
 \arguments{
   \item{source}{The source to get information on, one of

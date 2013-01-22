@@ -27,7 +27,7 @@
 #' tnrs(mynames, getpost="POST")
 #' }
 tnrs <- function(query = NA, shortenurls = FALSE, getpost = "GET", sleep = 1,
-  url = "http://api.phylotastic.org/tnrs/submit")
+  url = "http://taxosaurus.org/submit")
 {
   if(sleep==1){sleep <- sleep * length(query)} else # sleep=1 times the number of species
   	{sleep <- sleep}
@@ -43,7 +43,7 @@ tnrs <- function(query = NA, shortenurls = FALSE, getpost = "GET", sleep = 1,
   }
   message <- fromJSON(tt)["message"]
   retrieve <- str_replace_all(str_extract(message, "http.+"), "\\.$", "")
-  token <- str_split(retrieve, "/")[[1]][[6]]
+  token <- str_split(retrieve, "/")[[1]][[5]]
   
   message(paste("Token number ", token, sep=""))
   message(paste("Pausing ", sleep, " seconds for the query to finish...", sep=""))

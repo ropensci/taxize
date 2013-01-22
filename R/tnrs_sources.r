@@ -11,7 +11,7 @@
 #' # A specific source
 #' tnrs_sources(source="NCBI")
 #' }
-tnrs_sources <- function(source = NULL, url = "http://api.phylotastic.org/tnrs/sources")
+tnrs_sources <- function(source = NULL, url = "http://taxosaurus.org/sources")
 {
 	if(!is.null(source)) {
 		url2 <- paste0(url, "/", source)
