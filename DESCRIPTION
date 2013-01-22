@@ -72,3 +72,5 @@ Collate:
     'fresh_traits.R'
     'fresh_validate.R'
     'get_genes.R'
+    'tnrs_sources.r'
+    'tnrs.R'
