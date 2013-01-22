@@ -71,3 +71,4 @@ Collate:
     'fresh_codes.R'
     'fresh_traits.R'
     'fresh_validate.R'
+    'get_genes.R'
