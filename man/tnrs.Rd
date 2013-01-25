@@ -3,7 +3,7 @@
 \title{Search the Phylotastic Taxonomic Name Resolution Service.}
 \usage{
   tnrs(query = NA, shortenurls = FALSE, getpost = "GET",
-    sleep = 1, url = "http://taxosaurus.org/submit")
+    sleep = 0, url = "http://taxosaurus.org/submit")
 }
 \arguments{
   \item{query}{Quoted taxonomic names to search in a vector
@@ -16,9 +16,9 @@
   If you have more than say 50 species or so in your query,
   you should probably use POST.}
 
-  \item{sleep}{Numer of seconds by which to pause by before
-  retrieving the result. Defaults to 1 second. Set sleep
-  for longer periods when queries contain more species.}
+  \item{sleep}{Numer of seconds by which to pause between
+  calls. Defaults to 0 seconds. Use when doing many calls
+  in a for loop ar lapply type call.}
 
   \item{url}{The iPlant API url for the function (should be
   left to default).}
