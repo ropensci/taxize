@@ -8,9 +8,8 @@
 #' @param shortenurls Use bit.ly API to shorten URLs for matched species (default = FALSE).
 #' @param getpost Use GET or POST method to send the query. If you have more than 
 #' 		say 50 species or so in your query, you should probably use POST.
-#' @param sleep Numer of seconds by which to pause by before retrieving the 
-#'    result. Defaults to 1 second. Set sleep for longer periods when queries
-#'    contain more species.
+#' @param sleep Numer of seconds by which to pause between calls. Defaults to 0 
+#' 		seconds. Use when doing many calls in a for loop ar lapply type call.
 #' @param url The iPlant API url for the function (should be left to default).
 #' @return data.frame of results from TNRS plus the name submitted.
 #' @export
@@ -26,11 +25,12 @@
 #'		"Madia sativa", "Thymopsis thymodes", "Bartlettia scaposa")
 #' tnrs(mynames, getpost="POST")
 #' }
-tnrs <- function(query = NA, shortenurls = FALSE, getpost = "GET", sleep = 1,
+tnrs <- function(query = NA, shortenurls = FALSE, getpost = "GET", sleep = 0,
   url = "http://taxosaurus.org/submit")
 {
-  if(sleep==1){sleep <- sleep * length(query)} else # sleep=1 times the number of species
-  	{sleep <- sleep}
+	  Sys.sleep(time = sleep) # set amount of sleep to pause by
+#   if(sleep==1){sleep <- sleep * length(query)} else # sleep=1 times the number of species
+#   	{sleep <- sleep}
   
   if(getpost=="GET"){
   	if(!any(is.na(query)))
@@ -38,18 +38,36 @@ tnrs <- function(query = NA, shortenurls = FALSE, getpost = "GET", sleep = 1,
   	tt <- getURL(paste0(url, "?query=", query2))
   } else
   {
-  	splist <- paste(mynames, collapse="\n")
+  	splist <- paste(query, collapse="\n")
   	tt <- postForm(url, query=splist)
   }
   message <- fromJSON(tt)["message"]
   retrieve <- str_replace_all(str_extract(message, "http.+"), "\\.$", "")
-  token <- str_split(retrieve, "/")[[1]][[5]]
+#   token <- str_split(retrieve, "/")[[1]][[5]]
   
-  message(paste("Token number ", token, sep=""))
-  message(paste("Pausing ", sleep, " seconds for the query to finish...", sep=""))
+  message(paste("Calling ", retrieve, sep=""))
+#   message(paste("Pausing ", sleep, " seconds for the query to finish...", sep=""))
 
-  Sys.sleep(time = sleep) # set amount of sleep to pause by
-  out <- fromJSON(getURL(retrieve)) # retrieve data
+#   out <- fromJSON(getURL(retrieve)) # retrieve data
+  
+#   query <- species_split[[6]]
+#   splist <- paste(query, collapse="\n")
+#   tt <- postForm(url, query=splist)
+#   message <- fromJSON(tt)["message"]
+#   retrieve <- str_replace_all(str_extract(message, "http.+"), "\\.$", "")
+ 
+  iter <- 0
+  output <- list()
+  timeout <- "wait"
+  while(timeout == "wait"){
+  	iter <- iter + 1
+  	temp <- fromJSON(getURL(retrieve))
+  	if(grepl("is still being processed", temp["message"])==TRUE){timeout <- "wait"} else {
+  			output[[iter]] <- temp
+  			timeout <- "done"
+  	 }
+  }
+  out <- compact(output)[[1]]
   
   foo <- function(x, shortenurls=FALSE){ # function to parse results
   	matches <- x$matches
