@@ -20,7 +20,7 @@
 }
 \examples{
 \dontrun{
-itis_taxrank(202385)
+itis_taxrank(query=202385)
 }
 }
 

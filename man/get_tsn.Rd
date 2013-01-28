@@ -16,18 +16,17 @@
 }
 \value{
   A vector of taxonomic serial numbers (TSN). If a species
-  is not found NA. If more than one TSN is found the
-  function asks for user input. See functions in
-  \code{ritis}.
+  is not found NA.  If more than one TSN is found the
+  function asks for user input.  See functions in the
+  \code{itis} function.
 }
 \description{
   \code{get_tsn} uses a variety of functions from the
-  \code{ritis} package:
-  \url{https://github.com/ropensci/ritis}.
+  \code{itis} function.
 }
 \examples{
 \dontrun{
-get_tsn("Quercus douglasii", "sciname")
+get_tsn(searchterm="Quercus douglasii", searchtype="sciname")
 get_tsn(searchterm="Chironomus riparius", searchtype="sciname")
 get_tsn(searchterm="polar bear", searchtype="comname")
 get_tsn(c("Chironomus riparius","Quercus douglasii"), "sciname")

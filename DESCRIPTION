@@ -1,19 +1,21 @@
 Package: taxize
-Description: Taxonomic search and phylogeny retrieval.
-Title: Taxonomic search and phylogeny retrieval.
-Version: 0.0.2
-Date: 2012-12-07
+Description: Taxonomic information from around the web.
+Title: Taxonomic information from around the web.
+Version: 0.0.3
+Date: 2013-01-27
 License: CC0
+URL: https://ropensci.github.com/taxize_
+BugReports: https://github.com/ropensci/taxize_/issues
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com"),
     person("Eduard", "Szoecs", role = "aut",
     email = "szoe8822@uni-landau.de"),
     person("Carl", "Boettiger", role = "aut",
-    email = "cboettig@gmail.com"))
+    email = "cboettig@gmail.com"),
+    person("Ignasi", "Bartomeus", role = "aut",
+    email = "nacho.bartomeus@gmail.com"))
 LazyLoad: yes
 LazyData: yes
-Depends:
-    ritis
 Imports:
     XML,
     RCurl (>= 1.6),
@@ -23,11 +25,11 @@ Imports:
     RJSONIO,
     foreach,
     ape,
-    Taxonstand
+    Taxonstand,
+    NCBI2R
 Suggests:
     testthat,
     roxygen2,
-    doMC,
     rjson
 Collate:
     'classification.R'
@@ -48,7 +50,6 @@ Collate:
     'taxize-package.R'
     'capwords.r'
     'itis_acceptname.R'
-    'itis_name.R'
     'itis_phymat_format.R'
     'itis_taxrank.R'
     'itis.R'
@@ -63,3 +64,16 @@ Collate:
     'tpl_search.r'
     'tpl_get.r'
     'itis_downstream.R'
+    'eol_dataobjects.R'
+    'col_children.R'
+    'col_classification.R'
+    'gisd_isinvasive.R'
+    'itis_name.R'
+    'tax_name.R'
+    'col_downstream.R'
+    'fresh_codes.R'
+    'fresh_traits.R'
+    'fresh_validate.R'
+    'get_genes.R'
+    'tnrs_sources.r'
+    'tnrs.R'

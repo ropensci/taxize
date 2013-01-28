@@ -3,7 +3,7 @@
 #' Get a summary from the IUCN Red List (\url{http://www.iucnredlist.org/}).
 #' 
 #' @import XML plyr
-#' @param sciname Scientific name. 
+#' @param sciname character; Scientific name. 
 #' @return A list (for every species one entry) of lists with the following items:
 #' \item{status}{Red List Category.}
 #' \item{history}{History of status.}
@@ -36,10 +36,16 @@ iucn_summary <- function(sciname)
       status <- xpathSApply(h, '//div[@id ="red_list_category_code"]', xmlValue)
       history <- data.frame(year = xpathSApply(h, '//div[@class="year"]', xmlValue),
                             category = xpathSApply(h, '//div[@class="category"]', xmlValue))
+      if(nrow(history) == 0)
+        history <- NA
       distr <- xpathSApply(h, '//ul[@class="countries"]', xmlValue)
       distr <- unlist(strsplit(distr, "\n"))
       pop <- xpathSApply(h, '//div[@id="population"]/text()[preceding-sibling::br]', xmlValue)
-      pop <- do.call(rbind, lapply(strsplit(pop, split=":"), rbind)) 
+      if(length(pop) > 0) {
+        pop <- do.call(rbind, lapply(strsplit(pop, split=":"), rbind)) 
+      } else {
+        pop <- NA
+      }
       trend <- xpathSApply(h, '//div[@id="population_trend"]', xmlValue)
       out <- list(status = status, 
                   history = history, 

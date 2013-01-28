@@ -34,7 +34,7 @@ classification.default <- function(x, ID = NULL, ...){
     out <- taxize:::classification.tsn(x)
   if(ID == 'uid')
     out <- taxize:::classification.uid(x)
-  out
+  return(out)
 }
 
 #' @method classification tsn
@@ -47,11 +47,15 @@ classification.tsn <- function(x, ...)
     if(is.na(x)) {
       out <- NA
     } else {
-    	getfullhierarchyfromtsn(x)
+    	out <- getfullhierarchyfromtsn(x)
     }
+    
+    # remove overhang
+    out <- out[1:which(out$tsn == x), ]
+    return(out)
   }
   out <- llply(x, fun)
-  out
+  return(out)
 }
 
 
@@ -71,12 +75,17 @@ classification.uid <- function(x, ...) {
       ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)
       out <- data.frame(ScientificName = xpathSApply(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/ScientificName", xmlValue), 
                         Rank = xpathSApply(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/Rank", xmlValue), 
-                        UID = xpathSApply(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/TaxId", xmlValue))
+                        UID = xpathSApply(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/TaxId", xmlValue),
+                        stringsAsFactors = FALSE)
+      out <- rbind(out, c(xpathSApply(ttp, "//TaxaSet/Taxon/ScientificName", xmlValue),
+        xpathSApply(ttp, "//TaxaSet/Taxon/Rank", xmlValue), 
+        xpathSApply(ttp, "//TaxaSet/Taxon/TaxId", xmlValue)))
+      return(out)
     }
     # NCBI limits requests to three per second
     Sys.sleep(0.33)
     return(out)
   }
   out <- llply(x, fun)
-  out
+  return(out)
 }

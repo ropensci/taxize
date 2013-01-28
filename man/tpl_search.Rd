@@ -27,16 +27,6 @@ splist <- c("Heliathus annuus","Abies procera","Poa annua","Platanus occidentali
 		"Quercus kelloggii","Lactuca serriola")
 tpl_search(taxon = splist)
 
-# In parallel, using package doMC
-library(doMC)
-registerDoMC(cores=4)
-tpl_search(taxon = splist, TRUE)
-
-## in parallel is much faster
-system.time( out <- tpl_search(taxon = splist) )
-registerDoMC(cores=4)
-system.time( out2 <- tpl_search(taxon = splist, TRUE) )
-
 # Use more arguments within TPLck
 tpl_search(taxon = "Microbryum curvicollum", corr = TRUE)
 tpl_search(taxon = "Microbryum curvicollum", corr = TRUE, max.distance=5)
