@@ -1,6 +1,6 @@
 \name{itis}
 \alias{itis}
-\title{Use any function in ritis, searching by TSN or taxonomic name.}
+\title{Use any API method for the ITIS API.}
 \usage{
   itis(query, searchtype = NULL)
 }
@@ -9,7 +9,9 @@
   or taxonomic serial number (numeric). Can supply a single
   query or many.}
 
-  \item{searchtype}{Specify one or more of:
+  \item{searchtype}{Specify one or more of ITIS API methods
+  (see \url{http://www.itis.gov/ws_description.html} for
+  more information on these methods):
   "getacceptednamesfromtsn","getanymatchcount","getcommentdetailfromtsn",
   "getcommonnamesfromtsn","getcoremetadatafromtsn","getcoveragefromtsn",
   "getcredibilityratingfromtsn","getcurrencyfromtsn","getdatedatafromtsn",
@@ -27,38 +29,34 @@
 }
 \value{
   A variety of results can be returned depending on the
-  ritis function called.  If many queries or functions, or
-  many of both, are provided, results will be returned in a
+  function called.  If many queries or functions, or many
+  of both, are provided, results will be returned in a
   list.
 }
 \description{
-  Use any function in ritis, searching by TSN or taxonomic
-  name.
+  Use any API method for the ITIS API.
 }
 \examples{
 \dontrun{
 # Search by scientific name, can abbreviate
-itis("Plethodon", "searchbysci")
-
-# Bet an LSID code from TSN code
-itis(202420, 'getlsidfromtsn')
+itis(query="Quercus douglasii", searchtype="searchbyscientificname")
 
 # Get the full taxonomic hierarchy for a taxon from the TSN
 itis(36616, "getfullhierarchyfromtsn")
 
 # Search by scientific name, then use a TSN to get its parent TSN
-itis("Ursus", "searchbyscientificname") # let's pick one of the TSN's
+itis("Ursus", "searchbyscientificname")
 itis(203539, "getparenttsnfromtsn")
 itis(203539, "getsynonymnamesfromtsn") # no synonyms in this case
 
 # Use multiple queries on one call to the function
-itis(c(203539, 202420), "getsynonymnamesfromtsn")
+itis(query=list(203539, 202420), searchtype="getsynonymnamesfromtsn")
 
-# Use multiple ritis functions
+# Use multiple ITIS functions
 itis(203539, c("getsynonymnamesfromtsn","getcommonnamesfromtsn"))
 
-# Use multiple ritis functions and multiple queries
-itis(c(203539, 202420), searchtype=c("getsynonymnamesfromtsn","getcommonnamesfromtsn"))
+# Use multiple ITIS functions and multiple queries
+itis(query=list(203539, 202420), searchtype=c("getsynonymnamesfromtsn","getcommonnamesfromtsn"))
 }
 }
 

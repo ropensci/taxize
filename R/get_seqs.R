@@ -27,19 +27,6 @@
 #' llply(species, get_seqs, gene = c("coi", "co1"),  # notice different sp. output for Perdita
 #' 		seqrange = "1:2000", getrelated=T, writetodf=F)
 #' }
-#' 
-#' @examples \donttest{
-#' # Can also run in parallel		
-#' library(multicore); library(doMC)
-#' registerDoMC(cores=4)
-#' llply(species, get_seqs, gene = c("coi", "co1"), 
-#' 		seqrange = "1:2000", getrelated=T, writetodf=F, .parallel=T)
-#' 		
-#' # Running in parallel is much faster
-#' system.time(llply(species, get_seqs, gene = c("coi", "co1"), seqrange = "1:2000", getrelated=T, writetodf=F))
-#' registerDoMC(cores=4)
-#' system.time(llply(species, get_seqs, gene = c("coi", "co1"), seqrange = "1:2000", getrelated=T, writetodf=F, .parallel=T))
-#' }
 #' @export
 get_seqs <- function(taxon_name, gene, seqrange, getrelated, writetodf=TRUE, filetowriteto)
 {

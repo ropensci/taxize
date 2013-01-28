@@ -1,27 +1,44 @@
 #' Format tree string, submit to Phylomatic, get newick tree.
 #' 
-#' @import XML RCurl ape
-#' @param x Phylomatic format input.
+#' @import httr ape
+#' @param taxa Phylomatic format input of taxa names.
 #' @param get 'GET' or 'POST' format for submission to the website.
-#' @param format Newick (new) or xml (xml) output. 
-#' @param retphylo Return phylo tree object (TRUE or FALSE).
+#' @param informat One of newick, nexml, or cdaordf. If using a stored tree, informat
+#' 		should always be newick.
+#' @param method One of phylomatic or convert
+#' @param storedtree One of R20120829 (Phylomatic tree R20120829 for plants), 
+#' 		smith2011 (Smith 2011, plants), or binindaemonds2007 (Bininda-Emonds 2007, mammals).
+#' @param taxaformat Only option is slashpath for now. Leave as is.
+#' @param outformat One of newick, nexml, or fyt.
 #' @param url The base URL for the Phylomatic API service, leave as is.
-#' @details Submitted in POST format (not GET format).  
-#'  Version: already have in Phylomatic input format
-#'    forward slash (/ -> %2F)
-#'    newline (\n -> %0D%0A)
+#' @details Use the web interface here \link{http://phylodiversity.net/phylomatic/}
 #' @return Newick formatted tree.
 #' @examples \dontrun{
-#' dat_ <- laply(list("36616", "19322", "183327"), itis_phymat_format, format='rsubmit')
-#' tree <- phylomatic_tree(dat_, 'GET', 'new', 'TRUE')
+#' # Getting taxonomic information from ITIS, if you already have taxonomic serial numbers (TSNs)
+#' dat_ <- laply(list("36616", "19322", "183327", "36616", "41107", "181835", "25929"), itis_phymat_format, format='isubmit')
+#' tree <- phylomatic_tree(taxa=taxa, get = 'POST', informat='newick', method = "phylomatic", 
+#' 		storedtree = "R20120829", taxaformat = "slashpath", outformat = "newick", clean = "true")
 #' plot(tree)
+#' 
+#' # Input taxonomic names
+#' taxa <- c("Poa annua", "Abies procera", "Helianthus annuus")
+#' tree <- phylomatic_tree(taxa=taxa, get = 'POST', informat='newick', method = "phylomatic", 
+#' 		storedtree = "R20120829", taxaformat = "slashpath", outformat = "newick", clean = "true")
+#' plot(tree)
+#' 
+#' # Lots of names
+#' taxa <- c("Poa annua", "Abies procera", "Helianthus annuus", "Collomia grandiflora", 
+#' 		"Ribes latifolium", "Arctostaphylos manzanita", "Phlox glabriflora", "Phlox diffusa", 
+#' 		"Datura wrightii", "Nicotiana glauca", "Nicotiana tomentosa", "Mimulus bicolor")
+#' tree <- phylomatic_tree(taxa=taxa, get = 'POST', informat='newick', method = "phylomatic", 
+#' 		storedtree = "R20120829", taxaformat = "slashpath", outformat = "newick", clean = "true")
+#' plot(tree, no.margin=T)
 #' }
 #' @export
-phylomatic_tree <- function (x, get, format, retphylo = TRUE, 
-        url = "http://phylodiversity.net/phylomatic/pm/phylomatic.cgi") 
+phylomatic_tree <- function (taxa, taxnames = TRUE, get = 'GET', informat = "newick", method = "phylomatic", 
+	storedtree = "R20120829", taxaformat = "slashpath", outformat = "newick", 
+	clean = "true", url = "http://phylodiversity.net/phylomatic/pmws")
 {
-  if (length(x) > 1) { x <- paste(x, collapse = "\n") } else { x <- x }
-  treestring <- str_replace_all(str_replace_all(x, "/", "%2F"), "\n", "%0D%0A")
   collapse_double_root <- function(y) {
     temp <- str_split(y, ")")[[1]]
     double <- c(length(temp)-1, length(temp))
@@ -45,38 +62,32 @@ phylomatic_tree <- function (x, get, format, retphylo = TRUE,
   return(treephylo)
   }
   
+  if(taxnames){
+  	tsns <- get_tsn(taxa)
+  	dat_ <- laply(tsns, itis_phymat_format, format='isubmit')
+  } else
+  	{ dat_ <- taxa }
+  if (length(dat_) > 1) { dat_ <- paste(dat_, collapse = "\n") } else { dat_ <- dat_ }
+  
+  args <- compact(list(taxa = dat_, informat = informat, method = method, 
+  										 storedtree = storedtree, taxaformat = taxaformat, 
+  										 outformat = outformat, clean = clean))
+  
   if (get == 'POST') {  
-    gettree <- postForm(url,
-    		.params = list(format = format, 
-        tree = treestring)
-    )
-    tree_ <- gsub("\n", "", gettree[[1]]) 
-    treenew <- colldouble(tree_)
+  	tt <- content(POST(url, query=args))
+  	tree <- gsub("\n", "", tt[[1]])
+  } else if (get == 'GET') {
+    	tt <- content(GET(url, query=args))
+      tree <- gsub("\n", "", tt[[1]])
   } else
+  	{ stop("Error: get must be one of 'POST' or 'GET'") }
   
-  if (get == 'GET') {
-    if (format == 'xml') {
-      urlplus <- paste(url, "?", "format=", format, "&tree=", treestring, sep="")
-      tt <- getURLContent(urlplus, curl=getCurlHandle())
-      page <- xmlParse(tt)
-      tree_ <- xmlToList(page)$newick
-      treenew <- colldouble(tree_)
-    } else
-    
-    if (format == 'new') {
-      urlplus <- paste(url, "?", "format=", format, "&tree=", treestring, sep="")
-      tt <- getURLContent(urlplus, curl=getCurlHandle())
-      tree <- tt[[1]]
-      tree_ <- gsub("\n", "", tree[[1]])
-      treenew <- colldouble(tree_)
-    } else
-    {stop("Error: format must be one of 'xml' or 'new' (for newick)")}
+  if (outformat == 'nexml') {
+  	stop("Can't currently parse nexml trees...")
   } else
-  {stop("Error: get must be one of 'POST' or 'GET'")}
-  
-  if (retphylo == 'TRUE') {
-    treenew <- read.tree(text = treenew)
-  } else
-  if (retphylo == 'FALSE') { treenew <- treenew }
-treenew
+  	if (outformat == 'newick') {
+  		return( read.tree(text = colldouble(tree)) )
+  	}
+  		else
+  		{ stop("Error: outformat must be one of 'newick' or 'newxml'") }
 }

@@ -69,11 +69,12 @@ get_genes_avail <- function(taxon_name, seqrange, getrelated=FALSE)
 				predicted <- as.character(sapply(getNodeSet(outsum, "//Item"), xmlValue)[str_detect(names, "Caption")]) #  get access numbers
 				predicted <- sapply(predicted, function(x) strsplit(x, "_")[[1]][[1]], USE.NAMES=F)
 				length_ <- as.numeric(sapply(getNodeSet(outsum, "//Item"), xmlValue)[str_detect(names, "Length")]) # gets seq lengths
+				gis <- as.numeric(sapply(getNodeSet(outsum, "//Item"), xmlValue)[str_detect(names, "Gi")]) # gets GI numbers
 				spnames <- sapply(getNodeSet(outsum, "//Item"), xmlValue)[str_detect(names, "Title")] # gets seq lengths # get spp names
 				spused <- sapply(spnames, function(x) paste(str_split(x, " ")[[1]][1:2], sep="", collapse=" "), USE.NAMES=F)
 				genesavail <- sapply(spnames, function(x) paste(str_split(x, " ")[[1]][-c(1:2)], sep="", collapse=" "), USE.NAMES=F)
-				df <- data.frame(spused=spused, length=length_, genesavail=genesavail, predicted=predicted) # makes data frame
-				df <- df[!df$predicted %in% c("XM","XR"),] # remove predicted sequences		
+				df <- data.frame(spused=spused, length=length_, genesavail=genesavail, access_num=predicted, ids=gis) # makes data frame
+				df <- df[!df$access_num %in% c("XM","XR"),] # remove predicted sequences		
 			}
 		}
 	} else
@@ -90,11 +91,12 @@ get_genes_avail <- function(taxon_name, seqrange, getrelated=FALSE)
 		predicted <- as.character(sapply(getNodeSet(outsum, "//Item"), xmlValue)[str_detect(names, "Caption")]) #  get access numbers
 		predicted <- sapply(predicted, function(x) strsplit(x, "_")[[1]][[1]], USE.NAMES=F)
 		length_ <- as.numeric(sapply(getNodeSet(outsum, "//Item"), xmlValue)[str_detect(names, "Length")]) # gets seq lengths
+		gis <- as.numeric(sapply(getNodeSet(outsum, "//Item"), xmlValue)[str_detect(names, "Gi")]) # gets GI numbers
 		spnames <- sapply(getNodeSet(outsum, "//Item"), xmlValue)[str_detect(names, "Title")] # gets seq lengths # get spp names
 		spused <- sapply(spnames, function(x) paste(str_split(x, " ")[[1]][1:2], sep="", collapse=" "), USE.NAMES=F)
 		genesavail <- sapply(spnames, function(x) paste(str_split(x, " ")[[1]][-c(1:2)], sep="", collapse=" "), USE.NAMES=F)
-		df <- data.frame(spused=spused, length=length_, genesavail=genesavail, predicted=predicted) # makes data frame
-		df <- df[!df$predicted %in% c("XM","XR"),] # remove predicted sequences
+		df <- data.frame(spused=spused, length=length_, genesavail=genesavail, access_num=predicted, ids=gis) # makes data frame
+		df <- df[!df$access_num %in% c("XM","XR"),] # remove predicted sequences
 	}
 	message("...done.")
 	return(df)

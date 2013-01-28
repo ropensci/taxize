@@ -9,6 +9,7 @@
 #' getkey(service="tropicos")
 #' getkey(service="EOL")
 #' } 
+#' @keywords internal
 #' @export
 getkey <- function(x = NULL, service) {	
 	if(is.null(x)){
