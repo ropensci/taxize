@@ -5,13 +5,18 @@ BUG FIXES
 * iucn_summary() does not break when API returns no information.
 * tax_name() returns NA when taxon is not found on API.
 * get_uid() asks for user input when more then one UID is found for a taxon.
+* changed base URL for phylomatic_tree(), and associated parameter changes
 
 NEW FEATURES
-* added integration of freshwaterecology.info via the fresh_*() functions.
 * added check for invasive species status for a set of species from GISD database via gisd_isinvasive().
 * Further development with the EOL-API: eol_dataobjects().
-* tax_name().
-* added Catalogue of Life: col_classification() and col_children().
+* added Catalogue of Life: col_classification(), col_children(), and col_downstream().
+* new fxn get_genes(), retrieve gene sequences from NCBI by accession number.
+* new functions to interact with the Phylotastic name resolution service: tnrs_sources() and tnrs()
+* Added unit tests
+
+DEPRECATED AND DEFUNCT
+* itis_name() fxn deprecated - use tax_name() instead
 
 
 taxize 0.0.2
