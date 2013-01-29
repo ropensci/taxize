@@ -2,15 +2,11 @@
 \alias{tnrs}
 \title{Search the Phylotastic Taxonomic Name Resolution Service.}
 \usage{
-  tnrs(query = NA, shortenurls = FALSE, getpost = "GET",
-    sleep = 0, url = "http://taxosaurus.org/submit")
+  tnrs(query = NA, getpost = "GET", sleep = 0)
 }
 \arguments{
   \item{query}{Quoted taxonomic names to search in a vector
   (character).}
-
-  \item{shortenurls}{Use bit.ly API to shorten URLs for
-  matched species (default = FALSE).}
 
   \item{getpost}{Use GET or POST method to send the query.
   If you have more than say 50 species or so in your query,
@@ -19,9 +15,6 @@
   \item{sleep}{Numer of seconds by which to pause between
   calls. Defaults to 0 seconds. Use when doing many calls
   in a for loop ar lapply type call.}
-
-  \item{url}{The iPlant API url for the function (should be
-  left to default).}
 }
 \value{
   data.frame of results from TNRS plus the name submitted.

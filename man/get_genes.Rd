@@ -5,15 +5,9 @@
   get_genes(ids, format = "fasta")
 }
 \arguments{
-  \item{taxon_name}{Scientific name to search for
-  (character).}
+  \item{ids}{GenBank ids to search for (character).}
 
-  \item{seqrange}{Sequence range, as e.g., "1:1000"
-  (character).}
-
-  \item{getrelated}{Logical, if TRUE, gets the longest
-  sequences of a species in the same genus as the one
-  searched for. If FALSE, get's nothing.}
+  \item{format}{Return type, e.g., "fasta"}
 }
 \value{
   Data.frame of results.

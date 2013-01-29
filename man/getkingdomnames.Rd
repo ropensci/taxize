@@ -1,11 +1,15 @@
 \name{getkingdomnames}
 \alias{getkingdomnames}
-\title{match count}
+\title{Get all possible kingdom names}
 \usage{
-  getkingdomnames(url = "http://www.itis.gov/ITISWebService/services/ITISService/getKingdomNames")
+  getkingdomnames()
 }
 \description{
-  match count
+  Get all possible kingdom names
 }
-\keyword{internal}
+\examples{
+\dontrun{
+getkingdomnamefromtsn(tsn = 202385)
+}
+}
 

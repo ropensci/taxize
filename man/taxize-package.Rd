@@ -35,8 +35,7 @@
   Tropicos (from Missouri Botanical Garden) \tab tp_ \cr
   Plantminer \tab plantminer_ \cr Theplantlist.org \tab
   tpl_ \cr Catalogue of Life \tab col_ \cr Global Invasive
-  Species Database \tab gisd_ \cr Freshwaterecology.info
-  \tab fresh_ \cr }
+  Species Database \tab gisd_ \cr }
 }
 \author{
   Scott Chamberlain \email{myrmecocystus@gmail.com}

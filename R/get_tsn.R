@@ -14,27 +14,26 @@
 #' @examples \dontrun{
 #' get_tsn(searchterm="Quercus douglasii", searchtype="sciname")
 #' get_tsn(searchterm="Chironomus riparius", searchtype="sciname")
-#' get_tsn(searchterm="polar bear", searchtype="comname")
 #' get_tsn(c("Chironomus riparius","Quercus douglasii"), "sciname")
-#' get_tsn(c("aa aa", "Chironomus riparius"), searchtype="sciname")
 #' splist <- c("annona cherimola", 'annona muricata', "quercus robur", 
-#' "shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")
+#' 		"shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")
 #' get_tsn(splist,"sciname")
 #' }
 get_tsn <- function (searchterm, searchtype = "sciname", verbose = TRUE) 
 {
-  # fetch itis function from args
-	searchtype <- if(searchtype == "sciname"){ "searchbyscientificname" } else
-                  if(searchtype == "anymatch") { "searchforanymatch" } else
-                    if(searchtype == "comnamebeg") { "searchbycommonnamebeginswith" } else
-                      if(searchtype == "comname") { "searchbycommonname" } else
-                        if(searchtype == "comnameend") { "searchbycommonnameendswith" } else
-                          stop("searchtype not valid!")
-  fun <- function(x, verbose) 
+  fun <- function(x, verbose)
   {
     if(verbose)
       cat("\nRetrieving data for species '", x, "'\n")
-    tsn_df <- do.call(itis, list(query=x, searchtype=searchtype))
+#     tsn_df <- searchtype(query=x)
+    
+    if(searchtype == "sciname"){ tsn_df <- searchbyscientificname(x) } else
+    	if(searchtype == "anymatch") { tsn_df <- searchforanymatch(x) } else
+    		if(searchtype == "comnamebeg") { tsn_df <- searchbycommonnamebeginswith(x) } else
+    			if(searchtype == "comname") { tsn_df <- searchbycommonname(x) } else
+    				if(searchtype == "comnameend") { tsn_df <- searchbycommonnameendswith(x) } else
+    					stop("searchtype not valid!")
+#     tsn_df <- ldply(x, searchtype)
     
     # should return NA if spec not found
     if (nrow(tsn_df) == 0)

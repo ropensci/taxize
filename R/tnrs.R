@@ -5,12 +5,10 @@
 #'  
 #' @import RCurl XML plyr stringr RJSONIO
 #' @param query Quoted taxonomic names to search in a vector (character).
-#' @param shortenurls Use bit.ly API to shorten URLs for matched species (default = FALSE).
 #' @param getpost Use GET or POST method to send the query. If you have more than 
 #' 		say 50 species or so in your query, you should probably use POST.
 #' @param sleep Numer of seconds by which to pause between calls. Defaults to 0 
 #' 		seconds. Use when doing many calls in a for loop ar lapply type call.
-#' @param url The iPlant API url for the function (should be left to default).
 #' @return data.frame of results from TNRS plus the name submitted.
 #' @export
 #' @examples \dontrun{
@@ -25,9 +23,9 @@
 #'		"Madia sativa", "Thymopsis thymodes", "Bartlettia scaposa")
 #' tnrs(mynames, getpost="POST")
 #' }
-tnrs <- function(query = NA, shortenurls = FALSE, getpost = "GET", sleep = 0,
-  url = "http://taxosaurus.org/submit")
+tnrs <- function(query = NA, getpost = "GET", sleep = 0)
 {
+	url = "http://taxosaurus.org/submit"
 	  Sys.sleep(time = sleep) # set amount of sleep to pause by
 #   if(sleep==1){sleep <- sleep * length(query)} else # sleep=1 times the number of species
 #   	{sleep <- sleep}
@@ -69,7 +67,7 @@ tnrs <- function(query = NA, shortenurls = FALSE, getpost = "GET", sleep = 0,
   }
   out <- compact(output)[[1]]
   
-  foo <- function(x, shortenurls=FALSE){ # function to parse results
+  foo <- function(x){ # function to parse results
   	matches <- x$matches
   	foome <- function(x) { 
   		x[sapply(x, length)==0] <- "none" 
@@ -78,10 +76,9 @@ tnrs <- function(query = NA, shortenurls = FALSE, getpost = "GET", sleep = 0,
   	matches2 <- ldply(matches, foome)
   	df <- data.frame(submittedName=x$submittedName, matches2)
   	df$score <- round(as.numeric(as.character(df$score)), 2)
-  	if(shortenurls) df$uri <- llply(df$uri, bitly_shorten)
   	df
   }
   
-  df <- ldply(out$names, foo, shortenurls) 
+  df <- ldply(out$names, foo) 
   return(df)
 }

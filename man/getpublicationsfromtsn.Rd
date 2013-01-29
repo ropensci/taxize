@@ -1,13 +1,26 @@
 \name{getpublicationsfromtsn}
 \alias{getpublicationsfromtsn}
-\title{match count}
+\title{Returns a list of the pulications used for the TSN.}
 \usage{
-  getpublicationsfromtsn(tsn = NA,
-    url = "http://www.itis.gov/ITISWebService/services/ITISService/getPublicationsFromTSN",
-    ..., curl = getCurlHandle())
+  getpublicationsfromtsn(tsn = NA, ...,
+    curl = getCurlHandle())
+}
+\arguments{
+  \item{tsn}{TSN for a taxonomic group (numeric)}
+
+  \item{...}{optional additional curl options (debugging
+  tools mostly)}
+
+  \item{curl}{If using in a loop, call getCurlHandle()
+  first and pass the returned value in here (avoids
+  unnecessary footprint)}
 }
 \description{
-  match count
+  Returns a list of the pulications used for the TSN.
 }
-\keyword{internal}
+\examples{
+\dontrun{
+getpublicationsfromtsn(tsn = 70340)
+}
+}
 

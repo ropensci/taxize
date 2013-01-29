@@ -1,11 +1,15 @@
 \name{getcredibilityratings}
 \alias{getcredibilityratings}
-\title{match count}
+\title{Get possible credibility ratings}
 \usage{
-  getcredibilityratings(url = "http://www.itis.gov/ITISWebService/services/ITISService/getCredibilityRatings")
+  getcredibilityratings()
 }
 \description{
-  match count
+  Get possible credibility ratings
 }
-\keyword{internal}
+\examples{
+\dontrun{
+getcredibilityratings()
+}
+}
 

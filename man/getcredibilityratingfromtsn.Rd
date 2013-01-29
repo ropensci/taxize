@@ -1,13 +1,26 @@
 \name{getcredibilityratingfromtsn}
 \alias{getcredibilityratingfromtsn}
-\title{match count}
+\title{Get credibility rating from tsn}
 \usage{
-  getcredibilityratingfromtsn(tsn = NA,
-    url = "http://www.itis.gov/ITISWebService/services/ITISService/getCredibilityRatingFromTSN",
-    ..., curl = getCurlHandle())
+  getcredibilityratingfromtsn(tsn = NA, ...,
+    curl = getCurlHandle())
+}
+\arguments{
+  \item{tsn}{TSN for a taxonomic group (numeric)}
+
+  \item{...}{optional additional curl options (debugging
+  tools mostly)}
+
+  \item{curl}{If using in a loop, call getCurlHandle()
+  first and pass the returned value in here (avoids
+  unnecessary footprint)}
 }
 \description{
-  match count
+  Get credibility rating from tsn
 }
-\keyword{internal}
+\examples{
+\dontrun{
+getcredibilityratingfromtsn(tsn = 526852)
+}
+}
 

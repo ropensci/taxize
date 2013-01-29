@@ -1,13 +1,29 @@
 \name{getcommentdetailfromtsn}
 \alias{getcommentdetailfromtsn}
-\title{match count}
+\title{Get comment detail from TSN}
 \usage{
-  getcommentdetailfromtsn(tsn = NA,
-    url = "http://www.itis.gov/ITISWebService/services/ITISService/getCommentDetailFromTSN",
-    ..., curl = getCurlHandle())
+  getcommentdetailfromtsn(tsn = NA, ...,
+    curl = getCurlHandle())
+}
+\arguments{
+  \item{tsn}{TSN for a taxonomic group (numeric)}
+
+  \item{...}{optional additional curl options (debugging
+  tools mostly)}
+
+  \item{curl}{If using in a loop, call getCurlHandle()
+  first and pass the returned value in here (avoids
+  unnecessary footprint)}
+}
+\value{
+  A data.frame with results.
 }
 \description{
-  match count
+  Get comment detail from TSN
 }
-\keyword{internal}
+\examples{
+\dontrun{
+getcommentdetailfromtsn(180543)
+}
+}
 

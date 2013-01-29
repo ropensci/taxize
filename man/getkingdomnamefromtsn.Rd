@@ -1,13 +1,26 @@
 \name{getkingdomnamefromtsn}
 \alias{getkingdomnamefromtsn}
-\title{match count}
+\title{Get kingdom names from tsn}
 \usage{
-  getkingdomnamefromtsn(tsn = NA,
-    url = "http://www.itis.gov/ITISWebService/services/ITISService/getKingdomNameFromTSN",
-    ..., curl = getCurlHandle())
+  getkingdomnamefromtsn(tsn = NA, ...,
+    curl = getCurlHandle())
+}
+\arguments{
+  \item{tsn}{TSN for a taxonomic group (numeric)}
+
+  \item{...}{optional additional curl options (debugging
+  tools mostly)}
+
+  \item{curl}{If using in a loop, call getCurlHandle()
+  first and pass the returned value in here (avoids
+  unnecessary footprint)}
 }
 \description{
-  match count
+  Get kingdom names from tsn
 }
-\keyword{internal}
+\examples{
+\dontrun{
+getkingdomnamefromtsn(tsn = 202385)
+}
+}
 

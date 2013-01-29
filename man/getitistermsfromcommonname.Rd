@@ -1,13 +1,27 @@
 \name{getitistermsfromcommonname}
 \alias{getitistermsfromcommonname}
-\title{match count}
+\title{Get itis terms from common names}
 \usage{
-  getitistermsfromcommonname(srchkey = NA,
-    url = "http://www.itis.gov/ITISWebService/services/ITISService/getITISTermsFromCommonName",
-    ..., curl = getCurlHandle())
+  getitistermsfromcommonname(srchkey = NA, ...,
+    curl = getCurlHandle())
+}
+\arguments{
+  \item{srchkey}{text or taxonomic serial number (TSN)
+  (character or numeric)}
+
+  \item{...}{optional additional curl options (debugging
+  tools mostly)}
+
+  \item{curl}{If using in a loop, call getCurlHandle()
+  first and pass the returned value in here (avoids
+  unnecessary footprint)}
 }
 \description{
-  match count
+  Get itis terms from common names
 }
-\keyword{internal}
+\examples{
+\dontrun{
+getitistermsfromcommonname("buya")
+}
+}
 
