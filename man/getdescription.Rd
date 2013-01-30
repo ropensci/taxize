@@ -1,11 +1,15 @@
 \name{getdescription}
 \alias{getdescription}
-\title{match count}
+\title{Get description of the ITIS service}
 \usage{
-  getdescription(url = "http://www.itis.gov/ITISWebService/services/ITISService/getDescription")
+  getdescription()
 }
 \description{
-  match count
+  Get description of the ITIS service
 }
-\keyword{internal}
+\examples{
+\dontrun{
+getdescription()
+}
+}
 

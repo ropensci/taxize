@@ -5,11 +5,15 @@
   phylomatic_tree(taxa, taxnames = TRUE, get = "GET",
     informat = "newick", method = "phylomatic",
     storedtree = "R20120829", taxaformat = "slashpath",
-    outformat = "newick", clean = "true",
-    url = "http://phylodiversity.net/phylomatic/pmws")
+    outformat = "newick", clean = "true", parallel = TRUE)
 }
 \arguments{
   \item{taxa}{Phylomatic format input of taxa names.}
+
+  \item{taxnames}{If true, we get the family names for you
+  to attach to your species names to send to Phylomatic
+  API. If FALSE, you have to provide the strings in the
+  right format.}
 
   \item{get}{'GET' or 'POST' format for submission to the
   website.}
@@ -28,8 +32,9 @@
 
   \item{outformat}{One of newick, nexml, or fyt.}
 
-  \item{url}{The base URL for the Phylomatic API service,
-  leave as is.}
+  \item{clean}{Return a clean tree or not.}
+
+  \item{parallel}{Run in parallel or not.}
 }
 \value{
   Newick formatted tree.
@@ -40,16 +45,10 @@
 }
 \details{
   Use the web interface here
-  \link{http://phylodiversity.net/phylomatic/}
+  http://phylodiversity.net/phylomatic/
 }
 \examples{
 \dontrun{
-# Getting taxonomic information from ITIS, if you already have taxonomic serial numbers (TSNs)
-dat_ <- laply(list("36616", "19322", "183327", "36616", "41107", "181835", "25929"), itis_phymat_format, format='isubmit')
-tree <- phylomatic_tree(taxa=taxa, get = 'POST', informat='newick', method = "phylomatic",
-		storedtree = "R20120829", taxaformat = "slashpath", outformat = "newick", clean = "true")
-plot(tree)
-
 # Input taxonomic names
 taxa <- c("Poa annua", "Abies procera", "Helianthus annuus")
 tree <- phylomatic_tree(taxa=taxa, get = 'POST', informat='newick', method = "phylomatic",
@@ -63,6 +62,12 @@ taxa <- c("Poa annua", "Abies procera", "Helianthus annuus", "Collomia grandiflo
 tree <- phylomatic_tree(taxa=taxa, get = 'POST', informat='newick', method = "phylomatic",
 		storedtree = "R20120829", taxaformat = "slashpath", outformat = "newick", clean = "true")
 plot(tree, no.margin=T)
+
+# In parallel with parallel=TRUE speeds up dramatically by doing the gathering of
+# family names from NCBI in parallel
+registerDoMC(cores=4)  # I have a mac, so using doMC package, use whatever you like
+phylomatic_tree(taxa=taxa, get = 'POST', informat='newick', method = "phylomatic",
+		storedtree = "R20120829", taxaformat = "slashpath", outformat = "newick", clean = "true", parallel=FALSE)
 }
 }
 

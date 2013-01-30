@@ -1,13 +1,28 @@
 \name{searchforanymatch}
 \alias{searchforanymatch}
-\title{match count}
+\title{Search for any match}
 \usage{
-  searchforanymatch(srchkey = NA,
-    url = "http://www.itis.gov/ITISWebService/services/ITISService/searchForAnyMatch",
-    ..., curl = getCurlHandle())
+  searchforanymatch(srchkey = NA, ...,
+    curl = getCurlHandle())
+}
+\arguments{
+  \item{srchkey}{text or taxonomic serial number (TSN)
+  (character or numeric)}
+
+  \item{...}{optional additional curl options (debugging
+  tools mostly)}
+
+  \item{curl}{If using in a loop, call getCurlHandle()
+  first and pass the returned value in here (avoids
+  unnecessary footprint)}
 }
 \description{
-  match count
+  Search for any match
 }
-\keyword{internal}
+\examples{
+\dontrun{
+searchforanymatch(srchkey = 202385)
+searchforanymatch(srchkey = "dolphin")
+}
+}
 

@@ -1,13 +1,26 @@
 \name{gettaxonomicusagefromtsn}
 \alias{gettaxonomicusagefromtsn}
-\title{match count}
+\title{Returns the usage information for the TSN.}
 \usage{
-  gettaxonomicusagefromtsn(tsn = NA,
-    url = "http://www.itis.gov/ITISWebService/services/ITISService/getTaxonomicUsageFromTSN",
-    ..., curl = getCurlHandle())
+  gettaxonomicusagefromtsn(tsn = NA, ...,
+    curl = getCurlHandle())
+}
+\arguments{
+  \item{tsn}{TSN for a taxonomic group (numeric)}
+
+  \item{...}{optional additional curl options (debugging
+  tools mostly)}
+
+  \item{curl}{If using in a loop, call getCurlHandle()
+  first and pass the returned value in here (avoids
+  unnecessary footprint)}
 }
 \description{
-  match count
+  Returns the usage information for the TSN.
 }
-\keyword{internal}
+\examples{
+\dontrun{
+gettaxonomicusagefromtsn(tsn = 526852)
+}
+}
 

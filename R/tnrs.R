@@ -5,18 +5,18 @@
 #'  
 #' @import RCurl XML plyr stringr RJSONIO
 #' @param query Quoted taxonomic names to search in a vector (character).
-#' @param shortenurls Use bit.ly API to shorten URLs for matched species (default = FALSE).
 #' @param getpost Use GET or POST method to send the query. If you have more than 
 #' 		say 50 species or so in your query, you should probably use POST.
 #' @param sleep Numer of seconds by which to pause between calls. Defaults to 0 
 #' 		seconds. Use when doing many calls in a for loop ar lapply type call.
-#' @param url The iPlant API url for the function (should be left to default).
+#' @param splitby Number by which to split species list for querying the TNRS.
 #' @return data.frame of results from TNRS plus the name submitted.
-#' @export
+#' @details If there is no match in the Taxosaurus database, nothing is returned, so you
+#' 		will not get anything back for non matches. 
 #' @examples \dontrun{
 #' # Default, uses GET curl method
 #' mynames <- c("Panthera tigris", "Eutamias minimus", "Magnifera indica", "Humbert humbert")
-#' tnrs(query = mynames)
+#' tnrs(query = mynames, splitby=2, sleep=1)
 #' 
 #' # Using POST method, especially useful when you have a lot of species
 #' mynames <- c("Panthera tigris", "Eutamias minimus", "Magnifera indica", "Humbert humbert", 
@@ -25,63 +25,73 @@
 #'		"Madia sativa", "Thymopsis thymodes", "Bartlettia scaposa")
 #' tnrs(mynames, getpost="POST")
 #' }
-tnrs <- function(query = NA, shortenurls = FALSE, getpost = "GET", sleep = 0,
-  url = "http://taxosaurus.org/submit")
+#' @export
+tnrs <- function(query = NA, getpost = "GET", sleep = 0, splitby = NULL)
 {
-	  Sys.sleep(time = sleep) # set amount of sleep to pause by
-#   if(sleep==1){sleep <- sleep * length(query)} else # sleep=1 times the number of species
-#   	{sleep <- sleep}
+	url = "http://taxosaurus.org/submit"
   
-  if(getpost=="GET"){
-  	if(!any(is.na(query)))
-  		query2 <- paste(str_replace_all(query, ' ', '+'), collapse='%0A')
-  	tt <- getURL(paste0(url, "?query=", query2))
-  } else
-  {
-  	splist <- paste(query, collapse="\n")
-  	tt <- postForm(url, query=splist)
-  }
-  message <- fromJSON(tt)["message"]
-  retrieve <- str_replace_all(str_extract(message, "http.+"), "\\.$", "")
-#   token <- str_split(retrieve, "/")[[1]][[5]]
-  
-  message(paste("Calling ", retrieve, sep=""))
-#   message(paste("Pausing ", sleep, " seconds for the query to finish...", sep=""))
-
-#   out <- fromJSON(getURL(retrieve)) # retrieve data
-  
-#   query <- species_split[[6]]
-#   splist <- paste(query, collapse="\n")
-#   tt <- postForm(url, query=splist)
-#   message <- fromJSON(tt)["message"]
-#   retrieve <- str_replace_all(str_extract(message, "http.+"), "\\.$", "")
- 
-  iter <- 0
-  output <- list()
-  timeout <- "wait"
-  while(timeout == "wait"){
-  	iter <- iter + 1
-  	temp <- fromJSON(getURL(retrieve))
-  	if(grepl("is still being processed", temp["message"])==TRUE){timeout <- "wait"} else {
-  			output[[iter]] <- temp
-  			timeout <- "done"
-  	 }
-  }
-  out <- compact(output)[[1]]
-  
-  foo <- function(x, shortenurls=FALSE){ # function to parse results
-  	matches <- x$matches
-  	foome <- function(x) { 
-  		x[sapply(x, length)==0] <- "none" 
-  		data.frame(x)
-  	}
-  	matches2 <- ldply(matches, foome)
-  	df <- data.frame(submittedName=x$submittedName, matches2)
-  	df$score <- round(as.numeric(as.character(df$score)), 2)
-  	if(shortenurls) df$uri <- llply(df$uri, bitly_shorten)
-  	df
-  }
-  
-  df <- ldply(out$names, foo, shortenurls) 
-  return(df)
+	foo <- function(x){
+		Sys.sleep(time = sleep) # set amount of sleep to pause by
+		if(getpost=="GET"){
+			if(!any(is.na(x)))
+				query2 <- paste(str_replace_all(x, ' ', '+'), collapse='%0A')
+			tt <- getURL(paste0(url, "?query=", query2))
+		} else
+		{
+			splist <- paste(x, collapse="\n")
+			tt <- postForm(url, query=splist)
+		}
+		message <- fromJSON(tt)["message"]
+		retrieve <- str_replace_all(str_extract(message, "http.+"), "\\.$", "")
+		
+		message(paste("Calling ", retrieve, sep=""))
+		
+		iter <- 0
+		output <- list()
+		timeout <- "wait"
+		while(timeout == "wait"){
+			iter <- iter + 1
+			temp <- fromJSON(getURL(retrieve))
+			if(grepl("is still being processed", temp["message"])==TRUE){timeout <- "wait"} else {
+				output[[iter]] <- temp
+				timeout <- "done"
+			}
+		}
+		out <- compact(output)[[1]]
+		
+		parseres <- function(w){ # function to parse results
+			matches <- w$matches
+			foome <- function(z) { 
+				z[sapply(z, length)==0] <- "none" 
+				data.frame(z)
+			}
+			matches2 <- ldply(matches, foome)
+			df <- data.frame(submittedName=w$submittedName, matches2)
+			df$score <- round(as.numeric(as.character(df$score)), 2)
+			df
+		}
+		
+		df <- ldply(out$names, parseres)
+		order_ <- do.call(c, sapply(x, function(y) grep(y, df$submittedName)))
+		df2 <- df[order_,]
+		
+		return(df2)
+	}
+	foo_safe <- plyr::failwith(NULL, foo)
+	
+	if(is.null(splitby)){
+		foo_safe(query)
+	} else
+	{
+		## Define function to split up your species list into useable chuncks
+		slice <- function(input, by = 2) {
+			starts <- seq(1, length(input), by)
+			tt <- lapply(starts, function(y) input[y:(y + (by - 1))])
+			llply(tt, function(x) x[!is.na(x)])
+		}
+		species_split <- slice(query, by = splitby)	
+		
+		out <- llply(species_split, function(x) foo_safe(x))
+		return(ldply(out))
+	}
 }

@@ -1,13 +1,26 @@
 \name{getcurrencyfromtsn}
 \alias{getcurrencyfromtsn}
-\title{match count}
+\title{Get currency from tsn}
 \usage{
-  getcurrencyfromtsn(tsn = NA,
-    url = "http://www.itis.gov/ITISWebService/services/ITISService/getCurrencyFromTSN",
-    ..., curl = getCurlHandle())
+  getcurrencyfromtsn(tsn = NA, ..., curl = getCurlHandle())
+}
+\arguments{
+  \item{tsn}{TSN for a taxonomic group (numeric)}
+
+  \item{...}{optional additional curl options (debugging
+  tools mostly)}
+
+  \item{curl}{If using in a loop, call getCurlHandle()
+  first and pass the returned value in here (avoids
+  unnecessary footprint)}
 }
 \description{
-  match count
+  Get currency from tsn
 }
-\keyword{internal}
+\examples{
+\dontrun{
+getcurrencyfromtsn(tsn = 28727) # currency data
+getcurrencyfromtsn(tsn = 526852) # no currency dat
+}
+}
 

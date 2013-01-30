@@ -1,11 +1,17 @@
 \name{getranknames}
 \alias{getranknames}
-\title{match count}
+\title{Provides a list of all the unique rank names contained in the database and
+ their kingdom and rank ID values.}
 \usage{
-  getranknames(url = "http://www.itis.gov/ITISWebService/services/ITISService/getRankNames")
+  getranknames()
 }
 \description{
-  match count
+  Provides a list of all the unique rank names contained in
+  the database and their kingdom and rank ID values.
 }
-\keyword{internal}
+\examples{
+\dontrun{
+getranknames()
+}
+}
 

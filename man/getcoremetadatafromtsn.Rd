@@ -1,13 +1,27 @@
 \name{getcoremetadatafromtsn}
 \alias{getcoremetadatafromtsn}
-\title{match count}
+\title{Get core metadata from tsn}
 \usage{
-  getcoremetadatafromtsn(tsn = NA,
-    url = "http://www.itis.gov/ITISWebService/services/ITISService/getCoreMetadataFromTSN",
-    ..., curl = getCurlHandle())
+  getcoremetadatafromtsn(tsn = NA, ...,
+    curl = getCurlHandle())
+}
+\arguments{
+  \item{tsn}{TSN for a taxonomic group (numeric)}
+
+  \item{...}{optional additional curl options (debugging
+  tools mostly)}
+
+  \item{curl}{If using in a loop, call getCurlHandle()
+  first and pass the returned value in here (avoids
+  unnecessary footprint)}
 }
 \description{
-  match count
+  Get core metadata from tsn
 }
-\keyword{internal}
+\examples{
+\dontrun{
+getcoremetadatafromtsn(tsn = 28727)  # coverage and currrency data
+getcoremetadatafromtsn(tsn = 183671)  # no coverage or currrency data
+}
+}
 

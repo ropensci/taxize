@@ -1,13 +1,26 @@
 \name{getgeographicdivisionsfromtsn}
 \alias{getgeographicdivisionsfromtsn}
-\title{match count}
+\title{Get geographic divisions from tsn}
 \usage{
-  getgeographicdivisionsfromtsn(tsn = NA,
-    url = "http://www.itis.gov/ITISWebService/services/ITISService/getGeographicDivisionsFromTSN",
-    ..., curl = getCurlHandle())
+  getgeographicdivisionsfromtsn(tsn = NA, ...,
+    curl = getCurlHandle())
+}
+\arguments{
+  \item{tsn}{TSN for a taxonomic group (numeric)}
+
+  \item{...}{optional additional curl options (debugging
+  tools mostly)}
+
+  \item{curl}{If using in a loop, call getCurlHandle()
+  first and pass the returned value in here (avoids
+  unnecessary footprint)}
 }
 \description{
-  match count
+  Get geographic divisions from tsn
 }
-\keyword{internal}
+\examples{
+\dontrun{
+getgeographicdivisionsfromtsn(tsn = 180543)
+}
+}
 

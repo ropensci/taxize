@@ -1,6 +1,7 @@
 # tests for col_downstream fxn in taxize
 context("col_downstream")
 
+data(rank_ref)
 temp <- col_downstream(name="Apis", downto="Species")
 
 test_that("col_downstream returns the correct value", {

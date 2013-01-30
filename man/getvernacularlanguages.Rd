@@ -1,11 +1,16 @@
 \name{getvernacularlanguages}
 \alias{getvernacularlanguages}
-\title{match count}
+\title{Provides a list of the unique languages used in the vernacular table.}
 \usage{
-  getvernacularlanguages(url = "http://www.itis.gov/ITISWebService/services/ITISService/getVernacularLanguages")
+  getvernacularlanguages()
 }
 \description{
-  match count
+  Provides a list of the unique languages used in the
+  vernacular table.
 }
-\keyword{internal}
+\examples{
+\dontrun{
+getvernacularlanguages()
+}
+}
 

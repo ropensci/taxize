@@ -1,100 +1,48 @@
-#' Use any API method for the ITIS API.
+#' Get accepted names from tsn
 #' 
-#' @import XML RCurl
-#' @param query Any common or scientific name (character), or taxonomic serial 
-#' 		number (numeric). Can supply a single query or many.
-#' @param searchtype Specify one or more of ITIS API methods (see 
-#' 		\url{http://www.itis.gov/ws_description.html} for more information on 
-#' 		these methods): 
-#' 		"getacceptednamesfromtsn","getanymatchcount","getcommentdetailfromtsn", 
-#' 		"getcommonnamesfromtsn","getcoremetadatafromtsn","getcoveragefromtsn",
-#' 		"getcredibilityratingfromtsn","getcurrencyfromtsn","getdatedatafromtsn",
-#' 		"getexpertsfromtsn","getfullhierarchyfromtsn","getfullrecordfromtsn",
-#' 		"getgeographicdivisionsfromtsn","getglobalspeciescompletenessfromtsn",
-#' 		"gethierarchydownfromtsn","gethierarchyupfromtsn","getitistermsfromcommonname",
-#' 		"getitistermsfromscientificname","getjurisdictionaloriginfromtsn",
-#' 		"getkingdomnamefromtsn","getlsidfromtsn","getothersourcesfromtsn",
-#' 		"getparenttsnfromtsn","getpublicationsfromtsn","getreviewyearfromtsn",
-#' 		"getscientificnamefromtsn","getsynonymnamesfromtsn","gettaxonauthorshipfromtsn",
-#' 		"gettaxonomicranknamefromtsn","gettaxonomicusagefromtsn",
-#' 		"getunacceptabilityreasonfromtsn","searchbycommonname",
-#' 		"searchbycommonnamebeginswith","searchbycommonnameendswith","searchbyscientificname",
-#' 		"searchforanymatch","searchforanymatchpaged".
-#' @return A variety of results can be returned depending on the function
-#' 		called.  If many queries or functions, or many of both, are provided, 
-#' 		results will be returned in a list.
+#' @inheritParams getcommentdetailfromtsn
 #' @examples \dontrun{
-#' # Search by scientific name, can abbreviate
-#' itis(query="Quercus douglasii", searchtype="searchbyscientificname") 
-#' 
-#' # Get the full taxonomic hierarchy for a taxon from the TSN
-#' itis(36616, "getfullhierarchyfromtsn")
-#' 
-#' # Search by scientific name, then use a TSN to get its parent TSN
-#' itis("Ursus", "searchbyscientificname")
-#' itis(203539, "getparenttsnfromtsn") 
-#' itis(203539, "getsynonymnamesfromtsn") # no synonyms in this case
-#'
-#' # Use multiple queries on one call to the function
-#' itis(query=list(203539, 202420), searchtype="getsynonymnamesfromtsn")
-#'  
-#' # Use multiple ITIS functions
-#' itis(203539, c("getsynonymnamesfromtsn","getcommonnamesfromtsn"))
-#' 
-#' # Use multiple ITIS functions and multiple queries
-#' itis(query=list(203539, 202420), searchtype=c("getsynonymnamesfromtsn","getcommonnamesfromtsn"))
+#' getacceptednamesfromtsn('208527')  # TSN accepted - good name
+#' getacceptednamesfromtsn(tsn='504239')  # TSN not accepted - input TSN is old name
+#' getacceptednamesfromtsn('504239', FALSE)  # TSN not accepted - input TSN is old name
 #' }
-#' @export
-itis <- function(query, searchtype = NULL) 
-{	
-	searchtype <- match.arg(searchtype, choices=c(
-		"getacceptednamesfromtsn","getanymatchcount","getcommentdetailfromtsn", 
-		"getcommonnamesfromtsn","getcoremetadatafromtsn","getcoveragefromtsn",
-		"getcredibilityratingfromtsn","getcurrencyfromtsn","getdatedatafromtsn",
-		"getexpertsfromtsn","getfullhierarchyfromtsn","getfullrecordfromtsn",
-		"getgeographicdivisionsfromtsn","getglobalspeciescompletenessfromtsn",
-		"gethierarchydownfromtsn","gethierarchyupfromtsn","getitistermsfromcommonname",
-		"getitistermsfromscientificname","getjurisdictionaloriginfromtsn",
-		"getkingdomnamefromtsn","getlsidfromtsn","getothersourcesfromtsn",
-		"getparenttsnfromtsn","getpublicationsfromtsn","getreviewyearfromtsn",
-		"getscientificnamefromtsn","getsynonymnamesfromtsn","gettaxonauthorshipfromtsn",
-		"gettaxonomicranknamefromtsn","gettaxonomicusagefromtsn",
-		"getunacceptabilityreasonfromtsn","searchbycommonname",
-		"searchbycommonnamebeginswith","searchbycommonnameendswith","searchbyscientificname",
-		"searchforanymatch","searchforanymatchpaged"
-	), several.ok=TRUE)
-	
-	# if spaces exist between search terms %20 replaces the spaces for the search string
-# 	query <- sapply(query, function(x) gsub(" ", "%20", x))
-	
-	# do search
-# 	lapply(query, function(x) each(searchtype)(x))
-# 	for(i in 1:length(searchtype)) {
-# 		lapply(query, searchtype[i])
-# 	}
-  if(length(searchtype) > 1) {
-    out <- llply(searchtype, function(x) {
-      out <- llply(query, x)
-      names(out) <- query
-      return(out)
-      })
-    names(out) <- searchtype
-    return(out)
-  } else {
-    out <- ldply(query, searchtype)
-    return(out)
-  } 
+getacceptednamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle())
+{ 
+	url = "http://www.itis.gov/ITISWebService/services/ITISService/getAcceptedNamesFromTSN"
+	args <- list()
+	if(!is.na(tsn))
+		args$tsn <- tsn
+	tt <- getForm(url, 
+								.params = args, 
+								...,
+								curl = curl)
+	tt_ <- xmlParse(tt)
+	temp <- xmlToList(tt_)
+	if(length(temp$return$acceptedNames) == 1) 
+	{ message("Good name!")
+		temp$return$tsn
+	} else
+	{ message("Bad name!")
+		c(submittedTsn = temp$return$tsn, temp$return$acceptedNames[1:2])
+	}
 }
 
-#' match count
+#' Get any match count.
 #' 
-#' @keywords internal
+#' @import XML RCurl
+#' @param srchkey text or taxonomic serial number (TSN) (character or numeric)
+#' @param ... optional additional curl options (debugging tools mostly)
+#' @param curl If using in a loop, call getCurlHandle() first and pass 
+#'  the returned value in here (avoids unnecessary footprint)
+#' @return An integer containing the number of matches the search will return.
+#' @examples \dontrun{
+#' getanymatchcount(202385)
+#' getanymatchcount("dolphin")
+#' }
 #' @export 
-getanymatchcount <- function(srchkey = NA,
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/getAnyMatchCount',
-  ..., 
-  curl = getCurlHandle() ) 
+getanymatchcount <- function(srchkey = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getAnyMatchCount'
   args <- list()
   if(!is.na(srchkey))
     args$srchKey <- srchkey
@@ -106,15 +54,21 @@ getanymatchcount <- function(srchkey = NA,
   xmlToList(out)
 }
 
-#' match count
+#' Get comment detail from TSN
 #' 
-#' @keywords internal
-#' @export 
-getcommentdetailfromtsn <- function(tsn = NA,
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/getCommentDetailFromTSN',
-  ..., 
-  curl = getCurlHandle() ) 
+#' @import XML RCurl
+#' @param tsn TSN for a taxonomic group (numeric)
+#' @param ... optional additional curl options (debugging tools mostly)
+#' @param curl If using in a loop, call getCurlHandle() first and pass 
+#'  the returned value in here (avoids unnecessary footprint)
+#' @return A data.frame with results.
+#' @examples \dontrun{
+#' getcommentdetailfromtsn(180543)
+#' }
+#' @export
+getcommentdetailfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getCommentDetailFromTSN'
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
@@ -138,14 +92,16 @@ getcommentdetailfromtsn <- function(tsn = NA,
     commentator=commentator, updatedate=updatedate)
 }
 
-#' match count
+#' Get common names from tsn
 #' 
-#' @keywords internal
+#' @inheritParams getcommentdetailfromtsn
+#' @examples \dontrun{
+#' getcommonnamesfromtsn(183833)
+#' }
 #' @export 
-getcommonnamesfromtsn <- function(tsn = NA,
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/getCommonNamesFromTSN',
-  ..., curl = getCurlHandle() ) 
+getcommonnamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getCommonNamesFromTSN'
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
@@ -165,14 +121,18 @@ getcommonnamesfromtsn <- function(tsn = NA,
   data.frame(comname=comname, lang=lang, tsn=tsn[-length(tsn)])
 }
 
-#' match count
+
+#' Get core metadata from tsn
 #' 
-#' @keywords internal
+#' @inheritParams getcommentdetailfromtsn
+#' @examples \dontrun{
+#' getcoremetadatafromtsn(tsn = 28727)  # coverage and currrency data
+#' getcoremetadatafromtsn(tsn = 183671)  # no coverage or currrency data
+#' }
 #' @export 
-getcoremetadatafromtsn <- function(tsn = NA,
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/getCoreMetadataFromTSN',
-  ..., curl = getCurlHandle() ) 
+getcoremetadatafromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getCoreMetadataFromTSN'
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
@@ -192,14 +152,17 @@ getcoremetadatafromtsn <- function(tsn = NA,
   df
 }
 
-#' match count
+#' Get coverge from tsn
 #' 
-#' @keywords internal
+#' @inheritParams getcommentdetailfromtsn
+#' @examples \dontrun{
+#' getcoveragefromtsn(tsn = 28727)  # coverage data
+#' getcoveragefromtsn(tsn = 526852)  # no coverage data
+#' }
 #' @export 
-getcoveragefromtsn <- function(tsn = NA,
-   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getCoverageFromTSN',
-   ..., curl = getCurlHandle() ) 
+getcoveragefromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getCoverageFromTSN'
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
@@ -219,14 +182,16 @@ getcoveragefromtsn <- function(tsn = NA,
   data.frame(rankid=rankid, taxoncoverage=taxoncoverage, tsn=tsn)
 }
 
-#' match count
+#' Get credibility rating from tsn
 #' 
-#' @keywords internal
+#' @inheritParams getcommentdetailfromtsn
+#' @examples \dontrun{
+#' getcredibilityratingfromtsn(tsn = 526852)
+#' }
 #' @export 
-getcredibilityratingfromtsn <- function(tsn = NA,
-   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getCredibilityRatingFromTSN',
-   ..., curl = getCurlHandle() ) 
+getcredibilityratingfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getCredibilityRatingFromTSN'
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
@@ -244,13 +209,16 @@ getcredibilityratingfromtsn <- function(tsn = NA,
   data.frame(credrating=credrating, tsn=tsn)
 }
 
-#' match count
+#' Get possible credibility ratings
 #' 
-#' @keywords internal
+#' @import RCurl XML
+#' @examples \dontrun{
+#' getcredibilityratings()
+#' }
 #' @export 
-getcredibilityratings <- function(
-   url='http://www.itis.gov/ITISWebService/services/ITISService/getCredibilityRatings') 
+getcredibilityratings <- function() 
 {
+	url='http://www.itis.gov/ITISWebService/services/ITISService/getCredibilityRatings'
   message(url)
   tt <- getURL(url)
   out <- xmlParse(tt)
@@ -260,14 +228,17 @@ getcredibilityratings <- function(
   data.frame(credibilityValues = credibilityValues)
 }
 
-#' match count
+#' Get currency from tsn
 #' 
-#' @keywords internal
+#' @inheritParams getcommentdetailfromtsn
+#' @examples \dontrun{
+#' getcurrencyfromtsn(tsn = 28727) # currency data
+#' getcurrencyfromtsn(tsn = 526852) # no currency dat
+#' }
 #' @export 
-getcurrencyfromtsn <- function(tsn = NA,
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/getCurrencyFromTSN',
-  ..., curl = getCurlHandle() ) 
+getcurrencyfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getCurrencyFromTSN'
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
@@ -287,14 +258,16 @@ getcurrencyfromtsn <- function(tsn = NA,
   data.frame(rankid=rankid, taxoncurrency=taxoncurrency, tsn=tsn)
 }
 
-#' match count
+#' Get date data from tsn
 #' 
-#' @keywords internal
+#' @inheritParams getcommentdetailfromtsn
+#' @examples \dontrun{
+#' getdatedatafromtsn(tsn = 180543)
+#' }
 #' @export 
-getdatedatafromtsn <- function(tsn = NA,
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/getDateDataFromTSN',
-  ..., curl = getCurlHandle() ) 
+getdatedatafromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getDateDataFromTSN'
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
@@ -314,13 +287,16 @@ getdatedatafromtsn <- function(tsn = NA,
   data.frame(initialTimeStamp=initialTimeStamp, updateDate=updateDate, tsn=tsn)
 }
 
-#' match count
+#' Get description of the ITIS service
 #' 
-#' @keywords internal
+#' @import RCurl XML
+#' @examples \dontrun{
+#' getdescription()
+#' }
 #' @export 
-getdescription <- function(
-   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getDescription') 
+getdescription <- function() 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getDescription'
   message(url)
   tt <- getURL(url)
   out <- xmlParse(tt)
@@ -329,14 +305,16 @@ getdescription <- function(
   sapply(nodes, xmlValue)
 }
 
-#' match count
+#' Get expert information for the TSN.
 #' 
-#' @keywords internal
+#' @inheritParams getcommentdetailfromtsn
+#' @examples \dontrun{
+#' getexpertsfromtsn(tsn = 180544)
+#' }
 #' @export 
-getexpertsfromtsn <- function(tsn = NA,
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/getExpertsFromTSN',
-  ..., curl = getCurlHandle() ) 
+getexpertsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getExpertsFromTSN'
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
@@ -356,14 +334,17 @@ getexpertsfromtsn <- function(tsn = NA,
   df
 }
 
-#' match count
+#' Get full hierarchy from tsn
 #' 
-#' @keywords internal
+#' @inheritParams getcommentdetailfromtsn
+#' @examples \dontrun{
+#' getfullhierarchyfromtsn(tsn = 37906)
+#' getfullhierarchyfromtsn(tsn = 500664)
+#' }
 #' @export 
-getfullhierarchyfromtsn <- function(tsn = NA,
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN',
-  ..., curl = getCurlHandle() ) 
+getfullhierarchyfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN'
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
@@ -389,14 +370,22 @@ getfullhierarchyfromtsn <- function(tsn = NA,
   return(out)
 }
 
-#' match count
+#' Returns the full ITIS record for the TSN in the LSID, found by comparing the 
+#' 		TSN in the search key to the TSN field. Returns an empty result set if there 
+#'  	is no match or the TSN is invalid.
 #' 
-#' @keywords internal
+#' @import RCurl XML
+#' @param lsid lsid for a taxonomic group (character)
+#' @param ... optional additional curl options (debugging tools mostly)
+#' @param curl If using in a loop, call getCurlHandle() first and pass 
+#'  the returned value in here (avoids unnecessary footprint) 
+#' @examples \dontrun{
+#' getfullrecordfromlsid(lsid = "urn:lsid:itis.gov:itis_tsn:180543")
+#' }
 #' @export 
-getfullrecordfromlsid <- function(lsid = NA,
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/getFullRecordFromLSID',
-  ..., curl = getCurlHandle() ) 
+getfullrecordfromlsid <- function(lsid = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getFullRecordFromLSID'
   args <- list()
   if(!is.na(lsid))
     args$lsid <- lsid
@@ -408,14 +397,16 @@ getfullrecordfromlsid <- function(lsid = NA,
   xmlParse(tt)
 }
 
-#' match count
+#' Get full record from TSN.
 #' 
-#' @keywords internal
+#' @inheritParams getcommentdetailfromtsn
+#' @examples \dontrun{
+#' getfullrecordfromtsn(tsn = 183833)
+#' }
 #' @export 
-getfullrecordfromtsn <- function(tsn = NA,
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/getFullRecordFromTSN',
-  ..., curl = getCurlHandle() ) 
+getfullrecordfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getFullRecordFromTSN'
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
@@ -427,14 +418,16 @@ getfullrecordfromtsn <- function(tsn = NA,
   xmlParse(tt)
 }
 
-#' match count
+#' Get geographic divisions from tsn
 #' 
-#' @keywords internal
+#' @inheritParams getcommentdetailfromtsn
+#' @examples \dontrun{
+#' getgeographicdivisionsfromtsn(tsn = 180543)
+#' }
 #' @export 
-getgeographicdivisionsfromtsn <- function(tsn = NA,
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/getGeographicDivisionsFromTSN',
-  ..., curl = getCurlHandle() ) 
+getgeographicdivisionsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getGeographicDivisionsFromTSN'
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
@@ -454,13 +447,16 @@ getgeographicdivisionsfromtsn <- function(tsn = NA,
   df
 }
 
-#' match count
+#' Get all possible geographic values
 #' 
-#' @keywords internal
+#' @import RCurl XML
+#' @examples \dontrun{
+#' getgeographicvalues()
+#' }
 #' @export 
-getgeographicvalues <- function(
-   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getGeographicValues') 
+getgeographicvalues <- function() 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getGeographicValues'
   message(url)
   tt <- getURL(url)
   out <- xmlParse(tt)
@@ -470,14 +466,16 @@ getgeographicvalues <- function(
   data.frame(geographicValues = geographicValues)
 }
 
-#' match count
+#' Get global species completeness from tsn
 #' 
-#' @keywords internal
+#' @inheritParams getcommentdetailfromtsn
+#' @examples \dontrun{
+#' getglobalspeciescompletenessfromtsn(tsn = 180541)
+#' }
 #' @export 
-getglobalspeciescompletenessfromtsn <- function(tsn = NA,
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/getGlobalSpeciesCompletenessFromTSN',
-  ..., curl = getCurlHandle() ) 
+getglobalspeciescompletenessfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getGlobalSpeciesCompletenessFromTSN'
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
@@ -497,14 +495,16 @@ getglobalspeciescompletenessfromtsn <- function(tsn = NA,
   df
 }
 
-#' match count
+#' Get hierarchy down from tsn
 #' 
-#' @keywords internal
+#' @inheritParams getcommentdetailfromtsn
+#' @examples \dontrun{
+#' gethierarchydownfromtsn(tsn = 161030)
+#' }
 #' @export 
-gethierarchydownfromtsn <- function(tsn = NA,
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/getHierarchyDownFromTSN',
-  ..., curl = getCurlHandle() ) 
+gethierarchydownfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getHierarchyDownFromTSN'
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
@@ -529,14 +529,16 @@ gethierarchydownfromtsn <- function(tsn = NA,
              taxonName=taxonName, tsn=tsn[-1])
 }
 
-#' match count
+#' Get hierarchy up from tsn
 #' 
-#' @keywords internal
+#' @inheritParams getcommentdetailfromtsn
+#' @examples \dontrun{
+#' gethierarchyupfromtsn(tsn = 36485)
+#' }
 #' @export 
-gethierarchyupfromtsn <- function(tsn = NA,
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/getHierarchyUpFromTSN',
-  ..., curl = getCurlHandle() ) 
+gethierarchyupfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getHierarchyUpFromTSN'
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
@@ -561,14 +563,16 @@ gethierarchyupfromtsn <- function(tsn = NA,
              taxonName=taxonName, tsn=tsn)
 }
 
-#' match count
+#' Get itis terms from common names
 #' 
-#' @keywords internal
+#' @inheritParams getanymatchcount
+#' @examples \dontrun{
+#' getitistermsfromcommonname("buya")
+#' }
 #' @export 
-getitistermsfromcommonname <- function(srchkey = NA,
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/getITISTermsFromCommonName',
-  ..., curl = getCurlHandle() ) 
+getitistermsfromcommonname <- function(srchkey = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getITISTermsFromCommonName'
   args <- list()
   if(!is.na(srchkey))
     args$srchKey <- srchkey
@@ -589,14 +593,16 @@ getitistermsfromcommonname <- function(srchkey = NA,
   data.frame(comname=comname[-length(comname)], nameusage=nameusage, sciname=sciname, tsn=tsn)
 }
 
-#' match count
+#' Get itis terms from scientific names
 #' 
-#' @keywords internal
+#' @inheritParams getanymatchcount
+#' @examples \dontrun{
+#' getitistermsfromscientificname(srchkey = "ursidae")
+#' }
 #' @export 
-getitistermsfromscientificname <- function(srchkey = NA,
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/getITISTermsFromScientificName',
-  ..., curl = getCurlHandle() ) 
+getitistermsfromscientificname <- function(srchkey = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getITISTermsFromScientificName'
   args <- list()
   if(!is.na(srchkey))
     args$srchKey <- srchkey
@@ -618,14 +624,16 @@ getitistermsfromscientificname <- function(srchkey = NA,
   data.frame(comname=comname, nameusage=nameusage, sciname=sciname, tsn=tsn)
 }
 
-#' match count
+#' Get jurisdictional origin from tsn
 #' 
-#' @keywords internal
+#' @inheritParams getcommentdetailfromtsn
+#' @examples \dontrun{
+#' getjurisdictionaloriginfromtsn(tsn = 180543)
+#' }
 #' @export 
-getjurisdictionaloriginfromtsn <- function(tsn = NA,
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/getJurisdictionalOriginFromTSN',
-  ..., curl = getCurlHandle() ) 
+getjurisdictionaloriginfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getJurisdictionalOriginFromTSN'
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
@@ -645,13 +653,16 @@ getjurisdictionaloriginfromtsn <- function(tsn = NA,
   df
 }
 
-#' match count
+#' Get jurisdiction origin values
 #' 
-#' @keywords internal
+#' @import RCurl XML
+#' @examples \dontrun{
+#' getjurisdictionoriginvalues()
+#' }
 #' @export 
-getjurisdictionoriginvalues <- function(
-   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getJurisdictionalOriginValues') 
+getjurisdictionoriginvalues <- function() 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getJurisdictionalOriginValues'
   message(url)
   tt <- getURL(url)
   out <- xmlParse(tt)
@@ -663,13 +674,16 @@ getjurisdictionoriginvalues <- function(
   data.frame(jurisdiction = jurisdiction, origin = origin)
 }
 
-#' match count
+#' Get possible jurisdiction values
 #' 
-#' @keywords internal
+#' @import RCurl XML
+#' @examples \dontrun{
+#' getjurisdictionvalues()
+#' }
 #' @export 
-getjurisdictionvalues <- function(
-   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getJurisdictionValues') 
+getjurisdictionvalues <- function() 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getJurisdictionValues'
   message(url)
   tt <- getURL(url)
   out <- xmlParse(tt)
@@ -679,14 +693,16 @@ getjurisdictionvalues <- function(
   data.frame(jurisdictionValues = jurisdictionValues)
 }
 
-#' match count
+#' Get kingdom names from tsn
 #' 
-#' @keywords internal
+#' @inheritParams getcommentdetailfromtsn
+#' @examples \dontrun{
+#' getkingdomnamefromtsn(tsn = 202385)
+#' }
 #' @export 
-getkingdomnamefromtsn <- function(tsn = NA,
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/getKingdomNameFromTSN',
-  ..., curl = getCurlHandle() ) 
+getkingdomnamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getKingdomNameFromTSN'
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
@@ -706,13 +722,16 @@ getkingdomnamefromtsn <- function(tsn = NA,
   df
 }
 
-#' match count
+#' Get all possible kingdom names
 #' 
-#' @keywords internal
+#' @import RCurl XML
+#' @examples \dontrun{
+#' getkingdomnamefromtsn(tsn = 202385)
+#' }
 #' @export 
-getkingdomnames <- function(
-   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getKingdomNames') 
+getkingdomnames <- function() 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getKingdomNames'
   message(url)
   tt <- getURL(url)
   out <- xmlParse(tt)
@@ -726,13 +745,16 @@ getkingdomnames <- function(
   data.frame(kingdomId = kingdomId, kingdomName = kingdomName, tsn = tsn)
 }
 
-#' match count
+#' Provides the date the ITIS database was last updated.
 #' 
-#' @keywords internal
+#' @import RCurl XML
+#' @examples \dontrun{
+#' getlastchangedate()
+#' }
 #' @export 
-getlastchangedate <- function(
-   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getLastChangeDate') 
+getlastchangedate <- function() 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getLastChangeDate'
   message(url)
   tt <- getURL(url)
   out <- xmlParse(tt)
@@ -741,14 +763,16 @@ getlastchangedate <- function(
   sapply(nodes, xmlValue)
 }
 
-#' match count
+#' Gets the unique LSID for the TSN, or an empty result if there is no match.
 #' 
-#' @keywords internal
+#' @inheritParams getcommentdetailfromtsn
+#' @examples \dontrun{
+#' getlsidfromtsn(tsn = 155166)
+#' }
 #' @export 
-getlsidfromtsn <- function(tsn = NA,
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/getLSIDFromTSN',
-  ..., curl = getCurlHandle() ) 
+getlsidfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getLSIDFromTSN'
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
@@ -760,14 +784,16 @@ getlsidfromtsn <- function(tsn = NA,
   xmlToList(xmlParse(tt))[[1]]
 }
 
-#' match count
+#' Returns a list of the other sources used for the TSN.
 #' 
-#' @keywords internal
+#' @inheritParams getcommentdetailfromtsn
+#' @examples \dontrun{
+#' getothersourcesfromtsn(tsn = 182662)
+#' }
 #' @export 
-getothersourcesfromtsn <- function(tsn = NA,
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/getOtherSourcesFromTSN',
-  ..., curl = getCurlHandle() ) 
+getothersourcesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getOtherSourcesFromTSN'
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
@@ -788,14 +814,16 @@ getothersourcesfromtsn <- function(tsn = NA,
   df
 }
 
-#' match count
+#' Returns the parent TSN for the entered TSN.
 #' 
-#' @keywords internal
+#' @inheritParams getcommentdetailfromtsn
+#' @examples \dontrun{
+#' getparenttsnfromtsn(tsn = 202385)
+#' }
 #' @export 
-getparenttsnfromtsn <- function(tsn = NA,
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/getParentTSNFromTSN',
-  ..., curl = getCurlHandle() ) 
+getparenttsnfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getParentTSNFromTSN'
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
@@ -815,14 +843,16 @@ getparenttsnfromtsn <- function(tsn = NA,
   df
 }
 
-#' match count
+#' Returns a list of the pulications used for the TSN.
 #' 
-#' @keywords internal
+#' @inheritParams getcommentdetailfromtsn
+#' @examples \dontrun{
+#' getpublicationsfromtsn(tsn = 70340)
+#' }
 #' @export 
-getpublicationsfromtsn <- function(tsn = NA,
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/getPublicationsFromTSN',
-  ..., curl = getCurlHandle() ) 
+getpublicationsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getPublicationsFromTSN'
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
@@ -844,13 +874,17 @@ getpublicationsfromtsn <- function(tsn = NA,
   df
 }
 
-#' match count
+#' Provides a list of all the unique rank names contained in the database and 
+#'  their kingdom and rank ID values.
 #' 
-#' @keywords internal
+#' @import RCurl XML
+#' @examples \dontrun{
+#' getranknames()
+#' }
 #' @export 
-getranknames <- function(
-   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getRankNames') 
+getranknames <- function() 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getRankNames'
   message(url)
   tt <- getURL(url)
   out <- xmlParse(tt)
@@ -864,14 +898,22 @@ getranknames <- function(
   data.frame(kingdomName = kingdomName, rankId = rankId, rankName = rankName)
 }
 
-#' match count
+#' Gets the partial ITIS record for the TSN in the LSID, found by comparing the 
+#'  TSN in the search key to the TSN field. Returns an empty result set if 
+#'  there is no match or the TSN is invalid.
 #' 
-#' @keywords internal
+#' @import RCurl XML
+#' @param lsid lsid for a taxonomic group (numeric)
+#' @param ... optional additional curl options (debugging tools mostly)
+#' @param curl If using in a loop, call getCurlHandle() first and pass 
+#'  the returned value in here (avoids unnecessary footprint)
+#' @examples \dontrun{
+#' getrecordfromlsid(lsid = "urn:lsid:itis.gov:itis_tsn:180543")
+#' }
 #' @export 
-getrecordfromlsid <- function(lsid = NA,
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/getRecordFromLSID',
-  ..., curl = getCurlHandle() ) 
+getrecordfromlsid <- function(lsid = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getRecordFromLSID'
   args <- list()
   if(!is.na(lsid))
     args$lsid <- lsid
@@ -893,14 +935,16 @@ getrecordfromlsid <- function(lsid = NA,
   df
 }
 
-#' match count
+#' Returns the review year for the TSN.
 #' 
-#' @keywords internal
+#' @inheritParams getcommentdetailfromtsn
+#' @examples \dontrun{
+#' getreviewyearfromtsn(tsn = 180541)
+#' }
 #' @export 
-getreviewyearfromtsn <- function(tsn = NA,
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/getReviewYearFromTSN',
-  ..., curl = getCurlHandle() ) 
+getreviewyearfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getReviewYearFromTSN'
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
@@ -920,14 +964,17 @@ getreviewyearfromtsn <- function(tsn = NA,
   df
 }
 
-#' match count
+#' Returns the scientific name for the TSN. Also returns the component parts 
+#'    (names and indicators) of the scientific name.
 #' 
-#' @keywords internal
+#' @inheritParams getcommentdetailfromtsn
+#' @examples \dontrun{
+#' getscientificnamefromtsn(tsn = 531894)
+#' }
 #' @export 
-getscientificnamefromtsn <- function(tsn = NA,
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/getScientificNameFromTSN',
-  ..., curl = getCurlHandle() ) 
+getscientificnamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getScientificNameFromTSN'
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
@@ -948,14 +995,17 @@ getscientificnamefromtsn <- function(tsn = NA,
   df
 }
 
-#' match count
+#' Returns a list of the synonyms (if any) for the TSN.
 #' 
-#' @keywords internal
+#' @inheritParams getcommentdetailfromtsn
+#' @examples \dontrun{
+#' getsynonymnamesfromtsn(tsn = 183671) # tsn not accepted
+#' getsynonymnamesfromtsn(tsn = 526852) # tsn accepted
+#' }
 #' @export 
-getsynonymnamesfromtsn <- function(tsn = NA,
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/getSynonymNamesFromTSN',
-  ..., curl = getCurlHandle() ) 
+getsynonymnamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getSynonymNamesFromTSN'
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
@@ -977,14 +1027,16 @@ getsynonymnamesfromtsn <- function(tsn = NA,
   data.frame(name=name[[1]], tsn=tsn)
 }
 
-#' match count
+#' Returns the author information for the TSN.
 #' 
-#' @keywords internal
+#' @inheritParams getcommentdetailfromtsn
+#' @examples \dontrun{
+#' gettaxonauthorshipfromtsn(tsn = 183671)
+#' }
 #' @export 
-gettaxonauthorshipfromtsn <- function(tsn = NA,
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/getTaxonAuthorshipFromTSN',
-  ..., curl = getCurlHandle() ) 
+gettaxonauthorshipfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getTaxonAuthorshipFromTSN'
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
@@ -1004,14 +1056,16 @@ gettaxonauthorshipfromtsn <- function(tsn = NA,
   df
 }
 
-#' match count
+#' Returns the kingdom and rank information for the TSN.
 #' 
-#' @keywords internal
+#' @inheritParams getcommentdetailfromtsn
+#' @examples \dontrun{
+#' gettaxonomicranknamefromtsn(tsn = 202385)
+#' }
 #' @export 
-gettaxonomicranknamefromtsn <- function(tsn = NA,
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/getTaxonomicRankNameFromTSN',
-  ..., curl = getCurlHandle() ) 
+gettaxonomicranknamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getTaxonomicRankNameFromTSN'
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
@@ -1031,14 +1085,16 @@ gettaxonomicranknamefromtsn <- function(tsn = NA,
   df
 }
 
-#' match count
+#' Returns the usage information for the TSN.
 #' 
-#' @keywords internal
+#' @inheritParams getcommentdetailfromtsn
+#' @examples \dontrun{
+#' gettaxonomicusagefromtsn(tsn = 526852)
+#' }
 #' @export 
-gettaxonomicusagefromtsn <- function(tsn = NA,
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/getTaxonomicUsageFromTSN',
-  ..., curl = getCurlHandle() ) 
+gettaxonomicusagefromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getTaxonomicUsageFromTSN'
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
@@ -1058,14 +1114,21 @@ gettaxonomicusagefromtsn <- function(tsn = NA,
   df
 }
 
-#' match count
+#' Retrieve accepted TSN (with accepted name)
 #' 
-#' @keywords internal
+#' @import RCurl XML
+#' @param language A string containing the language. This is a language string, 
+#'    not the international language code (character)
+#' @param ... optional additional curl options (debugging tools mostly)
+#' @param curl If using in a loop, call getCurlHandle() first and pass 
+#'  the returned value in here (avoids unnecessary footprint)
+#' @examples \dontrun{
+#' gettsnbyvernacularlanguage("french")
+#' }
 #' @export 
-gettsnbyvernacularlanguage <- function(language = NA,
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/getTsnByVernacularLanguage',
-  ..., curl = getCurlHandle() ) 
+gettsnbyvernacularlanguage <- function(language = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getTsnByVernacularLanguage'
   args <- list()
   if(!is.na(language))
     args$language <- language
@@ -1084,14 +1147,20 @@ gettsnbyvernacularlanguage <- function(language = NA,
   data.frame(comname=comname, language=language, tsn=tsn)
 }
 
-#' match count
+#' Gets the TSN corresponding to the LSID, or an empty result if there is no match.
 #' 
-#' @keywords internal
+#' @param lsid lsid for a taxonomic group (numeric)
+#' @param ... optional additional curl options (debugging tools mostly)
+#' @param curl If using in a loop, call getCurlHandle() first and pass 
+#'  the returned value in here (avoids unnecessary footprint)
+#' @examples \dontrun{
+#' gettsnfromlsid(lsid = "urn:lsid:itis.gov:itis_tsn:28726")
+#' gettsnfromlsid(lsid = "urn:lsid:itis.gov:itis_tsn:0")
+#' }
 #' @export 
-gettsnfromlsid <- function(lsid = NA,
-   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getTSNFromLSID',
-   ..., curl = getCurlHandle() ) 
+gettsnfromlsid <- function(lsid = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getTSNFromLSID'
   args <- list()
   if(!is.na(lsid))
     args$lsid <- lsid
@@ -1106,14 +1175,16 @@ gettsnfromlsid <- function(lsid = NA,
       {"invalid TSN"}
 }
 
-#' match count
+#' Returns the unacceptability reason, if any, for the TSN.
 #' 
-#' @keywords internal
+#' @inheritParams getcommentdetailfromtsn
+#' @examples \dontrun{
+#' getunacceptabilityreasonfromtsn(tsn = 183671)
+#' }
 #' @export 
-getunacceptabilityreasonfromtsn <- function(tsn = NA,
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/getUnacceptabilityReasonFromTSN',
-  ..., curl = getCurlHandle() ) 
+getunacceptabilityreasonfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getUnacceptabilityReasonFromTSN'
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
@@ -1133,13 +1204,16 @@ getunacceptabilityreasonfromtsn <- function(tsn = NA,
   df
 }
 
-#' match count
+#' Provides a list of the unique languages used in the vernacular table.
 #' 
-#' @keywords internal
+#' @import RCurl XML
+#' @examples \dontrun{
+#' getvernacularlanguages()
+#' }
 #' @export 
-getvernacularlanguages <- function(
-   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getVernacularLanguages') 
+getvernacularlanguages <- function() 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getVernacularLanguages'
   message(url)
   tt <- getURL(url)
   out <- xmlParse(tt)
@@ -1149,14 +1223,18 @@ getvernacularlanguages <- function(
   data.frame(languageNames = languageNames)
 }
 
-#' match count
+#' Search for tsn by common name
 #' 
-#' @keywords internal
+#' @inheritParams getanymatchcount
+#' @examples \dontrun{
+#' searchbycommonname("american bullfrog")
+#' searchbycommonname("ferret-badger")
+#' searchbycommonname(srchkey="polar bear")
+#' }
 #' @export 
-searchbycommonname <- function(srchkey = NA,
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/searchByCommonName',
-  ..., curl = getCurlHandle() ) 
+searchbycommonname <- function(srchkey = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/searchByCommonName'
   args <- list()
   if(!is.na(srchkey))
     args$srchKey <- srchkey
@@ -1175,14 +1253,16 @@ searchbycommonname <- function(srchkey = NA,
   data.frame(comname=comname, lang=lang, tsn=tsn[-1])
 }
 
-#' match count
+#' Search for tsn by common name beginning with 
 #' 
-#' @keywords internal
+#' @inheritParams getanymatchcount
+#' @examples \dontrun{
+#' searchbycommonnamebeginswith("inch")
+#' }
 #' @export 
-searchbycommonnamebeginswith <- function(srchkey = NA,
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/searchByCommonNameBeginsWith',
-  ..., curl = getCurlHandle() ) 
+searchbycommonnamebeginswith <- function(srchkey = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/searchByCommonNameBeginsWith'
   args <- list()
   if(!is.na(srchkey))
     args$srchKey <- srchkey
@@ -1202,14 +1282,16 @@ searchbycommonnamebeginswith <- function(srchkey = NA,
   data.frame(comname=comname, lang=lang, tsn=tsn[-length(tsn)])
 }
 
-#' match count
+#' Search for tsn by common name ending with
 #' 
-#' @keywords internal
+#' @inheritParams getanymatchcount
+#' @examples \dontrun{
+#' searchbycommonnameendswith(srchkey="snake")
+#' }
 #' @export 
-searchbycommonnameendswith <- function(srchkey = NA,
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/searchByCommonNameEndsWith',
-  ..., curl = getCurlHandle() ) 
+searchbycommonnameendswith <- function(srchkey = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/searchByCommonNameEndsWith'
   args <- list()
   if(!is.na(srchkey))
     args$srchKey <- srchkey
@@ -1228,14 +1310,17 @@ searchbycommonnameendswith <- function(srchkey = NA,
   data.frame(comname=comname, lang=lang, tsn=tsn[!nchar(tsn) == 0])
 }
 
-#' match count
+#' Search by scientific name
 #' 
-#' @keywords internal
+#' @inheritParams getanymatchcount
+#' @examples \dontrun{
+#' searchbyscientificname("Tardigrada")
+#' searchbyscientificname("Quercus douglasii")
+#' }
 #' @export 
-searchbyscientificname <- function(srchkey = NA,
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/searchByScientificName',
-  ..., curl = getCurlHandle() ) 
+searchbyscientificname <- function(srchkey = NA, ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/searchByScientificName'
   args <- list()
   if(!is.na(srchkey))
     args$srchKey <- srchkey
@@ -1252,14 +1337,17 @@ searchbyscientificname <- function(srchkey = NA,
   data.frame(combinedname=combinedname, tsn=tsn)
 }
 
-#' match count
+#' Search for any match
 #' 
-#' @keywords internal
+#' @inheritParams getanymatchcount
+#' @examples \dontrun{
+#' searchforanymatch(srchkey = 202385)
+#' searchforanymatch(srchkey = "dolphin")
+#' }
 #' @export 
-searchforanymatch <- function(srchkey = NA,
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/searchForAnyMatch',
-  ..., curl = getCurlHandle() ) 
+searchforanymatch <- function(srchkey = NA,  ..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/searchForAnyMatch'
   args <- list()
   if(!is.na(srchkey))
     args$srchKey <- srchkey
@@ -1280,14 +1368,20 @@ searchforanymatch <- function(srchkey = NA,
   list(comname=comname, lang=lang, tsn=tsn[-length(tsn)], sciName=sciName)
 }
 
-#' match count
+#' Search for any matched page
 #' 
-#' @keywords internal
+#' @inheritParams getanymatchcount
+#' @param pagesize An integer containing the page size (numeric)
+#' @param pagenum An integer containing the page number (numeric)
+#' @param ascend A boolean containing true for ascending sort order or false for descending (logical)
+#' @examples \dontrun{
+#' searchforanymatchpaged(202385, 100, 1, FALSE)
+#' }
 #' @export 
 searchforanymatchpaged <- function(srchkey = NA, pagesize = NA, pagenum = NA, ascend = NA,
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/searchForAnyMatchPaged',
-  ..., curl = getCurlHandle() ) 
+ 	..., curl = getCurlHandle() ) 
 {
+	url = 'http://www.itis.gov/ITISWebService/services/ITISService/searchForAnyMatchPaged'
   args <- list()
   if(!is.na(srchkey))
     args$srchKey <- srchkey
@@ -1312,35 +1406,4 @@ searchforanymatchpaged <- function(srchkey = NA, pagesize = NA, pagenum = NA, as
   nodes <- getNodeSet(out, "//ax21:sciName", namespaces=namespaces)
   sciName <- sapply(nodes, xmlValue)
   list(comname=comname, lang=lang, tsn=tsn[-length(tsn)], sciName=sciName)
-}
-
-#' match count
-#' 
-#' @keywords internal
-#' @export 
-getacceptednamesfromtsn <- function(tsn = NA, supmess = TRUE,
-  url = "http://www.itis.gov/ITISWebService/services/ITISService/getAcceptedNamesFromTSN",
-  ...,
-  curl = getCurlHandle())
-{ 
-  args <- list()
-  if(!is.na(tsn))
-    args$tsn <- tsn
-  tt <- getForm(url, 
-    .params = args, 
-    ...,
-    curl = curl)
-  tt_ <- xmlParse(tt)
-  temp <- xmlToList(tt_)
-  if(supmess == FALSE) {
-    if(length(temp$return$acceptedNames) == 1) 
-      { message("Good name!")
-        temp$return$tsn
-        } else
-      { message("Bad name!")
-        c(submittedTsn = temp$return$tsn, temp$return$acceptedNames[1:2])
-        }
-  } else
-      { if(length(temp$return$acceptedNames) == 1) { temp$return$tsn } else
-          { c(submittedTsn = temp$return$tsn, temp$return$acceptedNames[1:2]) } }
 }

@@ -1,10 +1,8 @@
 #' Retrieve gene sequences from NCBI by accession number.
 #' 
 #' @import XML httr stringr
-#' @param taxon_name Scientific name to search for (character).
-#' @param seqrange Sequence range, as e.g., "1:1000" (character).
-#' @param getrelated Logical, if TRUE, gets the longest sequences of a species 
-#' 		in the same genus as the one searched for. If FALSE, get's nothing.
+#' @param ids GenBank ids to search for (character).
+#' @param format Return type, e.g., "fasta"
 #' @details Removes predicted sequences so you don't have to remove them. 
 #' 		Predicted sequences are those with accession numbers that have "XM_" or 
 #' 		"XR_" prefixes. 

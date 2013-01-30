@@ -1,13 +1,26 @@
 \name{getcoveragefromtsn}
 \alias{getcoveragefromtsn}
-\title{match count}
+\title{Get coverge from tsn}
 \usage{
-  getcoveragefromtsn(tsn = NA,
-    url = "http://www.itis.gov/ITISWebService/services/ITISService/getCoverageFromTSN",
-    ..., curl = getCurlHandle())
+  getcoveragefromtsn(tsn = NA, ..., curl = getCurlHandle())
+}
+\arguments{
+  \item{tsn}{TSN for a taxonomic group (numeric)}
+
+  \item{...}{optional additional curl options (debugging
+  tools mostly)}
+
+  \item{curl}{If using in a loop, call getCurlHandle()
+  first and pass the returned value in here (avoids
+  unnecessary footprint)}
 }
 \description{
-  match count
+  Get coverge from tsn
 }
-\keyword{internal}
+\examples{
+\dontrun{
+getcoveragefromtsn(tsn = 28727)  # coverage data
+getcoveragefromtsn(tsn = 526852)  # no coverage data
+}
+}
 

@@ -48,11 +48,10 @@ classification.tsn <- function(x, ...)
       out <- NA
     } else {
     	out <- getfullhierarchyfromtsn(x)
+    	# remove overhang
+    	out <- out[1:which(out$tsn == x), ]
+    	return(out)
     }
-    
-    # remove overhang
-    out <- out[1:which(out$tsn == x), ]
-    return(out)
   }
   out <- llply(x, fun)
   return(out)

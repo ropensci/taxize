@@ -2,7 +2,6 @@
 context("tax_name")
 
 tmp_itis <- tax_name(query="Baetis", get="family", db="itis")
-
 tmp_ncbi  <- tax_name(query="Baetis", get="family", db="ncbi")
 
 test_that("tax_name returns the correct value", {

@@ -2,7 +2,7 @@ Package: taxize
 Description: Taxonomic information from around the web.
 Title: Taxonomic information from around the web.
 Version: 0.0.3
-Date: 2013-01-27
+Date: 2013-01-29
 License: CC0
 URL: https://ropensci.github.com/taxize_
 BugReports: https://github.com/ropensci/taxize_/issues
@@ -52,7 +52,6 @@ Collate:
     'itis_acceptname.R'
     'itis_phymat_format.R'
     'itis_taxrank.R'
-    'itis.R'
     'eol_pages.R'
     'tp_acceptednames.R'
     'tp_namedistributions.R'
@@ -71,9 +70,7 @@ Collate:
     'itis_name.R'
     'tax_name.R'
     'col_downstream.R'
-    'fresh_codes.R'
-    'fresh_traits.R'
-    'fresh_validate.R'
     'get_genes.R'
     'tnrs_sources.r'
     'tnrs.R'
+    'itis.R'
