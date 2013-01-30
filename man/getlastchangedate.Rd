@@ -1,11 +1,15 @@
 \name{getlastchangedate}
 \alias{getlastchangedate}
-\title{match count}
+\title{Provides the date the ITIS database was last updated.}
 \usage{
-  getlastchangedate(url = "http://www.itis.gov/ITISWebService/services/ITISService/getLastChangeDate")
+  getlastchangedate()
 }
 \description{
-  match count
+  Provides the date the ITIS database was last updated.
 }
-\keyword{internal}
+\examples{
+\dontrun{
+getlastchangedate()
+}
+}
 

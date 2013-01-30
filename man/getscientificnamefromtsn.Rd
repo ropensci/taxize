@@ -1,13 +1,29 @@
 \name{getscientificnamefromtsn}
 \alias{getscientificnamefromtsn}
-\title{match count}
+\title{Returns the scientific name for the TSN. Also returns the component parts
+   (names and indicators) of the scientific name.}
 \usage{
-  getscientificnamefromtsn(tsn = NA,
-    url = "http://www.itis.gov/ITISWebService/services/ITISService/getScientificNameFromTSN",
-    ..., curl = getCurlHandle())
+  getscientificnamefromtsn(tsn = NA, ...,
+    curl = getCurlHandle())
+}
+\arguments{
+  \item{tsn}{TSN for a taxonomic group (numeric)}
+
+  \item{...}{optional additional curl options (debugging
+  tools mostly)}
+
+  \item{curl}{If using in a loop, call getCurlHandle()
+  first and pass the returned value in here (avoids
+  unnecessary footprint)}
 }
 \description{
-  match count
+  Returns the scientific name for the TSN. Also returns the
+  component parts (names and indicators) of the scientific
+  name.
 }
-\keyword{internal}
+\examples{
+\dontrun{
+getscientificnamefromtsn(tsn = 531894)
+}
+}
 

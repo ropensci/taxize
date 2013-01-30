@@ -3,13 +3,17 @@
 \title{Get family names to make Phylomatic input object, and output input string
    to Phylomatic for use in the function phylomatic_tree.}
 \usage{
-  itis_phymat_format(tsn = NA, format)
+  itis_phymat_format(taxa = NA, format = "isubmit",
+    db = "ncbi")
 }
 \arguments{
-  \item{tsn}{quoted tsn number (taxonomic serial number)}
+  \item{taxa}{quoted tsn number (taxonomic serial number)}
 
   \item{format}{output format, isubmit (you can paste in to
-  the Phylomatic}
+  the Phylomatic website), or 'rsubmit' to use in fxn
+  phylomatic_tree}
+
+  \item{db}{One of ncbi or itis}
 }
 \value{
   e.g., "pinaceae/pinus/pinus_contorta", in Phylomatic
@@ -22,9 +26,7 @@
 }
 \examples{
 \dontrun{
-dat_ <- laply(list("36616", "19322", "183327"), itis_phymat_format, format='rsubmit')
-tree <- phylomatic_tree(dat_, 'GET', 'new', 'TRUE')
-plot(tree)
+laply(c("Poa annua", "Abies procera", "Helianthus annuus"), itis_phymat_format, format='rsubmit')
 }
 }
 

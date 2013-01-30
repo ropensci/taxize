@@ -2,8 +2,7 @@
 \alias{tnrs_sources}
 \title{Get sources for the Phylotastic Taxonomic Name Resolution Service.}
 \usage{
-  tnrs_sources(source = NULL,
-    url = "http://taxosaurus.org/sources")
+  tnrs_sources(source = NULL)
 }
 \arguments{
   \item{source}{The source to get information on, one of

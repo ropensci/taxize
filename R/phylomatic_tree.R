@@ -2,6 +2,9 @@
 #' 
 #' @import httr ape
 #' @param taxa Phylomatic format input of taxa names.
+#' @param taxnames If true, we get the family names for you to attach to your 
+#' 		species names to send to Phylomatic API. If FALSE, you have to provide the 
+#' 		strings in the right format.
 #' @param get 'GET' or 'POST' format for submission to the website.
 #' @param informat One of newick, nexml, or cdaordf. If using a stored tree, informat
 #' 		should always be newick.
@@ -10,16 +13,11 @@
 #' 		smith2011 (Smith 2011, plants), or binindaemonds2007 (Bininda-Emonds 2007, mammals).
 #' @param taxaformat Only option is slashpath for now. Leave as is.
 #' @param outformat One of newick, nexml, or fyt.
-#' @param url The base URL for the Phylomatic API service, leave as is.
-#' @details Use the web interface here \link{http://phylodiversity.net/phylomatic/}
+#' @param clean Return a clean tree or not.
+#' @param parallel Run in parallel or not.
+#' @details Use the web interface here http://phylodiversity.net/phylomatic/
 #' @return Newick formatted tree.
-#' @examples \dontrun{
-#' # Getting taxonomic information from ITIS, if you already have taxonomic serial numbers (TSNs)
-#' dat_ <- laply(list("36616", "19322", "183327", "36616", "41107", "181835", "25929"), itis_phymat_format, format='isubmit')
-#' tree <- phylomatic_tree(taxa=taxa, get = 'POST', informat='newick', method = "phylomatic", 
-#' 		storedtree = "R20120829", taxaformat = "slashpath", outformat = "newick", clean = "true")
-#' plot(tree)
-#' 
+#' @examples \dontrun{ 
 #' # Input taxonomic names
 #' taxa <- c("Poa annua", "Abies procera", "Helianthus annuus")
 #' tree <- phylomatic_tree(taxa=taxa, get = 'POST', informat='newick', method = "phylomatic", 
@@ -33,12 +31,19 @@
 #' tree <- phylomatic_tree(taxa=taxa, get = 'POST', informat='newick', method = "phylomatic", 
 #' 		storedtree = "R20120829", taxaformat = "slashpath", outformat = "newick", clean = "true")
 #' plot(tree, no.margin=T)
+#' 
+#' # In parallel with parallel=TRUE speeds up dramatically by doing the gathering of 
+#' # family names from NCBI in parallel
+#' registerDoMC(cores=4)  # I have a mac, so using doMC package, use whatever you like
+#' phylomatic_tree(taxa=taxa, get = 'POST', informat='newick', method = "phylomatic", 
+#'		storedtree = "R20120829", taxaformat = "slashpath", outformat = "newick", clean = "true", parallel=FALSE)
 #' }
 #' @export
-phylomatic_tree <- function (taxa, taxnames = TRUE, get = 'GET', informat = "newick", method = "phylomatic", 
+phylomatic_tree <- function(taxa, taxnames = TRUE, get = 'GET', informat = "newick", method = "phylomatic", 
 	storedtree = "R20120829", taxaformat = "slashpath", outformat = "newick", 
-	clean = "true", url = "http://phylodiversity.net/phylomatic/pmws")
+	clean = "true", parallel=TRUE)
 {
+	url = "http://phylodiversity.net/phylomatic/pmws"
   collapse_double_root <- function(y) {
     temp <- str_split(y, ")")[[1]]
     double <- c(length(temp)-1, length(temp))
@@ -63,8 +68,13 @@ phylomatic_tree <- function (taxa, taxnames = TRUE, get = 'GET', informat = "new
   }
   
   if(taxnames){
-  	tsns <- get_tsn(taxa)
-  	dat_ <- laply(tsns, itis_phymat_format, format='isubmit')
+#   	tsns <- get_tsn(taxa)
+  	if(parallel){ 
+  		dat_ <- llply(taxa, itis_phymat_format, format='isubmit', .parallel=T)
+  	} else {
+  		dat_ <- llply(taxa, itis_phymat_format, format='isubmit')
+  	}
+  	
   } else
   	{ dat_ <- taxa }
   if (length(dat_) > 1) { dat_ <- paste(dat_, collapse = "\n") } else { dat_ <- dat_ }

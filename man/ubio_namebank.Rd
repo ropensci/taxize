@@ -4,9 +4,7 @@
 \usage{
   ubio_namebank(searchName = NULL, searchAuth = NULL,
     searchYear = NULL, order = NULL, sci = NULL,
-    vern = NULL,
-    url = "http://www.ubio.org/webservices/service.php",
-    keyCode = NULL)
+    vern = NULL, keyCode = NULL)
 }
 \arguments{
   \item{searchName}{(string) - term to search within name
@@ -27,9 +25,6 @@
   \item{vern}{(int) - (limit 1000) maximum number of
   results to be returned (default is 1000)}
 
-  \item{url}{The EOL url for the function (should be left
-  to default).}
-
   \item{keyCode}{Your uBio API key; loads from .Rprofile.
   If you don't have one, obtain one at
   http://www.ubio.org/index.php?pagename=form.}
@@ -48,8 +43,7 @@
 \examples{
 \dontrun{
 ubio_namebank(searchName = 'elephant', sci = 1, vern = 0)
-ubio_namebank(searchName = 'Helianthus annuus', sci = 1, vern = 0)
-lapply(list('Helianthus debilis','Astragalus aduncus'), function(x) ubio_namebank(searchName = x, sci = 1, vern = 0))
+ubio_namebank(searchName = 'Astragalus aduncus', sci = 1, vern = 0)
 }
 }
 

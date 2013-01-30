@@ -1,13 +1,26 @@
 \name{getreviewyearfromtsn}
 \alias{getreviewyearfromtsn}
-\title{match count}
+\title{Returns the review year for the TSN.}
 \usage{
-  getreviewyearfromtsn(tsn = NA,
-    url = "http://www.itis.gov/ITISWebService/services/ITISService/getReviewYearFromTSN",
-    ..., curl = getCurlHandle())
+  getreviewyearfromtsn(tsn = NA, ...,
+    curl = getCurlHandle())
+}
+\arguments{
+  \item{tsn}{TSN for a taxonomic group (numeric)}
+
+  \item{...}{optional additional curl options (debugging
+  tools mostly)}
+
+  \item{curl}{If using in a loop, call getCurlHandle()
+  first and pass the returned value in here (avoids
+  unnecessary footprint)}
 }
 \description{
-  match count
+  Returns the review year for the TSN.
 }
-\keyword{internal}
+\examples{
+\dontrun{
+getreviewyearfromtsn(tsn = 180541)
+}
+}
 

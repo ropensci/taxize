@@ -1,11 +1,15 @@
 \name{getgeographicvalues}
 \alias{getgeographicvalues}
-\title{match count}
+\title{Get all possible geographic values}
 \usage{
-  getgeographicvalues(url = "http://www.itis.gov/ITISWebService/services/ITISService/getGeographicValues")
+  getgeographicvalues()
 }
 \description{
-  match count
+  Get all possible geographic values
 }
-\keyword{internal}
+\examples{
+\dontrun{
+getgeographicvalues()
+}
+}
 

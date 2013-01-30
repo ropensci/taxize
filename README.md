@@ -65,11 +65,6 @@ The following are URL's for API documentation, where to get API keys, and what p
   + [Their website](http://www.issg.org/database/welcome/)
  	+ API docs: There are none! The function scraps the web directly.
  	+ function prefix: `gisd`
-+ Freshwaterecology - The Taxa and Autecology Database for Freshwater Organisms
-  + [Their website](http://www.freshwaterecology.info)
-  + API docs: There are none! The function scraps the web directly.
-  + function prefix: `fresh`
-  + Note: Currently only the macro-invertebrate database is supported!
   
 
 ### Temporarily not implemented to resolve bugs or to complete development
@@ -77,6 +72,13 @@ The following are URL's for API documentation, where to get API keys, and what p
 	+ [Their website](http://tolweb.org/tree/phylogeny.html)
  	+ [API docs](http://tolweb.org/tree/home.pages/downloadtree.html)
  	+ function prefix: `tol`
+
+### Coming soon
++ Freshwaterecology - The Taxa and Autecology Database for Freshwater Organisms
+  + [Their website](http://www.freshwaterecology.info)
+  + API docs: There are none! The function scraps the web directly.
+  + function prefix: `fresh`
+  + Note: Currently only the macro-invertebrate database is supported!
 
 ### Install `taxize` 
 
@@ -96,22 +98,51 @@ install_github("taxize_", "ropensci")
 require(taxize)
 ```
 
-### Example hitting the TNRS (taxonomic names resolution service Phylotastic API):
+### A few examples (for more [click here](http://ropensci.github.com/taxize_/))
 
-```R 
-> require(devtools)
-> install_github("taxize_","ropensci")
-> require(taxize)
-> mynames <- c("Panthera tigris", "Eutamias minimus", "Magnifera indica", "Humbert humbert")
-> tnrs(query = mynames)
-Token number 76686adb91c14c706a8e8ae34b5b7dfe
-Pausing 4 seconds for the query to finish...
-      submittedName     acceptedName    sourceId score      matchedName   annotations                                                 uri
-1  Humbert humbert        Humbertia iPlant_TNRS  0.47        Humbertia          Lam.               http://www.tropicos.org/Name/40028244
-2 Magnifera indica Mangifera indica iPlant_TNRS  0.98 Mangifera indica            L.                http://www.tropicos.org/Name/1300071
-3 Magnifera indica Mangifera indica        NCBI  1.00 Magnifera indica          none          http://www.ncbi.nlm.nih.gov/taxonomy/29780
-4 Eutamias minimus         Euthamia iPlant_TNRS  0.46         Euthamia (Nutt.) Cass.               http://www.tropicos.org/Name/40007649
-5  Panthera tigris       Megalachne iPlant_TNRS  0.48       Pantathera        Steud.               http://www.tropicos.org/Name/40015658
-6  Panthera tigris  Panthera tigris        NCBI  1.00  Panthera tigris          none           http://www.ncbi.nlm.nih.gov/taxonomy/9694
-7  Panthera tigris  Panthera tigris        MSW3  1.00  Panthera tigris          none http://www.bucknell.edu/msw3/browse.asp?id=14000259
+### Get unique taxonomic identifier from NCBI
+
+```R
+> uids <- get_uid(c("Chironomus riparius", "Chaetopteryx"))
+
+Retrieving data for species ' Chironomus riparius '
+
+Retrieving data for species ' Chaetopteryx '
+
+> ## And retrieve classification
+> out <- classification(uids)
+> lapply(out, head)
+[[1]]
+              ScientificName         Rank     UID
+1         cellular organisms      no rank  131567
+2                  Eukaryota superkingdom    2759
+3               Opisthokonta      no rank   33154
+4                    Metazoa      kingdom   33208
+5                  Eumetazoa      no rank    6072
+6                  Bilateria      no rank   33213
+
+[[2]]
+       ScientificName         Rank     UID
+1  cellular organisms      no rank  131567
+2           Eukaryota superkingdom    2759
+3        Opisthokonta      no rank   33154
+4             Metazoa      kingdom   33208
+5           Eumetazoa      no rank    6072
+6           Bilateria      no rank   33213
 ```
+
+### Get unique taxonomic identifier from NCBI
+
+```R
+> # input the taxonomic names
+> taxa <- c("Poa annua", "Abies procera", "Helianthus annuus")
+> 
+> # fetch the tree - the formatting of names and higher taxonmy is done within the function
+> tree <- phylomatic_tree(taxa=taxa, get = 'POST', informat='newick', method = "phylomatic", 
++     storedtree = "R20120829", taxaformat = "slashpath", outformat = "newick", clean = "true")
+> 
+> # plot the tree
+> plot(tree)
+```
+
+![thing](http://ropensci.github.com/taxize_/phylomatic_phylo.png)

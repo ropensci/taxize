@@ -28,11 +28,9 @@
 \dontrun{
 get_tsn(searchterm="Quercus douglasii", searchtype="sciname")
 get_tsn(searchterm="Chironomus riparius", searchtype="sciname")
-get_tsn(searchterm="polar bear", searchtype="comname")
 get_tsn(c("Chironomus riparius","Quercus douglasii"), "sciname")
-get_tsn(c("aa aa", "Chironomus riparius"), searchtype="sciname")
 splist <- c("annona cherimola", 'annona muricata', "quercus robur",
-"shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")
+		"shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")
 get_tsn(splist,"sciname")
 }
 }

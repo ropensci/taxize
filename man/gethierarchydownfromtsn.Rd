@@ -1,13 +1,26 @@
 \name{gethierarchydownfromtsn}
 \alias{gethierarchydownfromtsn}
-\title{match count}
+\title{Get hierarchy down from tsn}
 \usage{
-  gethierarchydownfromtsn(tsn = NA,
-    url = "http://www.itis.gov/ITISWebService/services/ITISService/getHierarchyDownFromTSN",
-    ..., curl = getCurlHandle())
+  gethierarchydownfromtsn(tsn = NA, ...,
+    curl = getCurlHandle())
+}
+\arguments{
+  \item{tsn}{TSN for a taxonomic group (numeric)}
+
+  \item{...}{optional additional curl options (debugging
+  tools mostly)}
+
+  \item{curl}{If using in a loop, call getCurlHandle()
+  first and pass the returned value in here (avoids
+  unnecessary footprint)}
 }
 \description{
-  match count
+  Get hierarchy down from tsn
 }
-\keyword{internal}
+\examples{
+\dontrun{
+gethierarchydownfromtsn(tsn = 161030)
+}
+}
 

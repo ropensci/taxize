@@ -1,11 +1,15 @@
 \name{getjurisdictionvalues}
 \alias{getjurisdictionvalues}
-\title{match count}
+\title{Get possible jurisdiction values}
 \usage{
-  getjurisdictionvalues(url = "http://www.itis.gov/ITISWebService/services/ITISService/getJurisdictionValues")
+  getjurisdictionvalues()
 }
 \description{
-  match count
+  Get possible jurisdiction values
 }
-\keyword{internal}
+\examples{
+\dontrun{
+getjurisdictionvalues()
+}
+}
 
