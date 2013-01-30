@@ -74,3 +74,6 @@ Collate:
     'tnrs_sources.r'
     'tnrs.R'
     'itis.R'
+    'fresh_codes.r'
+    'fresh_traits.r'
+    'fresh_validate.r'
