@@ -43,16 +43,20 @@
 mynames <- c("Panthera tigris", "Eutamias minimus", "Magnifera indica", "Humbert humbert")
 tnrs(query = mynames, source_ = "NCBI")
 
-# Default, uses GET curl method
+# Specifying the source to match against
 mynames <- c("Helianthus annuus", "Poa annua")
 tnrs(query = mynames, source_ = "iPlant_TNRS")
+
+# You can specify multiple sources, by comma-separating them
+mynames <- c("Panthera tigris", "Eutamias minimus", "Magnifera indica", "Humbert humbert")
+tnrs(query = mynames, source_ = "NCBI,MSW3")
 
 # Using POST method, especially useful when you have a lot of species
 mynames <- c("Panthera tigris", "Eutamias minimus", "Magnifera indica", "Humbert humbert",
 		"Helianthus annuus", "Pinus contorta", "Poa annua", "Abies magnifica",
 		"Rosa california", "Festuca arundinace", "Mimulus bicolor", "Sorbus occidentalis",
 		"Madia sativa", "Thymopsis thymodes", "Bartlettia scaposa")
-tnrs(mynames, getpost="POST")
+tnrs(mynames, getpost="POST", source_ = "NCBI")
 }
 }
 
