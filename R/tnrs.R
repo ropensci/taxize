@@ -16,9 +16,9 @@
 #' @details If there is no match in the Taxosaurus database, nothing is returned, so you
 #' 		will not get anything back for non matches. 
 #' @examples \dontrun{
-#' # Default, uses GET curl method
+#' # Default, uses GET curl method, you can't specify any other parameters when using GET
 #' mynames <- c("Panthera tigris", "Eutamias minimus", "Magnifera indica", "Humbert humbert")
-#' tnrs(query = mynames, source_ = "NCBI")
+#' tnrs(query = mynames)
 #' 
 #' # Specifying the source to match against
 #' mynames <- c("Helianthus annuus", "Poa annua")
@@ -46,8 +46,8 @@ tnrs <- function(query = NA, source_ = NULL, getpost = "GET", sleep = 0, splitby
 			if(!any(is.na(x))){
 				query2 <- paste(str_replace_all(x, ' ', '+'), collapse='%0A')
 # 				tt <- getURL(paste0(url, "?query=", query2))
-				args <- compact(list(query = query2, source = source_))
-				tt <- getForm(url, .params=args)
+# 				args <- compact(list(query = query2, source = source_))
+				tt <- getForm(url, query=query2)
 			} else
 			{
 				stop("some problems...")
