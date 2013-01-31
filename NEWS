@@ -2,7 +2,8 @@ taxize 0.0.4
 ===============
 
 BUG FIXES
-* added R (>= 2.15.0) so that package tests don't fail on some systems due to paste0
+* added R (>= 2.15.0) so that package tests don't fail on some systems due to paste0()
+* remove test for ubio_namebank() function as it sometimes fails
 
 taxize 0.0.3
 ===============
