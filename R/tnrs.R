@@ -5,6 +5,8 @@
 #'  
 #' @import RCurl XML plyr stringr RJSONIO
 #' @param query Quoted taxonomic names to search in a vector (character).
+#' @param source_ Specify the source you want to match names against. Defaults 
+#' 		to just retrieve data from all sources. Options: NCBI, iPlant_TNRS, or MSW3.
 #' @param getpost Use GET or POST method to send the query. If you have more than 
 #' 		say 50 species or so in your query, you should probably use POST.
 #' @param sleep Numer of seconds by which to pause between calls. Defaults to 0 
@@ -14,32 +16,48 @@
 #' @details If there is no match in the Taxosaurus database, nothing is returned, so you
 #' 		will not get anything back for non matches. 
 #' @examples \dontrun{
-#' # Default, uses GET curl method
+#' # Default, uses GET curl method, you can't specify any other parameters when using GET
 #' mynames <- c("Panthera tigris", "Eutamias minimus", "Magnifera indica", "Humbert humbert")
-#' tnrs(query = mynames, splitby=2, sleep=1)
+#' tnrs(query = mynames)
+#' 
+#' # Specifying the source to match against
+#' mynames <- c("Helianthus annuus", "Poa annua")
+#' tnrs(query = mynames, source_ = "iPlant_TNRS")
+#' 
+#' # You can specify multiple sources, by comma-separating them
+#' mynames <- c("Panthera tigris", "Eutamias minimus", "Magnifera indica", "Humbert humbert")
+#' tnrs(query = mynames, source_ = "NCBI,MSW3")
 #' 
 #' # Using POST method, especially useful when you have a lot of species
 #' mynames <- c("Panthera tigris", "Eutamias minimus", "Magnifera indica", "Humbert humbert", 
 #' 		"Helianthus annuus", "Pinus contorta", "Poa annua", "Abies magnifica", 
 #'		"Rosa california", "Festuca arundinace", "Mimulus bicolor", "Sorbus occidentalis",
 #'		"Madia sativa", "Thymopsis thymodes", "Bartlettia scaposa")
-#' tnrs(mynames, getpost="POST")
+#' tnrs(mynames, getpost="POST", source_ = "NCBI")
 #' }
 #' @export
-tnrs <- function(query = NA, getpost = "GET", sleep = 0, splitby = NULL)
+tnrs <- function(query = NA, source_ = NULL, getpost = "GET", sleep = 0, splitby = NULL)
 {
 	url = "http://taxosaurus.org/submit"
   
-	foo <- function(x){
+	mainfunc <- function(x){
 		Sys.sleep(time = sleep) # set amount of sleep to pause by
 		if(getpost=="GET"){
-			if(!any(is.na(x)))
+			if(!any(is.na(x))){
 				query2 <- paste(str_replace_all(x, ' ', '+'), collapse='%0A')
-			tt <- getURL(paste0(url, "?query=", query2))
+# 				tt <- getURL(paste0(url, "?query=", query2))
+# 				args <- compact(list(query = query2, source = source_))
+				tt <- getForm(url, query=query2)
+			} else
+			{
+				stop("some problems...")
+			}
 		} else
 		{
 			splist <- paste(x, collapse="\n")
-			tt <- postForm(url, query=splist)
+			args <- compact(list(query = splist, source = source_))
+			tt <- postForm(url, .params=args)
+# 				postForm(url, query=splist, source = source_)
 		}
 		message <- fromJSON(tt)["message"]
 		retrieve <- str_replace_all(str_extract(message, "http.+"), "\\.$", "")
@@ -71,16 +89,18 @@ tnrs <- function(query = NA, getpost = "GET", sleep = 0, splitby = NULL)
 			df
 		}
 		
+		# Parse results into data.frame
 		df <- ldply(out$names, parseres)
-		order_ <- do.call(c, sapply(x, function(y) grep(y, df$submittedName)))
+		order_ <- unlist(sapply(x, function(y) grep(y, df$submittedName)))
+# 		order_ <- do.call(c, sapply(x, function(y) grep(y, df$submittedName)))
 		df2 <- df[order_,]
 		
 		return(df2)
 	}
-	foo_safe <- plyr::failwith(NULL, foo)
+	mainfunc_safe <- plyr::failwith(NULL, mainfunc)
 	
 	if(is.null(splitby)){
-		foo_safe(query)
+		mainfunc_safe(query)
 	} else
 	{
 		## Define function to split up your species list into useable chuncks
@@ -91,7 +111,7 @@ tnrs <- function(query = NA, getpost = "GET", sleep = 0, splitby = NULL)
 		}
 		species_split <- slice(query, by = splitby)	
 		
-		out <- llply(species_split, function(x) foo_safe(x))
+		out <- llply(species_split, function(x) mainfunc_safe(x))
 		return(ldply(out))
 	}
 }

@@ -1,3 +1,9 @@
+taxize 0.0.4
+===============
+
+BUG FIXES
+* added R (>= 2.15.0) so that package tests don't fail on some systems due to paste0
+
 taxize 0.0.3
 ===============
 

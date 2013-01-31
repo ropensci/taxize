@@ -1,7 +1,7 @@
 Package: taxize
 Description: Taxonomic information from around the web.
 Title: Taxonomic information from around the web.
-Version: 0.0.3
+Version: 0.0.4
 Date: 2013-01-29
 License: CC0
 URL: https://ropensci.github.com/taxize_
@@ -16,6 +16,8 @@ Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "nacho.bartomeus@gmail.com"))
 LazyLoad: yes
 LazyData: yes
+Depends:
+    R (>= 2.15.0)
 Imports:
     XML,
     RCurl (>= 1.6),
@@ -74,3 +76,6 @@ Collate:
     'tnrs_sources.r'
     'tnrs.R'
     'itis.R'
+    'fresh_codes.r'
+    'fresh_traits.r'
+    'fresh_validate.r'
