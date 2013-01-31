@@ -1,7 +1,7 @@
 # tests for itis fxn in taxize
 context("tnrs")
 
-mynames <- c("Panthera tigris", "Eutamias minimus", "Magnifera indica", "Humbert humbert")
+mynames <- c("Panthera tigris", "Eutamias minimus")
 out <- tnrs(query = mynames)
 
 test_that("tnrs returns the correct value", {

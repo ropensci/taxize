@@ -2,12 +2,16 @@
 \alias{tnrs}
 \title{Search the Phylotastic Taxonomic Name Resolution Service.}
 \usage{
-  tnrs(query = NA, getpost = "GET", sleep = 0,
-    splitby = NULL)
+  tnrs(query = NA, source_ = NULL, getpost = "GET",
+    sleep = 0, splitby = NULL)
 }
 \arguments{
   \item{query}{Quoted taxonomic names to search in a vector
   (character).}
+
+  \item{source_}{Specify the source you want to match names
+  against. Defaults to just retrieve data from all sources.
+  Options: NCBI, iPlant_TNRS, or MSW3.}
 
   \item{getpost}{Use GET or POST method to send the query.
   If you have more than say 50 species or so in your query,
@@ -35,16 +39,24 @@
 }
 \examples{
 \dontrun{
-# Default, uses GET curl method
+# Default, uses GET curl method, you can't specify any other parameters when using GET
 mynames <- c("Panthera tigris", "Eutamias minimus", "Magnifera indica", "Humbert humbert")
-tnrs(query = mynames, splitby=2, sleep=1)
+tnrs(query = mynames)
+
+# Specifying the source to match against
+mynames <- c("Helianthus annuus", "Poa annua")
+tnrs(query = mynames, source_ = "iPlant_TNRS")
+
+# You can specify multiple sources, by comma-separating them
+mynames <- c("Panthera tigris", "Eutamias minimus", "Magnifera indica", "Humbert humbert")
+tnrs(query = mynames, source_ = "NCBI,MSW3")
 
 # Using POST method, especially useful when you have a lot of species
 mynames <- c("Panthera tigris", "Eutamias minimus", "Magnifera indica", "Humbert humbert",
 		"Helianthus annuus", "Pinus contorta", "Poa annua", "Abies magnifica",
 		"Rosa california", "Festuca arundinace", "Mimulus bicolor", "Sorbus occidentalis",
 		"Madia sativa", "Thymopsis thymodes", "Bartlettia scaposa")
-tnrs(mynames, getpost="POST")
+tnrs(mynames, getpost="POST", source_ = "NCBI")
 }
 }
 
