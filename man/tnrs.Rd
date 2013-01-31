@@ -39,9 +39,9 @@
 }
 \examples{
 \dontrun{
-# Default, uses GET curl method
+# Default, uses GET curl method, you can't specify any other parameters when using GET
 mynames <- c("Panthera tigris", "Eutamias minimus", "Magnifera indica", "Humbert humbert")
-tnrs(query = mynames, source_ = "NCBI")
+tnrs(query = mynames)
 
 # Specifying the source to match against
 mynames <- c("Helianthus annuus", "Poa annua")
