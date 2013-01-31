@@ -2,7 +2,7 @@ Package: taxize
 Description: Taxonomic information from around the web.
 Title: Taxonomic information from around the web.
 Version: 0.0.4
-Date: 2013-01-29
+Date: 2013-01-31
 License: CC0
 URL: https://ropensci.github.com/taxize_
 BugReports: https://github.com/ropensci/taxize_/issues
@@ -76,6 +76,3 @@ Collate:
     'tnrs_sources.r'
     'tnrs.R'
     'itis.R'
-    'fresh_codes.r'
-    'fresh_traits.r'
-    'fresh_validate.r'
