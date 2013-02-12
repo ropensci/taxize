@@ -7,6 +7,8 @@
 #' @param query Quoted taxonomic names to search in a vector (character).
 #' @param source_ Specify the source you want to match names against. Defaults 
 #' 		to just retrieve data from all sources. Options: NCBI, iPlant_TNRS, or MSW3.
+#' @param code Nomenclatural code. One of: ICZN (zoological), ICN (algae, fungi, and plants), 
+#' 		ICNB (bacteria), ICBN (botanical), ICNCP (cultivated plants), ICTV (viruses)
 #' @param getpost Use GET or POST method to send the query. If you have more than 
 #' 		say 50 species or so in your query, you should probably use POST.
 #' @param sleep Numer of seconds by which to pause between calls. Defaults to 0 
@@ -24,6 +26,10 @@
 #' mynames <- c("Helianthus annuus", "Poa annua")
 #' tnrs(query = mynames, source_ = "iPlant_TNRS")
 #' 
+#' # Specifying the nomenclatural code to match against
+#' mynames <- c("Helianthus annuus", "Poa annua")
+#' tnrs(query = mynames, code = "ICBN")
+#' 
 #' # You can specify multiple sources, by comma-separating them
 #' mynames <- c("Panthera tigris", "Eutamias minimus", "Magnifera indica", "Humbert humbert")
 #' tnrs(query = mynames, source_ = "NCBI,MSW3")
@@ -36,7 +42,7 @@
 #' tnrs(mynames, getpost="POST", source_ = "NCBI")
 #' }
 #' @export
-tnrs <- function(query = NA, source_ = NULL, getpost = "GET", sleep = 0, splitby = NULL)
+tnrs <- function(query = NA, source_ = NULL, code = NULL, getpost = "GET", sleep = 0, splitby = NULL)
 {
 	url = "http://taxosaurus.org/submit"
   
@@ -55,7 +61,7 @@ tnrs <- function(query = NA, source_ = NULL, getpost = "GET", sleep = 0, splitby
 		} else
 		{
 			splist <- paste(x, collapse="\n")
-			args <- compact(list(query = splist, source = source_))
+			args <- compact(list(query = splist, source = source_, code = code))
 			tt <- postForm(url, .params=args)
 # 				postForm(url, query=splist, source = source_)
 		}
