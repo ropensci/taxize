@@ -1,3 +1,9 @@
+taxize 0.0.5
+===============
+
+BUG FIXES
+* fixed test for tax_name() that was failing due to temporary errors in the ITIS web API
+
 taxize 0.0.4
 ===============
 
