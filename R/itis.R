@@ -339,7 +339,7 @@ getexpertsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() )
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \dontrun{
 #' getfullhierarchyfromtsn(tsn = 37906)
-#' getfullhierarchyfromtsn(tsn = 500664)
+#' getfullhierarchyfromtsn(tsn = 100800)
 #' }
 #' @export 
 getfullhierarchyfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
@@ -351,7 +351,7 @@ getfullhierarchyfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() )
   message(paste(url, '?tsn=', tsn, sep=''))
   tt <- getForm(url,
     .params = args,
-    ...,
+#     ...,
     curl = curl)
   out <- xmlParse(tt)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
@@ -365,8 +365,9 @@ getfullhierarchyfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() )
   taxonName <- sapply(nodes, xmlValue)
   nodes <- getNodeSet(out, "//ax21:tsn", namespaces=namespaces)
   tsn <- sapply(nodes, xmlValue)
-  out <- data.frame(parentName=parentName, parentTsn=parentTsn, rankName=rankName,
-             taxonName=taxonName, tsn=tsn[-1])
+  out <- data.frame(parentName=parentName, parentTsn=parentTsn, 
+  									rankName=rankName[-length(rankName)],
+  									taxonName=taxonName, tsn=tsn[-1])
   return(out)
 }
 

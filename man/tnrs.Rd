@@ -2,8 +2,8 @@
 \alias{tnrs}
 \title{Search the Phylotastic Taxonomic Name Resolution Service.}
 \usage{
-  tnrs(query = NA, source_ = NULL, getpost = "GET",
-    sleep = 0, splitby = NULL)
+  tnrs(query = NA, source_ = NULL, code = NULL,
+    getpost = "GET", sleep = 0, splitby = NULL)
 }
 \arguments{
   \item{query}{Quoted taxonomic names to search in a vector
@@ -12,6 +12,11 @@
   \item{source_}{Specify the source you want to match names
   against. Defaults to just retrieve data from all sources.
   Options: NCBI, iPlant_TNRS, or MSW3.}
+
+  \item{code}{Nomenclatural code. One of: ICZN
+  (zoological), ICN (algae, fungi, and plants), ICNB
+  (bacteria), ICBN (botanical), ICNCP (cultivated plants),
+  ICTV (viruses)}
 
   \item{getpost}{Use GET or POST method to send the query.
   If you have more than say 50 species or so in your query,
@@ -46,6 +51,10 @@ tnrs(query = mynames)
 # Specifying the source to match against
 mynames <- c("Helianthus annuus", "Poa annua")
 tnrs(query = mynames, source_ = "iPlant_TNRS")
+
+# Specifying the nomenclatural code to match against
+mynames <- c("Helianthus annuus", "Poa annua")
+tnrs(query = mynames, code = "ICBN")
 
 # You can specify multiple sources, by comma-separating them
 mynames <- c("Panthera tigris", "Eutamias minimus", "Magnifera indica", "Humbert humbert")
