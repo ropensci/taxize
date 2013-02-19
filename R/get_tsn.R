@@ -76,6 +76,7 @@ get_tsn <- function (searchterm, searchtype = "sciname", verbose = TRUE)
     return(as.character(tsn))
   }
   out <- laply(searchterm, fun, verbose)
+  if(nchar(out)==0){out <- "notsn"} else {NULL}
   class(out) <- "tsn"
   return(out)
 }

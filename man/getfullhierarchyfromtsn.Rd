@@ -21,7 +21,7 @@
 \examples{
 \dontrun{
 getfullhierarchyfromtsn(tsn = 37906)
-getfullhierarchyfromtsn(tsn = 500664)
+getfullhierarchyfromtsn(tsn = 100800)
 }
 }
 

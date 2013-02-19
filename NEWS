@@ -1,3 +1,9 @@
+taxize 0.0.5
+===============
+
+BUG FIXES
+* removed tests for now until longer term fix is made so that web APIs that are temporarily down don't cause tests to fail.
+
 taxize 0.0.4
 ===============
 

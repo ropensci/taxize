@@ -6,3 +6,10 @@ taxize_.Rproj
 .gitignore
 README.html
 ._README.md
+inst/doc/.texpadtmp/taxize_msNotes.bib
+inst/doc/.texpadtmp/taxize_ms.aux
+inst/doc/.texpadtmp/taxize_ms.bbl
+inst/doc/.texpadtmp/taxize_ms.blg
+inst/doc/.texpadtmp/taxize_ms.log
+inst/doc/.texpadtmp/taxize_ms.out
+inst/doc/.texpadtmp/taxize_ms.synctex.gz

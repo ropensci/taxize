@@ -34,12 +34,16 @@ tax_name <- function(query = NULL, get = NULL, db = "itis", verbose = TRUE)
 		tsn <- get_tsn(query, searchtype="sciname", verbose = verbose)
     if(is.na(tsn)) {
       out <- NA
-    } else {
-      tt <- classification(tsn)[[1]]
-      out <- as.character(tt[tolower(tt$rankName) == tolower(get), "taxonName"])
-      if(length(out) == 0)
-        out <- NA
-    }
+    } else
+    	if(tsn=="notsn") {
+    		out <- "notsn"
+    	} else
+    		{
+    			tt <- classification(tsn)[[1]]
+    			out <- as.character(tt[tolower(tt$rankName) == tolower(get), "taxonName"])
+    			if(length(out) == 0)
+    				out <- NA
+    		}
 	}
   
   # NCBI
