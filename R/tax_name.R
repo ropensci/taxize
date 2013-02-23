@@ -2,11 +2,13 @@
 #' 
 #' Specify what database you want to use: itis or ncbi.
 #' 
-#' @param query Taxonomic name (character).
-#' @param get The rank of the taxonomic name to get (character). 
-#' @param db The database to search from (character).
+#' @param query character; Taxonomic name. Needs to of length 1!
+#' @param get character; The ranks of the taxonomic name to get. 
+#' @param db character; The database to search from: 'tis' or 'ncbi'.
 #' @param verbose logical; If TRUE the actual taxon queried is printed on the console.
-#' @return Taxonomic name for the searched taxon. If the taxon is not found NA is returned.
+#' 
+#' @return A data.frame with one column for every queried rank.
+#' 
 #' @examples \dontrun{
 #' # A case where itis and ncbi use the same names
 #' tax_name(query="Helianthus annuus", get="family", db="itis")
@@ -15,6 +17,10 @@
 #' # Case where itis and ncbi use different names
 #' tax_name(query="Helianthus annuus", get="kingdom", db="itis")
 #' tax_name(query="Helianthus annuus", get="kingdom", db="ncbi")
+#' 
+#' # multiple get arguments
+#' tax_name(query="Helianthus annuus", get=c("genus", "kingdom"), db="ncbi")
+#' tax_name(query="xxx", get=c("genus", "kingdom"), db="itis")
 #' }
 #' @export
 tax_name <- function(query = NULL, get = NULL, db = "itis", verbose = TRUE)
@@ -32,16 +38,18 @@ tax_name <- function(query = NULL, get = NULL, db = "itis", verbose = TRUE)
 	if(db == "itis"){
 		tsn <- get_tsn(query, searchtype="sciname", verbose = verbose)
     if(is.na(tsn)) {
-      out <- NA
+      if(verbose) cat("No TSN found for species '", query, "'!\n")
+      out <- data.frame(t(rep(NA, length(get))))
+      names(out) <- get
     } else
     	if(tsn=="notsn") {
     		out <- "notsn"
     	} else
     		{
     			tt <- classification(tsn)[[1]]
-    			out <- as.character(tt[tolower(tt$rankName) == tolower(get), "taxonName"])
-    			if(length(out) == 0)
-    				out <- NA
+          match <- tt$taxonName[match(tolower(get), tolower(tt$rankName))]
+    			out <- data.frame(t(match), stringsAsFactors=FALSE)
+    			names(out) <- get
     		}
 	}
   
@@ -49,12 +57,14 @@ tax_name <- function(query = NULL, get = NULL, db = "itis", verbose = TRUE)
 	if(db == "ncbi")	{
 		uid <- get_uid(query, verbose = verbose)
     if(is.na(uid)){
-      out <- NA
+      if(verbose) cat("No UID found for species '", query, "'!\n")
+      out <- data.frame(t(rep(NA, length(get))))
+      names(out) <- get
     } else {
 			hierarchy <- classification(uid)[[1]]
-			out <- as.character(hierarchy[tolower(hierarchy$Rank) %in% tolower(get), "ScientificName"])	
-      if(length(out) == 0)
-        out <- NA
+			match <- hierarchy$ScientificName[match(tolower(get), tolower(hierarchy$Rank))]
+      out <- data.frame(t(match), stringsAsFactors=FALSE)
+      names(out) <- get
 		}
 	}
   return(out)

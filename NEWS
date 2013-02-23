@@ -1,6 +1,9 @@
 taxize 0.0.6
 ===============
 
+NEW FEATURES
+* tax_names accepts multiple ranks to query
+
 NOTES
 * Removed dependency to NCBI2R
 

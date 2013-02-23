@@ -6,19 +6,20 @@
     verbose = TRUE)
 }
 \arguments{
-  \item{query}{Taxonomic name (character).}
+  \item{query}{character; Taxonomic name. Needs to of
+  length 1!}
 
-  \item{get}{The rank of the taxonomic name to get
-  (character).}
+  \item{get}{character; The ranks of the taxonomic name to
+  get.}
 
-  \item{db}{The database to search from (character).}
+  \item{db}{character; The database to search from: 'tis'
+  or 'ncbi'.}
 
   \item{verbose}{logical; If TRUE the actual taxon queried
   is printed on the console.}
 }
 \value{
-  Taxonomic name for the searched taxon. If the taxon is
-  not found NA is returned.
+  A data.frame with one column for every queried rank.
 }
 \description{
   Specify what database you want to use: itis or ncbi.
@@ -32,6 +33,10 @@ tax_name(query="Helianthus annuus", get="family", db="ncbi")
 # Case where itis and ncbi use different names
 tax_name(query="Helianthus annuus", get="kingdom", db="itis")
 tax_name(query="Helianthus annuus", get="kingdom", db="ncbi")
+
+# multiple get arguments
+tax_name(query="Helianthus annuus", get=c("genus", "kingdom"), db="ncbi")
+tax_name(query="xxx", get=c("genus", "kingdom"), db="itis")
 }
 }
 
