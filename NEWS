@@ -4,6 +4,7 @@ taxize 0.0.6
 NEW FEATURES
 * tax_name accepts multiple ranks to query
 * tax_name accepts vectors as input
+* tax_name has an option to query both, NCBI and ITIS, in one call and return the union of both
 
 NOTES
 * Removed dependency to NCBI2R
