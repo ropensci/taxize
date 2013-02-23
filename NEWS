@@ -1,3 +1,9 @@
+taxize 0.0.6
+===============
+
+NOTES
+* Removed dependency to NCBI2R
+
 taxize 0.0.5
 ===============
 

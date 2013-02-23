@@ -2,7 +2,6 @@
 #' 
 #' Specify what database you want to use: itis or ncbi.
 #' 
-#' @import NCBI2R
 #' @param query Taxonomic name (character).
 #' @param get The rank of the taxonomic name to get (character). 
 #' @param db The database to search from (character).

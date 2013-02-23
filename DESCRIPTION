@@ -27,8 +27,7 @@ Imports:
     RJSONIO,
     foreach,
     ape,
-    Taxonstand,
-    NCBI2R
+    Taxonstand
 Suggests:
     testthat,
     roxygen2,
