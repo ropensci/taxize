@@ -3,6 +3,7 @@ context("tax_name")
 
 tmp_itis <- tax_name(query="Baetis", get=c("family", "order"), db="itis")
 tmp_ncbi  <- tax_name(query="Baetis", get=c("family", "order"), db="ncbi")
+tmp_ncbi2 <- tax_name(query=c("Helianthus annuus", 'Baetis rhodani'), get=c("genus", "kingdom"), db="ncbi")
 tmp_na <- tax_name(query="xxxxx", get=c("family", "order"), db="ncbi")
 
 test_that("tax_name returns the correct class", {
@@ -18,4 +19,8 @@ test_that("tax_name returns the correct value", {
 	expect_equal(tmp_ncbi$family, "Baetidae")
 	expect_equal(tmp_ncbi$order, "Ephemeroptera")
 	expect_true(all(is.na(tmp_na[1, ])))
+})
+
+test_that("tax_name works with vectors", {
+  expect_that(nrow(tmp_ncbi2), equals(2))
 })

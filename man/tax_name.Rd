@@ -6,8 +6,8 @@
     verbose = TRUE)
 }
 \arguments{
-  \item{query}{character; Taxonomic name. Needs to of
-  length 1!}
+  \item{query}{character; Vector of taxonomic names to
+  query.}
 
   \item{get}{character; The ranks of the taxonomic name to
   get.}
