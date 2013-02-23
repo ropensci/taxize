@@ -367,7 +367,7 @@ getfullhierarchyfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() )
   tsn <- sapply(nodes, xmlValue)
   out <- data.frame(parentName=parentName, parentTsn=parentTsn, 
   									rankName=rankName[-length(rankName)],
-  									taxonName=taxonName, tsn=tsn[-1])
+  									taxonName=taxonName, tsn=tsn[-1], stringsAsFactors=FALSE)
   return(out)
 }
 
