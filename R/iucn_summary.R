@@ -8,7 +8,6 @@
 #' \item{status}{Red List Category.}
 #' \item{history}{History of status.}
 #' \item{distr}{Geographic distribution.}
-#' \item{pop}{Population size estimates.}
 #' \item{trend}{Trend of population size.}
 #' @examples \dontrun{
 #' ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
@@ -33,31 +32,34 @@ iucn_summary <- function(sciname)
     url <- paste("http://api.iucnredlist.org/go/", spec, sep="")
     e <- try(h <- htmlParse(url))
     if(!inherits(e, "try-error")){
+      # status
       status <- xpathSApply(h, '//div[@id ="red_list_category_code"]', xmlValue)
+      # history
       history <- data.frame(year = xpathSApply(h, '//div[@class="year"]', xmlValue),
                             category = xpathSApply(h, '//div[@class="category"]', xmlValue))
       if(nrow(history) == 0)
         history <- NA
+      # distribution
       distr <- xpathSApply(h, '//ul[@class="countries"]', xmlValue)
-      distr <- unlist(strsplit(distr, "\n"))
-      pop <- xpathSApply(h, '//div[@id="population"]/text()[preceding-sibling::br]', xmlValue)
-      if(length(pop) > 0) {
-        pop <- do.call(rbind, lapply(strsplit(pop, split=":"), rbind)) 
+      if(length(distr) == 0){
+        distr <- NA
       } else {
-        pop <- NA
+        distr <- unlist(strsplit(distr, "\n"))
       }
+      # trend
       trend <- xpathSApply(h, '//div[@id="population_trend"]', xmlValue)
+      if(length(trend) == 0)
+        trend <- NA
+      
       out <- list(status = status, 
                   history = history, 
                   distr = distr, 
-                  pop = pop, 
                   trend = trend)
     } else {
       warning("Species '", sciname , "' not found!\n Returning NA!")
       out <- list(status = NA, 
                   history = NA, 
                   distr = NA, 
-                  pop = NA, 
                   trend = NA)
     }    
     return(out)
