@@ -1,10 +1,9 @@
-# tests for iucn_summary fxn in taxize
 context("iucn_summary")
 
 temp <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
 
 test_that("iucn_summary returns the correct value", {
-	expect_that(length(temp[[1]]), equals(5))
+	expect_that(length(temp[[1]]), equals(4))
 })
 
 test_that("iucn_summary returns the correct class", {
