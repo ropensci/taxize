@@ -11,11 +11,11 @@ test_that("tax_name returns the correct class", {
 	expect_that(tmp_itis, is_a("data.frame"))
 	expect_that(tmp_ncbi, is_a("data.frame"))
 	expect_that(tmp_na, is_a("data.frame"))
-	expect_that(tmp_both, is_a("data.frame"))
+	expect_that(tmp_ncbi_both, is_a("data.frame"))
 	expect_that(ncol(tmp_itis), equals(2))
 	expect_that(ncol(tmp_ncbi), equals(2))
 	expect_that(ncol(tmp_na), equals(2))
-	expect_that(ncol(tmp_both), equals(2))
+	expect_that(ncol(tmp_ncbi_both), equals(2))
 })
 
 test_that("tax_name returns the correct value", {
