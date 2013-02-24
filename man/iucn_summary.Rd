@@ -11,8 +11,7 @@
   A list (for every species one entry) of lists with the
   following items: \item{status}{Red List Category.}
   \item{history}{History of status.}
-  \item{distr}{Geographic distribution.}
-  \item{pop}{Population size estimates.} \item{trend}{Trend
+  \item{distr}{Geographic distribution.} \item{trend}{Trend
   of population size.}
 }
 \description{
