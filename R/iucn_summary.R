@@ -69,3 +69,27 @@ iucn_summary <- function(sciname)
   class(out) <- "iucn"
   return(out)
 }
+
+#' Extractor Functions for iucn-class
+#' 
+#' @param x iucn-object as returned by \code{iucn_summary}
+#' @param ... Currently not used
+#' @return A character vector with the status
+#' @export
+iucn_status <- function(x, ...){
+  UseMethod("iucn_status")
+}
+
+#' @S3method iucn_status default
+iucn_status.default <- function(x, ...) {
+  stop("No default method for status defined!\n
+       Did you mean iucn_status.iucn?\n")
+}
+
+#' @method iucn_status iucn
+#' @export
+#' @rdname iucn_status
+iucn_status.iucn <- function(x, ...) {
+  out <- unlist(lapply(x, function(x) x$status))
+  return(out)
+}

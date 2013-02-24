@@ -10,3 +10,7 @@ test_that("iucn_summary returns the correct value", {
 test_that("iucn_summary returns the correct class", {
 	expect_that(temp, is_a("iucn"))
 })
+
+test_that("iucn_status", {
+  expect_that(length(iucn_status(temp)), equals(2))
+})
