@@ -5,6 +5,10 @@ NEW FEATURES
 * tax_name accepts multiple ranks to query
 * tax_name accepts vectors as input
 * tax_name has an option to query both, NCBI and ITIS, in one call and return the union of both
+* new extractor function for iucn_summary: iucn_status, to extract status from iucn-objects
+
+BUG FIXES
+* iucn_summary returns no information about population estimates.
 
 NOTES
 * Removed dependency to NCBI2R
