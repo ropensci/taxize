@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
+<script src="http://twitter.github.com/bootstrap/assets/js/bootstrap.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+        $(".collapse").collapse();
+  });
+</script>
+
+  </head>
+  
+ <body>
+   
+   <h1>Collapse!</h1>
+
+  <a class="btn btn-danger" data-toggle="collapse" data-target="#demo">
+     simple collapsible
+  </a>
+
+  <div id="demo" class="collapse in">
+        <iframe id="example1" src="http://glimmer.rstudio.com/ropensci/taxize_embed/" style="border: none; width: 1000px; height: 400px"></iframe>
+  </div>
+
+  </body>
+  
+</html>

@@ -9,10 +9,21 @@
     <script src="http://use.edgefonts.net/source-code-pro.js"></script>
     <script src="http://use.edgefonts.net/quattrocento-sans.js"></script>
     <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <script href="assets/js/bootstrap.js"></script>
+    <script href="assets/js/bootstrap-button.js"></script>
+    <script href="assets/js/bootstrap-collapse.js"></script>
+    <script href="assets/jquery.js"></script>
     <link rel="stylesheet" href="assets/styles/github.css">
     <script src="assets/js/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    </head>
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css"></link>
+    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-collapse.js"></script>
+    
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <!-- <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" /> -->
+    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap.js"></script>
+  </head>
 
   <body>
 
@@ -25,9 +36,8 @@
   <div class"row"><a href="http://altmetric.com/">taxize</a> does all things taxonomic in R. taxize hits lots of web APIs for taxonomy - if we don' have it, just let us know <a href="https://github.com/ropensci/taxize_/issues">on our issues page</a>.
 
   <br><br>
-  <div>
-   <a href="https://github.com/ropensci/taxize_/" style="color:#ffffff"> <button class="btn btn-success btn-large" style="display: block; width: 100%;"><i class="icon-white icon-download"></i>Download from GitHub</button></a>
-</div>
+
+   <a href="https://github.com/ropensci/taxize_/" style="color:#ffffff" target="_blank"> <button class="btn btn-success btn-large" style="display: block; width: 100%;"><i class="icon-white icon-download"></i>Download from GitHub</button></a>
 
   <hr class="soften">
   </div>
@@ -48,8 +58,10 @@
           <li><a href="#support"><i class="icon-chevron-right"></i> Support and Bugs</a></li>
           <li><a href="#license"><i class="icon-chevron-right"></i> License</a></li>
           <br><br>
-          <!-- <li><a href="functions.html"><i class="icon-chevron-right"></i> Function index</a></li> -->
-          <li><a href="help/index.html" style="color:#0000ff"><button class="btn btn-info btn" style="display: block; width: 70%;"><i class="icon-white icon-th-list"></i>Function index</button></a></li>
+
+          <li><a href="help/index.html" style="color:#0000ff"><button class="btn btn-info btn" style="display: block; width: 70%;" title="Detailed help on each function, and examples of each"><i class="icon-white icon-th-list" ></i>Function index</button></a></li>
+
+          <li><a href="http://glimmer.rstudio.com/ropensci/knitr/" style="color:#0000ff"><button class="btn btn-danger btn" style="display: block; width: 70%;" title="Run this code in R in the web using a Shiny app"><i class="icon-white icon-play-circle"></i>Try it in R!</button></a></li>
      </ul>
       </div>
  </div>
@@ -90,6 +102,16 @@ library(taxize)</code></pre>
 
     <section id="phylomatic">
    <h2>Phylomatic - get a phylogeny of plant species</h2>
+
+    <!-- <br>
+    <a class="btn btn-info" data-toggle="collapse" data-target="#demo">
+      Try it in R!  <i class="icon-white icon-play-circle"></i> 
+    </a>
+    <div id="demo" class="collapse in">
+          <iframe id="example1" src="http://glimmer.rstudio.com/ropensci/taxize_embed/" style="border: none; width: 900px; height: 600px"></iframe>
+    </div>
+    <br> -->
+
 <pre><code lang="r">> # input the taxonomic names
 > taxa <- c("Poa annua", "Abies procera", "Helianthus annuus")
 > 
@@ -116,8 +138,18 @@ http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?
 
   <br><br><br>
 
+
    <section id="itis">
    <h2>Integrated Taxonomic Information Service (ITIS)</h2>
+
+<!--   <br>
+  <a class="btn btn-info" data-toggle="collapse" data-target="#demo2">
+    Try it in R!  <i class="icon-white icon-play-circle"></i> 
+  </a>
+  <div id="demo2" class="collapse in">
+        <iframe id="example2" src="http://glimmer.rstudio.com/ropensci/taxize_embed/" style="border: none; width: 1000px; height: 400px"></iframe>
+  </div>
+  <br> -->
    
    <h3>Search by term and search type (Note: TSN stands for Taxonomic Serial Number)</h3>
   <pre><code lang="r">> itis(203539, c("getsynonymnamesfromtsn","getacceptednamesfromtsn"))
@@ -184,6 +216,15 @@ $`1`
     <section id="ncbi">
      <h2>NCBI Taxonomy Browser</h2>
 
+<!--   <br>
+  <a class="btn btn-info" data-toggle="collapse" data-target="#demo">
+    Try it in R!  <i class="icon-white icon-play-circle"></i> 
+  </a>
+  <div id="demo" class="collapse in">
+        <iframe id="example3" src="http://glimmer.rstudio.com/ropensci/taxize_embed/" style="border: none; width: 1000px; height: 400px"></iframe>
+  </div>
+  <br> -->
+
 <pre><code lang="r">
 > ## Get Unique Identifier
 > uids <- get_uid(c("Chironomus riparius", "Chaetopteryx"))
@@ -220,6 +261,15 @@ Retrieving data for species ' Chaetopteryx '
     <section id="gnr">
 
  <h2>Global Names Resolver (GNR)</h2>
+
+<!--  <br>
+  <a class="btn btn-info" data-toggle="collapse" data-target="#demo">
+    Try it in R!  <i class="icon-white icon-play-circle"></i> 
+  </a>
+  <div id="demo" class="collapse in">
+        <iframe id="example4" src="http://glimmer.rstudio.com/ropensci/taxize_embed/" style="border: none; width: 1000px; height: 400px"></iframe>
+  </div>
+  <br> -->
 
  <h3>Get just id's and names of sources in a data.frame</h3>
 <pre><code lang="r">
@@ -265,6 +315,16 @@ Retrieving data for species ' Chaetopteryx '
   
 <section id="tropicos">
 <h2>Tropicos</h2>
+
+<!-- <br>
+  <a class="btn btn-info" data-toggle="collapse" data-target="#demo">
+    Try it in R!  <i class="icon-white icon-play-circle"></i> 
+  </a>
+  <div id="demo" class="collapse in">
+        <iframe id="example5" src="http://glimmer.rstudio.com/ropensci/taxize_embed/" style="border: none; width: 1000px; height: 400px"></iframe>
+  </div>
+  <br> -->
+
 <h3>Get accepted names</h3>
 <pre><code lang="r">> head(tp_acceptednames(id = 25503923))
 http://services.tropicos.org/Name/25503923/AcceptedNames?apikey=f3e499d4-1519-42c9-afd1-685a16882f5a&format=json
@@ -292,6 +352,16 @@ http://services.tropicos.org/Name/25509881/Synonyms?apikey=f3e499d4-1519-42c9-af
 
 <section id="ubio">
   <h2>uBio</h2>
+
+<!--   <br>
+  <a class="btn btn-info" data-toggle="collapse" data-target="#demo">
+    Try it in R!  <i class="icon-white icon-play-circle"></i> 
+  </a>
+  <div id="demo" class="collapse in">
+        <iframe id="example6" src="http://glimmer.rstudio.com/ropensci/taxize_embed/" style="border: none; width: 1000px; height: 400px"></iframe>
+  </div>
+  <br> -->
+
 <h3>Search uBio for elephant using ubio_namebank</h3>
 <pre><code lang="r">> ubio_namebank(searchName = "elephant", sci = 1, vern = 0)
   namebankID               nameString           fullNameString packageID packageName
@@ -323,6 +393,16 @@ http://services.tropicos.org/Name/25509881/Synonyms?apikey=f3e499d4-1519-42c9-af
 
 <section id="iucn">
   <h2>IUCN Red List</h2>
+
+<!--   <br>
+  <a class="btn btn-info" data-toggle="collapse" data-target="#demo">
+    Try it in R!  <i class="icon-white icon-play-circle"></i> 
+  </a>
+  <div id="demo" class="collapse in">
+        <iframe id="example7" src="http://glimmer.rstudio.com/ropensci/taxize_embed/" style="border: none; width: 1000px; height: 400px"></iframe>
+  </div>
+  <br> -->
+
   <h3>Query the Red List API</h3>
 <pre><code lang="r">  
 ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
