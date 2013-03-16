@@ -112,24 +112,17 @@ library(taxize)</code></pre>
     </div>
     <br> -->
 
-<pre><code lang="r">> # input the taxonomic names
-> taxa <- c("Poa annua", "Abies procera", "Helianthus annuus")
-> 
-> # fetch the tree - the formatting of names and higher taxonmy is done within the function
-> tree <- phylomatic_tree(taxa=taxa, get = 'POST', informat='newick', method = "phylomatic", 
-+     storedtree = "R20120829", taxaformat = "slashpath", outformat = "newick", clean = "true")
+<pre><code lang="r">library(doMC)
+registerDoMC(cores=4)
 
-Retrieving data for species ' Poa annua '
+# input the taxonomic names
+taxa <- c("Poa annua", "Abies procera", "Helianthus annuus")
 
-Retrieving data for species ' Abies procera '
+# fetch the tree - the formatting of names and higher taxonmy is done within the function
+tree <- phylomatic_tree(taxa=taxa, get = 'POST', informat='newick', method = "phylomatic", storedtree = "R20120829", taxaformat = "slashpath", outformat = "newick", clean = "true")
 
-Retrieving data for species ' Helianthus annuus '
-http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=41107
-http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=181835
-http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=36616
-> 
-> # plot the tree
-> plot(tree)</code></pre>
+# plot the tree
+plot(tree)</code></pre>
   <br><br>
   <img src="phylomatic_phylo.png" class="img-polaroid">
   <br><br>
@@ -152,28 +145,22 @@ http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?
   <br> -->
    
    <h3>Search by term and search type (Note: TSN stands for Taxonomic Serial Number)</h3>
-  <pre><code lang="r">> itis(203539, c("getsynonymnamesfromtsn","getacceptednamesfromtsn"))
-http://www.itis.gov/ITISWebService/services/ITISService/getSynonymNamesFromTSN?tsn=203539
-$getsynonymnamesfromtsn
-$getsynonymnamesfromtsn$`203539`
-     name    tsn
-1 nomatch 203539
+  <pre><code lang="r">searchbyscientificname("Tardigrada")
 
-$getacceptednamesfromtsn
-$getacceptednamesfromtsn$`203539`
-$getacceptednamesfromtsn$`203539`$submittedTsn
-[1] "203539"
-
-$getacceptednamesfromtsn$`203539`$acceptedName
-[1] "Ursus americanus luteolus"
-
-$getacceptednamesfromtsn$`203539`$acceptedTsn
-[1] "202388"</code></pre>
+          combinedname    tsn
+1   Rotaria tardigrada  58274
+2 Notommata tardigrada  58898
+3  Pilargis tardigrada  65562
+4           Tardigrada 155166
+5     Heterotardigrada 155167
+6     Arthrotardigrada 155168
+7       Mesotardigrada 155358
+8         Eutardigrada 155362
+9  Scytodes tardigrada 866744</code></pre>
 
   <h3>Show higher taxonomy for a given TSN</h3>
-<pre><code lang="r">> classification(685566, ID = "tsn")
-http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=685566
-[[1]]
+<pre><code lang="r">classification(685566, ID = "tsn")
+
       parentName parentTsn  rankName        taxonName    tsn
 1                            Kingdom         Animalia 202423
 2       Animalia    202423    Phylum         Chordata 158852
@@ -186,13 +173,11 @@ http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?
 9      Plethodon    173648   Species Plethodon asupak 685566</code></pre>
 
 <h3>Get a TSN from a species name</h3>
-<pre><code lang="r">> tsn <- get_tsn(searchterm = "Quercus_douglasii", searchtype = "sciname")
-
-Retrieving data for species ' Quercus_douglasii '
+<pre><code lang="r">tsn <- get_tsn(searchterm = "Quercus_douglasii", searchtype = "sciname")
 
 # use classification with get_tsn together:
-> classification(tsn)
-http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=19322
+classification(tsn)
+
 $`1`
         parentName parentTsn      rankName         taxonName    tsn
 1                                  Kingdom           Plantae 202422
@@ -225,16 +210,13 @@ $`1`
   </div>
   <br> -->
 
-<pre><code lang="r">
-> ## Get Unique Identifier
-> uids <- get_uid(c("Chironomus riparius", "Chaetopteryx"))
+<pre><code lang="r">## Get Unique Identifier
+uids <- get_uid(c("Chironomus riparius", "Chaetopteryx"))
 
-Retrieving data for species ' Chironomus riparius '
+## And retrieve classification
+out <- classification(uids)
+lapply(out, head)
 
-Retrieving data for species ' Chaetopteryx '
-> ## And retrieve classification
-> out <- classification(uids)
-> lapply(out, head)
 [[1]]
               ScientificName         Rank     UID
 1         cellular organisms      no rank  131567
@@ -272,8 +254,8 @@ Retrieving data for species ' Chaetopteryx '
   <br> -->
 
  <h3>Get just id's and names of sources in a data.frame</h3>
-<pre><code lang="r">
-> tail(gnr_datasources(todf = T))
+<pre><code lang="r">tail(gnr_datasources(todf = T))
+
     id                                title
 82 164                            BioLib.cz
 83 165 Tropicos - Missouri Botanical Garden
@@ -283,27 +265,31 @@ Retrieving data for species ' Chaetopteryx '
 87 169                        uBio NameBank</code></pre>
 
 <h3>Give me the id for EOL (Encyclopedia of Life)</h3>
-<pre><code lang="r">
-> out <- gnr_datasources(todf = T)
-> out[out$title == "EOL", "id"]
+<pre><code lang="r">out <- gnr_datasources(todf = T)
+out[out$title == "EOL", "id"]
+
 [1] 12
-> ## Fuzzy search for sources with the word "zoo"
-> out <- gnr_datasources(todf = T)
-> outdf <- out[agrep("zoo", out$title, ignore.case = T), ]
-> outdf[1:2, ]
+
+## Fuzzy search for sources with the word "zoo"
+out <- gnr_datasources(todf = T)
+outdf <- out[agrep("zoo", out$title, ignore.case = T), ]
+outdf[1:2, ]
+
     id             title
 20 100 Mushroom Observer
 25 105           ZooKeys</code></pre>
 
 <h3>Resolve some names</h3>
-<pre><code lang="r">
-> ### Search for _Helianthus annuus_ and _Homo sapiens_, return a data.frame
-> gnr_resolve(names = c("Helianthus annuus", "Homo sapiens"), returndf = TRUE)[1:2, ]
+<pre><code lang="r">### Search for _Helianthus annuus_ and _Homo sapiens_, return a data.frame
+gnr_resolve(names = c("Helianthus annuus", "Homo sapiens"), returndf = TRUE)[1:2, ]
+
   data_source_id    submitted_name       name_string score    title
 1              4 Helianthus annuus Helianthus annuus 0.988     NCBI
 3             10 Helianthus annuus Helianthus annuus 0.988 Freebase
-> ### Search for the same species, with only using data source 12 (i.e., EOL)
-> gnr_resolve(names = c("Helianthus annuus", "Homo sapiens"), data_source_ids = "12", returndf = TRUE)
+
+### Search for the same species, with only using data source 12 (i.e., EOL)
+gnr_resolve(names = c("Helianthus annuus", "Homo sapiens"), data_source_ids = "12", returndf = TRUE)
+
   data_source_id    submitted_name       name_string score title
 1             12 Helianthus annuus Helianthus annuus 0.988   EOL
 2             12      Homo sapiens      Homo sapiens 0.988   EOL</code></pre>
@@ -326,8 +312,8 @@ Retrieving data for species ' Chaetopteryx '
   <br> -->
 
 <h3>Get accepted names</h3>
-<pre><code lang="r">> head(tp_acceptednames(id = 25503923))
-http://services.tropicos.org/Name/25503923/AcceptedNames?apikey=f3e499d4-1519-42c9-afd1-685a16882f5a&format=json
+<pre><code lang="r">head(tp_acceptednames(id = 25503923))
+
                    variable             value category
 1                    NameId          25503923  Synonym
 2            ScientificName       Aira pumila  Synonym
@@ -337,8 +323,8 @@ http://services.tropicos.org/Name/25503923/AcceptedNames?apikey=f3e499d4-1519-42
 6            ScientificName         Poa annua Accepted</code></pre>
 
 <h3>Get synonyms</h3>
-<pre><code lang="r">> head(tp_synonyms(id = 25509881))
-http://services.tropicos.org/Name/25509881/Synonyms?apikey=f3e499d4-1519-42c9-afd1-685a16882f5a&format=json
+<pre><code lang="r">head(tp_synonyms(id = 25509881))
+
                    variable             value category
 1                    NameId          25503923  Synonym
 2            ScientificName       Aira pumila  Synonym
@@ -363,12 +349,15 @@ http://services.tropicos.org/Name/25509881/Synonyms?apikey=f3e499d4-1519-42c9-af
   <br> -->
 
 <h3>Search uBio for elephant using ubio_namebank</h3>
-<pre><code lang="r">> ubio_namebank(searchName = "elephant", sci = 1, vern = 0)
+<pre><code lang="r">ubio_namebank(searchName = "elephant", sci = 1, vern = 0)
+
   namebankID               nameString           fullNameString packageID packageName
 1    6938660 Q2VyeWxvbiBlbGVwaGFudA== Q2VyeWxvbiBlbGVwaGFudA==        80 Cerylonidae
   basionymUnit rankID rankName
 1      6938660     24  species
-> head(ubio_namebank(searchName = "Helianthus annuus", sci = 1, vern = 0)[,-c(2, 3)])
+
+head(ubio_namebank(searchName = "Helianthus annuus", sci = 1, vern = 0)[,-c(2, 3)])
+
   namebankID packageID packageName basionymUnit rankID   rankName
 1    2658020       598   Asterales            0     24    species
 2     462478       598   Asterales            0     24    species
@@ -378,8 +367,9 @@ http://services.tropicos.org/Name/25509881/Synonyms?apikey=f3e499d4-1519-42c9-af
 6    8291505      5634  Asteraceae            0    265 subspecies</code></pre>
 
 <h3>Search for two plant species</h3>
-<pre><code lang="r">> out <- lapply(list("Helianthus debilis", "Astragalus aduncus"), function(x) ubio_namebank(searchName = x, sci = 1, vern = 0))
-> head(out[[2]][, -c(2, 3)])  # just Astragalus aduncus output
+<pre><code lang="r">out <- lapply(list("Helianthus debilis", "Astragalus aduncus"), function(x) ubio_namebank(searchName = x, sci = 1, vern = 0))
+head(out[[2]][, -c(2, 3)])  # just Astragalus aduncus output
+
   namebankID packageID packageName basionymUnit rankID rankName
 1    2843601       663     Rosales            0     24  species
 2    9261962      5780    Fabaceae            0    261       SP
@@ -404,14 +394,13 @@ http://services.tropicos.org/Name/25509881/Synonyms?apikey=f3e499d4-1519-42c9-af
   <br> -->
 
   <h3>Query the Red List API</h3>
-<pre><code lang="r">  
-ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
+<pre><code lang="r">ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
 </code></pre>
 
   <h3>Extract Status</h3>
-<pre><code lang="r">
-> library(plyr)
-> laply(ia, function(x) x$status)
+<pre><code lang="r">library(plyr)
+laply(ia, function(x) x$status)
+
 [1] "EN" "LC"
 </code></pre>
 </section>
