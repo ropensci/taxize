@@ -5,8 +5,8 @@
 #' }
 sqlite_init <- function(path = "/Users/scottmac2/github/ropensci/taxize_/inst/sql/itis2.sqlite")
 {
-	if(!inherits(conn, what="SQLiteConnection"))
-		m <- dbDriver("SQLite")
-		conn <- dbConnect(m, dbname = path)
-		return( conn )
+# 	if(!inherits(conn, what="SQLiteConnection"))
+	m <- dbDriver("SQLite")
+	conn <- dbConnect(m, dbname = path)
+	return( conn )
 }

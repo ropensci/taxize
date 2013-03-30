@@ -10,12 +10,12 @@
 getacceptednamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+# 		#
 		query_ACCEPTED_FROM_TSN <- paste("SELECT t.tsn, t.complete_name as combinedName, a.taxon_author as author 
                       from taxonomic_units t  
                       left join taxon_authors_lkp a on t.taxon_author_id = a.taxon_author_id 
                       inner join synonym_links s on s.tsn_accepted = t.tsn and s.tsn = ", tsn, ";")
-		return(dbGetQuery(conn, query_ACCEPTED_FROM_TSN))
+		return( dbGetQuery(conn, query_ACCEPTED_FROM_TSN) )
 	}
 	else {
 		url = "http://www.itis.gov/ITISWebService/services/ITISService/getAcceptedNamesFromTSN"
@@ -54,7 +54,7 @@ getacceptednamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), local
 getanymatchcount <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		if (is.numeric(srchkey)) {
 			query_ANY_TSN_MATCH_COUNT <- paste("Select count(*) from taxonomic_units where tsn = ", 
 																				 tsn, ";")
@@ -99,7 +99,6 @@ getanymatchcount <- function(srchkey = NA, ..., curl = getCurlHandle(), locally 
 getcommentdetailfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
 		query_TAXON_COMMENT_FROM_TSN <- paste("Select c.* from comments c inner join tu_comments_links t  
                            on c.comment_id = t.comment_id and tsn = ", tsn, "order by comment_time_stamp;")
 		return(dbGetQuery(conn, query_TAXON_COMMENT_FROM_TSN))
@@ -137,7 +136,7 @@ getcommentdetailfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), local
 getcommonnamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_COMMON_NAME_BY_TSN_SRCH <- paste("select t.tsn as tsn, v.language as language, a.taxon_author as author, 
                             v.vernacular_name as commonName, t.complete_name as combinedName 
                             from vernaculars v 
@@ -175,7 +174,7 @@ getcommonnamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally
 getcoremetadatafromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_CORE_METADATA_FROM_TSN <- paste("Select tsn, rank_id, name_usage, unaccept_reason, credibility_rtng, 
                            completeness_rtng, currency_rating from taxonomic_units where tsn = ", tsn, ";")
 		return(dbGetQuery(conn, query_CORE_METADATA_FROM_TSN))
@@ -212,7 +211,7 @@ getcoremetadatafromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locall
 getcoveragefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_COVERAGE_FROM_TSN <- paste("Select tsn, rank_id, completeness_rtng from taxonomic_units where tsn =", tsn, ";")
 		return(dbGetQuery(conn, query_COVERAGE_FROM_TSN))
 	}
@@ -245,7 +244,7 @@ getcoveragefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = 
 getcredibilityratingfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_CRED_FROM_TSN <- paste("Select tsn, credibility_rtng from taxonomic_units where tsn =", tsn, ";")
 		return(dbGetQuery(conn, query_CRED_FROM_TSN))
 	}
@@ -276,7 +275,7 @@ getcredibilityratingfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), l
 getcredibilityratings <- function(locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_CREDIBILITY_RATINGS <- paste("select distinct credibility_rtng from taxonomic_units order by credibility_rtng;")
 		return(dbGetQuery(conn, query_CREDIBILITY_RATINGS))
 	}
@@ -304,7 +303,7 @@ getcredibilityratings <- function(locally = FALSE)
 getcurrencyfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_CURRENCY_FROM_TSN <- paste("Select tsn, rank_id, currency_rating from taxonomic_units where tsn =", tsn, ";")
 		return(dbGetQuery(conn, query_CURRENCY_FROM_TSN))
 	}
@@ -337,7 +336,7 @@ getcurrencyfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = 
 getdatedatafromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_TAXON_DATES_FROM_TSN <- paste("Select initial_time_stamp, update_date from taxonomic_units where tsn = ", tsn, ";")
 		return(dbGetQuery(conn, query_TAXON_DATES_FROM_TSN))
 	}
@@ -388,7 +387,7 @@ getdescription <- function()
 getexpertsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_TAXON_EXPERTS_FROM_TSN <- paste("Select '1' as sort_order, r.vernacular_name, NULL As language, e.*  
                            from reference_links r, experts e  
                            where r.doc_id_prefix = e.expert_id_prefix and r.documentation_id = e.expert_id  
@@ -505,7 +504,7 @@ getfullrecordfromtsn <- function(tsn = NA, ..., curl = getCurlHandle())
 getgeographicdivisionsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_TAXON_GEO_DIV_FROM_TSN <- paste("Select * from geographic_div where tsn = ", tsn, "order by geographic_value;")
 		return(dbGetQuery(conn, query_TAXON_GEO_DIV_FROM_TSN))
 	}
@@ -539,7 +538,7 @@ getgeographicdivisionsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(),
 getgeographicvalues <- function(locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_GEOGRAPHIC_VALUES <- paste("select distinct geographic_value from geographic_div order by geographic_value;")
 		return(dbGetQuery(conn, query_GEOGRAPHIC_VALUES))
 	}
@@ -565,7 +564,7 @@ getgeographicvalues <- function(locally = FALSE)
 getglobalspeciescompletenessfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_COMPLETENESS_FROM_TSN <- paste("Select tsn, rank_id, completeness_rtng from taxonomic_units where tsn =", tsn, ";")
 		return(dbGetQuery(conn, query_COMPLETENESS_FROM_TSN))
 	}
@@ -600,7 +599,7 @@ getglobalspeciescompletenessfromtsn <- function(tsn = NA, ..., curl = getCurlHan
 gethierarchydownfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE)
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_HIERARCHY_DN_FROM_TSN <- paste("select t.tsn, t.parent_tsn, t.complete_name as combinedName, 
                            r.rank_name, r.rank_id, a.taxon_author as author 
                            from taxonomic_units t 
@@ -650,7 +649,7 @@ gethierarchydownfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), local
 gethierarchyupfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_HIERARCHY_UP_FROM_TSN <- paste("select distinct t.parent_tsn, t.tsn, l.complete_name as parent_name, 
                           a.taxon_author as author, t.complete_name as combinedName, r.rank_name 
                           from taxonomic_units t  
@@ -696,7 +695,7 @@ gethierarchyupfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally
 getitistermsfromcommonname <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_ITIS_TERMS_BY_CMN_NAME <- paste("select t.tsn, t.name_usage, t.complete_name as combinedName, v.vernacular_name, a.taxon_author as author 
                            from taxonomic_units t 
                            left join taxon_authors_lkp a on t.taxon_author_id = a.taxon_author_id 
@@ -734,7 +733,7 @@ getitistermsfromcommonname <- function(srchkey = NA, ..., curl = getCurlHandle()
 getitistermsfromscientificname <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_ITIS_TERMS_BY_SCI_NAME <- paste("select t.tsn, t.name_usage, t.complete_name as combinedName, v.vernacular_name, a.taxon_author as author 
                            from taxonomic_units t 
                            left join taxon_authors_lkp a on t.taxon_author_id = a.taxon_author_id 
@@ -774,7 +773,7 @@ getitistermsfromscientificname <- function(srchkey = NA, ..., curl = getCurlHand
 getjurisdictionaloriginfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_TAXON_JUR_ORIG_FROM_TSN <- paste("Select * from jurisdiction where tsn = ", tsn, "order by jurisdiction_value;")
 		return(dbGetQuery(conn, query_TAXON_JUR_ORIG_FROM_TSN))
 	}
@@ -808,7 +807,7 @@ getjurisdictionaloriginfromtsn <- function(tsn = NA, ..., curl = getCurlHandle()
 getjurisdictionoriginvalues <- function(locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_ORIGIN_VALUES <- paste("select distinct jurisdiction_value, origin from jurisdiction order by jurisdiction_value, origin;")
 		return(dbGetQuery(conn, query_ORIGIN_VALUES))
 	}
@@ -836,7 +835,7 @@ getjurisdictionoriginvalues <- function(locally = FALSE)
 getjurisdictionvalues <- function(locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_JURISDICTION_VALUES <- paste("select distinct jurisdiction_value from jurisdiction order by jurisdiction_value;")
 		return(dbGetQuery(conn, query_JURISDICTION_VALUES))
 	}
@@ -863,7 +862,7 @@ getjurisdictionvalues <- function(locally = FALSE)
 getkingdomnamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_KINGDOM_FROM_TSN <- paste("SELECT kingdom_name as KingdomName, kingdom_id as KingdomID from kingdoms where kingdom_id=(select kingdom_id from taxonomic_units where tsn=", tsn, ");")
 		return(dbGetQuery(conn, query_KINGDOM_FROM_TSN))
 	}
@@ -897,7 +896,7 @@ getkingdomnamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally
 getkingdomnames <- function(locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_KINGDOM_NAMES <- paste("select distinct k.*, t.tsn 
                   from kingdoms k  
                   inner join taxonomic_units t on t.unit_name1 = k.kingdom_name and t.parent_tsn=0 
@@ -930,7 +929,7 @@ getkingdomnames <- function(locally = FALSE)
 getlastchangedate <- function(locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_UPDATE_DATE <- paste("select max(update_date) from taxonomic_units;")
 		return(dbGetQuery(conn, query_UPDATE_DATE))
 	}
@@ -973,7 +972,7 @@ getlsidfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALS
 getothersourcesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_TAXON_OTHER_SRC_FROM_TSN <- paste("Select '1' as sort_order, r.original_desc_ind, NULL as language, r.vernacular_name, o.* 
                               from reference_links r, other_sources o where r.doc_id_prefix = o.source_id_prefix 
                               and r.documentation_id = o.source_id and (r.vernacular_name = '' or r.vernacular_name is null) and r.tsn = ", tsn, "UNION Select '2' as sort_order,'N' AS original_desc_ind, v.language, v.vernacular_name, o.* 
@@ -1013,7 +1012,7 @@ getothersourcesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locall
 getparenttsnfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_PARENT_FROM_TSN <- paste("SELECT parent_tsn as ParentTSN from taxonomic_units where tsn=", tsn, ";", sep = "")
 		temp <- dbGetQuery(conn, query_PARENT_FROM_TSN)
 		temp2 <- cbind(temp, tsn)
@@ -1050,7 +1049,7 @@ getparenttsnfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally =
 getpublicationsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_TAXON_PUBS_FROM_TSN <- paste("Select '1' as sort_order, r.vernacular_name, NULL as language, r.original_desc_ind, p.* 
                         from reference_links r, publications p  
                         where r.doc_id_prefix = p.pub_id_prefix and r.documentation_id = p.publication_id  
@@ -1099,7 +1098,7 @@ getpublicationsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locall
 getranknames <- function(locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_RANK_NAMES <- paste("select k.kingdom_name, t.kingdom_id, t.rank_name, t.rank_id 
                from taxon_unit_types t 
                inner join kingdoms k on t.kingdom_id = k.kingdom_id  
@@ -1197,7 +1196,7 @@ getreviewyearfromtsn <- function(tsn = NA, ..., curl = getCurlHandle())
 getscientificnamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_SCI_NAME_BY_TSN_SRCH <- paste("select t.tsn, t.unit_ind1, t.unit_name1, t.unit_ind2, t.unit_name2, 
                          t.unit_ind3, t.unit_name3, t.unit_ind4, t.unit_name4, 
                          t.complete_name as combinedName, a.taxon_author as author, k.kingdom_name as kingdom 
@@ -1245,7 +1244,7 @@ getscientificnamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), loca
 getsynonymnamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_SYNONYM_FROM_TSN <- paste("select t.tsn, t.complete_name as combinedName, a.taxon_author as author 
                      from taxonomic_units t 
                      left join taxon_authors_lkp a on t.taxon_author_id = a.taxon_author_id 
@@ -1291,7 +1290,7 @@ getsynonymnamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locall
 gettaxonauthorshipfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_TAXON_AUTHOR_FROM_TSN <- paste("select t.tsn as tsn, a.taxon_author as author, a.update_date as date 
                           from taxonomic_units t 
                           inner join taxon_authors_lkp a on t.taxon_author_id = a.taxon_author_id and t.tsn = ", tsn, ";")
@@ -1328,7 +1327,7 @@ gettaxonauthorshipfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), loc
 gettaxonomicranknamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_RANK_FROM_TSN <- paste("SELECT t.kingdom_id, t.rank_id, t.tsn, r.rank_name, k.kingdom_name from taxonomic_units t 
                   inner join taxon_unit_types r on r.rank_id = t.rank_id 
                   inner join kingdoms k on k.kingdom_id = t.kingdom_id and t.tsn =", tsn, ";")
@@ -1367,7 +1366,7 @@ gettaxonomicranknamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), l
 gettaxonomicusagefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_USAGE_FROM_TSN <- paste("SELECT tsn, name_usage from taxonomic_units where tsn = ", tsn, ";", sep = "")
 		temp <- dbGetQuery(conn, query_USAGE_FROM_TSN)
 		return(data.frame(taxonUsageRating = temp$name_usage, tsn = temp$tsn))
@@ -1407,7 +1406,7 @@ gettaxonomicusagefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), loca
 gettsnbyvernacularlanguage <- function(language = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_TSNS_BY_LANGUAGE <- paste("select tsn, vernacular_name, vern_id from vernaculars where language like ", paste("'", language, "'", sep = ""), " order by tsn, vernacular_name;")
 		temp <- dbGetQuery(conn, query_TSNS_BY_LANGUAGE)
 		return(data.frame(comname = temp$vernacular_name, tsn = temp$tsn))
@@ -1466,7 +1465,7 @@ gettsnfromlsid <- function(lsid = NA, ..., curl = getCurlHandle())
 getunacceptabilityreasonfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_UNACCEPT_FROM_TSN <- paste("Select tsn, unaccept_reason from taxonomic_units where tsn =", tsn, ";")
 		temp <- dbGetQuery(conn, query_UNACCEPT_FROM_TSN)
 		return(data.frame(tsn = temp$tsn, unacceptReason = temp$unaccept_reason))
@@ -1501,7 +1500,7 @@ getunacceptabilityreasonfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(
 getvernacularlanguages <- function(locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_LANGUAGE_VALUES <- paste("select distinct language from vernaculars order by language;")
 		temp <- dbGetQuery(conn, query_LANGUAGE_VALUES)
 		return(data.frame(languageNames = temp$language))
@@ -1530,7 +1529,7 @@ getvernacularlanguages <- function(locally = FALSE)
 searchbycommonname <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_COMMON_NAME_CONTAINS_SRCH <- paste("select v.tsn as tsn, v.language as language, a.taxon_author as author, 
                               v.vernacular_name as commonName, t.complete_name as combinedName 
                               from vernaculars v 
@@ -1567,7 +1566,7 @@ searchbycommonname <- function(srchkey = NA, ..., curl = getCurlHandle(), locall
 searchbycommonnamebeginswith <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_COMMON_NAME_CONTAINS_SRCH <- paste("select v.tsn as tsn, v.language as language, a.taxon_author as author, 
                               v.vernacular_name as commonName, t.complete_name as combinedName 
                               from vernaculars v 
@@ -1605,7 +1604,7 @@ searchbycommonnamebeginswith <- function(srchkey = NA, ..., curl = getCurlHandle
 searchbycommonnameendswith <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_COMMON_NAME_CONTAINS_SRCH <- paste("select v.tsn as tsn, v.language as language, a.taxon_author as author, 
                               v.vernacular_name as commonName, t.complete_name as combinedName 
                               from vernaculars v 
@@ -1645,7 +1644,7 @@ searchbycommonnameendswith <- function(srchkey = NA, ..., curl = getCurlHandle()
 searchbyscientificname <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_SCI_NAME_LIKE <- paste("SELECT t.tsn as tsn, t.unit_name1, t.unit_name2, t.unit_name3, t.unit_name4,
             t.unit_ind1, t.unit_ind2, t.unit_ind3, t.unit_ind4,
         t.complete_name as combinedName, a.taxon_author as author, k.kingdom_name as kingdom
@@ -1683,7 +1682,7 @@ searchbyscientificname <- function(srchkey = NA, ..., curl = getCurlHandle(), lo
 searchforanymatch <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_ANY_TSN_MATCH_SRCH <- paste("Select t.tsn as tsn, t.complete_name as combinedName, a.taxon_author as author, 
                        null as commonName, null as language, 'TSN' as  matchType 
                        from taxonomic_units t 
@@ -1742,7 +1741,7 @@ searchforanymatchpaged <- function(srchkey = NA, pagesize = NA, pagenum = NA, as
 																	 ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		conn <- taxize:::sqlite_init()
+		#
 		query_ANY_MATCH_SEARCH <- paste("Select t.tsn as tsn, t.complete_name as combinedName, a.taxon_author as TaxonAuthor, v.vernacular_name as commonName, 
                             v.language as language, 'COMMON' as  matchType 
                          from taxonomic_units t 
