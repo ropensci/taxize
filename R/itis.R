@@ -422,41 +422,35 @@ getexpertsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = F
 #' Get full hierarchy from tsn
 #' 
 #' @inheritParams getcommentdetailfromtsn
+#' @details Can't do local searcha s don't have the SQL syntax yet.
 #' @examples \dontrun{
 #' getfullhierarchyfromtsn(tsn = 37906)
 #' getfullhierarchyfromtsn(tsn = 100800)
 #' }
 #' @export 
-getfullhierarchyfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
+getfullhierarchyfromtsn <- function(tsn = NA, ..., curl = getCurlHandle()) 
 {
-	if (locally) {
-		conn <- taxize:::sqlite_init()
-		query_FULL_HIERARCHY_FROM_TSN <- paste("exec dbo.usp_wsTSNHierarchy @pTSN=", tsn, ";")
-		return(dbGetQuery(conn, query_FULL_HIERARCHY_FROM_TSN))
-	}
-	else {
-		url = "http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN"
-		args <- list()
-		if (!is.na(tsn)) 
-			args$tsn <- tsn
-		message(paste(url, "?tsn=", tsn, sep = ""))
-		tt <- getForm(url, .params = args, curl = curl)
-		out <- xmlParse(tt)
-		namespaces <- c(namespaces <- c(ax21 = "http://data.itis_service.itis.usgs.gov/xsd"))
-		nodes <- getNodeSet(out, "//ax21:parentName", namespaces = namespaces)
-		parentName <- sapply(nodes, xmlValue)
-		nodes <- getNodeSet(out, "//ax21:parentTsn", namespaces = namespaces)
-		parentTsn <- sapply(nodes, xmlValue)
-		nodes <- getNodeSet(out, "//ax21:rankName", namespaces = namespaces)
-		rankName <- sapply(nodes, xmlValue)
-		nodes <- getNodeSet(out, "//ax21:taxonName", namespaces = namespaces)
-		taxonName <- sapply(nodes, xmlValue)
-		nodes <- getNodeSet(out, "//ax21:tsn", namespaces = namespaces)
-		tsn <- sapply(nodes, xmlValue)
-		out <- data.frame(parentName = parentName, parentTsn = parentTsn, 
-											rankName = rankName[-length(rankName)], taxonName = taxonName, tsn = tsn[-1], stringsAsFactors = FALSE)
-		return(out)
-	}
+	url = "http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN"
+	args <- list()
+	if (!is.na(tsn)) 
+		args$tsn <- tsn
+	message(paste(url, "?tsn=", tsn, sep = ""))
+	tt <- getForm(url, .params = args, curl = curl)
+	out <- xmlParse(tt)
+	namespaces <- c(namespaces <- c(ax21 = "http://data.itis_service.itis.usgs.gov/xsd"))
+	nodes <- getNodeSet(out, "//ax21:parentName", namespaces = namespaces)
+	parentName <- sapply(nodes, xmlValue)
+	nodes <- getNodeSet(out, "//ax21:parentTsn", namespaces = namespaces)
+	parentTsn <- sapply(nodes, xmlValue)
+	nodes <- getNodeSet(out, "//ax21:rankName", namespaces = namespaces)
+	rankName <- sapply(nodes, xmlValue)
+	nodes <- getNodeSet(out, "//ax21:taxonName", namespaces = namespaces)
+	taxonName <- sapply(nodes, xmlValue)
+	nodes <- getNodeSet(out, "//ax21:tsn", namespaces = namespaces)
+	tsn <- sapply(nodes, xmlValue)
+	out <- data.frame(parentName = parentName, parentTsn = parentTsn, 
+										rankName = rankName[-length(rankName)], taxonName = taxonName, tsn = tsn[-1], stringsAsFactors = FALSE)
+	return(out)
 }
 
 #' Returns the full ITIS record for the TSN in the LSID, found by comparing the 
@@ -600,20 +594,24 @@ getglobalspeciescompletenessfromtsn <- function(tsn = NA, ..., curl = getCurlHan
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \dontrun{
 #' gethierarchydownfromtsn(tsn = 161030)
+#' gethierarchydownfromtsn(tsn = 161030, locally=TRUE)
 #' }
 #' @export 
-gethierarchydownfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
+gethierarchydownfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE)
 {
 	if (locally) {
 		conn <- taxize:::sqlite_init()
 		query_HIERARCHY_DN_FROM_TSN <- paste("select t.tsn, t.parent_tsn, t.complete_name as combinedName, 
-                           r.rank_name, a.taxon_author as author 
+                           r.rank_name, r.rank_id, a.taxon_author as author 
                            from taxonomic_units t 
                            left join taxon_authors_lkp a on t.taxon_author_id = a.taxon_author_id 
                            inner join taxon_unit_types r on r.rank_id = t.rank_id and r.kingdom_id = t.kingdom_id 
                            where (t.parent_tsn= ", tsn, " or t.tsn= ", tsn, ")
                                and (t.name_usage='valid' or t.name_usage='accepted');")
-		return(dbGetQuery(conn, query_HIERARCHY_DN_FROM_TSN))
+		temp <- dbGetQuery(conn, query_HIERARCHY_DN_FROM_TSN)
+		temp2 <- data.frame(parentTsn = temp$parent_tsn, rankName = temp$rank_name, rankId = temp$rank_id, taxonName = temp$combinedName, tsn = temp$tsn)
+		temp3 <- temp2[!temp2$tsn %in% tsn,]
+		return( temp3 )
 	}
 	else {
 		url = "http://www.itis.gov/ITISWebService/services/ITISService/getHierarchyDownFromTSN"
@@ -621,7 +619,9 @@ gethierarchydownfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), local
 		if (!is.na(tsn)) 
 			args$tsn <- tsn
 		message(paste(url, "?tsn=", tsn, sep = ""))
-		tt <- getForm(url, .params = args, ..., curl = curl)
+		tt <- getForm(url, .params = args, 
+# 									..., 
+									curl = curl)
 		out <- xmlParse(tt)
 		namespaces <- c(namespaces <- c(ax21 = "http://data.itis_service.itis.usgs.gov/xsd"))
 		nodes <- getNodeSet(out, "//ax21:parentName", namespaces = namespaces)
@@ -634,8 +634,8 @@ gethierarchydownfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), local
 		taxonName <- sapply(nodes, xmlValue)
 		nodes <- getNodeSet(out, "//ax21:tsn", namespaces = namespaces)
 		tsn <- sapply(nodes, xmlValue)
-		data.frame(parentName = parentName, parentTsn = parentTsn, 
-							 rankName = rankName, taxonName = taxonName, tsn = tsn[-1])
+		data.frame(parentName = parentName, parentTsn = parentTsn,
+							 rankName = rankName[-length(rankName)], taxonName = taxonName, tsn = tsn[-1])
 	}
 }
 
@@ -644,6 +644,7 @@ gethierarchydownfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), local
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \dontrun{
 #' gethierarchyupfromtsn(tsn = 36485)
+#' gethierarchyupfromtsn(tsn = 36485, locally=TRUE)
 #' }
 #' @export 
 gethierarchyupfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
@@ -657,7 +658,9 @@ gethierarchyupfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally
                           left join taxon_authors_lkp a on t.taxon_author_id = a.taxon_author_id 
                           inner join taxon_unit_types r on r.rank_id = t.rank_id and r.kingdom_id = t.kingdom_id 
                           where t.tsn=", tsn, ";")
-		return(dbGetQuery(conn, query_HIERARCHY_UP_FROM_TSN))
+		temp <- dbGetQuery(conn, query_HIERARCHY_UP_FROM_TSN)
+		temp2 <- data.frame(parentName = temp$parent_name, parentTsn = temp$parent_tsn, rankName = temp$rank_name, taxonName = temp$combinedName, tsn = temp$tsn)
+		return( temp2 )
 	}
 	else {
 		url = "http://www.itis.gov/ITISWebService/services/ITISService/getHierarchyUpFromTSN"

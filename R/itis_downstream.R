@@ -11,7 +11,7 @@
 #' 		Order, Class, etc. 
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @examples \dontrun{
-#' itis_downstream(tsns=846509, downto="Genus")
+#' itis_downstream(tsns = 846509, downto="Genus")
 #' itis_downstream(tsns = 650497, "Family") # getting families downstream from Acridoidea
 #' itis_downstream(tsns = 180541, "Species") # getting species downstream from Ursus
 #' }
@@ -32,9 +32,9 @@ itis_downstream <- function(tsns, downto, locally = FALSE)
 		} else
 			{ temp <- notout }
 		tt <- ldply(temp$tsn, gethierarchydownfromtsn, locally = locally)
-		names_ <- ldply(split(tt, row.names(tt)), function(x) 
-			gettaxonomicranknamefromtsn(x$tsn, locally = locally)[,c("rankId","rankName","tsn")]) 
-		tt <- merge(tt[,-3], names_[,-1], by="tsn")
+# 		names_ <- ldply(split(tt, row.names(tt)), function(x) 
+# 			gettaxonomicranknamefromtsn(x$tsn, locally = locally)[,c("rankId","rankName","tsn")]) 
+# 		tt <- merge(tt[,-3], names_[,-1], by="tsn")
 		if(nrow(tt[tt$rankId == downto2, ]) > 0) out[[iter]] <- tt[tt$rankId == downto2, ]
 		if(nrow(tt[!tt$rankId == downto2, ]) > 0) {
 			notout <- tt[!tt$rankId %in% torank_ids, ]
@@ -49,5 +49,6 @@ itis_downstream <- function(tsns, downto, locally = FALSE)
 			stop_ <- "not" 
 		}
 	}
-	ldply(out)
+	
+	return(ldply(out))
 }

@@ -26,6 +26,7 @@
 \examples{
 \dontrun{
 gethierarchydownfromtsn(tsn = 161030)
+gethierarchydownfromtsn(tsn = 161030, locally=TRUE)
 }
 }
 
