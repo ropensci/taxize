@@ -41,7 +41,7 @@
 #' @export
 phylomatic_tree <- function(taxa, taxnames = TRUE, get = 'GET', informat = "newick", method = "phylomatic", 
 	storedtree = "R20120829", taxaformat = "slashpath", outformat = "newick", 
-	clean = "true", parallel=TRUE)
+	clean = "true", parallel=TRUE, locally=FALSE)
 {
 	url = "http://phylodiversity.net/phylomatic/pmws"
   collapse_double_root <- function(y) {
@@ -72,7 +72,7 @@ phylomatic_tree <- function(taxa, taxnames = TRUE, get = 'GET', informat = "newi
   	if(parallel){ 
   		dat_ <- llply(taxa, itis_phymat_format, format='isubmit', .parallel=T)
   	} else {
-  		dat_ <- llply(taxa, itis_phymat_format, format='isubmit')
+  		dat_ <- llply(taxa, itis_phymat_format, format='isubmit', locally=locally)
   	}
   	
   } else
