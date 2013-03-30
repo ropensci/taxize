@@ -2,7 +2,7 @@
 \alias{getjurisdictionvalues}
 \title{Get possible jurisdiction values}
 \usage{
-  getjurisdictionvalues()
+  getjurisdictionvalues(locally = FALSE)
 }
 \description{
   Get possible jurisdiction values

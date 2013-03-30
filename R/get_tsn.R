@@ -7,6 +7,8 @@
 #' @param searchtype One of 'sciname', 'anymatch', 'comnamebeg', 'comname', 
 #'    'comnameend'.
 #' @param verbose should progress be printed?
+#' @param locally If TRUE, queries are run locally in sqlite3; if FALSE (the default), 
+#'  queries are run against the ITIS web API. locally=TRUE should be faster in almost all cases.
 #' @return A vector of taxonomic serial numbers (TSN). If a species is not found NA. 
 #' 		If more than one TSN is found the function asks for user input.
 #' 		See functions in the \code{itis} function.
@@ -19,7 +21,7 @@
 #' 		"shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")
 #' get_tsn(splist,"sciname")
 #' }
-get_tsn <- function (searchterm, searchtype = "sciname", verbose = TRUE) 
+get_tsn <- function(searchterm, searchtype = "sciname", verbose = TRUE, locally=FALSE) 
 {
   fun <- function(x, verbose)
   {
@@ -27,11 +29,11 @@ get_tsn <- function (searchterm, searchtype = "sciname", verbose = TRUE)
       cat("\nRetrieving data for species '", x, "'\n")
 #     tsn_df <- searchtype(query=x)
     
-    if(searchtype == "sciname"){ tsn_df <- searchbyscientificname(x) } else
-    	if(searchtype == "anymatch") { tsn_df <- searchforanymatch(x) } else
-    		if(searchtype == "comnamebeg") { tsn_df <- searchbycommonnamebeginswith(x) } else
-    			if(searchtype == "comname") { tsn_df <- searchbycommonname(x) } else
-    				if(searchtype == "comnameend") { tsn_df <- searchbycommonnameendswith(x) } else
+    if(searchtype == "sciname"){ tsn_df <- searchbyscientificname(x, locally=locally) } else
+    	if(searchtype == "anymatch") { tsn_df <- searchforanymatch(x, locally=locally) } else
+    		if(searchtype == "comnamebeg") { tsn_df <- searchbycommonnamebeginswith(x, locally=locally) } else
+    			if(searchtype == "comname") { tsn_df <- searchbycommonname(x, locally=locally) } else
+    				if(searchtype == "comnameend") { tsn_df <- searchbycommonnameendswith(x, locally=locally) } else
     					stop("searchtype not valid!")
 #     tsn_df <- ldply(x, searchtype)
     

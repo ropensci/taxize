@@ -2,7 +2,7 @@
 \alias{getkingdomnames}
 \title{Get all possible kingdom names}
 \usage{
-  getkingdomnames()
+  getkingdomnames(locally = FALSE)
 }
 \description{
   Get all possible kingdom names

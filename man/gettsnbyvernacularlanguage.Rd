@@ -1,9 +1,9 @@
 \name{gettsnbyvernacularlanguage}
 \alias{gettsnbyvernacularlanguage}
-\title{Retrieve accepted TSN (with accepted name)}
+\title{Retrieve accepted TSn(with accepted name)}
 \usage{
   gettsnbyvernacularlanguage(language = NA, ...,
-    curl = getCurlHandle())
+    curl = getCurlHandle(), locally = FALSE)
 }
 \arguments{
   \item{language}{A string containing the language. This is
@@ -18,7 +18,7 @@
   unnecessary footprint)}
 }
 \description{
-  Retrieve accepted TSN (with accepted name)
+  Retrieve accepted TSn(with accepted name)
 }
 \examples{
 \dontrun{

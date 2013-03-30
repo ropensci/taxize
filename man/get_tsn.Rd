@@ -3,7 +3,7 @@
 \title{Get the TSN code for a search term.}
 \usage{
   get_tsn(searchterm, searchtype = "sciname",
-    verbose = TRUE)
+    verbose = TRUE, locally = FALSE)
 }
 \arguments{
   \item{searchterm}{A vector of common or scientific
@@ -13,6 +13,11 @@
   'comnamebeg', 'comname', 'comnameend'.}
 
   \item{verbose}{should progress be printed?}
+
+  \item{locally}{If TRUE, queries are run locally in
+  sqlite3; if FALSE (the default), queries are run against
+  the ITIS web API. locally=TRUE should be faster in almost
+  all cases.}
 }
 \value{
   A vector of taxonomic serial numbers (TSN). If a species

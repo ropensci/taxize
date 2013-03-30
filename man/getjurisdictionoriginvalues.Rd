@@ -2,7 +2,7 @@
 \alias{getjurisdictionoriginvalues}
 \title{Get jurisdiction origin values}
 \usage{
-  getjurisdictionoriginvalues()
+  getjurisdictionoriginvalues(locally = FALSE)
 }
 \description{
   Get jurisdiction origin values

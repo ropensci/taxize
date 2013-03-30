@@ -3,7 +3,7 @@
 \title{Search by scientific name}
 \usage{
   searchbyscientificname(srchkey = NA, ...,
-    curl = getCurlHandle())
+    curl = getCurlHandle(), locally = FALSE)
 }
 \arguments{
   \item{srchkey}{text or taxonomic serial number (TSN)
@@ -15,6 +15,11 @@
   \item{curl}{If using in a loop, call getCurlHandle()
   first and pass the returned value in here (avoids
   unnecessary footprint)}
+
+  \item{locally}{If TRUE, queries are run locally in
+  sqlite3; if FALSE (the default), queries are run against
+  the ITIS web API. locally=TRUE should be faster in almost
+  all cases.}
 }
 \description{
   Search by scientific name
@@ -23,6 +28,7 @@
 \dontrun{
 searchbyscientificname("Tardigrada")
 searchbyscientificname("Quercus douglasii")
+searchbyscientificname("Quercus douglasii", locally=TRUE)
 }
 }
 

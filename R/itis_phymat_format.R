@@ -6,14 +6,16 @@
 #' @param format output format, isubmit (you can paste in to the Phylomatic 
 #'     website), or 'rsubmit' to use in fxn phylomatic_tree
 #' @param db One of ncbi or itis
+#' @param locally If TRUE, queries are run locally in sqlite3; if FALSE (the default), 
+#'  queries are run against the ITIS web API. locally=TRUE should be faster in almost all cases.
 #' @return e.g., "pinaceae/pinus/pinus_contorta", in Phylomatic submission format.
 #' @examples \dontrun{
 #' laply(c("Poa annua", "Abies procera", "Helianthus annuus"), itis_phymat_format, format='rsubmit')
 #' }
 #' @export
-itis_phymat_format <- function(taxa = NA, format='isubmit', db="ncbi") 
+itis_phymat_format <- function(taxa = NA, format='isubmit', db="ncbi", locally = FALSE) 
 {
-	family <- tax_name(query=taxa, get="family", db=db)
+	family <- tax_name(query=taxa, get="family", db=db, locally = locally)
 	stringg <- c(family, strsplit(taxa, " ")[[1]])
 	stringg <- tolower(as.character(stringg))
 	if (format == 'isubmit') {

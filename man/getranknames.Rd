@@ -3,7 +3,7 @@
 \title{Provides a list of all the unique rank names contained in the database and
  their kingdom and rank ID values.}
 \usage{
-  getranknames()
+  getranknames(locally = FALSE)
 }
 \description{
   Provides a list of all the unique rank names contained in

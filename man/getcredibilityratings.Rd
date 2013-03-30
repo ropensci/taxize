@@ -2,7 +2,7 @@
 \alias{getcredibilityratings}
 \title{Get possible credibility ratings}
 \usage{
-  getcredibilityratings()
+  getcredibilityratings(locally = FALSE)
 }
 \description{
   Get possible credibility ratings

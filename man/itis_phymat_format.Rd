@@ -4,7 +4,7 @@
    to Phylomatic for use in the function phylomatic_tree.}
 \usage{
   itis_phymat_format(taxa = NA, format = "isubmit",
-    db = "ncbi")
+    db = "ncbi", locally = FALSE)
 }
 \arguments{
   \item{taxa}{quoted tsn number (taxonomic serial number)}
@@ -14,6 +14,11 @@
   phylomatic_tree}
 
   \item{db}{One of ncbi or itis}
+
+  \item{locally}{If TRUE, queries are run locally in
+  sqlite3; if FALSE (the default), queries are run against
+  the ITIS web API. locally=TRUE should be faster in almost
+  all cases.}
 }
 \value{
   e.g., "pinaceae/pinus/pinus_contorta", in Phylomatic
