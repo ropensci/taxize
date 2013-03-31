@@ -3,7 +3,8 @@
 \title{Get any match count.}
 \usage{
   getanymatchcount(srchkey = NA, ...,
-    curl = getCurlHandle(), locally = FALSE)
+    curl = getCurlHandle(), locally = FALSE,
+    sqlconn = NULL)
 }
 \arguments{
   \item{srchkey}{text or taxonomic serial number (TSN)
@@ -20,6 +21,8 @@
   sqlite3; if FALSE (the default), queries are run against
   the ITIS web API. locally=TRUE should be faster in almost
   all cases.}
+
+  \item{sqlconn}{The sqlite3 connection object.}
 }
 \value{
   An integer containing the number of matches the search

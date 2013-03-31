@@ -3,7 +3,7 @@
 \title{Get the TSN code for a search term.}
 \usage{
   get_tsn(searchterm, searchtype = "sciname",
-    verbose = TRUE, locally = FALSE)
+    verbose = TRUE, locally = FALSE, cn = NULL)
 }
 \arguments{
   \item{searchterm}{A vector of common or scientific
@@ -18,6 +18,8 @@
   sqlite3; if FALSE (the default), queries are run against
   the ITIS web API. locally=TRUE should be faster in almost
   all cases.}
+
+  \item{cn}{sqlite3 connection object}
 }
 \value{
   A vector of taxonomic serial numbers (TSN). If a species
@@ -31,11 +33,13 @@
 }
 \examples{
 \dontrun{
-get_tsn(searchterm="Quercus douglasii", searchtype="sciname")
-get_tsn(searchterm="Chironomus riparius", searchtype="sciname")
-get_tsn(c("Chironomus riparius","Quercus douglasii"), "sciname")
+get_tsn(searchterm="Quercus douglasii", searchtype="sciname", locally=FALSE)
+get_tsn(searchterm="Quercus douglasii", searchtype="sciname", locally=TRUE, cn=conn)
+get_tsn(searchterm=c("Chironomus riparius","Quercus douglasii"), searchtype="sciname", locally=TRUE, cn=conn)
 splist <- c("annona cherimola", 'annona muricata', "quercus robur",
-		"shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")
+		"shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus", "Tamandua tetradactyla",
+		"Tarsius syric", "Sylvilagus dicei", "Galeopterus variegatus")
+get_tsn(splist,"sciname", locally=TRUE, cn=conn)
 get_tsn(splist,"sciname")
 }
 }

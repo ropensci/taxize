@@ -7,7 +7,7 @@
 #' getacceptednamesfromtsn(tsn=504239)  # TSN not accepted - input TSN is old name
 #' getacceptednamesfromtsn('504239', FALSE)  # TSN not accepted - input TSN is old name
 #' }
-getacceptednamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
+getacceptednamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 # 		#
@@ -15,7 +15,7 @@ getacceptednamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), local
                       from taxonomic_units t  
                       left join taxon_authors_lkp a on t.taxon_author_id = a.taxon_author_id 
                       inner join synonym_links s on s.tsn_accepted = t.tsn and s.tsn = ", tsn, ";")
-		return( dbGetQuery(conn, query_ACCEPTED_FROM_TSN) )
+		return( dbGetQuery(conn=sqlconn, query_ACCEPTED_FROM_TSN) )
 	}
 	else {
 		url = "http://www.itis.gov/ITISWebService/services/ITISService/getAcceptedNamesFromTSN"
@@ -38,36 +38,36 @@ getacceptednamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), local
 
 #' Get any match count.
 #' 
-#' @import XML RCurl
+#' @import XML RCurl RSQLite
 #' @param srchkey text or taxonomic serial number (TSN) (character or numeric)
 #' @param ... optional additional curl options (debugging tools mostly)
 #' @param curl If using in a loop, call getCurlHandle() first and pass 
 #'  the returned value in here (avoids unnecessary footprint)
 #' @param locally If TRUE, queries are run locally in sqlite3; if FALSE (the default), 
 #'  queries are run against the ITIS web API. locally=TRUE should be faster in almost all cases.
+#' @param sqlconn The sqlite3 connection object.
 #' @return An integer containing the number of matches the search will return.
 #' @examples \dontrun{
 #' getanymatchcount(202385)
 #' getanymatchcount("dolphin")
 #' }
 #' @export
-getanymatchcount <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE) 
+getanymatchcount <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		#
 		if (is.numeric(srchkey)) {
-			query_ANY_TSN_MATCH_COUNT <- paste("Select count(*) from taxonomic_units where tsn = ", 
-																				 tsn, ";")
-			return(dbGetQuery(conn, query_ANY_TSN_MATCH_COUNT))
+			query_ANY_TSN_MATCH_COUNT <- paste("Select count(*) from taxonomic_units where tsn = ", srchkey, ";")
+			return(dbGetQuery(conn=sqlconn, query_ANY_TSN_MATCH_COUNT))
 		}
 		else {
 			query_ANY_MATCH_COUNT <- paste("Select count(*)  
                         from taxonomic_units t 
-                        inner join vernaculars v on v.tsn = t.tsn and v.vernacular_name like ", paste("'", vernname, "'", sep = ""), "union  
+                        inner join vernaculars v on v.tsn = t.tsn and v.vernacular_name like ", paste("'", srchkey, "'", sep = ""), "union  
                             Select count(*)  
                             from taxonomic_units t 
-                            where t.complete_name like ", paste("'", vernname, "'", sep = ""), ";")
-			return(dbGetQuery(conn, query_ANY_MATCH_COUNT))
+                            where t.complete_name like ", paste("'", srchkey, "'", sep = ""), ";")
+			return(dbGetQuery(conn=sqlconn, query_ANY_MATCH_COUNT))
 		}
 	}
 	else {
@@ -83,25 +83,26 @@ getanymatchcount <- function(srchkey = NA, ..., curl = getCurlHandle(), locally 
 
 #' Get comment detail from TSN
 #' 
-#' @import XML RCurl
+#' @import XML RCurl RSQLite
 #' @param tsn TSN for a taxonomic group (numeric)
 #' @param ... optional additional curl options (debugging tools mostly)
 #' @param curl If using in a loop, call getCurlHandle() first and pass 
 #'  the returned value in here (avoids unnecessary footprint)
 #' @param locally If TRUE, queries are run locally in sqlite3; if FALSE (the default), 
 #'  queries are run against the ITIS web API. locally=TRUE should be faster in almost all cases.
+#' @param sqlconn The sqlite3 connection object.
 #' @return A data.frame with results.
 #' @examples \dontrun{
 #' getcommentdetailfromtsn(tsn=180543)
 #' getcommentdetailfromtsn(tsn=180543, locally=TRUE)
 #' }
 #' @export
-getcommentdetailfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
+getcommentdetailfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		query_TAXON_COMMENT_FROM_TSN <- paste("Select c.* from comments c inner join tu_comments_links t  
                            on c.comment_id = t.comment_id and tsn = ", tsn, "order by comment_time_stamp;")
-		return(dbGetQuery(conn, query_TAXON_COMMENT_FROM_TSN))
+		return(dbGetQuery(conn=sqlconn, query_TAXON_COMMENT_FROM_TSN))
 	}
 	else {
 		url = "http://www.itis.gov/ITISWebService/services/ITISService/getCommentDetailFromTSN"
@@ -133,7 +134,7 @@ getcommentdetailfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), local
 #' getcommonnamesfromtsn(183833)
 #' }
 #' @export 
-getcommonnamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
+getcommonnamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		#
@@ -142,7 +143,7 @@ getcommonnamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally
                             from vernaculars v 
                             inner join taxonomic_units t on v.tsn = t.tsn 
                             and t.tsn = ", tsn, "left join taxon_authors_lkp a on a.taxon_author_id = t.taxon_author_id;")
-		return(dbGetQuery(conn, query_COMMON_NAME_BY_TSN_SRCH))
+		return(dbGetQuery(conn=sqlconn, query_COMMON_NAME_BY_TSN_SRCH))
 	}
 	else {
 		url = "http://www.itis.gov/ITISWebService/services/ITISService/getCommonNamesFromTSN"
@@ -171,13 +172,13 @@ getcommonnamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally
 #' getcoremetadatafromtsn(tsn = 183671)  # no coverage or currrency data
 #' }
 #' @export 
-getcoremetadatafromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
+getcoremetadatafromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		#
 		query_CORE_METADATA_FROM_TSN <- paste("Select tsn, rank_id, name_usage, unaccept_reason, credibility_rtng, 
                            completeness_rtng, currency_rating from taxonomic_units where tsn = ", tsn, ";")
-		return(dbGetQuery(conn, query_CORE_METADATA_FROM_TSN))
+		return(dbGetQuery(conn=sqlconn, query_CORE_METADATA_FROM_TSN))
 	}
 	else {
 		url = "http://www.itis.gov/ITISWebService/services/ITISService/getCoreMetadataFromTSN"
@@ -208,12 +209,12 @@ getcoremetadatafromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locall
 #' getcoveragefromtsn(tsn = 526852)  # no coverage data
 #' }
 #' @export 
-getcoveragefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
+getcoveragefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		#
 		query_COVERAGE_FROM_TSN <- paste("Select tsn, rank_id, completeness_rtng from taxonomic_units where tsn =", tsn, ";")
-		return(dbGetQuery(conn, query_COVERAGE_FROM_TSN))
+		return(dbGetQuery(conn=sqlconn, query_COVERAGE_FROM_TSN))
 	}
 	else {
 		url = "http://www.itis.gov/ITISWebService/services/ITISService/getCoverageFromTSN"
@@ -241,12 +242,12 @@ getcoveragefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = 
 #' getcredibilityratingfromtsn(tsn = 526852)
 #' }
 #' @export 
-getcredibilityratingfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
+getcredibilityratingfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL)
 {
 	if (locally) {
 		#
 		query_CRED_FROM_TSN <- paste("Select tsn, credibility_rtng from taxonomic_units where tsn =", tsn, ";")
-		return(dbGetQuery(conn, query_CRED_FROM_TSN))
+		return(dbGetQuery(conn=sqlconn, query_CRED_FROM_TSN))
 	}
 	else {
 		url = "http://www.itis.gov/ITISWebService/services/ITISService/getCredibilityRatingFromTSN"
@@ -268,16 +269,19 @@ getcredibilityratingfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), l
 #' Get possible credibility ratings
 #' 
 #' @import RCurl XML
+#' @param locally If TRUE, queries are run locally in sqlite3; if FALSE (the default), 
+#'  queries are run against the ITIS web API. locally=TRUE should be faster in almost all cases.
+#' @param sqlconn The sqlite3 connection object.
 #' @examples \dontrun{
 #' getcredibilityratings()
 #' }
 #' @export 
-getcredibilityratings <- function(locally = FALSE) 
+getcredibilityratings <- function(locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		#
 		query_CREDIBILITY_RATINGS <- paste("select distinct credibility_rtng from taxonomic_units order by credibility_rtng;")
-		return(dbGetQuery(conn, query_CREDIBILITY_RATINGS))
+		return(dbGetQuery(conn=sqlconn, query_CREDIBILITY_RATINGS))
 	}
 	else {
 		url = "http://www.itis.gov/ITISWebService/services/ITISService/getCredibilityRatings"
@@ -300,12 +304,12 @@ getcredibilityratings <- function(locally = FALSE)
 #' getcurrencyfromtsn(tsn = 526852) # no currency dat
 #' }
 #' @export 
-getcurrencyfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
+getcurrencyfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		#
 		query_CURRENCY_FROM_TSN <- paste("Select tsn, rank_id, currency_rating from taxonomic_units where tsn =", tsn, ";")
-		return(dbGetQuery(conn, query_CURRENCY_FROM_TSN))
+		return(dbGetQuery(conn=sqlconn, query_CURRENCY_FROM_TSN))
 	}
 	else {
 		url = "http://www.itis.gov/ITISWebService/services/ITISService/getCurrencyFromTSN"
@@ -333,12 +337,12 @@ getcurrencyfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = 
 #' getdatedatafromtsn(tsn = 180543)
 #' }
 #' @export 
-getdatedatafromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
+getdatedatafromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		#
 		query_TAXON_DATES_FROM_TSN <- paste("Select initial_time_stamp, update_date from taxonomic_units where tsn = ", tsn, ";")
-		return(dbGetQuery(conn, query_TAXON_DATES_FROM_TSN))
+		return(dbGetQuery(conn=sqlconn, query_TAXON_DATES_FROM_TSN))
 	}
 	else {
 		url = "http://www.itis.gov/ITISWebService/services/ITISService/getDateDataFromTSN"
@@ -384,7 +388,7 @@ getdescription <- function()
 #' getexpertsfromtsn(tsn = 180544)
 #' }
 #' @export 
-getexpertsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
+getexpertsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		#
@@ -395,7 +399,7 @@ getexpertsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = F
                                from vernaculars v, experts e, vern_ref_links vr  
                                where vr.doc_id_prefix = e.expert_id_prefix and vr.documentation_id = e.expert_id  
                                and vr.vern_id = v.vern_id and vr.tsn = v.tsn and v.tsn = ", tsn, "order by expert, sort_order;")
-		return(dbGetQuery(conn, query_TAXON_EXPERTS_FROM_TSN))
+		return(dbGetQuery(conn=sqlconn, query_TAXON_EXPERTS_FROM_TSN))
 	}
 	else {
 		url = "http://www.itis.gov/ITISWebService/services/ITISService/getExpertsFromTSN"
@@ -501,12 +505,12 @@ getfullrecordfromtsn <- function(tsn = NA, ..., curl = getCurlHandle())
 #' getgeographicdivisionsfromtsn(tsn = 180543)
 #' }
 #' @export 
-getgeographicdivisionsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
+getgeographicdivisionsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		#
 		query_TAXON_GEO_DIV_FROM_TSN <- paste("Select * from geographic_div where tsn = ", tsn, "order by geographic_value;")
-		return(dbGetQuery(conn, query_TAXON_GEO_DIV_FROM_TSN))
+		return(dbGetQuery(conn=sqlconn, query_TAXON_GEO_DIV_FROM_TSN))
 	}
 	else {
 		url = "http://www.itis.gov/ITISWebService/services/ITISService/getGeographicDivisionsFromTSN"
@@ -531,16 +535,19 @@ getgeographicdivisionsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(),
 #' Get all possible geographic values
 #' 
 #' @import RCurl XML
+#' @param locally If TRUE, queries are run locally in sqlite3; if FALSE (the default), 
+#'  queries are run against the ITIS web API. locally=TRUE should be faster in almost all cases.
+#' @param sqlconn The sqlite3 connection object.
 #' @examples \dontrun{
 #' getgeographicvalues()
 #' }
 #' @export 
-getgeographicvalues <- function(locally = FALSE) 
+getgeographicvalues <- function(locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		#
 		query_GEOGRAPHIC_VALUES <- paste("select distinct geographic_value from geographic_div order by geographic_value;")
-		return(dbGetQuery(conn, query_GEOGRAPHIC_VALUES))
+		return(dbGetQuery(conn=sqlconn, query_GEOGRAPHIC_VALUES))
 	}
 	else {
 		url = "http://www.itis.gov/ITISWebService/services/ITISService/getGeographicValues"
@@ -561,12 +568,12 @@ getgeographicvalues <- function(locally = FALSE)
 #' getglobalspeciescompletenessfromtsn(tsn = 180541)
 #' }
 #' @export
-getglobalspeciescompletenessfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
+getglobalspeciescompletenessfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		#
 		query_COMPLETENESS_FROM_TSN <- paste("Select tsn, rank_id, completeness_rtng from taxonomic_units where tsn =", tsn, ";")
-		return(dbGetQuery(conn, query_COMPLETENESS_FROM_TSN))
+		return(dbGetQuery(conn=sqlconn, query_COMPLETENESS_FROM_TSN))
 	}
 	else {
 		url = "http://www.itis.gov/ITISWebService/services/ITISService/getGlobalSpeciesCompletenessFromTSN"
@@ -596,7 +603,7 @@ getglobalspeciescompletenessfromtsn <- function(tsn = NA, ..., curl = getCurlHan
 #' gethierarchydownfromtsn(tsn = 161030, locally=TRUE)
 #' }
 #' @export 
-gethierarchydownfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE)
+gethierarchydownfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL)
 {
 	if (locally) {
 		#
@@ -607,7 +614,7 @@ gethierarchydownfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), local
                            inner join taxon_unit_types r on r.rank_id = t.rank_id and r.kingdom_id = t.kingdom_id 
                            where (t.parent_tsn= ", tsn, " or t.tsn= ", tsn, ")
                                and (t.name_usage='valid' or t.name_usage='accepted');")
-		temp <- dbGetQuery(conn, query_HIERARCHY_DN_FROM_TSN)
+		temp <- dbGetQuery(conn=sqlconn, query_HIERARCHY_DN_FROM_TSN)
 		temp2 <- data.frame(parentTsn = temp$parent_tsn, rankName = temp$rank_name, rankId = temp$rank_id, taxonName = temp$combinedName, tsn = temp$tsn)
 		temp3 <- temp2[!temp2$tsn %in% tsn,]
 		return( temp3 )
@@ -646,7 +653,7 @@ gethierarchydownfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), local
 #' gethierarchyupfromtsn(tsn = 36485, locally=TRUE)
 #' }
 #' @export 
-gethierarchyupfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
+gethierarchyupfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		#
@@ -657,7 +664,7 @@ gethierarchyupfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally
                           left join taxon_authors_lkp a on t.taxon_author_id = a.taxon_author_id 
                           inner join taxon_unit_types r on r.rank_id = t.rank_id and r.kingdom_id = t.kingdom_id 
                           where t.tsn=", tsn, ";")
-		temp <- dbGetQuery(conn, query_HIERARCHY_UP_FROM_TSN)
+		temp <- dbGetQuery(conn=sqlconn, query_HIERARCHY_UP_FROM_TSN)
 		temp2 <- data.frame(parentName = temp$parent_name, parentTsn = temp$parent_tsn, rankName = temp$rank_name, taxonName = temp$combinedName, tsn = temp$tsn)
 		return( temp2 )
 	}
@@ -692,15 +699,15 @@ gethierarchyupfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally
 #' getitistermsfromcommonname("buya")
 #' }
 #' @export 
-getitistermsfromcommonname <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE) 
+getitistermsfromcommonname <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		#
 		query_ITIS_TERMS_BY_CMN_NAME <- paste("select t.tsn, t.name_usage, t.complete_name as combinedName, v.vernacular_name, a.taxon_author as author 
                            from taxonomic_units t 
                            left join taxon_authors_lkp a on t.taxon_author_id = a.taxon_author_id 
-                           inner join vernaculars v on v.tsn = t.tsn and v.vernacular_name like ", paste("'", name, "'", sep = ""), "order by t.tsn;")
-		return(dbGetQuery(conn, query_ITIS_TERMS_BY_CMN_NAME))
+                           inner join vernaculars v on v.tsn = t.tsn and v.vernacular_name like ", paste("'", srchkey, "'", sep = ""), "order by t.tsn;")
+		return(dbGetQuery(conn=sqlconn, query_ITIS_TERMS_BY_CMN_NAME))
 	}
 	else {
 		url = "http://www.itis.gov/ITISWebService/services/ITISService/getITISTermsFromCommonName"
@@ -730,7 +737,7 @@ getitistermsfromcommonname <- function(srchkey = NA, ..., curl = getCurlHandle()
 #' getitistermsfromscientificname(srchkey = "ursidae")
 #' }
 #' @export 
-getitistermsfromscientificname <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE) 
+getitistermsfromscientificname <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		#
@@ -738,8 +745,8 @@ getitistermsfromscientificname <- function(srchkey = NA, ..., curl = getCurlHand
                            from taxonomic_units t 
                            left join taxon_authors_lkp a on t.taxon_author_id = a.taxon_author_id 
                            left outer join vernaculars v on v.tsn = t.tsn 
-                           where t.complete_name like ", paste("'", name, "'", sep = ""), "order by t.tsn;")
-		return(dbGetQuery(conn, query_ITIS_TERMS_BY_SCI_NAME))
+                           where t.complete_name like ", paste("'", srchkey, "'", sep = ""), "order by t.tsn;")
+		return(dbGetQuery(conn=sqlconn, query_ITIS_TERMS_BY_SCI_NAME))
 	}
 	else {
 		url = "http://www.itis.gov/ITISWebService/services/ITISService/getITISTermsFromScientificName"
@@ -770,12 +777,12 @@ getitistermsfromscientificname <- function(srchkey = NA, ..., curl = getCurlHand
 #' getjurisdictionaloriginfromtsn(tsn = 180543)
 #' }
 #' @export 
-getjurisdictionaloriginfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
+getjurisdictionaloriginfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		#
 		query_TAXON_JUR_ORIG_FROM_TSN <- paste("Select * from jurisdiction where tsn = ", tsn, "order by jurisdiction_value;")
-		return(dbGetQuery(conn, query_TAXON_JUR_ORIG_FROM_TSN))
+		return(dbGetQuery(conn=sqlconn, query_TAXON_JUR_ORIG_FROM_TSN))
 	}
 	else {
 		url = "http://www.itis.gov/ITISWebService/services/ITISService/getJurisdictionalOriginFromTSN"
@@ -800,16 +807,19 @@ getjurisdictionaloriginfromtsn <- function(tsn = NA, ..., curl = getCurlHandle()
 #' Get jurisdiction origin values
 #' 
 #' @import RCurl XML
+#' @param locally If TRUE, queries are run locally in sqlite3; if FALSE (the default), 
+#'  queries are run against the ITIS web API. locally=TRUE should be faster in almost all cases.
+#' @param sqlconn The sqlite3 connection object.
 #' @examples \dontrun{
 #' getjurisdictionoriginvalues()
 #' }
 #' @export 
-getjurisdictionoriginvalues <- function(locally = FALSE) 
+getjurisdictionoriginvalues <- function(locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		#
 		query_ORIGIN_VALUES <- paste("select distinct jurisdiction_value, origin from jurisdiction order by jurisdiction_value, origin;")
-		return(dbGetQuery(conn, query_ORIGIN_VALUES))
+		return(dbGetQuery(conn=sqlconn, query_ORIGIN_VALUES))
 	}
 	else {
 		url = "http://www.itis.gov/ITISWebService/services/ITISService/getJurisdictionalOriginValues"
@@ -828,16 +838,19 @@ getjurisdictionoriginvalues <- function(locally = FALSE)
 #' Get possible jurisdiction values
 #' 
 #' @import RCurl XML
+#' @param locally If TRUE, queries are run locally in sqlite3; if FALSE (the default), 
+#'  queries are run against the ITIS web API. locally=TRUE should be faster in almost all cases.
+#' @param sqlconn The sqlite3 connection object.
 #' @examples \dontrun{
 #' getjurisdictionvalues()
 #' }
 #' @export 
-getjurisdictionvalues <- function(locally = FALSE) 
+getjurisdictionvalues <- function(locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		#
 		query_JURISDICTION_VALUES <- paste("select distinct jurisdiction_value from jurisdiction order by jurisdiction_value;")
-		return(dbGetQuery(conn, query_JURISDICTION_VALUES))
+		return(dbGetQuery(conn=sqlconn, query_JURISDICTION_VALUES))
 	}
 	else {
 		url = "http://www.itis.gov/ITISWebService/services/ITISService/getJurisdictionValues"
@@ -859,12 +872,12 @@ getjurisdictionvalues <- function(locally = FALSE)
 #' getkingdomnamefromtsn(tsn = 202385)
 #' }
 #' @export 
-getkingdomnamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
+getkingdomnamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		#
 		query_KINGDOM_FROM_TSN <- paste("SELECT kingdom_name as KingdomName, kingdom_id as KingdomID from kingdoms where kingdom_id=(select kingdom_id from taxonomic_units where tsn=", tsn, ");")
-		return(dbGetQuery(conn, query_KINGDOM_FROM_TSN))
+		return(dbGetQuery(conn=sqlconn, query_KINGDOM_FROM_TSN))
 	}
 	else {
 		url = "http://www.itis.gov/ITISWebService/services/ITISService/getKingdomNameFromTSN"
@@ -889,11 +902,14 @@ getkingdomnamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally
 #' Get all possible kingdom names
 #' 
 #' @import RCurl XML
+#' @param locally If TRUE, queries are run locally in sqlite3; if FALSE (the default), 
+#'  queries are run against the ITIS web API. locally=TRUE should be faster in almost all cases.
+#' @param sqlconn The sqlite3 connection object.
 #' @examples \dontrun{
 #' getkingdomnamefromtsn(tsn = 202385)
 #' }
 #' @export 
-getkingdomnames <- function(locally = FALSE) 
+getkingdomnames <- function(locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		#
@@ -901,7 +917,7 @@ getkingdomnames <- function(locally = FALSE)
                   from kingdoms k  
                   inner join taxonomic_units t on t.unit_name1 = k.kingdom_name and t.parent_tsn=0 
                   order by k.kingdom_id;")
-		return(dbGetQuery(conn, query_KINGDOM_NAMES))
+		return(dbGetQuery(conn=sqlconn, query_KINGDOM_NAMES))
 	}
 	else {
 		url = "http://www.itis.gov/ITISWebService/services/ITISService/getKingdomNames"
@@ -922,16 +938,19 @@ getkingdomnames <- function(locally = FALSE)
 #' Provides the date the ITIS database was last updated.
 #' 
 #' @import RCurl XML
+#' @param locally If TRUE, queries are run locally in sqlite3; if FALSE (the default), 
+#'  queries are run against the ITIS web API. locally=TRUE should be faster in almost all cases.
+#' @param sqlconn The sqlite3 connection object.
 #' @examples \dontrun{
 #' getlastchangedate()
 #' }
 #' @export 
-getlastchangedate <- function(locally = FALSE) 
+getlastchangedate <- function(locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		#
 		query_UPDATE_DATE <- paste("select max(update_date) from taxonomic_units;")
-		return(dbGetQuery(conn, query_UPDATE_DATE))
+		return(dbGetQuery(conn=sqlconn, query_UPDATE_DATE))
 	}
 	else {
 		url = "http://www.itis.gov/ITISWebService/services/ITISService/getLastChangeDate"
@@ -951,7 +970,7 @@ getlastchangedate <- function(locally = FALSE)
 #' getlsidfromtsn(tsn = 155166)
 #' }
 #' @export 
-getlsidfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
+getlsidfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
 {
 	url = "http://www.itis.gov/ITISWebService/services/ITISService/getLSIDFromTSN"
 	args <- list()
@@ -969,7 +988,7 @@ getlsidfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALS
 #' getothersourcesfromtsn(tsn = 182662)
 #' }
 #' @export 
-getothersourcesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
+getothersourcesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		#
@@ -979,7 +998,7 @@ getothersourcesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locall
                                   from vern_ref_links vr, other_sources o, vernaculars v 
                                   where vr.doc_id_prefix = o.source_id_prefix and vr.documentation_id = o.source_id 
                                   and vr.vern_id = v.vern_id and vr.tsn = v.tsn and v.tsn = ", tsn, "order by source, version, sort_order ;")
-		return(dbGetQuery(conn, query_TAXON_OTHER_SRC_FROM_TSN))
+		return(dbGetQuery(conn=sqlconn, query_TAXON_OTHER_SRC_FROM_TSN))
 	}
 	else {
 		url = "http://www.itis.gov/ITISWebService/services/ITISService/getOtherSourcesFromTSN"
@@ -1009,12 +1028,12 @@ getothersourcesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locall
 #' getparenttsnfromtsn(tsn = 202385)
 #' }
 #' @export 
-getparenttsnfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
+getparenttsnfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		#
 		query_PARENT_FROM_TSN <- paste("SELECT parent_tsn as ParentTSN from taxonomic_units where tsn=", tsn, ";", sep = "")
-		temp <- dbGetQuery(conn, query_PARENT_FROM_TSN)
+		temp <- dbGetQuery(conn=sqlconn, query_PARENT_FROM_TSN)
 		temp2 <- cbind(temp, tsn)
 		names(temp2) <- c("parentTsn", "tsn")
 		return(temp2)
@@ -1046,7 +1065,7 @@ getparenttsnfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally =
 #' getpublicationsfromtsn(tsn = 70340)
 #' }
 #' @export 
-getpublicationsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
+getpublicationsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		#
@@ -1057,7 +1076,7 @@ getpublicationsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locall
                             From vern_ref_links vr, publications p, vernaculars v  
                             where vr.doc_id_prefix = p.pub_id_prefix and vr.documentation_id = p.publication_id and vr.vern_id = v.vern_id  
                             and vr.tsn = v.tsn and vr.tsn = ", tsn, "order by reference_author, actual_pub_date, title, publication_name, sort_order;")
-		temp <- dbGetQuery(conn, query_TAXON_PUBS_FROM_TSN)
+		temp <- dbGetQuery(conn=sqlconn, query_TAXON_PUBS_FROM_TSN)
 		toget <- c("actual_pub_date", "isbn", "issn", "listed_pub_date", 
 							 "pages", "pub_comment", "publication_name", "pub_place", 
 							 "publisher", "reference_author", "r.vernacular_name", 
@@ -1091,11 +1110,14 @@ getpublicationsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locall
 #'  their kingdom and rank ID values.
 #' 
 #' @import RCurl XML
+#' @param locally If TRUE, queries are run locally in sqlite3; if FALSE (the default), 
+#'  queries are run against the ITIS web API. locally=TRUE should be faster in almost all cases.
+#' @param sqlconn The sqlite3 connection object.
 #' @examples \dontrun{
 #' getranknames()
 #' }
 #' @export 
-getranknames <- function(locally = FALSE) 
+getranknames <- function(locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		#
@@ -1103,7 +1125,7 @@ getranknames <- function(locally = FALSE)
                from taxon_unit_types t 
                inner join kingdoms k on t.kingdom_id = k.kingdom_id  
                order by t.kingdom_id, t.rank_id;")
-		return(dbGetQuery(conn, query_RANK_NAMES))
+		return(dbGetQuery(conn=sqlconn, query_RANK_NAMES))
 	}
 	else {
 		url = "http://www.itis.gov/ITISWebService/services/ITISService/getRankNames"
@@ -1193,7 +1215,7 @@ getreviewyearfromtsn <- function(tsn = NA, ..., curl = getCurlHandle())
 #' getscientificnamefromtsn(tsn = 531894)
 #' }
 #' @export 
-getscientificnamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
+getscientificnamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		#
@@ -1204,7 +1226,7 @@ getscientificnamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), loca
                          join kingdoms k on t.kingdom_id = k.kingdom_id 
                          left join taxon_authors_lkp a on t.taxon_author_id = a.taxon_author_id 
                          where t.tsn =", tsn, ";")
-		temp <- dbGetQuery(conn, query_SCI_NAME_BY_TSN_SRCH)
+		temp <- dbGetQuery(conn=sqlconn, query_SCI_NAME_BY_TSN_SRCH)
 		temp <- temp[, c("tsn", "unit_ind1", "unit_name1", "unit_name2", 
 										 "unit_ind3", "unit_name3", "combinedName")]
 		names(temp) <- c("tsn", "unitInd1", "unitName1", "unitName2", 
@@ -1241,7 +1263,7 @@ getscientificnamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), loca
 #' getsynonymnamesfromtsn(tsn = 526852) # tsn accepted
 #' }
 #' @export 
-getsynonymnamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
+getsynonymnamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		#
@@ -1249,7 +1271,7 @@ getsynonymnamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locall
                      from taxonomic_units t 
                      left join taxon_authors_lkp a on t.taxon_author_id = a.taxon_author_id 
                      inner join synonym_links s on t.tsn = s.tsn and s.tsn_accepted = ", tsn, ";")
-		temp <- dbGetQuery(conn, query_SYNONYM_FROM_TSN)
+		temp <- dbGetQuery(conn=sqlconn, query_SYNONYM_FROM_TSN)
 		return(data.frame(name = temp$combinedName, tsn = temp$tsn))
 	}
 	else {
@@ -1287,14 +1309,14 @@ getsynonymnamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locall
 #' gettaxonauthorshipfromtsn(tsn = 183671)
 #' }
 #' @export 
-gettaxonauthorshipfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
+gettaxonauthorshipfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		#
 		query_TAXON_AUTHOR_FROM_TSN <- paste("select t.tsn as tsn, a.taxon_author as author, a.update_date as date 
                           from taxonomic_units t 
                           inner join taxon_authors_lkp a on t.taxon_author_id = a.taxon_author_id and t.tsn = ", tsn, ";")
-		temp <- dbGetQuery(conn, query_TAXON_AUTHOR_FROM_TSN)
+		temp <- dbGetQuery(conn=sqlconn, query_TAXON_AUTHOR_FROM_TSN)
 		return(data.frame(authorship = temp$author, updateDate = temp$date, tsn = temp$tsn))
 	}
 	else {
@@ -1324,14 +1346,14 @@ gettaxonauthorshipfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), loc
 #' gettaxonomicranknamefromtsn(tsn = 202385)
 #' }
 #' @export 
-gettaxonomicranknamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
+gettaxonomicranknamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		#
 		query_RANK_FROM_TSN <- paste("SELECT t.kingdom_id, t.rank_id, t.tsn, r.rank_name, k.kingdom_name from taxonomic_units t 
                   inner join taxon_unit_types r on r.rank_id = t.rank_id 
                   inner join kingdoms k on k.kingdom_id = t.kingdom_id and t.tsn =", tsn, ";")
-		temp <- dbGetQuery(conn, query_RANK_FROM_TSN)[1, ]
+		temp <- dbGetQuery(conn=sqlconn, query_RANK_FROM_TSN)[1, ]
 		return(data.frame(kingdomId = temp$kingdom_id, kingdomName = temp$kingdom_name, 
 											rankId = temp$rank_id, rankName = temp$rank_name, tsn = temp$tsn))
 	}
@@ -1363,12 +1385,12 @@ gettaxonomicranknamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), l
 #' gettaxonomicusagefromtsn(tsn = 526852)
 #' }
 #' @export 
-gettaxonomicusagefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
+gettaxonomicusagefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		#
 		query_USAGE_FROM_TSN <- paste("SELECT tsn, name_usage from taxonomic_units where tsn = ", tsn, ";", sep = "")
-		temp <- dbGetQuery(conn, query_USAGE_FROM_TSN)
+		temp <- dbGetQuery(conn=sqlconn, query_USAGE_FROM_TSN)
 		return(data.frame(taxonUsageRating = temp$name_usage, tsn = temp$tsn))
 	}
 	else {
@@ -1399,16 +1421,19 @@ gettaxonomicusagefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), loca
 #' @param ... optional additional curl options (debugging tools mostly)
 #' @param curl If using in a loop, call getCurlHandle() first and pass 
 #'  the returned value in here (avoids unnecessary footprint)
+#' @param locally If TRUE, queries are run locally in sqlite3; if FALSE (the default), 
+#'  queries are run against the ITIS web API. locally=TRUE should be faster in almost all cases.
+#' @param sqlconn The sqlite3 connection object.
 #' @examples \dontrun{
 #' gettsnbyvernacularlanguage("french")
 #' }
 #' @export 
-gettsnbyvernacularlanguage <- function(language = NA, ..., curl = getCurlHandle(), locally = FALSE) 
+gettsnbyvernacularlanguage <- function(language = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		#
 		query_TSNS_BY_LANGUAGE <- paste("select tsn, vernacular_name, vern_id from vernaculars where language like ", paste("'", language, "'", sep = ""), " order by tsn, vernacular_name;")
-		temp <- dbGetQuery(conn, query_TSNS_BY_LANGUAGE)
+		temp <- dbGetQuery(conn=sqlconn, query_TSNS_BY_LANGUAGE)
 		return(data.frame(comname = temp$vernacular_name, tsn = temp$tsn))
 	}
 	else {
@@ -1462,12 +1487,12 @@ gettsnfromlsid <- function(lsid = NA, ..., curl = getCurlHandle())
 #' getunacceptabilityreasonfromtsn(tsn = 183671)
 #' }
 #' @export 
-getunacceptabilityreasonfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
+getunacceptabilityreasonfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		#
 		query_UNACCEPT_FROM_TSN <- paste("Select tsn, unaccept_reason from taxonomic_units where tsn =", tsn, ";")
-		temp <- dbGetQuery(conn, query_UNACCEPT_FROM_TSN)
+		temp <- dbGetQuery(conn=sqlconn, query_UNACCEPT_FROM_TSN)
 		return(data.frame(tsn = temp$tsn, unacceptReason = temp$unaccept_reason))
 	}
 	else {
@@ -1492,17 +1517,20 @@ getunacceptabilityreasonfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(
 
 #' Provides a list of the unique languages used in the vernacular table.
 #' 
-#' @import RCurl XML
+#' @import RCurl XML 
+#' @param locally If TRUE, queries are run locally in sqlite3; if FALSE (the default), 
+#'  queries are run against the ITIS web API. lofcally=TRUE should be faster in almost all cases.
+#' @param sqlconn The sqlite3 connection object.
 #' @examples \dontrun{
 #' getvernacularlanguages()
 #' }
 #' @export 
-getvernacularlanguages <- function(locally = FALSE) 
+getvernacularlanguages <- function(locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		#
 		query_LANGUAGE_VALUES <- paste("select distinct language from vernaculars order by language;")
-		temp <- dbGetQuery(conn, query_LANGUAGE_VALUES)
+		temp <- dbGetQuery(conn=sqlconn, query_LANGUAGE_VALUES)
 		return(data.frame(languageNames = temp$language))
 	}
 	else {
@@ -1526,7 +1554,7 @@ getvernacularlanguages <- function(locally = FALSE)
 #' searchbycommonname(srchkey="polar bear")
 #' }
 #' @export 
-searchbycommonname <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE) 
+searchbycommonname <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		#
@@ -1535,7 +1563,7 @@ searchbycommonname <- function(srchkey = NA, ..., curl = getCurlHandle(), locall
                               from vernaculars v 
                               inner join taxonomic_units t on v.tsn = t.tsn 
                               and v.vernacular_name like ", paste("'", srchkey, "'", sep = ""), "left join taxon_authors_lkp a on t.taxon_author_id = a.taxon_author_id ;")
-		temp <- dbGetQuery(conn, query_COMMON_NAME_CONTAINS_SRCH)
+		temp <- dbGetQuery(conn=sqlconn, query_COMMON_NAME_CONTAINS_SRCH)
 		return(data.frame(comname = temp$commonName, lang = temp$language, tsn = temp$tsn))
 	}
 	else {
@@ -1563,7 +1591,7 @@ searchbycommonname <- function(srchkey = NA, ..., curl = getCurlHandle(), locall
 #' searchbycommonnamebeginswith("inch")
 #' }
 #' @export 
-searchbycommonnamebeginswith <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE) 
+searchbycommonnamebeginswith <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		#
@@ -1572,7 +1600,7 @@ searchbycommonnamebeginswith <- function(srchkey = NA, ..., curl = getCurlHandle
                               from vernaculars v 
                               inner join taxonomic_units t on v.tsn = t.tsn 
                               and v.vernacular_name like ", paste("'", srchkey, "%'", sep = ""), "left join taxon_authors_lkp a on t.taxon_author_id = a.taxon_author_id ;")
-		temp <- dbGetQuery(conn, query_COMMON_NAME_CONTAINS_SRCH)
+		temp <- dbGetQuery(conn=sqlconn, query_COMMON_NAME_CONTAINS_SRCH)
 		return(data.frame(comname = temp$commonName, lang = temp$language, tsn = temp$tsn))
 	}
 	else {
@@ -1601,7 +1629,7 @@ searchbycommonnamebeginswith <- function(srchkey = NA, ..., curl = getCurlHandle
 #' searchbycommonnameendswith(srchkey="snake")
 #' }
 #' @export 
-searchbycommonnameendswith <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE) 
+searchbycommonnameendswith <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		#
@@ -1610,7 +1638,7 @@ searchbycommonnameendswith <- function(srchkey = NA, ..., curl = getCurlHandle()
                               from vernaculars v 
                               inner join taxonomic_units t on v.tsn = t.tsn 
                               and v.vernacular_name like ", paste("'%", srchkey, "'", sep = ""), "left join taxon_authors_lkp a on t.taxon_author_id = a.taxon_author_id ;")
-		temp <- dbGetQuery(conn, query_COMMON_NAME_CONTAINS_SRCH)
+		temp <- dbGetQuery(conn=sqlconn, query_COMMON_NAME_CONTAINS_SRCH)
 		return(data.frame(comname = temp$commonName, lang = temp$language, tsn = temp$tsn))
 	}
 	else {
@@ -1635,25 +1663,53 @@ searchbycommonnameendswith <- function(srchkey = NA, ..., curl = getCurlHandle()
 #' Search by scientific name
 #' 
 #' @inheritParams getanymatchcount
+#' @param returnindex Retrun the index of each searched string with the resulting data.frame.
+#' 		Useful in get_tsn to split results by searched string.
 #' @examples \dontrun{
 #' searchbyscientificname("Tardigrada")
-#' searchbyscientificname("Quercus douglasii")
-#' searchbyscientificname("Quercus douglasii", locally=TRUE)
+#' 
+#' # Using the web API, have to submit one at a time
+#' ldply(c("oryza sativa","Chironomus riparius","Helianthus annuus","Quercus lobata"), searchbyscientificname)
+#' 
+#' # Using local search, can submit many in one vector
+#' searchbyscientificname(srchkey=c("oryza sativa","Chironomus riparius","Helianthus annuus","Quercus lobata"), locally=TRUE, sqlconn=conn)
+#' 
+#' searchbyscientificname("Quercus douglasii", locally=TRUE, sqlconn=conn)
 #' }
 #' @export 
-searchbyscientificname <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE) 
+searchbyscientificname <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL, returnindex=FALSE)
 {
 	if (locally) {
 		#
-		query_SCI_NAME_LIKE <- paste("SELECT t.tsn as tsn, t.unit_name1, t.unit_name2, t.unit_name3, t.unit_name4,
-            t.unit_ind1, t.unit_ind2, t.unit_ind3, t.unit_ind4,
-        t.complete_name as combinedName, a.taxon_author as author, k.kingdom_name as kingdom
-        from taxonomic_units t
-        left join taxon_authors_lkp a on t.taxon_author_id = a.taxon_author_id
-        join kingdoms k on t.kingdom_id = k.kingdom_id
-        where t.complete_name like", paste("'%", srchkey, "%'", sep = ""), "order by tsn;")
-		temp <- dbGetQuery(conn, query_SCI_NAME_LIKE)
-		return(data.frame(combinedname = temp$combinedName, tsn = temp$tsn))
+# 		query_SCI_NAME_LIKE <- paste("SELECT t.tsn as tsn, t.unit_name1, t.unit_name2, t.unit_name3, t.unit_name4,
+#             t.unit_ind1, t.unit_ind2, t.unit_ind3, t.unit_ind4,
+#         t.complete_name as combinedName, a.taxon_author as author, k.kingdom_name as kingdom
+#         from taxonomic_units t
+#         left join taxon_authors_lkp a on t.taxon_author_id = a.taxon_author_id
+#         join kingdoms k on t.kingdom_id = k.kingdom_id
+#         where t.complete_name like", paste("'%", srchkey, "%'", sep = ""), "order by tsn;")
+		
+# 		query_SCI_NAME_LIKE <- paste("SELECT 'searchstring' AS querystring, t.tsn as tsn, t.unit_name1, t.unit_name2, t.unit_name3, t.unit_name4,
+# 			t.unit_ind1, t.unit_ind2, t.unit_ind3, t.unit_ind4,
+# 			t.complete_name as combinedName, a.taxon_author as author, k.kingdom_name as kingdom
+# 			from taxonomic_units t
+# 			left join taxon_authors_lkp a on t.taxon_author_id = a.taxon_author_id
+# 			join kingdoms k on t.kingdom_id = k.kingdom_id
+# 			where", 
+# 			paste(sapply(srchkey, function(x) paste("t.complete_name like ", paste("'%", x, "%'", sep = ""), sep = ""), USE.NAMES=FALSE),collapse=" OR "), ";")
+# 		order by tsn
+		
+		query_SCI_NAME_LIKE <- paste("SELECT", 
+paste("CASE", paste(sapply(srchkey, function(x) paste("WHEN t.complete_name LIKE ", paste("'%", x, "%'", sep = ""), " THEN ", paste0("'",x,"'"), sep = ""), USE.NAMES=FALSE),collapse=" "),"END AS querystring,"),
+			"t.tsn as tsn, t.complete_name as combinedName
+			FROM taxonomic_units t
+			WHERE", 
+			paste(sapply(srchkey, function(x) paste("t.complete_name like ", paste("'%", x, "%'", sep = ""), sep = ""), USE.NAMES=FALSE),collapse=" OR "), " order by querystring;")
+		
+		temp <- dbGetQuery(conn=sqlconn, query_SCI_NAME_LIKE)
+		if(!returnindex)
+			temp <- data.frame(combinedname = temp$combinedName, tsn = temp$tsn)
+		return( temp )
 	}
 	else {
 		url = "http://www.itis.gov/ITISWebService/services/ITISService/searchByScientificName"
@@ -1679,7 +1735,7 @@ searchbyscientificname <- function(srchkey = NA, ..., curl = getCurlHandle(), lo
 #' searchforanymatch(srchkey = "dolphin")
 #' }
 #' @export 
-searchforanymatch <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE) 
+searchforanymatch <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		#
@@ -1699,12 +1755,12 @@ searchforanymatch <- function(srchkey = NA, ..., curl = getCurlHandle(), locally
                           inner join vernaculars v 
                           on v.tsn = t.tsn and v.vernacular_name like ", paste("'%", srchkey, "%'", sep = ""), "order by tsn;")
 		if (is.numeric(srchkey)) {
-			temp <- dbGetQuery(conn, query_ANY_TSN_MATCH_SRCH)
+			temp <- dbGetQuery(conn=sqlconn, query_ANY_TSN_MATCH_SRCH)
 			return(data.frame(combinedname = temp$combinedName, 
 												tsn = temp$tsn))
 		}
 		else {
-			temp <- dbGetQuery(conn, query_ANY_COMMON_MATCH_SRCH)
+			temp <- dbGetQuery(conn=sqlconn, query_ANY_COMMON_MATCH_SRCH)
 			return(data.frame(tsn = temp$tsn, combinedName = temp$combinedName, 
 												commonName = temp$commonName))
 		}
@@ -1738,7 +1794,7 @@ searchforanymatch <- function(srchkey = NA, ..., curl = getCurlHandle(), locally
 #' }
 #' @export 
 searchforanymatchpaged <- function(srchkey = NA, pagesize = NA, pagenum = NA, ascend = NA, 
-																	 ..., curl = getCurlHandle(), locally = FALSE) 
+																	 ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
 {
 	if (locally) {
 		#
@@ -1755,7 +1811,7 @@ searchforanymatchpaged <- function(srchkey = NA, pagesize = NA, pagenum = NA, as
                              from taxonomic_units t 
                              join vernaculars v  on v.tsn = t.tsn and t.complete_name like ", paste("'", srchkey, "'", sep = ""), "left join taxon_authors_lkp a on a.taxon_author_id = t.taxon_author_id 
                            order by t.complete_name, matchType;")
-		temp <- dbGetQuery(conn, query_ANY_MATCH_SEARCH)
+		temp <- dbGetQuery(conn=sqlconn, query_ANY_MATCH_SEARCH)
 		return(data.frame(combinedname = temp$combinedName, tsn = temp$tsn))
 	}
 	else {

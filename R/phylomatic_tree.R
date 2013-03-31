@@ -1,6 +1,6 @@
 #' Format tree string, submit to Phylomatic, get newick tree.
 #' 
-#' @import httr ape
+#' @import httr ape RSQLite
 #' @param taxa Phylomatic format input of taxa names.
 #' @param taxnames If true, we get the family names for you to attach to your 
 #' 		species names to send to Phylomatic API. If FALSE, you have to provide the 
@@ -15,6 +15,9 @@
 #' @param outformat One of newick, nexml, or fyt.
 #' @param clean Return a clean tree or not.
 #' @param parallel Run in parallel or not.
+#' @param locally If TRUE, queries are run locally in sqlite3; if FALSE (the default), 
+#'  queries are run against the ITIS web API. locally=TRUE should be faster in almost all cases.
+#' @param cn sqlite3 connection object
 #' @details Use the web interface here http://phylodiversity.net/phylomatic/
 #' @return Newick formatted tree.
 #' @examples \dontrun{ 
@@ -41,9 +44,10 @@
 #' @export
 phylomatic_tree <- function(taxa, taxnames = TRUE, get = 'GET', informat = "newick", method = "phylomatic", 
 	storedtree = "R20120829", taxaformat = "slashpath", outformat = "newick", 
-	clean = "true", parallel=TRUE, locally=FALSE)
+	clean = "true", parallel=TRUE, locally=FALSE, cn=NULL)
 {
 	url = "http://phylodiversity.net/phylomatic/pmws"
+	
   collapse_double_root <- function(y) {
     temp <- str_split(y, ")")[[1]]
     double <- c(length(temp)-1, length(temp))
@@ -60,6 +64,7 @@ phylomatic_tree <- function(taxa, taxnames = TRUE, get = 'GET', informat = "newi
     tempdone <- paste(newpre, paste(allelse, collapse=""), newx, sep="")
   return(tempdone)
   }
+	
   colldouble <- function(z) {
     if ( class ( try ( read.tree(text = z), silent = T ) ) %in% 'try-error') 
       { treephylo <- collapse_double_root(z) } else
@@ -72,7 +77,7 @@ phylomatic_tree <- function(taxa, taxnames = TRUE, get = 'GET', informat = "newi
   	if(parallel){ 
   		dat_ <- llply(taxa, itis_phymat_format, format='isubmit', .parallel=T)
   	} else {
-  		dat_ <- llply(taxa, itis_phymat_format, format='isubmit', locally=locally)
+  		dat_ <- llply(taxa, itis_phymat_format, format='isubmit', locally=locally, sqlconn=cn)
   	}
   	
   } else

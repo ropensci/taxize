@@ -3,7 +3,8 @@
 \title{Get taxonomic names for a given taxonomic name query.}
 \usage{
   tax_name(query = NULL, get = NULL, db = "itis",
-    pref = "ncbi", verbose = TRUE, locally = FALSE)
+    pref = "ncbi", verbose = TRUE, locally = FALSE,
+    cn = NULL)
 }
 \arguments{
   \item{query}{character; Vector of taxonomic names to
@@ -26,6 +27,8 @@
   sqlite3; if FALSE (the default), queries are run against
   the ITIS web API. locally=TRUE should be faster in almost
   all cases.}
+
+  \item{cn}{sqlite3 connection object}
 }
 \value{
   A data.frame with one column for every queried rank.

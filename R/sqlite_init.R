@@ -1,4 +1,6 @@
 #' Initiate connection to sqlite3 database
+#' 
+#' @import RSQLite DBI
 #' @param path Path to the sqlite database
 #' @examples \dontrun{
 #' taxize:::sqlite_init()
