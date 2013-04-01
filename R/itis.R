@@ -1558,8 +1558,7 @@ getvernacularlanguages <- function(locally = FALSE, sqlconn = NULL)
 #' # Many doing local search
 #' conn <- taxize:::sqlite_init(path="~/github/ropensci/sql/itis2.sqlite")
 #' searchbycommonname(srchkey=c("polar bear", "ferret-badger", "american bullfrog"), locally=TRUE, sqlconn=conn)
-#' 
-searchbycommonname(srchkey=c("common sunflower", "water oak", "american chestnut"), locally=TRUE, sqlconn=conn)
+#' searchbycommonname(srchkey=c("common sunflower", "water oak", "american chestnut"), locally=TRUE, sqlconn=conn)
 #' }
 #' @export 
 searchbycommonname <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL, returnindex=FALSE) 
