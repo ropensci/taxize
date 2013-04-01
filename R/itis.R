@@ -1548,23 +1548,38 @@ getvernacularlanguages <- function(locally = FALSE, sqlconn = NULL)
 #' Search for tsn by common name
 #' 
 #' @inheritParams getanymatchcount
+#' @param returnindex Retrun the index of each searched string with the resulting data.frame.
+#' 		Useful in get_tsn to split results by searched string.
 #' @examples \dontrun{
 #' searchbycommonname("american bullfrog")
 #' searchbycommonname("ferret-badger")
 #' searchbycommonname(srchkey="polar bear")
+#' 
+#' # Many doing local search
+#' conn <- taxize:::sqlite_init(path="~/github/ropensci/sql/itis2.sqlite")
+#' searchbycommonname(srchkey=c("polar bear", "ferret-badger", "american bullfrog"), locally=TRUE, sqlconn=conn)
+#' 
+searchbycommonname(srchkey=c("common sunflower", "water oak", "american chestnut"), locally=TRUE, sqlconn=conn)
 #' }
 #' @export 
-searchbycommonname <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
+searchbycommonname <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL, returnindex=FALSE) 
 {
 	if (locally) {
-		#
-		query_COMMON_NAME_CONTAINS_SRCH <- paste("select v.tsn as tsn, v.language as language, a.taxon_author as author, 
-                              v.vernacular_name as commonName, t.complete_name as combinedName 
+				query_COMMON_NAME_CONTAINS_SRCH <- paste("SELECT",
+paste("CASE", paste(sapply(srchkey, function(x) paste("WHEN v.vernacular_name LIKE ", paste("'%", x, "%'", sep = ""), " THEN ", paste0("'",x,"'"), sep = ""), USE.NAMES=FALSE),collapse=" "),"END AS querystring,"),
+			"v.tsn as tsn, v.language as language, v.vernacular_name as commonName, t.complete_name as combinedName 
                               from vernaculars v 
-                              inner join taxonomic_units t on v.tsn = t.tsn 
-                              and v.vernacular_name like ", paste("'", srchkey, "'", sep = ""), "left join taxon_authors_lkp a on t.taxon_author_id = a.taxon_author_id ;")
+                              inner join taxonomic_units t on v.tsn = t.tsn WHERE", 
+			paste(sapply(srchkey, function(x) paste("v.vernacular_name like ", paste("'%", x, "%'", sep = ""), sep = ""), USE.NAMES=FALSE),collapse=" OR "), " order by querystring;")
+			
+# 		query_COMMON_NAME_CONTAINS_SRCH <- paste("select v.tsn as tsn, v.language as language, v.vernacular_name as commonName, t.complete_name as combinedName 
+#                               from vernaculars v 
+#                               inner join taxonomic_units t on v.tsn = t.tsn 
+#                               and v.vernacular_name like ", paste("'", srchkey, "'", sep = ""), ";")
 		temp <- dbGetQuery(conn=sqlconn, query_COMMON_NAME_CONTAINS_SRCH)
-		return(data.frame(comname = temp$commonName, lang = temp$language, tsn = temp$tsn))
+		if(!returnindex)
+			temp <- data.frame(comname = temp$commonName, sciname = temp$combinedName, lang = temp$language, tsn = temp$tsn)
+		return( temp )
 	}
 	else {
 		url = "http://www.itis.gov/ITISWebService/services/ITISService/searchByCommonName"

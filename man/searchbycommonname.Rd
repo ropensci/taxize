@@ -4,9 +4,13 @@
 \usage{
   searchbycommonname(srchkey = NA, ...,
     curl = getCurlHandle(), locally = FALSE,
-    sqlconn = NULL)
+    sqlconn = NULL, returnindex = FALSE)
 }
 \arguments{
+  \item{returnindex}{Retrun the index of each searched
+  string with the resulting data.frame.  Useful in get_tsn
+  to split results by searched string.}
+
   \item{srchkey}{text or taxonomic serial number (TSN)
   (character or numeric)}
 
@@ -32,6 +36,10 @@
 searchbycommonname("american bullfrog")
 searchbycommonname("ferret-badger")
 searchbycommonname(srchkey="polar bear")
+
+# Many doing local search
+conn <- taxize:::sqlite_init(path="~/github/ropensci/sql/itis2.sqlite")
+searchbycommonname(srchkey=c("polar bear", "ferret-badger", "american bullfrog"), locally=TRUE, sqlconn=conn)
 }
 }
 

@@ -23,6 +23,9 @@
 #' 		"Tarsius syric", "Sylvilagus dicei", "Galeopterus variegatus")
 #' get_tsn(splist,"sciname", locally=TRUE, cn=conn)
 #' get_tsn(splist,"sciname")
+#' 
+#' # By common names
+#' get_tsn(searchterm=c("polar bear", "ferret-badger", "american bullfrog"), searchtype = "comname", locally=TRUE, cn=conn)
 #' }
 get_tsn <- function(searchterm, searchtype = "sciname", verbose = TRUE, locally=FALSE, cn=NULL) 
 {
