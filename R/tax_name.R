@@ -43,71 +43,86 @@ tax_name <- function(query = NULL, get = NULL, db = "itis", pref = 'ncbi',
   if(db == 'both' & pref %notin% c('ncbi', 'itis'))
     stop("if db=both, pref must be either 'itis' or 'ncbi'!\n")
   
-  fun <- function(query, get, db, verbose){
-    # ITIS
-  	if(db == "itis"){
-  		tsn <- get_tsn(query, searchtype="sciname", verbose = verbose, locally=locally, cn=cn)
-      if(is.na(tsn)) {
-        if(verbose) cat("No TSN found for species '", query, "'!\n")
-        out <- data.frame(t(rep(NA, length(get))))
-        names(out) <- get
-      } else {
-      	if(tsn=="notsn") {
-      		out <- "notsn"
-      	} else {
-      			tt <- classification(tsn, locally=locally)[[1]]
-            match <- tt$taxonName[match(tolower(get), tolower(tt$rankName))]
-      			out <- data.frame(t(match), stringsAsFactors=FALSE)
-      			names(out) <- get
-      	}
-      }
-  	}
-    
-    # NCBI
-  	if(db == "ncbi")	{
-  		uid <- get_uid(query, verbose = verbose)
-      if(is.na(uid)){
-        if(verbose) cat("No UID found for species '", query, "'!\n")
-        out <- data.frame(t(rep(NA, length(get))))
-        names(out) <- get
-      } else {
-  			hierarchy <- classification(uid)[[1]]
-  			match <- hierarchy$ScientificName[match(tolower(get), tolower(hierarchy$Rank))]
-        out <- data.frame(t(match), stringsAsFactors=FALSE)
-        names(out) <- get
+  if(!locally){
+  	fun <- function(query, get, db, verbose){
+  		# ITIS
+  		if(db == "itis"){
+  			tsn <- get_tsn(query, searchtype="sciname", verbose = verbose, locally=locally, cn=cn)
+  			if(is.na(tsn)) {
+  				if(verbose) cat("No TSN found for species '", query, "'!\n")
+  				out <- data.frame(t(rep(NA, length(get))))
+  				names(out) <- get
+  			} else {
+  				if(tsn=="notsn") {
+  					out <- "notsn"
+  				} else {
+  					tt <- classification(tsn, locally=locally)[[1]]
+  					match <- tt$taxonName[match(tolower(get), tolower(tt$rankName))]
+  					out <- data.frame(t(match), stringsAsFactors=FALSE)
+  					names(out) <- get
+  				}
+  			}
   		}
+  		
+  		# NCBI
+  		if(db == "ncbi")	{
+  			uid <- get_uid(query, verbose = verbose)
+  			if(is.na(uid)){
+  				if(verbose) cat("No UID found for species '", query, "'!\n")
+  				out <- data.frame(t(rep(NA, length(get))))
+  				names(out) <- get
+  			} else {
+  				hierarchy <- classification(uid)[[1]]
+  				match <- hierarchy$ScientificName[match(tolower(get), tolower(hierarchy$Rank))]
+  				out <- data.frame(t(match), stringsAsFactors=FALSE)
+  				names(out) <- get
+  			}
+  		}
+  		
+  		# combine both
+  		# NCBI
+  		if(db == 'both') {
+  			uid <- get_uid(query, verbose = verbose)
+  			if(is.na(uid)){
+  				if(verbose) cat("No UID found for species '", query, "'!\n")
+  				match_uid <- rep(NA, length(get))
+  			} else {
+  				hierarchy <- classification(uid)[[1]]
+  				match_uid <- hierarchy$ScientificName[match(tolower(get), tolower(hierarchy$Rank))]
+  			}
+  			# itis
+  			tsn <- get_tsn(query, searchtype="sciname", verbose = verbose, locally=locally, cn=cn)
+  			if(is.na(tsn)) {
+  				if(verbose) cat("No TSN found for species '", query, "'!\n")
+  				match_tsn <- rep(NA, length(get))
+  			} else {
+  				if(tsn=="notsn") {
+  					out <- "notsn"
+  				} else {
+  					tt <- classification(tsn, locally=locally)[[1]]
+  					match_tsn <- tt$taxonName[match(tolower(get), tolower(tt$rankName))]
+  				}
+  			}
+  			match_both <- ifelse(is.na(match_uid), match_tsn, match_uid)
+  			out <- data.frame(t(match_both), stringsAsFactors=FALSE)
+  			names(out) <- get     
+  		}
+  		return(out)
   	}
-    
-    # combine both
-      # NCBI
-    if(db == 'both') {
-      uid <- get_uid(query, verbose = verbose)
-      if(is.na(uid)){
-        if(verbose) cat("No UID found for species '", query, "'!\n")
-        match_uid <- rep(NA, length(get))
-      } else {
-        hierarchy <- classification(uid)[[1]]
-        match_uid <- hierarchy$ScientificName[match(tolower(get), tolower(hierarchy$Rank))]
-      }
-      # itis
-      tsn <- get_tsn(query, searchtype="sciname", verbose = verbose, locally=locally, cn=cn)
-      if(is.na(tsn)) {
-        if(verbose) cat("No TSN found for species '", query, "'!\n")
-        match_tsn <- rep(NA, length(get))
-      } else {
-        if(tsn=="notsn") {
-          out <- "notsn"
-        } else {
-          tt <- classification(tsn, locally=locally)[[1]]
-          match_tsn <- tt$taxonName[match(tolower(get), tolower(tt$rankName))]
-        }
-      }
-      match_both <- ifelse(is.na(match_uid), match_tsn, match_uid)
-      out <- data.frame(t(match_both), stringsAsFactors=FALSE)
-      names(out) <- get     
-    }
-    return(out)
+  	out <- ldply(query, .fun=function(x) fun(query=x, get=get, db=db, verbose=verbose))
+  	return(out)
+  	
+  	
+  } else
+  {
+  	tsn_df_out <- get_tsn(query, searchtype="sciname", verbose = verbose, locally=locally, cn=cn)
+  	myfunc <- function(x){
+  		tt <- classification(x, ID="tsn", locally=locally)[[1]]
+  		match <- tt$taxonName[match(tolower(get), tolower(tt$rankName))]
+  		out <- data.frame(t(match), stringsAsFactors=FALSE)
+  		names(out) <- get
+  		return( out )
+  	}
+  	return( ldply(tsn_df_out, myfunc) )
   }
-  out <- ldply(query, .fun=function(x) fun(query=x, get=get, db=db, verbose=verbose))
-  return(out)
 }
