@@ -3,8 +3,7 @@
 \title{Returns the kingdom and rank information for the TSN.}
 \usage{
   gettaxonomicranknamefromtsn(tsn = NA, ...,
-    curl = getCurlHandle(), locally = FALSE,
-    sqlconn = NULL)
+    curl = getCurlHandle(), locally = FALSE)
 }
 \arguments{
   \item{tsn}{TSN for a taxonomic group (numeric)}
@@ -20,15 +19,18 @@
   sqlite3; if FALSE (the default), queries are run against
   the ITIS web API. locally=TRUE should be faster in almost
   all cases.}
-
-  \item{sqlconn}{The sqlite3 connection object.}
 }
 \description{
   Returns the kingdom and rank information for the TSN.
 }
 \examples{
 \dontrun{
+# web API call
 gettaxonomicranknamefromtsn(tsn = 202385)
+
+# local sql call
+gettaxonomicranknamefromtsn(tsn = 202385, locally=TRUE)
+gettaxonomicranknamefromtsn(tsn=c(202385,531894,526852,183671), locally=TRUE)
 }
 }
 

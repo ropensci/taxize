@@ -7,10 +7,10 @@
 #' getacceptednamesfromtsn(tsn=504239)  # TSN not accepted - input TSN is old name
 #' getacceptednamesfromtsn('504239', FALSE)  # TSN not accepted - input TSN is old name
 #' }
-getacceptednamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
+getacceptednamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-# 		#
+		sqlconn <- getOption("conn")
 		query_ACCEPTED_FROM_TSN <- paste("SELECT t.tsn, t.complete_name as combinedName, a.taxon_author as author 
                       from taxonomic_units t  
                       left join taxon_authors_lkp a on t.taxon_author_id = a.taxon_author_id 
@@ -45,17 +45,16 @@ getacceptednamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), local
 #'  the returned value in here (avoids unnecessary footprint)
 #' @param locally If TRUE, queries are run locally in sqlite3; if FALSE (the default), 
 #'  queries are run against the ITIS web API. locally=TRUE should be faster in almost all cases.
-#' @param sqlconn The sqlite3 connection object.
 #' @return An integer containing the number of matches the search will return.
 #' @examples \dontrun{
 #' getanymatchcount(202385)
 #' getanymatchcount("dolphin")
 #' }
 #' @export
-getanymatchcount <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
+getanymatchcount <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		#
+		sqlconn <- getOption("conn")
 		if (is.numeric(srchkey)) {
 			query_ANY_TSN_MATCH_COUNT <- paste("Select count(*) from taxonomic_units where tsn = ", srchkey, ";")
 			return(dbGetQuery(conn=sqlconn, query_ANY_TSN_MATCH_COUNT))
@@ -90,19 +89,19 @@ getanymatchcount <- function(srchkey = NA, ..., curl = getCurlHandle(), locally 
 #'  the returned value in here (avoids unnecessary footprint)
 #' @param locally If TRUE, queries are run locally in sqlite3; if FALSE (the default), 
 #'  queries are run against the ITIS web API. locally=TRUE should be faster in almost all cases.
-#' @param sqlconn The sqlite3 connection object.
 #' @return A data.frame with results.
 #' @examples \dontrun{
 #' getcommentdetailfromtsn(tsn=180543)
 #' getcommentdetailfromtsn(tsn=180543, locally=TRUE)
 #' }
 #' @export
-getcommentdetailfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
+getcommentdetailfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
+		sqlconn <- getOption("conn")
 		query_TAXON_COMMENT_FROM_TSN <- paste("Select c.* from comments c inner join tu_comments_links t  
                            on c.comment_id = t.comment_id and tsn = ", tsn, "order by comment_time_stamp;")
-		return(dbGetQuery(conn=sqlconn, query_TAXON_COMMENT_FROM_TSN))
+		return( dbGetQuery(conn=sqlconn, query_TAXON_COMMENT_FROM_TSN) )
 	}
 	else {
 		url = "http://www.itis.gov/ITISWebService/services/ITISService/getCommentDetailFromTSN"
@@ -134,10 +133,10 @@ getcommentdetailfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), local
 #' getcommonnamesfromtsn(183833)
 #' }
 #' @export 
-getcommonnamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
+getcommonnamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		#
+		sqlconn <- getOption("conn")
 		query_COMMON_NAME_BY_TSN_SRCH <- paste("select t.tsn as tsn, v.language as language, a.taxon_author as author, 
                             v.vernacular_name as commonName, t.complete_name as combinedName 
                             from vernaculars v 
@@ -172,10 +171,10 @@ getcommonnamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally
 #' getcoremetadatafromtsn(tsn = 183671)  # no coverage or currrency data
 #' }
 #' @export 
-getcoremetadatafromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
+getcoremetadatafromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		#
+		sqlconn <- getOption("conn")
 		query_CORE_METADATA_FROM_TSN <- paste("Select tsn, rank_id, name_usage, unaccept_reason, credibility_rtng, 
                            completeness_rtng, currency_rating from taxonomic_units where tsn = ", tsn, ";")
 		return(dbGetQuery(conn=sqlconn, query_CORE_METADATA_FROM_TSN))
@@ -209,10 +208,10 @@ getcoremetadatafromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locall
 #' getcoveragefromtsn(tsn = 526852)  # no coverage data
 #' }
 #' @export 
-getcoveragefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
+getcoveragefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		#
+		sqlconn <- getOption("conn")
 		query_COVERAGE_FROM_TSN <- paste("Select tsn, rank_id, completeness_rtng from taxonomic_units where tsn =", tsn, ";")
 		return(dbGetQuery(conn=sqlconn, query_COVERAGE_FROM_TSN))
 	}
@@ -242,10 +241,10 @@ getcoveragefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = 
 #' getcredibilityratingfromtsn(tsn = 526852)
 #' }
 #' @export 
-getcredibilityratingfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL)
+getcredibilityratingfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE)
 {
 	if (locally) {
-		#
+		sqlconn <- getOption("conn")
 		query_CRED_FROM_TSN <- paste("Select tsn, credibility_rtng from taxonomic_units where tsn =", tsn, ";")
 		return(dbGetQuery(conn=sqlconn, query_CRED_FROM_TSN))
 	}
@@ -276,10 +275,10 @@ getcredibilityratingfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), l
 #' getcredibilityratings()
 #' }
 #' @export 
-getcredibilityratings <- function(locally = FALSE, sqlconn = NULL) 
+getcredibilityratings <- function(locally = FALSE) 
 {
 	if (locally) {
-		#
+		sqlconn <- getOption("conn")
 		query_CREDIBILITY_RATINGS <- paste("select distinct credibility_rtng from taxonomic_units order by credibility_rtng;")
 		return(dbGetQuery(conn=sqlconn, query_CREDIBILITY_RATINGS))
 	}
@@ -304,10 +303,10 @@ getcredibilityratings <- function(locally = FALSE, sqlconn = NULL)
 #' getcurrencyfromtsn(tsn = 526852) # no currency dat
 #' }
 #' @export 
-getcurrencyfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
+getcurrencyfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		#
+		sqlconn <- getOption("conn")
 		query_CURRENCY_FROM_TSN <- paste("Select tsn, rank_id, currency_rating from taxonomic_units where tsn =", tsn, ";")
 		return(dbGetQuery(conn=sqlconn, query_CURRENCY_FROM_TSN))
 	}
@@ -337,10 +336,10 @@ getcurrencyfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = 
 #' getdatedatafromtsn(tsn = 180543)
 #' }
 #' @export 
-getdatedatafromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
+getdatedatafromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		#
+		sqlconn <- getOption("conn")
 		query_TAXON_DATES_FROM_TSN <- paste("Select initial_time_stamp, update_date from taxonomic_units where tsn = ", tsn, ";")
 		return(dbGetQuery(conn=sqlconn, query_TAXON_DATES_FROM_TSN))
 	}
@@ -388,10 +387,10 @@ getdescription <- function()
 #' getexpertsfromtsn(tsn = 180544)
 #' }
 #' @export 
-getexpertsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
+getexpertsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		#
+		sqlconn <- getOption("conn")
 		query_TAXON_EXPERTS_FROM_TSN <- paste("Select '1' as sort_order, r.vernacular_name, NULL As language, e.*  
                            from reference_links r, experts e  
                            where r.doc_id_prefix = e.expert_id_prefix and r.documentation_id = e.expert_id  
@@ -505,10 +504,10 @@ getfullrecordfromtsn <- function(tsn = NA, ..., curl = getCurlHandle())
 #' getgeographicdivisionsfromtsn(tsn = 180543)
 #' }
 #' @export 
-getgeographicdivisionsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
+getgeographicdivisionsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		#
+		sqlconn <- getOption("conn")
 		query_TAXON_GEO_DIV_FROM_TSN <- paste("Select * from geographic_div where tsn = ", tsn, "order by geographic_value;")
 		return(dbGetQuery(conn=sqlconn, query_TAXON_GEO_DIV_FROM_TSN))
 	}
@@ -542,10 +541,10 @@ getgeographicdivisionsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(),
 #' getgeographicvalues()
 #' }
 #' @export 
-getgeographicvalues <- function(locally = FALSE, sqlconn = NULL) 
+getgeographicvalues <- function(locally = FALSE) 
 {
 	if (locally) {
-		#
+		sqlconn <- getOption("conn")
 		query_GEOGRAPHIC_VALUES <- paste("select distinct geographic_value from geographic_div order by geographic_value;")
 		return(dbGetQuery(conn=sqlconn, query_GEOGRAPHIC_VALUES))
 	}
@@ -568,10 +567,10 @@ getgeographicvalues <- function(locally = FALSE, sqlconn = NULL)
 #' getglobalspeciescompletenessfromtsn(tsn = 180541)
 #' }
 #' @export
-getglobalspeciescompletenessfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
+getglobalspeciescompletenessfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		#
+		sqlconn <- getOption("conn")
 		query_COMPLETENESS_FROM_TSN <- paste("Select tsn, rank_id, completeness_rtng from taxonomic_units where tsn =", tsn, ";")
 		return(dbGetQuery(conn=sqlconn, query_COMPLETENESS_FROM_TSN))
 	}
@@ -603,10 +602,10 @@ getglobalspeciescompletenessfromtsn <- function(tsn = NA, ..., curl = getCurlHan
 #' gethierarchydownfromtsn(tsn = 161030, locally=TRUE)
 #' }
 #' @export 
-gethierarchydownfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL)
+gethierarchydownfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE)
 {
 	if (locally) {
-		#
+		sqlconn <- getOption("conn")
 		query_HIERARCHY_DN_FROM_TSN <- paste("select t.tsn, t.parent_tsn, t.complete_name as combinedName, 
                            r.rank_name, r.rank_id, a.taxon_author as author 
                            from taxonomic_units t 
@@ -653,10 +652,10 @@ gethierarchydownfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), local
 #' gethierarchyupfromtsn(tsn = 36485, locally=TRUE)
 #' }
 #' @export 
-gethierarchyupfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
+gethierarchyupfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		#
+		sqlconn <- getOption("conn")
 		query_HIERARCHY_UP_FROM_TSN <- paste("select distinct t.parent_tsn, t.tsn, l.complete_name as parent_name, 
                           a.taxon_author as author, t.complete_name as combinedName, r.rank_name 
                           from taxonomic_units t  
@@ -699,10 +698,10 @@ gethierarchyupfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally
 #' getitistermsfromcommonname("buya")
 #' }
 #' @export 
-getitistermsfromcommonname <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
+getitistermsfromcommonname <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		#
+		sqlconn <- getOption("conn")
 		query_ITIS_TERMS_BY_CMN_NAME <- paste("select t.tsn, t.name_usage, t.complete_name as combinedName, v.vernacular_name, a.taxon_author as author 
                            from taxonomic_units t 
                            left join taxon_authors_lkp a on t.taxon_author_id = a.taxon_author_id 
@@ -737,10 +736,10 @@ getitistermsfromcommonname <- function(srchkey = NA, ..., curl = getCurlHandle()
 #' getitistermsfromscientificname(srchkey = "ursidae")
 #' }
 #' @export 
-getitistermsfromscientificname <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
+getitistermsfromscientificname <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		#
+		sqlconn <- getOption("conn")
 		query_ITIS_TERMS_BY_SCI_NAME <- paste("select t.tsn, t.name_usage, t.complete_name as combinedName, v.vernacular_name, a.taxon_author as author 
                            from taxonomic_units t 
                            left join taxon_authors_lkp a on t.taxon_author_id = a.taxon_author_id 
@@ -777,10 +776,10 @@ getitistermsfromscientificname <- function(srchkey = NA, ..., curl = getCurlHand
 #' getjurisdictionaloriginfromtsn(tsn = 180543)
 #' }
 #' @export 
-getjurisdictionaloriginfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
+getjurisdictionaloriginfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		#
+		sqlconn <- getOption("conn")
 		query_TAXON_JUR_ORIG_FROM_TSN <- paste("Select * from jurisdiction where tsn = ", tsn, "order by jurisdiction_value;")
 		return(dbGetQuery(conn=sqlconn, query_TAXON_JUR_ORIG_FROM_TSN))
 	}
@@ -814,10 +813,10 @@ getjurisdictionaloriginfromtsn <- function(tsn = NA, ..., curl = getCurlHandle()
 #' getjurisdictionoriginvalues()
 #' }
 #' @export 
-getjurisdictionoriginvalues <- function(locally = FALSE, sqlconn = NULL) 
+getjurisdictionoriginvalues <- function(locally = FALSE) 
 {
 	if (locally) {
-		#
+		sqlconn <- getOption("conn")
 		query_ORIGIN_VALUES <- paste("select distinct jurisdiction_value, origin from jurisdiction order by jurisdiction_value, origin;")
 		return(dbGetQuery(conn=sqlconn, query_ORIGIN_VALUES))
 	}
@@ -845,10 +844,10 @@ getjurisdictionoriginvalues <- function(locally = FALSE, sqlconn = NULL)
 #' getjurisdictionvalues()
 #' }
 #' @export 
-getjurisdictionvalues <- function(locally = FALSE, sqlconn = NULL) 
+getjurisdictionvalues <- function(locally = FALSE) 
 {
 	if (locally) {
-		#
+		sqlconn <- getOption("conn")
 		query_JURISDICTION_VALUES <- paste("select distinct jurisdiction_value from jurisdiction order by jurisdiction_value;")
 		return(dbGetQuery(conn=sqlconn, query_JURISDICTION_VALUES))
 	}
@@ -872,10 +871,10 @@ getjurisdictionvalues <- function(locally = FALSE, sqlconn = NULL)
 #' getkingdomnamefromtsn(tsn = 202385)
 #' }
 #' @export 
-getkingdomnamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
+getkingdomnamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		#
+		sqlconn <- getOption("conn")
 		query_KINGDOM_FROM_TSN <- paste("SELECT kingdom_name as KingdomName, kingdom_id as KingdomID from kingdoms where kingdom_id=(select kingdom_id from taxonomic_units where tsn=", tsn, ");")
 		return(dbGetQuery(conn=sqlconn, query_KINGDOM_FROM_TSN))
 	}
@@ -909,10 +908,10 @@ getkingdomnamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally
 #' getkingdomnamefromtsn(tsn = 202385)
 #' }
 #' @export 
-getkingdomnames <- function(locally = FALSE, sqlconn = NULL) 
+getkingdomnames <- function(locally = FALSE) 
 {
 	if (locally) {
-		#
+		sqlconn <- getOption("conn")
 		query_KINGDOM_NAMES <- paste("select distinct k.*, t.tsn 
                   from kingdoms k  
                   inner join taxonomic_units t on t.unit_name1 = k.kingdom_name and t.parent_tsn=0 
@@ -945,10 +944,10 @@ getkingdomnames <- function(locally = FALSE, sqlconn = NULL)
 #' getlastchangedate()
 #' }
 #' @export 
-getlastchangedate <- function(locally = FALSE, sqlconn = NULL) 
+getlastchangedate <- function(locally = FALSE) 
 {
 	if (locally) {
-		#
+		sqlconn <- getOption("conn")
 		query_UPDATE_DATE <- paste("select max(update_date) from taxonomic_units;")
 		return(dbGetQuery(conn=sqlconn, query_UPDATE_DATE))
 	}
@@ -970,7 +969,7 @@ getlastchangedate <- function(locally = FALSE, sqlconn = NULL)
 #' getlsidfromtsn(tsn = 155166)
 #' }
 #' @export 
-getlsidfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
+getlsidfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	url = "http://www.itis.gov/ITISWebService/services/ITISService/getLSIDFromTSN"
 	args <- list()
@@ -988,10 +987,10 @@ getlsidfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALS
 #' getothersourcesfromtsn(tsn = 182662)
 #' }
 #' @export 
-getothersourcesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
+getothersourcesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		#
+		sqlconn <- getOption("conn")
 		query_TAXON_OTHER_SRC_FROM_TSN <- paste("Select '1' as sort_order, r.original_desc_ind, NULL as language, r.vernacular_name, o.* 
                               from reference_links r, other_sources o where r.doc_id_prefix = o.source_id_prefix 
                               and r.documentation_id = o.source_id and (r.vernacular_name = '' or r.vernacular_name is null) and r.tsn = ", tsn, "UNION Select '2' as sort_order,'N' AS original_desc_ind, v.language, v.vernacular_name, o.* 
@@ -1028,10 +1027,10 @@ getothersourcesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locall
 #' getparenttsnfromtsn(tsn = 202385)
 #' }
 #' @export 
-getparenttsnfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
+getparenttsnfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		#
+		sqlconn <- getOption("conn")
 		query_PARENT_FROM_TSN <- paste("SELECT parent_tsn as ParentTSN from taxonomic_units where tsn=", tsn, ";", sep = "")
 		temp <- dbGetQuery(conn=sqlconn, query_PARENT_FROM_TSN)
 		temp2 <- cbind(temp, tsn)
@@ -1065,10 +1064,10 @@ getparenttsnfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally =
 #' getpublicationsfromtsn(tsn = 70340)
 #' }
 #' @export 
-getpublicationsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
+getpublicationsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		#
+		sqlconn <- getOption("conn")
 		query_TAXON_PUBS_FROM_TSN <- paste("Select '1' as sort_order, r.vernacular_name, NULL as language, r.original_desc_ind, p.* 
                         from reference_links r, publications p  
                         where r.doc_id_prefix = p.pub_id_prefix and r.documentation_id = p.publication_id  
@@ -1117,10 +1116,10 @@ getpublicationsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locall
 #' getranknames()
 #' }
 #' @export 
-getranknames <- function(locally = FALSE, sqlconn = NULL) 
+getranknames <- function(locally = FALSE) 
 {
 	if (locally) {
-		#
+		sqlconn <- getOption("conn")
 		query_RANK_NAMES <- paste("select k.kingdom_name, t.kingdom_id, t.rank_name, t.rank_id 
                from taxon_unit_types t 
                inner join kingdoms k on t.kingdom_id = k.kingdom_id  
@@ -1215,10 +1214,10 @@ getreviewyearfromtsn <- function(tsn = NA, ..., curl = getCurlHandle())
 #' getscientificnamefromtsn(tsn = 531894)
 #' }
 #' @export 
-getscientificnamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
+getscientificnamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		#
+		sqlconn <- getOption("conn")
 		query_SCI_NAME_BY_TSN_SRCH <- paste("select t.tsn, t.unit_ind1, t.unit_name1, t.unit_ind2, t.unit_name2, 
                          t.unit_ind3, t.unit_name3, t.unit_ind4, t.unit_name4, 
                          t.complete_name as combinedName, a.taxon_author as author, k.kingdom_name as kingdom 
@@ -1263,10 +1262,10 @@ getscientificnamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), loca
 #' getsynonymnamesfromtsn(tsn = 526852) # tsn accepted
 #' }
 #' @export 
-getsynonymnamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
+getsynonymnamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		#
+		sqlconn <- getOption("conn")
 		query_SYNONYM_FROM_TSN <- paste("select t.tsn, t.complete_name as combinedName, a.taxon_author as author 
                      from taxonomic_units t 
                      left join taxon_authors_lkp a on t.taxon_author_id = a.taxon_author_id 
@@ -1309,10 +1308,10 @@ getsynonymnamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locall
 #' gettaxonauthorshipfromtsn(tsn = 183671)
 #' }
 #' @export 
-gettaxonauthorshipfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
+gettaxonauthorshipfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		#
+		sqlconn <- getOption("conn")
 		query_TAXON_AUTHOR_FROM_TSN <- paste("select t.tsn as tsn, a.taxon_author as author, a.update_date as date 
                           from taxonomic_units t 
                           inner join taxon_authors_lkp a on t.taxon_author_id = a.taxon_author_id and t.tsn = ", tsn, ";")
@@ -1343,17 +1342,22 @@ gettaxonauthorshipfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), loc
 #' 
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \dontrun{
+#' # web API call
 #' gettaxonomicranknamefromtsn(tsn = 202385)
+#' 
+#' # local sql call
+#' gettaxonomicranknamefromtsn(tsn = 202385, locally=TRUE)
+#' gettaxonomicranknamefromtsn(tsn=c(202385,531894,526852,183671), locally=TRUE)
 #' }
 #' @export 
-gettaxonomicranknamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
+gettaxonomicranknamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		#
+		sqlconn <- getOption("conn")
 		query_RANK_FROM_TSN <- paste("SELECT t.kingdom_id, t.rank_id, t.tsn, r.rank_name, k.kingdom_name from taxonomic_units t 
                   inner join taxon_unit_types r on r.rank_id = t.rank_id 
-                  inner join kingdoms k on k.kingdom_id = t.kingdom_id and t.tsn =", tsn, ";")
-		temp <- dbGetQuery(conn=sqlconn, query_RANK_FROM_TSN)[1, ]
+                  inner join kingdoms k on k.kingdom_id = t.kingdom_id WHERE", paste0(sapply(tsn, function(x) paste("t.tsn = ", x, sep = ""), USE.NAMES=FALSE), collapse=" OR "), ";")
+		temp <- unique(dbGetQuery(conn=sqlconn, query_RANK_FROM_TSN))
 		return(data.frame(kingdomId = temp$kingdom_id, kingdomName = temp$kingdom_name, 
 											rankId = temp$rank_id, rankName = temp$rank_name, tsn = temp$tsn))
 	}
@@ -1382,14 +1386,21 @@ gettaxonomicranknamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), l
 #' 
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \dontrun{
+#' # web API call
 #' gettaxonomicusagefromtsn(tsn = 526852)
+#' 
+#' # Local search
+#' gettaxonomicusagefromtsn(tsn=c(202385,531894,526852,183671), locally=TRUE)
 #' }
 #' @export 
-gettaxonomicusagefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
+gettaxonomicusagefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		#
-		query_USAGE_FROM_TSN <- paste("SELECT tsn, name_usage from taxonomic_units where tsn = ", tsn, ";", sep = "")
+		sqlconn <- getOption("conn")
+		query_USAGE_FROM_TSN <- paste("select tsn, name_usage from taxonomic_units where ", paste0(sapply(tsn, function(x) paste("tsn = ", x, sep = ""), USE.NAMES=FALSE), collapse=" OR "), ";")
+ 		
+# 						paste("CASE", paste(sapply(language, function(x) paste("WHEN language LIKE ", paste("'", x, "'", sep = ""), " THEN ", paste0("'",x,"'"), sep = ""), USE.NAMES=FALSE),collapse=" "),"END AS querystring,"),
+# 		query_USAGE_FROM_TSN <- paste("SELECT tsn, name_usage from taxonomic_units where tsn = ", tsn, ";", sep = "")
 		temp <- dbGetQuery(conn=sqlconn, query_USAGE_FROM_TSN)
 		return(data.frame(taxonUsageRating = temp$name_usage, tsn = temp$tsn))
 	}
@@ -1413,7 +1424,7 @@ gettaxonomicusagefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), loca
 	}
 }
 
-#' Retrieve accepted TSn(with accepted name)
+#' Retrieve accepted TSN (with accepted name)
 #' 
 #' @import RCurl XML
 #' @param language A string containing the language. This is a language string, 
@@ -1425,16 +1436,26 @@ gettaxonomicusagefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), loca
 #'  queries are run against the ITIS web API. locally=TRUE should be faster in almost all cases.
 #' @param sqlconn The sqlite3 connection object.
 #' @examples \dontrun{
+#' # Using web API
 #' gettsnbyvernacularlanguage("french")
+#' 
+#' # Using local sql - one
+#' gettsnbyvernacularlanguage("french", locally=TRUE)
+#' 
+#' # Using local sql - many
+#' gettsnbyvernacularlanguage(language=c("french","german"), locally=TRUE)
 #' }
 #' @export 
-gettsnbyvernacularlanguage <- function(language = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
+gettsnbyvernacularlanguage <- function(language = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		#
-		query_TSNS_BY_LANGUAGE <- paste("select tsn, vernacular_name, vern_id from vernaculars where language like ", paste("'", language, "'", sep = ""), " order by tsn, vernacular_name;")
+		sqlconn <- getOption("conn")
+		
+		query_TSNS_BY_LANGUAGE <- paste("select", 
+						paste("CASE", paste(sapply(language, function(x) paste("WHEN language LIKE ", paste("'", x, "'", sep = ""), " THEN ", paste0("'",x,"'"), sep = ""), USE.NAMES=FALSE),collapse=" "),"END AS querystring,"),
+						"tsn, vernacular_name from vernaculars where ", paste0(" language like ", sapply(language, function(x) paste("'", x, "'", sep = ""),USE.NAMES=FALSE),collapse=" OR "), " order by tsn, vernacular_name;")
 		temp <- dbGetQuery(conn=sqlconn, query_TSNS_BY_LANGUAGE)
-		return(data.frame(comname = temp$vernacular_name, tsn = temp$tsn))
+		return(data.frame(language = temp$querystring, comname = temp$vernacular_name, tsn = temp$tsn))
 	}
 	else {
 		url = "http://www.itis.gov/ITISWebService/services/ITISService/getTsnByVernacularLanguage"
@@ -1484,14 +1505,21 @@ gettsnfromlsid <- function(lsid = NA, ..., curl = getCurlHandle())
 #' 
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \dontrun{
+#' # Web API
 #' getunacceptabilityreasonfromtsn(tsn = 183671)
+#' 
+#' # Local sql search
+#' conn <- taxize:::sqlite_init(path="~/github/ropensci/sql/itis2.sqlite")
+#' getunacceptabilityreasonfromtsn(tsn=c(202385,531894,526852,183671), locally=TRUE)
 #' }
 #' @export 
-getunacceptabilityreasonfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
+getunacceptabilityreasonfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		#
-		query_UNACCEPT_FROM_TSN <- paste("Select tsn, unaccept_reason from taxonomic_units where tsn =", tsn, ";")
+		sqlconn <- getOption("conn")
+		
+		query_UNACCEPT_FROM_TSN <- paste("SELECT tsn, unaccept_reason FROM taxonomic_units WHERE", 
+																		 paste(sapply(tsn, function(x) paste("tsn = ", x, sep = ""), USE.NAMES=FALSE), collapse=" OR "), ";")
 		temp <- dbGetQuery(conn=sqlconn, query_UNACCEPT_FROM_TSN)
 		return(data.frame(tsn = temp$tsn, unacceptReason = temp$unaccept_reason))
 	}
@@ -1522,13 +1550,18 @@ getunacceptabilityreasonfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(
 #'  queries are run against the ITIS web API. lofcally=TRUE should be faster in almost all cases.
 #' @param sqlconn The sqlite3 connection object.
 #' @examples \dontrun{
+#' # Web API
 #' getvernacularlanguages()
+#' 
+#' # Local sql search
+#' # taxize_options(localpath = "~/github/ropensci/sql/itis2.sqlite")
+#' getvernacularlanguages(locally=TRUE)
 #' }
 #' @export 
-getvernacularlanguages <- function(locally = FALSE, sqlconn = NULL) 
+getvernacularlanguages <- function(locally = FALSE)
 {
 	if (locally) {
-		#
+		sqlconn <- getOption("conn")
 		query_LANGUAGE_VALUES <- paste("select distinct language from vernaculars order by language;")
 		temp <- dbGetQuery(conn=sqlconn, query_LANGUAGE_VALUES)
 		return(data.frame(languageNames = temp$language))
@@ -1549,7 +1582,8 @@ getvernacularlanguages <- function(locally = FALSE, sqlconn = NULL)
 #' 
 #' @inheritParams getanymatchcount
 #' @param returnindex Retrun the index of each searched string with the resulting data.frame.
-#' 		Useful in get_tsn to split results by searched string.
+#' 		Useful in get_tsn to split results by searched string. Useful if you need to know what 
+#' 		results (i.e., rows) are associated with which queries.
 #' @examples \dontrun{
 #' searchbycommonname("american bullfrog")
 #' searchbycommonname("ferret-badger")
@@ -1560,15 +1594,16 @@ getvernacularlanguages <- function(locally = FALSE, sqlconn = NULL)
 #' searchbycommonname(srchkey=c("polar bear", "ferret-badger", "american bullfrog"), locally=TRUE, sqlconn=conn)
 #' searchbycommonname(srchkey=c("common sunflower", "water oak", "american chestnut"), locally=TRUE, sqlconn=conn)
 #' }
-#' @export 
-searchbycommonname <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL, returnindex=FALSE) 
+#' @export
+searchbycommonname <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE, returnindex=FALSE) 
 {
 	if (locally) {
-				query_COMMON_NAME_CONTAINS_SRCH <- paste("SELECT",
-paste("CASE", paste(sapply(srchkey, function(x) paste("WHEN v.vernacular_name LIKE ", paste("'%", x, "%'", sep = ""), " THEN ", paste0("'",x,"'"), sep = ""), USE.NAMES=FALSE),collapse=" "),"END AS querystring,"),
+		sqlconn <- getOption("conn")
+		query_COMMON_NAME_CONTAINS_SRCH <- paste("SELECT",
+			paste("CASE", paste(sapply(srchkey, function(x) paste("WHEN v.vernacular_name LIKE ", paste("'%", x, "%'", sep = ""), " THEN ", paste0("'",x,"'"), sep = ""), USE.NAMES=FALSE),collapse=" "),"END AS querystring,"),
 			"v.tsn as tsn, v.language as language, v.vernacular_name as commonName, t.complete_name as combinedName 
-                              from vernaculars v 
-                              inner join taxonomic_units t on v.tsn = t.tsn WHERE", 
+      from vernaculars v 
+      inner join taxonomic_units t on v.tsn = t.tsn WHERE", 
 			paste(sapply(srchkey, function(x) paste("v.vernacular_name like ", paste("'%", x, "%'", sep = ""), sep = ""), USE.NAMES=FALSE),collapse=" OR "), " order by querystring;")
 			
 # 		query_COMMON_NAME_CONTAINS_SRCH <- paste("select v.tsn as tsn, v.language as language, v.vernacular_name as commonName, t.complete_name as combinedName 
@@ -1601,21 +1636,37 @@ paste("CASE", paste(sapply(srchkey, function(x) paste("WHEN v.vernacular_name LI
 #' Search for tsn by common name beginning with 
 #' 
 #' @inheritParams getanymatchcount
+#' @param returnindex Retrun the index of each searched string with the resulting data.frame.
+#' 		Useful in get_tsn to split results by searched string. Useful if you need to know what 
+#' 		results (i.e., rows) are associated with which queries.
 #' @examples \dontrun{
-#' searchbycommonnamebeginswith("inch")
+#' searchbycommonnamebeginswith(srchkey="inch")
+#' 
+#' # Many names, locally
+#' conn <- taxize:::sqlite_init(path="~/github/ropensci/sql/itis2.sqlite")
+#' searchbycommonnamebeginswith(srchkey=c("inch","black","wild","brown"), locally=TRUE, sqlconn=conn)
 #' }
 #' @export 
-searchbycommonnamebeginswith <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
+searchbycommonnamebeginswith <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE, returnindex=FALSE) 
 {
 	if (locally) {
-		#
-		query_COMMON_NAME_CONTAINS_SRCH <- paste("select v.tsn as tsn, v.language as language, a.taxon_author as author, 
-                              v.vernacular_name as commonName, t.complete_name as combinedName 
-                              from vernaculars v 
-                              inner join taxonomic_units t on v.tsn = t.tsn 
-                              and v.vernacular_name like ", paste("'", srchkey, "%'", sep = ""), "left join taxon_authors_lkp a on t.taxon_author_id = a.taxon_author_id ;")
+		sqlconn <- getOption("conn")
+		query_COMMON_NAME_CONTAINS_SRCH <- paste("SELECT",
+			paste("CASE", paste(sapply(srchkey, function(x) paste("WHEN v.vernacular_name LIKE ", paste("'%", x, "%'", sep = ""), " THEN ", paste0("'",x,"'"), sep = ""), USE.NAMES=FALSE),collapse=" "),"END AS querystring,"),
+			"v.tsn as tsn, v.language as language, v.vernacular_name as commonName, t.complete_name as combinedName 
+      from vernaculars v 
+      inner join taxonomic_units t on v.tsn = t.tsn WHERE", 
+			paste(sapply(srchkey, function(x) paste("v.vernacular_name like ", paste("'", x, "%'", sep = ""), sep = ""), USE.NAMES=FALSE),collapse=" OR "), " order by querystring;")
+				
+# 		query_COMMON_NAME_CONTAINS_SRCH <- paste("select v.tsn as tsn, v.language as language,
+#                               v.vernacular_name as commonName, t.complete_name as combinedName 
+#                               from vernaculars v 
+#                               inner join taxonomic_units t on v.tsn = t.tsn 
+#                               and v.vernacular_name like ", paste("'", srchkey, "%'", sep = ""), ";")
 		temp <- dbGetQuery(conn=sqlconn, query_COMMON_NAME_CONTAINS_SRCH)
-		return(data.frame(comname = temp$commonName, lang = temp$language, tsn = temp$tsn))
+		if(!returnindex)
+			temp <- data.frame(comname = temp$commonName, sciname = temp$combinedName, lang = temp$language, tsn = temp$tsn)
+		return( temp )
 	}
 	else {
 		url = "http://www.itis.gov/ITISWebService/services/ITISService/searchByCommonNameBeginsWith"
@@ -1639,21 +1690,37 @@ searchbycommonnamebeginswith <- function(srchkey = NA, ..., curl = getCurlHandle
 #' Search for tsn by common name ending with
 #' 
 #' @inheritParams getanymatchcount
+#' @param returnindex Retrun the index of each searched string with the resulting data.frame.
+#' 		Useful in get_tsn to split results by searched string. Useful if you need to know what 
+#' 		results (i.e., rows) are associated with which queries.
 #' @examples \dontrun{
 #' searchbycommonnameendswith(srchkey="snake")
+#' 
+#' # Many names, locally
+#' conn <- taxize:::sqlite_init(path="~/github/ropensci/sql/itis2.sqlite")
+#' searchbycommonnameendswith(srchkey=c("bear","snake","duck"), locally=TRUE, sqlconn=conn)
 #' }
 #' @export 
-searchbycommonnameendswith <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
+searchbycommonnameendswith <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE, returnindex=FALSE) 
 {
 	if (locally) {
-		#
-		query_COMMON_NAME_CONTAINS_SRCH <- paste("select v.tsn as tsn, v.language as language, a.taxon_author as author, 
-                              v.vernacular_name as commonName, t.complete_name as combinedName 
-                              from vernaculars v 
-                              inner join taxonomic_units t on v.tsn = t.tsn 
-                              and v.vernacular_name like ", paste("'%", srchkey, "'", sep = ""), "left join taxon_authors_lkp a on t.taxon_author_id = a.taxon_author_id ;")
+		sqlconn <- getOption("conn")
+		query_COMMON_NAME_CONTAINS_SRCH <- paste("SELECT",
+			paste("CASE", paste(sapply(srchkey, function(x) paste("WHEN v.vernacular_name LIKE ", paste("'%", x, "%'", sep = ""), " THEN ", paste0("'",x,"'"), sep = ""), USE.NAMES=FALSE),collapse=" "),"END AS querystring,"),
+			"v.tsn as tsn, v.language as language, v.vernacular_name as commonName, t.complete_name as combinedName 
+      from vernaculars v 
+      inner join taxonomic_units t on v.tsn = t.tsn WHERE", 
+			paste(sapply(srchkey, function(x) paste("v.vernacular_name like ", paste("'%", x, "'", sep = ""), sep = ""), USE.NAMES=FALSE),collapse=" OR "), " order by querystring;")
+				
+# 		query_COMMON_NAME_CONTAINS_SRCH <- paste("select v.tsn as tsn, v.language as language,
+#                               v.vernacular_name as commonName, t.complete_name as combinedName 
+#                               from vernaculars v 
+#                               inner join taxonomic_units t on v.tsn = t.tsn 
+#                               and v.vernacular_name like ", paste("'%", srchkey, "'", sep = ""), ";")
 		temp <- dbGetQuery(conn=sqlconn, query_COMMON_NAME_CONTAINS_SRCH)
-		return(data.frame(comname = temp$commonName, lang = temp$language, tsn = temp$tsn))
+		if(!returnindex)
+			temp <- data.frame(comname = temp$commonName, sciname = temp$combinedName, lang = temp$language, tsn = temp$tsn)
+		return( temp )
 	}
 	else {
 		url = "http://www.itis.gov/ITISWebService/services/ITISService/searchByCommonNameEndsWith"
@@ -1678,7 +1745,8 @@ searchbycommonnameendswith <- function(srchkey = NA, ..., curl = getCurlHandle()
 #' 
 #' @inheritParams getanymatchcount
 #' @param returnindex Retrun the index of each searched string with the resulting data.frame.
-#' 		Useful in get_tsn to split results by searched string.
+#' 		Useful in get_tsn to split results by searched string. Useful if you need to know what 
+#' 		results (i.e., rows) are associated with which queries.
 #' @examples \dontrun{
 #' searchbyscientificname("Tardigrada")
 #' 
@@ -1686,15 +1754,16 @@ searchbycommonnameendswith <- function(srchkey = NA, ..., curl = getCurlHandle()
 #' ldply(c("oryza sativa","Chironomus riparius","Helianthus annuus","Quercus lobata"), searchbyscientificname)
 #' 
 #' # Using local search, can submit many in one vector
+#' conn <- taxize:::sqlite_init(path="~/github/ropensci/sql/itis2.sqlite")
 #' searchbyscientificname(srchkey=c("oryza sativa","Chironomus riparius","Helianthus annuus","Quercus lobata"), locally=TRUE, sqlconn=conn)
 #' 
 #' searchbyscientificname("Quercus douglasii", locally=TRUE, sqlconn=conn)
 #' }
 #' @export 
-searchbyscientificname <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL, returnindex=FALSE)
+searchbyscientificname <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE, returnindex=FALSE)
 {
 	if (locally) {
-		#
+		sqlconn <- getOption("conn")
 # 		query_SCI_NAME_LIKE <- paste("SELECT t.tsn as tsn, t.unit_name1, t.unit_name2, t.unit_name3, t.unit_name4,
 #             t.unit_ind1, t.unit_ind2, t.unit_ind3, t.unit_ind4,
 #         t.complete_name as combinedName, a.taxon_author as author, k.kingdom_name as kingdom
@@ -1744,36 +1813,61 @@ paste("CASE", paste(sapply(srchkey, function(x) paste("WHEN t.complete_name LIKE
 #' Search for any match
 #' 
 #' @inheritParams getanymatchcount
+#' @param returnindex Retrun the index of each searched string with the resulting data.frame.
+#' 		Useful in get_tsn to split results by searched string. Useful if you need to know what 
+#' 		results (i.e., rows) are associated with which queries.
 #' @examples \dontrun{
 #' searchforanymatch(srchkey = 202385)
 #' searchforanymatch(srchkey = "dolphin")
+#' 
+#' # Many query terms, locally
+#' conn <- taxize:::sqlite_init(path="~/github/ropensci/sql/itis2.sqlite")
+#' searchforanymatch(srchkey=c(202385,531894,526852,183671), locally=TRUE, sqlconn=conn)
+#' searchforanymatch(srchkey=c("bear","dolphin","snake"), locally=TRUE, sqlconn=conn)
 #' }
 #' @export 
-searchforanymatch <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
+searchforanymatch <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE, returnindex=FALSE) 
 {
 	if (locally) {
-		#
-		query_ANY_TSN_MATCH_SRCH <- paste("Select t.tsn as tsn, t.complete_name as combinedName, a.taxon_author as author, 
-                       null as commonName, null as language, 'TSN' as  matchType 
-                       from taxonomic_units t 
-                       left join taxon_authors_lkp a on a.taxon_author_id = t.taxon_author_id 
-                       where t.tsn= ", 
-																			srchkey, ";")
-		query_ANY_COMMON_MATCH_SRCH <- paste("Select t.tsn as tsn, t.complete_name as combinedName, v.vernacular_name as commonName, v.language as language,  
-                          t.unit_name1, t.unit_name2, t.unit_name3, t.unit_name4, 
-                          t.unit_ind1, t.unit_ind2, t.unit_ind3, t.unit_ind4, 
-                          a.taxon_author as author, k.kingdom_name as kingdom 
-                          from taxonomic_units t 
-                          join kingdoms k on t.kingdom_id = k.kingdom_id 
-                          left join taxon_authors_lkp a on t.taxon_author_id = a.taxon_author_id 
-                          inner join vernaculars v 
-                          on v.tsn = t.tsn and v.vernacular_name like ", paste("'%", srchkey, "%'", sep = ""), "order by tsn;")
+		sqlconn <- getOption("conn")
+		
 		if (is.numeric(srchkey)) {
+			query_ANY_TSN_MATCH_SRCH <- paste("SELECT",
+			paste("CASE", paste(sapply(srchkey, function(x) paste("WHEN t.tsn = ", x, " THEN ", x, sep = ""), USE.NAMES=FALSE), collapse=" "),"END AS querystring,"),
+				"t.tsn as tsn, t.complete_name as combinedName,
+        null as commonName, null as language, 'TSN' as  matchType
+        from taxonomic_units t 
+        WHERE", paste(sapply(srchkey, function(x) paste("t.tsn = ", x, sep = ""), USE.NAMES=FALSE), collapse=" OR "), " order by querystring;")
+		
+# 		query_ANY_TSN_MATCH_SRCH <- paste("Select t.tsn as tsn, t.complete_name as combinedName, a.taxon_author as author, 
+#                        null as commonName, null as language, 'TSN' as  matchType 
+#                        from taxonomic_units t 
+#                        left join taxon_authors_lkp a on a.taxon_author_id = t.taxon_author_id 
+#                        where t.tsn= ", srchkey, ";")
 			temp <- dbGetQuery(conn=sqlconn, query_ANY_TSN_MATCH_SRCH)
 			return(data.frame(combinedname = temp$combinedName, 
 												tsn = temp$tsn))
 		}
 		else {
+			query_ANY_COMMON_MATCH_SRCH <- paste("SELECT",
+			paste("CASE", paste(sapply(srchkey, function(x) paste("WHEN v.vernacular_name like ", paste("'%", x, "%'", sep = ""), " THEN ", paste0("'",x,"'"), sep = ""), USE.NAMES=FALSE), collapse=" "),"END AS querystring,"),
+													"t.tsn as tsn, t.complete_name as combinedName, v.vernacular_name as commonName, v.language as language,
+                          k.kingdom_name as kingdom 
+                          from taxonomic_units t 
+                          join kingdoms k on t.kingdom_id = k.kingdom_id 
+                          inner join vernaculars v 
+                          on v.tsn = t.tsn WHERE", 
+						paste(sapply(srchkey, function(x) paste("v.vernacular_name like ", paste("'%", x, "%'", sep = ""), sep = ""), USE.NAMES=FALSE), collapse=" OR "), " order by querystring;")
+		
+# 		query_ANY_COMMON_MATCH_SRCH <- paste("Select t.tsn as tsn, t.complete_name as combinedName, v.vernacular_name as commonName, v.language as language,  
+#                           t.unit_name1, t.unit_name2, t.unit_name3, t.unit_name4, 
+#                           t.unit_ind1, t.unit_ind2, t.unit_ind3, t.unit_ind4, 
+#                           a.taxon_author as author, k.kingdom_name as kingdom 
+#                           from taxonomic_units t 
+#                           join kingdoms k on t.kingdom_id = k.kingdom_id 
+#                           left join taxon_authors_lkp a on t.taxon_author_id = a.taxon_author_id 
+#                           inner join vernaculars v 
+#                           on v.tsn = t.tsn and v.vernacular_name like ", paste("'%", srchkey, "%'", sep = ""), "order by tsn;")
 			temp <- dbGetQuery(conn=sqlconn, query_ANY_COMMON_MATCH_SRCH)
 			return(data.frame(tsn = temp$tsn, combinedName = temp$combinedName, 
 												commonName = temp$commonName))
@@ -1808,10 +1902,11 @@ searchforanymatch <- function(srchkey = NA, ..., curl = getCurlHandle(), locally
 #' }
 #' @export 
 searchforanymatchpaged <- function(srchkey = NA, pagesize = NA, pagenum = NA, ascend = NA, 
-																	 ..., curl = getCurlHandle(), locally = FALSE, sqlconn = NULL) 
+																	 ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
-		#
+		sqlconn <- getOption("conn")
+		
 		query_ANY_MATCH_SEARCH <- paste("Select t.tsn as tsn, t.complete_name as combinedName, a.taxon_author as TaxonAuthor, v.vernacular_name as commonName, 
                             v.language as language, 'COMMON' as  matchType 
                          from taxonomic_units t 

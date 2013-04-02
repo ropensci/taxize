@@ -2,7 +2,7 @@
 \alias{sqlite_init}
 \title{Initiate connection to sqlite3 database}
 \usage{
-  sqlite_init(path = "/Users/scottmac2/github/ropensci/taxize_/inst/sql/itis2.sqlite")
+  sqlite_init(path = "~/github/ropensci/sql/itis2.sqlite")
 }
 \arguments{
   \item{path}{Path to the sqlite database}

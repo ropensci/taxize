@@ -1,10 +1,9 @@
 \name{gettsnbyvernacularlanguage}
 \alias{gettsnbyvernacularlanguage}
-\title{Retrieve accepted TSn(with accepted name)}
+\title{Retrieve accepted TSN (with accepted name)}
 \usage{
   gettsnbyvernacularlanguage(language = NA, ...,
-    curl = getCurlHandle(), locally = FALSE,
-    sqlconn = NULL)
+    curl = getCurlHandle(), locally = FALSE)
 }
 \arguments{
   \item{language}{A string containing the language. This is
@@ -26,11 +25,18 @@
   \item{sqlconn}{The sqlite3 connection object.}
 }
 \description{
-  Retrieve accepted TSn(with accepted name)
+  Retrieve accepted TSN (with accepted name)
 }
 \examples{
 \dontrun{
+# Using web API
 gettsnbyvernacularlanguage("french")
+
+# Using local sql - one
+gettsnbyvernacularlanguage("french", locally=TRUE)
+
+# Using local sql - many
+gettsnbyvernacularlanguage(language=c("french","german"), locally=TRUE)
 }
 }
 

@@ -17,7 +17,8 @@ Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
 LazyLoad: yes
 LazyData: yes
 Depends:
-    R (>= 2.15.0)
+    R (>= 2.15.0),
+    RSQLite
 Imports:
     XML,
     RCurl (>= 1.6),
@@ -28,7 +29,6 @@ Imports:
     foreach,
     ape,
     Taxonstand,
-    RSQLite,
     DBI
 Suggests:
     testthat,

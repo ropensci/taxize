@@ -4,9 +4,15 @@
 \usage{
   searchbycommonnamebeginswith(srchkey = NA, ...,
     curl = getCurlHandle(), locally = FALSE,
-    sqlconn = NULL)
+    returnindex = FALSE)
 }
 \arguments{
+  \item{returnindex}{Retrun the index of each searched
+  string with the resulting data.frame.  Useful in get_tsn
+  to split results by searched string. Useful if you need
+  to know what results (i.e., rows) are associated with
+  which queries.}
+
   \item{srchkey}{text or taxonomic serial number (TSN)
   (character or numeric)}
 
@@ -21,15 +27,17 @@
   sqlite3; if FALSE (the default), queries are run against
   the ITIS web API. locally=TRUE should be faster in almost
   all cases.}
-
-  \item{sqlconn}{The sqlite3 connection object.}
 }
 \description{
   Search for tsn by common name beginning with
 }
 \examples{
 \dontrun{
-searchbycommonnamebeginswith("inch")
+searchbycommonnamebeginswith(srchkey="inch")
+
+# Many names, locally
+conn <- taxize:::sqlite_init(path="~/github/ropensci/sql/itis2.sqlite")
+searchbycommonnamebeginswith(srchkey=c("inch","black","wild","brown"), locally=TRUE, sqlconn=conn)
 }
 }
 

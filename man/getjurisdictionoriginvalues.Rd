@@ -2,8 +2,7 @@
 \alias{getjurisdictionoriginvalues}
 \title{Get jurisdiction origin values}
 \usage{
-  getjurisdictionoriginvalues(locally = FALSE,
-    sqlconn = NULL)
+  getjurisdictionoriginvalues(locally = FALSE)
 }
 \arguments{
   \item{locally}{If TRUE, queries are run locally in

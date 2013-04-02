@@ -2,7 +2,7 @@
 \alias{getkingdomnames}
 \title{Get all possible kingdom names}
 \usage{
-  getkingdomnames(locally = FALSE, sqlconn = NULL)
+  getkingdomnames(locally = FALSE)
 }
 \arguments{
   \item{locally}{If TRUE, queries are run locally in

@@ -3,8 +3,7 @@
 \title{Get core metadata from tsn}
 \usage{
   getcoremetadatafromtsn(tsn = NA, ...,
-    curl = getCurlHandle(), locally = FALSE,
-    sqlconn = NULL)
+    curl = getCurlHandle(), locally = FALSE)
 }
 \arguments{
   \item{tsn}{TSN for a taxonomic group (numeric)}
@@ -20,8 +19,6 @@
   sqlite3; if FALSE (the default), queries are run against
   the ITIS web API. locally=TRUE should be faster in almost
   all cases.}
-
-  \item{sqlconn}{The sqlite3 connection object.}
 }
 \description{
   Get core metadata from tsn

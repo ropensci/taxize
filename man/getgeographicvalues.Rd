@@ -2,7 +2,7 @@
 \alias{getgeographicvalues}
 \title{Get all possible geographic values}
 \usage{
-  getgeographicvalues(locally = FALSE, sqlconn = NULL)
+  getgeographicvalues(locally = FALSE)
 }
 \arguments{
   \item{locally}{If TRUE, queries are run locally in

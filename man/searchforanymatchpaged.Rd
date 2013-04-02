@@ -4,7 +4,7 @@
 \usage{
   searchforanymatchpaged(srchkey = NA, pagesize = NA,
     pagenum = NA, ascend = NA, ..., curl = getCurlHandle(),
-    locally = FALSE, sqlconn = NULL)
+    locally = FALSE)
 }
 \arguments{
   \item{pagesize}{An integer containing the page size
@@ -30,8 +30,6 @@
   sqlite3; if FALSE (the default), queries are run against
   the ITIS web API. locally=TRUE should be faster in almost
   all cases.}
-
-  \item{sqlconn}{The sqlite3 connection object.}
 }
 \description{
   Search for any matched page

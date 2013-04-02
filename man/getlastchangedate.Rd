@@ -2,7 +2,7 @@
 \alias{getlastchangedate}
 \title{Provides the date the ITIS database was last updated.}
 \usage{
-  getlastchangedate(locally = FALSE, sqlconn = NULL)
+  getlastchangedate(locally = FALSE)
 }
 \arguments{
   \item{locally}{If TRUE, queries are run locally in

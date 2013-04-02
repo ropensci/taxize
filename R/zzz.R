@@ -43,6 +43,8 @@ getkey <- function(x = NULL, service) {
 		{ key <- x }
 	key
 }
+
+
 #' opposite of \%in\% : 'notin'
 #' 
 #' @rdname nomatch
@@ -53,3 +55,15 @@ getkey <- function(x = NULL, service) {
 #' @keywords internal
 #' @export
 `%notin%` <- function (x, table) match(x, table, nomatch = 0L) == 0L
+
+
+#' Function to specify sqlite3 connection object inside ITIS* functions.
+#' 
+#' @examples 
+#' # Set the path to your sqlite database file
+#' taxize_options(localpath = "~/github/ropensci/sql/itis2.sqlite")
+#' @keywords internal
+taxize_options <- function(localpath = NULL){
+	if(!is.null(localpath))
+		options(conn = taxize:::sqlite_init(path = localpath))
+}

@@ -2,7 +2,7 @@
 \alias{getcredibilityratings}
 \title{Get possible credibility ratings}
 \usage{
-  getcredibilityratings(locally = FALSE, sqlconn = NULL)
+  getcredibilityratings(locally = FALSE)
 }
 \arguments{
   \item{locally}{If TRUE, queries are run locally in

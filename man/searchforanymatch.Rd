@@ -4,9 +4,15 @@
 \usage{
   searchforanymatch(srchkey = NA, ...,
     curl = getCurlHandle(), locally = FALSE,
-    sqlconn = NULL)
+    returnindex = FALSE)
 }
 \arguments{
+  \item{returnindex}{Retrun the index of each searched
+  string with the resulting data.frame.  Useful in get_tsn
+  to split results by searched string. Useful if you need
+  to know what results (i.e., rows) are associated with
+  which queries.}
+
   \item{srchkey}{text or taxonomic serial number (TSN)
   (character or numeric)}
 
@@ -21,8 +27,6 @@
   sqlite3; if FALSE (the default), queries are run against
   the ITIS web API. locally=TRUE should be faster in almost
   all cases.}
-
-  \item{sqlconn}{The sqlite3 connection object.}
 }
 \description{
   Search for any match
@@ -31,6 +35,11 @@
 \dontrun{
 searchforanymatch(srchkey = 202385)
 searchforanymatch(srchkey = "dolphin")
+
+# Many query terms, locally
+conn <- taxize:::sqlite_init(path="~/github/ropensci/sql/itis2.sqlite")
+searchforanymatch(srchkey=c(202385,531894,526852,183671), locally=TRUE, sqlconn=conn)
+searchforanymatch(srchkey=c("bear","dolphin","snake"), locally=TRUE, sqlconn=conn)
 }
 }
 
