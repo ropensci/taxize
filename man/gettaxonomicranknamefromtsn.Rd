@@ -29,6 +29,7 @@
 gettaxonomicranknamefromtsn(tsn = 202385)
 
 # local sql call
+taxize:::taxize_options(localpath = "~/github/ropensci/sql/itis2.sqlite")
 gettaxonomicranknamefromtsn(tsn = 202385, locally=TRUE)
 gettaxonomicranknamefromtsn(tsn=c(202385,531894,526852,183671), locally=TRUE)
 }

@@ -28,7 +28,12 @@
 }
 \examples{
 \dontrun{
+# using the web API
 getscientificnamefromtsn(tsn = 531894)
+
+# Local search with sql
+getscientificnamefromtsn(tsn = 526852, locally=TRUE)
+getscientificnamefromtsn(tsn=c(202385,531894,526852,183671), locally=TRUE)
 }
 }
 

@@ -26,6 +26,8 @@
 \examples{
 \dontrun{
 getparenttsnfromtsn(tsn = 202385)
+getparenttsnfromtsn(tsn = 202385, locally=TRUE)
+getparenttsnfromtsn(tsn=c(202385,531894,526852,183671), locally=TRUE)
 }
 }
 

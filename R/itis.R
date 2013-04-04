@@ -1025,17 +1025,23 @@ getothersourcesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locall
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \dontrun{
 #' getparenttsnfromtsn(tsn = 202385)
+#' getparenttsnfromtsn(tsn = 202385, locally=TRUE)
+#' getparenttsnfromtsn(tsn=c(202385,531894,526852,183671), locally=TRUE)
 #' }
 #' @export 
 getparenttsnfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
 		sqlconn <- getOption("conn")
-		query_PARENT_FROM_TSN <- paste("SELECT parent_tsn as ParentTSN from taxonomic_units where tsn=", tsn, ";", sep = "")
+# 		query_PARENT_FROM_TSN <- paste("SELECT parent_tsn as ParentTSN from taxonomic_units where tsn=", tsn, ";", sep = "")
+		query_PARENT_FROM_TSN <- paste("SELECT parent_tsn as ParentTSN from taxonomic_units WHERE", 
+  paste(sapply(tsn, function(x) paste("tsn =", x, sep=" "), USE.NAMES=FALSE), collapse = " OR "),  ";")
+# tsn=", tsn, ";", sep = "")
+  
 		temp <- dbGetQuery(conn=sqlconn, query_PARENT_FROM_TSN)
 		temp2 <- cbind(temp, tsn)
 		names(temp2) <- c("parentTsn", "tsn")
-		return(temp2)
+		return( temp2 )
 	}
 	else {
 		url = "http://www.itis.gov/ITISWebService/services/ITISService/getParentTSNFromTSN"
@@ -1062,6 +1068,7 @@ getparenttsnfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally =
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \dontrun{
 #' getpublicationsfromtsn(tsn = 70340)
+#' getpublicationsfromtsn(tsn=c(202385,531894,526852,183671), locally=TRUE)
 #' }
 #' @export 
 getpublicationsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
@@ -1071,10 +1078,15 @@ getpublicationsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locall
 		query_TAXON_PUBS_FROM_TSN <- paste("Select '1' as sort_order, r.vernacular_name, NULL as language, r.original_desc_ind, p.* 
                         from reference_links r, publications p  
                         where r.doc_id_prefix = p.pub_id_prefix and r.documentation_id = p.publication_id  
-                        and (r.vernacular_name ='' or r.vernacular_name is null) and r.tsn = ", tsn, "UNION Select '2' as sort_order, v.vernacular_name, v.language, 'N' as original_desc_ind, p.*  
+                        and (r.vernacular_name ='' or r.vernacular_name is null) and tsn 
+                      UNION Select '2' as sort_order, v.vernacular_name, v.language, 'N' as original_desc_ind, p.*  
                             From vern_ref_links vr, publications p, vernaculars v  
                             where vr.doc_id_prefix = p.pub_id_prefix and vr.documentation_id = p.publication_id and vr.vern_id = v.vern_id  
                             and vr.tsn = v.tsn and vr.tsn = ", tsn, "order by reference_author, actual_pub_date, title, publication_name, sort_order;")
+# r.tsn = ", 
+# 		                    paste0(sapply(tsn, function(x) paste("r.tsn = ", x, sep = ""), USE.NAMES=FALSE), collapse=" OR "),
+#                     		paste0(sapply(tsn, function(x) paste("vr.tsn = ", x, sep = ""), USE.NAMES=FALSE), collapse=" OR "), "order by reference_author, actual_pub_date, title, publication_name, sort_order;")
+    
 		temp <- dbGetQuery(conn=sqlconn, query_TAXON_PUBS_FROM_TSN)
 		toget <- c("actual_pub_date", "isbn", "issn", "listed_pub_date", 
 							 "pages", "pub_comment", "publication_name", "pub_place", 
@@ -1114,6 +1126,7 @@ getpublicationsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locall
 #' @param sqlconn The sqlite3 connection object.
 #' @examples \dontrun{
 #' getranknames()
+#' getranknames(locally=TRUE)
 #' }
 #' @export 
 getranknames <- function(locally = FALSE) 
@@ -1131,7 +1144,7 @@ getranknames <- function(locally = FALSE)
 		message(url)
 		tt <- getURL(url)
 		out <- xmlParse(tt)
-		namespaces <- c(ax25 = "http://metadata.itis_service.itis.usgs.org/xsd")
+		namespaces <- c(ax25 = "http://metadata.itis_service.itis.usgs.gov/xsd")
 		nodes <- getNodeSet(out, "//ax25:kingdomName", namespaces = namespaces)
 		kingdomName <- sapply(nodes, xmlValue)
 		nodes <- getNodeSet(out, "//ax25:rankId", namespaces = namespaces)
@@ -1211,7 +1224,12 @@ getreviewyearfromtsn <- function(tsn = NA, ..., curl = getCurlHandle())
 #' 
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \dontrun{
+#' # using the web API
 #' getscientificnamefromtsn(tsn = 531894)
+#' 
+#' # Local search with sql
+#' getscientificnamefromtsn(tsn = 526852, locally=TRUE)
+#' getscientificnamefromtsn(tsn=c(202385,531894,526852,183671), locally=TRUE)
 #' }
 #' @export 
 getscientificnamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
@@ -1224,7 +1242,9 @@ getscientificnamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), loca
                          from taxonomic_units t 
                          join kingdoms k on t.kingdom_id = k.kingdom_id 
                          left join taxon_authors_lkp a on t.taxon_author_id = a.taxon_author_id 
-                         where t.tsn =", tsn, ";")
+                         WHERE",
+                          paste0(sapply(tsn, function(x) paste("t.tsn = ", x, sep = ""), USE.NAMES=FALSE), collapse=" OR "), ";")
+    
 		temp <- dbGetQuery(conn=sqlconn, query_SCI_NAME_BY_TSN_SRCH)
 		temp <- temp[, c("tsn", "unit_ind1", "unit_name1", "unit_name2", 
 										 "unit_ind3", "unit_name3", "combinedName")]
@@ -1257,21 +1277,39 @@ getscientificnamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), loca
 #' Returns a list of the synonyms (if any) for the TSN.
 #' 
 #' @inheritParams getcommentdetailfromtsn
+#' @param returnindex Retrun the index of each searched string with the resulting data.frame.
+#'     Useful in get_tsn to split results by searched string. Useful if you need to know what 
+#' 		results (i.e., rows) are associated with which queries.
 #' @examples \dontrun{
+#' # Web API
 #' getsynonymnamesfromtsn(tsn = 183671) # tsn not accepted
 #' getsynonymnamesfromtsn(tsn = 526852) # tsn accepted
+#' 
+#' # many with web API
+#' ldply(c(202385,36616,19370,41107), getsynonymnamesfromtsn)
+#' 
+#' # Local search with sql
+#' taxize:::taxize_options(localpath = "~/github/ropensci/sql/itis2.sqlite")
+#' getsynonymnamesfromtsn(tsn = 526852, locally=TRUE)
+#' getsynonymnamesfromtsn(tsn=c(202385,36616,19370,41107), locally=TRUE)
 #' }
 #' @export 
-getsynonymnamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
+getsynonymnamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE, returnindex=FALSE) 
 {
 	if (locally) {
 		sqlconn <- getOption("conn")
-		query_SYNONYM_FROM_TSN <- paste("select t.tsn, t.complete_name as combinedName, a.taxon_author as author 
-                     from taxonomic_units t 
-                     left join taxon_authors_lkp a on t.taxon_author_id = a.taxon_author_id 
-                     inner join synonym_links s on t.tsn = s.tsn and s.tsn_accepted = ", tsn, ";")
+		query_SYNONYM_FROM_TSN <- paste("SELECT", 
+		  paste("CASE", paste(sapply(tsn, function(x) paste("WHEN s.tsn_accepted = ", x, " THEN ", x, sep = ""), USE.NAMES=FALSE), collapse=" "), "END AS querystring,"),
+		    "t.tsn, t.complete_name as combinedName, a.taxon_author as author 
+		    from taxonomic_units t 
+		    left join taxon_authors_lkp a on t.taxon_author_id = a.taxon_author_id 
+		    inner join synonym_links s on t.tsn = s.tsn WHERE ", 
+		    paste0(sapply(tsn, function(x) paste("s.tsn_accepted = ", x, sep = ""), USE.NAMES=FALSE), collapse=" OR "), " order by querystring;")
+    
 		temp <- dbGetQuery(conn=sqlconn, query_SYNONYM_FROM_TSN)
-		return(data.frame(name = temp$combinedName, tsn = temp$tsn))
+		if(!returnindex)
+		  temp <- data.frame(name = temp$combinedName, tsn = temp$tsn)
+		return(temp)
 	}
 	else {
 		url = "http://www.itis.gov/ITISWebService/services/ITISService/getSynonymNamesFromTSN"
@@ -1306,15 +1344,20 @@ getsynonymnamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locall
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \dontrun{
 #' gettaxonauthorshipfromtsn(tsn = 183671)
+#' 
+#' taxize:::taxize_options(localpath = "~/github/ropensci/sql/itis2.sqlite")
+#' gettaxonauthorshipfromtsn(tsn=c(202385,531894,526852,183671), locally=TRUE)
 #' }
 #' @export 
 gettaxonauthorshipfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), locally = FALSE) 
 {
 	if (locally) {
 		sqlconn <- getOption("conn")
+    
 		query_TAXON_AUTHOR_FROM_TSN <- paste("select t.tsn as tsn, a.taxon_author as author, a.update_date as date 
                           from taxonomic_units t 
-                          inner join taxon_authors_lkp a on t.taxon_author_id = a.taxon_author_id and t.tsn = ", tsn, ";")
+                          inner join taxon_authors_lkp a on t.taxon_author_id = a.taxon_author_id WHERE", 
+		                      paste0(sapply(tsn, function(x) paste("t.tsn = ", x, sep = ""), USE.NAMES=FALSE), collapse=" OR "), ";")
 		temp <- dbGetQuery(conn=sqlconn, query_TAXON_AUTHOR_FROM_TSN)
 		return(data.frame(authorship = temp$author, updateDate = temp$date, tsn = temp$tsn))
 	}
@@ -1346,6 +1389,7 @@ gettaxonauthorshipfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), loc
 #' gettaxonomicranknamefromtsn(tsn = 202385)
 #' 
 #' # local sql call
+#' taxize:::taxize_options(localpath = "~/github/ropensci/sql/itis2.sqlite")
 #' gettaxonomicranknamefromtsn(tsn = 202385, locally=TRUE)
 #' gettaxonomicranknamefromtsn(tsn=c(202385,531894,526852,183671), locally=TRUE)
 #' }

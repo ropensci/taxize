@@ -26,6 +26,9 @@
 \examples{
 \dontrun{
 gettaxonauthorshipfromtsn(tsn = 183671)
+
+taxize:::taxize_options(localpath = "~/github/ropensci/sql/itis2.sqlite")
+gettaxonauthorshipfromtsn(tsn=c(202385,531894,526852,183671), locally=TRUE)
 }
 }
 

@@ -26,6 +26,7 @@
 \examples{
 \dontrun{
 getpublicationsfromtsn(tsn = 70340)
+getpublicationsfromtsn(tsn=c(202385,531894,526852,183671), locally=TRUE)
 }
 }
 

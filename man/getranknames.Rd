@@ -20,6 +20,7 @@
 \examples{
 \dontrun{
 getranknames()
+getranknames(locally=TRUE)
 }
 }
 
