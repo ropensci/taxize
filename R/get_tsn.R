@@ -15,13 +15,15 @@
 #' @export
 #' @examples \dontrun{
 #' get_tsn(searchterm="Quercus douglasii", searchtype="sciname", locally=FALSE)
+#' 
+#' taxize:::sqlite_init(path="~/github/ropensci/sql/itis2.sqlite")
 #' get_tsn(searchterm="Quercus douglasii", searchtype="sciname", locally=TRUE)
 #' get_tsn(searchterm=c("Chironomus riparius","Quercus douglasii"), searchtype="sciname", locally=TRUE)
 #' splist <- c("annona cherimola", 'annona muricata', "quercus robur", 
 #' 		"shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus", "Tamandua tetradactyla",
 #' 		"Tarsius syric", "Sylvilagus dicei", "Galeopterus variegatus")
-#' get_tsn(splist,"sciname", locally=TRUE)
-#' get_tsn(splist,"sciname")
+#' get_tsn(splist, "sciname", locally=TRUE)
+#' get_tsn(splist, "sciname")
 #' 
 #' # By common names
 #' get_tsn(searchterm=c("polar bear", "ferret-badger", "american bullfrog"), searchtype = "comname", locally=TRUE)
