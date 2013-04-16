@@ -1,0 +1,108 @@
+# Install the development branch of taxize on github
+```{r }
+# install.packages("devtools")
+# library(devtools)
+# install_github("taxize_", "ropensci", "local_sql")
+library(taxize)
+library(plyr)
+```
+
+# Download the sqlite database from dropbox
+https://www.dropbox.com/s/gz1vvsu2d0qps19/itis2_sqlite.zip
+
+# Set path to database
+Just set the path to your sqlite database once, then choose `locally = TRUE` in your ITIS function calls to use the local database. This creates an object in your options named "conn", which the ITIS functions call when `locally = TRUE`.
+```{r}
+taxize:::taxize_options(localpath = "~/github/ropensci/sql/itis2.sqlite") # change to your path
+```
+
+# Some examples
+## Search by scientific name
+
+### Single search 
+#### Using the web API 
+```{r}
+searchbyscientificname("Tardigrada")
+```
+
+### Using local search
+```{r}
+searchbyscientificname("Tardigrada", locally=TRUE)
+```
+
+### As you can see, there is some performance improvement with even single queries
+```{r}
+system.time( searchbyscientificname("Tardigrada") )
+system.time( searchbyscientificname("Tardigrada", locally=TRUE) )
+```
+
+### Search for multiple names
+
+#### Using the web API, you have to submit one at a time using e.g., an lapply fxn
+```{r}
+spnames <- c("oryza sativa","Chironomus riparius","Helianthus annuus","Quercus lobata","Poa annua","Lampetra tridentata","Mordacia lapicida","Bathyraja abyssicola","Arhynchobatis asperrimus","Alytes obstetricans")
+head( ldply(spnames, searchbyscientificname) )
+```
+
+#### Using local search, you can submit many names in one vector
+```{r}
+head( searchbyscientificname(srchkey=spnames, locally=TRUE) )
+```
+
+### Searches with many queries is where we see the major time savings 
+```{r}
+system.time( ldply(spnames, searchbyscientificname) ) # web API
+system.time( searchbyscientificname(srchkey=spnames, locally=TRUE) ) # local sql search
+```
+
+
+## Get synonyms
+```{r}
+# many TSNs with the web API
+ldply(c(202385,36616,19370,41107), getsynonymnamesfromtsn)
+ 
+# Local search with sql
+taxize:::taxize_options(localpath = "~/github/ropensci/sql/itis2.sqlite") # set to use your path
+getsynonymnamesfromtsn(tsn = 526852, locally=TRUE) # a single TSN
+getsynonymnamesfromtsn(tsn=c(202385,36616,19370,41107), locally=TRUE) # many TSNs
+
+# any you can return the index on the data.frame, that is, the TSN you searched with for easy parsing afterwards
+getsynonymnamesfromtsn(tsn=c(202385,36616,19370,41107), locally=TRUE, returnindex=TRUE)
+```
+
+
+# Here's what the one of the functions looks like with the sql syntax
+```{r eval=FALSE }
+gettsnbyvernacularlanguage <- function(language = NA, locally = FALSE) 
+{
+  if (locally) {
+    sqlconn <- getOption("conn")
+    query_TSNS_BY_LANGUAGE <- paste("select", 
+        paste("CASE", paste(sapply(language, function(x) 
+        paste("WHEN language LIKE ", paste("'", x, "'", sep = ""), " THEN ", 
+        paste0("'",x,"'"), sep = ""), USE.NAMES=FALSE),collapse=" "),"END AS querystring,"),
+        "tsn, vernacular_name from vernaculars where ", paste0(" language like ", 
+        sapply(language, function(x) paste("'", x, "'", sep = ""), USE.NAMES=FALSE), collapse=" OR "), 
+        " order by tsn, vernacular_name;")
+    temp <- dbGetQuery(conn=sqlconn, query_TSNS_BY_LANGUAGE)
+    return(data.frame(language = temp$querystring, comname = temp$vernacular_name, tsn = temp$tsn))
+  }
+  else {
+    url = "http://www.itis.gov/ITISWebService/services/ITISService/getTsnByVernacularLanguage"
+    args <- list()
+    if (!is.na(language)) 
+      args$language <- language
+    tt <- getForm(url, .params = args, ..., curl = curl)
+    out <- xmlParse(tt)
+    namespaces <- c(namespaces <- c(ax21 = "http://data.itis_service.itis.usgs.gov/xsd"))
+    nodes <- getNodeSet(out, "//ax21:commonName", namespaces = namespaces)
+    comname <- sapply(nodes, xmlValue)
+    nodes <- getNodeSet(out, "//ax21:tsn", namespaces = namespaces)
+    tsn <- sapply(nodes, xmlValue)
+    data.frame(comname = comname, tsn = tsn)
+  }
+}
+```
+
+#### Note:
+Not all function that use ITIS data have a local sql option yet, but many do.  Send any bug reports [here](https://github.com/ropensci/taxize_/issues)

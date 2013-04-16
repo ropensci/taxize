@@ -16,14 +16,18 @@
 #' out <- eol_pages(taxonconceptID=pageid)
 #' eol_hierarchy(out[out$nameAccordingTo == "NCBI Taxonomy", "identifier"])
 #' eol_hierarchy(out[out$nameAccordingTo == "Integrated Taxonomic Information System (ITIS)", "identifier"])
+#' 
+#' # Get something
+#' out <- eol_pages(id=588586)
 #' }
 #' @export
-eol_pages <- function(taxonconceptID, usekey = FALSE, returntype = 'data.frame',
-	url = 'http://eol.org/api/pages/1.0/', key = NULL) 
+eol_pages <- function(id, usekey = FALSE, returntype = 'data.frame', key = NULL) 
 {     
+  url <- 'http://eol.org/api/pages/1.0/'
+  
 	key <- getkey(key, "EOL")
 	if(usekey == TRUE){usekey_<-paste('?key=',key,sep='')}else{usekey_<-NULL}
-	urlget <- paste(url, taxonconceptID, '.json', usekey_, sep="")
+	urlget <- paste(url, id, '.json', usekey_, sep="")
 	message(urlget)
 	searchresults <- fromJSON(urlget)
 	

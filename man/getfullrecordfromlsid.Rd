@@ -1,8 +1,8 @@
 \name{getfullrecordfromlsid}
 \alias{getfullrecordfromlsid}
 \title{Returns the full ITIS record for the TSN in the LSID, found by comparing the
-		TSN in the search key to the TSN field. Returns an empty result set if there
- 	is no match or the TSN is invalid.}
+     TSN in the search key to the TSN field. Returns an empty result set if there
+     is no match or the TSN is invalid.}
 \usage{
   getfullrecordfromlsid(lsid = NA, ...,
     curl = getCurlHandle())

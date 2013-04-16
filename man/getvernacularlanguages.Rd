@@ -2,7 +2,15 @@
 \alias{getvernacularlanguages}
 \title{Provides a list of the unique languages used in the vernacular table.}
 \usage{
-  getvernacularlanguages()
+  getvernacularlanguages(locally = FALSE)
+}
+\arguments{
+  \item{locally}{If TRUE, queries are run locally in
+  sqlite3; if FALSE (the default), queries are run against
+  the ITIS web API. lofcally=TRUE should be faster in
+  almost all cases.}
+
+  \item{sqlconn}{The sqlite3 connection object.}
 }
 \description{
   Provides a list of the unique languages used in the
@@ -10,7 +18,12 @@
 }
 \examples{
 \dontrun{
+# Web API
 getvernacularlanguages()
+
+# Local sql search
+# taxize_options(localpath = "~/github/ropensci/sql/itis2.sqlite")
+getvernacularlanguages(locally=TRUE)
 }
 }
 

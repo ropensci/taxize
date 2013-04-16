@@ -18,6 +18,9 @@
 \description{
   Get full hierarchy from tsn
 }
+\details{
+  Can't do local searcha s don't have the SQL syntax yet.
+}
 \examples{
 \dontrun{
 getfullhierarchyfromtsn(tsn = 37906)

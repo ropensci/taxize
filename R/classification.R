@@ -4,6 +4,8 @@
 #' @param x IDs from \code{get_tsn()} or \code{get_uid()}.
 #' @param ID type of identifier, either 'uid' or 'tsn'
 #' @param ... Currently not used
+#' @param locally If TRUE, queries are run locally in sqlite3; if FALSE (the default), 
+#'  queries are run against the ITIS web API. locally=TRUE should be faster in almost all cases.
 #' @return Classification of taxons in a list of data.frames.
 #' @note If IDs are supplied directly (not from the get_* functions) 
 #' use the methods classification.ncbi() or classification.tsn() directly. 
@@ -22,7 +24,7 @@
 #' # Fails
 #' classification(315576)
 #' }
-classification <- function(x, ID = NULL, ...){
+classification <- function(x, ID = NULL, locally=FALSE, ...){
   UseMethod("classification")
 }
 
@@ -47,7 +49,7 @@ classification.tsn <- function(x, ...)
     if(is.na(x)) {
       out <- NA
     } else {
-    	out <- getfullhierarchyfromtsn(x)
+    	out <- getfullhierarchyfromtsn(x, locally=FALSE)
     	# remove overhang
     	out <- out[1:which(out$tsn == x), ]
     	return(out)

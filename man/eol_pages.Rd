@@ -2,9 +2,8 @@
 \alias{eol_pages}
 \title{Search for pages in EOL database using a taxonconceptID.}
 \usage{
-  eol_pages(taxonconceptID, usekey = FALSE,
-    returntype = "data.frame",
-    url = "http://eol.org/api/pages/1.0/", key = NULL)
+  eol_pages(id, usekey = FALSE, returntype = "data.frame",
+    key = NULL)
 }
 \arguments{
   \item{taxonconceptID}{The taxonconceptID (numeric), which
@@ -37,6 +36,9 @@ pageid <- eol_search('Pomatomus')$id[1]
 out <- eol_pages(taxonconceptID=pageid)
 eol_hierarchy(out[out$nameAccordingTo == "NCBI Taxonomy", "identifier"])
 eol_hierarchy(out[out$nameAccordingTo == "Integrated Taxonomic Information System (ITIS)", "identifier"])
+
+# Get something
+out <- eol_pages(id=588586)
 }
 }
 

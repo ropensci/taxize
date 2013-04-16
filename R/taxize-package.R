@@ -45,3 +45,13 @@ NULL
 #' @docType data
 #' @keywords data
 NULL
+#' Lookup-table for APGIII family names
+#' @name apg_families
+#' @docType data
+#' @keywords data
+NULL
+#' Lookup-table for APGIII order names
+#' @name apg_orders
+#' @docType data
+#' @keywords data
+NULL

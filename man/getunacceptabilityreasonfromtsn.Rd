@@ -3,7 +3,7 @@
 \title{Returns the unacceptability reason, if any, for the TSN.}
 \usage{
   getunacceptabilityreasonfromtsn(tsn = NA, ...,
-    curl = getCurlHandle())
+    curl = getCurlHandle(), locally = FALSE)
 }
 \arguments{
   \item{tsn}{TSN for a taxonomic group (numeric)}
@@ -14,13 +14,23 @@
   \item{curl}{If using in a loop, call getCurlHandle()
   first and pass the returned value in here (avoids
   unnecessary footprint)}
+
+  \item{locally}{If TRUE, queries are run locally in
+  sqlite3; if FALSE (the default), queries are run against
+  the ITIS web API. locally=TRUE should be faster in almost
+  all cases.}
 }
 \description{
   Returns the unacceptability reason, if any, for the TSN.
 }
 \examples{
 \dontrun{
+# Web API
 getunacceptabilityreasonfromtsn(tsn = 183671)
+
+# Local sql search
+conn <- taxize:::sqlite_init(path="~/github/ropensci/sql/itis2.sqlite")
+getunacceptabilityreasonfromtsn(tsn=c(202385,531894,526852,183671), locally=TRUE)
 }
 }
 

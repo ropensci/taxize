@@ -4,7 +4,7 @@
 \alias{classification.uid}
 \title{Get taxonomic hierarchy for a given taxon ID.}
 \usage{
-  classification(x, ID = NULL, ...)
+  classification(x, ID = NULL, locally = FALSE, ...)
 
   \method{classification}{tsn} (x, ...)
 
@@ -16,6 +16,11 @@
   \item{ID}{type of identifier, either 'uid' or 'tsn'}
 
   \item{...}{Currently not used}
+
+  \item{locally}{If TRUE, queries are run locally in
+  sqlite3; if FALSE (the default), queries are run against
+  the ITIS web API. locally=TRUE should be faster in almost
+  all cases.}
 }
 \value{
   Classification of taxons in a list of data.frames.

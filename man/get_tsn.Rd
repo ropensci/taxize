@@ -3,7 +3,7 @@
 \title{Get the TSN code for a search term.}
 \usage{
   get_tsn(searchterm, searchtype = "sciname",
-    verbose = TRUE)
+    verbose = TRUE, locally = FALSE)
 }
 \arguments{
   \item{searchterm}{A vector of common or scientific
@@ -13,6 +13,11 @@
   'comnamebeg', 'comname', 'comnameend'.}
 
   \item{verbose}{should progress be printed?}
+
+  \item{locally}{If TRUE, queries are run locally in
+  sqlite3; if FALSE (the default), queries are run against
+  the ITIS web API. locally=TRUE should be faster in almost
+  all cases.}
 }
 \value{
   A vector of taxonomic serial numbers (TSN). If a species
@@ -26,12 +31,19 @@
 }
 \examples{
 \dontrun{
-get_tsn(searchterm="Quercus douglasii", searchtype="sciname")
-get_tsn(searchterm="Chironomus riparius", searchtype="sciname")
-get_tsn(c("Chironomus riparius","Quercus douglasii"), "sciname")
+get_tsn(searchterm="Quercus douglasii", searchtype="sciname", locally=FALSE)
+
+taxize:::sqlite_init(path="~/github/ropensci/sql/itis2.sqlite")
+get_tsn(searchterm="Quercus douglasii", searchtype="sciname", locally=TRUE)
+get_tsn(searchterm=c("Chironomus riparius","Quercus douglasii"), searchtype="sciname", locally=TRUE)
 splist <- c("annona cherimola", 'annona muricata', "quercus robur",
-		"shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")
-get_tsn(splist,"sciname")
+		"shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus", "Tamandua tetradactyla",
+		"Tarsius syric", "Sylvilagus dicei", "Galeopterus variegatus")
+get_tsn(splist, "sciname", locally=TRUE)
+get_tsn(splist, "sciname")
+
+# By common names
+get_tsn(searchterm=c("polar bear", "ferret-badger", "american bullfrog"), searchtype = "comname", locally=TRUE)
 }
 }
 
