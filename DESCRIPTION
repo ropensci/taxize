@@ -78,4 +78,4 @@ Collate:
     'tnrs.R'
     'itis.R'
     'sqlite_init.R'
-    'apg2_lookup.R'
+    'apg_lookup.R'

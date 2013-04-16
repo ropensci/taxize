@@ -1,5 +1,5 @@
 export("%notin%")
-export(apg2_lookup)
+export(apg_lookup)
 export(capwords)
 export(classification)
 export(col_children)

@@ -18,8 +18,7 @@
 #' eol_hierarchy(out[out$nameAccordingTo == "Integrated Taxonomic Information System (ITIS)", "identifier"])
 #' 
 #' # Get something
-out <- 
-  eol_pages(id=588586)
+#' out <- eol_pages(id=588586)
 #' }
 #' @export
 eol_pages <- function(id, usekey = FALSE, returntype = 'data.frame', key = NULL) 
