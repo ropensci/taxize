@@ -11,7 +11,6 @@
 #' @param verbose logical; If TRUE the actual taxon queried is printed on the console.
 #' @param locally If TRUE, queries are run locally in sqlite3; if FALSE (the default), 
 #'  queries are run against the ITIS web API. locally=TRUE should be faster in almost all cases.
-#' @param cn sqlite3 connection object
 #' @return A data.frame with one column for every queried rank.
 #' 
 #' @examples \dontrun{
@@ -31,8 +30,7 @@
 #' tax_name(query=c("Helianthus annuus", 'Baetis rhodani'), get=c("genus", "kingdom"), db="both")
 #' }
 #' @export
-tax_name <- function(query = NULL, get = NULL, db = "itis", pref = 'ncbi', 
-										 verbose = TRUE, locally = FALSE, cn=NULL)
+tax_name <- function(query = NULL, get = NULL, db = "itis", pref = 'ncbi', verbose = TRUE, ...)
 {
   if(is.null(query))
     stop('Need to specify query!\n')
@@ -47,7 +45,7 @@ tax_name <- function(query = NULL, get = NULL, db = "itis", pref = 'ncbi',
   	fun <- function(query, get, db, verbose){
   		# ITIS
   		if(db == "itis"){
-  			tsn <- get_tsn(query, searchtype="sciname", verbose = verbose, locally=locally, cn=cn)
+  			tsn <- get_tsn(query, searchtype="sciname", verbose = verbose, ...)
   			if(is.na(tsn)) {
   				if(verbose) cat("No TSN found for species '", query, "'!\n")
   				out <- data.frame(t(rep(NA, length(get))))
@@ -91,7 +89,7 @@ tax_name <- function(query = NULL, get = NULL, db = "itis", pref = 'ncbi',
   				match_uid <- hierarchy$ScientificName[match(tolower(get), tolower(hierarchy$Rank))]
   			}
   			# itis
-  			tsn <- get_tsn(query, searchtype="sciname", verbose = verbose, locally=locally, cn=cn)
+  			tsn <- get_tsn(query, searchtype="sciname", verbose = verbose, ...)
   			if(is.na(tsn)) {
   				if(verbose) cat("No TSN found for species '", query, "'!\n")
   				match_tsn <- rep(NA, length(get))
@@ -115,7 +113,7 @@ tax_name <- function(query = NULL, get = NULL, db = "itis", pref = 'ncbi',
   	
   } else
   {
-  	tsn_df_out <- get_tsn(query, searchtype="sciname", verbose = verbose, locally=locally, cn=cn)
+  	tsn_df_out <- get_tsn(query, searchtype="sciname", verbose = verbose, ...)
   	myfunc <- function(x){
   		tt <- classification(x, ID="tsn", locally=locally)[[1]]
   		match <- tt$taxonName[match(tolower(get), tolower(tt$rankName))]

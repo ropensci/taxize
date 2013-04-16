@@ -1,0 +1,29 @@
+#' Lookup in the APGII taxonomy and replace family names 
+#' 
+#' @param taxa Taxonomic name to lookup a synonym for in APGII taxonomy.
+#' @param rank Taxonomic rank to lookup a synonym for. One of family or order.
+#' @return A APGII family or order name, or the original name if no match.
+#' @examples \dontrun{ 
+#' # New name found in the APGII taxonomy
+#' apg2_lookup(taxa = "Hyacinthaceae", rank = "family")
+#' 
+#' # Name not found in the APGII taxonomy
+#' apg2_lookup(taxa = "Asteraceae", rank = "family")
+#' }
+#' @export
+apg2_lookup <- function(taxa, rank = "family")
+{
+  if(rank=="family"){
+    data(apg2_families)
+    temp <- as.character(apg2_families[apg2_families$this %in% taxa, "that"])
+    if(nchar(temp)==0){message("no match found..."); taxa} else
+      {message("new name..."); temp}
+  } else
+    if(rank=="order"){
+      data(apg2_orders)
+      temp <- as.character(apg2_orders[apg2_orders$this %in% taxa, "that"])
+      if(nchar(temp)==0){message("no match found..."); taxa} else
+        {message("new name..."); temp}
+    } else
+      stop("rank must be one of family or order")
+}

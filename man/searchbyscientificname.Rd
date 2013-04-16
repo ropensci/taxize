@@ -40,9 +40,9 @@ ldply(c("oryza sativa","Chironomus riparius","Helianthus annuus","Quercus lobata
 
 # Using local search, can submit many in one vector
 conn <- taxize:::sqlite_init(path="~/github/ropensci/sql/itis2.sqlite")
-searchbyscientificname(srchkey=c("oryza sativa","Chironomus riparius","Helianthus annuus","Quercus lobata"), locally=TRUE, sqlconn=conn)
+searchbyscientificname(srchkey=c("oryza sativa","Chironomus riparius","Helianthus annuus","Quercus lobata"), locally=TRUE)
 
-searchbyscientificname("Quercus douglasii", locally=TRUE, sqlconn=conn)
+searchbyscientificname(srchkey="Quercus douglasii", locally=TRUE)
 }
 }
 

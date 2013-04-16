@@ -9,33 +9,32 @@
 #' @param verbose should progress be printed?
 #' @param locally If TRUE, queries are run locally in sqlite3; if FALSE (the default), 
 #'  queries are run against the ITIS web API. locally=TRUE should be faster in almost all cases.
-#' @param cn sqlite3 connection object
 #' @return A vector of taxonomic serial numbers (TSN). If a species is not found NA. 
 #' 		If more than one TSN is found the function asks for user input.
 #' 		See functions in the \code{itis} function.
 #' @export
 #' @examples \dontrun{
 #' get_tsn(searchterm="Quercus douglasii", searchtype="sciname", locally=FALSE)
-#' get_tsn(searchterm="Quercus douglasii", searchtype="sciname", locally=TRUE, cn=conn)
-#' get_tsn(searchterm=c("Chironomus riparius","Quercus douglasii"), searchtype="sciname", locally=TRUE, cn=conn)
+#' get_tsn(searchterm="Quercus douglasii", searchtype="sciname", locally=TRUE)
+#' get_tsn(searchterm=c("Chironomus riparius","Quercus douglasii"), searchtype="sciname", locally=TRUE)
 #' splist <- c("annona cherimola", 'annona muricata', "quercus robur", 
 #' 		"shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus", "Tamandua tetradactyla",
 #' 		"Tarsius syric", "Sylvilagus dicei", "Galeopterus variegatus")
-#' get_tsn(splist,"sciname", locally=TRUE, cn=conn)
+#' get_tsn(splist,"sciname", locally=TRUE)
 #' get_tsn(splist,"sciname")
 #' 
 #' # By common names
-#' get_tsn(searchterm=c("polar bear", "ferret-badger", "american bullfrog"), searchtype = "comname", locally=TRUE, cn=conn)
+#' get_tsn(searchterm=c("polar bear", "ferret-badger", "american bullfrog"), searchtype = "comname", locally=TRUE)
 #' }
-get_tsn <- function(searchterm, searchtype = "sciname", verbose = TRUE, locally=FALSE, cn=NULL) 
+get_tsn <- function(searchterm, searchtype = "sciname", verbose = TRUE, locally=FALSE) 
 {
 	if(locally)
 	{
-		if(searchtype == "sciname"){ tsn_df <- searchbyscientificname(searchterm, locally=locally, sqlconn=cn, returnindex=TRUE) } else
-			if(searchtype == "anymatch") { tsn_df <- searchforanymatch(searchterm, locally=locally, sqlconn=cn, returnindex=TRUE) } else
-				if(searchtype == "comnamebeg") { tsn_df <- searchbycommonnamebeginswith(searchterm, locally=locally, sqlconn=cn, returnindex=TRUE) } else
-					if(searchtype == "comname") { tsn_df <- searchbycommonname(searchterm, locally=locally, sqlconn=cn, returnindex=TRUE) } else
-						if(searchtype == "comnameend") { tsn_df <- searchbycommonnameendswith(searchterm, locally=locally, sqlconn=cn, returnindex=TRUE) } else
+		if(searchtype == "sciname"){ tsn_df <- searchbyscientificname(searchterm, locally=locally, returnindex=TRUE) } else
+			if(searchtype == "anymatch") { tsn_df <- searchforanymatch(searchterm, locally=locally, returnindex=TRUE) } else
+				if(searchtype == "comnamebeg") { tsn_df <- searchbycommonnamebeginswith(searchterm, locally=locally, returnindex=TRUE) } else
+					if(searchtype == "comname") { tsn_df <- searchbycommonname(searchterm, locally=locally, returnindex=TRUE) } else
+						if(searchtype == "comnameend") { tsn_df <- searchbycommonnameendswith(searchterm, locally=locally, returnindex=TRUE) } else
 							stop("searchtype not valid!")
 		
 		dframes_split <- split(tsn_df, f=tsn_df$querystring)
@@ -98,11 +97,11 @@ get_tsn <- function(searchterm, searchtype = "sciname", verbose = TRUE, locally=
 			if(verbose)
 				cat("\nRetrieving data for species '", x, "'\n")
 			
-			if(searchtype == "sciname"){ tsn_df <- searchbyscientificname(x, locally=locally, sqlconn=cn) } else
-				if(searchtype == "anymatch") { tsn_df <- searchforanymatch(x, locally=locally, sqlconn=cn) } else
-					if(searchtype == "comnamebeg") { tsn_df <- searchbycommonnamebeginswith(x, locally=locally, sqlconn=cn) } else
-						if(searchtype == "comname") { tsn_df <- searchbycommonname(x, locally=locally, sqlconn=cn) } else
-							if(searchtype == "comnameend") { tsn_df <- searchbycommonnameendswith(x, locally=locally, sqlconn=cn) } else
+			if(searchtype == "sciname"){ tsn_df <- searchbyscientificname(x) } else
+				if(searchtype == "anymatch") { tsn_df <- searchforanymatch(x) } else
+					if(searchtype == "comnamebeg") { tsn_df <- searchbycommonnamebeginswith(x) } else
+						if(searchtype == "comname") { tsn_df <- searchbycommonname(x) } else
+							if(searchtype == "comnameend") { tsn_df <- searchbycommonnameendswith(x) } else
 								stop("searchtype not valid!")
 			
 			# should return NA if spec not found

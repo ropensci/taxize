@@ -6,7 +6,7 @@
     informat = "newick", method = "phylomatic",
     storedtree = "R20120829", taxaformat = "slashpath",
     outformat = "newick", clean = "true", parallel = TRUE,
-    locally = FALSE, cn = NULL)
+    locally = FALSE)
 }
 \arguments{
   \item{taxa}{Phylomatic format input of taxa names.}
@@ -41,8 +41,6 @@
   sqlite3; if FALSE (the default), queries are run against
   the ITIS web API. locally=TRUE should be faster in almost
   all cases.}
-
-  \item{cn}{sqlite3 connection object}
 }
 \value{
   Newick formatted tree.

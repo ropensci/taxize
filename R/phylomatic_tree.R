@@ -17,7 +17,6 @@
 #' @param parallel Run in parallel or not.
 #' @param locally If TRUE, queries are run locally in sqlite3; if FALSE (the default), 
 #'  queries are run against the ITIS web API. locally=TRUE should be faster in almost all cases.
-#' @param cn sqlite3 connection object
 #' @details Use the web interface here http://phylodiversity.net/phylomatic/
 #' @return Newick formatted tree.
 #' @examples \dontrun{ 
@@ -42,9 +41,9 @@
 #'		storedtree = "R20120829", taxaformat = "slashpath", outformat = "newick", clean = "true", parallel=FALSE)
 #' }
 #' @export
-phylomatic_tree <- function(taxa, taxnames = TRUE, get = 'GET', informat = "newick", method = "phylomatic", 
-	storedtree = "R20120829", taxaformat = "slashpath", outformat = "newick", 
-	clean = "true", parallel=TRUE, locally=FALSE, cn=NULL)
+phylomatic_tree <- function(taxa, taxnames = TRUE, get = 'GET', informat = "newick", 
+  method = "phylomatic", storedtree = "R20120829", taxaformat = "slashpath", 
+  outformat = "newick", clean = "true", parallel=TRUE, locally=FALSE)
 {
 	url = "http://phylodiversity.net/phylomatic/pmws"
 	
@@ -62,24 +61,22 @@ phylomatic_tree <- function(taxa, taxnames = TRUE, get = 'GET', informat = "newi
     allelse <- allelse[setdiff(1:length(allelse), double-1)]
     allelse <- paste(")", allelse, sep="")
     tempdone <- paste(newpre, paste(allelse, collapse=""), newx, sep="")
-  return(tempdone)
+    return(tempdone)
   }
 	
   colldouble <- function(z) {
     if ( class ( try ( read.tree(text = z), silent = T ) ) %in% 'try-error') 
       { treephylo <- collapse_double_root(z) } else
       { treephylo <- z }
-  return(treephylo)
+    return(treephylo)
   }
   
   if(taxnames){
-#   	tsns <- get_tsn(taxa)
   	if(parallel){ 
   		dat_ <- llply(taxa, itis_phymat_format, format='isubmit', .parallel=T)
   	} else {
-  		dat_ <- llply(taxa, itis_phymat_format, format='isubmit', locally=locally, sqlconn=cn)
+  		dat_ <- llply(taxa, itis_phymat_format, format='isubmit', locally=locally)
   	}
-  	
   } else
   	{ dat_ <- taxa }
   if (length(dat_) > 1) { dat_ <- paste(dat_, collapse = "\n") } else { dat_ <- dat_ }
@@ -89,11 +86,15 @@ phylomatic_tree <- function(taxa, taxnames = TRUE, get = 'GET', informat = "newi
   										 outformat = outformat, clean = clean))
   
   if (get == 'POST') {  
-  	tt <- content(POST(url, query=args))
+  	tt <- postForm(url, .params=args, style="POST")[[1]]
   	tree <- gsub("\n", "", tt[[1]])
+    if(grepl("taxa not matched",tree)==TRUE)
+      stop(str_extract(tree, "\\[.+"))
   } else if (get == 'GET') {
     	tt <- content(GET(url, query=args))
       tree <- gsub("\n", "", tt[[1]])
+    	if(grepl("taxa not matched",tree)==TRUE)
+    	  stop(str_extract(tree, "\\[.+"))
   } else
   	{ stop("Error: get must be one of 'POST' or 'GET'") }
   

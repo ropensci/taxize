@@ -1799,14 +1799,14 @@ searchbycommonnameendswith <- function(srchkey = NA, ..., curl = getCurlHandle()
 #' 
 #' # Using local search, can submit many in one vector
 #' conn <- taxize:::sqlite_init(path="~/github/ropensci/sql/itis2.sqlite")
-#' searchbyscientificname(srchkey=c("oryza sativa","Chironomus riparius","Helianthus annuus","Quercus lobata"), locally=TRUE, sqlconn=conn)
+#' searchbyscientificname(srchkey=c("oryza sativa","Chironomus riparius","Helianthus annuus","Quercus lobata"), locally=TRUE)
 #' 
-#' searchbyscientificname("Quercus douglasii", locally=TRUE, sqlconn=conn)
+#' searchbyscientificname(srchkey="Quercus douglasii", locally=TRUE)
 #' }
 #' @export 
 searchbyscientificname <- function(srchkey = NA, ..., curl = getCurlHandle(), locally = FALSE, returnindex=FALSE)
 {
-	if (locally) {
+	if(locally==TRUE){
 		sqlconn <- getOption("conn")
 # 		query_SCI_NAME_LIKE <- paste("SELECT t.tsn as tsn, t.unit_name1, t.unit_name2, t.unit_name3, t.unit_name4,
 #             t.unit_ind1, t.unit_ind2, t.unit_ind3, t.unit_ind4,
@@ -1837,8 +1837,9 @@ paste("CASE", paste(sapply(srchkey, function(x) paste("WHEN t.complete_name LIKE
 		if(!returnindex)
 			temp <- data.frame(combinedname = temp$combinedName, tsn = temp$tsn)
 		return( temp )
-	}
-	else {
+	} else 
+  {
+    message("using web API search")
 		url = "http://www.itis.gov/ITISWebService/services/ITISService/searchByScientificName"
 		args <- list()
 		if (!is.na(srchkey)) 
