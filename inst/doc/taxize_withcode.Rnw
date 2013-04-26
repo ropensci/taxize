@@ -1,0 +1,171 @@
+\documentclass[letterpaper,superscriptaddress,showkeys,longbibliography]{revtex4-1}
+\usepackage[utf8]{inputenc}
+\usepackage{color,dcolumn,graphicx,hyperref}
+\hypersetup
+{
+  colorlinks = true, linkcolor = blue, citecolor = blue, urlcolor = blue,
+}
+
+\begin{document}
+
+<<setup, include=FALSE, cache=FALSE>>=
+## set global chunk options
+opts_chunk$set(fig.path='figure/', fig.align='center', fig.show='hold', par=TRUE, warning=FALSE, message=FALSE, error=FALSE, comment=NA)
+@
+
+\title{taxize - taxonomic search and retrieval in R}
+
+\author{Scott Chamberlain}
+\email[E-mail: ]{myrmecocystus@gmail.com}
+\affiliation{Biology Department, Simon Fraser University, Canada.}
+
+\author{Eduard Sz\"{o}cs}
+\email[E-mail: ]{szoe8822@uni-landau.de}
+\affiliation{University Koblenz-Landau, Germany}
+\keywords{taxonomy; R; sotware; data; API}
+
+\maketitle
+
+\section{Introduction}
+
+some text here
+
+\section{The case for taxize}
+
+There are a large suite of applications developed around the problem of searching for, resolving, and getting higher taxonomy for species names. For example, Linnaeus \url{http://linnaeus.sourceforge.net/} provides ability to search for taxonomic names in documents and normalize names. In addition, there are many web interfaces to search for and normalize names such as Encyclopedia of Life's Global Names Resolver \url{http://resolver.globalnames.org/}, uBio tools \url{http://www.ubio.org/index.php?pagename=sample_tools}, and iPlant's Taxonomic Name Resolution Service \url{http://tnrs.iplantcollaborative.org/}. 
+
+All of these tools provide great ways to search for taxonomic names and resolve them in some cases. However, scientists ideally need a tool that can be used programmatically, and thus be made reproducible, and highly customizeable. The goal of taxize is to make it easy to create reproducible and easy to use workflows for searching for taxonomic names, resolving them, getting higher taxonomic names, and other tasks related to research dealing with species. 
+
+\section{Data sources}
+
+taxize uses many data sources, and more can easily be added. 
+
+\begin{table}[ht]
+\caption{Data sources used in taxize} % title of Table
+\centering % used for centering table
+\begin{tabular}{|l|ccc|c|}
+\hline
+Source name &  Name search & Name resolution & Phylogeny & URL  \\
+\hline
+Encyclopedia of Life & Yes & See GNR below & No & \url{http://eol.org/} \\
+Integrated Taxonomic Resolution Service & Yes & Synonyms & No & X\\
+iPlant Taxonomic Name Resolution Service & Yes & Yes & No & X \\
+Phylomatic & No & X & No & X \\
+uBio & Yes & X & No & X \\
+Global Names Resolver (EOL) & Yes & X & No & X \\
+\hline
+\end{tabular}
+\label{table:nonlin} % is used to refer this table in the text
+\end{table}
+
+\section{Use cases}
+
+There are a variety of use cases for which taxize is ideally suited, and few side cases in which taxize can be useful. We discuss five ideal use cases for taxize at length, and highlight the side cases in brief.
+
+\subsection{Installing taxize}
+
+First, let's install taxize. There are two versions of taxize, a stable release that can be installed from the R package repository, CRAN, and from GitHub, where the code is developed. 
+
+Installing from CRAN or GitHub
+
+
+<<installtaxize, eval=FALSE>>=
+## From CRAN
+install.packages("taxize")
+
+## From GitHub
+install_github("taxize_", "ropensci")
+@
+
+Loading into your R session
+
+<<loadtaxize, eval=TRUE>>=
+library(taxize)
+@
+
+
+\subsection{Resolve taxonomic names}
+
+This is a common task in biology. We often have a list of species names and we want to know if a) we have the most up to date names, b) our names are spelled correctly, and c) if we have common names, we likely need the scientific names. One way to resolve names is via the Global Names Resolver service provided by the Encyclopedia of Life (\url{http://resolver.globalnames.org/}).
+
+<<resolvenames, eval=TRUE>>=
+# Here, we are searching for two misspelled names
+temp <- gnr_resolve(names = c("Helianthos annus", "Homo saapiens"), returndf = TRUE)
+
+# let's take a peek at the data, excluding the data source ID and score columns
+temp[,-c(1,4)]
+@
+
+Looks like the correct spellings are \emph{Helianthus annuus} and \emph{Homo sapiens}, cool!
+
+Another approach is using the Taxonomic Name Resolution Service via the Taxosaurus API (\url{http://taxosaurus.org/}).
+
+<<tnrs, eval=TRUE>>=
+# Lets set our list of species names
+mynames <- c("Helianthus annuus", "Pinus contort", "Poa anua", "Abis magnifica",
+		"Rosa california", "Festuca arundinace", "Sorbus occidentalos","Madia sateva")
+
+# And we'll call the API with the tnrs function
+tnrs(query = mynames)[,-c(5:7)]
+@
+
+It looks like there are a few corrections: e.g., \emph{Madia sateva} should be \emph{Madia sativa}, and \emph{Rosa california} should be \emph{Rosa californica}.
+
+\subsection{Retrieve higher taxonomic names}
+
+Another task biologists often face is wanting to get higher taxonomic names for their list of taxa. If you have the higher taxonomy you can put in to context the relationships of your list (i.e., Species A and B are in Family X), as opposed to not knowing that Species A and B are closely related. A number of data sources provide this type of capability. First, let's take a look at the Integrated Taxonomic Information Service (ITIS). 
+
+<<itisclass, eval=TRUE>>=
+specieslist <- c("Abies procera","Pinus contorta")
+  
+classification(get_tsn(specieslist, "sciname"))
+@
+
+
+You can also get this type of information from the NCBI by doing \Sexpr{classification(get_uid(specieslist))}
+
+
+\subsection{Retrieve a phylogeny}
+
+text here
+
+<<phylomaticphylogeny, eval=TRUE, dev='png', out.width='.8\\linewidth', out.height='3in'>>=
+library(doMC)
+registerDoMC(cores=4)
+
+# input the taxonomic names
+taxa <- c("Poa annua", "Abies procera", "Helianthus annuus")
+
+# fetch the tree - the formatting of names and higher taxonmy is done within the function
+tree <- phylomatic_tree(taxa=taxa, get = 'POST', informat='newick', method = "phylomatic", storedtree = "R20120829", taxaformat = "slashpath", outformat = "newick", clean = "true")
+
+tree$tip.label <- capwords(tree$tip.label)
+
+# plot the tree
+plot(tree, cex=1.2)
+@
+
+\subsection{Use ITIS locally for faster searches}
+
+text
+
+\subsection{Use ITIS locally for faster searches}
+
+text
+
+\section{Conclusion}
+
+some text here
+
+\section{Funding}
+
+SAC is supported by CANPOLIN of Canada. EZ is supported by XXXX.
+
+\section{Acknowledgements}
+
+some text here
+
+\newpage
+\bibliography{refs}
+
+\end{document}

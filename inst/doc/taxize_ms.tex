@@ -24,15 +24,71 @@
 
 \section{Introduction}
 
-asdfasfdf
+some text here
 
-\section{XXXXX}
+\section{The case for taxize}
 
-asdfasfdf
+There are a large suite of applications developed around the problem of searching for, resolving, and getting higher taxonomy for species names. For example, Linnaeus \url{http://linnaeus.sourceforge.net/} provides ability to search for taxonomic names in documents and normalize names. In addition, there are many web interfaces to search for and normalize names such as Encyclopedia of Life's Global Names Resolver \url{http://resolver.globalnames.org/}, uBio tools \url{http://www.ubio.org/index.php?pagename=sample_tools}, and iPlant's Taxonomic Name Resolution Service \url{http://tnrs.iplantcollaborative.org/}. 
+
+All of these tools provide great ways to search for taxonomic names and resolve them in some cases. However, scientists ideally need a tool that can be used programmatically, and thus be made reproducible, and highly customizeable. The goal of taxize is to make it easy to create reproducible and easy to use workflows for searching for taxonomic names, resolving them, getting higher taxonomic names, and other tasks related to research dealing with species. 
+
+\section{Data sources}
+
+taxize uses many data sources, and more can easily be added. 
+
+\begin{table}[ht]
+\caption{Data sources used in taxize} % title of Table
+\centering % used for centering table
+\begin{tabular}{|l|ccc|c|}
+	\hline
+Source name &  Name search & Name resolution & Phylogeny & URL  \\
+	\hline
+Encyclopedia of Life & Yes & See GNR below & No & \url{http://eol.org/} \\
+Integrated Taxonomic Resolution Service & Yes & Synonyms & No & X\\
+iPlant Taxonomic Name Resolution Service & Yes & Yes & No & X \\
+Phylomatic & No & X & No & X \\
+uBio & Yes & X & No & X \\
+Global Names Resolver (EOL) & Yes & X & No & X \\
+	\hline
+\end{tabular}
+\label{table:nonlin} % is used to refer this table in the text
+\end{table}
+
+\section{Use cases}
+
+There are a variety of use cases for which taxize is ideally suited, and few side cases in which taxize can be useful. We discuss five ideal use cases for taxize at length, and highlight the side cases in brief.
+
+\subsection{Resolve taxonomic names}
+
+This is a common task in biology. We often have a list of species names and we want to know if a) we have the most up to date names, b) our names are spelled correctly, and c) if we have common names, we likely need the scientific names. 
+
+<<resolvenames, eval=TRUE, dev='png'>>=
+rnorm(10)
+@
+
+\subsection{XX}
+
+
+
+\subsection{Retrieve higher taxonomic names}
+
+txt
+
+\subsection{Retrieve a phylogeny}
+
+text
+
+\subsection{Use ITIS locally for faster searches}
+
+text
+
+\subsection{Use ITIS locally for faster searches}
+
+text
 
 \section{Conclusion}
 
-asdfasfdf
+some text here
 
 \section{Funding}
 
@@ -40,7 +96,7 @@ SAC is supported by CANPOLIN of Canada. EZ is supported by XXXX.
 
 \section{Acknowledgements}
 
-asdfasfdf
+some text here
 
 \newpage
 \bibliography{refs}
