@@ -130,7 +130,7 @@ classification(get_tsn(specieslist, "sciname"))
 
 It turns out both species are in the family Pinaceae. You can also get this type of information from the NCBI by doing \emph{classification(get\_uid(specieslist))}
 
-Instead of a full classification, you may only wan a single name, say a family name for your species of interest. The function \emph{tax_name} is built just for this purpose. And you can specify the data source you retrieve the taxonomic name from with the \emph{db} parameter. 
+Instead of a full classification, you may only wan a single name, say a family name for your species of interest. The function \emph{tax\_name} is built just for this purpose. And you can specify the data source you retrieve the taxonomic name from with the \emph{db} parameter. 
 
 <<taxname, eval=TRUE>>=
 tax_name(query="Helianthus annuus", get="family", db="itis")
