@@ -75,3 +75,4 @@ Collate:
     'tnrs_sources.r'
     'tnrs.R'
     'itis.R'
+    'apg_lookup.R'
