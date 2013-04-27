@@ -56,6 +56,8 @@
 \usepackage{alltt}
 \usepackage[utf8]{inputenc}
 \usepackage{color,dcolumn,graphicx,hyperref}
+\usepackage{natbib}
+\bibliographystyle{ecol_let}
 \hypersetup
 {
   colorlinks = true, linkcolor = blue, citecolor = blue, urlcolor = blue,
@@ -105,7 +107,14 @@ Integrated Taxonomic Resolution Service & Yes & Synonyms & No & X\\
 iPlant Taxonomic Name Resolution Service & Yes & Yes & No & X \\
 Phylomatic & No & X & No & X \\
 uBio & Yes & X & No & X \\
-Global Names Resolver (EOL) & Yes & X & No & X \\
+Global Names Resolver & Yes & X & No & X \\
+Global Names Index & Yes & X & No & X \\
+IUCN Red List & Yes & X & No & X \\
+Tropicos & Yes & X & No & X \\
+Plantminer & Yes & X & No & X \\
+Theplantlist.org & Yes & X & No & X \\
+Catalogue of Life & Yes & X & No & X \\
+National Center for Biotechnology Information (NCBI) & Yes & X & No & X \\
 \hline
 \end{tabular}
 \label{table:nonlin} % is used to refer this table in the text
@@ -120,7 +129,6 @@ There are a variety of use cases for which taxize is ideally suited, and few sid
 First, let's install taxize. There are two versions of taxize, a stable release that can be installed from the R package repository, CRAN, and from GitHub, where the code is developed. 
 
 Installing from CRAN or GitHub
-
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -213,7 +221,6 @@ Another task biologists often face is wanting to get higher taxonomic names for 
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
 specieslist <- \hlfunctioncall{c}(\hlstring{"Abies procera"}, \hlstring{"Pinus contorta"})
-
 \hlfunctioncall{classification}(\hlfunctioncall{get_tsn}(specieslist, \hlstring{"sciname"}))
 \end{alltt}
 \begin{verbatim}
@@ -253,15 +260,38 @@ Retrieving data for species ' Pinus contorta '
 \end{knitrout}
 
 
+It turns out both species are in the family Pinaceae. You can also get this type of information from the NCBI by doing \emph{classification(get\_uid(specieslist))}
 
-You can also get this type of information from the NCBI by doing list(ScientificName = c("cellular organisms", "Eukaryota", "Viridiplantae", "Streptophyta", "Streptophytina", "Embryophyta", "Tracheophyta", "Euphyllophyta", "Spermatophyta", "Coniferophyta", "Coniferopsida", "Coniferales", "Pinaceae", "Abies", "Abies procera"), Rank = c("no rank", "superkingdom", "kingdom", "phylum", "no rank", "no rank", "no rank", "no rank", "no rank", "no rank", "class", "order", "family", "genus", "species"), UID = c("131567", "2759", "33090", "35493", "131221", "3193", "58023", 
-"78536", "58024", "3312", "58019", "3313", "3318", "3319", "97175")), list(ScientificName = c("cellular organisms", "Eukaryota", "Viridiplantae", "Streptophyta", "Streptophytina", "Embryophyta", "Tracheophyta", "Euphyllophyta", "Spermatophyta", "Coniferophyta", "Coniferopsida", "Coniferales", "Pinaceae", "Pinus", "Pinus", "Pinus contorta"), Rank = c("no rank", "superkingdom", "kingdom", "phylum", "no rank", "no rank", "no rank", "no rank", "no rank", "no rank", "class", "order", "family", "genus", "subgenus", "species"), UID = c("131567", "2759", "33090", "35493", 
-"131221", "3193", "58023", "78536", "58024", "3312", "58019", "3313", "3318", "3337", "139271", "3339"))
+Instead of a full classification, you may only wan a single name, say a family name for your species of interest. The function \emph{tax_name} is built just for this purpose. And you can specify the data source you retrieve the taxonomic name from with the \emph{db} parameter. 
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlfunctioncall{tax_name}(query = \hlstring{"Helianthus annuus"}, get = \hlstring{"family"}, db = \hlstring{"itis"})
+\end{alltt}
+\begin{verbatim}
+
+Retrieving data for species ' Helianthus annuus '
+      family
+1 Asteraceae
+\end{verbatim}
+\begin{alltt}
+\hlfunctioncall{tax_name}(query = \hlstring{"Helianthus annuus"}, get = \hlstring{"family"}, db = \hlstring{"ncbi"})
+\end{alltt}
+\begin{verbatim}
+
+Retrieving data for species ' Helianthus annuus '
+      family
+1 Asteraceae
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
 
 
 \subsection{Retrieve a phylogeny}
 
-text here
+There is an increasingly common use case: many biologists are not adequately trained in reconstructing phylogenies. However, so-called \emph{taxonomic phylogenies} can be constructed from simply knowing the higher taxonomic classification of a set of taxa. There are few taxon groups for which we can get phylogenies simply based on taxonomy; one of these is for angiosperms, called Phylomatic \cite{webb2005}. We have created a workflow in taxize that lets you input a simple species list, and then taxize does work behind the scenes to get higher taxonomic names, which are required by Phylomatic to get a phylogeny. Here is a short example. 
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -294,13 +324,48 @@ tree$tip.label <- \hlfunctioncall{capwords}(tree$tip.label)
 \end{knitrout}
 
 
-\subsection{Use ITIS locally for faster searches}
+\subsection{What taxa are in children of my taxon of interest?}
 
-text
+If you aren't a taxonomic specialist on a particular taxon you likely don't know what children taxa are within a family, or within a genus. You can of course go to a website like Wikispecies (\url{http://species.wikimedia.org/wiki/Main_Page}) or Encyclopedia of Life (\url{http://eol.org/}). taxize provides an easy way for you to search for downstream taxa, both for the Catalogue of Life (CoL; \url{http://www.catalogueoflife.org/}) and the Integrated Taxanomic Information Database (\url{http://www.itis.gov/}). Here is a short example using the CoL in which we want to find all the species within the genus \emph{Apis} (honey bees).
 
-\subsection{Use ITIS locally for faster searches}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlfunctioncall{col_downstream}(name = \hlstring{"Apis"}, downto = \hlstring{"Species"})[[1]]
+\end{alltt}
+\begin{verbatim}
+  childtaxa_id     childtaxa_name childtaxa_rank
+1      6971712 Apis andreniformis        Species
+2      6971713        Apis cerana        Species
+3      6971714       Apis dorsata        Species
+4      6971715        Apis florea        Species
+5      6971716 Apis koschevnikovi        Species
+6      6845885     Apis mellifera        Species
+7      6971717   Apis nigrocincta        Species
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
 
-text
+
+\subsection{IUCN Status}
+
+There are a number of things we can do once we have the correct taxonomic names. One thing we can do is ask about the conservation status of a species. We have provided a set of functions, \emph{iucn\_summary} and \emph{iucn\_status}, to search for species names, and extract the status information, respectively. Here, we search for the Panther and Lynx.  
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+ia <- \hlfunctioncall{iucn_summary}(\hlfunctioncall{c}(\hlstring{"Panthera uncia"}, \hlstring{"Lynx lynx"}))
+\hlfunctioncall{iucn_status}(ia)
+\end{alltt}
+\begin{verbatim}
+Panthera uncia      Lynx lynx 
+          "EN"           "LC" 
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+
+It turns out that the Panther is endangered (EN) and the Lynx is of least concern (LN). 
 
 \section{Conclusion}
 

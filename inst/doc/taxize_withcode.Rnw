@@ -1,6 +1,8 @@
 \documentclass[letterpaper,superscriptaddress,showkeys,longbibliography]{revtex4-1}
 \usepackage[utf8]{inputenc}
 \usepackage{color,dcolumn,graphicx,hyperref}
+\usepackage{natbib}
+\bibliographystyle{ecol_let}
 \hypersetup
 {
   colorlinks = true, linkcolor = blue, citecolor = blue, urlcolor = blue,
@@ -52,7 +54,14 @@ Integrated Taxonomic Resolution Service & Yes & Synonyms & No & X\\
 iPlant Taxonomic Name Resolution Service & Yes & Yes & No & X \\
 Phylomatic & No & X & No & X \\
 uBio & Yes & X & No & X \\
-Global Names Resolver (EOL) & Yes & X & No & X \\
+Global Names Resolver & Yes & X & No & X \\
+Global Names Index & Yes & X & No & X \\
+IUCN Red List & Yes & X & No & X \\
+Tropicos & Yes & X & No & X \\
+Plantminer & Yes & X & No & X \\
+Theplantlist.org & Yes & X & No & X \\
+Catalogue of Life & Yes & X & No & X \\
+National Center for Biotechnology Information (NCBI) & Yes & X & No & X \\
 \hline
 \end{tabular}
 \label{table:nonlin} % is used to refer this table in the text
@@ -67,7 +76,6 @@ There are a variety of use cases for which taxize is ideally suited, and few sid
 First, let's install taxize. There are two versions of taxize, a stable release that can be installed from the R package repository, CRAN, and from GitHub, where the code is developed. 
 
 Installing from CRAN or GitHub
-
 
 <<installtaxize, eval=FALSE>>=
 ## From CRAN
@@ -117,17 +125,22 @@ Another task biologists often face is wanting to get higher taxonomic names for 
 
 <<itisclass, eval=TRUE>>=
 specieslist <- c("Abies procera","Pinus contorta")
-  
 classification(get_tsn(specieslist, "sciname"))
 @
 
+It turns out both species are in the family Pinaceae. You can also get this type of information from the NCBI by doing \emph{classification(get\_uid(specieslist))}
 
-You can also get this type of information from the NCBI by doing \Sexpr{classification(get_uid(specieslist))}
+Instead of a full classification, you may only wan a single name, say a family name for your species of interest. The function \emph{tax_name} is built just for this purpose. And you can specify the data source you retrieve the taxonomic name from with the \emph{db} parameter. 
+
+<<taxname, eval=TRUE>>=
+tax_name(query="Helianthus annuus", get="family", db="itis")
+tax_name(query="Helianthus annuus", get="family", db="ncbi")
+@
 
 
 \subsection{Retrieve a phylogeny}
 
-text here
+There is an increasingly common use case: many biologists are not adequately trained in reconstructing phylogenies. However, so-called \emph{taxonomic phylogenies} can be constructed from simply knowing the higher taxonomic classification of a set of taxa. There are few taxon groups for which we can get phylogenies simply based on taxonomy; one of these is for angiosperms, called Phylomatic \cite{webb2005}. We have created a workflow in taxize that lets you input a simple species list, and then taxize does work behind the scenes to get higher taxonomic names, which are required by Phylomatic to get a phylogeny. Here is a short example. 
 
 <<phylomaticphylogeny, eval=TRUE, dev='png', out.width='.8\\linewidth', out.height='3in'>>=
 library(doMC)
@@ -145,13 +158,24 @@ tree$tip.label <- capwords(tree$tip.label)
 plot(tree, cex=1.2)
 @
 
-\subsection{Use ITIS locally for faster searches}
+\subsection{What taxa are in children of my taxon of interest?}
 
-text
+If you aren't a taxonomic specialist on a particular taxon you likely don't know what children taxa are within a family, or within a genus. You can of course go to a website like Wikispecies (\url{http://species.wikimedia.org/wiki/Main_Page}) or Encyclopedia of Life (\url{http://eol.org/}). taxize provides an easy way for you to search for downstream taxa, both for the Catalogue of Life (CoL; \url{http://www.catalogueoflife.org/}) and the Integrated Taxanomic Information Database (\url{http://www.itis.gov/}). Here is a short example using the CoL in which we want to find all the species within the genus \emph{Apis} (honey bees).
 
-\subsection{Use ITIS locally for faster searches}
+<<downstream, eval=TRUE>>=
+col_downstream(name="Apis", downto="Species")[[1]]
+@
 
-text
+\subsection{IUCN Status}
+
+There are a number of things we can do once we have the correct taxonomic names. One thing we can do is ask about the conservation status of a species. We have provided a set of functions, \emph{iucn\_summary} and \emph{iucn\_status}, to search for species names, and extract the status information, respectively. Here, we search for the Panther and Lynx.  
+
+<<XXXX, eval=TRUE>>=
+ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
+iucn_status(ia)
+@
+
+It turns out that the Panther is endangered (EN) and the Lynx is of least concern (LN). 
 
 \section{Conclusion}
 

@@ -6,7 +6,7 @@
 %Control: page (1) range
 %Control: year (0) verbatim
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{0}%
+\begin{thebibliography}{1}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -50,4 +50,14 @@
 \providecommand \BibitemShut  [1]{\csname bibitem#1\endcsname}%
 \let\auto@bib@innerbib\@empty
 %</preamble>
+\bibitem [{\citenamefont {Webb}\ and\ \citenamefont
+  {Donoghue}(2005)}]{webb2005}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Campbell~O}\
+  \bibnamefont {Webb}}\ and\ \bibinfo {author} {\bibfnamefont {Michael~J}\
+  \bibnamefont {Donoghue}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {Phylomatic: tree assembly for applied phylogenetics},}\ }\href@noop {}
+  {\bibfield  {journal} {\bibinfo  {journal} {Molecular Ecology Notes}\
+  }\textbf {\bibinfo {volume} {5}},\ \bibinfo {pages} {181--183} (\bibinfo
+  {year} {2005})}\BibitemShut {NoStop}%
 \end{thebibliography}%
