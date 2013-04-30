@@ -11,7 +11,6 @@
 }
 \makeatother
 
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \definecolor{fgcolor}{rgb}{0.2, 0.2, 0.2}
 \newcommand{\hlnumber}[1]{\textcolor[rgb]{0,0,0}{#1}}%
 \newcommand{\hlfunctioncall}[1]{\textcolor[rgb]{0.501960784313725,0,0.329411764705882}{\textbf{#1}}}%
@@ -62,6 +61,7 @@
 {
 colorlinks = true, linkcolor = blue, citecolor = blue, urlcolor = blue,
 }
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 
 \begin{document}
 
@@ -121,17 +121,7 @@ splist_tnrs <- \hlfunctioncall{tnrs}(query = splist, getpost = \hlstring{"POST"}
     \hlstring{"uri"})])
 \end{alltt}
 \begin{verbatim}
-           submittedName         acceptedName    sourceId score
-3       Helanthus annuus    Helianthus annuus iPlant_TNRS  0.98
-1         Pinos contorta       Pinus contorta iPlant_TNRS  0.96
-4  Collomia grandiflorra Collomia grandiflora iPlant_TNRS  0.99
-5       Abies magnificaa      Abies magnifica iPlant_TNRS  0.98
-10       Rosa california     Rosa californica iPlant_TNRS  0.99
-9         Datura wrighti      Datura wrightii iPlant_TNRS  0.98
-7       Mimulus bicolour      Mimulus bicolor iPlant_TNRS  0.98
-8       Nicotiana glauca     Nicotiana glauca iPlant_TNRS  1.00
-6          Maddia sativa         Madia sativa iPlant_TNRS  0.97
-2    Bartlettia scapposa   Bartlettia scaposa iPlant_TNRS  0.98
+data frame with 0 columns and 0 rows
 \end{verbatim}
 \begin{alltt}
 
@@ -144,10 +134,7 @@ splist_tnrs <- \hlfunctioncall{tnrs}(query = splist, getpost = \hlstring{"POST"}
 (splist <- \hlfunctioncall{as.character}(splist_tnrs$acceptedName))
 \end{alltt}
 \begin{verbatim}
- [1] "Helianthus annuus"    "Pinus contorta"       "Collomia grandiflora"
- [4] "Abies magnifica"      "Rosa californica"     "Datura wrightii"     
- [7] "Mimulus bicolor"      "Nicotiana glauca"     "Madia sativa"        
-[10] "Bartlettia scaposa"  
+character(0)
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
@@ -164,11 +151,6 @@ comnames <- \hlfunctioncall{lapply}(tsns, getcommonnamesfromtsn)
 \hlcomment{# Unfortunately, common names are not standardized like species names, so}
 \hlcomment{# there are multiple common names for each taxon}
 \hlfunctioncall{sapply}(comnames, length)
-\end{alltt}
-\begin{verbatim}
- [1] 3 3 3 3 3 3 3 3 3 3
-\end{verbatim}
-\begin{alltt}
 
 \hlcomment{# So let's just take the first common name for each species}
 comnames_vec <- \hlfunctioncall{do.call}(c, \hlfunctioncall{lapply}(comnames, \hlfunctioncall{function}(x) \hlfunctioncall{as.character}(x[1, \hlstring{"comname"}])))
@@ -176,19 +158,6 @@ comnames_vec <- \hlfunctioncall{do.call}(c, \hlfunctioncall{lapply}(comnames, \h
 \hlcomment{# And we can make a data.frame of our scientific and common names}
 (allnames <- \hlfunctioncall{data.frame}(spname = splist, comname = comnames_vec))
 \end{alltt}
-\begin{verbatim}
-                 spname                       comname
-1     Helianthus annuus              common sunflower
-2        Pinus contorta                lodgepole pine
-3  Collomia grandiflora        largeflowered collomia
-4       Abies magnifica                    golden fir
-5      Rosa californica           California wildrose
-6       Datura wrightii            sacred thorn-apple
-7       Mimulus bicolor yellow and white monkeyflower
-8      Nicotiana glauca                  tree tobacco
-9          Madia sativa                 coast tarweed
-10   Bartlettia scaposa                Bartlett daisy
-\end{verbatim}
 \end{kframe}
 \end{knitrout}
 
@@ -202,11 +171,6 @@ Another common task is getting the taxonomic tree upstream from your study taxa.
 \hlcomment{# classifications from ITIS. Note that we could use uBio instead.}
 class_list <- \hlfunctioncall{classification}(tsns)
 \hlfunctioncall{sapply}(class_list, nrow)
-\end{alltt}
-\begin{verbatim}
- [1] 12 11 12 11 12 12 12 12 12 12
-\end{verbatim}
-\begin{alltt}
 
 \hlcomment{# And we can attach these names to our allnames data.frame}
 \hlfunctioncall{library}(plyr)
@@ -222,19 +186,6 @@ allnames_df <- \hlfunctioncall{merge}(allnames, class_df, by.x = \hlstring{"spna
 \hlcomment{# Now that we have allnames_df, we can start to see some relationships}
 \hlcomment{# among species simply by their shared taxonomic names}
 allnames_df[1:2, ]
-\end{alltt}
-\begin{verbatim}
-              spname        comname Kingdom     Subkingdom Infrakingdom
-1    Abies magnifica     golden fir Plantae Viridaeplantae Streptophyta
-2 Bartlettia scaposa Bartlett daisy Plantae Viridaeplantae Streptophyta
-      Division     Subdivision Infradivision         Class Superorder
-1 Tracheophyta Spermatophytina  Gymnospermae     Pinopsida       <NA>
-2 Tracheophyta Spermatophytina  Angiospermae Magnoliopsida  Asteranae
-      Order     Family      Genus
-1   Pinales   Pinaceae      Abies
-2 Asterales Asteraceae Bartlettia
-\end{verbatim}
-\begin{alltt}
 
 \hlcomment{# Ah, so Abies and Bartlettia are in different infradivisions, but share}
 \hlcomment{# taxonomic names above that point.}
@@ -250,8 +201,6 @@ However, taxonomy can only get you so far. Shared ancestry can be reconstructed 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlfunctioncall{library}(doMC)
-\hlfunctioncall{registerDoMC}(cores = 4)  \hlcomment{# I have a mac, so using doMC package, use whatever you like}
 phylogeny <- \hlfunctioncall{phylomatic_tree}(taxa = \hlfunctioncall{as.character}(allnames$spname), taxnames = TRUE, 
     get = \hlstring{"POST"}, informat = \hlstring{"newick"}, method = \hlstring{"phylomatic"}, storedtree = \hlstring{"R20120829"}, 
     taxaformat = \hlstring{"slashpath"}, outformat = \hlstring{"newick"}, clean = \hlstring{"true"}, parallel = TRUE)
@@ -259,13 +208,6 @@ phylogeny$tip.label <- \hlfunctioncall{capwords}(phylogeny$tip.label, onlyfirst 
 \hlfunctioncall{plot}(phylogeny)
 \end{alltt}
 \end{kframe}
-
-{\centering \includegraphics[width=.8\linewidth,height=4in]{figure/phylogeny} 
-
-}
-
-
-
 \end{knitrout}
 
 \caption{a phylogeny...} 
@@ -292,7 +234,6 @@ Now we can search for occurrences for our species list and make a map.
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlfunctioncall{library}(doMC)
 \hlfunctioncall{library}(rgbif)
 
 occurr_list <- \hlfunctioncall{occurrencelist_many}(\hlfunctioncall{as.character}(allnames$spname), coordinatestatus = TRUE, 
@@ -300,16 +241,10 @@ occurr_list <- \hlfunctioncall{occurrencelist_many}(\hlfunctioncall{as.character
 
 \hlcomment{# Make a map}
 p <- rgbif::\hlfunctioncall{map}(occurr_list)
+p <- p + \hlfunctioncall{guides}(col = \hlfunctioncall{guide_legend}(nrow = 2, byrow = TRUE)) + \hlfunctioncall{theme}(legend.position = \hlstring{"bottom"})
 p
 \end{alltt}
 \end{kframe}
-
-{\centering \includegraphics[width=\maxwidth,height=4in]{figure/map} 
-
-}
-
-
-
 \end{knitrout}
 
 \caption{a map...} 

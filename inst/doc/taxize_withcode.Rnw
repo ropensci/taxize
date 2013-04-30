@@ -1,4 +1,5 @@
 \documentclass[letterpaper,superscriptaddress,showkeys,longbibliography,10pt]{revtex4-1}
+
 \usepackage[utf8]{inputenc}
 \usepackage{color,dcolumn,graphicx,hyperref}
 \usepackage{natbib}
@@ -9,7 +10,6 @@
 }
 
 \begin{document}
-\SweaveOpts{concordance=TRUE}
 
 <<setup, include=FALSE, cache=FALSE>>=
 ## set global chunk options
@@ -24,22 +24,22 @@ opts_chunk$set(fig.path='figure/', fig.align='center', fig.show='hold', par=TRUE
 
 \author{Eduard Sz\"{o}cs}
 \email[E-mail: ]{szoe8822@uni-landau.de}
-\affiliation{University Koblenz-Landau, Germany}
-\keywords{taxonomy; R; sotware; data; API}
+\affiliation{Institute for Environmental Sciences, University Koblenz-Landau, Forststraße 7, 76829 Landau, Germany}
+\keywords{taxonomy; R; software; data; API}
 
 \maketitle
 
 \section{Abstract}
 
-All species are hierarchically related to one another, and we use taxonomic names to label the nodes in this hierarchy. Taxonomic data is becoming easily available on the web, but scientists need a way to access taxonomic data on the web in a programmetic fashion, which is fast and reproducible. We have developed taxize, an open-source software package (freely available from \url{http://cran.r-project.org/web/packages/taxize/index.html}) for the R language. taxize provides a simple, programmatic access to taxonomic data for 13 data sources around the web. We discuss the need for a taxonomic toolbelt in R, and outline a suite of use cases for which taxize is ideally suited (including a full workflow as an appendix). The taxize package will facilitate open and reproducible science by allowing taxonomic data collection to be done in the open-source R platform.
+All species are hierarchically related to one another, and we use taxonomic names to label the nodes in this hierarchy. Taxonomic data is becoming easily available on the web, but scientists need a way to access taxonomic data on the web in a programmatic fashion, which is fast and reproducible. We have developed taxize, an open-source software package (freely available from \url{http://cran.r-project.org/web/packages/taxize/index.html}) for the R language. taxize provides a simple, programmatic access to taxonomic data for 13 data sources around the web. We discuss the need for a taxonomic toolbelt in R, and outline a suite of use cases for which taxize is ideally suited (including a full workflow as an appendix). The taxize package will facilitate open and reproducible science by allowing taxonomic data collection to be done in the open-source R platform.
 
 \section{Introduction}
 
-Evolution by natural selection has led to a hierarhical relationship among all living organisms.  Thus, species are categorized using a taxonomic hierarchy, starting with the binomial species name (e.g, \emph{Homo sapiens}), moving up to genus (\emph{Homo}), then family (\emph{Hominidae}), and on up to Domain (\emph{Eukarya}). Biologists, whether studying organisms at the cell, organismal, or community level, can put their study taxa into taxonomic context, allowing them to know close and distant relatives, find relavant literature, and more. Discovering the correct taxonomic names is, unforutnately, not straightforward. Taxonomic names often change due to name changes at the generic or specific levels, lumping or splitting lower taxa (genera, species) among higher taxa (families), and name spelling changes. In addition, there is no one authoritative taxonomic names source. Instead, there are essentially competing sources (e.g., uBio, Tropicos, ITIS) that may have different accepted names for the same taxon. The goal of taxize, an R package in development, is to make all use cases having to do with taxonomy easy and replicable. 
+Evolution by natural selection has led to a hierarchical relationship among all living organisms.  Thus, species are categorized using a taxonomic hierarchy, starting with the binomial species name (e.g, \emph{Homo sapiens}), moving up to genus (\emph{Homo}), then family (\emph{Hominidae}), and on up to Domain (\emph{Eukarya}). Biologists, whether studying organisms at the cell, organismal, or community level, can put their study taxa into taxonomic context, allowing them to know close and distant relatives, find relevant literature, and more. Discovering the correct taxonomic names is, unfortunately, not straightforward. Taxonomic names often change due to name changes at the generic or specific levels, lumping or splitting lower taxa (genera, species) among higher taxa (families), and name spelling changes. In addition, there is no one authoritative taxonomic names source. Instead, there are essentially competing sources (e.g., uBio, Tropicos, ITIS) that may have different accepted names for the same taxon. The goal of taxize, an R package in development, is to make all use cases having to do with taxonomy easy and replicable. 
 
-Taxonomic data is getting easier to obtain through web interfaces (e.g., \url{http://eol.org/}). However, there are a number of good reasons to obtain taxonomic information programatically rather than through a web interace. First, if you have more than a few names to lookup on a website, it can take quite a long time to enter each name, get data, and repeat for each species. Second, programatically getting taxonomic names solves the first problem by looping over a list of names, and is reproducible. With increasing reports of irreproducibility in science \cite{stodden2010,zimmer2012}, it is extremeley important to make science workflows repeatable. 
+Taxonomic data is getting easier to obtain through web interfaces (e.g., \url{http://eol.org/}). However, there are a number of good reasons to obtain taxonomic information programatically rather than through a web interface. First, if you have more than a few names to lookup on a website, it can take quite a long time to enter each name, get data, and repeat for each species. Second, programatically getting taxonomic names solves the first problem by looping over a list of names, and is reproducible. With increasing reports of irreproducibility in science \cite{stodden2010,zimmer2012}, it is extremely important to make science workflows repeatable. 
 
-The R language is the dominant lanaguage used by biologists (reference), and now has over 5,000 packages to extend R. R is great for manipuling data, visualizing data, and fitting statistical models to data. However, the key missing piece in R is the ability to get data within R. Increasingly, data is available from the web via API's, or application programming interfaces. These are bits of code that allow computers to talk to one another. Web APIs define a number of methods that allow users to search for a species name, or retrieve the synonyms for a species name, for example. One can then write functions in any programming language to interact with the API, allowing users to interact with the web API without having to know the details of the code. In taxize, we have written a suite of R functions that interact with many taxonomic data sources via their web APIs (Table~\ref{tab:a}). The interface to each function is usually a simple list of species names, just as user would do with a web API.
+The R language is the dominant language used by biologists (reference), and now has over 4,000 packages on the main repository (CRAN) and more than 2,500 packages on other repositories to extend R. R is great for manipulating, visualizing and fitting statistical models to data. However, the key missing piece in R is the ability to get data within R. Increasingly, data is available from the web via API's, or application programming interfaces. These are bits of code that allow computers to talk to one another. Web APIs define a number of methods that allow users to search for a species name, or retrieve the synonyms for a species name, for example. One can then write functions in any programming language to interact with the API, allowing users to interact with the web API without having to know the details of the code. In taxize, we have written a suite of R functions that interact with many taxonomic data sources via their web APIs (Table~\ref{tab:a}). The interface to each function is usually a simple list of species names, just as user would do with a web API.
 
 \section{Why taxize?}
 
@@ -91,6 +91,8 @@ Installing from CRAN or GitHub
 install.packages("taxize")
 
 ## From GitHub
+install.packages("devtools")
+require(devtools)
 install_github("taxize_", "ropensci")
 @
 
@@ -130,16 +132,19 @@ It looks like there are a few corrections: e.g., \emph{Madia sateva} should be \
 
 \subsection{Retrieve higher taxonomic names}
 
-Another task biologists often face is wanting to get higher taxonomic names for their list of taxa. If you have the higher taxonomy you can put in to context the relationships of your list (i.e., Species A and B are in Family X), as opposed to not knowing that Species A and B are closely related. A number of data sources provide this type of capability. First, let's take a look at the Integrated Taxonomic Information Service (ITIS). 
+Another task biologists often face is wanting to get higher taxonomic names for their list of taxa. If you have the higher taxonomy you can put in to context the relationships of your list (i.e., Species A and B are in Family X), as opposed to not knowing that Species A and B are closely related. This also makes it easy to aggregate/standardize data to a specific taxonomic level (eg. family level) or to match data to other databases with different taxonomic resolution (eg. trait-data).
+
+Two data sources provide this type of capability: ITIS and NCBI. The principle in both is the same - first you need to get an identifier for the queried species and then can retrieve additional information with this ID. 
+
 
 <<itisclass, eval=TRUE>>=
 specieslist <- c("Abies procera","Pinus contorta")
 classification(get_tsn(specieslist, "sciname"))
 @
 
-It turns out both species are in the family Pinaceae. You can also get this type of information from the NCBI by doing \emph{classification(get\_uid(specieslist))}
+It turns out both species are in the family Pinaceae. You can also get this type of information from the NCBI by doing \emph{classification(get\_uid(specieslist))}.
 
-Instead of a full classification, you may only wan a single name, say a family name for your species of interest. The function \emph{tax\_name} is built just for this purpose. And you can specify the data source you retrieve the taxonomic name from with the \emph{db} parameter. 
+Instead of a full classification, you may only want a single name, say a family name for your species of interest. The function \emph{tax\_name} is built just for this purpose. And you can specify the data source you retrieve the taxonomic name from with the \emph{db} parameter. 
 
 <<taxname, eval=TRUE>>=
 tax_name(query="Helianthus annuus", get="family", db="itis")
@@ -151,10 +156,7 @@ tax_name(query="Helianthus annuus", get="family", db="ncbi")
 
 There is an increasingly common use case: many biologists are not adequately trained in reconstructing phylogenies. However, so-called \emph{taxonomic phylogenies} can be constructed from simply knowing the higher taxonomic classification of a set of taxa. There are few taxon groups for which we can get phylogenies simply based on taxonomy; one of these is for angiosperms, called Phylomatic \cite{webb2005}. We have created a workflow in taxize that lets you input a simple species list, and then taxize does work behind the scenes to get higher taxonomic names, which are required by Phylomatic to get a phylogeny. Here is a short example. 
 
-<<phylomaticphylogeny, eval=TRUE, dev='png', out.width='.8\\linewidth', out.height='3in'>>=
-library(doMC)
-registerDoMC(cores=4)
-
+<<phylomaticphylogeny, eval=TRUE, dev='png', out.width='4in', out.height='4in', dpi=100>>=
 # input the taxonomic names
 taxa <- c("Poa annua", "Abies procera", "Helianthus annuus")
 
@@ -164,12 +166,12 @@ tree <- phylomatic_tree(taxa=taxa, get = 'POST', informat='newick', method = "ph
 tree$tip.label <- capwords(tree$tip.label)
 
 # plot the tree
-plot(tree, cex=1.2)
+plot(tree, cex=1)
 @
 
 \subsection{What taxa are in children of my taxon of interest?}
 
-If you aren't a taxonomic specialist on a particular taxon you likely don't know what children taxa are within a family, or within a genus. You can of course go to a website like Wikispecies (\url{http://species.wikimedia.org/wiki/Main_Page}) or Encyclopedia of Life (\url{http://eol.org/}). taxize provides an easy way for you to search for downstream taxa, both for the Catalogue of Life (CoL; \url{http://www.catalogueoflife.org/}) and the Integrated Taxanomic Information Database (\url{http://www.itis.gov/}). Here is a short example using the CoL in which we want to find all the species within the genus \emph{Apis} (honey bees).
+If you aren't a taxonomic specialist on a particular taxon you likely don't know what children taxa are within a family, or within a genus. You can of course go to a website like Wikispecies (\url{http://species.wikimedia.org/wiki/Main_Page}) or Encyclopedia of Life (\url{http://eol.org/}). taxize provides an easy way for you to search for downstream taxa, both for the Catalogue of Life (CoL; \url{http://www.catalogueoflife.org/}) and the Integrated Taxonomic Information Database (\url{http://www.itis.gov/}). Here is a short example using the CoL in which we want to find all the species within the genus \emph{Apis} (honey bees).
 
 <<downstream, eval=TRUE>>=
 col_downstream(name="Apis", downto="Species")[[1]]
@@ -192,7 +194,7 @@ some text here
 
 \section{Funding}
 
-SAC is supported by CANPOLIN of Canada. EZ is supported by XXXX.
+SAC is supported by CANPOLIN of Canada.
 
 \section{Acknowledgements}
 
