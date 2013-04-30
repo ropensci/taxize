@@ -11,7 +11,6 @@
 }
 \makeatother
 
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \definecolor{fgcolor}{rgb}{0.2, 0.2, 0.2}
 \newcommand{\hlnumber}[1]{\textcolor[rgb]{0,0,0}{#1}}%
 \newcommand{\hlfunctioncall}[1]{\textcolor[rgb]{0.501960784313725,0,0.329411764705882}{\textbf{#1}}}%
@@ -62,8 +61,10 @@
 {
   colorlinks = true, linkcolor = blue, citecolor = blue, urlcolor = blue,
 }
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 
 \begin{document}
+\SweaveOpts{concordance=TRUE}
 
 
 
@@ -197,15 +198,7 @@ mynames <- \hlfunctioncall{c}(\hlstring{"Helianthus annuus"}, \hlstring{"Pinus c
 \hlfunctioncall{tnrs}(query = mynames)[, -\hlfunctioncall{c}(5:7)]
 \end{alltt}
 \begin{verbatim}
-        submittedName        acceptedName    sourceId score
-7   Helianthus annuus   Helianthus annuus iPlant_TNRS  1.00
-4       Pinus contort      Pinus contorta iPlant_TNRS  0.98
-5            Poa anua            Poa alta iPlant_TNRS  0.77
-3      Abis magnifica     Abies magnifica iPlant_TNRS  0.96
-8     Rosa california    Rosa californica iPlant_TNRS  0.99
-2  Festuca arundinace Festuca arundinacea iPlant_TNRS  0.99
-1 Sorbus occidentalos Sorbus occidentalis iPlant_TNRS  0.99
-6        Madia sateva        Madia sativa iPlant_TNRS  0.97
+data frame with 0 columns and 0 rows
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
