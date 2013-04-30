@@ -100,9 +100,7 @@ However, taxonomy can only get you so far. Shared ancestry can be reconstructed 
 
 \begin{figure}[!ht] 
 \centering 
-<<phylogeny, eval=TRUE, dev='png', out.width='.8\\linewidth', out.height='4in'>>=
-library(doMC)
-registerDoMC(cores=4)  # I have a mac, so using doMC package, use whatever you like
+<<phylogeny, eval=TRUE, dev='png'>>=
 phylogeny <- phylomatic_tree(taxa=as.character(allnames$spname), taxnames=TRUE, get = 'POST', informat='newick', method = "phylomatic",
     storedtree = "R20120829", taxaformat = "slashpath", outformat = "newick", clean = "true", parallel=TRUE)
 phylogeny$tip.label <- capwords(phylogeny$tip.label, onlyfirst=TRUE)
@@ -124,14 +122,15 @@ Now we can search for occurrences for our species list and make a map.
 
 \begin{figure}[!ht] 
 \centering 
-<<map, eval=TRUE, dev='png', out.height='4in'>>=
-library(doMC); library(rgbif)
+<<map, eval=TRUE, dev='png'>>=
+library(rgbif)
 
 occurr_list <- occurrencelist_many(as.character(allnames$spname), coordinatestatus = TRUE, maxresults = 100, removeZeros=TRUE, fixnames="changealltorig")
 
 # Make a map
 p <- rgbif::map(occurr_list)
-p + guides(col = guide_legend(nrow = 2, byrow = TRUE)) + theme(legend.position="bottom")
+p <- p + guides(col = guide_legend(nrow = 2, byrow = TRUE)) + theme(legend.position="bottom")
+p
 @
 \caption{a map...} 
 \end{figure}
