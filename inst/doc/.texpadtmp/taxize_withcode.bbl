@@ -6,7 +6,7 @@
 %Control: page (1) range
 %Control: year (0) verbatim
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{1}%
+\begin{thebibliography}{7}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -50,6 +50,56 @@
 \providecommand \BibitemShut  [1]{\csname bibitem#1\endcsname}%
 \let\auto@bib@innerbib\@empty
 %</preamble>
+\bibitem [{\citenamefont {Stodden}(2010)}]{stodden2010}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Victoria~C}\
+  \bibnamefont {Stodden}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {Reproducible research: Addressing the need for data and code sharing in
+  computational science},}\ }\href@noop {} {\bibfield  {journal} {\bibinfo
+  {journal} {Computing in Science \& Engineering}\ }\textbf {\bibinfo {volume}
+  {12}},\ \bibinfo {pages} {8--12} (\bibinfo {year} {2010})}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Zimmer}(2012)}]{zimmer2012}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Carl}\ \bibnamefont
+  {Zimmer}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {A sharp rise in
+  retractions prompts calls for reform},}\ }\href
+  {http://www.nytimes.com/2012/04/17/science/rise-in-scientific-journal-retractions-prompts-calls-for-reform.html?_r=0}
+  {\bibfield  {journal} {\bibinfo  {journal} {New York Times}\ } (\bibinfo
+  {year} {2012})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Chamberlain}\ and\ \citenamefont
+  {Ushey}(2013)}]{chamberlain2013}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Scott}\ \bibnamefont
+  {Chamberlain}}\ and\ \bibinfo {author} {\bibfnamefont {Kevin}\ \bibnamefont
+  {Ushey}},\ }\href {https://github.com/ropensci/rsnps} {\emph {\bibinfo
+  {title} {rsnps: Interface to SNP data on the web.}}} (\bibinfo {year}
+  {2013}),\ \bibinfo {note} {r package version 0.0.4}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Winter}(2013)}]{winter2013}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {David}\ \bibnamefont
+  {Winter}},\ }\href {https://github.com/ropensci/rentrez} {\emph {\bibinfo
+  {title} {rentrez: Entrez in R}}} (\bibinfo {year} {2013}),\ \bibinfo {note}
+  {r package version 0.2.1}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Lefeuvre}(2010)}]{lefeuvre2010}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Pierre}\ \bibnamefont
+  {Lefeuvre}},\ }\href {http://CRAN.R-project.org/package=BoSSA} {\emph
+  {\bibinfo {title} {BoSSA: a Bunch of Structure and Sequence Analysis}}}
+  (\bibinfo {year} {2010}),\ \bibinfo {note} {r package version
+  1.2}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Paradis}\ \emph {et~al.}(2004)\citenamefont
+  {Paradis}, \citenamefont {Claude},\ and\ \citenamefont
+  {Strimmer}}]{paradis2004}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {E.}~\bibnamefont
+  {Paradis}}, \bibinfo {author} {\bibfnamefont {J.}~\bibnamefont {Claude}}, \
+  and\ \bibinfo {author} {\bibfnamefont {K.}~\bibnamefont {Strimmer}},\
+  }\bibfield  {title} {\enquote {\bibinfo {title} {A{PE}: analyses of
+  phylogenetics and evolution in {R} language},}\ }\href@noop {} {\bibfield
+  {journal} {\bibinfo  {journal} {Bioinformatics}\ }\textbf {\bibinfo {volume}
+  {20}},\ \bibinfo {pages} {289--290} (\bibinfo {year} {2004})}\BibitemShut
+  {NoStop}%
 \bibitem [{\citenamefont {Webb}\ and\ \citenamefont
   {Donoghue}(2005)}]{webb2005}%
   \BibitemOpen

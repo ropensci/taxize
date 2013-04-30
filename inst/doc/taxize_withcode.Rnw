@@ -1,8 +1,8 @@
-\documentclass[letterpaper,superscriptaddress,showkeys,longbibliography]{revtex4-1}
+\documentclass[letterpaper,superscriptaddress,showkeys,longbibliography,10pt]{revtex4-1}
 \usepackage[utf8]{inputenc}
 \usepackage{color,dcolumn,graphicx,hyperref}
 \usepackage{natbib}
-\bibliographystyle{ecol_let}
+\usepackage{footnote}
 \hypersetup
 {
   colorlinks = true, linkcolor = blue, citecolor = blue, urlcolor = blue,
@@ -28,11 +28,19 @@ opts_chunk$set(fig.path='figure/', fig.align='center', fig.show='hold', par=TRUE
 
 \maketitle
 
+\section{Abstract}
+
+All species are hierarchically related to one another, and we use taxonomic names to label the nodes in this hierarchy. Taxonomic data is becoming easily available on the web, but scientists need a way to access taxonomic data on the web in a programmetic fashion, which is fast and reproducible. We have developed taxize, an open-source software package (freely available from \url{http://cran.r-project.org/web/packages/taxize/index.html}) for the R language. taxize provides a simple, programmatic access to taxonomic data for 13 data sources around the web. We discuss the need for a taxonomic toolbelt in R, and outline a suite of use cases for which taxize is ideally suited (including a full workflow as an appendix). The taxize package will facilitate open and reproducible science by allowing taxonomic data collection to be done in the open-source R platform.
+
 \section{Introduction}
 
-some text here
+Evolution by natural selection has led to a hierarhical relationship among all living organisms.  Thus, species are categorized using a taxonomic hierarchy, starting with the binomial species name (e.g, \emph{Homo sapiens}), moving up to genus (\emph{Homo}), then family (\emph{Hominidae}), and on up to Domain (\emph{Eukarya}). Biologists, whether studying organisms at the cell, organismal, or community level, can put their study taxa into taxonomic context, allowing them to know close and distant relatives, find relavant literature, and more. Discovering the correct taxonomic names is, unforutnately, not straightforward. Taxonomic names often change due to name changes at the generic or specific levels, lumping or splitting lower taxa (genera, species) among higher taxa (families), and name spelling changes. In addition, there is no one authoritative taxonomic names source. Instead, there are essentially competing sources (e.g., uBio, Tropicos, ITIS) that may have different accepted names for the same taxon. The goal of taxize, an R package in development, is to make all use cases having to do with taxonomy easy and replicable. 
 
-\section{The case for taxize}
+Taxonomic data is getting easier to obtain through web interfaces (e.g., \url{http://eol.org/}). However, there are a number of good reasons to obtain taxonomic information programatically rather than through a web interace. First, if you have more than a few names to lookup on a website, it can take quite a long time to enter each name, get data, and repeat for each species. Second, programatically getting taxonomic names solves the first problem by looping over a list of names, and is reproducible. With increasing reports of irreproducibility in science \cite{stodden2010,zimmer2012}, it is extremeley important to make science workflows repeatable. 
+
+The R language is the dominant lanaguage used by biologists (reference), and now has over 5,000 packages to extend R. R is great for manipuling data, visualizing data, and fitting statistical models to data. However, the key missing piece in R is the ability to get data within R. Increasingly, data is available from the web via API's, or application programming interfaces. These are bits of code that allow computers to talk to one another. Web APIs define a number of methods that allow users to search for a species name, or retrieve the synonyms for a species name, for example. One can then write functions in any programming language to interact with the API, allowing users to interact with the web API without having to know the details of the code. In taxize, we have written a suite of R functions that interact with many taxonomic data sources via their web APIs (Table~\ref{tab:a}). The interface to each function is usually a simple list of species names, just as user would do with a web API.
+
+\section{Why taxize?}
 
 There are a large suite of applications developed around the problem of searching for, resolving, and getting higher taxonomy for species names. For example, Linnaeus \url{http://linnaeus.sourceforge.net/} provides ability to search for taxonomic names in documents and normalize names. In addition, there are many web interfaces to search for and normalize names such as Encyclopedia of Life's Global Names Resolver \url{http://resolver.globalnames.org/}, uBio tools \url{http://www.ubio.org/index.php?pagename=sample_tools}, and iPlant's Taxonomic Name Resolution Service \url{http://tnrs.iplantcollaborative.org/}. 
 
@@ -40,31 +48,31 @@ All of these tools provide great ways to search for taxonomic names and resolve 
 
 \section{Data sources}
 
-taxize uses many data sources, and more can easily be added. 
+taxize uses many data sources (Table~\ref{tab:a}), and more can easily be added. There are two common tasks provided by the data sources: name search and name resolution. Other functionality in taxize includes retrieving a classification tree for a species, or retrieving child taxa of a focal taxon. One of the data sources (Phylomat) returns phylogenies, while another (NCBI) returns genetic sequence data. However, there are other R packages that are focused solely on sequence data, such as rsnps \cite{chamberlain2013}, rentrez \cite{winter2013}, BoSSA \cite{lefeuvre2010}, and ape \cite{paradis2004}. 
 
-\begin{table}[ht]
-\caption{Data sources used in taxize} % title of Table
-\centering % used for centering table
-\begin{tabular}{|l|ccc|c|}
+Some of the data sources taxize interacts with require authentication. That is, in addition to the search terms you provide (e.g., \emph{Homo sapiens}), they require an alphanumeric identification key so that they can better manage their data. The services that do require an API key are: Encyclopedia of Life (EOL), the Universal Biological Indexer and Organizer (uBio), Tropicos, and Plantminer. You can easily obtain an API key by visiting the website of each service (see (Table~\ref{tab:a}) for links to each site). 
+
+\begin{table}[!ht]
+\caption{Data sources used in taxize, tasks available, and links to them}\label{tab:a} % title of Table
+\begin{tabular}{|l|cccc|l|}
 \hline
-Source name &  Name search & Name resolution & Phylogeny & URL  \\
+Source name & Name search & Name resolution & Phylogeny & Sequences & URL  \\
 \hline
-Encyclopedia of Life & Yes & See GNR below & No & \url{http://eol.org/} \\
-Integrated Taxonomic Resolution Service & Yes & Synonyms & No & X\\
-iPlant Taxonomic Name Resolution Service & Yes & Yes & No & X \\
-Phylomatic & No & X & No & X \\
-uBio & Yes & X & No & X \\
-Global Names Resolver & Yes & X & No & X \\
-Global Names Index & Yes & X & No & X \\
-IUCN Red List & Yes & X & No & X \\
-Tropicos & Yes & X & No & X \\
-Plantminer & Yes & X & No & X \\
-Theplantlist.org & Yes & X & No & X \\
-Catalogue of Life & Yes & X & No & X \\
-National Center for Biotechnology Information (NCBI) & Yes & X & No & X \\
+Encyclopedia of Life & Yes & See GNR below & No & No & \url{http://eol.org/} \\
+Integrated Taxonomic Information System & Yes & Synonyms & No & No & \url{http://www.itis.gov/} \\
+iPlant Taxonomic Name Resolution Service & Yes & Yes & No & No & \url{http://bit.ly/16dHkBy} \\
+Phylomatic & No & No & Yes & No & \url{ http://bit.ly/P0pjMz} \\
+uBio & Yes & Yes & No & No & \url{http://www.ubio.org/} \\
+Global Names Resolver & Yes & Yes & No & No & \url{http://bit.ly/11R3Pbr} \\
+Global Names Index & Yes & No & No & No & \url{http://bit.ly/11R3RQB} \\
+IUCN Red List & Yes & No & No & No & \url{http://bit.ly/11R3RQC} \\
+Tropicos & Yes & Yes & No & No & \url{http://www.tropicos.org/} \\
+Plantminer & Yes & No & No & No & \url{http://www.plantminer.com/} \\
+The Plant List & Yes & Yes & No & No & \url{http://www.theplantlist.org/} \\
+Catalogue of Life & Yes & Yes & No & No & \url{http://bit.ly/11R3S75} \\
+National Center for Biotechnology Information & Yes & X & Yes \footnote{Web only, no API, see \url{http://1.usa.gov/11R446a}} & Yes & \url{http://www.ncbi.nlm.nih.gov/} \\
 \hline
 \end{tabular}
-\label{table:nonlin} % is used to refer this table in the text
 \end{table}
 
 \section{Use cases}
@@ -187,9 +195,14 @@ SAC is supported by CANPOLIN of Canada. EZ is supported by XXXX.
 
 \section{Acknowledgements}
 
-some text here
+The taxize package is part of the rOpenSci project \url{http://ropensci.org/}.
 
-\newpage
+\section{Appendices}
+
+\begin{itemize}
+    \item{Appendix A.} A complete reproducible workflow, from a species list to a phylogeny. 
+\end{itemize}
+
 \bibliography{refs}
 
 \end{document}
