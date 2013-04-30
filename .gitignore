@@ -6,7 +6,6 @@ taxize_.Rproj
 .gitignore
 README.html
 ._README.md
-inst/doc/*.bib
 inst/doc/*.aux
 inst/doc/*.bbl
 inst/doc/*.blg
@@ -14,3 +13,5 @@ inst/doc/*.log
 inst/doc/*.out
 inst/doc/*.synctex.gz
 inst/doc/*concordance.tex
+inst/doc/taxize_withcodeNotes.bib
+inst/doc/taxize_withcode_appANotes.bib
