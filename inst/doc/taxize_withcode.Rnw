@@ -9,6 +9,7 @@
 }
 
 \begin{document}
+\SweaveOpts{concordance=TRUE}
 
 <<setup, include=FALSE, cache=FALSE>>=
 ## set global chunk options
