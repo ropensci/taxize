@@ -1,8 +1,6 @@
 \documentclass[letterpaper,superscriptaddress,showkeys,longbibliography,10pt]{revtex4-1}
 \usepackage[utf8]{inputenc}
 \usepackage{color,dcolumn,graphicx,hyperref}
-\usepackage{natbib}
-\usepackage{footnote}
 \hypersetup
 {
 colorlinks = true, linkcolor = blue, citecolor = blue, urlcolor = blue,
@@ -18,7 +16,6 @@ opts_chunk$set(fig.path='figure/', fig.align='center', fig.show='hold', par=TRUE
 \section{Appendix A. A complete reproducible workflow, from a species list to a phylogeny, and distribution map.}
 
 If you aren't familiar with a complete workflow in R, it may be difficult to visualize the processs. In R, everything is programmatic, so the whole workflow can be in one place, and be repeated whenever necessary. The following is a workflow for taxize, going from a species list to a phylogeny. 
-
 
 First, install taxize
 
@@ -123,17 +120,17 @@ Now we can search for occurrences for our species list and make a map.
 \begin{figure}[!ht] 
 \centering 
 <<map, eval=TRUE, dev='png'>>=
-library(rgbif)
+library(rgbif); library(ggplot2)
 
 occurr_list <- occurrencelist_many(as.character(allnames$spname), coordinatestatus = TRUE, maxresults = 100, removeZeros=TRUE, fixnames="changealltorig")
 
 # Make a map
-p <- rgbif::map(occurr_list)
-p <- p + guides(col = guide_legend(nrow = 2, byrow = TRUE)) + theme(legend.position="bottom")
+p <- gbifmap(occurr_list) + 
+  guides(col = guide_legend(title="", nrow = 2, byrow = TRUE)) + 
+  theme(legend.position="bottom", legend.key = element_blank())
 p
 @
 \caption{a map...} 
 \end{figure}
 
-\bibliography{apprefs}
 \end{document}

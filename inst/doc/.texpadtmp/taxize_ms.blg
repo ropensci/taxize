@@ -1,0 +1,68 @@
+This is BibTeX, Version 0.99d (TeX Live 2012)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: taxize_ms.aux
+The style file: apsrev4-1.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Database file #1: taxize_msNotes.bib
+Database file #2: ../refs.bib
+control{REVTEX41Control}, control.key{N/A}, control.author{N/A}, control.editor{N/A}, control.title{N/A}, control.pages{N/A}, control.year{N/A}, control.eprint{N/A}, 
+control{apsrev41Control}, control.key{N/A}, control.author{00}, control.editor{1}, control.title{0}, control.pages{1}, control.year{0}, control.eprint{N/A}, 
+Warning--jnrlst (dependency: not reversed) set 1
+Warning--dotless (dependency: not initials) set 1
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+merlin.mbs apsrev4-1.bst 2010-07-25 4.21a (PWD, AO, DPC) hacked
+Control: key (0) 
+Control: author (0) dotless jnrlst
+Control: editor formatted (1) identically to author
+Control: production of article title (0) allowed
+Control: page (1) range
+Control: year (0) verbatim
+Control: production of eprint (0) enabled
+You've used 2 entries,
+            5847 wiz_defined-function locations,
+            1602 strings with 14670 characters,
+and the built_in function-call counts, 1003 in all, are:
+= -- 12
+> -- 16
+< -- 35
++ -- 8
+- -- 20
+* -- 134
+:= -- 73
+add.period$ -- 0
+call.type$ -- 2
+change.case$ -- 0
+chr.to.int$ -- 12
+cite$ -- 2
+duplicate$ -- 137
+empty$ -- 17
+format.name$ -- 0
+if$ -- 129
+int.to.chr$ -- 1
+int.to.str$ -- 10
+missing$ -- 28
+newline$ -- 52
+num.names$ -- 0
+pop$ -- 68
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 35
+stack$ -- 0
+substring$ -- 12
+swap$ -- 112
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 10
+type$ -- 12
+warning$ -- 2
+while$ -- 11
+width$ -- 0
+write$ -- 52
+(There were 2 warnings)
