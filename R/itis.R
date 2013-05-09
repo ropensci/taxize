@@ -512,22 +512,22 @@ gethierarchydownfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() )
   message(paste(url, '?tsn=', tsn, sep=''))
   tt <- getForm(url,
     .params = args,
-    ...,
+#     ...,
     curl = curl)
   out <- xmlParse(tt)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
-  nodes <- getNodeSet(out, "//ax21:parentName", namespaces=namespaces)
+  nodes <- getNodeSet(out, "//ax21:hierarchyList/ax21:parentName", namespaces=namespaces)
   parentName <- sapply(nodes, xmlValue)
-  nodes <- getNodeSet(out, "//ax21:parentTsn", namespaces=namespaces)
+  nodes <- getNodeSet(out, "//ax21:hierarchyList/ax21:parentTsn", namespaces=namespaces)
   parentTsn <- sapply(nodes, xmlValue)
-  nodes <- getNodeSet(out, "//ax21:rankName", namespaces=namespaces)
+  nodes <- getNodeSet(out, "//ax21:hierarchyList/ax21:rankName", namespaces=namespaces)
   rankName <- sapply(nodes, xmlValue)
-  nodes <- getNodeSet(out, "//ax21:taxonName", namespaces=namespaces)
+  nodes <- getNodeSet(out, "//ax21:hierarchyList/ax21:taxonName", namespaces=namespaces)
   taxonName <- sapply(nodes, xmlValue)
-  nodes <- getNodeSet(out, "//ax21:tsn", namespaces=namespaces)
+  nodes <- getNodeSet(out, "//ax21:hierarchyList/ax21:tsn", namespaces=namespaces)
   tsn <- sapply(nodes, xmlValue)
   data.frame(parentName=parentName, parentTsn=parentTsn, rankName=rankName,
-             taxonName=taxonName, tsn=tsn[-1])
+             taxonName=taxonName, tsn=tsn)
 }
 
 #' Get hierarchy up from tsn
