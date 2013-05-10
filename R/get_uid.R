@@ -17,7 +17,7 @@
 get_uid <- function(sciname, verbose = TRUE){
   fun <- function(sciname) {
     if(verbose)
-      cat("\nRetrieving data for species '", sciname, "'\n")
+      message("\nRetrieving data for species '", sciname, "'\n")
     sciname <- gsub(" ", "+", sciname)
     searchurl <- paste("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=", 
                        sciname, sep = "")
@@ -41,8 +41,8 @@ get_uid <- function(sciname, verbose = TRUE){
       rownames(df) <- 1:nrow(df)
       
       # prompt
-      cat("\n\n")
-      cat("\nMore than one UID found for species '", sciname, "'!\n
+      message("\n\n")
+      message("\nMore than one UID found for species '", sciname, "'!\n
           Enter rownumber of species (other inputs will return 'NA'):\n")      
       print(df)
       take <- scan(n = 1, quiet = TRUE, what = 'raw')
@@ -51,11 +51,11 @@ get_uid <- function(sciname, verbose = TRUE){
         take <- 'notake'
       if(take %in% seq_len(nrow(df))){
         take <- as.numeric(take)
-        cat("Input accepted, took UID '", as.character(df$UID[take]), "'.\n")
+        message("Input accepted, took UID '", as.character(df$UID[take]), "'.\n")
         id <- as.character(df$UID[take])
       } else {
         id <- NA
-        cat("\nReturned 'NA'!\n\n")
+        message("\nReturned 'NA'!\n\n")
       }
     }  
     return(id)
