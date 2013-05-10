@@ -24,7 +24,7 @@ get_tsn <- function (searchterm, searchtype = "sciname", verbose = TRUE)
   fun <- function(x, verbose)
   {
     if(verbose)
-      cat("\nRetrieving data for species '", x, "'\n")
+      message("\nRetrieving data for species '", x, "'\n")
 #     tsn_df <- searchtype(query=x)
     
     if(searchtype == "sciname"){ tsn_df <- searchbyscientificname(x) } else
@@ -56,9 +56,9 @@ get_tsn <- function (searchterm, searchtype = "sciname", verbose = TRUE)
       rownames(tsn_df) <- 1:nrow(tsn_df)
       
       # prompt
-      cat("\n\n")
+      message("\n\n")
       print(tsn_df)
-      cat("\nMore than one TSN found for species '", x, "'!\n
+      message("\nMore than one TSN found for species '", x, "'!\n
           Enter rownumber of species (other inputs will return 'NA'):\n") # prompt
       take <- scan(n = 1, quiet = TRUE, what = 'raw', text=NULL)
       
@@ -66,11 +66,11 @@ get_tsn <- function (searchterm, searchtype = "sciname", verbose = TRUE)
         take <- 'notake'
       if(take %in% seq_len(nrow(tsn_df))){
         take <- as.numeric(take)
-        cat("Input accepted, took species '", as.character(tsn_df$combinedname[take]), "'.\n")
+        message("Input accepted, took species '", as.character(tsn_df$combinedname[take]), "'.\n")
         tsn <-  tsn_df$tsn[take]
       } else {
         tsn <- NA
-        cat("\nReturned 'NA'!\n\n")
+        message("\nReturned 'NA'!\n\n")
       }
     }
     return(as.character(tsn))
