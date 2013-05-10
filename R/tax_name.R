@@ -44,7 +44,8 @@ tax_name <- function(query = NULL, get = NULL, db = "itis", pref = 'ncbi', verbo
   	if(db == "itis"){
   		tsn <- get_tsn(query, searchtype="sciname", verbose = verbose)
       if(is.na(tsn)) {
-        if(verbose) cat("No TSN found for species '", query, "'!\n")
+        if(verbose) 
+          message("No TSN found for species '", query, "'!\n")
         out <- data.frame(t(rep(NA, length(get))))
         names(out) <- get
       } else {
@@ -63,7 +64,8 @@ tax_name <- function(query = NULL, get = NULL, db = "itis", pref = 'ncbi', verbo
   	if(db == "ncbi")	{
   		uid <- get_uid(query, verbose = verbose)
       if(is.na(uid)){
-        if(verbose) cat("No UID found for species '", query, "'!\n")
+        if(verbose) 
+          message("No UID found for species '", query, "'!\n")
         out <- data.frame(t(rep(NA, length(get))))
         names(out) <- get
       } else {
@@ -79,7 +81,8 @@ tax_name <- function(query = NULL, get = NULL, db = "itis", pref = 'ncbi', verbo
     if(db == 'both') {
       uid <- get_uid(query, verbose = verbose)
       if(is.na(uid)){
-        if(verbose) cat("No UID found for species '", query, "'!\n")
+        if(verbose) 
+          message("No UID found for species '", query, "'!\n")
         match_uid <- rep(NA, length(get))
       } else {
         hierarchy <- classification(uid)[[1]]
@@ -88,7 +91,8 @@ tax_name <- function(query = NULL, get = NULL, db = "itis", pref = 'ncbi', verbo
       # itis
       tsn <- get_tsn(query, searchtype="sciname", verbose = verbose)
       if(is.na(tsn)) {
-        if(verbose) cat("No TSN found for species '", query, "'!\n")
+        if(verbose) 
+          message("No TSN found for species '", query, "'!\n")
         match_tsn <- rep(NA, length(get))
       } else {
         if(tsn=="notsn") {
