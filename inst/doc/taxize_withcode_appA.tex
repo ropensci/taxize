@@ -11,7 +11,6 @@
 }
 \makeatother
 
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \definecolor{fgcolor}{rgb}{0.2, 0.2, 0.2}
 \newcommand{\hlnumber}[1]{\textcolor[rgb]{0,0,0}{#1}}%
 \newcommand{\hlfunctioncall}[1]{\textcolor[rgb]{0.501960784313725,0,0.329411764705882}{\textbf{#1}}}%
@@ -56,12 +55,11 @@
 \usepackage{alltt}
 \usepackage[utf8]{inputenc}
 \usepackage{color,dcolumn,graphicx,hyperref}
-\usepackage{natbib}
-\usepackage{footnote}
 \hypersetup
 {
 colorlinks = true, linkcolor = blue, citecolor = blue, urlcolor = blue,
 }
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 
 \begin{document}
 
@@ -71,7 +69,6 @@ colorlinks = true, linkcolor = blue, citecolor = blue, urlcolor = blue,
 \section{Appendix A. A complete reproducible workflow, from a species list to a phylogeny, and distribution map.}
 
 If you aren't familiar with a complete workflow in R, it may be difficult to visualize the processs. In R, everything is programmatic, so the whole workflow can be in one place, and be repeated whenever necessary. The following is a workflow for taxize, going from a species list to a phylogeny. 
-
 
 First, install taxize
 
@@ -193,13 +190,13 @@ comnames_vec <- \hlfunctioncall{do.call}(c, \hlfunctioncall{lapply}(comnames, \h
 \end{knitrout}
 
 
-Another common task is getting the taxonomic tree upstream from your study taxa. We often know what family or order our taxa are in, but it we often don't know the tribes, subclasses, and superfafamilies. taxize provides many avenues to getting classifications. Two of them are accesible via a single function (\emph{classification}): the Integrated Taxonomic Information System and uBio; and via the Catalogue of Life (see function \emph{col\_classification})
+Another common task is getting the taxonomic tree upstream from your study taxa. We often know what family or order our taxa are in, but it we often don't know the tribes, subclasses, and superfafamilies. taxize provides many avenues to getting classifications. Two of them are accesible via a single function (\emph{classification}): the Integrated Taxonomic Information System (ITIS) and National Center for Biotechnology Information (NCBI); and via the Catalogue of Life (see function \emph{col\_classification}):
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
 \hlcomment{# As we already have Taxonomic Serial Numbers from ITIS, let's just get}
-\hlcomment{# classifications from ITIS. Note that we could use uBio instead.}
+\hlcomment{# classifications from ITIS. Note that we could use NCBI instead.}
 class_list <- \hlfunctioncall{classification}(tsns)
 \hlfunctioncall{sapply}(class_list, nrow)
 \end{alltt}
@@ -245,7 +242,7 @@ allnames_df[1:2, ]
 
 However, taxonomy can only get you so far. Shared ancestry can be reconstructed from molecular data, and phylogenies created. Phylomatic is a web service with an API that we can use to get a phylogeny. 
 
-\begin{figure}[!ht] 
+\begin{figure}[!h] 
 \centering 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -282,7 +279,7 @@ phylogeny$tip.label <- \hlfunctioncall{capwords}(phylogeny$tip.label, onlyfirst 
 \end{alltt}
 \end{kframe}
 
-{\centering \includegraphics[width=\maxwidth]{figure/phylogeny} 
+{\centering \includegraphics[width=4in,height=4in]{figure/phylogeny} 
 
 }
 
@@ -292,6 +289,7 @@ phylogeny$tip.label <- \hlfunctioncall{capwords}(phylogeny$tip.label, onlyfirst 
 
 \caption{a phylogeny...} 
 \end{figure} 
+
 
 Using the species list, with the corrected names, we can now search for occurrence data. The Global Biodiversity Information Facility (GBIF) has the largest collection of records data, and has a  API that we can interact with programmatically from R. First, we need to install rgbif.
 
@@ -321,13 +319,14 @@ occurr_list <- \hlfunctioncall{occurrencelist_many}(\hlfunctioncall{as.character
     maxresults = 100, removeZeros = TRUE, fixnames = \hlstring{"changealltorig"})
 
 \hlcomment{# Make a map}
-p <- \hlfunctioncall{gbifmap}(occurr_list) + \hlfunctioncall{guides}(col = \hlfunctioncall{guide_legend}(title = \hlstring{""}, nrow = 2, 
-    byrow = TRUE)) + \hlfunctioncall{theme}(legend.position = \hlstring{"bottom"}, legend.key = \hlfunctioncall{element_blank}())
+p <- \hlfunctioncall{gbifmap}(occurr_list) + \hlfunctioncall{guides}(col = \hlfunctioncall{guide_legend}(title = \hlstring{""}, nrow = 3, 
+    byrow = TRUE)) + \hlfunctioncall{theme}(legend.position = \hlstring{"bottom"}, legend.key = \hlfunctioncall{element_blank}()) + 
+    \hlfunctioncall{coord_equal}()
 p
 \end{alltt}
 \end{kframe}
 
-{\centering \includegraphics[width=\maxwidth]{figure/map} 
+{\centering \includegraphics[width=\textwidth]{figure/map} 
 
 }
 
@@ -338,5 +337,4 @@ p
 \caption{a map...} 
 \end{figure}
 
-\bibliography{apprefs}
 \end{document}
