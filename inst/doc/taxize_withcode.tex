@@ -11,7 +11,6 @@
 }
 \makeatother
 
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \definecolor{fgcolor}{rgb}{0.2, 0.2, 0.2}
 \newcommand{\hlnumber}[1]{\textcolor[rgb]{0,0,0}{#1}}%
 \newcommand{\hlfunctioncall}[1]{\textcolor[rgb]{0.501960784313725,0,0.329411764705882}{\textbf{#1}}}%
@@ -63,6 +62,7 @@
 {
   colorlinks = true, linkcolor = blue, citecolor = blue, urlcolor = blue,
 }
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 
 \begin{document}
 
@@ -180,15 +180,6 @@ temp <- \hlfunctioncall{gnr_resolve}(names = \hlfunctioncall{c}(\hlstring{"Helia
 \hlcomment{# columns}
 temp[, -\hlfunctioncall{c}(1, 4)]
 \end{alltt}
-\begin{verbatim}
-    submitted_name                 name_string                   title
-1 Helianthos annus        Helianthus annuus L.       Catalogue of Life
-3 Helianthos annus            Helianthus annus GBIF Taxonomic Backbone
-4 Helianthos annus            Helianthus annus                     EOL
-5 Helianthos annus         Helianthus annus L.                     EOL
-6 Helianthos annus            Helianthus annus           uBio NameBank
-2    Homo saapiens Homo sapiens Linnaeus, 1758       Catalogue of Life
-\end{verbatim}
 \end{kframe}
 \end{knitrout}
 
@@ -238,10 +229,6 @@ specieslist <- \hlfunctioncall{c}(\hlstring{"Abies procera"}, \hlstring{"Pinus c
 \hlfunctioncall{classification}(\hlfunctioncall{get_tsn}(specieslist, \hlstring{"sciname"}))
 \end{alltt}
 \begin{verbatim}
-
-Retrieving data for species ' Abies procera '
-
-Retrieving data for species ' Pinus contorta '
 [[1]]
         parentName parentTsn      rankName       taxonName    tsn
 1                                  Kingdom         Plantae 202422
@@ -284,8 +271,6 @@ Instead of a full classification, you may only want a single name, say a family 
 \hlfunctioncall{tax_name}(query = \hlstring{"Helianthus annuus"}, get = \hlstring{"family"}, db = \hlstring{"itis"})
 \end{alltt}
 \begin{verbatim}
-
-Retrieving data for species ' Helianthus annuus '
       family
 1 Asteraceae
 \end{verbatim}
@@ -293,10 +278,89 @@ Retrieving data for species ' Helianthus annuus '
 \hlfunctioncall{tax_name}(query = \hlstring{"Helianthus annuus"}, get = \hlstring{"family"}, db = \hlstring{"ncbi"})
 \end{alltt}
 \begin{verbatim}
-
-Retrieving data for species ' Helianthus annuus '
       family
 1 Asteraceae
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+
+
+\subsection{Interactive name selection}
+
+In the previous section we used the function \emph{get\_tsn} to get a classification for two plant species. 
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcomment{# In this example, this search term has many matches. The function returns}
+\hlcomment{# a data.frame of the matches, and asks for user input. Enter the row}
+\hlcomment{# number of the name you want.}
+\hlfunctioncall{get_tsn}(searchterm = \hlstring{"Elisabethae"}, searchtype = \hlstring{"sciname"})
+\end{alltt}
+\begin{verbatim}
+                           combinedname    tsn
+1                  Bittacus elisabethae 810495
+2            Caenaugochlora elisabethae 754498
+3                  Ceratina elisabethae 765455
+4            Dolicheremaeus elisabethae 740429
+5                  Euphione elisabethae  64893
+6                 Harmothoe elisabethae 573734
+7                  Hydraena elisabethae 815669
+8                    Lizzia elisabethae  48875
+9                   Melinna elisabethae  67765
+10            Myrmicocrypta elisabethae 580527
+11           Myzomela boiei elisabethae 713955
+12             Notosacantha elisabethae 838430
+13               Odontomyia elisabethae 627043
+14             Parabelbella elisabethae 737749
+15                Peltigera elisabethae 191230
+16          Polymorphanisus elisabethae 600292
+17        Pseudopterogorgia elisabethae  52264
+18                  Rhantus elisabethae 815107
+19              Scyllarides elisabethae 553004
+20       Sellnickochthonius elisabethae 735137
+21       Serilophus lunatus elisabethae 711636
+22                Stenhelia elisabethae  87927
+23              Tetramorium elisabethae 582397
+24                Theridion elisabethae 868794
+25             Trichoniscus elisabethae 597365
+26 Trichoniscus elisabethae estoniensis 598124
+\end{verbatim}
+\begin{alltt}
+
+\hlcomment{# You can pass in a long list of taxonomic names}
+splist <- \hlfunctioncall{c}(\hlstring{"annona cherimola"}, \hlstring{"annona muricata"}, \hlstring{"quercus robur"}, \hlstring{"shorea robusta"}, 
+    \hlstring{"pandanus patina"}, \hlstring{"oryza sativa"}, \hlstring{"durio zibethinus"})
+\hlfunctioncall{get_tsn}(searchterm = splist, searchtype = \hlstring{"sciname"})
+\end{alltt}
+\begin{verbatim}
+[1] "506198" "18098"  "19405"  "506787" "507376" "41976"  "506099"
+attr(,"class")
+[1] "tsn"
+\end{verbatim}
+\begin{alltt}
+
+\hlcomment{# In this example, note that no match at all returns an NA}
+\hlfunctioncall{get_uid}(sciname = \hlfunctioncall{c}(\hlstring{"Chironomus riparius"}, \hlstring{"aaa vva"}))
+\end{alltt}
+\begin{verbatim}
+[1] "315576" NA      
+attr(,"class")
+[1] "uid"
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+text <- \hlstring{"9,562445749\textbackslash{}n37,66119516\textbackslash{}n72,9103195\textbackslash{}n"}
+\hlfunctioncall{scan}(dec = \hlstring{","}, text = text)
+\end{alltt}
+\begin{verbatim}
+[1]  9.562 37.661 72.910
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
@@ -318,16 +382,6 @@ taxa <- \hlfunctioncall{c}(\hlstring{"Poa annua"}, \hlstring{"Abies procera"}, \
 tree <- \hlfunctioncall{phylomatic_tree}(taxa = taxa, get = \hlstring{"POST"}, informat = \hlstring{"newick"}, method = \hlstring{"phylomatic"}, 
     storedtree = \hlstring{"R20120829"}, taxaformat = \hlstring{"slashpath"}, outformat = \hlstring{"newick"}, 
     clean = \hlstring{"true"})
-\end{alltt}
-\begin{verbatim}
-
-Retrieving data for species ' Poa annua '
-
-Retrieving data for species ' Abies procera '
-
-Retrieving data for species ' Helianthus annuus '
-\end{verbatim}
-\begin{alltt}
 
 tree$tip.label <- \hlfunctioncall{capwords}(tree$tip.label)
 
@@ -340,15 +394,14 @@ tree$tip.label <- \hlfunctioncall{capwords}(tree$tip.label)
 
 }
 
-thing \textbf{shit} butt 
 
 
 \end{knitrout}
 
 
-Behind the scenes the function \emph{phylomatic\_tree} retrieves a Taxonomic Serial Number (TSN) from ITIS for each species name, then a string is created for each species like this \emph{}. These strings are submitted to the Phylomatic API, and if no errors occur, a phylogeny in newick format is returned. The \emph{phylomatic\_tree} also cleans up the newick string and converts to a ape \emph{phylo} object. The output from \emph{phylomatic\_tree} is a \emph{phylo} object, which can be used for plotting, phylogenetic analyses, etc. 
+Behind the scenes the function \emph{phylomatic\_tree} retrieves a Taxonomic Serial Number (TSN) from ITIS for each species name, then a string is created for each species like this \emph{poaceae/oryza/oryza\_sativa} (with format 'family/genus/genus\_epithet'). These strings are submitted to the Phylomatic API, and if no errors occur, a phylogeny in newick format is returned. The \emph{phylomatic\_tree} function also cleans up the newick string and converts it to an \textbf{ape} \emph{phylo} object. The output from \emph{phylomatic\_tree} is a \emph{phylo} object, which can be used for plotting, phylogenetic analyses, and more. 
 
-\subsection{What taxa are in children of my taxon of interest?}
+\subsection{What taxa are the children of my taxon of interest?}
 
 If you aren't a taxonomic specialist on a particular taxon you likely don't know what children taxa are within a family, or within a genus. You can of course go to a website like Wikispecies (\url{http://species.wikimedia.org/wiki/Main_Page}) or Encyclopedia of Life (\url{http://eol.org/}). taxize provides an easy way for you to search for downstream taxa, both for the Catalogue of Life (CoL; \url{http://www.catalogueoflife.org/}) and the Integrated Taxonomic Information Database (\url{http://www.itis.gov/}). Here is a short example using the CoL in which we want to find all the species within the genus \emph{Apis} (honey bees).
 
