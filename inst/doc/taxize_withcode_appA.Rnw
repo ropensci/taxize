@@ -1,7 +1,6 @@
 \documentclass[letterpaper,superscriptaddress,showkeys,longbibliography,10pt]{revtex4-1}
 \usepackage[utf8]{inputenc}
 \usepackage{color,dcolumn,graphicx,hyperref}
-\usepackage[titletoc, title]{appendix}
 \hypersetup
 {
 colorlinks = true, linkcolor = blue, citecolor = blue, urlcolor = blue,
@@ -14,10 +13,9 @@ colorlinks = true, linkcolor = blue, citecolor = blue, urlcolor = blue,
 opts_chunk$set(fig.path='figure/', fig.align='center', fig.show='hold', par=TRUE, warning=FALSE, message=FALSE, error=FALSE, comment=NA)
 @
 
-\begin{appendices}
-\section{A complete reproducible workflow, from a species list to a phylogeny, and distribution map.}
+\section{Appendix A. A complete reproducible workflow, from a species list to a phylogeny, and distribution map.}
 
-If you aren't familiar with a complete workflow in R, it may be difficult to visualize the process. In R, everything is programmatic, so the whole workflow can be in one place, and be repeated whenever necessary. The following is a workflow for taxize, going from a species list to a phylogeny. 
+If you aren't familiar with a complete workflow in R, it may be difficult to visualize the processs. In R, everything is programmatic, so the whole workflow can be in one place, and be repeated whenever necessary. The following is a workflow for taxize, going from a species list to a phylogeny. 
 
 First, install taxize
 
@@ -41,7 +39,7 @@ splist <- c("Helanthus annuus", "Pinos contorta", "Collomia grandiflorra", "Abie
 
 There are many ways to resolve taxonomic names in taxize. Of course, the ideal name resolver will do the work behind the scenes for you so that you don't have to do things like fuzzy matching. There are a few services in taxize like this we can choose from: the Global Names Resolver service from EOL (see function \emph{gnr\_resolve}) and the Taxonomic Name Resolution Service from iPlant (see function \emph{tnrs}). In this case let's use the function \emph{tnrs}. 
 
-<<resolvenames, eval=TRUE, cache=TRUE>>=
+<<resolvenames, eval=TRUE>>=
 # The tnrs function accepts a vector of 1 or more
 splist_tnrs <- tnrs(query=splist, getpost="POST", source_ = "iPlant_TNRS")
 
@@ -57,7 +55,7 @@ splist_tnrs <- tnrs(query=splist, getpost="POST", source_ = "iPlant_TNRS")
 
 Another thing we may want to do is collect common names for our taxa. 
 
-<<commonnames, eval=TRUE, cache=TRUE>>=
+<<commonnames, eval=TRUE>>=
 tsns <- get_tsn(searchterm=splist, searchtype="sciname", verbose=FALSE)
 comnames <- lapply(tsns, getcommonnamesfromtsn)
 
@@ -71,10 +69,10 @@ comnames_vec <- do.call(c, lapply(comnames, function(x) as.character(x[1,"comnam
 (allnames <- data.frame(spname = splist, comname = comnames_vec))
 @
 
-Another common task is getting the taxonomic tree upstream from your study taxa. We often know what family or order our taxa are in, but it we often don't know the tribes, subclasses, and superfamilies. taxize provides many avenues to getting classifications. Two of them are accessible via a single function (\emph{classification}): the Integrated Taxonomic Information System (ITIS) and National Center for Biotechnology Information (NCBI); and via the Catalogue of Life (see function \emph{col\_classification}):
+Another common task is getting the taxonomic tree upstream from your study taxa. We often know what family or order our taxa are in, but it we often don't know the tribes, subclasses, and superfafamilies. taxize provides many avenues to getting classifications. Two of them are accesible via a single function (\emph{classification}): the Integrated Taxonomic Information System and uBio; and via the Catalogue of Life (see function \emph{col\_classification})
 
-<<classification, eval=TRUE, cache=TRUE>>=
-# As we already have Taxonomic Serial Numbers from ITIS, let's just get classifications from ITIS. Note that we could use NCBI instead.
+<<classification, eval=TRUE>>=
+# As we already have Taxonomic Serial Numbers from ITIS, let's just get classifications from ITIS. Note that we could use uBio instead.
 class_list <- classification(tsns)
 sapply(class_list, nrow)
 
@@ -97,25 +95,21 @@ allnames_df[1:2,]
 
 However, taxonomy can only get you so far. Shared ancestry can be reconstructed from molecular data, and phylogenies created. Phylomatic is a web service with an API that we can use to get a phylogeny. 
 
-\begin{figure}[!h] 
+\begin{figure}[!ht] 
 \centering 
-<<phylogeny, eval=TRUE, dev='pdf', out.width='4in', out.height='4in', cache=TRUE, message=FALSE>>=
-# Fetch phylogeny from phylomatic
+<<phylogeny, eval=TRUE, dev='png'>>=
 phylogeny <- phylomatic_tree(taxa=as.character(allnames$spname), taxnames=TRUE, get = 'POST', informat='newick', method = "phylomatic",
     storedtree = "R20120829", taxaformat = "slashpath", outformat = "newick", clean = "true", parallel=TRUE)
-# Format teeth-labels
 phylogeny$tip.label <- capwords(phylogeny$tip.label, onlyfirst=TRUE)
-# plot phylogeny
 plot(phylogeny)
 @
 \caption{a phylogeny...} 
 \end{figure} 
 
-
 Using the species list, with the corrected names, we can now search for occurrence data. The Global Biodiversity Information Facility (GBIF) has the largest collection of records data, and has a  API that we can interact with programmatically from R. First, we need to install rgbif.
 
 <<installgbif, eval=FALSE>>=
-# Install rgbif from github.com
+# Install rgbif
 install.packages("devtools")
 library(devtools)
 install_github("rgbif", "ropensci")
@@ -125,22 +119,18 @@ Now we can search for occurrences for our species list and make a map.
 
 \begin{figure}[!ht] 
 \centering 
-<<map, eval=TRUE, dev='pdf', out.width='.8\\textwidth'>>=
-library(rgbif)
-library(ggplot2)
+<<map, eval=TRUE, dev='png'>>=
+library(rgbif); library(ggplot2)
 
-# get occurences
 occurr_list <- occurrencelist_many(as.character(allnames$spname), coordinatestatus = TRUE, maxresults = 100, removeZeros=TRUE, fixnames="changealltorig")
 
 # Make a map
 p <- gbifmap(occurr_list) + 
-  guides(col = guide_legend(title="", nrow = 3, byrow = TRUE)) + 
-  theme(legend.position="bottom", legend.key = element_blank()) +
-  coord_equal()
+  guides(col = guide_legend(title="", nrow = 2, byrow = TRUE)) + 
+  theme(legend.position="bottom", legend.key = element_blank())
 p
 @
 \caption{a map...} 
 \end{figure}
 
-\end{appendices}
 \end{document}
