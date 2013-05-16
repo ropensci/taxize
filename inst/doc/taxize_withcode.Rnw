@@ -11,7 +11,7 @@
 
 \begin{document}
 
-<<setup, include=FALSE, cache=FALSE>>=
+<<setup, include=FALSE>>=
 ## set global chunk options
 opts_chunk$set(fig.path='figure/', fig.align='center', fig.show='hold', par=TRUE, warning=FALSE, message=FALSE, error=FALSE, comment=NA)
 @
@@ -117,7 +117,7 @@ temp[,-c(1,4)]
 
 It looks like the correct spellings are \emph{Helianthus annuus} and \emph{Homo sapiens}. Another approach uses the Taxonomic Name Resolution Service via the Taxosaurus API (\url{http://taxosaurus.org/}).
 
-<<tnrs, eval=TRUE>>=
+<<tnrs, eval=TRUE, cache=TRUE>>=
 # A list of species names, some of which are misspelled
 mynames <- c("Helianthus annuus", "Pinus contort", "Poa anua", "Abis magnifica",
 		"Rosa california", "Festuca arundinace", "Sorbus occidentalos","Madia sateva")
@@ -137,7 +137,7 @@ Another task biologists often face is getting higher taxonomic names for a taxa 
 Two data sources provide this type of capability: ITIS and NCBI. The principle in both is the same - first you need to get an identifier for the queried species and then can retrieve additional information with this ID. 
 
 
-<<itisclass, eval=TRUE>>=
+<<itisclass, eval=TRUE, cache=TRUE>>=
 specieslist <- c("Abies procera","Pinus contorta")
 classification(get_tsn(specieslist, "sciname"))
 @
@@ -146,7 +146,7 @@ It turns out both species are in the family Pinaceae. You can also get this type
 
 Instead of a full classification, you may only want a single name, say a family name for your species of interest. The function \emph{tax\_name} is built just for this purpose. And you can specify the data source you retrieve the taxonomic name from with the \emph{db} parameter. 
 
-<<taxname, eval=TRUE>>=
+<<taxname, eval=TRUE, cache=TRUE>>=
 tax_name(query="Helianthus annuus", get="family", db="itis")
 tax_name(query="Helianthus annuus", get="family", db="ncbi")
 @
@@ -154,9 +154,9 @@ tax_name(query="Helianthus annuus", get="family", db="ncbi")
 
 \subsection{Interactive name selection}
 
-In the previous section we used the function \emph{get_tsn} to get a classification for two plant species. 
+In the previous section we used the function \emph{get\_tsn} to get a classification for two plant species. 
 
-<<interactive, eval=TRUE>>=
+<<interactive, eval=TRUE, cache=TRUE>>=
 # In this example, this search term has many matches. The function returns a data.frame of the matches, and asks for user input. Enter the row number of the name you want. 
 get_tsn(searchterm="Elisabethae", searchtype="sciname")
 
@@ -182,7 +182,7 @@ scan(dec=",", text=text)
 
 Many biologists are not adequately trained in reconstructing phylogenies. However, there are some sources for getting a phylogeny without having to now how to build one; one of these is for angiosperms, called Phylomatic \cite{webb2005}. We have created a workflow in taxize that lets you input a simple species list, and then taxize works behind the scenes to get higher taxonomic names, which are required by Phylomatic to get a phylogeny. Here is a short example. 
 
-<<phylomaticphylogeny, eval=TRUE, dev='png', out.width='4in', out.height='4in', dpi=100>>=
+<<phylomaticphylogeny, eval=TRUE, dev='pdf', out.width='4in', out.height='4in', cache=TRUE>>=
 # input the taxonomic names
 taxa <- c("Poa annua", "Abies procera", "Helianthus annuus")
 
@@ -195,13 +195,13 @@ tree$tip.label <- capwords(tree$tip.label)
 plot(tree, cex=1)
 @
 
-Behind the scenes the function \emph{phylomatic\_tree} retrieves a Taxonomic Serial Number (TSN) from ITIS for each species name, then a string is created for each species like this \emph{poaceae/oryza/oryza_sativa} (with format 'family/genus/genus_epithet'). These strings are submitted to the Phylomatic API, and if no errors occur, a phylogeny in newick format is returned. The \emph{phylomatic\_tree} function also cleans up the newick string and converts it to an \textbf{ape} \emph{phylo} object. The output from \emph{phylomatic\_tree} is a \emph{phylo} object, which can be used for plotting, phylogenetic analyses, and more. 
+Behind the scenes the function \emph{phylomatic\_tree} retrieves a Taxonomic Serial Number (TSN) from ITIS for each species name, then a string is created for each species like this \emph{poaceae/oryza/oryza\_sativa} (with format 'family/genus/genus\_epithet'). These strings are submitted to the Phylomatic API, and if no errors occur, a phylogeny in newick format is returned. The \emph{phylomatic\_tree} function also cleans up the newick string and converts it to an \textbf{ape} \emph{phylo} object. The output from \emph{phylomatic\_tree} is a \emph{phylo} object, which can be used for plotting, phylogenetic analyses, and more. 
 
 \subsection{What taxa are the children of my taxon of interest?}
 
 If you aren't a taxonomic specialist on a particular taxon you likely don't know what children taxa are within a family, or within a genus. You can of course go to a website like Wikispecies (\url{http://species.wikimedia.org/wiki/Main_Page}) or Encyclopedia of Life (\url{http://eol.org/}). taxize provides an easy way for you to search for downstream taxa, both for the Catalogue of Life (CoL; \url{http://www.catalogueoflife.org/}) and the Integrated Taxonomic Information Database (\url{http://www.itis.gov/}). Here is a short example using the CoL in which we want to find all the species within the genus \emph{Apis} (honey bees).
 
-<<downstream, eval=TRUE>>=
+<<downstream, eval=TRUE, cache=TRUE>>=
 col_downstream(name="Apis", downto="Species")[[1]]
 @
 
@@ -209,7 +209,7 @@ col_downstream(name="Apis", downto="Species")[[1]]
 
 There are a number of things we can do once we have the correct taxonomic names. One thing we can do is ask about the conservation status of a species. We have provided a set of functions, \emph{iucn\_summary} and \emph{iucn\_status}, to search for species names, and extract the status information, respectively. Here, we search for the Panther and Lynx.  
 
-<<XXXX, eval=TRUE>>=
+<<iucn, eval=TRUE, cache=TRUE>>=
 ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
 iucn_status(ia)
 @

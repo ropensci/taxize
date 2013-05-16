@@ -229,10 +229,6 @@ specieslist <- \hlfunctioncall{c}(\hlstring{"Abies procera"}, \hlstring{"Pinus c
 \hlfunctioncall{classification}(\hlfunctioncall{get_tsn}(specieslist, \hlstring{"sciname"}))
 \end{alltt}
 \begin{verbatim}
-
-Retrieving data for species ' Abies procera '
-
-Retrieving data for species ' Pinus contorta '
 [[1]]
         parentName parentTsn      rankName       taxonName    tsn
 1                                  Kingdom         Plantae 202422
@@ -275,8 +271,6 @@ Instead of a full classification, you may only want a single name, say a family 
 \hlfunctioncall{tax_name}(query = \hlstring{"Helianthus annuus"}, get = \hlstring{"family"}, db = \hlstring{"itis"})
 \end{alltt}
 \begin{verbatim}
-
-Retrieving data for species ' Helianthus annuus '
       family
 1 Asteraceae
 \end{verbatim}
@@ -284,8 +278,6 @@ Retrieving data for species ' Helianthus annuus '
 \hlfunctioncall{tax_name}(query = \hlstring{"Helianthus annuus"}, get = \hlstring{"family"}, db = \hlstring{"ncbi"})
 \end{alltt}
 \begin{verbatim}
-
-Retrieving data for species ' Helianthus annuus '
       family
 1 Asteraceae
 \end{verbatim}
@@ -296,7 +288,7 @@ Retrieving data for species ' Helianthus annuus '
 
 \subsection{Interactive name selection}
 
-In the previous section we used the function \emph{get_tsn} to get a classification for two plant species. 
+In the previous section we used the function \emph{get\_tsn} to get a classification for two plant species. 
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -307,10 +299,6 @@ In the previous section we used the function \emph{get_tsn} to get a classificat
 \hlfunctioncall{get_tsn}(searchterm = \hlstring{"Elisabethae"}, searchtype = \hlstring{"sciname"})
 \end{alltt}
 \begin{verbatim}
-
-Retrieving data for species ' Elisabethae '
-
-
                            combinedname    tsn
 1                  Bittacus elisabethae 810495
 2            Caenaugochlora elisabethae 754498
@@ -338,10 +326,6 @@ Retrieving data for species ' Elisabethae '
 24                Theridion elisabethae 868794
 25             Trichoniscus elisabethae 597365
 26 Trichoniscus elisabethae estoniensis 598124
-
-More than one TSN found for species ' Elisabethae '!
-
-          Enter rownumber of species (other inputs will return 'NA'):
 \end{verbatim}
 \begin{alltt}
 
@@ -351,20 +335,6 @@ splist <- \hlfunctioncall{c}(\hlstring{"annona cherimola"}, \hlstring{"annona mu
 \hlfunctioncall{get_tsn}(searchterm = splist, searchtype = \hlstring{"sciname"})
 \end{alltt}
 \begin{verbatim}
-
-Retrieving data for species ' annona cherimola '
-
-Retrieving data for species ' annona muricata '
-
-Retrieving data for species ' quercus robur '
-
-Retrieving data for species ' shorea robusta '
-
-Retrieving data for species ' pandanus patina '
-
-Retrieving data for species ' oryza sativa '
-
-Retrieving data for species ' durio zibethinus '
 [1] "506198" "18098"  "19405"  "506787" "507376" "41976"  "506099"
 attr(,"class")
 [1] "tsn"
@@ -375,10 +345,6 @@ attr(,"class")
 \hlfunctioncall{get_uid}(sciname = \hlfunctioncall{c}(\hlstring{"Chironomus riparius"}, \hlstring{"aaa vva"}))
 \end{alltt}
 \begin{verbatim}
-
-Retrieving data for species ' Chironomus riparius '
-
-Retrieving data for species ' aaa vva '
 [1] "315576" NA      
 attr(,"class")
 [1] "uid"
@@ -416,16 +382,6 @@ taxa <- \hlfunctioncall{c}(\hlstring{"Poa annua"}, \hlstring{"Abies procera"}, \
 tree <- \hlfunctioncall{phylomatic_tree}(taxa = taxa, get = \hlstring{"POST"}, informat = \hlstring{"newick"}, method = \hlstring{"phylomatic"}, 
     storedtree = \hlstring{"R20120829"}, taxaformat = \hlstring{"slashpath"}, outformat = \hlstring{"newick"}, 
     clean = \hlstring{"true"})
-\end{alltt}
-\begin{verbatim}
-
-Retrieving data for species ' Poa annua '
-
-Retrieving data for species ' Abies procera '
-
-Retrieving data for species ' Helianthus annuus '
-\end{verbatim}
-\begin{alltt}
 
 tree$tip.label <- \hlfunctioncall{capwords}(tree$tip.label)
 
@@ -443,7 +399,7 @@ tree$tip.label <- \hlfunctioncall{capwords}(tree$tip.label)
 \end{knitrout}
 
 
-Behind the scenes the function \emph{phylomatic\_tree} retrieves a Taxonomic Serial Number (TSN) from ITIS for each species name, then a string is created for each species like this \emph{poaceae/oryza/oryza_sativa} (with format 'family/genus/genus_epithet'). These strings are submitted to the Phylomatic API, and if no errors occur, a phylogeny in newick format is returned. The \emph{phylomatic\_tree} function also cleans up the newick string and converts it to an \textbf{ape} \emph{phylo} object. The output from \emph{phylomatic\_tree} is a \emph{phylo} object, which can be used for plotting, phylogenetic analyses, and more. 
+Behind the scenes the function \emph{phylomatic\_tree} retrieves a Taxonomic Serial Number (TSN) from ITIS for each species name, then a string is created for each species like this \emph{poaceae/oryza/oryza\_sativa} (with format 'family/genus/genus\_epithet'). These strings are submitted to the Phylomatic API, and if no errors occur, a phylogeny in newick format is returned. The \emph{phylomatic\_tree} function also cleans up the newick string and converts it to an \textbf{ape} \emph{phylo} object. The output from \emph{phylomatic\_tree} is a \emph{phylo} object, which can be used for plotting, phylogenetic analyses, and more. 
 
 \subsection{What taxa are the children of my taxon of interest?}
 
