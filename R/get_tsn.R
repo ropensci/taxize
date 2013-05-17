@@ -60,7 +60,7 @@ get_tsn <- function (searchterm, searchtype = "sciname", verbose = TRUE)
       print(tsn_df)
       message("\nMore than one TSN found for species '", x, "'!\n
           Enter rownumber of species (other inputs will return 'NA'):\n") # prompt
-      take <- scan(n = 1, quiet = TRUE, what = 'raw', text=NULL)
+      take <- scan(n = 1, quiet = TRUE, what = 'raw')
       
       if(length(take) == 0)
         take <- 'notake'
