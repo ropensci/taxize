@@ -11,6 +11,7 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Database file #1: taxize_withcodeNotes.bib
 Database file #2: ../refs.bib
+Warning--I didn't find a database entry for "REF"
 control{REVTEX41Control}, control.key{N/A}, control.author{N/A}, control.editor{N/A}, control.title{N/A}, control.pages{N/A}, control.year{N/A}, control.eprint{N/A}, 
 control{apsrev41Control}, control.key{N/A}, control.author{00}, control.editor{1}, control.title{0}, control.pages{1}, control.year{0}, control.eprint{N/A}, 
 Warning--jnrlst (dependency: not reversed) set 1
@@ -24,45 +25,47 @@ Control: production of article title (0) allowed
 Control: page (1) range
 Control: year (0) verbatim
 Control: production of eprint (0) enabled
-You've used 9 entries,
+Warning--empty author in eol
+Warning--empty year in eol
+You've used 12 entries,
             5847 wiz_defined-function locations,
-            1645 strings with 15742 characters,
-and the built_in function-call counts, 6746 in all, are:
-= -- 456
-> -- 120
-< -- 66
-+ -- 46
-- -- 42
-* -- 941
-:= -- 694
-add.period$ -- 11
-call.type$ -- 9
-change.case$ -- 35
-chr.to.int$ -- 19
-cite$ -- 9
-duplicate$ -- 695
-empty$ -- 461
-format.name$ -- 61
-if$ -- 1246
+            1666 strings with 16653 characters,
+and the built_in function-call counts, 11228 in all, are:
+= -- 647
+> -- 312
+< -- 99
++ -- 104
+- -- 94
+* -- 1740
+:= -- 1071
+add.period$ -- 16
+call.type$ -- 12
+change.case$ -- 50
+chr.to.int$ -- 22
+cite$ -- 16
+duplicate$ -- 1112
+empty$ -- 792
+format.name$ -- 169
+if$ -- 2143
 int.to.chr$ -- 1
-int.to.str$ -- 17
-missing$ -- 95
-newline$ -- 73
-num.names$ -- 21
-pop$ -- 305
+int.to.str$ -- 20
+missing$ -- 146
+newline$ -- 82
+num.names$ -- 27
+pop$ -- 460
 preamble$ -- 1
-purify$ -- 28
+purify$ -- 40
 quote$ -- 0
-skip$ -- 264
+skip$ -- 419
 stack$ -- 0
-substring$ -- 170
-swap$ -- 596
-text.length$ -- 11
+substring$ -- 223
+swap$ -- 1031
+text.length$ -- 37
 text.prefix$ -- 0
 top$ -- 10
-type$ -- 100
-warning$ -- 2
-while$ -- 30
+type$ -- 158
+warning$ -- 4
+while$ -- 35
 width$ -- 0
-write$ -- 111
-(There were 2 warnings)
+write$ -- 135
+(There were 5 warnings)

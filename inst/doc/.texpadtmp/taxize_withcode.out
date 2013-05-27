@@ -1,17 +1,19 @@
 \BOOKMARK [0][-]{section*.1}{taxize - taxonomic search and retrieval in R}{}% 1
 \BOOKMARK [1][-]{section*.2}{Abstract}{section*.1}% 2
 \BOOKMARK [1][-]{section*.3}{Introduction}{section*.1}% 3
-\BOOKMARK [1][-]{section*.4}{Why taxize?}{section*.1}% 4
+\BOOKMARK [1][-]{section*.4}{Why do we need taxize?}{section*.1}% 4
 \BOOKMARK [1][-]{section*.5}{Data sources}{section*.1}% 5
 \BOOKMARK [1][-]{section*.6}{Use cases}{section*.1}% 6
-\BOOKMARK [2][-]{section*.7}{Installing taxize}{section*.6}% 7
+\BOOKMARK [2][-]{section*.7}{First, install taxize}{section*.6}% 7
 \BOOKMARK [2][-]{section*.8}{Resolve taxonomic names}{section*.6}% 8
 \BOOKMARK [2][-]{section*.9}{Retrieve higher taxonomic names}{section*.6}% 9
-\BOOKMARK [2][-]{section*.10}{Retrieve a phylogeny}{section*.6}% 10
-\BOOKMARK [2][-]{section*.11}{What taxa are in children of my taxon of interest?}{section*.6}% 11
-\BOOKMARK [2][-]{section*.12}{IUCN Status}{section*.6}% 12
-\BOOKMARK [1][-]{section*.13}{Conclusion}{section*.1}% 13
-\BOOKMARK [1][-]{section*.14}{Funding}{section*.1}% 14
-\BOOKMARK [1][-]{section*.15}{Acknowledgements}{section*.1}% 15
-\BOOKMARK [1][-]{section*.16}{Appendices}{section*.1}% 16
-\BOOKMARK [1][-]{section*.17}{References}{section*.1}% 17
+\BOOKMARK [2][-]{section*.10}{Interactive name selection}{section*.6}% 10
+\BOOKMARK [2][-]{section*.11}{Retrieve a phylogeny}{section*.6}% 11
+\BOOKMARK [2][-]{section*.12}{What taxa are the children of my taxon of interest?}{section*.6}% 12
+\BOOKMARK [1][-]{section*.13}{Side use cases}{section*.1}% 13
+\BOOKMARK [2][-]{section*.14}{IUCN Status}{section*.13}% 14
+\BOOKMARK [2][-]{section*.15}{Search for available genes in GenBank}{section*.13}% 15
+\BOOKMARK [1][-]{section*.16}{Conclusion}{section*.1}% 16
+\BOOKMARK [1][-]{section*.17}{Acknowledgements}{section*.1}% 17
+\BOOKMARK [1][-]{section*.18}{Appendices}{section*.1}% 18
+\BOOKMARK [1][-]{section*.19}{References}{section*.1}% 19

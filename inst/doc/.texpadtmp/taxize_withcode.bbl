@@ -6,7 +6,7 @@
 %Control: page (1) range
 %Control: year (0) verbatim
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{7}%
+\begin{thebibliography}{10}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -67,6 +67,54 @@
   {http://www.nytimes.com/2012/04/17/science/rise-in-scientific-journal-retractions-prompts-calls-for-reform.html?_r=0}
   {\bibfield  {journal} {\bibinfo  {journal} {New York Times}\ } (\bibinfo
   {year} {2012})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Xie}(2013)}]{yihui2013}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Yihui}\ \bibnamefont
+  {Xie}},\ }\href {http://yihui.name/knitr/} {\emph {\bibinfo {title} {Dynamic
+  Documents with {R} and knitr}}}\ (\bibinfo  {publisher} {Chapman and
+  Hall/CRC},\ \bibinfo {year} {2013})\ \bibinfo {note} {iSBN
+  978-1482203530}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Gentleman}\ \emph {et~al.}(2004)\citenamefont
+  {Gentleman}, \citenamefont {Carey}, \citenamefont {Bates}, \citenamefont
+  {Bolstad}, \citenamefont {Dettling}, \citenamefont {Dudoit}, \citenamefont
+  {Ellis}, \citenamefont {Gautier}, \citenamefont {Ge}, \citenamefont {Gentry},
+  \citenamefont {Hornik}, \citenamefont {Hothorn}, \citenamefont {Huber},
+  \citenamefont {Iacus}, \citenamefont {Irizarry}, \citenamefont {Leisch},
+  \citenamefont {Li}, \citenamefont {Maechler}, \citenamefont {Rossini},
+  \citenamefont {Sawitzki}, \citenamefont {Smith}, \citenamefont {Smyth},
+  \citenamefont {Tierney}, \citenamefont {Yang},\ and\ \citenamefont
+  {Zhang}}]{gentleman_bioconductor:_2004}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Robert~C.}\
+  \bibnamefont {Gentleman}}, \bibinfo {author} {\bibfnamefont {Vincent~J.}\
+  \bibnamefont {Carey}}, \bibinfo {author} {\bibfnamefont {Douglas~M.}\
+  \bibnamefont {Bates}}, \bibinfo {author} {\bibfnamefont {Ben}\ \bibnamefont
+  {Bolstad}}, \bibinfo {author} {\bibfnamefont {Marcel}\ \bibnamefont
+  {Dettling}}, \bibinfo {author} {\bibfnamefont {Sandrine}\ \bibnamefont
+  {Dudoit}}, \bibinfo {author} {\bibfnamefont {Byron}\ \bibnamefont {Ellis}},
+  \bibinfo {author} {\bibfnamefont {Laurent}\ \bibnamefont {Gautier}}, \bibinfo
+  {author} {\bibfnamefont {Yongchao}\ \bibnamefont {Ge}}, \bibinfo {author}
+  {\bibfnamefont {Jeff}\ \bibnamefont {Gentry}}, \bibinfo {author}
+  {\bibfnamefont {Kurt}\ \bibnamefont {Hornik}}, \bibinfo {author}
+  {\bibfnamefont {Torsten}\ \bibnamefont {Hothorn}}, \bibinfo {author}
+  {\bibfnamefont {Wolfgang}\ \bibnamefont {Huber}}, \bibinfo {author}
+  {\bibfnamefont {Stefano}\ \bibnamefont {Iacus}}, \bibinfo {author}
+  {\bibfnamefont {Rafael}\ \bibnamefont {Irizarry}}, \bibinfo {author}
+  {\bibfnamefont {Friedrich}\ \bibnamefont {Leisch}}, \bibinfo {author}
+  {\bibfnamefont {Cheng}\ \bibnamefont {Li}}, \bibinfo {author} {\bibfnamefont
+  {Martin}\ \bibnamefont {Maechler}}, \bibinfo {author} {\bibfnamefont
+  {Anthony~J.}\ \bibnamefont {Rossini}}, \bibinfo {author} {\bibfnamefont
+  {Gunther}\ \bibnamefont {Sawitzki}}, \bibinfo {author} {\bibfnamefont
+  {Colin}\ \bibnamefont {Smith}}, \bibinfo {author} {\bibfnamefont {Gordon}\
+  \bibnamefont {Smyth}}, \bibinfo {author} {\bibfnamefont {Luke}\ \bibnamefont
+  {Tierney}}, \bibinfo {author} {\bibfnamefont {Jean~{YH}}\ \bibnamefont
+  {Yang}}, \ and\ \bibinfo {author} {\bibfnamefont {Jianhua}\ \bibnamefont
+  {Zhang}},\ }\bibfield  {title} {{\selectlanguage {en}\enquote {\bibinfo
+  {title} {Bioconductor: open software development for computational biology
+  and bioinformatics},}\ }}\href {\doibase 10.1186/gb-2004-5-10-r80} {\bibfield
+   {journal} {\bibinfo  {journal} {Genome Biology}\ }\textbf {\bibinfo {volume}
+  {5}},\ \bibinfo {pages} {R80} (\bibinfo {year} {2004})},\ \bibinfo {note}
+  {{PMID:} 15461798}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Chamberlain}\ and\ \citenamefont
   {Ushey}(2013)}]{chamberlain2013}%
   \BibitemOpen
@@ -100,14 +148,19 @@
   {journal} {\bibinfo  {journal} {Bioinformatics}\ }\textbf {\bibinfo {volume}
   {20}},\ \bibinfo {pages} {289--290} (\bibinfo {year} {2004})}\BibitemShut
   {NoStop}%
+\bibitem [{eol()}]{eol}%
+  \BibitemOpen
+  \bibfield  {title} {\enquote {\bibinfo {title} {Encylopedia of life},}\
+  }\href@noop {} {\bibinfo  {journal} {Available at
+  \url{http://resolver.globalnames.org/}}\ }\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Webb}\ and\ \citenamefont
   {Donoghue}(2005)}]{webb2005}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Campbell~O}\
-  \bibnamefont {Webb}}\ and\ \bibinfo {author} {\bibfnamefont {Michael~J}\
-  \bibnamefont {Donoghue}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
-  {Phylomatic: tree assembly for applied phylogenetics},}\ }\href@noop {}
-  {\bibfield  {journal} {\bibinfo  {journal} {Molecular Ecology Notes}\
-  }\textbf {\bibinfo {volume} {5}},\ \bibinfo {pages} {181--183} (\bibinfo
-  {year} {2005})}\BibitemShut {NoStop}%
+\bibfield  {journal} {  }\bibfield  {author} {\bibinfo {author} {\bibfnamefont
+  {Campbell~O}\ \bibnamefont {Webb}}\ and\ \bibinfo {author} {\bibfnamefont
+  {Michael~J}\ \bibnamefont {Donoghue}},\ }\bibfield  {title} {\enquote
+  {\bibinfo {title} {Phylomatic: tree assembly for applied phylogenetics},}\
+  }\href@noop {} {\bibfield  {journal} {\bibinfo  {journal} {Molecular Ecology
+  Notes}\ }\textbf {\bibinfo {volume} {5}},\ \bibinfo {pages} {181--183}
+  (\bibinfo {year} {2005})}\BibitemShut {NoStop}%
 \end{thebibliography}%
