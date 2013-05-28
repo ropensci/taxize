@@ -11,7 +11,6 @@
 }
 \makeatother
 
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \definecolor{fgcolor}{rgb}{0.2, 0.2, 0.2}
 \newcommand{\hlnumber}[1]{\textcolor[rgb]{0,0,0}{#1}}%
 \newcommand{\hlfunctioncall}[1]{\textcolor[rgb]{0.501960784313725,0,0.329411764705882}{\textbf{#1}}}%
@@ -64,6 +63,7 @@
 {
   colorlinks = true, linkcolor = blue, citecolor = blue, urlcolor = blue,
 }
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 
 \begin{document}
 
@@ -157,23 +157,9 @@ Installing from CRAN or GitHub
 \begin{alltt}
 \hlcomment{## From CRAN}
 \hlfunctioncall{install.packages}(\hlstring{"taxize"})
-\end{alltt}
-\begin{verbatim}
-
-The downloaded binary packages are in
-	/var/folders/kv/rpbb_gw965l0lhrq8w92n8j40000gn/T//Rtmp44FcYx/downloaded_packages
-\end{verbatim}
-\begin{alltt}
 
 \hlcomment{## From GitHub}
 \hlfunctioncall{install.packages}(\hlstring{"devtools"})
-\end{alltt}
-\begin{verbatim}
-
-The downloaded binary packages are in
-	/var/folders/kv/rpbb_gw965l0lhrq8w92n8j40000gn/T//Rtmp44FcYx/downloaded_packages
-\end{verbatim}
-\begin{alltt}
 \hlfunctioncall{require}(devtools)
 \hlfunctioncall{install_github}(\hlstring{"taxize_"}, \hlstring{"ropensci"})
 \end{alltt}
@@ -206,15 +192,6 @@ temp <- \hlfunctioncall{gnr_resolve}(names = \hlfunctioncall{c}(\hlstring{"Helia
 \hlcomment{# columns}
 temp[, -\hlfunctioncall{c}(1, 4)]
 \end{alltt}
-\begin{verbatim}
-    submitted_name                 name_string                   title
-1 Helianthos annus        Helianthus annuus L.       Catalogue of Life
-3 Helianthos annus            Helianthus annus GBIF Taxonomic Backbone
-4 Helianthos annus            Helianthus annus                     EOL
-5 Helianthos annus         Helianthus annus L.                     EOL
-6 Helianthos annus            Helianthus annus           uBio NameBank
-2    Homo saapiens Homo sapiens Linnaeus, 1758       Catalogue of Life
-\end{verbatim}
 \end{kframe}
 \end{knitrout}
 
@@ -263,10 +240,6 @@ specieslist <- \hlfunctioncall{c}(\hlstring{"Abies procera"}, \hlstring{"Pinus c
 \hlfunctioncall{classification}(\hlfunctioncall{get_tsn}(specieslist, \hlstring{"sciname"}))
 \end{alltt}
 \begin{verbatim}
-
-Retrieving data for species ' Abies procera '
-
-Retrieving data for species ' Pinus contorta '
 [[1]]
         parentName parentTsn      rankName       taxonName    tsn
 1                                  Kingdom         Plantae 202422
@@ -310,9 +283,8 @@ Instead of a full classification, you may only want a single name, say a family 
 \hlfunctioncall{tax_name}(query = \hlstring{"Helianthus annuus"}, get = \hlstring{"family"}, db = \hlstring{"itis"})
 \end{alltt}
 \begin{verbatim}
-
-Retrieving data for species ' Helianthus annuus '
-[1] "Asteraceae"
+      family
+1 Asteraceae
 \end{verbatim}
 \begin{alltt}
 
@@ -320,9 +292,8 @@ Retrieving data for species ' Helianthus annuus '
 \hlfunctioncall{tax_name}(query = \hlstring{"Helianthus annuus"}, get = \hlstring{"family"}, db = \hlstring{"ncbi"})
 \end{alltt}
 \begin{verbatim}
-
-Retrieving data for species ' Helianthus annuus '
-[1] "Asteraceae"
+      family
+1 Asteraceae
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
@@ -341,10 +312,6 @@ In the previous section we used the function \emph{get\_tsn} to get a classifica
 \hlfunctioncall{get_tsn}(searchterm = \hlstring{"Elisabethae"}, searchtype = \hlstring{"sciname"})
 \end{alltt}
 \begin{verbatim}
-
-Retrieving data for species ' Elisabethae '
-
-
                            combinedname    tsn
 1                  Bittacus elisabethae 810495
 2            Caenaugochlora elisabethae 754498
@@ -372,12 +339,6 @@ Retrieving data for species ' Elisabethae '
 24                Theridion elisabethae 868794
 25             Trichoniscus elisabethae 597365
 26 Trichoniscus elisabethae estoniensis 598124
-
-More than one TSN found for species ' Elisabethae '!
-
-          Enter rownumber of species (other inputs will return 'NA'):
-
-Returned 'NA'!
  1 
 NA 
 attr(,"class")
@@ -391,20 +352,6 @@ splist <- \hlfunctioncall{c}(\hlstring{"annona cherimola"}, \hlstring{"annona mu
 \hlfunctioncall{get_tsn}(searchterm = splist, searchtype = \hlstring{"sciname"})
 \end{alltt}
 \begin{verbatim}
-
-Retrieving data for species ' annona cherimola '
-
-Retrieving data for species ' annona muricata '
-
-Retrieving data for species ' quercus robur '
-
-Retrieving data for species ' shorea robusta '
-
-Retrieving data for species ' pandanus patina '
-
-Retrieving data for species ' oryza sativa '
-
-Retrieving data for species ' durio zibethinus '
 [1] "506198" "18098"  "19405"  "506787" "507376" "41976"  "506099"
 attr(,"class")
 [1] "tsn"
@@ -415,10 +362,6 @@ attr(,"class")
 \hlfunctioncall{get_uid}(sciname = \hlfunctioncall{c}(\hlstring{"Chironomus riparius"}, \hlstring{"aaa vva"}))
 \end{alltt}
 \begin{verbatim}
-
-Retrieving data for species ' Chironomus riparius '
-
-Retrieving data for species ' aaa vva '
 [1] "315576" NA      
 attr(,"class")
 [1] "uid"
@@ -442,16 +385,6 @@ taxa <- \hlfunctioncall{c}(\hlstring{"Poa annua"}, \hlstring{"Abies procera"}, \
 tree <- \hlfunctioncall{phylomatic_tree}(taxa = taxa, get = \hlstring{"POST"}, informat = \hlstring{"newick"}, method = \hlstring{"phylomatic"}, 
     storedtree = \hlstring{"R20120829"}, taxaformat = \hlstring{"slashpath"}, outformat = \hlstring{"newick"}, 
     clean = \hlstring{"true"})
-\end{alltt}
-\begin{verbatim}
-
-Retrieving data for species ' Poa annua '
-
-Retrieving data for species ' Abies procera '
-
-Retrieving data for species ' Helianthus annuus '
-\end{verbatim}
-\begin{alltt}
 
 \hlcomment{# Captilize the species names}
 tree$tip.label <- \hlfunctioncall{capwords}(tree$tip.label)
@@ -511,6 +444,10 @@ There are a number of things we can do once we have the correct taxonomic names.
 ia <- \hlfunctioncall{iucn_summary}(\hlfunctioncall{c}(\hlstring{"Panthera uncia"}, \hlstring{"Lynx lynx"}))
 \hlfunctioncall{iucn_status}(ia)
 \end{alltt}
+\begin{verbatim}
+Panthera uncia      Lynx lynx 
+          "EN"           "LC" 
+\end{verbatim}
 \end{kframe}
 \end{knitrout}
 
@@ -572,6 +509,7 @@ The taxize package is part of the rOpenSci project \url{http://ropensci.org/}. W
     \item{Appendix A.} A complete reproducible workflow, from a species list to a phylogeny, and a species distribution map. 
 \end{itemize}
 
+\bibliographystyle{eco_lett}
 \bibliography{refs}
 
 \end{document}
