@@ -263,6 +263,7 @@ The taxize package is part of the rOpenSci project \url{http://ropensci.org/}. W
     \item{Appendix A.} A complete reproducible workflow, from a species list to a phylogeny, and a species distribution map. 
 \end{itemize}
 
+\bibliographystyle{eco_lett}
 \bibliography{refs}
 
 \end{document}
