@@ -441,6 +441,13 @@ The result from the above call to \emph{col\_downstream()} is a data.frame that 
 
 \subsection{Matching species tables with different taxonomic resolution}
 
+Trait-based approaches are a promising tool in ecology. Unlike taxonomy-based methods, traits may not be constrained to biogeographic boundaries \citep{baird_toward_2011} and have potential to disentangle the effects of multiple stressors \citep{statzner_can_2010}. 
+
+To analyse trait-composition abundance data must be matched with trait databases like \citet{usseglio-polatera_biological_2000}. However these two datatables may contain species information on different taxonomic levels and perhabs data must be aggregated to a joint taxomic level.
+
+taxize can help in this data-cleaning step, providing a reproducible workflow. Here we illustrate this on a small fictitious example.
+
+
 \section{Side use cases}
 \subsection{IUCN Status}
 
@@ -460,7 +467,7 @@ Panthera uncia      Lynx lynx
 \end{knitrout}
 
 
-It turns out that the panther has a status of endangered (EN) and the lynx has a status of least concern (LN). (ED, WHAT ELSE DO YOU WANT TO SAY HERE?)
+It turns out that the panther has a status of endangered (EN) and the lynx has a status of least concern (LN).
 
 \subsection{Search for available genes in GenBank}
 
