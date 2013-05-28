@@ -3,6 +3,7 @@
 % \usepackage[utf8]{inputenc}
 \usepackage{color,dcolumn,graphicx,hyperref}
 \usepackage{natbib}
+\usepackage{float}
 % \usepackage[english]{babel}
 \usepackage{footnote}
 \hypersetup
@@ -25,7 +26,7 @@ opts_chunk$set(fig.path='figure/', fig.align='center', fig.show='hold', par=TRUE
 
 \author{Eduard Sz\"{o}cs}
 \email[E-mail: ]{szoe8822@uni-landau.de}
-\affiliation{Institute for Environmental Sciences, University Koblenz-Landau, Fortstraße 7, 76829 Landau, Germany}
+\affiliation{Institute for Environmental Sciences, University Koblenz-Landau, Fortstr. 7, 76829 Landau, Germany}
 \keywords{taxonomy; R; software; data; API}
 
 \maketitle
@@ -184,9 +185,9 @@ get_uid(sciname=c("Chironomus riparius", "aaa vva"))
 
 \subsection{Retrieve a phylogeny}
 
-Ecologists are increasingly taking a phylogenetic approach to ecology, applying phylogenies to topics such as the study of community structure \cite{webb2002phylogenies}, ecological networks \cite{REF}, functional trait ecology \cite{REF}. Yet, Many biologists are not adequately trained in reconstructing phylogenies. Fortunately, there are some sources for getting a phylogeny without having to know how to build one; one of these is for angiosperms, called Phylomatic \cite{webb2005}. We have created a workflow in taxize that accepts a species list, and taxize works behind the scenes to get higher taxonomic names, which are required by Phylomatic to get a phylogeny. Here is a short example:
+Ecologists are increasingly taking a phylogenetic approach to ecology, applying phylogenies to topics such as the study of community structure \cite{webb2002phylogenies}, ecological networks \cite{rafferty2013phylogenetic}, functional trait ecology \cite{REF}. Yet, Many biologists are not adequately trained in reconstructing phylogenies. Fortunately, there are some sources for getting a phylogeny without having to know how to build one; one of these is for angiosperms, called Phylomatic \cite{webb2005}. We have created a workflow in taxize that accepts a species list, and taxize works behind the scenes to get higher taxonomic names, which are required by Phylomatic to get a phylogeny. Here is a short example, producing the tree in figure \ref{fig:phylomatic}:
 
-\begin{figure}[!h] 
+\begin{figure}[H] 
 \centering 
 <<phylomaticphylogeny, eval=TRUE, dev='pdf', out.width='4in', out.height='4in', cache=TRUE>>=
 # Input the taxonomic names
@@ -202,6 +203,7 @@ tree$tip.label <- capwords(tree$tip.label)
 plot(tree, cex=1)
 @
 \caption{A Phylogeny for the three species.} 
+\label{fig:phylomatic}
 \end{figure} 
 
 Behind the scenes the function \emph{phylomatic\_tree} retrieves a Taxonomic Serial Number (TSN) from ITIS for each species name, then a string is created for each species like this \emph{poaceae/oryza/oryza\_sativa} (with format 'family/genus/genus\_epithet'). These strings are submitted to the Phylomatic API, and if no errors occur, a phylogeny in newick format is returned. The \emph{phylomatic\_tree()} function also cleans up the newick string and converts it to an \textbf{ape} \emph{phylo} object. The output from \emph{phylomatic\_tree()} is a \emph{phylo} object, which can be used for plotting and phylogenetic analyses. 
@@ -218,6 +220,8 @@ col_downstream(name="Apis", downto="Species")[[1]]
 @
 
 The result from the above call to \emph{col\_downstream()} is a data.frame that gives a number of columns of different information. 
+
+\subsection{Matching species tables with different taxonomic resolution}
 
 \section{Side use cases}
 \subsection{IUCN Status}
