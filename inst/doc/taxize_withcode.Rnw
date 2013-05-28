@@ -70,24 +70,24 @@ One data source available in taxize is available in another R package that solel
 \hline
 Source name & Name search & Name resolution & Phylogeny & Sequences & URL  \\
 \hline
-Encyclopedia of Life & Yes & See GNR below & No & No & \url{http://eol.org/} \\
-Integrated Taxonomic Information System & Yes & Synonyms & No & No & \url{http://www.itis.gov/} \\
-iPlant Taxonomic Name Resolution Service & Yes & Yes & No & No & \url{http://bit.ly/16dHkBy} \\
-Phylomatic & No & No & Yes & No & \url{ http://bit.ly/P0pjMz} \\
-uBio & Yes & Yes & No & No & \url{http://www.ubio.org/} \\
-Global Names Resolver & Yes & Yes & No & No & \url{http://bit.ly/11R3Pbr} \\
-Global Names Index & Yes & No & No & No & \url{http://bit.ly/11R3RQB} \\
-IUCN Red List & Yes & No & No & No & \url{http://bit.ly/11R3RQC} \\
-Tropicos & Yes & Yes & No & No & \url{http://www.tropicos.org/} \\
-Plantminer & Yes & No & No & No & \url{http://www.plantminer.com/} \\
+Encyclopedia of Life \citep{eol} & Yes & See GNR below & No & No & \url{http://eol.org/} \\
+Integrated Taxonomic Information System \citep{itis} & Yes & Synonyms & No & No & \url{http://www.itis.gov/} \\
+iPlant Taxonomic Name Resolution Service \citep{tnrs} & Yes & Yes & No & No & \url{http://bit.ly/16dHkBy} \\
+Phylomatic \citep{webb2005} & No & No & Yes & No & \url{ http://bit.ly/P0pjMz} \\
+uBio \citep{ubio} & Yes & Yes & No & No & \url{http://www.ubio.org/} \\
+Global Names Resolver \citep{eolgnr} & Yes & Yes & No & No & \url{http://bit.ly/11R3Pbr} \\
+Global Names Index \citep{eolgnr} & Yes & No & No & No & \url{http://bit.ly/11R3RQB} \\
+IUCN Red List \citep{iucn} & Yes & No & No & No & \url{http://bit.ly/11R3RQC} \\
+Tropicos \citep{tropicos} & Yes & Yes & No & No & \url{http://www.tropicos.org/} \\
+Plantminer \citep{carvalho2010plantminer} & Yes & No & No & No & \url{http://www.plantminer.com/} \\
 The Plant List & Yes & Yes & No & No & \url{http://www.theplantlist.org/} \\
-Catalogue of Life & Yes & Yes & No & No & \url{http://bit.ly/11R3S75} \\
-National Center for Biotechnology Information & Yes & X & Yes \footnote{Web only, no API, see \url{http://1.usa.gov/11R446a}} & Yes & \url{http://www.ncbi.nlm.nih.gov/} \\
+Catalogue of Life \citep{col} & Yes & Yes & No & No & \url{http://bit.ly/11R3S75} \\
+National Center for Biotechnology Information \citep{ncbi} & Yes & X & Yes \footnote{Web only, no API, see \url{http://1.usa.gov/11R446a}} & Yes & \url{http://www.ncbi.nlm.nih.gov/} \\
 \hline
 \end{tabular}
 \end{table}
 
-New data sources can be added; we may add the following sources: Wikispecies and The Tree of Life. Get in touch with one of the authors if you would like any data sources added.
+New data sources can be added; we may add the following sources: Wikispecies and The Tree of Life. A connection to \url{freshwaterecology.info} \citep{freshwaterecology} (a database with autecological characteristics, ecological preferences and biological traits as well as distribution patterns of more than 12.000 European freshwater organisms belonging to fish, macro-invertebrates, macrophytes, diatoms and phytoplankton) will be finished when their new API will be released. Get in touch with one of the authors if you would like any data sources added.
 
 \section{Use cases}
 
@@ -184,8 +184,10 @@ get_uid(sciname=c("Chironomus riparius", "aaa vva"))
 
 \subsection{Retrieve a phylogeny}
 
-Ecologists are increasingly taking a phylogenetic approach to ecology, applying phylogenies to topics such as the study of community structure \cite{REF}, ecological networks \cite{REF}, functional trait ecology \cite{REF}. Yet, Many biologists are not adequately trained in reconstructing phylogenies. Fortunately, there are some sources for getting a phylogeny without having to know how to build one; one of these is for angiosperms, called Phylomatic \cite{webb2005}. We have created a workflow in taxize that accepts a species list, and taxize works behind the scenes to get higher taxonomic names, which are required by Phylomatic to get a phylogeny. Here is a short example. 
+Ecologists are increasingly taking a phylogenetic approach to ecology, applying phylogenies to topics such as the study of community structure \cite{webb2002phylogenies}, ecological networks \cite{REF}, functional trait ecology \cite{REF}. Yet, Many biologists are not adequately trained in reconstructing phylogenies. Fortunately, there are some sources for getting a phylogeny without having to know how to build one; one of these is for angiosperms, called Phylomatic \cite{webb2005}. We have created a workflow in taxize that accepts a species list, and taxize works behind the scenes to get higher taxonomic names, which are required by Phylomatic to get a phylogeny. Here is a short example:
 
+\begin{figure}[!h] 
+\centering 
 <<phylomaticphylogeny, eval=TRUE, dev='pdf', out.width='4in', out.height='4in', cache=TRUE>>=
 # Input the taxonomic names
 taxa <- c("Poa annua", "Abies procera", "Helianthus annuus")
@@ -199,6 +201,8 @@ tree$tip.label <- capwords(tree$tip.label)
 # Plot the tree
 plot(tree, cex=1)
 @
+\caption{A Phylogeny for the three species.} 
+\end{figure} 
 
 Behind the scenes the function \emph{phylomatic\_tree} retrieves a Taxonomic Serial Number (TSN) from ITIS for each species name, then a string is created for each species like this \emph{poaceae/oryza/oryza\_sativa} (with format 'family/genus/genus\_epithet'). These strings are submitted to the Phylomatic API, and if no errors occur, a phylogeny in newick format is returned. The \emph{phylomatic\_tree()} function also cleans up the newick string and converts it to an \textbf{ape} \emph{phylo} object. The output from \emph{phylomatic\_tree()} is a \emph{phylo} object, which can be used for plotting and phylogenetic analyses. 
 
