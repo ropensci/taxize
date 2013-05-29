@@ -225,37 +225,10 @@ The result from the above call to \emph{col\_downstream()} is a data.frame that 
 
 Trait-based approaches are a promising tool in ecology. Unlike taxonomy-based methods, traits may not be constrained to biogeographic boundaries \citep{baird_toward_2011} and have potential to disentangle the effects of multiple stressors \citep{statzner_can_2010}. 
 
-To analyse trait-composition abundance data must be matched with trait databases like \citet{usseglio-polatera_biological_2000}. However these two datatables may contain species information on different taxonomic levels and perhabs data must be aggregated to a joint taxomic level.
+To analyse trait-composition abundance data must be matched with trait databases like \citet{usseglio-polatera_biological_2000}. However these two data tables may contain species information on different taxonomic levels and perhabs data must be aggregated to a joint taxomic level.
 
-taxize can help in this data-cleaning step, providing a reproducible workflow. Here we illustrate this on a small fictitious example.
+taxize can help in this data-cleaning step, providing a reproducible workflow. This is illustrated on a small fictitious example in appendix B.
 
-Suppose we have fuzzy coded trait table with 2 traits with 3 respectively 2 modalities:
-<<>>=
-(traits <- read.table(header = TRUE, sep = ';', text = 'taxon;T1M1;T1M2;T1M3;T2M1;T2M2
-Gammarus sp.;0;0;3;1;3
-Potamopyrgus antipodarum;1;0;3;1;3
-Coenagrion sp.;3;0;1;3;1
-Enallagma cyathigerum;0;3;1;0;3
-Erythromma sp.;0;0;3;3;1
-'))
-@
-
-And want to match this to a table with abundances:
-<<>>=
-(abundances <- read.table(header = TRUE, sep = ';', text = 'taxon;abundance
-Gammarus roeseli;5
-Gammarus roeseli;6
-Gammarus tigrinus;7
-Gammarus tigrinus;8
-Coenagrionidae;10
-Coenagrionidae;6
-Potamopyrgus antipodarum;10
-'))
-@
-
-classification(gsub(' sp.', '',traits$taxon), ID='tsn')
-
-get_uid(gsub(' sp.', '',traits$taxon))
 
 
 \section{Side use cases}
@@ -304,6 +277,7 @@ The taxize package is part of the rOpenSci project \url{http://ropensci.org/}. W
 
 \begin{itemize}
     \item{Appendix A.} A complete reproducible workflow, from a species list to a phylogeny, and a species distribution map. 
+    \item{Appendix B.} Matching species tables with different taxonomic resolution.
 \end{itemize}
 
 \bibliographystyle{eco_lett}

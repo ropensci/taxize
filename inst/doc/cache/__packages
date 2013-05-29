@@ -1,6 +1,9 @@
 base
 devtools
 foreach
+ggplot2
 knitr
+plyr
+rgbif
 taxize
 XML
