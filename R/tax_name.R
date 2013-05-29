@@ -6,7 +6,8 @@
 #' @param get character; The ranks of the taxonomic name to get. 
 #' @param db character; The database to search from: 'tis', 'ncbi' or 'both'.
 #'  If 'both' both NCBI and ITIS will be queried. Result will be the union of both.
-#' @param pref If db='both', sets the preference for the union. Either 'ncbi' or 'itis'.
+#' @param pref character; If db='both', sets the preference for the union. Either 'ncbi' or 'itis'. 
+#' Currently not implemented - preference is given to ncbi
 #' @param verbose logical; If TRUE the actual taxon queried is printed on the console.
 #' 
 #' @return A data.frame with one column for every queried rank.
@@ -91,12 +92,8 @@ tax_name <- function(query = NULL, get = NULL, db = "itis", pref = 'ncbi', verbo
           message("No TSN found for species '", query, "'!\n")
         match_tsn <- rep(NA, length(get))
       } else {
-        if(tsn=="notsn") {
-          out <- "notsn"
-        } else {
-          tt <- classification(tsn)[[1]]
-          match_tsn <- tt$taxonName[match(tolower(get), tolower(tt$rankName))]
-        }
+        tt <- classification(tsn)[[1]]
+        match_tsn <- tt$taxonName[match(tolower(get), tolower(tt$rankName))]
       }
       match_both <- ifelse(is.na(match_uid), match_tsn, match_uid)
       out <- data.frame(t(match_both), stringsAsFactors=FALSE)

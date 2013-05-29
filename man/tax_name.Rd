@@ -16,8 +16,9 @@
   'ncbi' or 'both'.  If 'both' both NCBI and ITIS will be
   queried. Result will be the union of both.}
 
-  \item{pref}{If db='both', sets the preference for the
-  union. Either 'ncbi' or 'itis'.}
+  \item{pref}{character; If db='both', sets the preference
+  for the union. Either 'ncbi' or 'itis'. Currently not
+  implemented - preference is given to ncbi}
 
   \item{verbose}{logical; If TRUE the actual taxon queried
   is printed on the console.}
