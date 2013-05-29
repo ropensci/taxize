@@ -1,0 +1,27 @@
+\documentclass[letterpaper,superscriptaddress,showkeys,longbibliography,10pt]{revtex4-1}
+\usepackage[utf8]{inputenc}
+\usepackage{color,dcolumn,graphicx,hyperref}
+\usepackage[titletoc, title]{appendix}
+\hypersetup
+{
+colorlinks = true, linkcolor = blue, citecolor = blue, urlcolor = blue,
+}
+
+\begin{document}
+<<setup, include=FALSE, cache=FALSE>>=
+## set global chunk options
+opts_chunk$set(fig.path='figure/', fig.align='center', fig.show='hold', par=TRUE, warning=FALSE, message=FALSE, error=FALSE, comment=NA)
+@
+
+\begin{appendices}
+<<appA, child='taxize_withcode_appA.Rnw', eval=TRUE>>=
+@
+
+<<appB, child='taxize_withcode_appB.Rnw', eval=TRUE>>=
+@
+\end{appendices}
+
+\bibliographystyle{eco_lett}
+\bibliography{refs}
+
+\end{document}
