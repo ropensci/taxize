@@ -76,3 +76,4 @@ Collate:
     'tnrs.R'
     'itis.R'
     'apg_lookup.R'
+    'tax_rank.R'
