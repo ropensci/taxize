@@ -18,6 +18,11 @@
 #' 
 #' # query both
 #' tax_rank(query=c("Helianthus annuus", 'Baetis rhodani'), db="both")
+#' 
+#' # An alternative way would be to use \link{classification} and sapply over the list
+#' x <- 'Baetis'
+#' classi <- classification(get_uid(x))
+#' sapply(classi, function(x) x[nrow(x), 'Rank'])
 #' }
 #' @export
 tax_rank <- function(query = NULL, db = "itis", pref = 'ncbi', verbose = TRUE)
