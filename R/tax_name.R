@@ -49,14 +49,10 @@ tax_name <- function(query = NULL, get = NULL, db = "itis", pref = 'ncbi', verbo
         out <- data.frame(t(rep(NA, length(get))))
         names(out) <- get
       } else {
-      	if(tsn=="notsn") {
-      		out <- "notsn"
-      	} else {
-      			tt <- classification(tsn)[[1]]
-            match <- tt$taxonName[match(tolower(get), tolower(tt$rankName))]
-      			out <- data.frame(t(match), stringsAsFactors=FALSE)
-      			names(out) <- get
-      	}
+        tt <- classification(tsn)[[1]]
+        out <- as.character(tt[tolower(tt$rankName) == tolower(get), "taxonName"])
+        if(length(out) == 0)
+          out <- NA
       }
   	}
     
