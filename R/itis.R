@@ -1358,15 +1358,22 @@ searchforanymatch <- function(srchkey = NA,  ..., curl = getCurlHandle() )
     curl = curl)
   out <- xmlParse(tt)
   namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd")
-  nodes <- getNodeSet(out, "//ax21:commonName", namespaces=namespaces)
-  comname <- sapply(nodes, xmlValue)
-  nodes <- getNodeSet(out, "//ax21:language", namespaces=namespaces)
-  lang <- sapply(nodes, xmlValue)
-  nodes <- getNodeSet(out, "//ax21:tsn", namespaces=namespaces)
-  tsn <- sapply(nodes, xmlValue) # last one is a repeat
-  nodes <- getNodeSet(out, "//ax21:sciName", namespaces=namespaces)
-  sciName <- sapply(nodes, xmlValue)
-  list(comname=comname, lang=lang, tsn=tsn[-length(tsn)], sciName=sciName)
+  
+	if(is.character(srchkey)){
+	  me <- getNodeSet(out, "//ax21:anyMatchList", namespaces=namespaces)
+	  comname <- sapply(me, function(x) xmlValue(x[["commonNameList"]][["commonNames"]][["commonName"]]))
+	  comname_lang <- sapply(me, function(x) xmlValue(x[["commonNameList"]][["commonNames"]][["language"]]))
+	  sciname <- sapply(me, function(x) xmlValue(x[["sciName"]]))
+	  tsn <- sapply(me, function(x) xmlValue(x[["tsn"]]))
+	  data.frame(tsn=tsn, sciname=sciname, comname=comname, comname_lang=comname_lang)
+	} else
+	{
+	  me <- getNodeSet(out, "//ax21:commonNames", namespaces=namespaces)
+	  comname <- sapply(me, function(x) xmlValue(x[["commonName"]]))
+	  comname_tsn <- sapply(me, function(x) xmlValue(x[["tsn"]]))
+	  comname_lang <- sapply(me, function(x) xmlValue(x[["language"]]))
+	  data.frame(tsn=comname_tsn, comname=comname, comname_lang=comname_lang)
+	}
 }
 
 #' Search for any matched page
@@ -1376,7 +1383,8 @@ searchforanymatch <- function(srchkey = NA,  ..., curl = getCurlHandle() )
 #' @param pagenum An integer containing the page number (numeric)
 #' @param ascend A boolean containing true for ascending sort order or false for descending (logical)
 #' @examples \dontrun{
-#' searchforanymatchpaged(202385, 100, 1, FALSE)
+#' searchforanymatchpaged(srchkey=202385, pagesize=100, pagenum=1, ascend=FALSE)
+#' searchforanymatchpaged(srchkey="Zy", pagesize=100, pagenum=1, ascend=FALSE)
 #' }
 #' @export 
 searchforanymatchpaged <- function(srchkey = NA, pagesize = NA, pagenum = NA, ascend = NA,
@@ -1398,13 +1406,20 @@ searchforanymatchpaged <- function(srchkey = NA, pagesize = NA, pagenum = NA, as
     curl = curl)
   out <- xmlParse(tt)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
-  nodes <- getNodeSet(out, "//ax21:commonName", namespaces=namespaces)
-  comname <- sapply(nodes, xmlValue)
-  nodes <- getNodeSet(out, "//ax21:language", namespaces=namespaces)
-  lang <- sapply(nodes, xmlValue)
-  nodes <- getNodeSet(out, "//ax21:tsn", namespaces=namespaces)
-  tsn <- sapply(nodes, xmlValue) # last one is a repeat
-  nodes <- getNodeSet(out, "//ax21:sciName", namespaces=namespaces)
-  sciName <- sapply(nodes, xmlValue)
-  list(comname=comname, lang=lang, tsn=tsn[-length(tsn)], sciName=sciName)
+  
+	if(is.character(srchkey)){
+	  me <- getNodeSet(out, "//ax21:anyMatchList", namespaces=namespaces)
+	  comname <- sapply(me, function(x) xmlValue(x[["commonNameList"]][["commonNames"]][["commonName"]]))
+	  comname_lang <- sapply(me, function(x) xmlValue(x[["commonNameList"]][["commonNames"]][["language"]]))
+	  sciname <- sapply(me, function(x) xmlValue(x[["sciName"]]))
+	  tsn <- sapply(me, function(x) xmlValue(x[["tsn"]]))
+	  data.frame(tsn=tsn, sciname=sciname, comname=comname, comname_lang=comname_lang)
+	} else
+	{
+	  me <- getNodeSet(out, "//ax21:commonNames", namespaces=namespaces)
+	  comname <- sapply(me, function(x) xmlValue(x[["commonName"]]))
+	  comname_tsn <- sapply(me, function(x) xmlValue(x[["tsn"]]))
+	  comname_lang <- sapply(me, function(x) xmlValue(x[["language"]]))
+	  data.frame(tsn=comname_tsn, comname=comname, comname_lang=comname_lang)
+	}
 }
