@@ -41,7 +41,7 @@ tax_name <- function(query = NULL, get = NULL, db = "itis", pref = 'ncbi', verbo
   if(db == 'both' & pref %notin% c('ncbi', 'itis'))
     stop("if db=both, pref must be either 'itis' or 'ncbi'!\n")
   
-  if(!locally){
+#   if(!locally){
   	fun <- function(query, get, db, verbose){
   		# ITIS
   		if(db == "itis"){
@@ -109,18 +109,17 @@ tax_name <- function(query = NULL, get = NULL, db = "itis", pref = 'ncbi', verbo
   	}
   	out <- ldply(query, .fun=function(x) fun(query=x, get=get, db=db, verbose=verbose))
   	return(out)
-  	
-  	
-  } else
-  {
-  	tsn_df_out <- get_tsn(query, searchtype="sciname", verbose = verbose, ...)
-  	myfunc <- function(x){
-  		tt <- classification(x, ID="tsn", locally=locally)[[1]]
-  		match <- tt$taxonName[match(tolower(get), tolower(tt$rankName))]
-  		out <- data.frame(t(match), stringsAsFactors=FALSE)
-  		names(out) <- get
-  		return( out )
-  	}
-  	return( ldply(tsn_df_out, myfunc) )
-  }
+  	   	
+#   } else
+#   {
+#   	tsn_df_out <- get_tsn(query, searchtype="sciname", verbose = verbose, ...)
+#   	myfunc <- function(x){
+#   		tt <- classification(x, ID="tsn", locally=locally)[[1]]
+#   		match <- tt$taxonName[match(tolower(get), tolower(tt$rankName))]
+#   		out <- data.frame(t(match), stringsAsFactors=FALSE)
+#   		names(out) <- get
+#   		return( out )
+#   	}
+#   	return( ldply(tsn_df_out, myfunc) )
+#   }
 }
