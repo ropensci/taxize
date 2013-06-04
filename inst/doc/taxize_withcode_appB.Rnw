@@ -66,7 +66,7 @@ We found a direct match - \emph{potamopyrgus antipodarum} - so nothing to do her
 Next we look for species which are on a better taxonomic resolution than our in our trait table. 
 For these species we'll use the trait-data since no better is available.
 
-<<lower>>=
+<<higher_resolution>>=
 # look for cases where taxonomic resolution in abundance data is higher than in trait data:
 # here we take the trait-values for the lower resolution
 for(i in which(is.na(lookup$traits))){
@@ -87,7 +87,7 @@ Our next step is to search for species were we have to aggregate tait-data, sinc
 We are walking the taxomomic latter for the species in our trait-data upwards and search for matches with out abundance data. Since we'll have many taxa in the trait-data belonging to one taxon, we'll take the median modality scores as an approximation. Of course also other methods may be used here, e.g. weighting by genetic distance.
 
 
-<<>>=
+<<lower_resolution>>=
 # look for cases taxonomic resolution in abundance data is lower than in trait data,
 # here we need to aggregate the trait-values (eg. median value for modality)
 
@@ -106,7 +106,7 @@ lookup
 @
 
 Finally we have one taxon left. We remove this from our dataset:
-<<>>=
+<<na_omit>>=
 abundances <- abundances[!abundances$taxon == lookup$taxon[is.na(lookup$traits)], ]
 @
 
@@ -114,7 +114,7 @@ abundances <- abundances[!abundances$taxon == lookup$taxon[is.na(lookup$traits)]
 No we can create species x sites and traits x species matrices, which could be plugged into methods to analyse trait responses \citep{kleyer_assessing_2012}.
 
 
-<<>>=
+<<matrices>>=
 # species (as matched with trait table) by site matrix
 abundances$traits_taxa <- lookup$traits[match(tolower(abundances$taxon), lookup$taxon)]
 
