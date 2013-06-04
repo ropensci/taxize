@@ -1,0 +1,276 @@
+\section{Matching species tables with different taxonomic resolution} 
+
+Trait-based approaches are a promising tool in ecology. Unlike taxonomy-based methods, traits may not be constrained to biogeographic boundaries \citep{baird_toward_2011} and have potential to disentangle the effects of multiple stressors \citep{statzner_can_2010}. 
+
+To analyse trait-composition abundance data must be matched with trait databases like \citet{usseglio-polatera_biological_2000}. However these two datatables may contain species information on different taxonomic levels and perhabs data must be aggregated to a joint taxomic level.
+
+taxize can help in this data-cleaning step, providing a reproducible workflow. Here we illustrate this on a small fictitious example.
+
+Suppose we have fuzzy coded trait table with 2 traits with 3 respectively 2 modalities:
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+(traits <- \hlfunctioncall{read.table}(header = TRUE, sep = \hlstring{";"}, stringsAsFactors = FALSE, text = \hlstring{"taxon;T1M1;T1M2;T1M3;T2M1;T2M2\textbackslash{}nGammarus sp.;0;0;3;1;3\textbackslash{}nPotamopyrgus antipodarum;1;0;3;1;3\textbackslash{}nCoenagrion sp.;3;0;1;3;1\textbackslash{}nEnallagma cyathigerum;0;3;1;0;3\textbackslash{}nErythromma sp.;0;0;3;3;1\textbackslash{}nBaetis sp.;0;0;0;0;0\textbackslash{}n"}))
+\end{alltt}
+\begin{verbatim}
+##                      taxon T1M1 T1M2 T1M3 T2M1 T2M2
+## 1             Gammarus sp.    0    0    3    1    3
+## 2 Potamopyrgus antipodarum    1    0    3    1    3
+## 3           Coenagrion sp.    3    0    1    3    1
+## 4    Enallagma cyathigerum    0    3    1    0    3
+## 5           Erythromma sp.    0    0    3    3    1
+## 6               Baetis sp.    0    0    0    0    0
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+
+And want to match this to a table with abundances:
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+(abundances <- \hlfunctioncall{read.table}(header = TRUE, sep = \hlstring{";"}, stringsAsFactors = FALSE, 
+    text = \hlstring{"taxon;abundance;sample\textbackslash{}nGammarus roeseli;5;1\textbackslash{}nGammarus roeseli;6;2\textbackslash{}nGammarus tigrinus;7;1\textbackslash{}nGammarus tigrinus;8;2\textbackslash{}nCoenagrionidae;10;1\textbackslash{}nCoenagrionidae;6;2\textbackslash{}nPotamopyrgus antipodarum;10;1\textbackslash{}nxxxxx;10;2\textbackslash{}n"}))
+\end{alltt}
+\begin{verbatim}
+##                      taxon abundance sample
+## 1         Gammarus roeseli         5      1
+## 2         Gammarus roeseli         6      2
+## 3        Gammarus tigrinus         7      1
+## 4        Gammarus tigrinus         8      2
+## 5           Coenagrionidae        10      1
+## 6           Coenagrionidae         6      2
+## 7 Potamopyrgus antipodarum        10      1
+## 8                    xxxxx        10      2
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+
+
+First we do some basic data-cleaning and create a looktable, that will link taxa in trait table with taxa in the abundance table.
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcomment{# first we remove ' sp.' from out trait table:}
+traits$taxon_cleaned <- \hlfunctioncall{tolower}(\hlfunctioncall{gsub}(\hlstring{" sp."}, \hlstring{""}, traits$taxon))
+
+\hlcomment{# since abundance tables can be very long with repeating taxa, we look}
+\hlcomment{# only at unique taxon names This will be a lookup-table linking taxon}
+\hlcomment{# names between both tables}
+lookup <- \hlfunctioncall{data.frame}(taxon = \hlfunctioncall{tolower}(\hlfunctioncall{unique}(abundances$taxon)), stringsAsFactors = FALSE)
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+
+The we query the taxonomic hierarchy for both tables, since this is the backbone of this procedure:
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlfunctioncall{require}(taxize)
+traits_classi <- \hlfunctioncall{classification}(\hlfunctioncall{get_uid}(traits$taxon_cleaned))
+\end{alltt}
+
+
+{\ttfamily\noindent\itshape\color{messagecolor}{\#\# \\\#\# Retrieving data for species 'gammarus'}}
+
+{\ttfamily\noindent\itshape\color{messagecolor}{\#\# \\\#\# Retrieving data for species 'potamopyrgus antipodarum'}}
+
+{\ttfamily\noindent\itshape\color{messagecolor}{\#\# \\\#\# Retrieving data for species 'coenagrion'}}
+
+{\ttfamily\noindent\itshape\color{messagecolor}{\#\# \\\#\# Retrieving data for species 'enallagma cyathigerum'}}
+
+{\ttfamily\noindent\itshape\color{messagecolor}{\#\# \\\#\# Retrieving data for species 'erythromma'}}
+
+{\ttfamily\noindent\itshape\color{messagecolor}{\#\# \\\#\# Retrieving data for species 'baetis'}}\begin{alltt}
+lookup_classi <- \hlfunctioncall{classification}(\hlfunctioncall{get_uid}(lookup$taxon))
+\end{alltt}
+
+
+{\ttfamily\noindent\itshape\color{messagecolor}{\#\# \\\#\# Retrieving data for species 'gammarus roeseli'}}
+
+{\ttfamily\noindent\itshape\color{messagecolor}{\#\# \\\#\# Retrieving data for species 'gammarus tigrinus'}}
+
+{\ttfamily\noindent\itshape\color{messagecolor}{\#\# \\\#\# Retrieving data for species 'coenagrionidae'}}
+
+{\ttfamily\noindent\itshape\color{messagecolor}{\#\# \\\#\# Retrieving data for species 'potamopyrgus antipodarum'}}
+
+{\ttfamily\noindent\itshape\color{messagecolor}{\#\# \\\#\# Retrieving data for species 'xxxxx'}}\end{kframe}
+\end{knitrout}
+
+
+First we look if we get any direct matches between taxon names:
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcomment{# first search for direct matches}
+direct <- \hlfunctioncall{match}(lookup$taxon, traits$taxon_cleaned)
+\hlcomment{# and add the matched name to our lookup table}
+lookup$traits <- \hlfunctioncall{tolower}(traits$taxon[direct])
+lookup$type <- \hlfunctioncall{ifelse}(!\hlfunctioncall{is.na}(direct), \hlstring{"direct"}, NA)
+lookup
+\end{alltt}
+\begin{verbatim}
+##                      taxon                   traits   type
+## 1         gammarus roeseli                     <NA>   <NA>
+## 2        gammarus tigrinus                     <NA>   <NA>
+## 3           coenagrionidae                     <NA>   <NA>
+## 4 potamopyrgus antipodarum potamopyrgus antipodarum direct
+## 5                    xxxxx                     <NA>   <NA>
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+
+We found a direct match - \emph{potamopyrgus antipodarum} - so nothing to do here.
+
+Next we look for species which are on a better taxonomic resolution than our in our trait table. 
+For these species we'll use the trait-data since no better is available.
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcomment{# look for cases where taxonomic resolution in abundance data is higher}
+\hlcomment{# than in trait data: here we take the trait-values for the lower}
+\hlcomment{# resolution}
+\hlfunctioncall{for} (i in \hlfunctioncall{which}(\hlfunctioncall{is.na}(lookup$traits))) \{
+    \hlfunctioncall{if} (\hlfunctioncall{is.data.frame}(lookup_classi[[i]])) \{
+        matches <- \hlfunctioncall{tolower}(lookup_classi[[i]]$ScientificName) %in% traits$taxon_cleaned
+        \hlfunctioncall{if} (\hlfunctioncall{any}(matches)) \{
+            lookup$traits[i] <- \hlfunctioncall{tolower}(lookup_classi[[i]]$ScientificName[matches])
+            lookup$type[i] <- lookup_classi[[i]]$Rank[matches]
+        \}
+    \}
+\}
+lookup
+\end{alltt}
+\begin{verbatim}
+##                      taxon                   traits   type
+## 1         gammarus roeseli                 gammarus  genus
+## 2        gammarus tigrinus                 gammarus  genus
+## 3           coenagrionidae                     <NA>   <NA>
+## 4 potamopyrgus antipodarum potamopyrgus antipodarum direct
+## 5                    xxxxx                     <NA>   <NA>
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+
+So our abundance data has two Gammarus species, however trait data is only on Genus level.
+
+Our next step is to search for species were we have to aggregate tait-data, since our abundance data is on a lower taxonomic level.
+We are walking the taxomomic latter for the species in our trait-data upwards and search for matches with out abundance data. Since we'll have many taxa in the trait-data belonging to one taxon, we'll take the median modality scores as an approximation. Of course also other methods may be used here, e.g. weighting by genetic distance.
+
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcomment{# look for cases taxonomic resolution in abundance data is lower than in}
+\hlcomment{# trait data, here we need to aggregate the trait-values (eg. median value}
+\hlcomment{# for modality)}
+
+\hlfunctioncall{for} (i in \hlfunctioncall{which}(\hlfunctioncall{is.na}(lookup$traits))) \{
+\hlcomment{    # find matches}
+    agg <- \hlfunctioncall{sapply}(traits_classi, \hlfunctioncall{function}(x) \hlfunctioncall{any}(\hlfunctioncall{tolower}(x$ScientificName) %in% 
+        lookup$taxon[i]))
+    \hlfunctioncall{if} (\hlfunctioncall{sum}(agg) > 1) \{
+\hlcomment{        # add taxon as aggregate to trait-table}
+        traits <- \hlfunctioncall{rbind}(traits, \hlfunctioncall{c}(\hlfunctioncall{paste0}(lookup$taxon[i], \hlstring{"-aggregated"}), \hlfunctioncall{apply}(traits[agg, 
+            2:6], 2, median), \hlfunctioncall{paste0}(lookup$taxon[i], \hlstring{"-aggregated"})))
+\hlcomment{        # fill lookup table}
+        lookup$traits[i] <- \hlfunctioncall{paste0}(lookup$taxon[i], \hlstring{"-aggregated"})
+        lookup$type[i] <- \hlstring{"aggregated"}
+    \}
+\}
+lookup
+\end{alltt}
+\begin{verbatim}
+##                      taxon                    traits       type
+## 1         gammarus roeseli                  gammarus      genus
+## 2        gammarus tigrinus                  gammarus      genus
+## 3           coenagrionidae coenagrionidae-aggregated aggregated
+## 4 potamopyrgus antipodarum  potamopyrgus antipodarum     direct
+## 5                    xxxxx                      <NA>       <NA>
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+
+Finally we have one taxon left. We remove this from our dataset:
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+abundances <- abundances[!abundances$taxon == lookup$taxon[\hlfunctioncall{is.na}(lookup$traits)], 
+    ]
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+
+
+No we can create species x sites and traits x species matrices, which could be plugged into methods to analyse trait responses \citep{kleyer_assessing_2012}.
+
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcomment{# species (as matched with trait table) by site matrix}
+\hlfunctioncall{require}(reshape2)
+\end{alltt}
+
+
+{\ttfamily\noindent\itshape\color{messagecolor}{\#\# Loading required package: reshape2}}\begin{alltt}
+\hlcomment{# reshape data to long format and name rows by samples}
+L <- \hlfunctioncall{dcast}(abundances, sample ~ traits, fun.aggregate = sum, value.var = \hlstring{"abundance"})
+\end{alltt}
+
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error: undefined columns selected}}\begin{alltt}
+\hlfunctioncall{rownames}(L) <- L$sample
+\end{alltt}
+
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error: object 'L' not found}}\begin{alltt}
+L$sample <- NULL
+\end{alltt}
+
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error: object 'L' not found}}\begin{alltt}
+L
+\end{alltt}
+
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error: object 'L' not found}}\begin{alltt}
+
+\hlcomment{# traits by species matrix}
+Q <- traits[, 2:7][\hlfunctioncall{match}(\hlfunctioncall{names}(L), traits$taxon_cleaned), ]
+\end{alltt}
+
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error: object 'L' not found}}\begin{alltt}
+\hlfunctioncall{rownames}(Q) <- Q$taxon_cleaned
+\end{alltt}
+
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error: object 'Q' not found}}\begin{alltt}
+Q$taxon_cleaned <- NULL
+\end{alltt}
+
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error: object 'Q' not found}}\begin{alltt}
+Q
+\end{alltt}
+
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error: object 'Q' not found}}\begin{alltt}
+
+\hlcomment{# check}
+\hlfunctioncall{all}(\hlfunctioncall{rownames}(Q) == \hlfunctioncall{colnames}(L))
+\end{alltt}
+
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error: object 'Q' not found}}\end{kframe}
+\end{knitrout}
+
+

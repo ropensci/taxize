@@ -61,8 +61,12 @@ lookup$type <- ifelse(!is.na(direct), "direct", NA)
 lookup
 @
 
+We found a direct match - \emph{potamopyrgus antipodarum} - so nothing to do here.
 
-<<>>=
+Next we look for species which are on a better taxonomic resolution than our in our trait table. 
+For these species we'll use the trait-data since no better is available.
+
+<<lower>>=
 # look for cases where taxonomic resolution in abundance data is higher than in trait data:
 # here we take the trait-values for the lower resolution
 for(i in which(is.na(lookup$traits))){
@@ -75,7 +79,15 @@ for(i in which(is.na(lookup$traits))){
   }
 }
 lookup
+@
 
+So our abundance data has two Gammarus species, however trait data is only on Genus level.
+
+Our next step is to search for species were we have to aggregate tait-data, since our abundance data is on a lower taxonomic level.
+We are walking the taxomomic latter for the species in our trait-data upwards and search for matches with out abundance data. Since we'll have many taxa in the trait-data belonging to one taxon, we'll take the median modality scores as an approximation. Of course also other methods may be used here, e.g. weighting by genetic distance.
+
+
+<<>>=
 # look for cases taxonomic resolution in abundance data is lower than in trait data,
 # here we need to aggregate the trait-values (eg. median value for modality)
 
@@ -83,7 +95,7 @@ for(i in which(is.na(lookup$traits))){
   # find matches
   agg <- sapply(traits_classi, function(x) any(tolower(x$ScientificName) %in% lookup$taxon[i]))
   if(sum(agg) > 1){
-    # add aggregated trait to trait table
+    # add taxon as aggregate to trait-table
     traits <- rbind(traits, c(paste0(lookup$taxon[i], '-aggregated'), apply(traits[agg, 2:6], 2, median), paste0(lookup$taxon[i], '-aggregated')))
     # fill lookup table
     lookup$traits[i] <- paste0(lookup$taxon[i], '-aggregated')
@@ -91,12 +103,35 @@ for(i in which(is.na(lookup$traits))){
   }
 }
 lookup
+@
+
+Finally we have one taxon left. We remove this from our dataset:
+<<>>=
+abundances <- abundances[!abundances$taxon == lookup$taxon[is.na(lookup$traits)], ]
+@
 
 
+No we can create species x sites and traits x species matrices, which could be plugged into methods to analyse trait responses \citep{kleyer_assessing_2012}.
 
-abundances$traits <- tolower(lookup$traits[match(tolower(abundances$taxon), lookup$taxon)])
-abundances
 
-traits[match(abundances$traits, traits$taxon_cleaned), 2:6]
+<<>>=
+# species (as matched with trait table) by site matrix
+abundances$traits_taxa <- lookup$traits[match(tolower(abundances$taxon), lookup$taxon)]
+
+require(reshape2)
+# reshape data to long format and name rows by samples
+L <- dcast(abundances, sample ~ traits_taxa, fun.aggregate=sum, value.var = 'abundance')
+rownames(L) <- L$sample
+L$sample <- NULL
+L
+
+# traits by species matrix
+Q <- traits[, 2:7][match(names(L), traits$taxon_cleaned), ]
+rownames(Q) <- Q$taxon_cleaned
+Q$taxon_cleaned <- NULL
+Q
+
+# check
+all(rownames(Q) == colnames(L))
 @
 
