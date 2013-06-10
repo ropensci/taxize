@@ -7,8 +7,9 @@ To analyse trait-composition abundance data must be matched with trait databases
 taxize can help in this data-cleaning step, providing a reproducible workflow. Here we illustrate this on a small fictitious example.
 
 Suppose we have fuzzy coded trait table with 2 traits with 3 respectively 2 modalities:
-<<traitdata>>=
-(traits <- read.table(header = TRUE, sep = ';', stringsAsFactors=FALSE, text = 'taxon;T1M1;T1M2;T1M3;T2M1;T2M2
+<<traitdata, tidy=FALSE>>=
+(traits <- read.table(header = TRUE, sep = ';', stringsAsFactors=FALSE, 
+                      text = 'taxon;T1M1;T1M2;T1M3;T2M1;T2M2
 Gammarus sp.;0;0;3;1;3
 Potamopyrgus antipodarum;1;0;3;1;3
 Coenagrion sp.;3;0;1;3;1
@@ -19,8 +20,9 @@ Baetis sp.;0;0;0;0;0
 @
 
 And want to match this to a table with abundances:
-<<abundancedata>>=
-(abundances <- read.table(header = TRUE, sep = ';', stringsAsFactors=FALSE, text = 'taxon;abundance;sample
+<<abundancedata, tidy=FALSE>>=
+(abundances <- read.table(header = TRUE, sep = ';', stringsAsFactors=FALSE, 
+                          text = 'taxon;abundance;sample
 Gammarus roeseli;5;1
 Gammarus roeseli;6;2
 Gammarus tigrinus;7;1
@@ -33,7 +35,7 @@ xxxxx;10;2
 @
 
 
-First we do some basic data-cleaning and create a looktable, that will link taxa in trait table with taxa in the abundance table.
+First we do some basic data-cleaning and create a lookup-table, that will link taxa in trait table with the abundance table.
 <<cleaning>>=
 # first we remove ' sp.' from out trait table:
 traits$taxon_cleaned <- tolower(gsub(' sp.', '', traits$taxon))
@@ -44,27 +46,28 @@ traits$taxon_cleaned <- tolower(gsub(' sp.', '', traits$taxon))
 lookup <- data.frame(taxon = tolower(unique(abundances$taxon)), stringsAsFactors=FALSE)
 @
 
-The we query the taxonomic hierarchy for both tables, since this is the backbone of this procedure:
+The we query the taxonomic hierarchy for both tables, this will be the backbone of this procedure:
 <<get_classification, cache=TRUE>>=
 require(taxize)
 traits_classi <- classification(get_uid(traits$taxon_cleaned))
 lookup_classi <- classification(get_uid(lookup$taxon))
 @
 
-First we look if we get any direct matches between taxon names:
+First we look if we can find any direct matches between taxon names:
 <<direct_matches>>=
 # first search for direct matches
 direct <- match(lookup$taxon, traits$taxon_cleaned)
 # and add the matched name to our lookup table
 lookup$traits <- tolower(traits$taxon[direct])
-lookup$type <- ifelse(!is.na(direct), "direct", NA)
+lookup$match <- ifelse(!is.na(direct), "direct", NA)
 lookup
 @
 
 We found a direct match - \emph{potamopyrgus antipodarum} - so nothing to do here.
 
-Next we look for species which are on a better taxonomic resolution than our in our trait table. 
-For these species we'll use the trait-data since no better is available.
+
+Next we look for species which are on a higher taxonomic resolution than our trait table. 
+For these species we will take directly the trait-data since no better information is available.
 
 <<higher_resolution>>=
 # look for cases where taxonomic resolution in abundance data is higher than in trait data:
@@ -74,16 +77,17 @@ for(i in which(is.na(lookup$traits))){
     matches <- tolower(lookup_classi[[i]]$ScientificName) %in% traits$taxon_cleaned
     if(any(matches)){
       lookup$traits[i] <- tolower(lookup_classi[[i]]$ScientificName[matches])
-      lookup$type[i] <- lookup_classi[[i]]$Rank[matches]
+      lookup$match[i] <- lookup_classi[[i]]$Rank[matches]
     }
   }
 }
 lookup
 @
 
-So our abundance data has two Gammarus species, however trait data is only on Genus level.
+So our abundance data has two Gammarus species, however trait data is only on genus level.
 
-Our next step is to search for species were we have to aggregate tait-data, since our abundance data is on a lower taxonomic level.
+
+The next step is to search for species were we have to aggregate tait-data, since our abundance data is on a lower taxonomic level.
 We are walking the taxomomic latter for the species in our trait-data upwards and search for matches with out abundance data. Since we'll have many taxa in the trait-data belonging to one taxon, we'll take the median modality scores as an approximation. Of course also other methods may be used here, e.g. weighting by genetic distance.
 
 
@@ -99,19 +103,19 @@ for(i in which(is.na(lookup$traits))){
     traits <- rbind(traits, c(paste0(lookup$taxon[i], '-aggregated'), apply(traits[agg, 2:6], 2, median), paste0(lookup$taxon[i], '-aggregated')))
     # fill lookup table
     lookup$traits[i] <- paste0(lookup$taxon[i], '-aggregated')
-    lookup$type[i] <- 'aggregated'
+    lookup$match[i] <- 'aggregated'
   }
 }
 lookup
 @
 
-Finally we have one taxon left. We remove this from our dataset:
+Finally we have only one taxon left - clearly an error. We remove this from our dataset:
 <<na_omit>>=
 abundances <- abundances[!abundances$taxon == lookup$taxon[is.na(lookup$traits)], ]
 @
 
 
-No we can create species x sites and traits x species matrices, which could be plugged into methods to analyse trait responses \citep{kleyer_assessing_2012}.
+No we can create \emph{species x sites} and \emph{traits x species} matrices, which could be plugged into methods to analyse trait responses \citep{kleyer_assessing_2012}.
 
 
 <<matrices>>=
@@ -135,3 +139,4 @@ Q
 all(rownames(Q) == colnames(L))
 @
 
+This is just an example how taxonomic APIs (via taxize) could be used to search for matches up- and downwards the taxonomic ladder. We are looking forward to integrate the freshwaterecology.info database \citep{freshwaterecology} into taxize, which will facilitate trait-based analyses in R.

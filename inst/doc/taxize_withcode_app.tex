@@ -416,7 +416,7 @@ lookup_classi <- \hlfunctioncall{classification}(\hlfunctioncall{get_uid}(lookup
 \end{knitrout}
 
 
-First we look if we get any direct matches between taxon names:
+First we look if we can find any direct matches between taxon names:
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
@@ -424,11 +424,11 @@ First we look if we get any direct matches between taxon names:
 direct <- \hlfunctioncall{match}(lookup$taxon, traits$taxon_cleaned)
 \hlcomment{# and add the matched name to our lookup table}
 lookup$traits <- \hlfunctioncall{tolower}(traits$taxon[direct])
-lookup$type <- \hlfunctioncall{ifelse}(!\hlfunctioncall{is.na}(direct), \hlstring{"direct"}, NA)
+lookup$match <- \hlfunctioncall{ifelse}(!\hlfunctioncall{is.na}(direct), \hlstring{"direct"}, NA)
 lookup
 \end{alltt}
 \begin{verbatim}
-                     taxon                   traits   type
+                     taxon                   traits  match
 1         gammarus roeseli                     <NA>   <NA>
 2        gammarus tigrinus                     <NA>   <NA>
 3           coenagrionidae                     <NA>   <NA>
@@ -441,8 +441,9 @@ lookup
 
 We found a direct match - \emph{potamopyrgus antipodarum} - so nothing to do here.
 
-Next we look for species which are on a better taxonomic resolution than our in our trait table. 
-For these species we'll use the trait-data since no better is available.
+
+Next we look for species which are on a higher taxonomic resolution than our trait table. 
+For these species we will take directly the trait-data since no better information is available.
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -455,14 +456,14 @@ For these species we'll use the trait-data since no better is available.
         matches <- \hlfunctioncall{tolower}(lookup_classi[[i]]$ScientificName) %in% traits$taxon_cleaned
         \hlfunctioncall{if} (\hlfunctioncall{any}(matches)) \{
             lookup$traits[i] <- \hlfunctioncall{tolower}(lookup_classi[[i]]$ScientificName[matches])
-            lookup$type[i] <- lookup_classi[[i]]$Rank[matches]
+            lookup$match[i] <- lookup_classi[[i]]$Rank[matches]
         \}
     \}
 \}
 lookup
 \end{alltt}
 \begin{verbatim}
-                     taxon                   traits   type
+                     taxon                   traits  match
 1         gammarus roeseli                 gammarus  genus
 2        gammarus tigrinus                 gammarus  genus
 3           coenagrionidae                     <NA>   <NA>
@@ -475,7 +476,8 @@ lookup
 
 So our abundance data has two Gammarus species, however trait data is only on genus level.
 
-Our next step is to search for species were we have to aggregate tait-data, since our abundance data is on a lower taxonomic level.
+
+The next step is to search for species were we have to aggregate tait-data, since our abundance data is on a lower taxonomic level.
 We are walking the taxomomic latter for the species in our trait-data upwards and search for matches with out abundance data. Since we'll have many taxa in the trait-data belonging to one taxon, we'll take the median modality scores as an approximation. Of course also other methods may be used here, e.g. weighting by genetic distance.
 
 
@@ -496,13 +498,13 @@ We are walking the taxomomic latter for the species in our trait-data upwards an
             2:6], 2, median), \hlfunctioncall{paste0}(lookup$taxon[i], \hlstring{"-aggregated"})))
 \hlcomment{        # fill lookup table}
         lookup$traits[i] <- \hlfunctioncall{paste0}(lookup$taxon[i], \hlstring{"-aggregated"})
-        lookup$type[i] <- \hlstring{"aggregated"}
+        lookup$match[i] <- \hlstring{"aggregated"}
     \}
 \}
 lookup
 \end{alltt}
 \begin{verbatim}
-                     taxon                    traits       type
+                     taxon                    traits      match
 1         gammarus roeseli                  gammarus      genus
 2        gammarus tigrinus                  gammarus      genus
 3           coenagrionidae coenagrionidae-aggregated aggregated
@@ -513,7 +515,7 @@ lookup
 \end{knitrout}
 
 
-Finally we have one taxon left. We remove this from our dataset:
+Finally we have only one taxon left - clearly an error. We remove this from our dataset:
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
@@ -525,7 +527,7 @@ abundances <- abundances[!abundances$taxon == lookup$taxon[\hlfunctioncall{is.na
 
 
 
-No we can create species x sites and traits x species matrices, which could be plugged into methods to analyse trait responses \citep{kleyer_assessing_2012}.
+No we can create \emph{species x sites} and \emph{traits x species} matrices, which could be plugged into methods to analyse trait responses \citep{kleyer_assessing_2012}.
 
 
 \begin{knitrout}
@@ -572,6 +574,7 @@ potamopyrgus antipodarum     1    0    3    1    3
 \end{knitrout}
 
 
+This is just an example how taxonomic APIs (via taxize) could be used to search for matches up- and downwards the taxonomic ladder. We are looking forward to integrate the freshwaterecology.info database \citep{freshwaterecology} into taxize, which will facilitate trait-based analyses in R.
 
 \end{appendices}
 
