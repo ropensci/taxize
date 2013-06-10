@@ -1,6 +1,5 @@
 \section{A complete reproducible workflow, from a species list to a phylogeny, and distribution map.} 
 
-
 If you aren't familiar with a complete workflow in R, it may be difficult to visualize the process. In R, everything is programmatic, so the whole workflow can be in one place, and be repeated whenever necessary. The following is a workflow for taxize, going from a species list to a phylogeny. 
 
 First, install taxize
@@ -106,9 +105,8 @@ install_github("rgbif", "ropensci")
 
 Now we can search for occurrences for our species list and make a map.
 
-\begin{figure}[!ht] 
-\centering 
-<<map, eval=TRUE, dev='pdf', out.width='.8\\textwidth', cache=TRUE>>= 
+
+<<plot_map, eval=TRUE, dev='pdf', out.width='.9\\textwidth', cache=TRUE, fig.cap='A map', fig.pos='h', fig.lp='fig:map', fig.height=7, fig.width=10>>=
 library(rgbif)
 library(ggplot2) 
 
@@ -122,5 +120,3 @@ p <- gbifmap(occurr_list) +
   coord_equal() 
 p
 @
-\caption{a map...} 
-\end{figure}

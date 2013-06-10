@@ -17,6 +17,7 @@ opts_chunk$set(fig.path='figure/', fig.align='center', fig.show='hold', par=TRUE
 <<appA, child='taxize_withcode_appA.Rnw', eval=TRUE>>=
 @
 
+\newpage
 <<appB, child='taxize_withcode_appB.Rnw', eval=TRUE>>=
 @
 \end{appendices}

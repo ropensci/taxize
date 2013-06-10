@@ -70,7 +70,6 @@ colorlinks = true, linkcolor = blue, citecolor = blue, urlcolor = blue,
 
 \section{A complete reproducible workflow, from a species list to a phylogeny, and distribution map.} 
 
-
 If you aren't familiar with a complete workflow in R, it may be difficult to visualize the process. In R, everything is programmatic, so the whole workflow can be in one place, and be repeated whenever necessary. The following is a workflow for taxize, going from a species list to a phylogeny. 
 
 First, install taxize
@@ -288,8 +287,7 @@ Using the species list, with the corrected names, we can now search for occurren
 
 Now we can search for occurrences for our species list and make a map.
 
-\begin{figure}[!ht] 
-\centering 
+
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
@@ -306,13 +304,22 @@ p <- \hlfunctioncall{gbifmap}(occurr_list) + \hlfunctioncall{guides}(col = \hlfu
     \hlfunctioncall{coord_equal}()
 p
 \end{alltt}
-\end{kframe}
-\end{knitrout}
+\end{kframe}\begin{figure}[h]
 
-\caption{a map...} 
+
+{\centering \includegraphics[width=.9\textwidth]{figure/plot_map} 
+
+}
+
+\caption[A map]{A map\label{fig:mapplot_map}}
 \end{figure}
 
 
+\end{knitrout}
+
+
+
+\newpage
 
 \section{Matching species tables with different taxonomic resolution} 
 
@@ -326,7 +333,15 @@ Suppose we have fuzzy coded trait table with 2 traits with 3 respectively 2 moda
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-(traits <- \hlfunctioncall{read.table}(header = TRUE, sep = \hlstring{";"}, stringsAsFactors = FALSE, text = \hlstring{"taxon;T1M1;T1M2;T1M3;T2M1;T2M2\textbackslash{}nGammarus sp.;0;0;3;1;3\textbackslash{}nPotamopyrgus antipodarum;1;0;3;1;3\textbackslash{}nCoenagrion sp.;3;0;1;3;1\textbackslash{}nEnallagma cyathigerum;0;3;1;0;3\textbackslash{}nErythromma sp.;0;0;3;3;1\textbackslash{}nBaetis sp.;0;0;0;0;0\textbackslash{}n"}))
+(traits <- \hlfunctioncall{read.table}(header = TRUE, sep = \hlstring{';'}, stringsAsFactors=FALSE, 
+                      text = 'taxon;T1M1;T1M2;T1M3;T2M1;T2M2
+Gammarus sp.;0;0;3;1;3
+Potamopyrgus antipodarum;1;0;3;1;3
+Coenagrion sp.;3;0;1;3;1
+Enallagma cyathigerum;0;3;1;0;3
+Erythromma sp.;0;0;3;3;1
+Baetis sp.;0;0;0;0;0
+'))
 \end{alltt}
 \begin{verbatim}
                      taxon T1M1 T1M2 T1M3 T2M1 T2M2
@@ -345,8 +360,17 @@ And want to match this to a table with abundances:
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-(abundances <- \hlfunctioncall{read.table}(header = TRUE, sep = \hlstring{";"}, stringsAsFactors = FALSE, 
-    text = \hlstring{"taxon;abundance;sample\textbackslash{}nGammarus roeseli;5;1\textbackslash{}nGammarus roeseli;6;2\textbackslash{}nGammarus tigrinus;7;1\textbackslash{}nGammarus tigrinus;8;2\textbackslash{}nCoenagrionidae;10;1\textbackslash{}nCoenagrionidae;6;2\textbackslash{}nPotamopyrgus antipodarum;10;1\textbackslash{}nxxxxx;10;2\textbackslash{}n"}))
+(abundances <- \hlfunctioncall{read.table}(header = TRUE, sep = \hlstring{';'}, stringsAsFactors=FALSE, 
+                          text = 'taxon;abundance;sample
+Gammarus roeseli;5;1
+Gammarus roeseli;6;2
+Gammarus tigrinus;7;1
+Gammarus tigrinus;8;2
+Coenagrionidae;10;1
+Coenagrionidae;6;2
+Potamopyrgus antipodarum;10;1
+xxxxx;10;2
+'))
 \end{alltt}
 \begin{verbatim}
                      taxon abundance sample
@@ -364,7 +388,7 @@ And want to match this to a table with abundances:
 
 
 
-First we do some basic data-cleaning and create a looktable, that will link taxa in trait table with taxa in the abundance table.
+First we do some basic data-cleaning and create a lookup-table, that will link taxa in trait table with the abundance table.
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
@@ -380,7 +404,7 @@ lookup <- \hlfunctioncall{data.frame}(taxon = \hlfunctioncall{tolower}(\hlfuncti
 \end{knitrout}
 
 
-The we query the taxonomic hierarchy for both tables, since this is the backbone of this procedure:
+The we query the taxonomic hierarchy for both tables, this will be the backbone of this procedure:
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
@@ -449,7 +473,7 @@ lookup
 \end{knitrout}
 
 
-So our abundance data has two Gammarus species, however trait data is only on Genus level.
+So our abundance data has two Gammarus species, however trait data is only on genus level.
 
 Our next step is to search for species were we have to aggregate tait-data, since our abundance data is on a lower taxonomic level.
 We are walking the taxomomic latter for the species in our trait-data upwards and search for matches with out abundance data. Since we'll have many taxa in the trait-data belonging to one taxon, we'll take the median modality scores as an approximation. Of course also other methods may be used here, e.g. weighting by genetic distance.
