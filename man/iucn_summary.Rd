@@ -2,10 +2,18 @@
 \alias{iucn_summary}
 \title{Get a summary from the IUCN Red List.}
 \usage{
-  iucn_summary(sciname)
+  iucn_summary(sciname, silent = TRUE, parallel = FALSE)
 }
 \arguments{
   \item{sciname}{character; Scientific name.}
+
+  \item{silent}{Make errors silent or not (when species not
+  found in IUCN), default TRUE.}
+
+  \item{parallel}{Search in parallel to speed up search.
+  Defaults to FALSE.  You have to register a parallel
+  backend if you set parallel=TRUE. See e.g., doMC, doSNOW,
+  etc.}
 }
 \value{
   A list (for every species one entry) of lists with the

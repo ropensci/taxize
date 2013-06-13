@@ -77,3 +77,5 @@ Collate:
     'itis.R'
     'apg_lookup.R'
     'tax_rank.R'
+    'gni_parse.R'
+    'iucn_getname.R'

@@ -4,6 +4,10 @@
 #' 
 #' @import XML plyr
 #' @param sciname character; Scientific name. 
+#' @param silent Make errors silent or not (when species not found in IUCN), default TRUE.
+#' @param parallel Search in parallel to speed up search. Defaults to FALSE. 
+#'    You have to register a parallel backend if you set parallel=TRUE. See e.g., 
+#'    doMC, doSNOW, etc.
 #' @return A list (for every species one entry) of lists with the following items:
 #' \item{status}{Red List Category.}
 #' \item{history}{History of status.}
@@ -24,13 +28,13 @@
 #' @author Eduard Szoecs \email{szoe8822@@uni-landau.de}
 #' 
 #' @export
-iucn_summary <- function(sciname) 
+iucn_summary <- function(sciname, silent=TRUE, parallel=FALSE) 
 {
   fun <- function(sciname){
     spec <- tolower(sciname)
     spec <- gsub(" ", "-", spec)
     url <- paste("http://api.iucnredlist.org/go/", spec, sep="")
-    e <- try(h <- htmlParse(url))
+    e <- try(h <- htmlParse(url), silent=silent)
     if(!inherits(e, "try-error")){
       # status
       status <- xpathSApply(h, '//div[@id ="red_list_category_code"]', xmlValue)
@@ -64,7 +68,13 @@ iucn_summary <- function(sciname)
     }    
     return(out)
   }
-  out <- llply(sciname, fun)
+  if(parallel){
+    out <- llply(sciname, fun, .parallel=TRUE)
+  } else
+  {
+    out <- llply(sciname, fun)
+  }
+    
   names(out) <- sciname
   class(out) <- "iucn"
   return(out)
