@@ -59,7 +59,12 @@
 %% ** EDIT HERE **
 %% PLEASE INCLUDE ALL MACROS BELOW
 \usepackage{hyperref}
+\usepackage{array}
 
+\newcolumntype{L}{>{\raggedright\arraybackslash}m{5cm}} % creates now column type to wrap text
+\newcolumntype{B}{>{\raggedright\arraybackslash}m{3cm}} % creates now column type to wrap text
+\newcolumntype{C}{>{\raggedright\arraybackslash}m{3.5cm}} % creates now column type to wrap text
+\newcolumntype{D}{>{\raggedright\arraybackslash}m{2.5cm}} % creates now column type to wrap text
 %% END MACROS SECTION
 
 \begin{document}
@@ -298,30 +303,67 @@ The taxize package is part of the rOpenSci project \url{http://ropensci.org/}. W
 
 \section*{Tables}
 
+% \begin{table}[!ht]
+% \caption{
+% \bf{Data sources used in taxize, tasks available, and links to them}}
+% \begin{tabular}{|l|c|c|c|c|}
+% \hline
+% Source name & Name search & Name resolution & Phylogeny & Sequences  \\
+% \hline
+% Encyclopedia of Life \cite{eol} & Yes & See GNR below & No & No \\
+% Integrated Taxonomic Information System \cite{itis} & Yes & Synonyms & No & No \\
+% iPlant Taxonomic Name Resolution Service \cite{tnrs} & Yes & Yes & No & No \\
+% Phylomatic \cite{webb2005} & No & No & Yes & No \\
+% uBio \cite{ubio} & Yes & Yes & No & No \\
+% Global Names Resolver \cite{eolgnr} & Yes & Yes & No & No \\
+% Global Names Index \cite{eolgni} & Yes & No & No & No \\
+% IUCN Red List \cite{iucn} & Yes & No & No & No \\
+% Tropicos \cite{tropicos} & Yes & Yes & No & No \\
+% Plantminer \cite{carvalho2010plantminer} & Yes & No & No & No \\
+% The Plant List & Yes & Yes & No & No \\
+% Catalogue of Life \cite{col} & Yes & Yes & No & No \\
+% National Center for Biotechnology Information \cite{federhen} & Yes & X & Yes \textsuperscript{a} & Yes \\
+% \hline
+% \end{tabular}
+% \begin{flushleft}\textsuperscript{a} Web only, no API, see \url{http://1.usa.gov/11R446a}
+% \end{flushleft}
+% \label{tab:a}
+% \end{table}
+
 \begin{table}[!ht]
 \caption{
-\bf{Data sources used in taxize, tasks available, and links to them}}
-\begin{tabular}{|l|c|c|c|c|}
+\bf{Some key functions in taxize, what they do, and their data sources}}
+\begin{tabular}{|l|L|L|}
 \hline
-Source name & Name search & Name resolution & Phylogeny & Sequences  \\
+Function name & What it does & Source \\
 \hline
-Encyclopedia of Life \cite{eol} & Yes & See GNR below & No & No \\
-Integrated Taxonomic Information System \cite{itis} & Yes & Synonyms & No & No \\
-iPlant Taxonomic Name Resolution Service \cite{tnrs} & Yes & Yes & No & No \\
-Phylomatic \cite{webb2005} & No & No & Yes & No \\
-uBio \cite{ubio} & Yes & Yes & No & No \\
-Global Names Resolver \cite{eolgnr} & Yes & Yes & No & No \\
-Global Names Index \cite{eolgnr} & Yes & No & No & No \\
-IUCN Red List \cite{iucn} & Yes & No & No & No \\
-Tropicos \cite{tropicos} & Yes & Yes & No & No \\
-Plantminer \cite{carvalho2010plantminer} & Yes & No & No & No \\
-The Plant List & Yes & Yes & No & No \\
-Catalogue of Life \cite{col} & Yes & Yes & No & No \\
-National Center for Biotechnology Information \cite{federhen} & Yes & X & Yes \textsuperscript{a} & Yes \\
+apg\_lookup & Changes names to match the APGIII list & Angiosperm Phylogeny Group \cite{apgiii}  \\
+classification & Upstream classification & Various  \\
+col\_children & Direct children & Catalogue of Life \cite{col}  \\
+col\_downstream & Downstream taxa to specified rank & Catalogue of Life \cite{col}  \\
+eol\_hierarchy & Upstream classification & Encyclopedia of Life \cite{eol}  \\
+eol\_search & Search EOL taxon information & Encyclopedia of Life \cite{eol}  \\
+get\_seqs & Get NCBI sequences & National Center for Biotechnology Information \cite{federhen}  \\
+get\_tsn & Get ITIS TSN & Integrated Taxonomic Information System \cite{itis}  \\
+get\_uid & Get NCBI UID & National Center for Biotechnology Information \cite{federhen}  \\
+searchbycommonname & Search ITIS by common name & Integrated Taxonomic Information System \cite{itis}  \\
+searchbyscientificname & Search ITIS by scientific name & Integrated Taxonomic Information System \cite{itis}  \\
+gisd\_isinvasive & Inasiveness status & Global Invasive Species Database \cite{gisd}  \\
+gni\_parse & Parse scientific names into components & Global Names Index \cite{eol,eolgni}   \\
+gni\_search & Search EOL's global names index & Global Names Index \cite{eol,eolgni}   \\
+gnr\_resolve & Resolve names using EOL's global names index & Global Names Resolver \cite{eol,eolgnr}  \\
+itis\_downstream & Downstream taxa to specified rank & Integrated Taxonomic Information System \cite{itis}  \\
+iucn\_status & IUCN status & IUCN Red List \cite{iucn}  \\
+phylomatic\_tree & Get a plant Phylogeny & Phylomatic \cite{webb2005}  \\
+plantminer & Search Plantminer & Plantminer \cite{carvalho2010plantminer}   \\
+tax\_name & Get taxonomic name for specific rank & Various  \\
+tax\_rank & Get rank of a taxonomic name & Various  \\
+tnrs & Resolve names using iPlant & iPlant Taxonomic Name Resolution Service \cite{tnrs}  \\
+tp\_acceptednames & Check for accepted names using Tropicos & Tropicos \cite{tropicos}  \\
+tpl\_search & Search the Plant List & The Plant List \cite{theplantlist}  \\
+ubio\_namebank & Search uBio & uBio \cite{ubio}  \\
 \hline
 \end{tabular}
-\begin{flushleft}\textsuperscript{a} Web only, no API, see \url{http://1.usa.gov/11R446a}
-\end{flushleft}
 \label{tab:a}
 \end{table}
 
