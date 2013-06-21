@@ -272,6 +272,13 @@ To analyse trait-composition abundance data must be matched with trait databases
 
 taxize can help in this data-cleaning step, providing a reproducible workflow. This is illustrated on a small fictitious example in the supplement.
 
+\subsection*{Aggregating data by any taxonomic rank}
+
+In biology, one can asks questions at varying taxonomic levels. Do species differ? Do genera differ? This use case is easily handled in taxize. 
+
+<<aggregate_abd, eval=FALSE, cache=TRUE>>=
+
+@
 
 \section*{Conclusions}
 Taxonomic information is increasingly sought out by biologists as we take phylogenetic and taxonomic approaches to science. Taxonomic data is quickly becoming available on the web, yet scientists require programmatic access to this data to create reproducible workflows. taxize was created to bridge this gap - to bring taxonomic data on the web into R, where the data can be easily manipulated, visualized, and analyzed in a reproducible workflow.
