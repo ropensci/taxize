@@ -116,9 +116,6 @@
 \usepackage{array}
 
 \newcolumntype{L}{>{\raggedright\arraybackslash}m{5cm}} % creates now column type to wrap text
-\newcolumntype{B}{>{\raggedright\arraybackslash}m{3cm}} % creates now column type to wrap text
-\newcolumntype{C}{>{\raggedright\arraybackslash}m{3.5cm}} % creates now column type to wrap text
-\newcolumntype{D}{>{\raggedright\arraybackslash}m{2.5cm}} % creates now column type to wrap text
 %% END MACROS SECTION
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 
@@ -252,6 +249,17 @@ mynames <- \hlfunctioncall{c}(\hlstring{"Helianthus annuus"}, \hlstring{"Pinus c
     \hlstring{"Rosa california"}, \hlstring{"Festuca arundinace"}, \hlstring{"Sorbus occidentalos"}, \hlstring{"Madia sateva"})
 \hlfunctioncall{tnrs}(query = mynames)[, -\hlfunctioncall{c}(5:7)]
 \end{alltt}
+\begin{verbatim}
+        submittedName        acceptedName    sourceId score
+7   Helianthus annuus   Helianthus annuus iPlant_TNRS  1.00
+4       Pinus contort      Pinus contorta iPlant_TNRS  0.98
+5            Poa anua           Poa annua iPlant_TNRS  0.96
+3      Abis magnifica     Abies magnifica iPlant_TNRS  0.96
+8     Rosa california    Rosa californica iPlant_TNRS  0.99
+2  Festuca arundinace Festuca arundinacea iPlant_TNRS  0.99
+1 Sorbus occidentalos Sorbus occidentalis iPlant_TNRS  0.99
+6        Madia sateva        Madia sativa iPlant_TNRS  0.97
+\end{verbatim}
 \end{kframe}
 \end{knitrout}
 
@@ -271,6 +279,35 @@ A number of data sources in taxize provide the capability to retrieve higher tax
 specieslist <- \hlfunctioncall{c}(\hlstring{"Abies procera"}, \hlstring{"Pinus contorta"})
 \hlfunctioncall{classification}(\hlfunctioncall{get_tsn}(specieslist, \hlstring{"sciname"}))
 \end{alltt}
+\begin{verbatim}
+[[1]]
+        parentName parentTsn      rankName       taxonName    tsn
+1                                  Kingdom         Plantae 202422
+2          Plantae    202422    Subkingdom  Viridaeplantae 846492
+3   Viridaeplantae    846492  Infrakingdom    Streptophyta 846494
+4     Streptophyta    846494      Division    Tracheophyta 846496
+5     Tracheophyta    846496   Subdivision Spermatophytina 846504
+6  Spermatophytina    846504 Infradivision    Gymnospermae 846506
+7     Gymnospermae    846506         Class       Pinopsida 500009
+8        Pinopsida    500009         Order         Pinales 500028
+9          Pinales    500028        Family        Pinaceae  18030
+10        Pinaceae     18030         Genus           Abies  18031
+11           Abies     18031       Species   Abies procera 181835
+
+[[2]]
+        parentName parentTsn      rankName       taxonName    tsn
+1                                  Kingdom         Plantae 202422
+2          Plantae    202422    Subkingdom  Viridaeplantae 846492
+3   Viridaeplantae    846492  Infrakingdom    Streptophyta 846494
+4     Streptophyta    846494      Division    Tracheophyta 846496
+5     Tracheophyta    846496   Subdivision Spermatophytina 846504
+6  Spermatophytina    846504 Infradivision    Gymnospermae 846506
+7     Gymnospermae    846506         Class       Pinopsida 500009
+8        Pinopsida    500009         Order         Pinales 500028
+9          Pinales    500028        Family        Pinaceae  18030
+10        Pinaceae     18030         Genus           Pinus  18035
+11           Pinus     18035       Species  Pinus contorta 183327
+\end{verbatim}
 \end{kframe}
 \end{knitrout}
 
@@ -283,8 +320,18 @@ Instead of a full classification, you may only want a single name, say a family 
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
 \hlfunctioncall{tax_name}(query = \hlstring{"Helianthus annuus"}, get = \hlstring{"family"}, db = \hlstring{"itis"})
+\end{alltt}
+\begin{verbatim}
+          V1
+1 Asteraceae
+\end{verbatim}
+\begin{alltt}
 \hlfunctioncall{tax_name}(query = \hlstring{"Helianthus annuus"}, get = \hlstring{"family"}, db = \hlstring{"ncbi"})
 \end{alltt}
+\begin{verbatim}
+      family
+1 Asteraceae
+\end{verbatim}
 \end{kframe}
 \end{knitrout}
 
@@ -295,8 +342,23 @@ In the previous section we used the function \emph{get\_tsn} to get a classifica
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlfunctioncall{get_tsn}(searchterm = \hlstring{"Elisabethae"}, searchtype = \hlstring{"sciname"})
+\hlfunctioncall{get_tsn}(searchterm = \hlstring{"Heliastes"}, searchtype = \hlstring{"sciname"})
 \end{alltt}
+\begin{verbatim}
+           combinedname    tsn
+1     Heliastes bicolor 615238
+2   Heliastes chrysurus 615250
+3     Heliastes cinctus 615573
+4  Heliastes dimidiatus 615257
+5  Heliastes hypsilepis 615273
+6 Heliastes immaculatus 615639
+7 Heliastes opercularis 615300
+8      Heliastes ovalis 615301
+ 1 
+NA 
+attr(,"class")
+[1] "tsn"
+\end{verbatim}
 \end{kframe}
 \end{knitrout}
 
@@ -310,6 +372,11 @@ splist <- \hlfunctioncall{c}(\hlstring{"annona cherimola"}, \hlstring{"annona mu
     \hlstring{"pandanus patina"}, \hlstring{"oryza sativa"}, \hlstring{"durio zibethinus"})
 \hlfunctioncall{get_tsn}(searchterm = splist, searchtype = \hlstring{"sciname"})
 \end{alltt}
+\begin{verbatim}
+[1] "506198" "18098"  "19405"  "506787" "507376" "41976"  "506099"
+attr(,"class")
+[1] "tsn"
+\end{verbatim}
 \end{kframe}
 \end{knitrout}
 
@@ -321,6 +388,11 @@ In another example, note that no match at all returns an NA:
 \begin{alltt}
 \hlfunctioncall{get_uid}(sciname = \hlfunctioncall{c}(\hlstring{"Chironomus riparius"}, \hlstring{"aaa vva"}))
 \end{alltt}
+\begin{verbatim}
+[1] "315576" NA      
+attr(,"class")
+[1] "uid"
+\end{verbatim}
 \end{kframe}
 \end{knitrout}
 
@@ -341,6 +413,16 @@ If you aren't a taxonomic specialist on a particular taxon you likely don't know
 \begin{alltt}
 \hlfunctioncall{col_downstream}(name = \hlstring{"Apis"}, downto = \hlstring{"Species"})[[1]]
 \end{alltt}
+\begin{verbatim}
+  childtaxa_id     childtaxa_name childtaxa_rank
+1      6971712 Apis andreniformis        Species
+2      6971713        Apis cerana        Species
+3      6971714       Apis dorsata        Species
+4      6971715        Apis florea        Species
+5      6971716 Apis koschevnikovi        Species
+6      6845885     Apis mellifera        Species
+7      6971717   Apis nigrocincta        Species
+\end{verbatim}
 \end{kframe}
 \end{knitrout}
 
@@ -356,6 +438,10 @@ There are a number of things we can do once we have the correct taxonomic names.
 ia <- \hlfunctioncall{iucn_summary}(\hlfunctioncall{c}(\hlstring{"Panthera uncia"}, \hlstring{"Lynx lynx"}))
 \hlfunctioncall{iucn_status}(ia)
 \end{alltt}
+\begin{verbatim}
+Panthera uncia      Lynx lynx 
+          "EN"           "LC" 
+\end{verbatim}
 \end{kframe}
 \end{knitrout}
 
@@ -381,6 +467,20 @@ Then we can ask if 'RAG1' exists in any of the gene names.
 \begin{alltt}
 out[\hlfunctioncall{grep}(\hlstring{"RAG1"}, out$genesavail, ignore.case = T), ]
 \end{alltt}
+\begin{verbatim}
+        spused length
+413 Umbra limi    732
+427 Umbra limi    959
+434 Umbra limi   1631
+                                                                            genesavail
+413 isolate UlimA recombinase activating protein 1 (rag1) gene, exon 3 and partial cds
+427           recombination-activating protein 1 (RAG1) gene, intron 2 and partial cds
+434                        recombination-activating protein 1 (RAG1) gene, partial cds
+    access_num       ids
+413   JX190826 394772608
+427   AY459526  45479841
+434   AY380548  38858304
+\end{verbatim}
 \end{kframe}
 \end{knitrout}
 
@@ -394,6 +494,43 @@ Trait-based approaches are a promising tool in ecology. Unlike taxonomy-based me
 To analyse trait-composition abundance data must be matched with trait databases like \cite{usseglio-polatera_biological_2000}. However these two data tables may contain species information on different taxonomic levels and perhabs data must be aggregated to a joint taxomic level. Therefore we have to search the taxomomic ladder up- and downwards for matches.
 
 taxize can help in this data-cleaning step, providing a reproducible workflow. This is illustrated on a small fictitious example in the supplement.
+
+\subsection*{Aggregating data by any taxonomic rank}
+
+In biology, one can asks questions at varying taxonomic levels. Do species differ? Do genera differ? This use case is easily handled in taxize. A very basic function called \emph{rankagg} will aggregate any data to a specific taxonomic level. In this example, a single column \emph{abundance} is aggregated by any arithmetic function (e.g., mean) at any taxonomic rank (e.g., Family). 
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlfunctioncall{library}(vegan)
+\hlfunctioncall{data}(dune.taxon)
+dat <- dune.taxon
+dat$abundance <- \hlfunctioncall{round}(\hlfunctioncall{rlnorm}(n = \hlfunctioncall{nrow}(dat), meanlog = 5, sdlog = 2), 0)
+\hlfunctioncall{head}(\hlfunctioncall{rankagg}(data = dat, datacol = \hlstring{"abundance"}, rank = \hlstring{"Genus"}))
+\end{alltt}
+\begin{verbatim}
+       Genus Result
+1     Bellis    347
+2   Empetrum   1169
+3     Juncus    411
+4       Aira      5
+5 Eleocharis    158
+6      Rumex      2
+\end{verbatim}
+\begin{alltt}
+\hlfunctioncall{head}(\hlfunctioncall{rankagg}(data = dat, \hlstring{"abundance"}, rank = \hlstring{"Family"}, fxn = \hlstring{"mean"}))
+\end{alltt}
+\begin{verbatim}
+        Family Result
+1   Asteraceae  289.6
+2  Empetraceae 1169.0
+3    Juncaceae  205.5
+4      Poaceae  452.2
+5   Cyperaceae  158.0
+6 Polygonaceae    2.0
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
 
 
 \section*{Conclusions}

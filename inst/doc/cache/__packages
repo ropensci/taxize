@@ -4,7 +4,9 @@ foreach
 ggplot2
 knitr
 maps
+permute
 plyr
 rgbif
 taxize
+vegan
 XML
