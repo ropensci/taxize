@@ -1,0 +1,34 @@
+\name{rankagg}
+\alias{rankagg}
+\title{Aggregate data by given taxonomic rank}
+\usage{
+  rankagg(data = NULL, datacol = NULL, rank = NULL,
+    fxn = "sum")
+}
+\arguments{
+  \item{data}{A data.frame. Column headers must have
+  capitalized ranks (e.g., Genus, Tribe, etc.)
+  (data.frame)}
+
+  \item{datacol}{The data column (character)}
+
+  \item{rank}{Taxonomic rank to aggregate by (character)}
+
+  \item{fxn}{Arithmetic function or vector or functions
+  (character)}
+}
+\description{
+  Aggregate data by given taxonomic rank
+}
+\examples{
+install.packages("vegan"); library(vegan)
+data(dune.taxon)
+dat <- dune.taxon
+dat$abundance <- round(rlnorm(n=nrow(dat),meanlog=5,sdlog=2),0)
+rankagg(data=dat, datacol="abundance", rank="Genus")
+rankagg(data=dat, "abundance", rank="Family")
+rankagg(data=dat, "abundance", rank="Genus", fxn="mean")
+rankagg(data=dat, "abundance", rank="Class")
+rankagg(data=dat, "abundance", rank="Class", fxn="sd")
+}
+

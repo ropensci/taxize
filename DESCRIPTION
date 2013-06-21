@@ -79,3 +79,4 @@ Collate:
     'tax_rank.R'
     'gni_parse.R'
     'iucn_getname.R'
+    'rankagg.R'
