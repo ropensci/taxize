@@ -1,20 +1,25 @@
-#' Get taxonomic rank for a given taxonomic name query.
+#' Get rank for a given taxonomic name.
 #' 
-#' Specify what database you want to use: itis or ncbi.
+#' Retrieve rank of a taxon.
 #' 
 #' @param query character; Vector of taxonomic names to query.
 #' @param db character; The database to search from: 'tis', 'ncbi' or 'both'.
 #'  If 'both' both NCBI and ITIS will be queried. Result will be the union of both.
-#' @param pref If db='both', sets the preference for the union. Either 'ncbi' or 'itis'.
+#' @param pref If db = 'both', sets the preference for the union. Either 'ncbi' or 'itis'.
 #' @param verbose logical; If TRUE the actual taxon queried is printed on the console.
+#' 
+#' @note While \code{\link[taxize]{tax_name}} returns the name of a specified rank, 
+#' \code{\link[taxize]{tax_rank}} returns the actual rank of the taxon.
 #' 
 #' @return A data.frame with one column for every queried taxon.
 #' 
+#' @seealso \code{\link[taxize]{classification}}, \code{\link[taxize]{tax_name}}
+#' 
 #' @examples \dontrun{
-#' tax_rank(query="Helianthus annuus", db="itis")
-#' tax_rank(query="Helianthus annuus", db="ncbi")
-#' tax_rank(query="Helianthus, db="itis")
-#' tax_rank(query="Baetis rhodani", db="itis")
+#' tax_rank(query = "Helianthus annuus", db = "itis")
+#' tax_rank(query = "Helianthus annuus", db = "ncbi")
+#' tax_rank(query = "Helianthus, db = "itis")
+#' tax_rank(query = "Baetis rhodani", db = "itis")
 #' 
 #' # query both
 #' tax_rank(query=c("Helianthus annuus", 'Baetis rhodani'), db="both")
@@ -37,7 +42,7 @@ tax_rank <- function(query = NULL, db = "itis", pref = 'ncbi', verbose = TRUE)
   fun <- function(query, get, db, verbose){
     # ITIS
     if(db == "itis" | db == 'both'){
-      tsn <- get_tsn(query, searchtype="sciname", verbose = verbose)
+      tsn <- get_tsn(query, searchtype = "sciname", verbose = verbose)
       if(is.na(tsn)) {
         if(verbose) 
           message("No TSN found for species '", query, "'!\n")
@@ -75,7 +80,7 @@ tax_rank <- function(query = NULL, db = "itis", pref = 'ncbi', verbose = TRUE)
       out <- out_tsn
     return(tolower(out))
   }
-  out <- ldply(query, .fun=function(x) fun(query=x, get=get, db=db, verbose=verbose))
+  out <- ldply(query, .fun = function(x) fun(query = x, get = get, db = db, verbose = verbose))
   names(out) <- 'Rank'
   return(out)
 }
