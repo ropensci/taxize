@@ -3,7 +3,8 @@
 \alias{iucn_summary}
 \title{Get a summary from the IUCN Red List.}
 \usage{
-  iucn_summary(sciname, silent = TRUE, parallel = FALSE)
+  iucn_summary(sciname, silent = TRUE, parallel = FALSE,
+    ...)
 
   \method{iucn_status}{iucn} (x, ...)
 }
@@ -16,6 +17,8 @@
   \item{parallel}{logical; Search in parallel to speed up
   search. You have to register a parallel backend if
   \code{TRUE}. See e.g., doMC, doSNOW, etc.}
+
+  \item{...}{Currently not used.}
 }
 \value{
   A list (for every species one entry) of lists with the

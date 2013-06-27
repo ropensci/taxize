@@ -17,7 +17,7 @@
 }
 \examples{
 \dontrun{
-iucn_getname(name="Cyanistes caeruleus")
+iucn_getname(name = "Cyanistes caeruleus")
 }
 }
 \seealso{
