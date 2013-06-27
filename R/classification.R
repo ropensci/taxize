@@ -1,13 +1,18 @@
-#' Get taxonomic hierarchy for a given taxon ID.
+#' Retrieve the taxonomic hierarchy for a given taxon ID.
 #' 
 #' @import XML RCurl plyr
-#' @param x IDs from \code{get_tsn()} or \code{get_uid()}.
-#' @param ID type of identifier, either 'uid' or 'tsn'
-#' @param ... Currently not used
-#' @return Classification of taxons in a list of data.frames.
-#' @note If IDs are supplied directly (not from the get_* functions) 
-#' use the methods classification.ncbi() or classification.tsn() directly. 
-#' See examples.
+#' 
+#' @param x character; IDs as returned by \code{\link[taxize]{get_tsn}} or \code{\link[taxize]{get_uid}}.
+#' @param ID character, type of identifier, either 'uid' or 'tsn'.
+#' @param ... Other arguments passed to \code{\link[taxize]{getfullhierarchyfromtsn}}.
+#' 
+#' @return A list of data.frames with the taxonomic classifcation of every supplied taxa.
+#' 
+#' @note If IDs are supplied directly (not from the \code{get_*} functions) you must 
+#' specify the type of ID. There is a timeout of 1/3 seconds between querries to NCBI.
+#' 
+#' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_uid}}
+#' 
 #' @export
 #' @examples \dontrun{
 #' classification(get_uid(c("Chironomus riparius", "aaa vva")))
@@ -47,7 +52,7 @@ classification.tsn <- function(x, ...)
     if(is.na(x)) {
       out <- NA
     } else {
-    	out <- getfullhierarchyfromtsn(x)
+    	out <- getfullhierarchyfromtsn(x, ...)
     	# remove overhang
     	out <- out[1:which(out$tsn == x), ]
     	return(out)
@@ -61,7 +66,7 @@ classification.tsn <- function(x, ...)
 #' @method classification uid
 #' @export
 #' @rdname classification
-classification.uid <- function(x, ...) {
+classification.uid <- function(x) {
   fun <- function(x){
     # return NA if NA is supplied
     if(is.na(x)){

@@ -1,21 +1,27 @@
 \name{iucn_status}
 \alias{iucn_status}
-\alias{iucn_status.iucn}
-\title{Extractor Functions for iucn-class}
+\title{Extractor functions for \code{iucn}-class.}
 \usage{
   iucn_status(x, ...)
-
-  \method{iucn_status}{iucn} (x, ...)
 }
 \arguments{
-  \item{x}{iucn-object as returned by \code{iucn_summary}}
+  \item{x}{an \code{iucn}-object as returned by
+  \code{iucn_summary}}
 
   \item{...}{Currently not used}
 }
 \value{
-  A character vector with the status
+  A character vector with the status.
 }
 \description{
-  Extractor Functions for iucn-class
+  Extractor functions for \code{iucn}-class.
+}
+\examples{
+\dontrun{
+ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
+iucn_status(ia)}
+}
+\seealso{
+  \code{\link[taxize]{iucn_summary}}
 }
 
