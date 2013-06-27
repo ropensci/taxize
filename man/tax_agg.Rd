@@ -8,22 +8,31 @@
   \method{print}{tax_agg} (x, ...)
 }
 \arguments{
-  \item{x}{Community data matrix.}
+  \item{x}{Community data matrix. Taxa in columns, samples
+  in rows.}
 
-  \item{character;}{rank Taxonomic rank to aggregate by.}
+  \item{rank}{character; rank Taxonomic rank to aggregate
+  by.}
 
-  \item{character;}{taxonomic API to use, 'ncbi or 'itis'.}
+  \item{db}{character; taxonomic API to use, 'ncbi or
+  'itis'.}
 }
 \value{
   A list of class \code{tax_agg} with the following items:
   \item{x}{Community data matrix with aggregated data.}
-  \item{by}{A lookup-table showing which taxa where
-  aggregated} \item{n_pre}{Number of taxa before
-  aggregation} \item{rank}{Rank at which taxa have been
-  aggregated}
+  \item{by}{A lookup-table showing which taxa were
+  aggregated.} \item{n_pre}{Number of taxa before
+  aggregation.} \item{rank}{Rank at which taxa have been
+  aggregated.}
 }
 \description{
   Aggregate species data by given taxonomic rank
+}
+\details{
+  \code{tax_agg} aggregates (sum) taxa to a specific
+  taxonomic level. If a taxon is not found in the database
+  (ITIS or NCBI) or the supplied taxon is on higher
+  taxonomic level this taxon is not aggregated.
 }
 \examples{
 # use dune dataset
@@ -43,7 +52,7 @@ colnames(dune) <- species
 agg <- tax_agg(dune, rank = 'family', db = 'ncbi')
 agg
 
-# extract aggregated community data matrix
+# extract aggregated community data matrix for further usage
 agg$x
 # check whcih taxa have been aggregated
 agg$by

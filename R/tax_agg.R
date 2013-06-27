@@ -2,15 +2,20 @@
 #' 
 #' @import reshape2
 #' 
-#' @param x Community data matrix.
-#' @param character; rank Taxonomic rank to aggregate by.
-#' @param character; taxonomic API to use, 'ncbi or 'itis'.
+#' @param x Community data matrix. Taxa in columns, samples in rows.
+#' @param rank character; rank Taxonomic rank to aggregate by.
+#' @param db character; taxonomic API to use, 'ncbi or 'itis'.
+#' 
+#' @details \code{tax_agg} aggregates (sum) taxa to a specific taxonomic level. 
+#' If a taxon is not found in the database (ITIS or NCBI) or the supplied taxon is on 
+#' higher taxonomic level this taxon is not aggregated.
+#' 
 #' 
 #' @return A list of class \code{tax_agg} with the following items:
 #' \item{x}{Community data matrix with aggregated data.}
-#' \item{by}{A lookup-table showing which taxa where aggregated}
-#' \item{n_pre}{Number of taxa before aggregation}
-#' \item{rank}{Rank at which taxa have been aggregated}
+#' \item{by}{A lookup-table showing which taxa were aggregated.}
+#' \item{n_pre}{Number of taxa before aggregation.}
+#' \item{rank}{Rank at which taxa have been aggregated.}
 #' 
 #' @export
 #' 
@@ -32,7 +37,7 @@
 #' agg <- tax_agg(dune, rank = 'family', db = 'ncbi')
 #' agg
 #' 
-#' # extract aggregated community data matrix
+#' # extract aggregated community data matrix for further usage
 #' agg$x
 #' # check whcih taxa have been aggregated
 #' agg$by
