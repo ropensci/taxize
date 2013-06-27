@@ -2,31 +2,36 @@
 \alias{classification}
 \alias{classification.tsn}
 \alias{classification.uid}
-\title{Get taxonomic hierarchy for a given taxon ID.}
+\title{Retrieve the taxonomic hierarchy for a given taxon ID.}
 \usage{
   classification(x, ID = NULL, ...)
 
   \method{classification}{tsn} (x, ...)
 
-  \method{classification}{uid} (x, ...)
+  \method{classification}{uid} (x)
 }
 \arguments{
-  \item{x}{IDs from \code{get_tsn()} or \code{get_uid()}.}
+  \item{x}{character; IDs as returned by
+  \code{\link[taxize]{get_tsn}} or
+  \code{\link[taxize]{get_uid}}.}
 
-  \item{ID}{type of identifier, either 'uid' or 'tsn'}
+  \item{ID}{character, type of identifier, either 'uid' or
+  'tsn'.}
 
-  \item{...}{Currently not used}
+  \item{...}{Other arguments passed to
+  \code{\link[taxize]{getfullhierarchyfromtsn}}.}
 }
 \value{
-  Classification of taxons in a list of data.frames.
+  A list of data.frames with the taxonomic classifcation of
+  every supplied taxa.
 }
 \description{
-  Get taxonomic hierarchy for a given taxon ID.
+  Retrieve the taxonomic hierarchy for a given taxon ID.
 }
 \note{
-  If IDs are supplied directly (not from the get_*
-  functions) use the methods classification.ncbi() or
-  classification.tsn() directly. See examples.
+  If IDs are supplied directly (not from the \code{get_*}
+  functions) you must specify the type of ID. There is a
+  timeout of 1/3 seconds between querries to NCBI.
 }
 \examples{
 \dontrun{
@@ -37,5 +42,9 @@ classification(get_tsn(c("Chironomus riparius", "aaa vva"), "sciname"))
 classification(315576, ID = "uid")
 classification(180544, "tsn")
 }
+}
+\seealso{
+  \code{\link[taxize]{get_tsn}},
+  \code{\link[taxize]{get_uid}}
 }
 

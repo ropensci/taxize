@@ -1,9 +1,9 @@
 \name{tax_agg}
 \alias{print.tax_agg}
 \alias{tax_agg}
-\title{Aggregate species data by given taxonomic rank}
+\title{Aggregate species data to given taxonomic rank}
 \usage{
-  tax_agg(x, rank, db = "ncbi")
+  tax_agg(x, rank, db = "ncbi", ...)
 
   \method{print}{tax_agg} (x, ...)
 }
@@ -11,11 +11,13 @@
   \item{x}{Community data matrix. Taxa in columns, samples
   in rows.}
 
-  \item{rank}{character; rank Taxonomic rank to aggregate
-  by.}
+  \item{rank}{character; Taxonomic rank to aggregate by.}
 
-  \item{db}{character; taxonomic API to use, 'ncbi or
-  'itis'.}
+  \item{db}{character; taxonomic API to use, 'ncbi, 'itis'
+  or both, see \code{\link[taxize]{tax_name}}.}
+
+  \item{...}{other arguments passed to
+  \code{\link[taxize]{tax_name}}.}
 }
 \value{
   A list of class \code{tax_agg} with the following items:
@@ -26,7 +28,7 @@
   aggregated.}
 }
 \description{
-  Aggregate species data by given taxonomic rank
+  Aggregate species data to given taxonomic rank
 }
 \details{
   \code{tax_agg} aggregates (sum) taxa to a specific
@@ -54,7 +56,10 @@ agg
 
 # extract aggregated community data matrix for further usage
 agg$x
-# check whcih taxa have been aggregated
+# check which taxa have been aggregated
 agg$by
+}
+\seealso{
+  \code{\link[taxize]{tax_name}}
 }
 

@@ -11,12 +11,13 @@
   is printed on the console.}
 }
 \value{
-  UID for the supplied species names. NA for non-matching
-  names.
+  A vector of unique identifiers (UID). If a species is not
+  found NA. If more than one UID is found the function asks
+  for user input.
 }
 \description{
-  A function to retrieve the UID-Code (Unique Identifier)
-  of a species from NCBI taxonomy browser.
+  Retrieve the Unique Identifier (UID) of a species from
+  NCBI taxonomy browser.
 }
 \examples{
 \dontrun{
@@ -25,6 +26,9 @@ get_uid(c("Chironomus riparius", "aaa vva"))
 }
 }
 \author{
-  Eduard Szoecs \email{szoe8822@uni-landau.de}
+  Eduard Szoecs, \email{szoe8822@uni-landau.de}
+}
+\seealso{
+  \code{\link[taxize]{get_tsn}}
 }
 
