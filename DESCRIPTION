@@ -31,7 +31,8 @@ Imports:
 Suggests:
     testthat,
     roxygen2,
-    rjson
+    rjson,
+    vegan
 Collate:
     'classification.R'
     'get_tsn.R'
@@ -80,3 +81,4 @@ Collate:
     'gni_parse.R'
     'iucn_getname.R'
     'rankagg.R'
+    'tax_agg.R'
