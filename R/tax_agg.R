@@ -39,7 +39,7 @@
 #' 
 #' # extract aggregated community data matrix for further usage
 #' agg$x
-#' # check whcih taxa have been aggregated
+#' # check which taxa have been aggregated
 #' agg$by
 tax_agg <- function(x, rank, db = 'ncbi') 
 {
