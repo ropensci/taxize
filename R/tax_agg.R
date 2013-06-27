@@ -1,10 +1,11 @@
-#' Aggregate species data by given taxonomic rank
+#' Aggregate species data to given taxonomic rank
 #' 
 #' @import reshape2
 #' 
 #' @param x Community data matrix. Taxa in columns, samples in rows.
-#' @param rank character; rank Taxonomic rank to aggregate by.
-#' @param db character; taxonomic API to use, 'ncbi or 'itis'.
+#' @param rank character; Taxonomic rank to aggregate by.
+#' @param db character; taxonomic API to use, 'ncbi, 'itis' or both, see \code{\link[taxize]{tax_name}}.
+#' @param ... other arguments passed to \code{\link[taxize]{tax_name}}.
 #' 
 #' @details \code{tax_agg} aggregates (sum) taxa to a specific taxonomic level. 
 #' If a taxon is not found in the database (ITIS or NCBI) or the supplied taxon is on 
@@ -19,6 +20,7 @@
 #' 
 #' @export
 #' 
+#' @seealso \code{\link[taxize]{tax_name}}
 #' @examples
 #' # use dune dataset
 #' data(dune, package='vegan')
@@ -41,7 +43,7 @@
 #' agg$x
 #' # check which taxa have been aggregated
 #' agg$by
-tax_agg <- function(x, rank, db = 'ncbi') 
+tax_agg <- function(x, rank, db = 'ncbi', ...) 
 {
   # bring to long format
   x$rownames <- rownames(x)
@@ -49,7 +51,7 @@ tax_agg <- function(x, rank, db = 'ncbi')
   
   # aggregate to family level (by querying NCBI for taxonomic classification)
   uniq_tax <- unique(df_m$variable)
-  agg <- tax_name(uniq_tax, get = rank, db = 'ncbi')
+  agg <- tax_name(uniq_tax, get = rank, db = 'ncbi', ...)
   lookup <- data.frame(variable = uniq_tax, agg = agg[ , 1], stringsAsFactors=FALSE)
   
   # merge lookup with orig.
