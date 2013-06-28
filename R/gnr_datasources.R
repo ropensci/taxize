@@ -1,33 +1,34 @@
 #' Get data sources for the Global Names Resolver.
 #' 
-#' Uses the Global Names Index, see \url{http://gni.globalnames.org/} 
+#' Retrieve data sources used in Global Names Index, see \url{http://gni.globalnames.org/}
 #' 		for information. 
 #' 
 #' @import RJSONIO plyr
-#' @param todf Parse id and name of provider to data.frame? logical (default = FALSE).
-#' @param url Base url for the API; leave as is.
+#' @param todf logical; Should a data.frame be returned?
+#' 
 #' @author Scott Chamberlain {myrmecocystus@@gmail.com}
-#' @return json or xml output, your choice
+#' @return json or a data.frame
+#' @seealso \code{\link[taxize]{gnr_resolve}}
 #' @keywords resolve names taxonomy
+#' @export
 #' @examples \dontrun{
 #' # all data sources
 #' gnr_datasources() 
 #' 
 #' # just id's and names of sources
-#' gnr_datasources(todf=T)
+#' gnr_datasources(todf = TRUE)
 #' 
 #' # give me the id for EOL
-#' out <- gnr_datasources(todf=T)
+#' out <- gnr_datasources(todf = TRUE)
 #' out[out$title == "EOL", "id"]
 #' 
 #' # Fuzzy search for sources with the word zoo
-#' out <- gnr_datasources(todf=T)
-#' out[agrep("zoo", out$title, ignore.case=T), ]
+#' out <- gnr_datasources(todf = TRUE)
+#' out[agrep("zoo", out$title, ignore.case = TRUE), ]
 #' }
-#' @export
-gnr_datasources <- function(todf = FALSE,
-	url = "http://resolver.globalnames.org/data_sources.json") 
+gnr_datasources <- function(todf = TRUE) 
 {
+  url <- "http://resolver.globalnames.org/data_sources.json"
 	if (todf == FALSE){	
 		fromJSON(url)
 	} else {
