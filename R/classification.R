@@ -29,11 +29,13 @@
 #' # Fails
 #' classification(315576)
 #' }
-classification <- function(x, db = NULL, ...){
+classification <- function(...){
   UseMethod("classification")
 }
 
-#' @S3method classification default
+#' @method classification default
+#' @export
+#' @rdname classification
 classification.default <- function(x, db = NULL, ...){
   if (is.null(db))
     stop("Must specify Identifier!")
@@ -51,7 +53,7 @@ classification.default <- function(x, db = NULL, ...){
 #' @method classification tsn
 #' @export
 #' @rdname classification
-classification.tsn <- function(x, ...) 
+classification.tsn <- function(id, ...) 
 {
   fun <- function(x){
     # return NA if NA is supplied
@@ -64,7 +66,7 @@ classification.tsn <- function(x, ...)
     	return(out)
     }
   }
-  out <- llply(x, fun)
+  out <- llply(id, fun)
   return(out)
 }
 
@@ -72,7 +74,7 @@ classification.tsn <- function(x, ...)
 #' @method classification uid
 #' @export
 #' @rdname classification
-classification.uid <- function(x, ...) {
+classification.uid <- function(id, ...) {
   fun <- function(x){
     # return NA if NA is supplied
     if(is.na(x)){
@@ -96,6 +98,6 @@ classification.uid <- function(x, ...) {
     Sys.sleep(0.33)
     return(out)
   }
-  out <- llply(x, fun)
+  out <- llply(id, fun)
   return(out)
 }

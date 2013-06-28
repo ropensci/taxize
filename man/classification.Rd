@@ -1,12 +1,15 @@
 \name{classification}
 \alias{classification}
+\alias{classification.default}
 \alias{classification.tsn}
 \alias{classification.uid}
 \title{Retrieve the taxonomic hierarchy for a given taxon ID.}
 \usage{
-  classification(x, db = NULL, ...)
+  classification(...)
 
-  \method{classification}{tsn} (x, ...)
+  \method{classification}{default} (x, db = NULL, ...)
+
+  \method{classification}{tsn} (id, ...)
 
   \method{classification}{uid} (id, ...)
 }
