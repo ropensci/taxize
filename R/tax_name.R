@@ -42,7 +42,7 @@ tax_name <- function(query = NULL, get = NULL, db = "itis", pref = 'ncbi', verbo
     stop('Need to specify get!\n')
   if(!db %in% c('itis', 'ncbi', 'both'))
     stop("db must be one of 'itis', 'ncbi' or 'both'!\n")
-  if(db == 'both' & pref %notin% c('ncbi', 'itis'))
+  if(db == 'both' & !pref %in% c('ncbi', 'itis'))
     stop("if db=both, pref must be either 'itis' or 'ncbi'!\n")
   
   fun <- function(query, get, db, verbose){
