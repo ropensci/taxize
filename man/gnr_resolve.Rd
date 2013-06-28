@@ -7,29 +7,30 @@
     stripauthority = FALSE, highestscore = TRUE)
 }
 \arguments{
-  \item{names}{Quoted taxonomic names to be resolved in a
-  vector.}
+  \item{names}{character; taxonomic names to be resolved.}
 
-  \item{data_source_ids}{Supply data source IDs to specify
-  what data source is searched. See example below.}
+  \item{data_source_ids}{character; IDs to specify what
+  data source is searched. See
+  \code{\link[taxize]{gnr_datasources}}.}
 
-  \item{resolve_once}{Default is false. Find the first
-  available match instead of matches across all data
-  sources with all possible renderings of a name.  When
-  'true', response is rapid but incomplete (logical)}
+  \item{resolve_once}{logical; Find the first available
+  match instead of matches across all data sources with all
+  possible renderings of a name.  When \code{TRUE},
+  response is rapid but incomplete.}
 
-  \item{with_context}{Reduce the likelihood of matches to
-  taxonomic homonyms.  When 'true' a common taxonomic
-  context is calculated for all supplied names from matches
-  in data sources that have classification tree paths.
-  Names out of determined context are penalized during
-  score calculation.}
+  \item{with_context}{logical; Reduce the likelihood of
+  matches to taxonomic homonyms.  When \code{TRUE} a common
+  taxonomic context is calculated for all supplied names
+  from matches in data sources that have classification
+  tree paths. Names out of determined context are penalized
+  during score calculation.}
 
-  \item{stripauthority}{If TRUE, gives back names with
-  taxonomic authorities. If FALSE, strips author names.}
+  \item{stripauthority}{logical; If \code{TRUE}, gives back
+  names with taxonomic authorities. If \code{FALSE}, strips
+  author names.}
 
-  \item{highestscore}{Return those names with the highest
-  score for each searched name.}
+  \item{highestscore}{logical; Return those names with the
+  highest score for each searched name?}
 }
 \value{
   A data.frame.
@@ -40,15 +41,21 @@
 }
 \examples{
 \dontrun{
-gnr_resolve(names = c("Helianthus annuus", "Homo sapiens"), returndf = TRUE)
-gnr_resolve(names = c("Asteraceae", "Plantae"), returndf = TRUE)
+gnr_resolve(names = c("Helianthus annuus", "Homo sapiens"))
+gnr_resolve(names = c("Asteraceae", "Plantae"))
 
 # Using data source 12 (Encyclopedia of Life)
-gnr_resolve(names = c("Helianthos annuus", "Homo sapians"), returndf = TRUE)
+sources<- gnr_datasources()
+sources
+eol <- sources$id[sources$title == 'EOL']
+gnr_resolve(names = c("Helianthos annuus", "Homo sapians"), data_source_ids = eol)
 }
 }
 \author{
   Scott Chamberlain {myrmecocystus@gmail.com}
+}
+\seealso{
+  \code{\link[taxize]{gnr_datasources}}
 }
 \keyword{names}
 \keyword{resolve}
