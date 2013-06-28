@@ -18,7 +18,7 @@
 #' @examples \dontrun{
 #' tax_rank(query = "Helianthus annuus", db = "itis")
 #' tax_rank(query = "Helianthus annuus", db = "ncbi")
-#' tax_rank(query = "Helianthus, db = "itis")
+#' tax_rank(query = "Helianthus", db = "itis")
 #' tax_rank(query = "Baetis rhodani", db = "itis")
 #' 
 #' # query both
