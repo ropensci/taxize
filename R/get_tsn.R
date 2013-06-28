@@ -13,7 +13,7 @@
 #' 		See functions in the \code{itis} function.
 #'   	
 #'   	
-#' @seealso \code{\link[taxize]{get_uid}}
+#' @seealso \code{\link[taxize]{get_uid}}, \code{\link[taxize]{classification}}
 #' 
 #' @export
 #' @examples \dontrun{

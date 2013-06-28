@@ -9,7 +9,7 @@
 #' @return A vector of unique identifiers (UID). If a species is not found NA. 
 #' If more than one UID is found the function asks for user input. 
 #' 
-#' @seealso \code{\link[taxize]{get_tsn}}
+#' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{classification}}
 #' 
 #' @export
 #' @author Eduard Szoecs, \email{szoe8822@@uni-landau.de}
