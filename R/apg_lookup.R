@@ -14,13 +14,11 @@
 apg_lookup <- function(taxa, rank = "family")
 {
   if(rank=="family"){
-    data(apg_families)
     temp <- as.character(apg_families[apg_families$this %in% taxa, "that"])
     if(nchar(temp)==0){message("no match found..."); taxa} else
       {message("new name..."); temp}
   } else
     if(rank=="order"){
-      data(apg_orders)
       temp <- as.character(apg_orders[apg_orders$this %in% taxa, "that"])
       if(nchar(temp)==0){message("no match found..."); taxa} else
         {message("new name..."); temp}
