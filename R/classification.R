@@ -72,7 +72,7 @@ classification.tsn <- function(x, ...)
 #' @method classification uid
 #' @export
 #' @rdname classification
-classification.uid <- function(id, ...) {
+classification.uid <- function(x, ...) {
   fun <- function(x){
     # return NA if NA is supplied
     if(is.na(x)){
