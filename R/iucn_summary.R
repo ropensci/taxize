@@ -107,6 +107,7 @@ iucn_status.default <- function(x, ...) {
 }
 
 #' @method iucn_status iucn
+#' @param x an \code{iucn} object as returned by \code{\link[taxize]{iucn_summary}}.
 #' @export
 #' @rdname iucn_summary
 iucn_status.iucn <- function(x, ...) {

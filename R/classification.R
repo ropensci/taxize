@@ -38,12 +38,12 @@ classification.default <- function(x, db = NULL, ...){
   if (is.null(db))
     stop("Must specify Identifier!")
   if (db == 'itis') {
-    id <- get_tsn(x)
-    out <- classification(id, ...)
+    x <- get_tsn(x)
+    out <- classification(x, ...)
   }
   if (db == 'ncbi') {
-    id <- get_uid(x)
-    out <- classification(id, ...)
+    x <- get_uid(x)
+    out <- classification(x, ...)
   }
   return(out)
 }
@@ -51,7 +51,7 @@ classification.default <- function(x, db = NULL, ...){
 #' @method classification tsn
 #' @export
 #' @rdname classification
-classification.tsn <- function(id, ...) 
+classification.tsn <- function(x, ...) 
 {
   fun <- function(x){
     # return NA if NA is supplied
@@ -64,7 +64,7 @@ classification.tsn <- function(id, ...)
     	return(out)
     }
   }
-  out <- llply(id, fun)
+  out <- llply(x, fun)
   return(out)
 }
 
@@ -96,6 +96,6 @@ classification.uid <- function(id, ...) {
     Sys.sleep(0.33)
     return(out)
   }
-  out <- llply(id, fun)
+  out <- llply(x, fun)
   return(out)
 }

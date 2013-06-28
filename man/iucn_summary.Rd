@@ -19,6 +19,9 @@
   \code{TRUE}. See e.g., doMC, doSNOW, etc.}
 
   \item{...}{Currently not used.}
+
+  \item{x}{an \code{iucn} object as returned by
+  \code{\link[taxize]{iucn_summary}}.}
 }
 \value{
   A list (for every species one entry) of lists with the

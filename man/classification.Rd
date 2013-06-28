@@ -6,7 +6,7 @@
 \usage{
   classification(x, db = NULL, ...)
 
-  \method{classification}{tsn} (id, ...)
+  \method{classification}{tsn} (x, ...)
 
   \method{classification}{uid} (id, ...)
 }

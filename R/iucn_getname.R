@@ -1,7 +1,7 @@
 #' Get any matching IUCN species names
 #' 
-#' @param name
-#' @param verbose defaults to TRUE
+#' @param name character; taxon name
+#' @param verbose logical; should messages be printed?
 #' @param ... Further arguments passed on to \code{link{iucn_summary}}
 #' @seealso \code{\link{iucn_summary}} \code{\link{iucn_status}}
 #' @export
