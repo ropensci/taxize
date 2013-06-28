@@ -51,7 +51,7 @@ tax_agg <- function(x, rank, db = 'ncbi', ...)
   
   # aggregate to family level (by querying NCBI for taxonomic classification)
   uniq_tax <- unique(df_m$variable)
-  agg <- tax_name(uniq_tax, get = rank, db = 'ncbi', ...)
+  agg <- tax_name(uniq_tax, get = rank, db = db, ...)
   lookup <- data.frame(variable = uniq_tax, agg = agg[ , 1], stringsAsFactors=FALSE)
   
   # merge lookup with orig.
@@ -66,7 +66,9 @@ tax_agg <- function(x, rank, db = 'ncbi', ...)
   
   rownames(df_l) <- df_l$rownames
   df_l$rownames <- NULL
-  out <- list(x = df_l, by = lookup, n_pre = ncol(x), rank = rank)
+  # restore order
+  df_l <- df_l[x$rownames, ]
+  out <- list(x = df_l, by = lookup, n_pre = ncol(x) - 1, rank = rank)
   class(out) <- 'tax_agg'
   return(out)
 }
