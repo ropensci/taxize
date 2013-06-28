@@ -54,7 +54,7 @@ classification.tsn <- function(x, ...)
     } else {
     	out <- getfullhierarchyfromtsn(x, ...)
     	# remove overhang
-    	out <- out[1:which(out$tsn == x), ]
+    	out <- out[1:which(out$tsn == x), c('rankName', 'taxonName', 'tsn')]
     	return(out)
     }
   }
