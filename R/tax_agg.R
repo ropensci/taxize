@@ -50,9 +50,9 @@ tax_agg <- function(x, rank, db = 'ncbi', ...)
   df_m <- melt(x, id = 'rownames')
   
   # aggregate to family level (by querying NCBI for taxonomic classification)
-  uniq_tax <- unique(df_m$variable)
+  uniq_tax <- as.character(unique(df_m$variable))
   agg <- tax_name(uniq_tax, get = rank, db = db, ...)
-  lookup <- data.frame(variable = uniq_tax, agg = agg[ , 1], stringsAsFactors=FALSE)
+  lookup <- data.frame(variable = uniq_tax, agg = agg[ , 1], stringsAsFactors = FALSE)
   
   # merge lookup with orig.
   df_merged <- merge(lookup, df_m, by = 'variable')
@@ -81,9 +81,8 @@ print.tax_agg <- function(x, ...)
   cat("\n")
   writeLines(strwrap("Aggregated community data\n",
                      prefix = "\t"))
-  cat("\n")
   cat(paste("\nLevel of Aggregation:", toupper(x$rank)))
   cat(paste("\nNo. taxa before aggregation:", x$n_pre))
   cat(paste("\nNo. taxa after aggregation:", ncol(x$x)))
-  cat(paste("\nNo. taxa not aggregated:", sum(is.na(x$by$agg))))
+  cat(paste("\nNo. taxa not found:", sum(is.na(x$by$agg))))
 }

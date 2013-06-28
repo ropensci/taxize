@@ -28,6 +28,8 @@ take2 <- take
 colnames(take2)[4] <- 'xxxxx'
 out_itis <- tax_agg(take2, rank = 'family', db = 'itis')
 
-#test_that("Handles NAs", {
-#
-#})
+
+test_that("Handles NAs", {
+  expect_true(is.na(out_itis$by$agg[4]))
+  expect_that(ncol(out_itis$x), equals(ncol(take2)))
+})
