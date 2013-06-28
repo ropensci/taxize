@@ -21,7 +21,7 @@
 #' @export
 #' 
 #' @seealso \code{\link[taxize]{tax_name}}
-#' @examples
+#' @examples \dontrun{
 #' # use dune dataset
 #' data(dune, package='vegan')
 #' species <- c("Bellis perennis", "Empetrum nigrum", "Juncus bufonius", "Juncus articulatus", 
@@ -43,6 +43,7 @@
 #' agg$x
 #' # check which taxa have been aggregated
 #' agg$by
+#' }
 tax_agg <- function(x, rank, db = 'ncbi', ...) 
 {
   # bring to long format
@@ -50,9 +51,9 @@ tax_agg <- function(x, rank, db = 'ncbi', ...)
   df_m <- melt(x, id = 'rownames')
   
   # aggregate to family level (by querying NCBI for taxonomic classification)
-  uniq_tax <- unique(df_m$variable)
-  agg <- tax_name(uniq_tax, get = rank, db = 'ncbi', ...)
-  lookup <- data.frame(variable = uniq_tax, agg = agg[ , 1], stringsAsFactors=FALSE)
+  uniq_tax <- as.character(unique(df_m$variable))
+  agg <- tax_name(uniq_tax, get = rank, db = db, ...)
+  lookup <- data.frame(variable = uniq_tax, agg = agg[ , 1], stringsAsFactors = FALSE)
   
   # merge lookup with orig.
   df_merged <- merge(lookup, df_m, by = 'variable')
@@ -66,7 +67,9 @@ tax_agg <- function(x, rank, db = 'ncbi', ...)
   
   rownames(df_l) <- df_l$rownames
   df_l$rownames <- NULL
-  out <- list(x = df_l, by = lookup, n_pre = ncol(x), rank = rank)
+  # restore order
+  df_l <- df_l[x$rownames, ]
+  out <- list(x = df_l, by = lookup, n_pre = ncol(x) - 1, rank = rank)
   class(out) <- 'tax_agg'
   return(out)
 }
@@ -79,9 +82,8 @@ print.tax_agg <- function(x, ...)
   cat("\n")
   writeLines(strwrap("Aggregated community data\n",
                      prefix = "\t"))
-  cat("\n")
   cat(paste("\nLevel of Aggregation:", toupper(x$rank)))
   cat(paste("\nNo. taxa before aggregation:", x$n_pre))
   cat(paste("\nNo. taxa after aggregation:", ncol(x$x)))
-  cat(paste("\nNo. taxa not aggregated:", sum(is.na(x$by$agg))))
+  cat(paste("\nNo. taxa not found:", sum(is.na(x$by$agg))))
 }

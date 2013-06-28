@@ -1,7 +1,7 @@
 # tests for col_classification fxn in taxize
 context("col_classification")
 
-temp <- col_classification(name="Apis")
+temp <- col_classification(name = "Apis")
 	
 test_that("col_classification returns the correct value", {
 	expect_that(temp[[1]][1,2], matches("Animalia"))
