@@ -37,6 +37,7 @@
   taxonomic level this taxon is not aggregated.
 }
 \examples{
+\dontrun{
 # use dune dataset
 data(dune, package='vegan')
 species <- c("Bellis perennis", "Empetrum nigrum", "Juncus bufonius", "Juncus articulatus",
@@ -58,6 +59,7 @@ agg
 agg$x
 # check which taxa have been aggregated
 agg$by
+}
 }
 \seealso{
   \code{\link[taxize]{tax_name}}

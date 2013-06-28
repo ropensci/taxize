@@ -29,6 +29,7 @@ get_uid(c("Chironomus riparius", "aaa vva"))
   Eduard Szoecs, \email{szoe8822@uni-landau.de}
 }
 \seealso{
-  \code{\link[taxize]{get_tsn}}
+  \code{\link[taxize]{get_tsn}},
+  \code{\link[taxize]{classification}}
 }
 

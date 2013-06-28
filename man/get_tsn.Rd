@@ -35,6 +35,7 @@ get_tsn(splist, "sciname")
 }
 }
 \seealso{
-  \code{\link[taxize]{get_uid}}
+  \code{\link[taxize]{get_uid}},
+  \code{\link[taxize]{classification}}
 }
 
