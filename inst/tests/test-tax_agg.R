@@ -10,7 +10,7 @@ out_ncbi <- tax_agg(take, rank = 'family', db = 'ncbi')
 
 
 test_that("tax_agg returns the correct class", {
-  expect_that(out_ncbi, is_a("list"))
+  expect_that(out_ncbi, is_a("tax_agg"))
   expect_that(length(out_ncbi), equals(4))
   expect_equal(class(out_ncbi), "tax_agg")
   expect_that(out_ncbi$x, is_a("data.frame"))
