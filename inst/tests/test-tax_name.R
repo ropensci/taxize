@@ -1,11 +1,11 @@
-# tests for iucn_summary fxn in taxize
+# tests for tax_name fxn in taxize
 context("tax_name")
 
-tmp_itis <- tax_name(query="Baetis", get=c("family", "order"), db="itis")
-tmp_ncbi  <- tax_name(query="Baetis", get=c("family", "order"), db="ncbi")
-tmp_ncbi2 <- tax_name(query=c("Helianthus annuus", 'Baetis rhodani'), get=c("genus", "kingdom"), db="ncbi")
+tmp_itis <- tax_name(query = "Baetis", get = c("family", "order"), db = "itis")
+tmp_ncbi  <- tax_name(query = "Baetis", get = c("family", "order"), db = "ncbi")
+tmp_ncbi2 <- tax_name(query = c("Helianthus annuus", 'Baetis rhodani'), get = c("genus", "kingdom"), db = "ncbi")
 tmp_na <- tax_name(query="xxxxx", get=c("family", "order"), db="ncbi")
-tmp_ncbi_both <- tax_name(query=c("Helianthus annuus", 'Baetis rhodani'), get=c("genus", "kingdom"), db="both")
+tmp_ncbi_both <- tax_name(query = c("Helianthus annuus", 'Baetis rhodani'), get = c("genus", "kingdom"), db = "both")
 
 test_that("tax_name returns the correct class", {
 	expect_that(tmp_itis, is_a("data.frame"))
