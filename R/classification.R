@@ -2,9 +2,10 @@
 #' 
 #' @import XML RCurl plyr
 #' 
-#' @param x character; IDs as returned by \code{\link[taxize]{get_tsn}} or \code{\link[taxize]{get_uid}}.
-#' @param ID character, type of identifier, either 'uid' or 'tsn'.
-#' @param ... Other arguments passed to \code{\link[taxize]{getfullhierarchyfromtsn}}.
+#' @param x character; taxons to query.
+#' @param db character; database to query. either \code{ncbi} or \code{itis}.
+#' @param id character; identifiers, as returned by \code{\link[taxize]{get_tsn}} or \code{\link[taxize]{get_uid}}
+#' @param ... Other passed arguments.
 #' 
 #' @return A list of data.frames with the taxonomic classifcation of every supplied taxa.
 #' 
@@ -15,41 +16,46 @@
 #' 
 #' @export
 #' @examples \dontrun{
-#' classification(get_uid(c("Chironomus riparius", "aaa vva")))
-#' classification(get_tsn(c("Chironomus riparius", "aaa vva"), "sciname"))
+#' # Plug in taxon names directly
+#' classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi')
+#' classification(c("Chironomus riparius", "aaa vva"), db = 'itis')
 #' 
-#' # must specify Identifier, when not used with get_*()
-#' classification(315576, ID = "uid")
-#' classification(180544, "tsn")
+#' # Use methods for get_uid and get_tsn
+#' classification(get_uid(c("Chironomus riparius", "aaa vva")))
+#' classification(get_tsn(c("Chironomus riparius", "aaa vva")))
 #' }
 #' 
 #' @examples \donttest{
 #' # Fails
 #' classification(315576)
 #' }
-classification <- function(x, ID = NULL, ...){
+classification <- function(x, db = NULL, ...){
   UseMethod("classification")
 }
 
 #' @S3method classification default
-classification.default <- function(x, ID = NULL, ...){
-  if(is.null(ID))
+classification.default <- function(x, db = NULL, ...){
+  if (is.null(db))
     stop("Must specify Identifier!")
-  if(ID == 'tsn')
-    out <- taxize:::classification.tsn(x)
-  if(ID == 'uid')
-    out <- taxize:::classification.uid(x)
+  if (db == 'itis') {
+    id <- get_tsn(x)
+    out <- classification(id, ...)
+  }
+  if (db == 'ncbi') {
+    id <- get_uid(x)
+    out <- classification(id, ...)
+  }
   return(out)
 }
 
 #' @method classification tsn
 #' @export
 #' @rdname classification
-classification.tsn <- function(x, ...) 
+classification.tsn <- function(id, ...) 
 {
   fun <- function(x){
     # return NA if NA is supplied
-    if(is.na(x)) {
+    if (is.na(x)) {
       out <- NA
     } else {
     	out <- getfullhierarchyfromtsn(x, ...)
@@ -58,7 +64,7 @@ classification.tsn <- function(x, ...)
     	return(out)
     }
   }
-  out <- llply(x, fun)
+  out <- llply(id, fun)
   return(out)
 }
 
@@ -66,7 +72,7 @@ classification.tsn <- function(x, ...)
 #' @method classification uid
 #' @export
 #' @rdname classification
-classification.uid <- function(x) {
+classification.uid <- function(id, ...) {
   fun <- function(x){
     # return NA if NA is supplied
     if(is.na(x)){
@@ -90,6 +96,6 @@ classification.uid <- function(x) {
     Sys.sleep(0.33)
     return(out)
   }
-  out <- llply(x, fun)
+  out <- llply(id, fun)
   return(out)
 }
