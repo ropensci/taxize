@@ -12,6 +12,7 @@ NEW FEATURES
 BUG FIXES
 * iucn_summary returns no information about population estimates.
 * get_tsn raised a warning in specific situations.
+* tax_name did not work for multiple ranks with ITIS
 
 NOTES
 * Removed dependency to NCBI2R
