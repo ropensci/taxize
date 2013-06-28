@@ -1,6 +1,13 @@
 # tests for gnr_datasources fxn in taxize
 context("gnr_datasources")
 
+tmp <- gnr_datasources()
+
 test_that("gnr_datasources returns the correct class", {
-	expect_that(gnr_datasources(), is_a("list"))
+	expect_that(tmp, is_a("data.frame"))
+})
+
+test_that("gnr_resolve returns the correct value", {
+  expect_that(nrow(tmp), equals(88))
+  expect_equal(tmp$title[12], 'EOL')
 })
