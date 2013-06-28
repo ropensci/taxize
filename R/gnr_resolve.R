@@ -62,8 +62,9 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
   out <- data_2[order(data_2$submitted_name), ]
   
   if(stripauthority){
-    out[ , !names(out) %in% "matched_name"]
+    out <- out[ , !names(out) %in% "matched_name"]
   } else {
-    out[ , !names(out) %in% "matched_name2"]
+    out <- out[ , !names(out) %in% "matched_name2"]
   }        
+  return(out)
 }
