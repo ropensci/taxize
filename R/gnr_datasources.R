@@ -28,10 +28,9 @@
 gnr_datasources <- function(todf = FALSE,
 	url = "http://resolver.globalnames.org/data_sources.json") 
 {
-	if(todf == FALSE){	
+	if (todf == FALSE){	
 		fromJSON(url)
-	} else
-		{
-			ldply(fromJSON(url), function(x) data.frame(x["id"], x["title"]))
-		}
+	} else {
+    ldply(fromJSON(url), function(x) data.frame(x["id"], x["title"]))
+	}
 }
