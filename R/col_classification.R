@@ -20,7 +20,6 @@
 #' 		single query is 500 for terse queries and 50 for full queries).
 #' @param checklist The year of the checklist to query, if you want a specific 
 #' 		year's checklist instead of the lastest as default (numeric).
-#' @param url The base COL url for the function (should be left to default).
 #' @details You must provide one of name or id. The other parameters (format 
 #' 		and start) are optional.
 #' @return A list of data.frame's.
@@ -42,37 +41,37 @@
 #' }
 #' @export
 col_classification <- function(name = NULL, id = NULL, format = NULL, start = NULL, 
-	checklist = NULL, url = "http://www.catalogueoflife.org/col/webservice")
+	checklist = NULL)
 {
+  url <- "http://www.catalogueoflife.org/col/webservice"
 	func <- function(x, y) {
 		if(is.null(checklist)){NULL} else {
-			cc <- match.arg(checklist, choices=c(2012,2011,2010,2009,2008,2007))
-			if(cc %in% c(2012,2011,2010)){
-				url <- gsub("col", paste("annual-checklist/", cc, sep=""), url)
-			} else
-			{
+			cc <- match.arg(checklist, choices = c(2012, 2011, 2010, 2009, 2008, 2007))
+			if (cc %in% c(2012, 2011, 2010)){
+				url <- gsub("col", paste("annual-checklist/", cc, sep = ""), url)
+			} else {
 				url <- "http://webservice.catalogueoflife.org/annual-checklist/year/search.php"
 				url <- gsub("year", cc, url)
 			}
 		}
 		
-		args <- compact(list(name=x, id=y, format=format, response="full", start=start))
+		args <- compact(list(name = x, id = y, format = format, 
+                         response = "full", start = start))
 		out <- getForm(url, .params = args)
 		tt <- xmlParse(out)
 		
 		classif_id <- xpathSApply(tt, "//classification//id", xmlValue)
 		classif_name <- xpathSApply(tt, "//classification//name", xmlValue)
 		classif_rank <- xpathSApply(tt, "//classification//rank", xmlValue)
-		data.frame(classif_id, classif_name, classif_rank)
+		data.frame(classif_id, classif_name, classif_rank, stringsAsFactors = FALSE)
 	}
 	safe_func <- plyr::failwith(NULL, func)
 	if(is.null(id)){ 
-		temp <- llply(name, safe_func, y=NULL) 
+		temp <- llply(name, safe_func, y = NULL) 
 		names(temp) <- name
-		temp
 	} else { 
-		temp <- llply(id, safe_func, x=NULL) 
+		temp <- llply(id, safe_func, x = NULL) 
 		names(temp) <- id
-		temp
 	}
+  return(temp)
 }
