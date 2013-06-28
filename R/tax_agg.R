@@ -21,7 +21,7 @@
 #' @export
 #' 
 #' @seealso \code{\link[taxize]{tax_name}}
-#' @examples
+#' @examples \dontrun{
 #' # use dune dataset
 #' data(dune, package='vegan')
 #' species <- c("Bellis perennis", "Empetrum nigrum", "Juncus bufonius", "Juncus articulatus", 
@@ -43,6 +43,7 @@
 #' agg$x
 #' # check which taxa have been aggregated
 #' agg$by
+#' }
 tax_agg <- function(x, rank, db = 'ncbi', ...) 
 {
   # bring to long format
