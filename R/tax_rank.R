@@ -1,6 +1,6 @@
 #' Get rank for a given taxonomic name.
 #' 
-#' Retrieve rank of a taxon.
+#' Get taxonomic rank for a given taxon name.
 #' 
 #' @param query character; Vector of taxonomic names to query.
 #' @param db character; The database to search from: 'tis', 'ncbi' or 'both'.

@@ -23,7 +23,7 @@
   A data.frame with one column for every queried taxon.
 }
 \description{
-  Retrieve rank of a taxon.
+  Get taxonomic rank for a given taxon name.
 }
 \note{
   While \code{\link[taxize]{tax_name}} returns the name of
@@ -34,7 +34,7 @@
 \dontrun{
 tax_rank(query = "Helianthus annuus", db = "itis")
 tax_rank(query = "Helianthus annuus", db = "ncbi")
-tax_rank(query = "Helianthus, db = "itis")
+tax_rank(query = "Helianthus", db = "itis")
 tax_rank(query = "Baetis rhodani", db = "itis")
 
 # query both

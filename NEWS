@@ -7,7 +7,7 @@ NEW FEATURES
 * tax_name has an option to query both, NCBI and ITIS, in one call and return the union of both
 * new extractor function for iucn_summary: iucn_status, to extract status from iucn-objects
 * tax_agg: A function to aggregate species data to given taxonomic rank
-* tax_rank: Get taxonomic rank for a given name.
+* tax_rank: Get taxonomic rank for a given taxon name.
 
 BUG FIXES
 * iucn_summary returns no information about population estimates.
