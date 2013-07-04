@@ -164,7 +164,7 @@ This is a common task in biology. We often have a list of species names and we w
 
 <<resolvenames, eval=TRUE, cache=TRUE>>=
 temp <- gnr_resolve(names = c("Helianthos annus", "Homo saapiens"), returndf = TRUE)
-temp[,-c(1,4)]
+temp[ , -c(1,4)]
 @
 
 The correct spellings are \emph{Helianthus annuus} and \emph{Homo sapiens}. Another approach uses the Taxonomic Name Resolution Service via the Taxosaurus API \cite{taxosaurus} developed by iPLant and the Phylotastic organization. In this example, we provide a list of species names, some of which are misspelled, and we'll call the API with the \emph{tnrs} function.
@@ -172,7 +172,7 @@ The correct spellings are \emph{Helianthus annuus} and \emph{Homo sapiens}. Anot
 <<tnrs, eval=TRUE,cache=TRUE>>=
 mynames <- c("Helianthus annuus", "Pinus contort", "Poa anua", "Abis magnifica",
   	"Rosa california", "Festuca arundinace", "Sorbus occidentalos","Madia sateva")
-tnrs(query = mynames)[,-c(5:7)]
+tnrs(query = mynames)[ , -c(5:7)]
 @
 
 It turns out there are a few corrections: e.g., \emph{Madia sateva} should be \emph{Madia sativa}, and \emph{Rosa california} should be \emph{Rosa californica}. Note that this search worked because fuzzy matching was employed to retrieve names that were close, but not exact matches. Fuzzy matching is only available for plants in the TNRS service, so we advise using EOL's Global Names Resolver if you need to resolve animal names.
@@ -182,27 +182,28 @@ taxize takes the approach that the user should be able to make decisions about w
 \subsection*{Retrieve higher taxonomic names}
 Another task biologists often face is getting higher taxonomic names for a taxa list. Having the higher taxonomy allows you to put into context the relationships of your species list. For example, you may find out that species A and species B are in Family C, which may lead to some interesting insight, as opposed to not knowing that Species A and B are closely related. This also makes it easy to aggregate/standardize data to a specific taxonomic level (e.g., family level) or to match data to other databases with different taxonomic resolution (e.g., trait databases).
 
-A number of data sources in taxize provide the capability to retrieve higher taxonomic names, but we will highlight two of the more useful ones: ITIS and NCBI. The principle in both is the same - first you need to get a numeric identifier for the queried species, then retrieve the higher taxonomy with this identifier. First, we'll explore the user of ITIS, by searching for two species, \emph{Abies procera} and \emph{Pinus contorta}.
+A number of data sources in taxize provide the capability to retrieve higher taxonomic names, but we will highlight two of the more useful ones: ITIS and NCBI. First, we'll search for two species, \emph{Abies procera} and \emph{Pinus contorta}.
 
 <<itisclass, eval=TRUE,cache=TRUE>>=
 specieslist <- c("Abies procera","Pinus contorta")
-classification(get_tsn(specieslist, "sciname"))
+classification(specieslist, db = 'itis')
 @
 
-It turns out both species are in the family Pinaceae. You can also get this type of information from the NCBI by doing \emph{classification(get\_uid(specieslist))}.
+It turns out both species are in the family Pinaceae. You can also get this type of information from the NCBI by doing \emph{classification(specieslist, db = 'ncbi')}.
 
-Instead of a full classification, you may only want a single name, say a family name for your species of interest. The function \emph{tax\_name} is built just for this purpose. And you can specify the data source you retrieve the taxonomic name from with the \emph{db} parameter, either ITIS or NCBI. 
+Instead of a full classification, you may only want a single name, say a family name for your species of interest. The function \emph{tax\_name} is built just for this purpose. As with the \emph{classification}-function you can specify the data source with the \emph{db} argument, either ITIS or NCBI. 
 
 <<taxname, eval=TRUE,cache=TRUE>>=
-tax_name(query="Helianthus annuus", get="family", db="itis")
-tax_name(query="Helianthus annuus", get="family", db="ncbi")
+tax_name(query = "Helianthus annuus", get = "family", db = "itis")
+tax_name(query = "Helianthus annuus", get = "family", db = "ncbi")
 @
 
 \subsection*{Interactive name selection}
-In the previous section we used the function \emph{get\_tsn} to get a classification for two plant species. Below are a few examples. When you run these examples in R, you are presented with a command prompt asking for the row that contains the name you would like back; that output is not printed below for brevity. In this example, the search term has many matches. The function returns a data.frame of the matches, and asks for the user to input what row number to accept. 
+As mentioned most databases use a numeric code to reference a species. A general workflow in taxize is: Retrieve Code for the queried species and then use this code to query more data/information.
+Below are a few examples. When you run these examples in R, you are presented with a command prompt asking for the row that contains the name you would like back; that output is not printed below for brevity. In this example, the search term has many matches. The function returns a data.frame of the matches, and asks for the user to input what row number to accept. 
 
 <<interactive, eval=TRUE, echo=TRUE, cache=TRUE>>=
-get_tsn(searchterm="Heliastes", searchtype="sciname")
+get_tsn(searchterm = "Heliastes", searchtype = "sciname")
 @
 
 In another example, you can pass in a long list of taxonomic names:
@@ -210,13 +211,13 @@ In another example, you can pass in a long list of taxonomic names:
 <<interactive_many, eval=TRUE, echo=TRUE, cache=TRUE>>=
 splist <- c("annona cherimola", 'annona muricata', "quercus robur",
   	"shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")
-get_tsn(searchterm=splist, searchtype="sciname")
+get_tsn(searchterm = splist, searchtype = "sciname")
 @
 
 In another example, note that no match at all returns an NA:
 
 <<interactive_na, eval=TRUE, echo=TRUE, cache=TRUE>>=
-get_uid(sciname=c("Chironomus riparius", "aaa vva"))
+get_uid(sciname = c("Chironomus riparius", "aaa vva"))
 @
 
 \subsection*{Retrieve a phylogeny}
@@ -231,7 +232,7 @@ There are currently no resources for getting a phylogeny of animals simply from 
 If you aren't a taxonomic specialist on a particular taxon you likely don't know what children taxa are within a family, or within a genus. This task becomes especially unwieldy when there are a large number of taxa downstream. You can of course go to a website like Wikispecies (\cite{wikispecies}) or Encyclopedia of Life (\cite{eol}) to get downstream names. However, taxize provides an easy way to programatically search for downstream taxa, both for the Catalogue of Life (CoL; \cite{col}) and the Integrated Taxonomic Information System (\cite{itis}). Here is a short example using the CoL in which we want to find all the species within the genus \emph{Apis} (honey bees).
 
 <<downstream, eval=TRUE, cache=TRUE>>=
-col_downstream(name="Apis", downto="Species")[[1]]
+col_downstream(name = "Apis", downto = "Species")[[1]]
 @
 
 The result from the above call to \emph{col\_downstream()} is a data.frame that gives a number of columns of different information. 
@@ -250,13 +251,13 @@ It turns out that the panther has a status of endangered (EN) and the lynx has a
 Another use case available in taxize deals with genetic sequences. taxize has three functions to interact with GenBank to search for available genes (\emph{get\_genes\_avail}), download genes by GenBank ID (\emph{get\_genes}), and download genes via taxonomic name search, including retrieving a congeneric if the searched taxon does not exist in the database (\emph{get\_seqs}). In this example, we search for gene sequences for \emph{Umbra limi}.
 
 <<genbank_one, eval=TRUE, cache=TRUE>>=
-out <- get_genes_avail(taxon_name="Umbra limi", seqrange = "1:2000", getrelated=FALSE)
+out <- get_genes_avail(taxon_name = "Umbra limi", seqrange = "1:2000", getrelated = FALSE)
 @
 
 Then we can ask if 'RAG1' exists in any of the gene names.
 
 <<genbank_two, eval=TRUE, cache=TRUE>>=
-out[grep("RAG1", out$genesavail, ignore.case=T),]
+out[grep("RAG1", out$genesavail, ignore.case = TRUE),]
 @
 
 It turns out that there are XX different unique records found. However, this doesn't mean that there are XX different genes found as the API does not provide metadata to classify genes. However, at the end of the example, we showed that you can use regular expressions via (e.g., via \emph{grep}) to search for the gene of interest.
@@ -277,9 +278,9 @@ In biology, one can asks questions at varying taxonomic levels. Do species diffe
 library(vegan)
 data(dune.taxon)
 dat <- dune.taxon
-dat$abundance <- round(rlnorm(n=nrow(dat),meanlog=5,sdlog=2),0)
-head( rankagg(data=dat, datacol="abundance", rank="Genus") )
-head( rankagg(data=dat, "abundance", rank="Family", fxn="mean") )
+dat$abundance <- round(rlnorm(n = nrow(dat), meanlog = 5, sdlog = 2), 0)
+head( rankagg(data = dat, datacol = "abundance", rank = "Genus") )
+head( rankagg(data = dat, "abundance", rank = "Family", fxn = "mean") )
 @
 
 \section*{Conclusions}
