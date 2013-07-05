@@ -143,7 +143,7 @@ $\ast$ E-mail: myrmecocystus@gmail.com
 
 % Please keep the abstract between 250 and 300 words
 \section*{Abstract}
-All species are hierarchically related to one another, and we use taxonomic names to label the nodes in this hierarchy. Taxonomic data is becoming easily available on the web, but scientists need a way to access taxonomic data on the web in a programmatic fashion that's easy and reproducible. We have developed taxize, an open-source software package (freely available from \url{http://cran.r-project.org/web/packages/taxize/index.html}) for the R language. taxize provides simple, programmatic access to taxonomic data for 13 data sources around the web. We discuss the need for a taxonomic toolbelt in R, and outline a suite of use cases for which taxize is ideally suited (including a full workflow as an appendix). The taxize package will facilitate open and reproducible science by allowing taxonomic data collection to be done in the open-source R platform.
+All species are hierarchically related to one another, and we use taxonomic names to label the nodes in this hierarchy. Taxonomic data is becoming increasingly available on the web, but scientists need a way to access taxonomic data on the web in a programmatic fashion that's easy and reproducible. We have developed taxize, an open-source software package (freely available from \url{http://cran.r-project.org/web/packages/taxize/index.html}) for the R language. taxize provides simple, programmatic access to taxonomic data for 13 data sources around the web. We discuss the need for a taxonomic toolbelt in R, and outline a suite of use cases for which taxize is ideally suited (including a full workflow as an appendix). The taxize package will facilitate open and reproducible science by allowing taxonomic data collection to be done in the open-source R platform.
 
 % Please keep the Author Summary between 150 and 200 words
 % Use first person. PLoS ONE authors please skip this step. 
@@ -159,7 +159,7 @@ One attempt to help inconsistencies in taxonomy is the use of numeric codes. For
 
 Taxonomic data is getting easier to obtain through web interfaces (e.g., \cite{eol}). However, there are a number of good reasons to obtain taxonomic information programatically rather than through a web interface. First, if you have more than a few names to lookup on a website, it can take quite a long time to enter each name, get data, and repeat for each species. Second, programatically getting taxonomic names solves the first problem by looping over a list of names. In addition, doing taxonomic searching, etc. is reproducible. With increasing reports of irreproducibility in science \cite{stodden2010,zimmer2012}, it is extremely important to make science workflows repeatable. Science workflows can now easily incorporate text, code, and images in a single executable document \cite{yihui2013}. 
 
-The R language is the dominant language used by biologists (reference), and now has over 5,000 packages on the R package repository (CRAN) and more than 2,500 packages on other repositories to extend R. R is great for manipulating, visualizing and fitting statistical models to data. However, the key missing piece in R is the ability to get data from the internet within R. Getting data from the web will be increasingly common as more and more data gets moved to the cloud. Increasingly, data is available from the web via API's, or application programming interfaces. These are bits of code that allow computers to talk to one another using code that is not human readable, but is machine readable. Web APIs often define a number of methods that allow users to search for a species name, or retrieve the synonyms for a species name, for example. A further strength of APIs is that they are language agnostic, meaning that data can be consumed in almost any computing context, allowing users to interact with the web API without having to know the details of the code. Whereas, if data are stored in an Excel file, for example, the file can only be opened in a few programs. 
+The R language is the dominant language used by biologists (reference), and now has over 4,500 packages on the Comprehensive R Archive Network (CRAN) and more than 2,500 packages on other repositories to extend R. R is great for manipulating, visualizing and fitting statistical models to data. However, the key missing piece in R is the ability to get data from the internet within R. Getting data from the web will be increasingly common as more and more data gets moved to the cloud. Increasingly, data is available from the web via application programming interfaces (API). These are bits of code that allow computers to talk to one another using code that is not human readable, but is machine readable. Web APIs often define a number of methods that allow users to search for a species name, or retrieve the synonyms for a species name, for example. A further strength of APIs is that they are language agnostic, meaning that data can be consumed in almost any computing context, allowing users to interact with the web API without having to know the details of the code. Whereas, if data are stored in an Excel file, for example, the file can only be opened in a few programs. 
 
 The goal of taxize, an R package in development, is to make all use cases having to do with retrieving and resolving taxonomic names easy and replicable. In taxize, we have written a suite of R functions that interact with many taxonomic data sources via their web APIs (Table~\ref{tab:a}). The interface to each function is usually a simple list of species names, just as a user would do with a web API. Therefore, we hope moving from a web to R interface for taxonomic names will be relatively seamless (if one is already nominally familiar with R). 
 
@@ -179,11 +179,12 @@ taxize uses many data sources (Table~\ref{tab:a}), and more can easily be added.
 
 Some of the data sources taxize interacts with require authentication. That is, in addition to the search terms the user provides (e.g., \emph{Homo sapiens}), the data provider requires an alphanumeric identification key so that they can better manage their servers, collect analytics, and shut down users that abuse the API. The services that do require an API key in taxize are: Encyclopedia of Life (EOL) \cite{eol}, the Universal Biological Indexer and Organizer (uBio) \cite{ubio}, Tropicos \cite{tropicos}, and Plantminer \cite{carvalho2010plantminer}. You can easily obtain an API key by visiting the website of each service (see Table~\ref{tab:a} for links to each site). There are two ways of using your API keys. First, you can pass in your API key in a function call (e.g., \emph{ubio\_namebank(srchName='Ursus americanus', key='your\_alphanumeric\_key')}). Second, you can store your API keys in your .Rprofile file. On a Mac this file is at \emph{/yourhomefolder/.Rprofile}; on a Windows machine at \emph{/yourhomefolder/.Rprofile}; and on Linux at \emph{/yourhomefolder/.Rprofile}. This is an hidden file, so open up this file in your terminal (e.g., \emph{open .Rprofile}), and add the API key as an entry like \emph{options(myapikey = 'your\_alphanumeric\_key')}. We recommend the second option as it simplifies function calls. 
 
-One data source available in taxize is available in another R package that solely interact with that data source. We provide a few convenience functions that wrap functions in \emph{taxonstand}, an R interface to The Plant List \cite{theplantlist}. 
+One available data source in taxize is The Plant List \cite{theplantlist}. The connection in taxize is done via the \emph{taxonstand} package \cite{Cayuela_2012} that solely interacts with that The Plant List. We provide a few convenience functions that wrap taxonstand into taxize.
 
 taxize would not have been possible without the work of others. taxize uses httr \cite{httr} and RCurl \cite{rcurl} for doing calls to web APIs, XML \cite{xml} for parsing XML, RJSONIO \cite{rjsonio} for parsing JSON, and stringr \cite{stringr} and plyr \cite{plyr} for manipulating data.
 
-New data sources can be added; we may add the following sources: Wikispecies and The Tree of Life. A connection to \url{freshwaterecology.info} \cite{freshwaterecology} (a database with autecological characteristics, ecological preferences and biological traits as well as distribution patterns of more than 12.000 European freshwater organisms belonging to fish, macro-invertebrates, macrophytes, diatoms and phytoplankton) will be finished when their new API will be released. Get in touch with one of the authors if you would like any data sources added.
+New data sources can be added; we may add the following sources: Wikispecies and The Tree of Life. A connection to \url{freshwaterecology.info} \cite{freshwaterecology} (a database with autecological characteristics, ecological preferences and biological traits as well as distribution patterns of more than 12.000 European freshwater organisms belonging to fish, macro-invertebrates, macrophytes, diatoms and phytoplankton) will be finished when their new API will be released.
+In addition, the authors may be contacted for further suggestions of data sources to be added.
 
 \section*{Use cases}
 
@@ -271,50 +272,50 @@ taxize takes the approach that the user should be able to make decisions about w
 \subsection*{Retrieve higher taxonomic names}
 Another task biologists often face is getting higher taxonomic names for a taxa list. Having the higher taxonomy allows you to put into context the relationships of your species list. For example, you may find out that species A and species B are in Family C, which may lead to some interesting insight, as opposed to not knowing that Species A and B are closely related. This also makes it easy to aggregate/standardize data to a specific taxonomic level (e.g., family level) or to match data to other databases with different taxonomic resolution (e.g., trait databases).
 
-A number of data sources in taxize provide the capability to retrieve higher taxonomic names, but we will highlight two of the more useful ones: ITIS and NCBI. The principle in both is the same - first you need to get a numeric identifier for the queried species, then retrieve the higher taxonomy with this identifier. First, we'll explore the user of ITIS, by searching for two species, \emph{Abies procera} and \emph{Pinus contorta}.
+A number of data sources in taxize provide the capability to retrieve higher taxonomic names, but we will highlight two of the more useful ones: Integrated Taxonomic Information System (ITIS) \cite{itis} and National Center for Biotechnology Information (NCBI) \cite{federhen}. First, we'll search for two species, \emph{Abies procera} and \emph{Pinus contorta}.
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
 specieslist <- \hlfunctioncall{c}(\hlstring{"Abies procera"}, \hlstring{"Pinus contorta"})
-\hlfunctioncall{classification}(\hlfunctioncall{get_tsn}(specieslist, \hlstring{"sciname"}))
+\hlfunctioncall{classification}(specieslist, db = \hlstring{"itis"})
 \end{alltt}
 \begin{verbatim}
 [[1]]
-        parentName parentTsn      rankName       taxonName    tsn
-1                                  Kingdom         Plantae 202422
-2          Plantae    202422    Subkingdom  Viridaeplantae 846492
-3   Viridaeplantae    846492  Infrakingdom    Streptophyta 846494
-4     Streptophyta    846494      Division    Tracheophyta 846496
-5     Tracheophyta    846496   Subdivision Spermatophytina 846504
-6  Spermatophytina    846504 Infradivision    Gymnospermae 846506
-7     Gymnospermae    846506         Class       Pinopsida 500009
-8        Pinopsida    500009         Order         Pinales 500028
-9          Pinales    500028        Family        Pinaceae  18030
-10        Pinaceae     18030         Genus           Abies  18031
-11           Abies     18031       Species   Abies procera 181835
+        rankName       taxonName    tsn
+1        Kingdom         Plantae 202422
+2     Subkingdom  Viridaeplantae 846492
+3   Infrakingdom    Streptophyta 846494
+4       Division    Tracheophyta 846496
+5    Subdivision Spermatophytina 846504
+6  Infradivision    Gymnospermae 846506
+7          Class       Pinopsida 500009
+8          Order         Pinales 500028
+9         Family        Pinaceae  18030
+10         Genus           Abies  18031
+11       Species   Abies procera 181835
 
 [[2]]
-        parentName parentTsn      rankName       taxonName    tsn
-1                                  Kingdom         Plantae 202422
-2          Plantae    202422    Subkingdom  Viridaeplantae 846492
-3   Viridaeplantae    846492  Infrakingdom    Streptophyta 846494
-4     Streptophyta    846494      Division    Tracheophyta 846496
-5     Tracheophyta    846496   Subdivision Spermatophytina 846504
-6  Spermatophytina    846504 Infradivision    Gymnospermae 846506
-7     Gymnospermae    846506         Class       Pinopsida 500009
-8        Pinopsida    500009         Order         Pinales 500028
-9          Pinales    500028        Family        Pinaceae  18030
-10        Pinaceae     18030         Genus           Pinus  18035
-11           Pinus     18035       Species  Pinus contorta 183327
+        rankName       taxonName    tsn
+1        Kingdom         Plantae 202422
+2     Subkingdom  Viridaeplantae 846492
+3   Infrakingdom    Streptophyta 846494
+4       Division    Tracheophyta 846496
+5    Subdivision Spermatophytina 846504
+6  Infradivision    Gymnospermae 846506
+7          Class       Pinopsida 500009
+8          Order         Pinales 500028
+9         Family        Pinaceae  18030
+10         Genus           Pinus  18035
+11       Species  Pinus contorta 183327
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
 
 
-It turns out both species are in the family Pinaceae. You can also get this type of information from the NCBI by doing \emph{classification(get\_uid(specieslist))}.
+It turns out both species are in the family Pinaceae. You can also get this type of information from the NCBI by doing \emph{classification(specieslist, db = 'ncbi')}.
 
-Instead of a full classification, you may only want a single name, say a family name for your species of interest. The function \emph{tax\_name} is built just for this purpose. And you can specify the data source you retrieve the taxonomic name from with the \emph{db} parameter, either ITIS or NCBI. 
+Instead of a full classification, you may only want a single name, say a family name for your species of interest. The function \emph{tax\_name} is built just for this purpose. As with the \emph{classification}-function you can specify the data source with the \emph{db} argument, either ITIS or NCBI. 
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -322,7 +323,7 @@ Instead of a full classification, you may only want a single name, say a family 
 \hlfunctioncall{tax_name}(query = \hlstring{"Helianthus annuus"}, get = \hlstring{"family"}, db = \hlstring{"itis"})
 \end{alltt}
 \begin{verbatim}
-          V1
+      family
 1 Asteraceae
 \end{verbatim}
 \begin{alltt}
@@ -337,7 +338,8 @@ Instead of a full classification, you may only want a single name, say a family 
 
 
 \subsection*{Interactive name selection}
-In the previous section we used the function \emph{get\_tsn} to get a classification for two plant species. Below are a few examples. When you run these examples in R, you are presented with a command prompt asking for the row that contains the name you would like back; that output is not printed below for brevity. In this example, the search term has many matches. The function returns a data.frame of the matches, and asks for the user to input what row number to accept. 
+As mentioned most databases use a numeric code to reference a species. A general workflow in taxize is: Retrieve Code for the queried species and then use this code to query more data/information.
+Below are a few examples. When you run these examples in R, you are presented with a command prompt asking for the row that contains the name you would like back; that output is not printed below for brevity. In this example, the search term has many matches. The function returns a data.frame of the matches, and asks for the user to input what row number to accept. 
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -398,7 +400,22 @@ attr(,"class")
 
 
 \subsection*{Retrieve a phylogeny}
-Ecologists are increasingly taking a phylogenetic approach to ecology, applying phylogenies to topics such as the study of community structure \cite{webb2002phylogenies}, ecological networks \cite{rafferty2013phylogenetic}, functional trait ecology \cite{REF}. Yet, Many biologists are not adequately trained in reconstructing phylogenies. Fortunately, there are some sources for getting a phylogeny without having to know how to build one; one of these is for angiosperms, called Phylomatic \cite{webb2005}. We have created a workflow in taxize that accepts a species list, and taxize works behind the scenes to get higher taxonomic names, which are required by Phylomatic to get a phylogeny. Here is a short example, producing the tree in figure \ref{fig:phylomatic}.
+Ecologists are increasingly taking a phylogenetic approach to ecology, applying phylogenies to topics such as the study of community structure \cite{webb2002phylogenies}, ecological networks \cite{rafferty2013phylogenetic}, functional trait ecology \cite{poff2006functional}. Yet, Many biologists are not adequately trained in reconstructing phylogenies. Fortunately, there are some sources for getting a phylogeny without having to know how to build one; one of these is for angiosperms, called Phylomatic \cite{webb2005}. We have created a workflow in taxize that accepts a species list, and taxize works behind the scenes to get higher taxonomic names, which are required by Phylomatic to get a phylogeny. Here is a short example, producing the tree in figure \ref{fig:phylomatic}.
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+taxa <- \hlfunctioncall{c}(\hlstring{"Poa annua"}, \hlstring{"Abies procera"}, \hlstring{"Helianthus annuus"})
+tree <- \hlfunctioncall{phylomatic_tree}(taxa = taxa)
+tree$tip.label <- \hlfunctioncall{capwords}(tree$tip.label)
+\hlfunctioncall{plot}(tree, cex = 1)
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+
+
+
 
 Behind the scenes the function \emph{phylomatic\_tree} retrieves a Taxonomic Serial Number (TSN) from ITIS for each species name, then a string is created for each species like this \emph{poaceae/oryza/oryza\_sativa} (with format 'family/genus/genus\_epithet'). These strings are submitted to the Phylomatic API, and if no errors occur, a phylogeny in newick format is returned. The \emph{phylomatic\_tree()} function also cleans up the newick string and converts it to an \textbf{ape} \emph{phylo} object. The output from \emph{phylomatic\_tree()} is a \emph{phylo} object, which can be used for plotting and phylogenetic analyses. Be aware that Phylomatic has certain limitations - refer to the paper describing Phylomatic \cite{webb2005} and the website \url{http://phylodiversity.net/phylomatic/}.
 
@@ -406,7 +423,7 @@ There are currently no resources for getting a phylogeny of animals simply from 
 
 
 \subsection*{What taxa are the children of my taxon of interest?}
-If you aren't a taxonomic specialist on a particular taxon you likely don't know what children taxa are within a family, or within a genus. This task becomes especially unwieldy when there are a large number of taxa downstream. You can of course go to a website like Wikispecies (\cite{wikispecies}) or Encyclopedia of Life (\cite{eol}) to get downstream names. However, taxize provides an easy way to programatically search for downstream taxa, both for the Catalogue of Life (CoL; \cite{col}) and the Integrated Taxonomic Information System (\cite{itis}). Here is a short example using the CoL in which we want to find all the species within the genus \emph{Apis} (honey bees).
+If someone is not a taxonomic specialist on a particular taxon he likely does not know what children taxa are within a family, or within a genus. This task becomes especially unwieldy when there are a large number of taxa downstream. You can of course go to a website like Wikispecies \cite{wikispecies} or Encyclopedia of Life \cite{eol} to get downstream names. However, taxize provides an easy way to programatically search for downstream taxa, both for the Catalogue of Life (CoL) \cite{col} and the Integrated Taxonomic Information System \cite{itis}. Here is a short example using the CoL in which we want to find all the species within the genus \emph{Apis} (honey bees).
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -430,7 +447,7 @@ If you aren't a taxonomic specialist on a particular taxon you likely don't know
 The result from the above call to \emph{col\_downstream()} is a data.frame that gives a number of columns of different information. 
 
 \subsection*{IUCN Status}
-There are a number of things we can do once we have the correct taxonomic names. One thing we can do is ask about the conservation status of a species. We have provided a set of functions, \emph{iucn\_summary} and \emph{iucn\_status}, to search for species names, and extract the status information, respectively. Here, we search for the Panther and Lynx.  
+There are a number of things we can do once we have the correct taxonomic names. One thing we can do is ask about the conservation status of a species (IUCN Red List of Threatened Species \cite{iucn}). We have provided a set of functions, \emph{iucn\_summary} and \emph{iucn\_status}, to search for species names, and extract the status information, respectively. Here, we search for the Panther and Lynx.  
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -465,7 +482,7 @@ Then we can ask if 'RAG1' exists in any of the gene names.
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-out[\hlfunctioncall{grep}(\hlstring{"RAG1"}, out$genesavail, ignore.case = T), ]
+out[\hlfunctioncall{grep}(\hlstring{"RAG1"}, out$genesavail, ignore.case = TRUE), ]
 \end{alltt}
 \begin{verbatim}
         spused length
@@ -485,52 +502,79 @@ out[\hlfunctioncall{grep}(\hlstring{"RAG1"}, out$genesavail, ignore.case = T), ]
 \end{knitrout}
 
 
-It turns out that there are XX different unique records found. However, this doesn't mean that there are XX different genes found as the API does not provide metadata to classify genes. However, at the end of the example, we showed that you can use regular expressions via (e.g., via \emph{grep}) to search for the gene of interest.
+It turns out that there are XX different unique records found. However, this doesn't mean that there are XX different genes found as the API does not provide metadata to classify genes. However, at the end of the example, we showed that you can use regular expressions (e.g., via \emph{grep}) to search for the gene of interest.
 
 
 \subsection*{Matching species tables with different taxonomic resolution}
-Trait-based approaches are a promising tool in ecology. Unlike taxonomy-based methods, traits may not be constrained to biogeographic boundaries \cite{baird_toward_2011} and have potential to disentangle the effects of multiple stressors \cite{statzner_can_2010}. 
-
-To analyse trait-composition abundance data must be matched with trait databases like \cite{usseglio-polatera_biological_2000}. However these two data tables may contain species information on different taxonomic levels and perhabs data must be aggregated to a joint taxomic level. Therefore we have to search the taxomomic ladder up- and downwards for matches.
-
-taxize can help in this data-cleaning step, providing a reproducible workflow. This is illustrated on a small fictitious example in the supplement.
-
-\subsection*{Aggregating data by any taxonomic rank}
-
-In biology, one can asks questions at varying taxonomic levels. Do species differ? Do genera differ? This use case is easily handled in taxize. A very basic function called \emph{rankagg} will aggregate any data to a specific taxonomic level. In this example, a single column \emph{abundance} is aggregated by any arithmetic function (e.g., mean) at any taxonomic rank (e.g., Family). 
+Biologist often need to match different sets of data tied to species. Trait-based approaches are a promising tool in ecology \cite{statzner_can_2010}. One problem is that abundance data must be matched with trait databases like \cite{usseglio-polatera_biological_2000}. These two data tables may contain species information on different taxonomic levels and perhabs data must be aggregated to a joint taxomic level, so that the data can be merged. taxize can help in this data-cleaning step, providing a reproducible workflow. 
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlfunctioncall{library}(vegan)
-\hlfunctioncall{data}(dune.taxon)
-dat <- dune.taxon
-dat$abundance <- \hlfunctioncall{round}(\hlfunctioncall{rlnorm}(n = \hlfunctioncall{nrow}(dat), meanlog = 5, sdlog = 2), 0)
-\hlfunctioncall{head}(\hlfunctioncall{rankagg}(data = dat, datacol = \hlstring{"abundance"}, rank = \hlstring{"Genus"}))
+\hlstring{"<TODO>"}
 \end{alltt}
 \begin{verbatim}
-       Genus Result
-1     Bellis    347
-2   Empetrum   1169
-3     Juncus    411
-4       Aira      5
-5 Eleocharis    158
-6      Rumex      2
-\end{verbatim}
-\begin{alltt}
-\hlfunctioncall{head}(\hlfunctioncall{rankagg}(data = dat, \hlstring{"abundance"}, rank = \hlstring{"Family"}, fxn = \hlstring{"mean"}))
-\end{alltt}
-\begin{verbatim}
-        Family Result
-1   Asteraceae  289.6
-2  Empetraceae 1169.0
-3    Juncaceae  205.5
-4      Poaceae  452.2
-5   Cyperaceae  158.0
-6 Polygonaceae    2.0
+[1] "<TODO>"
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
+
+
+A more complicated example is given in Appendix B.
+
+
+
+\subsection*{Aggregating data to a specific taxonomic rank}
+In biology, one can asks questions at varying taxonomic levels. One may perform analyses on different taxonomic levels. This use case is easily handled in taxize. A function called \emph{tax\_agg} will aggregate community data to a specific taxonomic level. In this example, we take data of 5 species and aggregate them to family level. Again we can specify if we want to use data from ITIS or NCBI.
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlfunctioncall{data}(dune, package = \hlstring{'vegan'})
+df <- dune[ , 1:5]
+\hlfunctioncall{colnames}(df) <- \hlfunctioncall{c}(\hlstring{"Bellis perennis"}, \hlstring{"Empetrum nigrum"}, \hlstring{"Juncus bufonius"}, 
+                  \hlstring{"Juncus articulatus"}, \hlstring{"xxx"})
+\hlfunctioncall{head}(df)
+\end{alltt}
+\begin{verbatim}
+   Bellis perennis Empetrum nigrum Juncus bufonius Juncus articulatus xxx
+2                3               0               0                  0   0
+13               0               0               3                  0   0
+4                2               0               0                  0   0
+16               0               0               0                  3   0
+6                0               0               0                  0   0
+1                0               0               0                  0   0
+\end{verbatim}
+\begin{alltt}
+agg <- \hlfunctioncall{tax_agg}(df, rank = \hlstring{'family'}, db = \hlstring{'ncbi'})
+agg
+\end{alltt}
+\begin{verbatim}
+
+	Aggregated community data
+
+Level of Aggregation: FAMILY
+No. taxa before aggregation: 5
+No. taxa after aggregation: 4
+No. taxa not found: 1
+\end{verbatim}
+\begin{alltt}
+\hlfunctioncall{head}(agg$x)
+\end{alltt}
+\begin{verbatim}
+   Asteraceae Ericaceae Juncaceae xxx
+2           3         0         0   0
+13          0         0         3   0
+4           2         0         0   0
+16          0         0         3   0
+6           0         0         0   0
+1           0         0         0   0
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+
+We see that the two Juncus species are aggregated to Juncaceae and their abundances are summed up. If a taxon is one lower taxonomic resolution then the querried or the taxon is not found in the database (like in the example taxon \emph{xxx}) then these are not aggregated and returned as is.
 
 
 \section*{Conclusions}

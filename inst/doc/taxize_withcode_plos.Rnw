@@ -286,14 +286,17 @@ It turns out that there are XX different unique records found. However, this doe
 
 
 \subsection*{Matching species tables with different taxonomic resolution}
-Trait-based approaches are a promising tool in ecology. Unlike taxonomy-based methods, traits may not be constrained to biogeographic boundaries \cite{baird_toward_2011} and have potential to disentangle the effects of multiple stressors \cite{statzner_can_2010}. 
+Biologist often need to match different sets of data tied to species. Trait-based approaches are a promising tool in ecology \cite{statzner_can_2010}. One problem is that abundance data must be matched with trait databases like \cite{usseglio-polatera_biological_2000}. These two data tables may contain species information on different taxonomic levels and perhabs data must be aggregated to a joint taxomic level, so that the data can be merged. taxize can help in this data-cleaning step, providing a reproducible workflow. 
 
-To analyse trait-composition abundance data must be matched with trait databases like \cite{usseglio-polatera_biological_2000}. However these two data tables may contain species information on different taxonomic levels and perhabs data must be aggregated to a joint taxomic level. Therefore we have to search the taxomomic ladder up- and downwards for matches.
+<<tax_match, cache=TRUE>>=
+"<TODO>"
+@
 
-taxize can help in this data-cleaning step, providing a reproducible workflow. This is illustrated on a small fictitious example in the supplement.
+A more complicated example is given in Appendix B.
+
+
 
 \subsection*{Aggregating data to a specific taxonomic rank}
-
 In biology, one can asks questions at varying taxonomic levels. One may perform analyses on different taxonomic levels. This use case is easily handled in taxize. A function called \emph{tax\_agg} will aggregate community data to a specific taxonomic level. In this example, we take data of 5 species and aggregate them to family level. Again we can specify if we want to use data from ITIS or NCBI.
 
 <<tax_agg ,eval=TRUE, cache=TRUE, tidy=FALSE>>=
