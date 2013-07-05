@@ -292,18 +292,23 @@ To analyse trait-composition abundance data must be matched with trait databases
 
 taxize can help in this data-cleaning step, providing a reproducible workflow. This is illustrated on a small fictitious example in the supplement.
 
-\subsection*{Aggregating data by any taxonomic rank}
+\subsection*{Aggregating data to a specific taxonomic rank}
 
-In biology, one can asks questions at varying taxonomic levels. Do species differ? Do genera differ? This use case is easily handled in taxize. A very basic function called \emph{rankagg} will aggregate any data to a specific taxonomic level. In this example, a single column \emph{abundance} is aggregated by any arithmetic function (e.g., mean) at any taxonomic rank (e.g., Family). 
+In biology, one can asks questions at varying taxonomic levels. One may perform analyses on different taxonomic levels. This use case is easily handled in taxize. A function called \emph{tax\_agg} will aggregate community data to a specific taxonomic level. In this example, we take data of 5 species and aggregate them to family level. Again we can specify if we want to use data from ITIS or NCBI.
 
-<<aggregate_abd, eval=TRUE, cache=TRUE>>=
-library(vegan)
-data(dune.taxon)
-dat <- dune.taxon
-dat$abundance <- round(rlnorm(n = nrow(dat), meanlog = 5, sdlog = 2), 0)
-head(dat)
-head( rankagg(data = dat, datacol = "abundance", rank = "Genus") )
+<<tax_agg ,eval=TRUE, cache=TRUE, tidy=FALSE>>=
+data(dune, package = 'vegan')
+df <- dune[ , 1:5]
+colnames(df) <- c("Bellis perennis", "Empetrum nigrum", "Juncus bufonius", 
+                  "Juncus articulatus", "xxx")
+head(df)
+agg <- tax_agg(df, rank = 'family', db = 'ncbi')
+agg
+head(agg$x)
 @
+
+We see that the two Juncus species are aggregated to Juncaceae and their abundances are summed up. If a taxon is one lower taxonomic resolution then the querried or the taxon is not found in the database (like in the example taxon \emph{xxx}) then these are not aggregated and returned as is.
+
 
 \section*{Conclusions}
 Taxonomic information is increasingly sought out by biologists as we take phylogenetic and taxonomic approaches to science. Taxonomic data is quickly becoming available on the web, yet scientists require programmatic access to this data to create reproducible workflows. taxize was created to bridge this gap - to bring taxonomic data on the web into R, where the data can be easily manipulated, visualized, and analyzed in a reproducible workflow.
