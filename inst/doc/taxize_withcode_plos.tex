@@ -506,22 +506,47 @@ It turns out that there are XX different unique records found. However, this doe
 
 
 \subsection*{Matching species tables with different taxonomic resolution}
-Biologist often need to match different sets of data tied to species. Trait-based approaches are a promising tool in ecology \cite{statzner_can_2010}. One problem is that abundance data must be matched with trait databases like \cite{usseglio-polatera_biological_2000}. These two data tables may contain species information on different taxonomic levels and perhabs data must be aggregated to a joint taxomic level, so that the data can be merged. taxize can help in this data-cleaning step, providing a reproducible workflow. 
+Biologist often need to match different sets of data tied to species. For example, trait-based approaches are a promising tool in ecology \cite{statzner_can_2010}. One problem is that abundance data must be matched with trait databases like \cite{usseglio-polatera_biological_2000}. These two data tables may contain species information on different taxonomic levels and possibly data must be aggregated to a joint taxomic level, so that the data can be merged. taxize can help in this data-cleaning step, providing a reproducible workflow: 
+
+We can use the mentioned \emph{classification}-function to retrieve the taxonomic hierarchy and then search the hierarchies up- and downwards for matches. Here is an example to match a species with names on three different taxonomic levels.
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlstring{"<TODO>"}
+A <- \hlstring{"gammarus roeseli"} 
+
+B1 <- \hlstring{"gammarus roeseli"}
+B2 <- \hlstring{"gammarus"}
+B3 <- \hlstring{"gammaridae"}
+
+A_clas <- \hlfunctioncall{classification}(A, db = \hlstring{'ncbi'})
+B1_clas <- \hlfunctioncall{classification}(B1, db = \hlstring{'ncbi'})
+B2_clas <- \hlfunctioncall{classification}(B2, db = \hlstring{'ncbi'})
+B3_clas <- \hlfunctioncall{classification}(B3, db = \hlstring{'ncbi'})
+
+
+B1[\hlfunctioncall{match}(A, B1)]
 \end{alltt}
 \begin{verbatim}
-[1] "<TODO>"
+[1] "gammarus roeseli"
+\end{verbatim}
+\begin{alltt}
+A_clas[[1]]$Rank[\hlfunctioncall{tolower}(A_clas[[1]]$ScientificName) %in% B2]
+\end{alltt}
+\begin{verbatim}
+[1] "genus"
+\end{verbatim}
+\begin{alltt}
+A_clas[[1]]$Rank[\hlfunctioncall{tolower}(A_clas[[1]]$ScientificName) %in% B3]
+\end{alltt}
+\begin{verbatim}
+[1] "family"
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
 
 
-A more complicated example is given in Appendix B.
-
+If we find a direct match (here \emph{Gammarus roeseli}), we are lucky. But we can also match Gammaridae with \emph{Gammarus roeseli}, but on a lower taxonomic level. A more comprehensive and realistic example (matching a trait-table to a abundance table) is given in Appendix B.
 
 
 \subsection*{Aggregating data to a specific taxonomic rank}
