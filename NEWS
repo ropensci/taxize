@@ -8,7 +8,7 @@ NEW FEATURES
 * new extractor function for iucn_summary: iucn_status, to extract status from iucn-objects.
 * tax_agg: A function to aggregate species data to given taxonomic rank.
 * tax_rank: Get taxonomic rank for a given taxon name.
-* classification accepts taxon names as input.
+* classification accepts taxon names as input and returns a named list.
 
 BUG FIXES
 * iucn_summary returns no information about population estimates.
