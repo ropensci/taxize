@@ -26,8 +26,8 @@
   \item{...}{Other passed arguments.}
 }
 \value{
-  A list of data.frames with the taxonomic classifcation of
-  every supplied taxa.
+  A named list of data.frames with the taxonomic
+  classifcation of every supplied taxa.
 }
 \description{
   Retrieve the taxonomic hierarchy for a given taxon ID.

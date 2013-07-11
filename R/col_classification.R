@@ -63,7 +63,7 @@ col_classification <- function(name = NULL, id = NULL, format = NULL, start = NU
 		classif_id <- xpathSApply(tt, "//classification//id", xmlValue)
 		classif_name <- xpathSApply(tt, "//classification//name", xmlValue)
 		classif_rank <- xpathSApply(tt, "//classification//rank", xmlValue)
-		data.frame(classif_id, classif_name, classif_rank, stringsAsFactors = FALSE)
+		data.frame(classif_name, classif_rank, classif_id, stringsAsFactors = FALSE)
 	}
 	safe_func <- plyr::failwith(NULL, func)
 	if(is.null(id)){ 
