@@ -7,7 +7,7 @@
 #' @param id character; identifiers, as returned by \code{\link[taxize]{get_tsn}} or \code{\link[taxize]{get_uid}}
 #' @param ... Other passed arguments.
 #' 
-#' @return A list of data.frames with the taxonomic classifcation of every supplied taxa.
+#' @return A named list of data.frames with the taxonomic classifcation of every supplied taxa.
 #' 
 #' @note If IDs are supplied directly (not from the \code{get_*} functions) you must 
 #' specify the type of ID. There is a timeout of 1/3 seconds between querries to NCBI.
@@ -40,12 +40,14 @@ classification.default <- function(x, db = NULL, ...){
   if (is.null(db))
     stop("Must specify Identifier!")
   if (db == 'itis') {
-    x <- get_tsn(x)
-    out <- classification(x, ...)
+    id <- get_tsn(x)
+    out <- classification(id, ...)
+    names(out) <- x
   }
   if (db == 'ncbi') {
-    x <- get_uid(x)
-    out <- classification(x, ...)
+    id <- get_uid(x)
+    out <- classification(id, ...)
+    names(out) <- x
   }
   return(out)
 }
