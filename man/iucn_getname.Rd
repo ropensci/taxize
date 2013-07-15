@@ -5,9 +5,9 @@
   iucn_getname(name, verbose = TRUE, ...)
 }
 \arguments{
-  \item{name}{}
+  \item{name}{character; taxon name}
 
-  \item{verbose}{defaults to TRUE}
+  \item{verbose}{logical; should messages be printed?}
 
   \item{...}{Further arguments passed on to
   \code{link{iucn_summary}}}
@@ -17,7 +17,7 @@
 }
 \examples{
 \dontrun{
-iucn_getname(name="Cyanistes caeruleus")
+iucn_getname(name = "Cyanistes caeruleus")
 }
 }
 \seealso{

@@ -21,8 +21,7 @@
   Aggregate data by given taxonomic rank
 }
 \examples{
-library(vegan) # install vegan if you don't have it
-data(dune.taxon)
+data(dune.taxon, package='vegan')
 dat <- dune.taxon
 dat$abundance <- round(rlnorm(n=nrow(dat),meanlog=5,sdlog=2),0)
 rankagg(data=dat, datacol="abundance", rank="Genus")

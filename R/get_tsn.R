@@ -1,23 +1,28 @@
 #' Get the TSN code for a search term.
 #' 
-#' \code{get_tsn} uses a variety of functions from the \code{itis} function.
+#' Retrieve the taxonomic serial numbers (TSN) of a species from ITIS.
 #' 
 #' @import plyr
-#' @param searchterm A vector of common or scientific names.
-#' @param searchtype One of 'sciname', 'anymatch', 'comnamebeg', 'comname', 
+#' @param searchterm character; A vector of common or scientific names.
+#' @param searchtype character; One of 'sciname', 'anymatch', 'comnamebeg', 'comname', 
 #'    'comnameend'.
-#' @param verbose should progress be printed?
+#' @param verbose logical; should progress be printed?
+#' 
 #' @return A vector of taxonomic serial numbers (TSN). If a species is not found NA. 
 #' 		If more than one TSN is found the function asks for user input.
 #' 		See functions in the \code{itis} function.
+#'   	
+#'   	
+#' @seealso \code{\link[taxize]{get_uid}}, \code{\link[taxize]{classification}}
+#' 
 #' @export
 #' @examples \dontrun{
-#' get_tsn(searchterm="Quercus douglasii", searchtype="sciname")
-#' get_tsn(searchterm="Chironomus riparius", searchtype="sciname")
+#' get_tsn(searchterm = "Quercus douglasii", searchtype = "sciname")
+#' get_tsn(searchterm = "Chironomus riparius", searchtype = "sciname")
 #' get_tsn(c("Chironomus riparius","Quercus douglasii"), "sciname")
 #' splist <- c("annona cherimola", 'annona muricata', "quercus robur", 
 #' 		"shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")
-#' get_tsn(splist,"sciname")
+#' get_tsn(splist, "sciname")
 #' }
 get_tsn <- function (searchterm, searchtype = "sciname", verbose = TRUE) 
 {

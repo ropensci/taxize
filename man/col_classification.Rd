@@ -3,8 +3,7 @@
 \title{Search Catalogue of Life for taxonomic classifications.}
 \usage{
   col_classification(name = NULL, id = NULL, format = NULL,
-    start = NULL, checklist = NULL,
-    url = "http://www.catalogueoflife.org/col/webservice")
+    start = NULL, checklist = NULL)
 }
 \arguments{
   \item{name}{The string to search for. Only exact matches
@@ -37,9 +36,6 @@
   \item{checklist}{The year of the checklist to query, if
   you want a specific year's checklist instead of the
   lastest as default (numeric).}
-
-  \item{url}{The base COL url for the function (should be
-  left to default).}
 }
 \value{
   A list of data.frame's.

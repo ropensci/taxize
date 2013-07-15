@@ -2,16 +2,22 @@ taxize 0.0.6
 ===============
 
 NEW FEATURES
-* tax_name accepts multiple ranks to query
-* tax_name accepts vectors as input
-* tax_name has an option to query both, NCBI and ITIS, in one call and return the union of both
-* new extractor function for iucn_summary: iucn_status, to extract status from iucn-objects
+* tax_name accepts multiple ranks to query.
+* tax_name accepts vectors as input.
+* tax_name has an option to query both, NCBI and ITIS, in one call and return the union of both.
+* new extractor function for iucn_summary: iucn_status, to extract status from iucn-objects.
+* tax_agg: A function to aggregate species data to given taxonomic rank.
+* tax_rank: Get taxonomic rank for a given taxon name.
+* classification accepts taxon names as input and returns a named list.
 
 BUG FIXES
 * iucn_summary returns no information about population estimates.
+* get_tsn raised a warning in specific situations.
+* tax_name did not work for multiple ranks with ITIS.
 
 NOTES
-* Removed dependency to NCBI2R
+* Removed dependency to NCBI2R.
+* Improvements of documentation.
 
 taxize 0.0.5
 ===============

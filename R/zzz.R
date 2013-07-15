@@ -43,13 +43,3 @@ getkey <- function(x = NULL, service) {
 		{ key <- x }
 	key
 }
-#' opposite of \%in\% : 'notin'
-#' 
-#' @rdname nomatch
-#' @usage x \%notin\% table
-#' @param x the values to be matched.
-#' @param table the values to be matched against.
-#' @return A logical vector of the same length as x.
-#' @keywords internal
-#' @export
-`%notin%` <- function (x, table) match(x, table, nomatch = 0L) == 0L

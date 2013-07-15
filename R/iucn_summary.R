@@ -4,36 +4,42 @@
 #' 
 #' @import XML plyr
 #' @param sciname character; Scientific name. 
-#' @param silent Make errors silent or not (when species not found in IUCN), default TRUE.
-#' @param parallel Search in parallel to speed up search. Defaults to FALSE. 
-#'    You have to register a parallel backend if you set parallel=TRUE. See e.g., 
-#'    doMC, doSNOW, etc.
+#' @param silent logical; Make errors silent or not (when species not found).
+#' @param parallel logical; Search in parallel to speed up search. You have to register 
+#' a parallel backend if \code{TRUE}. See e.g., doMC, doSNOW, etc.
+#' @param ... Currently not used.
+#'    
 #' @return A list (for every species one entry) of lists with the following items:
 #' \item{status}{Red List Category.}
-#' \item{history}{History of status.}
-#' \item{distr}{Geographic distribution.}
-#' \item{trend}{Trend of population size.}
+#' \item{history}{History of status, if available.}
+#' \item{distr}{Geographic distribution, if available.}
+#' \item{trend}{Trend of population size, if available.}
+#' 
+#' @note Not all entries (history, distr, trend) are available for every species and NA is returned. 
+#' \code{\link[taxize]{iucn_status}} is an extractor function to easily extract status into a vector.
+#' 
+#' @seealso \code{\link[taxize]{iucn_status}}
 #' @examples \dontrun{
 #' ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
 #' ia <- iucn_summary(c("Panthera uncia", "Lynx lynx", "aaa"))
 #' # extract status
-#' ldply(ia, function(x) x$status)
-#' laply(ia, function(x) x$status)
+#' iucn_status(ia)
+#' # extract other available information
 #' ia[['Lynx lynx']]$history
 #' ia[['Panthera uncia']]$distr
 #' ia[[1]]$pop
 #' ia[[2]]$trend
 #' }
 #' 
-#' @author Eduard Szoecs \email{szoe8822@@uni-landau.de}
+#' @author Eduard Szoecs, \email{szoe8822@@uni-landau.de}
 #' 
 #' @export
-iucn_summary <- function(sciname, silent=TRUE, parallel=FALSE) 
+iucn_summary <- function(sciname, silent = TRUE, parallel = FALSE, ...) 
 {
   fun <- function(sciname){
     spec <- tolower(sciname)
     spec <- gsub(" ", "-", spec)
-    url <- paste("http://api.iucnredlist.org/go/", spec, sep="")
+    url <- paste("http://api.iucnredlist.org/go/", spec, sep = "")
     e <- try(h <- htmlParse(url), silent=silent)
     if(!inherits(e, "try-error")){
       # status
@@ -45,7 +51,7 @@ iucn_summary <- function(sciname, silent=TRUE, parallel=FALSE)
         history <- NA
       # distribution
       distr <- xpathSApply(h, '//ul[@class="countries"]', xmlValue)
-      if(length(distr) == 0){
+      if(length(distr) == 0) {
         distr <- NA
       } else {
         distr <- unlist(strsplit(distr, "\n"))
@@ -69,7 +75,7 @@ iucn_summary <- function(sciname, silent=TRUE, parallel=FALSE)
     return(out)
   }
   if(parallel){
-    out <- llply(sciname, fun, .parallel=TRUE)
+    out <- llply(sciname, fun, .parallel = TRUE)
   } else
   {
     out <- llply(sciname, fun)
@@ -80,12 +86,16 @@ iucn_summary <- function(sciname, silent=TRUE, parallel=FALSE)
   return(out)
 }
 
-#' Extractor Functions for iucn-class
+#' Extractor functions for \code{iucn}-class.
 #' 
-#' @param x iucn-object as returned by \code{iucn_summary}
+#' @param x an \code{iucn}-object as returned by \code{iucn_summary}
 #' @param ... Currently not used
-#' @return A character vector with the status
+#' @return A character vector with the status.
+#' @seealso \code{\link[taxize]{iucn_summary}}
 #' @export
+#' @examples \dontrun{
+#' ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
+#' iucn_status(ia)}
 iucn_status <- function(x, ...){
   UseMethod("iucn_status")
 }
@@ -97,8 +107,9 @@ iucn_status.default <- function(x, ...) {
 }
 
 #' @method iucn_status iucn
+#' @param x an \code{iucn} object as returned by \code{\link[taxize]{iucn_summary}}.
 #' @export
-#' @rdname iucn_status
+#' @rdname iucn_summary
 iucn_status.iucn <- function(x, ...) {
   out <- unlist(lapply(x, function(x) x$status))
   return(out)

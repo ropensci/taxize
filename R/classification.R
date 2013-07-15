@@ -1,59 +1,74 @@
-#' Get taxonomic hierarchy for a given taxon ID.
+#' Retrieve the taxonomic hierarchy for a given taxon ID.
 #' 
 #' @import XML RCurl plyr
-#' @param x IDs from \code{get_tsn()} or \code{get_uid()}.
-#' @param ID type of identifier, either 'uid' or 'tsn'
-#' @param ... Currently not used
-#' @return Classification of taxons in a list of data.frames.
-#' @note If IDs are supplied directly (not from the get_* functions) 
-#' use the methods classification.ncbi() or classification.tsn() directly. 
-#' See examples.
+#' 
+#' @param x character; taxons to query.
+#' @param db character; database to query. either \code{ncbi} or \code{itis}.
+#' @param id character; identifiers, as returned by \code{\link[taxize]{get_tsn}} or \code{\link[taxize]{get_uid}}
+#' @param ... Other passed arguments.
+#' 
+#' @return A named list of data.frames with the taxonomic classifcation of every supplied taxa.
+#' 
+#' @note If IDs are supplied directly (not from the \code{get_*} functions) you must 
+#' specify the type of ID. There is a timeout of 1/3 seconds between querries to NCBI.
+#' 
+#' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_uid}}
+#' 
 #' @export
 #' @examples \dontrun{
-#' classification(get_uid(c("Chironomus riparius", "aaa vva")))
-#' classification(get_tsn(c("Chironomus riparius", "aaa vva"), "sciname"))
+#' # Plug in taxon names directly
+#' classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi')
+#' classification(c("Chironomus riparius", "aaa vva"), db = 'itis')
 #' 
-#' # must specify Identifier, when not used with get_*()
-#' classification(315576, ID = "uid")
-#' classification(180544, "tsn")
+#' # Use methods for get_uid and get_tsn
+#' classification(get_uid(c("Chironomus riparius", "aaa vva")))
+#' classification(get_tsn(c("Chironomus riparius", "aaa vva")))
 #' }
 #' 
 #' @examples \donttest{
 #' # Fails
 #' classification(315576)
 #' }
-classification <- function(x, ID = NULL, ...){
+classification <- function(...){
   UseMethod("classification")
 }
 
-#' @S3method classification default
-classification.default <- function(x, ID = NULL, ...){
-  if(is.null(ID))
+#' @method classification default
+#' @export
+#' @rdname classification
+classification.default <- function(x, db = NULL, ...){
+  if (is.null(db))
     stop("Must specify Identifier!")
-  if(ID == 'tsn')
-    out <- taxize:::classification.tsn(x)
-  if(ID == 'uid')
-    out <- taxize:::classification.uid(x)
+  if (db == 'itis') {
+    id <- get_tsn(x)
+    out <- classification(id, ...)
+    names(out) <- x
+  }
+  if (db == 'ncbi') {
+    id <- get_uid(x)
+    out <- classification(id, ...)
+    names(out) <- x
+  }
   return(out)
 }
 
 #' @method classification tsn
 #' @export
 #' @rdname classification
-classification.tsn <- function(x, ...) 
+classification.tsn <- function(id, ...) 
 {
   fun <- function(x){
     # return NA if NA is supplied
-    if(is.na(x)) {
+    if (is.na(x)) {
       out <- NA
     } else {
-    	out <- getfullhierarchyfromtsn(x)
+    	out <- getfullhierarchyfromtsn(x, ...)
     	# remove overhang
-    	out <- out[1:which(out$tsn == x), ]
+    	out <- out[1:which(out$tsn == x), c('rankName', 'taxonName', 'tsn')]
     	return(out)
     }
   }
-  out <- llply(x, fun)
+  out <- llply(id, fun)
   return(out)
 }
 
@@ -61,7 +76,7 @@ classification.tsn <- function(x, ...)
 #' @method classification uid
 #' @export
 #' @rdname classification
-classification.uid <- function(x, ...) {
+classification.uid <- function(id, ...) {
   fun <- function(x){
     # return NA if NA is supplied
     if(is.na(x)){
@@ -85,6 +100,6 @@ classification.uid <- function(x, ...) {
     Sys.sleep(0.33)
     return(out)
   }
-  out <- llply(x, fun)
+  out <- llply(id, fun)
   return(out)
 }
