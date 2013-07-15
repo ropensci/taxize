@@ -1,4 +1,4 @@
-#' Retrieve all taxonomic hierarchy from given EOL taxonID.
+#' Retrieve the taxonomic hierarchy from given EOL taxonID.
 #' 
 #' @import RCurl plyr RJSONIO
 #' @param taxonid the EOL page identifier (character)

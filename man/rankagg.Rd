@@ -21,7 +21,7 @@
   Aggregate data by given taxonomic rank
 }
 \examples{
-install.packages("vegan"); library(vegan)
+library(vegan) # install vegan if you don't have it
 data(dune.taxon)
 dat <- dune.taxon
 dat$abundance <- round(rlnorm(n=nrow(dat),meanlog=5,sdlog=2),0)
