@@ -4,7 +4,8 @@
 \usage{
   gnr_resolve(names, data_source_ids = NULL,
     resolve_once = FALSE, with_context = FALSE,
-    stripauthority = FALSE, highestscore = TRUE)
+    stripauthority = FALSE, highestscore = TRUE,
+    http = "get")
 }
 \arguments{
   \item{names}{character; taxonomic names to be resolved.}
@@ -31,13 +32,17 @@
 
   \item{highestscore}{logical; Return those names with the
   highest score for each searched name?}
+
+  \item{http}{The HTTP method to use, one of "get" or
+  "post". Default="get". Use http="post" with large
+  queries.}
 }
 \value{
   A data.frame.
 }
 \description{
   Uses the Global Names Index, see
-  \url{http://gni.globalnames.org/} for information.
+  \url{http://gni.globalnames.org/}.
 }
 \examples{
 \dontrun{

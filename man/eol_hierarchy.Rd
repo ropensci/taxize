@@ -1,6 +1,6 @@
 \name{eol_hierarchy}
 \alias{eol_hierarchy}
-\title{Retrieve all taxonomic hierarchy from given EOL taxonID.}
+\title{Retrieve the taxonomic hierarchy from given EOL taxonID.}
 \usage{
   eol_hierarchy(taxonid, common_names = NULL,
     synonyms = NULL, usekey = FALSE,
@@ -31,7 +31,7 @@
   List or dataframe of XXXX.
 }
 \description{
-  Retrieve all taxonomic hierarchy from given EOL taxonID.
+  Retrieve the taxonomic hierarchy from given EOL taxonID.
 }
 \details{
   It's possible to return JSON or XML with the EOL API.
