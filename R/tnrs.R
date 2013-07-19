@@ -19,8 +19,8 @@
 #' 		will not get anything back for non matches. 
 #' @examples \dontrun{
 #' # Default, uses GET curl method, you can't specify any other parameters when using GET
-#' mynames <- c("Panthera tigris", "Eutamias minimus", "Magnifera indica", "Humbert humbert")
-#' tnrs(query = mynames)
+#' mynames <- c("Panthera tigris", "Neotamias minimus", "Magnifera indica")
+#' tnrs(query = mynames, source="NCBI")
 #' 
 #' # Specifying the source to match against
 #' mynames <- c("Helianthus annuus", "Poa annua")
@@ -42,7 +42,7 @@
 #' tnrs(mynames, getpost="POST", source_ = "NCBI")
 #' }
 #' @export
-tnrs <- function(query = NA, source_ = NULL, code = NULL, getpost = "GET", sleep = 0, splitby = NULL)
+tnrs <- function(query = NA, source_ = NULL, code = NULL, getpost = "POST", sleep = 0, splitby = NULL)
 {
 	url = "http://taxosaurus.org/submit"
   
@@ -51,9 +51,8 @@ tnrs <- function(query = NA, source_ = NULL, code = NULL, getpost = "GET", sleep
 		if(getpost=="GET"){
 			if(!any(is.na(x))){
 				query2 <- paste(str_replace_all(x, ' ', '+'), collapse='%0A')
-# 				tt <- getURL(paste0(url, "?query=", query2))
-# 				args <- compact(list(query = query2, source = source_))
-				tt <- getForm(url, query=query2)
+				args <- compact(list(query = query2))
+				tt <- getForm(url, .params=args)
 			} else
 			{
 				stop("some problems...")
@@ -63,7 +62,6 @@ tnrs <- function(query = NA, source_ = NULL, code = NULL, getpost = "GET", sleep
 			splist <- paste(x, collapse="\n")
 			args <- compact(list(query = splist, source = source_, code = code))
 			tt <- postForm(url, .params=args)
-# 				postForm(url, query=splist, source = source_)
 		}
 		message <- fromJSON(tt)["message"]
 		retrieve <- str_replace_all(str_extract(message, "http.+"), "\\.$", "")
@@ -97,8 +95,9 @@ tnrs <- function(query = NA, source_ = NULL, code = NULL, getpost = "GET", sleep
 		
 		# Parse results into data.frame
 		df <- ldply(out$names, parseres)
+    f <- function(x) str_replace_all(x, pattern="\\+", replacement=" ")
+    df <- colwise(f)(df)
 		order_ <- unlist(sapply(x, function(y) grep(y, df$submittedName)))
-# 		order_ <- do.call(c, sapply(x, function(y) grep(y, df$submittedName)))
 		df2 <- df[order_,]
 		
 		return(df2)
