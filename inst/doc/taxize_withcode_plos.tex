@@ -8,7 +8,7 @@
 % latex plos.template
 % dvipdf plos.template
 
-\documentclass[10pt]{article}\usepackage{graphicx, color}
+\documentclass[10pt]{article}\usepackage[]{graphicx}\usepackage[]{color}
 %% maxwidth is the original width if it is less than linewidth
 %% otherwise use linewidth (to make sure the graphics do not exceed the margin)
 \makeatletter
@@ -21,21 +21,16 @@
 }
 \makeatother
 
-\definecolor{fgcolor}{rgb}{0.2, 0.2, 0.2}
-\newcommand{\hlnumber}[1]{\textcolor[rgb]{0,0,0}{#1}}%
-\newcommand{\hlfunctioncall}[1]{\textcolor[rgb]{0.501960784313725,0,0.329411764705882}{\textbf{#1}}}%
-\newcommand{\hlstring}[1]{\textcolor[rgb]{0.6,0.6,1}{#1}}%
-\newcommand{\hlkeyword}[1]{\textcolor[rgb]{0,0,0}{\textbf{#1}}}%
-\newcommand{\hlargument}[1]{\textcolor[rgb]{0.690196078431373,0.250980392156863,0.0196078431372549}{#1}}%
-\newcommand{\hlcomment}[1]{\textcolor[rgb]{0.180392156862745,0.6,0.341176470588235}{#1}}%
-\newcommand{\hlroxygencomment}[1]{\textcolor[rgb]{0.43921568627451,0.47843137254902,0.701960784313725}{#1}}%
-\newcommand{\hlformalargs}[1]{\textcolor[rgb]{0.690196078431373,0.250980392156863,0.0196078431372549}{#1}}%
-\newcommand{\hleqformalargs}[1]{\textcolor[rgb]{0.690196078431373,0.250980392156863,0.0196078431372549}{#1}}%
-\newcommand{\hlassignement}[1]{\textcolor[rgb]{0,0,0}{\textbf{#1}}}%
-\newcommand{\hlpackage}[1]{\textcolor[rgb]{0.588235294117647,0.709803921568627,0.145098039215686}{#1}}%
-\newcommand{\hlslot}[1]{\textit{#1}}%
-\newcommand{\hlsymbol}[1]{\textcolor[rgb]{0,0,0}{#1}}%
-\newcommand{\hlprompt}[1]{\textcolor[rgb]{0.2,0.2,0.2}{#1}}%
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
 
 \usepackage{framed}
 \makeatletter
@@ -143,7 +138,7 @@ $\ast$ E-mail: myrmecocystus@gmail.com
 
 % Please keep the abstract between 250 and 300 words
 \section*{Abstract}
-All species are hierarchically related to one another, and we use taxonomic names to label the nodes in this hierarchy. Taxonomic data is becoming increasingly available on the web, but scientists need a way to access taxonomic data on the web in a programmatic fashion that's easy and reproducible. We have developed taxize, an open-source software package (freely available from \url{http://cran.r-project.org/web/packages/taxize/index.html}) for the R language. taxize provides simple, programmatic access to taxonomic data for 13 data sources around the web. We discuss the need for a taxonomic toolbelt in R, and outline a suite of use cases for which taxize is ideally suited (including a full workflow as an appendix). The taxize package will facilitate open and reproducible science by allowing taxonomic data collection to be done in the open-source R platform.
+All species are hierarchically related to one another, and we use taxonomic names to label the nodes in this hierarchy. Taxonomic data is becoming increasingly available on the web, but scientists need a way to access it in a programmatic fashion that's easy and reproducible. We have developed taxize, an open-source software package (freely available from \url{http://cran.r-project.org/web/packages/taxize/index.html}) for the R language. taxize provides simple, programmatic access to taxonomic data for 13 data sources around the web. We discuss the need for a taxonomic toolbelt in R, and outline a suite of use cases for which taxize is ideally suited (including a full workflow as an appendix). The taxize package facilitates open and reproducible science by allowing taxonomic data collection to be done in the open-source R platform.
 
 % Please keep the Author Summary between 150 and 200 words
 % Use first person. PLoS ONE authors please skip this step. 
@@ -153,89 +148,67 @@ All species are hierarchically related to one another, and we use taxonomic name
 \section*{Introduction}
 Evolution by natural selection has led to a hierarchical relationship among all living organisms.  Thus, species are categorized using a taxonomic hierarchy, starting with the binomial species name (e.g, \emph{Homo sapiens}), moving up to genus (\emph{Homo}), then family (\emph{Hominidae}), and on up to Domain (\emph{Eukarya}). Biologists, whether studying organisms at the cell, organismal, or community level, can put their study taxa into taxonomic context, allowing them to know close and distant relatives, find relevant literature, and more. 
 
-The use of taxonomic names is, unfortunately, not straightforward. Taxonomic names often change due to name changes at the generic or specific levels, lumping or splitting lower taxa (genera, species) among higher taxa (families), and name spelling changes. For example, a study found that a compilation of 308,000 plant observations from 51 digitized herbarium records had 22,100 unique taxon names, of which only ~13,000 were accepted names \cite{weiser2007,boyle2013}. The scale of this study may be larger than most, but the problem persists for any size study. In addition, there is no one authoritative taxonomic names source for all taxa - although, there are taxon specific sources that many scientists use that study that taxon. Different sources (e.g., uBio, Tropicos, ITIS) may have different accepted names for the same taxon. For example, while the Integrated Taxonomic Information Service (ITIS) has \emph{Helianthus x glaucus} as an accepted name, The Plant List \url{http://www.theplantlist.org} has that name as unresolved, but has \emph{Helianthus glaucus} as an accepted name, while ITIS doesn't have the name. 
+The use of taxonomic names is, unfortunately, not straightforward. Taxonomic names often vary due to name changes at the generic or specific levels, lumping or splitting lower taxa (genera, species) among higher taxa (families), and name spelling changes. For example, a study found that a compilation of 308,000 plant observations from 51 digitized herbarium records had 22,100 unique taxon names, of which only ~13,000 were accepted names \cite{weiser2007,boyle2013}. In addition, there is no one authoritative taxonomic names source for all taxa - although, there are taxon specific sources that are used by many scientists. Different sources (e.g., uBio, Tropicos, ITIS) may use different accepted names for the same taxon. For example, while the Integrated Taxonomic Information Service (ITIS) has \emph{Helianthus x glaucus} as an accepted name, The Plant List \cite{theplantlist} has that name as unresolved. But \emph{Helianthus glaucus} is an accepted name in The Plant List, while ITIS does not list this name. 
 
 One attempt to help inconsistencies in taxonomy is the use of numeric codes. For example, ITIS assigns a Taxonomic Serial Number (TSN) to each taxon, while the Universal Biological Indexer and Organizer (uBio) assigns each taxon a NameBank identifier (namebankID), and Tropicos assigns their own identifier to each taxon. Codes are helpful within a database as they can easily refer to, for example, \emph{Helianthus annuus} with a code like 123456 instead of its whole name. However, each database uses their own code; in this case for \emph{Helianthus annuus}, ITIS uses 36616, uBio uses 2658020, and Tropicos uses 40022652. Yet, there are no universal codes for taxa across databases, leading to additional confusion. Last, name comparisons across databases have to be done with the actual names, not the codes. 
 
-Taxonomic data is getting easier to obtain through web interfaces (e.g., \cite{eol}). However, there are a number of good reasons to obtain taxonomic information programatically rather than through a web interface. First, if you have more than a few names to lookup on a website, it can take quite a long time to enter each name, get data, and repeat for each species. Second, programatically getting taxonomic names solves the first problem by looping over a list of names. In addition, doing taxonomic searching, etc. is reproducible. With increasing reports of irreproducibility in science \cite{stodden2010,zimmer2012}, it is extremely important to make science workflows repeatable. Science workflows can now easily incorporate text, code, and images in a single executable document \cite{yihui2013}. 
+Taxonomic data is getting easier to obtain through the web (e.g., \cite{eol}). However, there are a number of good reasons to obtain taxonomic information programatically rather than through a web interface. First, if you have more than a few names to lookup on a website, it can take quite a long time to enter each name, get data, and repeat for each species. Programatically getting taxonomic names solves the problem by looping over a list of names. In addition, doing taxonomic searching, etc. becomes reproducible. With increasing reports of irreproducibility in science \cite{stodden2010,zimmer2012}, it is extremely important to make science workflows repeatable. Science workflows can now easily incorporate text, code, and images in a single executable document \cite{yihui2013}. 
 
-The R language is the dominant language used by biologists (reference), and now has over 4,500 packages on the Comprehensive R Archive Network (CRAN) and more than 2,500 packages on other repositories to extend R. R is great for manipulating, visualizing and fitting statistical models to data. However, the key missing piece in R is the ability to get data from the internet within R. Getting data from the web will be increasingly common as more and more data gets moved to the cloud. Increasingly, data is available from the web via application programming interfaces (API). These are bits of code that allow computers to talk to one another using code that is not human readable, but is machine readable. Web APIs often define a number of methods that allow users to search for a species name, or retrieve the synonyms for a species name, for example. A further strength of APIs is that they are language agnostic, meaning that data can be consumed in almost any computing context, allowing users to interact with the web API without having to know the details of the code. Whereas, if data are stored in an Excel file, for example, the file can only be opened in a few programs. 
+The R language is a widely used language by biologists, and now has over 4,000 packages on the Comprehensive R Archive Network (CRAN) and more than 2,500 packages on other repositories to extend R. R is great for manipulating, visualizing and fitting statistical models to data. \cite{gentleman_bioconductor:_2004} gives a detailed discussion of advantages of R in computational biology. Getting data from the web will be increasingly common as more and more data gets moved to the cloud. Therefore there is a need to get data from the web directly into R. Increasingly, data is available from the web via application programming interfaces (API). These allow computers to talk to one another using code that is not human readable, but is machine readable. Web APIs often define a number of methods that allow users to search for a species name, or retrieve the synonyms for a species name, for example. A further advantage of APIs is that they are language agnostic, meaning that data can be consumed in almost any computing context, allowing users to interact with the web API without having to know the details of the code. Moreover data can be accessed from every computer, whereas for example an Excel file can only be opened in a few programs. 
 
-The goal of taxize, an R package in development, is to make all use cases having to do with retrieving and resolving taxonomic names easy and replicable. In taxize, we have written a suite of R functions that interact with many taxonomic data sources via their web APIs (Table~\ref{tab:a}). The interface to each function is usually a simple list of species names, just as a user would do with a web API. Therefore, we hope moving from a web to R interface for taxonomic names will be relatively seamless (if one is already nominally familiar with R). 
+The goal of taxize, an R package in development, is to make many use cases having to do with retrieving and resolving taxonomic names easy and reproducible. In taxize, we have written a suite of R functions that interact with many taxonomic data sources via their web APIs (Table~\ref{tab:a}). The interface to each function is usually a simple list of species names, just as a user would do with a web API. Therefore, we hope moving from a web to R interface for taxonomic names will be relatively seamless (if one is already nominally familiar with R). 
 
 Here, we justify the need for taxize, discuss our data sources, and run through a suite of use cases to demonstrate the variety of ways that users can interact with taxize. 
 
 
-\section*{Why do we need taxize?}
+\section*{Why we need taxize?}
 
 There are a large suite of applications developed around the problem of searching for, resolving, and getting higher taxonomy for species names. For example, Linnaeus \cite{linnaeus} provides the ability to search for taxonomic names in documents and normalize those names found. In addition, there are many web interfaces to search for and normalize names such as Encyclopedia of Life's Global Names Resolver \cite{eolgnr}, uBio tools \cite{ubio}, and iPlant's Taxonomic Name Resolution Service \cite{tnrs}. 
 
-All of these tools provide ways to search for taxonomic names and resolve them in some cases. However, scientists ideally need a tool that can be used programmatically, and thereby facilitate reproducible research. The goal of taxize is to make it easy to create reproducible and easy to use workflows for searching for taxonomic names, resolving them, getting higher taxonomic names, and other tasks related to research dealing with species. 
-
-One could argue that a different programming language would have been better than R. For example, Python performs many actions faster than R, and Ruby plays really nicely in a browser, facilitating web applications. However, our goal with taxize is to create a product for researchers primarily, and the most common programming language for researchers, at least in the life sciences, is R. \cite{gentleman_bioconductor:_2004} gives a detailed discussion of advantages of R in computational biology.
+All of these data repositories provide ways to search for taxonomic names and resolve them in some cases. However, scientists ideally need a tool that can be used programmatically, and thereby facilitate reproducible research. The goal of taxize is to make it easy to create reproducible and easy to use workflows for searching for taxonomic names, resolving them, getting higher taxonomic names, and other tasks related to research dealing with species. 
+ 
 
 \section*{Data sources and package details}
 taxize uses many data sources (Table~\ref{tab:a}), and more can easily be added. There are two common tasks provided by the data sources: name search and name resolution. Other functionality in taxize includes retrieving a classification tree for a species, or retrieving child taxa of a focal taxon. One of the data sources (Phylomatic) returns phylogenies, while another (NCBI) returns genetic sequence data. However, there are other R packages that are focused solely on sequence data, such as rsnps \cite{chamberlain2013}, rentrez \cite{winter2013}, BoSSA \cite{lefeuvre2010}, and ape \cite{paradis2004}, so taxize will not venture deeply into these other domains. 
 
-Some of the data sources taxize interacts with require authentication. That is, in addition to the search terms the user provides (e.g., \emph{Homo sapiens}), the data provider requires an alphanumeric identification key so that they can better manage their servers, collect analytics, and shut down users that abuse the API. The services that do require an API key in taxize are: Encyclopedia of Life (EOL) \cite{eol}, the Universal Biological Indexer and Organizer (uBio) \cite{ubio}, Tropicos \cite{tropicos}, and Plantminer \cite{carvalho2010plantminer}. You can easily obtain an API key by visiting the website of each service (see Table~\ref{tab:a} for links to each site). There are two ways of using your API keys. First, you can pass in your API key in a function call (e.g., \emph{ubio\_namebank(srchName='Ursus americanus', key='your\_alphanumeric\_key')}). Second, you can store your API keys in your .Rprofile file. On a Mac this file is at \emph{/yourhomefolder/.Rprofile}; on a Windows machine at \emph{/yourhomefolder/.Rprofile}; and on Linux at \emph{/yourhomefolder/.Rprofile}. This is an hidden file, so open up this file in your terminal (e.g., \emph{open .Rprofile}), and add the API key as an entry like \emph{options(myapikey = 'your\_alphanumeric\_key')}. We recommend the second option as it simplifies function calls. 
+Some of the data sources taxize interacts with require authentication. That is, in addition to the search terms the user provides (e.g., \emph{Homo sapiens}), the data provider requires an alphanumeric identification key so that they can better manage their servers, collect analytics, and shut down users that abuse the API. The services that do require an API key in taxize are: Encyclopedia of Life (EOL) \cite{eol}, the Universal Biological Indexer and Organizer (uBio) \cite{ubio}, Tropicos \cite{tropicos}, and Plantminer \cite{carvalho2010plantminer}. One can easily obtain API keys by visiting the website of each service (see Table~\ref{tab:a} for links to each site). There are two typical ways of using API keys. First, you can pass in your API key in a function call (e.g., \emph{ubio\_namebank(srchName='Ursus americanus', key='your\_alphanumeric\_key')}). Second, you can store your key in the .Rprofile file, which is a common place to store settings. We recommend the second option as it simplifies function calls as taxize detects the stored keys.
 
 One available data source in taxize is The Plant List \cite{theplantlist}. The connection in taxize is done via the \emph{taxonstand} package \cite{Cayuela_2012} that solely interacts with that The Plant List. We provide a few convenience functions that wrap taxonstand into taxize.
 
 taxize would not have been possible without the work of others. taxize uses httr \cite{httr} and RCurl \cite{rcurl} for doing calls to web APIs, XML \cite{xml} for parsing XML, RJSONIO \cite{rjsonio} for parsing JSON, and stringr \cite{stringr} and plyr \cite{plyr} for manipulating data.
 
-New data sources can be added; we may add the following sources: Wikispecies and The Tree of Life. A connection to \url{freshwaterecology.info} \cite{freshwaterecology} (a database with autecological characteristics, ecological preferences and biological traits as well as distribution patterns of more than 12.000 European freshwater organisms belonging to fish, macro-invertebrates, macrophytes, diatoms and phytoplankton) will be finished when their new API will be released.
+New data sources can be added; we plan to add the following sources: Wikispecies and The Tree of Life. A connection to \url{freshwaterecology.info} \cite{freshwaterecology} (a database with autecological characteristics, ecological preferences and biological traits as well as distribution patterns of more than 12.000 European freshwater organisms belonging to fish, macro-invertebrates, macrophytes, diatoms and phytoplankton) will be finished when their new API will be released.
 In addition, the authors may be contacted for further suggestions of data sources to be added.
 
 \section*{Use cases}
 
-There are a variety of use cases for which taxize is ideally suited. We discuss here several ideal use cases for taxize at length. Moreover a complete reproducible workflow from a species list to a phylogeny and a distribution map can be found in the supplement.
+There are a variety of use cases for which taxize is ideally suited. We discuss here several ideal use cases for taxize. Moreover a complete reproducible workflow from a species list to a phylogeny and a distribution map can be found in the supplement.
 
 \subsection*{First, install taxize}
 
-First, we must install taxize. There are two versions of taxize, a) a stable release that can be installed from the R package repository, CRAN, and b) from GitHub \cite{github_taxize}, where the code is developed.
-
-Installing from CRAN or GitHub
+First, one must install and load taxize into the R session.
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlfunctioncall{install.packages}(\hlstring{"taxize"})
+\hlkwd{install.packages}(\hlstr{"taxize"})
+\hlkwd{library}(taxize)
 \end{alltt}
 \end{kframe}
 \end{knitrout}
 
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlfunctioncall{install.packages}(\hlstring{"devtools"})
-\hlfunctioncall{require}(devtools)
-\hlfunctioncall{install_github}(\hlstring{"taxize_"}, \hlstring{"ropensci"})
-\end{alltt}
-\end{kframe}
-\end{knitrout}
-
-
-Load taxize into your R session.
-
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlfunctioncall{library}(taxize)
-\end{alltt}
-\end{kframe}
-\end{knitrout}
-
+Advanced users can also download and install the latest development copy from GitHub \cite{github_taxize}.
 
 \subsection*{Resolve taxonomic names}
 
-This is a common task in biology. We often have a list of species names and we want to know if a) we have the most up to date names, b) our names are spelled correctly, and c) if we have common names, we likely need the scientific names. One way to resolve names is via the Global Names Resolver (GNR) service provided by the Encyclopedia of Life \cite{eolgnr}. Here, we are searching for two misspelled names:
+This is a common task in biology. We often have a list of species names and we want to know a) if we have the most up to date names, b) if our names are spelled correctly, and c) the scientific name for a common name. One way to resolve names is via the Global Names Resolver (GNR) service provided by the Encyclopedia of Life \cite{eolgnr}. Here, we are searching for two misspelled names:
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-temp <- \hlfunctioncall{gnr_resolve}(names = \hlfunctioncall{c}(\hlstring{"Helianthos annus"}, \hlstring{"Homo saapiens"}), returndf = TRUE)
-temp[, -\hlfunctioncall{c}(1, 4)]
+temp <- \hlkwd{gnr_resolve}(names = \hlkwd{c}(\hlstr{"Helianthos annus"}, \hlstr{"Homo saapiens"}), returndf = TRUE)
+temp[, -\hlkwd{c}(1, 4)]
 \end{alltt}
 \end{kframe}
 \end{knitrout}
@@ -246,9 +219,9 @@ The correct spellings are \emph{Helianthus annuus} and \emph{Homo sapiens}. Anot
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-mynames <- \hlfunctioncall{c}(\hlstring{"Helianthus annuus"}, \hlstring{"Pinus contort"}, \hlstring{"Poa anua"}, \hlstring{"Abis magnifica"}, 
-    \hlstring{"Rosa california"}, \hlstring{"Festuca arundinace"}, \hlstring{"Sorbus occidentalos"}, \hlstring{"Madia sateva"})
-\hlfunctioncall{tnrs}(query = mynames)[, -\hlfunctioncall{c}(5:7)]
+mynames <- \hlkwd{c}(\hlstr{"Helianthus annuus"}, \hlstr{"Pinus contort"}, \hlstr{"Poa anua"}, \hlstr{"Abis magnifica"}, 
+    \hlstr{"Rosa california"}, \hlstr{"Festuca arundinace"}, \hlstr{"Sorbus occidentalos"}, \hlstr{"Madia sateva"})
+\hlkwd{tnrs}(query = mynames)[, -\hlkwd{c}(5:7)]
 \end{alltt}
 \begin{verbatim}
         submittedName        acceptedName    sourceId score
@@ -267,21 +240,21 @@ mynames <- \hlfunctioncall{c}(\hlstring{"Helianthus annuus"}, \hlstring{"Pinus c
 
 It turns out there are a few corrections: e.g., \emph{Madia sateva} should be \emph{Madia sativa}, and \emph{Rosa california} should be \emph{Rosa californica}. Note that this search worked because fuzzy matching was employed to retrieve names that were close, but not exact matches. Fuzzy matching is only available for plants in the TNRS service, so we advise using EOL's Global Names Resolver if you need to resolve animal names.
 
-taxize takes the approach that the user should be able to make decisions about what resource to trust, rather than taxize making the decision. Both the EOL GNR and the TNRS services provide data from a variety of data sources. The user may trust a specific data source, thus may want to use the names from that data source. In the future, we may provide the ability for taxize to suggest the best match from a variety of sources, but since R is relatively inefficient in memory management, etc., we would rather offload this sort of computationally intensive task.
+taxize takes the approach that the user should be able to make decisions about what resource to trust, rather than making the decision. Both the EOL GNR and the TNRS services provide data from a variety of data sources. The user may trust a specific data source, thus may want to use the names from that data source. In the future, we may provide the ability for taxize to suggest the best match from a variety of sources.
 
 \subsection*{Retrieve higher taxonomic names}
 Another task biologists often face is getting higher taxonomic names for a taxa list. Having the higher taxonomy allows you to put into context the relationships of your species list. For example, you may find out that species A and species B are in Family C, which may lead to some interesting insight, as opposed to not knowing that Species A and B are closely related. This also makes it easy to aggregate/standardize data to a specific taxonomic level (e.g., family level) or to match data to other databases with different taxonomic resolution (e.g., trait databases).
 
-A number of data sources in taxize provide the capability to retrieve higher taxonomic names, but we will highlight two of the more useful ones: Integrated Taxonomic Information System (ITIS) \cite{itis} and National Center for Biotechnology Information (NCBI) \cite{federhen}. First, we'll search for two species, \emph{Abies procera} and \emph{Pinus contorta}.
+A number of data sources in taxize provide the capability to retrieve higher taxonomic names, but we will highlight two of the more useful ones: Integrated Taxonomic Information System (ITIS) \cite{itis} and National Center for Biotechnology Information (NCBI) \cite{federhen}. First, we'll search for two species, \emph{Abies procera} and \emph{Pinus contorta} within ITIS.
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-specieslist <- \hlfunctioncall{c}(\hlstring{"Abies procera"}, \hlstring{"Pinus contorta"})
-\hlfunctioncall{classification}(specieslist, db = \hlstring{"itis"})
+specieslist <- \hlkwd{c}(\hlstr{"Abies procera"}, \hlstr{"Pinus contorta"})
+\hlkwd{classification}(specieslist, db = \hlstr{"itis"})
 \end{alltt}
 \begin{verbatim}
-[[1]]
+$`Abies procera`
         rankName       taxonName    tsn
 1        Kingdom         Plantae 202422
 2     Subkingdom  Viridaeplantae 846492
@@ -295,7 +268,7 @@ specieslist <- \hlfunctioncall{c}(\hlstring{"Abies procera"}, \hlstring{"Pinus c
 10         Genus           Abies  18031
 11       Species   Abies procera 181835
 
-[[2]]
+$`Pinus contorta`
         rankName       taxonName    tsn
 1        Kingdom         Plantae 202422
 2     Subkingdom  Viridaeplantae 846492
@@ -320,14 +293,14 @@ Instead of a full classification, you may only want a single name, say a family 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlfunctioncall{tax_name}(query = \hlstring{"Helianthus annuus"}, get = \hlstring{"family"}, db = \hlstring{"itis"})
+\hlkwd{tax_name}(query = \hlstr{"Helianthus annuus"}, get = \hlstr{"family"}, db = \hlstr{"itis"})
 \end{alltt}
 \begin{verbatim}
       family
 1 Asteraceae
 \end{verbatim}
 \begin{alltt}
-\hlfunctioncall{tax_name}(query = \hlstring{"Helianthus annuus"}, get = \hlstring{"family"}, db = \hlstring{"ncbi"})
+\hlkwd{tax_name}(query = \hlstr{"Helianthus annuus"}, get = \hlstr{"family"}, db = \hlstr{"ncbi"})
 \end{alltt}
 \begin{verbatim}
       family
@@ -337,6 +310,8 @@ Instead of a full classification, you may only want a single name, say a family 
 \end{knitrout}
 
 
+I may happen that a data source does not provide information on the querried species, than one could take the result from another source and union the results from the different sources.
+
 \subsection*{Interactive name selection}
 As mentioned most databases use a numeric code to reference a species. A general workflow in taxize is: Retrieve Code for the queried species and then use this code to query more data/information.
 Below are a few examples. When you run these examples in R, you are presented with a command prompt asking for the row that contains the name you would like back; that output is not printed below for brevity. In this example, the search term has many matches. The function returns a data.frame of the matches, and asks for the user to input what row number to accept. 
@@ -344,7 +319,7 @@ Below are a few examples. When you run these examples in R, you are presented wi
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlfunctioncall{get_tsn}(searchterm = \hlstring{"Heliastes"}, searchtype = \hlstring{"sciname"})
+\hlkwd{get_tsn}(searchterm = \hlstr{"Heliastes"}, searchtype = \hlstr{"sciname"})
 \end{alltt}
 \begin{verbatim}
            combinedname    tsn
@@ -370,9 +345,9 @@ In another example, you can pass in a long list of taxonomic names:
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-splist <- \hlfunctioncall{c}(\hlstring{"annona cherimola"}, \hlstring{"annona muricata"}, \hlstring{"quercus robur"}, \hlstring{"shorea robusta"}, 
-    \hlstring{"pandanus patina"}, \hlstring{"oryza sativa"}, \hlstring{"durio zibethinus"})
-\hlfunctioncall{get_tsn}(searchterm = splist, searchtype = \hlstring{"sciname"})
+splist <- \hlkwd{c}(\hlstr{"annona cherimola"}, \hlstr{"annona muricata"}, \hlstr{"quercus robur"}, \hlstr{"shorea robusta"}, 
+    \hlstr{"pandanus patina"}, \hlstr{"oryza sativa"}, \hlstr{"durio zibethinus"})
+\hlkwd{get_tsn}(searchterm = splist, searchtype = \hlstr{"sciname"})
 \end{alltt}
 \begin{verbatim}
 [1] "506198" "18098"  "19405"  "506787" "507376" "41976"  "506099"
@@ -388,7 +363,7 @@ In another example, note that no match at all returns an NA:
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlfunctioncall{get_uid}(sciname = \hlfunctioncall{c}(\hlstring{"Chironomus riparius"}, \hlstring{"aaa vva"}))
+\hlkwd{get_uid}(sciname = \hlkwd{c}(\hlstr{"Chironomus riparius"}, \hlstr{"aaa vva"}))
 \end{alltt}
 \begin{verbatim}
 [1] "315576" NA      
@@ -405,10 +380,10 @@ Ecologists are increasingly taking a phylogenetic approach to ecology, applying 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-taxa <- \hlfunctioncall{c}(\hlstring{"Poa annua"}, \hlstring{"Abies procera"}, \hlstring{"Helianthus annuus"})
-tree <- \hlfunctioncall{phylomatic_tree}(taxa = taxa)
-tree$tip.label <- \hlfunctioncall{capwords}(tree$tip.label)
-\hlfunctioncall{plot}(tree, cex = 1)
+taxa <- \hlkwd{c}(\hlstr{"Poa annua"}, \hlstr{"Abies procera"}, \hlstr{"Helianthus annuus"})
+tree <- \hlkwd{phylomatic_tree}(taxa = taxa)
+tree$tip.label <- \hlkwd{capwords}(tree$tip.label)
+\hlkwd{plot}(tree, cex = 1)
 \end{alltt}
 \end{kframe}
 \end{knitrout}
@@ -428,7 +403,7 @@ If someone is not a taxonomic specialist on a particular taxon he likely does no
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlfunctioncall{col_downstream}(name = \hlstring{"Apis"}, downto = \hlstring{"Species"})[[1]]
+\hlkwd{col_downstream}(name = \hlstr{"Apis"}, downto = \hlstr{"Species"})[[1]]
 \end{alltt}
 \begin{verbatim}
   childtaxa_id     childtaxa_name childtaxa_rank
@@ -452,8 +427,8 @@ There are a number of things we can do once we have the correct taxonomic names.
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-ia <- \hlfunctioncall{iucn_summary}(\hlfunctioncall{c}(\hlstring{"Panthera uncia"}, \hlstring{"Lynx lynx"}))
-\hlfunctioncall{iucn_status}(ia)
+ia <- \hlkwd{iucn_summary}(\hlkwd{c}(\hlstr{"Panthera uncia"}, \hlstr{"Lynx lynx"}))
+\hlkwd{iucn_status}(ia)
 \end{alltt}
 \begin{verbatim}
 Panthera uncia      Lynx lynx 
@@ -463,7 +438,7 @@ Panthera uncia      Lynx lynx
 \end{knitrout}
 
 
-It turns out that the panther has a status of endangered (EN) and the lynx has a status of least concern (LN).
+It turns out that the panther has a status of endangered (EN) and the lynx has a status of least concern (LC).
 
 \subsection*{Search for available genes in GenBank}
 Another use case available in taxize deals with genetic sequences. taxize has three functions to interact with GenBank to search for available genes (\emph{get\_genes\_avail}), download genes by GenBank ID (\emph{get\_genes}), and download genes via taxonomic name search, including retrieving a congeneric if the searched taxon does not exist in the database (\emph{get\_seqs}). In this example, we search for gene sequences for \emph{Umbra limi}.
@@ -471,7 +446,7 @@ Another use case available in taxize deals with genetic sequences. taxize has th
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-out <- \hlfunctioncall{get_genes_avail}(taxon_name = \hlstring{"Umbra limi"}, seqrange = \hlstring{"1:2000"}, getrelated = FALSE)
+out <- \hlkwd{get_genes_avail}(taxon_name = \hlstr{"Umbra limi"}, seqrange = \hlstr{"1:2000"}, getrelated = FALSE)
 \end{alltt}
 \end{kframe}
 \end{knitrout}
@@ -482,7 +457,7 @@ Then we can ask if 'RAG1' exists in any of the gene names.
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-out[\hlfunctioncall{grep}(\hlstring{"RAG1"}, out$genesavail, ignore.case = TRUE), ]
+out[\hlkwd{grep}(\hlstr{"RAG1"}, out$genesavail, ignore.case = TRUE), ]
 \end{alltt}
 \begin{verbatim}
         spused length
@@ -513,31 +488,31 @@ We can use the mentioned \emph{classification}-function to retrieve the taxonomi
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-A <- \hlstring{"gammarus roeseli"} 
+A <- \hlstr{"gammarus roeseli"} 
 
-B1 <- \hlstring{"gammarus roeseli"}
-B2 <- \hlstring{"gammarus"}
-B3 <- \hlstring{"gammaridae"}
+B1 <- \hlstr{"gammarus roeseli"}
+B2 <- \hlstr{"gammarus"}
+B3 <- \hlstr{"gammaridae"}
 
-A_clas <- \hlfunctioncall{classification}(A, db = \hlstring{'ncbi'})
-B1_clas <- \hlfunctioncall{classification}(B1, db = \hlstring{'ncbi'})
-B2_clas <- \hlfunctioncall{classification}(B2, db = \hlstring{'ncbi'})
-B3_clas <- \hlfunctioncall{classification}(B3, db = \hlstring{'ncbi'})
+A_clas <- \hlkwd{classification}(A, db = \hlstr{'ncbi'})
+B1_clas <- \hlkwd{classification}(B1, db = \hlstr{'ncbi'})
+B2_clas <- \hlkwd{classification}(B2, db = \hlstr{'ncbi'})
+B3_clas <- \hlkwd{classification}(B3, db = \hlstr{'ncbi'})
 
 
-B1[\hlfunctioncall{match}(A, B1)]
+B1[\hlkwd{match}(A, B1)]
 \end{alltt}
 \begin{verbatim}
 [1] "gammarus roeseli"
 \end{verbatim}
 \begin{alltt}
-A_clas[[1]]$Rank[\hlfunctioncall{tolower}(A_clas[[1]]$ScientificName) %in% B2]
+A_clas[[1]]$Rank[\hlkwd{tolower}(A_clas[[1]]$ScientificName) %in% B2]
 \end{alltt}
 \begin{verbatim}
 [1] "genus"
 \end{verbatim}
 \begin{alltt}
-A_clas[[1]]$Rank[\hlfunctioncall{tolower}(A_clas[[1]]$ScientificName) %in% B3]
+A_clas[[1]]$Rank[\hlkwd{tolower}(A_clas[[1]]$ScientificName) %in% B3]
 \end{alltt}
 \begin{verbatim}
 [1] "family"
@@ -555,11 +530,11 @@ In biology, one can asks questions at varying taxonomic levels. One may perform 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlfunctioncall{data}(dune, package = \hlstring{'vegan'})
+\hlkwd{data}(dune, package = \hlstr{'vegan'})
 df <- dune[ , 1:5]
-\hlfunctioncall{colnames}(df) <- \hlfunctioncall{c}(\hlstring{"Bellis perennis"}, \hlstring{"Empetrum nigrum"}, \hlstring{"Juncus bufonius"}, 
-                  \hlstring{"Juncus articulatus"}, \hlstring{"xxx"})
-\hlfunctioncall{head}(df)
+\hlkwd{colnames}(df) <- \hlkwd{c}(\hlstr{"Bellis perennis"}, \hlstr{"Empetrum nigrum"}, \hlstr{"Juncus bufonius"}, 
+                  \hlstr{"Juncus articulatus"}, \hlstr{"xxx"})
+\hlkwd{head}(df)
 \end{alltt}
 \begin{verbatim}
    Bellis perennis Empetrum nigrum Juncus bufonius Juncus articulatus xxx
@@ -571,7 +546,7 @@ df <- dune[ , 1:5]
 1                0               0               0                  0   0
 \end{verbatim}
 \begin{alltt}
-agg <- \hlfunctioncall{tax_agg}(df, rank = \hlstring{'family'}, db = \hlstring{'ncbi'})
+agg <- \hlkwd{tax_agg}(df, rank = \hlstr{'family'}, db = \hlstr{'ncbi'})
 agg
 \end{alltt}
 \begin{verbatim}
@@ -584,7 +559,7 @@ No. taxa after aggregation: 4
 No. taxa not found: 1
 \end{verbatim}
 \begin{alltt}
-\hlfunctioncall{head}(agg$x)
+\hlkwd{head}(agg$x)
 \end{alltt}
 \begin{verbatim}
    Asteraceae Ericaceae Juncaceae xxx
@@ -603,9 +578,9 @@ We see that the two Juncus species are aggregated to Juncaceae and their abundan
 
 
 \section*{Conclusions}
-Taxonomic information is increasingly sought out by biologists as we take phylogenetic and taxonomic approaches to science. Taxonomic data is quickly becoming available on the web, yet scientists require programmatic access to this data to create reproducible workflows. taxize was created to bridge this gap - to bring taxonomic data on the web into R, where the data can be easily manipulated, visualized, and analyzed in a reproducible workflow.
+Taxonomic information is increasingly sought out by biologists as we take phylogenetic and taxonomic approaches to science. Taxonomic data is becoming more widely available on the web, yet scientists require programmatic access to this data for developing reproducible workflows. taxize was created to bridge this gap - to bring taxonomic data on the web into R, where the data can be easily manipulated, visualized, and analyzed in a reproducible workflow.
 
-We have outlined a suite of use cases in taxize that will likely fit real use cases of many biologists. Of course we have not thought of all possible use cases, so we hope that the biology community can give us feedback on what use cases they want to see available in taxize. One thing we could change in the future is to make  functions that fit use cases, and then allow users to select the data source as a parameter in the function. This could possibly make the user interface easier to understand.
+We have outlined a suite of use cases in taxize that will likely fit real use cases of many biologists. Of course we have not thought of all possible use cases, so we hope that the biology community can give us feedback on what use cases they want to see available in taxize. One thing we could change in the future is to make functions that fit use cases, and then allow users to select the data source as a parameter in the function. This could possibly make the user interface easier to understand.
 
 taxize is currently under development and will be for some time given the large number of data sources kitted together in the package, and the fact that APIs for each data source can change, requiring changes in taxize code. Contributions to taxize are strongly encouraged, and can be easily done using GitHub here \cite{github_taxize}. We hope taxize will be taking up by the community and developed collaboratively, making it progressively better through time as new use cases arise, bug reports squashed, and contributions merged.
 
