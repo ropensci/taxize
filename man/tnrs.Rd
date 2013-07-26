@@ -3,7 +3,7 @@
 \title{Search the Phylotastic Taxonomic Name Resolution Service.}
 \usage{
   tnrs(query = NA, source_ = NULL, code = NULL,
-    getpost = "GET", sleep = 0, splitby = NULL)
+    getpost = "POST", sleep = 0, splitby = NULL)
 }
 \arguments{
   \item{query}{Quoted taxonomic names to search in a vector
@@ -45,8 +45,8 @@
 \examples{
 \dontrun{
 # Default, uses GET curl method, you can't specify any other parameters when using GET
-mynames <- c("Panthera tigris", "Eutamias minimus", "Magnifera indica", "Humbert humbert")
-tnrs(query = mynames)
+mynames <- c("Panthera tigris", "Neotamias minimus", "Magnifera indica")
+tnrs(query = mynames, source="NCBI")
 
 # Specifying the source to match against
 mynames <- c("Helianthus annuus", "Poa annua")
