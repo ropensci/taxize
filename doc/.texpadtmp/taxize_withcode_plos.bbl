@@ -1,0 +1,282 @@
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+\providecommand{\bibAnnoteFile}[1]{%
+  \IfFileExists{#1}{\begin{quotation}\noindent\textsc{Key:} #1\\
+  \textsc{Annotation:}\ \input{#1}\end{quotation}}{}}
+\providecommand{\bibAnnote}[2]{%
+  \begin{quotation}\noindent\textsc{Key:} #1\\
+  \textsc{Annotation:}\ #2\end{quotation}}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem{weiser2007}
+Weiser MD, Enquist BJ, Boyle B, Killeen TJ, Jørgensen PM, et~al. (2007)
+  Latitudinal patterns of range size and species richness of new world woody
+  plants.
+\newblock Global Ecology and Biogeography 16: 679-688.
+\bibAnnoteFile{weiser2007}
+
+\bibitem{boyle2013}
+Boyle B, Hopkins N, Lu Z, Raygoza~Garay JA, Mozzherin D, et~al. (2013) The
+  taxonomic name resolution service: an online tool for automated
+  standardization of plant names.
+\newblock BMC Bioinformatics 14: 16.
+\bibAnnoteFile{boyle2013}
+
+\bibitem{theplantlist}
+{The Plant List} (2013).
+\newblock A working list of all plant species.
+\newblock Available:\url{http://www.theplantlist.org}.
+\newblock Accessed May 27 2013.
+\bibAnnoteFile{theplantlist}
+
+\bibitem{eol}
+{Encylopedia of Life} (2013).
+\newblock Available: \url{http://eol.org/}.
+\newblock Accessed May 27 2013.
+\bibAnnoteFile{eol}
+
+\bibitem{stodden2010}
+Stodden VC (2010) Reproducible research: Addressing the need for data and code
+  sharing in computational science.
+\newblock Computing in Science \& Engineering 12: 8--12.
+\bibAnnoteFile{stodden2010}
+
+\bibitem{zimmer2012}
+Zimmer C (2012) A sharp rise in retractions prompts calls for reform.
+\newblock New York Times .
+\bibAnnoteFile{zimmer2012}
+
+\bibitem{yihui2013}
+Xie Y (2013) Dynamic Documents with {R} and knitr.
+\newblock Chapman and Hall/CRC.
+\newblock \urlprefix\url{http://yihui.name/knitr/}.
+\bibAnnoteFile{yihui2013}
+
+\bibitem{gentleman_bioconductor:_2004}
+Gentleman RC, Carey VJ, Bates DM, Bolstad B, Dettling M, et~al. (2004)
+  Bioconductor: open software development for computational biology and
+  bioinformatics.
+\newblock Genome Biology 5: R80.
+\bibAnnoteFile{gentleman_bioconductor:_2004}
+
+\bibitem{linnaeus}
+{Linnaeus} (2013).
+\newblock Available: \url{http://linnaeus.sourceforge.net/}.
+\newblock Accessed May 27 2013.
+\bibAnnoteFile{linnaeus}
+
+\bibitem{eolgnr}
+{Global Names Resolver} (2013).
+\newblock Available: \url{http://resolver.globalnames.org/}.
+\newblock Accessed May 27 2013.
+\bibAnnoteFile{eolgnr}
+
+\bibitem{ubio}
+{uBio} (2013).
+\newblock Universal biological indexer and organizer.
+\newblock Available: \url{http://www.ubio.org/index.php?pagename=sample_tools}.
+\newblock Accessed May 27 2013.
+\bibAnnoteFile{ubio}
+
+\bibitem{tnrs}
+{TNRS} (2013).
+\newblock Taxonomic name resolution service.
+\newblock Available: \url{http://tnrs.iplantcollaborative.org/}.
+\newblock Accessed May 27 2013.
+\bibAnnoteFile{tnrs}
+
+\bibitem{chamberlain2013}
+Chamberlain S, Ushey K (2013) rsnps: Interface to SNP data on the web.
+\newblock \urlprefix\url{https://github.com/ropensci/rsnps}.
+\newblock R package version 0.0.4.
+\bibAnnoteFile{chamberlain2013}
+
+\bibitem{winter2013}
+Winter D (2013) rentrez: Entrez in R.
+\newblock \urlprefix\url{https://github.com/ropensci/rentrez}.
+\newblock R package version 0.2.1.
+\bibAnnoteFile{winter2013}
+
+\bibitem{lefeuvre2010}
+Lefeuvre P (2010) BoSSA: a Bunch of Structure and Sequence Analysis.
+\newblock \urlprefix\url{http://CRAN.R-project.org/package=BoSSA}.
+\newblock R package version 1.2.
+\bibAnnoteFile{lefeuvre2010}
+
+\bibitem{paradis2004}
+Paradis E, Claude J, Strimmer K (2004) A{PE}: analyses of phylogenetics and
+  evolution in {R} language.
+\newblock Bioinformatics 20: 289-290.
+\bibAnnoteFile{paradis2004}
+
+\bibitem{tropicos}
+{Missouri Botanical Garden} (2013).
+\newblock Tropicos.org.
+\newblock Available: \url{http://www.tropicos.org/}.
+\newblock Accessed May 27 2013.
+\bibAnnoteFile{tropicos}
+
+\bibitem{carvalho2010plantminer}
+Carvalho GH, Cianciaruso MV, Batalha MA (2010) Plantminer: a web tool for
+  checking and gathering plant species taxonomic information.
+\newblock Environmental Modelling \& Software 25: 815--816.
+\bibAnnoteFile{carvalho2010plantminer}
+
+\bibitem{Cayuela_2012}
+Cayuela L, Granzow-de~la Cerda �, Albuquerque FS, Golicher DJ (2012)
+  taxonstand: An r package for species names standardisation in vegetation
+  databases.
+\newblock Methods in Ecology and Evolution 3: 1078--1083.
+\bibAnnoteFile{Cayuela_2012}
+
+\bibitem{httr}
+Wickham H (2012) httr: Tools for working with URLs and HTTP.
+\newblock \urlprefix\url{http://CRAN.R-project.org/package=httr}.
+\newblock R package version 0.2.
+\bibAnnoteFile{httr}
+
+\bibitem{rcurl}
+Lang DT (2013) RCurl: General network (HTTP/FTP/...) client interface for R.
+\newblock \urlprefix\url{http://CRAN.R-project.org/package=RCurl}.
+\newblock R package version 1.95-4.1.
+\bibAnnoteFile{rcurl}
+
+\bibitem{xml}
+Lang DT (2013) XML: Tools for parsing and generating XML within R and S-Plus.
+\newblock \urlprefix\url{http://CRAN.R-project.org/package=XML}.
+\newblock R package version 3.95-0.2.
+\bibAnnoteFile{xml}
+
+\bibitem{rjsonio}
+Lang DT (2013) RJSONIO: Serialize R objects to JSON, JavaScript Object
+  Notation.
+\newblock \urlprefix\url{http://CRAN.R-project.org/package=RJSONIO}.
+\newblock R package version 1.0-3.
+\bibAnnoteFile{rjsonio}
+
+\bibitem{plyr}
+Wickham H (2011) The split-apply-combine strategy for data analysis.
+\newblock Journal of Statistical Software 40: 1--29.
+\bibAnnoteFile{plyr}
+
+\bibitem{freshwaterecology}
+Schmidt-Kloiber A, Hering D (2013).
+\newblock www.freshwaterecology.info - the taxa and autecology database for
+  freshwater organisms, version 5.0.
+\newblock Available: \url{www.freshwaterecology.info}.
+\bibAnnoteFile{freshwaterecology}
+
+\bibitem{github_taxize}
+{taxize} (2013).
+\newblock taxize on github.
+\newblock Available: \url{https://github.com/ropensci/taxize_}.
+\bibAnnoteFile{github_taxize}
+
+\bibitem{taxosaurus}
+{Taxosaurus} (2013).
+\newblock The taxonomic thesaurus.
+\newblock Available: \url{http://taxosaurus.org/}.
+\newblock Accessed May 27 2013.
+\bibAnnoteFile{taxosaurus}
+
+\bibitem{itis}
+{ITIS} (2013).
+\newblock Integrated taxonomic information service.
+\newblock Available: \url{http://www.itis.gov/}.
+\newblock Accessed May 27 2013.
+\bibAnnoteFile{itis}
+
+\bibitem{federhen}
+Federhen S (2012) The ncbi taxonomy database.
+\newblock Nucleic Acids Research 40: D136-D143.
+\bibAnnoteFile{federhen}
+
+\bibitem{webb2002phylogenies}
+Webb CO, Ackerly DD, McPeek MA, Donoghue MJ (2002) Phylogenies and community
+  ecology.
+\newblock Annual Review of Ecology and Systematics : 475--505.
+\bibAnnoteFile{webb2002phylogenies}
+
+\bibitem{rafferty2013phylogenetic}
+Rafferty NE, Ives AR (2013) Phylogenetic trait-based analyses of ecological
+  networks.
+\newblock Ecology .
+\bibAnnoteFile{rafferty2013phylogenetic}
+
+\bibitem{poff2006functional}
+Poff NL, Olden JD, Vieira NK, Finn DS, Simmons MP, et~al. (2006) Functional
+  trait niches of north american lotic insects: traits-based ecological
+  applications in light of phylogenetic relationships.
+\newblock Journal of the North American Benthological Society 25: 730--755.
+\bibAnnoteFile{poff2006functional}
+
+\bibitem{webb2005}
+Webb CO, Donoghue MJ (2005) Phylomatic: tree assembly for applied
+  phylogenetics.
+\newblock Molecular Ecology Notes 5: 181--183.
+\bibAnnoteFile{webb2005}
+
+\bibitem{opentree}
+{Open Tree of Life} (2013).
+\newblock Available: \url{http://blog.opentreeoflife.org/}.
+\newblock Accessed May 27 2013.
+\bibAnnoteFile{opentree}
+
+\bibitem{wikispecies}
+{Wikispecies} (2013).
+\newblock Available: \url{http://species.wikimedia.org/wiki/Main_Page}.
+\newblock Accessed May 27 2013.
+\bibAnnoteFile{wikispecies}
+
+\bibitem{col}
+Roskov Y, Kunze T, Paglinawan L, Orrell T, Nicolson D, et~al. (2013).
+\newblock {Catalogue of Life}.
+\newblock Available: \url{http://www.catalogueoflife.org/}.
+\newblock Accessed May 27 2013.
+\bibAnnoteFile{col}
+
+\bibitem{iucn}
+{IUCN} (2013).
+\newblock Iucn red list of threatened species.
+\newblock Available: \url{http://www.iucnredlist.org}.
+\newblock Accessed May 27 2013.
+\bibAnnoteFile{iucn}
+
+\bibitem{statzner_can_2010}
+Statzner B, B\^eche L (2010) Can biological invertebrate traits resolve effects
+  of multiple stressors on running water ecosystems?
+\newblock Freshwater Biology 55: 80–119.
+\bibAnnoteFile{statzner_can_2010}
+
+\bibitem{usseglio-polatera_biological_2000}
+Usseglio-Polatera P, Bournaud M, Richoux P, Tachet H (2000) Biological and
+  ecological traits of benthic freshwater macroinvertebrates: relationships and
+  definition of groups with similar traits.
+\newblock Freshwater Biology 43: 175–205.
+\bibAnnoteFile{usseglio-polatera_biological_2000}
+
+\bibitem{apgiii}
+{Angiosperm Phylogeny Group} (2013).
+\newblock Available: \url{http://www.mobot.org/MOBOT/research/APweb/}.
+\newblock Accessed May 27 2013.
+\bibAnnoteFile{apgiii}
+
+\bibitem{gisd}
+{Global Invasive Species Database} (2013).
+\newblock Global invasive species database.
+\newblock Available: \url{http://www.issg.org/database/welcome/}.
+\newblock Accessed May 27 2013.
+\bibAnnoteFile{gisd}
+
+\bibitem{eolgni}
+{Global Names Index} (2013).
+\newblock Available: \url{http://gni.globalnames.org/}.
+\newblock Accessed May 27 2013.
+\bibAnnoteFile{eolgni}
+
+\end{thebibliography}

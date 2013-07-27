@@ -1,3 +1,109 @@
+\documentclass[10pt]{article}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.2, 0.2, 0.2}
+\newcommand{\hlnumber}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlfunctioncall}[1]{\textcolor[rgb]{0.501960784313725,0,0.329411764705882}{\textbf{#1}}}%
+\newcommand{\hlstring}[1]{\textcolor[rgb]{0.6,0.6,1}{#1}}%
+\newcommand{\hlkeyword}[1]{\textcolor[rgb]{0,0,0}{\textbf{#1}}}%
+\newcommand{\hlargument}[1]{\textcolor[rgb]{0.690196078431373,0.250980392156863,0.0196078431372549}{#1}}%
+\newcommand{\hlcomment}[1]{\textcolor[rgb]{0.180392156862745,0.6,0.341176470588235}{#1}}%
+\newcommand{\hlroxygencomment}[1]{\textcolor[rgb]{0.43921568627451,0.47843137254902,0.701960784313725}{#1}}%
+\newcommand{\hlformalargs}[1]{\textcolor[rgb]{0.690196078431373,0.250980392156863,0.0196078431372549}{#1}}%
+\newcommand{\hleqformalargs}[1]{\textcolor[rgb]{0.690196078431373,0.250980392156863,0.0196078431372549}{#1}}%
+\newcommand{\hlassignement}[1]{\textcolor[rgb]{0,0,0}{\textbf{#1}}}%
+\newcommand{\hlpackage}[1]{\textcolor[rgb]{0.588235294117647,0.709803921568627,0.145098039215686}{#1}}%
+\newcommand{\hlslot}[1]{\textit{#1}}%
+\newcommand{\hlsymbol}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlprompt}[1]{\textcolor[rgb]{0.2,0.2,0.2}{#1}}%
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+
+% amsmath package, useful for mathematical formulas
+\usepackage{amsmath}
+% amssymb package, useful for mathematical symbols
+\usepackage{amssymb}
+
+% graphicx package, useful for including eps and pdf graphics
+% include graphics with the command \includegraphics
+\usepackage{graphicx}
+
+% cite package, to clean up citations in the main text. Do not remove.
+\usepackage{cite}
+\usepackage{color} 
+
+% Use doublespacing - comment out for single spacing
+%\usepackage{setspace} 
+%\doublespacing
+
+
+% Text layout
+\topmargin 0.0cm
+\oddsidemargin 0.5cm
+\evensidemargin 0.5cm
+\textwidth 16cm 
+\textheight 21cm
+
+% Bold the 'Figure #' in the caption and separate it with a period
+% Captions will be left justified
+\usepackage[labelfont=bf,labelsep=period,justification=raggedright]{caption}
+
+% Use the PLoS provided bibtex style
+\bibliographystyle{plos2009}
+
+% Remove brackets from numbering in List of References
+\makeatletter
+\renewcommand{\@biblabel}[1]{\quad#1.}
+\makeatother
+
+\pagestyle{myheadings}
+%% ** EDIT HERE **
+%% ** EDIT HERE **
+%% PLEASE INCLUDE ALL MACROS BELOW
+\usepackage{hyperref}
+\usepackage{array}
+%% END MACROS SECTION
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+
+\begin{document}
+
+
+
 \section{A complete reproducible workflow, from a species list to a phylogeny, and distribution map.} 
 
 If you aren't familiar with a complete workflow in R, it may be difficult to visualize the process. In R, everything is programmatic, so the whole workflow can be in one place, and be repeated whenever necessary. The following is a workflow for taxize, going from a species list to a phylogeny. 
@@ -47,7 +153,7 @@ splist_tnrs <- \hlfunctioncall{tnrs}(query = splist, getpost = \hlstring{"POST"}
 \end{alltt}
 
 
-{\ttfamily\noindent\itshape\color{messagecolor}{\#\# Calling http://taxosaurus.org/retrieve/679c69546d1311b72ce97f5ad1101254}}\begin{alltt}
+{\ttfamily\noindent\itshape\color{messagecolor}{\#\# Calling http://taxosaurus.org/retrieve/7763b460ecdf76eee52f78e9569e7c91}}\begin{alltt}
 
 \hlcomment{# Remove some fields}
 (splist_tnrs <- splist_tnrs[, !\hlfunctioncall{names}(splist_tnrs) %in% \hlfunctioncall{c}(\hlstring{"matchedName"}, \hlstring{"annotations"}, 
@@ -62,7 +168,7 @@ splist_tnrs <- \hlfunctioncall{tnrs}(query = splist, getpost = \hlstring{"POST"}
 ## 10       Rosa california     Rosa californica iPlant_TNRS  0.99
 ## 9         Datura wrighti      Datura wrightii iPlant_TNRS  0.98
 ## 7       Mimulus bicolour      Mimulus bicolor iPlant_TNRS  0.98
-## 8       Nicotiana glauca     Nicotiana glauca iPlant_TNRS  1.00
+## 8       Nicotiana glauca     Nicotiana glauca iPlant_TNRS     1
 ## 6          Maddia sativa         Madia sativa iPlant_TNRS  0.97
 ## 2    Bartlettia scapposa   Bartlettia scaposa iPlant_TNRS  0.98
 \end{verbatim}
@@ -96,25 +202,7 @@ comnames <- \hlfunctioncall{lapply}(tsns, getcommonnamesfromtsn)
 \end{alltt}
 
 
-{\ttfamily\noindent\itshape\color{messagecolor}{\#\# http://www.itis.gov/ITISWebService/services/ITISService/getCommonNamesFromTSN?tsn=36616}}
-
-{\ttfamily\noindent\itshape\color{messagecolor}{\#\# http://www.itis.gov/ITISWebService/services/ITISService/getCommonNamesFromTSN?tsn=183327}}
-
-{\ttfamily\noindent\itshape\color{messagecolor}{\#\# http://www.itis.gov/ITISWebService/services/ITISService/getCommonNamesFromTSN?tsn=31037}}
-
-{\ttfamily\noindent\itshape\color{messagecolor}{\#\# http://www.itis.gov/ITISWebService/services/ITISService/getCommonNamesFromTSN?tsn=181834}}
-
-{\ttfamily\noindent\itshape\color{messagecolor}{\#\# http://www.itis.gov/ITISWebService/services/ITISService/getCommonNamesFromTSN?tsn=24818}}
-
-{\ttfamily\noindent\itshape\color{messagecolor}{\#\# http://www.itis.gov/ITISWebService/services/ITISService/getCommonNamesFromTSN?tsn=30521}}
-
-{\ttfamily\noindent\itshape\color{messagecolor}{\#\# http://www.itis.gov/ITISWebService/services/ITISService/getCommonNamesFromTSN?tsn=33245}}
-
-{\ttfamily\noindent\itshape\color{messagecolor}{\#\# http://www.itis.gov/ITISWebService/services/ITISService/getCommonNamesFromTSN?tsn=30574}}
-
-{\ttfamily\noindent\itshape\color{messagecolor}{\#\# http://www.itis.gov/ITISWebService/services/ITISService/getCommonNamesFromTSN?tsn=38040}}
-
-{\ttfamily\noindent\itshape\color{messagecolor}{\#\# http://www.itis.gov/ITISWebService/services/ITISService/getCommonNamesFromTSN?tsn=36822}}\begin{alltt}
+{\ttfamily\noindent\itshape\color{messagecolor}{\#\# http://www.itis.gov/ITISWebService/services/ITISService/getCommonNamesFromTSN?tsn=36616\\\#\# http://www.itis.gov/ITISWebService/services/ITISService/getCommonNamesFromTSN?tsn=183327\\\#\# http://www.itis.gov/ITISWebService/services/ITISService/getCommonNamesFromTSN?tsn=31037\\\#\# http://www.itis.gov/ITISWebService/services/ITISService/getCommonNamesFromTSN?tsn=181834\\\#\# http://www.itis.gov/ITISWebService/services/ITISService/getCommonNamesFromTSN?tsn=24818\\\#\# http://www.itis.gov/ITISWebService/services/ITISService/getCommonNamesFromTSN?tsn=30521\\\#\# http://www.itis.gov/ITISWebService/services/ITISService/getCommonNamesFromTSN?tsn=33245\\\#\# http://www.itis.gov/ITISWebService/services/ITISService/getCommonNamesFromTSN?tsn=30574\\\#\# http://www.itis.gov/ITISWebService/services/ITISService/getCommonNamesFromTSN?tsn=38040\\\#\# http://www.itis.gov/ITISWebService/services/ITISService/getCommonNamesFromTSN?tsn=36822}}\begin{alltt}
 
 \hlcomment{# Unfortunately, common names are not standardized like species names, so}
 \hlcomment{# there are multiple common names for each taxon}
@@ -159,25 +247,7 @@ class_list <- \hlfunctioncall{classification}(tsns)
 \end{alltt}
 
 
-{\ttfamily\noindent\itshape\color{messagecolor}{\#\# http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=36616}}
-
-{\ttfamily\noindent\itshape\color{messagecolor}{\#\# http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=183327}}
-
-{\ttfamily\noindent\itshape\color{messagecolor}{\#\# http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=31037}}
-
-{\ttfamily\noindent\itshape\color{messagecolor}{\#\# http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=181834}}
-
-{\ttfamily\noindent\itshape\color{messagecolor}{\#\# http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=24818}}
-
-{\ttfamily\noindent\itshape\color{messagecolor}{\#\# http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=30521}}
-
-{\ttfamily\noindent\itshape\color{messagecolor}{\#\# http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=33245}}
-
-{\ttfamily\noindent\itshape\color{messagecolor}{\#\# http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=30574}}
-
-{\ttfamily\noindent\itshape\color{messagecolor}{\#\# http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=38040}}
-
-{\ttfamily\noindent\itshape\color{messagecolor}{\#\# http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=36822}}\begin{alltt}
+{\ttfamily\noindent\itshape\color{messagecolor}{\#\# http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=36616\\\#\# http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=183327\\\#\# http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=31037\\\#\# http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=181834\\\#\# http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=24818\\\#\# http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=30521\\\#\# http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=33245\\\#\# http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=30574\\\#\# http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=38040\\\#\# http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=36822}}\begin{alltt}
 \hlfunctioncall{sapply}(class_list, nrow)
 \end{alltt}
 \begin{verbatim}
@@ -234,16 +304,16 @@ phylogeny <- \hlfunctioncall{phylomatic_tree}(taxa = \hlfunctioncall{as.characte
 \end{alltt}
 
 
-{\ttfamily\noindent\color{warningcolor}{\#\# Warning: No parallel backend registered}}
-
-{\ttfamily\noindent\color{warningcolor}{\#\# Warning: executing \%dopar\% sequentially: no parallel backend registered}}\begin{alltt}
+{\ttfamily\noindent\color{warningcolor}{\#\# Warning: No parallel backend registered\\\#\# Warning: executing \%dopar\% sequentially: no parallel backend registered}}\begin{alltt}
 \hlcomment{# Format teeth-labels}
 phylogeny$tip.label <- \hlfunctioncall{capwords}(phylogeny$tip.label, onlyfirst = TRUE)
 \hlcomment{# plot phylogeny}
 \hlfunctioncall{plot}(phylogeny)
 \end{alltt}
 \end{kframe}
-\includegraphics[width=4in,height=4in]{figure/phylogeny} 
+\includegraphics[width=4in,height=4in]{figure/phylogeny1} 
+
+\includegraphics[width=4in,height=4in]{figure/phylogeny2} 
 
 \end{knitrout}
 
@@ -276,40 +346,6 @@ Now we can search for occurrences for our species list and make a map.
 \hlcomment{# get occurences}
 occurr_list <- \hlfunctioncall{occurrencelist_many}(\hlfunctioncall{as.character}(allnames$spname), coordinatestatus = TRUE, 
     maxresults = 100, removeZeros = TRUE, fixnames = \hlstring{"changealltorig"})
-\end{alltt}
-
-
-{\ttfamily\noindent\color{warningcolor}{\#\# Warning: NAs introduced by coercion}}
-
-{\ttfamily\noindent\color{warningcolor}{\#\# Warning: NAs introduced by coercion}}
-
-{\ttfamily\noindent\color{warningcolor}{\#\# Warning: NAs introduced by coercion}}
-
-{\ttfamily\noindent\color{warningcolor}{\#\# Warning: NAs introduced by coercion}}
-
-{\ttfamily\noindent\color{warningcolor}{\#\# Warning: NAs introduced by coercion}}
-
-{\ttfamily\noindent\color{warningcolor}{\#\# Warning: NAs introduced by coercion}}
-
-{\ttfamily\noindent\color{warningcolor}{\#\# Warning: NAs introduced by coercion}}
-
-{\ttfamily\noindent\color{warningcolor}{\#\# Warning: NAs introduced by coercion}}
-
-{\ttfamily\noindent\color{warningcolor}{\#\# Warning: NAs introduced by coercion}}
-
-{\ttfamily\noindent\color{warningcolor}{\#\# Warning: NAs introduced by coercion}}
-
-{\ttfamily\noindent\color{warningcolor}{\#\# Warning: NAs introduced by coercion}}
-
-{\ttfamily\noindent\color{warningcolor}{\#\# Warning: NAs introduced by coercion}}
-
-{\ttfamily\noindent\color{warningcolor}{\#\# Warning: NAs introduced by coercion}}
-
-{\ttfamily\noindent\color{warningcolor}{\#\# Warning: NAs introduced by coercion}}
-
-{\ttfamily\noindent\color{warningcolor}{\#\# Warning: NAs introduced by coercion}}
-
-{\ttfamily\noindent\color{warningcolor}{\#\# Warning: NAs introduced by coercion}}\begin{alltt}
 
 \hlcomment{# Make a map}
 p <- \hlfunctioncall{gbifmap}(occurr_list) + \hlfunctioncall{guides}(col = \hlfunctioncall{guide_legend}(title = \hlstring{""}, nrow = 3, 
@@ -318,14 +354,14 @@ p <- \hlfunctioncall{gbifmap}(occurr_list) + \hlfunctioncall{guides}(col = \hlfu
 \end{alltt}
 
 
-{\ttfamily\noindent\itshape\color{messagecolor}{\#\# Rendering map...plotting 623 points}}\begin{alltt}
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error: could not find function "gbifmap"}}\begin{alltt}
 p
 \end{alltt}
-\end{kframe}\begin{figure}[h]
-
-\includegraphics[width=.9\textwidth]{figure/plot_map} \caption[A map]{A map\label{fig:mapplot_map}}
-\end{figure}
 
 
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error: object 'p' not found}}\end{kframe}
 \end{knitrout}
 
+
+
+\end{document}

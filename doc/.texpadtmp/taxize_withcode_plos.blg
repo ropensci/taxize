@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2012)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: taxize_withcode_plos.aux
+The style file: ../plos2009.bst
+Database file #1: ../refs.bib
+Warning--I didn't find a database entry for "stringr"
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+You've used 42 entries,
+            2441 wiz_defined-function locations,
+            761 strings with 11749 characters,
+and the built_in function-call counts, 24429 in all, are:
+= -- 2171
+> -- 340
+< -- 0
++ -- 170
+- -- 85
+* -- 1841
+:= -- 2838
+add.period$ -- 119
+call.type$ -- 42
+change.case$ -- 57
+chr.to.int$ -- 0
+cite$ -- 84
+duplicate$ -- 2535
+empty$ -- 2681
+format.name$ -- 100
+if$ -- 5438
+int.to.chr$ -- 0
+int.to.str$ -- 42
+missing$ -- 356
+newline$ -- 260
+num.names$ -- 42
+pop$ -- 600
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 266
+stack$ -- 0
+substring$ -- 2981
+swap$ -- 680
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 157
+width$ -- 44
+write$ -- 499
+(There was 1 warning)

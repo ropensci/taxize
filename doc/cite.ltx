@@ -1,0 +1,248 @@
+%
+%  cite.ltx   Manual for cite.sty
+%
+%
+%  Copyright (c) 1989-2010 by Donald Arseneau
+%
+%  Version date (Sep 2010)
+%
+\documentclass[12pt,a4paper]{ltxdoc}
+%\overfullrule=1pt
+\addtolength{\textwidth}{1cm}
+\MakeShortVerb{\"}
+\hyphenpenalty=600
+\newcommand\snugger{\vspace{-7pt}}
+\sloppy
+
+\setlength\parskip{2pt}
+
+\title{The cite package:\\ well formed numeric citations}
+\author{Donald Arseneau\\ asnd@triumf.ca}
+\date{2010/09/10}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+  The cite package modifies \LaTeX's normal citation mechanism for 
+improved handling of numeric citations. It provides compressed, sorted 
+lists of numerical or partly-numerical citations, as regular text or 
+superscripts.  Generally, no changes to the usage of \cs{cite} commands
+is required.
+\end{abstract}
+
+
+\begin{footnotesize}
+\noindent The cite package is Copyright \copyright\ 1989--2010 by 
+Donald Arseneau (Vancouver, Canada).\\
+The package (cite.sty) and this documentation (cite.ltx,cite.pdf) may be 
+freely transmitted, reproduced, or modified for any purpose provided that the
+copyright notice is left intact.
+(Small excerpts may of course be taken and used without any restriction.)
+\par
+\end{footnotesize}
+
+\section*{Normal Use}
+Insert "\usepackage{cite}" in the document's preamble for improved handling
+of numeric citations, behaving as follows:
+
+\snugger\paragraph*{Spacing} Put a comma and a small space between 
+  each citation number. The option [nospace] removes that space, and
+  the option [space] replaces it with an ordinary inter-word space.
+
+\snugger\paragraph*{Compress groups} Compress lists of three or more
+  consecutive numbers to one number range which can be split, with
+  difficulty, after the dash.  All numbers should be greater than zero.
+  E.g., if you used to get the (nonsense) list 
+  [7,5,6,?,4,9,8,Einstein,6], then this style will give [?,Einstein,4--6,6--9].
+  Compression of ranges is disabled by the [nocompress] package option.
+
+\snugger\paragraph*{Sorting} Sort citations into ascending order
+ (this is the default, but may also be declared with the package
+ option [sort]). The [nosort] package option turns off sorting.
+  Sortable citations must fit one of these forms:
+   \begin{enumerate}\itemsep=-\parsep
+    \item  \meta{number}
+    \item  \meta{optional-char}\meta{number}\meta{optional-char}
+    \item  \meta{number}\meta{separator-char}\meta{number}
+  \end{enumerate}
+  Forms 1 and 2 are really the same, and they mix well, but form 3 is
+  different, so it can't be mixed with the other forms (not that you 
+  would want to).
+  Non-sortable forms (those not listed) are printed before
+  all sortable forms.  Here \meta{number} means a positive integer (natural 
+  number) less than some limit (different for each form), \meta{optional-char}
+  is a single printable character (or nothing), and \meta{separator-char} 
+  is also a single printable character.
+
+\snugger\paragraph*{Prefix/suffix letters} Sort citations with prefix 
+  and/or suffix characters (form~2) such that
+  different prefixes are grouped separately, and suffixes form sub-lists 
+  for the same number.  Compression knows about suffixes, so you can get
+  lists like [18a--18c,19] or [A2,Q1,Q3--Q5].
+
+\snugger\paragraph*{Numbers alone}  The command "\citen" is provided to give
+  just the citation numbers without the brackets or superscript
+  and other formatting.  Aliases are "\citenum" and "\citeonline" for easy
+  conversion to other citation packages.
+
+\snugger\paragraph*{Breaks} Allow, but discourage, line breaks within
+  the group of citations (after dashes, and after punctuation). 
+  Penalties are "\citepunctpenalty" and "\citemidpenalty". 
+
+\snugger\paragraph*{Breaks and spaces before} Allow but strongly discourage
+  line-breaks before the entire citation, provided it is a regular text 
+  cite (not superscript) and no different penalty was specified there
+  (thus, "~\cite{X}" will not permit a line break).  Also, adjust the 
+  spacing: if there is no space or if there is extra space due to some 
+  punctuation, then change to one inter-word space; e.g.,   
+  "A space will be inserted here\cite{Larry,Curly,Moe}".
+
+\snugger\paragraph*{Prohibiting breaks} All breaks can be forbidden 
+  with the [nobreak] package option.  Allowance of any type of line break can 
+  be adjusted independently by setting the parameters "\citeprepenalty", 
+  "\citemidpenalty", and "\citepunctpenalty" (see Customization below).
+
+\snugger\paragraph*{Superscript} With package option [superscript] 
+  (or [super] for short), display citation numbers as superscripts.
+  But if the citation has an optional note, it is printed on-line
+  with brackets.  Superscripted citations follow these additional rules:
+  \begin{itemize}
+   \setlength\itemsep{0pt}
+
+\item Superscript citations use \emph{the same input format} as ordinary
+   citations to produce different output. Blank space before the |\cite|
+   command is discarded, and trailing punctuation is moved to come before
+   the superscript citation. For example, `"information \cite{source};"'
+   ignores the space before "\cite" and puts the semicolon before the number
+   to give `information;$^{12}$\,', just as if you typed `"information;$^{12}$"'.
+   You may disable movement with the [nomove] package option.
+
+\item The punctuation characters that will migrate before the superscript are
+   listed in the macro "\CiteMoveChars", which you can redefine (using 
+   "\renewcommand").  The default set of characters is ".,;:";  Perhaps 
+   "!"~and~"?" should be included too, but
+   they weren't listed in the APS style manual I looked at, and I agree with 
+   that design choice because they put too much visual separation between the 
+   cite and what it applies to.  Feel free to redefine "\CiteMoveChars".  Quotes
+   were listed as coming before the cite notation, but they should be typed 
+   before the "\cite" command in any case because both on-line and superscript
+   cites come after what is quoted (when citing a quotation). This gives one
+   difficulty~-- punctuation following quotes won't migrate inside the 
+   quotation: e.g., "``Transition State Theory''\cite{Eyring}." gives out
+   ``Transition State Theory''.$^8$, but you may want the period inside the
+   quotes, thus: ``Transition State Theory.''$^8$.
+
+\item Doubling of periods (.., ?., !.) is checked for and suppressed.
+   The spacing after the citation is set according to the final punctuation
+   mark moved. There is a problem with double periods after a capitalized
+   abbreviation or directly after "\@" : Both of `"N.S.A. \cite{space}."' and 
+   `"et al.\@ \cite{many}."' will give doubled periods.  Type `"\ "' (backslash 
+   space) after abbreviations like `et al.'  ("et al.\ \cite{many}.")
+   to get the right spacing within a sentence whether or not a citation follows,
+   and prevent double periods with the superscript cite. You could use "\@" to 
+   fix the N.S.A. example ("N.S.A\@. \cite{space}.") but that gives the wrong
+   spacing when there is no citation, so it should be inserted only where a
+   cite follows.
+
+\item Remember, these rules regarding punctuation only apply when the [super]
+   or [superscript] option was given (or overcite.sty used) and the [nomove]
+   option was \emph{not} given.
+
+\end{itemize}
+
+\section*{Customization}
+
+There are several options for "\usepackage{cite}", some already mentioned.
+\begin{center}
+\begin{tabular}{lp{0.75\linewidth}}
+ [superscript]& use superscripts for cites without optional notes\\\relax
+ [super]      & alias for [superscript] (like natbib)\\\relax
+ [ref]        & uses the format "[Ref.~12, given note]" (useful with 
+               the superscript option)\\\relax
+ [nospace]    & eliminates the spaces after commas in the number list\\\relax
+ [space]      & uses a full inter-word space after the commas\\\relax
+ [nobreak]    & eliminate all line-breaks\\\relax
+ [nosort]     & prevents sorting of the numbers (default is to sort, and the\dots\\\relax
+ [sort]       & option is provided for completeness).\\\relax
+ [nomove]     & prevents moving the superscript cite after punctuation\\\relax
+ [move]       & is the default\\\relax
+ [noadjust]   & disables `smart' handling of space before a cite\\\relax
+ [adjust]     & is the default\\\relax
+ [nocompress] & inhibit compression of consecutive numbers into ranges\\\relax
+ [compress]   & is the default\\\relax
+ [biblabel]   & define the bibliography label as a superscript
+\end{tabular}
+\end{center}
+
+If your citations are not numeric, and not of any near-numeric sortable form,
+then you should probably not use cite.sty; but if you must, then at least 
+use the [nosort,nocompress] options.
+
+There are several commands that you may redefine to change the 
+formatting of citation lists:
+
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+command      &    function          &          default\\
+\hline
+\cs{citeform}      &  reformats each number      & nothing\\
+\cs{citepunct}     &  printed between numbers    & comma, penalty, thin space\\
+\cs{citeleft}      &  left delimiter of list     & [\\
+\cs{citeright}     &  right delimeter of list    & ]\\
+\cs{citemid}       &  printed before note        & comma, penalty, space\\
+\cs{citedash}      &  used in compressed range   & endash, penalty\\
+\cs{CiteMoveChars} &  characters that move        & \texttt{.,:;}\\
+\cs{OverciteFont}  &  font sel. for superscripts & \relax"\fontsize{\sf@size}"\dots\\
+\end{tabular}
+\end{center}
+
+The left/mid/right commands don't affect the formatting of superscript
+citations.  You may use "\renewcommand" to change any of these.  Remember,
+these commands are extensions made by this package; they are not regular
+LaTeX.  Some examples of changes:
+
+\begin{flushleft}
+"\renewcommand\citeform[1]{\romannumeral 0#1}}" $\to$  roman i,vi\\
+"\renewcommand\citeform[1]{(#1)}" $\to$  parentheses (1)--(5),(9)\\
+"\renewcommand\citeform{\thechapter.}" $\to$  by chapter: \textsuperscript{2.18--2.21}\\
+"\renewcommand\citepunct{,}" $\to$  no space and no breaks at commas\\
+"\renewcommand\citemid{; }" $\to$  semicolon before optional note\\
+"\renewcommand\citeleft{(}" $\to$  parentheses around whole\\
+"\renewcommand\citeright{)}" $\to$  parentheses around whole list\\
+\end{flushleft}
+
+The appearance of the whole citation list is governed by "\@cite", (for 
+full-sized cites) and "\@citess" (for superscripts).  For more extensive changes 
+to the formatting, redefine these.  For example, to get brackets around the 
+list of superscript numbers you can do:\\[2pt]
+\indent "\renewcommand\@citess[1]{\textsuperscript{[#1]}}"\\[2pt]
+(after "\makeatletter").
+
+Related Note:  The superscript option does not affect the numbering format
+of the bibliography; the "[12]" style is still the default.  To get
+superscripts in the bibliography (at any time) you can define\\[2pt]
+\indent
+   "\renewcommand\@biblabel[1]{\textsuperscript{#1}}"\\[2pt]
+Aw, OK, for your convenience, there is the [biblabel] package option that
+just performs this definition (sort of).
+
+Line breaking can be turned off using the [nobreak] option.  It can be
+controlled more precisely by changing three numeric values for the 
+line-break penalties:
+\begin{center}
+\begin{tabular}{lll}
+Command & Location  & Default \\
+\hline
+\cs{citeprepenalty} &  before entire cite  &  "\@highpenalty"\\
+\cs{citemidpenalty} &  used in "\citemid"  &  "\@medpenalty"\\
+\cs{citepunctpenalty}&  used in "\citepunct" &  1000
+\end{tabular}
+\end{center}
+Use "\mathchardef" to change these penalty values!  E.g., \\
+\indent "\mathchardef\citeprepenalty=9999"\\ 
+(Yes, that is obscure but I don't want to use up counters or to
+pretend they are counters.)  Alternatively, the commands "\citemid", 
+"\citedash", and "\citepunct" can be redefined to use different 
+penalty parameters, or none at all.
+
+\end{document}
