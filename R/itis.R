@@ -1011,21 +1011,19 @@ getsynonymnamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() )
   if(!is.na(tsn))
     args$tsn <- tsn
   message(paste(url, '?tsn=', tsn, sep=''))
-  tt <- getForm(url,
-    .params = args,
-#     ...,
-    curl = curl)
+  tt <- getForm(url,.params = args,...,curl = curl)
   out <- xmlParse(tt)
   namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd")
-  nodes <- getNodeSet(out, "//ax21:name", namespaces=namespaces)
+  nodes <- getNodeSet(out, "//ax21:sciName", namespaces=namespaces)
   if( length(sapply(nodes, xmlValue)) == 0){ name <- list("nomatch") } else
     { name <- sapply(nodes, xmlValue) }
   nodes <- getNodeSet(out, "//ax21:tsn", namespaces=namespaces)
   if( length(sapply(nodes, xmlValue)) == 1){ tsn <- sapply(nodes, xmlValue) } else
-    { tsn <- sapply(nodes, xmlValue) 
-      tsn <- tsn[-length(tsn)]
+    { 
+      tsn <- sapply(nodes, xmlValue) 
+      tsn <- tsn[-1]
     } 
-  data.frame(name=name[[1]], tsn=tsn)
+  data.frame(name=name, tsn=tsn)
 }
 
 #' Returns the author information for the TSN.
