@@ -194,7 +194,7 @@ tax_name(query = "Helianthus annuus", get = "family", db = "itis")
 tax_name(query = "Helianthus annuus", get = "family", db = "ncbi")
 @
 
-I may happen that a data source does not provide information on the querried species, than one could take the result from another source and union the results from the different sources.
+I may happen that a data source does not provide information on the queried species, than one could take the result from another source and union the results from the different sources.
 
 \subsection*{Interactive name selection}
 As mentioned most databases use a numeric code to reference a species. A general workflow in taxize is: Retrieve Code for the queried species and then use this code to query more data/information.
@@ -228,7 +228,7 @@ tree$tip.label <- capwords(tree$tip.label)
 plot(tree, cex=1)
 @
 
-<<phylomaticphylogeny, eval=TRUE, dev='pdf', out.width='4in', out.height='4in', cache=TRUE, include=FALSE>>=
+<<phylomaticphylogeny, eval=TRUE, dev=c ('pdf','tiff'), dpi=300, out.width='4in', out.height='4in', cache=TRUE, include=FALSE>>=
 # Input the taxonomic names
 taxa <- c("Poa annua", "Abies procera", "Helianthus annuus")
 
@@ -283,7 +283,7 @@ It turns out that there are 430 different unique records found. However, this do
 
 
 \subsection*{Matching species tables with different taxonomic resolution}
-Biologist often need to match different sets of data tied to species. For example, trait-based approaches are a promising tool in ecology \cite{statzner_can_2010}. One problem is that abundance data must be matched with trait databases like \cite{usseglio-polatera_biological_2000}. These two data tables may contain species information on different taxonomic levels and possibly data must be aggregated to a joint taxomic level, so that the data can be merged. taxize can help in this data-cleaning step, providing a reproducible workflow: 
+Biologist often need to match different sets of data tied to species. For example, trait-based approaches are a promising tool in ecology \cite{statzner_can_2010}. One problem is that abundance data must be matched with trait databases like \cite{usseglio-polatera_biological_2000}. These two data tables may contain species information on different taxonomic levels and possibly data must be aggregated to a joint taxonomic level, so that the data can be merged. taxize can help in this data-cleaning step, providing a reproducible workflow: 
 
 We can use the mentioned \emph{classification}-function to retrieve the taxonomic hierarchy and then search the hierarchies up- and downwards for matches. Here is an example to match a species with names on three different taxonomic levels.
 
@@ -322,7 +322,7 @@ agg
 head(agg$x)
 @
 
-We see that the two Juncus species are aggregated to Juncaceae and their abundances are summed up. If a taxon is one lower taxonomic resolution then the querried or the taxon is not found in the database then these are not aggregated and returned as is.
+We see that the two \emph{Juncus} species are aggregated to Juncaceae and their abundances are summed up. If a taxon is one lower taxonomic resolution then the queried or the taxon is not found in the database then these are not aggregated and returned as is.
 
 
 \section*{Conclusions}
@@ -347,7 +347,7 @@ The taxize package is part of the rOpenSci project \url{http://ropensci.org/}. W
 \includegraphics[width=4in]{figure/phylomaticphylogeny.pdf}
 \end{center}
 \caption{
-{\bf A Phylogeny for the three species.}
+{\bf A phylogeny for three species. This phylogeny was produced using the \emph{phylomatic\_tree} function, which queries the Phylomatic database, and prunes a previously created phylogeny of plants.}
 }
 \label{fig:phylomatic}
 \end{figure}
@@ -400,7 +400,7 @@ get\_tsn & Get ITIS TSN & Integrated Taxonomic Information System \cite{itis}  \
 get\_uid & Get NCBI UID & National Center for Biotechnology Information \cite{federhen}  \\
 searchbycommonname & Search ITIS by common name & Integrated Taxonomic Information System \cite{itis}  \\
 searchbyscientificname & Search ITIS by scientific name & Integrated Taxonomic Information System \cite{itis}  \\
-gisd\_isinvasive & Inasiveness status & Global Invasive Species Database \cite{gisd}  \\
+gisd\_isinvasive & Invasiveness status & Global Invasive Species Database \cite{gisd}  \\
 gni\_parse & Parse scientific names into components & Global Names Index \cite{eol,eolgni}   \\
 gni\_search & Search EOL's global names index & Global Names Index \cite{eol,eolgni}   \\
 gnr\_resolve & Resolve names using EOL's global names index & Global Names Resolver \cite{eol,eolgnr}  \\
