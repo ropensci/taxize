@@ -9,16 +9,15 @@ colorlinks = true, linkcolor = blue, citecolor = blue, urlcolor = blue,
 
 \begin{document}
 <<setup, include=FALSE, cache=FALSE>>=
-## set global chunk options
-opts_chunk$set(fig.path='figure/', fig.align='center', fig.show='hold', par=TRUE, warning=FALSE, message=FALSE, error=FALSE, comment=NA)
+opts_chunk$set(fig.align='center', fig.show='hold', par=TRUE, warning=FALSE, message=FALSE, error=FALSE, comment=NA)
 @
 
 \begin{appendices}
-<<appA, child='taxize_withcode_appA.Rnw', eval=TRUE>>=
+<<appA, child='taxize_withcode_appA.Rnw', eval=TRUE, fig.path='figure/'>>=
 @
 
 \newpage
-<<appB, child='taxize_withcode_appB.Rnw', eval=TRUE>>=
+<<appB, child='taxize_withcode_appB.Rnw', eval=TRUE, fig.path='figure/'>>=
 @
 \end{appendices}
 

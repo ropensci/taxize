@@ -10,6 +10,7 @@
 
 \documentclass[11pt]{article}
 
+\usepackage[margin=1in]{geometry}
 \usepackage{color} 
 
 % Use doublespacing - comment out for single spacing
@@ -18,11 +19,10 @@
 
 
 % Text layout
-\topmargin 0.0cm
-\oddsidemargin 1cm
-\evensidemargin 1cm
+% \topmargin 0.0cm
+% \oddsidemargin 0.75cm
+% \evensidemargin 0.75cm
 % \textwidth 16cm 
-% \textheight 21cm
 
 % Bold the 'Figure #' in the caption and separate it with a period
 % Captions will be left justified
@@ -32,21 +32,16 @@
 
 Dear Editor,
 
-Please find enclosed the manuscript “taxize: taxonomic search and retrieval in R” that we are re-submitting for publication as an article to PLOS One. 
+Please find enclosed the manuscript \emph{taxize: taxonomic search and retrieval in R} that we are re-submitting for publication as an article to PLOS One. 
 
-Our manuscript is an excellent candidate for PLOS One because it describes a \emph{taxonomic toolbelt} in the form of new open source software for the R programming language. Taxonomy is likely used by all biologists, whether they look up the sister species of their single study species for a new experiment, or use taxonomy as the basis for creating phylogenetic trees. XXXXXX. Previous software and papers discussing the software include X, Y, and Z. Those software packages perform different tasks than our software. Our software is targeted at the most widely used statistical programming language, R, that many scientists already use. We aim to bring a taxonomic toolkit to scientists working in R. The previous works in this area (X, Y, and Z) XXXX. 
+Our manuscript is an excellent candidate for PLOS One because it describes a \emph{taxonomic toolbelt} in the form of new open source software for the R programming language. Taxonomy is likely used by all biologists, whether they look up the sister species of their single study species for a new experiment, or use taxonomy as the basis for creating phylogenetic trees. taxize interacts with a large suite of databases online to connect researchers to taxonomic data. This is extremely important as taxize allows researchers to validate species names, look up synonyms, get higher taxonomic names, and more, all within their data analysis workflow in R - which ultimately makes for more reproducible science. Previous software and papers discussing similar software include desktop software (Linnaeus, OrganismTagger), and web based tools (Encyclopedia of Life, Integrated Taxonomic Information Service, and more). However, the desktop applications mentioned, and those not mentioned, are GUI environments - thus, do not plug in to existing workflows for scientists.  The web tools mentioned, and those not mentioned, are largely accessible by taxize. In addition, accessing data through a web interface is not ideal as it is not reproducible, and gets very time consuming for large tasks. Our software is targeted at the most widely used statistical programming language, R, that many scientists already use. We aim to bring a taxonomic toolkit to scientists working in R.
 
-We are submitting this manuscript as a Research article. There has been no prior interaction with PLOS with respect to this manuscript. This manuscript has benefited from the comments of Carl Boettiger, Karthik Ram, Owen Jones, Naim Matasci, and Ralf Sch\"{a}fer. The material presented in this manuscript has not been published previously, nor is it under consideration for publication elsewhere. The authors have no professional or financial affiliations that bias this publication.
+We are submitting this manuscript as a Research article. There has been no prior interaction with PLOS with respect to this manuscript. This manuscript has benefited from the comments of Carl Boettiger, Karthik Ram, Owen Jones, Naim Matasci, and Ralf Sch\"{a}fer. The material presented in this manuscript has not been published previously, nor is it under consideration for publication elsewhere. The authors have no professional or financial affiliations that bias this publication. Thank you for considering our work for publication in PLOS One.
 
-Thank you for considering our work for publication in PLOS One.
-
+\flushleft
 Sincerely yours,
 
-Scott Chamberlain
-
-Eduard Sz\"{o}cs
-
-* Corresponding Author: 
-Scott Chamberlain, Department of Biology Simon Fraser University Burnaby, BC, Canada
+Scott Chamberlain and Eduard Sz\"{o}cs
+\endflushleft
 
 \end{document}

@@ -8,6 +8,7 @@ maps
 permute
 plyr
 RCurl
+reshape2
 rgbif
 rjson
 sacbox

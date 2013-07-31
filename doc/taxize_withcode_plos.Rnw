@@ -344,7 +344,7 @@ The taxize package is part of the rOpenSci project \url{http://ropensci.org/}. W
 \section*{Figure Legends}
 \begin{figure}[!ht]
 \begin{center}
-\includegraphics[width=4in]{figure/phylomaticphylogeny.pdf}
+% \includegraphics[width=4in]{figure/phylomaticphylogeny.pdf}
 \end{center}
 \caption{
 {\bf A phylogeny for three species. This phylogeny was produced using the \emph{phylomatic\_tree} function, which queries the Phylomatic database, and prunes a previously created phylogeny of plants.}

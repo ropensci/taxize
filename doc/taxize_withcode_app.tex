@@ -1,4 +1,4 @@
-\documentclass[letterpaper,superscriptaddress,showkeys,longbibliography,10pt]{revtex4-1}\usepackage{graphicx, color}
+\documentclass[letterpaper,superscriptaddress,showkeys,longbibliography,10pt]{revtex4-1}\usepackage[]{graphicx}\usepackage[]{color}
 %% maxwidth is the original width if it is less than linewidth
 %% otherwise use linewidth (to make sure the graphics do not exceed the margin)
 \makeatletter
@@ -128,7 +128,7 @@ splist_tnrs <- \hlfunctioncall{tnrs}(query = splist, getpost = \hlstring{"POST"}
 10       Rosa california     Rosa californica iPlant_TNRS  0.99
 9         Datura wrighti      Datura wrightii iPlant_TNRS  0.98
 7       Mimulus bicolour      Mimulus bicolor iPlant_TNRS  0.98
-8       Nicotiana glauca     Nicotiana glauca iPlant_TNRS  1.00
+8       Nicotiana glauca     Nicotiana glauca iPlant_TNRS     1
 6          Maddia sativa         Madia sativa iPlant_TNRS  0.97
 2    Bartlettia scapposa   Bartlettia scaposa iPlant_TNRS  0.98
 \end{verbatim}
@@ -260,7 +260,8 @@ phylogeny$tip.label <- \hlfunctioncall{capwords}(phylogeny$tip.label, onlyfirst 
 \end{alltt}
 \end{kframe}
 
-{\centering \includegraphics[width=4in,height=4in]{figure/phylogeny} 
+{\centering \includegraphics[width=4in]{figure/phylogeny1.pdf} 
+\includegraphics[width=4in]{figure/phylogeny2.pdf} 
 
 }
 
@@ -304,17 +305,7 @@ p <- \hlfunctioncall{gbifmap}(occurr_list) + \hlfunctioncall{guides}(col = \hlfu
     \hlfunctioncall{coord_equal}()
 p
 \end{alltt}
-\end{kframe}\begin{figure}[h]
-
-
-{\centering \includegraphics[width=.9\textwidth]{figure/plot_map} 
-
-}
-
-\caption[A map]{A map\label{fig:mapplot_map}}
-\end{figure}
-
-
+\end{kframe}
 \end{knitrout}
 
 
@@ -323,13 +314,14 @@ p
 
 \section{Matching species tables with different taxonomic resolution} 
 
-Trait-based approaches are a promising tool in ecology. Unlike taxonomy-based methods, traits may not be constrained to biogeographic boundaries \citep{baird_toward_2011} and have potential to disentangle the effects of multiple stressors \citep{statzner_can_2010}. 
+Trait-based approaches are a promising tool in ecology. Unlike taxonomy-based methods, traits may not be constrained to biogeographic boundaries \cite{baird_toward_2011} and have potential to disentangle the effects of multiple stressors \cite{statzner_can_2010}. 
 
-To analyse trait-composition abundance data must be matched with trait databases like \citet{usseglio-polatera_biological_2000}. However these two datatables may contain species information on different taxonomic levels and perhaps data must be aggregated to a joint taxonomic level.
+To analyse trait-composition abundance data must be matched with trait databases like \cite{usseglio-polatera_biological_2000}. However these two datatables may contain species information on different taxonomic levels and perhaps data must be aggregated to a joint taxonomic level.
 
 taxize can help in this data-cleaning step, providing a reproducible workflow. Here we illustrate this on a small fictitious example.
 
 Suppose we have fuzzy coded trait table with 2 traits with 3 respectively 2 modalities:
+
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
@@ -408,7 +400,7 @@ The we query the taxonomic hierarchy for both tables, this will be the backbone 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlfunctioncall{require}(taxize)
+\hlfunctioncall{library}(taxize)
 traits_classi <- \hlfunctioncall{classification}(\hlfunctioncall{get_uid}(traits$taxon_cleaned))
 lookup_classi <- \hlfunctioncall{classification}(\hlfunctioncall{get_uid}(lookup$taxon))
 \end{alltt}
@@ -474,7 +466,7 @@ lookup
 \end{knitrout}
 
 
-So our abundance data has two Gammarus species, however trait data is only on genus level.
+So our abundance data has two \emph{Gammarus} species, however trait data is only on genus level.
 
 
 The next step is to search for species were we have to aggregate trait-data, since our abundance data is on a lower taxonomic level.
@@ -527,7 +519,7 @@ abundances <- abundances[!abundances$taxon == lookup$taxon[\hlfunctioncall{is.na
 
 
 
-No we can create \emph{species x sites} and \emph{traits x species} matrices, which could be plugged into methods to analyse trait responses \citep{kleyer_assessing_2012}.
+No we can create \emph{species x sites} and \emph{traits x species} matrices, which could be plugged into methods to analyse trait responses \cite{kleyer_assessing_2012}.
 
 
 \begin{knitrout}
@@ -536,7 +528,7 @@ No we can create \emph{species x sites} and \emph{traits x species} matrices, wh
 \hlcomment{# species (as matched with trait table) by site matrix}
 abundances$traits_taxa <- lookup$traits[\hlfunctioncall{match}(\hlfunctioncall{tolower}(abundances$taxon), lookup$taxon)]
 
-\hlfunctioncall{require}(reshape2)
+\hlfunctioncall{library}(reshape2)
 \hlcomment{# reshape data to long format and name rows by samples}
 L <- \hlfunctioncall{dcast}(abundances, sample ~ traits_taxa, fun.aggregate = sum, value.var = \hlstring{"abundance"})
 \hlfunctioncall{rownames}(L) <- L$sample
@@ -574,7 +566,7 @@ potamopyrgus antipodarum     1    0    3    1    3
 \end{knitrout}
 
 
-This is just an example how taxonomic APIs (via taxize) could be used to search for matches up- and downwards the taxonomic ladder. We are looking forward to integrate the freshwaterecology.info database \citep{freshwaterecology} into taxize, which will facilitate trait-based analyses in R.
+This is just an example how taxonomic APIs (via taxize) could be used to search for matches up- and downwards the taxonomic ladder. We are looking forward to integrate the freshwaterecology.info database \cite{freshwaterecology} into taxize, which will facilitate trait-based analyses in R.
 
 \end{appendices}
 

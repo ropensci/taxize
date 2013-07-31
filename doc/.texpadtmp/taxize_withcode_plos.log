@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.5.23)  30 JUL 2013 13:51
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.5.23)  31 JUL 2013 15:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -470,7 +470,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 713.
 Here is how much of TeX's memory you used:
  7398 strings out of 493481
  110923 string characters out of 3140965
- 201402 words of memory out of 3000000
+ 201404 words of memory out of 3000000
  10496 multiletter control sequences out of 15000+200000
  8083 words of font info for 31 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
@@ -484,7 +484,7 @@ r/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
 /local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/
 local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
 Output written on /Users/scottmac2/github/ropensci/taxize_/doc/.texpadtmp/taxiz
-e_withcode_plos.pdf (21 pages, 173072 bytes).
+e_withcode_plos.pdf (21 pages, 173095 bytes).
 PDF statistics:
  340 PDF objects out of 1000 (max. 8388607)
  303 compressed objects within 4 object streams
