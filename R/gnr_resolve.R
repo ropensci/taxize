@@ -9,15 +9,17 @@
 #' @param resolve_once logical; Find the first available match instead of 
 #'    matches across all data sources with all possible renderings of a name. 
 #'    When \code{TRUE}, response is rapid but incomplete.
-#' @param with_context logical; Reduce the likelihood of matches to taxonomic homonyms. 
-#'    When \code{TRUE} a common taxonomic context is calculated for all supplied names 
-#'    from matches in data sources that have classification tree paths. Names out 
-#'    of determined context are penalized during score calculation.
-#' @param stripauthority logical; If \code{TRUE}, gives back names with taxonomic authorities. If \code{FALSE}, 
-#'    strips author names.
-#' @param highestscore logical; Return those names with the highest score for each searched name?
-#' @param http The HTTP method to use, one of "get" or "post". Default="get". Use 
-#'    http="post" with large queries. 
+#' @param with_context logical; Reduce the likelihood of matches to taxonomic 
+#'    homonyms. When \code{TRUE} a common taxonomic context is calculated for 
+#'    all supplied names from matches in data sources that have classification 
+#'    tree paths. Names out of determined context are penalized during score 
+#'    calculation.
+#' @param stripauthority logical; If \code{TRUE}, gives back names with 
+#'    taxonomic authorities. If \code{FALSE}, strips author names.
+#' @param highestscore logical; Return those names with the highest score for 
+#'    each searched name?
+#' @param http The HTTP method to use, one of "get" or "post". Default="get". 
+#'    Use http="post" with large queries. 
 #' @author Scott Chamberlain {myrmecocystus@@gmail.com}
 #' @return A data.frame.
 #' @seealso \code{\link[taxize]{gnr_datasources}}
@@ -31,11 +33,13 @@
 #' sources<- gnr_datasources()
 #' sources
 #' eol <- sources$id[sources$title == 'EOL']
-#' gnr_resolve(names = c("Helianthos annuus", "Homo sapians"), data_source_ids = eol)
+#' gnr_resolve(names=c("Helianthos annuus","Homo sapians"), data_source_ids=eol)
 #' }
-gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE, with_context = FALSE, 
-                        stripauthority = FALSE, highestscore = TRUE, http="get")
+gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE, 
+                        with_context = FALSE, stripauthority = FALSE, 
+                        highestscore = TRUE, http="get")
 {
+  num = NULL
   url <- "http://resolver.globalnames.org/name_resolvers.json"
   names2 <- paste0(names, collapse = "|")
   args <- compact(list(names=names2, data_source_ids=data_source_ids, resolve_once=resolve_once, 

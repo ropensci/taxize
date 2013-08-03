@@ -4,9 +4,7 @@
 \usage{
   eol_hierarchy(taxonid, common_names = NULL,
     synonyms = NULL, usekey = FALSE,
-    returntype = "data.frame",
-    url = "http://www.eol.org/api/hierarchy_entries/1.0/",
-    key = NULL)
+    returntype = "data.frame", key = NULL)
 }
 \arguments{
   \item{taxonid}{the EOL page identifier (character)}
@@ -21,9 +19,6 @@
 
   \item{returntype}{one of "list" of "data.frame"
   (character)}
-
-  \item{url}{The EOL url for the function (should be left
-  to default).}
 
   \item{key}{Your EOL API key; loads from .Rprofile.}
 }
@@ -42,7 +37,8 @@
 pageid <- eol_search('Pomatomus')$id[1]
 out <- eol_pages(taxonconceptID=pageid)
 eol_hierarchy(out[out$nameAccordingTo == "NCBI Taxonomy", "identifier"])
-eol_hierarchy(out[out$nameAccordingTo == "Integrated Taxonomic Information System (ITIS)", "identifier"])
+eol_hierarchy(out[out$nameAccordingTo == "Integrated Taxonomic Information
+   System (ITIS)", "identifier"])
 }
 }
 

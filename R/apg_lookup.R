@@ -1,4 +1,4 @@
-#' Lookup in the APGII taxonomy and replace family names 
+#' Lookup in the APGII taxonomy and replace family names.
 #' 
 #' @param taxa Taxonomic name to lookup a synonym for in APGII taxonomy.
 #' @param rank Taxonomic rank to lookup a synonym for. One of family or order.

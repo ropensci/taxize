@@ -4,20 +4,23 @@
 #' @param searchName (string) - term to search within name string
 #' @param searchAuth (string) - term to search within name authorship
 #' @param searchYear (string) - term to search within name year
-#' @param order (string) - (name or namebankID) field by which the results will be sorted (default is namebankID)
-#' @param sci (int) - (sci, vern, or all) type of results to be returned (default is all)
-#' @param vern (int) - (limit 1000) maximum number of results to be returned (default is 1000)
-#' @param keyCode Your uBio API key; loads from .Rprofile. If you don't have one, 
-#' 		obtain one at http://www.ubio.org/index.php?pagename=form.
-#' @details Can't seem to get json format results along with specifiying an API key,
-#'    so if you use json your key is not specified at the moment
+#' @param order (string) - (name or namebankID) field by which the results will 
+#' be sorted (default is namebankID)
+#' @param sci (int) - (sci, vern, or all) type of results to be returned 
+#' (default is all)
+#' @param vern (int) - (limit 1000) maximum number of results to be returned 
+#' (default is 1000)
+#' @param keyCode Your uBio API key; loads from .Rprofile. If you don't have 
+#'    one, obtain one at http://www.ubio.org/index.php?pagename=form.
+#' @details Can't seem to get json format results along with specifiying an 
+#'    API key, so if you use json your key is not specified at the moment
 #' @return List or dataframe of XXXX.
 #' @examples \dontrun{
 #' ubio_namebank(searchName = 'elephant', sci = 1, vern = 0)
 #' ubio_namebank(searchName = 'Astragalus aduncus', sci = 1, vern = 0)
 #' }
 #' @export
-ubio_namebank <- function(searchName = NULL, searchAuth = NULL, searchYear = NULL, 
+ubio_namebank <- function(searchName = NULL, searchAuth = NULL, searchYear=NULL, 
 		order = NULL, sci = NULL, vern = NULL, keyCode = NULL) 
 {
 	url = "http://www.ubio.org/webservices/service.php"

@@ -51,23 +51,28 @@
 \dontrun{
 # Input taxonomic names
 taxa <- c("Poa annua", "Abies procera", "Helianthus annuus")
-tree <- phylomatic_tree(taxa=taxa, get = 'POST', informat='newick', method = "phylomatic",
-		storedtree = "R20120829", taxaformat = "slashpath", outformat = "newick", clean = "true")
+tree <- phylomatic_tree(taxa=taxa, get = 'POST', informat='newick', method =
+   "phylomatic", storedtree = "R20120829", taxaformat = "slashpath",
+   outformat = "newick", clean = "true")
 plot(tree)
 
 # Lots of names
-taxa <- c("Poa annua", "Abies procera", "Helianthus annuus", "Collomia grandiflora",
-		"Ribes latifolium", "Arctostaphylos manzanita", "Phlox glabriflora", "Phlox diffusa",
-		"Datura wrightii", "Nicotiana glauca", "Nicotiana tomentosa", "Mimulus bicolor")
-tree <- phylomatic_tree(taxa=taxa, get = 'POST', informat='newick', method = "phylomatic",
-		storedtree = "R20120829", taxaformat = "slashpath", outformat = "newick", clean = "true")
+taxa <- c("Poa annua", "Abies procera", "Helianthus annuus", "Collomia
+   grandiflora", "Ribes latifolium", "Arctostaphylos manzanita", "Phlox
+   glabriflora", "Phlox diffusa", "Datura wrightii", "Nicotiana glauca",
+   "Nicotiana tomentosa", "Mimulus bicolor")
+tree <- phylomatic_tree(taxa=taxa, get = 'POST', informat='newick',
+   method = "phylomatic", storedtree = "R20120829", taxaformat = "slashpath",
+   outformat = "newick", clean = "true")
 plot(tree, no.margin=T)
 
-# In parallel with parallel=TRUE speeds up dramatically by doing the gathering of
+# In parallel with parallel=TRUE speeds up dramatically by doing the
+gathering of
 # family names from NCBI in parallel
-registerDoMC(cores=4)  # I have a mac, so using doMC package, use whatever you like
-phylomatic_tree(taxa=taxa, get = 'POST', informat='newick', method = "phylomatic",
-		storedtree = "R20120829", taxaformat = "slashpath", outformat = "newick", clean = "true", parallel=FALSE)
+registerDoMC(cores=4)
+phylomatic_tree(taxa=taxa, get='POST', informat='newick',
+   method="phylomatic", storedtree = "R20120829", taxaformat = "slashpath",
+   outformat = "newick", clean = "true", parallel=FALSE)
 }
 }
 

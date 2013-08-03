@@ -40,7 +40,8 @@ tax_rank(query = "Baetis rhodani", db = "itis")
 # query both
 tax_rank(query=c("Helianthus annuus", 'Baetis rhodani'), db="both")
 
-# An alternative way would be to use \\link{classification} and sapply over the list
+# An alternative way would be to use \\link{classification} and sapply over
+the list
 x <- 'Baetis'
 classi <- classification(get_uid(x))
 sapply(classi, function(x) x[nrow(x), 'Rank'])

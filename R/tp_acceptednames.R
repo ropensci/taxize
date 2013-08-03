@@ -4,7 +4,6 @@
 #' @param id the taxon identifier code 
 #' @param format return in json or xml format (defaults to json)
 #' @param output raw = json or xml; or df = data.frame 
-#' @param url The Tropicos url for the function (should be left to default).
 #' @param key Your Tropicos API key; loads from .Rprofile.
 #' @return List or dataframe.
 #' @examples \dontrun{
@@ -12,9 +11,9 @@
 #' tp_acceptednames(id = 25503923, output = 'raw')
 #' }
 #' @export
-tp_acceptednames <- function(id, format = 'json', output = 'df',
-  url = 'http://services.tropicos.org/Name/', key = NULL) 
+tp_acceptednames <- function(id, format = 'json', output = 'df', key = NULL) 
 {
+  url = 'http://services.tropicos.org/Name/'
 	key <- getkey(key, "tropicos")
   if (format == 'json') {
     urlget <- paste(url, id, '/AcceptedNames?apikey=', key, '&format=json', sep="")

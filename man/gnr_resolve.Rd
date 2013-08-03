@@ -20,7 +20,7 @@
   response is rapid but incomplete.}
 
   \item{with_context}{logical; Reduce the likelihood of
-  matches to taxonomic homonyms.  When \code{TRUE} a common
+  matches to taxonomic homonyms. When \code{TRUE} a common
   taxonomic context is calculated for all supplied names
   from matches in data sources that have classification
   tree paths. Names out of determined context are penalized
@@ -34,7 +34,7 @@
   highest score for each searched name?}
 
   \item{http}{The HTTP method to use, one of "get" or
-  "post". Default="get". Use http="post" with large
+  "post". Default="get".  Use http="post" with large
   queries.}
 }
 \value{
@@ -53,7 +53,7 @@ gnr_resolve(names = c("Asteraceae", "Plantae"))
 sources<- gnr_datasources()
 sources
 eol <- sources$id[sources$title == 'EOL']
-gnr_resolve(names = c("Helianthos annuus", "Homo sapians"), data_source_ids = eol)
+gnr_resolve(names=c("Helianthos annuus","Homo sapians"), data_source_ids=eol)
 }
 }
 \author{

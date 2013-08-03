@@ -4,12 +4,13 @@
 #' 
 #' @param x Community data matrix. Taxa in columns, samples in rows.
 #' @param rank character; Taxonomic rank to aggregate by.
-#' @param db character; taxonomic API to use, 'ncbi, 'itis' or both, see \code{\link[taxize]{tax_name}}.
+#' @param db character; taxonomic API to use, 'ncbi, 'itis' or both, see 
+#' \code{\link[taxize]{tax_name}}.
 #' @param ... other arguments passed to \code{\link[taxize]{tax_name}}.
 #' 
 #' @details \code{tax_agg} aggregates (sum) taxa to a specific taxonomic level. 
-#' If a taxon is not found in the database (ITIS or NCBI) or the supplied taxon is on 
-#' higher taxonomic level this taxon is not aggregated.
+#' If a taxon is not found in the database (ITIS or NCBI) or the supplied taxon 
+#' is on higher taxonomic level this taxon is not aggregated.
 #' 
 #' 
 #' @return A list of class \code{tax_agg} with the following items:
@@ -24,14 +25,17 @@
 #' @examples \dontrun{
 #' # use dune dataset
 #' data(dune, package='vegan')
-#' species <- c("Bellis perennis", "Empetrum nigrum", "Juncus bufonius", "Juncus articulatus", 
+#' species <- c("Bellis perennis", "Empetrum nigrum", "Juncus bufonius", 
+#' "Juncus articulatus", 
 #' "Aira praecox", "Eleocharis parvula", "Rumex acetosa", "Vicia lathyroides", 
 #' "Brachythecium rutabulum", "Ranunculus flammula", "Cirsium arvense", 
 #' "Hypochaeris radicata", "Leontodon autumnalis", "Potentilla palustris", 
 #' "Poa pratensis", "Calliergonella cuspidata", "Trifolium pratense", 
-#' "Trifolium repens", "Anthoxanthum odoratum", "Salix repens", "Achillea millefolium", 
+#' "Trifolium repens", "Anthoxanthum odoratum", "Salix repens", "Achillea 
+#' millefolium", 
 #' "Poa trivialis", "Chenopodium album", "Elymus repens", "Sagina procumbens", 
-#' "Plantago lanceolata", "Agrostis stolonifera", "Lolium perenne", "Alopecurus geniculatus", 
+#' "Plantago lanceolata", "Agrostis stolonifera", "Lolium perenne", "Alopecurus 
+#' geniculatus", 
 #' "Bromus hordeaceus")
 #' colnames(dune) <- species
 #' 

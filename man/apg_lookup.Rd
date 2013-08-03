@@ -1,6 +1,6 @@
 \name{apg_lookup}
 \alias{apg_lookup}
-\title{Lookup in the APGII taxonomy and replace family names}
+\title{Lookup in the APGII taxonomy and replace family names.}
 \usage{
   apg_lookup(taxa, rank = "family")
 }
@@ -16,7 +16,7 @@
   match.
 }
 \description{
-  Lookup in the APGII taxonomy and replace family names
+  Lookup in the APGII taxonomy and replace family names.
 }
 \examples{
 \dontrun{

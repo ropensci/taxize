@@ -8,7 +8,8 @@
 #' @param db One of ncbi or itis
 #' @return e.g., "pinaceae/pinus/pinus_contorta", in Phylomatic submission format.
 #' @examples \dontrun{
-#' laply(c("Poa annua", "Abies procera", "Helianthus annuus"), itis_phymat_format, format='rsubmit')
+#' laply(c("Poa annua", "Abies procera", "Helianthus annuus"), 
+#'    itis_phymat_format, format='rsubmit')
 #' }
 #' @export
 itis_phymat_format <- function(taxa = NA, format='isubmit', db="ncbi") 

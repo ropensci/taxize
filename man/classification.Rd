@@ -19,7 +19,7 @@
   \item{db}{character; database to query. either
   \code{ncbi} or \code{itis}.}
 
-  \item{id}{character; identifiers, as returned by
+  \item{id}{character; identifiers, returned by
   \code{\link[taxize]{get_tsn}} or
   \code{\link[taxize]{get_uid}}}
 

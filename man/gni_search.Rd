@@ -34,7 +34,7 @@
   \item{url}{Base url for the API; leave as is.}
 
   \item{parse_names}{If TRUE, use \code{\link{gni_parse}}
-  to parse names. Default is FALSE.}
+  to parse names.  Default is FALSE.}
 }
 \value{
   Data.frame of results.

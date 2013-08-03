@@ -22,9 +22,9 @@
 \examples{
 \donttest{
 # Regular non-parallel
-splist <- c("Heliathus annuus","Abies procera","Poa annua","Platanus occidentalis",
-		"Carex abrupta","Arctostaphylos canescens","Ocimum basilicum","Vicia faba",
-		"Quercus kelloggii","Lactuca serriola")
+splist <- c("Heliathus annuus","Abies procera","Poa annua",
+   "Platanus occidentalis","Carex abrupta","Arctostaphylos canescens",
+   "Ocimum basilicum","Vicia faba","Quercus kelloggii","Lactuca serriola")
 tpl_search(taxon = splist)
 
 # Use more arguments within TPLck

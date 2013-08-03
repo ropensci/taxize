@@ -1,7 +1,7 @@
 #' Get data sources for the Global Names Resolver.
 #' 
-#' Retrieve data sources used in Global Names Index, see \url{http://gni.globalnames.org/}
-#' 		for information. 
+#' Retrieve data sources used in Global Names Index, see 
+#'    \url{http://gni.globalnames.org/} for information. 
 #' 
 #' @import RJSONIO plyr
 #' @param todf logical; Should a data.frame be returned?

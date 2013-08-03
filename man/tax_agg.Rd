@@ -40,14 +40,17 @@
 \dontrun{
 # use dune dataset
 data(dune, package='vegan')
-species <- c("Bellis perennis", "Empetrum nigrum", "Juncus bufonius", "Juncus articulatus",
+species <- c("Bellis perennis", "Empetrum nigrum", "Juncus bufonius",
+"Juncus articulatus",
 "Aira praecox", "Eleocharis parvula", "Rumex acetosa", "Vicia lathyroides",
 "Brachythecium rutabulum", "Ranunculus flammula", "Cirsium arvense",
 "Hypochaeris radicata", "Leontodon autumnalis", "Potentilla palustris",
 "Poa pratensis", "Calliergonella cuspidata", "Trifolium pratense",
-"Trifolium repens", "Anthoxanthum odoratum", "Salix repens", "Achillea millefolium",
+"Trifolium repens", "Anthoxanthum odoratum", "Salix repens", "Achillea
+millefolium",
 "Poa trivialis", "Chenopodium album", "Elymus repens", "Sagina procumbens",
-"Plantago lanceolata", "Agrostis stolonifera", "Lolium perenne", "Alopecurus geniculatus",
+"Plantago lanceolata", "Agrostis stolonifera", "Lolium perenne", "Alopecurus
+geniculatus",
 "Bromus hordeaceus")
 colnames(dune) <- species
 

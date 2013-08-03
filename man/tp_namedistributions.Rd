@@ -3,7 +3,7 @@
 \title{Return all distribution records for for a taxon name with a given id.}
 \usage{
   tp_namedistributions(id, format = "json", output = "df",
-    url = "http://services.tropicos.org/Name/", key = NULL)
+    key = NULL)
 }
 \arguments{
   \item{id}{the taxon identifier code}
@@ -12,9 +12,6 @@
   json)}
 
   \item{output}{raw = json or xml; or df = data.frame}
-
-  \item{url}{The Tropicos url for the function (should be
-  left to default).}
 
   \item{key}{Your Tropicos API key; loads from .Rprofile.}
 }

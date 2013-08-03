@@ -24,10 +24,12 @@
 #' 
 #' # Many species, can run in parallel or not using plyr
 #' species <- c("Colletes similis","Halictus ligatus","Perdita trisignata")
-#' llply(species, get_seqs, gene = c("coi", "co1"), seqrange = "1:2000", getrelated=T, writetodf=F)
+#' llply(species, get_seqs, gene = c("coi", "co1"), seqrange = "1:2000", 
+#'    getrelated=T, writetodf=F)
 #' }
 #' @export
-get_seqs <- function(taxon_name, gene, seqrange, getrelated, writetodf=TRUE, filetowriteto)
+get_seqs <- function(taxon_name, gene, seqrange, getrelated, writetodf=TRUE, 
+                     filetowriteto)
 {
 	message(paste("Working on ", taxon_name, "...", sep=""))
 	message("...retrieving sequence IDs...")
@@ -82,8 +84,7 @@ get_seqs <- function(taxon_name, gene, seqrange, getrelated, writetodf=TRUE, fil
 				## Get sequence from previous
 				message("...retrieving sequence...")
 				queryseq <- list(db = "sequences", id = gisuse[,1], rettype = "fasta", retmode = "text")
-				outseq <- content(
-					GET("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi", query = queryseq))  
+				outseq <- content(GET("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi", query = queryseq), as="text")
 				seq <- str_replace_all(str_split(str_replace(outseq, "\n", "<<<"), "<<<")[[1]][[2]], "\n", "")
 				accessnum <- str_split(outseq, "\\|")[[1]][4]
 				outt <- list(taxon_name, as.character(gisuse[,3]), gisuse[,1], accessnum, gisuse[,2], seq)
@@ -119,8 +120,7 @@ get_seqs <- function(taxon_name, gene, seqrange, getrelated, writetodf=TRUE, fil
 		## Get sequence from previous
 		message("...retrieving sequence...")
 		queryseq <- list(db = "sequences", id = gisuse[,1], rettype = "fasta", retmode = "text")
-		outseq <- content(
-			GET("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi", query = queryseq))  
+		outseq <- content(GET("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi", query = queryseq), as="text")
 		seq <- str_replace_all(str_split(str_replace(outseq, "\n", "<<<"), "<<<")[[1]][[2]], "\n", "")
 		accessnum <- str_split(outseq, "\\|")[[1]][4]
 		outt <- list(taxon_name, as.character(gisuse[,3]), gisuse[,1], accessnum, gisuse[,2], seq)

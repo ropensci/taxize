@@ -1,13 +1,18 @@
 #' Search for taxonomic names using the Global Names Index.
 #' 
-#' Uses the Global Names Index, see \url{http://gni.globalnames.org/} for information. 
+#' Uses the Global Names Index, see \url{http://gni.globalnames.org/} for 
+#' information. 
 #' 
-#' @param search_term Name pattern you want to search for search term may include 
-#' 		following options (Note: can, uni, gen, sp, ssp, au, yr work only for parsed names):
+#' @param search_term Name pattern you want to search for search term may 
+#'    include following options (Note: can, uni, gen, sp, ssp, au, yr work only
+#'   	for parsed names):
 #' 			*:	wild card	Search by part of a word	planta*
-#' 			exact:	exact match	Search for exact match of a literal string	exact:Parus major
-#'			ns:	name string	Search for literal string from its beginning (other modifiers will be ignored)	ns:parus maj*
-#'			can:	canonical form	Search name without authors (other modifiers will be ignored)	can:parus major
+#' 			exact:	exact match	Search for exact match of a literal string 
+#'   		    exact:Parus major
+#'			ns:	name string	Search for literal string from its beginning (other 
+#'  		    modifiers will be ignored)	ns:parus maj*
+#'			can:	canonical form	Search name without authors (other modifiers will 
+#'  		    be ignored)	can:parus major
 #'			uni:	uninomial	Search for higher taxa	uni:parus
 #'			gen:	genus	Search by genus epithet of species name	gen:parus
 #'			sp:	species	Search by species epithet	sp:major
@@ -19,7 +24,8 @@
 #' @param page Page number you want to see (default is 1).
 #' @param justtotal Return only the total results found.
 #' @param url Base url for the API; leave as is.
-#' @param parse_names If TRUE, use \code{\link{gni_parse}} to parse names. Default is FALSE.
+#' @param parse_names If TRUE, use \code{\link{gni_parse}} to parse names. 
+#'    Default is FALSE.
 #' @author Scott Chamberlain {myrmecocystus@@gmail.com}
 #' @return Data.frame of results.
 #' @seealso \code{\link{gnr_datasources}}, \code{\link{gni_search}}.

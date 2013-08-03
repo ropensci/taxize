@@ -6,12 +6,14 @@
 #' 
 #' The functions in the package that hit a specific API have a prefix and suffix
 #' separated by an underscore. They follow the format of service_whatitdoes. 
-#' For example, gnr_resolve uses the Global Names Resolver API to resolve species names. 
+#' For example, gnr_resolve uses the Global Names Resolver API to resolve 
+#' species names. 
 #' General functions in the package that don't hit a specific API don't have 
 #' two words separated by an underscore, e.g., classification.
 #' 
 #' You need API keys for Encyclopedia of Life (EOL), 
-#' the Universal Biological Indexer and Organizer (uBio), Tropicos, and Plantminer.
+#' the Universal Biological Indexer and Organizer (uBio), Tropicos, and 
+#' Plantminer.
 #' 
 #' Currently supported APIs are:
 #' 

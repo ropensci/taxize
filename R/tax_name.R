@@ -3,17 +3,22 @@
 #' Retrieve name of querried taxonomic rank of a taxon.
 #' 
 #' @param query character; Vector of taxonomic names to query.
-#' @param get character; The ranks of the taxonomic name to get, see \code{\link[taxize]{rank_ref}}.
+#' @param get character; The ranks of the taxonomic name to get, see 
+#' \code{\link[taxize]{rank_ref}}.
 #' @param db character; The database to search from: 'itis', 'ncbi' or 'both'.
-#'  If 'both' both NCBI and ITIS will be queried. Result will be the union of both.
-#' @param pref character; If db = 'both', sets the preference for the union. Either 'ncbi' or 'itis'. 
+#'  If 'both' both NCBI and ITIS will be queried. Result will be the union of 
+#'  both.
+#' @param pref character; If db = 'both', sets the preference for the union. 
+#' Either 'ncbi' or 'itis'. 
 #' Currently not implemented - preference is given to ncbi.
-#' @param verbose logical; If TRUE the actual taxon queried is printed on the console.
+#' @param verbose logical; If TRUE the actual taxon queried is printed on the 
+#' console.
 #' 
 #' @return A data.frame with one column for every queried rank.
 #' 
-#' @note While \code{\link[taxize]{tax_rank}} returns the actual rank of a taxon,
-#' \code{\link[taxize]{tax_name}} searches and returns any specified rank higher in taxonmy.
+#' @note While \code{\link[taxize]{tax_rank}} returns the actual rank of a 
+#' taxon,\code{\link[taxize]{tax_name}} searches and returns any specified rank 
+#' higher in taxonmy.
 #' 
 #' @seealso \code{\link[taxize]{classification}}
 #' 
@@ -27,14 +32,17 @@
 #' tax_name(query = "Helianthus annuus", get = "kingdom", db = "ncbi")
 #' 
 #' # multiple get arguments
-#' tax_name(query = c("Helianthus annuus","Baetis rhodani"), get = c("genus", "kingdom"), db = "ncbi")
+#' tax_name(query = c("Helianthus annuus","Baetis rhodani"), get = c("genus", 
+#' "kingdom"), db = "ncbi")
 #' tax_name(query = "xxx", get = c("genus", "kingdom"), db = "itis")
 #' 
 #' # query both
-#' tax_name(query=c("Helianthus annuus", 'Baetis rhodani'), get=c("genus", "kingdom"), db="both")
+#' tax_name(query=c("Helianthus annuus", 'Baetis rhodani'), get=c("genus", 
+#' "kingdom"), db="both")
 #' }
 #' @export
-tax_name <- function(query = NULL, get = NULL, db = "itis", pref = 'ncbi', verbose = TRUE)
+tax_name <- function(query = NULL, get = NULL, db = "itis", pref = 'ncbi', 
+                     verbose = TRUE)
 {
   if(is.null(query))
     stop('Need to specify query!\n')

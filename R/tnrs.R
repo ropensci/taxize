@@ -6,19 +6,22 @@
 #' @import RCurl XML plyr stringr RJSONIO
 #' @param query Quoted taxonomic names to search in a vector (character).
 #' @param source_ Specify the source you want to match names against. Defaults 
-#' 		to just retrieve data from all sources. Options: NCBI, iPlant_TNRS, or MSW3.
-#' @param code Nomenclatural code. One of: ICZN (zoological), ICN (algae, fungi, and plants), 
-#' 		ICNB (bacteria), ICBN (botanical), ICNCP (cultivated plants), ICTV (viruses)
-#' @param getpost Use GET or POST method to send the query. If you have more than 
-#' 		say 50 species or so in your query, you should probably use POST.
+#' 		to just retrieve data from all sources. Options: NCBI, iPlant_TNRS, 
+#'   	or MSW3.
+#' @param code Nomenclatural code. One of: ICZN (zoological), ICN (algae, fungi, 
+#'    and plants), ICNB (bacteria), ICBN (botanical), ICNCP (cultivated plants), 
+#'    ICTV (viruses)
+#' @param getpost Use GET or POST method to send the query. If you have more 
+#'    than say 50 species or so in your query, you should probably use POST.
 #' @param sleep Numer of seconds by which to pause between calls. Defaults to 0 
 #' 		seconds. Use when doing many calls in a for loop ar lapply type call.
 #' @param splitby Number by which to split species list for querying the TNRS.
 #' @return data.frame of results from TNRS plus the name submitted.
-#' @details If there is no match in the Taxosaurus database, nothing is returned, so you
-#' 		will not get anything back for non matches. 
+#' @details If there is no match in the Taxosaurus database, nothing is 
+#'    returned, so youwill not get anything back for non matches. 
 #' @examples \dontrun{
-#' # Default, uses GET curl method, you can't specify any other parameters when using GET
+#' # Default, uses GET curl method, you can't specify any other parameters when 
+#' using GET
 #' mynames <- c("Panthera tigris", "Neotamias minimus", "Magnifera indica")
 #' tnrs(query = mynames, source="NCBI")
 #' 
@@ -31,18 +34,21 @@
 #' tnrs(query = mynames, code = "ICBN")
 #' 
 #' # You can specify multiple sources, by comma-separating them
-#' mynames <- c("Panthera tigris", "Eutamias minimus", "Magnifera indica", "Humbert humbert")
+#' mynames <- c("Panthera tigris", "Eutamias minimus", "Magnifera indica", 
+#' "Humbert humbert")
 #' tnrs(query = mynames, source_ = "NCBI,MSW3")
 #' 
 #' # Using POST method, especially useful when you have a lot of species
-#' mynames <- c("Panthera tigris", "Eutamias minimus", "Magnifera indica", "Humbert humbert", 
-#' 		"Helianthus annuus", "Pinus contorta", "Poa annua", "Abies magnifica", 
-#'		"Rosa california", "Festuca arundinace", "Mimulus bicolor", "Sorbus occidentalis",
-#'		"Madia sativa", "Thymopsis thymodes", "Bartlettia scaposa")
+#' mynames <- c("Panthera tigris", "Eutamias minimus", "Magnifera indica", 
+#'    "Humbert humbert", "Helianthus annuus", "Pinus contorta", "Poa annua", 
+#'    "Abies magnifica", "Rosa california", "Festuca arundinace", 
+#'    "Mimulus bicolor", "Sorbus occidentalis","Madia sativa", "Thymopsis 
+#'    thymodes", "Bartlettia scaposa")
 #' tnrs(mynames, getpost="POST", source_ = "NCBI")
 #' }
 #' @export
-tnrs <- function(query = NA, source_ = NULL, code = NULL, getpost = "POST", sleep = 0, splitby = NULL)
+tnrs <- function(query = NA, source_ = NULL, code = NULL, getpost = "POST", 
+                 sleep = 0, splitby = NULL)
 {
 	url = "http://taxosaurus.org/submit"
   

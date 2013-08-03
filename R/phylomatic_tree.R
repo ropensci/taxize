@@ -6,11 +6,12 @@
 #' 		species names to send to Phylomatic API. If FALSE, you have to provide the 
 #' 		strings in the right format.
 #' @param get 'GET' or 'POST' format for submission to the website.
-#' @param informat One of newick, nexml, or cdaordf. If using a stored tree, informat
-#' 		should always be newick.
+#' @param informat One of newick, nexml, or cdaordf. If using a stored tree, 
+#'    informat should always be newick.
 #' @param method One of phylomatic or convert
 #' @param storedtree One of R20120829 (Phylomatic tree R20120829 for plants), 
-#' 		smith2011 (Smith 2011, plants), or binindaemonds2007 (Bininda-Emonds 2007, mammals).
+#' 		smith2011 (Smith 2011, plants), or binindaemonds2007 (Bininda-Emonds 2007, 
+#'   	mammals).
 #' @param taxaformat Only option is slashpath for now. Leave as is.
 #' @param outformat One of newick, nexml, or fyt.
 #' @param clean Return a clean tree or not.
@@ -20,28 +21,34 @@
 #' @examples \dontrun{ 
 #' # Input taxonomic names
 #' taxa <- c("Poa annua", "Abies procera", "Helianthus annuus")
-#' tree <- phylomatic_tree(taxa=taxa, get = 'POST', informat='newick', method = "phylomatic", 
-#' 		storedtree = "R20120829", taxaformat = "slashpath", outformat = "newick", clean = "true")
+#' tree <- phylomatic_tree(taxa=taxa, get = 'POST', informat='newick', method = 
+#'    "phylomatic", storedtree = "R20120829", taxaformat = "slashpath", 
+#'    outformat = "newick", clean = "true")
 #' plot(tree)
 #' 
 #' # Lots of names
-#' taxa <- c("Poa annua", "Abies procera", "Helianthus annuus", "Collomia grandiflora", 
-#' 		"Ribes latifolium", "Arctostaphylos manzanita", "Phlox glabriflora", "Phlox diffusa", 
-#' 		"Datura wrightii", "Nicotiana glauca", "Nicotiana tomentosa", "Mimulus bicolor")
-#' tree <- phylomatic_tree(taxa=taxa, get = 'POST', informat='newick', method = "phylomatic", 
-#' 		storedtree = "R20120829", taxaformat = "slashpath", outformat = "newick", clean = "true")
+#' taxa <- c("Poa annua", "Abies procera", "Helianthus annuus", "Collomia 
+#'    grandiflora", "Ribes latifolium", "Arctostaphylos manzanita", "Phlox 
+#'    glabriflora", "Phlox diffusa", "Datura wrightii", "Nicotiana glauca", 
+#'    "Nicotiana tomentosa", "Mimulus bicolor")
+#' tree <- phylomatic_tree(taxa=taxa, get = 'POST', informat='newick', 
+#'    method = "phylomatic", storedtree = "R20120829", taxaformat = "slashpath", 
+#'    outformat = "newick", clean = "true")
 #' plot(tree, no.margin=T)
 #' 
-#' # In parallel with parallel=TRUE speeds up dramatically by doing the gathering of 
+#' # In parallel with parallel=TRUE speeds up dramatically by doing the 
+#' gathering of 
 #' # family names from NCBI in parallel
-#' registerDoMC(cores=4)  # I have a mac, so using doMC package, use whatever you like
-#' phylomatic_tree(taxa=taxa, get = 'POST', informat='newick', method = "phylomatic", 
-#'		storedtree = "R20120829", taxaformat = "slashpath", outformat = "newick", clean = "true", parallel=FALSE)
+#' registerDoMC(cores=4)
+#' phylomatic_tree(taxa=taxa, get='POST', informat='newick', 
+#'    method="phylomatic", storedtree = "R20120829", taxaformat = "slashpath", 
+#'    outformat = "newick", clean = "true", parallel=FALSE)
 #' }
 #' @export
-phylomatic_tree <- function(taxa, taxnames = TRUE, get = 'GET', informat = "newick", method = "phylomatic", 
-	storedtree = "R20120829", taxaformat = "slashpath", outformat = "newick", 
-	clean = "true", parallel=TRUE)
+phylomatic_tree <- function(taxa, taxnames = TRUE, get = 'GET', 
+  informat = "newick", method = "phylomatic", storedtree = "R20120829", 
+  taxaformat = "slashpath", outformat = "newick", clean = "true", 
+  parallel=TRUE)
 {
 	url = "http://phylodiversity.net/phylomatic/pmws"
   collapse_double_root <- function(y) {

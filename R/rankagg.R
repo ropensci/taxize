@@ -1,7 +1,8 @@
 #' Aggregate data by given taxonomic rank
 #' 
 #' @import data.table
-#' @param data A data.frame. Column headers must have capitalized ranks (e.g., Genus, Tribe, etc.) (data.frame)
+#' @param data A data.frame. Column headers must have capitalized ranks (e.g., 
+#'    Genus, Tribe, etc.) (data.frame)
 #' @param datacol The data column (character)
 #' @param rank Taxonomic rank to aggregate by (character)
 #' @param fxn Arithmetic function or vector or functions (character)

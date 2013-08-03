@@ -7,7 +7,9 @@ clas_uids <- classification(uids)
 clas_tsns <- classification(tsns)
 
 clas_ncbi <- classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi')
+names(clas_ncbi) <- NULL
 clas_itis <- classification(c("Chironomus riparius", "aaa vva"), db = 'itis')
+names(clas_itis) <- NULL
 
 test_that("classification returns the correct value", {
 	expect_that(clas_ncbi[[2]], equals(NA))
@@ -24,6 +26,6 @@ test_that("classification returns the correct class", {
 })
 
 test_that("check S3-methods for tsn and uid class", {
-  expect_equal(clas_uids, clas_ncbi)
+  expect_identical(clas_uids, clas_ncbi)
   expect_equal(clas_tsns, clas_itis)
 })

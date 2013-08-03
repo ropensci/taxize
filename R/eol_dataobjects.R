@@ -4,7 +4,6 @@
 #' @param id The EOL data object identifier (character)
 #' @param usekey use your API key or not (TRUE or FALSE)
 #' @param returntype one of "list" of "data.frame" (character)
-#' @param url The EOL url for the function (should be left to default).
 #' @param key Your EOL API key; loads from .Rprofile.
 #' @details It's possible to return JSON or XML with the EOL API. However, 
 #' 		this function only returns JSON for now. 
@@ -14,9 +13,9 @@
 #' eol_dataobjects(id="21929584")
 #' }
 #' @export
-eol_dataobjects <- function(id, returntype = 'data.frame', 
-	url = 'http://www.eol.org/api/data_objects/1.0/', usekey = TRUE, key = NULL)
+eol_dataobjects <- function(id, returntype = 'data.frame', usekey = TRUE, key = NULL)
 {
+  url = 'http://www.eol.org/api/data_objects/1.0/'
 	key <- getkey(key, "EOL")
 	if(usekey == TRUE){usekey_<-paste('key=',key,sep='')}else{usekey_<-NULL}
 	key2 <- paste("?", paste(compact(usekey_), collapse="&"), sep="")

@@ -4,7 +4,8 @@
 #' 
 #' @import plyr RCurl
 #' @param sciname character; scientific name.
-#' @param verbose logical; If TRUE the actual taxon queried is printed on the console.
+#' @param verbose logical; If TRUE the actual taxon queried is printed on the 
+#'    console.
 #' 
 #' @return A vector of unique identifiers (UID). If a species is not found NA. 
 #' If more than one UID is found the function asks for user input. 

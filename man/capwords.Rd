@@ -8,7 +8,7 @@
   \item{s}{A character string}
 
   \item{strict}{Should the algorithm be strict about
-  capitalizing. Defaults to FALSE.}
+  capitalizing.  Defaults to FALSE.}
 
   \item{onlyfirst}{Capitalize only first word, lowercase
   all others. Useful for taxonomic names.}

@@ -2,17 +2,17 @@
 #' 
 #' @import RCurl XML plyr
 #' @param name The string to search for. Only exact matches found the name given 
-#' 		will be returned, unless one or wildcards are included in the search string. 
-#' 		An * (asterisk) character denotes a wildcard; a % (percentage) character 
-#' 		may also be used. The name must be at least 3 characters long, not counting 
-#' 		wildcard characters.
+#' 		will be returned, unless one or wildcards are included in the search 
+#'   	string. An * (asterisk) character denotes a wildcard; a % (percentage) 
+#'    character may also be used. The name must be at least 3 characters long, 
+#'    not counting wildcard characters.
 #' @param id The record ID of the specific record to return (only for scientific 
 #' 		names of species or infraspecific taxa)
 #' @param format format of the results returned. Valid values are format=xml and 
-#' 		format=php; if the format parameter is omitted, the results are returned in 
-#' 		the default XML format. If format=php then results are returned as a PHP 
-#' 		array in serialized string format, which can be converted back to an array 
-#' 		in PHP using the unserialize command
+#' 		format=php; if the format parameter is omitted, the results are returned 
+#'   	in the default XML format. If format=php then results are returned as a 
+#'    PHP array in serialized string format, which can be converted back to an 
+#'    array in PHP using the unserialize command
 #' @param start The first record to return. If omitted, the results are returned 
 #' 		from the first record (start=0). This is useful if the total number of 
 #' 		results is larger than the maximum number of results returned by a single 
@@ -35,13 +35,14 @@
 #' col_classification(name="Apis", checklist="2009")
 #' 
 #' # Pass in many names or many id's
-#' out <- col_classification(name=c("Buteo","Apis","Accipiter","asdf"), checklist="2012")
+#' out <- col_classification(name=c("Buteo","Apis","Accipiter","asdf"), 
+#'    checklist="2012")
 #' out$Apis # get just the output you want
 #' ldply(out) # or combine to one data.frame
 #' }
 #' @export
-col_classification <- function(name = NULL, id = NULL, format = NULL, start = NULL, 
-	checklist = NULL)
+col_classification <- function(name = NULL, id = NULL, format = NULL, 
+                               start = NULL, checklist = NULL)
 {
   url <- "http://www.catalogueoflife.org/col/webservice"
 	func <- function(x, y) {

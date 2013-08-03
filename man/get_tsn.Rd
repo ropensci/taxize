@@ -16,7 +16,7 @@
 }
 \value{
   A vector of taxonomic serial numbers (TSN). If a species
-  is not found NA.  If more than one TSN is found the
+  is not found NA. If more than one TSN is found the
   function asks for user input.  See functions in the
   \code{itis} function.
 }

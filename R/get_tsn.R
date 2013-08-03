@@ -4,12 +4,12 @@
 #' 
 #' @import plyr
 #' @param searchterm character; A vector of common or scientific names.
-#' @param searchtype character; One of 'sciname', 'anymatch', 'comnamebeg', 'comname', 
-#'    'comnameend'.
+#' @param searchtype character; One of 'sciname', 'anymatch', 'comnamebeg', 
+#'    'comname', 'comnameend'.
 #' @param verbose logical; should progress be printed?
 #' 
-#' @return A vector of taxonomic serial numbers (TSN). If a species is not found NA. 
-#' 		If more than one TSN is found the function asks for user input.
+#' @return A vector of taxonomic serial numbers (TSN). If a species is not 
+#'    found NA. If more than one TSN is found the function asks for user input.
 #' 		See functions in the \code{itis} function.
 #'   	
 #'   	

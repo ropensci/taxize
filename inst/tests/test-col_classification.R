@@ -4,7 +4,7 @@ context("col_classification")
 temp <- col_classification(name = "Apis")
 	
 test_that("col_classification returns the correct value", {
-	expect_that(temp[[1]][1,2], matches("Animalia"))
+	expect_that(temp[[1]][1,2], matches("Kingdom"))
 })
 
 test_that("col_classification returns the correct class", {

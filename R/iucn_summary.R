@@ -5,18 +5,21 @@
 #' @import XML plyr
 #' @param sciname character; Scientific name. 
 #' @param silent logical; Make errors silent or not (when species not found).
-#' @param parallel logical; Search in parallel to speed up search. You have to register 
-#' a parallel backend if \code{TRUE}. See e.g., doMC, doSNOW, etc.
+#' @param parallel logical; Search in parallel to speed up search. You have to 
+#' register a parallel backend if \code{TRUE}. See e.g., doMC, doSNOW, etc.
 #' @param ... Currently not used.
 #'    
-#' @return A list (for every species one entry) of lists with the following items:
+#' @return A list (for every species one entry) of lists with the following 
+#' items:
 #' \item{status}{Red List Category.}
 #' \item{history}{History of status, if available.}
 #' \item{distr}{Geographic distribution, if available.}
 #' \item{trend}{Trend of population size, if available.}
 #' 
-#' @note Not all entries (history, distr, trend) are available for every species and NA is returned. 
-#' \code{\link[taxize]{iucn_status}} is an extractor function to easily extract status into a vector.
+#' @note Not all entries (history, distr, trend) are available for every species 
+#' and NA is returned. 
+#' \code{\link[taxize]{iucn_status}} is an extractor function to easily extract 
+#' status into a vector.
 #' 
 #' @seealso \code{\link[taxize]{iucn_status}}
 #' @examples \dontrun{
@@ -107,7 +110,8 @@ iucn_status.default <- function(x, ...) {
 }
 
 #' @method iucn_status iucn
-#' @param x an \code{iucn} object as returned by \code{\link[taxize]{iucn_summary}}.
+#' @param x an \code{iucn} object as returned by 
+#' \code{\link[taxize]{iucn_summary}}.
 #' @export
 #' @rdname iucn_summary
 iucn_status.iucn <- function(x, ...) {

@@ -4,13 +4,15 @@
 #' 
 #' @param x character; taxons to query.
 #' @param db character; database to query. either \code{ncbi} or \code{itis}.
-#' @param id character; identifiers, as returned by \code{\link[taxize]{get_tsn}} or \code{\link[taxize]{get_uid}}
+#' @param id character; identifiers, returned by \code{\link[taxize]{get_tsn}} 
+#'    or \code{\link[taxize]{get_uid}}
 #' @param ... Other passed arguments.
 #' 
-#' @return A named list of data.frames with the taxonomic classifcation of every supplied taxa.
-#' 
-#' @note If IDs are supplied directly (not from the \code{get_*} functions) you must 
-#' specify the type of ID. There is a timeout of 1/3 seconds between querries to NCBI.
+#' @return A named list of data.frames with the taxonomic classifcation of 
+#'    every supplied taxa.
+#' @note If IDs are supplied directly (not from the \code{get_*} functions) you 
+#'    must specify the type of ID. There is a timeout of 1/3 seconds between 
+#'    querries to NCBI.
 #' 
 #' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_uid}}
 #' 

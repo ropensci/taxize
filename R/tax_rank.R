@@ -4,11 +4,15 @@
 #' 
 #' @param query character; Vector of taxonomic names to query.
 #' @param db character; The database to search from: 'tis', 'ncbi' or 'both'.
-#'  If 'both' both NCBI and ITIS will be queried. Result will be the union of both.
-#' @param pref If db = 'both', sets the preference for the union. Either 'ncbi' or 'itis'.
-#' @param verbose logical; If TRUE the actual taxon queried is printed on the console.
+#'  If 'both' both NCBI and ITIS will be queried. Result will be the union of 
+#'  both.
+#' @param pref If db = 'both', sets the preference for the union. Either 'ncbi' 
+#' or 'itis'.
+#' @param verbose logical; If TRUE the actual taxon queried is printed on the 
+#' console.
 #' 
-#' @note While \code{\link[taxize]{tax_name}} returns the name of a specified rank, 
+#' @note While \code{\link[taxize]{tax_name}} returns the name of a specified 
+#' rank, 
 #' \code{\link[taxize]{tax_rank}} returns the actual rank of the taxon.
 #' 
 #' @return A data.frame with one column for every queried taxon.
@@ -24,7 +28,8 @@
 #' # query both
 #' tax_rank(query=c("Helianthus annuus", 'Baetis rhodani'), db="both")
 #' 
-#' # An alternative way would be to use \link{classification} and sapply over the list
+#' # An alternative way would be to use \link{classification} and sapply over 
+#' the list
 #' x <- 'Baetis'
 #' classi <- classification(get_uid(x))
 #' sapply(classi, function(x) x[nrow(x), 'Rank'])

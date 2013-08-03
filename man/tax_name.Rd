@@ -31,7 +31,7 @@
 }
 \note{
   While \code{\link[taxize]{tax_rank}} returns the actual
-  rank of a taxon, \code{\link[taxize]{tax_name}} searches
+  rank of a taxon,\code{\link[taxize]{tax_name}} searches
   and returns any specified rank higher in taxonmy.
 }
 \examples{
@@ -45,11 +45,13 @@ tax_name(query = "Helianthus annuus", get = "kingdom", db = "itis")
 tax_name(query = "Helianthus annuus", get = "kingdom", db = "ncbi")
 
 # multiple get arguments
-tax_name(query = c("Helianthus annuus","Baetis rhodani"), get = c("genus", "kingdom"), db = "ncbi")
+tax_name(query = c("Helianthus annuus","Baetis rhodani"), get = c("genus",
+"kingdom"), db = "ncbi")
 tax_name(query = "xxx", get = c("genus", "kingdom"), db = "itis")
 
 # query both
-tax_name(query=c("Helianthus annuus", 'Baetis rhodani'), get=c("genus", "kingdom"), db="both")
+tax_name(query=c("Helianthus annuus", 'Baetis rhodani'), get=c("genus",
+"kingdom"), db="both")
 }
 }
 \seealso{
