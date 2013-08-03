@@ -1,3 +1,44 @@
+taxize 0.0.6
+===============
+
+NEW FEATURES
+* tax_name() accepts multiple ranks to query.
+* tax_name() accepts vectors as input.
+* tax_name() has an option to query both, NCBI and ITIS, in one call and return the union of both.
+* new extractor function for iucn_summary(): iucn_status(), to extract status from iucn-objects.
+* tax_agg(): A function to aggregate species data to given taxonomic rank.
+* tax_rank(): Get taxonomic rank for a given taxon name.
+* classification() accepts taxon names as input and returns a named list.
+* new function apg_lookup() looks up APGIII taxonomy and replaces family names
+* new function gni_parse() parses scientific names using EOl's name parser API
+* new function iucn_getname() is a utility to find IUCN names using the EOL API
+* new function rank_agg() aggregates data by a given taxonomic rank
+* new data table apg_families
+* new data table apg_orders
+* gnr_resolve() gains new arguments gnr_resolvee_once, with_context, stripauthority, highestscore, and http, and loses returndf (that is, a data.frame is returned by default)
+* gni_search() gains parameter parse_names
+
+MINOR IMPROVEMENTS
+* tnrs() parameter getpost changed from default of 'GET' to 'POST'
+* Across all functions, the url parameter specifying an API endpoint was moved inside of functions (i.e., not available as a parameter in the function call)
+* gnr_datasources() parameter todf=TRUE by default now, returning a data.frame
+* col_classification() minor formatting improvements
+
+BUG FIXES
+* iucn_summary() returns no information about population estimates.
+* get_tsn() raised a warning in specific situations.
+* tax_name() did not work for multiple ranks with ITIS.
+* fixed errors in getfullhierarchyfromtsn()
+* fixed errors in gethierarchydownfromtsn()
+* fixed errors in getsynonymnamesfromtsn()
+* fixed errors in searchforanymatch()
+* fixed errors in searchforanymatchedpage()
+
+NOTES
+* Removed dependency to NCBI2R
+* Improvements of documentation
+* Citation added
+
 taxize 0.0.5
 ===============
 

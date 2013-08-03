@@ -26,8 +26,11 @@
 }
 \examples{
 \donttest{
-tpl_get(dir_ = "~/foo") # writes to your home directory, change to where you want
-tpl_get(dir_ = "~/foo2", family = c("Platanaceae","Winteraceae")) # just a few families
+# writes to your home directory, change to where you want
+tpl_get(dir_ = "~/foo")
+
+# just a few families
+tpl_get(dir_ = "~/foo2", family = c("Platanaceae","Winteraceae"))
 }
 }
 

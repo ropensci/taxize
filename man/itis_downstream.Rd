@@ -23,8 +23,12 @@
 \examples{
 \dontrun{
 itis_downstream(tsns=846509, downto="Genus")
-itis_downstream(tsns = 650497, "Family") # getting families downstream from Acridoidea
-itis_downstream(tsns = 180541, "Species") # getting species downstream from Ursus
+
+# getting families downstream from Acridoidea
+itis_downstream(tsns = 650497, "Family")
+
+# getting species downstream from Ursus
+itis_downstream(tsns = 180541, "Species")
 }
 }
 \author{

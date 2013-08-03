@@ -2,10 +2,10 @@
 #' 
 #' @import RCurl XML plyr
 #' @param name The string to search for. Only exact matches found the name given 
-#' 		will be returned, unless one or wildcards are included in the search string. 
-#' 		An * (asterisk) character denotes a wildcard; a % (percentage) character 
-#' 		may also be used. The name must be at least 3 characters long, not counting 
-#' 		wildcard characters.
+#' 		will be returned, unless one or wildcards are included in the search 
+#'   	string. An * (asterisk) character denotes a wildcard; a % (percentage) 
+#'    character may also be used. The name must be at least 3 characters long, 
+#'    not counting wildcard characters.
 #' @param downto The taxonomic level you want to go down to. See examples below.
 #' 		The taxonomic level IS case sensitive, and you do have to spell it 
 #' 		correctly. See \code{data(rank_ref)} for spelling.
@@ -13,9 +13,12 @@
 #' 		year's checklist instead of the lastest as default (numeric).
 #' @param format The returned format (default = NULL). If NULL xml is used. 
 #'    Currently only xml is supported.
-#' @param start  The first record to return (default = NULL). If NULL, the results are returned from the first record (start=0). 
-#'    This is useful if the total number of results is larger than the maximum number of results returned by a single Web service query 
-#'    (currently the maximum number of results returned by a single query is 500 for terse queries and 50 for full queries).
+#' @param start  The first record to return (default = NULL). If NULL, the 
+#'    results are returned from the first record (start=0). This is useful if 
+#'    the total number of results is larger than the maximum number of results 
+#'    returned by a single Web service query (currently the maximum number of 
+#'    results returned by a single query is 500 for terse queries and 50 for 
+#'    full queries).
 #' @param url The base COL url for the function (should be left to default).
 #' @details Provide only names instead of id's
 #' @return A list of data.frame's.

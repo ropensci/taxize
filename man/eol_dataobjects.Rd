@@ -3,7 +3,6 @@
 \title{Given the identifier for a data object, return all metadata about the object.}
 \usage{
   eol_dataobjects(id, returntype = "data.frame",
-    url = "http://www.eol.org/api/data_objects/1.0/",
     usekey = TRUE, key = NULL)
 }
 \arguments{
@@ -13,9 +12,6 @@
 
   \item{returntype}{one of "list" of "data.frame"
   (character)}
-
-  \item{url}{The EOL url for the function (should be left
-  to default).}
 
   \item{key}{Your EOL API key; loads from .Rprofile.}
 }

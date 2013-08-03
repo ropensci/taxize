@@ -1,41 +1,55 @@
 \name{classification}
 \alias{classification}
+\alias{classification.default}
 \alias{classification.tsn}
 \alias{classification.uid}
-\title{Get taxonomic hierarchy for a given taxon ID.}
+\title{Retrieve the taxonomic hierarchy for a given taxon ID.}
 \usage{
-  classification(x, ID = NULL, ...)
+  classification(...)
 
-  \method{classification}{tsn} (x, ...)
+  \method{classification}{default} (x, db = NULL, ...)
 
-  \method{classification}{uid} (x, ...)
+  \method{classification}{tsn} (id, ...)
+
+  \method{classification}{uid} (id, ...)
 }
 \arguments{
-  \item{x}{IDs from \code{get_tsn()} or \code{get_uid()}.}
+  \item{x}{character; taxons to query.}
 
-  \item{ID}{type of identifier, either 'uid' or 'tsn'}
+  \item{db}{character; database to query. either
+  \code{ncbi} or \code{itis}.}
 
-  \item{...}{Currently not used}
+  \item{id}{character; identifiers, returned by
+  \code{\link[taxize]{get_tsn}} or
+  \code{\link[taxize]{get_uid}}}
+
+  \item{...}{Other passed arguments.}
 }
 \value{
-  Classification of taxons in a list of data.frames.
+  A named list of data.frames with the taxonomic
+  classifcation of every supplied taxa.
 }
 \description{
-  Get taxonomic hierarchy for a given taxon ID.
+  Retrieve the taxonomic hierarchy for a given taxon ID.
 }
 \note{
-  If IDs are supplied directly (not from the get_*
-  functions) use the methods classification.ncbi() or
-  classification.tsn() directly. See examples.
+  If IDs are supplied directly (not from the \code{get_*}
+  functions) you must specify the type of ID. There is a
+  timeout of 1/3 seconds between querries to NCBI.
 }
 \examples{
 \dontrun{
-classification(get_uid(c("Chironomus riparius", "aaa vva")))
-classification(get_tsn(c("Chironomus riparius", "aaa vva"), "sciname"))
+# Plug in taxon names directly
+classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi')
+classification(c("Chironomus riparius", "aaa vva"), db = 'itis')
 
-# must specify Identifier, when not used with get_*()
-classification(315576, ID = "uid")
-classification(180544, "tsn")
+# Use methods for get_uid and get_tsn
+classification(get_uid(c("Chironomus riparius", "aaa vva")))
+classification(get_tsn(c("Chironomus riparius", "aaa vva")))
 }
+}
+\seealso{
+  \code{\link[taxize]{get_tsn}},
+  \code{\link[taxize]{get_uid}}
 }
 

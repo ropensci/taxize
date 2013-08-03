@@ -1,7 +1,8 @@
 #' Get sources for the Phylotastic Taxonomic Name Resolution Service.
 #'
 #' @import RJSONIO plyr
-#' @param source The source to get information on, one of "iPlant_TNRS", "NCBI", or "MSW3".
+#' @param source The source to get information on, one of "iPlant_TNRS", 
+#' "NCBI", or "MSW3".
 #' @return Sources for the TNRS API.
 #' @export
 #' @examples \dontrun{

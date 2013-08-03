@@ -1,17 +1,24 @@
 #' Get The Plant List csv files. 
 #' 
 #' The Plant List \url{http://www.theplantlist.org/}. Note that there is now a 
-#' 		package on CRAN (taxonstand - \url{http://cran.r-project.org/web/packages/Taxonstand/}) 
+#' 		package on CRAN (taxonstand - 
+#'   	\url{http://cran.r-project.org/web/packages/Taxonstand/}) 
 #' 		that uses only theplantlist.org to search plant names.
 #' 
 #' @import RCurl plyr XML
 #' @param dir_ Directory to write csv files to.
-#' @param family If you want just one, or >1 family, but not all, list them in a vector.
-#' @details Throws a warning if you already have a directory of the one provided, but still works.
-#' @return Returns nothing to console, except a message and progress bar. Writes csv files to dir_.
+#' @param family If you want just one, or >1 family, but not all, list them in 
+#' a vector.
+#' @details Throws a warning if you already have a directory of the one 
+#' provided, but still works.
+#' @return Returns nothing to console, except a message and progress bar. 
+#' Writes csv files to dir_.
 #' @examples \donttest{
-#' tpl_get(dir_ = "~/foo") # writes to your home directory, change to where you want
-#' tpl_get(dir_ = "~/foo2", family = c("Platanaceae","Winteraceae")) # just a few families
+#' # writes to your home directory, change to where you want
+#' tpl_get(dir_ = "~/foo")
+#' 
+#' # just a few families
+#' tpl_get(dir_ = "~/foo2", family = c("Platanaceae","Winteraceae"))
 #' }
 #' @export
 tpl_get <- function(dir_, family = NULL)

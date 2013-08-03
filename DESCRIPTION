@@ -1,8 +1,8 @@
 Package: taxize
 Description: Taxonomic information from around the web.
 Title: Taxonomic information from around the web.
-Version: 0.0.5
-Date: 2013-02-19
+Version: 0.0.6
+Date: 2013-08-01
 License: CC0
 URL: https://ropensci.github.com/taxize_
 BugReports: https://github.com/ropensci/taxize_/issues
@@ -17,7 +17,7 @@ Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
 LazyLoad: yes
 LazyData: yes
 Depends:
-    R (>= 2.15.0)
+    R (>= 3.0.1)
 Imports:
     XML,
     RCurl (>= 1.6),
@@ -28,11 +28,13 @@ Imports:
     foreach,
     ape,
     Taxonstand,
-    NCBI2R
+    reshape2,
+    data.table
 Suggests:
     testthat,
     roxygen2,
-    rjson
+    rjson,
+    vegan
 Collate:
     'classification.R'
     'get_tsn.R'
@@ -76,3 +78,9 @@ Collate:
     'tnrs_sources.r'
     'tnrs.R'
     'itis.R'
+    'apg_lookup.R'
+    'tax_rank.R'
+    'gni_parse.R'
+    'iucn_getname.R'
+    'rankagg.R'
+    'tax_agg.R'

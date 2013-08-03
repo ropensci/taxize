@@ -1,30 +1,35 @@
 #' Get the TSN code for a search term.
 #' 
-#' \code{get_tsn} uses a variety of functions from the \code{itis} function.
+#' Retrieve the taxonomic serial numbers (TSN) of a species from ITIS.
 #' 
 #' @import plyr
-#' @param searchterm A vector of common or scientific names.
-#' @param searchtype One of 'sciname', 'anymatch', 'comnamebeg', 'comname', 
-#'    'comnameend'.
-#' @param verbose should progress be printed?
-#' @return A vector of taxonomic serial numbers (TSN). If a species is not found NA. 
-#' 		If more than one TSN is found the function asks for user input.
+#' @param searchterm character; A vector of common or scientific names.
+#' @param searchtype character; One of 'sciname', 'anymatch', 'comnamebeg', 
+#'    'comname', 'comnameend'.
+#' @param verbose logical; should progress be printed?
+#' 
+#' @return A vector of taxonomic serial numbers (TSN). If a species is not 
+#'    found NA. If more than one TSN is found the function asks for user input.
 #' 		See functions in the \code{itis} function.
+#'   	
+#'   	
+#' @seealso \code{\link[taxize]{get_uid}}, \code{\link[taxize]{classification}}
+#' 
 #' @export
 #' @examples \dontrun{
-#' get_tsn(searchterm="Quercus douglasii", searchtype="sciname")
-#' get_tsn(searchterm="Chironomus riparius", searchtype="sciname")
+#' get_tsn(searchterm = "Quercus douglasii", searchtype = "sciname")
+#' get_tsn(searchterm = "Chironomus riparius", searchtype = "sciname")
 #' get_tsn(c("Chironomus riparius","Quercus douglasii"), "sciname")
 #' splist <- c("annona cherimola", 'annona muricata', "quercus robur", 
 #' 		"shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")
-#' get_tsn(splist,"sciname")
+#' get_tsn(splist, "sciname")
 #' }
 get_tsn <- function (searchterm, searchtype = "sciname", verbose = TRUE) 
 {
   fun <- function(x, verbose)
   {
     if(verbose)
-      cat("\nRetrieving data for species '", x, "'\n")
+      message("\nRetrieving data for species '", x, "'\n")
 #     tsn_df <- searchtype(query=x)
     
     if(searchtype == "sciname"){ tsn_df <- searchbyscientificname(x) } else
@@ -56,9 +61,9 @@ get_tsn <- function (searchterm, searchtype = "sciname", verbose = TRUE)
       rownames(tsn_df) <- 1:nrow(tsn_df)
       
       # prompt
-      cat("\n\n")
+      message("\n\n")
       print(tsn_df)
-      cat("\nMore than one TSN found for species '", x, "'!\n
+      message("\nMore than one TSN found for species '", x, "'!\n
           Enter rownumber of species (other inputs will return 'NA'):\n") # prompt
       take <- scan(n = 1, quiet = TRUE, what = 'raw')
       
@@ -66,17 +71,16 @@ get_tsn <- function (searchterm, searchtype = "sciname", verbose = TRUE)
         take <- 'notake'
       if(take %in% seq_len(nrow(tsn_df))){
         take <- as.numeric(take)
-        cat("Input accepted, took species '", as.character(tsn_df$combinedname[take]), "'.\n")
+        message("Input accepted, took species '", as.character(tsn_df$combinedname[take]), "'.\n")
         tsn <-  tsn_df$tsn[take]
       } else {
         tsn <- NA
-        cat("\nReturned 'NA'!\n\n")
+        message("\nReturned 'NA'!\n\n")
       }
     }
     return(as.character(tsn))
   }
   out <- laply(searchterm, fun, verbose)
-  if(nchar(out)==0){out <- "notsn"} else {NULL}
   class(out) <- "tsn"
   return(out)
 }

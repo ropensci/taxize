@@ -3,13 +3,12 @@
 \title{Search Catalogue of Life for taxonomic classifications.}
 \usage{
   col_classification(name = NULL, id = NULL, format = NULL,
-    start = NULL, checklist = NULL,
-    url = "http://www.catalogueoflife.org/col/webservice")
+    start = NULL, checklist = NULL)
 }
 \arguments{
   \item{name}{The string to search for. Only exact matches
   found the name given will be returned, unless one or
-  wildcards are included in the search string.  An *
+  wildcards are included in the search string. An *
   (asterisk) character denotes a wildcard; a % (percentage)
   character may also be used. The name must be at least 3
   characters long, not counting wildcard characters.}
@@ -37,9 +36,6 @@
   \item{checklist}{The year of the checklist to query, if
   you want a specific year's checklist instead of the
   lastest as default (numeric).}
-
-  \item{url}{The base COL url for the function (should be
-  left to default).}
 }
 \value{
   A list of data.frame's.
@@ -64,7 +60,8 @@ col_classification(name="Apis", checklist="2012")
 col_classification(name="Apis", checklist="2009")
 
 # Pass in many names or many id's
-out <- col_classification(name=c("Buteo","Apis","Accipiter","asdf"), checklist="2012")
+out <- col_classification(name=c("Buteo","Apis","Accipiter","asdf"),
+   checklist="2012")
 out$Apis # get just the output you want
 ldply(out) # or combine to one data.frame
 }

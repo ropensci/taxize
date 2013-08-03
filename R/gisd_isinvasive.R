@@ -2,24 +2,30 @@
 #' 
 #' @import plyr XML RCurl
 #' 
-#' @param x character; a vector of scientific species names in the form of c("Genus species").
-#' @param simplify logical; returns a data.frame with the species name and the values "Invasive", "Not in GISD". 
-#' I recomend to check first the not simplified version (default), which contains raw information about the level of invasiveness.
+#' @param x character; a vector of scientific species names in the form of 
+#'    c("Genus species").
+#' @param simplify logical; returns a data.frame with the species name and the 
+#'    values "Invasive", "Not in GISD". I recomend to check first the not 
+#'    simplified version (default), which contains raw information about the 
+#'    level of invasiveness.
 #' 
 #' @return A data.frame with species names and invasiveness.
 #' 
 #' @description This function check which species (both plants and animals) are 
 #' considered "invaders" somewhere in the world.  
 #' 
-#' For that end, it checks GISD (http://www.issg.org/database/welcome/) and returns a value,
-#' either "Not in GISD" or the brief description presented in GISD. 
+#' For that end, it checks GISD (http://www.issg.org/database/welcome/) and 
+#' returns a value, either "Not in GISD" or the brief description presented in 
+#' GISD. 
 #' 
-#' Note that the webpage contains more information. Also note that the function won't tell 
-#' you if it's exotic in your area, a lot of exotic species are not considered invaders (yet). 
+#' Note that the webpage contains more information. Also note that the function 
+#' won't tell you if it's exotic in your area, a lot of exotic species are not 
+#' considered invaders (yet). 
 #' 
-#' As expected, the function is as good as the database is, which I find quite reliable 
-#' and well maintained. 
-#' The database is also able to recognize a lot (but not all) of the species synonyms.
+#' As expected, the function is as good as the database is, which I find quite 
+#' reliable and well maintained. 
+#' The database is also able to recognize a lot (but not all) of the species 
+#' synonyms.
 #' 
 #' @author Ignasi Bartomeus \email{nacho.bartomeus@@gmail.com}
 #' @examples \dontrun{

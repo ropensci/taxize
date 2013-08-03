@@ -2,10 +2,16 @@
 #' 
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \dontrun{
-#' getacceptednamesfromtsn('208527')  # TSN accepted - good name
-#' getacceptednamesfromtsn(tsn='504239')  # TSN not accepted - input TSN is old name
-#' getacceptednamesfromtsn('504239', FALSE)  # TSN not accepted - input TSN is old name
+#' # TSN accepted - good name
+#' getacceptednamesfromtsn('208527')
+#' 
+#' # TSN not accepted - input TSN is old name
+#' getacceptednamesfromtsn(tsn='504239')
+#' 
+#' # TSN not accepted - input TSN is old name
+#' getacceptednamesfromtsn('504239', FALSE) 
 #' }
+#' @export
 getacceptednamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle())
 { 
 	url = "http://www.itis.gov/ITISWebService/services/ITISService/getAcceptedNamesFromTSN"
@@ -367,13 +373,13 @@ getfullhierarchyfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() )
   tsn <- sapply(nodes, xmlValue)
   out <- data.frame(parentName=parentName, parentTsn=parentTsn, 
   									rankName=rankName[-length(rankName)],
-  									taxonName=taxonName, tsn=tsn[-1])
+  									taxonName=taxonName, tsn=tsn[-1], stringsAsFactors=FALSE)
   return(out)
 }
 
 #' Returns the full ITIS record for the TSN in the LSID, found by comparing the 
-#' 		TSN in the search key to the TSN field. Returns an empty result set if there 
-#'  	is no match or the TSN is invalid.
+#' 		TSN in the search key to the TSN field. Returns an empty result set if 
+#'   	there is no match or the TSN is invalid.
 #' 
 #' @import RCurl XML
 #' @param lsid lsid for a taxonomic group (character)
@@ -426,7 +432,7 @@ getfullrecordfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() )
 #' getgeographicdivisionsfromtsn(tsn = 180543)
 #' }
 #' @export 
-getgeographicdivisionsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
+getgeographicdivisionsfromtsn <- function(tsn = NA, ..., curl=getCurlHandle())
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getGeographicDivisionsFromTSN'
   args <- list()
@@ -474,7 +480,8 @@ getgeographicvalues <- function()
 #' getglobalspeciescompletenessfromtsn(tsn = 180541)
 #' }
 #' @export 
-getglobalspeciescompletenessfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
+getglobalspeciescompletenessfromtsn <- function(tsn = NA, ..., 
+                                                curl=getCurlHandle()) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getGlobalSpeciesCompletenessFromTSN'
   args <- list()
@@ -512,22 +519,22 @@ gethierarchydownfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() )
   message(paste(url, '?tsn=', tsn, sep=''))
   tt <- getForm(url,
     .params = args,
-    ...,
+#     ...,
     curl = curl)
   out <- xmlParse(tt)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
-  nodes <- getNodeSet(out, "//ax21:parentName", namespaces=namespaces)
+  nodes <- getNodeSet(out, "//ax21:hierarchyList/ax21:parentName", namespaces=namespaces)
   parentName <- sapply(nodes, xmlValue)
-  nodes <- getNodeSet(out, "//ax21:parentTsn", namespaces=namespaces)
+  nodes <- getNodeSet(out, "//ax21:hierarchyList/ax21:parentTsn", namespaces=namespaces)
   parentTsn <- sapply(nodes, xmlValue)
-  nodes <- getNodeSet(out, "//ax21:rankName", namespaces=namespaces)
+  nodes <- getNodeSet(out, "//ax21:hierarchyList/ax21:rankName", namespaces=namespaces)
   rankName <- sapply(nodes, xmlValue)
-  nodes <- getNodeSet(out, "//ax21:taxonName", namespaces=namespaces)
+  nodes <- getNodeSet(out, "//ax21:hierarchyList/ax21:taxonName", namespaces=namespaces)
   taxonName <- sapply(nodes, xmlValue)
-  nodes <- getNodeSet(out, "//ax21:tsn", namespaces=namespaces)
+  nodes <- getNodeSet(out, "//ax21:hierarchyList/ax21:tsn", namespaces=namespaces)
   tsn <- sapply(nodes, xmlValue)
   data.frame(parentName=parentName, parentTsn=parentTsn, rankName=rankName,
-             taxonName=taxonName, tsn=tsn[-1])
+             taxonName=taxonName, tsn=tsn)
 }
 
 #' Get hierarchy up from tsn
@@ -571,7 +578,8 @@ gethierarchyupfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() )
 #' getitistermsfromcommonname("buya")
 #' }
 #' @export 
-getitistermsfromcommonname <- function(srchkey = NA, ..., curl = getCurlHandle() ) 
+getitistermsfromcommonname <- function(srchkey = NA, ..., 
+                                       curl = getCurlHandle() ) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getITISTermsFromCommonName'
   args <- list()
@@ -601,7 +609,8 @@ getitistermsfromcommonname <- function(srchkey = NA, ..., curl = getCurlHandle()
 #' getitistermsfromscientificname(srchkey = "ursidae")
 #' }
 #' @export 
-getitistermsfromscientificname <- function(srchkey = NA, ..., curl = getCurlHandle() ) 
+getitistermsfromscientificname <- function(srchkey = NA, ..., 
+                                           curl = getCurlHandle() ) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getITISTermsFromScientificName'
   args <- list()
@@ -632,7 +641,8 @@ getitistermsfromscientificname <- function(srchkey = NA, ..., curl = getCurlHand
 #' getjurisdictionaloriginfromtsn(tsn = 180543)
 #' }
 #' @export 
-getjurisdictionaloriginfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
+getjurisdictionaloriginfromtsn <- function(tsn = NA, ..., 
+                                           curl = getCurlHandle() ) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getJurisdictionalOriginFromTSN'
   args <- list()
@@ -1011,21 +1021,19 @@ getsynonymnamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() )
   if(!is.na(tsn))
     args$tsn <- tsn
   message(paste(url, '?tsn=', tsn, sep=''))
-  tt <- getForm(url,
-    .params = args,
-#     ...,
-    curl = curl)
+  tt <- getForm(url,.params = args,...,curl = curl)
   out <- xmlParse(tt)
   namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd")
-  nodes <- getNodeSet(out, "//ax21:name", namespaces=namespaces)
+  nodes <- getNodeSet(out, "//ax21:sciName", namespaces=namespaces)
   if( length(sapply(nodes, xmlValue)) == 0){ name <- list("nomatch") } else
     { name <- sapply(nodes, xmlValue) }
   nodes <- getNodeSet(out, "//ax21:tsn", namespaces=namespaces)
   if( length(sapply(nodes, xmlValue)) == 1){ tsn <- sapply(nodes, xmlValue) } else
-    { tsn <- sapply(nodes, xmlValue) 
-      tsn <- tsn[-length(tsn)]
+    { 
+      tsn <- sapply(nodes, xmlValue) 
+      tsn <- tsn[-1]
     } 
-  data.frame(name=name[[1]], tsn=tsn)
+  data.frame(name=name, tsn=tsn)
 }
 
 #' Returns the author information for the TSN.
@@ -1127,7 +1135,8 @@ gettaxonomicusagefromtsn <- function(tsn = NA, ..., curl = getCurlHandle() )
 #' gettsnbyvernacularlanguage("french")
 #' }
 #' @export 
-gettsnbyvernacularlanguage <- function(language = NA, ..., curl = getCurlHandle() ) 
+gettsnbyvernacularlanguage <- function(language = NA, ..., 
+                                       curl = getCurlHandle() ) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getTsnByVernacularLanguage'
   args <- list()
@@ -1183,7 +1192,8 @@ gettsnfromlsid <- function(lsid = NA, ..., curl = getCurlHandle() )
 #' getunacceptabilityreasonfromtsn(tsn = 183671)
 #' }
 #' @export 
-getunacceptabilityreasonfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
+getunacceptabilityreasonfromtsn <- function(tsn = NA, ..., 
+                                            curl = getCurlHandle() ) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getUnacceptabilityReasonFromTSN'
   args <- list()
@@ -1261,7 +1271,8 @@ searchbycommonname <- function(srchkey = NA, ..., curl = getCurlHandle() )
 #' searchbycommonnamebeginswith("inch")
 #' }
 #' @export 
-searchbycommonnamebeginswith <- function(srchkey = NA, ..., curl = getCurlHandle() ) 
+searchbycommonnamebeginswith <- function(srchkey = NA, ..., 
+                                         curl = getCurlHandle() ) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/searchByCommonNameBeginsWith'
   args <- list()
@@ -1290,7 +1301,7 @@ searchbycommonnamebeginswith <- function(srchkey = NA, ..., curl = getCurlHandle
 #' searchbycommonnameendswith(srchkey="snake")
 #' }
 #' @export 
-searchbycommonnameendswith <- function(srchkey = NA, ..., curl = getCurlHandle() ) 
+searchbycommonnameendswith <- function(srchkey = NA, ..., curl=getCurlHandle()) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/searchByCommonNameEndsWith'
   args <- list()
@@ -1358,15 +1369,22 @@ searchforanymatch <- function(srchkey = NA,  ..., curl = getCurlHandle() )
     curl = curl)
   out <- xmlParse(tt)
   namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd")
-  nodes <- getNodeSet(out, "//ax21:commonName", namespaces=namespaces)
-  comname <- sapply(nodes, xmlValue)
-  nodes <- getNodeSet(out, "//ax21:language", namespaces=namespaces)
-  lang <- sapply(nodes, xmlValue)
-  nodes <- getNodeSet(out, "//ax21:tsn", namespaces=namespaces)
-  tsn <- sapply(nodes, xmlValue) # last one is a repeat
-  nodes <- getNodeSet(out, "//ax21:sciName", namespaces=namespaces)
-  sciName <- sapply(nodes, xmlValue)
-  list(comname=comname, lang=lang, tsn=tsn[-length(tsn)], sciName=sciName)
+  
+	if(is.character(srchkey)){
+	  me <- getNodeSet(out, "//ax21:anyMatchList", namespaces=namespaces)
+	  comname <- sapply(me, function(x) xmlValue(x[["commonNameList"]][["commonNames"]][["commonName"]]))
+	  comname_lang <- sapply(me, function(x) xmlValue(x[["commonNameList"]][["commonNames"]][["language"]]))
+	  sciname <- sapply(me, function(x) xmlValue(x[["sciName"]]))
+	  tsn <- sapply(me, function(x) xmlValue(x[["tsn"]]))
+	  data.frame(tsn=tsn, sciname=sciname, comname=comname, comname_lang=comname_lang)
+	} else
+	{
+	  me <- getNodeSet(out, "//ax21:commonNames", namespaces=namespaces)
+	  comname <- sapply(me, function(x) xmlValue(x[["commonName"]]))
+	  comname_tsn <- sapply(me, function(x) xmlValue(x[["tsn"]]))
+	  comname_lang <- sapply(me, function(x) xmlValue(x[["language"]]))
+	  data.frame(tsn=comname_tsn, comname=comname, comname_lang=comname_lang)
+	}
 }
 
 #' Search for any matched page
@@ -1374,13 +1392,15 @@ searchforanymatch <- function(srchkey = NA,  ..., curl = getCurlHandle() )
 #' @inheritParams getanymatchcount
 #' @param pagesize An integer containing the page size (numeric)
 #' @param pagenum An integer containing the page number (numeric)
-#' @param ascend A boolean containing true for ascending sort order or false for descending (logical)
+#' @param ascend A boolean containing true for ascending sort order or false 
+#'    for descending (logical)
 #' @examples \dontrun{
-#' searchforanymatchpaged(202385, 100, 1, FALSE)
+#' searchforanymatchpaged(srchkey=202385, pagesize=100, pagenum=1, ascend=FALSE)
+#' searchforanymatchpaged(srchkey="Zy", pagesize=100, pagenum=1, ascend=FALSE)
 #' }
 #' @export 
-searchforanymatchpaged <- function(srchkey = NA, pagesize = NA, pagenum = NA, ascend = NA,
- 	..., curl = getCurlHandle() ) 
+searchforanymatchpaged <- function(srchkey = NA, pagesize = NA, pagenum = NA, 
+                                   ascend = NA, ..., curl = getCurlHandle() ) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/searchForAnyMatchPaged'
   args <- list()
@@ -1398,13 +1418,20 @@ searchforanymatchpaged <- function(srchkey = NA, pagesize = NA, pagenum = NA, as
     curl = curl)
   out <- xmlParse(tt)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
-  nodes <- getNodeSet(out, "//ax21:commonName", namespaces=namespaces)
-  comname <- sapply(nodes, xmlValue)
-  nodes <- getNodeSet(out, "//ax21:language", namespaces=namespaces)
-  lang <- sapply(nodes, xmlValue)
-  nodes <- getNodeSet(out, "//ax21:tsn", namespaces=namespaces)
-  tsn <- sapply(nodes, xmlValue) # last one is a repeat
-  nodes <- getNodeSet(out, "//ax21:sciName", namespaces=namespaces)
-  sciName <- sapply(nodes, xmlValue)
-  list(comname=comname, lang=lang, tsn=tsn[-length(tsn)], sciName=sciName)
+  
+	if(is.character(srchkey)){
+	  me <- getNodeSet(out, "//ax21:anyMatchList", namespaces=namespaces)
+	  comname <- sapply(me, function(x) xmlValue(x[["commonNameList"]][["commonNames"]][["commonName"]]))
+	  comname_lang <- sapply(me, function(x) xmlValue(x[["commonNameList"]][["commonNames"]][["language"]]))
+	  sciname <- sapply(me, function(x) xmlValue(x[["sciName"]]))
+	  tsn <- sapply(me, function(x) xmlValue(x[["tsn"]]))
+	  data.frame(tsn=tsn, sciname=sciname, comname=comname, comname_lang=comname_lang)
+	} else
+	{
+	  me <- getNodeSet(out, "//ax21:commonNames", namespaces=namespaces)
+	  comname <- sapply(me, function(x) xmlValue(x[["commonName"]]))
+	  comname_tsn <- sapply(me, function(x) xmlValue(x[["tsn"]]))
+	  comname_lang <- sapply(me, function(x) xmlValue(x[["language"]]))
+	  data.frame(tsn=comname_tsn, comname=comname, comname_lang=comname_lang)
+	}
 }

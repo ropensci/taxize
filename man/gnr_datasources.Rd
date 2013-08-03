@@ -2,20 +2,16 @@
 \alias{gnr_datasources}
 \title{Get data sources for the Global Names Resolver.}
 \usage{
-  gnr_datasources(todf = FALSE,
-    url = "http://resolver.globalnames.org/data_sources.json")
+  gnr_datasources(todf = TRUE)
 }
 \arguments{
-  \item{todf}{Parse id and name of provider to data.frame?
-  logical (default = FALSE).}
-
-  \item{url}{Base url for the API; leave as is.}
+  \item{todf}{logical; Should a data.frame be returned?}
 }
 \value{
-  json or xml output, your choice
+  json or a data.frame
 }
 \description{
-  Uses the Global Names Index, see
+  Retrieve data sources used in Global Names Index, see
   \url{http://gni.globalnames.org/} for information.
 }
 \examples{
@@ -24,19 +20,22 @@
 gnr_datasources()
 
 # just id's and names of sources
-gnr_datasources(todf=T)
+gnr_datasources(todf = TRUE)
 
 # give me the id for EOL
-out <- gnr_datasources(todf=T)
+out <- gnr_datasources(todf = TRUE)
 out[out$title == "EOL", "id"]
 
 # Fuzzy search for sources with the word zoo
-out <- gnr_datasources(todf=T)
-out[agrep("zoo", out$title, ignore.case=T), ]
+out <- gnr_datasources(todf = TRUE)
+out[agrep("zoo", out$title, ignore.case = TRUE), ]
 }
 }
 \author{
   Scott Chamberlain {myrmecocystus@gmail.com}
+}
+\seealso{
+  \code{\link[taxize]{gnr_resolve}}
 }
 \keyword{names}
 \keyword{resolve}

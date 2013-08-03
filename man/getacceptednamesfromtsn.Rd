@@ -20,9 +20,14 @@
 }
 \examples{
 \dontrun{
-getacceptednamesfromtsn('208527')  # TSN accepted - good name
-getacceptednamesfromtsn(tsn='504239')  # TSN not accepted - input TSN is old name
-getacceptednamesfromtsn('504239', FALSE)  # TSN not accepted - input TSN is old name
+# TSN accepted - good name
+getacceptednamesfromtsn('208527')
+
+# TSN not accepted - input TSN is old name
+getacceptednamesfromtsn(tsn='504239')
+
+# TSN not accepted - input TSN is old name
+getacceptednamesfromtsn('504239', FALSE)
 }
 }
 

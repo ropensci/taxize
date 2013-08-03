@@ -13,8 +13,8 @@
   manually within the function as the second argument, or
   2) you can put the key in your .Rprofile file, which will
   then be loaded when you start R. See
-  \url{https://github.com/ropensci/rOpenSci/wiki/Installation-and-use-of-API-keys}
-  for help on how to put api keys in your .Rprofile file.}
+  \url{http://bit.ly/135eG0b} for help on how to put api
+  keys in your .Rprofile file.}
 }
 \value{
   data.frame of results.

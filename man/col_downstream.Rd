@@ -9,7 +9,7 @@
 \arguments{
   \item{name}{The string to search for. Only exact matches
   found the name given will be returned, unless one or
-  wildcards are included in the search string.  An *
+  wildcards are included in the search string. An *
   (asterisk) character denotes a wildcard; a % (percentage)
   character may also be used. The name must be at least 3
   characters long, not counting wildcard characters.}
@@ -28,7 +28,7 @@
 
   \item{start}{The first record to return (default = NULL).
   If NULL, the results are returned from the first record
-  (start=0).  This is useful if the total number of results
+  (start=0). This is useful if the total number of results
   is larger than the maximum number of results returned by
   a single Web service query (currently the maximum number
   of results returned by a single query is 500 for terse

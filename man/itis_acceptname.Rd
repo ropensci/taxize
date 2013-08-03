@@ -21,7 +21,7 @@
 \examples{
 \dontrun{
 itis_acceptname(searchtsn='208527')  # TSN accepted - good name
-itis_acceptname(searchtsn='504239')  # TSN not accepted - input TSN is old name
+itis_acceptname(searchtsn='504239')  # TSN not accepted - input TSN is old
 }
 }
 

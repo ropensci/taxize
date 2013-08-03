@@ -9,7 +9,7 @@
 \arguments{
   \item{name}{The string to search for. Only exact matches
   found the name given will be returned, unless one or
-  wildcards are included in the search string.  An *
+  wildcards are included in the search string. An *
   (asterisk) character denotes a wildcard; a % (percentage)
   character may also be used. The name must be at least 3
   characters long, not counting wildcard characters.}
@@ -65,7 +65,8 @@ col_children(name="Apis", checklist="2012")
 col_children(name="Apis", checklist="2009")
 
 # Pass in many names or many id's
-out <- col_children(name=c("Buteo","Apis","Accipiter","asdf"), checklist="2012")
+out <- col_children(name=c("Buteo","Apis","Accipiter","asdf"),
+   checklist="2012")
 out$Apis # get just the output you want
 ldply(out) # or combine to one data.frame
 

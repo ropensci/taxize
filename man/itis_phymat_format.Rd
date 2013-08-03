@@ -26,7 +26,8 @@
 }
 \examples{
 \dontrun{
-laply(c("Poa annua", "Abies procera", "Helianthus annuus"), itis_phymat_format, format='rsubmit')
+laply(c("Poa annua", "Abies procera", "Helianthus annuus"),
+   itis_phymat_format, format='rsubmit')
 }
 }
 

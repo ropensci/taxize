@@ -1,7 +1,7 @@
 #' Function to get API key. 
 #' 
-#' Checks first to get key from your .Rprofile file for an API key with the name
-#' 		'tropicoskey'. If it is not found, the default key is used. 
+#' Checks first to get key from your .Rprofile file for an API key with the 
+#' 		name 'tropicoskey'. If it is not found, the default key is used. 
 #' 
 #' @param x An API key, defaults to NULL.
 #' @param service The API data provider, used to match to default guest key.

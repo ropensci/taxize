@@ -3,7 +3,7 @@
 \title{Search for taxonomic names using the Global Names Index.}
 \usage{
   gni_search(search_term = NULL, per_page = NULL,
-    page = NULL, justtotal = FALSE,
+    page = NULL, justtotal = FALSE, parse_names = FALSE,
     url = "http://gni.globalnames.org/name_strings.json")
 }
 \arguments{
@@ -32,6 +32,9 @@
   \item{justtotal}{Return only the total results found.}
 
   \item{url}{Base url for the API; leave as is.}
+
+  \item{parse_names}{If TRUE, use \code{\link{gni_parse}}
+  to parse names.  Default is FALSE.}
 }
 \value{
   Data.frame of results.
@@ -46,6 +49,8 @@ gni_search(search_term = "ani*")
 gni_search(search_term = "ama*", per_page = 3, page = 21)
 gni_search(search_term = "animalia", per_page = 8, page = 1)
 gni_search(search_term = "animalia", per_page = 8, page = 1, justtotal=T)
+
+gni_search(search_term = "Cyanistes caeruleus", parse_names=TRUE)
 }
 }
 \author{
