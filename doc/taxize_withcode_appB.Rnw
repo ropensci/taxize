@@ -1,8 +1,8 @@
 \section{Matching species tables with different taxonomic resolution} 
 
-Trait-based approaches are a promising tool in ecology. Unlike taxonomy-based methods, traits may not be constrained to biogeographic boundaries \cite{baird_toward_2011} and have potential to disentangle the effects of multiple stressors \cite{statzner_can_2010}. 
+Trait-based approaches are a promising tool in ecology. Unlike taxonomy-based methods, traits may not be constrained to biogeographic boundaries [26] and have potential to disentangle the effects of multiple stressors [24]. 
 
-To analyse trait-composition abundance data must be matched with trait databases like \cite{usseglio-polatera_biological_2000}. However these two datatables may contain species information on different taxonomic levels and perhaps data must be aggregated to a joint taxonomic level.
+To analyse trait-composition abundance data must be matched with trait databases like [25]. However these two datatables may contain species information on different taxonomic levels and perhaps data must be aggregated to a joint taxonomic level.
 
 taxize can help in this data-cleaning step, providing a reproducible workflow. Here we illustrate this on a small fictitious example.
 
@@ -116,7 +116,7 @@ abundances <- abundances[!abundances$taxon == lookup$taxon[is.na(lookup$traits)]
 @
 
 
-No we can create \emph{species x sites} and \emph{traits x species} matrices, which could be plugged into methods to analyse trait responses \cite{kleyer_assessing_2012}.
+Now we can create \emph{species x sites} and \emph{traits x species} matrices, which could be plugged into methods to analyse trait responses [27].
 
 
 <<matrices, message=FALSE, warning=FALSE>>=
@@ -140,4 +140,4 @@ Q
 all(rownames(Q) == colnames(L))
 @
 
-This is just an example how taxonomic APIs (via taxize) could be used to search for matches up- and downwards the taxonomic ladder. We are looking forward to integrate the freshwaterecology.info database \cite{freshwaterecology} into taxize, which will facilitate trait-based analyses in R.
+This is just an example how taxonomic APIs (via taxize) could be used to search for matches up- and downwards the taxonomic ladder. We are looking forward to integrate the freshwaterecology.info database \url{www.freshwaterecology.info} into taxize, which will facilitate trait-based analyses in R.

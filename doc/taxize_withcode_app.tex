@@ -52,6 +52,7 @@
 \definecolor{errorcolor}{rgb}{1, 0, 0}
 \newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
 
+\usepackage{float}
 \usepackage{alltt}
 \usepackage[utf8]{inputenc}
 \usepackage{color,dcolumn,graphicx,hyperref}
@@ -244,8 +245,8 @@ allnames_df[1:2, ]
 
 However, taxonomy can only get you so far. Shared ancestry can be reconstructed from molecular data, and phylogenies created. Phylomatic is a web service with an API that we can use to get a phylogeny. 
 
-\begin{figure}[!h] 
-\centering 
+% \begin{figure}[!h] 
+% \centering 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
@@ -260,17 +261,17 @@ phylogeny$tip.label <- \hlfunctioncall{capwords}(phylogeny$tip.label, onlyfirst 
 \end{alltt}
 \end{kframe}
 
-{\centering \includegraphics[width=4in]{figure/phylogeny1.pdf} 
-\includegraphics[width=4in]{figure/phylogeny2.pdf} 
-
-}
-
+\begin{figure}[h!]
+\centering
+\includegraphics[width=6in,height=5in]{figure/phylogeny2.pdf} 
+\caption{A phylogeny}
+\end{figure}
 
 
 \end{knitrout}
 
-\caption{a phylogeny...} 
-\end{figure} 
+% \caption{a phylogeny...} 
+% \end{figure} 
 
 Using the species list, with the corrected names, we can now search for occurrence data. The Global Biodiversity Information Facility (GBIF) has the largest collection of records data, and has a  API that we can interact with programmatically from R. First, we need to install rgbif.
 
@@ -308,15 +309,19 @@ p
 \end{kframe}
 \end{knitrout}
 
-
+\begin{figure}[H]
+\centering
+\includegraphics[width=7in,height=8in]{figure/map.pdf}
+\caption{A phylogeny}
+\end{figure}
 
 \newpage
 
 \section{Matching species tables with different taxonomic resolution} 
 
-Trait-based approaches are a promising tool in ecology. Unlike taxonomy-based methods, traits may not be constrained to biogeographic boundaries \cite{baird_toward_2011} and have potential to disentangle the effects of multiple stressors \cite{statzner_can_2010}. 
+Trait-based approaches are a promising tool in ecology. Unlike taxonomy-based methods, traits may not be constrained to biogeographic boundaries [26] and have potential to disentangle the effects of multiple stressors [24]. 
 
-To analyse trait-composition abundance data must be matched with trait databases like \cite{usseglio-polatera_biological_2000}. However these two datatables may contain species information on different taxonomic levels and perhaps data must be aggregated to a joint taxonomic level.
+To analyse trait-composition abundance data must be matched with trait databases like [25]. However these two datatables may contain species information on different taxonomic levels and perhaps data must be aggregated to a joint taxonomic level.
 
 taxize can help in this data-cleaning step, providing a reproducible workflow. Here we illustrate this on a small fictitious example.
 
@@ -519,7 +524,7 @@ abundances <- abundances[!abundances$taxon == lookup$taxon[\hlfunctioncall{is.na
 
 
 
-No we can create \emph{species x sites} and \emph{traits x species} matrices, which could be plugged into methods to analyse trait responses \cite{kleyer_assessing_2012}.
+Now we can create \emph{species x sites} and \emph{traits x species} matrices, which could be plugged into methods to analyse trait responses [27].
 
 
 \begin{knitrout}
@@ -566,11 +571,8 @@ potamopyrgus antipodarum     1    0    3    1    3
 \end{knitrout}
 
 
-This is just an example how taxonomic APIs (via taxize) could be used to search for matches up- and downwards the taxonomic ladder. We are looking forward to integrate the freshwaterecology.info database \cite{freshwaterecology} into taxize, which will facilitate trait-based analyses in R.
+This is just an example how taxonomic APIs (via taxize) could be used to search for matches up- and downwards the taxonomic ladder. We are looking forward to integrate the freshwaterecology.info database \url{www.freshwaterecology.info} into taxize, which will facilitate trait-based analyses in R.
 
 \end{appendices}
-
-\bibliographystyle{eco_lett}
-\bibliography{refs}
 
 \end{document}

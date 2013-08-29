@@ -21,7 +21,4 @@ opts_chunk$set(fig.align='center', fig.show='hold', par=TRUE, warning=FALSE, mes
 @
 \end{appendices}
 
-\bibliographystyle{eco_lett}
-\bibliography{refs}
-
 \end{document}

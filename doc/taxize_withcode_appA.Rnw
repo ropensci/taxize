@@ -80,8 +80,8 @@ allnames_df[1:2,]
 
 However, taxonomy can only get you so far. Shared ancestry can be reconstructed from molecular data, and phylogenies created. Phylomatic is a web service with an API that we can use to get a phylogeny. 
 
-\begin{figure}[!h] 
-\centering 
+% \begin{figure}[!h] 
+% \centering 
 <<phylogeny, eval=TRUE, dev='pdf', out.width='4in', out.height='4in', cache=TRUE, message=FALSE>>=
 # Fetch phylogeny from phylomatic 
 phylogeny <- phylomatic_tree(taxa=as.character(allnames$spname), taxnames=TRUE, get = 'POST', informat='newick', method = "phylomatic",
@@ -91,8 +91,8 @@ phylogeny$tip.label <- capwords(phylogeny$tip.label, onlyfirst=TRUE)
 # plot phylogeny 
 plot(phylogeny)
 @
-\caption{a phylogeny...} 
-\end{figure} 
+% \caption{a phylogeny...} 
+% \end{figure} 
 
 Using the species list, with the corrected names, we can now search for occurrence data. The Global Biodiversity Information Facility (GBIF) has the largest collection of records data, and has a  API that we can interact with programmatically from R. First, we need to install rgbif.
 
