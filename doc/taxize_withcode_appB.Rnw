@@ -1,6 +1,6 @@
 \section{Matching species tables with different taxonomic resolution} 
 
-Trait-based approaches are a promising tool in ecology. Unlike taxonomy-based methods, traits may not be constrained to biogeographic boundaries [26] and have potential to disentangle the effects of multiple stressors [24]. 
+Trait-based approaches are a promising tool in ecology. Unlike taxonomy-based methods, traits may not be constrained to biogeographic boundaries [27] and have potential to disentangle the effects of multiple stressors [24]. 
 
 To analyse trait-composition abundance data must be matched with trait databases like [25]. However these two datatables may contain species information on different taxonomic levels and perhaps data must be aggregated to a joint taxonomic level.
 
@@ -116,7 +116,7 @@ abundances <- abundances[!abundances$taxon == lookup$taxon[is.na(lookup$traits)]
 @
 
 
-Now we can create \emph{species x sites} and \emph{traits x species} matrices, which could be plugged into methods to analyse trait responses [27].
+Now we can create \emph{species x sites} and \emph{traits x species} matrices, which could be plugged into methods to analyse trait responses [28].
 
 
 <<matrices, message=FALSE, warning=FALSE>>=

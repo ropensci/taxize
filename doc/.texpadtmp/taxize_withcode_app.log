@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.5.23)  29 AUG 2013 12:03
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.5.23)  2 SEP 2013 10:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -692,7 +692,7 @@ usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr
 local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/l
 ocal/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
 Output written on /Users/scottmac2/github/ropensci/taxize_/doc/.texpadtmp/taxiz
-e_withcode_app.pdf (9 pages, 259284 bytes).
+e_withcode_app.pdf (9 pages, 259814 bytes).
 PDF statistics:
  102 PDF objects out of 1000 (max. 8388607)
  80 compressed objects within 1 object stream

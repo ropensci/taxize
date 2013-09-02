@@ -312,16 +312,16 @@ p
 \begin{figure}[H]
 \centering
 \includegraphics[width=7in,height=8in]{figure/map.pdf}
-\caption{A phylogeny}
+\caption{A map}
 \end{figure}
 
 \newpage
 
 \section{Matching species tables with different taxonomic resolution} 
 
-Trait-based approaches are a promising tool in ecology. Unlike taxonomy-based methods, traits may not be constrained to biogeographic boundaries [26] and have potential to disentangle the effects of multiple stressors [24]. 
+Trait-based approaches are a promising tool in ecology. Unlike taxonomy-based methods, traits may not be constrained to biogeographic boundaries [27] and have potential to disentangle the effects of multiple stressors [25]. 
 
-To analyse trait-composition abundance data must be matched with trait databases like [25]. However these two datatables may contain species information on different taxonomic levels and perhaps data must be aggregated to a joint taxonomic level.
+To analyse trait-composition abundance data must be matched with trait databases like [26]. However these two datatables may contain species information on different taxonomic levels and perhaps data must be aggregated to a joint taxonomic level.
 
 taxize can help in this data-cleaning step, providing a reproducible workflow. Here we illustrate this on a small fictitious example.
 
@@ -524,7 +524,7 @@ abundances <- abundances[!abundances$taxon == lookup$taxon[\hlfunctioncall{is.na
 
 
 
-Now we can create \emph{species x sites} and \emph{traits x species} matrices, which could be plugged into methods to analyse trait responses [27].
+Now we can create \emph{species x sites} and \emph{traits x species} matrices, which could be plugged into methods to analyse trait responses [28].
 
 
 \begin{knitrout}
