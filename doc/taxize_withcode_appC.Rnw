@@ -1,0 +1,69 @@
+\section*{Installation of the development version of taxize and API keys} 
+
+\subsection*{Installing and using the development version of taxize}
+
+Stable versions of taxize are available on the Comprehensive R Archive Network (CRAN) by the following process 
+
+<<installcran, eval=FALSE>>=
+install.packages("taxize")
+library(taxize)
+@
+
+Development versions of taxize are available at Github at this linke \url{https://github.com/ropensci/taxize_}, where the codebase is actively developed. This is also a good place to report bugs, submit feature requests, etc. on the Issues page \url{https://github.com/ropensci/taxize_/issues?state=open}. 
+
+The process of installing is a little bit more involved than from CRAN, but still quite easy using the package devtools \url{http://cran.r-project.org/web/packages/devtools/index.html}. You need to install development tools if you haven't already:
+
+\begin{itemize}
+  \item On Windows, download and install Rtools: http://cran.r-project.org/bin/windows/Rtools/. This is not an R package.
+  \item On Mac, make sure you have either XCode (free, available in the app store) or the "Command Line Tools for Xcode" (needs a free apple id, available from http://developer.apple.com/downloads)
+  \item On Linux, make sure you've installed not only R, but the R development devtools. This a linux package called something like r-base-dev.
+\end{itemize}
+
+You can check you have everything installed and working by running this code:
+
+<<checkdevtools, eval=FALSE>>=
+library(devtools)
+has_devel()
+@
+
+Once that is taken care of, install taxize from Github.
+
+<<install, eval=FALSE>>=
+install_github("taxize_", "ropensci")
+@
+
+Then load taxize into R.
+
+<<load, eval=FALSE>>=
+library(taxize)
+@
+
+See an introduction to devtools here \url{http://adv-r.had.co.nz/Philosophy.html}.
+
+\subsection*{API keys}
+
+Some of the data sources we provide access to in taxize require authentication through API (Application Programming Interface) keys. Navigate to your \emph{.Rprofile} file, which should be 
+
+<<openrprofile, engine='bash', eval=FALSE>>=
+open .Rprofile
+@
+
+Then write in your API key to that file and save. Let's say we are writing a key for uBio. Put an entry in your .Rprofile file with a key of \emph{uBioApi} and a value of your API key in quotes. You'll also need to restart R after you save your .Rprofile file. 
+
+<<writerprofile, engine='bash', eval=FALSE>>=
+# uBio API key
+options(uBioApi = "youralphanumerickey")
+@
+
+When you use the taxize package, the function \emph{ubio\_namebank()} will look for that key and use it inthe API call. If the key is not found in your .Rprofile file the function will fail and tell you the key could not be found. 
+
+Alternatively, you can pass in the key in the function call like \emph{ubio\_namebank(searchName = 'elephant', sci = 1, vern = 0, keyCode=yourapikey)}
+
+Functions in taxize that require API keys look for key values like \emph{uBioApi} in your .Rprofile file. Therefore, unless you are passing your API key in the function call, save your keys in your .Rprofile file with the following key names (and their associated function names):
+
+\begin{itemize}
+  \item \emph{uBio}: ubio\_namebank
+  \item \emph{EOLApi}: eol\_dataobjects, eol\_hierarchy, eol\_pages, eol\_ping, eol\_search
+  \item \emph{tropicoskey}: tp\_acceptednames, tp\_namedistributions, tp\_namereferences, tp\_summary, tp\_synonyms
+  \item \emph{pmkey}: plantminer
+\end{itemize}
