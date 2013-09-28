@@ -31,8 +31,9 @@ tpl_search <- function(taxon, paral = FALSE, ...)
     # 			ldply(out)
     out <- llply(taxon, function(x) try(TPLck(x, ...), silent=TRUE))
     if(any(sapply(out, class)=="try-error"))
-      stop(geterrmessage())
+      message(geterrmessage())
     out <- out[!sapply(out, class)=="try-error"]
-    ldfast(out)
+    df <- ldfast(out)
+    df
   }
 }
