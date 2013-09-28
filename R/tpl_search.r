@@ -21,12 +21,18 @@
 #' @export
 tpl_search <- function(taxon, paral = FALSE, ...)
 {
-	if(paral){
-		out <- llply(taxon, function(x) TPLck(x, ...), .parallel=TRUE)
-		ldply(out)
-	} else
-		{ 
-			out <- llply(taxon, function(x) TPLck(x, ...))
-			ldply(out)
-		}
+  if(paral){
+    out <- llply(taxon, function(x) TPLck(x, ...), .parallel=TRUE)
+    ldply(out)
+  } else
+  { 
+    # 			out <- llply(taxon, function(x) TPLck(x, ...))
+    # 		  out <- llply(taxon, function(x) try(TPLck(x), silent=TRUE))
+    # 			ldply(out)
+    out <- llply(taxon, function(x) try(TPLck(x, ...), silent=TRUE))
+    if(any(sapply(out, class)=="try-error"))
+      stop(geterrmessage())
+    out <- out[!sapply(out, class)=="try-error"]
+    ldfast(out)
+  }
 }
