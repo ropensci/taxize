@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2012)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: taxize_ms.aux
+The style file: unsrt.bst
+Database file #1: ../refs_nourls.bib
+Warning--I didn't find a database entry for "federhen"
+You've used 28 entries,
+            1791 wiz_defined-function locations,
+            602 strings with 8839 characters,
+and the built_in function-call counts, 6128 in all, are:
+= -- 484
+> -- 364
+< -- 1
++ -- 135
+- -- 107
+* -- 461
+:= -- 1038
+add.period$ -- 85
+call.type$ -- 28
+change.case$ -- 18
+chr.to.int$ -- 0
+cite$ -- 28
+duplicate$ -- 242
+empty$ -- 566
+format.name$ -- 107
+if$ -- 1300
+int.to.chr$ -- 0
+int.to.str$ -- 28
+missing$ -- 20
+newline$ -- 144
+num.names$ -- 28
+pop$ -- 57
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 98
+stack$ -- 0
+substring$ -- 359
+swap$ -- 46
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 52
+width$ -- 30
+write$ -- 300
+(There was 1 warning)

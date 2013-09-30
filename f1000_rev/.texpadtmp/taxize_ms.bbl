@@ -1,0 +1,177 @@
+\begin{thebibliography}{10}
+
+\bibitem{weiser2007}
+Michael~D. Weiser, Brian~J. Enquist, Brad Boyle, Timothy~J. Killeen, Peter~M.
+  Jørgensen, Gustavo Fonseca, Michael~D. Jennings, Andrew~J. Kerkhoff,
+  Thomas~E. Lacher~Jr, Abel Monteagudo, and et~al.
+\newblock Latitudinal patterns of range size and species richness of new world
+  woody plants.
+\newblock {\em Global Ecology and Biogeography}, 16(5):679--688, sep 2007.
+
+\bibitem{boyle2013}
+Brad Boyle, Nicole Hopkins, Zhenyuan Lu, Juan~Antonio Raygoza~Garay, Dmitry
+  Mozzherin, Tony Rees, Naim Matasci, Martha~L Narro, William~H Piel, Sheldon~J
+  Mckay, and et~al.
+\newblock The taxonomic name resolution service: an online tool for automated
+  standardization of plant names.
+\newblock {\em BMC Bioinformatics}, 14(1):16, 2013.
+
+\bibitem{stodden2010}
+Victoria~C Stodden.
+\newblock Reproducible research: Addressing the need for data and code sharing
+  in computational science.
+\newblock {\em Computing in Science \& Engineering}, 12(5):8--12, 2010.
+
+\bibitem{zimmer2012}
+Carl Zimmer.
+\newblock A sharp rise in retractions prompts calls for reform.
+\newblock {\em New York Times}, 2012.
+
+\bibitem{yihui2013}
+Yihui Xie.
+\newblock {\em Dynamic Documents with {R} and knitr}.
+\newblock Chapman and Hall/CRC, 2013.
+
+\bibitem{gentleman_bioconductor:_2004}
+Robert~C. Gentleman, Vincent~J. Carey, Douglas~M. Bates, Ben Bolstad, Marcel
+  Dettling, Sandrine Dudoit, Byron Ellis, Laurent Gautier, Yongchao Ge, Jeff
+  Gentry, Kurt Hornik, Torsten Hothorn, Wolfgang Huber, Stefano Iacus, Rafael
+  Irizarry, Friedrich Leisch, Cheng Li, Martin Maechler, Anthony~J. Rossini,
+  Gunther Sawitzki, Colin Smith, Gordon Smyth, Luke Tierney, Jean~{YH} Yang,
+  and Jianhua Zhang.
+\newblock Bioconductor: open software development for computational biology and
+  bioinformatics.
+\newblock {\em Genome Biology}, 5(10):R80, September 2004.
+\newblock {PMID:} 15461798.
+
+\bibitem{webb2005}
+Campbell~O Webb and Michael~J Donoghue.
+\newblock Phylomatic: tree assembly for applied phylogenetics.
+\newblock {\em Molecular Ecology Notes}, 5(1):181--183, 2005.
+
+\bibitem{carvalho2010plantminer}
+Gustavo~Henrique Carvalho, Marcus~Vinicius Cianciaruso, and Marco~Ant{\^o}nio
+  Batalha.
+\newblock Plantminer: a web tool for checking and gathering plant species
+  taxonomic information.
+\newblock {\em Environmental Modelling \& Software}, 25(6):815--816, 2010.
+
+\bibitem{chamberlain2013}
+Scott Chamberlain and Kevin Ushey.
+\newblock {\em rsnps: Interface to SNP data on the web.}, 2013.
+\newblock R package version 0.0.4.
+
+\bibitem{winter2013}
+David Winter.
+\newblock {\em rentrez: Entrez in R}, 2013.
+\newblock R package version 0.2.1.
+
+\bibitem{lefeuvre2010}
+Pierre Lefeuvre.
+\newblock {\em BoSSA: a Bunch of Structure and Sequence Analysis}, 2010.
+\newblock R package version 1.2.
+
+\bibitem{paradis2004}
+E.~Paradis, J.~Claude, and K.~Strimmer.
+\newblock A{PE}: analyses of phylogenetics and evolution in {R} language.
+\newblock {\em Bioinformatics}, 20:289--290, 2004.
+
+\bibitem{Cayuela_2012}
+Luis Cayuela, Íñigo Granzow-de~la Cerda, Fabio~S. Albuquerque, and Duncan~J.
+  Golicher.
+\newblock taxonstand: An r package for species names standardisation in
+  vegetation databases.
+\newblock {\em Methods in Ecology and Evolution}, 3(6):1078--1083, 2012.
+
+\bibitem{taxonstand}
+Luis Cayuela.
+\newblock {\em Taxonstand: Taxonomic standardization of plant species names},
+  2012.
+\newblock R package version 1.0.
+
+\bibitem{httr}
+Hadley Wickham.
+\newblock {\em httr: Tools for working with URLs and HTTP}, 2012.
+\newblock R package version 0.2.
+
+\bibitem{rcurl}
+Duncan~Temple Lang.
+\newblock {\em RCurl: General network (HTTP/FTP/...) client interface for R},
+  2013.
+\newblock R package version 1.95-4.1.
+
+\bibitem{xml}
+Duncan~Temple Lang.
+\newblock {\em XML: Tools for parsing and generating XML within R and S-Plus.},
+  2013.
+\newblock R package version 3.95-0.2.
+
+\bibitem{rjsonio}
+Duncan~Temple Lang.
+\newblock {\em RJSONIO: Serialize R objects to JSON, JavaScript Object
+  Notation}, 2013.
+\newblock R package version 1.0-3.
+
+\bibitem{stringr}
+Hadley Wickham.
+\newblock {\em stringr: Make it easier to work with strings.}, 2012.
+\newblock R package version 0.6.2.
+
+\bibitem{plyr}
+Hadley Wickham.
+\newblock The split-apply-combine strategy for data analysis.
+\newblock {\em Journal of Statistical Software}, 40(1):1--29, 2011.
+
+\bibitem{webb2002phylogenies}
+Campbell~O Webb, David~D Ackerly, Mark~A McPeek, and Michael~J Donoghue.
+\newblock Phylogenies and community ecology.
+\newblock {\em Annual Review of Ecology and Systematics}, pages 475--505, 2002.
+
+\bibitem{rafferty2013phylogenetic}
+Nicole~E Rafferty and Anthony~R Ives.
+\newblock Phylogenetic trait-based analyses of ecological networks.
+\newblock {\em Ecology}, 2013.
+
+\bibitem{poff2006functional}
+N~LeRoy Poff, Julian~D Olden, Nicole~KM Vieira, Debra~S Finn, Mark~P Simmons,
+  and Boris~C Kondratieff.
+\newblock Functional trait niches of north american lotic insects: traits-based
+  ecological applications in light of phylogenetic relationships.
+\newblock {\em Journal of the North American Benthological Society},
+  25(4):730--755, 2006.
+
+\bibitem{statzner_can_2010}
+B.~Statzner and {L.A} B\^eche.
+\newblock Can biological invertebrate traits resolve effects of multiple
+  stressors on running water ecosystems?
+\newblock {\em Freshwater Biology}, 55:80–119, 2010.
+
+\bibitem{usseglio-polatera_biological_2000}
+Philippe Usseglio-Polatera, Michel Bournaud, Philippe Richoux, and Henri
+  Tachet.
+\newblock Biological and ecological traits of benthic freshwater
+  macroinvertebrates: relationships and definition of groups with similar
+  traits.
+\newblock {\em Freshwater Biology}, 43(2):175–205, 2000.
+
+\bibitem{federhen2012}
+Scott Federhen.
+\newblock The ncbi taxonomy database.
+\newblock {\em Nucleic Acids Research}, 40(D1):D136--D143, 2012.
+
+\bibitem{baird_toward_2011}
+Donald~J Baird, Christopher J~O Baker, Robert~B Brua, Mehrdad Hajibabaei,
+  Kearon {McNicol}, Timothy~J Pascoe, and Dick de~Zwart.
+\newblock Toward a knowledge infrastructure for traits-based ecological risk
+  assessment.
+\newblock {\em Integrated Environmental Assessment and Management},
+  7(2):209–215, 2011.
+
+\bibitem{kleyer_assessing_2012}
+Michael Kleyer, Stéphane Dray, Francescode Bello, Jan Leps, Robin~J. Pakeman,
+  Barbara Strauss, Wilfried Thuiller, and Sandra Lavorel.
+\newblock Assessing species and community functional responses to environmental
+  gradients: which multivariate methods?
+\newblock {\em Journal of Vegetation Science}, 23(5):805–821, 2012.
+
+\end{thebibliography}

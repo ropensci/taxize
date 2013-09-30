@@ -1,0 +1,90 @@
+\ProvidesPackage{f1000_styles}
+% Packages
+\usepackage{authblk}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage{colortbl}
+\usepackage[usenames,dvipsnames,table]{xcolor}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{todonotes}
+\usepackage[hmargin=1.8cm,vmargin=2.2cm]{geometry}
+\usepackage[labelsep=period,justification=justified]{caption}
+\usepackage{lastpage}	
+%
+\newcommand{\versionDate}{\footnotesize \textit{F1000Research} 2013 - DRAFT ARTICLE (PRE-SUBMISSION)}
+\newcommand{\flogo}{\includegraphics[height=12pt]{F1000header.png}}
+% Section heading styles
+\usepackage[compact]{titlesec} 
+
+\titleformat*{\section}{\Large\usefont{OT1}{phv}{b}{n}\color{darkgray}}
+\titleformat*{\subsection}{\large\usefont{OT1}{phv}{b}{n}\color{MidnightBlue}}
+\titleformat*{\subsubsection}{\large\usefont{OT1}{phv}{b}{n}\color{MidnightBlue}}
+
+\titlespacing{\section}{0pt}{1.0ex plus -1ex minus -.2ex}{-\parskip} 
+\titlespacing{\subsection}{0pt}{1.0ex plus -1ex minus -.2ex}{-\parskip} 
+
+%\usepackage{titlesec}
+%\titlespacing\subsubsection{0pt}{1.0ex plus -1ex minus -.2ex}{-\parskip}
+
+%\usepackage{sectsty}
+%\allsectionsfont{
+%    \color{MidnightBlue}%
+%    \usefont{OT1}{phv}{m}{n}%
+%	}
+% Caption style
+\captionsetup{labelfont={color=red,bf},textfont={color=black,bf}}
+
+% Table style
+\definecolor{DarkKhaki}{rgb}{0.74,0.72,0.42}
+\colorlet{tableheadcolor}{DarkKhaki} % Table header colour = 25% gray
+\newcommand{\header}{\rowcolor{tableheadcolor}} %
+\colorlet{tablerowcolor}{DarkKhaki!50} % Table row separator colour = 10% gray
+\newcommand{\row}{\rowcolor{tablerowcolor}} %
+\newenvironment{tabledata}[1][1]{%
+  \renewcommand*{\extrarowheight}{0.1cm}%
+  \tabular%
+}{%
+  \endtabular
+}
+
+
+% Column separation
+\setlength{\columnsep}{0.25in}
+
+% Page margins, headers and footers
+\pagestyle{fancy}
+\setlength\parindent{0in}
+\setlength\parskip{0.1in}
+\setlength\headheight{16.5pt}
+\renewcommand{\footrulewidth}{1pt}
+\lhead{\textsc{\flogo}}
+\chead{}
+\rhead{\versionDate}
+\lfoot{}
+\cfoot{}
+\rfoot{\footnotesize Page \thepage\ of \pageref{LastPage}}
+%
+\renewenvironment{abstract}{%
+\usefont{OT1}{phv}{m}{n}
+\hfill\begin{minipage}{0.65\textwidth}
+\rule{\textwidth}{1pt}\\ \textcolor{Orange}{\textbf{\abstractname}}}
+{\par\noindent\rule{\textwidth}{1pt}\end{minipage}}
+%
+\makeatletter
+\renewcommand\@maketitle{%
+\begin{minipage}{0.95\textwidth}
+\vskip 2em
+\let\footnote\thanks 
+{\fontsize{20}{20}\usefont{OT1}{phv}{b}{n} \@title \par }
+\vskip 1.5em
+{\@author \par}
+\end{minipage}
+\vskip 1em \par
+}
+\makeatother
+\renewcommand\Authfont{\fontsize{16}{16}\usefont{OT1}{phv}{b}{n}}
+\renewcommand\Affilfont{\fontsize{10}{10}\usefont{OT1}{phv}{b}{n}}
