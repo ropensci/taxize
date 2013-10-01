@@ -29,7 +29,6 @@ The process of installing is a little bit more involved than from CRAN, but stil
 \begin{itemize}
   \item On Windows, download and install Rtools: http://cran.r-project.org/bin/windows/Rtools/. This is not an R package.
   \item On Mac, make sure you have either XCode (free, available in the app store) or the "Command Line Tools for Xcode" (needs a free apple id, available from http://developer.apple.com/downloads)
-  \item On Linux, make sure you've installed not only R, but the R development devtools. This a linux package called something like r-base-dev.
 \end{itemize}
 
 You can check you have everything installed and working by running this code:
