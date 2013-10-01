@@ -63,7 +63,7 @@
 
 \subsection*{Installing and using the development version of taxize}
 
-Stable versions of taxize are available on the Comprehensive R Archive Network (CRAN) by the following process 
+Stable versions of taxize are available on the Comprehensive R Archive Network (CRAN) by the following process: 
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -75,14 +75,25 @@ Stable versions of taxize are available on the Comprehensive R Archive Network (
 \end{knitrout}
 
 
-Development versions of taxize are available at Github at this linke \url{https://github.com/ropensci/taxize_}, where the codebase is actively developed. This is also a good place to report bugs, submit feature requests, etc. on the Issues page \url{https://github.com/ropensci/taxize_/issues?state=open}. 
+Development versions of taxize are available at Github at this link \url{https://github.com/ropensci/taxize_}, where the codebase is actively developed. This is also a good place to report bugs, submit feature requests, etc. on the Issues page \url{https://github.com/ropensci/taxize_/issues}. 
 
-The process of installing is a little bit more involved than from CRAN, but still quite easy using the package devtools \url{http://cran.r-project.org/web/packages/devtools/index.html}. You need to install development tools if you haven't already:
+The process of installing is a little bit more involved than from CRAN, but still quite easy using the package devtools \url{http://cran.r-project.org/web/packages/devtools/index.html}.
+If you don't have it yet, you can install it from CRAN:
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{install.packages}\hlstd{(}\hlstr{"devtools"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+
+You also need to install development tools if you haven't already:
 
 \begin{itemize}
   \item On Windows, download and install Rtools: http://cran.r-project.org/bin/windows/Rtools/. This is not an R package.
   \item On Mac, make sure you have either XCode (free, available in the app store) or the "Command Line Tools for Xcode" (needs a free apple id, available from http://developer.apple.com/downloads)
-  \item On Linux, make sure you've installed not only R, but the R development devtools. This a linux package called something like r-base-dev.
 \end{itemize}
 
 You can check you have everything installed and working by running this code:
@@ -97,6 +108,7 @@ You can check you have everything installed and working by running this code:
 \end{knitrout}
 
 
+Which should return `TRUE`.
 Once that is taken care of, install taxize from Github.
 
 \begin{knitrout}
