@@ -279,28 +279,25 @@ It turns out that there are 430 different unique records found. However, this do
 \subsection*{Matching species tables with different taxonomic resolution}
 Biologists often need to match different sets of data tied to species. For example, trait-based approaches are a promising tool in ecology \cite{statzner_can_2010}. One problem is that abundance data must be matched with trait databases such as the NCBI Taxonomy database \cite{usseglio-polatera_biological_2000}. These two data tables may contain species information on different taxonomic levels and data might have to be aggregated to a joint taxonomic level, so that the data can be merged. taxize can help in this data-cleaning step, providing a reproducible workflow.
 
-A user can use the mentioned \emph{classification}-function to retrieve the taxonomic hierarchy and then search the hierarchies up- and downwards for matches. Here is an example to match a species with names on three different taxonomic levels.
+A user can use the mentioned \emph{classification}-function to retrieve the taxonomic hierarchy and then search the hierarchies up- and downwards for matches. Here is an example to match a species (A) with names of on different taxonomic levels (B1 \& B2).
 
 <<tax_match, cache=TRUE, tidy=FALSE, size='scriptsize'>>=
 A <- "gammarus roeseli" 
 
-B1 <- "gammarus roeseli"
-B2 <- "gammarus"
-B3 <- "gammaridae"
+B1 <- "gammarus"
+B2 <- "gammaridae"
 
 A_clas <- classification(A, db = 'ncbi')
 B1_clas <- classification(B1, db = 'ncbi')
 B2_clas <- classification(B2, db = 'ncbi')
-B3_clas <- classification(B3, db = 'ncbi')
 
-B1[match(A, B1)]
+A_clas[[1]]$Rank[tolower(A_clas[[1]]$ScientificName) %in% B1]
 A_clas[[1]]$Rank[tolower(A_clas[[1]]$ScientificName) %in% B2]
-A_clas[[1]]$Rank[tolower(A_clas[[1]]$ScientificName) %in% B3]
 @
 
 
 
-If one finds a direct match (here \emph{Gammarus roeseli}), they will be lucky. But you can also match Gammaridae with \emph{Gammarus roeseli}, but on a lower taxonomic level. A more comprehensive and realistic example (matching a trait table with an abundance table) is given in Appendix B.
+If one finds a direct match (here \emph{Gammarus roeseli}), they will be lucky. However, Gammaridae can also be matched with \emph{Gammarus roeseli}, but on a lower taxonomic level. A more comprehensive and realistic example (matching a trait table with an abundance table) is given in Appendix B.
 
 
 \subsection*{Aggregating data to a specific taxonomic rank}
