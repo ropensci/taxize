@@ -1,18 +1,6 @@
 \documentclass[10pt,a4paper,twocolumn]{article}
 \usepackage{f1000_styles}
 \usepackage{hyperref}
-\usepackage{listings}
-
-\lstset{
-  language=R,
-  basicstyle=\ttfamily,
-  showstringspaces=false,
-  breaklines=true,
-  keywordstyle={\textit},
-  %morekeywords={text},% list your attributes here, 
-  escapechar=\&% char to escape out of listings and back to LaTeX
-}
-
 
 \newcolumntype{L}{>{\raggedright\arraybackslash}m{5cm}} % creates now column type to wrap text
 
