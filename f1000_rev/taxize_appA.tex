@@ -114,17 +114,14 @@ There are many ways to resolve taxonomic names in taxize. Of course, the ideal n
     \hlstr{"uri"}\hlstd{)])}
 \end{alltt}
 \begin{verbatim}
-#            submittedName         acceptedName    sourceId score
-# 3       Helanthus annuus    Helianthus annuus iPlant_TNRS  0.98
-# 1         Pinos contorta       Pinus contorta iPlant_TNRS  0.96
-# 4  Collomia grandiflorra Collomia grandiflora iPlant_TNRS  0.99
-# 5       Abies magnificaa      Abies magnifica iPlant_TNRS  0.98
-# 10       Rosa california     Rosa californica iPlant_TNRS  0.99
-# 9         Datura wrighti      Datura wrightii iPlant_TNRS  0.98
-# 7       Mimulus bicolour      Mimulus bicolor iPlant_TNRS  0.98
-# 8       Nicotiana glauca     Nicotiana glauca iPlant_TNRS     1
-# 6          Maddia sativa         Madia sativa iPlant_TNRS  0.97
-# 2    Bartlettia scapposa   Bartlettia scaposa iPlant_TNRS  0.98
+#           submittedName         acceptedName    sourceId score
+# 5      Helanthus annuus    Helianthus annuus iPlant_TNRS  0.98
+# 1        Pinos contorta       Pinus contorta iPlant_TNRS  0.96
+# 7 Collomia grandiflorra Collomia grandiflora iPlant_TNRS  0.99
+# 6       Rosa california     Rosa californica iPlant_TNRS  0.99
+# 4      Mimulus bicolour      Mimulus bicolor iPlant_TNRS  0.98
+# 3      Nicotiana glauca     Nicotiana glauca iPlant_TNRS     1
+# 2         Maddia sativa         Madia sativa iPlant_TNRS  0.97
 \end{verbatim}
 \begin{alltt}
 \hlcom{# Note the scores. They suggest that there were no perfect matches, but they}
@@ -135,10 +132,9 @@ There are many ways to resolve taxonomic names in taxize. Of course, the ideal n
 \hlstd{(splist} \hlkwb{<-} \hlkwd{as.character}\hlstd{(splist_tnrs}\hlopt{$}\hlstd{acceptedName))}
 \end{alltt}
 \begin{verbatim}
-#  [1] "Helianthus annuus"    "Pinus contorta"       "Collomia grandiflora"
-#  [4] "Abies magnifica"      "Rosa californica"     "Datura wrightii"     
-#  [7] "Mimulus bicolor"      "Nicotiana glauca"     "Madia sativa"        
-# [10] "Bartlettia scaposa"
+# [1] "Helianthus annuus"    "Pinus contorta"       "Collomia grandiflora"
+# [4] "Rosa californica"     "Mimulus bicolor"      "Nicotiana glauca"    
+# [7] "Madia sativa"
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
@@ -156,7 +152,7 @@ Another thing we may want to do is collect common names for our taxa.
 \hlkwd{sapply}\hlstd{(comnames, length)}
 \end{alltt}
 \begin{verbatim}
-#  [1] 3 3 3 3 3 3 3 3 3 3
+# [1] 3 3 3 3 3 3 3
 \end{verbatim}
 \begin{alltt}
 \hlcom{# So let's just take the first common name for each species}
@@ -165,17 +161,14 @@ Another thing we may want to do is collect common names for our taxa.
 \hlstd{(allnames} \hlkwb{<-} \hlkwd{data.frame}\hlstd{(}\hlkwc{spname} \hlstd{= splist,} \hlkwc{comname} \hlstd{= comnames_vec))}
 \end{alltt}
 \begin{verbatim}
-#                  spname                       comname
-# 1     Helianthus annuus              common sunflower
-# 2        Pinus contorta                lodgepole pine
-# 3  Collomia grandiflora        largeflowered collomia
-# 4       Abies magnifica                    golden fir
-# 5      Rosa californica           California wildrose
-# 6       Datura wrightii            sacred thorn-apple
-# 7       Mimulus bicolor yellow and white monkeyflower
-# 8      Nicotiana glauca                  tree tobacco
-# 9          Madia sativa                 coast tarweed
-# 10   Bartlettia scaposa                Bartlett daisy
+#                 spname                       comname
+# 1    Helianthus annuus              common sunflower
+# 2       Pinus contorta                lodgepole pine
+# 3 Collomia grandiflora        largeflowered collomia
+# 4     Rosa californica           California wildrose
+# 5      Mimulus bicolor yellow and white monkeyflower
+# 6     Nicotiana glauca                  tree tobacco
+# 7         Madia sativa                 coast tarweed
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
@@ -192,7 +185,7 @@ Another common task is getting the taxonomic tree upstream from your study taxa.
 \hlkwd{sapply}\hlstd{(class_list, nrow)}
 \end{alltt}
 \begin{verbatim}
-#  [1] 12 11 12 11 12 12 12 12 12 12
+# [1] 12 11 12 12 12 12 12
 \end{verbatim}
 \begin{alltt}
 \hlcom{# And we can attach these names to our allnames data.frame}
@@ -210,15 +203,15 @@ Another common task is getting the taxonomic tree upstream from your study taxa.
 \hlstd{allnames_df[}\hlnum{1}\hlopt{:}\hlnum{2}\hlstd{, ]}
 \end{alltt}
 \begin{verbatim}
-#               spname        comname Kingdom     Subkingdom Infrakingdom
-# 1    Abies magnifica     golden fir Plantae Viridaeplantae Streptophyta
-# 2 Bartlettia scaposa Bartlett daisy Plantae Viridaeplantae Streptophyta
-#       Division     Subdivision Infradivision         Class Superorder
-# 1 Tracheophyta Spermatophytina  Gymnospermae     Pinopsida       <NA>
-# 2 Tracheophyta Spermatophytina  Angiospermae Magnoliopsida  Asteranae
-#       Order     Family      Genus
-# 1   Pinales   Pinaceae      Abies
-# 2 Asterales Asteraceae Bartlettia
+#                 spname                comname Kingdom     Subkingdom
+# 1 Collomia grandiflora largeflowered collomia Plantae Viridaeplantae
+# 2    Helianthus annuus       common sunflower Plantae Viridaeplantae
+#   Infrakingdom     Division     Subdivision Infradivision         Class
+# 1 Streptophyta Tracheophyta Spermatophytina  Angiospermae Magnoliopsida
+# 2 Streptophyta Tracheophyta Spermatophytina  Angiospermae Magnoliopsida
+#   Superorder     Order        Family      Genus
+# 1  Asteranae  Ericales Polemoniaceae   Collomia
+# 2  Asteranae Asterales    Asteraceae Helianthus
 \end{verbatim}
 \begin{alltt}
 
@@ -231,8 +224,7 @@ Another common task is getting the taxonomic tree upstream from your study taxa.
 
 However, taxonomy can only get you so far. Shared ancestry can be reconstructed from molecular data, and phylogenies created. Phylomatic is a web service with an API that we can use to get a phylogeny. 
 
-% \begin{figure}[!h] 
-% \centering 
+
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
@@ -245,18 +237,20 @@ However, taxonomy can only get you so far. Shared ancestry can be reconstructed 
 \hlcom{# plot phylogeny}
 \hlkwd{plot}\hlstd{(phylogeny)}
 \end{alltt}
-\end{kframe}
+\end{kframe}\begin{figure}[!h]
+
 
 {\centering \includegraphics[width=4in,height=4in]{figure/phylogeny} 
 
 }
 
+\caption[A phylogeny]{A phylogeny.\label{fig:phylophylogeny}}
+\end{figure}
 
 
 \end{knitrout}
 
-% \caption{a phylogeny...} 
-% \end{figure} 
+
 
 Using the species list, with the corrected names, we can now search for occurrence data. The Global Biodiversity Information Facility (GBIF) has the largest collection of records data, and has a  API that we can interact with programmatically from R. First, we need to install rgbif.
 
@@ -296,7 +290,7 @@ Now we can search for occurrences for our species list and make a map.
 
 }
 
-\caption[A map]{A map\label{fig:mapplot_map}}
+\caption[A map]{A map.\label{fig:mapplot_map}}
 \end{figure}
 
 

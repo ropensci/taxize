@@ -96,9 +96,8 @@ allnames_df[1:2,]
 
 However, taxonomy can only get you so far. Shared ancestry can be reconstructed from molecular data, and phylogenies created. Phylomatic is a web service with an API that we can use to get a phylogeny. 
 
-% \begin{figure}[!h] 
-% \centering 
-<<phylogeny, eval=TRUE, dev='pdf', out.width='4in', out.height='4in', cache=TRUE, message=FALSE>>=
+
+<<phylogeny, eval=TRUE, dev='pdf', out.width='4in', out.height='4in', cache=TRUE, message=FALSE, fig.cap='A phylogeny.', fig.pos='!h', fig.lp='fig:phylo'>>=
 # Fetch phylogeny from phylomatic 
 phylogeny <- phylomatic_tree(taxa=as.character(allnames$spname), taxnames=TRUE, get = 'POST', informat='newick', method = "phylomatic",
     storedtree = "R20120829", taxaformat = "slashpath", outformat = "newick", clean = "true", parallel=TRUE)
@@ -107,8 +106,7 @@ phylogeny$tip.label <- capwords(phylogeny$tip.label, onlyfirst=TRUE)
 # plot phylogeny 
 plot(phylogeny)
 @
-% \caption{a phylogeny...} 
-% \end{figure} 
+
 
 Using the species list, with the corrected names, we can now search for occurrence data. The Global Biodiversity Information Facility (GBIF) has the largest collection of records data, and has a  API that we can interact with programmatically from R. First, we need to install rgbif.
 
@@ -122,7 +120,7 @@ install_github("rgbif", "ropensci")
 Now we can search for occurrences for our species list and make a map.
 
 
-<<plot_map, eval=TRUE, dev='pdf', out.width='.9\\textwidth', cache=TRUE, fig.cap='A map', fig.pos='h', fig.lp='fig:map', fig.height=7, fig.width=10>>=
+<<plot_map, eval=TRUE, dev='pdf', out.width='.9\\textwidth', cache=TRUE, fig.cap='A map.', fig.pos='h', fig.lp='fig:map', fig.height=7, fig.width=10>>=
 library(rgbif)
 library(ggplot2) 
 
@@ -133,7 +131,7 @@ occurr_list <- occurrencelist_many(as.character(allnames$spname), coordinatestat
 p <- gbifmap_list(occurr_list) + 
   guides(col = guide_legend(title="", nrow = 3, byrow = TRUE)) + 
   theme(legend.position="bottom", legend.key = element_blank()) +
-  coord_equal() 
+  coord_equal()
 p
 @
 \end{document}
