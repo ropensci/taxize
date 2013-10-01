@@ -1,12 +1,7 @@
 base
-devtools
 foreach
 knitr
 plyr
-Rdocumentation
 rjson
-sacbox
-slidify
-slidifyLibraries
 taxize
 XML
