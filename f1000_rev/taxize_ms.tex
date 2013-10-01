@@ -50,18 +50,6 @@
 \usepackage{alltt}
 \usepackage{f1000_styles}
 \usepackage{hyperref}
-\usepackage{listings}
-
-\lstset{
-  language=R,
-  basicstyle=\ttfamily,
-  showstringspaces=false,
-  breaklines=true,
-  keywordstyle={\textit},
-  %morekeywords={text},% list your attributes here, 
-  escapechar=\&% char to escape out of listings and back to LaTeX
-}
-
 
 \newcolumntype{L}{>{\raggedright\arraybackslash}m{5cm}} % creates now column type to wrap text
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -189,8 +177,9 @@ This is a common task in biology. We often have a list of species names and we w
 \begin{knitrout}\scriptsize
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlstd{temp} \hlkwb{<-} \hlkwd{gnr_resolve}\hlstd{(}\hlkwc{names} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr{"Helianthos annus"}\hlstd{,} \hlstr{"Homo saapiens"}\hlstd{))}
-\hlstd{temp[,} \hlopt{-}\hlkwd{c}\hlstd{(}\hlnum{1}\hlstd{,} \hlnum{4}\hlstd{)]}
+\hlstd{temp} \hlkwb{<-} \hlkwd{gnr_resolve}\hlstd{(}\hlkwc{names} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr{"Helianthos annus"}\hlstd{,}
+                              \hlstr{"Homo saapiens"}\hlstd{))}
+\hlstd{temp[ ,} \hlopt{-}\hlkwd{c}\hlstd{(}\hlnum{1}\hlstd{,}\hlnum{4}\hlstd{)]}
 \end{alltt}
 \begin{verbatim}
 #                  matched_name       data_source_title
@@ -211,22 +200,35 @@ The correct spellings are \emph{Helianthus annuus} and \emph{Homo sapiens}. Anot
 \begin{knitrout}\scriptsize
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlstd{mynames} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlstr{"Helianthus annuus"}\hlstd{,} \hlstr{"Pinus contort"}\hlstd{,} \hlstr{"Poa anua"}\hlstd{,} \hlstr{"Abis magnifica"}\hlstd{,}
-    \hlstr{"Rosa california"}\hlstd{,} \hlstr{"Festuca arundinace"}\hlstd{,} \hlstr{"Sorbus occidentalos"}\hlstd{,} \hlstr{"Madia sateva"}\hlstd{)}
-\hlkwd{tnrs}\hlstd{(}\hlkwc{query} \hlstd{= mynames)[,} \hlopt{-}\hlkwd{c}\hlstd{(}\hlnum{5}\hlopt{:}\hlnum{7}\hlstd{)]}
+\hlstd{mynames} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlstr{"Helianthus annuus"}\hlstd{,} \hlstr{"Pinus contort"}\hlstd{,}
+             \hlstr{"Poa anua"}\hlstd{,} \hlstr{"Abis magnifica"}\hlstd{,} \hlstr{"Rosa california"}\hlstd{,}
+             \hlstr{"Festuca arundinace"}\hlstd{,} \hlstr{"Sorbus occidentalos"}\hlstd{,}
+             \hlstr{"Madia sateva"}\hlstd{)}
+\hlkwd{tnrs}\hlstd{(}\hlkwc{query} \hlstd{= mynames)[ ,} \hlopt{-}\hlkwd{c}\hlstd{(}\hlnum{5}\hlopt{:}\hlnum{7}\hlstd{)]}
 \end{alltt}
 \begin{verbatim}
-#          submittedName        acceptedName    sourceId score
-# 9    Helianthus annuus   Helianthus annuus iPlant_TNRS     1
-# 10   Helianthus annuus   Helianthus annuus        NCBI     1
-# 4        Pinus contort      Pinus contorta iPlant_TNRS  0.98
-# 5             Poa anua           Poa annua iPlant_TNRS  0.96
-# 3       Abis magnifica     Abies magnifica iPlant_TNRS  0.96
-# 7      Rosa california    Rosa californica iPlant_TNRS  0.99
-# 8      Rosa california          California        NCBI     1
-# 2   Festuca arundinace Festuca arundinacea iPlant_TNRS  0.99
-# 1  Sorbus occidentalos Sorbus occidentalis iPlant_TNRS  0.99
-# 6         Madia sateva        Madia sativa iPlant_TNRS  0.97
+#          submittedName        acceptedName    sourceId
+# 9    Helianthus annuus   Helianthus annuus iPlant_TNRS
+# 10   Helianthus annuus   Helianthus annuus        NCBI
+# 4        Pinus contort      Pinus contorta iPlant_TNRS
+# 5             Poa anua           Poa annua iPlant_TNRS
+# 3       Abis magnifica     Abies magnifica iPlant_TNRS
+# 7      Rosa california    Rosa californica iPlant_TNRS
+# 8      Rosa california          California        NCBI
+# 2   Festuca arundinace Festuca arundinacea iPlant_TNRS
+# 1  Sorbus occidentalos Sorbus occidentalis iPlant_TNRS
+# 6         Madia sateva        Madia sativa iPlant_TNRS
+#    score
+# 9      1
+# 10     1
+# 4   0.98
+# 5   0.96
+# 3   0.96
+# 7   0.99
+# 8      1
+# 2   0.99
+# 1   0.99
+# 6   0.97
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
@@ -242,9 +244,12 @@ Another common use case is when there are many synonyms for a species. In this e
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
 \hlkwd{library}\hlstd{(plyr)}
-\hlstd{mynames} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlstr{"Helianthus annuus ssp. jaegeri"}\hlstd{,} \hlstr{"Helianthus annuus ssp. lenticularis"}\hlstd{,}
-    \hlstr{"Helianthus annuus ssp. texanus"}\hlstd{,} \hlstr{"Helianthus annuus var. lenticularis"}\hlstd{,}
-    \hlstr{"Helianthus annuus var. macrocarpus"}\hlstd{,} \hlstr{"Helianthus annuus var. texanus"}\hlstd{)}
+\hlstd{mynames} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlstr{"Helianthus annuus ssp. jaegeri"}\hlstd{,}
+             \hlstr{"Helianthus annuus ssp. lenticularis"}\hlstd{,}
+             \hlstr{"Helianthus annuus ssp. texanus"}\hlstd{,}
+             \hlstr{"Helianthus annuus var. lenticularis"}\hlstd{,}
+             \hlstr{"Helianthus annuus var. macrocarpus"}\hlstd{,}
+             \hlstr{"Helianthus annuus var. texanus"}\hlstd{)}
 \hlstd{tsn} \hlkwb{<-} \hlkwd{get_tsn}\hlstd{(mynames)}
 \hlkwd{ldply}\hlstd{(tsn, itis_acceptname)}
 \end{alltt}
@@ -314,14 +319,16 @@ Instead of a full classification, you may only want a single name, say a family 
 \begin{knitrout}\scriptsize
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlkwd{tax_name}\hlstd{(}\hlkwc{query} \hlstd{=} \hlstr{"Helianthus annuus"}\hlstd{,} \hlkwc{get} \hlstd{=} \hlstr{"family"}\hlstd{,} \hlkwc{db} \hlstd{=} \hlstr{"itis"}\hlstd{)}
+\hlkwd{tax_name}\hlstd{(}\hlkwc{query} \hlstd{=} \hlstr{"Helianthus annuus"}\hlstd{,} \hlkwc{get} \hlstd{=} \hlstr{"family"}\hlstd{,}
+         \hlkwc{db} \hlstd{=} \hlstr{"itis"}\hlstd{)}
 \end{alltt}
 \begin{verbatim}
 #       family
 # 1 Asteraceae
 \end{verbatim}
 \begin{alltt}
-\hlkwd{tax_name}\hlstd{(}\hlkwc{query} \hlstd{=} \hlstr{"Helianthus annuus"}\hlstd{,} \hlkwc{get} \hlstd{=} \hlstr{"family"}\hlstd{,} \hlkwc{db} \hlstd{=} \hlstr{"ncbi"}\hlstd{)}
+\hlkwd{tax_name}\hlstd{(}\hlkwc{query} \hlstd{=} \hlstr{"Helianthus annuus"}\hlstd{,} \hlkwc{get} \hlstd{=} \hlstr{"family"}\hlstd{,}
+         \hlkwc{db} \hlstd{=} \hlstr{"ncbi"}\hlstd{)}
 \end{alltt}
 \begin{verbatim}
 #       family
@@ -366,12 +373,15 @@ In another example, you can pass in a long character vector of taxonomic names:
 \begin{knitrout}\scriptsize
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlstd{splist} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlstr{"annona cherimola"}\hlstd{,} \hlstr{"annona muricata"}\hlstd{,} \hlstr{"quercus robur"}\hlstd{,} \hlstr{"shorea robusta"}\hlstd{,}
-    \hlstr{"pandanus patina"}\hlstd{,} \hlstr{"oryza sativa"}\hlstd{,} \hlstr{"durio zibethinus"}\hlstd{)}
+\hlstd{splist} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlstr{"annona cherimola"}\hlstd{,} \hlstr{'annona muricata'}\hlstd{,}
+            \hlstr{"quercus robur"}\hlstd{,} \hlstr{"shorea robusta"}\hlstd{,}
+            \hlstr{"pandanus patina"}\hlstd{,} \hlstr{"oryza sativa"}\hlstd{,}
+            \hlstr{"durio zibethinus"}\hlstd{)}
 \hlkwd{get_tsn}\hlstd{(}\hlkwc{searchterm} \hlstd{= splist,} \hlkwc{searchtype} \hlstd{=} \hlstr{"sciname"}\hlstd{)}
 \end{alltt}
 \begin{verbatim}
-# [1] "506198" "18098"  "19405"  "506787" "507376" "41976"  "506099"
+# [1] "506198" "18098"  "19405"  "506787" "507376" "41976" 
+# [7] "506099"
 # attr(,"class")
 # [1] "tsn"
 \end{verbatim}
@@ -477,7 +487,9 @@ Another use case available in taxize deals with genetic sequences. taxize has th
 \begin{knitrout}\scriptsize
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlstd{out} \hlkwb{<-} \hlkwd{get_genes_avail}\hlstd{(}\hlkwc{taxon_name} \hlstd{=} \hlstr{"Umbra limi"}\hlstd{,} \hlkwc{seqrange} \hlstd{=} \hlstr{"1:2000"}\hlstd{,} \hlkwc{getrelated} \hlstd{=} \hlnum{FALSE}\hlstd{)}
+\hlstd{out} \hlkwb{<-} \hlkwd{get_genes_avail}\hlstd{(}\hlkwc{taxon_name} \hlstd{=} \hlstr{"Umbra limi"}\hlstd{,}
+                       \hlkwc{seqrange} \hlstd{=} \hlstr{"1:2000"}\hlstd{,}
+                       \hlkwc{getrelated} \hlstd{=} \hlnum{FALSE}\hlstd{)}
 \end{alltt}
 \end{kframe}
 \end{knitrout}
@@ -553,7 +565,8 @@ In biology, one can ask questions at varying taxonomic levels. This use case is 
 \begin{alltt}
 \hlkwd{data}\hlstd{(dune,} \hlkwc{package} \hlstd{=} \hlstr{'vegan'}\hlstd{)}
 \hlstd{df} \hlkwb{<-} \hlstd{dune[ ,} \hlkwd{c}\hlstd{(}\hlnum{1}\hlstd{,}\hlnum{3}\hlopt{:}\hlnum{4}\hlstd{)]}
-\hlkwd{colnames}\hlstd{(df)} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlstr{"Bellis perennis"}\hlstd{,} \hlstr{"Juncus bufonius"}\hlstd{,} \hlstr{"Juncus articulatus"}\hlstd{)}
+\hlkwd{colnames}\hlstd{(df)} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlstr{"Bellis perennis"}\hlstd{,} \hlstr{"Juncus bufonius"}\hlstd{,}
+                  \hlstr{"Juncus articulatus"}\hlstd{)}
 \hlkwd{head}\hlstd{(df)}
 \end{alltt}
 \begin{verbatim}

@@ -1,18 +1,6 @@
 \documentclass[10pt,a4paper,twocolumn]{article}
 \usepackage{f1000_styles}
 \usepackage{hyperref}
-\usepackage{listings}
-
-\lstset{
-  language=R,
-  basicstyle=\ttfamily,
-  showstringspaces=false,
-  breaklines=true,
-  keywordstyle={\textit},
-  %morekeywords={text},% list your attributes here, 
-  escapechar=\&% char to escape out of listings and back to LaTeX
-}
-
 
 \newcolumntype{L}{>{\raggedright\arraybackslash}m{5cm}} % creates now column type to wrap text
 
@@ -21,6 +9,7 @@
 
 <<setup, include=FALSE, cache=FALSE, size='scriptsize'>>=
 ## set global chunk options
+options(width=58)
 opts_chunk$set(fig.align='center', fig.show='hold', par=TRUE, warning=FALSE, message=FALSE, error=FALSE, comment='#')
 @
 
@@ -134,17 +123,20 @@ Advanced users can also download and install the latest development copy from Gi
 This is a common task in biology. We often have a list of species names and we want to know a) if we have the most up to date names, b) if our names are spelled correctly, and c) the scientific name for a common name. One way to resolve names is via the Global Names Resolver (GNR) service provided by the Encyclopedia of Life \url{http://resolver.globalnames.org/}. Here, on can search for two misspelled names:
 
 
-<<resolvenames, cache=TRUE, size='scriptsize'>>=
-temp <- gnr_resolve(names = c("Helianthos annus", "Homo saapiens"))
+<<resolvenames, cache=TRUE, size='scriptsize', tidy=FALSE>>=
+temp <- gnr_resolve(names = c("Helianthos annus", 
+                              "Homo saapiens"))
 temp[ , -c(1,4)]
 @
 
 
 The correct spellings are \emph{Helianthus annuus} and \emph{Homo sapiens}. Another approach uses the Taxonomic Name Resolution Service via the Taxosaurus API \url{http://taxosaurus.org/} developed by iPLant and the Phylotastic organization. In this example is a list of species names, some of which are misspelled, and then call the API with the \emph{tnrs} function.
 
-<<tnrs, cache=TRUE, size='scriptsize'>>=
-mynames <- c("Helianthus annuus", "Pinus contort", "Poa anua", "Abis magnifica",
-  	"Rosa california", "Festuca arundinace", "Sorbus occidentalos","Madia sateva")
+<<tnrs, cache=TRUE, size='scriptsize', tidy=FALSE>>=
+mynames <- c("Helianthus annuus", "Pinus contort", 
+             "Poa anua", "Abis magnifica", "Rosa california", 
+             "Festuca arundinace", "Sorbus occidentalos",
+             "Madia sateva")
 tnrs(query = mynames)[ , -c(5:7)]
 @
 
@@ -154,9 +146,14 @@ taxize takes the approach that the user should be able to make decisions about w
 
 Another common use case is when there are many synonyms for a species. In this example, there are six synonyms of the currently accepted name for a species. 
 
-<<synonyms, cache=TRUE, message=FALSE, warning=FALSE, size='scriptsize'>>=
+<<synonyms, cache=TRUE, message=FALSE, warning=FALSE, size='scriptsize', tidy=FALSE>>=
 library(plyr)
-mynames <- c("Helianthus annuus ssp. jaegeri", "Helianthus annuus ssp. lenticularis", "Helianthus annuus ssp. texanus", "Helianthus annuus var. lenticularis", "Helianthus annuus var. macrocarpus", "Helianthus annuus var. texanus")
+mynames <- c("Helianthus annuus ssp. jaegeri", 
+             "Helianthus annuus ssp. lenticularis", 
+             "Helianthus annuus ssp. texanus", 
+             "Helianthus annuus var. lenticularis", 
+             "Helianthus annuus var. macrocarpus", 
+             "Helianthus annuus var. texanus")
 tsn <- get_tsn(mynames)
 ldply(tsn, itis_acceptname)
 @
@@ -177,9 +174,11 @@ It turns out both species are in the family Pinaceae. You can also get this type
 
 Instead of a full classification, you may only want a single name, say a family name for your species of interest. The function \emph{tax\_name} is built just for this purpose. As with the \emph{classification}-function you can specify the data source with the \emph{db} argument, either ITIS or NCBI. 
 
-<<taxname, cache=TRUE, size='scriptsize'>>=
-tax_name(query = "Helianthus annuus", get = "family", db = "itis")
-tax_name(query = "Helianthus annuus", get = "family", db = "ncbi")
+<<taxname, cache=TRUE, size='scriptsize', tidy=FALSE>>=
+tax_name(query = "Helianthus annuus", get = "family", 
+         db = "itis")
+tax_name(query = "Helianthus annuus", get = "family", 
+         db = "ncbi")
 @
 
 If a data source does not provide information on the queried species, the result could be taken from another source and the results from the different sources could be pooled.
@@ -194,9 +193,11 @@ get_tsn(searchterm = "Heliastes", searchtype = "sciname")
 
 In another example, you can pass in a long character vector of taxonomic names:
 
-<<interactive_many, cache=TRUE, size='scriptsize'>>=
-splist <- c("annona cherimola", 'annona muricata', "quercus robur",
-  	"shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")
+<<interactive_many, cache=TRUE, size='scriptsize', tidy=FALSE>>=
+splist <- c("annona cherimola", 'annona muricata', 
+            "quercus robur", "shorea robusta", 
+            "pandanus patina", "oryza sativa", 
+            "durio zibethinus")
 get_tsn(searchterm = splist, searchtype = "sciname")
 @
 
@@ -220,7 +221,7 @@ plot(tree, cex=1)
 taxa <- c("Poa annua", "Abies procera", "Helianthus annuus")
 tree <- phylomatic_tree(taxa = taxa)
 tree$tip.label <- capwords(tree$tip.label)
-plot(tree, cex=1)
+plot(tree, cex = 1)
 @
 
 \begin{figure}[!ht]
@@ -260,8 +261,10 @@ It turns out that the panther has a status of endangered (EN) and the lynx has a
 \subsection*{Search for available genes in GenBank}
 Another use case available in taxize deals with genetic sequences. taxize has three functions to interact with GenBank to search for available genes (\emph{get\_genes\_avail}), download genes by GenBank ID (\emph{get\_genes}), and download genes via taxonomic name search, including retrieving a congeneric if the searched taxon does not exist in the database (\emph{get\_seqs}). In this example, one can search for gene sequences for \emph{Umbra limi}.
 
-<<genbank_one, eval=TRUE, cache=TRUE, size='scriptsize'>>=
-out <- get_genes_avail(taxon_name = "Umbra limi", seqrange = "1:2000", getrelated = FALSE)
+<<genbank_one, eval=TRUE, cache=TRUE, size='scriptsize', tidy=FALSE>>=
+out <- get_genes_avail(taxon_name = "Umbra limi", 
+                       seqrange = "1:2000", 
+                       getrelated = FALSE)
 @
 
 Then one can ask if 'RAG1' exists in any of the gene names.
@@ -306,7 +309,8 @@ In biology, one can ask questions at varying taxonomic levels. This use case is 
 <<tax_agg,, cache=TRUE, tidy=FALSE, size='scriptsize'>>=
 data(dune, package = 'vegan')
 df <- dune[ , c(1,3:4)]
-colnames(df) <- c("Bellis perennis", "Juncus bufonius", "Juncus articulatus")
+colnames(df) <- c("Bellis perennis", "Juncus bufonius", 
+                  "Juncus articulatus")
 head(df)
 @
 
