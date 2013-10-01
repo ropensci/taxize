@@ -1,0 +1,312 @@
+\documentclass[letterpaper,superscriptaddress,showkeys,longbibliography]{revtex4-1}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\usepackage[utf8]{inputenc}
+\usepackage{color,dcolumn,graphicx,hyperref}
+\hypersetup
+{
+    colorlinks = true, linkcolor = blue, citecolor = blue, urlcolor = blue,
+}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+
+\begin{document}
+
+
+
+\section*{Appendix B. Matching species tables with different taxonomic resolution} 
+
+Trait-based approaches are a promising tool in ecology. Unlike taxonomy-based methods, traits may not be constrained to biogeographic boundaries [27] and have potential to disentangle the effects of multiple stressors [24]. 
+
+To analyse trait-composition abundance data must be matched with trait databases like [25]. However these two datatables may contain species information on different taxonomic levels and perhaps data must be aggregated to a joint taxonomic level.
+
+taxize can help in this data-cleaning step, providing a reproducible workflow. Here we illustrate this on a small fictitious example.
+
+Suppose we have fuzzy coded trait table with 2 traits with 3 respectively 2 modalities:
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{(traits} \hlkwb{<-} \hlkwd{read.table}\hlstd{(}\hlkwc{header} \hlstd{=} \hlnum{TRUE}\hlstd{,} \hlkwc{sep} \hlstd{=} \hlstr{';'}\hlstd{,} \hlkwc{stringsAsFactors}\hlstd{=}\hlnum{FALSE}\hlstd{,}
+                      \hlkwc{text} \hlstd{=} \hlstr{'taxon;T1M1;T1M2;T1M3;T2M1;T2M2
+Gammarus sp.;0;0;3;1;3
+Potamopyrgus antipodarum;1;0;3;1;3
+Coenagrion sp.;3;0;1;3;1
+Enallagma cyathigerum;0;3;1;0;3
+Erythromma sp.;0;0;3;3;1
+Baetis sp.;0;0;0;0;0
+'}\hlstd{))}
+\end{alltt}
+\begin{verbatim}
+                     taxon T1M1 T1M2 T1M3 T2M1 T2M2
+1             Gammarus sp.    0    0    3    1    3
+2 Potamopyrgus antipodarum    1    0    3    1    3
+3           Coenagrion sp.    3    0    1    3    1
+4    Enallagma cyathigerum    0    3    1    0    3
+5           Erythromma sp.    0    0    3    3    1
+6               Baetis sp.    0    0    0    0    0
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+
+And want to match this to a table with abundances:
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{(abundances} \hlkwb{<-} \hlkwd{read.table}\hlstd{(}\hlkwc{header} \hlstd{=} \hlnum{TRUE}\hlstd{,} \hlkwc{sep} \hlstd{=} \hlstr{';'}\hlstd{,} \hlkwc{stringsAsFactors}\hlstd{=}\hlnum{FALSE}\hlstd{,}
+                          \hlkwc{text} \hlstd{=} \hlstr{'taxon;abundance;sample
+Gammarus roeseli;5;1
+Gammarus roeseli;6;2
+Gammarus tigrinus;7;1
+Gammarus tigrinus;8;2
+Coenagrionidae;10;1
+Coenagrionidae;6;2
+Potamopyrgus antipodarum;10;1
+xxxxx;10;2
+'}\hlstd{))}
+\end{alltt}
+\begin{verbatim}
+                     taxon abundance sample
+1         Gammarus roeseli         5      1
+2         Gammarus roeseli         6      2
+3        Gammarus tigrinus         7      1
+4        Gammarus tigrinus         8      2
+5           Coenagrionidae        10      1
+6           Coenagrionidae         6      2
+7 Potamopyrgus antipodarum        10      1
+8                    xxxxx        10      2
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+
+
+First we do some basic data-cleaning and create a lookup-table, that will link taxa in trait table with the abundance table.
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# first we remove ' sp.' from out trait table:}
+\hlstd{traits}\hlopt{$}\hlstd{taxon_cleaned} \hlkwb{<-} \hlkwd{tolower}\hlstd{(}\hlkwd{gsub}\hlstd{(}\hlstr{" sp."}\hlstd{,} \hlstr{""}\hlstd{, traits}\hlopt{$}\hlstd{taxon))}
+\hlcom{# since abundance tables can be very long with repeating taxa, we look only}
+\hlcom{# at unique taxon names This will be a lookup-table linking taxon names}
+\hlcom{# between both tables}
+\hlstd{lookup} \hlkwb{<-} \hlkwd{data.frame}\hlstd{(}\hlkwc{taxon} \hlstd{=} \hlkwd{tolower}\hlstd{(}\hlkwd{unique}\hlstd{(abundances}\hlopt{$}\hlstd{taxon)),} \hlkwc{stringsAsFactors} \hlstd{=} \hlnum{FALSE}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+
+The we query the taxonomic hierarchy for both tables, this will be the backbone of this procedure:
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{library}\hlstd{(taxize)}
+\hlstd{traits_classi} \hlkwb{<-} \hlkwd{classification}\hlstd{(}\hlkwd{get_uid}\hlstd{(traits}\hlopt{$}\hlstd{taxon_cleaned))}
+\hlstd{lookup_classi} \hlkwb{<-} \hlkwd{classification}\hlstd{(}\hlkwd{get_uid}\hlstd{(lookup}\hlopt{$}\hlstd{taxon))}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+
+First we look if we can find any direct matches between taxon names:
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# first search for direct matches}
+\hlstd{direct} \hlkwb{<-} \hlkwd{match}\hlstd{(lookup}\hlopt{$}\hlstd{taxon, traits}\hlopt{$}\hlstd{taxon_cleaned)}
+\hlcom{# and add the matched name to our lookup table}
+\hlstd{lookup}\hlopt{$}\hlstd{traits} \hlkwb{<-} \hlkwd{tolower}\hlstd{(traits}\hlopt{$}\hlstd{taxon[direct])}
+\hlstd{lookup}\hlopt{$}\hlstd{match} \hlkwb{<-} \hlkwd{ifelse}\hlstd{(}\hlopt{!}\hlkwd{is.na}\hlstd{(direct),} \hlstr{"direct"}\hlstd{,} \hlnum{NA}\hlstd{)}
+\hlstd{lookup}
+\end{alltt}
+\begin{verbatim}
+                     taxon                   traits  match
+1         gammarus roeseli                     <NA>   <NA>
+2        gammarus tigrinus                     <NA>   <NA>
+3           coenagrionidae                     <NA>   <NA>
+4 potamopyrgus antipodarum potamopyrgus antipodarum direct
+5                    xxxxx                     <NA>   <NA>
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+
+We found a direct match - \emph{potamopyrgus antipodarum} - so nothing to do here.
+
+
+Next we look for species which are on a higher taxonomic resolution than our trait table. 
+For these species we will take directly the trait-data since no better information is available.
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# look for cases where taxonomic resolution in abundance data is higher than}
+\hlcom{# in trait data: here we take the trait-values for the lower resolution}
+\hlkwa{for} \hlstd{(i} \hlkwa{in} \hlkwd{which}\hlstd{(}\hlkwd{is.na}\hlstd{(lookup}\hlopt{$}\hlstd{traits))) \{}
+    \hlkwa{if} \hlstd{(}\hlkwd{is.data.frame}\hlstd{(lookup_classi[[i]])) \{}
+        \hlstd{matches} \hlkwb{<-} \hlkwd{tolower}\hlstd{(lookup_classi[[i]]}\hlopt{$}\hlstd{ScientificName)} \hlopt{%in%} \hlstd{traits}\hlopt{$}\hlstd{taxon_cleaned}
+        \hlkwa{if} \hlstd{(}\hlkwd{any}\hlstd{(matches)) \{}
+            \hlstd{lookup}\hlopt{$}\hlstd{traits[i]} \hlkwb{<-} \hlkwd{tolower}\hlstd{(lookup_classi[[i]]}\hlopt{$}\hlstd{ScientificName[matches])}
+            \hlstd{lookup}\hlopt{$}\hlstd{match[i]} \hlkwb{<-} \hlstd{lookup_classi[[i]]}\hlopt{$}\hlstd{Rank[matches]}
+        \hlstd{\}}
+    \hlstd{\}}
+\hlstd{\}}
+\hlstd{lookup}
+\end{alltt}
+\begin{verbatim}
+                     taxon                   traits  match
+1         gammarus roeseli                 gammarus  genus
+2        gammarus tigrinus                 gammarus  genus
+3           coenagrionidae                     <NA>   <NA>
+4 potamopyrgus antipodarum potamopyrgus antipodarum direct
+5                    xxxxx                     <NA>   <NA>
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+
+So our abundance data has two \emph{Gammarus} species, however trait data is only on genus level.
+
+
+The next step is to search for species were we have to aggregate trait-data, since our abundance data is on a lower taxonomic level.
+We are walking the taxonomic latter for the species in our trait-data upwards and search for matches with out abundance data. Since we'll have many taxa in the trait-data belonging to one taxon, we'll take the median modality scores as an approximation. Of course also other methods may be used here, e.g. weighting by genetic distance.
+
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# look for cases taxonomic resolution in abundance data is lower than in}
+\hlcom{# trait data, here we need to aggregate the trait-values (eg. median value}
+\hlcom{# for modality)}
+\hlkwa{for} \hlstd{(i} \hlkwa{in} \hlkwd{which}\hlstd{(}\hlkwd{is.na}\hlstd{(lookup}\hlopt{$}\hlstd{traits))) \{}
+    \hlcom{# find matches}
+    \hlstd{agg} \hlkwb{<-} \hlkwd{sapply}\hlstd{(traits_classi,} \hlkwa{function}\hlstd{(}\hlkwc{x}\hlstd{)} \hlkwd{any}\hlstd{(}\hlkwd{tolower}\hlstd{(x}\hlopt{$}\hlstd{ScientificName)} \hlopt{%in%}
+        \hlstd{lookup}\hlopt{$}\hlstd{taxon[i]))}
+    \hlkwa{if} \hlstd{(}\hlkwd{sum}\hlstd{(agg)} \hlopt{>} \hlnum{1}\hlstd{) \{}
+        \hlcom{# add taxon as aggregate to trait-table}
+        \hlstd{traits} \hlkwb{<-} \hlkwd{rbind}\hlstd{(traits,} \hlkwd{c}\hlstd{(}\hlkwd{paste0}\hlstd{(lookup}\hlopt{$}\hlstd{taxon[i],} \hlstr{"-aggregated"}\hlstd{),} \hlkwd{apply}\hlstd{(traits[agg,}
+            \hlnum{2}\hlopt{:}\hlnum{6}\hlstd{],} \hlnum{2}\hlstd{, median),} \hlkwd{paste0}\hlstd{(lookup}\hlopt{$}\hlstd{taxon[i],} \hlstr{"-aggregated"}\hlstd{)))}
+        \hlcom{# fill lookup table}
+        \hlstd{lookup}\hlopt{$}\hlstd{traits[i]} \hlkwb{<-} \hlkwd{paste0}\hlstd{(lookup}\hlopt{$}\hlstd{taxon[i],} \hlstr{"-aggregated"}\hlstd{)}
+        \hlstd{lookup}\hlopt{$}\hlstd{match[i]} \hlkwb{<-} \hlstr{"aggregated"}
+    \hlstd{\}}
+\hlstd{\}}
+\hlstd{lookup}
+\end{alltt}
+\begin{verbatim}
+#                      taxon                    traits      match
+# 1         gammarus roeseli                  gammarus      genus
+# 2        gammarus tigrinus                  gammarus      genus
+# 3           coenagrionidae coenagrionidae-aggregated aggregated
+# 4 potamopyrgus antipodarum  potamopyrgus antipodarum     direct
+# 5                    xxxxx                      <NA>       <NA>
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+
+Finally we have only one taxon left - clearly an error. We remove this from our dataset:
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{abundances} \hlkwb{<-} \hlstd{abundances[}\hlopt{!}\hlstd{abundances}\hlopt{$}\hlstd{taxon} \hlopt{==} \hlstd{lookup}\hlopt{$}\hlstd{taxon[}\hlkwd{is.na}\hlstd{(lookup}\hlopt{$}\hlstd{traits)],}
+    \hlstd{]}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+
+
+Now we can create \emph{species x sites} and \emph{traits x species} matrices, which could be plugged into methods to analyse trait responses [28].
+
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# species (as matched with trait table) by site matrix}
+\hlstd{abundances}\hlopt{$}\hlstd{traits_taxa} \hlkwb{<-} \hlstd{lookup}\hlopt{$}\hlstd{traits[}\hlkwd{match}\hlstd{(}\hlkwd{tolower}\hlstd{(abundances}\hlopt{$}\hlstd{taxon), lookup}\hlopt{$}\hlstd{taxon)]}
+\hlkwd{library}\hlstd{(reshape2)}
+\hlcom{# reshape data to long format and name rows by samples}
+\hlstd{L} \hlkwb{<-} \hlkwd{dcast}\hlstd{(abundances, sample} \hlopt{~} \hlstd{traits_taxa,} \hlkwc{fun.aggregate} \hlstd{= sum,} \hlkwc{value.var} \hlstd{=} \hlstr{"abundance"}\hlstd{)}
+\hlkwd{rownames}\hlstd{(L)} \hlkwb{<-} \hlstd{L}\hlopt{$}\hlstd{sample}
+\hlstd{L}\hlopt{$}\hlstd{sample} \hlkwb{<-} \hlkwa{NULL}
+\hlstd{L}
+\end{alltt}
+\begin{verbatim}
+#   coenagrionidae-aggregated gammarus potamopyrgus antipodarum
+# 1                        10       12                       10
+# 2                         6       14                        0
+\end{verbatim}
+\begin{alltt}
+\hlcom{# traits by species matrix}
+\hlstd{Q} \hlkwb{<-} \hlstd{traits[,} \hlnum{2}\hlopt{:}\hlnum{7}\hlstd{][}\hlkwd{match}\hlstd{(}\hlkwd{names}\hlstd{(L), traits}\hlopt{$}\hlstd{taxon_cleaned), ]}
+\hlkwd{rownames}\hlstd{(Q)} \hlkwb{<-} \hlstd{Q}\hlopt{$}\hlstd{taxon_cleaned}
+\hlstd{Q}\hlopt{$}\hlstd{taxon_cleaned} \hlkwb{<-} \hlkwa{NULL}
+\hlstd{Q}
+\end{alltt}
+\begin{verbatim}
+#                           T1M1 T1M2 T1M3 T2M1 T2M2
+# coenagrionidae-aggregated    0    0    1    3    1
+# gammarus                     0    0    3    1    3
+# potamopyrgus antipodarum     1    0    3    1    3
+\end{verbatim}
+\begin{alltt}
+\hlcom{# check}
+\hlkwd{all}\hlstd{(}\hlkwd{rownames}\hlstd{(Q)} \hlopt{==} \hlkwd{colnames}\hlstd{(L))}
+\end{alltt}
+\begin{verbatim}
+# [1] TRUE
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+
+This is just an example how taxonomic APIs (via taxize) could be used to search for matches up- and downwards the taxonomic ladder. We are looking forward to integrate the freshwaterecology.info database \url{www.freshwaterecology.info} into taxize, which will facilitate trait-based analyses in R.
+\end{document}

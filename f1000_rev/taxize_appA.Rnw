@@ -1,4 +1,22 @@
-\section{A complete reproducible workflow, from a species list to a phylogeny, and distribution map.} 
+\documentclass[letterpaper,superscriptaddress,showkeys,longbibliography]{revtex4-1}
+\usepackage[utf8]{inputenc}
+\usepackage{color,dcolumn,graphicx,hyperref}
+\hypersetup
+{
+    colorlinks = true, linkcolor = blue, citecolor = blue, urlcolor = blue,
+}
+
+\begin{document}
+<<setup, include=FALSE, cache=FALSE, size='scriptsize'>>=
+## set global chunk options
+opts_chunk$set(fig.align='center', fig.show='hold', par=TRUE, warning=FALSE, message=FALSE, error=FALSE, comment='#')
+@
+
+\renewcommand\thefigure{A.\arabic{figure}}    
+\setcounter{figure}{0}    
+
+
+\section*{Appendix A. A complete reproducible workflow, from a species list to a phylogeny, and distribution map.} 
 
 If you aren't familiar with a complete workflow in R, it may be difficult to visualize the process. In R, everything is programmatic, so the whole workflow can be in one place, and be repeated whenever necessary. The following is a workflow for taxize, going from a species list to a phylogeny. 
 
@@ -17,9 +35,7 @@ library(taxize)
 Most of us will start out with a species list, something like the one below. Note that each of the names is spelled incorrectly.
 
 <<thespecieslist, eval=TRUE>>=
-splist <- c("Helanthus annuus", "Pinos contorta", "Collomia grandiflorra", "Abies magnificaa", 
-  	"Rosa california", "Datura wrighti", "Mimulus bicolour", "Nicotiana glauca",
-		"Maddia sativa", "Bartlettia scapposa")
+splist <- c("Helanthus annuus", "Pinos contorta", "Collomia grandiflorra", "Rosa california", "Mimulus bicolour", "Nicotiana glauca", "Maddia sativa")
 @
 
 There are many ways to resolve taxonomic names in taxize. Of course, the ideal name resolver will do the work behind the scenes for you so that you don't have to do things like fuzzy matching. There are a few services in taxize like this we can choose from: the Global Names Resolver service from EOL (see function \emph{gnr\_resolve}) and the Taxonomic Name Resolution Service from iPlant (see function \emph{tnrs}). In this case let's use the function \emph{tnrs}. 
@@ -114,9 +130,10 @@ library(ggplot2)
 occurr_list <- occurrencelist_many(as.character(allnames$spname), coordinatestatus = TRUE, maxresults = 100, removeZeros=TRUE, fixnames="changealltorig")
 
 # Make a map
-p <- gbifmap(occurr_list) + 
+p <- gbifmap_list(occurr_list) + 
   guides(col = guide_legend(title="", nrow = 3, byrow = TRUE)) + 
   theme(legend.position="bottom", legend.key = element_blank()) +
   coord_equal() 
 p
 @
+\end{document}

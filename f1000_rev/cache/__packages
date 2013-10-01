@@ -1,7 +1,10 @@
 base
 foreach
+ggplot2
 knitr
+maps
 plyr
+rgbif
 rjson
 taxize
 XML
