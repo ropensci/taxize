@@ -1,4 +1,18 @@
-\section{Matching species tables with different taxonomic resolution} 
+\documentclass[letterpaper,superscriptaddress,showkeys,longbibliography]{revtex4-1}
+\usepackage[utf8]{inputenc}
+\usepackage{color,dcolumn,graphicx,hyperref}
+\hypersetup
+{
+    colorlinks = true, linkcolor = blue, citecolor = blue, urlcolor = blue,
+}
+
+\begin{document}
+<<setup, include=FALSE, cache=FALSE, size='scriptsize'>>=
+## set global chunk options
+opts_chunk$set(fig.align='center', fig.show='hold', par=TRUE, warning=FALSE, message=FALSE, error=FALSE, comment='#')
+@
+
+\section*{Appendix B. Matching species tables with different taxonomic resolution} 
 
 Trait-based approaches are a promising tool in ecology. Unlike taxonomy-based methods, traits may not be constrained to biogeographic boundaries [27] and have potential to disentangle the effects of multiple stressors [24]. 
 
@@ -141,3 +155,4 @@ all(rownames(Q) == colnames(L))
 @
 
 This is just an example how taxonomic APIs (via taxize) could be used to search for matches up- and downwards the taxonomic ladder. We are looking forward to integrate the freshwaterecology.info database \url{www.freshwaterecology.info} into taxize, which will facilitate trait-based analyses in R.
+\end{document}
