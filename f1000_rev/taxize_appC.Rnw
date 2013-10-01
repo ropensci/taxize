@@ -15,16 +15,23 @@ opts_chunk$set(fig.align='center', fig.show='hold', par=TRUE, warning=FALSE, mes
 
 \subsection*{Installing and using the development version of taxize}
 
-Stable versions of taxize are available on the Comprehensive R Archive Network (CRAN) by the following process 
+Stable versions of taxize are available on the Comprehensive R Archive Network (CRAN) by the following process: 
 
 <<installcran, eval=FALSE>>=
 install.packages("taxize")
 library(taxize)
 @
 
-Development versions of taxize are available at Github at this linke \url{https://github.com/ropensci/taxize_}, where the codebase is actively developed. This is also a good place to report bugs, submit feature requests, etc. on the Issues page \url{https://github.com/ropensci/taxize_/issues?state=open}. 
+Development versions of taxize are available at Github at this link \url{https://github.com/ropensci/taxize_}, where the codebase is actively developed. This is also a good place to report bugs, submit feature requests, etc. on the Issues page \url{https://github.com/ropensci/taxize_/issues}. 
 
-The process of installing is a little bit more involved than from CRAN, but still quite easy using the package devtools \url{http://cran.r-project.org/web/packages/devtools/index.html}. You need to install development tools if you haven't already:
+The process of installing is a little bit more involved than from CRAN, but still quite easy using the package devtools \url{http://cran.r-project.org/web/packages/devtools/index.html}.
+If you don't have it yet, you can install it from CRAN:
+
+<<installdevtools, eval=FALSE>>=
+install.packages("devtools")
+@
+
+You also need to install development tools if you haven't already:
 
 \begin{itemize}
   \item On Windows, download and install Rtools: http://cran.r-project.org/bin/windows/Rtools/. This is not an R package.
@@ -38,6 +45,7 @@ library(devtools)
 has_devel()
 @
 
+Which should return `TRUE`.
 Once that is taken care of, install taxize from Github.
 
 <<install, eval=FALSE>>=
