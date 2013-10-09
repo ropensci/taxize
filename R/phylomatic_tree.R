@@ -82,6 +82,14 @@ phylomatic_tree <- function(taxa, taxnames = TRUE, get = 'GET',
   		dat_ <- llply(taxa, itis_phymat_format, format='isubmit')
   	}
   	
+    checknas <- sapply(dat_, function(x) strsplit(x, "/")[[1]][1])
+  	checknas2 <- checknas[grep("na", checknas)]
+    if(length(checknas2)>0)
+      stop(sprintf("A family was not found for the following taxa:\n %s \n\n try setting taxnmaes=FALSE, and passing in a vector of strings, like \n%s", 
+      paste(sapply(dat_, function(x) strsplit(x, "/")[[1]][3])[grep("na", checknas)], collapse=", "),
+      'phylomatic_tree(taxa = c("asteraceae/taraxacum/taraxacum_officinale", "ericaceae/gaylussacia/gaylussacia_baccata", "ericaceae/vaccinium/vaccinium_pallidum"), taxnames=FALSE, parallel=FALSE)'
+      ))
+  	
   } else
   	{ dat_ <- taxa }
   if (length(dat_) > 1) { dat_ <- paste(dat_, collapse = "\n") } else { dat_ <- dat_ }
