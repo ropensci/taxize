@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.5.23)  30 SEP 2013 15:06
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.5.23)  14 OCT 2013 14:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -795,69 +795,6 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip66
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count144
-\lst@gtempboxa=\box38
-\lst@token=\toks41
-\lst@length=\count145
-\lst@currlwidth=\dimen190
-\lst@column=\count146
-\lst@pos=\count147
-\lst@lostspace=\dimen191
-\lst@width=\dimen192
-\lst@newlines=\count148
-\lst@lineno=\count149
-\lst@maxwidth=\dimen193
-
-(/usr/local/texlive/2012/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
-\c@lstnumber=\count150
-\lst@skipnumbers=\count151
-\lst@framebox=\box39
-)
-(/usr/local/texlive/2012/texmf-dist/tex/latex/listings/listings.cfg
-File: listings.cfg 2007/02/22 1.4 listings configuration
-))
-Package: listings 2007/02/22 1.4 (Carsten Heinz)
-
-(/usr/local/texlive/2012/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2004/09/05 1.3 listings language file
-)
-(/usr/local/texlive/2012/texmf-dist/tex/latex/listings/lstlang2.sty
-File: lstlang2.sty 2004/09/05 1.3 listings language file
-)
-(/usr/local/texlive/2012/texmf-dist/tex/latex/listings/lstlang3.sty
-File: lstlang3.sty 2004/09/05 1.3 listings language file
-)
-
-./taxize_ms.tex:97: LaTeX Error: Command \kframe already defined.
-               Or name \end... illegal, see p.192 of the manual.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.97  \at@end@of@kframe}
-                        
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./taxize_ms.tex:104: LaTeX Error: Command \knitrout already defined.
-               Or name \end... illegal, see p.192 of the manual.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.104 \newenvironment{knitrout}{}{}
-                                    % an empty environment to be redefined i...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
 (/usr/local/texlive/2012/texmf-dist/tex/latex/upquote/upquote.sty
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
 tim
@@ -946,58 +883,55 @@ Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 340.
 (/Users/scottmac2/github/ropensci/taxize_/f1000_rev/.texpadtmp/taxize_ms.aux)
 \openout1 = `taxize_ms.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for MDA/cmr/m/n on input line 113.
-LaTeX Font Info:    Try loading font information for MDA+cmr on input line 113.
-
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for MDA/cmr/m/n on input line 58.
+LaTeX Font Info:    Try loading font information for MDA+cmr on input line 58.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/mathdesign/mdacmr.fd
 File: mdacmr.fd 
 )
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for MDB/cmr/m/n on input line 113.
-LaTeX Font Info:    Try loading font information for MDB+cmr on input line 113.
-
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for MDB/cmr/m/n on input line 58.
+LaTeX Font Info:    Try loading font information for MDB+cmr on input line 58.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/mathdesign/mdbcmr.fd
 File: mdbcmr.fd 
 )
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 113.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 113.
-
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 58.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 58.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    ... okay on input line 58.
 
 (/usr/local/texlive/2012/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count152
-\scratchdimen=\dimen194
-\scratchbox=\box40
-\nofMPsegments=\count153
-\nofMParguments=\count154
-\everyMPshowfont=\toks42
-\MPscratchCnt=\count155
-\MPscratchDim=\dimen195
-\MPnumerator=\count156
-\makeMPintoPDFobject=\count157
-\everyMPtoPDFconversion=\toks43
+\scratchcounter=\count144
+\scratchdimen=\dimen190
+\scratchbox=\box38
+\nofMPsegments=\count145
+\nofMParguments=\count146
+\everyMPshowfont=\toks41
+\MPscratchCnt=\count147
+\MPscratchDim=\dimen191
+\MPnumerator=\count148
+\makeMPintoPDFobject=\count149
+\everyMPtoPDFconversion=\toks42
 ) (/usr/local/texlive/2012/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -1053,7 +987,6 @@ ABD: EveryShipout initializing macros
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
-Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             http://www.ctan.org/tex-archive/ 
@@ -1061,201 +994,200 @@ Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             or
 (lastpage)             http://www.ctan.org/tex-archive/ 
 (lastpage)             install/macros/latex/contrib/pageslts.tds.zip
-(lastpage)             ! on input line 113.
-\AtBeginShipoutBox=\box41
-Package hyperref Info: Link coloring OFF on input line 113.
+(lastpage)             ! on input line 58.
+\AtBeginShipoutBox=\box39
+Package hyperref Info: Link coloring OFF on input line 58.
 (/usr/local/texlive/2012/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
 (/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count158
+\c@section@level=\count150
 )
-LaTeX Info: Redefining \ref on input line 113.
-LaTeX Info: Redefining \pageref on input line 113.
-LaTeX Info: Redefining \nameref on input line 113.
+LaTeX Info: Redefining \ref on input line 58.
+LaTeX Info: Redefining \pageref on input line 58.
+LaTeX Info: Redefining \nameref on input line 58.
 
 (/Users/scottmac2/github/ropensci/taxize_/f1000_rev/.texpadtmp/taxize_ms.out)
 (/Users/scottmac2/github/ropensci/taxize_/f1000_rev/.texpadtmp/taxize_ms.out)
 \@outlinefile=\write4
 \openout4 = `taxize_ms.out'.
 
-\c@lstlisting=\count159
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 17.69989pt on input line 125.
+(Font)              scaled to size 17.69989pt on input line 70.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 14.15991pt on input line 125.
-LaTeX Font Info:    Calculating math sizes for size <16> on input line 125.
-LaTeX Font Info:    Try loading font information for OT1+mdbch on input line 12
-5.
+(Font)              scaled to size 14.15991pt on input line 70.
+LaTeX Font Info:    Calculating math sizes for size <16> on input line 70.
+LaTeX Font Info:    Try loading font information for OT1+mdbch on input line 70
+.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/mathdesign/mdbch/ot1mdbch.fd
 File: ot1mdbch.fd 2006/01/28 Fontinst v1.928 font definitions for OT1/mdbch.
 )
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 15.3601pt on input line 125.
+(Font)              scaled to size 15.3601pt on input line 70.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 10.75201pt on input line 125.
+(Font)              scaled to size 10.75201pt on input line 70.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 125.
-LaTeX Font Info:    Try loading font information for OML+mdbch on input line 12
-5.
+(Font)              scaled to size 7.68005pt on input line 70.
+LaTeX Font Info:    Try loading font information for OML+mdbch on input line 70
+.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/mathdesign/mdbch/omlmdbch.fd
 File: omlmdbch.fd 2006/01/28 Fontinst v1.928 font definitions for OML/mdbch.
 )
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 15.3601pt on input line 125.
+(Font)              scaled to size 15.3601pt on input line 70.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 10.75201pt on input line 125.
+(Font)              scaled to size 10.75201pt on input line 70.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 7.68005pt on input line 125.
-LaTeX Font Info:    Try loading font information for OMS+mdbch on input line 12
-5.
+(Font)              scaled to size 7.68005pt on input line 70.
+LaTeX Font Info:    Try loading font information for OMS+mdbch on input line 70
+.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/mathdesign/mdbch/omsmdbch.fd
 File: omsmdbch.fd 2006/01/28 Fontinst v1.928 font definitions for OMS/mdbch.
 )
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 15.3601pt on input line 125.
+(Font)              scaled to size 15.3601pt on input line 70.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 10.75201pt on input line 125.
+(Font)              scaled to size 10.75201pt on input line 70.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 125.
-LaTeX Font Info:    Try loading font information for OMX+mdbch on input line 12
-5.
+(Font)              scaled to size 7.68005pt on input line 70.
+LaTeX Font Info:    Try loading font information for OMX+mdbch on input line 70
+.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/mathdesign/mdbch/omxmdbch.fd
 File: omxmdbch.fd 2006/01/28 Fontinst v1.928 font definitions for OMX/mdbch.
 )
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 15.3601pt on input line 125.
+(Font)              scaled to size 15.3601pt on input line 70.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 10.75201pt on input line 125.
+(Font)              scaled to size 10.75201pt on input line 70.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 125.
+(Font)              scaled to size 7.68005pt on input line 70.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 15.3601pt on input line 125.
+(Font)              scaled to size 15.3601pt on input line 70.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 10.75201pt on input line 125.
+(Font)              scaled to size 10.75201pt on input line 70.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 125.
-LaTeX Font Info:    Try loading font information for MDA+mdbch on input line 12
-5.
+(Font)              scaled to size 7.68005pt on input line 70.
+LaTeX Font Info:    Try loading font information for MDA+mdbch on input line 70
+.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/mathdesign/mdbch/mdamdbch.fd
 File: mdamdbch.fd 2006/01/28 Fontinst v1.928 font definitions for MDA/mdbch.
 )
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 15.3601pt on input line 125.
+(Font)              scaled to size 15.3601pt on input line 70.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 10.75201pt on input line 125.
+(Font)              scaled to size 10.75201pt on input line 70.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 125.
-LaTeX Font Info:    Try loading font information for MDB+mdbch on input line 12
-5.
+(Font)              scaled to size 7.68005pt on input line 70.
+LaTeX Font Info:    Try loading font information for MDB+mdbch on input line 70
+.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/mathdesign/mdbch/mdbmdbch.fd
 File: mdbmdbch.fd 2006/01/28 Fontinst v1.928 font definitions for MDB/mdbch.
 )
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 15.3601pt on input line 125.
+(Font)              scaled to size 15.3601pt on input line 70.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 10.75201pt on input line 125.
+(Font)              scaled to size 10.75201pt on input line 70.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 125.
+(Font)              scaled to size 7.68005pt on input line 70.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 9.91188pt on input line 125.
+(Font)              scaled to size 9.91188pt on input line 70.
 LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 10.75201pt on input line 125.
+(Font)              scaled to size 10.75201pt on input line 70.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 8.84995pt on input line 125.
+(Font)              scaled to size 8.84995pt on input line 70.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 125.
+(Font)              scaled to size 9.60007pt on input line 70.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 125.
+(Font)              scaled to size 6.72005pt on input line 70.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 125.
+(Font)              scaled to size 4.80003pt on input line 70.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 9.60007pt on input line 125.
+(Font)              scaled to size 9.60007pt on input line 70.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 6.72005pt on input line 125.
+(Font)              scaled to size 6.72005pt on input line 70.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 4.80003pt on input line 125.
+(Font)              scaled to size 4.80003pt on input line 70.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 125.
+(Font)              scaled to size 9.60007pt on input line 70.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 125.
+(Font)              scaled to size 6.72005pt on input line 70.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 125.
+(Font)              scaled to size 4.80003pt on input line 70.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 125.
+(Font)              scaled to size 9.60007pt on input line 70.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 125.
+(Font)              scaled to size 6.72005pt on input line 70.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 125.
+(Font)              scaled to size 4.80003pt on input line 70.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 125.
+(Font)              scaled to size 9.60007pt on input line 70.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 125.
+(Font)              scaled to size 6.72005pt on input line 70.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 125.
+(Font)              scaled to size 4.80003pt on input line 70.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 125.
+(Font)              scaled to size 9.60007pt on input line 70.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 125.
+(Font)              scaled to size 6.72005pt on input line 70.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 125.
+(Font)              scaled to size 4.80003pt on input line 70.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 125.
+(Font)              scaled to size 9.60007pt on input line 70.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 125.
+(Font)              scaled to size 6.72005pt on input line 70.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 125.
+(Font)              scaled to size 4.80003pt on input line 70.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 6.19496pt on input line 125.
+(Font)              scaled to size 6.19496pt on input line 70.
 LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 125.
+(Font)              scaled to size 6.72005pt on input line 70.
 LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
-(Font)              scaled to size 8.84995pt on input line 129.
+(Font)              scaled to size 8.84995pt on input line 74.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 129.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 74.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 8.84995pt on input line 129.
+(Font)              scaled to size 8.84995pt on input line 74.
 LaTeX Font Info:    Font shape `OT1/cmtt/m/n' will be
-(Font)              scaled to size 10.74997pt on input line 130.
+(Font)              scaled to size 10.74997pt on input line 75.
 
-Overfull \hbox (83.29239pt too wide) in paragraph at lines 129--132
+Overfull \hbox (83.29239pt too wide) in paragraph at lines 74--77
 [] $[]$ 
  []
 
 LaTeX Font Info:    Font shape `T1/mdbch/m/fsc' will be
-(Font)              scaled to size 9.60007pt on input line 132.
+(Font)              scaled to size 9.60007pt on input line 77.
 <F1000header.png, id=8, 180.675pt x 24.84282pt>
 File: F1000header.png Graphic file (type png)
  <use F1000header.png>
-Package pdftex.def Info: F1000header.png used on input line 132.
+Package pdftex.def Info: F1000header.png used on input line 77.
 (pdftex.def)             Requested size: 87.27438pt x 12.0pt.
 LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 132.
+(Font)              scaled to size 7.68005pt on input line 77.
 LaTeX Font Info:    Font shape `T1/mdbch/m/it' will be
-(Font)              scaled to size 7.68005pt on input line 132.
+(Font)              scaled to size 7.68005pt on input line 77.
  [1{/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
 
  <./F1000header.png>]
 LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 13.82408pt on input line 134.
+(Font)              scaled to size 13.82408pt on input line 79.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 12.74391pt on input line 134.
+(Font)              scaled to size 12.74391pt on input line 79.
 LaTeX Font Info:    Font shape `T1/mdbch/m/it' will be
-(Font)              scaled to size 9.60007pt on input line 135.
+(Font)              scaled to size 9.60007pt on input line 80.
 LaTeX Font Info:    Font shape `T1/cmtt/m/n' will be
-(Font)              scaled to size 10.74997pt on input line 137.
+(Font)              scaled to size 10.74997pt on input line 82.
 
-Underfull \hbox (badness 1442) in paragraph at lines 137--138
+Underfull \hbox (badness 1442) in paragraph at lines 82--83
 []\T1/mdbch/m/n/10 The use of tax-o-nomic names is, un-for-tu-nately, not
  []
 
@@ -1263,59 +1195,55 @@ Underfull \hbox (badness 1442) in paragraph at lines 137--138
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Font Info:    Font shape `T1/mdbch/bx/n' in size <10> not available
-(Font)              Font shape `T1/mdbch/b/n' tried instead on input line 152.
+(Font)              Font shape `T1/mdbch/b/n' tried instead on input line 97.
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 9.60007pt on input line 152.
+(Font)              scaled to size 9.60007pt on input line 97.
 
-
-LaTeX Warning: Citation `federhen' on page 2 undefined on input line 165.
-
-
-Underfull \hbox (badness 1430) in paragraph at lines 190--191
+Underfull \hbox (badness 1430) in paragraph at lines 135--136
 \T1/mdbch/m/n/10 higher tax-on-omy for species names. For ex-am-ple,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 190--191
+Underfull \hbox (badness 10000) in paragraph at lines 135--136
 \T1/mdbch/m/n/10 Lin-naeus []$\T1/cmtt/m/n/10 http : / / linnaeus . sourceforge
  . net/$[]
  []
 
 
-Underfull \hbox (badness 1383) in paragraph at lines 190--191
+Underfull \hbox (badness 1383) in paragraph at lines 135--136
 \T1/mdbch/m/n/10 pro-vides the abil-ity to search for tax-o-nomic names
  []
 
 
-Underfull \hbox (badness 1902) in paragraph at lines 190--191
+Underfull \hbox (badness 1902) in paragraph at lines 135--136
 \T1/mdbch/m/n/10 ad-di-tion, there are many web in-ter-faces to search
  []
 
 
-Underfull \hbox (badness 2343) in paragraph at lines 190--191
+Underfull \hbox (badness 2343) in paragraph at lines 135--136
 \T1/mdbch/m/n/10 for and nor-mal-ize names such as En-cy-clo-pe-dia of
  []
 
 
-Underfull \hbox (badness 6063) in paragraph at lines 190--191
+Underfull \hbox (badness 6063) in paragraph at lines 135--136
 \T1/mdbch/m/n/10 Life's Global Names Re-solver []$\T1/cmtt/m/n/10 http : / / re
 solver .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 190--191
+Underfull \hbox (badness 10000) in paragraph at lines 135--136
 \T1/cmtt/m/n/10 globalnames . org/$[]\T1/mdbch/m/n/10 , uBio tools []$\T1/cmtt/
 m/n/10 http : / / www .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 190--191
+Underfull \hbox (badness 10000) in paragraph at lines 135--136
 \T1/cmtt/m/n/10 ubio . org / index . php ? pagename = sample _ tools$[]\T1/mdbc
 h/m/n/10 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 190--191
+Underfull \hbox (badness 10000) in paragraph at lines 135--136
 \T1/mdbch/m/n/10 and iPlant's Tax-o-nomic Name Res-o-lu-tion Ser-vice
  []
 
@@ -1325,7 +1253,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: F1000header.png Graphic file (type png)
 
 <use F1000header.png>
-Package pdftex.def Info: F1000header.png used on input line 193.
+Package pdftex.def Info: F1000header.png used on input line 138.
 (pdftex.def)             Requested size: 87.27438pt x 12.0pt.
  [2
 
@@ -1334,288 +1262,210 @@ Package pdftex.def Info: F1000header.png used on input line 193.
 LaTeX Warning: Text page 3 contains only floats.
 
 
-Overfull \vbox (19.64336pt too high) has occurred while \output is active []
+Overfull \vbox (7.64336pt too high) has occurred while \output is active []
 
 
 
 LaTeX Warning: Text page 3 contains only floats.
 
 
-Overfull \vbox (19.64336pt too high) has occurred while \output is active []
-
-
-Overfull \vbox (5.64336pt too high) has occurred while \output is active []
+Overfull \vbox (7.64336pt too high) has occurred while \output is active []
 
 File: F1000header.png Graphic file (type png)
 
 <use F1000header.png>
-Package pdftex.def Info: F1000header.png used on input line 193.
+Package pdftex.def Info: F1000header.png used on input line 138.
 (pdftex.def)             Requested size: 87.27438pt x 12.0pt.
  [3]
-Underfull \hbox (badness 1354) in paragraph at lines 198--199
-\T1/mdbch/m/n/10 re-quire an API key in tax-ize are: En-cy-clo-pe-dia of
- []
-
-
-Underfull \hbox (badness 1910) in paragraph at lines 198--199
+Underfull \hbox (badness 1910) in paragraph at lines 143--144
 []$\T1/cmtt/m/n/10 http : / / www . tropicos . org/$[]\T1/mdbch/m/n/10 , and Pl
 ant-miner [[]].
  []
 
 
-Underfull \hbox (badness 1226) in paragraph at lines 198--199
+Underfull \hbox (badness 1226) in paragraph at lines 143--144
 \T1/mdbch/m/n/10 site of each ser-vice (see Ta-ble []1[] for links to each
  []
 
 
-Underfull \hbox (badness 1297) in paragraph at lines 198--199
+Underfull \hbox (badness 1297) in paragraph at lines 143--144
 \T1/mdbch/m/n/10 First, you can pass in your API key in a func-tion
  []
 
+LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
+(Font)              scaled to size 11.52008pt on input line 151.
+LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
+(Font)              scaled to size 10.61993pt on input line 151.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 11.52008pt on input line 208.
-LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 10.61993pt on input line 208.
+
+
+Package xcolor Warning: Incompatible color definition on input line 156.
+
 LaTeX Font Info:    Font shape `T1/cmtt/m/n' will be
-(Font)              scaled to size 7.52498pt on input line 214.
+(Font)              scaled to size 7.52498pt on input line 157.
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <7> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 215.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 158.
 LaTeX Font Info:    Font shape `T1/cmtt/m/n' will be
-(Font)              scaled to size 7.52498pt on input line 215.
+(Font)              scaled to size 7.52498pt on input line 158.
 
-Overfull \hbox (29.27097pt too wide) in paragraph at lines 239--239
-[][]\T1/cmtt/m/n/7 temp[] []<-[] []gnr_resolve[][]([][]names[] []=[] []c[][]([]
-[]"Helianthos annus"[][],[] []"Homo saapiens"[][]))[][] 
- []
+Package xcolor Warning: Incompatible color definition on input line 176.
 
 
-Underfull \hbox (badness 1112) in paragraph at lines 261--262
+Underfull \hbox (badness 1112) in paragraph at lines 196--197
 \T1/mdbch/m/n/10 Res-o-lu-tion Ser-vice via the Tax-osaurus API []$\T1/cmtt/m/n
 /10 http : / /
  []
 
 
-Overfull \hbox (81.22752pt too wide) in paragraph at lines 266--266
-[][]\T1/cmtt/m/n/7 mynames[] []<-[] []c[][]([][]"Helianthus annuus"[][],[] []"P
-inus contort"[][],[] []"Poa anua"[][],[] []"Abis magnifica"[][],[][] 
- []
+Package xcolor Warning: Incompatible color definition on input line 199.
 
 
-Overfull \hbox (93.2175pt too wide) in paragraph at lines 267--267
-[]    []\T1/cmtt/m/n/7 "Rosa california"[][],[] []"Festuca arundinace"[][],[] [
-]"Sorbus occidentalos"[][],[] []"Madia sateva"[][])[][] 
- []
-
-
-Overfull \hbox (1.29436pt too wide) in paragraph at lines 288--288
-[]         \T1/cmtt/m/n/7 submittedName        acceptedName    sourceId score[]
- 
- []
-
-
-Overfull \hbox (1.29436pt too wide) in paragraph at lines 288--288
-[]\T1/cmtt/m/n/7 9    Helianthus annuus   Helianthus annuus iPlant_TNRS     1[]
- 
- []
-
-
-Overfull \hbox (1.29436pt too wide) in paragraph at lines 288--288
-[]\T1/cmtt/m/n/7 10   Helianthus annuus   Helianthus annuus        NCBI     1[]
- 
- []
-
-
-Overfull \hbox (1.29436pt too wide) in paragraph at lines 288--288
-[]\T1/cmtt/m/n/7 4        Pinus contort      Pinus contorta iPlant_TNRS  0.98[]
- 
- []
-
-
-Overfull \hbox (1.29436pt too wide) in paragraph at lines 288--288
-[]\T1/cmtt/m/n/7 5             Poa anua           Poa annua iPlant_TNRS  0.96[]
- 
- []
-
-
-Overfull \hbox (1.29436pt too wide) in paragraph at lines 288--288
-[]\T1/cmtt/m/n/7 3       Abis magnifica     Abies magnifica iPlant_TNRS  0.96[]
- 
- []
-
-
-Overfull \hbox (1.29436pt too wide) in paragraph at lines 288--288
-[]\T1/cmtt/m/n/7 7      Rosa california    Rosa californica iPlant_TNRS  0.99[]
- 
- []
-
-
-Overfull \hbox (1.29436pt too wide) in paragraph at lines 288--288
-[]\T1/cmtt/m/n/7 8      Rosa california          California        NCBI     1[]
- 
- []
-
-
-Overfull \hbox (1.29436pt too wide) in paragraph at lines 288--288
-[]\T1/cmtt/m/n/7 2   Festuca arundinace Festuca arundinacea iPlant_TNRS  0.99[]
- 
- []
-
-
-Overfull \hbox (1.29436pt too wide) in paragraph at lines 288--288
-[]\T1/cmtt/m/n/7 1  Sorbus occidentalos Sorbus occidentalis iPlant_TNRS  0.99[]
- 
- []
-
-
-Overfull \hbox (1.29436pt too wide) in paragraph at lines 288--288
-[]\T1/cmtt/m/n/7 6         Madia sateva        Madia sativa iPlant_TNRS  0.97[]
- 
+Overfull \hbox (5.29102pt too wide) in paragraph at lines 202--202
+[]             []\T1/cmtt/m/n/7 "Poa anua"[][],[] []"Abis magnifica"[][],[] []"
+Rosa california"[][],[][] 
  []
 
 File: F1000header.png Graphic file (type png)
 <use F1000header.png>
-Package pdftex.def Info: F1000header.png used on input line 294.
+Package pdftex.def Info: F1000header.png used on input line 236.
 (pdftex.def)             Requested size: 87.27438pt x 12.0pt.
  [4]
-Overfull \hbox (101.21082pt too wide) in paragraph at lines 303--303
-[][]\T1/cmtt/m/n/7 mynames[] []<-[] []c[][]([][]"Helianthus annuus ssp. jaegeri
-"[][],[] []"Helianthus annuus ssp. lenticularis"[][],[][] 
- []
+
+Package xcolor Warning: Incompatible color definition on input line 242.
 
 
-Overfull \hbox (65.24089pt too wide) in paragraph at lines 304--304
-[]    []\T1/cmtt/m/n/7 "Helianthus annuus ssp. texanus"[][],[] []"Helianthus an
-nuus var. lenticularis"[][],[][] 
- []
+Package xcolor Warning: Incompatible color definition on input line 274.
 
-
-Overfull \hbox (61.24423pt too wide) in paragraph at lines 305--305
-[]    []\T1/cmtt/m/n/7 "Helianthus annuus var. macrocarpus"[][],[] []"Helianthu
-s annuus var. texanus"[][])[][] 
- []
-
-
-LaTeX Warning: Citation `federhen' on page 5 undefined on input line 331.
-
-LaTeX Font Info:    Try loading font information for TS1+cmtt on input line 373
+LaTeX Font Info:    Try loading font information for TS1+cmtt on input line 307
 .
 (/usr/local/texlive/2012/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-Overfull \hbox (25.2743pt too wide) in paragraph at lines 385--385
-[][]\T1/cmtt/m/n/7 tax_name[][]([][]query[] []=[] []"Helianthus annuus"[][],[] 
-[]get[] []=[] []"family"[][],[] []db[] []=[] []"itis"[][])[][] 
- []
+
+Package xcolor Warning: Incompatible color definition on input line 318.
 
 
-Overfull \hbox (25.2743pt too wide) in paragraph at lines 386--386
-[][]\T1/cmtt/m/n/7 tax_name[][]([][]query[] []=[] []"Helianthus annuus"[][],[] 
-[]get[] []=[] []"family"[][],[] []db[] []=[] []"ncbi"[][])[][] 
- []
+Package xcolor Warning: Incompatible color definition on input line 345.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 File: F1000header.png Graphic file (type png)
+
 <use F1000header.png>
-Package pdftex.def Info: F1000header.png used on input line 435.
+Package pdftex.def Info: F1000header.png used on input line 364.
 (pdftex.def)             Requested size: 87.27438pt x 12.0pt.
  [5]
-Overfull \hbox (101.21082pt too wide) in paragraph at lines 444--444
-[][]\T1/cmtt/m/n/7 splist[] []<-[] []c[][]([][]"annona cherimola"[][],[] []"ann
-ona muricata"[][],[] []"quercus robur"[][],[] []"shorea robusta"[][],[][] 
- []
+
+Package xcolor Warning: Incompatible color definition on input line 372.
 
 
-Overfull \hbox (25.2743pt too wide) in paragraph at lines 458--458
-[]\T1/cmtt/m/n/7 [1] "506198" "18098"  "19405"  "506787" "507376" "41976"  "506
-099"[] 
- []
+Package xcolor Warning: Incompatible color definition on input line 393.
 
 
-Overfull \hbox (1.29436pt too wide) in paragraph at lines 491--491
+Package xcolor Warning: Incompatible color definition on input line 410.
+
+
+Overfull \hbox (1.29436pt too wide) in paragraph at lines 412--412
 [][]\T1/cmtt/m/n/7 taxa[] []<-[] []c[][]([][]"Poa annua"[][],[] []"Abies procer
 a"[][],[] []"Helianthus annuus"[][])[][] 
  []
 
-<phylogeny.pdf, id=152, 505.89pt x 505.89pt>
+<phylogeny.pdf, id=147, 505.89pt x 505.89pt>
 File: phylogeny.pdf Graphic file (type pdf)
  <use phylogeny.pdf>
-Package pdftex.def Info: phylogeny.pdf used on input line 505.
+Package pdftex.def Info: phylogeny.pdf used on input line 426.
 (pdftex.def)             Requested size: 216.81pt x 216.81056pt.
 LaTeX Font Info:    Font shape `T1/mdbch/bx/it' in size <10> not available
-(Font)              Font shape `T1/mdbch/b/it' tried instead on input line 509.
+(Font)              Font shape `T1/mdbch/b/it' tried instead on input line 430.
 
 LaTeX Font Info:    Font shape `T1/mdbch/b/it' will be
-(Font)              scaled to size 9.60007pt on input line 509.
+(Font)              scaled to size 9.60007pt on input line 430.
 
-Underfull \hbox (badness 1348) in paragraph at lines 519--520
+Underfull \hbox (badness 1348) in paragraph at lines 438--439
 \T1/mdbch/m/n/10 site like Wik-ispecies []$\T1/cmtt/m/n/10 http : / / species .
  wikimedia .
  []
 
+
+Package xcolor Warning: Incompatible color definition on input line 441.
+
 File: F1000header.png Graphic file (type png)
 <use F1000header.png>
-Package pdftex.def Info: F1000header.png used on input line 542.
+Package pdftex.def Info: F1000header.png used on input line 462.
 (pdftex.def)             Requested size: 87.27438pt x 12.0pt.
  [6 <./phylogeny.pdf>]
-Overfull \hbox (121.1941pt too wide) in paragraph at lines 579--579
-[][]\T1/cmtt/m/n/7 out[] []<-[] []get_genes_avail[][]([][]taxon_name[] []=[] []
-"Umbra limi"[][],[] []seqrange[] []=[] []"1:2000"[][],[] []getrelated[] []=[] [
-]FALSE[][])[][] 
+
+Package xcolor Warning: Incompatible color definition on input line 466.
+
+
+Package xcolor Warning: Incompatible color definition on input line 486.
+
+
+Package xcolor Warning: Incompatible color definition on input line 499.
+
+
+Package xcolor Warning: Incompatible color definition on input line 522.
+
+
+Overfull \hbox (5.29102pt too wide) in paragraph at lines 530--530
+[][]\T1/cmtt/m/n/7 A_clas[[[][]1[][]]][][]$[][]Rank[[][]tolower[][](A_clas[[[][
+]1[][]]][][]$[][]ScientificName)[] []%in%[] []B1][][] 
  []
 
 
-Overfull \hbox (5.29102pt too wide) in paragraph at lines 645--645
+Overfull \hbox (5.29102pt too wide) in paragraph at lines 536--536
 [][]\T1/cmtt/m/n/7 A_clas[[[][]1[][]]][][]$[][]Rank[[][]tolower[][](A_clas[[[][
 ]1[][]]][][]$[][]ScientificName)[] []%in%[] []B2][][] 
  []
 
 
-Overfull \hbox (5.29102pt too wide) in paragraph at lines 663--663
-[][]\T1/cmtt/m/n/7 A_clas[[[][]1[][]]][][]$[][]Rank[[][]tolower[][](A_clas[[[][
-]1[][]]][][]$[][]ScientificName)[] []%in%[] []B3][][] 
- []
+Package xcolor Warning: Incompatible color definition on input line 554.
 
 
-Overfull \hbox (69.23755pt too wide) in paragraph at lines 689--689
-[][]\T1/cmtt/m/n/7 colnames[][](df)[] []<-[] []c[][]([][]"Bellis perennis"[][],
-[] []"Juncus bufonius"[][],[] []"Juncus articulatus"[][])[][] 
- []
+Package xcolor Warning: Incompatible color definition on input line 576.
+
+
+Package xcolor Warning: Incompatible color definition on input line 595.
 
 File: F1000header.png Graphic file (type png)
 <use F1000header.png>
-Package pdftex.def Info: F1000header.png used on input line 717.
+Package pdftex.def Info: F1000header.png used on input line 608.
 (pdftex.def)             Requested size: 87.27438pt x 12.0pt.
  [7]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 8.64006pt on input line 783.
+(Font)              scaled to size 8.64006pt on input line 637.
 
 (/Users/scottmac2/github/ropensci/taxize_/f1000_rev/.texpadtmp/taxize_ms.bbl
+LaTeX Font Info:    Font shape `T1/mdbch/m/it' will be
+(Font)              scaled to size 8.64006pt on input line 6.
+
 (/usr/local/texlive/2012/texmf-dist/tex/latex/ucs/data/uni-0.def
 File: uni-0.def 2012/08/28 UCS: Unicode data U+0000..U+00FF
 )
-LaTeX Font Info:    Font shape `T1/mdbch/m/it' will be
-(Font)              scaled to size 8.64006pt on input line 9.
-
-Underfull \hbox (badness 1558) in paragraph at lines 4--10
+Underfull \hbox (badness 1558) in paragraph at lines 9--15
 \T1/mdbch/m/n/9 pat-terns of range size and species rich-ness of new
  []
 
-File: F1000header.png Graphic file (type png)
-<use F1000header.png>
-Package pdftex.def Info: F1000header.png used on input line 78.
-(pdftex.def)             Requested size: 87.27438pt x 12.0pt.
- [8]
-Underfull \hbox (badness 5592) in paragraph at lines 98--102
+
+Underfull \hbox (badness 5592) in paragraph at lines 90--94
 []\T1/mdbch/m/n/9 Duncan Tem-ple Lang.  \T1/mdbch/m/it/9 RCurl: Gen-eral net-wo
 rk
  []
 
+File: F1000header.png Graphic file (type png)
+<use F1000header.png>
+Package pdftex.def Info: F1000header.png used on input line 100.
+(pdftex.def)             Requested size: 87.27438pt x 12.0pt.
+ [8]
 (/usr/local/texlive/2012/texmf-dist/tex/latex/ucs/data/uni-32.def
 File: uni-32.def 2012/08/28 UCS: Unicode data U+2000..U+20FF
 )
-Underfull \hbox (badness 2460) in paragraph at lines 171--176
+Underfull \hbox (badness 2460) in paragraph at lines 163--168
 \T1/mdbch/m/n/9 Leps, Robin J. Pake-man, Bar-bara Strauss, Wil-fried
  []
 
@@ -1623,33 +1473,29 @@ Underfull \hbox (badness 2460) in paragraph at lines 171--176
 AED: lastpage setting LastPage
 File: F1000header.png Graphic file (type png)
 <use F1000header.png>
-Package pdftex.def Info: F1000header.png used on input line 786.
+Package pdftex.def Info: F1000header.png used on input line 640.
 (pdftex.def)             Requested size: 87.27438pt x 12.0pt.
  [9
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 786.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 786.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 640.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 640.
 
 (/Users/scottmac2/github/ropensci/taxize_/f1000_rev/.texpadtmp/taxize_ms.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 786.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 786.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 640.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 640.
 Package rerunfilecheck Info: File `taxize_ms.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
-
-
-LaTeX Warning: There were undefined references.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 786.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 640.
  ) 
 Here is how much of TeX's memory you used:
- 21162 strings out of 493481
- 359060 string characters out of 3140965
- 486041 words of memory out of 3000000
- 23963 multiletter control sequences out of 15000+200000
+ 19716 strings out of 493481
+ 338182 string characters out of 3140965
+ 421671 words of memory out of 3000000
+ 22538 multiletter control sequences out of 15000+200000
  70181 words of font info for 108 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 70i,15n,94p,1250b,644s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 70i,16n,94p,1350b,644s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/ly1/texnansi.enc}{/usr/lo
 cal/texlive/2012/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/loc
 al/texlive/2012/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local
@@ -1666,10 +1512,10 @@ s/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2012/texmf-dist/fonts/
 type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/u
 rw/helvetic/uhvr8a.pfb>
 Output written on /Users/scottmac2/github/ropensci/taxize_/f1000_rev/.texpadtmp
-/taxize_ms.pdf (9 pages, 221374 bytes).
+/taxize_ms.pdf (9 pages, 217772 bytes).
 PDF statistics:
- 261 PDF objects out of 1000 (max. 8388607)
- 233 compressed objects within 3 object streams
- 40 named destinations out of 1000 (max. 500000)
+ 257 PDF objects out of 1000 (max. 8388607)
+ 229 compressed objects within 3 object streams
+ 41 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 
