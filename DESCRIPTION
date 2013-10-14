@@ -1,8 +1,8 @@
 Package: taxize
 Description: Taxonomic information from around the web.
 Title: Taxonomic information from around the web.
-Version: 0.0.6
-Date: 2013-08-01
+Version: 0.0.7
+Date: 2013-10-14
 License: CC0
 URL: https://ropensci.github.com/taxize_
 BugReports: https://github.com/ropensci/taxize_/issues
@@ -13,7 +13,9 @@ Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     person("Carl", "Boettiger", role = "aut",
     email = "cboettig@gmail.com"),
     person("Ignasi", "Bartomeus", role = "aut",
-    email = "nacho.bartomeus@gmail.com"))
+    email = "nacho.bartomeus@gmail.com"),
+    person("John", "Baumgartner", role = "aut",
+    email = "johnbb@student.unimelb.edu.au"))
 LazyLoad: yes
 LazyData: yes
 Depends:
@@ -84,3 +86,4 @@ Collate:
     'iucn_getname.R'
     'rankagg.R'
     'tax_agg.R'
+    'tpl_families.r'

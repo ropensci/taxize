@@ -46,7 +46,7 @@ getkey <- function(x = NULL, service) {
 
 #' Replacement function for ldply that should be faster in all cases. 
 #' 
-#' @importFrom plyr rbind.fill
+#' @import plyr
 #' @param x A list.
 #' @param convertvec Convert a vector to a data.frame before rbind is called.
 #' @export

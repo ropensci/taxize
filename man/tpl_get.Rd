@@ -16,21 +16,35 @@
 }
 \description{
   The Plant List \url{http://www.theplantlist.org/}. Note
-  that there is now a package on CRAN (taxonstand -
+  there is a package on CRAN (taxonstand -
   \url{http://cran.r-project.org/web/packages/Taxonstand/})
-  that uses only theplantlist.org to search plant names.
+  that uses theplantlist.org to search plant names - we
+  have a wrapper around that function called tpl_search.
 }
 \details{
   Throws a warning if you already have a directory of the
-  one provided, but still works.
+  one provided, but still works. Writes to your home
+  directory, change dir_ as needed.
 }
 \examples{
 \donttest{
-# writes to your home directory, change to where you want
-tpl_get(dir_ = "~/foo")
-
-# just a few families
+# Get a few families
 tpl_get(dir_ = "~/foo2", family = c("Platanaceae","Winteraceae"))
+
+# You can now get Gymnosperms as well
+tpl_get(dir_ = "~/foo2", family = c("Pinaceae","Taxaceae"))
+
+# You can get mosses too!
+tpl_get2(dir_ = "~/foo4", family = "Echinodiaceae")
+
+# Get all families
+tpl_get(dir_ = "~/foo")
 }
+}
+\author{
+  John Baumgartner (johnbb@student.unimelb.edu.au)
+}
+\seealso{
+  \code{\link{tpl_search}} \code{\link{tpl_families}}
 }
 
