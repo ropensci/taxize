@@ -4,23 +4,18 @@
 \usage{
   tpl_families()
 }
-\arguments{
-  \item{dir_}{Directory to write csv files to.}
-
-  \item{family}{If you want just one, or >1 family, but not
-  all, list them in a vector.}
-}
 \value{
-  Returns nothing to console, except a message and progress
-  bar. Writes csv files to dir_.
+  Returns a \code{data.frame} including the names of all
+  families indexed by The Plant List, and the major groups
+  into which they fall (i.e. Angiosperms, Gymnosperms,
+  Bryophytes and Pteridophytes).
 }
 \description{
   Get The Plant List families.
 }
 \details{
-  Throws a warning if you already have a directory of the
-  one provided, but still works. Writes to your home
-  directory, change dir_ as needed.
+  Requires an internet connection in order to connect to
+  www.theplantlist.org.
 }
 \examples{
 \donttest{

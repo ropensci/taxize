@@ -1,13 +1,10 @@
-#' Get The Plant List families. 
+#' Get The Plant List families.
 #' 
 #' @import RCurl XML
-#' @param dir_ Directory to write csv files to.
-#' @param family If you want just one, or >1 family, but not all, list them in 
-#' a vector.
-#' @details Throws a warning if you already have a directory of the one 
-#' provided, but still works. Writes to your home directory, change dir_ as needed.
-#' @return Returns nothing to console, except a message and progress bar. 
-#' Writes csv files to dir_.
+#' @details Requires an internet connection in order to connect to www.theplantlist.org.
+#' @return Returns a \code{data.frame} including the names of all families indexed 
+#' by The Plant List, and the major groups into which they fall (i.e. Angiosperms, 
+#' Gymnosperms, Bryophytes and Pteridophytes).
 #' @author John Baumgartner (johnbb@@student.unimelb.edu.au)
 #' @seealso \code{\link{tpl_search}} \code{\link{tpl_get}}
 #' @examples \donttest{
