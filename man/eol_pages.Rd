@@ -2,20 +2,77 @@
 \alias{eol_pages}
 \title{Search for pages in EOL database using a taxonconceptID.}
 \usage{
-  eol_pages(taxonconceptID, usekey = FALSE,
-    returntype = "data.frame", key = NULL)
+  eol_pages(taxonconceptID, iucn = NULL, images = NULL,
+    videos = NULL, sounds = NULL, maps = NULL, text = NULL,
+    subject = NULL, licenses = NULL, details = NULL,
+    common_names = NULL, synonyms = NULL,
+    references = NULL, vetted = NULL, cache_ttl = NULL,
+    returntype = "data.frame", key = NULL,
+    callopts = list())
 }
 \arguments{
   \item{taxonconceptID}{The taxonconceptID (numeric), which
   is also the page number.}
 
-  \item{usekey}{Use your API key or not (TRUE or FALSE)}
+  \item{iucn}{Include the IUCN Red List status object
+  (Default: False)}
+
+  \item{images}{Limits the number of returned image objects
+  (values 0 - 75)}
+
+  \item{videos}{Limits the number of returned video objects
+  (values 0 - 75)}
+
+  \item{sounds}{Limits the number of returned sound objects
+  (values 0 - 75)}
+
+  \item{maps}{Limits the number of returned map objects
+  (values 0 - 75)}
+
+  \item{text}{Limits the number of returned text objects
+  (values 0 - 75)}
+
+  \item{subject}{'overview' (default) to return the
+  overview text (if exists), a pipe | delimited list of
+  subject names from the list of EOL accepted subjects
+  (e.g. TaxonBiology, FossilHistory), or 'all' to get text
+  in any subject. Always returns an overview text as a
+  first result (if one exists in the given context).}
+
+  \item{licenses}{A pipe | delimited list of licenses or
+  'all' (default) to get objects under any license.
+  Licenses abbreviated cc- are all Creative Commons
+  licenses.  Visit their site for more information on the
+  various licenses they offer.}
+
+  \item{details}{Include all metadata for data objects.
+  (Default: False)}
+
+  \item{common_names}{Return all common names for the
+  page's taxon (Default: False)}
+
+  \item{syonyms}{Return all synonyms for the page's taxon
+  (Default: False)}
+
+  \item{references}{Return all references for the page's
+  taxon (Default: False)}
+
+  \item{vetted}{If 'vetted' is given a value of '1', then
+  only trusted content will be returned. If 'vetted' is
+  '2', then only trusted and unreviewed content will be
+  returned (untrusted content will not be returned). The
+  default is to return all content. (Default: False)}
+
+  \item{cache_ttl}{The number of seconds you wish to have
+  the response cached.}
 
   \item{returntype}{One of "list" of "data.frame"
   (character)}
 
   \item{key}{Your EOL API key; loads from .Rprofile, or you
   can specify the key manually the in the function call.}
+
+  \item{callopts}{Further args passed on to GET.}
 }
 \value{
   JSON list object, or data.frame.
