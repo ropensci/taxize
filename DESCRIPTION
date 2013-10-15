@@ -2,7 +2,7 @@ Package: taxize
 Description: Taxonomic information from around the web.
 Title: Taxonomic information from around the web.
 Version: 0.0.7
-Date: 2013-10-14
+Date: 2013-10-15
 License: CC0
 URL: https://ropensci.github.com/taxize_
 BugReports: https://github.com/ropensci/taxize_/issues
@@ -87,3 +87,4 @@ Collate:
     'rankagg.R'
     'tax_agg.R'
     'tpl_families.r'
+    'names_list.r'
