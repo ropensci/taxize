@@ -33,6 +33,7 @@ ubio_namebank <- function(searchName = NULL, searchAuth = NULL, searchYear=NULL,
 	toget <- c("namebankID", "nameString", "fullNameString", "packageID", 
 						 "packageName", "basionymUnit", "rankID", "rankName")
 	temp2 <- lapply(toget, function(x) sapply(xpathApply(temp, paste("//", x, sep="")), xmlValue))
+  temp2[2:3] <- sapply(temp2[2:3], base64Decode)
 	out <- data.frame(do.call(cbind, temp2))
 	names(out) <- c("namebankID", "nameString", "fullNameString", "packageID", 
 									"packageName", "basionymUnit", "rankID", "rankName")
