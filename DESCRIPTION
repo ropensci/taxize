@@ -54,7 +54,6 @@ Collate:
     'phylomatic_tree.R'
     'get_seqs.R'
     'taxize-package.R'
-    'capwords.r'
     'itis_acceptname.R'
     'itis_phymat_format.R'
     'itis_taxrank.R'
@@ -89,3 +88,4 @@ Collate:
     'tpl_families.r'
     'names_list.r'
     'startup.R'
+    'taxize_capwords.r'
