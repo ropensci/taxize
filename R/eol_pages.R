@@ -18,7 +18,7 @@
 #'    Visit their site for more information on the various licenses they offer.
 #' @param details Include all metadata for data objects. (Default: False)
 #' @param common_names Return all common names for the page's taxon (Default: False)
-#' @param syonyms Return all synonyms for the page's taxon (Default: False)
+#' @param synonyms Return all synonyms for the page's taxon (Default: False)
 #' @param references Return all references for the page's taxon (Default: False)
 #' @param vetted If 'vetted' is given a value of '1', then only trusted content will 
 #'    be returned. If 'vetted' is '2', then only trusted and unreviewed content will 
@@ -47,7 +47,7 @@ eol_pages <- function(taxonconceptID, iucn=NULL, images=NULL, videos=NULL, sound
                       cache_ttl=NULL, returntype='data.frame', key = NULL, callopts=list())
 {     
   url <- 'http://eol.org/api/pages/1.0/'
-	key <- getkey(key, "EOL")
+	key <- getkey(key, "eolApiKey")
   args <- compact(list(iucn=iucn,images=images,videos=videos,sounds=sounds, 
                        maps=maps,text=text,subject=subject,licenses=licenses,
                        details=details,common_names=common_names,synonyms=synonyms,

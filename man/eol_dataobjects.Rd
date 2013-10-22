@@ -2,8 +2,8 @@
 \alias{eol_dataobjects}
 \title{Given the identifier for a data object, return all metadata about the object.}
 \usage{
-  eol_dataobjects(id, returntype = "data.frame",
-    usekey = TRUE, key = NULL)
+  eol_dataobjects(id, returntype = "list", usekey = TRUE,
+    key = NULL)
 }
 \arguments{
   \item{id}{The EOL data object identifier (character)}

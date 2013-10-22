@@ -4,7 +4,7 @@ context("col_children")
 temp <- col_children(name="Apis")
 
 test_that("col_children returns the correct value", {
-	expect_that(temp[[1]][1,3], matches("Species"))
+	expect_is(temp[[1]][1,3], "factor")
 })
 
 test_that("col_children returns the correct class", {

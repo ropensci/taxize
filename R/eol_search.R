@@ -31,7 +31,7 @@ eol_search <- function(terms, page=1, exact=NULL, filter_tid=NULL, filter_heid=N
                        key = NULL, callopts=list()) 
 {     
   url = 'http://eol.org/api/search/1.0.json'
-	key <- getkey(key, "EOL")
+	key <- getkey(key, "eolApiKey")
 	query <- gsub("\\s", "+", terms)
   args <- compact(list(q=query,page=page,exact=exact,filter_by_taxon_concept_id=filter_tid,
                        filter_by_hierarchy_entry_id=filter_heid, 

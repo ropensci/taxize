@@ -24,7 +24,7 @@ eol_hierarchy <- function(taxonid, common_names = NULL, synonyms = NULL,
 	returntype = 'data.frame', key = NULL, callopts=list()) 
 {
   url = 'http://www.eol.org/api/hierarchy_entries/1.0/'
-	key <- getkey(key, "EOL")
+	key <- getkey(key, "eolApiKey")
 	urlget <- paste(url, taxonid, '.json', sep="")
   args <- compact(list(common_names=common_names, synonyms=synonyms))
   

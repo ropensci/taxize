@@ -5,7 +5,7 @@ plants <- c("Myrcia lingua", "Myrcia bella")
 df <- plantminer(plants)
 
 test_that("plantminer returns the correct value", {
-	expect_that(df[1,1], matches("Myrtaceae"))
+	expect_that(as.character(df[1,1]), matches("Myrtaceae"))
 })
 
 test_that("plantminer returns the correct class", {

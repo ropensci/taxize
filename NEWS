@@ -1,3 +1,39 @@
+taxize 0.1.0
+===============
+
+NEW FEATURES
+
+* New function tpl_families() to get data.frame of families from The Plantlist.org site.
+* New function names_list() to get a random vector of species names using the 
+* Added two new data sets, plantGenusNames.RData and plantNames.RData, to be used in names_list().
+* Four vignettes added: taxize_infotable, taxize_matching, taxize_vignette, and taxize_workflow. 
+* New function ldfast(), a replacement function for plyr::ldply that should be faster in all cases.
+* Changed API key names to be more consistent, now tropicosApiKey, eolApiKey, ubioApiKey, and pmApiKey - do change these in your .Rprofile if you store them there.
+* Added a startup message.
+
+MINOR IMPROVEMENTS
+
+* Across most functions, removed dependencies on plyr, using ldfast() instead, for increased speed.
+* Across most functions, changed from using RCurl to using httr.
+* Across most functions, stop_for_status() now used directly after Curl call to check the http status code, stoping the function if appropriate code found.
+* Many functions changed parameter ... to callopts, which passes on additional Curl options, with default an empty list (list()), which makes function testing easier.
+* eol_search() gains parameters page, exact, filter_tid, filter_heid, filter_by_string, matching, cache_ttl, and callopts.
+* eol_hierarchy() gains parameter callopts, and loses parameter usekey (always using API key now).
+* eol_pages() gains parameters images, videos, sounds, maps, text, subject, licenses, details, common_names, synonyms, references, vetted, cache_ttl, and callopts.
+* gni_search(): parameter url lost, is defined inside the function now, and .Rd file gains url references. 
+* phylomatic_tree() now checks to make sure family names were found for input taxa. If not, the function stops with message informing this.
+* tpl_get() updated with fixes/improvements by John Baumgartner - now gets taxa from all groups, whereas only retrieved from Angiosperms before. In addition, csv files from The Plantlist.org are downloaded directly rather than read into R and written out again.
+* tpl_search() now checks for missing data or errors, and stops function with error message.
+
+BUG FIXES
+
+* capwords() fxn changed to taxize_capwords() to avoid namespace conflicts with other packages with a similar function.
+* ubio_namebank() was giving back base64 encoded data, now decoded appropriately.
+
+NOTES
+
+* Added John Baumgartner as an author.
+
 taxize 0.0.6
 ===============
 

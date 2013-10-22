@@ -5,8 +5,8 @@ splist <- c("Heliathus annuus","Abies procera","Poa annua","Platanus occidentali
 df <- tpl_search(taxon = splist)
 
 test_that("tpl_search returns the correct value", {
-	expect_that(df[1,1], matches("Heliathus"))
-	expect_that(df[4,8], matches("occidentalis"))
+	expect_that(as.character(df[1,1]), matches("Heliathus"))
+	expect_that(as.character(df[4,8]), matches("occidentalis"))
 })
 
 test_that("tpl_search returns the correct class", {

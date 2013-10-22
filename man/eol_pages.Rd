@@ -51,7 +51,7 @@
   \item{common_names}{Return all common names for the
   page's taxon (Default: False)}
 
-  \item{syonyms}{Return all synonyms for the page's taxon
+  \item{synonyms}{Return all synonyms for the page's taxon
   (Default: False)}
 
   \item{references}{Return all references for the page's
