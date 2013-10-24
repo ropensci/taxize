@@ -2,7 +2,7 @@
 context("gni_details")
 
 test_that("gni_details returns the correct value", {
-	expect_that(gni_details(id = 17802847)[,3], matches("none"))
+	expect_that(as.character(gni_details(id = 17802847)[,3]), matches("none"))
 })
 
 test_that("gni_details returns the correct class", {

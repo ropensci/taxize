@@ -146,3 +146,8 @@ Retrieving data for species ' Chaetopteryx '
 ```
 
 ![thing](http://ropensci.github.com/taxize_/phylomatic_phylo.png)
+
+
+
+[![](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
+

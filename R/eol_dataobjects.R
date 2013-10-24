@@ -13,10 +13,10 @@
 #' eol_dataobjects(id="21929584")
 #' }
 #' @export
-eol_dataobjects <- function(id, returntype = 'data.frame', usekey = TRUE, key = NULL)
+eol_dataobjects <- function(id, returntype = 'list', usekey = TRUE, key = NULL)
 {
   url = 'http://www.eol.org/api/data_objects/1.0/'
-	key <- getkey(key, "EOL")
+	key <- getkey(key, "eolApiKey")
 	if(usekey == TRUE){usekey_<-paste('key=',key,sep='')}else{usekey_<-NULL}
 	key2 <- paste("?", paste(compact(usekey_), collapse="&"), sep="")
 	urlget <- paste(url, id, '.json', key2, sep="")

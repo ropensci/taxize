@@ -57,3 +57,13 @@ NULL
 #' @docType data
 #' @keywords data
 NULL
+#' Vector of 1,182 species names of plants
+#' @name plantNames
+#' @docType data
+#' @keywords data
+NULL
+#' Vector of 793 genus names of plants
+#' @name plantGenusNames
+#' @docType data
+#' @keywords data
+NULL

@@ -24,7 +24,7 @@ ubio_namebank <- function(searchName = NULL, searchAuth = NULL, searchYear=NULL,
 		order = NULL, sci = NULL, vern = NULL, keyCode = NULL) 
 {
 	url = "http://www.ubio.org/webservices/service.php"
-	keyCode <- getkey(keyCode, "uBio")
+	keyCode <- getkey(keyCode, "ubioApiKey")
 	args <- 
 		compact(list('function' = 'namebank_search', searchName = searchName, searchAuth = searchAuth,
 								 searchYear = searchYear, order = order,
@@ -33,6 +33,7 @@ ubio_namebank <- function(searchName = NULL, searchAuth = NULL, searchYear=NULL,
 	toget <- c("namebankID", "nameString", "fullNameString", "packageID", 
 						 "packageName", "basionymUnit", "rankID", "rankName")
 	temp2 <- lapply(toget, function(x) sapply(xpathApply(temp, paste("//", x, sep="")), xmlValue))
+  temp2[2:3] <- sapply(temp2[2:3], base64Decode)
 	out <- data.frame(do.call(cbind, temp2))
 	names(out) <- c("namebankID", "nameString", "fullNameString", "packageID", 
 									"packageName", "basionymUnit", "rankID", "rankName")

@@ -23,13 +23,13 @@
 #' 		than 1000 will be decreased to 1000) (default is 30).
 #' @param page Page number you want to see (default is 1).
 #' @param justtotal Return only the total results found.
-#' @param url Base url for the API; leave as is.
 #' @param parse_names If TRUE, use \code{\link{gni_parse}} to parse names. 
 #'    Default is FALSE.
 #' @author Scott Chamberlain {myrmecocystus@@gmail.com}
 #' @return Data.frame of results.
 #' @seealso \code{\link{gnr_datasources}}, \code{\link{gni_search}}.
 #' @keywords globalnamesindex names taxonomy
+#' @references \url{http://gni.globalnames.org/} \url{https://github.com/dimus/gni/wiki/api}
 #' @examples \dontrun{
 #' gni_search(search_term = "ani*")
 #' gni_search(search_term = "ama*", per_page = 3, page = 21)
@@ -40,9 +40,9 @@
 #' }
 #' @export
 gni_search <- function(search_term = NULL, per_page = NULL, page = NULL, 
-  justtotal = FALSE, parse_names = FALSE,
-	url = "http://gni.globalnames.org/name_strings.json") 
+  justtotal = FALSE, parse_names = FALSE) 
 {
+  url = "http://gni.globalnames.org/name_strings.json"
 	query <- compact(list(search_term = search_term, per_page = per_page, page = page))
 	out <- content( GET(url, query = query), "parsed")
   

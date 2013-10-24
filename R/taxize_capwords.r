@@ -6,10 +6,10 @@
 #' @param onlyfirst Capitalize only first word, lowercase all others. Useful 
 #'    for taxonomic names.
 #' @examples 
-#' capwords(c("using AIC for model selection"))
-#' capwords(c("using AIC for model selection"), strict=TRUE)
+#' taxize_capwords(c("using AIC for model selection"))
+#' taxize_capwords(c("using AIC for model selection"), strict=TRUE)
 #' @export
-capwords <- function(s, strict = FALSE, onlyfirst = FALSE) {
+taxize_capwords <- function(s, strict = FALSE, onlyfirst = FALSE) {
 	cap <- function(s) paste(toupper(substring(s,1,1)),
 		{s <- substring(s,2); if(strict) tolower(s) else s}, sep="", collapse=" " )
 	if(!onlyfirst){

@@ -22,14 +22,5 @@ itis_phymat_format <- function(taxa = NA, format='isubmit', db="ncbi")
 	} else
 		if (format == 'rsubmit') {
 			paste(stringg[[1]], "%2F", stringg[2], "%2F", tolower(str_replace(taxa, " ", "_")), sep='')
-		} 
-# 	tt <- getfullhierarchyfromtsn(tsn)
-# 	tt_ <- tt[tt$rankName %in% c("Family","Genus","Species"), "taxonName"]
-# 	tt__ <- tolower(as.character(tt_))
-#   if (format == 'isubmit') {
-#     paste(tt__[1], "/", tt__[2], "/", str_replace(tt__[3], " ", "_"), sep='')
-#   } else
-#   if (format == 'rsubmit') {
-#     paste(tt__[1], "%2F", tt__[2], "%2F", str_replace(tt__[3], " ", "_"), sep='')
-#   } 
+		}
 }

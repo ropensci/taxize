@@ -1,8 +1,8 @@
-\name{capwords}
-\alias{capwords}
+\name{taxize_capwords}
+\alias{taxize_capwords}
 \title{Capitalize the first letter of a character string.}
 \usage{
-  capwords(s, strict = FALSE, onlyfirst = FALSE)
+  taxize_capwords(s, strict = FALSE, onlyfirst = FALSE)
 }
 \arguments{
   \item{s}{A character string}
@@ -17,7 +17,7 @@
   Capitalize the first letter of a character string.
 }
 \examples{
-capwords(c("using AIC for model selection"))
-capwords(c("using AIC for model selection"), strict=TRUE)
+taxize_capwords(c("using AIC for model selection"))
+taxize_capwords(c("using AIC for model selection"), strict=TRUE)
 }
 

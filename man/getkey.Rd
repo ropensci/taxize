@@ -18,7 +18,7 @@
 \examples{
 \dontrun{
 getkey(service="tropicos")
-getkey(service="EOL")
+getkey(service="eol")
 }
 }
 \keyword{internal}

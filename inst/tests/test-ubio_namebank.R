@@ -4,7 +4,7 @@ context("ubio_namebank")
 out <- ubio_namebank(searchName = 'elephant', sci = 1, vern = 0)
 
 test_that("ubio_namebank returns the correct value", {
-	expect_that(out[,1], matches("6938660"))
+	expect_that(as.numeric(as.character(out[,1])), matches("6938660"))
 })
 
 test_that("ubio_namebank returns the correct class", {

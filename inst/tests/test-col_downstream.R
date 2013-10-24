@@ -5,7 +5,7 @@ data(rank_ref)
 temp <- col_downstream(name="Apis", downto="Species")
 
 test_that("col_downstream returns the correct value", {
-	expect_that(temp[[1]][1,2], matches("Apis andreniformis"))
+	expect_that(as.character(temp[[1]][1,2]), equals("Apis andreniformis"))
 })
 
 test_that("col_downstream returns the correct class", {

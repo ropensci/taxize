@@ -1,53 +1,62 @@
 #' Get The Plant List csv files. 
 #' 
-#' The Plant List \url{http://www.theplantlist.org/}. Note that there is now a 
-#' 		package on CRAN (taxonstand - 
-#'   	\url{http://cran.r-project.org/web/packages/Taxonstand/}) 
-#' 		that uses only theplantlist.org to search plant names.
+#' The Plant List \url{http://www.theplantlist.org/}. Note there is a package on 
+#' CRAN (taxonstand - \url{http://cran.r-project.org/web/packages/Taxonstand/}) 
+#' that uses theplantlist.org to search plant names - we have a wrapper around
+#' that function called tpl_search.
 #' 
 #' @import RCurl plyr XML
 #' @param dir_ Directory to write csv files to.
 #' @param family If you want just one, or >1 family, but not all, list them in 
 #' a vector.
 #' @details Throws a warning if you already have a directory of the one 
-#' provided, but still works.
+#' provided, but still works. Writes to your home directory, change dir_ as needed.
 #' @return Returns nothing to console, except a message and progress bar. 
 #' Writes csv files to dir_.
+#' @author John Baumgartner (johnbb@@student.unimelb.edu.au)
+#' @seealso \code{\link{tpl_search}} \code{\link{tpl_families}}
 #' @examples \donttest{
-#' # writes to your home directory, change to where you want
-#' tpl_get(dir_ = "~/foo")
-#' 
-#' # just a few families
+#' # Get a few families
 #' tpl_get(dir_ = "~/foo2", family = c("Platanaceae","Winteraceae"))
+#' 
+#' # You can now get Gymnosperms as well
+#' tpl_get(dir_ = "~/foo2", family = c("Pinaceae","Taxaceae"))
+#' 
+#' # You can get mosses too!
+#' tpl_get2(dir_ = "~/foo4", family = "Echinodiaceae")
+#' 
+#' # Get all families
+#' tpl_get(dir_ = "~/foo")
 #' }
 #' @export
 tpl_get <- function(dir_, family = NULL)
 {
-	temp <- getURL("http://www.theplantlist.org/browse/A/") # get the html source for the families listing page
-	families <- xpathSApply(htmlParse(temp), "//i[@class]", xmlValue, "class") # get the family names
-	families <- families[!families %in% c("Angiosperms","angiosperms")] # remove "Angiosperms"
-
-	# if family does not = NULL, get just those families
-	if(!is.null(family)) {
-		families <- families[families %in% family]
-	} else 
-		{
-			families <- families
-		}
-	csvlinks <- sapply(families, function(x)  # makes csv URL's
-		paste("http://www.theplantlist.org/browse/A/", x, "/", x, ".csv", sep=""),
-		USE.NAMES=FALSE)
-	readwrite <- function(x, dir_){ # function to read, then write the csv file to directory
-		write.csv(
-			read.csv(x), 
-				paste(dir_, "/", strsplit(x[[1]], "/")[[1]][[6]], ".csv", sep=""), 
-					row.names=FALSE)
-	}
-	# reads each csv file and writes to dir w/o saving in workspace
-	message(paste("Reading and writing csv files to ", dir_, "...", sep=""))
-	
-	dir.create(dir_) # create directory if it doesn't exist, will not overwrite if the dir_ already exists
-
-	l_ply(csvlinks, readwrite, dir_ = dir_, .progress="text") # do readwrite in a loop for each family
-	message("...el fin") # Done!
+  temp <- getURL('http://www.theplantlist.org/browse/-/')
+  temp <- htmlParse(temp)
+  families <- xpathSApply(temp, "//ul[@id='nametree']//a", xmlValue)
+  csvlinks <- sprintf('http://www.theplantlist.org%s%s.csv', 
+                      xpathSApply(temp, "//ul[@id='nametree']//a", xmlGetAttr, 'href'), 
+                      families)
+  if (all(!family %in% families)) {
+    stop(paste('Requested families not found on TPL.',
+               'Use tpl_families() to list plant families indexed by TPL.'),
+         call.=FALSE)
+  }
+  if (any(!family %in% families)) {
+    warning(sprintf('Requested families not found on TPL: %s.\n%s', 
+                    paste(family[!family %in% families], collapse=', '),
+                    'Use tpl_families() to list plant families indexed by TPL.'),
+            call.=FALSE)
+  }
+  if (!is.null(family)) {
+    csvlinks <- csvlinks[families %in% family]
+    families <- families[families %in% family]
+  }
+  getcsv <- function(x) {
+    download.file(x, destfile=file.path(dir_, basename(x)), quiet=TRUE)
+  } 
+  message("Downloading csv files to ", dir_, "...")
+  dir.create(dir_)
+  l_ply(csvlinks, getcsv, .progress = "text")
+  message("...el fin")
 }

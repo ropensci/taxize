@@ -18,7 +18,7 @@
 #' @export
 plantminer <- function(plants, key = NULL)
 {
-	key <- getkey(key, "pmkey")
+	key <- getkey(key, "pmApiKey")
 	
   i <- NULL
   compiled.list <- foreach (i=1:length(plants), .combine =

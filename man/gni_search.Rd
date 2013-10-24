@@ -3,8 +3,7 @@
 \title{Search for taxonomic names using the Global Names Index.}
 \usage{
   gni_search(search_term = NULL, per_page = NULL,
-    page = NULL, justtotal = FALSE, parse_names = FALSE,
-    url = "http://gni.globalnames.org/name_strings.json")
+    page = NULL, justtotal = FALSE, parse_names = FALSE)
 }
 \arguments{
   \item{search_term}{Name pattern you want to search for
@@ -31,8 +30,6 @@
 
   \item{justtotal}{Return only the total results found.}
 
-  \item{url}{Base url for the API; leave as is.}
-
   \item{parse_names}{If TRUE, use \code{\link{gni_parse}}
   to parse names.  Default is FALSE.}
 }
@@ -55,6 +52,10 @@ gni_search(search_term = "Cyanistes caeruleus", parse_names=TRUE)
 }
 \author{
   Scott Chamberlain {myrmecocystus@gmail.com}
+}
+\references{
+  \url{http://gni.globalnames.org/}
+  \url{https://github.com/dimus/gni/wiki/api}
 }
 \seealso{
   \code{\link{gnr_datasources}}, \code{\link{gni_search}}.

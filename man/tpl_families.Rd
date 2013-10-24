@@ -1,0 +1,32 @@
+\name{tpl_families}
+\alias{tpl_families}
+\title{Get The Plant List families.}
+\usage{
+  tpl_families()
+}
+\value{
+  Returns a \code{data.frame} including the names of all
+  families indexed by The Plant List, and the major groups
+  into which they fall (i.e. Angiosperms, Gymnosperms,
+  Bryophytes and Pteridophytes).
+}
+\description{
+  Get The Plant List families.
+}
+\details{
+  Requires an internet connection in order to connect to
+  www.theplantlist.org.
+}
+\examples{
+\donttest{
+# Get a data.frame of plant families, with the group name (Angiosperms, etc.)
+head( tpl_families() )
+}
+}
+\author{
+  John Baumgartner (johnbb@student.unimelb.edu.au)
+}
+\seealso{
+  \code{\link{tpl_search}} \code{\link{tpl_get}}
+}
+

@@ -14,7 +14,7 @@
 tp_summary <- function(id, format = 'json', output = 'df', key = NULL) 
 {
   url = 'http://services.tropicos.org/Name/'
-	key <- getkey(key, "tropicos")
+	key <- getkey(key, "tropicosApiKey")
   if (format == 'json') {
       urlget <- paste(url, id, '?apikey=', key, '&format=json', sep="")
       message(urlget)
