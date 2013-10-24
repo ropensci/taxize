@@ -6,7 +6,6 @@ NEW FEATURES
 * New function tpl_families() to get data.frame of families from The Plantlist.org site.
 * New function names_list() to get a random vector of species names using the 
 * Added two new data sets, plantGenusNames.RData and plantNames.RData, to be used in names_list().
-* Four vignettes added: taxize_infotable, taxize_matching, taxize_vignette, and taxize_workflow. 
 * New function ldfast(), a replacement function for plyr::ldply that should be faster in all cases.
 * Changed API key names to be more consistent, now tropicosApiKey, eolApiKey, ubioApiKey, and pmApiKey - do change these in your .Rprofile if you store them there.
 * Added a startup message.

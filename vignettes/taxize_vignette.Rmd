@@ -1,5 +1,7 @@
-%\VignetteEngine{knitr}
+<!--
+%\VignetteEngine{knitr::knitr}
 %\VignetteIndexEntry{An R Markdown Vignette made with knitr}
+-->
 
 taxize vignette - a taxonomic toolbelt for R
 ======
@@ -70,7 +72,6 @@ It turns out both species are in the family Pinaceae. You can also get this type
 Instead of a full classification, you may only want a single name, say a family name for your species of interest. The function *tax_name} is built just for this purpose. As with the `classification` function you can specify the data source with the `db` argument, either ITIS or NCBI. 
 
 ```{r taxname, eval=TRUE,cache=TRUE}
-tax_name(query = "Helianthus annuus", get = "family", db = "itis")
 tax_name(query = "Helianthus annuus", get = "family", db = "ncbi")
 ```
 
@@ -92,52 +93,6 @@ splist <- c("annona cherimola", 'annona muricata', "quercus robur")
 get_tsn(searchterm = splist, searchtype = "sciname")
 ```
 
-In another example, note that no match at all returns an NA:
-
-```{r interactive_na, eval=TRUE, echo=TRUE, cache=TRUE}
-get_uid(sciname = c("Chironomus riparius", "aaa vva"))
-```
-
-#### Retrieve a phylogeny
-
-Ecologists are increasingly taking a phylogenetic approach to ecology, applying phylogenies to topics such as the study of community structure, ecological networks, functional trait ecology. Yet, Many biologists are not adequately trained in reconstructing phylogenies. Fortunately, there are some sources for getting a phylogeny without having to know how to build one; one of these is for angiosperms, called Phylomatic \cite{webb2005}. We have created a workflow in taxize that accepts a species list, and taxize works behind the scenes to get higher taxonomic names, which are required by Phylomatic to get a phylogeny. Here is a short example, producing the tree in figure (Fig. 1).
-
-```{r phylomaticphylogeny_disp, eval=FALSE}
-taxa <- c("Poa annua", "Lupinus arboreus", "Helianthus annuus")
-tree <- phylomatic_tree(taxa = taxa)
-tree$tip.label <- taxize_capwords(tree$tip.label)
-plot(tree, cex=1)
-```
-
-Input the taxonomic names
-
-```{r phylomaticphylogeny1, eval=TRUE, dev=c ('pdf','tiff'), dpi=300, out.width='4in', out.height='4in', cache=TRUE, include=FALSE}
-taxa <- c("Poa annua", "Lupinus arboreus", "Helianthus annuus")
-```
-
-Fetch the tree - the formatting of names and higher taxonmy is done within the function
-
-```{r phylomaticphylogeny2, eval=TRUE, dev=c ('pdf','tiff'), dpi=300, out.width='4in', out.height='4in', cache=TRUE, include=FALSE}
-tree <- phylomatic_tree(taxa = taxa)
-```
-
-Captilize the species names
-
-```{r phylomaticphylogeny3, eval=TRUE, dev=c ('pdf','tiff'), dpi=300, out.width='4in', out.height='4in', cache=TRUE, include=FALSE}
-tree$tip.label <- taxize_capwords(tree$tip.label)
-```
-
-Plot the tree
-
-```{r phylomaticphylogeny4, eval=TRUE, dev=c ('pdf','tiff'), dpi=300, out.width='4in', out.height='4in', cache=TRUE, include=FALSE}
-plot(tree, cex=1)
-```
-
-Behind the scenes the function `phylomatic_tree` retrieves a Taxonomic Serial Number (TSN) from ITIS for each species name, then a string is created for each species like this `poaceae/oryza/oryza_sativa` (with format `family/genus/genus_epithet`). These strings are submitted to the Phylomatic API, and if no errors occur, a phylogeny in newick format is returned. The `phylomatic_tree()` function also cleans up the newick string and converts it to an **ape** `phylo` object. The output from `phylomatic_tree()` is a `phylo` object, which can be used for plotting and phylogenetic analyses. Be aware that Phylomatic has certain limitations - refer to the paper describing [Phylomatic][phylomatic] and the website [http://phylodiversity.net/phylomatic/][http://phylodiversity.net/phylomatic/].
-
-There are currently no resources for getting a phylogeny of animals simply from species names. However, a few projects are working on this problem, including the [Open Tree of Life][opentree]. We will incorporate these resources when the appropriate APIs are available.
-
-
 #### What taxa are the children of my taxon of interest?
 
 If someone is not a taxonomic specialist on a particular taxon he likely does not know what children taxa are within a family, or within a genus. This task becomes especially unwieldy when there are a large number of taxa downstream. You can of course go to a website like [Wikispecies][wikispecies] or [Encyclopedia of Life][eol] to get downstream names. However, taxize provides an easy way to programatically search for downstream taxa, both for the [Catalogue of Life (CoL)][col] and the [Integrated Taxonomic Information System][itis]. Here is a short example using the CoL in which we want to find all the species within the genus *Apis* (honey bees).
@@ -147,17 +102,6 @@ col_downstream(name = "Apis", downto = "Species")[[1]]
 ```
 
 The result from the above call to `col_downstream()` is a data.frame that gives a number of columns of different information. 
-
-#### IUCN Status
-
-There are a number of things we can do once we have the correct taxonomic names. One thing we can do is ask about the conservation status of a species ([IUCN Red List of Threatened Species][iucn]). We have provided a set of functions, `iucn_summary` and `iucn_status`, to search for species names, and extract the status information, respectively. Here, we search for the Panther and *Lynx*.
-
-```{r iucn, eval=TRUE, cache=TRUE}
-ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
-iucn_status(ia)
-```
-
-It turns out that the panther has a status of endangered (EN) and the lynx has a status of least concern (LC).
 
 #### Matching species tables with different taxonomic resolution
 
@@ -184,22 +128,6 @@ A_clas[[1]]$Rank[tolower(A_clas[[1]]$ScientificName) %in% B3]
 ```
 
 If we find a direct match (here *Gammarus roeseli*), we are lucky. But we can also match Gammaridae with *Gammarus roeseli*, but on a lower taxonomic level. A more comprehensive and realistic example (matching a trait table with an abundance table) is given in the vignette on matching.
-
-
-#### Aggregating data to a specific taxonomic rank
-
-In biology, one can asks questions at varying taxonomic levels. One may perform analyses on different taxonomic levels. This use case is easily handled in taxize. A function called `tax_agg` will aggregate community data to a specific taxonomic level. In this example, we take data of 5 species and aggregate them to family level. Again we can specify if we want to use data from ITIS or NCBI.
-
-```{r tax_agg, eval=TRUE, cache=TRUE, tidy=FALSE}
-data(dune, package = 'vegan')
-df <- dune[ , 1:5]
-colnames(df) <- c("Bellis perennis", "Empetrum nigrum", "Juncus bufonius", 
-                  "Juncus articulatus", "xxx")
-head(df)
-agg <- tax_agg(df, rank = 'family', db = 'ncbi')
-agg
-head(agg$x)
-```
 
 [eol]: http://eol.org/
 [taxosaurus]: http://api.phylotastic.org/tnrs
