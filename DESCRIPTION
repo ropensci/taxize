@@ -92,3 +92,4 @@ Collate:
     'ubio_id.R'
     'ubio_classification.R'
     'ubio_search.R'
+    'ubio_classification_search.R'

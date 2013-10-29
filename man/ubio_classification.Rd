@@ -4,8 +4,8 @@
 particular ClassificationBankID}
 \usage{
   ubio_classification(hierarchiesID = NULL,
-    childrenFlag = NULL, ancestryFlag = NULL,
-    justificationFlag = NULL, synonymsFlag = NULL,
+    childrenFlag = 0, ancestryFlag = 0,
+    justificationsFlag = 0, synonymsFlag = 0,
     keyCode = NULL, callopts = list())
 }
 \arguments{
@@ -42,6 +42,8 @@ particular ClassificationBankID}
 \examples{
 \dontrun{
 ubio_classification(hierarchiesID = 2483153)
+ubio_classification(hierarchiesID = 2483153, childrenFlag=1)
+ubio_classification(hierarchiesID = 2483153, ancestryFlag=1)
 }
 }
 

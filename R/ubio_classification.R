@@ -18,10 +18,12 @@
 #' one for vernacular names, and one for citations.
 #' @examples \dontrun{
 #' ubio_classification(hierarchiesID = 2483153)
+#' ubio_classification(hierarchiesID = 2483153, childrenFlag=1)
+#' ubio_classification(hierarchiesID = 2483153, ancestryFlag=1)
 #' }
 #' @export
-ubio_classification <- function(hierarchiesID = NULL, childrenFlag = NULL, 
-  ancestryFlag = NULL, justificationFlag = NULL, synonymsFlag = NULL,
+ubio_classification <- function(hierarchiesID = NULL, childrenFlag = 0, 
+  ancestryFlag = 0, justificationsFlag = 0, synonymsFlag = 0,
   keyCode = NULL, callopts=list())
 {
   url <- "http://www.ubio.org/webservices/service.php"
@@ -29,37 +31,32 @@ ubio_classification <- function(hierarchiesID = NULL, childrenFlag = NULL,
   args <- compact(list(
     'function' = 'classificationbank_object', hierarchiesID = hierarchiesID, 
     childrenFlag = childrenFlag, ancestryFlag = ancestryFlag, 
-    justificationFlag = justificationFlag, synonymsFlag = synonymsFlag, keyCode = keyCode))
+    justificationsFlag = justificationsFlag, synonymsFlag = synonymsFlag, keyCode = keyCode))
   tmp <- GET(url, query=args, callopts)
   stop_for_status(tmp)
-  tt <- content(tmp)
-#   
-#   toget <- c("namebankID", "nameString", "fullNameString", "packageID", 
-#              "packageName", "basionymUnit", "rankID", "rankName")
-#   temp <- lapply(toget, function(x) sapply(xpathApply(tt, paste("/results/", x, sep="")), xmlValue))
-#   temp[2:3] <- sapply(temp[2:3], base64Decode)
-#   out <- data.frame(do.call(cbind, temp))
-#   names(out) <- c("namebankID", "nameString", "fullNameString", "packageID", 
-#                   "packageName", "basionymUnit", "rankID", "rankName")
-#   
-#   syns <- getxmldata(obj=tt, node="homotypicSynonyms", todecode=2:3)
-#   verns <- getxmldata(obj=tt, node="vernacularNames", todecode=2)
-#   cites <- getxmldata(obj=tt, node="citations", todecode=c(1,3,4))
-#   
-#   list(data=out, 
-#        synonyms=ldfast(syns, convertvec=TRUE), 
-#        vernaculars=ldfast(verns, convertvec=TRUE), 
-#        citations=ldfast(cites, convertvec=TRUE))
+  tt <- content(tmp)  
+  toget <- c("classificationData/classificationTitleID", "classificationData/classificationTitle", 
+             "classificationData/classificationRoot", "rankName", "rankID", "classificationsID", 
+             "recordedName/namebankID", "recordedName/nameString")
+  temp <- lapply(toget, function(x) sapply(xpathApply(tt, paste("/results/", x, sep="")), xmlValue))
+  temp[c(2,8)] <- sapply(temp[c(2,8)], base64Decode)
+  out <- data.frame(do.call(cbind, temp))
+  names(out) <- c("classificationTitleID", "classificationTitle", 
+                  "classificationRoot", "rankName", "rankID", "classificationsID", 
+                  "namebankID", "nameString")
+  child <- ifelsedata(childrenFlag, "children", 4)
+  ancestry <- ifelsedata(ancestryFlag, "ancestry", 4)
+  synonyms <- ifelsedata(synonymsFlag, "synonyms", 4)
+  refs <- ifelsedata(justificationsFlag, "citations", 4)
+  compact(list(data=out, children=child, ancestry=ancestry, synonyms=synonyms, refs=refs))
 }
 
-#' Function to parse xml data and decode strings
+#' Function to parse xml data, decode strings, and return NULL if logical is zero.
 #' @export
 #' @keywords internal
-getxmldata <- function(obj, node, todecode){
-  tmp <- getNodeSet(obj, sprintf("/results/%s", node))[[1]]
-  tmp2 <- xpathApply(tmp, sprintf("//%s", node), fun=xmlToList)[[1]]
-  lapply(tmp2, function(x){
-    x[todecode] <- sapply(x[todecode], RCurl::base64Decode)
-    x
-  })
+ifelsedata <- function(x, y, z)
+{
+  if(x == 1){
+    ldfast(getxmldata(obj=tt, node=y, todecode=z), convertvec=TRUE) 
+  } else { NULL }
 }
