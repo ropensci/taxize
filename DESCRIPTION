@@ -89,3 +89,4 @@ Collate:
     'names_list.r'
     'startup.R'
     'taxize_capwords.r'
+    'parsenames.R'

@@ -3,6 +3,7 @@
 #' @param names A vector of length 1 or more of taxonomic names
 #' @return A data.frame with results, the submitted names, and the parsed names
 #'    with additional information. 
+#' @seealso \code{\link{gbif_parse}}
 #' @export
 #' @examples \dontrun{
 #' gni_parse("Cyanistes caeruleus")
