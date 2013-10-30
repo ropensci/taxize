@@ -1,10 +1,7 @@
 #' This function will return all ClassificationBank data pertaining to a 
 #' particular ClassificationBankID
 #' 
-#' @import httr
-#' @importFrom XML xpathApply getNodeSet xmlValue xmlToList
-#' @importFrom RCurl base64Decode
-#' @importFrom plyr compact
+#' @import httr XML RCurl plyr
 #' @param namebankID (string) - NameBank identifier you wish to search for in 
 #'    ClassificationBank
 #' @param classificationTitleID Include if you only which to search within a 

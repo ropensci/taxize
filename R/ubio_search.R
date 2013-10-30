@@ -1,6 +1,6 @@
 #' This function will return NameBankIDs that match given search terms
 #' 
-#' @import XML RCurl plyr
+#' @import httr XML RCurl plyr
 #' @param searchName (string) - term to search within name string
 #' @param searchAuth (string) - term to search within name authorship
 #' @param searchYear (string) - term to search within name year

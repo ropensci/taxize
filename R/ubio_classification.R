@@ -1,10 +1,7 @@
 #' This function will return all ClassificationBank data pertaining to a 
 #' particular ClassificationBankID
 #' 
-#' @import httr
-#' @importFrom XML xpathApply getNodeSet xmlValue xmlToList
-#' @importFrom RCurl base64Decode
-#' @importFrom plyr compact
+#' @import httr XML RCurl plyr
 #' @param hierarchiesID (string) - ClassificationBank identifier for the record you 
 #'    wish to receive
 #' @param childrenFlag (0 or 1) to include the taxon's children taxa

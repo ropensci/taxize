@@ -1,9 +1,6 @@
 #' Search uBio by namebank ID.
 #' 
-#' @import httr
-#' @importFrom XML xpathApply getNodeSet xmlValue xmlToList
-#' @importFrom RCurl base64Decode
-#' @importFrom plyr compact
+#' @import httr XML RCurl plyr
 #' @param namebankID (string) - uBio namebank ID
 #' @param keyCode Your uBio API key; loads from .Rprofile. If you don't have 
 #'    one, obtain one at http://www.ubio.org/index.php?pagename=form.
