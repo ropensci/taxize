@@ -93,3 +93,4 @@ Collate:
     'ubio_classification.R'
     'ubio_search.R'
     'ubio_classification_search.R'
+    'ubio_synonyms.R'

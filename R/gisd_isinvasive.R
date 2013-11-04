@@ -56,7 +56,10 @@ gisd_isinvasive <- function(x, simplify = FALSE){
 		}
 		else{
 			if(simplify == FALSE){
-        out[i, 2] <- tt[12, 1]
+			  #         out[i, 2] <- tt[12, 1]
+			  one <- getNodeSet(doc, "//span[@class='ListNote']", fun=xmlValue)[[1]]
+			  two <- paste(getNodeSet(doc, "//span[@class='Info']", fun=xmlValue), collapse="; ")
+			  out[i, 2] <- paste(one, two, sep="; ")
 			} else {
         out[i, 2] <- "Invasive"
 			}
