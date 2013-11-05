@@ -1,6 +1,6 @@
 \name{get_uid}
 \alias{get_uid}
-\title{Get the UID codes from NCBI for species names.}
+\title{Get the UID codes from NCBI for taxonomic names.}
 \usage{
   get_uid(sciname, verbose = TRUE)
 }
@@ -11,18 +11,22 @@
   is printed on the console.}
 }
 \value{
-  A vector of unique identifiers (UID). If a species is not
+  A vector of unique identifiers (UID). If a taxon is not
   found NA. If more than one UID is found the function asks
   for user input.
 }
 \description{
-  Retrieve the Unique Identifier (UID) of a species from
-  NCBI taxonomy browser.
+  Retrieve the Unique Identifier (UID) of a taxon from NCBI
+  taxonomy browser.
 }
 \examples{
 \dontrun{
 get_uid(c("Chironomus riparius", "Chaetopteryx"))
 get_uid(c("Chironomus riparius", "aaa vva"))
+
+# When not found
+get_uid("howdy")
+get_uid(c("Chironomus riparius", "howdy"))
 }
 }
 \author{

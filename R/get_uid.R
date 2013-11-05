@@ -1,13 +1,13 @@
-#' Get the UID codes from NCBI for species names.
+#' Get the UID codes from NCBI for taxonomic names.
 #' 
-#' Retrieve the Unique Identifier (UID) of a species from NCBI taxonomy browser.
+#' Retrieve the Unique Identifier (UID) of a taxon from NCBI taxonomy browser.
 #' 
 #' @import plyr RCurl
 #' @param sciname character; scientific name.
 #' @param verbose logical; If TRUE the actual taxon queried is printed on the 
 #'    console.
 #' 
-#' @return A vector of unique identifiers (UID). If a species is not found NA. 
+#' @return A vector of unique identifiers (UID). If a taxon is not found NA. 
 #' If more than one UID is found the function asks for user input. 
 #' 
 #' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{classification}}
@@ -18,11 +18,15 @@
 #' @examples \dontrun{
 #' get_uid(c("Chironomus riparius", "Chaetopteryx"))
 #' get_uid(c("Chironomus riparius", "aaa vva"))
+#' 
+#' # When not found
+#' get_uid("howdy")
+#' get_uid(c("Chironomus riparius", "howdy"))
 #' }
 get_uid <- function(sciname, verbose = TRUE){
   fun <- function(sciname) {
     if(verbose)
-      message("\nRetrieving data for species '", sciname, "'\n")
+      message("\nRetrieving data for taxon '", sciname, "'\n")
     sciname <- gsub(" ", "+", sciname)
     searchurl <- paste("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=", 
                        sciname, sep = "")
@@ -31,8 +35,10 @@ get_uid <- function(sciname, verbose = TRUE){
     Sys.sleep(0.33)
     id <- xpathSApply(xml_result, "//IdList/Id", xmlValue)    
     # not found on ncbi
-    if (length(id) == 0)
-      id <- NA
+    if (length(id) == 0){
+      message("Not found. Consider checking the spelling or alternate classification")
+      id <- "not found"
+    }
     # more than one found on ncbi -> user input
     if(length(id) > 1){
       baseurl <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy"
@@ -47,8 +53,8 @@ get_uid <- function(sciname, verbose = TRUE){
       
       # prompt
       message("\n\n")
-      message("\nMore than one UID found for species '", sciname, "'!\n
-          Enter rownumber of species (other inputs will return 'NA'):\n")      
+      message("\nMore than one UID found for taxon '", sciname, "'!\n
+          Enter rownumber of taxon (other inputs will return 'NA'):\n")      
       print(df)
       take <- scan(n = 1, quiet = TRUE, what = 'raw')
       

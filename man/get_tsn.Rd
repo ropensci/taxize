@@ -15,13 +15,13 @@
   \item{verbose}{logical; should progress be printed?}
 }
 \value{
-  A vector of taxonomic serial numbers (TSN). If a species
-  is not found NA. If more than one TSN is found the
-  function asks for user input.  See functions in the
-  \code{itis} function.
+  A vector of taxonomic serial numbers (TSN). If a taxon is
+  not found NA. If more than one TSN is found the function
+  asks for user input.  See functions in the \code{itis}
+  function.
 }
 \description{
-  Retrieve the taxonomic serial numbers (TSN) of a species
+  Retrieve the taxonomic serial numbers (TSN) of a taxon
   from ITIS.
 }
 \examples{
@@ -32,6 +32,10 @@ get_tsn(c("Chironomus riparius","Quercus douglasii"), "sciname")
 splist <- c("annona cherimola", 'annona muricata', "quercus robur",
 		"shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")
 get_tsn(splist, "sciname")
+
+# When not found
+get_tsn("howdy")
+get_tsn(c("Chironomus riparius", "howdy"))
 }
 }
 \seealso{
