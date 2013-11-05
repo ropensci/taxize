@@ -94,3 +94,4 @@ Collate:
     'ubio_search.R'
     'ubio_classification_search.R'
     'ubio_synonyms.R'
+    'eol_invasive.R'
