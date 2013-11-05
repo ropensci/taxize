@@ -36,9 +36,9 @@
 #' }
 #' 
 #' @export
-gisd_isinvasive <- function(x, simplify = FALSE){ 
-	# reformat sp list
-	species <- gsub(" ", "+", x)
+gisd_isinvasive <- function(x, simplify = FALSE)
+{ 
+	species <- gsub(" ", "+", x) # reformat sp list
 	# create urls to parse
 	urls <- paste("http://www.issg.org/database/species/search.asp?sts=sss&st=sss&fr=1&x=13&y=9&sn=",
 								species, "&rn=&hci=-1&ei=-1&lang=EN", sep = "")
@@ -48,15 +48,14 @@ gisd_isinvasive <- function(x, simplify = FALSE){
 	for(i in 1:length(urls)){
 		#Parse url and extract table
 		doc <- htmlTreeParse(urls[i], useInternalNodes = TRUE)
-		tables <- getNodeSet(doc, "//table")
-		t <- readHTMLTable(tables[[4]])
-		tt <- as.matrix(t)
-		if(length(grep("No invasive species currently recorded", tt, value = TRUE)) > 0){
+		if(length(getNodeSet(doc, "//span[@class='SearchTitle']")) > 0){
 			out[i, 2] <- "Not in GISD"
 		}
 		else{
 			if(simplify == FALSE){
-        out[i, 2] <- tt[12, 1]
+			  one <- getNodeSet(doc, "//span[@class='ListNote']", fun=xmlValue)[[1]]
+			  two <- paste(getNodeSet(doc, "//span[@class='Info']", fun=xmlValue), collapse="; ")
+			  out[i, 2] <- paste(one, two, sep="; ")
 			} else {
         out[i, 2] <- "Invasive"
 			}

@@ -5,8 +5,8 @@
 #' @param paral Paralellize or not (logical). Which back-end package you use 
 #' 		depends on your operating system and just general taste. Possibilities 
 #' 		include: snow, multicore, parallel, doMC, etc.
-#' @param ... Further arguments passed on to the TPLck function of Taxonstand.
-#' 		See \code{TPLck} for arguments.
+#' @param ... Further arguments passed on to the TPL or TPLck function of Taxonstand.
+#' 		See \code{TPL} and \code{TPLck} for arguments.
 #' @examples \donttest{
 #' # Regular non-parallel
 #' splist <- c("Heliathus annuus","Abies procera","Poa annua",
@@ -26,10 +26,10 @@ tpl_search <- function(taxon, paral = FALSE, ...)
     ldply(out)
   } else
   { 
-    # 			out <- llply(taxon, function(x) TPLck(x, ...))
-    # 		  out <- llply(taxon, function(x) try(TPLck(x), silent=TRUE))
-    # 			ldply(out)
     out <- llply(taxon, function(x) try(TPLck(x, ...), silent=TRUE))
+#     if(fun == "TPL")
+#       TPL(taxon, )
+#     out <- lapply(taxon, function(x) try(eval(fun)(x, ...), silent=TRUE))
     if(any(sapply(out, class)=="try-error"))
       message(geterrmessage())
     out <- out[!sapply(out, class)=="try-error"]

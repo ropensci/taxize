@@ -12,8 +12,9 @@
   general taste. Possibilities include: snow, multicore,
   parallel, doMC, etc.}
 
-  \item{...}{Further arguments passed on to the TPLck
-  function of Taxonstand.  See \code{TPLck} for arguments.}
+  \item{...}{Further arguments passed on to the TPL or
+  TPLck function of Taxonstand.  See \code{TPL} and
+  \code{TPLck} for arguments.}
 }
 \description{
   A light wrapper around the taxonstand fxn to call

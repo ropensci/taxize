@@ -21,4 +21,7 @@ gni_parse("Cyanistes caeruleus")
 gni_parse(names=as.character(df$name))
 }
 }
+\seealso{
+  \code{\link{gbif_parse}}
+}
 

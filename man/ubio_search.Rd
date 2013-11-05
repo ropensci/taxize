@@ -1,10 +1,10 @@
-\name{ubio_namebank}
-\alias{ubio_namebank}
-\title{Search uBio namebank.}
+\name{ubio_search}
+\alias{ubio_search}
+\title{This function will return NameBankIDs that match given search terms}
 \usage{
-  ubio_namebank(searchName = NULL, searchAuth = NULL,
+  ubio_search(searchName = NULL, searchAuth = NULL,
     searchYear = NULL, order = NULL, sci = NULL,
-    vern = NULL, keyCode = NULL)
+    vern = NULL, keyCode = NULL, callopts = list())
 }
 \arguments{
   \item{searchName}{(string) - term to search within name
@@ -28,22 +28,20 @@
   \item{keyCode}{Your uBio API key; loads from .Rprofile.
   If you don't have one, obtain one at
   http://www.ubio.org/index.php?pagename=form.}
+
+  \item{callopts}{Parameters passed on to httr::GET call.}
 }
 \value{
-  List or dataframe of XXXX.
+  A data.frame.
 }
 \description{
-  Search uBio namebank.
-}
-\details{
-  Can't seem to get json format results along with
-  specifiying an API key, so if you use json your key is
-  not specified at the moment
+  This function will return NameBankIDs that match given
+  search terms
 }
 \examples{
 \dontrun{
-ubio_namebank(searchName = 'elephant', sci = 1, vern = 0)
-ubio_namebank(searchName = 'Astragalus aduncus', sci = 1, vern = 0)
+ubio_search(searchName = 'elephant', sci = 1, vern = 0)
+ubio_search(searchName = 'Astragalus aduncus', sci = 1, vern = 0)
 }
 }
 
