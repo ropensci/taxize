@@ -3,19 +3,30 @@ taxize 0.1.1
 
 NEW FEATURES
 
-* User can turn off interactive mode for get_uid()/get_tsn() and downstream functions.
 * Functions added just like get_uid()/get_tsn() but for EOL, Catalogue of Life, and Tropicos, see get_eolid(), get_colid(), and get_tpsid(), respectively.
 * classification() methods added for EOL, Catalogue of Life, and Tropicos, see functions classification.eolid(), classification.colid(), and classification.tpsid() respectively.
 * Added col_search() to search for names in the Catalogue of Life.
-* Added new ask argument in get_uid()/get_tsn() functions, and tests for the new argument.
+* User can turn off interactive mode in get_* functions. All get_* functions gain an ask argument, if TRUE (default) a user prompt is used for user to select which row they want, if FALSE, NA is returned when many results available; and added tests for the new argument. Affects downstream functions too.
 * Added eol_invasive() to search EOL collections of invasive species lists.
+* Added tp_search() to search for a taxonomic IDs from Tropicos.
 * Added tp_classification() to get a taxonomic hierarchy from Tropicos.
+* Added new tiny function mssg() to easily toggle messages in get_* functions on and off with the verbose argument.
 
 
 BUG FIXES
 
-* tax_name and other function broke, because get_tsn and get_uid returned wrong value when a taxon was not found. Fixed.
+* tax_name() and other function broke, because get_tsn() and get_uid() returned wrong value when a taxon was not found. Fixed.
 
+
+MINOR IMPROVEMENTS
+
+* Added tests for new classification() methods for EOL, COL, and Tropicos.
+* Added tests for new functions tp_search() and tp_classification().
+
+NOTES
+
+* Moved tests from inst/tests to tests/testthat according to new preferred location of tests.
+* Updated CITATION in inst/ with our F1000Research paper info.
 
 
 taxize 0.1.0
