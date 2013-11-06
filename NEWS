@@ -5,17 +5,16 @@ NEW FEATURES
 
 * User can turn off interactive mode for get_uid()/get_tsn() and downstream functions.
 * Functions added just like get_uid()/get_tsn() but for EOL, Catalogue of Life, and Tropicos, see get_eolid(), get_colid(), and get_tpsid(), respectively.
-* classification() methods added for EOL and Catalogue of Life, see functions classification.eolid() and classification.colid(), respectively.
+* classification() methods added for EOL, Catalogue of Life, and Tropicos, see functions classification.eolid(), classification.colid(), and classification.tpsid() respectively.
 * Added col_search() to search for names in the Catalogue of Life.
 * Added new ask argument in get_uid()/get_tsn() functions, and tests for the new argument.
 * Added eol_invasive() to search EOL collections of invasive species lists.
-* 
+* Added tp_classification() to get a taxonomic hierarchy from Tropicos.
 
 
 BUG FIXES
 
 * tax_name and other function broke, because get_tsn and get_uid returned wrong value when a taxon was not found. Fixed.
-* 
 
 
 
