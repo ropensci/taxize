@@ -45,7 +45,7 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE){
     # not found on ncbi
     if (length(uid) == 0){
       message("Not found. Consider checking the spelling or alternate classification")
-      uid <- "not found"
+      uid <- NA
     }
     # more than one found on ncbi -> user input
     if(length(uid) > 1){

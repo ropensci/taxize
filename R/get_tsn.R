@@ -50,7 +50,7 @@ get_tsn <- function (searchterm, searchtype = "sciname", ask = TRUE, verbose = T
     # should return NA if spec not found
     if (nrow(tsn_df) == 0){
       message("Not found. Consider checking the spelling or alternate classification")
-      tsn <- "not found"
+      tsn <- NA
     }
     # take the one tsn from data.frame
     if (nrow(tsn_df) == 1)
