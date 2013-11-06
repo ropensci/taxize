@@ -47,8 +47,8 @@
 #' eol_invasive(name=c('Branta canadensis','Gallus gallus','Myiopsitta monachus'), dataset='isc')
 #' }
 #' @export
-eol_invasive <- function(name = NULL, dataset="all", page=NULL, per_page=NULL,
-  key = NULL, callopts=list())
+eol_invasive <- function(name = NULL, dataset="all", searchby = grep, page=NULL, 
+  per_page=NULL, key = NULL, callopts=list())
 {     
   if(is.null(name)) stop("please provide a taxonomic name")
   if(is.null(dataset)) stop("please provide a dataset name")
@@ -101,9 +101,9 @@ eol_invasive <- function(name = NULL, dataset="all", page=NULL, per_page=NULL,
   
   # search by name
   getmatches <- function(x){
-    matched <- grep(x, dat$name)
+    matched <- searchby(x, dat$name)
     if(identical(matched, integer(0))){
-      sprintf("%s not found", x)
+      data.frame(name = x, object_id = NA)
     } else
     {
       dat[matched,]
@@ -111,5 +111,8 @@ eol_invasive <- function(name = NULL, dataset="all", page=NULL, per_page=NULL,
   }
   tmp <- lapply(name, getmatches)
   names(tmp) <- name
-  tmp
+  df <- ldply(tmp)
+  df$db <- dataset
+  names(df)[c(1,3)] <- c("searched_name","eol_object_id")
+  df
 }

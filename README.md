@@ -59,7 +59,7 @@ The following are URL's for API documentation, where to get API keys, and what p
  	+ API docs: There are none! We wrap functions in the [taxonstand package](http://cran.r-project.org/web/packages/Taxonstand/index.html)
  	+ function prefix: `tpl`
 + Catalogue of Life
- 	+ [API docs](http://www.catalogueoflife.org/colwebsite/content/services)
+ 	+ [API docs](http://www.catalogueoflife.org/colwebsite/content/web-services)
  	+ function prefix: `col`
 + Global Invasive Species Database
   + [Their website](http://www.issg.org/database/welcome/)

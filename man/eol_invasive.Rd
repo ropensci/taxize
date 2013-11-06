@@ -2,8 +2,9 @@
 \alias{eol_invasive}
 \title{Search for presence of taxonomic names in EOL invasive species databases.}
 \usage{
-  eol_invasive(name = NULL, dataset = "all", page = NULL,
-    per_page = NULL, key = NULL, callopts = list())
+  eol_invasive(name = NULL, dataset = "all",
+    searchby = grep, page = NULL, per_page = NULL,
+    key = NULL, callopts = list())
 }
 \arguments{
   \item{name}{A taxonomic name, or a vector of names.}
