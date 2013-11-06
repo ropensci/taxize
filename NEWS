@@ -1,3 +1,17 @@
+taxize 0.1.1
+===============
+
+NEW FEATURES
+
+* User can turn off interactive mode for get_uid/tsn and downstream functions.
+
+
+BUG FIXES
+
+* tax_name and other function broke, because get_tsn and get_uid returned wrong value when a taxon was not found. Fixed.
+
+
+
 taxize 0.1.0
 ===============
 

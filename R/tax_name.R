@@ -13,6 +13,7 @@
 #' Currently not implemented - preference is given to ncbi.
 #' @param verbose logical; If TRUE the actual taxon queried is printed on the 
 #' console.
+#' @param ... Other arguments passed to \code{\link[taxize]{get_tsn}} or \code{\link[taxize]{get_uid}}.
 #' 
 #' @return A data.frame with one column for every queried rank.
 #' 
@@ -42,7 +43,7 @@
 #' }
 #' @export
 tax_name <- function(query = NULL, get = NULL, db = "itis", pref = 'ncbi', 
-                     verbose = TRUE)
+                     verbose = TRUE, ...)
 {
   if(is.null(query))
     stop('Need to specify query!\n')
@@ -53,10 +54,10 @@ tax_name <- function(query = NULL, get = NULL, db = "itis", pref = 'ncbi',
   if(db == 'both' & !pref %in% c('ncbi', 'itis'))
     stop("if db=both, pref must be either 'itis' or 'ncbi'!\n")
   
-  fun <- function(query, get, db, verbose){
+  fun <- function(query, get, db, verbose, ...){
     # ITIS
   	if(db == "itis"){
-  		tsn <- get_tsn(query, searchtype = "sciname", verbose = verbose)
+  		tsn <- get_tsn(query, searchtype = "sciname", verbose = verbose, ...)
       if(is.na(tsn)) {
         if(verbose) 
           message("No TSN found for species '", query, "'!\n")
@@ -74,7 +75,7 @@ tax_name <- function(query = NULL, get = NULL, db = "itis", pref = 'ncbi',
     
     # NCBI
   	if(db == "ncbi")	{
-  		uid <- get_uid(query, verbose = verbose)
+  		uid <- get_uid(query, verbose = verbose, ...)
       if(is.na(uid)){
         if(verbose) 
           message("No UID found for species '", query, "'!\n")
@@ -91,7 +92,7 @@ tax_name <- function(query = NULL, get = NULL, db = "itis", pref = 'ncbi',
     # combine both
       # NCBI
     if(db == 'both') {
-      uid <- get_uid(query, verbose = verbose)
+      uid <- get_uid(query, verbose = verbose, ...)
       if(is.na(uid)){
         if(verbose) 
           message("No UID found for species '", query, "'!\n")
@@ -101,7 +102,7 @@ tax_name <- function(query = NULL, get = NULL, db = "itis", pref = 'ncbi',
         match_uid <- hierarchy$ScientificName[match(tolower(get), tolower(hierarchy$Rank))]
       }
       # itis
-      tsn <- get_tsn(query, searchtype="sciname", verbose = verbose)
+      tsn <- get_tsn(query, searchtype="sciname", verbose = verbose, ...)
       if(is.na(tsn)) {
         if(verbose) 
           message("No TSN found for species '", query, "'!\n")
@@ -116,6 +117,6 @@ tax_name <- function(query = NULL, get = NULL, db = "itis", pref = 'ncbi',
     }
     return(out)
   }
-  out <- ldply(query, .fun = function(x) fun(query = x, get = get, db = db, verbose = verbose))
+  out <- ldply(query, .fun = fun, get, db, verbose, ...)
   return(out)
 }

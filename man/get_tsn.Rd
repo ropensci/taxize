@@ -2,7 +2,7 @@
 \alias{get_tsn}
 \title{Get the TSN code for a search term.}
 \usage{
-  get_tsn(searchterm, searchtype = "sciname",
+  get_tsn(searchterm, searchtype = "sciname", ask = TRUE,
     verbose = TRUE)
 }
 \arguments{
@@ -11,6 +11,11 @@
 
   \item{searchtype}{character; One of 'sciname',
   'anymatch', 'comnamebeg', 'comname', 'comnameend'.}
+
+  \item{ask}{logical; should get_tsn be run in interactive
+  mode? If TRUE and more than one TSN is found for teh
+  species, the user is asked for input. If FALSE NA is
+  returned for multiple matches.}
 
   \item{verbose}{logical; should progress be printed?}
 }

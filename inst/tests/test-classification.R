@@ -1,14 +1,16 @@
 # tests for classification fxn in taxize
 context("classification")
 
-uids <- get_uid(c("Chironomus riparius", "aaa vva"))
-tsns <- get_tsn(c("Chironomus riparius", "aaa vva"))
-clas_uids <- classification(uids)
-clas_tsns <- classification(tsns)
+uids <- get_uid(c("Chironomus riparius", "aaa vva"), verbose=FALSE)
+tsns <- get_tsn(c("Chironomus riparius", "aaa vva"), verbose=FALSE)
+clas_uids <- classification(uids, verbose=FALSE)
+clas_tsns <- classification(tsns, verbose=FALSE)
 
-clas_ncbi <- classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi')
+clas_ncbi <- classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi', 
+                            verbose=FALSE)
 names(clas_ncbi) <- NULL
-clas_itis <- classification(c("Chironomus riparius", "aaa vva"), db = 'itis')
+clas_itis <- classification(c("Chironomus riparius", "aaa vva"), db = 'itis', 
+                            verbose=FALSE)
 names(clas_itis) <- NULL
 
 test_that("classification returns the correct value", {
