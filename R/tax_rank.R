@@ -10,6 +10,7 @@
 #' or 'itis'.
 #' @param verbose logical; If TRUE the actual taxon queried is printed on the 
 #' console.
+#' @param ... Other arguments passed to \code{\link[taxize]{get_tsn}} or \code{\link[taxize]{get_uid}}.
 #' 
 #' @note While \code{\link[taxize]{tax_name}} returns the name of a specified 
 #' rank, 
@@ -35,7 +36,7 @@
 #' sapply(classi, function(x) x[nrow(x), 'Rank'])
 #' }
 #' @export
-tax_rank <- function(query = NULL, db = "itis", pref = 'ncbi', verbose = TRUE)
+tax_rank <- function(query = NULL, db = "itis", pref = 'ncbi', verbose = TRUE, ...)
 {
   if(is.null(query))
     stop('Need to specify query!\n')
@@ -44,10 +45,10 @@ tax_rank <- function(query = NULL, db = "itis", pref = 'ncbi', verbose = TRUE)
   if(db == 'both' & !pref %in% c('ncbi', 'itis'))
     stop("if db=both, pref must be either 'itis' or 'ncbi'!\n")
   
-  fun <- function(query, get, db, verbose){
+  fun <- function(query, get, db, verbose, ...){
     # ITIS
     if(db == "itis" | db == 'both'){
-      tsn <- get_tsn(query, searchtype = "sciname", verbose = verbose)
+      tsn <- get_tsn(query, searchtype = "sciname", verbose = verbose, ...)
       if(is.na(tsn)) {
         if(verbose) 
           message("No TSN found for species '", query, "'!\n")
@@ -62,7 +63,7 @@ tax_rank <- function(query = NULL, db = "itis", pref = 'ncbi', verbose = TRUE)
     
     # NCBI
     if(db == "ncbi" | db == 'both')	{
-      uid <- get_uid(query, verbose = verbose)
+      uid <- get_uid(query, verbose = verbose, ...)
       if(is.na(uid)){
         if(verbose) 
           message("No UID found for species '", query, "'!\n")
@@ -85,7 +86,7 @@ tax_rank <- function(query = NULL, db = "itis", pref = 'ncbi', verbose = TRUE)
       out <- out_tsn
     return(tolower(out))
   }
-  out <- ldply(query, .fun = function(x) fun(query = x, get = get, db = db, verbose = verbose))
+  out <- ldply(query, fun, get, db, verbose, ...)
   names(out) <- 'Rank'
   return(out)
 }
