@@ -1,12 +1,18 @@
 # tests for tax_name fxn in taxize
 context("tax_name")
 
-tmp_itis <- tax_name(query = "Baetis", get = c("family", "order"), db = "itis")
-tmp_ncbi  <- tax_name(query = "Baetis", get = c("family", "order"), db = "ncbi")
-tmp_ncbi2 <- tax_name(query = c("Helianthus annuus", 'Baetis rhodani'), get = c("genus", "kingdom"), db = "ncbi")
-tmp_na2 <- tax_name(query=c("Helianthus annuus", 'xxxx'), get=c("family", "order"), db="ncbi")
-tmp_na3 <- tax_name(query=c("Helianthus annuus", 'xxxx'), get=c("family", "order"), db="itis")
-tmp_ncbi_both <- tax_name(query = c("Helianthus annuus", 'Baetis rhodani'), get = c("genus", "kingdom"), db = "both")
+tmp_itis <- tax_name(query = "Baetis", get = c("family", "order"), 
+                     db = "itis", verbose=FALSE)
+tmp_ncbi  <- tax_name(query = "Baetis", get = c("family", "order"), 
+                      db = "ncbi", verbose=FALSE)
+tmp_ncbi2 <- tax_name(query = c("Helianthus annuus", 'Baetis rhodani'), 
+                      get = c("genus", "kingdom"), db = "ncbi", verbose=FALSE)
+tmp_na2 <- tax_name(query=c("Helianthus annuus", 'xxxx'), 
+                    get=c("family", "order"), db="ncbi", verbose=FALSE)
+tmp_na3 <- tax_name(query=c("Helianthus annuus", 'xxxx'), 
+                    get=c("family", "order"), db="itis",verbose=FALSE)
+tmp_ncbi_both <- tax_name(query = c("Helianthus annuus", 'Baetis rhodani'), 
+                          get = c("genus", "kingdom"), db = "both", verbose=FALSE)
 
 test_that("tax_name returns the correct class", {
 	expect_that(tmp_itis, is_a("data.frame"))
@@ -33,7 +39,8 @@ test_that("tax_name works with vectors", {
 })
 
 test_that("tax_name accepts ask-argument", {
-  expect_that(is.na(tax_name(query = "Dugesia", get = "family", db = "ncbi", ask = FALSE)), is_true())
+  expect_that(is.na(tax_name(query = "Dugesia", get = "family", db = "ncbi", 
+                             ask = FALSE, verbose = FALSE)), is_true())
 })
 
 

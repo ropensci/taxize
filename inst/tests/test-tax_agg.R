@@ -6,7 +6,7 @@ take <- dune[ ,1:5]
 species <- c("Bellis perennis", "Empetrum nigrum", "Juncus bufonius", "Juncus articulatus", 
 "Aira praecox")
 colnames(take) <- species
-out_ncbi <- tax_agg(take, rank = 'family', db = 'ncbi')
+out_ncbi <- tax_agg(take, rank = 'family', db = 'ncbi', verbose = FALSE)
 
 
 test_that("tax_agg returns the correct class", {
@@ -26,7 +26,7 @@ test_that("tax_agg returns the correct value", {
 
 take2 <- take
 colnames(take2)[4] <- 'xxxxx'
-out_itis <- tax_agg(take2, rank = 'family', db = 'itis')
+out_itis <- tax_agg(take2, rank = 'family', db = 'itis', verbose = FALSE)
 
 
 test_that("Handles NAs", {
