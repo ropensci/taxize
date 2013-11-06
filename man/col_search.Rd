@@ -1,9 +1,9 @@
-\name{col_classification}
-\alias{col_classification}
-\title{Search Catalogue of Life for taxonomic classifications.}
+\name{col_search}
+\alias{col_search}
+\title{Search Catalogue of Life for taxonomic IDs}
 \usage{
-  col_classification(name = NULL, id = NULL, format = NULL,
-    start = NULL, checklist = NULL)
+  col_search(name = NULL, id = NULL, start = NULL,
+    checklist = NULL)
 }
 \arguments{
   \item{name}{The string to search for. Only exact matches
@@ -16,14 +16,6 @@
   \item{id}{The record ID of the specific record to return
   (only for scientific names of species or infraspecific
   taxa)}
-
-  \item{format}{format of the results returned. Valid
-  values are format=xml and format=php; if the format
-  parameter is omitted, the results are returned in the
-  default XML format. If format=php then results are
-  returned as a PHP array in serialized string format,
-  which can be converted back to an array in PHP using the
-  unserialize command}
 
   \item{start}{The first record to return. If omitted, the
   results are returned from the first record (start=0).
@@ -41,7 +33,7 @@
   A list of data.frame's.
 }
 \description{
-  Search Catalogue of Life for taxonomic classifications.
+  Search Catalogue of Life for taxonomic IDs
 }
 \details{
   You must provide one of name or id. The other parameters
@@ -50,23 +42,13 @@
 \examples{
 \dontrun{
 # A basic example
-col_classification(name="Apis")
+col_search(name="Apis")
 
-# An example where there is no classification
-col_classification(id=11935941)
+# Many names
+col_search(name=c("Apis","Puma concolor"))
 
-# Use a specific year's checklist
-col_classification(name="Apis", checklist="2012")
-col_classification(name="Apis", checklist="2009")
-
-# Pass in many names or many id's
-out <- col_classification(name=c("Buteo","Apis","Accipiter","asdf"),
-   checklist="2012")
-out$Apis # get just the output you want
-ldply(out) # or combine to one data.frame
-
-# Use get_colid to pass in ID directly
-col_classification(id=get_colid(sciname='Puma concolor'))
+# An example where there is no data
+col_search(id=11935941)
 }
 }
 

@@ -4,6 +4,7 @@ taxize 0.1.1
 NEW FEATURES
 
 * User can turn off interactive mode for get_uid/tsn and downstream functions.
+* 
 
 
 BUG FIXES

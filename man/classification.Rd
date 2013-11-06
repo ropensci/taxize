@@ -1,5 +1,6 @@
 \name{classification}
 \alias{classification}
+\alias{classification.colid}
 \alias{classification.default}
 \alias{classification.eolid}
 \alias{classification.tsn}
@@ -15,6 +16,8 @@
   \method{classification}{uid} (id, ...)
 
   \method{classification}{eolid} (id, ...)
+
+  \method{classification}{colid} (id, ...)
 }
 \arguments{
   \item{x}{character; taxons to query.}
@@ -49,6 +52,7 @@
 classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi')
 classification(c("Chironomus riparius", "aaa vva"), db = 'itis')
 classification(c("Chironomus riparius", "aaa vva"), db = 'eol')
+classification(c("Chironomus riparius", "aaa vva"), db = 'col')
 
 # Use methods for get_uid, get_tsn and get_eolid
 classification(get_uid(c("Chironomus riparius", "Puma concolor")))
@@ -56,6 +60,7 @@ classification(get_uid(c("Chironomus riparius", "Puma concolor")))
 classification(get_uid(c("Chironomus riparius", "aaa vva")))
 classification(get_tsn(c("Chironomus riparius", "aaa vva")))
 classification(get_eolid(c("Chironomus riparius", "aaa vva")))
+classification(get_colid(c("Chironomus riparius", "aaa vva")))
 }
 }
 \seealso{

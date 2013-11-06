@@ -24,6 +24,7 @@
 #' classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi')
 #' classification(c("Chironomus riparius", "aaa vva"), db = 'itis')
 #' classification(c("Chironomus riparius", "aaa vva"), db = 'eol')
+#' classification(c("Chironomus riparius", "aaa vva"), db = 'col')
 #' 
 #' # Use methods for get_uid, get_tsn and get_eolid
 #' classification(get_uid(c("Chironomus riparius", "Puma concolor")))
@@ -31,6 +32,7 @@
 #' classification(get_uid(c("Chironomus riparius", "aaa vva")))
 #' classification(get_tsn(c("Chironomus riparius", "aaa vva")))
 #' classification(get_eolid(c("Chironomus riparius", "aaa vva")))
+#' classification(get_colid(c("Chironomus riparius", "aaa vva")))
 #' }
 #' 
 #' @examples \donttest{
@@ -62,6 +64,12 @@ classification.default <- function(x, db = NULL, ...){
     out <- classification(id, ...)
     names(out) <- x
   }
+  if (db == 'col') {
+    id <- get_colid(x, ...)
+    out <- classification(id, ...)
+    names(out) <- x
+  }
+  get_colid(sciname='Puma concolor')
   return(out)
 }
 
@@ -129,7 +137,25 @@ classification.eolid <- function(id, ...) {
     if(is.na(x)){
       tmp <- NA
     } else {
-      tmp <- eol_hierarchy(taxonid=x)
+      tmp <- eol_hierarchy(taxonid=x, ...)
+    }
+    return(tmp)
+  }
+  out <- lapply(id, fun)
+  names(out) <- id
+  return(out)
+}
+
+#' @method classification colid
+#' @export
+#' @rdname classification
+classification.colid <- function(id, ...) {
+  fun <- function(x){
+    # return NA if NA is supplied
+    if(is.na(x)){
+      tmp <- NA
+    } else {
+      tmp <- col_classification(id=x, ...)[[1]]
     }
     return(tmp)
   }

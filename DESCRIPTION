@@ -100,3 +100,5 @@ Collate:
     'synonyms.R'
     'tp_search.R'
     'get_eolid.R'
+    'col_search.R'
+    'get_colid.R'
