@@ -2,16 +2,13 @@
 \alias{tp_synonyms}
 \title{Return all synonyms for a taxon name with a given id.}
 \usage{
-  tp_synonyms(id, format = "json", output = "df",
-    key = NULL)
+  tp_synonyms(id, format = "json", key = NULL)
 }
 \arguments{
   \item{id}{the taxon identifier code}
 
   \item{format}{return in json or xml format (defaults to
   json)}
-
-  \item{output}{raw = json or xml; or df = data.frame}
 
   \item{key}{Your Tropicos API key; loads from .Rprofile.}
 }

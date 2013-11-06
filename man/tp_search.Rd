@@ -1,0 +1,50 @@
+\name{tp_search}
+\alias{tp_search}
+\title{Return all synonyms for a taxon name with a given id.}
+\usage{
+  tp_search(name = NULL, commonname = NULL, nameid = NULL,
+    orderby = NULL, sortorder = NULL, pagesize = NULL,
+    startrow = NULL, type = NULL, key = NULL,
+    callopts = list())
+}
+\arguments{
+  \item{name}{Your search string. For instance "poa annua"}
+
+  \item{commonname}{Your search string. For instance
+  "annual blue grass"}
+
+  \item{nameid}{Your search string. For instance
+  "25509881"}
+
+  \item{orderby}{Your search string. For instance "1"}
+
+  \item{sortorder}{Your search string. For instance
+  "ascending"}
+
+  \item{pagesize}{Your search string. For instance "100"}
+
+  \item{startrow}{Your search string. For instance "1"}
+
+  \item{type}{Type of search, "wildcard" (default) will add
+  a wildcard to the end of your search string. "exact" will
+  use your search string exactly.}
+
+  \item{key}{Your Tropicos API key; loads from .Rprofile.}
+
+  \item{callopts}{Further args passed on to httr::GET}
+}
+\value{
+  List or dataframe.
+}
+\description{
+  Return all synonyms for a taxon name with a given id.
+}
+\examples{
+\dontrun{
+tp_search(name = 'Poa annua')
+}
+}
+\references{
+  \url{http://services.tropicos.org/help?method=SearchNameXml}
+}
+

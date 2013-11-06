@@ -1,6 +1,6 @@
 \name{eol_invasive}
 \alias{eol_invasive}
-\title{Search for terms in EOL database.}
+\title{Search for presence of taxonomic names in EOL invasive species databases.}
 \usage{
   eol_invasive(name = NULL, dataset = "all", page = NULL,
     per_page = NULL, key = NULL, callopts = list())

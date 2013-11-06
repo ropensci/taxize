@@ -1,4 +1,4 @@
-#' Search for terms in EOL database.
+#' Search for presence of taxonomic names in EOL invasive species databases.
 #' 
 #' If a two-column data.frame is returned with the species you searched for, your 
 #' species is listead in the database you searched. If your searched taxon is not found,

@@ -95,3 +95,6 @@ Collate:
     'ubio_classification_search.R'
     'ubio_synonyms.R'
     'eol_invasive.R'
+    'get_tpsid.R'
+    'synonyms.R'
+    'tp_search.R'
