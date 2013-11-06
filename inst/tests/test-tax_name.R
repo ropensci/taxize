@@ -32,5 +32,8 @@ test_that("tax_name works with vectors", {
   expect_that(nrow(tmp_ncbi2), equals(2))
 })
 
+test_that("tax_name accepts ask-argument", {
+  expect_that(is.na(tax_name(query = "Dugesia", get = "family", db = "ncbi", ask = FALSE)), is_true())
+})
 
 
