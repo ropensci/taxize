@@ -6,6 +6,9 @@
 #' @param searchterm character; A vector of common or scientific names.
 #' @param searchtype character; One of 'sciname', 'anymatch', 'comnamebeg', 
 #'    'comname', 'comnameend'.
+#' @param ask logical; should get_tsn be run in interactive mode? 
+#' If TRUE and more than one TSN is found for teh species, the user is asked for 
+#' input. If FALSE NA is returned for multiple matches.
 #' @param verbose logical; should progress be printed?
 #' 
 #' @return A vector of taxonomic serial numbers (TSN). If a taxon is not 
@@ -28,9 +31,9 @@
 #' get_tsn("howdy")
 #' get_tsn(c("Chironomus riparius", "howdy"))
 #' }
-get_tsn <- function (searchterm, searchtype = "sciname", verbose = TRUE) 
+get_tsn <- function (searchterm, searchtype = "sciname", ask = TRUE, verbose = TRUE) 
 {
-  fun <- function(x, verbose)
+  fun <- function(x, searchtype, ask, verbose)
   {
     if(verbose)
       message("\nRetrieving data for taxon '", x, "'\n")
@@ -47,7 +50,7 @@ get_tsn <- function (searchterm, searchtype = "sciname", verbose = TRUE)
     # should return NA if spec not found
     if (nrow(tsn_df) == 0){
       message("Not found. Consider checking the spelling or alternate classification")
-      tsn <- "not found"
+      tsn <- NA
     }
     # take the one tsn from data.frame
     if (nrow(tsn_df) == 1)
@@ -60,33 +63,38 @@ get_tsn <- function (searchterm, searchtype = "sciname", verbose = TRUE)
     } else {
       direct <- NA
     }
-    # user prompt
+    # multiple matches
     if (nrow(tsn_df) > 1 & is.na(direct)){
-      # sort alphabetically
-      tsn_df <- tsn_df[order(tsn_df$combinedname), ]
-      rownames(tsn_df) <- 1:nrow(tsn_df)
-      
-      # prompt
-      message("\n\n")
-      print(tsn_df)
-      message("\nMore than one TSN found for taxon '", x, "'!\n
-          Enter rownumber of taxon (other inputs will return 'NA'):\n") # prompt
-      take <- scan(n = 1, quiet = TRUE, what = 'raw')
-      
-      if(length(take) == 0)
-        take <- 'notake'
-      if(take %in% seq_len(nrow(tsn_df))){
-        take <- as.numeric(take)
-        message("Input accepted, took taxon '", as.character(tsn_df$combinedname[take]), "'.\n")
-        tsn <-  tsn_df$tsn[take]
+      if(ask) {
+        # user prompt
+        tsn_df <- tsn_df[order(tsn_df$combinedname), ]
+        rownames(tsn_df) <- 1:nrow(tsn_df)
+        
+        # prompt
+        message("\n\n")
+        print(tsn_df)
+        message("\nMore than one TSN found for taxon '", x, "'!\n
+            Enter rownumber of taxon (other inputs will return 'NA'):\n") # prompt
+        take <- scan(n = 1, quiet = TRUE, what = 'raw')
+        
+        if(length(take) == 0)
+          take <- 'notake'
+        if(take %in% seq_len(nrow(tsn_df))){
+          take <- as.numeric(take)
+          message("Input accepted, took taxon '", as.character(tsn_df$combinedname[take]), "'.\n")
+          tsn <-  tsn_df$tsn[take]
+        } else {
+          tsn <- NA
+          message("\nReturned 'NA'!\n\n")
+        }
       } else {
         tsn <- NA
-        message("\nReturned 'NA'!\n\n")
       }
+        
     }
     return(as.character(tsn))
   }
-  out <- laply(searchterm, fun, verbose)
+  out <- laply(searchterm, fun, searchtype, ask, verbose)
   class(out) <- "tsn"
   return(out)
 }

@@ -1,9 +1,9 @@
 # tests for tax_name fxn in taxize
 context("tax_rank")
 
-A <- tax_rank(query = c("Helianthus annuus", "Baetis"), db = "ncbi")
-B <- tax_rank(query = "Helianthus", db = "itis")
-C <- tax_rank(query = c("Helianthus annuus", "xxxxxx"), db = "ncbi")
+A <- tax_rank(query = c("Helianthus annuus", "Baetis"), db = "ncbi", verbose=FALSE)
+B <- tax_rank(query = "Helianthus", db = "itis", verbose=FALSE)
+C <- tax_rank(query = c("Helianthus annuus", "xxxxxx"), db = "ncbi", verbose=FALSE)
 
 test_that("tax_rank returns the correct class", {
   expect_that(A, is_a("data.frame"))

@@ -6,7 +6,7 @@
 #' @param db character; database to query. either \code{ncbi} or \code{itis}.
 #' @param id character; identifiers, returned by \code{\link[taxize]{get_tsn}} 
 #'    or \code{\link[taxize]{get_uid}}
-#' @param ... Other passed arguments.
+#' @param ... Other arguments passed to \code{\link[taxize]{get_tsn}} or \code{\link[taxize]{get_uid}}.
 #' 
 #' @return A named list of data.frames with the taxonomic classifcation of 
 #'    every supplied taxa.
@@ -42,12 +42,12 @@ classification.default <- function(x, db = NULL, ...){
   if (is.null(db))
     stop("Must specify Identifier!")
   if (db == 'itis') {
-    id <- get_tsn(x)
+    id <- get_tsn(x, ...)
     out <- classification(id, ...)
     names(out) <- x
   }
   if (db == 'ncbi') {
-    id <- get_uid(x)
+    id <- get_uid(x, ...)
     out <- classification(id, ...)
     names(out) <- x
   }

@@ -23,7 +23,9 @@
   \code{\link[taxize]{get_tsn}} or
   \code{\link[taxize]{get_uid}}}
 
-  \item{...}{Other passed arguments.}
+  \item{...}{Other arguments passed to
+  \code{\link[taxize]{get_tsn}} or
+  \code{\link[taxize]{get_uid}}.}
 }
 \value{
   A named list of data.frames with the taxonomic
