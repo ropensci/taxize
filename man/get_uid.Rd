@@ -2,10 +2,15 @@
 \alias{get_uid}
 \title{Get the UID codes from NCBI for taxonomic names.}
 \usage{
-  get_uid(sciname, verbose = TRUE)
+  get_uid(sciname, ask = TRUE, verbose = TRUE)
 }
 \arguments{
   \item{sciname}{character; scientific name.}
+
+  \item{ask}{logical; should get_tsn be run in interactive
+  mode? If TRUE and more than one TSN is found for teh
+  species, the user is asked for input. If FALSE NA is
+  returned for multiple matches.}
 
   \item{verbose}{logical; If TRUE the actual taxon queried
   is printed on the console.}
@@ -27,6 +32,11 @@ get_uid(c("Chironomus riparius", "aaa vva"))
 # When not found
 get_uid("howdy")
 get_uid(c("Chironomus riparius", "howdy"))
+
+# multiple matches
+get_uid('Dugesia')  # user prompt needed
+get_uid('Dugesia', ask = FALSE) # returns NA for multiple matches
+
 }
 }
 \author{
