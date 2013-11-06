@@ -86,7 +86,7 @@
 }
 \examples{
 \dontrun{
-pageid <- eol_search('Pomatomus')$id[1]
+pageid <- eol_search('Pomatomus')$pageid[1]
 out <- eol_pages(taxonconceptID=pageid)
 eol_hierarchy(out[out$nameAccordingTo == "NCBI Taxonomy", "identifier"])
 eol_hierarchy(out[out$nameAccordingTo == "Integrated Taxonomic Information

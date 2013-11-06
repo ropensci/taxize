@@ -1,8 +1,8 @@
 Package: taxize
 Description: Taxonomic information from around the web.
 Title: Taxonomic information from around the web.
-Version: 0.1.0
-Date: 2013-10-23
+Version: 0.1.1
+Date: 2013-11-06
 License: CC0
 URL: https://ropensci.github.com/taxize_
 BugReports: https://github.com/ropensci/taxize_/issues
@@ -31,7 +31,8 @@ Imports:
     ape,
     Taxonstand,
     reshape2,
-    data.table
+    data.table,
+    reshape
 Suggests:
     testthat,
     roxygen2,

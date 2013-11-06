@@ -34,7 +34,7 @@ get_tpsid <- function(sciname, verbose = TRUE){
     # not found on tropicos
     if(length(id) == 0){
       message("Not found. Consider checking the spelling or alternate classification")
-      id <- "not found"
+      id <- NA
     }
     # more than one found on tropicos -> user input
     if(length(id) > 1){

@@ -1,5 +1,10 @@
 #' Get the EOL ID from Encyclopedia of Life from taxonomic names.
 #' 
+#' Note that EOL doesn't expose an API endpointn for directly querying for EOL
+#' taxon ID's, so we first use the function \code{\link[taxize]{eol_search}} to find pages
+#' that deal with the species of interest, then use \code{\link[taxize]{eol_pages}}
+#' to find the actual taxon IDs. 
+#' 
 #' @import plyr RCurl
 #' @param sciname character; scientific name.
 #' @param verbose logical; If TRUE the actual taxon queried is printed on the 
@@ -17,6 +22,7 @@
 #' @examples \dontrun{
 #' get_eolid(sciname='Poa annua')
 #' get_eolid(sciname='Pinus contorta')
+#' get_eolid(sciname='Puma concolor')
 #' 
 #' get_eolid(c("Poa annua", "Pinus contorta"))
 #' 
@@ -28,21 +34,31 @@ get_eolid <- function(sciname, verbose = TRUE){
   fun <- function(sciname) {
     if(verbose)
       message("\nRetrieving data for taxon '", sciname, "'\n")
-    df <- eol_search(terms=sciname)
-    if(nrow(df) == 0){
-      message("Not found. Consider checking the spelling or alternate classification")
-      id <- "not found"
-    } else
-    {  
-      df <- df[,c('id','title')]
-      names(df) <- c('eolid','name')
-      id <- df$eolid
-    }
+    tmp <- eol_search(terms=sciname)
     
+    if(all(is.na(tmp))){
+      message("Not found. Consider checking the spelling or alternate classification")
+      id <- NA
+    } else
+    {   
+      pageids <- tmp[grep(sciname, tmp$name), "pageid"]
+      dfs <- compact(lapply(pageids, eol_pages))
+      dfs <- ldply(dfs[!sapply(dfs, nrow)==0])
+      df <- dfs[,c('identifier','scientificName','nameAccordingTo')]
+      names(df) <- c('eolid','name','source')
+      df <- getsourceshortnames(df)
+      
+      if(nrow(df) == 0){
+        message("Not found. Consider checking the spelling or alternate classification")
+        id <- NA
+      } else
+      { id <- df$eolid }
+    }
+
     # not found on eol
     if(length(id) == 0){
       message("Not found. Consider checking the spelling or alternate classification")
-      id <- "not found"
+      id <- NA
     }
     # more than one found on eol -> user input
     if(length(id) > 1){
@@ -70,4 +86,17 @@ get_eolid <- function(sciname, verbose = TRUE){
   out <- laply(sciname, fun)
   class(out) <- "eolid"
   return(out)
+}
+
+#' @importFrom reshape sort_df
+getsourceshortnames <- function(input){  
+  lookup <- data.frame(z=c('COL','ITIS','GBIF','NCBI','IUCN'),
+                       b=c('Species 2000 & ITIS Catalogue of Life: April 2013',
+                           'Integrated Taxonomic Information System (ITIS)',
+                           'GBIF Nub Taxonomy',
+                           'NCBI Taxonomy',
+                           'IUCN Red List (Species Assessed for Global Conservation)'))
+  bb <- merge(input, lookup, by.x="source", by.y="b")[,-1]
+  names(bb)[3] <- "source"
+  sort_df(bb, "name")
 }

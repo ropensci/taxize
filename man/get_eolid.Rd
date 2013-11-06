@@ -16,19 +16,24 @@
   for user input.
 }
 \description{
-  Get the EOL ID from Encyclopedia of Life from taxonomic
-  names.
+  Note that EOL doesn't expose an API endpointn for
+  directly querying for EOL taxon ID's, so we first use the
+  function \code{\link[taxize]{eol_search}} to find pages
+  that deal with the species of interest, then use
+  \code{\link[taxize]{eol_pages}} to find the actual taxon
+  IDs.
 }
 \examples{
 \dontrun{
 get_eolid(sciname='Poa annua')
 get_eolid(sciname='Pinus contorta')
+get_eolid(sciname='Puma concolor')
 
 get_eolid(c("Poa annua", "Pinus contorta"))
 
 # When not found
-get_eolid("howdy")
-get_eolid(c("Chironomus riparius", "howdy"))
+get_eolid(sciname="uaudnadndj")
+get_eolid(c("Chironomus riparius", "uaudnadndj"))
 }
 }
 \author{

@@ -33,7 +33,7 @@
 #' 		this function only returns JSON for now. 
 #' @return JSON list object, or data.frame.
 #' @examples \dontrun{
-#' pageid <- eol_search('Pomatomus')$id[1]
+#' pageid <- eol_search('Pomatomus')$pageid[1]
 #' out <- eol_pages(taxonconceptID=pageid)
 #' eol_hierarchy(out[out$nameAccordingTo == "NCBI Taxonomy", "identifier"])
 #' eol_hierarchy(out[out$nameAccordingTo == "Integrated Taxonomic Information 
@@ -42,9 +42,9 @@
 #' @export
 
 eol_pages <- function(taxonconceptID, iucn=NULL, images=NULL, videos=NULL, sounds=NULL, 
-                      maps=NULL, text=NULL, subject=NULL, licenses=NULL, details=NULL,
-                      common_names=NULL, synonyms=NULL, references=NULL, vetted=NULL,
-                      cache_ttl=NULL, returntype='data.frame', key = NULL, callopts=list())
+  maps=NULL, text=NULL, subject=NULL, licenses=NULL, details=NULL,
+  common_names=NULL, synonyms=NULL, references=NULL, vetted=NULL,
+  cache_ttl=NULL, returntype='data.frame', key = NULL, callopts=list())
 {     
   url <- 'http://eol.org/api/pages/1.0/'
 	key <- getkey(key, "eolApiKey")
@@ -55,11 +55,6 @@ eol_pages <- function(taxonconceptID, iucn=NULL, images=NULL, videos=NULL, sound
   urlget <- paste(url, taxonconceptID, '.json', sep="")
   tt <- GET(urlget, query=args, callopts)
   stop_for_status(tt)
-  searchresults <- content(tt)
-	
-	if(returntype == 'list') { searchresults  } else
-		if(returntype == 'data.frame'){  
-			ldply(searchresults$taxonConcepts, function(x) as.data.frame(x))  
-		} else  
-			stop("returntype must be one of 'list' or 'data.frame'")
+  res <- content(tt)
+  do.call(rbind.fill, lapply(res$taxonConcepts, data.frame))
 }
