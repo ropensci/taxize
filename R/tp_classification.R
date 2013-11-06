@@ -21,7 +21,9 @@ tp_classification <- function(id=NULL, key=NULL, callopts=list())
     tt <- GET(url, query=args, callopts)
     stop_for_status(tt)
     out <- content(tt)
-    do.call(rbind.fill, lapply(out, data.frame))[,c('NameId','ScientificName','Rank')]
+    if(names(out[[1]])[[1]] == "Error"){ data.frame(NameId=NA, ScientificName=NA, Rank=NA) } else {
+      do.call(rbind.fill, lapply(out, data.frame))[,c('NameId','ScientificName','Rank')]      
+    }
   }
   tmp <- lapply(id, fun)
   names(tmp) <- id

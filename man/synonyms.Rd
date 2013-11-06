@@ -17,11 +17,11 @@
   \item{x}{character; taxons to query.}
 
   \item{db}{character; database to query. either
-  \code{ncbi} or \code{itis}.}
+  \code{itis} or \code{tropicos}.}
 
   \item{id}{character; identifiers, returned by
   \code{\link[taxize]{get_tsn}} or
-  \code{\link[taxize]{get_uid}}}
+  \code{\link[taxize]{get_tpsid}}}
 
   \item{...}{Other passed arguments.}
 }
@@ -52,7 +52,6 @@ synonyms(get_tsn("Poa annua"))
 }
 \seealso{
   \code{\link[taxize]{get_tsn}},
-  \code{\link[taxize]{get_uid}}, ,
   \code{\link[taxize]{get_tpsid}}
 }
 

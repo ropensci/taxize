@@ -14,9 +14,6 @@
   \item{synonyms}{Return synonyms or not (defaults to
   returning them, give synonyms=0 if not)}
 
-  \item{returntype}{one of "list" of "data.frame"
-  (character)}
-
   \item{key}{Your EOL API key; loads from .Rprofile.}
 
   \item{callopts}{Further args passed on to GET.}

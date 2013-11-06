@@ -1,8 +1,8 @@
 # tests for eol_pages fxn in taxize
 context("eol_pages")
 
-pageid <- eol_search('Pomatomus')$id[1]
-pageid2 <- eol_search('Helianthus')$id[1]
+pageid <- eol_search('Pomatomus')$pageid[1]
+pageid2 <- eol_search('Helianthus')$pageid[1]
 
 test_that("eol_pages returns the correct value", {
 	expect_that(eol_pages(taxonconceptID=pageid)[1,1], equals(52595367))

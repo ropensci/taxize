@@ -6,7 +6,6 @@
 #' 		give commonnames=0 if not)
 #' @param synonyms Return synonyms or not (defaults to returning them, 
 #' 		give synonyms=0 if not)
-#' @param returntype one of "list" of "data.frame" (character)
 #' @param key Your EOL API key; loads from .Rprofile.
 #' @param callopts Further args passed on to GET.
 #' @details It's possible to return JSON or XML with the EOL API. However, 
