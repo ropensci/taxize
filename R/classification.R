@@ -100,7 +100,7 @@ classification.tsn <- function(id, ...)
     }
   }
   out <- lapply(id, fun)
-  names(out) <- id
+#   names(out) <- id
   return(out)
 }
 
@@ -133,7 +133,7 @@ classification.uid <- function(id, ...) {
     return(out)
   }
   out <- lapply(id, fun)
-  names(out) <- id
+#   names(out) <- id
   return(out)
 }
 
@@ -152,7 +152,7 @@ classification.eolid <- function(id, ...) {
     return(tmp)
   }
   out <- lapply(id, fun)
-  names(out) <- id
+#   names(out) <- id
   return(out)
 }
 
@@ -170,7 +170,7 @@ classification.colid <- function(id, ...) {
     return(tmp)
   }
   out <- lapply(id, fun)
-  names(out) <- id
+#   names(out) <- id
   return(out)
 }
 
@@ -189,6 +189,6 @@ classification.tpsid <- function(id, ...) {
     return(tmp)
   }
   out <- lapply(id, fun)
-  names(out) <- id
+#   names(out) <- id
   return(out)
 }
