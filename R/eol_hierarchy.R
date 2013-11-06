@@ -18,19 +18,23 @@
 #' }
 #' @export
 eol_hierarchy <- function(taxonid, common_names = NULL, synonyms = NULL,
-	key = NULL, callopts=list()) 
+  key = NULL, callopts=list()) 
 {
-  url = 'http://www.eol.org/api/hierarchy_entries/1.0/'
-	key <- getkey(key, "eolApiKey")
-	urlget <- paste(url, taxonid, '.json', sep="")
-  args <- compact(list(common_names=common_names, synonyms=synonyms))
-  tt <- GET(urlget, query=args, callopts)
-  stop_for_status(tt)
-  res <- content(tt)
-  if(length(res$ancestors)==0){
-    sprintf("No hierarchy information for %s", taxonid)
-  } else
+  # if NA input, return NA
+  if(is.na(taxonid)){ NA } else
   {
-    do.call(rbind.fill, lapply(res$ancestors, data.frame))[,c('taxonID','scientificName','taxonRank')]    
+    url = 'http://www.eol.org/api/hierarchy_entries/1.0/'
+    key <- getkey(key, "eolApiKey")
+    urlget <- paste(url, taxonid, '.json', sep="")
+    args <- compact(list(common_names=common_names, synonyms=synonyms))
+    tt <- GET(urlget, query=args, callopts)
+    stop_for_status(tt)
+    res <- content(tt)
+    if(length(res$ancestors)==0){
+      sprintf("No hierarchy information for %s", taxonid)
+    } else
+    {
+      do.call(rbind.fill, lapply(res$ancestors, data.frame))[,c('taxonID','scientificName','taxonRank')]    
+    }
   }
 }

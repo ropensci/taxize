@@ -1,6 +1,7 @@
 \name{classification}
 \alias{classification}
 \alias{classification.default}
+\alias{classification.eolid}
 \alias{classification.tsn}
 \alias{classification.uid}
 \title{Retrieve the taxonomic hierarchy for a given taxon ID.}
@@ -12,20 +13,23 @@
   \method{classification}{tsn} (id, ...)
 
   \method{classification}{uid} (id, ...)
+
+  \method{classification}{eolid} (id, ...)
 }
 \arguments{
   \item{x}{character; taxons to query.}
 
   \item{db}{character; database to query. either
-  \code{ncbi} or \code{itis}.}
+  \code{ncbi}, \code{itis}, or \code{eol}.}
 
   \item{id}{character; identifiers, returned by
   \code{\link[taxize]{get_tsn}} or
   \code{\link[taxize]{get_uid}}}
 
   \item{...}{Other arguments passed to
-  \code{\link[taxize]{get_tsn}} or
-  \code{\link[taxize]{get_uid}}.}
+  \code{\link[taxize]{get_tsn}},
+  \code{\link[taxize]{get_uid}}, or
+  \code{\link[taxize]{get_eolid}}.}
 }
 \value{
   A named list of data.frames with the taxonomic
@@ -44,14 +48,19 @@
 # Plug in taxon names directly
 classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi')
 classification(c("Chironomus riparius", "aaa vva"), db = 'itis')
+classification(c("Chironomus riparius", "aaa vva"), db = 'eol')
 
-# Use methods for get_uid and get_tsn
+# Use methods for get_uid, get_tsn and get_eolid
+classification(get_uid(c("Chironomus riparius", "Puma concolor")))
+
 classification(get_uid(c("Chironomus riparius", "aaa vva")))
 classification(get_tsn(c("Chironomus riparius", "aaa vva")))
+classification(get_eolid(c("Chironomus riparius", "aaa vva")))
 }
 }
 \seealso{
   \code{\link[taxize]{get_tsn}},
-  \code{\link[taxize]{get_uid}}
+  \code{\link[taxize]{get_uid}},
+  \code{\link[taxize]{get_eolid}}
 }
 

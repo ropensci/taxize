@@ -3,10 +3,11 @@
 #' @import XML RCurl plyr
 #' 
 #' @param x character; taxons to query.
-#' @param db character; database to query. either \code{ncbi} or \code{itis}.
+#' @param db character; database to query. either \code{ncbi}, \code{itis}, or \code{eol}.
 #' @param id character; identifiers, returned by \code{\link[taxize]{get_tsn}} 
 #'    or \code{\link[taxize]{get_uid}}
-#' @param ... Other arguments passed to \code{\link[taxize]{get_tsn}} or \code{\link[taxize]{get_uid}}.
+#' @param ... Other arguments passed to \code{\link[taxize]{get_tsn}},  
+#' \code{\link[taxize]{get_uid}}, or \code{\link[taxize]{get_eolid}}.
 #' 
 #' @return A named list of data.frames with the taxonomic classifcation of 
 #'    every supplied taxa.
@@ -14,17 +15,22 @@
 #'    must specify the type of ID. There is a timeout of 1/3 seconds between 
 #'    querries to NCBI.
 #' 
-#' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_uid}}
+#' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_uid}}, 
+#' \code{\link[taxize]{get_eolid}}
 #' 
 #' @export
 #' @examples \dontrun{
 #' # Plug in taxon names directly
 #' classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi')
 #' classification(c("Chironomus riparius", "aaa vva"), db = 'itis')
+#' classification(c("Chironomus riparius", "aaa vva"), db = 'eol')
 #' 
-#' # Use methods for get_uid and get_tsn
+#' # Use methods for get_uid, get_tsn and get_eolid
+#' classification(get_uid(c("Chironomus riparius", "Puma concolor")))
+#' 
 #' classification(get_uid(c("Chironomus riparius", "aaa vva")))
 #' classification(get_tsn(c("Chironomus riparius", "aaa vva")))
+#' classification(get_eolid(c("Chironomus riparius", "aaa vva")))
 #' }
 #' 
 #' @examples \donttest{
@@ -51,6 +57,11 @@ classification.default <- function(x, db = NULL, ...){
     out <- classification(id, ...)
     names(out) <- x
   }
+  if (db == 'eol') {
+    id <- get_eolid(x, ...)
+    out <- classification(id, ...)
+    names(out) <- x
+  }
   return(out)
 }
 
@@ -70,7 +81,8 @@ classification.tsn <- function(id, ...)
     	return(out)
     }
   }
-  out <- llply(id, fun)
+  out <- lapply(id, fun)
+  names(out) <- id
   return(out)
 }
 
@@ -102,6 +114,26 @@ classification.uid <- function(id, ...) {
     Sys.sleep(0.33)
     return(out)
   }
-  out <- llply(id, fun)
+  out <- lapply(id, fun)
+  names(out) <- id
+  return(out)
+}
+
+
+#' @method classification eolid
+#' @export
+#' @rdname classification
+classification.eolid <- function(id, ...) {
+  fun <- function(x){
+    # return NA if NA is supplied
+    if(is.na(x)){
+      tmp <- NA
+    } else {
+      tmp <- eol_hierarchy(taxonid=x)
+    }
+    return(tmp)
+  }
+  out <- lapply(id, fun)
+  names(out) <- id
   return(out)
 }
