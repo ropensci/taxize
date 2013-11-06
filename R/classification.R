@@ -3,11 +3,14 @@
 #' @import XML RCurl plyr
 #' 
 #' @param x character; taxons to query.
-#' @param db character; database to query. either \code{ncbi}, \code{itis}, or \code{eol}.
-#' @param id character; identifiers, returned by \code{\link[taxize]{get_tsn}} 
-#'    or \code{\link[taxize]{get_uid}}
-#' @param ... Other arguments passed to \code{\link[taxize]{get_tsn}},  
-#' \code{\link[taxize]{get_uid}}, or \code{\link[taxize]{get_eolid}}.
+#' @param db character; database to query. either \code{ncbi}, \code{itis}, 
+#'    \code{eol}, or \code{tropicos}
+#' @param id character; identifiers, returned by \code{\link[taxize]{get_tsn}}, 
+#'    \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}}, 
+#'    \code{\link[taxize]{get_colid}}, or \code{\link[taxize]{get_tpsid}}
+#' @param ... Other arguments passed to \code{\link[taxize]{get_tsn}}, 
+#'    \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}}, 
+#'    \code{\link[taxize]{get_colid}}, or \code{\link[taxize]{get_tpsid}}.
 #' 
 #' @return A named list of data.frames with the taxonomic classifcation of 
 #'    every supplied taxa.
@@ -16,7 +19,8 @@
 #'    querries to NCBI.
 #' 
 #' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_uid}}, 
-#' \code{\link[taxize]{get_eolid}}
+#'    \code{\link[taxize]{get_eolid}}, \code{\link[taxize]{get_colid}}, 
+#'    \code{\link[taxize]{get_tpsid}}
 #' 
 #' @export
 #' @examples \dontrun{
@@ -25,14 +29,16 @@
 #' classification(c("Chironomus riparius", "aaa vva"), db = 'itis')
 #' classification(c("Chironomus riparius", "aaa vva"), db = 'eol')
 #' classification(c("Chironomus riparius", "aaa vva"), db = 'col')
+#' classification(c("Poa annua", "aaa vva"), db = 'tropicos')
 #' 
-#' # Use methods for get_uid, get_tsn and get_eolid
+#' # Use methods for get_uid, get_tsn, get_eolid, get_colid, get_tpsid
 #' classification(get_uid(c("Chironomus riparius", "Puma concolor")))
 #' 
 #' classification(get_uid(c("Chironomus riparius", "aaa vva")))
 #' classification(get_tsn(c("Chironomus riparius", "aaa vva")))
 #' classification(get_eolid(c("Chironomus riparius", "aaa vva")))
 #' classification(get_colid(c("Chironomus riparius", "aaa vva")))
+#' classification(get_tpsid(c("Poa annua", "aaa vva")))
 #' }
 #' 
 #' @examples \donttest{
@@ -69,7 +75,11 @@ classification.default <- function(x, db = NULL, ...){
     out <- classification(id, ...)
     names(out) <- x
   }
-  get_colid(sciname='Puma concolor')
+  if (db == 'tropicos') {
+    id <- get_tpsid(x, ...)
+    out <- classification(id, ...)
+    names(out) <- x
+  }
   return(out)
 }
 
@@ -156,6 +166,25 @@ classification.colid <- function(id, ...) {
       tmp <- NA
     } else {
       tmp <- col_classification(id=x, ...)[[1]]
+    }
+    return(tmp)
+  }
+  out <- lapply(id, fun)
+  names(out) <- id
+  return(out)
+}
+
+
+#' @method classification tpsid
+#' @export
+#' @rdname classification
+classification.tpsid <- function(id, ...) {
+  fun <- function(x){
+    # return NA if NA is supplied
+    if(is.na(x)){
+      tmp <- NA
+    } else {
+      tmp <- tp_classification(id=x, ...)[[1]]
     }
     return(tmp)
   }

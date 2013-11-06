@@ -28,6 +28,9 @@ get_tpsid(c("Poa annua", "Pinus contorta"))
 # When not found
 get_tpsid("howdy")
 get_tpsid(c("Chironomus riparius", "howdy"))
+
+# pass to tp_classification to get a taxonomic hierarchy
+tp_classification(get_tpsid(sciname='Poa annua'))
 }
 }
 \author{

@@ -22,14 +22,25 @@
 #' # When not found
 #' get_tpsid("howdy")
 #' get_tpsid(c("Chironomus riparius", "howdy"))
+#' 
+#' # pass to tp_classification to get a taxonomic hierarchy
+#' tp_classification(get_tpsid(sciname='Poa annua'))
 #' }
 get_tpsid <- function(sciname, verbose = TRUE){
   fun <- function(sciname) {
     if(verbose)
       message("\nRetrieving data for taxon '", sciname, "'\n")
-    df <- tp_search(name = sciname)[,c('NameId','ScientificName','RankAbbreviation','NomenclatureStatusName')]
-    names(df) <- c('tpsid','name','rank','status')
-    id <- df$tpsid
+    tmp <- tp_search(name = sciname)
+    
+    if(names(tmp)[[1]] == 'Error'){
+      message("Not found. Consider checking the spelling or alternate classification")
+      id <- NA
+    } else
+    {  
+      df <- tmp[,c('NameId','ScientificName','RankAbbreviation','NomenclatureStatusName')]
+      names(df) <- c('tpsid','name','rank','status')
+      id <- df$tpsid
+    }
     
     # not found on tropicos
     if(length(id) == 0){
