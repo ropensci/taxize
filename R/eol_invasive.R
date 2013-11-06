@@ -103,7 +103,9 @@ eol_invasive <- function(name = NULL, dataset="all", searchby = grep, page=NULL,
   getmatches <- function(x){
     matched <- searchby(x, dat$name)
     if(identical(matched, integer(0))){
-      data.frame(name = x, object_id = NA)
+      dff <- data.frame(name = x, object_id = NaN)
+      dff$name <- as.character(dff$name)
+      dff
     } else
     {
       dat[matched,]

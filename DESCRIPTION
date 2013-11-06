@@ -98,3 +98,4 @@ Collate:
     'get_tpsid.R'
     'synonyms.R'
     'tp_search.R'
+    'get_eolid.R'

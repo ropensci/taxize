@@ -11,9 +11,9 @@
   is printed on the console.}
 }
 \value{
-  A vector of unique identifiers (UID). If a taxon is not
-  found NA. If more than one UID is found the function asks
-  for user input.
+  A vector of unique identifiers. If a taxon is not found
+  NA. If more than one ID is found the function asks for
+  user input.
 }
 \description{
   Get the NameID codes from Tropicos for taxonomic names.
