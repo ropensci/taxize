@@ -2,10 +2,15 @@
 \alias{get_eolid}
 \title{Get the EOL ID from Encyclopedia of Life from taxonomic names.}
 \usage{
-  get_eolid(sciname, verbose = TRUE)
+  get_eolid(sciname, ask = TRUE, verbose = TRUE)
 }
 \arguments{
   \item{sciname}{character; scientific name.}
+
+  \item{ask}{logical; should get_eolid be run in
+  interactive mode? If TRUE and more than one ID is found
+  for the species, the user is asked for input. If FALSE NA
+  is returned for multiple matches.}
 
   \item{verbose}{logical; If TRUE the actual taxon queried
   is printed on the console.}

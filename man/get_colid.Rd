@@ -2,10 +2,15 @@
 \alias{get_colid}
 \title{Get the Catalogue of Life ID from taxonomic names.}
 \usage{
-  get_colid(sciname, verbose = TRUE)
+  get_colid(sciname, ask = TRUE, verbose = TRUE)
 }
 \arguments{
   \item{sciname}{character; scientific name.}
+
+  \item{ask}{logical; should get_colid be run in
+  interactive mode? If TRUE and more than one ID is found
+  for the species, the user is asked for input. If FALSE NA
+  is returned for multiple matches.}
 
   \item{verbose}{logical; If TRUE the actual taxon queried
   is printed on the console.}

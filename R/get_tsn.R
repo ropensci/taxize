@@ -35,8 +35,7 @@ get_tsn <- function (searchterm, searchtype = "sciname", ask = TRUE, verbose = T
 {
   fun <- function(x, searchtype, ask, verbose)
   {
-    if(verbose)
-      message("\nRetrieving data for taxon '", x, "'\n")
+    mssg(verbose, "\nRetrieving data for taxon '", x, "'\n")
 #     tsn_df <- searchtype(query=x)
     
     if(searchtype == "sciname"){ tsn_df <- searchbyscientificname(x) } else
@@ -49,7 +48,7 @@ get_tsn <- function (searchterm, searchtype = "sciname", ask = TRUE, verbose = T
     
     # should return NA if spec not found
     if (nrow(tsn_df) == 0){
-      message("Not found. Consider checking the spelling or alternate classification")
+      mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
       tsn <- NA
     }
     # take the one tsn from data.frame
@@ -85,7 +84,7 @@ get_tsn <- function (searchterm, searchtype = "sciname", ask = TRUE, verbose = T
           tsn <-  tsn_df$tsn[take]
         } else {
           tsn <- NA
-          message("\nReturned 'NA'!\n\n")
+          mssg(verbose, "\nReturned 'NA'!\n\n")
         }
       } else {
         tsn <- NA

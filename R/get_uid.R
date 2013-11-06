@@ -5,7 +5,7 @@
 #' @import plyr RCurl
 #' @param sciname character; scientific name.
 #' @param ask logical; should get_tsn be run in interactive mode? 
-#' If TRUE and more than one TSN is found for teh species, the user is asked for 
+#' If TRUE and more than one TSN is found for the species, the user is asked for 
 #' input. If FALSE NA is returned for multiple matches.
 #' @param verbose logical; If TRUE the actual taxon queried is printed on the 
 #'    console.
@@ -33,8 +33,7 @@
 #' }
 get_uid <- function(sciname, ask = TRUE, verbose = TRUE){
   fun <- function(sciname, ask, verbose) {
-    if(verbose)
-      message("\nRetrieving data for taxon '", sciname, "'\n")
+    mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
     sciname <- gsub(" ", "+", sciname)
     searchurl <- paste("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=", 
                        sciname, sep = "")
@@ -44,7 +43,7 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE){
     uid <- xpathSApply(xml_result, "//IdList/Id", xmlValue)    
     # not found on ncbi
     if (length(uid) == 0){
-      message("Not found. Consider checking the spelling or alternate classification")
+      mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
       uid <- NA
     }
     # more than one found on ncbi -> user input
@@ -75,7 +74,7 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE){
           uid <- as.character(df$UID[take])
         } else {
           uid <- NA
-          message("\nReturned 'NA'!\n\n")
+          mssg(verbose, "\nReturned 'NA'!\n\n")
         }
       } else {
         uid <- NA

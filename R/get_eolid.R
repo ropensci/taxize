@@ -7,6 +7,9 @@
 #' 
 #' @import plyr RCurl
 #' @param sciname character; scientific name.
+#' @param ask logical; should get_eolid be run in interactive mode? 
+#' If TRUE and more than one ID is found for the species, the user is asked for 
+#' input. If FALSE NA is returned for multiple matches.
 #' @param verbose logical; If TRUE the actual taxon queried is printed on the 
 #'    console.
 #' 
@@ -30,14 +33,13 @@
 #' get_eolid(sciname="uaudnadndj")
 #' get_eolid(c("Chironomus riparius", "uaudnadndj"))
 #' }
-get_eolid <- function(sciname, verbose = TRUE){
-  fun <- function(sciname) {
-    if(verbose)
-      message("\nRetrieving data for taxon '", sciname, "'\n")
+get_eolid <- function(sciname, ask = TRUE, verbose = TRUE){
+  fun <- function(sciname, ask, verbose) {
+    mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
     tmp <- eol_search(terms=sciname)
     
     if(all(is.na(tmp))){
-      message("Not found. Consider checking the spelling or alternate classification")
+      mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
       id <- NA
     } else
     {   
@@ -49,7 +51,7 @@ get_eolid <- function(sciname, verbose = TRUE){
       df <- getsourceshortnames(df)
       
       if(nrow(df) == 0){
-        message("Not found. Consider checking the spelling or alternate classification")
+        mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
         id <- NA
       } else
       { id <- df$eolid }
@@ -62,28 +64,32 @@ get_eolid <- function(sciname, verbose = TRUE){
     }
     # more than one found on eol -> user input
     if(length(id) > 1){
-      rownames(df) <- 1:nrow(df)
-      # prompt
-      message("\n\n")
-      message("\nMore than one eolid found for taxon '", sciname, "'!\n
-          Enter rownumber of taxon (other inputs will return 'NA'):\n")      
-      print(df)
-      take <- scan(n = 1, quiet = TRUE, what = 'raw')
-      
-      if(length(take) == 0)
-        take <- 'notake'
-      if(take %in% seq_len(nrow(df))){
-        take <- as.numeric(take)
-        message("Input accepted, took eolid '", as.character(df$eolid[take]), "'.\n")
-        id <- as.character(df$eolid[take])
-      } else {
+      if(ask){
+        rownames(df) <- 1:nrow(df)
+        # prompt
+        message("\n\n")
+        message("\nMore than one eolid found for taxon '", sciname, "'!\n
+            Enter rownumber of taxon (other inputs will return 'NA'):\n")      
+        print(df)
+        take <- scan(n = 1, quiet = TRUE, what = 'raw')
+        
+        if(length(take) == 0)
+          take <- 'notake'
+        if(take %in% seq_len(nrow(df))){
+          take <- as.numeric(take)
+          message("Input accepted, took eolid '", as.character(df$eolid[take]), "'.\n")
+          id <- as.character(df$eolid[take])
+        } else {
+          id <- NA
+          mssg(verbose, "\nReturned 'NA'!\n\n")
+        }
+      } else{
         id <- NA
-        message("\nReturned 'NA'!\n\n")
       }
     }  
     return(id)
   }
-  out <- laply(sciname, fun)
+  out <- laply(sciname, fun, ask, verbose)
   class(out) <- "eolid"
   return(out)
 }
