@@ -1,8 +1,9 @@
-# This is `taxize`
+taxize
+=======
 
-We are developing `taxize` as a package to allow users to search over many websites for species names (scientific and common) and download up and downstream taxonomic hierarchical information - and many other things. 
+`taxize` allow users to search over many taxonomic data sources for species names (scientific and common) and download up and downstream taxonomic hierarchical information - among other things. 
 
-The `taxize` rOpenSci tutorial is [here](http://ropensci.github.com/taxize_/)
+The `taxize` tutorial is [here](http://ropensci.org/tutorials/taxizetutorial.html)
 
 `taxize` is part of the rOpenSci project, visit [our webiste](http://ropensci.org) to learn more.
 
@@ -94,11 +95,11 @@ require(taxize)
 ```R 
 install.packages("devtools")
 require(devtools)
-install_github("taxize_", "ropensci")
+install_github("taxize", "ropensci")
 require(taxize)
 ```
 
-### A few examples (for more [click here](http://ropensci.github.com/taxize_/))
+### A few examples (for more [click here](http://ropensci.github.com/taxize/))
 
 ### Get unique taxonomic identifier from NCBI
 
@@ -145,9 +146,8 @@ Retrieving data for species ' Chaetopteryx '
 > plot(tree)
 ```
 
-![thing](http://ropensci.github.com/taxize_/phylomatic_phylo.png)
+![thing](http://ropensci.github.com/taxize/phylomatic_phylo.png)
 
 
 
 [![](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
-

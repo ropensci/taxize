@@ -27,6 +27,7 @@ NOTES
 
 * Moved tests from inst/tests to tests/testthat according to new preferred location of tests.
 * Updated CITATION in inst/ with our F1000Research paper info.
+* Package repo name on Github changed from taxize_ to taxize - remember to use "taxize" in install_github() calls now instead of "taxize_"
 
 
 taxize 0.1.0
