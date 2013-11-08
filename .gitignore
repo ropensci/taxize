@@ -2,8 +2,6 @@
 .Rhistory
 .Rproj.user
 taxize_.Rproj
-.Rbuildignore
-.gitignore
 README.html
 ._README.md
 inst/doc/.texpadtmp/taxize_msNotes.bib
