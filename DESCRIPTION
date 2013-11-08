@@ -103,3 +103,4 @@ Collate:
     'col_search.R'
     'get_colid.R'
     'tp_classification.R'
+    'get_ids.R'
