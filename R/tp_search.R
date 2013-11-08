@@ -1,4 +1,4 @@
-#' Return all synonyms for a taxon name with a given id.
+#' Search Tropicos by scientific name, common name, or Tropicos ID.
 #' 
 #' @import httr plyr
 #' @param name Your search string. For instance "poa annua"

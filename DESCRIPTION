@@ -104,3 +104,5 @@ Collate:
     'get_colid.R'
     'tp_classification.R'
     'get_ids.R'
+    'comm2sci.R'
+    'sci2comm.R'

@@ -111,7 +111,7 @@ getcommonnamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() )
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
-  message(paste(url, '?tsn=', tsn, sep=''))
+  # message(paste(url, '?tsn=', tsn, sep=''))
   tt <- getForm(url,
     .params = args,
     ...,
@@ -989,7 +989,7 @@ getscientificnamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle() )
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
-  message(paste(url, '?tsn=', tsn, sep=''))
+  # message(paste(url, '?tsn=', tsn, sep=''))
   tt <- getForm(url,
     .params = args,
     ...,

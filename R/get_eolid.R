@@ -94,6 +94,8 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE){
   return(out)
 }
 
+#' @export
+#' @keywords internal
 #' @importFrom reshape sort_df
 getsourceshortnames <- function(input){  
   lookup <- data.frame(z=c('COL','ITIS','GBIF','NCBI','IUCN'),
