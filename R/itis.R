@@ -1,6 +1,7 @@
 #' Get accepted names from tsn
 #' 
 #' @inheritParams getcommentdetailfromtsn
+#' @param verbose Verbosity or not (default TRUE)
 #' @examples \dontrun{
 #' # TSN accepted - good name
 #' getacceptednamesfromtsn('208527')
@@ -12,23 +13,20 @@
 #' getacceptednamesfromtsn('504239', FALSE) 
 #' }
 #' @export
-getacceptednamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle())
+getacceptednamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), verbose=TRUE)
 { 
 	url = "http://www.itis.gov/ITISWebService/services/ITISService/getAcceptedNamesFromTSN"
 	args <- list()
 	if(!is.na(tsn))
 		args$tsn <- tsn
-	tt <- getForm(url, 
-								.params = args, 
-								...,
-								curl = curl)
+	tt <- getForm(url, .params = args, ..., curl = curl)
 	tt_ <- xmlParse(tt)
 	temp <- xmlToList(tt_)
 	if(length(temp$return$acceptedNames) == 1) 
-	{ message("Good name!")
+	{ mssg(verbose, "Good name!")
 		temp$return$tsn
 	} else
-	{ message("Bad name!")
+	{ mssg(verbose, "Bad name!")
 		c(submittedTsn = temp$return$tsn, temp$return$acceptedNames[1:2])
 	}
 }
@@ -343,21 +341,22 @@ getexpertsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() )
 #' Get full hierarchy from tsn
 #' 
 #' @inheritParams getcommentdetailfromtsn
+#' @param verbose Verbosity or not (default TRUE)
 #' @examples \dontrun{
 #' getfullhierarchyfromtsn(tsn = 37906)
 #' getfullhierarchyfromtsn(tsn = 100800)
 #' }
 #' @export 
-getfullhierarchyfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
+getfullhierarchyfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), verbose = TRUE) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN'
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
-  message(paste(url, '?tsn=', tsn, sep=''))
+  mssg(verbose, paste(url, '?tsn=', tsn, sep=''))
   tt <- getForm(url,
     .params = args,
-#     ...,
+    ...,
     curl = curl)
   out <- xmlParse(tt)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
@@ -506,17 +505,18 @@ getglobalspeciescompletenessfromtsn <- function(tsn = NA, ...,
 #' Get hierarchy down from tsn
 #' 
 #' @inheritParams getcommentdetailfromtsn
+#' @param verbose Verbosity or not (default TRUE)
 #' @examples \dontrun{
 #' gethierarchydownfromtsn(tsn = 161030)
 #' }
 #' @export 
-gethierarchydownfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
+gethierarchydownfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), verbose = TRUE) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getHierarchyDownFromTSN'
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
-  message(paste(url, '?tsn=', tsn, sep=''))
+  mssg(verbose, paste(url, '?tsn=', tsn, sep=''))
   tt <- getForm(url,
     .params = args,
 #     ...,
@@ -1068,17 +1068,18 @@ gettaxonauthorshipfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() )
 #' Returns the kingdom and rank information for the TSN.
 #' 
 #' @inheritParams getcommentdetailfromtsn
+#' @param verbose Verbosity or not (default TRUE)
 #' @examples \dontrun{
 #' gettaxonomicranknamefromtsn(tsn = 202385)
 #' }
 #' @export 
-gettaxonomicranknamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
+gettaxonomicranknamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), verbose = TRUE) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getTaxonomicRankNameFromTSN'
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
-  message(paste(url, '?tsn=', tsn, sep=''))
+  mssg(verbose, paste(url, '?tsn=', tsn, sep=''))
   tt <- getForm(url,
     .params = args,
      ...,
@@ -1097,17 +1098,18 @@ gettaxonomicranknamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle() )
 #' Returns the usage information for the TSN.
 #' 
 #' @inheritParams getcommentdetailfromtsn
+#' @param verbose 
 #' @examples \dontrun{
 #' gettaxonomicusagefromtsn(tsn = 526852)
 #' }
 #' @export 
-gettaxonomicusagefromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
+gettaxonomicusagefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), verbose = TRUE)
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getTaxonomicUsageFromTSN'
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
-  message(paste(url, '?tsn=', tsn, sep=''))
+  mssg(verbose, paste(url, '?tsn=', tsn, sep=''))
   tt <- getForm(url,
     .params = args,
     ...,

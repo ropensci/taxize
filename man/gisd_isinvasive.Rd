@@ -2,7 +2,7 @@
 \alias{gisd_isinvasive}
 \title{Check invasive species status for a set of species from GISD database}
 \usage{
-  gisd_isinvasive(x, simplify = FALSE)
+  gisd_isinvasive(x, simplify = FALSE, verbose = TRUE)
 }
 \arguments{
   \item{x}{character; a vector of scientific species names
@@ -13,6 +13,9 @@
   recomend to check first the not simplified version
   (default), which contains raw information about the level
   of invasiveness.}
+
+  \item{verbose}{logical; If TRUE (default), informative
+  messages printed.}
 }
 \value{
   A data.frame with species names and invasiveness.

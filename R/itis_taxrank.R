@@ -2,16 +2,14 @@
 #' 
 #' @param query Quoted TSN for a taxonomic group (numeric), or scientific
 #' 		name (character).
+#' @param verbose logical; If TRUE (default), informative messages printed.
 #' @details You can print informative messages by setting supmess=FALSE.
 #' @return Taxonomic rank name.
 #' @examples \dontrun{
 #' itis_taxrank(query=202385)
 #' }
 #' @export
-itis_taxrank <- function(query = NULL)
+itis_taxrank <- function(query = NULL, verbose=TRUE)
 {
-# 	searchtype <- "gettaxonomicranknamefromtsn"
-# 	as.character(gettaxonomicranknamefromtsn(query)$rankName)
-# 	itis(query=query, searchtype="gettaxonomicranknamefromtsn")$rankName	
-	ldply(query, gettaxonomicranknamefromtsn)$rankName
+	ldply(query, function(z) gettaxonomicranknamefromtsn(z, verbose=verbose))$rankName
 }

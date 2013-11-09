@@ -8,6 +8,7 @@
 #'    values "Invasive", "Not in GISD". I recomend to check first the not 
 #'    simplified version (default), which contains raw information about the 
 #'    level of invasiveness.
+#' @param verbose logical; If TRUE (default), informative messages printed.
 #' 
 #' @return A data.frame with species names and invasiveness.
 #' 
@@ -36,7 +37,7 @@
 #' }
 #' 
 #' @export
-gisd_isinvasive <- function(x, simplify = FALSE)
+gisd_isinvasive <- function(x, simplify = FALSE, verbose=TRUE)
 { 
 	species <- gsub(" ", "+", x) # reformat sp list
 	# create urls to parse
@@ -60,8 +61,8 @@ gisd_isinvasive <- function(x, simplify = FALSE)
         out[i, 2] <- "Invasive"
 			}
 		}
-		message(paste("Checking species", i))	
+		mssg(verbose, paste("Checking species", i))	
 	}
-	message("Done")
+	mssg(verbose, "Done")
 	return(out)
 }

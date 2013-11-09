@@ -3,7 +3,8 @@
 \title{Search the Phylotastic Taxonomic Name Resolution Service.}
 \usage{
   tnrs(query = NA, source_ = NULL, code = NULL,
-    getpost = "POST", sleep = 0, splitby = NULL)
+    getpost = "POST", sleep = 0, splitby = NULL,
+    verbose = TRUE)
 }
 \arguments{
   \item{query}{Quoted taxonomic names to search in a vector
@@ -28,6 +29,8 @@
 
   \item{splitby}{Number by which to split species list for
   querying the TNRS.}
+
+  \item{verbose}{Verbosity or not (default TRUE)}
 }
 \value{
   data.frame of results from TNRS plus the name submitted.

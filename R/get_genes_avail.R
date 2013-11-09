@@ -8,6 +8,7 @@
 #' @param seqrange Sequence range, as e.g., "1:1000" (character).
 #' @param getrelated Logical, if TRUE, gets the longest sequences of a species 
 #' 		in the same genus as the one searched for. If FALSE, get's nothing.
+#' @param verbose logical; If TRUE (default), informative messages printed.
 #' @details Removes predicted sequences so you don't have to remove them. 
 #' 		Predicted sequences are those with accession numbers that have "XM_" or 
 #' 		"XR_" prefixes. 
@@ -35,36 +36,36 @@
 #' out2df[grep("RAG1", out2df$genesavail, ignore.case=T),] # search across all
 #' }
 #' @export
-get_genes_avail <- function(taxon_name, seqrange, getrelated=FALSE)
+get_genes_avail <- function(taxon_name, seqrange, getrelated=FALSE, verbose=TRUE)
 {
-	message(paste("Working on ", taxon_name, "...", sep=""))
-	message("...retrieving sequence IDs...")
+	mssg(verbose, paste("Working on ", taxon_name, "...", sep=""))
+	mssg(verbose, "...retrieving sequence IDs...")
 	
 	query <- list(db = "nuccore", term = paste(taxon_name, "[Organism] AND", seqrange, "[SLEN]", collapse=" "), RetMax=500)
 	
 	out <- 
 		xpathApply(content(GET("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi", query=query), "parsed"), "//eSearchResult")[[1]]
 	if( as.numeric(xmlValue(xpathApply(out, "//Count")[[1]]))==0 ){
-		message(paste("no sequences for ", taxon_name, " - getting other sp.", sep=""))
+		mssg(verbose, paste("no sequences for ", taxon_name, " - getting other sp.", sep=""))
 		if(getrelated == FALSE){
-			message(paste("no sequences for ", taxon_name, sep=""))
+			mssg(verbose, paste("no sequences for ", taxon_name, sep=""))
 			outt <- list(taxon_name, NA, NA, NA, NA, NA)
 		} else
 		{
-			message("...retrieving sequence IDs for related species...")
+			mssg(verbose, "...retrieving sequence IDs for related species...")
 			newname <- strsplit(taxon_name, " ")[[1]][[1]]
 			query <- list(db = "nuccore", term = paste(newname, "[Organism] AND", seqrange, "[SLEN]", collapse=" "), RetMax=500)
 			out <- 
 				xpathApply(content(GET("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi", query=query), "parsed"), "//eSearchResult")[[1]]
 			if( as.numeric(xmlValue(xpathApply(out, "//Count")[[1]]))==0 ){
-				message(paste("no sequences for ", taxon_name, " or ", newname, sep=""))
+				mssg(verbose, paste("no sequences for ", taxon_name, " or ", newname, sep=""))
 				outt <- list(taxon_name, NA, NA, NA, NA, NA)
 			} else
 			{
 				ids <- xpathApply(out, "//IdList//Id") # Get sequence IDs in list
 				ids_ <- as.numeric(sapply(ids, xmlValue))  # Get sequence ID values
 				
-				message("...retrieving available genes and their lengths...")
+				mssg(verbose, "...retrieving available genes and their lengths...")
 				querysum <- list(db = "nucleotide", id = paste(ids_, collapse=" ")) # construct query for species
 				outsum <- xpathApply(content( # API call
 					GET("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi", 
@@ -86,7 +87,7 @@ get_genes_avail <- function(taxon_name, seqrange, getrelated=FALSE)
 		ids <- xpathApply(out, "//IdList//Id") # Get sequence IDs in list
 		ids_ <- as.numeric(sapply(ids, xmlValue))  # Get sequence ID values
 		
-		message("...retrieving available genes and their lengths...")
+		mssg(verbose, "...retrieving available genes and their lengths...")
 		querysum <- list(db = "nucleotide", id = paste(ids_, collapse=" ")) # construct query for species
 		outsum <- xpathApply(content( # API call
 			GET("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi", 
@@ -102,6 +103,6 @@ get_genes_avail <- function(taxon_name, seqrange, getrelated=FALSE)
 		df <- data.frame(spused=spused, length=length_, genesavail=genesavail, access_num=predicted, ids=gis) # makes data frame
 		df <- df[!df$access_num %in% c("XM","XR"),] # remove predicted sequences
 	}
-	message("...done.")
+	mssg(verbose, "...done.")
 	return(df)
 }

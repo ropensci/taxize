@@ -3,9 +3,11 @@
 \title{Returns the usage information for the TSN.}
 \usage{
   gettaxonomicusagefromtsn(tsn = NA, ...,
-    curl = getCurlHandle())
+    curl = getCurlHandle(), verbose = TRUE)
 }
 \arguments{
+  \item{verbose}{}
+
   \item{tsn}{TSN for a taxonomic group (numeric)}
 
   \item{...}{optional additional curl options (debugging
