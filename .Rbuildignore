@@ -5,3 +5,4 @@ man-roxygen
 ^.*\.Rproj$
 ^\.Rproj\.user$
 CONTRIBUTING.md
+tests/test-all.R

@@ -44,7 +44,7 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE){
     } else
     {   
       pageids <- tmp[grep(sciname, tmp$name), "pageid"]
-      dfs <- compact(lapply(pageids, eol_pages))
+      dfs <- compact(lapply(pageids, function(x) eol_pages(x)$scinames))
       dfs <- ldply(dfs[!sapply(dfs, nrow)==0])
       df <- dfs[,c('identifier','scientificName','nameAccordingTo')]
       names(df) <- c('eolid','name','source')
