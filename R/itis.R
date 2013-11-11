@@ -301,12 +301,9 @@ getdatedatafromtsn <- function(tsn = NA, ..., curl = getCurlHandle() )
 getdescription <- function() 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getDescription'
-  message(url)
   tt <- getURL(url)
   out <- xmlParse(tt)
-  namespaces <- c(ax26="http://itis_service.itis.usgs.org/xsd")
-  nodes <- getNodeSet(out, "//ax26:description", namespaces=namespaces)
-  sapply(nodes, xmlValue)
+	getNodeSet(out, "//ns:return", fun=xmlValue)[[1]]
 }
 
 #' Get expert information for the TSN.
