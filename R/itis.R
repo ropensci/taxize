@@ -1264,6 +1264,30 @@ searchbycommonname <- function(srchkey = NA, ..., curl = getCurlHandle() )
   data.frame(comname=comname, lang=lang, tsn=tsn[-1])
 }
 
+
+#'searchCommon
+#'
+#'Searches common name and acts as thin wrapper around \code{searchbycommonnamebeginswith} and \code{searchbycommonnameendswith}
+#' @param srchkey search terms
+#' @param  ... additional arguments
+#' @param  curl  curl handle
+#' @param  from default is to search from beginning. Use \code{end} to serch from end.
+#' @export
+#' @seealso searchbycommonnamebeginswith searchbycommonnameendswith
+#' @return \code{data.frame}
+#' @examples \dontrun{
+#' searchCommon(srchkey="inch")
+#' searchCommon(srchkey="inch", from = "end")
+#'}
+searchCommon <- function(srchkey = NA, ..., curl = getCurlHandle(), from = "begin") {
+switch(from, 
+   begin = searchbycommonnamebeginswith(srchkey = srchkey),
+   end = searchbycommonnameendswith(srchkey = srchkey),
+   )  
+}
+
+
+
 #' Search for tsn by common name beginning with 
 #' 
 #' @inheritParams getanymatchcount
