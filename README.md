@@ -132,7 +132,7 @@ library(taxize)
 #### Get unique taxonomic identifier from NCBI
 
 ```coffee
-> uids <- get_uid(c("Chironomus riparius", "Chaetopteryx"))
+uids <- get_uid(c("Chironomus riparius", "Chaetopteryx"))
 
 Retrieving data for species ' Chironomus riparius '
 

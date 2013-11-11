@@ -4,8 +4,7 @@
 #' 
 #' @import plyr
 #' @param searchterm character; A vector of common or scientific names.
-#' @param searchtype character; One of 'sciname', 'anymatch', 'comnamebeg', 
-#'    'comname', 'comnameend'.
+#' @param searchtype character; One of 'sciname', 'comnamebeg', 'comname', 'comnameend'.
 #' @param ask logical; should get_tsn be run in interactive mode? 
 #' If TRUE and more than one TSN is found for teh species, the user is asked for 
 #' input. If FALSE NA is returned for multiple matches.
@@ -30,8 +29,13 @@
 #' # When not found
 #' get_tsn("howdy")
 #' get_tsn(c("Chironomus riparius", "howdy"))
+#' 
+#' # Using common names
+#' get_tsn(searchterm="black bear", searchtype="comname")
+#' get_tsn(searchterm="black", searchtype="comnamebeg")
+#' get_tsn(searchterm="bear", searchtype="comnameend")
 #' }
-get_tsn <- function (searchterm, searchtype = "sciname", ask = TRUE, verbose = TRUE) 
+get_tsn <- function(searchterm, searchtype = "sciname", ask = TRUE, verbose = TRUE) 
 {
   fun <- function(x, searchtype, ask, verbose)
   {
@@ -39,12 +43,10 @@ get_tsn <- function (searchterm, searchtype = "sciname", ask = TRUE, verbose = T
 #     tsn_df <- searchtype(query=x)
     
     if(searchtype == "sciname"){ tsn_df <- searchbyscientificname(x) } else
-    	if(searchtype == "anymatch") { tsn_df <- searchforanymatch(x) } else
     		if(searchtype == "comnamebeg") { tsn_df <- searchbycommonnamebeginswith(x) } else
     			if(searchtype == "comname") { tsn_df <- searchbycommonname(x) } else
     				if(searchtype == "comnameend") { tsn_df <- searchbycommonnameendswith(x) } else
     					stop("searchtype not valid!")
-#     tsn_df <- ldply(x, searchtype)
     
     # should return NA if spec not found
     if (nrow(tsn_df) == 0){
@@ -56,7 +58,8 @@ get_tsn <- function (searchterm, searchtype = "sciname", ask = TRUE, verbose = T
       tsn <- tsn_df$tsn
     # check for direct match
     if (nrow(tsn_df) > 1){
-      direct <- match(tolower(x), tolower(tsn_df$combinedname))
+      names(tsn_df)[1] <- "target"
+      direct <- match(tolower(x), tolower(tsn_df$target))
       if(!is.na(direct))
         tsn <- tsn_df$tsn[direct]
     } else {
@@ -65,8 +68,9 @@ get_tsn <- function (searchterm, searchtype = "sciname", ask = TRUE, verbose = T
     # multiple matches
     if (nrow(tsn_df) > 1 & is.na(direct)){
       if(ask) {
+        names(tsn_df)[1] <- "target"
         # user prompt
-        tsn_df <- tsn_df[order(tsn_df$combinedname), ]
+        tsn_df <- tsn_df[order(tsn_df$target), ]
         rownames(tsn_df) <- 1:nrow(tsn_df)
         
         # prompt
@@ -80,7 +84,7 @@ get_tsn <- function (searchterm, searchtype = "sciname", ask = TRUE, verbose = T
           take <- 'notake'
         if(take %in% seq_len(nrow(tsn_df))){
           take <- as.numeric(take)
-          message("Input accepted, took taxon '", as.character(tsn_df$combinedname[take]), "'.\n")
+          message("Input accepted, took taxon '", as.character(tsn_df$target[take]), "'.\n")
           tsn <-  tsn_df$tsn[take]
         } else {
           tsn <- NA

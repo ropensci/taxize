@@ -17,6 +17,7 @@
 #' 		year's checklist instead of the lastest as default (numeric).
 #' @details You must provide one of name or id. The other parameters (format 
 #' 		and start) are optional.
+#' @references \url{}
 #' @return A list of data.frame's.
 #' @examples \dontrun{
 #' # A basic example

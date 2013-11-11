@@ -10,7 +10,7 @@
   scientific names.}
 
   \item{searchtype}{character; One of 'sciname',
-  'anymatch', 'comnamebeg', 'comname', 'comnameend'.}
+  'comnamebeg', 'comname', 'comnameend'.}
 
   \item{ask}{logical; should get_tsn be run in interactive
   mode? If TRUE and more than one TSN is found for teh
@@ -41,6 +41,11 @@ get_tsn(splist, "sciname")
 # When not found
 get_tsn("howdy")
 get_tsn(c("Chironomus riparius", "howdy"))
+
+# Using common names
+get_tsn(searchterm="black bear", searchtype="comname")
+get_tsn(searchterm="black", searchtype="comnamebeg")
+get_tsn(searchterm="bear", searchtype="comnameend")
 }
 }
 \seealso{
