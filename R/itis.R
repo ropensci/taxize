@@ -1265,7 +1265,7 @@ searchbycommonname <- function(srchkey = NA, ..., curl = getCurlHandle() )
 }
 
 
-#'searchCommon
+#' itis_searchcommon
 #'
 #'Searches common name and acts as thin wrapper around \code{searchbycommonnamebeginswith} and \code{searchbycommonnameendswith}
 #' @param srchkey search terms
@@ -1279,7 +1279,7 @@ searchbycommonname <- function(srchkey = NA, ..., curl = getCurlHandle() )
 #' searchCommon(srchkey="inch")
 #' searchCommon(srchkey="inch", from = "end")
 #'}
-searchCommon <- function(srchkey = NA, ..., curl = getCurlHandle(), from = "begin") {
+itis_searchcommon <- function(srchkey = NA, ..., curl = getCurlHandle(), from = "begin") {
 switch(from, 
    begin = searchbycommonnamebeginswith(srchkey = srchkey),
    end = searchbycommonnameendswith(srchkey = srchkey),
