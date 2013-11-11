@@ -1,6 +1,6 @@
 \name{tp_search}
 \alias{tp_search}
-\title{Return all synonyms for a taxon name with a given id.}
+\title{Search Tropicos by scientific name, common name, or Tropicos ID.}
 \usage{
   tp_search(name = NULL, commonname = NULL, nameid = NULL,
     orderby = NULL, sortorder = NULL, pagesize = NULL,
@@ -37,7 +37,8 @@
   List or dataframe.
 }
 \description{
-  Return all synonyms for a taxon name with a given id.
+  Search Tropicos by scientific name, common name, or
+  Tropicos ID.
 }
 \examples{
 \dontrun{

@@ -17,8 +17,18 @@
   \code{TPLck} for arguments.}
 }
 \description{
-  A light wrapper around the taxonstand fxn to call
-  Theplantlist.org database.
+  This function is deprecated.
+}
+\details{
+  This function was a very light wrapper around TPLck
+  anyway - we don't see further reason to keep this
+  function. Use the Taxonstand functions
+  \code{\link[Taxonstand]{TPL}} and
+  \code{\link[Taxonstand]{TPLck}}, directly. However, we
+  are keeping two functions that give you access to
+  download Theplantlist.org data
+  \code{\link[taxize]{tpl_get}} and to get Theplantlist.org
+  families \code{\link[taxize]{tpl_families}}.
 }
 \examples{
 \donttest{
@@ -32,5 +42,9 @@ tpl_search(taxon = splist)
 tpl_search(taxon = "Microbryum curvicollum", corr = TRUE)
 tpl_search(taxon = "Microbryum curvicollum", corr = TRUE, max.distance=5)
 }
+}
+\seealso{
+  \code{\link[taxize]{tpl_get}},
+  \code{\link[taxize]{tpl_families}}
 }
 

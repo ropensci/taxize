@@ -79,7 +79,3 @@ get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE){
   class(out) <- "tpsid"
   return(out)
 }
-
-#' @export
-#' @keywords internal 
-mssg <- function(v, ...) if(v) message(...)

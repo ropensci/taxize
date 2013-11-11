@@ -2,7 +2,7 @@ Package: taxize
 Description: Taxonomic information from around the web.
 Title: Taxonomic information from around the web.
 Version: 0.1.1
-Date: 2013-11-06
+Date: 2013-11-08
 License: CC0
 URL: https://ropensci.github.com/taxize_
 BugReports: https://github.com/ropensci/taxize_/issues
@@ -37,7 +37,8 @@ Suggests:
     testthat,
     roxygen2,
     rjson,
-    vegan
+    vegan,
+    RNeXML
 Collate:
     'classification.R'
     'get_tsn.R'
@@ -51,7 +52,6 @@ Collate:
     'eol_ping.R'
     'eol_search.R'
     'gnr_resolve.R'
-    'phylomatic_tree.R'
     'get_seqs.R'
     'taxize-package.R'
     'itis_acceptname.R'
@@ -103,3 +103,7 @@ Collate:
     'col_search.R'
     'get_colid.R'
     'tp_classification.R'
+    'get_ids.R'
+    'comm2sci.R'
+    'sci2comm.R'
+    'phylomatic_tree.R'
