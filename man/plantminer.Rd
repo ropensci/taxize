@@ -2,7 +2,7 @@
 \alias{plantminer}
 \title{Search for taxonomy data from Plantminer.com}
 \usage{
-  plantminer(plants, key = NULL)
+  plantminer(plants, key = NULL, verbose = TRUE)
 }
 \arguments{
   \item{plants}{Vector of plant species names.}
@@ -15,6 +15,8 @@
   then be loaded when you start R. See
   \url{http://bit.ly/135eG0b} for help on how to put api
   keys in your .Rprofile file.}
+
+  \item{verbose}{Verbose or not, logical}
 }
 \value{
   data.frame of results.

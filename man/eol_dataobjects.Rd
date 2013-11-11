@@ -3,7 +3,7 @@
 \title{Given the identifier for a data object, return all metadata about the object.}
 \usage{
   eol_dataobjects(id, returntype = "list", usekey = TRUE,
-    key = NULL)
+    key = NULL, verbose = TRUE)
 }
 \arguments{
   \item{id}{The EOL data object identifier (character)}
@@ -14,6 +14,9 @@
   (character)}
 
   \item{key}{Your EOL API key; loads from .Rprofile.}
+
+  \item{verbose}{logical; If TRUE the actual taxon queried
+  is printed on the console.}
 }
 \value{
   List or dataframe.

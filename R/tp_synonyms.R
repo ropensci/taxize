@@ -4,24 +4,25 @@
 #' @param id the taxon identifier code 
 #' @param format return in json or xml format (defaults to json)
 #' @param key Your Tropicos API key; loads from .Rprofile.
+#' @param verbose Verbose or not
 #' @return List or dataframe.
 #' @export
 #' @examples \dontrun{
 #' tp_synonyms(id = 25509881)
 #' tp_synonyms(id = 25509881, output = 'raw')
 #' }
-tp_synonyms <- function(id, format = 'json', key = NULL)
+tp_synonyms <- function(id, format = 'json', key = NULL, verbose=TRUE)
 {
   url = 'http://services.tropicos.org/Name/'
 	key <- getkey(key, "tropicosApiKey")
   if (format == 'json') {
     urlget <- paste(url, id, '/Synonyms?apikey=', key, '&format=json', sep="")
-    message(urlget)
+    mssg(verbose, urlget)
     searchresults <- RJSONIO::fromJSON(urlget)
   } 
   else {
     urlget <- paste(url, id, '/Synonyms?apikey=', key, '&format=xml', sep="")
-    message(urlget)
+    mssg(verbose, urlget)
     xmlout <- getURL(urlget)
     searchresults <- xmlToList(xmlTreeParse(xmlout))
   }

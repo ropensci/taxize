@@ -2,47 +2,35 @@
 #' 
 #' @import XML RCurl RJSONIO plyr
 #' @param id the taxon identifier code 
-#' @param format return in json or xml format (defaults to json)
-#' @param output raw = json or xml; or df = data.frame 
-#' @param key Your Tropicos API key; loads from .Rprofile.
-#' @return List or dataframe.
+#' @param key Your Tropicos API key; loads from .Rprofile. Or you can passin your
+#' key in this arg.
+#' @param callopts Further args passed on to httr::GET
+#' @return List of two data.frame's, one named "location", and one "reference".
+#' @references \url{http://services.tropicos.org/help?method=GetNameDistributionsXml}
 #' @examples \dontrun{
-#' # Raw json or xml
-#' tp_namedistributions(id = 25509881, output = 'raw')
-#' 
-#' # Output as data.frame
-#' df <- tp_namedistributions(id = 25509881)
-#' df[df$category %in% 'Location',] # just location data
-#' df[df$category %in% 'Reference',] # just reference data
+#' # Query using a taxon name Id
+#' out <- tp_namedistributions(id = 25509881)
+#' ## just location data
+#' head(out[['location']])
+#' ## just reference data
+#' head(out[['reference']])
 #' }
 #' @export
-tp_namedistributions <- function(id, format = 'json', output = 'df', key=NULL) 
+tp_namedistributions <- function(id, key=NULL, callopts=list())
 {
-  url = 'http://services.tropicos.org/Name/'
+  id <- as.numeric(as.character(id))
+  if(!inherits(id, "numeric"))
+    stop("You must supply a numeric taxon name id")
+  
+  url = sprintf('http://services.tropicos.org/Name/%s/Distributions', id)
 	key <- getkey(key, "tropicosApiKey")
-  if (format == 'json') {
-    urlget <- paste(url, id, '/Distributions?apikey=', key, '&format=json', sep="")
-    message(urlget)
-    searchresults <- fromJSON(urlget)
-    } 
-  else {
-    urlget <- paste(url, id, '/Distributions?apikey=', key, '&format=xml', sep="")
-    message(urlget)
-    xmlout <- getURL(urlget)
-    searchresults <- xmlToList(xmlTreeParse(xmlout))
-    }
-  if(output == 'df') { 
-    getdata <- function(x) {
-      loc <- ldply(x[[1]])
-      loc$category <- rep("Location", nrow(loc))
-      ref <- ldply(x[[2]])
-      ref$category <- rep("Reference", nrow(ref))
-      temp <- rbind(loc, ref)
-      names(temp)[1:2] <- c('variable','value')
-      temp$variable <- as.factor(temp$variable)
-      temp$category <- as.factor(temp$category)
-      temp
-    }
-    ldply(searchresults, getdata)
-  } else { searchresults }
+  args <- compact(list(format='json', apikey=key))
+  tt <- GET(url, query=args, callopts)
+  stop_for_status(tt)
+  out <- content(tt)
+  getdata <- function(x, which) data.frame(x[[which]])
+  locs <- do.call(rbind.fill, lapply(out, getdata, which="Location"))
+  refs <- do.call(rbind.fill, lapply(out, getdata, which="Reference"))
+  
+  list(location = locs, reference = refs)
 }

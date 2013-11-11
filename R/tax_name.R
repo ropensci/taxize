@@ -64,7 +64,7 @@ tax_name <- function(query = NULL, get = NULL, db = "itis", pref = 'ncbi',
         out <- data.frame(t(rep(NA, length(get))))
         names(out) <- get
       } else {
-        tt <- classification(tsn)[[1]]
+        tt <- classification(tsn, ...)[[1]]
         out <- as.character(tt[tolower(tt$rankName) %in% tolower(get), "taxonName"])
         if(length(out) == 0)
           out <- data.frame(t(rep(NA, length(get))))
@@ -82,7 +82,7 @@ tax_name <- function(query = NULL, get = NULL, db = "itis", pref = 'ncbi',
         out <- data.frame(t(rep(NA, length(get))))
         names(out) <- get
       } else {
-  			hierarchy <- classification(uid)[[1]]
+  			hierarchy <- classification(uid, ...)[[1]]
   			match <- hierarchy$ScientificName[match(tolower(get), tolower(hierarchy$Rank))]
         out <- data.frame(t(match), stringsAsFactors=FALSE)
         names(out) <- get
@@ -98,7 +98,7 @@ tax_name <- function(query = NULL, get = NULL, db = "itis", pref = 'ncbi',
           message("No UID found for species '", query, "'!\n")
         match_uid <- rep(NA, length(get))
       } else {
-        hierarchy <- classification(uid)[[1]]
+        hierarchy <- classification(uid, ...)[[1]]
         match_uid <- hierarchy$ScientificName[match(tolower(get), tolower(hierarchy$Rank))]
       }
       # itis

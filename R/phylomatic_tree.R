@@ -9,7 +9,6 @@
 #' @param storedtree One of R20120829 (Phylomatic tree R20120829 for plants), 
 #' 		smith2011 (Smith 2011, plants), or binindaemonds2007 (Bininda-Emonds 2007, 
 #'   	mammals).
-#' @param taxaformat Only option is slashpath for now. Leave as is.
 #' @param outformat One of newick, nexml, or fyt.
 #' @param clean Return a clean tree or not.
 #' @details Use the web interface here http://phylodiversity.net/phylomatic/
@@ -62,6 +61,7 @@ phylomatic_tree <- function(taxa, get = 'GET', informat = "newick", method = "ph
          newick = getnewick(tt))
 }
 
+#' Function to collapse a double phylogenetic tree root
 #' @export
 #' @keywords internal
 collapse_double_root <- function(y) {
@@ -81,6 +81,7 @@ collapse_double_root <- function(y) {
   return(tempdone)
 }
 
+#' Function to to do things
 #' @export
 #' @keywords internal
 colldouble <- function(z) {

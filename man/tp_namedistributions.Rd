@@ -2,21 +2,19 @@
 \alias{tp_namedistributions}
 \title{Return all distribution records for for a taxon name with a given id.}
 \usage{
-  tp_namedistributions(id, format = "json", output = "df",
-    key = NULL)
+  tp_namedistributions(id, key = NULL, callopts = list())
 }
 \arguments{
   \item{id}{the taxon identifier code}
 
-  \item{format}{return in json or xml format (defaults to
-  json)}
+  \item{key}{Your Tropicos API key; loads from .Rprofile.
+  Or you can passin your key in this arg.}
 
-  \item{output}{raw = json or xml; or df = data.frame}
-
-  \item{key}{Your Tropicos API key; loads from .Rprofile.}
+  \item{callopts}{Further args passed on to httr::GET}
 }
 \value{
-  List or dataframe.
+  List of two data.frame's, one named "location", and one
+  "reference".
 }
 \description{
   Return all distribution records for for a taxon name with
@@ -24,13 +22,15 @@
 }
 \examples{
 \dontrun{
-# Raw json or xml
-tp_namedistributions(id = 25509881, output = 'raw')
-
-# Output as data.frame
-df <- tp_namedistributions(id = 25509881)
-df[df$category \%in\% 'Location',] # just location data
-df[df$category \%in\% 'Reference',] # just reference data
+# Query using a taxon name Id
+out <- tp_namedistributions(id = 25509881)
+## just location data
+head(out[['location']])
+## just reference data
+head(out[['reference']])
 }
+}
+\references{
+  \url{http://services.tropicos.org/help?method=GetNameDistributionsXml}
 }
 

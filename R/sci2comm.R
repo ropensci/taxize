@@ -18,36 +18,32 @@
 #' }
 sci2comm <- function(scinames, db='eol', ...)
 {  
+  itisfxn <- function(x, ...){
+    out <- searchbyscientificname(x, ...)
+    # remove empty tsn slots
+    tsns <- as.character(out$tsn)
+    tsns <- tsns[!sapply(tsns, nchar)==0]
+    # get scientific names
+    temp <- lapply(tsns, getcommonnamesfromtsn)
+    temp <- temp[!sapply(temp, nrow)==0]
+    do.call(rbind, temp)
+  }
+
+  eolsearch2 <- function(x){
+    tmp <- eol_search(terms=x)
+    pageids <- tmp[grep(x, tmp$name), "pageid"]
+    dfs <- compact(lapply(pageids, function(x) eol_pages(taxonconceptID=x, common_names=TRUE)$vernac))
+    ldply(dfs[sapply(dfs, class)=="data.frame"])
+  }
+
   getsci <- function(nn, ...){
     switch(db, 
            eol = eolsearch2(x=nn),
-           itis = itiscommnamesearch(nn, ...))
+           itis = itisfxn(nn, ...))
   }
   temp <- lapply(scinames, function(x) getsci(x, ...))
   names(temp) <- scinames
   temp
-}
-
-#' @export
-#' @keywords internal
-eolsearch2 <- function(x){
-  tmp <- eol_search(terms=x)
-  pageids <- tmp[grep(x, tmp$name), "pageid"]
-  dfs <- compact(lapply(pageids, function(x) eol_pages(taxonconceptID=x, common_names=TRUE)$vernac))
-  ldply(dfs[sapply(dfs, class)=="data.frame"])
-}
-
-#' @export
-#' @keywords internal
-itiscommnamesearch <- function(x, ...){
-  out <- searchbyscientificname(x, ...)
-  # remove empty tsn slots
-  tsns <- as.character(out$tsn)
-  tsns <- tsns[!sapply(tsns, nchar)==0]
-  # get scientific names
-  temp <- lapply(tsns, getcommonnamesfromtsn)
-  temp <- temp[!sapply(temp, nrow)==0]
-  do.call(rbind, temp)
 }
 
 # #' @export

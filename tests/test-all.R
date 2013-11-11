@@ -1,2 +1,2 @@
 library(testthat)
-test_package("taxize")
+test_check("taxize")

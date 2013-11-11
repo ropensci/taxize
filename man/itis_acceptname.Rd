@@ -2,11 +2,14 @@
 \alias{itis_acceptname}
 \title{Retrieve accepted TSN (with accepted name).}
 \usage{
-  itis_acceptname(searchtsn = NA)
+  itis_acceptname(searchtsn = NA, ...)
 }
 \arguments{
   \item{searchtsn}{Quoted TSN for a taxonomic group
   (character).}
+
+  \item{...}{Further arguments passed on to
+  getacceptednamesfromtsn}
 }
 \value{
   Names or TSNs of all downstream taxa.

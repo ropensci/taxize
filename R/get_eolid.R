@@ -6,6 +6,7 @@
 #' to find the actual taxon IDs. 
 #' 
 #' @import plyr RCurl
+#' @importFrom reshape sort_df
 #' @param sciname character; scientific name.
 #' @param ask logical; should get_eolid be run in interactive mode? 
 #' If TRUE and more than one ID is found for the species, the user is asked for 
@@ -94,9 +95,6 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE){
   return(out)
 }
 
-#' @export
-#' @keywords internal
-#' @importFrom reshape sort_df
 getsourceshortnames <- function(input){  
   lookup <- data.frame(z=c('COL','ITIS','GBIF','NCBI','IUCN'),
                        b=c('Species 2000 & ITIS Catalogue of Life: April 2013',

@@ -2,7 +2,8 @@
 \alias{tp_synonyms}
 \title{Return all synonyms for a taxon name with a given id.}
 \usage{
-  tp_synonyms(id, format = "json", key = NULL)
+  tp_synonyms(id, format = "json", key = NULL,
+    verbose = TRUE)
 }
 \arguments{
   \item{id}{the taxon identifier code}

@@ -10,11 +10,9 @@
 #' }
 iucn_getname <- function(name, verbose = TRUE, ...)
 {
-  message_verbose <- function(x){ if(verbose) message(x) }
-  
-  message_verbose("searching EOL's Global Names Index...")
+  mssg(verbose, "searching EOL's Global Names Index...")
   all_names <- gni_search(search_term = name, parse_names = TRUE)
-  message_verbose("searching IUCN...")
+  mssg(verbose, "searching IUCN...")
   out <- suppressWarnings(iucn_summary(all_names$canonical, ...))
   as.character(all_names$canonical[!sapply(out, function(x) x$status) %in% NA])
 }

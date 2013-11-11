@@ -69,8 +69,6 @@ eol_pages <- function(taxonconceptID, iucn=FALSE, images=0, videos=0, sounds=0,
   list(scinames=scinames, syns=syns, vernac=vernac, refs=refs, dataobj=dataobj)
 }
 
-#' @export
-#' @keywords internal
 parseeoldata <- function(x, y){
   xx <- y[[x]]
   if(length(xx)==0){  "no data" } else

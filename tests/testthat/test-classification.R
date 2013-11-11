@@ -23,10 +23,10 @@ names(clas_itis) <- NULL
 # clas_eol <- classification(c("Pinus amabilis", "aaa vva"), db = 'eol')
 # names(clas_eol) <- NULL
 
-clas_col <- classification(c("Chironomus riparius", "aaa vva"), db = 'col')
+clas_col <- suppressMessages(classification(c("Chironomus riparius", "aaa vva"), db = 'col'))
 names(clas_col) <- NULL
 
-clas_tp <- classification(c("Helianthus excubitor", "aaa vva"), db = 'tropicos')
+clas_tp <- suppressMessages(classification(c("Helianthus excubitor", "aaa vva"), db = 'tropicos'))
 names(clas_tp) <- NULL
 
 test_that("classification returns the correct value", {

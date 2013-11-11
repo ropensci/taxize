@@ -21,9 +21,6 @@
   R20120829 for plants), smith2011 (Smith 2011, plants), or
   binindaemonds2007 (Bininda-Emonds 2007, mammals).}
 
-  \item{taxaformat}{Only option is slashpath for now. Leave
-  as is.}
-
   \item{outformat}{One of newick, nexml, or fyt.}
 
   \item{clean}{Return a clean tree or not.}

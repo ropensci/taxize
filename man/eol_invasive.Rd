@@ -4,7 +4,7 @@
 \usage{
   eol_invasive(name = NULL, dataset = "all",
     searchby = grep, page = NULL, per_page = NULL,
-    key = NULL, callopts = list())
+    key = NULL, callopts = list(), verbose = TRUE)
 }
 \arguments{
   \item{name}{A taxonomic name, or a vector of names.}
@@ -12,6 +12,9 @@
   \item{dataset}{One of all, gisd100, gisd, gris, isc,
   daisie, i3n, or mineps.  See the Details for what each
   dataset ID.}
+
+  \item{searchby}{One of 'grep' (exact match) or 'agrep'
+  (fuzzy match)}
 
   \item{page}{A maximum of 30 results are returned per
   page. This parameter allows you to fetch more pages of
@@ -22,6 +25,9 @@
   \item{key}{Your EOL API key; loads from .Rprofile.}
 
   \item{callopts}{Further args passed on to GET.}
+
+  \item{verbose}{logical; If TRUE the actual taxon queried
+  is printed on the console.}
 }
 \value{
   A list of data.frame's/strings with results, with each

@@ -337,20 +337,21 @@ getexpertsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() )
 
 #' Get full hierarchy from tsn
 #' 
-#' @inheritParams getcommentdetailfromtsn
-#' @param verbose Verbosity or not (default TRUE)
+#' @param tsn TSN for a taxonomic group (numeric)
+#' @param ... optional additional curl options (debugging tools mostly)
+#' @param curl If using in a loop, call getCurlHandle() first and pass 
+#'  the returned value in here (avoids unnecessary footprint)
 #' @examples \dontrun{
 #' getfullhierarchyfromtsn(tsn = 37906)
 #' getfullhierarchyfromtsn(tsn = 100800)
 #' }
 #' @export 
-getfullhierarchyfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), verbose = TRUE) 
+getfullhierarchyfromtsn <- function(tsn = NA, ..., curl = getCurlHandle()) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN'
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
-  mssg(verbose, paste(url, '?tsn=', tsn, sep=''))
   tt <- getForm(url,
     .params = args,
     ...,
@@ -1005,19 +1006,21 @@ getscientificnamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle() )
 
 #' Returns a list of the synonyms (if any) for the TSN.
 #' 
-#' @inheritParams getcommentdetailfromtsn
+#' @param tsn TSN for a taxonomic group (numeric)
+#' @param ... optional additional curl options (debugging tools mostly)
+#' @param curl If using in a loop, call getCurlHandle() first and pass 
+#'  the returned value in here (avoids unnecessary footprint)
 #' @examples \dontrun{
 #' getsynonymnamesfromtsn(tsn = 183671) # tsn not accepted
 #' getsynonymnamesfromtsn(tsn = 526852) # tsn accepted
 #' }
 #' @export 
-getsynonymnamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
+getsynonymnamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle()) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getSynonymNamesFromTSN'
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
-  message(paste(url, '?tsn=', tsn, sep=''))
   tt <- getForm(url,.params = args,...,curl = curl)
   out <- xmlParse(tt)
   namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd")
@@ -1094,8 +1097,11 @@ gettaxonomicranknamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), v
 
 #' Returns the usage information for the TSN.
 #' 
-#' @inheritParams getcommentdetailfromtsn
-#' @param verbose 
+#' @param tsn TSN for a taxonomic group (numeric)
+#' @param ... optional additional curl options (debugging tools mostly)
+#' @param curl If using in a loop, call getCurlHandle() first and pass 
+#'  the returned value in here (avoids unnecessary footprint)
+#' @param verbose Verbosity or not (default TRUE)
 #' @examples \dontrun{
 #' gettaxonomicusagefromtsn(tsn = 526852)
 #' }
@@ -1264,9 +1270,8 @@ searchbycommonname <- function(srchkey = NA, ..., curl = getCurlHandle() )
 }
 
 
-#' itis_searchcommon
-#'
-#'Searches common name and acts as thin wrapper around \code{searchbycommonnamebeginswith} and \code{searchbycommonnameendswith}
+#' Searches common name and acts as thin wrapper around \code{searchbycommonnamebeginswith} and \code{searchbycommonnameendswith}
+#' 
 #' @param srchkey search terms
 #' @param  ... additional arguments
 #' @param  curl  curl handle
@@ -1280,8 +1285,8 @@ searchbycommonname <- function(srchkey = NA, ..., curl = getCurlHandle() )
 #'}
 itis_searchcommon <- function(srchkey = NA, ..., curl = getCurlHandle(), from = "begin") {
 switch(from, 
-   begin = searchbycommonnamebeginswith(srchkey = srchkey),
-   end = searchbycommonnameendswith(srchkey = srchkey),
+   begin = searchbycommonnamebeginswith(srchkey = srchkey, ...),
+   end = searchbycommonnameendswith(srchkey = srchkey, ...),
    )  
 }
 

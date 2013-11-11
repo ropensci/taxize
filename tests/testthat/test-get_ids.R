@@ -1,7 +1,7 @@
 # tests for get_ids fxn in taxize
 context("get_ids")
 
-tt <- get_ids(names="Chironomus riparius", db = 'ncbi')
+tt <- get_ids(names="Chironomus riparius", db = 'ncbi', verbose=FALSE)
 
 test_that("get_ids returns the correct value", {
   expect_equal(tt[[1]][[1]], "315576")

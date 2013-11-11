@@ -2,7 +2,7 @@
 context("tnrs")
 
 mynames <- c("Panthera tigris", "Eutamias minimus")
-out <- tnrs(query = mynames)
+out <- tnrs(query = mynames, verbose=FALSE)
 
 test_that("tnrs returns the correct value", {
 	expect_that(ncol(out), equals(7))

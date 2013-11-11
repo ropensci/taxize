@@ -2,7 +2,7 @@
 context("plantminer")
 
 plants <- c("Myrcia lingua", "Myrcia bella")
-df <- plantminer(plants)
+df <- plantminer(plants, verbose=FALSE)
 
 test_that("plantminer returns the correct value", {
 	expect_that(as.character(df[1,1]), matches("Myrtaceae"))

@@ -2,7 +2,7 @@ Package: taxize
 Description: Taxonomic information from around the web.
 Title: Taxonomic information from around the web.
 Version: 0.1.1
-Date: 2013-11-08
+Date: 2013-11-11
 License: CC0
 URL: https://ropensci.github.com/taxize_
 BugReports: https://github.com/ropensci/taxize_/issues
@@ -12,6 +12,8 @@ Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "szoe8822@uni-landau.de"),
     person("Carl", "Boettiger", role = "aut",
     email = "cboettig@gmail.com"),
+    person("Karthik", "Ram", role = "aut",
+    email = "karthik@ropensci.org"),
     person("Ignasi", "Bartomeus", role = "aut",
     email = "nacho.bartomeus@gmail.com"),
     person("John", "Baumgartner", role = "aut",
@@ -37,8 +39,8 @@ Suggests:
     testthat,
     roxygen2,
     rjson,
-    vegan,
-    RNeXML
+    vegan
+Enhances: RNeXML
 Collate:
     'classification.R'
     'get_tsn.R'
@@ -89,7 +91,6 @@ Collate:
     'names_list.r'
     'startup.R'
     'taxize_capwords.r'
-    'parsenames.R'
     'ubio_id.R'
     'ubio_classification.R'
     'ubio_search.R'
@@ -107,3 +108,4 @@ Collate:
     'comm2sci.R'
     'sci2comm.R'
     'phylomatic_tree.R'
+    'gbif_parse.R'

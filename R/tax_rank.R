@@ -54,7 +54,7 @@ tax_rank <- function(query = NULL, db = "itis", pref = 'ncbi', verbose = TRUE, .
           message("No TSN found for species '", query, "'!\n")
         out_tsn <- NA
       } else {
-        tt <- classification(tsn)[[1]]
+        tt <- classification(tsn, ...)[[1]]
         out_tsn <- tt[nrow(tt), 'rankName']
         if(length(out_tsn) == 0)
           out_tsn <- NA
@@ -69,7 +69,7 @@ tax_rank <- function(query = NULL, db = "itis", pref = 'ncbi', verbose = TRUE, .
           message("No UID found for species '", query, "'!\n")
         out_uid <- NA
       } else {
-        hierarchy <- classification(uid)[[1]]
+        hierarchy <- classification(uid, ...)[[1]]
         out_uid <- hierarchy[nrow(hierarchy), 'Rank']
         if(length(out_uid) == 0)
           out_uid <- NA

@@ -24,28 +24,26 @@
 #' comm2sci(commnames=c('black bear', 'roe deer'))
 #' }
 comm2sci <- function(commnames, db='eol', itisby='search', ...)
-{  
+{ 
+  foo <- function(x, by='search', ...){
+    tmp <- switch(by, 
+                  search = searchbycommonname(x, ...),
+                  begin = searchbycommonnamebeginswith(x, ...),
+                  end = searchbycommonnameendswith(x, ...))
+    # remove empty tsn slots
+    tsns <- as.character(tmp$tsn)
+    tsns <- tsns[!sapply(tsns, nchar)==0]
+    # get scientific names
+    do.call(rbind, lapply(tsns, getscientificnamefromtsn))
+  }
+
   getsci <- function(nn, ...){
     switch(db, 
            eol = eol_search(terms=nn, ...),
-           itis = itiscommnamesearch(nn, itisby, ...),
+           itis = foo(nn, itisby, ...),
            tropicos = tp_search(commonname = nn, ...))
   }
   temp <- lapply(commnames, function(x) getsci(x, ...))
   names(temp) <- commnames
   temp
-}
-
-#' @export
-#' @keywords internal
-itiscommnamesearch <- function(x, by='search', ...){
-  tmp <- switch(by, 
-                search = searchbycommonname(x, ...),
-                begin = searchbycommonnamebeginswith(x, ...),
-                end = searchbycommonnameendswith(x, ...))
-  # remove empty tsn slots
-  tsns <- as.character(tmp$tsn)
-  tsns <- tsns[!sapply(tsns, nchar)==0]
-  # get scientific names
-  do.call(rbind, lapply(tsns, getscientificnamefromtsn))
 }

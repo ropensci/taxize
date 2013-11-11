@@ -1,12 +1,13 @@
-# tests for gni_search fxn in taxize
-context("gni_search")
+# tests for gni_parse fxn in taxize
+context("gni_parse")
 
-test_that("gni_search returns the correct value", {
-	expect_that(as.numeric(as.character(gni_search(search_term = "ama*", per_page = 1)[,2])), 
-							matches("22693003"))
+tt <- gni_parse("Cyanistes caeruleus")
+
+test_that("gni_parse returns the correct value", {
+	expect_that(as.character(tt[,2]), matches("caeruleus"))
+	expect_that(tt[,"position_genus"], equals(9))
 })
 
-test_that("gni_search returns the correct class", {
-	expect_that(gni_search(search_term = "ama*", per_page = 1), 
-							is_a("data.frame"))
+test_that("gni_parse returns the correct class", {
+	expect_that(tt, is_a("data.frame"))
 })

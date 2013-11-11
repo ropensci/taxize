@@ -3,7 +3,7 @@
 \title{Return all reference records for for a taxon name with a given id.}
 \usage{
   tp_namereferences(id, format = "json", output = "df",
-    key = NULL)
+    key = NULL, verbose = TRUE)
 }
 \arguments{
   \item{id}{the taxon identifier code}
@@ -14,6 +14,8 @@
   \item{output}{raw = json or xml; or df = data.frame}
 
   \item{key}{Your Tropicos API key; loads from .Rprofile.}
+
+  \item{verbose}{Print messages (default) or not, logical}
 }
 \value{
   List or dataframe.

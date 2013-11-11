@@ -14,11 +14,14 @@
 #' @param name A taxonomic name, or a vector of names.
 #' @param dataset One of all, gisd100, gisd, gris, isc, daisie, i3n, or mineps.
 #'    See the Details for what each dataset ID. 
+#' @param searchby One of 'grep' (exact match) or 'agrep' (fuzzy match)
 #' @param page A maximum of 30 results are returned per page. This parameter allows 
 #'    you to fetch more pages of results if there are more than 30 matches (Default 1)
 #' @param per_page Results to get per page
 #' @param key Your EOL API key; loads from .Rprofile.
 #' @param callopts Further args passed on to GET.
+#' @param verbose logical; If TRUE the actual taxon queried is printed on the 
+#'    console.
 #' @details It's possible to return JSON or XML with the EOL API. However, 
 #'   	this function only returns JSON for now. 
 #'     
@@ -48,7 +51,7 @@
 #' }
 #' @export
 eol_invasive <- function(name = NULL, dataset="all", searchby = grep, page=NULL, 
-  per_page=NULL, key = NULL, callopts=list())
+  per_page=NULL, key = NULL, callopts=list(), verbose=TRUE)
 {     
   if(is.null(name)) stop("please provide a taxonomic name")
   if(is.null(dataset)) stop("please provide a dataset name")
@@ -69,7 +72,7 @@ eol_invasive <- function(name = NULL, dataset="all", searchby = grep, page=NULL,
   stop_for_status(tt)
   res <- content(tt) 
   data_init <- res$collection_items
-  message(sprintf("Getting data for %s names...", res$total_items))
+  mssg(verbose, sprintf("Getting data for %s names...", res$total_items))
   
   pages_left <- function(){
     tot <- res$total_items

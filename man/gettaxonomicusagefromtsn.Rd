@@ -6,8 +6,6 @@
     curl = getCurlHandle(), verbose = TRUE)
 }
 \arguments{
-  \item{verbose}{}
-
   \item{tsn}{TSN for a taxonomic group (numeric)}
 
   \item{...}{optional additional curl options (debugging
@@ -16,6 +14,8 @@
   \item{curl}{If using in a loop, call getCurlHandle()
   first and pass the returned value in here (avoids
   unnecessary footprint)}
+
+  \item{verbose}{Verbosity or not (default TRUE)}
 }
 \description{
   Returns the usage information for the TSN.

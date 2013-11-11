@@ -2,7 +2,7 @@
 context("eol_hierarchy")
 
 pageid <- eol_search('Pomatomus')$pageid[1]
-out <- eol_pages(taxonconceptID=pageid)
+out <- eol_pages(taxonconceptID=pageid)$scinames
 
 test_that("eol_hierarchy returns the correct class", {
 	expect_that(eol_hierarchy(out[out$nameAccordingTo == "NCBI Taxonomy", "identifier"]), 

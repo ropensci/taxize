@@ -13,6 +13,10 @@
 #' @export
 ubio_synonyms <- function(hierarchiesID = NULL, keyCode = NULL, callopts=list())
 {
+  hierarchiesID <- as.numeric(as.character(hierarchiesID))
+  if(!inherits(hierarchiesID, "numeric"))
+    stop("hierarchiesID must by a numeric")
+    
   url <- "http://www.ubio.org/webservices/service.php"
   keyCode <- getkey(keyCode, "ubioApiKey")
   args <- compact(list(

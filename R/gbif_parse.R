@@ -23,7 +23,7 @@ gbif_parse <- function(scientificname) {
   tt <- POST('http://apidev.gbif.org/parser/name',
                       config=c(add_headers('Content-Type' = 
                                              'application/json')),
-                      body=RJSONIO:::toJSON(scientificname))
+                      body=RJSONIO::toJSON(scientificname))
   stop_for_status(tt)
   res <- content(tt)
   do.call(rbind.fill, lapply(res, as.data.frame))

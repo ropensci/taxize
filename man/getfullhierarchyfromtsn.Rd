@@ -3,11 +3,9 @@
 \title{Get full hierarchy from tsn}
 \usage{
   getfullhierarchyfromtsn(tsn = NA, ...,
-    curl = getCurlHandle(), verbose = TRUE)
+    curl = getCurlHandle())
 }
 \arguments{
-  \item{verbose}{Verbosity or not (default TRUE)}
-
   \item{tsn}{TSN for a taxonomic group (numeric)}
 
   \item{...}{optional additional curl options (debugging

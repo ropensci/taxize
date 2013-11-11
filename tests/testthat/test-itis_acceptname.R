@@ -1,7 +1,7 @@
 # tests for itis_acceptname fxn in taxize
 context("itis_acceptname")
 
-temp <- itis_acceptname(208527)
+temp <- itis_acceptname(208527, verbose=FALSE)
 
 test_that("itis_acceptname returns the correct value", {
 	expect_that(temp, matches("208527"))

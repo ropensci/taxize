@@ -1,6 +1,6 @@
 \name{itis_searchcommon}
 \alias{itis_searchcommon}
-\title{itis_searchcommon}
+\title{Searches common name and acts as thin wrapper around \code{searchbycommonnamebeginswith} and \code{searchbycommonnameendswith}}
 \usage{
   itis_searchcommon(srchkey = NA, ...,
     curl = getCurlHandle(), from = "begin")
