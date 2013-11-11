@@ -12,6 +12,7 @@ The `taxize` tutorial is [here](http://ropensci.org/tutorials/taxizetutorial.htm
 + [Scott Chamberlain](https://github.com/SChamberlain)
 + [Eduard Szöcs](https://github.com/EDiLD)
 + [Carl Boettiger](https://github.com/cboettig)
++ [Karthik Ram](https://github.com/karthik)
 + [Ignasi Bartomeus](https://github.com/ibartomeus)
 + [John Baumgartner](https://github.com/johnbaums)
 
