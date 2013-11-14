@@ -22,7 +22,10 @@
 \value{
   A vector of taxonomic serial numbers (TSN). If a taxon is
   not found NA. If more than one TSN is found the function
-  asks for user input.  See functions in the \code{itis}
+  asks for user input (if ask = TRUE), otherwise returns
+  NA.  Comes with an attribute \emph{match} to investigate
+  the reason for NA (either 'not found', 'found' or if ask
+  = FALSE 'multi match') See functions in the \code{itis}
   function.
 }
 \description{

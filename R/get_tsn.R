@@ -11,7 +11,9 @@
 #' @param verbose logical; should progress be printed?
 #' 
 #' @return A vector of taxonomic serial numbers (TSN). If a taxon is not 
-#'    found NA. If more than one TSN is found the function asks for user input.
+#'    found NA. If more than one TSN is found the function asks for user input 
+#'    (if ask = TRUE), otherwise returns NA. 
+#'    Comes with an attribute \emph{match} to investigate the reason for NA (either 'not found', 'found' or if ask = FALSE 'multi match')
 #' 		See functions in the \code{itis} function.
 #'   	
 #'   	
@@ -52,16 +54,19 @@ get_tsn <- function(searchterm, searchtype = "sciname", ask = TRUE, verbose = TR
     if (nrow(tsn_df) == 0){
       mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
       tsn <- NA
+      att <- 'not found'
     }
     # take the one tsn from data.frame
     if (nrow(tsn_df) == 1)
       tsn <- tsn_df$tsn
+      att <- 'found'
     # check for direct match
     if (nrow(tsn_df) > 1){
       names(tsn_df)[1] <- "target"
       direct <- match(tolower(x), tolower(tsn_df$target))
       if(!is.na(direct))
         tsn <- tsn_df$tsn[direct]
+        att <- 'found'
     } else {
       direct <- NA
     }
@@ -86,18 +91,23 @@ get_tsn <- function(searchterm, searchtype = "sciname", ask = TRUE, verbose = TR
           take <- as.numeric(take)
           message("Input accepted, took taxon '", as.character(tsn_df$target[take]), "'.\n")
           tsn <-  tsn_df$tsn[take]
+          att <- 'found'
         } else {
           tsn <- NA
           mssg(verbose, "\nReturned 'NA'!\n\n")
+          att <- 'not found'
         }
       } else {
         tsn <- NA
+        att <- 'multi match'
       }
         
     }
-    return(as.character(tsn))
+    return(data.frame(tsn = as.character(tsn), att = att, stringsAsFactors=FALSE))
   }
-  out <- laply(searchterm, fun, searchtype, ask, verbose)
+  outd <- ldply(searchterm, fun, searchtype, ask, verbose)
+  out <- outd$tsn
+  attr(out, 'match') <- outd$att
   class(out) <- "tsn"
   return(out)
 }

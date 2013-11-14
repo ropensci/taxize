@@ -18,7 +18,10 @@
 \value{
   A vector of unique identifiers (UID). If a taxon is not
   found NA. If more than one UID is found the function asks
-  for user input.
+  for user input (if ask = TRUE), otherwise returns NA.
+  Comes with an attribute \emph{match} to investigate the
+  reason for NA (either 'not found', 'found' or if ask =
+  FALSE 'multi match')
 }
 \description{
   Retrieve the Unique Identifier (UID) of a taxon from NCBI
