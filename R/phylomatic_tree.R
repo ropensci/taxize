@@ -22,7 +22,8 @@
 #' plot(tree)
 #' 
 #' # Lots of names
-#' taxa <- c("Collomia grandiflora", "Lilium lankongense", "Phlox diffusa", "Iteadaphne caudata", "Nicotiana tomentosa", "Gagea sarmentosa")
+#' taxa <- c("Collomia grandiflora", "Lilium lankongense", "Phlox diffusa", 
+#'           "Iteadaphne caudata", "Nicotiana tomentosa", "Gagea sarmentosa")
 #' tree <- phylomatic_tree(taxa=taxa, get = 'POST', informat='newick', 
 #'                         method = "phylomatic", storedtree = "smith2011",
 #'                         outformat = "newick", clean = "true")

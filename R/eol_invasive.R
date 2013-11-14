@@ -44,8 +44,10 @@
 #' eol_invasive(name='Sargassum', dataset='gisd')
 #' eol_invasive(name='Ciona intestinalis', dataset='mineps')
 #' eol_invasive(name='Rhinella marina', dataset='gris')
-#' eol_invasive(name=c('Rhinella marina','Sturnus vulgaris','Cygnus olor','Pinus concolor'), dataset='gris')
-#' eol_invasive(name=c('Lymantria dispar','Cygnus olor','Hydrilla verticillata','Pinus concolor'), dataset='i3n')
+#' eol_invasive(name=c('Rhinella marina','Sturnus vulgaris','Cygnus olor','Pinus concolor'), 
+#'              dataset='gris')
+#' eol_invasive(name=c('Lymantria dispar','Cygnus olor','Hydrilla verticillata','Pinus concolor'), 
+#'              dataset='i3n')
 #' eol_invasive(name=c('Branta canadensis','Gallus gallus','Myiopsitta monachus'), dataset='daisie')
 #' eol_invasive(name=c('Branta canadensis','Gallus gallus','Myiopsitta monachus'), dataset='isc')
 #' }
