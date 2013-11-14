@@ -59,7 +59,4 @@ ldfast <- function(x, convertvec=FALSE){
     do.call(rbind.fill, x)
 }
 
-#' Print a message if verbose is TRUE, but don't if FALSE
-#' @export
-#' @keywords internal 
 mssg <- function(v, ...) if(v) message(...)

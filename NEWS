@@ -12,11 +12,17 @@ NEW FEATURES
 * New function itis_native() to get status as native, exotic, etc. in various geographic regions.
 * New function itis_hierarchy() to get full hierarchy, or immediate up or downstream hierarchy.
 * New function itis_terms() to get tsn's, authors, common names, and scientific names from a given query.
+* New function sci2comm() to get common (vernacular) names from input scientific names from various data sources.
+* New function comm2sci() to get scientific names from input common (vernacular) names from various data sources.
+* New function get_ids() to get taxonomic identifiers across all sources.
 
 MINOR IMPROVEMENTS
 
 * itis_taxrank() now outputs a character, not a factor; loses parameter verbose, and gains ..., which passes on further arguments to gettaxonomicranknamefromtsn.
-* tp_synonyms() gains parameter verbose to optionally suppress messages. 
+* tp_synonyms(), tp_summary(), plantminer(), itis_downstream(), gisd_isinvasive(), get_genes_avail(), get_genes(), eol_invasive(), eol_dataobjects(), andn tnrs() gain parameter verbose to optionally suppress messages. 
+* phylomatic_tree() format changed so that names are passed in normall (e.g., Poa annua) instead of the slashpath format (family/genus/genus_species). Also, taxaformat parameter dropped.
+* itis_acceptname() gains ... to pass in further arguments to getacceptednamesfromtsn()
+* tp_namedistributions() loses parameter format.
 
 BUG	FIXES
 
@@ -28,14 +34,15 @@ taxize 0.1.1
 
 NEW FEATURES
 
-* Functions added just like get_uid()/get_tsn() but for EOL, Catalogue of Life, and Tropicos, see get_eolid(), get_colid(), and get_tpsid(), respectively.
+* New functions added just like get_uid()/get_tsn() but for EOL, Catalogue of Life, and Tropicos, see get_eolid(), get_colid(), and get_tpsid(), respectively.
 * classification() methods added for EOL, Catalogue of Life, and Tropicos, see functions classification.eolid(), classification.colid(), and classification.tpsid() respectively.
-* Added col_search() to search for names in the Catalogue of Life.
+* New function col_search() to search for names in the Catalogue of Life.
 * User can turn off interactive mode in get_* functions. All get_* functions gain an ask argument, if TRUE (default) a user prompt is used for user to select which row they want, if FALSE, NA is returned when many results available; and added tests for the new argument. Affects downstream functions too.
-* Added eol_invasive() to search EOL collections of invasive species lists.
-* Added tp_search() to search for a taxonomic IDs from Tropicos.
-* Added tp_classification() to get a taxonomic hierarchy from Tropicos.
-* Added new tiny function mssg() to easily toggle messages in get_* functions on and off with the verbose argument.
+* New function eol_invasive() to search EOL collections of invasive species lists.
+* New function tp_search() to search for a taxonomic IDs from Tropicos.
+* New function tp_classification() to get a taxonomic hierarchy from Tropicos.
+* New function gbif_parse() to parse scientific names into their components, using the GBIF name parser API.
+* New function itis_searchcommon() to search for common names across both searchbycommonnamebeginswith, and searchbycommonnameendswith.
 
 
 BUG FIXES

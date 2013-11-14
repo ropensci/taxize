@@ -61,9 +61,6 @@ phylomatic_tree <- function(taxa, get = 'GET', informat = "newick", method = "ph
          newick = getnewick(tt))
 }
 
-#' Function to collapse a double phylogenetic tree root
-#' @export
-#' @keywords internal
 collapse_double_root <- function(y) {
   temp <- str_split(y, ")")[[1]]
   double <- c(length(temp)-1, length(temp))
@@ -81,9 +78,6 @@ collapse_double_root <- function(y) {
   return(tempdone)
 }
 
-#' Function to to do things
-#' @export
-#' @keywords internal
 colldouble <- function(z) {
   if ( class ( try ( read.tree(text = z), silent = T ) ) %in% 'try-error') 
   { treephylo <- collapse_double_root(z) } else
