@@ -3,6 +3,7 @@
 #' @import XML RCurl
 #' @return XML object message about API status.
 #' @export
+#' @seealso \code{\link{itis_ping}}
 #' @examples \dontrun{
 #' eol_ping()
 #' }

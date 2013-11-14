@@ -1,8 +1,8 @@
 Package: taxize
 Description: Taxonomic information from around the web.
 Title: Taxonomic information from around the web.
-Version: 0.1.1
-Date: 2013-11-11
+Version: 0.1.4
+Date: 2013-11-13
 License: CC0
 URL: https://ropensci.github.com/taxize_
 BugReports: https://github.com/ropensci/taxize_/issues
@@ -109,3 +109,11 @@ Collate:
     'sci2comm.R'
     'phylomatic_tree.R'
     'gbif_parse.R'
+    'itis_getrecord.R'
+    'itis_ping.R'
+    'itis_refs.R'
+    'itis_kingdomnames.R'
+    'itis_lsid.R'
+    'itis_native.R'
+    'itis_hierarchy.R'
+    'itis_terms.R'

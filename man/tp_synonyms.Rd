@@ -12,6 +12,8 @@
   json)}
 
   \item{key}{Your Tropicos API key; loads from .Rprofile.}
+
+  \item{verbose}{Verbose or not}
 }
 \value{
   List or dataframe.

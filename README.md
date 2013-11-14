@@ -110,6 +110,34 @@ The following are URL's for API documentation, where to get API keys, and what p
 + [Lichen Taxon dictionary](http://www.thebls.org.uk/)
 + [MycoBank](http://www.mycobank.org/)
 
+#### Notes on the ITIS API
+
+There are a lot of methods for the ITIS API. We have attempted to simplify the interface. Here are some notes:
+
+The following functions are not shown in the `taxize` index page, but are still available by using it's name, e.g. `FunctionName`
+
+`getanymatchcount`, `searchforanymatch`, `searchforanymatchpaged`, `getexpertsfromtsn`, `getcommentdetailfromtsn`, `getcoremetadatafromtsn`, `getcoveragefromtsn`, `getcredibilityratingfromtsn`, `getcredibilityratings`, `getcurrencyfromtsn`, `getdatedatafromtsn`, `getlastchangedate`, `getothersourcesfromtsn`, `getparenttsnfromtsn`, `getglobalspeciescompletenessfromtsn`, `getgeographicdivisionsfromtsn`, `getgeographicvalues`, `getreviewyearfromtsn`, `gettaxonauthorshipfromtsn`, `gettaxonomicusagefromtsn`, `gettsnbyvernacularlanguage`, `getunacceptabilityreasonfromtsn`, `getvernacularlanguages`
+
+The following are higher level functions that attempt to make interacting with the various methods easier. Some are new. The function on the left uses the functions on the right of the arrow. You can access functions on the right of the arrow as normal, but aren't shown in the main help file index to avoid cognitive load.
+
++ `classification` <- `getfullhierarchyfromtsn`
++ `itis_downstream` <- `gethierarchydownfromtsn`
++ `itis_searchcommon` <- `searchbycommonnamebeginswith`, `searchbycommonnameendswith`
++ `get_tsn` <- `searchbycommonnamebeginswith`, `searchbycommonnameendswith`, `searchbycommonname`, `searchbyscientificname`
++ `comm2sci` <- `searchbycommonnamebeginswith`, `searchbycommonnameendswith`, `searchbycommonname`, `getscientificnamefromtsn`
++ `sci2comm` <- `searchbycommonnamebeginswith`, `searchbycommonnameendswith`, `searchbycommonname`, `getcommonnamesfromtsn`, `searchbyscientificname`
++ `synonyms` <- `getsynonymnamesfromtsn`
++ `itis_acceptname` <- `getacceptednamesfromtsn`
++ `itis_taxrank` <- `gettaxonomicranknamefromtsn`, `getranknames`
++ `itis_ping` <- `getdescription`
++ `itis_refs` <- `getpublicationsfromtsn`
++ `itis_getrecord` <- `getfullrecordfromtsn`
++ `itis_kingdomnames` <- `getkingdomnamefromtsn`, `getkingdomnames`
++ `itis_lsid` <- `getfullrecordfromlsid`, `getrecordfromlsid`, `gettsnfromlsid`
++ `itis_native` <- `getjurisdictionaloriginfromtsn`, `getjurisdictionoriginvalues`, `getjurisdictionvalues`
++ `itis_hierarchy` <- `getfullhierarchyfromtsn`, `gethierarchydownfromtsn`, `gethierarchyupfromtsn`
++ `itis_terms` <- `getitisterms`, `getitistermsfromcommonname`, `getitistermsfromscientificname`
+
 ### Install `taxize` 
 
 + Stable version from CRAN:

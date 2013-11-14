@@ -8,5 +8,5 @@ test_that("itis_taxrank returns the correct value", {
 })
 
 test_that("itis_taxrank returns the correct class", {
-	expect_that(temp, is_a("factor"))
+	expect_that(temp, is_a("character"))
 })

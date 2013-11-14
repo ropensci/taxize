@@ -36,12 +36,12 @@ synonyms.default <- function(x, db = NULL, ...){
   if (is.null(db))
     stop("Must specify Identifier!")
   if (db == 'itis') {
-    id <- get_tsn(x)
+    id <- get_tsn(x, ...)
     out <- synonyms(id, ...)
     names(out) <- x
   }
   if (db == 'tropicos') {
-    id <- get_tpsid(x)
+    id <- get_tpsid(x, ...)
     out <- synonyms(id, ...)
     names(out) <- x
   }
