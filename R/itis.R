@@ -589,18 +589,19 @@ gethierarchydownfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), verbo
 #' Get hierarchy up from tsn
 #' 
 #' @inheritParams getcommentdetailfromtsn
+#' @param verbose Verbosity or not (default TRUE)
 #' @examples \dontrun{
 #' gethierarchyupfromtsn(tsn = 36485)
 #' }
 #' @export
 #' @keywords internal 
-gethierarchyupfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
+gethierarchyupfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), verbose=TRUE) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getHierarchyUpFromTSN'
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
-  message(paste(url, '?tsn=', tsn, sep=''))
+  mssg(verbose, paste(url, '?tsn=', tsn, sep=''))
   tt <- getForm(url,
     .params = args,
     ...,
