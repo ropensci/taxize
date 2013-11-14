@@ -23,6 +23,8 @@ MINOR IMPROVEMENTS
 * phylomatic_tree() format changed so that names are passed in normall (e.g., Poa annua) instead of the slashpath format (family/genus/genus_species). Also, taxaformat parameter dropped.
 * itis_acceptname() gains ... to pass in further arguments to getacceptednamesfromtsn()
 * tp_namedistributions() loses parameter format.
+* get_tsn() and get_uid() return infomation about match as attribute.
+* clarified iucn-documentation
 
 BUG	FIXES
 

@@ -11,7 +11,9 @@
 #'    console.
 #' 
 #' @return A vector of unique identifiers (UID). If a taxon is not found NA. 
-#' If more than one UID is found the function asks for user input. 
+#' If more than one UID is found the function asks for user input (if ask = TRUE), 
+#' otherwise returns NA. Comes with an attribute \emph{match} to investigate the 
+#' reason for NA (either 'not found', 'found' or if ask = FALSE 'multi match')
 #' 
 #' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{classification}}
 #' 
@@ -40,11 +42,13 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE){
     # NCBI limits requests to three per second
     xml_result <- xmlParse(getURL(searchurl))
     Sys.sleep(0.33)
-    uid <- xpathSApply(xml_result, "//IdList/Id", xmlValue)    
+    uid <- xpathSApply(xml_result, "//IdList/Id", xmlValue) 
+    att <- 'found'
     # not found on ncbi
     if (length(uid) == 0){
       mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
       uid <- NA
+      att <- 'not found'
     }
     # more than one found on ncbi -> user input
     if(length(uid) > 1){
@@ -72,17 +76,22 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE){
           take <- as.numeric(take)
           message("Input accepted, took UID '", as.character(df$UID[take]), "'.\n")
           uid <- as.character(df$UID[take])
+          att <- 'found'
         } else {
           uid <- NA
+          att <- 'not found'
           mssg(verbose, "\nReturned 'NA'!\n\n")
         }
       } else {
         uid <- NA
+        att <- 'multi match'
       }
     }  
-    return(uid)
+    return(data.frame(uid, att, stringsAsFactors= FALSE))
   }
-  out <- laply(sciname, fun, ask, verbose)
+  outd <- ldply(sciname, fun, ask, verbose)
+  out <- outd$uid
+  attr(out, 'match') <- outd$att
   class(out) <- "uid"
   return(out)
 }
