@@ -13,7 +13,7 @@
 #' getacceptednamesfromtsn('504239', FALSE) 
 #' }
 #' @export
-#' @noRd
+#' @keywords internal
 getacceptednamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), verbose=TRUE)
 { 
 	url = "http://www.itis.gov/ITISWebService/services/ITISService/getAcceptedNamesFromTSN"
@@ -45,7 +45,7 @@ getacceptednamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), verbo
 #' getanymatchcount("dolphin")
 #' }
 #' @export
-#' @noRd
+#' @keywords internal
 getanymatchcount <- function(srchkey = NA, ..., curl = getCurlHandle() ) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getAnyMatchCount'
@@ -72,7 +72,7 @@ getanymatchcount <- function(srchkey = NA, ..., curl = getCurlHandle() )
 #' getcommentdetailfromtsn(180543)
 #' }
 #' @export
-#' @noRd
+#' @keywords internal
 getcommentdetailfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getCommentDetailFromTSN'
@@ -106,7 +106,7 @@ getcommentdetailfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() )
 #' getcommonnamesfromtsn(183833)
 #' }
 #' @export
-#' @noRd 
+#' @keywords internal 
 getcommonnamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getCommonNamesFromTSN'
@@ -138,7 +138,7 @@ getcommonnamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() )
 #' getcoremetadatafromtsn(tsn = 183671)  # no coverage or currrency data
 #' }
 #' @export
-#' @noRd
+#' @keywords internal
 getcoremetadatafromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getCoreMetadataFromTSN'
@@ -169,7 +169,7 @@ getcoremetadatafromtsn <- function(tsn = NA, ..., curl = getCurlHandle() )
 #' getcoveragefromtsn(tsn = 526852)  # no coverage data
 #' }
 #' @export
-#' @noRd
+#' @keywords internal
 getcoveragefromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getCoverageFromTSN'
@@ -199,7 +199,7 @@ getcoveragefromtsn <- function(tsn = NA, ..., curl = getCurlHandle() )
 #' getcredibilityratingfromtsn(tsn = 526852)
 #' }
 #' @export
-#' @noRd
+#' @keywords internal
 getcredibilityratingfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getCredibilityRatingFromTSN'
@@ -227,7 +227,7 @@ getcredibilityratingfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() )
 #' getcredibilityratings()
 #' }
 #' @export
-#' @noRd 
+#' @keywords internal 
 getcredibilityratings <- function() 
 {
 	url='http://www.itis.gov/ITISWebService/services/ITISService/getCredibilityRatings'
@@ -248,7 +248,7 @@ getcredibilityratings <- function()
 #' getcurrencyfromtsn(tsn = 526852) # no currency dat
 #' }
 #' @export
-#' @noRd
+#' @keywords internal
 getcurrencyfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getCurrencyFromTSN'
@@ -278,7 +278,7 @@ getcurrencyfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() )
 #' getdatedatafromtsn(tsn = 180543)
 #' }
 #' @export
-#' @noRd
+#' @keywords internal
 getdatedatafromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getDateDataFromTSN'
@@ -308,7 +308,7 @@ getdatedatafromtsn <- function(tsn = NA, ..., curl = getCurlHandle() )
 #' getdescription()
 #' }
 #' @export
-#' @noRd 
+#' @keywords internal 
 getdescription <- function() 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getDescription'
@@ -324,7 +324,7 @@ getdescription <- function()
 #' getexpertsfromtsn(tsn = 180544)
 #' }
 #' @export
-#' @noRd
+#' @keywords internal
 getexpertsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getExpertsFromTSN'
@@ -358,7 +358,7 @@ getexpertsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() )
 #' getfullhierarchyfromtsn(tsn = 100800)
 #' }
 #' @export
-#' @noRd
+#' @keywords internal
 getfullhierarchyfromtsn <- function(tsn = NA, ..., curl = getCurlHandle()) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN'
@@ -402,7 +402,7 @@ getfullhierarchyfromtsn <- function(tsn = NA, ..., curl = getCurlHandle())
 #' getfullrecordfromlsid(lsid = "urn:lsid:itis.gov:itis_tsn:180543", verbose=FALSE)
 #' }
 #' @export
-#' @noRd 
+#' @keywords internal 
 getfullrecordfromlsid <- function(lsid = NA, ..., curl = getCurlHandle(), verbose=TRUE) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getFullRecordFromLSID'
@@ -441,7 +441,7 @@ getfullrecordfromlsid <- function(lsid = NA, ..., curl = getCurlHandle(), verbos
 #' getfullrecordfromtsn(tsn = 183833, verbose=FALSE)
 #' }
 #' @export
-#' @noRd 
+#' @keywords internal 
 getfullrecordfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), verbose=TRUE) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getFullRecordFromTSN'
@@ -476,7 +476,7 @@ getfullrecordfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), verbose=
 #' getgeographicdivisionsfromtsn(tsn = 180543)
 #' }
 #' @export
-#' @noRd
+#' @keywords internal
 getgeographicdivisionsfromtsn <- function(tsn = NA, ..., curl=getCurlHandle())
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getGeographicDivisionsFromTSN'
@@ -506,7 +506,7 @@ getgeographicdivisionsfromtsn <- function(tsn = NA, ..., curl=getCurlHandle())
 #' getgeographicvalues()
 #' }
 #' @export
-#' @noRd
+#' @keywords internal
 getgeographicvalues <- function() 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getGeographicValues'
@@ -526,7 +526,7 @@ getgeographicvalues <- function()
 #' getglobalspeciescompletenessfromtsn(tsn = 180541)
 #' }
 #' @export
-#' @noRd
+#' @keywords internal
 getglobalspeciescompletenessfromtsn <- function(tsn = NA, ..., 
                                                 curl=getCurlHandle()) 
 {
@@ -558,7 +558,7 @@ getglobalspeciescompletenessfromtsn <- function(tsn = NA, ...,
 #' gethierarchydownfromtsn(tsn = 161030)
 #' }
 #' @export
-#' @noRd 
+#' @keywords internal 
 gethierarchydownfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), verbose = TRUE) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getHierarchyDownFromTSN'
@@ -593,7 +593,7 @@ gethierarchydownfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), verbo
 #' gethierarchyupfromtsn(tsn = 36485)
 #' }
 #' @export
-#' @noRd 
+#' @keywords internal 
 gethierarchyupfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getHierarchyUpFromTSN'
@@ -628,7 +628,7 @@ gethierarchyupfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() )
 #' getitistermsfromcommonname("buya")
 #' }
 #' @export
-#' @noRd 
+#' @keywords internal 
 getitistermsfromcommonname <- function(srchkey = NA, ..., curl = getCurlHandle() ) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getITISTermsFromCommonName'
@@ -652,7 +652,7 @@ getitistermsfromcommonname <- function(srchkey = NA, ..., curl = getCurlHandle()
 #' getitisterms(srchkey="bear")
 #' }
 #' @export
-#' @noRd
+#' @keywords internal
 getitisterms <- function(srchkey = NA, ..., curl = getCurlHandle())
 {
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getITISTerms'
@@ -677,7 +677,7 @@ getitisterms <- function(srchkey = NA, ..., curl = getCurlHandle())
 #' getitistermsfromscientificname(srchkey = "Ursus")
 #' }
 #' @export
-#' @noRd 
+#' @keywords internal 
 getitistermsfromscientificname <- function(srchkey = NA, ..., curl = getCurlHandle() ) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getITISTermsFromScientificName'
@@ -703,7 +703,7 @@ getitistermsfromscientificname <- function(srchkey = NA, ..., curl = getCurlHand
 #' getjurisdictionaloriginfromtsn(tsn = 2180543)
 #' }
 #' @export
-#' @noRd 
+#' @keywords internal 
 getjurisdictionaloriginfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), 
                                            verbose=TRUE) 
 {
@@ -739,7 +739,7 @@ getjurisdictionaloriginfromtsn <- function(tsn = NA, ..., curl = getCurlHandle()
 #' getjurisdictionoriginvalues()
 #' }
 #' @export
-#' @noRd 
+#' @keywords internal 
 getjurisdictionoriginvalues <- function() 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getJurisdictionalOriginValues'
@@ -761,7 +761,7 @@ getjurisdictionoriginvalues <- function()
 #' getjurisdictionvalues()
 #' }
 #' @export
-#' @noRd 
+#' @keywords internal 
 getjurisdictionvalues <- function() 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getJurisdictionValues'
@@ -782,7 +782,7 @@ getjurisdictionvalues <- function()
 #' getkingdomnamefromtsn(tsn = 202385)
 #' }
 #' @export
-#' @noRd 
+#' @keywords internal 
 getkingdomnamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), verbose=TRUE) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getKingdomNameFromTSN'
@@ -812,7 +812,7 @@ getkingdomnamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), verbose
 #' getkingdomnames()
 #' }
 #' @export
-#' @noRd 
+#' @keywords internal 
 getkingdomnames <- function() 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getKingdomNames'
@@ -836,7 +836,7 @@ getkingdomnames <- function()
 #' getlastchangedate()
 #' }
 #' @export
-#' @noRd
+#' @keywords internal
 getlastchangedate <- function() 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getLastChangeDate'
@@ -855,7 +855,7 @@ getlastchangedate <- function()
 #' getlsidfromtsn(tsn = 155166)
 #' }
 #' @export
-#' @noRd 
+#' @keywords internal 
 getlsidfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getLSIDFromTSN'
@@ -877,7 +877,7 @@ getlsidfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() )
 #' getothersourcesfromtsn(tsn = 182662)
 #' }
 #' @export
-#' @noRd
+#' @keywords internal
 getothersourcesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getOtherSourcesFromTSN'
@@ -908,7 +908,7 @@ getothersourcesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() )
 #' getparenttsnfromtsn(tsn = 202385)
 #' }
 #' @export
-#' @noRd
+#' @keywords internal
 getparenttsnfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getParentTSNFromTSN'
@@ -939,7 +939,7 @@ getparenttsnfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() )
 #' getpublicationsfromtsn(tsn = 70340)
 #' }
 #' @export
-#' @noRd 
+#' @keywords internal 
 getpublicationsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), verbose=TRUE) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getPublicationsFromTSN'
@@ -972,7 +972,7 @@ getpublicationsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), verbos
 #' getranknames()
 #' }
 #' @export
-#' @noRd 
+#' @keywords internal 
 getranknames <- function() 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getRankNames'
@@ -1001,7 +1001,7 @@ getranknames <- function()
 #' getrecordfromlsid(lsid = "urn:lsid:itis.gov:itis_tsn:180543")
 #' }
 #' @export
-#' @noRd 
+#' @keywords internal 
 getrecordfromlsid <- function(lsid = NA, ..., curl = getCurlHandle() ) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getRecordFromLSID'
@@ -1033,7 +1033,7 @@ getrecordfromlsid <- function(lsid = NA, ..., curl = getCurlHandle() )
 #' getreviewyearfromtsn(tsn = 180541)
 #' }
 #' @export
-#' @noRd
+#' @keywords internal
 getreviewyearfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getReviewYearFromTSN'
@@ -1064,7 +1064,7 @@ getreviewyearfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() )
 #' getscientificnamefromtsn(tsn = 531894)
 #' }
 #' @export
-#' @noRd 
+#' @keywords internal 
 getscientificnamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getScientificNameFromTSN'
@@ -1099,7 +1099,7 @@ getscientificnamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle() )
 #' getsynonymnamesfromtsn(tsn = 526852) # tsn accepted
 #' }
 #' @export
-#' @noRd 
+#' @keywords internal 
 getsynonymnamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle()) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getSynonymNamesFromTSN'
@@ -1128,7 +1128,7 @@ getsynonymnamesfromtsn <- function(tsn = NA, ..., curl = getCurlHandle())
 #' gettaxonauthorshipfromtsn(tsn = 183671)
 #' }
 #' @export
-#' @noRd
+#' @keywords internal
 gettaxonauthorshipfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() ) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getTaxonAuthorshipFromTSN'
@@ -1159,7 +1159,7 @@ gettaxonauthorshipfromtsn <- function(tsn = NA, ..., curl = getCurlHandle() )
 #' gettaxonomicranknamefromtsn(tsn = 202385)
 #' }
 #' @export
-#' @noRd 
+#' @keywords internal 
 gettaxonomicranknamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), verbose = TRUE) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getTaxonomicRankNameFromTSN'
@@ -1193,7 +1193,7 @@ gettaxonomicranknamefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), v
 #' gettaxonomicusagefromtsn(tsn = 526852)
 #' }
 #' @export
-#' @noRd
+#' @keywords internal
 gettaxonomicusagefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), verbose = TRUE)
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getTaxonomicUsageFromTSN'
@@ -1228,7 +1228,7 @@ gettaxonomicusagefromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), verb
 #' gettsnbyvernacularlanguage("french")
 #' }
 #' @export
-#' @noRd
+#' @keywords internal
 gettsnbyvernacularlanguage <- function(language = NA, ..., 
                                        curl = getCurlHandle() ) 
 {
@@ -1262,7 +1262,7 @@ gettsnbyvernacularlanguage <- function(language = NA, ...,
 #' gettsnfromlsid(lsid = "urn:lsid:itis.gov:itis_tsn:0")
 #' }
 #' @export
-#' @noRd 
+#' @keywords internal 
 gettsnfromlsid <- function(lsid = NA, ..., curl = getCurlHandle() ) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getTSNFromLSID'
@@ -1287,7 +1287,7 @@ gettsnfromlsid <- function(lsid = NA, ..., curl = getCurlHandle() )
 #' getunacceptabilityreasonfromtsn(tsn = 183671)
 #' }
 #' @export
-#' @noRd
+#' @keywords internal
 getunacceptabilityreasonfromtsn <- function(tsn = NA, ..., 
                                             curl = getCurlHandle() ) 
 {
@@ -1318,7 +1318,7 @@ getunacceptabilityreasonfromtsn <- function(tsn = NA, ...,
 #' getvernacularlanguages()
 #' }
 #' @export
-#' @noRd
+#' @keywords internal
 getvernacularlanguages <- function() 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getVernacularLanguages'
@@ -1340,7 +1340,7 @@ getvernacularlanguages <- function()
 #' searchbycommonname(srchkey="polar bear")
 #' }
 #' @export
-#' @noRd 
+#' @keywords internal 
 searchbycommonname <- function(srchkey = NA, ..., curl = getCurlHandle() ) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/searchByCommonName'
@@ -1391,7 +1391,7 @@ switch(from,
 #' searchbycommonnamebeginswith("inch")
 #' }
 #' @export
-#' @noRd 
+#' @keywords internal 
 searchbycommonnamebeginswith <- function(srchkey = NA, ..., 
                                          curl = getCurlHandle() ) 
 {
@@ -1422,7 +1422,7 @@ searchbycommonnamebeginswith <- function(srchkey = NA, ...,
 #' searchbycommonnameendswith(srchkey="snake")
 #' }
 #' @export
-#' @noRd 
+#' @keywords internal 
 searchbycommonnameendswith <- function(srchkey = NA, ..., curl=getCurlHandle()) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/searchByCommonNameEndsWith'
@@ -1452,7 +1452,7 @@ searchbycommonnameendswith <- function(srchkey = NA, ..., curl=getCurlHandle())
 #' searchbyscientificname("Quercus douglasii")
 #' }
 #' @export
-#' @noRd 
+#' @keywords internal 
 searchbyscientificname <- function(srchkey = NA, ..., curl = getCurlHandle() ) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/searchByScientificName'
@@ -1480,7 +1480,7 @@ searchbyscientificname <- function(srchkey = NA, ..., curl = getCurlHandle() )
 #' searchforanymatch(srchkey = "dolphin")
 #' }
 #' @export
-#' @noRd
+#' @keywords internal
 searchforanymatch <- function(srchkey = NA,  ..., curl = getCurlHandle() ) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/searchForAnyMatch'
@@ -1523,7 +1523,7 @@ searchforanymatch <- function(srchkey = NA,  ..., curl = getCurlHandle() )
 #' searchforanymatchpaged(srchkey="Zy", pagesize=100, pagenum=1, ascend=FALSE)
 #' }
 #' @export
-#' @noRd
+#' @keywords internal
 searchforanymatchpaged <- function(srchkey = NA, pagesize = NA, pagenum = NA, 
                                    ascend = NA, ..., curl = getCurlHandle() ) 
 {

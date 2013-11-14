@@ -3,7 +3,25 @@ taxize 0.1.4
 
 NEW FEATURES
 
+* Reworked functions that interact with the ITIS API so that lower level functions were grouped together into higher level functions. All the approximately 50 lower level functions are still exported but are not included in the index help file (due to @keywords internal for each fxn) - but can still be used normally, and man files are avaialable at ?functionName.
+* New function itis_ping() to check if the ITIS API service is up, similar to eol_ping() for the EOL API.
+* New function itis_getrecord() to get a partial or full record, using a TSN or lsid.
+* New function itis_refs() to get references associated with a TSN.
+* New function itis_kingdomnames() to get all kingdom names, or kingdom name for a TSN.
+* New function itis_lsid() to get a TSN from an lsid, get a partial or full record from an lsid. 
+* New function itis_native() to get status as native, exotic, etc. in various geographic regions.
+* New function itis_hierarchy() to get full hierarchy, or immediate up or downstream hierarchy.
+* New function itis_terms() to get tsn's, authors, common names, and scientific names from a given query.
 
+MINOR IMPROVEMENTS
+
+* itis_taxrank() now outputs a character, not a factor; loses parameter verbose, and gains ..., which passes on further arguments to gettaxonomicranknamefromtsn.
+* tp_synonyms() gains parameter verbose to optionally suppress messages. 
+
+BUG	FIXES
+
+* Fixed bug in synonyms() so that further arguments can be passed on to get_tsn() to suppress messages. 
+* Removed test for ubio_classification_search(), a function that isn't operational yet. 
 
 taxize 0.1.1
 ===============

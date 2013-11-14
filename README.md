@@ -114,10 +114,6 @@ The following are URL's for API documentation, where to get API keys, and what p
 
 There are a lot of methods for the ITIS API. We have attempted to simplify the interface. Here are some notes:
 
-The following functions are not shown in the `taxize` index page, but are still available by using it's name, e.g. `FunctionName`
-
-`getanymatchcount`, `searchforanymatch`, `searchforanymatchpaged`, `getexpertsfromtsn`, `getcommentdetailfromtsn`, `getcoremetadatafromtsn`, `getcoveragefromtsn`, `getcredibilityratingfromtsn`, `getcredibilityratings`, `getcurrencyfromtsn`, `getdatedatafromtsn`, `getlastchangedate`, `getothersourcesfromtsn`, `getparenttsnfromtsn`, `getglobalspeciescompletenessfromtsn`, `getgeographicdivisionsfromtsn`, `getgeographicvalues`, `getreviewyearfromtsn`, `gettaxonauthorshipfromtsn`, `gettaxonomicusagefromtsn`, `gettsnbyvernacularlanguage`, `getunacceptabilityreasonfromtsn`, `getvernacularlanguages`
-
 The following are higher level functions that attempt to make interacting with the various methods easier. Some are new. The function on the left uses the functions on the right of the arrow. You can access functions on the right of the arrow as normal, but aren't shown in the main help file index to avoid cognitive load.
 
 + `classification` <- `getfullhierarchyfromtsn`
@@ -137,6 +133,10 @@ The following are higher level functions that attempt to make interacting with t
 + `itis_native` <- `getjurisdictionaloriginfromtsn`, `getjurisdictionoriginvalues`, `getjurisdictionvalues`
 + `itis_hierarchy` <- `getfullhierarchyfromtsn`, `gethierarchydownfromtsn`, `gethierarchyupfromtsn`
 + `itis_terms` <- `getitisterms`, `getitistermsfromcommonname`, `getitistermsfromscientificname`
+
+The following functions are not used in the higher level functions above, and aren't shown on the `taxize` index page, but are still available, e.g. `FunctionName`
+
+`getanymatchcount`, `searchforanymatch`, `searchforanymatchpaged`, `getexpertsfromtsn`, `getcommentdetailfromtsn`, `getcoremetadatafromtsn`, `getcoveragefromtsn`, `getcredibilityratingfromtsn`, `getcredibilityratings`, `getcurrencyfromtsn`, `getdatedatafromtsn`, `getlastchangedate`, `getothersourcesfromtsn`, `getparenttsnfromtsn`, `getglobalspeciescompletenessfromtsn`, `getgeographicdivisionsfromtsn`, `getgeographicvalues`, `getreviewyearfromtsn`, `gettaxonauthorshipfromtsn`, `gettaxonomicusagefromtsn`, `gettsnbyvernacularlanguage`, `getunacceptabilityreasonfromtsn`, `getvernacularlanguages`
 
 ### Install `taxize` 
 
