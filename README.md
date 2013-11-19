@@ -5,7 +5,7 @@ taxize
 
 `taxize` allows users to search over many taxonomic data sources for species names (scientific and common) and download up and downstream taxonomic hierarchical information - among other things. 
 
-The `taxize` tutorial is [here](http://ropensci.org/tutorials/taxizetutorial.html)
+The `taxize` tutorial is [here](http://ropensci.org/tutorials/taxize_tutorial.html)
 
 ### Contributors
 
@@ -156,7 +156,7 @@ install_github("taxize", "ropensci")
 library(taxize)
 ```
 
-### A few examples (for more [click here](http://ropensci.org/tutorials/taxizetutorial.html))
+### A few examples (for more [click here](http://ropensci.org/tutorials/taxize_tutorial.html))
 
 #### Get unique taxonomic identifier from NCBI
 
