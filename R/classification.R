@@ -39,6 +39,10 @@
 #' classification(get_eolid(c("Chironomus riparius", "aaa vva")))
 #' classification(get_colid(c("Chironomus riparius", "aaa vva")))
 #' classification(get_tpsid(c("Poa annua", "aaa vva")))
+#' 
+#' # Pass many ids from class "ids"
+#' out <- get_ids(names="Poa annua", db = c('ncbi','itis','col','eol','tropicos'))
+#' classification(out)
 #' }
 #' 
 #' @examples \donttest{
@@ -54,7 +58,7 @@ classification <- function(...){
 #' @rdname classification
 classification.default <- function(x, db = NULL, ...){
   if (is.null(db))
-    stop("Must specify Identifier!")
+    stop("Must specify db!")
   if (db == 'itis') {
     id <- get_tsn(x, ...)
     out <- classification(id, ...)
@@ -191,4 +195,23 @@ classification.tpsid <- function(id, ...) {
   out <- lapply(id, fun)
 #   names(out) <- id
   return(out)
+}
+
+
+#' @method classification ids
+#' @export
+#' @rdname classification
+classification.ids <- function(id, ...) 
+{
+  fun <- function(x, ...){
+    # return NA if NA is supplied
+    if (is.na(x)) {
+      out <- NA
+    } else {
+      out <- classification(x, ...)
+      return(out)
+    }
+  }
+  tmp <- lapply(id, fun)
+  return( tmp )
 }

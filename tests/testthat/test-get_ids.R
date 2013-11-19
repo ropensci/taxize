@@ -8,7 +8,7 @@ test_that("get_ids returns the correct value", {
 })
 
 test_that("get_ids returns the correct class", {
-  expect_that(tt, is_a("allids"))
+  expect_that(tt, is_a("ids"))
   expect_that(tt[[1]], is_a("uid"))
   expect_that(tt[[1]][[1]], is_a("character"))
 })

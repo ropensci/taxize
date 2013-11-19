@@ -3,6 +3,7 @@
 \alias{classification.colid}
 \alias{classification.default}
 \alias{classification.eolid}
+\alias{classification.ids}
 \alias{classification.tpsid}
 \alias{classification.tsn}
 \alias{classification.uid}
@@ -21,6 +22,8 @@
   \method{classification}{colid} (id, ...)
 
   \method{classification}{tpsid} (id, ...)
+
+  \method{classification}{ids} (id, ...)
 }
 \arguments{
   \item{x}{character; taxons to query.}
@@ -71,6 +74,10 @@ classification(get_tsn(c("Chironomus riparius", "aaa vva")))
 classification(get_eolid(c("Chironomus riparius", "aaa vva")))
 classification(get_colid(c("Chironomus riparius", "aaa vva")))
 classification(get_tpsid(c("Poa annua", "aaa vva")))
+
+# Pass many ids from class "ids"
+out <- get_ids(names="Poa annua", db = c('ncbi','itis','col','eol','tropicos'))
+classification(out)
 }
 }
 \seealso{

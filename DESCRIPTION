@@ -1,8 +1,8 @@
 Package: taxize
 Description: Taxonomic information from around the web.
 Title: Taxonomic information from around the web.
-Version: 0.1.4
-Date: 2013-11-13
+Version: 0.1.5
+Date: 2013-11-18
 License: CC0
 URL: https://ropensci.github.com/taxize_
 BugReports: https://github.com/ropensci/taxize_/issues
@@ -20,6 +20,7 @@ Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "johnbb@student.unimelb.edu.au"))
 LazyLoad: yes
 LazyData: yes
+VignetteBuilder: knitr
 Depends:
     R (>= 3.0.1)
 Imports:
@@ -39,8 +40,8 @@ Suggests:
     testthat,
     roxygen2,
     rjson,
-    vegan
-Enhances: RNeXML
+    vegan,
+    knitr
 Collate:
     'classification.R'
     'get_tsn.R'

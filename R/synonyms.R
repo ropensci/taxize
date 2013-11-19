@@ -23,6 +23,10 @@
 #' 
 #' # Use methods for get_uid and get_tsn
 #' synonyms(get_tsn("Poa annua"))
+#' 
+#' # Pass many ids from class "ids"
+#' out <- get_ids(names="Poa annua", db = c('itis','tropicos'))
+#' synonyms(out)
 #' }
 
 synonyms <- function(...){
@@ -78,6 +82,23 @@ synonyms.tpsid <- function(id, ...)
       out <- tp_synonyms(x, ...)$synonyms
     }
     out
+  }
+  return( lapply(id, fun) )
+}
+
+
+#' @method synonyms ids
+#' @export
+#' @rdname synonyms
+synonyms.ids <- function(id, ...) 
+{
+  fun <- function(x){
+    if (is.na(x)) {
+      out <- NA
+    } else {
+      out <- synonyms(x, ...)
+    }
+    return( out )
   }
   return( lapply(id, fun) )
 }

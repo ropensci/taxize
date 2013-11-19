@@ -19,6 +19,6 @@ test_that("itis_kingdomnames correctly suppresses a message", {
   expect_that(itis_kingdomnames(180543, verbose=FALSE), not(is_true()))
 })
 
-test_that("itis_kingdomnames returns correct error when given nonsense", {
-  expect_error(itis_kingdomnames("stuff"))
+test_that("itis_kingdomnames returns empty character string when given nonsense", {
+  expect_that(nchar(itis_kingdomnames("stuff"))[[1]], equals(0))
 })

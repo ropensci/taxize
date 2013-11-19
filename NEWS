@@ -1,3 +1,11 @@
+taxize 0.1.5
+===============
+
+NEW FEATURES
+
+* classification() gains extension method classification.ids() to accept output from get_ids() - which attempts to get a taxonomic hierarchy from each of the taxon identifiers with the output from get_ids().
+* synonyms() gains extension method synonyms.ids() to accept output from get_ids() - which attempts to get synonyms from each of the taxon identifiers with the output from get_ids().
+
 taxize 0.1.4
 ===============
 

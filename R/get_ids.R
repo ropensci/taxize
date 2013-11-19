@@ -32,7 +32,8 @@
 #' classification(out$itis)
 #' synonyms(out$tropicos)
 #' }
-get_ids <- function(names, db = NULL, ...){
+get_ids <- function(names, db = NULL, ...)
+{
   if(is.null(db))
     stop("Must specify on or more values for db!")
  
@@ -49,6 +50,6 @@ get_ids <- function(names, db = NULL, ...){
   
   tmp <- lapply(db, function(x) foo(x, names=names, ...))
   names(tmp) <- db
-  class(tmp) <- "allids"
+  class(tmp) <- "ids"
   return( tmp )
 }

@@ -1,6 +1,7 @@
 \name{synonyms}
 \alias{synonyms}
 \alias{synonyms.default}
+\alias{synonyms.ids}
 \alias{synonyms.tpsid}
 \alias{synonyms.tsn}
 \title{Retrieve synonyms from various sources given input taxonomic names or identifiers.}
@@ -12,6 +13,8 @@
   \method{synonyms}{tsn} (id, ...)
 
   \method{synonyms}{tpsid} (id, ...)
+
+  \method{synonyms}{ids} (id, ...)
 }
 \arguments{
   \item{x}{character; taxons to query.}
@@ -48,6 +51,10 @@ synonyms(c("Poa annua",'Pinus contorta'), db="tropicos")
 
 # Use methods for get_uid and get_tsn
 synonyms(get_tsn("Poa annua"))
+
+# Pass many ids from class "ids"
+out <- get_ids(names="Poa annua", db = c('itis','tropicos'))
+synonyms(out)
 }
 }
 \seealso{
