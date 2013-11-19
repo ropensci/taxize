@@ -1,8 +1,11 @@
 Package: taxize
-Description: Taxonomic information from around the web.
+Description: Taxonomic information from around the web. This package 
+    interacts with a suite of web APIs for taxonomic tasks, such
+    as verifying species names, getting taxonomic hierarchies, 
+    and verifying name spelling.
 Title: Taxonomic information from around the web.
-Version: 0.1.0
-Date: 2013-10-23
+Version: 0.1.5
+Date: 2013-11-18
 License: CC0
 URL: https://ropensci.github.com/taxize_
 BugReports: https://github.com/ropensci/taxize_/issues
@@ -12,12 +15,15 @@ Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "szoe8822@uni-landau.de"),
     person("Carl", "Boettiger", role = "aut",
     email = "cboettig@gmail.com"),
+    person("Karthik", "Ram", role = "aut",
+    email = "karthik@ropensci.org"),
     person("Ignasi", "Bartomeus", role = "aut",
     email = "nacho.bartomeus@gmail.com"),
     person("John", "Baumgartner", role = "aut",
     email = "johnbb@student.unimelb.edu.au"))
 LazyLoad: yes
 LazyData: yes
+VignetteBuilder: knitr
 Depends:
     R (>= 3.0.1)
 Imports:
@@ -31,12 +37,14 @@ Imports:
     ape,
     Taxonstand,
     reshape2,
-    data.table
+    data.table,
+    reshape
 Suggests:
     testthat,
     roxygen2,
     rjson,
-    vegan
+    vegan,
+    knitr
 Collate:
     'classification.R'
     'get_tsn.R'
@@ -50,7 +58,6 @@ Collate:
     'eol_ping.R'
     'eol_search.R'
     'gnr_resolve.R'
-    'phylomatic_tree.R'
     'get_seqs.R'
     'taxize-package.R'
     'itis_acceptname.R'
@@ -88,9 +95,29 @@ Collate:
     'names_list.r'
     'startup.R'
     'taxize_capwords.r'
-    'parsenames.R'
     'ubio_id.R'
     'ubio_classification.R'
     'ubio_search.R'
     'ubio_classification_search.R'
     'ubio_synonyms.R'
+    'eol_invasive.R'
+    'get_tpsid.R'
+    'synonyms.R'
+    'tp_search.R'
+    'get_eolid.R'
+    'col_search.R'
+    'get_colid.R'
+    'tp_classification.R'
+    'get_ids.R'
+    'comm2sci.R'
+    'sci2comm.R'
+    'phylomatic_tree.R'
+    'gbif_parse.R'
+    'itis_getrecord.R'
+    'itis_ping.R'
+    'itis_refs.R'
+    'itis_kingdomnames.R'
+    'itis_lsid.R'
+    'itis_native.R'
+    'itis_hierarchy.R'
+    'itis_terms.R'

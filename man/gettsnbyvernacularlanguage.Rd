@@ -25,4 +25,5 @@
 gettsnbyvernacularlanguage("french")
 }
 }
+\keyword{internal}
 

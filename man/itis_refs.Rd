@@ -1,0 +1,26 @@
+\name{itis_refs}
+\alias{itis_refs}
+\title{Get references related to a ITIS TSN.}
+\usage{
+  itis_refs(tsn, ...)
+}
+\arguments{
+  \item{tsn}{One or more TSN's (taxonomic serial number)
+  for a taxonomic group (numeric)}
+
+  \item{...}{Further arguments passed on to
+  getpublicationsfromtsn}
+}
+\description{
+  Get references related to a ITIS TSN.
+}
+\examples{
+\dontrun{
+itis_refs(202385)
+itis_refs(c(202385,70340))
+
+# suppress message
+itis_refs(202385, verbose=FALSE)
+}
+}
+

@@ -39,10 +39,12 @@
 #'    checklist="2012")
 #' out$Apis # get just the output you want
 #' ldply(out) # or combine to one data.frame
+#' 
+#' # Use get_colid to pass in ID directly
+#' col_classification(id=get_colid(sciname='Puma concolor'))
 #' }
 #' @export
-col_classification <- function(name = NULL, id = NULL, format = NULL, 
-                               start = NULL, checklist = NULL)
+col_classification <- function(name=NULL, id=NULL, format=NULL, start=NULL, checklist=NULL)
 {
   url <- "http://www.catalogueoflife.org/col/webservice"
 	func <- function(x, y) {

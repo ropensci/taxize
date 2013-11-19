@@ -2,13 +2,13 @@ citHeader("To cite taxize in publications use:")
 
 citEntry(entry = "Article",
    title          = "taxize - taxonomic search and retrieval in R",
-   journal		  = "Submitted to PLOS One",
+   journal		  = "F1000Research",
    author         = personList(person("Scott Chamberlain"), person("Eduard Szocs")),
    year           = "2013",
-   url            = "http://bit.ly/142Fxw3",
+   url            = "http://f1000research.com/articles/2-191/v2",
 
    textVersion  =
    paste("Scott Chamberlain and Eduard Szocs (2013).",
         "taxize - taxonomic search and retrieval in R.",
-        "Submitted to PLOS One. URL http://bit.ly/142Fxw3.")
+        "F1000Research, 2:191. URL: http://f1000research.com/articles/2-191/v2.")
 )

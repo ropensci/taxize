@@ -1,0 +1,36 @@
+\name{itis_terms}
+\alias{itis_terms}
+\title{Get ITIS terms, i.e., tsn's, authors, common names, and scientific names.}
+\usage{
+  itis_terms(query, what = "both", ...)
+}
+\arguments{
+  \item{query}{One or more common or scientific names, or
+  partial names}
+
+  \item{what}{One of both (search common and scientific
+  names), common (search just common names), or scientific
+  (search just scientific names)}
+
+  \item{...}{Further arguments passed on to
+  \code{\link{getitisterms}},
+  \code{\link{getitistermsfromcommonname}},
+  \code{\link{getitistermsfromscientificname}}}
+}
+\description{
+  Get ITIS terms, i.e., tsn's, authors, common names, and
+  scientific names.
+}
+\examples{
+\dontrun{
+# Get terms searching both common and scientific names
+itis_terms(query='bear')
+
+# Get terms searching just common names
+itis_terms(query='tarweed', "common")
+
+# Get terms searching just scientific names
+itis_terms(query='Poa annua', "scientific")
+}
+}
+

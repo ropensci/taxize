@@ -3,6 +3,7 @@
 #' @import XML httr stringr
 #' @param ids GenBank ids to search for (character).
 #' @param format Return type, e.g., "fasta"
+#' @param verbose logical; If TRUE (default), informative messages printed.
 #' @details Removes predicted sequences so you don't have to remove them. 
 #' 		Predicted sequences are those with accession numbers that have "XM_" or 
 #' 		"XR_" prefixes. 
@@ -16,9 +17,9 @@
 #' get_genes(ids=c("360040093","347448433"), format="fasta")
 #' }
 #' @export
-get_genes <- function(ids, format="fasta")
+get_genes <- function(ids, format="fasta", verbose=TRUE)
 {
-	message("Retrieving sequence IDs...")
+	mssg(verbose, "Retrieving sequence IDs...")
 	
 	ids <- paste(ids, collapse=",")
 	queryseq <- list(db = "sequences", id = ids, rettype = format, retmode = "text")
@@ -38,6 +39,6 @@ get_genes <- function(ids, format="fasta")
 		outoutout
 	}
 	df <- ldply(outseq2, foo)
-	message("...done")
+	mssg(verbose, "...done")
 	return(df)
 }

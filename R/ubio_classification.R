@@ -6,7 +6,7 @@
 #'    wish to receive
 #' @param childrenFlag (0 or 1) to include the taxon's children taxa
 #' @param ancestryFlag (0 or 1) to include the taxon's taxonomic ancestry
-#' @param justificationFlag (0 or 1) to include the bibliographic references
+#' @param justificationsFlag (0 or 1) to include the bibliographic references
 #' @param synonymsFlag (0 or 1) to include the taxon's synonymous taxa
 #' @param keyCode Your uBio API key; loads from .Rprofile. If you don't have 
 #'    one, obtain one at http://www.ubio.org/index.php?pagename=form.
@@ -41,19 +41,19 @@ ubio_classification <- function(hierarchiesID = NULL, childrenFlag = 0,
   names(out) <- c("classificationTitleID", "classificationTitle", 
                   "classificationRoot", "rankName", "rankID", "classificationsID", 
                   "namebankID", "nameString")
-  child <- ifelsedata(childrenFlag, "children", 4)
-  ancestry <- ifelsedata(ancestryFlag, "ancestry", 4)
-  synonyms <- ifelsedata(synonymsFlag, "synonyms", 4)
-  refs <- ifelsedata(justificationsFlag, "citations", 4)
+  child <- ifelsedata(tt, childrenFlag, "children", 4)
+  ancestry <- ifelsedata(tt, ancestryFlag, "ancestry", 4)
+  synonyms <- ifelsedata(tt, synonymsFlag, "synonyms", 4)
+  refs <- ifelsedata(tt, justificationsFlag, "citations", 4)
   compact(list(data=out, children=child, ancestry=ancestry, synonyms=synonyms, refs=refs))
 }
 
 #' Function to parse xml data, decode strings, and return NULL if logical is zero.
 #' @export
 #' @keywords internal
-ifelsedata <- function(x, y, z)
+ifelsedata <- function(a, x, y, z)
 {
   if(x == 1){
-    ldfast(getxmldata(obj=tt, node=y, todecode=z), convertvec=TRUE) 
+    ldfast(getxmldata(obj=a, node=y, todecode=z), convertvec=TRUE) 
   } else { NULL }
 }

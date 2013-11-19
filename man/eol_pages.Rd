@@ -2,13 +2,12 @@
 \alias{eol_pages}
 \title{Search for pages in EOL database using a taxonconceptID.}
 \usage{
-  eol_pages(taxonconceptID, iucn = NULL, images = NULL,
-    videos = NULL, sounds = NULL, maps = NULL, text = NULL,
-    subject = NULL, licenses = NULL, details = NULL,
-    common_names = NULL, synonyms = NULL,
-    references = NULL, vetted = NULL, cache_ttl = NULL,
-    returntype = "data.frame", key = NULL,
-    callopts = list())
+  eol_pages(taxonconceptID, iucn = FALSE, images = 0,
+    videos = 0, sounds = 0, maps = 0, text = 0,
+    subject = "overview", licenses = "all",
+    details = FALSE, common_names = FALSE,
+    synonyms = FALSE, references = FALSE, vetted = 0,
+    cache_ttl = NULL, key = NULL, callopts = list())
 }
 \arguments{
   \item{taxonconceptID}{The taxonconceptID (numeric), which
@@ -66,9 +65,6 @@
   \item{cache_ttl}{The number of seconds you wish to have
   the response cached.}
 
-  \item{returntype}{One of "list" of "data.frame"
-  (character)}
-
   \item{key}{Your EOL API key; loads from .Rprofile, or you
   can specify the key manually the in the function call.}
 
@@ -86,8 +82,8 @@
 }
 \examples{
 \dontrun{
-pageid <- eol_search('Pomatomus')$id[1]
-out <- eol_pages(taxonconceptID=pageid)
+pageid <- eol_search('Pomatomus')$pageid[1]
+out <- eol_pages(taxonconceptID=pageid)$scinames
 eol_hierarchy(out[out$nameAccordingTo == "NCBI Taxonomy", "identifier"])
 eol_hierarchy(out[out$nameAccordingTo == "Integrated Taxonomic Information
    System (ITIS)", "identifier"])

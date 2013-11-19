@@ -24,4 +24,5 @@ getcoremetadatafromtsn(tsn = 28727)  # coverage and currrency data
 getcoremetadatafromtsn(tsn = 183671)  # no coverage or currrency data
 }
 }
+\keyword{internal}
 

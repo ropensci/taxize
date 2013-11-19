@@ -4,8 +4,7 @@
 \usage{
   eol_search(terms, page = 1, exact = NULL,
     filter_tid = NULL, filter_heid = NULL,
-    filter_by_string = NULL, cache_ttl = NULL,
-    returntype = "data.frame", key = NULL,
+    filter_by_string = NULL, cache_ttl = NULL, key = NULL,
     callopts = list())
 }
 \arguments{
@@ -33,9 +32,6 @@
 
   \item{cache_ttl}{The number of seconds you wish to have
   the response cached.}
-
-  \item{returntype}{one of "list" of "data.frame"
-  (character)}
 
   \item{key}{Your EOL API key; loads from .Rprofile.}
 

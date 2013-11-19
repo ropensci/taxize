@@ -23,4 +23,5 @@ getcurrencyfromtsn(tsn = 28727) # currency data
 getcurrencyfromtsn(tsn = 526852) # no currency dat
 }
 }
+\keyword{internal}
 

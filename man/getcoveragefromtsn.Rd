@@ -23,4 +23,5 @@ getcoveragefromtsn(tsn = 28727)  # coverage data
 getcoveragefromtsn(tsn = 526852)  # no coverage data
 }
 }
+\keyword{internal}
 

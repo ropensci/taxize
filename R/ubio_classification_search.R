@@ -42,13 +42,3 @@ ubio_classification_search <- function(namebankID = NULL, classificationTitleID 
 #   refs <- ifelsedata(justificationsFlag, "citations", 4)
 #   compact(list(data=out, children=child, ancestry=ancestry, synonyms=synonyms, refs=refs))
 }
-
-#' Function to parse xml data, decode strings, and return NULL if logical is zero.
-#' @export
-#' @keywords internal
-ifelsedata <- function(x, y, z)
-{
-  if(x == 1){
-    ldfast(getxmldata(obj=tt, node=y, todecode=z), convertvec=TRUE) 
-  } else { NULL }
-}

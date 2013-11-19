@@ -3,9 +3,11 @@
 \title{Get kingdom names from tsn}
 \usage{
   getkingdomnamefromtsn(tsn = NA, ...,
-    curl = getCurlHandle())
+    curl = getCurlHandle(), verbose = TRUE)
 }
 \arguments{
+  \item{verbose}{Verbosity or not (default TRUE)}
+
   \item{tsn}{TSN for a taxonomic group (numeric)}
 
   \item{...}{optional additional curl options (debugging
@@ -23,4 +25,5 @@
 getkingdomnamefromtsn(tsn = 202385)
 }
 }
+\keyword{internal}
 

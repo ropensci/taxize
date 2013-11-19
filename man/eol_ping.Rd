@@ -15,4 +15,7 @@
 eol_ping()
 }
 }
+\seealso{
+  \code{\link{itis_ping}}
+}
 

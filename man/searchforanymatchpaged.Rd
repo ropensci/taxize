@@ -34,4 +34,5 @@ searchforanymatchpaged(srchkey=202385, pagesize=100, pagenum=1, ascend=FALSE)
 searchforanymatchpaged(srchkey="Zy", pagesize=100, pagenum=1, ascend=FALSE)
 }
 }
+\keyword{internal}
 

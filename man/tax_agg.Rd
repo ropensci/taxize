@@ -16,8 +16,9 @@
   \item{db}{character; taxonomic API to use, 'ncbi, 'itis'
   or both, see \code{\link[taxize]{tax_name}}.}
 
-  \item{...}{other arguments passed to
-  \code{\link[taxize]{tax_name}}.}
+  \item{...}{Other arguments passed to
+  \code{\link[taxize]{get_tsn}} or
+  \code{\link[taxize]{get_uid}}.}
 }
 \value{
   A list of class \code{tax_agg} with the following items:

@@ -3,9 +3,11 @@
 \title{Returns a list of the pulications used for the TSN.}
 \usage{
   getpublicationsfromtsn(tsn = NA, ...,
-    curl = getCurlHandle())
+    curl = getCurlHandle(), verbose = TRUE)
 }
 \arguments{
+  \item{verbose}{Verbosity or not (default TRUE)}
+
   \item{tsn}{TSN for a taxonomic group (numeric)}
 
   \item{...}{optional additional curl options (debugging
@@ -23,4 +25,5 @@
 getpublicationsfromtsn(tsn = 70340)
 }
 }
+\keyword{internal}
 

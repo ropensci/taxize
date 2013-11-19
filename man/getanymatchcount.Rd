@@ -29,4 +29,5 @@ getanymatchcount(202385)
 getanymatchcount("dolphin")
 }
 }
+\keyword{internal}
 

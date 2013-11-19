@@ -2,7 +2,8 @@
 \alias{get_genes_avail}
 \title{Retrieve gene sequences available for a species from NCBI.}
 \usage{
-  get_genes_avail(taxon_name, seqrange, getrelated = FALSE)
+  get_genes_avail(taxon_name, seqrange, getrelated = FALSE,
+    verbose = TRUE)
 }
 \arguments{
   \item{taxon_name}{Scientific name to search for
@@ -14,6 +15,9 @@
   \item{getrelated}{Logical, if TRUE, gets the longest
   sequences of a species in the same genus as the one
   searched for. If FALSE, get's nothing.}
+
+  \item{verbose}{logical; If TRUE (default), informative
+  messages printed.}
 }
 \value{
   Data.frame of results.

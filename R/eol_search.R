@@ -14,7 +14,6 @@
 #'    matching page will be used as the taxonomic group against which to filter search 
 #'    results
 #' @param cache_ttl The number of seconds you wish to have the response cached.
-#' @param returntype one of "list" of "data.frame" (character)
 #' @param key Your EOL API key; loads from .Rprofile.
 #' @param callopts Further args passed on to GET.
 #' @details It's possible to return JSON or XML with the EOL API. However, 
@@ -27,8 +26,7 @@
 #' }
 #' @export
 eol_search <- function(terms, page=1, exact=NULL, filter_tid=NULL, filter_heid=NULL,
-                       filter_by_string=NULL, cache_ttl=NULL, returntype = 'data.frame', 
-                       key = NULL, callopts=list()) 
+  filter_by_string=NULL, cache_ttl=NULL, key = NULL, callopts=list()) 
 {     
   url = 'http://eol.org/api/search/1.0.json'
 	key <- getkey(key, "eolApiKey")
@@ -38,11 +36,13 @@ eol_search <- function(terms, page=1, exact=NULL, filter_tid=NULL, filter_heid=N
                        filter_by_string=filter_by_string,cache_ttl=cache_ttl))
   tt <- GET(url, query=args, callopts)
   stop_for_status(tt)
-  searchresults <- content(tt)
-	
-	if(returntype == 'list') { searchresults  } else
-		if(returntype == 'data.frame'){  
-			ldply(searchresults$results, function(x) as.data.frame(x))  
-		} else  
-			stop("returntype must be one of 'list' or 'data.frame'")
+  res <- content(tt)
+  if(res$totalResults == 0){
+    data.frame(pageid=NA, name=NA)  
+  } else
+  { 
+    tmp <- do.call(rbind.fill, lapply(res$results, data.frame, stringsAsFactors=FALSE))[,c('id','title')]
+    names(tmp) <- c("pageid","name")
+    tmp
+  }
 }

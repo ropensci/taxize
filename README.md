@@ -1,14 +1,20 @@
-# This is `taxize`
+taxize
+=======
 
-We are developing `taxize` as a package to allow users to search over many websites for species names (scientific and common) and download up and downstream taxonomic hierarchical information - and many other things. 
+[![Build Status](https://api.travis-ci.org/ropensci/taxize.png)](https://travis-ci.org/ropensci/taxize)
 
-The `taxize` rOpenSci tutorial is [here](http://ropensci.github.com/taxize_/)
+`taxize` allows users to search over many taxonomic data sources for species names (scientific and common) and download up and downstream taxonomic hierarchical information - among other things. 
 
-`taxize` is part of the rOpenSci project, visit [our webiste](http://ropensci.org) to learn more.
+The `taxize` tutorial is [here](http://ropensci.org/tutorials/taxizetutorial.html)
 
-### Development by
-+ [Scott Chamberlain](http://schamberlain.github.com/scott)
+### Contributors
+
++ [Scott Chamberlain](https://github.com/SChamberlain)
 + [Eduard Szöcs](https://github.com/EDiLD)
++ [Carl Boettiger](https://github.com/cboettig)
++ [Karthik Ram](https://github.com/karthik)
++ [Ignasi Bartomeus](https://github.com/ibartomeus)
++ [John Baumgartner](https://github.com/johnbaums)
 
 The functions in the package that hit a specific API have a prefix and suffix separated by an underscore. They follow the format of `service_whatitdoes`.  For example, `gnr_resolve` uses the Global Names Resolver API to resolve species names.  General functions in the package that don't hit a specific API don't have two words separated by an underscore, e.g., `classification`.
 
@@ -17,6 +23,28 @@ You need API keys for Encyclopedia of Life (EOL), the Universal Biological Index
 The following are URL's for API documentation, where to get API keys, and what prefix they have in function names. 
 
 ### Currently implemented in `taxize`
+
+|Souce|Function prefix| API Docs|API key|
+|---|---|---|---|
+|Encylopedia of Life|`eol`|[here](http://www.eol.org/api/)|[here](http://eol.org/users/register)|
+|Taxonomic Name Resolution Service|`tnrs`|[here](http://api.phylotastic.org/tnrs)|none|
+|Integrated Taxonomic Information Service|`itis`|[here](http://www.itis.gov/ws_description.html)|none|
+|Phylomatic|`phylomatic`|[here](http://www.phylodiversity.net/phylomatic/phylomatic_api.html)|none|
+|uBio|`ubio`|[here](http://www.ubio.org/index.php?pagename=xml_services)|[here](http://www.ubio.org/index.php?pagename=form)|
+|Global Names Resolver|`gnr`|[here](http://resolver.globalnames.org/api)|none|
+|Global Names Index|`gni`|[here](https://github.com/dimus/gni/wiki/api)|none|
+|IUCN Red List|`iucn`|[here](https://www.assembla.com/spaces/sis/wiki/Red_List_API?version=3)|none|
+|Tropicos|`tp`|[here](http://services.tropicos.org/help)|[here](http://services.tropicos.org/help?requestkey)|
+|Plantminer|`plantminer`|[here](http://www.plantminer.com/help)|[here](http://www.plantminer.com/help)|
+|Theplantlist dot org|`tpl`|\*\*|none|
+|Catalogue of Life|`col`|[here](http://www.catalogueoflife.org/colwebsite/content/web-services)|none|
+|Global Invasive Species Database|`gisd`|\***|none|
+
+**: There are none! We suggest using `TPL` and `TPLck` functions in the [taxonstand package](http://cran.r-project.org/web/packages/Taxonstand/index.html). We provide two functions to get bullk data: `tpl_families` and `tpl_get`.
+
+\***: There are none! The function scrapes the web directly.
+
+<!-- ### Currently implemented in `taxize`
 + Encyclopedia of Life (EOL)
 	+ [API docs](http://www.eol.org/api/)
 	+ [Get an API key: start an account on EOL to get your API key](http://eol.org/users/register)
@@ -59,59 +87,95 @@ The following are URL's for API documentation, where to get API keys, and what p
  	+ API docs: There are none! We wrap functions in the [taxonstand package](http://cran.r-project.org/web/packages/Taxonstand/index.html)
  	+ function prefix: `tpl`
 + Catalogue of Life
- 	+ [API docs](http://www.catalogueoflife.org/colwebsite/content/services)
+ 	+ [API docs](http://www.catalogueoflife.org/colwebsite/content/web-services)
  	+ function prefix: `col`
 + Global Invasive Species Database
   + [Their website](http://www.issg.org/database/welcome/)
  	+ API docs: There are none! The function scraps the web directly.
- 	+ function prefix: `gisd`
+ 	+ function prefix: `gisd` -->
   
+#### May be in taxize in the future...
 
-### Temporarily not implemented to resolve bugs or to complete development
 + Tree of Life web project
 	+ [Their website](http://tolweb.org/tree/phylogeny.html)
  	+ [API docs](http://tolweb.org/tree/home.pages/downloadtree.html)
- 	+ function prefix: `tol`
-
-### Coming soon
+ 	+ to be function prefix: `tol`
 + Freshwaterecology - The Taxa and Autecology Database for Freshwater Organisms
-  + [Their website](http://www.freshwaterecology.info)
-  + API docs: There are none! The function scraps the web directly.
-  + function prefix: `fresh`
-  + Note: Currently only the macro-invertebrate database is supported!
+	+ [Their website](http://www.freshwaterecology.info)
+	+ API docs: There are none! The function scraps the web directly.
+	+ to be function prefix: `fresh`
+	+ Note: Currently only the macro-invertebrate database is supported!
++ [USDA Plants](http://plants.usda.gov/java/)
++ [NatureServe](http://www.natureserve.org/)
++ [Lichen Taxon dictionary](http://www.thebls.org.uk/)
++ [MycoBank](http://www.mycobank.org/)
+
+#### Notes on the ITIS API
+
+There are a lot of methods for the ITIS API. We have attempted to simplify the interface. Here are some notes:
+
+The following are higher level functions that attempt to make interacting with the various methods easier. Some are new. The function on the left uses the functions on the right of the arrow. You can access functions on the right of the arrow as normal, but aren't shown in the main help file index to avoid cognitive load.
+
++ `classification` <- `getfullhierarchyfromtsn`
++ `itis_downstream` <- `gethierarchydownfromtsn`
++ `itis_searchcommon` <- `searchbycommonnamebeginswith`, `searchbycommonnameendswith`
++ `get_tsn` <- `searchbycommonnamebeginswith`, `searchbycommonnameendswith`, `searchbycommonname`, `searchbyscientificname`
++ `comm2sci` <- `searchbycommonnamebeginswith`, `searchbycommonnameendswith`, `searchbycommonname`, `getscientificnamefromtsn`
++ `sci2comm` <- `searchbycommonnamebeginswith`, `searchbycommonnameendswith`, `searchbycommonname`, `getcommonnamesfromtsn`, `searchbyscientificname`
++ `synonyms` <- `getsynonymnamesfromtsn`
++ `itis_acceptname` <- `getacceptednamesfromtsn`
++ `itis_taxrank` <- `gettaxonomicranknamefromtsn`, `getranknames`
++ `itis_ping` <- `getdescription`
++ `itis_refs` <- `getpublicationsfromtsn`
++ `itis_getrecord` <- `getfullrecordfromtsn`
++ `itis_kingdomnames` <- `getkingdomnamefromtsn`, `getkingdomnames`
++ `itis_lsid` <- `getfullrecordfromlsid`, `getrecordfromlsid`, `gettsnfromlsid`
++ `itis_native` <- `getjurisdictionaloriginfromtsn`, `getjurisdictionoriginvalues`, `getjurisdictionvalues`
++ `itis_hierarchy` <- `getfullhierarchyfromtsn`, `gethierarchydownfromtsn`, `gethierarchyupfromtsn`
++ `itis_terms` <- `getitisterms`, `getitistermsfromcommonname`, `getitistermsfromscientificname`
+
+The following functions are not used in the higher level functions above, and aren't shown on the `taxize` index page, but are still available, e.g. `FunctionName`
+
+`getanymatchcount`, `searchforanymatch`, `searchforanymatchpaged`, `getexpertsfromtsn`, `getcommentdetailfromtsn`, `getcoremetadatafromtsn`, `getcoveragefromtsn`, `getcredibilityratingfromtsn`, `getcredibilityratings`, `getcurrencyfromtsn`, `getdatedatafromtsn`, `getlastchangedate`, `getothersourcesfromtsn`, `getparenttsnfromtsn`, `getglobalspeciescompletenessfromtsn`, `getgeographicdivisionsfromtsn`, `getgeographicvalues`, `getreviewyearfromtsn`, `gettaxonauthorshipfromtsn`, `gettaxonomicusagefromtsn`, `gettsnbyvernacularlanguage`, `getunacceptabilityreasonfromtsn`, `getvernacularlanguages`
 
 ### Install `taxize` 
 
 + Stable version from CRAN:
 
-```R 
+```coffee
 install.packages("taxize")
-require(taxize)
+library(taxize)
 ```
 
 + Or, development version from GitHub:
 
-```R 
+```coffee
 install.packages("devtools")
-require(devtools)
-install_github("taxize_", "ropensci")
-require(taxize)
+library(devtools)
+install_github("taxize", "ropensci")
+library(taxize)
 ```
 
-### A few examples (for more [click here](http://ropensci.github.com/taxize_/))
+### A few examples (for more [click here](http://ropensci.org/tutorials/taxizetutorial.html))
 
-### Get unique taxonomic identifier from NCBI
+#### Get unique taxonomic identifier from NCBI
 
-```R
-> uids <- get_uid(c("Chironomus riparius", "Chaetopteryx"))
+```coffee
+uids <- get_uid(c("Chironomus riparius", "Chaetopteryx"))
 
 Retrieving data for species ' Chironomus riparius '
 
 Retrieving data for species ' Chaetopteryx '
+```
 
-> ## And retrieve classification
-> out <- classification(uids)
-> lapply(out, head)
+#### And retrieve classification
+
+```coffee
+out <- classification(uids)
+lapply(out, head)
+```
+
+```coffee
 [[1]]
               ScientificName         Rank     UID
 1         cellular organisms      no rank  131567
@@ -131,23 +195,28 @@ Retrieving data for species ' Chaetopteryx '
 6           Bilateria      no rank   33213
 ```
 
-### Get unique taxonomic identifier from NCBI
+### Make a phylogeny from Phylomatic
 
-```R
-> # input the taxonomic names
-> taxa <- c("Poa annua", "Abies procera", "Helianthus annuus")
-> 
-> # fetch the tree - the formatting of names and higher taxonmy is done within the function
-> tree <- phylomatic_tree(taxa=taxa, get = 'POST', informat='newick', method = "phylomatic", 
-+     storedtree = "R20120829", taxaformat = "slashpath", outformat = "newick", clean = "true")
-> 
-> # plot the tree
-> plot(tree)
+#### Input the taxonomic names
+
+```coffee
+taxa <- c("Poa annua", "Abies procera", "Helianthus annuus")
 ```
 
-![thing](http://ropensci.github.com/taxize_/phylomatic_phylo.png)
+#### Fetch the tree - the formatting of names and higher taxonmy is done within the function
+
+```coffee
+tree <- phylomatic_tree(taxa=taxa, get = 'POST', informat='newick', method = "phylomatic", storedtree = "R20120829", taxaformat = "slashpath", outformat = "newick", clean = "true")
+```
+
+#### Plot
+
+```coffee
+plot(tree)
+```
+
+![](http://ropensci.github.com/taxize/phylomatic_phylo.png)
 
 
 
 [![](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
-

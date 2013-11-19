@@ -1,0 +1,40 @@
+\name{itis_lsid}
+\alias{itis_lsid}
+\title{Get kingdom names.}
+\usage{
+  itis_lsid(lsid = NULL, what = "tsn", ...)
+}
+\arguments{
+  \item{lsid}{One or more lsid's}
+
+  \item{what}{What to retrieve. One of tsn, record, or
+  fullrecord}
+
+  \item{...}{Further arguments passed on to
+  \code{\link{gettsnfromlsid}},
+  \code{\link{getrecordfromlsid}}, or
+  \code{\link{getfullrecordfromlsid}}}
+}
+\description{
+  Get kingdom names.
+}
+\examples{
+\dontrun{
+# Get TSN
+itis_lsid("urn:lsid:itis.gov:itis_tsn:180543")
+itis_lsid(lsid=c("urn:lsid:itis.gov:itis_tsn:180543","urn:lsid:itis.gov:itis_tsn:28726"))
+
+# Get partial record
+itis_lsid("urn:lsid:itis.gov:itis_tsn:180543", "record")
+
+# Get full record
+itis_lsid("urn:lsid:itis.gov:itis_tsn:180543", "fullrecord")
+
+# An invalid lsid (a tsn actually)
+itis_lsid(202385)
+
+# suppress message
+itis_lsid("urn:lsid:itis.gov:itis_tsn:180543", verbose=FALSE)
+}
+}
+

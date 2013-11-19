@@ -8,19 +8,22 @@
 \arguments{
   \item{search_term}{Name pattern you want to search for
   search term may include following options (Note: can,
-  uni, gen, sp, ssp, au, yr work only for parsed names): *:
-  wild card Search by part of a word planta* exact: exact
-  match Search for exact match of a literal string
-  exact:Parus major ns: name string Search for literal
-  string from its beginning (other modifiers will be
-  ignored) ns:parus maj* can: canonical form Search name
-  without authors (other modifiers will be ignored)
-  can:parus major uni: uninomial Search for higher taxa
-  uni:parus gen: genus Search by genus epithet of species
-  name gen:parus sp: species Search by species epithet
-  sp:major ssp: subspecies Search by infraspecies epithet
-  ssp:major au: author Search by author word au:Shipunov
-  yr: year Search by year yr:2005}
+  uni, gen, sp, ssp, au, yr work only for parsed names):
+  \itemize{ \item * wild card - Search by part of a word
+  (E.g.: planta*) \item exact exact match - Search for
+  exact match of a literal string (E.g.: exact:Parus major)
+  \item ns name string- Search for literal string from its
+  beginning (other modifiers will be ignored) (E.g.:
+  ns:parus maj*) \item can canonical form- Search name
+  without authors (other modifiers will be ignored) (E.g.:
+  can:parus major) \item uni uninomial- Search for higher
+  taxa (E.g.: uni:parus) \item gen genus - Search by genus
+  epithet of species name (E.g.: gen:parus) \item sp
+  species - Search by species epithet (E.g.: sp:major)
+  \item ssp subspecies - Search by infraspecies epithet
+  (E.g.: ssp:major) \item au author - Search by author word
+  (E.g.: au:Shipunov) \item yr year - Search by year (E.g.:
+  yr:2005) }}
 
   \item{per_page}{Number of items per one page (numbers
   larger than 1000 will be decreased to 1000) (default is

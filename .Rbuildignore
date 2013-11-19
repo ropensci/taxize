@@ -1,0 +1,12 @@
+.gitignore
+^Makefile$
+.travis.yml
+man-roxygen
+^.*\.Rproj$
+^\.Rproj\.user$
+CONTRIBUTING.md
+tests/test-all.R
+README.html
+inst/stuff/
+vignettes/taxize_vignette.md
+vignettes/taxize_infotable.md

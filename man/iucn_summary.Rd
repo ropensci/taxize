@@ -9,7 +9,8 @@
   \method{iucn_status}{iucn} (x, ...)
 }
 \arguments{
-  \item{sciname}{character; Scientific name.}
+  \item{sciname}{character; Scientific name. Should be
+  cleand and in the format \emph{<Genus> <Species>}.}
 
   \item{silent}{logical; Make errors silent or not (when
   species not found).}

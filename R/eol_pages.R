@@ -25,7 +25,6 @@
 #'    be returned (untrusted content will not be returned). The default is to return all 
 #'    content. (Default: False)
 #' @param cache_ttl The number of seconds you wish to have the response cached.
-#' @param returntype One of "list" of "data.frame" (character)
 #' @param key Your EOL API key; loads from .Rprofile, or you can specify the 
 #' 		key manually the in the function call.
 #' @param callopts Further args passed on to GET.
@@ -33,19 +32,25 @@
 #' 		this function only returns JSON for now. 
 #' @return JSON list object, or data.frame.
 #' @examples \dontrun{
-#' pageid <- eol_search('Pomatomus')$id[1]
-#' out <- eol_pages(taxonconceptID=pageid)
+#' pageid <- eol_search('Pomatomus')$pageid[1]
+#' out <- eol_pages(taxonconceptID=pageid)$scinames
 #' eol_hierarchy(out[out$nameAccordingTo == "NCBI Taxonomy", "identifier"])
 #' eol_hierarchy(out[out$nameAccordingTo == "Integrated Taxonomic Information 
 #'    System (ITIS)", "identifier"])
 #' }
 #' @export
 
-eol_pages <- function(taxonconceptID, iucn=NULL, images=NULL, videos=NULL, sounds=NULL, 
-                      maps=NULL, text=NULL, subject=NULL, licenses=NULL, details=NULL,
-                      common_names=NULL, synonyms=NULL, references=NULL, vetted=NULL,
-                      cache_ttl=NULL, returntype='data.frame', key = NULL, callopts=list())
-{     
+eol_pages <- function(taxonconceptID, iucn=FALSE, images=0, videos=0, sounds=0, 
+  maps=0, text=0, subject='overview', licenses='all', details=FALSE,
+  common_names=FALSE, synonyms=FALSE, references=FALSE, vetted=0,
+  cache_ttl=NULL, key = NULL, callopts=list())
+{
+  iucn <- tolower(iucn)
+  details <- tolower(details)
+  common_names <- tolower(common_names)
+  synonyms <- tolower(synonyms)
+  references <- tolower(references)
+  
   url <- 'http://eol.org/api/pages/1.0/'
 	key <- getkey(key, "eolApiKey")
   args <- compact(list(iucn=iucn,images=images,videos=videos,sounds=sounds, 
@@ -55,11 +60,23 @@ eol_pages <- function(taxonconceptID, iucn=NULL, images=NULL, videos=NULL, sound
   urlget <- paste(url, taxonconceptID, '.json', sep="")
   tt <- GET(urlget, query=args, callopts)
   stop_for_status(tt)
-  searchresults <- content(tt)
-	
-	if(returntype == 'list') { searchresults  } else
-		if(returntype == 'data.frame'){  
-			ldply(searchresults$taxonConcepts, function(x) as.data.frame(x))  
-		} else  
-			stop("returntype must be one of 'list' or 'data.frame'")
+  res <- content(tt)
+  scinames <- do.call(rbind.fill, lapply(res$taxonConcepts, data.frame))
+  syns <- parseeoldata('synonyms', res)
+  vernac <- parseeoldata('vernacularNames', res)
+  refs <- parseeoldata('references', res)
+  dataobj <- parseeoldata('dataObjects', res)
+  list(scinames=scinames, syns=syns, vernac=vernac, refs=refs, dataobj=dataobj)
+}
+
+parseeoldata <- function(x, y){
+  xx <- y[[x]]
+  if(length(xx)==0){  "no data" } else
+  {
+    tmp <- lapply(xx, data.frame)
+    if(length(tmp)==1)
+      tmp[[1]]
+    else
+      ldply(tmp)
+  }
 }

@@ -9,7 +9,8 @@
 }
 \examples{
 \dontrun{
-getkingdomnamefromtsn(tsn = 202385)
+getkingdomnames()
 }
 }
+\keyword{internal}
 

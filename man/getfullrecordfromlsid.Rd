@@ -5,7 +5,7 @@
   	there is no match or the TSN is invalid.}
 \usage{
   getfullrecordfromlsid(lsid = NA, ...,
-    curl = getCurlHandle())
+    curl = getCurlHandle(), verbose = TRUE)
 }
 \arguments{
   \item{lsid}{lsid for a taxonomic group (character)}
@@ -16,6 +16,8 @@
   \item{curl}{If using in a loop, call getCurlHandle()
   first and pass the returned value in here (avoids
   unnecessary footprint)}
+
+  \item{verbose}{Verbosity or not (default TRUE)}
 }
 \description{
   Returns the full ITIS record for the TSN in the LSID,
@@ -26,6 +28,8 @@
 \examples{
 \dontrun{
 getfullrecordfromlsid(lsid = "urn:lsid:itis.gov:itis_tsn:180543")
+getfullrecordfromlsid(lsid = "urn:lsid:itis.gov:itis_tsn:180543", verbose=FALSE)
 }
 }
+\keyword{internal}
 

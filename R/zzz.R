@@ -58,3 +58,5 @@ ldfast <- function(x, convertvec=FALSE){
   else
     do.call(rbind.fill, x)
 }
+
+mssg <- function(v, ...) if(v) message(...)

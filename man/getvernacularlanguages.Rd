@@ -13,4 +13,5 @@
 getvernacularlanguages()
 }
 }
+\keyword{internal}
 

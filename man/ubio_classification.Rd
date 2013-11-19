@@ -18,7 +18,7 @@ particular ClassificationBankID}
   \item{ancestryFlag}{(0 or 1) to include the taxon's
   taxonomic ancestry}
 
-  \item{justificationFlag}{(0 or 1) to include the
+  \item{justificationsFlag}{(0 or 1) to include the
   bibliographic references}
 
   \item{synonymsFlag}{(0 or 1) to include the taxon's

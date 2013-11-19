@@ -16,6 +16,7 @@
 #' @param sleep Numer of seconds by which to pause between calls. Defaults to 0 
 #' 		seconds. Use when doing many calls in a for loop ar lapply type call.
 #' @param splitby Number by which to split species list for querying the TNRS.
+#' @param verbose Verbosity or not (default TRUE)
 #' @return data.frame of results from TNRS plus the name submitted.
 #' @details If there is no match in the Taxosaurus database, nothing is 
 #'    returned, so youwill not get anything back for non matches. 
@@ -48,7 +49,7 @@
 #' }
 #' @export
 tnrs <- function(query = NA, source_ = NULL, code = NULL, getpost = "POST", 
-                 sleep = 0, splitby = NULL)
+                 sleep = 0, splitby = NULL, verbose=TRUE)
 {
 	url = "http://taxosaurus.org/submit"
   
@@ -72,7 +73,7 @@ tnrs <- function(query = NA, source_ = NULL, code = NULL, getpost = "POST",
 		message <- fromJSON(tt)["message"]
 		retrieve <- str_replace_all(str_extract(message, "http.+"), "\\.$", "")
 		
-		message(paste("Calling ", retrieve, sep=""))
+		mssg(verbose, paste("Calling ", retrieve, sep=""))
 		
 		iter <- 0
 		output <- list()

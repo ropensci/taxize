@@ -3,9 +3,11 @@
 \title{Get jurisdictional origin from tsn}
 \usage{
   getjurisdictionaloriginfromtsn(tsn = NA, ...,
-    curl = getCurlHandle())
+    curl = getCurlHandle(), verbose = TRUE)
 }
 \arguments{
+  \item{verbose}{Verbosity or not (default TRUE)}
+
   \item{tsn}{TSN for a taxonomic group (numeric)}
 
   \item{...}{optional additional curl options (debugging
@@ -20,7 +22,8 @@
 }
 \examples{
 \dontrun{
-getjurisdictionaloriginfromtsn(tsn = 180543)
+getjurisdictionaloriginfromtsn(tsn = 2180543)
 }
 }
+\keyword{internal}
 

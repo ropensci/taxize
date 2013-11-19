@@ -14,4 +14,5 @@
 getranknames()
 }
 }
+\keyword{internal}
 

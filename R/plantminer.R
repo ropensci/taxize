@@ -9,6 +9,7 @@
 #' 		which will then be loaded when you start R. See 
 #' 		\url{http://bit.ly/135eG0b} 
 #' 		for help on how to put api keys in your .Rprofile file.
+#' @param verbose Verbose or not, logical
 #' @return data.frame of results.
 #' @examples \dontrun{
 #' plants <- c("Myrcia lingua", "Myrcia bella", "Ocotea pulchella", 
@@ -16,7 +17,7 @@
 #' plantminer(plants)
 #' }
 #' @export
-plantminer <- function(plants, key = NULL)
+plantminer <- function(plants, key = NULL, verbose=TRUE)
 {
 	key <- getkey(key, "pmApiKey")
 	
@@ -24,7 +25,7 @@ plantminer <- function(plants, key = NULL)
   compiled.list <- foreach (i=1:length(plants), .combine =
     rbind) %do% {
     full.name <- strsplit(plants[i], " ")[[1]]
-    cat(full.name, "\n")
+    mssg(verbose, paste(full.name))
     genus <- full.name[1]
     if (length(full.name) > 1) {
       species <- paste(full.name[2:length(full.name)], collapse = " ")

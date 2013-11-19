@@ -24,4 +24,5 @@ getsynonymnamesfromtsn(tsn = 183671) # tsn not accepted
 getsynonymnamesfromtsn(tsn = 526852) # tsn accepted
 }
 }
+\keyword{internal}
 

@@ -22,6 +22,8 @@
 \examples{
 \dontrun{
 getitistermsfromscientificname(srchkey = "ursidae")
+getitistermsfromscientificname(srchkey = "Ursus")
 }
 }
+\keyword{internal}
 

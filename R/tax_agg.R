@@ -6,7 +6,7 @@
 #' @param rank character; Taxonomic rank to aggregate by.
 #' @param db character; taxonomic API to use, 'ncbi, 'itis' or both, see 
 #' \code{\link[taxize]{tax_name}}.
-#' @param ... other arguments passed to \code{\link[taxize]{tax_name}}.
+#' @param ... Other arguments passed to \code{\link[taxize]{get_tsn}} or \code{\link[taxize]{get_uid}}.
 #' 
 #' @details \code{tax_agg} aggregates (sum) taxa to a specific taxonomic level. 
 #' If a taxon is not found in the database (ITIS or NCBI) or the supplied taxon 

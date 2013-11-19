@@ -24,4 +24,5 @@
 getitistermsfromcommonname("buya")
 }
 }
+\keyword{internal}
 

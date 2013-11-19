@@ -3,7 +3,7 @@
 \title{Get taxonomic names for a given rank.}
 \usage{
   tax_name(query = NULL, get = NULL, db = "itis",
-    pref = "ncbi", verbose = TRUE)
+    pref = "ncbi", verbose = TRUE, ...)
 }
 \arguments{
   \item{query}{character; Vector of taxonomic names to
@@ -22,6 +22,10 @@
 
   \item{verbose}{logical; If TRUE the actual taxon queried
   is printed on the console.}
+
+  \item{...}{Other arguments passed to
+  \code{\link[taxize]{get_tsn}} or
+  \code{\link[taxize]{get_uid}}.}
 }
 \value{
   A data.frame with one column for every queried rank.

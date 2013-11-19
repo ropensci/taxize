@@ -3,41 +3,40 @@
 #' @import XML RCurl RJSONIO plyr
 #' @param id the taxon identifier code 
 #' @param format return in json or xml format (defaults to json)
-#' @param output raw = json or xml; or df = data.frame 
 #' @param key Your Tropicos API key; loads from .Rprofile.
+#' @param verbose Verbose or not
 #' @return List or dataframe.
 #' @export
 #' @examples \dontrun{
 #' tp_synonyms(id = 25509881)
 #' tp_synonyms(id = 25509881, output = 'raw')
 #' }
-tp_synonyms <- function(id, format = 'json', output = 'df', key = NULL) 
+tp_synonyms <- function(id, format = 'json', key = NULL, verbose=TRUE)
 {
   url = 'http://services.tropicos.org/Name/'
 	key <- getkey(key, "tropicosApiKey")
   if (format == 'json') {
     urlget <- paste(url, id, '/Synonyms?apikey=', key, '&format=json', sep="")
-    message(urlget)
-    searchresults <- fromJSON(urlget)
-    } 
+    mssg(verbose, urlget)
+    searchresults <- RJSONIO::fromJSON(urlget)
+  } 
   else {
     urlget <- paste(url, id, '/Synonyms?apikey=', key, '&format=xml', sep="")
-    message(urlget)
+    mssg(verbose, urlget)
     xmlout <- getURL(urlget)
     searchresults <- xmlToList(xmlTreeParse(xmlout))
-    }
-  if(output == 'df') { 
-    getdata <- function(x) {
-      syn <- ldply(x[[1]])
-      syn$category <- rep("Synonym", nrow(syn))
-      acc <- ldply(x[[2]])
-      acc$category <- rep("Accepted", nrow(acc))
-      ref <- ldply(x[[3]])
-      ref$category <- rep("Reference", nrow(ref))
-      temp <- rbind(syn, acc, ref)
-      names(temp)[1:2] <- c('variable','value')
-      temp
-    }
-    ldply(searchresults, getdata)
-  } else { searchresults }
+  }
+  
+  if(names(searchresults[[1]])[[1]] == "Error"){
+    nonedf <- data.frame(NameId="no syns found",ScientificName="no syns found",ScientificNameWithAuthors="no syns found",Family="no syns found")
+    list(accepted=nonedf, synonyms=nonedf)
+  } else
+  {  
+    dat <- lapply(searchresults, function(x) lapply(x, data.frame))
+    accepted <- dat[[1]]$AcceptedName
+#     synonyms <- do.call(rbind.fill, lapply(dat, "[[", "SynonymName"))[,c('NameId','ScientificName','Family')]
+    df <- do.call(rbind.fill, lapply(dat, "[[", "SynonymName"))
+    synonyms <- df[!duplicated.data.frame(df), ]
+    list(accepted=accepted, synonyms=synonyms)
+  }
 }
