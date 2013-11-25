@@ -21,24 +21,20 @@ sci2comm <- function(scinames, db='eol', ...)
   itis2comm <- function(x, ...){
     # get tsn
     tsn <- get_tsn(x, ...)
-    out <- lapply(tsn , function(x) {
-      # if tsn is not found
-      if(is.na(x)) {
+    # if tsn is not found
+    if(is.na(tsn)) {
+      out <- NA
+    } else {
+      out <- getcommonnamesfromtsn(tsn)
+      #if common name is not found
+      if(nrow(out) == 0)
         out <- NA
-      } else {
-       out <- getcommonnamesfromtsn(x)
-       #if common name is not found
-       if(nrow(out) == 0)
-         out <- NA
       }
-      return(out)
-    })
     # name list
-    names(out) <- x
     return(out)
   }
 
-  eolsearch2 <- function(x){
+  eol2comm <- function(x){
     tmp <- eol_search(terms=x)
     pageids <- tmp[grep(x, tmp$name), "pageid"]
     dfs <- compact(lapply(pageids, function(x) eol_pages(taxonconceptID=x, common_names=TRUE)$vernac))
@@ -47,13 +43,17 @@ sci2comm <- function(scinames, db='eol', ...)
 
   getsci <- function(nn, ...){
     switch(db, 
-           eol = eolsearch2(x=nn),
-           itis = itisfxn(nn, ...))
+           eol = eol2comm(nn),
+           itis = itis2comm(nn, ...))
   }
   temp <- lapply(scinames, function(x) getsci(x, ...))
   names(temp) <- scinames
   temp
 }
+
+
+
+
 
 # #' @export
 # #' @keywords internal
