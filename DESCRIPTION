@@ -121,3 +121,4 @@ Collate:
     'itis_native.R'
     'itis_hierarchy.R'
     'itis_terms.R'
+    'scrapenames.r'
