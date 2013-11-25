@@ -18,15 +18,24 @@
 #' }
 sci2comm <- function(scinames, db='eol', ...)
 {  
-  itisfxn <- function(x, ...){
-    out <- searchbyscientificname(x, ...)
-    # remove empty tsn slots
-    tsns <- as.character(out$tsn)
-    tsns <- tsns[!sapply(tsns, nchar)==0]
-    # get scientific names
-    temp <- lapply(tsns, getcommonnamesfromtsn)
-    temp <- temp[!sapply(temp, nrow)==0]
-    do.call(rbind, temp)
+  itis2comm <- function(x, ...){
+    # get tsn
+    tsn <- get_tsn(x, ...)
+    out <- lapply(tsn , function(x) {
+      # if tsn is not found
+      if(is.na(x)) {
+        out <- NA
+      } else {
+       out <- getcommonnamesfromtsn(x)
+       #if common name is not found
+       if(nrow(out) == 0)
+         out <- NA
+      }
+      return(out)
+    })
+    # name list
+    names(out) <- x
+    return(out)
   }
 
   eolsearch2 <- function(x){
