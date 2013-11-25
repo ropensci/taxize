@@ -25,9 +25,9 @@ sci2comm <- function(scinames, db='eol', ...)
     if(is.na(tsn)) {
       out <- NA
     } else {
-      out <- getcommonnamesfromtsn(tsn)
+      out <- as.character(getcommonnamesfromtsn(tsn)$comname)
       #if common name is not found
-      if(nrow(out) == 0)
+      if(length(out) == 0)
         out <- NA
       }
     # name list
@@ -40,11 +40,27 @@ sci2comm <- function(scinames, db='eol', ...)
     dfs <- compact(lapply(pageids, function(x) eol_pages(taxonconceptID=x, common_names=TRUE)$vernac))
     ldply(dfs[sapply(dfs, class)=="data.frame"])
   }
+  
+  ncbi2comm <- function(x, ...){
+    uid <- get_uid(x, ...)
+    
+    baseurl <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy"
+    ID <- paste("ID=", uid, sep = "")
+    searchurl <- paste(baseurl, ID, sep = "&")
+    tt <- getURL(searchurl)
+    ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)
+    # common name
+    out <- xpathSApply(ttp, "//TaxaSet/Taxon/OtherNames/GenbankCommonName", xmlValue)
+    # NCBI limits requests to three per second
+    Sys.sleep(0.33)
+    return(out)
+  }
 
   getsci <- function(nn, ...){
     switch(db, 
-           eol = eol2comm(nn),
-           itis = itis2comm(nn, ...))
+           eol = eol2comm(x = nn),
+           itis = itis2comm(nn, ...),
+           ncbi = ncbi2comm(nn, ...))
   }
   temp <- lapply(scinames, function(x) getsci(x, ...))
   names(temp) <- scinames
