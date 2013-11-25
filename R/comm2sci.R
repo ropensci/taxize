@@ -1,7 +1,8 @@
 #' Get scientific names from common names.
 #' 
 #' @param commnames One or more common names or partial names.
-#' @param db Data source, one of eol (default), itis, or tropicos
+#' @param db Data source, one of \emph{"eol"} (default), \emph{"itis"}, \emph{"tropicos"}
+#' or \emph{"ncbi"}.
 #' @param itisby Search for common names across entire names (search, default),
 #'    at beginning of names (begin), or at end of names (end). 
 #' @param ... Further arguments passed on to functions...
@@ -36,12 +37,29 @@ comm2sci <- function(commnames, db='eol', itisby='search', ...)
     # get scientific names
     do.call(rbind, lapply(tsns, getscientificnamefromtsn))
   }
+  
+  ncbi2sci <- function(x, ...){
+    uid <- get_uid(x, ...)
+    if(is.na(uid))
+      return(NA)
+    baseurl <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy"
+    ID <- paste("ID=", uid, sep = "")
+    searchurl <- paste(baseurl, ID, sep = "&")
+    tt <- getURL(searchurl)
+    ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)
+    # common name
+    out <- xpathSApply(ttp, "//TaxaSet/Taxon/ScientificName", xmlValue)
+    # NCBI limits requests to three per second
+    Sys.sleep(0.33)
+    return(out)
+  }
 
   getsci <- function(nn, ...){
     switch(db, 
            eol = eol_search(terms=nn, ...),
            itis = foo(nn, itisby, ...),
-           tropicos = tp_search(commonname = nn, ...))
+           tropicos = tp_search(commonname = nn, ...),
+           ncbi = ncbi2sci(nn))
   }
   temp <- lapply(commnames, function(x) getsci(x, ...))
   names(temp) <- commnames

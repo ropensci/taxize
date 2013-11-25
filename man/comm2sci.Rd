@@ -8,8 +8,8 @@
   \item{commnames}{One or more common names or partial
   names.}
 
-  \item{db}{Data source, one of eol (default), itis, or
-  tropicos}
+  \item{db}{Data source, one of \emph{"eol"} (default),
+  \emph{"itis"}, \emph{"tropicos"} or \emph{"ncbi"}.}
 
   \item{itisby}{Search for common names across entire names
   (search, default), at beginning of names (begin), or at
