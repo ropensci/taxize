@@ -23,8 +23,10 @@ get_genes <- function(ids, format="fasta", verbose=TRUE)
 	
 	ids <- paste(ids, collapse=",")
 	queryseq <- list(db = "sequences", id = ids, rettype = format, retmode = "text")
-	outseq <- content(
-		GET("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi", query = queryseq))  
+	tt <- 
+		GET("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi", query = queryseq)
+  stop_for_status(tt)
+	outseq <- content(tt, as="text")
 	
 	outseq2 <- str_split(outseq, '>')[[1]][-1]
 	
@@ -38,7 +40,7 @@ get_genes <- function(ids, format="fasta", verbose=TRUE)
 		names(outoutout) <- c("sp","ids","accnum","length","seq")
 		outoutout
 	}
-	df <- ldply(outseq2, foo)
+	df <- data.frame(rbindlist(lapply(outseq2, foo)))
 	mssg(verbose, "...done")
 	return(df)
 }

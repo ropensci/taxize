@@ -20,12 +20,12 @@
 #' @examples \dontrun{
 #' # A single species
 #' get_seqs(taxon_name="Acipenser brevirostrum", gene = c("coi", "co1"), 
-#'		seqrange = "1:3000", getrelated=T, writetodf=F)
+#'		seqrange = "1:3000", getrelated=TRUE, writetodf=FALSE)
 #' 
 #' # Many species, can run in parallel or not using plyr
 #' species <- c("Colletes similis","Halictus ligatus","Perdita trisignata")
 #' llply(species, get_seqs, gene = c("coi", "co1"), seqrange = "1:2000", 
-#'    getrelated=T, writetodf=F)
+#'    getrelated=TRUE, writetodf=FALSE)
 #' }
 #' @export
 get_seqs <- function(taxon_name, gene, seqrange, getrelated, writetodf=TRUE, 

@@ -62,10 +62,15 @@ eol_pages <- function(taxonconceptID, iucn=FALSE, images=0, videos=0, sounds=0,
   stop_for_status(tt)
   res <- content(tt)
   scinames <- do.call(rbind.fill, lapply(res$taxonConcepts, data.frame))
+  names(scinames) <- tolower(names(scinames))
   syns <- parseeoldata('synonyms', res)
+  names(syns) <- tolower(names(syns))
   vernac <- parseeoldata('vernacularNames', res)
+  names(vernac) <- tolower(names(vernac))
   refs <- parseeoldata('references', res)
+  names(refs) <- "references"
   dataobj <- parseeoldata('dataObjects', res)
+  names(dataobj) <- tolower(names(dataobj))
   list(scinames=scinames, syns=syns, vernac=vernac, refs=refs, dataobj=dataobj)
 }
 

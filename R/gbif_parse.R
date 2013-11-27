@@ -26,5 +26,7 @@ gbif_parse <- function(scientificname) {
                       body=RJSONIO::toJSON(scientificname))
   stop_for_status(tt)
   res <- content(tt)
-  do.call(rbind.fill, lapply(res, as.data.frame))
+  tmp <- do.call(rbind.fill, lapply(res, as.data.frame))
+  names(tmp) <- tolower(names(tmp))
+  tmp
 }

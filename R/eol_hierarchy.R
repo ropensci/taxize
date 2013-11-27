@@ -33,7 +33,9 @@ eol_hierarchy <- function(taxonid, common_names = NULL, synonyms = NULL,
       sprintf("No hierarchy information for %s", taxonid)
     } else
     {
-      do.call(rbind.fill, lapply(res$ancestors, data.frame))[,c('taxonID','scientificName','taxonRank')]    
+      tmp <- do.call(rbind.fill, lapply(res$ancestors, data.frame))[,c('taxonID','scientificName','taxonRank')]
+      names(tmp) <- tolower(names(tmp))
+      tmp
     }
   }
 }
