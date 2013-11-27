@@ -52,4 +52,8 @@ llply(species, get_seqs, gene = c("coi", "co1"), seqrange = "1:2000",
 \author{
   Scott Chamberlain \email{myrmecocystus@gmail.com}
 }
+\seealso{
+  \code{\link[taxize]{get_genes_avail}},
+  \code{\link[taxize]{get_genes}}
+}
 

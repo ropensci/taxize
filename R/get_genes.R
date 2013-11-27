@@ -8,6 +8,7 @@
 #' 		Predicted sequences are those with accession numbers that have "XM_" or 
 #' 		"XR_" prefixes. 
 #' @return Data.frame of results. 
+#' @seealso \code{\link[taxize]{get_seqs}}, \code{\link[taxize]{get_genes_avail}}
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @examples \dontrun{
 #' # A single gene

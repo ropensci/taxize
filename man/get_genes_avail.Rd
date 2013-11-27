@@ -55,4 +55,8 @@ out2df[grep("RAG1", out2df$genesavail, ignore.case=T),] # search across all
 \author{
   Scott Chamberlain \email{myrmecocystus@gmail.com}
 }
+\seealso{
+  \code{\link[taxize]{get_seqs}},
+  \code{\link[taxize]{get_genes}}
+}
 

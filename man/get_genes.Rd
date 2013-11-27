@@ -35,4 +35,8 @@ get_genes(ids=c("360040093","347448433"), format="fasta")
 \author{
   Scott Chamberlain \email{myrmecocystus@gmail.com}
 }
+\seealso{
+  \code{\link[taxize]{get_seqs}},
+  \code{\link[taxize]{get_genes_avail}}
+}
 
