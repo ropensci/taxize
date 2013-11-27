@@ -57,7 +57,7 @@
 # A basic example
 col_children(name="Apis")
 
-# An example where there is no classification
+# An example where there is no classification, results in data.frame with no rows
 col_children(id=11935941)
 
 # Use a specific year's checklist
@@ -65,13 +65,14 @@ col_children(name="Apis", checklist="2012")
 col_children(name="Apis", checklist="2009")
 
 # Pass in many names or many id's
-out <- col_children(name=c("Buteo","Apis","Accipiter","asdf"),
-   checklist="2012")
+out <- col_children(name=c("Buteo","Apis","Accipiter","asdf"), checklist="2012")
 out$Apis # get just the output you want
+library(plyr)
 ldply(out) # or combine to one data.frame
 
 # or pass many id's
 out <- col_children(id=c(2346405,2344165,2346405), checklist="2012")
+library(plyr)
 ldply(out) # combine to one data.frame
 }
 }

@@ -63,6 +63,7 @@ col_classification(name="Apis", checklist="2009")
 out <- col_classification(name=c("Buteo","Apis","Accipiter","asdf"),
    checklist="2012")
 out$Apis # get just the output you want
+library(plyr)
 ldply(out) # or combine to one data.frame
 
 # Use get_colid to pass in ID directly

@@ -4,11 +4,11 @@
 \alias{sci2comm.uid}
 \title{Get common names from scientific names.}
 \usage{
-  sci2comm(scinames, db = "eol", ...)
+  sci2comm(scinames, db = "eol", simplify = TRUE, ...)
 
   \method{sci2comm}{uid} (id, ...)
 
-  \method{sci2comm}{tsn} (id, ...)
+  \method{sci2comm}{tsn} (id, simplify, ...)
 }
 \arguments{
   \item{scinames}{character; One or more scientific names
@@ -16,6 +16,10 @@
 
   \item{db}{character; Data source, one of \emph{"eol"}
   (default), \emph{"itis"} or \emph{"ncbi"}.}
+
+  \item{simplify}{(logical) If TRUE, simplify output to a
+  vector of names. If FALSE, return variable formats from
+  different sources, usually a data.frame.}
 
   \item{...}{Further arguments passed on to functions
   \code{\link[taxize]{get_uid}} or
@@ -37,9 +41,17 @@
 }
 \examples{
 \dontrun{
-sci2comm(scinames='Helianthus annuus')
+sci2comm(scinames='Helianthus annuus') # by default uses eol
 sci2comm(scinames='Helianthus annuus', db='itis')
-sci2comm(scinames=c('black bear', 'roe deer'))
+sci2comm(scinames=c('Helianthus annuus', 'Poa annua'))
+sci2comm(scinames='Puma concolor', db='ncbi')
+
+# Passing id in, works for sources: itis and ncbi
+sci2comm(get_tsn('Helianthus annuus'))
+sci2comm(get_uid('Helianthus annuus'))
+
+# Don't simplify returned
+sci2comm(get_tsn('Helianthus annuus'), simplify=FALSE)
 }
 }
 \author{

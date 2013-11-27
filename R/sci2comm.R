@@ -3,6 +3,8 @@
 #' @param scinames character; One or more scientific names or partial names.
 #' @param db character; Data source, one of \emph{"eol"} (default), \emph{"itis"} 
 #' or \emph{"ncbi"}.
+#' @param simplify (logical) If TRUE, simplify output to a vector of names. If FALSE,
+#'    return variable formats from different sources, usually a data.frame.
 #' @param ... Further arguments passed on to functions \code{\link[taxize]{get_uid}} or 
 #' \code{\link[taxize]{get_tsn}}.
 #' @param id character; identifiers, as returned by \code{\link[taxize]{get_tsn}} or
@@ -19,40 +21,52 @@
 #' @export
 #' @author Scott Chamberlain (myrmecocystus@@gmail.com)
 #' @examples \dontrun{
-#' sci2comm(scinames='Helianthus annuus')
+#' sci2comm(scinames='Helianthus annuus') # by default uses eol
 #' sci2comm(scinames='Helianthus annuus', db='itis')
-#' sci2comm(scinames=c('black bear', 'roe deer'))
+#' sci2comm(scinames=c('Helianthus annuus', 'Poa annua'))
+#' sci2comm(scinames='Puma concolor', db='ncbi')
+#' 
+#' # Passing id in, works for sources: itis and ncbi
+#' sci2comm(get_tsn('Helianthus annuus'))
+#' sci2comm(get_uid('Helianthus annuus'))
+#' 
+#' # Don't simplify returned
+#' sci2comm(get_tsn('Helianthus annuus'), simplify=FALSE)
 #' }
 #' @rdname sci2comm
-sci2comm <- function(scinames, db='eol', ...){
+sci2comm <- function(scinames, db='eol', simplify=TRUE, ...){
   UseMethod("sci2comm")
 }
 
 
 #' @S3method sci2comm default
-sci2comm.default <- function(scinames, db='eol', ...)
+sci2comm.default <- function(scinames, db='eol', simplify=TRUE, ...)
 {  
-  itis2comm <- function(x, ...){
+  itis2comm <- function(x, simplify, ...){
     # get tsn
     tsn <- get_tsn(x, ...)
     # if tsn is not found
     if(is.na(tsn)) {
       out <- NA
     } else {
-      out <- as.character(getcommonnamesfromtsn(tsn)$comname)
+      out <- getcommonnamesfromtsn(tsn)
       #if common name is not found
-      if(length(out) == 0)
+      if(nrow(out) == 0)
         out <- NA
       }
-    # name list
-    return(out)
+    if(simplify){
+      as.character(out$comname)
+    } else{ out }
   }
 
-  eol2comm <- function(x){
+  eol2comm <- function(x, simplify){
     tmp <- eol_search(terms=x)
     pageids <- tmp[grep(x, tmp$name), "pageid"]
     dfs <- compact(lapply(pageids, function(x) eol_pages(taxonconceptID=x, common_names=TRUE)$vernac))
-    ldply(dfs[sapply(dfs, class)=="data.frame"])
+    tt <- ldply(dfs[sapply(dfs, class)=="data.frame"])
+    if(simplify){
+      as.character(tt$vernacularName)
+    } else{ tt }
   }
   
   ncbi2comm <- function(x, ...){
@@ -72,8 +86,8 @@ sci2comm.default <- function(scinames, db='eol', ...)
 
   getsci <- function(nn, ...){
     switch(db, 
-           eol = eol2comm(x = nn),
-           itis = itis2comm(nn, ...),
+           eol = eol2comm(x = nn, simplify),
+           itis = itis2comm(nn, simplify, ...),
            ncbi = ncbi2comm(nn, ...))
   }
   temp <- lapply(scinames, function(x) getsci(x, ...))
@@ -107,30 +121,22 @@ sci2comm.uid <- function(id, ...)
 #' @method sci2comm tsn
 #' @export
 #' @rdname sci2comm
-sci2comm.tsn <- function(id, ...){
+sci2comm.tsn <- function(id, simplify, ...){
   itis2comm <- function(id, ...){
     # if tsn is not found
     if(is.na(id)) {
       out <- NA
     } else {
-      out <- as.character(getcommonnamesfromtsn(id)$comname)
+      out <- getcommonnamesfromtsn(tsn)
       #if common name is not found
       if(length(out) == 0)
         out <- NA
     }
-    # name list
-    return(out)
+    if(simplify){
+      as.character(out$comname)
+    } else{ out }
   }
   out <- lapply(id, function(x) itis2comm(x))
   names(out) <- id
   return(out)
 }
-
-# #' @export
-# #' @keywords internal
-# tropicoscommnamesearch <- function(x, ...){
-#   tmp <- tp_search(x, ...)
-#   df <- tmp[,c('NameId','ScientificName','RankAbbreviation','NomenclatureStatusName')]
-#   names(df) <- c('tpsid','name','rank','status')
-#   df
-# }

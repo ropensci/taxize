@@ -4,9 +4,11 @@
 #' @param db Data source, one of \emph{"eol"} (default), \emph{"itis"}, \emph{"tropicos"}
 #' or \emph{"ncbi"}.
 #' @param itisby Search for common names across entire names (search, default),
-#'    at beginning of names (begin), or at end of names (end). 
-#' @param ... Further arguments passed on to functions...
-#' @return List of data.frame's.
+#'    at beginning of names (begin), or at end of names (end).
+#' @param simplify (logical) If TRUE, simplify output to a vector of names. If FALSE,
+#'    return variable formats from different sources, usually a data.frame.
+#' @param ... Further arguments passed on to internal methods.
+#' @return A vector of names.
 #' @seealso \code{\link[taxize]{searchbycommonname}}, 
 #' \code{\link[taxize]{searchbycommonnamebeginswith}}, 
 #' \code{\link[taxize]{searchbycommonnameendswith}}, \code{\link[taxize]{eol_search}},
@@ -17,16 +19,17 @@
 #' @examples \dontrun{
 #' comm2sci(commnames='black bear')
 #' comm2sci(commnames='black bear', db='itis')
-#' comm2sci(commnames='inch', db='itis', itisby='begin')
-#' comm2sci(commnames='snake', db='itis', itisby='end')
 #' comm2sci(commnames='annual blue grass', db='tropicos')
 #' comm2sci(commnames=c('annual blue grass','tree of heaven'), db='tropicos')
-#' do.call(rbind.fill, comm2sci(commnames=c('annual blue grass','tree of heaven'), db='tropicos'))
 #' comm2sci(commnames=c('black bear', 'roe deer'))
+#' 
+#' # Output easily converts to a data.frame with \code{\link[plyr]{ldply}}
+#' library(plyr)
+#' ldply(comm2sci(commnames=c('annual blue grass','tree of heaven'), db='tropicos'))
 #' }
-comm2sci <- function(commnames, db='eol', itisby='search', ...)
+comm2sci <- function(commnames, db='eol', itisby='search', simplify=TRUE, ...)
 { 
-  foo <- function(x, by='search', ...){
+  foo <- function(x, by='search', simplify, ...){
     tmp <- switch(by, 
                   search = searchbycommonname(x, ...),
                   begin = searchbycommonnamebeginswith(x, ...),
@@ -35,10 +38,13 @@ comm2sci <- function(commnames, db='eol', itisby='search', ...)
     tsns <- as.character(tmp$tsn)
     tsns <- tsns[!sapply(tsns, nchar)==0]
     # get scientific names
-    do.call(rbind, lapply(tsns, getscientificnamefromtsn))
+    tmp <- do.call(rbind, lapply(tsns, getscientificnamefromtsn))
+    if(simplify){
+      as.character(tmp$combinedName)
+    } else{ tmp }
   }
   
-  ncbi2sci <- function(x, ...){
+  ncbi2sci <- function(x, simplify, ...){
     uid <- get_uid(x, ...)
     if(is.na(uid))
       return(NA)
@@ -53,12 +59,26 @@ comm2sci <- function(commnames, db='eol', itisby='search', ...)
     Sys.sleep(0.33)
     return(out)
   }
+  
+  eol_search_ <- function(simplify, ...){
+    tmp <- eol_search(...)
+    if(simplify){
+      as.character(tmp$name)
+    } else{ tmp }
+  }
+  
+  tp_search_ <- function(simplify, ...){
+    tmp <- tp_search(...)
+    if(simplify){
+      as.character(tmp$ScientificName)
+    } else{ tmp }
+  }
 
   getsci <- function(nn, ...){
     switch(db, 
-           eol = eol_search(terms=nn, ...),
-           itis = foo(nn, itisby, ...),
-           tropicos = tp_search(commonname = nn, ...),
+           eol = eol_search_(terms=nn, simplify, ...),
+           itis = foo(nn, itisby, simplify, ...),
+           tropicos = tp_search_(commonname = nn, simplify, ...),
            ncbi = ncbi2sci(nn))
   }
   temp <- lapply(commnames, function(x) getsci(x, ...))
