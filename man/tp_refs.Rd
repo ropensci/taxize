@@ -1,9 +1,9 @@
-\name{tp_namereferences}
-\alias{tp_namereferences}
+\name{tp_refs}
+\alias{tp_refs}
 \title{Return all reference records for for a taxon name with a given id.}
 \usage{
-  tp_namereferences(id, format = "json", output = "df",
-    key = NULL, verbose = TRUE)
+  tp_refs(id, format = "json", output = "df", key = NULL,
+    verbose = TRUE)
 }
 \arguments{
   \item{id}{the taxon identifier code}
@@ -27,10 +27,10 @@
 \examples{
 \dontrun{
 # Raw json or xml
-tp_namereferences(id = 25509881, output = 'raw')
+tp_refs(id = 25509881, output = 'raw')
 
 # Output as data.frame
-tp_namereferences(id = 25509881)
+tp_refs(id = 25509881)
 }
 }
 

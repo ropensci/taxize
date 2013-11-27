@@ -9,14 +9,14 @@
 #' @references \url{http://services.tropicos.org/help?method=GetNameDistributionsXml}
 #' @examples \dontrun{
 #' # Query using a taxon name Id
-#' out <- tp_namedistributions(id = 25509881)
+#' out <- tp_dist(id = 25509881)
 #' ## just location data
 #' head(out[['location']])
 #' ## just reference data
 #' head(out[['reference']])
 #' }
 #' @export
-tp_namedistributions <- function(id, key=NULL, callopts=list())
+tp_dist <- function(id, key=NULL, callopts=list())
 {
   id <- as.numeric(as.character(id))
   if(!inherits(id, "numeric"))

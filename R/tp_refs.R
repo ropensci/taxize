@@ -9,13 +9,13 @@
 #' @return List or dataframe.
 #' @examples \dontrun{
 #' # Raw json or xml
-#' tp_namereferences(id = 25509881, output = 'raw')
+#' tp_refs(id = 25509881, output = 'raw')
 #' 
 #' # Output as data.frame
-#' tp_namereferences(id = 25509881)
+#' tp_refs(id = 25509881)
 #' }
 #' @export
-tp_namereferences <- function(id, format = 'json', output = 'df', key = NULL, verbose=TRUE) 
+tp_refs <- function(id, format = 'json', output = 'df', key = NULL, verbose=TRUE) 
 {
   url = 'http://services.tropicos.org/Name/'
 	key <- getkey(key, "tropicosApiKey")

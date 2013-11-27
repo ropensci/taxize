@@ -1,8 +1,8 @@
-\name{tp_namedistributions}
-\alias{tp_namedistributions}
+\name{tp_dist}
+\alias{tp_dist}
 \title{Return all distribution records for for a taxon name with a given id.}
 \usage{
-  tp_namedistributions(id, key = NULL, callopts = list())
+  tp_dist(id, key = NULL, callopts = list())
 }
 \arguments{
   \item{id}{the taxon identifier code}
@@ -23,7 +23,7 @@
 \examples{
 \dontrun{
 # Query using a taxon name Id
-out <- tp_namedistributions(id = 25509881)
+out <- tp_dist(id = 25509881)
 ## just location data
 head(out[['location']])
 ## just reference data

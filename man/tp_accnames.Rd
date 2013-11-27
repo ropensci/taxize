@@ -1,8 +1,8 @@
-\name{tp_acceptednames}
-\alias{tp_acceptednames}
+\name{tp_accnames}
+\alias{tp_accnames}
 \title{Return all accepted names for a taxon name with a given id.}
 \usage{
-  tp_acceptednames(id, format = "json", output = "df",
+  tp_accnames(id, format = "json", output = "df",
     key = NULL)
 }
 \arguments{
@@ -24,8 +24,8 @@
 }
 \examples{
 \dontrun{
-tp_acceptednames(id = 25503923)
-tp_acceptednames(id = 25503923, output = 'raw')
+tp_accnames(id = 25503923)
+tp_accnames(id = 25503923, output = 'raw')
 }
 }
 

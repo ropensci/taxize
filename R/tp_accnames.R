@@ -7,11 +7,11 @@
 #' @param key Your Tropicos API key; loads from .Rprofile.
 #' @return List or dataframe.
 #' @examples \dontrun{
-#' tp_acceptednames(id = 25503923)
-#' tp_acceptednames(id = 25503923, output = 'raw')
+#' tp_accnames(id = 25503923)
+#' tp_accnames(id = 25503923, output = 'raw')
 #' }
 #' @export
-tp_acceptednames <- function(id, format = 'json', output = 'df', key = NULL) 
+tp_accnames <- function(id, format = 'json', output = 'df', key = NULL) 
 {
   url = 'http://services.tropicos.org/Name/'
 	key <- getkey(key, "tropicosApiKey")
