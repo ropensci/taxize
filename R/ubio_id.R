@@ -40,9 +40,9 @@ ubio_id <- function(namebankID = NULL, keyCode = NULL, callopts=list())
     }
   }
   out <- tolowerfxn(out)
-  syns <- tolowerfxn(ldfast(syns, convertvec=TRUE))
-  verns <- tolowerfxn(ldfast(verns, convertvec=TRUE))
-  cites <- tolowerfxn(ldfast(cites, convertvec=TRUE))
+  syns <- tolowerfxn(taxize_ldfast(syns, convertvec=TRUE))
+  verns <- tolowerfxn(taxize_ldfast(verns, convertvec=TRUE))
+  cites <- tolowerfxn(taxize_ldfast(cites, convertvec=TRUE))
   
   list(data=out, synonyms=syns, vernaculars=verns, citations=cites)
 }

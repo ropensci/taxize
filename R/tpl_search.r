@@ -45,7 +45,7 @@ tpl_search <- function(taxon, paral = FALSE, ...)
     if(any(sapply(out, class)=="try-error"))
       message(geterrmessage())
     out <- out[!sapply(out, class)=="try-error"]
-    df <- ldfast(out)
+    df <- taxize_ldfast(out)
     df
   }
 }

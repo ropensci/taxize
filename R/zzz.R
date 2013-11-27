@@ -45,7 +45,7 @@ getkey <- function(x = NULL, service) {
 #' @param convertvec Convert a vector to a data.frame before rbind is called.
 #' @export
 #' @keywords internal
-ldfast <- function(x, convertvec=FALSE){
+taxize_ldfast <- function(x, convertvec=FALSE){
   convert2df <- function(x){
     if(!inherits(x, "data.frame")) 
       data.frame(rbind(x))

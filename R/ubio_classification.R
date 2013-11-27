@@ -65,6 +65,6 @@ ubio_classification <- function(hierarchiesID = NULL, childrenFlag = 0,
 ifelsedata <- function(a, x, y, z)
 {
   if(x == 1){
-    ldfast(getxmldata(obj=a, node=y, todecode=z), convertvec=TRUE) 
+    taxize_ldfast(getxmldata(obj=a, node=y, todecode=z), convertvec=TRUE) 
   } else { NULL }
 }
