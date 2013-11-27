@@ -41,11 +41,22 @@ ubio_classification <- function(hierarchiesID = NULL, childrenFlag = 0,
   names(out) <- c("classificationTitleID", "classificationTitle", 
                   "classificationRoot", "rankName", "rankID", "classificationsID", 
                   "namebankID", "nameString")
+  tolowerfxn <- function(x){
+    if(is.null(x)){ NULL } else {
+      names(x) <- tolower(names(x))
+      return( x )
+    }
+  }
+  out <- tolowerfxn(out)
   child <- ifelsedata(tt, childrenFlag, "children", 4)
+  child <- tolowerfxn(child)
   ancestry <- ifelsedata(tt, ancestryFlag, "ancestry", 4)
+  ancestry <- tolowerfxn(ancestry)
   synonyms <- ifelsedata(tt, synonymsFlag, "synonyms", 4)
+  synonyms <- tolowerfxn(synonyms)
   refs <- ifelsedata(tt, justificationsFlag, "citations", 4)
-  compact(list(data=out, children=child, ancestry=ancestry, synonyms=synonyms, refs=refs))
+  refs <- tolowerfxn(refs)
+  list(data=out, children=child, ancestry=ancestry, synonyms=synonyms, refs=refs)
 }
 
 #' Function to parse xml data, decode strings, and return NULL if logical is zero.

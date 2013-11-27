@@ -24,7 +24,7 @@
 #' # Default, uses GET curl method, you can't specify any other parameters when 
 #' using GET
 #' mynames <- c("Panthera tigris", "Neotamias minimus", "Magnifera indica")
-#' tnrs(query = mynames, source="NCBI")
+#' tnrs(query = mynames, source_="NCBI")
 #' 
 #' # Specifying the source to match against
 #' mynames <- c("Helianthus annuus", "Poa annua")
@@ -70,7 +70,7 @@ tnrs <- function(query = NA, source_ = NULL, code = NULL, getpost = "POST",
 			args <- compact(list(query = splist, source = source_, code = code))
 			tt <- postForm(url, .params=args)
 		}
-		message <- fromJSON(tt)["message"]
+		message <- fromJSON(tt)[["message"]]
 		retrieve <- str_replace_all(str_extract(message, "http.+"), "\\.$", "")
 		
 		mssg(verbose, paste("Calling ", retrieve, sep=""))
@@ -112,7 +112,9 @@ tnrs <- function(query = NA, source_ = NULL, code = NULL, getpost = "POST",
 	mainfunc_safe <- plyr::failwith(NULL, mainfunc)
 	
 	if(is.null(splitby)){
-		mainfunc_safe(query)
+		tmp <- mainfunc_safe(query)
+    names(tmp) <- tolower(names(tmp))
+    tmp
 	} else
 	{
 		## Define function to split up your species list into useable chuncks
@@ -124,6 +126,9 @@ tnrs <- function(query = NA, source_ = NULL, code = NULL, getpost = "POST",
 		species_split <- slice(query, by = splitby)	
 		
 		out <- llply(species_split, function(x) mainfunc_safe(x))
-		return(ldply(out))
+		tmp <- ldply(out)
+		names(tmp) <- tolower(names(tmp))
+		tmp
+		return( tmp )
 	}
 }

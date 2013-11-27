@@ -18,8 +18,11 @@
 \examples{
 \dontrun{
 gni_parse("Cyanistes caeruleus")
-gni_parse(names=as.character(df$name))
+gni_parse("Plantago minor")
 }
+}
+\references{
+  \url{http://gni.globalnames.org/}
 }
 \seealso{
   \code{\link{gbif_parse}}

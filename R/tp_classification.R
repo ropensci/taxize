@@ -26,6 +26,10 @@ tp_classification <- function(id=NULL, key=NULL, callopts=list())
     }
   }
   tmp <- lapply(id, fun)
+  tmp <- lapply(tmp, function(x){
+    names(x) <- tolower(names(x))
+    x
+  })
   names(tmp) <- id
   tmp
 }

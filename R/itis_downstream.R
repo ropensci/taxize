@@ -52,5 +52,7 @@ itis_downstream <- function(tsns, downto, verbose=TRUE)
 			stop_ <- "not" 
 		}
 	}
-	ldply(out)
+	tmp <- ldply(out)
+  names(tmp) <- tolower(names(tmp))
+  tmp
 }

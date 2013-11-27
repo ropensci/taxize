@@ -29,5 +29,7 @@ tp_search <- function(name=NULL, commonname=NULL, nameid=NULL, orderby=NULL,
   tt <- GET(url, query=args, callopts)
   stop_for_status(tt)
   out <- content(tt)
-  do.call(rbind.fill, lapply(out, data.frame))
+  tmp <- do.call(rbind.fill, lapply(out, data.frame))
+  names(tmp) <- tolower(names(tmp))
+  tmp
 }

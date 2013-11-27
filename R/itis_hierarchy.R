@@ -36,10 +36,15 @@ itis_hierarchy <- function(tsn=NULL, what="full", ...)
          up = lapply(tsn, function(x) gethierarchyupfromtsn(x, ...)),
          down = lapply(tsn, function(x) gethierarchydownfromtsn(x, ...)))
   if(length(tsn)==1){
-    temp[[1]]
+    tmp <- temp[[1]]
+    names(tmp) <- tolower(names(tmp))
+    tmp
   } else
   {
     names(temp) <- tsn
-    temp
+    lapply(temp, function(x){
+      names(x) <- tolower(names(x))
+      x
+    })
   }
 }

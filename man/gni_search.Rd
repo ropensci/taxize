@@ -43,12 +43,17 @@
   Uses the Global Names Index, see
   \url{http://gni.globalnames.org/} for information.
 }
+\details{
+  Note that you can use fuzzy searching, e.g., by attaching
+  an asterisk to the end of a search term. See the first
+  two examples below.
+}
 \examples{
 \dontrun{
 gni_search(search_term = "ani*")
 gni_search(search_term = "ama*", per_page = 3, page = 21)
 gni_search(search_term = "animalia", per_page = 8, page = 1)
-gni_search(search_term = "animalia", per_page = 8, page = 1, justtotal=T)
+gni_search(search_term = "animalia", per_page = 8, page = 1, justtotal=TRUE)
 
 gni_search(search_term = "Cyanistes caeruleus", parse_names=TRUE)
 }
@@ -57,7 +62,7 @@ gni_search(search_term = "Cyanistes caeruleus", parse_names=TRUE)
   Scott Chamberlain {myrmecocystus@gmail.com}
 }
 \references{
-  \url{http://gni.globalnames.org/}
+  \url{http://gni.globalnames.org/},
   \url{https://github.com/dimus/gni/wiki/api}
 }
 \seealso{

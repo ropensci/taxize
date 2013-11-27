@@ -36,8 +36,7 @@
 #' gnr_resolve(names=c("Helianthos annuus","Homo sapians"), data_source_ids=eol)
 #' }
 gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE, 
-                        with_context = FALSE, stripauthority = FALSE, 
-                        highestscore = TRUE, http="get")
+  with_context = FALSE, stripauthority = FALSE, highestscore = TRUE, http="get")
 {
   num = NULL
   url <- "http://resolver.globalnames.org/name_resolvers.json"

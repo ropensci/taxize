@@ -24,10 +24,9 @@
 #' tax_rank(query = "Helianthus annuus", db = "itis")
 #' tax_rank(query = "Helianthus annuus", db = "ncbi")
 #' tax_rank(query = "Helianthus", db = "itis")
-#' tax_rank(query = "Baetis rhodani", db = "itis")
 #' 
 #' # query both
-#' tax_rank(query=c("Helianthus annuus", 'Baetis rhodani'), db="both")
+#' tax_rank(query=c("Helianthus annuus", 'Puma'), db="both")
 #' 
 #' # An alternative way would be to use \link{classification} and sapply over 
 #' the list

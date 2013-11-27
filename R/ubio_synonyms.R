@@ -29,9 +29,6 @@ ubio_synonyms <- function(hierarchiesID = NULL, keyCode = NULL, callopts=list())
   df
 }
 
-#' Function to parse xml data and decode strings
-#' @export
-#' @keywords internal
 getxml_syns <- function(obj, todecode){
   tmp <- xpathApply(obj, "//results", fun=xmlToList)
   tmp2 <- unlist(tmp)
@@ -42,8 +39,8 @@ getxml_syns <- function(obj, todecode){
   })
   tmp2[todecode] <- sapply(tmp2[todecode], RCurl::base64Decode)
   tmp2 <- tmp2[-c(1:3)]
-  names(tmp2) <- c('classificationTitleID','classificationTitle','classificationDescription',
+  names(tmp2) <- tolower(c('classificationTitleID','classificationTitle','classificationDescription',
                    'classificationRoot','rankName','rankID','classificationsID','namebankID',
-                   'nameString')
+                   'nameString'))
   tmp2
 }

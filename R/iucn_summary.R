@@ -31,7 +31,6 @@
 #' # extract other available information
 #' ia[['Lynx lynx']]$history
 #' ia[['Panthera uncia']]$distr
-#' ia[[1]]$pop
 #' ia[[2]]$trend
 #' }
 #' 

@@ -81,6 +81,7 @@ scrapenames <- function(url = NULL, file = NULL, text = NULL, engine = NULL,
     }
     meta <- datout[!names(datout) %in% c("names")]
     dd <- data.frame(rbindlist(datout$names))
+    names(dd) <- tolower(names(dd))
     list(meta = meta, data = dd)
   }
 }

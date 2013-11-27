@@ -4,10 +4,11 @@
 #' @return A data.frame with results, the submitted names, and the parsed names
 #'    with additional information. 
 #' @seealso \code{\link{gbif_parse}}
+#' @references \url{http://gni.globalnames.org/}
 #' @export
 #' @examples \dontrun{
 #' gni_parse("Cyanistes caeruleus")
-#' gni_parse(names=as.character(df$name))
+#' gni_parse("Plantago minor")
 #' }
 gni_parse <- function(names)
 {

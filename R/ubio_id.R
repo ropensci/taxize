@@ -33,10 +33,18 @@ ubio_id <- function(namebankID = NULL, keyCode = NULL, callopts=list())
   verns <- getxmldata(obj=tt, node="vernacularNames", todecode=2)
   cites <- getxmldata(obj=tt, node="citations", todecode=c(1,3,4))
   
-  list(data=out, 
-       synonyms=ldfast(syns, convertvec=TRUE), 
-       vernaculars=ldfast(verns, convertvec=TRUE), 
-       citations=ldfast(cites, convertvec=TRUE))
+  tolowerfxn <- function(x){
+    if(is.null(x)){ NULL } else {
+      names(x) <- tolower(names(x))
+      return( x )
+    }
+  }
+  out <- tolowerfxn(out)
+  syns <- tolowerfxn(ldfast(syns, convertvec=TRUE))
+  verns <- tolowerfxn(ldfast(verns, convertvec=TRUE))
+  cites <- tolowerfxn(ldfast(cites, convertvec=TRUE))
+  
+  list(data=out, synonyms=syns, vernaculars=verns, citations=cites)
 }
 
 #' Function to parse xml data and decode strings

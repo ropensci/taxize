@@ -28,12 +28,14 @@
 #' @return Data.frame of results.
 #' @seealso \code{\link{gnr_datasources}}, \code{\link{gni_search}}.
 #' @keywords globalnamesindex names taxonomy
-#' @references \url{http://gni.globalnames.org/} \url{https://github.com/dimus/gni/wiki/api}
+#' @references \url{http://gni.globalnames.org/}, \url{https://github.com/dimus/gni/wiki/api}
+#' @details Note that you can use fuzzy searching, e.g., by attaching an asterisk to the
+#' end of a search term. See the first two examples below.
 #' @examples \dontrun{
 #' gni_search(search_term = "ani*")
 #' gni_search(search_term = "ama*", per_page = 3, page = 21)
 #' gni_search(search_term = "animalia", per_page = 8, page = 1)
-#' gni_search(search_term = "animalia", per_page = 8, page = 1, justtotal=T)
+#' gni_search(search_term = "animalia", per_page = 8, page = 1, justtotal=TRUE)
 #' 
 #' gni_search(search_term = "Cyanistes caeruleus", parse_names=TRUE)
 #' }

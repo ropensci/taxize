@@ -2,14 +2,10 @@
 \alias{tp_synonyms}
 \title{Return all synonyms for a taxon name with a given id.}
 \usage{
-  tp_synonyms(id, format = "json", key = NULL,
-    verbose = TRUE)
+  tp_synonyms(id, key = NULL, verbose = TRUE)
 }
 \arguments{
   \item{id}{the taxon identifier code}
-
-  \item{format}{return in json or xml format (defaults to
-  json)}
 
   \item{key}{Your Tropicos API key; loads from .Rprofile.}
 
@@ -24,7 +20,6 @@
 \examples{
 \dontrun{
 tp_synonyms(id = 25509881)
-tp_synonyms(id = 25509881, output = 'raw')
 }
 }
 

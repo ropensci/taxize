@@ -643,7 +643,9 @@ getitistermsfromcommonname <- function(srchkey = NA, ..., curl = getCurlHandle()
   out <- xmlParse(tt)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
 	gg <- getNodeSet(out, "//ax21:itisTerms", namespaces=namespaces, xmlToList)
-	do.call(rbind.fill, lapply(gg, function(x) data.frame(x,stringsAsFactors=FALSE)))  
+	tmp <- do.call(rbind.fill, lapply(gg, function(x) data.frame(x,stringsAsFactors=FALSE)))  
+  names(tmp) <- tolower(names(tmp))
+  tmp
 }
 
 #' Get itis terms from common names
@@ -667,7 +669,9 @@ getitisterms <- function(srchkey = NA, ..., curl = getCurlHandle())
   out <- xmlParse(tt)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
   gg <- getNodeSet(out, "//ax21:itisTerms", namespaces=namespaces, xmlToList)
-  do.call(rbind.fill, lapply(gg, function(x) data.frame(x,stringsAsFactors=FALSE)))
+  tmp <- do.call(rbind.fill, lapply(gg, function(x) data.frame(x,stringsAsFactors=FALSE)))
+  names(tmp) <- tolower(names(tmp))
+  tmp
 }
 
 #' Get itis terms from scientific names
@@ -693,7 +697,9 @@ getitistermsfromscientificname <- function(srchkey = NA, ..., curl = getCurlHand
   out <- xmlParse(tt)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
 	gg <- getNodeSet(out, "//ax21:itisTerms", namespaces=namespaces, xmlToList)
-	do.call(rbind.fill, lapply(gg, function(x) data.frame(x,stringsAsFactors=FALSE)))
+	tmp <- do.call(rbind.fill, lapply(gg, function(x) data.frame(x,stringsAsFactors=FALSE)))
+	names(tmp) <- tolower(names(tmp))
+	tmp
 }
 
 #' Get jurisdictional origin from tsn
@@ -725,10 +731,10 @@ getjurisdictionaloriginfromtsn <- function(tsn = NA, ..., curl = getCurlHandle()
   }
   df <-  do.call(cbind, lapply(toget, as.data.frame(xpathfunc)))
   if(nrow(df) == 0){
-    data.frame(jurisdictionValue=NA,origin=NA,updateDate=NA)
+    data.frame(jurisdictionvalue=NA,origin=NA,updatedate=NA)
   } else
   {
-    names(df) <- toget
+    names(df) <- tolower(toget)
     df 
   }
 }
@@ -961,7 +967,7 @@ getpublicationsfromtsn <- function(tsn = NA, ..., curl = getCurlHandle(), verbos
     sapply(getNodeSet(out, paste("//ax21:", x, sep=''), namespaces=namespaces),xmlValue)
   }
   df <-  do.call(cbind, lapply(toget, as.data.frame(xpathfunc)))
-  names(df) <- toget
+  names(df) <- tolower(toget)
   df
 }
 
@@ -1023,7 +1029,7 @@ getrecordfromlsid <- function(lsid = NA, ..., curl = getCurlHandle() )
     sapply(getNodeSet(out, paste("//ax21:", x, sep=''), namespaces=namespaces),xmlValue)
   }
   df <-  do.call(cbind, lapply(toget, as.data.frame(xpathfunc)))
-  names(df) <- toget
+  names(df) <- tolower(toget)
   df
 }
 

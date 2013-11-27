@@ -30,7 +30,9 @@ tp_dist <- function(id, key=NULL, callopts=list())
   out <- content(tt)
   getdata <- function(x, which) data.frame(x[[which]])
   locs <- do.call(rbind.fill, lapply(out, getdata, which="Location"))
+  names(locs) <- tolower(names(locs))
   refs <- do.call(rbind.fill, lapply(out, getdata, which="Reference"))
+  names(refs) <- tolower(names(refs))
   
   list(location = locs, reference = refs)
 }

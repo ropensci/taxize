@@ -19,16 +19,16 @@
 # all data sources
 gnr_datasources()
 
-# just id's and names of sources
-gnr_datasources(todf = TRUE)
-
 # give me the id for EOL
-out <- gnr_datasources(todf = TRUE)
+out <- gnr_datasources()
 out[out$title == "EOL", "id"]
 
 # Fuzzy search for sources with the word zoo
-out <- gnr_datasources(todf = TRUE)
+out <- gnr_datasources()
 out[agrep("zoo", out$title, ignore.case = TRUE), ]
+
+# Output as a list
+gnr_datasources(FALSE)
 }
 }
 \author{
