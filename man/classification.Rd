@@ -1,7 +1,6 @@
 \name{classification}
 \alias{classification}
 \alias{classification.colid}
-\alias{classification.default}
 \alias{classification.eolid}
 \alias{classification.ids}
 \alias{classification.tpsid}
@@ -9,9 +8,7 @@
 \alias{classification.uid}
 \title{Retrieve the taxonomic hierarchy for a given taxon ID.}
 \usage{
-  classification(...)
-
-  \method{classification}{default} (x, db = NULL, ...)
+  classification(x, db = NULL, ...)
 
   \method{classification}{tsn} (id, ...)
 
@@ -19,7 +16,8 @@
 
   \method{classification}{eolid} (id, ...)
 
-  \method{classification}{colid} (id, ...)
+  \method{classification}{colid} (id, format = NULL,
+    start = NULL, checklist = NULL)
 
   \method{classification}{tpsid} (id, ...)
 
@@ -44,6 +42,18 @@
   \code{\link[taxize]{get_eolid}},
   \code{\link[taxize]{get_colid}}, or
   \code{\link[taxize]{get_tpsid}}.}
+
+  \item{start}{The first record to return. If omitted, the
+  results are returned from the first record (start=0).
+  This is useful if the total number of results is larger
+  than the maximum number of results returned by a single
+  Web service query (currently the maximum number of
+  results returned by a single query is 500 for terse
+  queries and 50 for full queries).}
+
+  \item{checklist}{character; The year of the checklist to
+  query, if you want a specific year's checklist instead of
+  the lastest as default (numeric).}
 }
 \value{
   A named list of data.frames with the taxonomic

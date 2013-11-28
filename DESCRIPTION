@@ -73,7 +73,6 @@ Collate:
     'itis_downstream.R'
     'eol_dataobjects.R'
     'col_children.R'
-    'col_classification.R'
     'gisd_isinvasive.R'
     'itis_name.R'
     'tax_name.R'

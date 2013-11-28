@@ -11,6 +11,13 @@
 #' @param ... Other arguments passed to \code{\link[taxize]{get_tsn}}, 
 #'    \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}}, 
 #'    \code{\link[taxize]{get_colid}}, or \code{\link[taxize]{get_tpsid}}.
+#' @param start The first record to return. If omitted, the results are returned 
+#' 		from the first record (start=0). This is useful if the total number of 
+#' 		results is larger than the maximum number of results returned by a single 
+#' 		Web service query (currently the maximum number of results returned by a 
+#' 		single query is 500 for terse queries and 50 for full queries).
+#' @param checklist character; The year of the checklist to query, if you want a specific 
+#' 		year's checklist instead of the lastest as default (numeric).
 #' 
 #' @return A named list of data.frames with the taxonomic classifcation of 
 #'    every supplied taxa.
@@ -49,13 +56,12 @@
 #' # Fails
 #' classification(315576)
 #' }
-classification <- function(...){
+#' @rdname classification
+classification <- function(x, db = NULL, ...){
   UseMethod("classification")
 }
 
-#' @method classification default
-#' @export
-#' @rdname classification
+#' @S3method classification default
 classification.default <- function(x, db = NULL, ...){
   if (is.null(db))
     stop("Must specify db!")
@@ -163,18 +169,36 @@ classification.eolid <- function(id, ...) {
 #' @method classification colid
 #' @export
 #' @rdname classification
-classification.colid <- function(id, ...) {
+classification.colid <- function(id, format=NULL, start=NULL, checklist=NULL) {
   fun <- function(x){
     # return NA if NA is supplied
     if(is.na(x)){
-      tmp <- NA
+      out <- NA
     } else {
-      tmp <- col_classification(id=x, ...)[[1]]
+      url <- "http://www.catalogueoflife.org/col/webservice"
+      if(!is.null(checklist)){
+        cc <- match.arg(checklist, choices = c(2012, 2011, 2010, 2009, 2008, 2007))
+        if (cc %in% c(2012, 2011, 2010)) {
+          url <- gsub("col", paste("annual-checklist/", cc, sep = ""), url)
+        } else {
+          url <- "http://webservice.catalogueoflife.org/annual-checklist/year/search.php"
+          url <- gsub("year", cc, url)
+        }
+      }
+        
+      args <- compact(list(id = x, response = "full", start = start))
+      out <- getForm(url, .params = args)
+      tt <- xmlParse(out)
+      
+      out <- data.frame(name = xpathSApply(tt, "//classification//name", xmlValue),
+                        rank = xpathSApply(tt, "//classification//rank", xmlValue),
+                        stringsAsFactors = FALSE)
     }
-    return(tmp)
+    return(out)
   }
   out <- lapply(id, fun)
-#   names(out) <- id
+  names(out) <- id
+  attr(out, 'db') <- 'col'
   return(out)
 }
 
