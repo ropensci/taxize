@@ -99,12 +99,13 @@ classification.tsn <- function(id, ...)
     } else {
     	out <- getfullhierarchyfromtsn(x, ...)
     	# remove overhang
-    	out <- out[1:which(out$tsn == x), c('rankName', 'taxonName', 'tsn')]
+    	out <- out[1:which(out$tsn == x), c('taxonName', 'rankName')]
+      names(out) <- c('name', 'rank')
     	return(out)
     }
   }
   out <- lapply(id, fun)
-#   names(out) <- id
+  attr(out, 'db') <- 'itis'
   return(out)
 }
 
