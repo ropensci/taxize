@@ -99,12 +99,13 @@ classification.tsn <- function(id, ...)
     } else {
     	out <- getfullhierarchyfromtsn(x, ...)
     	# remove overhang
-    	out <- out[1:which(out$tsn == x), c('rankName', 'taxonName', 'tsn')]
+    	out <- out[1:which(out$tsn == x), c('taxonName', 'rankName')]
+      names(out) <- c('name', 'rank')
     	return(out)
     }
   }
   out <- lapply(id, fun)
-#   names(out) <- id
+  attr(out, 'db') <- 'itis'
   return(out)
 }
 
@@ -123,9 +124,8 @@ classification.uid <- function(id, ...) {
       searchurl <- paste(baseurl, ID, sep = "&")
       tt <- getURL(searchurl)
       ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)
-      out <- data.frame(ScientificName = xpathSApply(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/ScientificName", xmlValue), 
-                        Rank = xpathSApply(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/Rank", xmlValue), 
-                        UID = xpathSApply(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/TaxId", xmlValue),
+      out <- data.frame(name = xpathSApply(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/ScientificName", xmlValue), 
+                        rank = xpathSApply(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/Rank", xmlValue),
                         stringsAsFactors = FALSE)
       out <- rbind(out, c(xpathSApply(ttp, "//TaxaSet/Taxon/ScientificName", xmlValue),
         xpathSApply(ttp, "//TaxaSet/Taxon/Rank", xmlValue), 
@@ -137,7 +137,7 @@ classification.uid <- function(id, ...) {
     return(out)
   }
   out <- lapply(id, fun)
-#   names(out) <- id
+  attr(out, 'db') <- 'ncbi'
   return(out)
 }
 
