@@ -83,7 +83,7 @@ tax_name <- function(query = NULL, get = NULL, db = "itis", pref = 'ncbi',
         names(out) <- get
       } else {
   			hierarchy <- classification(uid, ...)[[1]]
-  			match <- hierarchy$ScientificName[match(tolower(get), tolower(hierarchy$Rank))]
+  			match <- hierarchy$name[match(tolower(get), tolower(hierarchy$rank))]
         out <- data.frame(t(match), stringsAsFactors=FALSE)
         names(out) <- get
   		}
