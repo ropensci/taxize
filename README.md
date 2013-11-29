@@ -217,6 +217,32 @@ plot(tree)
 
 ![](http://ropensci.github.com/taxize/phylomatic_phylo.png)
 
+Please report any issues or bugs](https://github.com/ropensci/taxize/issues).
 
+License: CC0
+
+This package is part of the [rOpenSci](http://ropensci.org/packages) project.
+
+To cite package `taxize` in publications use:
+
+```coffee
+To cite taxize in publications use:
+
+  Scott Chamberlain and Eduard Szocs (2013). taxize - taxonomic search
+  and retrieval in R. F1000Research, 2:191. URL:
+  http://f1000research.com/articles/2-191/v2.
+
+A BibTeX entry for LaTeX users is
+
+  @Article{,
+    title = {taxize - taxonomic search and retrieval in R},
+    journal = {F1000Research},
+    author = {{Scott Chamberlain} and {Eduard Szocs}},
+    year = {2013},
+    url = {http://f1000research.com/articles/2-191/v2},
+  }
+```
+
+Get citation information for `taxize` in R doing `citation(package = 'taxize')`
 
 [![](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
