@@ -170,7 +170,7 @@ classification.eolid <- function(id, key = NULL, callopts = list(), ...) {
         return(sprintf("No hierarchy information for %s", x))
       } else {
         out <- do.call(rbind.fill, lapply(res$ancestors, data.frame))[,c('scientificName','taxonRank')]
-        names(out) <- c('rank', 'name')
+        names(out) <- c('name', 'rank')
         return(out)
       }
     }
