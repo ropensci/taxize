@@ -22,7 +22,8 @@
   \method{classification}{colid} (id, start = NULL,
     checklist = NULL, ...)
 
-  \method{classification}{tpsid} (id, ...)
+  \method{classification}{tpsid} (id, key = NULL,
+    callopts = list(), ...)
 
   \method{classification}{ids} (id, ...)
 }
@@ -30,14 +31,15 @@
   \item{x}{character; taxons to query.}
 
   \item{db}{character; database to query. either
-  \code{ncbi}, \code{itis}, \code{eol}, or \code{tropicos}}
+  \code{ncbi}, \code{itis}, \code{eol}, \code{col} or
+  \code{tropicos}.}
 
   \item{id}{character; identifiers, returned by
   \code{\link[taxize]{get_tsn}},
   \code{\link[taxize]{get_uid}},
   \code{\link[taxize]{get_eolid}},
   \code{\link[taxize]{get_colid}}, or
-  \code{\link[taxize]{get_tpsid}}}
+  \code{\link[taxize]{get_tpsid}}.}
 
   \item{...}{Other arguments passed to
   \code{\link[taxize]{get_tsn}},
@@ -57,6 +59,10 @@
   \item{checklist}{character; The year of the checklist to
   query, if you want a specific year's checklist instead of
   the lastest as default (numeric).}
+
+  \item{key}{Your API key; loads from .Rprofile.}
+
+  \item{callopts}{Further args passed on to httr::GET.}
 }
 \value{
   A named list of data.frames with the taxonomic

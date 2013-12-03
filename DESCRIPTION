@@ -103,7 +103,6 @@ Collate:
     'get_eolid.R'
     'col_search.R'
     'get_colid.R'
-    'tp_classification.R'
     'get_ids.R'
     'comm2sci.R'
     'sci2comm.R'

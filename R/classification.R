@@ -4,10 +4,10 @@
 #' 
 #' @param x character; taxons to query.
 #' @param db character; database to query. either \code{ncbi}, \code{itis}, 
-#'    \code{eol}, or \code{tropicos}
+#'    \code{eol}, \code{col} or \code{tropicos}.
 #' @param id character; identifiers, returned by \code{\link[taxize]{get_tsn}}, 
 #'    \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}}, 
-#'    \code{\link[taxize]{get_colid}}, or \code{\link[taxize]{get_tpsid}}
+#'    \code{\link[taxize]{get_colid}}, or \code{\link[taxize]{get_tpsid}}.
 #' @param ... Other arguments passed to \code{\link[taxize]{get_tsn}}, 
 #'    \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}}, 
 #'    \code{\link[taxize]{get_colid}}, or \code{\link[taxize]{get_tpsid}}.
@@ -18,6 +18,8 @@
 #' 		single query is 500 for terse queries and 50 for full queries).
 #' @param checklist character; The year of the checklist to query, if you want a specific 
 #' 		year's checklist instead of the lastest as default (numeric).
+#' @param key Your API key; loads from .Rprofile.
+#' @param callopts Further args passed on to httr::GET.
 #' 
 #' @return A named list of data.frames with the taxonomic classifcation of 
 #'    every supplied taxa.
@@ -170,7 +172,7 @@ classification.eolid <- function(id, ...) {
 #' @method classification colid
 #' @export
 #' @rdname classification
-classification.colid <- function(id, start=NULL, checklist=NULL, ...) {
+classification.colid <- function(id, start = NULL, checklist = NULL, ...) {
   fun <- function(x){
     # return NA if NA is supplied
     if(is.na(x)){
@@ -207,18 +209,28 @@ classification.colid <- function(id, start=NULL, checklist=NULL, ...) {
 #' @method classification tpsid
 #' @export
 #' @rdname classification
-classification.tpsid <- function(id, ...) {
+classification.tpsid <- function(id, key = NULL, callopts = list(), ...) {
   fun <- function(x){
-    # return NA if NA is supplied
-    if(is.na(x)){
-      tmp <- NA
+    if(is.na(x)) {
+      out <- NA
     } else {
-      tmp <- tp_classification(id=x, ...)[[1]]
+      url <- sprintf('http://services.tropicos.org/Name/%s/HigherTaxa', x)
+      key <- getkey(key, "tropicosApiKey")
+      args <- compact(list(format='json', apikey=key))
+      tt <- GET(url, query = args, callopts)
+      stop_for_status(tt)
+      out <- content(tt)
+      if(names(out[[1]])[[1]] == "Error"){ 
+        out <- data.frame(ScientificName=NA, Rank=NA) 
+      } else {
+        out <- do.call(rbind.fill, lapply(out, data.frame))[,c('ScientificName','Rank')]
+      }
+      names(out) <- c('name', 'rank')
     }
-    return(tmp)
+    return(out)
   }
   out <- lapply(id, fun)
-#   names(out) <- id
+  names(out) <- id
   return(out)
 }
 
@@ -234,9 +246,9 @@ classification.ids <- function(id, ...)
       out <- NA
     } else {
       out <- classification(x, ...)
-      return(out)
     }
+    return(out)
   }
-  tmp <- lapply(id, fun)
-  return( tmp )
+  out <- lapply(id, fun)
+  return(out)
 }
