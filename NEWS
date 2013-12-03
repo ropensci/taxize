@@ -1,3 +1,12 @@
+taxize 0.1.6
+===============
+
+BUG FIXES
+* Fixed bugs in get_tpsid(), get_eolid() and eol_pages() .
+
+MINOR IMPROVEMENTS
+* classification methods were simplified. Now classification() is the workhorse for every data-source.
+
 taxize 0.1.5
 ===============
 

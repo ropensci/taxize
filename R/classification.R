@@ -154,15 +154,26 @@ classification.uid <- function(id, ...) {
 #' @method classification eolid
 #' @export
 #' @rdname classification
-classification.eolid <- function(id, ...) {
+classification.eolid <- function(id, key = NULL, callopts = list(), ...) {
   fun <- function(x){
-    # return NA if NA is supplied
-    if(is.na(x)){
-      tmp <- NA
+    if(is.na(x)){ 
+      out <- NA
     } else {
-      tmp <- eol_hierarchy(taxonid=x, ...)
+      url = 'http://www.eol.org/api/hierarchy_entries/1.0/'
+      key <- getkey(key, "eolApiKey")
+      urlget <- paste(url, x, '.json', sep="")
+      args <- compact(list(common_names=common_names, synonyms=synonyms))
+      tt <- GET(urlget, query=args, callopts)
+      stop_for_status(tt)
+      res <- content(tt)
+      if(length(res$ancestors)==0){
+        return(sprintf("No hierarchy information for %s", x))
+      } else {
+        out <- do.call(rbind.fill, lapply(res$ancestors, data.frame))[,c('scientificName','taxonRank')]
+        names(out) <- c('rank', 'name')
+        return(out)
+      }
     }
-    return(tmp)
   }
   out <- lapply(id, fun)
 #   names(out) <- id

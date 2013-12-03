@@ -17,7 +17,8 @@
 
   \method{classification}{uid} (id, ...)
 
-  \method{classification}{eolid} (id, ...)
+  \method{classification}{eolid} (id, key = NULL,
+    callopts = list(), ...)
 
   \method{classification}{colid} (id, start = NULL,
     checklist = NULL, ...)
