@@ -4,8 +4,8 @@ Description: Taxonomic information from around the web. This package
     as verifying species names, getting taxonomic hierarchies,
     and verifying name spelling.
 Title: Taxonomic information from around the web.
-Version: 0.1.5
-Date: 2013-11-18
+Version: 0.1.6
+Date: 2013-12-03
 License: CC0
 URL: https://ropensci.github.com/taxize_
 BugReports: https://github.com/ropensci/taxize_/issues
@@ -54,7 +54,6 @@ Collate:
     'iucn_summary.R'
     'get_uid.R'
     'plantminer.R'
-    'eol_hierarchy.R'
     'eol_ping.R'
     'eol_search.R'
     'gnr_resolve.R'
@@ -73,7 +72,6 @@ Collate:
     'itis_downstream.R'
     'eol_dataobjects.R'
     'col_children.R'
-    'col_classification.R'
     'gisd_isinvasive.R'
     'itis_name.R'
     'tax_name.R'
@@ -104,7 +102,6 @@ Collate:
     'get_eolid.R'
     'col_search.R'
     'get_colid.R'
-    'tp_classification.R'
     'get_ids.R'
     'comm2sci.R'
     'sci2comm.R'

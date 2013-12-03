@@ -34,28 +34,28 @@
 #' get_eolid(sciname="uaudnadndj")
 #' get_eolid(c("Chironomus riparius", "uaudnadndj"))
 #' }
-get_eolid <- function(sciname, ask = TRUE, verbose = TRUE){
+get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...){
   fun <- function(sciname, ask, verbose) {
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
-    tmp <- eol_search(terms=sciname)
+    tmp <- eol_search(terms = sciname, key, ...)
     
     if(all(is.na(tmp))){
       mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
       id <- NA
-    } else
-    {   
-      pageids <- tmp[grep(sciname, tmp$name), "pageid"]
+    } else {   
+      pageids <- tmp[grep(tolower(sciname), tolower(tmp$name)), "pageid"]
       dfs <- compact(lapply(pageids, function(x) eol_pages(x)$scinames))
       dfs <- ldply(dfs[!sapply(dfs, nrow)==0])
-      df <- dfs[,c('identifier','scientificName','nameAccordingTo')]
+      df <- dfs[,c('identifier','scientificname','nameaccordingto')]
       names(df) <- c('eolid','name','source')
       df <- getsourceshortnames(df)
       
       if(nrow(df) == 0){
         mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
         id <- NA
-      } else
-      { id <- df$eolid }
+      } else{ 
+        id <- df$eolid 
+      }
     }
 
     # not found on eol

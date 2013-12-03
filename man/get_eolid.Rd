@@ -2,7 +2,8 @@
 \alias{get_eolid}
 \title{Get the EOL ID from Encyclopedia of Life from taxonomic names.}
 \usage{
-  get_eolid(sciname, ask = TRUE, verbose = TRUE)
+  get_eolid(sciname, ask = TRUE, verbose = TRUE,
+    key = NULL, ...)
 }
 \arguments{
   \item{sciname}{character; scientific name.}

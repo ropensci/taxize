@@ -6,6 +6,8 @@
 #' If TRUE and more than one ID is found for the species, the user is asked for 
 #' input. If FALSE NA is returned for multiple matches.
 #' @param verbose logical; If TRUE the actual taxon queried is printed on the console.
+#' @param key Your API key; loads from .Rprofile.
+#' @param ... Other arguments passed to \code{\link[taxize]{tp_search}}.
 #' 
 #' @return A vector of unique identifiers. If a taxon is not found NA. 
 #' If more than one ID is found the function asks for user input. 
@@ -28,17 +30,17 @@
 #' # pass to tp_classification to get a taxonomic hierarchy
 #' tp_classification(get_tpsid(sciname='Poa annua'))
 #' }
-get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE){
+get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...){
   fun <- function(sciname, ask, verbose) {
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
-    tmp <- tp_search(name = sciname)
+    tmp <- tp_search(name = sciname, key, ...)
     
     if(names(tmp)[[1]] == 'Error'){
       mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
       id <- NA
     } else
     {  
-      df <- tmp[,c('NameId','ScientificName','RankAbbreviation','NomenclatureStatusName')]
+      df <- tmp[,c('nameid','scientificname','rankabbreviation','nomenclaturestatusname')]
       names(df) <- c('tpsid','name','rank','status')
       id <- df$tpsid
     }
