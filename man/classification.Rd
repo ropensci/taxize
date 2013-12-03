@@ -1,6 +1,7 @@
 \name{classification}
 \alias{classification}
 \alias{classification.colid}
+\alias{classification.default}
 \alias{classification.eolid}
 \alias{classification.ids}
 \alias{classification.tpsid}
@@ -8,7 +9,9 @@
 \alias{classification.uid}
 \title{Retrieve the taxonomic hierarchy for a given taxon ID.}
 \usage{
-  classification(x, db = NULL, ...)
+  classification(...)
+
+  \method{classification}{default} (x, db = NULL, ...)
 
   \method{classification}{tsn} (id, ...)
 
@@ -16,8 +19,8 @@
 
   \method{classification}{eolid} (id, ...)
 
-  \method{classification}{colid} (id, format = NULL,
-    start = NULL, checklist = NULL)
+  \method{classification}{colid} (id, start = NULL,
+    checklist = NULL, ...)
 
   \method{classification}{tpsid} (id, ...)
 

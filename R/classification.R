@@ -56,12 +56,13 @@
 #' # Fails
 #' classification(315576)
 #' }
-#' @rdname classification
-classification <- function(x, db = NULL, ...){
+classification <- function(...){
   UseMethod("classification")
 }
 
-#' @S3method classification default
+#' @method classification default
+#' @export
+#' @rdname classification
 classification.default <- function(x, db = NULL, ...){
   if (is.null(db))
     stop("Must specify db!")
@@ -169,7 +170,7 @@ classification.eolid <- function(id, ...) {
 #' @method classification colid
 #' @export
 #' @rdname classification
-classification.colid <- function(id, format=NULL, start=NULL, checklist=NULL) {
+classification.colid <- function(id, start=NULL, checklist=NULL, ...) {
   fun <- function(x){
     # return NA if NA is supplied
     if(is.na(x)){

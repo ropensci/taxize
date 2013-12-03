@@ -34,12 +34,14 @@
 #' sci2comm(get_tsn('Helianthus annuus'), simplify=FALSE)
 #' }
 #' @rdname sci2comm
-sci2comm <- function(scinames, db='eol', simplify=TRUE, ...){
+sci2comm <- function(...){
   UseMethod("sci2comm")
 }
 
 
-#' @S3method sci2comm default
+#' @method sci2comm default
+#' @export
+#' @rdname sci2comm
 sci2comm.default <- function(scinames, db='eol', simplify=TRUE, ...)
 {  
   itis2comm <- function(x, simplify, ...){
@@ -127,7 +129,7 @@ sci2comm.tsn <- function(id, simplify, ...){
     if(is.na(id)) {
       out <- NA
     } else {
-      out <- getcommonnamesfromtsn(tsn)
+      out <- getcommonnamesfromtsn(id)
       #if common name is not found
       if(length(out) == 0)
         out <- NA

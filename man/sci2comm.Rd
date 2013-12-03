@@ -1,10 +1,14 @@
 \name{sci2comm}
 \alias{sci2comm}
+\alias{sci2comm.default}
 \alias{sci2comm.tsn}
 \alias{sci2comm.uid}
 \title{Get common names from scientific names.}
 \usage{
-  sci2comm(scinames, db = "eol", simplify = TRUE, ...)
+  sci2comm(...)
+
+  \method{sci2comm}{default} (scinames, db = "eol",
+    simplify = TRUE, ...)
 
   \method{sci2comm}{uid} (id, ...)
 
