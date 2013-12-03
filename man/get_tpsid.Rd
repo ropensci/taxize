@@ -2,7 +2,8 @@
 \alias{get_tpsid}
 \title{Get the NameID codes from Tropicos for taxonomic names.}
 \usage{
-  get_tpsid(sciname, ask = TRUE, verbose = TRUE)
+  get_tpsid(sciname, ask = TRUE, verbose = TRUE,
+    key = NULL, ...)
 }
 \arguments{
   \item{sciname}{character; scientific name.}
@@ -14,6 +15,11 @@
 
   \item{verbose}{logical; If TRUE the actual taxon queried
   is printed on the console.}
+
+  \item{key}{Your API key; loads from .Rprofile.}
+
+  \item{...}{Other arguments passed to
+  \code{\link[taxize]{tp_search}}.}
 }
 \value{
   A vector of unique identifiers. If a taxon is not found
