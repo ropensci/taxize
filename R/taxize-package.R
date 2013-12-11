@@ -38,7 +38,7 @@
 #' @docType package
 #' @title Taxnomic search and phylogeny retrieval.
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
-#' @author Eduard Szoecs \email{szoe8822@@uni-landau.de}
+#' @author Eduard Szoecs \email{eduardszoecs@@gmail.com}
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @keywords package
 NULL
