@@ -1,13 +1,19 @@
 \name{phylomatic_tree}
 \alias{phylomatic_tree}
-\title{Format tree string, submit to Phylomatic, get newick or nexml tree.}
+\title{Query Phylomatic for a phylogenetic tree.}
 \usage{
-  phylomatic_tree(taxa, get = "GET", informat = "newick",
-    method = "phylomatic", storedtree = "smith2011",
-    outformat = "newick", clean = "true")
+  phylomatic_tree(taxa, taxnames = TRUE, get = "GET",
+    informat = "newick", method = "phylomatic",
+    storedtree = "smith2011", taxaformat = "slashpath",
+    outformat = "newick", clean = "true", parallel = FALSE)
 }
 \arguments{
   \item{taxa}{Phylomatic format input of taxa names.}
+
+  \item{taxnames}{If true, we get the family names for you
+  to attach to your species names to send to Phylomatic
+  API. If FALSE, you have to provide the strings in the
+  right format.}
 
   \item{get}{'GET' or 'POST' format for submission to the
   website.}
@@ -21,16 +27,20 @@
   R20120829 for plants), smith2011 (Smith 2011, plants), or
   binindaemonds2007 (Bininda-Emonds 2007, mammals).}
 
+  \item{taxaformat}{Only option is slashpath for now. Leave
+  as is.}
+
   \item{outformat}{One of newick, nexml, or fyt.}
 
   \item{clean}{Return a clean tree or not.}
+
+  \item{parallel}{Run in parallel or not.}
 }
 \value{
-  Newick formatted tree, or nexml xml object.
+  Newick formatted tree or nexml text.
 }
 \description{
-  Format tree string, submit to Phylomatic, get newick or
-  nexml tree.
+  Query Phylomatic for a phylogenetic tree.
 }
 \details{
   Use the web interface here
@@ -39,26 +49,27 @@
 \examples{
 \dontrun{
 # Input taxonomic names
-taxa <- c("Collomia grandiflora", "Lilium lankongense", "Helianthus annuus")
-tree <- phylomatic_tree(taxa=taxa, get = 'POST', informat='newick',
-   method = "phylomatic", storedtree = "smith2011",
-   outformat = "newick", clean = "true")
+taxa <- c("Poa annua", "Phlox diffusa", "Helianthus annuus")
+tree <- phylomatic_tree(taxa=taxa, get = 'POST')
 plot(tree)
 
 # Lots of names
-taxa <- c("Collomia grandiflora", "Lilium lankongense", "Phlox diffusa",
-          "Iteadaphne caudata", "Nicotiana tomentosa", "Gagea sarmentosa")
-tree <- phylomatic_tree(taxa=taxa, get = 'POST', informat='newick',
-                        method = "phylomatic", storedtree = "smith2011",
-                        outformat = "newick", clean = "true")
-plot(tree)
+taxa <- c("Poa annua", "Collomia grandiflora", "Lilium lankongense", "Phlox diffusa",
+"Iteadaphne caudata", "Gagea sarmentosa", "Helianthus annuus")
+tree <- phylomatic_tree(taxa=taxa, get = 'POST')
+plot(tree, no.margin=TRUE)
+
+# In parallel with parallel=TRUE speeds up dramatically by doing the
+gathering of
+# family names from NCBI in parallel
+registerDoMC(cores=4)
+phylomatic_tree(taxa=taxa, get='POST', parallel=TRUE)
 
 # Output NeXML format
-taxa <- c("Gonocarpus leptothecus", "Gonocarpus leptothecus", "Impatiens davidis")
-out <- phylomatic_tree(taxa=taxa, get = 'POST', informat='newick', method = "phylomatic",
-   storedtree = "smith2011", outformat = "nexml", clean = "true")
-library(RNeXML)
-read.nexml(out, type="nexml", asText=TRUE)
+taxa <- c("Gonocarpus leptothecus", "Gonocarpus leptothecus", "Lilium lankongense")
+out <- phylomatic_tree(taxa=taxa, get = 'POST', outformat = "nexml")
+out
+cat(out)
 }
 }
 

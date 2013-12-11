@@ -119,3 +119,4 @@ Collate:
     'tp_accnames.R'
     'tp_dist.R'
     'tp_refs.R'
+    'phylomatic_tree2.R'
