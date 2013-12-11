@@ -18,7 +18,7 @@
 #' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{classification}}
 #' 
 #' @export
-#' @author Eduard Szoecs, \email{szoe8822@@uni-landau.de}
+#' @author Eduard Szoecs, \email{eduardszoecs@@gmail.com}
 #' 
 #' @examples \dontrun{
 #' get_uid(c("Chironomus riparius", "Chaetopteryx"))
