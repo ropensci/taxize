@@ -43,7 +43,7 @@ get_uid('Dugesia', ask = FALSE) # returns NA for multiple matches
 }
 }
 \author{
-  Eduard Szoecs, \email{szoe8822@uni-landau.de}
+  Eduard Szoecs, (eduardszoecs
 }
 \seealso{
   \code{\link[taxize]{get_tsn}},

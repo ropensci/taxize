@@ -12,7 +12,7 @@ BugReports: https://github.com/ropensci/taxize_/issues
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com"),
     person("Eduard", "Szoecs", role = "aut",
-    email = "szoe8822@uni-landau.de"),
+    email = "eduardszoecs@gmail.com"),
     person("Carl", "Boettiger", role = "aut",
     email = "cboettig@gmail.com"),
     person("Karthik", "Ram", role = "aut",

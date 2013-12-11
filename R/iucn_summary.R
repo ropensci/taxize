@@ -34,9 +34,9 @@
 #' ia[[2]]$trend
 #' }
 #' 
-#' @author Eduard Szoecs, \email{szoe8822@@uni-landau.de}
 #' 
 #' @export
+#' @author Eduard Szoecs (eduardszoecs@gmail.com)
 iucn_summary <- function(sciname, silent = TRUE, parallel = FALSE, ...) 
 {
   fun <- function(sciname){
