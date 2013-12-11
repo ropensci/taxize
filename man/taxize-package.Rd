@@ -40,7 +40,7 @@
 \author{
   Scott Chamberlain \email{myrmecocystus@gmail.com}
 
-  Eduard Szoecs \email{szoe8822@uni-landau.de}
+  Eduard Szoecs \email{eduardszoecs@gmail.com}
 
   Carl Boettiger \email{cboettig@gmail.com}
 }

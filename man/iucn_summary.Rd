@@ -54,7 +54,7 @@ ia[[2]]$trend
 }
 }
 \author{
-  Eduard Szoecs (eduardszoecs
+  Eduard Szoecs, \email{eduardszoecs@gmail.com}
 }
 \seealso{
   \code{\link[taxize]{iucn_status}}

@@ -36,7 +36,7 @@
 #' 
 #' 
 #' @export
-#' @author Eduard Szoecs (eduardszoecs@gmail.com)
+#' @author Eduard Szoecs, \email{eduardszoecs@@gmail.com}
 iucn_summary <- function(sciname, silent = TRUE, parallel = FALSE, ...) 
 {
   fun <- function(sciname){
