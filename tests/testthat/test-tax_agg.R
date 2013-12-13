@@ -1,6 +1,7 @@
 # tests for tax_agg fxn in taxize
 context("tax_agg")
 
+library(vegan)
 data(dune, package='vegan')
 take <- dune[ ,1:5]
 species <- c("Bellis perennis", "Empetrum nigrum", "Juncus bufonius", "Juncus articulatus", 

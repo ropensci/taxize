@@ -12,6 +12,10 @@ get_eolid(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...)
   for the species, the user is asked for input. If FALSE NA
   is returned for multiple matches.}
 
+  \item{key}{API key}
+
+  \item{...}{Further args passed on to eol_search()}
+
   \item{verbose}{logical; If TRUE the actual taxon queried
   is printed on the console.}
 }

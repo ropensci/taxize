@@ -8,6 +8,6 @@ test_that("gnr_datasources returns the correct class", {
 })
 
 test_that("gnr_resolve returns the correct value", {
-  expect_that(nrow(tmp), equals(88))
+  expect_that(ncol(tmp), equals(2))
   expect_equal(tmp$title[12], 'EOL')
 })

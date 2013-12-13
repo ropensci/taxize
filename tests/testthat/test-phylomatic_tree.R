@@ -1,12 +1,10 @@
 context("phylomatic_tree")
 
-taxa <- c("Collomia grandiflora", "Lilium lankongense", "Helianthus annuus")
-tree <- phylomatic_tree(taxa=taxa, get = 'POST', informat='newick', 
-    method = "phylomatic", storedtree = "smith2011", 
-    outformat = "newick", clean = "true")
+taxa <- c("Poa annua", "Phlox diffusa", "Helianthus annuus")
+tree <- phylomatic_tree(taxa=taxa, get = 'GET')
 
 test_that("phylomatic_tree returns the correct value", {
-	expect_that(tree$tip.label[1], equals("Collomia_grandiflora"))
+	expect_that(tree$tip.label[1], equals("Phlox_diffusa"))
 	expect_that(tree$Nnode, equals(2))
 })
 

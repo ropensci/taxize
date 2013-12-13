@@ -33,9 +33,9 @@
 get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...){
   fun <- function(sciname, ask, verbose) {
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
-    tmp <- tp_search(name = sciname, key, ...)
+    tmp <- tp_search(name = sciname, key=key, ...)
     
-    if(names(tmp)[[1]] == 'Error'){
+    if(names(tmp)[[1]] == 'error'){
       mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
       id <- NA
     } else

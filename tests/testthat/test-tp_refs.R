@@ -1,8 +1,8 @@
-# tests for tp_namereferences fxn in taxize
-context("tp_namereferences")
+# tests for tp_refs fxn in taxize
+context("tp_refs")
 
-ttt <- tp_namereferences(id = 25509881, verbose=FALSE)
+ttt <- tp_refs(id = 25509881, verbose=FALSE)
 
-test_that("tp_namereferences returns the correct class", {
+test_that("tp_refs returns the correct class", {
 	expect_that(ttt, is_a("data.frame"))
 })

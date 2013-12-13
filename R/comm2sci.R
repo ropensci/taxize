@@ -70,7 +70,7 @@ comm2sci <- function(commnames, db='eol', itisby='search', simplify=TRUE, ...)
   tp_search_ <- function(simplify, ...){
     tmp <- tp_search(...)
     if(simplify){
-      as.character(tmp$ScientificName)
+      as.character(tmp$scientificname)
     } else{ tmp }
   }
 
@@ -78,7 +78,7 @@ comm2sci <- function(commnames, db='eol', itisby='search', simplify=TRUE, ...)
     switch(db, 
            eol = eol_search_(terms=nn, simplify, ...),
            itis = foo(nn, itisby, simplify, ...),
-           tropicos = tp_search_(commonname = nn, simplify, ...),
+           tropicos = tp_search_(simplify, commonname = nn, ...),
            ncbi = ncbi2sci(nn))
   }
   temp <- lapply(commnames, function(x) getsci(x, ...))

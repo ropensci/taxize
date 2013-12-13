@@ -99,7 +99,7 @@ tax_name <- function(query = NULL, get = NULL, db = "itis", pref = 'ncbi',
         match_uid <- rep(NA, length(get))
       } else {
         hierarchy <- classification(uid, ...)[[1]]
-        match_uid <- hierarchy$ScientificName[match(tolower(get), tolower(hierarchy$Rank))]
+        match_uid <- hierarchy$name[match(tolower(get), tolower(hierarchy$rank))]
       }
       # itis
       tsn <- get_tsn(query, searchtype="sciname", verbose = verbose, ...)
@@ -109,7 +109,7 @@ tax_name <- function(query = NULL, get = NULL, db = "itis", pref = 'ncbi',
         match_tsn <- rep(NA, length(get))
       } else {
         tt <- classification(tsn)[[1]]
-        match_tsn <- tt$taxonName[match(tolower(get), tolower(tt$rankName))]
+        match_tsn <- tt$name[match(tolower(get), tolower(tt$rank))]
       }
       match_both <- ifelse(is.na(match_uid), match_tsn, match_uid)
       out <- data.frame(t(match_both), stringsAsFactors = FALSE)

@@ -4,13 +4,13 @@ context("ubio_classification")
 out <- ubio_classification(hierarchiesID = 2483153)
 
 test_that("ubio_classification returns the correct value", {
-	expect_that(names(out), matches("data"))
+	expect_that(names(out)[1], matches("data"))
 	expect_that(as.character(out$data[,1]), matches("84"))
 })
 
 test_that("ubio_classification returns the correct dimensions", {
   expect_that(ncol(out$data), equals(8))
-  expect_that(length(out), equals(1))
+  expect_that(length(out), equals(5))
 })
 
 test_that("ubio_classification returns the correct class", {

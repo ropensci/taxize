@@ -9,6 +9,6 @@ test_that("ubio_search returns the correct dimensions", {
 
 test_that("ubio_search returns the correct class", {
 	expect_that(out, is_a("data.frame"))
-	expect_that(out$basionymUnit, is_a("factor"))
-	expect_that(out$rankName, is_a("factor"))
+	expect_that(out$basionymunit, is_a("factor"))
+	expect_that(out$rankname, is_a("factor"))
 })

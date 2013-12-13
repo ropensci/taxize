@@ -1,11 +1,11 @@
-# tests for tp_namedistributions fxn in taxize
-context("tp_namedistributions")
+# tests for tp_dist fxn in taxize
+context("tp_dist")
 
-tt <- tp_namedistributions(id = 25509881)
+tt <- tp_dist(id = 25509881)
 
-test_that("tp_namedistributions returns the correct class", {
+test_that("tp_dist returns the correct class", {
 	expect_that(tt, is_a("list"))
 	expect_that(tt[['location']], is_a("data.frame"))
 	expect_that(tt[['reference']], is_a("data.frame"))
-	expect_that(names(tt[['reference']]), equals(c("ReferenceId","ArticleTitle","Collation","AbbreviatedTitle","TitlePageYear","FullCitation","YearPublished")))
+	expect_that(names(tt[['reference']]), equals(c("referenceid","articletitle","collation","abbreviatedtitle","titlepageyear","fullcitation","yearpublished")))
 })

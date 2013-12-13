@@ -14,6 +14,6 @@ test_that("gbif_parse returns the correct dimensions", {
 
 test_that("gbif_parse returns the correct class", {
 	expect_that(tt, is_a("data.frame"))
-	expect_that(tt$specificEpithet, is_a("factor"))
-	expect_that(tt$authorsParsed, is_a("logical"))
+	expect_that(tt$specificepithet, is_a("factor"))
+	expect_that(tt$authorsparsed, is_a("logical"))
 })

@@ -9,12 +9,12 @@ test_that("tax_rank returns the correct class", {
   expect_that(A, is_a("data.frame"))
   expect_that(B, is_a("data.frame"))
   expect_that(C, is_a("data.frame"))
-  expect_equal(names(C), 'Rank')
+  expect_equal(names(C), 'rank')
 })
 
 test_that("tax_name returns the correct value", {
-  expect_equal(A$Rank[1], "species")
-  expect_true(is.na(C$Rank[2]))
+  expect_equal(A$rank[1], "species")
+  expect_true(is.na(C$rank[2]))
 })
 
 test_that("tax_name works with vectors", {
