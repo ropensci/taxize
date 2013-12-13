@@ -3,7 +3,7 @@
 #' For more information, see \url{http://data.canadensys.net/vascan/search}.
 #' 
 #' @import httr
-#' @importFrom rjson toJSON
+#' @importFrom RJSONIO toJSON
 #' @param q (character) Can be a scientific name, a vernacular name or a VASCAN
 #'    taxon identifier (e.g. 861)
 #' @param format (character) One of json (default) or xml.
