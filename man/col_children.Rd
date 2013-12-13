@@ -2,9 +2,8 @@
 \alias{col_children}
 \title{Search Catalogue of Life for for direct children of a particular taxon.}
 \usage{
-  col_children(name = NULL, id = NULL, format = NULL,
-    start = NULL, checklist = NULL,
-    url = "http://www.catalogueoflife.org/col/webservice")
+col_children(name = NULL, id = NULL, format = NULL, start = NULL,
+  checklist = NULL, url = "http://www.catalogueoflife.org/col/webservice")
 }
 \arguments{
   \item{name}{The string to search for. Only exact matches
@@ -42,15 +41,15 @@
   left to default).}
 }
 \value{
-  A list of data.frame's.
+A list of data.frame's.
 }
 \description{
-  Search Catalogue of Life for for direct children of a
-  particular taxon.
+Search Catalogue of Life for for direct children of a
+particular taxon.
 }
 \details{
-  You must provide one of name or id. The other parameters
-  (format and start) are optional.
+You must provide one of name or id. The other parameters
+(format and start) are optional.
 }
 \examples{
 \dontrun{

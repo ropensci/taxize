@@ -2,7 +2,7 @@
 \alias{plantminer}
 \title{Search for taxonomy data from Plantminer.com}
 \usage{
-  plantminer(plants, key = NULL, verbose = TRUE)
+plantminer(plants, key = NULL, verbose = TRUE)
 }
 \arguments{
   \item{plants}{Vector of plant species names.}
@@ -19,10 +19,10 @@
   \item{verbose}{Verbose or not, logical}
 }
 \value{
-  data.frame of results.
+data.frame of results.
 }
 \description{
-  Search for taxonomy data from Plantminer.com
+Search for taxonomy data from Plantminer.com
 }
 \examples{
 \dontrun{

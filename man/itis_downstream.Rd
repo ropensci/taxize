@@ -2,7 +2,7 @@
 \alias{itis_downstream}
 \title{Retrieve all taxa names or TSNs downstream in hierarchy from given TSN.}
 \usage{
-  itis_downstream(tsns, downto, verbose = TRUE)
+itis_downstream(tsns, downto, verbose = TRUE)
 }
 \arguments{
   \item{tsns}{A taxonomic serial number.}
@@ -16,12 +16,12 @@
   messages printed.}
 }
 \value{
-  Data.frame of taxonomic information downstream to family
-  from e.g., Order, Class, etc.
+Data.frame of taxonomic information downstream to family
+from e.g., Order, Class, etc.
 }
 \description{
-  Retrieve all taxa names or TSNs downstream in hierarchy
-  from given TSN.
+Retrieve all taxa names or TSNs downstream in hierarchy
+from given TSN.
 }
 \examples{
 \dontrun{
@@ -35,6 +35,6 @@ itis_downstream(tsns = 180541, "Species")
 }
 }
 \author{
-  Scott Chamberlain \email{myrmecocystus@gmail.com}
+Scott Chamberlain \email{myrmecocystus@gmail.com}
 }
 

@@ -3,9 +3,9 @@
 \alias{tax_agg}
 \title{Aggregate species data to given taxonomic rank}
 \usage{
-  tax_agg(x, rank, db = "ncbi", ...)
+tax_agg(x, rank, db = "ncbi", ...)
 
-  \method{print}{tax_agg} (x, ...)
+\method{print}{tax_agg}(x, ...)
 }
 \arguments{
   \item{x}{Community data matrix. Taxa in columns, samples
@@ -21,21 +21,21 @@
   \code{\link[taxize]{get_uid}}.}
 }
 \value{
-  A list of class \code{tax_agg} with the following items:
-  \item{x}{Community data matrix with aggregated data.}
-  \item{by}{A lookup-table showing which taxa were
-  aggregated.} \item{n_pre}{Number of taxa before
-  aggregation.} \item{rank}{Rank at which taxa have been
-  aggregated.}
+A list of class \code{tax_agg} with the following items:
+\item{x}{Community data matrix with aggregated data.}
+\item{by}{A lookup-table showing which taxa were
+aggregated.} \item{n_pre}{Number of taxa before
+aggregation.} \item{rank}{Rank at which taxa have been
+aggregated.}
 }
 \description{
-  Aggregate species data to given taxonomic rank
+Aggregate species data to given taxonomic rank
 }
 \details{
-  \code{tax_agg} aggregates (sum) taxa to a specific
-  taxonomic level. If a taxon is not found in the database
-  (ITIS or NCBI) or the supplied taxon is on higher
-  taxonomic level this taxon is not aggregated.
+\code{tax_agg} aggregates (sum) taxa to a specific
+taxonomic level. If a taxon is not found in the database
+(ITIS or NCBI) or the supplied taxon is on higher taxonomic
+level this taxon is not aggregated.
 }
 \examples{
 \dontrun{
@@ -66,6 +66,6 @@ agg$by
 }
 }
 \seealso{
-  \code{\link[taxize]{tax_name}}
+\code{\link[taxize]{tax_name}}
 }
 

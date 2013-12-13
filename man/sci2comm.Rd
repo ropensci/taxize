@@ -5,14 +5,13 @@
 \alias{sci2comm.uid}
 \title{Get common names from scientific names.}
 \usage{
-  sci2comm(...)
+sci2comm(...)
 
-  \method{sci2comm}{default} (scinames, db = "eol",
-    simplify = TRUE, ...)
+\method{sci2comm}{default}(scinames, db = "eol", simplify = TRUE, ...)
 
-  \method{sci2comm}{uid} (id, ...)
+\method{sci2comm}{uid}(id, ...)
 
-  \method{sci2comm}{tsn} (id, simplify, ...)
+\method{sci2comm}{tsn}(id, simplify, ...)
 }
 \arguments{
   \item{scinames}{character; One or more scientific names
@@ -34,14 +33,14 @@
   \code{\link[taxize]{get_uid}}.}
 }
 \value{
-  List of character - vectors.
+List of character - vectors.
 }
 \description{
-  Get common names from scientific names.
+Get common names from scientific names.
 }
 \note{
-  \emph{"ncbi"} and uid-method return common names from
-  GenBank.
+\emph{"ncbi"} and uid-method return common names from
+GenBank.
 }
 \examples{
 \dontrun{
@@ -59,14 +58,14 @@ sci2comm(get_tsn('Helianthus annuus'), simplify=FALSE)
 }
 }
 \author{
-  Scott Chamberlain (myrmecocystus@gmail.com)
+Scott Chamberlain (myrmecocystus@gmail.com)
 }
 \seealso{
-  \code{\link[taxize]{searchbycommonname}},
-  \code{\link[taxize]{searchbycommonnamebeginswith}},
-  \code{\link[taxize]{searchbycommonnameendswith}},
-  \code{\link[taxize]{eol_search}},
-  \code{\link[taxize]{tp_search}},
-  \code{\link[taxize]{comm2sci}}
+\code{\link[taxize]{searchbycommonname}},
+\code{\link[taxize]{searchbycommonnamebeginswith}},
+\code{\link[taxize]{searchbycommonnameendswith}},
+\code{\link[taxize]{eol_search}},
+\code{\link[taxize]{tp_search}},
+\code{\link[taxize]{comm2sci}}
 }
 

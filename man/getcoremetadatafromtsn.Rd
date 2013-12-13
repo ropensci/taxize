@@ -2,8 +2,7 @@
 \alias{getcoremetadatafromtsn}
 \title{Get core metadata from tsn}
 \usage{
-  getcoremetadatafromtsn(tsn = NA, ...,
-    curl = getCurlHandle())
+getcoremetadatafromtsn(tsn = NA, ..., curl = getCurlHandle())
 }
 \arguments{
   \item{tsn}{TSN for a taxonomic group (numeric)}
@@ -16,7 +15,7 @@
   unnecessary footprint)}
 }
 \description{
-  Get core metadata from tsn
+Get core metadata from tsn
 }
 \examples{
 \dontrun{

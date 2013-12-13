@@ -2,8 +2,8 @@
 \alias{gettaxonomicusagefromtsn}
 \title{Returns the usage information for the TSN.}
 \usage{
-  gettaxonomicusagefromtsn(tsn = NA, ...,
-    curl = getCurlHandle(), verbose = TRUE)
+gettaxonomicusagefromtsn(tsn = NA, ..., curl = getCurlHandle(),
+  verbose = TRUE)
 }
 \arguments{
   \item{tsn}{TSN for a taxonomic group (numeric)}
@@ -18,7 +18,7 @@
   \item{verbose}{Verbosity or not (default TRUE)}
 }
 \description{
-  Returns the usage information for the TSN.
+Returns the usage information for the TSN.
 }
 \examples{
 \dontrun{

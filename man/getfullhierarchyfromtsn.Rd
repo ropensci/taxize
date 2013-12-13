@@ -2,8 +2,7 @@
 \alias{getfullhierarchyfromtsn}
 \title{Get full hierarchy from tsn}
 \usage{
-  getfullhierarchyfromtsn(tsn = NA, ...,
-    curl = getCurlHandle())
+getfullhierarchyfromtsn(tsn = NA, ..., curl = getCurlHandle())
 }
 \arguments{
   \item{tsn}{TSN for a taxonomic group (numeric)}
@@ -16,7 +15,7 @@
   unnecessary footprint)}
 }
 \description{
-  Get full hierarchy from tsn
+Get full hierarchy from tsn
 }
 \examples{
 \dontrun{

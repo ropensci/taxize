@@ -2,7 +2,7 @@
 \alias{getkey}
 \title{Function to get API key.}
 \usage{
-  getkey(x = NULL, service)
+getkey(x = NULL, service)
 }
 \arguments{
   \item{x}{An API key, defaults to NULL.}
@@ -11,9 +11,9 @@
   default guest key.}
 }
 \description{
-  Checks first to get key from your .Rprofile file for an
-  API key with the name 'tropicoskey'. If it is not found,
-  the default key is used.
+Checks first to get key from your .Rprofile file for an API
+key with the name 'tropicoskey'. If it is not found, the
+default key is used.
 }
 \examples{
 \dontrun{

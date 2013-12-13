@@ -2,7 +2,7 @@
 \alias{itis_getrecord}
 \title{Get full ITIS record for one or more ITIS TSN's or lsid's.}
 \usage{
-  itis_getrecord(values = NULL, by = "tsn", ...)
+itis_getrecord(values = NULL, by = "tsn", ...)
 }
 \arguments{
   \item{values}{One or more TSN's (taxonomic serial number)
@@ -14,12 +14,11 @@
   getpublicationsfromtsn}
 }
 \description{
-  Get full ITIS record for one or more ITIS TSN's or
-  lsid's.
+Get full ITIS record for one or more ITIS TSN's or lsid's.
 }
 \details{
-  You can only enter values in tsn parameter or lsid, not
-  both.
+You can only enter values in tsn parameter or lsid, not
+both.
 }
 \examples{
 \dontrun{

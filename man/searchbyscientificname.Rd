@@ -2,8 +2,7 @@
 \alias{searchbyscientificname}
 \title{Search by scientific name}
 \usage{
-  searchbyscientificname(srchkey = NA, ...,
-    curl = getCurlHandle())
+searchbyscientificname(srchkey = NA, ..., curl = getCurlHandle())
 }
 \arguments{
   \item{srchkey}{text or taxonomic serial number (TSN)
@@ -17,7 +16,7 @@
   unnecessary footprint)}
 }
 \description{
-  Search by scientific name
+Search by scientific name
 }
 \examples{
 \dontrun{

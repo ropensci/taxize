@@ -2,7 +2,7 @@
 \alias{tpl_search}
 \title{A light wrapper around the taxonstand fxn to call Theplantlist.org database.}
 \usage{
-  tpl_search(taxon, paral = FALSE, ...)
+tpl_search(taxon, paral = FALSE, ...)
 }
 \arguments{
   \item{taxon}{A taxonomic name, or a vector of names.}
@@ -17,18 +17,17 @@
   \code{TPLck} for arguments.}
 }
 \description{
-  This function is deprecated.
+This function is deprecated.
 }
 \details{
-  This function was a very light wrapper around TPLck
-  anyway - we don't see further reason to keep this
-  function. Use the Taxonstand functions
-  \code{\link[Taxonstand]{TPL}} and
-  \code{\link[Taxonstand]{TPLck}}, directly. However, we
-  are keeping two functions that give you access to
-  download Theplantlist.org data
-  \code{\link[taxize]{tpl_get}} and to get Theplantlist.org
-  families \code{\link[taxize]{tpl_families}}.
+This function was a very light wrapper around TPLck anyway
+- we don't see further reason to keep this function. Use
+the Taxonstand functions \code{\link[Taxonstand]{TPL}} and
+\code{\link[Taxonstand]{TPLck}}, directly. However, we are
+keeping two functions that give you access to download
+Theplantlist.org data \code{\link[taxize]{tpl_get}} and to
+get Theplantlist.org families
+\code{\link[taxize]{tpl_families}}.
 }
 \examples{
 \donttest{
@@ -44,7 +43,7 @@ tpl_search(taxon = "Microbryum curvicollum", corr = TRUE, max.distance=5)
 }
 }
 \seealso{
-  \code{\link[taxize]{tpl_get}},
-  \code{\link[taxize]{tpl_families}}
+\code{\link[taxize]{tpl_get}},
+\code{\link[taxize]{tpl_families}}
 }
 

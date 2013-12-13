@@ -2,7 +2,7 @@
 \alias{getitisterms}
 \title{Get itis terms from common names}
 \usage{
-  getitisterms(srchkey = NA, ..., curl = getCurlHandle())
+getitisterms(srchkey = NA, ..., curl = getCurlHandle())
 }
 \arguments{
   \item{srchkey}{text or taxonomic serial number (TSN)
@@ -16,7 +16,7 @@
   unnecessary footprint)}
 }
 \description{
-  Get itis terms from common names
+Get itis terms from common names
 }
 \examples{
 \dontrun{

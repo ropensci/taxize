@@ -5,7 +5,7 @@ Description: Taxonomic information from around the web. This package
     and verifying name spelling.
 Title: Taxonomic information from around the web.
 Version: 0.1.6
-Date: 2013-12-03
+Date: 2013-12-12
 License: CC0
 URL: https://ropensci.github.com/taxize_
 BugReports: https://github.com/ropensci/taxize_/issues

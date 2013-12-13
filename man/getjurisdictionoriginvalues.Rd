@@ -2,10 +2,10 @@
 \alias{getjurisdictionoriginvalues}
 \title{Get jurisdiction origin values}
 \usage{
-  getjurisdictionoriginvalues()
+getjurisdictionoriginvalues()
 }
 \description{
-  Get jurisdiction origin values
+Get jurisdiction origin values
 }
 \examples{
 \dontrun{

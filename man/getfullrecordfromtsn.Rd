@@ -2,8 +2,8 @@
 \alias{getfullrecordfromtsn}
 \title{Get full record from TSN.}
 \usage{
-  getfullrecordfromtsn(tsn = NA, ...,
-    curl = getCurlHandle(), verbose = TRUE)
+getfullrecordfromtsn(tsn = NA, ..., curl = getCurlHandle(),
+  verbose = TRUE)
 }
 \arguments{
   \item{verbose}{Verbosity or not (default TRUE)}
@@ -18,7 +18,7 @@
   unnecessary footprint)}
 }
 \description{
-  Get full record from TSN.
+Get full record from TSN.
 }
 \examples{
 \dontrun{

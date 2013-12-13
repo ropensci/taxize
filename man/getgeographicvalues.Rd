@@ -2,10 +2,10 @@
 \alias{getgeographicvalues}
 \title{Get all possible geographic values}
 \usage{
-  getgeographicvalues()
+getgeographicvalues()
 }
 \description{
-  Get all possible geographic values
+Get all possible geographic values
 }
 \examples{
 \dontrun{

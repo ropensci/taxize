@@ -3,10 +3,9 @@
 \alias{iucn_summary}
 \title{Get a summary from the IUCN Red List.}
 \usage{
-  iucn_summary(sciname, silent = TRUE, parallel = FALSE,
-    ...)
+iucn_summary(sciname, silent = TRUE, parallel = FALSE, ...)
 
-  \method{iucn_status}{iucn} (x, ...)
+\method{iucn_status}{iucn}(x, ...)
 }
 \arguments{
   \item{sciname}{character; Scientific name. Should be
@@ -25,21 +24,21 @@
   \code{\link[taxize]{iucn_summary}}.}
 }
 \value{
-  A list (for every species one entry) of lists with the
-  following items: \item{status}{Red List Category.}
-  \item{history}{History of status, if available.}
-  \item{distr}{Geographic distribution, if available.}
-  \item{trend}{Trend of population size, if available.}
+A list (for every species one entry) of lists with the
+following items: \item{status}{Red List Category.}
+\item{history}{History of status, if available.}
+\item{distr}{Geographic distribution, if available.}
+\item{trend}{Trend of population size, if available.}
 }
 \description{
-  Get a summary from the IUCN Red List
-  (\url{http://www.iucnredlist.org/}).
+Get a summary from the IUCN Red List
+(\url{http://www.iucnredlist.org/}).
 }
 \note{
-  Not all entries (history, distr, trend) are available for
-  every species and NA is returned.
-  \code{\link[taxize]{iucn_status}} is an extractor
-  function to easily extract status into a vector.
+Not all entries (history, distr, trend) are available for
+every species and NA is returned.
+\code{\link[taxize]{iucn_status}} is an extractor function
+to easily extract status into a vector.
 }
 \examples{
 \dontrun{
@@ -54,9 +53,9 @@ ia[[2]]$trend
 }
 }
 \author{
-  Eduard Szoecs, \email{eduardszoecs@gmail.com}
+Eduard Szoecs, \email{eduardszoecs@gmail.com}
 }
 \seealso{
-  \code{\link[taxize]{iucn_status}}
+\code{\link[taxize]{iucn_status}}
 }
 

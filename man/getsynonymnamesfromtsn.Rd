@@ -2,8 +2,7 @@
 \alias{getsynonymnamesfromtsn}
 \title{Returns a list of the synonyms (if any) for the TSN.}
 \usage{
-  getsynonymnamesfromtsn(tsn = NA, ...,
-    curl = getCurlHandle())
+getsynonymnamesfromtsn(tsn = NA, ..., curl = getCurlHandle())
 }
 \arguments{
   \item{tsn}{TSN for a taxonomic group (numeric)}
@@ -16,7 +15,7 @@
   unnecessary footprint)}
 }
 \description{
-  Returns a list of the synonyms (if any) for the TSN.
+Returns a list of the synonyms (if any) for the TSN.
 }
 \examples{
 \dontrun{

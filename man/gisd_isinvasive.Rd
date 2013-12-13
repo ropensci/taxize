@@ -2,7 +2,7 @@
 \alias{gisd_isinvasive}
 \title{Check invasive species status for a set of species from GISD database}
 \usage{
-  gisd_isinvasive(x, simplify = FALSE, verbose = TRUE)
+gisd_isinvasive(x, simplify = FALSE, verbose = TRUE)
 }
 \arguments{
   \item{x}{character; a vector of scientific species names
@@ -18,27 +18,26 @@
   messages printed.}
 }
 \value{
-  A data.frame with species names and invasiveness.
+A data.frame with species names and invasiveness.
 }
 \description{
-  This function check which species (both plants and
-  animals) are considered "invaders" somewhere in the
-  world.
+This function check which species (both plants and animals)
+are considered "invaders" somewhere in the world.
 
-  For that end, it checks GISD
-  (http://www.issg.org/database/welcome/) and returns a
-  value, either "Not in GISD" or the brief description
-  presented in GISD.
+For that end, it checks GISD
+(http://www.issg.org/database/welcome/) and returns a
+value, either "Not in GISD" or the brief description
+presented in GISD.
 
-  Note that the webpage contains more information. Also
-  note that the function won't tell you if it's exotic in
-  your area, a lot of exotic species are not considered
-  invaders (yet).
+Note that the webpage contains more information. Also note
+that the function won't tell you if it's exotic in your
+area, a lot of exotic species are not considered invaders
+(yet).
 
-  As expected, the function is as good as the database is,
-  which I find quite reliable and well maintained. The
-  database is also able to recognize a lot (but not all) of
-  the species synonyms.
+As expected, the function is as good as the database is,
+which I find quite reliable and well maintained. The
+database is also able to recognize a lot (but not all) of
+the species synonyms.
 }
 \examples{
 \dontrun{
@@ -49,6 +48,6 @@ gisd_isinvasive(sp, simplify = TRUE)
 }
 }
 \author{
-  Ignasi Bartomeus \email{nacho.bartomeus@gmail.com}
+Ignasi Bartomeus \email{nacho.bartomeus@gmail.com}
 }
 

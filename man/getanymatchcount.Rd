@@ -2,8 +2,7 @@
 \alias{getanymatchcount}
 \title{Get any match count.}
 \usage{
-  getanymatchcount(srchkey = NA, ...,
-    curl = getCurlHandle())
+getanymatchcount(srchkey = NA, ..., curl = getCurlHandle())
 }
 \arguments{
   \item{srchkey}{text or taxonomic serial number (TSN)
@@ -17,11 +16,11 @@
   unnecessary footprint)}
 }
 \value{
-  An integer containing the number of matches the search
-  will return.
+An integer containing the number of matches the search will
+return.
 }
 \description{
-  Get any match count.
+Get any match count.
 }
 \examples{
 \dontrun{

@@ -2,8 +2,7 @@
 \alias{searchbycommonnamebeginswith}
 \title{Search for tsn by common name beginning with}
 \usage{
-  searchbycommonnamebeginswith(srchkey = NA, ...,
-    curl = getCurlHandle())
+searchbycommonnamebeginswith(srchkey = NA, ..., curl = getCurlHandle())
 }
 \arguments{
   \item{srchkey}{text or taxonomic serial number (TSN)
@@ -17,7 +16,7 @@
   unnecessary footprint)}
 }
 \description{
-  Search for tsn by common name beginning with
+Search for tsn by common name beginning with
 }
 \examples{
 \dontrun{

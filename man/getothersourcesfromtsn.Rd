@@ -2,8 +2,7 @@
 \alias{getothersourcesfromtsn}
 \title{Returns a list of the other sources used for the TSN.}
 \usage{
-  getothersourcesfromtsn(tsn = NA, ...,
-    curl = getCurlHandle())
+getothersourcesfromtsn(tsn = NA, ..., curl = getCurlHandle())
 }
 \arguments{
   \item{tsn}{TSN for a taxonomic group (numeric)}
@@ -16,7 +15,7 @@
   unnecessary footprint)}
 }
 \description{
-  Returns a list of the other sources used for the TSN.
+Returns a list of the other sources used for the TSN.
 }
 \examples{
 \dontrun{

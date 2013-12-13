@@ -2,8 +2,7 @@
 \alias{get_tsn}
 \title{Get the TSN code for a search term.}
 \usage{
-  get_tsn(searchterm, searchtype = "sciname", ask = TRUE,
-    verbose = TRUE)
+get_tsn(searchterm, searchtype = "sciname", ask = TRUE, verbose = TRUE)
 }
 \arguments{
   \item{searchterm}{character; A vector of common or
@@ -20,17 +19,17 @@
   \item{verbose}{logical; should progress be printed?}
 }
 \value{
-  A vector of taxonomic serial numbers (TSN). If a taxon is
-  not found NA. If more than one TSN is found the function
-  asks for user input (if ask = TRUE), otherwise returns
-  NA.  Comes with an attribute \emph{match} to investigate
-  the reason for NA (either 'not found', 'found' or if ask
-  = FALSE 'multi match') See functions in the \code{itis}
-  function.
+A vector of taxonomic serial numbers (TSN). If a taxon is
+not found NA. If more than one TSN is found the function
+asks for user input (if ask = TRUE), otherwise returns NA.
+Comes with an attribute \emph{match} to investigate the
+reason for NA (either 'not found', 'found' or if ask =
+FALSE 'multi match') See functions in the \code{itis}
+function.
 }
 \description{
-  Retrieve the taxonomic serial numbers (TSN) of a taxon
-  from ITIS.
+Retrieve the taxonomic serial numbers (TSN) of a taxon from
+ITIS.
 }
 \examples{
 \dontrun{
@@ -52,7 +51,7 @@ get_tsn(searchterm="bear", searchtype="comnameend")
 }
 }
 \seealso{
-  \code{\link[taxize]{get_uid}},
-  \code{\link[taxize]{classification}}
+\code{\link[taxize]{get_uid}},
+\code{\link[taxize]{classification}}
 }
 

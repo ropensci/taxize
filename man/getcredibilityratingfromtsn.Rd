@@ -2,8 +2,7 @@
 \alias{getcredibilityratingfromtsn}
 \title{Get credibility rating from tsn}
 \usage{
-  getcredibilityratingfromtsn(tsn = NA, ...,
-    curl = getCurlHandle())
+getcredibilityratingfromtsn(tsn = NA, ..., curl = getCurlHandle())
 }
 \arguments{
   \item{tsn}{TSN for a taxonomic group (numeric)}
@@ -16,7 +15,7 @@
   unnecessary footprint)}
 }
 \description{
-  Get credibility rating from tsn
+Get credibility rating from tsn
 }
 \examples{
 \dontrun{

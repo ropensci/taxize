@@ -2,7 +2,7 @@
 \alias{getcurrencyfromtsn}
 \title{Get currency from tsn}
 \usage{
-  getcurrencyfromtsn(tsn = NA, ..., curl = getCurlHandle())
+getcurrencyfromtsn(tsn = NA, ..., curl = getCurlHandle())
 }
 \arguments{
   \item{tsn}{TSN for a taxonomic group (numeric)}
@@ -15,7 +15,7 @@
   unnecessary footprint)}
 }
 \description{
-  Get currency from tsn
+Get currency from tsn
 }
 \examples{
 \dontrun{

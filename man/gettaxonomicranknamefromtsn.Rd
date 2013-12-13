@@ -2,8 +2,8 @@
 \alias{gettaxonomicranknamefromtsn}
 \title{Returns the kingdom and rank information for the TSN.}
 \usage{
-  gettaxonomicranknamefromtsn(tsn = NA, ...,
-    curl = getCurlHandle(), verbose = TRUE)
+gettaxonomicranknamefromtsn(tsn = NA, ..., curl = getCurlHandle(),
+  verbose = TRUE)
 }
 \arguments{
   \item{verbose}{Verbosity or not (default TRUE)}
@@ -18,7 +18,7 @@
   unnecessary footprint)}
 }
 \description{
-  Returns the kingdom and rank information for the TSN.
+Returns the kingdom and rank information for the TSN.
 }
 \examples{
 \dontrun{

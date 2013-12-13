@@ -2,10 +2,9 @@
 \alias{gnr_resolve}
 \title{Resolve names using Global Names Resolver.}
 \usage{
-  gnr_resolve(names, data_source_ids = NULL,
-    resolve_once = FALSE, with_context = FALSE,
-    stripauthority = FALSE, highestscore = TRUE,
-    http = "get")
+gnr_resolve(names, data_source_ids = NULL, resolve_once = FALSE,
+  with_context = FALSE, stripauthority = FALSE, highestscore = TRUE,
+  http = "get")
 }
 \arguments{
   \item{names}{character; taxonomic names to be resolved.}
@@ -38,11 +37,11 @@
   queries.}
 }
 \value{
-  A data.frame.
+A data.frame.
 }
 \description{
-  Uses the Global Names Index, see
-  \url{http://gni.globalnames.org/}.
+Uses the Global Names Index, see
+\url{http://gni.globalnames.org/}.
 }
 \examples{
 \dontrun{
@@ -57,10 +56,10 @@ gnr_resolve(names=c("Helianthos annuus","Homo sapians"), data_source_ids=eol)
 }
 }
 \author{
-  Scott Chamberlain {myrmecocystus@gmail.com}
+Scott Chamberlain {myrmecocystus@gmail.com}
 }
 \seealso{
-  \code{\link[taxize]{gnr_datasources}}
+\code{\link[taxize]{gnr_datasources}}
 }
 \keyword{names}
 \keyword{resolve}

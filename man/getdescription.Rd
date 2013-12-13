@@ -2,10 +2,10 @@
 \alias{getdescription}
 \title{Get description of the ITIS service}
 \usage{
-  getdescription()
+getdescription()
 }
 \description{
-  Get description of the ITIS service
+Get description of the ITIS service
 }
 \examples{
 \dontrun{

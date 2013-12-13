@@ -2,7 +2,7 @@
 \alias{itis_kingdomnames}
 \title{Get kingdom names.}
 \usage{
-  itis_kingdomnames(tsn = NULL, ...)
+itis_kingdomnames(tsn = NULL, ...)
 }
 \arguments{
   \item{tsn}{One or more TSN's (taxonomic serial number)}
@@ -11,7 +11,7 @@
   getkingdomnamefromtsn}
 }
 \description{
-  Get kingdom names.
+Get kingdom names.
 }
 \examples{
 \dontrun{

@@ -2,8 +2,7 @@
 \alias{searchbycommonnameendswith}
 \title{Search for tsn by common name ending with}
 \usage{
-  searchbycommonnameendswith(srchkey = NA, ...,
-    curl = getCurlHandle())
+searchbycommonnameendswith(srchkey = NA, ..., curl = getCurlHandle())
 }
 \arguments{
   \item{srchkey}{text or taxonomic serial number (TSN)
@@ -17,7 +16,7 @@
   unnecessary footprint)}
 }
 \description{
-  Search for tsn by common name ending with
+Search for tsn by common name ending with
 }
 \examples{
 \dontrun{

@@ -2,8 +2,8 @@
 \alias{searchforanymatchpaged}
 \title{Search for any matched page}
 \usage{
-  searchforanymatchpaged(srchkey = NA, pagesize = NA,
-    pagenum = NA, ascend = NA, ..., curl = getCurlHandle())
+searchforanymatchpaged(srchkey = NA, pagesize = NA, pagenum = NA,
+  ascend = NA, ..., curl = getCurlHandle())
 }
 \arguments{
   \item{pagesize}{An integer containing the page size
@@ -26,7 +26,7 @@
   unnecessary footprint)}
 }
 \description{
-  Search for any matched page
+Search for any matched page
 }
 \examples{
 \dontrun{

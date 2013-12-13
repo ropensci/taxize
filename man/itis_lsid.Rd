@@ -2,7 +2,7 @@
 \alias{itis_lsid}
 \title{Get kingdom names.}
 \usage{
-  itis_lsid(lsid = NULL, what = "tsn", ...)
+itis_lsid(lsid = NULL, what = "tsn", ...)
 }
 \arguments{
   \item{lsid}{One or more lsid's}
@@ -16,7 +16,7 @@
   \code{\link{getfullrecordfromlsid}}}
 }
 \description{
-  Get kingdom names.
+Get kingdom names.
 }
 \examples{
 \dontrun{

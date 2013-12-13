@@ -2,7 +2,7 @@
 \alias{tpl_get}
 \title{Get The Plant List csv files.}
 \usage{
-  tpl_get(dir_, family = NULL)
+tpl_get(dir_, family = NULL)
 }
 \arguments{
   \item{dir_}{Directory to write csv files to.}
@@ -11,20 +11,20 @@
   all, list them in a vector.}
 }
 \value{
-  Returns nothing to console, except a message and progress
-  bar. Writes csv files to dir_.
+Returns nothing to console, except a message and progress
+bar. Writes csv files to dir_.
 }
 \description{
-  The Plant List \url{http://www.theplantlist.org/}. Note
-  there is a package on CRAN (taxonstand -
-  \url{http://cran.r-project.org/web/packages/Taxonstand/})
-  that uses theplantlist.org to search plant names - we
-  have a wrapper around that function called tpl_search.
+The Plant List \url{http://www.theplantlist.org/}. Note
+there is a package on CRAN (taxonstand -
+\url{http://cran.r-project.org/web/packages/Taxonstand/})
+that uses theplantlist.org to search plant names - we have
+a wrapper around that function called tpl_search.
 }
 \details{
-  Throws a warning if you already have a directory of the
-  one provided, but still works. Writes to your home
-  directory, change dir_ as needed.
+Throws a warning if you already have a directory of the one
+provided, but still works. Writes to your home directory,
+change dir_ as needed.
 }
 \examples{
 \donttest{
@@ -42,9 +42,9 @@ tpl_get(dir_ = "~/foo")
 }
 }
 \author{
-  John Baumgartner (johnbb@student.unimelb.edu.au)
+John Baumgartner (johnbb@student.unimelb.edu.au)
 }
 \seealso{
-  \code{\link{tpl_search}} \code{\link{tpl_families}}
+\code{\link{tpl_search}} \code{\link{tpl_families}}
 }
 

@@ -2,7 +2,7 @@
 \alias{tp_dist}
 \title{Return all distribution records for for a taxon name with a given id.}
 \usage{
-  tp_dist(id, key = NULL, callopts = list())
+tp_dist(id, key = NULL, callopts = list())
 }
 \arguments{
   \item{id}{the taxon identifier code}
@@ -13,12 +13,12 @@
   \item{callopts}{Further args passed on to httr::GET}
 }
 \value{
-  List of two data.frame's, one named "location", and one
-  "reference".
+List of two data.frame's, one named "location", and one
+"reference".
 }
 \description{
-  Return all distribution records for for a taxon name with
-  a given id.
+Return all distribution records for for a taxon name with a
+given id.
 }
 \examples{
 \dontrun{
@@ -31,6 +31,6 @@ head(out[['reference']])
 }
 }
 \references{
-  \url{http://services.tropicos.org/help?method=GetNameDistributionsXml}
+\url{http://services.tropicos.org/help?method=GetNameDistributionsXml}
 }
 

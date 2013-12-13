@@ -2,7 +2,7 @@
 \alias{get_colid}
 \title{Get the Catalogue of Life ID from taxonomic names.}
 \usage{
-  get_colid(sciname, ask = TRUE, verbose = TRUE)
+get_colid(sciname, ask = TRUE, verbose = TRUE)
 }
 \arguments{
   \item{sciname}{character; scientific name.}
@@ -16,12 +16,12 @@
   is printed on the console.}
 }
 \value{
-  A vector of unique identifiers. If a taxon is not found
-  NA. If more than one ID is found the function asks for
-  user input.
+A vector of unique identifiers. If a taxon is not found NA.
+If more than one ID is found the function asks for user
+input.
 }
 \description{
-  Get the Catalogue of Life ID from taxonomic names.
+Get the Catalogue of Life ID from taxonomic names.
 }
 \examples{
 \dontrun{
@@ -37,12 +37,12 @@ get_colid(c("Chironomus riparius", "uaudnadndj"))
 }
 }
 \author{
-  Scott Chamberlain, \email{myrmecocystus@gmail.com}
+Scott Chamberlain, \email{myrmecocystus@gmail.com}
 }
 \seealso{
-  \code{\link[taxize]{get_tsn}},
-  \code{\link[taxize]{get_uid}},
-  \code{\link[taxize]{get_tpsid}},
-  \code{\link[taxize]{get_eolid}}
+\code{\link[taxize]{get_tsn}},
+\code{\link[taxize]{get_uid}},
+\code{\link[taxize]{get_tpsid}},
+\code{\link[taxize]{get_eolid}}
 }
 

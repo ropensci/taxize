@@ -2,8 +2,7 @@
 \alias{getcommentdetailfromtsn}
 \title{Get comment detail from TSN}
 \usage{
-  getcommentdetailfromtsn(tsn = NA, ...,
-    curl = getCurlHandle())
+getcommentdetailfromtsn(tsn = NA, ..., curl = getCurlHandle())
 }
 \arguments{
   \item{tsn}{TSN for a taxonomic group (numeric)}
@@ -16,10 +15,10 @@
   unnecessary footprint)}
 }
 \value{
-  A data.frame with results.
+A data.frame with results.
 }
 \description{
-  Get comment detail from TSN
+Get comment detail from TSN
 }
 \examples{
 \dontrun{

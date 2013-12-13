@@ -2,8 +2,7 @@
 \alias{searchforanymatch}
 \title{Search for any match}
 \usage{
-  searchforanymatch(srchkey = NA, ...,
-    curl = getCurlHandle())
+searchforanymatch(srchkey = NA, ..., curl = getCurlHandle())
 }
 \arguments{
   \item{srchkey}{text or taxonomic serial number (TSN)
@@ -17,7 +16,7 @@
   unnecessary footprint)}
 }
 \description{
-  Search for any match
+Search for any match
 }
 \examples{
 \dontrun{

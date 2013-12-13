@@ -2,7 +2,7 @@
 \alias{getcoveragefromtsn}
 \title{Get coverge from tsn}
 \usage{
-  getcoveragefromtsn(tsn = NA, ..., curl = getCurlHandle())
+getcoveragefromtsn(tsn = NA, ..., curl = getCurlHandle())
 }
 \arguments{
   \item{tsn}{TSN for a taxonomic group (numeric)}
@@ -15,7 +15,7 @@
   unnecessary footprint)}
 }
 \description{
-  Get coverge from tsn
+Get coverge from tsn
 }
 \examples{
 \dontrun{

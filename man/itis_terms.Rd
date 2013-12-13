@@ -2,7 +2,7 @@
 \alias{itis_terms}
 \title{Get ITIS terms, i.e., tsn's, authors, common names, and scientific names.}
 \usage{
-  itis_terms(query, what = "both", ...)
+itis_terms(query, what = "both", ...)
 }
 \arguments{
   \item{query}{One or more common or scientific names, or
@@ -18,8 +18,8 @@
   \code{\link{getitistermsfromscientificname}}}
 }
 \description{
-  Get ITIS terms, i.e., tsn's, authors, common names, and
-  scientific names.
+Get ITIS terms, i.e., tsn's, authors, common names, and
+scientific names.
 }
 \examples{
 \dontrun{

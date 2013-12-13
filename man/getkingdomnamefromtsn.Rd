@@ -2,8 +2,8 @@
 \alias{getkingdomnamefromtsn}
 \title{Get kingdom names from tsn}
 \usage{
-  getkingdomnamefromtsn(tsn = NA, ...,
-    curl = getCurlHandle(), verbose = TRUE)
+getkingdomnamefromtsn(tsn = NA, ..., curl = getCurlHandle(),
+  verbose = TRUE)
 }
 \arguments{
   \item{verbose}{Verbosity or not (default TRUE)}
@@ -18,7 +18,7 @@
   unnecessary footprint)}
 }
 \description{
-  Get kingdom names from tsn
+Get kingdom names from tsn
 }
 \examples{
 \dontrun{

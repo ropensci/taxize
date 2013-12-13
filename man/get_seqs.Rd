@@ -2,8 +2,8 @@
 \alias{get_seqs}
 \title{Retrieve nucleotide sequences from NCBI.}
 \usage{
-  get_seqs(taxon_name, gene, seqrange, getrelated,
-    writetodf = TRUE, filetowriteto)
+get_seqs(taxon_name, gene, seqrange, getrelated, writetodf = TRUE,
+  filetowriteto)
 }
 \arguments{
   \item{taxon_name}{Scientific name to search for
@@ -26,16 +26,16 @@
   file name. Default=T.}
 }
 \value{
-  Data.frame of results.
+Data.frame of results.
 }
 \description{
-  This function retrieves one sequences for each species,
-  picking the longest available for the given gene.
+This function retrieves one sequences for each species,
+picking the longest available for the given gene.
 }
 \details{
-  Removes predicted sequences so you don't have to remove
-  them.  Predicted sequences are those with accession
-  numbers that have "XM_" or "XR_" prefixes.
+Removes predicted sequences so you don't have to remove
+them.  Predicted sequences are those with accession numbers
+that have "XM_" or "XR_" prefixes.
 }
 \examples{
 \dontrun{
@@ -50,10 +50,10 @@ llply(species, get_seqs, gene = c("coi", "co1"), seqrange = "1:2000",
 }
 }
 \author{
-  Scott Chamberlain \email{myrmecocystus@gmail.com}
+Scott Chamberlain \email{myrmecocystus@gmail.com}
 }
 \seealso{
-  \code{\link[taxize]{get_genes_avail}},
-  \code{\link[taxize]{get_genes}}
+\code{\link[taxize]{get_genes_avail}},
+\code{\link[taxize]{get_genes}}
 }
 

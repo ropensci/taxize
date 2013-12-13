@@ -2,8 +2,7 @@
 \alias{getglobalspeciescompletenessfromtsn}
 \title{Get global species completeness from tsn}
 \usage{
-  getglobalspeciescompletenessfromtsn(tsn = NA, ...,
-    curl = getCurlHandle())
+getglobalspeciescompletenessfromtsn(tsn = NA, ..., curl = getCurlHandle())
 }
 \arguments{
   \item{tsn}{TSN for a taxonomic group (numeric)}
@@ -16,7 +15,7 @@
   unnecessary footprint)}
 }
 \description{
-  Get global species completeness from tsn
+Get global species completeness from tsn
 }
 \examples{
 \dontrun{

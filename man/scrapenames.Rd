@@ -2,10 +2,9 @@
 \alias{scrapenames}
 \title{Resolve names using Global Names Recognition and Discovery.}
 \usage{
-  scrapenames(url = NULL, file = NULL, text = NULL,
-    engine = NULL, unique = NULL, verbatim = NULL,
-    detect_language = NULL, all_data_sources = NULL,
-    data_source_ids = NULL, callopts = list())
+scrapenames(url = NULL, file = NULL, text = NULL, engine = NULL,
+  unique = NULL, verbatim = NULL, detect_language = NULL,
+  all_data_sources = NULL, data_source_ids = NULL, callopts = list())
 }
 \arguments{
   \item{url}{An encoded URL for a web page, PDF, Microsoft
@@ -44,16 +43,16 @@
   \code{\link[httr]{GET}}}
 }
 \value{
-  A list of length two, first is metadata, second is the
-  data as a data.frame.
+A list of length two, first is metadata, second is the data
+as a data.frame.
 }
 \description{
-  Uses the Global Names Recognition and Discovery service,
-  see \url{http://gnrd.globalnames.org/}.
+Uses the Global Names Recognition and Discovery service,
+see \url{http://gnrd.globalnames.org/}.
 }
 \details{
-  One of url, file, or text must be specified - and only
-  one of them.
+One of url, file, or text must be specified - and only one
+of them.
 }
 \examples{
 \dontrun{
@@ -76,6 +75,6 @@ scrapenames(text='A spider named Pardosa moesta Banks, 1892')
 }
 }
 \author{
-  Scott Chamberlain {myrmecocystus@gmail.com}
+Scott Chamberlain {myrmecocystus@gmail.com}
 }
 

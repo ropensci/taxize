@@ -2,7 +2,7 @@
 \alias{getexpertsfromtsn}
 \title{Get expert information for the TSN.}
 \usage{
-  getexpertsfromtsn(tsn = NA, ..., curl = getCurlHandle())
+getexpertsfromtsn(tsn = NA, ..., curl = getCurlHandle())
 }
 \arguments{
   \item{tsn}{TSN for a taxonomic group (numeric)}
@@ -15,7 +15,7 @@
   unnecessary footprint)}
 }
 \description{
-  Get expert information for the TSN.
+Get expert information for the TSN.
 }
 \examples{
 \dontrun{

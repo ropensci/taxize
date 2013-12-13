@@ -2,8 +2,8 @@
 \alias{tax_name}
 \title{Get taxonomic names for a given rank.}
 \usage{
-  tax_name(query = NULL, get = NULL, db = "itis",
-    pref = "ncbi", verbose = TRUE, ...)
+tax_name(query = NULL, get = NULL, db = "itis", pref = "ncbi",
+  verbose = TRUE, ...)
 }
 \arguments{
   \item{query}{character; Vector of taxonomic names to
@@ -28,15 +28,15 @@
   \code{\link[taxize]{get_uid}}.}
 }
 \value{
-  A data.frame with one column for every queried rank.
+A data.frame with one column for every queried rank.
 }
 \description{
-  Retrieve name of querried taxonomic rank of a taxon.
+Retrieve name of querried taxonomic rank of a taxon.
 }
 \note{
-  While \code{\link[taxize]{tax_rank}} returns the actual
-  rank of a taxon,\code{\link[taxize]{tax_name}} searches
-  and returns any specified rank higher in taxonmy.
+While \code{\link[taxize]{tax_rank}} returns the actual
+rank of a taxon,\code{\link[taxize]{tax_name}} searches and
+returns any specified rank higher in taxonmy.
 }
 \examples{
 \dontrun{
@@ -59,6 +59,6 @@ tax_name(query=c("Helianthus annuus", 'Baetis rhodani'), get=c("genus",
 }
 }
 \seealso{
-  \code{\link[taxize]{classification}}
+\code{\link[taxize]{classification}}
 }
 

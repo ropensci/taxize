@@ -2,8 +2,7 @@
 \alias{getgeographicdivisionsfromtsn}
 \title{Get geographic divisions from tsn}
 \usage{
-  getgeographicdivisionsfromtsn(tsn = NA, ...,
-    curl = getCurlHandle())
+getgeographicdivisionsfromtsn(tsn = NA, ..., curl = getCurlHandle())
 }
 \arguments{
   \item{tsn}{TSN for a taxonomic group (numeric)}
@@ -16,7 +15,7 @@
   unnecessary footprint)}
 }
 \description{
-  Get geographic divisions from tsn
+Get geographic divisions from tsn
 }
 \examples{
 \dontrun{

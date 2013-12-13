@@ -3,8 +3,7 @@
 \title{Get family names to make Phylomatic input object, and output input string
    to Phylomatic for use in the function phylomatic_tree.}
 \usage{
-  itis_phymat_format(taxa = NA, format = "isubmit",
-    db = "ncbi")
+itis_phymat_format(taxa = NA, format = "isubmit", db = "ncbi")
 }
 \arguments{
   \item{taxa}{quoted tsn number (taxonomic serial number)}
@@ -16,13 +15,13 @@
   \item{db}{One of ncbi or itis}
 }
 \value{
-  e.g., "pinaceae/pinus/pinus_contorta", in Phylomatic
-  submission format.
+e.g., "pinaceae/pinus/pinus_contorta", in Phylomatic
+submission format.
 }
 \description{
-  Get family names to make Phylomatic input object, and
-  output input string to Phylomatic for use in the function
-  phylomatic_tree.
+Get family names to make Phylomatic input object, and
+output input string to Phylomatic for use in the function
+phylomatic_tree.
 }
 \examples{
 \dontrun{

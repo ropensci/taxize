@@ -2,10 +2,10 @@
 \alias{phylomatic_tree}
 \title{Query Phylomatic for a phylogenetic tree.}
 \usage{
-  phylomatic_tree(taxa, taxnames = TRUE, get = "GET",
-    informat = "newick", method = "phylomatic",
-    storedtree = "smith2011", taxaformat = "slashpath",
-    outformat = "newick", clean = "true", parallel = FALSE)
+phylomatic_tree(taxa, taxnames = TRUE, get = "GET", informat = "newick",
+  method = "phylomatic", storedtree = "smith2011",
+  taxaformat = "slashpath", outformat = "newick", clean = "true",
+  parallel = FALSE)
 }
 \arguments{
   \item{taxa}{Phylomatic format input of taxa names.}
@@ -37,14 +37,14 @@
   \item{parallel}{Run in parallel or not.}
 }
 \value{
-  Newick formatted tree or nexml text.
+Newick formatted tree or nexml text.
 }
 \description{
-  Query Phylomatic for a phylogenetic tree.
+Query Phylomatic for a phylogenetic tree.
 }
 \details{
-  Use the web interface here
-  http://phylodiversity.net/phylomatic/
+Use the web interface here
+http://phylodiversity.net/phylomatic/
 }
 \examples{
 \dontrun{

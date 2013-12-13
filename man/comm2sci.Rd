@@ -2,8 +2,7 @@
 \alias{comm2sci}
 \title{Get scientific names from common names.}
 \usage{
-  comm2sci(commnames, db = "eol", itisby = "search",
-    simplify = TRUE, ...)
+comm2sci(commnames, db = "eol", itisby = "search", simplify = TRUE, ...)
 }
 \arguments{
   \item{commnames}{One or more common names or partial
@@ -24,10 +23,10 @@
   methods.}
 }
 \value{
-  A vector of names.
+A vector of names.
 }
 \description{
-  Get scientific names from common names.
+Get scientific names from common names.
 }
 \examples{
 \dontrun{
@@ -43,15 +42,15 @@ ldply(comm2sci(commnames=c('annual blue grass','tree of heaven'), db='tropicos')
 }
 }
 \author{
-  Scott Chamberlain (myrmecocystus@gmail.com)
+Scott Chamberlain (myrmecocystus@gmail.com)
 }
 \seealso{
-  \code{\link[taxize]{searchbycommonname}},
-  \code{\link[taxize]{searchbycommonnamebeginswith}},
-  \code{\link[taxize]{searchbycommonnameendswith}},
-  \code{\link[taxize]{eol_search}},
-  \code{\link[taxize]{tp_search}}
+\code{\link[taxize]{searchbycommonname}},
+\code{\link[taxize]{searchbycommonnamebeginswith}},
+\code{\link[taxize]{searchbycommonnameendswith}},
+\code{\link[taxize]{eol_search}},
+\code{\link[taxize]{tp_search}}
 
-  \code{\link[taxize]{sci2comm}}
+\code{\link[taxize]{sci2comm}}
 }
 

@@ -2,7 +2,7 @@
 \alias{itis_taxrank}
 \title{Retrieve taxonomic rank name from given TSN.}
 \usage{
-  itis_taxrank(query = NULL, ...)
+itis_taxrank(query = NULL, ...)
 }
 \arguments{
   \item{query}{TSN for a taxonomic group (numeric). If
@@ -17,13 +17,13 @@
   \code{\link{gettaxonomicranknamefromtsn}}}
 }
 \value{
-  Taxonomic rank names or data.frame of all ranks.
+Taxonomic rank names or data.frame of all ranks.
 }
 \description{
-  Retrieve taxonomic rank name from given TSN.
+Retrieve taxonomic rank name from given TSN.
 }
 \details{
-  You can print messages by setting verbose=FALSE.
+You can print messages by setting verbose=FALSE.
 }
 \examples{
 \dontrun{

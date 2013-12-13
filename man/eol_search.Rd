@@ -2,10 +2,9 @@
 \alias{eol_search}
 \title{Search for terms in EOL database.}
 \usage{
-  eol_search(terms, page = 1, exact = NULL,
-    filter_tid = NULL, filter_heid = NULL,
-    filter_by_string = NULL, cache_ttl = NULL, key = NULL,
-    callopts = list())
+eol_search(terms, page = 1, exact = NULL, filter_tid = NULL,
+  filter_heid = NULL, filter_by_string = NULL, cache_ttl = NULL,
+  key = NULL, callopts = list())
 }
 \arguments{
   \item{terms}{search terms (character)}
@@ -38,14 +37,14 @@
   \item{callopts}{Further args passed on to GET.}
 }
 \value{
-  JSON list object, or data.frame.
+JSON list object, or data.frame.
 }
 \description{
-  Search for terms in EOL database.
+Search for terms in EOL database.
 }
 \details{
-  It's possible to return JSON or XML with the EOL API.
-  However, this function only returns JSON for now.
+It's possible to return JSON or XML with the EOL API.
+However, this function only returns JSON for now.
 }
 \examples{
 \dontrun{

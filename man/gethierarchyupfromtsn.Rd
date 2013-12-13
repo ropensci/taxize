@@ -2,8 +2,8 @@
 \alias{gethierarchyupfromtsn}
 \title{Get hierarchy up from tsn}
 \usage{
-  gethierarchyupfromtsn(tsn = NA, ...,
-    curl = getCurlHandle(), verbose = TRUE)
+gethierarchyupfromtsn(tsn = NA, ..., curl = getCurlHandle(),
+  verbose = TRUE)
 }
 \arguments{
   \item{verbose}{Verbosity or not (default TRUE)}
@@ -18,7 +18,7 @@
   unnecessary footprint)}
 }
 \description{
-  Get hierarchy up from tsn
+Get hierarchy up from tsn
 }
 \examples{
 \dontrun{

@@ -2,8 +2,7 @@
 \alias{col_search}
 \title{Search Catalogue of Life for taxonomic IDs}
 \usage{
-  col_search(name = NULL, id = NULL, start = NULL,
-    checklist = NULL)
+col_search(name = NULL, id = NULL, start = NULL, checklist = NULL)
 }
 \arguments{
   \item{name}{The string to search for. Only exact matches
@@ -30,14 +29,14 @@
   lastest as default (numeric).}
 }
 \value{
-  A list of data.frame's.
+A list of data.frame's.
 }
 \description{
-  Search Catalogue of Life for taxonomic IDs
+Search Catalogue of Life for taxonomic IDs
 }
 \details{
-  You must provide one of name or id. The other parameters
-  (format and start) are optional.
+You must provide one of name or id. The other parameters
+(format and start) are optional.
 }
 \examples{
 \dontrun{
@@ -52,6 +51,6 @@ col_search(id=11935941)
 }
 }
 \references{
-  \url{http://webservice.catalogueoflife.org/}
+\url{http://webservice.catalogueoflife.org/}
 }
 

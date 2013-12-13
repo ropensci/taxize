@@ -2,8 +2,7 @@
 \alias{getreviewyearfromtsn}
 \title{Returns the review year for the TSN.}
 \usage{
-  getreviewyearfromtsn(tsn = NA, ...,
-    curl = getCurlHandle())
+getreviewyearfromtsn(tsn = NA, ..., curl = getCurlHandle())
 }
 \arguments{
   \item{tsn}{TSN for a taxonomic group (numeric)}
@@ -16,7 +15,7 @@
   unnecessary footprint)}
 }
 \description{
-  Returns the review year for the TSN.
+Returns the review year for the TSN.
 }
 \examples{
 \dontrun{

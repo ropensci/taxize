@@ -2,7 +2,7 @@
 \alias{get_ids}
 \title{Retrieve taxonomic identifiers for a given taxon name.}
 \usage{
-  get_ids(names, db = NULL, ...)
+get_ids(names, db = NULL, ...)
 }
 \arguments{
   \item{names}{character; Taxonomic name to query.}
@@ -19,19 +19,17 @@
   \code{\link[taxize]{get_tpsid}}.}
 }
 \value{
-  A vector of taxonomic identifiers, each retaining their
-  respective S3 classes so that each element can be passed
-  on to another function (see e.g.'s).
+A vector of taxonomic identifiers, each retaining their
+respective S3 classes so that each element can be passed on
+to another function (see e.g.'s).
 }
 \description{
-  This is a convenience function to get identifiers across
-  all data sources. You can use other \code{get_*}
-  functions to get identifiers from specific sources if you
-  like.
+This is a convenience function to get identifiers across
+all data sources. You can use other \code{get_*} functions
+to get identifiers from specific sources if you like.
 }
 \note{
-  There is a timeout of 1/3 seconds between queries to
-  NCBI.
+There is a timeout of 1/3 seconds between queries to NCBI.
 }
 \examples{
 \dontrun{
@@ -51,10 +49,10 @@ synonyms(out$tropicos)
 }
 }
 \seealso{
-  \code{\link[taxize]{get_tsn}},
-  \code{\link[taxize]{get_uid}},
-  \code{\link[taxize]{get_eolid}},
-  \code{\link[taxize]{get_colid}},
-  \code{\link[taxize]{get_tpsid}}
+\code{\link[taxize]{get_tsn}},
+\code{\link[taxize]{get_uid}},
+\code{\link[taxize]{get_eolid}},
+\code{\link[taxize]{get_colid}},
+\code{\link[taxize]{get_tpsid}}
 }
 

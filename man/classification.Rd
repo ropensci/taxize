@@ -9,24 +9,21 @@
 \alias{classification.uid}
 \title{Retrieve the taxonomic hierarchy for a given taxon ID.}
 \usage{
-  classification(...)
+classification(...)
 
-  \method{classification}{default} (x, db = NULL, ...)
+\method{classification}{default}(x, db = NULL, ...)
 
-  \method{classification}{tsn} (id, ...)
+\method{classification}{tsn}(id, ...)
 
-  \method{classification}{uid} (id, ...)
+\method{classification}{uid}(id, ...)
 
-  \method{classification}{eolid} (id, key = NULL,
-    callopts = list(), ...)
+\method{classification}{eolid}(id, key = NULL, callopts = list(), ...)
 
-  \method{classification}{colid} (id, start = NULL,
-    checklist = NULL, ...)
+\method{classification}{colid}(id, start = NULL, checklist = NULL, ...)
 
-  \method{classification}{tpsid} (id, key = NULL,
-    callopts = list(), ...)
+\method{classification}{tpsid}(id, key = NULL, callopts = list(), ...)
 
-  \method{classification}{ids} (id, ...)
+\method{classification}{ids}(id, ...)
 }
 \arguments{
   \item{x}{character; taxons to query.}
@@ -66,16 +63,16 @@
   \item{callopts}{Further args passed on to httr::GET.}
 }
 \value{
-  A named list of data.frames with the taxonomic
-  classifcation of every supplied taxa.
+A named list of data.frames with the taxonomic
+classifcation of every supplied taxa.
 }
 \description{
-  Retrieve the taxonomic hierarchy for a given taxon ID.
+Retrieve the taxonomic hierarchy for a given taxon ID.
 }
 \note{
-  If IDs are supplied directly (not from the \code{get_*}
-  functions) you must specify the type of ID. There is a
-  timeout of 1/3 seconds between querries to NCBI.
+If IDs are supplied directly (not from the \code{get_*}
+functions) you must specify the type of ID. There is a
+timeout of 1/3 seconds between querries to NCBI.
 }
 \examples{
 \dontrun{
@@ -101,10 +98,10 @@ classification(out)
 }
 }
 \seealso{
-  \code{\link[taxize]{get_tsn}},
-  \code{\link[taxize]{get_uid}},
-  \code{\link[taxize]{get_eolid}},
-  \code{\link[taxize]{get_colid}},
-  \code{\link[taxize]{get_tpsid}}
+\code{\link[taxize]{get_tsn}},
+\code{\link[taxize]{get_uid}},
+\code{\link[taxize]{get_eolid}},
+\code{\link[taxize]{get_colid}},
+\code{\link[taxize]{get_tpsid}}
 }
 

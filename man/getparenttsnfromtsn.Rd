@@ -2,8 +2,7 @@
 \alias{getparenttsnfromtsn}
 \title{Returns the parent TSN for the entered TSN.}
 \usage{
-  getparenttsnfromtsn(tsn = NA, ...,
-    curl = getCurlHandle())
+getparenttsnfromtsn(tsn = NA, ..., curl = getCurlHandle())
 }
 \arguments{
   \item{tsn}{TSN for a taxonomic group (numeric)}
@@ -16,7 +15,7 @@
   unnecessary footprint)}
 }
 \description{
-  Returns the parent TSN for the entered TSN.
+Returns the parent TSN for the entered TSN.
 }
 \examples{
 \dontrun{

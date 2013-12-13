@@ -2,9 +2,8 @@
 \alias{eol_invasive}
 \title{Search for presence of taxonomic names in EOL invasive species databases.}
 \usage{
-  eol_invasive(name = NULL, dataset = "all",
-    searchby = grep, page = NULL, per_page = NULL,
-    key = NULL, callopts = list(), verbose = TRUE)
+eol_invasive(name = NULL, dataset = "all", searchby = grep, page = NULL,
+  per_page = NULL, key = NULL, callopts = list(), verbose = TRUE)
 }
 \arguments{
   \item{name}{A taxonomic name, or a vector of names.}
@@ -30,39 +29,38 @@
   is printed on the console.}
 }
 \value{
-  A list of data.frame's/strings with results, with each
-  element named by the input elements to the name
-  parameter.
+A list of data.frame's/strings with results, with each
+element named by the input elements to the name parameter.
 }
 \description{
-  If a two-column data.frame is returned with the species
-  you searched for, your species is listead in the database
-  you searched. If your searched taxon is not found, we
-  return a string "<your species name> was not found".
+If a two-column data.frame is returned with the species you
+searched for, your species is listead in the database you
+searched. If your searched taxon is not found, we return a
+string "<your species name> was not found".
 }
 \details{
-  Beware that some datasets are quite large, and may take
-  30 sec to a minute to pull down all data before we can
-  search for your species. Note there is no parameter in
-  this API method for searching by taxon name.
+Beware that some datasets are quite large, and may take 30
+sec to a minute to pull down all data before we can search
+for your species. Note there is no parameter in this API
+method for searching by taxon name.
 
-  This function is vectorized, so you can pass a single
-  name or a vector of names.
+This function is vectorized, so you can pass a single name
+or a vector of names.
 
-  It's possible to return JSON or XML with the EOL API.
-  However, this function only returns JSON for now.
+It's possible to return JSON or XML with the EOL API.
+However, this function only returns JSON for now.
 
-  Options for the dataset parameter are \itemize{ \item all
-  - All datasets \item gisd100 - 100 of the World's Worst
-  Invasive Alien Species (Global Invasive Species Database)
-  \item gisd - Global Invasive Species Database 2013 \item
-  gris - Global Register of Invasive Species (GRIS) Taxa
-  \item isc - Centre for Agriculture and Biosciences
-  International Invasive Species Compendium (ISC) \item
-  daisie - Delivering Alien Invasive Species Inventories
-  for Europe (DAISIE) Species List \item i3n - IABIN
-  Invasives Information Network (I3N) Species \item mineps
-  - Marine Invaders of the NE Pacific Species }
+Options for the dataset parameter are \itemize{ \item all -
+All datasets \item gisd100 - 100 of the World's Worst
+Invasive Alien Species (Global Invasive Species Database)
+\item gisd - Global Invasive Species Database 2013 \item
+gris - Global Register of Invasive Species (GRIS) Taxa
+\item isc - Centre for Agriculture and Biosciences
+International Invasive Species Compendium (ISC) \item
+daisie - Delivering Alien Invasive Species Inventories for
+Europe (DAISIE) Species List \item i3n - IABIN Invasives
+Information Network (I3N) Species \item mineps - Marine
+Invaders of the NE Pacific Species }
 }
 \examples{
 \dontrun{
@@ -79,7 +77,7 @@ eol_invasive(name=c('Branta canadensis','Gallus gallus','Myiopsitta monachus'), 
 }
 }
 \references{
-  See info for each data source at
-  \url{http://eol.org/collections/55367/taxa}
+See info for each data source at
+\url{http://eol.org/collections/55367/taxa}
 }
 

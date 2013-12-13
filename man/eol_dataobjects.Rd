@@ -2,8 +2,8 @@
 \alias{eol_dataobjects}
 \title{Given the identifier for a data object, return all metadata about the object.}
 \usage{
-  eol_dataobjects(id, returntype = "list", usekey = TRUE,
-    key = NULL, verbose = TRUE)
+eol_dataobjects(id, returntype = "list", usekey = TRUE, key = NULL,
+  verbose = TRUE)
 }
 \arguments{
   \item{id}{The EOL data object identifier (character)}
@@ -19,15 +19,15 @@
   is printed on the console.}
 }
 \value{
-  List or dataframe.
+List or dataframe.
 }
 \description{
-  Given the identifier for a data object, return all
-  metadata about the object.
+Given the identifier for a data object, return all metadata
+about the object.
 }
 \details{
-  It's possible to return JSON or XML with the EOL API.
-  However, this function only returns JSON for now.
+It's possible to return JSON or XML with the EOL API.
+However, this function only returns JSON for now.
 }
 \examples{
 \dontrun{

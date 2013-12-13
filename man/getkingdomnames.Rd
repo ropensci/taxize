@@ -2,10 +2,10 @@
 \alias{getkingdomnames}
 \title{Get all possible kingdom names}
 \usage{
-  getkingdomnames()
+getkingdomnames()
 }
 \description{
-  Get all possible kingdom names
+Get all possible kingdom names
 }
 \examples{
 \dontrun{

@@ -2,7 +2,7 @@
 \alias{taxize_capwords}
 \title{Capitalize the first letter of a character string.}
 \usage{
-  taxize_capwords(s, strict = FALSE, onlyfirst = FALSE)
+taxize_capwords(s, strict = FALSE, onlyfirst = FALSE)
 }
 \arguments{
   \item{s}{A character string}
@@ -14,7 +14,7 @@
   all others. Useful for taxonomic names.}
 }
 \description{
-  Capitalize the first letter of a character string.
+Capitalize the first letter of a character string.
 }
 \examples{
 taxize_capwords(c("using AIC for model selection"))

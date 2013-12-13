@@ -2,7 +2,7 @@
 \alias{itis_name}
 \title{Get taxonomic names for a given taxonomic name query.}
 \usage{
-  itis_name(query = NULL, get = NULL)
+itis_name(query = NULL, get = NULL)
 }
 \arguments{
   \item{query}{TSN number (taxonomic serial number).}
@@ -10,10 +10,10 @@
   \item{get}{The rank of the taxonomic name to get.}
 }
 \value{
-  Taxonomic name for the searched taxon.
+Taxonomic name for the searched taxon.
 }
 \description{
-  Get taxonomic names for a given taxonomic name query.
+Get taxonomic names for a given taxonomic name query.
 }
 \examples{
 \dontrun{

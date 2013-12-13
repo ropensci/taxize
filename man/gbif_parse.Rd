@@ -2,20 +2,19 @@
 \alias{gbif_parse}
 \title{Parse taxon names using the GBIF name parser.}
 \usage{
-  gbif_parse(scientificname)
+gbif_parse(scientificname)
 }
 \arguments{
   \item{scientificname}{A character vector of scientific
   names.}
 }
 \value{
-  A \code{data.frame} containing fields extracted from
-  parsed taxon names. Fields returned are the union of
-  fields extracted from all species names in
-  \code{scientificname}.
+A \code{data.frame} containing fields extracted from parsed
+taxon names. Fields returned are the union of fields
+extracted from all species names in \code{scientificname}.
 }
 \description{
-  Parse taxon names using the GBIF name parser.
+Parse taxon names using the GBIF name parser.
 }
 \examples{
 \dontrun{
@@ -26,13 +25,13 @@ gbif_parse(c('Arrhenatherum elatius var. elatius',
 }
 }
 \author{
-  John Baumgartner (johnbb@student.unimelb.edu.au)
+John Baumgartner (johnbb@student.unimelb.edu.au)
 }
 \references{
-  \url{http://dev.gbif.org/wiki/display/POR/Webservice+API},
-  \url{http://tools.gbif.org/nameparser/api.do}
+\url{http://dev.gbif.org/wiki/display/POR/Webservice+API},
+\url{http://tools.gbif.org/nameparser/api.do}
 }
 \seealso{
-  \code{\link{gni_parse}}
+\code{\link{gni_parse}}
 }
 

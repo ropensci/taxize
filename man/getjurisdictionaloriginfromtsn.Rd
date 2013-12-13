@@ -2,8 +2,8 @@
 \alias{getjurisdictionaloriginfromtsn}
 \title{Get jurisdictional origin from tsn}
 \usage{
-  getjurisdictionaloriginfromtsn(tsn = NA, ...,
-    curl = getCurlHandle(), verbose = TRUE)
+getjurisdictionaloriginfromtsn(tsn = NA, ..., curl = getCurlHandle(),
+  verbose = TRUE)
 }
 \arguments{
   \item{verbose}{Verbosity or not (default TRUE)}
@@ -18,7 +18,7 @@
   unnecessary footprint)}
 }
 \description{
-  Get jurisdictional origin from tsn
+Get jurisdictional origin from tsn
 }
 \examples{
 \dontrun{

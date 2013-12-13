@@ -2,9 +2,9 @@
 \alias{ubio_search}
 \title{This function will return NameBankIDs that match given search terms}
 \usage{
-  ubio_search(searchName = NULL, searchAuth = NULL,
-    searchYear = NULL, order = NULL, sci = NULL,
-    vern = NULL, keyCode = NULL, callopts = list())
+ubio_search(searchName = NULL, searchAuth = NULL, searchYear = NULL,
+  order = NULL, sci = NULL, vern = NULL, keyCode = NULL,
+  callopts = list())
 }
 \arguments{
   \item{searchName}{(string) - term to search within name
@@ -32,11 +32,11 @@
   \item{callopts}{Parameters passed on to httr::GET call.}
 }
 \value{
-  A data.frame.
+A data.frame.
 }
 \description{
-  This function will return NameBankIDs that match given
-  search terms
+This function will return NameBankIDs that match given
+search terms
 }
 \examples{
 \dontrun{

@@ -2,7 +2,7 @@
 \alias{getdatedatafromtsn}
 \title{Get date data from tsn}
 \usage{
-  getdatedatafromtsn(tsn = NA, ..., curl = getCurlHandle())
+getdatedatafromtsn(tsn = NA, ..., curl = getCurlHandle())
 }
 \arguments{
   \item{tsn}{TSN for a taxonomic group (numeric)}
@@ -15,7 +15,7 @@
   unnecessary footprint)}
 }
 \description{
-  Get date data from tsn
+Get date data from tsn
 }
 \examples{
 \dontrun{

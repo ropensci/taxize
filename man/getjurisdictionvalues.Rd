@@ -2,10 +2,10 @@
 \alias{getjurisdictionvalues}
 \title{Get possible jurisdiction values}
 \usage{
-  getjurisdictionvalues()
+getjurisdictionvalues()
 }
 \description{
-  Get possible jurisdiction values
+Get possible jurisdiction values
 }
 \examples{
 \dontrun{

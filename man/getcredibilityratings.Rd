@@ -2,10 +2,10 @@
 \alias{getcredibilityratings}
 \title{Get possible credibility ratings}
 \usage{
-  getcredibilityratings()
+getcredibilityratings()
 }
 \description{
-  Get possible credibility ratings
+Get possible credibility ratings
 }
 \examples{
 \dontrun{

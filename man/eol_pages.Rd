@@ -2,12 +2,11 @@
 \alias{eol_pages}
 \title{Search for pages in EOL database using a taxonconceptID.}
 \usage{
-  eol_pages(taxonconceptID, iucn = FALSE, images = 0,
-    videos = 0, sounds = 0, maps = 0, text = 0,
-    subject = "overview", licenses = "all",
-    details = FALSE, common_names = FALSE,
-    synonyms = FALSE, references = FALSE, vetted = 0,
-    cache_ttl = NULL, key = NULL, callopts = list())
+eol_pages(taxonconceptID, iucn = FALSE, images = 0, videos = 0,
+  sounds = 0, maps = 0, text = 0, subject = "overview",
+  licenses = "all", details = FALSE, common_names = FALSE,
+  synonyms = FALSE, references = FALSE, vetted = 0, cache_ttl = NULL,
+  key = NULL, callopts = list())
 }
 \arguments{
   \item{taxonconceptID}{The taxonconceptID (numeric), which
@@ -71,14 +70,14 @@
   \item{callopts}{Further args passed on to GET.}
 }
 \value{
-  JSON list object, or data.frame.
+JSON list object, or data.frame.
 }
 \description{
-  Search for pages in EOL database using a taxonconceptID.
+Search for pages in EOL database using a taxonconceptID.
 }
 \details{
-  It's possible to return JSON or XML with the EOL API.
-  However, this function only returns JSON for now.
+It's possible to return JSON or XML with the EOL API.
+However, this function only returns JSON for now.
 }
 \examples{
 \dontrun{

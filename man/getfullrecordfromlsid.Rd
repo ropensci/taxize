@@ -4,8 +4,8 @@
 		TSN in the search key to the TSN field. Returns an empty result set if
   	there is no match or the TSN is invalid.}
 \usage{
-  getfullrecordfromlsid(lsid = NA, ...,
-    curl = getCurlHandle(), verbose = TRUE)
+getfullrecordfromlsid(lsid = NA, ..., curl = getCurlHandle(),
+  verbose = TRUE)
 }
 \arguments{
   \item{lsid}{lsid for a taxonomic group (character)}
@@ -20,10 +20,10 @@
   \item{verbose}{Verbosity or not (default TRUE)}
 }
 \description{
-  Returns the full ITIS record for the TSN in the LSID,
-  found by comparing the TSN in the search key to the TSN
-  field. Returns an empty result set if there is no match
-  or the TSN is invalid.
+Returns the full ITIS record for the TSN in the LSID, found
+by comparing the TSN in the search key to the TSN field.
+Returns an empty result set if there is no match or the TSN
+is invalid.
 }
 \examples{
 \dontrun{

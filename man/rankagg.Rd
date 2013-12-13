@@ -2,8 +2,7 @@
 \alias{rankagg}
 \title{Aggregate data by given taxonomic rank}
 \usage{
-  rankagg(data = NULL, datacol = NULL, rank = NULL,
-    fxn = "sum")
+rankagg(data = NULL, datacol = NULL, rank = NULL, fxn = "sum")
 }
 \arguments{
   \item{data}{A data.frame. Column headers must have
@@ -18,7 +17,7 @@
   (character)}
 }
 \description{
-  Aggregate data by given taxonomic rank
+Aggregate data by given taxonomic rank
 }
 \examples{
 data(dune.taxon, package='vegan')

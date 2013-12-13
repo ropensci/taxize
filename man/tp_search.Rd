@@ -2,10 +2,9 @@
 \alias{tp_search}
 \title{Search Tropicos by scientific name, common name, or Tropicos ID.}
 \usage{
-  tp_search(name = NULL, commonname = NULL, nameid = NULL,
-    orderby = NULL, sortorder = NULL, pagesize = NULL,
-    startrow = NULL, type = NULL, key = NULL,
-    callopts = list())
+tp_search(name = NULL, commonname = NULL, nameid = NULL, orderby = NULL,
+  sortorder = NULL, pagesize = NULL, startrow = NULL, type = NULL,
+  key = NULL, callopts = list())
 }
 \arguments{
   \item{name}{Your search string. For instance "poa annua"}
@@ -34,11 +33,11 @@
   \item{callopts}{Further args passed on to httr::GET}
 }
 \value{
-  List or dataframe.
+List or dataframe.
 }
 \description{
-  Search Tropicos by scientific name, common name, or
-  Tropicos ID.
+Search Tropicos by scientific name, common name, or
+Tropicos ID.
 }
 \examples{
 \dontrun{
@@ -46,6 +45,6 @@ tp_search(name = 'Poa annua')
 }
 }
 \references{
-  \url{http://services.tropicos.org/help?method=SearchNameXml}
+\url{http://services.tropicos.org/help?method=SearchNameXml}
 }
 

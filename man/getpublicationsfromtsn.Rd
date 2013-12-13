@@ -2,8 +2,8 @@
 \alias{getpublicationsfromtsn}
 \title{Returns a list of the pulications used for the TSN.}
 \usage{
-  getpublicationsfromtsn(tsn = NA, ...,
-    curl = getCurlHandle(), verbose = TRUE)
+getpublicationsfromtsn(tsn = NA, ..., curl = getCurlHandle(),
+  verbose = TRUE)
 }
 \arguments{
   \item{verbose}{Verbosity or not (default TRUE)}
@@ -18,7 +18,7 @@
   unnecessary footprint)}
 }
 \description{
-  Returns a list of the pulications used for the TSN.
+Returns a list of the pulications used for the TSN.
 }
 \examples{
 \dontrun{

@@ -3,8 +3,7 @@
 \alias{apg_orders}
 \title{Lookup-table for APGIII order names}
 \description{
-  Lookup-table for APGIII order names
+Lookup-table for APGIII order names
 }
 \keyword{data}
-\keyword{datasets}
 

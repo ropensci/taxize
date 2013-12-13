@@ -2,9 +2,8 @@
 \alias{tnrs}
 \title{Search the Phylotastic Taxonomic Name Resolution Service.}
 \usage{
-  tnrs(query = NA, source_ = NULL, code = NULL,
-    getpost = "POST", sleep = 0, splitby = NULL,
-    verbose = TRUE)
+tnrs(query = NA, source_ = NULL, code = NULL, getpost = "POST",
+  sleep = 0, splitby = NULL, verbose = TRUE)
 }
 \arguments{
   \item{query}{Quoted taxonomic names to search in a vector
@@ -33,17 +32,16 @@
   \item{verbose}{Verbosity or not (default TRUE)}
 }
 \value{
-  data.frame of results from TNRS plus the name submitted.
+data.frame of results from TNRS plus the name submitted.
 }
 \description{
-  Match taxonomic names using the Taxonomic Name Resolution
-  Service (TNRS).  Returns score of the matched name, and
-  whether it was accepted or not.
+Match taxonomic names using the Taxonomic Name Resolution
+Service (TNRS).  Returns score of the matched name, and
+whether it was accepted or not.
 }
 \details{
-  If there is no match in the Taxosaurus database, nothing
-  is returned, so youwill not get anything back for non
-  matches.
+If there is no match in the Taxosaurus database, nothing is
+returned, so youwill not get anything back for non matches.
 }
 \examples{
 \dontrun{

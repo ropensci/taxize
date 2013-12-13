@@ -2,9 +2,8 @@
 \alias{col_downstream}
 \title{Use Catalogue of Life to get downstream taxa to a given taxonomic level.}
 \usage{
-  col_downstream(name = NULL, downto, format = NULL,
-    start = NULL, checklist = NULL,
-    url = "http://www.catalogueoflife.org/col/webservice")
+col_downstream(name = NULL, downto, format = NULL, start = NULL,
+  checklist = NULL, url = "http://www.catalogueoflife.org/col/webservice")
 }
 \arguments{
   \item{name}{The string to search for. Only exact matches
@@ -38,14 +37,14 @@
   left to default).}
 }
 \value{
-  A list of data.frame's.
+A list of data.frame's.
 }
 \description{
-  Use Catalogue of Life to get downstream taxa to a given
-  taxonomic level.
+Use Catalogue of Life to get downstream taxa to a given
+taxonomic level.
 }
 \details{
-  Provide only names instead of id's
+Provide only names instead of id's
 }
 \examples{
 \dontrun{

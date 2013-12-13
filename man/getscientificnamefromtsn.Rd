@@ -3,8 +3,7 @@
 \title{Returns the scientific name for the TSN. Also returns the component parts
    (names and indicators) of the scientific name.}
 \usage{
-  getscientificnamefromtsn(tsn = NA, ...,
-    curl = getCurlHandle())
+getscientificnamefromtsn(tsn = NA, ..., curl = getCurlHandle())
 }
 \arguments{
   \item{tsn}{TSN for a taxonomic group (numeric)}
@@ -17,9 +16,9 @@
   unnecessary footprint)}
 }
 \description{
-  Returns the scientific name for the TSN. Also returns the
-  component parts (names and indicators) of the scientific
-  name.
+Returns the scientific name for the TSN. Also returns the
+component parts (names and indicators) of the scientific
+name.
 }
 \examples{
 \dontrun{

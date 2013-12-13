@@ -2,9 +2,9 @@
 \alias{phylomatic_tree2}
 \title{Format tree string, submit to Phylomatic, get newick or nexml tree.}
 \usage{
-  phylomatic_tree2(taxa, get = "GET", informat = "newick",
-    method = "phylomatic", storedtree = "smith2011",
-    outformat = "newick", clean = "true")
+phylomatic_tree2(taxa, get = "GET", informat = "newick",
+  method = "phylomatic", storedtree = "smith2011", outformat = "newick",
+  clean = "true")
 }
 \arguments{
   \item{taxa}{Phylomatic format input of taxa names.}
@@ -26,15 +26,15 @@
   \item{clean}{Return a clean tree or not.}
 }
 \value{
-  Newick formatted tree, or nexml xml object.
+Newick formatted tree, or nexml xml object.
 }
 \description{
-  Newer input format to the API, doesn't work that well. Do
-  use phylomatic_tree()
+Newer input format to the API, doesn't work that well. Do
+use phylomatic_tree()
 }
 \details{
-  Use the web interface here
-  http://phylodiversity.net/phylomatic/
+Use the web interface here
+http://phylodiversity.net/phylomatic/
 }
 \examples{
 \dontrun{

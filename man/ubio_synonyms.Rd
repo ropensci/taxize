@@ -2,8 +2,7 @@
 \alias{ubio_synonyms}
 \title{Search uBio by namebank ID.}
 \usage{
-  ubio_synonyms(hierarchiesID = NULL, keyCode = NULL,
-    callopts = list())
+ubio_synonyms(hierarchiesID = NULL, keyCode = NULL, callopts = list())
 }
 \arguments{
   \item{hierarchiesID}{you must include the hierarchiesID
@@ -17,10 +16,10 @@
   \item{callopts}{Parameters passed on to httr::GET call.}
 }
 \value{
-  A data.frame.
+A data.frame.
 }
 \description{
-  Search uBio by namebank ID.
+Search uBio by namebank ID.
 }
 \examples{
 \dontrun{

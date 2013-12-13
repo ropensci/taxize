@@ -3,10 +3,9 @@
 \title{This function will return all ClassificationBank data pertaining to a
 particular ClassificationBankID}
 \usage{
-  ubio_classification(hierarchiesID = NULL,
-    childrenFlag = 0, ancestryFlag = 0,
-    justificationsFlag = 0, synonymsFlag = 0,
-    keyCode = NULL, callopts = list())
+ubio_classification(hierarchiesID = NULL, childrenFlag = 0,
+  ancestryFlag = 0, justificationsFlag = 0, synonymsFlag = 0,
+  keyCode = NULL, callopts = list())
 }
 \arguments{
   \item{hierarchiesID}{(string) - ClassificationBank
@@ -31,13 +30,13 @@ particular ClassificationBankID}
   \item{callopts}{Parameters passed on to httr::GET call.}
 }
 \value{
-  A list of four data.frame's, one for the name itself, one
-  for synonyms, one for vernacular names, and one for
-  citations.
+A list of four data.frame's, one for the name itself, one
+for synonyms, one for vernacular names, and one for
+citations.
 }
 \description{
-  This function will return all ClassificationBank data
-  pertaining to a particular ClassificationBankID
+This function will return all ClassificationBank data
+pertaining to a particular ClassificationBankID
 }
 \examples{
 \dontrun{

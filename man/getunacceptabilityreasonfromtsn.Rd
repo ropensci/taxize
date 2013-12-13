@@ -2,8 +2,7 @@
 \alias{getunacceptabilityreasonfromtsn}
 \title{Returns the unacceptability reason, if any, for the TSN.}
 \usage{
-  getunacceptabilityreasonfromtsn(tsn = NA, ...,
-    curl = getCurlHandle())
+getunacceptabilityreasonfromtsn(tsn = NA, ..., curl = getCurlHandle())
 }
 \arguments{
   \item{tsn}{TSN for a taxonomic group (numeric)}
@@ -16,7 +15,7 @@
   unnecessary footprint)}
 }
 \description{
-  Returns the unacceptability reason, if any, for the TSN.
+Returns the unacceptability reason, if any, for the TSN.
 }
 \examples{
 \dontrun{

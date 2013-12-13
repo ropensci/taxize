@@ -3,7 +3,7 @@
 \title{Get hierarchies from TSN values, full, upstream only, or immediate downstream
 only}
 \usage{
-  itis_hierarchy(tsn = NULL, what = "full", ...)
+itis_hierarchy(tsn = NULL, what = "full", ...)
 }
 \arguments{
   \item{tsn}{One or more TSN's (taxonomic serial number)}
@@ -15,13 +15,13 @@ only}
   \code{\link{getjurisdictionaloriginfromtsn}}}
 }
 \description{
-  Get hierarchies from TSN values, full, upstream only, or
-  immediate downstream only
+Get hierarchies from TSN values, full, upstream only, or
+immediate downstream only
 }
 \details{
-  Note that \code{\link{itis_downstream}} gets taxa
-  downstream to a particular rank, whilc this function only
-  gets immediate names downstream.
+Note that \code{\link{itis_downstream}} gets taxa
+downstream to a particular rank, whilc this function only
+gets immediate names downstream.
 }
 \examples{
 \dontrun{
@@ -42,6 +42,6 @@ itis_hierarchy(c(180543,41074,36616), verbose=FALSE)
 }
 }
 \seealso{
-  \code{\link{itis_downstream}}
+\code{\link{itis_downstream}}
 }
 

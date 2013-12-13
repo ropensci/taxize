@@ -2,8 +2,7 @@
 \alias{gettaxonauthorshipfromtsn}
 \title{Returns the author information for the TSN.}
 \usage{
-  gettaxonauthorshipfromtsn(tsn = NA, ...,
-    curl = getCurlHandle())
+gettaxonauthorshipfromtsn(tsn = NA, ..., curl = getCurlHandle())
 }
 \arguments{
   \item{tsn}{TSN for a taxonomic group (numeric)}
@@ -16,7 +15,7 @@
   unnecessary footprint)}
 }
 \description{
-  Returns the author information for the TSN.
+Returns the author information for the TSN.
 }
 \examples{
 \dontrun{

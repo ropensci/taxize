@@ -2,8 +2,7 @@
 \alias{getitistermsfromscientificname}
 \title{Get itis terms from scientific names}
 \usage{
-  getitistermsfromscientificname(srchkey = NA, ...,
-    curl = getCurlHandle())
+getitistermsfromscientificname(srchkey = NA, ..., curl = getCurlHandle())
 }
 \arguments{
   \item{srchkey}{text or taxonomic serial number (TSN)
@@ -17,7 +16,7 @@
   unnecessary footprint)}
 }
 \description{
-  Get itis terms from scientific names
+Get itis terms from scientific names
 }
 \examples{
 \dontrun{

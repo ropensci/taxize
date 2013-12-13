@@ -2,8 +2,7 @@
 \alias{get_genes_avail}
 \title{Retrieve gene sequences available for a species from NCBI.}
 \usage{
-  get_genes_avail(taxon_name, seqrange, getrelated = FALSE,
-    verbose = TRUE)
+get_genes_avail(taxon_name, seqrange, getrelated = FALSE, verbose = TRUE)
 }
 \arguments{
   \item{taxon_name}{Scientific name to search for
@@ -20,16 +19,16 @@
   messages printed.}
 }
 \value{
-  Data.frame of results.
+Data.frame of results.
 }
 \description{
-  This function retrieves one sequences for each species,
-  picking the longest available for the given gene.
+This function retrieves one sequences for each species,
+picking the longest available for the given gene.
 }
 \details{
-  Removes predicted sequences so you don't have to remove
-  them.  Predicted sequences are those with accession
-  numbers that have "XM_" or "XR_" prefixes.
+Removes predicted sequences so you don't have to remove
+them.  Predicted sequences are those with accession numbers
+that have "XM_" or "XR_" prefixes.
 }
 \examples{
 \dontrun{
@@ -53,10 +52,10 @@ out2df[grep("RAG1", out2df$genesavail, ignore.case=T),] # search across all
 }
 }
 \author{
-  Scott Chamberlain \email{myrmecocystus@gmail.com}
+Scott Chamberlain \email{myrmecocystus@gmail.com}
 }
 \seealso{
-  \code{\link[taxize]{get_seqs}},
-  \code{\link[taxize]{get_genes}}
+\code{\link[taxize]{get_seqs}},
+\code{\link[taxize]{get_genes}}
 }
 

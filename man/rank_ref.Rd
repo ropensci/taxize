@@ -3,8 +3,7 @@
 \alias{rank_ref}
 \title{Lookup-table for IDs of taxonomic ranks}
 \description{
-  Lookup-table for IDs of taxonomic ranks
+Lookup-table for IDs of taxonomic ranks
 }
 \keyword{data}
-\keyword{datasets}
 

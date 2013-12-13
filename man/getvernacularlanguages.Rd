@@ -2,11 +2,11 @@
 \alias{getvernacularlanguages}
 \title{Provides a list of the unique languages used in the vernacular table.}
 \usage{
-  getvernacularlanguages()
+getvernacularlanguages()
 }
 \description{
-  Provides a list of the unique languages used in the
-  vernacular table.
+Provides a list of the unique languages used in the
+vernacular table.
 }
 \examples{
 \dontrun{

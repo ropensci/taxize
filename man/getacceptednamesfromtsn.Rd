@@ -2,8 +2,8 @@
 \alias{getacceptednamesfromtsn}
 \title{Get accepted names from tsn}
 \usage{
-  getacceptednamesfromtsn(tsn = NA, ...,
-    curl = getCurlHandle(), verbose = TRUE)
+getacceptednamesfromtsn(tsn = NA, ..., curl = getCurlHandle(),
+  verbose = TRUE)
 }
 \arguments{
   \item{verbose}{Verbosity or not (default TRUE)}
@@ -18,7 +18,7 @@
   unnecessary footprint)}
 }
 \description{
-  Get accepted names from tsn
+Get accepted names from tsn
 }
 \examples{
 \dontrun{

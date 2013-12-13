@@ -2,8 +2,7 @@
 \alias{get_tpsid}
 \title{Get the NameID codes from Tropicos for taxonomic names.}
 \usage{
-  get_tpsid(sciname, ask = TRUE, verbose = TRUE,
-    key = NULL, ...)
+get_tpsid(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...)
 }
 \arguments{
   \item{sciname}{character; scientific name.}
@@ -22,12 +21,12 @@
   \code{\link[taxize]{tp_search}}.}
 }
 \value{
-  A vector of unique identifiers. If a taxon is not found
-  NA. If more than one ID is found the function asks for
-  user input.
+A vector of unique identifiers. If a taxon is not found NA.
+If more than one ID is found the function asks for user
+input.
 }
 \description{
-  Get the NameID codes from Tropicos for taxonomic names.
+Get the NameID codes from Tropicos for taxonomic names.
 }
 \examples{
 \dontrun{
@@ -45,10 +44,10 @@ tp_classification(get_tpsid(sciname='Poa annua'))
 }
 }
 \author{
-  Scott Chamberlain, \email{myrmecocystus@gmail.com}
+Scott Chamberlain, \email{myrmecocystus@gmail.com}
 }
 \seealso{
-  \code{\link[taxize]{get_tsn}},
-  \code{\link[taxize]{get_uid}}
+\code{\link[taxize]{get_tsn}},
+\code{\link[taxize]{get_uid}}
 }
 

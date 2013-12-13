@@ -2,7 +2,7 @@
 \alias{itis_refs}
 \title{Get references related to a ITIS TSN.}
 \usage{
-  itis_refs(tsn, ...)
+itis_refs(tsn, ...)
 }
 \arguments{
   \item{tsn}{One or more TSN's (taxonomic serial number)
@@ -12,7 +12,7 @@
   getpublicationsfromtsn}
 }
 \description{
-  Get references related to a ITIS TSN.
+Get references related to a ITIS TSN.
 }
 \examples{
 \dontrun{

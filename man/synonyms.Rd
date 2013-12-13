@@ -6,15 +6,15 @@
 \alias{synonyms.tsn}
 \title{Retrieve synonyms from various sources given input taxonomic names or identifiers.}
 \usage{
-  synonyms(...)
+synonyms(...)
 
-  \method{synonyms}{default} (x, db = NULL, ...)
+\method{synonyms}{default}(x, db = NULL, ...)
 
-  \method{synonyms}{tsn} (id, ...)
+\method{synonyms}{tsn}(id, ...)
 
-  \method{synonyms}{tpsid} (id, ...)
+\method{synonyms}{tpsid}(id, ...)
 
-  \method{synonyms}{ids} (id, ...)
+\method{synonyms}{ids}(id, ...)
 }
 \arguments{
   \item{x}{character; taxons to query.}
@@ -29,16 +29,16 @@
   \item{...}{Other passed arguments.}
 }
 \value{
-  A named list of data.frames with the synonyms of every
-  supplied taxa.
+A named list of data.frames with the synonyms of every
+supplied taxa.
 }
 \description{
-  Retrieve synonyms from various sources given input
-  taxonomic names or identifiers.
+Retrieve synonyms from various sources given input
+taxonomic names or identifiers.
 }
 \note{
-  If IDs are supplied directly (not from the \code{get_*}
-  functions) you must specify the type of ID.
+If IDs are supplied directly (not from the \code{get_*}
+functions) you must specify the type of ID.
 }
 \examples{
 \dontrun{
@@ -58,7 +58,7 @@ synonyms(out)
 }
 }
 \seealso{
-  \code{\link[taxize]{get_tsn}},
-  \code{\link[taxize]{get_tpsid}}
+\code{\link[taxize]{get_tsn}},
+\code{\link[taxize]{get_tpsid}}
 }
 

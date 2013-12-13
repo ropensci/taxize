@@ -2,7 +2,7 @@
 \alias{itis_native}
 \title{Get jurisdiction data, i.e., native or not native in a region.}
 \usage{
-  itis_native(tsn = NULL, what = "bytsn", ...)
+itis_native(tsn = NULL, what = "bytsn", ...)
 }
 \arguments{
   \item{tsn}{One or more TSN's (taxonomic serial number)}
@@ -13,8 +13,8 @@
   \code{\link{getjurisdictionaloriginfromtsn}}}
 }
 \description{
-  Get jurisdiction data, i.e., native or not native in a
-  region.
+Get jurisdiction data, i.e., native or not native in a
+region.
 }
 \examples{
 \dontrun{

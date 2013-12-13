@@ -2,17 +2,17 @@
 \alias{gnr_datasources}
 \title{Get data sources for the Global Names Resolver.}
 \usage{
-  gnr_datasources(todf = TRUE)
+gnr_datasources(todf = TRUE)
 }
 \arguments{
   \item{todf}{logical; Should a data.frame be returned?}
 }
 \value{
-  json or a data.frame
+json or a data.frame
 }
 \description{
-  Retrieve data sources used in Global Names Index, see
-  \url{http://gni.globalnames.org/} for information.
+Retrieve data sources used in Global Names Index, see
+\url{http://gni.globalnames.org/} for information.
 }
 \examples{
 \dontrun{
@@ -32,10 +32,10 @@ gnr_datasources(FALSE)
 }
 }
 \author{
-  Scott Chamberlain {myrmecocystus@gmail.com}
+Scott Chamberlain {myrmecocystus@gmail.com}
 }
 \seealso{
-  \code{\link[taxize]{gnr_resolve}}
+\code{\link[taxize]{gnr_resolve}}
 }
 \keyword{names}
 \keyword{resolve}

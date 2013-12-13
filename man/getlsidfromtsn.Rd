@@ -2,7 +2,7 @@
 \alias{getlsidfromtsn}
 \title{Gets the unique LSID for the TSN, or an empty result if there is no match.}
 \usage{
-  getlsidfromtsn(tsn = NA, ..., curl = getCurlHandle())
+getlsidfromtsn(tsn = NA, ..., curl = getCurlHandle())
 }
 \arguments{
   \item{tsn}{TSN for a taxonomic group (numeric)}
@@ -15,8 +15,8 @@
   unnecessary footprint)}
 }
 \description{
-  Gets the unique LSID for the TSN, or an empty result if
-  there is no match.
+Gets the unique LSID for the TSN, or an empty result if
+there is no match.
 }
 \examples{
 \dontrun{

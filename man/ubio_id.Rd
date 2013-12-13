@@ -2,8 +2,7 @@
 \alias{ubio_id}
 \title{Search uBio by namebank ID.}
 \usage{
-  ubio_id(namebankID = NULL, keyCode = NULL,
-    callopts = list())
+ubio_id(namebankID = NULL, keyCode = NULL, callopts = list())
 }
 \arguments{
   \item{namebankID}{(string) - uBio namebank ID}
@@ -15,12 +14,12 @@
   \item{callopts}{Parameters passed on to httr::GET call.}
 }
 \value{
-  A list of four data.frame's, one for the name itself, one
-  for synonyms, one for vernacular names, and one for
-  citations.
+A list of four data.frame's, one for the name itself, one
+for synonyms, one for vernacular names, and one for
+citations.
 }
 \description{
-  Search uBio by namebank ID.
+Search uBio by namebank ID.
 }
 \examples{
 \dontrun{
