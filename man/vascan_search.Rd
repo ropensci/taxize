@@ -1,6 +1,6 @@
 \name{vascan_search}
 \alias{vascan_search}
-\title{Search the CANADENSYS Vascan API}
+\title{Search the CANADENSYS Vascan API.}
 \usage{
 vascan_search(q, format = "json", raw = FALSE, callopts = list())
 }
@@ -17,7 +17,7 @@ vascan_search(q, format = "json", raw = FALSE, callopts = list())
   htt::GET.}
 }
 \value{
-json, xml or a data.frame.
+json, xml or a list.
 }
 \description{
 For more information, see
@@ -27,6 +27,22 @@ For more information, see
 \dontrun{
 vascan_search(q = "Helianthus annuus")
 vascan_search(q = "Helianthus annuus", raw=TRUE)
+vascan_search(q = c("Helianthus annuus", "Crataegus dodgei"), raw=TRUE)
+
+# format type
+## json
+c <- vascan_search(q = "Helianthus annuus", format="json", raw=TRUE)
+library(rjson)
+fromJSON(c)
+
+## xml
+d <- vascan_search(q = "Helianthus annuus", format="xml", raw=TRUE)
+library(XML)
+xmlParse(d)
+
+# lots of names, in this case 50
+splist <- names_list(rank='species', size=50)
+vascan_search(q = splist)
 }
 }
 \author{
