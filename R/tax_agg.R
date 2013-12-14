@@ -47,13 +47,26 @@
 #' agg$x
 #' # check which taxa have been aggregated
 #' agg$by
+#' 
+#' # A use case where there are different taxonomic levels in the same dataset
+#' spnames <- c('Puma','Ursus americanus','Ursidae')
+#' df <- data.frame(c(1,2,3), c(11,12,13), c(1,4,50))
+#' names(df) <- spnames
+#' out <- tax_agg(df, rank = 'family', db='itis')
+#' out$x
+#' 
+#' # You can input a matrix too
+#' mat <- matrix(c(1,2,3, 11,12,13), nrow = 2, ncol = 3, 
+#'  dimnames=list(NULL, c('Puma concolor','Ursus americanus','Ailuropoda melanoleuca')))
+#' tax_agg(mat, rank = 'family', db='itis')
 #' }
+
 tax_agg <- function(x, rank, db = 'ncbi', ...) 
 {
   if(is.matrix(x))
   {
     if(is.null(colnames(x))) stop("The community data matrix must have named columns")
-    x <- data.frame(x)
+    x <- data.frame(x, check.names=FALSE)
   }
   # bring to long format
   x$rownames <- rownames(x)
