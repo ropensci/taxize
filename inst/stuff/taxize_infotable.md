@@ -30,6 +30,6 @@ plantminer | Search Plantminer | Plantminer |
 tax_name | Get taxonomic name for specific rank | Various |
 tax_rank | Get rank of a taxonomic name | Various |
 tnrs | Resolve names using iPlant | iPlant Taxonomic Name Resolution Service |
-tp_acceptednames | Check for accepted names using Tropicos | Tropicos |
+tp_accames | Check for accepted names using Tropicos | Tropicos |
 tpl_search | Search the Plant List | The Plant List |
 ubio_namebank | Search uBio | uBio |

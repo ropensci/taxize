@@ -10,3 +10,5 @@ README.html
 inst/stuff/
 vignettes/taxize_vignette.md
 vignettes/taxize_infotable.md
+vignettes/margins.sty
+vignettes/cache/

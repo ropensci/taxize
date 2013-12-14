@@ -34,18 +34,31 @@ This is a common task in biology. We often have a list of species names and we w
 
 ```r
 library(taxize)
+```
+
+```
+## 
+## 
+## New to taxize? Tutorial at http://ropensci.org/tutorials/taxize_tutorial.html 
+## citation(package='taxize') for the citation for this package 
+## API key names have changed. Use tropicosApiKey, eolApiKey, ubioApiKey, and pmApiKey in your .Rprofile file. 
+## Use suppressPackageStartupMessages() to suppress these startup messages in the future
+```
+
+```r
 temp <- gnr_resolve(names = c("Helianthos annus", "Homo saapiens"))
+```
+
+```
+## Error: could not find function "as"
+```
+
+```r
 temp[, -c(1, 4)]
 ```
 
 ```
-##                  matched_name       data_source_title
-## 1        Helianthus annuus L.       Catalogue of Life
-## 2            Helianthus annus GBIF Taxonomic Backbone
-## 3            Helianthus annus                     EOL
-## 4         Helianthus annus L.                     EOL
-## 5            Helianthus annus           uBio NameBank
-## 6 Homo sapiens Linnaeus, 1758       Catalogue of Life
+## Error: object 'temp' not found
 ```
 
 
@@ -55,25 +68,11 @@ The correct spellings are *Helianthus annuus* and *Homo sapiens*. Another approa
 ```r
 mynames <- c("Helianthus annuus", "Pinus contort", "Poa anua", "Abis magnifica", 
     "Rosa california", "Festuca arundinace", "Sorbus occidentalos", "Madia sateva")
-tnrs(query = mynames)[, -c(5:7)]
+tnrs(query = mynames, getpost = "GET")[, -c(5:7)]
 ```
 
 ```
-## Calling http://taxosaurus.org/retrieve/68ddeca6675e528921c98ba807046804
-```
-
-```
-##          submittedName        acceptedName    sourceId score
-## 9    Helianthus annuus   Helianthus annuus iPlant_TNRS     1
-## 10   Helianthus annuus   Helianthus annuus        NCBI     1
-## 4        Pinus contort      Pinus contorta iPlant_TNRS  0.98
-## 5             Poa anua           Poa annua iPlant_TNRS  0.96
-## 3       Abis magnifica     Abies magnifica iPlant_TNRS  0.96
-## 7      Rosa california    Rosa californica iPlant_TNRS  0.99
-## 8      Rosa california          California        NCBI     1
-## 2   Festuca arundinace Festuca arundinacea iPlant_TNRS  0.99
-## 1  Sorbus occidentalos Sorbus occidentalis iPlant_TNRS  0.99
-## 6         Madia sateva        Madia sativa iPlant_TNRS  0.97
+## Error: attempt to set an attribute on NULL
 ```
 
 
@@ -93,7 +92,7 @@ ldply(tsn, itis_acceptname)
 ```
 
 ```
-  submittedTsn      acceptedName acceptedTsn
+  submittedtsn      acceptedname acceptedtsn
 1       525928 Helianthus annuus       36616
 2       525929 Helianthus annuus       36616
 3       525930 Helianthus annuus       36616
@@ -114,43 +113,43 @@ classification(specieslist, db = "itis")
 
 ```
 ## 
-## Retrieving data for species 'Abies procera'
+## Retrieving data for taxon 'Abies procera'
 ## 
 ## 
-## Retrieving data for species 'Pinus contorta'
-## 
-## http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=181835
-## http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=183327
+## Retrieving data for taxon 'Pinus contorta'
 ```
 
 ```
 ## $`Abies procera`
-##         rankName       taxonName    tsn
-## 1        Kingdom         Plantae 202422
-## 2     Subkingdom  Viridaeplantae 846492
-## 3   Infrakingdom    Streptophyta 846494
-## 4       Division    Tracheophyta 846496
-## 5    Subdivision Spermatophytina 846504
-## 6  Infradivision    Gymnospermae 846506
-## 7          Class       Pinopsida 500009
-## 8          Order         Pinales 500028
-## 9         Family        Pinaceae  18030
-## 10         Genus           Abies  18031
-## 11       Species   Abies procera 181835
+##               name          rank
+## 1          Plantae       Kingdom
+## 2   Viridaeplantae    Subkingdom
+## 3     Streptophyta  Infrakingdom
+## 4     Tracheophyta      Division
+## 5  Spermatophytina   Subdivision
+## 6     Gymnospermae Infradivision
+## 7        Pinopsida         Class
+## 8          Pinales         Order
+## 9         Pinaceae        Family
+## 10           Abies         Genus
+## 11   Abies procera       Species
 ## 
 ## $`Pinus contorta`
-##         rankName       taxonName    tsn
-## 1        Kingdom         Plantae 202422
-## 2     Subkingdom  Viridaeplantae 846492
-## 3   Infrakingdom    Streptophyta 846494
-## 4       Division    Tracheophyta 846496
-## 5    Subdivision Spermatophytina 846504
-## 6  Infradivision    Gymnospermae 846506
-## 7          Class       Pinopsida 500009
-## 8          Order         Pinales 500028
-## 9         Family        Pinaceae  18030
-## 10         Genus           Pinus  18035
-## 11       Species  Pinus contorta 183327
+##               name          rank
+## 1          Plantae       Kingdom
+## 2   Viridaeplantae    Subkingdom
+## 3     Streptophyta  Infrakingdom
+## 4     Tracheophyta      Division
+## 5  Spermatophytina   Subdivision
+## 6     Gymnospermae Infradivision
+## 7        Pinopsida         Class
+## 8          Pinales         Order
+## 9         Pinaceae        Family
+## 10           Pinus         Genus
+## 11  Pinus contorta       Species
+## 
+## attr(,"db")
+## [1] "itis"
 ```
 
 
@@ -160,28 +159,12 @@ Instead of a full classification, you may only want a single name, say a family 
 
 
 ```r
-tax_name(query = "Helianthus annuus", get = "family", db = "itis")
-```
-
-```
-## 
-## Retrieving data for species 'Helianthus annuus'
-## 
-## http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN?tsn=36616
-```
-
-```
-##       family
-## 1 Asteraceae
-```
-
-```r
 tax_name(query = "Helianthus annuus", get = "family", db = "ncbi")
 ```
 
 ```
 ## 
-## Retrieving data for species 'Helianthus annuus'
+## Retrieving data for taxon 'Helianthus annuus'
 ```
 
 ```
@@ -204,11 +187,11 @@ get_tsn(searchterm = "Heliastes", searchtype = "sciname")
 
 ```
 ## 
-## Retrieving data for species 'Heliastes'
+## Retrieving data for taxon 'Heliastes'
 ```
 
 ```
-##            combinedname    tsn
+##                  target    tsn
 ## 1     Heliastes bicolor 615238
 ## 2   Heliastes chrysurus 615250
 ## 3     Heliastes cinctus 615573
@@ -221,16 +204,18 @@ get_tsn(searchterm = "Heliastes", searchtype = "sciname")
 
 ```
 ## 
-## More than one TSN found for species 'Heliastes'!
+## More than one TSN found for taxon 'Heliastes'!
 ## 
-##           Enter rownumber of species (other inputs will return 'NA'):
+##             Enter rownumber of taxon (other inputs will return 'NA'):
 ## 
-## Input accepted, took species 'Heliastes bicolor'.
+## 
+## Returned 'NA'!
 ```
 
 ```
-##        1 
-## "615238" 
+## [1] NA
+## attr(,"match")
+## [1] "not found"
 ## attr(,"class")
 ## [1] "tsn"
 ```
@@ -246,80 +231,22 @@ get_tsn(searchterm = splist, searchtype = "sciname")
 
 ```
 ## 
-## Retrieving data for species 'annona cherimola'
+## Retrieving data for taxon 'annona cherimola'
 ## 
 ## 
-## Retrieving data for species 'annona muricata'
+## Retrieving data for taxon 'annona muricata'
 ## 
 ## 
-## Retrieving data for species 'quercus robur'
+## Retrieving data for taxon 'quercus robur'
 ```
 
 ```
 ## [1] "506198" "18098"  "19405" 
+## attr(,"match")
+## [1] "found" "found" "found"
 ## attr(,"class")
 ## [1] "tsn"
 ```
-
-
-In another example, note that no match at all returns an NA:
-
-
-```r
-get_uid(sciname = c("Chironomus riparius", "aaa vva"))
-```
-
-```
-## 
-## Retrieving data for species 'Chironomus riparius'
-## 
-## 
-## Retrieving data for species 'aaa vva'
-```
-
-```
-## [1] "315576" NA      
-## attr(,"class")
-## [1] "uid"
-```
-
-
-#### Retrieve a phylogeny
-
-Ecologists are increasingly taking a phylogenetic approach to ecology, applying phylogenies to topics such as the study of community structure, ecological networks, functional trait ecology. Yet, Many biologists are not adequately trained in reconstructing phylogenies. Fortunately, there are some sources for getting a phylogeny without having to know how to build one; one of these is for angiosperms, called Phylomatic \cite{webb2005}. We have created a workflow in taxize that accepts a species list, and taxize works behind the scenes to get higher taxonomic names, which are required by Phylomatic to get a phylogeny. Here is a short example, producing the tree in figure (Fig. 1).
-
-
-```r
-taxa <- c("Poa annua", "Lupinus arboreus", "Helianthus annuus")
-tree <- phylomatic_tree(taxa = taxa)
-tree$tip.label <- taxize_capwords(tree$tip.label)
-plot(tree, cex = 1)
-```
-
-
-Input the taxonomic names
-
-
-
-
-Fetch the tree - the formatting of names and higher taxonmy is done within the function
-
-
-
-
-Captilize the species names
-
-
-
-
-Plot the tree
-
-
-
-
-Behind the scenes the function `phylomatic_tree` retrieves a Taxonomic Serial Number (TSN) from ITIS for each species name, then a string is created for each species like this `poaceae/oryza/oryza_sativa` (with format `family/genus/genus_epithet`). These strings are submitted to the Phylomatic API, and if no errors occur, a phylogeny in newick format is returned. The `phylomatic_tree()` function also cleans up the newick string and converts it to an **ape** `phylo` object. The output from `phylomatic_tree()` is a `phylo` object, which can be used for plotting and phylogenetic analyses. Be aware that Phylomatic has certain limitations - refer to the paper describing [Phylomatic][phylomatic] and the website [http://phylodiversity.net/phylomatic/][http://phylodiversity.net/phylomatic/].
-
-There are currently no resources for getting a phylogeny of animals simply from species names. However, a few projects are working on this problem, including the [Open Tree of Life][opentree]. We will incorporate these resources when the appropriate APIs are available.
 
 
 #### What taxa are the children of my taxon of interest?
@@ -345,24 +272,6 @@ col_downstream(name = "Apis", downto = "Species")[[1]]
 
 The result from the above call to `col_downstream()` is a data.frame that gives a number of columns of different information. 
 
-#### IUCN Status
-
-There are a number of things we can do once we have the correct taxonomic names. One thing we can do is ask about the conservation status of a species ([IUCN Red List of Threatened Species][iucn]). We have provided a set of functions, `iucn_summary` and `iucn_status`, to search for species names, and extract the status information, respectively. Here, we search for the Panther and *Lynx*.
-
-
-```r
-ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
-iucn_status(ia)
-```
-
-```
-## Panthera uncia      Lynx lynx 
-##           "EN"           "LC"
-```
-
-
-It turns out that the panther has a status of endangered (EN) and the lynx has a status of least concern (LC).
-
 #### Matching species tables with different taxonomic resolution
 
 Biologist often need to match different sets of data tied to species. For example, trait-based approaches are a promising tool in ecology. One problem is that abundance data must be matched with trait databases. These two data tables may contain species information on different taxonomic levels and possibly data must be aggregated to a joint taxonomic level, so that the data can be merged. taxize can help in this data-cleaning step, providing a reproducible workflow: 
@@ -382,7 +291,7 @@ A_clas <- classification(A, db = 'ncbi')
 
 ```
 ## 
-## Retrieving data for species 'gammarus roeseli'
+## Retrieving data for taxon 'gammarus roeseli'
 ```
 
 ```r
@@ -391,7 +300,7 @@ B1_clas <- classification(B1, db = 'ncbi')
 
 ```
 ## 
-## Retrieving data for species 'gammarus roeseli'
+## Retrieving data for taxon 'gammarus roeseli'
 ```
 
 ```r
@@ -400,7 +309,7 @@ B2_clas <- classification(B2, db = 'ncbi')
 
 ```
 ## 
-## Retrieving data for species 'gammarus'
+## Retrieving data for taxon 'gammarus'
 ```
 
 ```r
@@ -409,7 +318,7 @@ B3_clas <- classification(B3, db = 'ncbi')
 
 ```
 ## 
-## Retrieving data for species 'gammaridae'
+## Retrieving data for taxon 'gammaridae'
 ```
 
 ```r
@@ -427,7 +336,7 @@ A_clas[[1]]$Rank[tolower(A_clas[[1]]$ScientificName) %in% B2]
 ```
 
 ```
-## [1] "genus"
+## NULL
 ```
 
 ```r
@@ -435,87 +344,11 @@ A_clas[[1]]$Rank[tolower(A_clas[[1]]$ScientificName) %in% B3]
 ```
 
 ```
-## [1] "family"
+## NULL
 ```
 
 
 If we find a direct match (here *Gammarus roeseli*), we are lucky. But we can also match Gammaridae with *Gammarus roeseli*, but on a lower taxonomic level. A more comprehensive and realistic example (matching a trait table with an abundance table) is given in the vignette on matching.
-
-
-#### Aggregating data to a specific taxonomic rank
-
-In biology, one can asks questions at varying taxonomic levels. One may perform analyses on different taxonomic levels. This use case is easily handled in taxize. A function called `tax_agg` will aggregate community data to a specific taxonomic level. In this example, we take data of 5 species and aggregate them to family level. Again we can specify if we want to use data from ITIS or NCBI.
-
-
-```r
-data(dune, package = 'vegan')
-df <- dune[ , 1:5]
-colnames(df) <- c("Bellis perennis", "Empetrum nigrum", "Juncus bufonius", 
-                  "Juncus articulatus", "xxx")
-head(df)
-```
-
-```
-##    Bellis perennis Empetrum nigrum Juncus bufonius Juncus articulatus xxx
-## 2                3               0               0                  0   0
-## 13               0               0               3                  0   0
-## 4                2               0               0                  0   0
-## 16               0               0               0                  3   0
-## 6                0               0               0                  0   0
-## 1                0               0               0                  0   0
-```
-
-```r
-agg <- tax_agg(df, rank = 'family', db = 'ncbi')
-```
-
-```
-## 
-## Retrieving data for species 'Bellis perennis'
-## 
-## 
-## Retrieving data for species 'Empetrum nigrum'
-## 
-## 
-## Retrieving data for species 'Juncus bufonius'
-## 
-## 
-## Retrieving data for species 'Juncus articulatus'
-## 
-## 
-## Retrieving data for species 'xxx'
-## 
-## No UID found for species 'xxx'!
-```
-
-```r
-agg
-```
-
-```
-## 
-## 	Aggregated community data
-## 
-## Level of Aggregation: FAMILY
-## No. taxa before aggregation: 5
-## No. taxa after aggregation: 4
-## No. taxa not found: 1
-```
-
-```r
-head(agg$x)
-```
-
-```
-##    Asteraceae Ericaceae Juncaceae xxx
-## 2           3         0         0   0
-## 13          0         0         3   0
-## 4           2         0         0   0
-## 16          0         0         3   0
-## 6           0         0         0   0
-## 1           0         0         0   0
-```
-
 
 [eol]: http://eol.org/
 [taxosaurus]: http://api.phylotastic.org/tnrs
