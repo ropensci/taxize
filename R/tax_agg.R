@@ -50,6 +50,11 @@
 #' }
 tax_agg <- function(x, rank, db = 'ncbi', ...) 
 {
+  if(is.matrix(x))
+  {
+    if(is.null(colnames(x))) stop("The community data matrix must have named columns")
+    x <- data.frame(x)
+  }
   # bring to long format
   x$rownames <- rownames(x)
   df_m <- melt(x, id = 'rownames')
