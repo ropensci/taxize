@@ -24,6 +24,11 @@
 #' tree <- phylomatic_tree(taxa=taxa, get = 'POST')
 #' plot(tree)
 #' 
+#' # Genus names
+#' taxa <- c("Poa", "Phlox", "Helianthus")
+#' tree <- phylomatic_tree(taxa=taxa, storedtree='R20120829', get='POST')
+#' plot(tree)
+#' 
 #' # Lots of names
 #' taxa <- c("Poa annua", "Collomia grandiflora", "Lilium lankongense", "Phlox diffusa", 
 #' "Iteadaphne caudata", "Gagea sarmentosa", "Helianthus annuus")
@@ -31,8 +36,7 @@
 #' plot(tree, no.margin=TRUE)
 #' 
 #' # In parallel with parallel=TRUE speeds up dramatically by doing the 
-#' gathering of 
-#' # family names from NCBI in parallel
+#' # gathering of family names from NCBI in parallel
 #' registerDoMC(cores=4)
 #' phylomatic_tree(taxa=taxa, get='POST', parallel=TRUE)
 #'    
