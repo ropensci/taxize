@@ -15,6 +15,7 @@
 #' @param clean Return a clean tree or not.
 #' @details Use the web interface here http://phylodiversity.net/phylomatic/
 #' @return Newick formatted tree, or nexml xml object.
+#' @noRd
 #' @examples \dontrun{ 
 #' # Input taxonomic names
 #' taxa <- c("Collomia grandiflora", "Lilium lankongense", "Helianthus annuus")
@@ -38,7 +39,6 @@
 #' library(RNeXML)
 #' read.nexml(out, type="nexml", asText=TRUE)
 #' }
-#' @export
 
 phylomatic_tree2 <- function(taxa, get = 'GET', informat = "newick", method = "phylomatic", 
   storedtree = "smith2011", outformat = "newick", clean = "true")

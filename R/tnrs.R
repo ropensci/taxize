@@ -48,10 +48,10 @@
 #' tnrs(mynames, getpost="POST", source_ = "NCBI")
 #' 
 #' # And even more names
-mynames <- names_list(rank="species", size=75)
-tnrs(query=mynames, getpost="POST", source_ = "NCBI")
-## Or use splitby
-tnrs(mynames, getpost="POST", source_ = "NCBI", splitby=50)
+#' mynames <- names_list(rank="species", size=75)
+#' tnrs(query=mynames, getpost="POST", source_ = "NCBI")
+#' ## Or use splitby
+#' tnrs(mynames, getpost="POST", source_ = "NCBI", splitby=50)
 #' }
 #' @export
 tnrs <- function(query = NA, source_ = NULL, code = NULL, getpost = "POST", 

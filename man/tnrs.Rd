@@ -3,7 +3,7 @@
 \title{Search the Phylotastic Taxonomic Name Resolution Service.}
 \usage{
 tnrs(query = NA, source_ = NULL, code = NULL, getpost = "POST",
-  sleep = 0, splitby = NULL, verbose = TRUE)
+  sleep = 0, splitby = 30, verbose = TRUE)
 }
 \arguments{
   \item{query}{Quoted taxonomic names to search in a vector
@@ -70,6 +70,12 @@ mynames <- c("Panthera tigris", "Eutamias minimus", "Magnifera indica",
    "Mimulus bicolor", "Sorbus occidentalis","Madia sativa", "Thymopsis
    thymodes", "Bartlettia scaposa")
 tnrs(mynames, getpost="POST", source_ = "NCBI")
+
+# And even more names
+mynames <- names_list(rank="species", size=75)
+tnrs(query=mynames, getpost="POST", source_ = "NCBI")
+## Or use splitby
+tnrs(mynames, getpost="POST", source_ = "NCBI", splitby=50)
 }
 }
 
