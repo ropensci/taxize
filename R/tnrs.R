@@ -46,10 +46,16 @@
 #'    "Mimulus bicolor", "Sorbus occidentalis","Madia sativa", "Thymopsis 
 #'    thymodes", "Bartlettia scaposa")
 #' tnrs(mynames, getpost="POST", source_ = "NCBI")
+#' 
+#' # And even more names
+mynames <- names_list(rank="species", size=75)
+tnrs(query=mynames, getpost="POST", source_ = "NCBI")
+## Or use splitby
+tnrs(mynames, getpost="POST", source_ = "NCBI", splitby=50)
 #' }
 #' @export
 tnrs <- function(query = NA, source_ = NULL, code = NULL, getpost = "POST", 
-                 sleep = 0, splitby = NULL, verbose=TRUE)
+                 sleep = 0, splitby = 30, verbose=TRUE)
 {
 	url = "http://taxosaurus.org/submit"
   
@@ -68,7 +74,12 @@ tnrs <- function(query = NA, source_ = NULL, code = NULL, getpost = "POST",
 		{
 			splist <- paste(x, collapse="\n")
 			args <- compact(list(query = splist, source = source_, code = code))
-			tt <- postForm(url, .params=args)
+# 			tt <- postForm(url, .params=args, curl=getCurlHandle(), style="POST")
+# 			tt <- postForm(url, source="NCBI", file=fileUpload(loc, contentType="text/plain"), style="HTTPPOST", .checkParams=FALSE)
+# 			tt <- postForm(url, source="NCBI", query=splist, style="POST", .checkParams=FALSE)
+# 			tt <- POST(url, body=toJSON(list(file = upload_file(path=loc))))
+			body = toJSON(list(query = splist))
+			(tt <- POST(url, upload_file(loc)))
 		}
 		message <- fromJSON(tt)[["message"]]
 		retrieve <- str_replace_all(str_extract(message, "http.+"), "\\.$", "")
@@ -87,6 +98,7 @@ tnrs <- function(query = NA, source_ = NULL, code = NULL, getpost = "POST",
 			}
 		}
 		out <- compact(output)[[1]]
+    length(out$names)
 		
 		parseres <- function(w){ # function to parse results
 			matches <- w$matches
@@ -111,23 +123,23 @@ tnrs <- function(query = NA, source_ = NULL, code = NULL, getpost = "POST",
 	}
 	mainfunc_safe <- plyr::failwith(NULL, mainfunc)
 	
-	if(is.null(splitby)){
-		tmp <- mainfunc_safe(query)
-    names(tmp) <- tolower(names(tmp))
-		return( tmp )
+	if(getpost == "GET" && length(query) > 75 | length(query) > 30 && getpost == "POST"){
+	  ## Define function to split up the species list into more manageable chunks
+	  slice <- function(input, by = 2) {
+	    starts <- seq(1, length(input), by)
+	    tt <- lapply(starts, function(y) input[y:(y + (by - 1))])
+	    lapply(tt, function(x) x[!is.na(x)])
+	  }
+	  species_split <- slice(query, by = splitby)	
+	  
+	  out <- lapply(species_split, function(x) mainfunc_safe(x))
+	  tmp <- data.frame(rbindlist(out))
+	  names(tmp) <- tolower(names(tmp))
+	  return( tmp )
 	} else
 	{
-		## Define function to split up your species list into useable chuncks
-		slice <- function(input, by = 2) {
-			starts <- seq(1, length(input), by)
-			tt <- lapply(starts, function(y) input[y:(y + (by - 1))])
-			lapply(tt, function(x) x[!is.na(x)])
-		}
-		species_split <- slice(query, by = splitby)	
-		
-		out <- lapply(species_split, function(x) mainfunc_safe(x))
-		tmp <- data.frame(rbindlist(out))
-		names(tmp) <- tolower(names(tmp))
-		return( tmp )
+	  tmp <- mainfunc_safe(query)
+	  names(tmp) <- tolower(names(tmp))
+	  return( tmp )
 	}
 }
