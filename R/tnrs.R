@@ -3,7 +3,7 @@
 #' Match taxonomic names using the Taxonomic Name Resolution Service (TNRS). 
 #'  Returns score of the matched name, and whether it was accepted or not.
 #'  
-#' @import RCurl XML plyr stringr RJSONIO
+#' @import RCurl XML plyr stringr RJSONIO data.table
 #' @param query Quoted taxonomic names to search in a vector (character).
 #' @param source_ Specify the source you want to match names against. Defaults 
 #' 		to just retrieve data from all sources. Options: NCBI, iPlant_TNRS, 
@@ -94,14 +94,14 @@ tnrs <- function(query = NA, source_ = NULL, code = NULL, getpost = "POST",
 				z[sapply(z, length)==0] <- "none" 
 				data.frame(z)
 			}
-			matches2 <- ldply(matches, foome)
+			matches2 <- data.frame(rbindlist(lapply(matches, foome)))
 			df <- data.frame(submittedName=w$submittedName, matches2)
 			df$score <- round(as.numeric(as.character(df$score)), 2)
 			df
 		}
 		
 		# Parse results into data.frame
-		df <- ldply(out$names, parseres)
+    df <- data.frame(rbindlist(lapply(out$names, parseres)))
     f <- function(x) str_replace_all(x, pattern="\\+", replacement=" ")
     df <- colwise(f)(df)
 		order_ <- unlist(sapply(x, function(y) grep(y, df$submittedName)))
@@ -114,21 +114,20 @@ tnrs <- function(query = NA, source_ = NULL, code = NULL, getpost = "POST",
 	if(is.null(splitby)){
 		tmp <- mainfunc_safe(query)
     names(tmp) <- tolower(names(tmp))
-    tmp
+		return( tmp )
 	} else
 	{
 		## Define function to split up your species list into useable chuncks
 		slice <- function(input, by = 2) {
 			starts <- seq(1, length(input), by)
 			tt <- lapply(starts, function(y) input[y:(y + (by - 1))])
-			llply(tt, function(x) x[!is.na(x)])
+			lapply(tt, function(x) x[!is.na(x)])
 		}
 		species_split <- slice(query, by = splitby)	
 		
-		out <- llply(species_split, function(x) mainfunc_safe(x))
-		tmp <- ldply(out)
+		out <- lapply(species_split, function(x) mainfunc_safe(x))
+		tmp <- data.frame(rbindlist(out))
 		names(tmp) <- tolower(names(tmp))
-		tmp
 		return( tmp )
 	}
 }
