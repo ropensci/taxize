@@ -1,8 +1,8 @@
-\name{get_genes}
-\alias{get_genes}
+\name{ncbi_getbyid}
+\alias{ncbi_getbyid}
 \title{Retrieve gene sequences from NCBI by accession number.}
 \usage{
-get_genes(ids, format = "fasta", verbose = TRUE)
+ncbi_getbyid(ids, format = "fasta", verbose = TRUE)
 }
 \arguments{
   \item{ids}{GenBank ids to search for (character).}
@@ -21,22 +21,24 @@ Retrieve gene sequences from NCBI by accession number.
 \details{
 Removes predicted sequences so you don't have to remove
 them.  Predicted sequences are those with accession numbers
-that have "XM_" or "XR_" prefixes.
+that have "XM_" or "XR_" prefixes. This function retrieves
+one sequences for each species, picking the longest
+available for the given gene.
 }
 \examples{
 \dontrun{
 # A single gene
-get_genes(ids="360040093", format="fasta")
+ncbi_getbyid(ids="360040093", format="fasta")
 
-# Many genes (with different accession numbers) for the same species
-get_genes(ids=c("360040093","347448433"), format="fasta")
+# Many genes (with different accession numbers)
+ncbi_getbyid(ids=c("360040093","347448433"), format="fasta")
 }
 }
 \author{
 Scott Chamberlain \email{myrmecocystus@gmail.com}
 }
 \seealso{
-\code{\link[taxize]{get_seqs}},
-\code{\link[taxize]{get_genes_avail}}
+\code{\link[taxize]{ncbi_search}},
+\code{\link[taxize]{ncbi_getbyname}}
 }
 

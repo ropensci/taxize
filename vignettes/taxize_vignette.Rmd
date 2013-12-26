@@ -42,7 +42,7 @@ The correct spellings are *Helianthus annuus* and *Homo sapiens*. Another approa
 ```{r tnrs, eval=TRUE, cache=FALSE}
 mynames <- c("Helianthus annuus", "Pinus contort", "Poa anua", "Abis magnifica",
   	"Rosa california", "Festuca arundinace", "Sorbus occidentalos","Madia sateva")
-tnrs(query = mynames, getpost="GET")[ , -c(5:7)]
+tnrs(query = mynames, source = "iPlant_TNRS")[ , -c(5:7)]
 ```
 
 It turns out there are a few corrections: e.g., *Madia sateva* should be *Madia sativa*, and *Rosa california* should be *Rosa californica*. Note that this search worked because fuzzy matching was employed to retrieve names that were close, but not exact matches. Fuzzy matching is only available for plants in the TNRS service, so we advise using EOL's Global Names Resolver if you need to resolve animal names.

@@ -1,12 +1,11 @@
-\name{get_genes_avail}
-\alias{get_genes_avail}
-\title{Retrieve gene sequences available for a species from NCBI.}
+\name{ncbi_search}
+\alias{ncbi_search}
+\title{Search for gene sequences available for a species from NCBI.}
 \usage{
-get_genes_avail(taxon_name, seqrange, getrelated = FALSE, verbose = TRUE)
+ncbi_search(taxa, seqrange = "1:3000", getrelated = FALSE, verbose = TRUE)
 }
 \arguments{
-  \item{taxon_name}{Scientific name to search for
-  (character).}
+  \item{taxa}{Scientific name to search for (character).}
 
   \item{seqrange}{Sequence range, as e.g., "1:1000"
   (character).}
@@ -22,8 +21,8 @@ get_genes_avail(taxon_name, seqrange, getrelated = FALSE, verbose = TRUE)
 Data.frame of results.
 }
 \description{
-This function retrieves one sequences for each species,
-picking the longest available for the given gene.
+Search for gene sequences available for a species from
+NCBI.
 }
 \details{
 Removes predicted sequences so you don't have to remove
@@ -33,29 +32,29 @@ that have "XM_" or "XR_" prefixes.
 \examples{
 \dontrun{
 # A single species
-out <- get_genes_avail(taxon_name="Umbra limi", seqrange = "1:2000", getrelated=FALSE)
+out <- ncbi_search(taxa="Umbra limi", seqrange = "1:2000")
 # get list of genes available, removing non-unique
 unique(out$genesavail)
 # does the string 'RAG1' exist in any of the gene names
 out[grep("RAG1", out$genesavail, ignore.case=TRUE),]
 
 # A single species without records in NCBI
-out <- get_genes_avail(taxon_name="Sequoia wellingtonia", seqrange="1:2000", getrelated=TRUE)
+out <- ncbi_search(taxa="Sequoia wellingtonia", seqrange="1:2000", getrelated=TRUE)
 
 # Many species, can run in parallel or not using plyr
 species <- c("Salvelinus alpinus","Ictalurus nebulosus","Carassius auratus")
-out2 <- llply(species, get_genes_avail, seqrange = "1:2000", getrelated=F)
+out2 <- ncbi_search(taxa=species, seqrange = "1:2000")
 lapply(out2, head) # see heads of all
 out2df <- ldply(out2) # make data.frame of all
 unique(out2df$genesavail) # get list of genes available, removing non-unique
-out2df[grep("RAG1", out2df$genesavail, ignore.case=T),] # search across all
+out2df[grep("RAG1", out2df$genesavail, ignore.case=TRUE),] # search across all
 }
 }
 \author{
 Scott Chamberlain \email{myrmecocystus@gmail.com}
 }
 \seealso{
-\code{\link[taxize]{get_seqs}},
-\code{\link[taxize]{get_genes}}
+\code{\link[taxize]{ncbi_getbyid}},
+\code{\link[taxize]{ncbi_getbyname}}
 }
 
