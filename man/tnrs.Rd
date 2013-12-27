@@ -3,7 +3,7 @@
 \title{Search the Phylotastic Taxonomic Name Resolution Service.}
 \usage{
 tnrs(query = NA, source = NULL, code = NULL, getpost = "POST",
-  sleep = 0, splitby = 30, verbose = TRUE, callopts = list())
+  sleep = 0, splitby = 30, verbose = TRUE)
 }
 \arguments{
   \item{query}{Quoted taxonomic names to search in a vector

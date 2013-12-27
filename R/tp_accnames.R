@@ -41,3 +41,17 @@ tp_accnames <- function(id, format = 'json', output = 'df', key = NULL)
     ldply(searchresults, getdata)
   } else { searchresults }
 }
+
+#' Return all accepted names for a taxon name with a given id.
+#' 
+#' Function name changed to tp_accnames.
+#' 
+#' @param id the taxon identifier code 
+#' @param format return in json or xml format (defaults to json)
+#' @param output raw = json or xml; or df = data.frame 
+#' @param key Your Tropicos API key; loads from .Rprofile.
+#' @export
+tp_acceptednames <- function(id, format = 'json', output = 'df', key = NULL) 
+{
+  .Deprecated("tp_accnames", "taxize", "Function name changed. See tp_accnames", "tp_acceptednames") 
+}

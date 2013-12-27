@@ -36,3 +36,17 @@ tp_dist <- function(id, key=NULL, callopts=list())
   
   list(location = locs, reference = refs)
 }
+
+#' Return all distribution records for for a taxon name with a given id.
+#' 
+#' Function name changed to tp_dist.
+#' 
+#' @param id the taxon identifier code 
+#' @param key Your Tropicos API key; loads from .Rprofile. Or you can passin your
+#' key in this arg.
+#' @param callopts Further args passed on to httr::GET
+#' @export
+tp_namedistributions <- function(id, key=NULL, callopts=list())
+{
+  .Deprecated("tp_dist", "taxize", "Function name changed. See tp_dist", "tp_namedistributions")
+}

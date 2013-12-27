@@ -1,11 +1,30 @@
 taxize 0.1.8
 ===============
 
+NEW FEATURES
+* We attempted to make all ouput column names lowercase, and to increase consistency across column names in outputs from similar functions.
+* New function scrapenames() uses the Global Names Recognition and Discovery service to extract taxonomic names from a web page, pdf, or other document. 
+* New function vascan_search() to search the CANADENSYS Vascan names database.
+
 BUG FIXES
 * Fixed bugs in get_tpsid(), get_eolid() and eol_pages().
+* phylomatic_tree() bugs fixed. 
 
 MINOR IMPROVEMENTS
-* classification() methods were simplified. Now classification() is the workhorse for every data-source.
+* classification() methods were simplified. Now classification() is the workhorse for every data-source. col_classification(), eol_hierarchy(), and tp_classification() are now deprecated and will be removed in the next taxize version.
+* classification() gains four new arguments: start, checklist, key, and callopts.
+* comm2sci() gains argument simplify to optionally simplify output to a vector of names (TRUE by default).
+* get_eolid() and get_tpsid() both gain new arguments key to specify an API key, and ... to pass on arguments to eol_search().
+* Added ncbi as a data source (db="ncbi") in sci2comm(). 
+* tax_agg() now accepts a matrix in addition to a data.frame. Thanks to @tpoi
+* tnrs() changes: Using httr instead of RCurl; now forcing splitting up name vector when long. Still issues when using POST requests (getpost="POST") wherein a request sent with 100 names only returns 30 for example. Investigating this now.
+
+NOTES
+* Function name change: tp_acceptednames() now tp_accnames().
+* Function name change: tp_namedistributions() now tp_dist().
+* Function name change: tp_namereferences() now tp_refs().
+* Internal ldfast() function changed name to taxize_ldfast() to avoid namespace conflicts with similar function in another package.
+* Three functions now with ncbi_* prefix: get_seqs() is now ncbi_getbyname(); get_genes() is now ncbi_getbyid(); and get_genes_avail() is now ncbi_search(). 
 
 taxize 0.1.5
 ===============

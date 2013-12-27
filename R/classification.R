@@ -155,6 +155,7 @@ classification.uid <- function(id, ...) {
 #' @export
 #' @rdname classification
 classification.eolid <- function(id, key = NULL, callopts = list(), ...) {
+  common_names = NULL
   fun <- function(x){
     if(is.na(x)){ 
       out <- NA

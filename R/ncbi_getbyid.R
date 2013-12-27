@@ -46,3 +46,16 @@ ncbi_getbyid <- function(ids, format="fasta", verbose=TRUE)
 	mssg(verbose, "...done")
 	return(df)
 }
+
+#' Retrieve gene sequences from NCBI by accession number.
+#' 
+#' Function name changed to ncbi_getbyid.
+#' 
+#' @param ids GenBank ids to search for (character).
+#' @param format Return type, e.g., "fasta"
+#' @param verbose logical; If TRUE (default), informative messages printed.
+#' @export
+get_genes <- function(ids, format="fasta", verbose=TRUE)
+{
+  .Deprecated("ncbi_getbyid", "taxize", "Function name changed. See ncbi_getbyid", "get_genes") 
+}

@@ -108,3 +108,19 @@ ncbi_search <- function(taxa, seqrange="1:3000", getrelated=FALSE, verbose=TRUE)
   foo_safe <- plyr::failwith(NULL, foo)
   if(length(taxa)==1){ foo_safe(taxa) } else { lapply(taxa, foo_safe) }
 }
+
+
+#' Retrieve gene sequences from NCBI by accession number.
+#' 
+#' Function name changed to ncbi_search.
+#' 
+#' @param taxa Scientific name to search for (character).
+#' @param seqrange Sequence range, as e.g., "1:1000" (character).
+#' @param getrelated Logical, if TRUE, gets the longest sequences of a species 
+#'   	in the same genus as the one searched for. If FALSE, get's nothing.
+#' @param verbose logical; If TRUE (default), informative messages printed.
+#' @export
+get_genes_avail <- function(taxa, seqrange="1:3000", getrelated=FALSE, verbose=TRUE)
+{
+  .Deprecated("ncbi_search", "taxize", "Function name changed. See ncbi_search", "get_genes_avail") 
+}

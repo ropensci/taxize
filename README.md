@@ -5,7 +5,7 @@ taxize
 
 `taxize` allows users to search over many taxonomic data sources for species names (scientific and common) and download up and downstream taxonomic hierarchical information - among other things. 
 
-The `taxize` tutorial is [here](http://ropensci.org/tutorials/taxize_tutorial.html)
+The `taxize` tutorial is can be found at [http://ropensci.org/tutorials/taxize_tutorial.html](http://ropensci.org/tutorials/taxize_tutorial.html)
 
 ### Contributors
 
@@ -26,19 +26,21 @@ The following are URL's for API documentation, where to get API keys, and what p
 
 |Souce|Function prefix| API Docs|API key|
 |---|---|---|---|
-|Encylopedia of Life|`eol`|[here](http://www.eol.org/api/)|[here](http://eol.org/users/register)|
-|Taxonomic Name Resolution Service|`tnrs`|[here](http://api.phylotastic.org/tnrs)|none|
-|Integrated Taxonomic Information Service|`itis`|[here](http://www.itis.gov/ws_description.html)|none|
-|Phylomatic|`phylomatic`|[here](http://www.phylodiversity.net/phylomatic/phylomatic_api.html)|none|
-|uBio|`ubio`|[here](http://www.ubio.org/index.php?pagename=xml_services)|[here](http://www.ubio.org/index.php?pagename=form)|
-|Global Names Resolver|`gnr`|[here](http://resolver.globalnames.org/api)|none|
-|Global Names Index|`gni`|[here](https://github.com/dimus/gni/wiki/api)|none|
-|IUCN Red List|`iucn`|[here](https://www.assembla.com/spaces/sis/wiki/Red_List_API?version=3)|none|
-|Tropicos|`tp`|[here](http://services.tropicos.org/help)|[here](http://services.tropicos.org/help?requestkey)|
-|Plantminer|`plantminer`|[here](http://www.plantminer.com/help)|[here](http://www.plantminer.com/help)|
+|Encylopedia of Life|`eol`|[link](http://www.eol.org/api/)|[link](http://eol.org/users/register)|
+|Taxonomic Name Resolution Service|`tnrs`|[link](http://api.phylotastic.org/tnrs)|none|
+|Integrated Taxonomic Information Service|`itis`|[link](http://www.itis.gov/ws_description.html)|none|
+|Phylomatic|`phylomatic`|[link](http://www.phylodiversity.net/phylomatic/phylomatic_api.html)|none|
+|uBio|`ubio`|[link](http://www.ubio.org/index.php?pagename=xml_services)|[link](http://www.ubio.org/index.php?pagename=form)|
+|Global Names Resolver|`gnr`|[link](http://resolver.globalnames.org/api)|none|
+|Global Names Index|`gni`|[link](https://github.com/dimus/gni/wiki/api)|none|
+|IUCN Red List|`iucn`|[link](https://www.assembla.com/spaces/sis/wiki/Red_List_API?version=3)|none|
+|Tropicos|`tp`|[link](http://services.tropicos.org/help)|[link](http://services.tropicos.org/help?requestkey)|
+|Plantminer|`plantminer`|[link](http://www.plantminer.com/help)|[link](http://www.plantminer.com/help)|
 |Theplantlist dot org|`tpl`|\*\*|none|
-|Catalogue of Life|`col`|[here](http://www.catalogueoflife.org/colwebsite/content/web-services)|none|
-|Global Invasive Species Database|`gisd`|\***|none|
+|Catalogue of Life|`col`|[link](http://www.catalogueoflife.org/colwebsite/content/web-services)|none|
+|Global Invasive Species Database|`gisd`|\*\*\*|none|
+|National Center for Biotechnology Information|`ncbi`|none|none|
+|CANADENSYS Vascan name search API|`vascan`|[link](http://data.canadensys.net/vascan/api)|none|
 
 **: There are none! We suggest using `TPL` and `TPLck` functions in the [taxonstand package](http://cran.r-project.org/web/packages/Taxonstand/index.html). We provide two functions to get bullk data: `tpl_families` and `tpl_get`.
 
@@ -138,7 +140,9 @@ The following functions are not used in the higher level functions above, and ar
 
 `getanymatchcount`, `searchforanymatch`, `searchforanymatchpaged`, `getexpertsfromtsn`, `getcommentdetailfromtsn`, `getcoremetadatafromtsn`, `getcoveragefromtsn`, `getcredibilityratingfromtsn`, `getcredibilityratings`, `getcurrencyfromtsn`, `getdatedatafromtsn`, `getlastchangedate`, `getothersourcesfromtsn`, `getparenttsnfromtsn`, `getglobalspeciescompletenessfromtsn`, `getgeographicdivisionsfromtsn`, `getgeographicvalues`, `getreviewyearfromtsn`, `gettaxonauthorshipfromtsn`, `gettaxonomicusagefromtsn`, `gettsnbyvernacularlanguage`, `getunacceptabilityreasonfromtsn`, `getvernacularlanguages`
 
-### Install `taxize` 
+## Quickstart
+
+### Install taxize
 
 + Stable version from CRAN:
 
@@ -162,10 +166,6 @@ library(taxize)
 
 ```coffee
 uids <- get_uid(c("Chironomus riparius", "Chaetopteryx"))
-
-Retrieving data for species ' Chironomus riparius '
-
-Retrieving data for species ' Chaetopteryx '
 ```
 
 #### And retrieve classification
@@ -177,22 +177,22 @@ lapply(out, head)
 
 ```coffee
 [[1]]
-              ScientificName         Rank     UID
-1         cellular organisms      no rank  131567
-2                  Eukaryota superkingdom    2759
-3               Opisthokonta      no rank   33154
-4                    Metazoa      kingdom   33208
-5                  Eumetazoa      no rank    6072
-6                  Bilateria      no rank   33213
+                name         rank
+1 cellular organisms      no rank
+2          Eukaryota superkingdom
+3       Opisthokonta      no rank
+4            Metazoa      kingdom
+5          Eumetazoa      no rank
+6          Bilateria      no rank
 
 [[2]]
-       ScientificName         Rank     UID
-1  cellular organisms      no rank  131567
-2           Eukaryota superkingdom    2759
-3        Opisthokonta      no rank   33154
-4             Metazoa      kingdom   33208
-5           Eumetazoa      no rank    6072
-6           Bilateria      no rank   33213
+                name         rank
+1 cellular organisms      no rank
+2          Eukaryota superkingdom
+3       Opisthokonta      no rank
+4            Metazoa      kingdom
+5          Eumetazoa      no rank
+6          Bilateria      no rank
 ```
 
 ### Make a phylogeny from Phylomatic
@@ -200,13 +200,13 @@ lapply(out, head)
 #### Input the taxonomic names
 
 ```coffee
-taxa <- c("Poa annua", "Abies procera", "Helianthus annuus")
+taxa <- c("Poa annua", "Phlox diffusa", "Helianthus annuus")
 ```
 
 #### Fetch the tree - the formatting of names and higher taxonmy is done within the function
 
 ```coffee
-tree <- phylomatic_tree(taxa=taxa, get = 'POST', informat='newick', method = "phylomatic", storedtree = "R20120829", taxaformat = "slashpath", outformat = "newick", clean = "true")
+tree <- phylomatic_tree(taxa=taxa, storedtree = "R20120829")
 ```
 
 #### Plot
@@ -215,7 +215,7 @@ tree <- phylomatic_tree(taxa=taxa, get = 'POST', informat='newick', method = "ph
 plot(tree)
 ```
 
-![](http://ropensci.github.com/taxize/phylomatic_phylo.png)
+![](http://f.cl.ly/items/0o253B453R3I0D20082E/Screen%20Shot%202013-12-27%20at%209.03.49%20AM.png)
 
 Please report any issues or bugs](https://github.com/ropensci/taxize/issues).
 
