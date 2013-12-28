@@ -49,6 +49,12 @@ NULL
 #' @keywords data
 NULL
 
+#' Table of APGIII generic names
+#' @name apg_genera
+#' @docType data
+#' @keywords data
+NULL
+
 #' Lookup-table for APGIII family names
 #' @name apg_families
 #' @docType data

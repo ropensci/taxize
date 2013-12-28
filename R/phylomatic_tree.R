@@ -51,15 +51,15 @@
 phylomatic_tree <- function(taxa, taxnames = TRUE, get = 'GET',
   informat = "newick", method = "phylomatic", storedtree = "smith2011", 
   taxaformat = "slashpath", outformat = "newick", clean = "true", 
-  parallel=FALSE)
+  parallel=FALSE, db="ncbi")
 {
   url = "http://phylodiversity.net/phylomatic/pmws"
   
   if(taxnames){
     if(parallel){ 
-      dat_ <- llply(taxa, itis_phymat_format, format='isubmit', .parallel=TRUE)
+      dat_ <- llply(taxa, itis_phymat_format, format='isubmit', db=db, .parallel=TRUE)
     } else {
-      dat_ <- llply(taxa, itis_phymat_format, format='isubmit')
+      dat_ <- llply(taxa, itis_phymat_format, format='isubmit', db=db)
     }
     
     checknas <- sapply(dat_, function(x) strsplit(x, "/")[[1]][1])
