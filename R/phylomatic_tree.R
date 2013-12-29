@@ -22,23 +22,18 @@
 #' # Input taxonomic names
 #' taxa <- c("Poa annua", "Phlox diffusa", "Helianthus annuus")
 #' tree <- phylomatic_tree(taxa=taxa, get = 'POST')
-#' plot(tree)
+#' plot(tree, no.margin=TRUE)
 #' 
 #' # Genus names
 #' taxa <- c("Poa", "Phlox", "Helianthus")
 #' tree <- phylomatic_tree(taxa=taxa, storedtree='R20120829', get='POST')
-#' plot(tree)
+#' plot(tree, no.margin=TRUE)
 #' 
 #' # Lots of names
 #' taxa <- c("Poa annua", "Collomia grandiflora", "Lilium lankongense", "Phlox diffusa", 
 #' "Iteadaphne caudata", "Gagea sarmentosa", "Helianthus annuus")
 #' tree <- phylomatic_tree(taxa=taxa, get = 'POST')
 #' plot(tree, no.margin=TRUE)
-#' 
-#' # In parallel with parallel=TRUE speeds up dramatically by doing the 
-#' # gathering of family names from NCBI in parallel
-#' registerDoMC(cores=4)
-#' phylomatic_tree(taxa=taxa, get='POST', parallel=TRUE)
 #'    
 #' # Output NeXML format
 #' taxa <- c("Gonocarpus leptothecus", "Gonocarpus leptothecus", "Lilium lankongense")
@@ -49,24 +44,19 @@
 #' @export
 
 phylomatic_tree <- function(taxa, taxnames = TRUE, get = 'GET',
-  informat = "newick", method = "phylomatic", storedtree = "smith2011", 
-  taxaformat = "slashpath", outformat = "newick", clean = "true", 
-  parallel=FALSE, db="ncbi")
+  informat = "newick", method = "phylomatic", storedtree = "R20120829", 
+  taxaformat = "slashpath", outformat = "newick", clean = "true", db="apg")
 {
   url = "http://phylodiversity.net/phylomatic/pmws"
   
   if(taxnames){
-    if(parallel){ 
-      dat_ <- llply(taxa, itis_phymat_format, format='isubmit', db=db, .parallel=TRUE)
-    } else {
-      dat_ <- llply(taxa, itis_phymat_format, format='isubmit', db=db)
-    }
+    dat_ <- phylomatic_format(taxa, format='isubmit', db=db)
     
     checknas <- sapply(dat_, function(x) strsplit(x, "/")[[1]][1])
-    checknas2 <- checknas[grep("na", checknas)]
-    if(length(checknas2)>0)
+    checknas2 <- checknas[match("na", checknas)]
+    if(is.numeric(checknas2))
       stop(sprintf("A family was not found for the following taxa:\n %s \n\n try setting taxnmaes=FALSE, and passing in a vector of strings, like \n%s", 
-                   paste(sapply(dat_, function(x) strsplit(x, "/")[[1]][3])[grep("na", checknas)], collapse=", "),
+                   paste(sapply(dat_, function(x) strsplit(x, "/")[[1]][3])[match("na", checknas)], collapse=", "),
                    'phylomatic_tree(taxa = c("asteraceae/taraxacum/taraxacum_officinale", "ericaceae/gaylussacia/gaylussacia_baccata", "ericaceae/vaccinium/vaccinium_pallidum"), taxnames=FALSE, parallel=FALSE)'
       ))
     

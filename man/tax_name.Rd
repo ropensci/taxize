@@ -31,7 +31,7 @@ tax_name(query = NULL, get = NULL, db = "itis", pref = "ncbi",
 A data.frame with one column for every queried rank.
 }
 \description{
-Retrieve name of querried taxonomic rank of a taxon.
+Retrieve name of queried taxonomic rank of a taxon.
 }
 \note{
 While \code{\link[taxize]{tax_rank}} returns the actual

@@ -1,6 +1,6 @@
 #' Get taxonomic names for a given rank.
 #' 
-#' Retrieve name of querried taxonomic rank of a taxon.
+#' Retrieve name of queried taxonomic rank of a taxon.
 #' 
 #' @param query character; Vector of taxonomic names to query.
 #' @param get character; The ranks of the taxonomic name to get, see 

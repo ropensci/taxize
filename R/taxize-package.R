@@ -49,6 +49,12 @@ NULL
 #' @keywords data
 NULL
 
+#' Lookup-table for family, genus, and species names for ThePlantList
+#' @name theplantlist
+#' @docType data
+#' @keywords data
+NULL
+
 #' Table of APGIII generic names
 #' @name apg_genera
 #' @docType data

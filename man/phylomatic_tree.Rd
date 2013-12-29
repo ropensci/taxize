@@ -3,9 +3,9 @@
 \title{Query Phylomatic for a phylogenetic tree.}
 \usage{
 phylomatic_tree(taxa, taxnames = TRUE, get = "GET", informat = "newick",
-  method = "phylomatic", storedtree = "smith2011",
+  method = "phylomatic", storedtree = "R20120829",
   taxaformat = "slashpath", outformat = "newick", clean = "true",
-  parallel = FALSE, db = "ncbi")
+  db = "apg")
 }
 \arguments{
   \item{taxa}{Phylomatic format input of taxa names.}
@@ -51,23 +51,18 @@ http://phylodiversity.net/phylomatic/
 # Input taxonomic names
 taxa <- c("Poa annua", "Phlox diffusa", "Helianthus annuus")
 tree <- phylomatic_tree(taxa=taxa, get = 'POST')
-plot(tree)
+plot(tree, no.margin=TRUE)
 
 # Genus names
 taxa <- c("Poa", "Phlox", "Helianthus")
 tree <- phylomatic_tree(taxa=taxa, storedtree='R20120829', get='POST')
-plot(tree)
+plot(tree, no.margin=TRUE)
 
 # Lots of names
 taxa <- c("Poa annua", "Collomia grandiflora", "Lilium lankongense", "Phlox diffusa",
 "Iteadaphne caudata", "Gagea sarmentosa", "Helianthus annuus")
 tree <- phylomatic_tree(taxa=taxa, get = 'POST')
 plot(tree, no.margin=TRUE)
-
-# In parallel with parallel=TRUE speeds up dramatically by doing the
-# gathering of family names from NCBI in parallel
-registerDoMC(cores=4)
-phylomatic_tree(taxa=taxa, get='POST', parallel=TRUE)
 
 # Output NeXML format
 taxa <- c("Gonocarpus leptothecus", "Gonocarpus leptothecus", "Lilium lankongense")
