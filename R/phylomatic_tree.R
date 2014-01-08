@@ -16,6 +16,7 @@
 #' @param outformat One of newick, nexml, or fyt.
 #' @param clean Return a clean tree or not.
 #' @param parallel Run in parallel or not.
+#' @param verbose Print messages (default: TRUE).
 #' @details Use the web interface here http://phylodiversity.net/phylomatic/
 #' @return Newick formatted tree or nexml text.
 #' @examples \dontrun{ 
