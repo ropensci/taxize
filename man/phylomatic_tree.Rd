@@ -5,7 +5,7 @@
 phylomatic_tree(taxa, taxnames = TRUE, get = "GET", informat = "newick",
   method = "phylomatic", storedtree = "R20120829",
   taxaformat = "slashpath", outformat = "newick", clean = "true",
-  db = "apg")
+  db = "apg", verbose = TRUE)
 }
 \arguments{
   \item{taxa}{Phylomatic format input of taxa names.}

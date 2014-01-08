@@ -2,7 +2,8 @@
 \alias{ncbi_search}
 \title{Search for gene sequences available for a species from NCBI.}
 \usage{
-ncbi_search(taxa, seqrange = "1:3000", getrelated = FALSE, verbose = TRUE)
+ncbi_search(taxa, seqrange = "1:3000", getrelated = FALSE, limit = 500,
+  verbose = TRUE)
 }
 \arguments{
   \item{taxa}{Scientific name to search for (character).}

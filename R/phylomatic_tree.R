@@ -45,7 +45,7 @@
 
 phylomatic_tree <- function(taxa, taxnames = TRUE, get = 'GET',
   informat = "newick", method = "phylomatic", storedtree = "R20120829", 
-  taxaformat = "slashpath", outformat = "newick", clean = "true", db="apg")
+  taxaformat = "slashpath", outformat = "newick", clean = "true", db="apg", verbose=TRUE)
 {
   url = "http://phylodiversity.net/phylomatic/pmws"
   
@@ -69,13 +69,20 @@ phylomatic_tree <- function(taxa, taxnames = TRUE, get = 'GET',
                        outformat = outformat, clean = clean))
   
   if (get == 'POST') {  
-    tt <- POST(url, query=args)
+#     tt <- POST(url, body=list(taxa=dat_), query=args, multipart=FALSE)
+    out <- postForm(url, .params=args, style = "POST")
   } else if (get == 'GET') {
     tt <- GET(url, query=args)
+    stop_for_status(tt)
+    out <- content(tt, as="text")
   } else
   { stop("Error: get must be one of 'POST' or 'GET'") }
-  stop_for_status(tt)
-  out <- content(tt, as="text")
+  
+  # parse out missing taxa note
+  if(grepl("\\[NOTE: ", out)){
+    mssg(verbose, str_extract(out, "NOTE:.+"))
+    out <- gsub("\\[NOTE:.+", ";\n", out)
+  }
   
   outformat <- match.arg(outformat, choices=c("nexml",'newick'))
   getnewick <- function(x){
