@@ -32,16 +32,21 @@
 #' out2df[grep("RAG1", out2df$genesavail, ignore.case=TRUE),] # search across all
 #' }
 #' @export
-ncbi_search <- function(taxa, seqrange="1:3000", getrelated=FALSE, verbose=TRUE)
+ncbi_search <- function(taxa, seqrange="1:3000", getrelated=FALSE, limit = 500, 
+                        verbose=TRUE)
 {
   foo <- function(xx){
+    url_esearch <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
+    url_esummary <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi"
     mssg(verbose, paste("Working on ", xx, "...", sep=""))
     mssg(verbose, "...retrieving sequence IDs...")
     
-    query <- list(db = "nuccore", term = paste(xx, "[Organism] AND", seqrange, "[SLEN]", collapse=" "), RetMax=500)
+    query <- list(db = "nuccore", retmax = limit,
+                  term = paste(xx, "[Organism] AND", seqrange, "[SLEN]", collapse=" "))
     
-    out <- 
-      xpathApply(content(GET("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi", query=query), "parsed"), "//eSearchResult")[[1]]
+    query_init <- GET(url_esearch, query=query)
+    stop_for_status(query_init)
+    out <- xpathApply(content(query_init, as="parsed"), "//eSearchResult")[[1]]
     if( as.numeric(xmlValue(xpathApply(out, "//Count")[[1]]))==0 ){
       mssg(verbose, paste("no sequences for ", xx, " - getting other sp.", sep=""))
       if(getrelated == FALSE){
@@ -52,8 +57,9 @@ ncbi_search <- function(taxa, seqrange="1:3000", getrelated=FALSE, verbose=TRUE)
         mssg(verbose, "...retrieving sequence IDs for related species...")
         newname <- strsplit(xx, " ")[[1]][[1]]
         query <- list(db = "nuccore", term = paste(newname, "[Organism] AND", seqrange, "[SLEN]", collapse=" "), RetMax=500)
-        out <- 
-          xpathApply(content(GET("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi", query=query), "parsed"), "//eSearchResult")[[1]]
+        query_init2 <- GET(url_esearch, query=query)
+        stop_for_status(query_init2)
+        out <- xpathApply(content(query_init2, "parsed"), "//eSearchResult")[[1]]
         if( as.numeric(xmlValue(xpathApply(out, "//Count")[[1]]))==0 ){
           mssg(verbose, paste("no sequences for ", xx, " or ", newname, sep=""))
           outt <- list(xx, NA, NA, NA, NA, NA)
@@ -61,47 +67,29 @@ ncbi_search <- function(taxa, seqrange="1:3000", getrelated=FALSE, verbose=TRUE)
         {
           ids <- xpathApply(out, "//IdList//Id") # Get sequence IDs in list
           ids_ <- as.numeric(sapply(ids, xmlValue))  # Get sequence ID values
-          
           mssg(verbose, "...retrieving available genes and their lengths...")
           querysum <- list(db = "nucleotide", id = paste(ids_, collapse=" ")) # construct query for species
-          outsum <- xpathApply(content( # API call
-            GET("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi", 
-                query=querysum), "parsed"), "//eSummaryResult")[[1]]
-          names <- sapply(getNodeSet(outsum[[1]], "//Item"), xmlGetAttr, name="Name") # gets names of values in summary
-          predicted <- as.character(sapply(getNodeSet(outsum, "//Item"), xmlValue)[str_detect(names, "Caption")]) #  get access numbers
-          predicted <- sapply(predicted, function(x) strsplit(x, "_")[[1]][[1]], USE.NAMES=FALSE)
-          length_ <- as.numeric(sapply(getNodeSet(outsum, "//Item"), xmlValue)[str_detect(names, "Length")]) # gets seq lengths
-          gis <- as.numeric(sapply(getNodeSet(outsum, "//Item"), xmlValue)[str_detect(names, "Gi")]) # gets GI numbers
-          spnames <- sapply(getNodeSet(outsum, "//Item"), xmlValue)[str_detect(names, "Title")] # gets seq lengths # get spp names
-          spused <- sapply(spnames, function(x) paste(str_split(x, " ")[[1]][1:2], sep="", collapse=" "), USE.NAMES=FALSE)
-          genesavail <- sapply(spnames, function(x) paste(str_split(x, " ")[[1]][-c(1:2)], sep="", collapse=" "), USE.NAMES=FALSE)
-          df <- data.frame(spused=spused, length=length_, genesavail=genesavail, access_num=predicted, ids=gis, stringsAsFactors=FALSE)
-          df <- df[!df$access_num %in% c("XM","XR"),] # remove predicted sequences		
+          query_res <- GET(url_esummary, query=querysum)
+          stop_for_status(query_res)
+          df <- parseres(query_res)
         }
       }
     } else
     {
       ids <- xpathApply(out, "//IdList//Id") # Get sequence IDs in list
       ids_ <- as.numeric(sapply(ids, xmlValue))  # Get sequence ID values
-      
       mssg(verbose, "...retrieving available genes and their lengths...")
-      querysum <- list(db = "nucleotide", id = paste(ids_, collapse=" ")) # construct query for species
-      outsum <- xpathApply(content( # API call
-        GET("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi", 
-            query=querysum), "parsed"), "//eSummaryResult")[[1]]
-      names <- sapply(getNodeSet(outsum[[1]], "//Item"), xmlGetAttr, name="Name") # gets names of values in summary
-      predicted <- as.character(sapply(getNodeSet(outsum, "//Item"), xmlValue)[str_detect(names, "Caption")]) #  get access numbers
-      predicted <- sapply(predicted, function(x) strsplit(x, "_")[[1]][[1]], USE.NAMES=F)
-      length_ <- as.numeric(sapply(getNodeSet(outsum, "//Item"), xmlValue)[str_detect(names, "Length")]) # gets seq lengths
-      gis <- as.numeric(sapply(getNodeSet(outsum, "//Item"), xmlValue)[str_detect(names, "Gi")]) # gets GI numbers
-      spnames <- sapply(getNodeSet(outsum, "//Item"), xmlValue)[str_detect(names, "Title")] # gets seq lengths # get spp names
-      spused <- sapply(spnames, function(x) paste(str_split(x, " ")[[1]][1:2], sep="", collapse=" "), USE.NAMES=FALSE)
-      genesavail <- sapply(spnames, function(x) paste(str_split(x, " ")[[1]][-c(1:2)], sep="", collapse=" "), USE.NAMES=FALSE)
-      df <- data.frame(spused=spused, length=length_, genesavail=genesavail, access_num=predicted, ids=gis, stringsAsFactors=FALSE)
-      df <- df[!df$access_num %in% c("XM","XR"),] # remove predicted sequences
+      querysum <- list(db = "nucleotide", id = paste(ids_, collapse=" "), retmax=limit) # construct query for species
+      query_res <- POST(url_esummary, body=querysum)
+      stop_for_status(query_res)
+      df <- parseres(query_res)
     }
     mssg(verbose, "...done.")
-    names(df) <- c("taxon","length","genesavail","acc_no","gi_no")
+    if(nrow(df) < 1){
+      df <- data.frame(taxon=NA,length=NA,gene_desc=NA,acc_no=NA,gi_no=NA)
+    } else {
+      names(df) <- c("taxon","length","gene_desc","acc_no","gi_no")
+    }
     return( df )
   }
   
@@ -109,6 +97,20 @@ ncbi_search <- function(taxa, seqrange="1:3000", getrelated=FALSE, verbose=TRUE)
   if(length(taxa)==1){ foo_safe(taxa) } else { lapply(taxa, foo_safe) }
 }
 
+# Function to parse results from http query
+parseres <- function(x){
+  outsum <- xpathApply(content(x, as="parsed"), "//eSummaryResult")[[1]]
+  names <- sapply(getNodeSet(outsum[[1]], "//Item"), xmlGetAttr, name="Name") # gets names of values in summary
+  predicted <- as.character(sapply(getNodeSet(outsum, "//Item"), xmlValue)[str_detect(names, "Caption")]) #  get access numbers
+  predicted <- sapply(predicted, function(x) strsplit(x, "_")[[1]][[1]], USE.NAMES=FALSE)
+  length_ <- as.numeric(sapply(getNodeSet(outsum, "//Item"), xmlValue)[str_detect(names, "Length")]) # gets seq lengths
+  gis <- as.numeric(sapply(getNodeSet(outsum, "//Item"), xmlValue)[str_detect(names, "Gi")]) # gets GI numbers
+  spnames <- sapply(getNodeSet(outsum, "//Item"), xmlValue)[str_detect(names, "Title")] # gets seq lengths # get spp names
+  spused <- sapply(spnames, function(x) paste(str_split(x, " ")[[1]][1:2], sep="", collapse=" "), USE.NAMES=FALSE)
+  genesavail <- sapply(spnames, function(x) paste(str_split(x, " ")[[1]][-c(1:2)], sep="", collapse=" "), USE.NAMES=FALSE)
+  df <- data.frame(spused=spused, length=length_, genesavail=genesavail, access_num=predicted, ids=gis, stringsAsFactors=FALSE)
+  return( df[!df$access_num %in% c("XM","XR"),] )
+}
 
 #' Retrieve gene sequences from NCBI by accession number.
 #' 
