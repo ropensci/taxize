@@ -15,6 +15,11 @@ ncbi_search(taxa, seqrange = "1:3000", getrelated = FALSE, limit = 500,
   sequences of a species in the same genus as the one
   searched for. If FALSE, get's nothing.}
 
+  \item{limit}{Number of sequences to search for and
+  return. Max of 10,000.  If you search for 6000 records,
+  and only 5000 are found, you will of course only get 5000
+  back.}
+
   \item{verbose}{logical; If TRUE (default), informative
   messages printed.}
 }
@@ -53,6 +58,9 @@ out2df[grep("RAG1", out2df$genesavail, ignore.case=TRUE),] # search across all
 }
 \author{
 Scott Chamberlain \email{myrmecocystus@gmail.com}
+}
+\references{
+\url{}
 }
 \seealso{
 \code{\link[taxize]{ncbi_getbyid}},

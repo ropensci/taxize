@@ -1,3 +1,10 @@
+taxize 0.1.9
+===============
+
+MINOR IMPROVEMENTS
+
+* Updated ncbi_search() to retrieve more than a max of 500, slightly changed column headers in output data files, and if didn't before, now accepts a vector/list of taxonomic names instead of just one name. 
+
 taxize 0.1.8
 ===============
 

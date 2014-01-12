@@ -1,6 +1,7 @@
 #' Query Phylomatic for a phylogenetic tree.
 #' 
 #' @import httr ape
+#' @importFrom stringr str_extract
 #' @param taxa Phylomatic format input of taxa names.
 #' @param taxnames If true, we get the family names for you to attach to your 
 #'    species names to send to Phylomatic API. If FALSE, you have to provide the 
@@ -78,22 +79,37 @@ phylomatic_tree <- function(taxa, taxnames = TRUE, get = 'GET',
     out <- content(tt, as="text")
   } else
   { stop("Error: get must be one of 'POST' or 'GET'") }
-  
-  # parse out missing taxa note
-  if(grepl("\\[NOTE: ", out)){
-    mssg(verbose, str_extract(out, "NOTE:.+"))
-    out <- gsub("\\[NOTE:.+", ";\n", out)
+
+  if(grepl("No taxa in common", out)){
+    stop(out)
+  } else
+  {
+    # parse out missing taxa note
+    if(grepl("\\[NOTE: ", out)){
+      taxa_na <- str_extract(out, "NOTE:.+")
+      taxa_na2 <- str_extract(taxa_na, ":\\s[A-Za-z].+")
+      taxa_na2 <- strsplit(taxa_na2, ",")[[1]][-length(strsplit(taxa_na2, ",")[[1]])]
+      taxa_na2 <- gsub(":|\\s", "", taxa_na2)
+      taxa_na2 <- sapply(taxa_na2, function(x) strsplit(x, "/")[[1]][[3]], USE.NAMES=FALSE)
+      taxa_na2 <- taxize_capwords(gsub("_", " ", taxa_na2), onlyfirst=TRUE)
+      
+      mssg(verbose, taxa_na)
+      out <- gsub("\\[NOTE:.+", ";\n", out)
+    }
+    
+    outformat <- match.arg(outformat, choices=c("nexml",'newick'))
+    getnewick <- function(x){
+      tree <- gsub("\n", "", x[[1]])
+      read.tree(text = colldouble(tree))
+    }
+    
+    res <- switch(outformat, 
+           nexml = out,
+           newick = getnewick(out))
+    class(res) <- c("phylo","phylomatic")
+    attr(res, "missing") <- taxa_na2
+    return( res )
   }
-  
-  outformat <- match.arg(outformat, choices=c("nexml",'newick'))
-  getnewick <- function(x){
-    tree <- gsub("\n", "", x[[1]])
-    read.tree(text = colldouble(tree))
-  }
-  
-  switch(outformat, 
-         nexml = out,
-         newick = getnewick(out))
 }
 
 collapse_double_root <- function(y) {
