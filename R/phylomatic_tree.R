@@ -95,6 +95,8 @@ phylomatic_tree <- function(taxa, taxnames = TRUE, get = 'GET',
       
       mssg(verbose, taxa_na)
       out <- gsub("\\[NOTE:.+", ";\n", out)
+    } else {
+        taxa_na2 <- NULL
     }
     
     outformat <- match.arg(outformat, choices=c("nexml",'newick'))
