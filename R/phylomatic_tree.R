@@ -57,7 +57,7 @@ phylomatic_tree <- function(taxa, taxnames = TRUE, get = 'GET',
     checknas <- sapply(dat_, function(x) strsplit(x, "/")[[1]][1])
     checknas2 <- checknas[match("na", checknas)]
     if(is.numeric(checknas2))
-      stop(sprintf("A family was not found for the following taxa:\n %s \n\n try setting taxnmaes=FALSE, and passing in a vector of strings, like \n%s", 
+      stop(sprintf("A family was not found for the following taxa:\n %s \n\n try setting taxnames=FALSE, and passing in a vector of strings, like \n%s", 
                    paste(sapply(dat_, function(x) strsplit(x, "/")[[1]][3])[match("na", checknas)], collapse=", "),
                    'phylomatic_tree(taxa = c("asteraceae/taraxacum/taraxacum_officinale", "ericaceae/gaylussacia/gaylussacia_baccata", "ericaceae/vaccinium/vaccinium_pallidum"), taxnames=FALSE, parallel=FALSE)'
       ))
