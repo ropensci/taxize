@@ -114,6 +114,7 @@ classification.tsn <- function(id, ...)
     }
   }
   out <- lapply(id, fun)
+  class(out) <- 'classification'
   attr(out, 'db') <- 'itis'
   return(out)
 }
@@ -146,6 +147,7 @@ classification.uid <- function(id, ...) {
     return(out)
   }
   out <- lapply(id, fun)
+  class(out) <- 'classification'
   attr(out, 'db') <- 'ncbi'
   return(out)
 }
@@ -177,6 +179,8 @@ classification.eolid <- function(id, key = NULL, callopts = list(), ...) {
     }
   }
   out <- lapply(id, fun)
+  class(out) <- 'classification'
+  attr(out, 'db') <- 'eol'
 #   names(out) <- id
   return(out)
 }
@@ -213,6 +217,7 @@ classification.colid <- function(id, start = NULL, checklist = NULL, ...) {
   }
   out <- lapply(id, fun)
   names(out) <- id
+  class(out) <- 'classification'
   attr(out, 'db') <- 'col'
   return(out)
 }
@@ -242,6 +247,7 @@ classification.tpsid <- function(id, key = NULL, callopts = list(), ...) {
     return(out)
   }
   out <- lapply(id, fun)
+  class(out) <- 'classification'
   names(out) <- id
   return(out)
 }
@@ -263,4 +269,16 @@ classification.ids <- function(id, ...)
   }
   out <- lapply(id, fun)
   return(out)
+}
+
+#' Convert list of classifications to a tree object.
+#' 
+#' @param input List of classification data.frame's from the function classification()
+#' @param output One of phylo (default), hclust, or dist.
+#' @examples \dontrun{
+#' 
+#' }
+tree <- function(input, output="phylo")
+{
+  assert_that(is(input, "classification"))
 }
