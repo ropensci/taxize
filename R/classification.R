@@ -273,12 +273,62 @@ classification.ids <- function(id, ...)
 
 #' Convert list of classifications to a tree object.
 #' 
+#' @import plyr ape assertthat
+#' @importFrom vegan taxa2dist
 #' @param input List of classification data.frame's from the function classification()
-#' @param output One of phylo (default), hclust, or dist.
+#' @param output One of phylo (default), or hclust.
+#' @param ... Further arguments passed on to hclust.
+#' @rdname classification
+#' @return An object of class "classtree" with slots for resulting phylo or dist object,
+#' the classification as a data.frame, the distance matrix used to construct the 
+#' object in the res slot, and the names that were input to the function.
+#' @export
 #' @examples \dontrun{
+#' spnames <- c('Klattia flava', 'Trollius sibiricus', 'Arachis paraguariensis', 
+#'  'Tanacetum boreale', 'Gentiana yakushimensis','Sesamum schinzianum',
+#'  'Pilea verrucosa','Tibouchina striphnocalyx','Lycium dasystemum',
+#'  'Schoenus centralis','Berkheya echinacea','Androcymbium villosum',
+#'  'Helianthus annuus','Madia elegans','Lupinus albicaulis','Poa annua',
+#'  'Pinus lambertiana')
+#' out <- classification(spnames, db='ncbi')
+#' tr <- class2tree(out)
+#' plot(tr)
 #' 
+#' # another example using random sets of names with names_list() fxn
+#' spnames <- names_list('species', 50)
+#' out <- classification(spnames, db='ncbi')
+#' out <- out[!is.na(out)]
+#' tr <- class2tree(out)
+#' plot(tr)
 #' }
-tree <- function(input, output="phylo")
+class2tree <- function(input, output="phylo", ...)
 {
-  assert_that(is(input, "classification"))
+#   assert_that(is(input, "classification"))
+  foo <- function(x){
+    x <- x[!x$rank == "no rank",]
+    df <- x[-nrow(x), 'name']
+    names(df) <- x[-nrow(x), 'rank']
+    df <- data.frame(t(data.frame(df)))
+    data.frame(tip = x[nrow(x),"name"], df)
+  }
+  dat <- rbind.fill(lapply(input, foo))
+  dat <- dat[ , !apply(dat, 2, function(x) any(is.na(x)))]
+  row.names(dat) <- dat[,1]
+  dat <- dat[,-1]
+  taxdis <- taxa2dist(dat, varstep=TRUE)
+  out <- switch(output,
+                phylo = as.phylo.hclust(hclust(taxdis, ...)),
+                hclust = hclust(taxdis, ...))
+  res <- list(res = out, classification = dat, distmat = taxdis, names = names(input))
+  class(res) <- 'classtree'
+  return( res )
+}
+
+#' @method plot classtree
+#' @export
+#' @rdname classification
+plot.classtree <- function(x, ...)
+{
+  assert_that(is(x$res, "phylo"))
+  plot(x$res)
 }

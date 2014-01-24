@@ -1,4 +1,5 @@
 \name{classification}
+\alias{class2tree}
 \alias{classification}
 \alias{classification.colid}
 \alias{classification.default}
@@ -7,6 +8,7 @@
 \alias{classification.tpsid}
 \alias{classification.tsn}
 \alias{classification.uid}
+\alias{plot.classtree}
 \title{Retrieve the taxonomic hierarchy for a given taxon ID.}
 \usage{
 classification(...)
@@ -24,6 +26,10 @@ classification(...)
 \method{classification}{tpsid}(id, key = NULL, callopts = list(), ...)
 
 \method{classification}{ids}(id, ...)
+
+class2tree(input, output = "phylo", ...)
+
+\method{plot}{classtree}(x, ...)
 }
 \arguments{
   \item{x}{character; taxons to query.}
@@ -61,13 +67,27 @@ classification(...)
   \item{key}{Your API key; loads from .Rprofile.}
 
   \item{callopts}{Further args passed on to httr::GET.}
+
+  \item{input}{List of classification data.frame's from the
+  function classification()}
+
+  \item{output}{One of phylo (default), or hclust.}
+
+  \item{...}{Further arguments passed on to hclust.}
 }
 \value{
 A named list of data.frames with the taxonomic
 classifcation of every supplied taxa.
+
+An object of class "classtree" with slots for resulting
+phylo or dist object, the classification as a data.frame,
+the distance matrix used to construct the object in the res
+slot, and the names that were input to the function.
 }
 \description{
 Retrieve the taxonomic hierarchy for a given taxon ID.
+
+Convert list of classifications to a tree object.
 }
 \note{
 If IDs are supplied directly (not from the \code{get_*}
@@ -95,6 +115,24 @@ classification(get_tpsid(c("Poa annua", "aaa vva")))
 # Pass many ids from class "ids"
 out <- get_ids(names="Poa annua", db = c('ncbi','itis','col','eol','tropicos'))
 classification(out)
+}
+\dontrun{
+spnames <- c('Klattia flava', 'Trollius sibiricus', 'Arachis paraguariensis',
+ 'Tanacetum boreale', 'Gentiana yakushimensis','Sesamum schinzianum',
+ 'Pilea verrucosa','Tibouchina striphnocalyx','Lycium dasystemum',
+ 'Schoenus centralis','Berkheya echinacea','Androcymbium villosum',
+ 'Helianthus annuus','Madia elegans','Lupinus albicaulis','Poa annua',
+ 'Pinus lambertiana')
+out <- classification(spnames, db='ncbi')
+tr <- class2tree(out)
+plot(tr)
+
+# another example using random sets of names with names_list() fxn
+spnames <- names_list('species', 50)
+out <- classification(spnames, db='ncbi')
+out <- out[!is.na(out)]
+tr <- class2tree(out)
+plot(tr)
 }
 }
 \seealso{

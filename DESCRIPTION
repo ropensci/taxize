@@ -38,10 +38,11 @@ Imports:
     Taxonstand,
     reshape2,
     data.table,
-    reshape
+    reshape,
+    assertthat,
+    vegan
 Suggests:
     testthat,
     roxygen2,
     rjson,
-    vegan,
     knitr
