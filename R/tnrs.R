@@ -12,9 +12,10 @@
 #'    and plants), ICNB (bacteria), ICBN (botanical), ICNCP (cultivated plants), 
 #'    ICTV (viruses). Only available when using getpost="POST".
 #' @param getpost Use GET or POST method to send the query. If you have more 
-#'    than say 50 species or so in your query, you should probably use POST. POST 
-#'    is the only option for this parameter if you want to use source or code 
-#'    parameters.
+#'    than say 50 species or so in your query, you should probably use POST. 
+#'    IMPORTANT!!!!! -> 
+#'        POST is the only option for this parameter if you want to 
+#'        use source or code parameters. 
 #' @param sleep Numer of seconds by which to pause between calls. Defaults to 0 
 #' 		seconds. Use when doing many calls in a for loop ar lapply type call.
 #' @param splitby Number by which to split species list for querying the TNRS.
@@ -69,7 +70,8 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
 				query2 <- paste(str_replace_all(x, ' ', '+'), collapse='%0A')
 				args <- compact(list(query = query2))
 				out <- GET(url, query=args)
-				retrieve <- toJSON(out$url)
+# 				retrieve <- toJSON(out$url)
+				retrieve <- out$url
 			} else
 			{
 				stop("some problems...")
