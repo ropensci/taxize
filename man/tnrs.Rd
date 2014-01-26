@@ -22,9 +22,9 @@ tnrs(query = NA, source = NULL, code = NULL, getpost = "POST",
 
   \item{getpost}{Use GET or POST method to send the query.
   If you have more than say 50 species or so in your query,
-  you should probably use POST. POST is the only option for
-  this parameter if you want to use source or code
-  parameters.}
+  you should probably use POST.  IMPORTANT!!!!! -> POST is
+  the only option for this parameter if you want to use
+  source or code parameters.}
 
   \item{sleep}{Numer of seconds by which to pause between
   calls. Defaults to 0 seconds. Use when doing many calls

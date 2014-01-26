@@ -39,7 +39,6 @@ Imports:
     reshape2,
     data.table,
     reshape,
-    assertthat,
     vegan
 Suggests:
     testthat,
