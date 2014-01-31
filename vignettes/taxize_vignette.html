@@ -30,7 +30,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <body>
 <!--
 %\VignetteEngine{knitr::knitr}
-%\VignetteIndexEntry{An R Markdown Vignette made with knitr}
+%\VignetteIndexEntry{taxize vignette}
 -->
 
 <h1 id="taxize-vignette---a-taxonomic-toolbelt-for-r">taxize vignette - a taxonomic toolbelt for R</h1>
@@ -42,11 +42,18 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>First, install and load <code>taxize</code> into the R session.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;taxize&quot;</span>)</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(taxize)</code></pre>
+<pre><code>## 
+## 
+## New to taxize? Tutorial at http://ropensci.org/tutorials/taxize_tutorial.html 
+## citation(package=&#39;taxize&#39;) for the citation for this package 
+## API key names have changed. Use tropicosApiKey, eolApiKey, ubioApiKey, and pmApiKey in your .Rprofile file. 
+## Use suppressPackageStartupMessages() to suppress these startup messages in the future</code></pre>
 <p>Advanced users can also download and install the latest development copy from <a href="https://github.com/ropensci/taxize_">GitHub</a>.</p>
 <h4 id="resolve-taxonomic-name">Resolve taxonomic name</h4>
 <p>This is a common task in biology. We often have a list of species names and we want to know a) if we have the most up to date names, b) if our names are spelled correctly, and c) the scientific name for a common name. One way to resolve names is via the Global Names Resolver (GNR) service provided by the <a href="http://eol.org/">Encyclopedia of Life</a>. Here, we are searching for two misspelled names:</p>
-<pre class="sourceCode r"><code class="sourceCode r">temp &lt;-<span class="st"> </span><span class="kw">gnr_resolve</span>(<span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;Helianthos annus&quot;</span>, <span class="st">&quot;Homo saapiens&quot;</span>))
-temp[, -<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">4</span>)]</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">temp &lt;-<span class="st"> </span><span class="kw">gnr_resolve</span>(<span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;Helianthos annus&quot;</span>, <span class="st">&quot;Homo saapiens&quot;</span>))</code></pre>
+<pre><code>## Loading required package: rjson</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">temp[, -<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">4</span>)]</code></pre>
 <pre><code>##                  matched_name data_source_title
 ## 1        Helianthus annuus L. Catalogue of Life
 ## 2         Helianthus annus L.               EOL
@@ -56,8 +63,8 @@ temp[, -<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">4<
 <p>The correct spellings are <em>Helianthus annuus</em> and <em>Homo sapiens</em>. Another approach uses the <a href="http://api.phylotastic.org/tnrs">Taxonomic Name Resolution Service via the Taxosaurus API</a> developed by iPLant and the Phylotastic organization. In this example, we provide a list of species names, some of which are misspelled, and we'll call the API with the <em>tnrs</em> function.</p>
 <pre class="sourceCode r"><code class="sourceCode r">mynames &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Helianthus annuus&quot;</span>, <span class="st">&quot;Pinus contort&quot;</span>, <span class="st">&quot;Poa anua&quot;</span>, <span class="st">&quot;Abis magnifica&quot;</span>, 
     <span class="st">&quot;Rosa california&quot;</span>, <span class="st">&quot;Festuca arundinace&quot;</span>, <span class="st">&quot;Sorbus occidentalos&quot;</span>, <span class="st">&quot;Madia sateva&quot;</span>)
-<span class="kw">tnrs</span>(<span class="dt">query =</span> mynames, <span class="dt">getpost =</span> <span class="st">&quot;GET&quot;</span>)[, -<span class="kw">c</span>(<span class="dv">5</span>:<span class="dv">7</span>)]</code></pre>
-<pre><code>## Calling http://taxosaurus.org/retrieve/035c3885f8378ad4f3fc874650256b9e</code></pre>
+<span class="kw">tnrs</span>(<span class="dt">query =</span> mynames, <span class="dt">source =</span> <span class="st">&quot;iPlant_TNRS&quot;</span>)[, -<span class="kw">c</span>(<span class="dv">5</span>:<span class="dv">7</span>)]</code></pre>
+<pre><code>## Calling http://taxosaurus.org/retrieve/7909fdff76c3d4c5ce9195a1dc783bcf</code></pre>
 <pre><code>##         submittedname        acceptedname    sourceid score
 ## 7   Helianthus annuus   Helianthus annuus iPlant_TNRS     1
 ## 4       Pinus contort      Pinus contorta iPlant_TNRS  0.98
@@ -117,6 +124,8 @@ tsn &lt;-<span class="st"> </span><span class="kw">get_tsn</span>(mynames)
 ## 10           Pinus         Genus
 ## 11  Pinus contorta       Species
 ## 
+## attr(,&quot;class&quot;)
+## [1] &quot;classification&quot;
 ## attr(,&quot;db&quot;)
 ## [1] &quot;itis&quot;</code></pre>
 <p>It turns out both species are in the family Pinaceae. You can also get this type of information from the NCBI by doing <code>classification(specieslist, db = 'ncbi')</code>.</p>

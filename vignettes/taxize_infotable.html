@@ -11,7 +11,7 @@
 <body>
 <!--
 %\VignetteEngine{knitr::knitr}
-%\VignetteIndexEntry{An R Markdown Vignette made with knitr}
+%\VignetteIndexEntry{Key functions}
 -->
 
 <h1 id="some-key-functions-in-taxize-what-they-do-and-their-data-sources.">Some key functions in taxize, what they do, and their data sources.</h1>
@@ -25,59 +25,49 @@
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">apg_lookup</td>
-<td align="left">Changes names to match the APGIII list</td>
-<td align="left">Angiosperm Phylogeny Group</td>
-</tr>
-<tr class="even">
 <td align="left">classification</td>
 <td align="left">Upstream classification</td>
 <td align="left">Various</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">col_children</td>
 <td align="left">Direct children</td>
 <td align="left">Catalogue of Life</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">col_downstream</td>
 <td align="left">Downstream taxa to specified rank</td>
 <td align="left">Catalogue of Life</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">eol_hierarchy</td>
 <td align="left">Upstream classification</td>
 <td align="left">Encyclopedia of Life</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">eol_search</td>
 <td align="left">Search EOL taxon information</td>
 <td align="left">Encyclopedia of Life</td>
 </tr>
-<tr class="odd">
-<td align="left">get_seqs</td>
+<tr class="even">
+<td align="left">ncbi_search</td>
 <td align="left">Get NCBI sequences</td>
 <td align="left">National Center for Biotechnology Information</td>
 </tr>
-<tr class="even">
-<td align="left">get_tsn</td>
-<td align="left">Get ITIS TSN</td>
-<td align="left">Integrated Taxonomic Information System</td>
-</tr>
 <tr class="odd">
-<td align="left">get_uid</td>
-<td align="left">Get NCBI UID</td>
-<td align="left">National Center for Biotechnology Information</td>
+<td align="left">get_ids</td>
+<td align="left">Get taxonomic identifiers</td>
+<td align="left">Five sources</td>
 </tr>
 <tr class="even">
-<td align="left">searchbycommonname</td>
-<td align="left">Search ITIS by common name</td>
-<td align="left">Integrated Taxonomic Information System</td>
+<td align="left">comm2sci</td>
+<td align="left">Get scientific from common names</td>
+<td align="left">EOL, NCBI, ITIS, Tropicos</td>
 </tr>
 <tr class="odd">
-<td align="left">searchbyscientificname</td>
-<td align="left">Search ITIS by scientific name</td>
-<td align="left">Integrated Taxonomic Information System</td>
+<td align="left">sci2comm</td>
+<td align="left">Get common from scientific names</td>
+<td align="left">EOL, NCBI, ITIS</td>
 </tr>
 <tr class="even">
 <td align="left">gisd_isinvasive</td>
@@ -105,8 +95,8 @@
 <td align="left">Integrated Taxonomic Information System</td>
 </tr>
 <tr class="odd">
-<td align="left">iucn_status</td>
-<td align="left">IUCN status</td>
+<td align="left">iucn_summary</td>
+<td align="left">Get IUCN status for a species</td>
 <td align="left">IUCN Red List</td>
 </tr>
 <tr class="even">
@@ -131,20 +121,15 @@
 </tr>
 <tr class="even">
 <td align="left">tnrs</td>
-<td align="left">Resolve names using iPlant</td>
-<td align="left">iPlant Taxonomic Name Resolution Service</td>
+<td align="left">Resolve names using Taxosaurus/iPlant</td>
+<td align="left">Taxosaurus Taxonomic Name Resolution Service</td>
 </tr>
 <tr class="odd">
-<td align="left">tp_acceptednames</td>
+<td align="left">tp_accnames</td>
 <td align="left">Check for accepted names using Tropicos</td>
 <td align="left">Tropicos</td>
 </tr>
 <tr class="even">
-<td align="left">tpl_search</td>
-<td align="left">Search the Plant List</td>
-<td align="left">The Plant List</td>
-</tr>
-<tr class="odd">
 <td align="left">ubio_namebank</td>
 <td align="left">Search uBio</td>
 <td align="left">uBio</td>

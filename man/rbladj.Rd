@@ -29,7 +29,7 @@ taxa <- names_list("species", 15)
 tree <- phylomatic_tree(taxa=taxa, get = 'POST')
 # set path to where your dir is with phylocom executable, and optionally phylo
 # and/or ages files
-path = "~/Downloads/shit/"
+path = "path to phylocom executable directory"
 g <- rbladj(tree, path=path, fixroot=TRUE)
 g$edge.length
 plot(g)
