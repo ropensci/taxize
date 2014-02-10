@@ -43,7 +43,8 @@ get_ids <- function(names, db = NULL, ...)
                   ncbi = get_uid(names, ...),
                   eol = get_eolid(names, ...),
                   col = get_colid(names, ...),
-                  tropicos = get_tpsid(names, ...))
+                  tropicos = get_tpsid(names, ...),
+                  gbif = get_gbifid(names, ...))
     names(ids) <- names
     return( ids )
   }
