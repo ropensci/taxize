@@ -1,4 +1,6 @@
 \name{classification}
+\alias{cbind.classification}
+\alias{cbind.classification_ids}
 \alias{classification}
 \alias{classification.colid}
 \alias{classification.default}
@@ -7,6 +9,8 @@
 \alias{classification.tpsid}
 \alias{classification.tsn}
 \alias{classification.uid}
+\alias{rbind.classification}
+\alias{rbind.classification_ids}
 \title{Retrieve the taxonomic hierarchy for a given taxon ID.}
 \usage{
 classification(...)
@@ -24,6 +28,14 @@ classification(...)
 \method{classification}{tpsid}(id, key = NULL, callopts = list(), ...)
 
 \method{classification}{ids}(id, ...)
+
+\method{cbind}{classification}(...)
+
+\method{rbind}{classification}(...)
+
+\method{cbind}{classification_ids}(...)
+
+\method{rbind}{classification_ids}(...)
 }
 \arguments{
   \item{x}{character; taxons to query.}
@@ -94,7 +106,13 @@ classification(get_tpsid(c("Poa annua", "aaa vva")))
 
 # Pass many ids from class "ids"
 out <- get_ids(names="Poa annua", db = c('ncbi','itis','col','eol','tropicos'))
-classification(out)
+cl <- classification(out)
+
+# Bind length-wise
+cbind(cl)
+
+# Bind width-wise
+rbind(cl[!names(cl) == "eol"])
 }
 }
 \seealso{

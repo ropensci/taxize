@@ -51,7 +51,13 @@
 #' 
 #' # Pass many ids from class "ids"
 #' out <- get_ids(names="Poa annua", db = c('ncbi','itis','col','eol','tropicos'))
-#' classification(out)
+#' cl <- classification(out)
+#' 
+#' # Bind length-wise
+#' cbind(cl)
+#' 
+#' # Bind width-wise
+#' rbind(cl[!names(cl) == "eol"])
 #' }
 #' 
 #' @examples \donttest{
@@ -268,5 +274,74 @@ classification.ids <- function(id, ...)
     return(out)
   }
   out <- lapply(id, fun)
+  class(out) <- 'classification_ids'
   return(out)
+}
+
+#' @method cbind classification
+#' @export
+#' @rdname classification
+cbind.classification <- function(...)
+{
+  gethiernames <- function(x){
+    x$name <- as.character(x$name)
+    x$rank <- as.character(x$rank)
+    values <- data.frame(t(x[,'name']))
+    names(values) <- x[,'rank']
+    return( values )
+  }
+  input <- c(...)
+  input <- input[sapply(input, class) %in% "data.frame"]
+  do.call(rbind.fill, lapply(input, gethiernames))
+}
+
+#' @method rbind classification
+#' @export
+#' @rdname classification
+rbind.classification <- function(...)
+{
+  input <- c(...)
+  input <- input[sapply(input, class) %in% "data.frame"]
+  df <- do.call(rbind, input)
+  df <- data.frame(names = gsub("[0-9]|\\.", "", row.names(df)), df)
+  row.names(df) <- NULL
+  return( df )
+}
+
+#' @method cbind classification_ids
+#' @export
+#' @rdname classification
+cbind.classification_ids <- function(...)
+{
+  input <- c(...)
+  # remove non-data.frames
+  input <- input[sapply(input, function(x) class(x[[1]])) %in% "data.frame"]
+  
+  gethiernames <- function(x){
+    x$name <- as.character(x$name)
+    x$rank <- as.character(x$rank)
+    values <- data.frame(t(x[,'name']))
+    names(values) <- x[,'rank']
+    return( values )
+  }
+  do.call(rbind.fill, lapply(input, function(x){ 
+    tmp <- lapply(x, gethiernames)
+    do.call(rbind.fill, tmp)
+  })
+  )
+}
+
+#' @method rbind classification_ids
+#' @export
+#' @rdname classification
+rbind.classification_ids <- function(...)
+{
+  input <- c(...)
+  # remove non-data.frames
+  input <- input[sapply(input, function(x) class(x[[1]])) %in% "data.frame"]  
+  df <- do.call(rbind, lapply(input, function(x){
+    data.frame(names(x), x[[1]])
+  }))
+  row.names(df) <- NULL
+  return( df )
 }
