@@ -39,8 +39,7 @@ Imports:
     reshape2,
     data.table,
     reshape,
-    vegan,
-    phytools
+    vegan
 Suggests:
     testthat,
     roxygen2,

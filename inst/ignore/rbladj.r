@@ -1,7 +1,7 @@
 #' Run Phylocom's bladj from R
 #' 
 #' @import ape
-#' @importFrom phytools read.newick
+#' @importFrom phytools read_newick
 #' @param tree (phylo/character) If left NULL, it is expected that you already have a 
 #' phylo file with your newick tree in your directory with your phylocom executable
 #' @param ages (data.frame) If left NULL, it is expected that you already have an 
@@ -33,7 +33,7 @@ rbladj <- function(tree=NULL, ages=NULL, path=NULL, fixroot=FALSE)
   
   #phylo
   if(!is.null(tree)){
-    if(any(class(tree) == "character")){ tree <- read.newick(file=paste(path,"phylo",sep="")) } else
+    if(any(class(tree) == "character")){ tree <- read_newick(file=paste(path,"phylo",sep="")) } else
       if(any(class(tree) == "phylo")) { tree <- tree } else {
         stop("need newick tree as text string or phylo object")
       }
@@ -57,7 +57,7 @@ rbladj <- function(tree=NULL, ages=NULL, path=NULL, fixroot=FALSE)
   }
   
   # check if root node in phylogeny is in the ages file
-  if(is.null(tree)){ tree <- read.newick(file=paste(path,"phylo",sep="")) }
+  if(is.null(tree)){ tree <- read_newick(file=paste(path,"phylo",sep="")) }
   if(is.null(ages)){ 
     ages <- read.table(paste(path, "ages", sep="")) 
     names(ages) <- c("names","ages")
@@ -87,6 +87,6 @@ rbladj <- function(tree=NULL, ages=NULL, path=NULL, fixroot=FALSE)
   }
   
   #read tree back in
-  tr <- read.newick(paste(path, "phyloout.txt", sep=""))
+  tr <- read_newick(paste(path, "phyloout.txt", sep=""))
   return( tr )
 }
