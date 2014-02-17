@@ -19,7 +19,3 @@ rmd2md:
 		cd vignettes;\
 		cp taxize_vignette.md taxize_vignette.Rmd;\
 		cp taxize_infotable.md taxize_infotable.Rmd
-
-cleanup:
-		cd inst/vign;\
-		rm taxize_vignette.md taxize_infotable.md

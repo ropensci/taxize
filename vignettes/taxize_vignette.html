@@ -9,21 +9,22 @@
   <style type="text/css">
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
   margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
 td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
 td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; }
-code > span.dt { color: #902000; }
-code > span.dv { color: #40a070; }
-code > span.bn { color: #40a070; }
-code > span.fl { color: #40a070; }
-code > span.ch { color: #4070a0; }
-code > span.st { color: #4070a0; }
-code > span.co { color: #60a0b0; font-style: italic; }
-code > span.ot { color: #007020; }
-code > span.al { color: #ff0000; font-weight: bold; }
-code > span.fu { color: #06287e; }
-code > span.er { color: #ff0000; font-weight: bold; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; }
+code > span.dt { color: #204a87; }
+code > span.dv { color: #0000cf; }
+code > span.bn { color: #0000cf; }
+code > span.fl { color: #0000cf; }
+code > span.ch { color: #4e9a06; }
+code > span.st { color: #4e9a06; }
+code > span.co { color: #8f5902; font-style: italic; }
+code > span.ot { color: #8f5902; }
+code > span.al { color: #ef2929; }
+code > span.fu { color: #000000; }
+code > span.er { font-weight: bold; }
   </style>
   \usepackage[vmargin=1in,hmargin=1in]{geometry}
 </head>
@@ -42,18 +43,11 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>First, install and load <code>taxize</code> into the R session.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;taxize&quot;</span>)</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(taxize)</code></pre>
-<pre><code>## 
-## 
-## New to taxize? Tutorial at http://ropensci.org/tutorials/taxize_tutorial.html 
-## citation(package=&#39;taxize&#39;) for the citation for this package 
-## API key names have changed. Use tropicosApiKey, eolApiKey, ubioApiKey, and pmApiKey in your .Rprofile file. 
-## Use suppressPackageStartupMessages() to suppress these startup messages in the future</code></pre>
 <p>Advanced users can also download and install the latest development copy from <a href="https://github.com/ropensci/taxize_">GitHub</a>.</p>
 <h4 id="resolve-taxonomic-name">Resolve taxonomic name</h4>
 <p>This is a common task in biology. We often have a list of species names and we want to know a) if we have the most up to date names, b) if our names are spelled correctly, and c) the scientific name for a common name. One way to resolve names is via the Global Names Resolver (GNR) service provided by the <a href="http://eol.org/">Encyclopedia of Life</a>. Here, we are searching for two misspelled names:</p>
-<pre class="sourceCode r"><code class="sourceCode r">temp &lt;-<span class="st"> </span><span class="kw">gnr_resolve</span>(<span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;Helianthos annus&quot;</span>, <span class="st">&quot;Homo saapiens&quot;</span>))</code></pre>
-<pre><code>## Loading required package: rjson</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">temp[, -<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">4</span>)]</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">temp &lt;-<span class="st"> </span><span class="kw">gnr_resolve</span>(<span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;Helianthos annus&quot;</span>, <span class="st">&quot;Homo saapiens&quot;</span>))
+temp[, -<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">4</span>)]</code></pre>
 <pre><code>##                  matched_name data_source_title
 ## 1        Helianthus annuus L. Catalogue of Life
 ## 2         Helianthus annus L.               EOL
@@ -64,7 +58,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <pre class="sourceCode r"><code class="sourceCode r">mynames &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Helianthus annuus&quot;</span>, <span class="st">&quot;Pinus contort&quot;</span>, <span class="st">&quot;Poa anua&quot;</span>, <span class="st">&quot;Abis magnifica&quot;</span>, 
     <span class="st">&quot;Rosa california&quot;</span>, <span class="st">&quot;Festuca arundinace&quot;</span>, <span class="st">&quot;Sorbus occidentalos&quot;</span>, <span class="st">&quot;Madia sateva&quot;</span>)
 <span class="kw">tnrs</span>(<span class="dt">query =</span> mynames, <span class="dt">source =</span> <span class="st">&quot;iPlant_TNRS&quot;</span>)[, -<span class="kw">c</span>(<span class="dv">5</span>:<span class="dv">7</span>)]</code></pre>
-<pre><code>## Calling http://taxosaurus.org/retrieve/7909fdff76c3d4c5ce9195a1dc783bcf</code></pre>
+<pre><code>## Calling http://taxosaurus.org/retrieve/cf226dee84e0d3e74ab60f3d717ea19e</code></pre>
 <pre><code>##         submittedname        acceptedname    sourceid score
 ## 7   Helianthus annuus   Helianthus annuus iPlant_TNRS     1
 ## 4       Pinus contort      Pinus contorta iPlant_TNRS  0.98

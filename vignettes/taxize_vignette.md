@@ -29,15 +29,6 @@ install.packages("taxize")
 library(taxize)
 ```
 
-```
-## 
-## 
-## New to taxize? Tutorial at http://ropensci.org/tutorials/taxize_tutorial.html 
-## citation(package='taxize') for the citation for this package 
-## API key names have changed. Use tropicosApiKey, eolApiKey, ubioApiKey, and pmApiKey in your .Rprofile file. 
-## Use suppressPackageStartupMessages() to suppress these startup messages in the future
-```
-
 
 Advanced users can also download and install the latest development copy from [GitHub](https://github.com/ropensci/taxize_).
 
@@ -48,13 +39,6 @@ This is a common task in biology. We often have a list of species names and we w
 
 ```r
 temp <- gnr_resolve(names = c("Helianthos annus", "Homo saapiens"))
-```
-
-```
-## Loading required package: rjson
-```
-
-```r
 temp[, -c(1, 4)]
 ```
 
@@ -78,7 +62,7 @@ tnrs(query = mynames, source = "iPlant_TNRS")[, -c(5:7)]
 ```
 
 ```
-## Calling http://taxosaurus.org/retrieve/7909fdff76c3d4c5ce9195a1dc783bcf
+## Calling http://taxosaurus.org/retrieve/cf226dee84e0d3e74ab60f3d717ea19e
 ```
 
 ```
