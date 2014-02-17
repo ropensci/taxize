@@ -10,10 +10,10 @@ move:
 
 pandoc:
 		cd vignettes;\
-		pandoc -H margins.sty taxize_vignette.md -o taxize_vignette.pdf;\
-		pandoc -H margins.sty taxize_vignette.md -o taxize_vignette.html;\
-		pandoc -H margins.sty taxize_infotable.md -o taxize_infotable.pdf;\
-		pandoc -H margins.sty taxize_infotable.md -o taxize_infotable.html
+		pandoc -H margins.sty taxize_vignette.md -o taxize_vignette.pdf --highlight-style=tango;\
+		pandoc -H margins.sty taxize_vignette.md -o taxize_vignette.html --highlight-style=tango;\
+		pandoc -H margins.sty taxize_infotable.md -o taxize_infotable.pdf --highlight-style=tango;\
+		pandoc -H margins.sty taxize_infotable.md -o taxize_infotable.html --highlight-style=tango
 
 rmd2md:
 		cd vignettes;\
