@@ -27,6 +27,9 @@ class2tree(input, varstep = TRUE, check = TRUE, ...)
   if that was your intention.}
 
   \item{...}{Further arguments passed on to hclust.}
+
+  \item{x}{Input object to print or plot - output from
+  class2tree function.}
 }
 \value{
 An object of class "classtree" with slots: \itemize{ \item

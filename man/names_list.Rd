@@ -12,10 +12,11 @@ names_list(rank = "genus", size = 10)
   the rank.}
 }
 \value{
-List of taxonomic names
+Vector of taxonomic names.
 }
 \description{
-Get a random vector of species names.
+Family and order names come from the APG plant names list.
+Genus and species names come from Theplantlist.org.
 }
 \examples{
 names_list()

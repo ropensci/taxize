@@ -112,7 +112,7 @@ cl <- classification(out)
 cbind(cl)
 
 # Bind width-wise
-rbind(cl[!names(cl) == "eol"])
+rbind(cl)
 }
 }
 \seealso{

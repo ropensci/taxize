@@ -13,7 +13,6 @@
 #' 		Predicted sequences are those with accession numbers that have "XM_" or 
 #' 		"XR_" prefixes. 
 #' @return Data.frame of results. 
-#' @references \url{}
 #' @seealso \code{\link[taxize]{ncbi_getbyid}}, \code{\link[taxize]{ncbi_getbyname}}
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @examples \dontrun{

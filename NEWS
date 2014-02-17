@@ -1,3 +1,23 @@
+taxize 0.2.0
+===============
+
+MINOR IMPROVEMENTS
+
+* New dataset: Lookup-table for family, genus, and species names for ThePlantList under dataset name "theplantlist".
+* get_ids() now accepts "gbif" as an option via use of get_gbifid().
+* Changed function itis_phymat_format() to phylomatic_format() - this function gets the typical Phylomatic format name string "family/genus/genus_epithet"
+
+BUG FIXES
+
+* Updated gbif_parse() base url to the new one (http://api.gbif.org/v0.9/parser/name).
+* Fixes to phylomatic_tree().
+
+NEW FEATURES
+
+* New function class2tree() to convert list of classifications to a tree. For example, go from a list of classifications from the function classification() to this function to get a taxonomy tree in ape phylo format.
+* New function get_gbfid() to get a Global Biodiversity Information Facility identifier. This is the ID GBIF uses in their backbone taxonomy.
+* classification() outputs gain rbind() and cbind() generic methods that act on the various outputs of classification() to bind data width-wise, or column-wise, respectively.
+
 taxize 0.1.9
 ===============
 
@@ -9,15 +29,18 @@ taxize 0.1.8
 ===============
 
 NEW FEATURES
+
 * We attempted to make all ouput column names lowercase, and to increase consistency across column names in outputs from similar functions.
 * New function scrapenames() uses the Global Names Recognition and Discovery service to extract taxonomic names from a web page, pdf, or other document. 
 * New function vascan_search() to search the CANADENSYS Vascan names database.
 
 BUG FIXES
+
 * Fixed bugs in get_tpsid(), get_eolid() and eol_pages().
 * phylomatic_tree() bugs fixed. 
 
 MINOR IMPROVEMENTS
+
 * classification() methods were simplified. Now classification() is the workhorse for every data-source. col_classification(), eol_hierarchy(), and tp_classification() are now deprecated and will be removed in the next taxize version.
 * classification() gains four new arguments: start, checklist, key, and callopts.
 * comm2sci() gains argument simplify to optionally simplify output to a vector of names (TRUE by default).
@@ -27,6 +50,7 @@ MINOR IMPROVEMENTS
 * tnrs() changes: Using httr instead of RCurl; now forcing splitting up name vector when long. Still issues when using POST requests (getpost="POST") wherein a request sent with 100 names only returns 30 for example. Investigating this now.
 
 NOTES
+
 * Function name change: tp_acceptednames() now tp_accnames().
 * Function name change: tp_namedistributions() now tp_dist().
 * Function name change: tp_namereferences() now tp_refs().

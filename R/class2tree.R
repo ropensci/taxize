@@ -16,6 +16,7 @@
 #' variables (columns). You will get a warning if species are not coded, but you can 
 #' ignore this if that was your intention.
 #' @param ... Further arguments passed on to hclust.
+#' @param x Input object to print or plot - output from class2tree function. 
 #' @return An object of class "classtree" with slots: 
 #' \itemize{
 #'  \item phylo - The resulting object, a phylo object

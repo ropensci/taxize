@@ -34,7 +34,7 @@ phylomatic_tree(taxa, taxnames = TRUE, get = "GET", informat = "newick",
 
   \item{clean}{Return a clean tree or not.}
 
-  \item{parallel}{Run in parallel or not.}
+  \item{db}{One of "ncbi", "itis", or "apg"}
 
   \item{verbose}{Print messages (default: TRUE).}
 }

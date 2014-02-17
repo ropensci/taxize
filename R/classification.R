@@ -57,7 +57,7 @@
 #' cbind(cl)
 #' 
 #' # Bind width-wise
-#' rbind(cl[!names(cl) == "eol"])
+#' rbind(cl)
 #' }
 #' 
 #' @examples \donttest{

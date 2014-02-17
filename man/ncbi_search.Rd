@@ -59,9 +59,6 @@ out2df[grep("RAG1", out2df$genesavail, ignore.case=TRUE),] # search across all
 \author{
 Scott Chamberlain \email{myrmecocystus@gmail.com}
 }
-\references{
-\url{}
-}
 \seealso{
 \code{\link[taxize]{ncbi_getbyid}},
 \code{\link[taxize]{ncbi_getbyname}}
