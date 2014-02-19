@@ -4,13 +4,15 @@
 #' 
 #' @param x character; taxons to query.
 #' @param db character; database to query. either \code{ncbi}, \code{itis}, 
-#'    \code{eol}, \code{col} or \code{tropicos}.
+#'    \code{eol}, \code{col}, \code{tropicos}, \code{gbif}.
 #' @param id character; identifiers, returned by \code{\link[taxize]{get_tsn}}, 
 #'    \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}}, 
-#'    \code{\link[taxize]{get_colid}}, or \code{\link[taxize]{get_tpsid}}.
+#'    \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_tpsid}}, 
+#'    \code{\link[taxize]{get_gbifid}}.
 #' @param ... Other arguments passed to \code{\link[taxize]{get_tsn}}, 
 #'    \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}}, 
-#'    \code{\link[taxize]{get_colid}}, or \code{\link[taxize]{get_tpsid}}.
+#'    \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_tpsid}},
+#'    \code{\link[taxize]{get_gbifid}}.
 #' @param start The first record to return. If omitted, the results are returned 
 #' 		from the first record (start=0). This is useful if the total number of 
 #' 		results is larger than the maximum number of results returned by a single 
@@ -29,7 +31,7 @@
 #' 
 #' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_uid}}, 
 #'    \code{\link[taxize]{get_eolid}}, \code{\link[taxize]{get_colid}}, 
-#'    \code{\link[taxize]{get_tpsid}}
+#'    \code{\link[taxize]{get_tpsid}}, \code{\link[taxize]{get_gbifid}}
 #' 
 #' @export
 #' @examples \dontrun{
@@ -38,6 +40,7 @@
 #' classification(c("Chironomus riparius", "aaa vva"), db = 'itis')
 #' classification(c("Chironomus riparius", "aaa vva"), db = 'eol')
 #' classification(c("Chironomus riparius", "aaa vva"), db = 'col')
+#' classification(c("Chironomus riparius", "asdfasdfsfdfsd"), db = 'gbif')
 #' classification(c("Poa annua", "aaa vva"), db = 'tropicos')
 #' 
 #' # Use methods for get_uid, get_tsn, get_eolid, get_colid, get_tpsid
@@ -50,7 +53,7 @@
 #' classification(get_tpsid(c("Poa annua", "aaa vva")))
 #' 
 #' # Pass many ids from class "ids"
-#' out <- get_ids(names="Puma concolor", db = c('ncbi','itis','col'))
+#' out <- get_ids(names="Puma concolor", db = c('ncbi','itis','col','gbif'))
 #' cl <- classification(out)
 #' 
 #' # Bind width-wise from class classification_ids
@@ -118,6 +121,11 @@ classification.default <- function(x, db = NULL, ...){
   }
   if (db == 'tropicos') {
     id <- get_tpsid(x, ...)
+    out <- classification(id, ...)
+    names(out) <- x
+  }
+  if (db == 'gbif') {
+    id <- get_gbifid(x, ...)
     out <- classification(id, ...)
     names(out) <- x
   }
@@ -282,6 +290,30 @@ classification.tpsid <- function(id, key = NULL, callopts = list(), ...) {
   return(out)
 }
 
+#' @method classification gbifid
+#' @export
+#' @rdname classification
+classification.gbifid <- function(id, callopts = list(), ...) {
+  fun <- function(x){
+    if(is.na(x)) {
+      out <- NA
+    } else {
+      out <- suppressWarnings(tryCatch(name_usage(key = x, ...), error=function(e) e))
+      if(is(out, "simpleError")){ 
+        df <- NA
+      } else {
+#         out <- do.call(rbind.fill, lapply(out, data.frame))[,c('ScientificName','Rank')]
+        df <- ldply(out[c('kingdom','phylum','clazz','order','family','genus','species')])
+        df <- data.frame(name=df$V1, rank=df$.id)
+      }
+    }
+    return( df )
+  }
+  out <- lapply(id, fun)
+  names(out) <- id
+  class(out) <- 'classification'
+  return(out)
+}
 
 #' @method classification ids
 #' @export
