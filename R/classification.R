@@ -53,10 +53,10 @@
 #' out <- get_ids(names="Poa annua", db = c('ncbi','itis','col','eol','tropicos'))
 #' cl <- classification(out)
 #' 
-#' # Bind length-wise
+#' # Bind width-wise
 #' cbind(cl)
 #' 
-#' # Bind width-wise
+#' # Bind length-wise
 #' rbind(cl)
 #' }
 #' 
@@ -315,20 +315,24 @@ cbind.classification_ids <- function(...)
 {
   input <- c(...)
   # remove non-data.frames
-  input <- input[sapply(input, function(x) class(x[[1]])) %in% "data.frame"]
+  input <- input[vapply(input, function(x) class(x[[1]]), "") %in% "data.frame"]
   
   gethiernames <- function(x){
     x$name <- as.character(x$name)
     x$rank <- as.character(x$rank)
     values <- data.frame(t(x[,'name']))
-    names(values) <- x[,'rank']
+    names(values) <- tolower(x[,'rank'])
     return( values )
   }
   do.call(rbind.fill, lapply(input, function(x){ 
-    tmp <- lapply(x, gethiernames)
-    do.call(rbind.fill, tmp)
-  })
+      tmp <- lapply(x, gethiernames)
+      do.call(rbind.fill, tmp)
+    })
   )
+#   # sort columns by rank order
+#   rank_ref$ranks[names(df) %in% tolower(rank_ref$ranks)]
+#   grep(names(values)[[2]], tolower(rank_ref$ranks))
+#   torank <- sapply(rank_ref[grep(downto, rank_ref$ranks):nrow(rank_ref),"ranks"], function(x) strsplit(x, ",")[[1]][[1]], USE.NAMES=F)
 }
 
 #' @method rbind classification_ids

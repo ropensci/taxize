@@ -108,10 +108,10 @@ classification(get_tpsid(c("Poa annua", "aaa vva")))
 out <- get_ids(names="Poa annua", db = c('ncbi','itis','col','eol','tropicos'))
 cl <- classification(out)
 
-# Bind length-wise
+# Bind width-wise
 cbind(cl)
 
-# Bind width-wise
+# Bind length-wise
 rbind(cl)
 }
 }
