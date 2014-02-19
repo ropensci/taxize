@@ -7,10 +7,12 @@ tsns <- get_tsn(c("Chironomus riparius", "aaa vva"), verbose=FALSE)
 # colids <- get_colid(c("Chironomus riparius", "aaa vva"), verbose=FALSE)
 tpsids <- get_tpsid(sciname=c("Helianthus excubitor", "aaa vva"), verbose=FALSE)
 clas_uids <- classification(uids, verbose=FALSE)
+names(clas_uids) <- NULL
 clas_tsns <- classification(tsns, verbose=FALSE)
+names(clas_tsns) <- NULL
 # clas_eolids <- classification(eolids, verbose=FALSE)
 # clas_colids <- classification(colids)
-clas_tpids <- classification(tpsids)
+clas_tpids <- classification(tpsids, verbose=FALSE)
 
 clas_ncbi <- classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi', 
                             verbose=FALSE)
@@ -20,11 +22,14 @@ clas_itis <- classification(c("Chironomus riparius", "aaa vva"), db = 'itis',
                             verbose=FALSE)
 names(clas_itis) <- NULL
 
-# clas_eol <- classification(c("Pinus amabilis", "aaa vva"), db = 'eol')
+# clas_eol <- classification(c("Helianthus petiolaris Nutt.", "aaa vva"), db = 'eol')
 # names(clas_eol) <- NULL
 
-# clas_col <- suppressMessages(classification(c("Chironomus riparius", "aaa vva"), db = 'col'))
-# names(clas_col) <- NULL
+clas_col <- suppressMessages(classification(c("Puma concolor", "aaa vva"), db = 'col'))
+names(clas_col) <- NULL
+colids <- get_colid(c("Puma concolor", "aaa vva"), verbose=FALSE)
+clas_colids <- classification(colids)
+names(clas_colids) <- NULL
 
 clas_tp <- suppressMessages(classification(c("Helianthus excubitor", "aaa vva"), db = 'tropicos'))
 names(clas_tp) <- NULL
@@ -64,6 +69,6 @@ test_that("check S3-methods for tsn and uid class", {
   expect_equal(clas_tsns, clas_itis)
 #   expect_identical(clas_eolids, clas_ncbi)
   #### FIX THESE TWO, SHOULD BE MATCHING
-#   expect_identical(clas_colids, clas_col) 
+  expect_identical(clas_colids, clas_col) 
 #   expect_identical(clas_tpids, clas_tp)
 })

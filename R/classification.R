@@ -50,14 +50,36 @@
 #' classification(get_tpsid(c("Poa annua", "aaa vva")))
 #' 
 #' # Pass many ids from class "ids"
-#' out <- get_ids(names="Poa annua", db = c('ncbi','itis','col','eol','tropicos'))
+#' out <- get_ids(names="Puma concolor", db = c('ncbi','itis','col'))
 #' cl <- classification(out)
 #' 
-#' # Bind width-wise
+#' # Bind width-wise from class classification_ids
 #' cbind(cl)
 #' 
 #' # Bind length-wise
 #' rbind(cl)
+#' 
+#' # Many names to get_ids
+#' out <- get_ids(names=c("Puma concolor","Accipiter striatus"), db = c('ncbi','itis','col'))
+#' cl <- classification(out)
+#' rbind(cl)
+#' cbind(cl)
+#' 
+#' # rbind and cbind on class classification (from a call to get_colid, get_tsn, etc. 
+#' # - other than get_ids)
+#' cl_col <- classification(get_colid(c("Puma concolor","Accipiter striatus")))
+#' cl_uid <- classification(get_uid(c("Puma concolor","Accipiter striatus")))
+#' cl_tsn <- classification(get_tsn(c("Puma concolor","Accipiter striatus")))
+#' rbind(cl_col)
+#' rbind(cl_uid)
+#' rbind(cl_tsn)
+#' cbind(cl_col)
+#' cbind(cl_uid)
+#' cbind(cl_tsn)
+#' 
+#' tsns <- get_tsn(c("Puma concolor","Accipiter striatus"))
+#' cl_tsns <- classification(tsns)
+#' cbind(cl_tsns)
 #' }
 #' 
 #' @examples \donttest{
@@ -120,6 +142,7 @@ classification.tsn <- function(id, ...)
     }
   }
   out <- lapply(id, fun)
+  names(out) <- id
   class(out) <- 'classification'
   attr(out, 'db') <- 'itis'
   return(out)
@@ -153,6 +176,7 @@ classification.uid <- function(id, ...) {
     return(out)
   }
   out <- lapply(id, fun)
+  names(out) <- id
   class(out) <- 'classification'
   attr(out, 'db') <- 'ncbi'
   return(out)
@@ -185,9 +209,9 @@ classification.eolid <- function(id, key = NULL, callopts = list(), ...) {
     }
   }
   out <- lapply(id, fun)
+  names(out) <- id
   class(out) <- 'classification'
   attr(out, 'db') <- 'eol'
-#   names(out) <- id
   return(out)
 }
 
@@ -253,8 +277,8 @@ classification.tpsid <- function(id, key = NULL, callopts = list(), ...) {
     return(out)
   }
   out <- lapply(id, fun)
-  class(out) <- 'classification'
   names(out) <- id
+  class(out) <- 'classification'
   return(out)
 }
 
@@ -281,16 +305,16 @@ classification.ids <- function(id, ...)
 #' @method cbind classification
 #' @export
 #' @rdname classification
-cbind.classification <- function(...)
+cbind.classification <- function(x)
 {
   gethiernames <- function(x){
     x$name <- as.character(x$name)
     x$rank <- as.character(x$rank)
     values <- data.frame(t(x[,'name']))
-    names(values) <- x[,'rank']
+    names(values) <- tolower(x[,'rank'])
     return( values )
   }
-  input <- c(...)
+  input <- x
   input <- input[sapply(input, class) %in% "data.frame"]
   do.call(rbind.fill, lapply(input, gethiernames))
 }
@@ -298,12 +322,13 @@ cbind.classification <- function(...)
 #' @method rbind classification
 #' @export
 #' @rdname classification
-rbind.classification <- function(...)
+rbind.classification <- function(x)
 {
-  input <- c(...)
-  input <- input[sapply(input, class) %in% "data.frame"]
-  df <- do.call(rbind, input)
-  df <- data.frame(names = gsub("[0-9]|\\.", "", row.names(df)), df)
+  input <- x
+  db <- attr(input, "db")
+  x <- input[vapply(x, class, "") %in% "data.frame"]
+  df <- do.call(rbind, x)
+  df <- data.frame(source = db, taxonid = gsub("\\.[0-9]+", "", row.names(df)), df)
   row.names(df) <- NULL
   return( df )
 }
@@ -342,13 +367,41 @@ rbind.classification_ids <- function(...)
 {
   input <- c(...)
   # remove non-data.frames
-  input <- input[sapply(input, function(x) class(x[[1]])) %in% "data.frame"]
-  df <- do.call(rbind, lapply(input, function(x){
-    data.frame(names(x), x[[1]])
-  }))
-  source2 <- gsub("\\.[0-9]+", "", row.names(df))
-  row.names(df) <- NULL
-  names(df)[1] <- "taxon"
-  df <- data.frame(source = source2, df)
-  return( df )
+  input <- input[vapply(input, function(x) class(x[[1]]), "") %in% "data.frame"]
+  #   df <- do.call(rbind, lapply(input, function(x){
+  # #             lapply(x, function(y) data.frame(names(y), y[[1]]))
+  #           coll <- list()
+  #           for(i in seq_along(x)){
+  #             coll[[i]] <- data.frame(names(x[i]), x[i][[1]])
+  #           }
+  #     do.call(rbind, coll)
+  #   }))
+  
+  df <- lapply(input, function(x){
+    coll <- list()
+    for(i in seq_along(x)){
+      coll[[i]] <- data.frame(names(x[i]), x[i][[1]])
+    }
+    coll
+  })
+  
+  get <- list()
+  for(i in seq_along(df[[1]])){
+    tmp <- do.call(rbind, lapply(df, "[[", i))
+    source2 <- gsub("\\.[0-9]+", "", row.names(tmp))
+    row.names(tmp) <- NULL
+    names(tmp)[1] <- "taxonid"
+    tmp <- data.frame(source = source2, tmp)
+    get[[i]] <- tmp
+  }
+  
+  if(length(get) == 1) 
+    get[[1]]
+  else
+    get
+  #   source2 <- gsub("\\.[0-9]+", "", row.names(df))
+  #   row.names(df) <- NULL
+  #   names(df)[1] <- "taxonid"
+  #   df <- data.frame(source = source2, df)
+#   return( res )
 }

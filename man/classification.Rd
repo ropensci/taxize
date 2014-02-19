@@ -29,9 +29,9 @@ classification(...)
 
 \method{classification}{ids}(id, ...)
 
-\method{cbind}{classification}(...)
+\method{cbind}{classification}(x)
 
-\method{rbind}{classification}(...)
+\method{rbind}{classification}(x)
 
 \method{cbind}{classification_ids}(...)
 
@@ -105,14 +105,36 @@ classification(get_colid(c("Chironomus riparius", "aaa vva")))
 classification(get_tpsid(c("Poa annua", "aaa vva")))
 
 # Pass many ids from class "ids"
-out <- get_ids(names="Poa annua", db = c('ncbi','itis','col','eol','tropicos'))
+out <- get_ids(names="Puma concolor", db = c('ncbi','itis','col'))
 cl <- classification(out)
 
-# Bind width-wise
+# Bind width-wise from class classification_ids
 cbind(cl)
 
 # Bind length-wise
 rbind(cl)
+
+# Many names to get_ids
+out <- get_ids(names=c("Puma concolor","Accipiter striatus"), db = c('ncbi','itis','col'))
+cl <- classification(out)
+rbind(cl)
+cbind(cl)
+
+# rbind and cbind on class classification (from a call to get_colid, get_tsn, etc.
+# - other than get_ids)
+cl_col <- classification(get_colid(c("Puma concolor","Accipiter striatus")))
+cl_uid <- classification(get_uid(c("Puma concolor","Accipiter striatus")))
+cl_tsn <- classification(get_tsn(c("Puma concolor","Accipiter striatus")))
+rbind(cl_col)
+rbind(cl_uid)
+rbind(cl_tsn)
+cbind(cl_col)
+cbind(cl_uid)
+cbind(cl_tsn)
+
+tsns <- get_tsn(c("Puma concolor","Accipiter striatus"))
+cl_tsns <- classification(tsns)
+cbind(cl_tsns)
 }
 }
 \seealso{
