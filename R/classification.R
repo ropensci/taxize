@@ -342,10 +342,13 @@ rbind.classification_ids <- function(...)
 {
   input <- c(...)
   # remove non-data.frames
-  input <- input[sapply(input, function(x) class(x[[1]])) %in% "data.frame"]  
+  input <- input[sapply(input, function(x) class(x[[1]])) %in% "data.frame"]
   df <- do.call(rbind, lapply(input, function(x){
     data.frame(names(x), x[[1]])
   }))
+  source2 <- gsub("\\.[0-9]+", "", row.names(df))
   row.names(df) <- NULL
+  names(df)[1] <- "taxon"
+  df <- data.frame(source = source2, df)
   return( df )
 }
