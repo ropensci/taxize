@@ -22,6 +22,7 @@
 #' @param url The base COL url for the function (should be left to default).
 #' @details Provide only names instead of id's
 #' @return A list of data.frame's.
+#' @export
 #' @examples \dontrun{
 #' # Some basic examples
 #' col_downstream(name="Apis", downto="Species")
@@ -33,7 +34,7 @@
 #' # Using a checklist from a specific year
 #' col_downstream(name="Bryophyta", downto="Family", checklist="2009")
 #' }
-#' @export
+
 col_downstream <- function(name = NULL, downto, format = NULL, start = NULL, 
 	checklist = NULL, url = "http://www.catalogueoflife.org/col/webservice")
 {
