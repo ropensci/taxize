@@ -72,3 +72,29 @@ test_that("check S3-methods for tsn and uid class", {
   expect_identical(clas_colids, clas_col) 
 #   expect_identical(clas_tpids, clas_tp)
 })
+
+test_that("rbind works correctly", {
+
+})
+
+test_that("cbind works correctly", {
+	
+})
+
+df <- theplantlist[sample(1:nrow(theplantlist), 50), ]
+nn <- apply(df, 1, function(x) paste(x["genus"], x["sp"], collapse = " "))
+
+test_that("works on a variety of names", {
+	expect_that(classification(nn[1], db = "ncbi"), is_a("classification"))
+	expect_that(classification(nn[2], db = "ncbi"), is_a("classification"))
+	expect_that(classification(nn[3], db = "ncbi"), is_a("classification"))
+	expect_that(classification(nn[4], db = "ncbi"), is_a("classification"))
+	expect_that(classification(nn[5], db = "ncbi"), is_a("classification"))
+	expect_that(classification(nn[6], db = "ncbi"), is_a("classification"))
+	expect_that(classification(nn[7], db = "ncbi"), is_a("classification"))
+	expect_that(classification(nn[8], db = "ncbi"), is_a("classification"))
+	expect_that(classification(nn[9], db = "ncbi"), is_a("classification"))
+	expect_that(classification(nn[10], db = "ncbi"), is_a("classification"))
+	expect_that(classification(nn[11], db = "ncbi"), is_a("classification"))
+	expect_that(classification(nn[12], db = "ncbi"), is_a("classification"))
+})

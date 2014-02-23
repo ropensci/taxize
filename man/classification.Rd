@@ -111,7 +111,7 @@ classification(get_colid(c("Chironomus riparius", "aaa vva")))
 classification(get_tpsid(c("Poa annua", "aaa vva")))
 
 # Pass many ids from class "ids"
-out <- get_ids(names="Puma concolor", db = c('ncbi','itis','col','gbif'))
+out <- get_ids(names="Puma concolor", db = c('ncbi','gbif'))
 cl <- classification(out)
 
 # Bind width-wise from class classification_ids
