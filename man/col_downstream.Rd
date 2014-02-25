@@ -3,7 +3,7 @@
 \title{Use Catalogue of Life to get downstream taxa to a given taxonomic level.}
 \usage{
 col_downstream(name = NULL, downto, format = NULL, start = NULL,
-  checklist = NULL, url = "http://www.catalogueoflife.org/col/webservice")
+  checklist = NULL)
 }
 \arguments{
   \item{name}{The string to search for. Only exact matches
@@ -32,9 +32,6 @@ col_downstream(name = NULL, downto, format = NULL, start = NULL,
   a single Web service query (currently the maximum number
   of results returned by a single query is 500 for terse
   queries and 50 for full queries).}
-
-  \item{url}{The base COL url for the function (should be
-  left to default).}
 }
 \value{
 A list of data.frame's.
@@ -57,6 +54,9 @@ col_downstream(name=c("Plantae","Animalia"), downto="Class")
 
 # Using a checklist from a specific year
 col_downstream(name="Bryophyta", downto="Family", checklist="2009")
+
+# asdfdf
+col_downstream(name = "hololena", downto = "species")
 }
 }
 

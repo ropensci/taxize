@@ -19,7 +19,6 @@
 #'    returned by a single Web service query (currently the maximum number of 
 #'    results returned by a single query is 500 for terse queries and 50 for 
 #'    full queries).
-#' @param url The base COL url for the function (should be left to default).
 #' @details Provide only names instead of id's
 #' @return A list of data.frame's.
 #' @export
@@ -33,11 +32,19 @@
 #' 
 #' # Using a checklist from a specific year
 #' col_downstream(name="Bryophyta", downto="Family", checklist="2009")
+#' 
+#' # asdfdf
+#' col_downstream(name = "hololena", downto = "species")
 #' }
 
 col_downstream <- function(name = NULL, downto, format = NULL, start = NULL, 
-	checklist = NULL, url = "http://www.catalogueoflife.org/col/webservice")
+	checklist = NULL)
 {
+  url = "http://www.catalogueoflife.org/col/webservice"
+  downto <- taxize_capwords(downto)
+  poss_ranks <- unique(do.call(c, sapply(rank_ref$ranks, strsplit, split=",", USE.NAMES = FALSE)))
+  downto <- match.arg(downto, choices = poss_ranks)
+  
 	func <- function(name) {
 		if(is.null(checklist)){NULL} else {
 			cc <- match.arg(checklist, choices=c(2012,2011,2010,2009,2008,2007))
@@ -74,9 +81,9 @@ col_downstream <- function(name = NULL, downto, format = NULL, start = NULL,
 		
 			if(nrow(tt[tt$childtaxa_rank == downto, ]) > 0) out[[iter]] <- tt[tt$childtaxa_rank == downto, ]
 			if(nrow(tt[!tt$childtaxa_rank == downto, ]) > 0) {
-				notout <- tt[!tt$childtaxa_rank %in% torank, ]
+			  notout <- tt[!tt$childtaxa_rank %in% torank, ]
 			} else
-				{ notout <- data.frame(rankName = downto) }
+			{ notout <- data.frame(rankName = downto) }
 			
 			if(all(notout$childtaxa_rank == downto)) { 
 				stop_ <- "fam"
@@ -87,7 +94,7 @@ col_downstream <- function(name = NULL, downto, format = NULL, start = NULL,
 			}
 			
 		} # end while loop
-		return(compact(out)[[1]])
+		return( compact(out)[[1]] )
 		
 	} # end fxn func
 	safe_func <- plyr::failwith(NULL, func)
