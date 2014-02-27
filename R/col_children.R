@@ -20,7 +20,6 @@
 #' 		single query is 500 for terse queries and 50 for full queries).
 #' @param checklist The year of the checklist to query, if you want a specific 
 #' 		year's checklist instead of the lastest as default (numeric).
-#' @param url The base COL url for the function (should be left to default).
 #' @details You must provide one of name or id. The other parameters (format 
 #' 		and start) are optional.
 #' @return A list of data.frame's.
@@ -48,8 +47,9 @@
 #' }
 #' @export
 col_children <- function(name = NULL, id = NULL, format = NULL, start = NULL, 
-	checklist = NULL, url = "http://www.catalogueoflife.org/col/webservice")
+	checklist = NULL)
 {
+  url = "http://www.catalogueoflife.org/col/webservice"
 	func <- function(x, y) {
 		if(is.null(checklist)){NULL} else {
 			cc <- match.arg(checklist, choices=c(2012,2011,2010,2009,2008,2007))
