@@ -75,7 +75,7 @@ col_downstream <- function(name = NULL, downto, format = NULL, start = NULL,
 				childtaxa_id <- xpathSApply(tt, "//child_taxa//id", xmlValue)
 				childtaxa_name <- xpathSApply(tt, "//child_taxa//name", xmlValue)
 				childtaxa_rank <- xpathSApply(tt, "//child_taxa//rank", xmlValue)
-				data.frame(childtaxa_id, childtaxa_name, childtaxa_rank)
+				data.frame(childtaxa_id, childtaxa_name, childtaxa_rank, stringsAsFactors = FALSE)
 			}
 			tt <- ldply(toget, searchcol)
 		

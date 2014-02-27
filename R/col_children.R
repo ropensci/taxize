@@ -69,7 +69,7 @@ col_children <- function(name = NULL, id = NULL, format = NULL, start = NULL,
 		childtaxa_id <- xpathSApply(tt, "//child_taxa//id", xmlValue)
 		childtaxa_name <- xpathSApply(tt, "//child_taxa//name", xmlValue)
 		childtaxa_rank <- xpathSApply(tt, "//child_taxa//rank", xmlValue)
-		data.frame(childtaxa_id, childtaxa_name, childtaxa_rank)
+		data.frame(childtaxa_id, childtaxa_name, childtaxa_rank, stringsAsFactors = FALSE)
 	}
 	safe_func <- plyr::failwith(NULL, func)
 	if(is.null(id)){ 

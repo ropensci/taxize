@@ -69,7 +69,7 @@ parsecoldata <- function(x){
   names(bb)[4:5] <- c('status','source')
   acc <- x$accepted_name
   if(is.null(acc)){
-    accdf <- data.frame(acc_id=NA, acc_name=NA, acc_rank=NA, acc_status=NA, acc_source=NA)
+    accdf <- data.frame(acc_id=NA, acc_name=NA, acc_rank=NA, acc_status=NA, acc_source=NA, stringsAsFactors = FALSE)
   } else
   {
     accdf <- data.frame(acc[c('id','name','rank','name_status','source_database')], stringsAsFactors=FALSE)
