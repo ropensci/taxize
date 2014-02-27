@@ -1,6 +1,6 @@
 #' Retrieve the taxonomic hierarchy for a given taxon ID.
 #' 
-#' @import XML RCurl plyr
+#' @import XML RCurl plyr rgbif
 #' 
 #' @param x character; taxons to query.
 #' @param db character; database to query. either \code{ncbi}, \code{itis}, 

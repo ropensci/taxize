@@ -13,6 +13,10 @@ col_downstream(name = NULL, id = NULL, downto, format = NULL,
   character may also be used. The name must be at least 3
   characters long, not counting wildcard characters.}
 
+  \item{id}{The record ID of the specific record to return
+  (only for scientific names of species or infraspecific
+  taxa)}
+
   \item{downto}{The taxonomic level you want to go down to.
   See examples below.  The taxonomic level IS case
   sensitive, and you do have to spell it correctly. See

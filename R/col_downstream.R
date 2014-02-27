@@ -6,6 +6,8 @@
 #'   	string. An * (asterisk) character denotes a wildcard; a % (percentage) 
 #'    character may also be used. The name must be at least 3 characters long, 
 #'    not counting wildcard characters.
+#' @param id The record ID of the specific record to return (only for scientific 
+#'   	names of species or infraspecific taxa)
 #' @param downto The taxonomic level you want to go down to. See examples below.
 #' 		The taxonomic level IS case sensitive, and you do have to spell it 
 #' 		correctly. See \code{data(rank_ref)} for spelling.

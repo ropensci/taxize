@@ -10,11 +10,11 @@ downstream(...)
 
 \method{downstream}{default}(x, db = NULL, downto = NULL, ...)
 
-\method{downstream}{tsn}(id, db = NULL, ...)
+\method{downstream}{tsn}(x, db = NULL, ...)
 
-\method{downstream}{colid}(id, db = NULL, ...)
+\method{downstream}{colid}(x, db = NULL, ...)
 
-\method{downstream}{ids}(id, db = NULL, downto, ...)
+\method{downstream}{ids}(x, db = NULL, downto, ...)
 }
 \arguments{
   \item{x}{character; taxons to query.}

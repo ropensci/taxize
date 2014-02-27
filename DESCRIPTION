@@ -39,7 +39,8 @@ Imports:
     reshape2,
     data.table,
     reshape,
-    vegan
+    vegan,
+    rgbif
 Suggests:
     testthat,
     roxygen2,

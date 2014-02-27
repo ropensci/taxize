@@ -75,18 +75,18 @@ downstream.default <- function(x, db = NULL, downto = NULL, ...){
 #' @method downstream tsn
 #' @export
 #' @rdname downstream
-downstream.tsn <- function(id,  db = NULL, ...) 
+downstream.tsn <- function(x,  db = NULL, ...) 
 {
-  fun <- function(x){
+  fun <- function(y){
     # return NA if NA is supplied
-    if (is.na(x)) {
+    if (is.na(y)) {
       out <- NA
     } else {
-		out <- itis_downstream(tsns = x, ...)
+		out <- itis_downstream(tsns = y, ...)
     }
   }
-  out <- lapply(id, fun)
-  names(out) <- id
+  out <- lapply(x, fun)
+  names(out) <- x
   class(out) <- 'downstream'
   attr(out, 'db') <- 'itis'
   return(out)
@@ -95,17 +95,17 @@ downstream.tsn <- function(id,  db = NULL, ...)
 #' @method downstream colid
 #' @export
 #' @rdname downstream
-downstream.colid <- function(id,  db = NULL, ...) {
-  fun <- function(x){
+downstream.colid <- function(x,  db = NULL, ...) {
+  fun <- function(y){
     # return NA if NA is supplied
-    if(is.na(x)){
+    if(is.na(y)){
       out <- NA
     } else {
-      out <- col_downstream(id = x, ...)
+      out <- col_downstream(id = y, ...)
     }
     return(out)
   }
-  out <- lapply(id, fun)
+  out <- lapply(x, fun)
   if(length(out)==1){ out=out[[1]] } else { out=out }
   class(out) <- 'downstream'
   attr(out, 'db') <- 'col'
@@ -115,18 +115,18 @@ downstream.colid <- function(id,  db = NULL, ...) {
 #' @method downstream ids
 #' @export
 #' @rdname downstream
-downstream.ids <- function(id, db = NULL, downto, ...) 
+downstream.ids <- function(x, db = NULL, downto, ...) 
 {
-  fun <- function(x, ...){
+  fun <- function(y, ...){
     # return NA if NA is supplied
-    if (is.na(x)) {
+    if (is.na(y)) {
       out <- NA
     } else {
-      out <- downstream(x, downto = downto, ...)
+      out <- downstream(y, downto = downto, ...)
     }
     return(out)
   }
-  out <- lapply(id, fun)
+  out <- lapply(x, fun)
   class(out) <- 'downstream_ids'
   return(out)
 }
