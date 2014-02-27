@@ -2,8 +2,8 @@
 \alias{col_downstream}
 \title{Use Catalogue of Life to get downstream taxa to a given taxonomic level.}
 \usage{
-col_downstream(name = NULL, downto, format = NULL, start = NULL,
-  checklist = NULL)
+col_downstream(name = NULL, id = NULL, downto, format = NULL,
+  start = NULL, checklist = NULL)
 }
 \arguments{
   \item{name}{The string to search for. Only exact matches
@@ -53,10 +53,10 @@ col_downstream(name="Bryophyta", downto="Family")
 col_downstream(name=c("Plantae","Animalia"), downto="Class")
 
 # Using a checklist from a specific year
-col_downstream(name="Bryophyta", downto="Family", checklist="2009")
+col_downstream(name="Bryophyta", downto="Family", checklist=2009)
 
-# asdfdf
-col_downstream(name = "hololena", downto = "species")
+# By id
+col_downstream(id=2346405, downto="Genus", checklist=2012)
 }
 }
 

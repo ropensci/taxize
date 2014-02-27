@@ -46,6 +46,7 @@
 #' ldply(out) # combine to one data.frame
 #' }
 #' @export
+
 col_children <- function(name = NULL, id = NULL, format = NULL, start = NULL, 
 	checklist = NULL)
 {
