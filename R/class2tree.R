@@ -52,24 +52,32 @@
 #' plot(tr)
 #' plot(tr, no.margin=TRUE)
 #' }
+
 class2tree <- function(input, varstep=TRUE, check=TRUE, ...)
 {
-  foo <- function(x){
-    x <- x[!x$rank == "no rank",]
-    df <- x[-nrow(x), 'name']
-    names(df) <- x[-nrow(x), 'rank']
-    df <- data.frame(t(data.frame(df)))
-    data.frame(tip = x[nrow(x),"name"], df)
-  }
-  dat <- rbind.fill(lapply(input, foo))
-  dat <- dat[ , !apply(dat, 2, function(x) any(is.na(x)))]
-  row.names(dat) <- dat[,1]
-  dat <- dat[,-1]
-  taxdis <- taxa2dist(dat, varstep=varstep, check=check)
+  # Check that there is more than 1 taxon
+  if(length(input) < 3) 
+    stop("Your input list of classifications must be 3 or longer")
+  dat <- rbind.fill(lapply(input, class2tree_helper))
+  df <- dat <- dat[ , !apply(dat, 2, function(x) any(is.na(x)))]
+  row.names(df) <- df[,1]
+  df <- df[,-1]
+  taxdis <- tryCatch(taxa2dist(df, varstep=varstep, check=check), error = function(e) e)
+  # check for incorrect dimensions error
+  if(is(taxdis, 'simpleError')) 
+    stop("Try check=FALSE, but see docs for taxa2dist function in the vegan package for details")
   out <- as.phylo.hclust(hclust(taxdis, ...))
   res <- list(phylo = out, classification = dat, distmat = taxdis, names = names(input))
   class(res) <- 'classtree'
   return( res )
+}
+
+class2tree_helper <- function(x){
+  x <- x[!x$rank == "no rank",]
+  df <- x[-nrow(x), 'name']
+  names(df) <- x[-nrow(x), 'rank']
+  df <- data.frame(t(data.frame(df)))
+  data.frame(tip = x[nrow(x),"name"], df)
 }
 
 #' @method plot classtree
