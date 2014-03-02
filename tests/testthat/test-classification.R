@@ -5,14 +5,14 @@ uids <- get_uid(c("Chironomus riparius", "aaa vva"), verbose=FALSE)
 tsns <- get_tsn(c("Chironomus riparius", "aaa vva"), verbose=FALSE)
 # eolids <- get_tsn(c("Chironomus riparius", "aaa vva"), verbose=FALSE)
 # colids <- get_colid(c("Chironomus riparius", "aaa vva"), verbose=FALSE)
-tpsids <- get_tpsid(sciname=c("Helianthus excubitor", "aaa vva"), verbose=FALSE)
+# tpsids <- get_tpsid(sciname=c("Helianthus excubitor", "aaa vva"), verbose=FALSE)
 clas_uids <- classification(uids, verbose=FALSE)
 names(clas_uids) <- NULL
 clas_tsns <- classification(tsns, verbose=FALSE)
 names(clas_tsns) <- NULL
 # clas_eolids <- classification(eolids, verbose=FALSE)
 # clas_colids <- classification(colids)
-clas_tpids <- classification(tpsids, verbose=FALSE)
+# clas_tpids <- classification(tpsids, verbose=FALSE)
 
 clas_ncbi <- classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi', 
                             verbose=FALSE)
@@ -31,15 +31,15 @@ colids <- get_colid(c("Puma concolor", "aaa vva"), verbose=FALSE)
 clas_colids <- classification(colids)
 names(clas_colids) <- NULL
 
-clas_tp <- suppressMessages(classification(c("Helianthus excubitor", "aaa vva"), db = 'tropicos'))
-names(clas_tp) <- NULL
+# clas_tp <- suppressMessages(classification(c("Helianthus excubitor", "aaa vva"), db = 'tropicos'))
+# names(clas_tp) <- NULL
 
 test_that("classification returns the correct value", {
 	expect_that(clas_ncbi[[2]], equals(NA))
 	expect_that(clas_itis[[2]], equals(NA))
 # 	expect_that(clas_eol[[2]], equals(NA))
 # 	expect_that(clas_col[[2]], equals(NA))
-	expect_that(clas_tp[[2]], equals(NA))
+# 	expect_that(clas_tp[[2]], equals(NA))
 })
 
 test_that("classification returns the correct class", {
@@ -59,9 +59,9 @@ test_that("classification returns the correct class", {
 # 	expect_that(clas_col[[1]], is_a("data.frame"))
 # 	expect_that(length(clas_col), equals(2))
   
-	expect_that(clas_tp, is_a("classification"))
-	expect_that(clas_tp[[1]], is_a("data.frame"))
-	expect_that(length(clas_tp), equals(2))
+# 	expect_that(clas_tp, is_a("classification"))
+# 	expect_that(clas_tp[[1]], is_a("data.frame"))
+# 	expect_that(length(clas_tp), equals(2))
 })
 
 test_that("check S3-methods for tsn and uid class", {
@@ -73,13 +73,13 @@ test_that("check S3-methods for tsn and uid class", {
 #   expect_identical(clas_tpids, clas_tp)
 })
 
-test_that("rbind works correctly", {
-
-})
-
-test_that("cbind works correctly", {
-	
-})
+# test_that("rbind works correctly", {
+# 
+# })
+# 
+# test_that("cbind works correctly", {
+# 	
+# })
 
 df <- theplantlist[sample(1:nrow(theplantlist), 50), ]
 nn <- apply(df, 1, function(x) paste(x["genus"], x["sp"], collapse = " "))

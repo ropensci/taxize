@@ -3,7 +3,7 @@
 \title{Use Catalogue of Life to get downstream taxa to a given taxonomic level.}
 \usage{
 col_downstream(name = NULL, id = NULL, downto, format = NULL,
-  start = NULL, checklist = NULL)
+  start = NULL, checklist = NULL, verbose = TRUE)
 }
 \arguments{
   \item{name}{The string to search for. Only exact matches
@@ -22,10 +22,6 @@ col_downstream(name = NULL, id = NULL, downto, format = NULL,
   sensitive, and you do have to spell it correctly. See
   \code{data(rank_ref)} for spelling.}
 
-  \item{checklist}{The year of the checklist to query, if
-  you want a specific year's checklist instead of the
-  lastest as default (numeric).}
-
   \item{format}{The returned format (default = NULL). If
   NULL xml is used.  Currently only xml is supported.}
 
@@ -36,6 +32,12 @@ col_downstream(name = NULL, id = NULL, downto, format = NULL,
   a single Web service query (currently the maximum number
   of results returned by a single query is 500 for terse
   queries and 50 for full queries).}
+
+  \item{checklist}{The year of the checklist to query, if
+  you want a specific year's checklist instead of the
+  lastest as default (numeric).}
+
+  \item{verbose}{Print or suppress messages.}
 }
 \value{
 A list of data.frame's.

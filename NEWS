@@ -1,3 +1,22 @@
+taxize 0.2.2
+===============
+
+NEW FEATURES
+
+* itis_downstream() and col_downstream() functions accessible now from a single function downstream() (https://github.com/ropensci/taxize/issues/238)
+
+MINOR IMPROVEMENTS
+
+* Added a extension function classification() for the gbif id class, classification.gbifid() (https://github.com/ropensci/taxize/issues/241)
+
+BUG FIXES
+
+* Added some error catching to class2tree function. (https://github.com/ropensci/taxize/issues/240)
+* Fixed problems in cbind.classification() and rbind.classification() where the first column of the ouput was a useless column name, and all column names now lower case for consistency. (https://github.com/ropensci/taxize/issues/243)
+* classification() was giving back IDS instead of taxon names on the list element names, fixed this so hopefully all are giving back names. (https://github.com/ropensci/taxize/issues/243)
+* Fixed bugs in col_*() functions so they give back data.frame's now with character class columns instead of factors, damned stringsAsFactors!  (https://github.com/ropensci/taxize/issues/246)
+
+
 taxize 0.2.0
 ===============
 

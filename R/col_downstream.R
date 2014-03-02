@@ -11,8 +11,6 @@
 #' @param downto The taxonomic level you want to go down to. See examples below.
 #' 		The taxonomic level IS case sensitive, and you do have to spell it 
 #' 		correctly. See \code{data(rank_ref)} for spelling.
-#' @param checklist The year of the checklist to query, if you want a specific 
-#' 		year's checklist instead of the lastest as default (numeric).
 #' @param format The returned format (default = NULL). If NULL xml is used. 
 #'    Currently only xml is supported.
 #' @param start  The first record to return (default = NULL). If NULL, the 
@@ -21,6 +19,9 @@
 #'    returned by a single Web service query (currently the maximum number of 
 #'    results returned by a single query is 500 for terse queries and 50 for 
 #'    full queries).
+#' @param checklist The year of the checklist to query, if you want a specific 
+#' 		year's checklist instead of the lastest as default (numeric).
+#' @param verbose Print or suppress messages.
 #' @details Provide only names instead of id's
 #' @return A list of data.frame's.
 #' @export
@@ -39,7 +40,8 @@
 #' col_downstream(id=2346405, downto="Genus", checklist=2012)
 #' }
 
-col_downstream <- function(name = NULL, id=NULL, downto, format = NULL, start = NULL, checklist = NULL)
+col_downstream <- function(name = NULL, id=NULL, downto, format = NULL, start = NULL, 
+  checklist = NULL, verbose=TRUE)
 {
   url = "http://www.catalogueoflife.org/col/webservice"
   downto <- taxize_capwords(downto)
@@ -101,23 +103,24 @@ col_downstream <- function(name = NULL, id=NULL, downto, format = NULL, start = 
       }
       
     } # end while loop
-    return( compact(out)[[1]] )
     
+    if(length(out) == 0){
+      return( data.frame(childtaxa_id=NA, childtaxa_name=NA, childtaxa_rank=NA) )
+    } else {
+      return( compact(out)[[1]] )      
+    }
   } # end fxn func
   
   safe_func <- plyr::failwith(NULL, func)
   if(is.null(id)){ 
     temp <- lapply(name, safe_func, y=NULL) 
     names(temp) <- name
-    temp
   } else { 
-    temp <- lapply(id, function(z) safe_func(x=NULL, y=id)) 
+    temp <- lapply(id, function(z) safe_func(x=NULL, y=id))
     names(temp) <- id
-    temp
   }
   
-  #   safe_func <- plyr::failwith(NULL, func)
-  #   temp <- llply(name, safe_func)
-  #   names(temp) <- name
-  #   temp
+  nas <- sapply(temp, function(z) nrow(na.omit(z)))
+  message(sprintf('These taxa with no data: %s\nTry adjusting intput parameters', names(nas[nas==0])))
+  temp
 }
