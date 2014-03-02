@@ -43,11 +43,18 @@ code > span.er { font-weight: bold; }
 <p>First, install and load <code>taxize</code> into the R session.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;taxize&quot;</span>)</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(taxize)</code></pre>
+<pre><code>## 
+## 
+## New to taxize? Tutorial at http://ropensci.org/tutorials/taxize_tutorial.html 
+## citation(package=&#39;taxize&#39;) for the citation for this package 
+## API key names have changed. Use tropicosApiKey, eolApiKey, ubioApiKey, and pmApiKey in your .Rprofile file. 
+## Use suppressPackageStartupMessages() to suppress these startup messages in the future</code></pre>
 <p>Advanced users can also download and install the latest development copy from <a href="https://github.com/ropensci/taxize_">GitHub</a>.</p>
 <h4 id="resolve-taxonomic-name">Resolve taxonomic name</h4>
 <p>This is a common task in biology. We often have a list of species names and we want to know a) if we have the most up to date names, b) if our names are spelled correctly, and c) the scientific name for a common name. One way to resolve names is via the Global Names Resolver (GNR) service provided by the <a href="http://eol.org/">Encyclopedia of Life</a>. Here, we are searching for two misspelled names:</p>
-<pre class="sourceCode r"><code class="sourceCode r">temp &lt;-<span class="st"> </span><span class="kw">gnr_resolve</span>(<span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;Helianthos annus&quot;</span>, <span class="st">&quot;Homo saapiens&quot;</span>))
-temp[, -<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">4</span>)]</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">temp &lt;-<span class="st"> </span><span class="kw">gnr_resolve</span>(<span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;Helianthos annus&quot;</span>, <span class="st">&quot;Homo saapiens&quot;</span>))</code></pre>
+<pre><code>## Loading required package: rjson</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">temp[, -<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">4</span>)]</code></pre>
 <pre><code>##                  matched_name data_source_title
 ## 1        Helianthus annuus L. Catalogue of Life
 ## 2         Helianthus annus L.               EOL
@@ -58,7 +65,7 @@ temp[, -<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">4<
 <pre class="sourceCode r"><code class="sourceCode r">mynames &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Helianthus annuus&quot;</span>, <span class="st">&quot;Pinus contort&quot;</span>, <span class="st">&quot;Poa anua&quot;</span>, <span class="st">&quot;Abis magnifica&quot;</span>, 
     <span class="st">&quot;Rosa california&quot;</span>, <span class="st">&quot;Festuca arundinace&quot;</span>, <span class="st">&quot;Sorbus occidentalos&quot;</span>, <span class="st">&quot;Madia sateva&quot;</span>)
 <span class="kw">tnrs</span>(<span class="dt">query =</span> mynames, <span class="dt">source =</span> <span class="st">&quot;iPlant_TNRS&quot;</span>)[, -<span class="kw">c</span>(<span class="dv">5</span>:<span class="dv">7</span>)]</code></pre>
-<pre><code>## Calling http://taxosaurus.org/retrieve/cf226dee84e0d3e74ab60f3d717ea19e</code></pre>
+<pre><code>## Calling http://taxosaurus.org/retrieve/14512c6611cb44a5c4992ac72df8f75f</code></pre>
 <pre><code>##         submittedname        acceptedname    sourceid score
 ## 7   Helianthus annuus   Helianthus annuus iPlant_TNRS     1
 ## 4       Pinus contort      Pinus contorta iPlant_TNRS  0.98
@@ -175,6 +182,7 @@ tsn &lt;-<span class="st"> </span><span class="kw">get_tsn</span>(mynames)
 <h4 id="what-taxa-are-the-children-of-my-taxon-of-interest">What taxa are the children of my taxon of interest?</h4>
 <p>If someone is not a taxonomic specialist on a particular taxon he likely does not know what children taxa are within a family, or within a genus. This task becomes especially unwieldy when there are a large number of taxa downstream. You can of course go to a website like <a href="http://species.wikimedia.org/wiki/Main_Page">Wikispecies</a> or <a href="http://eol.org/">Encyclopedia of Life</a> to get downstream names. However, taxize provides an easy way to programatically search for downstream taxa, both for the <a href="http://www.catalogueoflife.org/">Catalogue of Life (CoL)</a> and the <a href="http://www.itis.gov/">Integrated Taxonomic Information System</a>. Here is a short example using the CoL in which we want to find all the species within the genus <em>Apis</em> (honey bees).</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">col_downstream</span>(<span class="dt">name =</span> <span class="st">&quot;Apis&quot;</span>, <span class="dt">downto =</span> <span class="st">&quot;Species&quot;</span>)[[<span class="dv">1</span>]]</code></pre>
+<pre><code>## </code></pre>
 <pre><code>##   childtaxa_id     childtaxa_name childtaxa_rank
 ## 1      6971712 Apis andreniformis        Species
 ## 2      6971713        Apis cerana        Species
