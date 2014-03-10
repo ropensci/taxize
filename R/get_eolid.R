@@ -41,28 +41,38 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...){
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
     tmp <- eol_search(terms = sciname, key, ...)
     
+    ms="Not found. Consider checking the spelling or alternate classification"
+    
     if(all(is.na(tmp))){
-      mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
+      mssg(verbose, ms)
       id <- NA
     } else {   
       pageids <- tmp[grep(tolower(sciname), tolower(tmp$name)), "pageid"]
-      dfs <- compact(lapply(pageids, function(x) eol_pages(x)$scinames))
-      dfs <- ldply(dfs[!sapply(dfs, nrow)==0])
-      df <- dfs[,c('identifier','scientificname','nameaccordingto')]
-      names(df) <- c('eolid','name','source')
-      df <- getsourceshortnames(df)
       
-      if(nrow(df) == 0){
-        mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
+      if(length(pageids) == 0){
+        if(nrow(tmp)>0)
+        mssg(verbose, paste(ms, sprintf('\nDid find: %s', paste(tmp$name, collapse = "; "))))
         id <- NA
-      } else{ 
-        id <- df$eolid 
+      } else
+      {
+        dfs <- compact(lapply(pageids, function(x) eol_pages(x)$scinames))
+        dfs <- ldply(dfs[!sapply(dfs, nrow)==0])
+        df <- dfs[,c('identifier','scientificname','nameaccordingto')]
+        names(df) <- c('eolid','name','source')
+        df <- getsourceshortnames(df)
+        
+        if(nrow(df) == 0){
+          mssg(verbose, ms)
+          id <- NA
+        } else{ 
+          id <- df$eolid 
+        }
       }
     }
 
     # not found on eol
     if(length(id) == 0){
-      message("Not found. Consider checking the spelling or alternate classification")
+      mssg(verbose, ms)
       id <- NA
     }
     # more than one found on eol -> user input
