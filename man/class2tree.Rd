@@ -12,7 +12,7 @@ class2tree(input, varstep = TRUE, check = TRUE, ...)
 }
 \arguments{
   \item{input}{List of classification data.frame's from the
-  function classification()}
+  function classification().}
 
   \item{varstep}{Vary step lengths between successive
   levels relative to proportional loss of the number of
@@ -72,7 +72,6 @@ plot(tr)
 # another example using random sets of names with names_list() fxn
 spnames <- names_list('species', 50)
 out <- classification(spnames, db='ncbi')
-out <- out[!is.na(out)]
 tr <- class2tree(out)
 plot(tr)
 plot(tr, no.margin=TRUE)

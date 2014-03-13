@@ -210,7 +210,9 @@ classification.eolid <- function(id, key = NULL, callopts = list(), ...) {
       if(length(res$ancestors)==0){
         return(sprintf("No hierarchy information for %s", x))
       } else {
-        out <- do.call(rbind.fill, lapply(res$ancestors, data.frame))[,c('scientificName','taxonRank')]
+        out <- do.call(rbind.fill, lapply(res$ancestors, data.frame, stringsAsFactors = FALSE))[,c('scientificName','taxonRank')]
+        # add querried taxon
+        out <- rbind(out, c(res$scientificName, res$taxonRank))
         names(out) <- c('name', 'rank')
         return(out)
       }
@@ -250,6 +252,11 @@ classification.colid <- function(id, start = NULL, checklist = NULL, ...) {
       out <- data.frame(name = xpathSApply(tt, "//classification//name", xmlValue),
                         rank = xpathSApply(tt, "//classification//rank", xmlValue),
                         stringsAsFactors = FALSE)
+      # add querried taxon
+      out <- rbind(out, c(xpathSApply(tt, "//result/name", xmlValue), 
+                          xpathSApply(tt, "//result/rank", xmlValue)))
+
+      
     }
     return(out)
   }
@@ -300,14 +307,14 @@ classification.gbifid <- function(id, callopts = list(), ...) {
     } else {
       out <- suppressWarnings(tryCatch(name_usage(key = x, ...), error=function(e) e))
       if(is(out, "simpleError")){ 
-        df <- NA
+        out <- NA
       } else {
 #         out <- do.call(rbind.fill, lapply(out, data.frame))[,c('ScientificName','Rank')]
-        df <- ldply(out[c('kingdom','phylum','clazz','order','family','genus','species')])
-        df <- data.frame(name=df$V1, rank=df$.id)
+        out <- ldply(out[c('kingdom','phylum','clazz','order','family','genus','species')])
+        out <- data.frame(name=out$V1, rank=out$.id)
       }
     }
-    return( df )
+    return(out)
   }
   out <- lapply(id, fun)
   names(out) <- id
