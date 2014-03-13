@@ -7,7 +7,7 @@
 #' 
 #' @import plyr ape
 #' @importFrom vegan taxa2dist
-#' @param input List of classification data.frame's from the function classification()
+#' @param input List of classification data.frame's from the function classification().
 #' @param varstep Vary step lengths between successive levels relative to proportional 
 #' loss of the number of distinct classes.
 #' @param check	If TRUE, remove all redundant levels which are different for all rows 
@@ -47,7 +47,6 @@
 #' # another example using random sets of names with names_list() fxn
 #' spnames <- names_list('species', 50)
 #' out <- classification(spnames, db='ncbi')
-#' out <- out[!is.na(out)]
 #' tr <- class2tree(out)
 #' plot(tr)
 #' plot(tr, no.margin=TRUE)
@@ -55,9 +54,13 @@
 
 class2tree <- function(input, varstep=TRUE, check=TRUE, ...)
 {
-  # Check that there is more than 1 taxon
+  if(any(is.na(input))){
+    message('Removed species without classification.')
+    input <- input[!is.na(input)]
+  }
+  # Check that there is more than 2 taxon
   if(length(input) < 3) 
-    stop("Your input list of classifications must be 3 or longer")
+    stop("Your input list of classifications must be 3 or longer.")
   dat <- rbind.fill(lapply(input, class2tree_helper))
   df <- dat <- dat[ , !apply(dat, 2, function(x) any(is.na(x)))]
   row.names(df) <- df[,1]
@@ -65,7 +68,7 @@ class2tree <- function(input, varstep=TRUE, check=TRUE, ...)
   taxdis <- tryCatch(taxa2dist(df, varstep=varstep, check=check), error = function(e) e)
   # check for incorrect dimensions error
   if(is(taxdis, 'simpleError')) 
-    stop("Try check=FALSE, but see docs for taxa2dist function in the vegan package for details")
+    stop("Try check=FALSE, but see docs for taxa2dist function in the vegan package for details.")
   out <- as.phylo.hclust(hclust(taxdis, ...))
   res <- list(phylo = out, classification = dat, distmat = taxdis, names = names(input))
   class(res) <- 'classtree'

@@ -1,3 +1,8 @@
+taxize 0.2.3
+===============
+
+MINOR IMPROVEMENTS
+* class2tree() can handle NA in classification objects.
 taxize 0.2.2
 ===============
 
