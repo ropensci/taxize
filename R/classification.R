@@ -307,14 +307,14 @@ classification.gbifid <- function(id, callopts = list(), ...) {
     } else {
       out <- suppressWarnings(tryCatch(name_usage(key = x, ...), error=function(e) e))
       if(is(out, "simpleError")){ 
-        df <- NA
+        out <- NA
       } else {
 #         out <- do.call(rbind.fill, lapply(out, data.frame))[,c('ScientificName','Rank')]
-        df <- ldply(out[c('kingdom','phylum','clazz','order','family','genus','species')])
-        df <- data.frame(name=df$V1, rank=df$.id)
+        out <- ldply(out[c('kingdom','phylum','clazz','order','family','genus','species')])
+        out <- data.frame(name=out$V1, rank=out$.id)
       }
     }
-    return( df )
+    return(out)
   }
   out <- lapply(id, fun)
   names(out) <- id
