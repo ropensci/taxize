@@ -3,6 +3,9 @@ taxize 0.2.3
 
 MINOR IMPROVEMENTS
 * class2tree() can handle NA in classification objects.
+* classification.eolid() and classification.colid return the submitted name along with the classification.
+
+
 taxize 0.2.2
 ===============
 
