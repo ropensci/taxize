@@ -34,6 +34,9 @@ tnrs(query = NA, source = NULL, code = NULL, getpost = "POST",
   querying the TNRS.}
 
   \item{verbose}{Verbosity or not (default TRUE)}
+
+  \item{callopts}{Curl debugging options to pass in
+  httr::GET or POST}
 }
 \value{
 data.frame of results from TNRS plus the name submitted.

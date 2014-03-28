@@ -20,6 +20,7 @@
 #'    each searched name?
 #' @param http The HTTP method to use, one of "get" or "post". Default="get". 
 #'    Use http="post" with large queries. 
+#' @param callopts Curl debugging options to pass in httr::GET or POST
 #' @author Scott Chamberlain {myrmecocystus@@gmail.com}
 #' @return A data.frame.
 #' @seealso \code{\link[taxize]{gnr_datasources}}
@@ -36,7 +37,7 @@
 #' gnr_resolve(names=c("Helianthos annuus","Homo sapians"), data_source_ids=eol)
 #' }
 gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE, 
-  with_context = FALSE, stripauthority = FALSE, highestscore = TRUE, http="get")
+  with_context = FALSE, stripauthority = FALSE, highestscore = TRUE, http="get", callopts=list())
 {
   num = NULL
   url <- "http://resolver.globalnames.org/name_resolvers.json"
@@ -45,7 +46,9 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
                        with_context=with_context))
   
   if(http=='get'){
-    dat <- content(GET(url, query=args))$data
+    tmp <- GET(url, query=args, callopts)
+    stop_for_status(tmp)
+    dat <- content(tmp)$data
   } else
     if(http=='post'){
       args <- args[!names(args) %in% "names"]
@@ -53,7 +56,9 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
         tt <- data.frame(num = 1:length(names), names=names)
         tt <- data.frame(ddply(tt, .(num), summarise, paste0(num,"|",names))[,2])
         write.table(tt, file="~/gnr_names.txt", row.names=FALSE, col.names=FALSE, quote=FALSE)
-        ss <- content(POST(url, query=args, body=list(file = upload_file(path="~/gnr_names.txt"))))
+        ss <- POST(url, query=args, body=list(file = upload_file(path="~/gnr_names.txt")))
+        stop_for_status(ss)
+        ss <- content(ss)
         bb <- "working"
         while(bb == "working"){
           temp <- content(GET(ss$url))
@@ -62,7 +67,9 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
         dat <- temp$data 
       } else
       {
-        dat <- content(POST(url, query=args, body=list(names = names2)))$data
+        ss <- POST(url, query=args, body=list(names = names2))
+        stop_for_status(ss)
+        dat <- content(ss)$data
       }
     } else
       stop("http must be one of 'get' or 'post'")

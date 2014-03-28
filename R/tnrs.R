@@ -20,6 +20,7 @@
 #' 		seconds. Use when doing many calls in a for loop ar lapply type call.
 #' @param splitby Number by which to split species list for querying the TNRS.
 #' @param verbose Verbosity or not (default TRUE)
+#' @param callopts Curl debugging options to pass in httr::GET or POST
 #' @return data.frame of results from TNRS plus the name submitted.
 #' @details If there is no match in the Taxosaurus database, nothing is 
 #'    returned, so youwill not get anything back for non matches. 
@@ -69,7 +70,7 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
 			if(!any(is.na(x))){
 				query2 <- paste(str_replace_all(x, ' ', '+'), collapse='%0A')
 				args <- compact(list(query = query2))
-				out <- GET(url, query=args)
+				out <- GET(url, query=args, callopts)
 # 				retrieve <- toJSON(out$url)
 				retrieve <- out$url
 			} else
@@ -83,7 +84,7 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
       loc <- tempfile(fileext=".txt")
       write.table(data.frame(x), file=loc, col.names=FALSE, row.names=FALSE)
       args <- compact(list(file = upload_file(loc), source = source, code = code))
-			out <- POST(url, body = args, config=list(followlocation = 0L))
+			out <- POST(url, body = args, config=compact(c(followlocation = 0L, callopts)))
       tt <- content(out, as="text")
 			message <- fromJSON(tt)[["message"]]
 			retrieve <- str_replace_all(str_extract(message, "http.+"), "\\.$", "")
@@ -96,7 +97,7 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
 		timeout <- "wait"
 		while(timeout == "wait"){
 			iter <- iter + 1
-      ss <- GET(retrieve)
+      ss <- GET(retrieve, callopts)
       temp <- fromJSON(content(ss, as="text"))
 			if(grepl("is still being processed", temp["message"])==TRUE){timeout <- "wait"} else {
 				output[[iter]] <- temp

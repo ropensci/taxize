@@ -4,7 +4,7 @@
 \usage{
 gnr_resolve(names, data_source_ids = NULL, resolve_once = FALSE,
   with_context = FALSE, stripauthority = FALSE, highestscore = TRUE,
-  http = "get")
+  http = "get", callopts = list())
 }
 \arguments{
   \item{names}{character; taxonomic names to be resolved.}
@@ -35,6 +35,9 @@ gnr_resolve(names, data_source_ids = NULL, resolve_once = FALSE,
   \item{http}{The HTTP method to use, one of "get" or
   "post". Default="get".  Use http="post" with large
   queries.}
+
+  \item{callopts}{Curl debugging options to pass in
+  httr::GET or POST}
 }
 \value{
 A data.frame.
