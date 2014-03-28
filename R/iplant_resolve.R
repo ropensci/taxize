@@ -1,7 +1,6 @@
 #' iplant resolution
 #' 
 #' @import httr RJSONIO
-#' @importFrom plyr compact 
 #' @export
 #' @param query Vector of names
 #' @param retrieve Specifies whether to retrieve all matches for the names submitted. One of 'best' 
