@@ -19,7 +19,8 @@
 #' @param highestscore logical; Return those names with the highest score for 
 #'    each searched name?
 #' @param http The HTTP method to use, one of "get" or "post". Default="get". 
-#'    Use http="post" with large queries. 
+#'    Use http="post" with large queries. Queries with > 300 records use "post" 
+#'    automatically because "get" would fail
 #' @param callopts Curl debugging options to pass in httr::GET or POST
 #' @author Scott Chamberlain {myrmecocystus@@gmail.com}
 #' @return A data.frame.
@@ -42,6 +43,8 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
   num = NULL
   url <- "http://resolver.globalnames.org/name_resolvers.json"
   names2 <- paste0(names, collapse = "|")
+  if(length(names2) > 300 & http == "get") http <- "post"
+  
   args <- compact(list(names=names2, data_source_ids=data_source_ids, resolve_once=resolve_once, 
                        with_context=with_context))
   
