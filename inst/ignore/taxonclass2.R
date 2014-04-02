@@ -14,12 +14,42 @@ out['family','kingdom'] # get a range of ranks
 out['variety','genus'] # get a range of ranks
 gethier(out) # get hierarchy as data.frame
 
-# subset data.frame using taxonomy
-df <- data.frame(tribe=c('a','a','b','b','c','c'), 
-           family=c('what','what','what','the','the','the'), 
-           genus=c('hey','how','and','shut','berry','also'))
-df_tax <- new('taxonDataFrame', data=df)
-df[]
+
+df <- data.frame(rank=c('family','tribe','subtribe','genus','subgenus','species'), 
+                 name=c('Helianthi','Helianthi','Helianthi','Poa','Festuci','Poa annua'), 
+                 id=c(1,2,3,4,5,6),
+                 stringsAsFactors = FALSE)
+
+apply(df, 1, make_taxon_fromclass)
+
+make_taxon_fromclass <- function(x, authority="none", ...){
+  rank <- x[['rank']]
+  name <- x[['name']]
+  id <- as.numeric(x[['id']])
+  res <- list(new("taxonref", rank=rank, name=name, id=id))
+  names(res) <- rank
+  res[1]
+}
+
+#   species <- x[ x$rank %in% 'species', 'name']
+#   epithet <- strsplit(species, " ")[[1]][[2]]
+#   res <- new("binomial", 
+#              genus=genus, 
+#              epithet=epithet, 
+#              canonical=paste(genus,epithet,collapse=" "), 
+#              species=paste(genus,epithet,authority,collapse=" "), 
+#              authority=authority)
+#   hier <- new("classification", 
+#               genus=new("taxonref", name=genus), 
+#               species=new("taxonref", name=paste(genus,epithet,collapse=" ")))
+#   if(length(input) > 0){
+#     output <- list()
+#     for(i in seq_along(input)){
+#       slot(hier, names(input)[i]) <- new("taxonref", name=input[[i]])
+#     }
+#   }
+#   new("taxon", binomial=res, classification=hier)
+# }
 
 make_taxon <- function(genus="none", epithet="none", authority="none", ...){
   if(genus=='none') stop("You must supply at least genus")
@@ -126,4 +156,22 @@ setMethod("gethier", "taxon", function(x){
   nn <- slotNames(tmp)[-1]
   vals <- vapply(nn, function(g) slot(tmp, g)@name, "", USE.NAMES = FALSE)
   data.frame(rank=nn, value=vals, stringsAsFactors = FALSE)
+})
+
+
+
+####
+# subset data.frame using taxonomy
+df <- data.frame(family=c('Asteraceae','Asteraceae','Asteraceae','Poaceae','Poaceae','Poaceae'), 
+                 tribe=c('Helianthi','Helianthi','Helianthi','Poaeae','Festuci','Poaeae'), 
+                 genus=c('Helianthus','Helianthus','Madia','Poa','Festuca','Holodiscus'), stringsAsFactors = FALSE)
+df_tax <- new('taxonDataFrame', data=df)
+df_tax['family','Asteraceae']
+df_tax['genus','Madia']
+df_tax['tribe','Helianthi']
+
+setClass("taxonDataFrame", slots = c(data = 'data.frame'))
+setMethod("[", "taxonDataFrame", function(x, i, j, ...){
+  tmp <- x@data
+  tmp[ tmp[[i]] %in% j, ]
 })
