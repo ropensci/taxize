@@ -60,16 +60,19 @@ col_downstream <- function(name = NULL, id=NULL, downto, format = NULL, start = 
       }
     }
     
-    torank <- sapply(rank_ref[grep(downto, rank_ref$ranks):nrow(rank_ref),"ranks"], function(x) strsplit(x, ",")[[1]][[1]], USE.NAMES=F)
-    
+#     torank <- 
+#       sapply(rank_ref[grep(downto, rank_ref$ranks):nrow(rank_ref),"ranks"], 
+#                      function(x) strsplit(x, ",")[[1]][[1]], USE.NAMES=FALSE)
+#     
+    torank <-sapply(rank_ref[grep(downto, rank_ref$ranks),"ranks"], 
+                function(x) strsplit(x, ",")[[1]][[1]], USE.NAMES=FALSE)
+
     toget <- ifelse(is.null(y), x, y) 
     stop_ <- "not" 
     notout <- data.frame(rankName = "")
     out <- list()
     iter <- 0
     while(stop_ == "not"){
-      iter <- iter + 1
-      
       searchcol <- function(x=NULL, y=NULL) {
         args <- compact(list(name=x, id=y, format=format, response="full", start=start))
         out_ <- getForm(url, .params = args)
@@ -81,12 +84,16 @@ col_downstream <- function(name = NULL, id=NULL, downto, format = NULL, start = 
         data.frame(childtaxa_id, childtaxa_name, childtaxa_rank, stringsAsFactors = FALSE)
       }
       
+      iter <- iter + 1
+      
       if(is.null(x)){
         tt <- ldply(toget, function(z) searchcol(y=z))
       } else
       {
         tt <- ldply(toget, function(z) searchcol(x=z))
       }
+      
+      # remove 
       
       if(nrow(tt[tt$childtaxa_rank == downto, ]) > 0) out[[iter]] <- tt[tt$childtaxa_rank == downto, ]
       if(nrow(tt[!tt$childtaxa_rank == downto, ]) > 0) {
@@ -107,7 +114,10 @@ col_downstream <- function(name = NULL, id=NULL, downto, format = NULL, start = 
     if(length(out) == 0){
       return( data.frame(childtaxa_id=NA, childtaxa_name=NA, childtaxa_rank=NA) )
     } else {
-      return( compact(out)[[1]] )      
+#       return( compact(out)[[1]] )
+      res <- compact(out)
+      ret <- do.call(rbind.fill, res)
+      return( ret )
     }
   } # end fxn func
   
@@ -121,6 +131,6 @@ col_downstream <- function(name = NULL, id=NULL, downto, format = NULL, start = 
   }
   
   nas <- sapply(temp, function(z) nrow(na.omit(z)))
-  message(sprintf('These taxa with no data: %s\nTry adjusting intput parameters', names(nas[nas==0])))
-  temp
+  message(sprintf('These taxa with no data: %s\nTry adjusting input parameters', names(nas[nas==0])))
+  return( temp )
 }

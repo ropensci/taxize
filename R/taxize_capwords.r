@@ -1,5 +1,6 @@
 #' Capitalize the first letter of a character string.
 #' 
+#' @export
 #' @param s A character string
 #' @param strict Should the algorithm be strict about capitalizing. 
 #'    Defaults to FALSE.
@@ -8,7 +9,7 @@
 #' @examples 
 #' taxize_capwords(c("using AIC for model selection"))
 #' taxize_capwords(c("using AIC for model selection"), strict=TRUE)
-#' @export
+
 taxize_capwords <- function(s, strict = FALSE, onlyfirst = FALSE) {
 	cap <- function(s) paste(toupper(substring(s,1,1)),
 		{s <- substring(s,2); if(strict) tolower(s) else s}, sep="", collapse=" " )
