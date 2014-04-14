@@ -34,7 +34,8 @@ gnr_resolve(names, data_source_ids = NULL, resolve_once = FALSE,
 
   \item{http}{The HTTP method to use, one of "get" or
   "post". Default="get".  Use http="post" with large
-  queries.}
+  queries. Queries with > 300 records use "post"
+  automatically because "get" would fail}
 
   \item{callopts}{Curl debugging options to pass in
   httr::GET or POST}

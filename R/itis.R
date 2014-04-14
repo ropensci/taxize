@@ -645,7 +645,10 @@ getitistermsfromcommonname <- function(srchkey = NA, ..., curl = getCurlHandle()
 	gg <- getNodeSet(out, "//ax21:itisTerms", namespaces=namespaces, xmlToList)
 	tmp <- do.call(rbind.fill, lapply(gg, function(x) data.frame(x,stringsAsFactors=FALSE)))  
   names(tmp) <- tolower(names(tmp))
-  tmp
+	row.names(tmp) <- NULL
+	if(nrow(tmp)==1 && names(tmp)=="x"){
+	  NA
+	} else { tmp }
 }
 
 #' Get itis terms from common names
@@ -671,7 +674,10 @@ getitisterms <- function(srchkey = NA, ..., curl = getCurlHandle())
   gg <- getNodeSet(out, "//ax21:itisTerms", namespaces=namespaces, xmlToList)
   tmp <- do.call(rbind.fill, lapply(gg, function(x) data.frame(x,stringsAsFactors=FALSE)))
   names(tmp) <- tolower(names(tmp))
-  tmp
+  row.names(tmp) <- NULL
+  if(nrow(tmp)==1 && names(tmp)=="x"){
+    NA
+  } else { tmp }
 }
 
 #' Get itis terms from scientific names
@@ -699,7 +705,10 @@ getitistermsfromscientificname <- function(srchkey = NA, ..., curl = getCurlHand
 	gg <- getNodeSet(out, "//ax21:itisTerms", namespaces=namespaces, xmlToList)
 	tmp <- do.call(rbind.fill, lapply(gg, function(x) data.frame(x,stringsAsFactors=FALSE)))
 	names(tmp) <- tolower(names(tmp))
-	tmp
+  row.names(tmp) <- NULL
+  if(nrow(tmp)==1 && names(tmp)=="x"){
+    NA
+  } else { tmp }
 }
 
 #' Get jurisdictional origin from tsn
