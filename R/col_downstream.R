@@ -105,7 +105,8 @@ col_downstream <- function(name = NULL, id=NULL, downto, format = NULL, start = 
         stop_ <- "fam"
       } else
       { 
-        toget <- as.character(notout$childtaxa_name)
+        x <- NULL
+        toget <- as.character(notout$childtaxa_id)
         stop_ <- "not" 
       }
       
