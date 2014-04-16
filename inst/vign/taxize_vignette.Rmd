@@ -23,7 +23,7 @@ install.packages("taxize")
 ```
 
 ```{r loadtaxize, messages=FALSE, warning=FALSE}
-library(taxize)
+library("taxize")
 ```
 
 Advanced users can also download and install the latest development copy from [GitHub](https://github.com/ropensci/taxize_).
@@ -53,8 +53,8 @@ Another common use case is when there are many synonyms for a species. In this e
 
 ```{r synonyms, eval=TRUE, cache=FALSE, message=FALSE, warning=FALSE, comment=NA}
 mynames <- c("Helianthus annuus ssp. jaegeri", "Helianthus annuus ssp. lenticularis", "Helianthus annuus ssp. texanus")
-tsn <- get_tsn(mynames)
-library(plyr)
+(tsn <- get_tsn(mynames))
+library("plyr")
 ldply(tsn, itis_acceptname)
 ```
 
@@ -111,7 +111,7 @@ Biologist often need to match different sets of data tied to species. For exampl
 
 We can use the mentioned `classification`-function to retrieve the taxonomic hierarchy and then search the hierarchies up- and downwards for matches. Here is an example to match a species with names on three different taxonomic levels.
 
-```{r tax_match, cache=FALSE, tidy=FALSE}
+```{r tax_match, cache=FALSE, tidy=FALSE, message=FALSE}
 A <- "gammarus roeseli" 
 
 B1 <- "gammarus roeseli"
@@ -125,8 +125,8 @@ B3_clas <- classification(B3, db = 'ncbi')
 
 
 B1[match(A, B1)]
-A_clas[[1]]$Rank[tolower(A_clas[[1]]$ScientificName) %in% B2]
-A_clas[[1]]$Rank[tolower(A_clas[[1]]$ScientificName) %in% B3]
+A_clas[[1]]$rank[tolower(A_clas[[1]]$name) %in% B2]
+A_clas[[1]]$rank[tolower(A_clas[[1]]$name) %in% B3]
 ```
 
 If we find a direct match (here *Gammarus roeseli*), we are lucky. But we can also match Gammaridae with *Gammarus roeseli*, but on a lower taxonomic level. A more comprehensive and realistic example (matching a trait table with an abundance table) is given in the vignette on matching.

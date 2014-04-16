@@ -26,16 +26,7 @@ install.packages("taxize")
 
 
 ```r
-library(taxize)
-```
-
-```
-## 
-## 
-## New to taxize? Tutorial at http://ropensci.org/tutorials/taxize_tutorial.html 
-## citation(package='taxize') for the citation for this package 
-## API key names have changed. Use tropicosApiKey, eolApiKey, ubioApiKey, and pmApiKey in your .Rprofile file. 
-## Use suppressPackageStartupMessages() to suppress these startup messages in the future
+library("taxize")
 ```
 
 
@@ -48,13 +39,6 @@ This is a common task in biology. We often have a list of species names and we w
 
 ```r
 temp <- gnr_resolve(names = c("Helianthos annus", "Homo saapiens"))
-```
-
-```
-## Loading required package: rjson
-```
-
-```r
 temp[, -c(1, 4)]
 ```
 
@@ -78,7 +62,7 @@ tnrs(query = mynames, source = "iPlant_TNRS")[, -c(5:7)]
 ```
 
 ```
-## Calling http://taxosaurus.org/retrieve/14512c6611cb44a5c4992ac72df8f75f
+## Calling http://taxosaurus.org/retrieve/f0edbb404b76c32ba6e78af8a49a3336
 ```
 
 ```
@@ -104,8 +88,19 @@ Another common use case is when there are many synonyms for a species. In this e
 ```r
 mynames <- c("Helianthus annuus ssp. jaegeri", "Helianthus annuus ssp. lenticularis", 
     "Helianthus annuus ssp. texanus")
-tsn <- get_tsn(mynames)
-library(plyr)
+(tsn <- get_tsn(mynames))
+```
+
+```
+[1] "525928" "525929" "525930"
+attr(,"match")
+[1] "found" "found" "found"
+attr(,"class")
+[1] "tsn"
+```
+
+```r
+library("plyr")
 ldply(tsn, itis_acceptname)
 ```
 
@@ -310,41 +305,9 @@ B2 <- "gammarus"
 B3 <- "gammaridae"
 
 A_clas <- classification(A, db = 'ncbi')
-```
-
-```
-## 
-## Retrieving data for taxon 'gammarus roeseli'
-```
-
-```r
 B1_clas <- classification(B1, db = 'ncbi')
-```
-
-```
-## 
-## Retrieving data for taxon 'gammarus roeseli'
-```
-
-```r
 B2_clas <- classification(B2, db = 'ncbi')
-```
-
-```
-## 
-## Retrieving data for taxon 'gammarus'
-```
-
-```r
 B3_clas <- classification(B3, db = 'ncbi')
-```
-
-```
-## 
-## Retrieving data for taxon 'gammaridae'
-```
-
-```r
 
 
 B1[match(A, B1)]
@@ -355,19 +318,19 @@ B1[match(A, B1)]
 ```
 
 ```r
-A_clas[[1]]$Rank[tolower(A_clas[[1]]$ScientificName) %in% B2]
+A_clas[[1]]$rank[tolower(A_clas[[1]]$name) %in% B2]
 ```
 
 ```
-## NULL
+## [1] "genus"
 ```
 
 ```r
-A_clas[[1]]$Rank[tolower(A_clas[[1]]$ScientificName) %in% B3]
+A_clas[[1]]$rank[tolower(A_clas[[1]]$name) %in% B3]
 ```
 
 ```
-## NULL
+## [1] "family"
 ```
 
 

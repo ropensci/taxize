@@ -59,7 +59,7 @@
 #' }
 #' @export
 tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST", 
-                 sleep = 0, splitby = 30, verbose=TRUE)
+                 sleep = 0, splitby = 30, verbose=TRUE, callopts=list())
 {
 	mainfunc <- function(x){
 	  url = "http://taxosaurus.org/submit"
