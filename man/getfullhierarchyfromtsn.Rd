@@ -4,7 +4,7 @@
 \title{Get full hierarchy from tsn}
 \usage{
 getfullhierarchyfromtsn(tsn = NA, curlopts = list(),
-  curl = getCurlHandle())
+  curl = getCurlHandle(), verbose = TRUE)
 }
 \arguments{
 \item{tsn}{TSN for a taxonomic group (numeric)}
@@ -13,6 +13,8 @@ getfullhierarchyfromtsn(tsn = NA, curlopts = list(),
 
 \item{curl}{If using in a loop, call getCurlHandle() first and pass
 the returned value in here (avoids unnecessary footprint)}
+
+\item{verbose}{(logical) Print messages or not. Default to TRUE.}
 }
 \description{
 Get full hierarchy from tsn

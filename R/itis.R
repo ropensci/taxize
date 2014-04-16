@@ -326,18 +326,20 @@ getexpertsfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle() 
 #' @param curlopts optional additional curl options (debugging tools mostly)
 #' @param curl If using in a loop, call getCurlHandle() first and pass 
 #'  the returned value in here (avoids unnecessary footprint)
+#' @param verbose (logical) Print messages or not. Default to TRUE.
 #' @examples \dontrun{
 #' getfullhierarchyfromtsn(tsn = 37906)
 #' getfullhierarchyfromtsn(tsn = 100800)
 #' }
 #' @export
 #' @keywords internal
-getfullhierarchyfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle()) 
+getfullhierarchyfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle(), verbose=TRUE)
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN'
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
+	mssg(verbose, paste(url, '?tsn=', tsn, sep=''))
   tt <- getForm(url, .params = args, .opts=curlopts, curl = curl)
   out <- xmlParse(tt)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
