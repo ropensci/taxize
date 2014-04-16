@@ -5,7 +5,8 @@
  TSN in the search key to the TSN field. Returns an empty result set if
  there is no match or the TSN is invalid.}
 \usage{
-getrecordfromlsid(lsid = NA, curlopts = list(), curl = getCurlHandle())
+getrecordfromlsid(lsid = NA, curlopts = list(), curl = getCurlHandle,
+  verbose = TRUE)
 }
 \arguments{
 \item{lsid}{lsid for a taxonomic group (numeric)}
@@ -14,6 +15,8 @@ getrecordfromlsid(lsid = NA, curlopts = list(), curl = getCurlHandle())
 
 \item{curl}{If using in a loop, call getCurlHandle() first and pass
 the returned value in here (avoids unnecessary footprint)}
+
+\item{verbose}{(logical) Print messages or not. Default to TRUE.}
 }
 \description{
 Gets the partial ITIS record for the TSN in the LSID, found by comparing the

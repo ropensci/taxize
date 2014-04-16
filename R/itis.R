@@ -963,7 +963,7 @@ getrecordfromlsid <- function(lsid = NA, curlopts=list(), curl = getCurlHandle, 
   args <- list()
   if(!is.na(lsid))
     args$lsid <- lsid
-	mssg(verbose, paste(url, '?tsn=', tsn, sep=''))
+	mssg(verbose, paste(url, '?lsid=', lsid, sep=''))
   tt <- getForm(url, .params = args, .opts=curlopts, curl = curl)
   out <- xmlParse(tt)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
@@ -1209,7 +1209,7 @@ gettsnfromlsid <- function(lsid = NA, curlopts=list(), curl = getCurlHandle(), v
   args <- list()
   if(!is.na(lsid))
     args$lsid <- lsid
-	mssg(verbose, paste(url, '?tsn=', tsn, sep=''))
+	mssg(verbose, paste(url, '?lsid=', lsid, sep=''))
   tt <- getForm(url, .params = args, .opts=curlopts, curl = curl)
   out <- xmlParse(tt)
   if( !is.na( suppressWarnings(as.numeric(xmlToList(out)[[1]])) ) )

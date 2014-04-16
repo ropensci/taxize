@@ -30,7 +30,7 @@ results}
 
 \item{key}{Your EOL API key; loads from .Rprofile.}
 
-\item{callopts}{Further args passed on to GET.}
+\item{callopts}{Curl options passed on to getForm.}
 }
 \value{
 JSON list object, or data.frame.

@@ -40,7 +40,8 @@ Imports:
     data.table,
     reshape,
     vegan,
-    rgbif
+    rgbif,
+    assertthat
 Suggests:
     testthat,
     roxygen2,

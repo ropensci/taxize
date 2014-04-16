@@ -24,7 +24,7 @@ A vector of unique identifiers (EOL). If a taxon is not found NA.
 If more than one ID is found the function asks for user input.
 }
 \description{
-Note that EOL doesn't expose an API endpointn for directly querying for EOL
+Note that EOL doesn't expose an API endpoint for directly querying for EOL
 taxon ID's, so we first use the function \code{\link[taxize]{eol_search}} to find pages
 that deal with the species of interest, then use \code{\link[taxize]{eol_pages}}
 to find the actual taxon IDs.
