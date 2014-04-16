@@ -5,6 +5,7 @@
 #' @param query Vector of names
 #' @param retrieve Specifies whether to retrieve all matches for the names submitted. One of 'best' 
 #' (retrieves only the single best match for each name submitted) or 'all' (retrieves all matches)
+#' @param callopts Curl options passed on to \code{httr::GET}
 #' @examples \dontrun{
 #' iplant_resolve(query=c("Helianthus annuus", "Homo sapiens"))
 #' }

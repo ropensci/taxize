@@ -103,7 +103,7 @@ iucn_status <- function(x, ...){
   UseMethod("iucn_status")
 }
 
-#' @S3method iucn_status default
+#' @method iucn_status default
 iucn_status.default <- function(x, ...) {
   stop("No default method for status defined!\n
        Did you mean iucn_status.iucn?\n")
