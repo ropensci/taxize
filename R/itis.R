@@ -951,18 +951,19 @@ getranknames <- function()
 #' @param curlopts optional additional curl options (debugging tools mostly)
 #' @param curl If using in a loop, call getCurlHandle() first and pass 
 #'  the returned value in here (avoids unnecessary footprint)
+#' @param verbose (logical) Print messages or not. Default to TRUE.
 #' @examples \dontrun{
 #' getrecordfromlsid(lsid = "urn:lsid:itis.gov:itis_tsn:180543")
 #' }
 #' @export
 #' @keywords internal 
-getrecordfromlsid <- function(lsid = NA, curlopts=list(), curl = getCurlHandle() ) 
+getrecordfromlsid <- function(lsid = NA, curlopts=list(), curl = getCurlHandle, verbose=TRUE) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getRecordFromLSID'
   args <- list()
   if(!is.na(lsid))
     args$lsid <- lsid
-  message(paste(url, '?lsid=', lsid, sep=''))
+	mssg(verbose, paste(url, '?tsn=', tsn, sep=''))
   tt <- getForm(url, .params = args, .opts=curlopts, curl = curl)
   out <- xmlParse(tt)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
@@ -1039,18 +1040,20 @@ getscientificnamefromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHa
 #' @param curlopts optional additional curl options (debugging tools mostly)
 #' @param curl If using in a loop, call getCurlHandle() first and pass 
 #'  the returned value in here (avoids unnecessary footprint)
+#' @param verbose (logical) Print messages or not. Default to TRUE.
 #' @examples \dontrun{
 #' getsynonymnamesfromtsn(tsn = 183671) # tsn not accepted
 #' getsynonymnamesfromtsn(tsn = 526852) # tsn accepted
 #' }
 #' @export
 #' @keywords internal 
-getsynonymnamesfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle()) 
+getsynonymnamesfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle(), verbose=TRUE) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getSynonymNamesFromTSN'
   args <- list()
   if(!is.na(tsn))
     args$tsn <- tsn
+	mssg(verbose, paste(url, '?tsn=', tsn, sep=''))
   tt <- getForm(url,.params = args,.opts=curlopts,curl = curl)
   out <- xmlParse(tt)
   namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd")
@@ -1193,19 +1196,20 @@ gettsnbyvernacularlanguage <- function(language = NA, curlopts=list(),
 #' @param curlopts optional additional curl options (debugging tools mostly)
 #' @param curl If using in a loop, call getCurlHandle() first and pass 
 #'  the returned value in here (avoids unnecessary footprint)
+#' @param verbose (logical) Print messages or not. Default to TRUE.
 #' @examples \dontrun{
 #' gettsnfromlsid(lsid = "urn:lsid:itis.gov:itis_tsn:28726")
 #' gettsnfromlsid(lsid = "urn:lsid:itis.gov:itis_tsn:0")
 #' }
 #' @export
 #' @keywords internal 
-gettsnfromlsid <- function(lsid = NA, curlopts=list(), curl = getCurlHandle() ) 
+gettsnfromlsid <- function(lsid = NA, curlopts=list(), curl = getCurlHandle(), verbose=TRUE) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getTSNFromLSID'
   args <- list()
   if(!is.na(lsid))
     args$lsid <- lsid
-  message(paste(url, '?lsid=', lsid, sep=''))
+	mssg(verbose, paste(url, '?tsn=', tsn, sep=''))
   tt <- getForm(url, .params = args, .opts=curlopts, curl = curl)
   out <- xmlParse(tt)
   if( !is.na( suppressWarnings(as.numeric(xmlToList(out)[[1]])) ) )
