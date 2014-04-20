@@ -24,8 +24,7 @@ Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
 LazyLoad: yes
 LazyData: yes
 VignetteBuilder: knitr
-Depends:
-    R (>= 3.0.1)
+Roxygen: list(wrap = FALSE)
 Imports:
     XML,
     RCurl (>= 1.6),

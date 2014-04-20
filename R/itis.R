@@ -957,15 +957,17 @@ getranknames <- function()
 #' }
 #' @export
 #' @keywords internal 
-getrecordfromlsid <- function(lsid = NA, curlopts=list(), curl = getCurlHandle, verbose=TRUE) 
+getrecordfromlsid <- function(lsid = NA, curlopts=list(), verbose=TRUE) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getRecordFromLSID'
   args <- list()
   if(!is.na(lsid))
     args$lsid <- lsid
 	mssg(verbose, paste(url, '?lsid=', lsid, sep=''))
-  tt <- getForm(url, .params = args, .opts=curlopts, curl = curl)
-  out <- xmlParse(tt)
+  tt <- GET(url, query = args, curlopts)
+  stop_for_status(tt)
+  res <- content(tt, as = "text")
+  out <- xmlParse(res)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
   toget <- list("authorship","genusPart","infragenericEpithet",
                 "infraspecificEpithet","lsid","nameComplete","nomenclaturalCode",
