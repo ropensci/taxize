@@ -10,7 +10,8 @@
 #' 
 #' This function is vectorized, so you can pass a single name or a vector of names.
 #'   
-#' @import httr plyr
+#' @import RCurl RJSONIO plyr
+#' @export
 #' @param name A taxonomic name, or a vector of names.
 #' @param dataset One of all, gisd100, gisd, gris, isc, daisie, i3n, or mineps.
 #'    See the Details for what each dataset ID. 
@@ -51,7 +52,7 @@
 #' eol_invasive(name=c('Branta canadensis','Gallus gallus','Myiopsitta monachus'), dataset='daisie')
 #' eol_invasive(name=c('Branta canadensis','Gallus gallus','Myiopsitta monachus'), dataset='isc')
 #' }
-#' @export
+
 eol_invasive <- function(name = NULL, dataset="all", searchby = grep, page=NULL, 
   per_page=NULL, key = NULL, callopts=list(), verbose=TRUE)
 {     
@@ -70,9 +71,11 @@ eol_invasive <- function(name = NULL, dataset="all", searchby = grep, page=NULL,
   key <- getkey(key, "eolApiKey")
 
   args <- compact(list(id=datasetid,page=page,per_page=500,filter='taxa'))
-  tt <- GET(url, query=args, callopts)
-  stop_for_status(tt)
-  res <- content(tt) 
+#   tt <- GET(url, query=args, callopts)
+  tt <- getForm(url, .params = args, .opts = callopts)
+#   stop_for_status(tt)
+#   res <- content(tt, as = "text")
+  res <- fromJSON(tt, simplifyWithNames = FALSE)
   data_init <- res$collection_items
   mssg(verbose, sprintf("Getting data for %s names...", res$total_items))
   
@@ -89,9 +92,11 @@ eol_invasive <- function(name = NULL, dataset="all", searchby = grep, page=NULL,
     out <- list()
     for(i in seq_along(pages_get)){
       args <- compact(list(id=datasetid,page=pages_get[i],per_page=500,filter='taxa'))
-      tt <- GET(url, query=args, callopts)
-      stop_for_status(tt)
-      res <- content(tt)
+#       tt <- GET(url, query=args, callopts)
+      tt <- getForm(url, .params = args, .opts = callopts)
+#       stop_for_status(tt)
+#       res <- content(tt)
+      res <- fromJSON(tt, simplifyWithNames = FALSE)
       out[[i]] <- res$collection_items
     }
     res2 <- compact(out)
