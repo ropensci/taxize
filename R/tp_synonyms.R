@@ -18,11 +18,11 @@ tp_synonyms <- function(id, key = NULL, verbose=TRUE)
   searchresults <- RJSONIO::fromJSON(urlget)
   
   if(names(searchresults[[1]])[[1]] == "Error"){
-    nonedf <- data.frame(NameId="no syns found",ScientificName="no syns found",ScientificNameWithAuthors="no syns found",Family="no syns found")
+    nonedf <- data.frame(nameid="no syns found",scientificname="no syns found",scientificnamewithauthors="no syns found",family="no syns found",stringsAsFactors = FALSE)
     list(accepted=nonedf, synonyms=nonedf)
   } else
   {  
-    dat <- lapply(searchresults, function(x) lapply(x, data.frame))
+    dat <- lapply(searchresults, function(x) lapply(x, data.frame, stringsAsFactors = FALSE))
     accepted <- dat[[1]]$AcceptedName
     df <- do.call(rbind.fill, lapply(dat, "[[", "SynonymName"))
     synonyms <- df[!duplicated.data.frame(df), ]
