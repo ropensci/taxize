@@ -593,7 +593,7 @@ getitistermsfromcommonname <- function(srchkey = NA, curlopts=list(), curl = get
   args <- list()
   if(!is.na(srchkey))
     args$srchKey <- srchkey
-  tt <- getForm(url, .params = args, .opts=curlopts, curl = curl)
+  tt <- getForm(url, .params = args, .opts=c(curlopts, followlocation = 0L), curl = curl)
   out <- xmlParse(tt)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
 	gg <- getNodeSet(out, "//ax21:itisTerms", namespaces=namespaces, xmlToList)
@@ -619,7 +619,7 @@ getitisterms <- function(srchkey = NA, curlopts=list(), curl = getCurlHandle())
   args <- list()
   if(!is.na(srchkey))
     args$srchKey <- srchkey
-  tt <- getForm(url, .params = args, curlopts=list(), curl = curl)
+  tt <- getForm(url, .params = args, .opts=c(curlopts, followlocation = 0L), curl = curl)
   out <- xmlParse(tt)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
   gg <- getNodeSet(out, "//ax21:itisTerms", namespaces=namespaces, xmlToList)
@@ -647,7 +647,7 @@ getitistermsfromscientificname <- function(srchkey = NA, curlopts=list(), curl =
   if (!is.na(srchkey)) 
     args$srchKey <- srchkey
   message(paste(url, "?srchKey=", srchkey, sep = ""))
-  tt <- getForm(url, .params = args, .opts = curlopts, curl = curl)
+  tt <- getForm(url, .params = args, .opts = c(curlopts, followlocation = 0L), curl = curl)
   out <- xmlParse(tt)
   namespaces <- c(namespaces <- c(ax21 = "http://data.itis_service.itis.usgs.gov/xsd"))
   gg <- getNodeSet(out, "//ax21:itisTerms", namespaces = namespaces, 
