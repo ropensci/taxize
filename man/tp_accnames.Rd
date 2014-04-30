@@ -22,8 +22,12 @@ Return all accepted names for a taxon name with a given id.
 }
 \examples{
 \dontrun{
-tp_accnames(id = 25503923)
+head(tp_accnames(id = 25503923))
 tp_accnames(id = 25503923, output = 'raw')
+head(tp_accnames(id = 25538750))
+
+# No accepted names found
+tp_accnames(id = 25509881)
 }
 }
 
