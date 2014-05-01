@@ -36,7 +36,12 @@
 #' sources
 #' eol <- sources$id[sources$title == 'EOL']
 #' gnr_resolve(names=c("Helianthos annuus","Homo sapians"), data_source_ids=eol)
+#' 
+#' # Two species in the NE Brazil catalogue
+#' sps <- c('Justicia brasiliana','Schinopsis brasiliensis')
+#' gnr_resolve(names = sps, data_source_ids = 145)
 #' }
+
 gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE, 
   with_context = FALSE, stripauthority = FALSE, highestscore = TRUE, http="get", callopts=list())
 {
@@ -45,13 +50,16 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
   names2 <- paste0(names, collapse = "|")
   if(length(names2) > 300 & http == "get") http <- "post"
   
+  data_source_ids <- paste0(data_source_ids, collapse = "|")
+  
   args <- compact(list(names=names2, data_source_ids=data_source_ids, resolve_once=resolve_once, 
                        with_context=with_context))
   
   if(http=='get'){
     tmp <- GET(url, query=args, callopts)
     stop_for_status(tmp)
-    dat <- content(tmp)$data
+    tmp2 <- content(tmp, as = "text")
+    dat <- fromJSON(tmp2, simplifyWithNames = FALSE)$data
   } else
     if(http=='post'){
       args <- args[!names(args) %in% "names"]
@@ -77,11 +85,15 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
     } else
       stop("http must be one of 'get' or 'post'")
 
-  data_ <- llply(dat, function(y) list(y[["supplied_name_string"]], 
-                                        llply(y$results, function(x) data.frame(x[c("name_string", "data_source_title", "score", "canonical_form")]))))
-  data_2 <- ldply(data_, function(x) data.frame(x[[1]], ldply(x[[2]])))
+  data_ <- lapply(dat, function(y) list(y[["supplied_name_string"]], 
+                                        lapply(y$results, function(x) data.frame(x[c("name_string", "data_source_title", "score", "canonical_form")]))))
+  data_2 <- ldply(data_, function(x) data.frame(x[[1]], ldply( if(length(x[[2]])==0) 
+      { list(data.frame(name_string="",data_source_title="",score=NaN,canonical_form="")) } else { x[[2]] } ), stringsAsFactors = FALSE))
   
   names(data_2)[c(1,2,5)] <- c("submitted_name", "matched_name", "matched_name2")
+  data_2$matched_name <- as.character(data_2$matched_name)
+  data_2$data_source_title <- as.character(data_2$data_source_title)
+  data_2$matched_name2 <- as.character(data_2$matched_name2)
   out <- data_2[order(data_2$submitted_name), ]
   
   if(stripauthority){

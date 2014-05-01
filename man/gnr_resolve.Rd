@@ -51,6 +51,10 @@ sources<- gnr_datasources()
 sources
 eol <- sources$id[sources$title == 'EOL']
 gnr_resolve(names=c("Helianthos annuus","Homo sapians"), data_source_ids=eol)
+
+# Two species in the NE Brazil catalogue
+sps <- c('Justicia brasiliana','Schinopsis brasiliensis')
+gnr_resolve(names = sps, data_source_ids = 145)
 }
 }
 \author{
