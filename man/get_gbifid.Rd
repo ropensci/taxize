@@ -35,7 +35,7 @@ get_gbifid(sciname='Puma concolor')
 
 get_gbifid(c("Poa annua", "Pinus contorta"))
 
-# When not found
+# When not found, NA given
 get_gbifid(sciname="uaudnadndj")
 get_gbifid(c("Chironomus riparius", "uaudnadndj"))
 }

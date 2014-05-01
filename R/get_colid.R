@@ -75,6 +75,7 @@ get_colid <- function(sciname, ask = TRUE, verbose = TRUE){
     }  
     return(id)
   }
+  sciname <- as.character(sciname)
   out <- laply(sciname, fun, ask, verbose)
   class(out) <- "colid"
   return(out)

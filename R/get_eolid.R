@@ -102,6 +102,7 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...){
     }  
     return(id)
   }
+  sciname <- as.character(sciname)
   out <- laply(sciname, fun, ask, verbose)
   class(out) <- "eolid"
   return(out)

@@ -29,7 +29,7 @@
 #' 
 #' get_gbifid(c("Poa annua", "Pinus contorta"))
 #' 
-#' # When not found
+#' # When not found, NA given
 #' get_gbifid(sciname="uaudnadndj")
 #' get_gbifid(c("Chironomus riparius", "uaudnadndj"))
 #' }
@@ -91,6 +91,7 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE){
     }  
     return(id)
   }
+  sciname <- as.character(sciname)
   out <- laply(sciname, fun, ask, verbose)
   class(out) <- "gbifid"
   return(out)

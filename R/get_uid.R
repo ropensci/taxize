@@ -89,6 +89,7 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE){
     }  
     return(data.frame(uid, att, stringsAsFactors= FALSE))
   }
+  sciname <- as.character(sciname)
   outd <- ldply(sciname, fun, ask, verbose)
   out <- outd$uid
   attr(out, 'match') <- outd$att

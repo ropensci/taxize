@@ -1,7 +1,7 @@
 #' Get the NameID codes from Tropicos for taxonomic names.
 #' 
 #' @import plyr RCurl
-#' @param sciname character; scientific name.
+#' @param sciname (character) One or more scientific name's as a vector or list.
 #' @param ask logical; should get_tpsid be run in interactive mode? 
 #' If TRUE and more than one ID is found for the species, the user is asked for 
 #' input. If FALSE NA is returned for multiple matches.
@@ -23,13 +23,22 @@
 #' 
 #' get_tpsid(c("Poa annua", "Pinus contorta"))
 #' 
-#' # When not found
+#' # When not found, NA given (howdy is not a species name, and Chrinomus is a fly)
 #' get_tpsid("howdy")
 #' get_tpsid(c("Chironomus riparius", "howdy"))
 #' 
-#' # pass to tp_classification to get a taxonomic hierarchy
-#' tp_classification(get_tpsid(sciname='Poa annua'))
+#' # pass to classification function to get a taxonomic hierarchy
+#' classification(get_tpsid(sciname='Poa annua'))
+#' 
+#' # factor class names are converted to character internally
+#' spnames <- as.factor(c("Poa annua", "Pinus contorta"))
+#' class(spnames)
+#' get_tpsid(spnames)
+#' 
+#' # pass in a list, works fine
+#' get_tpsid(list("Poa annua", "Pinus contorta"))
 #' }
+
 get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...){
   fun <- function(sciname, ask, verbose) {
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
@@ -77,7 +86,8 @@ get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...){
     }  
     return(id)
   }
+  sciname <- as.character(sciname)
   out <- laply(sciname, fun, ask, verbose)
   class(out) <- "tpsid"
-  return(out)
+  return( out )
 }

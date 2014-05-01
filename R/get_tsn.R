@@ -42,7 +42,6 @@ get_tsn <- function(searchterm, searchtype = "sciname", ask = TRUE, verbose = TR
   fun <- function(x, searchtype, ask, verbose)
   {
     mssg(verbose, "\nRetrieving data for taxon '", x, "'\n")
-#     tsn_df <- searchtype(query=x)
     
     if(searchtype == "sciname"){ tsn_df <- searchbyscientificname(x) } else
     		if(searchtype == "comnamebeg") { tsn_df <- searchbycommonnamebeginswith(x) } else
@@ -105,6 +104,7 @@ get_tsn <- function(searchterm, searchtype = "sciname", ask = TRUE, verbose = TR
     }
     return(data.frame(tsn = as.character(tsn), att = att, stringsAsFactors=FALSE))
   }
+  searchterm <- as.character(searchterm)
   outd <- ldply(searchterm, fun, searchtype, ask, verbose)
   out <- outd$tsn
   attr(out, 'match') <- outd$att

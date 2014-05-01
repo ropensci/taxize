@@ -32,6 +32,7 @@
 #' classification(out$itis)
 #' synonyms(out$tropicos)
 #' }
+
 get_ids <- function(names, db = NULL, ...)
 {
   if(is.null(db))
