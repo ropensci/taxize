@@ -19,7 +19,7 @@ classification(...)
 
 \method{classification}{default}(x, db = NULL, ...)
 
-\method{classification}{tsn}(id, ...)
+\method{classification}{tsn}(id, callopts = list(), ...)
 
 \method{classification}{uid}(id, ...)
 

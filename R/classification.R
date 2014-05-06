@@ -100,49 +100,65 @@ classification.default <- function(x, db = NULL, ...){
   if (is.null(db))
     stop("Must specify db!")
   if (db == 'itis') {
-    id <- get_tsn(x, ...)
+    id <- process_ids(x, get_tsn, ...)
     out <- classification(id, ...)
     names(out) <- x
   }
   if (db == 'ncbi') {
-    id <- get_uid(x, ...)
+    id <- process_ids(x, get_uid, ...)
+#     id <- get_uid(x, ...)
     out <- classification(id, ...)
     names(out) <- x
   }
   if (db == 'eol') {
-    id <- get_eolid(x, ...)
+    id <- process_ids(x, get_eolid, ...)
+#     id <- get_eolid(x, ...)
     out <- classification(id, ...)
     names(out) <- x
   }
   if (db == 'col') {
-    id <- get_colid(x, ...)
+    id <- process_ids(x, get_colid, ...)
+#     id <- get_colid(x, ...)
     out <- classification(id, ...)
     names(out) <- x
   }
   if (db == 'tropicos') {
-    id <- get_tpsid(x, ...)
+    id <- process_ids(x, get_tpsid, ...)
+#     id <- get_tpsid(x, ...)
     out <- classification(id, ...)
     names(out) <- x
   }
   if (db == 'gbif') {
-    id <- get_gbifid(x, ...)
+    id <- process_ids(x, get_gbifid, ...)
+#     id <- get_gbifid(x, ...)
     out <- classification(id, ...)
     names(out) <- x
   }
   return(out)
 }
 
+process_ids <- function(input, fxn, ...){
+  g <- tryCatch(as.numeric(as.character(input)), warning=function(e) e)
+  if(is(g,"numeric")){
+    id <- input
+    class(id) <- "tsn"
+  } else {
+    id <- eval(fxn)(input, ...)
+  }
+  id
+}
+
 #' @method classification tsn
 #' @export
 #' @rdname classification
-classification.tsn <- function(id, ...) 
+classification.tsn <- function(id, callopts = list(), ...) 
 {
   fun <- function(x){
     # return NA if NA is supplied
     if (is.na(x)) {
       out <- NA
     } else {
-    	out <- getfullhierarchyfromtsn(x, ...)
+    	out <- getfullhierarchyfromtsn(x, curlopts = callopts)
     	# remove overhang
     	out <- out[1:which(out$tsn == x), c('taxonName', 'rankName')]
       names(out) <- c('name', 'rank')
