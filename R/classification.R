@@ -97,7 +97,7 @@ classification <- function(...){
 #' @method classification default
 #' @export
 #' @rdname classification
-classification.default <- function(x, db = NULL, callopts=list(), tlimit=30, defaultvalue="time out", ...){
+classification.default <- function(x, db = NULL, callopts=list(), ...){
   if (is.null(db))
     stop("Must specify db!")
   if (db == 'itis') {
