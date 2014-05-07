@@ -40,21 +40,32 @@
 #' col_downstream(id=2346405, downto="Genus", checklist=2012)
 #' }
 
-col_downstream <- function(name = NULL, id=NULL, downto, format = NULL, start = NULL, 
-  checklist = NULL, verbose=TRUE)
+col_downstream <- function(name = NULL, id = NULL, downto, format = NULL, start = NULL, 
+  checklist = NULL, verbose = TRUE)
 {
   url = "http://www.catalogueoflife.org/col/webservice"
   downto <- taxize_capwords(downto)
   poss_ranks <- unique(do.call(c, sapply(rank_ref$ranks, strsplit, split=",", USE.NAMES = FALSE)))
   downto <- match.arg(downto, choices = poss_ranks)
   
+  searchcol <- function(x=NULL, y=NULL) {
+    args <- compact(list(name=x, id=y, format=format, response="full", start=start))
+    out_ <- getForm(url, .params = args)
+    tt <- xmlParse(out_)
+    
+    childtaxa_id <- xpathSApply(tt, "//child_taxa//id", xmlValue)
+    childtaxa_name <- xpathSApply(tt, "//child_taxa//name", xmlValue)
+    childtaxa_rank <- xpathSApply(tt, "//child_taxa//rank", xmlValue)
+    out <- data.frame(childtaxa_id, childtaxa_name, childtaxa_rank, stringsAsFactors = FALSE)
+    return(out)   
+  }
+  
   func <- function(x=NULL, y=NULL) {
-    if(is.null(checklist)){NULL} else {
+    if(!is.null(checklist)){
       cc <- match.arg(as.character(checklist), choices=c(2012,2011,2010,2009,2008,2007))
       if(cc %in% c(2012,2011,2010)){
         url <- gsub("col", paste("annual-checklist/", cc, sep=""), url)
-      } else
-      {
+      } else {
         url <- "http://webservice.catalogueoflife.org/annual-checklist/year/search.php"
         url <- gsub("year", cc, url)
       }
@@ -73,53 +84,38 @@ col_downstream <- function(name = NULL, id=NULL, downto, format = NULL, start = 
     out <- list()
     iter <- 0
     while(stop_ == "not"){
-      searchcol <- function(x=NULL, y=NULL) {
-        args <- compact(list(name=x, id=y, format=format, response="full", start=start))
-        out_ <- getForm(url, .params = args)
-        tt <- xmlParse(out_)
-        
-        childtaxa_id <- xpathSApply(tt, "//child_taxa//id", xmlValue)
-        childtaxa_name <- xpathSApply(tt, "//child_taxa//name", xmlValue)
-        childtaxa_rank <- xpathSApply(tt, "//child_taxa//rank", xmlValue)
-        data.frame(childtaxa_id, childtaxa_name, childtaxa_rank, stringsAsFactors = FALSE)
-      }
-      
-      iter <- iter + 1
-      
+      iter <- iter + 1    
       if(is.null(x)){
         tt <- ldply(toget, function(z) searchcol(y=z))
-      } else
-      {
+      } else {
         tt <- ldply(toget, function(z) searchcol(x=z))
       }
       
       # remove 
-      
-      if(nrow(tt[tt$childtaxa_rank == downto, ]) > 0) out[[iter]] <- tt[tt$childtaxa_rank == downto, ]
+      if(nrow(tt[tt$childtaxa_rank == downto, ]) > 0) 
+        out[[iter]] <- tt[tt$childtaxa_rank == downto, ]
       if(nrow(tt[!tt$childtaxa_rank == downto, ]) > 0) {
         notout <- tt[!tt$childtaxa_rank %in% torank, ]
-      } else
-      { notout <- data.frame(rankName = downto) }
-      
+      } else {
+        notout <- data.frame(rankName = downto) 
+      }
       if(all(notout$childtaxa_rank == downto)) { 
         stop_ <- "fam"
-      } else
-      { 
+      } else { 
         x <- NULL
         toget <- as.character(notout$childtaxa_id)
         stop_ <- "not" 
       }
-      
     } # end while loop
     
     if(length(out) == 0){
-      return( data.frame(childtaxa_id=NA, childtaxa_name=NA, childtaxa_rank=NA) )
+      ret <-  data.frame(childtaxa_id=NA, childtaxa_name=NA, childtaxa_rank=NA)
     } else {
 #       return( compact(out)[[1]] )
       res <- compact(out)
       ret <- do.call(rbind.fill, res)
-      return( ret )
     }
+    return(ret)
   } # end fxn func
   
   safe_func <- plyr::failwith(NULL, func)
