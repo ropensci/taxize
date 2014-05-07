@@ -52,7 +52,7 @@ classification(...)
 \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_tpsid}},
 \code{\link[taxize]{get_gbifid}}.}
 
-\item{callopts}{Curl options passed on to httr::GET}
+\item{callopts}{Curl options passed on to \code{\link[httr]{GET}}}
 
 \item{...}{Other arguments passed to \code{\link[taxize]{get_tsn}},
 \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}},
@@ -69,8 +69,6 @@ single query is 500 for terse queries and 50 for full queries).}
 year's checklist instead of the lastest as default (numeric).}
 
 \item{key}{Your API key; loads from .Rprofile.}
-
-\item{callopts}{Further args passed on to httr::GET.}
 }
 \value{
 A named list of data.frames with the taxonomic classifcation of

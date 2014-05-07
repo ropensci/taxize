@@ -40,10 +40,13 @@ Imports:
     reshape,
     vegan,
     rgbif,
-    assertthat
+    assertthat,
+    R.utils
 Suggests:
     testthat,
     roxygen2,
     rjson,
     knitr,
     jsonlite
+Depends:
+    R(>= 2.10.0)
