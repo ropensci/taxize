@@ -5,7 +5,8 @@
 \usage{
 gnr_resolve(names, data_source_ids = NULL, resolve_once = FALSE,
   with_context = FALSE, stripauthority = FALSE, highestscore = TRUE,
-  http = "get", callopts = list())
+  best_match_only = FALSE, preferred_data_sources = NULL, http = "get",
+  callopts = list())
 }
 \arguments{
 \item{names}{character; taxonomic names to be resolved.}
@@ -28,6 +29,10 @@ taxonomic authorities. If \code{FALSE}, strips author names.}
 
 \item{highestscore}{logical; Return those names with the highest score for
 each searched name?}
+
+\item{best_match_only}{(logical) If TRUE, best match only returned.}
+
+\item{preferred_data_sources}{(character) A vector of one or more data source IDs.}
 
 \item{http}{The HTTP method to use, one of "get" or "post". Default="get".
 Use http="post" with large queries. Queries with > 300 records use "post"
@@ -55,6 +60,13 @@ gnr_resolve(names=c("Helianthos annuus","Homo sapians"), data_source_ids=eol)
 # Two species in the NE Brazil catalogue
 sps <- c('Justicia brasiliana','Schinopsis brasiliensis')
 gnr_resolve(names = sps, data_source_ids = 145)
+
+# Best match only, compare the two
+gnr_resolve(names = "Helianthus annuus", best_match_only = FALSE)
+gnr_resolve(names = "Helianthus annuus", best_match_only = TRUE)
+
+# Preferred data source
+gnr_resolve(names = "Helianthus annuus", preferred_data_sources = c(3,4))
 }
 }
 \author{

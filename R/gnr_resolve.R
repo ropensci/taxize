@@ -18,6 +18,8 @@
 #'    taxonomic authorities. If \code{FALSE}, strips author names.
 #' @param highestscore logical; Return those names with the highest score for
 #'    each searched name?
+#' @param best_match_only (logical) If TRUE, best match only returned.
+#' @param preferred_data_sources (character) A vector of one or more data source IDs.
 #' @param http The HTTP method to use, one of "get" or "post". Default="get".
 #'    Use http="post" with large queries. Queries with > 300 records use "post"
 #'    automatically because "get" would fail
@@ -40,10 +42,18 @@
 #' # Two species in the NE Brazil catalogue
 #' sps <- c('Justicia brasiliana','Schinopsis brasiliensis')
 #' gnr_resolve(names = sps, data_source_ids = 145)
+#' 
+#' # Best match only, compare the two
+#' gnr_resolve(names = "Helianthus annuus", best_match_only = FALSE)
+#' gnr_resolve(names = "Helianthus annuus", best_match_only = TRUE)
+#' 
+#' # Preferred data source
+#' gnr_resolve(names = "Helianthus annuus", preferred_data_sources = c(3,4))
 #' }
 
 gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
-  with_context = FALSE, stripauthority = FALSE, highestscore = TRUE, http="get", callopts=list())
+  with_context = FALSE, stripauthority = FALSE, highestscore = TRUE, best_match_only = FALSE,
+  preferred_data_sources = NULL, http="get", callopts=list())
 {
   num = NULL
   url <- "http://resolver.globalnames.org/name_resolvers.json"
@@ -51,9 +61,16 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
   if(length(names2) > 300 & http == "get") http <- "post"
 
   data_source_ids <- paste0(data_source_ids, collapse = "|")
+  preferred_data_sources <- paste0(preferred_data_sources, collapse = "|")
+  if(nchar(preferred_data_sources)==0) preferred_data_sources <- NULL
+  resolve_once <- if(resolve_once){'true'} else{NULL}
+  with_context <- if(with_context){'true'} else{NULL}
+  highestscore <- if(highestscore){'true'} else{NULL}
+  best_match_only <- if(best_match_only){'true'} else{NULL}
 
-  args <- compact(list(names=names2, data_source_ids=data_source_ids, resolve_once=resolve_once,
-                       with_context=with_context))
+  args <- taxize_compact(list(names=names2, data_source_ids=data_source_ids, resolve_once=resolve_once,
+                       with_context=with_context, best_match_only=best_match_only, 
+                       preferred_data_sources=preferred_data_sources))
 
   if(http=='get'){
     tmp <- GET(url, query=args, callopts)
@@ -85,21 +102,42 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
     } else
       stop("http must be one of 'get' or 'post'")
 
-  data_ <- lapply(dat, function(y) list(y[["supplied_name_string"]],
-                                        lapply(y$results, function(x) data.frame(x[c("name_string", "data_source_title", "score", "canonical_form")]))))
+  data_ <- lapply(dat, 
+                  function(y) 
+                    list(y[["supplied_name_string"]],
+                        lapply(y$results, function(x) data.frame(x[c("name_string", "data_source_title", "score", "canonical_form")]))))
   data_2 <- ldply(data_, function(x) data.frame(x[[1]], ldply( if(length(x[[2]])==0)
       { list(data.frame(name_string="",data_source_title="",score=NaN,canonical_form="")) } else { x[[2]] } ), stringsAsFactors = FALSE))
-
   names(data_2)[c(1,2,5)] <- c("submitted_name", "matched_name", "matched_name2")
   data_2$matched_name <- as.character(data_2$matched_name)
   data_2$data_source_title <- as.character(data_2$data_source_title)
   data_2$matched_name2 <- as.character(data_2$matched_name2)
   out <- data_2[order(data_2$submitted_name), ]
-
+  
+  if(!is.null(preferred_data_sources)){
+    data_preferred <- lapply(dat, 
+      function(y) 
+          list(y[["supplied_name_string"]],
+              lapply(y$preferred_results, function(x) data.frame(x[c("name_string", "data_source_title", "score", "canonical_form")]))))
+    data_2_preferred <- ldply(data_preferred, function(x) data.frame(x[[1]], ldply( if(length(x[[2]])==0)
+    { list(data.frame(name_string="",data_source_title="",score=NaN,canonical_form="")) } else { x[[2]] } ), stringsAsFactors = FALSE))
+    names(data_2_preferred)[c(1,2,5)] <- c("submitted_name", "matched_name", "matched_name2")
+    data_2_preferred$matched_name <- as.character(data_2_preferred$matched_name)
+    data_2_preferred$data_source_title <- as.character(data_2_preferred$data_source_title)
+    data_2_preferred$matched_name2 <- as.character(data_2_preferred$matched_name2)
+    out_preferred <- data_2_preferred[order(data_2_preferred$submitted_name), ]
+    
+    if(stripauthority){
+      out_preferred <- out_preferred[ , !names(out_preferred) %in% "matched_name"]
+    } else {
+      out_preferred <- out_preferred[ , !names(out_preferred) %in% "matched_name2"]
+    }
+  } else { out_preferred <- NULL }
+  
   if(stripauthority){
     out <- out[ , !names(out) %in% "matched_name"]
   } else {
     out <- out[ , !names(out) %in% "matched_name2"]
   }
-  return(out)
+  return( list(results=out, preferred=out_preferred) )
 }
