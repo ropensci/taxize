@@ -17,7 +17,8 @@
 \usage{
 classification(...)
 
-\method{classification}{default}(x, db = NULL, callopts = list(), ...)
+\method{classification}{default}(x, db = NULL, callopts = list(),
+  tlimit = 30, defaultvalue = "time out", ...)
 
 \method{classification}{tsn}(id, callopts = list(), ...)
 

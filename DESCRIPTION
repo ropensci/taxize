@@ -40,7 +40,8 @@ Imports:
     reshape,
     vegan,
     rgbif,
-    assertthat
+    assertthat,
+    R.utils
 Suggests:
     testthat,
     roxygen2,

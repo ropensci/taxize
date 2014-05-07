@@ -70,16 +70,18 @@ taxize_compact <- function (l) Filter(Negate(is.null), l)
 #'
 #' @importFrom R.utils evalWithTimeout
 #' @param test_fn The function call to test
-#' @param  tlimit = 120 A timeout in seconds
-#' @return logical - TRUE if API is up, FALSE if the API is down
+#' @param tlimit = 120 A timeout in seconds
+#' @return If in a loop, passes on to next thing, or if not, then gives back message
 #' @examples \dontrun{
-#' library(taxize)
-#' api_status(eol_search('Salix'))
+#' library("taxize")
+#' try_with_timeout(eol_search('Salix'))
+#' try_with_timeout(eol_search('Salix'), tlimit=10)
 #' }
 
-api_status <- function(test_fn, tlimit = 120) {
+try_with_timeout <- function(test_fn, tlimit = 30, defaultvalue = "TimedOut") {
   results <- tryCatch(expr = evalWithTimeout(test_fn, timeout = tlimit), 
-                      TimeoutException = function(ex) "TimedOut")
-  status <- ifelse(is(results, "TimedOut"), FALSE, TRUE)
-  return( status )
+                      TimeoutException = function(ex) defaultvalue)
+  if(is(results, "TimedOut")){
+    return( defaultvalue )
+  } else { results } 
 }

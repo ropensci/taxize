@@ -97,7 +97,7 @@ classification <- function(...){
 #' @method classification default
 #' @export
 #' @rdname classification
-classification.default <- function(x, db = NULL, callopts=list(), ...){
+classification.default <- function(x, db = NULL, callopts=list(), tlimit=30, defaultvalue="time out", ...){
   if (is.null(db))
     stop("Must specify db!")
   if (db == 'itis') {
@@ -295,7 +295,7 @@ classification.tpsid <- function(id, key = NULL, callopts = list(), ...) {
     } else {
       url <- sprintf('http://services.tropicos.org/Name/%s/HigherTaxa', x)
       key <- getkey(key, "tropicosApiKey")
-      args <- compact(list(format='json', apikey=key))
+      args <- taxize_compact(list(format='json', apikey=key))
       tt <- GET(url, query = args, callopts)
       stop_for_status(tt)
       out <- content(tt)
