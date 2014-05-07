@@ -17,7 +17,7 @@
 \usage{
 classification(...)
 
-\method{classification}{default}(x, db = NULL, ...)
+\method{classification}{default}(x, db = NULL, callopts = list(), ...)
 
 \method{classification}{tsn}(id, callopts = list(), ...)
 
@@ -51,6 +51,8 @@ classification(...)
 \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}},
 \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_tpsid}},
 \code{\link[taxize]{get_gbifid}}.}
+
+\item{callopts}{Curl options passed on to httr::GET}
 
 \item{...}{Other arguments passed to \code{\link[taxize]{get_tsn}},
 \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}},

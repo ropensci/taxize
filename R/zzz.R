@@ -62,3 +62,24 @@ taxize_ldfast <- function(x, convertvec=FALSE){
 mssg <- function(v, ...) if(v) message(...)
 
 taxize_compact <- function (l) Filter(Negate(is.null), l)
+
+
+#' Function to allow user to set timeout on a function call.
+#' 
+#' This is separate from the curl timeout.ms parameter
+#'
+#' @importFrom R.utils evalWithTimeout
+#' @param test_fn The function call to test
+#' @param  tlimit = 120 A timeout in seconds
+#' @return logical - TRUE if API is up, FALSE if the API is down
+#' @examples \dontrun{
+#' library(taxize)
+#' api_status(eol_search('Salix'))
+#' }
+
+api_status <- function(test_fn, tlimit = 120) {
+  results <- tryCatch(expr = evalWithTimeout(test_fn, timeout = tlimit), 
+                      TimeoutException = function(ex) "TimedOut")
+  status <- ifelse(is(results, "TimedOut"), FALSE, TRUE)
+  return( status )
+}

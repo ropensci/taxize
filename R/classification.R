@@ -9,6 +9,7 @@
 #'    \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}}, 
 #'    \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_tpsid}}, 
 #'    \code{\link[taxize]{get_gbifid}}.
+#' @param callopts Curl options passed on to httr::GET    
 #' @param ... Other arguments passed to \code{\link[taxize]{get_tsn}}, 
 #'    \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}}, 
 #'    \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_tpsid}},
@@ -96,12 +97,12 @@ classification <- function(...){
 #' @method classification default
 #' @export
 #' @rdname classification
-classification.default <- function(x, db = NULL, ...){
+classification.default <- function(x, db = NULL, callopts=list(), ...){
   if (is.null(db))
     stop("Must specify db!")
   if (db == 'itis') {
     id <- process_ids(x, get_tsn, ...)
-    out <- classification(id, ...)
+    out <- classification(id, callopts=callopts, ...)
     names(out) <- x
   }
   if (db == 'ncbi') {
@@ -113,7 +114,7 @@ classification.default <- function(x, db = NULL, ...){
   if (db == 'eol') {
     id <- process_ids(x, get_eolid, ...)
 #     id <- get_eolid(x, ...)
-    out <- classification(id, ...)
+    out <- classification(id, callopts=callopts, ...)
     names(out) <- x
   }
   if (db == 'col') {
@@ -125,13 +126,13 @@ classification.default <- function(x, db = NULL, ...){
   if (db == 'tropicos') {
     id <- process_ids(x, get_tpsid, ...)
 #     id <- get_tpsid(x, ...)
-    out <- classification(id, ...)
+    out <- classification(id, callopts=callopts, ...)
     names(out) <- x
   }
   if (db == 'gbif') {
     id <- process_ids(x, get_gbifid, ...)
 #     id <- get_gbifid(x, ...)
-    out <- classification(id, ...)
+    out <- classification(id, callopts=callopts, ...)
     names(out) <- x
   }
   return(out)
