@@ -2,6 +2,7 @@
 #' 
 #' Retrieve name of queried taxonomic rank of a taxon.
 #' 
+#' @export
 #' @param query character; Vector of taxonomic names to query.
 #' @param get character; The ranks of the taxonomic name to get, see 
 #' \code{\link[taxize]{rank_ref}}.
@@ -41,7 +42,7 @@
 #' tax_name(query=c("Helianthus annuus", 'Baetis rhodani'), get=c("genus", 
 #' "kingdom"), db="both")
 #' }
-#' @export
+
 tax_name <- function(query = NULL, get = NULL, db = "itis", pref = 'ncbi', 
                      verbose = TRUE, ...)
 {
@@ -69,7 +70,8 @@ tax_name <- function(query = NULL, get = NULL, db = "itis", pref = 'ncbi',
         if(length(out) == 0)
           out <- data.frame(t(rep(NA, length(get))))
         out <- data.frame(t(out), stringsAsFactors = FALSE)
-        names(out) <- get
+        names(out) <- tolower(as.character(tt[tolower(tt$rank) %in% tolower(get), "rank"]))
+#         names(out) <- get
       }
   	}
     
