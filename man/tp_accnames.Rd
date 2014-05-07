@@ -3,16 +3,14 @@
 \alias{tp_accnames}
 \title{Return all accepted names for a taxon name with a given id.}
 \usage{
-tp_accnames(id, format = "json", output = "df", key = NULL)
+tp_accnames(id, key = NULL, callopts = list())
 }
 \arguments{
 \item{id}{the taxon identifier code}
 
-\item{format}{return in json or xml format (defaults to json)}
-
-\item{output}{raw = json or xml; or df = data.frame}
-
 \item{key}{Your Tropicos API key; loads from .Rprofile.}
+
+\item{callopts}{Further args passed on to httr::GET}
 }
 \value{
 List or dataframe.
@@ -22,9 +20,8 @@ Return all accepted names for a taxon name with a given id.
 }
 \examples{
 \dontrun{
-head(tp_accnames(id = 25503923))
-tp_accnames(id = 25503923, output = 'raw')
-head(tp_accnames(id = 25538750))
+tp_accnames(id = 25503923)
+tp_accnames(id = 25538750)
 
 # No accepted names found
 tp_accnames(id = 25509881)

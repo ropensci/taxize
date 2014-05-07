@@ -60,3 +60,5 @@ taxize_ldfast <- function(x, convertvec=FALSE){
 }
 
 mssg <- function(v, ...) if(v) message(...)
+
+taxize_compact <- function (l) Filter(Negate(is.null), l)

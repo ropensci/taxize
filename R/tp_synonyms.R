@@ -1,28 +1,31 @@
 #' Return all synonyms for a taxon name with a given id.
-#' 
+#'
 #' @import XML RCurl RJSONIO plyr
-#' @param id the taxon identifier code 
+#' @param id the taxon identifier code
 #' @param key Your Tropicos API key; loads from .Rprofile.
-#' @param verbose Verbose or not
+#' @param callopts Further args passed on to httr::GET
 #' @return List or dataframe.
 #' @export
 #' @examples \dontrun{
 #' tp_synonyms(id = 25509881)
 #' }
-tp_synonyms <- function(id, key = NULL, verbose=TRUE)
+
+tp_synonyms <- function(id, key = NULL, callopts=list())
 {
-  url = 'http://services.tropicos.org/Name/'
+  url = sprintf('http://services.tropicos.org/Name/%s/Synonyms', id)
 	key <- getkey(key, "tropicosApiKey")
-  urlget <- paste(url, id, '/Synonyms?apikey=', key, '&format=json', sep="")
-  mssg(verbose, urlget)
-  searchresults <- RJSONIO::fromJSON(urlget)
-  
-  if(names(searchresults[[1]])[[1]] == "Error"){
+  args <- taxize_compact(list(apikey= key, format = 'json'))
+  tmp <- GET(url, query=args, callopts)
+  stop_for_status(tmp)
+  tmp2 <- content(tmp, as = "text")
+  res <- fromJSON(tmp2)
+
+  if(names(res[[1]])[[1]] == "Error"){
     nonedf <- data.frame(nameid="no syns found",scientificname="no syns found",scientificnamewithauthors="no syns found",family="no syns found",stringsAsFactors = FALSE)
     list(accepted=nonedf, synonyms=nonedf)
   } else
-  {  
-    dat <- lapply(searchresults, function(x) lapply(x, data.frame, stringsAsFactors = FALSE))
+  {
+    dat <- lapply(res, function(x) lapply(x, data.frame, stringsAsFactors = FALSE))
     accepted <- dat[[1]]$AcceptedName
     df <- do.call(rbind.fill, lapply(dat, "[[", "SynonymName"))
     synonyms <- df[!duplicated.data.frame(df), ]

@@ -3,19 +3,14 @@
 \alias{tp_summary}
 \title{Return summary data a taxon name with a given id.}
 \usage{
-tp_summary(id, format = "json", output = "df", key = NULL,
-  verbose = TRUE)
+tp_summary(id, key = NULL, callopts = list())
 }
 \arguments{
 \item{id}{the taxon identifier code}
 
-\item{format}{return in json or xml format (defaults to json)}
-
-\item{output}{raw = json or xml; or df = data.frame}
-
 \item{key}{Your Tropicos API key; loads from .Rprofile.}
 
-\item{verbose}{Print messages (default) or not, logical}
+\item{callopts}{Curl options.}
 }
 \value{
 List or dataframe.
@@ -26,7 +21,7 @@ Return summary data a taxon name with a given id.
 \examples{
 \dontrun{
 tp_summary(id = 25509881)
-tp_summary(id = 25509881, output = 'raw')
+tp_summary(id = 2700851)
 }
 }
 

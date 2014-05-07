@@ -3,14 +3,14 @@
 \alias{tp_synonyms}
 \title{Return all synonyms for a taxon name with a given id.}
 \usage{
-tp_synonyms(id, key = NULL, verbose = TRUE)
+tp_synonyms(id, key = NULL, callopts = list())
 }
 \arguments{
 \item{id}{the taxon identifier code}
 
 \item{key}{Your Tropicos API key; loads from .Rprofile.}
 
-\item{verbose}{Verbose or not}
+\item{callopts}{Further args passed on to httr::GET}
 }
 \value{
 List or dataframe.

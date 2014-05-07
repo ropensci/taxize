@@ -1,32 +1,29 @@
 #' Return summary data a taxon name with a given id.
-#' 
-#' @import XML RCurl RJSONIO plyr
-#' @param id the taxon identifier code 
-#' @param format return in json or xml format (defaults to json)
-#' @param output raw = json or xml; or df = data.frame 
+#'
+#' @export
+#' @import httr
+#' @param id the taxon identifier code
 #' @param key Your Tropicos API key; loads from .Rprofile.
-#' @param verbose Print messages (default) or not, logical
+#' @param callopts Curl options.
 #' @return List or dataframe.
 #' @examples \dontrun{
 #' tp_summary(id = 25509881)
-#' tp_summary(id = 25509881, output = 'raw')
+#' tp_summary(id = 2700851)
 #' }
-#' @export
-tp_summary <- function(id, format = 'json', output = 'df', key = NULL, verbose=TRUE) 
+
+tp_summary <- function(id, key = NULL, callopts=list())
 {
-  url = 'http://services.tropicos.org/Name/'
+  url = sprintf('http://services.tropicos.org/Name/%s', id)
 	key <- getkey(key, "tropicosApiKey")
-  if (format == 'json') {
-      urlget <- paste(url, id, '?apikey=', key, '&format=json', sep="")
-      mssg(verbose, urlget)
-      searchresults <- fromJSON(urlget)
-      } 
-  else {
-    urlget <- paste(url, id, '?apikey=', key, '&format=xml', sep="")
-    mssg(verbose, urlget)
-    xmlout <- getURL(urlget)
-    searchresults <- xmlToList(xmlTreeParse(xmlout))
-    }
-  if(output == 'df') { ldply(searchresults, function(x) x[[1]]) } else
-    { searchresults }
+
+  args <- taxize_compact(list(apikey = key, format = 'json'))
+  tmp <- GET(url, query = args, callopts)
+  stop_for_status(tmp)
+  tmp2 <- content(tmp, as = "text")
+  res <- fromJSON(tmp2)
+  typespec <- data.frame(t(data.frame(res$TypeSpecimens)), stringsAsFactors = FALSE, row.names = NULL)
+  df <- data.frame(res[!names(res) %in% "TypeSpecimens"], stringsAsFactors = FALSE)
+  df <- cbind(df, typespec)
+  names(df) <- tolower(names(df))
+  df
 }
