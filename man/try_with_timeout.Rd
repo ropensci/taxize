@@ -9,6 +9,8 @@ try_with_timeout(test_fn, tlimit = 30, defaultvalue = "TimedOut")
 \item{test_fn}{The function call to test}
 
 \item{tlimit}{= 120 A timeout in seconds}
+
+\item{defaultvalue}{Default value}
 }
 \value{
 If in a loop, passes on to next thing, or if not, then gives back message

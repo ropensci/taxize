@@ -71,6 +71,7 @@ taxize_compact <- function (l) Filter(Negate(is.null), l)
 #' @importFrom R.utils evalWithTimeout
 #' @param test_fn The function call to test
 #' @param tlimit = 120 A timeout in seconds
+#' @param defaultvalue Default value
 #' @return If in a loop, passes on to next thing, or if not, then gives back message
 #' @examples \dontrun{
 #' library("taxize")

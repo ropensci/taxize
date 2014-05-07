@@ -9,7 +9,7 @@
 #'    \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}}, 
 #'    \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_tpsid}}, 
 #'    \code{\link[taxize]{get_gbifid}}.
-#' @param callopts Curl options passed on to httr::GET    
+#' @param callopts Curl options passed on to \code{\link[httr]{GET}}
 #' @param ... Other arguments passed to \code{\link[taxize]{get_tsn}}, 
 #'    \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}}, 
 #'    \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_tpsid}},
@@ -22,7 +22,6 @@
 #' @param checklist character; The year of the checklist to query, if you want a specific 
 #' 		year's checklist instead of the lastest as default (numeric).
 #' @param key Your API key; loads from .Rprofile.
-#' @param callopts Further args passed on to httr::GET.
 #' 
 #' @return A named list of data.frames with the taxonomic classifcation of 
 #'    every supplied taxa.
