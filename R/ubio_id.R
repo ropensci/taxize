@@ -1,7 +1,7 @@
 #' Search uBio by namebank ID.
 #' 
-#' @import httr XML RCurl plyr
-#' @param namebankID (string) - uBio namebank ID
+#' @import httr XML RCurl
+#' @param namebankID (character) uBio namebank ID
 #' @param keyCode Your uBio API key; loads from .Rprofile. If you don't have 
 #'    one, obtain one at http://www.ubio.org/index.php?pagename=form.
 #' @param callopts Parameters passed on to httr::GET call.
@@ -15,7 +15,7 @@ ubio_id <- function(namebankID = NULL, keyCode = NULL, callopts=list())
 {
   url <- "http://www.ubio.org/webservices/service.php"
   keyCode <- getkey(keyCode, "ubioApiKey")
-  args <- compact(list(
+  args <- taxize_compact(list(
     'function' = 'namebank_object', namebankID = namebankID, keyCode = keyCode))
   tmp <- GET(url, query=args, callopts)
   stop_for_status(tmp)

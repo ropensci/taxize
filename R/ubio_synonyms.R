@@ -1,6 +1,7 @@
 #' Search uBio by namebank ID.
 #' 
-#' @import httr XML RCurl plyr
+#' @import httr XML RCurl
+#' @export
 #' @param hierarchiesID you must include the hierarchiesID (ClassificationBankID) 
 #'    to receive the classification synonyms
 #' @param keyCode Your uBio API key; loads from .Rprofile. If you don't have 
@@ -10,7 +11,7 @@
 #' @examples \dontrun{
 #' ubio_synonyms(hierarchiesID = 4091702)
 #' }
-#' @export
+
 ubio_synonyms <- function(hierarchiesID = NULL, keyCode = NULL, callopts=list())
 {
   hierarchiesID <- as.numeric(as.character(hierarchiesID))
@@ -19,7 +20,7 @@ ubio_synonyms <- function(hierarchiesID = NULL, keyCode = NULL, callopts=list())
     
   url <- "http://www.ubio.org/webservices/service.php"
   keyCode <- getkey(keyCode, "ubioApiKey")
-  args <- compact(list(
+  args <- taxize_compact(list(
     'function' = 'synonym_list', hierarchiesID = hierarchiesID, keyCode = keyCode))
   tmp <- GET(url, query=args, callopts)
   stop_for_status(tmp)
@@ -37,7 +38,7 @@ getxml_syns <- function(obj, todecode){
     x[ss] <- "none"
     x
   })
-  tmp2[todecode] <- sapply(tmp2[todecode], RCurl::base64Decode)
+  tmp2[todecode] <- sapply(tmp2[todecode], base64Decode)
   tmp2 <- tmp2[-c(1:3)]
   names(tmp2) <- tolower(c('classificationTitleID','classificationTitle','classificationDescription',
                    'classificationRoot','rankName','rankID','classificationsID','namebankID',

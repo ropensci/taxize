@@ -6,7 +6,7 @@
 ubio_id(namebankID = NULL, keyCode = NULL, callopts = list())
 }
 \arguments{
-\item{namebankID}{(string) - uBio namebank ID}
+\item{namebankID}{(character) uBio namebank ID}
 
 \item{keyCode}{Your uBio API key; loads from .Rprofile. If you don't have
 one, obtain one at http://www.ubio.org/index.php?pagename=form.}

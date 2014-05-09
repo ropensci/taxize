@@ -8,25 +8,25 @@ ubio_search(searchName = NULL, searchAuth = NULL, searchYear = NULL,
   callopts = list())
 }
 \arguments{
-\item{searchName}{(string) - term to search within name string}
+\item{searchName}{(character) - term to search within name string}
 
-\item{searchAuth}{(string) - term to search within name authorship}
+\item{searchAuth}{(character) - term to search within name authorship}
 
-\item{searchYear}{(string) - term to search within name year}
+\item{searchYear}{(character) - term to search within name year}
 
-\item{order}{(string) - (name or namebankID) field by which the results will
+\item{order}{(character) - (name or namebankID) field by which the results will
 be sorted (default is namebankID)}
 
-\item{sci}{(int) - (sci, vern, or all) type of results to be returned
+\item{sci}{(integer) - (sci, vern, or all) type of results to be returned
 (default is all)}
 
-\item{vern}{(int) - (limit 1000) maximum number of results to be returned
+\item{vern}{(integer) - (limit 1000) maximum number of results to be returned
 (default is 1000)}
 
-\item{keyCode}{Your uBio API key; loads from .Rprofile. If you don't have
+\item{keyCode}{(character) Your uBio API key; loads from .Rprofile. If you don't have
 one, obtain one at http://www.ubio.org/index.php?pagename=form.}
 
-\item{callopts}{Parameters passed on to httr::GET call.}
+\item{callopts}{(list) Parameters passed on to httr::GET call.}
 }
 \value{
 A data.frame.
