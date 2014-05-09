@@ -6,22 +6,25 @@
 #' @param searchYear (character) - term to search within name year
 #' @param order (character) - (name or namebankID) field by which the results will 
 #' be sorted (default is namebankID)
-#' @param sci (integer) - (sci, vern, or all) type of results to be returned 
+#' @param sci (integer) - O (no) or 1 (yes; default) to include scientific name results
 #' (default is all)
-#' @param vern (integer) - (limit 1000) maximum number of results to be returned 
-#' (default is 1000)
+#' @param vern (integer) - O (no) or 1 (yes; default) to include common name (vernacular) results
 #' @param keyCode (character) Your uBio API key; loads from .Rprofile. If you don't have 
 #'    one, obtain one at http://www.ubio.org/index.php?pagename=form.
 #' @param callopts (list) Parameters passed on to httr::GET call.
 #' @return A data.frame.
 #' @examples \dontrun{
+#' ubio_search(searchName = 'elephant')
 #' ubio_search(searchName = 'elephant', sci = 1, vern = 0)
 #' ubio_search(searchName = 'Astragalus aduncus', sci = 1, vern = 0)
 #' }
 #' @export
 ubio_search <- function(searchName = NULL, searchAuth = NULL, searchYear=NULL, 
-		order = NULL, sci = NULL, vern = NULL, keyCode = NULL, callopts=list()) 
+		order = NULL, sci = 1, vern = 1, keyCode = NULL, callopts=list()) 
 {
+  #check for both zeros in sci and vern
+  if(sci==0 && vern==0)
+    stop("Either sci, vern, or both have to be 1")
 	url = "http://www.ubio.org/webservices/service.php"
 	keyCode <- getkey(keyCode, "ubioApiKey")
 	args <- taxize_compact(list('function' = 'namebank_search', searchName = searchName, 

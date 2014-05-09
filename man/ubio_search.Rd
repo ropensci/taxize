@@ -4,8 +4,7 @@
 \title{This function will return NameBankIDs that match given search terms}
 \usage{
 ubio_search(searchName = NULL, searchAuth = NULL, searchYear = NULL,
-  order = NULL, sci = NULL, vern = NULL, keyCode = NULL,
-  callopts = list())
+  order = NULL, sci = 1, vern = 1, keyCode = NULL, callopts = list())
 }
 \arguments{
 \item{searchName}{(character) - term to search within name string}
@@ -17,11 +16,10 @@ ubio_search(searchName = NULL, searchAuth = NULL, searchYear = NULL,
 \item{order}{(character) - (name or namebankID) field by which the results will
 be sorted (default is namebankID)}
 
-\item{sci}{(integer) - (sci, vern, or all) type of results to be returned
+\item{sci}{(integer) - O (no) or 1 (yes; default) to include scientific name results
 (default is all)}
 
-\item{vern}{(integer) - (limit 1000) maximum number of results to be returned
-(default is 1000)}
+\item{vern}{(integer) - O (no) or 1 (yes; default) to include common name (vernacular) results}
 
 \item{keyCode}{(character) Your uBio API key; loads from .Rprofile. If you don't have
 one, obtain one at http://www.ubio.org/index.php?pagename=form.}
