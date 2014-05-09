@@ -1,6 +1,6 @@
 #' Retrieve the taxonomic hierarchy for a given taxon ID.
 #' 
-#' @import XML RCurl plyr rgbif
+#' @import XML RCurl plyr
 #' 
 #' @param x character; taxons to query.
 #' @param db character; database to query. either \code{ncbi}, \code{itis}, 
@@ -51,6 +51,7 @@
 #' classification(get_eolid(c("Chironomus riparius", "aaa vva")))
 #' classification(get_colid(c("Chironomus riparius", "aaa vva")))
 #' classification(get_tpsid(c("Poa annua", "aaa vva")))
+#' classification(get_gbifid(c("Poa annua", "Bison bison")))
 #' 
 #' # Pass many ids from class "ids"
 #' out <- get_ids(names="Puma concolor", db = c('ncbi','gbif'))
@@ -321,7 +322,7 @@ classification.gbifid <- function(id, callopts = list(), ...) {
     if(is.na(x)) {
       out <- NA
     } else {
-      out <- suppressWarnings(tryCatch(name_usage(key = x, ...), error=function(e) e))
+      out <- suppressWarnings(tryCatch(gbif_name_usage(key = x, ...), error=function(e) e))
       if(is(out, "simpleError")){ 
         out <- NA
       } else {
