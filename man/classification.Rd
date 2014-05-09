@@ -100,6 +100,7 @@ classification(get_tsn(c("Chironomus riparius", "aaa vva")))
 classification(get_eolid(c("Chironomus riparius", "aaa vva")))
 classification(get_colid(c("Chironomus riparius", "aaa vva")))
 classification(get_tpsid(c("Poa annua", "aaa vva")))
+classification(get_gbifid(c("Poa annua", "Bison bison")))
 
 # Pass many ids from class "ids"
 out <- get_ids(names="Puma concolor", db = c('ncbi','gbif'))
