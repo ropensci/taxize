@@ -1,4 +1,4 @@
-#' Search uBio by namebank ID.
+#' Search uBio for taxonomic synonyms by hierarchiesID.
 #' 
 #' @import httr XML RCurl
 #' @export
@@ -10,6 +10,10 @@
 #' @return A data.frame.
 #' @examples \dontrun{
 #' ubio_synonyms(hierarchiesID = 4091702)
+#' ubio_synonyms(hierarchiesID = 2483153)
+#' ubio_synonyms(hierarchiesID = 2465599)
+#' ubio_synonyms(hierarchiesID = 1249021)
+#' ubio_synonyms(hierarchiesID = 4069372)
 #' }
 
 ubio_synonyms <- function(hierarchiesID = NULL, keyCode = NULL, callopts=list())
@@ -25,23 +29,22 @@ ubio_synonyms <- function(hierarchiesID = NULL, keyCode = NULL, callopts=list())
   tmp <- GET(url, query=args, callopts)
   stop_for_status(tmp)
   tt <- content(tmp)
-  out <- getxml_syns(obj=tt, todecode=c(5,6,12))
-  df <- data.frame(out)
+  out <- getxml_syns(obj=tt, todecode=c(2,3,9))
+  df <- data.frame(out, stringsAsFactors = FALSE)
   df
 }
 
 getxml_syns <- function(obj, todecode){
-  tmp <- xpathApply(obj, "//results", fun=xmlToList)
-  tmp2 <- unlist(tmp)
-  tmp2 <- lapply(tmp2, function(x){
+  toget <- c('classificationTitleID','classificationTitle','classificationDescription',
+             'classificationRoot','rankName','rankID','classificationsID','namebankID',
+             'nameString')
+  tmp <- sapply(toget, function(x) xpathApply(obj, sprintf("//results//%s", x), xmlValue))
+  tmp <- lapply(tmp, function(x){
     ss <- sapply(x, is.null)
     x[ss] <- "none"
     x
   })
-  tmp2[todecode] <- sapply(tmp2[todecode], base64Decode)
-  tmp2 <- tmp2[-c(1:3)]
-  names(tmp2) <- tolower(c('classificationTitleID','classificationTitle','classificationDescription',
-                   'classificationRoot','rankName','rankID','classificationsID','namebankID',
-                   'nameString'))
-  tmp2
+  tmp[todecode] <- sapply(tmp[todecode], function(x) if(nchar(x)==0){x} else{ base64Decode(x) })
+  names(tmp) <- tolower(toget)
+  tmp
 }

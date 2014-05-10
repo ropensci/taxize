@@ -30,7 +30,7 @@ ubio_classification_search <- function(namebankID = NULL, classificationTitleID 
   toget <- c("classificationBankID", "classificationTitleID", "classificationTitle")
   temp <- lapply(toget, function(x) sapply(xpathApply(tt, paste("//results//seniorNames//", x, sep="")), xmlValue))
   temp[[3]] <- sapply(temp[[3]], base64Decode, USE.NAMES = FALSE)
-  out <- data.frame(do.call(cbind, temp))
-  names(out) <- c("classificationBankID", "classificationTitleID", "classificationTitle")
+  out <- data.frame(do.call(cbind, temp), stringsAsFactors = FALSE)
+  names(out) <- c("hierarchiesid", "classificationtitleid", "classificationtitle")
   return( out )
 }

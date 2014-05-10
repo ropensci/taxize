@@ -34,8 +34,10 @@ This function will return NameBankIDs that match given search terms
 }
 \examples{
 \dontrun{
+ubio_search(searchName = 'elephant')
 ubio_search(searchName = 'elephant', sci = 1, vern = 0)
 ubio_search(searchName = 'Astragalus aduncus', sci = 1, vern = 0)
+ubio_search(searchName = 'puma concolor', sci=1, vern=0)
 }
 }
 

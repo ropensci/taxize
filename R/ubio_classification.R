@@ -37,7 +37,7 @@ ubio_classification <- function(hierarchiesID = NULL, childrenFlag = 0,
              "recordedName/namebankID", "recordedName/nameString")
   temp <- lapply(toget, function(x) sapply(xpathApply(tt, paste("/results/", x, sep="")), xmlValue))
   temp[c(2,8)] <- sapply(temp[c(2,8)], base64Decode)
-  out <- data.frame(do.call(cbind, temp))
+  out <- data.frame(do.call(cbind, temp), stringsAsFactors = FALSE)
   names(out) <- c("classificationTitleID", "classificationTitle", 
                   "classificationRoot", "rankName", "rankID", "classificationsID", 
                   "namebankID", "nameString")
