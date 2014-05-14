@@ -63,18 +63,18 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
   data_source_ids <- paste0(data_source_ids, collapse = "|")
   preferred_data_sources <- paste0(preferred_data_sources, collapse = "|")
   if(nchar(preferred_data_sources)==0) preferred_data_sources <- NULL
-  resolve_once <- if(resolve_once){'true'} else{NULL}
-  with_context <- if(with_context){'true'} else{NULL}
-  highestscore <- if(highestscore){'true'} else{NULL}
-  best_match_only <- if(best_match_only){'true'} else{NULL}
+  resolve_once <- check_value(resolve_once)
+  with_context <- check_value(with_context)
+  highestscore <- check_value(highestscore)
+  best_match_only <- check_value(best_match_only)
 
-  args <- taxize_compact(list(names=names2, data_source_ids=data_source_ids, resolve_once=resolve_once,
-                       with_context=with_context, best_match_only=best_match_only, 
-                       preferred_data_sources=preferred_data_sources))
+  args <- taxize_compact(list(names=names2, data_source_ids=data_source_ids, 
+            resolve_once=resolve_once,with_context=with_context, 
+            best_match_only=best_match_only, preferred_data_sources=preferred_data_sources))
 
   if(http=='get'){
     tmp <- GET(url, query=args, callopts)
-    stop_for_status(tmp)
+    warn_for_status(tmp)
     tmp2 <- content(tmp, as = "text")
     dat <- RJSONIO::fromJSON(tmp2, simplifyWithNames = FALSE)$data
   } else
@@ -85,7 +85,7 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
         tt <- data.frame(ddply(tt, .(num), summarise, paste0(num,"|",names))[,2])
         write.table(tt, file="~/gnr_names.txt", row.names=FALSE, col.names=FALSE, quote=FALSE)
         ss <- POST(url, query=args, body=list(file = upload_file(path="~/gnr_names.txt")))
-        stop_for_status(ss)
+        warn_for_status(ss)
         ss <- content(ss)
         bb <- "working"
         while(bb == "working"){
@@ -96,7 +96,7 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
       } else
       {
         ss <- POST(url, query=args, body=list(names = names2))
-        stop_for_status(ss)
+        warn_for_status(ss)
         dat <- content(ss)$data
       }
     } else
@@ -140,4 +140,8 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
     out <- out[ , !names(out) %in% "matched_name2"]
   }
   return( list(results=out, preferred=out_preferred) )
+}
+
+check_value <- function(x){
+  if(x){'true'} else{NULL}
 }
