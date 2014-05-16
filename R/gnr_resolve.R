@@ -34,7 +34,7 @@
 #' gnr_resolve(names = c("Asteraceae", "Plantae"))
 #'
 #' # Using data source 12 (Encyclopedia of Life)
-#' sources<- gnr_datasources()
+#' sources <- gnr_datasources()
 #' sources
 #' eol <- sources$id[sources$title == 'EOL']
 #' gnr_resolve(names=c("Helianthos annuus","Homo sapians"), data_source_ids=eol)

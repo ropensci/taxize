@@ -3,22 +3,34 @@
 \alias{resolve}
 \title{Resolve names from many different sources}
 \usage{
-resolve(query, from = "iplant", ...)
+resolve(query, db = "iplant", ...)
 }
 \arguments{
-\item{query}{Vector of names}
+\item{query}{Vector of one or more names.}
 
-\item{from}{Source to check names against. One of iplant, tnrs, or gnr}
+\item{db}{Source to check names against. One of iplant, tnrs, or gnr}
 
-\item{...}{Further named args passed on to each respective function.}
+\item{...}{Further named args passed on to each respective function. See examples. Note that
+parameters for specific data sources are specific to those data sources. E.g. you can pass the
+parameter \code{source} when using \code{db="tnrs"}, but is meaningless when passed when
+\code{db="gnr"}. There is one exception - the \code{callopts} parameter is shared among all
+data sources, so if you pass that parameter it will influence each data source.}
+}
+\value{
+A list with length equal to length of the db parameter (number of sources requested.)
 }
 \description{
-Resolve names from many different sources
+Resolve names from iPlant's name resolver, the Taxonomic Name Resolution Service (TNRS), the
+Global Names Resolver (GNR)
 }
 \examples{
 \dontrun{
 resolve(query=c("Helianthus annuus", "Homo sapiens"))
-resolve(query=c("Helianthus annuus", "Homo sapiens"), from='tnrs', source="NCBI")
+resolve(query=c("Helianthus annuus", "Homo sapiens"), db='tnrs', source="NCBI")
+resolve(query="Quercus keloggii", db='gnr')
+resolve(query="Helianthus annuus", db='gnr', preferred_data_sources = c(3,4))
+resolve(query=c("Helianthus annuus", "Homo sapiens"), db=c('iplant','gnr'))
+resolve(query="Quercus keloggii", db=c('iplant','gnr','tnrs'))
 resolve(query=c("Helianthus annuus", "Homo sapiens"), callopts=verbose())
 resolve(query=c("Helianthus annuus", "Homo sapiens"), callopts=list(verbose=TRUE, timeout.ms=3))
 }
