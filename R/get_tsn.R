@@ -37,6 +37,7 @@
 #' get_tsn(searchterm="black", searchtype="comnamebeg")
 #' get_tsn(searchterm="bear", searchtype="comnameend")
 #' }
+
 get_tsn <- function(searchterm, searchtype = "sciname", ask = TRUE, verbose = TRUE) 
 {
   fun <- function(x, searchtype, ask, verbose)
@@ -108,6 +109,11 @@ get_tsn <- function(searchterm, searchtype = "sciname", ask = TRUE, verbose = TR
   outd <- ldply(searchterm, fun, searchtype, ask, verbose)
   out <- outd$tsn
   attr(out, 'match') <- outd$att
+  if(!is.na(out[1])){
+    urlmake <- na.omit(out)
+    attr(out, 'uri') <- 
+      sprintf('http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=%s', urlmake)
+  }
   class(out) <- "tsn"
   return(out)
 }

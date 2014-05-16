@@ -37,6 +37,9 @@ get_uid(c("Chironomus riparius", "howdy"))
 get_uid('Dugesia')  # user prompt needed
 get_uid('Dugesia', ask = FALSE) # returns NA for multiple matches
 
+# Go to a website with more info on the taxon
+res <- get_uid("Chironomus riparius")
+browseURL(attr(res, "uri"))
 }
 }
 \author{

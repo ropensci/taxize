@@ -36,6 +36,7 @@
 #' get_eolid(sciname="uaudnadndj")
 #' get_eolid(c("Chironomus riparius", "uaudnadndj"))
 #' }
+
 get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...){
   fun <- function(sciname, ask, verbose) {
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
@@ -55,10 +56,13 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...){
         id <- NA
       } else
       {
-        dfs <- compact(lapply(pageids, function(x) eol_pages(x)$scinames))
-        dfs <- ldply(dfs[!sapply(dfs, nrow)==0])
-        df <- dfs[,c('identifier','scientificname','nameaccordingto')]
-        names(df) <- c('eolid','name','source')
+        dfs <- lapply(pageids, function(x) eol_pages(x)$scinames)
+        names(dfs) <- pageids
+        dfs <- taxize_compact(dfs)
+        if(length(dfs)>1) dfs <- dfs[!sapply(dfs, nrow)==0]
+        dfs <- ldply(dfs)
+        df <- dfs[,c('.id','identifier','scientificname','nameaccordingto')]
+        names(df) <- c('pageid','eolid','name','source')
         df <- getsourceshortnames(df)
         
         if(nrow(df) == 0){
@@ -67,6 +71,7 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...){
         } else{ 
           id <- df$eolid 
         }
+        names(id) <- df$pageid
       }
     }
 
@@ -92,6 +97,7 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...){
           take <- as.numeric(take)
           message("Input accepted, took eolid '", as.character(df$eolid[take]), "'.\n")
           id <- as.character(df$eolid[take])
+          names(id) <- as.character(df$pageid[take])
         } else {
           id <- NA
           mssg(verbose, "\nReturned 'NA'!\n\n")
@@ -103,8 +109,15 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...){
     return(id)
   }
   sciname <- as.character(sciname)
-  out <- laply(sciname, fun, ask, verbose)
+  out <- sapply(sciname, fun, ask, verbose, USE.NAMES = FALSE)
   class(out) <- "eolid"
+  s_pids <- names(out)
+  out <- unname(out)
+  if(!is.na(out[1])){
+    s_pids <- s_pids[vapply(s_pids, nchar, 1) > 0]
+    attr(out, 'uri') <- 
+      sprintf('http://eol.org/pages/%s/overview', s_pids)
+  }
   return(out)
 }
 
@@ -116,6 +129,6 @@ getsourceshortnames <- function(input){
                            'NCBI Taxonomy',
                            'IUCN Red List (Species Assessed for Global Conservation)'))
   bb <- merge(input, lookup, by.x="source", by.y="b")[,-1]
-  names(bb)[3] <- "source"
+  names(bb)[4] <- "source"
   sort_df(bb, "name")
 }

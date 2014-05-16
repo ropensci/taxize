@@ -28,6 +28,7 @@
 #' get_colid(sciname="uaudnadndj")
 #' get_colid(c("Chironomus riparius", "uaudnadndj"))
 #' }
+
 get_colid <- function(sciname, ask = TRUE, verbose = TRUE){
   fun <- function(sciname, ask, verbose) {
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
@@ -76,7 +77,12 @@ get_colid <- function(sciname, ask = TRUE, verbose = TRUE){
     return(id)
   }
   sciname <- as.character(sciname)
-  out <- laply(sciname, fun, ask, verbose)
+  out <- sapply(sciname, fun, ask=ask, verbose=verbose, USE.NAMES = FALSE)
   class(out) <- "colid"
+  if(!is.na(out[1])){
+    urlmake <- na.omit(out)
+    attr(out, 'uri') <- 
+      sprintf('http://www.catalogueoflife.org/col/details/species/id/%s', urlmake)
+  }
   return(out)
 }

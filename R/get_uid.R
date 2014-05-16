@@ -32,7 +32,11 @@
 #' get_uid('Dugesia')  # user prompt needed
 #' get_uid('Dugesia', ask = FALSE) # returns NA for multiple matches
 #' 
+#' # Go to a website with more info on the taxon
+#' res <- get_uid("Chironomus riparius")
+#' browseURL(attr(res, "uri"))
 #' }
+
 get_uid <- function(sciname, ask = TRUE, verbose = TRUE){
   fun <- function(sciname, ask, verbose) {
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
@@ -93,6 +97,11 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE){
   outd <- ldply(sciname, fun, ask, verbose)
   out <- outd$uid
   attr(out, 'match') <- outd$att
+  if(!is.na(out[1])){
+    urlmake <- na.omit(out)
+    attr(out, 'uri') <- 
+      sprintf('http://www.ncbi.nlm.nih.gov/taxonomy/%s', urlmake)
+  }
   class(out) <- "uid"
   return(out)
 }

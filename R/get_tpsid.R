@@ -87,7 +87,12 @@ get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...){
     return(id)
   }
   sciname <- as.character(sciname)
-  out <- laply(sciname, fun, ask, verbose)
+  out <- sapply(sciname, fun, ask, verbose, USE.NAMES = FALSE)
   class(out) <- "tpsid"
+  if(!is.na(out[1])){
+    urlmake <- na.omit(out)
+    attr(out, 'uri') <- 
+      sprintf('http://tropicos.org/Name/%s', urlmake)
+  }
   return( out )
 }

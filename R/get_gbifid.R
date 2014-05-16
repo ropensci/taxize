@@ -92,8 +92,13 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE){
     return(id)
   }
   sciname <- as.character(sciname)
-  out <- laply(sciname, fun, ask, verbose)
+  out <- sapply(sciname, fun, ask, verbose, USE.NAMES = FALSE)
   class(out) <- "gbifid"
+  if(!is.na(out[1])){
+    urlmake <- na.omit(out)
+    attr(out, 'uri') <- 
+      sprintf('http://www.gbif.org/species/%s', urlmake)
+  }
   return(out)
 }
 
