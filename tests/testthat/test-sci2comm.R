@@ -1,8 +1,8 @@
 # tests for sci2comm fxn in taxize
 context("sci2comm")
 
-tt <- sci2comm(scinames='Helianthus annuus')
-uu <- sci2comm(scinames='Helianthus annuus', db='itis')
+tt <- sci2comm(scinames='Helianthus annuus', verbose=FALSE)
+uu <- sci2comm(scinames='Helianthus annuus', db='itis', verbose=FALSE)
 
 test_that("sci2comm returns the correct value", {
   expect_that(names(tt), equals('Helianthus annuus'))

@@ -53,7 +53,7 @@ tax_rank <- function(query = NULL, db = "itis", pref = 'ncbi', verbose = TRUE, .
           message("No TSN found for species '", query, "'!\n")
         out_tsn <- NA
       } else {
-        tt <- classification(tsn, ...)[[1]]
+        tt <- classification(tsn, verbose=verbose, ...)[[1]]
         out_tsn <- tt[nrow(tt), 'rank']
         if(length(out_tsn) == 0)
           out_tsn <- NA

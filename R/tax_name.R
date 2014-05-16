@@ -110,7 +110,7 @@ tax_name <- function(query = NULL, get = NULL, db = "itis", pref = 'ncbi',
           message("No TSN found for species '", query, "'!\n")
         match_tsn <- rep(NA, length(get))
       } else {
-        tt <- classification(tsn)[[1]]
+        tt <- classification(tsn, verbose = verbose)[[1]]
         match_tsn <- tt$name[match(tolower(get), tolower(tt$rank))]
       }
       match_both <- ifelse(is.na(match_uid), match_tsn, match_uid)
