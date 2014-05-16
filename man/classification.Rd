@@ -86,9 +86,12 @@ If IDs are supplied directly (not from the \code{get_*} functions) you
 \dontrun{
 # Plug in taxon names directly
 classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi')
+classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi', verbose=FALSE)
 classification(c("Chironomus riparius", "aaa vva"), db = 'itis')
+classification(c("Chironomus riparius", "aaa vva"), db = 'itis', verbose=FALSE)
 classification(c("Chironomus riparius", "aaa vva"), db = 'eol')
 classification(c("Chironomus riparius", "aaa vva"), db = 'col')
+classification(c("Chironomus riparius", "aaa vva"), db = 'col', verbose=FALSE)
 classification(c("Chironomus riparius", "asdfasdfsfdfsd"), db = 'gbif')
 classification(c("Poa annua", "aaa vva"), db = 'tropicos')
 
@@ -97,6 +100,7 @@ classification(get_uid(c("Chironomus riparius", "Puma concolor")))
 
 classification(get_uid(c("Chironomus riparius", "aaa vva")))
 classification(get_tsn(c("Chironomus riparius", "aaa vva")))
+classification(get_tsn(c("Chironomus riparius", "aaa vva"), verbose = FALSE))
 classification(get_eolid(c("Chironomus riparius", "aaa vva")))
 classification(get_colid(c("Chironomus riparius", "aaa vva")))
 classification(get_tpsid(c("Poa annua", "aaa vva")))
