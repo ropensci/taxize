@@ -65,7 +65,7 @@ tax_name <- function(query = NULL, get = NULL, db = "itis", pref = 'ncbi',
         out <- data.frame(t(rep(NA, length(get))))
         names(out) <- get
       } else {
-        tt <- classification(tsn, ...)[[1]]
+        tt <- classification(tsn, verbose=verbose, ...)[[1]]
         out <- as.character(tt[tolower(tt$rank) %in% tolower(get), "name"])
         if(length(out) == 0)
           out <- data.frame(t(rep(NA, length(get))))

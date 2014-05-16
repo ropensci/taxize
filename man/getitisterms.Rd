@@ -3,7 +3,8 @@
 \alias{getitisterms}
 \title{Get itis terms from common names}
 \usage{
-getitisterms(srchkey = NA, curlopts = list(), curl = getCurlHandle())
+getitisterms(srchkey = NA, curlopts = list(), curl = getCurlHandle(),
+  verbose = TRUE)
 }
 \arguments{
 \item{srchkey}{text or taxonomic serial number (TSN) (character or numeric)}

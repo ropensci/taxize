@@ -1,9 +1,9 @@
 # tests for itis_terms fxn in taxize
 context("itis_terms")
 
-one <- itis_terms(query='bear')
-two <- itis_terms(query='tarweed', "common")
-three <- itis_terms(query='Poa annua', "scientific")
+one <- itis_terms(query='bear', verbose=FALSE)
+two <- itis_terms(query='tarweed', "common", verbose=FALSE)
+three <- itis_terms(query='Poa annua', "scientific", verbose=FALSE)
 
 test_that("itis_terms returns the correct class", {
   expect_that(one, is_a("data.frame"))

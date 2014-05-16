@@ -1,10 +1,10 @@
 # tests for itis_lsid fxn in taxize
 context("itis_lsid")
 
-one <- itis_lsid("urn:lsid:itis.gov:itis_tsn:180543")
-two <- itis_lsid("urn:lsid:itis.gov:itis_tsn:180543", "record")
-three <- itis_lsid("urn:lsid:itis.gov:itis_tsn:180543", "fullrecord")
-four <- itis_lsid(202385)
+one <- itis_lsid("urn:lsid:itis.gov:itis_tsn:180543", verbose=FALSE)
+two <- itis_lsid("urn:lsid:itis.gov:itis_tsn:180543", "record", verbose=FALSE)
+three <- itis_lsid("urn:lsid:itis.gov:itis_tsn:180543", "fullrecord", verbose=FALSE)
+four <- itis_lsid(202385, verbose=FALSE)
 
 test_that("itis_lsid returns the correct value", {
   expect_that(one, equals(180543))

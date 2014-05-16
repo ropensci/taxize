@@ -61,7 +61,7 @@
 #' tax_agg(mat, rank = 'family', db='itis')
 #' }
 
-tax_agg <- function(x, rank, db = 'ncbi', ...) 
+tax_agg <- function(x, rank, db = 'ncbi', verbose=verbose, ...) 
 {
   if(is.matrix(x))
   {
@@ -74,7 +74,7 @@ tax_agg <- function(x, rank, db = 'ncbi', ...)
   
   # aggregate to family level (by querying NCBI for taxonomic classification)
   uniq_tax <- as.character(unique(df_m$variable))
-  agg <- tax_name(uniq_tax, get = rank, db = db, ...)
+  agg <- tax_name(uniq_tax, get = rank, db = db, verbose=verbose, ...)
   lookup <- data.frame(variable = uniq_tax, agg = agg[ , 1], stringsAsFactors = FALSE)
   
   # merge lookup with orig.

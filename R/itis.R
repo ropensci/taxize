@@ -589,12 +589,14 @@ gethierarchyupfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandl
 #' }
 #' @export
 #' @keywords internal 
-getitistermsfromcommonname <- function(srchkey = NA, curlopts=list(), curl = getCurlHandle() ) 
+getitistermsfromcommonname <- function(srchkey = NA, curlopts=list(), curl = getCurlHandle(), 
+                                       verbose=TRUE) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getITISTermsFromCommonName'
   args <- list()
   if(!is.na(srchkey))
     args$srchKey <- srchkey
+	mssg(verbose, paste(url, "?srchKey=", srchkey, sep = ""))
   tt <- getForm(url, .params = args, .opts=c(curlopts, followlocation = 0L), curl = curl)
   out <- xmlParse(tt)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
@@ -615,12 +617,13 @@ getitistermsfromcommonname <- function(srchkey = NA, curlopts=list(), curl = get
 #' }
 #' @export
 #' @keywords internal
-getitisterms <- function(srchkey = NA, curlopts=list(), curl = getCurlHandle())
+getitisterms <- function(srchkey = NA, curlopts=list(), curl = getCurlHandle(), verbose=TRUE)
 {
   url = 'http://www.itis.gov/ITISWebService/services/ITISService/getITISTerms'
   args <- list()
   if(!is.na(srchkey))
     args$srchKey <- srchkey
+  mssg(verbose, paste(url, "?srchKey=", srchkey, sep = ""))
   tt <- getForm(url, .params = args, .opts=c(curlopts, followlocation = 0L), curl = curl)
   out <- xmlParse(tt)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
@@ -642,13 +645,14 @@ getitisterms <- function(srchkey = NA, curlopts=list(), curl = getCurlHandle())
 #' }
 #' @export
 #' @keywords internal 
-getitistermsfromscientificname <- function(srchkey = NA, curlopts=list(), curl = getCurlHandle()) 
+getitistermsfromscientificname <- function(srchkey = NA, curlopts=list(), curl = getCurlHandle(), 
+                                           verbose=TRUE) 
 {
   url = "http://www.itis.gov/ITISWebService/services/ITISService/getITISTermsFromScientificName"
   args <- list()
   if (!is.na(srchkey)) 
     args$srchKey <- srchkey
-  message(paste(url, "?srchKey=", srchkey, sep = ""))
+  mssg(verbose, paste(url, "?srchKey=", srchkey, sep = ""))
   tt <- getForm(url, .params = args, .opts = c(curlopts, followlocation = 0L), curl = curl)
   out <- xmlParse(tt)
   namespaces <- c(namespaces <- c(ax21 = "http://data.itis_service.itis.usgs.gov/xsd"))
@@ -708,10 +712,10 @@ getjurisdictionaloriginfromtsn <- function(tsn = NA, curlopts=list(), curl = get
 #' }
 #' @export
 #' @keywords internal 
-getjurisdictionoriginvalues <- function() 
+getjurisdictionoriginvalues <- function(verbose=TRUE) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getJurisdictionalOriginValues'
-  message(url)
+	mssg(verbose, url)
   tt <- getURL(url)
   out <- xmlParse(tt)
   namespaces <- c(ax23="http://metadata.itis_service.itis.usgs.gov/xsd")
@@ -730,10 +734,10 @@ getjurisdictionoriginvalues <- function()
 #' }
 #' @export
 #' @keywords internal 
-getjurisdictionvalues <- function() 
+getjurisdictionvalues <- function(verbose=TRUE) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getJurisdictionValues'
-  message(url)
+	mssg(verbose, url)
   tt <- getURL(url)
   out <- xmlParse(tt)
   namespaces <- c(ax23="http://metadata.itis_service.itis.usgs.gov/xsd")
@@ -1343,7 +1347,7 @@ searchbycommonnamebeginswith <- function(srchkey = NA, curlopts=list(), curl = g
   nodes <- getNodeSet(out, "//ax21:tsn", namespaces=namespaces)
   tsn <- sapply(nodes, xmlValue) # last one is a repeat
   nodes <- getNodeSet(out, "//ax21:sciName", namespaces=namespaces)
-  data.frame(comname=comname, lang=lang, tsn=tsn[-length(tsn)])
+  data.frame(comname=comname, lang=lang, tsn=tsn[-length(tsn)], stringsAsFactors = FALSE)
 }
 
 #' Search for tsn by common name ending with
@@ -1369,7 +1373,7 @@ searchbycommonnameendswith <- function(srchkey = NA, curlopts=list(), curl=getCu
   lang <- sapply(nodes, xmlValue)
   nodes <- getNodeSet(out, "//ax21:tsn", namespaces=namespaces)
   tsn <- sapply(nodes, xmlValue) # last one is a repeat
-  data.frame(comname=comname, lang=lang, tsn=tsn[!nchar(tsn) == 0])
+  data.frame(comname=comname, lang=lang, tsn=tsn[!nchar(tsn) == 0], stringsAsFactors = FALSE)
 }
 
 #' Search by scientific name
@@ -1381,7 +1385,7 @@ searchbycommonnameendswith <- function(srchkey = NA, curlopts=list(), curl=getCu
 #' }
 #' @export
 #' @keywords internal 
-searchbyscientificname <- function(srchkey = NA, curlopts=list(), curl = getCurlHandle() ) 
+searchbyscientificname <- function(srchkey = NA, curlopts=list(), curl = getCurlHandle(), verbose=TRUE) 
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/searchByScientificName'
   args <- list()
@@ -1397,7 +1401,7 @@ searchbyscientificname <- function(srchkey = NA, curlopts=list(), curl = getCurl
   combinedname <- sapply(nodes, xmlValue)
   nodes <- getNodeSet(out, "//ax21:tsn", namespaces=namespaces)
   tsn <- sapply(nodes, xmlValue) # last one is a repeat
-  data.frame(combinedname=combinedname, tsn=tsn)
+  data.frame(combinedname=combinedname, tsn=tsn, stringsAsFactors = FALSE)
 }
 
 #' Search for any match
@@ -1425,14 +1429,14 @@ searchforanymatch <- function(srchkey = NA,  curlopts=list(), curl = getCurlHand
 	  comname_lang <- sapply(me, function(x) xmlValue(x[["commonNameList"]][["commonNames"]][["language"]]))
 	  sciname <- sapply(me, function(x) xmlValue(x[["sciName"]]))
 	  tsn <- sapply(me, function(x) xmlValue(x[["tsn"]]))
-	  data.frame(tsn=tsn, sciname=sciname, comname=comname, comname_lang=comname_lang)
+	  data.frame(tsn=tsn, sciname=sciname, comname=comname, comname_lang=comname_lang, stringsAsFactors = FALSE)
 	} else
 	{
 	  me <- getNodeSet(out, "//ax21:commonNames", namespaces=namespaces)
 	  comname <- sapply(me, function(x) xmlValue(x[["commonName"]]))
 	  comname_tsn <- sapply(me, function(x) xmlValue(x[["tsn"]]))
 	  comname_lang <- sapply(me, function(x) xmlValue(x[["language"]]))
-	  data.frame(tsn=comname_tsn, comname=comname, comname_lang=comname_lang)
+	  data.frame(tsn=comname_tsn, comname=comname, comname_lang=comname_lang, stringsAsFactors = FALSE)
 	}
 }
 

@@ -3,7 +3,7 @@
 \alias{getjurisdictionoriginvalues}
 \title{Get jurisdiction origin values}
 \usage{
-getjurisdictionoriginvalues()
+getjurisdictionoriginvalues(verbose = TRUE)
 }
 \description{
 Get jurisdiction origin values

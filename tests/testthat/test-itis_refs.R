@@ -1,8 +1,8 @@
 # tests for itis_refs fxn in taxize
 context("itis_refs")
 
-one <- itis_refs(202385)
-two <- itis_refs(c(202385,70340))
+one <- itis_refs(202385, verbose=FALSE)
+two <- itis_refs(c(202385,70340), verbose=FALSE)
 
 test_that("itis_refs returns the correct class", {
   expect_that(one, is_a("list"))

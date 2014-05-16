@@ -4,7 +4,7 @@
 \alias{tax_agg}
 \title{Aggregate species data to given taxonomic rank}
 \usage{
-tax_agg(x, rank, db = "ncbi", ...)
+tax_agg(x, rank, db = "ncbi", verbose = verbose, ...)
 
 \method{print}{tax_agg}(x, ...)
 }

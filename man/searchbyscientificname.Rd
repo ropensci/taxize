@@ -4,7 +4,7 @@
 \title{Search by scientific name}
 \usage{
 searchbyscientificname(srchkey = NA, curlopts = list(),
-  curl = getCurlHandle())
+  curl = getCurlHandle(), verbose = TRUE)
 }
 \arguments{
 \item{srchkey}{text or taxonomic serial number (TSN) (character or numeric)}
