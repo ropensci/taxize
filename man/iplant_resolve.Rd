@@ -6,12 +6,15 @@
 iplant_resolve(query, retrieve = "all", callopts = list())
 }
 \arguments{
-\item{query}{Vector of names}
+\item{query}{Vector of one or more taxonomic names. (no common names)}
 
 \item{retrieve}{Specifies whether to retrieve all matches for the names submitted. One of 'best'
 (retrieves only the single best match for each name submitted) or 'all' (retrieves all matches)}
 
 \item{callopts}{Curl options passed on to \code{httr::GET}}
+}
+\value{
+A data frame
 }
 \description{
 iplant resolution
@@ -19,6 +22,12 @@ iplant resolution
 \examples{
 \dontrun{
 iplant_resolve(query=c("Helianthus annuus", "Homo sapiens"))
+iplant_resolve("Helianthusss")
+res <- iplant_resolve("Pooa")
+do.call(rbind, lapply(res, data.frame, stringsAsFactors = FALSE))
+
+library("httr")
+iplant_resolve("Helianthusss", callopts=verbose())
 }
 }
 
