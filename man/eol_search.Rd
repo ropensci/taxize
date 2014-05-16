@@ -33,7 +33,7 @@ results}
 \item{callopts}{Curl options passed on to getForm.}
 }
 \value{
-JSON list object, or data.frame.
+A data frame.
 }
 \description{
 Search for terms in EOL database.
@@ -44,7 +44,7 @@ It's possible to return JSON or XML with the EOL API. However,
 }
 \examples{
 \dontrun{
-eol_search('Homo')
+eol_search(terms='Homo')
 eol_search(terms='Salix')
 eol_search(terms='Ursus americanus luteolus')
 }
