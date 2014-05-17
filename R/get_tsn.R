@@ -38,7 +38,7 @@
 #' get_tsn(searchterm="bear", searchtype="comnameend")
 #' }
 
-get_tsn <- function(searchterm, searchtype = "sciname", ask = TRUE, verbose = TRUE) 
+get_tsn <- function(searchterm, searchtype = "sciname", ask = TRUE, verbose = TRUE)
 {
   fun <- function(x, searchtype, ask, verbose)
   {
@@ -76,7 +76,8 @@ get_tsn <- function(searchterm, searchtype = "sciname", ask = TRUE, verbose = TR
       }
     }
     # multiple matches
-    if ( nrow(tsn_df) > 1 & all(is.na(direct)) ){
+    if( nrow(tsn_df) > 1 & !"tsn" %in% ls() | nrow(tsn_df) > 1 & att == "found" & length(tsn) > 1 ){
+#     if ( nrow(tsn_df) > 1 & any(!is.na(direct)) | !"tsn" %in% ls() ){
       if(ask) {
         names(tsn_df)[1] <- "target"
         # user prompt
@@ -106,7 +107,6 @@ get_tsn <- function(searchterm, searchtype = "sciname", ask = TRUE, verbose = TR
         tsn <- NA
         att <- 'multi match'
       }
-        
     }
     return(data.frame(tsn = as.character(tsn), att = att, stringsAsFactors=FALSE))
   }
