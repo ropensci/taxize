@@ -4,7 +4,7 @@
 \alias{tax_agg}
 \title{Aggregate species data to given taxonomic rank}
 \usage{
-tax_agg(x, rank, db = "ncbi", verbose = verbose, ...)
+tax_agg(x, rank, db = "ncbi", verbose = FALSE, ...)
 
 \method{print}{tax_agg}(x, ...)
 }
@@ -15,6 +15,8 @@ tax_agg(x, rank, db = "ncbi", verbose = verbose, ...)
 
 \item{db}{character; taxonomic API to use, 'ncbi, 'itis' or both, see
 \code{\link[taxize]{tax_name}}.}
+
+\item{verbose}{(loigical) If FALSE (Default) suppresss messages}
 
 \item{...}{Other arguments passed to \code{\link[taxize]{get_tsn}} or \code{\link[taxize]{get_uid}}.}
 }

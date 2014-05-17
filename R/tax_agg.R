@@ -6,6 +6,7 @@
 #' @param rank character; Taxonomic rank to aggregate by.
 #' @param db character; taxonomic API to use, 'ncbi, 'itis' or both, see 
 #' \code{\link[taxize]{tax_name}}.
+#' @param verbose (loigical) If FALSE (Default) suppresss messages
 #' @param ... Other arguments passed to \code{\link[taxize]{get_tsn}} or \code{\link[taxize]{get_uid}}.
 #' 
 #' @details \code{tax_agg} aggregates (sum) taxa to a specific taxonomic level. 
@@ -61,7 +62,7 @@
 #' tax_agg(mat, rank = 'family', db='itis')
 #' }
 
-tax_agg <- function(x, rank, db = 'ncbi', verbose=verbose, ...) 
+tax_agg <- function(x, rank, db = 'ncbi', verbose=FALSE, ...) 
 {
   if(is.matrix(x))
   {
