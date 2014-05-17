@@ -82,7 +82,7 @@ downstream.tsn <- function(x,  db = NULL, ...)
     if (is.na(y)) {
       out <- NA
     } else {
-		out <- itis_downstream(tsns = y, ...)
+		  out <- itis_downstream(tsns = y, ...)
     }
   }
   out <- lapply(x, fun)

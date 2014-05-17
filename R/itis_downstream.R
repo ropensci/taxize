@@ -10,7 +10,7 @@
 #' 		Order, Class, etc. 
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @examples \dontrun{
-#' itis_downstream(tsns=846509, downto="Genus")
+#' itis_downstream(tsns = 846509, downto="Genus")
 #' 
 #' # getting families downstream from Acridoidea
 #' itis_downstream(tsns = 650497, "Family")
@@ -36,20 +36,26 @@ itis_downstream <- function(tsns, downto, verbose=TRUE)
 			{ temp <- notout }
 		tt <- ldply(temp$tsn, function(z) gethierarchydownfromtsn(z, verbose=verbose))
 		names_ <- ldply(split(tt, row.names(tt)), function(x) 
-			gettaxonomicranknamefromtsn(x$tsn, verbose=verbose)[,c("rankId","rankName","tsn")]) 
-		tt <- merge(tt[,-3], names_[,-1], by="tsn")
-		if(nrow(tt[tt$rankId == downto2, ]) > 0) out[[iter]] <- tt[tt$rankId == downto2, ]
-		if(nrow(tt[!tt$rankId == downto2, ]) > 0) {
-			notout <- tt[!tt$rankId %in% torank_ids, ]
-		} else
-			{ notout <- data.frame(rankName = downto) }
-		
-		if(all(notout$rankName == downto)) { 
-			stop_ <- "fam"
-		} else
-		{ 
-			tsns <- notout$tsn
-			stop_ <- "not" 
+			gettaxonomicranknamefromtsn(x$tsn, verbose=verbose)[,c("rankId","rankName","tsn")])
+		if(nrow(names_) == 0){
+		  out[[iter]] <- data.frame(tsn="No data",parentname="No data",parenttsn="No data",taxonname="No data",rankid="No data",rankname="No data")
+		  stop_ <- "nodata"
+		} else {
+		  tt <- merge(tt[,-3], names_[,-1], by="tsn")
+		  if(nrow(tt[tt$rankId == downto2, ]) > 0) out[[iter]] <- tt[tt$rankId == downto2, ]
+		  if(nrow(tt[!tt$rankId == downto2, ]) > 0) {
+		    notout <- tt[!tt$rankId %in% torank_ids, ]
+		  } else { 
+		    notout <- data.frame(rankName = downto) 
+		  }
+		  
+		  if(all(notout$rankName == downto)) { 
+		    stop_ <- "fam"
+		  } else
+		  { 
+		    tsns <- notout$tsn
+		    stop_ <- "not" 
+		  }
 		}
 	}
 	tmp <- ldply(out)

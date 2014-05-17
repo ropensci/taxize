@@ -49,7 +49,7 @@ get_tsn <- function(searchterm, searchtype = "sciname", ask = TRUE, verbose = TR
                      comnamebeg = searchbycommonnamebeginswith(x),
                      comname = searchbycommonname(x),
                      comnameend = searchbycommonnameendswith(x))
-    
+    direct <- NA
     # should return NA if spec not found
     if (nrow(tsn_df) == 0){
       mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
@@ -70,10 +70,13 @@ get_tsn <- function(searchterm, searchtype = "sciname", ask = TRUE, verbose = TR
 #         tsn <- tsn_df$tsn[direct]
         tsn <- tsn_df$tsn[!is.na(direct)]
         att <- 'found'
-      } else { direct <- NA }
+      } else { 
+        direct <- NA 
+        att <- 'not found'
+      }
     }
     # multiple matches
-    if ( nrow(tsn_df) > 1 & length(na.omit(direct))>0 ){
+    if ( nrow(tsn_df) > 1 & all(is.na(direct)) ){
       if(ask) {
         names(tsn_df)[1] <- "target"
         # user prompt
@@ -111,7 +114,7 @@ get_tsn <- function(searchterm, searchtype = "sciname", ask = TRUE, verbose = TR
   outd <- ldply(searchterm, fun, searchtype, ask, verbose)
   out <- outd$tsn
   attr(out, 'match') <- outd$att
-  if(!is.na(out[1])){
+  if( !all(is.na(out)) ){
     urlmake <- na.omit(out)
     attr(out, 'uri') <- 
       sprintf('http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=%s', urlmake)

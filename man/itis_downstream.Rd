@@ -23,7 +23,7 @@ Retrieve all taxa names or TSNs downstream in hierarchy from given TSN.
 }
 \examples{
 \dontrun{
-itis_downstream(tsns=846509, downto="Genus")
+itis_downstream(tsns = 846509, downto="Genus")
 
 # getting families downstream from Acridoidea
 itis_downstream(tsns = 650497, "Family")
