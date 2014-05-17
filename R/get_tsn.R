@@ -44,11 +44,11 @@ get_tsn <- function(searchterm, searchtype = "sciname", ask = TRUE, verbose = TR
   {
     mssg(verbose, "\nRetrieving data for taxon '", x, "'\n")
     
-    if(searchtype == "sciname"){ tsn_df <- searchbyscientificname(x) } else
-    		if(searchtype == "comnamebeg") { tsn_df <- searchbycommonnamebeginswith(x) } else
-    			if(searchtype == "comname") { tsn_df <- searchbycommonname(x) } else
-    				if(searchtype == "comnameend") { tsn_df <- searchbycommonnameendswith(x) } else
-    					stop("searchtype not valid!")
+    tsn_df <- switch(searchtype, 
+                     sciname = searchbyscientificname(x),
+                     comnamebeg = searchbycommonnamebeginswith(x),
+                     comname = searchbycommonname(x),
+                     comnameend = searchbycommonnameendswith(x))
     
     # should return NA if spec not found
     if (nrow(tsn_df) == 0){
@@ -57,21 +57,23 @@ get_tsn <- function(searchterm, searchtype = "sciname", ask = TRUE, verbose = TR
       att <- 'not found'
     }
     # take the one tsn from data.frame
-    if (nrow(tsn_df) == 1)
+    if (nrow(tsn_df) == 1){
       tsn <- tsn_df$tsn
       att <- 'found'
+    }
     # check for direct match
     if (nrow(tsn_df) > 1){
       names(tsn_df)[1] <- "target"
-      direct <- match(tolower(x), tolower(tsn_df$target))
-      if(!is.na(direct))
-        tsn <- tsn_df$tsn[direct]
+#       direct <- match(tolower(x), tolower(tsn_df$target))
+      direct <- match(tolower(tsn_df$target), tolower(x))
+      if(!all(is.na(direct))){
+#         tsn <- tsn_df$tsn[direct]
+        tsn <- tsn_df$tsn[!is.na(direct)]
         att <- 'found'
-    } else {
-      direct <- NA
+      } else { direct <- NA }
     }
     # multiple matches
-    if (nrow(tsn_df) > 1 & is.na(direct)){
+    if ( nrow(tsn_df) > 1 & length(na.omit(direct))>0 ){
       if(ask) {
         names(tsn_df)[1] <- "target"
         # user prompt

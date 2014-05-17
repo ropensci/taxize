@@ -49,7 +49,7 @@ get_colid <- function(sciname, ask = TRUE, verbose = TRUE){
       mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
       id <- NA
     }
-    # more than one found on eol -> user input
+    # more than one found -> user input
     if(length(id) > 1){
       if(ask){
         rownames(df) <- 1:nrow(df)
