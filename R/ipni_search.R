@@ -35,6 +35,8 @@
 #' @param isgcirecord FALSE (default) to exclude records from the Gray Cards Index
 #' @param isikrecord FALSE (default) to exclude records from the Index Kewensis
 #' @param ranktoreturn One of a few options to choose the ranks returned. See details.
+#' @param output One of minimal (default), classic, short, or extended
+#' @param callopts Curl options passed on to httr::GET
 #' (Optional). Default: returns all ranks.
 #' @details
 #' \code{rankToReturn} options:
@@ -70,6 +72,7 @@ ipni_search <- function(family=NULL, infrafamily=NULL, genus=NULL, infragenus=NU
   isapnirecord=NULL, isgcirecord=NULL, isikrecord=NULL, ranktoreturn=NULL, output="minimal", 
   callopts=list())
 {
+  output <- match.arg(output, c('minimal','classic','short','extended'), FALSE)
   output_format <- sprintf('delimited-%s', output)
   url <- "http://www.ipni.org/ipni/advPlantNameSearch.do"
   args <- taxize_compact(list(output_format=output_format, find_family=family, 

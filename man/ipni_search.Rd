@@ -56,7 +56,11 @@ be greater than or equal to 1993-01-01.)}
 
 \item{isikrecord}{FALSE (default) to exclude records from the Index Kewensis}
 
-\item{ranktoreturn}{One of a few options to choose the ranks returned. See details.
+\item{ranktoreturn}{One of a few options to choose the ranks returned. See details.}
+
+\item{output}{One of minimal (default), classic, short, or extended}
+
+\item{callopts}{Curl options passed on to httr::GET
 (Optional). Default: returns all ranks.}
 }
 \value{
