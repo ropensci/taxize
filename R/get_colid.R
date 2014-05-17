@@ -34,17 +34,19 @@ get_colid <- function(sciname, ask = TRUE, verbose = TRUE){
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
     df <- col_search(name=sciname)[[1]]
     
+    rank_taken <- NA
     if(nrow(df)==0){
       mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
       id <- NA
     } else
     {
-      df <- df[,c('id','name','rank','status','acc_name')]
+      df <- df[,c('id','name','rank','status','source','acc_name')]
       names(df)[1] <- 'colid'
       id <- df$colid
+      rank_taken <- as.character(df$rank)
     }
     
-    # not found on eol
+    # not found on col
     if(length(id) == 0){
       mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
       id <- NA
@@ -55,7 +57,7 @@ get_colid <- function(sciname, ask = TRUE, verbose = TRUE){
         rownames(df) <- 1:nrow(df)
         # prompt
         message("\n\n")
-        message("\nMore than one eolid found for taxon '", sciname, "'!\n
+        message("\nMore than one colid found for taxon '", sciname, "'!\n
             Enter rownumber of taxon (other inputs will return 'NA'):\n")      
         print(df)
         take <- scan(n = 1, quiet = TRUE, what = 'raw')
@@ -64,8 +66,9 @@ get_colid <- function(sciname, ask = TRUE, verbose = TRUE){
           take <- 'notake'
         if(take %in% seq_len(nrow(df))){
           take <- as.numeric(take)
-          message("Input accepted, took eolid '", as.character(df$colid[take]), "'.\n")
+          message("Input accepted, took colid '", as.character(df$colid[take]), "'.\n")
           id <- as.character(df$colid[take])
+          rank_taken <- as.character(df$rank[take])
         } else {
           id <- NA
           mssg(verbose, "\nReturned 'NA'!\n\n")
@@ -74,15 +77,27 @@ get_colid <- function(sciname, ask = TRUE, verbose = TRUE){
           id <- NA
         }
     }  
-    return(id)
+#     return(id)
+    return( c(id=id, rank=rank_taken) )
   }
   sciname <- as.character(sciname)
-  out <- sapply(sciname, fun, ask=ask, verbose=verbose, USE.NAMES = FALSE)
-  class(out) <- "colid"
-  if(!is.na(out[1])){
-    urlmake <- na.omit(out)
-    attr(out, 'uri') <- 
-      sprintf('http://www.catalogueoflife.org/col/details/species/id/%s', urlmake)
+  out <- lapply(sciname, fun, ask=ask, verbose=verbose)
+  ids <- sapply(out, "[[", "id")
+  class(ids) <- "colid"
+  if(!is.na(ids[1])){
+    urls <- taxize_compact(sapply(out, function(z){
+      if(!is.na(z[['id']])){
+        if(tolower(z['rank']) == "species"){
+          sprintf('http://www.catalogueoflife.org/col/details/species/id/%s', z[['id']])
+        } else {
+          sprintf('http://www.catalogueoflife.org/col/browse/tree/id/%s', z[['id']])
+        }
+      }
+    }))
+    attr(ids, 'uri') <- unlist(urls)
   }
-  return(out)
+  return(ids)
+#     if(!length(urlmake)==0){
+#         sprintf('http://www.catalogueoflife.org/col/details/species/id/%s', urlmake)
+#     }
 }
