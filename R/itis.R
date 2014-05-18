@@ -606,7 +606,11 @@ getitistermsfromcommonname <- function(srchkey = NA, curlopts=list(), curl = get
 	row.names(tmp) <- NULL
 	if(nrow(tmp)==1 && names(tmp)=="x"){
 	  NA
-	} else { tmp }
+	} else {
+	  tmp$commonnames <- gsub("true", NA, as.character(tmp$commonnames))
+	  tmp$.attrs <- as.character(tmp$.attrs)
+    tmp
+	}
 }
 
 #' Get itis terms from common names
@@ -633,7 +637,11 @@ getitisterms <- function(srchkey = NA, curlopts=list(), curl = getCurlHandle(), 
   row.names(tmp) <- NULL
   if(nrow(tmp)==1 && names(tmp)=="x"){
     NA
-  } else { tmp }
+  } else {
+    tmp$commonnames <- gsub("true", NA, as.character(tmp$commonnames))
+    tmp$.attrs <- as.character(tmp$.attrs)
+    tmp
+  }
 }
 
 #' Get itis terms from scientific names
@@ -666,6 +674,8 @@ getitistermsfromscientificname <- function(srchkey = NA, curlopts=list(), curl =
     NA
   }
   else {
+    tmp$commonnames <- gsub("true", NA, as.character(tmp$commonnames))
+    tmp$.attrs <- as.character(tmp$.attrs)
     tmp
   }
 }

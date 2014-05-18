@@ -3,12 +3,16 @@
 \alias{get_tsn}
 \title{Get the TSN code for a search term.}
 \usage{
-get_tsn(searchterm, searchtype = "sciname", ask = TRUE, verbose = TRUE)
+get_tsn(searchterm, searchtype = "scientific", accepted = TRUE,
+  ask = TRUE, verbose = TRUE)
 }
 \arguments{
 \item{searchterm}{character; A vector of common or scientific names.}
 
-\item{searchtype}{character; One of 'sciname', 'comnamebeg', 'comname', 'comnameend'.}
+\item{searchtype}{character; One of 'scientific' or 'common', or any unique abbreviation}
+
+\item{accepted}{logical; If TRUE (default), removes names that are not accepted valid names
+by ITIS. Set to FALSE to give back both accepted and unaccepted names.}
 
 \item{ask}{logical; should get_tsn be run in interactive mode?
 If TRUE and more than one TSN is found for teh species, the user is asked for
@@ -20,29 +24,27 @@ input. If FALSE NA is returned for multiple matches.}
 A vector of taxonomic serial numbers (TSN). If a taxon is not
    found NA. If more than one TSN is found the function asks for user input
    (if ask = TRUE), otherwise returns NA.
-   Comes with an attribute \emph{match} to investigate the reason for NA (either 'not found', 'found' or if ask = FALSE 'multi match')
-		See functions in the \code{itis} function.
+   Comes with an attribute \emph{match} to investigate the reason for NA (either 'not found',
+     'found' or if ask = FALSE 'multi match')
 }
 \description{
 Retrieve the taxonomic serial numbers (TSN) of a taxon from ITIS.
 }
 \examples{
 \dontrun{
-get_tsn(searchterm = "Quercus douglasii", searchtype = "sciname")
-get_tsn(searchterm = "Chironomus riparius", searchtype = "sciname")
-get_tsn(c("Chironomus riparius","Quercus douglasii"), "sciname")
+get_tsn(searchterm = "Quercus douglasii")
+get_tsn(searchterm = "Chironomus riparius")
+get_tsn(c("Chironomus riparius","Quercus douglasii"))
 splist <- c("annona cherimola", 'annona muricata', "quercus robur",
 		"shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")
-get_tsn(splist, "sciname")
+get_tsn(splist, verbose=FALSE)
 
 # When not found
 get_tsn("howdy")
 get_tsn(c("Chironomus riparius", "howdy"))
 
 # Using common names
-get_tsn(searchterm="black bear", searchtype="comname")
-get_tsn(searchterm="black", searchtype="comnamebeg")
-get_tsn(searchterm="bear", searchtype="comnameend")
+get_tsn(searchterm="black bear", searchtype="c")
 }
 }
 \seealso{

@@ -326,7 +326,7 @@ classification.gbifid <- function(id, callopts = list(), ...) {
     if(is.na(x)) {
       out <- NA
     } else {
-      out <- suppressWarnings(tryCatch(gbif_name_usage(key = x, ...), error=function(e) e))
+      out <- suppressWarnings(tryCatch(gbif_name_usage(key = x), error=function(e) e))
       if(is(out, "simpleError")){ 
         out <- NA
       } else {
@@ -350,7 +350,7 @@ classification.ids <- function(id, ...)
 {
   fun <- function(x, ...){
     # return NA if NA is supplied
-    if (is.na(x)) {
+    if (all(is.na(x))) {
       out <- NA
     } else {
       out <- classification(x, ...)
