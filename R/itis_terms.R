@@ -19,6 +19,7 @@
 
 itis_terms <- function(query, what="both", ...)
 {
+  what <- match.arg(what, c('both','scientific','common'))
   temp <- switch(what, 
       both = lapply(query, function(x) getitisterms(x, ...)),
       common = lapply(query, function(x) getitistermsfromcommonname(x, ...)),
