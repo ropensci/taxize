@@ -56,8 +56,10 @@ downstream <- function(...){
 #' @export
 #' @rdname downstream
 downstream.default <- function(x, db = NULL, downto = NULL, ...){
+  if (is.null(downto))
+    stop("Must specify downto value!")
   if (is.null(db))
-    stop("Must specify db!")
+    stop("Must specify db value!")
   if (db == 'itis') {
     id <- get_tsn(x, ...)
     out <- downstream(id, downto = downto, ...)

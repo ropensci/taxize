@@ -51,9 +51,7 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = TRUE, ask 
       att <- "not found"
     } else {
       
-      if(class(tsn_df) == "data.frame"){
-        tsn_df <- tsn_df[,c("tsn","scientificname","commonnames","nameusage")]
-      }
+      tsn_df <- tsn_df[,c("tsn","scientificname","commonnames","nameusage")]
       
       if(accepted){
         tsn_df <- tsn_df[ tsn_df$nameusage %in% c('valid','accepted'), ]
@@ -87,7 +85,10 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = TRUE, ask 
         }
       }
       # multiple matches
-      if( nrow(tsn_df) > 1 & is.na(tsn) | nrow(tsn_df) > 1 & att == "found" & length(tsn) > 1 ){
+      if( any( 
+        nrow(tsn_df) > 1 & is.na(tsn) | 
+        nrow(tsn_df) > 1 & att == "found" & length(tsn) > 1
+      ) ){
         #     if ( nrow(tsn_df) > 1 & any(!is.na(direct)) | !"tsn" %in% ls() ){
         if(ask) {
           #         names(tsn_df)[1] <- "target"
