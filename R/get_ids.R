@@ -37,7 +37,7 @@ get_ids <- function(names, db = NULL, ...)
 {
   if(is.null(db))
     stop("Must specify on or more values for db!")
-  db <- match.arg(db, choices = c('ncbi','itis','eol','col','tropicos'), several.ok = TRUE)
+  db <- match.arg(db, choices = c('itis','ncbi','eol','col','tropicos','gbif'), several.ok = TRUE)
  
   foo <- function(x, names, ...){
     ids <- switch(x, 
