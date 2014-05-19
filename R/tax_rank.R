@@ -32,7 +32,7 @@
 #' the list
 #' x <- 'Baetis'
 #' classi <- classification(get_uid(x))
-#' sapply(classi, function(x) x[nrow(x), 'Rank'])
+#' sapply(classi, function(x) x[nrow(x), 'rank'])
 #' }
 #' @export
 tax_rank <- function(query = NULL, db = "itis", pref = 'ncbi', verbose = TRUE, ...)

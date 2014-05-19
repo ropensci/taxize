@@ -6,10 +6,6 @@
 #' @param callopts Curl options.
 #' @return List or dataframe.
 #' @examples \dontrun{
-#' # Raw json or xml
-#' tp_refs(id = 25509881, output = 'raw')
-#'
-#' # Output as data.frame
 #' tp_refs(id = 25509881)
 #' }
 #' @export

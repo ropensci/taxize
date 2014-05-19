@@ -23,13 +23,13 @@ tp_search <- function(name=NULL, commonname=NULL, nameid=NULL, orderby=NULL,
 {
   url = 'http://services.tropicos.org/Name/Search'
   key <- getkey(key, "tropicosApiKey")
-  args <- compact(list(format='json', name=name, nameid=nameid, 
+  args <- taxize_compact(list(format='json', name=name, nameid=nameid, 
                        commonname=commonname, orderby=orderby, sortorder=sortorder,
                        pagesize=pagesize, startrow=startrow, type=type, apikey=key))
   tt <- GET(url, query=args, callopts)
-  stop_for_status(tt)
+  warn_for_status(tt)
   out <- content(tt)
-  tmp <- do.call(rbind.fill, lapply(out, data.frame))
+  tmp <- do.call(rbind.fill, lapply(out, data.frame, stringsAsFactors = FALSE))
   names(tmp) <- tolower(names(tmp))
   tmp
 }

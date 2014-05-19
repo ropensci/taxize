@@ -22,12 +22,12 @@
 #' # format type
 #' ## json
 #' c <- vascan_search(q = "Helianthus annuus", format="json", raw=TRUE)
-#' library(rjson)
+#' library("rjson")
 #' fromJSON(c)
 #' 
 #' ## xml
 #' d <- vascan_search(q = "Helianthus annuus", format="xml", raw=TRUE)
-#' library(XML)
+#' library("XML")
 #' xmlParse(d)
 #' 
 #' # lots of names, in this case 50

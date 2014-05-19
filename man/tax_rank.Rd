@@ -44,7 +44,7 @@ tax_rank(query=c("Helianthus annuus", 'Puma'), db="both")
 the list
 x <- 'Baetis'
 classi <- classification(get_uid(x))
-sapply(classi, function(x) x[nrow(x), 'Rank'])
+sapply(classi, function(x) x[nrow(x), 'rank'])
 }
 }
 \seealso{
