@@ -31,15 +31,15 @@ There is a timeout of 1/3 seconds between queries to NCBI.
 \dontrun{
 # Plug in taxon names directly
 get_ids(names="Chironomus riparius", db = 'ncbi')
-get_ids(names=c("Chironomus riparius", "Poa annua"), db = 'ncbi')
-get_ids(names=c("Chironomus riparius", "Poa annua"), db = c('ncbi','itis'))
-get_ids(names=c("Chironomus riparius", "Poa annua"), db = c('ncbi','itis','col'))
-get_ids(names="Poa annua", db = c('ncbi','itis','col','eol','tropicos'))
+get_ids(names=c("Chironomus riparius", "Pinus contorta"), db = 'ncbi')
+get_ids(names=c("Chironomus riparius", "Pinus contorta"), db = c('ncbi','itis'))
+get_ids(names=c("Chironomus riparius", "Pinus contorta"), db = c('ncbi','itis','col'))
+get_ids(names="Pinus contorta", db = c('ncbi','itis','col','eol','tropicos'))
 get_ids(names="ava avvva", db = c('ncbi','itis','col','eol','tropicos'))
 get_ids(names="ava avvva", db = c('ncbi','itis','col','eol','tropicos'), verbose=FALSE)
 
 # Pass on to other functions
-out <- get_ids(names="Poa annua", db = c('ncbi','itis','col','eol','tropicos'))
+out <- get_ids(names="Pinus contorta", db = c('ncbi','itis','col','eol','tropicos'))
 classification(out$itis)
 synonyms(out$tropicos)
 }
