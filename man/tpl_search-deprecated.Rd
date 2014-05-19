@@ -16,7 +16,7 @@ include: snow, multicore, parallel, doMC, etc.}
 See \code{TPL} and \code{TPLck} for arguments.}
 }
 \description{
-This function is deprecated.
+THIS FUNCTION IS DEPRECATED.
 }
 \details{
 This function was a very light wrapper around TPLck anyway - we don't see further

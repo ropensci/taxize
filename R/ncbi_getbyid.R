@@ -56,6 +56,7 @@ ncbi_getbyid <- function(ids, format="fasta", verbose=TRUE)
 #' @param verbose logical; If TRUE (default), informative messages printed.
 #' @export
 #' @keywords internal
+#' @rdname get_genes-deprecated
 
 get_genes <- function(ids, format="fasta", verbose=TRUE)
 {

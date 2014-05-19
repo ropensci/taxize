@@ -215,15 +215,6 @@ The following are URL's for API documentation, where to get API keys, and what p
 
 #### May be in taxize in the future...
 
-+ Tree of Life web project
-	+ [Their website](http://tolweb.org/tree/phylogeny.html)
- 	+ [API docs](http://tolweb.org/tree/home.pages/downloadtree.html)
- 	+ to be function prefix: `tol`
-+ Freshwaterecology - The Taxa and Autecology Database for Freshwater Organisms
-	+ [Their website](http://www.freshwaterecology.info)
-	+ API docs: There are none! The function scraps the web directly.
-	+ to be function prefix: `fresh`
-	+ Note: Currently only the macro-invertebrate database is supported!
 + [USDA Plants](http://plants.usda.gov/java/)
 + [NatureServe](http://www.natureserve.org/)
 + [Lichen Taxon dictionary](http://www.thebls.org.uk/)

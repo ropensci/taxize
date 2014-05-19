@@ -26,6 +26,7 @@
 #' 		and start) are optional.
 #' @return A list of data.frame's.
 #' @export
+#' @rdname col_classification-deprecated
 #' @keywords internal
 #' @examples \dontrun{
 #' # A basic example
@@ -101,6 +102,7 @@ col_classification <- function(name=NULL, id=NULL, format=NULL, start=NULL, chec
 #' 		this function only returns JSON for now.
 #' @return List or dataframe of results.
 #' @export
+#' @rdname eol_hierarchy-deprecated
 #' @keywords internal
 #' @examples \dontrun{
 #' # Using get_eolid
@@ -142,6 +144,7 @@ eol_hierarchy <- function(taxonid, common_names = NULL, synonyms = NULL,
 #' @return A data.frame giving the hierarchy.
 #' @references \url{http://services.tropicos.org/help?method=GetNameHigherTaxaXml}
 #' @export
+#' @rdname tp_classification-deprecated
 #' @keywords internal
 #' @examples \dontrun{
 #' tp_classification(id = 25509881)

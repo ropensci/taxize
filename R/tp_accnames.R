@@ -65,6 +65,7 @@ getdata <- function(x) {
 #' @param key Your Tropicos API key; loads from .Rprofile.
 #' @export
 #' @keywords internal
+#' @rdname tp_acceptednames-deprecated
 tp_acceptednames <- function(id, format = 'json', output = 'df', key = NULL)
 {
   .Deprecated("tp_accnames", "taxize", "Function name changed. See tp_accnames", "tp_acceptednames")

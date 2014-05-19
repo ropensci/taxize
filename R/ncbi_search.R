@@ -165,6 +165,7 @@ ncbi_search <- function(taxa, seqrange="1:3000", getrelated=FALSE, limit = 500,
 #' @param verbose logical; If TRUE (default), informative messages printed.
 #' @export
 #' @keywords internal
+#' @rdname get_genes_avail-deprecated
 
 get_genes_avail <- function(taxa, seqrange="1:3000", getrelated=FALSE, verbose=TRUE)
 {

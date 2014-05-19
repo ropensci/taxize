@@ -149,6 +149,7 @@ ncbi_getbyname <- function(taxa, gene="COI", seqrange="1:3000", getrelated=FALSE
 #' @param verbose logical; If TRUE (default), informative messages printed.
 #' @export
 #' @keywords internal
+#' @rdname get_seqs-deprecated
 
 get_seqs <- function(taxa, gene="COI", seqrange="1:3000", getrelated=FALSE, verbose=TRUE)
 {
