@@ -1,9 +1,9 @@
 base
-datasets
-graphics
-grDevices
+devtools
 knitr
 plyr
-stats
+Rdocumentation
+sacbox
+slidify
+slidifyLibraries
 taxize
-utils

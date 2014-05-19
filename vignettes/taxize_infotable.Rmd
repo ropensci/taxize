@@ -30,3 +30,4 @@ tax_rank | Get rank of a taxonomic name | Various |
 tnrs | Resolve names using Taxosaurus/iPlant | Taxosaurus Taxonomic Name Resolution Service |
 tp_accnames | Check for accepted names using Tropicos | Tropicos |
 ubio_namebank | Search uBio | uBio |
+ipni_search | Search the International Plant Names Index | IPNI |
