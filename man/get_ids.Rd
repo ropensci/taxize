@@ -41,7 +41,7 @@ get_ids(names="ava avvva", db = c('ncbi','itis','col','eol','tropicos'), verbose
 # Pass on to other functions
 out <- get_ids(names="Pinus contorta", db = c('ncbi','itis','col','eol','tropicos'))
 classification(out$itis)
-synonyms(out$tropicos) # none found for this taxon
+synonyms(out$tropicos)
 }
 }
 \seealso{

@@ -1,8 +1,6 @@
 #' Parse taxon names using the GBIF name parser.
 #' 
-#' @import httr
-#' @import plyr
-#' @import RJSONIO
+#' @import httr plyr RJSONIO
 #' @param scientificname A character vector of scientific names.
 #' @return A \code{data.frame} containing fields extracted from parsed 
 #' taxon names. Fields returned are the union of fields extracted from
@@ -18,6 +16,7 @@
 #'              'Secale cereale subsp. cereale', 'Secale cereale ssp. cereale',
 #'              'Vanessa atalanta (Linnaeus, 1758)'))
 #' }
+
 gbif_parse <- function(scientificname) {
   url <- "http://api.gbif.org/v0.9/parser/name"
   tt <- POST(url,

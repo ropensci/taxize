@@ -24,7 +24,7 @@ information.
 \examples{
 \dontrun{
 gni_details(id = 17802847)
-library(plyr)
+library("plyr")
 ldply(list(1265133, 17802847), gni_details)
 }
 }

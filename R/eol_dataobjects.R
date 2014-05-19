@@ -1,6 +1,7 @@
 #' Given the identifier for a data object, return all metadata about the object.
 #' 
 #' @import RCurl plyr RJSONIO
+#' @export
 #' @param id The EOL data object identifier (character)
 #' @param usekey use your API key or not (TRUE or FALSE)
 #' @param returntype one of "list" of "data.frame" (character)
@@ -14,7 +15,7 @@
 #' eol_dataobjects(id="d72801627bf4adf1a38d9c5f10cc767f")
 #' eol_dataobjects(id="21929584")
 #' }
-#' @export
+
 eol_dataobjects <- function(id, returntype = 'list', usekey = TRUE, key = NULL, verbose=TRUE)
 {
   url = 'http://www.eol.org/api/data_objects/1.0/'

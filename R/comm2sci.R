@@ -27,6 +27,7 @@
 #' library(plyr)
 #' ldply(comm2sci(commnames=c('annual blue grass','tree of heaven'), db='tropicos'))
 #' }
+
 comm2sci <- function(commnames, db='eol', itisby='search', simplify=TRUE, ...)
 { 
   foo <- function(x, by='search', simplify, ...){

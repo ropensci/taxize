@@ -59,7 +59,6 @@
 #' 
 #' # Different output formats
 #' head(ipni_search(genus='Ceanothus'))
-#' head(ipni_search(genus='Ceanothus', output='minimal'))
 #' head(ipni_search(genus='Ceanothus', output='short'))
 #' head(ipni_search(genus='Ceanothus', output='extended'))
 #' }

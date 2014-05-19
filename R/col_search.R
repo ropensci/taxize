@@ -22,6 +22,8 @@
 #' @examples \dontrun{
 #' # A basic example
 #' col_search(name="Apis")
+#' col_search(name="Agapostemon")
+#' col_search(name="Poa")
 #' 
 #' # Many names
 #' col_search(name=c("Apis","Puma concolor"))
