@@ -57,7 +57,7 @@ gni_search <- function(search_term = NULL, per_page = NULL, page = NULL,
 	  names(df) <- c("name","id","lsid","uuid_hex","resource_url")
     
     if(parse_names){
-      data.frame(df, gni_parse(as.character(df$name)))
+      data.frame(df, gni_parse(as.character(df$name)), stringsAsFactors = FALSE)
     } else
       { df }
 	}

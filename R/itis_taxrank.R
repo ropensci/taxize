@@ -1,5 +1,6 @@
 #' Retrieve taxonomic rank name from given TSN.
 #' 
+#' @export
 #' @param query TSN for a taxonomic group (numeric). If query is left as default
 #'    (NULL), you get all possible rank names, and their TSN's (using function
 #'    \code{\link{getranknames}}. There is slightly different terminology for 
@@ -20,7 +21,7 @@
 #' # Many TSN's
 #' itis_taxrank(query=c(202385,183833,180543))
 #' }
-#' @export
+
 itis_taxrank <- function(query = NULL, ...)
 {
   if(is.null(query)){

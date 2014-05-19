@@ -9,6 +9,8 @@
 #' @examples \dontrun{
 #' gni_parse("Cyanistes caeruleus")
 #' gni_parse("Plantago minor")
+#' gni_parse("Plantago minor minor")
+#' gni_parse(c("Plantago minor minor","Helianthus annuus texanus"))
 #' }
 gni_parse <- function(names)
 {

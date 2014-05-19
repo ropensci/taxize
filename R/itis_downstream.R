@@ -1,6 +1,7 @@
 #' Retrieve all taxa names or TSNs downstream in hierarchy from given TSN.
 #' 
 #' @import XML RCurl plyr
+#' @export
 #' @param tsns A taxonomic serial number. 
 #' @param downto The taxonomic level you want to go down to. See examples below.
 #' 		The taxonomic level IS case sensitive, and you do have to spell it 
@@ -18,7 +19,7 @@
 #' # getting species downstream from Ursus
 #' itis_downstream(tsns = 180541, "Species")
 #' }
-#' @export
+
 itis_downstream <- function(tsns, downto, verbose=TRUE) 
 {
 	downto2 <- rank_ref[grep(downto, rank_ref$ranks),"rankId"]
