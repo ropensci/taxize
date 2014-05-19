@@ -7,6 +7,7 @@
 #' @export
 #' @param query Vector of one or more names.
 #' @param db Source to check names against. One of iplant, tnrs, or gnr
+#' @param callopts Curl options passed on to httr::GET
 #' @param ... Further named args passed on to each respective function. See examples. Note that 
 #' parameters for specific data sources are specific to those data sources. E.g. you can pass the 
 #' parameter \code{source} when using \code{db="tnrs"}, but is meaningless when passed when 
