@@ -19,9 +19,9 @@
 #' # A single species
 #' out <- ncbi_search(taxa="Umbra limi", seqrange = "1:2000")
 #' # get list of genes available, removing non-unique
-#' unique(out$genesavail)
+#' unique(out$gene_desc)
 #' # does the string 'RAG1' exist in any of the gene names
-#' out[grep("RAG1", out$genesavail, ignore.case=TRUE),]
+#' out[grep("RAG1", out$gene_desc, ignore.case=TRUE),]
 #'
 #' # A single species without records in NCBI
 #' out <- ncbi_search(taxa="Sequoia wellingtonia", seqrange="1:2000", getrelated=TRUE)
@@ -30,9 +30,10 @@
 #' species <- c("Salvelinus alpinus","Ictalurus nebulosus","Carassius auratus")
 #' out2 <- ncbi_search(taxa=species, seqrange = "1:2000")
 #' lapply(out2, head) # see heads of all
+#' library("plyr")
 #' out2df <- ldply(out2) # make data.frame of all
-#' unique(out2df$genesavail) # get list of genes available, removing non-unique
-#' out2df[grep("RAG1", out2df$genesavail, ignore.case=TRUE),] # search across all
+#' unique(out2df$gene_desc) # get list of genes available, removing non-unique
+#' out2df[grep("60S ribosomal protein", out2df$gene_desc, ignore.case=TRUE),] # search across all
 #' }
 #' @export
 ncbi_search <- function(taxa, seqrange="1:3000", getrelated=FALSE, limit = 500,
