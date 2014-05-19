@@ -44,7 +44,7 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = TRUE, ask 
     mssg(verbose, "\nRetrieving data for taxon '", x, "'\n")
     
     searchtype <- match.arg(searchtype, c("scientific","common"))
-    tsn_df <- itis_terms(x, what = searchtype)
+    tsn_df <- itis_terms(x, what = searchtype, verbose=verbose)
     
     if(!class(tsn_df) == "data.frame"){
       tsn <- NA
