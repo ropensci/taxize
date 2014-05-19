@@ -26,11 +26,10 @@
 #' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
 #' 
 #' @examples \dontrun{
-#' get_eolid(sciname='Poa annua')
 #' get_eolid(sciname='Pinus contorta')
 #' get_eolid(sciname='Puma concolor')
 #' 
-#' get_eolid(c("Poa annua", "Pinus contorta"))
+#' get_eolid(c("Puma concolor", "Pinus contorta"))
 #' 
 #' # When not found
 #' get_eolid(sciname="uaudnadndj")
