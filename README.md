@@ -3,7 +3,7 @@ taxize
 
 [![Build Status](https://api.travis-ci.org/ropensci/taxize.png)](https://travis-ci.org/ropensci/taxize)
 
-`taxize` allows users to search over many taxonomic data sources for species names (scientific and common) and download up and downstream taxonomic hierarchical information - among other things. 
+`taxize` allows users to search over many taxonomic data sources for species names (scientific and common) and download up and downstream taxonomic hierarchical information - among other things.
 
 The `taxize` tutorial is can be found at [http://ropensci.org/tutorials/taxize_tutorial.html](http://ropensci.org/tutorials/taxize_tutorial.html)
 
@@ -20,7 +20,7 @@ The functions in the package that hit a specific API have a prefix and suffix se
 
 You need API keys for Encyclopedia of Life (EOL), the Universal Biological Indexer and Organizer (uBio), Tropicos, and Plantminer.
 
-The following are URL's for API documentation, where to get API keys, and what prefix they have in function names. 
+The following are URL's for API documentation, where to get API keys, and what prefix they have in function names.
 
 ### Currently implemented in `taxize`
 
@@ -132,6 +132,12 @@ The following are URL's for API documentation, where to get API keys, and what p
 	<td style="text-align:left;"><a href="http://data.canadensys.net/vascan/api">link</a></td>
 	<td style="text-align:left;">none</td>
 </tr>
+<tr>
+	<td style="text-align:left;">International Plant Names Index (IPNI)</td>
+	<td style="text-align:left;"><code>ipni</code></td>
+	<td style="text-align:left;"><a href="http://www.ipni.org/link_to_ipni.html">link</a></td>
+	<td style="text-align:left;">none</td>
+</tr>
 </tbody>
 </table>
 
@@ -163,13 +169,13 @@ The following are URL's for API documentation, where to get API keys, and what p
 	+ [Get an API key: start an account on EOL to get your API key](http://eol.org/users/register)
 	+ [API forum](https://eol.uservoice.com/forums/15429-encyclopedia-of-life-api)
 	+ function prefix: `eol`
-+ Taxonomic Name Resolution Service (TNRS) 
++ Taxonomic Name Resolution Service (TNRS)
 	+ [API docs](http://api.phylotastic.org/tnrs)
 	+ function prefix: `tnrs`
 + Integrated Taxonomic Information Service (ITIS)
 	+ [API docs](http://www.itis.gov/ws_description.html)
 	+ function prefix: `itis`
-+ Phylomatic 
++ Phylomatic
 	+ [API docs](http://www.phylodiversity.net/phylomatic/phylomatic_api.html)
 	+ function prefix: `phylomatic`
 + uBio
@@ -184,7 +190,7 @@ The following are URL's for API documentation, where to get API keys, and what p
 	+ [Use](http://gni.globalnames.org/)
 	+ [API docs](https://github.com/dimus/gni/wiki/api)
 	+ function prefix: `gni`
-+ IUCN Red List 
++ IUCN Red List
   	+ [API docs](https://www.assembla.com/spaces/sis/wiki/Red_List_API?version=3)
   	+ function prefix: `iucn`
 + Tropicos (from Missouri Botanical Garden)
@@ -206,7 +212,7 @@ The following are URL's for API documentation, where to get API keys, and what p
   + [Their website](http://www.issg.org/database/welcome/)
  	+ API docs: There are none! The function scraps the web directly.
  	+ function prefix: `gisd` -->
-  
+
 #### May be in taxize in the future...
 
 + Tree of Life web project
@@ -222,34 +228,6 @@ The following are URL's for API documentation, where to get API keys, and what p
 + [NatureServe](http://www.natureserve.org/)
 + [Lichen Taxon dictionary](http://www.thebls.org.uk/)
 + [MycoBank](http://www.mycobank.org/)
-
-#### Notes on the ITIS API
-
-There are a lot of methods for the ITIS API. We have attempted to simplify the interface. Here are some notes:
-
-The following are higher level functions that attempt to make interacting with the various methods easier. Some are new. The function on the left uses the functions on the right of the arrow. You can access functions on the right of the arrow as normal, but aren't shown in the main help file index to avoid cognitive load.
-
-+ `classification` <- `getfullhierarchyfromtsn`
-+ `itis_downstream` <- `gethierarchydownfromtsn`
-+ `itis_searchcommon` <- `searchbycommonnamebeginswith`, `searchbycommonnameendswith`
-+ `get_tsn` <- `searchbycommonnamebeginswith`, `searchbycommonnameendswith`, `searchbycommonname`, `searchbyscientificname`
-+ `comm2sci` <- `searchbycommonnamebeginswith`, `searchbycommonnameendswith`, `searchbycommonname`, `getscientificnamefromtsn`
-+ `sci2comm` <- `searchbycommonnamebeginswith`, `searchbycommonnameendswith`, `searchbycommonname`, `getcommonnamesfromtsn`, `searchbyscientificname`
-+ `synonyms` <- `getsynonymnamesfromtsn`
-+ `itis_acceptname` <- `getacceptednamesfromtsn`
-+ `itis_taxrank` <- `gettaxonomicranknamefromtsn`, `getranknames`
-+ `itis_ping` <- `getdescription`
-+ `itis_refs` <- `getpublicationsfromtsn`
-+ `itis_getrecord` <- `getfullrecordfromtsn`
-+ `itis_kingdomnames` <- `getkingdomnamefromtsn`, `getkingdomnames`
-+ `itis_lsid` <- `getfullrecordfromlsid`, `getrecordfromlsid`, `gettsnfromlsid`
-+ `itis_native` <- `getjurisdictionaloriginfromtsn`, `getjurisdictionoriginvalues`, `getjurisdictionvalues`
-+ `itis_hierarchy` <- `getfullhierarchyfromtsn`, `gethierarchydownfromtsn`, `gethierarchyupfromtsn`
-+ `itis_terms` <- `getitisterms`, `getitistermsfromcommonname`, `getitistermsfromscientificname`
-
-The following functions are not used in the higher level functions above, and aren't shown on the `taxize` index page, but are still available, e.g. `FunctionName`
-
-`getanymatchcount`, `searchforanymatch`, `searchforanymatchpaged`, `getexpertsfromtsn`, `getcommentdetailfromtsn`, `getcoremetadatafromtsn`, `getcoveragefromtsn`, `getcredibilityratingfromtsn`, `getcredibilityratings`, `getcurrencyfromtsn`, `getdatedatafromtsn`, `getlastchangedate`, `getothersourcesfromtsn`, `getparenttsnfromtsn`, `getglobalspeciescompletenessfromtsn`, `getgeographicdivisionsfromtsn`, `getgeographicvalues`, `getreviewyearfromtsn`, `gettaxonauthorshipfromtsn`, `gettaxonomicusagefromtsn`, `gettsnbyvernacularlanguage`, `getunacceptabilityreasonfromtsn`, `getvernacularlanguages`
 
 ## Quickstart
 
@@ -332,7 +310,7 @@ plot(tree)
 
 Please report any issues or bugs](https://github.com/ropensci/taxize/issues).
 
-License: CC0
+License: MIT
 
 This package is part of the [rOpenSci](http://ropensci.org/packages) project.
 
