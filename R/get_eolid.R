@@ -6,7 +6,6 @@
 #' to find the actual taxon IDs. 
 #' 
 #' @import plyr RCurl
-#' @importFrom reshape sort_df
 #' @param sciname character; scientific name.
 #' @param ask logical; should get_eolid be run in interactive mode? 
 #' If TRUE and more than one ID is found for the species, the user is asked for 
@@ -41,8 +40,8 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...){
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
     tmp <- eol_search(terms = sciname, key, ...)
     
-    ms="Not found. Consider checking the spelling or alternate classification"
-    
+    ms <- "Not found. Consider checking the spelling or alternate classification"
+    datasource <- NA
     if(all(is.na(tmp))){
       mssg(verbose, ms)
       id <- NA
@@ -79,6 +78,11 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...){
       mssg(verbose, ms)
       id <- NA
     }
+    # only one found on eol
+    if(length(id) == 1 & !all(is.na(id))){
+      id <- df$eolid
+      datasource <- df$source
+    }
     # more than one found on eol -> user input
     if(length(id) > 1){
       if(ask){
@@ -97,6 +101,7 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...){
           message("Input accepted, took eolid '", as.character(df$eolid[take]), "'.\n")
           id <- as.character(df$eolid[take])
           names(id) <- as.character(df$pageid[take])
+          datasource <- as.character(df$source[take])
         } else {
           id <- NA
           mssg(verbose, "\nReturned 'NA'!\n\n")
@@ -105,18 +110,23 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...){
         id <- NA
       }
     }  
-    return(id)
+    
+    id_source <- list(id=id, source=datasource)
+    return( id_source )
   }
   sciname <- as.character(sciname)
-  out <- sapply(sciname, fun, ask, verbose, USE.NAMES = FALSE)
-  class(out) <- "eolid"
-  s_pids <- names(out)
-  out <- unname(out)
-  if(!is.na(out[1])){
+  out <- lapply(sciname, fun, ask, verbose)
+  justids <- sapply(out, "[[", "id")
+  justsources <- sapply(out, "[[", "source")
+  class(justids) <- "eolid"
+  s_pids <- names(justids)
+  out <- unname(justids)
+  if(!is.na(justids[1])){
     s_pids <- s_pids[vapply(s_pids, nchar, 1) > 0]
     attr(out, 'uri') <- 
       sprintf('http://eol.org/pages/%s/overview', s_pids)
   }
+  attr(out, 'provider') <- justsources
   return(out)
 }
 
@@ -129,5 +139,12 @@ getsourceshortnames <- function(input){
                            'IUCN Red List (Species Assessed for Global Conservation)'))
   bb <- merge(input, lookup, by.x="source", by.y="b")[,-1]
   names(bb)[4] <- "source"
-  sort_df(bb, "name")
+  taxize_sort_df(bb, "name")
+}
+
+taxize_sort_df <- function (data, vars = names(data)) 
+{
+  if (length(vars) == 0 || is.null(vars)) 
+    return(data)
+  data[do.call("order", data[, vars, drop = FALSE]), , drop = FALSE]
 }
