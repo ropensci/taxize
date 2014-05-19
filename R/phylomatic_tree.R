@@ -39,7 +39,6 @@
 #' # Output NeXML format
 #' taxa <- c("Gonocarpus leptothecus", "Gonocarpus leptothecus", "Lilium lankongense")
 #' out <- phylomatic_tree(taxa=taxa, get = 'POST', outformat = "nexml")
-#' out
 #' cat(out)
 #' }
 #' @export

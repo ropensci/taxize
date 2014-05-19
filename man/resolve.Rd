@@ -3,7 +3,7 @@
 \alias{resolve}
 \title{Resolve names from many different sources}
 \usage{
-resolve(query, db = "iplant", ...)
+resolve(query, db = "iplant", callopts = list(), ...)
 }
 \arguments{
 \item{query}{Vector of one or more names.}
@@ -31,8 +31,9 @@ resolve(query="Quercus keloggii", db='gnr')
 resolve(query="Helianthus annuus", db='gnr', preferred_data_sources = c(3,4))
 resolve(query=c("Helianthus annuus", "Homo sapiens"), db=c('iplant','gnr'))
 resolve(query="Quercus keloggii", db=c('iplant','gnr','tnrs'))
-resolve(query=c("Helianthus annuus", "Homo sapiens"), callopts=verbose())
-resolve(query=c("Helianthus annuus", "Homo sapiens"), callopts=list(verbose=TRUE, timeout.ms=3))
+library("httr")
+resolve(query="Qercuss", callopts=verbose())
+resolve(query=c("Helianthus annuus", "Homo sapiens"), callopts=timeout(3))
 }
 }
 

@@ -20,19 +20,20 @@
 #' resolve(query="Helianthus annuus", db='gnr', preferred_data_sources = c(3,4))
 #' resolve(query=c("Helianthus annuus", "Homo sapiens"), db=c('iplant','gnr'))
 #' resolve(query="Quercus keloggii", db=c('iplant','gnr','tnrs'))
-#' resolve(query=c("Helianthus annuus", "Homo sapiens"), callopts=verbose())
-#' resolve(query=c("Helianthus annuus", "Homo sapiens"), callopts=list(verbose=TRUE, timeout.ms=3))
+#' library("httr")
+#' resolve(query="Qercuss", callopts=verbose())
+#' resolve(query=c("Helianthus annuus", "Homo sapiens"), callopts=timeout(3))
 #' }
 
-resolve <- function(query, db='iplant', ...){  
+resolve <- function(query, db='iplant', callopts=list(), ...){  
   
   db <- match.arg(db, choices = c('iplant','tnrs','gnr'), several.ok = TRUE)
   
   foo <- function(x, y, ...){
     res <- switch(x, 
-                  gnr = try_default(gnr_resolve(names = y, ...)),
-                  tnrs = try_default(tnrs(query = y, ...)),
-                  iplant = try_default(iplant_resolve(query = y, ...)))
+                  gnr = try_default(gnr_resolve(names = y, callopts=callopts, ...)),
+                  tnrs = try_default(tnrs(query = y, callopts=callopts, ...)),
+                  iplant = try_default(iplant_resolve(query = y, callopts=callopts, ...)))
     if(is.null(res)){
       "Error: no data found"
     } else {
