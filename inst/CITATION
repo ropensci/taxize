@@ -1,8 +1,8 @@
-citHeader("To cite taxize in publications use:")
+citHeader("To cite taxize in publications use at least the first, if not both:")
 
 citEntry(entry = "Article",
    title          = "taxize - taxonomic search and retrieval in R",
-   journal		  = "F1000Research",
+   journal		    = "F1000Research",
    author         = personList(person("Scott Chamberlain"), person("Eduard Szocs")),
    year           = "2013",
    url            = "http://f1000research.com/articles/2-191/v2",
@@ -11,4 +11,17 @@ citEntry(entry = "Article",
    paste("Scott Chamberlain and Eduard Szocs (2013).",
         "taxize - taxonomic search and retrieval in R.",
         "F1000Research, 2:191. URL: http://f1000research.com/articles/2-191/v2.")
+)
+
+citEntry(entry = "Manual",
+  title = {taxize: Taxonomic information from around the web},
+  author = {Scott Chamberlain and Eduard Szöcs and Carl Boettiger and Karthik Ram and Ignasi Bartomeus and John Baumgartner},
+  year = {2014},
+  note = {R package version 0.3.0},
+  url = {https://github.com/ropensci/taxize},
+
+  textVersion =
+  paste("taxize: Taxonomic information from around the web.
+    taxize: Taxonomic information from around the web. R package
+    version 0.3.0. URL https://github.com/ropensci/taxize")
 )
