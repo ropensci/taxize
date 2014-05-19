@@ -30,7 +30,7 @@
 #' # Pass on to other functions
 #' out <- get_ids(names="Pinus contorta", db = c('ncbi','itis','col','eol','tropicos'))
 #' classification(out$itis)
-#' synonyms(out$tropicos)
+#' synonyms(out$tropicos) # none found for this taxon
 #' }
 
 get_ids <- function(names, db = NULL, ...)
