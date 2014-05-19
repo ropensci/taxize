@@ -58,7 +58,7 @@ tax_name <- function(query = NULL, get = NULL, db = "itis", pref = 'ncbi',
   fun <- function(query, get, db, verbose, ...){
     # ITIS
   	if(db == "itis"){
-  		tsn <- get_tsn(query, searchtype = "sciname", verbose = verbose, ...)
+  		tsn <- get_tsn(query, searchtype = "scientific", verbose = verbose, ...)
       if(is.na(tsn)) {
         if(verbose) 
           message("No TSN found for species '", query, "'!\n")
@@ -104,7 +104,7 @@ tax_name <- function(query = NULL, get = NULL, db = "itis", pref = 'ncbi',
         match_uid <- hierarchy$name[match(tolower(get), tolower(hierarchy$rank))]
       }
       # itis
-      tsn <- get_tsn(query, searchtype="sciname", verbose = verbose, ...)
+      tsn <- get_tsn(query, searchtype="scientific", verbose = verbose, ...)
       if(is.na(tsn)) {
         if(verbose) 
           message("No TSN found for species '", query, "'!\n")

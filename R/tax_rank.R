@@ -47,7 +47,7 @@ tax_rank <- function(query = NULL, db = "itis", pref = 'ncbi', verbose = TRUE, .
   fun <- function(query, get, db, verbose, ...){
     # ITIS
     if(db == "itis" | db == 'both'){
-      tsn <- get_tsn(query, searchtype = "sciname", verbose = verbose, ...)
+      tsn <- get_tsn(query, searchtype = "scientific", verbose = verbose, ...)
       if(is.na(tsn)) {
         if(verbose) 
           message("No TSN found for species '", query, "'!\n")
