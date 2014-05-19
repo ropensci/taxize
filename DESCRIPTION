@@ -37,10 +37,8 @@ Imports:
     Taxonstand,
     reshape2,
     data.table,
-    reshape,
     vegan,
-    assertthat,
-    R.utils
+    assertthat
 Suggests:
     testthat,
     roxygen2,
