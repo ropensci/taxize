@@ -17,24 +17,24 @@ This should be a path to your file on your machine.}
 \item{text}{Type: string. Text content; best used with a POST request, see
 examples}
 
-\item{engine}{(optional) Type: integer, Default: 0. Either 1 for TaxonFinder,
+\item{engine}{(optional) (integer) Default: 0. Either 1 for TaxonFinder,
 2 for NetiNeti, or 0 for both. If absent, both engines are used.}
 
-\item{unique}{(optional) Type: boolean. If TRUE (default),
-response has unique names without offsets.}
+\item{unique}{(optional) (logical) If TRUE (default), response has unique names without offsets.}
 
-\item{verbatim}{(optional) Type: boolean, If TRUE (default to FALSE),
-response excludes verbatim strings.}
+\item{verbatim}{(optional) Type: boolean, If TRUE (default to FALSE), response excludes verbatim
+strings.}
 
-\item{detect_language}{(optional) Type: boolean, When
-TRUE (default), NetiNeti is not used if the language of incoming text is
-determined not to be English. When 'false', NetiNeti will be used if requested.}
+\item{detect_language}{(optional) Type: boolean, When TRUE (default), NetiNeti is not used if
+the language of incoming text is determined not to be English. When 'false', NetiNeti will
+be used if requested.}
 
-\item{all_data_sources}{(optional) Type: bolean. Resolve found
-names against all available Data Sources.}
+\item{all_data_sources}{(optional) Type: bolean. Resolve found names against all available
+Data Sources.}
 
-\item{data_source_ids}{(optional) Type: string. Pipe separated list of data
-source ids to resolve found names against. See list of Data Sources.}
+\item{data_source_ids}{(optional) Type: string. Pipe separated list of data source ids to
+resolve found names against. See list of Data Sources
+\url{http://resolver.globalnames.org/data_sources}.}
 
 \item{callopts}{Further args passed to \code{\link[httr]{GET}}}
 }
@@ -46,20 +46,28 @@ Uses the Global Names Recognition and Discovery service, see
 \url{http://gnrd.globalnames.org/}.
 }
 \details{
+Note: this function somestimes gives data back and sometimes not. The API that this function is
+extremely buggy.
+
 One of url, file, or text must be specified - and only one of them.
 }
 \examples{
 \dontrun{
 # Get data from a website using its URL
 scrapenames(url = 'http://en.wikipedia.org/wiki/Araneae')
+scrapenames(url = 'http://en.wikipedia.org/wiki/Animalia')
+scrapenames(url = 'http://www.plosone.org/article/info\%3Adoi\%2F10.1371\%2Fjournal.pone.0095068')
+scrapenames(url = 'http://www.plosone.org/article/info\%3Adoi\%2F10.1371\%2Fjournal.pone.0080498')
+scrapenames(url = 'http://ucjeps.berkeley.edu/cgi-bin/get_JM_treatment.pl?CARYOPHYLLACEAE')
 
 # Scrape names from a pdf at a URL
-scrapenames(url = 'http://www.mapress.com/zootaxa/2012/f/z03372p265f.pdf')
+out <- scrapenames(url = 'http://www.plosone.org/article/info:doi/10.1371/journal.pone.0058268')
+out$data
 
 # With arguments
-scrapenames(url = 'http://www.mapress.com/zootaxa/2012/f/z03372p265f.pdf',
-unique=TRUE)
+scrapenames(url = 'http://www.mapress.com/zootaxa/2012/f/z03372p265f.pdf', unique=TRUE)
 scrapenames(url = 'http://www.mapress.com/zootaxa/2012/f/z03372p265f.pdf', all_data_sources=TRUE)
+scrapenames(url = 'http://en.wikipedia.org/wiki/Araneae', data_source_ids=c(1,169))
 
 # Get data from a file - NOT WORKING YET
 scrapenames(file = '~/github/sac/joshwork/species_for_Scott.txt')

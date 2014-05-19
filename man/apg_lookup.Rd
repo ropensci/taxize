@@ -20,6 +20,7 @@ Lookup in the APGII taxonomy and replace family names.
 \dontrun{
 # New name found in the APGII taxonomy
 apg_lookup(taxa = "Hyacinthaceae", rank = "family")
+apg_lookup(taxa = "Poaceae", rank = "family")
 
 # Name not found in the APGII taxonomy
 apg_lookup(taxa = "Asteraceae", rank = "family")

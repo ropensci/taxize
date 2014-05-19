@@ -1,6 +1,7 @@
 #' Search for pages in EOL database using a taxonconceptID.
 #' 
-#' @import httr plyr
+#' @import RCurl plyr RJSONIO assertthat
+#' @export
 #' @param taxonconceptID The taxonconceptID (numeric), which is also the page 
 #' 		number.
 #' @param iucn Include the IUCN Red List status object (Default: False)
@@ -27,18 +28,14 @@
 #' @param cache_ttl The number of seconds you wish to have the response cached.
 #' @param key Your EOL API key; loads from .Rprofile, or you can specify the 
 #' 		key manually the in the function call.
-#' @param callopts Further args passed on to GET.
+#' @param callopts Further args passed on to RCurl::getForm.
 #' @details It's possible to return JSON or XML with the EOL API. However, 
 #' 		this function only returns JSON for now. 
 #' @return JSON list object, or data.frame.
 #' @examples \dontrun{
 #' pageid <- eol_search('Pomatomus')$pageid[1]
-#' out <- eol_pages(taxonconceptID=pageid)$scinames
-#' eol_hierarchy(out[out$nameAccordingTo == "NCBI Taxonomy", "identifier"])
-#' eol_hierarchy(out[out$nameAccordingTo == "Integrated Taxonomic Information 
-#'    System (ITIS)", "identifier"])
+#' (out <- eol_pages(taxonconceptID=pageid)$scinames)
 #' }
-#' @export
 
 eol_pages <- function(taxonconceptID, iucn=FALSE, images=0, videos=0, sounds=0, 
   maps=0, text=0, subject='overview', licenses='all', details=FALSE,
@@ -53,15 +50,20 @@ eol_pages <- function(taxonconceptID, iucn=FALSE, images=0, videos=0, sounds=0,
   
   url <- 'http://eol.org/api/pages/1.0/'
 	key <- getkey(key, "eolApiKey")
-  args <- compact(list(iucn=iucn,images=images,videos=videos,sounds=sounds, 
+  args <- taxize_compact(list(iucn=iucn,images=images,videos=videos,sounds=sounds, 
                        maps=maps,text=text,subject=subject,licenses=licenses,
                        details=details,common_names=common_names,synonyms=synonyms,
                        references=references,vetted=vetted,cache_ttl=cache_ttl))
   urlget <- paste(url, taxonconceptID, '.json', sep="")
-  tt <- GET(urlget, query=args, callopts)
-  stop_for_status(tt)
-  res <- content(tt)
-  scinames <- do.call(rbind.fill, lapply(res$taxonConcepts, data.frame))
+#   tt <- GET(urlget, query=args, callopts)
+#   stop_for_status(tt)
+#   res <- content(tt, as = "text", encoding="utf-8")
+  tt <- getForm(urlget, .params = args, .opts = callopts)
+  assert_that(attr(tt, "Content-Type")[[1]] == "application/json")
+  assert_that(attr(tt, "Content-Type")[[2]] == "utf-8")
+  res <- RJSONIO::fromJSON(tt)
+  
+  scinames <- do.call(rbind.fill, lapply(res$taxonConcepts, data.frame, stringsAsFactors=FALSE))
   if(!is.null(scinames))
     names(scinames) <- tolower(names(scinames))
   syns <- parseeoldata('synonyms', res)

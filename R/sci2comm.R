@@ -10,7 +10,6 @@
 #' @param id character; identifiers, as returned by \code{\link[taxize]{get_tsn}} or
 #'    \code{\link[taxize]{get_uid}}.
 #' 
-#' 
 #' @return List of character - vectors.
 #' 
 #' @note \emph{"ncbi"} and uid-method return common names from GenBank.
@@ -21,7 +20,7 @@
 #' @export
 #' @author Scott Chamberlain (myrmecocystus@@gmail.com)
 #' @examples \dontrun{
-#' sci2comm(scinames='Helianthus annuus') # by default uses eol
+#' sci2comm(scinames='Helianthus annuus')
 #' sci2comm(scinames='Helianthus annuus', db='itis')
 #' sci2comm(scinames=c('Helianthus annuus', 'Poa annua'))
 #' sci2comm(scinames='Puma concolor', db='ncbi')
@@ -37,7 +36,6 @@
 sci2comm <- function(...){
   UseMethod("sci2comm")
 }
-
 
 #' @method sci2comm default
 #' @export
@@ -67,7 +65,8 @@ sci2comm.default <- function(scinames, db='eol', simplify=TRUE, ...)
     dfs <- compact(lapply(pageids, function(x) eol_pages(taxonconceptID=x, common_names=TRUE)$vernac))
     tt <- ldply(dfs[sapply(dfs, class)=="data.frame"])
     if(simplify){
-      as.character(tt$vernacularName)
+      ss <- as.character(tt$vernacularname)
+      ss[ !is.na(ss) ]
     } else{ tt }
   }
   
@@ -123,7 +122,7 @@ sci2comm.uid <- function(id, ...)
 #' @method sci2comm tsn
 #' @export
 #' @rdname sci2comm
-sci2comm.tsn <- function(id, simplify, ...){
+sci2comm.tsn <- function(id, simplify=TRUE, ...){
   itis2comm <- function(id, ...){
     # if tsn is not found
     if(is.na(id)) {

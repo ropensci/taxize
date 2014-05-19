@@ -52,7 +52,7 @@ content. (Default: False)}
 \item{key}{Your EOL API key; loads from .Rprofile, or you can specify the
 key manually the in the function call.}
 
-\item{callopts}{Further args passed on to GET.}
+\item{callopts}{Further args passed on to RCurl::getForm.}
 }
 \value{
 JSON list object, or data.frame.
@@ -67,10 +67,7 @@ It's possible to return JSON or XML with the EOL API. However,
 \examples{
 \dontrun{
 pageid <- eol_search('Pomatomus')$pageid[1]
-out <- eol_pages(taxonconceptID=pageid)$scinames
-eol_hierarchy(out[out$nameAccordingTo == "NCBI Taxonomy", "identifier"])
-eol_hierarchy(out[out$nameAccordingTo == "Integrated Taxonomic Information
-   System (ITIS)", "identifier"])
+(out <- eol_pages(taxonconceptID=pageid)$scinames)
 }
 }
 

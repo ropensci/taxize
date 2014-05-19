@@ -14,8 +14,8 @@ NEW FEATURES
 
 MINOR IMPROVEMENTS
 
-* `class2tree()` can handle NA in classification objects.
-* `classification.eolid()` and `classification.colid()` return the submitted name along with the classification.
+* `class2tree()` can now handle NA in classification objects.
+* `classification.eolid()` and `classification.colid()` now return the submitted name along with the classification.
 * Changed from CC0 to MIT license.
 * Updated citation to have both the taxize paper in F1000 Research and the package citation.
 * Sped up some functions by removing internal use of `plyr` functions, see #275.
@@ -31,8 +31,6 @@ BUG FIXES
 * `classification.gbifid()` did not return the correct result when taxon not found.
 * Fixed bugs in many functions, see #245, #248, #254, #277.
 * `classification()` used to fail when it was passed a subset of a vector of ids, in which case the class information was stripped off. Now works (#284)
-* 
-*
 
 taxize 0.2.2
 ===============

@@ -12,7 +12,7 @@ sci2comm(...)
 
 \method{sci2comm}{uid}(id, ...)
 
-\method{sci2comm}{tsn}(id, simplify, ...)
+\method{sci2comm}{tsn}(id, simplify = TRUE, ...)
 }
 \arguments{
 \item{scinames}{character; One or more scientific names or partial names.}
@@ -40,7 +40,7 @@ Get common names from scientific names.
 }
 \examples{
 \dontrun{
-sci2comm(scinames='Helianthus annuus') # by default uses eol
+sci2comm(scinames='Helianthus annuus')
 sci2comm(scinames='Helianthus annuus', db='itis')
 sci2comm(scinames=c('Helianthus annuus', 'Poa annua'))
 sci2comm(scinames='Puma concolor', db='ncbi')
