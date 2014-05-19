@@ -63,4 +63,5 @@ ldply(out) # or combine to one data.frame
 col_classification(id=get_colid(sciname='Puma concolor'))
 }
 }
+\keyword{internal}
 

@@ -21,4 +21,5 @@ in the same genus as the one searched for. If FALSE, get's nothing.}
 \description{
 Function name changed to ncbi_getbyname.
 }
+\keyword{internal}
 

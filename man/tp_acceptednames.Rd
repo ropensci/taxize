@@ -17,4 +17,5 @@ tp_acceptednames(id, format = "json", output = "df", key = NULL)
 \description{
 Function name changed to tp_accnames.
 }
+\keyword{internal}
 

@@ -35,4 +35,5 @@ It's possible to return JSON or XML with the EOL API. However,
 eol_hierarchy(get_eolid(sciname='Poa annua'))
 }
 }
+\keyword{internal}
 

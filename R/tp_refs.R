@@ -40,6 +40,7 @@ tp_refs <- function(id, key = NULL, callopts=list())
 #' @param key Your Tropicos API key; loads from .Rprofile.
 #' @param verbose Print messages (default) or not, logical
 #' @export
+#' @keywords internal
 tp_namereferences <- function(id, format = 'json', output = 'df', key = NULL, verbose=TRUE)
 {
   .Deprecated("tp_refs", "taxize", "Function name changed. See tp_refs", "tp_namereferences")

@@ -15,4 +15,5 @@ get_genes(ids, format = "fasta", verbose = TRUE)
 \description{
 Function name changed to ncbi_getbyid.
 }
+\keyword{internal}
 

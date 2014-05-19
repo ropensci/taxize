@@ -16,4 +16,5 @@ key in this arg.}
 \description{
 Function name changed to tp_dist.
 }
+\keyword{internal}
 

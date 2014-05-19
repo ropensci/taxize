@@ -46,6 +46,7 @@ tp_dist <- function(id, key=NULL, callopts=list())
 #' key in this arg.
 #' @param callopts Further args passed on to httr::GET
 #' @export
+#' @keywords internal
 tp_namedistributions <- function(id, key=NULL, callopts=list())
 {
   .Deprecated("tp_dist", "taxize", "Function name changed. See tp_dist", "tp_namedistributions")
