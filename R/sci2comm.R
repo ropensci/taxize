@@ -53,9 +53,9 @@ sci2comm.default <- function(scinames, db='eol', simplify=TRUE, ...)
       #if common name is not found
       if(nrow(out) == 0)
         out <- NA
-      }
+    }
     if(simplify){
-      as.character(out$comname)
+      if(is.na(out)) out else as.character(out$comname)
     } else{ out }
   }
 

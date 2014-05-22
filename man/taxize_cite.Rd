@@ -6,7 +6,8 @@
 taxize_cite(fxn = "itis", what = "citation")
 }
 \arguments{
-\item{fxn}{}
+\item{fxn}{Function to search on. A special case is the package name 'taxize' that will give the
+citations for the package.}
 
 \item{what}{One of citation (default), license, or both.}
 }

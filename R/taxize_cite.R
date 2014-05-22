@@ -1,6 +1,8 @@
 #' Get citations and licenses for data sources used in taxize
 #' 
-#' @param fxn
+#' @export
+#' @param fxn Function to search on. A special case is the package name 'taxize' that will give the
+#' citations for the package.
 #' @param what One of citation (default), license, or both. 
 #' @examples 
 #' taxize_cite(fxn='tnrs')
