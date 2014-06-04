@@ -3,6 +3,7 @@ script: ./travis-tool.sh run_tests
 before_script:
 - curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
 - chmod 755 ./travis-tool.sh
+- sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable
 - sudo apt-get update
 - sudo apt-get install gdal-bin libgdal1 libgdal1-dev netcdf-bin libproj-dev
 - ./travis-tool.sh bootstrap
