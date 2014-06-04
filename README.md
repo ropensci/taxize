@@ -299,7 +299,7 @@ plot(tree)
 
 ## Meta
 
-Please report any issues or bugs](https://github.com/ropensci/taxize/issues).
+Please [report any issues or bugs](https://github.com/ropensci/taxize/issues).
 
 License: MIT
 
