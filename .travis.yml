@@ -3,8 +3,9 @@ script: ./travis-tool.sh run_tests
 before_script:
 - curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
 - chmod 755 ./travis-tool.sh
-- sudo apt-get update
-- sudo apt-get install gdal-bin libgdal1 libgdal1-dev netcdf-bin libproj-dev
+- sudo add-apt-repository -y ppa:ubuntugis/ppa
+- sudo apt-get update -qq
+- sudo apt-get install -y gdal-bin libgdal-dev libgdal1 libgdal1-dev netcdf-bin libproj-dev
 - ./travis-tool.sh bootstrap
 - ./travis-tool.sh install_deps
 - ./travis-tool.sh github_package assertthat
