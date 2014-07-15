@@ -25,12 +25,13 @@ test_that("tax_agg returns the correct value", {
 })
 
 
-take2 <- take
-colnames(take2)[4] <- 'xxxxx'
-out_itis <- tax_agg(take2, rank = 'family', db = 'itis', verbose = FALSE)
-
-
-test_that("Handles NAs", {
-  expect_true(is.na(out_itis$by$agg[4]))
-  expect_that(ncol(out_itis$x), equals(ncol(take2)))
-})
+## Moving this test to the long running tests branch since it takes a long time
+# take2 <- take
+# colnames(take2)[4] <- 'xxxxx'
+# out_itis <- tax_agg(take2, rank = 'family', db = 'itis', verbose = FALSE)
+# 
+# 
+# test_that("Handles NAs", {
+#   expect_true(is.na(out_itis$by$agg[4]))
+#   expect_that(ncol(out_itis$x), equals(ncol(take2)))
+# })
