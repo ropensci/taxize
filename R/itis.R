@@ -930,7 +930,7 @@ getpublicationsfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHand
     sapply(getNodeSet(out, paste("//ax21:", x, sep=''), namespaces=namespaces),xmlValue)
   }
   df <-  do.call(cbind, lapply(toget, as.data.frame(xpathfunc)))
-  names(df) <- tolower(toget)
+  if(NROW(df) > 0) names(df) <- tolower(toget)
   df
 }
 
