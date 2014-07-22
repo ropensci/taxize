@@ -1,4 +1,7 @@
-#' Search Catalogue of Life for taxonomic IDs
+#' Search SCAMIT data for taxonomic IDs
+#' 
+#' SCAMIT is the Southern California Association of Marine Invertebrate Taxonomists. Find out more
+#' at \url{http://www.scamit.org/}
 #' 
 #' @export
 #' @param name The string to search for.
@@ -18,9 +21,6 @@
 scamit_search <- function(name, rank='genus', ...)
 {
   searchscamit <- function(x){
-#     if(!exists('scamit')){
-#       scamit <- load("SCAMIT_ed8.rds")
-#     }
     names(scamit) <- tolower(names(scamit))
     matches <- scamit[ agrep(name, scamit[[rank]], ignore.case = TRUE, ...), ]
     if(NROW(matches) == 0){ NULL } else {
@@ -32,7 +32,7 @@ scamit_search <- function(name, rank='genus', ...)
   temp
 }
 
-#' Get the SCAMIT ID from taxonomic names.
+#' Get SCAMIT identifiers from taxonomic names.
 #' 
 #' @export
 #' 
@@ -114,16 +114,13 @@ get_scamitid <- function(name, rank = 'genus', ask = TRUE, verbose = TRUE){
   return(ids)
 }
 
-#' Get scamit hierarchy
+#' Get a SCAMIT hierarchy
 #' @keywords internal
 #' @param id Scamit identifier
 #' @examples
 #' getscamithierarchy(2522)
 
 getscamithierarchy <- function(id){
-#   if(!exists('scamit')){
-#     scamit <- readRDS("SCAMIT_ed8.rds")
-#   }
   names(scamit) <- tolower(names(scamit))
   getranks <- c('phylum','subphylum','class','subclass','infraclass','superorder','order','suborder','infraorder','superfamily','family','subfamily','tribe','genus','subgenus','species','describer')
   dat <- scamit[ scamit$speciesid %in% id, getranks ]
