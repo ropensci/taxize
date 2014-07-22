@@ -1,11 +1,7 @@
 #' Search Catalogue of Life for taxonomic IDs
 #' 
 #' @export
-#' @param name The string to search for. Only exact matches found the name given 
-#'     will be returned, unless one or wildcards are included in the search 
-#'   	string. An * (asterisk) character denotes a wildcard; a % (percentage) 
-#'    character may also be used. The name must be at least 3 characters long, 
-#'    not counting wildcard characters.
+#' @param name The string to search for.
 #' @param rank Taxonomic rank to search against. One of phylum, subphylum, class, subclass, 
 #'    infraclass, superorder, order, suborder, infraorder, superfamily, family, subfamily, 
 #'    tribe, genus, subgenus, or species
@@ -22,10 +18,10 @@
 scamit_search <- function(name, rank='genus', ...)
 {
   searchscamit <- function(x){
-    if(!exists('scamit')){
-      scamit <- readRDS("SCAMIT_ed8.rds")
-      names(scamit) <- tolower(names(scamit))
-    }
+#     if(!exists('scamit')){
+#       scamit <- load("SCAMIT_ed8.rds")
+#     }
+    names(scamit) <- tolower(names(scamit))
     matches <- scamit[ agrep(name, scamit[[rank]], ignore.case = TRUE, ...), ]
     if(NROW(matches) == 0){ NULL } else {
       matches
@@ -38,7 +34,12 @@ scamit_search <- function(name, rank='genus', ...)
 
 #' Get the SCAMIT ID from taxonomic names.
 #' 
-#' @param sciname character; scientific name.
+#' @export
+#' 
+#' @param name The string to search for.
+#' @param rank Taxonomic rank to search against. One of phylum, subphylum, class, subclass, 
+#'    infraclass, superorder, order, suborder, infraorder, superfamily, family, subfamily, 
+#'    tribe, genus (default), subgenus, or species. 
 #' @param ask logical; should get_scamitid be run in interactive mode? 
 #' If TRUE and more than one ID is found for the species, the user is asked for 
 #' input. If FALSE NA is returned for multiple matches.
@@ -113,34 +114,17 @@ get_scamitid <- function(name, rank = 'genus', ask = TRUE, verbose = TRUE){
   return(ids)
 }
 
-#' @method classification sacmitid
-#' @export
-#' @rdname classification
-classification.scamitid <- function(id, ...) 
-{
-  fun <- function(x){
-    # return NA if NA is supplied
-    if (is.na(x)) {
-      out <- NA
-    } else {
-      out <- getscamithierarchy(x)
-      return(out)
-    }
-  }
-  out <- lapply(id, fun)
-  names(out) <- id
-  class(out) <- 'classification'
-  attr(out, 'db') <- 'scamit'
-  return(out)
-}
-
 #' Get scamit hierarchy
+#' @keywords internal
 #' @param id Scamit identifier
+#' @examples
+#' getscamithierarchy(2522)
+
 getscamithierarchy <- function(id){
-  if(!exists('scamit')){
-    scamit <- readRDS("SCAMIT_ed8.rds")
-    names(scamit) <- tolower(names(scamit))
-  }
+#   if(!exists('scamit')){
+#     scamit <- readRDS("SCAMIT_ed8.rds")
+#   }
+  names(scamit) <- tolower(names(scamit))
   getranks <- c('phylum','subphylum','class','subclass','infraclass','superorder','order','suborder','infraorder','superfamily','family','subfamily','tribe','genus','subgenus','species','describer')
   dat <- scamit[ scamit$speciesid %in% id, getranks ]
   data.frame(rank=names(dat), name=unlist(unname(dat)), stringsAsFactors = FALSE)

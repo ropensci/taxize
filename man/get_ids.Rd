@@ -9,11 +9,12 @@ get_ids(names, db = NULL, ...)
 \item{names}{character; Taxonomic name to query.}
 
 \item{db}{character; database to query. One or  more of \code{ncbi}, \code{itis},
-\code{eol}, \code{col}, and/or \code{tropicos}}
+\code{eol}, \code{col}, \code{tropicos}, and/or \code{scamit}.}
 
 \item{...}{Other arguments passed to \code{\link[taxize]{get_tsn}},
 \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}},
-\code{\link[taxize]{get_colid}}, or \code{\link[taxize]{get_tpsid}}.}
+\code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_tpsid}}, or
+\code{\link[taxize]{get_scamitid}}.}
 }
 \value{
 A vector of taxonomic identifiers, each retaining their respective S3
@@ -37,6 +38,7 @@ get_ids(names=c("Chironomus riparius", "Pinus contorta"), db = c('ncbi','itis','
 get_ids(names="Pinus contorta", db = c('ncbi','itis','col','eol','tropicos'))
 get_ids(names="ava avvva", db = c('ncbi','itis','col','eol','tropicos'))
 get_ids(names="ava avvva", db = c('ncbi','itis','col','eol','tropicos'), verbose=FALSE)
+get_ids('Aphorme', db='scamit')
 
 # Pass on to other functions
 out <- get_ids(names="Pinus contorta", db = c('ncbi','itis','col','eol','tropicos'))
@@ -47,6 +49,6 @@ synonyms(out$tropicos)
 \seealso{
 \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_uid}},
    \code{\link[taxize]{get_eolid}}, \code{\link[taxize]{get_colid}},
-   \code{\link[taxize]{get_tpsid}}
+   \code{\link[taxize]{get_tpsid}}, \code{\link[taxize]{get_scamitid}}
 }
 

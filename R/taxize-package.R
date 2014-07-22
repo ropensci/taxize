@@ -85,6 +85,12 @@ NULL
 #' @keywords data
 NULL
 
+#' data.frame of Scamit data
+#' @name scamit
+#' @docType data
+#' @keywords data
+NULL
+
 #' Deprecated functions in taxize
 #'
 #' The following functions are now deprecated - see the function \code{classification}

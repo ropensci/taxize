@@ -352,6 +352,27 @@ classification.gbifid <- function(id, callopts = list(), ...) {
   return(out)
 }
 
+#' @method classification scamitid
+#' @export
+#' @rdname classification
+classification.scamitid <- function(id, ...) 
+{
+  fun <- function(x){
+    # return NA if NA is supplied
+    if (is.na(x)) {
+      out <- NA
+    } else {
+      out <- getscamithierarchy(x)
+      return(out)
+    }
+  }
+  out <- lapply(id, fun)
+  names(out) <- id
+  class(out) <- 'classification'
+  attr(out, 'db') <- 'scamit'
+  return(out)
+}
+
 #' @method classification ids
 #' @export
 #' @rdname classification

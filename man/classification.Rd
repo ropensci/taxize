@@ -8,6 +8,7 @@
 \alias{classification.eolid}
 \alias{classification.gbifid}
 \alias{classification.ids}
+\alias{classification.scamitid}
 \alias{classification.tpsid}
 \alias{classification.tsn}
 \alias{classification.uid}
@@ -30,6 +31,8 @@ classification(...)
 \method{classification}{tpsid}(id, key = NULL, callopts = list(), ...)
 
 \method{classification}{gbifid}(id, callopts = list(), ...)
+
+\method{classification}{scamitid}(id, ...)
 
 \method{classification}{ids}(id, ...)
 
@@ -94,6 +97,10 @@ classification(c("Chironomus riparius", "aaa vva"), db = 'col')
 classification(c("Chironomus riparius", "aaa vva"), db = 'col', verbose=FALSE)
 classification(c("Chironomus riparius", "asdfasdfsfdfsd"), db = 'gbif')
 classification(c("Poa annua", "aaa vva"), db = 'tropicos')
+
+# Use the local Scamit database
+classification('Cliona', db = 'scamit')
+classification(get_scamitid('Cliona'))
 
 # Use methods for get_uid, get_tsn, get_eolid, get_colid, get_tpsid
 classification(get_uid(c("Chironomus riparius", "Puma concolor")))
