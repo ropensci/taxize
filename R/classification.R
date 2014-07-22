@@ -46,6 +46,10 @@
 #' classification(c("Chironomus riparius", "asdfasdfsfdfsd"), db = 'gbif')
 #' classification(c("Poa annua", "aaa vva"), db = 'tropicos')
 #' 
+#' # Use the local Scamit database
+#' classification('Cliona', db = 'scamit')
+#' classification(get_scamitid('Cliona'))
+#' 
 #' # Use methods for get_uid, get_tsn, get_eolid, get_colid, get_tpsid
 #' classification(get_uid(c("Chironomus riparius", "Puma concolor")))
 #' 
@@ -137,6 +141,11 @@ classification.default <- function(x, db = NULL, callopts=list(), ...){
     id <- process_ids(x, get_gbifid, ...)
 #     id <- get_gbifid(x, ...)
     out <- classification(id, callopts=callopts, ...)
+    names(out) <- x
+  }
+  if (db == 'scamit') {
+    id <- process_ids(x, get_scamitid, ...)
+    out <- classification(id, ...)
     names(out) <- x
   }
   return(out)
