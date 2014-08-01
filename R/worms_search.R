@@ -88,9 +88,7 @@ worms_children <- function(ids=NULL, offset=NULL, marine_only=1, opts=NULL, upda
   if(!is.null(upiface)) worms_iface <- iface
   fxn <- worms_get_fxn('getAphiaChildrenByID')
   res <- fxn(AphiaID = ids, offset = offset, marine_only = marine_only, server = server, .opts = opts)
-#   df <- data.frame(aphiaid=res@AphiaID, rank=res@rank, scientificname=res@scientificname, stringsAsFactors = FALSE)
-#   hier <- slot(res, "child")
-#   rbind(df, parse_hier(hier, c("AphiaID","rank","scientificname")))
+  do.call(rbind, lapply(res, function(y) data.frame(unclass(y), stringsAsFactors = FALSE)))
 }
 
 worms_update_iface <- function(update_iface=FALSE, 

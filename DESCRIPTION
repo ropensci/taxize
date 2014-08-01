@@ -25,13 +25,15 @@ LazyLoad: yes
 LazyData: yes
 VignetteBuilder: knitr
 Roxygen: list(wrap = FALSE)
+Depends:
+    R(>= 2.10.0),
+    SSOAP
 Imports:
     XML,
     RCurl (>= 1.6),
     stringr,
     plyr,
     httr (>= 0.2),
-    SSOAP,
     RJSONIO,
     foreach,
     ape,
@@ -46,5 +48,3 @@ Suggests:
     rjson,
     knitr,
     jsonlite
-Depends:
-    R(>= 2.10.0)
