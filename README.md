@@ -242,7 +242,7 @@ library(taxize)
 ```coffee
 install.packages("devtools")
 library(devtools)
-install_github("taxize", "ropensci")
+install_github("taxize", "ropensci", ref="worms")
 library(taxize)
 ```
 
