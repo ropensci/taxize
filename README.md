@@ -239,6 +239,15 @@ library(taxize)
 
 + Or, development version from GitHub:
 
+You'll need `XMLSchema` and `SSSOAP`
+
+```coffee
+download.file("http://www.omegahat.org/Prerelease/XMLSchema_0.8-0.tar.gz", "XMLSchema")
+install.packages("XMLSchema", type="source", repos = NULL)
+download.file("http://www.omegahat.org/Prerelease/SSOAP_0.91-0.tar.gz", "SSOAP")
+install.packages("SSOAP", type="source", repos = NULL)
+```
+
 ```coffee
 install.packages("devtools")
 library(devtools)
