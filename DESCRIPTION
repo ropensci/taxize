@@ -31,6 +31,7 @@ Imports:
     stringr,
     plyr,
     httr (>= 0.2),
+    SSOAP,
     RJSONIO,
     foreach,
     ape,
