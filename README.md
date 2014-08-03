@@ -1,7 +1,7 @@
 taxize
 =======
 
-[![Build Status](https://api.travis-ci.org/ropensci/taxize.png)](https://travis-ci.org/ropensci/taxize)
+[![Build Status](https://api.travis-ci.org/ropensci/taxize.png?branch=worms)](https://travis-ci.org/ropensci/taxize)
 
 `taxize` allows users to search over many taxonomic data sources for species names (scientific and common) and download up and downstream taxonomic hierarchical information - among other things.
 
