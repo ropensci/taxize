@@ -43,7 +43,7 @@ worms_search_id <- function(ids=NULL, offset=NULL, marine_only=TRUE, by='getAphi
 }
 
 #' Hierarchy search
-#' 
+#' @export
 #' @examples \dontrun{
 #' worms_hierarchy(ids=733271)
 #' }
@@ -77,7 +77,7 @@ parse_hier <- function(x, slotnames){
 }
 
 #' Children search
-#' 
+#' @export
 #' @examples \dontrun{
 #' worms_children(ids=106135)
 #' }
@@ -92,7 +92,7 @@ worms_children <- function(ids=NULL, offset=NULL, marine_only=1, opts=NULL, upda
 }
 
 #' Synonyms search
-#' 
+#' @export
 #' @examples \dontrun{
 #' worms_synonyms(ids=733271)
 #' }
@@ -107,7 +107,7 @@ worms_synonyms <- function(ids=NULL, opts=NULL, update_iface=FALSE)
 }
 
 #' Common names from ID
-#' 
+#' @export
 #' @template worms_id
 #' @examples \dontrun{
 #' worms_common(ids=1080)
@@ -126,7 +126,7 @@ worms_common <- function(ids=NULL, opts=NULL, update_iface=FALSE, ...)
 }
 
 #' Get sources/references by ID
-#' 
+#' @export
 #' @template worms_id
 #' @examples \dontrun{
 #' worms_sources(ids=1080)
@@ -143,7 +143,7 @@ worms_sources <- function(ids=NULL, opts=NULL, update_iface=FALSE, ...)
 }
 
 #' Get external ID from Worms ID
-#' 
+#' @export
 #' @template worms_id
 #' @param type External ID source to get ID for. One of ncbi (default), tsn, bold, eol, 
 #' dyntaxa, fishbase, iucn or lsid. 
