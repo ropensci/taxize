@@ -91,8 +91,43 @@ worms_children <- function(ids=NULL, offset=NULL, marine_only=1, opts=NULL, upda
   do.call(rbind, lapply(res, function(y) data.frame(unclass(y), stringsAsFactors = FALSE)))
 }
 
-worms_update_iface <- function(update_iface=FALSE, 
-                           wsdl_url="http://www.marinespecies.org/aphia.php?p=soap&wsdl=1")
+#' Synonyms search
+#' 
+#' @examples \dontrun{
+#' worms_synonyms(ids=733271)
+#' }
+worms_synonyms <- function(ids=NULL, opts=NULL, update_iface=FALSE)
+{
+  server <- 'http://www.marinespecies.org/aphia.php?p=soap'
+  upiface <- worms_update_iface(update_iface)
+  if(!is.null(upiface)) worms_iface <- iface
+  fxn <- worms_get_fxn('getAphiaSynonymsByID')
+  res <- fxn(AphiaID = ids, server = server, .opts = opts)
+  do.call(rbind, lapply(res, function(y) data.frame(unclass(y), stringsAsFactors = FALSE)))
+}
+
+#' Common names from ID
+#' 
+#' @template worms_id
+#' @examples \dontrun{
+#' worms_common(ids=1080)
+#' worms_common(ids=22388)
+#' worms_common(ids=123080)
+#' worms_common(ids=160281)
+#' }
+worms_common <- function(ids=NULL, opts=NULL, update_iface=FALSE, ...)
+{
+  server <- 'http://www.marinespecies.org/aphia.php?p=soap'
+  upiface <- worms_update_iface(update_iface)
+  if(!is.null(upiface)) worms_iface <- iface
+  fxn <- worms_get_fxn('getAphiaVernacularsByID')
+  res <- fxn(AphiaID = ids, server = server, .opts = opts)
+  do.call(rbind, lapply(res, function(y) data.frame(unclass(y), stringsAsFactors = FALSE)))
+}
+
+
+##### helpers
+worms_update_iface <- function(update_iface=FALSE, wsdl_url="http://www.marinespecies.org/aphia.php?p=soap&wsdl=1")
 {
   if(update_iface){
     w <- processWSDL(wsdl_url)
@@ -100,6 +135,4 @@ worms_update_iface <- function(update_iface=FALSE,
   } else { NULL }
 }
 
-worms_get_fxn <- function(x){
-  worms_iface@functions[[x]]
-}
+worms_get_fxn <- function(x) worms_iface@functions[[x]]
