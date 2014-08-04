@@ -39,6 +39,7 @@ Plantminer \tab plantminer_ \cr
 Theplantlist.org \tab tpl_ \cr
 Catalogue of Life \tab col_ \cr
 Global Invasive Species Database \tab gisd_ \cr
+World Register of Marine Species (WoRMS) \tab worms_ \cr
 }
 }
 \author{

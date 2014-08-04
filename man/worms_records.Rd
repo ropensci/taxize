@@ -5,8 +5,7 @@
 \usage{
 worms_records(scientific = NULL, common = NULL, id = NULL, extid = NULL,
   like = NULL, type = NULL, marine_only = 1, offset = NULL,
-  startdate = NULL, enddate = NULL, opts = NULL, update_iface = FALSE,
-  ...)
+  startdate = NULL, enddate = NULL, opts = NULL, iface = NULL, ...)
 }
 \arguments{
 \item{id}{(numeric) One or more worms AphidID for a taxon.}
@@ -16,10 +15,50 @@ which actually invokes the SOAP method. These options control aspects of the HTT
 including debugging information that is displayed on the console,
 e.g. .opts = list(verbose = TRUE)}
 
+\item{iface}{Interface to WoRMS SOAP API methods. By default we used a previously created object.
+If you want to create a new one, use \code{worms_gen_iface}, assign the output to an object,
+then pass it into any \code{worms_*} function. in the \code{iface} parameter.}
+
 \item{...}{Further args passed on to \code{SSOAP::.SOAP}.}
+
+\item{scientific}{(character) A scientific name.}
+
+\item{common}{(character) A common name.}
+
+\item{id}{(integer) A WoRMS (or Aphia) identifier.}
+
+\item{extid}{(integer) External identifier.}
+
+\item{like}{Add a '%'-sign added after the ScientificName (SQL LIKE function). Default=TRUE}
+
+\item{type}{Type of exxternal identifier. Should have one of bold, dyntaxa, eol, fishbase,
+iucn, lsid, ncbi, or tsn.}
+
+\item{marine_only}{(logical) Include results from marine taxa only. Default: TRUE.}
+
+\item{offset}{Starting record number, when retrieving next chunk of (50) records. Default=1.}
+
+\item{startdate}{ISO 8601 formatted start date(time). Default=today().
+i.e. 2014-08-04T15:57:54+00:00}
+
+\item{enddate}{ISO 8601 formatted start date(time). Default=today().
+i.e. 2014-08-04T15:57:54+00:00}
 }
 \description{
 Get records by ID, scientific name, common name, date, worms id, or external id.
+}
+\details{
+Parameter \code{type} should be one of the following values:
+\itemize{
+ \item bold: Barcode of Life Database (BOLD) TaxID
+ \item dyntaxa: Dyntaxa ID
+ \item eol: Encyclopedia of Life (EoL) page identifier
+ \item fishbase: FishBase species ID
+ \item iucn: IUCN Red List Identifier
+ \item lsid: Life Science Identifier
+ \item ncbi: NCBI Taxonomy ID (Genbank)
+ \item tsn: ITIS Taxonomic Serial Number
+}
 }
 \examples{
 \dontrun{

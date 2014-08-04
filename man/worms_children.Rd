@@ -4,7 +4,25 @@
 \title{Children search}
 \usage{
 worms_children(ids = NULL, offset = NULL, marine_only = 1, opts = NULL,
-  update_iface = FALSE)
+  iface = NULL, ...)
+}
+\arguments{
+\item{id}{(numeric) One or more worms AphidID for a taxon.}
+
+\item{opts}{(character) a named list of elements that are passed to the curlPerform function
+which actually invokes the SOAP method. These options control aspects of the HTTP request,
+including debugging information that is displayed on the console,
+e.g. .opts = list(verbose = TRUE)}
+
+\item{iface}{Interface to WoRMS SOAP API methods. By default we used a previously created object.
+If you want to create a new one, use \code{worms_gen_iface}, assign the output to an object,
+then pass it into any \code{worms_*} function. in the \code{iface} parameter.}
+
+\item{...}{Further args passed on to \code{SSOAP::.SOAP}.}
+
+\item{offset}{Starting record number, when retrieving next chunk of (50) records. Default=1.}
+
+\item{marine_only}{(logical) Include results from marine taxa only. Default: TRUE.}
 }
 \description{
 Children search

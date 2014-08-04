@@ -5,7 +5,7 @@
 \title{Search World Register of Marine Species (WoRMS)}
 \description{
 WORMS has a SOAP API. We store the machine generated API specification in the package. However,
-you can update the spec if you want using \code{}
+you can update the spec if you want using \code{worms_update_iface}
 }
 \references{
 \url{http://www.marinespecies.org/}

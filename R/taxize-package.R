@@ -31,6 +31,7 @@
 #' Theplantlist.org \tab tpl_ \cr
 #' Catalogue of Life \tab col_ \cr
 #' Global Invasive Species Database \tab gisd_ \cr
+#' World Register of Marine Species (WoRMS) \tab worms_ \cr
 #' }
 #'
 #' @name taxize-package
@@ -85,6 +86,12 @@ NULL
 #' @keywords data
 NULL
 
+#' Stored WoRMS SOAP API interface.
+#' @name worms_iface
+#' @docType data
+#' @keywords data
+NULL
+
 #' Deprecated functions in taxize
 #'
 #' The following functions are now deprecated - see the function \code{classification}
@@ -95,7 +102,7 @@ NULL
 #'  \item \code{\link{tp_classification}}: This function is deprecated. See \code{classification}
 #' }
 #'
-#' The following functions have changed names. The old function names are still available to call, 
+#' The following functions have changed names. The old function names are still available to call,
 #' but simply return a message directing the user to the new function name.
 #'
 #' \itemize{
@@ -107,8 +114,8 @@ NULL
 #'  \item \code{\link{tp_namereferences}}: This function has changed name to \code{tp_refs}.
 #'  \item \code{\link{itis_name}}: This function has changed name to \code{tax_name}.
 #' }
-#' 
-#' In addition, \code{tpl_search} is deprecated - use the Taxonstand functions \code{TPL} or 
+#'
+#' In addition, \code{tpl_search} is deprecated - use the Taxonstand functions \code{TPL} or
 #' \code{TPLck} directly.
 #'
 #' @name taxize-deprecated
