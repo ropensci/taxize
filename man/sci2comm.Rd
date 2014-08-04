@@ -4,6 +4,7 @@
 \alias{sci2comm.default}
 \alias{sci2comm.tsn}
 \alias{sci2comm.uid}
+\alias{sci2comm.wormsid}
 \title{Get common names from scientific names.}
 \usage{
 sci2comm(...)
@@ -13,21 +14,23 @@ sci2comm(...)
 \method{sci2comm}{uid}(id, ...)
 
 \method{sci2comm}{tsn}(id, simplify = TRUE, ...)
+
+\method{sci2comm}{wormsid}(id, simplify = TRUE, ...)
 }
 \arguments{
 \item{scinames}{character; One or more scientific names or partial names.}
 
 \item{db}{character; Data source, one of \emph{"eol"} (default), \emph{"itis"}
-or \emph{"ncbi"}.}
+\emph{"ncbi"}, or \emph{"worms"}.}
 
 \item{simplify}{(logical) If TRUE, simplify output to a vector of names. If FALSE,
 return variable formats from different sources, usually a data.frame.}
 
-\item{...}{Further arguments passed on to functions \code{\link[taxize]{get_uid}} or
-\code{\link[taxize]{get_tsn}}.}
+\item{...}{Further arguments passed on to functions \code{\link[taxize]{get_uid}},
+\code{\link[taxize]{get_tsn}}, or \code{\link[taxize]{get_wormsid}}.}
 
-\item{id}{character; identifiers, as returned by \code{\link[taxize]{get_tsn}} or
-   \code{\link[taxize]{get_uid}}.}
+\item{id}{character; identifiers, as returned by \code{\link[taxize]{get_tsn}},
+   \code{\link[taxize]{get_uid}}, or \code{\link[taxize]{get_wormsid}}.}
 }
 \value{
 List of character - vectors.
@@ -44,10 +47,12 @@ sci2comm(scinames='Helianthus annuus')
 sci2comm(scinames='Helianthus annuus', db='itis')
 sci2comm(scinames=c('Helianthus annuus', 'Poa annua'))
 sci2comm(scinames='Puma concolor', db='ncbi')
+sci2comm(scinames='Squatina squatina', db='worms')
 
 # Passing id in, works for sources: itis and ncbi
 sci2comm(get_tsn('Helianthus annuus'))
 sci2comm(get_uid('Helianthus annuus'))
+sci2comm(get_wormsid('Squatina squatina'))
 
 # Don't simplify returned
 sci2comm(get_tsn('Helianthus annuus'), simplify=FALSE)
