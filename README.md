@@ -147,77 +147,9 @@ The following are URL's for API documentation, where to get API keys, and what p
 </tbody>
 </table>
 
-<!-- |Souce|Function prefix| API Docs|API key|
-|---|---|---|---|
-|Encylopedia of Life|`eol`|[link](http://www.eol.org/api/)|[link](http://eol.org/users/register)|
-|Taxonomic Name Resolution Service|`tnrs`|[link](http://api.phylotastic.org/tnrs)|none|
-|Integrated Taxonomic Information Service|`itis`|[link](http://www.itis.gov/ws_description.html)|none|
-|Phylomatic|`phylomatic`|[link](http://www.phylodiversity.net/phylomatic/phylomatic_api.html)|none|
-|uBio|`ubio`|[link](http://www.ubio.org/index.php?pagename=xml_services)|[link](http://www.ubio.org/index.php?pagename=form)|
-|Global Names Resolver|`gnr`|[link](http://resolver.globalnames.org/api)|none|
-|Global Names Index|`gni`|[link](https://github.com/dimus/gni/wiki/api)|none|
-|IUCN Red List|`iucn`|[link](https://www.assembla.com/spaces/sis/wiki/Red_List_API?version=3)|none|
-|Tropicos|`tp`|[link](http://services.tropicos.org/help)|[link](http://services.tropicos.org/help?requestkey)|
-|Plantminer|`plantminer`|[link](http://www.plantminer.com/help)|[link](http://www.plantminer.com/help)|
-|Theplantlist dot org|`tpl`|\*\*|none|
-|Catalogue of Life|`col`|[link](http://www.catalogueoflife.org/colwebsite/content/web-services)|none|
-|Global Invasive Species Database|`gisd`|\*\*\*|none|
-|National Center for Biotechnology Information|`ncbi`|none|none|
-|CANADENSYS Vascan name search API|`vascan`|[link](http://data.canadensys.net/vascan/api)|none| -->
-
 **: There are none! We suggest using `TPL` and `TPLck` functions in the [taxonstand package](http://cran.r-project.org/web/packages/Taxonstand/index.html). We provide two functions to get bullk data: `tpl_families` and `tpl_get`.
 
 \***: There are none! The function scrapes the web directly.
-
-<!-- ### Currently implemented in `taxize`
-+ Encyclopedia of Life (EOL)
-	+ [API docs](http://www.eol.org/api/)
-	+ [Get an API key: start an account on EOL to get your API key](http://eol.org/users/register)
-	+ [API forum](https://eol.uservoice.com/forums/15429-encyclopedia-of-life-api)
-	+ function prefix: `eol`
-+ Taxonomic Name Resolution Service (TNRS)
-	+ [API docs](http://api.phylotastic.org/tnrs)
-	+ function prefix: `tnrs`
-+ Integrated Taxonomic Information Service (ITIS)
-	+ [API docs](http://www.itis.gov/ws_description.html)
-	+ function prefix: `itis`
-+ Phylomatic
-	+ [API docs](http://www.phylodiversity.net/phylomatic/phylomatic_api.html)
-	+ function prefix: `phylomatic`
-+ uBio
-	+ [API docs](http://www.ubio.org/index.php?pagename=xml_services)
-	+ [Get an API key](http://www.ubio.org/index.php?pagename=form)
-	+ function prefix: `ubio`
-+ Global Names Resolver (from EOL/GBIF)
-	+ [Use](http://resolver.globalnames.org/)
-	+ [API docs](http://resolver.globalnames.org/api)
-	+ function prefix: `gnr`
-+ Global Names Index (from EOL/GBIF)
-	+ [Use](http://gni.globalnames.org/)
-	+ [API docs](https://github.com/dimus/gni/wiki/api)
-	+ function prefix: `gni`
-+ IUCN Red List
-  	+ [API docs](https://www.assembla.com/spaces/sis/wiki/Red_List_API?version=3)
-  	+ function prefix: `iucn`
-+ Tropicos (from Missouri Botanical Garden)
-	+ [API docs](http://services.tropicos.org/help)
-	+ [Get an API key](http://services.tropicos.org/help?requestkey)
-	+ function prefix: `tp`
-+ Plantminer
-	+ [Their website](http://www.plantminer.com/)
- 	+ [API docs](http://www.plantminer.com/help)
- 	+ function prefix: `plantminer`
-+ Theplantlist dot org
-	+ [Their website](http://www.theplantlist.org/)
- 	+ API docs: There are none! We wrap functions in the [taxonstand package](http://cran.r-project.org/web/packages/Taxonstand/index.html)
- 	+ function prefix: `tpl`
-+ Catalogue of Life
- 	+ [API docs](http://www.catalogueoflife.org/colwebsite/content/web-services)
- 	+ function prefix: `col`
-+ Global Invasive Species Database
-  + [Their website](http://www.issg.org/database/welcome/)
- 	+ API docs: There are none! The function scraps the web directly.
- 	+ function prefix: `gisd` -->
 
 #### May be in taxize in the future...
 
@@ -310,7 +242,7 @@ tree <- phylomatic_tree(taxa=taxa, storedtree = "R20120829")
 plot(tree)
 ```
 
-![](http://f.cl.ly/items/0o253B453R3I0D20082E/Screen%20Shot%202013-12-27%20at%209.03.49%20AM.png)
+![phylogeny](http://f.cl.ly/items/0o253B453R3I0D20082E/Screen%20Shot%202013-12-27%20at%209.03.49%20AM.png)
 
 ## Meta
 
@@ -342,4 +274,4 @@ A BibTeX entry for LaTeX users is
 
 Get citation information for `taxize` in R doing `citation(package = 'taxize')`
 
-[![](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
+[![ropensci](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
