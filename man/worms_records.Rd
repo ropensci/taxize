@@ -29,7 +29,7 @@ then pass it into any \code{worms_*} function. in the \code{iface} parameter.}
 
 \item{extid}{(integer) External identifier.}
 
-\item{like}{Add a '%'-sign added after the ScientificName (SQL LIKE function). Default=TRUE}
+\item{like}{Add a percent sign added after the ScientificName (SQL LIKE function). Default=TRUE}
 
 \item{type}{Type of exxternal identifier. Should have one of bold, dyntaxa, eol, fishbase,
 iucn, lsid, ncbi, or tsn.}
