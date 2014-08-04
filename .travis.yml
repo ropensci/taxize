@@ -8,6 +8,6 @@ before_script:
 - sudo apt-get install -y gdal-bin libgdal-dev libgdal1-dev netcdf-bin libproj-dev libgdal1h
 - ./travis-tool.sh bootstrap
 - ./travis-tool.sh install_deps
-- ./travis-tool.sh github_package assertthat
+- ./travis-tool.sh github_package cran/XMLSchema cran/SSOAP
 notifications:
  slack: ropensci:wh30e1MP9Am3wXb2wJx1ZRFi

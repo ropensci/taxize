@@ -1,7 +1,7 @@
 taxize
 =======
 
-[![Build Status](https://api.travis-ci.org/ropensci/taxize.png)](https://travis-ci.org/ropensci/taxize)
+[![Build Status](https://api.travis-ci.org/ropensci/taxize.png?branch=worms)](https://travis-ci.org/ropensci/taxize)
 
 `taxize` allows users to search over many taxonomic data sources for species names (scientific and common) and download up and downstream taxonomic hierarchical information - among other things.
 
@@ -138,6 +138,12 @@ The following are URL's for API documentation, where to get API keys, and what p
 	<td style="text-align:left;"><a href="http://www.ipni.org/link_to_ipni.html">link</a></td>
 	<td style="text-align:left;">none</td>
 </tr>
+<tr>
+	<td style="text-align:left;">World Register of Marine Species (WoRMS)</td>
+	<td style="text-align:left;"><code>worms</code></td>
+	<td style="text-align:left;"><a href="http://www.marinespecies.org/aphia.php?p=webservice">link</a></td>
+	<td style="text-align:left;">none</td>
+</tr>
 </tbody>
 </table>
 
@@ -233,10 +239,19 @@ library(taxize)
 
 + Or, development version from GitHub:
 
+You'll need `XMLSchema` and `SSSOAP`
+
+```coffee
+download.file("http://www.omegahat.org/Prerelease/XMLSchema_0.8-0.tar.gz", "XMLSchema")
+install.packages("XMLSchema", type="source", repos = NULL)
+download.file("http://www.omegahat.org/Prerelease/SSOAP_0.91-0.tar.gz", "SSOAP")
+install.packages("SSOAP", type="source", repos = NULL)
+```
+
 ```coffee
 install.packages("devtools")
 library(devtools)
-install_github("taxize", "ropensci")
+install_github("taxize", "ropensci", ref="worms")
 library(taxize)
 ```
 

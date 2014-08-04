@@ -2,13 +2,13 @@
 #' 
 #' @param scinames character; One or more scientific names or partial names.
 #' @param db character; Data source, one of \emph{"eol"} (default), \emph{"itis"} 
-#' or \emph{"ncbi"}.
+#'    \emph{"ncbi"}, or \emph{"worms"}.
 #' @param simplify (logical) If TRUE, simplify output to a vector of names. If FALSE,
 #'    return variable formats from different sources, usually a data.frame.
-#' @param ... Further arguments passed on to functions \code{\link[taxize]{get_uid}} or 
-#' \code{\link[taxize]{get_tsn}}.
-#' @param id character; identifiers, as returned by \code{\link[taxize]{get_tsn}} or
-#'    \code{\link[taxize]{get_uid}}.
+#' @param ... Further arguments passed on to functions \code{\link[taxize]{get_uid}}, 
+#'    \code{\link[taxize]{get_tsn}}, or \code{\link[taxize]{get_wormsid}}.
+#' @param id character; identifiers, as returned by \code{\link[taxize]{get_tsn}},
+#'    \code{\link[taxize]{get_uid}}, or \code{\link[taxize]{get_wormsid}}.
 #' 
 #' @return List of character - vectors.
 #' 
@@ -24,10 +24,12 @@
 #' sci2comm(scinames='Helianthus annuus', db='itis')
 #' sci2comm(scinames=c('Helianthus annuus', 'Poa annua'))
 #' sci2comm(scinames='Puma concolor', db='ncbi')
+#' sci2comm(scinames='Squatina squatina', db='worms')
 #' 
 #' # Passing id in, works for sources: itis and ncbi
 #' sci2comm(get_tsn('Helianthus annuus'))
 #' sci2comm(get_uid('Helianthus annuus'))
+#' sci2comm(get_wormsid('Squatina squatina'))
 #' 
 #' # Don't simplify returned
 #' sci2comm(get_tsn('Helianthus annuus'), simplify=FALSE)
@@ -84,12 +86,27 @@ sci2comm.default <- function(scinames, db='eol', simplify=TRUE, ...)
     Sys.sleep(0.33)
     return(out)
   }
+  
+  worms2comm <- function(x, simplify, ...){
+    wormsids <- get_wormsid(x, ...)
+    if(is.na(wormsids)) {
+      out <- NA
+    } else {
+      out <- worms_common(wormsids, ...)
+      if(nrow(out) == 0)
+        out <- NA
+    }
+    if(simplify){
+      if(!is.data.frame(out)) out else as.character(out$vernacular)
+    } else{ out }
+  }
 
   getsci <- function(nn, ...){
     switch(db, 
            eol = eol2comm(x = nn, simplify),
            itis = itis2comm(nn, simplify, ...),
-           ncbi = ncbi2comm(nn, ...))
+           ncbi = ncbi2comm(nn, ...),
+           worms = worms2comm(nn, simplify, ...))
   }
   temp <- lapply(scinames, function(x) getsci(x, ...))
   names(temp) <- scinames
@@ -138,6 +155,28 @@ sci2comm.tsn <- function(id, simplify=TRUE, ...){
     } else{ out }
   }
   out <- lapply(id, function(x) itis2comm(x))
+  names(out) <- id
+  return(out)
+}
+
+#' @method sci2comm wormsid
+#' @export
+#' @rdname sci2comm
+sci2comm.wormsid <- function(id, simplify=TRUE, ...){
+  worms2comm <- function(id, ...){
+    # if tsn is not found
+    if(is.na(id)) {
+      out <- NA
+    } else {
+      out <- worms_common(id)
+      if(length(out) == 0)
+        out <- NA
+    }
+    if(simplify){
+      as.character(out$vernacular)
+    } else{ out }
+  }
+  out <- lapply(id, function(x) worms2comm(x))
   names(out) <- id
   return(out)
 }
