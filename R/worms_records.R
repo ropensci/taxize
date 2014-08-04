@@ -1,19 +1,18 @@
 #' Get records by ID, scientific name, common name, date, worms id, or external id.
-#' 
+#'
 #' @export
 #' @template worms_id
 #' @param scientific (character) A scientific name.
 #' @param common (character) A common name.
-#' @param id (integer) A WoRMS (or Aphia) identifier.
-#' @param extid (integer) External identifier.
+#' @param extids (integer) External identifier.
 #' @param like Add a percent sign added after the ScientificName (SQL LIKE function). Default=TRUE
 #' @param type Type of exxternal identifier. Should have one of bold, dyntaxa, eol, fishbase,
 #' iucn, lsid, ncbi, or tsn.
 #' @param marine_only (logical) Include results from marine taxa only. Default: TRUE.
 #' @param offset Starting record number, when retrieving next chunk of (50) records. Default=1.
-#' @param startdate ISO 8601 formatted start date(time). Default=today(). 
+#' @param startdate ISO 8601 formatted start date(time). Default=today().
 #' i.e. 2014-08-04T15:57:54+00:00
-#' @param enddate ISO 8601 formatted start date(time). Default=today(). 
+#' @param enddate ISO 8601 formatted start date(time). Default=today().
 #' i.e. 2014-08-04T15:57:54+00:00
 #' @details Parameter \code{type} should be one of the following values:
 #' \itemize{
@@ -24,7 +23,7 @@
 #'  \item iucn: IUCN Red List Identifier
 #'  \item lsid: Life Science Identifier
 #'  \item ncbi: NCBI Taxonomy ID (Genbank)
-#'  \item tsn: ITIS Taxonomic Serial Number 
+#'  \item tsn: ITIS Taxonomic Serial Number
 #' }
 #' @examples \dontrun{
 #' worms_records(scientific='Salmo')

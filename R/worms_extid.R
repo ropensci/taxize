@@ -18,8 +18,7 @@
 worms_extid <- function(ids=NULL, type='ncbi', opts=NULL, iface=NULL, ...)
 {
   server <- 'http://www.marinespecies.org/aphia.php?p=soap'
-  upiface <- worms_update_iface(update_iface)
-  if(!is.null(upiface)) worms_iface <- iface
+  if(!is.null(iface)) worms_iface <- iface
   fxn <- worms_get_fxn('getExtIDbyAphiaID')
   res <- fxn(AphiaID = ids, type = type, server = server, .opts = opts)
   res <- if(length(res)==0) NA else res
