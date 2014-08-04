@@ -1,45 +1,28 @@
 #' Search World Register of Marine Species (WoRMS)
 #' 
+#' WORMS has a SOAP API. We store the machine generated API specification in the package. However,
+#' you can update the spec if you want using \code{worms_update_iface}
+#' 
+#' @references \url{http://www.marinespecies.org/}
+#' @name worms
+#' @docType function
+NULL
+
+#' Get name from a WORMS id
 #' @export
 #' @import SSOAP
-#' @param names asdadsf
-#' @param by asdfda
-#' @param update_iface ssdafdf
-#' @details You must provide one of name or id. The other parameters (format 
-#' 		and start) are optional. \code{getAphiaRecordByExtID} is not available through this fxn.
-#'   	Search by AphiaID, scientific name, vernacular name, or date.
-#' @references \url{http://www.marinespecies.org/}
-#' @return A data.frame.
+#' @template worms_id
+#' @param update_iface (logical) xx
 #' @examples \dontrun{
-#' # A basic example
-#' worms_search(names="Apis")
-#' worms_search(names='', by='getAphiaRecordsByNames')
+#' worms_name(id=1080)
 #' }
-
-worms_search_name <- function(names=NULL, by='getAphiaID', update_iface=FALSE)
+worms_name <- function(id=NULL, opts=NULL, update_iface=FALSE)
 {
   server <- 'http://www.marinespecies.org/aphia.php?p=soap'
   upiface <- worms_update_iface(update_iface)
   if(!is.null(upiface)) worms_iface <- iface
-  fxn_name <- match.arg(by, c('getAphiaID','getAphiaRecords','getAphiaNameByID','getAphiaRecordByID',
-                  'getExtIDbyAphiaID','getAphiaRecordsByNames','getAphiaRecordsByVernacular',
-                  'getAphiaRecordsByDate','getAphiaClassificationByID',
-                  'getSourcesByAphiaID','getAphiaSynonymsByID','getAphiaVernacularsByID',
-                  'getAphiaChildrenByID','matchAphiaRecordsByNames'))
-  fxn <- worms_get_fxn(fxn_name)
-  fxn(scientificname = "Solea", 0, server = server)
-}
-
-worms_search_id <- function(ids=NULL, offset=NULL, marine_only=TRUE, by='getAphiaNameByID', update_iface=FALSE)
-{
-  server <- 'http://www.marinespecies.org/aphia.php?p=soap'
-  upiface <- worms_update_iface(update_iface)
-  if(!is.null(upiface)) worms_iface <- iface
-  fxn_name <- match.arg(by, c('getAphiaNameByID','getAphiaRecordByID','getExtIDbyAphiaID',
-                  'getAphiaClassificationByID','getSourcesByAphiaID','getAphiaSynonymsByID',
-                  'getAphiaVernacularsByID','getAphiaChildrenByID'))
-  fxn <- worms_get_fxn(fxn_name)
-  fxn(scientificname = "Solea", 0, server = server)
+  fxn <- worms_get_fxn('getAphiaNameByID')
+  fxn(AphiaID = id, server = server, .opts = opts)
 }
 
 #' Hierarchy search
