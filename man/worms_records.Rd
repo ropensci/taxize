@@ -26,9 +26,7 @@ then pass it into any \code{worms_*} function. in the \code{iface} parameter.}
 
 \item{common}{(character) A common name.}
 
-\item{id}{(integer) A WoRMS (or Aphia) identifier.}
-
-\item{extid}{(integer) External identifier.}
+\item{extids}{(integer) External identifier.}
 
 \item{like}{Add a percent sign added after the ScientificName (SQL LIKE function). Default=TRUE}
 
