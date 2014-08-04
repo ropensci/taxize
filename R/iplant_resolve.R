@@ -1,4 +1,4 @@
-#' iplant resolution
+#' iPlant name resolution
 #' 
 #' @import httr RJSONIO
 #' @export
@@ -10,8 +10,7 @@
 #' @examples \dontrun{
 #' iplant_resolve(query=c("Helianthus annuus", "Homo sapiens"))
 #' iplant_resolve("Helianthusss")
-#' res <- iplant_resolve("Pooa")
-#' do.call(rbind, lapply(res, data.frame, stringsAsFactors = FALSE))
+#' iplant_resolve("Pooa")
 #' 
 #' library("httr")
 #' iplant_resolve("Helianthusss", callopts=verbose())
@@ -29,5 +28,6 @@ iplant_resolve <- function(query, retrieve='all', callopts=list()){
   warn_for_status(out)
   tt <- content(out, as = "text")
   res <- RJSONIO::fromJSON(tt)$items
-  return( res )
+  res2 <- do.call(rbind, lapply(res, data.frame, stringsAsFactors = FALSE))
+  return( res2 )
 }
