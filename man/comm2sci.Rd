@@ -9,7 +9,7 @@ comm2sci(commnames, db = "eol", itisby = "search", simplify = TRUE, ...)
 \item{commnames}{One or more common names or partial names.}
 
 \item{db}{Data source, one of \emph{"eol"} (default), \emph{"itis"}, \emph{"tropicos"}
-or \emph{"ncbi"}.}
+\emph{"ncbi"}, or \emph{"worms"}.}
 
 \item{itisby}{Search for common names across entire names (search, default),
 at beginning of names (begin), or at end of names (end).}
@@ -32,6 +32,7 @@ comm2sci(commnames='black bear', db='itis')
 comm2sci(commnames='annual blue grass', db='tropicos')
 comm2sci(commnames=c('annual blue grass','tree of heaven'), db='tropicos')
 comm2sci(commnames=c('black bear', 'roe deer'))
+comm2sci(commnames=c('atlantic salmon','great white shark'), db='worms')
 
 # Output easily converts to a data.frame with \\code{\\link[plyr]{ldply}}
 library(plyr)
@@ -45,7 +46,7 @@ Scott Chamberlain (myrmecocystus@gmail.com)
 \code{\link[taxize]{searchbycommonname}},
 \code{\link[taxize]{searchbycommonnamebeginswith}},
 \code{\link[taxize]{searchbycommonnameendswith}}, \code{\link[taxize]{eol_search}},
-\code{\link[taxize]{tp_search}}
+\code{\link[taxize]{tp_search}}, \code{\link[taxize]{worms_records}}
 
 \code{\link[taxize]{sci2comm}}
 }
