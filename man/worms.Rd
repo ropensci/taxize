@@ -23,6 +23,45 @@ The following functions are available to interact with WoRMS:
  \item worms_sources Get sources (references) for taxa from a WoRMS ID.
  \item worms_synonyms Get scientific name synonyms from a WoRMS ID.
 }
+
+Each WoRMS record (row in the output of most \code{worms_} functions) has the same
+output columns:
+
+\itemize{
+ \item AphiaID: unique and persistent identifier within WoRMS. Primary key in the database.
+ \item url: HTTP URL to the AphiaRecord
+ \item scientificname: the full scientific name without authorship
+ \item authority: the authorship information for the scientificname formatted according to the
+ conventions of the applicable nomenclaturalCode
+ \item rank: the taxonomic rank of the most specific name in the scientificname
+ \item status: the status of the use of the scientificname as a label for a taxon. Requires
+ taxonomic opinion to define the scope of a taxon
+ \item unacceptreason: the reason why a scientificname is unaccepted
+ \item valid_AphiaID: the AphiaID (for the scientificname) of the currently accepted taxon
+ \item valid_name: the scientificname of the currently accepted taxon
+ \item valid_authority: the authorship information for the scientificname of the currently
+ accepted taxon
+ \item kingdom: the full scientific name of the kingdom in which the taxon is classified
+ \item phylum: the full scientific name of the phylum or division in which the taxon is classified
+ \item class: the full scientific name of the class in which the taxon is classified
+ \item order: the full scientific name of the order in which the taxon is classified
+ \item family: the full scientific name of the family in which the taxon is classified
+ \item genus: the full scientific name of the genus in which the taxon is classified
+ \item citation: a bibliographic reference for the resource as a statement indicating how this
+ record should be cited (attributed) when used
+ \item lsid: LifeScience Identifier. Persistent GUID for an AphiaID
+ \item isMarine: a boolean flag indicating whether the taxon is a marine organism, i.e. can be
+ found in/above sea water. Possible values: 0/1/NULL
+ \item isBrackish: a boolean flag indicating whether the taxon occurrs in brackish habitats.
+ Possible values: 0/1/NULL
+ \item isFreshwater: a boolean flag indicating whether the taxon occurrs in freshwater
+ habitats, i.e. can be found in/above rivers or lakes. Possible values: 0/1/NULL
+ \item isTerrestrial: a boolean flag indicating the taxon is a terrestial organism, i.e. occurrs
+ on land as opposed to the sea. Possible values: 0/1/NULL
+ \item isExtinct: a flag indicating an extinct organism. Possible values: 0/1/NUL
+ \item match_type: Type of match. Possible values: exact/like/phonetic/near_1/near_2
+ \item modified: The most recent date-time in GMT on which the resource was changed
+}
 }
 \references{
 \url{http://www.marinespecies.org/}
