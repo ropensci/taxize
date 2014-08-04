@@ -6,7 +6,7 @@
 worms_hierarchy(ids = NULL, opts = NULL, iface = NULL, ...)
 }
 \arguments{
-\item{id}{(numeric) One or more worms AphidID for a taxon.}
+\item{ids}{(numeric) One or more WoRMS AphidID's for a taxon.}
 
 \item{opts}{(character) a named list of elements that are passed to the curlPerform function
 which actually invokes the SOAP method. These options control aspects of the HTTP request,
@@ -25,6 +25,7 @@ Hierarchy search
 \examples{
 \dontrun{
 worms_hierarchy(ids=733271)
+worms_hierarchy(ids=123080)
 }
 }
 

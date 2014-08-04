@@ -3,10 +3,10 @@
 \alias{worms_name}
 \title{Get name from a WORMS id}
 \usage{
-worms_name(id = NULL, opts = NULL, iface = NULL, ...)
+worms_name(ids = NULL, opts = NULL, iface = NULL, ...)
 }
 \arguments{
-\item{id}{(numeric) One or more worms AphidID for a taxon.}
+\item{ids}{(numeric) One or more WoRMS AphidID's for a taxon.}
 
 \item{opts}{(character) a named list of elements that are passed to the curlPerform function
 which actually invokes the SOAP method. These options control aspects of the HTTP request,
@@ -24,7 +24,9 @@ Get name from a WORMS id
 }
 \examples{
 \dontrun{
-worms_name(id=1080)
+worms_name(ids=1080)
+worms_name(ids=c(1080,22388,160281,123080,22388))
+worms_name(ids=c(1080,22388,160281,123080,22388,106135,159283))
 }
 }
 

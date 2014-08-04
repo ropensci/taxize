@@ -3,12 +3,12 @@
 #' @template worms_id
 #' @examples \dontrun{
 #' worms_hierarchy(ids=733271)
+#' worms_hierarchy(ids=123080)
 #' }
 worms_hierarchy <- function(ids=NULL, opts=NULL, iface=NULL, ...)
 {
   server <- 'http://www.marinespecies.org/aphia.php?p=soap'
-  upiface <- worms_update_iface(update_iface)
-  if(!is.null(upiface)) worms_iface <- iface
+  if(!is.null(iface)) worms_iface <- iface
   fxn <- worms_get_fxn('getAphiaClassificationByID')
   res <- fxn(AphiaID = ids, server = server, .opts = opts)
   df <- data.frame(aphiaid=res@AphiaID, rank=res@rank, scientificname=res@scientificname, stringsAsFactors = FALSE)

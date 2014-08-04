@@ -3,12 +3,13 @@
 \alias{worms_records}
 \title{Get records by ID, scientific name, common name, date, worms id, or external id.}
 \usage{
-worms_records(scientific = NULL, common = NULL, id = NULL, extid = NULL,
-  like = NULL, type = NULL, marine_only = 1, offset = NULL,
-  startdate = NULL, enddate = NULL, opts = NULL, iface = NULL, ...)
+worms_records(scientific = NULL, common = NULL, ids = NULL,
+  extids = NULL, like = NULL, type = NULL, marine_only = 1,
+  offset = NULL, startdate = NULL, enddate = NULL, opts = NULL,
+  iface = NULL, ...)
 }
 \arguments{
-\item{id}{(numeric) One or more worms AphidID for a taxon.}
+\item{ids}{(numeric) One or more WoRMS AphidID's for a taxon.}
 
 \item{opts}{(character) a named list of elements that are passed to the curlPerform function
 which actually invokes the SOAP method. These options control aspects of the HTTP request,
@@ -63,11 +64,13 @@ Parameter \code{type} should be one of the following values:
 \examples{
 \dontrun{
 worms_records(scientific='Salmo')
+worms_records(scientific=c('Salmo','Aphanius'))
 worms_records(scientific='Liopsetta glacialis')
 worms_records(common='salmon')
+worms_records(common=c('salmon','char'))
 worms_records(startdate='2014-06-01T00:00:00', enddate='2014-06-02T00:00:00')
-worms_records(id=1080)
-worms_records(extid=6830, type='ncbi')
+worms_records(ids=1080)
+worms_records(extids=6830, type='ncbi')
 }
 }
 

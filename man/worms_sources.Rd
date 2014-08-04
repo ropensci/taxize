@@ -6,7 +6,7 @@
 worms_sources(ids = NULL, opts = NULL, iface = NULL, ...)
 }
 \arguments{
-\item{id}{(numeric) One or more worms AphidID for a taxon.}
+\item{ids}{(numeric) One or more WoRMS AphidID's for a taxon.}
 
 \item{opts}{(character) a named list of elements that are passed to the curlPerform function
 which actually invokes the SOAP method. These options control aspects of the HTTP request,
@@ -26,6 +26,7 @@ Get sources/references by ID
 \dontrun{
 worms_sources(ids=1080)
 worms_sources(ids=278241)
+worms_sources(ids=c(1080,278241))
 }
 }
 

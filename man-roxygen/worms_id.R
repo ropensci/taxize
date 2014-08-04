@@ -1,4 +1,4 @@
-#' @param id (numeric) One or more worms AphidID for a taxon.
+#' @param ids (numeric) One or more WoRMS AphidID's for a taxon.
 #' @param opts (character) a named list of elements that are passed to the curlPerform function 
 #'    which actually invokes the SOAP method. These options control aspects of the HTTP request, 
 #'    including debugging information that is displayed on the console, 

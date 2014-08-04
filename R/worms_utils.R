@@ -55,3 +55,24 @@ get_uri <- function(x, y){
          lsid=NA,
   )
 }
+
+parse_data <- function(x){
+  do.call(rbind, lapply(x, function(y) if(length(y)==1){
+    data.frame(inputid=y[[1]]$AphiaID, unclass(y[[1]]), stringsAsFactors = FALSE)
+  } else {
+    do.call(rbind, lapply(y, function(z) data.frame(inputid=y[[1]]$AphiaID, unclass(z), stringsAsFactors = FALSE)))
+  }
+  ))
+}
+
+parse_data_byname <- function(x){
+  tt <- list()
+  for(i in seq_along(x)){  
+    if(length(x[[i]])==1){
+      tt[[i]] <- data.frame(inputid=names(x)[i], unclass(x[[i]][[1]]), stringsAsFactors = FALSE)
+    } else {
+      tt[[i]] <- do.call(rbind, lapply(x[[i]], function(z) data.frame(inputid=names(x)[i], unclass(z), stringsAsFactors = FALSE)))
+    }
+  }
+  do.call(rbind, tt)
+}
