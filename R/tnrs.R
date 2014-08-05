@@ -110,9 +110,14 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
 		# Parse results into data.frame
     df <- data.frame(rbindlist(lapply(out$names, parseres)))
     f <- function(x) str_replace_all(x, pattern="\\+", replacement=" ")
-    df <- colwise(f)(df)
-		order_ <- unlist(sapply(x, function(y) grep(y, df$submittedName)))
-		df2 <- df[order_,]
+    df2 <- colwise(f)(df)
+# 		order_ <- unlist(sapply(x, function(y) grep(y, df$submittedName)))
+# 		df2 <- df[order_,]
+
+    # replace quotes
+    df2 <- data.frame(apply(df2, c(1,2), function(x){
+      if(grepl('\"', x)) gsub('\"', "", x) else x
+    }), stringsAsFactors=FALSE)
 		
 		return(df2)
 	}
