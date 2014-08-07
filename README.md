@@ -144,6 +144,12 @@ The following are URL's for API documentation, where to get API keys, and what p
 	<td style="text-align:left;"><a href="http://www.marinespecies.org/aphia.php?p=webservice">link</a></td>
 	<td style="text-align:left;">none</td>
 </tr>
+<tr>
+	<td style="text-align:left;">Barcode of Life Data Systems (BOLD)</td>
+	<td style="text-align:left;"><code>bold</code></td>
+	<td style="text-align:left;"><a href="http://www.boldsystems.org/index.php/Resources">link</a></td>
+	<td style="text-align:left;">none</td>
+</tr>
 </tbody>
 </table>
 
@@ -159,6 +165,8 @@ The following are URL's for API documentation, where to get API keys, and what p
 + [MycoBank](http://www.mycobank.org/)
 
 ## Quickstart
+
+For more examples [click here](http://ropensci.org/tutorials/taxize_tutorial.html)
 
 ### Install taxize
 
@@ -187,15 +195,13 @@ install_github("taxize", "ropensci")
 library(taxize)
 ```
 
-### A few examples (for more [click here](http://ropensci.org/tutorials/taxize_tutorial.html))
-
-#### Get unique taxonomic identifier from NCBI
+### Get unique taxonomic identifier from NCBI
 
 ```coffee
 uids <- get_uid(c("Chironomus riparius", "Chaetopteryx"))
 ```
 
-#### And retrieve classification
+### Retrieve classifications
 
 ```coffee
 out <- classification(uids)
@@ -222,7 +228,81 @@ lapply(out, head)
 6          Bilateria      no rank
 ```
 
-### Make a phylogeny from Phylomatic
+### Get synonyms
+
+```coffee
+synonyms("Poa annua", db="itis")
+```
+
+```coffee
+$`Poa annua`
+                          name    tsn
+1      Poa annua var. aquatica 538978
+2       Poa annua var. reptans 538979
+3                  Aira pumila 785854
+4             Catabrosa pumila 787993
+5               Ochlopoa annua 791574
+6               Poa aestivalis 793946
+7                   Poa algida 793954
+8         Poa annua var. annua 802116
+9     Poa annua var. eriolepis 802117
+10 Poa annua var. rigidiuscula 802119
+11        Poa annua f. reptans 803667
+```
+
+### Get taxonomic IDs from many sources
+
+```coffee
+get_ids(names="Chironomus riparius", db = c('ncbi','itis','col'), verbose=FALSE)
+```
+
+```coffee
+$ncbi
+Chironomus riparius
+					"315576"
+attr(,"match")
+[1] "found"
+attr(,"uri")
+[1] "http://www.ncbi.nlm.nih.gov/taxonomy/315576"
+attr(,"class")
+[1] "uid"
+
+$itis
+Chironomus riparius
+					"129313"
+attr(,"match")
+[1] "found"
+attr(,"uri")
+[1] "http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=129313"
+attr(,"class")
+[1] "tsn"
+
+$col
+Chironomus riparius
+					"8663146"
+attr(,"class")
+[1] "colid"
+attr(,"uri")
+[1] "http://www.catalogueoflife.org/col/details/species/id/8663146"
+
+attr(,"class")
+[1] "ids"
+```
+
+
+### Get common names from scientific names
+
+```coffee
+sci2comm(scinames='Helianthus annuus', db='itis')
+```
+
+```coffee
+$`Helianthus annuus`
+[1] "common sunflower" "sunflower"        "wild sunflower"   "annual sunflower"
+```
+
+
+<!-- ### Make a phylogeny from Phylomatic
 
 #### Input the taxonomic names
 
@@ -242,7 +322,7 @@ tree <- phylomatic_tree(taxa=taxa, storedtree = "R20120829")
 plot(tree)
 ```
 
-![phylogeny](http://f.cl.ly/items/0o253B453R3I0D20082E/Screen%20Shot%202013-12-27%20at%209.03.49%20AM.png)
+![phylogeny](http://f.cl.ly/items/0o253B453R3I0D20082E/Screen%20Shot%202013-12-27%20at%209.03.49%20AM.png) -->
 
 ## Meta
 
