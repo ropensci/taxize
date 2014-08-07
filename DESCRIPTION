@@ -41,7 +41,8 @@ Imports:
     reshape2,
     data.table,
     vegan,
-    assertthat
+    assertthat,
+    bold
 Suggests:
     testthat,
     roxygen2,
