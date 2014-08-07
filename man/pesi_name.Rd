@@ -20,7 +20,8 @@ Get PESI names from GUIDs
 \examples{
 \dontrun{
 pesi_name(guid='67C3CC9C-624A-40C5-B63A-AB880E0300D1')
-pesi_name(guid=c('urn:lsid:marinespecies.org:taxname:105787','urn:lsid:marinespecies.org:taxname:105790'))
+pesi_name(guid=c('urn:lsid:marinespecies.org:taxname:105787','
+                 urn:lsid:marinespecies.org:taxname:105790'))
 }
 }
 
