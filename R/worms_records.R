@@ -35,6 +35,7 @@
 #' worms_records(ids=1080)
 #' worms_records(extids=6830, type='ncbi')
 #' }
+
 worms_records <- function(scientific=NULL, common=NULL, ids=NULL, extids=NULL, like=NULL, type=NULL,
   marine_only=1, offset=NULL, startdate=NULL, enddate=NULL, opts=NULL, iface=NULL, ...)
 {
@@ -53,13 +54,15 @@ worms_records <- function(scientific=NULL, common=NULL, ids=NULL, extids=NULL, l
   }
   fxn <- worms_get_fxn(endpt)
   res <- switch(endpt,
-    getAphiaRecords = lapply(scientific, fxn, like = like, fuzzy = 'false', marine_only = marine_only, offset = 'false', server = server, .opts = opts, ...),
-    getAphiaRecordsByNames = lapply(scientific, fxn, like = like, fuzzy = 'false', marine_only = marine_only, server = server, .opts = opts, ...),
-    getAphiaRecordsByVernacular = lapply(common, fxn, like = like, offset = offset, server = server, .opts = opts, ...),
-    getAphiaRecordsByDate = lapply(startdate, fxn, enddate = enddate, marine_only = marine_only, offset = offset, server = server, .opts = opts, ...),
-    getAphiaRecordByID = lapply(ids, fxn, server = server, .opts = opts, ...),
-    getAphiaRecordByExtID = lapply(extids, fxn, type = type, server = server, .opts = opts, ...)
+    getAphiaRecords = lapply(scientific, fxn, like = like, fuzzy = 'false', marine_only = marine_only, offset = 'false', server = server, .opts = opts, .convert=FALSE, ...),
+    getAphiaRecordsByNames = lapply(scientific, fxn, like = like, fuzzy = 'false', marine_only = marine_only, server = server, .opts = opts, .convert=FALSE, ...),
+    getAphiaRecordsByVernacular = lapply(common, fxn, like = like, offset = offset, server = server, .opts = opts, .convert=FALSE, ...),
+    getAphiaRecordsByDate = lapply(startdate, fxn, enddate = enddate, marine_only = marine_only, offset = offset, server = server, .opts = opts, .convert=FALSE, ...),
+    getAphiaRecordByID = lapply(ids, fxn, server = server, .opts = opts, .convert=FALSE, ...),
+      getAphiaRecordByExtID = lapply(extids, fxn, type = type, server = server, .opts = opts, .convert=FALSE, ...)
   )
-  names(res) <- switch(endpt, getAphiaRecords=scientific, getAphiaRecordsByNames=scientific, getAphiaRecordsByVernacular=common, getAphiaRecordsByDate=startdate, getAphiaRecordByID=ids, getAphiaRecordByExtID=extids)
-  parse_data_byname(res)
+  iter <- switch(endpt, getAphiaRecords=scientific, getAphiaRecordsByNames=scientific, getAphiaRecordsByVernacular=common, getAphiaRecordsByDate=startdate, getAphiaRecordByID=ids, getAphiaRecordByExtID=extids)
+  do.call(rbind, Map(worms_parse_xml, res, aphiaid=iter, which=endpt))
+#   names(res) <- switch(endpt, getAphiaRecords=scientific, getAphiaRecordsByNames=scientific, getAphiaRecordsByVernacular=common, getAphiaRecordsByDate=startdate, getAphiaRecordByID=ids, getAphiaRecordByExtID=extids)
+#   parse_data_byname(res)
 }
