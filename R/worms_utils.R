@@ -80,6 +80,10 @@ worms_gen_iface <- function(wsdl_url="http://www.marinespecies.org/aphia.php?p=s
   genSOAPClientInterface(, w, ...)
 }
 
+#' get function from ssoap defintion
+#' 
+#' @export
+#' @keywords internal
 worms_get_fxn <- function(x) worms_iface@functions[[x]]
 
 get_uri <- function(x, y){
