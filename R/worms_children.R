@@ -19,27 +19,3 @@ worms_children <- function(ids=NULL, offset=NULL, marine_only=1, opts=NULL, ifac
 #   parse_data(res)
   do.call(rbind, Map(worms_parse_xml, res, aphiaid=ids))
 }
-
-worms_parse_xml <- function(z, aphiaid, which="getAphiaChildrenByID")
-{
-  which <- if(which %in% c('getAphiaChildrenByID','getAphiaRecords','getAphiaRecordsByNames','getAphiaRecordsByVernacular','getAphiaRecordsByDate')) '//item' else '//return'
-  st <- xmlParse( z$content )
-  ns <- c(xmlns='xsi="http://www.w3.org/2001/XMLSchema-instance"')
-  nodes <- getNodeSet(st, which, namespaces = ns)
-  out <- lapply(nodes, function(x){
-    if(length(getNodeSet(x, "item")) == 0){
-      extract_it(x)
-    } else {
-      tmp <- getNodeSet(x, 'item')
-      do.call(rbind.fill, lapply(tmp, extract_it))
-    }
-  })
-  df <- data.frame(inputid=aphiaid, do.call(rbind.fill, out), stringsAsFactors = FALSE)
-  df$.attrs <- NULL
-  df
-}
-
-extract_it <- function(x){
-  rr <- xmlToList(x)
-  data.frame(lapply(rr, function(x) x['text'][[1]]), stringsAsFactors = FALSE)
-}
