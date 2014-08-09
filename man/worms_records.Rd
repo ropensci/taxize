@@ -4,9 +4,9 @@
 \title{Get records by ID, scientific name, common name, date, worms id, or external id.}
 \usage{
 worms_records(scientific = NULL, common = NULL, ids = NULL,
-  extids = NULL, like = NULL, type = NULL, marine_only = 1,
-  offset = NULL, startdate = NULL, enddate = NULL, opts = NULL,
-  iface = NULL, ...)
+  extids = NULL, like = NULL, type = NULL, fuzzy = FALSE,
+  marine_only = 1, offset = NULL, startdate = NULL, enddate = NULL,
+  opts = NULL, iface = NULL, ...)
 }
 \arguments{
 \item{ids}{(numeric) One or more WoRMS AphidID's for a taxon.}
@@ -69,6 +69,10 @@ worms_records(common=c('salmon','char'))
 worms_records(startdate='2014-06-01T00:00:00', enddate='2014-06-02T00:00:00')
 worms_records(ids=1080)
 worms_records(extids=6830, type='ncbi')
+
+worms_records(scientific="Holothuria edulis")
+worms_records(scientific="Holothuria edulis", fuzzy=TRUE)
+worms_records(scientific="Holothuria (Halodeima) edulis")
 }
 }
 
