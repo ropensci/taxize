@@ -28,7 +28,7 @@ VignetteBuilder: knitr
 Roxygen: list(wrap = FALSE)
 Depends:
     R(>= 2.10.0),
-    SSOAP (>=0.91-0)
+    SSOAP (>= 0.91-0)
 Imports:
     XML,
     RCurl (>= 1.6),
@@ -50,4 +50,4 @@ Suggests:
     rjson,
     knitr,
     jsonlite,
-    XMLSchema (>=0.8-0)
+    XMLSchema (>= 0.8-0)
