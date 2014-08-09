@@ -206,3 +206,30 @@ pesi_gen_iface <- function(wsdl_url='http://www.eu-nomen.eu/portal/soap.php?wsdl
 }
 
 pesi_get_fxn <- function(x) pesi_iface@functions[[x]]
+
+
+#' Search Pan-European Species directories Infrastructure (PESI)
+#'
+#' PESI has a SOAP API. We store the machine generated API specification in the package as the
+#' object \code{pesi_iface}. However, you can update the spec if you want using
+#' \code{pesi_gen_iface}, then pass the output of that fxn to the \code{iface} parameter of
+#' \code{pesi_*} functions.
+#'
+#' The following functions are available to interact with PESI:
+#'
+#' \itemize{
+#'  \item pesi_gen_iface Generate new PESI SOAP API interface.
+#'  \item pesi_name_common  Get complete taxonomic hierarchy from a PESI ID.
+#'  \item pesi_name_scientific  Get scientific name from a PESI ID.
+#'  \item pesi_records Get PESI records from a PESI ID, an external ID, a scientific name, a
+#'  common name, or a start- or end-date.
+#'  \item pesi_synonyms Get scientific name synonyms from a PESI ID.
+#'  \item pesi_distributions Get distribution data
+#'  \item pesi_guid Search for a GUID from a scientific name
+#'  \item pesi_records Get PESI records
+#'  \item pesi_search Search by scientific name
+#' }
+#'
+#' @references \url{http://www.eu-nomen.eu/portal/index.php}
+#' @name pesi
+NULL
