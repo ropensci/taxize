@@ -20,6 +20,7 @@ Get PESI GUID from scientific names
 \examples{
 \dontrun{
 pesi_guid(scientific='Ternatea vulgaris')
+pesi_guid(scientific='Holcus lanatus')
 pesi_guid(scientific=c('Ternatea vulgaris','Carcharhinus altimus','Carcharhinus galapagensis'))
 }
 }
