@@ -191,7 +191,7 @@ install.packages("SSOAP", type="source", repos = NULL)
 ```coffee
 install.packages("devtools")
 library(devtools)
-install_github("taxize", "ropensci")
+install_github("taxize", "ropensci", ref='pesi')
 library(taxize)
 ```
 
