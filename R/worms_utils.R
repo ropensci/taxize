@@ -63,7 +63,7 @@
 #' @name worms
 NULL
 
-#' Generate WORMS intrface.
+#' Generate WORMS interface.
 #'
 #' @export
 #' @param wsdl_url URL for the WORMS SOAP WSDL file
