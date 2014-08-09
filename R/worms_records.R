@@ -5,10 +5,10 @@
 #' @param scientific (character) A scientific name.
 #' @param common (character) A common name.
 #' @param extids (integer) External identifier.
-#' @param like Add a percent sign added after the ScientificName (SQL LIKE function). Default=TRUE
-#' @param type Type of exxternal identifier. Should have one of bold, dyntaxa, eol, fishbase,
+#' @param like (logical) Add a percent sign after the ScientificName (SQL LIKE function). Default=TRUE
+#' @param type Type of external identifier. Should be one of bold, dyntaxa, eol, fishbase,
 #' iucn, lsid, ncbi, or tsn.
-#' @param marine_only (logical) Include results from marine taxa only. Default: TRUE.
+#' @param marine_only (logical) Include results from marine taxa only. Default=TRUE.
 #' @param offset Starting record number, when retrieving next chunk of (50) records. Default=1.
 #' @param startdate ISO 8601 formatted start date(time). Default=today().
 #' i.e. 2014-08-04T15:57:54+00:00
