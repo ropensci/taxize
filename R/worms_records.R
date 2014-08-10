@@ -38,6 +38,10 @@
 #' worms_records(scientific="Holothuria edulis")
 #' worms_records(scientific="Holothuria edulis", fuzzy=TRUE)
 #' worms_records(scientific="Holothuria (Halodeima) edulis")
+#' 
+#' worms_records(scientific='Scotoplanes')
+#' 
+#' worms_records(scientific='Salmo', offset=51)
 #' }
 
 worms_records <- function(scientific=NULL, common=NULL, ids=NULL, extids=NULL, like=NULL, type=NULL,
@@ -59,7 +63,7 @@ worms_records <- function(scientific=NULL, common=NULL, ids=NULL, extids=NULL, l
   }
   fxn <- worms_get_fxn(endpt)
   res <- switch(endpt,
-    getAphiaRecords = lapply(scientific, fxn, like = like, fuzzy = 'false', marine_only = marine_only, offset = 'false', server = server, .opts = opts, .convert=FALSE, ...),
+    getAphiaRecords = lapply(scientific, fxn, like = like, fuzzy = 'false', marine_only = marine_only, offset = offset, server = server, .opts = opts, .convert=FALSE, ...),
     getAphiaRecordsByNames = lapply(scientific, fxn, like = like, fuzzy = 'false', marine_only = marine_only, server = server, .opts = opts, .convert=FALSE, ...),
     matchAphiaRecordsByNames = lapply(scientific, fxn, marine_only = marine_only, server = server, .opts = opts, .convert=FALSE, ...),
     getAphiaRecordsByVernacular = lapply(common, fxn, like = like, offset = offset, server = server, .opts = opts, .convert=FALSE, ...),
@@ -69,6 +73,4 @@ worms_records <- function(scientific=NULL, common=NULL, ids=NULL, extids=NULL, l
   )
   iter <- switch(endpt, getAphiaRecords=scientific, getAphiaRecordsByNames=scientific, getAphiaRecordsByVernacular=common, getAphiaRecordsByDate=startdate, getAphiaRecordByID=ids, getAphiaRecordByExtID=extids, matchAphiaRecordsByNames=scientific)
   do.call(rbind.fill, Map(worms_parse_xml, res, aphiaid=iter, which=endpt))
-#   names(res) <- switch(endpt, getAphiaRecords=scientific, getAphiaRecordsByNames=scientific, getAphiaRecordsByVernacular=common, getAphiaRecordsByDate=startdate, getAphiaRecordByID=ids, getAphiaRecordByExtID=extids)
-#   parse_data_byname(res)
 }

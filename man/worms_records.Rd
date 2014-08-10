@@ -28,12 +28,12 @@ then pass it into any \code{worms_*} function. in the \code{iface} parameter.}
 
 \item{extids}{(integer) External identifier.}
 
-\item{like}{Add a percent sign added after the ScientificName (SQL LIKE function). Default=TRUE}
+\item{like}{(logical) Add a percent sign after the ScientificName (SQL LIKE function). Default=TRUE}
 
-\item{type}{Type of exxternal identifier. Should have one of bold, dyntaxa, eol, fishbase,
+\item{type}{Type of external identifier. Should be one of bold, dyntaxa, eol, fishbase,
 iucn, lsid, ncbi, or tsn.}
 
-\item{marine_only}{(logical) Include results from marine taxa only. Default: TRUE.}
+\item{marine_only}{(logical) Include results from marine taxa only. Default=TRUE.}
 
 \item{offset}{Starting record number, when retrieving next chunk of (50) records. Default=1.}
 
@@ -73,6 +73,10 @@ worms_records(extids=6830, type='ncbi')
 worms_records(scientific="Holothuria edulis")
 worms_records(scientific="Holothuria edulis", fuzzy=TRUE)
 worms_records(scientific="Holothuria (Halodeima) edulis")
+
+worms_records(scientific='Scotoplanes')
+
+worms_records(scientific='Salmo', offset=51)
 }
 }
 
