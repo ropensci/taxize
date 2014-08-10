@@ -38,7 +38,7 @@ splist <- c("Salvelinus fontinalis", 'Pomacentrus brachialis', "Leptocottus arma
 get_wormsid(splist, verbose=FALSE)
 
 # When not found
-get_wormsid("howdy")
+get_wormsid(searchterm="howdy")
 get_wormsid(c("Salvelinus fontinalis", "howdy"))
 
 # Using common names
