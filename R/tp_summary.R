@@ -1,7 +1,7 @@
 #' Return summary data a taxon name with a given id.
 #'
 #' @export
-#' @import httr
+#' @import httr jsonlite
 #' @param id the taxon identifier code
 #' @param key Your Tropicos API key; loads from .Rprofile.
 #' @param callopts Curl options.
@@ -20,7 +20,7 @@ tp_summary <- function(id, key = NULL, callopts=list())
   tmp <- GET(url, query = args, callopts)
   stop_for_status(tmp)
   tmp2 <- content(tmp, as = "text")
-  res <- fromJSON(tmp2)
+  res <- jsonlite::fromJSON(tmp2, FALSE)
   typespec <- data.frame(t(data.frame(res$TypeSpecimens)), stringsAsFactors = FALSE, row.names = NULL)
   df <- data.frame(res[!names(res) %in% "TypeSpecimens"], stringsAsFactors = FALSE)
   df <- cbind(df, typespec)

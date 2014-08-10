@@ -1,6 +1,6 @@
 #' Return all accepted names for a taxon name with a given id.
 #'
-#' @import httr plyr
+#' @import httr plyr jsonlite
 #' @export
 #' @param id the taxon identifier code
 #' @param key Your Tropicos API key; loads from .Rprofile.
@@ -22,7 +22,7 @@ tp_accnames <- function(id, key = NULL, callopts=list())
   tmp <- GET(url, query=args, callopts)
   stop_for_status(tmp)
   tmp2 <- content(tmp, as = "text")
-  res <- fromJSON(tmp2)
+  res <- jsonlite::fromJSON(tmp2, FALSE)
 
   if("Error" %in% names(res[[1]])){ res[[1]] } else {
     vvv <- lapply(res, getdata)
