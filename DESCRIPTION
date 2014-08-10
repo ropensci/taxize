@@ -35,7 +35,7 @@ Imports:
     stringr,
     plyr,
     httr (>= 0.2),
-    RJSONIO,
+    jsonlite,
     foreach,
     ape,
     Taxonstand,
@@ -48,5 +48,4 @@ Suggests:
     testthat,
     roxygen2,
     knitr,
-    jsonlite,
     XMLSchema (>= 0.8-0)
