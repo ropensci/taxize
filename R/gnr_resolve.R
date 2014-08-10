@@ -2,7 +2,7 @@
 #'
 #' Uses the Global Names Index, see \url{http://gni.globalnames.org/}.
 #'
-#' @import stringr plyr httr
+#' @import stringr plyr httr jsonlite
 #' @param names character; taxonomic names to be resolved.
 #' @param data_source_ids character; IDs to specify what data source
 #'     is searched. See \code{\link[taxize]{gnr_datasources}}.
@@ -76,7 +76,7 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
     tmp <- GET(url, query=args, callopts)
     warn_for_status(tmp)
     tmp2 <- content(tmp, as = "text")
-    dat <- RJSONIO::fromJSON(tmp2, simplifyWithNames = FALSE)$data
+    dat <- jsonlite::fromJSON(tmp2, FALSE)$data
   } else
     if(http=='post'){
       args <- args[!names(args) %in% "names"]

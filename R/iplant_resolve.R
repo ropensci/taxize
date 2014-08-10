@@ -1,6 +1,6 @@
 #' iPlant name resolution
 #' 
-#' @import httr RJSONIO
+#' @import httr jsonlite
 #' @export
 #' @param query Vector of one or more taxonomic names. (no common names)
 #' @param retrieve Specifies whether to retrieve all matches for the names submitted. One of 'best' 
@@ -27,7 +27,7 @@ iplant_resolve <- function(query, retrieve='all', callopts=list()){
   out <- GET(url, query=args, callopts)
   warn_for_status(out)
   tt <- content(out, as = "text")
-  res <- RJSONIO::fromJSON(tt)$items
+  res <- jsonlite::fromJSON(tt, FALSE)$items
   res2 <- do.call(rbind, lapply(res, data.frame, stringsAsFactors = FALSE))
   return( res2 )
 }

@@ -3,7 +3,7 @@
 #' Match taxonomic names using the Taxonomic Name Resolution Service (TNRS). 
 #'  Returns score of the matched name, and whether it was accepted or not.
 #'  
-#' @import RCurl XML plyr stringr RJSONIO data.table
+#' @import RCurl XML plyr stringr jsonlite data.table
 #' @param query Quoted taxonomic names to search in a vector (character).
 #' @param source Specify the source you want to match names against. Defaults 
 #' 		to just retrieve data from all sources. Options: NCBI, iPlant_TNRS, 
@@ -86,7 +86,7 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
       args <- compact(list(file = upload_file(loc), source = source, code = code))
 			out <- POST(url, body = args, config=compact(c(followlocation = 0L, callopts)))
       tt <- content(out, as="text")
-			message <- fromJSON(tt)[["message"]]
+			message <- jsonlite::fromJSON(tt, FALSE)[["message"]]
 			retrieve <- str_replace_all(str_extract(message, "http.+"), "\\.$", "")
 		}
 		
@@ -98,7 +98,7 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
 		while(timeout == "wait"){
 			iter <- iter + 1
       ss <- GET(retrieve, callopts)
-      temp <- fromJSON(content(ss, as="text"))
+      temp <- jsonlite::fromJSON(content(ss, as="text"), FALSE)
 			if(grepl("is still being processed", temp["message"])==TRUE){timeout <- "wait"} else {
 				output[[iter]] <- temp
 				timeout <- "done"

@@ -69,7 +69,7 @@ taxize_compact <- function (l) Filter(Negate(is.null), l)
 #' This is a taxize version of the same function in the \code{rgbif} package so as to not have to
 #' import rgbif and thus require GDAL binary installation.
 #'
-#' @import httr plyr
+#' @import httr plyr jsonlite
 #' @export
 #' @param rank (character) Taxonomic rank. Filters by taxonomic rank as one of:
 #'     CLASS, CULTIVAR, CULTIVAR_GROUP, DOMAIN, FAMILY, FORM, GENUS, INFORMAL,
@@ -139,7 +139,7 @@ gbif_name_usage <- function(key=NULL, name=NULL, data='all', language=NULL, data
     stop_for_status(tt)
     assert_that(tt$headers$`content-type`=='application/json')
     res <- content(tt, as = 'text', encoding = "UTF-8")
-    RJSONIO::fromJSON(res, simplifyWithNames = FALSE)
+    jsonlite::fromJSON(res, FALSE)
   }
 
   # Get data
