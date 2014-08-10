@@ -170,14 +170,14 @@ For more examples [click here](http://ropensci.org/tutorials/taxize_tutorial.htm
 
 ### Install taxize
 
-+ Stable version from CRAN:
+#### Stable version from CRAN:
 
 ```coffee
 install.packages("taxize")
 library(taxize)
 ```
 
-+ Or, development version from GitHub:
+#### Development version from GitHub:
 
 You'll need `XMLSchema` and `SSOAP`
 
@@ -191,7 +191,7 @@ install.packages("SSOAP", type="source", repos = NULL)
 ```coffee
 install.packages("devtools")
 library(devtools)
-install_github("taxize", "ropensci")
+install_github("taxize", "ropensci", ref='pesi')
 library(taxize)
 ```
 

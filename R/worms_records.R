@@ -5,10 +5,10 @@
 #' @param scientific (character) A scientific name.
 #' @param common (character) A common name.
 #' @param extids (integer) External identifier.
-#' @param like Add a percent sign added after the ScientificName (SQL LIKE function). Default=TRUE
-#' @param type Type of exxternal identifier. Should have one of bold, dyntaxa, eol, fishbase,
+#' @param like (logical) Add a percent sign after the ScientificName (SQL LIKE function). Default=TRUE
+#' @param type Type of external identifier. Should be one of bold, dyntaxa, eol, fishbase,
 #' iucn, lsid, ncbi, or tsn.
-#' @param marine_only (logical) Include results from marine taxa only. Default: TRUE.
+#' @param marine_only (logical) Include results from marine taxa only. Default=TRUE.
 #' @param offset Starting record number, when retrieving next chunk of (50) records. Default=1.
 #' @param startdate ISO 8601 formatted start date(time). Default=today().
 #' i.e. 2014-08-04T15:57:54+00:00
@@ -34,9 +34,18 @@
 #' worms_records(startdate='2014-06-01T00:00:00', enddate='2014-06-02T00:00:00')
 #' worms_records(ids=1080)
 #' worms_records(extids=6830, type='ncbi')
+#' 
+#' worms_records(scientific="Holothuria edulis")
+#' worms_records(scientific="Holothuria edulis", fuzzy=TRUE)
+#' worms_records(scientific="Holothuria (Halodeima) edulis")
+#' 
+#' worms_records(scientific='Scotoplanes')
+#' 
+#' worms_records(scientific='Salmo', offset=51)
 #' }
+
 worms_records <- function(scientific=NULL, common=NULL, ids=NULL, extids=NULL, like=NULL, type=NULL,
-  marine_only=1, offset=NULL, startdate=NULL, enddate=NULL, opts=NULL, iface=NULL, ...)
+  fuzzy=FALSE, marine_only=1, offset=NULL, startdate=NULL, enddate=NULL, opts=NULL, iface=NULL, ...)
 {
   server <- 'http://www.marinespecies.org/aphia.php?p=soap'
   if(!is.null(iface)) worms_iface <- iface
@@ -49,17 +58,19 @@ worms_records <- function(scientific=NULL, common=NULL, ids=NULL, extids=NULL, l
   } else if(!is.null(ids)){
     'getAphiaRecordByID'
   } else {
-    if(length(scientific) > 1) 'getAphiaRecordsByNames' else 'getAphiaRecords'
+#     if(length(scientific) > 1) 'getAphiaRecordsByNames' else 'getAphiaRecords'
+    if(fuzzy) 'matchAphiaRecordsByNames' else 'getAphiaRecords'
   }
   fxn <- worms_get_fxn(endpt)
   res <- switch(endpt,
-    getAphiaRecords = lapply(scientific, fxn, like = like, fuzzy = 'false', marine_only = marine_only, offset = 'false', server = server, .opts = opts, ...),
-    getAphiaRecordsByNames = lapply(scientific, fxn, like = like, fuzzy = 'false', marine_only = marine_only, server = server, .opts = opts, ...),
-    getAphiaRecordsByVernacular = lapply(common, fxn, like = like, offset = offset, server = server, .opts = opts, ...),
-    getAphiaRecordsByDate = lapply(startdate, fxn, enddate = enddate, marine_only = marine_only, offset = offset, server = server, .opts = opts, ...),
-    getAphiaRecordByID = lapply(ids, fxn, server = server, .opts = opts, ...),
-    getAphiaRecordByExtID = lapply(extids, fxn, type = type, server = server, .opts = opts, ...)
+    getAphiaRecords = lapply(scientific, fxn, like = like, fuzzy = 'false', marine_only = marine_only, offset = offset, server = server, .opts = opts, .convert=FALSE, ...),
+    getAphiaRecordsByNames = lapply(scientific, fxn, like = like, fuzzy = 'false', marine_only = marine_only, server = server, .opts = opts, .convert=FALSE, ...),
+    matchAphiaRecordsByNames = lapply(scientific, fxn, marine_only = marine_only, server = server, .opts = opts, .convert=FALSE, ...),
+    getAphiaRecordsByVernacular = lapply(common, fxn, like = like, offset = offset, server = server, .opts = opts, .convert=FALSE, ...),
+    getAphiaRecordsByDate = lapply(startdate, fxn, enddate = enddate, marine_only = marine_only, offset = offset, server = server, .opts = opts, .convert=FALSE, ...),
+    getAphiaRecordByID = lapply(ids, fxn, server = server, .opts = opts, .convert=FALSE, ...),
+    getAphiaRecordByExtID = lapply(extids, fxn, type = type, server = server, .opts = opts, .convert=FALSE, ...)
   )
-  names(res) <- switch(endpt, getAphiaRecords=scientific, getAphiaRecordsByNames=scientific, getAphiaRecordsByVernacular=common, getAphiaRecordsByDate=startdate, getAphiaRecordByID=ids, getAphiaRecordByExtID=extids)
-  parse_data_byname(res)
+  iter <- switch(endpt, getAphiaRecords=scientific, getAphiaRecordsByNames=scientific, getAphiaRecordsByVernacular=common, getAphiaRecordsByDate=startdate, getAphiaRecordByID=ids, getAphiaRecordByExtID=extids, matchAphiaRecordsByNames=scientific)
+  do.call(rbind.fill, Map(worms_parse_xml, res, aphiaid=iter, which=endpt))
 }

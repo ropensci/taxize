@@ -92,6 +92,12 @@ NULL
 #' @keywords data
 NULL
 
+#' Stored PESI SOAP API interface.
+#' @name pesi_iface
+#' @docType data
+#' @keywords data
+NULL
+
 #' Deprecated functions in taxize
 #'
 #' The following functions are now deprecated - see the function \code{classification}

@@ -15,14 +15,7 @@ worms_children <- function(ids=NULL, offset=NULL, marine_only=1, opts=NULL, ifac
   server <- 'http://www.marinespecies.org/aphia.php?p=soap'
   if(!is.null(iface)) worms_iface <- iface
   fxn <- worms_get_fxn('getAphiaChildrenByID')
-  res <- lapply(ids, fxn, offset = offset, marine_only = marine_only, server = server, .opts = opts) 
-  parse_data(res)
+  res <- lapply(ids, fxn, offset = offset, marine_only = marine_only, server = server, .opts = opts, .convert=FALSE) 
+#   parse_data(res)
+  do.call(rbind, Map(worms_parse_xml, res, aphiaid=ids))
 }
-
-# #' @method print worms
-# #' @export
-# #' @rdname worms
-# print.worms <- function(x, ...){
-#   if(!is(x, "worms")) stop('Input must be of class worms')
-#   print(x[ , !names(x) %in% c('url','citation') ])
-# }

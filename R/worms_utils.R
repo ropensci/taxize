@@ -63,7 +63,7 @@
 #' @name worms
 NULL
 
-#' Generate WORMS intrface.
+#' Generate WORMS interface.
 #'
 #' @export
 #' @param wsdl_url URL for the WORMS SOAP WSDL file
@@ -80,6 +80,10 @@ worms_gen_iface <- function(wsdl_url="http://www.marinespecies.org/aphia.php?p=s
   genSOAPClientInterface(, w, ...)
 }
 
+#' get function from ssoap defintion
+#' 
+#' @export
+#' @keywords internal
 worms_get_fxn <- function(x) worms_iface@functions[[x]]
 
 get_uri <- function(x, y){
@@ -99,7 +103,8 @@ parse_data <- function(x){
   do.call(rbind, lapply(x, function(y) if(length(y)==1){
     data.frame(inputid=y[[1]]$AphiaID, unclass(y[[1]]), stringsAsFactors = FALSE)
   } else {
-    do.call(rbind, lapply(y, function(z) data.frame(inputid=y[[1]]$AphiaID, unclass(z), stringsAsFactors = FALSE)))
+#     do.call(rbind, lapply(y, function(z) data.frame(inputid=y[[1]]$AphiaID, unclass(z), stringsAsFactors = FALSE)))
+    do.call(rbind, lapply(y, function(z) data.frame(inputid=slot(y[[1]], 'AphiaID'), t(sapply(slotNames(z), function(x) slot(z, x))), stringsAsFactors = FALSE)))
   }
   ))
 }
@@ -114,4 +119,33 @@ parse_data_byname <- function(x){
     }
   }
   do.call(rbind, tt)
+}
+
+
+worms_parse_xml <- function(z, aphiaid, which="getAphiaChildrenByID")
+{
+  which <- if(which %in% c('getAphiaChildrenByID','getAphiaRecords','getAphiaRecordsByNames','getAphiaRecordsByVernacular','getAphiaRecordsByDate','matchAphiaRecordsByNames')) '//item' else '//return'
+  st <- xmlParse( z$content )
+  ns <- c(xmlns='xsi="http://www.w3.org/2001/XMLSchema-instance"')
+  nodes <- getNodeSet(st, which, namespaces = ns)
+  if(length(nodes) == 0) 
+    nodes <- getNodeSet(st, '//return', namespaces = ns)
+  out <- lapply(nodes, function(x){
+    if(!is.null(xmlToList(x)[['nil']])){ data.frame(noresults=NA, stringsAsFactors = FALSE) } else {
+      if(length(getNodeSet(x, "item")) == 0){
+        extract_it(x)
+      } else {
+        tmp <- getNodeSet(x, 'item')
+        do.call(rbind.fill, lapply(tmp, extract_it))
+      }
+    }
+  })
+  df <- data.frame(inputid=aphiaid, do.call(rbind.fill, out), stringsAsFactors = FALSE)
+  df$.attrs <- NULL
+  df
+}
+
+extract_it <- function(x){
+  rr <- xmlToList(x)
+  data.frame(lapply(rr, function(x) x['text'][[1]]), stringsAsFactors = FALSE)
 }

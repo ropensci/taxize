@@ -8,6 +8,9 @@ before_script:
 - sudo apt-get install -y gdal-bin libgdal-dev libgdal1-dev netcdf-bin libproj-dev libgdal1h
 - ./travis-tool.sh bootstrap
 - ./travis-tool.sh install_deps
-- ./travis-tool.sh github_package cran/XMLSchema cran/SSOAP
+- Rscript -e 'download.file("http://www.omegahat.org/Prerelease/XMLSchema_0.8-0.tar.gz", "XMLSchema")'
+- Rscript -e 'install.packages("XMLSchema", type="source", repos = NULL)'
+- Rscript -e 'download.file("http://www.omegahat.org/Prerelease/SSOAP_0.91-0.tar.gz", "SSOAP")'
+- Rscript -e 'install.packages("SSOAP", type="source", repos = NULL)'
 notifications:
  slack: ropensci:wh30e1MP9Am3wXb2wJx1ZRFi

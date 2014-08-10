@@ -1,4 +1,4 @@
-#' Get the WoRMS code for a search term.
+#' Get the WoRMS id for a search term.
 #'
 #' Retrieve the WoRMS id of a taxon.
 #'
@@ -28,7 +28,7 @@
 #' get_wormsid(splist, verbose=FALSE)
 #'
 #' # When not found
-#' get_wormsid("howdy")
+#' get_wormsid(searchterm="howdy")
 #' get_wormsid(c("Salvelinus fontinalis", "howdy"))
 #'
 #' # Using common names
@@ -46,7 +46,7 @@ get_wormsid <- function(searchterm, searchtype = "scientific", accepted = TRUE, 
                         scientific=worms_records(scientific = x),
                         common=worms_records(common = x)))
 
-    if(!class(worms_df) == "data.frame"){
+    if("noresults" %in% names(worms_df)){
       wormsid <- NA
       att <- "not found"
     } else {
@@ -95,7 +95,7 @@ get_wormsid <- function(searchterm, searchtype = "scientific", accepted = TRUE, 
           # prompt
           message("\n\n")
           print(worms_df)
-          message("\nMore than one TSN found for taxon '", x, "'!\n
+          message("\nMore than one WoRMS ID found for taxon '", x, "'!\n
             Enter rownumber of taxon (other inputs will return 'NA'):\n") # prompt
           take <- scan(n = 1, quiet = TRUE, what = 'raw')
 

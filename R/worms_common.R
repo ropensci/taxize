@@ -14,7 +14,8 @@ worms_common <- function(ids=NULL, opts=NULL, iface=NULL, ...)
   server <- 'http://www.marinespecies.org/aphia.php?p=soap'
   if(!is.null(iface)) worms_iface <- iface
   fxn <- worms_get_fxn('getAphiaVernacularsByID')
-  res <- lapply(ids, fxn, server = server, .opts = opts)
-  names(res) <- ids
-  parse_data_byname(res)
+  res <- lapply(ids, fxn, server = server, .opts = opts, .convert=FALSE)
+#   names(res) <- ids
+  do.call(rbind, Map(worms_parse_xml, res, aphiaid=ids))
+#   parse_data_byname(res)
 }
