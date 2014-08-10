@@ -1,6 +1,6 @@
 #' Get sources for the Phylotastic Taxonomic Name Resolution Service.
 #'
-#' @import RJSONIO plyr
+#' @import jsonlite httr plyr
 #' @param source The source to get information on, one of "iPlant_TNRS", 
 #' "NCBI", or "MSW3".
 #' @return Sources for the TNRS API.
@@ -17,10 +17,16 @@ tnrs_sources <- function(source = NULL)
 	url = "http://taxosaurus.org/sources"
 	if(!is.null(source)) {
 		url2 <- paste0(url, "/", source)
-		fromJSON(url2)
+    tt <- GET(url2)
+    stop_for_status(tt)
+    res <- content(tt, as = "text")
+		jsonlite::fromJSON(res)
 	} else 
 	{
 		url2 <- paste0(url, "/list")
-		fromJSON(url2)$sources
+		tt <- GET(url2)
+		stop_for_status(tt)
+		res <- content(tt, as = "text")
+		jsonlite::fromJSON(res)$sources
 	}
 }

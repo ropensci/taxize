@@ -3,7 +3,7 @@
 \alias{eol_dataobjects}
 \title{Given the identifier for a data object, return all metadata about the object.}
 \usage{
-eol_dataobjects(id, returntype = "list", usekey = TRUE, key = NULL,
+eol_dataobjects(id, returntype = "data.frame", usekey = TRUE, key = NULL,
   verbose = TRUE)
 }
 \arguments{
@@ -19,7 +19,7 @@ eol_dataobjects(id, returntype = "list", usekey = TRUE, key = NULL,
 console.}
 }
 \value{
-List or dataframe.
+List or dataframe (default).
 }
 \description{
 Given the identifier for a data object, return all metadata about the object.

@@ -3,7 +3,7 @@
 #' Resolve names from iPlant's name resolver, the Taxonomic Name Resolution Service (TNRS), the 
 #' Global Names Resolver (GNR)
 #' 
-#' @import RJSONIO stringr data.table
+#' @import stringr data.table
 #' @export
 #' @param query Vector of one or more names.
 #' @param db Source to check names against. One of iplant, tnrs, or gnr

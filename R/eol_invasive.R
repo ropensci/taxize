@@ -10,7 +10,7 @@
 #'
 #' This function is vectorized, so you can pass a single name or a vector of names.
 #'
-#' @import RCurl RJSONIO plyr
+#' @import RCurl jsonlite plyr
 #' @export
 #' @param name A taxonomic name, or a vector of names.
 #' @param dataset One of all, gisd100, gisd, gris, isc, daisie, i3n, or mineps.
@@ -75,7 +75,7 @@ eol_invasive <- function(name = NULL, dataset="all", searchby = grep, page=NULL,
   tt <- getForm(url, .params = args, .opts = callopts)
 #   stop_for_status(tt)
 #   res <- content(tt, as = "text")
-  res <- RJSONIO::fromJSON(tt, simplifyWithNames = FALSE)
+  res <- jsonlite::fromJSON(tt, FALSE)
   data_init <- res$collection_items
   mssg(verbose, sprintf("Getting data for %s names...", res$total_items))
 
@@ -96,7 +96,7 @@ eol_invasive <- function(name = NULL, dataset="all", searchby = grep, page=NULL,
       tt <- getForm(url, .params = args, .opts = callopts)
 #       stop_for_status(tt)
 #       res <- content(tt)
-      res <- RJSONIO::fromJSON(tt, simplifyWithNames = FALSE)
+      res <- jsonlite::fromJSON(tt, FALSE)
       out[[i]] <- res$collection_items
     }
     res2 <- compact(out)

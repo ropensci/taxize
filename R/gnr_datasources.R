@@ -3,7 +3,7 @@
 #' Retrieve data sources used in Global Names Index, see 
 #'    \url{http://gni.globalnames.org/} for information. 
 #' 
-#' @import RJSONIO plyr
+#' @import jsonlite plyr
 #' @param todf logical; Should a data.frame be returned?
 #' 
 #' @author Scott Chamberlain {myrmecocystus@@gmail.com}
@@ -30,9 +30,9 @@ gnr_datasources <- function(todf = TRUE)
 {
   url <- "http://resolver.globalnames.org/data_sources.json"
 	if (todf == FALSE){	
-		out <- fromJSON(url)
+		out <- jsonlite::fromJSON(url, FALSE)
 	} else {
-    out <- ldply(fromJSON(url), function(x) data.frame(x["id"], x["title"], stringsAsFactors = FALSE))
+    out <- ldply(jsonlite::fromJSON(url, FALSE), function(x) data.frame(x["id"], x["title"], stringsAsFactors = FALSE))
 	}
   return(out)
 }

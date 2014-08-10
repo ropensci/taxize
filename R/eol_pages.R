@@ -1,6 +1,6 @@
 #' Search for pages in EOL database using a taxonconceptID.
 #' 
-#' @import RCurl plyr RJSONIO assertthat
+#' @import RCurl plyr jsonlite assertthat
 #' @export
 #' @param taxonconceptID The taxonconceptID (numeric), which is also the page 
 #' 		number.
@@ -61,7 +61,7 @@ eol_pages <- function(taxonconceptID, iucn=FALSE, images=0, videos=0, sounds=0,
   tt <- getForm(urlget, .params = args, .opts = callopts)
   assert_that(attr(tt, "Content-Type")[[1]] == "application/json")
   assert_that(attr(tt, "Content-Type")[[2]] == "utf-8")
-  res <- RJSONIO::fromJSON(tt)
+  res <- jsonlite::fromJSON(tt, FALSE)
   
   scinames <- do.call(rbind.fill, lapply(res$taxonConcepts, data.frame, stringsAsFactors=FALSE))
   if(!is.null(scinames))

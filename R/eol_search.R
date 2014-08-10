@@ -1,6 +1,6 @@
 #' Search for terms in EOL database.
 #' 
-#' @import httr plyr assertthat RJSONIO
+#' @import httr plyr assertthat jsonlite
 #' @export
 #' @param terms search terms (character)
 #' @param page A maximum of 30 results are returned per page. This parameter allows 
@@ -39,7 +39,7 @@ eol_search <- function(terms, page=1, exact=NULL, filter_tid=NULL, filter_heid=N
   warn_for_status(tt)
   assert_that(tt$headers$`content-type`[1]=='application/json; charset=utf-8')
   parsed <- content(tt, as = "text")
-  res <- RJSONIO::fromJSON(parsed, simplifyWithNames = FALSE, encoding = "utf-8")
+  res <- jsonlite::fromJSON(parsed, FALSE, encoding = "utf-8")
   if(res$totalResults == 0 | length(res$results)==0){
     data.frame(pageid=NA, name=NA, stringsAsFactors = FALSE)
   } else
