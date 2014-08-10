@@ -128,7 +128,7 @@ pesi_search <- function(scientific=NULL, opts=NULL, iface=NULL, ...)
   fxn <- pesi_get_fxn(endpt)
   res <- lapply(scientific, fxn, server = server, .opts = opts, .convert=FALSE, ...)
   parsefxn <- switch(endpt, matchTaxa=parse_taxa, matchTaxon=parse_pesi_data)
-  do.call(rbind.fill, Map(parsefxn, res, iter=guid))
+  do.call(rbind.fill, Map(parsefxn, res, iter=scientific))
 }
 
 #' Get PESI records from scientific names, common names, or GUIDs
