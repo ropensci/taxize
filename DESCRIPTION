@@ -47,7 +47,6 @@ Imports:
 Suggests:
     testthat,
     roxygen2,
-    rjson,
     knitr,
     jsonlite,
     XMLSchema (>= 0.8-0)

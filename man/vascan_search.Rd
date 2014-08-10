@@ -30,8 +30,8 @@ vascan_search(q = c("Helianthus annuus", "Crataegus dodgei"), raw=TRUE)
 # format type
 ## json
 c <- vascan_search(q = "Helianthus annuus", format="json", raw=TRUE)
-library("rjson")
-fromJSON(c)
+library("jsonlite")
+fromJSON(c, FALSE)
 
 ## xml
 d <- vascan_search(q = "Helianthus annuus", format="xml", raw=TRUE)

@@ -2,7 +2,7 @@
 #' 
 #' For more information, see \url{http://data.canadensys.net/vascan/search}.
 #' 
-#' @import httr 
+#' @import httr jsonlite
 #' @param q (character) Can be a scientific name, a vernacular name or a VASCAN
 #'    taxon identifier (e.g. 861)
 #' @param format (character) One of json (default) or xml.
@@ -22,8 +22,8 @@
 #' # format type
 #' ## json
 #' c <- vascan_search(q = "Helianthus annuus", format="json", raw=TRUE)
-#' library("rjson")
-#' fromJSON(c)
+#' library("jsonlite")
+#' fromJSON(c, FALSE)
 #' 
 #' ## xml
 #' d <- vascan_search(q = "Helianthus annuus", format="xml", raw=TRUE)
@@ -49,5 +49,5 @@ vascan_search <- function(q, format='json', raw=FALSE, callopts=list())
     stop_for_status(tt)
     out <- content(tt, as="text")
   }
-  if(raw){ return( out ) } else { fromJSON(out) }
+  if(raw){ return( out ) } else { jsonlite::fromJSON(out, FALSE) }
 }
