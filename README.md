@@ -150,6 +150,12 @@ The following are URL's for API documentation, where to get API keys, and what p
 	<td style="text-align:left;"><a href="http://www.boldsystems.org/index.php/Resources">link</a></td>
 	<td style="text-align:left;">none</td>
 </tr>
+<tr>
+	<td style="text-align:left;">Pan-European Species directories Infrastructure (PESI)</td>
+	<td style="text-align:left;"><code>pesi</code></td>
+	<td style="text-align:left;"><a href="http://www.eu-nomen.eu/portal/webservices.php">link</a></td>
+	<td style="text-align:left;">none</td>
+</tr>
 </tbody>
 </table>
 
