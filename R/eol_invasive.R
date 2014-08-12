@@ -1,14 +1,6 @@
 #' Search for presence of taxonomic names in EOL invasive species databases.
-#'
-#' If a two-column data.frame is returned with the species you searched for, your
-#' species is listead in the database you searched. If your searched taxon is not found,
-#' we return a string "<your species name> was not found".
-#'
-#' Beware that some datasets are quite large, and may take 30 sec to a minute to
-#' pull down all data before we can search for your species. Note there is no
-#' parameter in this API method for searching by taxon name.
-#'
-#' This function is vectorized, so you can pass a single name or a vector of names.
+#' 
+#' See Details for important information.
 #'
 #' @import RCurl jsonlite plyr
 #' @export
@@ -23,8 +15,18 @@
 #' @param callopts Further args passed on to GET.
 #' @param verbose logical; If TRUE the actual taxon queried is printed on the
 #'    console.
-#' @details It's possible to return JSON or XML with the EOL API. However,
-#'   	this function only returns JSON for now.
+#' @details 
+#' IMPORTANT: When you get a returned NaN for a taxon, that means it's not on the invasive list 
+#' in question. If the taxon is found, a taxon identifier is returned.
+#'
+#' Beware that some datasets are quite large, and may take 30 sec to a minute to
+#' pull down all data before we can search for your species. Note there is no
+#' parameter in this API method for searching by taxon name.
+#'
+#' This function is vectorized, so you can pass a single name or a vector of names.
+#' 
+#' It's possible to return JSON or XML with the EOL API. However, this function only returns 
+#' JSON for now.
 #'
 #' Options for the dataset parameter are
 #' \itemize{
