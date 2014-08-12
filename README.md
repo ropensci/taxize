@@ -2,7 +2,7 @@ taxize
 =======
 
 [![Build Status](https://api.travis-ci.org/ropensci/taxize.png?branch=master)](https://travis-ci.org/ropensci/taxize)
-[![Build status](https://ci.appveyor.com/api/projects/status/o82602husfsiufhf/branch/master)](https://ci.appveyor.com/project/sckott/taxize/branch/master)
+[![Build status](https://ci.appveyor.com/api/projects/status/6mgc02mkd8j4sq3g/branch/master)](https://ci.appveyor.com/project/sckott/taxize-175/branch/master)
 
 `taxize` allows users to search over many taxonomic data sources for species names (scientific and common) and download up and downstream taxonomic hierarchical information - among other things.
 
