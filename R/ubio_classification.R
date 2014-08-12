@@ -48,7 +48,7 @@ ubio_classification <- function(hierarchiesID = NULL, childrenFlag = 0,
     }
   }
   out <- tolowerfxn(out)
-  child <- ifelsedata(tt, childrenFlag, "children", 4)
+  child <- ifelsedata(a=tt, x = childrenFlag, y = "children", z = 4)
   child <- tolowerfxn(child)
   ancestry <- ifelsedata(tt, ancestryFlag, "ancestry", 4)
   ancestry <- tolowerfxn(ancestry)
