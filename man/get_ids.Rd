@@ -3,14 +3,15 @@
 \alias{get_ids}
 \title{Retrieve taxonomic identifiers for a given taxon name.}
 \usage{
-get_ids(names, db = NULL, ...)
+get_ids(names, db = c("itis", "ncbi", "eol", "col", "tropicos", "gbif",
+  "worms", "pesi", "ubio"), ...)
 }
 \arguments{
 \item{names}{character; Taxonomic name to query.}
 
 \item{db}{character; database to query. One or  more of \code{ncbi}, \code{itis},
 \code{eol}, \code{col}, \code{tropicos}, \code{gbif}, \code{worms}, \code{pesi},
-or \code{ubio}}
+or \code{ubio}. By default db is set to search all data sources.}
 
 \item{...}{Other arguments passed to \code{\link[taxize]{get_tsn}},
 \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}},
@@ -33,6 +34,10 @@ There is a timeout of 1/3 seconds between queries to NCBI.
 \examples{
 \dontrun{
 # Plug in taxon names directly
+## By default you get ids for all data sources
+get_ids(names="Chironomus riparius")
+
+## Or you can specify which source you want via the db parameter
 get_ids(names="Chironomus riparius", db = 'ncbi')
 get_ids(names="Salvelinus fontinalis", db = 'worms')
 get_ids(names="Salvelinus fontinalis", db = 'ubio')

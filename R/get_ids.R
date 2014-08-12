@@ -8,7 +8,7 @@
 #' @param names character; Taxonomic name to query.
 #' @param db character; database to query. One or  more of \code{ncbi}, \code{itis}, 
 #'    \code{eol}, \code{col}, \code{tropicos}, \code{gbif}, \code{worms}, \code{pesi},
-#'    or \code{ubio}
+#'    or \code{ubio}. By default db is set to search all data sources. 
 #' @param ... Other arguments passed to \code{\link[taxize]{get_tsn}}, 
 #'    \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}}, 
 #'    \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_tpsid}},
@@ -24,6 +24,10 @@
 #'    \code{\link[taxize]{get_ubioid}}.
 #' @examples \dontrun{
 #' # Plug in taxon names directly
+#' ## By default you get ids for all data sources
+#' get_ids(names="Chironomus riparius")
+#' 
+#' ## Or you can specify which source you want via the db parameter
 #' get_ids(names="Chironomus riparius", db = 'ncbi')
 #' get_ids(names="Salvelinus fontinalis", db = 'worms')
 #' get_ids(names="Salvelinus fontinalis", db = 'ubio')
@@ -42,7 +46,7 @@
 #' synonyms(out$tropicos)
 #' }
 
-get_ids <- function(names, db = NULL, ...)
+get_ids <- function(names, db = c('itis','ncbi','eol','col','tropicos','gbif','worms','pesi','ubio'), ...)
 {
   if(is.null(db))
     stop("Must specify on or more values for db!")
