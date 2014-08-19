@@ -5,10 +5,9 @@
 #' taxonomic rank, e.g., getting all species in a family.
 #'
 #' @param x character; taxons to query.
-#' @param db character; database to query. One or more of \code{itis}, \code{col}, \code{ubio},
-#' or \code{worms}.
-#' @param ... Further args passed on to \code{col_children}, \code{worms_children},
-#' \code{gethierarchydownfromtsn}, or \code{ubio_classification}
+#' @param db character; database to query. One or more of \code{itis}, \code{col}, or \code{worms}.
+#' @param ... Further args passed on to \code{col_children}, \code{worms_children}, or
+#' \code{gethierarchydownfromtsn}
 #'
 #' @return A named list of data.frames with the children names of every supplied taxa.
 #' You get an NA if there was no match in the database.
@@ -18,8 +17,7 @@
 #' # Plug in taxon names
 #' children("Salmo", db = 'col')
 #' children("Salmo", db = 'itis')
-#' children("Salmo", db = 'worms')
-#' children("Apis", db = 'ubio')
+#' children("Aatolana", db = 'worms')
 #'
 #' # Plug in IDs
 #' id <- get_colid("Apis")
@@ -45,10 +43,11 @@
 #' }
 #' 
 #' @examples \donttest{
-#' # BEWARE uBio was down at time of this function's creation, will test later when uBio is back up
+#' # BEWARE uBio doesn't work right now...will fix asap
 #' children("Rhizoprionodon", db = 'ubio')
 #' children("Hymenoptera", db = 'ubio')
 #' children("Rhizoprionodon", db = 'ubio')
+#' children("Apis", db = 'ubio')
 #' }
 
 children <- function(...){
@@ -62,6 +61,7 @@ children.default <- function(x, db = NULL, ...)
 {
   if (is.null(db))
     stop("Must specify db value!")
+  
   if (db == 'itis') {
     id <- get_tsn(x, ...)
     out <- children(id, ...)
@@ -72,11 +72,11 @@ children.default <- function(x, db = NULL, ...)
     out <- children(id, ...)
     names(out) <- x
   }
-  if (db == 'ubio') {
-    id <- get_ubioid(x, ...)
-    out <- children(id, ...)
-    names(out) <- x
-  }
+#   if (db == 'ubio') {
+#     id <- get_ubioid(x, ...)
+#     out <- children(id, ...)
+#     names(out) <- x
+#   }
   if (db == 'worms') {
     id <- get_wormsid(x, ...)
     out <- children(id, ...)
@@ -125,26 +125,26 @@ children.colid <- function(x,  db = NULL, ...) {
   return(out)
 }
 
-#' @method children ubioid
-#' @export
-#' @rdname children
-children.ubioid <- function(x,  db = NULL, ...) {
-  fun <- function(y){
-    # return NA if NA is supplied
-    if(is.na(y)){
-      out <- NA
-    } else {
-      hierid <- ubio_classification_search(namebankID = y)
-      hierid <- hierid[ grep(104, hierid$classificationtitleid), 'hierarchiesid' ]
-      out <- ubio_classification(hierarchiesID = hierid, childrenFlag = 1, ...)[['children']]
-    }
-    return(out)
-  }
-  out <- lapply(x, fun)
-  class(out) <- 'children'
-  attr(out, 'db') <- 'ubio'
-  return(out)
-}
+# #' @method children ubioid
+# #' @export
+# #' @rdname children
+# children.ubioid <- function(x,  db = NULL, ...) {
+#   fun <- function(y){
+#     # return NA if NA is supplied
+#     if(is.na(y)){
+#       out <- NA
+#     } else {
+#       hierid <- ubio_classification_search(namebankID = y)
+#       hierid <- hierid[ grep(104, hierid$classificationtitleid), 'hierarchiesid' ]
+#       out <- ubio_classification(hierarchiesID = hierid, childrenFlag = 1, ...)[['children']]
+#     }
+#     return(out)
+#   }
+#   out <- lapply(x, fun)
+#   class(out) <- 'children'
+#   attr(out, 'db') <- 'ubio'
+#   return(out)
+# }
 
 #' @method children wormsid
 #' @export

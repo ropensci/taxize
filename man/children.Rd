@@ -5,7 +5,6 @@
 \alias{children.default}
 \alias{children.ids}
 \alias{children.tsn}
-\alias{children.ubioid}
 \alias{children.wormsid}
 \title{Retrieve immediate children taxa for a given taxon name or ID.}
 \usage{
@@ -17,20 +16,17 @@ children(...)
 
 \method{children}{colid}(x, db = NULL, ...)
 
-\method{children}{ubioid}(x, db = NULL, ...)
-
-\method{children}{wormsid}(x, db = NULL, ...)
+\method{children}{ubioid #}(x, db = NULL, ...)
 
 \method{children}{ids}(x, db = NULL, ...)
 }
 \arguments{
 \item{x}{character; taxons to query.}
 
-\item{db}{character; database to query. One or more of \code{itis}, \code{col}, \code{ubio},
-or \code{worms}.}
+\item{db}{character; database to query. One or more of \code{itis}, \code{col}, or \code{worms}.}
 
-\item{...}{Further args passed on to \code{col_children}, \code{worms_children},
-\code{gethierarchydownfromtsn}, or \code{ubio_classification}}
+\item{...}{Further args passed on to \code{col_children}, \code{worms_children}, or
+\code{gethierarchydownfromtsn}}
 }
 \value{
 A named list of data.frames with the children names of every supplied taxa.
@@ -40,14 +36,15 @@ You get an NA if there was no match in the database.
 This function is different from \code{children()} in that it only collects immediate
 taxonomic children, while \code{children()} collects taxonomic names down to a specified
 taxonomic rank, e.g., getting all species in a family.
+
+#
 }
 \examples{
 \dontrun{
 # Plug in taxon names
 children("Salmo", db = 'col')
 children("Salmo", db = 'itis')
-children("Salmo", db = 'worms')
-children("Apis", db = 'ubio')
+children("Aatolana", db = 'worms')
 
 # Plug in IDs
 id <- get_colid("Apis")
