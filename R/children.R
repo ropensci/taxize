@@ -19,6 +19,7 @@
 #' children("Salmo", db = 'col')
 #' children("Salmo", db = 'itis')
 #' children("Salmo", db = 'worms')
+#' children("Apis", db = 'ubio')
 #'
 #' # Plug in IDs
 #' id <- get_colid("Apis")
