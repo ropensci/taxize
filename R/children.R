@@ -125,9 +125,6 @@ children.colid <- function(x,  db = NULL, ...) {
   return(out)
 }
 
-# #' @method children ubioid
-# #' @export
-# #' @rdname children
 # children.ubioid <- function(x,  db = NULL, ...) {
 #   fun <- function(y){
 #     # return NA if NA is supplied

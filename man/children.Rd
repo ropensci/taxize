@@ -16,7 +16,7 @@ children(...)
 
 \method{children}{colid}(x, db = NULL, ...)
 
-\method{children}{ubioid #}(x, db = NULL, ...)
+\method{children}{wormsid}(x, db = NULL, ...)
 
 \method{children}{ids}(x, db = NULL, ...)
 }
@@ -36,8 +36,6 @@ You get an NA if there was no match in the database.
 This function is different from \code{children()} in that it only collects immediate
 taxonomic children, while \code{children()} collects taxonomic names down to a specified
 taxonomic rank, e.g., getting all species in a family.
-
-#
 }
 \examples{
 \dontrun{
