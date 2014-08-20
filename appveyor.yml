@@ -9,10 +9,7 @@ install:
 
 build_script:
   - travis-tool.sh install_deps
-  - Rscript -e 'download.file("http://www.omegahat.org/Prerelease/XMLSchema_0.8-0.tar.gz", "XMLSchema")'
-  - Rscript -e 'install.packages("XMLSchema", type="source", repos = NULL)'
-  - Rscript -e 'download.file("http://www.omegahat.org/Prerelease/SSOAP_0.91-0.tar.gz", "SSOAP")'
-  - Rscript -e 'install.packages("SSOAP", type="source", repos = NULL)'
+  - travis-tool.sh install_r SSOAP XMLSchema
 
 test_script:
   - travis-tool.sh run_tests
