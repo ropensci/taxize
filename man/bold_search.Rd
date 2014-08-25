@@ -70,6 +70,6 @@ bold_search(id=88899)
 }
 }
 \references{
-\url{http://webservice.catalogueoflife.org/}
+\url{http://www.boldsystems.org/index.php/resources/api}
 }
 
