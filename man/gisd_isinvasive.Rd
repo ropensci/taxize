@@ -35,6 +35,10 @@ As expected, the function is as good as the database is, which I find quite
 reliable and well maintained.
 The database is also able to recognize a lot (but not all) of the species
 synonyms.
+
+Note that \code{eol_invasive} with source of gisd or gisd100 may end up with different results
+as this function goes directly to the GISD website, whereas eol_invasive only updates their
+GISD data occassionally. See notes in \code{eol_invasive}.
 }
 \examples{
 \dontrun{
@@ -46,5 +50,8 @@ gisd_isinvasive(sp, simplify = TRUE)
 }
 \author{
 Ignasi Bartomeus \email{nacho.bartomeus@gmail.com}
+}
+\seealso{
+\code{eol_invasive}
 }
 
