@@ -1,7 +1,6 @@
 #' Get name from a WORMS id
-#' 
+#'
 #' @export
-#' @import SSOAP
 #' @template worms_id
 #' @examples \dontrun{
 #' worms_name(ids=1080)
