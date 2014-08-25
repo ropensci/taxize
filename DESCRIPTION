@@ -43,9 +43,9 @@ Imports:
     data.table,
     vegan,
     assertthat,
-    bold
+    bold,
+    XMLSchema (>= 0.8-0)
 Suggests:
     testthat,
     roxygen2,
-    knitr,
-    XMLSchema (>= 0.8-0)
+    knitr
