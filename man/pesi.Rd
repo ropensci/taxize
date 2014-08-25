@@ -23,6 +23,10 @@ The following functions are available to interact with PESI:
  \item pesi_records Get PESI records
  \item pesi_search Search by scientific name
 }
+
+For more information, the PESI home page \url{http://www.eu-nomen.eu/portal/webservices.php},
+and description of each of the functions used internally within this package
+\url{http://www.eu-nomen.eu/portal/soap.php}.
 }
 \references{
 \url{http://www.eu-nomen.eu/portal/index.php}

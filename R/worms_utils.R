@@ -22,20 +22,20 @@
 #'
 #' Each WoRMS record (row in the output of most \code{worms_} functions) has the same
 #' output columns:
-#' 
+#'
 #' \itemize{
 #'  \item AphiaID: unique and persistent identifier within WoRMS. Primary key in the database.
 #'  \item url: HTTP URL to the AphiaRecord
 #'  \item scientificname: the full scientific name without authorship
-#'  \item authority: the authorship information for the scientificname formatted according to the 
+#'  \item authority: the authorship information for the scientificname formatted according to the
 #'  conventions of the applicable nomenclaturalCode
 #'  \item rank: the taxonomic rank of the most specific name in the scientificname
-#'  \item status: the status of the use of the scientificname as a label for a taxon. Requires 
+#'  \item status: the status of the use of the scientificname as a label for a taxon. Requires
 #'  taxonomic opinion to define the scope of a taxon
 #'  \item unacceptreason: the reason why a scientificname is unaccepted
 #'  \item valid_AphiaID: the AphiaID (for the scientificname) of the currently accepted taxon
 #'  \item valid_name: the scientificname of the currently accepted taxon
-#'  \item valid_authority: the authorship information for the scientificname of the currently 
+#'  \item valid_authority: the authorship information for the scientificname of the currently
 #'  accepted taxon
 #'  \item kingdom: the full scientific name of the kingdom in which the taxon is classified
 #'  \item phylum: the full scientific name of the phylum or division in which the taxon is classified
@@ -43,16 +43,16 @@
 #'  \item order: the full scientific name of the order in which the taxon is classified
 #'  \item family: the full scientific name of the family in which the taxon is classified
 #'  \item genus: the full scientific name of the genus in which the taxon is classified
-#'  \item citation: a bibliographic reference for the resource as a statement indicating how this 
+#'  \item citation: a bibliographic reference for the resource as a statement indicating how this
 #'  record should be cited (attributed) when used
 #'  \item lsid: LifeScience Identifier. Persistent GUID for an AphiaID
-#'  \item isMarine: a boolean flag indicating whether the taxon is a marine organism, i.e. can be 
+#'  \item isMarine: a boolean flag indicating whether the taxon is a marine organism, i.e. can be
 #'  found in/above sea water. Possible values: 0/1/NULL
-#'  \item isBrackish: a boolean flag indicating whether the taxon occurrs in brackish habitats. 
+#'  \item isBrackish: a boolean flag indicating whether the taxon occurrs in brackish habitats.
 #'  Possible values: 0/1/NULL
-#'  \item isFreshwater: a boolean flag indicating whether the taxon occurrs in freshwater 
+#'  \item isFreshwater: a boolean flag indicating whether the taxon occurrs in freshwater
 #'  habitats, i.e. can be found in/above rivers or lakes. Possible values: 0/1/NULL
-#'  \item isTerrestrial: a boolean flag indicating the taxon is a terrestial organism, i.e. occurrs 
+#'  \item isTerrestrial: a boolean flag indicating the taxon is a terrestial organism, i.e. occurrs
 #'  on land as opposed to the sea. Possible values: 0/1/NULL
 #'  \item isExtinct: a flag indicating an extinct organism. Possible values: 0/1/NUL
 #'  \item match_type: Type of match. Possible values: exact/like/phonetic/near_1/near_2
@@ -63,16 +63,22 @@
 #' @name worms
 NULL
 
-#' Generate WORMS interface.
+#' Generate WORMS function interface.
 #'
 #' @export
 #' @param wsdl_url URL for the WORMS SOAP WSDL file
 #' @param ... Further args passed on to \code{genSOAPClientInterface}
 #' @return Returns invisibly a S4 object holding all functions to interact with WORMS.
 #' @examples \dontrun{
+#' # You can generate your own interface to WORMS functions
 #' out <- worms_gen_iface()
 #' out
-#' worms_records(scientific='Salmo', iface=out)
+#' 
+#' # Then access them directly
+#' out@@functions$matchAphiaRecordsByNames
+#' 
+#' # Or pass to the taxize functions in the iface parameter
+#' head(worms_records(scientific = "Salmo", iface = out))
 #' }
 worms_gen_iface <- function(wsdl_url="http://www.marinespecies.org/aphia.php?p=soap&wsdl=1", ...)
 {
@@ -81,7 +87,7 @@ worms_gen_iface <- function(wsdl_url="http://www.marinespecies.org/aphia.php?p=s
 }
 
 #' get function from ssoap defintion
-#' 
+#'
 #' @export
 #' @keywords internal
 worms_get_fxn <- function(x) worms_iface@functions[[x]]
@@ -103,7 +109,6 @@ parse_data <- function(x){
   do.call(rbind, lapply(x, function(y) if(length(y)==1){
     data.frame(inputid=y[[1]]$AphiaID, unclass(y[[1]]), stringsAsFactors = FALSE)
   } else {
-#     do.call(rbind, lapply(y, function(z) data.frame(inputid=y[[1]]$AphiaID, unclass(z), stringsAsFactors = FALSE)))
     do.call(rbind, lapply(y, function(z) data.frame(inputid=slot(y[[1]], 'AphiaID'), t(sapply(slotNames(z), function(x) slot(z, x))), stringsAsFactors = FALSE)))
   }
   ))
@@ -128,7 +133,7 @@ worms_parse_xml <- function(z, aphiaid, which="getAphiaChildrenByID")
   st <- xmlParse( z$content )
   ns <- c(xmlns='xsi="http://www.w3.org/2001/XMLSchema-instance"')
   nodes <- getNodeSet(st, which, namespaces = ns)
-  if(length(nodes) == 0) 
+  if(length(nodes) == 0)
     nodes <- getNodeSet(st, '//return', namespaces = ns)
   out <- lapply(nodes, function(x){
     if(!is.null(xmlToList(x)[['nil']])){ data.frame(noresults=NA, stringsAsFactors = FALSE) } else {

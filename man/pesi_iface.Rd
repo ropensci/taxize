@@ -4,7 +4,28 @@
 \alias{pesi_iface}
 \title{Stored PESI SOAP API interface.}
 \description{
-Stored PESI SOAP API interface.
+An S4 class generated from \code{pesi_gen_iface}. You can navigate to each function by doing,
+for example \code{pesi_gen_iface()@functions$getGUID}. Note that there will be some warnings
+thrown, but it should still work. It is not easy to suppress those warnings as they are printed
+with \code{cat}. You can dig into each of the below functions, explore
+the code for each function, explore it's parameters, etc. The functions:
+}
+\details{
+\itemize{
+ \item getGUID
+ \item getPESIRecords
+ \item getPESINameByGUID
+ \item getPESIRecordByGUID
+ \item getPESIRecordsByVernacular
+ \item getPESIVernacularsByGUID
+ \item matchTaxon
+ \item matchTaxa
+ \item getPESISynonymsByGUID
+ \item getPESIDistributionsByGUID
+}
+
+The above functions are used internally to make more user friendly function interfaces
+to PESI data. See \code{pesi_*} for all pesi functions.
 }
 \keyword{data}
 

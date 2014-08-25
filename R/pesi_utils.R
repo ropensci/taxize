@@ -19,6 +19,10 @@
 #'  \item pesi_records Get PESI records
 #'  \item pesi_search Search by scientific name
 #' }
+#' 
+#' For more information, the PESI home page \url{http://www.eu-nomen.eu/portal/webservices.php}, 
+#' and description of each of the functions used internally within this package
+#' \url{http://www.eu-nomen.eu/portal/soap.php}.
 #'
 #' @references \url{http://www.eu-nomen.eu/portal/index.php}
 #' @name pesi
@@ -59,6 +63,23 @@ parse_taxa <- function(z, iter)
   do.call(rbind, out)
 }
 
+#' Generate PESI function interface.
+#'
+#' @export
+#' @param wsdl_url URL for the PESI SOAP WSDL file
+#' @param ... Further args passed on to \code{genSOAPClientInterface}
+#' @return Returns invisibly a S4 object holding all functions to interact with WORMS.
+#' @examples \dontrun{ 
+#' # You can generate your own interface to PESI functions
+#' out <- pesi_gen_iface()
+#' out
+#' 
+#' # Then access them directly
+#' out@@functions$getPESIRecords(scientificname='Salmo', like=FALSE)
+#' 
+#' # Or pass to the taxize functions in the iface parameter
+#' head(pesi_records(scientific = "Salmo", iface = out))
+#' }
 pesi_gen_iface <- function(wsdl_url='http://www.eu-nomen.eu/portal/soap.php?wsdl=1', ...)
 {
   w <- processWSDL(wsdl_url)
