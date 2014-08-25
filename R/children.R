@@ -1,18 +1,19 @@
 #' Retrieve immediate children taxa for a given taxon name or ID.
 #'
-#' This function is different from \code{children()} in that it only collects immediate
-#' taxonomic children, while \code{children()} collects taxonomic names down to a specified
+#' This function is different from \code{downstream()} in that it only collects immediate
+#' taxonomic children, while \code{downstream()} collects taxonomic names down to a specified
 #' taxonomic rank, e.g., getting all species in a family.
 #'
+#' @export
+#' 
 #' @param x character; taxons to query.
 #' @param db character; database to query. One or more of \code{itis}, \code{col}, or \code{worms}.
 #' @param ... Further args passed on to \code{col_children}, \code{worms_children}, or
-#' \code{gethierarchydownfromtsn}
+#' \code{gethierarchydownfromtsn}. See those functions for what parameters can be passed on.
 #'
 #' @return A named list of data.frames with the children names of every supplied taxa.
 #' You get an NA if there was no match in the database.
 #'
-#' @export
 #' @examples \dontrun{
 #' # Plug in taxon names
 #' children("Salmo", db = 'col')
@@ -20,34 +21,26 @@
 #' children("Aatolana", db = 'worms')
 #'
 #' # Plug in IDs
-#' id <- get_colid("Apis")
+#' (id <- get_colid("Apis"))
 #' children(id)
 #'
 #' ## Equivalently, plug in the call to get the id via e.g., get_colid into children
 #' identical(children(id), children(get_colid("Apis")))
 #'
-#' id <- get_colid("Apis")
+#' (id <- get_colid("Apis"))
 #' children(id)
 #' children(get_colid("Apis"))
 #'
 #' # Many taxa
-#' sp <- names_list("genus", 3)
+#' (sp <- names_list("genus", 3))
 #' children(sp, db = 'col')
 #' children(sp, db = 'itis')
 #'
-#' # Both data sources
-#' ids <- get_ids("Apis", db = c('col','itis'))
+#' # Two data sources
+#' (ids <- get_ids("Apis", db = c('col','itis')))
 #' children(ids)
 #' ## same result
 #' children(get_ids("Apis", db = c('col','itis')))
-#' }
-#' 
-#' @examples \donttest{
-#' # BEWARE uBio doesn't work right now...will fix asap
-#' children("Rhizoprionodon", db = 'ubio')
-#' children("Hymenoptera", db = 'ubio')
-#' children("Rhizoprionodon", db = 'ubio')
-#' children("Apis", db = 'ubio')
 #' }
 
 children <- function(...){
