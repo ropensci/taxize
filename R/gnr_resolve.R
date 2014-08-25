@@ -14,8 +14,8 @@
 #'    all supplied names from matches in data sources that have classification
 #'    tree paths. Names out of determined context are penalized during score
 #'    calculation.
-#' @param stripauthority logical; If \code{TRUE}, gives back names with
-#'    taxonomic authorities. If \code{FALSE}, strips author names.
+#' @param stripauthority logical; If FALSE (default), gives back names with
+#'    taxonomic authorities. If TRUE, strips author names.
 #' @param highestscore logical; Return those names with the highest score for
 #'    each searched name?
 #' @param best_match_only (logical) If TRUE, best match only returned.
@@ -49,6 +49,10 @@
 #' 
 #' # Preferred data source
 #' gnr_resolve(names = "Helianthus annuus", preferred_data_sources = c(3,4))
+#' 
+#' # Strip taxonomic authorities - default is stripauthority=FALSE
+#' head(gnr_resolve(names = "Helianthus annuus")$results)
+#' head(gnr_resolve(names = "Helianthus annuus", stripauthority=TRUE)$results)
 #' }
 
 gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
