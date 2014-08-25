@@ -9,5 +9,5 @@ test_that("tp_summary returns the correct value", {
 
 test_that("tp_summary returns the correct class", {
 	expect_that(dat, is_a("data.frame"))
-	expect_that(ncol(dat), equals(22))
+	expect_that(NCOL(dat), equals(19))
 })
