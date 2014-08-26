@@ -157,6 +157,12 @@ The following are URL's for API documentation, where to get API keys, and what p
 	<td style="text-align:left;"><a href="http://www.eu-nomen.eu/portal/webservices.php">link</a></td>
 	<td style="text-align:left;">none</td>
 </tr>
+<tr>
+	<td style="text-align:left;">Mycobank</td>
+	<td style="text-align:left;"><code>myco</code></td>
+	<td style="text-align:left;"><a href="http://www.mycobank.org/Services/Generic/Help.aspx?s=searchservice">link</a></td>
+	<td style="text-align:left;">none</td>
+</tr>
 </tbody>
 </table>
 
@@ -169,7 +175,6 @@ The following are URL's for API documentation, where to get API keys, and what p
 + [USDA Plants](http://plants.usda.gov/java/)
 + [NatureServe](http://www.natureserve.org/)
 + [Lichen Taxon dictionary](http://www.thebls.org.uk/)
-+ [MycoBank](http://www.mycobank.org/)
 
 ## Quickstart
 
