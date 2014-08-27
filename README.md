@@ -186,7 +186,7 @@ For more examples [click here](http://ropensci.org/tutorials/taxize_tutorial.htm
 
 ```coffee
 install.packages("taxize")
-library(taxize)
+library('taxize')
 ```
 
 #### Development version from GitHub:
@@ -194,17 +194,13 @@ library(taxize)
 You'll need `XMLSchema` and `SSOAP`
 
 ```coffee
-download.file("http://www.omegahat.org/Prerelease/XMLSchema_0.8-0.tar.gz", "XMLSchema")
-install.packages("XMLSchema", type="source", repos = NULL)
-download.file("http://www.omegahat.org/Prerelease/SSOAP_0.91-0.tar.gz", "SSOAP")
-install.packages("SSOAP", type="source", repos = NULL)
+install.packages("devtools")
+devtools::install_github(c("sckott/XMLSchema", "sckott/SSOAP"))
 ```
 
 ```coffee
-install.packages("devtools")
-library(devtools)
-install_github("taxize", "ropensci", ref='pesi')
-library(taxize)
+devtools::install_github("taxize", "ropensci")
+library('taxize')
 ```
 
 ### Get unique taxonomic identifier from NCBI
