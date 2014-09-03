@@ -73,6 +73,7 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
 				query2 <- paste(str_replace_all(x, ' ', '+'), collapse='%0A')
 				args <- compact(list(query = query2))
 				out <- GET(url, query=args, callopts)
+				if(out$status_code >= 400) stop(sprintf("HTTP status %s - An error occurred", out$status_code), call. = FALSE)
 				retrieve <- out$url
 			} else
 			{
@@ -84,12 +85,13 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
       write.table(data.frame(x), file=loc, col.names=FALSE, row.names=FALSE)
       args <- compact(list(file = upload_file(loc), source = source, code = code))
 			out <- POST(url, body = args, config=compact(c(followlocation = 0L, callopts)))
+			if(out$status_code >= 400) stop(sprintf("HTTP status %s - An error occurred", out$status_code), call. = FALSE)
       tt <- content(out, as="text")
 			message <- jsonlite::fromJSON(tt, FALSE)[["message"]]
 			retrieve <- str_replace_all(str_extract(message, "http.+"), "\\.$", "")
 		}
 		
-		mssg(verbose, paste("Calling ", retrieve, sep=""))
+		mssg(verbose, sprintf("Calling %s", retrieve))
 		
 		iter <- 0
 		output <- list()
@@ -97,6 +99,7 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
 		while(timeout == "wait"){
 			iter <- iter + 1
       ss <- GET(retrieve, callopts)
+			if(ss$status_code >= 400) stop(sprintf("HTTP status %s - An error occurred", ss$status_code), call. = FALSE)
       temp <- jsonlite::fromJSON(content(ss, as="text"), FALSE)
 			if(grepl("is still being processed", temp["message"])==TRUE){timeout <- "wait"} else {
 				output[[iter]] <- temp
@@ -122,12 +125,6 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
   if(length(query) < 1 || is.na(query)) stop("Please supply at least one name", call. = FALSE)
   
 	if(getpost == "GET" && length(query) > 75 | length(query) > 30 && getpost == "POST"){
-	  ## Define function to split up the species list into more manageable chunks
-	  slice <- function(input, by = 2) {
-	    starts <- seq(1, length(input), by)
-	    tt <- lapply(starts, function(y) input[y:(y + (by - 1))])
-	    lapply(tt, function(x) x[!is.na(x)])
-	  }
 	  species_split <- slice(query, by = splitby)	
 	  
 	  out <- lapply(species_split, function(x) mainfunc_safe(x))
@@ -142,7 +139,8 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
 	}
 }
 
-parseres <- function(w){ # function to parse results
+# Function to parse results
+parseres <- function(w){
   matches <- w$matches
   foome <- function(z) { 
     z[sapply(z, length)==0] <- "none" 
@@ -152,4 +150,11 @@ parseres <- function(w){ # function to parse results
   df <- data.frame(submittedName=w$submittedName, matches2)
   df$score <- round(as.numeric(as.character(df$score)), 2)
   df
+}
+
+# Function to split up the species list into more manageable chunks
+slice <- function(input, by = 2) {
+  starts <- seq(1, length(input), by)
+  tt <- lapply(starts, function(y) input[y:(y + (by - 1))])
+  lapply(tt, function(x) x[!is.na(x)])
 }
