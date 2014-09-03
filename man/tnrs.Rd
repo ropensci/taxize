@@ -37,7 +37,7 @@ data.frame of results from TNRS plus the name submitted.
 }
 \description{
 Match taxonomic names using the Taxonomic Name Resolution Service (TNRS).
- Returns score of the matched name, and whether it was accepted or not.
+Returns score of the matched name, and whether it was accepted or not.
 }
 \details{
 If there is no match in the Taxosaurus database, nothing is

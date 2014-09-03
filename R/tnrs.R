@@ -1,9 +1,11 @@
 #' Search the Phylotastic Taxonomic Name Resolution Service.
 #'
 #' Match taxonomic names using the Taxonomic Name Resolution Service (TNRS). 
-#'  Returns score of the matched name, and whether it was accepted or not.
+#' Returns score of the matched name, and whether it was accepted or not.
 #'  
 #' @import RCurl XML plyr stringr jsonlite data.table
+#' @export
+#' 
 #' @param query Quoted taxonomic names to search in a vector (character).
 #' @param source Specify the source you want to match names against. Defaults 
 #' 		to just retrieve data from all sources. Options: NCBI, iPlant_TNRS, 
@@ -57,7 +59,7 @@
 #' ## Or use splitby
 #' tnrs(mynames, source = "NCBI", splitby=50)
 #' }
-#' @export
+
 tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST", 
                  sleep = 0, splitby = 30, verbose=TRUE, callopts=list())
 {
@@ -71,7 +73,6 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
 				query2 <- paste(str_replace_all(x, ' ', '+'), collapse='%0A')
 				args <- compact(list(query = query2))
 				out <- GET(url, query=args, callopts)
-# 				retrieve <- toJSON(out$url)
 				retrieve <- out$url
 			} else
 			{
@@ -79,8 +80,6 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
 			}
 		} else
 		{
-# 			splist <- paste(x, collapse="\n")
-# 			args <- compact(list(query = splist, source = source, code = code))
       loc <- tempfile(fileext=".txt")
       write.table(data.frame(x), file=loc, col.names=FALSE, row.names=FALSE)
       args <- compact(list(file = upload_file(loc), source = source, code = code))
@@ -105,14 +104,11 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
 			}
 		}
 		out <- compact(output)[[1]]
-#     length(out$names)
 		
 		# Parse results into data.frame
     df <- data.frame(rbindlist(lapply(out$names, parseres)))
     f <- function(x) str_replace_all(x, pattern="\\+", replacement=" ")
     df2 <- colwise(f)(df)
-# 		order_ <- unlist(sapply(x, function(y) grep(y, df$submittedName)))
-# 		df2 <- df[order_,]
 
     # replace quotes
     df2 <- data.frame(apply(df2, c(1,2), function(x){
