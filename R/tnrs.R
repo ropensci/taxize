@@ -119,6 +119,8 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
 	}
 	mainfunc_safe <- plyr::failwith(NULL, mainfunc)
 	
+  if(length(query) < 1 || is.na(query)) stop("Please supply at least one name", call. = FALSE)
+  
 	if(getpost == "GET" && length(query) > 75 | length(query) > 30 && getpost == "POST"){
 	  ## Define function to split up the species list into more manageable chunks
 	  slice <- function(input, by = 2) {
