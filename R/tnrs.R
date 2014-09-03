@@ -72,8 +72,8 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
 			if(!any(is.na(x))){
 				query2 <- paste(str_replace_all(x, ' ', '+'), collapse='%0A')
 				args <- compact(list(query = query2))
-				out <- GET(url, query=args, callopts)
-				if(out$status_code >= 400) stop(sprintf("HTTP status %s - An error occurred", out$status_code), call. = FALSE)
+				out <- GET(url, query=args, config = callopts)
+				error_handle(out)
 				retrieve <- out$url
 			} else
 			{
@@ -85,7 +85,7 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
       write.table(data.frame(x), file=loc, col.names=FALSE, row.names=FALSE)
       args <- compact(list(file = upload_file(loc), source = source, code = code))
 			out <- POST(url, body = args, config=compact(c(followlocation = 0L, callopts)))
-			if(out$status_code >= 400) stop(sprintf("HTTP status %s - An error occurred", out$status_code), call. = FALSE)
+			error_handle(out)
       tt <- content(out, as="text")
 			message <- jsonlite::fromJSON(tt, FALSE)[["message"]]
 			retrieve <- str_replace_all(str_extract(message, "http.+"), "\\.$", "")
@@ -99,7 +99,7 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
 		while(timeout == "wait"){
 			iter <- iter + 1
       ss <- GET(retrieve, callopts)
-			if(ss$status_code >= 400) stop(sprintf("HTTP status %s - An error occurred", ss$status_code), call. = FALSE)
+			error_handle(ss)
       temp <- jsonlite::fromJSON(content(ss, as="text"), FALSE)
 			if(grepl("is still being processed", temp["message"])==TRUE){timeout <- "wait"} else {
 				output[[iter]] <- temp
@@ -157,4 +157,22 @@ slice <- function(input, by = 2) {
   starts <- seq(1, length(input), by)
   tt <- lapply(starts, function(y) input[y:(y + (by - 1))])
   lapply(tt, function(x) x[!is.na(x)])
+}
+
+error_handle <- function(x){
+  sc <- x$status_code
+  if(sc >= 400){ 
+    mssg <- switch(as.character(sc),
+                   '400' = "Bad Request. The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modifications.",
+                   '401' = 'Unauthorized',
+                   '403' = 'Forbidden',
+                   '404' = 'Not Found',
+                   '500' = 'Internal Server Error. The server encountered an unexpected condition which prevented it from fulfilling the request.',
+                   '501' = 'Not Implemented',
+                   '502' = 'Bad Gateway',
+                   '503' = 'Service Unavailable',
+                   '504' = 'Gateway Timeout'
+    )
+    stop(sprintf("HTTP status %s - %s", sc, mssg), call. = FALSE)  
+  }
 }
