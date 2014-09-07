@@ -1,6 +1,6 @@
 environment:
   R_CHECK_ARGS: --no-build-vignettes --no-manual
-  
+
 init:
   ps: |
         $ErrorActionPreference = "Stop"
@@ -12,7 +12,7 @@ install:
 
 build_script:
   - travis-tool.sh install_deps
-  - travis-tool.sh install_r SSOAP XMLSchema
+  - travis-tool.sh install_github sckott/SSOAP sckott/XMLSchema
 
 test_script:
   - travis-tool.sh run_tests
