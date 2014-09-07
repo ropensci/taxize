@@ -184,7 +184,7 @@ For more examples [click here](http://ropensci.org/tutorials/taxize_tutorial.htm
 
 #### Stable version from CRAN:
 
-```coffee
+```r
 install.packages("taxize")
 library('taxize')
 ```
@@ -193,30 +193,30 @@ library('taxize')
 
 You'll need `XMLSchema` and `SSOAP`
 
-```coffee
+```r
 install.packages("devtools")
 devtools::install_github(c("sckott/XMLSchema", "sckott/SSOAP"))
 ```
 
-```coffee
+```r
 devtools::install_github("taxize", "ropensci")
 library('taxize')
 ```
 
 ### Get unique taxonomic identifier from NCBI
 
-```coffee
+```r
 uids <- get_uid(c("Chironomus riparius", "Chaetopteryx"))
 ```
 
 ### Retrieve classifications
 
-```coffee
+```r
 out <- classification(uids)
 lapply(out, head)
 ```
 
-```coffee
+```r
 [[1]]
                 name         rank
 1 cellular organisms      no rank
@@ -238,11 +238,11 @@ lapply(out, head)
 
 ### Get synonyms
 
-```coffee
+```r
 synonyms("Poa annua", db="itis")
 ```
 
-```coffee
+```r
 $`Poa annua`
                           name    tsn
 1      Poa annua var. aquatica 538978
@@ -260,11 +260,11 @@ $`Poa annua`
 
 ### Get taxonomic IDs from many sources
 
-```coffee
+```r
 get_ids(names="Chironomus riparius", db = c('ncbi','itis','col'), verbose=FALSE)
 ```
 
-```coffee
+```r
 $ncbi
 Chironomus riparius
 					"315576"
@@ -300,11 +300,11 @@ attr(,"class")
 
 ### Get common names from scientific names
 
-```coffee
+```r
 sci2comm(scinames='Helianthus annuus', db='itis')
 ```
 
-```coffee
+```r
 $`Helianthus annuus`
 [1] "common sunflower" "sunflower"        "wild sunflower"   "annual sunflower"
 ```
@@ -314,19 +314,19 @@ $`Helianthus annuus`
 
 #### Input the taxonomic names
 
-```coffee
+```r
 taxa <- c("Poa annua", "Phlox diffusa", "Helianthus annuus")
 ```
 
 #### Fetch the tree - the formatting of names and higher taxonmy is done within the function
 
-```coffee
+```r
 tree <- phylomatic_tree(taxa=taxa, storedtree = "R20120829")
 ```
 
 #### Plot
 
-```coffee
+```r
 plot(tree)
 ```
 
@@ -342,7 +342,7 @@ This package is part of the [rOpenSci](http://ropensci.org/packages) project.
 
 To cite package `taxize` in publications use:
 
-```coffee
+```r
 To cite taxize in publications use:
 
   Scott Chamberlain and Eduard Szocs (2013). taxize - taxonomic search
