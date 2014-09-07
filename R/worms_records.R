@@ -8,6 +8,9 @@
 #' @param like (logical) Add a percent sign after the ScientificName (SQL LIKE function). Default=TRUE
 #' @param type Type of external identifier. Should be one of bold, dyntaxa, eol, fishbase,
 #' iucn, lsid, ncbi, or tsn.
+#' @param fuzzy (logical) Use fuzzy matching or not. If \code{TRUE}, we use the WoRMS methods
+#' \code{matchAphiaRecordsByNames()} internally for fuzzy/near matching. If \code{FALSE}, we use
+#' the WoRMS method \code{getAphiaRecords()}.
 #' @param marine_only (logical) Include results from marine taxa only. Default=TRUE.
 #' @param offset Starting record number, when retrieving next chunk of (50) records. Default=1.
 #' @param startdate ISO 8601 formatted start date(time). Default=today().

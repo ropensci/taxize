@@ -33,6 +33,10 @@ then pass it into any \code{worms_*} function. in the \code{iface} parameter.}
 \item{type}{Type of external identifier. Should be one of bold, dyntaxa, eol, fishbase,
 iucn, lsid, ncbi, or tsn.}
 
+\item{fuzzy}{(logical) Use fuzzy matching or not. If \code{TRUE}, we use the WoRMS methods
+\code{matchAphiaRecordsByNames()} internally for fuzzy/near matching. If \code{FALSE}, we use
+the WoRMS method \code{getAphiaRecords()}.}
+
 \item{marine_only}{(logical) Include results from marine taxa only. Default=TRUE.}
 
 \item{offset}{Starting record number, when retrieving next chunk of (50) records. Default=1.}
