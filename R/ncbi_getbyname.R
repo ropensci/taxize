@@ -1,12 +1,9 @@
 #' Retrieve gene sequences from NCBI by taxon name and gene names.
 #'
 #' @import XML httr stringr
-#' @param taxa Scientific name to search for (character).
-#' @param gene Gene (character) or genes (character vector) to search for.
-#' @param seqrange Sequence range, as e.g., "1:1000" (character).
-#' @param getrelated Logical, if TRUE, gets the longest sequences of a species
-#' 		in the same genus as the one searched for. If FALSE, get's nothing.
-#' @param verbose logical; If TRUE (default), informative messages printed.
+#' @export
+#' @template ncbi
+#' @param gene (character) Gene or genes (in a vector) to search for. See examples.
 #' @details Removes predicted sequences so you don't have to remove them.
 #' 		Predicted sequences are those with accession numbers that have "XM_" or
 #' 		"XR_" prefixes. This function retrieves one sequences for each species,
@@ -14,7 +11,6 @@
 #' @return Data.frame of results.
 #' @seealso \code{\link[taxize]{ncbi_search}}, \code{\link[taxize]{ncbi_getbyid}}
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
-#' @export
 #' @examples \dontrun{
 #' # A single species
 #' ncbi_getbyname(taxa="Acipenser brevirostrum")

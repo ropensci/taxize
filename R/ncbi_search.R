@@ -1,14 +1,10 @@
 #' Search for gene sequences available for a species from NCBI.
 #'
 #' @import XML httr stringr data.table
-#' @param taxa Scientific name to search for (character).
-#' @param seqrange Sequence range, as e.g., "1:1000" (character).
-#' @param getrelated Logical, if TRUE, gets the longest sequences of a species
-#' 		in the same genus as the one searched for. If FALSE, get's nothing.
+#' @template ncbi
 #' @param limit Number of sequences to search for and return. Max of 10,000.
 #'    If you search for 6000 records, and only 5000 are found, you will of course
 #'    only get 5000 back.
-#' @param verbose logical; If TRUE (default), informative messages printed.
 #' @details Removes predicted sequences so you don't have to remove them.
 #' 		Predicted sequences are those with accession numbers that have "XM_" or
 #' 		"XR_" prefixes.

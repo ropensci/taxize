@@ -1,9 +1,10 @@
 #' Retrieve gene sequences from NCBI by accession number.
 #'
 #' @import XML httr stringr data.table
-#' @param ids GenBank ids to search for (character).
-#' @param format Return type, e.g., "fasta"
-#' @param verbose logical; If TRUE (default), informative messages printed.
+#' @export
+#' @param ids (character) GenBank ids to search for.
+#' @param format (character) Return type, e.g., \code{"fasta"}
+#' @param verbose (logical) If \code{TRUE} (default), informative messages printed.
 #' @details Removes predicted sequences so you don't have to remove them.
 #'   	Predicted sequences are those with accession numbers that have "XM_" or
 #' 		"XR_" prefixes. This function retrieves one sequences for each species,
@@ -11,7 +12,6 @@
 #' @return Data.frame of results.
 #' @seealso \code{\link[taxize]{ncbi_search}}, \code{\link[taxize]{ncbi_getbyname}}
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
-#' @export
 #' @examples \dontrun{
 #' # A single gene
 #' ncbi_getbyid(ids="360040093", format="fasta")

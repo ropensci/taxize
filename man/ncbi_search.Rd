@@ -7,18 +7,21 @@ ncbi_search(taxa, seqrange = "1:3000", getrelated = FALSE, limit = 500,
   verbose = TRUE)
 }
 \arguments{
-\item{taxa}{Scientific name to search for (character).}
+\item{taxa}{(character) Scientific name to search for.}
 
-\item{seqrange}{Sequence range, as e.g., "1:1000" (character).}
+\item{seqrange}{(character) Sequence range, as e.g., \code{"1:1000"}. This is the range of
+sequence lengths to search for. So \code{"1:1000"} means search for sequences from 1 to 1000
+characters in length.}
 
-\item{getrelated}{Logical, if TRUE, gets the longest sequences of a species
-in the same genus as the one searched for. If FALSE, get's nothing.}
+\item{getrelated}{(logical) If \code{TRUE}, gets the longest sequences of a species
+in the same genus as the one searched for. If \code{FALSE}, returns nothing if no match
+found.}
+
+\item{verbose}{(logical) If \code{TRUE} (default), informative messages printed.}
 
 \item{limit}{Number of sequences to search for and return. Max of 10,000.
 If you search for 6000 records, and only 5000 are found, you will of course
 only get 5000 back.}
-
-\item{verbose}{logical; If TRUE (default), informative messages printed.}
 }
 \value{
 Data.frame of results.

@@ -6,11 +6,11 @@
 ncbi_getbyid(ids, format = "fasta", verbose = TRUE)
 }
 \arguments{
-\item{ids}{GenBank ids to search for (character).}
+\item{ids}{(character) GenBank ids to search for.}
 
-\item{format}{Return type, e.g., "fasta"}
+\item{format}{(character) Return type, e.g., \code{"fasta"}}
 
-\item{verbose}{logical; If TRUE (default), informative messages printed.}
+\item{verbose}{(logical) If \code{TRUE} (default), informative messages printed.}
 }
 \value{
 Data.frame of results.
