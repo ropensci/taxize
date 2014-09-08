@@ -27,8 +27,7 @@ Additional_repositories: http://www.omegahat.org/R
 VignetteBuilder: knitr
 Roxygen: list(wrap = FALSE)
 Depends:
-    R(>= 2.10.0),
-    SSOAP (>= 0.91-0)
+    R(>= 2.10.0)
 Imports:
     XML,
     RCurl (>= 1.6),
@@ -47,5 +46,4 @@ Imports:
 Suggests:
     testthat,
     roxygen2,
-    knitr,
-    XMLSchema (>= 0.8-0)
+    knitr
