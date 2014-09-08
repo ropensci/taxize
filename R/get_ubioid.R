@@ -49,7 +49,7 @@ get_ubioid <- function(searchterm, searchtype = "scientific", ask = TRUE, verbos
       ubioid <- NA
       att <- "not found"
     } else {
-      ubio_df <- switch(searchtype, 
+      ubio_df <- switch(searchtype,
                         scientific=ubio_df[,c("namebankid","namestring","packagename","rankname")],
                         vernacular=ubio_df[,c("namebankid","namestring","packagename")])
       ubio_df <- rename(ubio_df, c('packagename' = 'family'))
@@ -61,7 +61,7 @@ get_ubioid <- function(searchterm, searchtype = "scientific", ask = TRUE, verbos
         ubioid <- NA
         att <- 'not found'
       }
-      # take the one worms id from data.frame
+      # take the one ubio id from data.frame
       if (nrow(ubio_df) == 1){
         ubioid <- ubio_df$namebankid
         att <- 'found'
