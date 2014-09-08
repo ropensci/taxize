@@ -67,6 +67,14 @@ plot(tree, no.margin=TRUE)
 taxa <- c("Gonocarpus leptothecus", "Gonocarpus leptothecus", "Lilium lankongense")
 out <- phylomatic_tree(taxa=taxa, get = 'POST', outformat = "nexml")
 cat(out)
+
+# Lots of names, note that when you have enough names (number depends on length of individual
+# names, so there's no per se rule), you will get an error when using \\code{get='GET'},
+# when that happens use \\code{get='POST'}
+spp <- names_list("species", 200)
+(out <- phylomatic_tree(taxa = spp, get = "GET"))
+(out <- phylomatic_tree(taxa = spp, get = "POST"))
+plot(out)
 }
 }
 

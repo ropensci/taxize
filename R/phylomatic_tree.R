@@ -1,6 +1,8 @@
 #' Query Phylomatic for a phylogenetic tree.
 #' 
 #' @import httr ape stringr
+#' @export
+#' 
 #' @param taxa Phylomatic format input of taxa names.
 #' @param taxnames If true, we get the family names for you to attach to your 
 #'    species names to send to Phylomatic API. If FALSE, you have to provide the 
@@ -40,8 +42,15 @@
 #' taxa <- c("Gonocarpus leptothecus", "Gonocarpus leptothecus", "Lilium lankongense")
 #' out <- phylomatic_tree(taxa=taxa, get = 'POST', outformat = "nexml")
 #' cat(out)
+#' 
+#' # Lots of names, note that when you have enough names (number depends on length of individual
+#' # names, so there's no per se rule), you will get an error when using \code{get='GET'}, 
+#' # when that happens use \code{get='POST'}
+#' spp <- names_list("species", 200)
+#' (out <- phylomatic_tree(taxa = spp, get = "GET"))
+#' (out <- phylomatic_tree(taxa = spp, get = "POST"))
+#' plot(out)
 #' }
-#' @export
 
 phylomatic_tree <- function(taxa, taxnames = TRUE, get = 'GET',
   informat = "newick", method = "phylomatic", storedtree = "R20120829", 
@@ -64,7 +73,7 @@ phylomatic_tree <- function(taxa, taxnames = TRUE, get = 'GET',
   
   if (length(dat_) > 1) { dat_ <- paste(dat_, collapse = "\n") } else { dat_ <- dat_ }
   
-  args <- compact(list(taxa = dat_, informat = informat, method = method, 
+  args <- taxize_compact(list(taxa = dat_, informat = informat, method = method, 
                        storedtree = storedtree, taxaformat = taxaformat, 
                        outformat = outformat, clean = clean))
   
@@ -73,7 +82,11 @@ phylomatic_tree <- function(taxa, taxnames = TRUE, get = 'GET',
     out <- postForm(url, .params=args, style = "POST")
   } else if (get == 'GET') {
     tt <- GET(url, query=args)
-    stop_for_status(tt)
+    if(tt$status_code == 414){
+      stop("(414) Request-URI Too Long - Use get='POST' in your function call", call. = FALSE)
+    } else {
+      stop_for_status(tt)      
+    }
     out <- content(tt, as="text")
   } else
   { stop("Error: get must be one of 'POST' or 'GET'") }
@@ -135,3 +148,5 @@ colldouble <- function(z) {
   { treephylo <- z }
   return(treephylo)
 }
+
+taxize_compact <- function (l) Filter(Negate(is.null), l)
