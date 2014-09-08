@@ -6,7 +6,6 @@
 \alias{synonyms.tpsid}
 \alias{synonyms.tsn}
 \alias{synonyms.ubioid}
-\alias{synonyms.wormsid}
 \title{Retrieve synonyms from various sources given input taxonomic names or identifiers.}
 \usage{
 synonyms(...)
@@ -17,8 +16,6 @@ synonyms(...)
 
 \method{synonyms}{tpsid}(id, ...)
 
-\method{synonyms}{wormsid}(id, ...)
-
 \method{synonyms}{ubioid}(id, ...)
 
 \method{synonyms}{ids}(id, ...)
@@ -26,12 +23,11 @@ synonyms(...)
 \arguments{
 \item{x}{character; taxons to query.}
 
-\item{db}{character; database to query. either \code{itis}, \code{tropicos}, \code{worms}
+\item{db}{character; database to query. either \code{itis}, \code{tropicos},
 or \code{ubio}.}
 
 \item{id}{character; identifiers, returned by \code{\link[taxize]{get_tsn}},
-\code{\link[taxize]{get_tpsid}}, \code{\link[taxize]{get_wormsid}},
-or \code{\link[taxize]{get_ubioid}}}
+\code{\link[taxize]{get_tpsid}}, or \code{\link[taxize]{get_ubioid}}}
 
 \item{...}{Other passed arguments.}
 }
@@ -53,25 +49,20 @@ synonyms(c("Poa annua",'Pinus contorta','Puma concolor'), db="itis")
 synonyms("Poa annua", db="tropicos")
 synonyms("Pinus contorta", db="tropicos")
 synonyms(c("Poa annua",'Pinus contorta'), db="tropicos")
-synonyms("Salvelinus fontinalis", db='worms')
 synonyms("Salmo friderici", db='ubio')
 synonyms(c("Salmo friderici",'Carcharodon carcharias','Puma concolor'), db="ubio")
 
-# Use methods for get_tsn, get_tpsid, or get_wormsid
+# Use methods for get_tsn, get_tpsid
 synonyms(get_tsn("Poa annua"))
 synonyms(get_tpsid("Poa annua"))
-synonyms(get_wormsid("Salvelinus fontinalis"))
 synonyms(get_ubioid("Carcharodon carcharias"))
 
 # Pass many ids from class "ids"
 out <- get_ids(names="Poa annua", db = c('itis','tropicos'))
 synonyms(out)
-out <- get_ids(names="Salvelinus fontinalis", db = c('itis','worms'))
-synonyms(out)
 }
 }
 \seealso{
-\code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_tpsid}}, or
-\code{\link[taxize]{get_wormsid}}
+\code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_tpsid}}
 }
 

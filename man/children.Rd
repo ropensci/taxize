@@ -5,7 +5,6 @@
 \alias{children.default}
 \alias{children.ids}
 \alias{children.tsn}
-\alias{children.wormsid}
 \title{Retrieve immediate children taxa for a given taxon name or ID.}
 \usage{
 children(...)
@@ -16,16 +15,14 @@ children(...)
 
 \method{children}{colid}(x, db = NULL, ...)
 
-\method{children}{wormsid}(x, db = NULL, ...)
-
 \method{children}{ids}(x, db = NULL, ...)
 }
 \arguments{
 \item{x}{character; taxons to query.}
 
-\item{db}{character; database to query. One or more of \code{itis}, \code{col}, or \code{worms}.}
+\item{db}{character; database to query. One or more of \code{itis}, or \code{col}.}
 
-\item{...}{Further args passed on to \code{col_children}, \code{worms_children}, or
+\item{...}{Further args passed on to \code{col_children}, or
 \code{gethierarchydownfromtsn}. See those functions for what parameters can be passed on.}
 }
 \value{
@@ -42,7 +39,6 @@ taxonomic rank, e.g., getting all species in a family.
 # Plug in taxon names
 children("Salmo", db = 'col')
 children("Salmo", db = 'itis')
-children("Aatolana", db = 'worms')
 
 # Plug in IDs
 (id <- get_colid("Apis"))

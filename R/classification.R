@@ -46,9 +46,7 @@
 #' classification(c("Chironomus riparius", "asdfasdfsfdfsd"), db = 'gbif')
 #' classification(c("Poa annua", "aaa vva"), db = 'tropicos')
 #' 
-#' classification(x="Salvelinus fontinalis", db = 'worms')
-#' 
-#' # Use methods for get_uid, get_tsn, get_eolid, get_colid, get_tpsid, or get_wormsid
+#' # Use methods for get_uid, get_tsn, get_eolid, get_colid, get_tpsid
 #' classification(get_uid(c("Chironomus riparius", "Puma concolor")))
 #' 
 #' classification(get_uid(c("Chironomus riparius", "aaa vva")))
@@ -58,7 +56,6 @@
 #' classification(get_colid(c("Chironomus riparius", "aaa vva")))
 #' classification(get_tpsid(c("Poa annua", "aaa vva")))
 #' classification(get_gbifid(c("Poa annua", "Bison bison")))
-#' classification(get_wormsid("Salvelinus fontinalis"))
 #' 
 #' # Pass many ids from class "ids"
 #' out <- get_ids(names="Puma concolor", db = c('ncbi','gbif'))
@@ -139,11 +136,6 @@ classification.default <- function(x, db = NULL, callopts=list(), ...){
   if (db == 'gbif') {
     id <- process_ids(x, get_gbifid, ...)
 #     id <- get_gbifid(x, ...)
-    out <- classification(id, callopts=callopts, ...)
-    names(out) <- x
-  }
-  if (db == 'worms') {
-    id <- process_ids(x, get_wormsid, ...)
     out <- classification(id, callopts=callopts, ...)
     names(out) <- x
   }
@@ -342,25 +334,6 @@ classification.gbifid <- function(id, callopts = list(), ...) {
         out <- ldply(out[c('kingdom','phylum','clazz','order','family','genus','species')])
         out <- data.frame(name=out$V1, rank=out$.id)
       }
-    }
-    return(out)
-  }
-  out <- lapply(id, fun)
-  names(out) <- id
-  class(out) <- 'classification'
-  return(out)
-}
-
-#' @method classification wormsid
-#' @export
-#' @rdname classification
-classification.wormsid <- function(id, callopts = list(), ...) {
-  fun <- function(x){
-    if(is.na(x)) {
-      out <- NA
-    } else {
-      out <- worms_hierarchy(x, ...)
-      out <- data.frame(name=out$scientificname, rank=out$rank)
     }
     return(out)
   }

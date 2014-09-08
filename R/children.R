@@ -7,8 +7,8 @@
 #' @export
 #' 
 #' @param x character; taxons to query.
-#' @param db character; database to query. One or more of \code{itis}, \code{col}, or \code{worms}.
-#' @param ... Further args passed on to \code{col_children}, \code{worms_children}, or
+#' @param db character; database to query. One or more of \code{itis}, or \code{col}.
+#' @param ... Further args passed on to \code{col_children}, or
 #' \code{gethierarchydownfromtsn}. See those functions for what parameters can be passed on.
 #'
 #' @return A named list of data.frames with the children names of every supplied taxa.
@@ -18,7 +18,6 @@
 #' # Plug in taxon names
 #' children("Salmo", db = 'col')
 #' children("Salmo", db = 'itis')
-#' children("Aatolana", db = 'worms')
 #'
 #' # Plug in IDs
 #' (id <- get_colid("Apis"))
@@ -70,11 +69,6 @@ children.default <- function(x, db = NULL, ...)
 #     out <- children(id, ...)
 #     names(out) <- x
 #   }
-  if (db == 'worms') {
-    id <- get_wormsid(x, ...)
-    out <- children(id, ...)
-    names(out) <- x
-  }
   return(out)
 }
 
@@ -135,26 +129,6 @@ children.colid <- function(x,  db = NULL, ...) {
 #   attr(out, 'db') <- 'ubio'
 #   return(out)
 # }
-
-#' @method children wormsid
-#' @export
-#' @rdname children
-children.wormsid <- function(x,  db = NULL, ...) {
-  fun <- function(y){
-    # return NA if NA is supplied
-    if(is.na(y)){
-      out <- NA
-    } else {
-      out <- worms_children(ids = y, ...)
-      out <- out[,c("AphiaID","scientificname","rank","status","valid_AphiaID","valid_name","kingdom","phylum","class","order","family","genus")]
-    }
-    return(out)
-  }
-  out <- lapply(x, fun)
-  class(out) <- 'children'
-  attr(out, 'db') <- 'worms'
-  return(out)
-}
 
 #' @method children ids
 #' @export

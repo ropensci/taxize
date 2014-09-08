@@ -11,7 +11,6 @@
 \alias{classification.tpsid}
 \alias{classification.tsn}
 \alias{classification.uid}
-\alias{classification.wormsid}
 \alias{rbind.classification}
 \alias{rbind.classification_ids}
 \title{Retrieve the taxonomic hierarchy for a given taxon ID.}
@@ -31,8 +30,6 @@ classification(...)
 \method{classification}{tpsid}(id, key = NULL, callopts = list(), ...)
 
 \method{classification}{gbifid}(id, callopts = list(), ...)
-
-\method{classification}{wormsid}(id, callopts = list(), ...)
 
 \method{classification}{ids}(id, ...)
 
@@ -98,9 +95,7 @@ classification(c("Chironomus riparius", "aaa vva"), db = 'col', verbose=FALSE)
 classification(c("Chironomus riparius", "asdfasdfsfdfsd"), db = 'gbif')
 classification(c("Poa annua", "aaa vva"), db = 'tropicos')
 
-classification(x="Salvelinus fontinalis", db = 'worms')
-
-# Use methods for get_uid, get_tsn, get_eolid, get_colid, get_tpsid, or get_wormsid
+# Use methods for get_uid, get_tsn, get_eolid, get_colid, get_tpsid
 classification(get_uid(c("Chironomus riparius", "Puma concolor")))
 
 classification(get_uid(c("Chironomus riparius", "aaa vva")))
@@ -110,7 +105,6 @@ classification(get_eolid(c("Chironomus riparius", "aaa vva")))
 classification(get_colid(c("Chironomus riparius", "aaa vva")))
 classification(get_tpsid(c("Poa annua", "aaa vva")))
 classification(get_gbifid(c("Poa annua", "Bison bison")))
-classification(get_wormsid("Salvelinus fontinalis"))
 
 # Pass many ids from class "ids"
 out <- get_ids(names="Puma concolor", db = c('ncbi','gbif'))
