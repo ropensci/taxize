@@ -3,7 +3,6 @@
 #' Resolve names from iPlant's name resolver, the Taxonomic Name Resolution Service (TNRS), the 
 #' Global Names Resolver (GNR)
 #' 
-#' @import stringr data.table
 #' @export
 #' 
 #' @param query Vector of one or more names.
@@ -17,7 +16,7 @@
 #' @return A list with length equal to length of the db parameter (number of sources requested.)
 #' @examples \dontrun{
 #' resolve(query=c("Helianthus annuus", "Homo sapiens"))
-#' resolve(query=c("Helianthus annuus", "Homo sapiens"), db='tnrs', source="NCBI")
+#' resolve(query=c("Helianthus annuus", "Homo sapiens"), db='tnrs', source="iPlant_TNRS")
 #' resolve(query="Quercus keloggii", db='gnr')
 #' resolve(query="Helianthus annuus", db='gnr', preferred_data_sources = c(3,4))
 #' resolve(query=c("Helianthus annuus", "Homo sapiens"), db=c('iplant','gnr'))
@@ -36,12 +35,7 @@ resolve <- function(query, db='iplant', callopts=list(), ...){
                   gnr = try_default(gnr_resolve(names = y, callopts=callopts, ...)),
                   tnrs = try_default(tnrs(query = y, callopts=callopts, ...)),
                   iplant = try_default(iplant_resolve(query = y, callopts=callopts, ...)))
-    if(is.null(res)){
-      "Error: no data found"
-    } else {
-      # Process output to similar format regardless of source pulled from
-      process_sources(x, res)
-    }
+    if(is.null(res)) "Error: no data found" else res
   }
   output <- lapply(db, function(z) foo(z, query, ...))
   names(output) <- db
@@ -61,25 +55,25 @@ try_default <- function(expr, default = NULL, quiet = TRUE)
   result
 }
 
-process_sources <- function(x,y){
-  gnr_parse <- function(x){
-#     tmp <- data.frame(downfornow1=NA, downfornow2=NA)
-    # re-arrange
-    x
-  }
-  tnrs_parse <- function(x){
-    tmp <- data.frame(t(apply(x, 2, function(z) gsub('[\"]', "", z))), stringsAsFactors = FALSE)
-    tmp$score <- as.numeric(tmp$score)
-    # re-arrange
-    tmp
-  }
-  iplant_parse <- function(x){
-    tmp <- do.call(rbind.fill, lapply(x, data.frame, stringsAsFactors = FALSE))
-    # re-arrange
-    tmp
-  }
-  switch(x,
-         gnr = gnr_parse(y),
-         tnrs = tnrs_parse(y),
-         iplant = iplant_parse(y))
-}
+# process_sources <- function(x,y){
+#   gnr_parse <- function(x){
+# #     tmp <- data.frame(downfornow1=NA, downfornow2=NA)
+#     # re-arrange
+#     x
+#   }
+#   tnrs_parse <- function(x){
+#     tmp <- data.frame(t(apply(x, 2, function(z) gsub('[\"]', "", z))), stringsAsFactors = FALSE)
+#     tmp$score <- as.numeric(tmp$score)
+#     # re-arrange
+#     tmp
+#   }
+#   iplant_parse <- function(z){
+# #     tmp <- do.call(rbind.fill, lapply(z, data.frame, stringsAsFactors = FALSE))
+#     # re-arrange
+#     z
+#   }
+#   switch(x,
+#          gnr = gnr_parse(y),
+#          tnrs = tnrs_parse(y),
+#          iplant = iplant_parse(y))
+# }

@@ -28,7 +28,7 @@ Global Names Resolver (GNR)
 \examples{
 \dontrun{
 resolve(query=c("Helianthus annuus", "Homo sapiens"))
-resolve(query=c("Helianthus annuus", "Homo sapiens"), db='tnrs', source="NCBI")
+resolve(query=c("Helianthus annuus", "Homo sapiens"), db='tnrs', source="iPlant_TNRS")
 resolve(query="Quercus keloggii", db='gnr')
 resolve(query="Helianthus annuus", db='gnr', preferred_data_sources = c(3,4))
 resolve(query=c("Helianthus annuus", "Homo sapiens"), db=c('iplant','gnr'))
