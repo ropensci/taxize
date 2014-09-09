@@ -47,6 +47,12 @@ Scott Chamberlain \email{myrmecocystus@gmail.com}
 Eduard Szoecs \email{eduardszoecs@gmail.com}
 
 Carl Boettiger \email{cboettig@gmail.com}
+
+Karthik Ram \email{karthik@ropensci.org}
+
+Ignasi Bartomeus \email{nacho.bartomeus@gmail.com}
+
+John Baumgartner \email{johnbb@student.unimelb.edu.au}
 }
 \keyword{package}
 

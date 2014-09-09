@@ -40,6 +40,10 @@
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @author Eduard Szoecs \email{eduardszoecs@@gmail.com}
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
+#' @author Karthik Ram \email{karthik@@ropensci.org}
+#' @author Ignasi Bartomeus \email{nacho.bartomeus@@gmail.com}
+#' @author John Baumgartner \email{johnbb@@student.unimelb.edu.au}
+
 #' @keywords package
 NULL
 
