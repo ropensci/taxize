@@ -66,7 +66,7 @@ It's possible to return JSON or XML with the EOL API. However,
 }
 \examples{
 \dontrun{
-pageid <- eol_search('Pomatomus')$pageid[1]
+(pageid <- eol_search('Pomatomus')$pageid[1])
 (out <- eol_pages(taxonconceptID=pageid)$scinames)
 }
 }

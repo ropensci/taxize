@@ -55,7 +55,7 @@ sci2comm.default <- function(scinames, db='eol', simplify=TRUE, ...)
         out <- NA
     }
     if(simplify){
-      if(is.na(out)) out else as.character(out$comname)
+      if(!is(out, "data.frame")) out else as.character(out$comname)
     } else{ out }
   }
 

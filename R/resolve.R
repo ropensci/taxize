@@ -5,6 +5,7 @@
 #' 
 #' @import stringr data.table
 #' @export
+#' 
 #' @param query Vector of one or more names.
 #' @param db Source to check names against. One of iplant, tnrs, or gnr
 #' @param callopts Curl options passed on to httr::GET

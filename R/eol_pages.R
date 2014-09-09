@@ -33,7 +33,7 @@
 #' 		this function only returns JSON for now. 
 #' @return JSON list object, or data.frame.
 #' @examples \dontrun{
-#' pageid <- eol_search('Pomatomus')$pageid[1]
+#' (pageid <- eol_search('Pomatomus')$pageid[1])
 #' (out <- eol_pages(taxonconceptID=pageid)$scinames)
 #' }
 
