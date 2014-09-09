@@ -6,15 +6,13 @@
 taxize vignette - a taxonomic toolbelt for R
 ======
 
-### About the package
-
 `taxize` is a taxonomic toolbelt for R. `taxize` wraps APIs for a large suite of taxonomic databases availab on the web.
 
 ********************
 
-### Quick start
+## Quick start
 
-#### First, install `taxize`
+### Installation
 
 First, install and load `taxize` into the R session.
 
@@ -30,7 +28,7 @@ library("taxize")
 
 Advanced users can also download and install the latest development copy from [GitHub](https://github.com/ropensci/taxize_).
 
-#### Resolve taxonomic name
+### Resolve taxonomic name
 
 This is a common task in biology. We often have a list of species names and we want to know a) if we have the most up to date names, b) if our names are spelled correctly, and c) the scientific name for a common name. One way to resolve names is via the Global Names Resolver (GNR) service provided by the [Encyclopedia of Life][eol]. Here, we are searching for two misspelled names:
 
@@ -59,19 +57,19 @@ tnrs(query = mynames, source = "iPlant_TNRS")[ , -c(5:7)]
 ```
 
 ```
-## Calling http://taxosaurus.org/retrieve/6b03dbb72a01e0ac7a304ebcef185efa
+## Calling http://taxosaurus.org/retrieve/6eab928cd77b52fe47160d6942a5aae4
 ```
 
 ```
 ##         submittedname        acceptedname    sourceid score
-## 7   Helianthus annuus   Helianthus annuus iPlant_TNRS     1
+## 1 Sorbus occidentalos Sorbus occidentalis iPlant_TNRS  0.99
+## 2  Festuca arundinace Festuca arundinacea iPlant_TNRS  0.99
+## 3      Abis magnifica     Abies magnifica iPlant_TNRS  0.96
 ## 4       Pinus contort      Pinus contorta iPlant_TNRS  0.98
 ## 5            Poa anua           Poa annua iPlant_TNRS  0.96
-## 3      Abis magnifica     Abies magnifica iPlant_TNRS  0.96
-## 8     Rosa california    Rosa californica iPlant_TNRS  0.99
-## 2  Festuca arundinace Festuca arundinacea iPlant_TNRS  0.99
-## 1 Sorbus occidentalos Sorbus occidentalis iPlant_TNRS  0.99
 ## 6        Madia sateva        Madia sativa iPlant_TNRS  0.97
+## 7   Helianthus annuus   Helianthus annuus iPlant_TNRS     1
+## 8     Rosa california    Rosa californica iPlant_TNRS  0.99
 ```
 
 It turns out there are a few corrections: e.g., *Madia sateva* should be *Madia sativa*, and *Rosa california* should be *Rosa californica*. Note that this search worked because fuzzy matching was employed to retrieve names that were close, but not exact matches. Fuzzy matching is only available for plants in the TNRS service, so we advise using EOL's Global Names Resolver if you need to resolve animal names.
@@ -110,7 +108,7 @@ ldply(tsn, itis_acceptname)
 3       525930 Helianthus annuus       36616
 ```
 
-#### Retrieve higher taxonomic names
+### Retrieve higher taxonomic names
 
 Another task biologists often face is getting higher taxonomic names for a taxa list. Having the higher taxonomy allows you to put into context the relationships of your species list. For example, you may find out that species A and species B are in Family C, which may lead to some interesting insight, as opposed to not knowing that Species A and B are closely related. This also makes it easy to aggregate/standardize data to a specific taxonomic level (e.g., family level) or to match data to other databases with different taxonomic resolution (e.g., trait databases).
 
@@ -269,7 +267,7 @@ get_tsn(searchterm = splist, searchtype = "scientific")
 ## [1] "tsn"
 ```
 
-#### What taxa are the children of my taxon of interest?
+### What taxa are the children of my taxon of interest?
 
 If someone is not a taxonomic specialist on a particular taxon he likely does not know what children taxa are within a family, or within a genus. This task becomes especially unwieldy when there are a large number of taxa downstream. You can of course go to a website like [Wikispecies][wikispecies] or [Encyclopedia of Life][eol] to get downstream names. However, taxize provides an easy way to programatically search for downstream taxa, both for the [Catalogue of Life (CoL)][col] and the [Integrated Taxonomic Information System][itis]. Here is a short example using the CoL in which we want to find all the species within the genus *Apis* (honey bees).
 
@@ -296,7 +294,7 @@ col_downstream(name = "Apis", downto = "Species")
 
 The result from the above call to `col_downstream()` is a data.frame that gives a number of columns of different information.
 
-#### Matching species tables with different taxonomic resolution
+### Matching species tables with different taxonomic resolution
 
 Biologist often need to match different sets of data tied to species. For example, trait-based approaches are a promising tool in ecology. One problem is that abundance data must be matched with trait databases. These two data tables may contain species information on different taxonomic levels and possibly data must be aggregated to a joint taxonomic level, so that the data can be merged. taxize can help in this data-cleaning step, providing a reproducible workflow:
 
