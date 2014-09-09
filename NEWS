@@ -3,18 +3,27 @@ taxize 0.4.0
 
 NEW FEATURES
 
-* adfaf
-* adfaf
+* New data sources added to taxize: BOLD (Biodiversity of Life Database). Three more data sources were added (World Register of Marine Species (WoRMS), Pan-European Species directories Infrastructure (PESI), and Mycobank), but are not available on CRAN. Those three data sources provide data via SOAP web services protocol, which is hard to support in R. Thus, those sources are available on Github. See https://github.com/ropensci/taxize#version-with-soap-data-sources
+* New function `children()`, which is a single interface to various data sources to get immediate children from a given taxonomic name. (#304)
+* New functions added to search BOLD data" `bold_search()` that searches for taxa in the BOLD database of barcode data; `get_boldid()` to search for a BOLD taxon identifier. (#301)
+* New function `get_ubioid()` to get a uBio taxon identifier. (#318)
+* New function started (not complete yet) to get suggested citations for the various data sources available in `taxize`: `taxize_cite()`. (#270)
 
 MINOR IMPROVEMENTS
 
-* adfaf
-* adfaf
+* Using `jsonlite` instead of `RJSONIO` throughout the `taxize`.
+* `get_ids()` gains new option to search for a uBio ID, in addition to the others, itis, ncbi, eol, col, tropicos, and gbif.
+* Fixed documentation for `stripauthority` parameter `gnr_resolve()`. (#325)
+* `iplant_resolve()` now outputs data.frame structure instead of a list. (#306)
+* Clarified parameter `seqrange` in `ncbi_getbyname()` and `ncbi_search()` (#328)
+* `synonyms()` gains new data source, can now get synonyms from uBio data source (#319)
 
 BUG FIXES
 
-* adfaf
-* adfaf
+* Added error catching for when URI is too long, i.e., when too many names provided (#329) (#330)
+* Various fixes to `tnrs()` function, including more meaningful error messages on failures (#323) (#331)
+* Fixed bug in `getpublicationsfromtsn()` that caused function to fail on data.frame's with no data on name assignment (#297)
+* Fixed bug in `sci2comm()` that caused fxn to fail when using `db=itis` sometimes (#293)
 
 taxize 0.3.0
 ===============
