@@ -13,3 +13,4 @@ vignettes/margins.sty
 vignettes/cache/
 tests/test-all.R
 ^appveyor\.yml$
+cran-comments.md
