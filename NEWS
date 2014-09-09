@@ -17,6 +17,7 @@ MINOR IMPROVEMENTS
 * `iplant_resolve()` now outputs data.frame structure instead of a list. (#306)
 * Clarified parameter `seqrange` in `ncbi_getbyname()` and `ncbi_search()` (#328)
 * `synonyms()` gains new data source, can now get synonyms from uBio data source (#319)
+* `vascan_search()` giving back more useful results now.
 
 BUG FIXES
 
