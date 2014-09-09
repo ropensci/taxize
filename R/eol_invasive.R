@@ -17,8 +17,7 @@
 #'    console.
 #' @param count (logical) If TRUE, give back a count of number of taxa listed as invasive, if 
 #'    FALSE (default), the normal output is given.
-#' @param cache (logical) If TRUE (default), cache the dataset the first time, then subsequent 
-#'    calls to the same dataset are pulled from your local file system.
+#'    
 #' @details 
 #' IMPORTANT: When you get a returned NaN for a taxon, that means it's not on the invasive list 
 #' in question. If the taxon is found, a taxon identifier is returned.
@@ -81,7 +80,7 @@
 #' }
 
 eol_invasive <- function(name = NULL, dataset="all", searchby = grep, page=NULL,
-  per_page=NULL, key = NULL, callopts=list(), verbose=TRUE, count=FALSE, cache=FALSE)
+  per_page=NULL, key = NULL, callopts=list(), verbose=TRUE, count=FALSE)
 {
   if(is.null(name)) stop("please provide a taxonomic name")
   if(is.null(dataset)) stop("please provide a dataset name")
@@ -95,27 +94,10 @@ eol_invasive <- function(name = NULL, dataset="all", searchby = grep, page=NULL,
            mineps = 55331)
   url = 'http://eol.org/api/collections/1.0.json'
   key <- getkey(key, "eolApiKey")
-  
-#   
-#   cache_set <- function(x, y){
-#     tf <- tempfile(fileext = ".rds")
-#     nn <- sprintf("TAXIZE_EOL_INVASIVE_%s", toupper(y))
-#     Sys.setenv(nn = tf)
-#     saveRDS(x, tf)
-#   }
-#   
-#   cache_get <- function(x){
-#     
-#   }
-# 
-  if(cache){
-    stop("not done yet", call. = FALSE)
-  } else {
-    args <- taxize_compact(list(id=datasetid,page=page,per_page=500,filter='taxa'))
-    tt <- getForm(url, .params = args, .opts = callopts)
-    res <- jsonlite::fromJSON(tt, FALSE)
-  }
-#   
+
+  args <- taxize_compact(list(id=datasetid,page=page,per_page=500,filter='taxa'))
+  tt <- getForm(url, .params = args, .opts = callopts)
+  res <- jsonlite::fromJSON(tt, FALSE)
   data_init <- res$collection_items
   mssg(verbose, sprintf("Getting data for %s names...", res$total_items))
 
