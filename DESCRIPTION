@@ -23,7 +23,6 @@ Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "johnbb@student.unimelb.edu.au"))
 LazyLoad: yes
 LazyData: yes
-Additional_repositories: http://www.omegahat.org/R
 VignetteBuilder: knitr
 Roxygen: list(wrap = FALSE)
 Depends:
