@@ -6,6 +6,8 @@
 #' that function called tpl_search.
 #' 
 #' @import RCurl plyr XML
+#' @export
+#' 
 #' @param dir_ Directory to write csv files to.
 #' @param family If you want just one, or >1 family, but not all, list them in 
 #' a vector.
@@ -28,7 +30,7 @@
 #' # Get all families
 #' tpl_get(dir_ = "~/foo")
 #' }
-#' @export
+
 tpl_get <- function(dir_, family = NULL)
 {
   temp <- getURL('http://www.theplantlist.org/browse/-/')

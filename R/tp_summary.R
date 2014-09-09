@@ -1,7 +1,8 @@
 #' Return summary data a taxon name with a given id.
 #'
-#' @export
 #' @import httr jsonlite
+#' @export
+#' 
 #' @param id the taxon identifier code
 #' @param key Your Tropicos API key; loads from .Rprofile.
 #' @param callopts Curl options.

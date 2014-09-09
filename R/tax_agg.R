@@ -41,8 +41,7 @@
 #' colnames(dune) <- species
 #' 
 #' # aggregate sample to families
-#' agg <- tax_agg(dune, rank = 'family', db = 'ncbi')
-#' agg
+#' (agg <- tax_agg(dune, rank = 'family', db = 'ncbi'))
 #' 
 #' # extract aggregated community data matrix for further usage
 #' agg$x

@@ -1,6 +1,8 @@
 #' Get The Plant List families.
 #' 
 #' @import RCurl XML
+#' @export
+#' 
 #' @details Requires an internet connection in order to connect to www.theplantlist.org.
 #' @return Returns a \code{data.frame} including the names of all families indexed 
 #' by The Plant List, and the major groups into which they fall (i.e. Angiosperms, 
@@ -11,7 +13,6 @@
 #' # Get a data.frame of plant families, with the group name (Angiosperms, etc.)
 #' head( tpl_families() )
 #' }
-#' @export
 
 tpl_families <- function()
 {

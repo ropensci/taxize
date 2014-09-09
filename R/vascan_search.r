@@ -45,7 +45,7 @@ vascan_search <- function(q, format='json', raw=FALSE, callopts=list())
   } else
   {
     args <- paste(q, collapse='\n')
-    tt <- POST(url, body=list(q=args), multipart=FALSE)
+    tt <- POST(url, body=list(q=args), encode='form')
     stop_for_status(tt)
     out <- content(tt, as="text")
   }

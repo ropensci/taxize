@@ -1,11 +1,12 @@
 #' Return all synonyms for a taxon name with a given id.
 #'
 #' @import XML RCurl jsonlite plyr
+#' @export
+#' 
 #' @param id the taxon identifier code
 #' @param key Your Tropicos API key; loads from .Rprofile.
 #' @param callopts Further args passed on to httr::GET
 #' @return List or dataframe.
-#' @export
 #' @examples \dontrun{
 #' tp_synonyms(id = 25509881)
 #' }

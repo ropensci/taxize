@@ -2,6 +2,8 @@
 #' particular ClassificationBankID
 #' 
 #' @import httr XML RCurl
+#' @export
+#' 
 #' @param hierarchiesID (string) - ClassificationBank identifier for the record you 
 #'    wish to receive
 #' @param childrenFlag (0 or 1) to include the taxon's children taxa
@@ -18,7 +20,7 @@
 #' ubio_classification(hierarchiesID = 2483153, childrenFlag=1)
 #' ubio_classification(hierarchiesID = 2483153, ancestryFlag=1)
 #' }
-#' @export
+
 ubio_classification <- function(hierarchiesID = NULL, childrenFlag = 0, 
   ancestryFlag = 0, justificationsFlag = 0, synonymsFlag = 0,
   keyCode = NULL, callopts=list())

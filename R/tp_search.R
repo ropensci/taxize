@@ -1,6 +1,8 @@
 #' Search Tropicos by scientific name, common name, or Tropicos ID.
 #' 
 #' @import httr plyr
+#' @export
+#' 
 #' @param name Your search string. For instance "poa annua"
 #' @param commonname Your search string. For instance "annual blue grass"
 #' @param nameid Your search string. For instance "25509881"
@@ -14,7 +16,6 @@
 #' @param callopts Further args passed on to httr::GET
 #' @return List or dataframe.
 #' @references \url{http://services.tropicos.org/help?method=SearchNameXml}
-#' @export
 #' @examples \dontrun{
 #' tp_search(name = 'Poa annua')
 #' }

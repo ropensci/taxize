@@ -24,6 +24,8 @@ BUG FIXES
 * Various fixes to `tnrs()` function, including more meaningful error messages on failures (#323) (#331)
 * Fixed bug in `getpublicationsfromtsn()` that caused function to fail on data.frame's with no data on name assignment (#297)
 * Fixed bug in `sci2comm()` that caused fxn to fail when using `db=itis` sometimes (#293)
+* Fixes to `scrapenames()`. Sending a text blob via the `text` parameter now works.
+* Fixes to `resolve()` so that function now works for all 3 data sources. (#337)
 
 taxize 0.3.0
 ===============
