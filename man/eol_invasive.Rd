@@ -4,12 +4,13 @@
 \title{Search for presence of taxonomic names in EOL invasive species databases.}
 \usage{
 eol_invasive(name = NULL, dataset = "all", searchby = grep, page = NULL,
-  per_page = NULL, key = NULL, callopts = list(), verbose = TRUE)
+  per_page = NULL, key = NULL, callopts = list(), verbose = TRUE,
+  count = FALSE)
 }
 \arguments{
 \item{name}{A taxonomic name, or a vector of names.}
 
-\item{dataset}{One of all, gisd100, gisd, gris, isc, daisie, i3n, or mineps.
+\item{dataset}{One of all, gisd100, gisd, isc, daisie, i3n, or mineps.
 See the Details for what each dataset ID.}
 
 \item{searchby}{One of 'grep' (exact match) or 'agrep' (fuzzy match)}
@@ -23,8 +24,11 @@ you to fetch more pages of results if there are more than 30 matches (Default 1)
 
 \item{callopts}{Further args passed on to GET.}
 
-\item{verbose}{logical; If TRUE the actual taxon queried is printed on the
+\item{verbose}{(logical) If TRUE the actual taxon queried is printed on the
 console.}
+
+\item{count}{(logical) If TRUE, give back a count of number of taxa listed as invasive, if
+   FALSE (default), the normal output is given.}
 }
 \value{
 A list of data.frame's/strings with results, with each element named by
@@ -52,8 +56,6 @@ Options for the dataset parameter are
  \item gisd100 - 100 of the World's Worst Invasive Alien Species
  (Global Invasive Species Database) \url{http://eol.org/collections/54500}
  \item gisd - Global Invasive Species Database 2013 \url{http://eol.org/collections/54983}
- \item gris - Global Register of Invasive Species (GRIS) Taxa
- \url{http://eol.org/collections/55288}
  \item isc - Centre for Agriculture and Biosciences International Invasive Species
  Compendium (ISC) \url{http://eol.org/collections/55180}
  \item daisie - Delivering Alien Invasive Species Inventories for Europe (DAISIE) Species
@@ -69,7 +71,6 @@ Datasets are not updated that often. Here's last updated dates for some of the d
 \itemize{
  \item gisd100 updated 6 mos ago
  \item gisd  updated 1 yr ago
- \item gris updated 3 mos ago
  \item isc updated 1 yr ago
  \item daisie updated 1 yr ago
  \item i3n updated 1 yr ago
@@ -79,15 +80,19 @@ Datasets are not updated that often. Here's last updated dates for some of the d
 \examples{
 \dontrun{
 eol_invasive(name='Brassica oleracea', dataset='gisd')
+eol_invasive(name=c('Lymantria dispar','Cygnus olor','Hydrilla verticillata','Pinus concolor'),
+   dataset='gisd')
 eol_invasive(name='Sargassum', dataset='gisd')
 eol_invasive(name='Ciona intestinalis', dataset='mineps')
-eol_invasive(name='Rhinella marina', dataset='gris')
-eol_invasive(name=c('Rhinella marina','Sturnus vulgaris','Cygnus olor','Pinus concolor'),
-             dataset='gris')
 eol_invasive(name=c('Lymantria dispar','Cygnus olor','Hydrilla verticillata','Pinus concolor'),
-             dataset='i3n')
-eol_invasive(name=c('Branta canadensis','Gallus gallus','Myiopsitta monachus'), dataset='daisie')
+   dataset='i3n')
+eol_invasive(name=c('Branta canadensis','Gallus gallus','Myiopsitta monachus'),
+   dataset='daisie')
 eol_invasive(name=c('Branta canadensis','Gallus gallus','Myiopsitta monachus'), dataset='isc')
+
+# Count
+eol_invasive(name=c('Lymantria dispar','Cygnus olor','Hydrilla verticillata','Pinus concolor'),
+   dataset='gisd', count = TRUE)
 }
 }
 \references{
