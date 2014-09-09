@@ -31,7 +31,7 @@ you like.
 There is a timeout of 1/3 seconds between queries to NCBI.
 }
 \examples{
-\dontrun{
+\donttest{
 # Plug in taxon names directly
 ## By default you get ids for all data sources
 get_ids(names="Chironomus riparius")

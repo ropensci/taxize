@@ -20,7 +20,7 @@ the returned value in here (avoids unnecessary footprint)}
 Get hierarchy down from tsn
 }
 \examples{
-\dontrun{
+\donttest{
 gethierarchydownfromtsn(tsn = 161030)
 }
 }

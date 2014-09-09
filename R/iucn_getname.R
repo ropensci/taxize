@@ -5,7 +5,7 @@
 #' @param ... Further arguments passed on to \code{link{iucn_summary}}
 #' @seealso \code{\link{iucn_summary}} \code{\link{iucn_status}}
 #' @export
-#' @examples \dontrun{
+#' @examples \donttest{
 #' iucn_getname(name = "Cyanistes caeruleus")
 #' }
 iucn_getname <- function(name, verbose = TRUE, ...)

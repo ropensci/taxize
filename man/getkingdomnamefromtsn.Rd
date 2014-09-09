@@ -20,7 +20,7 @@ the returned value in here (avoids unnecessary footprint)}
 Get kingdom names from tsn
 }
 \examples{
-\dontrun{
+\donttest{
 getkingdomnamefromtsn(tsn = 202385)
 }
 }

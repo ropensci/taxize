@@ -16,7 +16,7 @@
 #' @details Use the web interface here http://phylodiversity.net/phylomatic/
 #' @return Newick formatted tree, or nexml xml object.
 #' @noRd
-#' @examples \dontrun{ 
+#' @examples \donttest{ 
 #' # Input taxonomic names
 #' taxa <- c("Collomia grandiflora", "Lilium lankongense", "Helianthus annuus")
 #' tree <- phylomatic_tree2(taxa=taxa, get = 'POST', informat='newick', 

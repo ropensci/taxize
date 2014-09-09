@@ -8,7 +8,7 @@
 #'    one, obtain one at http://www.ubio.org/index.php?pagename=form.
 #' @param callopts Parameters passed on to httr::GET call.
 #' @return A data.frame.
-#' @examples \dontrun{
+#' @examples \donttest{
 #' ubio_synonyms(hierarchiesID = 4091702)
 #' ubio_synonyms(hierarchiesID = 2483153)
 #' ubio_synonyms(hierarchiesID = 2465599)

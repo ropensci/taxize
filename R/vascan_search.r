@@ -15,7 +15,7 @@
 #' @references API docs \url{http://data.canadensys.net/vascan/api}. You can also
 #' download bulk data \url{http://data.canadensys.net/ipt/resource.do?r=vascan&request_locale=en}
 #' @keywords names taxonomy
-#' @examples \dontrun{
+#' @examples \donttest{
 #' vascan_search(q = "Helianthus annuus")
 #' vascan_search(q = "Helianthus annuus", raw=TRUE)
 #' vascan_search(q = c("Helianthus annuus", "Crataegus dodgei"), raw=TRUE)

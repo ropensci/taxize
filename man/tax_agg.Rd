@@ -36,7 +36,7 @@ If a taxon is not found in the database (ITIS or NCBI) or the supplied taxon
 is on higher taxonomic level this taxon is not aggregated.
 }
 \examples{
-\dontrun{
+\donttest{
 # use dune dataset
 data(dune, package='vegan')
 species <- c("Bellis perennis", "Empetrum nigrum", "Juncus bufonius",

@@ -18,7 +18,7 @@ the returned value in here (avoids unnecessary footprint)}
 Get core metadata from tsn
 }
 \examples{
-\dontrun{
+\donttest{
 getcoremetadatafromtsn(tsn = 28727)  # coverage and currrency data
 getcoremetadatafromtsn(tsn = 183671)  # no coverage or currrency data
 }

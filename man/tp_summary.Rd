@@ -19,7 +19,7 @@ List or dataframe.
 Return summary data a taxon name with a given id.
 }
 \examples{
-\dontrun{
+\donttest{
 tp_summary(id = 25509881)
 tp_summary(id = 2700851)
 }

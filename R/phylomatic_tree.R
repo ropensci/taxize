@@ -21,7 +21,7 @@
 #' @param verbose Print messages (default: TRUE).
 #' @details Use the web interface here http://phylodiversity.net/phylomatic/
 #' @return Newick formatted tree or nexml text.
-#' @examples \dontrun{ 
+#' @examples \donttest{ 
 #' # Input taxonomic names
 #' taxa <- c("Poa annua", "Phlox diffusa", "Helianthus annuus")
 #' tree <- phylomatic_tree(taxa=taxa, get = 'POST')

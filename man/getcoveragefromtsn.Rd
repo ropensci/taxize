@@ -17,7 +17,7 @@ the returned value in here (avoids unnecessary footprint)}
 Get coverge from tsn
 }
 \examples{
-\dontrun{
+\donttest{
 getcoveragefromtsn(tsn = 28727)  # coverage data
 getcoveragefromtsn(tsn = 526852)  # no coverage data
 }

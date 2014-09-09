@@ -5,7 +5,7 @@
 #' @details You can print informative messages by setting supmess=FALSE.
 #' @return Names or TSNs of all downstream taxa.
 #' @export
-#' @examples \dontrun{
+#' @examples \donttest{
 #' itis_acceptname('208527')  # TSN accepted - good name
 #' itis_acceptname('504239')  # TSN not accepted - input TSN is old
 #' }

@@ -28,7 +28,7 @@
 #' @export
 #' @rdname col_classification-deprecated
 #' @keywords internal
-#' @examples \dontrun{
+#' @examples \donttest{
 #' # A basic example
 #' col_classification(name="Apis")
 #'
@@ -104,7 +104,7 @@ col_classification <- function(name=NULL, id=NULL, format=NULL, start=NULL, chec
 #' @export
 #' @rdname eol_hierarchy-deprecated
 #' @keywords internal
-#' @examples \dontrun{
+#' @examples \donttest{
 #' # Using get_eolid
 #' eol_hierarchy(get_eolid(sciname='Poa annua'))
 #' }
@@ -146,7 +146,7 @@ eol_hierarchy <- function(taxonid, common_names = NULL, synonyms = NULL,
 #' @export
 #' @rdname tp_classification-deprecated
 #' @keywords internal
-#' @examples \dontrun{
+#' @examples \donttest{
 #' tp_classification(id = 25509881)
 #' tp_classification(id = c(25509881,2700851))
 #' tp_classification(id = c(25509881,2700851), callopts=verbose())

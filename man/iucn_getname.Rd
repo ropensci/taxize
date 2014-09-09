@@ -16,7 +16,7 @@ iucn_getname(name, verbose = TRUE, ...)
 Get any matching IUCN species names
 }
 \examples{
-\dontrun{
+\donttest{
 iucn_getname(name = "Cyanistes caeruleus")
 }
 }

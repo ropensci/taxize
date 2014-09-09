@@ -14,7 +14,7 @@
 #' \code{db="gnr"}. There is one exception - the \code{callopts} parameter is shared among all 
 #' data sources, so if you pass that parameter it will influence each data source. 
 #' @return A list with length equal to length of the db parameter (number of sources requested.)
-#' @examples \dontrun{
+#' @examples \donttest{
 #' resolve(query=c("Helianthus annuus", "Homo sapiens"))
 #' resolve(query=c("Helianthus annuus", "Homo sapiens"), db='tnrs', source="iPlant_TNRS")
 #' resolve(query="Quercus keloggii", db='gnr')

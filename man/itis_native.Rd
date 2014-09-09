@@ -16,7 +16,7 @@ itis_native(tsn = NULL, what = "bytsn", ...)
 Get jurisdiction data, i.e., native or not native in a region.
 }
 \examples{
-\dontrun{
+\donttest{
 # Get values
 itis_native(what="values")
 

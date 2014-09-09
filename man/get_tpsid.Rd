@@ -26,7 +26,7 @@ If more than one ID is found the function asks for user input.
 Get the NameID codes from Tropicos for taxonomic names.
 }
 \examples{
-\dontrun{
+\donttest{
 get_tpsid(sciname='Poa annua')
 get_tpsid(sciname='Pinus contorta')
 

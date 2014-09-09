@@ -20,7 +20,7 @@
 #' You get an NA if there was no match in the database.
 #' 
 #' @export
-#' @examples \dontrun{
+#' @examples \donttest{
 #' # Plug in taxon names
 #' downstream("Insecta", db = 'col', downto = 'Order')
 #' downstream("Apis", db = 'col', downto = 'Species')

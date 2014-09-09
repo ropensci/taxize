@@ -21,7 +21,7 @@ one for vernacular names, and one for citations.
 Search uBio by namebank ID.
 }
 \examples{
-\dontrun{
+\donttest{
 ubio_id(namebankID = 2483153)
 ubio_id(namebankID = 105509)
 ubio_id(namebankID = 2843601)

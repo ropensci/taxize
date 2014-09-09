@@ -17,7 +17,7 @@ the returned value in here (avoids unnecessary footprint)}
 Returns the parent TSN for the entered TSN.
 }
 \examples{
-\dontrun{
+\donttest{
 getparenttsnfromtsn(tsn = 202385)
 }
 }

@@ -4,7 +4,7 @@
 #' @return XML object message about API status.
 #' @export
 #' @seealso \code{\link{itis_ping}}
-#' @examples \dontrun{
+#' @examples \donttest{
 #' eol_ping()
 #' }
 eol_ping <- function()

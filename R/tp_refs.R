@@ -7,7 +7,7 @@
 #' @param key Your Tropicos API key; loads from .Rprofile.
 #' @param callopts Curl options.
 #' @return List or dataframe.
-#' @examples \dontrun{
+#' @examples \donttest{
 #' tp_refs(id = 25509881)
 #' }
 tp_refs <- function(id, key = NULL, callopts=list())

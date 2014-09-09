@@ -43,7 +43,7 @@ or col for getting taxa at a specific taxonomic rank, so we do it ourselves insi
 the function.
 }
 \examples{
-\dontrun{
+\donttest{
 # Plug in taxon names
 downstream("Insecta", db = 'col', downto = 'Order')
 downstream("Apis", db = 'col', downto = 'Species')

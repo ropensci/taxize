@@ -18,7 +18,7 @@ the returned value in here (avoids unnecessary footprint)}
 Get itis terms from scientific names
 }
 \examples{
-\dontrun{
+\donttest{
 getitistermsfromscientificname(srchkey = "ursidae")
 getitistermsfromscientificname(srchkey = "Ursus")
 }

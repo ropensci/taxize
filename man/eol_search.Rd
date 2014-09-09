@@ -43,7 +43,7 @@ It's possible to return JSON or XML with the EOL API. However,
 		this function only returns JSON for now.
 }
 \examples{
-\dontrun{
+\donttest{
 eol_search(terms='Homo')
 eol_search(terms='Salix')
 eol_search(terms='Ursus americanus luteolus')

@@ -29,7 +29,7 @@
 #' @seealso \code{\link[taxize]{gnr_datasources}}
 #' @export
 #' @keywords resolve names taxonomy
-#' @examples \dontrun{
+#' @examples \donttest{
 #' gnr_resolve(names = c("Helianthus annuus", "Homo sapiens"))
 #' gnr_resolve(names = c("Asteraceae", "Plantae"))
 #'

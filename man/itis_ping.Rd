@@ -9,7 +9,7 @@ itis_ping()
 And provides number of scientific and common names in a string.
 }
 \examples{
-\dontrun{
+\donttest{
 itis_ping()
 }
 }

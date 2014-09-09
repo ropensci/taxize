@@ -20,7 +20,7 @@
 #' @export
 #' @author Eduard Szoecs, \email{eduardszoecs@@gmail.com}
 #' 
-#' @examples \dontrun{
+#' @examples \donttest{
 #' get_uid(c("Chironomus riparius", "Chaetopteryx"))
 #' get_uid(c("Chironomus riparius", "aaa vva"))
 #' 

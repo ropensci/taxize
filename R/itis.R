@@ -2,7 +2,7 @@
 #' 
 #' @inheritParams getcommentdetailfromtsn
 #' @param verbose Verbosity or not (default TRUE)
-#' @examples \dontrun{
+#' @examples \donttest{
 #' # TSN accepted - good name
 #' getacceptednamesfromtsn('208527')
 #' 
@@ -40,7 +40,7 @@ getacceptednamesfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHan
 #' @param curl If using in a loop, call getCurlHandle() first and pass 
 #'  the returned value in here (avoids unnecessary footprint)
 #' @return An integer containing the number of matches the search will return.
-#' @examples \dontrun{
+#' @examples \donttest{
 #' getanymatchcount(202385)
 #' getanymatchcount("dolphin")
 #' }
@@ -65,7 +65,7 @@ getanymatchcount <- function(srchkey = NA, curlopts=list(), curl = getCurlHandle
 #' @param curl If using in a loop, call getCurlHandle() first and pass 
 #'  the returned value in here (avoids unnecessary footprint)
 #' @return A data.frame with results.
-#' @examples \dontrun{
+#' @examples \donttest{
 #' getcommentdetailfromtsn(180543)
 #' }
 #' @export
@@ -96,7 +96,7 @@ getcommentdetailfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHan
 #' Get common names from tsn
 #' 
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \dontrun{
+#' @examples \donttest{
 #' getcommonnamesfromtsn(183833)
 #' }
 #' @export
@@ -124,7 +124,7 @@ getcommonnamesfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandl
 #' Get core metadata from tsn
 #' 
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \dontrun{
+#' @examples \donttest{
 #' getcoremetadatafromtsn(tsn = 28727)  # coverage and currrency data
 #' getcoremetadatafromtsn(tsn = 183671)  # no coverage or currrency data
 #' }
@@ -152,7 +152,7 @@ getcoremetadatafromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHand
 #' Get coverge from tsn
 #' 
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \dontrun{
+#' @examples \donttest{
 #' getcoveragefromtsn(tsn = 28727)  # coverage data
 #' getcoveragefromtsn(tsn = 526852)  # no coverage data
 #' }
@@ -180,7 +180,7 @@ getcoveragefromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle()
 #' Get credibility rating from tsn
 #' 
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \dontrun{
+#' @examples \donttest{
 #' getcredibilityratingfromtsn(tsn = 526852)
 #' }
 #' @export
@@ -205,7 +205,7 @@ getcredibilityratingfromtsn <- function(tsn = NA, curlopts=list(), curl = getCur
 #' Get possible credibility ratings
 #' 
 #' @import RCurl XML
-#' @examples \dontrun{
+#' @examples \donttest{
 #' getcredibilityratings()
 #' }
 #' @export
@@ -225,7 +225,7 @@ getcredibilityratings <- function()
 #' Get currency from tsn
 #' 
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \dontrun{
+#' @examples \donttest{
 #' getcurrencyfromtsn(tsn = 28727) # currency data
 #' getcurrencyfromtsn(tsn = 526852) # no currency dat
 #' }
@@ -253,7 +253,7 @@ getcurrencyfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle()
 #' Get date data from tsn
 #' 
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \dontrun{
+#' @examples \donttest{
 #' getdatedatafromtsn(tsn = 180543)
 #' }
 #' @export
@@ -280,7 +280,7 @@ getdatedatafromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle()
 #' Get description of the ITIS service
 #' 
 #' @import RCurl XML
-#' @examples \dontrun{
+#' @examples \donttest{
 #' getdescription()
 #' }
 #' @export
@@ -296,7 +296,7 @@ getdescription <- function()
 #' Get expert information for the TSN.
 #' 
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \dontrun{
+#' @examples \donttest{
 #' getexpertsfromtsn(tsn = 180544)
 #' }
 #' @export
@@ -327,7 +327,7 @@ getexpertsfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle() 
 #' @param curl If using in a loop, call getCurlHandle() first and pass 
 #'  the returned value in here (avoids unnecessary footprint)
 #' @param verbose (logical) Print messages or not. Default to TRUE.
-#' @examples \dontrun{
+#' @examples \donttest{
 #' getfullhierarchyfromtsn(tsn = 37906)
 #' getfullhierarchyfromtsn(tsn = 100800)
 #' }
@@ -371,7 +371,7 @@ getfullhierarchyfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHan
 #' @param curl If using in a loop, call getCurlHandle() first and pass 
 #'  the returned value in here (avoids unnecessary footprint) 
 #' @param verbose Verbosity or not (default TRUE)
-#' @examples \dontrun{
+#' @examples \donttest{
 #' getfullrecordfromlsid(lsid = "urn:lsid:itis.gov:itis_tsn:180543")
 #' getfullrecordfromlsid(lsid = "urn:lsid:itis.gov:itis_tsn:180543", verbose=FALSE)
 #' }
@@ -405,7 +405,7 @@ getfullrecordfromlsid <- function(lsid = NA, curlopts=list(), curl = getCurlHand
 #' 
 #' @inheritParams getcommentdetailfromtsn
 #' @param verbose Verbosity or not (default TRUE)
-#' @examples \dontrun{
+#' @examples \donttest{
 #' getfullrecordfromtsn(tsn = 504239)
 #' getfullrecordfromtsn(tsn = 202385)
 #' getfullrecordfromtsn(tsn = 183833)
@@ -440,7 +440,7 @@ getfullrecordfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle
 #' Get geographic divisions from tsn
 #' 
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \dontrun{
+#' @examples \donttest{
 #' getgeographicdivisionsfromtsn(tsn = 180543)
 #' }
 #' @export
@@ -467,7 +467,7 @@ getgeographicdivisionsfromtsn <- function(tsn = NA, curlopts=list(), curl=getCur
 #' Get all possible geographic values
 #' 
 #' @import RCurl XML
-#' @examples \dontrun{
+#' @examples \donttest{
 #' getgeographicvalues()
 #' }
 #' @export
@@ -487,7 +487,7 @@ getgeographicvalues <- function()
 #' Get global species completeness from tsn
 #' 
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \dontrun{
+#' @examples \donttest{
 #' getglobalspeciescompletenessfromtsn(tsn = 180541)
 #' }
 #' @export
@@ -516,7 +516,7 @@ getglobalspeciescompletenessfromtsn <- function(tsn = NA, curlopts=list(),
 #' 
 #' @inheritParams getcommentdetailfromtsn
 #' @param verbose Verbosity or not (default TRUE)
-#' @examples \dontrun{
+#' @examples \donttest{
 #' gethierarchydownfromtsn(tsn = 161030)
 #' }
 #' @export
@@ -552,7 +552,7 @@ gethierarchydownfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHan
 #' 
 #' @inheritParams getcommentdetailfromtsn
 #' @param verbose Verbosity or not (default TRUE)
-#' @examples \dontrun{
+#' @examples \donttest{
 #' gethierarchyupfromtsn(tsn = 36485)
 #' }
 #' @export
@@ -584,7 +584,7 @@ gethierarchyupfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandl
 #' Get itis terms from common names
 #' 
 #' @inheritParams getanymatchcount
-#' @examples \dontrun{
+#' @examples \donttest{
 #' getitistermsfromcommonname("buya")
 #' }
 #' @export
@@ -616,7 +616,7 @@ getitistermsfromcommonname <- function(srchkey = NA, curlopts=list(), curl = get
 #' Get itis terms from common names
 #' 
 #' @inheritParams getanymatchcount
-#' @examples \dontrun{
+#' @examples \donttest{
 #' getitisterms(srchkey="bear")
 #' }
 #' @export
@@ -647,7 +647,7 @@ getitisterms <- function(srchkey = NA, curlopts=list(), curl = getCurlHandle(), 
 #' Get itis terms from scientific names
 #' 
 #' @inheritParams getanymatchcount
-#' @examples \dontrun{
+#' @examples \donttest{
 #' getitistermsfromscientificname(srchkey = "ursidae")
 #' getitistermsfromscientificname(srchkey = "Ursus")
 #' }
@@ -684,7 +684,7 @@ getitistermsfromscientificname <- function(srchkey = NA, curlopts=list(), curl =
 #' 
 #' @inheritParams getcommentdetailfromtsn
 #' @param verbose Verbosity or not (default TRUE)
-#' @examples \dontrun{
+#' @examples \donttest{
 #' getjurisdictionaloriginfromtsn(tsn = 2180543)
 #' }
 #' @export
@@ -717,7 +717,7 @@ getjurisdictionaloriginfromtsn <- function(tsn = NA, curlopts=list(), curl = get
 #' Get jurisdiction origin values
 #' 
 #' @import RCurl XML
-#' @examples \dontrun{
+#' @examples \donttest{
 #' getjurisdictionoriginvalues()
 #' }
 #' @export
@@ -739,7 +739,7 @@ getjurisdictionoriginvalues <- function(verbose=TRUE)
 #' Get possible jurisdiction values
 #' 
 #' @import RCurl XML
-#' @examples \dontrun{
+#' @examples \donttest{
 #' getjurisdictionvalues()
 #' }
 #' @export
@@ -760,7 +760,7 @@ getjurisdictionvalues <- function(verbose=TRUE)
 #' 
 #' @inheritParams getcommentdetailfromtsn
 #' @param verbose Verbosity or not (default TRUE)
-#' @examples \dontrun{
+#' @examples \donttest{
 #' getkingdomnamefromtsn(tsn = 202385)
 #' }
 #' @export
@@ -787,7 +787,7 @@ getkingdomnamefromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandl
 #' Get all possible kingdom names
 #' 
 #' @import RCurl XML
-#' @examples \dontrun{
+#' @examples \donttest{
 #' getkingdomnames()
 #' }
 #' @export
@@ -811,7 +811,7 @@ getkingdomnames <- function()
 #' Provides the date the ITIS database was last updated.
 #' 
 #' @import RCurl XML
-#' @examples \dontrun{
+#' @examples \donttest{
 #' getlastchangedate()
 #' }
 #' @export
@@ -830,7 +830,7 @@ getlastchangedate <- function()
 #' Gets the unique LSID for the TSN, or an empty result if there is no match.
 #' 
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \dontrun{
+#' @examples \donttest{
 #' getlsidfromtsn(tsn = 155166)
 #' }
 #' @export
@@ -852,7 +852,7 @@ getlsidfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle() )
 #' Returns a list of the other sources used for the TSN.
 #' 
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \dontrun{
+#' @examples \donttest{
 #' getothersourcesfromtsn(tsn = 182662)
 #' }
 #' @export
@@ -880,7 +880,7 @@ getothersourcesfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHand
 #' Returns the parent TSN for the entered TSN.
 #' 
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \dontrun{
+#' @examples \donttest{
 #' getparenttsnfromtsn(tsn = 202385)
 #' }
 #' @export
@@ -908,7 +908,7 @@ getparenttsnfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle(
 #' 
 #' @inheritParams getcommentdetailfromtsn
 #' @param verbose Verbosity or not (default TRUE)
-#' @examples \dontrun{
+#' @examples \donttest{
 #' getpublicationsfromtsn(tsn = 70340)
 #' }
 #' @export
@@ -938,7 +938,7 @@ getpublicationsfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHand
 #'  their kingdom and rank ID values.
 #' 
 #' @import RCurl XML
-#' @examples \dontrun{
+#' @examples \donttest{
 #' getranknames()
 #' }
 #' @export
@@ -968,7 +968,7 @@ getranknames <- function()
 #' @param curl If using in a loop, call getCurlHandle() first and pass 
 #'  the returned value in here (avoids unnecessary footprint)
 #' @param verbose (logical) Print messages or not. Default to TRUE.
-#' @examples \dontrun{
+#' @examples \donttest{
 #' getrecordfromlsid(lsid = "urn:lsid:itis.gov:itis_tsn:180543")
 #' }
 #' @export
@@ -999,7 +999,7 @@ getrecordfromlsid <- function(lsid = NA, curlopts=list(), verbose=TRUE)
 #' Returns the review year for the TSN.
 #' 
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \dontrun{
+#' @examples \donttest{
 #' getreviewyearfromtsn(tsn = 180541)
 #' }
 #' @export
@@ -1027,7 +1027,7 @@ getreviewyearfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle
 #'    (names and indicators) of the scientific name.
 #' 
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \dontrun{
+#' @examples \donttest{
 #' getscientificnamefromtsn(tsn = 531894)
 #' }
 #' @export
@@ -1059,7 +1059,7 @@ getscientificnamefromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHa
 #' @param curl If using in a loop, call getCurlHandle() first and pass 
 #'  the returned value in here (avoids unnecessary footprint)
 #' @param verbose (logical) Print messages or not. Default to TRUE.
-#' @examples \dontrun{
+#' @examples \donttest{
 #' getsynonymnamesfromtsn(tsn = 183671) # tsn not accepted
 #' getsynonymnamesfromtsn(tsn = 526852) # tsn accepted
 #' }
@@ -1090,7 +1090,7 @@ getsynonymnamesfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHand
 #' Returns the author information for the TSN.
 #' 
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \dontrun{
+#' @examples \donttest{
 #' gettaxonauthorshipfromtsn(tsn = 183671)
 #' }
 #' @export
@@ -1118,7 +1118,7 @@ gettaxonauthorshipfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlH
 #' 
 #' @inheritParams getcommentdetailfromtsn
 #' @param verbose Verbosity or not (default TRUE)
-#' @examples \dontrun{
+#' @examples \donttest{
 #' gettaxonomicranknamefromtsn(tsn = 202385)
 #' }
 #' @export
@@ -1152,7 +1152,7 @@ gettaxonomicranknamefromtsn <- function(tsn = NA, curlopts=list(), curl = getCur
 #' @param curl If using in a loop, call getCurlHandle() first and pass 
 #'  the returned value in here (avoids unnecessary footprint)
 #' @param verbose Verbosity or not (default TRUE)
-#' @examples \dontrun{
+#' @examples \donttest{
 #' gettaxonomicusagefromtsn(tsn = 526852)
 #' }
 #' @export
@@ -1184,7 +1184,7 @@ gettaxonomicusagefromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHa
 #' @param curlopts optional additional curl options (debugging tools mostly)
 #' @param curl If using in a loop, call getCurlHandle() first and pass 
 #'  the returned value in here (avoids unnecessary footprint)
-#' @examples \dontrun{
+#' @examples \donttest{
 #' gettsnbyvernacularlanguage("french")
 #' }
 #' @export
@@ -1215,7 +1215,7 @@ gettsnbyvernacularlanguage <- function(language = NA, curlopts=list(),
 #' @param curl If using in a loop, call getCurlHandle() first and pass 
 #'  the returned value in here (avoids unnecessary footprint)
 #' @param verbose (logical) Print messages or not. Default to TRUE.
-#' @examples \dontrun{
+#' @examples \donttest{
 #' gettsnfromlsid(lsid = "urn:lsid:itis.gov:itis_tsn:28726")
 #' gettsnfromlsid(lsid = "urn:lsid:itis.gov:itis_tsn:0")
 #' }
@@ -1238,7 +1238,7 @@ gettsnfromlsid <- function(lsid = NA, curlopts=list(), curl = getCurlHandle(), v
 #' Returns the unacceptability reason, if any, for the TSN.
 #' 
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \dontrun{
+#' @examples \donttest{
 #' getunacceptabilityreasonfromtsn(tsn = 183671)
 #' }
 #' @export
@@ -1266,7 +1266,7 @@ getunacceptabilityreasonfromtsn <- function(tsn = NA, curlopts=list(),
 #' Provides a list of the unique languages used in the vernacular table.
 #' 
 #' @import RCurl XML
-#' @examples \dontrun{
+#' @examples \donttest{
 #' getvernacularlanguages()
 #' }
 #' @export
@@ -1286,7 +1286,7 @@ getvernacularlanguages <- function()
 #' Search for tsn by common name
 #' 
 #' @inheritParams getanymatchcount
-#' @examples \dontrun{
+#' @examples \donttest{
 #' searchbycommonname("american bullfrog")
 #' searchbycommonname("ferret-badger")
 #' searchbycommonname(srchkey="polar bear")
@@ -1320,7 +1320,7 @@ searchbycommonname <- function(srchkey = NA, curlopts=list(), curl = getCurlHand
 #' @param  from default is to search from beginning. Use \code{end} to serch from end.
 #' @seealso searchbycommonnamebeginswith searchbycommonnameendswith
 #' @return \code{data.frame}
-#' @examples \dontrun{
+#' @examples \donttest{
 #' searchCommon(srchkey="inch")
 #' searchCommon(srchkey="inch", from = "end")
 #'}
@@ -1336,7 +1336,7 @@ switch(from,
 #' Search for tsn by common name beginning with 
 #' 
 #' @inheritParams getanymatchcount
-#' @examples \dontrun{
+#' @examples \donttest{
 #' searchbycommonnamebeginswith("inch")
 #' }
 #' @export
@@ -1363,7 +1363,7 @@ searchbycommonnamebeginswith <- function(srchkey = NA, curlopts=list(), curl = g
 #' Search for tsn by common name ending with
 #' 
 #' @inheritParams getanymatchcount
-#' @examples \dontrun{
+#' @examples \donttest{
 #' searchbycommonnameendswith(srchkey="snake")
 #' }
 #' @export
@@ -1389,7 +1389,7 @@ searchbycommonnameendswith <- function(srchkey = NA, curlopts=list(), curl=getCu
 #' Search by scientific name
 #' 
 #' @inheritParams getanymatchcount
-#' @examples \dontrun{
+#' @examples \donttest{
 #' searchbyscientificname("Tardigrada")
 #' searchbyscientificname("Quercus douglasii")
 #' }
@@ -1417,7 +1417,7 @@ searchbyscientificname <- function(srchkey = NA, curlopts=list(), curl = getCurl
 #' Search for any match
 #' 
 #' @inheritParams getanymatchcount
-#' @examples \dontrun{
+#' @examples \donttest{
 #' searchforanymatch(srchkey = 202385)
 #' searchforanymatch(srchkey = "dolphin")
 #' }
@@ -1457,7 +1457,7 @@ searchforanymatch <- function(srchkey = NA,  curlopts=list(), curl = getCurlHand
 #' @param pagenum An integer containing the page number (numeric)
 #' @param ascend A boolean containing true for ascending sort order or false 
 #'    for descending (logical)
-#' @examples \dontrun{
+#' @examples \donttest{
 #' searchforanymatchpaged(srchkey=202385, pagesize=100, pagenum=1, ascend=FALSE)
 #' searchforanymatchpaged(srchkey="Zy", pagesize=100, pagenum=1, ascend=FALSE)
 #' }

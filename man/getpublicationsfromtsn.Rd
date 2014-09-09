@@ -20,7 +20,7 @@ the returned value in here (avoids unnecessary footprint)}
 Returns a list of the pulications used for the TSN.
 }
 \examples{
-\dontrun{
+\donttest{
 getpublicationsfromtsn(tsn = 70340)
 }
 }

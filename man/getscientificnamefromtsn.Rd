@@ -20,7 +20,7 @@ Returns the scientific name for the TSN. Also returns the component parts
    (names and indicators) of the scientific name.
 }
 \examples{
-\dontrun{
+\donttest{
 getscientificnamefromtsn(tsn = 531894)
 }
 }

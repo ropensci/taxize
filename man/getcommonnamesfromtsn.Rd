@@ -17,7 +17,7 @@ the returned value in here (avoids unnecessary footprint)}
 Get common names from tsn
 }
 \examples{
-\dontrun{
+\donttest{
 getcommonnamesfromtsn(183833)
 }
 }

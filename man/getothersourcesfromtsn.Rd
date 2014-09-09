@@ -18,7 +18,7 @@ the returned value in here (avoids unnecessary footprint)}
 Returns a list of the other sources used for the TSN.
 }
 \examples{
-\dontrun{
+\donttest{
 getothersourcesfromtsn(tsn = 182662)
 }
 }

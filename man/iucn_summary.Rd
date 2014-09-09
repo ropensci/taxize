@@ -40,7 +40,7 @@ and NA is returned.
 status into a vector.
 }
 \examples{
-\dontrun{
+\donttest{
 ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
 ia <- iucn_summary(c("Panthera uncia", "Lynx lynx", "aaa"))
 # extract status

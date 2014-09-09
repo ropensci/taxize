@@ -9,7 +9,7 @@ getjurisdictionvalues(verbose = TRUE)
 Get possible jurisdiction values
 }
 \examples{
-\dontrun{
+\donttest{
 getjurisdictionvalues()
 }
 }

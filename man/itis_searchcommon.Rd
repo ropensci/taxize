@@ -22,7 +22,7 @@ itis_searchcommon(srchkey = NA, curlopts = list(), curl = getCurlHandle(),
 Searches common name and acts as thin wrapper around \code{searchbycommonnamebeginswith} and \code{searchbycommonnameendswith}
 }
 \examples{
-\dontrun{
+\donttest{
 searchCommon(srchkey="inch")
 searchCommon(srchkey="inch", from = "end")
 }

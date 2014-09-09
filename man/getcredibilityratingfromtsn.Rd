@@ -18,7 +18,7 @@ the returned value in here (avoids unnecessary footprint)}
 Get credibility rating from tsn
 }
 \examples{
-\dontrun{
+\donttest{
 getcredibilityratingfromtsn(tsn = 526852)
 }
 }

@@ -19,7 +19,7 @@
 #' 		and start) are optional.
 #' @references \url{http://webservice.catalogueoflife.org/}
 #' @return A list of data.frame's.
-#' @examples \dontrun{
+#' @examples \donttest{
 #' # A basic example
 #' col_search(name="Apis")
 #' col_search(name="Agapostemon")

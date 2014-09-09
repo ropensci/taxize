@@ -22,7 +22,7 @@ Get family names to make Phylomatic input object, and output input string
    to Phylomatic for use in the function phylomatic_tree.
 }
 \examples{
-\dontrun{
+\donttest{
 mynames <- c("Poa annua", "Salix goodingii", "Helianthus annuus")
 phylomatic_format(mynames, format='rsubmit')
 phylomatic_format(mynames, format='isubmit', db="apg")

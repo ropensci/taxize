@@ -18,7 +18,7 @@ the returned value in here (avoids unnecessary footprint)}
 Search for tsn by common name
 }
 \examples{
-\dontrun{
+\donttest{
 searchbycommonname("american bullfrog")
 searchbycommonname("ferret-badger")
 searchbycommonname(srchkey="polar bear")

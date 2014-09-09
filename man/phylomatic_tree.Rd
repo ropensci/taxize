@@ -46,7 +46,7 @@ Query Phylomatic for a phylogenetic tree.
 Use the web interface here http://phylodiversity.net/phylomatic/
 }
 \examples{
-\dontrun{
+\donttest{
 # Input taxonomic names
 taxa <- c("Poa annua", "Phlox diffusa", "Helianthus annuus")
 tree <- phylomatic_tree(taxa=taxa, get = 'POST')

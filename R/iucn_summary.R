@@ -23,7 +23,7 @@
 #' status into a vector.
 #' 
 #' @seealso \code{\link[taxize]{iucn_status}}
-#' @examples \dontrun{
+#' @examples \donttest{
 #' ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
 #' ia <- iucn_summary(c("Panthera uncia", "Lynx lynx", "aaa"))
 #' # extract status
@@ -96,7 +96,7 @@ iucn_summary <- function(sciname, silent = TRUE, parallel = FALSE, ...)
 #' @return A character vector with the status.
 #' @seealso \code{\link[taxize]{iucn_summary}}
 #' @export
-#' @examples \dontrun{
+#' @examples \donttest{
 #' ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
 #' iucn_status(ia)}
 iucn_status <- function(x, ...){

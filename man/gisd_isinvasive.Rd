@@ -41,7 +41,7 @@ as this function goes directly to the GISD website, whereas eol_invasive only up
 GISD data occassionally. See notes in \code{eol_invasive}.
 }
 \examples{
-\dontrun{
+\donttest{
 sp <- c("Carpobrotus edulis", "Rosmarinus officinalis")
 ## first species is invasive, second one is not.
 gisd_isinvasive(sp)

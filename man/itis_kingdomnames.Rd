@@ -14,7 +14,7 @@ itis_kingdomnames(tsn = NULL, ...)
 Get kingdom names.
 }
 \examples{
-\dontrun{
+\donttest{
 itis_kingdomnames(202385)
 itis_kingdomnames(tsn=c(202385,183833,180543))
 

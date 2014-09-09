@@ -20,7 +20,7 @@ A data frame
 iPlant name resolution
 }
 \examples{
-\dontrun{
+\donttest{
 iplant_resolve(query=c("Helianthus annuus", "Homo sapiens"))
 iplant_resolve("Helianthusss")
 iplant_resolve("Pooa")

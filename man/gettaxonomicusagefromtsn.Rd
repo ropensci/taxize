@@ -20,7 +20,7 @@ the returned value in here (avoids unnecessary footprint)}
 Returns the usage information for the TSN.
 }
 \examples{
-\dontrun{
+\donttest{
 gettaxonomicusagefromtsn(tsn = 526852)
 }
 }

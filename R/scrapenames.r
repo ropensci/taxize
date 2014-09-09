@@ -31,7 +31,7 @@
 #' @return A list of length two, first is metadata, second is the data as a data.frame.
 #' @details One of url, file, or text must be specified - and only one of them. 
 #' @export
-#' @examples \dontrun{
+#' @examples \donttest{
 #' # Get data from a website using its URL
 #' scrapenames(url = 'http://en.wikipedia.org/wiki/Araneae')
 #' scrapenames(url = 'http://en.wikipedia.org/wiki/Animalia')

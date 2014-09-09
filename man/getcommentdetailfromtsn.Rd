@@ -21,7 +21,7 @@ A data.frame with results.
 Get comment detail from TSN
 }
 \examples{
-\dontrun{
+\donttest{
 getcommentdetailfromtsn(180543)
 }
 }

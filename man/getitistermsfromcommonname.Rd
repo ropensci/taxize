@@ -18,7 +18,7 @@ the returned value in here (avoids unnecessary footprint)}
 Get itis terms from common names
 }
 \examples{
-\dontrun{
+\donttest{
 getitistermsfromcommonname("buya")
 }
 }

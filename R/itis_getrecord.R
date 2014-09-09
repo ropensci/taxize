@@ -5,7 +5,7 @@
 #' @param by By "tsn" or "lsid"
 #' @param ... Further arguments passed on to getpublicationsfromtsn
 #' @details You can only enter values in tsn parameter or lsid, not both.
-#' @examples \dontrun{
+#' @examples \donttest{
 #' # by TSN
 #' itis_getrecord(202385)
 #' itis_getrecord(c(202385,70340))

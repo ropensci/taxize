@@ -20,7 +20,7 @@ Get full ITIS record for one or more ITIS TSN's or lsid's.
 You can only enter values in tsn parameter or lsid, not both.
 }
 \examples{
-\dontrun{
+\donttest{
 # by TSN
 itis_getrecord(202385)
 itis_getrecord(c(202385,70340))

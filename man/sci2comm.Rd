@@ -39,7 +39,7 @@ Get common names from scientific names.
 \emph{"ncbi"} and uid-method return common names from GenBank.
 }
 \examples{
-\dontrun{
+\donttest{
 sci2comm(scinames='Helianthus annuus')
 sci2comm(scinames='Helianthus annuus', db='itis')
 sci2comm(scinames=c('Helianthus annuus', 'Poa annua'))

@@ -18,7 +18,7 @@ the returned value in here (avoids unnecessary footprint)}
 Search by scientific name
 }
 \examples{
-\dontrun{
+\donttest{
 searchbyscientificname("Tardigrada")
 searchbyscientificname("Quercus douglasii")
 }

@@ -34,7 +34,7 @@
 #'    \code{\link[taxize]{get_tpsid}}, \code{\link[taxize]{get_gbifid}}
 #' 
 #' @export
-#' @examples \dontrun{
+#' @examples \donttest{
 #' # Plug in taxon names directly
 #' classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi')
 #' classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi', verbose=FALSE)

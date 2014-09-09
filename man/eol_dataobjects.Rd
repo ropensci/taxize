@@ -29,7 +29,7 @@ It's possible to return JSON or XML with the EOL API. However,
 		this function only returns JSON for now.
 }
 \examples{
-\dontrun{
+\donttest{
 eol_dataobjects(id="d72801627bf4adf1a38d9c5f10cc767f")
 eol_dataobjects(id="21929584")
 }

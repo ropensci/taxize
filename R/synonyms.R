@@ -14,7 +14,7 @@
 #' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_tpsid}}
 #'
 #' @export
-#' @examples \dontrun{
+#' @examples \donttest{
 #' # Plug in taxon names directly
 #' synonyms("Poa annua", db="itis")
 #' synonyms(c("Poa annua",'Pinus contorta','Puma concolor'), db="itis")

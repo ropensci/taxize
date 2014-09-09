@@ -2,7 +2,7 @@
 #' 
 #' And provides number of scientific and common names in a string.
 #' 
-#' @examples \dontrun{
+#' @examples \donttest{
 #' itis_ping()
 #' }
 #' @seealso \code{\link{eol_ping}}

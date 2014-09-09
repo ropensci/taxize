@@ -18,7 +18,7 @@ the returned value in here (avoids unnecessary footprint)}
 Returns the unacceptability reason, if any, for the TSN.
 }
 \examples{
-\dontrun{
+\donttest{
 getunacceptabilityreasonfromtsn(tsn = 183671)
 }
 }

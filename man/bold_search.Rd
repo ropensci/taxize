@@ -50,7 +50,7 @@ Options for \code{dataTypes} parameter:
 }
 }
 \examples{
-\dontrun{
+\donttest{
 # A basic example
 bold_search(name="Apis")
 bold_search(name="Agapostemon")

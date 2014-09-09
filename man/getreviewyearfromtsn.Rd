@@ -17,7 +17,7 @@ the returned value in here (avoids unnecessary footprint)}
 Returns the review year for the TSN.
 }
 \examples{
-\dontrun{
+\donttest{
 getreviewyearfromtsn(tsn = 180541)
 }
 }

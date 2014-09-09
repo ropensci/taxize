@@ -3,7 +3,7 @@
 #' @param tsn One or more TSN's (taxonomic serial number)
 #' @param what One of bytsn, values, or originvalues
 #' @param ... Further arguments passed on to \code{\link{getjurisdictionaloriginfromtsn}}
-#' @examples \dontrun{
+#' @examples \donttest{
 #' # Get values
 #' itis_native(what="values")
 #' 

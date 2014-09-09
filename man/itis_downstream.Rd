@@ -22,7 +22,7 @@ Data.frame of taxonomic information downstream to family from e.g.,
 Retrieve all taxa names or TSNs downstream in hierarchy from given TSN.
 }
 \examples{
-\dontrun{
+\donttest{
 itis_downstream(tsns = 846509, downto="Genus")
 
 # getting families downstream from Acridoidea

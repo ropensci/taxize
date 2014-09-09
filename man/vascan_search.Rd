@@ -22,7 +22,7 @@ json, xml or a list.
 For more information, see \url{http://data.canadensys.net/vascan/search}.
 }
 \examples{
-\dontrun{
+\donttest{
 vascan_search(q = "Helianthus annuus")
 vascan_search(q = "Helianthus annuus", raw=TRUE)
 vascan_search(q = c("Helianthus annuus", "Crataegus dodgei"), raw=TRUE)

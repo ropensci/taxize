@@ -16,7 +16,7 @@ A data.frame with results, the submitted names, and the parsed names
 Parse scientific names using EOL's name parser.
 }
 \examples{
-\dontrun{
+\donttest{
 gni_parse("Cyanistes caeruleus")
 gni_parse("Plantago minor")
 gni_parse("Plantago minor minor")

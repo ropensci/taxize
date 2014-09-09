@@ -23,7 +23,7 @@
 #' @details You must provide one of name or id. The other parameters (format 
 #' 		and start) are optional.
 #' @return A list of data.frame's.
-#' @examples \dontrun{
+#' @examples \donttest{
 #' # A basic example
 #' col_children(name="Apis")
 #' 

@@ -8,7 +8,7 @@
 #' @param callopts Parameters passed on to httr::GET call.
 #' @return A list of four data.frame's, one for the name itself, one for synonyms, 
 #' one for vernacular names, and one for citations.
-#' @examples \dontrun{
+#' @examples \donttest{
 #' ubio_id(namebankID = 2483153)
 #' ubio_id(namebankID = 105509)
 #' ubio_id(namebankID = 2843601)

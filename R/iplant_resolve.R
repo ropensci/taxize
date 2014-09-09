@@ -7,7 +7,7 @@
 #' (retrieves only the single best match for each name submitted) or 'all' (retrieves all matches)
 #' @param callopts Curl options passed on to \code{httr::GET}
 #' @return A data frame
-#' @examples \dontrun{
+#' @examples \donttest{
 #' iplant_resolve(query=c("Helianthus annuus", "Homo sapiens"))
 #' iplant_resolve("Helianthusss")
 #' iplant_resolve("Pooa")

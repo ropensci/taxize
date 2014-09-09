@@ -14,7 +14,7 @@ itis_refs(tsn, ...)
 Get references related to a ITIS TSN.
 }
 \examples{
-\dontrun{
+\donttest{
 itis_refs(202385)
 itis_refs(c(202385,70340))
 

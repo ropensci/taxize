@@ -8,7 +8,7 @@
 #' @seealso \code{\link{itis_downstream}}
 #' @details Note that \code{\link{itis_downstream}} gets taxa downstream to a particular
 #'    rank, whilc this function only gets immediate names downstream.
-#' @examples \dontrun{
+#' @examples \donttest{
 #' # Get full hierarchy
 #' itis_hierarchy(tsn=180543)
 #' 

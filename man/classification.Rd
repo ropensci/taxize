@@ -83,7 +83,7 @@ If IDs are supplied directly (not from the \code{get_*} functions) you
    querries to NCBI.
 }
 \examples{
-\dontrun{
+\donttest{
 # Plug in taxon names directly
 classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi')
 classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi', verbose=FALSE)

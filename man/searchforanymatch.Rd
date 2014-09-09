@@ -17,7 +17,7 @@ the returned value in here (avoids unnecessary footprint)}
 Search for any match
 }
 \examples{
-\dontrun{
+\donttest{
 searchforanymatch(srchkey = 202385)
 searchforanymatch(srchkey = "dolphin")
 }

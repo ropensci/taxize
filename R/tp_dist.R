@@ -10,7 +10,7 @@
 #' @return List of two data.frame's, one named "location", and one "reference".
 #' @references \url{http://services.tropicos.org/help?method=GetNameDistributionsXml}
 #' 
-#' @examples \dontrun{
+#' @examples \donttest{
 #' # Query using a taxon name Id
 #' out <- tp_dist(id = 25509881)
 #' ## just location data

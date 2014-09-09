@@ -52,7 +52,7 @@
 #'  \item "infraspec" - infraspecific records
 #' }
 #' @return A data frame
-#' @examples \dontrun{
+#' @examples \donttest{
 #' ipni_search(genus='Brintonia', isapnirecord=TRUE, isgcirecord=TRUE, isikrecord=TRUE)
 #' head(ipni_search(genus='Ceanothus'))
 #' head(ipni_search(genus='Pinus', species='contorta'))

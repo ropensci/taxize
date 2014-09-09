@@ -9,7 +9,7 @@ getvernacularlanguages()
 Provides a list of the unique languages used in the vernacular table.
 }
 \examples{
-\dontrun{
+\donttest{
 getvernacularlanguages()
 }
 }

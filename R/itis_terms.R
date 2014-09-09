@@ -5,7 +5,7 @@
 #'    common names), or scientific (search just scientific names)
 #' @param ... Further arguments passed on to \code{\link{getitisterms}}, 
 #'    \code{\link{getitistermsfromcommonname}}, \code{\link{getitistermsfromscientificname}}
-#' @examples \dontrun{
+#' @examples \donttest{
 #' # Get terms searching both common and scientific names
 #' itis_terms(query='bear')
 #' 

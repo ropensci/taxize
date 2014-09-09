@@ -11,7 +11,7 @@ Provides a list of all the unique rank names contained in the database and
  their kingdom and rank ID values.
 }
 \examples{
-\dontrun{
+\donttest{
 getranknames()
 }
 }

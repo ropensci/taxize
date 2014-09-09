@@ -9,7 +9,7 @@ getlastchangedate()
 Provides the date the ITIS database was last updated.
 }
 \examples{
-\dontrun{
+\donttest{
 getlastchangedate()
 }
 }

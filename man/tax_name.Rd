@@ -37,7 +37,7 @@ taxon,\code{\link[taxize]{tax_name}} searches and returns any specified rank
 higher in taxonmy.
 }
 \examples{
-\dontrun{
+\donttest{
 # A case where itis and ncbi use the same names
 tax_name(query = "Helianthus annuus", get = "family", db = "itis")
 tax_name(query = "Helianthus annuus", get = "family", db = "ncbi")

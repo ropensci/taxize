@@ -35,7 +35,7 @@ Removes predicted sequences so you don't have to remove them.
 		"XR_" prefixes.
 }
 \examples{
-\dontrun{
+\donttest{
 # A single species
 out <- ncbi_search(taxa="Umbra limi", seqrange = "1:2000")
 # get list of genes available, removing non-unique

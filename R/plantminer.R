@@ -12,7 +12,7 @@
 #' @param verbose Verbose or not, logical
 #' @return data.frame of results.
 #' @export
-#' @examples \dontrun{
+#' @examples \donttest{
 #' plants <- c("Myrcia lingua", "Myrcia bella", "Ocotea pulchella", 
 #' 		"Miconia", "Coffea arabica var. amarella", "Bleh")
 #' plantminer(plants)

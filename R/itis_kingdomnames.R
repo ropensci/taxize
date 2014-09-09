@@ -2,7 +2,7 @@
 #' 
 #' @param tsn One or more TSN's (taxonomic serial number)
 #' @param ... Further arguments passed on to getkingdomnamefromtsn
-#' @examples \dontrun{
+#' @examples \donttest{
 #' itis_kingdomnames(202385)
 #' itis_kingdomnames(tsn=c(202385,183833,180543))
 #' 

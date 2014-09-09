@@ -19,7 +19,7 @@ the returned value in here (avoids unnecessary footprint)}
 Retrieve accepted TSN (with accepted name)
 }
 \examples{
-\dontrun{
+\donttest{
 gettsnbyvernacularlanguage("french")
 }
 }

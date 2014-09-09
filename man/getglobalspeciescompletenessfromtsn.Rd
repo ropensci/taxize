@@ -18,7 +18,7 @@ the returned value in here (avoids unnecessary footprint)}
 Get global species completeness from tsn
 }
 \examples{
-\dontrun{
+\donttest{
 getglobalspeciescompletenessfromtsn(tsn = 180541)
 }
 }

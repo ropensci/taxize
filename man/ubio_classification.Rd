@@ -34,7 +34,7 @@ This function will return all ClassificationBank data pertaining to a
 particular ClassificationBankID
 }
 \examples{
-\dontrun{
+\donttest{
 ubio_classification(hierarchiesID = 2483153)
 ubio_classification(hierarchiesID = 2483153, childrenFlag=1)
 ubio_classification(hierarchiesID = 2483153, ancestryFlag=1)

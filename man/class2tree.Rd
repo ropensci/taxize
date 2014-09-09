@@ -53,7 +53,7 @@ the taxa2dist function and pointing it out, and Clarke & Warwick (1998, 2001),
 which taxa2dist was based on.
 }
 \examples{
-\dontrun{
+\donttest{
 spnames <- c('Klattia flava', 'Trollius sibiricus', 'Arachis paraguariensis',
  'Tanacetum boreale', 'Gentiana yakushimensis','Sesamum schinzianum',
  'Pilea verrucosa','Tibouchina striphnocalyx','Lycium dasystemum',

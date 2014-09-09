@@ -9,7 +9,7 @@ getkingdomnames()
 Get all possible kingdom names
 }
 \examples{
-\dontrun{
+\donttest{
 getkingdomnames()
 }
 }

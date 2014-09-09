@@ -20,7 +20,7 @@ the returned value in here (avoids unnecessary footprint)}
 Returns the kingdom and rank information for the TSN.
 }
 \examples{
-\dontrun{
+\donttest{
 gettaxonomicranknamefromtsn(tsn = 202385)
 }
 }

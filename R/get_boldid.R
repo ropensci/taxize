@@ -20,7 +20,7 @@
 #'
 #' @seealso \code{\link[taxize]{get_uid}}, \code{\link[taxize]{classification}}
 #'
-#' @examples \dontrun{
+#' @examples \donttest{
 #' get_boldid(searchterm = "Agapostemon")
 #' get_boldid(searchterm = "Chironomus riparius")
 #' get_boldid(c("Chironomus riparius","Quercus douglasii")) # needs error catching

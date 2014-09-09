@@ -9,7 +9,7 @@
 #' @param ... Further arguments passed on to \code{\link{gettaxonomicranknamefromtsn}}
 #' @details You can print messages by setting verbose=FALSE.
 #' @return Taxonomic rank names or data.frame of all ranks.
-#' @examples \dontrun{
+#' @examples \donttest{
 #' # All ranks
 #' itis_taxrank()
 #' 

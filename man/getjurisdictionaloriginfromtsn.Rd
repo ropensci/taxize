@@ -20,7 +20,7 @@ the returned value in here (avoids unnecessary footprint)}
 Get jurisdictional origin from tsn
 }
 \examples{
-\dontrun{
+\donttest{
 getjurisdictionaloriginfromtsn(tsn = 2180543)
 }
 }

@@ -18,7 +18,7 @@ the returned value in here (avoids unnecessary footprint)}
 Get geographic divisions from tsn
 }
 \examples{
-\dontrun{
+\donttest{
 getgeographicdivisionsfromtsn(tsn = 180543)
 }
 }

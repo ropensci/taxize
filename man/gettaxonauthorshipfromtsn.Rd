@@ -18,7 +18,7 @@ the returned value in here (avoids unnecessary footprint)}
 Returns the author information for the TSN.
 }
 \examples{
-\dontrun{
+\donttest{
 gettaxonauthorshipfromtsn(tsn = 183671)
 }
 }

@@ -32,7 +32,7 @@ rank,
 \code{\link[taxize]{tax_rank}} returns the actual rank of the taxon.
 }
 \examples{
-\dontrun{
+\donttest{
 tax_rank(query = "Helianthus annuus", db = "itis")
 tax_rank(query = "Helianthus annuus", db = "ncbi")
 tax_rank(query = "Helianthus", db = "itis")

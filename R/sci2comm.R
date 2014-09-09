@@ -19,7 +19,7 @@
 #' \code{\link[taxize]{tp_search}}, \code{\link[taxize]{comm2sci}}
 #' @export
 #' @author Scott Chamberlain (myrmecocystus@@gmail.com)
-#' @examples \dontrun{
+#' @examples \donttest{
 #' sci2comm(scinames='Helianthus annuus')
 #' sci2comm(scinames='Helianthus annuus', db='itis')
 #' sci2comm(scinames=c('Helianthus annuus', 'Poa annua'))

@@ -28,7 +28,7 @@ This function will return ClassificationBankIDs (hierarchiesIDs) that refer to t
 given NamebankID
 }
 \examples{
-\dontrun{
+\donttest{
 ubio_classification_search(namebankID = 3070378)
 }
 }

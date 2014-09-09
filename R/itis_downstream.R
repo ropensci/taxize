@@ -10,7 +10,7 @@
 #' @return Data.frame of taxonomic information downstream to family from e.g., 
 #' 		Order, Class, etc. 
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
-#' @examples \dontrun{
+#' @examples \donttest{
 #' itis_downstream(tsns = 846509, downto="Genus")
 #' 
 #' # getting families downstream from Acridoidea

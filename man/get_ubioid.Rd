@@ -28,7 +28,7 @@ Retrieve the uBio id of a taxon. This function uses \code{\link[taxize]{ubio_sea
 to search for names.
 }
 \examples{
-\dontrun{
+\donttest{
 get_ubioid(searchterm = "Astragalus aduncus")
 get_ubioid(c("Salvelinus fontinalis","Pomacentrus brachialis"))
 splist <- c("Salvelinus fontinalis", 'Pomacentrus brachialis', "Leptocottus armatus",

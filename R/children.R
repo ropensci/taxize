@@ -14,7 +14,7 @@
 #' @return A named list of data.frames with the children names of every supplied taxa.
 #' You get an NA if there was no match in the database.
 #'
-#' @examples \dontrun{
+#' @examples \donttest{
 #' # Plug in taxon names
 #' children("Salmo", db = 'col')
 #' children("Salmo", db = 'itis')

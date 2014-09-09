@@ -16,7 +16,7 @@ Retrieve data sources used in Global Names Index, see
    \url{http://gni.globalnames.org/} for information.
 }
 \examples{
-\dontrun{
+\donttest{
 # all data sources
 gnr_datasources()
 

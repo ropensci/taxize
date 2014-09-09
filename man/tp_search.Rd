@@ -36,7 +36,7 @@ List or dataframe.
 Search Tropicos by scientific name, common name, or Tropicos ID.
 }
 \examples{
-\dontrun{
+\donttest{
 tp_search(name = 'Poa annua')
 }
 }

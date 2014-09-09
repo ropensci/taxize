@@ -10,7 +10,7 @@
 #' \url{http://tools.gbif.org/nameparser/api.do}
 #' @seealso \code{\link{gni_parse}}
 #' @export
-#' @examples \dontrun{
+#' @examples \donttest{
 #' gbif_parse(scientificname='x Agropogon littoralis')
 #' gbif_parse(c('Arrhenatherum elatius var. elatius', 
 #'              'Secale cereale subsp. cereale', 'Secale cereale ssp. cereale',

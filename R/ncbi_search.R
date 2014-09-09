@@ -11,7 +11,7 @@
 #' @return Data.frame of results.
 #' @seealso \code{\link[taxize]{ncbi_getbyid}}, \code{\link[taxize]{ncbi_getbyname}}
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
-#' @examples \dontrun{
+#' @examples \donttest{
 #' # A single species
 #' out <- ncbi_search(taxa="Umbra limi", seqrange = "1:2000")
 #' # get list of genes available, removing non-unique

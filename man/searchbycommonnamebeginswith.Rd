@@ -18,7 +18,7 @@ the returned value in here (avoids unnecessary footprint)}
 Search for tsn by common name beginning with
 }
 \examples{
-\dontrun{
+\donttest{
 searchbycommonnamebeginswith("inch")
 }
 }

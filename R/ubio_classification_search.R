@@ -12,7 +12,7 @@
 #' @param callopts Parameters passed on to httr::GET call.
 #' @return A data.frame with columns classificationBankID, classificationTitleID, and 
 #' classificationTitle
-#' @examples \dontrun{
+#' @examples \donttest{
 #' ubio_classification_search(namebankID = 3070378)
 #' }
 

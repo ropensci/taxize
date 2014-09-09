@@ -25,7 +25,7 @@ reason for NA (either 'not found', 'found' or if ask = FALSE 'multi match')
 Retrieve the Unique Identifier (UID) of a taxon from NCBI taxonomy browser.
 }
 \examples{
-\dontrun{
+\donttest{
 get_uid(c("Chironomus riparius", "Chaetopteryx"))
 get_uid(c("Chironomus riparius", "aaa vva"))
 

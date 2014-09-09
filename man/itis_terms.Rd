@@ -18,7 +18,7 @@ common names), or scientific (search just scientific names)}
 Get ITIS terms, i.e., tsn's, authors, common names, and scientific names.
 }
 \examples{
-\dontrun{
+\donttest{
 # Get terms searching both common and scientific names
 itis_terms(query='bear')
 

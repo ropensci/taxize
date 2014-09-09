@@ -21,7 +21,7 @@
 #' @seealso \code{\link[taxize]{get_uid}}, \code{\link[taxize]{classification}}
 #' 
 #' @export
-#' @examples \dontrun{
+#' @examples \donttest{
 #' get_tsn(searchterm = "Quercus douglasii")
 #' get_tsn(searchterm = "Chironomus riparius")
 #' get_tsn(c("Chironomus riparius","Quercus douglasii"))

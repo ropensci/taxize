@@ -20,7 +20,7 @@ the returned value in here (avoids unnecessary footprint)}
 Gets the TSN corresponding to the LSID, or an empty result if there is no match.
 }
 \examples{
-\dontrun{
+\donttest{
 gettsnfromlsid(lsid = "urn:lsid:itis.gov:itis_tsn:28726")
 gettsnfromlsid(lsid = "urn:lsid:itis.gov:itis_tsn:0")
 }

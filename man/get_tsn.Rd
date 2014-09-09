@@ -31,7 +31,7 @@ A vector of taxonomic serial numbers (TSN). If a taxon is not
 Retrieve the taxonomic serial numbers (TSN) of a taxon from ITIS.
 }
 \examples{
-\dontrun{
+\donttest{
 get_tsn(searchterm = "Quercus douglasii")
 get_tsn(searchterm = "Chironomus riparius")
 get_tsn(c("Chironomus riparius","Quercus douglasii"))

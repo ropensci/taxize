@@ -33,7 +33,7 @@ A vector of BOLD ids. If a taxon is not found NA. If more than one BOLD ID is fo
 Get the BOLD (Barcode of Life) code for a search term.
 }
 \examples{
-\dontrun{
+\donttest{
 get_boldid(searchterm = "Agapostemon")
 get_boldid(searchterm = "Chironomus riparius")
 get_boldid(c("Chironomus riparius","Quercus douglasii")) # needs error catching

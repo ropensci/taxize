@@ -17,7 +17,7 @@ the returned value in here (avoids unnecessary footprint)}
 Gets the unique LSID for the TSN, or an empty result if there is no match.
 }
 \examples{
-\dontrun{
+\donttest{
 getlsidfromtsn(tsn = 155166)
 }
 }

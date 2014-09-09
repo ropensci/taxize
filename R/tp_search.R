@@ -16,7 +16,7 @@
 #' @param callopts Further args passed on to httr::GET
 #' @return List or dataframe.
 #' @references \url{http://services.tropicos.org/help?method=SearchNameXml}
-#' @examples \dontrun{
+#' @examples \donttest{
 #' tp_search(name = 'Poa annua')
 #' }
 tp_search <- function(name=NULL, commonname=NULL, nameid=NULL, orderby=NULL, 

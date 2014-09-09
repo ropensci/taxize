@@ -20,7 +20,7 @@ the returned value in here (avoids unnecessary footprint)}
 Returns a list of the synonyms (if any) for the TSN.
 }
 \examples{
-\dontrun{
+\donttest{
 getsynonymnamesfromtsn(tsn = 183671) # tsn not accepted
 getsynonymnamesfromtsn(tsn = 526852) # tsn accepted
 }

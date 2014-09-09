@@ -17,7 +17,7 @@ the returned value in here (avoids unnecessary footprint)}
 Get currency from tsn
 }
 \examples{
-\dontrun{
+\donttest{
 getcurrencyfromtsn(tsn = 28727) # currency data
 getcurrencyfromtsn(tsn = 526852) # no currency dat
 }

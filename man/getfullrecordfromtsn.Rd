@@ -20,7 +20,7 @@ the returned value in here (avoids unnecessary footprint)}
 Get full record from TSN.
 }
 \examples{
-\dontrun{
+\donttest{
 getfullrecordfromtsn(tsn = 504239)
 getfullrecordfromtsn(tsn = 202385)
 getfullrecordfromtsn(tsn = 183833)

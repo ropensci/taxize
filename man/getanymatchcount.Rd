@@ -20,7 +20,7 @@ An integer containing the number of matches the search will return.
 Get any match count.
 }
 \examples{
-\dontrun{
+\donttest{
 getanymatchcount(202385)
 getanymatchcount("dolphin")
 }

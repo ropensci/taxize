@@ -23,7 +23,7 @@ Gets the partial ITIS record for the TSN in the LSID, found by comparing the
  there is no match or the TSN is invalid.
 }
 \examples{
-\dontrun{
+\donttest{
 getrecordfromlsid(lsid = "urn:lsid:itis.gov:itis_tsn:180543")
 }
 }

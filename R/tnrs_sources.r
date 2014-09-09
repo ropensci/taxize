@@ -5,7 +5,7 @@
 #' "NCBI", or "MSW3".
 #' @return Sources for the TNRS API.
 #' @export
-#' @examples \dontrun{
+#' @examples \donttest{
 #' # All
 #' tnrs_sources()
 #' 

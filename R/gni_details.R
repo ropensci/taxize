@@ -12,7 +12,7 @@
 #' @return Data.frame of results.
 #' @seealso \code{\link{gnr_datasources}}, \code{\link{gni_search}}.
 #' @keywords globalnamesindex names taxonomy
-#' @examples \dontrun{
+#' @examples \donttest{
 #' gni_details(id = 17802847)
 #' library("plyr")
 #' ldply(list(1265133, 17802847), gni_details)

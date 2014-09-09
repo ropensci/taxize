@@ -17,7 +17,7 @@ the returned value in here (avoids unnecessary footprint)}
 Get date data from tsn
 }
 \examples{
-\dontrun{
+\donttest{
 getdatedatafromtsn(tsn = 180543)
 }
 }

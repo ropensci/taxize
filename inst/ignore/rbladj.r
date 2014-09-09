@@ -10,7 +10,7 @@
 #' @param fixroot (logical) If TRUE root name is changed to the oldest root in your ages file.
 #' If FALSE (default), 
 #' @export
-#' @examples \dontrun{
+#' @examples \donttest{
 #' taxa <- names_list("species", 15)
 #' tree <- phylomatic_tree(taxa=taxa, get = 'POST')
 #' # set path to where your dir is with phylocom executable, and optionally phylo 

@@ -9,7 +9,7 @@ getcredibilityratings()
 Get possible credibility ratings
 }
 \examples{
-\dontrun{
+\donttest{
 getcredibilityratings()
 }
 }

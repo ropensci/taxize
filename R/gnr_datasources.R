@@ -11,7 +11,7 @@
 #' @seealso \code{\link[taxize]{gnr_resolve}}
 #' @keywords resolve names taxonomy
 #' @export
-#' @examples \dontrun{
+#' @examples \donttest{
 #' # all data sources
 #' gnr_datasources() 
 #' 

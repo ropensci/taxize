@@ -25,7 +25,7 @@ data.frame of results.
 Search for taxonomy data from Plantminer.com
 }
 \examples{
-\dontrun{
+\donttest{
 plants <- c("Myrcia lingua", "Myrcia bella", "Ocotea pulchella",
 		"Miconia", "Coffea arabica var. amarella", "Bleh")
 plantminer(plants)

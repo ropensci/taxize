@@ -23,7 +23,7 @@
 #' @export
 #' 
 #' @seealso \code{\link[taxize]{tax_name}}
-#' @examples \dontrun{
+#' @examples \donttest{
 #' # use dune dataset
 #' data(dune, package='vegan')
 #' species <- c("Bellis perennis", "Empetrum nigrum", "Juncus bufonius", 

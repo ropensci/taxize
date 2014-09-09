@@ -14,7 +14,7 @@
 #'    one, obtain one at http://www.ubio.org/index.php?pagename=form.
 #' @param callopts (list) Parameters passed on to httr::GET call.
 #' @return A data.frame.
-#' @examples \dontrun{
+#' @examples \donttest{
 #' ubio_search(searchName = 'elephant')
 #' ubio_search(searchName = 'elephant', sci = 1, vern = 0)
 #' ubio_search(searchName = 'Astragalus aduncus', sci = 1, vern = 0)

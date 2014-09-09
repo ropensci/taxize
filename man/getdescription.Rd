@@ -9,7 +9,7 @@ getdescription()
 Get description of the ITIS service
 }
 \examples{
-\dontrun{
+\donttest{
 getdescription()
 }
 }

@@ -45,7 +45,7 @@ Note that you can use fuzzy searching, e.g., by attaching an asterisk to the
 end of a search term. See the first two examples below.
 }
 \examples{
-\dontrun{
+\donttest{
 gni_search(search_term = "ani*")
 gni_search(search_term = "ama*", per_page = 3, page = 21)
 gni_search(search_term = "animalia", per_page = 8, page = 1)

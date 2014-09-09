@@ -35,7 +35,7 @@ taxonomic children, while \code{downstream()} collects taxonomic names down to a
 taxonomic rank, e.g., getting all species in a family.
 }
 \examples{
-\dontrun{
+\donttest{
 # Plug in taxon names
 children("Salmo", db = 'col')
 children("Salmo", db = 'itis')

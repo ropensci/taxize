@@ -25,7 +25,7 @@ Removes predicted sequences so you don't have to remove them.
   	picking the longest available for the given gene.
 }
 \examples{
-\dontrun{
+\donttest{
 # A single gene
 ncbi_getbyid(ids="360040093", format="fasta")
 

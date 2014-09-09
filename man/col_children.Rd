@@ -42,7 +42,7 @@ You must provide one of name or id. The other parameters (format
 		and start) are optional.
 }
 \examples{
-\dontrun{
+\donttest{
 # A basic example
 col_children(name="Apis")
 

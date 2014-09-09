@@ -20,7 +20,7 @@ the returned value in here (avoids unnecessary footprint)}
 Get accepted names from tsn
 }
 \examples{
-\dontrun{
+\donttest{
 # TSN accepted - good name
 getacceptednamesfromtsn('208527')
 

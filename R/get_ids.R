@@ -20,7 +20,7 @@
 #'    \code{\link[taxize]{get_eolid}}, \code{\link[taxize]{get_colid}},
 #'    \code{\link[taxize]{get_tpsid}}, \code{\link[taxize]{get_gbifid}}, or
 #'    \code{\link[taxize]{get_ubioid}}.
-#' @examples \dontrun{
+#' @examples \donttest{
 #' # Plug in taxon names directly
 #' ## By default you get ids for all data sources
 #' get_ids(names="Chironomus riparius")

@@ -24,7 +24,7 @@ Returns the full ITIS record for the TSN in the LSID, found by comparing the
   	there is no match or the TSN is invalid.
 }
 \examples{
-\dontrun{
+\donttest{
 getfullrecordfromlsid(lsid = "urn:lsid:itis.gov:itis_tsn:180543")
 getfullrecordfromlsid(lsid = "urn:lsid:itis.gov:itis_tsn:180543", verbose=FALSE)
 }

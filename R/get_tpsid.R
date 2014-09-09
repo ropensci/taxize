@@ -17,7 +17,7 @@
 #' @export
 #' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
 #' 
-#' @examples \dontrun{
+#' @examples \donttest{
 #' get_tpsid(sciname='Poa annua')
 #' get_tpsid(sciname='Pinus contorta')
 #' 

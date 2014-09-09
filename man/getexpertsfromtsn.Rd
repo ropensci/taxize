@@ -17,7 +17,7 @@ the returned value in here (avoids unnecessary footprint)}
 Get expert information for the TSN.
 }
 \examples{
-\dontrun{
+\donttest{
 getexpertsfromtsn(tsn = 180544)
 }
 }

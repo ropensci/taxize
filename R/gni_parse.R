@@ -6,7 +6,7 @@
 #' @seealso \code{\link{gbif_parse}}
 #' @references \url{http://gni.globalnames.org/}
 #' @export
-#' @examples \dontrun{
+#' @examples \donttest{
 #' gni_parse("Cyanistes caeruleus")
 #' gni_parse("Plantago minor")
 #' gni_parse("Plantago minor minor")
