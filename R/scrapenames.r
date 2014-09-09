@@ -6,7 +6,7 @@
 #' Note: this function somestimes gives data back and sometimes not. The API that this function is
 #' extremely buggy. 
 #' 
-#' @import httr data.table plyr
+#' @import httr
 #' @param url An encoded URL for a web page, PDF, Microsoft Office document, or 
 #'    image file, see examples
 #' @param file When using multipart/form-data as the content-type, a file may be sent.
@@ -40,12 +40,12 @@
 #' scrapenames(url = 'http://ucjeps.berkeley.edu/cgi-bin/get_JM_treatment.pl?CARYOPHYLLACEAE')
 #' 
 #' # Scrape names from a pdf at a URL
-#' out <- scrapenames(url = 'http://www.plosone.org/article/info:doi/10.1371/journal.pone.0058268')
-#' out$data
+#' url = 'http://www.plosone.org/article/fetchObject.action?uri=
+#' info%3Adoi%2F10.1371%2Fjournal.pone.0058268&representation=PDF'
+#' scrapenames(url = sub('\n', '', url))
 #' 
 #' # With arguments
 #' scrapenames(url = 'http://www.mapress.com/zootaxa/2012/f/z03372p265f.pdf', unique=TRUE)
-#' scrapenames(url = 'http://www.mapress.com/zootaxa/2012/f/z03372p265f.pdf', all_data_sources=TRUE)
 #' scrapenames(url = 'http://en.wikipedia.org/wiki/Araneae', data_source_ids=c(1,169))
 #'
 #' # Get data from a file - NOT WORKING YET
@@ -53,6 +53,7 @@
 #'  
 #' # Get data from text string as an R object
 #' scrapenames(text='A spider named Pardosa moesta Banks, 1892')
+#' scrapenames(text=paste0(names_list("species"), collapse=" "))
 #' }
 
 scrapenames <- function(url = NULL, file = NULL, text = NULL, engine = NULL, 
@@ -69,11 +70,15 @@ scrapenames <- function(url = NULL, file = NULL, text = NULL, engine = NULL,
                        verbatim=verbatim, detect_language=detect_language, 
                        all_data_sources=all_data_sources, 
                        data_source_ids=data_source_ids))
-  if(names(method) %in% c('url','text')){
+  if(names(method) == 'url'){
     tt <- GET(base, query=args, callopts)
   } else
   {
-    tt <- POST(base, query=args, multipart=TRUE, body = list(file=upload_file(file)))
+    if(names(method) == "text"){
+      tt <- POST(base, query=args, encode = "json", body = text)
+    } else {
+      tt <- POST(base, query=args, multipart=TRUE, body = list(file=upload_file(file)))      
+    }
   }
   warn_for_status(tt)
   out <- content(tt)
@@ -86,12 +91,11 @@ scrapenames <- function(url = NULL, file = NULL, text = NULL, engine = NULL,
     while(st == 303){
       dat <- GET(token_url)
       warn_for_status(dat)
-      datout <- content(dat)
+      tmp <- content(dat, "text")
+      datout <- jsonlite::fromJSON(tmp)
       st <- datout$status
     }
     meta <- datout[!names(datout) %in% c("names")]
-    dd <- data.frame(rbindlist(datout$names), stringsAsFactors = FALSE)
-    names(dd) <- tolower(names(dd))
-    list(meta = meta, data = dd)
+    list(meta = meta, data = datout$names)
   }
 }

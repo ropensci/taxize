@@ -61,12 +61,12 @@ scrapenames(url = 'http://www.plosone.org/article/info\%3Adoi\%2F10.1371\%2Fjour
 scrapenames(url = 'http://ucjeps.berkeley.edu/cgi-bin/get_JM_treatment.pl?CARYOPHYLLACEAE')
 
 # Scrape names from a pdf at a URL
-out <- scrapenames(url = 'http://www.plosone.org/article/info:doi/10.1371/journal.pone.0058268')
-out$data
+url = 'http://www.plosone.org/article/fetchObject.action?uri=
+info\%3Adoi\%2F10.1371\%2Fjournal.pone.0058268&representation=PDF'
+scrapenames(url = sub('\\n', '', url))
 
 # With arguments
 scrapenames(url = 'http://www.mapress.com/zootaxa/2012/f/z03372p265f.pdf', unique=TRUE)
-scrapenames(url = 'http://www.mapress.com/zootaxa/2012/f/z03372p265f.pdf', all_data_sources=TRUE)
 scrapenames(url = 'http://en.wikipedia.org/wiki/Araneae', data_source_ids=c(1,169))
 
 # Get data from a file - NOT WORKING YET
@@ -74,6 +74,7 @@ scrapenames(file = '~/github/sac/joshwork/species_for_Scott.txt')
 
 # Get data from text string as an R object
 scrapenames(text='A spider named Pardosa moesta Banks, 1892')
+scrapenames(text=paste0(names_list("species"), collapse=" "))
 }
 }
 \author{
