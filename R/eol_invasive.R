@@ -5,7 +5,7 @@
 #' @import RCurl jsonlite plyr
 #' @export
 #' @param name A taxonomic name, or a vector of names.
-#' @param dataset One of all, gisd100, gisd, gris, isc, daisie, i3n, or mineps.
+#' @param dataset One of all, gisd100, gisd, isc, daisie, i3n, or mineps.
 #'    See the Details for what each dataset ID.
 #' @param searchby One of 'grep' (exact match) or 'agrep' (fuzzy match)
 #' @param page A maximum of 30 results are returned per page. This parameter allows
@@ -13,8 +13,12 @@
 #' @param per_page Results to get per page
 #' @param key Your EOL API key; loads from .Rprofile.
 #' @param callopts Further args passed on to GET.
-#' @param verbose logical; If TRUE the actual taxon queried is printed on the
+#' @param verbose (logical) If TRUE the actual taxon queried is printed on the
 #'    console.
+#' @param count (logical) If TRUE, give back a count of number of taxa listed as invasive, if 
+#'    FALSE (default), the normal output is given.
+#' @param cache (logical) If TRUE (default), cache the dataset the first time, then subsequent 
+#'    calls to the same dataset are pulled from your local file system.
 #' @details 
 #' IMPORTANT: When you get a returned NaN for a taxon, that means it's not on the invasive list 
 #' in question. If the taxon is found, a taxon identifier is returned.
@@ -34,8 +38,6 @@
 #'  \item gisd100 - 100 of the World's Worst Invasive Alien Species 
 #'  (Global Invasive Species Database) \url{http://eol.org/collections/54500}
 #'  \item gisd - Global Invasive Species Database 2013 \url{http://eol.org/collections/54983}
-#'  \item gris - Global Register of Invasive Species (GRIS) Taxa 
-#'  \url{http://eol.org/collections/55288}
 #'  \item isc - Centre for Agriculture and Biosciences International Invasive Species 
 #'  Compendium (ISC) \url{http://eol.org/collections/55180}
 #'  \item daisie - Delivering Alien Invasive Species Inventories for Europe (DAISIE) Species 
@@ -51,7 +53,6 @@
 #' \itemize{ 
 #'  \item gisd100 updated 6 mos ago
 #'  \item gisd  updated 1 yr ago
-#'  \item gris updated 3 mos ago
 #'  \item isc updated 1 yr ago
 #'  \item daisie updated 1 yr ago
 #'  \item i3n updated 1 yr ago
@@ -64,19 +65,23 @@
 #' 
 #' @examples \dontrun{
 #' eol_invasive(name='Brassica oleracea', dataset='gisd')
+#' eol_invasive(name=c('Lymantria dispar','Cygnus olor','Hydrilla verticillata','Pinus concolor'),
+#'    dataset='gisd')
 #' eol_invasive(name='Sargassum', dataset='gisd')
 #' eol_invasive(name='Ciona intestinalis', dataset='mineps')
-#' eol_invasive(name='Rhinella marina', dataset='gris')
-#' eol_invasive(name=c('Rhinella marina','Sturnus vulgaris','Cygnus olor','Pinus concolor'),
-#'              dataset='gris')
 #' eol_invasive(name=c('Lymantria dispar','Cygnus olor','Hydrilla verticillata','Pinus concolor'),
-#'              dataset='i3n')
-#' eol_invasive(name=c('Branta canadensis','Gallus gallus','Myiopsitta monachus'), dataset='daisie')
+#'    dataset='i3n')
+#' eol_invasive(name=c('Branta canadensis','Gallus gallus','Myiopsitta monachus'), 
+#'    dataset='daisie')
 #' eol_invasive(name=c('Branta canadensis','Gallus gallus','Myiopsitta monachus'), dataset='isc')
+#' 
+#' # Count
+#' eol_invasive(name=c('Lymantria dispar','Cygnus olor','Hydrilla verticillata','Pinus concolor'), 
+#'    dataset='gisd', count = TRUE)
 #' }
 
 eol_invasive <- function(name = NULL, dataset="all", searchby = grep, page=NULL,
-  per_page=NULL, key = NULL, callopts=list(), verbose=TRUE)
+  per_page=NULL, key = NULL, callopts=list(), verbose=TRUE, count=FALSE, cache=FALSE)
 {
   if(is.null(name)) stop("please provide a taxonomic name")
   if(is.null(dataset)) stop("please provide a dataset name")
@@ -84,20 +89,33 @@ eol_invasive <- function(name = NULL, dataset="all", searchby = grep, page=NULL,
            all = 55367,
            gisd100 = 54500,
            gisd = 54983,
-           gris = 55288,
            isc = 55180,
            daisie = 55179,
            i3n = 55176,
            mineps = 55331)
   url = 'http://eol.org/api/collections/1.0.json'
   key <- getkey(key, "eolApiKey")
-
-  args <- compact(list(id=datasetid,page=page,per_page=500,filter='taxa'))
-#   tt <- GET(url, query=args, callopts)
-  tt <- getForm(url, .params = args, .opts = callopts)
-#   stop_for_status(tt)
-#   res <- content(tt, as = "text")
-  res <- jsonlite::fromJSON(tt, FALSE)
+  
+#   
+#   cache_set <- function(x, y){
+#     tf <- tempfile(fileext = ".rds")
+#     nn <- sprintf("TAXIZE_EOL_INVASIVE_%s", toupper(y))
+#     Sys.setenv(nn = tf)
+#     saveRDS(x, tf)
+#   }
+#   
+#   cache_get <- function(x){
+#     
+#   }
+# 
+  if(cache){
+    stop("not done yet", call. = FALSE)
+  } else {
+    args <- taxize_compact(list(id=datasetid,page=page,per_page=500,filter='taxa'))
+    tt <- getForm(url, .params = args, .opts = callopts)
+    res <- jsonlite::fromJSON(tt, FALSE)
+  }
+#   
   data_init <- res$collection_items
   mssg(verbose, sprintf("Getting data for %s names...", res$total_items))
 
@@ -114,14 +132,11 @@ eol_invasive <- function(name = NULL, dataset="all", searchby = grep, page=NULL,
     out <- list()
     for(i in seq_along(pages_get)){
       args <- compact(list(id=datasetid,page=pages_get[i],per_page=500,filter='taxa'))
-#       tt <- GET(url, query=args, callopts)
       tt <- getForm(url, .params = args, .opts = callopts)
-#       stop_for_status(tt)
-#       res <- content(tt)
       res <- jsonlite::fromJSON(tt, FALSE)
       out[[i]] <- res$collection_items
     }
-    res2 <- compact(out)
+    res2 <- taxize_compact(out)
     dat_all <- do.call(c, list(data_init, do.call(c, res2)))
     dat_all <- lapply(dat_all, "[", c("name","object_id"))
     dat <- do.call(rbind, lapply(dat_all, data.frame, stringsAsFactors=FALSE))
@@ -132,8 +147,8 @@ eol_invasive <- function(name = NULL, dataset="all", searchby = grep, page=NULL,
   }
 
   # search by name
-  getmatches <- function(x){
-    matched <- searchby(x, dat$name)
+  getmatches <- function(x, y){
+    matched <- eval(y)(x, dat$name)
     if(identical(matched, integer(0))){
       dff <- data.frame(name = x, object_id = NaN)
       dff$name <- as.character(dff$name)
@@ -143,10 +158,12 @@ eol_invasive <- function(name = NULL, dataset="all", searchby = grep, page=NULL,
       dat[matched,]
     }
   }
-  tmp <- lapply(name, getmatches)
+  tmp <- lapply(name, getmatches, y=searchby)
   names(tmp) <- name
   df <- ldply(tmp)
   df$db <- dataset
   names(df)[c(1,3)] <- c("searched_name","eol_object_id")
   df
+  
+  if(!count) df else length(na.omit(df$eol_object_id))
 }
