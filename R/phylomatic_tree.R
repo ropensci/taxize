@@ -14,6 +14,7 @@
 #' @param storedtree One of R20120829 (Phylomatic tree R20120829 for plants), 
 #'    smith2011 (Smith 2011, plants), or binindaemonds2007 (Bininda-Emonds 2007, 
 #'    mammals).
+#' @param treeuri URL for a phylogenetic tree in newick format.
 #' @param taxaformat Only option is slashpath for now. Leave as is.
 #' @param outformat One of newick, nexml, or fyt.
 #' @param clean Return a clean tree or not.
@@ -50,10 +51,15 @@
 #' (out <- phylomatic_tree(taxa = spp, get = "GET"))
 #' (out <- phylomatic_tree(taxa = spp, get = "POST"))
 #' plot(out)
+#' 
+#' # Pass in a tree from a URL on the web
+#' spp <- c('Abies amabilis','Abies balsamea','Abies bracteata','Abies concolor','Abies fraseri','Abies grandis','Abies lasiocarpa','Abies magnifica','Abies procera','Acacia berlandieri')
+#' url <- "http://datadryad.org/bitstream/handle/10255/dryad.8791/final_tree.tre?sequence=1"
+#' phylomatic_tree(taxa=spp, treeuri=url)
 #' }
 
 phylomatic_tree <- function(taxa, taxnames = TRUE, get = 'GET',
-  informat = "newick", method = "phylomatic", storedtree = "R20120829", 
+  informat = "newick", method = "phylomatic", storedtree = "R20120829", treeuri = NULL,
   taxaformat = "slashpath", outformat = "newick", clean = "true", db="apg", verbose=TRUE)
 {
   url = "http://phylodiversity.net/phylomatic/pmws"
@@ -73,8 +79,11 @@ phylomatic_tree <- function(taxa, taxnames = TRUE, get = 'GET',
   
   if (length(dat_) > 1) { dat_ <- paste(dat_, collapse = "\n") } else { dat_ <- dat_ }
   
+  # Only one of storedtree or treeuri
+  if(!is.null(treeuri)) storedtree <- NULL
+  
   args <- taxize_compact(list(taxa = dat_, informat = informat, method = method, 
-                       storedtree = storedtree, taxaformat = taxaformat, 
+                       storedtree = storedtree, treeuri = treeuri, taxaformat = taxaformat, 
                        outformat = outformat, clean = clean))
   
   if (get == 'POST') {  
@@ -148,5 +157,3 @@ colldouble <- function(z) {
   { treephylo <- z }
   return(treephylo)
 }
-
-taxize_compact <- function (l) Filter(Negate(is.null), l)

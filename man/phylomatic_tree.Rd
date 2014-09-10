@@ -4,7 +4,7 @@
 \title{Query Phylomatic for a phylogenetic tree.}
 \usage{
 phylomatic_tree(taxa, taxnames = TRUE, get = "GET", informat = "newick",
-  method = "phylomatic", storedtree = "R20120829",
+  method = "phylomatic", storedtree = "R20120829", treeuri = NULL,
   taxaformat = "slashpath", outformat = "newick", clean = "true",
   db = "apg", verbose = TRUE)
 }
@@ -25,6 +25,8 @@ informat should always be newick.}
 \item{storedtree}{One of R20120829 (Phylomatic tree R20120829 for plants),
 smith2011 (Smith 2011, plants), or binindaemonds2007 (Bininda-Emonds 2007,
 mammals).}
+
+\item{treeuri}{URL for a phylogenetic tree in newick format.}
 
 \item{taxaformat}{Only option is slashpath for now. Leave as is.}
 
@@ -75,6 +77,11 @@ spp <- names_list("species", 200)
 (out <- phylomatic_tree(taxa = spp, get = "GET"))
 (out <- phylomatic_tree(taxa = spp, get = "POST"))
 plot(out)
+
+# Pass in a tree from a URL on the web
+spp <- c('Abies amabilis','Abies balsamea','Abies bracteata','Abies concolor','Abies fraseri','Abies grandis','Abies lasiocarpa','Abies magnifica','Abies procera','Acacia berlandieri')
+url <- "http://datadryad.org/bitstream/handle/10255/dryad.8791/final_tree.tre?sequence=1"
+phylomatic_tree(taxa=spp, treeuri=url)
 }
 }
 
