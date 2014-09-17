@@ -21,7 +21,8 @@ sci2comm(...)
 or \emph{"ncbi"}.}
 
 \item{simplify}{(logical) If TRUE, simplify output to a vector of names. If FALSE,
-return variable formats from different sources, usually a data.frame.}
+return variable formats from different sources, usually a data.frame. Only applies to
+eol and itis.}
 
 \item{...}{Further arguments passed on to functions \code{\link[taxize]{get_uid}},
 \code{\link[taxize]{get_tsn}}.}
@@ -30,22 +31,26 @@ return variable formats from different sources, usually a data.frame.}
    \code{\link[taxize]{get_uid}}.}
 }
 \value{
-List of character - vectors.
+List of character vectors.
 }
 \description{
 Get common names from scientific names.
 }
-\note{
-\emph{"ncbi"} and uid-method return common names from GenBank.
+\details{
+Note that EOL requires an API key. You can pass in your EOL api key in the function
+call like \code{sci2comm('Helianthus annuus', key="<your eol api key>")}. You can also store your
+EOL API key in your .Rprofile file as \code{options(eolApiKey = "<your eol api key>")}, or
+just for the current session by running \code{options(eolApiKey = "<your eol api key>")} in
+the console.
 }
 \examples{
 \donttest{
-sci2comm(scinames='Helianthus annuus')
+sci2comm(scinames='Helianthus annuus', db='eol')
 sci2comm(scinames='Helianthus annuus', db='itis')
 sci2comm(scinames=c('Helianthus annuus', 'Poa annua'))
 sci2comm(scinames='Puma concolor', db='ncbi')
 
-# Passing id in, works for sources: itis and ncbi
+# Passing id in, works for sources: itis and ncbi, not eol
 sci2comm(get_tsn('Helianthus annuus'))
 sci2comm(get_uid('Helianthus annuus'))
 

@@ -1,31 +1,40 @@
 #' Get common names from scientific names.
 #'
+#' @export
+#' 
 #' @param scinames character; One or more scientific names or partial names.
 #' @param db character; Data source, one of \emph{"eol"} (default), \emph{"itis"}
 #'   or \emph{"ncbi"}.
 #' @param simplify (logical) If TRUE, simplify output to a vector of names. If FALSE,
-#'    return variable formats from different sources, usually a data.frame.
+#'    return variable formats from different sources, usually a data.frame. Only applies to 
+#'    eol and itis.
 #' @param ... Further arguments passed on to functions \code{\link[taxize]{get_uid}},
 #'    \code{\link[taxize]{get_tsn}}.
 #' @param id character; identifiers, as returned by \code{\link[taxize]{get_tsn}},
 #'    \code{\link[taxize]{get_uid}}.
+#' 
+#' @details Note that EOL requires an API key. You can pass in your EOL api key in the function 
+#' call like \code{sci2comm('Helianthus annuus', key="<your eol api key>")}. You can also store your
+#' EOL API key in your .Rprofile file as \code{options(eolApiKey = "<your eol api key>")}, or 
+#' just for the current session by running \code{options(eolApiKey = "<your eol api key>")} in 
+#' the console.
 #'
-#' @return List of character - vectors.
+#' @return List of character vectors.
 #'
-#' @note \emph{"ncbi"} and uid-method return common names from GenBank.
 #' @seealso \code{\link[taxize]{searchbycommonname}},
 #' \code{\link[taxize]{searchbycommonnamebeginswith}},
 #' \code{\link[taxize]{searchbycommonnameendswith}}, \code{\link[taxize]{eol_search}},
 #' \code{\link[taxize]{tp_search}}, \code{\link[taxize]{comm2sci}}
-#' @export
+#' 
 #' @author Scott Chamberlain (myrmecocystus@@gmail.com)
+#' 
 #' @examples \donttest{
-#' sci2comm(scinames='Helianthus annuus')
+#' sci2comm(scinames='Helianthus annuus', db='eol')
 #' sci2comm(scinames='Helianthus annuus', db='itis')
 #' sci2comm(scinames=c('Helianthus annuus', 'Poa annua'))
 #' sci2comm(scinames='Puma concolor', db='ncbi')
 #'
-#' # Passing id in, works for sources: itis and ncbi
+#' # Passing id in, works for sources: itis and ncbi, not eol
 #' sci2comm(get_tsn('Helianthus annuus'))
 #' sci2comm(get_uid('Helianthus annuus'))
 #'
@@ -42,27 +51,15 @@ sci2comm <- function(...){
 #' @rdname sci2comm
 sci2comm.default <- function(scinames, db='eol', simplify=TRUE, ...)
 {
-  itis2comm <- function(x, simplify, ...){
-    # get tsn
+  itis2comm <- function(x, simplify=TRUE, ...){
     tsn <- get_tsn(x, ...)
-    # if tsn is not found
-    if(is.na(tsn)) {
-      out <- NA
-    } else {
-      out <- getcommonnamesfromtsn(tsn)
-      #if common name is not found
-      if(nrow(out) == 0)
-        out <- NA
-    }
-    if(simplify){
-      if(!is(out, "data.frame")) out else as.character(out$comname)
-    } else{ out }
+    itis_foo(tsn, simplify, ...)
   }
 
-  eol2comm <- function(x, simplify){
-    tmp <- eol_search(terms=x)
+  eol2comm <- function(x, ...){
+    tmp <- eol_search(terms=x, ...)
     pageids <- tmp[grep(x, tmp$name), "pageid"]
-    dfs <- compact(lapply(pageids, function(x) eol_pages(taxonconceptID=x, common_names=TRUE)$vernac))
+    dfs <- taxize_compact(lapply(pageids, function(x) eol_pages(taxonconceptID=x, common_names=TRUE, ...)$vernac))
     tt <- ldply(dfs[sapply(dfs, class)=="data.frame"])
     if(simplify){
       ss <- as.character(tt$vernacularname)
@@ -72,22 +69,12 @@ sci2comm.default <- function(scinames, db='eol', simplify=TRUE, ...)
 
   ncbi2comm <- function(x, ...){
     uid <- get_uid(x, ...)
-
-    baseurl <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy"
-    ID <- paste("ID=", uid, sep = "")
-    searchurl <- paste(baseurl, ID, sep = "&")
-    tt <- getURL(searchurl)
-    ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)
-    # common name
-    out <- xpathSApply(ttp, "//TaxaSet/Taxon/OtherNames/GenbankCommonName", xmlValue)
-    # NCBI limits requests to three per second
-    Sys.sleep(0.33)
-    return(out)
+    ncbi_foo(uid, ...)
   }
 
   getsci <- function(nn, ...){
     switch(db,
-           eol = eol2comm(x = nn, simplify),
+           eol = eol2comm(nn, simplify, ...),
            itis = itis2comm(nn, simplify, ...),
            ncbi = ncbi2comm(nn, ...))
   }
@@ -96,25 +83,12 @@ sci2comm.default <- function(scinames, db='eol', simplify=TRUE, ...)
   temp
 }
 
-
 #' @method sci2comm uid
 #' @export
 #' @rdname sci2comm
 sci2comm.uid <- function(id, ...)
 {
-  ncbi2comm <- function(uid, ...){
-    baseurl <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy"
-    ID <- paste("ID=", uid, sep = "")
-    searchurl <- paste(baseurl, ID, sep = "&")
-    tt <- getURL(searchurl)
-    ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)
-    # common name
-    out <- xpathSApply(ttp, "//TaxaSet/Taxon/OtherNames/GenbankCommonName", xmlValue)
-    # NCBI limits requests to three per second
-    Sys.sleep(0.33)
-    return(out)
-  }
-  out <- lapply(id, function(x) ncbi2comm(x))
+  out <- lapply(id, function(x) ncbi_foo(x, ...))
   names(out) <- id
   return(out)
 }
@@ -123,21 +97,35 @@ sci2comm.uid <- function(id, ...)
 #' @export
 #' @rdname sci2comm
 sci2comm.tsn <- function(id, simplify=TRUE, ...){
-  itis2comm <- function(id, ...){
-    # if tsn is not found
-    if(is.na(id)) {
-      out <- NA
-    } else {
-      out <- getcommonnamesfromtsn(id)
-      #if common name is not found
-      if(length(out) == 0)
-        out <- NA
-    }
-    if(simplify){
-      as.character(out$comname)
-    } else{ out }
-  }
-  out <- lapply(id, function(x) itis2comm(x))
+  out <- lapply(id, function(x) itis_foo(x, ...))
   names(out) <- id
+  return(out)
+}
+
+itis_foo <- function(x, simplify=TRUE, ...){
+  # if tsn is not found
+  if(is.na(x)) {
+    out <- NA
+  } else {
+    out <- getcommonnamesfromtsn(x)
+    #if common name is not found
+    if(nrow(out) == 0)
+      out <- NA
+  }
+  if(simplify){
+    if(!is(out, "data.frame")) out else as.character(out$comname)
+  } else{ out }
+}
+
+ncbi_foo <- function(x, ...){
+  baseurl <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy"
+  ID <- paste("ID=", x, sep = "")
+  searchurl <- paste(baseurl, ID, sep = "&")
+  tt <- getURL(searchurl)
+  ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)
+  # common name
+  out <- xpathSApply(ttp, "//TaxaSet/Taxon/OtherNames/GenbankCommonName", xmlValue)
+  # NCBI limits requests to three per second
+  Sys.sleep(0.33)
   return(out)
 }
