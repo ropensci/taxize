@@ -79,7 +79,8 @@ spp <- names_list("species", 200)
 plot(out)
 
 # Pass in a tree from a URL on the web
-spp <- c('Abies amabilis','Abies balsamea','Abies bracteata','Abies concolor','Abies fraseri','Abies grandis','Abies lasiocarpa','Abies magnifica','Abies procera','Acacia berlandieri')
+spp <- c('Abies amabilis','Abies balsamea','Abies bracteata','Abies concolor','Abies fraseri',
+   'Abies grandis','Abies lasiocarpa','Abies magnifica','Abies procera','Acacia berlandieri')
 url <- "http://datadryad.org/bitstream/handle/10255/dryad.8791/final_tree.tre?sequence=1"
 phylomatic_tree(taxa=spp, treeuri=url)
 }
