@@ -20,7 +20,9 @@ Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     person("Ignasi", "Bartomeus", role = "aut",
     email = "nacho.bartomeus@gmail.com"),
     person("John", "Baumgartner", role = "aut",
-    email = "johnbb@student.unimelb.edu.au"))
+    email = "johnbb@student.unimelb.edu.au"),
+    person("Zachary", "Foster", role = "aut",
+    email = "john_doe@foo.bar"))
 LazyLoad: yes
 LazyData: yes
 VignetteBuilder: knitr
