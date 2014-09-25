@@ -101,41 +101,41 @@ ncbi_search <- function(taxa = NULL, id = NULL, seqrange="1:3000", getrelated=FA
           mssg(verbose, paste("no sequences for ", xx, " or ", newname, sep=""))
           df <- data.frame(xx, NA, NA, NA, NA)
         }
-{
-  ids <- xpathApply(out, "//IdList//Id") # Get sequence IDs in list
-  ids_ <- as.numeric(sapply(ids, xmlValue))  # Get sequence ID values
-  mssg(verbose, "...retrieving available genes and their lengths...")
-  
-  actualnum <- length(ids_)
-  if(actualnum > 10000){
-    q <- list(db = "nucleotide")
-    getstart <- seq(from=1, to=actualnum, by=10000)
-    getnum <- c(rep(10000, length(getstart)-1), actualnum-sum(rep(10000, length(getstart)-1)))
-    iterlist = list()
-    for(i in seq_along(getstart)){
-      q$id = paste(ids_[getstart[i]:(getstart[i]+(getnum[i]-1))], collapse=" ")
-      q$retstart <- getstart[i]
-      q$retmax <- getnum[i]
-      query_res <- POST(url_esummary, body=q)
-      stop_for_status(query_res)
-      iterlist[[i]] <- parseres(query_res)
-    }
-    df <- data.frame(rbindlist(iterlist))
-  } else
-  {
-    q <- list(db = "nucleotide", id = paste(ids_, collapse=" "))
-    query_res <- POST(url_esummary, body=q)
-    stop_for_status(query_res)
-    df <- parseres(query_res)
-  }
-}
+        {
+          ids <- xpathApply(out, "//IdList//Id") # Get sequence IDs in list
+          ids_ <- as.numeric(sapply(ids, xmlValue))  # Get sequence ID values
+          mssg(verbose, "...retrieving available genes and their lengths...")
+          
+          actualnum <- length(ids_)
+          if(actualnum > 10000){
+            q <- list(db = "nucleotide")
+            getstart <- seq(from=1, to=actualnum, by=10000)
+            getnum <- c(rep(10000, length(getstart)-1), actualnum-sum(rep(10000, length(getstart)-1)))
+            iterlist = list()
+            for(i in seq_along(getstart)){
+              q$id = paste(ids_[getstart[i]:(getstart[i]+(getnum[i]-1))], collapse=" ")
+              q$retstart <- getstart[i]
+              q$retmax <- getnum[i]
+              query_res <- POST(url_esummary, body=q)
+              stop_for_status(query_res)
+              iterlist[[i]] <- parseres(query_res)
+            }
+            df <- data.frame(rbindlist(iterlist))
+          } else
+          {
+            q <- list(db = "nucleotide", id = paste(ids_, collapse=" "))
+            query_res <- POST(url_esummary, body=q)
+            stop_for_status(query_res)
+            df <- parseres(query_res)
+          }
+        }
       }
     } else
     {
       ids <- xpathApply(out, "//IdList//Id") # Get sequence IDs in list
       ids_ <- as.numeric(sapply(ids, xmlValue))  # Get sequence ID values
       mssg(verbose, "...retrieving available genes and their lengths...")
-      
+
       actualnum <- length(ids_)
       if(actualnum > 10000){
         q <- list(db = "nucleotide")
@@ -159,21 +159,21 @@ ncbi_search <- function(taxa = NULL, id = NULL, seqrange="1:3000", getrelated=FA
         df <- parseres(query_res)
       }
     }
-mssg(verbose, "...done.")
-if(nrow(df) < 1){
-  df <- data.frame(taxon=NA,length=NA,gene_desc=NA,acc_no=NA,gi_no=NA)
-} else {
-  names(df) <- c("taxon","length","gene_desc","acc_no","gi_no")
-}
-return( df )
+    mssg(verbose, "...done.")
+    if(nrow(df) < 1){
+      df <- data.frame(taxon=NA,length=NA,gene_desc=NA,acc_no=NA,gi_no=NA)
+    } else {
+      names(df) <- c("taxon","length","gene_desc","acc_no","gi_no")
+    }
+    return( df )
   }
 
-foo_safe <- plyr::failwith(NULL, foo)
-if (length(c(taxa, id)) == 1) {
-  foo_safe(c(taxa, id))
-} else {
-  lapply(c(taxa, id), foo_safe)
-}
+  foo_safe <- plyr::failwith(NULL, foo)
+  if (length(c(taxa, id)) == 1) {
+    foo_safe(c(taxa, id))
+  } else {
+    lapply(c(taxa, id), foo_safe)
+  }
 }
 
 #' Retrieve gene sequences from NCBI by accession number.
