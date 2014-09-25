@@ -66,7 +66,7 @@ out2df[grep("60S ribosomal protein", out2df$gene_desc, ignore.case=TRUE),] # sea
 }
 }
 \author{
-Scott Chamberlain \email{myrmecocystus@gmail.com}
+Scott Chamberlain \email{myrmecocystus@gmail.com}, Zachary Foster
 }
 \seealso{
 \code{\link[taxize]{ncbi_getbyid}}, \code{\link[taxize]{ncbi_getbyname}}

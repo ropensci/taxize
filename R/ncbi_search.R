@@ -11,7 +11,7 @@
 #' 		"XR_" prefixes.
 #' @return Data.frame of results.
 #' @seealso \code{\link[taxize]{ncbi_getbyid}}, \code{\link[taxize]{ncbi_getbyname}}
-#' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
+#' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}, Zachary Foster
 #' @examples \donttest{
 #' # A single species
 #' out <- ncbi_search(taxa="Umbra limi", seqrange = "1:2000")
