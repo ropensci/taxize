@@ -2,11 +2,12 @@
 #'
 #' @import XML httr stringr data.table
 #' @template ncbi
+#' @param id (character) Taxonomic id to search for. Not compatible with argument \code{taxa}.
 #' @param limit Number of sequences to search for and return. Max of 10,000.
 #'    If you search for 6000 records, and only 5000 are found, you will of course
 #'    only get 5000 back.
 #' @details Removes predicted sequences so you don't have to remove them.
-#' 		Predicted sequences are those with accession numbers that have "XM_" or
+#'     Predicted sequences are those with accession numbers that have "XM_" or
 #' 		"XR_" prefixes.
 #' @return Data.frame of results.
 #' @seealso \code{\link[taxize]{ncbi_getbyid}}, \code{\link[taxize]{ncbi_getbyname}}
@@ -14,6 +15,13 @@
 #' @examples \donttest{
 #' # A single species
 #' out <- ncbi_search(taxa="Umbra limi", seqrange = "1:2000")
+#' # Get the same species information using a taxonomy id 
+#' out <- ncbi_search(id = "75935", seqrange = "1:2000")
+#' # If the taxon name is unique, using the taxon name and id are equivalent
+#' all(ncbi_search(id = "75935") ==  ncbi_search(taxa="Umbra limi"))
+#' # If the taxon name is not unique, use taxon id
+#' # "266948" is the uid for the butterfly genus, but there is also a genus of orchids with the same name
+#' nrow(ncbi_search(id = "266948")) ==  nrow(ncbi_search(taxa="Satyrium"))
 #' # get list of genes available, removing non-unique
 #' unique(out$gene_desc)
 #' # does the string 'RAG1' exist in any of the gene names
@@ -32,9 +40,15 @@
 #' out2df[grep("60S ribosomal protein", out2df$gene_desc, ignore.case=TRUE),] # search across all
 #' }
 #' @export
-ncbi_search <- function(taxa, seqrange="1:3000", getrelated=FALSE, limit = 500,
+ncbi_search <- function(taxa = NULL, id = NULL, seqrange="1:3000", getrelated=FALSE, limit = 500,
                         verbose=TRUE)
 {
+  # Argument validation 
+  if (sum(c(is.null(taxa), is.null(id))) != 1) {
+    stop("Either taxa or id must be specified, but not both")
+  }
+  if ((!is.null(id)) && getrelated) warning("option 'getrelated' has no effect when used with option 'id'.")
+  
   # Function to parse results from http query
   parseres <- function(x){
     outsum <- xpathApply(content(x, as="parsed"), "//eSummaryResult")[[1]]
@@ -55,14 +69,21 @@ ncbi_search <- function(taxa, seqrange="1:3000", getrelated=FALSE, limit = 500,
     url_esummary <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi"
     mssg(verbose, paste("Working on ", xx, "...", sep=""))
     mssg(verbose, "...retrieving sequence IDs...")
-
-    query <- list(db = "nuccore", retmax = limit,
-                  term = paste(xx, "[Organism] AND", seqrange, "[SLEN]", collapse=" "))
-
+    
+    if (is.null(id)) {
+      query_term <- paste(xx, "[Organism] AND", seqrange, "[SLEN]", collapse=" ")    
+    } else {
+      query_term <- paste0("xXarbitraryXx[porgn:__txid", xx, "] AND ", seqrange, " [SLEN]")
+    }
+    query <- list(db = "nuccore", retmax = limit, term = query_term)      
     query_init <- GET(url_esearch, query=query)
     stop_for_status(query_init)
     out <- xpathApply(content(query_init, as="parsed"), "//eSearchResult")[[1]]
     if( as.numeric(xmlValue(xpathApply(out, "//Count")[[1]]))==0 ){
+      if (!is.null(id)) {
+        mssg(verbose, paste("no sequences for ", xx, sep=""))
+        return(NULL)
+      }
       mssg(verbose, paste("no sequences for ", xx, " - getting other sp.", sep=""))
       if(getrelated == FALSE){
         mssg(verbose, paste("no sequences for ", xx, sep=""))
@@ -148,7 +169,11 @@ ncbi_search <- function(taxa, seqrange="1:3000", getrelated=FALSE, limit = 500,
   }
 
   foo_safe <- plyr::failwith(NULL, foo)
-  if(length(taxa)==1){ foo_safe(taxa) } else { lapply(taxa, foo_safe) }
+  if (length(c(taxa, id)) == 1) {
+    foo_safe(c(taxa, id))
+  } else {
+    lapply(c(taxa, id), foo_safe)
+  }
 }
 
 #' Retrieve gene sequences from NCBI by accession number.
