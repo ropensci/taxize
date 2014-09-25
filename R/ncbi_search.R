@@ -63,7 +63,7 @@ ncbi_search <- function(taxa = NULL, id = NULL, seqrange="1:3000", getrelated=FA
     df <- data.frame(spused=spused, length=length_, genesavail=genesavail, access_num=predicted, ids=gis, stringsAsFactors=FALSE)
     return( df[!df$access_num %in% c("XM","XR"),] )
   }
-  
+
   foo <- function(xx){
     url_esearch <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
     url_esummary <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi"
@@ -105,7 +105,7 @@ ncbi_search <- function(taxa = NULL, id = NULL, seqrange="1:3000", getrelated=FA
           ids <- xpathApply(out, "//IdList//Id") # Get sequence IDs in list
           ids_ <- as.numeric(sapply(ids, xmlValue))  # Get sequence ID values
           mssg(verbose, "...retrieving available genes and their lengths...")
-          
+
           actualnum <- length(ids_)
           if(actualnum > 10000){
             q <- list(db = "nucleotide")
