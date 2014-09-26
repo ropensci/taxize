@@ -41,11 +41,12 @@ children of both the taxon and its ancestor are returned. This will only fail if
 taxa with the same name and the same specified ancestor.
 }
 \examples{
+\dontrun{
 ncbi_children(name="Satyrium") #Satyrium is the name of two different genera
 ncbi_children(name="Satyrium", ancestor="Eumaeini") # A genus of butterflies
 ncbi_children(name="Satyrium", ancestor="Orchidaceae") # A genus of orchids
 ncbi_children(id="266948") #"266948" is the uid for the butterfly genus
-ncbi_children(id="62858") #"62858" is the uid for the orchid genus
+ncbi_children(id="62858") #"62858" is the uid for the orchid genus}
 }
 \author{
 Zachary Foster \email{zacharyfoster1989@gmail.com}
