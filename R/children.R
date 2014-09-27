@@ -19,6 +19,7 @@
 #' # Plug in taxon names
 #' children("Salmo", db = 'col')
 #' children("Salmo", db = 'itis')
+#' children("Salmo", db = 'ncbi')
 #'
 #' # Plug in IDs
 #' (id <- get_colid("Apis"))

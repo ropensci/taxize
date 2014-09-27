@@ -25,7 +25,7 @@
 #' @return The output type depends on the value of the \code{out_type} parameter. 
 #' @seealso \code{\link{ncbi_get_taxon_summary}}, \code{\link[taxize]{children}}
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' ncbi_children(name="Satyrium") #Satyrium is the name of two different genera
 #' ncbi_children(name="Satyrium", ancestor="Eumaeini") # A genus of butterflies
 #' ncbi_children(name="Satyrium", ancestor="Orchidaceae") # A genus of orchids
