@@ -20,7 +20,8 @@
 #' # If the taxon name is unique, using the taxon name and id are equivalent
 #' all(ncbi_search(id = "75935") ==  ncbi_search(taxa="Umbra limi"))
 #' # If the taxon name is not unique, use taxon id
-#' # "266948" is the uid for the butterfly genus, but there is also a genus of orchids with the same name
+#' #  "266948" is the uid for the butterfly genus, but there is also a genus of orchids with the 
+#' #  same name
 #' nrow(ncbi_search(id = "266948")) ==  nrow(ncbi_search(taxa="Satyrium"))
 #' # get list of genes available, removing non-unique
 #' unique(out$gene_desc)
