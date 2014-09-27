@@ -5,6 +5,7 @@
 \alias{children.default}
 \alias{children.ids}
 \alias{children.tsn}
+\alias{children.uid}
 \title{Retrieve immediate children taxa for a given taxon name or ID.}
 \usage{
 children(...)
@@ -16,22 +17,25 @@ children(...)
 \method{children}{colid}(x, db = NULL, ...)
 
 \method{children}{ids}(x, db = NULL, ...)
+
+\method{children}{uid}(x, db = NULL, ...)
 }
 \arguments{
-\item{...}{Further args passed on to \code{col_children}, or
-\code{gethierarchydownfromtsn}. See those functions for what parameters can be passed on.}
+\item{...}{Further args passed on to \code{\link{col_children}},
+  \code{\link{gethierarchydownfromtsn}}, or \code{\link{ncbi_children}}.
+  See those functions for what parameters can be passed on.}
 
 \item{x}{character; taxons to query.}
 
-\item{db}{character; database to query. One or more of \code{itis}, or \code{col}.}
+\item{db}{character; database to query. One or more of \code{itis}, \code{col}, or \code{ncbi}.}
 }
 \value{
 A named list of data.frames with the children names of every supplied taxa.
 You get an NA if there was no match in the database.
 }
 \description{
-This function is different from \code{downstream()} in that it only collects immediate
-taxonomic children, while \code{downstream()} collects taxonomic names down to a specified
+This function is different from \code{\link{downstream}} in that it only collects immediate
+taxonomic children, while \code{\link{downstream}} collects taxonomic names down to a specified
 taxonomic rank, e.g., getting all species in a family.
 }
 \examples{
