@@ -4,7 +4,8 @@
 \title{Search for gene sequences available for a species from NCBI.}
 \usage{
 ncbi_search(taxa = NULL, id = NULL, seqrange = "1:3000",
-  getrelated = FALSE, limit = 500, verbose = TRUE)
+  getrelated = FALSE, limit = 500, entrez_query = NULL,
+  hypothetical = FALSE, verbose = TRUE)
 }
 \arguments{
 \item{taxa}{(character) Scientific name to search for.}
@@ -22,6 +23,11 @@ found.}
 \item{limit}{Number of sequences to search for and return. Max of 10,000.
 If you search for 6000 records, and only 5000 are found, you will of course
 only get 5000 back.}
+
+\item{entrez_query}{(\code{character}; length 1) An Entrez-format query to filter results with.}
+
+\item{hypothetical}{(\code{logical}; length 1) If \code{FALSE}, an attempt will be made to not
+return hypothetical or predicted sequences judging from accession number prefixs.}
 
 \item{verbose}{(logical) If \code{TRUE} (default), informative messages printed.}
 }
