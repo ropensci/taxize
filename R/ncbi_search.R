@@ -42,7 +42,7 @@
 #' }
 #' @export
 ncbi_search <- function(taxa = NULL, id = NULL, seqrange="1:3000", getrelated=FALSE, limit = 500,
-                        verbose=TRUE)
+                        entrez_query = NULL, verbose=TRUE)
 {
   # Argument validation 
   if (sum(c(is.null(taxa), is.null(id))) != 1) {
@@ -66,21 +66,24 @@ ncbi_search <- function(taxa = NULL, id = NULL, seqrange="1:3000", getrelated=FA
   }
 
   foo <- function(xx){
+    # Contruct search query
     url_esearch <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
     url_esummary <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi"
     mssg(verbose, paste("Working on ", xx, "...", sep=""))
     mssg(verbose, "...retrieving sequence IDs...")
-    
     if (is.null(id)) {
       query_term <- paste(xx, "[Organism] AND", seqrange, "[SLEN]", collapse=" ")    
     } else {
       query_term <- paste0("xXarbitraryXx[porgn:__txid", xx, "] AND ", seqrange, " [SLEN]")
     }
-    query <- list(db = "nuccore", retmax = limit, term = query_term)      
+    if (!is.null(entrez_query)) query_term <- paste(query_term, entrez_query, sep = " AND ")
+    query <- list(db = "nuccore", retmax = limit, term = query_term) 
+    # Submit query to NCBI
     query_init <- GET(url_esearch, query=query)
     stop_for_status(query_init)
+    # Parse result
     out <- xpathApply(content(query_init, as="parsed"), "//eSearchResult")[[1]]
-    if( as.numeric(xmlValue(xpathApply(out, "//Count")[[1]]))==0 ){
+    if (as.numeric(xmlValue(xpathApply(out, "//Count")[[1]])) == 0) { #if no results were found..
       if (!is.null(id)) {
         mssg(verbose, paste("no sequences for ", xx, sep=""))
         return(NULL)
@@ -93,8 +96,9 @@ ncbi_search <- function(taxa = NULL, id = NULL, seqrange="1:3000", getrelated=FA
       {
         mssg(verbose, "...retrieving sequence IDs for related species...")
         newname <- strsplit(xx, " ")[[1]][[1]]
-        query <- list(db = "nuccore", retmax = limit,
-                      term = paste(newname, "[Organism] AND", seqrange, "[SLEN]", collapse=" "))
+        query_term <- paste(newname, "[Organism] AND", seqrange, "[SLEN]", collapse=" ")
+        if (!is.null(entrez_query)) query_term <- paste(query_term, entrez_query, sep = " AND ")
+        query <- list(db = "nuccore", retmax = limit, term = query_term)
         query_init2 <- GET(url_esearch, query=query)
         stop_for_status(query_init2)
         out <- xpathApply(content(query_init2, "parsed"), "//eSearchResult")[[1]]
