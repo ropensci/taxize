@@ -8,6 +8,7 @@
 \alias{classification.eolid}
 \alias{classification.gbifid}
 \alias{classification.ids}
+\alias{classification.nbnid}
 \alias{classification.tpsid}
 \alias{classification.tsn}
 \alias{classification.uid}
@@ -30,6 +31,8 @@ classification(...)
 \method{classification}{tpsid}(id, key = NULL, callopts = list(), ...)
 
 \method{classification}{gbifid}(id, callopts = list(), ...)
+
+\method{classification}{nbnid}(id, callopts = list(), ...)
 
 \method{classification}{ids}(id, ...)
 
@@ -91,9 +94,10 @@ classification(c("Chironomus riparius", "aaa vva"), db = 'itis')
 classification(c("Chironomus riparius", "aaa vva"), db = 'itis', verbose=FALSE)
 classification(c("Chironomus riparius", "aaa vva"), db = 'eol')
 classification(c("Chironomus riparius", "aaa vva"), db = 'col')
+classification("Alopias vulpinus", db = 'nbn')
 classification(c("Chironomus riparius", "aaa vva"), db = 'col', verbose=FALSE)
 classification(c("Chironomus riparius", "asdfasdfsfdfsd"), db = 'gbif')
-classification(c("Poa annua", "aaa vva"), db = 'tropicos')
+classification("Poa annua", db = 'tropicos')
 
 # Use methods for get_uid, get_tsn, get_eolid, get_colid, get_tpsid
 classification(get_uid(c("Chironomus riparius", "Puma concolor")))
@@ -137,6 +141,10 @@ cbind(cl_tsn)
 tsns <- get_tsn(c("Puma concolor","Accipiter striatus"))
 cl_tsns <- classification(tsns)
 cbind(cl_tsns)
+
+# NBN data
+res <- classification(c("Alopias vulpinus","Pinus sylvestris"), db = 'nbn')
+cbind(res)
 }
 }
 \seealso{
