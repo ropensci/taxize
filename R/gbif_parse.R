@@ -18,7 +18,7 @@
 #' }
 
 gbif_parse <- function(scientificname) {
-  url <- "http://api.gbif.org/v0.9/parser/name"
+  url <- "http://api.gbif.org/v1/parser/name"
   tt <- POST(url,
             config=c(add_headers('Content-Type' = 
                                    'application/json')),
