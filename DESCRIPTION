@@ -4,8 +4,8 @@ Description: Taxonomic information from around the web. This package
     as verifying species names, getting taxonomic hierarchies,
     and verifying name spelling.
 Title: Taxonomic information from around the web.
-Version: 0.4.3.99
-Date: 2014-10-01
+Version: 0.4.4.99
+Date: 2014-10-02
 License: MIT + file LICENSE
 URL: https://github.com/ropensci/taxize
 BugReports: https://github.com/ropensci/taxize/issues
@@ -13,6 +13,8 @@ Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com"),
     person("Eduard", "Szoecs", role = "aut",
     email = "eduardszoecs@gmail.com"),
+    person("Zachary", "Foster", role = "aut",
+    email = "zacharyfoster1989@gmail.com"),
     person("Carl", "Boettiger", role = "aut",
     email = "cboettig@gmail.com"),
     person("Karthik", "Ram", role = "aut",
@@ -20,9 +22,7 @@ Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     person("Ignasi", "Bartomeus", role = "aut",
     email = "nacho.bartomeus@gmail.com"),
     person("John", "Baumgartner", role = "aut",
-    email = "johnbb@student.unimelb.edu.au"),
-    person("Zachary", "Foster", role = "aut",
-    email = "zacharyfoster1989@gmail.com"))
+    email = "johnbb@student.unimelb.edu.au"))
 LazyLoad: yes
 LazyData: yes
 VignetteBuilder: knitr
