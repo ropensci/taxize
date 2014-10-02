@@ -8,11 +8,11 @@
 #' separated by an underscore. They follow the format of \code{service_whatitdoes}.
 #' For example, \code{gnr_resolve} uses the Global Names Resolver API to resolve
 #' species names.
-#' 
+#'
 #' General functions in the package that don't hit a specific API don't have
 #' two words separated by an underscore, e.g., \code{classification}
 #'
-#' You need API keys for Encyclopedia of Life (EOL), the Universal Biological 
+#' You need API keys for Encyclopedia of Life (EOL), the Universal Biological
 #' Indexer and Organizer (uBio), Tropicos, and Plantminer.
 #'
 #' Currently supported APIs are:
@@ -38,11 +38,12 @@
 #' Barcode of Life Data Systems (BOLD) \tab bold \tab FALSE \cr
 #' Pan-European Species directories Infrastructure (PESI) \tab pesi \tab TRUE \cr
 #' Mycobank \tab myco \tab TRUE \cr
+#' National Biodiversity Network (UK)	\tab nbn \tab FALSE \cr
 #' }
-#' 
-#' If the source above has a \code{TRUE} in the \code{SOAP?} column, it is not available if you 
-#' installed this package from CRAN. See the Github repo for how to install the version with the 
-#' data sources that use SOAP web services: 
+#'
+#' If the source above has a \code{TRUE} in the \code{SOAP?} column, it is not available if you
+#' installed this package from CRAN. See the Github repo for how to install the version with the
+#' data sources that use SOAP web services:
 #' \url{https://github.com/ropensci/taxize#version-with-soap-data-sources}
 #'
 #' @name taxize-package
@@ -51,6 +52,7 @@
 #' @title Taxonomic information from around the web.
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @author Eduard Szoecs \email{eduardszoecs@@gmail.com}
+#' @author Zachary Foster \email{zacharyfoster1989@@gmail.com}
 #' @author Carl Boettiger \email{cboettig@@gmail.com}
 #' @author Karthik Ram \email{karthik@@ropensci.org}
 #' @author Ignasi Bartomeus \email{nacho.bartomeus@@gmail.com}

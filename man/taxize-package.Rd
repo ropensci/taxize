@@ -46,6 +46,7 @@ World Register of Marine Species (WoRMS) \tab worms \tab TRUE \cr
 Barcode of Life Data Systems (BOLD) \tab bold \tab FALSE \cr
 Pan-European Species directories Infrastructure (PESI) \tab pesi \tab TRUE \cr
 Mycobank \tab myco \tab TRUE \cr
+National Biodiversity Network (UK)	\tab nbn \tab FALSE \cr
 }
 
 If the source above has a \code{TRUE} in the \code{SOAP?} column, it is not available if you
@@ -57,6 +58,8 @@ data sources that use SOAP web services:
 Scott Chamberlain \email{myrmecocystus@gmail.com}
 
 Eduard Szoecs \email{eduardszoecs@gmail.com}
+
+Zachary Foster \email{zacharyfoster1989@gmail.com}
 
 Carl Boettiger \email{cboettig@gmail.com}
 
