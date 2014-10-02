@@ -80,10 +80,14 @@ A named list of data.frames with the taxonomic classifcation of
 \description{
 Retrieve the taxonomic hierarchy for a given taxon ID.
 }
-\note{
+\details{
 If IDs are supplied directly (not from the \code{get_*} functions) you
-   must specify the type of ID. There is a timeout of 1/3 seconds between
-   querries to NCBI.
+must specify the type of ID. There is a timeout of 1/3 seconds between
+querries to NCBI.
+
+BEWARE: Right now, NBN doesn't return the queried taxon in the classification. But you can
+attach it yourself quite easily of course. This behavior is different from the other data
+sources.
 }
 \examples{
 \donttest{
@@ -129,13 +133,15 @@ cbind(cl)
 # rbind and cbind on class classification (from a call to get_colid, get_tsn, etc.
 # - other than get_ids)
 cl_col <- classification(get_colid(c("Puma concolor","Accipiter striatus")))
-cl_uid <- classification(get_uid(c("Puma concolor","Accipiter striatus")))
-cl_tsn <- classification(get_tsn(c("Puma concolor","Accipiter striatus")))
 rbind(cl_col)
-rbind(cl_uid)
-rbind(cl_tsn)
 cbind(cl_col)
+
+cl_uid <- classification(get_uid(c("Puma concolor","Accipiter striatus")))
+rbind(cl_uid)
 cbind(cl_uid)
+
+cl_tsn <- classification(get_tsn(c("Puma concolor","Accipiter striatus")))
+rbind(cl_tsn)
 cbind(cl_tsn)
 
 tsns <- get_tsn(c("Puma concolor","Accipiter striatus"))
@@ -144,6 +150,7 @@ cbind(cl_tsns)
 
 # NBN data
 res <- classification(c("Alopias vulpinus","Pinus sylvestris"), db = 'nbn')
+rbind(res)
 cbind(res)
 }
 }

@@ -43,7 +43,7 @@ Imports:
     data.table,
     vegan,
     assertthat,
-    bold,
+    bold
 Suggests:
     testthat,
     roxygen2,
