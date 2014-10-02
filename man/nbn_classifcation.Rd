@@ -6,25 +6,9 @@
 nbn_classifcation(id, ...)
 }
 \arguments{
+\item{id}{(character) An NBN idientifier.}
+
 \item{...}{Further args passed on to \code{\link[httr]{GET}}.}
-
-\item{q}{(character) The query terms(s)}
-
-\item{prefered}{(logical) Restrict search to preferred or any}
-
-\item{order}{(character) The order in which we should sort the results. Default: asc}
-
-\item{sort}{(character) Sort the results or not.}
-
-\item{start}{(integer/numeric) The page that the user wants to start displaying the results at.
-Default: 0}
-
-\item{rows}{(integer/numeric) The number of rows to show in each page of search results.
-Default: 25}
-
-\item{taxonOutputGroupKey}{(character) Vector of taxon output groups.}
-
-\item{all}{(logical) Get all results, overrides rows parameter if TRUE. Default: FALSE}
 }
 \description{
 Search UK National Biodiversity Network database for taxonomic classification

@@ -2,16 +2,7 @@
 #' 
 #' @export
 #' 
-#' @param q (character) The query terms(s)
-#' @param prefered (logical) Restrict search to preferred or any
-#' @param order (character) The order in which we should sort the results. Default: asc
-#' @param sort (character) Sort the results or not.
-#' @param start (integer/numeric) The page that the user wants to start displaying the results at. 
-#' Default: 0
-#' @param rows (integer/numeric) The number of rows to show in each page of search results. 
-#' Default: 25
-#' @param taxonOutputGroupKey (character) Vector of taxon output groups.
-#' @param all (logical) Get all results, overrides rows parameter if TRUE. Default: FALSE
+#' @param id (character) An NBN idientifier.
 #' @param ... Further args passed on to \code{\link[httr]{GET}}. 
 #' 
 #' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
