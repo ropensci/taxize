@@ -92,7 +92,7 @@ MINOR IMPROVEMENTS
 
 BUG FIXES
 
-* Updated gbif_parse() base url to the new one (http://api.gbif.org/v0.9/parser/name).
+* Updated gbif_parse() base url to the new one (http://api.gbif.org/v1/parser/name).
 * Fixes to phylomatic_tree().
 
 NEW FEATURES

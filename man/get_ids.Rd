@@ -4,19 +4,20 @@
 \title{Retrieve taxonomic identifiers for a given taxon name.}
 \usage{
 get_ids(names, db = c("itis", "ncbi", "eol", "col", "tropicos", "gbif",
-  "ubio"), ...)
+  "ubio", "nbn"), ...)
 }
 \arguments{
 \item{names}{character; Taxonomic name to query.}
 
 \item{db}{character; database to query. One or  more of \code{ncbi}, \code{itis},
-\code{eol}, \code{col}, \code{tropicos}, \code{gbif}, or \code{ubio}. By
+\code{eol}, \code{col}, \code{tropicos}, \code{gbif}, \code{ubio}, or \code{nbn}. By
 default db is set to search all data sources.}
 
 \item{...}{Other arguments passed to \code{\link[taxize]{get_tsn}},
 \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}},
 \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_tpsid}},
-\code{\link[taxize]{get_gbifid}}, or \code{\link[taxize]{get_ubioid}}.}
+\code{\link[taxize]{get_gbifid}}, \code{\link[taxize]{get_ubioid}},
+\code{\link[taxize]{get_nbnid}}.}
 }
 \value{
 A vector of taxonomic identifiers, each retaining their respective S3
@@ -39,6 +40,9 @@ get_ids(names="Chironomus riparius")
 ## Or you can specify which source you want via the db parameter
 get_ids(names="Chironomus riparius", db = 'ncbi')
 get_ids(names="Salvelinus fontinalis", db = 'ubio')
+
+get_ids(names="Salvelinus fontinalis", db = 'nbn')
+
 get_ids(names=c("Chironomus riparius", "Pinus contorta"), db = 'ncbi')
 get_ids(names=c("Chironomus riparius", "Pinus contorta"), db = c('ncbi','itis'))
 get_ids(names=c("Chironomus riparius", "Pinus contorta"), db = c('ncbi','itis','col'))
@@ -55,7 +59,7 @@ synonyms(out$tropicos)
 \seealso{
 \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_uid}},
    \code{\link[taxize]{get_eolid}}, \code{\link[taxize]{get_colid}},
-   \code{\link[taxize]{get_tpsid}}, \code{\link[taxize]{get_gbifid}}, or
-   \code{\link[taxize]{get_ubioid}}.
+   \code{\link[taxize]{get_tpsid}}, \code{\link[taxize]{get_gbifid}},
+   \code{\link[taxize]{get_ubioid}}, or \code{\link[taxize]{get_nbnid}}.
 }
 

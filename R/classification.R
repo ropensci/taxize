@@ -25,9 +25,13 @@
 #' 
 #' @return A named list of data.frames with the taxonomic classifcation of 
 #'    every supplied taxa.
-#' @note If IDs are supplied directly (not from the \code{get_*} functions) you 
-#'    must specify the type of ID. There is a timeout of 1/3 seconds between 
-#'    querries to NCBI.
+#' @details If IDs are supplied directly (not from the \code{get_*} functions) you 
+#' must specify the type of ID. There is a timeout of 1/3 seconds between 
+#' querries to NCBI.
+#'    
+#' BEWARE: Right now, NBN doesn't return the queried taxon in the classification. But you can 
+#' attach it yourself quite easily of course. This behavior is different from the other data 
+#' sources.
 #' 
 #' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_uid}}, 
 #'    \code{\link[taxize]{get_eolid}}, \code{\link[taxize]{get_colid}}, 
@@ -42,9 +46,10 @@
 #' classification(c("Chironomus riparius", "aaa vva"), db = 'itis', verbose=FALSE)
 #' classification(c("Chironomus riparius", "aaa vva"), db = 'eol')
 #' classification(c("Chironomus riparius", "aaa vva"), db = 'col')
+#' classification("Alopias vulpinus", db = 'nbn')
 #' classification(c("Chironomus riparius", "aaa vva"), db = 'col', verbose=FALSE)
 #' classification(c("Chironomus riparius", "asdfasdfsfdfsd"), db = 'gbif')
-#' classification(c("Poa annua", "aaa vva"), db = 'tropicos')
+#' classification("Poa annua", db = 'tropicos')
 #' 
 #' # Use methods for get_uid, get_tsn, get_eolid, get_colid, get_tpsid
 #' classification(get_uid(c("Chironomus riparius", "Puma concolor")))
@@ -76,18 +81,25 @@
 #' # rbind and cbind on class classification (from a call to get_colid, get_tsn, etc. 
 #' # - other than get_ids)
 #' cl_col <- classification(get_colid(c("Puma concolor","Accipiter striatus")))
-#' cl_uid <- classification(get_uid(c("Puma concolor","Accipiter striatus")))
-#' cl_tsn <- classification(get_tsn(c("Puma concolor","Accipiter striatus")))
 #' rbind(cl_col)
-#' rbind(cl_uid)
-#' rbind(cl_tsn)
 #' cbind(cl_col)
+#' 
+#' cl_uid <- classification(get_uid(c("Puma concolor","Accipiter striatus")))
+#' rbind(cl_uid)
 #' cbind(cl_uid)
+#' 
+#' cl_tsn <- classification(get_tsn(c("Puma concolor","Accipiter striatus")))
+#' rbind(cl_tsn)
 #' cbind(cl_tsn)
 #' 
 #' tsns <- get_tsn(c("Puma concolor","Accipiter striatus"))
 #' cl_tsns <- classification(tsns)
 #' cbind(cl_tsns)
+#' 
+#' # NBN data
+#' res <- classification(c("Alopias vulpinus","Pinus sylvestris"), db = 'nbn')
+#' rbind(res)
+#' cbind(res)
 #' }
 #' 
 #' @examples \donttest{
@@ -139,6 +151,11 @@ classification.default <- function(x, db = NULL, callopts=list(), ...){
     out <- classification(id, callopts=callopts, ...)
     names(out) <- x
   }
+  if (db == 'nbn') {
+    id <- process_ids(x, get_nbnid, ...)
+    out <- classification(id, callopts=callopts, ...)
+    names(out) <- x
+  }
   return(out)
 }
 
@@ -172,9 +189,7 @@ classification.tsn <- function(id, callopts = list(), ...)
   }
   out <- lapply(id, fun)
   names(out) <- id
-  class(out) <- 'classification'
-  attr(out, 'db') <- 'itis'
-  return(out)
+  structure(out, class='classification', db='itis')
 }
 
 
@@ -206,9 +221,7 @@ classification.uid <- function(id, ...) {
   }
   out <- lapply(id, fun)
   names(out) <- id
-  class(out) <- 'classification'
-  attr(out, 'db') <- 'ncbi'
-  return(out)
+  structure(out, class='classification', db='ncbi')
 }
 
 
@@ -241,9 +254,7 @@ classification.eolid <- function(id, key = NULL, callopts = list(), ...) {
   }
   out <- lapply(id, fun)
   names(out) <- id
-  class(out) <- 'classification'
-  attr(out, 'db') <- 'eol'
-  return(out)
+  structure(out, class='classification', db='eol')
 }
 
 #' @method classification colid
@@ -283,9 +294,7 @@ classification.colid <- function(id, start = NULL, checklist = NULL, ...) {
   }
   out <- lapply(id, fun)
   names(out) <- id
-  class(out) <- 'classification'
-  attr(out, 'db') <- 'col'
-  return(out)
+  structure(out, class='classification', db='col')
 }
 
 
@@ -314,8 +323,7 @@ classification.tpsid <- function(id, key = NULL, callopts = list(), ...) {
   }
   out <- lapply(id, fun)
   names(out) <- id
-  class(out) <- 'classification'
-  return(out)
+  structure(out, class='classification', db='tropicos')
 }
 
 #' @method classification gbifid
@@ -339,8 +347,27 @@ classification.gbifid <- function(id, callopts = list(), ...) {
   }
   out <- lapply(id, fun)
   names(out) <- id
-  class(out) <- 'classification'
-  return(out)
+structure(out, class='classification', db='gbif')
+}
+
+
+#' @method classification nbnid
+#' @export
+#' @rdname classification
+classification.nbnid <- function(id, callopts = list(), ...) {
+  fun <- function(x){
+    if(is.na(x)) {
+      out <- NA
+    } else {
+      out <- suppressWarnings(tryCatch(nbn_classifcation(id=x, ...), error=function(e) e))
+      if(is(out, "simpleError")){ NA } else {
+        out[ , c('name','rank') ]
+      }
+    }
+  }
+  out <- lapply(id, fun)
+  names(out) <- id
+  structure(out, class='classification', db='nbn')
 }
 
 #' @method classification ids
@@ -376,7 +403,10 @@ cbind.classification <- function(x)
   }
   input <- x
   input <- input[sapply(input, class) %in% "data.frame"]
-  do.call(rbind.fill, lapply(input, gethiernames))
+  tmp <- do.call(rbind.fill, lapply(input, gethiernames))
+  tmp$query <- names(x)
+  tmp$db <- attr(x, "db")
+  tmp
 }
 
 #' @method rbind classification
@@ -387,9 +417,11 @@ rbind.classification <- function(x)
   input <- x
   db <- attr(input, "db")
   x <- input[vapply(x, class, "") %in% "data.frame"]
-  df <- do.call(rbind, x)
-  df <- data.frame(source = db, taxonid = gsub("\\.[0-9]+", "", row.names(df)), df)
-  row.names(df) <- NULL
+  for(i in seq_along(x)){
+    x[[i]]$query <- names(x[i])
+  }
+  df <- do.call(rbind.fill, x)
+  df$db <- db
   return( df )
 }
 
@@ -409,15 +441,19 @@ cbind.classification_ids <- function(...)
     names(values) <- tolower(x[,'rank'])
     return( values )
   }
-  do.call(rbind.fill, lapply(input, function(x){ 
-      tmp <- lapply(x, gethiernames)
-      do.call(rbind.fill, tmp)
+  dat <- do.call(rbind.fill, lapply(input, function(h){ 
+      tmp <- lapply(h, gethiernames)
+      tmp <- do.call(rbind.fill, tmp)
+      tmp$query <- names(h)
+      tmp$db <- attr(h, "db")
+      tmp
     })
   )
-#   # sort columns by rank order
-#   rank_ref$ranks[names(df) %in% tolower(rank_ref$ranks)]
-#   grep(names(values)[[2]], tolower(rank_ref$ranks))
-#   torank <- sapply(rank_ref[grep(downto, rank_ref$ranks):nrow(rank_ref),"ranks"], function(x) strsplit(x, ",")[[1]][[1]], USE.NAMES=F)
+  move_col(tt=dat, y=c('query','db'))
+}
+
+move_col <- function(tt, y){
+  tt[ c(names(tt)[ - sapply(y, function(m) grep(m, names(tt))) ], y) ]
 }
 
 #' @method rbind classification_ids
@@ -450,18 +486,11 @@ rbind.classification_ids <- function(...)
     tmp <- do.call(rbind, lapply(df, "[[", i))
     source2 <- gsub("\\.[0-9]+", "", row.names(tmp))
     row.names(tmp) <- NULL
-    names(tmp)[1] <- "taxonid"
-    tmp <- data.frame(source = source2, tmp)
+    names(tmp)[1] <- "query"
+    tmp <- data.frame(db = source2, tmp)
     get[[i]] <- tmp
   }
   
-  if(length(get) == 1) 
-    get[[1]]
-  else
-    get
-  #   source2 <- gsub("\\.[0-9]+", "", row.names(df))
-  #   row.names(df) <- NULL
-  #   names(df)[1] <- "taxonid"
-  #   df <- data.frame(source = source2, df)
-#   return( res )
+  tt <- if(length(get) == 1) get[[1]] else get
+  move_col(tt, c('query','db'))
 }
