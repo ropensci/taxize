@@ -12,6 +12,7 @@ The `taxize` tutorial is can be found at [http://ropensci.org/tutorials/taxize_t
 
 + [Scott Chamberlain](https://github.com/SChamberlain)
 + [Eduard Szöcs](https://github.com/EDiLD)
++ [Zachary Foster](https://github.com/zachary-foster)
 + [Carl Boettiger](https://github.com/cboettig)
 + [Karthik Ram](https://github.com/karthik)
 + [Ignasi Bartomeus](https://github.com/ibartomeus)
@@ -189,6 +190,13 @@ Note that a few data sources require SOAP web services, which are difficult to s
 	<td style="text-align:left;">none</td>
 	<td style="text-align:left;"><strong>TRUE</strong></td>
 </tr>
+<tr>
+	<td style="text-align:left;">National Biodiversity Network (UK)</td>
+	<td style="text-align:left;"><code>nbn</code></td>
+	<td style="text-align:left;"><a href="https://data.nbn.org.uk/Documentation/Web_Services/Web_Services-REST/resources/restapi/rest.html">link</a></td>
+	<td style="text-align:left;">none</td>
+	<td style="text-align:left;">false</td>
+</tr>
 </tbody>
 </table>
 
@@ -198,9 +206,10 @@ Note that a few data sources require SOAP web services, which are difficult to s
 
 #### May be in taxize in the future...
 
-+ [USDA Plants](http://plants.usda.gov/java/)
 + [NatureServe](http://www.natureserve.org/)
 + [Lichen Taxon dictionary](http://www.thebls.org.uk/)
++ [Wikispecies]()
++ And more, See the [newdatasource](https://github.com/ropensci/taxize/labels/newdatasource) tag in the issue tracker
 
 ## Quickstart
 
@@ -372,32 +381,9 @@ plot(tree)
 
 ## Meta
 
-Please [report any issues or bugs](https://github.com/ropensci/taxize/issues).
-
-License: MIT
-
-This package is part of the [rOpenSci](http://ropensci.org/packages) project.
-
-To cite package `taxize` in publications use:
-
-```r
-To cite taxize in publications use:
-
-  Scott Chamberlain and Eduard Szocs (2013). taxize - taxonomic search
-  and retrieval in R. F1000Research, 2:191. URL:
-  http://f1000research.com/articles/2-191/v2.
-
-A BibTeX entry for LaTeX users is
-
-  @Article{,
-    title = {taxize - taxonomic search and retrieval in R},
-    journal = {F1000Research},
-    author = {{Scott Chamberlain} and {Eduard Szocs}},
-    year = {2013},
-    url = {http://f1000research.com/articles/2-191/v2},
-  }
-```
-
-Get citation information for `taxize` in R doing `citation(package = 'taxize')`
+* Please [report any issues or bugs](https://github.com/ropensci/taxize/issues).
+* License: MIT
+* This package is part of the [rOpenSci](http://ropensci.org/packages) project.
+* Get citation information for `taxize` in R doing `citation(package = 'taxize')`
 
 [![ropensci](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
