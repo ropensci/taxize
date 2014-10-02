@@ -24,6 +24,7 @@ found.}
 If you search for 6000 records, and only 5000 are found, you will of course
 only get 5000 back.}
 
+<<<<<<< HEAD
 \item{entrez_query}{(\code{character}; length 1) An Entrez-format query to filter results with.
 This is useful to search for sequences with specific characteristics. The format is the same
 as the one used to seach genbank.
@@ -33,6 +34,12 @@ as the one used to seach genbank.
 return hypothetical or predicted sequences judging from accession number prefixs (XM and XR).
 This can result in less than the \code{limit} being returned even if there are more sequences
 available, since this filtering is done after searching NCBI.}
+=======
+\item{entrez_query}{(\code{character}; length 1) An Entrez-format query to filter results with.}
+
+\item{hypothetical}{(\code{logical}; length 1) If \code{FALSE}, an attempt will be made to not
+return hypothetical or predicted sequences judging from accession number prefixs.}
+>>>>>>> f60f8894c025609f53f5bb9f04ef9f228d3c0136
 
 \item{verbose}{(logical) If \code{TRUE} (default), informative messages printed.}
 }
