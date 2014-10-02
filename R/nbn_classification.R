@@ -20,10 +20,10 @@
 nbn_classifcation <- function(id, ...)
 {
   url <- sprintf("https://data.nbn.org.uk/api/taxa/%s/taxonomy", id)
-  nbn_class_GET(url, ...)
+  nbn_GET_2(url, ...)
 }
 
-nbn_class_GET <- function(url, ...){
+nbn_GET_2 <- function(url, ...){
   res <- GET(url, ...)
   stop_for_status(res)
   tt <- content(res, as = "text")
