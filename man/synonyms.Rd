@@ -3,6 +3,7 @@
 \alias{synonyms}
 \alias{synonyms.default}
 \alias{synonyms.ids}
+\alias{synonyms.nbnid}
 \alias{synonyms.tpsid}
 \alias{synonyms.tsn}
 \alias{synonyms.ubioid}
@@ -18,6 +19,8 @@ synonyms(...)
 
 \method{synonyms}{ubioid}(id, ...)
 
+\method{synonyms}{nbnid}(id, ...)
+
 \method{synonyms}{ids}(id, ...)
 }
 \arguments{
@@ -26,10 +29,11 @@ synonyms(...)
 \item{x}{character; taxons to query.}
 
 \item{db}{character; database to query. either \code{itis}, \code{tropicos},
-or \code{ubio}.}
+\code{ubio}, or \code{nbn}.}
 
 \item{id}{character; identifiers, returned by \code{\link[taxize]{get_tsn}},
-\code{\link[taxize]{get_tpsid}}, or \code{\link[taxize]{get_ubioid}}}
+\code{\link[taxize]{get_tpsid}}, \code{\link[taxize]{get_ubioid}}, or
+\code{\link[taxize]{get_nbnid}}}
 }
 \value{
 A named list of data.frames with the synonyms of every supplied taxa.
@@ -51,11 +55,13 @@ synonyms("Pinus contorta", db="tropicos")
 synonyms(c("Poa annua",'Pinus contorta'), db="tropicos")
 synonyms("Salmo friderici", db='ubio')
 synonyms(c("Salmo friderici",'Carcharodon carcharias','Puma concolor'), db="ubio")
+synonyms("Pinus sylvestris", db='nbn')
 
-# Use methods for get_tsn, get_tpsid
+# Use get_* methods
 synonyms(get_tsn("Poa annua"))
 synonyms(get_tpsid("Poa annua"))
 synonyms(get_ubioid("Carcharodon carcharias"))
+synonyms(get_nbnid("Carcharodon carcharias"))
 
 # Pass many ids from class "ids"
 out <- get_ids(names="Poa annua", db = c('itis','tropicos'))
@@ -63,6 +69,7 @@ synonyms(out)
 }
 }
 \seealso{
-\code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_tpsid}}
+\code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_tpsid}},
+\code{\link[taxize]{get_ubioid}}, \code{\link[taxize]{get_nbnid}}
 }
 
