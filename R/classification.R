@@ -4,7 +4,7 @@
 #' 
 #' @param x character; taxons to query.
 #' @param db character; database to query. either \code{ncbi}, \code{itis}, 
-#'    \code{eol}, \code{col}, \code{tropicos}, \code{gbif}.
+#'    \code{eol}, \code{col}, \code{tropicos}, \code{gbif}, or \code{nbn}.
 #' @param id character; identifiers, returned by \code{\link[taxize]{get_tsn}}, 
 #'    \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}}, 
 #'    \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_tpsid}}, 
@@ -464,19 +464,11 @@ rbind.classification_ids <- function(...)
   input <- c(...)
   # remove non-data.frames
   input <- input[vapply(input, function(x) class(x[[1]]), "") %in% "data.frame"]
-  #   df <- do.call(rbind, lapply(input, function(x){
-  # #             lapply(x, function(y) data.frame(names(y), y[[1]]))
-  #           coll <- list()
-  #           for(i in seq_along(x)){
-  #             coll[[i]] <- data.frame(names(x[i]), x[i][[1]])
-  #           }
-  #     do.call(rbind, coll)
-  #   }))
-  
+
   df <- lapply(input, function(x){
     coll <- list()
     for(i in seq_along(x)){
-      coll[[i]] <- data.frame(names(x[i]), x[i][[1]])
+      coll[[i]] <- data.frame(names(x[i]), x[i][[1]], stringsAsFactors = FALSE)
     }
     coll
   })
@@ -487,10 +479,10 @@ rbind.classification_ids <- function(...)
     source2 <- gsub("\\.[0-9]+", "", row.names(tmp))
     row.names(tmp) <- NULL
     names(tmp)[1] <- "query"
-    tmp <- data.frame(db = source2, tmp)
+    tmp <- data.frame(db = source2, tmp, stringsAsFactors = FALSE)
     get[[i]] <- tmp
   }
   
-  tt <- if(length(get) == 1) get[[1]] else get
+  tt <- if(length(get) == 1) get[[1]] else do.call(rbind.fill, get)
   move_col(tt, c('query','db'))
 }

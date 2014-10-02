@@ -53,7 +53,7 @@ classification(...)
 \item{x}{character; taxons to query.}
 
 \item{db}{character; database to query. either \code{ncbi}, \code{itis},
-\code{eol}, \code{col}, \code{tropicos}, \code{gbif}.}
+\code{eol}, \code{col}, \code{tropicos}, \code{gbif}, or \code{nbn}.}
 
 \item{callopts}{Curl options passed on to \code{\link[httr]{GET}}}
 
