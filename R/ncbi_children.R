@@ -64,6 +64,7 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
     max_return_query <- paste0("RetMax=", max_return)
     start_query <- paste0("RetStart=", start)
     query <- paste(base_url, taxon_query, max_return_query, start_query, sep="&")
+    query <- gsub(" ", "+", query) #spaces must be replaced with '+'
     # Search ncbi for children ---------------------------------------------------------------------
     raw_results <- RCurl::getURL(query)
     # Parse results --------------------------------------------------------------------------------
