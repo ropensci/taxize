@@ -7,7 +7,8 @@ gni_search(search_term = NULL, per_page = NULL, page = NULL,
   justtotal = FALSE, parse_names = FALSE)
 }
 \arguments{
-\item{search_term}{Name pattern you want to search for search term may
+\item{search_term}{Name pattern you want to search for. WARNING: Does not work for
+   vernacular/common names. Search term may
    include following options (Note: can, uni, gen, sp, ssp, au, yr work only
    for parsed names):
 \itemize{

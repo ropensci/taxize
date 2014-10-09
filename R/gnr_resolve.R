@@ -3,7 +3,7 @@
 #' Uses the Global Names Index, see \url{http://gni.globalnames.org/}.
 #'
 #' @import stringr plyr httr jsonlite
-#' @param names character; taxonomic names to be resolved.
+#' @param names character; taxonomic names to be resolved. Doesn't work for verncular/common names.
 #' @param data_source_ids character; IDs to specify what data source
 #'     is searched. See \code{\link[taxize]{gnr_datasources}}.
 #' @param resolve_once logical; Find the first available match instead of
