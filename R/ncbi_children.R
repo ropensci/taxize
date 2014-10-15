@@ -70,6 +70,7 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
     # Parse results --------------------------------------------------------------------------------
     results <- XML::xmlTreeParse(raw_results, useInternalNodes = TRUE)
     children_uid <- XML::xpathSApply(results, "//eSearchResult/IdList/Id", XML::xmlValue)
+    if (length(children_uid) == 0) children_uid <- NULL
     Sys.sleep(0.34) # NCBI limits requests to three per second
     return(children_uid)
   }
@@ -77,7 +78,11 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
   output <- Map(single_search, name, ancestor)
   if (out_type == "summary") {
     output <- lapply(output, ncbi_get_taxon_summary)
-    output <- Map(setNames, output, list(c("childtaxa_id", "childtaxa_name", "childtaxa_rank")))
+    not_null <- which(!sapply(output, is.null))
+    if (length(not_null) > 0) {
+      output[not_null] <- Map(setNames, output[not_null],
+                              list(c("childtaxa_id", "childtaxa_name", "childtaxa_rank")))      
+    }
   }
   if (is.null(id)) names(output) <- name else names(output) <- id
   return(output)
