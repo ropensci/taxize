@@ -22,6 +22,9 @@
 #'     \item{summary}{The output is a list of \code{data.frame} with children uid, name, and rank.}
 #'     \item{uid}{A list of character vectors of children uids}
 #'   }
+#' @param ambiguous \code{logical; length 1} If \code{FALSE}, children taxa with words like 
+#'   "unclassified", "unknown", "uncultured", or "sp." are removed from the output.
+#'   NOTE: This option only applies when \code{out_type = "summary"}.
 #' @return The output type depends on the value of the \code{out_type} parameter. 
 #' @seealso \code{\link{ncbi_get_taxon_summary}}, \code{\link[taxize]{children}}
 #' @examples
@@ -34,7 +37,10 @@
 #' @author Zachary Foster \email{zacharyfoster1989@@gmail.com}
 #' @export
 ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
-                          ancestor = NULL, out_type = c("summary", "uid")) {
+                          ancestor = NULL, out_type = c("summary", "uid"), ambiguous = FALSE) {
+  # Constants --------------------------------------------------------------------------------------
+  ambiguous_regex <- "unclassified|environmental|uncultured|unknown|unidentified|sp\\.|s\\.l\\."
+  base_url <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy"
   # Argument validation ----------------------------------------------------------------------------
   if (sum(c(is.null(name), is.null(id))) != 1) {
     stop("Either name or id must be specified, but not both")
@@ -57,7 +63,6 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
   single_search <- function(name, ancestor) {
     if (is.na(name)) return(NA)
     # Make eutils esearch query  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    base_url <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy"
     if (is.na(ancestor)) {
       ancestor_query <- NULL
     } else {
@@ -79,6 +84,10 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
       if (out_type == "summary") {
         output <- ncbi_get_taxon_summary(children_uid)
         names(output) <- c("childtaxa_id", "childtaxa_name", "childtaxa_rank")
+        # Remove ambiguous results
+        if (!ambiguous) {
+          output <- output[!grepl(ambiguous_regex, output$childtaxa_name, ignore.case = TRUE), ]          
+        }
       } else {
         output <- children_uid
       }
