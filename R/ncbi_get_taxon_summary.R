@@ -17,8 +17,8 @@
 #' @export
 ncbi_get_taxon_summary <- function(id) {
   # Argument validation ----------------------------------------------------------------------------
-  if (length(id) <= 1 && is.na(id)) return(NA)
   if (is.null(id)) return(NULL)
+  if (length(id) <= 1 && is.na(id)) return(NA)
   id <- as.character(id)
   # Make eutils esummary query ---------------------------------------------------------------------
   base_url <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy"
