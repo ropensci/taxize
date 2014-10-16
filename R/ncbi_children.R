@@ -44,16 +44,19 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
   if (is.null(name)) {
     if (class(id) != 'uid') attr(id, 'class') <- 'uid'
     id_taxonomy <- classification(id, db = 'ncbi')
-    name <- vapply(id_taxonomy, function(x) x$name[nrow(x)], character(1))
+    name <- vapply(id_taxonomy,
+                   function(x) ifelse(nrow(x) > 0, x$name[nrow(x)], as.character(NA)),
+                   character(1))
     ancestor <- vapply(id_taxonomy,
-                       function(x) ifelse(nrow(x) > 1, x$name[nrow(x) - 1], NA),
+                       function(x) ifelse(nrow(x) > 1, x$name[nrow(x) - 1], as.character(NA)),
                        character(1)) 
   } else if (is.null(ancestor)) {
     ancestor <- rep(NA, length(name))
   }
+  # Function to search for queries one at a time ---------------------------------------------------
   single_search <- function(name, ancestor) {
     if (is.na(name)) return(NA)
-    # Make eutils esearch query --------------------------------------------------------------------
+    # Make eutils esearch query  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     base_url <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy"
     if (is.na(ancestor)) {
       ancestor_query <- NULL
@@ -65,25 +68,26 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
     start_query <- paste0("RetStart=", start)
     query <- paste(base_url, taxon_query, max_return_query, start_query, sep="&")
     query <- gsub(" ", "+", query) #spaces must be replaced with '+'
-    # Search ncbi for children ---------------------------------------------------------------------
+    # Search ncbi for children - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     raw_results <- RCurl::getURL(query)
-    # Parse results --------------------------------------------------------------------------------
+    # Parse results  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     results <- XML::xmlTreeParse(raw_results, useInternalNodes = TRUE)
     children_uid <- XML::xpathSApply(results, "//eSearchResult/IdList/Id", XML::xmlValue)
-    if (length(children_uid) == 0) children_uid <- NULL
+    if (length(children_uid) == 0) {
+      output <- NULL
+    } else {
+      if (out_type == "summary") {
+        output <- ncbi_get_taxon_summary(children_uid)
+        names(output) <- c("childtaxa_id", "childtaxa_name", "childtaxa_rank")
+      } else {
+        output <- children_uid
+      }
+    }
     Sys.sleep(0.34) # NCBI limits requests to three per second
-    return(children_uid)
+    return(output)
   }
   #Combine the result of multiple searches ----------------------------------------------------------
   output <- Map(single_search, name, ancestor)
-  if (out_type == "summary") {
-    output <- lapply(output, ncbi_get_taxon_summary)
-    not_null <- which(!sapply(output, is.null))
-    if (length(not_null) > 0) {
-      output[not_null] <- Map(setNames, output[not_null],
-                              list(c("childtaxa_id", "childtaxa_name", "childtaxa_rank")))      
-    }
-  }
   if (is.null(id)) names(output) <- name else names(output) <- id
   return(output)
 }
