@@ -39,7 +39,9 @@
 ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
                           ancestor = NULL, out_type = c("summary", "uid"), ambiguous = FALSE) {
   # Constants --------------------------------------------------------------------------------------
-  ambiguous_regex <- "unclassified|environmental|uncultured|unknown|unidentified|sp\\.|s\\.l\\."
+  ambiguous_regex <- paste(sep = "|", "unclassified", "environmental", "uncultured", "unknown",
+                           "unidentified", "candidate", "sp\\.", "s\\.l\\.", "sensu lato", "clone",
+                           "miscellaneous", "candidatus", "affinis", "aff\\.")
   base_url <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy"
   # Argument validation ----------------------------------------------------------------------------
   if (sum(c(is.null(name), is.null(id))) != 1) {
