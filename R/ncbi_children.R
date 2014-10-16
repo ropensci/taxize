@@ -93,6 +93,7 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
       } else {
         output <- children_uid
       }
+      rownames(output) <- NULL # numeric row names can be misleading after filtering
     }
     Sys.sleep(0.34) # NCBI limits requests to three per second
     return(output)
