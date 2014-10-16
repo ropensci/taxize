@@ -3,7 +3,8 @@
 #' Uses the Global Names Index, see \url{http://gni.globalnames.org/} for 
 #' information. 
 #' 
-#' @param search_term Name pattern you want to search for search term may 
+#' @param search_term Name pattern you want to search for. WARNING: Does not work for
+#'    vernacular/common names. Search term may 
 #'    include following options (Note: can, uni, gen, sp, ssp, au, yr work only
 #'    for parsed names):
 #' \itemize{

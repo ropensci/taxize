@@ -9,7 +9,7 @@ gnr_resolve(names, data_source_ids = NULL, resolve_once = FALSE,
   callopts = list())
 }
 \arguments{
-\item{names}{character; taxonomic names to be resolved.}
+\item{names}{character; taxonomic names to be resolved. Doesn't work for verncular/common names.}
 
 \item{data_source_ids}{character; IDs to specify what data source
 is searched. See \code{\link[taxize]{gnr_datasources}}.}
