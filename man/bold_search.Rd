@@ -11,14 +11,15 @@ bold_search(name = NULL, id = NULL, fuzzy = FALSE, dataTypes = "basic",
 
 \item{id}{(integer) One or more BOLD taxonomic identifiers.}
 
-\item{fuzzy}{(logical) Whether to use fuzzy search or not (default: FALSE).}
+\item{fuzzy}{(logical) Whether to use fuzzy search or not (default: FALSE). Only used if
+\code{name} passed.}
 
 \item{dataTypes}{(character) Specifies the datatypes that will be returned. See Details for
 options. This variable is ignored if \code{name} parameter is passed, but is used if the
 \code{id} parameter is passed.}
 
 \item{includeTree}{(logical) If TRUE (default: FALSE), returns a list containing information
-for parent taxa as well as the specified taxon.}
+for parent taxa as well as the specified taxon. Only used if \code{id} passed.}
 
 \item{response}{(logical) Note that response is the object that returns from the Curl call,
 useful for debugging, and getting detailed info on the API call.}
@@ -33,7 +34,8 @@ Search Barcode of Life for taxonomic IDs
 }
 \details{
 You must provide one of name or id to this function. The other parameters are optional.
-Note that the \code{dataTypes} parameter is ignored if the \code{name} parameter is passed.
+Note that when passing in \coe{name}, \code{fuzzy} can be used as well, while if \code{id}
+is passed, then \code{fuzzy} is ignored, and \code{dataTypes} \code{includeTree} can be used.
 
 Options for \code{dataTypes} parameter:
 
