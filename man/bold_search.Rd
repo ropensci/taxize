@@ -34,7 +34,7 @@ Search Barcode of Life for taxonomic IDs
 }
 \details{
 You must provide one of name or id to this function. The other parameters are optional.
-Note that when passing in \coe{name}, \code{fuzzy} can be used as well, while if \code{id}
+Note that when passing in \code{name}, \code{fuzzy} can be used as well, while if \code{id}
 is passed, then \code{fuzzy} is ignored, and \code{dataTypes} \code{includeTree} can be used.
 
 Options for \code{dataTypes} parameter:
