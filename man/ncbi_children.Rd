@@ -4,7 +4,7 @@
 \title{Search NCBI for children of a taxon}
 \usage{
 ncbi_children(name = NULL, id = NULL, start = 0, max_return = 1000,
-  ancestor = NULL, out_type = c("summary", "uid"))
+  ancestor = NULL, out_type = c("summary", "uid"), ambiguous = FALSE)
 }
 \arguments{
 \item{name}{(\code{character}) The string to search for. Only exact matches found the name given
@@ -25,6 +25,10 @@ if there could be more than one taxon with the same name. Has no effect if \code
   \item{summary}{The output is a list of \code{data.frame} with children uid, name, and rank.}
   \item{uid}{A list of character vectors of children uids}
 }}
+
+\item{ambiguous}{\code{logical; length 1} If \code{FALSE}, children taxa with words like
+"unclassified", "unknown", "uncultured", or "sp." are removed from the output.
+NOTE: This option only applies when \code{out_type = "summary"}.}
 }
 \value{
 The output type depends on the value of the \code{out_type} parameter.
