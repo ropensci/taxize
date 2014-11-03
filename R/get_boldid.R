@@ -33,6 +33,10 @@
 #' # When not found
 #' get_boldid("howdy")
 #' get_boldid(c("Chironomus riparius", "howdy"))
+#' get_boldid('Epicordulia princeps')
+#' get_boldid('Arigomphus furcifer')
+#' get_boldid("Cordulegaster erronea")
+#' get_boldid("Nasiaeshna pentacantha")
 #' }
 
 get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes='basic', includeTree=FALSE,
