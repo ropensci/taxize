@@ -22,6 +22,8 @@
 #' @param checklist character; The year of the checklist to query, if you want a specific 
 #' 		year's checklist instead of the lastest as default (numeric).
 #' @param key Your API key; loads from .Rprofile.
+#' @param return_id If TRUE, return the taxon id as well as the name and rank of taxa
+#' in the lineage returned.
 #' 
 #' @return A named list of data.frames with the taxonomic classifcation of 
 #'    every supplied taxa.
@@ -113,36 +115,36 @@ classification <- function(...){
 #' @method classification default
 #' @export
 #' @rdname classification
-classification.default <- function(x, db = NULL, callopts=list(), ...){
+classification.default <- function(x, db = NULL, callopts=list(), return_id = FALSE, ...){
   if (is.null(db))
     stop("Must specify db!")
   if (db == 'itis') {
     id <- process_ids(x, get_tsn, ...)
-    out <- classification(id, callopts=callopts, ...)
+    out <- classification(id, callopts=callopts, return_id=return_id, ...)
     names(out) <- x
   }
   if (db == 'ncbi') {
     id <- process_ids(x, get_uid, ...)
 #     id <- get_uid(x, ...)
-    out <- classification(id, ...)
+    out <- classification(id, return_id=return_id, ...)
     names(out) <- x
   }
   if (db == 'eol') {
     id <- process_ids(x, get_eolid, ...)
 #     id <- get_eolid(x, ...)
-    out <- classification(id, callopts=callopts, ...)
+    out <- classification(id, callopts=callopts, return_id=return_id, ...)
     names(out) <- x
   }
   if (db == 'col') {
     id <- process_ids(x, get_colid, ...)
 #     id <- get_colid(x, ...)
-    out <- classification(id, ...)
+    out <- classification(id, return_id=return_id, ...)
     names(out) <- x
   }
   if (db == 'tropicos') {
     id <- process_ids(x, get_tpsid, ...)
 #     id <- get_tpsid(x, ...)
-    out <- classification(id, callopts=callopts, ...)
+    out <- classification(id, callopts=callopts, return_id=return_id, ...)
     names(out) <- x
   }
   if (db == 'gbif') {
@@ -153,7 +155,7 @@ classification.default <- function(x, db = NULL, callopts=list(), ...){
   }
   if (db == 'nbn') {
     id <- process_ids(x, get_nbnid, ...)
-    out <- classification(id, callopts=callopts, ...)
+    out <- classification(id, callopts=callopts, return_id=return_id, ...)
     names(out) <- x
   }
   return(out)
@@ -173,7 +175,7 @@ process_ids <- function(input, fxn, ...){
 #' @method classification tsn
 #' @export
 #' @rdname classification
-classification.tsn <- function(id, callopts = list(), ...) 
+classification.tsn <- function(id, callopts = list(), return_id = FALSE, ...) 
 {
   fun <- function(x){
     # return NA if NA is supplied
@@ -182,8 +184,10 @@ classification.tsn <- function(id, callopts = list(), ...)
     } else {
     	out <- getfullhierarchyfromtsn(x, curlopts = callopts, ...)
     	# remove overhang
-    	out <- out[1:which(out$tsn == x), c('taxonName', 'rankName')]
-      names(out) <- c('name', 'rank')
+    	out <- out[1:which(out$tsn == x), c('taxonName', 'rankName', 'tsn')]
+      names(out) <- c('name', 'rank', 'id')
+    	# Optionally return tsn of lineage
+    	if (!return_id) out <- out[, c('name', 'rank')]
     	return(out)
     }
   }
@@ -265,7 +269,7 @@ classification.eolid <- function(id, key = NULL, callopts = list(), return_id = 
 #' @method classification colid
 #' @export
 #' @rdname classification
-classification.colid <- function(id, start = NULL, checklist = NULL, ...) {
+classification.colid <- function(id, start = NULL, checklist = NULL, return_id = FALSE, ...) {
   fun <- function(x){
     # return NA if NA is supplied
     if(is.na(x)){
