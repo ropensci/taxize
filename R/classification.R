@@ -196,7 +196,7 @@ classification.tsn <- function(id, callopts = list(), ...)
 #' @method classification uid
 #' @export
 #' @rdname classification
-classification.uid <- function(id, ...) {
+classification.uid <- function(id, return_id = FALSE, ...) {
   fun <- function(x){
     # return NA if NA is supplied
     if(is.na(x)){
@@ -209,10 +209,13 @@ classification.uid <- function(id, ...) {
       ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)
       out <- data.frame(name = xpathSApply(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/ScientificName", xmlValue), 
                         rank = xpathSApply(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/Rank", xmlValue),
+                        id = xpathSApply(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/TaxId", xmlValue),
                         stringsAsFactors = FALSE)
       out <- rbind(out, c(xpathSApply(ttp, "//TaxaSet/Taxon/ScientificName", xmlValue),
-        xpathSApply(ttp, "//TaxaSet/Taxon/Rank", xmlValue), 
-        xpathSApply(ttp, "//TaxaSet/Taxon/TaxId", xmlValue)))
+                          xpathSApply(ttp, "//TaxaSet/Taxon/Rank", xmlValue),
+                          xpathSApply(ttp, "//TaxaSet/Taxon/TaxId", xmlValue)))
+      # Optionally return tsn of lineage
+      if (!return_id) out <- out[, c('name', 'rank')]
       return(out)
     }
     # NCBI limits requests to three per second
@@ -228,7 +231,7 @@ classification.uid <- function(id, ...) {
 #' @method classification eolid
 #' @export
 #' @rdname classification
-classification.eolid <- function(id, key = NULL, callopts = list(), ...) {
+classification.eolid <- function(id, key = NULL, callopts = list(), return_id = FALSE, ...) {
   common_names = NULL
   fun <- function(x){
     if(is.na(x)){ 
@@ -244,10 +247,12 @@ classification.eolid <- function(id, key = NULL, callopts = list(), ...) {
       if(length(res$ancestors)==0){
         return(sprintf("No hierarchy information for %s", x))
       } else {
-        out <- do.call(rbind.fill, lapply(res$ancestors, data.frame, stringsAsFactors = FALSE))[,c('scientificName','taxonRank')]
+        out <- do.call(rbind.fill, lapply(res$ancestors, data.frame, stringsAsFactors = FALSE))[,c('scientificName','taxonRank', 'taxonID')]
         # add querried taxon
-        out <- rbind(out, c(res$scientificName, res$taxonRank))
-        names(out) <- c('name', 'rank')
+        out <- rbind(out, c(res$scientificName, res$taxonRank, x))
+        names(out) <- c('name', 'rank', 'id')
+        # Optionally return id of lineage
+        if (!return_id) out <- out[, c('name', 'rank')]
         return(out)
       }
     }
@@ -276,19 +281,21 @@ classification.colid <- function(id, start = NULL, checklist = NULL, ...) {
           url <- gsub("year", cc, url)
         }
       }
-        
+      
       args <- compact(list(id = x, response = "full", start = start))
       out <- getForm(url, .params = args)
       tt <- xmlParse(out)
       
       out <- data.frame(name = xpathSApply(tt, "//classification//name", xmlValue),
                         rank = xpathSApply(tt, "//classification//rank", xmlValue),
+                        id  = xpathSApply(tt, "//classification//id", xmlValue),
                         stringsAsFactors = FALSE)
       # add querried taxon
       out <- rbind(out, c(xpathSApply(tt, "//result/name", xmlValue), 
-                          xpathSApply(tt, "//result/rank", xmlValue)))
-
-      
+                          xpathSApply(tt, "//result/rank", xmlValue),
+                          xpathSApply(tt, "//result/id", xmlValue)))
+      # Optionally return id of lineage
+      if (!return_id) out <- out[, c('name', 'rank')]
     }
     return(out)
   }
@@ -301,7 +308,7 @@ classification.colid <- function(id, start = NULL, checklist = NULL, ...) {
 #' @method classification tpsid
 #' @export
 #' @rdname classification
-classification.tpsid <- function(id, key = NULL, callopts = list(), ...) {
+classification.tpsid <- function(id, key = NULL, callopts = list(), return_id = FALSE, ...) {
   fun <- function(x){
     if(is.na(x)) {
       out <- NA
@@ -315,9 +322,11 @@ classification.tpsid <- function(id, key = NULL, callopts = list(), ...) {
       if(names(out[[1]])[[1]] == "Error"){ 
         out <- data.frame(ScientificName=NA, Rank=NA) 
       } else {
-        out <- do.call(rbind.fill, lapply(out, data.frame))[,c('ScientificName','Rank')]
+        out <- do.call(rbind.fill, lapply(out, data.frame))[,c('ScientificName','Rank', 'NameId')]
       }
-      names(out) <- c('name', 'rank')
+      names(out) <- c('name', 'rank', 'id')
+      # Optionally return id of lineage
+      if (!return_id) out <- out[, c('name', 'rank')]
     }
     return(out)
   }
@@ -338,7 +347,7 @@ classification.gbifid <- function(id, callopts = list(), ...) {
       if(is(out, "simpleError")){ 
         out <- NA
       } else {
-#         out <- do.call(rbind.fill, lapply(out, data.frame))[,c('ScientificName','Rank')]
+        #         out <- do.call(rbind.fill, lapply(out, data.frame))[,c('ScientificName','Rank')]
         out <- ldply(out[c('kingdom','phylum','clazz','order','family','genus','species')])
         out <- data.frame(name=out$V1, rank=out$.id)
       }
@@ -347,21 +356,25 @@ classification.gbifid <- function(id, callopts = list(), ...) {
   }
   out <- lapply(id, fun)
   names(out) <- id
-structure(out, class='classification', db='gbif')
+  structure(out, class='classification', db='gbif')
 }
 
 
 #' @method classification nbnid
 #' @export
 #' @rdname classification
-classification.nbnid <- function(id, callopts = list(), ...) {
+classification.nbnid <- function(id, callopts = list(), return_id = FALSE, ...) {
   fun <- function(x){
     if(is.na(x)) {
       out <- NA
     } else {
       out <- suppressWarnings(tryCatch(nbn_classifcation(id=x, ...), error=function(e) e))
       if(is(out, "simpleError")){ NA } else {
-        out[ , c('name','rank') ]
+        out <- out[ , c('name','rank', 'taxonVersionKey')]
+        names(out) <- c('name', 'rank', 'id')
+        # Optionally return id of lineage
+        if (!return_id) out <- out[, c('name', 'rank')]
+        return(out)
       }
     }
   }
