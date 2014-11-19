@@ -182,13 +182,13 @@ classification.tsn <- function(id, callopts = list(), return_id = FALSE, ...)
     if (is.na(x)) {
       out <- NA
     } else {
-    	out <- getfullhierarchyfromtsn(x, curlopts = callopts, ...)
-    	# remove overhang
-    	out <- out[1:which(out$tsn == x), c('taxonName', 'rankName', 'tsn')]
+      out <- getfullhierarchyfromtsn(x, curlopts = callopts, ...)
+      # remove overhang
+      out <- out[1:which(out$tsn == x), c('taxonName', 'rankName', 'tsn')]
       names(out) <- c('name', 'rank', 'id')
-    	# Optionally return tsn of lineage
-    	if (!return_id) out <- out[, c('name', 'rank')]
-    	return(out)
+      # Optionally return tsn of lineage
+      if (!return_id) out <- out[, c('name', 'rank')]
+      return(out)
     }
   }
   out <- lapply(id, fun)
