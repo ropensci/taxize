@@ -18,21 +18,26 @@
 \usage{
 classification(...)
 
-\method{classification}{default}(x, db = NULL, callopts = list(), ...)
+\method{classification}{default}(x, db = NULL, callopts = list(),
+  return_id = FALSE, ...)
 
-\method{classification}{tsn}(id, callopts = list(), ...)
+\method{classification}{tsn}(id, callopts = list(), return_id = FALSE, ...)
 
-\method{classification}{uid}(id, ...)
+\method{classification}{uid}(id, return_id = FALSE, ...)
 
-\method{classification}{eolid}(id, key = NULL, callopts = list(), ...)
+\method{classification}{eolid}(id, key = NULL, callopts = list(),
+  return_id = FALSE, ...)
 
-\method{classification}{colid}(id, start = NULL, checklist = NULL, ...)
+\method{classification}{colid}(id, start = NULL, checklist = NULL,
+  return_id = FALSE, ...)
 
-\method{classification}{tpsid}(id, key = NULL, callopts = list(), ...)
+\method{classification}{tpsid}(id, key = NULL, callopts = list(),
+  return_id = FALSE, ...)
 
 \method{classification}{gbifid}(id, callopts = list(), ...)
 
-\method{classification}{nbnid}(id, callopts = list(), ...)
+\method{classification}{nbnid}(id, callopts = list(), return_id = FALSE,
+  ...)
 
 \method{classification}{ids}(id, ...)
 
@@ -56,6 +61,9 @@ classification(...)
 \code{eol}, \code{col}, \code{tropicos}, \code{gbif}, or \code{nbn}.}
 
 \item{callopts}{Curl options passed on to \code{\link[httr]{GET}}}
+
+\item{return_id}{If TRUE, return the taxon id as well as the name and rank of taxa
+in the lineage returned.}
 
 \item{id}{character; identifiers, returned by \code{\link[taxize]{get_tsn}},
 \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}},
