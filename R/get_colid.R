@@ -22,6 +22,7 @@
 #' get_colid(sciname='Poa annua')
 #' get_colid(sciname='Pinus contorta')
 #' get_colid(sciname='Puma concolor')
+#' get_colid(sciname="Abudefduf saxatilis")
 #'
 #' get_colid(c("Poa annua", "Pinus contorta"))
 #'
@@ -102,16 +103,16 @@ get_colid <- function(sciname, ask = TRUE, verbose = TRUE){
   ids <- sapply(out, "[[", "id")
   atts <- sapply(out, "[[", "att")
   ids <- structure(ids, class="colid", match=atts)
-  if(!is.na(ids[1])){
-    urls <- taxize_compact(sapply(out, function(z){
+  if( !all(is.na(ids)) ){
+    urls <- sapply(out, function(z){
       if(!is.na(z[['id']])){
         if(tolower(z['rank']) == "species"){
           sprintf('http://www.catalogueoflife.org/col/details/species/id/%s', z[['id']])
         } else {
           sprintf('http://www.catalogueoflife.org/col/browse/tree/id/%s', z[['id']])
         }
-      }
-    }))
+      } else { NA }
+    })
     attr(ids, 'uri') <- unlist(urls)
   }
   return(ids)
