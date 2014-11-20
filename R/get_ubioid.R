@@ -132,14 +132,8 @@ get_ubioid <- function(searchterm, searchtype = "scientific", ask = TRUE, verbos
   }
   searchterm <- as.character(searchterm)
   outd <- ldply(searchterm, fun, searchtype, ask, verbose)
-  out <- outd$ubioid
-  attr(out, 'match') <- outd$att
-  if( !all(is.na(out)) ){
-    urlmake <- na.omit(out)
-    attr(out, 'uri') <-
-      sprintf('http://www.ubio.org/browser/details.php?namebankID=%s', urlmake)
-  }
-  structure(out, class="ubioid")
+  out <- structure(outd$ubioid, class="ubioid", match=outd$att)
+  add_uri(out, 'http://www.ubio.org/browser/details.php?namebankID=%s')
 }
 
 

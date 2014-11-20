@@ -113,12 +113,16 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE){
   ids <- sapply(out, "[[", "id")
   atts <- sapply(out, "[[", "att")
   ids <- structure(ids, class="gbifid", match=atts)
+  add_uri(ids, 'http://www.gbif.org/species/%s')
+}
+
+add_uri <- function(ids, url){
   if( !all(is.na(ids)) ){
-    urlmake <- na.omit(ids)
-    attr(ids, 'uri') <-
-      sprintf('http://www.gbif.org/species/%s', urlmake)
+    attr(ids, 'uri') <- sapply(ids, function(x){
+      if(!is.na(x)) sprintf(url, x) else NA
+    }, USE.NAMES = FALSE)
   }
-  return(ids)
+  ids
 }
 
 gbif_name_suggest <- function(q=NULL, datasetKey=NULL, rank=NULL, fields=NULL, start=NULL,

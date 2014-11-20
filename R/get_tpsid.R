@@ -109,12 +109,7 @@ get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...){
   ids <- unlist(pluck(out, "id"))
   atts <- pluck(out, "att", "")
   ids <- structure(ids, class="tpsid", match=atts)
-  if( !all(is.na(ids)) ){
-    attr(ids, 'uri') <- sapply(ids, function(x){
-      if(!is.na(x)) sprintf('http://tropicos.org/Name/%s', x) else NA
-    }, USE.NAMES = FALSE)
-  }
-  return( ids )
+  add_uri(ids, 'http://tropicos.org/Name/%s')
 }
 
 #' @export

@@ -139,15 +139,15 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes='basic', includeTree
   }
   searchterm <- as.character(searchterm)
   outd <- ldply(searchterm, fun, ask, verbose)
-  out <- outd$boldid
-  attr(out, 'match') <- outd$att
-  if( !all(is.na(out)) ){
-    urlmake <- na.omit(out)
-    attr(out, 'uri') <-
-      sprintf('http://boldsystems.org/index.php/Taxbrowser_Taxonpage?taxid=%s', urlmake)
-  }
-  class(out) <- "boldid"
-  return(out)
+  out <- structure(outd$boldid, class="boldid", match=outd$att)
+  add_uri(out, 'http://boldsystems.org/index.php/Taxbrowser_Taxonpage?taxid=%s')
+#   if( !all(is.na(out)) ){
+#     urlmake <- na.omit(out)
+#     attr(out, 'uri') <-
+#       sprintf('http://boldsystems.org/index.php/Taxbrowser_Taxonpage?taxid=%s', urlmake)
+#   }
+#   class(out) <- "boldid"
+#   return(out)
 }
 
 #' @export
