@@ -117,11 +117,11 @@ as.tpsid.tpsid <- function(x) x
 
 #' @export
 #' @rdname get_tpsid
-as.tpsid.character <- function(x) if(length(x) == 1) make_tpsid(x) else lapply(x, make_tpsid)
+as.tpsid.character <- function(x) if(length(x) == 1) make_tpsid(x) else collapse(x, make_tpsid, "tpsid")
 
 #' @export
 #' @rdname get_tpsid
-as.tpsid.list <- function(x) if(length(x) == 1) make_tpsid(x) else lapply(x, make_tpsid)
+as.tpsid.list <- function(x) if(length(x) == 1) make_tpsid(x) else collapse(x, make_tpsid, "tpsid")
 
 #' @export
 #' @rdname get_tpsid

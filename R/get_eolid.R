@@ -168,11 +168,11 @@ as.eolid.eolid <- function(x) x
 
 #' @export
 #' @rdname get_eolid
-as.eolid.character <- function(x) if(length(x) == 1) make_eolid(x) else lapply(x, make_eolid)
+as.eolid.character <- function(x) if(length(x) == 1) make_eolid(x) else collapse(x, make_eolid, "eolid", FALSE)
 
 #' @export
 #' @rdname get_eolid
-as.eolid.list <- function(x) if(length(x) == 1) make_eolid(x) else lapply(x, make_eolid)
+as.eolid.list <- function(x) if(length(x) == 1) make_eolid(x) else collapse(x, make_eolid, "eolid", FALSE)
 
 #' @export
 #' @rdname get_eolid
@@ -181,8 +181,8 @@ as.eolid.numeric <- function(x) as.eolid(as.character(x))
 make_eolid <- function(x){
   if(check_eolid(x)){
     uri <- sprintf('http://eol.org/pages/%s/overview', x)
-    structure(x, class="uid", uri=uri)
-  } else { structure(x, class="uid")   }
+    structure(x, class="eolid", uri=uri)
+  } else { structure(x, class="eolid")   }
 }
 
 check_eolid <- function(x){

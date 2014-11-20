@@ -149,11 +149,11 @@ as.gbifid.uid <- function(x) x
 
 #' @export
 #' @rdname get_gbifid
-as.gbifid.character <- function(x) if(length(x) == 1) make_gbifid(x) else lapply(x, make_gbifid)
+as.gbifid.character <- function(x) if(length(x) == 1) make_gbifid(x) else collapse(x, make_gbifid, "gbifid")
 
 #' @export
 #' @rdname get_gbifid
-as.gbifid.list <- function(x) if(length(x) == 1) make_gbifid(x) else lapply(x, make_gbifid)
+as.gbifid.list <- function(x) if(length(x) == 1) make_gbifid(x) else collapse(x, make_gbifid, "gbifid")
 
 #' @export
 #' @rdname get_gbifid

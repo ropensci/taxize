@@ -122,11 +122,11 @@ as.nbnid.nbnid <- function(x) x
 
 #' @export
 #' @rdname get_nbnid
-as.nbnid.character <- function(x) if(length(x) == 1) make_nbnid(x) else lapply(x, make_nbnid)
+as.nbnid.character <- function(x) if(length(x) == 1) make_nbnid(x) else collapse(x, make_nbnid, "nbnid", FALSE)
 
 #' @export
 #' @rdname get_nbnid
-as.nbnid.list <- function(x) if(length(x) == 1) make_nbnid(x) else lapply(x, make_nbnid)
+as.nbnid.list <- function(x) if(length(x) == 1) make_nbnid(x) else collapse(x, make_nbnid, "nbnid", FALSE)
 
 make_nbnid <- function(x){
   if(check_nbnid(x)){

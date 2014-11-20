@@ -160,11 +160,11 @@ as.boldid.boldid <- function(x) x
 
 #' @export
 #' @rdname get_boldid
-as.boldid.character <- function(x) if(length(x) == 1) make_boldid(x) else lapply(x, make_boldid)
+as.boldid.character <- function(x) if(length(x) == 1) make_boldid(x) else collapse(x, make_boldid, "boldid", FALSE)
 
 #' @export
 #' @rdname get_boldid
-as.boldid.list <- function(x) if(length(x) == 1) make_boldid(x) else lapply(x, make_boldid)
+as.boldid.list <- function(x) if(length(x) == 1) make_boldid(x) else collapse(x, make_boldid, "boldid")
 
 #' @export
 #' @rdname get_boldid

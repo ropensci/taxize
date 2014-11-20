@@ -122,11 +122,11 @@ as.colid.colid <- function(x) x
 
 #' @export
 #' @rdname get_colid
-as.colid.character <- function(x) if(length(x) == 1) make_colid(x) else lapply(x, make_colid)
+as.colid.character <- function(x) if(length(x) == 1) make_colid(x) else collapse(x, make_colid, "colid")
 
 #' @export
 #' @rdname get_colid
-as.colid.list <- function(x) if(length(x) == 1) make_colid(x) else lapply(x, make_colid)
+as.colid.list <- function(x) if(length(x) == 1) make_colid(x) else collapse(x, make_colid, "colid")
 
 #' @export
 #' @rdname get_colid

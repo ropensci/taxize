@@ -141,11 +141,15 @@ make_uid <- function(x){
   } else { structure(NA, class="uid", match="not found")   }
 }
 
-collapse <- function(x, fxn, class){
+collapse <- function(x, fxn, class, match=TRUE){
   tmp <- lapply(x, fxn)
+  if(match){
   structure(sapply(tmp, unclass), class=class,
             match=sapply(tmp, attr, which="match"),
             uri=sapply(tmp, attr, which="uri"))
+  } else {
+    structure(sapply(tmp, unclass), class=class, uri=sapply(tmp, attr, which="uri"))
+  }
 }
 
 check_uid <- function(x){

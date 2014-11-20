@@ -158,11 +158,11 @@ as.tsn.tsn <- function(x) x
 
 #' @export
 #' @rdname get_tsn
-as.tsn.character <- function(x) if(length(x) == 1) make_tsn(x) else lapply(x, make_tsn)
+as.tsn.character <- function(x) if(length(x) == 1) make_tsn(x) else collapse(x, make_tsn, "tsn")
 
 #' @export
 #' @rdname get_tsn
-as.tsn.list <- function(x) if(length(x) == 1) make_tsn(x) else lapply(x, make_tsn)
+as.tsn.list <- function(x) if(length(x) == 1) make_tsn(x) else collapse(x, make_tsn, "tsn")
 
 #' @export
 #' @rdname get_tsn

@@ -151,11 +151,11 @@ as.ubioid.ubioid <- function(x) x
 
 #' @export
 #' @rdname get_ubioid
-as.ubioid.character <- function(x) if(length(x) == 1) make_ubioid(x) else lapply(x, make_ubioid)
+as.ubioid.character <- function(x) if(length(x) == 1) make_ubioid(x) else collapse(x, make_ubioid, "ubioid")
 
 #' @export
 #' @rdname get_ubioid
-as.ubioid.list <- function(x) if(length(x) == 1) make_ubioid(x) else lapply(x, make_ubioid)
+as.ubioid.list <- function(x) if(length(x) == 1) make_ubioid(x) else collapse(x, make_ubioid, "ubioid")
 
 #' @export
 #' @rdname get_ubioid
