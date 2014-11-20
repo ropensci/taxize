@@ -36,7 +36,8 @@
 #'
 #' # When not found
 #' get_nbnid(name="uaudnadndj")
-#' get_nbnid(c("Chironomus riparius", "uaudnadndj"))
+#' get_nbnid(c("Zootoca vivipara", "uaudnadndj"))
+#' get_nbnid(c("Zootoca vivipara","Chironomus riparius", "uaudnadndj"))
 #'
 #' # Convert an nbnid without class information to a nbnid class
 #' as.nbnid(get_nbnid("Zootoca vivipara")) # already a nbnid, returns the same
@@ -112,10 +113,13 @@ get_nbnid <- function(name, ask = TRUE, verbose = TRUE, rec_only = FALSE, rank =
   ids <- sapply(out, "[[", "id")
   atts <- sapply(out, "[[", "att")
   ids <- structure(ids, class="nbnid", match=atts)
-  if(!is.na(ids[1])){
-    urls <- taxize_compact(sapply(out, function(z){
-      if(!is.na(z[['id']])) sprintf('https://data.nbn.org.uk/Taxa/%s', z[['id']])
-    }))
+  if( !all(is.na(ids)) ){
+    urls <- sapply(out, function(z){
+      if(!is.na(z[['id']]))
+        sprintf('https://data.nbn.org.uk/Taxa/%s', z[['id']])
+      else
+        NA
+    })
     attr(ids, 'uri') <- unlist(urls)
   }
   return(ids)

@@ -59,7 +59,8 @@ get_nbnid(name='red-winged blackbird')
 
 # When not found
 get_nbnid(name="uaudnadndj")
-get_nbnid(c("Chironomus riparius", "uaudnadndj"))
+get_nbnid(c("Zootoca vivipara", "uaudnadndj"))
+get_nbnid(c("Zootoca vivipara","Chironomus riparius", "uaudnadndj"))
 
 # Convert an nbnid without class information to a nbnid class
 as.nbnid(get_nbnid("Zootoca vivipara")) # already a nbnid, returns the same
