@@ -27,8 +27,7 @@ as.uid(x)
 If TRUE and more than one TSN is found for the species, the user is asked for
 input. If FALSE NA is returned for multiple matches.}
 
-\item{verbose}{logical; If TRUE the actual taxon queried is printed on the
-console.}
+\item{verbose}{logical; If TRUE the actual taxon queried is printed on the console.}
 
 \item{x}{Input to as.uid}
 }

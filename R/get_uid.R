@@ -7,8 +7,7 @@
 #' @param ask logical; should get_tsn be run in interactive mode?
 #' If TRUE and more than one TSN is found for the species, the user is asked for
 #' input. If FALSE NA is returned for multiple matches.
-#' @param verbose logical; If TRUE the actual taxon queried is printed on the
-#'    console.
+#' @param verbose logical; If TRUE the actual taxon queried is printed on the console.
 #' @param x Input to as.uid
 #'
 #' @return A vector of unique identifiers (UID). If a taxon is not found NA.
