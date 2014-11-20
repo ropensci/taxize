@@ -246,7 +246,7 @@ classification.uid <- function(id, return_id = FALSE, ...) {
 #' @export
 #' @rdname classification
 classification.eolid <- function(id, key = NULL, callopts = list(), return_id = FALSE, ...) {
-  common_names = NULL
+  common_names = synonyms = NULL
   fun <- function(x){
     if(is.na(x)){
       out <- NA
@@ -263,7 +263,8 @@ classification.eolid <- function(id, key = NULL, callopts = list(), return_id = 
       } else {
         out <- do.call(rbind.fill, lapply(res$ancestors, data.frame, stringsAsFactors = FALSE))[,c('scientificName','taxonRank', 'taxonID')]
         # add querried taxon
-        out <- rbind(out, c(res$scientificName, res$taxonRank, x))
+        tr <- res$taxonRank
+        out <- rbind(out, c(res$scientificName, if( is.null(tr) ) NA else tr, x))
         names(out) <- c('name', 'rank', 'id')
         # Optionally return id of lineage
         if (!return_id) out <- out[, c('name', 'rank')]
