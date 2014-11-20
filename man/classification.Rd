@@ -160,6 +160,16 @@ cbind(cl_tsns)
 res <- classification(c("Alopias vulpinus","Pinus sylvestris"), db = 'nbn')
 rbind(res)
 cbind(res)
+
+# Return taxonomic IDs
+classification(c("Alopias vulpinus","Pinus sylvestris"), db = 'ncbi', return_id = TRUE)
+classification(c("Alopias vulpinus","Pinus sylvestris"), db = 'col', return_id = TRUE)
+classification(c("Alopias vulpinus","Pinus sylvestris"), db = 'gbif', return_id = TRUE)
+classification(c("Alopias vulpinus","Pinus sylvestris"), db = 'ubio', return_id = TRUE)
+classification(c("Alopias vulpinus","Pinus sylvestris"), db = 'eol', return_id = TRUE)
+classification(c("Alopias vulpinus","Pinus sylvestris"), db = 'nbn', return_id = TRUE)
+classification(c("Poa annua","Pinus sylvestris"), db = 'tropicos', return_id = TRUE)
+classification(c("Poa annua","Pinus sylvestris"), db = 'itis', return_id = TRUE)
 }
 }
 \seealso{
