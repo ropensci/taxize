@@ -48,18 +48,21 @@ get_colid <- function(sciname, ask = TRUE, verbose = TRUE){
     if(nrow(df)==0){
       mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
       id <- NA
+      att <- "not found"
     } else
     {
       df <- df[,c('id','name','rank','status','source','acc_name')]
       names(df)[1] <- 'colid'
       id <- df$colid
       rank_taken <- as.character(df$rank)
+      att <- "found"
     }
 
     # not found on col
     if(length(id) == 0){
       mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
       id <- NA
+      att <- "not found"
     }
     # more than one found -> user input
     if(length(id) > 1){
@@ -72,29 +75,33 @@ get_colid <- function(sciname, ask = TRUE, verbose = TRUE){
         print(df)
         take <- scan(n = 1, quiet = TRUE, what = 'raw')
 
-        if(length(take) == 0)
+        if(length(take) == 0){
           take <- 'notake'
+          att <- 'nothing chosen'
+        }
         if(take %in% seq_len(nrow(df))){
           take <- as.numeric(take)
           message("Input accepted, took colid '", as.character(df$colid[take]), "'.\n")
           id <- as.character(df$colid[take])
           rank_taken <- as.character(df$rank[take])
+          att <- "found"
         } else {
           id <- NA
+          att <- "not found"
           mssg(verbose, "\nReturned 'NA'!\n\n")
         }
       } else{
         id <- NA
-        att <- "aborted"
+        att <- "NA due to ask=FALSE"
       }
     }
-#     return(id)
-    return( c(id=id, rank=rank_taken) )
+    c(id=id, rank=rank_taken, att=att)
   }
   sciname <- as.character(sciname)
   out <- lapply(sciname, fun, ask=ask, verbose=verbose)
   ids <- sapply(out, "[[", "id")
-  class(ids) <- "colid"
+  atts <- sapply(out, "[[", "att")
+  ids <- structure(ids, class="colid", match=atts)
   if(!is.na(ids[1])){
     urls <- taxize_compact(sapply(out, function(z){
       if(!is.na(z[['id']])){
@@ -108,9 +115,6 @@ get_colid <- function(sciname, ask = TRUE, verbose = TRUE){
     attr(ids, 'uri') <- unlist(urls)
   }
   return(ids)
-#     if(!length(urlmake)==0){
-#         sprintf('http://www.catalogueoflife.org/col/details/species/id/%s', urlmake)
-#     }
 }
 
 #' @export

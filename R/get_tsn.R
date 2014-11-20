@@ -128,7 +128,7 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = TRUE, ask 
           }
         } else {
           tsn <- NA
-          att <- "aborted"
+          att <- "NA due to ask=FALSE"
         }
       }
 

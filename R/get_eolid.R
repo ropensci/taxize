@@ -122,7 +122,7 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...){
         }
       } else{
         id <- NA
-        att <- "aborted"
+        att <- "NA due to ask=FALSE"
       }
     }
     list(id = id, source = datasource, att = att)
