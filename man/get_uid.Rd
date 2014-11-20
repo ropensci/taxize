@@ -29,7 +29,7 @@ input. If FALSE NA is returned for multiple matches.}
 
 \item{verbose}{logical; If TRUE the actual taxon queried is printed on the console.}
 
-\item{x}{Input to as.uid}
+\item{x}{Input to \code{\link{as.uid}}}
 }
 \value{
 A vector of unique identifiers (UID). If a taxon is not found NA.

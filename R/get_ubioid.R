@@ -10,6 +10,7 @@
 #' If TRUE and more than one TSN is found for teh species, the user is asked for
 #' input. If FALSE NA is returned for multiple matches.
 #' @param verbose logical; should progress be printed?
+#' @param x Input to \code{\link{as.ubioid}}
 #'
 #' @return A vector of uBio ids. If a taxon is not found NA is given. If more than one uBio
 #'    id is found the function asks for user input (if ask = TRUE), otherwise returns NA.
@@ -33,6 +34,15 @@
 #' # Using common names
 #' get_ubioid(searchterm="great white shark", searchtype="common")
 #' get_ubioid(searchterm=c("bull shark", "whale shark"), searchtype="common")
+#'
+#' # Convert a ubioid without class information to a ubioid class
+#' as.ubioid(get_ubioid("Astragalus aduncus")) # already a ubioid, returns the same
+#' as.ubioid(get_ubioid(c("Chironomus riparius","Pinus contorta"))) # same
+#' as.ubioid(2843601) # numeric
+#' as.ubioid(c(2843601,3339,9696)) # numeric vector, length > 1
+#' as.ubioid("2843601") # character
+#' as.ubioid(c("2843601","3339","9696")) # character vector, length > 1
+#' as.ubioid(list("2843601","3339","9696")) # list, either numeric or character
 #' }
 
 get_ubioid <- function(searchterm, searchtype = "scientific", ask = TRUE, verbose = TRUE)
@@ -127,6 +137,38 @@ get_ubioid <- function(searchterm, searchtype = "scientific", ask = TRUE, verbos
     attr(out, 'uri') <-
       sprintf('http://www.ubio.org/browser/details.php?namebankID=%s', urlmake)
   }
-  class(out) <- "ubioid"
-  return(out)
+  structure(out, class="ubioid")
+}
+
+
+#' @export
+#' @rdname get_ubioid
+as.ubioid <- function(x) UseMethod("as.ubioid")
+
+#' @export
+#' @rdname get_ubioid
+as.ubioid.ubioid <- function(x) x
+
+#' @export
+#' @rdname get_ubioid
+as.ubioid.character <- function(x) if(length(x) == 1) make_ubioid(x) else lapply(x, make_ubioid)
+
+#' @export
+#' @rdname get_ubioid
+as.ubioid.list <- function(x) if(length(x) == 1) make_ubioid(x) else lapply(x, make_ubioid)
+
+#' @export
+#' @rdname get_ubioid
+as.ubioid.numeric <- function(x) as.ubioid(as.character(x))
+
+make_ubioid <- function(x){
+  if(check_ubioid(x)){
+    uri <- sprintf('http://www.ubio.org/browser/details.php?namebankID=%s', x)
+    structure(x, class="ubioid", match="found", uri=uri)
+  } else { structure(x, class="ubioid", match="not found")   }
+}
+
+check_ubioid <- function(x){
+  res <- ubio_id(x)
+  is(res$data, "data.frame")
 }
