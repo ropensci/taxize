@@ -61,7 +61,7 @@ get_nbnid(name='red-winged blackbird')
 get_nbnid(name="uaudnadndj")
 get_nbnid(c("Chironomus riparius", "uaudnadndj"))
 
-# Convert a nbnid without class information to a nbnid class
+# Convert an nbnid without class information to a nbnid class
 as.nbnid(get_nbnid("Zootoca vivipara")) # already a nbnid, returns the same
 as.nbnid(get_nbnid(c("Zootoca vivipara","Pinus contorta"))) # same
 as.nbnid('NHMSYS0001706186') # character

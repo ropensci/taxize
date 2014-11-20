@@ -38,7 +38,7 @@
 #' get_nbnid(name="uaudnadndj")
 #' get_nbnid(c("Chironomus riparius", "uaudnadndj"))
 #'
-#' # Convert a nbnid without class information to a nbnid class
+#' # Convert an nbnid without class information to a nbnid class
 #' as.nbnid(get_nbnid("Zootoca vivipara")) # already a nbnid, returns the same
 #' as.nbnid(get_nbnid(c("Zootoca vivipara","Pinus contorta"))) # same
 #' as.nbnid('NHMSYS0001706186') # character
@@ -56,6 +56,7 @@ get_nbnid <- function(name, ask = TRUE, verbose = TRUE, rec_only = FALSE, rank =
     if(nrow(df)==0){
       mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
       id <- NA
+      att <- 'not found'
     } else
     {
       if(rec_only) df <- df[ df$nameStatus == 'Recommended', ]
@@ -64,12 +65,14 @@ get_nbnid <- function(name, ask = TRUE, verbose = TRUE, rec_only = FALSE, rank =
       names(df)[1] <- 'nbnid'
       id <- df$nbnid
       rank_taken <- as.character(df$rank)
+      att <- 'found'
     }
 
     # not found on NBN
     if(length(id) == 0){
       mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
       id <- NA
+      att <- 'not found'
     }
     # more than one found -> user input
     if(length(id) > 1){
@@ -91,20 +94,24 @@ get_nbnid <- function(name, ask = TRUE, verbose = TRUE, rec_only = FALSE, rank =
           message("Input accepted, took nbnid '", as.character(df$nbnid[take]), "'.\n")
           id <- as.character(df$nbnid[take])
           rank_taken <- as.character(df$rank[take])
+          att <- 'found'
         } else {
           id <- NA
+          att <- 'not found'
           mssg(verbose, "\nReturned 'NA'!\n\n")
         }
       } else{
         id <- NA
+        att <- 'NA due to ask=FALSE'
       }
     }
-    return( c(id=id, rank=rank_taken) )
+    return( c(id=id, rank=rank_taken, att=att) )
   }
   name <- as.character(name)
   out <- lapply(name, fun, ask=ask, verbose=verbose)
   ids <- sapply(out, "[[", "id")
-  class(ids) <- "nbnid"
+  atts <- sapply(out, "[[", "att")
+  ids <- structure(ids, class="nbnid", match=atts)
   if(!is.na(ids[1])){
     urls <- taxize_compact(sapply(out, function(z){
       if(!is.na(z[['id']])) sprintf('https://data.nbn.org.uk/Taxa/%s', z[['id']])
