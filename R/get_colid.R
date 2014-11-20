@@ -83,9 +83,10 @@ get_colid <- function(sciname, ask = TRUE, verbose = TRUE){
           id <- NA
           mssg(verbose, "\nReturned 'NA'!\n\n")
         }
-        } else{
-          id <- NA
-        }
+      } else{
+        id <- NA
+        att <- "aborted"
+      }
     }
 #     return(id)
     return( c(id=id, rank=rank_taken) )

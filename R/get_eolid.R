@@ -45,7 +45,7 @@
 #' }
 
 get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...){
-  fun <- function(sciname, ask, verbose) {
+  fun <- function(sciname, ask, verbose, ...) {
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
     tmp <- eol_search(terms = sciname, key, ...)
 
@@ -54,6 +54,7 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...){
     if(all(is.na(tmp))){
       mssg(verbose, ms)
       id <- NA
+      att <- "not found"
     } else {
       pageids <- tmp[grep(tolower(sciname), tolower(tmp$name)), "pageid"]
 
@@ -86,11 +87,13 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...){
     if(length(id) == 0){
       mssg(verbose, ms)
       id <- NA
+      att <- 'not found'
     }
     # only one found on eol
     if(length(id) == 1 & !all(is.na(id))){
       id <- df$eolid
       datasource <- df$source
+      att <- 'found'
     }
     # more than one found on eol -> user input
     if(length(id) > 1){
@@ -111,32 +114,32 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...){
           id <- as.character(df$eolid[take])
           names(id) <- as.character(df$pageid[take])
           datasource <- as.character(df$source[take])
+          att <- 'found'
         } else {
           id <- NA
+          att <- 'not found'
           mssg(verbose, "\nReturned 'NA'!\n\n")
         }
       } else{
         id <- NA
+        att <- "aborted"
       }
     }
-
-    id_source <- list(id=id, source=datasource)
-    return( id_source )
+    list(id = id, source = datasource, att = att)
   }
   sciname <- as.character(sciname)
-  out <- lapply(sciname, fun, ask, verbose)
+  out <- lapply(sciname, fun, ask=ask, verbose=verbose, ...)
   justids <- sapply(out, "[[", "id")
   justsources <- sapply(out, "[[", "source")
   class(justids) <- "eolid"
   s_pids <- names(justids)
-  out <- unname(justids)
+  newout <- unname(justids)
   if(!is.na(justids[1])){
     s_pids <- s_pids[vapply(s_pids, nchar, 1) > 0]
-    attr(out, 'uri') <-
+    attr(newout, 'uri') <-
       sprintf('http://eol.org/pages/%s/overview', s_pids)
   }
-  attr(out, 'provider') <- justsources
-  return(out)
+  structure(newout, provider=justsources, match=pluck(out, "att", ""))
 }
 
 getsourceshortnames <- function(input){
