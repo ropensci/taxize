@@ -5,8 +5,8 @@
 #' @param ask logical; should get_colid be run in interactive mode?
 #' If TRUE and more than one ID is found for the species, the user is asked for
 #' input. If FALSE NA is returned for multiple matches.
-#' @param verbose logical; If TRUE the actual taxon queried is printed on the
-#'    console.
+#' @param verbose logical; If TRUE the actual taxon queried is printed on the console.
+#' @param x Input to \code{\link{as.gbifid}}
 #'
 #' @return A vector of unique identifiers. If a taxon is not found NA.
 #' If more than one ID is found the function asks for user input.
@@ -32,6 +32,15 @@
 #' # When not found, NA given
 #' get_gbifid(sciname="uaudnadndj")
 #' get_gbifid(c("Chironomus riparius", "uaudnadndj"))
+#'
+#' # Convert a uid without class information to a uid class
+#' as.gbifid(get_gbifid("Poa annua")) # already a uid, returns the same
+#' as.gbifid(get_gbifid(c("Poa annua","Puma concolor"))) # same
+#' as.gbifid(2704179) # numeric
+#' as.gbifid(c(2704179,2435099,3171445)) # numeric vector, length > 1
+#' as.gbifid("2704179") # character
+#' as.gbifid(c("2704179","2435099","3171445")) # character vector, length > 1
+#' as.gbifid(list("2704179","2435099","3171445")) # list, either numeric or character
 #' }
 
 get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE){
@@ -96,7 +105,7 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE){
   class(out) <- "gbifid"
   if(!is.na(out[1])){
     urlmake <- na.omit(out)
-    attr(out, 'uri') <- 
+    attr(out, 'uri') <-
       sprintf('http://www.gbif.org/species/%s', urlmake)
   }
   return(out)
@@ -128,4 +137,36 @@ gbif_suggestfields <- function(){
     "accordingTo","nameType","taxonomicStatus","rank","numDescendants",
     "numOccurrences","sourceId","nomenclaturalStatus","threatStatuses",
     "synonym")
+}
+
+#' @export
+#' @rdname get_gbifid
+as.gbifid <- function(x) UseMethod("as.gbifid")
+
+#' @export
+#' @rdname get_gbifid
+as.gbifid.uid <- function(x) x
+
+#' @export
+#' @rdname get_gbifid
+as.gbifid.character <- function(x) if(length(x) == 1) make_gbifid(x) else lapply(x, make_gbifid)
+
+#' @export
+#' @rdname get_gbifid
+as.gbifid.list <- function(x) if(length(x) == 1) make_gbifid(x) else lapply(x, make_gbifid)
+
+#' @export
+#' @rdname get_gbifid
+as.gbifid.numeric <- function(x) as.gbifid(as.character(x))
+
+make_gbifid <- function(x){
+  if(check_gbifid(x)){
+    uri <- sprintf('http://www.gbif.org/species/%s', x)
+    structure(x, class="gbfid", match="found", uri=uri)
+  } else { structure(x, class="gbfid", match="not found")   }
+}
+
+check_gbifid <- function(x){
+  tryid <- tryCatch(gbif_name_usage(key = x), error = function(e) e)
+  if( "error" %in% class(tryid) && is.null(tryid$key) ) FALSE else TRUE
 }
