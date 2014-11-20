@@ -38,7 +38,7 @@
 #'
 #' # Convert a uid without class information to a uid class
 #' as.uid(get_uid("Chironomus riparius")) # already a uid, returns the same
-#' as.uid(get_uid("Chironomus riparius","Pinus contorta")) # same
+#' as.uid(get_uid(c("Chironomus riparius","Pinus contorta"))) # same
 #' as.uid(315567) # numeric
 #' as.uid(c(315567,3339,9696)) # numeric vector, length > 1
 #' as.uid("315567") # character
