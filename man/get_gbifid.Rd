@@ -2,9 +2,9 @@
 \name{get_gbifid}
 \alias{as.gbifid}
 \alias{as.gbifid.character}
+\alias{as.gbifid.gbifid}
 \alias{as.gbifid.list}
 \alias{as.gbifid.numeric}
-\alias{as.gbifid.uid}
 \alias{get_gbifid}
 \title{Get the GBIF backbone taxon ID from taxonomic names.}
 \usage{
@@ -12,7 +12,7 @@ get_gbifid(sciname, ask = TRUE, verbose = TRUE)
 
 as.gbifid(x)
 
-\method{as.gbifid}{uid}(x)
+\method{as.gbifid}{gbifid}(x)
 
 \method{as.gbifid}{character}(x)
 

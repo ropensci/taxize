@@ -54,16 +54,19 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE){
     if(nrow(df)==0){
       mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
       id <- NA
+      att <- "not found"
     } else
     {
       names(df)[1] <- 'gbifid'
       id <- df$gbifid
+      att <- "found"
     }
 
     # not found
     if(length(id) == 0){
       mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
       id <- NA
+      att <- "not found"
     }
 
     # more than one found -> user input
@@ -91,26 +94,31 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE){
             take <- as.numeric(take)
             message("Input accepted, took gbifid '", as.character(df$gbifid[take]), "'.\n")
             id <- as.character(df$gbifid[take])
+            att <- "found"
           } else {
             id <- NA
+            att <- "not found"
             mssg(verbose, "\nReturned 'NA'!\n\n")
           }
         } else{
           id <- NA
+          att <- "NA due to ask=FALSE"
         }
       }
     }
-    return(id)
+    c(id=id, att=att)
   }
   sciname <- as.character(sciname)
-  out <- sapply(sciname, fun, ask, verbose, USE.NAMES = FALSE)
-  class(out) <- "gbifid"
-  if(!is.na(out[1])){
-    urlmake <- na.omit(out)
-    attr(out, 'uri') <-
+  out <- lapply(sciname, fun, ask, verbose)
+  ids <- sapply(out, "[[", "id")
+  atts <- sapply(out, "[[", "att")
+  ids <- structure(ids, class="gbifid", match=atts)
+  if( !all(is.na(ids)) ){
+    urlmake <- na.omit(ids)
+    attr(ids, 'uri') <-
       sprintf('http://www.gbif.org/species/%s', urlmake)
   }
-  return(out)
+  return(ids)
 }
 
 gbif_name_suggest <- function(q=NULL, datasetKey=NULL, rank=NULL, fields=NULL, start=NULL,
@@ -147,7 +155,7 @@ as.gbifid <- function(x) UseMethod("as.gbifid")
 
 #' @export
 #' @rdname get_gbifid
-as.gbifid.uid <- function(x) x
+as.gbifid.gbifid <- function(x) x
 
 #' @export
 #' @rdname get_gbifid
