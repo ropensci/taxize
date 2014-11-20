@@ -2,6 +2,7 @@
 \name{get_uid}
 \alias{as.uid}
 \alias{as.uid.character}
+\alias{as.uid.list}
 \alias{as.uid.numeric}
 \alias{as.uid.uid}
 \alias{get_uid}
@@ -14,6 +15,8 @@ as.uid(x)
 \method{as.uid}{uid}(x)
 
 \method{as.uid}{character}(x)
+
+\method{as.uid}{list}(x)
 
 \method{as.uid}{numeric}(x)
 }
@@ -54,6 +57,15 @@ get_uid('Dugesia', ask = FALSE) # returns NA for multiple matches
 # Go to a website with more info on the taxon
 res <- get_uid("Chironomus riparius")
 browseURL(attr(res, "uri"))
+
+# Convert a uid without class information to a uid class
+as.uid(get_uid("Chironomus riparius")) # already a uid, returns the same
+as.uid(get_uid("Chironomus riparius","Pinus contorta")) # same
+as.uid(315567) # numeric
+as.uid(c(315567,3339,9696)) # numeric vector, length > 1
+as.uid("315567") # character
+as.uid(c("315567","3339","9696")) # character vector, length > 1
+as.uid(list("315567","3339","9696")) # list, either numeric or character
 }
 }
 \author{

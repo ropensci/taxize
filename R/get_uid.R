@@ -36,6 +36,15 @@
 #' # Go to a website with more info on the taxon
 #' res <- get_uid("Chironomus riparius")
 #' browseURL(attr(res, "uri"))
+#'
+#' # Convert a uid without class information to a uid class
+#' as.uid(get_uid("Chironomus riparius")) # already a uid, returns the same
+#' as.uid(get_uid("Chironomus riparius","Pinus contorta")) # same
+#' as.uid(315567) # numeric
+#' as.uid(c(315567,3339,9696)) # numeric vector, length > 1
+#' as.uid("315567") # character
+#' as.uid(c("315567","3339","9696")) # character vector, length > 1
+#' as.uid(list("315567","3339","9696")) # list, either numeric or character
 #' }
 
 get_uid <- function(sciname, ask = TRUE, verbose = TRUE){
@@ -117,16 +126,22 @@ as.uid.uid <- function(x) x
 
 #' @export
 #' @rdname get_uid
-as.uid.character <- function(x){
+as.uid.character <- function(x) if(length(x) == 1) make_uid(x) else lapply(x, make_uid)
+
+#' @export
+#' @rdname get_uid
+as.uid.list <- function(x) if(length(x) == 1) make_uid(x) else lapply(x, make_uid)
+
+#' @export
+#' @rdname get_uid
+as.uid.numeric <- function(x) as.uid(as.character(x))
+
+make_uid <- function(x){
   if(check_uid(x)){
     uri <- sprintf('http://www.ncbi.nlm.nih.gov/taxonomy/%s', x)
     structure(x, class="uid", match="found", uri=uri)
   } else { structure(x, class="uid", match="not found")   }
 }
-
-#' @export
-#' @rdname get_uid
-as.uid.numeric <- function(x) as.uid(as.character(x))
 
 check_uid <- function(x){
   url <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&id="
