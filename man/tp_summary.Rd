@@ -13,7 +13,7 @@ tp_summary(id, key = NULL, callopts = list())
 \item{callopts}{Curl options.}
 }
 \value{
-List or dataframe.
+A data.frame.
 }
 \description{
 Return summary data a taxon name with a given id.
@@ -22,6 +22,7 @@ Return summary data a taxon name with a given id.
 \donttest{
 tp_summary(id = 25509881)
 tp_summary(id = 2700851)
+tp_summary(id = 24900183)
 }
 }
 
