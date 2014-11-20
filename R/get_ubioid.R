@@ -123,7 +123,7 @@ get_ubioid <- function(searchterm, searchtype = "scientific", ask = TRUE, verbos
           }
         } else {
           ubioid <- NA
-          att <- 'multi match'
+          att <- 'NA due to ask=FALSE'
         }
       }
 
