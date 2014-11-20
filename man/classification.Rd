@@ -63,8 +63,8 @@ classification(...)
 
 \item{callopts}{Curl options passed on to \code{\link[httr]{GET}}}
 
-\item{return_id}{If TRUE, return the taxon id as well as the name and rank of taxa
-in the lineage returned.}
+\item{return_id}{(logical) If TRUE, return the taxon id as well as the name and rank of taxa
+in the lineage returned. Default: FALSE.}
 
 \item{id}{character; identifiers, returned by \code{\link[taxize]{get_tsn}},
 \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}},
