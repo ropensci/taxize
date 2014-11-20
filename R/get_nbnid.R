@@ -82,8 +82,10 @@ get_nbnid <- function(name, ask = TRUE, verbose = TRUE, rec_only = FALSE, rank =
         print(df)
         take <- scan(n = 1, quiet = TRUE, what = 'raw')
 
-        if(length(take) == 0)
+        if(length(take) == 0){
           take <- 'notake'
+          att <- 'nothing chosen'
+        }
         if(take %in% seq_len(nrow(df))){
           take <- as.numeric(take)
           message("Input accepted, took nbnid '", as.character(df$nbnid[take]), "'.\n")

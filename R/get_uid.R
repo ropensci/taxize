@@ -83,8 +83,10 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE){
         print(df)
         take <- scan(n = 1, quiet = TRUE, what = 'raw')
 
-        if(length(take) == 0)
+        if(length(take) == 0){
           take <- 'notake'
+          att <- 'nothing chosen'
+        }
         if(take %in% seq_len(nrow(df))){
           take <- as.numeric(take)
           message("Input accepted, took UID '", as.character(df$UID[take]), "'.\n")
@@ -97,7 +99,7 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE){
         }
       } else {
         uid <- NA
-        att <- 'multi match'
+        att <- 'NA due to ask=FALSE'
       }
     }
     return(data.frame(uid, att, stringsAsFactors= FALSE))

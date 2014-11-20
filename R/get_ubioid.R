@@ -107,8 +107,10 @@ get_ubioid <- function(searchterm, searchtype = "scientific", ask = TRUE, verbos
             Enter rownumber of taxon (other inputs will return 'NA'):\n") # prompt
           take <- scan(n = 1, quiet = TRUE, what = 'raw')
 
-          if(length(take) == 0)
+          if(length(take) == 0){
             take <- 'notake'
+            att <- 'nothing chosen'
+          }
           if(take %in% seq_len(nrow(ubio_df))){
             take <- as.numeric(take)
             message("Input accepted, took taxon '", as.character(ubio_df$target[take]), "'.\n")
