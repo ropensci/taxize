@@ -111,8 +111,7 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE){
     attr(out, 'uri') <-
       sprintf('http://www.ncbi.nlm.nih.gov/taxonomy/%s', urlmake)
   }
-  class(out) <- "uid"
-  return(out)
+  structure(out, class="uid")
 }
 
 #' @export
@@ -125,11 +124,11 @@ as.uid.uid <- function(x) x
 
 #' @export
 #' @rdname get_uid
-as.uid.character <- function(x) if(length(x) == 1) make_uid(x) else lapply(x, make_uid)
+as.uid.character <- function(x) if(length(x) == 1) make_uid(x) else collapse(x, make_uid, "uid")
 
 #' @export
 #' @rdname get_uid
-as.uid.list <- function(x) if(length(x) == 1) make_uid(x) else lapply(x, make_uid)
+as.uid.list <- function(x) if(length(x) == 1) make_uid(x) else collapse(x, make_uid, "uid")
 
 #' @export
 #' @rdname get_uid
@@ -139,7 +138,14 @@ make_uid <- function(x){
   if(check_uid(x)){
     uri <- sprintf('http://www.ncbi.nlm.nih.gov/taxonomy/%s', x)
     structure(x, class="uid", match="found", uri=uri)
-  } else { structure(x, class="uid", match="not found")   }
+  } else { structure(NA, class="uid", match="not found")   }
+}
+
+collapse <- function(x, fxn, class){
+  tmp <- lapply(x, fxn)
+  structure(sapply(tmp, unclass), class=class,
+            match=sapply(tmp, attr, which="match"),
+            uri=sapply(tmp, attr, which="uri"))
 }
 
 check_uid <- function(x){
