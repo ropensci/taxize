@@ -160,7 +160,7 @@ classification.default <- function(x, db = NULL, callopts=list(), return_id = FA
   if (db == 'gbif') {
     id <- process_ids(x, get_gbifid, ...)
 #     id <- get_gbifid(x, ...)
-    out <- classification(id, callopts=callopts, ...)
+    out <- classification(id, callopts=callopts, return_id=return_id, ...)
     names(out) <- x
   }
   if (db == 'nbn') {
@@ -352,21 +352,21 @@ classification.tpsid <- function(id, key = NULL, callopts = list(), return_id = 
 #' @method classification gbifid
 #' @export
 #' @rdname classification
-classification.gbifid <- function(id, callopts = list(), ...) {
+classification.gbifid <- function(id, callopts = list(), return_id=FALSE, ...) {
   fun <- function(x){
     if(is.na(x)) {
       out <- NA
     } else {
       out <- suppressWarnings(tryCatch(gbif_name_usage(key = x), error=function(e) e))
-      if(is(out, "simpleError")){
-        out <- NA
-      } else {
-        #         out <- do.call(rbind.fill, lapply(out, data.frame))[,c('ScientificName','Rank')]
-        out <- ldply(out[c('kingdom','phylum','clazz','order','family','genus','species')])
-        out <- data.frame(name=out$V1, rank=out$.id)
+      if(is(out, "simpleError")){ NA } else {
+        nms <- ldply(out[c('kingdom','phylum','class','order','family','genus','species')])
+        keys <- unname(unlist(out[paste0(c('kingdom','phylum','class','order','family','genus','species'), "Key")]))
+        df <- data.frame(name=nms$V1, rank=nms$.id, id=keys)
+
+        # Optionally return id of lineage
+        if (!return_id) df[, c('name', 'rank')] else df
       }
     }
-    return(out)
   }
   out <- lapply(id, fun)
   names(out) <- id

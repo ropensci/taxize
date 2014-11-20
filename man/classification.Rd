@@ -34,7 +34,8 @@ classification(...)
 \method{classification}{tpsid}(id, key = NULL, callopts = list(),
   return_id = FALSE, ...)
 
-\method{classification}{gbifid}(id, callopts = list(), ...)
+\method{classification}{gbifid}(id, callopts = list(), return_id = FALSE,
+  ...)
 
 \method{classification}{nbnid}(id, callopts = list(), return_id = FALSE,
   ...)
