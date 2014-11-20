@@ -25,7 +25,9 @@ If TRUE and more than one TSN is found for the species, the user is asked for
 input. If FALSE NA is returned for multiple matches.}
 
 \item{verbose}{logical; If TRUE the actual taxon queried is printed on the
-   console.}
+console.}
+
+\item{x}{Input to as.uid}
 }
 \value{
 A vector of unique identifiers (UID). If a taxon is not found NA.
