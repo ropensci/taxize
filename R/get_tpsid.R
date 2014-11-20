@@ -57,17 +57,20 @@ get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...){
     if(names(tmp)[[1]] == 'error'){
       mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
       id <- NA
+      att <- 'not found'
     } else
     {
       df <- tmp[,c('nameid','scientificname','rankabbreviation','nomenclaturestatusname')]
       names(df) <- c('tpsid','name','rank','status')
       id <- df$tpsid
+      att <- 'found'
     }
 
     # not found on tropicos
     if(length(id) == 0){
       mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
       id <- NA
+      att <- 'not found'
     }
     # more than one found on tropicos -> user input
     if(length(id) > 1){
@@ -88,25 +91,30 @@ get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...){
           take <- as.numeric(take)
           message("Input accepted, took tpsid '", as.character(df$tpsid[take]), "'.\n")
           id <- as.character(df$tpsid[take])
+          att <- 'found'
         } else {
           id <- NA
           mssg(verbose, "\nReturned 'NA'!\n\n")
+          att <- 'not found'
         }
       } else{
         id <- NA
+        att <- 'NA due to ask=FALSE'
       }
     }
-    return(id)
+    list(id=id, att=att)
   }
   sciname <- as.character(sciname)
-  out <- sapply(sciname, fun, ask, verbose, USE.NAMES = FALSE)
-  class(out) <- "tpsid"
-  if(!is.na(out[1])){
-    urlmake <- na.omit(out)
-    attr(out, 'uri') <-
+  out <- lapply(sciname, fun, ask, verbose)
+  ids <- unlist(pluck(out, "id"))
+  atts <- pluck(out, "att", "")
+  ids <- structure(ids, class="tpsid", match=atts)
+  if( !all(is.na(ids)) ){
+    urlmake <- na.omit(ids)
+    attr(ids, 'uri') <-
       sprintf('http://tropicos.org/Name/%s', urlmake)
   }
-  return( out )
+  return( ids )
 }
 
 #' @export
