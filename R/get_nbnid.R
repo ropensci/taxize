@@ -1,5 +1,5 @@
 #' Get the UK National Biodiversity Network ID from taxonomic names.
-#' 
+#'
 #' @export
 #'
 #' @param name character; scientific name.
@@ -9,11 +9,12 @@
 #' @param verbose logical; If TRUE the actual taxon queried is printed on the
 #' console.
 #' @param rec_only (logical) If \code{TRUE} ids of recommended names are returned (i.e.
-#' synonyms are removed). Defaults to \code{FALSE}. Remember, the id of a synonym is a 
+#' synonyms are removed). Defaults to \code{FALSE}. Remember, the id of a synonym is a
 #' taxa with 'recommended' name status.
-#' @param rank (character) If given, we attempt to limit the results to those taxa with the 
-#' matching rank. 
+#' @param rank (character) If given, we attempt to limit the results to those taxa with the
+#' matching rank.
 #' @param ... Further args passed on to \code{nbn_search}
+#' @param x Input to \code{\link{as.nbnid}}
 #'
 #' @return A vector of unique identifiers. If a taxon is not found NA.
 #' If more than one ID is found the function asks for user input.
@@ -29,13 +30,20 @@
 #' get_nbnid(name='Poa annua', rank='Species')
 #' get_nbnid(name='Poa annua', rec_only=TRUE, rank='Species')
 #' get_nbnid(name='Pinus contorta')
-#' 
+#'
 #' # The NBN service handles common names too
 #' get_nbnid(name='red-winged blackbird')
 #'
 #' # When not found
 #' get_nbnid(name="uaudnadndj")
 #' get_nbnid(c("Chironomus riparius", "uaudnadndj"))
+#'
+#' # Convert a nbnid without class information to a nbnid class
+#' as.nbnid(get_nbnid("Zootoca vivipara")) # already a nbnid, returns the same
+#' as.nbnid(get_nbnid(c("Zootoca vivipara","Pinus contorta"))) # same
+#' as.nbnid('NHMSYS0001706186') # character
+#' as.nbnid(c("NHMSYS0001706186","NHMSYS0000494848","NBNSYS0000010867")) # character vector, length > 1
+#' as.nbnid(list("NHMSYS0001706186","NHMSYS0000494848","NBNSYS0000010867")) # list
 #' }
 
 get_nbnid <- function(name, ask = TRUE, verbose = TRUE, rec_only = FALSE, rank = NULL, ...){
@@ -103,3 +111,38 @@ get_nbnid <- function(name, ask = TRUE, verbose = TRUE, rec_only = FALSE, rank =
   }
   return(ids)
 }
+
+#' @export
+#' @rdname get_nbnid
+as.nbnid <- function(x) UseMethod("as.nbnid")
+
+#' @export
+#' @rdname get_nbnid
+as.nbnid.nbnid <- function(x) x
+
+#' @export
+#' @rdname get_nbnid
+as.nbnid.character <- function(x) if(length(x) == 1) make_nbnid(x) else lapply(x, make_nbnid)
+
+#' @export
+#' @rdname get_nbnid
+as.nbnid.list <- function(x) if(length(x) == 1) make_nbnid(x) else lapply(x, make_nbnid)
+
+make_nbnid <- function(x){
+  if(check_nbnid(x)){
+    uri <- sprintf('https://data.nbn.org.uk/Taxa/%s', x)
+    structure(x, class="nbnid", uri=uri)
+  } else { structure(NA, class="nbnid")   }
+}
+
+check_nbnid <- function(x){
+  url <- "https://data.nbn.org.uk/api/taxa/"
+  res <- GET(paste0(url, x))
+  if( res$status_code == 200 ) TRUE else FALSE
+}
+
+# print.nbnid <- function(x){
+#   cat(sprintf("<nbnid> %s", x), sep = "\n")
+#   cat(sprintf("   match: %s", attr(x, "match")), sep = "\n")
+#   cat(sprintf("   uri: %s", attr(x, "uri")))
+# }
