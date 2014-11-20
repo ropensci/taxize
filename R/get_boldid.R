@@ -4,7 +4,7 @@
 #' @export
 #' @param searchterm character; A vector of common or scientific names.
 #' @param fuzzy (logical) Whether to use fuzzy search or not (default: FALSE).
-#' @param dataTypes (character) Specifies the datatypes that will be returned. See Details for 
+#' @param dataTypes (character) Specifies the datatypes that will be returned. See Details for
 #' options.
 #' @param includeTree (logical) If TRUE (default: FALSE), returns a list containing information
 #' for parent taxa as well as the specified taxon.
@@ -12,6 +12,7 @@
 #' If TRUE and more than one TSN is found for teh species, the user is asked for
 #' input. If FALSE NA is returned for multiple matches.
 #' @param verbose logical; should progress be printed?
+#' @param x Input to \code{\link{as.boldid}}
 #'
 #' @return A vector of BOLD ids. If a taxon is not found NA. If more than one BOLD ID is found
 #'    the function asks for user input (if ask = TRUE), otherwise returns NA.
@@ -26,10 +27,10 @@
 #' get_boldid(c("Chironomus riparius","Quercus douglasii")) # needs error catching
 #' splist <- names_list('species')
 #' get_boldid(splist, verbose=FALSE)
-#' 
+#'
 #' # Fuzzy searching
 #' get_boldid(searchterm="Osmi", fuzzy=TRUE)
-#' 
+#'
 #' # When not found
 #' get_boldid("howdy")
 #' get_boldid(c("Chironomus riparius", "howdy"))
@@ -37,6 +38,15 @@
 #' get_boldid('Arigomphus furcifer')
 #' get_boldid("Cordulegaster erronea")
 #' get_boldid("Nasiaeshna pentacantha")
+#'
+#' # Convert a boldid without class information to a boldid class
+#' as.boldid(get_boldid("Agapostemon")) # already a boldid, returns the same
+#' as.boldid(get_boldid(c("Agapostemon","Quercus douglasii"))) # same
+#' as.boldid(1973) # numeric
+#' as.boldid(c(1973,101009,98597)) # numeric vector, length > 1
+#' as.boldid("1973") # character
+#' as.boldid(c("1973","101009","98597")) # character vector, length > 1
+#' as.boldid(list("1973","101009","98597")) # list, either numeric or character
 #' }
 
 get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes='basic', includeTree=FALSE,
@@ -45,22 +55,22 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes='basic', includeTree
   fun <- function(x, ask, verbose)
   {
     mssg(verbose, "\nRetrieving data for taxon '", x, "'\n")
-    
+
     bold_df <- bold_search(name = x, fuzzy = fuzzy, dataTypes = dataTypes, includeTree = includeTree)
-    
-    
+
+
     if(!class(bold_df) == "data.frame"){
       boldid <- NA
       att <- "not found"
     } else {
-      
+
       if(all(names(bold_df) == "input")){
         boldid <- NA
         att <- "not found"
       } else {
-        
+
         bold_df <- bold_df[,c("taxid","taxon","tax_rank","tax_division","parentid","parentname")]
-        
+
         direct <- NA
         # should return NA if spec not found
         if (nrow(bold_df) == 0){
@@ -98,14 +108,14 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes='basic', includeTree
             # user prompt
             bold_df <- bold_df[order(bold_df$target), ]
             rownames(bold_df) <- 1:nrow(bold_df)
-            
+
             # prompt
             message("\n\n")
             print(bold_df)
             message("\nMore than one TSN found for taxon '", x, "'!\n
             Enter rownumber of taxon (other inputs will return 'NA'):\n") # prompt
             take <- scan(n = 1, quiet = TRUE, what = 'raw')
-            
+
             if(length(take) == 0)
               take <- 'notake'
             if(take %in% seq_len(nrow(bold_df))){
@@ -138,4 +148,36 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes='basic', includeTree
   }
   class(out) <- "boldid"
   return(out)
+}
+
+#' @export
+#' @rdname get_boldid
+as.boldid <- function(x) UseMethod("as.boldid")
+
+#' @export
+#' @rdname get_boldid
+as.boldid.boldid <- function(x) x
+
+#' @export
+#' @rdname get_boldid
+as.boldid.character <- function(x) if(length(x) == 1) make_boldid(x) else lapply(x, make_boldid)
+
+#' @export
+#' @rdname get_boldid
+as.boldid.list <- function(x) if(length(x) == 1) make_boldid(x) else lapply(x, make_boldid)
+
+#' @export
+#' @rdname get_boldid
+as.boldid.numeric <- function(x) as.boldid(as.character(x))
+
+make_boldid <- function(x){
+  if(check_boldid(x)){
+    uri <- sprintf('http://boldsystems.org/index.php/Taxbrowser_Taxonpage?taxid=%s', x)
+    structure(x, class="boldid", match="found", uri=uri)
+  } else { structure(x, class="boldid", match="not found")   }
+}
+
+check_boldid <- function(x){
+  tryid <- bold_tax_id(x)
+  !identical("noresults", names(tryid)[2])
 }
