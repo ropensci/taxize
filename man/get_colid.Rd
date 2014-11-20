@@ -44,6 +44,7 @@ Get the Catalogue of Life ID from taxonomic names.
 get_colid(sciname='Poa annua')
 get_colid(sciname='Pinus contorta')
 get_colid(sciname='Puma concolor')
+get_colid(sciname="Abudefduf saxatilis")
 
 get_colid(c("Poa annua", "Pinus contorta"))
 

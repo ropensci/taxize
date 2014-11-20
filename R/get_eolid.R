@@ -134,10 +134,11 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...){
   class(justids) <- "eolid"
   s_pids <- names(justids)
   newout <- unname(justids)
-  if(!is.na(justids[1])){
-    s_pids <- s_pids[vapply(s_pids, nchar, 1) > 0]
-    attr(newout, 'uri') <-
-      sprintf('http://eol.org/pages/%s/overview', s_pids)
+  if( !all(is.na(justids)) ){
+    lns <- vapply(s_pids, nchar, 1)
+    attr(newout, 'uri') <- sapply(s_pids, function(x){
+      if(x > 0) sprintf('http://eol.org/pages/%s/overview', x) else NA
+    }, USE.NAMES = FALSE)
   }
   structure(newout, provider=justsources, match=pluck(out, "att", ""))
 }
