@@ -110,9 +110,9 @@ get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...){
   atts <- pluck(out, "att", "")
   ids <- structure(ids, class="tpsid", match=atts)
   if( !all(is.na(ids)) ){
-    urlmake <- na.omit(ids)
-    attr(ids, 'uri') <-
-      sprintf('http://tropicos.org/Name/%s', urlmake)
+    attr(ids, 'uri') <- sapply(ids, function(x){
+      if(!is.na(x)) sprintf('http://tropicos.org/Name/%s', x) else NA
+    }, USE.NAMES = FALSE)
   }
   return( ids )
 }
