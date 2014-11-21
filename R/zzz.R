@@ -169,3 +169,12 @@ collapse <- function(x, fxn, class, match=TRUE){
     structure(sapply(tmp, unclass), class=class, uri=sapply(tmp, attr, which="uri"))
   }
 }
+
+add_uri <- function(ids, url){
+  if( !all(is.na(ids)) ){
+    attr(ids, 'uri') <- sapply(ids, function(x){
+      if(!is.na(x)) sprintf(url, x) else NA
+    }, USE.NAMES = FALSE)
+  }
+  ids
+}

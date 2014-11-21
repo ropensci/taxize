@@ -121,15 +121,6 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE){
   add_uri(ids, 'http://www.gbif.org/species/%s')
 }
 
-add_uri <- function(ids, url){
-  if( !all(is.na(ids)) ){
-    attr(ids, 'uri') <- sapply(ids, function(x){
-      if(!is.na(x)) sprintf(url, x) else NA
-    }, USE.NAMES = FALSE)
-  }
-  ids
-}
-
 gbif_name_suggest <- function(q=NULL, datasetKey=NULL, rank=NULL, fields=NULL, start=NULL,
                          limit=20, callopts=list())
 {
