@@ -5,7 +5,6 @@
 #' that deal with the species of interest, then use \code{\link[taxize]{eol_pages}}
 #' to find the actual taxon IDs.
 #'
-#' @import plyr RCurl
 #' @param sciname character; scientific name.
 #' @param ask logical; should get_eolid be run in interactive mode?
 #' If TRUE and more than one ID is found for the species, the user is asked for
