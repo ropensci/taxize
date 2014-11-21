@@ -61,6 +61,12 @@
 #' (out <- as.tpsid(c(24900183,50150089,50079838)))
 #' data.frame(out)
 #' as.tpsid( data.frame(out) )
+#'
+#' # Get all data back
+#' get_tpsid_("Poa annua")
+#' get_tpsid_("Poa annua", rows=2)
+#' get_tpsid_("Poa annua", rows=1:2)
+#' get_tpsid_(c("asdfadfasd","Pinus contorta"), rows=1:5)
 #' }
 
 get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA, ...){
@@ -171,4 +177,16 @@ make_tpsid <- function(x){
 check_tpsid <- function(x){
   res <- tp_summary(x)
   !identical(names(res), "error")
+}
+
+#' @export
+#' @rdname get_tpsid
+get_tpsid_ <- function(sciname, verbose = TRUE, key = NULL, rows = NA, ...){
+  setNames(lapply(sciname, get_tpsid_help, verbose = verbose, key=key, rows = rows, ...), sciname)
+}
+
+get_tpsid_help <- function(sciname, verbose, key, rows, ...){
+  mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
+  df <- tp_search(name=sciname, key=key, ...)
+  if("error" %in% names(df)) NULL else sub_rows(df, rows)
 }

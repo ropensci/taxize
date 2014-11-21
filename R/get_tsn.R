@@ -60,6 +60,12 @@
 #' (out <- as.tsn(c(19322,129313,506198)))
 #' data.frame(out)
 #' as.tsn( data.frame(out) )
+#'
+#' # Get all data back
+#' get_tsn_("Poa annua")
+#' get_tsn_("Poa annua", rows=1)
+#' get_tsn_("Poa annua", rows=1:2)
+#' get_tsn_(c("asdfadfasd","Pinus contorta"), rows=1:5)
 #' }
 
 get_tsn <- function(searchterm, searchtype = "scientific", accepted = TRUE, ask = TRUE,
@@ -211,4 +217,23 @@ make_tsn <- function(x){
 check_tsn <- function(x){
   tt <- suppressMessages(itis_getrecord(x))
   identical(tt$acceptedNameList[[1]], as.character(x))
+}
+
+#' @export
+#' @rdname get_tsn
+get_tsn_ <- function(searchterm, verbose = TRUE, searchtype = "scientific", accepted = TRUE, rows = NA){
+  setNames(lapply(searchterm, get_tsn_help, verbose = verbose, searchtype=searchtype, accepted=accepted, rows=rows), searchterm)
+}
+
+get_tsn_help <- function(searchterm, verbose, searchtype, accepted, rows){
+  mssg(verbose, "\nRetrieving data for taxon '", searchterm, "'\n")
+  searchtype <- match.arg(searchtype, c("scientific","common"))
+  df <- itis_terms(searchterm, what = searchtype, verbose=verbose)
+  if(!is(df, "data.frame")){
+    NULL
+  } else {
+    df <- df[,c("tsn","scientificname","commonnames","nameusage")]
+    if(accepted) df <- df[ df$nameusage %in% c('valid','accepted'), ]
+    sub_rows(df, rows)
+  }
 }

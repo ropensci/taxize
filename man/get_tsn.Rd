@@ -8,6 +8,7 @@
 \alias{as.tsn.numeric}
 \alias{as.tsn.tsn}
 \alias{get_tsn}
+\alias{get_tsn_}
 \title{Get the TSN code for a search term.}
 \usage{
 get_tsn(searchterm, searchtype = "scientific", accepted = TRUE,
@@ -26,6 +27,9 @@ as.tsn(x)
 \method{as.tsn}{data.frame}(x)
 
 \method{as.data.frame}{tsn}(x, ...)
+
+get_tsn_(searchterm, verbose = TRUE, searchtype = "scientific",
+  accepted = TRUE, rows = NA)
 }
 \arguments{
 \item{searchterm}{character; A vector of common or scientific names.}
@@ -94,6 +98,12 @@ as.tsn(list("19322","129313","506198")) # list, either numeric or character
 (out <- as.tsn(c(19322,129313,506198)))
 data.frame(out)
 as.tsn( data.frame(out) )
+
+# Get all data back
+get_tsn_("Poa annua")
+get_tsn_("Poa annua", rows=1)
+get_tsn_("Poa annua", rows=1:2)
+get_tsn_(c("asdfadfasd","Pinus contorta"), rows=1:5)
 }
 }
 \seealso{

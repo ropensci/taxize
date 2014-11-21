@@ -58,6 +58,13 @@
 #' (out <- as.uid(c(315567,3339,9696)))
 #' data.frame(out)
 #' as.uid( data.frame(out) )
+#'
+#' # Get all data back
+#' get_uid_("Puma concolor")
+#' get_uid_("Dugesia")
+#' get_uid_("Dugesia", rows=2)
+#' get_uid_("Dugesia", rows=1:2)
+#' get_uid_(c("asdfadfasd","Pinus contorta"))
 #' }
 
 get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA){
@@ -173,4 +180,30 @@ check_uid <- function(x){
   tt <- content(res)
   tryid <- xpathSApply(tt, "//Id", xmlValue)
   identical(x, tryid)
+}
+
+
+#' @export
+#' @rdname get_uid
+get_uid_ <- function(sciname, verbose = TRUE, rows = NA){
+  setNames(lapply(sciname, get_uid_help, verbose = verbose, rows = rows), sciname)
+}
+
+get_uid_help <- function(sciname, verbose, rows){
+  mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
+  searchurl <- paste("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=",
+                     gsub(" ", "+", sciname), sep = "")
+  xml_result <- xmlParse(getURL(searchurl))
+  Sys.sleep(0.33)
+  uid <- xpathSApply(xml_result, "//IdList/Id", xmlValue)
+  if(length(uid) == 0){ NULL } else {
+    baseurl <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy"
+    ID <- paste("ID=", paste(uid, collapse= ","), sep = "")
+    searchurl <- paste(baseurl, ID, sep = "&")
+    tt <- getURL(searchurl)
+    ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)
+    df <- ldply(xmlToList(ttp), data.frame)
+    df <- setNames(df[df$Item..attrs != 'String', c(2,5,7)], c("UID", "Rank", "Division"))
+    sub_rows(df, rows)
+  }
 }

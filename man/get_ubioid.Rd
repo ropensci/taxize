@@ -8,6 +8,7 @@
 \alias{as.ubioid.numeric}
 \alias{as.ubioid.ubioid}
 \alias{get_ubioid}
+\alias{get_ubioid_}
 \title{Get the uBio id for a search term.}
 \usage{
 get_ubioid(searchterm, searchtype = "scientific", ask = TRUE,
@@ -26,6 +27,9 @@ as.ubioid(x)
 \method{as.ubioid}{data.frame}(x)
 
 \method{as.data.frame}{ubioid}(x, ...)
+
+get_ubioid_(searchterm, verbose = TRUE, searchtype = "scientific",
+  rows = NA)
 }
 \arguments{
 \item{searchterm}{character; A vector of common or scientific names.}
@@ -91,6 +95,12 @@ as.ubioid(list("2843601","3339","9696")) # list, either numeric or character
 (out <- as.ubioid(c(2843601,3339,9696)))
 data.frame(out)
 as.ubioid( data.frame(out) )
+
+# Get all data back
+get_ubioid_("Zootoca vivipara")
+get_ubioid_("Zootoca vivipara", rows=2)
+get_ubioid_("Zootoca vivipara", rows=1:2)
+get_ubioid_(c("asdfadfasd","Zootoca vivipara"), rows=1:5)
 }
 }
 \seealso{

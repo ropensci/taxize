@@ -56,10 +56,16 @@
 #' (out <- as.gbifid(c(2704179,2435099,3171445)))
 #' data.frame(out)
 #' as.uid( data.frame(out) )
+#'
+#' # Get all data back
+#' get_gbifid_("Puma concolor")
+#' get_gbifid_(c("Pinus", "uaudnadndj"))
+#' get_gbifid_(c("Pinus", "Puma"), rows=5)
+#' get_gbifid_(c("Pinus", "Puma"), rows=1:5)
 #' }
 
 get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA){
-  fun <- function(sciname, ask, verbose) {
+  fun <- function(sciname, ask, verbose, rows) {
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
     df <- gbif_name_suggest(q=sciname, fields = c("key","canonicalName","rank"))
     df <- sub_rows(df, rows)
@@ -124,11 +130,8 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA){
     }
     c(id=id, att=att)
   }
-  sciname <- as.character(sciname)
-  out <- lapply(sciname, fun, ask, verbose)
-  ids <- sapply(out, "[[", "id")
-  atts <- sapply(out, "[[", "att")
-  ids <- structure(ids, class="gbifid", match=atts)
+  out <- lapply(as.character(sciname), fun, ask, verbose, rows)
+  ids <- structure(sapply(out, "[[", "id"), class="gbifid", match=sapply(out, "[[", "att"))
   add_uri(ids, 'http://www.gbif.org/species/%s')
 }
 
@@ -204,4 +207,16 @@ make_gbifid <- function(x){
 check_gbifid <- function(x){
   tryid <- tryCatch(gbif_name_usage(key = x), error = function(e) e)
   if( "error" %in% class(tryid) && is.null(tryid$key) ) FALSE else TRUE
+}
+
+#' @export
+#' @rdname get_gbifid
+get_gbifid_ <- function(sciname, verbose = TRUE, rows = NA){
+  setNames(lapply(sciname, get_gbifd_help, verbose = verbose, rows = rows), sciname)
+}
+
+get_gbifd_help <- function(sciname, verbose, rows){
+  mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
+  df <- gbif_name_suggest(q=sciname, fields = c("key","canonicalName","rank"))
+  sub_rows(df, rows)
 }

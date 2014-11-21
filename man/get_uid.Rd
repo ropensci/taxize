@@ -8,6 +8,7 @@
 \alias{as.uid.numeric}
 \alias{as.uid.uid}
 \alias{get_uid}
+\alias{get_uid_}
 \title{Get the UID codes from NCBI for taxonomic names.}
 \usage{
 get_uid(sciname, ask = TRUE, verbose = TRUE, rows = NA)
@@ -25,6 +26,8 @@ as.uid(x)
 \method{as.uid}{data.frame}(x)
 
 \method{as.data.frame}{uid}(x, ...)
+
+get_uid_(sciname, verbose = TRUE, rows = NA)
 }
 \arguments{
 \item{sciname}{character; scientific name.}
@@ -87,6 +90,13 @@ as.uid(list("315567","3339","9696")) # list, either numeric or character
 (out <- as.uid(c(315567,3339,9696)))
 data.frame(out)
 as.uid( data.frame(out) )
+
+# Get all data back
+get_uid_("Puma concolor")
+get_uid_("Dugesia")
+get_uid_("Dugesia", rows=2)
+get_uid_("Dugesia", rows=1:2)
+get_uid_(c("asdfadfasd","Pinus contorta"))
 }
 }
 \author{

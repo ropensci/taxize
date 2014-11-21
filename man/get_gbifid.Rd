@@ -8,6 +8,7 @@
 \alias{as.gbifid.list}
 \alias{as.gbifid.numeric}
 \alias{get_gbifid}
+\alias{get_gbifid_}
 \title{Get the GBIF backbone taxon ID from taxonomic names.}
 \usage{
 get_gbifid(sciname, ask = TRUE, verbose = TRUE, rows = NA)
@@ -25,6 +26,8 @@ as.gbifid(x)
 \method{as.gbifid}{data.frame}(x)
 
 \method{as.data.frame}{gbifid}(x, ...)
+
+get_gbifid_(sciname, verbose = TRUE, rows = NA)
 }
 \arguments{
 \item{sciname}{character; scientific name.}
@@ -86,6 +89,12 @@ as.gbifid(list("2704179","2435099","3171445")) # list, either numeric or charact
 (out <- as.gbifid(c(2704179,2435099,3171445)))
 data.frame(out)
 as.uid( data.frame(out) )
+
+# Get all data back
+get_gbifid_("Puma concolor")
+get_gbifid_(c("Pinus", "uaudnadndj"))
+get_gbifid_(c("Pinus", "Puma"), rows=5)
+get_gbifid_(c("Pinus", "Puma"), rows=1:5)
 }
 }
 \author{

@@ -59,6 +59,12 @@
 #' (out <- as.nbnid(c("NHMSYS0001706186","NHMSYS0000494848","NBNSYS0000010867")))
 #' data.frame(out)
 #' as.nbnid( data.frame(out) )
+#'
+#' # Get all data back
+#' get_nbnid_("Zootoca vivipara")
+#' get_nbnid_("Poa annua", rows=2)
+#' get_nbnid_("Poa annua", rows=1:2)
+#' get_nbnid_(c("asdfadfasd","Pinus contorta"), rows=1:5)
 #' }
 
 get_nbnid <- function(name, ask = TRUE, verbose = TRUE, rec_only = FALSE, rank = NULL, rows = NA, ...){
@@ -188,3 +194,24 @@ check_nbnid <- function(x){
 #   cat(sprintf("   match: %s", attr(x, "match")), sep = "\n")
 #   cat(sprintf("   uri: %s", attr(x, "uri")))
 # }
+
+#' @export
+#' @rdname get_nbnid
+get_nbnid_ <- function(name, verbose = TRUE, rec_only = FALSE, rank = NULL, rows = NA, ...){
+  setNames(lapply(name, get_nbnid_help, verbose = verbose, rec_only=rec_only, rank=rank, rows = rows, ...), name)
+}
+
+get_nbnid_help <- function(name, verbose, rec_only, rank, rows, ...){
+  mssg(verbose, "\nRetrieving data for taxon '", name, "'\n")
+  df <- nbn_search(q = name, all = TRUE, ...)$data
+  if(is.null(df)) df <- data.frame(NULL)
+
+  if(NROW(df) == 0){
+    NULL
+  } else {
+    if(rec_only) df <- df[ df$nameStatus == 'Recommended', ]
+    if(!is.null(rank)) df <- df[ df$rank == rank, ]
+    df <- df[,c('ptaxonVersionKey','searchMatchTitle','rank','nameStatus')]
+    if(NROW(df) == 0) NULL else sub_rows(df, rows)
+  }
+}

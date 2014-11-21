@@ -8,6 +8,7 @@
 \alias{as.colid.numeric}
 \alias{as.data.frame.colid}
 \alias{get_colid}
+\alias{get_colid_}
 \title{Get the Catalogue of Life ID from taxonomic names.}
 \usage{
 get_colid(sciname, ask = TRUE, verbose = TRUE, rows = NA)
@@ -25,6 +26,8 @@ as.colid(x)
 \method{as.colid}{data.frame}(x)
 
 \method{as.data.frame}{colid}(x, ...)
+
+get_colid_(sciname, verbose = TRUE, rows = NA)
 }
 \arguments{
 \item{sciname}{character; scientific name.}
@@ -83,6 +86,12 @@ as.colid(list("8663146","19736162","18158318")) # list, either numeric or charac
 (out <- as.colid(c(8663146,19736162,18158318)))
 data.frame(out)
 as.colid( data.frame(out) )
+
+# Get all data back
+get_colid_("Poa annua")
+get_colid_("Poa annua", rows=2)
+get_colid_("Poa annua", rows=1:2)
+get_colid_(c("asdfadfasd","Pinus contorta"))
 }
 }
 \author{

@@ -8,6 +8,7 @@
 \alias{as.eolid.list}
 \alias{as.eolid.numeric}
 \alias{get_eolid}
+\alias{get_eolid_}
 \title{Get the EOL ID from Encyclopedia of Life from taxonomic names.}
 \usage{
 get_eolid(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA,
@@ -26,6 +27,8 @@ as.eolid(x)
 \method{as.eolid}{data.frame}(x)
 
 \method{as.data.frame}{eolid}(x, ...)
+
+get_eolid_(sciname, verbose = TRUE, key = NULL, rows = NA, ...)
 }
 \arguments{
 \item{sciname}{character; scientific name.}
@@ -86,6 +89,12 @@ as.eolid(list("24954444","51389511","57266265")) # list, either numeric or chara
 (out <- as.eolid(c(24954444,51389511,57266265)))
 data.frame(out)
 as.eolid( data.frame(out) )
+
+# Get all data back
+get_eolid_("Poa annua")
+get_eolid_("Poa annua", rows=2)
+get_eolid_("Poa annua", rows=1:2)
+get_eolid_(c("asdfadfasd","Pinus contorta"))
 }
 }
 \author{

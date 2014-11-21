@@ -8,6 +8,7 @@
 \alias{as.tpsid.numeric}
 \alias{as.tpsid.tpsid}
 \alias{get_tpsid}
+\alias{get_tpsid_}
 \title{Get the NameID codes from Tropicos for taxonomic names.}
 \usage{
 get_tpsid(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA,
@@ -26,6 +27,8 @@ as.tpsid(x)
 \method{as.tpsid}{data.frame}(x)
 
 \method{as.data.frame}{tpsid}(x, ...)
+
+get_tpsid_(sciname, verbose = TRUE, key = NULL, rows = NA, ...)
 }
 \arguments{
 \item{sciname}{(character) One or more scientific name's as a vector or list.}
@@ -94,6 +97,12 @@ as.tpsid(list("24900183","50150089","50079838")) # list, either numeric or chara
 (out <- as.tpsid(c(24900183,50150089,50079838)))
 data.frame(out)
 as.tpsid( data.frame(out) )
+
+# Get all data back
+get_tpsid_("Poa annua")
+get_tpsid_("Poa annua", rows=2)
+get_tpsid_("Poa annua", rows=1:2)
+get_tpsid_(c("asdfadfasd","Pinus contorta"), rows=1:5)
 }
 }
 \author{

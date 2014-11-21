@@ -55,6 +55,12 @@
 #' (out <- as.eolid(c(24954444,51389511,57266265)))
 #' data.frame(out)
 #' as.eolid( data.frame(out) )
+#'
+#' # Get all data back
+#' get_eolid_("Poa annua")
+#' get_eolid_("Poa annua", rows=2)
+#' get_eolid_("Poa annua", rows=1:2)
+#' get_eolid_(c("asdfadfasd","Pinus contorta"))
 #' }
 
 get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA, ...){
@@ -222,4 +228,35 @@ check_eolid <- function(x){
   url <- sprintf("http://eol.org/api/hierarchy_entries/1.0/%s.json", x)
   tryid <- GET(url)
   if( tryid$status_code == 200 ) TRUE else FALSE
+}
+
+#' @export
+#' @rdname get_eolid
+get_eolid_ <- function(sciname, verbose = TRUE, key = NULL, rows = NA, ...){
+  setNames(lapply(sciname, get_eolid_help, verbose = verbose, key = key, rows = rows, ...), sciname)
+}
+
+get_eolid_help <- function(sciname, verbose, key, rows, ...){
+  mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
+  tmp <- eol_search(terms = sciname, key, ...)
+
+  if(all(is.na(tmp))){
+    NULL
+  } else {
+    pageids <- tmp[grep(tolower(sciname), tolower(tmp$name)), "pageid"]
+    if(length(pageids) == 0){
+      NULL
+    } else {
+      dfs <- lapply(pageids, function(x) eol_pages(x)$scinames)
+      names(dfs) <- pageids
+      dfs <- taxize_compact(dfs)
+      if(length(dfs)>1) dfs <- dfs[!sapply(dfs, nrow)==0]
+      dfs <- ldply(dfs)
+      df <- dfs[,c('.id','identifier','scientificname','nameaccordingto')]
+      names(df) <- c('pageid','eolid','name','source')
+      df <- getsourceshortnames(df)
+      df$source <- as.character(df$source)
+      if(NROW(df) == 0) NULL else sub_rows(df, rows)
+    }
+  }
 }

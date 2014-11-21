@@ -7,6 +7,7 @@
 \alias{as.nbnid.list}
 \alias{as.nbnid.nbnid}
 \alias{get_nbnid}
+\alias{get_nbnid_}
 \title{Get the UK National Biodiversity Network ID from taxonomic names.}
 \usage{
 get_nbnid(name, ask = TRUE, verbose = TRUE, rec_only = FALSE,
@@ -23,6 +24,9 @@ as.nbnid(x)
 \method{as.nbnid}{data.frame}(x)
 
 \method{as.data.frame}{nbnid}(x, ...)
+
+get_nbnid_(name, verbose = TRUE, rec_only = FALSE, rank = NULL,
+  rows = NA, ...)
 }
 \arguments{
 \item{name}{character; scientific name.}
@@ -89,6 +93,12 @@ as.nbnid(list("NHMSYS0001706186","NHMSYS0000494848","NBNSYS0000010867")) # list
 (out <- as.nbnid(c("NHMSYS0001706186","NHMSYS0000494848","NBNSYS0000010867")))
 data.frame(out)
 as.nbnid( data.frame(out) )
+
+# Get all data back
+get_nbnid_("Zootoca vivipara")
+get_nbnid_("Poa annua", rows=2)
+get_nbnid_("Poa annua", rows=1:2)
+get_nbnid_(c("asdfadfasd","Pinus contorta"), rows=1:5)
 }
 }
 \author{

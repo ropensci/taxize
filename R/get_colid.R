@@ -53,6 +53,12 @@
 #' (out <- as.colid(c(8663146,19736162,18158318)))
 #' data.frame(out)
 #' as.colid( data.frame(out) )
+#'
+#' # Get all data back
+#' get_colid_("Poa annua")
+#' get_colid_("Poa annua", rows=2)
+#' get_colid_("Poa annua", rows=1:2)
+#' get_colid_(c("asdfadfasd","Pinus contorta"))
 #' }
 
 get_colid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA){
@@ -181,4 +187,16 @@ check_colid <- function(x){
   tt <- content(res)
   tryid <- xpathSApply(tt, '//p', xmlValue)
   identical(list(), tryid)
+}
+
+#' @export
+#' @rdname get_colid
+get_colid_ <- function(sciname, verbose = TRUE, rows = NA){
+  setNames(lapply(sciname, get_colid_help, verbose = verbose, rows = rows), sciname)
+}
+
+get_colid_help <- function(sciname, verbose, rows){
+  mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
+  df <- col_search(name=sciname)[[1]]
+  if(NROW(df) == 0) NULL else sub_rows(df, rows)
 }

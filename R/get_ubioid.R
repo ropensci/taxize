@@ -58,6 +58,12 @@
 #' (out <- as.ubioid(c(2843601,3339,9696)))
 #' data.frame(out)
 #' as.ubioid( data.frame(out) )
+#'
+#' # Get all data back
+#' get_ubioid_("Zootoca vivipara")
+#' get_ubioid_("Zootoca vivipara", rows=2)
+#' get_ubioid_("Zootoca vivipara", rows=1:2)
+#' get_ubioid_(c("asdfadfasd","Zootoca vivipara"), rows=1:5)
 #' }
 
 get_ubioid <- function(searchterm, searchtype = "scientific", ask = TRUE, verbose = TRUE, rows = NA)
@@ -197,4 +203,26 @@ make_ubioid <- function(x){
 check_ubioid <- function(x){
   res <- ubio_id(x)
   is(res$data, "data.frame")
+}
+
+#' @export
+#' @rdname get_ubioid
+get_ubioid_ <- function(searchterm, verbose = TRUE, searchtype = "scientific", rows = NA){
+  setNames(lapply(searchterm, get_ubioid_help, verbose = verbose, searchtype=searchtype, rows=rows), searchterm)
+}
+
+get_ubioid_help <- function(searchterm, verbose, searchtype, rows){
+  mssg(verbose, "\nRetrieving data for taxon '", searchterm, "'\n")
+  searchtype <- match.arg(searchtype, c("scientific","common"))
+  if(searchtype=='scientific'){ sci <- 1; vern <- 0 } else { sci <- 0; vern <- 1; searchtype='vernacular' }
+  ubio_df <-  tryCatch(ubio_search(searchName = searchterm, sci = sci, vern = vern)[[searchtype]], error=function(e) e)
+  if(is(ubio_df, "simpleError")){
+    NULL
+  } else {
+    ubio_df <- switch(searchtype,
+                      scientific=ubio_df[,c("namebankid","namestring","packagename","rankname")],
+                      vernacular=ubio_df[,c("namebankid","namestring","packagename")])
+    ubio_df <- rename(ubio_df, c('packagename' = 'family'))
+    sub_rows(ubio_df, rows)
+  }
 }
