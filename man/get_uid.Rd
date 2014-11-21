@@ -10,7 +10,7 @@
 \alias{get_uid}
 \title{Get the UID codes from NCBI for taxonomic names.}
 \usage{
-get_uid(sciname, ask = TRUE, verbose = TRUE)
+get_uid(sciname, ask = TRUE, verbose = TRUE, rows = NA)
 
 as.uid(x)
 
@@ -35,6 +35,9 @@ input. If FALSE NA is returned for multiple matches.}
 
 \item{verbose}{logical; If TRUE the actual taxon queried is printed on the console.}
 
+\item{rows}{numeric; Any number from 1 to inifity, or the special \code{all}, which will give
+all data back. If \code{ask=FALSE} the number requested in \code{rows} is what's given back. Default: NA}
+
 \item{x}{Input to \code{\link{as.uid}}}
 
 \item{...}{Ignored}
@@ -43,7 +46,10 @@ input. If FALSE NA is returned for multiple matches.}
 A vector of unique identifiers (UID). If a taxon is not found NA.
 If more than one UID is found the function asks for user input (if ask = TRUE),
 otherwise returns NA. Comes with an attribute \emph{match} to investigate the
-reason for NA (either 'not found', 'found' or if ask = FALSE 'multi match')
+reason for NA (either 'not found', 'found' or if ask = FALSE 'multi match').
+If \code{ask=FALSE} and \code{rows} does not equal NA, then a data.frame is
+given back, but not of the uid class, which you can't pass on to other functions
+as you normally can.
 }
 \description{
 Retrieve the Unique Identifier (UID) of a taxon from NCBI taxonomy browser.
@@ -58,8 +64,10 @@ get_uid("howdy")
 get_uid(c("Chironomus riparius", "howdy"))
 
 # multiple matches
-get_uid('Dugesia')  # user prompt needed
+get_uid('Dugesia') # user prompt needed
+get_uid('Dugesia', rows=1) # 2 choices, so returns only 1 row, so no choices
 get_uid('Dugesia', ask = FALSE) # returns NA for multiple matches
+get_uid('Dugesia', ask = FALSE) # or specify rows to get data back
 
 # Go to a website with more info on the taxon
 res <- get_uid("Chironomus riparius")

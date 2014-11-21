@@ -10,7 +10,7 @@
 \alias{get_gbifid}
 \title{Get the GBIF backbone taxon ID from taxonomic names.}
 \usage{
-get_gbifid(sciname, ask = TRUE, verbose = TRUE)
+get_gbifid(sciname, ask = TRUE, verbose = TRUE, rows = NA)
 
 as.gbifid(x)
 
@@ -57,7 +57,13 @@ get_gbifid(sciname='Poa annua')
 get_gbifid(sciname='Pinus contorta')
 get_gbifid(sciname='Puma concolor')
 
+# multiple names
 get_gbifid(c("Poa annua", "Pinus contorta"))
+
+# multiple choices available
+get_gbifid(sciname='Pinus')
+get_gbifid(sciname='Pinus', rows=10)
+get_gbifid(sciname='Pinus', rows=1:3)
 
 # When not found, NA given
 get_gbifid(sciname="uaudnadndj")

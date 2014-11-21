@@ -28,7 +28,13 @@
 #' get_gbifid(sciname='Pinus contorta')
 #' get_gbifid(sciname='Puma concolor')
 #'
+#' # multiple names
 #' get_gbifid(c("Poa annua", "Pinus contorta"))
+#'
+#' # multiple choices available
+#' get_gbifid(sciname='Pinus')
+#' get_gbifid(sciname='Pinus', rows=10)
+#' get_gbifid(sciname='Pinus', rows=1:3)
 #'
 #' # When not found, NA given
 #' get_gbifid(sciname="uaudnadndj")
@@ -48,10 +54,11 @@
 #' as.uid( data.frame(out) )
 #' }
 
-get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE){
+get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA){
   fun <- function(sciname, ask, verbose) {
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
     df <- gbif_name_suggest(q=sciname, fields = c("key","canonicalName","rank"))
+    df <- sub_rows(df, rows)
 
     if(is.null(df))
       df <- data.frame(NULL)
