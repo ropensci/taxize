@@ -39,12 +39,16 @@
 #'
 #' # Convert a tsn without class information to a tsn class
 #' as.tsn(get_tsn("Quercus douglasii")) # already a tsn, returns the same
-#' as.tsn(get_tsn("Chironomus riparius","Pinus contorta")) # same
-#' as.tsn(315567) # numeric
-#' as.tsn(c(315567,3339,9696)) # numeric vector, length > 1
-#' as.tsn("315567") # character
-#' as.tsn(c("315567","3339","9696")) # character vector, length > 1
-#' as.tsn(list("315567","3339","9696")) # list, either numeric or character
+#' as.tsn(get_tsn(c("Chironomus riparius","Pinus contorta"))) # same
+#' as.tsn(19322) # numeric
+#' as.tsn(c(19322,129313,506198)) # numeric vector, length > 1
+#' as.tsn("19322") # character
+#' as.tsn(c("19322","129313","506198")) # character vector, length > 1
+#' as.tsn(list("19322","129313","506198")) # list, either numeric or character
+#'
+#' out <- as.tsn(c(19322,129313,506198))
+#' data.frame(out)
+#' as.tsn( data.frame(out) )
 #' }
 
 get_tsn <- function(searchterm, searchtype = "scientific", accepted = TRUE, ask = TRUE, verbose = TRUE)
@@ -171,13 +175,14 @@ as.tsn.list <- function(x) if(length(x) == 1) make_tsn(x) else collapse(x, make_
 as.tsn.numeric <- function(x) as.tsn(as.character(x))
 
 #' @export
-#' @rdname get_uid
-as.uid.data.frame <- function(x) structure(x$ids, class="uid", match=x$match, uri=x$uri)
+#' @rdname get_tsn
+as.tsn.data.frame <- function(x) structure(x$ids, class="tsn", match=x$match, uri=x$uri)
 
 #' @export
-#' @rdname get_uid
-as.data.frame.uid <- function(x, ...){
-  data.frame(ids = unclass(x),
+#' @rdname get_tsn
+as.data.frame.tsn <- function(x, ...){
+  data.frame(ids = as.character(unclass(x)),
+             class = "tsn",
              match = attr(x, "match"),
              uri = attr(x, "uri"),
              stringsAsFactors = FALSE)
@@ -185,15 +190,12 @@ as.data.frame.uid <- function(x, ...){
 
 make_tsn <- function(x){
   if(check_tsn(x)){
-    uri <- sprintf('http://www.ncbi.nlm.nih.gov/taxonomy/%s', x)
+    uri <- sprintf('http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=%s', x)
     structure(x, class="tsn", match="found", uri=uri)
-  } else { structure(x, class="tsn", match="not found")   }
+  } else { structure(x, class="tsn", match="not found") }
 }
 
 check_tsn <- function(x){
-  url <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&id="
-  res <- GET(paste0(url, x))
-  tt <- content(res)
-  tryid <- xpathSApply(tt, "//Id", xmlValue)
-  identical(x, tryid)
+  tt <- suppressMessages(itis_getrecord(x))
+  identical(tt$acceptedNameList[[1]], as.character(x))
 }

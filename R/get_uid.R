@@ -148,7 +148,8 @@ as.uid.data.frame <- function(x) structure(x$ids, class="uid", match=x$match, ur
 #' @export
 #' @rdname get_uid
 as.data.frame.uid <- function(x, ...){
-  data.frame(ids = unclass(x),
+  data.frame(ids = as.character(unclass(x)),
+             class = "uid",
              match = attr(x, "match"),
              uri = attr(x, "uri"),
              stringsAsFactors = FALSE)
