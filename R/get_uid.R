@@ -9,6 +9,7 @@
 #' input. If FALSE NA is returned for multiple matches.
 #' @param verbose logical; If TRUE the actual taxon queried is printed on the console.
 #' @param x Input to \code{\link{as.uid}}
+#' @param ... Ignored
 #'
 #' @return A vector of unique identifiers (UID). If a taxon is not found NA.
 #' If more than one UID is found the function asks for user input (if ask = TRUE),
@@ -135,6 +136,19 @@ as.uid.list <- function(x) if(length(x) == 1) make_uid(x) else collapse(x, make_
 #' @export
 #' @rdname get_uid
 as.uid.numeric <- function(x) as.uid(as.character(x))
+
+#' @export
+#' @rdname get_uid
+as.uid.data.frame <- function(x) structure(x$ids, class="uid", match=x$match, uri=x$uri)
+
+#' @export
+#' @rdname get_uid
+as.data.frame.uid <- function(x, ...){
+  data.frame(ids = unclass(x),
+             match = attr(x, "match"),
+             uri = attr(x, "uri"),
+             stringsAsFactors = FALSE)
+}
 
 make_uid <- function(x){
   if(check_uid(x)){
