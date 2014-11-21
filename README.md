@@ -208,7 +208,7 @@ Note that a few data sources require SOAP web services, which are difficult to s
 
 + [NatureServe](http://www.natureserve.org/)
 + [Lichen Taxon dictionary](http://www.thebls.org.uk/)
-+ [Wikispecies]()
++ [Wikispecies](https://species.wikimedia.org/wiki/Main_Page)
 + And more, See the [newdatasource](https://github.com/ropensci/taxize/labels/newdatasource) tag in the issue tracker
 
 ## Quickstart
