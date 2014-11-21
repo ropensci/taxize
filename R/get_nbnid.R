@@ -15,7 +15,6 @@
 #' matching rank.
 #' @param ... Further args passed on to \code{nbn_search}
 #' @param x Input to \code{\link{as.nbnid}}
-#' @param ... Ignored
 #'
 #' @return A vector of unique identifiers. If a taxon is not found NA.
 #' If more than one ID is found the function asks for user input.
