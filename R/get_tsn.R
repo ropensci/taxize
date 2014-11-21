@@ -11,6 +11,10 @@
 #' If TRUE and more than one TSN is found for teh species, the user is asked for
 #' input. If FALSE NA is returned for multiple matches.
 #' @param verbose logical; should progress be printed?
+#' @param rows numeric; Any number from 1 to inifity. If the default NA, all rows are considered.
+#' Note that this function still only gives back a tsn class object with one to many identifiers.
+#' See \code{\link[taxize]{get_tsn_]}} to get back all, or a subset, of the raw data that you are
+#' presented during the ask process.
 #' @param x Input to as.tsn
 #' @param ... Ignored
 #'
@@ -30,6 +34,12 @@
 #' splist <- c("annona cherimola", 'annona muricata', "quercus robur",
 #' 		"shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")
 #' get_tsn(splist, verbose=FALSE)
+#'
+#' # specify rows to limit choices available
+#' get_tsn('Poa annua')
+#' get_tsn('Poa annua', rows=1)
+#' get_tsn('Poa annua', rows=25)
+#' get_tsn('Poa annua', rows=1:2)
 #'
 #' # When not found
 #' get_tsn("howdy")
@@ -52,7 +62,8 @@
 #' as.tsn( data.frame(out) )
 #' }
 
-get_tsn <- function(searchterm, searchtype = "scientific", accepted = TRUE, ask = TRUE, verbose = TRUE)
+get_tsn <- function(searchterm, searchtype = "scientific", accepted = TRUE, ask = TRUE,
+  verbose = TRUE, rows = NA)
 {
   fun <- function(x, searchtype, ask, verbose)
   {
@@ -60,6 +71,7 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = TRUE, ask 
 
     searchtype <- match.arg(searchtype, c("scientific","common"))
     tsn_df <- itis_terms(x, what = searchtype, verbose=verbose)
+    tsn_df <- sub_rows(tsn_df, rows)
 
     if(!class(tsn_df) == "data.frame"){
       tsn <- NA

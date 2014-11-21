@@ -11,7 +11,7 @@
 \title{Get the TSN code for a search term.}
 \usage{
 get_tsn(searchterm, searchtype = "scientific", accepted = TRUE,
-  ask = TRUE, verbose = TRUE)
+  ask = TRUE, verbose = TRUE, rows = NA)
 
 as.tsn(x)
 
@@ -41,6 +41,11 @@ input. If FALSE NA is returned for multiple matches.}
 
 \item{verbose}{logical; should progress be printed?}
 
+\item{rows}{numeric; Any number from 1 to inifity. If the default NA, all rows are considered.
+Note that this function still only gives back a tsn class object with one to many identifiers.
+See \code{\link[taxize]{get_tsn_]}} to get back all, or a subset, of the raw data that you are
+presented during the ask process.}
+
 \item{x}{Input to as.tsn}
 
 \item{...}{Ignored}
@@ -63,6 +68,12 @@ get_tsn(c("Chironomus riparius","Quercus douglasii"))
 splist <- c("annona cherimola", 'annona muricata', "quercus robur",
 		"shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")
 get_tsn(splist, verbose=FALSE)
+
+# specify rows to limit choices available
+get_tsn('Poa annua')
+get_tsn('Poa annua', rows=1)
+get_tsn('Poa annua', rows=25)
+get_tsn('Poa annua', rows=1:2)
 
 # When not found
 get_tsn("howdy")

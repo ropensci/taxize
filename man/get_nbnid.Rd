@@ -10,7 +10,7 @@
 \title{Get the UK National Biodiversity Network ID from taxonomic names.}
 \usage{
 get_nbnid(name, ask = TRUE, verbose = TRUE, rec_only = FALSE,
-  rank = NULL, ...)
+  rank = NULL, rows = NA, ...)
 
 as.nbnid(x)
 
@@ -41,6 +41,11 @@ taxa with 'recommended' name status.}
 \item{rank}{(character) If given, we attempt to limit the results to those taxa with the
 matching rank.}
 
+\item{rows}{numeric; Any number from 1 to inifity. If the default NA, all rows are considered.
+Note that this function still only gives back a nbnid class object with one to many identifiers.
+See \code{\link[taxize]{get_nbnid_]}} to get back all, or a subset, of the raw data that you are
+presented during the ask process.}
+
 \item{...}{Further args passed on to \code{nbn_search}}
 
 \item{x}{Input to \code{\link{as.nbnid}}}
@@ -62,6 +67,12 @@ get_nbnid(name='Pinus contorta')
 
 # The NBN service handles common names too
 get_nbnid(name='red-winged blackbird')
+
+# specify rows to limit choices available
+get_nbnid('Poa annua')
+get_nbnid('Poa annua', rows=1)
+get_nbnid('Poa annua', rows=25)
+get_nbnid('Poa annua', rows=1:2)
 
 # When not found
 get_nbnid(name="uaudnadndj")

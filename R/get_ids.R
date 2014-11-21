@@ -8,7 +8,7 @@
 #' @param names character; Taxonomic name to query.
 #' @param db character; database to query. One or  more of \code{ncbi}, \code{itis},
 #'    \code{eol}, \code{col}, \code{tropicos}, \code{gbif}, \code{ubio}, or \code{nbn}. By
-#'    default db is set to search all data sources. 
+#'    default db is set to search all data sources.
 #' @param ... Other arguments passed to \code{\link[taxize]{get_tsn}},
 #'    \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}},
 #'    \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_tpsid}},
@@ -26,12 +26,16 @@
 #' ## By default you get ids for all data sources
 #' get_ids(names="Chironomus riparius")
 #'
+#' # specify rows to limit choices available
+#' get_ids(names="Poa annua", db=c("col","eol"), rows=1)
+#' get_ids(names="Poa annua", db=c("col","eol"), rows=1:2)
+#'
 #' ## Or you can specify which source you want via the db parameter
 #' get_ids(names="Chironomus riparius", db = 'ncbi')
 #' get_ids(names="Salvelinus fontinalis", db = 'ubio')
-#' 
+#'
 #' get_ids(names="Salvelinus fontinalis", db = 'nbn')
-#' 
+#'
 #' get_ids(names=c("Chironomus riparius", "Pinus contorta"), db = 'ncbi')
 #' get_ids(names=c("Chironomus riparius", "Pinus contorta"), db = c('ncbi','itis'))
 #' get_ids(names=c("Chironomus riparius", "Pinus contorta"), db = c('ncbi','itis','col'))
@@ -49,7 +53,7 @@ get_ids <- function(names, db = c('itis','ncbi','eol','col','tropicos','gbif','u
 {
   if(is.null(db))
     stop("Must specify on or more values for db!")
-  db <- match.arg(db, choices = c('itis','ncbi','eol','col','tropicos','gbif','ubio','nbn'), 
+  db <- match.arg(db, choices = c('itis','ncbi','eol','col','tropicos','gbif','ubio','nbn'),
                   several.ok = TRUE)
 
   foo <- function(x, names, ...){

@@ -10,7 +10,7 @@
 \alias{get_colid}
 \title{Get the Catalogue of Life ID from taxonomic names.}
 \usage{
-get_colid(sciname, ask = TRUE, verbose = TRUE)
+get_colid(sciname, ask = TRUE, verbose = TRUE, rows = NA)
 
 as.colid(x)
 
@@ -36,6 +36,11 @@ input. If FALSE NA is returned for multiple matches.}
 \item{verbose}{logical; If TRUE the actual taxon queried is printed on the
 console.}
 
+\item{rows}{numeric; Any number from 1 to inifity. If the default NA, all rows are considered.
+Note that this function still only gives back a colid class object with one to many identifiers.
+See \code{\link[taxize]{get_colid_]}} to get back all, or a subset, of the raw data that you are
+presented during the ask process.}
+
 \item{x}{Input to as.colid}
 
 \item{...}{Ignored}
@@ -55,6 +60,12 @@ get_colid(sciname='Puma concolor')
 get_colid(sciname="Abudefduf saxatilis")
 
 get_colid(c("Poa annua", "Pinus contorta"))
+
+# specify rows to limit choices available
+get_colid(sciname='Poa annua')
+get_colid(sciname='Poa annua', rows=1)
+get_colid(sciname='Poa annua', rows=2)
+get_colid(sciname='Poa annua', rows=1:2)
 
 # When not found
 get_colid(sciname="uaudnadndj")

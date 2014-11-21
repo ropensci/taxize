@@ -10,6 +10,10 @@
 #' If TRUE and more than one TSN is found for teh species, the user is asked for
 #' input. If FALSE NA is returned for multiple matches.
 #' @param verbose logical; should progress be printed?
+#' @param rows numeric; Any number from 1 to inifity. If the default NA, all rows are considered.
+#' Note that this function still only gives back a ubioid class object with one to many identifiers.
+#' See \code{\link[taxize]{get_ubioid_]}} to get back all, or a subset, of the raw data that you are
+#' presented during the ask process.
 #' @param x Input to \code{\link{as.ubioid}}
 #' @param ... Ignored
 #'
@@ -27,6 +31,12 @@
 #' splist <- c("Salvelinus fontinalis", 'Pomacentrus brachialis', "Leptocottus armatus",
 #' 		"Clinocottus recalvus", "Trachurus trachurus", "Harengula clupeola")
 #' get_ubioid(splist, verbose=FALSE)
+#'
+#' # specify rows to limit choices available
+#' get_ubioid('Astragalus aduncus')
+#' get_ubioid('Astragalus aduncus', rows=1)
+#' get_ubioid('Astragalus aduncus', rows=8)
+#' get_ubioid('Astragalus aduncus', rows=1:2)
 #'
 #' # When not found
 #' get_ubioid(searchterm="howdy")
@@ -50,15 +60,16 @@
 #' as.ubioid( data.frame(out) )
 #' }
 
-get_ubioid <- function(searchterm, searchtype = "scientific", ask = TRUE, verbose = TRUE)
+get_ubioid <- function(searchterm, searchtype = "scientific", ask = TRUE, verbose = TRUE, rows = NA)
 {
-  fun <- function(x, searchtype, ask, verbose)
+  fun <- function(x, searchtype, ask, verbose, rows)
   {
     mssg(verbose, "\nRetrieving data for taxon '", x, "'\n")
 
     searchtype <- match.arg(searchtype, c("scientific","common"))
     if(searchtype=='scientific'){ sci <- 1; vern <- 0 } else { sci <- 0; vern <- 1; searchtype='vernacular' }
     ubio_df <-  tryCatch(ubio_search(searchName = x, sci = sci, vern = vern)[[searchtype]], error=function(e) e)
+    ubio_df <- sub_rows(ubio_df, rows)
 
     if(is(ubio_df, "simpleError")){
       ubioid <- NA
@@ -136,7 +147,7 @@ get_ubioid <- function(searchterm, searchtype = "scientific", ask = TRUE, verbos
     return(data.frame(ubioid = as.character(ubioid), att = att, stringsAsFactors=FALSE))
   }
   searchterm <- as.character(searchterm)
-  outd <- ldply(searchterm, fun, searchtype, ask, verbose)
+  outd <- ldply(searchterm, fun, searchtype, ask, verbose, rows)
   out <- structure(outd$ubioid, class="ubioid", match=outd$att)
   add_uri(out, 'http://www.ubio.org/browser/details.php?namebankID=%s')
 }

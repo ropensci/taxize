@@ -10,7 +10,8 @@
 \alias{get_eolid}
 \title{Get the EOL ID from Encyclopedia of Life from taxonomic names.}
 \usage{
-get_eolid(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...)
+get_eolid(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA,
+  ...)
 
 as.eolid(x)
 
@@ -37,6 +38,11 @@ input. If FALSE NA is returned for multiple matches.}
 
 \item{key}{API key}
 
+\item{rows}{numeric; Any number from 1 to inifity. If the default NA, all rows are considered.
+Note that this function still only gives back a eolid class object with one to many identifiers.
+See \code{\link[taxize]{get_eolid_]}} to get back all, or a subset, of the raw data that you are
+presented during the ask process.}
+
 \item{...}{Further args passed on to eol_search()}
 
 \item{x}{Input to \code{\link{as.eolid}}}
@@ -57,6 +63,12 @@ get_eolid(sciname='Pinus contorta')
 get_eolid(sciname='Puma concolor')
 
 get_eolid(c("Puma concolor", "Pinus contorta"))
+
+# specify rows to limit choices available
+get_eolid('Poa annua')
+get_eolid('Poa annua', rows=1)
+get_eolid('Poa annua', rows=2)
+get_eolid('Poa annua', rows=1:2)
 
 # When not found
 get_eolid(sciname="uaudnadndj")

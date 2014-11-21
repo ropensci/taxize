@@ -65,7 +65,7 @@ get_gbifid(sciname='Puma concolor')
 # multiple names
 get_gbifid(c("Poa annua", "Pinus contorta"))
 
-# multiple choices available
+# specify rows to limit choices available
 get_gbifid(sciname='Pinus')
 get_gbifid(sciname='Pinus', rows=10)
 get_gbifid(sciname='Pinus', rows=1:3)

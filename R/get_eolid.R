@@ -12,6 +12,10 @@
 #' @param key API key
 #' @param ... Further args passed on to eol_search()
 #' @param verbose logical; If TRUE the actual taxon queried is printed on the console.
+#' @param rows numeric; Any number from 1 to inifity. If the default NA, all rows are considered.
+#' Note that this function still only gives back a eolid class object with one to many identifiers.
+#' See \code{\link[taxize]{get_eolid_]}} to get back all, or a subset, of the raw data that you are
+#' presented during the ask process.
 #' @param x Input to \code{\link{as.eolid}}
 #'
 #' @return A vector of unique identifiers (EOL). If a taxon is not found NA.
@@ -28,6 +32,12 @@
 #' get_eolid(sciname='Puma concolor')
 #'
 #' get_eolid(c("Puma concolor", "Pinus contorta"))
+#'
+#' # specify rows to limit choices available
+#' get_eolid('Poa annua')
+#' get_eolid('Poa annua', rows=1)
+#' get_eolid('Poa annua', rows=2)
+#' get_eolid('Poa annua', rows=1:2)
 #'
 #' # When not found
 #' get_eolid(sciname="uaudnadndj")
@@ -47,8 +57,8 @@
 #' as.eolid( data.frame(out) )
 #' }
 
-get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...){
-  fun <- function(sciname, ask, verbose, ...) {
+get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA, ...){
+  fun <- function(sciname, ask, verbose, rows, ...) {
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
     tmp <- eol_search(terms = sciname, key, ...)
 
@@ -75,6 +85,8 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...){
         df <- dfs[,c('.id','identifier','scientificname','nameaccordingto')]
         names(df) <- c('pageid','eolid','name','source')
         df <- getsourceshortnames(df)
+        df$source <- as.character(df$source)
+        df <- sub_rows(df, rows)
 
         if(nrow(df) == 0){
           mssg(verbose, ms)
@@ -131,19 +143,19 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...){
     list(id = id, source = datasource, att = att)
   }
   sciname <- as.character(sciname)
-  out <- lapply(sciname, fun, ask=ask, verbose=verbose, ...)
-  justids <- sapply(out, "[[", "id")
-  justsources <- sapply(out, "[[", "source")
-  class(justids) <- "eolid"
-  s_pids <- names(justids)
-  newout <- unname(justids)
-  if( !all(is.na(justids)) ){
-    lns <- vapply(s_pids, nchar, 1)
-    attr(newout, 'uri') <- sapply(s_pids, function(x){
-      if(x > 0) sprintf('http://eol.org/pages/%s/overview', x) else NA
-    }, USE.NAMES = FALSE)
-  }
-  structure(newout, provider=justsources, match=pluck(out, "att", ""))
+  out <- lapply(sciname, fun, ask=ask, verbose=verbose, rows=rows, ...)
+  ids <- unname(sapply(out, "[[", "id"))
+  sources <- sapply(out, "[[", "source")
+  ids <- structure(ids, class="eolid", provider=sources, match=pluck(out, "att", ""))
+  add_uri(ids, 'http://eol.org/pages/%s/overview')
+  # s_pids <- names(justids)
+  # newout <- unname(justids)
+#   if( !all(is.na(justids)) ){
+#     lns <- vapply(s_pids, nchar, 1)
+#     attr(newout, 'uri') <- sapply(s_pids, function(x){
+#       if(x > 0) sprintf('http://eol.org/pages/%s/overview', x) else NA
+#     }, USE.NAMES = FALSE)
+#   }
 }
 
 getsourceshortnames <- function(input){

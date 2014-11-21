@@ -178,3 +178,19 @@ add_uri <- function(ids, url){
   }
   ids
 }
+
+check_rows <- function(x){
+  stopifnot(is.numeric(x) || any(is.na(x)))
+  x
+  # if(length(x) == 1 && !any(is.na(x))) 1:x else x
+}
+
+sub_rows <- function(x, rows){
+  rows <- check_rows(rows)
+  if( any(is.na(rows)) ) x else x[rows,]
+}
+
+sub_vector <- function(x, rows){
+  rows <- check_rows(rows)
+  if( any(is.na(rows)) ) x else x[rows]
+}

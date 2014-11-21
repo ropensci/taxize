@@ -10,7 +10,8 @@
 \alias{get_tpsid}
 \title{Get the NameID codes from Tropicos for taxonomic names.}
 \usage{
-get_tpsid(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...)
+get_tpsid(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA,
+  ...)
 
 as.tpsid(x)
 
@@ -37,6 +38,11 @@ input. If FALSE NA is returned for multiple matches.}
 
 \item{key}{Your API key; loads from .Rprofile.}
 
+\item{rows}{numeric; Any number from 1 to inifity. If the default NA, all rows are considered.
+Note that this function still only gives back a tpsid class object with one to many identifiers.
+See \code{\link[taxize]{get_tpsid_]}} to get back all, or a subset, of the raw data that you are
+presented during the ask process.}
+
 \item{...}{Other arguments passed to \code{\link[taxize]{tp_search}}.}
 
 \item{x}{Input to \code{\link{as.tpsid}}}
@@ -54,6 +60,12 @@ get_tpsid(sciname='Poa annua')
 get_tpsid(sciname='Pinus contorta')
 
 get_tpsid(c("Poa annua", "Pinus contorta"))
+
+# specify rows to limit choices available
+get_tpsid('Poa annua')
+get_tpsid('Poa annua', rows=1)
+get_tpsid('Poa annua', rows=25)
+get_tpsid('Poa annua', rows=1:2)
 
 # When not found, NA given (howdy is not a species name, and Chrinomus is a fly)
 get_tpsid("howdy")

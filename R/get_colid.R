@@ -7,6 +7,10 @@
 #' input. If FALSE NA is returned for multiple matches.
 #' @param verbose logical; If TRUE the actual taxon queried is printed on the
 #'    console.
+#' @param rows numeric; Any number from 1 to inifity. If the default NA, all rows are considered.
+#' Note that this function still only gives back a colid class object with one to many identifiers.
+#' See \code{\link[taxize]{get_colid_]}} to get back all, or a subset, of the raw data that you are
+#' presented during the ask process.
 #' @param x Input to as.colid
 #' @param ... Ignored
 #'
@@ -27,6 +31,12 @@
 #'
 #' get_colid(c("Poa annua", "Pinus contorta"))
 #'
+#' # specify rows to limit choices available
+#' get_colid(sciname='Poa annua')
+#' get_colid(sciname='Poa annua', rows=1)
+#' get_colid(sciname='Poa annua', rows=2)
+#' get_colid(sciname='Poa annua', rows=1:2)
+#'
 #' # When not found
 #' get_colid(sciname="uaudnadndj")
 #' get_colid(c("Chironomus riparius", "uaudnadndj"))
@@ -45,10 +55,11 @@
 #' as.colid( data.frame(out) )
 #' }
 
-get_colid <- function(sciname, ask = TRUE, verbose = TRUE){
+get_colid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA){
   fun <- function(sciname, ask, verbose) {
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
     df <- col_search(name=sciname)[[1]]
+    df <- sub_rows(df, rows)
 
     rank_taken <- NA
     if(nrow(df)==0){

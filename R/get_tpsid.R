@@ -7,6 +7,10 @@
 #' input. If FALSE NA is returned for multiple matches.
 #' @param verbose logical; If TRUE the actual taxon queried is printed on the console.
 #' @param key Your API key; loads from .Rprofile.
+#' @param rows numeric; Any number from 1 to inifity. If the default NA, all rows are considered.
+#' Note that this function still only gives back a tpsid class object with one to many identifiers.
+#' See \code{\link[taxize]{get_tpsid_]}} to get back all, or a subset, of the raw data that you are
+#' presented during the ask process.
 #' @param ... Other arguments passed to \code{\link[taxize]{tp_search}}.
 #' @param x Input to \code{\link{as.tpsid}}
 #'
@@ -23,6 +27,12 @@
 #' get_tpsid(sciname='Pinus contorta')
 #'
 #' get_tpsid(c("Poa annua", "Pinus contorta"))
+#'
+#' # specify rows to limit choices available
+#' get_tpsid('Poa annua')
+#' get_tpsid('Poa annua', rows=1)
+#' get_tpsid('Poa annua', rows=25)
+#' get_tpsid('Poa annua', rows=1:2)
 #'
 #' # When not found, NA given (howdy is not a species name, and Chrinomus is a fly)
 #' get_tpsid("howdy")
@@ -53,10 +63,11 @@
 #' as.tpsid( data.frame(out) )
 #' }
 
-get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...){
-  fun <- function(sciname, ask, verbose) {
+get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA, ...){
+  fun <- function(sciname, ask, verbose, rows) {
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
     tmp <- tp_search(name = sciname, key=key, ...)
+    tmp <- sub_rows(tmp, rows)
 
     if(names(tmp)[[1]] == 'error'){
       mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
@@ -109,7 +120,7 @@ get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...){
     list(id=id, att=att)
   }
   sciname <- as.character(sciname)
-  out <- lapply(sciname, fun, ask, verbose)
+  out <- lapply(sciname, fun, ask, verbose, rows)
   ids <- unlist(pluck(out, "id"))
   atts <- pluck(out, "att", "")
   ids <- structure(ids, class="tpsid", match=atts)

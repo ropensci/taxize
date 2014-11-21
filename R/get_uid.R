@@ -36,7 +36,7 @@
 #' get_uid("howdy")
 #' get_uid(c("Chironomus riparius", "howdy"))
 #'
-#' # multiple matches
+#' # specify rows to limit choices available
 #' get_uid('Dugesia') # user prompt needed
 #' get_uid('Dugesia', rows=1) # 2 choices, so returns only 1 row, so no choices
 #' get_uid('Dugesia', ask = FALSE) # returns NA for multiple matches
@@ -124,22 +124,6 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA){
   outd <- ldply(sciname, fun, ask, verbose, rows)
   out <- structure(outd$uid, class="uid", match=outd$att)
   add_uri(out, 'http://www.ncbi.nlm.nih.gov/taxonomy/%s')
-}
-
-check_rows <- function(x){
-  stopifnot(is.numeric(x) || any(is.na(x)))
-  x
-  # if(length(x) == 1 && !any(is.na(x))) 1:x else x
-}
-
-sub_rows <- function(x, rows){
-  rows <- check_rows(rows)
-  if( any(is.na(rows)) ) x else x[rows,]
-}
-
-sub_vector <- function(x, rows){
-  rows <- check_rows(rows)
-  if( any(is.na(rows)) ) x else x[rows]
 }
 
 #' @export

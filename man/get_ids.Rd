@@ -37,6 +37,10 @@ There is a timeout of 1/3 seconds between queries to NCBI.
 ## By default you get ids for all data sources
 get_ids(names="Chironomus riparius")
 
+# specify rows to limit choices available
+get_ids(names="Poa annua", db=c("col","eol"), rows=1)
+get_ids(names="Poa annua", db=c("col","eol"), rows=1:2)
+
 ## Or you can specify which source you want via the db parameter
 get_ids(names="Chironomus riparius", db = 'ncbi')
 get_ids(names="Salvelinus fontinalis", db = 'ubio')

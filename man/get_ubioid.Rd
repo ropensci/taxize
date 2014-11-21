@@ -11,7 +11,7 @@
 \title{Get the uBio id for a search term.}
 \usage{
 get_ubioid(searchterm, searchtype = "scientific", ask = TRUE,
-  verbose = TRUE)
+  verbose = TRUE, rows = NA)
 
 as.ubioid(x)
 
@@ -38,6 +38,11 @@ input. If FALSE NA is returned for multiple matches.}
 
 \item{verbose}{logical; should progress be printed?}
 
+\item{rows}{numeric; Any number from 1 to inifity. If the default NA, all rows are considered.
+Note that this function still only gives back a ubioid class object with one to many identifiers.
+See \code{\link[taxize]{get_ubioid_]}} to get back all, or a subset, of the raw data that you are
+presented during the ask process.}
+
 \item{x}{Input to \code{\link{as.ubioid}}}
 
 \item{...}{Ignored}
@@ -59,6 +64,12 @@ get_ubioid(c("Salvelinus fontinalis","Pomacentrus brachialis"))
 splist <- c("Salvelinus fontinalis", 'Pomacentrus brachialis', "Leptocottus armatus",
 		"Clinocottus recalvus", "Trachurus trachurus", "Harengula clupeola")
 get_ubioid(splist, verbose=FALSE)
+
+# specify rows to limit choices available
+get_ubioid('Astragalus aduncus')
+get_ubioid('Astragalus aduncus', rows=1)
+get_ubioid('Astragalus aduncus', rows=8)
+get_ubioid('Astragalus aduncus', rows=1:2)
 
 # When not found
 get_ubioid(searchterm="howdy")

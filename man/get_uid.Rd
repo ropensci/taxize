@@ -65,7 +65,7 @@ get_uid(c("Chironomus riparius", "aaa vva"))
 get_uid("howdy")
 get_uid(c("Chironomus riparius", "howdy"))
 
-# multiple matches
+# specify rows to limit choices available
 get_uid('Dugesia') # user prompt needed
 get_uid('Dugesia', rows=1) # 2 choices, so returns only 1 row, so no choices
 get_uid('Dugesia', ask = FALSE) # returns NA for multiple matches

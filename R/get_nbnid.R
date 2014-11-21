@@ -13,6 +13,10 @@
 #' taxa with 'recommended' name status.
 #' @param rank (character) If given, we attempt to limit the results to those taxa with the
 #' matching rank.
+#' @param rows numeric; Any number from 1 to inifity. If the default NA, all rows are considered.
+#' Note that this function still only gives back a nbnid class object with one to many identifiers.
+#' See \code{\link[taxize]{get_nbnid_]}} to get back all, or a subset, of the raw data that you are
+#' presented during the ask process.
 #' @param ... Further args passed on to \code{nbn_search}
 #' @param x Input to \code{\link{as.nbnid}}
 #'
@@ -34,6 +38,12 @@
 #' # The NBN service handles common names too
 #' get_nbnid(name='red-winged blackbird')
 #'
+#' # specify rows to limit choices available
+#' get_nbnid('Poa annua')
+#' get_nbnid('Poa annua', rows=1)
+#' get_nbnid('Poa annua', rows=25)
+#' get_nbnid('Poa annua', rows=1:2)
+#'
 #' # When not found
 #' get_nbnid(name="uaudnadndj")
 #' get_nbnid(c("Zootoca vivipara", "uaudnadndj"))
@@ -51,11 +61,12 @@
 #' as.nbnid( data.frame(out) )
 #' }
 
-get_nbnid <- function(name, ask = TRUE, verbose = TRUE, rec_only = FALSE, rank = NULL, ...){
-  fun <- function(name, ask, verbose) {
+get_nbnid <- function(name, ask = TRUE, verbose = TRUE, rec_only = FALSE, rank = NULL, rows = NA, ...){
+  fun <- function(name, ask, verbose, rows) {
     mssg(verbose, "\nRetrieving data for taxon '", name, "'\n")
     df <- nbn_search(q = name, all = TRUE, ...)$data
     if(is.null(df)) df <- data.frame(NULL)
+    df <- sub_rows(df, rows)
 
     rank_taken <- NA
     if(nrow(df)==0){
@@ -113,7 +124,7 @@ get_nbnid <- function(name, ask = TRUE, verbose = TRUE, rec_only = FALSE, rank =
     return( c(id=id, rank=rank_taken, att=att) )
   }
   name <- as.character(name)
-  out <- lapply(name, fun, ask=ask, verbose=verbose)
+  out <- lapply(name, fun, ask=ask, verbose=verbose, rows=rows)
   ids <- sapply(out, "[[", "id")
   atts <- sapply(out, "[[", "att")
   ids <- structure(ids, class="nbnid", match=atts)
