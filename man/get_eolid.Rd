@@ -40,6 +40,8 @@ input. If FALSE NA is returned for multiple matches.}
 \item{...}{Further args passed on to eol_search()}
 
 \item{x}{Input to \code{\link{as.eolid}}}
+
+\item{...}{Ignored}
 }
 \value{
 A vector of unique identifiers (EOL). If a taxon is not found NA.

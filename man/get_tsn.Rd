@@ -42,6 +42,8 @@ input. If FALSE NA is returned for multiple matches.}
 \item{verbose}{logical; should progress be printed?}
 
 \item{x}{Input to as.tsn}
+
+\item{...}{Ignored}
 }
 \value{
 A vector of taxonomic serial numbers (TSN). If a taxon is not

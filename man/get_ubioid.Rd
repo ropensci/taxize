@@ -39,6 +39,8 @@ input. If FALSE NA is returned for multiple matches.}
 \item{verbose}{logical; should progress be printed?}
 
 \item{x}{Input to \code{\link{as.ubioid}}}
+
+\item{...}{Ignored}
 }
 \value{
 A vector of uBio ids. If a taxon is not found NA is given. If more than one uBio

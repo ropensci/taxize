@@ -7,6 +7,7 @@
 #' input. If FALSE NA is returned for multiple matches.
 #' @param verbose logical; If TRUE the actual taxon queried is printed on the console.
 #' @param x Input to \code{\link{as.gbifid}}
+#' @param ... Ignored
 #'
 #' @return A vector of unique identifiers. If a taxon is not found NA.
 #' If more than one ID is found the function asks for user input.

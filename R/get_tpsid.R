@@ -9,6 +9,7 @@
 #' @param key Your API key; loads from .Rprofile.
 #' @param ... Other arguments passed to \code{\link[taxize]{tp_search}}.
 #' @param x Input to \code{\link{as.tpsid}}
+#' @param ... Ignored
 #'
 #' @return A vector of unique identifiers. If a taxon is not found NA.
 #' If more than one ID is found the function asks for user input.

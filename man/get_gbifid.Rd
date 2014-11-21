@@ -36,6 +36,8 @@ input. If FALSE NA is returned for multiple matches.}
 \item{verbose}{logical; If TRUE the actual taxon queried is printed on the console.}
 
 \item{x}{Input to \code{\link{as.gbifid}}}
+
+\item{...}{Ignored}
 }
 \value{
 A vector of unique identifiers. If a taxon is not found NA.

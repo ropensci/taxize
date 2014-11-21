@@ -12,6 +12,7 @@
 #' input. If FALSE NA is returned for multiple matches.
 #' @param verbose logical; should progress be printed?
 #' @param x Input to as.tsn
+#' @param ... Ignored
 #'
 #' @return A vector of taxonomic serial numbers (TSN). If a taxon is not
 #'    found NA. If more than one TSN is found the function asks for user input

@@ -11,6 +11,7 @@
 #' input. If FALSE NA is returned for multiple matches.
 #' @param verbose logical; should progress be printed?
 #' @param x Input to \code{\link{as.ubioid}}
+#' @param ... Ignored
 #'
 #' @return A vector of uBio ids. If a taxon is not found NA is given. If more than one uBio
 #'    id is found the function asks for user input (if ask = TRUE), otherwise returns NA.

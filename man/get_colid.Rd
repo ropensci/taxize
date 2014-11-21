@@ -37,6 +37,8 @@ input. If FALSE NA is returned for multiple matches.}
 console.}
 
 \item{x}{Input to as.colid}
+
+\item{...}{Ignored}
 }
 \value{
 A vector of unique identifiers. If a taxon is not found NA.

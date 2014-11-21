@@ -40,6 +40,8 @@ input. If FALSE NA is returned for multiple matches.}
 \item{...}{Other arguments passed to \code{\link[taxize]{tp_search}}.}
 
 \item{x}{Input to \code{\link{as.tpsid}}}
+
+\item{...}{Ignored}
 }
 \value{
 A vector of unique identifiers. If a taxon is not found NA.

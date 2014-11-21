@@ -44,6 +44,8 @@ matching rank.}
 \item{...}{Further args passed on to \code{nbn_search}}
 
 \item{x}{Input to \code{\link{as.nbnid}}}
+
+\item{...}{Ignored}
 }
 \value{
 A vector of unique identifiers. If a taxon is not found NA.

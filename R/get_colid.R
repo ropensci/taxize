@@ -8,6 +8,7 @@
 #' @param verbose logical; If TRUE the actual taxon queried is printed on the
 #'    console.
 #' @param x Input to as.colid
+#' @param ... Ignored
 #'
 #' @return A vector of unique identifiers. If a taxon is not found NA.
 #' If more than one ID is found the function asks for user input.

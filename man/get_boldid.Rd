@@ -45,6 +45,8 @@ input. If FALSE NA is returned for multiple matches.}
 \item{verbose}{logical; should progress be printed?}
 
 \item{x}{Input to \code{\link{as.boldid}}}
+
+\item{...}{Ignored}
 }
 \value{
 A vector of BOLD ids. If a taxon is not found NA. If more than one BOLD ID is found

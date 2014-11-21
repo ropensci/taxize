@@ -13,6 +13,7 @@
 #' input. If FALSE NA is returned for multiple matches.
 #' @param verbose logical; should progress be printed?
 #' @param x Input to \code{\link{as.boldid}}
+#' @param ... Ignored
 #'
 #' @return A vector of BOLD ids. If a taxon is not found NA. If more than one BOLD ID is found
 #'    the function asks for user input (if ask = TRUE), otherwise returns NA.
