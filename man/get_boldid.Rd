@@ -8,6 +8,7 @@
 \alias{as.boldid.numeric}
 \alias{as.data.frame.boldid}
 \alias{get_boldid}
+\alias{get_boldid_}
 \title{Get the BOLD (Barcode of Life) code for a search term.}
 \usage{
 get_boldid(searchterm, fuzzy = FALSE, dataTypes = "basic",
@@ -26,6 +27,9 @@ as.boldid(x)
 \method{as.boldid}{data.frame}(x)
 
 \method{as.data.frame}{boldid}(x, ...)
+
+get_boldid_(searchterm, verbose = TRUE, fuzzy = FALSE,
+  dataTypes = "basic", includeTree = FALSE, rows = NA, ...)
 }
 \arguments{
 \item{searchterm}{character; A vector of common or scientific names.}
@@ -61,7 +65,7 @@ Get the BOLD (Barcode of Life) code for a search term.
 \donttest{
 get_boldid(searchterm = "Agapostemon")
 get_boldid(searchterm = "Chironomus riparius")
-get_boldid(c("Chironomus riparius","Quercus douglasii")) # needs error catching
+get_boldid(c("Chironomus riparius","Quercus douglasii"))
 splist <- names_list('species')
 get_boldid(splist, verbose=FALSE)
 
@@ -88,6 +92,10 @@ as.boldid(list("1973","101009","98597")) # list, either numeric or character
 (out <- as.boldid(c(1973,101009,98597)))
 data.frame(out)
 as.boldid( data.frame(out) )
+
+# Get all data back
+get_boldid_("Osmia", fuzzy=TRUE, rows=1:5)
+get_boldid_("Osmia", fuzzy=TRUE, rows=1)
 }
 }
 \seealso{

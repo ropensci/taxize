@@ -25,7 +25,7 @@
 #' @examples \donttest{
 #' get_boldid(searchterm = "Agapostemon")
 #' get_boldid(searchterm = "Chironomus riparius")
-#' get_boldid(c("Chironomus riparius","Quercus douglasii")) # needs error catching
+#' get_boldid(c("Chironomus riparius","Quercus douglasii"))
 #' splist <- names_list('species')
 #' get_boldid(splist, verbose=FALSE)
 #'
@@ -52,6 +52,10 @@
 #' (out <- as.boldid(c(1973,101009,98597)))
 #' data.frame(out)
 #' as.boldid( data.frame(out) )
+#'
+#' # Get all data back
+#' get_boldid_("Osmia", fuzzy=TRUE, rows=1:5)
+#' get_boldid_("Osmia", fuzzy=TRUE, rows=1)
 #' }
 
 get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes='basic', includeTree=FALSE,
@@ -199,4 +203,16 @@ make_boldid <- function(x){
 check_boldid <- function(x){
   tryid <- bold_tax_id(x)
   !identical("noresults", names(tryid)[2])
+}
+
+#' @export
+#' @rdname get_boldid
+get_boldid_ <- function(searchterm, verbose = TRUE, fuzzy = FALSE, dataTypes='basic', includeTree=FALSE, rows = NA, ...){
+  setNames(lapply(searchterm, get_boldid_help, verbose = verbose, fuzzy = fuzzy, dataTypes=dataTypes, includeTree=includeTree, rows = rows, ...), searchterm)
+}
+
+get_boldid_help <- function(searchterm, verbose, fuzzy, dataTypes, includeTree, rows, ...){
+  mssg(verbose, "\nRetrieving data for taxon '", searchterm, "'\n")
+  df <- bold_search(name = searchterm, fuzzy = fuzzy, dataTypes = dataTypes, includeTree = includeTree)
+  if(NROW(df) == 0) NULL else sub_rows(df, rows)
 }
