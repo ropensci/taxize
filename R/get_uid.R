@@ -111,14 +111,8 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE){
   }
   sciname <- as.character(sciname)
   outd <- ldply(sciname, fun, ask, verbose)
-  out <- outd$uid
-  attr(out, 'match') <- outd$att
-  if(!is.na(out[1])){
-    urlmake <- na.omit(out)
-    attr(out, 'uri') <-
-      sprintf('http://www.ncbi.nlm.nih.gov/taxonomy/%s', urlmake)
-  }
-  structure(out, class="uid")
+  out <- structure(outd$uid, class="uid", match=outd$att)
+  add_uri(out, 'http://www.ncbi.nlm.nih.gov/taxonomy/%s')
 }
 
 #' @export
