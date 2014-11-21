@@ -170,6 +170,19 @@ as.tsn.list <- function(x) if(length(x) == 1) make_tsn(x) else collapse(x, make_
 #' @rdname get_tsn
 as.tsn.numeric <- function(x) as.tsn(as.character(x))
 
+#' @export
+#' @rdname get_uid
+as.uid.data.frame <- function(x) structure(x$ids, class="uid", match=x$match, uri=x$uri)
+
+#' @export
+#' @rdname get_uid
+as.data.frame.uid <- function(x, ...){
+  data.frame(ids = unclass(x),
+             match = attr(x, "match"),
+             uri = attr(x, "uri"),
+             stringsAsFactors = FALSE)
+}
+
 make_tsn <- function(x){
   if(check_tsn(x)){
     uri <- sprintf('http://www.ncbi.nlm.nih.gov/taxonomy/%s', x)
