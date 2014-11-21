@@ -13,7 +13,7 @@
 #' @param verbose logical; should progress be printed?
 #' @param rows numeric; Any number from 1 to inifity. If the default NA, all rows are considered.
 #' Note that this function still only gives back a tsn class object with one to many identifiers.
-#' See \code{\link[taxize]{get_tsn_]}} to get back all, or a subset, of the raw data that you are
+#' See \code{\link[taxize]{get_tsn_}} to get back all, or a subset, of the raw data that you are
 #' presented during the ask process.
 #' @param x Input to as.tsn
 #' @param ... Ignored

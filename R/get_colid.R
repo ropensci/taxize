@@ -9,7 +9,7 @@
 #'    console.
 #' @param rows numeric; Any number from 1 to inifity. If the default NA, all rows are considered.
 #' Note that this function still only gives back a colid class object with one to many identifiers.
-#' See \code{\link[taxize]{get_colid_]}} to get back all, or a subset, of the raw data that you are
+#' See \code{\link[taxize]{get_colid_}} to get back all, or a subset, of the raw data that you are
 #' presented during the ask process.
 #' @param x Input to as.colid
 #' @param ... Ignored

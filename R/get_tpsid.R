@@ -9,7 +9,7 @@
 #' @param key Your API key; loads from .Rprofile.
 #' @param rows numeric; Any number from 1 to inifity. If the default NA, all rows are considered.
 #' Note that this function still only gives back a tpsid class object with one to many identifiers.
-#' See \code{\link[taxize]{get_tpsid_]}} to get back all, or a subset, of the raw data that you are
+#' See \code{\link[taxize]{get_tpsid_}} to get back all, or a subset, of the raw data that you are
 #' presented during the ask process.
 #' @param ... Other arguments passed to \code{\link[taxize]{tp_search}}.
 #' @param x Input to \code{\link{as.tpsid}}
