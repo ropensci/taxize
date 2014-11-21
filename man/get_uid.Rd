@@ -35,8 +35,10 @@ input. If FALSE NA is returned for multiple matches.}
 
 \item{verbose}{logical; If TRUE the actual taxon queried is printed on the console.}
 
-\item{rows}{numeric; Any number from 1 to inifity, or the special \code{all}, which will give
-all data back. If \code{ask=FALSE} the number requested in \code{rows} is what's given back. Default: NA}
+\item{rows}{numeric; Any number from 1 to inifity. If the default NA, all rows are considered.
+Note that this function still only gives back a uid class object with one to many identifiers.
+See \code{\link[taxize]{get_uid_]}} to get back all, or a subset, of the raw data that you are
+presented during the ask process.}
 
 \item{x}{Input to \code{\link{as.uid}}}
 
