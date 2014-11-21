@@ -3,8 +3,10 @@
 \alias{as.boldid}
 \alias{as.boldid.boldid}
 \alias{as.boldid.character}
+\alias{as.boldid.data.frame}
 \alias{as.boldid.list}
 \alias{as.boldid.numeric}
+\alias{as.data.frame.boldid}
 \alias{get_boldid}
 \title{Get the BOLD (Barcode of Life) code for a search term.}
 \usage{
@@ -20,6 +22,10 @@ as.boldid(x)
 \method{as.boldid}{list}(x)
 
 \method{as.boldid}{numeric}(x)
+
+\method{as.boldid}{data.frame}(x)
+
+\method{as.data.frame}{boldid}(x, ...)
 }
 \arguments{
 \item{searchterm}{character; A vector of common or scientific names.}
@@ -76,6 +82,10 @@ as.boldid(c(1973,101009,98597)) # numeric vector, length > 1
 as.boldid("1973") # character
 as.boldid(c("1973","101009","98597")) # character vector, length > 1
 as.boldid(list("1973","101009","98597")) # list, either numeric or character
+
+(out <- as.boldid(c(1973,101009,98597)))
+data.frame(out)
+as.boldid( data.frame(out) )
 }
 }
 \seealso{

@@ -78,7 +78,7 @@ as.tsn("19322") # character
 as.tsn(c("19322","129313","506198")) # character vector, length > 1
 as.tsn(list("19322","129313","506198")) # list, either numeric or character
 
-out <- as.tsn(c(19322,129313,506198))
+(out <- as.tsn(c(19322,129313,506198)))
 data.frame(out)
 as.tsn( data.frame(out) )
 }

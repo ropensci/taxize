@@ -42,6 +42,10 @@
 #' as.eolid("24954444") # character
 #' as.eolid(c("24954444","51389511","57266265")) # character vector, length > 1
 #' as.eolid(list("24954444","51389511","57266265")) # list, either numeric or character
+#'
+#' (out <- as.eolid(c(24954444,51389511,57266265)))
+#' data.frame(out)
+#' as.eolid( data.frame(out) )
 #' }
 
 get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...){
@@ -172,24 +176,39 @@ as.eolid.eolid <- function(x) x
 
 #' @export
 #' @rdname get_eolid
-as.eolid.character <- function(x) if(length(x) == 1) make_eolid(x) else collapse(x, make_eolid, "eolid", FALSE)
+as.eolid.character <- function(x) if(length(x) == 1) make_eolid(x) else collapse(x, make_eolid, "eolid")
 
 #' @export
 #' @rdname get_eolid
-as.eolid.list <- function(x) if(length(x) == 1) make_eolid(x) else collapse(x, make_eolid, "eolid", FALSE)
+as.eolid.list <- function(x) if(length(x) == 1) make_eolid(x) else collapse(x, make_eolid, "eolid")
 
 #' @export
 #' @rdname get_eolid
 as.eolid.numeric <- function(x) as.eolid(as.character(x))
 
+#' @export
+#' @rdname get_eolid
+as.eolid.data.frame <- function(x) structure(x$ids, class="eolid", match=x$match, uri=x$uri)
+
+#' @export
+#' @rdname get_eolid
+as.data.frame.eolid <- function(x, ...){
+  data.frame(ids = as.character(unclass(x)),
+             class = "eolid",
+             match = attr(x, "match"),
+             uri = attr(x, "uri"),
+             stringsAsFactors = FALSE)
+}
+
 make_eolid <- function(x){
   if(check_eolid(x)){
     uri <- sprintf('http://eol.org/pages/%s/overview', x)
-    structure(x, class="eolid", uri=uri)
-  } else { structure(x, class="eolid")   }
+    structure(x, class="eolid", match="found", uri=uri)
+  } else { structure(NA, class="eolid", match="not found", uri=NA)   }
 }
 
 check_eolid <- function(x){
-  tryid <- tryCatch(eol_pages(x), error = function(e) e)
-  if( "error" %in% class(tryid) && "scinames" %in% names(tryid) ) FALSE else TRUE
+  url <- sprintf("http://eol.org/api/hierarchy_entries/1.0/%s.json", x)
+  tryid <- GET(url)
+  if( tryid$status_code == 200 ) TRUE else FALSE
 }

@@ -43,6 +43,10 @@
 #' as.ubioid("2843601") # character
 #' as.ubioid(c("2843601","3339","9696")) # character vector, length > 1
 #' as.ubioid(list("2843601","3339","9696")) # list, either numeric or character
+#'
+#' (out <- as.ubioid(c(2843601,3339,9696)))
+#' data.frame(out)
+#' as.ubioid( data.frame(out) )
 #' }
 
 get_ubioid <- function(searchterm, searchtype = "scientific", ask = TRUE, verbose = TRUE)
@@ -157,11 +161,25 @@ as.ubioid.list <- function(x) if(length(x) == 1) make_ubioid(x) else collapse(x,
 #' @rdname get_ubioid
 as.ubioid.numeric <- function(x) as.ubioid(as.character(x))
 
+#' @export
+#' @rdname get_ubioid
+as.ubioid.data.frame <- function(x) structure(x$ids, class="ubioid", match=x$match, uri=x$uri)
+
+#' @export
+#' @rdname get_ubioid
+as.data.frame.ubioid <- function(x, ...){
+  data.frame(ids = as.character(unclass(x)),
+             class = "ubioid",
+             match = attr(x, "match"),
+             uri = attr(x, "uri"),
+             stringsAsFactors = FALSE)
+}
+
 make_ubioid <- function(x){
   if(check_ubioid(x)){
     uri <- sprintf('http://www.ubio.org/browser/details.php?namebankID=%s', x)
     structure(x, class="ubioid", match="found", uri=uri)
-  } else { structure(x, class="ubioid", match="not found")   }
+  } else { structure(NA, class="ubioid", match="not found", uri=NA)   }
 }
 
 check_ubioid <- function(x){

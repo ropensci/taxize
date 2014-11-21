@@ -47,6 +47,10 @@
 #' as.boldid("1973") # character
 #' as.boldid(c("1973","101009","98597")) # character vector, length > 1
 #' as.boldid(list("1973","101009","98597")) # list, either numeric or character
+#'
+#' (out <- as.boldid(c(1973,101009,98597)))
+#' data.frame(out)
+#' as.boldid( data.frame(out) )
 #' }
 
 get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes='basic', includeTree=FALSE,
@@ -160,7 +164,7 @@ as.boldid.boldid <- function(x) x
 
 #' @export
 #' @rdname get_boldid
-as.boldid.character <- function(x) if(length(x) == 1) make_boldid(x) else collapse(x, make_boldid, "boldid", FALSE)
+as.boldid.character <- function(x) if(length(x) == 1) make_boldid(x) else collapse(x, make_boldid, "boldid")
 
 #' @export
 #' @rdname get_boldid
@@ -170,11 +174,25 @@ as.boldid.list <- function(x) if(length(x) == 1) make_boldid(x) else collapse(x,
 #' @rdname get_boldid
 as.boldid.numeric <- function(x) as.boldid(as.character(x))
 
+#' @export
+#' @rdname get_boldid
+as.boldid.data.frame <- function(x) structure(x$ids, class="boldid", match=x$match, uri=x$uri)
+
+#' @export
+#' @rdname get_boldid
+as.data.frame.boldid <- function(x, ...){
+  data.frame(ids = as.character(unclass(x)),
+             class = "boldid",
+             match = attr(x, "match"),
+             uri = attr(x, "uri"),
+             stringsAsFactors = FALSE)
+}
+
 make_boldid <- function(x){
   if(check_boldid(x)){
     uri <- sprintf('http://boldsystems.org/index.php/Taxbrowser_Taxonpage?taxid=%s', x)
     structure(x, class="boldid", match="found", uri=uri)
-  } else { structure(x, class="boldid", match="not found")   }
+  } else { structure(NA, class="boldid", match="not found", uri=NA)   }
 }
 
 check_boldid <- function(x){

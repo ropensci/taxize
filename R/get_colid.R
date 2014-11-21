@@ -38,6 +38,10 @@
 #' as.colid("19736162") # character
 #' as.colid(c("8663146","19736162","18158318")) # character vector, length > 1
 #' as.colid(list("8663146","19736162","18158318")) # list, either numeric or character
+#'
+#' (out <- as.colid(c(8663146,19736162,18158318)))
+#' data.frame(out)
+#' as.colid( data.frame(out) )
 #' }
 
 get_colid <- function(sciname, ask = TRUE, verbose = TRUE){
@@ -138,11 +142,25 @@ as.colid.list <- function(x) if(length(x) == 1) make_colid(x) else collapse(x, m
 #' @rdname get_colid
 as.colid.numeric <- function(x) as.colid(as.character(x))
 
+#' @export
+#' @rdname get_colid
+as.colid.data.frame <- function(x) structure(x$ids, class="colid", match=x$match, uri=x$uri)
+
+#' @export
+#' @rdname get_colid
+as.data.frame.colid <- function(x, ...){
+  data.frame(ids = as.character(unclass(x)),
+             class = "colid",
+             match = attr(x, "match"),
+             uri = attr(x, "uri"),
+             stringsAsFactors = FALSE)
+}
+
 make_colid <- function(x){
   if(check_colid(x)){
     uri <- sprintf('http://www.catalogueoflife.org/col/details/species/id/%s', x)
     structure(x, class="uid", match="found", uri=uri)
-  } else { structure(NA, class="uid", match="not found")   }
+  } else { structure(NA, class="uid", match="not found", uri=NA)   }
 }
 
 check_colid <- function(x){

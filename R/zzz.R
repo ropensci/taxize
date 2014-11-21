@@ -158,3 +158,14 @@ pluck <- function(x, name, type) {
     vapply(x, "[[", name, FUN.VALUE = type)
   }
 }
+
+collapse <- function(x, fxn, class, match=TRUE){
+  tmp <- lapply(x, fxn)
+  if(match){
+    structure(sapply(tmp, unclass), class=class,
+              match=sapply(tmp, attr, which="match"),
+              uri=sapply(tmp, attr, which="uri"))
+  } else {
+    structure(sapply(tmp, unclass), class=class, uri=sapply(tmp, attr, which="uri"))
+  }
+}

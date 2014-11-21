@@ -3,8 +3,10 @@
 \alias{as.colid}
 \alias{as.colid.character}
 \alias{as.colid.colid}
+\alias{as.colid.data.frame}
 \alias{as.colid.list}
 \alias{as.colid.numeric}
+\alias{as.data.frame.colid}
 \alias{get_colid}
 \title{Get the Catalogue of Life ID from taxonomic names.}
 \usage{
@@ -19,6 +21,10 @@ as.colid(x)
 \method{as.colid}{list}(x)
 
 \method{as.colid}{numeric}(x)
+
+\method{as.colid}{data.frame}(x)
+
+\method{as.data.frame}{colid}(x, ...)
 }
 \arguments{
 \item{sciname}{character; scientific name.}
@@ -60,6 +66,10 @@ as.colid(c(8663146,19736162,18158318)) # numeric vector, length > 1
 as.colid("19736162") # character
 as.colid(c("8663146","19736162","18158318")) # character vector, length > 1
 as.colid(list("8663146","19736162","18158318")) # list, either numeric or character
+
+(out <- as.colid(c(8663146,19736162,18158318)))
+data.frame(out)
+as.colid( data.frame(out) )
 }
 }
 \author{

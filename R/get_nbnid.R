@@ -45,6 +45,10 @@
 #' as.nbnid('NHMSYS0001706186') # character
 #' as.nbnid(c("NHMSYS0001706186","NHMSYS0000494848","NBNSYS0000010867")) # character vector, length > 1
 #' as.nbnid(list("NHMSYS0001706186","NHMSYS0000494848","NBNSYS0000010867")) # list
+#'
+#' (out <- as.nbnid(c("NHMSYS0001706186","NHMSYS0000494848","NBNSYS0000010867")))
+#' data.frame(out)
+#' as.nbnid( data.frame(out) )
 #' }
 
 get_nbnid <- function(name, ask = TRUE, verbose = TRUE, rec_only = FALSE, rank = NULL, ...){
@@ -135,17 +139,31 @@ as.nbnid.nbnid <- function(x) x
 
 #' @export
 #' @rdname get_nbnid
-as.nbnid.character <- function(x) if(length(x) == 1) make_nbnid(x) else collapse(x, make_nbnid, "nbnid", FALSE)
+as.nbnid.character <- function(x) if(length(x) == 1) make_nbnid(x) else collapse(x, make_nbnid, "nbnid")
 
 #' @export
 #' @rdname get_nbnid
-as.nbnid.list <- function(x) if(length(x) == 1) make_nbnid(x) else collapse(x, make_nbnid, "nbnid", FALSE)
+as.nbnid.list <- function(x) if(length(x) == 1) make_nbnid(x) else collapse(x, make_nbnid, "nbnid")
+
+#' @export
+#' @rdname get_nbnid
+as.nbnid.data.frame <- function(x) structure(x$ids, class="nbnid", match=x$match, uri=x$uri)
+
+#' @export
+#' @rdname get_nbnid
+as.data.frame.nbnid <- function(x, ...){
+  data.frame(ids = as.character(unclass(x)),
+             class = "nbnid",
+             match = attr(x, "match"),
+             uri = attr(x, "uri"),
+             stringsAsFactors = FALSE)
+}
 
 make_nbnid <- function(x){
   if(check_nbnid(x)){
     uri <- sprintf('https://data.nbn.org.uk/Taxa/%s', x)
-    structure(x, class="nbnid", uri=uri)
-  } else { structure(NA, class="nbnid")   }
+    structure(x, class="nbnid", match="found", uri=uri)
+  } else { structure(NA, class="nbnid", match="not found", uri=NA)  }
 }
 
 check_nbnid <- function(x){

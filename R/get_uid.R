@@ -46,7 +46,7 @@
 #' as.uid(c("315567","3339","9696")) # character vector, length > 1
 #' as.uid(list("315567","3339","9696")) # list, either numeric or character
 #'
-#' out <- as.uid(c(315567,3339,9696))
+#' (out <- as.uid(c(315567,3339,9696)))
 #' data.frame(out)
 #' as.uid( data.frame(out) )
 #' }
@@ -159,18 +159,7 @@ make_uid <- function(x){
   if(check_uid(x)){
     uri <- sprintf('http://www.ncbi.nlm.nih.gov/taxonomy/%s', x)
     structure(x, class="uid", match="found", uri=uri)
-  } else { structure(NA, class="uid", match="not found")   }
-}
-
-collapse <- function(x, fxn, class, match=TRUE){
-  tmp <- lapply(x, fxn)
-  if(match){
-  structure(sapply(tmp, unclass), class=class,
-            match=sapply(tmp, attr, which="match"),
-            uri=sapply(tmp, attr, which="uri"))
-  } else {
-    structure(sapply(tmp, unclass), class=class, uri=sapply(tmp, attr, which="uri"))
-  }
+  } else { structure(NA, class="uid", match="not found", uri=NA)   }
 }
 
 check_uid <- function(x){

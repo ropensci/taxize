@@ -41,6 +41,10 @@
 #' as.gbifid("2704179") # character
 #' as.gbifid(c("2704179","2435099","3171445")) # character vector, length > 1
 #' as.gbifid(list("2704179","2435099","3171445")) # list, either numeric or character
+#'
+#' (out <- as.gbifid(c(2704179,2435099,3171445)))
+#' data.frame(out)
+#' as.uid( data.frame(out) )
 #' }
 
 get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE){
@@ -173,11 +177,25 @@ as.gbifid.list <- function(x) if(length(x) == 1) make_gbifid(x) else collapse(x,
 #' @rdname get_gbifid
 as.gbifid.numeric <- function(x) as.gbifid(as.character(x))
 
+#' @export
+#' @rdname get_gbifid
+as.gbifid.data.frame <- function(x) structure(x$ids, class="gbifid", match=x$match, uri=x$uri)
+
+#' @export
+#' @rdname get_gbifid
+as.data.frame.gbifid <- function(x, ...){
+  data.frame(ids = as.character(unclass(x)),
+             class = "gbifid",
+             match = attr(x, "match"),
+             uri = attr(x, "uri"),
+             stringsAsFactors = FALSE)
+}
+
 make_gbifid <- function(x){
   if(check_gbifid(x)){
     uri <- sprintf('http://www.gbif.org/species/%s', x)
     structure(x, class="gbfid", match="found", uri=uri)
-  } else { structure(x, class="gbfid", match="not found")   }
+  } else { structure(NA, class="gbfid", match="not found", uri=NA)   }
 }
 
 check_gbifid <- function(x){

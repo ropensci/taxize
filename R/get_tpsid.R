@@ -47,6 +47,10 @@
 #' as.tpsid("24900183") # character
 #' as.tpsid(c("24900183","50150089","50079838")) # character vector, length > 1
 #' as.tpsid(list("24900183","50150089","50079838")) # list, either numeric or character
+#'
+#' (out <- as.tpsid(c(24900183,50150089,50079838)))
+#' data.frame(out)
+#' as.tpsid( data.frame(out) )
 #' }
 
 get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, ...){
@@ -132,11 +136,25 @@ as.tpsid.list <- function(x) if(length(x) == 1) make_tpsid(x) else collapse(x, m
 #' @rdname get_tpsid
 as.tpsid.numeric <- function(x) as.tpsid(as.character(x))
 
+#' @export
+#' @rdname get_tpsid
+as.tpsid.data.frame <- function(x) structure(x$ids, class="tpsid", match=x$match, uri=x$uri)
+
+#' @export
+#' @rdname get_tpsid
+as.data.frame.tpsid <- function(x, ...){
+  data.frame(ids = as.character(unclass(x)),
+             class = "tpsid",
+             match = attr(x, "match"),
+             uri = attr(x, "uri"),
+             stringsAsFactors = FALSE)
+}
+
 make_tpsid <- function(x){
   if(check_tpsid(x)){
     uri <- sprintf('http://tropicos.org/Name/%s', x)
     structure(x, class="tpsid", match="found", uri=uri)
-  } else { structure(NA, class="tpsid", match="not found")   }
+  } else { structure(NA, class="tpsid", match="not found", uri=NA) }
 }
 
 check_tpsid <- function(x){

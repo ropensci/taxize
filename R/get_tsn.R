@@ -46,7 +46,7 @@
 #' as.tsn(c("19322","129313","506198")) # character vector, length > 1
 #' as.tsn(list("19322","129313","506198")) # list, either numeric or character
 #'
-#' out <- as.tsn(c(19322,129313,506198))
+#' (out <- as.tsn(c(19322,129313,506198)))
 #' data.frame(out)
 #' as.tsn( data.frame(out) )
 #' }
@@ -192,7 +192,7 @@ make_tsn <- function(x){
   if(check_tsn(x)){
     uri <- sprintf('http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=%s', x)
     structure(x, class="tsn", match="found", uri=uri)
-  } else { structure(x, class="tsn", match="not found") }
+  } else { structure(NA, class="tsn", match="not found", uri=NA) }
 }
 
 check_tsn <- function(x){

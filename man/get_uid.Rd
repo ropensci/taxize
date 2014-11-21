@@ -74,7 +74,7 @@ as.uid("315567") # character
 as.uid(c("315567","3339","9696")) # character vector, length > 1
 as.uid(list("315567","3339","9696")) # list, either numeric or character
 
-out <- as.uid(c(315567,3339,9696))
+(out <- as.uid(c(315567,3339,9696)))
 data.frame(out)
 as.uid( data.frame(out) )
 }
