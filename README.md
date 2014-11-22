@@ -302,7 +302,6 @@ $`Helianthus annuus`
 
 * Please [report any issues or bugs](https://github.com/ropensci/taxize/issues).
 * License: MIT
-* This package is part of the [rOpenSci](http://ropensci.org/packages) project.
 * Get citation information for `taxize` in R doing `citation(package = 'taxize')`
 
 [![ropensci](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
