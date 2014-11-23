@@ -1,7 +1,14 @@
 taxize
 =======
 
-
+```{r echo=FALSE}
+knitr::opts_chunk$set(
+  warning = FALSE, 
+  message = FALSE,
+  collapse = TRUE,
+  comment = "#>"
+)
+```
 
 
 [![Build Status](https://api.travis-ci.org/ropensci/taxize.png?branch=master)](https://travis-ci.org/ropensci/taxize)
@@ -169,21 +176,18 @@ For more examples see the [tutorial](http://ropensci.org/tutorials/taxize_tutori
 
 #### Stable version from CRAN
 
-
-```r
+```{r eval=FALSE}
 install.packages("taxize")
 ```
 
 #### Development version from GitHub
 
-
-```r
+```{r eval=FALSE}
 install.packages("devtools")
 devtools::install_github("taxize", "ropensci")
 ```
 
-
-```r
+```{r}
 library('taxize')
 ```
 
@@ -191,8 +195,7 @@ library('taxize')
 
 Alot of `taxize` revolves around taxonomic identifiers. Because, as you know, names can be a mess (misspelled, synonyms, etc.), it's better to get an identifier that a particular data sources knows about, then we can move forth acquiring more fun taxonomic data. 
 
-
-```r
+```{r}
 uids <- get_uid(c("Chironomus riparius", "Chaetopteryx"))
 ```
 
@@ -200,303 +203,90 @@ uids <- get_uid(c("Chironomus riparius", "Chaetopteryx"))
 
 Classifications - think of a species, then all the taxonomic ranks up from that species, like genus, family, order, class, kingdom.
 
-
-```r
+```{r}
 out <- classification(uids)
 lapply(out, head)
-#> $`315576`
-#>                 name         rank
-#> 1 cellular organisms      no rank
-#> 2          Eukaryota superkingdom
-#> 3       Opisthokonta      no rank
-#> 4            Metazoa      kingdom
-#> 5          Eumetazoa      no rank
-#> 6          Bilateria      no rank
-#> 
-#> $`492549`
-#>                 name         rank
-#> 1 cellular organisms      no rank
-#> 2          Eukaryota superkingdom
-#> 3       Opisthokonta      no rank
-#> 4            Metazoa      kingdom
-#> 5          Eumetazoa      no rank
-#> 6          Bilateria      no rank
 ```
 
 ### Immediate children
 
 Get immediate children of _Salmo_. In this case, _Salmo_ is a genus, so this gives species within the genus.
 
-
-```r
+```{r}
 children("Salmo", db = 'ncbi')
-#> $Salmo
-#>    childtaxa_id                   childtaxa_name childtaxa_rank
-#> 1       1509524  Salmo marmoratus x Salmo trutta        species
-#> 2       1484545 Salmo cf. cenerinus BOLD:AAB3872        species
-#> 3       1483130               Salmo zrmanjaensis        species
-#> 4       1483129               Salmo visovacensis        species
-#> 5       1483128                Salmo rhodanensis        species
-#> 6       1483127                 Salmo pellegrini        species
-#> 7       1483126                     Salmo opimus        species
-#> 8       1483125                Salmo macedonicus        species
-#> 9       1483124                Salmo lourosensis        species
-#> 10      1483123                   Salmo labecula        species
-#> 11      1483122                  Salmo farioides        species
-#> 12      1483121                      Salmo chilo        species
-#> 13      1483120                     Salmo cettii        species
-#> 14      1483119                  Salmo cenerinus        species
-#> 15      1483118                   Salmo aphelios        species
-#> 16      1483117                    Salmo akairos        species
-#> 17      1201173               Salmo peristericus        species
-#> 18      1035833                   Salmo ischchan        species
-#> 19       700588                     Salmo labrax        species
-#> 20       237411              Salmo obtusirostris        species
-#> 21       235141              Salmo platycephalus        species
-#> 22       234793                    Salmo letnica        species
-#> 23        62065                  Salmo ohridanus        species
-#> 24        33518                 Salmo marmoratus        species
-#> 25        33516                    Salmo fibreni        species
-#> 26        33515                     Salmo carpio        species
-#> 27         8032                     Salmo trutta        species
-#> 28         8030                      Salmo salar        species
-#> 
-#> attr(,"class")
-#> [1] "children"
-#> attr(,"db")
-#> [1] "ncbi"
 ```
 
 ### Downstream children to a rank
 
 Get all species in the genus _Apis_
 
-
-```r
+```{r}
 downstream("Apis", db = 'itis', downto = 'Species', verbose = FALSE)
-#> $Apis
-#>      tsn parentname parenttsn          taxonname rankid rankname
-#> 1 154396       Apis    154395     Apis mellifera    220  Species
-#> 2 763550       Apis    154395 Apis andreniformis    220  Species
-#> 3 763551       Apis    154395        Apis cerana    220  Species
-#> 4 763552       Apis    154395       Apis dorsata    220  Species
-#> 5 763553       Apis    154395        Apis florea    220  Species
-#> 6 763554       Apis    154395 Apis koschevnikovi    220  Species
-#> 7 763555       Apis    154395   Apis nigrocincta    220  Species
-#> 
-#> attr(,"class")
-#> [1] "downstream"
-#> attr(,"db")
-#> [1] "itis"
 ```
 
 ### Upstream taxa
 
 Get all genera up from the species _Pinus contorta_ (this includes the genus of the species, and its co-genera within the same family).
 
-
-```r
+```{r}
 upstream("Pinus contorta", db = 'itis', upto = 'Genus', verbose=FALSE)
-#> $`Pinus contorta`
-#>      tsn parentname parenttsn   taxonname rankid rankname
-#> 1  18031   Pinaceae     18030       Abies    180    Genus
-#> 2  18033   Pinaceae     18030       Picea    180    Genus
-#> 3  18035   Pinaceae     18030       Pinus    180    Genus
-#> 4 183396   Pinaceae     18030       Tsuga    180    Genus
-#> 5 183405   Pinaceae     18030      Cedrus    180    Genus
-#> 6 183409   Pinaceae     18030       Larix    180    Genus
-#> 7 183418   Pinaceae     18030 Pseudotsuga    180    Genus
-#> 8 822529   Pinaceae     18030  Keteleeria    180    Genus
-#> 9 822530   Pinaceae     18030 Pseudolarix    180    Genus
-#> 
-#> attr(,"class")
-#> [1] "upstream"
-#> attr(,"db")
-#> [1] "itis"
 ```
 
 ### Get synonyms
 
-
-```r
+```{r}
 synonyms("Salmo friderici", db='ubio')
-#>   namebankid          target family rankname
-#> 1    2529704 Salmo friderici Pisces  species
-#> 2     169693 Salmo friderici Pisces  species
-#> $`Salmo friderici`
-#>   namebankid                    namestring
-#> 1     130562 Leporinus friderici friderici
-#> 2     169693               Salmo friderici
-#> 3    2495407 Leporinus friderici friderici
-#>                                fullnamestring
-#> 1 Leporinus friderici friderici (Bloch, 1794)
-#> 2                 Salmo friderici Bloch, 1794
-#> 3               Leporinus friderici friderici
 ```
 
 ### Get taxonomic IDs from many sources
 
-
-```r
+```{r}
 get_ids(names="Salvelinus fontinalis", db = c('ubio','ncbi'), verbose=FALSE)
-#>   namebankid                target     family  rankname
-#> 1    2501330 Salvelinus fontinalis     Pisces   species
-#> 2    6581534 Salvelinus fontinalis Salmonidae   species
-#> 3     137827 Salvelinus fontinalis     Pisces   species
-#> 4    6244425 Salvelinus fontinalis Salmonidae trinomial
-#> 5    7130714 Salvelinus fontinalis Salmonidae trinomial
-#> 6    6653671 Salvelinus fontinalis Salmonidae trinomial
-#> $ubio
-#> Salvelinus fontinalis 
-#>             "2501330" 
-#> attr(,"class")
-#> [1] "ubioid"
-#> attr(,"match")
-#> [1] "found"
-#> attr(,"uri")
-#> [1] "http://www.ubio.org/browser/details.php?namebankID=2501330"
-#> 
-#> $ncbi
-#> Salvelinus fontinalis 
-#>                "8038" 
-#> attr(,"class")
-#> [1] "uid"
-#> attr(,"match")
-#> [1] "found"
-#> attr(,"uri")
-#> [1] "http://www.ncbi.nlm.nih.gov/taxonomy/8038"
-#> 
-#> attr(,"class")
-#> [1] "ids"
 ```
 
 You can limit to certain rows when getting ids in any `get_*()` functions
 
-
-```r
+```{r}
 get_ids(names="Poa annua", db=c("gbif","eol"), rows=1)
-#> $gbif
-#> Poa annua 
-#> "2704179" 
-#> attr(,"class")
-#> [1] "gbifid"
-#> attr(,"match")
-#> [1] "found"
-#> attr(,"uri")
-#> [1] "http://www.gbif.org/species/2704179"
-#> 
-#> $eol
-#> Poa annua 
-#>  43518589 
-#> attr(,"class")
-#> [1] "eolid"
-#> attr(,"provider")
-#> [1] "GBIF"
-#> attr(,"match")
-#> [1] "found"
-#> attr(,"uri")
-#> [1] "http://eol.org/pages/43518589/overview"
-#> 
-#> attr(,"class")
-#> [1] "ids"
 ```
 
 Furthermore, you can just back all ids if that's your jam with the `get_*_()` functions (all `get_*()` functions with additional `_` underscore at end of function name)
 
-
-```r
+```{r}
 get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn', rows=1:3)
-#> $nbn
-#> $nbn$`Chironomus riparius`
-#>   ptaxonVersionKey    searchMatchTitle    rank  nameStatus
-#> 1 NBNSYS0000027573 Chironomus riparius Species Recommended
-#> 2 NBNSYS0000023345   Paederus riparius Species Recommended
-#> 3 NHMSYS0001718042   Elaphrus riparius Species Recommended
-#> 
-#> $nbn$`Pinus contorta`
-#>   ptaxonVersionKey               searchMatchTitle       rank  nameStatus
-#> 1 NHMSYS0000494848   Pinus contorta var. contorta    Variety Recommended
-#> 2 NBNSYS0000004786                 Pinus contorta    Species Recommended
-#> 3 NHMSYS0000494848 Pinus contorta subsp. contorta Subspecies Recommended
-#> 
-#> 
-#> attr(,"class")
-#> [1] "ids"
 ```
 
 ### Common names from scientific names
 
-
-```r
+```{r}
 sci2comm('Helianthus annuus', db='itis')
-#> $`Helianthus annuus`
-#> [1] "common sunflower" "sunflower"        "wild sunflower"  
-#> [4] "annual sunflower"
 ```
 
 ### Scientific names from common names
 
-
-```r
+```{r}
 comm2sci("black bear")
-#> $`black bear`
-#>  [1] "Ursus americanus americanus Pallas, 1780"   
-#>  [2] "Ursus americanus Pallas, 1780"              
-#>  [3] "Ursus thibetanus G. [Baron] Cuvier, 1823"   
-#>  [4] "Ursus americanus floridanus Merriam, 1896"  
-#>  [5] "Ursus americanus luteolus Griffith, 1821"   
-#>  [6] "Ursus thibetanus formosanus Swinhoe, 1864"  
-#>  [7] "Ursus americanus kermodei Hornaday, 1905"   
-#>  [8] "Ursus americanus perniger J. A. Allen, 1910"
-#>  [9] "Ursus americanus eremicus Merriam, 1904"    
-#> [10] "Ursus thibetanus ussuricus (Heude, 1901)"   
-#> [11] "Ursus thibetanus japonicus Schlegel, 1857"  
-#> [12] "Prosimulium ursinum (Edwards, 1935)"        
-#> [13] "Pyrrharctia isabella Smith 1797"
 ```
 
 ### Coerce codes to taxonomic id classes
 
 `numeric` to `uid`
 
-
-```r
+```{r}
 as.uid(315567)
-#> [1] "315567"
-#> attr(,"class")
-#> [1] "uid"
-#> attr(,"match")
-#> [1] "found"
-#> attr(,"uri")
-#> [1] "http://www.ncbi.nlm.nih.gov/taxonomy/315567"
 ```
 
 `list` to `uid`
 
-
-```r
+```{r}
 as.uid(list("315567","3339","9696"))
-#> [1] "315567" "3339"   "9696"  
-#> attr(,"class")
-#> [1] "uid"
-#> attr(,"match")
-#> [1] "found" "found" "found"
-#> attr(,"uri")
-#> [1] "http://www.ncbi.nlm.nih.gov/taxonomy/315567"
-#> [2] "http://www.ncbi.nlm.nih.gov/taxonomy/3339"  
-#> [3] "http://www.ncbi.nlm.nih.gov/taxonomy/9696"
 ```
 
 ### Coerce taxonomic id classes to a data.frame
 
-
-```r
+```{r}
 out <- as.uid(c(315567,3339,9696))
 (res <- data.frame(out))
-#>      ids class match                                         uri
-#> 1 315567   uid found http://www.ncbi.nlm.nih.gov/taxonomy/315567
-#> 2   3339   uid found   http://www.ncbi.nlm.nih.gov/taxonomy/3339
-#> 3   9696   uid found   http://www.ncbi.nlm.nih.gov/taxonomy/9696
 ```
 
 ### 
