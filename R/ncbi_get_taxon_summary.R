@@ -1,8 +1,8 @@
 #' NCBI taxon information from uids
-#' 
+#'
 #' Downloads summary taxon information from the NCBI taxonomy databases for a set of taxonomy uids
 #' using eutils esummary.
-#' 
+#'
 #' @param id (character) NCBI taxonomy uids to retrieve information for.
 #' @return A \code{data.frame} with the following rows:
 #'   \describe{
@@ -12,7 +12,8 @@
 #'   }
 #' @examples
 #' \dontrun{
-#' ncbi_get_taxon_summary(c(1430660, 4751))}
+#' ncbi_get_taxon_summary(c(1430660, 4751))
+#' }
 #' @author Zachary Foster \email{zacharyfoster1989@@Sgmail.com}
 #' @export
 ncbi_get_taxon_summary <- function(id) {
