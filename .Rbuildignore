@@ -6,6 +6,7 @@ man-roxygen
 ^\.Rproj\.user$
 CONTRIBUTING.md
 README.html
+README.Rmd
 inst/stuff/
 vignettes/taxize_vignette.md
 vignettes/taxize_infotable.md
