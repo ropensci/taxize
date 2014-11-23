@@ -26,7 +26,7 @@
 #' upstream('Pinus contorta', db = 'col', upto = 'Family')
 #' upstream('Poa annua', db = 'col', upto = 'Family')
 #' upstream('Poa annua', db = 'col', upto = 'Order')
-#' 
+#'
 #' # use itis
 #' upstream("Pinus contorta", db = 'itis', upto = 'Genus')
 #' }
@@ -61,9 +61,9 @@ upstream.tsn <- function(x, db = NULL, upto = NULL, ...)
   fun <- function(y){
     # return NA if NA is supplied
     if (is.na(y)) { NA } else {
-      class <- classification(y)
+      class <- classification(y, ...)
       toget <- class[[1]][ grep(upto, class[[1]]$rank) - 1, "name" ]
-      toget_id <- get_tsn(toget)
+      toget_id <- get_tsn(toget, ...)
       out <- downstream(toget_id, db = "itis", downto = upto, ...)
       names(out) <- toget
       out
