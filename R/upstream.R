@@ -84,7 +84,7 @@ upstream.colid <- function(x, db = NULL, upto = NULL, ...) {
   fun <- function(y){
     # return NA if NA is supplied
     if(is.na(y)) { NA } else {
-      class <- classification(y)
+      class <- classification(y, ...)
       toget <- class[[1]][ grep(upto, class[[1]]$rank) - 1, "name" ]
       col_downstream(name = toget, downto = upto, ...)
     }
