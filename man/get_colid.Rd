@@ -92,6 +92,8 @@ get_colid_("Poa annua")
 get_colid_("Poa annua", rows=2)
 get_colid_("Poa annua", rows=1:2)
 get_colid_(c("asdfadfasd","Pinus contorta"))
+
+get_colid(sciname="Andropadus nigriceps fusciceps", rows=1)
 }
 }
 \author{

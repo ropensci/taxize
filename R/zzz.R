@@ -187,7 +187,11 @@ check_rows <- function(x){
 
 sub_rows <- function(x, rows){
   rows <- check_rows(rows)
-  if( any(is.na(rows)) ) x else x[rows,]
+  if( any(is.na(rows)) ){
+    x
+  } else {
+    if(NROW(x) == 0) x else x[rows,]
+  }
 }
 
 sub_vector <- function(x, rows){

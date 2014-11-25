@@ -59,17 +59,18 @@
 #' get_colid_("Poa annua", rows=2)
 #' get_colid_("Poa annua", rows=1:2)
 #' get_colid_(c("asdfadfasd","Pinus contorta"))
+#'
+#' get_colid(sciname="Andropadus nigriceps fusciceps", rows=1)
 #' }
 
 get_colid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA){
-  fun <- function(sciname, ask, verbose) {
+  fun <- function(sciname, ask, verbose, rows) {
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
     df <- col_search(name=sciname)[[1]]
     df <- sub_rows(df, rows)
 
     rank_taken <- NA
-    if(nrow(df)==0){
-      mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
+    if(NROW(df)==0){
       id <- NA
       att <- "not found"
     } else
@@ -82,7 +83,7 @@ get_colid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA){
     }
 
     # not found on col
-    if(length(id) == 0){
+    if(all(is.na(id))){
       mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
       id <- NA
       att <- "not found"
@@ -121,7 +122,7 @@ get_colid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA){
     c(id=id, rank=rank_taken, att=att)
   }
   sciname <- as.character(sciname)
-  out <- lapply(sciname, fun, ask=ask, verbose=verbose)
+  out <- lapply(sciname, fun, ask=ask, verbose=verbose, rows=rows)
   ids <- sapply(out, "[[", "id")
   atts <- sapply(out, "[[", "att")
   ids <- structure(ids, class="colid", match=atts)
