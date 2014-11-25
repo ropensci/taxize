@@ -22,7 +22,8 @@ using eutils esummary.
 }
 \examples{
 \dontrun{
-ncbi_get_taxon_summary(c(1430660, 4751))}
+ncbi_get_taxon_summary(c(1430660, 4751))
+}
 }
 \author{
 Zachary Foster \email{zacharyfoster1989@Sgmail.com}
