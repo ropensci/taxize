@@ -6,14 +6,6 @@
 searchbyscientificname(srchkey = NA, curlopts = list(),
   curl = getCurlHandle(), verbose = TRUE)
 }
-\arguments{
-\item{srchkey}{text or taxonomic serial number (TSN) (character or numeric)}
-
-\item{curlopts}{optional additional curl options (debugging tools mostly)}
-
-\item{curl}{If using in a loop, call getCurlHandle() first and pass
-the returned value in here (avoids unnecessary footprint)}
-}
 \description{
 Search by scientific name
 }

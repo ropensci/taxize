@@ -3,23 +3,19 @@
 \alias{getcredibilityratingfromtsn}
 \title{Get credibility rating from tsn}
 \usage{
-getcredibilityratingfromtsn(tsn = NA, curlopts = list(),
-  curl = getCurlHandle())
+getcredibilityratingfromtsn(x, ...)
 }
 \arguments{
-\item{tsn}{TSN for a taxonomic group (numeric)}
+\item{x}{TSN for a taxonomic group (numeric)}
 
-\item{curlopts}{optional additional curl options (debugging tools mostly)}
-
-\item{curl}{If using in a loop, call getCurlHandle() first and pass
-the returned value in here (avoids unnecessary footprint)}
+\item{...}{optional additional curl options (debugging tools mostly)}
 }
 \description{
 Get credibility rating from tsn
 }
 \examples{
 \donttest{
-getcredibilityratingfromtsn(tsn = 526852)
+getcredibilityratingfromtsn(526852, config=timeout(4))
 }
 }
 \keyword{internal}

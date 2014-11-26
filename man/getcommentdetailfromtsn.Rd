@@ -3,16 +3,12 @@
 \alias{getcommentdetailfromtsn}
 \title{Get comment detail from TSN}
 \usage{
-getcommentdetailfromtsn(tsn = NA, curlopts = list(),
-  curl = getCurlHandle())
+getcommentdetailfromtsn(x, ...)
 }
 \arguments{
-\item{tsn}{TSN for a taxonomic group (numeric)}
+\item{x}{TSN for a taxonomic group (numeric)}
 
-\item{curlopts}{optional additional curl options (debugging tools mostly)}
-
-\item{curl}{If using in a loop, call getCurlHandle() first and pass
-the returned value in here (avoids unnecessary footprint)}
+\item{...}{optional additional curl options (debugging tools mostly)}
 }
 \value{
 A data.frame with results.
@@ -22,7 +18,7 @@ Get comment detail from TSN
 }
 \examples{
 \donttest{
-getcommentdetailfromtsn(180543)
+getcommentdetailfromtsn(180543, config=timeout(1))
 }
 }
 \keyword{internal}

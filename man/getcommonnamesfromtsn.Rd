@@ -3,22 +3,19 @@
 \alias{getcommonnamesfromtsn}
 \title{Get common names from tsn}
 \usage{
-getcommonnamesfromtsn(tsn = NA, curlopts = list(), curl = getCurlHandle())
+getcommonnamesfromtsn(x, ...)
 }
 \arguments{
-\item{tsn}{TSN for a taxonomic group (numeric)}
+\item{x}{TSN for a taxonomic group (numeric)}
 
-\item{curlopts}{optional additional curl options (debugging tools mostly)}
-
-\item{curl}{If using in a loop, call getCurlHandle() first and pass
-the returned value in here (avoids unnecessary footprint)}
+\item{...}{optional additional curl options (debugging tools mostly)}
 }
 \description{
 Get common names from tsn
 }
 \examples{
 \donttest{
-getcommonnamesfromtsn(183833)
+getcommonnamesfromtsn(183833, config=timeout(1))
 }
 }
 \keyword{internal}

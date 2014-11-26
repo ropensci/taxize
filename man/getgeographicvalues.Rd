@@ -3,14 +3,14 @@
 \alias{getgeographicvalues}
 \title{Get all possible geographic values}
 \usage{
-getgeographicvalues()
+getgeographicvalues(...)
 }
 \description{
 Get all possible geographic values
 }
 \examples{
 \donttest{
-getgeographicvalues()
+getgeographicvalues(config=timeout(3))
 }
 }
 \keyword{internal}

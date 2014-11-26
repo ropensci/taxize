@@ -3,23 +3,19 @@
 \alias{getglobalspeciescompletenessfromtsn}
 \title{Get global species completeness from tsn}
 \usage{
-getglobalspeciescompletenessfromtsn(tsn = NA, curlopts = list(),
-  curl = getCurlHandle())
+getglobalspeciescompletenessfromtsn(x, ...)
 }
 \arguments{
-\item{tsn}{TSN for a taxonomic group (numeric)}
+\item{x}{TSN for a taxonomic group (numeric)}
 
-\item{curlopts}{optional additional curl options (debugging tools mostly)}
-
-\item{curl}{If using in a loop, call getCurlHandle() first and pass
-the returned value in here (avoids unnecessary footprint)}
+\item{...}{optional additional curl options (debugging tools mostly)}
 }
 \description{
 Get global species completeness from tsn
 }
 \examples{
 \donttest{
-getglobalspeciescompletenessfromtsn(tsn = 180541)
+getglobalspeciescompletenessfromtsn(180541, config=timeout(3))
 }
 }
 \keyword{internal}

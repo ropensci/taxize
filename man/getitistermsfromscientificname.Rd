@@ -3,24 +3,20 @@
 \alias{getitistermsfromscientificname}
 \title{Get itis terms from scientific names}
 \usage{
-getitistermsfromscientificname(srchkey = NA, curlopts = list(),
-  curl = getCurlHandle(), verbose = TRUE)
+getitistermsfromscientificname(x, ...)
 }
 \arguments{
-\item{srchkey}{text or taxonomic serial number (TSN) (character or numeric)}
+\item{x}{text or taxonomic serial number (TSN) (character or numeric)}
 
-\item{curlopts}{optional additional curl options (debugging tools mostly)}
-
-\item{curl}{If using in a loop, call getCurlHandle() first and pass
-the returned value in here (avoids unnecessary footprint)}
+\item{...}{optional additional curl options (debugging tools mostly)}
 }
 \description{
 Get itis terms from scientific names
 }
 \examples{
 \donttest{
-getitistermsfromscientificname(srchkey = "ursidae")
-getitistermsfromscientificname(srchkey = "Ursus")
+getitistermsfromscientificname("ursidae")
+getitistermsfromscientificname("Ursus")
 }
 }
 \keyword{internal}

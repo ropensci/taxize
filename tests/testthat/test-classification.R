@@ -1,6 +1,11 @@
 # tests for classification fxn in taxize
 context("classification")
 
+skip_if <- function(x){
+
+  if(!res) skip("API down")
+}
+
 uids <- get_uid(c("Chironomus riparius", "aaa vva"), verbose=FALSE)
 tsns <- get_tsn(c("Chironomus riparius", "aaa vva"), verbose=FALSE)
 # eolids <- get_tsn(c("Chironomus riparius", "aaa vva"), verbose=FALSE)
@@ -14,11 +19,11 @@ names(clas_tsns) <- NULL
 # clas_colids <- classification(colids)
 # clas_tpids <- classification(tpsids, verbose=FALSE)
 
-clas_ncbi <- classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi', 
+clas_ncbi <- classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi',
                             verbose=FALSE)
 names(clas_ncbi) <- NULL
 
-clas_itis <- classification(c("Chironomus riparius", "aaa vva"), db = 'itis', 
+clas_itis <- classification(c("Chironomus riparius", "aaa vva"), db = 'itis',
                             verbose=FALSE)
 names(clas_itis) <- NULL
 
@@ -46,19 +51,19 @@ test_that("classification returns the correct class", {
 	expect_that(clas_ncbi, is_a("classification"))
 	expect_that(clas_ncbi[[1]], is_a("data.frame"))
 	expect_that(length(clas_ncbi), equals(2))
-	
+
   expect_that(clas_itis, is_a("classification"))
 	expect_that(clas_itis[[1]], is_a("data.frame"))
   expect_that(length(clas_itis), equals(2))
-  
+
 # 	expect_that(clas_eol, is_a("list"))
 # 	expect_that(clas_eol[[1]], is_a("data.frame"))
 # 	expect_that(length(clas_eol), equals(2))
-  
+
 # 	expect_that(clas_col, is_a("list"))
 # 	expect_that(clas_col[[1]], is_a("data.frame"))
 # 	expect_that(length(clas_col), equals(2))
-  
+
 # 	expect_that(clas_tp, is_a("classification"))
 # 	expect_that(clas_tp[[1]], is_a("data.frame"))
 # 	expect_that(length(clas_tp), equals(2))
@@ -69,16 +74,16 @@ test_that("check S3-methods for tsn and uid class", {
   expect_equal(clas_tsns, clas_itis)
 #   expect_identical(clas_eolids, clas_ncbi)
   #### FIX THESE TWO, SHOULD BE MATCHING
-  expect_identical(clas_colids, clas_col) 
+  expect_identical(clas_colids, clas_col)
 #   expect_identical(clas_tpids, clas_tp)
 })
 
 # test_that("rbind works correctly", {
-# 
+#
 # })
-# 
+#
 # test_that("cbind works correctly", {
-# 	
+#
 # })
 
 df <- theplantlist[sample(1:nrow(theplantlist), 50), ]

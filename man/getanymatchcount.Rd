@@ -3,15 +3,12 @@
 \alias{getanymatchcount}
 \title{Get any match count.}
 \usage{
-getanymatchcount(srchkey = NA, curlopts = list(), curl = getCurlHandle())
+getanymatchcount(x, ...)
 }
 \arguments{
-\item{srchkey}{text or taxonomic serial number (TSN) (character or numeric)}
+\item{x}{text or taxonomic serial number (TSN) (character or numeric)}
 
-\item{curlopts}{optional additional curl options (debugging tools mostly)}
-
-\item{curl}{If using in a loop, call getCurlHandle() first and pass
-the returned value in here (avoids unnecessary footprint)}
+\item{...}{optional additional curl options (debugging tools mostly)}
 }
 \value{
 An integer containing the number of matches the search will return.
@@ -21,8 +18,9 @@ Get any match count.
 }
 \examples{
 \donttest{
-getanymatchcount(202385)
-getanymatchcount("dolphin")
+library('httr')
+getanymatchcount(202385, config=timeout(3))
+getanymatchcount("dolphin", config=timeout(3))
 }
 }
 \keyword{internal}

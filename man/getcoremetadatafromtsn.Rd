@@ -3,24 +3,20 @@
 \alias{getcoremetadatafromtsn}
 \title{Get core metadata from tsn}
 \usage{
-getcoremetadatafromtsn(tsn = NA, curlopts = list(),
-  curl = getCurlHandle())
+getcoremetadatafromtsn(x, ...)
 }
 \arguments{
-\item{tsn}{TSN for a taxonomic group (numeric)}
+\item{x}{TSN for a taxonomic group (numeric)}
 
-\item{curlopts}{optional additional curl options (debugging tools mostly)}
-
-\item{curl}{If using in a loop, call getCurlHandle() first and pass
-the returned value in here (avoids unnecessary footprint)}
+\item{...}{optional additional curl options (debugging tools mostly)}
 }
 \description{
 Get core metadata from tsn
 }
 \examples{
 \donttest{
-getcoremetadatafromtsn(tsn = 28727)  # coverage and currrency data
-getcoremetadatafromtsn(tsn = 183671)  # no coverage or currrency data
+getcoremetadatafromtsn(28727, config=timeout(3))  # coverage and currrency data
+getcoremetadatafromtsn(183671, config=timeout(4))  # no coverage or currrency data
 }
 }
 \keyword{internal}

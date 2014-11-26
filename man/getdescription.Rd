@@ -3,14 +3,14 @@
 \alias{getdescription}
 \title{Get description of the ITIS service}
 \usage{
-getdescription()
+getdescription(...)
 }
 \description{
 Get description of the ITIS service
 }
 \examples{
 \donttest{
-getdescription()
+getdescription(config=timeout(1))
 }
 }
 \keyword{internal}

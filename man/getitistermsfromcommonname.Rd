@@ -3,16 +3,12 @@
 \alias{getitistermsfromcommonname}
 \title{Get itis terms from common names}
 \usage{
-getitistermsfromcommonname(srchkey = NA, curlopts = list(),
-  curl = getCurlHandle(), verbose = TRUE)
+getitistermsfromcommonname(x, ...)
 }
 \arguments{
-\item{srchkey}{text or taxonomic serial number (TSN) (character or numeric)}
+\item{x}{text or taxonomic serial number (TSN) (character or numeric)}
 
-\item{curlopts}{optional additional curl options (debugging tools mostly)}
-
-\item{curl}{If using in a loop, call getCurlHandle() first and pass
-the returned value in here (avoids unnecessary footprint)}
+\item{...}{optional additional curl options (debugging tools mostly)}
 }
 \description{
 Get itis terms from common names
@@ -20,6 +16,9 @@ Get itis terms from common names
 \examples{
 \donttest{
 getitistermsfromcommonname("buya")
+
+library('httr')
+getitistermsfromcommonname("buya", config=timeout(1))
 }
 }
 \keyword{internal}

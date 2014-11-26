@@ -3,16 +3,12 @@
 \alias{getacceptednamesfromtsn}
 \title{Get accepted names from tsn}
 \usage{
-getacceptednamesfromtsn(tsn = NA, curlopts = list(),
-  curl = getCurlHandle(), verbose = TRUE)
+getacceptednamesfromtsn(x, ...)
 }
 \arguments{
-\item{tsn}{TSN for a taxonomic group (numeric)}
+\item{x}{TSN for a taxonomic group (numeric)}
 
-\item{curlopts}{optional additional curl options (debugging tools mostly)}
-
-\item{curl}{If using in a loop, call getCurlHandle() first and pass
-the returned value in here (avoids unnecessary footprint)}
+\item{...}{optional additional curl options (debugging tools mostly)}
 
 \item{verbose}{Verbosity or not (default TRUE)}
 }
@@ -22,13 +18,14 @@ Get accepted names from tsn
 \examples{
 \donttest{
 # TSN accepted - good name
-getacceptednamesfromtsn('208527')
+library('httr')
+getacceptednamesfromtsn('208527', config=timeout(1))
 
 # TSN not accepted - input TSN is old name
-getacceptednamesfromtsn(tsn='504239')
+getacceptednamesfromtsn('504239', config=timeout(1))
 
 # TSN not accepted - input TSN is old name
-getacceptednamesfromtsn('504239', FALSE)
+getacceptednamesfromtsn('504239', config=timeout(3))
 }
 }
 \keyword{internal}

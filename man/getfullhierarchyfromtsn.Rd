@@ -3,26 +3,20 @@
 \alias{getfullhierarchyfromtsn}
 \title{Get full hierarchy from tsn}
 \usage{
-getfullhierarchyfromtsn(tsn = NA, curlopts = list(),
-  curl = getCurlHandle(), verbose = TRUE)
+getfullhierarchyfromtsn(x, ...)
 }
 \arguments{
+\item{...}{optional additional curl options (debugging tools mostly)}
+
 \item{tsn}{TSN for a taxonomic group (numeric)}
-
-\item{curlopts}{optional additional curl options (debugging tools mostly)}
-
-\item{curl}{If using in a loop, call getCurlHandle() first and pass
-the returned value in here (avoids unnecessary footprint)}
-
-\item{verbose}{(logical) Print messages or not. Default to TRUE.}
 }
 \description{
 Get full hierarchy from tsn
 }
 \examples{
 \donttest{
-getfullhierarchyfromtsn(tsn = 37906)
-getfullhierarchyfromtsn(tsn = 100800)
+getfullhierarchyfromtsn(37906, config=timeout(3))
+getfullhierarchyfromtsn(100800, config=timeout(3))
 }
 }
 \keyword{internal}

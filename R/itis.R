@@ -1,83 +1,71 @@
+itbase <- function() 'http://www.itis.gov/ITISWebService/services/ITISService/'
+
+itis_GET <- function(endpt, args, ...){
+  tt <- GET(paste0(itbase(), endpt), query = args, ...)
+  xmlParse(content(tt, "text"))
+}
+
 #' Get accepted names from tsn
-#' 
+#'
 #' @inheritParams getcommentdetailfromtsn
 #' @param verbose Verbosity or not (default TRUE)
 #' @examples \donttest{
 #' # TSN accepted - good name
-#' getacceptednamesfromtsn('208527')
-#' 
+#' library('httr')
+#' getacceptednamesfromtsn('208527', config=timeout(1))
+#'
 #' # TSN not accepted - input TSN is old name
-#' getacceptednamesfromtsn(tsn='504239')
-#' 
+#' getacceptednamesfromtsn('504239', config=timeout(1))
+#'
 #' # TSN not accepted - input TSN is old name
-#' getacceptednamesfromtsn('504239', FALSE) 
+#' getacceptednamesfromtsn('504239', config=timeout(3))
 #' }
 #' @export
 #' @keywords internal
-getacceptednamesfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle(), verbose=TRUE)
-{ 
-	url = "http://www.itis.gov/ITISWebService/services/ITISService/getAcceptedNamesFromTSN"
-	args <- list()
-	if(!is.na(tsn))
-		args$tsn <- tsn
-	tt <- getForm(url, .params = args, .opts = curlopts, curl = curl)
-	tt_ <- xmlParse(tt)
+getacceptednamesfromtsn <- function(x, ...)
+{
+  tt_ <- itis_GET("getAcceptedNamesFromTSN", list(tsn = x), ...)
 	temp <- xmlToList(tt_)
-	if(length(temp$return$acceptedNames) == 1) 
-	{ mssg(verbose, "Good name!")
-		temp$return$tsn
-	} else
-	{ mssg(verbose, "Bad name!")
+	if(length(temp$return$acceptedNames) == 1) {
+    temp$return$tsn
+  } else {
 		c(submittedTsn = temp$return$tsn, temp$return$acceptedNames[1:2])
 	}
 }
 
 #' Get any match count.
-#' 
+#'
 #' @import XML RCurl
-#' @param srchkey text or taxonomic serial number (TSN) (character or numeric)
-#' @param curlopts optional additional curl options (debugging tools mostly)
-#' @param curl If using in a loop, call getCurlHandle() first and pass 
-#'  the returned value in here (avoids unnecessary footprint)
+#' @param x text or taxonomic serial number (TSN) (character or numeric)
+#' @param ... optional additional curl options (debugging tools mostly)
 #' @return An integer containing the number of matches the search will return.
 #' @examples \donttest{
-#' getanymatchcount(202385)
-#' getanymatchcount("dolphin")
+#' library('httr')
+#' getanymatchcount(202385, config=timeout(3))
+#' getanymatchcount("dolphin", config=timeout(3))
 #' }
 #' @export
 #' @keywords internal
-getanymatchcount <- function(srchkey = NA, curlopts=list(), curl = getCurlHandle() ) 
+getanymatchcount <- function(x, ...)
 {
-	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getAnyMatchCount'
-  args <- list()
-  if(!is.na(srchkey))
-    args$srchKey <- srchkey
-  tt <- getForm(url, .params = args, .opts=curlopts, curl = curl)
-  out <- xmlParse(tt)
-  xmlToList(out)
+	out <- itis_GET("getAnyMatchCount", list(srchKey = x), ...)
+  as.numeric(xmlToList(out)$return)
 }
 
 #' Get comment detail from TSN
-#' 
+#'
 #' @import XML RCurl
-#' @param tsn TSN for a taxonomic group (numeric)
-#' @param curlopts optional additional curl options (debugging tools mostly)
-#' @param curl If using in a loop, call getCurlHandle() first and pass 
-#'  the returned value in here (avoids unnecessary footprint)
+#' @param x TSN for a taxonomic group (numeric)
+#' @param ... optional additional curl options (debugging tools mostly)
 #' @return A data.frame with results.
 #' @examples \donttest{
-#' getcommentdetailfromtsn(180543)
+#' getcommentdetailfromtsn(180543, config=timeout(1))
 #' }
 #' @export
 #' @keywords internal
-getcommentdetailfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle() ) 
+getcommentdetailfromtsn <- function(x, ...)
 {
-	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getCommentDetailFromTSN'
-  args <- list()
-  if(!is.na(tsn))
-    args$tsn <- tsn
-  tt <- getForm(url, .params = args, .opts=curlopts, curl = curl)
-  out <- xmlParse(tt)
+	out <- itis_GET("getCommentDetailFromTSN", list(tsn = x), ...)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
   nodes <- getNodeSet(out, "//ax21:commentDetail", namespaces=namespaces)
   comment <- sapply(nodes, xmlValue)
@@ -89,27 +77,21 @@ getcommentdetailfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHan
   commentator <- sapply(nodes, xmlValue)
   nodes <- getNodeSet(out, "//ax21:updateDate", namespaces=namespaces)
   updatedate <- sapply(nodes, xmlValue)
-  data.frame(comment=comment, commid=commid, commTime=commTime, 
+  data.frame(comment=comment, commid=commid, commTime=commTime,
     commentator=commentator, updatedate=updatedate)
 }
 
 #' Get common names from tsn
-#' 
+#'
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \donttest{
-#' getcommonnamesfromtsn(183833)
+#' getcommonnamesfromtsn(183833, config=timeout(1))
 #' }
 #' @export
-#' @keywords internal 
-getcommonnamesfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle() ) 
+#' @keywords internal
+getcommonnamesfromtsn <- function(x, ...)
 {
-	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getCommonNamesFromTSN'
-  args <- list()
-  if(!is.na(tsn))
-    args$tsn <- tsn
-  # message(paste(url, '?tsn=', tsn, sep=''))
-  tt <- getForm(url, .params = args, .opts=curlopts, curl = curl)
-  out <- xmlParse(tt)
+	out <- itis_GET("getCommonNamesFromTSN", list(tsn = x), ...)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
   nodes <- getNodeSet(out, "//ax21:commonName", namespaces=namespaces)
   comname <- sapply(nodes, xmlValue)
@@ -122,51 +104,37 @@ getcommonnamesfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandl
 
 
 #' Get core metadata from tsn
-#' 
+#'
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \donttest{
-#' getcoremetadatafromtsn(tsn = 28727)  # coverage and currrency data
-#' getcoremetadatafromtsn(tsn = 183671)  # no coverage or currrency data
+#' getcoremetadatafromtsn(28727, config=timeout(3))  # coverage and currrency data
+#' getcoremetadatafromtsn(183671, config=timeout(4))  # no coverage or currrency data
 #' }
 #' @export
 #' @keywords internal
-getcoremetadatafromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle() ) 
+getcoremetadatafromtsn <- function(x, ...)
 {
-	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getCoreMetadataFromTSN'
-  args <- list()
-  if(!is.na(tsn))
-    args$tsn <- tsn
-  message(paste(url, '?tsn=', tsn, sep=''))
-  tt <- getForm(url, .params = args, .opts=curlopts, curl = curl)
-  out <- xmlParse(tt)
+	out <- itis_GET("getCoreMetadataFromTSN", list(tsn = x), ...)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
   toget <- list("credRating","rankId","taxonCoverage","taxonCurrency","taxonUsageRating","tsn")
-  xpathfunc <- function(x) {    
+  xpathfunc <- function(x) {
     sapply(getNodeSet(out, paste("//ax21:", x, sep=''), namespaces=namespaces),xmlValue)
   }
-  df <-  do.call(cbind, lapply(toget, as.data.frame(xpathfunc)))
-  names(df) <- toget
-  df
+  setNames(do.call(cbind, lapply(toget, as.data.frame(xpathfunc))), toget)
 }
 
 #' Get coverge from tsn
-#' 
+#'
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \donttest{
-#' getcoveragefromtsn(tsn = 28727)  # coverage data
-#' getcoveragefromtsn(tsn = 526852)  # no coverage data
+#' getcoveragefromtsn(28727, config=timeout(4))  # coverage data
+#' getcoveragefromtsn(526852, config=timeout(4))  # no coverage data
 #' }
 #' @export
 #' @keywords internal
-getcoveragefromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle() ) 
+getcoveragefromtsn <- function(x, ...)
 {
-	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getCoverageFromTSN'
-  args <- list()
-  if(!is.na(tsn))
-    args$tsn <- tsn
-  message(paste(url, '?tsn=', tsn, sep=''))
-  tt <- getForm(url, .params = args, .opts=curlopts, curl = curl)
-  out <- xmlParse(tt)
+	out <- itis_GET("getCoverageFromTSN", list(tsn = x), ...)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
   nodes <- getNodeSet(out, "//ax21:rankId", namespaces=namespaces)
   rankid <- sapply(nodes, xmlValue)
@@ -174,176 +142,132 @@ getcoveragefromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle()
   taxoncoverage <- sapply(nodes, xmlValue)
   nodes <- getNodeSet(out, "//ax21:tsn", namespaces=namespaces)
   tsn <- sapply(nodes, xmlValue)
-  data.frame(rankid=rankid, taxoncoverage=taxoncoverage, tsn=tsn)
+  data.frame(rankid=rankid, taxoncoverage=taxoncoverage, tsn=tsn, stringsAsFactors = FALSE)
 }
 
 #' Get credibility rating from tsn
-#' 
+#'
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \donttest{
-#' getcredibilityratingfromtsn(tsn = 526852)
+#' getcredibilityratingfromtsn(526852, config=timeout(4))
 #' }
 #' @export
 #' @keywords internal
-getcredibilityratingfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle() ) 
+getcredibilityratingfromtsn <- function(x, ...)
 {
-	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getCredibilityRatingFromTSN'
-  args <- list()
-  if(!is.na(tsn))
-    args$tsn <- tsn
-  message(paste(url, '?tsn=', tsn, sep=''))
-  tt <- getForm(url, .params = args, .opts=curlopts, curl = curl)
-  out <- xmlParse(tt)
+	out <- itis_GET("getCredibilityRatingFromTSN", list(tsn = x), ...)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
   nodes <- getNodeSet(out, "//ax21:credRating", namespaces=namespaces)
   credrating <- sapply(nodes, xmlValue)
   nodes <- getNodeSet(out, "//ax21:tsn", namespaces=namespaces)
   tsn <- sapply(nodes, xmlValue)
-  data.frame(credrating=credrating, tsn=tsn)
+  data.frame(credrating=credrating, tsn=tsn, stringsAsFactors = FALSE)
 }
 
 #' Get possible credibility ratings
-#' 
+#'
 #' @import RCurl XML
 #' @examples \donttest{
-#' getcredibilityratings()
-#' }
-#' @export
-#' @keywords internal 
-getcredibilityratings <- function() 
-{
-	url='http://www.itis.gov/ITISWebService/services/ITISService/getCredibilityRatings'
-  message(url)
-  tt <- getURL(url)
-  out <- xmlParse(tt)
-  namespaces <- c(ax25="http://metadata.itis_service.itis.usgs.org/xsd")
-  nodes <- getNodeSet(out, "//ax25:credibilityValues", namespaces=namespaces)
-  credibilityValues <- sapply(nodes, xmlValue)
-  data.frame(credibilityValues = credibilityValues)
-}
-
-#' Get currency from tsn
-#' 
-#' @inheritParams getcommentdetailfromtsn
-#' @examples \donttest{
-#' getcurrencyfromtsn(tsn = 28727) # currency data
-#' getcurrencyfromtsn(tsn = 526852) # no currency dat
+#' getcredibilityratings(config=timeout(3))
 #' }
 #' @export
 #' @keywords internal
-getcurrencyfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle() ) 
+getcredibilityratings <- function(...)
 {
-	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getCurrencyFromTSN'
-  args <- list()
-  if(!is.na(tsn))
-    args$tsn <- tsn
-  message(paste(url, '?tsn=', tsn, sep=''))
-  tt <- getForm(url, .params = args, .opts=curlopts, curl = curl)
-  out <- xmlParse(tt)
-  namespaces <- c(ax21="http://data.itis_service.itis.usgs.org/xsd")
+	out <- itis_GET("getCredibilityRatings", list(), ...)
+  namespaces <- c(ax23="http://metadata.itis_service.itis.usgs.gov/xsd")
+  nodes <- getNodeSet(out, "//ax23:credibilityValues", namespaces=namespaces)
+  credibilityValues <- sapply(nodes, xmlValue)
+  data.frame(credibilityValues = credibilityValues, stringsAsFactors = FALSE)
+}
+
+#' Get currency from tsn
+#'
+#' @inheritParams getcommentdetailfromtsn
+#' @examples \donttest{
+#' getcurrencyfromtsn(28727, config=timeout(3)) # currency data
+#' getcurrencyfromtsn(x=526852, config=timeout(3)) # no currency dat
+#' }
+#' @export
+#' @keywords internal
+getcurrencyfromtsn <- function(x, ...)
+{
+	out <- itis_GET("getCurrencyFromTSN", list(tsn = x), ...)
+  namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd")
   nodes <- getNodeSet(out, "//ax21:rankId", namespaces=namespaces)
   rankid <- sapply(nodes, xmlValue)
   nodes <- getNodeSet(out, "//ax21:taxonCurrency", namespaces=namespaces)
   taxoncurrency <- sapply(nodes, xmlValue)
   nodes <- getNodeSet(out, "//ax21:tsn", namespaces=namespaces)
   tsn <- sapply(nodes, xmlValue)
-  data.frame(rankid=rankid, taxoncurrency=taxoncurrency, tsn=tsn)
+  data.frame(rankid=rankid, taxoncurrency=taxoncurrency, tsn=tsn, stringsAsFactors = FALSE)
 }
 
 #' Get date data from tsn
-#' 
+#'
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \donttest{
-#' getdatedatafromtsn(tsn = 180543)
+#' getdatedatafromtsn(x=180543, config=timeout(3))
 #' }
 #' @export
 #' @keywords internal
-getdatedatafromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle() ) 
+getdatedatafromtsn <- function(x, ...)
 {
-	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getDateDataFromTSN'
-  args <- list()
-  if(!is.na(tsn))
-    args$tsn <- tsn
-  message(paste(url, '?tsn=', tsn, sep=''))
-  tt <- getForm(url, .params = args, .opts=curlopts, curl = curl)
-  out <- xmlParse(tt)
-  namespaces <- c(ax21="http://data.itis_service.itis.usgs.org/xsd")
+	out <- itis_GET("getDateDataFromTSN", list(tsn = x), ...)
+  namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd")
   nodes <- getNodeSet(out, "//ax21:initialTimeStamp", namespaces=namespaces)
   initialTimeStamp <- sapply(nodes, xmlValue)
   nodes <- getNodeSet(out, "//ax21:updateDate", namespaces=namespaces)
   updateDate <- sapply(nodes, xmlValue)
   nodes <- getNodeSet(out, "//ax21:tsn", namespaces=namespaces)
   tsn <- sapply(nodes, xmlValue)
-  data.frame(initialTimeStamp=initialTimeStamp, updateDate=updateDate, tsn=tsn)
+  data.frame(initialTimeStamp=initialTimeStamp, updateDate=updateDate, tsn=tsn, stringsAsFactors = FALSE)
 }
 
 #' Get description of the ITIS service
-#' 
-#' @import RCurl XML
+#'
 #' @examples \donttest{
-#' getdescription()
+#' getdescription(config=timeout(1))
 #' }
 #' @export
-#' @keywords internal 
-getdescription <- function() 
-{
-	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getDescription'
-  tt <- getURL(url)
-  out <- xmlParse(tt)
-	getNodeSet(out, "//ns:return", fun=xmlValue)[[1]]
+#' @keywords internal
+getdescription <- function(...){
+	getNodeSet(itis_GET("getDescription", list(), ...), "//ns:return", fun=xmlValue)[[1]]
 }
 
 #' Get expert information for the TSN.
-#' 
+#'
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \donttest{
-#' getexpertsfromtsn(tsn = 180544)
+#' getexpertsfromtsn(180544, config=timeout(3))
 #' }
 #' @export
 #' @keywords internal
-getexpertsfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle() ) 
+getexpertsfromtsn <- function(x, ...)
 {
-	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getExpertsFromTSN'
-  args <- list()
-  if(!is.na(tsn))
-    args$tsn <- tsn
-  message(paste(url, '?tsn=', tsn, sep=''))
-  tt <- getForm(url, .params = args, .opts=curlopts, curl = curl)
-  out <- xmlParse(tt)
+	out <- itis_GET("getExpertsFromTSN", list(tsn = x), ...)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
   toget <- list("comment","expert","name","referredTsn","referenceFor","updateDate")
-  xpathfunc <- function(x) {    
+  xpathfunc <- function(x) {
     sapply(getNodeSet(out, paste("//ax21:", x, sep=''), namespaces=namespaces),xmlValue)
   }
-  df <-  do.call(cbind, lapply(toget, as.data.frame(xpathfunc)))
-  names(df) <- toget
-  df
+  setNames(do.call(cbind, lapply(toget, as.data.frame(xpathfunc))), toget)
 }
 
 #' Get full hierarchy from tsn
-#' 
+#'
 #' @param tsn TSN for a taxonomic group (numeric)
-#' @param curlopts optional additional curl options (debugging tools mostly)
-#' @param curl If using in a loop, call getCurlHandle() first and pass 
-#'  the returned value in here (avoids unnecessary footprint)
-#' @param verbose (logical) Print messages or not. Default to TRUE.
+#' @param ... optional additional curl options (debugging tools mostly)
 #' @examples \donttest{
-#' getfullhierarchyfromtsn(tsn = 37906)
-#' getfullhierarchyfromtsn(tsn = 100800)
+#' getfullhierarchyfromtsn(37906, config=timeout(3))
+#' getfullhierarchyfromtsn(100800, config=timeout(3))
 #' }
 #' @export
 #' @keywords internal
 
-getfullhierarchyfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle(), verbose=TRUE)
+getfullhierarchyfromtsn <- function(x, ...)
 {
-	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getFullHierarchyFromTSN'
-  args <- list()
-  if(!is.na(tsn))
-    args$tsn <- tsn
-	mssg(verbose, paste(url, '?tsn=', tsn, sep=''))
-  resp <- GET(url, query=args, curlopts)
-  tt <- content(resp, as = "text")
-  out <- xmlParse(tt)
+	out <- itis_GET("getFullHierarchyFromTSN", list(tsn = x), ...)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
   nodes <- getNodeSet(out, "//ax21:parentName", namespaces=namespaces)
   parentName <- sapply(nodes, xmlValue)
@@ -355,37 +279,26 @@ getfullhierarchyfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHan
   taxonName <- sapply(nodes, xmlValue)
   nodes <- getNodeSet(out, "//ax21:tsn", namespaces=namespaces)
   tsn <- sapply(nodes, xmlValue)
-  out <- data.frame(parentName=parentName, parentTsn=parentTsn, 
-  									rankName=rankName[-length(rankName)],
-  									taxonName=taxonName, tsn=tsn[-1], stringsAsFactors=FALSE)
-  return(out)
+	data.frame(parentName=parentName, parentTsn=parentTsn,
+	           rankName=rankName[-length(rankName)],
+	           taxonName=taxonName, tsn=tsn[-1], stringsAsFactors=FALSE)
 }
 
-#' Returns the full ITIS record for the TSN in the LSID, found by comparing the 
-#' 		TSN in the search key to the TSN field. Returns an empty result set if 
+#' Returns the full ITIS record for the TSN in the LSID, found by comparing the
+#' 		TSN in the search key to the TSN field. Returns an empty result set if
 #'   	there is no match or the TSN is invalid.
-#' 
-#' @import RCurl XML
-#' @param lsid lsid for a taxonomic group (character)
-#' @param curlopts optional additional curl options (debugging tools mostly)
-#' @param curl If using in a loop, call getCurlHandle() first and pass 
-#'  the returned value in here (avoids unnecessary footprint) 
-#' @param verbose Verbosity or not (default TRUE)
+#'
+#' @param x lsid for a taxonomic group (character)
+#' @param ... optional additional curl options (debugging tools mostly)
 #' @examples \donttest{
-#' getfullrecordfromlsid(lsid = "urn:lsid:itis.gov:itis_tsn:180543")
-#' getfullrecordfromlsid(lsid = "urn:lsid:itis.gov:itis_tsn:180543", verbose=FALSE)
+#' getfullrecordfromlsid("urn:lsid:itis.gov:itis_tsn:180543", config=timeout(3))
+#' getfullrecordfromlsid("urn:lsid:itis.gov:itis_tsn:180543", config=timeout(3))
 #' }
 #' @export
-#' @keywords internal 
-getfullrecordfromlsid <- function(lsid = NA, curlopts=list(), curl = getCurlHandle(), verbose=TRUE) 
+#' @keywords internal
+getfullrecordfromlsid <- function(x, ...)
 {
-	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getFullRecordFromLSID'
-  args <- list()
-  if(!is.na(lsid))
-    args$lsid <- lsid
-  mssg(verbose, paste(url, '?lsid=', lsid, sep=''))
-  tt <- getForm(url, .params = args, .opts=curlopts, curl = curl)
-  out <- xmlParse(tt)
+	out <- itis_GET("getFullRecordFromLSID", list(lsid = x), ...)
 	namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd")
 	toget <- c("acceptedNameList","commentList","commonNameList","completenessRating",
 	           "coreMetadata","credibilityRating","currencyRating","dateData","expertList",
@@ -402,26 +315,20 @@ getfullrecordfromlsid <- function(lsid = NA, curlopts=list(), curl = getCurlHand
 }
 
 #' Get full record from TSN.
-#' 
+#'
 #' @inheritParams getcommentdetailfromtsn
 #' @param verbose Verbosity or not (default TRUE)
 #' @examples \donttest{
-#' getfullrecordfromtsn(tsn = 504239)
-#' getfullrecordfromtsn(tsn = 202385)
-#' getfullrecordfromtsn(tsn = 183833)
-#' getfullrecordfromtsn(tsn = 183833, verbose=FALSE)
+#' getfullrecordfromtsn(504239, config=timeout(3))
+#' getfullrecordfromtsn(202385, config=timeout(3))
+#' getfullrecordfromtsn(183833, config=timeout(3))
+#' getfullrecordfromtsn(183833, config=timeout(3))
 #' }
 #' @export
-#' @keywords internal 
-getfullrecordfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle(), verbose=TRUE) 
+#' @keywords internal
+getfullrecordfromtsn <- function(x, ...)
 {
-	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getFullRecordFromTSN'
-  args <- list()
-  if(!is.na(tsn))
-    args$tsn <- tsn
-  mssg(verbose, paste(url, '?tsn=', tsn, sep=''))
-  tt <- getForm(url, .params = args, .opts=curlopts, curl = curl)
-  out <- xmlParse(tt)
+	out <- itis_GET("getFullRecordFromTSN", list(tsn = x), ...)
 	namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd")
   toget <- c("acceptedNameList","commentList","commonNameList","completenessRating",
              "coreMetadata","credibilityRating","currencyRating","dateData","expertList",
@@ -432,107 +339,75 @@ getfullrecordfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle
 	  tmp <- getNodeSet(out, sprintf("//ax21:%s",x), namespaces=namespaces, xmlToList)[[1]]
     tmp[!names(tmp) %in% ".attrs"]
 	}
-  temp <- lapply(toget, parsedat)
-  names(temp) <- toget
-  temp
+  setNames(lapply(toget, parsedat), toget)
 }
 
 #' Get geographic divisions from tsn
-#' 
+#'
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \donttest{
-#' getgeographicdivisionsfromtsn(tsn = 180543)
+#' getgeographicdivisionsfromtsn(180543, config=timeout(3))
 #' }
 #' @export
 #' @keywords internal
-getgeographicdivisionsfromtsn <- function(tsn = NA, curlopts=list(), curl=getCurlHandle())
+getgeographicdivisionsfromtsn <- function(x, ...)
 {
-	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getGeographicDivisionsFromTSN'
-  args <- list()
-  if(!is.na(tsn))
-    args$tsn <- tsn
-  message(paste(url, '?tsn=', tsn, sep=''))
-  tt <- getForm(url, .params = args, .opts=curlopts, curl = curl)
-  out <- xmlParse(tt)
+	out <- itis_GET("getGeographicDivisionsFromTSN", list(tsn = x), ...)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
   toget <- list("geographicValue","updateDate","tsn")
-  xpathfunc <- function(x) {    
+  xpathfunc <- function(x) {
     sapply(getNodeSet(out, paste("//ax21:", x, sep=''), namespaces=namespaces),xmlValue)
   }
-  df <-  do.call(cbind, lapply(toget, as.data.frame(xpathfunc)))
-  names(df) <- toget
-  df
+  setNames(do.call(cbind, lapply(toget, as.data.frame(xpathfunc))), toget)
 }
 
 #' Get all possible geographic values
-#' 
+#'
 #' @import RCurl XML
 #' @examples \donttest{
-#' getgeographicvalues()
+#' getgeographicvalues(config=timeout(3))
 #' }
 #' @export
 #' @keywords internal
-getgeographicvalues <- function() 
+getgeographicvalues <- function(...)
 {
-	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getGeographicValues'
-  message(url)
-  tt <- getURL(url)
-  out <- xmlParse(tt)
-  namespaces <- c(ax21="http://metadata.itis_service.itis.usgs.org/xsd" )
+	out <- itis_GET("getGeographicValues", list(), ...)
+  namespaces <- c(ax21="http://metadata.itis_service.itis.usgs.gov/xsd" )
   nodes <- getNodeSet(out, "//ax21:geographicValues", namespaces=namespaces)
   geographicValues <- sapply(nodes, xmlValue)
-  data.frame(geographicValues = geographicValues)
+  data.frame(geographicValues = geographicValues, stringsAsFactors=FALSE)
 }
 
 #' Get global species completeness from tsn
-#' 
+#'
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \donttest{
-#' getglobalspeciescompletenessfromtsn(tsn = 180541)
+#' getglobalspeciescompletenessfromtsn(180541, config=timeout(3))
 #' }
 #' @export
 #' @keywords internal
-getglobalspeciescompletenessfromtsn <- function(tsn = NA, curlopts=list(), 
-                                                curl=getCurlHandle()) 
+getglobalspeciescompletenessfromtsn <- function(x, ...)
 {
-	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getGlobalSpeciesCompletenessFromTSN'
-  args <- list()
-  if(!is.na(tsn))
-    args$tsn <- tsn
-  message(paste(url, '?tsn=', tsn, sep=''))
-  tt <- getForm(url, .params = args, .opts=curlopts, curl = curl)
-  out <- xmlParse(tt)
+	out <- itis_GET("getGlobalSpeciesCompletenessFromTSN", list(tsn = x), ...)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
   toget <- list("completeness","rankId","tsn")
-  xpathfunc <- function(x) {    
+  xpathfunc <- function(x) {
     sapply(getNodeSet(out, paste("//ax21:", x, sep=''), namespaces=namespaces),xmlValue)
   }
-  df <-  do.call(cbind, lapply(toget, as.data.frame(xpathfunc)))
-  names(df) <- toget
-  df
+  setNames(do.call(cbind, lapply(toget, as.data.frame(xpathfunc))), toget)
 }
 
 #' Get hierarchy down from tsn
-#' 
+#'
 #' @inheritParams getcommentdetailfromtsn
-#' @param verbose Verbosity or not (default TRUE)
 #' @examples \donttest{
-#' gethierarchydownfromtsn(tsn = 161030)
+#' gethierarchydownfromtsn(161030, config=timeout(3))
 #' }
 #' @export
-#' @keywords internal 
-gethierarchydownfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle(), verbose = TRUE) 
+#' @keywords internal
+gethierarchydownfromtsn <- function(x, ...)
 {
-	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getHierarchyDownFromTSN'
-  args <- list()
-  if(!is.na(tsn))
-    args$tsn <- tsn
-  mssg(verbose, paste(url, '?tsn=', tsn, sep=''))
-  tt <- getForm(url,
-    .params = args,
-    .opts=curlopts,
-    curl = curl)
-  out <- xmlParse(tt)
+	out <- itis_GET("getHierarchyDownFromTSN", list(tsn = x), ...)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
   nodes <- getNodeSet(out, "//ax21:hierarchyList/ax21:parentName", namespaces=namespaces)
   parentName <- sapply(nodes, xmlValue)
@@ -545,27 +420,20 @@ gethierarchydownfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHan
   nodes <- getNodeSet(out, "//ax21:hierarchyList/ax21:tsn", namespaces=namespaces)
   tsn <- sapply(nodes, xmlValue)
   data.frame(parentName=parentName, parentTsn=parentTsn, rankName=rankName,
-             taxonName=taxonName, tsn=tsn)
+             taxonName=taxonName, tsn=tsn, stringsAsFactors = FALSE)
 }
 
 #' Get hierarchy up from tsn
-#' 
+#'
 #' @inheritParams getcommentdetailfromtsn
-#' @param verbose Verbosity or not (default TRUE)
 #' @examples \donttest{
-#' gethierarchyupfromtsn(tsn = 36485)
+#' gethierarchyupfromtsn(36485, config=timeout(3))
 #' }
 #' @export
-#' @keywords internal 
-gethierarchyupfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle(), verbose=TRUE) 
+#' @keywords internal
+gethierarchyupfromtsn <- function(x, ...)
 {
-	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getHierarchyUpFromTSN'
-  args <- list()
-  if(!is.na(tsn))
-    args$tsn <- tsn
-  mssg(verbose, paste(url, '?tsn=', tsn, sep=''))
-  tt <- getForm(url, .params = args, .opts=curlopts, curl = curl)
-  out <- xmlParse(tt)
+	out <- itis_GET("getHierarchyUpFromTSN", list(tsn = x), ...)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
   nodes <- getNodeSet(out, "//ax21:parentName", namespaces=namespaces)
   parentName <- sapply(nodes, xmlValue)
@@ -578,30 +446,26 @@ gethierarchyupfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandl
   nodes <- getNodeSet(out, "//ax21:tsn", namespaces=namespaces)
   tsn <- sapply(nodes, xmlValue)
   data.frame(parentName=parentName, parentTsn=parentTsn, rankName=rankName,
-             taxonName=taxonName, tsn=tsn)
+             taxonName=taxonName, tsn=tsn, stringsAsFactors = FALSE)
 }
 
 #' Get itis terms from common names
-#' 
+#'
 #' @inheritParams getanymatchcount
 #' @examples \donttest{
 #' getitistermsfromcommonname("buya")
+#'
+#' library('httr')
+#' getitistermsfromcommonname("buya", config=timeout(1))
 #' }
 #' @export
-#' @keywords internal 
-getitistermsfromcommonname <- function(srchkey = NA, curlopts=list(), curl = getCurlHandle(), 
-                                       verbose=TRUE) 
+#' @keywords internal
+getitistermsfromcommonname <- function(x, ...)
 {
-	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getITISTermsFromCommonName'
-  args <- list()
-  if(!is.na(srchkey))
-    args$srchKey <- srchkey
-	mssg(verbose, paste(url, "?srchKey=", srchkey, sep = ""))
-  tt <- getForm(url, .params = args, .opts=c(curlopts, followlocation = 0L), curl = curl)
-  out <- xmlParse(tt)
+  out <- itis_GET("getITISTermsFromCommonName", list(srchKey = x), ...)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
 	gg <- getNodeSet(out, "//ax21:itisTerms", namespaces=namespaces, xmlToList)
-	tmp <- do.call(rbind.fill, lapply(gg, function(x) data.frame(x,stringsAsFactors=FALSE)))  
+	tmp <- do.call(rbind.fill, lapply(gg, function(x) data.frame(x,stringsAsFactors=FALSE)))
   names(tmp) <- tolower(names(tmp))
 	row.names(tmp) <- NULL
 	if(nrow(tmp)==1 && names(tmp)=="x"){
@@ -614,22 +478,16 @@ getitistermsfromcommonname <- function(srchkey = NA, curlopts=list(), curl = get
 }
 
 #' Get itis terms from common names
-#' 
+#'
 #' @inheritParams getanymatchcount
 #' @examples \donttest{
-#' getitisterms(srchkey="bear")
+#' getitisterms("bear")
 #' }
 #' @export
 #' @keywords internal
-getitisterms <- function(srchkey = NA, curlopts=list(), curl = getCurlHandle(), verbose=TRUE)
+getitisterms <- function(x, ...)
 {
-  url = 'http://www.itis.gov/ITISWebService/services/ITISService/getITISTerms'
-  args <- list()
-  if(!is.na(srchkey))
-    args$srchKey <- srchkey
-  mssg(verbose, paste(url, "?srchKey=", srchkey, sep = ""))
-  tt <- getForm(url, .params = args, .opts=c(curlopts, followlocation = 0L), curl = curl)
-  out <- xmlParse(tt)
+  out <- itis_GET("getITISTerms", list(srchKey = x), ...)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
   gg <- getNodeSet(out, "//ax21:itisTerms", namespaces=namespaces, xmlToList)
   tmp <- do.call(rbind.fill, lapply(gg, function(x) data.frame(x,stringsAsFactors=FALSE)))
@@ -645,28 +503,21 @@ getitisterms <- function(srchkey = NA, curlopts=list(), curl = getCurlHandle(), 
 }
 
 #' Get itis terms from scientific names
-#' 
+#'
 #' @inheritParams getanymatchcount
 #' @examples \donttest{
-#' getitistermsfromscientificname(srchkey = "ursidae")
-#' getitistermsfromscientificname(srchkey = "Ursus")
+#' getitistermsfromscientificname("ursidae")
+#' getitistermsfromscientificname("Ursus")
 #' }
 #' @export
-#' @keywords internal 
-getitistermsfromscientificname <- function(srchkey = NA, curlopts=list(), curl = getCurlHandle(), 
-                                           verbose=TRUE) 
+#' @keywords internal
+getitistermsfromscientificname <- function(x, ...)
 {
-  url = "http://www.itis.gov/ITISWebService/services/ITISService/getITISTermsFromScientificName"
-  args <- list()
-  if (!is.na(srchkey)) 
-    args$srchKey <- srchkey
-  mssg(verbose, paste(url, "?srchKey=", srchkey, sep = ""))
-  tt <- getForm(url, .params = args, .opts = c(curlopts, followlocation = 0L), curl = curl)
-  out <- xmlParse(tt)
+  out <- itis_GET("getITISTermsFromScientificName", list(srchKey = x), ...)
   namespaces <- c(namespaces <- c(ax21 = "http://data.itis_service.itis.usgs.gov/xsd"))
-  gg <- getNodeSet(out, "//ax21:itisTerms", namespaces = namespaces, 
+  gg <- getNodeSet(out, "//ax21:itisTerms", namespaces = namespaces,
                    xmlToList)
-  tmp <- do.call(rbind.fill, lapply(gg, function(x) data.frame(x, 
+  tmp <- do.call(rbind.fill, lapply(gg, function(x) data.frame(x,
                                                                stringsAsFactors = FALSE)))
   names(tmp) <- tolower(names(tmp))
   row.names(tmp) <- NULL
@@ -681,16 +532,16 @@ getitistermsfromscientificname <- function(srchkey = NA, curlopts=list(), curl =
 }
 
 #' Get jurisdictional origin from tsn
-#' 
+#'
 #' @inheritParams getcommentdetailfromtsn
 #' @param verbose Verbosity or not (default TRUE)
 #' @examples \donttest{
 #' getjurisdictionaloriginfromtsn(tsn = 2180543)
 #' }
 #' @export
-#' @keywords internal 
-getjurisdictionaloriginfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle(), 
-                                           verbose=TRUE) 
+#' @keywords internal
+getjurisdictionaloriginfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle(),
+                                           verbose=TRUE)
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getJurisdictionalOriginFromTSN'
   args <- list()
@@ -701,7 +552,7 @@ getjurisdictionaloriginfromtsn <- function(tsn = NA, curlopts=list(), curl = get
   out <- xmlParse(tt)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
   toget <- list("jurisdictionValue","origin","updateDate")
-  xpathfunc <- function(x) {    
+  xpathfunc <- function(x) {
     sapply(getNodeSet(out, paste("//ax21:", x, sep=''), namespaces=namespaces),xmlValue)
   }
   df <-  do.call(cbind, lapply(toget, as.data.frame(xpathfunc)))
@@ -710,19 +561,19 @@ getjurisdictionaloriginfromtsn <- function(tsn = NA, curlopts=list(), curl = get
   } else
   {
     names(df) <- tolower(toget)
-    df 
+    df
   }
 }
 
 #' Get jurisdiction origin values
-#' 
+#'
 #' @import RCurl XML
 #' @examples \donttest{
 #' getjurisdictionoriginvalues()
 #' }
 #' @export
-#' @keywords internal 
-getjurisdictionoriginvalues <- function(verbose=TRUE) 
+#' @keywords internal
+getjurisdictionoriginvalues <- function(verbose=TRUE)
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getJurisdictionalOriginValues'
 	mssg(verbose, url)
@@ -737,14 +588,14 @@ getjurisdictionoriginvalues <- function(verbose=TRUE)
 }
 
 #' Get possible jurisdiction values
-#' 
+#'
 #' @import RCurl XML
 #' @examples \donttest{
 #' getjurisdictionvalues()
 #' }
 #' @export
-#' @keywords internal 
-getjurisdictionvalues <- function(verbose=TRUE) 
+#' @keywords internal
+getjurisdictionvalues <- function(verbose=TRUE)
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getJurisdictionValues'
 	mssg(verbose, url)
@@ -757,15 +608,15 @@ getjurisdictionvalues <- function(verbose=TRUE)
 }
 
 #' Get kingdom names from tsn
-#' 
+#'
 #' @inheritParams getcommentdetailfromtsn
 #' @param verbose Verbosity or not (default TRUE)
 #' @examples \donttest{
 #' getkingdomnamefromtsn(tsn = 202385)
 #' }
 #' @export
-#' @keywords internal 
-getkingdomnamefromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle(), verbose=TRUE) 
+#' @keywords internal
+getkingdomnamefromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle(), verbose=TRUE)
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getKingdomNameFromTSN'
   args <- list()
@@ -776,7 +627,7 @@ getkingdomnamefromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandl
   out <- xmlParse(tt)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
   toget <- list("kingdomId","kingdomName","tsn")
-  xpathfunc <- function(x) {    
+  xpathfunc <- function(x) {
     sapply(getNodeSet(out, paste("//ax21:", x, sep=''), namespaces=namespaces),xmlValue)
   }
   df <-  do.call(cbind, lapply(toget, as.data.frame(xpathfunc)))
@@ -785,14 +636,14 @@ getkingdomnamefromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandl
 }
 
 #' Get all possible kingdom names
-#' 
+#'
 #' @import RCurl XML
 #' @examples \donttest{
 #' getkingdomnames()
 #' }
 #' @export
-#' @keywords internal 
-getkingdomnames <- function() 
+#' @keywords internal
+getkingdomnames <- function()
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getKingdomNames'
   message(url)
@@ -809,14 +660,14 @@ getkingdomnames <- function()
 }
 
 #' Provides the date the ITIS database was last updated.
-#' 
+#'
 #' @import RCurl XML
 #' @examples \donttest{
 #' getlastchangedate()
 #' }
 #' @export
 #' @keywords internal
-getlastchangedate <- function() 
+getlastchangedate <- function()
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getLastChangeDate'
   message(url)
@@ -828,14 +679,14 @@ getlastchangedate <- function()
 }
 
 #' Gets the unique LSID for the TSN, or an empty result if there is no match.
-#' 
+#'
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \donttest{
 #' getlsidfromtsn(tsn = 155166)
 #' }
 #' @export
-#' @keywords internal 
-getlsidfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle() ) 
+#' @keywords internal
+getlsidfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle() )
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getLSIDFromTSN'
   args <- list()
@@ -850,14 +701,14 @@ getlsidfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle() )
 }
 
 #' Returns a list of the other sources used for the TSN.
-#' 
+#'
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \donttest{
 #' getothersourcesfromtsn(tsn = 182662)
 #' }
 #' @export
 #' @keywords internal
-getothersourcesfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle() ) 
+getothersourcesfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle() )
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getOtherSourcesFromTSN'
   args <- list()
@@ -869,7 +720,7 @@ getothersourcesfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHand
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
   toget <- list("acquisitionDate","name","referredTsn","source",
                 "sourceType","updateDate","version")
-  xpathfunc <- function(x) {    
+  xpathfunc <- function(x) {
     sapply(getNodeSet(out, paste("//ax21:", x, sep=''), namespaces=namespaces),xmlValue)
   }
   df <-  do.call(cbind, lapply(toget, as.data.frame(xpathfunc)))
@@ -878,14 +729,14 @@ getothersourcesfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHand
 }
 
 #' Returns the parent TSN for the entered TSN.
-#' 
+#'
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \donttest{
 #' getparenttsnfromtsn(tsn = 202385)
 #' }
 #' @export
 #' @keywords internal
-getparenttsnfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle() ) 
+getparenttsnfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle() )
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getParentTSNFromTSN'
   args <- list()
@@ -896,7 +747,7 @@ getparenttsnfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle(
   out <- xmlParse(tt)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
   toget <- list("parentTsn","tsn")
-  xpathfunc <- function(x) {    
+  xpathfunc <- function(x) {
     sapply(getNodeSet(out, paste("//ax21:", x, sep=''), namespaces=namespaces),xmlValue)
   }
   df <-  do.call(cbind, lapply(toget, as.data.frame(xpathfunc)))
@@ -905,15 +756,15 @@ getparenttsnfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle(
 }
 
 #' Returns a list of the pulications used for the TSN.
-#' 
+#'
 #' @inheritParams getcommentdetailfromtsn
 #' @param verbose Verbosity or not (default TRUE)
 #' @examples \donttest{
 #' getpublicationsfromtsn(tsn = 70340)
 #' }
 #' @export
-#' @keywords internal 
-getpublicationsfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle(), verbose=TRUE) 
+#' @keywords internal
+getpublicationsfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle(), verbose=TRUE)
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getPublicationsFromTSN'
   args <- list()
@@ -926,7 +777,7 @@ getpublicationsfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHand
   toget <- list("actualPubDate","isbn","issn","listedPubDate","pages",
                 "pubComment","pubName","pubPlace","publisher","referenceAuthor",
                 "name","refLanguage","referredTsn","title","updateDate")
-  xpathfunc <- function(x) {    
+  xpathfunc <- function(x) {
     sapply(getNodeSet(out, paste("//ax21:", x, sep=''), namespaces=namespaces),xmlValue)
   }
   df <-  do.call(cbind, lapply(toget, as.data.frame(xpathfunc)))
@@ -934,16 +785,16 @@ getpublicationsfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHand
   df
 }
 
-#' Provides a list of all the unique rank names contained in the database and 
+#' Provides a list of all the unique rank names contained in the database and
 #'  their kingdom and rank ID values.
-#' 
+#'
 #' @import RCurl XML
 #' @examples \donttest{
 #' getranknames()
 #' }
 #' @export
-#' @keywords internal 
-getranknames <- function() 
+#' @keywords internal
+getranknames <- function()
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getRankNames'
   tt <- getURL(url)
@@ -958,22 +809,22 @@ getranknames <- function()
   data.frame(kingdomName = kingdomName, rankId = rankId, rankName = rankName)
 }
 
-#' Gets the partial ITIS record for the TSN in the LSID, found by comparing the 
-#'  TSN in the search key to the TSN field. Returns an empty result set if 
+#' Gets the partial ITIS record for the TSN in the LSID, found by comparing the
+#'  TSN in the search key to the TSN field. Returns an empty result set if
 #'  there is no match or the TSN is invalid.
-#' 
+#'
 #' @import RCurl XML
 #' @param lsid lsid for a taxonomic group (numeric)
 #' @param curlopts optional additional curl options (debugging tools mostly)
-#' @param curl If using in a loop, call getCurlHandle() first and pass 
+#' @param curl If using in a loop, call getCurlHandle() first and pass
 #'  the returned value in here (avoids unnecessary footprint)
 #' @param verbose (logical) Print messages or not. Default to TRUE.
 #' @examples \donttest{
 #' getrecordfromlsid(lsid = "urn:lsid:itis.gov:itis_tsn:180543")
 #' }
 #' @export
-#' @keywords internal 
-getrecordfromlsid <- function(lsid = NA, curlopts=list(), verbose=TRUE) 
+#' @keywords internal
+getrecordfromlsid <- function(lsid = NA, curlopts=list(), verbose=TRUE)
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getRecordFromLSID'
   args <- list()
@@ -988,7 +839,7 @@ getrecordfromlsid <- function(lsid = NA, curlopts=list(), verbose=TRUE)
   toget <- list("authorship","genusPart","infragenericEpithet",
                 "infraspecificEpithet","lsid","nameComplete","nomenclaturalCode",
                 "rank","rankString","specificEpithet","uninomial","tsn")
-  xpathfunc <- function(x) {    
+  xpathfunc <- function(x) {
     sapply(getNodeSet(out, paste("//ax21:", x, sep=''), namespaces=namespaces),xmlValue)
   }
   df <-  do.call(cbind, lapply(toget, as.data.frame(xpathfunc)))
@@ -997,14 +848,14 @@ getrecordfromlsid <- function(lsid = NA, curlopts=list(), verbose=TRUE)
 }
 
 #' Returns the review year for the TSN.
-#' 
+#'
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \donttest{
 #' getreviewyearfromtsn(tsn = 180541)
 #' }
 #' @export
 #' @keywords internal
-getreviewyearfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle() ) 
+getreviewyearfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle() )
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getReviewYearFromTSN'
   args <- list()
@@ -1015,7 +866,7 @@ getreviewyearfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle
   out <- xmlParse(tt)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
   toget <- list("rankId","reviewYear","tsn")
-  xpathfunc <- function(x) {    
+  xpathfunc <- function(x) {
     sapply(getNodeSet(out, paste("//ax21:", x, sep=''), namespaces=namespaces),xmlValue)
   }
   df <-  do.call(cbind, lapply(toget, as.data.frame(xpathfunc)))
@@ -1023,16 +874,16 @@ getreviewyearfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle
   df
 }
 
-#' Returns the scientific name for the TSN. Also returns the component parts 
+#' Returns the scientific name for the TSN. Also returns the component parts
 #'    (names and indicators) of the scientific name.
-#' 
+#'
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \donttest{
 #' getscientificnamefromtsn(tsn = 531894)
 #' }
 #' @export
-#' @keywords internal 
-getscientificnamefromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle() ) 
+#' @keywords internal
+getscientificnamefromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle() )
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getScientificNameFromTSN'
   args <- list()
@@ -1044,7 +895,7 @@ getscientificnamefromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHa
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
   toget <- list("combinedName","unitInd1","unitInd3","unitName1","unitName2",
                 "unitName3","tsn")
-  xpathfunc <- function(x) {    
+  xpathfunc <- function(x) {
     sapply(getNodeSet(out, paste("//ax21:", x, sep=''), namespaces=namespaces),xmlValue)
   }
   df <-  do.call(cbind, lapply(toget, as.data.frame(xpathfunc)))
@@ -1053,10 +904,10 @@ getscientificnamefromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHa
 }
 
 #' Returns a list of the synonyms (if any) for the TSN.
-#' 
+#'
 #' @param tsn TSN for a taxonomic group (numeric)
 #' @param curlopts optional additional curl options (debugging tools mostly)
-#' @param curl If using in a loop, call getCurlHandle() first and pass 
+#' @param curl If using in a loop, call getCurlHandle() first and pass
 #'  the returned value in here (avoids unnecessary footprint)
 #' @param verbose (logical) Print messages or not. Default to TRUE.
 #' @examples \donttest{
@@ -1064,8 +915,8 @@ getscientificnamefromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHa
 #' getsynonymnamesfromtsn(tsn = 526852) # tsn accepted
 #' }
 #' @export
-#' @keywords internal 
-getsynonymnamesfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle(), verbose=TRUE) 
+#' @keywords internal
+getsynonymnamesfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle(), verbose=TRUE)
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getSynonymNamesFromTSN'
   args <- list()
@@ -1080,22 +931,22 @@ getsynonymnamesfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHand
     { name <- sapply(nodes, xmlValue) }
   nodes <- getNodeSet(out, "//ax21:tsn", namespaces=namespaces)
   if( length(sapply(nodes, xmlValue)) == 1){ tsn <- sapply(nodes, xmlValue) } else
-    { 
-      tsn <- sapply(nodes, xmlValue) 
+    {
+      tsn <- sapply(nodes, xmlValue)
       tsn <- tsn[-1]
-    } 
+    }
   data.frame(name=name, tsn=tsn)
 }
 
 #' Returns the author information for the TSN.
-#' 
+#'
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \donttest{
 #' gettaxonauthorshipfromtsn(tsn = 183671)
 #' }
 #' @export
 #' @keywords internal
-gettaxonauthorshipfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle() ) 
+gettaxonauthorshipfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle() )
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getTaxonAuthorshipFromTSN'
   args <- list()
@@ -1106,7 +957,7 @@ gettaxonauthorshipfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlH
   out <- xmlParse(tt)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
   toget <- list("authorship","updateDate","tsn")
-  xpathfunc <- function(x) {    
+  xpathfunc <- function(x) {
     sapply(getNodeSet(out, paste("//ax21:", x, sep=''), namespaces=namespaces),xmlValue)
   }
   df <-  do.call(cbind, lapply(toget, as.data.frame(xpathfunc)))
@@ -1115,15 +966,15 @@ gettaxonauthorshipfromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlH
 }
 
 #' Returns the kingdom and rank information for the TSN.
-#' 
+#'
 #' @inheritParams getcommentdetailfromtsn
 #' @param verbose Verbosity or not (default TRUE)
 #' @examples \donttest{
 #' gettaxonomicranknamefromtsn(tsn = 202385)
 #' }
 #' @export
-#' @keywords internal 
-gettaxonomicranknamefromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle(), verbose = TRUE) 
+#' @keywords internal
+gettaxonomicranknamefromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHandle(), verbose = TRUE)
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getTaxonomicRankNameFromTSN'
   args <- list()
@@ -1137,7 +988,7 @@ gettaxonomicranknamefromtsn <- function(tsn = NA, curlopts=list(), curl = getCur
   out <- xmlParse(tt)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
   toget <- list("kingdomId","kingdomName","rankId","rankName","tsn")
-  xpathfunc <- function(x) {    
+  xpathfunc <- function(x) {
     sapply(getNodeSet(out, paste("//ax21:", x, sep=''), namespaces=namespaces),xmlValue)
   }
   df <-  do.call(cbind, lapply(toget, as.data.frame(xpathfunc)))
@@ -1146,10 +997,10 @@ gettaxonomicranknamefromtsn <- function(tsn = NA, curlopts=list(), curl = getCur
 }
 
 #' Returns the usage information for the TSN.
-#' 
+#'
 #' @param tsn TSN for a taxonomic group (numeric)
 #' @param curlopts optional additional curl options (debugging tools mostly)
-#' @param curl If using in a loop, call getCurlHandle() first and pass 
+#' @param curl If using in a loop, call getCurlHandle() first and pass
 #'  the returned value in here (avoids unnecessary footprint)
 #' @param verbose Verbosity or not (default TRUE)
 #' @examples \donttest{
@@ -1168,7 +1019,7 @@ gettaxonomicusagefromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHa
   out <- xmlParse(tt)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
   toget <- list("taxonUsageRating","tsn")
-  xpathfunc <- function(x) {    
+  xpathfunc <- function(x) {
     sapply(getNodeSet(out, paste("//ax21:", x, sep=''), namespaces=namespaces),xmlValue)
   }
   df <-  do.call(cbind, lapply(toget, as.data.frame(xpathfunc)))
@@ -1177,20 +1028,20 @@ gettaxonomicusagefromtsn <- function(tsn = NA, curlopts=list(), curl = getCurlHa
 }
 
 #' Retrieve accepted TSN (with accepted name)
-#' 
+#'
 #' @import RCurl XML
-#' @param language A string containing the language. This is a language string, 
+#' @param language A string containing the language. This is a language string,
 #'    not the international language code (character)
 #' @param curlopts optional additional curl options (debugging tools mostly)
-#' @param curl If using in a loop, call getCurlHandle() first and pass 
+#' @param curl If using in a loop, call getCurlHandle() first and pass
 #'  the returned value in here (avoids unnecessary footprint)
 #' @examples \donttest{
 #' gettsnbyvernacularlanguage("french")
 #' }
 #' @export
 #' @keywords internal
-gettsnbyvernacularlanguage <- function(language = NA, curlopts=list(), 
-                                       curl = getCurlHandle() ) 
+gettsnbyvernacularlanguage <- function(language = NA, curlopts=list(),
+                                       curl = getCurlHandle() )
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getTsnByVernacularLanguage'
   args <- list()
@@ -1209,10 +1060,10 @@ gettsnbyvernacularlanguage <- function(language = NA, curlopts=list(),
 }
 
 #' Gets the TSN corresponding to the LSID, or an empty result if there is no match.
-#' 
+#'
 #' @param lsid lsid for a taxonomic group (numeric)
 #' @param curlopts optional additional curl options (debugging tools mostly)
-#' @param curl If using in a loop, call getCurlHandle() first and pass 
+#' @param curl If using in a loop, call getCurlHandle() first and pass
 #'  the returned value in here (avoids unnecessary footprint)
 #' @param verbose (logical) Print messages or not. Default to TRUE.
 #' @examples \donttest{
@@ -1220,8 +1071,8 @@ gettsnbyvernacularlanguage <- function(language = NA, curlopts=list(),
 #' gettsnfromlsid(lsid = "urn:lsid:itis.gov:itis_tsn:0")
 #' }
 #' @export
-#' @keywords internal 
-gettsnfromlsid <- function(lsid = NA, curlopts=list(), curl = getCurlHandle(), verbose=TRUE) 
+#' @keywords internal
+gettsnfromlsid <- function(lsid = NA, curlopts=list(), curl = getCurlHandle(), verbose=TRUE)
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getTSNFromLSID'
   args <- list()
@@ -1236,15 +1087,15 @@ gettsnfromlsid <- function(lsid = NA, curlopts=list(), curl = getCurlHandle(), v
 }
 
 #' Returns the unacceptability reason, if any, for the TSN.
-#' 
+#'
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \donttest{
 #' getunacceptabilityreasonfromtsn(tsn = 183671)
 #' }
 #' @export
 #' @keywords internal
-getunacceptabilityreasonfromtsn <- function(tsn = NA, curlopts=list(), 
-                                            curl = getCurlHandle() ) 
+getunacceptabilityreasonfromtsn <- function(tsn = NA, curlopts=list(),
+                                            curl = getCurlHandle() )
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getUnacceptabilityReasonFromTSN'
   args <- list()
@@ -1255,7 +1106,7 @@ getunacceptabilityreasonfromtsn <- function(tsn = NA, curlopts=list(),
   out <- xmlParse(tt)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
   toget <- list("tsn","unacceptReason")
-  xpathfunc <- function(x) {    
+  xpathfunc <- function(x) {
     sapply(getNodeSet(out, paste("//ax21:", x, sep=''), namespaces=namespaces),xmlValue)
   }
   df <-  do.call(cbind, lapply(toget, as.data.frame(xpathfunc)))
@@ -1264,14 +1115,14 @@ getunacceptabilityreasonfromtsn <- function(tsn = NA, curlopts=list(),
 }
 
 #' Provides a list of the unique languages used in the vernacular table.
-#' 
+#'
 #' @import RCurl XML
 #' @examples \donttest{
 #' getvernacularlanguages()
 #' }
 #' @export
 #' @keywords internal
-getvernacularlanguages <- function() 
+getvernacularlanguages <- function()
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/getVernacularLanguages'
   message(url)
@@ -1284,7 +1135,7 @@ getvernacularlanguages <- function()
 }
 
 #' Search for tsn by common name
-#' 
+#'
 #' @inheritParams getanymatchcount
 #' @examples \donttest{
 #' searchbycommonname("american bullfrog")
@@ -1292,8 +1143,8 @@ getvernacularlanguages <- function()
 #' searchbycommonname(srchkey="polar bear")
 #' }
 #' @export
-#' @keywords internal 
-searchbycommonname <- function(srchkey = NA, curlopts=list(), curl = getCurlHandle() ) 
+#' @keywords internal
+searchbycommonname <- function(srchkey = NA, curlopts=list(), curl = getCurlHandle() )
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/searchByCommonName'
   args <- list()
@@ -1313,7 +1164,7 @@ searchbycommonname <- function(srchkey = NA, curlopts=list(), curl = getCurlHand
 
 
 #' Searches common name and acts as thin wrapper around \code{searchbycommonnamebeginswith} and \code{searchbycommonnameendswith}
-#' 
+#'
 #' @param srchkey search terms
 #' @param  curlopts Additional curl options.
 #' @param  curl  curl handle
@@ -1325,23 +1176,23 @@ searchbycommonname <- function(srchkey = NA, curlopts=list(), curl = getCurlHand
 #' searchCommon(srchkey="inch", from = "end")
 #'}
 itis_searchcommon <- function(srchkey = NA, curlopts=list(), curl = getCurlHandle(), from = "begin") {
-switch(from, 
+switch(from,
    begin = searchbycommonnamebeginswith(srchkey = srchkey, curlopts),
    end = searchbycommonnameendswith(srchkey = srchkey, curlopts),
-   )  
+   )
 }
 
 
 
-#' Search for tsn by common name beginning with 
-#' 
+#' Search for tsn by common name beginning with
+#'
 #' @inheritParams getanymatchcount
 #' @examples \donttest{
 #' searchbycommonnamebeginswith("inch")
 #' }
 #' @export
-#' @keywords internal 
-searchbycommonnamebeginswith <- function(srchkey = NA, curlopts=list(), curl = getCurlHandle() ) 
+#' @keywords internal
+searchbycommonnamebeginswith <- function(srchkey = NA, curlopts=list(), curl = getCurlHandle() )
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/searchByCommonNameBeginsWith'
   args <- list()
@@ -1361,14 +1212,14 @@ searchbycommonnamebeginswith <- function(srchkey = NA, curlopts=list(), curl = g
 }
 
 #' Search for tsn by common name ending with
-#' 
+#'
 #' @inheritParams getanymatchcount
 #' @examples \donttest{
 #' searchbycommonnameendswith(srchkey="snake")
 #' }
 #' @export
-#' @keywords internal 
-searchbycommonnameendswith <- function(srchkey = NA, curlopts=list(), curl=getCurlHandle()) 
+#' @keywords internal
+searchbycommonnameendswith <- function(srchkey = NA, curlopts=list(), curl=getCurlHandle())
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/searchByCommonNameEndsWith'
   args <- list()
@@ -1387,15 +1238,15 @@ searchbycommonnameendswith <- function(srchkey = NA, curlopts=list(), curl=getCu
 }
 
 #' Search by scientific name
-#' 
+#'
 #' @inheritParams getanymatchcount
 #' @examples \donttest{
 #' searchbyscientificname("Tardigrada")
 #' searchbyscientificname("Quercus douglasii")
 #' }
 #' @export
-#' @keywords internal 
-searchbyscientificname <- function(srchkey = NA, curlopts=list(), curl = getCurlHandle(), verbose=TRUE) 
+#' @keywords internal
+searchbyscientificname <- function(srchkey = NA, curlopts=list(), curl = getCurlHandle(), verbose=TRUE)
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/searchByScientificName'
   args <- list()
@@ -1415,7 +1266,7 @@ searchbyscientificname <- function(srchkey = NA, curlopts=list(), curl = getCurl
 }
 
 #' Search for any match
-#' 
+#'
 #' @inheritParams getanymatchcount
 #' @examples \donttest{
 #' searchforanymatch(srchkey = 202385)
@@ -1423,7 +1274,7 @@ searchbyscientificname <- function(srchkey = NA, curlopts=list(), curl = getCurl
 #' }
 #' @export
 #' @keywords internal
-searchforanymatch <- function(srchkey = NA,  curlopts=list(), curl = getCurlHandle() ) 
+searchforanymatch <- function(srchkey = NA,  curlopts=list(), curl = getCurlHandle() )
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/searchForAnyMatch'
   args <- list()
@@ -1432,7 +1283,7 @@ searchforanymatch <- function(srchkey = NA,  curlopts=list(), curl = getCurlHand
   tt <- getForm(url, .params = args, .opts=curlopts, curl = curl)
   out <- xmlParse(tt)
   namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd")
-  
+
 	if(is.character(srchkey)){
 	  me <- getNodeSet(out, "//ax21:anyMatchList", namespaces=namespaces)
 	  comname <- sapply(me, function(x) xmlValue(x[["commonNameList"]][["commonNames"]][["commonName"]]))
@@ -1451,11 +1302,11 @@ searchforanymatch <- function(srchkey = NA,  curlopts=list(), curl = getCurlHand
 }
 
 #' Search for any matched page
-#' 
+#'
 #' @inheritParams getanymatchcount
 #' @param pagesize An integer containing the page size (numeric)
 #' @param pagenum An integer containing the page number (numeric)
-#' @param ascend A boolean containing true for ascending sort order or false 
+#' @param ascend A boolean containing true for ascending sort order or false
 #'    for descending (logical)
 #' @examples \donttest{
 #' searchforanymatchpaged(srchkey=202385, pagesize=100, pagenum=1, ascend=FALSE)
@@ -1463,8 +1314,8 @@ searchforanymatch <- function(srchkey = NA,  curlopts=list(), curl = getCurlHand
 #' }
 #' @export
 #' @keywords internal
-searchforanymatchpaged <- function(srchkey = NA, pagesize = NA, pagenum = NA, 
-                                   ascend = NA, curlopts=list(), curl = getCurlHandle() ) 
+searchforanymatchpaged <- function(srchkey = NA, pagesize = NA, pagenum = NA,
+                                   ascend = NA, curlopts=list(), curl = getCurlHandle() )
 {
 	url = 'http://www.itis.gov/ITISWebService/services/ITISService/searchForAnyMatchPaged'
   args <- list()
@@ -1479,7 +1330,7 @@ searchforanymatchpaged <- function(srchkey = NA, pagesize = NA, pagenum = NA,
   tt <- getForm(url, .params = args, .opts=curlopts, curl = curl)
   out <- xmlParse(tt)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
-  
+
 	if(is.character(srchkey)){
 	  me <- getNodeSet(out, "//ax21:anyMatchList", namespaces=namespaces)
 	  comname <- sapply(me, function(x) xmlValue(x[["commonNameList"]][["commonNames"]][["commonName"]]))

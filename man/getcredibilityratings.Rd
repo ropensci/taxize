@@ -3,14 +3,14 @@
 \alias{getcredibilityratings}
 \title{Get possible credibility ratings}
 \usage{
-getcredibilityratings()
+getcredibilityratings(...)
 }
 \description{
 Get possible credibility ratings
 }
 \examples{
 \donttest{
-getcredibilityratings()
+getcredibilityratings(config=timeout(3))
 }
 }
 \keyword{internal}

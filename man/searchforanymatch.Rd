@@ -5,14 +5,6 @@
 \usage{
 searchforanymatch(srchkey = NA, curlopts = list(), curl = getCurlHandle())
 }
-\arguments{
-\item{srchkey}{text or taxonomic serial number (TSN) (character or numeric)}
-
-\item{curlopts}{optional additional curl options (debugging tools mostly)}
-
-\item{curl}{If using in a loop, call getCurlHandle() first and pass
-the returned value in here (avoids unnecessary footprint)}
-}
 \description{
 Search for any match
 }

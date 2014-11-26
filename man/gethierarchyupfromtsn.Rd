@@ -3,25 +3,19 @@
 \alias{gethierarchyupfromtsn}
 \title{Get hierarchy up from tsn}
 \usage{
-gethierarchyupfromtsn(tsn = NA, curlopts = list(), curl = getCurlHandle(),
-  verbose = TRUE)
+gethierarchyupfromtsn(x, ...)
 }
 \arguments{
-\item{tsn}{TSN for a taxonomic group (numeric)}
+\item{x}{TSN for a taxonomic group (numeric)}
 
-\item{curlopts}{optional additional curl options (debugging tools mostly)}
-
-\item{curl}{If using in a loop, call getCurlHandle() first and pass
-the returned value in here (avoids unnecessary footprint)}
-
-\item{verbose}{Verbosity or not (default TRUE)}
+\item{...}{optional additional curl options (debugging tools mostly)}
 }
 \description{
 Get hierarchy up from tsn
 }
 \examples{
 \donttest{
-gethierarchyupfromtsn(tsn = 36485)
+gethierarchyupfromtsn(36485, config=timeout(3))
 }
 }
 \keyword{internal}

@@ -3,23 +3,20 @@
 \alias{getcurrencyfromtsn}
 \title{Get currency from tsn}
 \usage{
-getcurrencyfromtsn(tsn = NA, curlopts = list(), curl = getCurlHandle())
+getcurrencyfromtsn(x, ...)
 }
 \arguments{
-\item{tsn}{TSN for a taxonomic group (numeric)}
+\item{x}{TSN for a taxonomic group (numeric)}
 
-\item{curlopts}{optional additional curl options (debugging tools mostly)}
-
-\item{curl}{If using in a loop, call getCurlHandle() first and pass
-the returned value in here (avoids unnecessary footprint)}
+\item{...}{optional additional curl options (debugging tools mostly)}
 }
 \description{
 Get currency from tsn
 }
 \examples{
 \donttest{
-getcurrencyfromtsn(tsn = 28727) # currency data
-getcurrencyfromtsn(tsn = 526852) # no currency dat
+getcurrencyfromtsn(28727, config=timeout(3)) # currency data
+getcurrencyfromtsn(x=526852, config=timeout(3)) # no currency dat
 }
 }
 \keyword{internal}
