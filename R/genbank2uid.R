@@ -28,6 +28,7 @@ genbank2uid <- function(id, ...){
     url2 <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=nuccore&db=taxonomy&id="
     result <- xpathSApply(content(GET(paste0(url2, id))), "//LinkSetDb//Link//Id", xmlValue)
     if (length(result) == 0) result <- as.character(NA)
+    Sys.sleep(0.34) # NCBI limits requests to three per second
     return(result)
   }
   result <- as.uid(vapply(id, process_one, character(1)))
