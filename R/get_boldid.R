@@ -13,7 +13,11 @@
 #' input. If FALSE NA is returned for multiple matches.
 #' @param verbose logical; should progress be printed?
 #' @param x Input to \code{\link{as.boldid}}
-#' @param ... Ignored
+#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' @param rows numeric; Any number from 1 to inifity. If the default NA, all rows are considered.
+#' Note that this function still only gives back a boldid class object with one to many identifiers.
+#' See \code{\link[taxize]{get_boldid_}} to get back all, or a subset, of the raw data that you are
+#' presented during the ask process.
 #'
 #' @return A vector of BOLD ids. If a taxon is not found NA. If more than one BOLD ID is found
 #'    the function asks for user input (if ask = TRUE), otherwise returns NA.
@@ -31,6 +35,12 @@
 #'
 #' # Fuzzy searching
 #' get_boldid(searchterm="Osmi", fuzzy=TRUE)
+#'
+#' # Get back a subset
+#' get_boldid(searchterm="Osmi", fuzzy=TRUE, rows = 1)
+#' get_boldid(searchterm="Osmi", fuzzy=TRUE, rows = 1:10)
+#' get_boldid(searchterm=c("Osmi","Aga"), fuzzy=TRUE, rows = 1)
+#' get_boldid(searchterm=c("Osmi","Aga"), fuzzy=TRUE, rows = 1:3)
 #'
 #' # When not found
 #' get_boldid("howdy")
@@ -56,17 +66,23 @@
 #' # Get all data back
 #' get_boldid_("Osmia", fuzzy=TRUE, rows=1:5)
 #' get_boldid_("Osmia", fuzzy=TRUE, rows=1)
+#' get_boldid_(c("Osmi","Aga"), fuzzy=TRUE, rows = 1:3)
+#'
+#' # Curl options
+#' library("httr")
+#' get_boldid(searchterm = "Agapostemon", config=verbose())
+#' get_boldid(searchterm = "Agapostemon", config=progress())
 #' }
 
 get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes='basic', includeTree=FALSE,
-                       ask = TRUE, verbose = TRUE)
+                       ask = TRUE, verbose = TRUE, rows = NA, ...)
 {
-  fun <- function(x, ask, verbose)
+  fun <- function(x, ask, verbose, rows)
   {
     mssg(verbose, "\nRetrieving data for taxon '", x, "'\n")
-
-    bold_df <- bold_search(name = x, fuzzy = fuzzy, dataTypes = dataTypes, includeTree = includeTree)
-
+    bold_df <- bold_search(name = x, fuzzy = fuzzy,
+                           dataTypes = dataTypes, includeTree = includeTree, ...)
+    bold_df <- sub_rows(bold_df, rows)
 
     if(!class(bold_df) == "data.frame"){
       boldid <- NA
@@ -147,7 +163,7 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes='basic', includeTree
     return(data.frame(boldid = as.character(boldid), att = att, stringsAsFactors=FALSE))
   }
   searchterm <- as.character(searchterm)
-  outd <- ldply(searchterm, fun, ask, verbose)
+  outd <- ldply(searchterm, fun, ask, verbose, rows)
   out <- structure(outd$boldid, class="boldid", match=outd$att)
   add_uri(out, 'http://boldsystems.org/index.php/Taxbrowser_Taxonpage?taxid=%s')
 #   if( !all(is.na(out)) ){
