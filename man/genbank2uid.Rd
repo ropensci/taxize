@@ -19,16 +19,25 @@ there are two identifiers, and the difference between them.
 }
 \examples{
 \donttest{
-# giving accession numbers
+# with accession numbers
 genbank2uid(id = 'AJ748748')
 genbank2uid(id = 'Y13155')
 genbank2uid(id = 'X78312')
 genbank2uid(id = 'KM495596')
 
-# gi numbers
+# with gi numbers
 genbank2uid(id = 62689767)
 genbank2uid(id = 22775511)
 genbank2uid(id = 156446673)
+
+# pass in many accession or gi numbers
+genbank2uid(c(62689767,156446673))
+genbank2uid(c('X78312','KM495596'))
+genbank2uid(list('X78312',156446673))
+
+# curl options
+library('httr')
+genbank2uid(id = 156446673, config=verbose())
 }
 }
 
