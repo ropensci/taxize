@@ -31,7 +31,7 @@ genbank2uid <- function(id, ...){
     Sys.sleep(0.34) # NCBI limits requests to three per second
     return(result)
   }
-  result <- as.uid(vapply(id, process_one, character(1)))
+  result <- as.uid(unname(vapply(id, process_one, character(1))))
   matched <- rep("found", length(result))
   matched[is.na(result)] <- "not found"
   attr(result, "match") <- matched
