@@ -24,7 +24,7 @@
 #'    Comes with an attribute \emph{match} to investigate the reason for NA (either 'not found',
 #'      'found' or if ask = FALSE 'multi match')
 #'
-#' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{classification}}
+#' @seealso \code{\link[taxize]{classification}}
 #'
 #' @export
 #' @examples \donttest{
@@ -69,14 +69,14 @@
 #' }
 
 get_tsn <- function(searchterm, searchtype = "scientific", accepted = TRUE, ask = TRUE,
-  verbose = TRUE, rows = NA)
+  verbose = TRUE, rows = NA, ...)
 {
-  fun <- function(x, searchtype, ask, verbose)
+  fun <- function(x, searchtype, ask, verbose, ...)
   {
     mssg(verbose, "\nRetrieving data for taxon '", x, "'\n")
 
     searchtype <- match.arg(searchtype, c("scientific","common"))
-    tsn_df <- itis_terms(x, what = searchtype, verbose=verbose)
+    tsn_df <- itis_terms(x, what = searchtype, ...)
     tsn_df <- sub_rows(tsn_df, rows)
 
     if(!class(tsn_df) == "data.frame"){
@@ -161,7 +161,7 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = TRUE, ask 
     return(data.frame(tsn = as.character(tsn), att = att, stringsAsFactors=FALSE))
   }
   searchterm <- as.character(searchterm)
-  outd <- ldply(searchterm, fun, searchtype, ask, verbose)
+  outd <- ldply(searchterm, fun, searchtype, ask, verbose, ...)
   out <- outd$tsn
   attr(out, 'match') <- outd$att
   if( !all(is.na(out)) ){

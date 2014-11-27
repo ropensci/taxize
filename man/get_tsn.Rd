@@ -12,7 +12,7 @@
 \title{Get the TSN code for a search term.}
 \usage{
 get_tsn(searchterm, searchtype = "scientific", accepted = TRUE,
-  ask = TRUE, verbose = TRUE, rows = NA)
+  ask = TRUE, verbose = TRUE, rows = NA, ...)
 
 as.tsn(x)
 
@@ -50,9 +50,9 @@ Note that this function still only gives back a tsn class object with one to man
 See \code{\link[taxize]{get_tsn_}} to get back all, or a subset, of the raw data that you are
 presented during the ask process.}
 
-\item{x}{Input to as.tsn}
-
 \item{...}{Ignored}
+
+\item{x}{Input to as.tsn}
 }
 \value{
 A vector of taxonomic serial numbers (TSN). If a taxon is not
@@ -107,6 +107,6 @@ get_tsn_(c("asdfadfasd","Pinus contorta"), rows=1:5)
 }
 }
 \seealso{
-\code{\link[taxize]{get_tsn}}, \code{\link[taxize]{classification}}
+\code{\link[taxize]{classification}}
 }
 
