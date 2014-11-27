@@ -1,8 +1,8 @@
 # tests for itis fxn in taxize
 context("itis")
 
-one <- getacceptednamesfromtsn('208527', verbose=FALSE)
-two <- gettaxonomicusagefromtsn(tsn = 526852, verbose=FALSE)
+one <- getacceptednamesfromtsn('208527')
+two <- gettaxonomicusagefromtsn(526852)
 
 test_that("itis returns the correct value", {
 	expect_that(one, equals("208527"))
