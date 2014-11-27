@@ -82,7 +82,7 @@ children.default <- function(x, db = NULL, ...)
 #          names(out) <- x
 #        },
 
-         stop("the provided db value was not recognised")
+         stop("the provided db value was not recognised", .call=FALSE)
   )
 }
 

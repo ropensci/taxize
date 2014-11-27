@@ -126,49 +126,38 @@ classification <- function(...){
 #' @export
 #' @rdname classification
 classification.default <- function(x, db = NULL, callopts=list(), return_id = FALSE, ...){
-  if (is.null(db))
-    stop("Must specify db!")
-  if (db == 'itis') {
-    id <- process_ids(x, get_tsn, ...)
-    out <- classification(id, callopts=callopts, return_id=return_id, ...)
-    names(out) <- x
-  }
-  if (db == 'ncbi') {
-    id <- process_ids(x, get_uid, ...)
-#     id <- get_uid(x, ...)
-    out <- classification(id, return_id=return_id, ...)
-    names(out) <- x
-  }
-  if (db == 'eol') {
-    id <- process_ids(x, get_eolid, ...)
-#     id <- get_eolid(x, ...)
-    out <- classification(id, callopts=callopts, return_id=return_id, ...)
-    names(out) <- x
-  }
-  if (db == 'col') {
-    id <- process_ids(x, get_colid, ...)
-#     id <- get_colid(x, ...)
-    out <- classification(id, return_id=return_id, ...)
-    names(out) <- x
-  }
-  if (db == 'tropicos') {
-    id <- process_ids(x, get_tpsid, ...)
-#     id <- get_tpsid(x, ...)
-    out <- classification(id, callopts=callopts, return_id=return_id, ...)
-    names(out) <- x
-  }
-  if (db == 'gbif') {
-    id <- process_ids(x, get_gbifid, ...)
-#     id <- get_gbifid(x, ...)
-    out <- classification(id, callopts=callopts, return_id=return_id, ...)
-    names(out) <- x
-  }
-  if (db == 'nbn') {
-    id <- process_ids(x, get_nbnid, ...)
-    out <- classification(id, callopts=callopts, return_id=return_id, ...)
-    names(out) <- x
-  }
-  return(out)
+  if (is.null(db)) stop("Must specify db!")
+  switch(db,
+         itis = {
+           id <- process_ids(x, get_tsn, ...)
+           setNames(classification(id, callopts=callopts, return_id=return_id, ...), x)
+         },
+         ncbi = {
+           id <- process_ids(x, get_uid, ...)
+           setNames(classification(id, return_id=return_id, ...), x)
+         },
+         eol = {
+           id <- process_ids(x, get_eolid, ...)
+           setNames(classification(id, callopts=callopts, return_id=return_id, ...), x)
+         },
+         col = {
+           id <- process_ids(x, get_colid, ...)
+           setNames(classification(id, return_id=return_id, ...), x)
+         },
+         tropicos = {
+           id <- process_ids(x, get_tpsid, ...)
+           setNames(classification(id, callopts=callopts, return_id=return_id, ...), x)
+         },
+         gbif = {
+           id <- process_ids(x, get_gbifid, ...)
+           setNames(classification(id, callopts=callopts, return_id=return_id, ...), x)
+         },
+         nbn = {
+           id <- process_ids(x, get_nbnid, ...)
+           setNames(classification(id, callopts=callopts, return_id=return_id, ...), x)
+         },
+         stop("the provided db value was not recognised", .call=FALSE)
+  )
 }
 
 process_ids <- function(input, fxn, ...){
