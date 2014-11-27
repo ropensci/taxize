@@ -5,11 +5,11 @@
 #' taxonomic rank, e.g., getting all species in a family.
 #'
 #' @export
-#' 
+#'
 #' @param x character; taxons to query.
 #' @param db character; database to query. One or more of \code{itis}, \code{col}, or \code{ncbi}.
 #' @param ... Further args passed on to \code{\link{col_children}},
-#'   \code{\link{gethierarchydownfromtsn}}, or \code{\link{ncbi_children}}. 
+#'   \code{\link{gethierarchydownfromtsn}}, or \code{\link{ncbi_children}}.
 #'   See those functions for what parameters can be passed on.
 #'
 #' @return A named list of data.frames with the children names of every supplied taxa.
@@ -53,31 +53,26 @@ children <- function(...){
 #' @rdname children
 children.default <- function(x, db = NULL, ...)
 {
-  if (is.null(db)){
-    stop("Must specify db value!")
-  }
-
-
+  if (is.null(db)) stop("Must specify db value!")
   switch(db,
          itis = {
            id <- get_tsn(x, ...)
-           out <- children(id, ...)
+           setNames(children(id, ...), x)
          },
 
          col = {
            id <- get_colid(x, ...)
-           out <- children(id, ...)
+           setNames(children(id, ...), x)
          },
 
          ncbi = {
            if (all(grepl("^[[:digit:]]*$", x))) {
              id <- x
              class(id) <- "uid"
-             out <- children(id, ...)
+             setNames(children(id, ...), x)
            } else {
              out <- ncbi_children(name = x, ...)
-             class(out) <- 'children'
-             attr(out, 'db') <- 'ncbi'
+             structure(out, class='children', db='ncbi', .Names=x)
            }
          },
 
@@ -89,8 +84,6 @@ children.default <- function(x, db = NULL, ...)
 
          stop("the provided db value was not recognised")
   )
-  names(out) <- x
-  return(out)
 }
 
 #' @method children tsn
