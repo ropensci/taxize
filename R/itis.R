@@ -28,7 +28,6 @@ itisdf <- function(a, b, matches, colnames, pastens="ax21"){
 #' Get accepted names from tsn
 #'
 #' @inheritParams getcommentdetailfromtsn
-#' @param verbose Verbosity or not (default TRUE)
 #' @examples \donttest{
 #' # TSN accepted - good name
 #' library('httr')
