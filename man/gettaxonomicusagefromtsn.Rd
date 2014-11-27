@@ -3,25 +3,19 @@
 \alias{gettaxonomicusagefromtsn}
 \title{Returns the usage information for the TSN.}
 \usage{
-gettaxonomicusagefromtsn(tsn = NA, curlopts = list(),
-  curl = getCurlHandle(), verbose = TRUE)
+gettaxonomicusagefromtsn(tsn, ...)
 }
 \arguments{
 \item{tsn}{TSN for a taxonomic group (numeric)}
 
-\item{curlopts}{optional additional curl options (debugging tools mostly)}
-
-\item{curl}{If using in a loop, call getCurlHandle() first and pass
-the returned value in here (avoids unnecessary footprint)}
-
-\item{verbose}{Verbosity or not (default TRUE)}
+\item{...}{optional additional curl options (debugging tools mostly)}
 }
 \description{
 Returns the usage information for the TSN.
 }
 \examples{
 \donttest{
-gettaxonomicusagefromtsn(tsn = 526852)
+gettaxonomicusagefromtsn(526852, config=timeout(3))
 }
 }
 \keyword{internal}

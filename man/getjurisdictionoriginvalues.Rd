@@ -3,14 +3,17 @@
 \alias{getjurisdictionoriginvalues}
 \title{Get jurisdiction origin values}
 \usage{
-getjurisdictionoriginvalues(verbose = TRUE)
+getjurisdictionoriginvalues(...)
+}
+\arguments{
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \description{
 Get jurisdiction origin values
 }
 \examples{
 \donttest{
-getjurisdictionoriginvalues()
+getjurisdictionoriginvalues(config=timeout(3))
 }
 }
 \keyword{internal}

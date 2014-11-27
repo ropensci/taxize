@@ -3,14 +3,17 @@
 \alias{getvernacularlanguages}
 \title{Provides a list of the unique languages used in the vernacular table.}
 \usage{
-getvernacularlanguages()
+getvernacularlanguages(...)
+}
+\arguments{
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \description{
 Provides a list of the unique languages used in the vernacular table.
 }
 \examples{
 \donttest{
-getvernacularlanguages()
+getvernacularlanguages(config=timeout(3))
 }
 }
 \keyword{internal}

@@ -3,15 +3,19 @@
 \alias{searchbycommonnamebeginswith}
 \title{Search for tsn by common name beginning with}
 \usage{
-searchbycommonnamebeginswith(srchkey = NA, curlopts = list(),
-  curl = getCurlHandle())
+searchbycommonnamebeginswith(x, ...)
+}
+\arguments{
+\item{x}{text or taxonomic serial number (TSN) (character or numeric)}
+
+\item{...}{optional additional curl options (debugging tools mostly)}
 }
 \description{
 Search for tsn by common name beginning with
 }
 \examples{
 \donttest{
-searchbycommonnamebeginswith("inch")
+searchbycommonnamebeginswith("inch", config=timeout(3))
 }
 }
 \keyword{internal}

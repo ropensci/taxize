@@ -3,10 +3,10 @@
 \alias{gethierarchyupfromtsn}
 \title{Get hierarchy up from tsn}
 \usage{
-gethierarchyupfromtsn(x, ...)
+gethierarchyupfromtsn(tsn, ...)
 }
 \arguments{
-\item{x}{TSN for a taxonomic group (numeric)}
+\item{tsn}{TSN for a taxonomic group (numeric)}
 
 \item{...}{optional additional curl options (debugging tools mostly)}
 }

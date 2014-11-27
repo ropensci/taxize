@@ -5,6 +5,9 @@
 \usage{
 getdescription(...)
 }
+\arguments{
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+}
 \description{
 Get description of the ITIS service
 }

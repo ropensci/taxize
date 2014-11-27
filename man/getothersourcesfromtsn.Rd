@@ -3,15 +3,19 @@
 \alias{getothersourcesfromtsn}
 \title{Returns a list of the other sources used for the TSN.}
 \usage{
-getothersourcesfromtsn(tsn = NA, curlopts = list(),
-  curl = getCurlHandle())
+getothersourcesfromtsn(tsn, ...)
+}
+\arguments{
+\item{tsn}{TSN for a taxonomic group (numeric)}
+
+\item{...}{optional additional curl options (debugging tools mostly)}
 }
 \description{
 Returns a list of the other sources used for the TSN.
 }
 \examples{
 \donttest{
-getothersourcesfromtsn(tsn = 182662)
+getothersourcesfromtsn(182662, config=timeout(3))
 }
 }
 \keyword{internal}

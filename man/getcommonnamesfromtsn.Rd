@@ -3,10 +3,10 @@
 \alias{getcommonnamesfromtsn}
 \title{Get common names from tsn}
 \usage{
-getcommonnamesfromtsn(x, ...)
+getcommonnamesfromtsn(tsn, ...)
 }
 \arguments{
-\item{x}{TSN for a taxonomic group (numeric)}
+\item{tsn}{TSN for a taxonomic group (numeric)}
 
 \item{...}{optional additional curl options (debugging tools mostly)}
 }

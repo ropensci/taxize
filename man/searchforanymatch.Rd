@@ -3,15 +3,20 @@
 \alias{searchforanymatch}
 \title{Search for any match}
 \usage{
-searchforanymatch(srchkey = NA, curlopts = list(), curl = getCurlHandle())
+searchforanymatch(x, ...)
+}
+\arguments{
+\item{x}{text or taxonomic serial number (TSN) (character or numeric)}
+
+\item{...}{optional additional curl options (debugging tools mostly)}
 }
 \description{
 Search for any match
 }
 \examples{
 \donttest{
-searchforanymatch(srchkey = 202385)
-searchforanymatch(srchkey = "dolphin")
+searchforanymatch(202385, config=timeout(3))
+searchforanymatch("dolphin", config=timeout(3))
 }
 }
 \keyword{internal}

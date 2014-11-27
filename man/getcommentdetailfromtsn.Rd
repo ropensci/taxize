@@ -3,10 +3,10 @@
 \alias{getcommentdetailfromtsn}
 \title{Get comment detail from TSN}
 \usage{
-getcommentdetailfromtsn(x, ...)
+getcommentdetailfromtsn(tsn, ...)
 }
 \arguments{
-\item{x}{TSN for a taxonomic group (numeric)}
+\item{tsn}{TSN for a taxonomic group (numeric)}
 
 \item{...}{optional additional curl options (debugging tools mostly)}
 }
@@ -18,7 +18,7 @@ Get comment detail from TSN
 }
 \examples{
 \donttest{
-getcommentdetailfromtsn(180543, config=timeout(1))
+getcommentdetailfromtsn(tsn=180543, config=timeout(4))
 }
 }
 \keyword{internal}

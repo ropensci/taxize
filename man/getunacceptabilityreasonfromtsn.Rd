@@ -3,15 +3,19 @@
 \alias{getunacceptabilityreasonfromtsn}
 \title{Returns the unacceptability reason, if any, for the TSN.}
 \usage{
-getunacceptabilityreasonfromtsn(tsn = NA, curlopts = list(),
-  curl = getCurlHandle())
+getunacceptabilityreasonfromtsn(tsn, ...)
+}
+\arguments{
+\item{tsn}{TSN for a taxonomic group (numeric)}
+
+\item{...}{optional additional curl options (debugging tools mostly)}
 }
 \description{
 Returns the unacceptability reason, if any, for the TSN.
 }
 \examples{
 \donttest{
-getunacceptabilityreasonfromtsn(tsn = 183671)
+getunacceptabilityreasonfromtsn(183671, config=timeout(3))
 }
 }
 \keyword{internal}

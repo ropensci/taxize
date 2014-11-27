@@ -3,14 +3,12 @@
 \alias{getfullrecordfromtsn}
 \title{Get full record from TSN.}
 \usage{
-getfullrecordfromtsn(x, ...)
+getfullrecordfromtsn(tsn, ...)
 }
 \arguments{
-\item{x}{TSN for a taxonomic group (numeric)}
+\item{tsn}{TSN for a taxonomic group (numeric)}
 
 \item{...}{optional additional curl options (debugging tools mostly)}
-
-\item{verbose}{Verbosity or not (default TRUE)}
 }
 \description{
 Get full record from TSN.

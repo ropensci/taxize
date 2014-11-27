@@ -3,10 +3,10 @@
 \alias{getcurrencyfromtsn}
 \title{Get currency from tsn}
 \usage{
-getcurrencyfromtsn(x, ...)
+getcurrencyfromtsn(tsn, ...)
 }
 \arguments{
-\item{x}{TSN for a taxonomic group (numeric)}
+\item{tsn}{TSN for a taxonomic group (numeric)}
 
 \item{...}{optional additional curl options (debugging tools mostly)}
 }
@@ -16,7 +16,7 @@ Get currency from tsn
 \examples{
 \donttest{
 getcurrencyfromtsn(28727, config=timeout(3)) # currency data
-getcurrencyfromtsn(x=526852, config=timeout(3)) # no currency dat
+getcurrencyfromtsn(526852, config=timeout(3)) # no currency dat
 }
 }
 \keyword{internal}

@@ -5,6 +5,9 @@
 \usage{
 getcredibilityratings(...)
 }
+\arguments{
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+}
 \description{
 Get possible credibility ratings
 }

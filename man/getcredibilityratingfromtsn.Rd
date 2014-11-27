@@ -3,10 +3,10 @@
 \alias{getcredibilityratingfromtsn}
 \title{Get credibility rating from tsn}
 \usage{
-getcredibilityratingfromtsn(x, ...)
+getcredibilityratingfromtsn(tsn, ...)
 }
 \arguments{
-\item{x}{TSN for a taxonomic group (numeric)}
+\item{tsn}{TSN for a taxonomic group (numeric)}
 
 \item{...}{optional additional curl options (debugging tools mostly)}
 }

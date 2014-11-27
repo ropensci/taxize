@@ -3,14 +3,17 @@
 \alias{getkingdomnames}
 \title{Get all possible kingdom names}
 \usage{
-getkingdomnames()
+getkingdomnames(...)
+}
+\arguments{
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \description{
 Get all possible kingdom names
 }
 \examples{
 \donttest{
-getkingdomnames()
+getkingdomnames(config=timeout(3))
 }
 }
 \keyword{internal}

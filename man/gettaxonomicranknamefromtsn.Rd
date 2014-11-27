@@ -3,18 +3,19 @@
 \alias{gettaxonomicranknamefromtsn}
 \title{Returns the kingdom and rank information for the TSN.}
 \usage{
-gettaxonomicranknamefromtsn(tsn = NA, curlopts = list(),
-  curl = getCurlHandle(), verbose = TRUE)
+gettaxonomicranknamefromtsn(tsn, ...)
 }
 \arguments{
-\item{verbose}{Verbosity or not (default TRUE)}
+\item{tsn}{TSN for a taxonomic group (numeric)}
+
+\item{...}{optional additional curl options (debugging tools mostly)}
 }
 \description{
 Returns the kingdom and rank information for the TSN.
 }
 \examples{
 \donttest{
-gettaxonomicranknamefromtsn(tsn = 202385)
+gettaxonomicranknamefromtsn(202385, config=timeout(3))
 }
 }
 \keyword{internal}

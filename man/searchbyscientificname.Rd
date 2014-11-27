@@ -3,16 +3,20 @@
 \alias{searchbyscientificname}
 \title{Search by scientific name}
 \usage{
-searchbyscientificname(srchkey = NA, curlopts = list(),
-  curl = getCurlHandle(), verbose = TRUE)
+searchbyscientificname(x, ...)
+}
+\arguments{
+\item{x}{text or taxonomic serial number (TSN) (character or numeric)}
+
+\item{...}{optional additional curl options (debugging tools mostly)}
 }
 \description{
 Search by scientific name
 }
 \examples{
 \donttest{
-searchbyscientificname("Tardigrada")
-searchbyscientificname("Quercus douglasii")
+searchbyscientificname("Tardigrada", config=timeout(3))
+searchbyscientificname("Quercus douglasii", config=timeout(3))
 }
 }
 \keyword{internal}

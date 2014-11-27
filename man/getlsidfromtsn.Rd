@@ -3,14 +3,19 @@
 \alias{getlsidfromtsn}
 \title{Gets the unique LSID for the TSN, or an empty result if there is no match.}
 \usage{
-getlsidfromtsn(tsn = NA, curlopts = list(), curl = getCurlHandle())
+getlsidfromtsn(tsn, ...)
+}
+\arguments{
+\item{tsn}{TSN for a taxonomic group (numeric)}
+
+\item{...}{optional additional curl options (debugging tools mostly)}
 }
 \description{
 Gets the unique LSID for the TSN, or an empty result if there is no match.
 }
 \examples{
 \donttest{
-getlsidfromtsn(tsn = 155166)
+getlsidfromtsn(155166, config=timeout(3))
 }
 }
 \keyword{internal}

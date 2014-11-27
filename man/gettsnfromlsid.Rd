@@ -3,26 +3,20 @@
 \alias{gettsnfromlsid}
 \title{Gets the TSN corresponding to the LSID, or an empty result if there is no match.}
 \usage{
-gettsnfromlsid(lsid = NA, curlopts = list(), curl = getCurlHandle(),
-  verbose = TRUE)
+gettsnfromlsid(lsid, ...)
 }
 \arguments{
-\item{lsid}{lsid for a taxonomic group (numeric)}
+\item{lsid}{lsid for a taxonomic group (character)}
 
-\item{curlopts}{optional additional curl options (debugging tools mostly)}
-
-\item{curl}{If using in a loop, call getCurlHandle() first and pass
-the returned value in here (avoids unnecessary footprint)}
-
-\item{verbose}{(logical) Print messages or not. Default to TRUE.}
+\item{...}{optional additional curl options (debugging tools mostly)}
 }
 \description{
 Gets the TSN corresponding to the LSID, or an empty result if there is no match.
 }
 \examples{
 \donttest{
-gettsnfromlsid(lsid = "urn:lsid:itis.gov:itis_tsn:28726")
-gettsnfromlsid(lsid = "urn:lsid:itis.gov:itis_tsn:0")
+gettsnfromlsid(lsid="urn:lsid:itis.gov:itis_tsn:28726", config=timeout(3))
+gettsnfromlsid("urn:lsid:itis.gov:itis_tsn:0", config=timeout(3))
 }
 }
 \keyword{internal}

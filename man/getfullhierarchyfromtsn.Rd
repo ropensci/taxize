@@ -3,12 +3,12 @@
 \alias{getfullhierarchyfromtsn}
 \title{Get full hierarchy from tsn}
 \usage{
-getfullhierarchyfromtsn(x, ...)
+getfullhierarchyfromtsn(tsn, ...)
 }
 \arguments{
-\item{...}{optional additional curl options (debugging tools mostly)}
-
 \item{tsn}{TSN for a taxonomic group (numeric)}
+
+\item{...}{optional additional curl options (debugging tools mostly)}
 }
 \description{
 Get full hierarchy from tsn

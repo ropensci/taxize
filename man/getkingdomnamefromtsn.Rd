@@ -3,18 +3,19 @@
 \alias{getkingdomnamefromtsn}
 \title{Get kingdom names from tsn}
 \usage{
-getkingdomnamefromtsn(tsn = NA, curlopts = list(), curl = getCurlHandle(),
-  verbose = TRUE)
+getkingdomnamefromtsn(tsn, ...)
 }
 \arguments{
-\item{verbose}{Verbosity or not (default TRUE)}
+\item{tsn}{TSN for a taxonomic group (numeric)}
+
+\item{...}{optional additional curl options (debugging tools mostly)}
 }
 \description{
 Get kingdom names from tsn
 }
 \examples{
 \donttest{
-getkingdomnamefromtsn(tsn = 202385)
+getkingdomnamefromtsn(202385, config=timeout(3))
 }
 }
 \keyword{internal}

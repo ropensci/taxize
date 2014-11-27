@@ -5,17 +5,12 @@
  TSN in the search key to the TSN field. Returns an empty result set if
  there is no match or the TSN is invalid.}
 \usage{
-getrecordfromlsid(lsid = NA, curlopts = list(), verbose = TRUE)
+getrecordfromlsid(lsid, ...)
 }
 \arguments{
-\item{lsid}{lsid for a taxonomic group (numeric)}
+\item{lsid}{lsid for a taxonomic group (character)}
 
-\item{curlopts}{optional additional curl options (debugging tools mostly)}
-
-\item{verbose}{(logical) Print messages or not. Default to TRUE.}
-
-\item{curl}{If using in a loop, call getCurlHandle() first and pass
-the returned value in here (avoids unnecessary footprint)}
+\item{...}{optional additional curl options (debugging tools mostly)}
 }
 \description{
 Gets the partial ITIS record for the TSN in the LSID, found by comparing the
@@ -24,7 +19,7 @@ Gets the partial ITIS record for the TSN in the LSID, found by comparing the
 }
 \examples{
 \donttest{
-getrecordfromlsid(lsid = "urn:lsid:itis.gov:itis_tsn:180543")
+getrecordfromlsid("urn:lsid:itis.gov:itis_tsn:180543", config=timeout(3))
 }
 }
 \keyword{internal}

@@ -3,15 +3,19 @@
 \alias{searchbycommonnameendswith}
 \title{Search for tsn by common name ending with}
 \usage{
-searchbycommonnameendswith(srchkey = NA, curlopts = list(),
-  curl = getCurlHandle())
+searchbycommonnameendswith(x, ...)
+}
+\arguments{
+\item{x}{text or taxonomic serial number (TSN) (character or numeric)}
+
+\item{...}{optional additional curl options (debugging tools mostly)}
 }
 \description{
 Search for tsn by common name ending with
 }
 \examples{
 \donttest{
-searchbycommonnameendswith(srchkey="snake")
+searchbycommonnameendswith("snake", config=timeout(3))
 }
 }
 \keyword{internal}

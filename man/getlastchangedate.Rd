@@ -3,14 +3,17 @@
 \alias{getlastchangedate}
 \title{Provides the date the ITIS database was last updated.}
 \usage{
-getlastchangedate()
+getlastchangedate(...)
+}
+\arguments{
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \description{
 Provides the date the ITIS database was last updated.
 }
 \examples{
 \donttest{
-getlastchangedate()
+getlastchangedate(config=timeout(3))
 }
 }
 \keyword{internal}

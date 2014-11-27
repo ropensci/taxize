@@ -3,17 +3,21 @@
 \alias{searchbycommonname}
 \title{Search for tsn by common name}
 \usage{
-searchbycommonname(srchkey = NA, curlopts = list(),
-  curl = getCurlHandle())
+searchbycommonname(x, ...)
+}
+\arguments{
+\item{x}{text or taxonomic serial number (TSN) (character or numeric)}
+
+\item{...}{optional additional curl options (debugging tools mostly)}
 }
 \description{
 Search for tsn by common name
 }
 \examples{
 \donttest{
-searchbycommonname("american bullfrog")
-searchbycommonname("ferret-badger")
-searchbycommonname(srchkey="polar bear")
+searchbycommonname("american bullfrog", config=timeout(3))
+searchbycommonname("ferret-badger", config=timeout(3))
+searchbycommonname("polar bear", config=timeout(3))
 }
 }
 \keyword{internal}

@@ -5,6 +5,9 @@
 \usage{
 getgeographicvalues(...)
 }
+\arguments{
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+}
 \description{
 Get all possible geographic values
 }

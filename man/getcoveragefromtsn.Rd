@@ -3,10 +3,10 @@
 \alias{getcoveragefromtsn}
 \title{Get coverge from tsn}
 \usage{
-getcoveragefromtsn(x, ...)
+getcoveragefromtsn(tsn, ...)
 }
 \arguments{
-\item{x}{TSN for a taxonomic group (numeric)}
+\item{tsn}{TSN for a taxonomic group (numeric)}
 
 \item{...}{optional additional curl options (debugging tools mostly)}
 }
@@ -15,7 +15,7 @@ Get coverge from tsn
 }
 \examples{
 \donttest{
-getcoveragefromtsn(28727, config=timeout(4))  # coverage data
+getcoveragefromtsn(tsn=28727, config=timeout(4))  # coverage data
 getcoveragefromtsn(526852, config=timeout(4))  # no coverage data
 }
 }

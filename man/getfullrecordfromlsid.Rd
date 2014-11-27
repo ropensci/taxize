@@ -5,10 +5,10 @@
 		TSN in the search key to the TSN field. Returns an empty result set if
   	there is no match or the TSN is invalid.}
 \usage{
-getfullrecordfromlsid(x, ...)
+getfullrecordfromlsid(lsid, ...)
 }
 \arguments{
-\item{x}{lsid for a taxonomic group (character)}
+\item{lsid}{lsid for a taxonomic group (character)}
 
 \item{...}{optional additional curl options (debugging tools mostly)}
 }

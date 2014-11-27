@@ -3,17 +3,14 @@
 \alias{itis_searchcommon}
 \title{Searches common name and acts as thin wrapper around \code{searchbycommonnamebeginswith} and \code{searchbycommonnameendswith}}
 \usage{
-itis_searchcommon(srchkey = NA, curlopts = list(), curl = getCurlHandle(),
-  from = "begin")
+itis_searchcommon(x, from = "begin", ...)
 }
 \arguments{
-\item{srchkey}{search terms}
+\item{x}{Search terms}
 
-\item{curlopts}{Additional curl options.}
+\item{from}{Default is to search from beginning. Use \code{end} to serch from end.}
 
-\item{curl}{curl handle}
-
-\item{from}{default is to search from beginning. Use \code{end} to serch from end.}
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
 \code{data.frame}
@@ -23,8 +20,8 @@ Searches common name and acts as thin wrapper around \code{searchbycommonnamebeg
 }
 \examples{
 \donttest{
-searchCommon(srchkey="inch")
-searchCommon(srchkey="inch", from = "end")
+itis_searchcommon("inch", config=timeout(3))
+itis_searchcommon("inch", from = "end", config=timeout(3))
 }
 }
 \seealso{

@@ -3,26 +3,20 @@
 \alias{getsynonymnamesfromtsn}
 \title{Returns a list of the synonyms (if any) for the TSN.}
 \usage{
-getsynonymnamesfromtsn(tsn = NA, curlopts = list(),
-  curl = getCurlHandle(), verbose = TRUE)
+getsynonymnamesfromtsn(tsn, ...)
 }
 \arguments{
 \item{tsn}{TSN for a taxonomic group (numeric)}
 
-\item{curlopts}{optional additional curl options (debugging tools mostly)}
-
-\item{curl}{If using in a loop, call getCurlHandle() first and pass
-the returned value in here (avoids unnecessary footprint)}
-
-\item{verbose}{(logical) Print messages or not. Default to TRUE.}
+\item{...}{optional additional curl options (debugging tools mostly)}
 }
 \description{
 Returns a list of the synonyms (if any) for the TSN.
 }
 \examples{
 \donttest{
-getsynonymnamesfromtsn(tsn = 183671) # tsn not accepted
-getsynonymnamesfromtsn(tsn = 526852) # tsn accepted
+getsynonymnamesfromtsn(183671, config=timeout(3)) # tsn not accepted
+getsynonymnamesfromtsn(526852, config=timeout(5)) # tsn accepted
 }
 }
 \keyword{internal}

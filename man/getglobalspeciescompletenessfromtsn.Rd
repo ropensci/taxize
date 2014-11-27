@@ -3,10 +3,10 @@
 \alias{getglobalspeciescompletenessfromtsn}
 \title{Get global species completeness from tsn}
 \usage{
-getglobalspeciescompletenessfromtsn(x, ...)
+getglobalspeciescompletenessfromtsn(tsn, ...)
 }
 \arguments{
-\item{x}{TSN for a taxonomic group (numeric)}
+\item{tsn}{TSN for a taxonomic group (numeric)}
 
 \item{...}{optional additional curl options (debugging tools mostly)}
 }

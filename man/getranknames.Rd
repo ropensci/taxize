@@ -4,7 +4,10 @@
 \title{Provides a list of all the unique rank names contained in the database and
  their kingdom and rank ID values.}
 \usage{
-getranknames()
+getranknames(...)
+}
+\arguments{
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \description{
 Provides a list of all the unique rank names contained in the database and
@@ -12,7 +15,7 @@ Provides a list of all the unique rank names contained in the database and
 }
 \examples{
 \donttest{
-getranknames()
+getranknames(config=timeout(3))
 }
 }
 \keyword{internal}

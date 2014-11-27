@@ -4,8 +4,12 @@
 \title{Returns the scientific name for the TSN. Also returns the component parts
    (names and indicators) of the scientific name.}
 \usage{
-getscientificnamefromtsn(tsn = NA, curlopts = list(),
-  curl = getCurlHandle())
+getscientificnamefromtsn(tsn, ...)
+}
+\arguments{
+\item{tsn}{TSN for a taxonomic group (numeric)}
+
+\item{...}{optional additional curl options (debugging tools mostly)}
 }
 \description{
 Returns the scientific name for the TSN. Also returns the component parts
@@ -13,7 +17,7 @@ Returns the scientific name for the TSN. Also returns the component parts
 }
 \examples{
 \donttest{
-getscientificnamefromtsn(tsn = 531894)
+getscientificnamefromtsn(531894, config=timeout(3))
 }
 }
 \keyword{internal}

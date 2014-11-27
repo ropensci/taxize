@@ -3,10 +3,10 @@
 \alias{getdatedatafromtsn}
 \title{Get date data from tsn}
 \usage{
-getdatedatafromtsn(x, ...)
+getdatedatafromtsn(tsn, ...)
 }
 \arguments{
-\item{x}{TSN for a taxonomic group (numeric)}
+\item{tsn}{TSN for a taxonomic group (numeric)}
 
 \item{...}{optional additional curl options (debugging tools mostly)}
 }
@@ -15,7 +15,7 @@ Get date data from tsn
 }
 \examples{
 \donttest{
-getdatedatafromtsn(x=180543, config=timeout(3))
+getdatedatafromtsn(180543, config=timeout(3))
 }
 }
 \keyword{internal}

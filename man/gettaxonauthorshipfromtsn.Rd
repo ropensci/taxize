@@ -3,15 +3,19 @@
 \alias{gettaxonauthorshipfromtsn}
 \title{Returns the author information for the TSN.}
 \usage{
-gettaxonauthorshipfromtsn(tsn = NA, curlopts = list(),
-  curl = getCurlHandle())
+gettaxonauthorshipfromtsn(tsn, ...)
+}
+\arguments{
+\item{tsn}{TSN for a taxonomic group (numeric)}
+
+\item{...}{optional additional curl options (debugging tools mostly)}
 }
 \description{
 Returns the author information for the TSN.
 }
 \examples{
 \donttest{
-gettaxonauthorshipfromtsn(tsn = 183671)
+gettaxonauthorshipfromtsn(183671, config=timeout(3))
 }
 }
 \keyword{internal}

@@ -3,14 +3,19 @@
 \alias{getreviewyearfromtsn}
 \title{Returns the review year for the TSN.}
 \usage{
-getreviewyearfromtsn(tsn = NA, curlopts = list(), curl = getCurlHandle())
+getreviewyearfromtsn(tsn, ...)
+}
+\arguments{
+\item{tsn}{TSN for a taxonomic group (numeric)}
+
+\item{...}{optional additional curl options (debugging tools mostly)}
 }
 \description{
 Returns the review year for the TSN.
 }
 \examples{
 \donttest{
-getreviewyearfromtsn(tsn = 180541)
+getreviewyearfromtsn(180541, config=timeout(3))
 }
 }
 \keyword{internal}

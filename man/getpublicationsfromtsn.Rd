@@ -3,18 +3,19 @@
 \alias{getpublicationsfromtsn}
 \title{Returns a list of the pulications used for the TSN.}
 \usage{
-getpublicationsfromtsn(tsn = NA, curlopts = list(),
-  curl = getCurlHandle(), verbose = TRUE)
+getpublicationsfromtsn(tsn, ...)
 }
 \arguments{
-\item{verbose}{Verbosity or not (default TRUE)}
+\item{tsn}{TSN for a taxonomic group (numeric)}
+
+\item{...}{optional additional curl options (debugging tools mostly)}
 }
 \description{
 Returns a list of the pulications used for the TSN.
 }
 \examples{
 \donttest{
-getpublicationsfromtsn(tsn = 70340)
+getpublicationsfromtsn(70340, config=timeout(3))
 }
 }
 \keyword{internal}

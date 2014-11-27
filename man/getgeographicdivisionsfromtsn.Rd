@@ -3,10 +3,10 @@
 \alias{getgeographicdivisionsfromtsn}
 \title{Get geographic divisions from tsn}
 \usage{
-getgeographicdivisionsfromtsn(x, ...)
+getgeographicdivisionsfromtsn(tsn, ...)
 }
 \arguments{
-\item{x}{TSN for a taxonomic group (numeric)}
+\item{tsn}{TSN for a taxonomic group (numeric)}
 
 \item{...}{optional additional curl options (debugging tools mostly)}
 }

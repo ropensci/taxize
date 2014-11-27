@@ -3,14 +3,19 @@
 \alias{getparenttsnfromtsn}
 \title{Returns the parent TSN for the entered TSN.}
 \usage{
-getparenttsnfromtsn(tsn = NA, curlopts = list(), curl = getCurlHandle())
+getparenttsnfromtsn(tsn, ...)
+}
+\arguments{
+\item{tsn}{TSN for a taxonomic group (numeric)}
+
+\item{...}{optional additional curl options (debugging tools mostly)}
 }
 \description{
 Returns the parent TSN for the entered TSN.
 }
 \examples{
 \donttest{
-getparenttsnfromtsn(tsn = 202385)
+getparenttsnfromtsn(202385, config=timeout(3))
 }
 }
 \keyword{internal}
