@@ -53,33 +53,42 @@ children <- function(...){
 #' @rdname children
 children.default <- function(x, db = NULL, ...)
 {
-  if (is.null(db))
+  if (is.null(db)){
     stop("Must specify db value!")
-  
-  if (db == 'itis') {
-    id <- get_tsn(x, ...)
-    out <- children(id, ...)
   }
-  if (db == 'col') {
-    id <- get_colid(x, ...)
-    out <- children(id, ...)
-  }
-  if (db == 'ncbi') {
-     if (all(grepl("^[[:digit:]]*$", x))) {
-       id <- x
-       class(id) <- "uid"
-       out <- children(id, ...)
-     } else {
-       out <- ncbi_children(name = x, ...)
-       class(out) <- 'children'
-       attr(out, 'db') <- 'ncbi'
-     }
-  }
-#   if (db == 'ubio') {
-#     id <- get_ubioid(x, ...)
-#     out <- children(id, ...)
-#     names(out) <- x
-#   }
+
+
+  switch(db,
+         itis = {
+           id <- get_tsn(x, ...)
+           out <- children(id, ...)
+         },
+
+         col = {
+           id <- get_colid(x, ...)
+           out <- children(id, ...)
+         },
+
+         ncbi = {
+           if (all(grepl("^[[:digit:]]*$", x))) {
+             id <- x
+             class(id) <- "uid"
+             out <- children(id, ...)
+           } else {
+             out <- ncbi_children(name = x, ...)
+             class(out) <- 'children'
+             attr(out, 'db') <- 'ncbi'
+           }
+         },
+
+#        ubio = {
+#          id <- get_ubioid(x, ...)
+#          out <- children(id, ...)
+#          names(out) <- x
+#        },
+
+         stop("the provided db value was not recognised")
+  )
   names(out) <- x
   return(out)
 }
