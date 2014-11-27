@@ -9,8 +9,6 @@ getacceptednamesfromtsn(tsn, ...)
 \item{tsn}{TSN for a taxonomic group (numeric)}
 
 \item{...}{optional additional curl options (debugging tools mostly)}
-
-\item{verbose}{Verbosity or not (default TRUE)}
 }
 \description{
 Get accepted names from tsn
