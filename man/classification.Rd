@@ -62,8 +62,8 @@ rbind.classification_ids(...)
 
 \item{callopts}{Curl options passed on to \code{\link[httr]{GET}}}
 
-\item{return_id}{(logical) If TRUE, return the taxon id as well as the name and rank of taxa
-in the lineage returned. Default: FALSE.}
+\item{return_id}{(logical) If TRUE (default), return the taxon id as well as the name
+and rank of taxa in the lineage returned.}
 
 \item{id}{character; identifiers, returned by \code{\link[taxize]{get_tsn}},
 \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}},
@@ -133,10 +133,13 @@ cbind(cl)
 rbind(cl)
 
 # Many names to get_ids
-out <- get_ids(names=c("Puma concolor","Accipiter striatus"), db = c('ncbi','itis','col'))
-cl <- classification(out)
+(out <- get_ids(names=c("Puma concolor","Accipiter striatus"), db = c('ncbi','itis','col')))
+(cl <- classification(out))
 rbind(cl)
+## cbind with so many names results in some messy data
 cbind(cl)
+## so you can turn off return_id
+cbind( classification(out, return_id=FALSE) )
 
 # rbind and cbind on class classification (from a call to get_colid, get_tsn, etc.
 # - other than get_ids)
@@ -144,32 +147,30 @@ cbind(cl)
 rbind(cl_col)
 cbind(cl_col)
 
-cl_uid <- classification(get_uid(c("Puma concolor","Accipiter striatus")))
+(cl_uid <- classification(get_uid(c("Puma concolor","Accipiter striatus")), return_id=FALSE))
 rbind(cl_uid)
 cbind(cl_uid)
+## cbind works a bit odd when there are lots of ranks without names
+(cl_uid <- classification(get_uid(c("Puma concolor","Accipiter striatus")), return_id=TRUE))
+cbind(cl_uid)
 
-cl_tsn <- classification(get_tsn(c("Puma concolor","Accipiter striatus")))
+(cl_tsn <- classification(get_tsn(c("Puma concolor","Accipiter striatus"))))
 rbind(cl_tsn)
 cbind(cl_tsn)
 
-tsns <- get_tsn(c("Puma concolor","Accipiter striatus"))
-cl_tsns <- classification(tsns)
+(tsns <- get_tsn(c("Puma concolor","Accipiter striatus")))
+(cl_tsns <- classification(tsns))
 cbind(cl_tsns)
 
 # NBN data
-res <- classification(c("Alopias vulpinus","Pinus sylvestris"), db = 'nbn')
+(res <- classification(c("Alopias vulpinus","Pinus sylvestris"), db = 'nbn'))
 rbind(res)
 cbind(res)
 
 # Return taxonomic IDs
+## the return_id parameter is logical, and you can turn it on or off. It's TRUE by default
 classification(c("Alopias vulpinus","Pinus sylvestris"), db = 'ncbi', return_id = TRUE)
-classification(c("Alopias vulpinus","Pinus sylvestris"), db = 'col', return_id = TRUE)
-classification(c("Alopias vulpinus","Pinus sylvestris"), db = 'gbif', return_id = TRUE)
-classification(c("Alopias vulpinus","Pinus sylvestris"), db = 'ubio', return_id = TRUE)
-classification(c("Alopias vulpinus","Pinus sylvestris"), db = 'eol', return_id = TRUE)
-classification(c("Alopias vulpinus","Pinus sylvestris"), db = 'nbn', return_id = TRUE)
-classification(c("Poa annua","Pinus sylvestris"), db = 'tropicos', return_id = TRUE)
-classification(c("Poa annua","Pinus sylvestris"), db = 'itis', return_id = TRUE)
+classification(c("Alopias vulpinus","Pinus sylvestris"), db = 'ncbi', return_id = FALSE)
 }
 }
 \seealso{
