@@ -42,13 +42,13 @@ classification(...)
 
 \method{classification}{ids}(id, ...)
 
-\method{cbind}{classification}(x)
+cbind.classification(x)
 
-\method{rbind}{classification}(x)
+rbind.classification(x)
 
-\method{cbind}{classification_ids}(...)
+cbind.classification_ids(...)
 
-\method{rbind}{classification_ids}(...)
+rbind.classification_ids(...)
 }
 \arguments{
 \item{...}{Other arguments passed to \code{\link[taxize]{get_tsn}},

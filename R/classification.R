@@ -171,7 +171,6 @@ process_ids <- function(input, fxn, ...){
   id
 }
 
-#' @method classification tsn
 #' @export
 #' @rdname classification
 classification.tsn <- function(id, callopts = list(), return_id = FALSE, ...)
@@ -195,8 +194,6 @@ classification.tsn <- function(id, callopts = list(), return_id = FALSE, ...)
   structure(out, class='classification', db='itis')
 }
 
-
-#' @method classification uid
 #' @export
 #' @rdname classification
 classification.uid <- function(id, return_id = FALSE, ...) {
@@ -230,8 +227,6 @@ classification.uid <- function(id, return_id = FALSE, ...) {
   structure(out, class='classification', db='ncbi')
 }
 
-
-#' @method classification eolid
 #' @export
 #' @rdname classification
 classification.eolid <- function(id, key = NULL, callopts = list(), return_id = FALSE, ...) {
@@ -266,7 +261,6 @@ classification.eolid <- function(id, key = NULL, callopts = list(), return_id = 
   structure(out, class='classification', db='eol')
 }
 
-#' @method classification colid
 #' @export
 #' @rdname classification
 classification.colid <- function(id, start = NULL, checklist = NULL, return_id = FALSE, ...) {
@@ -308,8 +302,6 @@ classification.colid <- function(id, start = NULL, checklist = NULL, return_id =
   structure(out, class='classification', db='col')
 }
 
-
-#' @method classification tpsid
 #' @export
 #' @rdname classification
 classification.tpsid <- function(id, key = NULL, callopts = list(), return_id = FALSE, ...) {
@@ -339,7 +331,6 @@ classification.tpsid <- function(id, key = NULL, callopts = list(), return_id = 
   structure(out, class='classification', db='tropicos')
 }
 
-#' @method classification gbifid
 #' @export
 #' @rdname classification
 classification.gbifid <- function(id, callopts = list(), return_id=FALSE, ...) {
@@ -363,8 +354,6 @@ classification.gbifid <- function(id, callopts = list(), return_id=FALSE, ...) {
   structure(out, class='classification', db='gbif')
 }
 
-
-#' @method classification nbnid
 #' @export
 #' @rdname classification
 classification.nbnid <- function(id, callopts = list(), return_id = FALSE, ...) {
@@ -387,7 +376,6 @@ classification.nbnid <- function(id, callopts = list(), return_id = FALSE, ...) 
   structure(out, class='classification', db='nbn')
 }
 
-#' @method classification ids
 #' @export
 #' @rdname classification
 classification.ids <- function(id, ...)
@@ -406,7 +394,6 @@ classification.ids <- function(id, ...)
   return(out)
 }
 
-#' @method cbind classification
 #' @export
 #' @rdname classification
 cbind.classification <- function(x)
@@ -426,7 +413,6 @@ cbind.classification <- function(x)
   tmp
 }
 
-#' @method rbind classification
 #' @export
 #' @rdname classification
 rbind.classification <- function(x)
@@ -442,7 +428,6 @@ rbind.classification <- function(x)
   return( df )
 }
 
-#' @method cbind classification_ids
 #' @export
 #' @rdname classification
 cbind.classification_ids <- function(...)
@@ -473,7 +458,6 @@ move_col <- function(tt, y){
   tt[ c(names(tt)[ - sapply(y, function(m) grep(m, names(tt))) ], y) ]
 }
 
-#' @method rbind classification_ids
 #' @export
 #' @rdname classification
 rbind.classification_ids <- function(...)
