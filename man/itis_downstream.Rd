@@ -3,7 +3,7 @@
 \alias{itis_downstream}
 \title{Retrieve all taxa names or TSNs downstream in hierarchy from given TSN.}
 \usage{
-itis_downstream(tsns, downto, ...)
+itis_downstream(tsns, downto, intermediate = FALSE, ...)
 }
 \arguments{
 \item{tsns}{A taxonomic serial number.}
@@ -11,23 +11,40 @@ itis_downstream(tsns, downto, ...)
 \item{downto}{The taxonomic level you want to go down to. See examples below.
 The taxonomic level IS case sensitive, and you do have to spell it
 correctly. See \code{data(rank_ref)} for spelling.}
+
+\item{intermediate}{(logical) If TRUE, return a list of length two with target
+taxon rank names, with additional list of data.frame's of intermediate
+taxonomic groups. Default: FALSE}
 }
 \value{
 Data.frame of taxonomic information downstream to family from e.g.,
-		Order, Class, etc.
+		Order, Class, etc., or if \code{intermediated=TRUE}, list of length two,
+  	with target taxon rank names, and intermediate names.
 }
 \description{
 Retrieve all taxa names or TSNs downstream in hierarchy from given TSN.
 }
 \examples{
 \donttest{
+## the plant class Bangiophyceae, tsn 846509
 itis_downstream(tsns = 846509, downto="Genus")
+itis_downstream(tsns = 846509, downto="Genus", intermediate=TRUE)
 
-# getting families downstream from Acridoidea
+# get families downstream from Acridoidea
 itis_downstream(tsns = 650497, "Family")
+## here, intermediate leads to the same result as the target
+itis_downstream(tsns = 650497, "Family", intermediate=TRUE)
 
-# getting species downstream from Ursus
+# get species downstream from Ursus
 itis_downstream(tsns = 180541, "Species")
+
+# get orders down from the Division Rhodophyta (red algae)
+itis_downstream(tsns = 660046, "Order")
+itis_downstream(tsns = 660046, "Order", intermediate=TRUE)
+
+# get tribes down from the family Apidae
+itis_downstream(tsns = 154394, downto="Tribe")
+itis_downstream(tsns = 154394, downto="Tribe", intermediate=TRUE)
 }
 }
 \author{
