@@ -1,6 +1,6 @@
 #' A light wrapper around the taxonstand fxn to call Theplantlist.org database.
 #'
-#' THIS FUNCTION IS DEPRECATED.
+#' THIS FUNCTION IS DEFUNCT.
 #'
 #' This function was a very light wrapper around TPLck anyway - we don't see further
 #' reason to keep this function. Use the Taxonstand functions \code{\link[Taxonstand]{TPL}}
@@ -28,10 +28,10 @@
 #' tpl_search(taxon = "Microbryum curvicollum", corr = TRUE, max.distance=5)
 #' }
 #' @export
-#' @rdname tpl_search-deprecated
+#' @rdname tpl_search-defunct
 tpl_search <- function(taxon, paral = FALSE, ...)
 {
-  .Deprecated(msg="This function is deprecated. Use the Taxonstand functions TPL or TPLck directly.")
+  .Defunct(msg="This function is defunct. Use the Taxonstand functions TPL or TPLck directly.")
 
   if(paral){
     out <- llply(taxon, function(x) TPLck(x, ...), .parallel=TRUE)
