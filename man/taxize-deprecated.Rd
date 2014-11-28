@@ -3,29 +3,22 @@
 \alias{taxize-deprecated}
 \title{Deprecated functions in taxize}
 \description{
-The following functions are now deprecated - see the function \code{classification}
+The following functions are now deprecated:
 }
 \details{
 \itemize{
- \item \code{\link{col_classification}}: This function is deprecated. See \code{classification}
- \item \code{\link{eol_hierarchy}}: This function is deprecated. See \code{classification}
- \item \code{\link{tp_classification}}: This function is deprecated. See \code{classification}
+ \item \code{\link{ncbi_getbyname}}: This function is deprecated and will be removed in a future
+ version of this package.
+ \item \code{\link{ncbi_getbyid}}: This function is deprecated and will be removed in a future
+ version of this package.
+ \item \code{\link{ncbi_search}}: This function is deprecated and will be removed in a future
+ version of this package.
+ \item \code{\link{phylomatic_tree}}: This function is deprecated and will be removed in a future
+ version of this package.
+ \item \code{\link{eol_invasive}}: This function is deprecated and will be removed in a future
+ version of this package.
+ \item \code{\link{gisd_invasive}}: This function is deprecated and will be removed in a future
+ version of this package.
 }
-
-The following functions have changed names. The old function names are still available to call,
-but simply return a message directing the user to the new function name.
-
-\itemize{
- \item \code{\link{get_seqs}}: This function has changed name to \code{ncbi_getbyname}.
- \item \code{\link{get_genes}}: This function has changed name to \code{ncbi_getbyid}.
- \item \code{\link{get_genes_avail}}: This function has changed name to \code{ncbi_search}.
- \item \code{\link{tp_acceptednames}}: This function has changed name to \code{tp_accnames}.
- \item \code{\link{tp_namedistributions}}: This function has changed name to \code{tp_dist}.
- \item \code{\link{tp_namereferences}}: This function has changed name to \code{tp_refs}.
- \item \code{\link{itis_name}}: This function has changed name to \code{tax_name}.
-}
-
-In addition, \code{tpl_search} is deprecated - use the Taxonstand functions \code{TPL} or
-\code{TPLck} directly.
 }
 
