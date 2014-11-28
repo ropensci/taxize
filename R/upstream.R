@@ -32,7 +32,6 @@
 #' }
 upstream <- function(...) UseMethod("upstream")
 
-#' @method upstream default
 #' @export
 #' @rdname upstream
 upstream.default <- function(x, db = NULL, upto = NULL, ...){
@@ -53,7 +52,6 @@ upstream.default <- function(x, db = NULL, upto = NULL, ...){
   return(out)
 }
 
-#' @method upstream tsn
 #' @export
 #' @rdname upstream
 upstream.tsn <- function(x, db = NULL, upto = NULL, ...)
@@ -77,7 +75,6 @@ upstream.tsn <- function(x, db = NULL, upto = NULL, ...)
 #   return(out)
 }
 
-#' @method upstream colid
 #' @export
 #' @rdname upstream
 upstream.colid <- function(x, db = NULL, upto = NULL, ...) {
@@ -93,7 +90,6 @@ upstream.colid <- function(x, db = NULL, upto = NULL, ...) {
   structure(out, class='upstream', db='col')
 }
 
-#' @method upstream ids
 #' @export
 #' @rdname upstream
 upstream.ids <- function(x, db = NULL, upto = NULL, ...)
