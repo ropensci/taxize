@@ -126,7 +126,7 @@ classification <- function(...){
 #' @export
 #' @rdname classification
 classification.default <- function(x, db = NULL, callopts=list(), return_id = TRUE, ...){
-  if (is.null(db)) stop("Must specify db!")
+  if (is.null(db)) stop("Must specify db!", call. = FALSE)
   switch(db,
          itis = {
            id <- process_ids(x, get_tsn, ...)
@@ -156,7 +156,7 @@ classification.default <- function(x, db = NULL, callopts=list(), return_id = TR
            id <- process_ids(x, get_nbnid, ...)
            setNames(classification(id, callopts=callopts, return_id=return_id, ...), x)
          },
-         stop("the provided db value was not recognised", .call=FALSE)
+         stop("the provided db value was not recognised", call.=FALSE)
   )
 }
 
