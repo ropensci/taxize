@@ -8,7 +8,7 @@ col_classification(name = NULL, id = NULL, format = NULL, start = NULL,
 }
 \arguments{
 \item{name}{The string to search for. Only exact matches found the name given
-   will be returned, unless one or wildcards are included in the search
+ will be returned, unless one or wildcards are included in the search
    string. An * (asterisk) character denotes a wildcard; a % (percentage)
 character may also be used. The name must be at least 3 characters long,
 not counting wildcard characters.}
@@ -35,7 +35,7 @@ year's checklist instead of the lastest as default (numeric).}
 A list of data.frame's.
 }
 \description{
-THIS FUNCTION IS DEPRECATED.
+THIS FUNCTION IS DEFUNCT.
 }
 \details{
 You must provide one of name or id. The other parameters (format
