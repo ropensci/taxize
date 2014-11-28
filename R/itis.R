@@ -9,7 +9,8 @@ itis_parse <- function(a, b, d){
   xpathfunc <- function(x, y, nsp) {
     sapply(getNodeSet(y, paste("//ax21:", x, sep=''), namespaces=nsp), xmlValue)
   }
-  setNames(data.frame(t(sapply(a, xpathfunc, y=b, nsp=d))), a)
+  df <- setNames(data.frame(t(sapply(a, xpathfunc, y=b, nsp=d))), a)
+  colClasses(df, "character")
 }
 
 itisdf <- function(a, b, matches, colnames, pastens="ax21"){
