@@ -3,7 +3,7 @@
 \alias{itis_downstream}
 \title{Retrieve all taxa names or TSNs downstream in hierarchy from given TSN.}
 \usage{
-itis_downstream(tsns, downto, verbose = TRUE)
+itis_downstream(tsns, downto, ...)
 }
 \arguments{
 \item{tsns}{A taxonomic serial number.}
@@ -11,8 +11,6 @@ itis_downstream(tsns, downto, verbose = TRUE)
 \item{downto}{The taxonomic level you want to go down to. See examples below.
 The taxonomic level IS case sensitive, and you do have to spell it
 correctly. See \code{data(rank_ref)} for spelling.}
-
-\item{verbose}{logical; If TRUE (default), informative messages printed.}
 }
 \value{
 Data.frame of taxonomic information downstream to family from e.g.,
