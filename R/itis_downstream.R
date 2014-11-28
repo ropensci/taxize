@@ -9,6 +9,8 @@
 #' @param intermediate (logical) If TRUE, return a list of length two with target
 #'    taxon rank names, with additional list of data.frame's of intermediate
 #'    taxonomic groups. Default: FALSE
+#' @param ... Further args passed on to \code{\link{gettaxonomicranknamefromtsn}} and
+#'    \code{\link{gethierarchydownfromtsn}}
 #' @return Data.frame of taxonomic information downstream to family from e.g.,
 #' 		Order, Class, etc., or if \code{intermediated=TRUE}, list of length two,
 #'   	with target taxon rank names, and intermediate names.

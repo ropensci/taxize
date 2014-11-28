@@ -15,6 +15,9 @@ correctly. See \code{data(rank_ref)} for spelling.}
 \item{intermediate}{(logical) If TRUE, return a list of length two with target
 taxon rank names, with additional list of data.frame's of intermediate
 taxonomic groups. Default: FALSE}
+
+\item{...}{Further args passed on to \code{\link{gettaxonomicranknamefromtsn}} and
+\code{\link{gethierarchydownfromtsn}}}
 }
 \value{
 Data.frame of taxonomic information downstream to family from e.g.,
