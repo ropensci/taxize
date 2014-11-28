@@ -17,17 +17,18 @@
 #' @return \code{data.frame} of results if a single input is given. A list of \code{data.frame}s if
 #'   multiple inputs are given.
 #' @seealso \code{\link[taxize]{ncbi_getbyid}}, \code{\link[taxize]{ncbi_getbyname}}
-#' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}, Zachary Foster 
+#' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}, Zachary Foster
 #'   \email{zacharyfoster1989@@gmail.com}
+#' @rdname ncbi_search-deprecated
 #' @examples \donttest{
 #' # A single species
 #' out <- ncbi_search(taxa="Umbra limi", seqrange = "1:2000")
-#' # Get the same species information using a taxonomy id 
+#' # Get the same species information using a taxonomy id
 #' out <- ncbi_search(id = "75935", seqrange = "1:2000")
 #' # If the taxon name is unique, using the taxon name and id are equivalent
 #' all(ncbi_search(id = "75935") ==  ncbi_search(taxa="Umbra limi"))
 #' # If the taxon name is not unique, use taxon id
-#' #  "266948" is the uid for the butterfly genus, but there is also a genus of orchids with the 
+#' #  "266948" is the uid for the butterfly genus, but there is also a genus of orchids with the
 #' #  same name
 #' nrow(ncbi_search(id = "266948")) ==  nrow(ncbi_search(taxa="Satyrium"))
 #' # get list of genes available, removing non-unique
@@ -58,7 +59,7 @@ ncbi_search <- function(taxa = NULL, id = NULL, seqrange="1:3000", getrelated=FA
   # Function to search for sequences with esearch --------------------------------------------------
   search_for_sequences <- function(id) {
     if (is.na(id)) return(NULL)
-    # Construct search query  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+    # Construct search query  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     query_term <- paste0("xXarbitraryXx[porgn:__txid", id, "] AND ", seqrange, " [SLEN]")
     if (!is.null(entrez_query)) query_term <- paste(query_term, entrez_query, sep = " AND ")
     query <- list(db = "nuccore", retmax = limit, term = query_term)
@@ -73,7 +74,7 @@ ncbi_search <- function(taxa = NULL, id = NULL, seqrange="1:3000", getrelated=FA
       return(xpathSApply(esearch_result, "//IdList//Id", xmlValue)) # a list of sequence ids
     }
   }
-  
+
   # Function to parse results from http query ------------------------------------------------------
   parseres <- function(x){
     outsum <- xpathApply(content(x, as="parsed"), "//eSummaryResult")[[1]]
@@ -93,7 +94,7 @@ ncbi_search <- function(taxa = NULL, id = NULL, seqrange="1:3000", getrelated=FA
     if (!hypothetical) df <- df[!(access_prefix %in% c("XM","XR")),]
     return(df)
   }
-  
+
   # Function to download and parse sequence summary information using esummary ---------------------
   download_summary <- function(seq_id) {
     actualnum <- length(seq_id)
@@ -120,7 +121,7 @@ ncbi_search <- function(taxa = NULL, id = NULL, seqrange="1:3000", getrelated=FA
     }
     return(df)
   }
-  
+
   # Function to get a taxon's parent ---------------------------------------------------------------
   get_parent <- function(id) {
     if (!is.na(id)) {
@@ -136,7 +137,7 @@ ncbi_search <- function(taxa = NULL, id = NULL, seqrange="1:3000", getrelated=FA
     }
     return(NA)
   }
-  
+
   # Function to process queries one at a time ------------------------------------------------------
   foo <- function(xx) {
     # Search for sequence IDs for the given taxon  - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -148,7 +149,7 @@ ncbi_search <- function(taxa = NULL, id = NULL, seqrange="1:3000", getrelated=FA
       mssg(verbose, paste("no sequences for ", names(xx), " - getting other related taxa", sep=""))
       parent_id <- get_parent(xx)
       if (is.na(parent_id)) {
-        mssg(verbose, paste0("no related taxa found"))        
+        mssg(verbose, paste0("no related taxa found"))
       } else {
         mssg(verbose, paste0("...retrieving sequence IDs for ", names(xx), "..."))
         seq_ids <- search_for_sequences(parent_id)
@@ -160,23 +161,23 @@ ncbi_search <- function(taxa = NULL, id = NULL, seqrange="1:3000", getrelated=FA
       df <- data.frame(character(0), numeric(0), character(0), character(0), numeric(0))
     } else {
       mssg(verbose, "...retrieving available genes and their lengths...")
-      df <- download_summary(seq_ids)    
+      df <- download_summary(seq_ids)
       mssg(verbose, "...done.")
     }
     # Format output  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     names(df) <- c("taxon","length","gene_desc","acc_no","gi_no")
     return(df)
   }
-  
+
   # Constants --------------------------------------------------------------------------------------
   url_esearch <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
   url_esummary <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi"
-  
+
   # Argument validation ----------------------------------------------------------------------------
   if (sum(c(is.null(taxa), is.null(id))) != 1) {
     stop("Either taxa or id must be specified, but not both")
   }
-  
+
   # Convert 'taxa' to 'id' if 'taxa' is supplied ---------------------------------------------------
   if (is.null(id)) {
     id <- get_uid(taxa)
@@ -186,8 +187,8 @@ ncbi_search <- function(taxa = NULL, id = NULL, seqrange="1:3000", getrelated=FA
     class(id) <- "uid"
     names(id) <- id
   }
-  
-  # look up sequences for taxa ids ----------------------------------------------------------------- 
+
+  # look up sequences for taxa ids -----------------------------------------------------------------
   foo_safe <- plyr::failwith(NULL, foo)
   if (length(id) == 1) {
     foo_safe(id)
@@ -212,5 +213,5 @@ ncbi_search <- function(taxa = NULL, id = NULL, seqrange="1:3000", getrelated=FA
 
 get_genes_avail <- function(taxa, seqrange="1:3000", getrelated=FALSE, verbose=TRUE)
 {
-  .Deprecated("ncbi_search", "taxize", "Function name changed. See ncbi_search", "get_genes_avail")
+  .Defunct("ncbi_search", "taxize", "Function name changed. See ncbi_search", "get_genes_avail")
 }

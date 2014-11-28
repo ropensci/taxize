@@ -1,5 +1,5 @@
 #' Search for presence of taxonomic names in EOL invasive species databases.
-#' 
+#'
 #' See Details for important information.
 #'
 #' @import RCurl jsonlite plyr
@@ -15,11 +15,11 @@
 #' @param callopts Further args passed on to GET.
 #' @param verbose (logical) If TRUE the actual taxon queried is printed on the
 #'    console.
-#' @param count (logical) If TRUE, give back a count of number of taxa listed as invasive, if 
+#' @param count (logical) If TRUE, give back a count of number of taxa listed as invasive, if
 #'    FALSE (default), the normal output is given.
-#'    
-#' @details 
-#' IMPORTANT: When you get a returned NaN for a taxon, that means it's not on the invasive list 
+#'
+#' @details
+#' IMPORTANT: When you get a returned NaN for a taxon, that means it's not on the invasive list
 #' in question. If the taxon is found, a taxon identifier is returned.
 #'
 #' Beware that some datasets are quite large, and may take 30 sec to a minute to
@@ -27,29 +27,29 @@
 #' parameter in this API method for searching by taxon name.
 #'
 #' This function is vectorized, so you can pass a single name or a vector of names.
-#' 
-#' It's possible to return JSON or XML with the EOL API. However, this function only returns 
+#'
+#' It's possible to return JSON or XML with the EOL API. However, this function only returns
 #' JSON for now.
 #'
 #' Options for the dataset parameter are
 #' \itemize{
 #'  \item all - All datasets
-#'  \item gisd100 - 100 of the World's Worst Invasive Alien Species 
+#'  \item gisd100 - 100 of the World's Worst Invasive Alien Species
 #'  (Global Invasive Species Database) \url{http://eol.org/collections/54500}
 #'  \item gisd - Global Invasive Species Database 2013 \url{http://eol.org/collections/54983}
-#'  \item isc - Centre for Agriculture and Biosciences International Invasive Species 
+#'  \item isc - Centre for Agriculture and Biosciences International Invasive Species
 #'  Compendium (ISC) \url{http://eol.org/collections/55180}
-#'  \item daisie - Delivering Alien Invasive Species Inventories for Europe (DAISIE) Species 
+#'  \item daisie - Delivering Alien Invasive Species Inventories for Europe (DAISIE) Species
 #'  List \url{http://eol.org/collections/55179}
-#'  \item i3n - IABIN Invasives Information Network (I3N) Species 
+#'  \item i3n - IABIN Invasives Information Network (I3N) Species
 #'  \url{http://eol.org/collections/55176}
 #'  \item mineps - Marine Invaders of the NE Pacific Species \url{http://eol.org/collections/55331}
 #' }
-#' 
-#' Datasets are not updated that often. Here's last updated dates for some of the datasets as of 
+#'
+#' Datasets are not updated that often. Here's last updated dates for some of the datasets as of
 #' 2014-08-25
-#' 
-#' \itemize{ 
+#'
+#' \itemize{
 #'  \item gisd100 updated 6 mos ago
 #'  \item gisd  updated 1 yr ago
 #'  \item isc updated 1 yr ago
@@ -57,11 +57,12 @@
 #'  \item i3n updated 1 yr ago
 #'  \item mineps updated 1 yr ago
 #' }
-#' 
+#'
 #' @return A list of data.frame's/strings with results, with each element named by
 #' the input elements to the name parameter.
 #' @references See info for each data source at \url{http://eol.org/collections/55367/taxa}
-#' 
+#' @rdname eol_invasive-deprecated
+#'
 #' @examples \donttest{
 #' eol_invasive(name='Brassica oleracea', dataset='gisd')
 #' eol_invasive(name=c('Lymantria dispar','Cygnus olor','Hydrilla verticillata','Pinus concolor'),
@@ -70,12 +71,12 @@
 #' eol_invasive(name='Ciona intestinalis', dataset='mineps')
 #' eol_invasive(name=c('Lymantria dispar','Cygnus olor','Hydrilla verticillata','Pinus concolor'),
 #'    dataset='i3n')
-#' eol_invasive(name=c('Branta canadensis','Gallus gallus','Myiopsitta monachus'), 
+#' eol_invasive(name=c('Branta canadensis','Gallus gallus','Myiopsitta monachus'),
 #'    dataset='daisie')
 #' eol_invasive(name=c('Branta canadensis','Gallus gallus','Myiopsitta monachus'), dataset='isc')
-#' 
+#'
 #' # Count
-#' eol_invasive(name=c('Lymantria dispar','Cygnus olor','Hydrilla verticillata','Pinus concolor'), 
+#' eol_invasive(name=c('Lymantria dispar','Cygnus olor','Hydrilla verticillata','Pinus concolor'),
 #'    dataset='gisd', count = TRUE)
 #' }
 
@@ -146,6 +147,6 @@ eol_invasive <- function(name = NULL, dataset="all", searchby = grep, page=NULL,
   df$db <- dataset
   names(df)[c(1,3)] <- c("searched_name","eol_object_id")
   df
-  
+
   if(!count) df else length(na.omit(df$eol_object_id))
 }

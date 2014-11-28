@@ -45,7 +45,7 @@ Newick formatted tree or nexml text.
 Query Phylomatic for a phylogenetic tree.
 }
 \details{
-Use the web interface here http://phylodiversity.net/phylomatic/
+Use the web interface here \url{http://phylodiversity.net/phylomatic/}
 }
 \examples{
 \donttest{

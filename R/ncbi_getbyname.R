@@ -11,6 +11,7 @@
 #' @return Data.frame of results.
 #' @seealso \code{\link[taxize]{ncbi_search}}, \code{\link[taxize]{ncbi_getbyid}}
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
+#' @rdname ncbi_getbyname-deprecated
 #' @examples \donttest{
 #' # A single species
 #' ncbi_getbyname(taxa="Acipenser brevirostrum")
@@ -149,5 +150,5 @@ ncbi_getbyname <- function(taxa, gene="COI", seqrange="1:3000", getrelated=FALSE
 
 get_seqs <- function(taxa, gene="COI", seqrange="1:3000", getrelated=FALSE, verbose=TRUE)
 {
-  .Deprecated("ncbi_getbyname", "taxize", "Function name changed. See ncbi_getbyname", "get_seqs")
+  .Defunct("ncbi_getbyname", "taxize", "Function name changed. See ncbi_getbyname", "get_seqs")
 }

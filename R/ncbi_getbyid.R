@@ -12,6 +12,7 @@
 #' @return Data.frame of results.
 #' @seealso \code{\link[taxize]{ncbi_search}}, \code{\link[taxize]{ncbi_getbyname}}
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
+#' @rdname ncbi_getbyid-deprecated
 #' @examples \donttest{
 #' # A single gene
 #' ncbi_getbyid(ids="360040093", format="fasta")
@@ -60,5 +61,5 @@ ncbi_getbyid <- function(ids, format="fasta", verbose=TRUE)
 
 get_genes <- function(ids, format="fasta", verbose=TRUE)
 {
-  .Deprecated("ncbi_getbyid", "taxize", "Function name changed. See ncbi_getbyid", "get_genes")
+  .Defunct("ncbi_getbyid", "taxize", "Function name changed. See ncbi_getbyid", "get_genes")
 }

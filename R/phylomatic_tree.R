@@ -1,18 +1,18 @@
 #' Query Phylomatic for a phylogenetic tree.
-#' 
+#'
 #' @import httr ape stringr
 #' @export
-#' 
+#'
 #' @param taxa Phylomatic format input of taxa names.
-#' @param taxnames If true, we get the family names for you to attach to your 
-#'    species names to send to Phylomatic API. If FALSE, you have to provide the 
+#' @param taxnames If true, we get the family names for you to attach to your
+#'    species names to send to Phylomatic API. If FALSE, you have to provide the
 #'    strings in the right format.
 #' @param get 'GET' or 'POST' format for submission to the website.
-#' @param informat One of newick, nexml, or cdaordf. If using a stored tree, 
+#' @param informat One of newick, nexml, or cdaordf. If using a stored tree,
 #'    informat should always be newick.
 #' @param method One of phylomatic or convert
-#' @param storedtree One of R20120829 (Phylomatic tree R20120829 for plants), 
-#'    smith2011 (Smith 2011, plants), or binindaemonds2007 (Bininda-Emonds 2007, 
+#' @param storedtree One of R20120829 (Phylomatic tree R20120829 for plants),
+#'    smith2011 (Smith 2011, plants), or binindaemonds2007 (Bininda-Emonds 2007,
 #'    mammals).
 #' @param treeuri URL for a phylogenetic tree in newick format.
 #' @param taxaformat Only option is slashpath for now. Leave as is.
@@ -20,38 +20,39 @@
 #' @param clean Return a clean tree or not.
 #' @param db One of "ncbi", "itis", or "apg"
 #' @param verbose Print messages (default: TRUE).
-#' @details Use the web interface here http://phylodiversity.net/phylomatic/
+#' @details Use the web interface here \url{http://phylodiversity.net/phylomatic/}
 #' @return Newick formatted tree or nexml text.
-#' @examples \donttest{ 
+#' @rdname phylomatic_tree-deprecated
+#' @examples \donttest{
 #' # Input taxonomic names
 #' taxa <- c("Poa annua", "Phlox diffusa", "Helianthus annuus")
 #' tree <- phylomatic_tree(taxa=taxa, get = 'POST')
 #' plot(tree, no.margin=TRUE)
-#' 
+#'
 #' # Genus names
 #' taxa <- c("Poa", "Phlox", "Helianthus")
 #' tree <- phylomatic_tree(taxa=taxa, storedtree='R20120829', get='POST')
 #' plot(tree, no.margin=TRUE)
-#' 
+#'
 #' # Lots of names
-#' taxa <- c("Poa annua", "Collomia grandiflora", "Lilium lankongense", "Phlox diffusa", 
+#' taxa <- c("Poa annua", "Collomia grandiflora", "Lilium lankongense", "Phlox diffusa",
 #' "Iteadaphne caudata", "Gagea sarmentosa", "Helianthus annuus")
 #' tree <- phylomatic_tree(taxa=taxa, get = 'POST')
 #' plot(tree, no.margin=TRUE)
-#'    
+#'
 #' # Output NeXML format
 #' taxa <- c("Gonocarpus leptothecus", "Gonocarpus leptothecus", "Lilium lankongense")
 #' out <- phylomatic_tree(taxa=taxa, get = 'POST', outformat = "nexml")
 #' cat(out)
-#' 
+#'
 #' # Lots of names, note that when you have enough names (number depends on length of individual
-#' # names, so there's no per se rule), you will get an error when using \code{get='GET'}, 
+#' # names, so there's no per se rule), you will get an error when using \code{get='GET'},
 #' # when that happens use \code{get='POST'}
 #' spp <- names_list("species", 200)
 #' (out <- phylomatic_tree(taxa = spp, get = "GET"))
 #' (out <- phylomatic_tree(taxa = spp, get = "POST"))
 #' plot(out)
-#' 
+#'
 #' # Pass in a tree from a URL on the web
 #' spp <- c('Abies amabilis','Abies balsamea','Abies bracteata','Abies concolor','Abies fraseri',
 #'    'Abies grandis','Abies lasiocarpa','Abies magnifica','Abies procera','Acacia berlandieri')
@@ -64,30 +65,30 @@ phylomatic_tree <- function(taxa, taxnames = TRUE, get = 'GET',
   taxaformat = "slashpath", outformat = "newick", clean = "true", db="apg", verbose=TRUE)
 {
   url = "http://phylodiversity.net/phylomatic/pmws"
-  
+
   if(taxnames){
     dat_ <- phylomatic_format(taxa, format='isubmit', db=db)
-    
+
     checknas <- sapply(dat_, function(x) strsplit(x, "/")[[1]][1])
     checknas2 <- checknas[match("na", checknas)]
     if(is.numeric(checknas2))
-      stop(sprintf("A family was not found for the following taxa:\n %s \n\n try setting taxnames=FALSE, and passing in a vector of strings, like \n%s", 
+      stop(sprintf("A family was not found for the following taxa:\n %s \n\n try setting taxnames=FALSE, and passing in a vector of strings, like \n%s",
                    paste(sapply(dat_, function(x) strsplit(x, "/")[[1]][3])[match("na", checknas)], collapse=", "),
                    'phylomatic_tree(taxa = c("asteraceae/taraxacum/taraxacum_officinale", "ericaceae/gaylussacia/gaylussacia_baccata", "ericaceae/vaccinium/vaccinium_pallidum"), taxnames=FALSE, parallel=FALSE)'
       ))
-    
+
   } else { dat_ <- taxa }
-  
+
   if (length(dat_) > 1) { dat_ <- paste(dat_, collapse = "\n") } else { dat_ <- dat_ }
-  
+
   # Only one of storedtree or treeuri
   if(!is.null(treeuri)) storedtree <- NULL
-  
-  args <- taxize_compact(list(taxa = dat_, informat = informat, method = method, 
-                       storedtree = storedtree, treeuri = treeuri, taxaformat = taxaformat, 
+
+  args <- taxize_compact(list(taxa = dat_, informat = informat, method = method,
+                       storedtree = storedtree, treeuri = treeuri, taxaformat = taxaformat,
                        outformat = outformat, clean = clean))
-  
-  if (get == 'POST') {  
+
+  if (get == 'POST') {
 #     tt <- POST(url, body=list(taxa=dat_), query=args, multipart=FALSE)
     out <- postForm(url, .params=args, style = "POST")
   } else if (get == 'GET') {
@@ -95,7 +96,7 @@ phylomatic_tree <- function(taxa, taxnames = TRUE, get = 'GET',
     if(tt$status_code == 414){
       stop("(414) Request-URI Too Long - Use get='POST' in your function call", call. = FALSE)
     } else {
-      stop_for_status(tt)      
+      stop_for_status(tt)
     }
     out <- content(tt, as="text")
   } else
@@ -113,20 +114,20 @@ phylomatic_tree <- function(taxa, taxnames = TRUE, get = 'GET',
       taxa_na2 <- gsub(":|\\s", "", taxa_na2)
       taxa_na2 <- sapply(taxa_na2, function(x) strsplit(x, "/")[[1]][[3]], USE.NAMES=FALSE)
       taxa_na2 <- taxize_capwords(gsub("_", " ", taxa_na2), onlyfirst=TRUE)
-      
+
       mssg(verbose, taxa_na)
       out <- gsub("\\[NOTE:.+", ";\n", out)
     } else {
         taxa_na2 <- NULL
     }
-    
+
     outformat <- match.arg(outformat, choices=c("nexml",'newick'))
     getnewick <- function(x){
       tree <- gsub("\n", "", x[[1]])
       read.tree(text = colldouble(tree))
     }
-    
-    res <- switch(outformat, 
+
+    res <- switch(outformat,
            nexml = out,
            newick = getnewick(out))
     class(res) <- c("phylo","phylomatic")
@@ -141,7 +142,7 @@ collapse_double_root <- function(y) {
   tempsplit <- temp[double]
   tempsplit_1 <- str_split(tempsplit[1], ":")[[1]][2]
   tempsplit_2 <-str_split(tempsplit[2], ":")[[1]]
-  rootlength <- as.numeric(tempsplit_1) + 
+  rootlength <- as.numeric(tempsplit_1) +
     as.numeric(str_split(tempsplit_2[2], ";")[[1]][1])
   newx <- paste(")", tempsplit_2[1], ":", rootlength, ";", sep="")
   newpre <- str_replace(temp[1], "[(]", "")
@@ -153,7 +154,7 @@ collapse_double_root <- function(y) {
 }
 
 colldouble <- function(z) {
-  if ( class ( try ( read.tree(text = z), silent = T ) ) %in% 'try-error') 
+  if ( class ( try ( read.tree(text = z), silent = T ) ) %in% 'try-error')
   { treephylo <- collapse_double_root(z) } else
   { treephylo <- z }
   return(treephylo)
