@@ -23,7 +23,7 @@ give synonyms=0 if not)}
 List or dataframe of results.
 }
 \description{
-THIS FUNCTION IS DEPRECATED.
+THIS FUNCTION IS DEFUNCT.
 }
 \details{
 It's possible to return JSON or XML with the EOL API. However,
