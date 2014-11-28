@@ -58,7 +58,7 @@ itis_downstream <- function(tsns, downto, intermediate=FALSE, ...)
 		  stop_ <- "nodata"
 		} else {
 		  tt <- merge(tt[,-3], names_[,-1], by="tsn")
-      intermed[[iter]] <- tt
+		  if(intermediate) intermed[[iter]] <- tt
 		  if(nrow(tt[tt$rankId == downto2, ]) > 0) out[[iter]] <- tt[tt$rankId == downto2, ]
 		  if(nrow(tt[!tt$rankId == downto2, ]) > 0) {
 		    notout <- tt[!tt$rankId %in% torank_ids, ]

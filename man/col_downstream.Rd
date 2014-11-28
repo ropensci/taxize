@@ -4,7 +4,7 @@
 \title{Use Catalogue of Life to get downstream taxa to a given taxonomic level.}
 \usage{
 col_downstream(name = NULL, id = NULL, downto, format = NULL,
-  start = NULL, checklist = NULL, verbose = TRUE)
+  start = NULL, checklist = NULL, verbose = TRUE, intermediate = FALSE)
 }
 \arguments{
 \item{name}{The string to search for. Only exact matches found the name given
@@ -34,6 +34,10 @@ full queries).}
 year's checklist instead of the lastest as default (numeric).}
 
 \item{verbose}{Print or suppress messages.}
+
+\item{intermediate}{(logical) If TRUE, return a list of length two with target
+taxon rank names, with additional list of data.frame's of intermediate
+taxonomic groups. Default: FALSE}
 }
 \value{
 A list of data.frame's.
@@ -49,6 +53,10 @@ Provide only names instead of id's
 # Some basic examples
 col_downstream(name="Apis", downto="Species")
 col_downstream(name="Bryophyta", downto="Family")
+
+# get classes down from the kingdom Animalia
+col_downstream(name="Animalia", downto="Class")
+col_downstream(name="Animalia", downto="Class", intermediate=TRUE)
 
 # An example that takes a bit longer
 col_downstream(name=c("Plantae","Animalia"), downto="Class")

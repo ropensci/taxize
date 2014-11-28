@@ -15,9 +15,11 @@ downstream(...)
 \method{downstream}{tsn}(x, db = NULL, downto = NULL,
   intermediate = FALSE, ...)
 
-\method{downstream}{colid}(x, db = NULL, downto = NULL, ...)
+\method{downstream}{colid}(x, db = NULL, downto = NULL,
+  intermediate = FALSE, ...)
 
-\method{downstream}{ids}(x, db = NULL, downto = NULL, ...)
+\method{downstream}{ids}(x, db = NULL, downto = NULL,
+  intermediate = FALSE, ...)
 }
 \arguments{
 \item{...}{Further args passed on to \code{itis_downstream} or \code{col_downstream}}
@@ -81,10 +83,14 @@ downstream(ids, downto = 'Species')
 downstream(get_ids("Apis", db = c('col','itis')), downto = 'Species')
 
 # Collect intermediate names
+## itis
 downstream('Bangiophyceae', db="itis", downto="Genus")
 downstream('Bangiophyceae', db="itis", downto="Genus", intermediate=TRUE)
 downstream(get_tsn('Bangiophyceae'), downto="Genus")
 downstream(get_tsn('Bangiophyceae'), downto="Genus", intermediate=TRUE)
+## col
+downstream(get_colid("Animalia"), downto="Class")
+downstream(get_colid("Animalia"), downto="Class", intermediate=TRUE)
 }
 }
 

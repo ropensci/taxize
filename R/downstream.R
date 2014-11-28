@@ -55,10 +55,14 @@
 #' downstream(get_ids("Apis", db = c('col','itis')), downto = 'Species')
 #'
 #' # Collect intermediate names
+#' ## itis
 #' downstream('Bangiophyceae', db="itis", downto="Genus")
 #' downstream('Bangiophyceae', db="itis", downto="Genus", intermediate=TRUE)
 #' downstream(get_tsn('Bangiophyceae'), downto="Genus")
 #' downstream(get_tsn('Bangiophyceae'), downto="Genus", intermediate=TRUE)
+#' ## col
+#' downstream(get_colid("Animalia"), downto="Class")
+#' downstream(get_colid("Animalia"), downto="Class", intermediate=TRUE)
 #' }
 downstream <- function(...){
   UseMethod("downstream")
@@ -76,7 +80,7 @@ downstream.default <- function(x, db = NULL, downto = NULL, intermediate = FALSE
          },
          col = {
            id <- get_colid(x, ...)
-           setNames(downstream(id, downto = downto, ...), x)
+           setNames(downstream(id, downto = downto, intermediate = intermediate, ...), x)
          },
          stop("the provided db value was not recognised", call. = FALSE)
   )
@@ -100,33 +104,33 @@ downstream.tsn <- function(x, db = NULL, downto = NULL, intermediate = FALSE, ..
 
 #' @export
 #' @rdname downstream
-downstream.colid <- function(x,  db = NULL, downto = NULL, ...)
+downstream.colid <- function(x, db = NULL, downto = NULL, intermediate = FALSE, ...)
 {
-  fun <- function(y, downto, ...){
+  fun <- function(y, downto, intermediate, ...){
     # return NA if NA is supplied
     if(is.na(y)){
       NA
     } else {
-      col_downstream(id = y, downto = downto, ...)
+      col_downstream(id = y, downto = downto, intermediate = intermediate, ...)
     }
   }
-  out <- lapply(x, fun, downto=downto, ...)
+  out <- lapply(x, fun, downto=downto, intermediate=intermediate, ...)
   structure(simp(out), class='downstream', db='col')
 }
 
 #' @export
 #' @rdname downstream
-downstream.ids <- function(x, db = NULL, downto = NULL, ...)
+downstream.ids <- function(x, db = NULL, downto = NULL, intermediate = FALSE, ...)
 {
-  fun <- function(y, ...){
+  fun <- function(y, downto, intermediate, ...){
     # return NA if NA is supplied
     if (is.na(y)) {
       NA
     } else {
-      downstream(y, downto = downto, ...)
+      downstream(y, downto = downto, intermediate=intermediate, ...)
     }
   }
-  structure(lapply(x, fun), class='downstream_ids')
+  structure(lapply(x, fun, downto=downto, intermediate=intermediate, ...), class='downstream_ids')
 }
 
 simp <- function(x) if(length(x) == 1) x[[1]] else x
