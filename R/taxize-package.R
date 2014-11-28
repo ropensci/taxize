@@ -116,7 +116,7 @@ NULL
 #'  version of this package.
 #'  \item \code{\link{eol_invasive}}: This function is deprecated and will be removed in a future
 #'  version of this package.
-#'  \item \code{\link{gisd_invasive}}: This function is deprecated and will be removed in a future
+#'  \item \code{\link{gisd_isinvasive}}: This function is deprecated and will be removed in a future
 #'  version of this package.
 #' }
 #'
