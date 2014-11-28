@@ -14,6 +14,9 @@
 #' 'Infraorder','Superfamily','Family','Subfamily','Tribe','Subtribe','Genus','Subgenus',
 #' 'Section','Subsection','Species','Subspecies','Variety','Form','Subvariety','Race',
 #' 'Stirp','Morph','Aberration','Subform','Unspecified'
+#' @param intermediate (logical) If TRUE, return a list of length two with target
+#' taxon rank names, with additional list of data.frame's of intermediate
+#' taxonomic groups. Default: FALSE
 #' @param ... Further args passed on to \code{itis_downstream} or \code{col_downstream}
 #'
 #' @return A named list of data.frames with the downstream names of every supplied taxa.
@@ -26,6 +29,7 @@
 #' downstream("Apis", db = 'col', downto = 'Species')
 #' downstream("Apis", db = 'itis', downto = 'Species')
 #' downstream(c("Apis","Epeoloides"), db = 'itis', downto = 'Species')
+#' downstream(c("Apis","Epeoloides"), db = 'col', downto = 'Species')
 #'
 #' # Plug in IDs
 #' id <- get_colid("Apis")
@@ -49,6 +53,12 @@
 #' downstream(ids, downto = 'Species')
 #' ## same result
 #' downstream(get_ids("Apis", db = c('col','itis')), downto = 'Species')
+#'
+#' # Collect intermediate names
+#' downstream('Bangiophyceae', db="itis", downto="Genus")
+#' downstream('Bangiophyceae', db="itis", downto="Genus", intermediate=TRUE)
+#' downstream(get_tsn('Bangiophyceae'), downto="Genus")
+#' downstream(get_tsn('Bangiophyceae'), downto="Genus", intermediate=TRUE)
 #' }
 downstream <- function(...){
   UseMethod("downstream")
@@ -56,13 +66,13 @@ downstream <- function(...){
 
 #' @export
 #' @rdname downstream
-downstream.default <- function(x, db = NULL, downto = NULL, ...){
+downstream.default <- function(x, db = NULL, downto = NULL, intermediate = FALSE, ...){
   nstop(downto, "downto")
   nstop(db)
   switch(db,
          itis = {
            id <- get_tsn(x, ...)
-           setNames(downstream(id, downto = downto, ...), x)
+           setNames(downstream(id, downto = downto, intermediate = intermediate, ...), x)
          },
          col = {
            id <- get_colid(x, ...)
@@ -74,17 +84,17 @@ downstream.default <- function(x, db = NULL, downto = NULL, ...){
 
 #' @export
 #' @rdname downstream
-downstream.tsn <- function(x, db = NULL, downto = NULL, ...)
+downstream.tsn <- function(x, db = NULL, downto = NULL, intermediate = FALSE, ...)
 {
-  fun <- function(y, downto, ...){
+  fun <- function(y, downto, intermediate, ...){
     # return NA if NA is supplied
     if (is.na(y)) {
       NA
     } else {
-		  itis_downstream(tsns = y, downto = downto, ...)
+		  itis_downstream(tsns = y, downto = downto, intermediate = intermediate, ...)
     }
   }
-  out <- lapply(x, fun, downto=downto, ...)
+  out <- lapply(x, fun, downto=downto, intermediate=intermediate, ...)
   structure(out, class='downstream', db='itis', .Names=x)
 }
 

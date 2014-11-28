@@ -9,9 +9,11 @@
 \usage{
 downstream(...)
 
-\method{downstream}{default}(x, db = NULL, downto = NULL, ...)
+\method{downstream}{default}(x, db = NULL, downto = NULL,
+  intermediate = FALSE, ...)
 
-\method{downstream}{tsn}(x, db = NULL, downto = NULL, ...)
+\method{downstream}{tsn}(x, db = NULL, downto = NULL,
+  intermediate = FALSE, ...)
 
 \method{downstream}{colid}(x, db = NULL, downto = NULL, ...)
 
@@ -30,6 +32,10 @@ downstream(...)
 'Infraorder','Superfamily','Family','Subfamily','Tribe','Subtribe','Genus','Subgenus',
 'Section','Subsection','Species','Subspecies','Variety','Form','Subvariety','Race',
 'Stirp','Morph','Aberration','Subform','Unspecified'}
+
+\item{intermediate}{(logical) If TRUE, return a list of length two with target
+taxon rank names, with additional list of data.frame's of intermediate
+taxonomic groups. Default: FALSE}
 }
 \value{
 A named list of data.frames with the downstream names of every supplied taxa.
@@ -49,6 +55,7 @@ downstream("Insecta", db = 'col', downto = 'Order')
 downstream("Apis", db = 'col', downto = 'Species')
 downstream("Apis", db = 'itis', downto = 'Species')
 downstream(c("Apis","Epeoloides"), db = 'itis', downto = 'Species')
+downstream(c("Apis","Epeoloides"), db = 'col', downto = 'Species')
 
 # Plug in IDs
 id <- get_colid("Apis")
@@ -72,6 +79,12 @@ ids <- get_ids("Apis", db = c('col','itis'))
 downstream(ids, downto = 'Species')
 ## same result
 downstream(get_ids("Apis", db = c('col','itis')), downto = 'Species')
+
+# Collect intermediate names
+downstream('Bangiophyceae', db="itis", downto="Genus")
+downstream('Bangiophyceae', db="itis", downto="Genus", intermediate=TRUE)
+downstream(get_tsn('Bangiophyceae'), downto="Genus")
+downstream(get_tsn('Bangiophyceae'), downto="Genus", intermediate=TRUE)
 }
 }
 
