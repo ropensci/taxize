@@ -16,7 +16,7 @@ tp_classification(id = NULL, key = NULL, callopts = list())
 A data.frame giving the hierarchy.
 }
 \description{
-THIS FUNCTION IS DEPRECATED.
+THIS FUNCTION IS DEFUNCT.
 }
 \examples{
 \donttest{
