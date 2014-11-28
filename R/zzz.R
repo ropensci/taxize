@@ -198,3 +198,5 @@ sub_vector <- function(x, rows){
   rows <- check_rows(rows)
   if( any(is.na(rows)) ) x else x[rows]
 }
+
+nstop <- function(x, arg='db') if (is.null(x)) stop(sprintf("Must specify %s!", arg), call. = FALSE)
