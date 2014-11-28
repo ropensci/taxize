@@ -20,5 +20,9 @@ The following functions are now deprecated:
  \item \code{\link{gisd_invasive}}: This function is deprecated and will be removed in a future
  version of this package.
 }
+
+All of the above functions will be available in an R package in development called traits
+\url{https://github.com/ropensci/traits} that will be available on CRAN before these functions
+are made defunct here.
 }
 

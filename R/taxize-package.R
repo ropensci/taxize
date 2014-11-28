@@ -122,6 +122,10 @@ NULL
 #'  version of this package.
 #' }
 #'
+#' All of the above functions will be available in an R package in development called traits
+#' \url{https://github.com/ropensci/traits} that will be available on CRAN before these functions
+#' are made defunct here.
+#'
 #' @name taxize-deprecated
 NULL
 
