@@ -13,9 +13,9 @@ downstream(...)
 
 \method{downstream}{tsn}(x, db = NULL, downto = NULL, ...)
 
-\method{downstream}{colid}(x, db = NULL, ...)
+\method{downstream}{colid}(x, db = NULL, downto = NULL, ...)
 
-\method{downstream}{ids}(x, db = NULL, downto, ...)
+\method{downstream}{ids}(x, db = NULL, downto = NULL, ...)
 }
 \arguments{
 \item{...}{Further args passed on to \code{itis_downstream} or \code{col_downstream}}
@@ -47,6 +47,8 @@ the function.
 # Plug in taxon names
 downstream("Insecta", db = 'col', downto = 'Order')
 downstream("Apis", db = 'col', downto = 'Species')
+downstream("Apis", db = 'itis', downto = 'Species')
+downstream(c("Apis","Epeoloides"), db = 'itis', downto = 'Species')
 
 # Plug in IDs
 id <- get_colid("Apis")

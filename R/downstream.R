@@ -24,6 +24,8 @@
 #' # Plug in taxon names
 #' downstream("Insecta", db = 'col', downto = 'Order')
 #' downstream("Apis", db = 'col', downto = 'Species')
+#' downstream("Apis", db = 'itis', downto = 'Species')
+#' downstream(c("Apis","Epeoloides"), db = 'itis', downto = 'Species')
 #'
 #' # Plug in IDs
 #' id <- get_colid("Apis")
@@ -83,45 +85,38 @@ downstream.tsn <- function(x, db = NULL, downto = NULL, ...)
     }
   }
   out <- lapply(x, fun, downto=downto, ...)
-  names(out) <- x
-  class(out) <- 'downstream'
-  attr(out, 'db') <- 'itis'
-  return(out)
+  structure(out, class='downstream', db='itis', .Names=x)
 }
 
 #' @export
 #' @rdname downstream
-downstream.colid <- function(x,  db = NULL, ...) {
-  fun <- function(y){
+downstream.colid <- function(x,  db = NULL, downto = NULL, ...)
+{
+  fun <- function(y, downto, ...){
     # return NA if NA is supplied
     if(is.na(y)){
-      out <- NA
+      NA
     } else {
-      out <- col_downstream(id = y, ...)
+      col_downstream(id = y, downto = downto, ...)
     }
-    return(out)
   }
-  out <- lapply(x, fun)
-  if(length(out)==1){ out=out[[1]] } else { out=out }
-  class(out) <- 'downstream'
-  attr(out, 'db') <- 'col'
-  return(out)
+  out <- lapply(x, fun, downto=downto, ...)
+  structure(simp(out), class='downstream', db='col')
 }
 
 #' @export
 #' @rdname downstream
-downstream.ids <- function(x, db = NULL, downto, ...)
+downstream.ids <- function(x, db = NULL, downto = NULL, ...)
 {
   fun <- function(y, ...){
     # return NA if NA is supplied
     if (is.na(y)) {
-      out <- NA
+      NA
     } else {
-      out <- downstream(y, downto = downto, ...)
+      downstream(y, downto = downto, ...)
     }
-    return(out)
   }
-  out <- lapply(x, fun)
-  class(out) <- 'downstream_ids'
-  return(out)
+  structure(lapply(x, fun), class='downstream_ids')
 }
+
+simp <- function(x) if(length(x) == 1) x[[1]] else x
