@@ -21,64 +21,59 @@
 #'
 #' @export
 #' @examples \donttest{
+#' ## col
 #' upstream("Pinus contorta", db = 'col', upto = 'Genus') # get all genera at one level up
 #' upstream("Abies", db = 'col', upto = 'Genus') # goes to same level, Abies is a genus
 #' upstream('Pinus contorta', db = 'col', upto = 'Family')
 #' upstream('Poa annua', db = 'col', upto = 'Family')
 #' upstream('Poa annua', db = 'col', upto = 'Order')
 #'
-#' # use itis
-#' upstream("Pinus contorta", db = 'itis', upto = 'Genus')
+#' ## itis
+#' upstream(x='Pinus contorta', db = 'itis', upto = 'Genus')
+#'
+#' ## both
+#' upstream(get_ids('Pinus contorta', db = c('col','itis')), upto = 'Genus')
 #' }
 upstream <- function(...) UseMethod("upstream")
 
 #' @export
 #' @rdname upstream
 upstream.default <- function(x, db = NULL, upto = NULL, ...){
-  if (is.null(upto))
-    stop("Must specify upto value!")
-  if (is.null(db))
-    stop("Must specify db value!")
-  if (db == 'itis') {
-    id <- get_tsn(x, ...)
-    out <- upstream(id, upto = upto, ...)
-    names(out) <- x
-  }
-  if (db == 'col') {
-    id <- get_colid(x, ...)
-    out <- upstream(id, upto = upto, ...)
-    names(out) <- x
-  }
-  return(out)
+  nstop(upto, "upto")
+  nstop(db)
+  switch(db,
+         itis = {
+           id <- get_tsn(x, ...)
+           setNames(upstream(id, upto = upto, ...), x)
+         },
+         col = {
+           id <- get_colid(x, ...)
+           setNames(upstream(id, upto = upto, ...), x)
+         },
+         stop("the provided db value was not recognised", call. = FALSE)
+  )
 }
 
 #' @export
 #' @rdname upstream
 upstream.tsn <- function(x, db = NULL, upto = NULL, ...)
 {
-  fun <- function(y){
+  fun <- function(y, ...){
     # return NA if NA is supplied
     if (is.na(y)) { NA } else {
       class <- classification(y, ...)
-      toget <- class[[1]][ grep(upto, class[[1]]$rank) - 1, "name" ]
-      toget_id <- get_tsn(toget, ...)
-      out <- downstream(toget_id, db = "itis", downto = upto, ...)
-      names(out) <- toget
-      out
+      toget <- class[[1]][ grep(upto, class[[1]]$rank) - 1, c("name","id") ]
+      setNames(downstream(x=as.tsn(toget$id), downto = upto, ...), toget$name)
     }
   }
-  out <- if(length(x) > 1) lapply(x, fun) else fun(x)
+  out <- if(length(x) > 1) lapply(x, fun, ...) else fun(x, ...)
   structure(out, class='upstream', db='itis')
-#   names(out) <- x
-#   class(out) <- 'upstream'
-#   attr(out, 'db') <- 'itis'
-#   return(out)
 }
 
 #' @export
 #' @rdname upstream
 upstream.colid <- function(x, db = NULL, upto = NULL, ...) {
-  fun <- function(y){
+  fun <- function(y, ...){
     # return NA if NA is supplied
     if(is.na(y)) { NA } else {
       class <- classification(y, ...)
@@ -86,7 +81,7 @@ upstream.colid <- function(x, db = NULL, upto = NULL, ...) {
       col_downstream(name = toget, downto = upto, ...)
     }
   }
-  out <- if(length(x) > 1) lapply(x, fun) else fun(x)
+  out <- if(length(x) > 1) lapply(x, fun, ...) else fun(x, ...)
   structure(out, class='upstream', db='col')
 }
 
@@ -103,7 +98,5 @@ upstream.ids <- function(x, db = NULL, upto = NULL, ...)
     }
     return(out)
   }
-  out <- if(length(x) > 1) lapply(x, fun) else fun(x)
-  class(out) <- 'downstream_ids'
-  return(out)
+  structure(if(length(x) > 1) lapply(x, fun, ...) else fun(x, ...), class='downstream_ids')
 }

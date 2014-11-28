@@ -11,7 +11,7 @@ downstream(...)
 
 \method{downstream}{default}(x, db = NULL, downto = NULL, ...)
 
-\method{downstream}{tsn}(x, db = NULL, ...)
+\method{downstream}{tsn}(x, db = NULL, downto = NULL, ...)
 
 \method{downstream}{colid}(x, db = NULL, ...)
 

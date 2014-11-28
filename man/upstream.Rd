@@ -44,14 +44,18 @@ the function.
 }
 \examples{
 \donttest{
+## col
 upstream("Pinus contorta", db = 'col', upto = 'Genus') # get all genera at one level up
 upstream("Abies", db = 'col', upto = 'Genus') # goes to same level, Abies is a genus
 upstream('Pinus contorta', db = 'col', upto = 'Family')
 upstream('Poa annua', db = 'col', upto = 'Family')
 upstream('Poa annua', db = 'col', upto = 'Order')
 
-# use itis
-upstream("Pinus contorta", db = 'itis', upto = 'Genus')
+## itis
+upstream(x='Pinus contorta', db = 'itis', upto = 'Genus')
+
+## both
+upstream(get_ids('Pinus contorta', db = c('col','itis')), upto = 'Genus')
 }
 }
 

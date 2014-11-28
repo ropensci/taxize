@@ -72,17 +72,17 @@ downstream.default <- function(x, db = NULL, downto = NULL, ...){
 
 #' @export
 #' @rdname downstream
-downstream.tsn <- function(x,  db = NULL, ...)
+downstream.tsn <- function(x, db = NULL, downto = NULL, ...)
 {
-  fun <- function(y){
+  fun <- function(y, downto, ...){
     # return NA if NA is supplied
     if (is.na(y)) {
-      out <- NA
+      NA
     } else {
-		  out <- itis_downstream(tsns = y, ...)
+		  itis_downstream(tsns = y, downto = downto, ...)
     }
   }
-  out <- lapply(x, fun)
+  out <- lapply(x, fun, downto=downto, ...)
   names(out) <- x
   class(out) <- 'downstream'
   attr(out, 'db') <- 'itis'
