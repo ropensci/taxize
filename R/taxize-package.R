@@ -42,9 +42,8 @@
 #' }
 #'
 #' If the source above has a \code{TRUE} in the \code{SOAP?} column, it is not available if you
-#' installed this package from CRAN. See the Github repo for how to install the version with the
-#' data sources that use SOAP web services:
-#' \url{https://github.com/ropensci/taxize#version-with-soap-data-sources}
+#' installed this package from CRAN. They are available from a different package called taxizesoap.
+#' See the Github repo for how to install \url{https://github.com/ropensci/taxizesoap}
 #'
 #' @name taxize-package
 #' @aliases taxize
@@ -57,7 +56,6 @@
 #' @author Karthik Ram \email{karthik@@ropensci.org}
 #' @author Ignasi Bartomeus \email{nacho.bartomeus@@gmail.com}
 #' @author John Baumgartner \email{johnbb@@student.unimelb.edu.au}
-
 #' @keywords package
 NULL
 
