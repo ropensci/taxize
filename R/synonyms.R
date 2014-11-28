@@ -12,7 +12,7 @@
 #' @note If IDs are supplied directly (not from the \code{get_*} functions) you
 #'    must specify the type of ID.
 #'
-#' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_tpsid}}, 
+#' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_tpsid}},
 #' \code{\link[taxize]{get_ubioid}}, \code{\link[taxize]{get_nbnid}}
 #'
 #' @export
@@ -42,36 +42,31 @@ synonyms <- function(...){
   UseMethod("synonyms")
 }
 
-#' @method synonyms default
 #' @export
 #' @rdname synonyms
 synonyms.default <- function(x, db = NULL, ...){
-  if (is.null(db))
-    stop("Must specify Identifier!")
-  if (db == 'itis') {
-    id <- get_tsn(x, ...)
-    out <- synonyms(id, ...)
-    names(out) <- x
-  }
-  if (db == 'tropicos') {
-    id <- get_tpsid(x, ...)
-    out <- synonyms(id, ...)
-    names(out) <- x
-  }
-  if (db == 'ubio') {
-    id <- get_ubioid(x, searchtype = 'scientific', ...)
-    out <- synonyms(id, ...)
-    names(out) <- x
-  }
-  if (db == 'nbn') {
-    id <- get_nbnid(x, ...)
-    out <- synonyms(id, ...)
-    names(out) <- x
-  }
-  return(out)
+  if (is.null(db)) stop("Must specify db!", call. = FALSE)
+  switch(db,
+         itis = {
+           id <- get_tsn(x, ...)
+           setNames(synonyms(id, ...), x)
+         },
+         tropicos = {
+           id <- get_tpsid(x, ...)
+           setNames(synonyms(id, ...), x)
+         },
+         ubio = {
+           id <- get_ubioid(x, searchtype = 'scientific', ...)
+           setNames(synonyms(id, ...), x)
+         },
+         nbn = {
+           id <- get_nbnid(x, ...)
+           setNames(synonyms(id, ...), x)
+         },
+         stop("the provided db value was not recognised", call. = FALSE)
+  )
 }
 
-#' @method synonyms tsn
 #' @export
 #' @rdname synonyms
 synonyms.tsn <- function(id, ...)
@@ -88,7 +83,6 @@ synonyms.tsn <- function(id, ...)
   return(tmp)
 }
 
-#' @method synonyms tpsid
 #' @export
 #' @rdname synonyms
 synonyms.tpsid <- function(id, ...)
@@ -103,7 +97,6 @@ synonyms.tpsid <- function(id, ...)
   return(tmp)
 }
 
-#' @method synonyms ubioid
 #' @export
 #' @rdname synonyms
 synonyms.ubioid <- function(id, ...)
@@ -118,7 +111,6 @@ synonyms.ubioid <- function(id, ...)
   return(tmp)
 }
 
-#' @method synonyms nbnid
 #' @export
 #' @rdname synonyms
 synonyms.nbnid <- function(id, ...)
@@ -133,7 +125,6 @@ synonyms.nbnid <- function(id, ...)
   return(tmp)
 }
 
-#' @method synonyms ids
 #' @export
 #' @rdname synonyms
 synonyms.ids <- function(id, ...)
