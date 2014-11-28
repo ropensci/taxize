@@ -64,6 +64,8 @@ phylomatic_tree <- function(taxa, taxnames = TRUE, get = 'GET',
   informat = "newick", method = "phylomatic", storedtree = "R20120829", treeuri = NULL,
   taxaformat = "slashpath", outformat = "newick", clean = "true", db="apg", verbose=TRUE)
 {
+  .Deprecated(msg="This function is deprecated - will be removed in a future version of this pacakge. See ?`taxize-deprecated`")
+
   url = "http://phylodiversity.net/phylomatic/pmws"
 
   if(taxnames){

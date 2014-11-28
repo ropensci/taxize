@@ -23,6 +23,8 @@
 ncbi_getbyname <- function(taxa, gene="COI", seqrange="1:3000", getrelated=FALSE,
                            verbose=TRUE)
 {
+  .Deprecated(msg="This function is deprecated - will be removed in a future version of this pacakge. See ?`taxize-deprecated`")
+
 	foo <- function(xx){
 	  mssg(verbose, paste("Working on ", xx, "...", sep=""))
 	  mssg(verbose, "...retrieving sequence IDs...")

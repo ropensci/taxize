@@ -83,6 +83,8 @@
 eol_invasive <- function(name = NULL, dataset="all", searchby = grep, page=NULL,
   per_page=NULL, key = NULL, callopts=list(), verbose=TRUE, count=FALSE)
 {
+  .Deprecated(msg="This function is deprecated - will be removed in a future version of this pacakge. See ?`taxize-deprecated`")
+
   if(is.null(name)) stop("please provide a taxonomic name")
   if(is.null(dataset)) stop("please provide a dataset name")
   datasetid <- switch(dataset,

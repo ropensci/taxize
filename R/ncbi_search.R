@@ -56,6 +56,8 @@
 ncbi_search <- function(taxa = NULL, id = NULL, seqrange="1:3000", getrelated=FALSE, limit = 500,
                         entrez_query = NULL, hypothetical = FALSE, verbose=TRUE)
 {
+  .Deprecated(msg="This function is deprecated - will be removed in a future version of this pacakge. See ?`taxize-deprecated`")
+
   # Function to search for sequences with esearch --------------------------------------------------
   search_for_sequences <- function(id) {
     if (is.na(id)) return(NULL)

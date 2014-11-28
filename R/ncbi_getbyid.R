@@ -22,6 +22,8 @@
 #' }
 ncbi_getbyid <- function(ids, format="fasta", verbose=TRUE)
 {
+  .Deprecated(msg="This function is deprecated - will be removed in a future version of this pacakge. See ?`taxize-deprecated`")
+
 	mssg(verbose, "Retrieving sequence IDs...")
 
 	ids <- paste(ids, collapse=",")
