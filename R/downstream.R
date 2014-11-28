@@ -1,11 +1,11 @@
 #' Retrieve the downstream taxa for a given taxon name or ID.
-#' 
+#'
 #' This function uses a while loop to continually collect children taxa down to the
-#' taxonomic rank that you specify in the \code{downto} parameter. You can get data 
+#' taxonomic rank that you specify in the \code{downto} parameter. You can get data
 #' from ITIS (itis) or Catalogue of Life (col). There is no method exposed by itis
 #' or col for getting taxa at a specific taxonomic rank, so we do it ourselves inside
-#' the function. 
-#' 
+#' the function.
+#'
 #' @param x character; taxons to query.
 #' @param db character; database to query. One or both of \code{itis}, \code{col}.
 #' @param downto What taxonomic rank to go down to. One of: 'Superkingdom','Kingdom',
@@ -15,33 +15,33 @@
 #' 'Section','Subsection','Species','Subspecies','Variety','Form','Subvariety','Race',
 #' 'Stirp','Morph','Aberration','Subform','Unspecified'
 #' @param ... Further args passed on to \code{itis_downstream} or \code{col_downstream}
-#' 
+#'
 #' @return A named list of data.frames with the downstream names of every supplied taxa.
 #' You get an NA if there was no match in the database.
-#' 
+#'
 #' @export
 #' @examples \donttest{
 #' # Plug in taxon names
 #' downstream("Insecta", db = 'col', downto = 'Order')
 #' downstream("Apis", db = 'col', downto = 'Species')
-#' 
+#'
 #' # Plug in IDs
 #' id <- get_colid("Apis")
 #' downstream(id, downto = 'Species')
-#' 
+#'
 #' ## Equivalently, plug in the call to get the id via e.g., get_colid into downstream
-#' identical(downstream(id, downto = 'Species'), 
+#' identical(downstream(id, downto = 'Species'),
 #'          downstream(get_colid("Apis"), downto = 'Species'))
-#' 
+#'
 #' id <- get_colid("Apis")
 #' downstream(id, downto = 'Species')
 #' downstream(get_colid("Apis"), downto = 'Species')
-#' 
+#'
 #' # Many taxa
 #' sp <- names_list("genus", 3)
 #' downstream(sp, db = 'col', downto = 'Species')
 #' downstream(sp, db = 'itis', downto = 'Species')
-#' 
+#'
 #' # Both data sources
 #' ids <- get_ids("Apis", db = c('col','itis'))
 #' downstream(ids, downto = 'Species')
@@ -52,7 +52,6 @@ downstream <- function(...){
   UseMethod("downstream")
 }
 
-#' @method downstream default
 #' @export
 #' @rdname downstream
 downstream.default <- function(x, db = NULL, downto = NULL, ...){
@@ -74,10 +73,9 @@ downstream.default <- function(x, db = NULL, downto = NULL, ...){
   return(out)
 }
 
-#' @method downstream tsn
 #' @export
 #' @rdname downstream
-downstream.tsn <- function(x,  db = NULL, ...) 
+downstream.tsn <- function(x,  db = NULL, ...)
 {
   fun <- function(y){
     # return NA if NA is supplied
@@ -94,7 +92,6 @@ downstream.tsn <- function(x,  db = NULL, ...)
   return(out)
 }
 
-#' @method downstream colid
 #' @export
 #' @rdname downstream
 downstream.colid <- function(x,  db = NULL, ...) {
@@ -114,10 +111,9 @@ downstream.colid <- function(x,  db = NULL, ...) {
   return(out)
 }
 
-#' @method downstream ids
 #' @export
 #' @rdname downstream
-downstream.ids <- function(x, db = NULL, downto, ...) 
+downstream.ids <- function(x, db = NULL, downto, ...)
 {
   fun <- function(y, ...){
     # return NA if NA is supplied
