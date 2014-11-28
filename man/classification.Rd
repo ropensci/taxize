@@ -19,26 +19,25 @@
 classification(...)
 
 \method{classification}{default}(x, db = NULL, callopts = list(),
-  return_id = FALSE, ...)
+  return_id = TRUE, ...)
 
-\method{classification}{tsn}(id, callopts = list(), return_id = FALSE, ...)
+\method{classification}{tsn}(id, callopts = list(), return_id = TRUE, ...)
 
-\method{classification}{uid}(id, return_id = FALSE, ...)
+\method{classification}{uid}(id, return_id = TRUE, ...)
 
 \method{classification}{eolid}(id, key = NULL, callopts = list(),
-  return_id = FALSE, ...)
+  return_id = TRUE, ...)
 
 \method{classification}{colid}(id, start = NULL, checklist = NULL,
-  return_id = FALSE, ...)
+  return_id = TRUE, ...)
 
 \method{classification}{tpsid}(id, key = NULL, callopts = list(),
-  return_id = FALSE, ...)
+  return_id = TRUE, ...)
 
-\method{classification}{gbifid}(id, callopts = list(), return_id = FALSE,
+\method{classification}{gbifid}(id, callopts = list(), return_id = TRUE,
   ...)
 
-\method{classification}{nbnid}(id, callopts = list(), return_id = FALSE,
-  ...)
+\method{classification}{nbnid}(id, callopts = list(), return_id = TRUE, ...)
 
 \method{classification}{ids}(id, ...)
 
@@ -124,8 +123,8 @@ classification(get_tpsid(c("Poa annua", "aaa vva")))
 classification(get_gbifid(c("Poa annua", "Bison bison")))
 
 # Pass many ids from class "ids"
-out <- get_ids(names="Puma concolor", db = c('ncbi','gbif'))
-cl <- classification(out)
+(out <- get_ids(names="Puma concolor", db = c('ncbi','gbif')))
+(cl <- classification(out))
 
 # Bind width-wise from class classification_ids
 cbind(cl)
@@ -141,7 +140,7 @@ cbind(cl)
 
 # rbind and cbind on class classification (from a call to get_colid, get_tsn, etc.
 # - other than get_ids)
-cl_col <- classification(get_colid(c("Puma concolor","Accipiter striatus")))
+(cl_col <- classification(get_colid(c("Puma concolor","Accipiter striatus"))))
 rbind(cl_col)
 cbind(cl_col)
 

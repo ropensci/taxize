@@ -1,5 +1,6 @@
 #' Retrieve the taxonomic hierarchy for a given taxon ID.
 #'
+#' @export
 #' @import XML RCurl plyr
 #'
 #' @param x character; taxons to query.
@@ -39,7 +40,6 @@
 #'    \code{\link[taxize]{get_eolid}}, \code{\link[taxize]{get_colid}},
 #'    \code{\link[taxize]{get_tpsid}}, \code{\link[taxize]{get_gbifid}}
 #'
-#' @export
 #' @examples \donttest{
 #' # Plug in taxon names directly
 #' classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi')
@@ -65,8 +65,8 @@
 #' classification(get_gbifid(c("Poa annua", "Bison bison")))
 #'
 #' # Pass many ids from class "ids"
-#' out <- get_ids(names="Puma concolor", db = c('ncbi','gbif'))
-#' cl <- classification(out)
+#' (out <- get_ids(names="Puma concolor", db = c('ncbi','gbif')))
+#' (cl <- classification(out))
 #'
 #' # Bind width-wise from class classification_ids
 #' cbind(cl)
@@ -82,7 +82,7 @@
 #'
 #' # rbind and cbind on class classification (from a call to get_colid, get_tsn, etc.
 #' # - other than get_ids)
-#' cl_col <- classification(get_colid(c("Puma concolor","Accipiter striatus")))
+#' (cl_col <- classification(get_colid(c("Puma concolor","Accipiter striatus"))))
 #' rbind(cl_col)
 #' cbind(cl_col)
 #'
@@ -122,10 +122,9 @@ classification <- function(...){
   UseMethod("classification")
 }
 
-#' @method classification default
 #' @export
 #' @rdname classification
-classification.default <- function(x, db = NULL, callopts=list(), return_id = FALSE, ...){
+classification.default <- function(x, db = NULL, callopts=list(), return_id = TRUE, ...){
   if (is.null(db)) stop("Must specify db!")
   switch(db,
          itis = {
@@ -173,7 +172,7 @@ process_ids <- function(input, fxn, ...){
 
 #' @export
 #' @rdname classification
-classification.tsn <- function(id, callopts = list(), return_id = FALSE, ...)
+classification.tsn <- function(id, callopts = list(), return_id = TRUE, ...)
 {
   fun <- function(x){
     # return NA if NA is supplied
@@ -196,7 +195,7 @@ classification.tsn <- function(id, callopts = list(), return_id = FALSE, ...)
 
 #' @export
 #' @rdname classification
-classification.uid <- function(id, return_id = FALSE, ...) {
+classification.uid <- function(id, return_id = TRUE, ...) {
   fun <- function(x){
     # return NA if NA is supplied
     if(is.na(x)){
@@ -229,7 +228,7 @@ classification.uid <- function(id, return_id = FALSE, ...) {
 
 #' @export
 #' @rdname classification
-classification.eolid <- function(id, key = NULL, callopts = list(), return_id = FALSE, ...) {
+classification.eolid <- function(id, key = NULL, callopts = list(), return_id = TRUE, ...) {
   common_names = synonyms = NULL
   fun <- function(x){
     if(is.na(x)){
@@ -263,7 +262,7 @@ classification.eolid <- function(id, key = NULL, callopts = list(), return_id = 
 
 #' @export
 #' @rdname classification
-classification.colid <- function(id, start = NULL, checklist = NULL, return_id = FALSE, ...) {
+classification.colid <- function(id, start = NULL, checklist = NULL, return_id = TRUE, ...) {
   fun <- function(x){
     # return NA if NA is supplied
     if(is.na(x)){
@@ -304,7 +303,7 @@ classification.colid <- function(id, start = NULL, checklist = NULL, return_id =
 
 #' @export
 #' @rdname classification
-classification.tpsid <- function(id, key = NULL, callopts = list(), return_id = FALSE, ...) {
+classification.tpsid <- function(id, key = NULL, callopts = list(), return_id = TRUE, ...) {
   fun <- function(x){
     if(is.na(x)) {
       out <- NA
@@ -333,7 +332,7 @@ classification.tpsid <- function(id, key = NULL, callopts = list(), return_id = 
 
 #' @export
 #' @rdname classification
-classification.gbifid <- function(id, callopts = list(), return_id=FALSE, ...) {
+classification.gbifid <- function(id, callopts = list(), return_id = TRUE, ...) {
   fun <- function(x){
     if(is.na(x)) {
       out <- NA
@@ -356,7 +355,7 @@ classification.gbifid <- function(id, callopts = list(), return_id=FALSE, ...) {
 
 #' @export
 #' @rdname classification
-classification.nbnid <- function(id, callopts = list(), return_id = FALSE, ...) {
+classification.nbnid <- function(id, callopts = list(), return_id = TRUE, ...) {
   fun <- function(x){
     if(is.na(x)) {
       out <- NA
@@ -389,9 +388,7 @@ classification.ids <- function(id, ...)
     }
     return(out)
   }
-  out <- lapply(id, fun)
-  class(out) <- 'classification_ids'
-  return(out)
+  structure(lapply(id, fun), class='classification_ids')
 }
 
 #' @export
