@@ -215,5 +215,5 @@ ncbi_search <- function(taxa = NULL, id = NULL, seqrange="1:3000", getrelated=FA
 
 get_genes_avail <- function(taxa, seqrange="1:3000", getrelated=FALSE, verbose=TRUE)
 {
-  .Defunct("ncbi_search", "taxize", "Function name changed. See ncbi_search", "get_genes_avail")
+  .Defunct("ncbi_search", "taxize", "Function name changed. See ncbi_search")
 }

@@ -63,5 +63,5 @@ ncbi_getbyid <- function(ids, format="fasta", verbose=TRUE)
 
 get_genes <- function(ids, format="fasta", verbose=TRUE)
 {
-  .Defunct("ncbi_getbyid", "taxize", "Function name changed. See ncbi_getbyid", "get_genes")
+  .Defunct("ncbi_getbyid", "taxize", "Function name changed. See ncbi_getbyid")
 }

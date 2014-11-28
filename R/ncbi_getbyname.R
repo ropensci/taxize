@@ -152,5 +152,5 @@ ncbi_getbyname <- function(taxa, gene="COI", seqrange="1:3000", getrelated=FALSE
 
 get_seqs <- function(taxa, gene="COI", seqrange="1:3000", getrelated=FALSE, verbose=TRUE)
 {
-  .Defunct("ncbi_getbyname", "taxize", "Function name changed. See ncbi_getbyname", "get_seqs")
+  .Defunct("ncbi_getbyname", "taxize", "Function name changed. See ncbi_getbyname")
 }
