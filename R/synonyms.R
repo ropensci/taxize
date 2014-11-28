@@ -45,7 +45,7 @@ synonyms <- function(...){
 #' @export
 #' @rdname synonyms
 synonyms.default <- function(x, db = NULL, ...){
-  if (is.null(db)) stop("Must specify db!", call. = FALSE)
+  nstop(db)
   switch(db,
          itis = {
            id <- get_tsn(x, ...)

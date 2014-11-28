@@ -53,7 +53,7 @@ children <- function(...){
 #' @rdname children
 children.default <- function(x, db = NULL, ...)
 {
-  if (is.null(db)) stop("Must specify db value!", call. = FALSE)
+  nstop(db)
   switch(db,
          itis = {
            id <- get_tsn(x, ...)

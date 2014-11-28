@@ -126,7 +126,7 @@ classification <- function(...){
 #' @export
 #' @rdname classification
 classification.default <- function(x, db = NULL, callopts=list(), return_id = TRUE, ...){
-  if (is.null(db)) stop("Must specify db!", call. = FALSE)
+  nstop(db)
   switch(db,
          itis = {
            id <- process_ids(x, get_tsn, ...)
