@@ -307,7 +307,6 @@ getfullrecordfromlsid <- function(lsid, ...)
 #' getfullrecordfromtsn(504239, config=timeout(3))
 #' getfullrecordfromtsn(202385, config=timeout(3))
 #' getfullrecordfromtsn(183833, config=timeout(3))
-#' getfullrecordfromtsn(183833, config=timeout(3))
 #' }
 #' @export
 #' @keywords internal
@@ -339,7 +338,7 @@ getgeographicdivisionsfromtsn <- function(tsn, ...)
 {
 	out <- itis_GET("getGeographicDivisionsFromTSN", list(tsn = tsn), ...)
   namespaces <- c(namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd"))
-  toget <- list("geographicValue","updateDate","tsn")
+  toget <- list("geographicValue","updateDate")
 	itis_parse(toget, out, namespaces)
 }
 
