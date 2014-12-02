@@ -13,17 +13,17 @@
 \usage{
 get_uid(sciname, ask = TRUE, verbose = TRUE, rows = NA)
 
-as.uid(x)
+as.uid(x, check = TRUE)
 
-\method{as.uid}{uid}(x)
+\method{as.uid}{uid}(x, check = TRUE)
 
-\method{as.uid}{character}(x)
+\method{as.uid}{character}(x, check = TRUE)
 
-\method{as.uid}{list}(x)
+\method{as.uid}{list}(x, check = TRUE)
 
-\method{as.uid}{numeric}(x)
+\method{as.uid}{numeric}(x, check = TRUE)
 
-\method{as.uid}{data.frame}(x)
+\method{as.uid}{data.frame}(x, check = TRUE)
 
 \method{as.data.frame}{uid}(x, ...)
 
@@ -44,6 +44,9 @@ See \code{\link[taxize]{get_uid_}} to get back all, or a subset, of the raw data
 presented during the ask process.}
 
 \item{x}{Input to \code{\link{as.uid}}}
+
+\item{check}{logical; Check if ID matches any existing on the DB, only used in
+\code{\link{as.uid}}}
 
 \item{...}{Ignored}
 }
@@ -86,6 +89,11 @@ as.uid(c(315567,3339,9696)) # numeric vector, length > 1
 as.uid("315567") # character
 as.uid(c("315567","3339","9696")) # character vector, length > 1
 as.uid(list("315567","3339","9696")) # list, either numeric or character
+## dont check, much faster
+as.uid("315567", check=FALSE)
+as.uid(315567, check=FALSE)
+as.uid(c("315567","3339","9696"), check=FALSE)
+as.uid(list("315567","3339","9696"), check=FALSE)
 
 (out <- as.uid(c(315567,3339,9696)))
 data.frame(out)

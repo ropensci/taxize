@@ -14,17 +14,17 @@
 get_ubioid(searchterm, searchtype = "scientific", ask = TRUE,
   verbose = TRUE, rows = NA)
 
-as.ubioid(x)
+as.ubioid(x, check = TRUE)
 
-\method{as.ubioid}{ubioid}(x)
+\method{as.ubioid}{ubioid}(x, check = TRUE)
 
-\method{as.ubioid}{character}(x)
+\method{as.ubioid}{character}(x, check = TRUE)
 
-\method{as.ubioid}{list}(x)
+\method{as.ubioid}{list}(x, check = TRUE)
 
-\method{as.ubioid}{numeric}(x)
+\method{as.ubioid}{numeric}(x, check = TRUE)
 
-\method{as.ubioid}{data.frame}(x)
+\method{as.ubioid}{data.frame}(x, check = TRUE)
 
 \method{as.data.frame}{ubioid}(x, ...)
 
@@ -48,6 +48,9 @@ See \code{\link[taxize]{get_ubioid_}} to get back all, or a subset, of the raw d
 presented during the ask process.}
 
 \item{x}{Input to \code{\link{as.ubioid}}}
+
+\item{check}{logical; Check if ID matches any existing on the DB, only used in
+\code{\link{as.ubioid}}}
 
 \item{...}{Ignored}
 }
@@ -91,6 +94,11 @@ as.ubioid(c(2843601,3339,9696)) # numeric vector, length > 1
 as.ubioid("2843601") # character
 as.ubioid(c("2843601","3339","9696")) # character vector, length > 1
 as.ubioid(list("2843601","3339","9696")) # list, either numeric or character
+## dont check, much faster
+as.ubioid("2843601", check=FALSE)
+as.ubioid(2843601, check=FALSE)
+as.ubioid(c("2843601","3339","9696"), check=FALSE)
+as.ubioid(list("2843601","3339","9696"), check=FALSE)
 
 (out <- as.ubioid(c(2843601,3339,9696)))
 data.frame(out)

@@ -18,6 +18,8 @@
 #' Note that this function still only gives back a boldid class object with one to many identifiers.
 #' See \code{\link[taxize]{get_boldid_}} to get back all, or a subset, of the raw data that you are
 #' presented during the ask process.
+#' @param check logical; Check if ID matches any existing on the DB, only used in
+#' \code{\link{as.boldid}}
 #'
 #' @return A vector of BOLD ids. If a taxon is not found NA. If more than one BOLD ID is found
 #'    the function asks for user input (if ask = TRUE), otherwise returns NA.
@@ -58,6 +60,11 @@
 #' as.boldid("1973") # character
 #' as.boldid(c("1973","101009","98597")) # character vector, length > 1
 #' as.boldid(list("1973","101009","98597")) # list, either numeric or character
+#' ## dont check, much faster
+#' as.boldid("1973", check=FALSE)
+#' as.boldid(1973, check=FALSE)
+#' as.boldid(c("1973","101009","98597"), check=FALSE)
+#' as.boldid(list("1973","101009","98597"), check=FALSE)
 #'
 #' (out <- as.boldid(c(1973,101009,98597)))
 #' data.frame(out)
@@ -177,27 +184,27 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes='basic', includeTree
 
 #' @export
 #' @rdname get_boldid
-as.boldid <- function(x) UseMethod("as.boldid")
+as.boldid <- function(x, check=TRUE) UseMethod("as.boldid")
 
 #' @export
 #' @rdname get_boldid
-as.boldid.boldid <- function(x) x
+as.boldid.boldid <- function(x, check=TRUE) x
 
 #' @export
 #' @rdname get_boldid
-as.boldid.character <- function(x) if(length(x) == 1) make_boldid(x) else collapse(x, make_boldid, "boldid")
+as.boldid.character <- function(x, check=TRUE) if(length(x) == 1) make_boldid(x, check) else collapse(x, make_boldid, "boldid", check=check)
 
 #' @export
 #' @rdname get_boldid
-as.boldid.list <- function(x) if(length(x) == 1) make_boldid(x) else collapse(x, make_boldid, "boldid")
+as.boldid.list <- function(x, check=TRUE) if(length(x) == 1) make_boldid(x, check) else collapse(x, make_boldid, "boldid", check=check)
 
 #' @export
 #' @rdname get_boldid
-as.boldid.numeric <- function(x) as.boldid(as.character(x))
+as.boldid.numeric <- function(x, check=TRUE) as.boldid(as.character(x), check)
 
 #' @export
 #' @rdname get_boldid
-as.boldid.data.frame <- function(x) structure(x$ids, class="boldid", match=x$match, uri=x$uri)
+as.boldid.data.frame <- function(x, check=TRUE) structure(x$ids, class="boldid", match=x$match, uri=x$uri)
 
 #' @export
 #' @rdname get_boldid
@@ -209,12 +216,7 @@ as.data.frame.boldid <- function(x, ...){
              stringsAsFactors = FALSE)
 }
 
-make_boldid <- function(x){
-  if(check_boldid(x)){
-    uri <- sprintf('http://boldsystems.org/index.php/Taxbrowser_Taxonpage?taxid=%s', x)
-    structure(x, class="boldid", match="found", uri=uri)
-  } else { structure(NA, class="boldid", match="not found", uri=NA)   }
-}
+make_boldid <- function(x, check=TRUE) make_generic(x, 'http://boldsystems.org/index.php/Taxbrowser_Taxonpage?taxid=%s', "boldid", check)
 
 check_boldid <- function(x){
   tryid <- bold_tax_id(x)

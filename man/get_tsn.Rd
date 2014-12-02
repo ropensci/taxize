@@ -14,17 +14,17 @@
 get_tsn(searchterm, searchtype = "scientific", accepted = TRUE,
   ask = TRUE, verbose = TRUE, rows = NA, ...)
 
-as.tsn(x)
+as.tsn(x, check = TRUE)
 
-\method{as.tsn}{tsn}(x)
+\method{as.tsn}{tsn}(x, check = TRUE)
 
-\method{as.tsn}{character}(x)
+\method{as.tsn}{character}(x, check = TRUE)
 
-\method{as.tsn}{list}(x)
+\method{as.tsn}{list}(x, check = TRUE)
 
-\method{as.tsn}{numeric}(x)
+\method{as.tsn}{numeric}(x, check = TRUE)
 
-\method{as.tsn}{data.frame}(x)
+\method{as.tsn}{data.frame}(x, check = TRUE)
 
 \method{as.data.frame}{tsn}(x, ...)
 
@@ -53,6 +53,9 @@ presented during the ask process.}
 \item{...}{Ignored}
 
 \item{x}{Input to as.tsn}
+
+\item{check}{logical; Check if ID matches any existing on the DB, only used in
+\code{\link{as.tsn}}}
 }
 \value{
 A vector of taxonomic serial numbers (TSN). If a taxon is not
@@ -94,6 +97,11 @@ as.tsn(c(19322,129313,506198)) # numeric vector, length > 1
 as.tsn("19322") # character
 as.tsn(c("19322","129313","506198")) # character vector, length > 1
 as.tsn(list("19322","129313","506198")) # list, either numeric or character
+## dont check, much faster
+as.tsn("19322", check=FALSE)
+as.tsn(19322, check=FALSE)
+as.tsn(c("19322","129313","506198"), check=FALSE)
+as.tsn(list("19322","129313","506198"), check=FALSE)
 
 (out <- as.tsn(c(19322,129313,506198)))
 data.frame(out)

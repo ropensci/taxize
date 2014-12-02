@@ -55,7 +55,7 @@ presented during the ask process.}
 \item{x}{Input to \code{\link{as.nbnid}}}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only used in
-\code{\link{as.gbifid}}}
+\code{\link{as.nbnid}}}
 }
 \value{
 A vector of unique identifiers. If a taxon is not found NA.

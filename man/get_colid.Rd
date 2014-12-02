@@ -13,17 +13,17 @@
 \usage{
 get_colid(sciname, ask = TRUE, verbose = TRUE, rows = NA)
 
-as.colid(x)
+as.colid(x, check = TRUE)
 
-\method{as.colid}{colid}(x)
+\method{as.colid}{colid}(x, check = TRUE)
 
-\method{as.colid}{character}(x)
+\method{as.colid}{character}(x, check = TRUE)
 
-\method{as.colid}{list}(x)
+\method{as.colid}{list}(x, check = TRUE)
 
-\method{as.colid}{numeric}(x)
+\method{as.colid}{numeric}(x, check = TRUE)
 
-\method{as.colid}{data.frame}(x)
+\method{as.colid}{data.frame}(x, check = TRUE)
 
 \method{as.data.frame}{colid}(x, ...)
 
@@ -45,6 +45,9 @@ See \code{\link[taxize]{get_colid_}} to get back all, or a subset, of the raw da
 presented during the ask process.}
 
 \item{x}{Input to as.colid}
+
+\item{check}{logical; Check if ID matches any existing on the DB, only used in
+\code{\link{as.colid}}}
 
 \item{...}{Ignored}
 }
@@ -82,6 +85,11 @@ as.colid(c(8663146,19736162,18158318)) # numeric vector, length > 1
 as.colid("19736162") # character
 as.colid(c("8663146","19736162","18158318")) # character vector, length > 1
 as.colid(list("8663146","19736162","18158318")) # list, either numeric or character
+## dont check, much faster
+as.colid("8663146", check=FALSE)
+as.colid(8663146, check=FALSE)
+as.colid(c("8663146","19736162","18158318"), check=FALSE)
+as.colid(list("8663146","19736162","18158318"), check=FALSE)
 
 (out <- as.colid(c(8663146,19736162,18158318)))
 data.frame(out)

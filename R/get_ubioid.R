@@ -16,6 +16,8 @@
 #' presented during the ask process.
 #' @param x Input to \code{\link{as.ubioid}}
 #' @param ... Ignored
+#' @param check logical; Check if ID matches any existing on the DB, only used in
+#' \code{\link{as.ubioid}}
 #'
 #' @return A vector of uBio ids. If a taxon is not found NA is given. If more than one uBio
 #'    id is found the function asks for user input (if ask = TRUE), otherwise returns NA.
@@ -54,6 +56,11 @@
 #' as.ubioid("2843601") # character
 #' as.ubioid(c("2843601","3339","9696")) # character vector, length > 1
 #' as.ubioid(list("2843601","3339","9696")) # list, either numeric or character
+#' ## dont check, much faster
+#' as.ubioid("2843601", check=FALSE)
+#' as.ubioid(2843601, check=FALSE)
+#' as.ubioid(c("2843601","3339","9696"), check=FALSE)
+#' as.ubioid(list("2843601","3339","9696"), check=FALSE)
 #'
 #' (out <- as.ubioid(c(2843601,3339,9696)))
 #' data.frame(out)
@@ -161,27 +168,27 @@ get_ubioid <- function(searchterm, searchtype = "scientific", ask = TRUE, verbos
 
 #' @export
 #' @rdname get_ubioid
-as.ubioid <- function(x) UseMethod("as.ubioid")
+as.ubioid <- function(x, check=TRUE) UseMethod("as.ubioid")
 
 #' @export
 #' @rdname get_ubioid
-as.ubioid.ubioid <- function(x) x
+as.ubioid.ubioid <- function(x, check=TRUE) x
 
 #' @export
 #' @rdname get_ubioid
-as.ubioid.character <- function(x) if(length(x) == 1) make_ubioid(x) else collapse(x, make_ubioid, "ubioid")
+as.ubioid.character <- function(x, check=TRUE) if(length(x) == 1) make_ubioid(x, check) else collapse(x, make_ubioid, "ubioid", check=check)
 
 #' @export
 #' @rdname get_ubioid
-as.ubioid.list <- function(x) if(length(x) == 1) make_ubioid(x) else collapse(x, make_ubioid, "ubioid")
+as.ubioid.list <- function(x, check=TRUE) if(length(x) == 1) make_ubioid(x, check) else collapse(x, make_ubioid, "ubioid", check=check)
 
 #' @export
 #' @rdname get_ubioid
-as.ubioid.numeric <- function(x) as.ubioid(as.character(x))
+as.ubioid.numeric <- function(x, check=TRUE) as.ubioid(as.character(x), check)
 
 #' @export
 #' @rdname get_ubioid
-as.ubioid.data.frame <- function(x) structure(x$ids, class="ubioid", match=x$match, uri=x$uri)
+as.ubioid.data.frame <- function(x, check=TRUE) structure(x$ids, class="ubioid", match=x$match, uri=x$uri)
 
 #' @export
 #' @rdname get_ubioid
@@ -193,12 +200,7 @@ as.data.frame.ubioid <- function(x, ...){
              stringsAsFactors = FALSE)
 }
 
-make_ubioid <- function(x){
-  if(check_ubioid(x)){
-    uri <- sprintf('http://www.ubio.org/browser/details.php?namebankID=%s', x)
-    structure(x, class="ubioid", match="found", uri=uri)
-  } else { structure(NA, class="ubioid", match="not found", uri=NA)   }
-}
+make_ubioid <- function(x, check=TRUE) make_generic(x, 'http://www.ubio.org/browser/details.php?namebankID=%s', "ubioid", check)
 
 check_ubioid <- function(x){
   res <- ubio_id(x)

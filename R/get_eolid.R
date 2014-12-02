@@ -17,6 +17,8 @@
 #' See \code{\link[taxize]{get_eolid_}} to get back all, or a subset, of the raw data that you are
 #' presented during the ask process.
 #' @param x Input to \code{\link{as.eolid}}
+#' @param check logical; Check if ID matches any existing on the DB, only used in
+#' \code{\link{as.eolid}}
 #'
 #' @return A vector of unique identifiers (EOL). If a taxon is not found NA.
 #' If more than one ID is found the function asks for user input.
@@ -51,6 +53,11 @@
 #' as.eolid("24954444") # character
 #' as.eolid(c("24954444","51389511","57266265")) # character vector, length > 1
 #' as.eolid(list("24954444","51389511","57266265")) # list, either numeric or character
+#' ## dont check, much faster
+#' as.eolid("24954444", check=FALSE)
+#' as.eolid(24954444, check=FALSE)
+#' as.eolid(c("24954444","51389511","57266265"), check=FALSE)
+#' as.eolid(list("24954444","51389511","57266265"), check=FALSE)
 #'
 #' (out <- as.eolid(c(24954444,51389511,57266265)))
 #' data.frame(out)
@@ -185,27 +192,27 @@ taxize_sort_df <- function (data, vars = names(data))
 
 #' @export
 #' @rdname get_eolid
-as.eolid <- function(x) UseMethod("as.eolid")
+as.eolid <- function(x, check=TRUE) UseMethod("as.eolid")
 
 #' @export
 #' @rdname get_eolid
-as.eolid.eolid <- function(x) x
+as.eolid.eolid <- function(x, check=TRUE) x
 
 #' @export
 #' @rdname get_eolid
-as.eolid.character <- function(x) if(length(x) == 1) make_eolid(x) else collapse(x, make_eolid, "eolid")
+as.eolid.character <- function(x, check=TRUE) if(length(x) == 1) make_eolid(x, check) else collapse(x, make_eolid, "eolid", check=check)
 
 #' @export
 #' @rdname get_eolid
-as.eolid.list <- function(x) if(length(x) == 1) make_eolid(x) else collapse(x, make_eolid, "eolid")
+as.eolid.list <- function(x, check=TRUE) if(length(x) == 1) make_eolid(x, check) else collapse(x, make_eolid, "eolid", check=check)
 
 #' @export
 #' @rdname get_eolid
-as.eolid.numeric <- function(x) as.eolid(as.character(x))
+as.eolid.numeric <- function(x, check=TRUE) as.eolid(as.character(x), check)
 
 #' @export
 #' @rdname get_eolid
-as.eolid.data.frame <- function(x) structure(x$ids, class="eolid", match=x$match, uri=x$uri)
+as.eolid.data.frame <- function(x, check=TRUE) structure(x$ids, class="eolid", match=x$match, uri=x$uri)
 
 #' @export
 #' @rdname get_eolid
@@ -217,12 +224,7 @@ as.data.frame.eolid <- function(x, ...){
              stringsAsFactors = FALSE)
 }
 
-make_eolid <- function(x){
-  if(check_eolid(x)){
-    uri <- sprintf('http://eol.org/pages/%s/overview', x)
-    structure(x, class="eolid", match="found", uri=uri)
-  } else { structure(NA, class="eolid", match="not found", uri=NA)   }
-}
+make_eolid <- function(x, check=TRUE) make_generic(x, 'http://eol.org/pages/%s/overview', "eolid", check)
 
 check_eolid <- function(x){
   url <- sprintf("http://eol.org/api/hierarchy_entries/1.0/%s.json", x)

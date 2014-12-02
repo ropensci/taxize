@@ -170,6 +170,16 @@ collapse <- function(x, fxn, class, match=TRUE, ...){
   }
 }
 
+make_generic <- function(x, uu, clz, check=TRUE){
+  if(check){
+    if( evalfxn(clz)(x) ) toid(x, uu, clz) else structure(NA, class=clz, match="not found", uri=NA)
+  } else {
+    toid(x, uu, clz)
+  }
+}
+
+evalfxn <- function(x) eval(parse(text = paste0("check", "_", x)))
+
 add_uri <- function(ids, url){
   if( !all(is.na(ids)) ){
     attr(ids, 'uri') <- sapply(ids, function(x){

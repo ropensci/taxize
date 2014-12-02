@@ -13,6 +13,8 @@
 #' presented during the ask process.
 #' @param x Input to as.colid
 #' @param ... Ignored
+#' @param check logical; Check if ID matches any existing on the DB, only used in
+#' \code{\link{as.colid}}
 #'
 #' @return A vector of unique identifiers. If a taxon is not found NA.
 #' If more than one ID is found the function asks for user input.
@@ -49,6 +51,11 @@
 #' as.colid("19736162") # character
 #' as.colid(c("8663146","19736162","18158318")) # character vector, length > 1
 #' as.colid(list("8663146","19736162","18158318")) # list, either numeric or character
+#' ## dont check, much faster
+#' as.colid("8663146", check=FALSE)
+#' as.colid(8663146, check=FALSE)
+#' as.colid(c("8663146","19736162","18158318"), check=FALSE)
+#' as.colid(list("8663146","19736162","18158318"), check=FALSE)
 #'
 #' (out <- as.colid(c(8663146,19736162,18158318)))
 #' data.frame(out)
@@ -143,27 +150,27 @@ get_colid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA){
 
 #' @export
 #' @rdname get_colid
-as.colid <- function(x) UseMethod("as.colid")
+as.colid <- function(x, check=TRUE) UseMethod("as.colid")
 
 #' @export
 #' @rdname get_colid
-as.colid.colid <- function(x) x
+as.colid.colid <- function(x, check=TRUE) x
 
 #' @export
 #' @rdname get_colid
-as.colid.character <- function(x) if(length(x) == 1) make_colid(x) else collapse(x, make_colid, "colid")
+as.colid.character <- function(x, check=TRUE) if(length(x) == 1) make_colid(x, check) else collapse(x, make_colid, "colid", check=check)
 
 #' @export
 #' @rdname get_colid
-as.colid.list <- function(x) if(length(x) == 1) make_colid(x) else collapse(x, make_colid, "colid")
+as.colid.list <- function(x, check=TRUE) if(length(x) == 1) make_colid(x, check) else collapse(x, make_colid, "colid", check=check)
 
 #' @export
 #' @rdname get_colid
-as.colid.numeric <- function(x) as.colid(as.character(x))
+as.colid.numeric <- function(x, check=TRUE) as.colid(as.character(x), check)
 
 #' @export
 #' @rdname get_colid
-as.colid.data.frame <- function(x) structure(x$ids, class="colid", match=x$match, uri=x$uri)
+as.colid.data.frame <- function(x, check=TRUE) structure(x$ids, class="colid", match=x$match, uri=x$uri)
 
 #' @export
 #' @rdname get_colid
@@ -175,12 +182,7 @@ as.data.frame.colid <- function(x, ...){
              stringsAsFactors = FALSE)
 }
 
-make_colid <- function(x){
-  if(check_colid(x)){
-    uri <- sprintf('http://www.catalogueoflife.org/col/details/species/id/%s', x)
-    structure(x, class="uid", match="found", uri=uri)
-  } else { structure(NA, class="uid", match="not found", uri=NA)   }
-}
+make_colid <- function(x, check=TRUE) make_generic(x, 'http://www.catalogueoflife.org/col/details/species/id/%s', "colid", check)
 
 check_colid <- function(x){
   url <- "http://www.catalogueoflife.org/col/details/species/id/"

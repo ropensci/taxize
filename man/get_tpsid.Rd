@@ -14,17 +14,17 @@
 get_tpsid(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA,
   ...)
 
-as.tpsid(x)
+as.tpsid(x, check = TRUE)
 
-\method{as.tpsid}{tpsid}(x)
+\method{as.tpsid}{tpsid}(x, check = TRUE)
 
-\method{as.tpsid}{character}(x)
+\method{as.tpsid}{character}(x, check = TRUE)
 
-\method{as.tpsid}{list}(x)
+\method{as.tpsid}{list}(x, check = TRUE)
 
-\method{as.tpsid}{numeric}(x)
+\method{as.tpsid}{numeric}(x, check = TRUE)
 
-\method{as.tpsid}{data.frame}(x)
+\method{as.tpsid}{data.frame}(x, check = TRUE)
 
 \method{as.data.frame}{tpsid}(x, ...)
 
@@ -49,6 +49,9 @@ presented during the ask process.}
 \item{...}{Other arguments passed to \code{\link[taxize]{tp_search}}.}
 
 \item{x}{Input to \code{\link{as.tpsid}}}
+
+\item{check}{logical; Check if ID matches any existing on the DB, only used in
+\code{\link{as.tpsid}}}
 }
 \value{
 A vector of unique identifiers. If a taxon is not found NA.
@@ -93,6 +96,11 @@ as.tpsid(c(24900183,50150089,50079838)) # numeric vector, length > 1
 as.tpsid("24900183") # character
 as.tpsid(c("24900183","50150089","50079838")) # character vector, length > 1
 as.tpsid(list("24900183","50150089","50079838")) # list, either numeric or character
+## dont check, much faster
+as.tpsid("24900183", check=FALSE)
+as.tpsid(24900183, check=FALSE)
+as.tpsid(c("24900183","50150089","50079838"), check=FALSE)
+as.tpsid(list("24900183","50150089","50079838"), check=FALSE)
 
 (out <- as.tpsid(c(24900183,50150089,50079838)))
 data.frame(out)

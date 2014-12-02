@@ -14,17 +14,17 @@
 get_boldid(searchterm, fuzzy = FALSE, dataTypes = "basic",
   includeTree = FALSE, ask = TRUE, verbose = TRUE, rows = NA, ...)
 
-as.boldid(x)
+as.boldid(x, check = TRUE)
 
-\method{as.boldid}{boldid}(x)
+\method{as.boldid}{boldid}(x, check = TRUE)
 
-\method{as.boldid}{character}(x)
+\method{as.boldid}{character}(x, check = TRUE)
 
-\method{as.boldid}{list}(x)
+\method{as.boldid}{list}(x, check = TRUE)
 
-\method{as.boldid}{numeric}(x)
+\method{as.boldid}{numeric}(x, check = TRUE)
 
-\method{as.boldid}{data.frame}(x)
+\method{as.boldid}{data.frame}(x, check = TRUE)
 
 \method{as.data.frame}{boldid}(x, ...)
 
@@ -56,6 +56,9 @@ presented during the ask process.}
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 
 \item{x}{Input to \code{\link{as.boldid}}}
+
+\item{check}{logical; Check if ID matches any existing on the DB, only used in
+\code{\link{as.boldid}}}
 }
 \value{
 A vector of BOLD ids. If a taxon is not found NA. If more than one BOLD ID is found
@@ -99,6 +102,11 @@ as.boldid(c(1973,101009,98597)) # numeric vector, length > 1
 as.boldid("1973") # character
 as.boldid(c("1973","101009","98597")) # character vector, length > 1
 as.boldid(list("1973","101009","98597")) # list, either numeric or character
+## dont check, much faster
+as.boldid("1973", check=FALSE)
+as.boldid(1973, check=FALSE)
+as.boldid(c("1973","101009","98597"), check=FALSE)
+as.boldid(list("1973","101009","98597"), check=FALSE)
 
 (out <- as.boldid(c(1973,101009,98597)))
 data.frame(out)

@@ -20,7 +20,7 @@
 #' @param ... Further args passed on to \code{nbn_search}
 #' @param x Input to \code{\link{as.nbnid}}
 #' @param check logical; Check if ID matches any existing on the DB, only used in
-#' \code{\link{as.gbifid}}
+#' \code{\link{as.nbnid}}
 #'
 #' @return A vector of unique identifiers. If a taxon is not found NA.
 #' If more than one ID is found the function asks for user input.
@@ -181,16 +181,7 @@ as.data.frame.nbnid <- function(x, ...){
              stringsAsFactors = FALSE)
 }
 
-make_nbnid <- function(x, check=TRUE){
-  if(check){
-    if(check_nbnid(x)){
-      uri <- sprintf('https://data.nbn.org.uk/Taxa/%s', x)
-      structure(x, class="nbnid", match="found", uri=uri)
-    } else { structure(NA, class="nbnid", match="not found", uri=NA)  }
-  } else {
-    toid(x, 'http://www.gbif.org/species/%s', "gbifid")
-  }
-}
+make_nbnid <- function(x, check=TRUE) make_generic(x, 'https://data.nbn.org.uk/Taxa/%s', "nbnid", check)
 
 check_nbnid <- function(x){
   url <- "https://data.nbn.org.uk/api/taxa/"

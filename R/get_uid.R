@@ -14,6 +14,8 @@
 #' presented during the ask process.
 #' @param x Input to \code{\link{as.uid}}
 #' @param ... Ignored
+#' @param check logical; Check if ID matches any existing on the DB, only used in
+#' \code{\link{as.uid}}
 #'
 #' @return A vector of unique identifiers (UID). If a taxon is not found NA.
 #' If more than one UID is found the function asks for user input (if ask = TRUE),
@@ -54,6 +56,11 @@
 #' as.uid("315567") # character
 #' as.uid(c("315567","3339","9696")) # character vector, length > 1
 #' as.uid(list("315567","3339","9696")) # list, either numeric or character
+#' ## dont check, much faster
+#' as.uid("315567", check=FALSE)
+#' as.uid(315567, check=FALSE)
+#' as.uid(c("315567","3339","9696"), check=FALSE)
+#' as.uid(list("315567","3339","9696"), check=FALSE)
 #'
 #' (out <- as.uid(c(315567,3339,9696)))
 #' data.frame(out)
@@ -135,27 +142,27 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA){
 
 #' @export
 #' @rdname get_uid
-as.uid <- function(x) UseMethod("as.uid")
+as.uid <- function(x, check=TRUE) UseMethod("as.uid")
 
 #' @export
 #' @rdname get_uid
-as.uid.uid <- function(x) x
+as.uid.uid <- function(x, check=TRUE) x
 
 #' @export
 #' @rdname get_uid
-as.uid.character <- function(x) if(length(x) == 1) make_uid(x) else collapse(x, make_uid, "uid")
+as.uid.character <- function(x, check=TRUE) if(length(x) == 1) make_uid(x, check) else collapse(x, make_uid, "uid", check=check)
 
 #' @export
 #' @rdname get_uid
-as.uid.list <- function(x) if(length(x) == 1) make_uid(x) else collapse(x, make_uid, "uid")
+as.uid.list <- function(x, check=TRUE) if(length(x) == 1) make_uid(x, check) else collapse(x, make_uid, "uid", check=check)
 
 #' @export
 #' @rdname get_uid
-as.uid.numeric <- function(x) as.uid(as.character(x))
+as.uid.numeric <- function(x, check=TRUE) as.uid(as.character(x), check)
 
 #' @export
 #' @rdname get_uid
-as.uid.data.frame <- function(x) structure(x$ids, class="uid", match=x$match, uri=x$uri)
+as.uid.data.frame <- function(x, check=TRUE) structure(x$ids, class="uid", match=x$match, uri=x$uri)
 
 #' @export
 #' @rdname get_uid
@@ -167,12 +174,7 @@ as.data.frame.uid <- function(x, ...){
              stringsAsFactors = FALSE)
 }
 
-make_uid <- function(x){
-  if(check_uid(x)){
-    uri <- sprintf('http://www.ncbi.nlm.nih.gov/taxonomy/%s', x)
-    structure(x, class="uid", match="found", uri=uri)
-  } else { structure(NA, class="uid", match="not found", uri=NA)   }
-}
+make_uid <- function(x, check=TRUE) make_generic(x, 'http://www.ncbi.nlm.nih.gov/taxonomy/%s', "uid", check)
 
 check_uid <- function(x){
   url <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&id="

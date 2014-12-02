@@ -14,17 +14,17 @@
 get_eolid(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA,
   ...)
 
-as.eolid(x)
+as.eolid(x, check = TRUE)
 
-\method{as.eolid}{eolid}(x)
+\method{as.eolid}{eolid}(x, check = TRUE)
 
-\method{as.eolid}{character}(x)
+\method{as.eolid}{character}(x, check = TRUE)
 
-\method{as.eolid}{list}(x)
+\method{as.eolid}{list}(x, check = TRUE)
 
-\method{as.eolid}{numeric}(x)
+\method{as.eolid}{numeric}(x, check = TRUE)
 
-\method{as.eolid}{data.frame}(x)
+\method{as.eolid}{data.frame}(x, check = TRUE)
 
 \method{as.data.frame}{eolid}(x, ...)
 
@@ -49,6 +49,9 @@ presented during the ask process.}
 \item{...}{Further args passed on to eol_search()}
 
 \item{x}{Input to \code{\link{as.eolid}}}
+
+\item{check}{logical; Check if ID matches any existing on the DB, only used in
+\code{\link{as.eolid}}}
 }
 \value{
 A vector of unique identifiers (EOL). If a taxon is not found NA.
@@ -85,6 +88,11 @@ as.eolid(c(24954444,51389511,57266265)) # numeric vector, length > 1
 as.eolid("24954444") # character
 as.eolid(c("24954444","51389511","57266265")) # character vector, length > 1
 as.eolid(list("24954444","51389511","57266265")) # list, either numeric or character
+## dont check, much faster
+as.eolid("24954444", check=FALSE)
+as.eolid(24954444, check=FALSE)
+as.eolid(c("24954444","51389511","57266265"), check=FALSE)
+as.eolid(list("24954444","51389511","57266265"), check=FALSE)
 
 (out <- as.eolid(c(24954444,51389511,57266265)))
 data.frame(out)

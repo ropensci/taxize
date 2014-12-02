@@ -13,6 +13,8 @@
 #' presented during the ask process.
 #' @param ... Other arguments passed to \code{\link[taxize]{tp_search}}.
 #' @param x Input to \code{\link{as.tpsid}}
+#' @param check logical; Check if ID matches any existing on the DB, only used in
+#' \code{\link{as.tpsid}}
 #'
 #' @return A vector of unique identifiers. If a taxon is not found NA.
 #' If more than one ID is found the function asks for user input.
@@ -57,6 +59,11 @@
 #' as.tpsid("24900183") # character
 #' as.tpsid(c("24900183","50150089","50079838")) # character vector, length > 1
 #' as.tpsid(list("24900183","50150089","50079838")) # list, either numeric or character
+#' ## dont check, much faster
+#' as.tpsid("24900183", check=FALSE)
+#' as.tpsid(24900183, check=FALSE)
+#' as.tpsid(c("24900183","50150089","50079838"), check=FALSE)
+#' as.tpsid(list("24900183","50150089","50079838"), check=FALSE)
 #'
 #' (out <- as.tpsid(c(24900183,50150089,50079838)))
 #' data.frame(out)
@@ -135,27 +142,27 @@ get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
 
 #' @export
 #' @rdname get_tpsid
-as.tpsid <- function(x) UseMethod("as.tpsid")
+as.tpsid <- function(x, check=TRUE) UseMethod("as.tpsid")
 
 #' @export
 #' @rdname get_tpsid
-as.tpsid.tpsid <- function(x) x
+as.tpsid.tpsid <- function(x, check=TRUE) x
 
 #' @export
 #' @rdname get_tpsid
-as.tpsid.character <- function(x) if(length(x) == 1) make_tpsid(x) else collapse(x, make_tpsid, "tpsid")
+as.tpsid.character <- function(x, check=TRUE) if(length(x) == 1) make_tpsid(x, check) else collapse(x, make_tpsid, "tpsid", check=check)
 
 #' @export
 #' @rdname get_tpsid
-as.tpsid.list <- function(x) if(length(x) == 1) make_tpsid(x) else collapse(x, make_tpsid, "tpsid")
+as.tpsid.list <- function(x, check=TRUE) if(length(x) == 1) make_tpsid(x, check) else collapse(x, make_tpsid, "tpsid", check=check)
 
 #' @export
 #' @rdname get_tpsid
-as.tpsid.numeric <- function(x) as.tpsid(as.character(x))
+as.tpsid.numeric <- function(x, check=TRUE) as.tpsid(as.character(x), check)
 
 #' @export
 #' @rdname get_tpsid
-as.tpsid.data.frame <- function(x) structure(x$ids, class="tpsid", match=x$match, uri=x$uri)
+as.tpsid.data.frame <- function(x, check=TRUE) structure(x$ids, class="tpsid", match=x$match, uri=x$uri)
 
 #' @export
 #' @rdname get_tpsid
@@ -167,12 +174,7 @@ as.data.frame.tpsid <- function(x, ...){
              stringsAsFactors = FALSE)
 }
 
-make_tpsid <- function(x){
-  if(check_tpsid(x)){
-    uri <- sprintf('http://tropicos.org/Name/%s', x)
-    structure(x, class="tpsid", match="found", uri=uri)
-  } else { structure(NA, class="tpsid", match="not found", uri=NA) }
-}
+make_tpsid <- function(x, check=TRUE) make_generic(x, 'http://tropicos.org/Name/%s', "tpsid", check)
 
 check_tpsid <- function(x){
   res <- tp_summary(x)

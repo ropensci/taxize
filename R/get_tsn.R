@@ -17,6 +17,8 @@
 #' presented during the ask process.
 #' @param x Input to as.tsn
 #' @param ... Ignored
+#' @param check logical; Check if ID matches any existing on the DB, only used in
+#' \code{\link{as.tsn}}
 #'
 #' @return A vector of taxonomic serial numbers (TSN). If a taxon is not
 #'    found NA. If more than one TSN is found the function asks for user input
@@ -56,6 +58,11 @@
 #' as.tsn("19322") # character
 #' as.tsn(c("19322","129313","506198")) # character vector, length > 1
 #' as.tsn(list("19322","129313","506198")) # list, either numeric or character
+#' ## dont check, much faster
+#' as.tsn("19322", check=FALSE)
+#' as.tsn(19322, check=FALSE)
+#' as.tsn(c("19322","129313","506198"), check=FALSE)
+#' as.tsn(list("19322","129313","506198"), check=FALSE)
 #'
 #' (out <- as.tsn(c(19322,129313,506198)))
 #' data.frame(out)
@@ -175,27 +182,27 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = TRUE, ask 
 
 #' @export
 #' @rdname get_tsn
-as.tsn <- function(x) UseMethod("as.tsn")
+as.tsn <- function(x, check=TRUE) UseMethod("as.tsn")
 
 #' @export
 #' @rdname get_tsn
-as.tsn.tsn <- function(x) x
+as.tsn.tsn <- function(x, check=TRUE) x
 
 #' @export
 #' @rdname get_tsn
-as.tsn.character <- function(x) if(length(x) == 1) make_tsn(x) else collapse(x, make_tsn, "tsn")
+as.tsn.character <- function(x, check=TRUE) if(length(x) == 1) make_tsn(x, check) else collapse(x, make_tsn, "tsn", check=check)
 
 #' @export
 #' @rdname get_tsn
-as.tsn.list <- function(x) if(length(x) == 1) make_tsn(x) else collapse(x, make_tsn, "tsn")
+as.tsn.list <- function(x, check=TRUE) if(length(x) == 1) make_tsn(x, check) else collapse(x, make_tsn, "tsn", check=check)
 
 #' @export
 #' @rdname get_tsn
-as.tsn.numeric <- function(x) as.tsn(as.character(x))
+as.tsn.numeric <- function(x, check=TRUE) as.tsn(as.character(x), check)
 
 #' @export
 #' @rdname get_tsn
-as.tsn.data.frame <- function(x) structure(x$ids, class="tsn", match=x$match, uri=x$uri)
+as.tsn.data.frame <- function(x, check=TRUE) structure(x$ids, class="tsn", match=x$match, uri=x$uri)
 
 #' @export
 #' @rdname get_tsn
@@ -207,12 +214,7 @@ as.data.frame.tsn <- function(x, ...){
              stringsAsFactors = FALSE)
 }
 
-make_tsn <- function(x){
-  if(check_tsn(x)){
-    uri <- sprintf('http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=%s', x)
-    structure(x, class="tsn", match="found", uri=uri)
-  } else { structure(NA, class="tsn", match="not found", uri=NA) }
-}
+make_tsn <- function(x, check=TRUE) make_generic(x, 'http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=%s', "tsn", check)
 
 check_tsn <- function(x){
   tt <- suppressMessages(itis_getrecord(x))

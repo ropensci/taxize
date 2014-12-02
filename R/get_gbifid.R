@@ -205,15 +205,7 @@ as.data.frame.gbifid <- function(x, ...){
              stringsAsFactors = FALSE)
 }
 
-make_gbifid <- function(x, check=TRUE){
-  if(check){
-    if(check_gbifid(x)){
-      toid(x, 'http://www.gbif.org/species/%s', "gbifid")
-    } else { structure(NA, class="gbfid", match="not found", uri=NA)   }
-  } else {
-    toid(x, 'http://www.gbif.org/species/%s', "gbifid")
-  }
-}
+make_gbifid <- function(x, check=TRUE) make_generic(x, 'http://www.gbif.org/species/%s', "gbifid", check)
 
 toid <- function(x, url, class){
   uri <- sprintf(url, x)
