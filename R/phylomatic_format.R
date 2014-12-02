@@ -1,9 +1,9 @@
-#' Get family names to make Phylomatic input object, and output input string 
+#' Get family names to make Phylomatic input object, and output input string
 #'    to Phylomatic for use in the function phylomatic_tree.
-#'    
+#'
 #' @import XML RCurl stringr plyr
 #' @param taxa quoted tsn number (taxonomic serial number)
-#' @param format output format, isubmit (you can paste in to the Phylomatic 
+#' @param format output format, isubmit (you can paste in to the Phylomatic
 #'     website), or 'rsubmit' to use in fxn phylomatic_tree
 #' @param db One of "ncbi", "itis", or "apg"
 #' @return e.g., "pinaceae/pinus/pinus_contorta", in Phylomatic submission format.
@@ -19,9 +19,9 @@ phylomatic_format <- function(taxa = NA, format='isubmit', db="ncbi")
     # split up strings if a species name
     taxa2 <- strsplit(gsub("_"," ",nnn), "\\s")[[1]]
     taxa_genus <- taxize_capwords(taxa2[[1]], onlyfirst=TRUE)
-    
+
     if(db %in% c("ncbi","itis")){
-      family <- tax_name(query=taxa_genus, get="family", db=db)
+      family <- tax_name(query=taxa_genus, get="family", db=db)$family
     } else {
       tplfamily <- theplantlist[ match(taxa_genus, theplantlist$genus), "family" ]
       dd <- apg_families[ match(tplfamily, apg_families$this), ]
@@ -36,6 +36,6 @@ phylomatic_format <- function(taxa = NA, format='isubmit', db="ncbi")
         paste(stringg[[1]], "%2F", stringg[2], "%2F", tolower(str_replace(nnn, " ", "_")), sep='')
       }
   }
-  
+
   sapply(taxa, foo, USE.NAMES=FALSE)
 }
