@@ -113,7 +113,7 @@ ncbi_search <- function(taxa = NULL, id = NULL, seqrange="1:3000", getrelated=FA
         stop_for_status(query_res)
         iterlist[[i]] <- parseres(query_res)
       }
-      df <- data.frame(rbindlist(iterlist))
+      df <- data.frame(rbindlist(iterlist), stringsAsFactors = FALSE)
     } else
     {
       q <- list(db = "nucleotide", id = paste(seq_id, collapse=" "))
@@ -160,7 +160,7 @@ ncbi_search <- function(taxa = NULL, id = NULL, seqrange="1:3000", getrelated=FA
     # Retrieve sequence information  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     if (is.null(seq_ids)) {
       mssg(verbose, "no sequences found")
-      df <- data.frame(character(0), numeric(0), character(0), character(0), numeric(0))
+      df <- data.frame(character(0), numeric(0), character(0), character(0), numeric(0), stringsAsFactors = FALSE)
     } else {
       mssg(verbose, "...retrieving available genes and their lengths...")
       df <- download_summary(seq_ids)
