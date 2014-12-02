@@ -13,15 +13,15 @@
 get_nbnid(name, ask = TRUE, verbose = TRUE, rec_only = FALSE,
   rank = NULL, rows = NA, ...)
 
-as.nbnid(x)
+as.nbnid(x, check = TRUE)
 
-\method{as.nbnid}{nbnid}(x)
+\method{as.nbnid}{nbnid}(x, check = TRUE)
 
-\method{as.nbnid}{character}(x)
+\method{as.nbnid}{character}(x, check = TRUE)
 
-\method{as.nbnid}{list}(x)
+\method{as.nbnid}{list}(x, check = TRUE)
 
-\method{as.nbnid}{data.frame}(x)
+\method{as.nbnid}{data.frame}(x, check = TRUE)
 
 \method{as.data.frame}{nbnid}(x, ...)
 
@@ -53,6 +53,9 @@ presented during the ask process.}
 \item{...}{Further args passed on to \code{nbn_search}}
 
 \item{x}{Input to \code{\link{as.nbnid}}}
+
+\item{check}{logical; Check if ID matches any existing on the DB, only used in
+\code{\link{as.gbifid}}}
 }
 \value{
 A vector of unique identifiers. If a taxon is not found NA.
@@ -89,6 +92,9 @@ as.nbnid(get_nbnid(c("Zootoca vivipara","Pinus contorta"))) # same
 as.nbnid('NHMSYS0001706186') # character
 as.nbnid(c("NHMSYS0001706186","NHMSYS0000494848","NBNSYS0000010867")) # character vector, length > 1
 as.nbnid(list("NHMSYS0001706186","NHMSYS0000494848","NBNSYS0000010867")) # list
+## dont check, much faster
+as.nbnid('NHMSYS0001706186', check=FALSE)
+as.nbnid(list("NHMSYS0001706186","NHMSYS0000494848","NBNSYS0000010867"), check=FALSE)
 
 (out <- as.nbnid(c("NHMSYS0001706186","NHMSYS0000494848","NBNSYS0000010867")))
 data.frame(out)

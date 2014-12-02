@@ -19,6 +19,8 @@
 #' presented during the ask process.
 #' @param ... Further args passed on to \code{nbn_search}
 #' @param x Input to \code{\link{as.nbnid}}
+#' @param check logical; Check if ID matches any existing on the DB, only used in
+#' \code{\link{as.gbifid}}
 #'
 #' @return A vector of unique identifiers. If a taxon is not found NA.
 #' If more than one ID is found the function asks for user input.
@@ -55,6 +57,9 @@
 #' as.nbnid('NHMSYS0001706186') # character
 #' as.nbnid(c("NHMSYS0001706186","NHMSYS0000494848","NBNSYS0000010867")) # character vector, length > 1
 #' as.nbnid(list("NHMSYS0001706186","NHMSYS0000494848","NBNSYS0000010867")) # list
+#' ## dont check, much faster
+#' as.nbnid('NHMSYS0001706186', check=FALSE)
+#' as.nbnid(list("NHMSYS0001706186","NHMSYS0000494848","NBNSYS0000010867"), check=FALSE)
 #'
 #' (out <- as.nbnid(c("NHMSYS0001706186","NHMSYS0000494848","NBNSYS0000010867")))
 #' data.frame(out)
@@ -148,23 +153,23 @@ get_nbnid <- function(name, ask = TRUE, verbose = TRUE, rec_only = FALSE, rank =
 
 #' @export
 #' @rdname get_nbnid
-as.nbnid <- function(x) UseMethod("as.nbnid")
+as.nbnid <- function(x, check=TRUE) UseMethod("as.nbnid")
 
 #' @export
 #' @rdname get_nbnid
-as.nbnid.nbnid <- function(x) x
+as.nbnid.nbnid <- function(x, check=TRUE) x
 
 #' @export
 #' @rdname get_nbnid
-as.nbnid.character <- function(x) if(length(x) == 1) make_nbnid(x) else collapse(x, make_nbnid, "nbnid")
+as.nbnid.character <- function(x, check=TRUE) if(length(x) == 1) make_nbnid(x, check) else collapse(x, make_nbnid, "nbnid", check=check)
 
 #' @export
 #' @rdname get_nbnid
-as.nbnid.list <- function(x) if(length(x) == 1) make_nbnid(x) else collapse(x, make_nbnid, "nbnid")
+as.nbnid.list <- function(x, check=TRUE) if(length(x) == 1) make_nbnid(x, check) else collapse(x, make_nbnid, "nbnid", check=check)
 
 #' @export
 #' @rdname get_nbnid
-as.nbnid.data.frame <- function(x) structure(x$ids, class="nbnid", match=x$match, uri=x$uri)
+as.nbnid.data.frame <- function(x, check=TRUE) structure(x$ids, class="nbnid", match=x$match, uri=x$uri)
 
 #' @export
 #' @rdname get_nbnid
@@ -176,11 +181,15 @@ as.data.frame.nbnid <- function(x, ...){
              stringsAsFactors = FALSE)
 }
 
-make_nbnid <- function(x){
-  if(check_nbnid(x)){
-    uri <- sprintf('https://data.nbn.org.uk/Taxa/%s', x)
-    structure(x, class="nbnid", match="found", uri=uri)
-  } else { structure(NA, class="nbnid", match="not found", uri=NA)  }
+make_nbnid <- function(x, check=TRUE){
+  if(check){
+    if(check_nbnid(x)){
+      uri <- sprintf('https://data.nbn.org.uk/Taxa/%s', x)
+      structure(x, class="nbnid", match="found", uri=uri)
+    } else { structure(NA, class="nbnid", match="not found", uri=NA)  }
+  } else {
+    toid(x, 'http://www.gbif.org/species/%s', "gbifid")
+  }
 }
 
 check_nbnid <- function(x){

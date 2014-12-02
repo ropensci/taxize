@@ -92,6 +92,7 @@ as.gbifid(list("2704179","2435099","3171445")) # list, either numeric or charact
 as.gbifid("2704179", check=FALSE)
 as.gbifid(2704179, check=FALSE)
 as.gbifid(2704179, check=FALSE)
+as.gbifid(c("2704179","2435099","3171445"), check=FALSE)
 as.gbifid(list("2704179","2435099","3171445"), check=FALSE)
 
 (out <- as.gbifid(c(2704179,2435099,3171445)))
