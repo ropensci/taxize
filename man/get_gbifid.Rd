@@ -88,6 +88,11 @@ as.gbifid(c(2704179,2435099,3171445)) # numeric vector, length > 1
 as.gbifid("2704179") # character
 as.gbifid(c("2704179","2435099","3171445")) # character vector, length > 1
 as.gbifid(list("2704179","2435099","3171445")) # list, either numeric or character
+## dont check, much faster
+as.gbifid("2704179", check=FALSE)
+as.gbifid(2704179, check=FALSE)
+as.gbifid(2704179, check=FALSE)
+as.gbifid(list("2704179","2435099","3171445"), check=FALSE)
 
 (out <- as.gbifid(c(2704179,2435099,3171445)))
 data.frame(out)

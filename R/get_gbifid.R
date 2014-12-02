@@ -54,6 +54,11 @@
 #' as.gbifid("2704179") # character
 #' as.gbifid(c("2704179","2435099","3171445")) # character vector, length > 1
 #' as.gbifid(list("2704179","2435099","3171445")) # list, either numeric or character
+#' ## dont check, much faster
+#' as.gbifid("2704179", check=FALSE)
+#' as.gbifid(2704179, check=FALSE)
+#' as.gbifid(2704179, check=FALSE)
+#' as.gbifid(list("2704179","2435099","3171445"), check=FALSE)
 #'
 #' (out <- as.gbifid(c(2704179,2435099,3171445)))
 #' data.frame(out)
@@ -179,11 +184,11 @@ as.gbifid.character <- function(x, check=TRUE) if(length(x) == 1) make_gbifid(x,
 
 #' @export
 #' @rdname get_gbifid
-as.gbifid.list <- function(x, check=TRUE) if(length(x) == 1) make_gbifid(x) else collapse(x, make_gbifid, "gbifid")
+as.gbifid.list <- function(x, check=TRUE) if(length(x) == 1) make_gbifid(x, check) else collapse(x, make_gbifid, "gbifid", check=check)
 
 #' @export
 #' @rdname get_gbifid
-as.gbifid.numeric <- function(x, check=TRUE) as.gbifid(as.character(x), check=check)
+as.gbifid.numeric <- function(x, check=TRUE) as.gbifid(as.character(x), check)
 
 #' @export
 #' @rdname get_gbifid

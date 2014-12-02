@@ -159,8 +159,8 @@ pluck <- function(x, name, type) {
   }
 }
 
-collapse <- function(x, fxn, class, match=TRUE){
-  tmp <- lapply(x, fxn)
+collapse <- function(x, fxn, class, match=TRUE, ...){
+  tmp <- lapply(x, fxn, ...)
   if(match){
     structure(sapply(tmp, unclass), class=class,
               match=sapply(tmp, attr, which="match"),
