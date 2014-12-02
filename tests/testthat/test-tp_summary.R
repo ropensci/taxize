@@ -8,6 +8,6 @@ test_that("tp_summary returns the correct value", {
 })
 
 test_that("tp_summary returns the correct class", {
-	expect_that(dat, is_a("data.frame"))
-	expect_that(NCOL(dat), equals(19))
+	expect_is(dat, "data.frame")
+	expect_equal(NCOL(dat), 22)
 })

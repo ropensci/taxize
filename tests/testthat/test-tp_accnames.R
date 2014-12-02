@@ -8,7 +8,7 @@ test_that("tp_accnames returns the correct class", {
 	expect_that(out$synonyms, is_a("data.frame"))
 	expect_that(out$acceptednames, is_a("data.frame"))
 	expect_that(out$reference, is_a("data.frame"))
-  
-	expect_that(out$reference$referenceid, is_a("numeric"))
+
+	expect_is(out$reference$referenceid, "integer")
 	expect_that(out$reference$abbreviatedtitle, is_a("character"))
 })

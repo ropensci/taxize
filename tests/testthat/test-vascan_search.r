@@ -7,12 +7,12 @@ splist <- names_list(rank='species', size=50)
 cc <- vascan_search(q = splist)
 
 test_that("vascan_search returns the correct class", {
-  expect_that(aa, is_a("list"))
-  expect_that(bb, is_a("character"))
-  expect_that(cc, is_a("list"))
+  expect_is(aa, "list")
+  expect_is(bb, "character")
+  expect_is(cc, "list")
 })
 
 test_that("vascan_search returns the correct value", {
-  expect_equal(aa$apiVersion, "0.1")  
-  expect_equal(cc$results[[1]]$numMatches, 0)
+  expect_equal(aa[[1]]$searchedterm, "Helianthus annuus")
+  expect_equal(cc[[1]]$nummatches, 0)
 })
