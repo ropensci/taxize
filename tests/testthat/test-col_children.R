@@ -37,15 +37,15 @@ test_that("col_children returns the correct class", {
 })
 
 test_that("col_children returns the correct dimensions", {
-	expect_equal(dim(temp1[[1]]), c(7,3))
-	expect_equal(dim(temp2[[1]]), c(8,3))
-	expect_equal(dim(temp3[[1]]), c(74,3))
-	expect_equal(dim(temp4[[1]]), c(36,3))
-	expect_equal(dim(temp5[[1]]), c(2,3))
-	expect_equal(dim(temp6[[1]]), c(59,3))
-	expect_equal(dim(temp7[[1]]), c(3,3))
-	expect_equal(dim(temp8[[1]]), c(517,3))
-	
+	expect_equal(NCOL(temp1[[1]]), 3)
+	expect_equal(NCOL(temp2[[1]]), 3)
+	expect_equal(NCOL(temp3[[1]]), 3)
+	expect_equal(NCOL(temp4[[1]]), 3)
+	expect_equal(NCOL(temp5[[1]]), 3)
+	expect_equal(NCOL(temp6[[1]]), 3)
+	expect_equal(NCOL(temp7[[1]]), 3)
+	expect_equal(NCOL(temp8[[1]]), 3)
+
   expect_equal(length(temp9), 1)
 	expect_equal(length(temp10), 1)
 	expect_equal(length(temp11), 1)

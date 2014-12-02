@@ -9,7 +9,7 @@ test_that("eol_dataobjects returns the correct dimensions", {
 })
 
 test_that("eol_dataobjects returns the correct class", {
-	expect_that(temp, is_a("list"))
-	expect_that(temp$scientificName, is_a("character"))
-	expect_that(temp$identifier, is_a("numeric"))
+	expect_is(temp, "list")
+	expect_is(temp$scientificName, "character")
+	expect_is(temp$identifier, "integer")
 })
