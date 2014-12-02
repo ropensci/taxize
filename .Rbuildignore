@@ -12,7 +12,6 @@ vignettes/taxize_vignette.md
 vignettes/taxize_infotable.md
 vignettes/margins.sty
 vignettes/cache/
-tests/test-all.R
 ^appveyor\.yml$
 cran-comments.md
 ^\.httr-oauth$
