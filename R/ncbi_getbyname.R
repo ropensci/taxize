@@ -41,7 +41,7 @@ ncbi_getbyname <- function(taxa, gene="COI", seqrange="1:3000", getrelated=FALSE
 	    message(paste("no sequences of ", gene, " for ", xx, " - getting other sp.", sep=""))
 	    if(getrelated == FALSE){
 	      mssg(verbose, paste("no sequences of ", gene, " for ", xx, sep=""))
-	      outoutout <- data.frame(list(xx, "NA", "NA", "NA", "NA", "NA", "NA"))
+	      outoutout <- data.frame(list(xx, "NA", "NA", "NA", "NA", "NA", "NA"), stringsAsFactors = FALSE)
 	      names(outoutout) <- NULL
 	    } else
 	    {
@@ -52,7 +52,7 @@ ncbi_getbyname <- function(taxa, gene="COI", seqrange="1:3000", getrelated=FALSE
 	        xpathApply(content(GET("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi", query=query), "parsed"), "//eSearchResult")[[1]]
 	      if( as.numeric(xmlValue(xpathApply(out, "//Count")[[1]]))==0 ){
 	        mssg(verbose, paste("no sequences of ", gene, " for ", xx, " or ", newname, sep=""))
-	        outoutout <- data.frame(list(xx, "NA", "NA", "NA", "NA", "NA", "NA"))
+	        outoutout <- data.frame(list(xx, "NA", "NA", "NA", "NA", "NA", "NA"), stringsAsFactors = FALSE)
 	        names(outoutout) <- NULL
 	      } else
 	      {
@@ -70,7 +70,7 @@ ncbi_getbyname <- function(taxa, gene="COI", seqrange="1:3000", getrelated=FALSE
 	        length_ <- as.numeric(sapply(getNodeSet(outsum, "//Item"), xmlValue)[str_detect(names, "Length")]) # gets seq lengths
 	        gis <- as.numeric(sapply(getNodeSet(outsum, "//Item"), xmlValue)[str_detect(names, "Gi")]) # gets GI numbers
 	        spnames <- sapply(getNodeSet(outsum, "//Item"), xmlValue)[str_detect(names, "Title")] # gets seq lengths # get spp names
-	        df <- data.frame(gis=gis, length=length_, spnames=laply(spnames, c), predicted=predicted) # makes data frame
+	        df <- data.frame(gis=gis, length=length_, spnames=laply(spnames, c), predicted=predicted, stringsAsFactors = FALSE) # makes data frame
 	        df <- df[!df$predicted %in% c("XM","XR"),] # remove predicted sequences
 	        gisuse <- df[which.max(x=df$length),] # picks longest sequnence length
 	        if(nrow(gisuse)>1){gisuse <- gisuse[sample(nrow(gisuse), 1), ]} else
@@ -85,7 +85,7 @@ ncbi_getbyname <- function(taxa, gene="COI", seqrange="1:3000", getrelated=FALSE
 	        outt <- list(xx, as.character(gisuse[,3]), gisuse[,1], accessnum, gisuse[,2], seq)
 
 	        spused <- paste(str_split(outt[[2]], " ")[[1]][1:2], sep="", collapse=" ")
-	        outoutout <- data.frame(outt, spused=spused)
+	        outoutout <- data.frame(outt, spused=spused, stringsAsFactors = FALSE)
 	        names(outoutout) <- NULL
 	      }
 	    }
@@ -106,7 +106,7 @@ ncbi_getbyname <- function(taxa, gene="COI", seqrange="1:3000", getrelated=FALSE
 	    length_ <- as.numeric(sapply(getNodeSet(outsum, "//Item"), xmlValue)[str_detect(names, "Length")]) # gets seq lengths
 	    gis <- as.numeric(sapply(getNodeSet(outsum, "//Item"), xmlValue)[str_detect(names, "Gi")]) # gets GI numbers
 	    spnames <- sapply(getNodeSet(outsum, "//Item"), xmlValue)[str_detect(names, "Title")] # gets seq lengths # get spp names
-	    df <- data.frame(gis=gis, length=length_, spnames=laply(spnames, c), predicted=predicted) # makes data frame
+	    df <- data.frame(gis=gis, length=length_, spnames=laply(spnames, c), predicted=predicted, stringsAsFactors = FALSE) # makes data frame
 	    df <- df[!df$predicted %in% c("XM","XR"),] # remove predicted sequences
 	    gisuse <- df[which.max(x=df$length),] # picks longest sequnence length
 	    if(nrow(gisuse)>1){gisuse <- gisuse[sample(nrow(gisuse), 1), ]} else
@@ -121,7 +121,7 @@ ncbi_getbyname <- function(taxa, gene="COI", seqrange="1:3000", getrelated=FALSE
 	    outt <- list(xx, as.character(gisuse[,3]), gisuse[,1], accessnum, gisuse[,2], seq)
 
 	    spused <- paste(str_split(outt[[2]], " ")[[1]][1:2], sep="", collapse=" ")
-	    outoutout <- data.frame(outt, spused=spused)
+	    outoutout <- data.frame(outt, spused=spused, stringsAsFactors = FALSE)
 	    names(outoutout) <- NULL
 	  }
 
