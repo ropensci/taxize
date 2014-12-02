@@ -11,6 +11,8 @@
 #' See \code{\link[taxize]{get_gbifid_}} to get back all, or a subset, of the raw data that you are
 #' presented during the ask process.
 #' @param x Input to \code{\link{as.gbifid}}
+#' @param check logical; Check if ID matches any existing on the DB, only used in
+#' \code{\link{as.gbifid}}
 #' @param ... Ignored
 #'
 #' @return A vector of unique identifiers. If a taxon is not found NA.
@@ -165,27 +167,27 @@ gbif_suggestfields <- function(){
 
 #' @export
 #' @rdname get_gbifid
-as.gbifid <- function(x) UseMethod("as.gbifid")
+as.gbifid <- function(x, check=FALSE) UseMethod("as.gbifid")
 
 #' @export
 #' @rdname get_gbifid
-as.gbifid.gbifid <- function(x) x
+as.gbifid.gbifid <- function(x, check=FALSE) x
 
 #' @export
 #' @rdname get_gbifid
-as.gbifid.character <- function(x) if(length(x) == 1) make_gbifid(x) else collapse(x, make_gbifid, "gbifid")
+as.gbifid.character <- function(x, check=TRUE) if(length(x) == 1) make_gbifid(x, check) else collapse(x, make_gbifid, "gbifid")
 
 #' @export
 #' @rdname get_gbifid
-as.gbifid.list <- function(x) if(length(x) == 1) make_gbifid(x) else collapse(x, make_gbifid, "gbifid")
+as.gbifid.list <- function(x, check=TRUE) if(length(x) == 1) make_gbifid(x) else collapse(x, make_gbifid, "gbifid")
 
 #' @export
 #' @rdname get_gbifid
-as.gbifid.numeric <- function(x) as.gbifid(as.character(x))
+as.gbifid.numeric <- function(x, check=TRUE) as.gbifid(as.character(x), check=check)
 
 #' @export
 #' @rdname get_gbifid
-as.gbifid.data.frame <- function(x) structure(x$ids, class="gbifid", match=x$match, uri=x$uri)
+as.gbifid.data.frame <- function(x, check=TRUE) structure(x$ids, class="gbifid", match=x$match, uri=x$uri)
 
 #' @export
 #' @rdname get_gbifid
@@ -197,11 +199,19 @@ as.data.frame.gbifid <- function(x, ...){
              stringsAsFactors = FALSE)
 }
 
-make_gbifid <- function(x){
-  if(check_gbifid(x)){
-    uri <- sprintf('http://www.gbif.org/species/%s', x)
-    structure(x, class="gbfid", match="found", uri=uri)
-  } else { structure(NA, class="gbfid", match="not found", uri=NA)   }
+make_gbifid <- function(x, check=TRUE){
+  if(check){
+    if(check_gbifid(x)){
+      toid(x, 'http://www.gbif.org/species/%s', "gbifid")
+    } else { structure(NA, class="gbfid", match="not found", uri=NA)   }
+  } else {
+    toid(x, 'http://www.gbif.org/species/%s', "gbifid")
+  }
+}
+
+toid <- function(x, url, class){
+  uri <- sprintf(url, x)
+  structure(x, class=class, match="found", uri=uri)
 }
 
 check_gbifid <- function(x){

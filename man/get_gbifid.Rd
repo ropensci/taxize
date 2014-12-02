@@ -13,17 +13,17 @@
 \usage{
 get_gbifid(sciname, ask = TRUE, verbose = TRUE, rows = NA)
 
-as.gbifid(x)
+as.gbifid(x, check = FALSE)
 
-\method{as.gbifid}{gbifid}(x)
+\method{as.gbifid}{gbifid}(x, check = FALSE)
 
-\method{as.gbifid}{character}(x)
+\method{as.gbifid}{character}(x, check = TRUE)
 
-\method{as.gbifid}{list}(x)
+\method{as.gbifid}{list}(x, check = TRUE)
 
-\method{as.gbifid}{numeric}(x)
+\method{as.gbifid}{numeric}(x, check = TRUE)
 
-\method{as.gbifid}{data.frame}(x)
+\method{as.gbifid}{data.frame}(x, check = TRUE)
 
 \method{as.data.frame}{gbifid}(x, ...)
 
@@ -44,6 +44,9 @@ See \code{\link[taxize]{get_gbifid_}} to get back all, or a subset, of the raw d
 presented during the ask process.}
 
 \item{x}{Input to \code{\link{as.gbifid}}}
+
+\item{check}{logical; Check if ID matches any existing on the DB, only used in
+\code{\link{as.gbifid}}}
 
 \item{...}{Ignored}
 }
