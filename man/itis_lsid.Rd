@@ -30,9 +30,6 @@ itis_lsid("urn:lsid:itis.gov:itis_tsn:180543", "fullrecord")
 
 # An invalid lsid (a tsn actually)
 itis_lsid(202385)
-
-# suppress message
-itis_lsid("urn:lsid:itis.gov:itis_tsn:180543", verbose=FALSE)
 }
 }
 

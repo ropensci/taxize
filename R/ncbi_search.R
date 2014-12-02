@@ -182,7 +182,7 @@ ncbi_search <- function(taxa = NULL, id = NULL, seqrange="1:3000", getrelated=FA
 
   # Convert 'taxa' to 'id' if 'taxa' is supplied ---------------------------------------------------
   if (is.null(id)) {
-    id <- get_uid(taxa)
+    id <- get_uid(taxa, verbose=verbose)
     names(id) <- taxa
   } else {
     id <- as.character(id)

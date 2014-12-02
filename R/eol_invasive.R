@@ -99,8 +99,8 @@ eol_invasive <- function(name = NULL, dataset="all", searchby = grep, page=NULL,
   key <- getkey(key, "eolApiKey")
 
   args <- taxize_compact(list(id=datasetid,page=page,per_page=500,filter='taxa'))
-  tt <- getForm(url, .params = args, .opts = callopts)
-  res <- jsonlite::fromJSON(tt, FALSE)
+  tt <- GET(url, query = args, callopts)
+  res <- jsonlite::fromJSON(content(tt, as="text"), FALSE)
   data_init <- res$collection_items
   mssg(verbose, sprintf("Getting data for %s names...", res$total_items))
 
@@ -117,8 +117,8 @@ eol_invasive <- function(name = NULL, dataset="all", searchby = grep, page=NULL,
     out <- list()
     for(i in seq_along(pages_get)){
       args <- compact(list(id=datasetid,page=pages_get[i],per_page=500,filter='taxa'))
-      tt <- getForm(url, .params = args, .opts = callopts)
-      res <- jsonlite::fromJSON(tt, FALSE)
+      tt <- GET(url, query = args, callopts)
+      res <- jsonlite::fromJSON(content(tt, as="text"), FALSE)
       out[[i]] <- res$collection_items
     }
     res2 <- taxize_compact(out)

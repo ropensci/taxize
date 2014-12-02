@@ -35,9 +35,6 @@ itis_hierarchy(tsn=180543, "down")
 
 # Many tsn's
 itis_hierarchy(tsn=c(180543,41074,36616))
-
-# Suppress messages
-itis_hierarchy(c(180543,41074,36616), verbose=FALSE)
 }
 }
 \seealso{

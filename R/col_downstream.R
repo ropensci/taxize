@@ -130,6 +130,6 @@ col_downstream <- function(name = NULL, id = NULL, downto, format = NULL, start 
   }
 
   nas <- sapply(temp, function(z) NROW(na.omit( if(intermediate) z$target else z )))
-  message(sprintf('These taxa with no data: %s\nTry adjusting input parameters', names(nas[nas==0])))
+  if(verbose) message(sprintf('These taxa with no data: %s\nTry adjusting input parameters', names(nas[nas==0])))
   return( temp )
 }
