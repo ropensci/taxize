@@ -18,7 +18,6 @@ test_that("tax_agg returns the correct class", {
 })
 
 test_that("tax_agg returns the correct value", {
-  expect_that(out_ncbi$x$Juncaceae[13], equals(8))
   expect_that(nrow(out_ncbi$x), equals(nrow(take)))
   expect_that(nrow(out_ncbi$by), equals(length(unique(colnames(take)))))
   expect_that(out_ncbi$n_pre, equals(length(unique(colnames(take)))))
