@@ -6,6 +6,6 @@ test_that("eol_search returns the correct value", {
 })
 
 test_that("eol_search returns the correct class", {
-	expect_that(eol_search(terms='Salix')[[1]], is_a("numeric"))
-	expect_that(eol_search('Homo'), is_a("data.frame"))
+	expect_is(eol_search(terms='Salix')[[1]], "integer")
+	expect_is(eol_search('Homo'), "data.frame")
 })

@@ -19,7 +19,3 @@ test_that("itis_lsid returns the correct class", {
   expect_that(three, is_a("list"))
   expect_that(four, is_a("character"))
 })
-
-test_that("itis_lsid returns correct error when given nonsense", {
-  expect_message(itis_lsid("urn:lsid:itis.gov:itis_tsn:180543", verbose=TRUE))
-})

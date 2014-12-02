@@ -14,11 +14,6 @@ test_that("itis_kingdomnames returns the correct class", {
   expect_that(two, is_a("character"))
 })
 
-test_that("itis_kingdomnames correctly suppresses a message", {
-  expect_message(itis_kingdomnames(180543, verbose=TRUE))
-  expect_that(itis_kingdomnames(180543, verbose=FALSE), not(is_true()))
-})
-
 test_that("itis_kingdomnames returns empty character string when given nonsense", {
   expect_that(nchar(itis_kingdomnames("stuff", verbose=FALSE))[[1]], equals(0))
 })

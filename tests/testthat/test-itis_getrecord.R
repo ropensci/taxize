@@ -10,8 +10,3 @@ test_that("itis_getrecord returns the correct class", {
   expect_that(two, is_a("list"))
   expect_that(three, is_a("list"))
 })
-
-test_that("itis_getrecord correctly suppresses a message", {
-  expect_message(itis_getrecord(202385, verbose=TRUE))
-  expect_that(itis_getrecord(202385, verbose=FALSE), not(shows_message()))
-})

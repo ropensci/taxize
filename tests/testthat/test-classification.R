@@ -1,10 +1,10 @@
 # tests for classification fxn in taxize
 context("classification")
 
-skip_if <- function(x){
-
-  if(!res) skip("API down")
-}
+# skip_if <- function(x){
+#
+#   if(!res) skip("API down")
+# }
 
 uids <- get_uid(c("Chironomus riparius", "aaa vva"), verbose=FALSE)
 tsns <- get_tsn(c("Chironomus riparius", "aaa vva"), verbose=FALSE)
@@ -90,16 +90,16 @@ df <- theplantlist[sample(1:nrow(theplantlist), 50), ]
 nn <- apply(df, 1, function(x) paste(x["genus"], x["sp"], collapse = " "))
 
 test_that("works on a variety of names", {
-	expect_that(classification(nn[1], db = "ncbi"), is_a("classification"))
-	expect_that(classification(nn[2], db = "ncbi"), is_a("classification"))
-	expect_that(classification(nn[3], db = "ncbi"), is_a("classification"))
-	expect_that(classification(nn[4], db = "ncbi"), is_a("classification"))
-	expect_that(classification(nn[5], db = "ncbi"), is_a("classification"))
-	expect_that(classification(nn[6], db = "ncbi"), is_a("classification"))
-	expect_that(classification(nn[7], db = "ncbi"), is_a("classification"))
-	expect_that(classification(nn[8], db = "ncbi"), is_a("classification"))
-	expect_that(classification(nn[9], db = "ncbi"), is_a("classification"))
-	expect_that(classification(nn[10], db = "ncbi"), is_a("classification"))
-	expect_that(classification(nn[11], db = "ncbi"), is_a("classification"))
-	expect_that(classification(nn[12], db = "ncbi"), is_a("classification"))
+	expect_that(classification(nn[1], db = "ncbi", verbose=FALSE), is_a("classification"))
+	expect_that(classification(nn[2], db = "ncbi", verbose=FALSE), is_a("classification"))
+	expect_that(classification(nn[3], db = "ncbi", verbose=FALSE), is_a("classification"))
+	expect_that(classification(nn[4], db = "ncbi", verbose=FALSE), is_a("classification"))
+	expect_that(classification(nn[5], db = "ncbi", verbose=FALSE), is_a("classification"))
+	expect_that(classification(nn[6], db = "ncbi", verbose=FALSE), is_a("classification"))
+	expect_that(classification(nn[7], db = "ncbi", verbose=FALSE), is_a("classification"))
+	expect_that(classification(nn[8], db = "ncbi", verbose=FALSE), is_a("classification"))
+	expect_that(classification(nn[9], db = "ncbi", verbose=FALSE), is_a("classification"))
+	expect_that(classification(nn[10], db = "ncbi", verbose=FALSE), is_a("classification"))
+	expect_that(classification(nn[11], db = "ncbi", verbose=FALSE), is_a("classification"))
+	expect_that(classification(nn[12], db = "ncbi", verbose=FALSE), is_a("classification"))
 })

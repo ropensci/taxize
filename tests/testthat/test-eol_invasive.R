@@ -1,8 +1,8 @@
 # tests for eol_invasive fxn in taxize
 context("eol_invasive")
 
-gisd <- eol_invasive(name='Brassica oleracea', dataset='gisd', verbose=FALSE)
-mineps <- eol_invasive(name='Ciona intestinalis', dataset='mineps', verbose=FALSE)
+gisd <- suppressWarnings(eol_invasive(name='Brassica oleracea', dataset='gisd', verbose=FALSE))
+mineps <- suppressWarnings(eol_invasive(name='Ciona intestinalis', dataset='mineps', verbose=FALSE))
 
 test_that("eol_invasive returns the correct value", {
 	expect_that(gisd[1,1], equals('Brassica oleracea'))

@@ -13,8 +13,3 @@ test_that("itis_hierarchy returns the correct class", {
   expect_that(four, is_a("list"))
   expect_that(four[[1]], is_a("data.frame"))
 })
-
-test_that("itis_hierarchy correctly suppresses a message", {
-  expect_message(itis_hierarchy(36616, "up", verbose=TRUE))
-  expect_that(itis_hierarchy(36616, "up", verbose=FALSE), not(shows_message()))
-})

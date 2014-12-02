@@ -1,7 +1,7 @@
 # tests for ncbi_search fxn in taxize
 context("ncbi_search")
 
-out <- ncbi_search(taxa="Accipiter erythronemius", seqrange = "1:2000", getrelated=FALSE, verbose=FALSE)
+out <- suppressWarnings(ncbi_search(taxa="Accipiter erythronemius", seqrange = "1:2000", getrelated=FALSE, verbose=FALSE))
 
 test_that("ncbi_search returns the correct value", {
 	expect_that(as.character(unique(out$gene_desc)), is_a("character"))
