@@ -137,7 +137,7 @@ gbif_name_usage <- function(key=NULL, name=NULL, data='all', language=NULL, data
     }
     tt <- GET(url, query=args, callopts)
     stop_for_status(tt)
-    assert_that(tt$headers$`content-type`=='application/json')
+    stopifnot(tt$headers$`content-type`=='application/json')
     res <- content(tt, as = 'text', encoding = "UTF-8")
     jsonlite::fromJSON(res, FALSE)
   }

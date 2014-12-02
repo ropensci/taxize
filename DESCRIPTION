@@ -42,7 +42,6 @@ Imports:
     reshape2,
     data.table,
     vegan,
-    assertthat,
     bold
 Suggests:
     testthat,
