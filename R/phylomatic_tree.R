@@ -18,7 +18,8 @@
 #' @param taxaformat Only option is slashpath for now. Leave as is.
 #' @param outformat One of newick, nexml, or fyt.
 #' @param clean Return a clean tree or not.
-#' @param db One of "ncbi", "itis", or "apg"
+#' @param db One of "ncbi", "itis", or "apg". If there are gymnosperms in your taxa
+#' list, don't use apg, intead use ncbi or itis.
 #' @param verbose Print messages (default: TRUE).
 #' @details Use the web interface here \url{http://phylodiversity.net/phylomatic/}
 #' @return Newick formatted tree or nexml text.
@@ -58,6 +59,12 @@
 #'    'Abies grandis','Abies lasiocarpa','Abies magnifica','Abies procera','Acacia berlandieri')
 #' url <- "http://datadryad.org/bitstream/handle/10255/dryad.8791/final_tree.tre?sequence=1"
 #' phylomatic_tree(taxa=spp, treeuri=url)
+#'
+#' # If there gymnosperms in your taxa list, use db of itis or ncbi
+#' taxa <- c('Abies amabilis','Abies balsamea','Abies grandis','Abies lasiocarpa',
+#' 'Abies magnifica','Abies procera','Acacia berlandieri','Poa annua')
+#' (tree1 <- phylomatic_tree(taxa=taxa, db="ncbi"))
+#' plot(tree1)
 #' }
 
 phylomatic_tree <- function(taxa, taxnames = TRUE, get = 'GET',

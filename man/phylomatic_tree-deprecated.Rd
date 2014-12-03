@@ -34,7 +34,8 @@ mammals).}
 
 \item{clean}{Return a clean tree or not.}
 
-\item{db}{One of "ncbi", "itis", or "apg"}
+\item{db}{One of "ncbi", "itis", or "apg". If there are gymnosperms in your taxa
+list, don't use apg, intead use ncbi or itis.}
 
 \item{verbose}{Print messages (default: TRUE).}
 }
@@ -83,6 +84,12 @@ spp <- c('Abies amabilis','Abies balsamea','Abies bracteata','Abies concolor','A
    'Abies grandis','Abies lasiocarpa','Abies magnifica','Abies procera','Acacia berlandieri')
 url <- "http://datadryad.org/bitstream/handle/10255/dryad.8791/final_tree.tre?sequence=1"
 phylomatic_tree(taxa=spp, treeuri=url)
+
+# If there gymnosperms in your taxa list, use db of itis or ncbi
+taxa <- c('Abies amabilis','Abies balsamea','Abies grandis','Abies lasiocarpa',
+'Abies magnifica','Abies procera','Acacia berlandieri','Poa annua')
+(tree1 <- phylomatic_tree(taxa=taxa, db="ncbi"))
+plot(tree1)
 }
 }
 
