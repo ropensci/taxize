@@ -3,19 +3,31 @@ taxize 0.5.0
 
 NEW FEATURES
 
-* adfad
-* adfadf
+* New function `genbank2uid()` to get a NCBI taxonomic id (i.e., a _uid_) from a either a GenBank accession number of GI number. (#375)
+* New function `get_nbnid()` to get a UK National Biodiversity Network taxonomic id (i.e., a _nbnid_). (#332)
+* New function `nbn_classification()` to get a taxonomic classification for a UK National Biodiversity Network taxonomic id. Using this new function, generic method `classification()` gains method for `nbnid`. (#332)
+* New function `nbn_synonyms()` to get taxonomic synonyms for a UK National Biodiversity Network taxonomic id. Using this new function, generic method `synonyms()` gains method for `nbnid`. (#332)
+* New function `nbn_search()` to search for taxa in the UK National Biodiversity Network. (#332)
+* New function `ncbi_children()` to get direct taxonomic children for a NCBI taxonomic id. Using this new function, generic method `children()` gains method for `ncbi`. (#348) (#351) (#354)
+* New function `upstream()` to get taxa upstream of a taxon. E.g., getting families upstream from a genus gets all families within the one level higher up taxonomic class than family. (#343)
+* New suite of functions `as.*()` to coerce numeric/alphanumeric codes to taxonomic identifiers for various databases. There are methods on this function for each of itis, ncbi, tropicos, gbif, nbn, bold, col, eol, and ubio. By default `as.*()` funtions make a quick check that the identifier is a real one by making a GET request against the identifier URI - this can be toggle off by setting `check=FALSE`. There are methods for returning itself, character, numeric, list, and data.frame. In addition, if the `as.*.data.frame()` function is used, a generic method exists to coerce the `data.frame` back to a identifier object. (#362)
+* New suite of functions named, for example, `get_tsn_()` (the underscore is the only different from the previous function name). These functions don't do the normal interactive process of prompts that e.g., `get_tsn()` do, but instead returned a list of all ids, or a subset via the `rows` parameter. (#237)
+* New function `ncbi_get_taxon_summary()` to get taxonomic name and rank for 1 or more NCBI uid's. (#348)
 
 MINOR IMPROVEMENTS
 
-* adfad
-* adfadf
+* `assertthat` removed from package imports, replaced with `stopifnot()`, to reduce dependency load. (#387)
+* `eol_hierarchy()` now defunct (no longer available) (#228) (#381)
+* `tp_classifcation()` now defunct (no longer available) (#228) (#381)
+* `col_classification()` now defunct (no longer available) (#228) (#381)
+* New manual page listing all the low level ITIS functions for which their manual pages are not shown in the package index, but are available if you to `?fxn-name`.
+* All `get_*()` functions gain a new parameter `rows` to allow selection of particular rows. For example, `rows=1` to select the first row, or `rows=1:3` to select rows 1 through 3. (#347)
+* `classification()` now by default returns taxonomic identifiers for each of the names. This can be toggled off by the `return_id=FALSE`. (#359) (#360)
+* Simplification of many higher level functions to use `switch()` on the `db` parameter, which helps give better error message when a `db` value is not possible or spelled incorrectly. (#379)
 
 BUG FIXES
 
-* adfad
-* adfadf
-
+* Lots of reduction of redundancy in internal functions. (#378)
 
 taxize 0.4.0
 ===============
