@@ -29,7 +29,7 @@
 #' @export
 #' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
 #'
-#' @examples \donttest{
+#' @examples \dontrun{
 #' get_eolid(sciname='Pinus contorta')
 #' get_eolid(sciname='Puma concolor')
 #'

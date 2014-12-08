@@ -26,7 +26,7 @@
 #' @return data.frame of results from TNRS plus the name submitted.
 #' @details If there is no match in the Taxosaurus database, nothing is
 #'    returned, so youwill not get anything back for non matches.
-#' @examples \donttest{
+#' @examples \dontrun{
 #' # Default, uses GET curl method, you can't specify any other parameters when
 #' using GET
 #' mynames <- c("Panthera tigris", "Neotamias minimus", "Magnifera indica")

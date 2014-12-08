@@ -12,7 +12,7 @@ getdescription(...)
 Get description of the ITIS service
 }
 \examples{
-\donttest{
+\dontrun{
 getdescription(config=timeout(1))
 }
 }

@@ -1,19 +1,19 @@
 #' Search for taxonomy data from Plantminer.com
-#' 
+#'
 #' @import RCurl foreach
 #' @param plants Vector of plant species names.
-#' @param key Your api key for the plantminer.com site.  Go to 
-#' 		\url{http://www.plantminer.com/} to get your api key.  Two options for 
-#' 		inputting your key.  1) You can input it manually within the function as 
-#' 		the second argument, or 2) you can put the key in your .Rprofile file, 
-#' 		which will then be loaded when you start R. See 
-#' 		\url{http://bit.ly/135eG0b} 
+#' @param key Your api key for the plantminer.com site.  Go to
+#' 		\url{http://www.plantminer.com/} to get your api key.  Two options for
+#' 		inputting your key.  1) You can input it manually within the function as
+#' 		the second argument, or 2) you can put the key in your .Rprofile file,
+#' 		which will then be loaded when you start R. See
+#' 		\url{http://bit.ly/135eG0b}
 #' 		for help on how to put api keys in your .Rprofile file.
 #' @param verbose Verbose or not, logical
 #' @return data.frame of results.
 #' @export
-#' @examples \donttest{
-#' plants <- c("Myrcia lingua", "Myrcia bella", "Ocotea pulchella", 
+#' @examples \dontrun{
+#' plants <- c("Myrcia lingua", "Myrcia bella", "Ocotea pulchella",
 #' 		"Miconia", "Coffea arabica var. amarella", "Bleh")
 #' plantminer(plants)
 #' }
@@ -21,7 +21,7 @@
 plantminer <- function(plants, key = NULL, verbose=TRUE)
 {
 	key <- getkey(key, "pmApiKey")
-	  
+
   i <- NULL
   compiled.list <- foreach (i=1:length(plants), .combine = rbind) %do% {
     full.name <- strsplit(plants[i], " ")[[1]]

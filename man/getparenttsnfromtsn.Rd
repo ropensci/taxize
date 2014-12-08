@@ -14,7 +14,7 @@ getparenttsnfromtsn(tsn, ...)
 Returns the parent TSN for the entered TSN.
 }
 \examples{
-\donttest{
+\dontrun{
 getparenttsnfromtsn(202385, config=timeout(3))
 }
 }

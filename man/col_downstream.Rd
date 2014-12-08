@@ -49,7 +49,7 @@ Use Catalogue of Life to get downstream taxa to a given taxonomic level.
 Provide only names instead of id's
 }
 \examples{
-\donttest{
+\dontrun{
 # Some basic examples
 col_downstream(name="Apis", downto="Species")
 col_downstream(name="Bryophyta", downto="Family")

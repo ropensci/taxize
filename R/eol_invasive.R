@@ -63,7 +63,7 @@
 #' @references See info for each data source at \url{http://eol.org/collections/55367/taxa}
 #' @rdname eol_invasive-deprecated
 #'
-#' @examples \donttest{
+#' @examples \dontrun{
 #' eol_invasive(name='Brassica oleracea', dataset='gisd')
 #' eol_invasive(name=c('Lymantria dispar','Cygnus olor','Hydrilla verticillata','Pinus concolor'),
 #'    dataset='gisd')

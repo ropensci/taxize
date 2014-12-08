@@ -14,7 +14,7 @@ getcredibilityratingfromtsn(tsn, ...)
 Get credibility rating from tsn
 }
 \examples{
-\donttest{
+\dontrun{
 getcredibilityratingfromtsn(526852, config=timeout(4))
 }
 }

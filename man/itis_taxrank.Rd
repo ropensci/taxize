@@ -24,7 +24,7 @@ Retrieve taxonomic rank name from given TSN.
 You can print messages by setting verbose=FALSE.
 }
 \examples{
-\donttest{
+\dontrun{
 # All ranks
 itis_taxrank()
 

@@ -14,7 +14,7 @@ getcommonnamesfromtsn(tsn, ...)
 Get common names from tsn
 }
 \examples{
-\donttest{
+\dontrun{
 getcommonnamesfromtsn(183833, config=timeout(1))
 }
 }

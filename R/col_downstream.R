@@ -28,7 +28,7 @@
 #' @details Provide only names instead of id's
 #' @return A list of data.frame's.
 #' @export
-#' @examples \donttest{
+#' @examples \dontrun{
 #' # Some basic examples
 #' col_downstream(name="Apis", downto="Species")
 #' col_downstream(name="Bryophyta", downto="Family")

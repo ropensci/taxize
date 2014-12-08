@@ -35,7 +35,7 @@ You must provide one of name or id. The other parameters (format
 		and start) are optional.
 }
 \examples{
-\donttest{
+\dontrun{
 # A basic example
 col_search(name="Apis")
 col_search(name="Agapostemon")

@@ -14,7 +14,7 @@ searchbycommonnamebeginswith(x, ...)
 Search for tsn by common name beginning with
 }
 \examples{
-\donttest{
+\dontrun{
 searchbycommonnamebeginswith("inch", config=timeout(3))
 }
 }

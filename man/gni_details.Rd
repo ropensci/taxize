@@ -22,7 +22,7 @@ Uses the Global Names Index, see \url{http://gni.globalnames.org/} for
 information.
 }
 \examples{
-\donttest{
+\dontrun{
 gni_details(id = 17802847)
 library("plyr")
 ldply(list(1265133, 17802847), gni_details)

@@ -1,33 +1,33 @@
 #' Search Catalogue of Life for taxonomic IDs
-#' 
+#'
 #' @import RCurl XML plyr
-#' @param name The string to search for. Only exact matches found the name given 
-#'   	will be returned, unless one or wildcards are included in the search 
-#'   	string. An * (asterisk) character denotes a wildcard; a % (percentage) 
-#'    character may also be used. The name must be at least 3 characters long, 
+#' @param name The string to search for. Only exact matches found the name given
+#'   	will be returned, unless one or wildcards are included in the search
+#'   	string. An * (asterisk) character denotes a wildcard; a % (percentage)
+#'    character may also be used. The name must be at least 3 characters long,
 #'    not counting wildcard characters.
-#' @param id The record ID of the specific record to return (only for scientific 
+#' @param id The record ID of the specific record to return (only for scientific
 #' 		names of species or infraspecific taxa)
-#' @param start The first record to return. If omitted, the results are returned 
-#' 		from the first record (start=0). This is useful if the total number of 
-#' 		results is larger than the maximum number of results returned by a single 
-#' 		Web service query (currently the maximum number of results returned by a 
+#' @param start The first record to return. If omitted, the results are returned
+#' 		from the first record (start=0). This is useful if the total number of
+#' 		results is larger than the maximum number of results returned by a single
+#' 		Web service query (currently the maximum number of results returned by a
 #' 		single query is 500 for terse queries and 50 for full queries).
-#' @param checklist The year of the checklist to query, if you want a specific 
+#' @param checklist The year of the checklist to query, if you want a specific
 #' 		year's checklist instead of the lastest as default (numeric).
-#' @details You must provide one of name or id. The other parameters (format 
+#' @details You must provide one of name or id. The other parameters (format
 #' 		and start) are optional.
 #' @references \url{http://webservice.catalogueoflife.org/}
 #' @return A list of data.frame's.
-#' @examples \donttest{
+#' @examples \dontrun{
 #' # A basic example
 #' col_search(name="Apis")
 #' col_search(name="Agapostemon")
 #' col_search(name="Poa")
-#' 
+#'
 #' # Many names
 #' col_search(name=c("Apis","Puma concolor"))
-#' 
+#'
 #' # An example where there is no data
 #' col_search(id=11935941)
 #' }
@@ -53,11 +53,11 @@ col_search <- function(name=NULL, id=NULL, start=NULL, checklist=NULL)
     ldply(nodes, parsecoldata)
   }
   safe_func <- plyr::failwith(NULL, func)
-  if(is.null(id)){ 
+  if(is.null(id)){
     temp <- lapply(name, safe_func, y = NULL)
     names(temp) <- name
-  } else { 
-    temp <- lapply(id, safe_func, x = NULL) 
+  } else {
+    temp <- lapply(id, safe_func, x = NULL)
     names(temp) <- id
   }
   return(temp)

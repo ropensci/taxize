@@ -14,7 +14,7 @@ gettaxonomicranknamefromtsn(tsn, ...)
 Returns the kingdom and rank information for the TSN.
 }
 \examples{
-\donttest{
+\dontrun{
 gettaxonomicranknamefromtsn(202385, config=timeout(3))
 }
 }

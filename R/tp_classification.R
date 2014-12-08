@@ -11,7 +11,7 @@
 #' @export
 #' @rdname tp_classification-defunct
 #' @keywords internal
-#' @examples \donttest{
+#' @examples \dontrun{
 #' tp_classification(id = 25509881)
 #' tp_classification(id = c(25509881,2700851))
 #' tp_classification(id = c(25509881,2700851), callopts=verbose())

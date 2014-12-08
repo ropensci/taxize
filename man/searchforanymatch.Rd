@@ -14,7 +14,7 @@ searchforanymatch(x, ...)
 Search for any match
 }
 \examples{
-\donttest{
+\dontrun{
 searchforanymatch(202385, config=timeout(3))
 searchforanymatch("dolphin", config=timeout(3))
 }

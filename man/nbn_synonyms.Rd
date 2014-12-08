@@ -17,7 +17,7 @@ A data.frame
 Return all synonyms for a taxon name with a given id from NBN
 }
 \examples{
-\donttest{
+\dontrun{
 nbn_synonyms(id = 'NHMSYS0000502940')
 nbn_synonyms(id = 'NHMSYS0001501147')
 nbn_synonyms(id = 'NHMSYS0000456036')

@@ -26,7 +26,7 @@ Throws a warning if you already have a directory of the one
 provided, but still works. Writes to your home directory, change dir_ as needed.
 }
 \examples{
-\donttest{
+\dontrun{
 # Get a few families
 tpl_get(dir_ = "~/foo2", family = c("Platanaceae","Winteraceae"))
 

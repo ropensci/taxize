@@ -24,7 +24,7 @@
 #' @details Use the web interface here \url{http://phylodiversity.net/phylomatic/}
 #' @return Newick formatted tree or nexml text.
 #' @rdname phylomatic_tree-deprecated
-#' @examples \donttest{
+#' @examples \dontrun{
 #' # Input taxonomic names
 #' taxa <- c("Poa annua", "Phlox diffusa", "Helianthus annuus")
 #' tree <- phylomatic_tree(taxa=taxa, get = 'POST')

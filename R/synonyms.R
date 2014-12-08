@@ -16,7 +16,7 @@
 #' \code{\link[taxize]{get_ubioid}}, \code{\link[taxize]{get_nbnid}}
 #'
 #' @export
-#' @examples \donttest{
+#' @examples \dontrun{
 #' # Plug in taxon names directly
 #' synonyms("Poa annua", db="itis")
 #' synonyms(c("Poa annua",'Pinus contorta','Puma concolor'), db="itis")

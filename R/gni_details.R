@@ -1,25 +1,25 @@
 #' Search for taxonomic name details using the Global Names Index.
-#' 
-#' Uses the Global Names Index, see \url{http://gni.globalnames.org/} for 
-#' information. 
-#' 
+#'
+#' Uses the Global Names Index, see \url{http://gni.globalnames.org/} for
+#' information.
+#'
 #' @import stringr jsonlite RCurl plyr
 #' @param id Name id.
-#' @param all_records  If all_records is 1, GNI returns all records from all 
+#' @param all_records  If all_records is 1, GNI returns all records from all
 #' 		repositories for the name string (takes 0, or 1, default is 1).
 #' @param url Base url for the API; leave as is.
 #' @author Scott Chamberlain {myrmecocystus@@gmail.com}
 #' @return Data.frame of results.
 #' @seealso \code{\link{gnr_datasources}}, \code{\link{gni_search}}.
 #' @keywords globalnamesindex names taxonomy
-#' @examples \donttest{
+#' @examples \dontrun{
 #' gni_details(id = 17802847)
 #' library("plyr")
 #' ldply(list(1265133, 17802847), gni_details)
 #' }
 #' @export
-gni_details <- function(id = NULL, all_records = NULL, 
-				url = "http://gni.globalnames.org/name_strings/") 
+gni_details <- function(id = NULL, all_records = NULL,
+				url = "http://gni.globalnames.org/name_strings/")
 {
 	url2 <- paste(url, id, ".json", sep="")
 	query <- compact(list(all_records = all_records))
@@ -27,7 +27,7 @@ gni_details <- function(id = NULL, all_records = NULL,
   res <- content(tt, as = "text")
   out <- jsonlite::fromJSON(res, FALSE)
 	checknull <- function(x) {if(is.null(x)){"none"} else{x}}
-	outdf <- 
+	outdf <-
 		ldply(out$data, function(x) data.frame(t(c(checknull(x$records[[1]]$created_at),
 					checknull(x$records[[1]]$updated_at), checknull(x$records[[1]]$global_id),
 					checknull(x$records[[1]]$url), checknull(x$records[[1]]$kingdom_id),

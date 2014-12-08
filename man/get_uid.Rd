@@ -63,7 +63,7 @@ as you normally can.
 Retrieve the Unique Identifier (UID) of a taxon from NCBI taxonomy browser.
 }
 \examples{
-\donttest{
+\dontrun{
 get_uid(c("Chironomus riparius", "Chaetopteryx"))
 get_uid(c("Chironomus riparius", "aaa vva"))
 

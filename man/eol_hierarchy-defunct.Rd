@@ -30,7 +30,7 @@ It's possible to return JSON or XML with the EOL API. However,
 		this function only returns JSON for now.
 }
 \examples{
-\donttest{
+\dontrun{
 # Using get_eolid
 eol_hierarchy(get_eolid(sciname='Poa annua'))
 }

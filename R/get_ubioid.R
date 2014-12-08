@@ -27,7 +27,7 @@
 #' @seealso \code{\link[taxize]{get_uid}}, \code{\link[taxize]{ubio_search}}
 #'
 #' @export
-#' @examples \donttest{
+#' @examples \dontrun{
 #' get_ubioid(searchterm = "Astragalus aduncus")
 #' get_ubioid(c("Salvelinus fontinalis","Pomacentrus brachialis"))
 #' splist <- c("Salvelinus fontinalis", 'Pomacentrus brachialis', "Leptocottus armatus",

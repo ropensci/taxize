@@ -14,7 +14,7 @@ getkingdomnamefromtsn(tsn, ...)
 Get kingdom names from tsn
 }
 \examples{
-\donttest{
+\dontrun{
 getkingdomnamefromtsn(202385, config=timeout(3))
 }
 }

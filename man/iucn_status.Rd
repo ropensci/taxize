@@ -17,7 +17,7 @@ A character vector with the status.
 Extractor functions for \code{iucn}-class.
 }
 \examples{
-\donttest{
+\dontrun{
 ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
 iucn_status(ia)}
 }

@@ -33,7 +33,7 @@ A data.frame.
 This function will return NameBankIDs that match given search terms
 }
 \examples{
-\donttest{
+\dontrun{
 ubio_search(searchName = 'elephant')
 ubio_search(searchName = 'elephant', sci = 1, vern = 0)
 ubio_search(searchName = 'Astragalus aduncus', sci = 1, vern = 0)

@@ -14,7 +14,7 @@ getreviewyearfromtsn(tsn, ...)
 Returns the review year for the TSN.
 }
 \examples{
-\donttest{
+\dontrun{
 getreviewyearfromtsn(180541, config=timeout(3))
 }
 }

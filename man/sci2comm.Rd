@@ -44,7 +44,7 @@ just for the current session by running \code{options(eolApiKey = "<your eol api
 the console.
 }
 \examples{
-\donttest{
+\dontrun{
 sci2comm(scinames='Helianthus annuus', db='eol')
 sci2comm(scinames='Helianthus annuus', db='itis')
 sci2comm(scinames=c('Helianthus annuus', 'Poa annua'))

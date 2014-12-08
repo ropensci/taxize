@@ -28,7 +28,7 @@ Data.frame of taxonomic information downstream to family from e.g.,
 Retrieve all taxa names or TSNs downstream in hierarchy from given TSN.
 }
 \examples{
-\donttest{
+\dontrun{
 ## the plant class Bangiophyceae, tsn 846509
 itis_downstream(tsns = 846509, downto="Genus")
 itis_downstream(tsns = 846509, downto="Genus", intermediate=TRUE)

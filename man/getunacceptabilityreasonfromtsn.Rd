@@ -14,7 +14,7 @@ getunacceptabilityreasonfromtsn(tsn, ...)
 Returns the unacceptability reason, if any, for the TSN.
 }
 \examples{
-\donttest{
+\dontrun{
 getunacceptabilityreasonfromtsn(183671, config=timeout(3))
 }
 }

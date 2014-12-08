@@ -15,7 +15,7 @@ not the international language code (character)}
 Get tsn by vernacular language
 }
 \examples{
-\donttest{
+\dontrun{
 gettsnbyvernacularlanguage("french", config=timeout(3))
 }
 }

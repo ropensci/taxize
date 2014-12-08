@@ -19,7 +19,7 @@ itis_searchcommon(x, from = "begin", ...)
 Searches common name and acts as thin wrapper around \code{searchbycommonnamebeginswith} and \code{searchbycommonnameendswith}
 }
 \examples{
-\donttest{
+\dontrun{
 itis_searchcommon("inch", config=timeout(3))
 itis_searchcommon("inch", from = "end", config=timeout(3))
 }

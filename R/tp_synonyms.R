@@ -2,12 +2,12 @@
 #'
 #' @import XML RCurl jsonlite plyr
 #' @export
-#' 
+#'
 #' @param id the taxon identifier code
 #' @param key Your Tropicos API key; loads from .Rprofile.
 #' @param callopts Further args passed on to httr::GET
 #' @return List or dataframe.
-#' @examples \donttest{
+#' @examples \dontrun{
 #' tp_synonyms(id = 25509881)
 #' }
 

@@ -45,7 +45,7 @@ children of both the taxon and its ancestor are returned. This will only fail if
 taxa with the same name and the same specified ancestor.
 }
 \examples{
-\donttest{
+\dontrun{
 ncbi_children(name="Satyrium") #Satyrium is the name of two different genera
 ncbi_children(name="Satyrium", ancestor="Eumaeini") # A genus of butterflies
 ncbi_children(name="Satyrium", ancestor="Orchidaceae") # A genus of orchids

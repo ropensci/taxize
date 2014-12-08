@@ -7,7 +7,7 @@
 #'     website), or 'rsubmit' to use in fxn phylomatic_tree
 #' @param db One of "ncbi", "itis", or "apg"
 #' @return e.g., "pinaceae/pinus/pinus_contorta", in Phylomatic submission format.
-#' @examples \donttest{
+#' @examples \dontrun{
 #' mynames <- c("Poa annua", "Salix goodingii", "Helianthus annuus")
 #' phylomatic_format(mynames, format='rsubmit')
 #' phylomatic_format(mynames, format='isubmit', db="apg")

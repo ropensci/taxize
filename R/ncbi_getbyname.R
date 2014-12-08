@@ -12,7 +12,7 @@
 #' @seealso \code{\link[taxize]{ncbi_search}}, \code{\link[taxize]{ncbi_getbyid}}
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @rdname ncbi_getbyname-deprecated
-#' @examples \donttest{
+#' @examples \dontrun{
 #' # A single species
 #' ncbi_getbyname(taxa="Acipenser brevirostrum")
 #'

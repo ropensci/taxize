@@ -26,7 +26,7 @@ Resolve names from iPlant's name resolver, the Taxonomic Name Resolution Service
 Global Names Resolver (GNR)
 }
 \examples{
-\donttest{
+\dontrun{
 resolve(query=c("Helianthus annuus", "Homo sapiens"))
 resolve(query=c("Helianthus annuus", "Homo sapiens"), db='tnrs', source="iPlant_TNRS")
 resolve(query="Quercus keloggii", db='gnr')

@@ -15,7 +15,7 @@
 #' 		Order, Class, etc., or if \code{intermediated=TRUE}, list of length two,
 #'   	with target taxon rank names, and intermediate names.
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
-#' @examples \donttest{
+#' @examples \dontrun{
 #' ## the plant class Bangiophyceae, tsn 846509
 #' itis_downstream(tsns = 846509, downto="Genus")
 #' itis_downstream(tsns = 846509, downto="Genus", intermediate=TRUE)

@@ -14,7 +14,7 @@ gettaxonomicusagefromtsn(tsn, ...)
 Returns the usage information for the TSN.
 }
 \examples{
-\donttest{
+\dontrun{
 gettaxonomicusagefromtsn(526852, config=timeout(3))
 }
 }

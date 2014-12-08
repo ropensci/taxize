@@ -6,7 +6,7 @@
 #' @param key Your Tropicos API key; loads from .Rprofile.
 #' @param callopts Further args passed on to httr::GET
 #' @return List or dataframe.
-#' @examples \donttest{
+#' @examples \dontrun{
 #' tp_accnames(id = 25503923)
 #' tp_accnames(id = 25538750)
 #'

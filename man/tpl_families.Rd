@@ -17,7 +17,7 @@ Get The Plant List families.
 Requires an internet connection in order to connect to www.theplantlist.org.
 }
 \examples{
-\donttest{
+\dontrun{
 # Get a data.frame of plant families, with the group name (Angiosperms, etc.)
 head( tpl_families() )
 }

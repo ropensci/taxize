@@ -29,7 +29,7 @@
 #' and if we find an exact match we return the ID for that match. If there isn't an
 #' exact match we return the options to you to pick from.
 #'
-#' @examples \donttest{
+#' @examples \dontrun{
 #' get_gbifid(sciname='Poa annua')
 #' get_gbifid(sciname='Pinus contorta')
 #' get_gbifid(sciname='Puma concolor')

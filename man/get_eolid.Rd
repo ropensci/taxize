@@ -64,7 +64,7 @@ that deal with the species of interest, then use \code{\link[taxize]{eol_pages}}
 to find the actual taxon IDs.
 }
 \examples{
-\donttest{
+\dontrun{
 get_eolid(sciname='Pinus contorta')
 get_eolid(sciname='Puma concolor')
 

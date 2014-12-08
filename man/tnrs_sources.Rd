@@ -16,7 +16,7 @@ Sources for the TNRS API.
 Get sources for the Phylotastic Taxonomic Name Resolution Service.
 }
 \examples{
-\donttest{
+\dontrun{
 # All
 tnrs_sources()
 

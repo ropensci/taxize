@@ -28,7 +28,7 @@
 #' @export
 #' @rdname col_classification-defunct
 #' @keywords internal
-#' @examples \donttest{
+#' @examples \dontrun{
 #' # A basic example
 #' col_classification(name="Apis")
 #'

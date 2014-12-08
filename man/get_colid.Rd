@@ -59,7 +59,7 @@ If more than one ID is found the function asks for user input.
 Get the Catalogue of Life ID from taxonomic names.
 }
 \examples{
-\donttest{
+\dontrun{
 get_colid(sciname='Poa annua')
 get_colid(sciname='Pinus contorta')
 get_colid(sciname='Puma concolor')

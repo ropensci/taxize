@@ -1,20 +1,20 @@
 #' Resolve names from many different sources
-#' 
-#' Resolve names from iPlant's name resolver, the Taxonomic Name Resolution Service (TNRS), the 
+#'
+#' Resolve names from iPlant's name resolver, the Taxonomic Name Resolution Service (TNRS), the
 #' Global Names Resolver (GNR)
-#' 
+#'
 #' @export
-#' 
+#'
 #' @param query Vector of one or more names.
 #' @param db Source to check names against. One of iplant, tnrs, or gnr
 #' @param callopts Curl options passed on to httr::GET
-#' @param ... Further named args passed on to each respective function. See examples. Note that 
-#' parameters for specific data sources are specific to those data sources. E.g. you can pass the 
-#' parameter \code{source} when using \code{db="tnrs"}, but is meaningless when passed when 
-#' \code{db="gnr"}. There is one exception - the \code{callopts} parameter is shared among all 
-#' data sources, so if you pass that parameter it will influence each data source. 
+#' @param ... Further named args passed on to each respective function. See examples. Note that
+#' parameters for specific data sources are specific to those data sources. E.g. you can pass the
+#' parameter \code{source} when using \code{db="tnrs"}, but is meaningless when passed when
+#' \code{db="gnr"}. There is one exception - the \code{callopts} parameter is shared among all
+#' data sources, so if you pass that parameter it will influence each data source.
 #' @return A list with length equal to length of the db parameter (number of sources requested.)
-#' @examples \donttest{
+#' @examples \dontrun{
 #' resolve(query=c("Helianthus annuus", "Homo sapiens"))
 #' resolve(query=c("Helianthus annuus", "Homo sapiens"), db='tnrs', source="iPlant_TNRS")
 #' resolve(query="Quercus keloggii", db='gnr')
@@ -26,12 +26,12 @@
 #' resolve(query=c("Helianthus annuus", "Homo sapiens"), callopts=timeout(3))
 #' }
 
-resolve <- function(query, db='iplant', callopts=list(), ...){  
-  
+resolve <- function(query, db='iplant', callopts=list(), ...){
+
   db <- match.arg(db, choices = c('iplant','tnrs','gnr'), several.ok = TRUE)
-  
+
   foo <- function(x, y, ...){
-    res <- switch(x, 
+    res <- switch(x,
                   gnr = try_default(gnr_resolve(names = y, callopts=callopts, ...)),
                   tnrs = try_default(tnrs(query = y, callopts=callopts, ...)),
                   iplant = try_default(iplant_resolve(query = y, callopts=callopts, ...)))
@@ -42,7 +42,7 @@ resolve <- function(query, db='iplant', callopts=list(), ...){
   return( output )
 }
 
-try_default <- function(expr, default = NULL, quiet = TRUE) 
+try_default <- function(expr, default = NULL, quiet = TRUE)
 {
   result <- default
   if (quiet) {

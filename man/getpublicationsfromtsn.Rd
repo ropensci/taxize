@@ -14,7 +14,7 @@ getpublicationsfromtsn(tsn, ...)
 Returns a list of the pulications used for the TSN.
 }
 \examples{
-\donttest{
+\dontrun{
 getpublicationsfromtsn(70340, config=timeout(3))
 }
 }

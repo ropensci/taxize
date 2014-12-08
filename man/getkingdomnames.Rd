@@ -12,7 +12,7 @@ getkingdomnames(...)
 Get all possible kingdom names
 }
 \examples{
-\donttest{
+\dontrun{
 getkingdomnames(config=timeout(3))
 }
 }

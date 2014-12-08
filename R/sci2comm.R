@@ -1,22 +1,22 @@
 #' Get common names from scientific names.
 #'
 #' @export
-#' 
+#'
 #' @param scinames character; One or more scientific names or partial names.
 #' @param db character; Data source, one of \emph{"eol"} (default), \emph{"itis"}
 #'   or \emph{"ncbi"}.
 #' @param simplify (logical) If TRUE, simplify output to a vector of names. If FALSE,
-#'    return variable formats from different sources, usually a data.frame. Only applies to 
+#'    return variable formats from different sources, usually a data.frame. Only applies to
 #'    eol and itis.
 #' @param ... Further arguments passed on to functions \code{\link[taxize]{get_uid}},
 #'    \code{\link[taxize]{get_tsn}}.
 #' @param id character; identifiers, as returned by \code{\link[taxize]{get_tsn}},
 #'    \code{\link[taxize]{get_uid}}.
-#' 
-#' @details Note that EOL requires an API key. You can pass in your EOL api key in the function 
+#'
+#' @details Note that EOL requires an API key. You can pass in your EOL api key in the function
 #' call like \code{sci2comm('Helianthus annuus', key="<your eol api key>")}. You can also store your
-#' EOL API key in your .Rprofile file as \code{options(eolApiKey = "<your eol api key>")}, or 
-#' just for the current session by running \code{options(eolApiKey = "<your eol api key>")} in 
+#' EOL API key in your .Rprofile file as \code{options(eolApiKey = "<your eol api key>")}, or
+#' just for the current session by running \code{options(eolApiKey = "<your eol api key>")} in
 #' the console.
 #'
 #' @return List of character vectors.
@@ -25,10 +25,10 @@
 #' \code{\link[taxize]{searchbycommonnamebeginswith}},
 #' \code{\link[taxize]{searchbycommonnameendswith}}, \code{\link[taxize]{eol_search}},
 #' \code{\link[taxize]{tp_search}}, \code{\link[taxize]{comm2sci}}
-#' 
+#'
 #' @author Scott Chamberlain (myrmecocystus@@gmail.com)
-#' 
-#' @examples \donttest{
+#'
+#' @examples \dontrun{
 #' sci2comm(scinames='Helianthus annuus', db='eol')
 #' sci2comm(scinames='Helianthus annuus', db='itis')
 #' sci2comm(scinames=c('Helianthus annuus', 'Poa annua'))

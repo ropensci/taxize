@@ -34,7 +34,7 @@ Removes predicted sequences so you don't have to remove them.
   	picking the longest available for the given gene.
 }
 \examples{
-\donttest{
+\dontrun{
 # A single species
 ncbi_getbyname(taxa="Acipenser brevirostrum")
 

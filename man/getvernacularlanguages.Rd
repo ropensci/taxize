@@ -12,7 +12,7 @@ getvernacularlanguages(...)
 Provides a list of the unique languages used in the vernacular table.
 }
 \examples{
-\donttest{
+\dontrun{
 getvernacularlanguages(config=timeout(3))
 }
 }

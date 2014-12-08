@@ -14,7 +14,7 @@ searchbycommonnameendswith(x, ...)
 Search for tsn by common name ending with
 }
 \examples{
-\donttest{
+\dontrun{
 searchbycommonnameendswith("snake", config=timeout(3))
 }
 }

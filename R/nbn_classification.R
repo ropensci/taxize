@@ -1,19 +1,19 @@
 #' Search UK National Biodiversity Network database for taxonomic classification
-#' 
+#'
 #' @export
-#' 
+#'
 #' @param id (character) An NBN idientifier.
-#' @param ... Further args passed on to \code{\link[httr]{GET}}. 
-#' 
+#' @param ... Further args passed on to \code{\link[httr]{GET}}.
+#'
 #' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
-#' 
-#' @examples \donttest{
+#'
+#' @examples \dontrun{
 #' nbn_classifcation(id="NHMSYS0000502940")
-#' 
+#'
 #' # get id first, then pass to this fxn
 #' id <- get_nbnid("blue tit", rec_only = TRUE, rank = "Species")
 #' nbn_classifcation(id)
-#' 
+#'
 #' library('httr')
 #' nbn_classifcation(id="NHMSYS0000502940", config=verbose())
 #' }

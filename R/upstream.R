@@ -20,7 +20,7 @@
 #' You get an NA if there was no match in the database.
 #'
 #' @export
-#' @examples \donttest{
+#' @examples \dontrun{
 #' ## col
 #' upstream("Pinus contorta", db = 'col', upto = 'Genus') # get all genera at one level up
 #' upstream("Abies", db = 'col', upto = 'Genus') # goes to same level, Abies is a genus

@@ -19,7 +19,7 @@ List or dataframe.
 Return all synonyms for a taxon name with a given id.
 }
 \examples{
-\donttest{
+\dontrun{
 tp_synonyms(id = 25509881)
 }
 }

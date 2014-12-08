@@ -98,7 +98,7 @@ attach it yourself quite easily of course. This behavior is different from the o
 sources.
 }
 \examples{
-\donttest{
+\dontrun{
 # Plug in taxon names directly
 classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi')
 classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi', verbose=FALSE)

@@ -65,7 +65,7 @@ If more than one ID is found the function asks for user input.
 Get the UK National Biodiversity Network ID from taxonomic names.
 }
 \examples{
-\donttest{
+\dontrun{
 get_nbnid(name='Poa annua')
 get_nbnid(name='Poa annua', rec_only=TRUE)
 get_nbnid(name='Poa annua', rank='Species')

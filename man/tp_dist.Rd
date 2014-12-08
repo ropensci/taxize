@@ -20,7 +20,7 @@ List of two data.frame's, one named "location", and one "reference".
 Return all distribution records for for a taxon name with a given id.
 }
 \examples{
-\donttest{
+\dontrun{
 # Query using a taxon name Id
 out <- tp_dist(id = 25509881)
 ## just location data

@@ -18,7 +18,7 @@ See \url{http://www.ncbi.nlm.nih.gov/Sitemap/sequenceIDs.html} for help on why
 there are two identifiers, and the difference between them.
 }
 \examples{
-\donttest{
+\dontrun{
 # with accession numbers
 genbank2uid(id = 'AJ748748')
 genbank2uid(id = 'Y13155')

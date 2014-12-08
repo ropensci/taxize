@@ -22,7 +22,7 @@ for descending (logical)}
 Search for any matched page
 }
 \examples{
-\donttest{
+\dontrun{
 searchforanymatchpaged(202385, pagesize=100, pagenum=1, ascend=FALSE, config=timeout(3))
 searchforanymatchpaged("Zy", pagesize=100, pagenum=1, ascend=FALSE, config=timeout(3))
 }

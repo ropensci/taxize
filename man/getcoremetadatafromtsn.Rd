@@ -14,7 +14,7 @@ getcoremetadatafromtsn(tsn, ...)
 Get core metadata from tsn
 }
 \examples{
-\donttest{
+\dontrun{
 getcoremetadatafromtsn(28727, config=timeout(3))  # coverage and currrency data
 getcoremetadatafromtsn(183671, config=timeout(4))  # no coverage or currrency data
 }

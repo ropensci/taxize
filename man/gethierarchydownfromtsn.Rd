@@ -14,7 +14,7 @@ gethierarchydownfromtsn(tsn, ...)
 Get hierarchy down from tsn
 }
 \examples{
-\donttest{
+\dontrun{
 gethierarchydownfromtsn(161030, config=timeout(3))
 }
 }

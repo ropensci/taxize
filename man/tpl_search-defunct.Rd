@@ -26,7 +26,7 @@ that give you access to download Theplantlist.org data \code{\link[taxize]{tpl_g
 and to get Theplantlist.org families \code{\link[taxize]{tpl_families}}.
 }
 \examples{
-\donttest{
+\dontrun{
 # Regular non-parallel
 splist <- c("Heliathus annuus","Abies procera","Poa annua",
    "Platanus occidentalis","Carex abrupta","Arctostaphylos canescens",

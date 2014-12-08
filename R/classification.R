@@ -40,7 +40,7 @@
 #'    \code{\link[taxize]{get_eolid}}, \code{\link[taxize]{get_colid}},
 #'    \code{\link[taxize]{get_tpsid}}, \code{\link[taxize]{get_gbifid}}
 #'
-#' @examples \donttest{
+#' @examples \dontrun{
 #' # Plug in taxon names directly
 #' classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi')
 #' classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi', verbose=FALSE)
@@ -115,7 +115,7 @@
 #' classification(c("Alopias vulpinus","Pinus sylvestris"), db = 'ncbi', return_id = FALSE)
 #' }
 #'
-#' @examples \donttest{
+#' @examples \dontrun{
 #' # Fails
 #' classification(315576)
 #' }

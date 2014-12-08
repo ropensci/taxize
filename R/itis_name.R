@@ -3,7 +3,7 @@
 #' @param query TSN number (taxonomic serial number).
 #' @param get The rank of the taxonomic name to get.
 #' @return Taxonomic name for the searched taxon.
-#' @examples \donttest{
+#' @examples \dontrun{
 #' itis_name(query="Helianthus annuus", get="family")
 #' }
 #' @export

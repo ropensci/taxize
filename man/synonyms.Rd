@@ -46,7 +46,7 @@ If IDs are supplied directly (not from the \code{get_*} functions) you
    must specify the type of ID.
 }
 \examples{
-\donttest{
+\dontrun{
 # Plug in taxon names directly
 synonyms("Poa annua", db="itis")
 synonyms(c("Poa annua",'Pinus contorta','Puma concolor'), db="itis")

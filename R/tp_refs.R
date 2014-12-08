@@ -2,12 +2,12 @@
 #'
 #' @import httr plyr jsonlite
 #' @export
-#' 
+#'
 #' @param id the taxon identifier code
 #' @param key Your Tropicos API key; loads from .Rprofile.
 #' @param callopts Curl options.
 #' @return List or dataframe.
-#' @examples \donttest{
+#' @examples \dontrun{
 #' tp_refs(id = 25509881)
 #' }
 tp_refs <- function(id, key = NULL, callopts=list())

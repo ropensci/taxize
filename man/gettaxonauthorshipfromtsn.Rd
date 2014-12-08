@@ -14,7 +14,7 @@ gettaxonauthorshipfromtsn(tsn, ...)
 Returns the author information for the TSN.
 }
 \examples{
-\donttest{
+\dontrun{
 gettaxonauthorshipfromtsn(183671, config=timeout(3))
 }
 }

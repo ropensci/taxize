@@ -39,7 +39,7 @@ taxonomic children, while \code{\link{downstream}} collects taxonomic names down
 taxonomic rank, e.g., getting all species in a family.
 }
 \examples{
-\donttest{
+\dontrun{
 # Plug in taxon names
 children("Salmo", db = 'col')
 children("Salmo", db = 'itis')

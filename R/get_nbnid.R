@@ -30,7 +30,7 @@
 #'
 #' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
 #'
-#' @examples \donttest{
+#' @examples \dontrun{
 #' get_nbnid(name='Poa annua')
 #' get_nbnid(name='Poa annua', rec_only=TRUE)
 #' get_nbnid(name='Poa annua', rank='Species')

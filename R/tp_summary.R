@@ -7,7 +7,7 @@
 #' @param key Your Tropicos API key; loads from .Rprofile.
 #' @param callopts Curl options.
 #' @return A data.frame.
-#' @examples \donttest{
+#' @examples \dontrun{
 #' tp_summary(id = 25509881)
 #' tp_summary(id = 2700851)
 #' tp_summary(id = 24900183)

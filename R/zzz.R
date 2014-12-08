@@ -5,7 +5,7 @@
 #'
 #' @param x An API key, defaults to NULL.
 #' @param service The API data provider, used to match to default guest key.
-#' @examples \donttest{
+#' @examples \dontrun{
 #' getkey(service="tropicos")
 #' getkey(service="eol")
 #' }

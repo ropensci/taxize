@@ -1,15 +1,15 @@
 #' Get kingdom names.
-#' 
+#'
 #' @param tsn One or more TSN's (taxonomic serial number)
 #' @param ... Further arguments passed on to getkingdomnamefromtsn
-#' @examples \donttest{
+#' @examples \dontrun{
 #' itis_kingdomnames(202385)
 #' itis_kingdomnames(tsn=c(202385,183833,180543))
-#' 
+#'
 #' # suppress message
 #' itis_kingdomnames(c(202385,183833,180543), verbose=FALSE)
 #' }
-#' @export 
+#' @export
 
 itis_kingdomnames <- function(tsn=NULL, ...)
 {

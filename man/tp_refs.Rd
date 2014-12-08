@@ -19,7 +19,7 @@ List or dataframe.
 Return all reference records for for a taxon name with a given id.
 }
 \examples{
-\donttest{
+\dontrun{
 tp_refs(id = 25509881)
 }
 }

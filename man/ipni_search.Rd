@@ -85,7 +85,7 @@ services though.
 }
 }
 \examples{
-\donttest{
+\dontrun{
 ipni_search(genus='Brintonia', isapnirecord=TRUE, isgcirecord=TRUE, isikrecord=TRUE)
 head(ipni_search(genus='Ceanothus'))
 head(ipni_search(genus='Pinus', species='contorta'))

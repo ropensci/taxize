@@ -14,7 +14,7 @@ getsynonymnamesfromtsn(tsn, ...)
 Returns a list of the synonyms (if any) for the TSN.
 }
 \examples{
-\donttest{
+\dontrun{
 getsynonymnamesfromtsn(183671, config=timeout(3)) # tsn not accepted
 getsynonymnamesfromtsn(526852, config=timeout(5)) # tsn accepted
 }

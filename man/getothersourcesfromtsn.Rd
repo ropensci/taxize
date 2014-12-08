@@ -14,7 +14,7 @@ getothersourcesfromtsn(tsn, ...)
 Returns a list of the other sources used for the TSN.
 }
 \examples{
-\donttest{
+\dontrun{
 getothersourcesfromtsn(182662, config=timeout(3))
 }
 }

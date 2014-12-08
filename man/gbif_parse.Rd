@@ -17,7 +17,7 @@ all species names in \code{scientificname}.
 Parse taxon names using the GBIF name parser.
 }
 \examples{
-\donttest{
+\dontrun{
 gbif_parse(scientificname='x Agropogon littoralis')
 gbif_parse(c('Arrhenatherum elatius var. elatius',
              'Secale cereale subsp. cereale', 'Secale cereale ssp. cereale',

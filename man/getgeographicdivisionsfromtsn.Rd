@@ -14,7 +14,7 @@ getgeographicdivisionsfromtsn(tsn, ...)
 Get geographic divisions from tsn
 }
 \examples{
-\donttest{
+\dontrun{
 getgeographicdivisionsfromtsn(180543, config=timeout(3))
 }
 }

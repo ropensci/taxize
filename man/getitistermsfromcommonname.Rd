@@ -14,7 +14,7 @@ getitistermsfromcommonname(x, ...)
 Get itis terms from common names
 }
 \examples{
-\donttest{
+\dontrun{
 getitistermsfromcommonname("buya")
 
 library('httr')

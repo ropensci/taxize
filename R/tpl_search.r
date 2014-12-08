@@ -16,7 +16,7 @@
 #' @param ... Further arguments passed on to the TPL or TPLck function of Taxonstand.
 #' 		See \code{TPL} and \code{TPLck} for arguments.
 #' @seealso \code{\link[taxize]{tpl_get}}, \code{\link[taxize]{tpl_families}}
-#' @examples \donttest{
+#' @examples \dontrun{
 #' # Regular non-parallel
 #' splist <- c("Heliathus annuus","Abies procera","Poa annua",
 #'    "Platanus occidentalis","Carex abrupta","Arctostaphylos canescens",

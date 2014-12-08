@@ -14,7 +14,7 @@ nbn_classifcation(id, ...)
 Search UK National Biodiversity Network database for taxonomic classification
 }
 \examples{
-\donttest{
+\dontrun{
 nbn_classifcation(id="NHMSYS0000502940")
 
 # get id first, then pass to this fxn

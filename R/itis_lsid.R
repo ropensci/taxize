@@ -4,7 +4,7 @@
 #' @param what What to retrieve. One of tsn, record, or fullrecord
 #' @param ... Further arguments passed on to \code{\link{gettsnfromlsid}},
 #'    \code{\link{getrecordfromlsid}}, or \code{\link{getfullrecordfromlsid}}
-#' @examples \donttest{
+#' @examples \dontrun{
 #' # Get TSN
 #' itis_lsid("urn:lsid:itis.gov:itis_tsn:180543")
 #' itis_lsid(lsid=c("urn:lsid:itis.gov:itis_tsn:180543","urn:lsid:itis.gov:itis_tsn:28726"))

@@ -25,7 +25,7 @@
 #' @export
 #' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
 #'
-#' @examples \donttest{
+#' @examples \dontrun{
 #' get_colid(sciname='Poa annua')
 #' get_colid(sciname='Pinus contorta')
 #' get_colid(sciname='Puma concolor')

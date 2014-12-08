@@ -1,14 +1,14 @@
 #' Search uBio for taxonomic synonyms by hierarchiesID.
-#' 
+#'
 #' @import httr XML RCurl
 #' @export
-#' @param hierarchiesID you must include the hierarchiesID (ClassificationBankID) 
+#' @param hierarchiesID you must include the hierarchiesID (ClassificationBankID)
 #'    to receive the classification synonyms
-#' @param keyCode Your uBio API key; loads from .Rprofile. If you don't have 
+#' @param keyCode Your uBio API key; loads from .Rprofile. If you don't have
 #'    one, obtain one at http://www.ubio.org/index.php?pagename=form.
 #' @param callopts Parameters passed on to httr::GET call.
 #' @return A data.frame.
-#' @examples \donttest{
+#' @examples \dontrun{
 #' ubio_synonyms(hierarchiesID = 4091702)
 #' ubio_synonyms(hierarchiesID = 2483153)
 #' ubio_synonyms(hierarchiesID = 2465599)
@@ -21,7 +21,7 @@ ubio_synonyms <- function(hierarchiesID = NULL, keyCode = NULL, callopts=list())
   hierarchiesID <- as.numeric(as.character(hierarchiesID))
   if(!inherits(hierarchiesID, "numeric"))
     stop("hierarchiesID must by a numeric")
-    
+
   url <- "http://www.ubio.org/webservices/service.php"
   keyCode <- getkey(keyCode, "ubioApiKey")
   args <- taxize_compact(list(

@@ -16,7 +16,7 @@
 #' @export
 #' @rdname eol_hierarchy-defunct
 #' @keywords internal
-#' @examples \donttest{
+#' @examples \dontrun{
 #' # Using get_eolid
 #' eol_hierarchy(get_eolid(sciname='Poa annua'))
 #' }

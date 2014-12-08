@@ -17,7 +17,7 @@ An integer containing the number of matches the search will return.
 Get any match count.
 }
 \examples{
-\donttest{
+\dontrun{
 library('httr')
 getanymatchcount(202385, config=timeout(3))
 getanymatchcount("dolphin", config=timeout(3))

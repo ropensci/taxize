@@ -17,7 +17,7 @@ A data.frame with results.
 Get comment detail from TSN
 }
 \examples{
-\donttest{
+\dontrun{
 getcommentdetailfromtsn(tsn=180543, config=timeout(4))
 }
 }

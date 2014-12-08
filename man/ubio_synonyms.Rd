@@ -21,7 +21,7 @@ A data.frame.
 Search uBio for taxonomic synonyms by hierarchiesID.
 }
 \examples{
-\donttest{
+\dontrun{
 ubio_synonyms(hierarchiesID = 4091702)
 ubio_synonyms(hierarchiesID = 2483153)
 ubio_synonyms(hierarchiesID = 2465599)

@@ -1,14 +1,14 @@
 #' Get sources for the Phylotastic Taxonomic Name Resolution Service.
 #'
 #' @import jsonlite httr plyr
-#' @param source The source to get information on, one of "iPlant_TNRS", 
+#' @param source The source to get information on, one of "iPlant_TNRS",
 #' "NCBI", or "MSW3".
 #' @return Sources for the TNRS API.
 #' @export
-#' @examples \donttest{
+#' @examples \dontrun{
 #' # All
 #' tnrs_sources()
-#' 
+#'
 #' # A specific source
 #' tnrs_sources(source="NCBI")
 #' }
@@ -21,7 +21,7 @@ tnrs_sources <- function(source = NULL)
     stop_for_status(tt)
     res <- content(tt, as = "text")
 		jsonlite::fromJSON(res)
-	} else 
+	} else
 	{
 		url2 <- paste0(url, "/list")
 		tt <- GET(url2)

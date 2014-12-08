@@ -12,7 +12,7 @@ getjurisdictionvalues(...)
 Get possible jurisdiction values
 }
 \examples{
-\donttest{
+\dontrun{
 getjurisdictionvalues(config=timeout(3))
 }
 }

@@ -17,7 +17,7 @@ Taxonomic name for the searched taxon.
 Get taxonomic names for a given taxonomic name query.
 }
 \examples{
-\donttest{
+\dontrun{
 itis_name(query="Helianthus annuus", get="family")
 }
 }

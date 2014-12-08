@@ -14,7 +14,7 @@ gettsnfromlsid(lsid, ...)
 Gets the TSN corresponding to the LSID, or an empty result if there is no match.
 }
 \examples{
-\donttest{
+\dontrun{
 gettsnfromlsid(lsid="urn:lsid:itis.gov:itis_tsn:28726", config=timeout(3))
 gettsnfromlsid("urn:lsid:itis.gov:itis_tsn:0", config=timeout(3))
 }

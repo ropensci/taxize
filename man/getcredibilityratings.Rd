@@ -12,7 +12,7 @@ getcredibilityratings(...)
 Get possible credibility ratings
 }
 \examples{
-\donttest{
+\dontrun{
 getcredibilityratings(config=timeout(3))
 }
 }

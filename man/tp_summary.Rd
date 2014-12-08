@@ -19,7 +19,7 @@ A data.frame.
 Return summary data a taxon name with a given id.
 }
 \examples{
-\donttest{
+\dontrun{
 tp_summary(id = 25509881)
 tp_summary(id = 2700851)
 tp_summary(id = 24900183)

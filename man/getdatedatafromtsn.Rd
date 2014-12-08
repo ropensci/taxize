@@ -14,7 +14,7 @@ getdatedatafromtsn(tsn, ...)
 Get date data from tsn
 }
 \examples{
-\donttest{
+\dontrun{
 getdatedatafromtsn(180543, config=timeout(3))
 }
 }

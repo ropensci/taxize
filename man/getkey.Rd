@@ -15,7 +15,7 @@ Checks first to get key from your .Rprofile file for an API key with the
 		name 'tropicoskey'. If it is not found, the default key is used.
 }
 \examples{
-\donttest{
+\dontrun{
 getkey(service="tropicos")
 getkey(service="eol")
 }

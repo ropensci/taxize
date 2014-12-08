@@ -29,7 +29,7 @@ itisdf <- function(a, b, matches, colnames, pastens="ax21"){
 #' Get accepted names from tsn
 #'
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \donttest{
+#' @examples \dontrun{
 #' # TSN accepted - good name
 #' library('httr')
 #' getacceptednamesfromtsn('208527', config=timeout(1))
@@ -58,7 +58,7 @@ getacceptednamesfromtsn <- function(tsn, ...)
 #' @param x text or taxonomic serial number (TSN) (character or numeric)
 #' @param ... optional additional curl options (debugging tools mostly)
 #' @return An integer containing the number of matches the search will return.
-#' @examples \donttest{
+#' @examples \dontrun{
 #' library('httr')
 #' getanymatchcount(202385, config=timeout(3))
 #' getanymatchcount("dolphin", config=timeout(3))
@@ -76,7 +76,7 @@ getanymatchcount <- function(x, ...)
 #' @param tsn TSN for a taxonomic group (numeric)
 #' @param ... optional additional curl options (debugging tools mostly)
 #' @return A data.frame with results.
-#' @examples \donttest{
+#' @examples \dontrun{
 #' getcommentdetailfromtsn(tsn=180543, config=timeout(4))
 #' }
 #' @export
@@ -93,7 +93,7 @@ getcommentdetailfromtsn <- function(tsn, ...)
 #' Get common names from tsn
 #'
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \donttest{
+#' @examples \dontrun{
 #' getcommonnamesfromtsn(183833, config=timeout(1))
 #' }
 #' @export
@@ -115,7 +115,7 @@ getcommonnamesfromtsn <- function(tsn, ...)
 #' Get core metadata from tsn
 #'
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \donttest{
+#' @examples \dontrun{
 #' getcoremetadatafromtsn(28727, config=timeout(3))  # coverage and currrency data
 #' getcoremetadatafromtsn(183671, config=timeout(4))  # no coverage or currrency data
 #' }
@@ -132,7 +132,7 @@ getcoremetadatafromtsn <- function(tsn, ...)
 #' Get coverge from tsn
 #'
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \donttest{
+#' @examples \dontrun{
 #' getcoveragefromtsn(tsn=28727, config=timeout(4))  # coverage data
 #' getcoveragefromtsn(526852, config=timeout(4))  # no coverage data
 #' }
@@ -149,7 +149,7 @@ getcoveragefromtsn <- function(tsn, ...)
 #' Get credibility rating from tsn
 #'
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \donttest{
+#' @examples \dontrun{
 #' getcredibilityratingfromtsn(526852, config=timeout(4))
 #' }
 #' @export
@@ -165,7 +165,7 @@ getcredibilityratingfromtsn <- function(tsn, ...)
 #' Get possible credibility ratings
 #'
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
-#' @examples \donttest{
+#' @examples \dontrun{
 #' getcredibilityratings(config=timeout(3))
 #' }
 #' @export
@@ -182,7 +182,7 @@ getcredibilityratings <- function(...)
 #' Get currency from tsn
 #'
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \donttest{
+#' @examples \dontrun{
 #' getcurrencyfromtsn(28727, config=timeout(3)) # currency data
 #' getcurrencyfromtsn(526852, config=timeout(3)) # no currency dat
 #' }
@@ -199,7 +199,7 @@ getcurrencyfromtsn <- function(tsn, ...)
 #' Get date data from tsn
 #'
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \donttest{
+#' @examples \dontrun{
 #' getdatedatafromtsn(180543, config=timeout(3))
 #' }
 #' @export
@@ -215,7 +215,7 @@ getdatedatafromtsn <- function(tsn, ...)
 #' Get description of the ITIS service
 #'
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
-#' @examples \donttest{
+#' @examples \dontrun{
 #' getdescription(config=timeout(1))
 #' }
 #' @export
@@ -227,7 +227,7 @@ getdescription <- function(...){
 #' Get expert information for the TSN.
 #'
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \donttest{
+#' @examples \dontrun{
 #' getexpertsfromtsn(180544, config=timeout(3))
 #' }
 #' @export
@@ -246,7 +246,7 @@ getexpertsfromtsn <- function(tsn, ...)
 #' Get full hierarchy from tsn
 #'
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \donttest{
+#' @examples \dontrun{
 #' getfullhierarchyfromtsn(37906, config=timeout(3))
 #' getfullhierarchyfromtsn(100800, config=timeout(3))
 #' }
@@ -278,7 +278,7 @@ getfullhierarchyfromtsn <- function(tsn, ...)
 #'
 #' @param lsid lsid for a taxonomic group (character)
 #' @param ... optional additional curl options (debugging tools mostly)
-#' @examples \donttest{
+#' @examples \dontrun{
 #' getfullrecordfromlsid("urn:lsid:itis.gov:itis_tsn:180543", config=timeout(3))
 #' getfullrecordfromlsid("urn:lsid:itis.gov:itis_tsn:180543", config=timeout(3))
 #' }
@@ -303,7 +303,7 @@ getfullrecordfromlsid <- function(lsid, ...)
 #' Get full record from TSN.
 #'
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \donttest{
+#' @examples \dontrun{
 #' getfullrecordfromtsn(504239, config=timeout(3))
 #' getfullrecordfromtsn(202385, config=timeout(3))
 #' getfullrecordfromtsn(183833, config=timeout(3))
@@ -329,7 +329,7 @@ getfullrecordfromtsn <- function(tsn, ...)
 #' Get geographic divisions from tsn
 #'
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \donttest{
+#' @examples \dontrun{
 #' getgeographicdivisionsfromtsn(180543, config=timeout(3))
 #' }
 #' @export
@@ -345,7 +345,7 @@ getgeographicdivisionsfromtsn <- function(tsn, ...)
 #' Get all possible geographic values
 #'
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
-#' @examples \donttest{
+#' @examples \dontrun{
 #' getgeographicvalues(config=timeout(3))
 #' }
 #' @export
@@ -362,7 +362,7 @@ getgeographicvalues <- function(...)
 #' Get global species completeness from tsn
 #'
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \donttest{
+#' @examples \dontrun{
 #' getglobalspeciescompletenessfromtsn(180541, config=timeout(3))
 #' }
 #' @export
@@ -378,7 +378,7 @@ getglobalspeciescompletenessfromtsn <- function(tsn, ...)
 #' Get hierarchy down from tsn
 #'
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \donttest{
+#' @examples \dontrun{
 #' gethierarchydownfromtsn(161030, config=timeout(3))
 #' }
 #' @export
@@ -395,7 +395,7 @@ gethierarchydownfromtsn <- function(tsn, ...)
 #' Get hierarchy up from tsn
 #'
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \donttest{
+#' @examples \dontrun{
 #' gethierarchyupfromtsn(36485, config=timeout(3))
 #' }
 #' @export
@@ -411,7 +411,7 @@ gethierarchyupfromtsn <- function(tsn, ...)
 #' Get itis terms from common names
 #'
 #' @inheritParams getanymatchcount
-#' @examples \donttest{
+#' @examples \dontrun{
 #' getitistermsfromcommonname("buya")
 #'
 #' library('httr')
@@ -439,7 +439,7 @@ getitistermsfromcommonname <- function(x, ...)
 #' Get itis terms from common names
 #'
 #' @inheritParams getanymatchcount
-#' @examples \donttest{
+#' @examples \dontrun{
 #' getitisterms("bear")
 #' }
 #' @export
@@ -464,7 +464,7 @@ getitisterms <- function(x, ...)
 #' Get itis terms from scientific names
 #'
 #' @inheritParams getanymatchcount
-#' @examples \donttest{
+#' @examples \dontrun{
 #' getitistermsfromscientificname("ursidae")
 #' getitistermsfromscientificname("Ursus")
 #' }
@@ -493,7 +493,7 @@ getitistermsfromscientificname <- function(x, ...)
 #' Get jurisdictional origin from tsn
 #'
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \donttest{
+#' @examples \dontrun{
 #' getjurisdictionaloriginfromtsn(2180543, config=timeout(3))
 #' }
 #' @export
@@ -517,7 +517,7 @@ getjurisdictionaloriginfromtsn <- function(tsn, ...)
 #' Get jurisdiction origin values
 #'
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
-#' @examples \donttest{
+#' @examples \dontrun{
 #' getjurisdictionoriginvalues(config=timeout(3))
 #' }
 #' @export
@@ -533,7 +533,7 @@ getjurisdictionoriginvalues <- function(...)
 #' Get possible jurisdiction values
 #'
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
-#' @examples \donttest{
+#' @examples \dontrun{
 #' getjurisdictionvalues(config=timeout(3))
 #' }
 #' @export
@@ -550,7 +550,7 @@ getjurisdictionvalues <- function(...)
 #' Get kingdom names from tsn
 #'
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \donttest{
+#' @examples \dontrun{
 #' getkingdomnamefromtsn(202385, config=timeout(3))
 #' }
 #' @export
@@ -566,7 +566,7 @@ getkingdomnamefromtsn <- function(tsn, ...)
 #' Get all possible kingdom names
 #'
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
-#' @examples \donttest{
+#' @examples \dontrun{
 #' getkingdomnames(config=timeout(3))
 #' }
 #' @export
@@ -582,7 +582,7 @@ getkingdomnames <- function(...)
 #' Provides the date the ITIS database was last updated.
 #'
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
-#' @examples \donttest{
+#' @examples \dontrun{
 #' getlastchangedate(config=timeout(3))
 #' }
 #' @export
@@ -598,7 +598,7 @@ getlastchangedate <- function(...)
 #' Gets the unique LSID for the TSN, or an empty result if there is no match.
 #'
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \donttest{
+#' @examples \dontrun{
 #' getlsidfromtsn(155166, config=timeout(3))
 #' }
 #' @export
@@ -608,7 +608,7 @@ getlsidfromtsn <- function(tsn, ...) xmlToList(itis_GET("getLSIDFromTSN", list(t
 #' Returns a list of the other sources used for the TSN.
 #'
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \donttest{
+#' @examples \dontrun{
 #' getothersourcesfromtsn(182662, config=timeout(3))
 #' }
 #' @export
@@ -628,7 +628,7 @@ getothersourcesfromtsn <- function(tsn, ...)
 #' Returns the parent TSN for the entered TSN.
 #'
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \donttest{
+#' @examples \dontrun{
 #' getparenttsnfromtsn(202385, config=timeout(3))
 #' }
 #' @export
@@ -644,7 +644,7 @@ getparenttsnfromtsn <- function(tsn, ...)
 #' Returns a list of the pulications used for the TSN.
 #'
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \donttest{
+#' @examples \dontrun{
 #' getpublicationsfromtsn(70340, config=timeout(3))
 #' }
 #' @export
@@ -668,7 +668,7 @@ getpublicationsfromtsn <- function(tsn, ...)
 #'  their kingdom and rank ID values.
 #'
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
-#' @examples \donttest{
+#' @examples \dontrun{
 #' getranknames(config=timeout(3))
 #' }
 #' @export
@@ -686,7 +686,7 @@ getranknames <- function(...)
 #'  there is no match or the TSN is invalid.
 #'
 #' @inheritParams getfullrecordfromlsid
-#' @examples \donttest{
+#' @examples \dontrun{
 #' getrecordfromlsid("urn:lsid:itis.gov:itis_tsn:180543", config=timeout(3))
 #' }
 #' @export
@@ -704,7 +704,7 @@ getrecordfromlsid <- function(lsid, ...)
 #' Returns the review year for the TSN.
 #'
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \donttest{
+#' @examples \dontrun{
 #' getreviewyearfromtsn(180541, config=timeout(3))
 #' }
 #' @export
@@ -721,7 +721,7 @@ getreviewyearfromtsn <- function(tsn, ...)
 #'    (names and indicators) of the scientific name.
 #'
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \donttest{
+#' @examples \dontrun{
 #' getscientificnamefromtsn(531894, config=timeout(3))
 #' }
 #' @export
@@ -738,7 +738,7 @@ getscientificnamefromtsn <- function(tsn, ...)
 #' Returns a list of the synonyms (if any) for the TSN.
 #'
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \donttest{
+#' @examples \dontrun{
 #' getsynonymnamesfromtsn(183671, config=timeout(3)) # tsn not accepted
 #' getsynonymnamesfromtsn(526852, config=timeout(5)) # tsn accepted
 #' }
@@ -763,7 +763,7 @@ getsynonymnamesfromtsn <- function(tsn, ...)
 #' Returns the author information for the TSN.
 #'
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \donttest{
+#' @examples \dontrun{
 #' gettaxonauthorshipfromtsn(183671, config=timeout(3))
 #' }
 #' @export
@@ -779,7 +779,7 @@ gettaxonauthorshipfromtsn <- function(tsn, ...)
 #' Returns the kingdom and rank information for the TSN.
 #'
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \donttest{
+#' @examples \dontrun{
 #' gettaxonomicranknamefromtsn(202385, config=timeout(3))
 #' }
 #' @export
@@ -795,7 +795,7 @@ gettaxonomicranknamefromtsn <- function(tsn, ...)
 #' Returns the usage information for the TSN.
 #'
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \donttest{
+#' @examples \dontrun{
 #' gettaxonomicusagefromtsn(526852, config=timeout(3))
 #' }
 #' @export
@@ -813,7 +813,7 @@ gettaxonomicusagefromtsn <- function(tsn, ...)
 #' @param language A string containing the language. This is a language string,
 #'    not the international language code (character)
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
-#' @examples \donttest{
+#' @examples \dontrun{
 #' gettsnbyvernacularlanguage("french", config=timeout(3))
 #' }
 #' @export
@@ -829,7 +829,7 @@ gettsnbyvernacularlanguage <- function(language, ...)
 #' Gets the TSN corresponding to the LSID, or an empty result if there is no match.
 #'
 #' @inheritParams getfullrecordfromlsid
-#' @examples \donttest{
+#' @examples \dontrun{
 #' gettsnfromlsid(lsid="urn:lsid:itis.gov:itis_tsn:28726", config=timeout(3))
 #' gettsnfromlsid("urn:lsid:itis.gov:itis_tsn:0", config=timeout(3))
 #' }
@@ -846,7 +846,7 @@ gettsnfromlsid <- function(lsid, ...)
 #' Returns the unacceptability reason, if any, for the TSN.
 #'
 #' @inheritParams getcommentdetailfromtsn
-#' @examples \donttest{
+#' @examples \dontrun{
 #' getunacceptabilityreasonfromtsn(183671, config=timeout(3))
 #' }
 #' @export
@@ -862,7 +862,7 @@ getunacceptabilityreasonfromtsn <- function(tsn, ...)
 #' Provides a list of the unique languages used in the vernacular table.
 #'
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
-#' @examples \donttest{
+#' @examples \dontrun{
 #' getvernacularlanguages(config=timeout(3))
 #' }
 #' @export
@@ -879,7 +879,7 @@ getvernacularlanguages <- function(...)
 #' Search for tsn by common name
 #'
 #' @inheritParams getanymatchcount
-#' @examples \donttest{
+#' @examples \dontrun{
 #' searchbycommonname("american bullfrog", config=timeout(3))
 #' searchbycommonname("ferret-badger", config=timeout(3))
 #' searchbycommonname("polar bear", config=timeout(3))
@@ -906,7 +906,7 @@ searchbycommonname <- function(x, ...)
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @seealso searchbycommonnamebeginswith searchbycommonnameendswith
 #' @return \code{data.frame}
-#' @examples \donttest{
+#' @examples \dontrun{
 #' itis_searchcommon("inch", config=timeout(3))
 #' itis_searchcommon("inch", from = "end", config=timeout(3))
 #'}
@@ -920,7 +920,7 @@ itis_searchcommon <- function(x, from = "begin", ...) {
 #' Search for tsn by common name beginning with
 #'
 #' @inheritParams getanymatchcount
-#' @examples \donttest{
+#' @examples \dontrun{
 #' searchbycommonnamebeginswith("inch", config=timeout(3))
 #' }
 #' @export
@@ -942,7 +942,7 @@ searchbycommonnamebeginswith <- function(x, ...)
 #' Search for tsn by common name ending with
 #'
 #' @inheritParams getanymatchcount
-#' @examples \donttest{
+#' @examples \dontrun{
 #' searchbycommonnameendswith("snake", config=timeout(3))
 #' }
 #' @export
@@ -963,7 +963,7 @@ searchbycommonnameendswith <- function(x, ...)
 #' Search by scientific name
 #'
 #' @inheritParams getanymatchcount
-#' @examples \donttest{
+#' @examples \dontrun{
 #' searchbyscientificname("Tardigrada", config=timeout(3))
 #' searchbyscientificname("Quercus douglasii", config=timeout(3))
 #' }
@@ -980,7 +980,7 @@ searchbyscientificname <- function(x, ...)
 #' Search for any match
 #'
 #' @inheritParams getanymatchcount
-#' @examples \donttest{
+#' @examples \dontrun{
 #' searchforanymatch(202385, config=timeout(3))
 #' searchforanymatch("dolphin", config=timeout(3))
 #' }
@@ -1015,7 +1015,7 @@ searchforanymatch <- function(x, ...)
 #' @param pagenum An integer containing the page number (numeric)
 #' @param ascend A boolean containing true for ascending sort order or false
 #'    for descending (logical)
-#' @examples \donttest{
+#' @examples \dontrun{
 #' searchforanymatchpaged(202385, pagesize=100, pagenum=1, ascend=FALSE, config=timeout(3))
 #' searchforanymatchpaged("Zy", pagesize=100, pagenum=1, ascend=FALSE, config=timeout(3))
 #' }

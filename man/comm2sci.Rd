@@ -26,7 +26,7 @@ A vector of names.
 Get scientific names from common names.
 }
 \examples{
-\donttest{
+\dontrun{
 comm2sci(commnames='black bear')
 comm2sci(commnames='black bear', db='itis')
 comm2sci(commnames='annual blue grass', db='tropicos')

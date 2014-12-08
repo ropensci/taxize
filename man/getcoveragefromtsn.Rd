@@ -14,7 +14,7 @@ getcoveragefromtsn(tsn, ...)
 Get coverge from tsn
 }
 \examples{
-\donttest{
+\dontrun{
 getcoveragefromtsn(tsn=28727, config=timeout(4))  # coverage data
 getcoveragefromtsn(526852, config=timeout(4))  # no coverage data
 }

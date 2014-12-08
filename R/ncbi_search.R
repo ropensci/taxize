@@ -20,7 +20,7 @@
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}, Zachary Foster
 #'   \email{zacharyfoster1989@@gmail.com}
 #' @rdname ncbi_search-deprecated
-#' @examples \donttest{
+#' @examples \dontrun{
 #' # A single species
 #' out <- ncbi_search(taxa="Umbra limi", seqrange = "1:2000")
 #' # Get the same species information using a taxonomy id

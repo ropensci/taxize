@@ -14,7 +14,7 @@ getexpertsfromtsn(tsn, ...)
 Get expert information for the TSN.
 }
 \examples{
-\donttest{
+\dontrun{
 getexpertsfromtsn(180544, config=timeout(3))
 }
 }

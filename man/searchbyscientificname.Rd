@@ -14,7 +14,7 @@ searchbyscientificname(x, ...)
 Search by scientific name
 }
 \examples{
-\donttest{
+\dontrun{
 searchbyscientificname("Tardigrada", config=timeout(3))
 searchbyscientificname("Quercus douglasii", config=timeout(3))
 }

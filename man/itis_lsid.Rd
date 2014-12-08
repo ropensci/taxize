@@ -17,7 +17,7 @@ itis_lsid(lsid = NULL, what = "tsn", ...)
 Get kingdom names.
 }
 \examples{
-\donttest{
+\dontrun{
 # Get TSN
 itis_lsid("urn:lsid:itis.gov:itis_tsn:180543")
 itis_lsid(lsid=c("urn:lsid:itis.gov:itis_tsn:180543","urn:lsid:itis.gov:itis_tsn:28726"))

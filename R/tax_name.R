@@ -24,7 +24,7 @@
 #'
 #' @seealso \code{\link[taxize]{classification}}
 #'
-#' @examples \donttest{
+#' @examples \dontrun{
 #' # A case where itis and ncbi use the same names
 #' tax_name(query = "Helianthus annuus", get = "family", db = "itis")
 #' tax_name(query = "Helianthus annuus", get = "family", db = "ncbi")

@@ -12,7 +12,7 @@ XML object message about API status.
 Ping EOL API to see if it's working.
 }
 \examples{
-\donttest{
+\dontrun{
 eol_ping()
 }
 }

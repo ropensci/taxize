@@ -12,7 +12,7 @@ getjurisdictionoriginvalues(...)
 Get jurisdiction origin values
 }
 \examples{
-\donttest{
+\dontrun{
 getjurisdictionoriginvalues(config=timeout(3))
 }
 }

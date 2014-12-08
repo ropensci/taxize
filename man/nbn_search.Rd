@@ -31,7 +31,7 @@ Default: 25}
 Search UK National Biodiversity Network database
 }
 \examples{
-\donttest{
+\dontrun{
 nbn_search(q = "blackbird")
 nbn_search(q = "blackbird", start = TRUE)
 nbn_search(q = "blackbird", all = TRUE)

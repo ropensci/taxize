@@ -52,7 +52,7 @@ extremely buggy.
 One of url, file, or text must be specified - and only one of them.
 }
 \examples{
-\donttest{
+\dontrun{
 # Get data from a website using its URL
 scrapenames(url = 'http://en.wikipedia.org/wiki/Araneae')
 scrapenames(url = 'http://en.wikipedia.org/wiki/Animalia')

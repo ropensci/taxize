@@ -13,7 +13,7 @@
 #' @seealso \code{\link[taxize]{ncbi_search}}, \code{\link[taxize]{ncbi_getbyname}}
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @rdname ncbi_getbyid-deprecated
-#' @examples \donttest{
+#' @examples \dontrun{
 #' # A single gene
 #' ncbi_getbyid(ids="360040093", format="fasta")
 #'

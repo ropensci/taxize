@@ -20,7 +20,7 @@ Retrieve accepted TSN (with accepted name).
 You can print informative messages by setting supmess=FALSE.
 }
 \examples{
-\donttest{
+\dontrun{
 itis_acceptname('208527')  # TSN accepted - good name
 itis_acceptname('504239')  # TSN not accepted - input TSN is old
 }

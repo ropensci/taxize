@@ -12,7 +12,7 @@ getlastchangedate(...)
 Provides the date the ITIS database was last updated.
 }
 \examples{
-\donttest{
+\dontrun{
 getlastchangedate(config=timeout(3))
 }
 }

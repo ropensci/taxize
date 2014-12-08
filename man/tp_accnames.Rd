@@ -19,7 +19,7 @@ List or dataframe.
 Return all accepted names for a taxon name with a given id.
 }
 \examples{
-\donttest{
+\dontrun{
 tp_accnames(id = 25503923)
 tp_accnames(id = 25538750)
 

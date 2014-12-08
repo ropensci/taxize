@@ -12,7 +12,7 @@ getgeographicvalues(...)
 Get all possible geographic values
 }
 \examples{
-\donttest{
+\dontrun{
 getgeographicvalues(config=timeout(3))
 }
 }

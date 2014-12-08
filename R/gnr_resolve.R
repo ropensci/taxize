@@ -29,7 +29,7 @@
 #' @seealso \code{\link[taxize]{gnr_datasources}}
 #' @export
 #' @keywords resolve names taxonomy
-#' @examples \donttest{
+#' @examples \dontrun{
 #' gnr_resolve(names = c("Helianthus annuus", "Homo sapiens"))
 #' gnr_resolve(names = c("Asteraceae", "Plantae"))
 #'
@@ -42,14 +42,14 @@
 #' # Two species in the NE Brazil catalogue
 #' sps <- c('Justicia brasiliana','Schinopsis brasiliensis')
 #' gnr_resolve(names = sps, data_source_ids = 145)
-#' 
+#'
 #' # Best match only, compare the two
 #' gnr_resolve(names = "Helianthus annuus", best_match_only = FALSE)
 #' gnr_resolve(names = "Helianthus annuus", best_match_only = TRUE)
-#' 
+#'
 #' # Preferred data source
 #' gnr_resolve(names = "Helianthus annuus", preferred_data_sources = c(3,4))
-#' 
+#'
 #' # Strip taxonomic authorities - default is stripauthority=FALSE
 #' head(gnr_resolve(names = "Helianthus annuus")$results)
 #' head(gnr_resolve(names = "Helianthus annuus", stripauthority=TRUE)$results)
@@ -72,8 +72,8 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
   highestscore <- check_value(highestscore)
   best_match_only <- check_value(best_match_only)
 
-  args <- taxize_compact(list(names=names2, data_source_ids=data_source_ids, 
-            resolve_once=resolve_once,with_context=with_context, 
+  args <- taxize_compact(list(names=names2, data_source_ids=data_source_ids,
+            resolve_once=resolve_once,with_context=with_context,
             best_match_only=best_match_only, preferred_data_sources=preferred_data_sources))
 
   if(http=='get'){
@@ -106,8 +106,8 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
     } else
       stop("http must be one of 'get' or 'post'")
 
-  data_ <- lapply(dat, 
-                  function(y) 
+  data_ <- lapply(dat,
+                  function(y)
                     list(y[["supplied_name_string"]],
                         lapply(y$results, function(x) data.frame(x[c("name_string", "data_source_title", "score", "canonical_form")]))))
   data_2 <- ldply(data_, function(x) data.frame(x[[1]], ldply( if(length(x[[2]])==0)
@@ -117,10 +117,10 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
   data_2$data_source_title <- as.character(data_2$data_source_title)
   data_2$matched_name2 <- as.character(data_2$matched_name2)
   out <- data_2[order(data_2$submitted_name), ]
-  
+
   if(!is.null(preferred_data_sources)){
-    data_preferred <- lapply(dat, 
-      function(y) 
+    data_preferred <- lapply(dat,
+      function(y)
           list(y[["supplied_name_string"]],
               lapply(y$preferred_results, function(x) data.frame(x[c("name_string", "data_source_title", "score", "canonical_form")]))))
     data_2_preferred <- ldply(data_preferred, function(x) data.frame(x[[1]], ldply( if(length(x[[2]])==0)
@@ -130,14 +130,14 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
     data_2_preferred$data_source_title <- as.character(data_2_preferred$data_source_title)
     data_2_preferred$matched_name2 <- as.character(data_2_preferred$matched_name2)
     out_preferred <- data_2_preferred[order(data_2_preferred$submitted_name), ]
-    
+
     if(stripauthority){
       out_preferred <- out_preferred[ , !names(out_preferred) %in% "matched_name"]
     } else {
       out_preferred <- out_preferred[ , !names(out_preferred) %in% "matched_name2"]
     }
   } else { out_preferred <- NULL }
-  
+
   if(stripauthority){
     out <- out[ , !names(out) %in% "matched_name"]
   } else {

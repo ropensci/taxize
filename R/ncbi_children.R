@@ -1,19 +1,19 @@
 #' Search NCBI for children of a taxon
-#' 
+#'
 #' Search the NCBI Taxonomy database for uids of children of taxa. Taxa can be referenced by name
 #' or uid. Referencing by name is faster.
-#' 
+#'
 #' In a few cases, different taxa have the same name (e.g. Satyrium; see examples). If one of these
 #' are searched for then the children of both taxa will be returned. This can be avoided by
-#' using a uid instead of the name or specifying an ancestor. If an ancestor is provided, only 
+#' using a uid instead of the name or specifying an ancestor. If an ancestor is provided, only
 #' children of both the taxon and its ancestor are returned. This will only fail if there are two
-#' taxa with the same name and the same specified ancestor. 
-#' 
+#' taxa with the same name and the same specified ancestor.
+#'
 #' @param name (\code{character}) The string to search for. Only exact matches found the name given
 #' will be returned. Not compatible with \code{id}.
 #' @param id (\code{character}) The uid to search for. Not compatible with \code{name}.
 #' @param start The first record to return. If omitted, the results are returned from the first
-#'   record (start=0). 
+#'   record (start=0).
 #' @param max_return (\code{numeric; length=1}) The maximum number of children to return.
 #' @param ancestor (\code{character}) The ancestor of the taxon being searched for. This is useful
 #'   if there could be more than one taxon with the same name. Has no effect if \code{id} is used.
@@ -22,13 +22,13 @@
 #'     \item{summary}{The output is a list of \code{data.frame} with children uid, name, and rank.}
 #'     \item{uid}{A list of character vectors of children uids}
 #'   }
-#' @param ambiguous \code{logical; length 1} If \code{FALSE}, children taxa with words like 
+#' @param ambiguous \code{logical; length 1} If \code{FALSE}, children taxa with words like
 #'   "unclassified", "unknown", "uncultured", or "sp." are removed from the output.
 #'   NOTE: This option only applies when \code{out_type = "summary"}.
-#' @return The output type depends on the value of the \code{out_type} parameter. 
+#' @return The output type depends on the value of the \code{out_type} parameter.
 #' @seealso \code{\link{ncbi_get_taxon_summary}}, \code{\link[taxize]{children}}
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' ncbi_children(name="Satyrium") #Satyrium is the name of two different genera
 #' ncbi_children(name="Satyrium", ancestor="Eumaeini") # A genus of butterflies
 #' ncbi_children(name="Satyrium", ancestor="Orchidaceae") # A genus of orchids
@@ -41,7 +41,7 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
   # Constants --------------------------------------------------------------------------------------
   ambiguous_regex <- paste(sep = "|", "unclassified", "environmental", "uncultured", "unknown",
                            "unidentified", "candidate", "sp\\.", "s\\.l\\.", "sensu lato", "clone",
-                           "miscellaneous", "candidatus", "affinis", "aff\\.", "incertae sedis", 
+                           "miscellaneous", "candidatus", "affinis", "aff\\.", "incertae sedis",
                            "mixed", "samples", "libaries")
   base_url <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy"
   # Argument validation ----------------------------------------------------------------------------
@@ -58,7 +58,7 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
                    character(1))
     ancestor <- vapply(id_taxonomy,
                        function(x) ifelse(nrow(x) > 1, x$name[nrow(x) - 1], as.character(NA)),
-                       character(1)) 
+                       character(1))
   } else if (is.null(ancestor)) {
     ancestor <- rep(NA, length(name))
   }
@@ -89,7 +89,7 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
         names(output) <- c("childtaxa_id", "childtaxa_name", "childtaxa_rank")
         # Remove ambiguous results
         if (!ambiguous) {
-          output <- output[!grepl(ambiguous_regex, output$childtaxa_name, ignore.case = TRUE), ]          
+          output <- output[!grepl(ambiguous_regex, output$childtaxa_name, ignore.case = TRUE), ]
         }
       } else {
         output <- children_uid

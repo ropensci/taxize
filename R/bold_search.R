@@ -35,7 +35,7 @@
 #' }
 #' @references \url{http://www.boldsystems.org/index.php/resources/api}
 #' @return A list of data.frame's.
-#' @examples \donttest{
+#' @examples \dontrun{
 #' # A basic example
 #' bold_search(name="Apis")
 #' bold_search(name="Agapostemon")

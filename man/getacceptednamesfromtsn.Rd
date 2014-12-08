@@ -14,7 +14,7 @@ getacceptednamesfromtsn(tsn, ...)
 Get accepted names from tsn
 }
 \examples{
-\donttest{
+\dontrun{
 # TSN accepted - good name
 library('httr')
 getacceptednamesfromtsn('208527', config=timeout(1))
