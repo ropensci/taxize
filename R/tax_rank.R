@@ -1,35 +1,35 @@
 #' Get rank for a given taxonomic name.
-#' 
+#'
 #' Get taxonomic rank for a given taxon name.
-#' 
+#'
 #' @param query character; Vector of taxonomic names to query.
 #' @param db character; The database to search from: 'tis', 'ncbi' or 'both'.
-#'  If 'both' both NCBI and ITIS will be queried. Result will be the union of 
+#'  If 'both' both NCBI and ITIS will be queried. Result will be the union of
 #'  both.
-#' @param pref If db = 'both', sets the preference for the union. Either 'ncbi' 
+#' @param pref If db = 'both', sets the preference for the union. Either 'ncbi'
 #' or 'itis'.
-#' @param verbose logical; If TRUE the actual taxon queried is printed on the 
+#' @param verbose logical; If TRUE the actual taxon queried is printed on the
 #' console.
 #' @param ... Other arguments passed to \code{\link[taxize]{get_tsn}} or \code{\link[taxize]{get_uid}}.
-#' 
-#' @note While \code{\link[taxize]{tax_name}} returns the name of a specified 
-#' rank, 
+#'
+#' @note While \code{\link[taxize]{tax_name}} returns the name of a specified
+#' rank,
 #' \code{\link[taxize]{tax_rank}} returns the actual rank of the taxon.
-#' 
+#'
 #' @return A data.frame with one column for every queried taxon.
-#' 
+#'
 #' @seealso \code{\link[taxize]{classification}}, \code{\link[taxize]{tax_name}}
-#' 
+#'
 #' @examples \donttest{
 #' tax_rank(query = "Helianthus annuus", db = "itis")
 #' tax_rank(query = "Helianthus annuus", db = "ncbi")
 #' tax_rank(query = "Helianthus", db = "itis")
-#' 
+#'
 #' # query both
 #' tax_rank(query=c("Helianthus annuus", 'Puma'), db="both")
-#' 
-#' # An alternative way would be to use \link{classification} and sapply over 
-#' the list
+#'
+#' # An alternative way would be to use \link{classification} and sapply over
+#' # the list
 #' x <- 'Baetis'
 #' classi <- classification(get_uid(x))
 #' sapply(classi, function(x) x[nrow(x), 'rank'])
@@ -43,13 +43,13 @@ tax_rank <- function(query = NULL, db = "itis", pref = 'ncbi', verbose = TRUE, .
     stop("db must be one of 'itis', 'ncbi' or 'both'!\n")
   if(db == 'both' & !pref %in% c('ncbi', 'itis'))
     stop("if db=both, pref must be either 'itis' or 'ncbi'!\n")
-  
+
   fun <- function(query, get, db, verbose, ...){
     # ITIS
     if(db == "itis" | db == 'both'){
       tsn <- get_tsn(query, searchtype = "scientific", verbose = verbose, ...)
       if(is.na(tsn)) {
-        if(verbose) 
+        if(verbose)
           message("No TSN found for species '", query, "'!\n")
         out_tsn <- NA
       } else {
@@ -59,12 +59,12 @@ tax_rank <- function(query = NULL, db = "itis", pref = 'ncbi', verbose = TRUE, .
           out_tsn <- NA
       }
     }
-    
+
     # NCBI
     if(db == "ncbi" | db == 'both')	{
       uid <- get_uid(query, verbose = verbose, ...)
       if(is.na(uid)){
-        if(verbose) 
+        if(verbose)
           message("No UID found for species '", query, "'!\n")
         out_uid <- NA
       } else {
@@ -74,7 +74,7 @@ tax_rank <- function(query = NULL, db = "itis", pref = 'ncbi', verbose = TRUE, .
           out_uid <- NA
       }
     }
-    
+
     # combine
     if(db == 'both') {
       out <- ifelse(is.na(out_uid), out_tsn, out_uid)

@@ -41,7 +41,7 @@ tax_rank(query = "Helianthus", db = "itis")
 tax_rank(query=c("Helianthus annuus", 'Puma'), db="both")
 
 # An alternative way would be to use \\link{classification} and sapply over
-the list
+# the list
 x <- 'Baetis'
 classi <- classification(get_uid(x))
 sapply(classi, function(x) x[nrow(x), 'rank'])
