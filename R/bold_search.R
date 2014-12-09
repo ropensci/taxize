@@ -1,6 +1,5 @@
 #' Search Barcode of Life for taxonomic IDs
 #'
-#' @import bold
 #' @export
 #' @param name (character) One or more scientific names.
 #' @param id (integer) One or more BOLD taxonomic identifiers.
