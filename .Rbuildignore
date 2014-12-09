@@ -15,4 +15,3 @@ vignettes/cache/
 ^appveyor\.yml$
 cran-comments.md
 ^\.httr-oauth$
-tests/test-all.R
