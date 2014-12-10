@@ -3,16 +3,19 @@
 %\VignetteIndexEntry{taxize vignette}
 -->
 
+```{r, eval=TRUE, echo=FALSE}
+knitr::opts_chunk$set(
+  comment = "#>",
+  warning = FALSE
+)
+```
+
 taxize vignette - a taxonomic toolbelt for R
 ======
 
 `taxize` is a taxonomic toolbelt for R. `taxize` wraps APIs for a large suite of taxonomic databases availab on the web.
 
-********************
-
-## Quick start
-
-### Installation
+## Installation
 
 First, install and load `taxize` into the R session.
 
@@ -26,13 +29,13 @@ library("taxize")
 
 Advanced users can also download and install the latest development copy from [GitHub](https://github.com/ropensci/taxize_).
 
-### Resolve taxonomic name
+## Resolve taxonomic name
 
 This is a common task in biology. We often have a list of species names and we want to know a) if we have the most up to date names, b) if our names are spelled correctly, and c) the scientific name for a common name. One way to resolve names is via the Global Names Resolver (GNR) service provided by the [Encyclopedia of Life][eol]. Here, we are searching for two misspelled names:
 
 ```{r resolvenames, eval=TRUE, cache=FALSE}
 temp <- gnr_resolve(names = c("Helianthos annus", "Homo saapiens"))
-temp$results[ , -c(1,4)]
+head( temp$results )
 ```
 
 The correct spellings are *Helianthus annuus* and *Homo sapiens*. Another approach uses the [Taxonomic Name Resolution Service via the Taxosaurus API][taxosaurus] developed by iPLant and the Phylotastic organization. In this example, we provide a list of species names, some of which are misspelled, and we'll call the API with the *tnrs* function.
@@ -56,7 +59,7 @@ library("plyr")
 ldply(tsn, itis_acceptname)
 ```
 
-### Retrieve higher taxonomic names
+## Retrieve higher taxonomic names
 
 Another task biologists often face is getting higher taxonomic names for a taxa list. Having the higher taxonomy allows you to put into context the relationships of your species list. For example, you may find out that species A and species B are in Family C, which may lead to some interesting insight, as opposed to not knowing that Species A and B are closely related. This also makes it easy to aggregate/standardize data to a specific taxonomic level (e.g., family level) or to match data to other databases with different taxonomic resolution (e.g., trait databases).
 
@@ -77,7 +80,8 @@ tax_name(query = "Helianthus annuus", get = "family", db = "ncbi")
 
 I may happen that a data source does not provide information on the queried species, than one could take the result from another source and union the results from the different sources.
 
-#### Interactive name selection
+## Interactive name selection
+
 As mentioned most databases use a numeric code to reference a species. A general workflow in taxize is: Retrieve Code for the queried species and then use this code to query more data/information.
 
 Below are a few examples. When you run these examples in R, you are presented with a command prompt asking for the row that contains the name you would like back; that output is not printed below for brevity. In this example, the search term has many matches. The function returns a data frame of the matches, and asks for the user to input what row number to accept.
@@ -93,17 +97,104 @@ splist <- c("annona cherimola", 'annona muricata', "quercus robur")
 get_tsn(searchterm = splist, searchtype = "scientific")
 ```
 
-### What taxa are the children of my taxon of interest?
+There are functions for many other sources
+
+* `get_boldid()`
+* `get_colid()`
+* `get_eolid()`
+* `get_gbifid()`
+* `get_nbnid()`
+* `get_tpsid()`
+* `get_ubioid()`
+
+Sometimes with these functions you get a lot of data back. In these cases you may want to limit your choices. Soon we will incorporate the ability to filter using `regex` to limit matches, but for now, we have a new parameter, `rows`, which lets you select certain rows. For example, you can select the first row of each given name, which means there is no interactive component:
+
+```{r}
+get_nbnid(c("Zootoca vivipara","Pinus contorta"), rows = 1)
+```
+
+Or you can select a range of rows
+
+```{r}
+get_nbnid(c("Zootoca vivipara","Pinus contorta"), rows = 1:3)
+```
+
+In addition, in case you don't want to do interactive name selection in the case where there are a lot of names, you can get all data back with functions of the form, e.g., `get_tsn_()`, and likewise for other data sources. For example:
+
+```{r}
+out <- get_nbnid_("Poa annua")
+NROW(out)
+```
+
+That's a lot of data, so we can get only certain rows back
+
+```{r}
+get_nbnid_("Poa annua", rows = 1:10)
+```
+
+## Coerce numerics/alphanumerics to taxon IDs
+
+We've also introduced in `v0.5` the ability to coerce numerics and alphanumerics to taxonomic ID classes that are usually only retrieved via `get_*()` functions. 
+
+For example, adfafd
+
+```{r}
+as.gbifid(get_gbifid("Poa annua")) # already a uid, returns the same
+as.gbifid(2704179) # numeric
+as.gbifid("2704179") # character
+as.gbifid(list("2704179","2435099","3171445")) # list, either numeric or character
+```
+
+These `as.*()` functions do a quick check of the web resource to make sure it's a real ID. However, you can turn this check off, making this coercion much faster:
+
+```{r}
+system.time( replicate(3, as.gbifid(c("2704179","2435099","3171445"), check=TRUE)) )
+system.time( replicate(3, as.gbifid(c("2704179","2435099","3171445"), check=FALSE)) )
+```
+
+## What taxa are downstream of my taxon of interest?
 
 If someone is not a taxonomic specialist on a particular taxon he likely does not know what children taxa are within a family, or within a genus. This task becomes especially unwieldy when there are a large number of taxa downstream. You can of course go to a website like [Wikispecies][wikispecies] or [Encyclopedia of Life][eol] to get downstream names. However, taxize provides an easy way to programatically search for downstream taxa, both for the [Catalogue of Life (CoL)][col] and the [Integrated Taxonomic Information System][itis]. Here is a short example using the CoL in which we want to find all the species within the genus *Apis* (honey bees).
 
-```{r downstream, eval=TRUE, cache=FALSE}
-col_downstream(name = "Apis", downto = "Species")
+```{r downstream1, eval=TRUE, cache=FALSE}
+downstream("Apis", downto = "Species", db = "col")
 ```
 
-The result from the above call to `col_downstream()` is a data.frame that gives a number of columns of different information.
+We can also request data from ITIS
 
-### Matching species tables with different taxonomic resolution
+```{r downstream2, eval=TRUE, cache=FALSE}
+downstream("Apis", downto = "Species", db = "itis")
+```
+
+## Direct children
+
+You may sometimes only want the direct children. We got you covered on that front, with methods for ITIS, NCBI, and Catalogue of Life. For example, let's get direct children (species in this case) of the bee genus _Apis_ using COL data:
+
+```{r}
+children(get_colid("Apis"))
+```
+
+The direct children (genera in this case) of _Pinaceae_ using NCBI data:
+
+```{r}
+children("Pinaceae", db = "ncbi")
+```
+
+## Get NCBI ID from GenBank Ids
+
+With accession numbers
+
+```{r}
+genbank2uid(id = 'AJ748748')
+```
+
+With gi numbers
+
+```{r}
+genbank2uid(id = 62689767)
+```
+
+## Matching species tables with different taxonomic resolution
 
 Biologist often need to match different sets of data tied to species. For example, trait-based approaches are a promising tool in ecology. One problem is that abundance data must be matched with trait databases. These two data tables may contain species information on different taxonomic levels and possibly data must be aggregated to a joint taxonomic level, so that the data can be merged. taxize can help in this data-cleaning step, providing a reproducible workflow:
 
@@ -120,7 +211,6 @@ A_clas <- classification(A, db = 'ncbi')
 B1_clas <- classification(B1, db = 'ncbi')
 B2_clas <- classification(B2, db = 'ncbi')
 B3_clas <- classification(B3, db = 'ncbi')
-
 
 B1[match(A, B1)]
 A_clas[[1]]$rank[tolower(A_clas[[1]]$name) %in% B2]
