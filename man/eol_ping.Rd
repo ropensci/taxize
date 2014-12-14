@@ -4,7 +4,10 @@
 \alias{eol_ping}
 \title{Ping EOL API to see if it's working.}
 \usage{
-eol_ping()
+eol_ping(...)
+}
+\arguments{
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
 XML object message about API status.
