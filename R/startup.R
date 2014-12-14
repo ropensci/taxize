@@ -1,3 +1,3 @@
-.onAttach <- function(...) {
-  packageStartupMessage("\n\nNew to taxize? Tutorial at http://ropensci.org/tutorials/taxize_tutorial.html \ncitation(package='taxize') for the citation for this package \nAPI key names have changed. Use tropicosApiKey, eolApiKey, ubioApiKey, and pmApiKey in your .Rprofile file. \nUse suppressPackageStartupMessages() to suppress these startup messages in the future\n")
-} 
+# .onAttach <- function(...) {
+#   packageStartupMessage("\n\nNew to taxize? Tutorial at http://ropensci.org/tutorials/taxize_tutorial.html \ncitation(package='taxize') for the citation for this package \nAPI key names have changed. Use tropicosApiKey, eolApiKey, ubioApiKey, and pmApiKey in your .Rprofile file. \nUse suppressPackageStartupMessages() to suppress these startup messages in the future\n")
+# }
