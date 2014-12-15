@@ -34,6 +34,10 @@
 #' ipni_ping()
 #' ipni_ping(200)
 #' ipni_ping("content")
+#'
+#' vascan_ping()
+#' vascan_ping(200)
+#' vascan_ping("content")
 #' }
 
 #' @export
@@ -132,7 +136,7 @@ bold_ping <- function(what = "status", ...) {
 #' @export
 #' @rdname ping
 ipni_ping <- function(what = "status", ...) {
-  res <- GET("http://www.ipni.org/ipni/advPlantNameSearch.do?find_genus=Brintonia&output_format=delimited-minimal")
+  res <- GET("http://www.ipni.org/ipni/advPlantNameSearch.do?find_genus=Brintonia&output_format=delimited-minimal", ...)
   switch(matchwhat(what),
          status = match_status(res),
          code = match_code(res, what),
@@ -141,6 +145,17 @@ ipni_ping <- function(what = "status", ...) {
            dat <- read.delim(text=txt, sep="%", stringsAsFactors=FALSE)
            grepl("Asteraceae", dat$Family[1], ignore.case = TRUE)
         })
+}
+
+#' @export
+#' @rdname ping
+vascan_ping <- function(what = "status", ...) {
+  res <- GET("http://data.canadensys.net/vascan/api/0.1/search.json?q=Crataegus")
+  switch(matchwhat(what),
+         status = match_status(res),
+         code = match_code(res, what),
+         content = grepl("Crataegus", content(res)$results[[1]]$searchedTerm, ignore.case = TRUE)
+  )
 }
 
 

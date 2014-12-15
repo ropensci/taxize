@@ -12,6 +12,7 @@
 \alias{ping}
 \alias{tropicos_ping}
 \alias{ubio_ping}
+\alias{vascan_ping}
 \title{Ping an API used in taxize to see if it's working.}
 \usage{
 col_ping(what = "status", ...)
@@ -33,6 +34,8 @@ ubio_ping(what = "status", ...)
 bold_ping(what = "status", ...)
 
 ipni_ping(what = "status", ...)
+
+vascan_ping(what = "status", ...)
 }
 \arguments{
 \item{what}{(character) One of status (default), content, or an HTTP status code. If status,
@@ -78,6 +81,10 @@ bold_ping("content")
 ipni_ping()
 ipni_ping(200)
 ipni_ping("content")
+
+vascan_ping()
+vascan_ping(200)
+vascan_ping("content")
 }
 }
 
