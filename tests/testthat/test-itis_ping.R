@@ -4,9 +4,10 @@ context("itis_ping")
 one <- itis_ping()
 
 test_that("itis_ping returns the correct class", {
-  expect_that(one, is_a("character"))
+  expect_is(one, "logical")
 })
 
-test_that("itis_ping returns correct error when given nonsense", {
-  expect_error(itis_ping("stuff"))
+test_that("itis_ping returns correct things", {
+  expect_false(itis_ping(503))
+  expect_true(itis_ping(200))
 })

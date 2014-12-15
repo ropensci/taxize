@@ -2,9 +2,7 @@
 context("eol_ping")
 
 test_that("eol_ping returns the correct value", {
-	expect_that(eol_ping(), matches("Success"))
-})
-
-test_that("eol_ping returns the correct class", {
-	expect_that(eol_ping(), is_a("character"))
+	expect_true(eol_ping())
+	expect_false(eol_ping(503))
+	expect_true(eol_ping("content"))
 })
