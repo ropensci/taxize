@@ -5,6 +5,7 @@
 \alias{col_ping}
 \alias{eol_ping}
 \alias{gbif_ping}
+\alias{ipni_ping}
 \alias{itis_ping}
 \alias{nbn_ping}
 \alias{ncbi_ping}
@@ -30,6 +31,8 @@ gbif_ping(what = "status", ...)
 ubio_ping(what = "status", ...)
 
 bold_ping(what = "status", ...)
+
+ipni_ping(what = "status", ...)
 }
 \arguments{
 \item{what}{(character) One of status (default), content, or an HTTP status code. If status,
@@ -71,6 +74,10 @@ ubio_ping()
 bold_ping()
 bold_ping(200)
 bold_ping("content")
+
+ipni_ping()
+ipni_ping(200)
+ipni_ping("content")
 }
 }
 

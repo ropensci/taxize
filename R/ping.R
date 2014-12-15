@@ -30,6 +30,10 @@
 #' bold_ping()
 #' bold_ping(200)
 #' bold_ping("content")
+#'
+#' ipni_ping()
+#' ipni_ping(200)
+#' ipni_ping("content")
 #' }
 
 #' @export
@@ -124,6 +128,21 @@ bold_ping <- function(what = "status", ...) {
          code = match_code(res, what),
          content = grepl("88899", jsonlite::fromJSON(content(res, "text"))[[1]]$taxid, ignore.case = TRUE))
 }
+
+#' @export
+#' @rdname ping
+ipni_ping <- function(what = "status", ...) {
+  res <- GET("http://www.ipni.org/ipni/advPlantNameSearch.do?find_genus=Brintonia&output_format=delimited-minimal")
+  switch(matchwhat(what),
+         status = match_status(res),
+         code = match_code(res, what),
+         content = {
+           txt <- content(res, "text")
+           dat <- read.delim(text=txt, sep="%", stringsAsFactors=FALSE)
+           grepl("Asteraceae", dat$Family[1], ignore.case = TRUE)
+        })
+}
+
 
 matchwhat <- function(x){
   x <- as.character(x)
