@@ -1,9 +1,24 @@
 # tests for classification fxn in taxize
 context("classification")
 
-# skip_if <- function(x){
+# is_up <- function(seconds=3, which="itis"){
+#   itisfxn <- function(x) tryCatch(itis_ping(config=timeout(x)), error=function(e) e)
+#   eolfxn <- function(x) tryCatch(eol_ping(config=timeout(x)), error=function(e) e)
+#   switch(which,
+#          itis = !is(itisfxn(seconds), "OPERATION_TIMEDOUT"),
+#          eol = !is(eolfxn(seconds), "OPERATION_TIMEDOUT")
+#   )
+# }
 #
+# is_up()
+# is_up(which = "eol")
+# is_up(which = "col")
+# is_up(which = "ncbi")
+#
+# skip_if <- function(x){
 #   if(!res) skip("API down")
+#
+#   expect_is(classification(c("Chironomus riparius", "aaa vva"), db = 'itis', verbose=FALSE), "classification")
 # }
 
 uids <- get_uid(c("Chironomus riparius", "aaa vva"), verbose=FALSE)
@@ -23,8 +38,7 @@ clas_ncbi <- classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi',
                             verbose=FALSE)
 names(clas_ncbi) <- NULL
 
-clas_itis <- classification(c("Chironomus riparius", "aaa vva"), db = 'itis',
-                            verbose=FALSE)
+clas_itis <- classification(c("Chironomus riparius", "aaa vva"), db = 'itis', verbose=FALSE)
 names(clas_itis) <- NULL
 
 # clas_eol <- classification(c("Helianthus petiolaris Nutt.", "aaa vva"), db = 'eol')

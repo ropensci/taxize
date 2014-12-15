@@ -4,20 +4,21 @@
 \alias{itis_ping}
 \title{Ping the ITIS API to see if it's working.}
 \usage{
-itis_ping(...)
+itis_ping(what = "status", ...)
 }
 \arguments{
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \description{
-And provides number of scientific and common names in a string.
+Ping the ITIS API to see if it's working.
+}
+\details{
+See \code{\link{getdescription()}}, which provides number of scientific and
+common names in a character string.
 }
 \examples{
 \dontrun{
 itis_ping()
 }
-}
-\seealso{
-\code{\link{eol_ping}}
 }
 

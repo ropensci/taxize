@@ -10,5 +10,5 @@
 #' }
 eol_ping <- function(...) {
   res <- GET('http://eol.org/api/ping', ...)
-  xmlToList(content(res))$message
+  grepl("success", xmlToList(content(res))$message, ignore.case = TRUE)
 }
