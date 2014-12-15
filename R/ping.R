@@ -8,7 +8,7 @@
 #' See \code{\link{http_codes}}.
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @return A logical, TRUE or FALSE
-#' @details For ITIS, see \code{\link{getdescription()}}, which provides number of
+#' @details For ITIS, see \code{\link{getdescription}}, which provides number of
 #' scientific and common names in a character string.
 #' @examples \dontrun{
 #' col_ping()
@@ -26,6 +26,10 @@
 #' gbif_ping()
 #' gbif_ping(200)
 #' ubio_ping()
+#'
+#' bold_ping()
+#' bold_ping(200)
+#' bold_ping("content")
 #' }
 
 #' @export
@@ -109,6 +113,16 @@ ubio_ping <- function(what = "status", ...) {
          status = match_status(res),
          code = match_code(res, what),
          content = grepl("2483153", xpathApply(content(res), "//namebankID", xmlValue)[[1]], ignore.case = TRUE))
+}
+
+#' @export
+#' @rdname ping
+bold_ping <- function(what = "status", ...) {
+  res <- GET("http://www.boldsystems.org/index.php/API_Tax/TaxonData?taxId=88899&dataTypes=basic&includeTree=FALSE", ...)
+  switch(matchwhat(what),
+         status = match_status(res),
+         code = match_code(res, what),
+         content = grepl("88899", jsonlite::fromJSON(content(res, "text"))[[1]]$taxid, ignore.case = TRUE))
 }
 
 matchwhat <- function(x){
