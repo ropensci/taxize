@@ -9,7 +9,7 @@ taxize
 
 `taxize` allows users to search over many taxonomic data sources for species names (scientific and common) and download up and downstream taxonomic hierarchical information - among other things.
 
-The `taxize` tutorial is can be found at [http://ropensci.org/tutorials/taxize_tutorial.html](http://ropensci.org/tutorials/taxize_tutorial.html)
+The `taxize` tutorial is can be found at [http://ropensci.org/tutorials/taxize.html][tut].
 
 The functions in the package that hit a specific API have a prefix and suffix separated by an underscore. They follow the format of `service_whatitdoes`.  For example, `gnr_resolve` uses the Global Names Resolver API to resolve species names.  General functions in the package that don't hit a specific API don't have two words separated by an underscore, e.g., `classification`.
 
@@ -163,7 +163,7 @@ Note that a few data sources require SOAP web services, which are difficult to s
 
 ## Quickstart
 
-For more examples see the [tutorial](http://ropensci.org/tutorials/taxize_tutorial.html)
+For more examples see the [tutorial][tut]
 
 ### Installation
 
@@ -518,3 +518,5 @@ out <- as.uid(c(315567,3339,9696))
 * Get citation information for `taxize` in R doing `citation(package = 'taxize')`
 
 [![ropensci](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
+
+[tut]: http://ropensci.org/tutorials/taxize.html
