@@ -42,7 +42,7 @@ vascan_ping(what = "status", ...)
 we just check that the HTTP status code is 200, or similar signifying the service is up.
 If content, we do a simple, quick check to determine if returned content matches what's
 expected. If an HTTP status code, it must match an appropriate code.
-See \code{\link{http_codes}}.}
+See \code{\link{status_codes}}.}
 
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
