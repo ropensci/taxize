@@ -1,5 +1,5 @@
 Package: taxize
-Title: Taxonomic Information from Around the Web.
+Title: Taxonomic Information from Around the Web
 Description: Taxonomic information from around the web. This package
     interacts with a suite of web APIs for taxonomic tasks, such
     as verifying species names, getting taxonomic hierarchies,
