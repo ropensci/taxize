@@ -28,10 +28,16 @@
 #' }
 genbank2uid <- function(id, ...){
   process_one <- function(id, ...) {
+    input <- id
     if(is_acc(id)) id <- acc_GET(id, ...)
     url2 <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=nuccore&db=taxonomy&id="
     result <- xpathSApply(content(GET(paste0(url2, id), ...)), "//LinkSetDb//Link//Id", xmlValue)
     if (length(result) == 0) result <- as.character(NA)
+    if (length(result) > 1) {
+      warning(paste0("More than one (", length(result), ") possible taxon ID for sequence `", input,
+                     "`. Returning `", result[1], "`"))
+      result <- result[1]
+    }
     Sys.sleep(0.34) # NCBI limits requests to three per second
     return(result)
   }
