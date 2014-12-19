@@ -18,13 +18,11 @@ A APGII family or order name, or the original name if no match.
 Lookup in the APGII taxonomy and replace family names.
 }
 \examples{
-\dontrun{
 # New name found in the APGII taxonomy
 apg_lookup(taxa = "Hyacinthaceae", rank = "family")
 apg_lookup(taxa = "Poaceae", rank = "family")
 
 # Name not found in the APGII taxonomy
 apg_lookup(taxa = "Asteraceae", rank = "family")
-}
 }
 
