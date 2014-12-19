@@ -1,3 +1,20 @@
+taxize 0.5.2
+===============
+
+NEW FEATURES
+
+* New set of functions to ping each of the APIs used in `taxize`. E.g., `itis_ping()` pings ITIS and returns a logical, indicating if the ITIS API is working or not. You can also do a very basic test to see whether content returned matches what's expected. (#394)
+* New function `status_codes()` to get vector of HTTP status codes. (#394)
+
+MINOR IMPROVEMENTS
+
+* Removed startup message.
+* Now can pass in curl options to `itis_ping()`, and all `*_ping()` functions.
+
+BUG FIXES
+
+* Fixed examples that were in `donttest` to make sure they work.
+
 taxize 0.5.0
 ===============
 
