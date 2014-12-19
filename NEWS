@@ -13,7 +13,7 @@ MINOR IMPROVEMENTS
 
 BUG FIXES
 
-* Fixed examples that were in `donttest` to make sure they work.
+* Moved examples that were in `\donttest` into `\dontrun`.
 
 taxize 0.5.0
 ===============
