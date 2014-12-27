@@ -38,7 +38,7 @@ tpl_get(dir_ = "~/foo2", family = c("Pinaceae","Taxaceae"))
 tpl_get2(dir_ = "~/foo4", family = "Echinodiaceae")
 
 # Get all families
-tpl_get(dir_ = "~/foo")
+tpl_get("~/foo")
 }
 }
 \author{

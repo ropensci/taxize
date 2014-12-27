@@ -28,7 +28,7 @@
 #' tpl_get2(dir_ = "~/foo4", family = "Echinodiaceae")
 #'
 #' # Get all families
-#' tpl_get(dir_ = "~/foo")
+#' tpl_get("~/foo")
 #' }
 
 tpl_get <- function(dir_, family = NULL)
@@ -39,12 +39,12 @@ tpl_get <- function(dir_, family = NULL)
   csvlinks <- sprintf('http://www.theplantlist.org%s%s.csv',
                       xpathSApply(temp, "//ul[@id='nametree']//a", xmlGetAttr, 'href'),
                       families)
-  if (all(!family %in% families)) {
+  if (!is.null(family) && all(!family %in% families)) {
     stop(paste('Requested families not found on TPL.',
                'Use tpl_families() to list plant families indexed by TPL.'),
          call.=FALSE)
   }
-  if (any(!family %in% families)) {
+  if (!is.null(family) && any(!family %in% families)) {
     warning(sprintf('Requested families not found on TPL: %s.\n%s',
                     paste(family[!family %in% families], collapse=', '),
                     'Use tpl_families() to list plant families indexed by TPL.'),
