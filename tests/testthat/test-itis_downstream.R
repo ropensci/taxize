@@ -6,8 +6,8 @@ dat_ <- itis_downstream(tsns=183264, "Species", verbose=FALSE)
 dat2 <- itis_downstream(tsns=846509, downto="Genus", verbose=FALSE)
 
 test_that("itis_downstream returns the correct value", {
-	expect_that(as.character(dat_[1,2]), matches("Ginkgo"))
-	expect_that(as.character(dat2[1,2]), matches("Bangiaceae"))
+	expect_that(as.character(dat_[1,"rankname"]), matches("Species"))
+	expect_that(as.character(dat2[1,"rankname"]), matches("Genus"))
 })
 
 test_that("itis_downstream returns the correct class", {
