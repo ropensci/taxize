@@ -75,13 +75,34 @@
 #' }
 
 get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA){
+  repeat_until_it_works <- function(func, catch, max_tries = 3, wait_time = 10, verbose = TRUE, ...) {
+    error_handler <- function(e) {
+      if (e$message %in% catch) {
+        if (verbose) warning(paste("Caught error:", e$message))
+        return(NA)
+      } else {
+        stop(e$message)
+      }
+    }
+    for (count in 1:max_tries) {
+      output <- tryCatch({func(...)}, error = error_handler)
+      if (!is.na(output)) return(output)
+      Sys.sleep(wait_time * count)
+    }
+    return(output)
+  }
+
   fun <- function(sciname, ask, verbose, rows) {
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
     sciname <- gsub(" ", "+", sciname)
     searchurl <- paste("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=",
                        sciname, sep = "")
     # NCBI limits requests to three per second
-    xml_result <- xmlParse(getURL(searchurl))
+    #     xml_result <- xmlParse(getURL(url = searchurl))
+    errors_to_catch <- c("Could not resolve host: eutils.ncbi.nlm.nih.gov")
+    xml_result <- xmlParse(repeat_until_it_works(getURL,
+                                                 catch = errors_to_catch,
+                                                 url = searchurl))
     Sys.sleep(0.33)
     uid <- xpathSApply(xml_result, "//IdList/Id", xmlValue)
     if (length(uid) == 0) { # if taxon name is not found
@@ -102,7 +123,11 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA){
         baseurl <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy"
         ID <- paste("ID=", paste(uid, collapse= ","), sep = "")
         searchurl <- paste(baseurl, ID, sep = "&")
-        tt <- getURL(searchurl)
+        #         tt <- getURL(searchurl)
+        errors_to_catch <- c("Could not resolve host: eutils.ncbi.nlm.nih.gov")
+        tt <- repeat_until_it_works(getURL,
+                                    catch = errors_to_catch,
+                                    url = searchurl)
         ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)
         df <- ldply(xmlToList(ttp), data.frame)
         df <- df[df$Item..attrs != 'String', c(2,5,7)]
