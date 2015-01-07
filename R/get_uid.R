@@ -84,7 +84,11 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA){
     xml_result <- xmlParse(getURL(searchurl))
     Sys.sleep(0.33)
     uid <- xpathSApply(xml_result, "//IdList/Id", xmlValue)
-    uid <- sub_vector(uid, rows)
+    if (length(uid) == 0) { # if taxon name is not found
+      uid <- NA
+    } else {
+      uid <- sub_vector(uid, rows)
+    }
     att <- 'found'
     # not found on ncbi
     if (length(uid) == 0){
