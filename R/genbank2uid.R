@@ -27,21 +27,22 @@
 #' genbank2uid(id = 156446673, config=verbose())
 #' }
 genbank2uid <- function(id, ...){
-  process_one <- function(id, ...) {
-    input <- id
-    if(is_acc(id)) id <- acc_GET(id, ...)
-    url2 <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=nuccore&db=taxonomy&id="
-    result <- xpathSApply(content(GET(paste0(url2, id), ...)), "//LinkSetDb//Link//Id", xmlValue)
-    if (length(result) == 0) result <- as.character(NA)
-    if (length(result) > 1) {
-      warning(paste0("More than one (", length(result), ") possible taxon ID for sequence `", input,
-                     "`. Returning `", result[1], "`"))
-      result <- result[1]
+  max_batch_size <- 100
+  process_batch <- function(id, ...) {
+    id <- gsub(pattern = "\\.[0-9]+$", "", id) #removes version number of accession ids
+    url2 <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=nucleotide&db=taxonomy&id="
+    query <- paste0(url2, paste(id, collapse = "&id="))
+    result <- xpathSApply(content(GET(query, ...)), "//LinkSetDb//Link[position()=1]//Id", xmlValue)
+    if (length(result) != length(id)) {
+      result <- rep(as.character(NA), length(id))
+      warning("An error occured looking up taxon ID(s).")
     }
     Sys.sleep(0.34) # NCBI limits requests to three per second
     return(result)
   }
-  result <- as.uid(unname(vapply(id, process_one, character(1), ...)))
+  batches <- split(id, ceiling(seq_along(id) / max_batch_size))
+  result <- lapply(batches, function(x) map_unique(x, process_batch, ...))
+  result <- as.uid(unname(unlist(result)))
   matched <- rep("found", length(result))
   matched[is.na(result)] <- "not found"
   attr(result, "match") <- matched
@@ -50,7 +51,7 @@ genbank2uid <- function(id, ...){
 
 acc_GET <- function(id, ...){
   url <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
-  bb <- GET(url, query=list(db='nuccore', retmode="text", rettype="fasta", id=id), ...)
+  bb <- GET(url, query=list(db='nuccore', retmode="text", rettype="fasta", id=paste(id, collapse = ",")), ...)
   res <- content(bb, "text")
   str_extract(res, "[0-9]+")
 }
@@ -59,3 +60,21 @@ is_acc <- function(x){
   gg <- suppressWarnings(as.numeric(x))
   is.na(gg)
 }
+
+#===================================================================================================
+#' get indexes of a unique set of the input
+unique_mapping <- function(input) {
+  unique_input <- unique(input)
+  vapply(input, function(x) which(x == unique_input), numeric(1))
+}
+
+
+#===================================================================================================
+#' run a function on unique values of a iterable
+map_unique <- function(input, func, ...) {
+  input_class <- class(input)
+  unique_input = unique(input)
+  class(unique_input) <- input_class
+  func(unique_input, ...)[unique_mapping(input)]
+}
+
