@@ -10,9 +10,9 @@ test_that("vascan_search returns the correct class", {
   expect_is(aa, "list")
   expect_is(bb, "character")
   expect_is(cc, "list")
+  expect_is(aa[[1]]$matches[[1]]$taxonomicassertions, "data.frame")
 })
 
-test_that("vascan_search returns the correct value", {
-  expect_equal(aa[[1]]$searchedterm, "Helianthus annuus")
-  expect_equal(cc[[1]]$nummatches, 0)
+test_that("vascan_search returns the correct dimensions", {
+  expect_equal(NCOL(aa[[1]]$matches[[1]]$taxonomicassertions), 7)
 })
