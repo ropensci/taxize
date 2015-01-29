@@ -11,7 +11,7 @@
 downstream(...)
 
 \method{downstream}{default}(x, db = NULL, downto = NULL,
-  intermediate = FALSE, ...)
+  intermediate = FALSE, rows = NA, ...)
 
 \method{downstream}{tsn}(x, db = NULL, downto = NULL,
   intermediate = FALSE, ...)
@@ -39,6 +39,10 @@ downstream(...)
 \item{intermediate}{(logical) If TRUE, return a list of length two with target
 taxon rank names, with additional list of data.frame's of intermediate
 taxonomic groups. Default: FALSE}
+
+\item{rows}{(numeric) Any number from 1 to inifity. If the default NA, all rows are
+considered. Note that this parameter is ignored if you pass in a taxonomic id of any of the
+acceptable classes: tsn, colid.}
 }
 \value{
 A named list of data.frames with the downstream names of every supplied taxa.
@@ -92,6 +96,11 @@ downstream(get_tsn('Bangiophyceae'), downto="Genus", intermediate=TRUE)
 ## col
 downstream(get_colid("Animalia"), downto="Class")
 downstream(get_colid("Animalia"), downto="Class", intermediate=TRUE)
+
+# Use the rows parameter
+## note how in the second function call you don't get the prompt
+downstream("Poa", db = 'col', downto="Species")
+downstream("Poa", db = 'col', downto="Species", rows=1)
 }
 }
 
