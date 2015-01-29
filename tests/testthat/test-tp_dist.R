@@ -7,5 +7,5 @@ test_that("tp_dist returns the correct class", {
 	expect_that(tt, is_a("list"))
 	expect_that(tt[['location']], is_a("data.frame"))
 	expect_that(tt[['reference']], is_a("data.frame"))
-	expect_that(names(tt[['reference']]), equals(c("referenceid","articletitle","collation","abbreviatedtitle","titlepageyear","fullcitation","yearpublished")))
+	expect_true(any(grepl("abbreviatedtitle", names(tt[['reference']]))))
 })
