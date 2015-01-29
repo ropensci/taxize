@@ -25,6 +25,9 @@
 #' @param key Your API key; loads from .Rprofile.
 #' @param return_id (logical) If TRUE (default), return the taxon id as well as the name
 #' and rank of taxa in the lineage returned.
+#' @param rows (numeric) Any number from 1 to inifity. If the default NA, all rows are
+#' considered. Note that this parameter is ignored if you pass in a taxonomic id instead
+#' of a name of class character.
 #'
 #' @return A named list of data.frames with the taxonomic classifcation of
 #'    every supplied taxa.
@@ -113,6 +116,12 @@
 #' ## the return_id parameter is logical, and you can turn it on or off. It's TRUE by default
 #' classification(c("Alopias vulpinus","Pinus sylvestris"), db = 'ncbi', return_id = TRUE)
 #' classification(c("Alopias vulpinus","Pinus sylvestris"), db = 'ncbi', return_id = FALSE)
+#'
+#' # Use rows parameter to select certain
+#' classification('Poa annua', db = 'tropicos')
+#' classification('Poa annua', db = 'tropicos', rows=1:4)
+#' classification('Poa annua', db = 'tropicos', rows=1)
+#' classification('Poa annua', db = 'tropicos', rows=6)
 #' }
 #'
 #' @examples \dontrun{
@@ -125,35 +134,35 @@ classification <- function(...){
 
 #' @export
 #' @rdname classification
-classification.default <- function(x, db = NULL, callopts=list(), return_id = TRUE, ...){
+classification.default <- function(x, db = NULL, callopts=list(), return_id = TRUE, rows = NA, ...){
   nstop(db)
   switch(db,
          itis = {
-           id <- process_ids(x, get_tsn, ...)
+           id <- process_ids(x, get_tsn, rows = rows, ...)
            setNames(classification(id, callopts=callopts, return_id=return_id, ...), x)
          },
          ncbi = {
-           id <- process_ids(x, get_uid, ...)
+           id <- process_ids(x, get_uid, rows = rows, ...)
            setNames(classification(id, return_id=return_id, ...), x)
          },
          eol = {
-           id <- process_ids(x, get_eolid, ...)
+           id <- process_ids(x, get_eolid, rows = rows, ...)
            setNames(classification(id, callopts=callopts, return_id=return_id, ...), x)
          },
          col = {
-           id <- process_ids(x, get_colid, ...)
+           id <- process_ids(x, get_colid, rows = rows, ...)
            setNames(classification(id, return_id=return_id, ...), x)
          },
          tropicos = {
-           id <- process_ids(x, get_tpsid, ...)
+           id <- process_ids(x, get_tpsid, rows = rows, ...)
            setNames(classification(id, callopts=callopts, return_id=return_id, ...), x)
          },
          gbif = {
-           id <- process_ids(x, get_gbifid, ...)
+           id <- process_ids(x, get_gbifid, rows = rows, ...)
            setNames(classification(id, callopts=callopts, return_id=return_id, ...), x)
          },
          nbn = {
-           id <- process_ids(x, get_nbnid, ...)
+           id <- process_ids(x, get_nbnid, rows = rows, ...)
            setNames(classification(id, callopts=callopts, return_id=return_id, ...), x)
          },
          stop("the provided db value was not recognised", call.=FALSE)

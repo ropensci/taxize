@@ -20,7 +20,7 @@
 classification(...)
 
 \method{classification}{default}(x, db = NULL, callopts = list(),
-  return_id = TRUE, ...)
+  return_id = TRUE, rows = NA, ...)
 
 \method{classification}{tsn}(id, callopts = list(), return_id = TRUE, ...)
 
@@ -65,6 +65,10 @@ rbind.classification_ids(...)
 
 \item{return_id}{(logical) If TRUE (default), return the taxon id as well as the name
 and rank of taxa in the lineage returned.}
+
+\item{rows}{(numeric) Any number from 1 to inifity. If the default NA, all rows are
+considered. Note that this parameter is ignored if you pass in a taxonomic id instead
+of a name of class character.}
 
 \item{id}{character; identifiers, returned by \code{\link[taxize]{get_tsn}},
 \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}},
@@ -172,6 +176,12 @@ cbind(res)
 ## the return_id parameter is logical, and you can turn it on or off. It's TRUE by default
 classification(c("Alopias vulpinus","Pinus sylvestris"), db = 'ncbi', return_id = TRUE)
 classification(c("Alopias vulpinus","Pinus sylvestris"), db = 'ncbi', return_id = FALSE)
+
+# Use rows parameter to select certain
+classification('Poa annua', db = 'tropicos')
+classification('Poa annua', db = 'tropicos', rows=1:4)
+classification('Poa annua', db = 'tropicos', rows=1)
+classification('Poa annua', db = 'tropicos', rows=6)
 }
 }
 \seealso{
