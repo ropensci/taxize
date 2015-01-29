@@ -11,7 +11,7 @@
 \usage{
 children(...)
 
-\method{children}{default}(x, db = NULL, ...)
+\method{children}{default}(x, db = NULL, rows = NA, ...)
 
 \method{children}{tsn}(x, db = NULL, ...)
 
@@ -23,12 +23,16 @@ children(...)
 }
 \arguments{
 \item{...}{Further args passed on to \code{\link{col_children}},
-  \code{\link{gethierarchydownfromtsn}}, or \code{\link{ncbi_children}}.
-  See those functions for what parameters can be passed on.}
+\code{\link{gethierarchydownfromtsn}}, or \code{\link{ncbi_children}}.
+See those functions for what parameters can be passed on.}
 
 \item{x}{character; taxons to query.}
 
 \item{db}{character; database to query. One or more of \code{itis}, \code{col}, or \code{ncbi}.}
+
+\item{rows}{(numeric) Any number from 1 to inifity. If the default NA, all rows are
+considered. Note that this parameter is ignored if you pass in a taxonomic id of any of the
+acceptable classes: tsn, colid. NCBI has a method for this function but rows doesn't work.}
 }
 \value{
 A named list of data.frames with the children names of every supplied taxa.
@@ -67,6 +71,10 @@ children(sp, db = 'itis')
 children(ids)
 ## same result
 children(get_ids("Apis", db = c('col','itis')))
+
+# Use the rows parameter
+children("Poa", db = 'col')
+children("Poa", db = 'col', rows=1)
 }
 }
 

@@ -8,9 +8,12 @@
 #'
 #' @param x character; taxons to query.
 #' @param db character; database to query. One or more of \code{itis}, \code{col}, or \code{ncbi}.
+#' @param rows (numeric) Any number from 1 to inifity. If the default NA, all rows are
+#' considered. Note that this parameter is ignored if you pass in a taxonomic id of any of the
+#' acceptable classes: tsn, colid. NCBI has a method for this function but rows doesn't work.
 #' @param ... Further args passed on to \code{\link{col_children}},
-#'   \code{\link{gethierarchydownfromtsn}}, or \code{\link{ncbi_children}}.
-#'   See those functions for what parameters can be passed on.
+#' \code{\link{gethierarchydownfromtsn}}, or \code{\link{ncbi_children}}.
+#' See those functions for what parameters can be passed on.
 #'
 #' @return A named list of data.frames with the children names of every supplied taxa.
 #' You get an NA if there was no match in the database.
@@ -42,6 +45,10 @@
 #' children(ids)
 #' ## same result
 #' children(get_ids("Apis", db = c('col','itis')))
+#'
+#' # Use the rows parameter
+#' children("Poa", db = 'col')
+#' children("Poa", db = 'col', rows=1)
 #' }
 
 children <- function(...){
@@ -51,17 +58,17 @@ children <- function(...){
 #' @method children default
 #' @export
 #' @rdname children
-children.default <- function(x, db = NULL, ...)
+children.default <- function(x, db = NULL, rows = NA, ...)
 {
   nstop(db)
   switch(db,
          itis = {
-           id <- get_tsn(x, ...)
+           id <- get_tsn(x, rows = rows, ...)
            setNames(children(id, ...), x)
          },
 
          col = {
-           id <- get_colid(x, ...)
+           id <- get_colid(x, rows = rows, ...)
            setNames(children(id, ...), x)
          },
 
