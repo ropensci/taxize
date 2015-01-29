@@ -82,12 +82,11 @@ get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
     tmp <- tp_search(name = sciname, key=key, ...)
     tmp <- sub_rows(tmp, rows)
 
-    if(names(tmp)[[1]] == 'error'){
+    if(names(tmp)[[1]] == 'error' || is.na(tmp)){
       mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
       id <- NA
       att <- 'not found'
-    } else
-    {
+    } else {
       df <- tmp[,c('nameid','scientificname','rankabbreviation','nomenclaturestatusname')]
       names(df) <- c('tpsid','name','rank','status')
       id <- df$tpsid

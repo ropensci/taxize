@@ -62,7 +62,7 @@ is_acc <- function(x){
 }
 
 #===================================================================================================
-#' get indexes of a unique set of the input
+# get indexes of a unique set of the input
 unique_mapping <- function(input) {
   unique_input <- unique(input)
   vapply(input, function(x) which(x == unique_input), numeric(1))
@@ -70,7 +70,7 @@ unique_mapping <- function(input) {
 
 
 #===================================================================================================
-#' run a function on unique values of a iterable
+# run a function on unique values of a iterable
 map_unique <- function(input, func, ...) {
   input_class <- class(input)
   unique_input = unique(input)

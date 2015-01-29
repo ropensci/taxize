@@ -29,8 +29,12 @@ tp_search <- function(name=NULL, commonname=NULL, nameid=NULL, orderby=NULL,
                        pagesize=pagesize, startrow=startrow, type=type, apikey=key))
   tt <- GET(url, query=args, callopts)
   warn_for_status(tt)
-  out <- content(tt)
-  tmp <- do.call(rbind.fill, lapply(out, data.frame, stringsAsFactors = FALSE))
-  names(tmp) <- tolower(names(tmp))
-  tmp
+  if(tt$status_code > 202){
+    NA
+  } else {
+    out <- content(tt)
+    tmp <- do.call(rbind.fill, lapply(out, data.frame, stringsAsFactors = FALSE))
+    names(tmp) <- tolower(names(tmp))
+    tmp
+  }
 }
