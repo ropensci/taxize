@@ -6,7 +6,11 @@
 #' @param id character; identifiers, returned by \code{\link[taxize]{get_tsn}},
 #'    \code{\link[taxize]{get_tpsid}}, \code{\link[taxize]{get_ubioid}}, or
 #'    \code{\link[taxize]{get_nbnid}}
-#' @param ... Other passed arguments.
+#' @param rows (numeric) Any number from 1 to inifity. If the default NA, all rows are
+#' considered. Note that this parameter is ignored if you pass in a taxonomic id of any of the
+#' acceptable classes: tsn, tpsid, ubioid, nbnid, ids.
+#' @param ... Other passed arguments to internal functions \code{get_*()} and functions to
+#' gather synonyms.
 #'
 #' @return A named list of data.frames with the synonyms of every supplied taxa.
 #' @note If IDs are supplied directly (not from the \code{get_*} functions) you
@@ -36,6 +40,11 @@
 #' # Pass many ids from class "ids"
 #' out <- get_ids(names="Poa annua", db = c('itis','tropicos'))
 #' synonyms(out)
+#'
+#' # Use the rows parameter to select certain rows
+#' synonyms("Poa annua", db='tropicos', rows=1)
+#' synonyms("Poa annua", db='tropicos', rows=1:3)
+#' synonyms("Pinus sylvestris", db='nbn', rows=1:3)
 #' }
 
 synonyms <- function(...){
@@ -44,23 +53,23 @@ synonyms <- function(...){
 
 #' @export
 #' @rdname synonyms
-synonyms.default <- function(x, db = NULL, ...){
+synonyms.default <- function(x, db = NULL, rows = NA, ...){
   nstop(db)
   switch(db,
          itis = {
-           id <- get_tsn(x, ...)
+           id <- get_tsn(x, rows = rows, ...)
            setNames(synonyms(id, ...), x)
          },
          tropicos = {
-           id <- get_tpsid(x, ...)
+           id <- get_tpsid(x, rows = rows, ...)
            setNames(synonyms(id, ...), x)
          },
          ubio = {
-           id <- get_ubioid(x, searchtype = 'scientific', ...)
+           id <- get_ubioid(x, searchtype = 'scientific', rows = rows, ...)
            setNames(synonyms(id, ...), x)
          },
          nbn = {
-           id <- get_nbnid(x, ...)
+           id <- get_nbnid(x, rows = rows, ...)
            setNames(synonyms(id, ...), x)
          },
          stop("the provided db value was not recognised", call. = FALSE)

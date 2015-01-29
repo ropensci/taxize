@@ -12,7 +12,7 @@
 \usage{
 synonyms(...)
 
-\method{synonyms}{default}(x, db = NULL, ...)
+\method{synonyms}{default}(x, db = NULL, rows = NA, ...)
 
 \method{synonyms}{tsn}(id, ...)
 
@@ -25,12 +25,17 @@ synonyms(...)
 \method{synonyms}{ids}(id, ...)
 }
 \arguments{
-\item{...}{Other passed arguments.}
+\item{...}{Other passed arguments to internal functions \code{get_*()} and functions to
+gather synonyms.}
 
 \item{x}{character; taxons to query.}
 
 \item{db}{character; database to query. either \code{itis}, \code{tropicos},
 \code{ubio}, or \code{nbn}.}
+
+\item{rows}{(numeric) Any number from 1 to inifity. If the default NA, all rows are
+considered. Note that this parameter is ignored if you pass in a taxonomic id of any of the
+acceptable classes: tsn, tpsid, ubioid, nbnid, ids.}
 
 \item{id}{character; identifiers, returned by \code{\link[taxize]{get_tsn}},
 \code{\link[taxize]{get_tpsid}}, \code{\link[taxize]{get_ubioid}}, or
@@ -67,6 +72,11 @@ synonyms(get_nbnid("Carcharodon carcharias"))
 # Pass many ids from class "ids"
 out <- get_ids(names="Poa annua", db = c('itis','tropicos'))
 synonyms(out)
+
+# Use the rows parameter to select certain rows
+synonyms("Poa annua", db='tropicos', rows=1)
+synonyms("Poa annua", db='tropicos', rows=1:3)
+synonyms("Pinus sylvestris", db='nbn', rows=1:3)
 }
 }
 \seealso{
