@@ -14,6 +14,9 @@
 #' 'Infraorder','Superfamily','Family','Subfamily','Tribe','Subtribe','Genus','Subgenus',
 #' 'Section','Subsection','Species','Subspecies','Variety','Form','Subvariety','Race',
 #' 'Stirp','Morph','Aberration','Subform','Unspecified'
+#' @param rows (numeric) Any number from 1 to inifity. If the default NA, all rows are
+#' considered. Note that this parameter is ignored if you pass in a taxonomic id of any of the
+#' acceptable classes: tsn, colid.
 #' @param ... Further args passed on to \code{itis_downstream} or \code{col_downstream}
 #'
 #' @return A named list of data.frames with the upstream names of every supplied taxa.
@@ -33,21 +36,25 @@
 #'
 #' ## both
 #' upstream(get_ids('Pinus contorta', db = c('col','itis')), upto = 'Genus')
+#'
+#' # Use rows parameter to select certain
+#' upstream('Poa annua', db = 'col', upto = 'Genus')
+#' upstream('Poa annua', db = 'col', upto = 'Genus', rows=1)
 #' }
 upstream <- function(...) UseMethod("upstream")
 
 #' @export
 #' @rdname upstream
-upstream.default <- function(x, db = NULL, upto = NULL, ...){
+upstream.default <- function(x, db = NULL, upto = NULL, rows = NA, ...){
   nstop(upto, "upto")
   nstop(db)
   switch(db,
          itis = {
-           id <- get_tsn(x, ...)
+           id <- get_tsn(x, rows = rows, ...)
            setNames(upstream(id, upto = upto, ...), x)
          },
          col = {
-           id <- get_colid(x, ...)
+           id <- get_colid(x, rows = rows, ...)
            setNames(upstream(id, upto = upto, ...), x)
          },
          stop("the provided db value was not recognised", call. = FALSE)

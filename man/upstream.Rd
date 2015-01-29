@@ -10,7 +10,7 @@
 \usage{
 upstream(...)
 
-\method{upstream}{default}(x, db = NULL, upto = NULL, ...)
+\method{upstream}{default}(x, db = NULL, upto = NULL, rows = NA, ...)
 
 \method{upstream}{tsn}(x, db = NULL, upto = NULL, ...)
 
@@ -31,6 +31,10 @@ upstream(...)
 'Infraorder','Superfamily','Family','Subfamily','Tribe','Subtribe','Genus','Subgenus',
 'Section','Subsection','Species','Subspecies','Variety','Form','Subvariety','Race',
 'Stirp','Morph','Aberration','Subform','Unspecified'}
+
+\item{rows}{(numeric) Any number from 1 to inifity. If the default NA, all rows are
+considered. Note that this parameter is ignored if you pass in a taxonomic id of any of the
+acceptable classes: tsn, colid.}
 }
 \value{
 A named list of data.frames with the upstream names of every supplied taxa.
@@ -57,6 +61,10 @@ upstream(x='Pinus contorta', db = 'itis', upto = 'Genus')
 
 ## both
 upstream(get_ids('Pinus contorta', db = c('col','itis')), upto = 'Genus')
+
+# Use rows parameter to select certain
+upstream('Poa annua', db = 'col', upto = 'Genus')
+upstream('Poa annua', db = 'col', upto = 'Genus', rows=1)
 }
 }
 
