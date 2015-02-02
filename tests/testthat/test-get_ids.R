@@ -37,8 +37,4 @@ test_that("works on a variety of names", {
   expect_that(get_ids(nn[13], db = c('ncbi','itis','col','eol','tropicos'), ask=FALSE, verbose=FALSE), is_a("ids"))
   expect_that(get_ids(nn[14], db = c('ncbi','itis','col','eol','tropicos'), ask=FALSE, verbose=FALSE), is_a("ids"))
   expect_that(get_ids(nn[15], db = c('ncbi','itis','col','eol','tropicos'), ask=FALSE, verbose=FALSE), is_a("ids"))
-#   expect_that(get_ids(nn[16], db = c('ncbi','itis','col','eol','tropicos'), ask=FALSE, verbose=FALSE), is_a("ids"))
-#   expect_that(get_ids(nn[17], db = c('ncbi','itis','col','eol','tropicos'), ask=FALSE, verbose=FALSE), is_a("ids"))
-#   expect_that(get_ids(nn[18], db = c('ncbi','itis','col','eol','tropicos'), ask=FALSE, verbose=FALSE), is_a("ids"))
-#   expect_that(get_ids(nn[19], db = c('ncbi','itis','col','eol','tropicos'), ask=FALSE, verbose=FALSE), is_a("ids"))
 })
