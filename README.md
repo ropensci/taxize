@@ -6,6 +6,7 @@ taxize
 
 [![Build Status](https://api.travis-ci.org/ropensci/taxize.png?branch=master)](https://travis-ci.org/ropensci/taxize)
 [![Build status](https://ci.appveyor.com/api/projects/status/6mgc02mkd8j4sq3g/branch/master)](https://ci.appveyor.com/project/sckott/taxize-175/branch/master)
+[![Coverage Status](https://coveralls.io/repos/ropensci/taxize/badge.svg)](https://coveralls.io/r/ropensci/taxize)
 
 `taxize` allows users to search over many taxonomic data sources for species names (scientific and common) and download up and downstream taxonomic hierarchical information - among other things.
 
@@ -205,22 +206,22 @@ Classifications - think of a species, then all the taxonomic ranks up from that 
 out <- classification(uids)
 lapply(out, head)
 #> $`315576`
-#>                 name         rank
-#> 1 cellular organisms      no rank
-#> 2          Eukaryota superkingdom
-#> 3       Opisthokonta      no rank
-#> 4            Metazoa      kingdom
-#> 5          Eumetazoa      no rank
-#> 6          Bilateria      no rank
+#>                 name         rank     id
+#> 1 cellular organisms      no rank 131567
+#> 2          Eukaryota superkingdom   2759
+#> 3       Opisthokonta      no rank  33154
+#> 4            Metazoa      kingdom  33208
+#> 5          Eumetazoa      no rank   6072
+#> 6          Bilateria      no rank  33213
 #> 
 #> $`492549`
-#>                 name         rank
-#> 1 cellular organisms      no rank
-#> 2          Eukaryota superkingdom
-#> 3       Opisthokonta      no rank
-#> 4            Metazoa      kingdom
-#> 5          Eumetazoa      no rank
-#> 6          Bilateria      no rank
+#>                 name         rank     id
+#> 1 cellular organisms      no rank 131567
+#> 2          Eukaryota superkingdom   2759
+#> 3       Opisthokonta      no rank  33154
+#> 4            Metazoa      kingdom  33208
+#> 5          Eumetazoa      no rank   6072
+#> 6          Bilateria      no rank  33213
 ```
 
 ### Immediate children
@@ -411,7 +412,7 @@ get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn', rows=1:3)
 #>   ptaxonVersionKey    searchMatchTitle    rank  nameStatus
 #> 1 NBNSYS0000027573 Chironomus riparius Species Recommended
 #> 2 NBNSYS0000023345   Paederus riparius Species Recommended
-#> 3 NHMSYS0001718042   Elaphrus riparius Species Recommended
+#> 3 NHMSYS0001719942    Quedius riparius Species Recommended
 #> 
 #> $nbn$`Pinus contorta`
 #>   ptaxonVersionKey               searchMatchTitle       rank  nameStatus
@@ -440,18 +441,18 @@ sci2comm('Helianthus annuus', db='itis')
 ```r
 comm2sci("black bear")
 #> $`black bear`
-#>  [1] "Ursus americanus americanus Pallas, 1780"   
-#>  [2] "Ursus americanus Pallas, 1780"              
-#>  [3] "Ursus thibetanus G. [Baron] Cuvier, 1823"   
-#>  [4] "Ursus americanus floridanus Merriam, 1896"  
-#>  [5] "Ursus americanus luteolus Griffith, 1821"   
-#>  [6] "Ursus thibetanus formosanus Swinhoe, 1864"  
-#>  [7] "Ursus americanus kermodei Hornaday, 1905"   
+#>  [1] "Ursus americanus Pallas, 1780"              
+#>  [2] "Ursus americanus floridanus Merriam, 1896"  
+#>  [3] "Ursus americanus luteolus Griffith, 1821"   
+#>  [4] "Ursus thibetanus formosanus Swinhoe, 1864"  
+#>  [5] "Ursus americanus americanus Pallas, 1780"   
+#>  [6] "Ursus americanus kermodei Hornaday, 1905"   
+#>  [7] "Ursus americanus eremicus Merriam, 1904"    
 #>  [8] "Ursus americanus perniger J. A. Allen, 1910"
-#>  [9] "Ursus americanus eremicus Merriam, 1904"    
-#> [10] "Ursus thibetanus ussuricus (Heude, 1901)"   
-#> [11] "Ursus thibetanus japonicus Schlegel, 1857"  
-#> [12] "Prosimulium ursinum (Edwards, 1935)"        
+#>  [9] "Ursus thibetanus ussuricus (Heude, 1901)"   
+#> [10] "Ursus thibetanus japonicus Schlegel, 1857"  
+#> [11] "Prosimulium ursinum (Edwards, 1935)"        
+#> [12] "Ursus thibetanus G. [Baron] Cuvier, 1823"   
 #> [13] "Pyrrharctia isabella Smith 1797"
 ```
 
