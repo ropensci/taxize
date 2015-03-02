@@ -1,7 +1,12 @@
 # tests for class2tree fxn in taxize
 context("class2tree")
 
-spnames <- c('Physoplexis comosa','Nidorella zavattarii','Centaurea musimomum','Portulaca striata','Cerastium candidissimum','Faramea bicolor','Garrya salicifolia','Clerodendrum curranii','Campanula khorasanica','Micropholis gardneriana','Manilkara excelsa','Fimbristylis alboviridis','Sideritis montana','Polianthes longiflora')
+spnames <- c('Klattia flava', 'Trollius sibiricus', 'Arachis paraguariensis',
+ 'Tanacetum boreale', 'Gentiana yakushimensis','Sesamum schinzianum',
+ 'Pilea verrucosa','Tibouchina striphnocalyx','Lycium dasystemum',
+ 'Schoenus centralis','Berkheya echinacea','Androcymbium villosum',
+ 'Helianthus annuus','Madia elegans','Lupinus albicaulis','Poa annua',
+ 'Pinus lambertiana')
 out <- classification(spnames, db='ncbi', verbose=FALSE)
 out <- out[!is.na(out)]
 tr <- class2tree(out)
