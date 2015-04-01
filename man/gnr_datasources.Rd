@@ -14,7 +14,7 @@ json or a data.frame
 }
 \description{
 Retrieve data sources used in Global Names Index, see
-   \url{http://gni.globalnames.org/} for information.
+\url{http://gni.globalnames.org/} for information.
 }
 \examples{
 \dontrun{

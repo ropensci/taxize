@@ -1,7 +1,7 @@
 #' Get data sources for the Global Names Resolver.
 #'
 #' Retrieve data sources used in Global Names Index, see
-#'    \url{http://gni.globalnames.org/} for information.
+#' \url{http://gni.globalnames.org/} for information.
 #'
 #' @import jsonlite plyr
 #' @param todf logical; Should a data.frame be returned?
@@ -26,10 +26,9 @@
 #' # Output as a list
 #' gnr_datasources(FALSE)
 #' }
-gnr_datasources <- function(todf = TRUE)
-{
+gnr_datasources <- function(todf = TRUE) {
   url <- "http://resolver.globalnames.org/data_sources.json"
-	if (todf == FALSE){
+	if (todf == FALSE) {
 		out <- jsonlite::fromJSON(url, FALSE)
 	} else {
     out <- ldply(jsonlite::fromJSON(url, FALSE), function(x) data.frame(x["id"], x["title"], stringsAsFactors = FALSE))
