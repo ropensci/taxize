@@ -177,6 +177,8 @@ install.packages("taxize")
 
 #### Development version from GitHub
 
+Windows users install [Rtools](http://cran.r-project.org/bin/windows/Rtools/) first.
+
 
 ```r
 install.packages("devtools")
@@ -375,7 +377,7 @@ You can limit to certain rows when getting ids in any `get_*()` functions
 
 
 ```r
-get_ids(names="Poa annua", db=c("gbif","eol"), rows=1)
+get_ids(names="Poa annua", db = "gbif", rows=1)
 #> $gbif
 #> Poa annua 
 #> "2704179" 
@@ -385,18 +387,6 @@ get_ids(names="Poa annua", db=c("gbif","eol"), rows=1)
 #> [1] "found"
 #> attr(,"uri")
 #> [1] "http://www.gbif.org/species/2704179"
-#> 
-#> $eol
-#> Poa annua 
-#>  43518589 
-#> attr(,"class")
-#> [1] "eolid"
-#> attr(,"provider")
-#> [1] "GBIF"
-#> attr(,"match")
-#> [1] "found"
-#> attr(,"uri")
-#> [1] "http://eol.org/pages/43518589/overview"
 #> 
 #> attr(,"class")
 #> [1] "ids"
@@ -411,8 +401,8 @@ get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn', rows=1:3)
 #> $nbn$`Chironomus riparius`
 #>   ptaxonVersionKey    searchMatchTitle    rank  nameStatus
 #> 1 NBNSYS0000027573 Chironomus riparius Species Recommended
-#> 2 NBNSYS0000023345   Paederus riparius Species Recommended
-#> 3 NHMSYS0001719942    Quedius riparius Species Recommended
+#> 2 NHMSYS0001718042   Elaphrus riparius Species Recommended
+#> 3 NBNSYS0000023345   Paederus riparius Species Recommended
 #> 
 #> $nbn$`Pinus contorta`
 #>   ptaxonVersionKey               searchMatchTitle       rank  nameStatus
@@ -429,7 +419,7 @@ get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn', rows=1:3)
 
 
 ```r
-sci2comm('Helianthus annuus', db='itis')
+sci2comm('Helianthus annuus', db = 'itis')
 #> $`Helianthus annuus`
 #> [1] "common sunflower" "sunflower"        "wild sunflower"  
 #> [4] "annual sunflower"
@@ -439,21 +429,12 @@ sci2comm('Helianthus annuus', db='itis')
 
 
 ```r
-comm2sci("black bear")
+comm2sci("black bear", db = "itis")
 #> $`black bear`
-#>  [1] "Ursus americanus Pallas, 1780"              
-#>  [2] "Ursus americanus floridanus Merriam, 1896"  
-#>  [3] "Ursus americanus luteolus Griffith, 1821"   
-#>  [4] "Ursus thibetanus formosanus Swinhoe, 1864"  
-#>  [5] "Ursus americanus americanus Pallas, 1780"   
-#>  [6] "Ursus americanus kermodei Hornaday, 1905"   
-#>  [7] "Ursus americanus eremicus Merriam, 1904"    
-#>  [8] "Ursus americanus perniger J. A. Allen, 1910"
-#>  [9] "Ursus thibetanus ussuricus (Heude, 1901)"   
-#> [10] "Ursus thibetanus japonicus Schlegel, 1857"  
-#> [11] "Prosimulium ursinum (Edwards, 1935)"        
-#> [12] "Ursus thibetanus G. [Baron] Cuvier, 1823"   
-#> [13] "Pyrrharctia isabella Smith 1797"
+#> [1] "Chiropotes satanas"          "Ursus thibetanus"           
+#> [3] "Ursus thibetanus"            "Ursus americanus luteolus"  
+#> [5] "Ursus americanus americanus" "Ursus americanus"           
+#> [7] "Ursus americanus"
 ```
 
 ### Coerce codes to taxonomic id classes
@@ -476,7 +457,7 @@ as.uid(315567)
 
 
 ```r
-as.uid(list("315567","3339","9696"))
+as.uid(list("315567", "3339", "9696"))
 #> [1] "315567" "3339"   "9696"  
 #> attr(,"class")
 #> [1] "uid"
@@ -492,15 +473,13 @@ as.uid(list("315567","3339","9696"))
 
 
 ```r
-out <- as.uid(c(315567,3339,9696))
+out <- as.uid(c(315567, 3339, 9696))
 (res <- data.frame(out))
 #>      ids class match                                         uri
 #> 1 315567   uid found http://www.ncbi.nlm.nih.gov/taxonomy/315567
 #> 2   3339   uid found   http://www.ncbi.nlm.nih.gov/taxonomy/3339
 #> 3   9696   uid found   http://www.ncbi.nlm.nih.gov/taxonomy/9696
 ```
-
-### 
 
 ## Contributors
 

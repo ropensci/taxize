@@ -183,6 +183,8 @@ install.packages("taxize")
 
 #### Development version from GitHub
 
+Windows users install [Rtools](http://cran.r-project.org/bin/windows/Rtools/) first.
+
 ```{r eval=FALSE}
 install.packages("devtools")
 devtools::install_github("taxize", "ropensci")
@@ -248,7 +250,7 @@ get_ids(names="Salvelinus fontinalis", db = c('ubio','ncbi'), verbose=FALSE)
 You can limit to certain rows when getting ids in any `get_*()` functions
 
 ```{r}
-get_ids(names="Poa annua", db=c("gbif","eol"), rows=1)
+get_ids(names="Poa annua", db = "gbif", rows=1)
 ```
 
 Furthermore, you can just back all ids if that's your jam with the `get_*_()` functions (all `get_*()` functions with additional `_` underscore at end of function name)
@@ -260,13 +262,13 @@ get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn', rows=1:3)
 ### Common names from scientific names
 
 ```{r}
-sci2comm('Helianthus annuus', db='itis')
+sci2comm('Helianthus annuus', db = 'itis')
 ```
 
 ### Scientific names from common names
 
 ```{r}
-comm2sci("black bear")
+comm2sci("black bear", db = "itis")
 ```
 
 ### Coerce codes to taxonomic id classes
@@ -280,17 +282,15 @@ as.uid(315567)
 `list` to `uid`
 
 ```{r}
-as.uid(list("315567","3339","9696"))
+as.uid(list("315567", "3339", "9696"))
 ```
 
 ### Coerce taxonomic id classes to a data.frame
 
 ```{r}
-out <- as.uid(c(315567,3339,9696))
+out <- as.uid(c(315567, 3339, 9696))
 (res <- data.frame(out))
 ```
-
-### 
 
 ## Contributors
 
