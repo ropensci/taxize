@@ -1,5 +1,8 @@
 language: r
 
+r_binary_packages:
+ - curl
+
 r_github_packages:
  - jimhester/covr
 
