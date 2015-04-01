@@ -7,7 +7,7 @@
 gnr_resolve(names, data_source_ids = NULL, resolve_once = FALSE,
   with_context = FALSE, stripauthority = FALSE, highestscore = TRUE,
   best_match_only = FALSE, preferred_data_sources = NULL, http = "get",
-  callopts = list())
+  ...)
 }
 \arguments{
 \item{names}{character; taxonomic names to be resolved. Doesn't work for verncular/common names.}
