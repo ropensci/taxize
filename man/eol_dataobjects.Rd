@@ -2,28 +2,28 @@
 % Please edit documentation in R/eol_dataobjects.R
 \name{eol_dataobjects}
 \alias{eol_dataobjects}
-\title{Given the identifier for a data object, return all metadata about the object.}
+\title{Given the identifier for a data object, return all metadata about the object}
 \usage{
-eol_dataobjects(id, returntype = "data.frame", usekey = TRUE, key = NULL,
-  verbose = TRUE)
+eol_dataobjects(id, asdf = TRUE, usekey = TRUE, key = NULL,
+  verbose = TRUE, ...)
 }
 \arguments{
-\item{id}{The EOL data object identifier (character)}
+\item{id}{(character) The EOL data object identifier}
 
-\item{returntype}{one of "list" of "data.frame" (character)}
+\item{asdf}{(logical) Return "list" or "data.frame". Default: TRUE (return data.frame)}
 
-\item{usekey}{use your API key or not (TRUE or FALSE)}
+\item{usekey}{(logical) use your API key or not (TRUE or FALSE)}
 
-\item{key}{Your EOL API key; loads from .Rprofile.}
+\item{key}{(character) Your EOL API key; can load from .Rprofile if not passed as a parameter}
 
-\item{verbose}{logical; If TRUE the actual taxon queried is printed on the
+\item{verbose}{(logical); If TRUE the actual taxon queried is printed on the
 console.}
 }
 \value{
 List or dataframe (default).
 }
 \description{
-Given the identifier for a data object, return all metadata about the object.
+Given the identifier for a data object, return all metadata about the object
 }
 \details{
 It's possible to return JSON or XML with the EOL API. However,
@@ -33,6 +33,7 @@ It's possible to return JSON or XML with the EOL API. However,
 \dontrun{
 eol_dataobjects(id="d72801627bf4adf1a38d9c5f10cc767f")
 eol_dataobjects(id="21929584")
+eol_dataobjects(id="21929584", FALSE)
 }
 }
 

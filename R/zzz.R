@@ -62,6 +62,7 @@ taxize_ldfast <- function(x, convertvec=FALSE){
 mssg <- function(v, ...) if(v) message(...)
 
 taxize_compact <- function (l) Filter(Negate(is.null), l)
+tc <- taxize_compact
 
 #' Lookup details for specific names in all taxonomies in GBIF.
 #'
