@@ -6,7 +6,7 @@
 \usage{
 eol_search(terms, page = 1, exact = NULL, filter_tid = NULL,
   filter_heid = NULL, filter_by_string = NULL, cache_ttl = NULL,
-  key = NULL, callopts = list())
+  key = NULL, ...)
 }
 \arguments{
 \item{terms}{search terms (character)}

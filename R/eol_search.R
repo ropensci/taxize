@@ -1,6 +1,5 @@
 #' Search for terms in EOL database.
 #'
-#' @import httr plyr jsonlite
 #' @export
 #' @param terms search terms (character)
 #' @param page A maximum of 30 results are returned per page. This parameter allows
@@ -27,25 +26,22 @@
 #' }
 
 eol_search <- function(terms, page=1, exact=NULL, filter_tid=NULL, filter_heid=NULL,
-  filter_by_string=NULL, cache_ttl=NULL, key = NULL, callopts=list())
-{
-  url = 'http://eol.org/api/search/1.0.json'
+  filter_by_string=NULL, cache_ttl=NULL, key = NULL, ...) {
+
 	key <- getkey(key, "eolApiKey")
 	query <- gsub("\\s", "+", terms)
   args <- taxize_compact(list(q=query,page=page,exact=exact,filter_by_taxon_concept_id=filter_tid,
       filter_by_hierarchy_entry_id=filter_heid, filter_by_string=filter_by_string,
-      cache_ttl=cache_ttl))
-  tt <- GET(url, query=args, callopts)
+      cache_ttl=cache_ttl, key = key))
+  tt <- GET(paste0(eol_url("search"), ".json"), query = args, ...)
   warn_for_status(tt)
-  stopifnot(tt$headers$`content-type`[1]=='application/json; charset=utf-8')
+  stopifnot(tt$headers$`content-type`[1] == 'application/json; charset=utf-8')
   parsed <- content(tt, as = "text")
   res <- jsonlite::fromJSON(parsed, FALSE, encoding = "utf-8")
-  if(res$totalResults == 0 | length(res$results)==0){
-    data.frame(pageid=NA, name=NA, stringsAsFactors = FALSE)
-  } else
-  {
+  if (res$totalResults == 0 | length(res$results) == 0) {
+    data.frame(pageid = NA, name = NA, stringsAsFactors = FALSE)
+  } else {
     tmp <- do.call(rbind.fill, lapply(res$results, data.frame, stringsAsFactors=FALSE))[,c('id','title')]
-    names(tmp) <- c("pageid","name")
-    tmp
+    setNames(tmp, c("pageid", "name"))
   }
 }

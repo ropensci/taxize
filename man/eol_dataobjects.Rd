@@ -31,9 +31,9 @@ It's possible to return JSON or XML with the EOL API. However,
 }
 \examples{
 \dontrun{
-eol_dataobjects(id="d72801627bf4adf1a38d9c5f10cc767f")
-eol_dataobjects(id="21929584")
-eol_dataobjects(id="21929584", FALSE)
+eol_dataobjects(id = "d72801627bf4adf1a38d9c5f10cc767f")
+eol_dataobjects(id = "21929584")
+eol_dataobjects(id = "21929584", FALSE)
 }
 }
 

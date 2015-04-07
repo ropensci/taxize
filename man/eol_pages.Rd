@@ -8,7 +8,7 @@ eol_pages(taxonconceptID, iucn = FALSE, images = 0, videos = 0,
   sounds = 0, maps = 0, text = 0, subject = "overview",
   licenses = "all", details = FALSE, common_names = FALSE,
   synonyms = FALSE, references = FALSE, vetted = 0, cache_ttl = NULL,
-  key = NULL, callopts = list())
+  key = NULL, ...)
 }
 \arguments{
 \item{taxonconceptID}{The taxonconceptID (numeric), which is also the page
@@ -68,7 +68,7 @@ It's possible to return JSON or XML with the EOL API. However,
 \examples{
 \dontrun{
 (pageid <- eol_search('Pomatomus')$pageid[1])
-(out <- eol_pages(taxonconceptID=pageid)$scinames)
+eol_pages(taxonconceptID=pageid)$scinames
 }
 }
 

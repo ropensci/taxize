@@ -5,8 +5,7 @@
 \title{Search for presence of taxonomic names in EOL invasive species databases.}
 \usage{
 eol_invasive(name = NULL, dataset = "all", searchby = grep, page = NULL,
-  per_page = NULL, key = NULL, callopts = list(), verbose = TRUE,
-  count = FALSE)
+  per_page = NULL, key = NULL, verbose = TRUE, count = FALSE, ...)
 }
 \arguments{
 \item{name}{A taxonomic name, or a vector of names.}
@@ -23,13 +22,13 @@ you to fetch more pages of results if there are more than 30 matches (Default 1)
 
 \item{key}{Your EOL API key; loads from .Rprofile.}
 
-\item{callopts}{Further args passed on to GET.}
-
 \item{verbose}{(logical) If TRUE the actual taxon queried is printed on the
 console.}
 
 \item{count}{(logical) If TRUE, give back a count of number of taxa listed as invasive, if
    FALSE (default), the normal output is given.}
+
+\item{callopts}{Further args passed on to GET.}
 }
 \value{
 A list of data.frame's/strings with results, with each element named by

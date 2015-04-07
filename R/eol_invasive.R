@@ -2,7 +2,6 @@
 #'
 #' See Details for important information.
 #'
-#' @import RCurl jsonlite plyr
 #' @export
 #' @param name A taxonomic name, or a vector of names.
 #' @param dataset One of all, gisd100, gisd, isc, daisie, i3n, or mineps.
@@ -81,8 +80,7 @@
 #' }
 
 eol_invasive <- function(name = NULL, dataset="all", searchby = grep, page=NULL,
-  per_page=NULL, key = NULL, callopts=list(), verbose=TRUE, count=FALSE)
-{
+  per_page=NULL, key = NULL, verbose=TRUE, count=FALSE, ...) {
   .Deprecated(msg="This function is deprecated - will be removed in a future version of this pacakge. See ?`taxize-deprecated`")
 
   if(is.null(name)) stop("please provide a taxonomic name")
@@ -98,8 +96,8 @@ eol_invasive <- function(name = NULL, dataset="all", searchby = grep, page=NULL,
   url = 'http://eol.org/api/collections/1.0.json'
   key <- getkey(key, "eolApiKey")
 
-  args <- taxize_compact(list(id=datasetid,page=page,per_page=500,filter='taxa'))
-  tt <- GET(url, query = args, callopts)
+  args <- taxize_compact(list(id=datasetid, page=page, per_page=500, filter='taxa', key=key))
+  tt <- GET(url, query = args, ...)
   res <- jsonlite::fromJSON(content(tt, as="text"), FALSE)
   data_init <- res$collection_items
   mssg(verbose, sprintf("Getting data for %s names...", res$total_items))
@@ -113,11 +111,11 @@ eol_invasive <- function(name = NULL, dataset="all", searchby = grep, page=NULL,
   }
   pages_get <- pages_left()
 
-  if(!is.null(pages_get)){
+  if (!is.null(pages_get)) {
     out <- list()
-    for(i in seq_along(pages_get)){
+    for (i in seq_along(pages_get)) {
       args <- compact(list(id=datasetid,page=pages_get[i],per_page=500,filter='taxa'))
-      tt <- GET(url, query = args, callopts)
+      tt <- GET(url, query = args, ...)
       res <- jsonlite::fromJSON(content(tt, as="text"), FALSE)
       out[[i]] <- res$collection_items
     }
@@ -125,8 +123,7 @@ eol_invasive <- function(name = NULL, dataset="all", searchby = grep, page=NULL,
     dat_all <- do.call(c, list(data_init, do.call(c, res2)))
     dat_all <- lapply(dat_all, "[", c("name","object_id"))
     dat <- do.call(rbind, lapply(dat_all, data.frame, stringsAsFactors=FALSE))
-  } else
-  {
+  } else {
     dat_all <- lapply(data_init, "[", c("name","object_id"))
     dat <- do.call(rbind, lapply(dat_all, data.frame, stringsAsFactors=FALSE))
   }
@@ -134,21 +131,20 @@ eol_invasive <- function(name = NULL, dataset="all", searchby = grep, page=NULL,
   # search by name
   getmatches <- function(x, y){
     matched <- eval(y)(x, dat$name)
-    if(identical(matched, integer(0))){
+    if (identical(matched, integer(0))) {
       dff <- data.frame(name = x, object_id = NaN)
       dff$name <- as.character(dff$name)
       dff
-    } else
-    {
-      dat[matched,]
+    } else {
+      dat[matched, ]
     }
   }
-  tmp <- lapply(name, getmatches, y=searchby)
+  tmp <- lapply(name, getmatches, y = searchby)
   names(tmp) <- name
   df <- ldply(tmp)
   df$db <- dataset
-  names(df)[c(1,3)] <- c("searched_name","eol_object_id")
+  names(df)[c(1, 3)] <- c("searched_name", "eol_object_id")
   df
 
-  if(!count) df else length(na.omit(df$eol_object_id))
+  if (!count) df else length(na.omit(df$eol_object_id))
 }

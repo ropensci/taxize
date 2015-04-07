@@ -1,6 +1,5 @@
 #' Search for pages in EOL database using a taxonconceptID.
 #'
-#' @import RCurl plyr jsonlite
 #' @export
 #' @param taxonconceptID The taxonconceptID (numeric), which is also the page
 #' 		number.
@@ -34,34 +33,30 @@
 #' @return JSON list object, or data.frame.
 #' @examples \dontrun{
 #' (pageid <- eol_search('Pomatomus')$pageid[1])
-#' (out <- eol_pages(taxonconceptID=pageid)$scinames)
+#' eol_pages(taxonconceptID=pageid)$scinames
 #' }
 
 eol_pages <- function(taxonconceptID, iucn=FALSE, images=0, videos=0, sounds=0,
   maps=0, text=0, subject='overview', licenses='all', details=FALSE,
   common_names=FALSE, synonyms=FALSE, references=FALSE, vetted=0,
-  cache_ttl=NULL, key = NULL, callopts=list())
-{
+  cache_ttl=NULL, key = NULL, ...) {
+
   iucn <- tolower(iucn)
   details <- tolower(details)
   common_names <- tolower(common_names)
   synonyms <- tolower(synonyms)
   references <- tolower(references)
 
-  url <- 'http://eol.org/api/pages/1.0/'
 	key <- getkey(key, "eolApiKey")
-  args <- taxize_compact(list(iucn=iucn,images=images,videos=videos,sounds=sounds,
-                       maps=maps,text=text,subject=subject,licenses=licenses,
-                       details=details,common_names=common_names,synonyms=synonyms,
-                       references=references,vetted=vetted,cache_ttl=cache_ttl))
-  urlget <- paste(url, taxonconceptID, '.json', sep="")
-#   tt <- GET(urlget, query=args, callopts)
-#   stop_for_status(tt)
-#   res <- content(tt, as = "text", encoding="utf-8")
-  tt <- getForm(urlget, .params = args, .opts = callopts)
-  stopifnot(attr(tt, "Content-Type")[[1]] == "application/json")
-  stopifnot(attr(tt, "Content-Type")[[2]] == "utf-8")
-  res <- jsonlite::fromJSON(tt, FALSE)
+	args <- tc(list(iucn=iucn,images=images,videos=videos,sounds=sounds,
+	                maps=maps,text=text,subject=subject,licenses=licenses,
+	                details=details,common_names=common_names,synonyms=synonyms,
+	                references=references,vetted=vetted,cache_ttl=cache_ttl, key=key))
+  tt <- GET(file.path(eol_url("pages"), paste0(taxonconceptID, ".json")), query=args, ...)
+  stop_for_status(tt)
+  stopifnot(tt$headers$`content-type` == "application/json; charset=utf-8")
+  temp <- content(tt, as = "text", encoding="utf-8")
+  res <- jsonlite::fromJSON(temp, FALSE)
 
   scinames <- do.call(rbind.fill, lapply(res$taxonConcepts, data.frame, stringsAsFactors=FALSE))
   if(!is.null(scinames))

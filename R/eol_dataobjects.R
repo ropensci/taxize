@@ -11,14 +11,14 @@
 #' 		this function only returns JSON for now.
 #' @return List or dataframe (default).
 #' @examples \dontrun{
-#' eol_dataobjects(id="d72801627bf4adf1a38d9c5f10cc767f")
-#' eol_dataobjects(id="21929584")
-#' eol_dataobjects(id="21929584", FALSE)
+#' eol_dataobjects(id = "d72801627bf4adf1a38d9c5f10cc767f")
+#' eol_dataobjects(id = "21929584")
+#' eol_dataobjects(id = "21929584", FALSE)
 #' }
 eol_dataobjects <- function(id, asdf = TRUE, usekey = TRUE, key = NULL,
                             verbose = TRUE, ...) {
   if (usekey) key <- getkey(key, "eolApiKey")
-  tt <- GET(paste0(eol_url("data_objects"), id, ".json"), query = tc(list(key = key)))
+  tt <- GET(file.path(eol_url("data_objects"), paste0(id, ".json")), query = tc(list(key = key)))
   stop_for_status(tt)
   res <- content(tt, as = "text")
   jsonlite::fromJSON(res, asdf)
