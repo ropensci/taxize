@@ -28,7 +28,7 @@ console.}
 \item{count}{(logical) If TRUE, give back a count of number of taxa listed as invasive, if
    FALSE (default), the normal output is given.}
 
-\item{callopts}{Further args passed on to GET.}
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
 A list of data.frame's/strings with results, with each element named by

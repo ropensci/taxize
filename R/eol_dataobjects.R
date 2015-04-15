@@ -7,6 +7,7 @@
 #' @param key (character) Your EOL API key; can load from .Rprofile if not passed as a parameter
 #' @param verbose (logical); If TRUE the actual taxon queried is printed on the
 #'    console.
+#' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @details It's possible to return JSON or XML with the EOL API. However,
 #' 		this function only returns JSON for now.
 #' @return List or dataframe (default).

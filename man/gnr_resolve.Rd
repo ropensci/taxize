@@ -39,7 +39,7 @@ each searched name?}
 Use http="post" with large queries. Queries with > 300 records use "post"
 automatically because "get" would fail}
 
-\item{callopts}{Curl debugging options to pass in httr::GET or POST}
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
 A data.frame.

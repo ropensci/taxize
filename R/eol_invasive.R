@@ -11,7 +11,7 @@
 #'    you to fetch more pages of results if there are more than 30 matches (Default 1)
 #' @param per_page Results to get per page
 #' @param key Your EOL API key; loads from .Rprofile.
-#' @param callopts Further args passed on to GET.
+#' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @param verbose (logical) If TRUE the actual taxon queried is printed on the
 #'    console.
 #' @param count (logical) If TRUE, give back a count of number of taxa listed as invasive, if

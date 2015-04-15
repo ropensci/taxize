@@ -53,7 +53,7 @@ content. (Default: False)}
 \item{key}{Your EOL API key; loads from .Rprofile, or you can specify the
 key manually the in the function call.}
 
-\item{callopts}{Further args passed on to RCurl::getForm.}
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
 JSON list object, or data.frame.

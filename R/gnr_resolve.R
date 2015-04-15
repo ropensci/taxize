@@ -23,7 +23,7 @@
 #' @param http The HTTP method to use, one of "get" or "post". Default="get".
 #'    Use http="post" with large queries. Queries with > 300 records use "post"
 #'    automatically because "get" would fail
-#' @param callopts Curl debugging options to pass in httr::GET or POST
+#' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @author Scott Chamberlain {myrmecocystus@@gmail.com}
 #' @return A data.frame.
 #' @seealso \code{\link[taxize]{gnr_datasources}}

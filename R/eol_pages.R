@@ -27,7 +27,7 @@
 #' @param cache_ttl The number of seconds you wish to have the response cached.
 #' @param key Your EOL API key; loads from .Rprofile, or you can specify the
 #' 		key manually the in the function call.
-#' @param callopts Further args passed on to RCurl::getForm.
+#' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @details It's possible to return JSON or XML with the EOL API. However,
 #' 		this function only returns JSON for now.
 #' @return JSON list object, or data.frame.

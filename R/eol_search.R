@@ -15,7 +15,7 @@
 #'    results
 #' @param cache_ttl The number of seconds you wish to have the response cached.
 #' @param key Your EOL API key; loads from .Rprofile.
-#' @param callopts Curl options passed on to getForm.
+#' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @details It's possible to return JSON or XML with the EOL API. However,
 #' 		this function only returns JSON for now.
 #' @return A data frame.

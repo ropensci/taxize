@@ -31,7 +31,7 @@ results}
 
 \item{key}{Your EOL API key; loads from .Rprofile.}
 
-\item{callopts}{Curl options passed on to getForm.}
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
 A data frame.

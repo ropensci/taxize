@@ -18,6 +18,8 @@ eol_dataobjects(id, asdf = TRUE, usekey = TRUE, key = NULL,
 
 \item{verbose}{(logical); If TRUE the actual taxon queried is printed on the
 console.}
+
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
 List or dataframe (default).
