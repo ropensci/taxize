@@ -3,7 +3,7 @@ taxize
 
 ```{r echo=FALSE}
 knitr::opts_chunk$set(
-  warning = FALSE, 
+  warning = FALSE,
   message = FALSE,
   collapse = TRUE,
   comment = "#>"
@@ -14,6 +14,7 @@ knitr::opts_chunk$set(
 [![Build Status](https://api.travis-ci.org/ropensci/taxize.png?branch=master)](https://travis-ci.org/ropensci/taxize)
 [![Build status](https://ci.appveyor.com/api/projects/status/6mgc02mkd8j4sq3g/branch/master)](https://ci.appveyor.com/project/sckott/taxize-175/branch/master)
 [![Coverage Status](https://coveralls.io/repos/ropensci/taxize/badge.svg)](https://coveralls.io/r/ropensci/taxize)
+[![rstudio mirror downloads](http://cranlogs-dev.r-pkg.org/badges/taxize)](https://github.com/metacran/cranlogs.app)
 
 `taxize` allows users to search over many taxonomic data sources for species names (scientific and common) and download up and downstream taxonomic hierarchical information - among other things.
 
@@ -196,7 +197,7 @@ library('taxize')
 
 ### Get unique taxonomic identifier from NCBI
 
-Alot of `taxize` revolves around taxonomic identifiers. Because, as you know, names can be a mess (misspelled, synonyms, etc.), it's better to get an identifier that a particular data sources knows about, then we can move forth acquiring more fun taxonomic data. 
+Alot of `taxize` revolves around taxonomic identifiers. Because, as you know, names can be a mess (misspelled, synonyms, etc.), it's better to get an identifier that a particular data sources knows about, then we can move forth acquiring more fun taxonomic data.
 
 ```{r}
 uids <- get_uid(c("Chironomus riparius", "Chaetopteryx"))
