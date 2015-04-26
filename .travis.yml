@@ -1,6 +1,7 @@
 language: r
 
 r_github_packages:
+ - jimhester/robustr
  - jimhester/covr
  - jeroenooms/curl
 
