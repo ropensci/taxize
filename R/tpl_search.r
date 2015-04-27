@@ -29,19 +29,17 @@
 #' }
 #' @export
 #' @rdname tpl_search-defunct
-tpl_search <- function(taxon, paral = FALSE, ...)
-{
-  .Defunct(msg="This function is defunct. Use the Taxonstand functions TPL or TPLck directly.")
+tpl_search <- function(taxon, paral = FALSE, ...) {
+  .Defunct(msg = "This function is defunct. Use the Taxonstand functions TPL or TPLck directly.")
 
-  if(paral){
-    out <- llply(taxon, function(x) TPLck(x, ...), .parallel=TRUE)
+  if (paral) {
+    out <- llply(taxon, function(x) TPLck(x, ...), .parallel = TRUE)
     ldply(out)
-  } else
-  {
-    out <- llply(taxon, function(x) try(TPLck(x, ...), silent=TRUE))
-    if(any(sapply(out, class)=="try-error"))
+  } else {
+    out <- llply(taxon, function(x) try(TPLck(x, ...), silent = TRUE))
+    if (any(sapply(out, class) == "try-error"))
       message(geterrmessage())
-    out <- out[!sapply(out, class)=="try-error"]
+    out <- out[!sapply(out, class) == "try-error"]
     df <- taxize_ldfast(out)
     df
   }

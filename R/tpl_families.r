@@ -1,8 +1,6 @@
 #' Get The Plant List families.
 #'
-#' @import RCurl XML
 #' @export
-#'
 #' @details Requires an internet connection in order to connect to www.theplantlist.org.
 #' @return Returns a \code{data.frame} including the names of all families indexed
 #' by The Plant List, and the major groups into which they fall (i.e. Angiosperms,
@@ -14,16 +12,15 @@
 #' head( tpl_families() )
 #' }
 
-tpl_families <- function()
-{
-  temp <- getURL('http://www.theplantlist.org/browse/-/')
-  temp <- htmlParse(temp)
+tpl_families <- function() {
+  temp <- GET('http://www.theplantlist.org/1.1/browse/-/')
+  temp <- htmlParse(content(temp, "text"))
   families <- xpathSApply(temp, "//ul[@id='nametree']//a", xmlValue)
-  groups <- factor(basename(dirname(xpathSApply(temp,
+  groups <- as.character(factor(basename(dirname(xpathSApply(temp,
                                                 "//ul[@id='nametree']//a",
                                                 xmlGetAttr, 'href'))),
-                   levels=c('A', 'B', 'G', 'P'),
-                   labels=c('Angiosperms', 'Bryophytes',
-                            'Gymnosperms', 'Pteridophytes'))
-  data.frame(group=groups, family=families)
+                   levels = c('A', 'B', 'G', 'P'),
+                   labels = c('Angiosperms', 'Bryophytes',
+                            'Gymnosperms', 'Pteridophytes')))
+  data.frame(group = groups, family = families, stringsAsFactors = FALSE)
 }
