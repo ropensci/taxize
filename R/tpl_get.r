@@ -30,8 +30,8 @@
 #' }
 
 tpl_get <- function(x, family = NULL) {
-  temp <- getURL('http://www.theplantlist.org/1.1/browse/-/')
-  temp <- htmlParse(temp)
+  temp <- GET('http://www.theplantlist.org/1.1/browse/-/')
+  temp <- htmlParse(content(temp, "text"))
   families <- xpathSApply(temp, "//ul[@id='nametree']//a", xmlValue)
   csvlinks <- sprintf('http://www.theplantlist.org%s%s.csv',
                       xpathSApply(temp, "//ul[@id='nametree']//a", xmlGetAttr, 'href'),
@@ -51,11 +51,11 @@ tpl_get <- function(x, family = NULL) {
     csvlinks <- csvlinks[families %in% family]
     families <- families[families %in% family]
   }
-  getcsv <- function(x) {
-    download.file(x, destfile = file.path(dir_, basename(x)), quiet = TRUE)
+  getcsv <- function(z) {
+    download.file(z, destfile = file.path(x, basename(z)), quiet = TRUE)
   }
-  message("Downloading csv files to ", dir_, "...")
-  dir.create(dir_)
+  message("Downloading csv files to ", x, "...")
+  dir.create(x)
   l_ply(csvlinks, getcsv, .progress = "text")
   message("...el fin")
 }
