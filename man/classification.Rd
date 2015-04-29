@@ -87,7 +87,7 @@ single query is 500 for terse queries and 50 for full queries).}
 year's checklist instead of the lastest as default (numeric).}
 }
 \value{
-A named list of data.frames with the taxonomic classifcation of
+A named list of data.frames with the taxonomic classification of
    every supplied taxa.
 }
 \description{

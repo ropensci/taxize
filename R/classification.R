@@ -29,7 +29,7 @@
 #' considered. Note that this parameter is ignored if you pass in a taxonomic id instead
 #' of a name of class character.
 #'
-#' @return A named list of data.frames with the taxonomic classifcation of
+#' @return A named list of data.frames with the taxonomic classification of
 #'    every supplied taxa.
 #' @details If IDs are supplied directly (not from the \code{get_*} functions) you
 #' must specify the type of ID. There is a timeout of 1/3 seconds between
@@ -370,7 +370,7 @@ classification.nbnid <- function(id, callopts = list(), return_id = TRUE, ...) {
     if(is.na(x)) {
       out <- NA
     } else {
-      out <- suppressWarnings(tryCatch(nbn_classifcation(id=x, ...), error=function(e) e))
+      out <- suppressWarnings(tryCatch(nbn_classification(id=x, ...), error=function(e) e))
       if(is(out, "simpleError")){ NA } else {
         out <- out[ , c('name','rank', 'taxonVersionKey')]
         names(out) <- c('name', 'rank', 'id')
