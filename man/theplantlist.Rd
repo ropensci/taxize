@@ -4,8 +4,19 @@
 \name{theplantlist}
 \alias{theplantlist}
 \title{Lookup-table for family, genus, and species names for ThePlantList}
+\format{A data frame with 298,536 rows and 3 variables:
+\describe{
+  \item{family}{family name}
+  \item{genus}{genus name}
+  \item{sp}{specific epithet name}
+}}
+\source{
+\url{http://www.theplantlist.org/}
+}
 \description{
-Lookup-table for family, genus, and species names for ThePlantList
+These names are from \url{http://www.theplantlist.org/}, and are from
+version 1 of their data. This data is used in the functions
+\code{\link{phylomatic_format}} and \code{\link{names_list}}.
 }
 \keyword{data}
 

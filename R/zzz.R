@@ -223,3 +223,7 @@ colClasses <- function(d, colClasses) {
                                                  as(d[[i]], colClasses[i]) ))
   d
 }
+
+strtrim <- function(str) {
+  gsub("^\\s+|\\s+$", "", str)
+}

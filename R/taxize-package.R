@@ -60,42 +60,114 @@
 NULL
 
 #' Lookup-table for IDs of taxonomic ranks
+#'
+
+#'
 #' @name rank_ref
 #' @docType data
 #' @keywords data
 NULL
 
 #' Lookup-table for family, genus, and species names for ThePlantList
+#'
+#' These names are from \url{http://www.theplantlist.org/}, and are from
+#' version 1 of their data. This data is used in the functions
+#' \code{\link{phylomatic_format}} and \code{\link{names_list}}.
+#'
+#' @format A data frame with 298,536 rows and 3 variables:
+#' \describe{
+#'   \item{family}{family name}
+#'   \item{genus}{genus name}
+#'   \item{sp}{specific epithet name}
+#' }
+#' @source \url{http://www.theplantlist.org/}
 #' @name theplantlist
 #' @docType data
 #' @keywords data
 NULL
 
-#' Table of APGIII generic names
+#' APGIII generic names
+#'
+#' Generic names and their replacements from the Angiosperm Phylogeny
+#' Group III system of flowering plant classification.
+#'
+#' This dataset is from Version 13, incorporated on 2015-04-29.
+#'
+#' @format A data frame with 20,075 rows and 5 variables:
+#' \describe{
+#'   \item{family}{Family name}
+#'   \item{name}{Genus name}
+#'   \item{replace}{Replacment genus name}
+#'   \item{name_authority}{Authority}
+#'   \item{replace_authority}{Replacement authority}
+#' }
+#' @source \url{http://www.mobot.org/MOBOT/research/APweb/}
 #' @name apg_genera
 #' @docType data
 #' @keywords data
 NULL
 
-#' Lookup-table for APGIII family names
+#' APGIII family names
+#'
+#' Family names and their replacements from the Angiosperm Phylogeny
+#' Group III system of flowering plant classification.
+#'
+#' This dataset is from Version 13, incorporated on 2015-04-29.
+#'
+#' @format A data frame with 1597 rows and 4 variables:
+#' \describe{
+#'   \item{original}{original data record from APG website}
+#'   \item{this}{Order name}
+#'   \item{that}{Replacment order name}
+#'   \item{order}{Order name}
+#' }
+#' @source \url{http://www.mobot.org/MOBOT/research/APweb/}
 #' @name apg_families
 #' @docType data
 #' @keywords data
 NULL
 
-#' Lookup-table for APGIII order names
+#' APGIII order names
+#'
+#' Order names and their replacements from the Angiosperm Phylogeny
+#' Group III system of flowering plant classification.
+#'
+#' This dataset is from Version 13, incorporated on 2015-04-29.
+#'
+#' @format A data frame with 494 rows and 3 variables:
+#' \describe{
+#'   \item{original}{original data record from APG website}
+#'   \item{this}{Order name}
+#'   \item{that}{Replacment order name}
+#' }
+#' @source \url{http://www.mobot.org/MOBOT/research/APweb/}
 #' @name apg_orders
 #' @docType data
 #' @keywords data
 NULL
 
-#' Vector of 1,182 species names of plants
+#' Vector of plant species (genus - specific epithet) names from ThePlantList
+#'
+#' These names are from \url{http://www.theplantlist.org/}, and are a
+#' randomly chosen subset of names of the form genus/specific epithet
+#' for the purpose of having some names to play with for examples in
+#' this package.
+#'
+#' @format A vector of length 1182
+#' @source \url{http://www.theplantlist.org/}
 #' @name plantNames
 #' @docType data
 #' @keywords data
 NULL
 
-#' Vector of 793 genus names of plants
+#' Vector of plant genus names from ThePlantList
+#'
+#' These names are from \url{http://www.theplantlist.org/}, and are a
+#' randomly chosen subset of genera names for the purpose of having some
+#' names to play with for examples in this package.
+#'
+#' @format A vector of length 793
+#' @source \url{http://www.theplantlist.org/}
 #' @name plantGenusNames
 #' @docType data
 #' @keywords data

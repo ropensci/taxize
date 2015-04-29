@@ -1,0 +1,89 @@
+#' Get APG names
+#'
+#' FIXME: add function for genera
+#'
+#' Generic names and their replacements from the Angiosperm Phylogeny
+#' Group III system of flowering plant classification.
+#'
+#' @param ... Curl args passed on to \code{\link[httr]{GET}}
+#' @references \url{http://www.mobot.org/MOBOT/research/APweb/}
+#' @name apg
+#' @examples \dontrun{
+#' head(apgOrders())
+#' head(apgFamilies())
+#' }
+
+#' @export
+#' @rdname apg
+apgOrders <- function(...) {
+  tt <- apg_GET("orders", ...)
+  tmp <- strsplit(tt, "<font")[[1]]
+  tmp2 <- strsplit(tmp[length(tmp)], "<br>")[[1]]
+  tmp3 <- gsub("(<[^>]*>)|\r|\n|\\.$", "", tmp2)
+  # remove stuff not cleaned up
+  tmp4 <- tmp3[-grep("Back to", tmp3)]
+  tmp5 <- sub(".*>", "", tmp4)
+  # parse to a data.frame
+  accorig <- acc <- grep("[Aa]ccepted", tmp5, value = TRUE)
+  acc <- gsub("\\s.+", "", strtrim(acc))
+  acc <- acc[nchar(acc) != 0]
+  accorig <- accorig[nchar(accorig) != 0]
+  accdf <- data.frame(order = acc, synonym = NA,
+                      comment = NA, accepted = TRUE,
+                      original = accorig, stringsAsFactors = FALSE)
+
+  synorig <- syn <- grep("[Aa]ccepted", tmp5, invert = TRUE, value = TRUE)
+  syn <- sapply(strsplit(syn, "=|\\s-"), strtrim)
+  syn <- syn[vapply(syn, length, 1) != 0]
+  synorig <- synorig[nchar(synorig) != 0]
+  syndf <- rbind.fill(lapply(syn, function(x) {
+    tmpdf <- rbind.data.frame(x)
+    if (NCOL(tmpdf) == 2) {
+      setNames(tmpdf, c("order", "synonym"))
+    } else {
+      setNames(tmpdf, c("order", "synonym", "comment"))
+    }
+  }))
+  syndf$accepted <- FALSE
+  syndf$original <- synorig
+
+  rbind(accdf, syndf)
+}
+
+#' @export
+#' @rdname apg
+apgFamilies <- function(...) {
+  tt <- apg_GET("families", ...)
+  tmp <- strsplit(tt, "<font")[[1]]
+  tmp2 <- strsplit(tmp[length(tmp)], "<br>")[[1]]
+  tmp3 <- gsub("(<[^>]*>)|\r|\n|\\.$", "", tmp2)
+  # remove stuff not cleaned up
+  tmp4 <- tmp3[-grep("Back to", tmp3)]
+  tmp5 <- sub(".*>", "", tmp4)
+  # parse to a data.frame
+  syn <- sapply(strsplit(tmp5, "=|\\s-"), strtrim)
+  syn <- syn[vapply(syn, length, 1) != 0]
+  synorig <- tmp5[nchar(tmp5) != 0]
+  syndf <- rbind.fill(lapply(syn, function(x) {
+    tmpdf <- rbind.data.frame(x)
+    if (NCOL(tmpdf) == 2) {
+      setNames(tmpdf, c("family", "order"))
+    } else {
+      setNames(tmpdf, c("family", "synonym", "order"))
+    }
+  }))
+  syndf[] <- lapply(syndf, as.character)
+  syndf$accepted <- syndf$synonym
+  syndf$accepted[is.na(syndf$accepted)] <- TRUE
+  syndf$accepted[ syndf$accepted != TRUE ] <- FALSE
+  syndf$original <- synorig
+  syndf
+}
+
+apg_GET <- function(x, ...) {
+  res <- GET(paste0(apg_base(), sprintf("top/synonymy%s.html", x)), ...)
+  stop_for_status(res)
+  content(res, "text")
+}
+
+apg_base <- function() "http://www.mobot.org/MOBOT/research/APweb/"

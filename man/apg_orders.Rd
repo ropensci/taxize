@@ -3,9 +3,22 @@
 \docType{data}
 \name{apg_orders}
 \alias{apg_orders}
-\title{Lookup-table for APGIII order names}
+\title{APGIII order names}
+\format{A data frame with 494 rows and 3 variables:
+\describe{
+  \item{original}{original data record from APG website}
+  \item{this}{Order name}
+  \item{that}{Replacment order name}
+}}
+\source{
+\url{http://www.mobot.org/MOBOT/research/APweb/}
+}
 \description{
-Lookup-table for APGIII order names
+Order names and their replacements from the Angiosperm Phylogeny
+Group III system of flowering plant classification.
+}
+\details{
+This dataset is from Version 13, incorporated on 2015-04-29.
 }
 \keyword{data}
 

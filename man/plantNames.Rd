@@ -3,9 +3,16 @@
 \docType{data}
 \name{plantNames}
 \alias{plantNames}
-\title{Vector of 1,182 species names of plants}
+\title{Vector of plant species (genus - specific epithet) names from ThePlantList}
+\format{A vector of length 1182}
+\source{
+\url{http://www.theplantlist.org/}
+}
 \description{
-Vector of 1,182 species names of plants
+These names are from \url{http://www.theplantlist.org/}, and are a
+randomly chosen subset of names of the form genus/specific epithet
+for the purpose of having some names to play with for examples in
+this package.
 }
 \keyword{data}
 
