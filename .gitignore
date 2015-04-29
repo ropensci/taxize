@@ -13,3 +13,4 @@ inst/doc/.texpadtmp/taxize_ms.log
 inst/doc/.texpadtmp/taxize_ms.out
 inst/doc/.texpadtmp/taxize_ms.synctex.gz
 .httr-oauth
+inst/vign/taxize_vignette_cache
