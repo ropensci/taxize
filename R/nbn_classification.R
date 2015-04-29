@@ -8,16 +8,16 @@
 #' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
 #'
 #' @examples \dontrun{
-#' nbn_classifcation(id="NHMSYS0000502940")
+#' nbn_classification(id="NHMSYS0000502940")
 #'
 #' # get id first, then pass to this fxn
 #' id <- get_nbnid("blue tit", rec_only = TRUE, rank = "Species")
-#' nbn_classifcation(id)
+#' nbn_classification(id)
 #'
 #' library('httr')
-#' nbn_classifcation(id="NHMSYS0000502940", config=verbose())
+#' nbn_classification(id="NHMSYS0000502940", config=verbose())
 #' }
-nbn_classifcation <- function(id, ...)
+nbn_classification <- function(id, ...)
 {
   url <- sprintf("https://data.nbn.org.uk/api/taxa/%s/taxonomy", id)
   nbn_GET_2(url, ...)
