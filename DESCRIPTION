@@ -32,6 +32,7 @@ Depends:
 Imports:
     XML,
     RCurl (>= 1.6),
+    reshape2,
     stringr,
     plyr,
     httr (>= 0.2),
@@ -39,7 +40,6 @@ Imports:
     foreach,
     ape,
     Taxonstand,
-    reshape2,
     data.table,
     vegan,
     bold
