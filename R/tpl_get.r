@@ -26,7 +26,8 @@
 #' tpl_get("~/foo4", family = "Echinodiaceae")
 #'
 #' # Get all families
-#' # tpl_get("~/foo")
+#' ## Beware, will take a while
+#' ## tpl_get("~/foo")
 #' }
 
 tpl_get <- function(x, family = NULL) {
@@ -51,11 +52,13 @@ tpl_get <- function(x, family = NULL) {
     csvlinks <- csvlinks[families %in% family]
     families <- families[families %in% family]
   }
-  getcsv <- function(z) {
-    download.file(z, destfile = file.path(x, basename(z)), quiet = TRUE)
-  }
+
   message("Downloading csv files to ", x, "...")
-  dir.create(x)
-  l_ply(csvlinks, getcsv, .progress = "text")
+  dir.create(x, showWarnings = FALSE, recursive = TRUE)
+  l_ply(csvlinks, getcsv, x = x, .progress = "text")
   message("...el fin")
+}
+
+getcsv <- function(z, x) {
+  download.file(z, destfile = file.path(x, basename(z)), quiet = TRUE)
 }
