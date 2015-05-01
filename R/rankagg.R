@@ -8,6 +8,7 @@
 #' @param rank Taxonomic rank to aggregate by (character)
 #' @param fxn Arithmetic function or vector or functions (character)
 #' @examples
+#' library("vegan")
 #' data(dune.taxon, package='vegan')
 #' dat <- dune.taxon
 #' dat$abundance <- round(rlnorm(n=nrow(dat),meanlog=5,sdlog=2),0)
@@ -16,8 +17,7 @@
 #' rankagg(data=dat, "abundance", rank="Genus", fxn="mean")
 #' rankagg(data=dat, "abundance", rank="Class")
 #' rankagg(data=dat, "abundance", rank="Class", fxn="sd")
-rankagg <- function(data=NULL, datacol=NULL, rank=NULL, fxn="sum")
-{
+rankagg <- function(data=NULL, datacol=NULL, rank=NULL, fxn="sum") {
   if(is.null(data) | is.null(rank))
     stop("You must specify your data.frame and taxonomic rank")
   rank <- match.arg(rank, choices=c('Specices','Genus','Tribe','Family','Order','Subclass','Class','Phylum','Kingdom'))

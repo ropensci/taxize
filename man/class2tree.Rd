@@ -34,7 +34,7 @@ An object of class "classtree" with slots:
  \item phylo - The resulting object, a phylo object
  \item classification - The classification data.frame, with taxa as rows, and
  different classification levels as columns
- \item distmat - Distance matrix from a call to \code{\link[vegan]{taxa2dist}}
+ \item distmat - Distance matrix
  \item names - The names of the tips of the phylogeny
 }
 

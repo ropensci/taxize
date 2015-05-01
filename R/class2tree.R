@@ -6,7 +6,6 @@
 #' for more information.
 #'
 #' @import plyr ape
-#' @importFrom vegan taxa2dist
 #' @param input List of classification data.frame's from the function classification().
 #' @param varstep Vary step lengths between successive levels relative to proportional
 #' loss of the number of distinct classes.
@@ -22,7 +21,7 @@
 #'  \item phylo - The resulting object, a phylo object
 #'  \item classification - The classification data.frame, with taxa as rows, and
 #'  different classification levels as columns
-#'  \item distmat - Distance matrix from a call to \code{\link[vegan]{taxa2dist}}
+#'  \item distmat - Distance matrix
 #'  \item names - The names of the tips of the phylogeny
 #' }
 #'
@@ -52,22 +51,21 @@
 #' plot(tr, no.margin=TRUE)
 #' }
 
-class2tree <- function(input, varstep=TRUE, check=TRUE, ...)
-{
-  if(any(is.na(input))){
+class2tree <- function(input, varstep = TRUE, check = TRUE, ...) {
+  if (any(is.na(input))) {
     message('Removed species without classification.')
     input <- input[!is.na(input)]
   }
   # Check that there is more than 2 taxon
-  if(length(input) < 3)
+  if (length(input) < 3)
     stop("Your input list of classifications must be 3 or longer.")
   dat <- rbind.fill(lapply(input, class2tree_helper))
   df <- dat <- dat[ , !apply(dat, 2, function(x) any(is.na(x)))]
   row.names(df) <- df[,1]
   df <- df[,-1]
-  taxdis <- tryCatch(taxa2dist(df, varstep=varstep, check=check), error = function(e) e)
+  taxdis <- tryCatch(taxa2dist(df, varstep = varstep, check = check), error = function(e) e)
   # check for incorrect dimensions error
-  if(is(taxdis, 'simpleError'))
+  if (is(taxdis, 'simpleError'))
     stop("Try check=FALSE, but see docs for taxa2dist function in the vegan package for details.")
   out <- as.phylo.hclust(hclust(taxdis, ...))
   res <- list(phylo = out, classification = dat, distmat = taxdis, names = names(input))
@@ -76,19 +74,18 @@ class2tree <- function(input, varstep=TRUE, check=TRUE, ...)
 }
 
 class2tree_helper <- function(x){
-  x <- x[!x$rank == "no rank",]
+  x <- x[!x$rank == "no rank", ]
   df <- x[-nrow(x), 'name']
   names(df) <- x[-nrow(x), 'rank']
   df <- data.frame(t(data.frame(df)))
-  data.frame(tip = x[nrow(x),"name"], df)
+  data.frame(tip = x[nrow(x), "name"], df)
 }
 
 #' @method plot classtree
 #' @export
 #' @rdname class2tree
-plot.classtree <- function(x, ...)
-{
-  if(!is(x$phylo, "phylo"))
+plot.classtree <- function(x, ...) {
+  if (!is(x$phylo, "phylo"))
     stop("Input object must have a slot in 'phylo' of class 'phylo'")
   plot(x$phylo, ...)
 }
@@ -96,9 +93,57 @@ plot.classtree <- function(x, ...)
 #' @method print classtree
 #' @export
 #' @rdname class2tree
-print.classtree <- function(x, ...)
-{
-  if(!is(x$phylo, "phylo"))
+print.classtree <- function(x, ...) {
+  if (!is(x$phylo, "phylo"))
     stop("Input object must have a slot in 'phylo' of class 'phylo'")
   print(x$phylo)
+}
+
+
+# Function from the vegan package
+# CRAN: http://cran.rstudio.com/web/packages/vegan/
+# License: GPL-2
+# Maintainer:	Jari Oksanen <jari.oksanen at oulu.fi>
+taxa2dist <- function(x, varstep = FALSE, check = TRUE, labels) {
+  rich <- apply(x, 2, function(taxa) length(unique(taxa)))
+  S <- nrow(x)
+  if (check) {
+    keep <- rich < S & rich > 1
+    rich <- rich[keep]
+    x <- x[, keep]
+  }
+  i <- rev(order(rich))
+  x <- x[, i]
+  rich <- rich[i]
+  if (varstep) {
+    add <- -diff(c(nrow(x), rich, 1))
+    add <- add/c(S, rich)
+    add <- add/sum(add) * 100
+  }
+  else {
+    add <- rep(100/(ncol(x) + check), ncol(x) + check)
+  }
+  if (!is.null(names(add)))
+    names(add) <- c("Base", names(add)[-length(add)])
+  if (!check)
+    add <- c(0, add)
+  out <- matrix(add[1], nrow(x), nrow(x))
+  for (i in 1:ncol(x)) {
+    out <- out + add[i + 1] * outer(x[, i], x[, i], "!=")
+  }
+  out <- as.dist(out)
+  attr(out, "method") <- "taxa2dist"
+  attr(out, "steps") <- add
+  if (missing(labels)) {
+    attr(out, "Labels") <- rownames(x)
+  }
+  else {
+    if (length(labels) != nrow(x))
+      warning("Labels are wrong: needed ", nrow(x), " got ",
+              length(labels))
+    attr(out, "Labels") <- as.character(labels)
+  }
+  if (!check && any(out <= 0))
+    warning("you used 'check=FALSE' and some distances are zero -- was this intended?")
+  out
 }

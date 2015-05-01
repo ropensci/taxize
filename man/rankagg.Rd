@@ -20,6 +20,7 @@ Genus, Tribe, etc.) (data.frame)}
 Aggregate data by given taxonomic rank
 }
 \examples{
+library("vegan")
 data(dune.taxon, package='vegan')
 dat <- dune.taxon
 dat$abundance <- round(rlnorm(n=nrow(dat),meanlog=5,sdlog=2),0)
