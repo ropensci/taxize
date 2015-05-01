@@ -75,39 +75,37 @@
 get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA){
   fun <- function(sciname, ask, verbose, rows) {
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
-    df <- gbif_name_suggest(q=sciname, fields = c("key","canonicalName","rank"))
+    df <- gbif_name_suggest(q = sciname, fields = c("key", "canonicalName", "rank", "phylum"))
     df <- sub_rows(df, rows)
 
-    if(is.null(df))
+    if (is.null(df))
       df <- data.frame(NULL)
 
-    if(nrow(df)==0){
+    if (nrow(df) == 0) {
       mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
       id <- NA
       att <- "not found"
-    } else
-    {
+    } else {
       names(df)[1] <- 'gbifid'
       id <- df$gbifid
       att <- "found"
     }
 
     # not found
-    if(length(id) == 0){
+    if (length(id) == 0) {
       mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
       id <- NA
       att <- "not found"
     }
 
     # more than one found -> user input
-    if(length(id) > 1){
+    if (length(id) > 1) {
       # check for exact match
       matchtmp <- df[df$canonicalName %in% sciname, "gbifid"]
-      if(length(matchtmp) == 1){
+      if (length(matchtmp) == 1) {
         id <- as.character(matchtmp)
-      } else
-      {
-        if(ask){
+      } else {
+        if (ask) {
           rownames(df) <- 1:nrow(df)
           # prompt
           message("\n\n")
@@ -116,11 +114,11 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA){
           print(df)
           take <- scan(n = 1, quiet = TRUE, what = 'raw')
 
-          if(length(take) == 0){
+          if (length(take) == 0) {
             take <- 'notake'
             att <- 'nothing chosen'
           }
-          if(take %in% seq_len(nrow(df))){
+          if (take %in% seq_len(nrow(df))) {
             take <- as.numeric(take)
             message("Input accepted, took gbifid '", as.character(df$gbifid[take]), "'.\n")
             id <- as.character(df$gbifid[take])
@@ -136,38 +134,39 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA){
         }
       }
     }
-    c(id=id, att=att)
+    c(id = id, att = att)
   }
   out <- lapply(as.character(sciname), fun, ask, verbose, rows)
-  ids <- structure(sapply(out, "[[", "id"), class="gbifid", match=sapply(out, "[[", "att"))
+  ids <- structure(sapply(out, "[[", "id"), class = "gbifid", match = sapply(out, "[[", "att"))
   add_uri(ids, 'http://www.gbif.org/species/%s')
 }
 
 gbif_name_suggest <- function(q=NULL, datasetKey=NULL, rank=NULL, fields=NULL, start=NULL,
-                         limit=20, callopts=list())
-{
+                         limit=20, callopts=list()) {
   url = 'http://api.gbif.org/v1/species/suggest'
-  args <- compact(list(q=q, rank=rank, offset=start, limit=limit))
-  temp <- GET(url, query=args, callopts)
+  args <- compact(list(q = q, rank = rank, offset = start, limit = limit))
+  temp <- GET(url, query = args, callopts)
   stop_for_status(temp)
   tt <- content(temp)
-  if(is.null(fields)){
-    toget <- c("key","scientificName","rank")
-  } else { toget <- fields }
+  if (is.null(fields)) {
+    toget <- c("key", "scientificName", "rank")
+  } else {
+    toget <- fields
+  }
   matched <- sapply(toget, function(x) x %in% gbif_suggestfields())
-  if(!any(matched))
-    stop(sprintf("the fields %s are not valid", paste0(names(matched[matched == FALSE]),collapse=",")))
+  if (!any(matched))
+    stop(sprintf("the fields %s are not valid", paste0(names(matched[matched == FALSE]), collapse = ",")))
   out <- lapply(tt, function(x) x[names(x) %in% toget])
-  do.call(rbind.fill, lapply(out,data.frame))
+  do.call(rbind.fill, lapply(out, data.frame))
 }
 
-gbif_suggestfields <- function(){
-  c("key","datasetTitle","datasetKey","nubKey","parentKey","parent",
-    "kingdom","phylum","clazz","order","family","genus","species",
-    "kingdomKey","phylumKey","classKey","orderKey","familyKey","genusKey",
-    "speciesKey","scientificName","canonicalName","authorship",
-    "accordingTo","nameType","taxonomicStatus","rank","numDescendants",
-    "numOccurrences","sourceId","nomenclaturalStatus","threatStatuses",
+gbif_suggestfields <- function() {
+  c("key", "datasetTitle", "datasetKey", "nubKey", "parentKey", "parent",
+    "kingdom", "phylum", "clazz", "order", "family", "genus", "species",
+    "kingdomKey", "phylumKey", "classKey", "orderKey", "familyKey", "genusKey",
+    "speciesKey", "scientificName", "canonicalName", "authorship",
+    "accordingTo", "nameType", "taxonomicStatus", "rank", "numDescendants",
+    "numOccurrences", "sourceId", "nomenclaturalStatus", "threatStatuses",
     "synonym")
 }
 

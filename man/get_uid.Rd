@@ -33,7 +33,7 @@ get_uid_(sciname, verbose = TRUE, rows = NA)
 \arguments{
 \item{sciname}{character; scientific name.}
 
-\item{ask}{logical; should get_tsn be run in interactive mode?
+\item{ask}{logical; should get_uid be run in interactive mode?
 If TRUE and more than one TSN is found for the species, the user is asked for
 input. If FALSE NA is returned for multiple matches.}
 

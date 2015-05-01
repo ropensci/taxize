@@ -4,7 +4,7 @@
 #'
 #' @import plyr RCurl
 #' @param sciname character; scientific name.
-#' @param ask logical; should get_tsn be run in interactive mode?
+#' @param ask logical; should get_uid be run in interactive mode?
 #' If TRUE and more than one TSN is found for the species, the user is asked for
 #' input. If FALSE NA is returned for multiple matches.
 #' @param verbose logical; If TRUE the actual taxon queried is printed on the console.
@@ -74,35 +74,18 @@
 #' get_uid_(c("asdfadfasd","Pinus contorta"))
 #' }
 
-get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA){
-  repeat_until_it_works <- function(func, catch, max_tries = 3, wait_time = 10, verbose = TRUE, ...) {
-    error_handler <- function(e) {
-      if (e$message %in% catch) {
-        if (verbose) warning(paste("Caught error:", e$message))
-        return(NA)
-      } else {
-        stop(e$message)
-      }
-    }
-    for (count in 1:max_tries) {
-      output <- tryCatch({func(...)}, error = error_handler)
-      if (!is.na(output)) return(output)
-      Sys.sleep(wait_time * count)
-    }
-    return(output)
-  }
+get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA) {
 
   fun <- function(sciname, ask, verbose, rows) {
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
     sciname <- gsub(" ", "+", sciname)
     searchurl <- paste("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=",
                        sciname, sep = "")
-    # NCBI limits requests to three per second
-    #     xml_result <- xmlParse(getURL(url = searchurl))
     errors_to_catch <- c("Could not resolve host: eutils.ncbi.nlm.nih.gov")
     xml_result <- xmlParse(repeat_until_it_works(getURL,
                                                  catch = errors_to_catch,
                                                  url = searchurl))
+    # NCBI limits requests to three per second
     Sys.sleep(0.33)
     uid <- xpathSApply(xml_result, "//IdList/Id", xmlValue)
     if (length(uid) == 0) { # if taxon name is not found
@@ -112,16 +95,16 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA){
     }
     att <- 'found'
     # not found on ncbi
-    if (length(uid) == 0){
+    if (length(uid) == 0) {
       mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
       uid <- NA
       att <- 'not found'
     }
     # more than one found on ncbi -> user input
-    if(length(uid) > 1){
-      if(ask){
+    if (length(uid) > 1) {
+      if (ask) {
         baseurl <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy"
-        ID <- paste("ID=", paste(uid, collapse= ","), sep = "")
+        ID <- paste("ID=", paste(uid, collapse = ","), sep = "")
         searchurl <- paste(baseurl, ID, sep = "&")
         #         tt <- getURL(searchurl)
         errors_to_catch <- c("Could not resolve host: eutils.ncbi.nlm.nih.gov")
@@ -130,7 +113,7 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA){
                                     url = searchurl)
         ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)
         df <- ldply(xmlToList(ttp), data.frame)
-        df <- df[df$Item..attrs != 'String', c(2,5,7)]
+        df <- df[df$Item..attrs != 'String', c(2, 5, 7)]
         names(df) <- c("UID", "Rank", "Division")
         rownames(df) <- 1:nrow(df)
         # df <- get_rows(df, rows)
@@ -142,11 +125,11 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA){
         print(df)
         take <- scan(n = 1, quiet = TRUE, what = 'raw')
 
-        if(length(take) == 0){
+        if (length(take) == 0) {
           take <- 'notake'
           att <- 'nothing chosen'
         }
-        if(take %in% seq_len(nrow(df))){
+        if (take %in% seq_len(nrow(df))) {
           take <- as.numeric(take)
           message("Input accepted, took UID '", as.character(df$UID[take]), "'.\n")
           uid <- as.character(df$UID[take])
@@ -161,12 +144,29 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA){
         att <- 'NA due to ask=FALSE'
       }
     }
-    return(data.frame(uid, att, stringsAsFactors= FALSE))
+    return(data.frame(uid, att, stringsAsFactors = FALSE))
   }
   sciname <- as.character(sciname)
   outd <- ldply(sciname, fun, ask, verbose, rows)
-  out <- structure(outd$uid, class="uid", match=outd$att)
+  out <- structure(outd$uid, class = "uid", match = outd$att)
   add_uri(out, 'http://www.ncbi.nlm.nih.gov/taxonomy/%s')
+}
+
+repeat_until_it_works <- function(func, catch, max_tries = 3, wait_time = 10, verbose = TRUE, ...) {
+  error_handler <- function(e) {
+    if (e$message %in% catch) {
+      if (verbose) warning(paste("Caught error:", e$message))
+      return(NA)
+    } else {
+      stop(e$message)
+    }
+  }
+  for (count in 1:max_tries) {
+    output <- tryCatch({func(...)}, error = error_handler)
+    if (!is.na(output)) return(output)
+    Sys.sleep(wait_time * count)
+  }
+  return(output)
 }
 
 #' @export
