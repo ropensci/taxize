@@ -244,7 +244,7 @@ classification.eolid <- function(id, key = NULL, callopts = list(), return_id = 
     if(is.na(x)){
       out <- NA
     } else {
-      url = 'http://www.eol.org/api/hierarchy_entries/1.0/'
+      url = 'http://eol.org/api/hierarchy_entries/1.0/'
       key <- getkey(key, "eolApiKey")
       urlget <- paste(url, x, '.json', sep="")
       args <- compact(list(common_names=common_names, synonyms=synonyms))
