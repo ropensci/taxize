@@ -64,10 +64,10 @@
 
 tax_agg <- function(x, rank, db = 'ncbi', verbose=FALSE, ...)
 {
-  if(is.matrix(x))
-  {
-    if(is.null(colnames(x))) stop("The community data matrix must have named columns")
-    x <- data.frame(x, check.names=FALSE)
+  if (is.matrix(x)) {
+    if (is.null(colnames(x)))
+      stop("The community data matrix must have named columns")
+    x <- data.frame(x, check.names = FALSE)
   }
   # bring to long format
   x$rownames <- rownames(x)
@@ -75,7 +75,7 @@ tax_agg <- function(x, rank, db = 'ncbi', verbose=FALSE, ...)
 
   # aggregate to family level (by querying NCBI for taxonomic classification)
   uniq_tax <- as.character(unique(df_m$variable))
-  agg <- tax_name(uniq_tax, get = rank, db = db, verbose=verbose, ...)
+  agg <- tax_name(uniq_tax, get = rank, db = db, verbose = verbose, ...)
   lookup <- data.frame(variable = uniq_tax, agg = agg[ , 3], stringsAsFactors = FALSE)
 
   # merge lookup with orig.
@@ -86,7 +86,7 @@ tax_agg <- function(x, rank, db = 'ncbi', verbose=FALSE, ...)
 
   # bring back to long format and aggregate
   df_l <- dcast(df_merged, rownames ~ agg,
-                value.var='value', fun.aggregate = sum)
+                value.var = 'value', fun.aggregate = sum)
 
   rownames(df_l) <- df_l$rownames
   df_l$rownames <- NULL

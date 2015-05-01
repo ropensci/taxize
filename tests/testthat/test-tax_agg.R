@@ -8,6 +8,9 @@ species <- c("Bellis perennis", "Empetrum nigrum", "Juncus bufonius", "Juncus ar
 "Aira praecox")
 colnames(take) <- species
 out_ncbi <- tax_agg(take, rank = 'family', db = 'ncbi', verbose = FALSE)
+take2 <- take
+colnames(take2) <- NULL
+
 
 
 test_that("tax_agg returns the correct class", {
@@ -21,6 +24,7 @@ test_that("tax_agg returns the correct value", {
   expect_that(nrow(out_ncbi$x), equals(nrow(take)))
   expect_that(nrow(out_ncbi$by), equals(length(unique(colnames(take)))))
   expect_that(out_ncbi$n_pre, equals(length(unique(colnames(take)))))
+  expect_error(tax_agg(as.matrix(take2), rank = 'family', db = 'ncbi', verbose = FALSE))
 })
 
 
