@@ -73,31 +73,30 @@
 get_colid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA){
   fun <- function(sciname, ask, verbose, rows) {
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
-    df <- col_search(name=sciname)[[1]]
+    df <- col_search(name = sciname, response = "full")[[1]]
     df <- sub_rows(df, rows)
 
     rank_taken <- NA
-    if(NROW(df)==0){
+    if (NROW(df) == 0) {
       id <- NA
       att <- "not found"
-    } else
-    {
-      df <- df[,c('id','name','rank','status','source','acc_name')]
-      names(df)[1] <- 'colid'
+    } else {
+      # df <- df[,c('id', 'name', 'rank', 'status', 'source', 'acc_name')]
+      colnames(df)[which(colnames(df) == 'id')] <- 'colid'
       id <- df$colid
       rank_taken <- as.character(df$rank)
       att <- "found"
     }
 
     # not found on col
-    if(all(is.na(id))){
+    if (all(is.na(id))) {
       mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
       id <- NA
       att <- "not found"
     }
     # more than one found -> user input
-    if(length(id) > 1){
-      if(ask){
+    if (length(id) > 1) {
+      if (ask) {
         rownames(df) <- 1:nrow(df)
         # prompt
         message("\n\n")
@@ -106,11 +105,11 @@ get_colid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA){
         print(df)
         take <- scan(n = 1, quiet = TRUE, what = 'raw')
 
-        if(length(take) == 0){
+        if (length(take) == 0) {
           take <- 'notake'
           att <- 'nothing chosen'
         }
-        if(take %in% seq_len(nrow(df))){
+        if (take %in% seq_len(nrow(df))) {
           take <- as.numeric(take)
           message("Input accepted, took colid '", as.character(df$colid[take]), "'.\n")
           id <- as.character(df$colid[take])
@@ -126,7 +125,7 @@ get_colid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA){
         att <- "NA due to ask=FALSE"
       }
     }
-    c(id=id, rank=rank_taken, att=att)
+    c(id = id, rank = rank_taken, att = att)
   }
   sciname <- as.character(sciname)
   out <- lapply(sciname, fun, ask=ask, verbose=verbose, rows=rows)
