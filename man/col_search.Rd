@@ -4,7 +4,8 @@
 \alias{col_search}
 \title{Search Catalogue of Life for taxonomic IDs}
 \usage{
-col_search(name = NULL, id = NULL, start = NULL, checklist = NULL)
+col_search(name = NULL, id = NULL, start = NULL, checklist = NULL,
+  response = "terse", ...)
 }
 \arguments{
 \item{name}{The string to search for. Only exact matches found the name given
@@ -24,6 +25,8 @@ single query is 500 for terse queries and 50 for full queries).}
 
 \item{checklist}{The year of the checklist to query, if you want a specific
 year's checklist instead of the lastest as default (numeric).}
+
+\item{response}{(character) one of "terse" or "full"}
 }
 \value{
 A list of data.frame's.
