@@ -25,7 +25,8 @@
 #' @param ambiguous \code{logical; length 1} If \code{FALSE}, children taxa with words like
 #'   "unclassified", "unknown", "uncultured", or "sp." are removed from the output.
 #'   NOTE: This option only applies when \code{out_type = "summary"}.
-#' @return The output type depends on the value of the \code{out_type} parameter.
+#' @return The output type depends on the value of the \code{out_type} parameter. Taxa that cannot
+#' be found will result in \code{NA}s and a lack of children results in an empty data structure.
 #' @seealso \code{\link{ncbi_get_taxon_summary}}, \code{\link[taxize]{children}}
 #' @examples
 #' \dontrun{
@@ -82,12 +83,17 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
     results <- XML::xmlTreeParse(raw_results, useInternalNodes = TRUE)
     children_uid <- XML::xpathSApply(results, "//eSearchResult/IdList/Id", XML::xmlValue)
     if (length(children_uid) == 0) {
-      output <- NULL
+      if (out_type == "summary") {
+        output <- data.frame(childtaxa_id = numeric(), childtaxa_name = character(),
+                             childtaxa_rank = character())
+      } else {
+        output <- numeric()
+      }
     } else {
       if (out_type == "summary") {
         output <- ncbi_get_taxon_summary(children_uid)
         names(output) <- c("childtaxa_id", "childtaxa_name", "childtaxa_rank")
-        # Remove ambiguous results
+        # Remove ambiguous results  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
         if (!ambiguous) {
           output <- output[!grepl(ambiguous_regex, output$childtaxa_name, ignore.case = TRUE), ]
         }
