@@ -114,7 +114,7 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA) {
         ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)
         df <- ldply(xmlToList(ttp), data.frame)
         df <- df[df$Item..attrs != 'String', c(2, 5, 7)]
-        names(df) <- c("UID", "Rank", "Division")
+        names(df) <- c("uid", "rank", "division")
         rownames(df) <- 1:nrow(df)
         # df <- get_rows(df, rows)
 
@@ -131,8 +131,8 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA) {
         }
         if (take %in% seq_len(nrow(df))) {
           take <- as.numeric(take)
-          message("Input accepted, took UID '", as.character(df$UID[take]), "'.\n")
-          uid <- as.character(df$UID[take])
+          message("Input accepted, took UID '", as.character(df$uid[take]), "'.\n")
+          uid <- as.character(df$uid[take])
           att <- 'found'
         } else {
           uid <- NA
@@ -234,7 +234,7 @@ get_uid_help <- function(sciname, verbose, rows){
     tt <- getURL(searchurl)
     ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)
     df <- ldply(xmlToList(ttp), data.frame)
-    df <- setNames(df[df$Item..attrs != 'String', c(2,5,7)], c("UID", "Rank", "Division"))
+    df <- setNames(df[df$Item..attrs != 'String', c(2,5,7)], c("uid", "rank", "division"))
     sub_rows(df, rows)
   }
 }
