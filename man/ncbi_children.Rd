@@ -32,7 +32,8 @@ if there could be more than one taxon with the same name. Has no effect if \code
 NOTE: This option only applies when \code{out_type = "summary"}.}
 }
 \value{
-The output type depends on the value of the \code{out_type} parameter.
+The output type depends on the value of the \code{out_type} parameter. Taxa that cannot
+be found will result in \code{NA}s and a lack of children results in an empty data structure.
 }
 \description{
 Search the NCBI Taxonomy database for uids of children of taxa. Taxa can be referenced by name
