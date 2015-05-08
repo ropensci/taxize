@@ -47,9 +47,13 @@ A named list of data.frames with the synonyms of every supplied taxa.
 \description{
 Retrieve synonyms from various sources given input taxonomic names or identifiers.
 }
-\note{
+\details{
 If IDs are supplied directly (not from the \code{get_*} functions) you
-   must specify the type of ID.
+must specify the type of ID.
+
+For \code{db = "itis"} you can pass in a parameter \code{accepted} to toggle whether
+only accepted names are used \code{accepted = TRUE}, or if all are used
+\code{accepted = FALSE}. The default is \code{accepted = FALSE}.
 }
 \examples{
 \dontrun{

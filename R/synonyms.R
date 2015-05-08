@@ -13,8 +13,12 @@
 #' gather synonyms.
 #'
 #' @return A named list of data.frames with the synonyms of every supplied taxa.
-#' @note If IDs are supplied directly (not from the \code{get_*} functions) you
-#'    must specify the type of ID.
+#' @details If IDs are supplied directly (not from the \code{get_*} functions) you
+#' must specify the type of ID.
+#'
+#' For \code{db = "itis"} you can pass in a parameter \code{accepted} to toggle whether
+#' only accepted names are used \code{accepted = TRUE}, or if all are used
+#' \code{accepted = FALSE}. The default is \code{accepted = FALSE}.
 #'
 #' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_tpsid}},
 #' \code{\link[taxize]{get_ubioid}}, \code{\link[taxize]{get_nbnid}}

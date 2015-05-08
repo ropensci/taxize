@@ -12,7 +12,7 @@
 \alias{get_tsn_}
 \title{Get the TSN code for a search term.}
 \usage{
-get_tsn(searchterm, searchtype = "scientific", accepted = TRUE,
+get_tsn(searchterm, searchtype = "scientific", accepted = FALSE,
   ask = TRUE, verbose = TRUE, rows = NA, ...)
 
 as.tsn(x, check = TRUE)
@@ -37,8 +37,8 @@ get_tsn_(searchterm, verbose = TRUE, searchtype = "scientific",
 
 \item{searchtype}{character; One of 'scientific' or 'common', or any unique abbreviation}
 
-\item{accepted}{logical; If TRUE (default), removes names that are not accepted valid names
-by ITIS. Set to FALSE to give back both accepted and unaccepted names.}
+\item{accepted}{logical; If TRUE, removes names that are not accepted valid names
+by ITIS. Set to FALSE (default) to give back both accepted and unaccepted names.}
 
 \item{ask}{logical; should get_tsn be run in interactive mode?
 If TRUE and more than one TSN is found for teh species, the user is asked for
