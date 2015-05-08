@@ -34,16 +34,9 @@ tpl_get <- function(x, family = NULL) {
   temp <- GET('http://www.theplantlist.org/1.1/browse/-/')
   temp <- htmlParse(content(temp, "text"))
   families <- xpathSApply(temp, "//ul[@id='nametree']//a", xmlValue)
-
-  hrefs <- xpathSApply(temp, "//ul[@id='nametree']//a", xmlGetAttr, 'href')
-  hrefs <- unlist(unname(Map(function(a, b) {
-    sub("[A-Za-z]+/$", paste0(b, "/"), a)
-  }, hrefs, families)))
-  csvlinks <- sprintf('http://www.theplantlist.org%s%s.csv', hrefs, families)
-
-#   csvlinks <- sprintf('http://www.theplantlist.org%s%s.csv',
-#                       xpathSApply(temp, "//ul[@id='nametree']//a", xmlGetAttr, 'href'),
-#                       families)
+  csvlinks <- sprintf('http://www.theplantlist.org%s%s.csv',
+                      xpathSApply(temp, "//ul[@id='nametree']//a", xmlGetAttr, 'href'),
+                      families)
   if (!is.null(family) && all(!family %in% families)) {
     stop(paste('Requested families not found on TPL.',
                'Use tpl_families() to list plant families indexed by TPL.'),
