@@ -67,6 +67,12 @@ synonyms("Salmo friderici", db='ubio')
 synonyms(c("Salmo friderici",'Carcharodon carcharias','Puma concolor'), db="ubio")
 synonyms("Pinus sylvestris", db='nbn')
 
+# not accepted names, with ITIS
+## looks for whether the name given is an accepted name,
+## and if not, uses the accepted name to look for synonyms
+synonyms("Acer drummondii", db="itis")
+synonyms("Spinus pinus", db="itis")
+
 # Use get_* methods
 synonyms(get_tsn("Poa annua"))
 synonyms(get_tpsid("Poa annua"))

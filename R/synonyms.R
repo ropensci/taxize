@@ -35,6 +35,12 @@
 #' synonyms(c("Salmo friderici",'Carcharodon carcharias','Puma concolor'), db="ubio")
 #' synonyms("Pinus sylvestris", db='nbn')
 #'
+#' # not accepted names, with ITIS
+#' ## looks for whether the name given is an accepted name,
+#' ## and if not, uses the accepted name to look for synonyms
+#' synonyms("Acer drummondii", db="itis")
+#' synonyms("Spinus pinus", db="itis")
+#'
 #' # Use get_* methods
 #' synonyms(get_tsn("Poa annua"))
 #' synonyms(get_tpsid("Poa annua"))
@@ -86,8 +92,14 @@ synonyms.tsn <- function(id, ...)
 {
   fun <- function(x){
     if (is.na(x)) { NA } else {
+      is_acc <- getacceptednamesfromtsn(x, ...)
+      if (is(is_acc, "list")) {
+        x <- is_acc$acceptedTsn
+        message("Accepted name is '", is_acc$acceptedName, "'")
+        message("Using tsn ", is_acc$acceptedTsn, "\n")
+      }
       out <- getsynonymnamesfromtsn(x, ...)
-      if(as.character(out[1,1]) == 'nomatch') names(out) <- c('name','tsn')
+      if (as.character(out[1,1]) == 'nomatch') names(out) <- c('name','tsn')
       out
     }
   }

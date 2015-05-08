@@ -744,20 +744,23 @@ getscientificnamefromtsn <- function(tsn, ...)
 #' }
 #' @export
 #' @keywords internal
-getsynonymnamesfromtsn <- function(tsn, ...)
-{
+getsynonymnamesfromtsn <- function(tsn, ...) {
 	out <- itis_GET("getSynonymNamesFromTSN", list(tsn = tsn), ...)
-  namespaces <- c(ax21="http://data.itis_service.itis.usgs.gov/xsd")
-  nodes <- getNodeSet(out, "//ax21:sciName", namespaces=namespaces)
-  if( length(sapply(nodes, xmlValue)) == 0){ name <- list("nomatch") } else
-    { name <- sapply(nodes, xmlValue) }
-  nodes <- getNodeSet(out, "//ax21:tsn", namespaces=namespaces)
-  if( length(sapply(nodes, xmlValue)) == 1){ tsn <- sapply(nodes, xmlValue) } else
-    {
-      tsn <- sapply(nodes, xmlValue)
-      tsn <- tsn[-1]
-    }
-  data.frame(name=name, tsn=tsn, stringsAsFactors = FALSE)
+  namespaces <- c(ax21 = "http://data.itis_service.itis.usgs.gov/xsd")
+  nodes <- getNodeSet(out, "//ax21:sciName", namespaces = namespaces)
+  if ( length(sapply(nodes, xmlValue)) == 0 ) {
+    name <- list("nomatch")
+  } else {
+    name <- sapply(nodes, xmlValue)
+  }
+  nodes <- getNodeSet(out, "//ax21:tsn", namespaces = namespaces)
+  if ( length(sapply(nodes, xmlValue)) == 1 ) {
+    tsn <- sapply(nodes, xmlValue)
+  } else {
+    tsn <- sapply(nodes, xmlValue)
+    tsn <- tsn[-1]
+  }
+  data.frame(name = name, tsn = tsn, stringsAsFactors = FALSE)
 }
 
 #' Returns the author information for the TSN.
