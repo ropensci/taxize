@@ -14,7 +14,7 @@
 
 tpl_families <- function() {
   temp <- GET('http://www.theplantlist.org/1.1/browse/-/')
-  temp <- htmlParse(content(temp, "text"))
+  temp <- htmlParse(content(temp, "text"), encoding = "UTF-8")
   families <- xpathSApply(temp, "//ul[@id='nametree']//a", xmlValue)
   groups <- as.character(factor(basename(dirname(xpathSApply(temp,
                                                 "//ul[@id='nametree']//a",

@@ -32,7 +32,7 @@
 
 tpl_get <- function(x, family = NULL) {
   temp <- GET('http://www.theplantlist.org/1.1/browse/-/')
-  temp <- htmlParse(content(temp, "text"))
+  temp <- htmlParse(content(temp, "text"), encoding = "UTF-8")
   families <- xpathSApply(temp, "//ul[@id='nametree']//a", xmlValue)
   csvlinks <- sprintf('http://www.theplantlist.org%s%s.csv',
                       xpathSApply(temp, "//ul[@id='nametree']//a", xmlGetAttr, 'href'),
