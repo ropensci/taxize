@@ -19,16 +19,14 @@
 #' }
 #' @export
 
-itis_native <- function(tsn=NULL, what="bytsn", ...)
-{
+itis_native <- function(tsn=NULL, what="bytsn", ...) {
   temp <- switch(what,
          bytsn = lapply(tsn, function(x) getjurisdictionaloriginfromtsn(x, ...)),
          values = getjurisdictionvalues(...),
          originvalues = getjurisdictionoriginvalues(...))
-  if(length(tsn)==1){
+  if (length(tsn) == 1) {
     temp[[1]]
-  } else
-  {
+  } else {
     names(temp) <- tsn
     temp
   }
