@@ -56,6 +56,16 @@ apgFamilies <- function(...) {
   tt <- apg_GET("families", ...)
   tmp <- strsplit(tt, "<font")[[1]]
   tmp2 <- strsplit(tmp[length(tmp)], "<br>")[[1]]
+  # look for any lines missing a <br> tag, and split
+  tmp2 <- unlist(lapply(tmp2, function(z) {
+    if (grepl("</a>\r", z)) {
+      dd <- strsplit(z, "\r\n")[[1]]
+      dd[nchar(dd) != 0]
+    } else {
+      z
+    }
+  }))
+  # remove html tags
   tmp3 <- gsub("(<[^>]*>)|\r|\n|\\.$", "", tmp2)
   # remove stuff not cleaned up
   tmp4 <- tmp3[-grep("Back to", tmp3)]
@@ -76,6 +86,7 @@ apgFamilies <- function(...) {
   syndf$accepted <- syndf$synonym
   syndf$accepted[is.na(syndf$accepted)] <- TRUE
   syndf$accepted[ syndf$accepted != TRUE ] <- FALSE
+  syndf$accepted <- as.logical(syndf$accepted)
   syndf$original <- synorig
   syndf
 }
