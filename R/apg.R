@@ -55,7 +55,7 @@ apgOrders <- function(...) {
 apgFamilies <- function(...) {
   tt <- apg_GET("families", ...)
   tmp <- strsplit(tt, "<font")[[1]]
-  tmp2 <- strsplit(tmp[length(tmp)], "<br>")[[1]]
+  tmp2 <- strsplit(tmp[length(tmp)], "<br>|<br")[[1]]
   # look for any lines missing a <br> tag, and split
   tmp2 <- unlist(lapply(tmp2, function(z) {
     if (grepl("</a>\r", z)) {
