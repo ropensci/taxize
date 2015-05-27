@@ -3,7 +3,7 @@ itbase <- function() 'http://www.itis.gov/ITISWebService/services/ITISService/'
 itis_GET <- function(endpt, args, ...){
   if (length(args) == 0) args <- NULL
   tt <- GET(paste0(itbase(), endpt), query = args, ...)
-  xmlParse(content(tt, "text"))
+  xmlParse(content(tt, "text"), encoding = "UTF-8")
 }
 
 itis_parse <- function(a, b, d){
