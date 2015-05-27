@@ -1,7 +1,5 @@
 #' Get APG names
 #'
-#' FIXME: add function for genera
-#'
 #' Generic names and their replacements from the Angiosperm Phylogeny
 #' Group III system of flowering plant classification.
 #'

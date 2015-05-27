@@ -14,9 +14,6 @@ apgFamilies(...)
 \item{...}{Curl args passed on to \code{\link[httr]{GET}}}
 }
 \description{
-FIXME: add function for genera
-}
-\details{
 Generic names and their replacements from the Angiosperm Phylogeny
 Group III system of flowering plant classification.
 }

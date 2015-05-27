@@ -86,10 +86,10 @@ NULL
 #' @keywords data
 NULL
 
-#' APGIII family names
+#' MOBOT family names
 #'
 #' Family names and their replacements from the Angiosperm Phylogeny
-#' Group III system of flowering plant classification.
+#' Website system of flowering plant classification.
 #'
 #' This dataset is from Version 13, incorporated on 2015-04-29.
 #'
@@ -106,10 +106,10 @@ NULL
 #' @keywords data
 NULL
 
-#' APGIII order names
+#' MOBOT order names
 #'
 #' Order names and their replacements from the Angiosperm Phylogeny
-#' Group III system of flowering plant classification.
+#' Website system of flowering plant classification.
 #'
 #' This dataset is from Version 13, incorporated on 2015-04-29.
 #'

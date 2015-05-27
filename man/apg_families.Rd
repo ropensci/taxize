@@ -3,7 +3,7 @@
 \docType{data}
 \name{apg_families}
 \alias{apg_families}
-\title{APGIII family names}
+\title{MOBOT family names}
 \format{A data frame with 1597 rows and 4 variables:
 \describe{
   \item{original}{original data record from APG website}
@@ -16,7 +16,7 @@
 }
 \description{
 Family names and their replacements from the Angiosperm Phylogeny
-Group III system of flowering plant classification.
+Website system of flowering plant classification.
 }
 \details{
 This dataset is from Version 13, incorporated on 2015-04-29.
