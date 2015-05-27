@@ -61,7 +61,8 @@ only accepted names are used \code{accepted = TRUE}, or if all are used
 \examples{
 \dontrun{
 # Plug in taxon names directly
-synonyms("Poa annua", db="itis")
+synonyms("Pinus contorta", db="itis")
+synonyms("Puma concolor", db="itis")
 synonyms(c("Poa annua",'Pinus contorta','Puma concolor'), db="itis")
 synonyms("Poa annua", db="tropicos")
 synonyms("Pinus contorta", db="tropicos")

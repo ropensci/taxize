@@ -26,7 +26,8 @@
 #' @export
 #' @examples \dontrun{
 #' # Plug in taxon names directly
-#' synonyms("Poa annua", db="itis")
+#' synonyms("Pinus contorta", db="itis")
+#' synonyms("Puma concolor", db="itis")
 #' synonyms(c("Poa annua",'Pinus contorta','Puma concolor'), db="itis")
 #' synonyms("Poa annua", db="tropicos")
 #' synonyms("Pinus contorta", db="tropicos")
@@ -104,12 +105,20 @@ synonyms.tsn <- function(id, ...) {
       is_acc <- getacceptednamesfromtsn(x, ...)
       if (is(is_acc, "list")) {
         x <- is_acc$acceptedTsn
+        accdf <- setNames(data.frame(is_acc, stringsAsFactors = FALSE),
+                          c("sub_tsn", "acc_name", "acc_tsn"))
         message("Accepted name is '", is_acc$acceptedName, "'")
         message("Using tsn ", is_acc$acceptedTsn, "\n")
+      } else {
+        accdf <- data.frame(sub_tsn = x, acc_tsn = x, stringsAsFactors = FALSE)
       }
-      out <- getsynonymnamesfromtsn(x, ...)
-      if (as.character(out[1,1]) == 'nomatch') names(out) <- c('name','tsn')
-      out
+      out <- setNames(getsynonymnamesfromtsn(x, ...), c('syn_name', 'syn_tsn'))
+      if (as.character(out[1,1]) == 'nomatch') out <- data.frame(message = "no syns found", stringsAsFactors = FALSE)
+#       if (is(is_acc, "list")) {
+        cbind(accdf, out)
+#       } else {
+#         out
+#       }
     }
   }
   setNames(lapply(id, fun), id)
