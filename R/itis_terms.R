@@ -1,5 +1,6 @@
 #' Get ITIS terms, i.e., tsn's, authors, common names, and scientific names.
 #'
+#' @export
 #' @param query One or more common or scientific names, or partial names
 #' @param what One of both (search common and scientific names), common (search just
 #'    common names), or scientific (search just scientific names)
@@ -15,20 +16,15 @@
 #' # Get terms searching just scientific names
 #' itis_terms(query='Poa annua', "scientific")
 #' }
-#' @export
-
-itis_terms <- function(query, what="both", ...)
-{
-  what <- match.arg(what, c('both','scientific','common'))
+itis_terms <- function(query, what = "both", ...) {
+  what <- match.arg(what, c('both', 'scientific', 'common'))
   temp <- switch(what,
       both = lapply(query, function(x) getitisterms(x, ...)),
       common = lapply(query, function(x) getitistermsfromcommonname(x, ...)),
       scientific = lapply(query, function(x) getitistermsfromscientificname(x, ...)))
-  if(length(query)==1){
+  if (length(query) == 1) {
     temp[[1]]
-  } else
-  {
-    names(temp) <- query
-    temp
+  } else {
+    setNames(temp, query)
   }
 }
