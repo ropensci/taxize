@@ -2,6 +2,7 @@
 % Please edit documentation in R/synonyms.R
 \name{synonyms}
 \alias{synonyms}
+\alias{synonyms.colid}
 \alias{synonyms.default}
 \alias{synonyms.ids}
 \alias{synonyms.nbnid}
@@ -15,6 +16,8 @@ synonyms(...)
 \method{synonyms}{default}(x, db = NULL, rows = NA, ...)
 
 \method{synonyms}{tsn}(id, ...)
+
+\method{synonyms}{colid}(id, ...)
 
 \method{synonyms}{tpsid}(id, ...)
 
@@ -31,7 +34,7 @@ gather synonyms.}
 \item{x}{character; taxons to query.}
 
 \item{db}{character; database to query. either \code{itis}, \code{tropicos},
-\code{ubio}, or \code{nbn}.}
+\code{ubio}, \code{col}, or \code{nbn}.}
 
 \item{rows}{(numeric) Any number from 1 to inifity. If the default NA, all rows are
 considered. Note that this parameter is ignored if you pass in a taxonomic id of any of the
@@ -66,6 +69,9 @@ synonyms(c("Poa annua",'Pinus contorta'), db="tropicos")
 synonyms("Salmo friderici", db='ubio')
 synonyms(c("Salmo friderici",'Carcharodon carcharias','Puma concolor'), db="ubio")
 synonyms("Pinus sylvestris", db='nbn')
+synonyms("Puma concolor", db='col')
+synonyms("Ursus americanus", db='col')
+synonyms("Amblyomma rotundatum", db='col')
 
 # not accepted names, with ITIS
 ## looks for whether the name given is an accepted name,
@@ -78,6 +84,7 @@ synonyms(get_tsn("Poa annua"))
 synonyms(get_tpsid("Poa annua"))
 synonyms(get_ubioid("Carcharodon carcharias"))
 synonyms(get_nbnid("Carcharodon carcharias"))
+synonyms(get_colid("Ornithodoros lagophilus"))
 
 # Pass many ids from class "ids"
 out <- get_ids(names="Poa annua", db = c('itis','tropicos'))
@@ -87,6 +94,8 @@ synonyms(out)
 synonyms("Poa annua", db='tropicos', rows=1)
 synonyms("Poa annua", db='tropicos', rows=1:3)
 synonyms("Pinus sylvestris", db='nbn', rows=1:3)
+synonyms("Amblyomma rotundatum", db='col', rows=2)
+synonyms("Amblyomma rotundatum", db='col', rows=2:3)
 }
 }
 \seealso{

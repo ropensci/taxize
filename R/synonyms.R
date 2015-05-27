@@ -2,7 +2,7 @@
 #'
 #' @param x character; taxons to query.
 #' @param db character; database to query. either \code{itis}, \code{tropicos},
-#' \code{ubio}, or \code{nbn}.
+#' \code{ubio}, \code{col}, or \code{nbn}.
 #' @param id character; identifiers, returned by \code{\link[taxize]{get_tsn}},
 #'    \code{\link[taxize]{get_tpsid}}, \code{\link[taxize]{get_ubioid}}, or
 #'    \code{\link[taxize]{get_nbnid}}
@@ -34,6 +34,9 @@
 #' synonyms("Salmo friderici", db='ubio')
 #' synonyms(c("Salmo friderici",'Carcharodon carcharias','Puma concolor'), db="ubio")
 #' synonyms("Pinus sylvestris", db='nbn')
+#' synonyms("Puma concolor", db='col')
+#' synonyms("Ursus americanus", db='col')
+#' synonyms("Amblyomma rotundatum", db='col')
 #'
 #' # not accepted names, with ITIS
 #' ## looks for whether the name given is an accepted name,
@@ -46,6 +49,7 @@
 #' synonyms(get_tpsid("Poa annua"))
 #' synonyms(get_ubioid("Carcharodon carcharias"))
 #' synonyms(get_nbnid("Carcharodon carcharias"))
+#' synonyms(get_colid("Ornithodoros lagophilus"))
 #'
 #' # Pass many ids from class "ids"
 #' out <- get_ids(names="Poa annua", db = c('itis','tropicos'))
@@ -55,15 +59,17 @@
 #' synonyms("Poa annua", db='tropicos', rows=1)
 #' synonyms("Poa annua", db='tropicos', rows=1:3)
 #' synonyms("Pinus sylvestris", db='nbn', rows=1:3)
+#' synonyms("Amblyomma rotundatum", db='col', rows=2)
+#' synonyms("Amblyomma rotundatum", db='col', rows=2:3)
 #' }
 
-synonyms <- function(...){
+synonyms <- function(...) {
   UseMethod("synonyms")
 }
 
 #' @export
 #' @rdname synonyms
-synonyms.default <- function(x, db = NULL, rows = NA, ...){
+synonyms.default <- function(x, db = NULL, rows = NA, ...) {
   nstop(db)
   switch(db,
          itis = {
@@ -82,14 +88,17 @@ synonyms.default <- function(x, db = NULL, rows = NA, ...){
            id <- get_nbnid(x, rows = rows, ...)
            setNames(synonyms(id, ...), x)
          },
+         col = {
+           id <- get_colid(x, rows = rows, ...)
+           setNames(synonyms(id, ...), x)
+         },
          stop("the provided db value was not recognised", call. = FALSE)
   )
 }
 
 #' @export
 #' @rdname synonyms
-synonyms.tsn <- function(id, ...)
-{
+synonyms.tsn <- function(id, ...) {
   fun <- function(x){
     if (is.na(x)) { NA } else {
       is_acc <- getacceptednamesfromtsn(x, ...)
@@ -103,57 +112,82 @@ synonyms.tsn <- function(id, ...)
       out
     }
   }
-  tmp <- lapply(id, fun)
-  names(tmp) <- id
-  return(tmp)
+  setNames(lapply(id, fun), id)
 }
 
 #' @export
 #' @rdname synonyms
-synonyms.tpsid <- function(id, ...)
-{
-  fun <- function(x){
-    if (is.na(x)) { NA } else {
+synonyms.colid <- function(id, ...) {
+  fun <- function(x) {
+    if (is.na(x)) {
+      NA
+    } else {
+      col_synonyms(x, ...)
+    }
+  }
+  setNames(lapply(id, fun), id)
+}
+
+col_synonyms <- function(x, ...) {
+  base <- "http://www.catalogueoflife.org/col/webservice"
+  args <- list(id = x, response = "full")
+  res <- GET(base, query = args)
+  stop_for_status(res)
+  out <- xmlParse(content(res, "text"), encoding = "UTF-8")
+  xml <- xpathApply(out, "//synonyms")
+  if (length(xpathApply(xml[[1]], "synonym")) == 0) {
+    NULL
+  } else {
+    nodes <- getNodeSet(xml[[1]], "//synonym")
+    toget <- c("id", "name", "rank", "name_status", "genus", "species", "infraspecies", "author", "url")
+    taxize_ldfast(lapply(nodes, function(z) {
+      data.frame(sapply(toget, function(y) xpathApply(z, y, xmlValue)), stringsAsFactors = FALSE)
+    }))
+  }
+}
+
+#' @export
+#' @rdname synonyms
+synonyms.tpsid <- function(id, ...) {
+  fun <- function(x) {
+    if (is.na(x)) {
+      NA
+    } else {
       tp_synonyms(x, ...)$synonyms
     }
   }
-  tmp <- lapply(id, fun)
-  names(tmp) <- id
-  return(tmp)
+  setNames(lapply(id, fun), id)
 }
 
 #' @export
 #' @rdname synonyms
-synonyms.ubioid <- function(id, ...)
-{
+synonyms.ubioid <- function(id, ...) {
   fun <- function(x){
-    if (is.na(x)) { NA  } else {
+    if (is.na(x)) {
+      NA
+    } else {
       ubio_id(namebankID = x, ...)[['synonyms']]
     }
   }
-  tmp <- lapply(id, fun)
-  names(tmp) <- id
-  return(tmp)
+  setNames(lapply(id, fun), id)
 }
 
 #' @export
 #' @rdname synonyms
-synonyms.nbnid <- function(id, ...)
-{
+synonyms.nbnid <- function(id, ...) {
   fun <- function(x){
-    if (is.na(x)) { NA } else {
+    if (is.na(x)) {
+      NA
+    } else {
       nbn_synonyms(x, ...)
     }
   }
-  tmp <- lapply(id, fun)
-  names(tmp) <- id
-  return(tmp)
+  setNames(lapply(id, fun), id)
 }
 
 #' @export
 #' @rdname synonyms
-synonyms.ids <- function(id, ...)
-{
+synonyms.ids <- function(id, ...) {
   fun <- function(x){
     if (is.na(x)) {
       out <- NA
@@ -162,5 +196,5 @@ synonyms.ids <- function(id, ...)
     }
     return( out )
   }
-  return( lapply(id, fun) )
+  lapply(id, fun)
 }
