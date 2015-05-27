@@ -61,8 +61,6 @@ NULL
 
 #' Lookup-table for IDs of taxonomic ranks
 #'
-
-#'
 #' @name rank_ref
 #' @docType data
 #' @keywords data
@@ -71,10 +69,12 @@ NULL
 #' Lookup-table for family, genus, and species names for ThePlantList
 #'
 #' These names are from \url{http://www.theplantlist.org/}, and are from
-#' version 1 of their data. This data is used in the functions
-#' \code{\link{phylomatic_format}} and \code{\link{names_list}}.
+#' version 1.1 of their data. This data is used in the functions
+#' \code{\link{phylomatic_format}} and \code{\link{names_list}}. This
+#' is a randomly selected subset of the ~350K accepted species names
+#' in Theplantlist.
 #'
-#' @format A data frame with 298,536 rows and 3 variables:
+#' @format A data frame with 10,000 rows and 3 variables:
 #' \describe{
 #'   \item{family}{family name}
 #'   \item{genus}{genus name}
@@ -82,27 +82,6 @@ NULL
 #' }
 #' @source \url{http://www.theplantlist.org/}
 #' @name theplantlist
-#' @docType data
-#' @keywords data
-NULL
-
-#' APGIII generic names
-#'
-#' Generic names and their replacements from the Angiosperm Phylogeny
-#' Group III system of flowering plant classification.
-#'
-#' This dataset is from Version 13, incorporated on 2015-04-29.
-#'
-#' @format A data frame with 20,075 rows and 5 variables:
-#' \describe{
-#'   \item{family}{Family name}
-#'   \item{name}{Genus name}
-#'   \item{replace}{Replacment genus name}
-#'   \item{name_authority}{Authority}
-#'   \item{replace_authority}{Replacement authority}
-#' }
-#' @source \url{http://www.mobot.org/MOBOT/research/APweb/}
-#' @name apg_genera
 #' @docType data
 #' @keywords data
 NULL
