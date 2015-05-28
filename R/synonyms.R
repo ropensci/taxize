@@ -142,7 +142,7 @@ col_synonyms <- function(x, ...) {
   args <- list(id = x, response = "full")
   res <- GET(base, query = args)
   stop_for_status(res)
-  out <- xmlParse(content(res, "text"), encoding = "UTF-8")
+  out <- xmlParse(content(res, "text", encoding = "UTF-8"), encoding = "UTF-8")
   xml <- xpathApply(out, "//synonyms")
   if (length(xpathApply(xml[[1]], "synonym")) == 0) {
     NULL
