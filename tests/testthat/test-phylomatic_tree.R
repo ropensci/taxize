@@ -11,7 +11,7 @@ test_that("phylomatic_tree returns the correct value", {
 	expect_that(tree$tip.label[1], equals("poa_annua"))
 	expect_that(tree$Nnode, equals(2))
 	expect_that(tree2$Nnode, equals(2))
-	expect_that(tree3$Nnode, equals(18))
+	expect_that(tree3$Nnode, equals(16))
 })
 
 test_that("phylomatic_tree GET and POST return identical results", {
@@ -26,5 +26,5 @@ test_that("phylomatic_tree returns the correct class", {
 test_that("phylomatic_tree gets the right dimensions", {
   expect_that(length(tree$tip.label), equals(3))
   expect_that(length(tree2$tip.label), equals(3))
-  expect_that(length(tree3$tip.label), equals(20))
+  expect_that(length(tree3$tip.label), equals(17))
 })

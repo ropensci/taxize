@@ -17,6 +17,7 @@
 #' @param checklist The year of the checklist to query, if you want a specific
 #' 		year's checklist instead of the lastest as default (numeric).
 #' @param response (character) one of "terse" or "full"
+#' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @details You must provide one of name or id. The other parameters (format
 #' 		and start) are optional.
 #' @references \url{http://webservice.catalogueoflife.org/}

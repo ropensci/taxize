@@ -27,6 +27,8 @@ single query is 500 for terse queries and 50 for full queries).}
 year's checklist instead of the lastest as default (numeric).}
 
 \item{response}{(character) one of "terse" or "full"}
+
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
 A list of data.frame's.

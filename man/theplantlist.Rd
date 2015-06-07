@@ -8,7 +8,7 @@
 \describe{
   \item{family}{family name}
   \item{genus}{genus name}
-  \item{sp}{specific epithet name}
+  \item{species}{specific epithet name}
 }}
 \source{
 \url{http://www.theplantlist.org/}

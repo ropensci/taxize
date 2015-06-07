@@ -23,7 +23,7 @@
 names_list <-  function(rank='genus', size=10)
 {
   getsp <- function(size){
-    tmp <- apply(theplantlist[sample(1:nrow(theplantlist), size), c('genus','sp')], 1,
+    tmp <- apply(theplantlist[sample(1:nrow(theplantlist), size), c('genus','species')], 1,
                  function(y) paste(y, collapse = " "))
     names(tmp) <- NULL
     tmp
