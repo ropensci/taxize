@@ -4,7 +4,7 @@ Description: Taxonomic information from around the web. This package
     interacts with a suite of web APIs for taxonomic tasks, such
     as verifying species names, getting taxonomic hierarchies,
     and verifying name spelling.
-Version: 0.5.4.9320
+Version: 0.5.4.9420
 License: MIT + file LICENSE
 URL: https://github.com/ropensci/taxize
 BugReports: https://github.com/ropensci/taxize/issues
