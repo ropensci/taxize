@@ -38,6 +38,26 @@
 #' get_uid("howdy")
 #' get_uid(c("Chironomus riparius", "howdy"))
 #'
+#' # Narrow down results to a division or rank, or both
+#' ## Echinacea example
+#' ### Results w/o narrowing
+#' get_uid("Echinacea")
+#' ### w/ division
+#' get_uid(sciname = "Echinacea", division = "eudicots")
+#' get_uid(sciname = "Echinacea", division = "sea urchins")
+#'
+#' ## Satyrium example
+#' ### Results w/o narrowing
+#' get_uid(sciname = "Satyrium")
+#' ### w/ division
+#' get_uid(sciname = "Satyrium", division = "monocots")
+#' get_uid(sciname = "Satyrium", division = "butterflies")
+#'
+#' ## Rank example
+#' get_uid(sciname = "Pinus")
+#' get_uid(sciname = "Pinus", rank = "genus")
+#' get_uid(sciname = "Pinus", rank = "subgenus")
+#'
 #' # specify rows to limit choices available
 #' get_uid('Dugesia') # user prompt needed
 #' get_uid('Dugesia', rows=1) # 2 choices, so returns only 1 row, so no choices
@@ -73,7 +93,7 @@
 #' get_uid_(c("asdfadfasd","Pinus contorta"))
 #' }
 
-get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA) {
+get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, division = NULL, rank = NULL) {
 
   fun <- function(sciname, ask, verbose, rows) {
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
@@ -112,32 +132,42 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA) {
                                     url = searchurl)
         ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)
         df <- parse_ncbi(ttp)
-#         df <- ldply(xmlToList(ttp), data.frame)
-#         df <- df[df$Item..attrs != 'String', c(2, 5, 7)]
-#         names(df) <- c("uid", "rank", "division")
         rownames(df) <- 1:nrow(df)
-        # df <- get_rows(df, rows)
 
-        # prompt
-        message("\n\n")
-        message("\nMore than one UID found for taxon '", sciname, "'!\n
-            Enter rownumber of taxon (other inputs will return 'NA'):\n")
-        print(df)
-        take <- scan(n = 1, quiet = TRUE, what = 'raw')
-
-        if (length(take) == 0) {
-          take <- 'notake'
-          att <- 'nothing chosen'
-        }
-        if (take %in% seq_len(nrow(df))) {
-          take <- as.numeric(take)
-          message("Input accepted, took UID '", as.character(df$uid[take]), "'.\n")
-          uid <- as.character(df$uid[take])
-          att <- 'found'
+        if (!is.null(division) || !is.null(rank)) {
+          if (!is.null(division)) {
+            if (division %in% df$division) {
+              df <- df[which(df$division %in% division), ]
+            }
+          }
+          if (!is.null(rank)) {
+            if (rank %in% df$rank) {
+              df <- df[which(df$rank %in% rank), ]
+            }
+          }
+          uid <- df$uid
         } else {
-          uid <- NA
-          att <- 'not found'
-          mssg(verbose, "\nReturned 'NA'!\n\n")
+          # prompt
+          message("\n\n")
+          message("\nMore than one UID found for taxon '", sciname, "'!\n
+            Enter rownumber of taxon (other inputs will return 'NA'):\n")
+          print(df)
+          take <- scan(n = 1, quiet = TRUE, what = 'raw')
+
+          if (length(take) == 0) {
+            take <- 'notake'
+            att <- 'nothing chosen'
+          }
+          if (take %in% seq_len(nrow(df))) {
+            take <- as.numeric(take)
+            message("Input accepted, took UID '", as.character(df$uid[take]), "'.\n")
+            uid <- as.character(df$uid[take])
+            att <- 'found'
+          } else {
+            uid <- NA
+            att <- 'not found'
+            mssg(verbose, "\nReturned 'NA'!\n\n")
+          }
         }
       } else {
         uid <- NA
