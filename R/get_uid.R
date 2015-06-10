@@ -42,7 +42,6 @@
 #' get_uid('Dugesia') # user prompt needed
 #' get_uid('Dugesia', rows=1) # 2 choices, so returns only 1 row, so no choices
 #' get_uid('Dugesia', ask = FALSE) # returns NA for multiple matches
-#' get_uid('Dugesia', ask = FALSE) # or specify rows to get data back
 #'
 #' # Go to a website with more info on the taxon
 #' res <- get_uid("Chironomus riparius")
@@ -112,9 +111,10 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA) {
                                     catch = errors_to_catch,
                                     url = searchurl)
         ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)
-        df <- ldply(xmlToList(ttp), data.frame)
-        df <- df[df$Item..attrs != 'String', c(2, 5, 7)]
-        names(df) <- c("uid", "rank", "division")
+        df <- parse_ncbi(ttp)
+#         df <- ldply(xmlToList(ttp), data.frame)
+#         df <- df[df$Item..attrs != 'String', c(2, 5, 7)]
+#         names(df) <- c("uid", "rank", "division")
         rownames(df) <- 1:nrow(df)
         # df <- get_rows(df, rows)
 
@@ -233,8 +233,18 @@ get_uid_help <- function(sciname, verbose, rows){
     searchurl <- paste(baseurl, ID, sep = "&")
     tt <- getURL(searchurl)
     ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)
-    df <- ldply(xmlToList(ttp), data.frame)
-    df <- setNames(df[df$Item..attrs != 'String', c(2,5,7)], c("uid", "rank", "division"))
+    df <- parse_ncbi(ttp)
     sub_rows(df, rows)
   }
+}
+
+parse_ncbi <- function(x) {
+  mget <- c("Status", "Rank", "Division", "ScientificName",
+            "CommonName", "TaxId", "Genus", "Species", "Subsp", "ModificationDate")
+  nget <- paste0('Item[@Name="', mget, "\"]")
+  nodes <- getNodeSet(x, "//DocSum")
+  tmp <- taxize_ldfast(lapply(nodes, function(z) {
+    data.frame(setNames(sapply(nget, function(w) xpathApply(z, w, xmlValue)), tolower(mget)), stringsAsFactors = FALSE)
+  }))
+  rename(tmp, c('taxid' = 'uid'))
 }

@@ -87,8 +87,9 @@ get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
       id <- NA
       att <- 'not found'
     } else {
-      df <- tmp[,c('nameid','scientificname','rankabbreviation','nomenclaturestatusname')]
-      names(df) <- c('tpsid','name','rank','status')
+      df <- tmp[,c('nameid','scientificname','family','rankabbreviation',
+                   'nomenclaturestatusname','author','displaydate')]
+      names(df) <- c('tpsid','name','family','rank','status','author','date')
       id <- df$tpsid
       att <- 'found'
     }

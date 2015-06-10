@@ -75,7 +75,8 @@
 get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA){
   fun <- function(sciname, ask, verbose, rows) {
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
-    df <- gbif_name_suggest(q = sciname, fields = c("key", "canonicalName", "rank", "phylum"))
+    df <- gbif_name_suggest(q = sciname, fields = c("key", "canonicalName", "rank",
+                                                    "class", "phylum", "order", "family"))
     df <- sub_rows(df, rows)
 
     if (is.null(df))

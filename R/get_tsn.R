@@ -38,10 +38,9 @@
 #' get_tsn(splist, verbose=FALSE)
 #'
 #' # specify rows to limit choices available
-#' get_tsn('Poa annua')
-#' get_tsn('Poa annua', rows=1)
-#' get_tsn('Poa annua', rows=25)
-#' get_tsn('Poa annua', rows=1:2)
+#' get_tsn('Arni')
+#' get_tsn('Arni', rows=1)
+#' get_tsn('Arni', rows=1:2)
 #'
 #' # When not found
 #' get_tsn("howdy")
@@ -69,9 +68,9 @@
 #' as.tsn( data.frame(out) )
 #'
 #' # Get all data back
-#' get_tsn_("Poa annua")
-#' get_tsn_("Poa annua", rows=1)
-#' get_tsn_("Poa annua", rows=1:2)
+#' get_tsn_("Arni")
+#' get_tsn_("Arni", rows=1)
+#' get_tsn_("Arni", rows=1:2)
 #' get_tsn_(c("asdfadfasd","Pinus contorta"), rows=1:5)
 #' }
 

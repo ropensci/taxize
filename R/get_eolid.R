@@ -77,31 +77,33 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
 
     ms <- "Not found. Consider checking the spelling or alternate classification"
     datasource <- NA
-    if(all(is.na(tmp))){
+    if (all(is.na(tmp))) {
       mssg(verbose, ms)
       id <- NA
       att <- "not found"
     } else {
       pageids <- tmp[grep(tolower(sciname), tolower(tmp$name)), "pageid"]
 
-      if(length(pageids) == 0){
-        if(nrow(tmp)>0)
+      if (length(pageids) == 0) {
+        if (nrow(tmp) > 0)
         mssg(verbose, paste(ms, sprintf('\nDid find: %s', paste(tmp$name, collapse = "; "))))
         id <- NA
-      } else
-      {
+      } else {
         dfs <- lapply(pageids, function(x) eol_pages(x)$scinames)
         names(dfs) <- pageids
         dfs <- taxize_compact(dfs)
-        if(length(dfs)>1) dfs <- dfs[!sapply(dfs, nrow)==0]
-        dfs <- ldply(dfs)
-        df <- dfs[,c('.id','identifier','scientificname','nameaccordingto')]
-        names(df) <- c('pageid','eolid','name','source')
+        if (length(dfs) > 1) dfs <- dfs[!sapply(dfs, nrow) == 0]
+        df <- ldply(dfs)
+#         df <- dfs[,c('.id','identifier','scientificname','nameaccordingto')]
+#         names(df) <- c('pageid','eolid','name','source')
+        df <- rename(df, c('.id' = 'pageid', 'identifier' = 'eolid',
+                     'scientificname' = 'name', 'nameaccordingto' = 'source',
+                     'taxonrank' = 'rank'))
         df <- getsourceshortnames(df)
         df$source <- as.character(df$source)
         df <- sub_rows(df, rows)
 
-        if(nrow(df) == 0){
+        if (nrow(df) == 0) {
           mssg(verbose, ms)
           id <- NA
         } else{
@@ -112,20 +114,20 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
     }
 
     # not found on eol
-    if(length(id) == 0){
+    if (length(id) == 0) {
       mssg(verbose, ms)
       id <- NA
       att <- 'not found'
     }
     # only one found on eol
-    if(length(id) == 1 & !all(is.na(id))){
+    if (length(id) == 1 & !all(is.na(id))) {
       id <- df$eolid
       datasource <- df$source
       att <- 'found'
     }
     # more than one found on eol -> user input
-    if(length(id) > 1){
-      if(ask){
+    if (length(id) > 1) {
+      if (ask) {
         rownames(df) <- 1:nrow(df)
         # prompt
         message("\n\n")
@@ -134,9 +136,10 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
         print(df)
         take <- scan(n = 1, quiet = TRUE, what = 'raw')
 
-        if(length(take) == 0)
+        if (length(take) == 0) {
           take <- 'notake'
-        if(take %in% seq_len(nrow(df))){
+        }
+        if (take %in% seq_len(nrow(df))) {
           take <- as.numeric(take)
           message("Input accepted, took eolid '", as.character(df$eolid[take]), "'.\n")
           id <- as.character(df$eolid[take])
@@ -156,35 +159,27 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
     list(id = id, source = datasource, att = att)
   }
   sciname <- as.character(sciname)
-  out <- lapply(sciname, fun, ask=ask, verbose=verbose, rows=rows, ...)
+  out <- lapply(sciname, fun, ask = ask, verbose = verbose, rows = rows, ...)
   ids <- unname(sapply(out, "[[", "id"))
   sources <- sapply(out, "[[", "source")
-  ids <- structure(ids, class="eolid", provider=sources, match=pluck(out, "att", ""))
+  ids <- structure(ids, class = "eolid", provider = sources, match = pluck(out, "att", ""))
   add_uri(ids, 'http://eol.org/pages/%s/overview')
-  # s_pids <- names(justids)
-  # newout <- unname(justids)
-#   if( !all(is.na(justids)) ){
-#     lns <- vapply(s_pids, nchar, 1)
-#     attr(newout, 'uri') <- sapply(s_pids, function(x){
-#       if(x > 0) sprintf('http://eol.org/pages/%s/overview', x) else NA
-#     }, USE.NAMES = FALSE)
-#   }
 }
 
 getsourceshortnames <- function(input){
-  lookup <- data.frame(z=c('COL','ITIS','GBIF','NCBI','IUCN'),
-                       b=c('Species 2000 & ITIS Catalogue of Life: April 2013',
+  lookup <- data.frame(z = c('COL','ITIS','GBIF','NCBI','IUCN'),
+                       b = c('Species 2000 & ITIS Catalogue of Life: April 2013',
                            'Integrated Taxonomic Information System (ITIS)',
                            'GBIF Nub Taxonomy',
                            'NCBI Taxonomy',
-                           'IUCN Red List (Species Assessed for Global Conservation)'))
-  bb <- merge(input, lookup, by.x="source", by.y="b")[,-1]
-  names(bb)[4] <- "source"
-  taxize_sort_df(bb, "name")
+                           'IUCN Red List (Species Assessed for Global Conservation)'),
+                       stringsAsFactors = FALSE)
+  bb <- merge(input, lookup, by.x = "source", by.y = "b")[, -1]
+  # names(bb)[4] <- "source"
+  taxize_sort_df(rename(bb, c('z' = 'source')), "name")
 }
 
-taxize_sort_df <- function (data, vars = names(data))
-{
+taxize_sort_df <- function(data, vars = names(data)) {
   if (length(vars) == 0 || is.null(vars))
     return(data)
   data[do.call("order", data[, vars, drop = FALSE]), , drop = FALSE]
@@ -192,27 +187,39 @@ taxize_sort_df <- function (data, vars = names(data))
 
 #' @export
 #' @rdname get_eolid
-as.eolid <- function(x, check=TRUE) UseMethod("as.eolid")
+as.eolid <- function(x, check=TRUE) {
+  UseMethod("as.eolid")
+}
 
 #' @export
 #' @rdname get_eolid
-as.eolid.eolid <- function(x, check=TRUE) x
+as.eolid.eolid <- function(x, check=TRUE) {
+  x
+}
 
 #' @export
 #' @rdname get_eolid
-as.eolid.character <- function(x, check=TRUE) if(length(x) == 1) make_eolid(x, check) else collapse(x, make_eolid, "eolid", check=check)
+as.eolid.character <- function(x, check=TRUE) {
+  if (length(x) == 1) make_eolid(x, check) else collapse(x, make_eolid, "eolid", check = check)
+}
 
 #' @export
 #' @rdname get_eolid
-as.eolid.list <- function(x, check=TRUE) if(length(x) == 1) make_eolid(x, check) else collapse(x, make_eolid, "eolid", check=check)
+as.eolid.list <- function(x, check=TRUE) {
+  if (length(x) == 1) make_eolid(x, check) else collapse(x, make_eolid, "eolid", check = check)
+}
 
 #' @export
 #' @rdname get_eolid
-as.eolid.numeric <- function(x, check=TRUE) as.eolid(as.character(x), check)
+as.eolid.numeric <- function(x, check=TRUE) {
+  as.eolid(as.character(x), check)
+}
 
 #' @export
 #' @rdname get_eolid
-as.eolid.data.frame <- function(x, check=TRUE) structure(x$ids, class="eolid", match=x$match, uri=x$uri)
+as.eolid.data.frame <- function(x, check=TRUE) {
+  structure(x$ids, class = "eolid", match = x$match, uri = x$uri)
+}
 
 #' @export
 #' @rdname get_eolid
@@ -229,7 +236,7 @@ make_eolid <- function(x, check=TRUE) make_generic(x, 'http://eol.org/pages/%s/o
 check_eolid <- function(x){
   url <- sprintf("http://eol.org/api/hierarchy_entries/1.0/%s.json", x)
   tryid <- GET(url)
-  if( tryid$status_code == 200 ) TRUE else FALSE
+  if (tryid$status_code == 200) TRUE else FALSE
 }
 
 #' @export
@@ -242,23 +249,23 @@ get_eolid_help <- function(sciname, verbose, key, rows, ...){
   mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
   tmp <- eol_search(terms = sciname, key, ...)
 
-  if(all(is.na(tmp))){
+  if (all(is.na(tmp))) {
     NULL
   } else {
     pageids <- tmp[grep(tolower(sciname), tolower(tmp$name)), "pageid"]
-    if(length(pageids) == 0){
+    if (length(pageids) == 0) {
       NULL
     } else {
       dfs <- lapply(pageids, function(x) eol_pages(x)$scinames)
       names(dfs) <- pageids
       dfs <- taxize_compact(dfs)
-      if(length(dfs)>1) dfs <- dfs[!sapply(dfs, nrow)==0]
+      if (length(dfs) > 1) dfs <- dfs[!sapply(dfs, nrow) == 0]
       dfs <- ldply(dfs)
       df <- dfs[,c('.id','identifier','scientificname','nameaccordingto')]
       names(df) <- c('pageid','eolid','name','source')
       df <- getsourceshortnames(df)
       df$source <- as.character(df$source)
-      if(NROW(df) == 0) NULL else sub_rows(df, rows)
+      if (NROW(df) == 0) NULL else sub_rows(df, rows)
     }
   }
 }

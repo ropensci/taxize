@@ -76,7 +76,6 @@ get_uid(c("Chironomus riparius", "howdy"))
 get_uid('Dugesia') # user prompt needed
 get_uid('Dugesia', rows=1) # 2 choices, so returns only 1 row, so no choices
 get_uid('Dugesia', ask = FALSE) # returns NA for multiple matches
-get_uid('Dugesia', ask = FALSE) # or specify rows to get data back
 
 # Go to a website with more info on the taxon
 res <- get_uid("Chironomus riparius")
