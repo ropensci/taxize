@@ -4,7 +4,7 @@
 \alias{tp_dist}
 \title{Return all distribution records for for a taxon name with a given id.}
 \usage{
-tp_dist(id, key = NULL, callopts = list())
+tp_dist(id, key = NULL, ...)
 }
 \arguments{
 \item{id}{the taxon identifier code}
@@ -12,7 +12,7 @@ tp_dist(id, key = NULL, callopts = list())
 \item{key}{Your Tropicos API key; loads from .Rprofile. Or you can passin your
 key in this arg.}
 
-\item{callopts}{Further args passed on to httr::GET}
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
 List of two data.frame's, one named "location", and one "reference".

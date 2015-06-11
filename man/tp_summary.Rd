@@ -4,14 +4,14 @@
 \alias{tp_summary}
 \title{Return summary data a taxon name with a given id.}
 \usage{
-tp_summary(id, key = NULL, callopts = list())
+tp_summary(id, key = NULL, ...)
 }
 \arguments{
 \item{id}{the taxon identifier code}
 
 \item{key}{Your Tropicos API key; loads from .Rprofile.}
 
-\item{callopts}{Curl options.}
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
 A data.frame.

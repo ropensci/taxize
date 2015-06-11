@@ -1,6 +1,5 @@
 #' Return all synonyms for a taxon name with a given id.
 #'
-#' @import XML RCurl jsonlite plyr
 #' @export
 #'
 #' @param id the taxon identifier code

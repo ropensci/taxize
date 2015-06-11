@@ -1,6 +1,5 @@
 #' Return all accepted names for a taxon name with a given id.
 #'
-#' @import httr plyr jsonlite
 #' @export
 #' @param id the taxon identifier code
 #' @param key Your Tropicos API key; loads from .Rprofile.

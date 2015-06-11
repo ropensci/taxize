@@ -2,7 +2,6 @@
 #'
 #' THIS FUNCTION IS DEFUNCT.
 #'
-#' @import httr plyr
 #' @param id A Tropicos name ID
 #' @param key Your Tropicos API key; loads from .Rprofile.
 #' @param callopts Further args passed on to httr::GET

@@ -1,29 +1,28 @@
 #' Return all reference records for for a taxon name with a given id.
 #'
-#' @import httr plyr jsonlite
 #' @export
 #'
 #' @param id the taxon identifier code
 #' @param key Your Tropicos API key; loads from .Rprofile.
-#' @param callopts Curl options.
+#' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @return List or dataframe.
 #' @examples \dontrun{
 #' tp_refs(id = 25509881)
 #' }
-tp_refs <- function(id, key = NULL, callopts=list())
+tp_refs <- function(id, key = NULL, ...)
 {
   url = sprintf('http://services.tropicos.org/Name/%s/References', id)
 	key <- getkey(key, "tropicosApiKey")
 
   args <- taxize_compact(list(apikey = key, format = 'json'))
-  tmp <- GET(url, query = args, callopts)
+  tmp <- GET(url, query = args, ...)
   stop_for_status(tmp)
   tmp2 <- content(tmp, as = "text")
   res <- jsonlite::fromJSON(tmp2, FALSE)
   do.call(rbind.fill, lapply(res, function(x){
     x <- x$Reference
     names(x) <- tolower(names(x))
-    data.frame(x, stringsAsFactors=FALSE)
+    data.frame(x, stringsAsFactors = FALSE)
   }))
 }
 

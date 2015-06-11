@@ -1,6 +1,5 @@
 #' Search Tropicos by scientific name, common name, or Tropicos ID.
 #'
-#' @import httr plyr
 #' @export
 #'
 #' @param name Your search string. For instance "poa annua"
