@@ -35,7 +35,7 @@ A list of data.frame's/strings with results, with each element named by
 the input elements to the name parameter.
 }
 \description{
-See Details for important information.
+THIS FUNCTION IS DEFUNCT.
 }
 \details{
 IMPORTANT: When you get a returned NaN for a taxon, that means it's not on the invasive list
@@ -98,4 +98,5 @@ eol_invasive(name=c('Lymantria dispar','Cygnus olor','Hydrilla verticillata','Pi
 \references{
 See info for each data source at \url{http://eol.org/collections/55367/taxa}
 }
+\keyword{internal}
 

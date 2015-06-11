@@ -1,6 +1,6 @@
 #' Search for presence of taxonomic names in EOL invasive species databases.
 #'
-#' See Details for important information.
+#' THIS FUNCTION IS DEFUNCT.
 #'
 #' @export
 #' @param name A taxonomic name, or a vector of names.
@@ -60,7 +60,8 @@
 #' @return A list of data.frame's/strings with results, with each element named by
 #' the input elements to the name parameter.
 #' @references See info for each data source at \url{http://eol.org/collections/55367/taxa}
-#' @rdname eol_invasive-deprecated
+#' @rdname eol_invasive-defunct
+#' @keywords internal
 #'
 #' @examples \dontrun{
 #' eol_invasive(name='Brassica oleracea', dataset='gisd')
@@ -81,70 +82,71 @@
 
 eol_invasive <- function(name = NULL, dataset="all", searchby = grep, page=NULL,
   per_page=NULL, key = NULL, verbose=TRUE, count=FALSE, ...) {
-  .Deprecated(msg="This function is deprecated - will be removed in a future version of this pacakge. See ?`taxize-deprecated`")
 
-  if(is.null(name)) stop("please provide a taxonomic name")
-  if(is.null(dataset)) stop("please provide a dataset name")
-  datasetid <- switch(dataset,
-           all = 55367,
-           gisd100 = 54500,
-           gisd = 54983,
-           isc = 55180,
-           daisie = 55179,
-           i3n = 55176,
-           mineps = 55331)
-  url = 'http://eol.org/api/collections/1.0.json'
-  key <- getkey(key, "eolApiKey")
+  .Defunct("eol_invasive_", "traits", msg = "This function is defunct. See traits::eol_invasive_()")
 
-  args <- taxize_compact(list(id=datasetid, page=page, per_page=500, filter='taxa', key=key))
-  tt <- GET(url, query = args, ...)
-  res <- jsonlite::fromJSON(content(tt, as="text"), FALSE)
-  data_init <- res$collection_items
-  mssg(verbose, sprintf("Getting data for %s names...", res$total_items))
-
-  pages_left <- function(){
-    tot <- res$total_items
-    got <- length(res$collection_items)
-    if(got < tot){
-      seq(1, ceiling((tot-got)/500), 1)+1
-    }
-  }
-  pages_get <- pages_left()
-
-  if (!is.null(pages_get)) {
-    out <- list()
-    for (i in seq_along(pages_get)) {
-      args <- compact(list(id=datasetid,page=pages_get[i],per_page=500,filter='taxa'))
-      tt <- GET(url, query = args, ...)
-      res <- jsonlite::fromJSON(content(tt, as="text"), FALSE)
-      out[[i]] <- res$collection_items
-    }
-    res2 <- taxize_compact(out)
-    dat_all <- do.call(c, list(data_init, do.call(c, res2)))
-    dat_all <- lapply(dat_all, "[", c("name","object_id"))
-    dat <- do.call(rbind, lapply(dat_all, data.frame, stringsAsFactors=FALSE))
-  } else {
-    dat_all <- lapply(data_init, "[", c("name","object_id"))
-    dat <- do.call(rbind, lapply(dat_all, data.frame, stringsAsFactors=FALSE))
-  }
-
-  # search by name
-  getmatches <- function(x, y){
-    matched <- eval(y)(x, dat$name)
-    if (identical(matched, integer(0))) {
-      dff <- data.frame(name = x, object_id = NaN)
-      dff$name <- as.character(dff$name)
-      dff
-    } else {
-      dat[matched, ]
-    }
-  }
-  tmp <- lapply(name, getmatches, y = searchby)
-  names(tmp) <- name
-  df <- ldply(tmp)
-  df$db <- dataset
-  names(df)[c(1, 3)] <- c("searched_name", "eol_object_id")
-  df
-
-  if (!count) df else length(na.omit(df$eol_object_id))
+#   if(is.null(name)) stop("please provide a taxonomic name")
+#   if(is.null(dataset)) stop("please provide a dataset name")
+#   datasetid <- switch(dataset,
+#            all = 55367,
+#            gisd100 = 54500,
+#            gisd = 54983,
+#            isc = 55180,
+#            daisie = 55179,
+#            i3n = 55176,
+#            mineps = 55331)
+#   url = 'http://eol.org/api/collections/1.0.json'
+#   key <- getkey(key, "eolApiKey")
+#
+#   args <- taxize_compact(list(id=datasetid, page=page, per_page=500, filter='taxa', key=key))
+#   tt <- GET(url, query = args, ...)
+#   res <- jsonlite::fromJSON(content(tt, as="text"), FALSE)
+#   data_init <- res$collection_items
+#   mssg(verbose, sprintf("Getting data for %s names...", res$total_items))
+#
+#   pages_left <- function(){
+#     tot <- res$total_items
+#     got <- length(res$collection_items)
+#     if(got < tot){
+#       seq(1, ceiling((tot-got)/500), 1)+1
+#     }
+#   }
+#   pages_get <- pages_left()
+#
+#   if (!is.null(pages_get)) {
+#     out <- list()
+#     for (i in seq_along(pages_get)) {
+#       args <- compact(list(id=datasetid,page=pages_get[i],per_page=500,filter='taxa'))
+#       tt <- GET(url, query = args, ...)
+#       res <- jsonlite::fromJSON(content(tt, as="text"), FALSE)
+#       out[[i]] <- res$collection_items
+#     }
+#     res2 <- taxize_compact(out)
+#     dat_all <- do.call(c, list(data_init, do.call(c, res2)))
+#     dat_all <- lapply(dat_all, "[", c("name","object_id"))
+#     dat <- do.call(rbind, lapply(dat_all, data.frame, stringsAsFactors=FALSE))
+#   } else {
+#     dat_all <- lapply(data_init, "[", c("name","object_id"))
+#     dat <- do.call(rbind, lapply(dat_all, data.frame, stringsAsFactors=FALSE))
+#   }
+#
+#   # search by name
+#   getmatches <- function(x, y){
+#     matched <- eval(y)(x, dat$name)
+#     if (identical(matched, integer(0))) {
+#       dff <- data.frame(name = x, object_id = NaN)
+#       dff$name <- as.character(dff$name)
+#       dff
+#     } else {
+#       dat[matched, ]
+#     }
+#   }
+#   tmp <- lapply(name, getmatches, y = searchby)
+#   names(tmp) <- name
+#   df <- ldply(tmp)
+#   df$db <- dataset
+#   names(df)[c(1, 3)] <- c("searched_name", "eol_object_id")
+#   df
+#
+#   if (!count) df else length(na.omit(df$eol_object_id))
 }

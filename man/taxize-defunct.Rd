@@ -16,6 +16,11 @@ The following functions are now defunct (no longer available):
  \item \code{\link{get_seqs}}: This function changed name to \code{\link{ncbi_getbyname}}.
  \item \code{\link{get_genes}}: This function changed name to \code{\link{ncbi_getbyid}}.
  \item \code{\link{get_genes_avail}}: This function changed name to \code{\link{ncbi_search}}.
+ \item \code{\link{ncbi_getbyname}}: See \code{ncbi_byname} in the \code{traits} package.
+ \item \code{\link{ncbi_getbyid}}: See \code{ncbi_byid} in the \code{traits} package.
+ \item \code{\link{ncbi_search}}: See \code{ncbi_searcher} in the \code{traits} package.
+ \item \code{\link{eol_invasive}}: See \code{eol_invasive_} in the \code{traits} package.
+ \item \code{\link{gisd_isinvasive}}: See \code{g_invasive} in the \code{traits} package.
 }
 }
 

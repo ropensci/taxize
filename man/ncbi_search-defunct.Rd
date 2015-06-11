@@ -42,7 +42,7 @@ available, since this filtering is done after searching NCBI.}
   multiple inputs are given.
 }
 \description{
-Search for gene sequences available for taxa from NCBI.
+THIS FUNCTION IS DEFUNCT.
 }
 \examples{
 \dontrun{
@@ -85,4 +85,5 @@ Scott Chamberlain \email{myrmecocystus@gmail.com}, Zachary Foster
 \seealso{
 \code{\link[taxize]{ncbi_getbyid}}, \code{\link[taxize]{ncbi_getbyname}}
 }
+\keyword{internal}
 

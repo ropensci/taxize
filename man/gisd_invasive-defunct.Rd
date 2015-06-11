@@ -41,6 +41,9 @@ Note that \code{eol_invasive} with source of gisd or gisd100 may end up with dif
 as this function goes directly to the GISD website, whereas eol_invasive only updates their
 GISD data occassionally. See notes in \code{eol_invasive}.
 }
+\details{
+THIS FUNCTION IS DEFUNCT.
+}
 \examples{
 \dontrun{
 sp <- c("Carpobrotus edulis", "Rosmarinus officinalis")
@@ -55,4 +58,5 @@ Ignasi Bartomeus \email{nacho.bartomeus@gmail.com}
 \seealso{
 \code{eol_invasive}
 }
+\keyword{internal}
 

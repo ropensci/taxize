@@ -157,23 +157,10 @@ NULL
 #' The following functions are now deprecated:
 #'
 #' \itemize{
-#'  \item \code{\link{ncbi_getbyname}}: This function is deprecated and will be removed in a future
-#'  version of this package.
-#'  \item \code{\link{ncbi_getbyid}}: This function is deprecated and will be removed in a future
-#'  version of this package.
-#'  \item \code{\link{ncbi_search}}: This function is deprecated and will be removed in a future
-#'  version of this package.
-#'  \item \code{\link{phylomatic_tree}}: This function is deprecated and will be removed in a future
-#'  version of this package.
-#'  \item \code{\link{eol_invasive}}: This function is deprecated and will be removed in a future
-#'  version of this package.
-#'  \item \code{\link{gisd_isinvasive}}: This function is deprecated and will be removed in a future
-#'  version of this package.
+#'  \item \code{\link{phylomatic_tree}}: This function is deprecated and will be removed
+#'  in a future version of this package. Use this same function in another package called
+#'  \code{branching} (see \url{https://github.com/ropensci/branching}).
 #' }
-#'
-#' All of the above functions will be available in an R package in development called traits
-#' \url{https://github.com/ropensci/traits} that will be available on CRAN before these functions
-#' are made defunct here.
 #'
 #' @name taxize-deprecated
 NULL
@@ -191,6 +178,11 @@ NULL
 #'  \item \code{\link{get_seqs}}: This function changed name to \code{\link{ncbi_getbyname}}.
 #'  \item \code{\link{get_genes}}: This function changed name to \code{\link{ncbi_getbyid}}.
 #'  \item \code{\link{get_genes_avail}}: This function changed name to \code{\link{ncbi_search}}.
+#'  \item \code{\link{ncbi_getbyname}}: See \code{ncbi_byname} in the \code{traits} package.
+#'  \item \code{\link{ncbi_getbyid}}: See \code{ncbi_byid} in the \code{traits} package.
+#'  \item \code{\link{ncbi_search}}: See \code{ncbi_searcher} in the \code{traits} package.
+#'  \item \code{\link{eol_invasive}}: See \code{eol_invasive_} in the \code{traits} package.
+#'  \item \code{\link{gisd_isinvasive}}: See \code{g_invasive} in the \code{traits} package.
 #' }
 #'
 #' @name taxize-defunct

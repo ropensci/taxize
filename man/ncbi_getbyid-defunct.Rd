@@ -17,7 +17,7 @@ ncbi_getbyid(ids, format = "fasta", verbose = TRUE)
 Data.frame of results.
 }
 \description{
-Retrieve gene sequences from NCBI by accession number.
+THIS FUNCTION IS DEFUNCT.
 }
 \details{
 Removes predicted sequences so you don't have to remove them.
@@ -40,4 +40,5 @@ Scott Chamberlain \email{myrmecocystus@gmail.com}
 \seealso{
 \code{\link[taxize]{ncbi_search}}, \code{\link[taxize]{ncbi_getbyname}}
 }
+\keyword{internal}
 

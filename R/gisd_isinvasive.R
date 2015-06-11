@@ -1,6 +1,7 @@
 #' Check invasive species status for a set of species from GISD database
 #'
-#' @import plyr XML RCurl
+#' THIS FUNCTION IS DEFUNCT.
+#'
 #' @export
 #'
 #' @param x character; a vector of scientific species names in the form of
@@ -35,7 +36,8 @@
 #'
 #' @author Ignasi Bartomeus \email{nacho.bartomeus@@gmail.com}
 #' @seealso \code{eol_invasive}
-#' @rdname gisd_invasive-deprecated
+#' @rdname gisd_invasive-defunct
+#' @keywords internal
 #' @examples \dontrun{
 #' sp <- c("Carpobrotus edulis", "Rosmarinus officinalis")
 #' ## first species is invasive, second one is not.
@@ -46,32 +48,32 @@
 
 gisd_isinvasive <- function(x, simplify = FALSE, verbose=TRUE)
 {
-  .Deprecated(msg="This function is deprecated - will be removed in a future version of this pacakge. See ?`taxize-deprecated`")
+  .Defunct("g_invasive", "traits", msg = "This function is defunct. See traits::g_invasive()")
 
-	species <- gsub(" ", "+", x) # reformat sp list
-	# create urls to parse
-	urls <- paste("http://www.issg.org/database/species/search.asp?sts=sss&st=sss&fr=1&x=13&y=9&sn=",
-								species, "&rn=&hci=-1&ei=-1&lang=EN", sep = "")
-	# create a data.frame to store the Output
-	out <- data.frame(species = x, status = c(1:length(urls)))
-	#loop through all species
-	for(i in 1:length(urls)){
-		#Parse url and extract table
-		doc <- htmlTreeParse(urls[i], useInternalNodes = TRUE)
-		if(length(getNodeSet(doc, "//span[@class='SearchTitle']")) > 0){
-			out[i, 2] <- "Not in GISD"
-		}
-		else{
-			if(simplify == FALSE){
-			  one <- getNodeSet(doc, "//span[@class='ListNote']", fun=xmlValue)[[1]]
-			  two <- paste(getNodeSet(doc, "//span[@class='Info']", fun=xmlValue), collapse="; ")
-			  out[i, 2] <- paste(one, two, sep="; ")
-			} else {
-        out[i, 2] <- "Invasive"
-			}
-		}
-		mssg(verbose, paste("Checking species", i))
-	}
-	mssg(verbose, "Done")
-	return(out)
+# 	species <- gsub(" ", "+", x) # reformat sp list
+# 	# create urls to parse
+# 	urls <- paste("http://www.issg.org/database/species/search.asp?sts=sss&st=sss&fr=1&x=13&y=9&sn=",
+# 								species, "&rn=&hci=-1&ei=-1&lang=EN", sep = "")
+# 	# create a data.frame to store the Output
+# 	out <- data.frame(species = x, status = c(1:length(urls)))
+# 	#loop through all species
+# 	for(i in 1:length(urls)){
+# 		#Parse url and extract table
+# 		doc <- htmlTreeParse(urls[i], useInternalNodes = TRUE)
+# 		if(length(getNodeSet(doc, "//span[@class='SearchTitle']")) > 0){
+# 			out[i, 2] <- "Not in GISD"
+# 		}
+# 		else{
+# 			if(simplify == FALSE){
+# 			  one <- getNodeSet(doc, "//span[@class='ListNote']", fun=xmlValue)[[1]]
+# 			  two <- paste(getNodeSet(doc, "//span[@class='Info']", fun=xmlValue), collapse="; ")
+# 			  out[i, 2] <- paste(one, two, sep="; ")
+# 			} else {
+#         out[i, 2] <- "Invasive"
+# 			}
+# 		}
+# 		mssg(verbose, paste("Checking species", i))
+# 	}
+# 	mssg(verbose, "Done")
+# 	return(out)
 }

@@ -8,22 +8,9 @@ The following functions are now deprecated:
 }
 \details{
 \itemize{
- \item \code{\link{ncbi_getbyname}}: This function is deprecated and will be removed in a future
- version of this package.
- \item \code{\link{ncbi_getbyid}}: This function is deprecated and will be removed in a future
- version of this package.
- \item \code{\link{ncbi_search}}: This function is deprecated and will be removed in a future
- version of this package.
- \item \code{\link{phylomatic_tree}}: This function is deprecated and will be removed in a future
- version of this package.
- \item \code{\link{eol_invasive}}: This function is deprecated and will be removed in a future
- version of this package.
- \item \code{\link{gisd_isinvasive}}: This function is deprecated and will be removed in a future
- version of this package.
+ \item \code{\link{phylomatic_tree}}: This function is deprecated and will be removed
+ in a future version of this package. Use this same function in another package called
+ \code{branching} (see \url{https://github.com/ropensci/branching}).
 }
-
-All of the above functions will be available in an R package in development called traits
-\url{https://github.com/ropensci/traits} that will be available on CRAN before these functions
-are made defunct here.
 }
 
