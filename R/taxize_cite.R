@@ -255,7 +255,7 @@ data_licenses <- function(x){
 c_itis_url <- "http://www.itis.gov/"
 c_itis_api <- "http://www.itis.gov/ws_description.html"
 c_itis_citation <- "Retrieved [month, day, year], from the Integrated Taxonomic Information System on-line database, http://www.itis.gov."
-c_itis <- list(url_home = itis_url, apidocs = itis_api, citation = itis_citation)
+c_itis <- list(url_home = c_itis_url, apidocs = c_itis_api, citation = c_itis_citation)
 c_eol <- list(url_home = 'http://eol.org/', apidocs = 'http://eol.org/api/')
 c_gbif = list(url_home = 'http://www.gbif.org', apidocs = 'http://www.gbif.org/developer/summary',
               citation = 'GBIF (2013). GBIF (Ed.), Global Biodiversity Information Facility Data Portal (2013)',
