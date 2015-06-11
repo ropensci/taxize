@@ -97,6 +97,11 @@ synonyms("Poa annua", db='tropicos', rows=1:3)
 synonyms("Pinus sylvestris", db='nbn', rows=1:3)
 synonyms("Amblyomma rotundatum", db='col', rows=2)
 synonyms("Amblyomma rotundatum", db='col', rows=2:3)
+
+# Use curl options
+synonyms("Poa annua", db='tropicos', rows=1, config=verbose())
+synonyms("Poa annua", db='itis', rows=1, config=verbose())
+synonyms("Poa annua", db='col', rows=1, config=verbose())
 }
 }
 \seealso{
