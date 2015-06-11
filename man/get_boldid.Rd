@@ -124,6 +124,11 @@ get_boldid("Satyrium", division = "Animals")
 get_boldid("Osmia", fuzzy = TRUE)
 get_boldid("Osmia", fuzzy = TRUE, rank = "genus")
 
+# Fuzzy filter on any filtering fields
+## uses grep on the inside
+get_boldid("Satyrium", division = "anim")
+get_boldid("Aga", fuzzy = TRUE, parent = "*idae")
+
 # Convert a boldid without class information to a boldid class
 as.boldid(get_boldid("Agapostemon")) # already a boldid, returns the same
 as.boldid(get_boldid(c("Agapostemon","Quercus douglasii"))) # same

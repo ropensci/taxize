@@ -77,6 +77,11 @@
 #' get_boldid("Osmia", fuzzy = TRUE)
 #' get_boldid("Osmia", fuzzy = TRUE, rank = "genus")
 #'
+#' # Fuzzy filter on any filtering fields
+#' ## uses grep on the inside
+#' get_boldid("Satyrium", division = "anim")
+#' get_boldid("Aga", fuzzy = TRUE, parent = "*idae")
+#'
 #' # Convert a boldid without class information to a boldid class
 #' as.boldid(get_boldid("Agapostemon")) # already a boldid, returns the same
 #' as.boldid(get_boldid(c("Agapostemon","Quercus douglasii"))) # same
@@ -163,13 +168,10 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes='basic', includeTree
         # multiple matches
         if (any(
           nrow(bold_df) > 1 & is.na(boldid) |
-            nrow(bold_df) > 1 & att == "found" & length(boldid) > 1
+          nrow(bold_df) > 1 & att == "found" & length(boldid) > 1
         )) {
           if (ask) {
             names(bold_df)[grep('taxon', names(bold_df))] <- "target"
-            # user prompt
-            bold_df <- bold_df[order(bold_df$target), ]
-            rownames(bold_df) <- 1:nrow(bold_df)
 
             if (!is.null(division) || !is.null(parent) || !is.null(rank)) {
               bold_df <- filt(bold_df, "division", division)
@@ -181,6 +183,9 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes='basic', includeTree
               }
             }
 
+            # user prompt
+            bold_df <- bold_df[order(bold_df$target), ]
+            rownames(bold_df) <- 1:nrow(bold_df)
             if (length(boldid) > 1 || NROW(bold_df) > 1) {
               # prompt
               message("\n\n")

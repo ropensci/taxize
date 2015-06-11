@@ -44,7 +44,7 @@
 #' get_colid(sciname='Poa annua')
 #' get_colid(sciname='Pinus contorta')
 #' get_colid(sciname='Puma concolor')
-#' get_colid(sciname="Abudefduf saxatilis")
+#' # get_colid(sciname="Abudefduf saxatilis")
 #'
 #' get_colid(c("Poa annua", "Pinus contorta"))
 #'
@@ -70,6 +70,10 @@
 #' get_colid("Poa")
 #' get_colid("Poa", kingdom = "Plantae")
 #' get_colid("Poa", kingdom = "Animalia")
+#'
+#' # Fuzzy filter on any filtering fields
+#' ## uses grep on the inside
+#' get_colid("Satyrium", kingdom = "p")
 #'
 #' # Convert a uid without class information to a uid class
 #' as.colid(get_colid("Chironomus riparius")) # already a uid, returns the same
@@ -105,15 +109,14 @@ get_colid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
     df <- col_search(name = sciname, response = "full")[[1]]
     df <- sub_rows(df, rows)
-    df <- setNames(df, tolower(names(df)))
-    df <- rename(df, c("id" = "colid"))
 
     rank_taken <- NA
     if (NROW(df) == 0) {
       id <- NA
       att <- "not found"
     } else {
-      # df <- df[,c('id', 'name', 'rank', 'status', 'source', 'acc_name')]
+      df <- setNames(df, tolower(names(df)))
+      df <- rename(df, c("id" = "colid"))
       colnames(df)[which(colnames(df) == 'id')] <- 'colid'
       id <- df$colid
       rank_taken <- as.character(df$rank)

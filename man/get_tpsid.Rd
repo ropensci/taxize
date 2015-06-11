@@ -104,6 +104,11 @@ get_tpsid("Poa", family = "Iridaceae")
 get_tpsid("Poa", family = "Orchidaceae")
 get_tpsid("Poa", family = "Orchidaceae", rank = "gen.")
 
+# Fuzzy filter on any filtering fields
+## uses grep on the inside
+get_tpsid("Poa", family = "orchidaceae")
+get_tpsid("Aga", fuzzy = TRUE, parent = "*idae")
+
 # pass to classification function to get a taxonomic hierarchy
 classification(get_tpsid(sciname='Poa annua'))
 

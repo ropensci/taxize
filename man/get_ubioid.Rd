@@ -109,6 +109,11 @@ get_ubioid("Zootoca vivipara", family = "Reptilia")
 get_ubioid("Zootoca vivipara", family = "Reptilia", rank = "species")
 get_ubioid("Zootoca vivipara", family = "Lacertidae", rank = "species")
 
+# Fuzzy filter on any filtering fields
+## uses grep on the inside
+get_ubioid("Satyrium", family = "*idae")
+get_ubioid("Satyrium", family = "*tera")
+
 # Using common names
 get_ubioid(searchterm="great white shark", searchtype="common")
 get_ubioid(searchterm=c("bull shark", "whale shark"), searchtype="common")

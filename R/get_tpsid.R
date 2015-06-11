@@ -63,6 +63,11 @@
 #' get_tpsid("Poa", family = "Orchidaceae")
 #' get_tpsid("Poa", family = "Orchidaceae", rank = "gen.")
 #'
+#' # Fuzzy filter on any filtering fields
+#' ## uses grep on the inside
+#' get_tpsid("Poa", family = "orchidaceae")
+#' get_tpsid("Aga", fuzzy = TRUE, parent = "*idae")
+#'
 #' # pass to classification function to get a taxonomic hierarchy
 #' classification(get_tpsid(sciname='Poa annua'))
 #'
@@ -127,7 +132,6 @@ get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
     # more than one found on tropicos -> user input
     if (length(id) > 1) {
       if (ask) {
-        rownames(df) <- 1:nrow(df)
 
         if (!is.null(family) || !is.null(rank)) {
           df <- filt(df, "family", family)
@@ -144,6 +148,7 @@ get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
           message("\n\n")
           message("\nMore than one tpsid found for taxon '", sciname, "'!\n
           Enter rownumber of taxon (other inputs will return 'NA'):\n")
+          rownames(df) <- 1:nrow(df)
           print(df)
           take <- scan(n = 1, quiet = TRUE, what = 'raw')
 

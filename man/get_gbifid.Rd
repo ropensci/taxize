@@ -118,6 +118,12 @@ get_gbifid("Poa", rank = "order")
 get_gbifid("Poa", rank = "family")
 get_gbifid("Poa", family = "Coccidae")
 
+# Fuzzy filter on any filtering fields
+## uses grep on the inside
+get_gbifid("Satyrium", phylum = "arthropoda")
+get_gbifid("Poa", order = "*tera")
+get_gbifid("Poa", order = "*ales")
+
 # Convert a uid without class information to a uid class
 as.gbifid(get_gbifid("Poa annua")) # already a uid, returns the same
 as.gbifid(get_gbifid(c("Poa annua","Puma concolor"))) # same

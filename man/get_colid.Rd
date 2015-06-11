@@ -88,7 +88,7 @@ the data down to a subset that is closer to the target you want.
 get_colid(sciname='Poa annua')
 get_colid(sciname='Pinus contorta')
 get_colid(sciname='Puma concolor')
-get_colid(sciname="Abudefduf saxatilis")
+# get_colid(sciname="Abudefduf saxatilis")
 
 get_colid(c("Poa annua", "Pinus contorta"))
 
@@ -114,6 +114,10 @@ get_colid("Satyrium", kingdom = "Animalia")
 get_colid("Poa")
 get_colid("Poa", kingdom = "Plantae")
 get_colid("Poa", kingdom = "Animalia")
+
+# Fuzzy filter on any filtering fields
+## uses grep on the inside
+get_colid("Satyrium", kingdom = "p")
 
 # Convert a uid without class information to a uid class
 as.colid(get_colid("Chironomus riparius")) # already a uid, returns the same

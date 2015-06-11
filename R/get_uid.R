@@ -68,6 +68,10 @@
 #' get_uid(sciname = "Pinus", rank = "genus")
 #' get_uid(sciname = "Pinus", rank = "subgenus")
 #'
+#' # Fuzzy filter on any filtering fields
+#' ## uses grep on the inside
+#' get_uid("Satyrium", division = "m")
+#'
 #' # specify rows to limit choices available
 #' get_uid('Dugesia') # user prompt needed
 #' get_uid('Dugesia', rows=1) # 2 choices, so returns only 1 row, so no choices

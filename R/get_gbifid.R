@@ -75,6 +75,12 @@
 #' get_gbifid("Poa", rank = "family")
 #' get_gbifid("Poa", family = "Coccidae")
 #'
+#' # Fuzzy filter on any filtering fields
+#' ## uses grep on the inside
+#' get_gbifid("Satyrium", phylum = "arthropoda")
+#' get_gbifid("Poa", order = "*tera")
+#' get_gbifid("Poa", order = "*ales")
+#'
 #' # Convert a uid without class information to a uid class
 #' as.gbifid(get_gbifid("Poa annua")) # already a uid, returns the same
 #' as.gbifid(get_gbifid(c("Poa annua","Puma concolor"))) # same
@@ -139,8 +145,6 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
         id <- as.character(matchtmp)
       } else {
         if (ask) {
-          rownames(df) <- 1:nrow(df)
-
           if (!is.null(phylum) || !is.null(class) || !is.null(order) ||
               !is.null(family) || !is.null(rank)) {
             df <- filt(df, "phylum", phylum)
@@ -160,6 +164,7 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
             message("\n\n")
             message("\nMore than one eolid found for taxon '", sciname, "'!\n
             Enter rownumber of taxon (other inputs will return 'NA'):\n")
+            rownames(df) <- 1:nrow(df)
             print(df)
             take <- scan(n = 1, quiet = TRUE, what = 'raw')
 
