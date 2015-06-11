@@ -85,6 +85,11 @@ ipni_ping("content")
 vascan_ping()
 vascan_ping(200)
 vascan_ping("content")
+
+# curl options
+library("httr")
+vascan_ping(config=verbose())
+eol_ping(500, config=verbose())
 }
 }
 

@@ -4,6 +4,7 @@
 #' using eutils esummary.
 #'
 #' @param id (character) NCBI taxonomy uids to retrieve information for.
+#' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @return A \code{data.frame} with the following rows:
 #'   \describe{
 #'     \item{uid}{The uid queried for}
@@ -13,10 +14,14 @@
 #' @examples
 #' \dontrun{
 #' ncbi_get_taxon_summary(c(1430660, 4751))
+#'
+#' # use curl options
+#' library("httr")
+#' ncbi_get_taxon_summary(c(1430660, 4751), config = verbose())
 #' }
 #' @author Zachary Foster \email{zacharyfoster1989@@Sgmail.com}
 #' @export
-ncbi_get_taxon_summary <- function(id) {
+ncbi_get_taxon_summary <- function(id, ...) {
   # Argument validation ----------------------------------------------------------------------------
   if (is.null(id)) return(NULL)
   if (length(id) <= 1 && is.na(id)) return(NA)
@@ -25,7 +30,9 @@ ncbi_get_taxon_summary <- function(id) {
   base_url <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy"
   query <- paste0(base_url, "&id=", paste(id, collapse = "+"))
   # Search ncbi taxonomy for uid -------------------------------------------------------------------
-  raw_results <- RCurl::getURL(query)
+  rr <- GET(query, ...)
+  stop_for_status(rr)
+  raw_results <- content(rr, "text")
   # Parse results ----------------------------------------------------------------------------------
   results <- XML::xmlTreeParse(raw_results, useInternalNodes = TRUE)
   output <- data.frame(stringsAsFactors = FALSE,

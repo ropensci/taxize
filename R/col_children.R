@@ -20,6 +20,7 @@
 #' 		single query is 500 for terse queries and 50 for full queries).
 #' @param checklist The year of the checklist to query, if you want a specific
 #' 		year's checklist instead of the lastest as default (numeric).
+#' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @details You must provide one of name or id. The other parameters (format
 #' 		and start) are optional.
 #' @return A list of data.frame's.
@@ -48,10 +49,10 @@
 #' @export
 
 col_children <- function(name = NULL, id = NULL, format = NULL, start = NULL,
-	checklist = NULL)
+	checklist = NULL, ...)
 {
   url = "http://www.catalogueoflife.org/col/webservice"
-	func <- function(x, y) {
+	func <- function(x, y, ...) {
 		if(is.null(checklist)){NULL} else {
 			cc <- match.arg(checklist, choices=c(2012,2011,2010,2009,2008,2007))
 			if(cc %in% c(2012,2011,2010)){
@@ -64,8 +65,9 @@ col_children <- function(name = NULL, id = NULL, format = NULL, start = NULL,
 		}
 
 		args <- compact(list(name=x, id=y, format=format, response="full", start=start))
-		out <- getForm(url, .params = args)
-		tt <- xmlParse(out)
+		out <- GET(url, query = args, ...)
+		stop_for_status(out)
+		tt <- xmlParse(content(out, "text"))
 
 		childtaxa_id <- xpathSApply(tt, "//child_taxa//id", xmlValue)
 		childtaxa_name <- xpathSApply(tt, "//child_taxa//name", xmlValue)
@@ -74,11 +76,11 @@ col_children <- function(name = NULL, id = NULL, format = NULL, start = NULL,
 	}
 	safe_func <- plyr::failwith(NULL, func)
 	if(is.null(id)){
-		temp <- llply(name, safe_func, y=NULL)
+		temp <- llply(name, safe_func, y=NULL, ...)
 		names(temp) <- name
 		temp
 	} else {
-		temp <- llply(id, safe_func, x=NULL)
+		temp <- llply(id, safe_func, x=NULL, ...)
 		names(temp) <- id
 		temp
 	}

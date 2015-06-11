@@ -40,6 +40,9 @@
 #' # Use rows parameter to select certain
 #' upstream('Poa annua', db = 'col', upto = 'Genus')
 #' upstream('Poa annua', db = 'col', upto = 'Genus', rows=1)
+#'
+#' # use curl options
+#' res <- upstream('Poa annua', db = 'col', upto = 'Genus', config=verbose())
 #' }
 upstream <- function(...) UseMethod("upstream")
 

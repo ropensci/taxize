@@ -37,6 +37,13 @@ comm2sci(commnames=c('black bear', 'roe deer'))
 # Output easily converts to a data.frame with \\code{\\link[plyr]{ldply}}
 library(plyr)
 ldply(comm2sci(commnames=c('annual blue grass','tree of heaven'), db='tropicos'))
+
+# Use curl options
+library("httr")
+comm2sci(commnames='black bear', config=verbose())
+comm2sci(commnames='black bear', db="itis", config=verbose())
+comm2sci(commnames='bear', db="ncbi", config=verbose())
+comm2sci(commnames='annual blue grass', db="tropicos", config=verbose())
 }
 }
 \author{

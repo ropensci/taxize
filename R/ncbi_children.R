@@ -25,6 +25,7 @@
 #' @param ambiguous \code{logical; length 1} If \code{FALSE}, children taxa with words like
 #'   "unclassified", "unknown", "uncultured", or "sp." are removed from the output.
 #'   NOTE: This option only applies when \code{out_type = "summary"}.
+#' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @return The output type depends on the value of the \code{out_type} parameter. Taxa that cannot
 #' be found will result in \code{NA}s and a lack of children results in an empty data structure.
 #' @seealso \code{\link{ncbi_get_taxon_summary}}, \code{\link[taxize]{children}}
@@ -34,11 +35,16 @@
 #' ncbi_children(name="Satyrium", ancestor="Eumaeini") # A genus of butterflies
 #' ncbi_children(name="Satyrium", ancestor="Orchidaceae") # A genus of orchids
 #' ncbi_children(id="266948") #"266948" is the uid for the butterfly genus
-#' ncbi_children(id="62858") #"62858" is the uid for the orchid genus}
+#' ncbi_children(id="62858") #"62858" is the uid for the orchid genus
+#'
+#' # use curl options
+#' library("httr")
+#' ncbi_children(name="Satyrium", ancestor="Eumaeini", config=verbose())
+#' }
 #' @author Zachary Foster \email{zacharyfoster1989@@gmail.com}
 #' @export
 ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
-                          ancestor = NULL, out_type = c("summary", "uid"), ambiguous = FALSE) {
+                          ancestor = NULL, out_type = c("summary", "uid"), ambiguous = FALSE, ...) {
   # Constants --------------------------------------------------------------------------------------
   ambiguous_regex <- paste(sep = "|", "unclassified", "environmental", "uncultured", "unknown",
                            "unidentified", "candidate", "sp\\.", "s\\.l\\.", "sensu lato", "clone",
@@ -64,7 +70,7 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
     ancestor <- rep(NA, length(name))
   }
   # Function to search for queries one at a time ---------------------------------------------------
-  single_search <- function(name, ancestor) {
+  single_search <- function(name, ancestor, ...) {
     if (is.na(name)) return(NA)
     # Make eutils esearch query  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     if (is.na(ancestor)) {
@@ -75,10 +81,12 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
     taxon_query <- paste0("term=", name, "[Next+Level]", ancestor_query)
     max_return_query <- paste0("RetMax=", max_return)
     start_query <- paste0("RetStart=", start)
-    query <- paste(base_url, taxon_query, max_return_query, start_query, sep="&")
+    query <- paste(base_url, taxon_query, max_return_query, start_query, sep = "&")
     query <- gsub(" ", "+", query) #spaces must be replaced with '+'
     # Search ncbi for children - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    raw_results <- RCurl::getURL(query)
+    rr <- GET(query, ...)
+    stop_for_status(rr)
+    raw_results <- content(rr, "text")
     # Parse results  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     results <- XML::xmlTreeParse(raw_results, useInternalNodes = TRUE)
     children_uid <- XML::xpathSApply(results, "//eSearchResult/IdList/Id", XML::xmlValue)
@@ -91,7 +99,7 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
       }
     } else {
       if (out_type == "summary") {
-        output <- ncbi_get_taxon_summary(children_uid)
+        output <- ncbi_get_taxon_summary(children_uid, ...)
         names(output) <- c("childtaxa_id", "childtaxa_name", "childtaxa_rank")
         # Remove ambiguous results  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
         if (!ambiguous) {
@@ -106,7 +114,11 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
     return(output)
   }
   #Combine the result of multiple searches ----------------------------------------------------------
-  output <- Map(single_search, name, ancestor)
+  # output <- Map(single_search, name, ancestor)
+  output <- list()
+  for (i in seq_along(name)) {
+    output[[i]] <- single_search(name[[i]], ancestor[[i]], ...)
+  }
   if (is.null(id)) names(output) <- name else names(output) <- id
   return(output)
 }

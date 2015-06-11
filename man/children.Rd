@@ -75,6 +75,11 @@ children(get_ids("Apis", db = c('col','itis')))
 # Use the rows parameter
 children("Poa", db = 'col')
 children("Poa", db = 'col', rows=1)
+
+# use curl options
+res <- children("Poa", db = 'col', rows=1, config=verbose())
+res <- children("Salmo", db = 'itis', config=verbose())
+res <- children("Salmo", db = 'ncbi', config=verbose())
 }
 }
 

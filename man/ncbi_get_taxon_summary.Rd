@@ -4,10 +4,12 @@
 \alias{ncbi_get_taxon_summary}
 \title{NCBI taxon information from uids}
 \usage{
-ncbi_get_taxon_summary(id)
+ncbi_get_taxon_summary(id, ...)
 }
 \arguments{
 \item{id}{(character) NCBI taxonomy uids to retrieve information for.}
+
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
 A \code{data.frame} with the following rows:
@@ -24,6 +26,10 @@ using eutils esummary.
 \examples{
 \dontrun{
 ncbi_get_taxon_summary(c(1430660, 4751))
+
+# use curl options
+library("httr")
+ncbi_get_taxon_summary(c(1430660, 4751), config = verbose())
 }
 }
 \author{

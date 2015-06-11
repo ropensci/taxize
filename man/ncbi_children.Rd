@@ -5,7 +5,7 @@
 \title{Search NCBI for children of a taxon}
 \usage{
 ncbi_children(name = NULL, id = NULL, start = 0, max_return = 1000,
-  ancestor = NULL, out_type = c("summary", "uid"), ambiguous = FALSE)
+  ancestor = NULL, out_type = c("summary", "uid"), ambiguous = FALSE, ...)
 }
 \arguments{
 \item{name}{(\code{character}) The string to search for. Only exact matches found the name given
@@ -30,6 +30,8 @@ if there could be more than one taxon with the same name. Has no effect if \code
 \item{ambiguous}{\code{logical; length 1} If \code{FALSE}, children taxa with words like
 "unclassified", "unknown", "uncultured", or "sp." are removed from the output.
 NOTE: This option only applies when \code{out_type = "summary"}.}
+
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
 The output type depends on the value of the \code{out_type} parameter. Taxa that cannot
@@ -52,7 +54,12 @@ ncbi_children(name="Satyrium") #Satyrium is the name of two different genera
 ncbi_children(name="Satyrium", ancestor="Eumaeini") # A genus of butterflies
 ncbi_children(name="Satyrium", ancestor="Orchidaceae") # A genus of orchids
 ncbi_children(id="266948") #"266948" is the uid for the butterfly genus
-ncbi_children(id="62858") #"62858" is the uid for the orchid genus}
+ncbi_children(id="62858") #"62858" is the uid for the orchid genus
+
+# use curl options
+library("httr")
+ncbi_children(name="Satyrium", ancestor="Eumaeini", config=verbose())
+}
 }
 \author{
 Zachary Foster \email{zacharyfoster1989@gmail.com}

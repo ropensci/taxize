@@ -40,6 +40,12 @@
 #'
 #' # Don't simplify returned
 #' sci2comm(get_tsn('Helianthus annuus'), simplify=FALSE)
+#'
+#' # Use curl options
+#' library("httr")
+#' sci2comm(scinames='Helianthus annuus', config=verbose())
+#' sci2comm('Helianthus annuus', db="itis", config=verbose())
+#' sci2comm('Helianthus annuus', db="ncbi", config=verbose())
 #' }
 #' @rdname sci2comm
 sci2comm <- function(...){

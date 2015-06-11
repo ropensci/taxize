@@ -71,6 +71,10 @@
 #' ## note how in the second function call you don't get the prompt
 #' downstream("Poa", db = 'col', downto="Species")
 #' downstream("Poa", db = 'col', downto="Species", rows=1)
+#'
+#' # use curl options
+#' res <- downstream("Apis", db = 'col', downto = 'Species', config=verbose())
+#' res <- downstream("Apis", db = 'itis', downto = 'Species', config=verbose())
 #' }
 downstream <- function(...){
   UseMethod("downstream")

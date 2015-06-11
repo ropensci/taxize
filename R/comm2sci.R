@@ -26,6 +26,13 @@
 #' # Output easily converts to a data.frame with \code{\link[plyr]{ldply}}
 #' library(plyr)
 #' ldply(comm2sci(commnames=c('annual blue grass','tree of heaven'), db='tropicos'))
+#'
+#' # Use curl options
+#' library("httr")
+#' comm2sci(commnames='black bear', config=verbose())
+#' comm2sci(commnames='black bear', db="itis", config=verbose())
+#' comm2sci(commnames='bear', db="ncbi", config=verbose())
+#' comm2sci(commnames='annual blue grass', db="tropicos", config=verbose())
 #' }
 
 comm2sci <- function(commnames, db='eol', itisby='search', simplify=TRUE, ...)
@@ -37,17 +44,19 @@ comm2sci <- function(commnames, db='eol', itisby='search', simplify=TRUE, ...)
                   end = searchbycommonnameendswith(x, ...))
     # remove empty tsn slots
     tsns <- as.character(tmp$tsn)
-    tsns <- tsns[!sapply(tsns, nchar)==0]
+    tsns <- tsns[!sapply(tsns, nchar) == 0]
     # get scientific names
     tmp <- do.call(rbind, lapply(tsns, getscientificnamefromtsn))
-    if(simplify){
+    if (simplify) {
       as.character(tmp$combinedName)
-    } else{ tmp }
+    } else{
+      tmp
+    }
   }
 
   ncbi2sci <- function(x, simplify, ...){
     uid <- get_uid(x, ...)
-    if(is.na(uid))
+    if (is.na(uid))
       return(NA)
     baseurl <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy"
     ID <- paste("ID=", uid, sep = "")
@@ -63,24 +72,28 @@ comm2sci <- function(commnames, db='eol', itisby='search', simplify=TRUE, ...)
 
   eol_search_ <- function(simplify, ...){
     tmp <- eol_search(...)
-    if(simplify){
+    if (simplify) {
       as.character(tmp$name)
-    } else{ tmp }
+    } else {
+      tmp
+    }
   }
 
   tp_search_ <- function(simplify, ...){
     tmp <- tp_search(...)
-    if(simplify){
+    if (simplify) {
       as.character(tmp$scientificname)
-    } else{ tmp }
+    } else{
+      tmp
+    }
   }
 
   getsci <- function(nn, ...){
     switch(db,
-           eol = eol_search_(terms=nn, simplify, ...),
+           eol = eol_search_(terms = nn, simplify, ...),
            itis = foo(nn, itisby, simplify, ...),
            tropicos = tp_search_(simplify, commonname = nn, ...),
-           ncbi = ncbi2sci(nn))
+           ncbi = ncbi2sci(nn, ...))
   }
   temp <- lapply(commnames, function(x) getsci(x, ...))
   names(temp) <- commnames

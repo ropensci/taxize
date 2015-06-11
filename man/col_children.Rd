@@ -5,7 +5,7 @@
 \title{Search Catalogue of Life for for direct children of a particular taxon.}
 \usage{
 col_children(name = NULL, id = NULL, format = NULL, start = NULL,
-  checklist = NULL)
+  checklist = NULL, ...)
 }
 \arguments{
 \item{name}{The string to search for. Only exact matches found the name given
@@ -31,6 +31,8 @@ single query is 500 for terse queries and 50 for full queries).}
 
 \item{checklist}{The year of the checklist to query, if you want a specific
 year's checklist instead of the lastest as default (numeric).}
+
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
 A list of data.frame's.

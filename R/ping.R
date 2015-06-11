@@ -38,6 +38,11 @@
 #' vascan_ping()
 #' vascan_ping(200)
 #' vascan_ping("content")
+#'
+#' # curl options
+#' library("httr")
+#' vascan_ping(config=verbose())
+#' eol_ping(500, config=verbose())
 #' }
 
 #' @export
@@ -150,7 +155,7 @@ ipni_ping <- function(what = "status", ...) {
 #' @export
 #' @rdname ping
 vascan_ping <- function(what = "status", ...) {
-  res <- GET("http://data.canadensys.net/vascan/api/0.1/search.json?q=Crataegus")
+  res <- GET("http://data.canadensys.net/vascan/api/0.1/search.json?q=Crataegus", ...)
   switch(matchwhat(what),
          status = match_status(res),
          code = match_code(res, what),
