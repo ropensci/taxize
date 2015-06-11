@@ -24,13 +24,13 @@ classification(...)
 
 \method{classification}{tsn}(id, callopts = list(), return_id = TRUE, ...)
 
-\method{classification}{uid}(id, return_id = TRUE, ...)
+\method{classification}{uid}(id, callopts = list(), return_id = TRUE, ...)
 
 \method{classification}{eolid}(id, key = NULL, callopts = list(),
   return_id = TRUE, ...)
 
 \method{classification}{colid}(id, start = NULL, checklist = NULL,
-  return_id = TRUE, ...)
+  callopts = list(), return_id = TRUE, ...)
 
 \method{classification}{tpsid}(id, key = NULL, callopts = list(),
   return_id = TRUE, ...)

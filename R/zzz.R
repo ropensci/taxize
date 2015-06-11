@@ -242,14 +242,20 @@ filt <- function(df, rank, z) {
   }
 }
 
-# filt <- function(df, rank, z) {
-#   if (!is.null(z)) {
-#     if (tolower(z) %in% tolower(df[,rank])) {
-#       df[which(tolower(df[,rank]) %in% tolower(z)), ]
-#     } else {
-#       df
-#     }
-#   } else {
-#     df
-#   }
-# }
+# failwith replacment ------------------
+try_default <- function(expr, default, quiet = FALSE){
+  result <- default
+  if (quiet) {
+    tryCatch(result <- expr, error = function(e) {
+    })
+  }
+  else {
+    try(result <- expr)
+  }
+  result
+}
+
+failwith <- function(default = NULL, f, quiet = FALSE){
+  f <- match.fun(f)
+  function(...) try_default(f(...), default, quiet = quiet)
+}

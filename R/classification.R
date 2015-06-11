@@ -143,7 +143,7 @@ classification.default <- function(x, db = NULL, callopts=list(), return_id = TR
          },
          ncbi = {
            id <- process_ids(x, get_uid, rows = rows, ...)
-           setNames(classification(id, return_id=return_id, ...), x)
+           setNames(classification(id, callopts=callopts, return_id=return_id, ...), x)
          },
          eol = {
            id <- process_ids(x, get_eolid, rows = rows, ...)
@@ -151,7 +151,7 @@ classification.default <- function(x, db = NULL, callopts=list(), return_id = TR
          },
          col = {
            id <- process_ids(x, get_colid, rows = rows, ...)
-           setNames(classification(id, return_id=return_id, ...), x)
+           setNames(classification(id, callopts=callopts, return_id=return_id, ...), x)
          },
          tropicos = {
            id <- process_ids(x, get_tpsid, rows = rows, ...)
@@ -182,14 +182,13 @@ process_ids <- function(input, fxn, ...){
 
 #' @export
 #' @rdname classification
-classification.tsn <- function(id, callopts = list(), return_id = TRUE, ...)
-{
-  fun <- function(x){
+classification.tsn <- function(id, callopts = list(), return_id = TRUE, ...) {
+  fun <- function(x, callopts){
     # return NA if NA is supplied
     if (is.na(x)) {
       out <- NA
     } else {
-      out <- getfullhierarchyfromtsn(x, curlopts = callopts, ...)
+      out <- getfullhierarchyfromtsn(x, callopts, ...)
       # remove overhang
       out <- out[1:which(out$tsn == x), c('taxonName', 'rankName', 'tsn')]
       names(out) <- c('name', 'rank', 'id')
@@ -198,23 +197,24 @@ classification.tsn <- function(id, callopts = list(), return_id = TRUE, ...)
       return(out)
     }
   }
-  out <- lapply(id, fun)
+  out <- lapply(id, fun, callopts = callopts)
   names(out) <- id
-  structure(out, class='classification', db='itis')
+  structure(out, class = 'classification', db = 'itis')
 }
 
 #' @export
 #' @rdname classification
-classification.uid <- function(id, return_id = TRUE, ...) {
-  fun <- function(x){
+classification.uid <- function(id, callopts = list(), return_id = TRUE, ...) {
+  fun <- function(x, callopts){
     # return NA if NA is supplied
-    if(is.na(x)){
+    if (is.na(x)) {
       out <- NA
     } else {
       baseurl <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy"
       ID <- paste("ID=", x, sep = "")
       searchurl <- paste(baseurl, ID, sep = "&")
-      tt <- getURL(searchurl)
+      # tt <- getURL(searchurl)
+      tt <- GET(searchurl, callopts)
       ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)
       out <- data.frame(name = xpathSApply(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/ScientificName", xmlValue),
                         rank = xpathSApply(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/Rank", xmlValue),
@@ -231,9 +231,9 @@ classification.uid <- function(id, return_id = TRUE, ...) {
     Sys.sleep(0.33)
     return(out)
   }
-  out <- lapply(id, fun)
+  out <- lapply(id, fun, callopts = callopts)
   names(out) <- id
-  structure(out, class='classification', db='ncbi')
+  structure(out, class = 'classification', db = 'ncbi')
 }
 
 #' @export
@@ -272,8 +272,8 @@ classification.eolid <- function(id, key = NULL, callopts = list(), return_id = 
 
 #' @export
 #' @rdname classification
-classification.colid <- function(id, start = NULL, checklist = NULL, return_id = TRUE, ...) {
-  fun <- function(x){
+classification.colid <- function(id, start = NULL, checklist = NULL, callopts = list(), return_id = TRUE, ...) {
+  fun <- function(x, callopts){
     # return NA if NA is supplied
     if(is.na(x)){
       out <- NA
@@ -290,8 +290,9 @@ classification.colid <- function(id, start = NULL, checklist = NULL, return_id =
       }
 
       args <- compact(list(id = x, response = "full", start = start))
-      out <- getForm(url, .params = args)
-      tt <- xmlParse(out)
+      out <- GET(url, query = args, callopts)
+      stop_for_status(out)
+      tt <- xmlParse(content(out, "text"))
 
       out <- data.frame(name = xpathSApply(tt, "//classification//name", xmlValue),
                         rank = xpathSApply(tt, "//classification//rank", xmlValue),
@@ -306,15 +307,15 @@ classification.colid <- function(id, start = NULL, checklist = NULL, return_id =
     }
     return(out)
   }
-  out <- lapply(id, fun)
+  out <- lapply(id, fun, callopts = callopts)
   names(out) <- id
-  structure(out, class='classification', db='col')
+  structure(out, class = 'classification', db = 'col')
 }
 
 #' @export
 #' @rdname classification
 classification.tpsid <- function(id, key = NULL, callopts = list(), return_id = TRUE, ...) {
-  fun <- function(x){
+  fun <- function(x, callopts){
     if(is.na(x)) {
       out <- NA
     } else {
@@ -335,7 +336,7 @@ classification.tpsid <- function(id, key = NULL, callopts = list(), return_id = 
     }
     return(out)
   }
-  out <- lapply(id, fun)
+  out <- lapply(id, fun, callopts = callopts)
   names(out) <- id
   structure(out, class='classification', db='tropicos')
 }
@@ -343,11 +344,11 @@ classification.tpsid <- function(id, key = NULL, callopts = list(), return_id = 
 #' @export
 #' @rdname classification
 classification.gbifid <- function(id, callopts = list(), return_id = TRUE, ...) {
-  fun <- function(x){
+  fun <- function(x, callopts){
     if(is.na(x)) {
       out <- NA
     } else {
-      out <- suppressWarnings(tryCatch(gbif_name_usage(key = x), error=function(e) e))
+      out <- suppressWarnings(tryCatch(gbif_name_usage(key = x, callopts = callopts), error=function(e) e))
       if(is(out, "simpleError")){ NA } else {
         nms <- ldply(out[c('kingdom','phylum','class','order','family','genus','species')])
         keys <- unname(unlist(out[paste0(c('kingdom','phylum','class','order','family','genus','species'), "Key")]))
@@ -358,20 +359,20 @@ classification.gbifid <- function(id, callopts = list(), return_id = TRUE, ...) 
       }
     }
   }
-  out <- lapply(id, fun)
+  out <- lapply(id, fun, callopts = callopts)
   names(out) <- id
-  structure(out, class='classification', db='gbif')
+  structure(out, class = 'classification', db = 'gbif')
 }
 
 #' @export
 #' @rdname classification
 classification.nbnid <- function(id, callopts = list(), return_id = TRUE, ...) {
-  fun <- function(x){
-    if(is.na(x)) {
+  fun <- function(x, callopts){
+    if (is.na(x)) {
       out <- NA
     } else {
-      out <- suppressWarnings(tryCatch(nbn_classification(id=x, ...), error=function(e) e))
-      if(is(out, "simpleError")){ NA } else {
+      out <- suppressWarnings(tryCatch(nbn_classification(id=x, callopts), error=function(e) e))
+      if (is(out, "simpleError")){ NA } else {
         out <- out[ , c('name','rank', 'taxonVersionKey')]
         names(out) <- c('name', 'rank', 'id')
         # Optionally return id of lineage
@@ -380,9 +381,9 @@ classification.nbnid <- function(id, callopts = list(), return_id = TRUE, ...) {
       }
     }
   }
-  out <- lapply(id, fun)
+  out <- lapply(id, fun, callopts = callopts)
   names(out) <- id
-  structure(out, class='classification', db='nbn')
+  structure(out, class = 'classification', db = 'nbn')
 }
 
 #' @export
