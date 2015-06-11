@@ -265,17 +265,17 @@ c_plist <- list(url_home = "http://theplantlist.org/", apidocs = NULL,
                 citation = "The Plant List (2013). Version 1.1. Published on the Internet; http://www.theplantlist.org/ ([accessed <date>).")
 c_ubio <- list(url_home = "http://www.ubio.org/", apidocs = "http://www.ubio.org/index.php?pagename=xml_services")
 c_vascan <- list(url_home = "http://data.canadensys.net/explorer/en/search", apidocs = "http://data.canadensys.net/vascan/api",
-                 citation = "Brouillet, L., F. Coursol, S.J. Meades, M. Favreau, M. Anions, P. Bélisle & P. Desmet. 2010+. VASCAN, the Database of Vascular Plants of Canada. http://data.canadensys.net/vascan/ (consulted on <date>)")
+                 citation = "Brouillet, L., F. Coursol, S.J. Meades, M. Favreau, M. Anions, P. Belisle & P. Desmet. 2010+. VASCAN, the Database of Vascular Plants of Canada. http://data.canadensys.net/vascan/ (consulted on <date>)")
 c_plantminer <- list(url_home = "http://www.plantminer.com/", apidocs = "http://www.plantminer.com/help",
                      citation = 'See The Plant List or Tropicos citations')
 c_phylomatic <- list(url_home = "http://phylodiversity.net/phylomatic/", apidocs = NULL,
-                     citation = "Webb CO, Donoghue MJ (2005) Phylomatic: Tree assembly for applied phylogenetics. Mol. Ecol. Notes 5:181–183.")
+                     citation = "Webb CO, Donoghue MJ (2005) Phylomatic: Tree assembly for applied phylogenetics. Mol. Ecol. Notes 5:181-183.")
 c_nbn <- list(url_home = "http://www.nbn.org.uk/", apidocs = "https://data.nbn.org.uk/Documentation/Web_Services/",
               citation = NULL)
 c_ncbi <- list(url_home = "http://www.ncbi.nlm.nih.gov/taxonomy", apidocs = "http://www.ncbi.nlm.nih.gov/books/NBK25501/",
                citation = "Federhen S: The NCBI Taxonomy database. Nucleic Acids Res 2012, 40 (Database issue): D136-D143.")
 c_genbank <- list(url_home = "http://www.ncbi.nlm.nih.gov/genbank/", apidocs = "http://www.ncbi.nlm.nih.gov/books/NBK25501/",
-                  citation = 'Bilofsky, Howard S., and Burks Christian. "The GenBank® genetic sequence data bank." Nucleic acids research 16.5 (1988): 1861-1863.')
+                  citation = 'Bilofsky, Howard S., and Burks Christian. "The GenBank genetic sequence data bank." Nucleic acids research 16.5 (1988): 1861-1863.')
 c_col <- list(url_home = "http://www.catalogueoflife.org/", apidocs = "http://www.catalogueoflife.org/content/web-services",
               citation = "See > http://www.catalogueoflife.org/col/info/cite")
 c_iplant <- list(url_home = "http://tnrs.iplantcollaborative.org/", apidocs = "http://tnrs.iplantcollaborative.org/api.html",
