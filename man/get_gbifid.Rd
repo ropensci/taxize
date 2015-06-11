@@ -82,7 +82,8 @@ exact match we return the options to you to pick from.
 
 The parameters \code{phylum}, \code{class}, \code{order}, \code{family}, and \code{rank}
 are not used in the search to the data provider, but are used in filtering the data down
-to a subset that is closer to the target you want.
+to a subset that is closer to the target you want.  For all these parameters,
+you can use regex strings since we use \code{\link{grep}} internally to match.
 }
 \examples{
 \dontrun{

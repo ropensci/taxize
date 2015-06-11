@@ -37,7 +37,8 @@
 #' @section Filtering:
 #' The parameters \code{division}, \code{parent}, and \code{rank} are not
 #' used in the search to the data provider, but are used in filtering the data down to a
-#' subset that is closer to the target you want.
+#' subset that is closer to the target you want.  For all these parameters,
+#' you can use regex strings since we use \code{\link{grep}} internally to match.
 #'
 #' @seealso \code{\link[taxize]{get_uid}}, \code{\link[taxize]{classification}}
 #'

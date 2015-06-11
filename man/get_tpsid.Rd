@@ -71,7 +71,8 @@ Get the NameID codes from Tropicos for taxonomic names.
 
 The parameters \code{family} and \code{rank} are not used in the search to the data
 provider, but are used in filtering the data down to a subset that is closer to the
-target you want.
+target you want.  For all these parameters,
+you can use regex strings since we use \code{\link{grep}} internally to match.
 }
 \examples{
 \dontrun{
