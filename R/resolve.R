@@ -6,7 +6,7 @@
 #' @export
 #'
 #' @param query Vector of one or more names.
-#' @param db Source to check names against. One of iplant, tnrs, or gnr
+#' @param db Source to check names against. One of iplant, tnrs, or gnr. Default: gnr
 #' @param callopts Curl options passed on to httr::GET
 #' @param ... Further named args passed on to each respective function. See examples. Note that
 #' parameters for specific data sources are specific to those data sources. E.g. you can pass the
@@ -26,15 +26,15 @@
 #' resolve(query=c("Helianthus annuus", "Homo sapiens"), callopts=timeout(3))
 #' }
 
-resolve <- function(query, db='iplant', callopts=list(), ...){
+resolve <- function(query, db='gnr', callopts=list(), ...){
 
   db <- match.arg(db, choices = c('iplant','tnrs','gnr'), several.ok = TRUE)
 
   foo <- function(x, y, ...){
     res <- switch(x,
-                  gnr = try_default(gnr_resolve(names = y, callopts=callopts, ...)),
-                  tnrs = try_default(tnrs(query = y, callopts=callopts, ...)),
-                  iplant = try_default(iplant_resolve(query = y, callopts=callopts, ...)))
+                  gnr = tryDefault(gnr_resolve(names = y, callopts=callopts, ...)),
+                  tnrs = tryDefault(tnrs(query = y, callopts=callopts, ...)),
+                  iplant = tryDefault(iplant_resolve(query = y, callopts=callopts, ...)))
     if(is.null(res)) "Error: no data found" else res
   }
   output <- lapply(db, function(z) foo(z, query, ...))
@@ -42,7 +42,7 @@ resolve <- function(query, db='iplant', callopts=list(), ...){
   return( output )
 }
 
-try_default <- function(expr, default = NULL, quiet = TRUE)
+tryDefault <- function(expr, default = NULL, quiet = TRUE)
 {
   result <- default
   if (quiet) {

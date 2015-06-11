@@ -4,12 +4,12 @@
 \alias{resolve}
 \title{Resolve names from many different sources}
 \usage{
-resolve(query, db = "iplant", callopts = list(), ...)
+resolve(query, db = "gnr", callopts = list(), ...)
 }
 \arguments{
 \item{query}{Vector of one or more names.}
 
-\item{db}{Source to check names against. One of iplant, tnrs, or gnr}
+\item{db}{Source to check names against. One of iplant, tnrs, or gnr. Default: gnr}
 
 \item{callopts}{Curl options passed on to httr::GET}
 
