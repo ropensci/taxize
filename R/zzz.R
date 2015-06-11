@@ -227,3 +227,16 @@ colClasses <- function(d, colClasses) {
 strtrim <- function(str) {
   gsub("^\\s+|\\s+$", "", str)
 }
+
+# function to help filter get_*() functions for a rank name or rank itself --------------
+filt <- function(df, rank, z) {
+  if (!is.null(z)) {
+    if (tolower(z) %in% tolower(df[,rank])) {
+      df[which(tolower(df[,rank]) %in% tolower(z)), ]
+    } else {
+      df
+    }
+  } else {
+    df
+  }
+}

@@ -12,7 +12,8 @@
 \alias{get_uid_}
 \title{Get the UID codes from NCBI for taxonomic names.}
 \usage{
-get_uid(sciname, ask = TRUE, verbose = TRUE, rows = NA)
+get_uid(sciname, ask = TRUE, verbose = TRUE, rows = NA, division = NULL,
+  rank = NULL)
 
 as.uid(x, check = TRUE)
 
@@ -44,6 +45,13 @@ Note that this function still only gives back a uid class object with one to man
 See \code{\link[taxize]{get_uid_}} to get back all, or a subset, of the raw data that you are
 presented during the ask process.}
 
+\item{division}{(character) A division (aka phylum) name. Optional. See \code{Filtering}
+below.}
+
+\item{rank}{(character) A taxonomic rank name. See \code{\link{rank_ref}} for possible
+options. Though note that some data sources use atypical ranks, so inspect the
+data itself for options. Optional. See \code{Filtering} below.}
+
 \item{x}{Input to \code{\link{as.uid}}}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only used in
@@ -63,6 +71,12 @@ as you normally can.
 \description{
 Retrieve the Unique Identifier (UID) of a taxon from NCBI taxonomy browser.
 }
+\section{Filtering}{
+
+The parameters \code{division} and \code{rank} are not used in the search to the
+data provider, but are used in filtering the data down to a subset that is closer
+to the target you want.
+}
 \examples{
 \dontrun{
 get_uid(c("Chironomus riparius", "Chaetopteryx"))
@@ -71,6 +85,26 @@ get_uid(c("Chironomus riparius", "aaa vva"))
 # When not found
 get_uid("howdy")
 get_uid(c("Chironomus riparius", "howdy"))
+
+# Narrow down results to a division or rank, or both
+## Echinacea example
+### Results w/o narrowing
+get_uid("Echinacea")
+### w/ division
+get_uid(sciname = "Echinacea", division = "eudicots")
+get_uid(sciname = "Echinacea", division = "sea urchins")
+
+## Satyrium example
+### Results w/o narrowing
+get_uid(sciname = "Satyrium")
+### w/ division
+get_uid(sciname = "Satyrium", division = "monocots")
+get_uid(sciname = "Satyrium", division = "butterflies")
+
+## Rank example
+get_uid(sciname = "Pinus")
+get_uid(sciname = "Pinus", rank = "genus")
+get_uid(sciname = "Pinus", rank = "subgenus")
 
 # specify rows to limit choices available
 get_uid('Dugesia') # user prompt needed

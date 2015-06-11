@@ -37,7 +37,7 @@
 
 col_search <- function(name=NULL, id=NULL, start=NULL, checklist=NULL, response="terse", ...) {
   response <- match.arg(response, c("terse", "full"))
-  func <- function(x, y) {
+  func <- function(x, y, ...) {
     if (is.null(checklist)) {
       url <- col_base()
     } else {
@@ -80,16 +80,28 @@ parse_full <- function(x) {
              h_vals <- xpathSApply(z, "classification//name", xmlValue)
              h_nms <- xpathSApply(z, "classification//rank", xmlValue)
              h <- setNames(rbind.data.frame(h_vals), h_nms)
+             rank <- xpathSApply(z, "rank", xmlValue)
+             id <- xpathSApply(z, "id", xmlValue)
+           },
+           `common name` = {
+             h_vals <- xpathSApply(z, "accepted_name//classification//name", xmlValue)
+             h_nms <- xpathSApply(z, "accepted_name//classification//rank", xmlValue)
+             h <- setNames(rbind.data.frame(h_vals), h_nms)
+             rank <- xpathSApply(z, "accepted_name/rank", xmlValue)
+             id <- xpathSApply(z, "accepted_name/id", xmlValue)
            },
            synonym = {
              h_vals <- xpathSApply(z, "accepted_name//classification//name", xmlValue)
              h_nms <- xpathSApply(z, "accepted_name//classification//rank", xmlValue)
              h <- setNames(rbind.data.frame(h_vals), h_nms)
-           })
+             rank <- xpathSApply(z, "accepted_name/rank", xmlValue)
+             id <- xpathSApply(z, "accepted_name/id", xmlValue)
+           }
+    )
     target <- setNames(rbind.data.frame(
       c(xpathSApply(z, "name", xmlValue),
-        xpathSApply(z, "rank", xmlValue),
-        xpathSApply(z, "id", xmlValue),
+        rank,
+        id,
         xpathSApply(z, "name_status", xmlValue))),
       c("name", "rank", "id", "name_status"))
     tempdf <- cbind(target, h)

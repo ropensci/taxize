@@ -15,10 +15,17 @@
 #' @param verbose logical; should progress be printed?
 #' @param x Input to \code{\link{as.boldid}}
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
-#' @param rows numeric; Any number from 1 to inifity. If the default NA, all rows are considered.
-#' Note that this function still only gives back a boldid class object with one to many identifiers.
-#' See \code{\link[taxize]{get_boldid_}} to get back all, or a subset, of the raw data that you are
-#' presented during the ask process.
+#' @param rows numeric; Any number from 1 to inifity. If the default NA, all rows are
+#' considered. Note that this function still only gives back a boldid class object with one
+#' to many identifiers. See \code{\link[taxize]{get_boldid_}} to get back all, or a subset,
+#' of the raw data that you are presented during the ask process.
+#' @param division (character) A division (aka phylum) name. Optional. See \code{Filtering}
+#' below.
+#' @param parent (character) A parent name (i.e., the parent of the target search
+#' taxon). Optional. See \code{Filtering} below.
+#' @param rank (character) A taxonomic rank name. See \code{\link{rank_ref}} for possible
+#' options. Though note that some data sources use atypical ranks, so inspect the
+#' data itself for options. Optional. See \code{Filtering} below.
 #' @param check logical; Check if ID matches any existing on the DB, only used in
 #' \code{\link{as.boldid}}
 #'
@@ -26,6 +33,11 @@
 #'    the function asks for user input (if ask = TRUE), otherwise returns NA.
 #'    Comes with an attribute \emph{match} to investigate the reason for NA (either 'not found',
 #'    'found' or if ask = FALSE 'multi match')
+#'
+#' @section Filtering:
+#' The parameters \code{division}, \code{parent}, and \code{rank} are not
+#' used in the search to the data provider, but are used in filtering the data down to a
+#' subset that is closer to the target you want.
 #'
 #' @seealso \code{\link[taxize]{get_uid}}, \code{\link[taxize]{classification}}
 #'
@@ -52,6 +64,18 @@
 #' get_boldid('Arigomphus furcifer')
 #' get_boldid("Cordulegaster erronea")
 #' get_boldid("Nasiaeshna pentacantha")
+#'
+#' # Narrow down results to a division or rank, or both
+#' ## Satyrium example
+#' ### Results w/o narrowing
+#' get_boldid("Satyrium")
+#' ### w/ phylum
+#' get_boldid("Satyrium", division = "Plants")
+#' get_boldid("Satyrium", division = "Animals")
+#'
+#' ## Rank example
+#' get_boldid("Osmia", fuzzy = TRUE)
+#' get_boldid("Osmia", fuzzy = TRUE, rank = "genus")
 #'
 #' # Convert a boldid without class information to a boldid class
 #' as.boldid(get_boldid("Agapostemon")) # already a boldid, returns the same
@@ -83,7 +107,8 @@
 #' }
 
 get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes='basic', includeTree=FALSE,
-                       ask = TRUE, verbose = TRUE, rows = NA, ...)
+                       ask = TRUE, verbose = TRUE, rows = NA, rank = NULL,
+                       division = NULL, parent = NULL, ...)
 {
   fun <- function(x, ask, verbose, rows)
   {
@@ -92,74 +117,90 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes='basic', includeTree
                            dataTypes = dataTypes, includeTree = includeTree, ...)
     bold_df <- sub_rows(bold_df, rows)
 
-    if(!class(bold_df) == "data.frame"){
+    if (!class(bold_df) == "data.frame") {
       boldid <- NA
       att <- "not found"
     } else {
-
-      if(all(names(bold_df) == "input")){
+      if (all(names(bold_df) == "input")) {
         boldid <- NA
         att <- "not found"
       } else {
+        bold_df <- rename(bold_df, c('parentname' = 'parent', 'tax_rank' = 'rank',
+                                     'tax_division' = 'division'))
 
-        bold_df <- bold_df[,c("taxid","taxon","tax_rank","tax_division","parentid","parentname")]
+        bold_df <- bold_df[,c("taxid","taxon","rank","division","parentid","parent")]
 
         direct <- NA
         # should return NA if spec not found
-        if (nrow(bold_df) == 0){
+        if (nrow(bold_df) == 0) {
           mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
           boldid <- NA
           att <- 'not found'
         }
         # take the one tsn from data.frame
-        if (nrow(bold_df) == 1){
+        if (nrow(bold_df) == 1) {
           boldid <- bold_df$taxid
           att <- 'found'
         }
         # check for direct match
-        if (nrow(bold_df) > 1){
+        if (nrow(bold_df) > 1) {
           names(bold_df)[grep('taxon', names(bold_df))] <- "target"
-          #       direct <- match(tolower(x), tolower(bold_df$target))
           direct <- match(tolower(bold_df$target), tolower(x))
-          if(!all(is.na(direct))){
-            #         tsn <- bold_df$tsn[direct]
-            boldid <- bold_df$taxid[!is.na(direct)]
-            att <- 'found'
+          if (length(direct) == 1) {
+            if (!all(is.na(direct))) {
+              boldid <- bold_df$taxid[!is.na(direct)]
+              att <- 'found'
+            } else {
+              boldid <- NA
+              direct <- NA
+              att <- 'not found'
+            }
           } else {
             boldid <- NA
-            direct <- NA
-            att <- 'not found'
+            att <- 'found'
           }
         }
         # multiple matches
-        if( any(
+        if (any(
           nrow(bold_df) > 1 & is.na(boldid) |
             nrow(bold_df) > 1 & att == "found" & length(boldid) > 1
-        ) ){
-          if(ask) {
+        )) {
+          if (ask) {
             names(bold_df)[grep('taxon', names(bold_df))] <- "target"
             # user prompt
             bold_df <- bold_df[order(bold_df$target), ]
             rownames(bold_df) <- 1:nrow(bold_df)
 
-            # prompt
-            message("\n\n")
-            print(bold_df)
-            message("\nMore than one TSN found for taxon '", x, "'!\n
-            Enter rownumber of taxon (other inputs will return 'NA'):\n") # prompt
-            take <- scan(n = 1, quiet = TRUE, what = 'raw')
+            if (!is.null(division) || !is.null(parent) || !is.null(rank)) {
+              bold_df <- filt(bold_df, "division", division)
+              bold_df <- filt(bold_df, "parent", parent)
+              bold_df <- filt(bold_df, "rank", rank)
+              boldid <- id <- bold_df$taxid
+              if (length(id) == 1) {
+                att <- "found"
+              }
+            }
 
-            if(length(take) == 0)
-              take <- 'notake'
-            if(take %in% seq_len(nrow(bold_df))){
-              take <- as.numeric(take)
-              message("Input accepted, took taxon '", as.character(bold_df$target[take]), "'.\n")
-              boldid <-  bold_df$taxid[take]
-              att <- 'found'
-            } else {
-              boldid <- NA
-              mssg(verbose, "\nReturned 'NA'!\n\n")
-              att <- 'not found'
+            if (length(boldid) > 1 || NROW(bold_df) > 1) {
+              # prompt
+              message("\n\n")
+              print(bold_df)
+              message("\nMore than one TSN found for taxon '", x, "'!\n
+            Enter rownumber of taxon (other inputs will return 'NA'):\n") # prompt
+              take <- scan(n = 1, quiet = TRUE, what = 'raw')
+
+              if (length(take) == 0)
+                take <- 'notake'
+              if (take %in% seq_len(nrow(bold_df))) {
+                take <- as.numeric(take)
+                message("Input accepted, took taxon '", as.character(bold_df$target[take]), "'.\n")
+                boldid <-  bold_df$taxid[take]
+                att <- 'found'
+              } else {
+                boldid <- NA
+                mssg(verbose, "\nReturned 'NA'!\n\n")
+                att <- 'not found'
+              }
             }
           } else {
             boldid <- NA
@@ -168,19 +209,12 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes='basic', includeTree
         }
       }
     }
-    return(data.frame(boldid = as.character(boldid), att = att, stringsAsFactors=FALSE))
+    return(data.frame(boldid = as.character(boldid), att = att, stringsAsFactors = FALSE))
   }
   searchterm <- as.character(searchterm)
   outd <- ldply(searchterm, fun, ask, verbose, rows)
-  out <- structure(outd$boldid, class="boldid", match=outd$att)
+  out <- structure(outd$boldid, class = "boldid", match = outd$att)
   add_uri(out, 'http://boldsystems.org/index.php/Taxbrowser_Taxonpage?taxid=%s')
-#   if( !all(is.na(out)) ){
-#     urlmake <- na.omit(out)
-#     attr(out, 'uri') <-
-#       sprintf('http://boldsystems.org/index.php/Taxbrowser_Taxonpage?taxid=%s', urlmake)
-#   }
-#   class(out) <- "boldid"
-#   return(out)
 }
 
 #' @export

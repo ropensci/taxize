@@ -12,6 +12,11 @@
 #' Note that this function still only gives back a uid class object with one to many identifiers.
 #' See \code{\link[taxize]{get_uid_}} to get back all, or a subset, of the raw data that you are
 #' presented during the ask process.
+#' @param division (character) A division (aka phylum) name. Optional. See \code{Filtering}
+#' below.
+#' @param rank (character) A taxonomic rank name. See \code{\link{rank_ref}} for possible
+#' options. Though note that some data sources use atypical ranks, so inspect the
+#' data itself for options. Optional. See \code{Filtering} below.
 #' @param x Input to \code{\link{as.uid}}
 #' @param ... Ignored
 #' @param check logical; Check if ID matches any existing on the DB, only used in
@@ -24,6 +29,11 @@
 #' If \code{ask=FALSE} and \code{rows} does not equal NA, then a data.frame is
 #' given back, but not of the uid class, which you can't pass on to other functions
 #' as you normally can.
+#'
+#' @section Filtering:
+#' The parameters \code{division} and \code{rank} are not used in the search to the
+#' data provider, but are used in filtering the data down to a subset that is closer
+#' to the target you want.
 #'
 #' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{classification}}
 #'
@@ -93,7 +103,8 @@
 #' get_uid_(c("asdfadfasd","Pinus contorta"))
 #' }
 
-get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, division = NULL, rank = NULL) {
+get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, division = NULL,
+                    rank = NULL) {
 
   fun <- function(sciname, ask, verbose, rows) {
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
@@ -135,16 +146,8 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, division = N
         rownames(df) <- 1:nrow(df)
 
         if (!is.null(division) || !is.null(rank)) {
-          if (!is.null(division)) {
-            if (division %in% df$division) {
-              df <- df[which(df$division %in% division), ]
-            }
-          }
-          if (!is.null(rank)) {
-            if (rank %in% df$rank) {
-              df <- df[which(df$rank %in% rank), ]
-            }
-          }
+          df <- filt(df, "division", division)
+          df <- filt(df, "rank", rank)
           uid <- df$uid
         } else {
           # prompt
@@ -257,9 +260,9 @@ get_uid_help <- function(sciname, verbose, rows){
   xml_result <- xmlParse(getURL(searchurl))
   Sys.sleep(0.33)
   uid <- xpathSApply(xml_result, "//IdList/Id", xmlValue)
-  if(length(uid) == 0){ NULL } else {
+  if (length(uid) == 0) { NULL } else {
     baseurl <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy"
-    ID <- paste("ID=", paste(uid, collapse= ","), sep = "")
+    ID <- paste("ID=", paste(uid, collapse = ","), sep = "")
     searchurl <- paste(baseurl, ID, sep = "&")
     tt <- getURL(searchurl)
     ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)

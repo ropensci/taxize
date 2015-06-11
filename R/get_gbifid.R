@@ -10,6 +10,14 @@
 #' Note that this function still only gives back a gbifid class object with one to many identifiers.
 #' See \code{\link[taxize]{get_gbifid_}} to get back all, or a subset, of the raw data that you are
 #' presented during the ask process.
+#' @param phylum (character) A phylum (aka division) name. Optional. See \code{Filtering}
+#' below.
+#' @param class (character) A class name. Optional. See \code{Filtering} below.
+#' @param order (character) An order name. Optional. See \code{Filtering} below.
+#' @param family (character) A family name. Optional. See \code{Filtering} below.
+#' @param rank (character) A taxonomic rank name. See \code{\link{rank_ref}} for possible
+#' options. Though note that some data sources use atypical ranks, so inspect the
+#' data itself for options. Optional. See \code{Filtering} below.
 #' @param x Input to \code{\link{as.gbifid}}
 #' @param check logical; Check if ID matches any existing on the DB, only used in
 #' \code{\link{as.gbifid}}
@@ -29,6 +37,11 @@
 #' and if we find an exact match we return the ID for that match. If there isn't an
 #' exact match we return the options to you to pick from.
 #'
+#' @section Filtering:
+#' The parameters \code{phylum}, \code{class}, \code{order}, \code{family}, and \code{rank}
+#' are not used in the search to the data provider, but are used in filtering the data down
+#' to a subset that is closer to the target you want.
+#'
 #' @examples \dontrun{
 #' get_gbifid(sciname='Poa annua')
 #' get_gbifid(sciname='Pinus contorta')
@@ -45,6 +58,22 @@
 #' # When not found, NA given
 #' get_gbifid(sciname="uaudnadndj")
 #' get_gbifid(c("Chironomus riparius", "uaudnadndj"))
+#'
+#' # Narrow down results to a division or rank, or both
+#' ## Satyrium example
+#' ### Results w/o narrowing
+#' get_gbifid("Satyrium")
+#' ### w/ phylum
+#' get_gbifid("Satyrium", phylum = "Magnoliophyta")
+#' get_gbifid("Satyrium", phylum = "Arthropoda")
+#' ### w/ phylum & rank
+#' get_gbifid("Satyrium", phylum = "Arthropoda", rank = "genus")
+#'
+#' ## Rank example
+#' get_gbifid("Poa")
+#' get_gbifid("Poa", rank = "order")
+#' get_gbifid("Poa", rank = "family")
+#' get_gbifid("Poa", family = "Coccidae")
 #'
 #' # Convert a uid without class information to a uid class
 #' as.gbifid(get_gbifid("Poa annua")) # already a uid, returns the same
@@ -72,12 +101,15 @@
 #' get_gbifid_(c("Pinus", "Puma"), rows=1:5)
 #' }
 
-get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA){
+get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
+                       phylum = NULL, class = NULL, order = NULL,
+                       family = NULL, rank = NULL){
   fun <- function(sciname, ask, verbose, rows) {
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
     df <- gbif_name_suggest(q = sciname, fields = c("key", "canonicalName", "rank",
                                                     "class", "phylum", "order", "family"))
     df <- sub_rows(df, rows)
+    df <- rename(df, c('canonicalName' = 'canonicalname'))
 
     if (is.null(df))
       df <- data.frame(NULL)
@@ -108,28 +140,45 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA){
       } else {
         if (ask) {
           rownames(df) <- 1:nrow(df)
-          # prompt
-          message("\n\n")
-          message("\nMore than one eolid found for taxon '", sciname, "'!\n
-            Enter rownumber of taxon (other inputs will return 'NA'):\n")
-          print(df)
-          take <- scan(n = 1, quiet = TRUE, what = 'raw')
 
-          if (length(take) == 0) {
-            take <- 'notake'
-            att <- 'nothing chosen'
+          if (!is.null(phylum) || !is.null(class) || !is.null(order) ||
+              !is.null(family) || !is.null(rank)) {
+            df <- filt(df, "phylum", phylum)
+            df <- filt(df, "class", class)
+            df <- filt(df, "order", order)
+            df <- filt(df, "family", family)
+            df <- filt(df, "rank", rank)
+            id <- df$gbifid
+            if (length(id) == 1) {
+              rank_taken <- as.character(df$rank)
+              att <- "found"
+            }
           }
-          if (take %in% seq_len(nrow(df))) {
-            take <- as.numeric(take)
-            message("Input accepted, took gbifid '", as.character(df$gbifid[take]), "'.\n")
-            id <- as.character(df$gbifid[take])
-            att <- "found"
-          } else {
-            id <- NA
-            att <- "not found"
-            mssg(verbose, "\nReturned 'NA'!\n\n")
+
+          if (length(id) > 1) {
+            # prompt
+            message("\n\n")
+            message("\nMore than one eolid found for taxon '", sciname, "'!\n
+            Enter rownumber of taxon (other inputs will return 'NA'):\n")
+            print(df)
+            take <- scan(n = 1, quiet = TRUE, what = 'raw')
+
+            if (length(take) == 0) {
+              take <- 'notake'
+              att <- 'nothing chosen'
+            }
+            if (take %in% seq_len(nrow(df))) {
+              take <- as.numeric(take)
+              message("Input accepted, took gbifid '", as.character(df$gbifid[take]), "'.\n")
+              id <- as.character(df$gbifid[take])
+              att <- "found"
+            } else {
+              id <- NA
+              att <- "not found"
+              mssg(verbose, "\nReturned 'NA'!\n\n")
+            }
           }
-        } else{
+        } else {
           id <- NA
           att <- "NA due to ask=FALSE"
         }

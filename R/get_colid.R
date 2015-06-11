@@ -11,6 +11,16 @@
 #' Note that this function still only gives back a colid class object with one to many identifiers.
 #' See \code{\link[taxize]{get_colid_}} to get back all, or a subset, of the raw data that you are
 #' presented during the ask process.
+#' @param kingdom (character) A kingdom name. Optional. See \code{Filtering}
+#' below.
+#' @param phylum (character) A phylum (aka division) name. Optional. See \code{Filtering}
+#' below.
+#' @param class (character) A class name. Optional. See \code{Filtering} below.
+#' @param order (character) An order name. Optional. See \code{Filtering} below.
+#' @param family (character) A family name. Optional. See \code{Filtering} below.
+#' @param rank (character) A taxonomic rank name. See \code{\link{rank_ref}} for possible
+#' options. Though note that some data sources use atypical ranks, so inspect the
+#' data itself for options. Optional. See \code{Filtering} below.
 #' @param x Input to as.colid
 #' @param ... Ignored
 #' @param check logical; Check if ID matches any existing on the DB, only used in
@@ -18,6 +28,11 @@
 #'
 #' @return A vector of unique identifiers. If a taxon is not found NA.
 #' If more than one ID is found the function asks for user input.
+#'
+#' @section Filtering:
+#' The parameters \code{kingdom}, \code{phylum}, \code{class}, \code{order}, \code{family},
+#' and \code{rank} are not used in the search to the data provider, but are used in filtering
+#' the data down to a subset that is closer to the target you want.
 #'
 #' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_colid}},
 #' \code{\link[taxize]{get_tpsid}}, \code{\link[taxize]{get_eolid}}
@@ -42,6 +57,19 @@
 #' # When not found
 #' get_colid(sciname="uaudnadndj")
 #' get_colid(c("Chironomus riparius", "uaudnadndj"))
+#'
+#' # Narrow down results to a division or rank, or both
+#' ## Satyrium example
+#' ### Results w/o narrowing
+#' get_colid("Satyrium")
+#' ### w/ division
+#' get_colid("Satyrium", kingdom = "Plantae")
+#' get_colid("Satyrium", kingdom = "Animalia")
+#'
+#' ## Rank example
+#' get_colid("Poa")
+#' get_colid("Poa", kingdom = "Plantae")
+#' get_colid("Poa", kingdom = "Animalia")
 #'
 #' # Convert a uid without class information to a uid class
 #' as.colid(get_colid("Chironomus riparius")) # already a uid, returns the same
@@ -70,11 +98,15 @@
 #' get_colid(sciname="Andropadus nigriceps fusciceps", rows=1)
 #' }
 
-get_colid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA){
+get_colid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
+                      kingdom = NULL, phylum = NULL, class = NULL, order = NULL,
+                      family = NULL, rank = NULL){
   fun <- function(sciname, ask, verbose, rows) {
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
     df <- col_search(name = sciname, response = "full")[[1]]
     df <- sub_rows(df, rows)
+    df <- setNames(df, tolower(names(df)))
+    df <- rename(df, c("id" = "colid"))
 
     rank_taken <- NA
     if (NROW(df) == 0) {
@@ -98,27 +130,45 @@ get_colid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA){
     if (length(id) > 1) {
       if (ask) {
         rownames(df) <- 1:nrow(df)
-        # prompt
-        message("\n\n")
-        message("\nMore than one colid found for taxon '", sciname, "'!\n
-            Enter rownumber of taxon (other inputs will return 'NA'):\n")
-        print(df)
-        take <- scan(n = 1, quiet = TRUE, what = 'raw')
 
-        if (length(take) == 0) {
-          take <- 'notake'
-          att <- 'nothing chosen'
+        if (!is.null(kingdom) || !is.null(phylum) || !is.null(class) ||
+            !is.null(order) || !is.null(family) || !is.null(rank)) {
+          df <- filt(df, "kingdom", kingdom)
+          df <- filt(df, "phylum", phylum)
+          df <- filt(df, "class", class)
+          df <- filt(df, "order", order)
+          df <- filt(df, "family", family)
+          df <- filt(df, "rank", rank)
+          id <- df$colid
+          if (length(id) == 1) {
+            rank_taken <- as.character(df$rank)
+            att <- "found"
+          }
         }
-        if (take %in% seq_len(nrow(df))) {
-          take <- as.numeric(take)
-          message("Input accepted, took colid '", as.character(df$colid[take]), "'.\n")
-          id <- as.character(df$colid[take])
-          rank_taken <- as.character(df$rank[take])
-          att <- "found"
-        } else {
-          id <- NA
-          att <- "not found"
-          mssg(verbose, "\nReturned 'NA'!\n\n")
+
+        if (length(id) > 1) {
+          # prompt
+          message("\n\n")
+          message("\nMore than one colid found for taxon '", sciname, "'!\n
+            Enter rownumber of taxon (other inputs will return 'NA'):\n")
+          print(df)
+          take <- scan(n = 1, quiet = TRUE, what = 'raw')
+
+          if (length(take) == 0) {
+            take <- 'notake'
+            att <- 'nothing chosen'
+          }
+          if (take %in% seq_len(nrow(df))) {
+            take <- as.numeric(take)
+            message("Input accepted, took colid '", as.character(df$colid[take]), "'.\n")
+            id <- as.character(df$colid[take])
+            rank_taken <- as.character(df$rank[take])
+            att <- "found"
+          } else {
+            id <- NA
+            att <- "not found"
+            mssg(verbose, "\nReturned 'NA'!\n\n")
+          }
         }
       } else{
         id <- NA
@@ -128,14 +178,14 @@ get_colid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA){
     c(id = id, rank = rank_taken, att = att)
   }
   sciname <- as.character(sciname)
-  out <- lapply(sciname, fun, ask=ask, verbose=verbose, rows=rows)
+  out <- lapply(sciname, fun, ask = ask, verbose = verbose, rows = rows)
   ids <- sapply(out, "[[", "id")
   atts <- sapply(out, "[[", "att")
-  ids <- structure(ids, class="colid", match=atts)
-  if( !all(is.na(ids)) ){
+  ids <- structure(ids, class = "colid", match = atts)
+  if ( !all(is.na(ids)) ) {
     urls <- sapply(out, function(z){
-      if(!is.na(z[['id']])){
-        if(tolower(z['rank']) == "species"){
+      if (!is.na(z[['id']])) {
+        if (tolower(z['rank']) == "Species") {
           sprintf('http://www.catalogueoflife.org/col/details/species/id/%s', z[['id']])
         } else {
           sprintf('http://www.catalogueoflife.org/col/browse/tree/id/%s', z[['id']])

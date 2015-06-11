@@ -12,7 +12,9 @@
 \alias{get_colid_}
 \title{Get the Catalogue of Life ID from taxonomic names.}
 \usage{
-get_colid(sciname, ask = TRUE, verbose = TRUE, rows = NA)
+get_colid(sciname, ask = TRUE, verbose = TRUE, rows = NA,
+  kingdom = NULL, phylum = NULL, class = NULL, order = NULL,
+  family = NULL, rank = NULL)
 
 as.colid(x, check = TRUE)
 
@@ -45,6 +47,22 @@ Note that this function still only gives back a colid class object with one to m
 See \code{\link[taxize]{get_colid_}} to get back all, or a subset, of the raw data that you are
 presented during the ask process.}
 
+\item{kingdom}{(character) A kingdom name. Optional. See \code{Filtering}
+below.}
+
+\item{phylum}{(character) A phylum (aka division) name. Optional. See \code{Filtering}
+below.}
+
+\item{class}{(character) A class name. Optional. See \code{Filtering} below.}
+
+\item{order}{(character) An order name. Optional. See \code{Filtering} below.}
+
+\item{family}{(character) A family name. Optional. See \code{Filtering} below.}
+
+\item{rank}{(character) A taxonomic rank name. See \code{\link{rank_ref}} for possible
+options. Though note that some data sources use atypical ranks, so inspect the
+data itself for options. Optional. See \code{Filtering} below.}
+
 \item{x}{Input to as.colid}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only used in
@@ -58,6 +76,12 @@ If more than one ID is found the function asks for user input.
 }
 \description{
 Get the Catalogue of Life ID from taxonomic names.
+}
+\section{Filtering}{
+
+The parameters \code{kingdom}, \code{phylum}, \code{class}, \code{order}, \code{family},
+and \code{rank} are not used in the search to the data provider, but are used in filtering
+the data down to a subset that is closer to the target you want.
 }
 \examples{
 \dontrun{
@@ -77,6 +101,19 @@ get_colid(sciname='Poa annua', rows=1:2)
 # When not found
 get_colid(sciname="uaudnadndj")
 get_colid(c("Chironomus riparius", "uaudnadndj"))
+
+# Narrow down results to a division or rank, or both
+## Satyrium example
+### Results w/o narrowing
+get_colid("Satyrium")
+### w/ division
+get_colid("Satyrium", kingdom = "Plantae")
+get_colid("Satyrium", kingdom = "Animalia")
+
+## Rank example
+get_colid("Poa")
+get_colid("Poa", kingdom = "Plantae")
+get_colid("Poa", kingdom = "Animalia")
 
 # Convert a uid without class information to a uid class
 as.colid(get_colid("Chironomus riparius")) # already a uid, returns the same

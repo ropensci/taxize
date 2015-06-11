@@ -13,7 +13,7 @@
 \title{Get the uBio id for a search term.}
 \usage{
 get_ubioid(searchterm, searchtype = "scientific", ask = TRUE,
-  verbose = TRUE, rows = NA)
+  verbose = TRUE, rows = NA, family = NULL, rank = NULL)
 
 as.ubioid(x, check = TRUE)
 
@@ -48,6 +48,12 @@ Note that this function still only gives back a ubioid class object with one to 
 See \code{\link[taxize]{get_ubioid_}} to get back all, or a subset, of the raw data that you are
 presented during the ask process.}
 
+\item{family}{(character) A family name. Optional. See \code{Filtering} below.}
+
+\item{rank}{(character) A taxonomic rank name. See \code{\link{rank_ref}} for possible
+options. Though note that some data sources use atypical ranks, so inspect the
+data itself for options. Optional. See \code{Filtering} below.}
+
 \item{x}{Input to \code{\link{as.ubioid}}}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only used in
@@ -65,9 +71,15 @@ A vector of uBio ids. If a taxon is not found NA is given. If more than one uBio
 Retrieve the uBio id of a taxon. This function uses \code{\link[taxize]{ubio_search}} internally
 to search for names.
 }
+\section{Filtering}{
+
+The parameters \code{family} and \code{rank} are not used in the search to the data
+provider, but are used in filtering the data down to a subset that is closer to the
+target you want.
+}
 \examples{
 \dontrun{
-get_ubioid(searchterm = "Astragalus aduncus")
+get_ubioid("Astragalus aduncus")
 get_ubioid(c("Salvelinus fontinalis","Pomacentrus brachialis"))
 splist <- c("Salvelinus fontinalis", 'Pomacentrus brachialis', "Leptocottus armatus",
 		"Clinocottus recalvus", "Trachurus trachurus", "Harengula clupeola")
@@ -82,6 +94,20 @@ get_ubioid('Astragalus aduncus', rows=1:2)
 # When not found
 get_ubioid(searchterm="howdy")
 get_ubioid(c("Salvelinus fontinalis", "howdy"))
+
+# Narrow down results to a division or rank, or both
+## Satyrium example
+### Results w/o narrowing
+get_ubioid("Satyrium")
+### w/ rank
+get_ubioid("Satyrium", rank = "var")
+get_ubioid("Satyrium", family = "Lycaenidae", rank = "species")
+
+## w/ family
+get_ubioid("Zootoca vivipara")
+get_ubioid("Zootoca vivipara", family = "Reptilia")
+get_ubioid("Zootoca vivipara", family = "Reptilia", rank = "species")
+get_ubioid("Zootoca vivipara", family = "Lacertidae", rank = "species")
 
 # Using common names
 get_ubioid(searchterm="great white shark", searchtype="common")

@@ -13,7 +13,7 @@
 \title{Get the NameID codes from Tropicos for taxonomic names.}
 \usage{
 get_tpsid(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA,
-  ...)
+  family = NULL, rank = NULL, ...)
 
 as.tpsid(x, check = TRUE)
 
@@ -47,6 +47,12 @@ Note that this function still only gives back a tpsid class object with one to m
 See \code{\link[taxize]{get_tpsid_}} to get back all, or a subset, of the raw data that you are
 presented during the ask process.}
 
+\item{family}{(character) A family name. Optional. See \code{Filtering} below.}
+
+\item{rank}{(character) A taxonomic rank name. See \code{\link{rank_ref}} for possible
+options. Though note that some data sources use atypical ranks, so inspect the
+data itself for options. Optional. See \code{Filtering} below.}
+
 \item{...}{Other arguments passed to \code{\link[taxize]{tp_search}}.}
 
 \item{x}{Input to \code{\link{as.tpsid}}}
@@ -60,6 +66,12 @@ If more than one ID is found the function asks for user input.
 }
 \description{
 Get the NameID codes from Tropicos for taxonomic names.
+}
+\section{Filtering}{
+
+The parameters \code{family} and \code{rank} are not used in the search to the data
+provider, but are used in filtering the data down to a subset that is closer to the
+target you want.
 }
 \examples{
 \dontrun{
@@ -77,6 +89,20 @@ get_tpsid('Poa annua', rows=1:2)
 # When not found, NA given (howdy is not a species name, and Chrinomus is a fly)
 get_tpsid("howdy")
 get_tpsid(c("Chironomus riparius", "howdy"))
+
+# Narrow down results to a division or rank, or both
+## Satyrium example
+### Results w/o narrowing
+get_tpsid("Satyrium")
+### w/ rank
+get_tpsid("Satyrium", rank = "var.")
+get_tpsid("Satyrium", rank = "sp.")
+
+## w/ family
+get_tpsid("Poa")
+get_tpsid("Poa", family = "Iridaceae")
+get_tpsid("Poa", family = "Orchidaceae")
+get_tpsid("Poa", family = "Orchidaceae", rank = "gen.")
 
 # pass to classification function to get a taxonomic hierarchy
 classification(get_tpsid(sciname='Poa annua'))

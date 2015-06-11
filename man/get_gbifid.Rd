@@ -12,7 +12,9 @@
 \alias{get_gbifid_}
 \title{Get the GBIF backbone taxon ID from taxonomic names.}
 \usage{
-get_gbifid(sciname, ask = TRUE, verbose = TRUE, rows = NA)
+get_gbifid(sciname, ask = TRUE, verbose = TRUE, rows = NA,
+  phylum = NULL, class = NULL, order = NULL, family = NULL,
+  rank = NULL)
 
 as.gbifid(x, check = FALSE)
 
@@ -44,6 +46,19 @@ Note that this function still only gives back a gbifid class object with one to 
 See \code{\link[taxize]{get_gbifid_}} to get back all, or a subset, of the raw data that you are
 presented during the ask process.}
 
+\item{phylum}{(character) A phylum (aka division) name. Optional. See \code{Filtering}
+below.}
+
+\item{class}{(character) A class name. Optional. See \code{Filtering} below.}
+
+\item{order}{(character) An order name. Optional. See \code{Filtering} below.}
+
+\item{family}{(character) A family name. Optional. See \code{Filtering} below.}
+
+\item{rank}{(character) A taxonomic rank name. See \code{\link{rank_ref}} for possible
+options. Though note that some data sources use atypical ranks, so inspect the
+data itself for options. Optional. See \code{Filtering} below.}
+
 \item{x}{Input to \code{\link{as.gbifid}}}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only used in
@@ -63,6 +78,12 @@ Internally in this function we use a function to search GBIF's taxonomy,
 and if we find an exact match we return the ID for that match. If there isn't an
 exact match we return the options to you to pick from.
 }
+\section{Filtering}{
+
+The parameters \code{phylum}, \code{class}, \code{order}, \code{family}, and \code{rank}
+are not used in the search to the data provider, but are used in filtering the data down
+to a subset that is closer to the target you want.
+}
 \examples{
 \dontrun{
 get_gbifid(sciname='Poa annua')
@@ -80,6 +101,22 @@ get_gbifid(sciname='Pinus', rows=1:3)
 # When not found, NA given
 get_gbifid(sciname="uaudnadndj")
 get_gbifid(c("Chironomus riparius", "uaudnadndj"))
+
+# Narrow down results to a division or rank, or both
+## Satyrium example
+### Results w/o narrowing
+get_gbifid("Satyrium")
+### w/ phylum
+get_gbifid("Satyrium", phylum = "Magnoliophyta")
+get_gbifid("Satyrium", phylum = "Arthropoda")
+### w/ phylum & rank
+get_gbifid("Satyrium", phylum = "Arthropoda", rank = "genus")
+
+## Rank example
+get_gbifid("Poa")
+get_gbifid("Poa", rank = "order")
+get_gbifid("Poa", rank = "family")
+get_gbifid("Poa", family = "Coccidae")
 
 # Convert a uid without class information to a uid class
 as.gbifid(get_gbifid("Poa annua")) # already a uid, returns the same

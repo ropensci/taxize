@@ -13,7 +13,8 @@
 \title{Get the BOLD (Barcode of Life) code for a search term.}
 \usage{
 get_boldid(searchterm, fuzzy = FALSE, dataTypes = "basic",
-  includeTree = FALSE, ask = TRUE, verbose = TRUE, rows = NA, ...)
+  includeTree = FALSE, ask = TRUE, verbose = TRUE, rows = NA,
+  rank = NULL, division = NULL, parent = NULL, ...)
 
 as.boldid(x, check = TRUE)
 
@@ -49,10 +50,20 @@ input. If FALSE NA is returned for multiple matches.}
 
 \item{verbose}{logical; should progress be printed?}
 
-\item{rows}{numeric; Any number from 1 to inifity. If the default NA, all rows are considered.
-Note that this function still only gives back a boldid class object with one to many identifiers.
-See \code{\link[taxize]{get_boldid_}} to get back all, or a subset, of the raw data that you are
-presented during the ask process.}
+\item{rows}{numeric; Any number from 1 to inifity. If the default NA, all rows are
+considered. Note that this function still only gives back a boldid class object with one
+to many identifiers. See \code{\link[taxize]{get_boldid_}} to get back all, or a subset,
+of the raw data that you are presented during the ask process.}
+
+\item{rank}{(character) A taxonomic rank name. See \code{\link{rank_ref}} for possible
+options. Though note that some data sources use atypical ranks, so inspect the
+data itself for options. Optional. See \code{Filtering} below.}
+
+\item{division}{(character) A division (aka phylum) name. Optional. See \code{Filtering}
+below.}
+
+\item{parent}{(character) A parent name (i.e., the parent of the target search
+taxon). Optional. See \code{Filtering} below.}
 
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 
@@ -69,6 +80,12 @@ A vector of BOLD ids. If a taxon is not found NA. If more than one BOLD ID is fo
 }
 \description{
 Get the BOLD (Barcode of Life) code for a search term.
+}
+\section{Filtering}{
+
+The parameters \code{division}, \code{parent}, and \code{rank} are not
+used in the search to the data provider, but are used in filtering the data down to a
+subset that is closer to the target you want.
 }
 \examples{
 \dontrun{
@@ -94,6 +111,18 @@ get_boldid('Epicordulia princeps')
 get_boldid('Arigomphus furcifer')
 get_boldid("Cordulegaster erronea")
 get_boldid("Nasiaeshna pentacantha")
+
+# Narrow down results to a division or rank, or both
+## Satyrium example
+### Results w/o narrowing
+get_boldid("Satyrium")
+### w/ phylum
+get_boldid("Satyrium", division = "Plants")
+get_boldid("Satyrium", division = "Animals")
+
+## Rank example
+get_boldid("Osmia", fuzzy = TRUE)
+get_boldid("Osmia", fuzzy = TRUE, rank = "genus")
 
 # Convert a boldid without class information to a boldid class
 as.boldid(get_boldid("Agapostemon")) # already a boldid, returns the same
