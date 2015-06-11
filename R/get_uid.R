@@ -106,20 +106,24 @@
 #' get_uid_("Dugesia", rows=2)
 #' get_uid_("Dugesia", rows=1:2)
 #' get_uid_(c("asdfadfasd","Pinus contorta"))
+#'
+#' # use curl options
+#' library("httr")
+#' get_uid("Quercus douglasii", config=verbose())
+#' bb <- get_uid("Quercus douglasii", config=progress())
 #' }
 
 get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, division = NULL,
-                    rank = NULL) {
+                    rank = NULL, ...) {
 
-  fun <- function(sciname, ask, verbose, rows) {
+  fun <- function(sciname, ask, verbose, rows, ...) {
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
     sciname <- gsub(" ", "+", sciname)
     searchurl <- paste("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=",
                        sciname, sep = "")
     errors_to_catch <- c("Could not resolve host: eutils.ncbi.nlm.nih.gov")
-    xml_result <- xmlParse(repeat_until_it_works(getURL,
-                                                 catch = errors_to_catch,
-                                                 url = searchurl))
+    xml_result <- xmlParse(repeat_until_it_works(catch = errors_to_catch, url = searchurl, ...))
+
     # NCBI limits requests to three per second
     Sys.sleep(0.33)
     uid <- xpathSApply(xml_result, "//IdList/Id", xmlValue)
@@ -185,12 +189,16 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, division = N
     return(data.frame(uid, att, stringsAsFactors = FALSE))
   }
   sciname <- as.character(sciname)
-  outd <- ldply(sciname, fun, ask, verbose, rows)
+  outd <- ldply(sciname, fun, ask, verbose, rows, ...)
   out <- structure(outd$uid, class = "uid", match = outd$att)
   add_uri(out, 'http://www.ncbi.nlm.nih.gov/taxonomy/%s')
 }
 
-repeat_until_it_works <- function(func, catch, max_tries = 3, wait_time = 10, verbose = TRUE, ...) {
+get_content <- function(url, ...) {
+  content(GET(url = url, ...))
+}
+
+repeat_until_it_works <- function(catch, url, max_tries = 3, wait_time = 10, verbose = TRUE, ...) {
   error_handler <- function(e) {
     if (e$message %in% catch) {
       if (verbose) warning(paste("Caught error:", e$message))
@@ -200,7 +208,7 @@ repeat_until_it_works <- function(func, catch, max_tries = 3, wait_time = 10, ve
     }
   }
   for (count in 1:max_tries) {
-    output <- tryCatch({func(...)}, error = error_handler)
+    output <- tryCatch(content(GET(url = url, ...), "text"), error = error_handler)
     if (!is.na(output)) return(output)
     Sys.sleep(wait_time * count)
   }

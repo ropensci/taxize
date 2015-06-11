@@ -14,7 +14,7 @@
 \usage{
 get_colid(sciname, ask = TRUE, verbose = TRUE, rows = NA,
   kingdom = NULL, phylum = NULL, class = NULL, order = NULL,
-  family = NULL, rank = NULL)
+  family = NULL, rank = NULL, ...)
 
 as.colid(x, check = TRUE)
 
@@ -63,12 +63,12 @@ below.}
 options. Though note that some data sources use atypical ranks, so inspect the
 data itself for options. Optional. See \code{Filtering} below.}
 
+\item{...}{Ignored}
+
 \item{x}{Input to as.colid}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only used in
 \code{\link{as.colid}}}
-
-\item{...}{Ignored}
 }
 \value{
 A vector of unique identifiers. If a taxon is not found NA.
@@ -145,6 +145,11 @@ get_colid_("Poa annua", rows=1:2)
 get_colid_(c("asdfadfasd","Pinus contorta"))
 
 get_colid(sciname="Andropadus nigriceps fusciceps", rows=1)
+
+# use curl options
+library("httr")
+get_colid("Quercus douglasii", config=verbose())
+bb <- get_colid("Quercus douglasii", config=progress())
 }
 }
 \author{

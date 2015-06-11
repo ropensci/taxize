@@ -106,15 +106,21 @@
 #' get_gbifid_(c("Pinus", "uaudnadndj"))
 #' get_gbifid_(c("Pinus", "Puma"), rows=5)
 #' get_gbifid_(c("Pinus", "Puma"), rows=1:5)
+#'
+#' # use curl options
+#' library("httr")
+#' get_gbifid("Quercus douglasii", config=verbose())
+#' bb <- get_gbifid("Quercus douglasii", config=progress())
 #' }
 
 get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
                        phylum = NULL, class = NULL, order = NULL,
-                       family = NULL, rank = NULL){
-  fun <- function(sciname, ask, verbose, rows) {
+                       family = NULL, rank = NULL, ...){
+
+  fun <- function(sciname, ask, verbose, rows, ...) {
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
     df <- gbif_name_suggest(q = sciname, fields = c("key", "canonicalName", "rank",
-                                                    "class", "phylum", "order", "family"))
+                                                    "class", "phylum", "order", "family"), ...)
     df <- sub_rows(df, rows)
     df <- rename(df, c('canonicalName' = 'canonicalname'))
 
@@ -192,16 +198,17 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
     }
     c(id = id, att = att)
   }
-  out <- lapply(as.character(sciname), fun, ask, verbose, rows)
+  out <- lapply(as.character(sciname), fun, ask, verbose, rows, ...)
   ids <- structure(sapply(out, "[[", "id"), class = "gbifid", match = sapply(out, "[[", "att"))
   add_uri(ids, 'http://www.gbif.org/species/%s')
 }
 
 gbif_name_suggest <- function(q=NULL, datasetKey=NULL, rank=NULL, fields=NULL, start=NULL,
-                         limit=20, callopts=list()) {
+                         limit=20, ...) {
+
   url = 'http://api.gbif.org/v1/species/suggest'
   args <- compact(list(q = q, rank = rank, offset = start, limit = limit))
-  temp <- GET(url, query = args, callopts)
+  temp <- GET(url, query = args, ...)
   stop_for_status(temp)
   tt <- content(temp)
   if (is.null(fields)) {

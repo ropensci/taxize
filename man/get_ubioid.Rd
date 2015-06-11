@@ -13,7 +13,7 @@
 \title{Get the uBio id for a search term.}
 \usage{
 get_ubioid(searchterm, searchtype = "scientific", ask = TRUE,
-  verbose = TRUE, rows = NA, family = NULL, rank = NULL)
+  verbose = TRUE, rows = NA, family = NULL, rank = NULL, ...)
 
 as.ubioid(x, check = TRUE)
 
@@ -54,12 +54,12 @@ presented during the ask process.}
 options. Though note that some data sources use atypical ranks, so inspect the
 data itself for options. Optional. See \code{Filtering} below.}
 
+\item{...}{Ignored}
+
 \item{x}{Input to \code{\link{as.ubioid}}}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only used in
 \code{\link{as.ubioid}}}
-
-\item{...}{Ignored}
 }
 \value{
 A vector of uBio ids. If a taxon is not found NA is given. If more than one uBio
@@ -142,6 +142,11 @@ get_ubioid_("Zootoca vivipara")
 get_ubioid_("Zootoca vivipara", rows=2)
 get_ubioid_("Zootoca vivipara", rows=1:2)
 get_ubioid_(c("asdfadfasd","Zootoca vivipara"), rows=1:5)
+
+# use curl options
+library("httr")
+get_ubioid("Quercus douglasii", config=verbose())
+bb <- get_ubioid("Quercus douglasii", config=progress())
 }
 }
 \seealso{

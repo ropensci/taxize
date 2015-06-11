@@ -6,7 +6,7 @@
 \usage{
 tp_search(name = NULL, commonname = NULL, nameid = NULL, orderby = NULL,
   sortorder = NULL, pagesize = NULL, startrow = NULL, type = NULL,
-  key = NULL, callopts = list())
+  key = NULL, ...)
 }
 \arguments{
 \item{name}{Your search string. For instance "poa annua"}
@@ -28,7 +28,7 @@ of your search string. "exact" will use your search string exactly.}
 
 \item{key}{Your Tropicos API key; loads from .Rprofile.}
 
-\item{callopts}{Further args passed on to httr::GET}
+\item{...}{Further args passed on to \code{\link[httr]{GET}}}
 }
 \value{
 List or dataframe.

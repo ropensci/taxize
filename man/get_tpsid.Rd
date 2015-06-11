@@ -144,6 +144,11 @@ get_tpsid_("Poa annua")
 get_tpsid_("Poa annua", rows=2)
 get_tpsid_("Poa annua", rows=1:2)
 get_tpsid_(c("asdfadfasd","Pinus contorta"), rows=1:5)
+
+# use curl options
+library("httr")
+get_tpsid("Quercus douglasii", config=verbose())
+bb <- get_tpsid("Quercus douglasii", config=progress())
 }
 }
 \author{

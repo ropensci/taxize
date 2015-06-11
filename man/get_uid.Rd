@@ -13,7 +13,7 @@
 \title{Get the UID codes from NCBI for taxonomic names.}
 \usage{
 get_uid(sciname, ask = TRUE, verbose = TRUE, rows = NA, division = NULL,
-  rank = NULL)
+  rank = NULL, ...)
 
 as.uid(x, check = TRUE)
 
@@ -52,12 +52,12 @@ below.}
 options. Though note that some data sources use atypical ranks, so inspect the
 data itself for options. Optional. See \code{Filtering} below.}
 
+\item{...}{Ignored}
+
 \item{x}{Input to \code{\link{as.uid}}}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only used in
 \code{\link{as.uid}}}
-
-\item{...}{Ignored}
 }
 \value{
 A vector of unique identifiers (UID). If a taxon is not found NA.
@@ -144,6 +144,11 @@ get_uid_("Dugesia")
 get_uid_("Dugesia", rows=2)
 get_uid_("Dugesia", rows=1:2)
 get_uid_(c("asdfadfasd","Pinus contorta"))
+
+# use curl options
+library("httr")
+get_uid("Quercus douglasii", config=verbose())
+bb <- get_uid("Quercus douglasii", config=progress())
 }
 }
 \author{

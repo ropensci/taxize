@@ -101,14 +101,20 @@
 #' get_colid_(c("asdfadfasd","Pinus contorta"))
 #'
 #' get_colid(sciname="Andropadus nigriceps fusciceps", rows=1)
+#'
+#' # use curl options
+#' library("httr")
+#' get_colid("Quercus douglasii", config=verbose())
+#' bb <- get_colid("Quercus douglasii", config=progress())
 #' }
 
 get_colid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
                       kingdom = NULL, phylum = NULL, class = NULL, order = NULL,
-                      family = NULL, rank = NULL){
-  fun <- function(sciname, ask, verbose, rows) {
+                      family = NULL, rank = NULL, ...){
+
+  fun <- function(sciname, ask, verbose, rows, ...) {
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
-    df <- col_search(name = sciname, response = "full")[[1]]
+    df <- col_search(name = sciname, response = "full", ...)[[1]]
     df <- sub_rows(df, rows)
 
     rank_taken <- NA
@@ -182,7 +188,7 @@ get_colid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
     c(id = id, rank = rank_taken, att = att)
   }
   sciname <- as.character(sciname)
-  out <- lapply(sciname, fun, ask = ask, verbose = verbose, rows = rows)
+  out <- lapply(sciname, fun, ask = ask, verbose = verbose, rows = rows, ...)
   ids <- sapply(out, "[[", "id")
   atts <- sapply(out, "[[", "att")
   ids <- structure(ids, class = "colid", match = atts)

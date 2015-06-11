@@ -5,7 +5,7 @@
 \title{This function will return NameBankIDs that match given search terms}
 \usage{
 ubio_search(searchName = NULL, searchAuth = NULL, searchYear = NULL,
-  order = NULL, sci = 1, vern = 1, keyCode = NULL, callopts = list())
+  order = NULL, sci = 1, vern = 1, keyCode = NULL, ...)
 }
 \arguments{
 \item{searchName}{(character) - term to search within name string}
@@ -25,7 +25,7 @@ be sorted (default is namebankID)}
 \item{keyCode}{(character) Your uBio API key; loads from .Rprofile. If you don't have
 one, obtain one at http://www.ubio.org/index.php?pagename=form.}
 
-\item{callopts}{(list) Parameters passed on to httr::GET call.}
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
 A data.frame.

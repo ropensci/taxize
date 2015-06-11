@@ -100,13 +100,17 @@
 #' get_ubioid_("Zootoca vivipara", rows=2)
 #' get_ubioid_("Zootoca vivipara", rows=1:2)
 #' get_ubioid_(c("asdfadfasd","Zootoca vivipara"), rows=1:5)
+#'
+#' # use curl options
+#' library("httr")
+#' get_ubioid("Quercus douglasii", config=verbose())
+#' bb <- get_ubioid("Quercus douglasii", config=progress())
 #' }
 
 get_ubioid <- function(searchterm, searchtype = "scientific", ask = TRUE, verbose = TRUE,
-                       rows = NA, family = NULL, rank = NULL)
+                       rows = NA, family = NULL, rank = NULL, ...)
 {
-  fun <- function(x, searchtype, ask, verbose, rows)
-  {
+  fun <- function(x, searchtype, ask, verbose, rows, ...) {
     mssg(verbose, "\nRetrieving data for taxon '", x, "'\n")
 
     searchtype <- match.arg(searchtype, c("scientific","common"))
@@ -115,7 +119,7 @@ get_ubioid <- function(searchterm, searchtype = "scientific", ask = TRUE, verbos
     } else {
       sci <- 0; vern <- 1; searchtype = 'vernacular'
     }
-    ubio_df <- tryCatch(ubio_search(searchName = x, sci = sci, vern = vern)[[searchtype]], error = function(e) e)
+    ubio_df <- tryCatch(ubio_search(searchName = x, sci = sci, vern = vern, ...)[[searchtype]], error = function(e) e)
     ubio_df <- sub_rows(ubio_df, rows)
 
     if (is(ubio_df, "simpleError")) {
@@ -214,7 +218,7 @@ get_ubioid <- function(searchterm, searchtype = "scientific", ask = TRUE, verbos
     return(data.frame(ubioid = as.character(ubioid), att = att, stringsAsFactors=FALSE))
   }
   searchterm <- as.character(searchterm)
-  outd <- ldply(searchterm, fun, searchtype, ask, verbose, rows)
+  outd <- ldply(searchterm, fun, searchtype, ask, verbose, rows, ...)
   out <- structure(outd$ubioid, class="ubioid", match=outd$att)
   add_uri(out, 'http://www.ubio.org/browser/details.php?namebankID=%s')
 }

@@ -70,6 +70,11 @@
 #' get_nbnid_("Poa annua", rows=2)
 #' get_nbnid_("Poa annua", rows=1:2)
 #' get_nbnid_(c("asdfadfasd","Pinus contorta"), rows=1:5)
+#'
+#' # use curl options
+#' library("httr")
+#' get_nbnid("Quercus douglasii", config=verbose())
+#' bb <- get_nbnid("Quercus douglasii", config=progress())
 #' }
 
 get_nbnid <- function(name, ask = TRUE, verbose = TRUE, rec_only = FALSE, rank = NULL, rows = NA, ...){

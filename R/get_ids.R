@@ -55,12 +55,19 @@
 #' # Get all data back
 #' get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn', rows=1:10)
 #' get_ids_(c("Chironomus riparius", "Pinus contorta"), db = c('nbn','gbif'), rows=1:10)
+#'
+#' # use curl options
+#' library("httr")
+#' get_ids("Agapostemon", db = "ncbi", config=verbose())
+#' bb <- get_ids("Pinus contorta", db = c('nbn','gbif'), config=progress())
 #' }
 
-get_ids <- function(names, db = c('itis','ncbi','eol','col','tropicos','gbif','ubio','nbn'), ...)
-{
-  if(is.null(db))
+get_ids <- function(names, db = c('itis','ncbi','eol','col','tropicos','gbif','ubio','nbn'), ...) {
+
+  if (is.null(db)) {
     stop("Must specify on or more values for db!")
+  }
+
   db <- match.arg(db, choices = c('itis','ncbi','eol','col','tropicos','gbif','ubio','nbn'),
                   several.ok = TRUE)
 

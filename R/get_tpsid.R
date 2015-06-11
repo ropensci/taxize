@@ -103,11 +103,16 @@
 #' get_tpsid_("Poa annua", rows=2)
 #' get_tpsid_("Poa annua", rows=1:2)
 #' get_tpsid_(c("asdfadfasd","Pinus contorta"), rows=1:5)
+#'
+#' # use curl options
+#' library("httr")
+#' get_tpsid("Quercus douglasii", config=verbose())
+#' bb <- get_tpsid("Quercus douglasii", config=progress())
 #' }
 
 get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA,
                       family = NULL, rank = NULL, ...){
-  fun <- function(sciname, ask, verbose, rows) {
+  fun <- function(sciname, ask, verbose, rows, ...) {
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
     tmp <- tp_search(name = sciname, key = key, ...)
     tmp <- sub_rows(tmp, rows)
@@ -176,7 +181,7 @@ get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
     list(id = id, att = att)
   }
   sciname <- as.character(sciname)
-  out <- lapply(sciname, fun, ask, verbose, rows)
+  out <- lapply(sciname, fun, ask, verbose, rows, ...)
   ids <- unlist(pluck(out, "id"))
   atts <- pluck(out, "att", "")
   ids <- structure(ids, class = "tpsid", match = atts)

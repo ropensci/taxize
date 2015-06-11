@@ -110,6 +110,11 @@
 #' library("httr")
 #' get_boldid(searchterm = "Agapostemon", config=verbose())
 #' get_boldid(searchterm = "Agapostemon", config=progress())
+#'
+#' # use curl options
+#' library("httr")
+#' get_boldid("Agapostemon", config=verbose())
+#' bb <- get_boldid("Agapostemon", config=progress())
 #' }
 
 get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes='basic', includeTree=FALSE,

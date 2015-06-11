@@ -14,7 +14,7 @@
 \usage{
 get_gbifid(sciname, ask = TRUE, verbose = TRUE, rows = NA,
   phylum = NULL, class = NULL, order = NULL, family = NULL,
-  rank = NULL)
+  rank = NULL, ...)
 
 as.gbifid(x, check = FALSE)
 
@@ -59,12 +59,12 @@ below.}
 options. Though note that some data sources use atypical ranks, so inspect the
 data itself for options. Optional. See \code{Filtering} below.}
 
+\item{...}{Ignored}
+
 \item{x}{Input to \code{\link{as.gbifid}}}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only used in
 \code{\link{as.gbifid}}}
-
-\item{...}{Ignored}
 }
 \value{
 A vector of unique identifiers. If a taxon is not found NA.
@@ -149,6 +149,11 @@ get_gbifid_("Puma concolor")
 get_gbifid_(c("Pinus", "uaudnadndj"))
 get_gbifid_(c("Pinus", "Puma"), rows=5)
 get_gbifid_(c("Pinus", "Puma"), rows=1:5)
+
+# use curl options
+library("httr")
+get_gbifid("Quercus douglasii", config=verbose())
+bb <- get_gbifid("Quercus douglasii", config=progress())
 }
 }
 \author{

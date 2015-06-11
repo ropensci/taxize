@@ -112,6 +112,11 @@ get_tsn_("Arni")
 get_tsn_("Arni", rows=1)
 get_tsn_("Arni", rows=1:2)
 get_tsn_(c("asdfadfasd","Pinus contorta"), rows=1:5)
+
+# use curl options
+library("httr")
+get_tsn("Quercus douglasii", config=verbose())
+bb <- get_tsn("Quercus douglasii", config=progress())
 }
 }
 \seealso{

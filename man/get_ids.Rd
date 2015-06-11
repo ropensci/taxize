@@ -72,6 +72,11 @@ synonyms(out$tropicos)
 # Get all data back
 get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn', rows=1:10)
 get_ids_(c("Chironomus riparius", "Pinus contorta"), db = c('nbn','gbif'), rows=1:10)
+
+# use curl options
+library("httr")
+get_ids("Agapostemon", db = "ncbi", config=verbose())
+bb <- get_ids("Pinus contorta", db = c('nbn','gbif'), config=progress())
 }
 }
 \seealso{
