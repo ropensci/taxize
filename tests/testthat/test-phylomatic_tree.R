@@ -1,11 +1,11 @@
 context("phylomatic_tree")
 
 taxa <- c("Poa annua", "Phlox diffusa", "Helianthus annuus")
-tree <- phylomatic_tree(taxa=taxa, get = 'GET')
-tree2 <- phylomatic_tree(taxa=taxa, get = 'POST')
+tree <- suppressWarnings(phylomatic_tree(taxa=taxa, get = 'GET', verbose = FALSE))
+tree2 <- suppressWarnings(phylomatic_tree(taxa=taxa, get = 'POST', verbose = FALSE))
 
 mynames <- c('Astragalus monspessulanus', 'Tagetes oaxacana', 'Gloxinia donkelaariana', 'Diuris brevissima', 'Schefflera sodiroi', 'Brachylaena rotundata', 'Lapsanastrum takasei', 'Jurinea carduiformis', 'Miconia imitans', 'Goodenia granitica', 'Nymphaea mexicana', 'Sertula coerulea', 'Begonia gulinqingensis', 'Byttneria piresii', 'Dioscorea oblonga', 'Sinningia sellovii', 'Atherolepis wallichii', 'Hieracium lachenalii', 'Euphorbia personata', 'Leptodactylon pungens')
-tree3 <- phylomatic_tree(taxa=mynames, get = 'POST')
+tree3 <- suppressWarnings(phylomatic_tree(taxa=mynames, get = 'POST', verbose = FALSE))
 
 test_that("phylomatic_tree returns the correct value", {
 	expect_that(tree$tip.label[1], equals("poa_annua"))
