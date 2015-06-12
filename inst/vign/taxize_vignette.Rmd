@@ -38,7 +38,7 @@ temp <- gnr_resolve(names = c("Helianthos annus", "Homo saapiens"))
 head( temp$results )
 ```
 
-The correct spellings are *Helianthus annuus* and *Homo sapiens*. Another approach uses the [Taxonomic Name Resolution Service via the Taxosaurus API][taxosaurus] developed by iPLant and the Phylotastic organization. In this example, we provide a list of species names, some of which are misspelled, and we'll call the API with the *tnrs* function.
+The correct spellings are *Helianthus annuus* and *Homo sapiens*. Another approach uses the Taxonomic Name Resolution Service via the Taxosaurus API developed by iPLant and the Phylotastic organization. In this example, we provide a list of species names, some of which are misspelled, and we'll call the API with the *tnrs* function.
 
 ```{r tnrs, eval=TRUE, cache=FALSE}
 mynames <- c("Helianthus annuus", "Pinus contort", "Poa anua", "Abis magnifica",
@@ -220,7 +220,6 @@ A_clas[[1]]$rank[tolower(A_clas[[1]]$name) %in% B3]
 If we find a direct match (here *Gammarus roeseli*), we are lucky. But we can also match Gammaridae with *Gammarus roeseli*, but on a lower taxonomic level. A more comprehensive and realistic example (matching a trait table with an abundance table) is given in the vignette on matching.
 
 [eol]: http://www.eol.org/
-[taxosaurus]: http://api.phylotastic.org/tnrs
 [ncbi]: http://www.ncbi.nlm.nih.gov/
 [itis]: http://www.itis.gov/
 [phylomatic]: http://phylodiversity.net/phylomatic/

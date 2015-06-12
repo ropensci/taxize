@@ -18,9 +18,8 @@ Writes csv files to dir_.
 }
 \description{
 The Plant List \url{http://www.theplantlist.org/}. Note there is a package on
-CRAN (taxonstand - \url{http://cran.r-project.org/web/packages/Taxonstand/})
-that uses theplantlist.org to search plant names - we have a wrapper around
-that function called tpl_search.
+CRAN (Taxonstand) that uses theplantlist.org to search plant names - we have
+a wrapper around that function called \code{tpl_search}
 }
 \details{
 Throws a warning if you already have a directory of the one

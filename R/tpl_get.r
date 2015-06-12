@@ -1,9 +1,8 @@
 #' Get The Plant List csv files.
 #'
 #' The Plant List \url{http://www.theplantlist.org/}. Note there is a package on
-#' CRAN (taxonstand - \url{http://cran.r-project.org/web/packages/Taxonstand/})
-#' that uses theplantlist.org to search plant names - we have a wrapper around
-#' that function called tpl_search.
+#' CRAN (Taxonstand) that uses theplantlist.org to search plant names - we have
+#' a wrapper around that function called \code{tpl_search}
 #'
 #' @export
 #' @param x Directory to write csv files to.
@@ -12,7 +11,7 @@
 #' @details Throws a warning if you already have a directory of the one
 #' provided, but still works. Writes to your home directory, change dir_ as needed.
 #' @return Returns nothing to console, except a message and progress bar.
-#' Writes csv files to dir_.
+#' Writes csv files to x.
 #' @author John Baumgartner (johnbb@@student.unimelb.edu.au)
 #' @seealso \code{\link{tpl_search}} \code{\link{tpl_families}}
 #' @examples \dontrun{
