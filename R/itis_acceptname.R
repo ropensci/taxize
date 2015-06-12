@@ -9,12 +9,12 @@
 #' itis_acceptname('208527')  # TSN accepted - good name
 #' itis_acceptname('504239')  # TSN not accepted - input TSN is old
 #' }
-itis_acceptname <- function(searchtsn = NA, ...)
-{
+itis_acceptname <- function(searchtsn = NA, ...) {
 	tt <- getacceptednamesfromtsn(searchtsn, ...)
-	if(length(tt)==1){tt} else {
-    tmp <- data.frame(tt)
-    names(tmp) <- tolower(names(tmp))
-    tmp
+	if (length(tt) == 1) {
+	  tt
+	} else {
+    tmp <- data.frame(tt, stringsAsFactors = FALSE)
+    setNames(tmp, tolower(names(tmp)))
 	}
 }

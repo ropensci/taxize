@@ -1,6 +1,7 @@
 #' Get family names to make Phylomatic input object, and output input string
 #'    to Phylomatic for use in the function phylomatic_tree.
 #'
+#' @export
 #' @import XML RCurl stringr plyr
 #' @param taxa quoted tsn number (taxonomic serial number)
 #' @param format output format, isubmit (you can paste in to the Phylomatic
@@ -12,30 +13,33 @@
 #' phylomatic_format(mynames, format='rsubmit')
 #' phylomatic_format(mynames, format='isubmit', db="apg")
 #' }
-#' @export
-phylomatic_format <- function(taxa = NA, format='isubmit', db="ncbi")
-{
+phylomatic_format <- function(taxa = NA, format='isubmit', db="ncbi") {
+
   foo <- function(nnn){
     # split up strings if a species name
     taxa2 <- strsplit(gsub("_"," ",nnn), "\\s")[[1]]
-    taxa_genus <- taxize_capwords(taxa2[[1]], onlyfirst=TRUE)
+    taxa_genus <- taxize_capwords(taxa2[[1]], onlyfirst = TRUE)
 
-    if(db %in% c("ncbi","itis")){
-      family <- tax_name(query=taxa_genus, get="family", db=db)$family
+    if (db %in% c("ncbi","itis")) {
+      family <- tax_name(query = taxa_genus, get = "family", db = db)$family
     } else {
       tplfamily <- theplantlist[ match(taxa_genus, theplantlist$genus), "family" ]
       dd <- apg_families[ match(tplfamily, apg_families$this), ]
-      if(nchar(as.character(dd$that))==0){ family <- dd$this } else { family <- dd$that }
+      if (nchar(as.character(dd$that)) == 0) {
+        family <- dd$this
+      } else {
+        family <- dd$that
+      }
     }
     stringg <- c(family, strsplit(nnn, " ")[[1]])
     stringg <- tolower(as.character(stringg))
     if (format == 'isubmit') {
-      paste(stringg[[1]], "/", stringg[2], "/", tolower(str_replace(nnn, " ", "_")), sep='')
+      paste(stringg[[1]], "/", stringg[2], "/", tolower(str_replace(nnn, " ", "_")), sep = '')
     } else
       if (format == 'rsubmit') {
-        paste(stringg[[1]], "%2F", stringg[2], "%2F", tolower(str_replace(nnn, " ", "_")), sep='')
+        paste(stringg[[1]], "%2F", stringg[2], "%2F", tolower(str_replace(nnn, " ", "_")), sep = '')
       }
   }
 
-  sapply(taxa, foo, USE.NAMES=FALSE)
+  sapply(taxa, foo, USE.NAMES = FALSE)
 }
