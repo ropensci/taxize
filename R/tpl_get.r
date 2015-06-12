@@ -1,9 +1,5 @@
 #' Get The Plant List csv files.
 #'
-#' The Plant List \url{http://www.theplantlist.org/}. Note there is a package on
-#' CRAN (Taxonstand) that uses theplantlist.org to search plant names - we have
-#' a wrapper around that function called \code{tpl_search}
-#'
 #' @export
 #' @param x Directory to write csv files to.
 #' @param family If you want just one, or >1 family, but not all, list them in
@@ -13,7 +9,8 @@
 #' @return Returns nothing to console, except a message and progress bar.
 #' Writes csv files to x.
 #' @author John Baumgartner (johnbb@@student.unimelb.edu.au)
-#' @seealso \code{\link{tpl_search}} \code{\link{tpl_families}}
+#' @seealso \code{\link{tpl_families}}
+#' @references The Plant List \url{http://www.theplantlist.org/}
 #' @examples \dontrun{
 #' # Get a few families
 #' tpl_get("~/foo2", family = c("Platanaceae","Winteraceae"))

@@ -17,9 +17,7 @@ Returns nothing to console, except a message and progress bar.
 Writes csv files to x.
 }
 \description{
-The Plant List \url{http://www.theplantlist.org/}. Note there is a package on
-CRAN (Taxonstand) that uses theplantlist.org to search plant names - we have
-a wrapper around that function called \code{tpl_search}
+Get The Plant List csv files.
 }
 \details{
 Throws a warning if you already have a directory of the one
@@ -44,7 +42,10 @@ tpl_get("~/foo4", family = "Echinodiaceae")
 \author{
 John Baumgartner (johnbb@student.unimelb.edu.au)
 }
+\references{
+The Plant List \url{http://www.theplantlist.org/}
+}
 \seealso{
-\code{\link{tpl_search}} \code{\link{tpl_families}}
+\code{\link{tpl_families}}
 }
 

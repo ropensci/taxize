@@ -27,6 +27,6 @@ head( tpl_families() )
 John Baumgartner (johnbb@student.unimelb.edu.au)
 }
 \seealso{
-\code{\link{tpl_search}} \code{\link{tpl_get}}
+\code{\link{tpl_get}}
 }
 

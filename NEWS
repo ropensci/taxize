@@ -1,3 +1,61 @@
+taxize 0.6.0
+===============
+
+NEW FEATURES
+
+* Added a method for Catalogue of Life for the `synonyms` function to get
+name synonyms. (#430)
+* Added datasets `apgFamilies` and `apgOrders`. (#418)
+* `col_search()` gains parameters `response` to get a terse or full response, and
+`...` to pass in curl options.
+* `eol_dataobjects()` gains parameter `...` to pass in curl options, and parameter
+`returntype` renamed to `asdf` (for "as data.frame").
+* `ncb_get_taxon_summary()` gains parameter `...` to pass in curl options.
+* The `children()` function gains the `rows` parameter passed on to `get_*()` functions,
+supported for data sources ITIS and Catalogue of Life, but not for NCBI.
+* The `upstream()` function gains the `rows` parameter passed on to `get_*()` functions,
+supported for both data sources ITIS and Catalogue of Life.
+* The `classification()` function gains the `rows` parameter passed on to `get_*()`
+functions, for all sources used in the function.
+* The `downstream()` function gains the `rows` parameter passed on to `get_*()`
+functions, for all sources used in the function.
+* Nearly all taxonomic ID retrieveal functions (i.e., `get_*()`) gain new parameters to
+help filter results (e.g., `division`, `phylum`, `class`, `family`, `parent`, `rank`, etc.).
+These parameters allow direct matching or regex filters (e.g., `.a` to match any character
+followed by an `a`). (#410) (#385)
+* Nearly all taxonomic ID retrieveal functions (i.e., `get_*()`) now give back more
+information (mostly higher taxonomic data) to help in the interactive decision
+process. (#327)
+* New data source added to `synonyms()` function: Catalogue of Life. (#430)
+
+MINOR IMPROVEMENTS
+
+* `vegan` package, used in `class2tree()` function, moved from Imports to Suggests. (#392)
+* Improved `taxize_cite()` a lot - get URLs and sometimes citation information
+for data sources available in taxize. (#270)
+* Fixed typo in `apg_lookup()` function. (#422)
+* Fixed documentation in `apg_families()` function. (#418)
+* Across many functions, fixed support for passing in curl options, and added
+examples of curl option use.
+* `callopts` parameter in `eol_pages()`, `eol_search()`, `gnr_resolve()`,
+`tp_accnames()`, `tp_dist()`, `tp_search()`, `tp_summary()`, `tp_synonyms()`,
+`ubio_search()` changed to `...`
+* `accepted` parameter in `get_tsn()` changed to `FALSE` by default. (#425)
+* Default value of `db` parameter in `resolve()` changed to `gnr` as `tnrs` is
+often quite slow.
+* General code tidying across the package to make code easier to read.
+
+BUG FIXES
+
+* Fixed encoding issues in `tpl_families()` and `tpl_get()`. (#424)
+
+DEPRECATED AND DEFUNCT
+
+* The following functions that were deprecated are now defunct (no longer available):
+`ncbi_getbyname()`, `ncbi_getbyid()`, `ncbi_search()`, `eol_invasive()`,
+`gisd_isinvasive()`. These functions are available in the `traits` package. (#382)
+* `phylomatic_tree()` is deprecated, but will be defunct in a upcoming version.
+
 taxize 0.5.2
 ===============
 
