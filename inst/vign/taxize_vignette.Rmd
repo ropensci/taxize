@@ -1,12 +1,15 @@
 <!--
 %\VignetteEngine{knitr::knitr}
 %\VignetteIndexEntry{taxize vignette}
+%\VignetteEncoding{UTF-8}
 -->
 
 ```{r, eval=TRUE, echo=FALSE}
 knitr::opts_chunk$set(
   comment = "#>",
-  warning = FALSE
+  warning = FALSE,
+  message = FALSE,
+  cache.path = "cache/"
 )
 ```
 
@@ -23,7 +26,7 @@ First, install and load `taxize` into the R session.
 install.packages("taxize")
 ```
 
-```{r loadtaxize, messages=FALSE, warning=FALSE}
+```{r loadtaxize}
 library("taxize")
 ```
 
@@ -33,14 +36,14 @@ Advanced users can also download and install the latest development copy from [G
 
 This is a common task in biology. We often have a list of species names and we want to know a) if we have the most up to date names, b) if our names are spelled correctly, and c) the scientific name for a common name. One way to resolve names is via the Global Names Resolver (GNR) service provided by the [Encyclopedia of Life][eol]. Here, we are searching for two misspelled names:
 
-```{r resolvenames, eval=TRUE, cache=FALSE}
+```{r resolvenames}
 temp <- gnr_resolve(names = c("Helianthos annus", "Homo saapiens"))
 head( temp$results )
 ```
 
 The correct spellings are *Helianthus annuus* and *Homo sapiens*. Another approach uses the Taxonomic Name Resolution Service via the Taxosaurus API developed by iPLant and the Phylotastic organization. In this example, we provide a list of species names, some of which are misspelled, and we'll call the API with the *tnrs* function.
 
-```{r tnrs, eval=TRUE, cache=FALSE}
+```{r tnrs, cache=TRUE}
 mynames <- c("Helianthus annuus", "Pinus contort", "Poa anua", "Abis magnifica",
   	"Rosa california", "Festuca arundinace", "Sorbus occidentalos","Madia sateva")
 tnrs(query = mynames, source = "iPlant_TNRS")[ , -c(5:7)]
@@ -55,8 +58,7 @@ Another common use case is when there are many synonyms for a species. In this e
 ```{r synonyms, eval=TRUE, cache=FALSE, message=FALSE, warning=FALSE, comment=NA}
 mynames <- c("Helianthus annuus ssp. jaegeri", "Helianthus annuus ssp. lenticularis", "Helianthus annuus ssp. texanus")
 (tsn <- get_tsn(mynames, accepted = FALSE))
-library("plyr")
-ldply(tsn, itis_acceptname)
+lapply(tsn, itis_acceptname)
 ```
 
 ## Retrieve higher taxonomic names
@@ -65,7 +67,7 @@ Another task biologists often face is getting higher taxonomic names for a taxa 
 
 A number of data sources in taxize provide the capability to retrieve higher taxonomic names, but we will highlight two of the more useful ones: [Integrated Taxonomic Information System (ITIS)][itis] and [National Center for Biotechnology Information (NCBI)][ncbi]. First, we'll search for two species, *Abies procera} and *Pinus contorta* within ITIS.
 
-```{r itisclass, eval=TRUE, cache=FALSE}
+```{r classification}
 specieslist <- c("Abies procera","Pinus contorta")
 classification(specieslist, db = 'itis')
 ```
@@ -222,8 +224,5 @@ If we find a direct match (here *Gammarus roeseli*), we are lucky. But we can al
 [eol]: http://www.eol.org/
 [ncbi]: http://www.ncbi.nlm.nih.gov/
 [itis]: http://www.itis.gov/
-[phylomatic]: http://phylodiversity.net/phylomatic/
-[opentree]: http://blog.opentreeoflife.org/
 [wikispecies]: http://species.wikimedia.org/wiki/Main_Page
 [col]: http://www.catalogueoflife.org/
-[iucn]: http://www.iucnredlist.org/

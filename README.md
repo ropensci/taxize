@@ -10,6 +10,7 @@ taxize
 [![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/taxize)](https://github.com/metacran/cranlogs.app)
 [![cran version](http://www.r-pkg.org/badges/version/taxize)](http://cran.rstudio.com/web/packages/taxize)
 
+
 `taxize` allows users to search over many taxonomic data sources for species names (scientific and common) and download up and downstream taxonomic hierarchical information - among other things.
 
 The `taxize` tutorial is can be found at [http://ropensci.org/tutorials/taxize.html][tut].
@@ -63,7 +64,7 @@ Note that a few data sources require SOAP web services, which are difficult to s
 <tr>
 	<td style="text-align:left;">Phylomatic</td>
 	<td style="text-align:left;"><code>phylomatic</code></td>
-	<td style="text-align:left;"><a href="http://www.phylodiversity.net/phylomatic/phylomatic_api.html">link</a></td>
+	<td style="text-align:left;"><a href="http://phylodiversity.net/phylomatic/html/documentation.html">link</a></td>
 	<td style="text-align:left;">none</td>
 </tr>
 <tr>
@@ -325,9 +326,9 @@ upstream("Pinus contorta", db = 'itis', upto = 'Genus', verbose=FALSE)
 
 ```r
 synonyms("Salmo friderici", db='ubio')
-#>   namebankid          target family rankname
-#> 1    2529704 Salmo friderici Pisces  species
-#> 2     169693 Salmo friderici Pisces  species
+#>    ubioid          target family    rank
+#> 1 2529704 Salmo friderici Pisces species
+#> 2  169693 Salmo friderici Pisces species
 #> $`Salmo friderici`
 #>   namebankid                    namestring
 #> 1     130562 Leporinus friderici friderici
@@ -344,13 +345,13 @@ synonyms("Salmo friderici", db='ubio')
 
 ```r
 get_ids(names="Salvelinus fontinalis", db = c('ubio','ncbi'), verbose=FALSE)
-#>   namebankid                target     family  rankname
-#> 1    2501330 Salvelinus fontinalis     Pisces   species
-#> 2    6581534 Salvelinus fontinalis Salmonidae   species
-#> 3     137827 Salvelinus fontinalis     Pisces   species
-#> 4    6244425 Salvelinus fontinalis Salmonidae trinomial
-#> 5    7130714 Salvelinus fontinalis Salmonidae trinomial
-#> 6    6653671 Salvelinus fontinalis Salmonidae trinomial
+#>    ubioid                target     family      rank
+#> 1 2501330 Salvelinus fontinalis     Pisces   species
+#> 2 6581534 Salvelinus fontinalis Salmonidae   species
+#> 3  137827 Salvelinus fontinalis     Pisces   species
+#> 4 6244425 Salvelinus fontinalis Salmonidae trinomial
+#> 5 7130714 Salvelinus fontinalis Salmonidae trinomial
+#> 6 6653671 Salvelinus fontinalis Salmonidae trinomial
 #> $ubio
 #> Salvelinus fontinalis 
 #>             "2501330" 
@@ -403,8 +404,8 @@ get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn', rows=1:3)
 #> $nbn$`Chironomus riparius`
 #>   ptaxonVersionKey    searchMatchTitle    rank  nameStatus
 #> 1 NBNSYS0000027573 Chironomus riparius Species Recommended
-#> 2 NBNSYS0000023345   Paederus riparius Species Recommended
-#> 3 NHMSYS0001718042   Elaphrus riparius Species Recommended
+#> 2 NHMSYS0001718042   Elaphrus riparius Species Recommended
+#> 3 NBNSYS0000023345   Paederus riparius Species Recommended
 #> 
 #> $nbn$`Pinus contorta`
 #>   ptaxonVersionKey               searchMatchTitle       rank  nameStatus
@@ -433,10 +434,10 @@ sci2comm('Helianthus annuus', db = 'itis')
 ```r
 comm2sci("black bear", db = "itis")
 #> $`black bear`
-#> [1] "Chiropotes satanas"          "Ursus americanus luteolus"  
-#> [3] "Ursus americanus americanus" "Ursus americanus"           
-#> [5] "Ursus americanus"            "Ursus thibetanus"           
-#> [7] "Ursus thibetanus"
+#> [1] "Ursus thibetanus"            "Ursus thibetanus"           
+#> [3] "Ursus americanus luteolus"   "Ursus americanus"           
+#> [5] "Ursus americanus"            "Ursus americanus americanus"
+#> [7] "Chiropotes satanas"
 ```
 
 ### Coerce codes to taxonomic id classes

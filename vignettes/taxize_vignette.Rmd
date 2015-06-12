@@ -1,6 +1,7 @@
 <!--
 %\VignetteEngine{knitr::knitr}
 %\VignetteIndexEntry{taxize vignette}
+%\VignetteEncoding{UTF-8}
 -->
 
 
@@ -46,17 +47,13 @@ head( temp$results )
 #> 6 Helianthos annus    Helianthus annuus              NCBI  0.75
 ```
 
-The correct spellings are *Helianthus annuus* and *Homo sapiens*. Another approach uses the [Taxonomic Name Resolution Service via the Taxosaurus API][taxosaurus] developed by iPLant and the Phylotastic organization. In this example, we provide a list of species names, some of which are misspelled, and we'll call the API with the *tnrs* function.
+The correct spellings are *Helianthus annuus* and *Homo sapiens*. Another approach uses the Taxonomic Name Resolution Service via the Taxosaurus API developed by iPLant and the Phylotastic organization. In this example, we provide a list of species names, some of which are misspelled, and we'll call the API with the *tnrs* function.
 
 
 ```r
 mynames <- c("Helianthus annuus", "Pinus contort", "Poa anua", "Abis magnifica",
   	"Rosa california", "Festuca arundinace", "Sorbus occidentalos","Madia sateva")
 tnrs(query = mynames, source = "iPlant_TNRS")[ , -c(5:7)]
-```
-
-```
-#> Calling http://taxosaurus.org/retrieve/f2be9ae38992ada133d90edd3a5e6322
 ```
 
 ```
@@ -96,15 +93,21 @@ attr(,"class")
 ```
 
 ```r
-library("plyr")
-ldply(tsn, itis_acceptname)
+lapply(tsn, itis_acceptname)
 ```
 
 ```
+[[1]]
   submittedtsn      acceptedname acceptedtsn
 1       525928 Helianthus annuus       36616
-2       525929 Helianthus annuus       36616
-3       525930 Helianthus annuus       36616
+
+[[2]]
+  submittedtsn      acceptedname acceptedtsn
+1       525929 Helianthus annuus       36616
+
+[[3]]
+  submittedtsn      acceptedname acceptedtsn
+1       525930 Helianthus annuus       36616
 ```
 
 ## Retrieve higher taxonomic names
@@ -120,41 +123,35 @@ classification(specieslist, db = 'itis')
 ```
 
 ```
-#> 
-#> Retrieving data for taxon 'Abies procera'
-#> 
-#> 
-#> Retrieving data for taxon 'Pinus contorta'
-```
-
-```
 #> $`Abies procera`
 #>               name          rank     id
 #> 1          Plantae       Kingdom 202422
-#> 2   Viridaeplantae    Subkingdom 846492
+#> 2    Viridiplantae    Subkingdom 954898
 #> 3     Streptophyta  Infrakingdom 846494
-#> 4     Tracheophyta      Division 846496
-#> 5  Spermatophytina   Subdivision 846504
-#> 6     Gymnospermae Infradivision 846506
+#> 4      Embryophyta Superdivision 954900
+#> 5     Tracheophyta      Division 846496
+#> 6  Spermatophytina   Subdivision 846504
 #> 7        Pinopsida         Class 500009
-#> 8          Pinales         Order 500028
-#> 9         Pinaceae        Family  18030
-#> 10           Abies         Genus  18031
-#> 11   Abies procera       Species 181835
+#> 8          Pinidae      Subclass 954916
+#> 9          Pinales         Order 500028
+#> 10        Pinaceae        Family  18030
+#> 11           Abies         Genus  18031
+#> 12   Abies procera       Species 181835
 #> 
 #> $`Pinus contorta`
 #>               name          rank     id
 #> 1          Plantae       Kingdom 202422
-#> 2   Viridaeplantae    Subkingdom 846492
+#> 2    Viridiplantae    Subkingdom 954898
 #> 3     Streptophyta  Infrakingdom 846494
-#> 4     Tracheophyta      Division 846496
-#> 5  Spermatophytina   Subdivision 846504
-#> 6     Gymnospermae Infradivision 846506
+#> 4      Embryophyta Superdivision 954900
+#> 5     Tracheophyta      Division 846496
+#> 6  Spermatophytina   Subdivision 846504
 #> 7        Pinopsida         Class 500009
-#> 8          Pinales         Order 500028
-#> 9         Pinaceae        Family  18030
-#> 10           Pinus         Genus  18035
-#> 11  Pinus contorta       Species 183327
+#> 8          Pinidae      Subclass 954916
+#> 9          Pinales         Order 500028
+#> 10        Pinaceae        Family  18030
+#> 11           Pinus         Genus  18035
+#> 12  Pinus contorta       Species 183327
 #> 
 #> attr(,"class")
 #> [1] "classification"
@@ -169,11 +166,6 @@ Instead of a full classification, you may only want a single name, say a family 
 
 ```r
 tax_name(query = "Helianthus annuus", get = "family", db = "ncbi")
-```
-
-```
-#> 
-#> Retrieving data for taxon 'Helianthus annuus'
 ```
 
 ```
@@ -195,26 +187,12 @@ get_uid(sciname = "Pinus")
 ```
 
 ```
-#> 
-#> Retrieving data for taxon 'Pinus'
-#> 
-#> 
-#> 
-#> 
-#> 
-#> More than one UID found for taxon 'Pinus'!
-#> 
-#>             Enter rownumber of taxon (other inputs will return 'NA'):
-```
-
-```
-#>      UID     Rank    Division
-#> 1 139271 subgenus seed plants
-#> 2   3337    genus seed plants
-```
-
-```
-#> Input accepted, took UID '139271'.
+#>   status     rank    division scientificname commonname    uid genus
+#> 1 active subgenus seed plants          Pinus hard pines 139271      
+#> 2 active    genus seed plants          Pinus              3337      
+#>   species subsp modificationdate
+#> 1               2010/12/13 00:00
+#> 2               2004/09/10 00:00
 ```
 
 ```
@@ -233,17 +211,6 @@ In another example, you can pass in a long character vector of taxonomic names (
 ```r
 splist <- c("annona cherimola", 'annona muricata', "quercus robur")
 get_tsn(searchterm = splist, searchtype = "scientific")
-```
-
-```
-#> 
-#> Retrieving data for taxon 'annona cherimola'
-#> 
-#> 
-#> Retrieving data for taxon 'annona muricata'
-#> 
-#> 
-#> Retrieving data for taxon 'quercus robur'
 ```
 
 ```
@@ -276,14 +243,6 @@ get_nbnid(c("Zootoca vivipara","Pinus contorta"), rows = 1)
 ```
 
 ```
-#> 
-#> Retrieving data for taxon 'Zootoca vivipara'
-#> 
-#> 
-#> Retrieving data for taxon 'Pinus contorta'
-```
-
-```
 #> [1] "NHMSYS0001706186" "NHMSYS0000494848"
 #> attr(,"class")
 #> [1] "nbnid"
@@ -302,19 +261,6 @@ get_nbnid(c("Zootoca vivipara","Pinus contorta"), rows = 1:3)
 ```
 
 ```
-#> 
-#> Retrieving data for taxon 'Zootoca vivipara'
-#> 
-#> 
-#> 
-#> 
-#> 
-#> More than one nbnid found for taxon 'Zootoca vivipara'!
-#> 
-#>             Enter rownumber of taxon (other inputs will return 'NA'):
-```
-
-```
 #>              nbnid                  searchMatchTitle       rank
 #> 1 NHMSYS0001706186                  Zootoca vivipara    Species
 #> 2 NHMSYS0020784960 Zootoca vivipara subsp. pannonica Subspecies
@@ -323,32 +269,10 @@ get_nbnid(c("Zootoca vivipara","Pinus contorta"), rows = 1:3)
 #> 1 Recommended
 #> 2 Recommended
 #> 3 Recommended
-```
-
-```
-#> Input accepted, took nbnid 'NHMSYS0001706186'.
-#> 
-#> 
-#> Retrieving data for taxon 'Pinus contorta'
-#> 
-#> 
-#> 
-#> 
-#> 
-#> More than one nbnid found for taxon 'Pinus contorta'!
-#> 
-#>             Enter rownumber of taxon (other inputs will return 'NA'):
-```
-
-```
 #>              nbnid               searchMatchTitle       rank  nameStatus
 #> 1 NHMSYS0000494848   Pinus contorta var. contorta    Variety Recommended
 #> 2 NBNSYS0000004786                 Pinus contorta    Species Recommended
 #> 3 NHMSYS0000494848 Pinus contorta subsp. contorta Subspecies Recommended
-```
-
-```
-#> Input accepted, took nbnid 'NHMSYS0000494848'.
 ```
 
 ```
@@ -367,14 +291,6 @@ In addition, in case you don't want to do interactive name selection in the case
 
 ```r
 out <- get_nbnid_("Poa annua")
-```
-
-```
-#> 
-#> Retrieving data for taxon 'Poa annua'
-```
-
-```r
 NROW(out)
 ```
 
@@ -390,23 +306,18 @@ get_nbnid_("Poa annua", rows = 1:10)
 ```
 
 ```
-#> 
-#> Retrieving data for taxon 'Poa annua'
-```
-
-```
 #> $`Poa annua`
-#>    ptaxonVersionKey searchMatchTitle    rank   nameStatus
-#> 1  NBNSYS0000002544        Poa annua Species  Recommended
-#> 2  NHMSYS0000461798              Poa   Genus  Recommended
-#> 3  NHMSYS0000461804         Poa laxa Species      Synonym
-#> 4  NHMSYS0021060390           Poales   Order  Recommended
-#> 5  NBNSYS0000002551       Poa glauca Species  Recommended
-#> 6  NBNSYS0000002547       Poa alpina Species  Recommended
-#> 7  NHMSYS0000456981       Poa rigida Species      Synonym
-#> 8  NBNSYS0000002545       Poa exilis Species Undetermined
-#> 9  NBNSYS0000002551       Poa caesia Species      Synonym
-#> 10 NBNSYS0000160753          Poaceae  Family  Recommended
+#>    ptaxonVersionKey searchMatchTitle    rank  nameStatus
+#> 1  NBNSYS0000002544        Poa annua Species Recommended
+#> 2  NHMSYS0000461798              Poa   Genus Recommended
+#> 3  NHMSYS0000461804         Poa laxa Species     Synonym
+#> 4  NHMSYS0021060390           Poales   Order Recommended
+#> 5  NBNSYS0000002547       Poa alpina Species Recommended
+#> 6  NBNSYS0000002551       Poa glauca Species Recommended
+#> 7  NBNSYS0000160753          Poaceae  Family Recommended
+#> 8  NHMSYS0000461804        Poa minor Species     Synonym
+#> 9  NBNSYS0000002551       Poa caesia Species     Synonym
+#> 10 NHMSYS0000456981       Poa rigida Species     Synonym
 ```
 
 ## Coerce numerics/alphanumerics to taxon IDs
@@ -421,8 +332,48 @@ as.gbifid(get_gbifid("Poa annua")) # already a uid, returns the same
 ```
 
 ```
-#> 
-#> Retrieving data for taxon 'Poa annua'
+#>     gbifid        phylum  order  family         canonicalname       rank
+#> 1  2704179 Magnoliophyta Poales Poaceae             Poa annua    SPECIES
+#> 2  7262139 Magnoliophyta Poales Poaceae       Poa annua annua SUBSPECIES
+#> 3  6313731 Magnoliophyta Poales Poaceae       Poa annua varia SUBSPECIES
+#> 4  6313730 Magnoliophyta Poales Poaceae      Poa annua exilis SUBSPECIES
+#> 5  5947756 Magnoliophyta Poales Poaceae      Poa annua supina SUBSPECIES
+#> 6  4128735 Magnoliophyta Poales Poaceae  Poa annua raniglumis SUBSPECIES
+#> 7  4128771 Magnoliophyta Poales Poaceae   Poa annua notabilis SUBSPECIES
+#> 8  6431931 Magnoliophyta Poales Poaceae  Poa annua raniglumis    VARIETY
+#> 9  6431930 Magnoliophyta Poales Poaceae       Poa annua annua    VARIETY
+#> 10 5947873 Magnoliophyta Poales Poaceae  Poa annua hypsophila    VARIETY
+#> 11 6313732 Magnoliophyta Poales Poaceae      Poa annua supina    VARIETY
+#> 12 6313765 Magnoliophyta Poales Poaceae     Poa annua reptans    VARIETY
+#> 13 5947510 Magnoliophyta Poales Poaceae     Poa annua stricta    VARIETY
+#> 14 5947556 Magnoliophyta Poales Poaceae Poa annua sikkimensis    VARIETY
+#> 15 5947757 Magnoliophyta Poales Poaceae       Poa annua varia    VARIETY
+#> 16 5947582 Magnoliophyta Poales Poaceae      Poa annua exilis    VARIETY
+#> 17 5947584 Magnoliophyta Poales Poaceae Poa annua remotiflora    VARIETY
+#> 18 5947754 Magnoliophyta Poales Poaceae      Poa annua exigua    VARIETY
+#> 19 5947585 Magnoliophyta Poales Poaceae  Poa annua tommasinii    VARIETY
+#> 20 5947583 Magnoliophyta Poales Poaceae   Poa annua maroccana    VARIETY
+#>         class
+#> 1  Liliopsida
+#> 2  Liliopsida
+#> 3  Liliopsida
+#> 4  Liliopsida
+#> 5  Liliopsida
+#> 6  Liliopsida
+#> 7  Liliopsida
+#> 8  Liliopsida
+#> 9  Liliopsida
+#> 10 Liliopsida
+#> 11 Liliopsida
+#> 12 Liliopsida
+#> 13 Liliopsida
+#> 14 Liliopsida
+#> 15 Liliopsida
+#> 16 Liliopsida
+#> 17 Liliopsida
+#> 18 Liliopsida
+#> 19 Liliopsida
+#> 20 Liliopsida
 ```
 
 ```
@@ -488,7 +439,7 @@ system.time( replicate(3, as.gbifid(c("2704179","2435099","3171445"), check=TRUE
 
 ```
 #>    user  system elapsed 
-#>   0.202   0.007   2.191
+#>   0.187   0.005   2.186
 ```
 
 ```r
@@ -507,11 +458,6 @@ If someone is not a taxonomic specialist on a particular taxon he likely does no
 
 ```r
 downstream("Apis", downto = "Species", db = "col")
-```
-
-```
-#> 
-#> Retrieving data for taxon 'Apis'
 ```
 
 ```
@@ -536,11 +482,6 @@ We can also request data from ITIS
 
 ```r
 downstream("Apis", downto = "Species", db = "itis")
-```
-
-```
-#> 
-#> Retrieving data for taxon 'Apis'
 ```
 
 ```
@@ -570,12 +511,7 @@ children(get_colid("Apis"))
 ```
 
 ```
-#> 
-#> Retrieving data for taxon 'Apis'
-```
-
-```
-#> $`20126217`
+#> $`22425863`
 #>   childtaxa_id     childtaxa_name childtaxa_rank
 #> 1      6971712 Apis andreniformis        Species
 #> 2      6971713        Apis cerana        Species
@@ -699,12 +635,8 @@ A_clas[[1]]$rank[tolower(A_clas[[1]]$name) %in% B3]
 
 If we find a direct match (here *Gammarus roeseli*), we are lucky. But we can also match Gammaridae with *Gammarus roeseli*, but on a lower taxonomic level. A more comprehensive and realistic example (matching a trait table with an abundance table) is given in the vignette on matching.
 
-[eol]: http://eol.org/
-[taxosaurus]: http://api.phylotastic.org/tnrs
+[eol]: http://www.eol.org/
 [ncbi]: http://www.ncbi.nlm.nih.gov/
 [itis]: http://www.itis.gov/
-[phylomatic]: http://phylodiversity.net/phylomatic/
-[opentree]: http://blog.opentreeoflife.org/
 [wikispecies]: http://species.wikimedia.org/wiki/Main_Page
 [col]: http://www.catalogueoflife.org/
-[iucn]: http://www.iucnredlist.org/

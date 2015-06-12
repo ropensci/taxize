@@ -1,6 +1,7 @@
 <!--
 %\VignetteEngine{knitr::knitr}
 %\VignetteIndexEntry{Key functions}
+%\VignetteEncoding{UTF-8}
 -->
 
 Some key functions in taxize, what they do, and their data sources.

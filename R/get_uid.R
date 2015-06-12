@@ -145,11 +145,8 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, division = N
         baseurl <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy"
         ID <- paste("ID=", paste(uid, collapse = ","), sep = "")
         searchurl <- paste(baseurl, ID, sep = "&")
-        #         tt <- getURL(searchurl)
         errors_to_catch <- c("Could not resolve host: eutils.ncbi.nlm.nih.gov")
-        tt <- repeat_until_it_works(getURL,
-                                    catch = errors_to_catch,
-                                    url = searchurl)
+        tt <- repeat_until_it_works(catch = errors_to_catch, url = searchurl, ...)
         ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)
         df <- parse_ncbi(ttp)
         rownames(df) <- 1:nrow(df)
