@@ -25,6 +25,7 @@
 #' @param intermediate (logical) If TRUE, return a list of length two with target
 #'    taxon rank names, with additional list of data.frame's of intermediate
 #'    taxonomic groups. Default: FALSE
+#' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @details Provide only names instead of id's
 #' @return A list of data.frame's.
 #' @export

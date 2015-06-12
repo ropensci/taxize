@@ -40,6 +40,8 @@ year's checklist instead of the lastest as default (numeric).}
 \item{intermediate}{(logical) If TRUE, return a list of length two with target
 taxon rank names, with additional list of data.frame's of intermediate
 taxonomic groups. Default: FALSE}
+
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
 A list of data.frame's.
