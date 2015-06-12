@@ -52,7 +52,7 @@ Note that a few data sources require SOAP web services, which are difficult to s
 <tr>
 	<td style="text-align:left;">Taxonomic Name Resolution Service</td>
 	<td style="text-align:left;"><code>tnrs</code></td>
-	<td style="text-align:left;"><a href="http://api.phylotastic.org/tnrs">link</a></td>
+	<td style="text-align:left;">"api.phylotastic.org/tnrs"</td>
 	<td style="text-align:left;">none</td>
 </tr>
 <tr>
@@ -435,9 +435,9 @@ sci2comm('Helianthus annuus', db = 'itis')
 comm2sci("black bear", db = "itis")
 #> $`black bear`
 #> [1] "Ursus thibetanus"            "Ursus thibetanus"           
-#> [3] "Ursus americanus luteolus"   "Ursus americanus"           
-#> [5] "Ursus americanus"            "Ursus americanus americanus"
-#> [7] "Chiropotes satanas"
+#> [3] "Chiropotes satanas"          "Ursus americanus luteolus"  
+#> [5] "Ursus americanus"            "Ursus americanus"           
+#> [7] "Ursus americanus americanus"
 ```
 
 ### Coerce codes to taxonomic id classes
