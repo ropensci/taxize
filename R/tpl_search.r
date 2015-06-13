@@ -16,17 +16,6 @@
 #' @param ... Further arguments passed on to the TPL or TPLck function of Taxonstand.
 #' 		See \code{TPL} and \code{TPLck} for arguments.
 #' @seealso \code{\link[taxize]{tpl_get}}, \code{\link[taxize]{tpl_families}}
-#' @examples \dontrun{
-#' # Regular non-parallel
-#' splist <- c("Heliathus annuus","Abies procera","Poa annua",
-#'    "Platanus occidentalis","Carex abrupta","Arctostaphylos canescens",
-#'    "Ocimum basilicum","Vicia faba","Quercus kelloggii","Lactuca serriola")
-#' tpl_search(taxon = splist)
-#'
-#' # Use more arguments within TPLck
-#' tpl_search(taxon = "Microbryum curvicollum", corr = TRUE)
-#' tpl_search(taxon = "Microbryum curvicollum", corr = TRUE, max.distance=5)
-#' }
 #' @export
 #' @rdname tpl_search-defunct
 tpl_search <- function(taxon, paral = FALSE, ...) {

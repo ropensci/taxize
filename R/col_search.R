@@ -1,6 +1,6 @@
 #' Search Catalogue of Life for taxonomic IDs
 #'
-#' @import RCurl XML plyr
+#' @import XML plyr
 #' @export
 #' @param name The string to search for. Only exact matches found the name given
 #'   	will be returned, unless one or wildcards are included in the search
@@ -77,11 +77,17 @@ parse_full <- function(x) {
   taxize_ldfast(lapply(tmp, function(z) {
     switch(xpathSApply(z, "name_status", xmlValue),
            `accepted name` = {
-             h_vals <- xpathSApply(z, "classification//name", xmlValue)
-             h_nms <- xpathSApply(z, "classification//rank", xmlValue)
-             h <- setNames(rbind.data.frame(h_vals), h_nms)
-             rank <- xpathSApply(z, "rank", xmlValue)
-             id <- xpathSApply(z, "id", xmlValue)
+             if (xpathSApply(z, "classification", xmlValue) == "") {
+                h <- parse_terse(z)
+                rank <- xpathSApply(z, "rank", xmlValue)
+                id <- xpathSApply(z, "id", xmlValue)
+             } else {
+               h_vals <- xpathSApply(z, "classification//name", xmlValue)
+               h_nms <- xpathSApply(z, "classification//rank", xmlValue)
+               h <- setNames(rbind.data.frame(h_vals), h_nms)
+               rank <- xpathSApply(z, "rank", xmlValue)
+               id <- xpathSApply(z, "id", xmlValue)
+             }
            },
            `common name` = {
              h_vals <- xpathSApply(z, "accepted_name//classification//name", xmlValue)
@@ -91,11 +97,17 @@ parse_full <- function(x) {
              id <- xpathSApply(z, "accepted_name/id", xmlValue)
            },
            synonym = {
-             h_vals <- xpathSApply(z, "accepted_name//classification//name", xmlValue)
-             h_nms <- xpathSApply(z, "accepted_name//classification//rank", xmlValue)
-             h <- setNames(rbind.data.frame(h_vals), h_nms)
-             rank <- xpathSApply(z, "accepted_name/rank", xmlValue)
-             id <- xpathSApply(z, "accepted_name/id", xmlValue)
+             if (length(xpathSApply(z, "classification")) == 0) {
+               h <- parse_terse(z)
+               rank <- xpathSApply(z, "rank", xmlValue)
+               id <- xpathSApply(z, "id", xmlValue)
+             } else {
+               h_vals <- xpathSApply(z, "accepted_name//classification//name", xmlValue)
+               h_nms <- xpathSApply(z, "accepted_name//classification//rank", xmlValue)
+               h <- setNames(rbind.data.frame(h_vals), h_nms)
+               rank <- xpathSApply(z, "accepted_name/rank", xmlValue)
+               id <- xpathSApply(z, "accepted_name/id", xmlValue)
+             }
            }
     )
     target <- setNames(rbind.data.frame(

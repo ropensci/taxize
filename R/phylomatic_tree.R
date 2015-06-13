@@ -50,13 +50,15 @@
 #' # names, so there's no per se rule), you will get an error when using \code{get='GET'},
 #' # when that happens use \code{get='POST'}
 #' spp <- names_list("species", 200)
-#' (out <- phylomatic_tree(taxa = spp, get = "GET"))
+#' # (out <- phylomatic_tree(taxa = spp, get = "GET"))
 #' (out <- phylomatic_tree(taxa = spp, get = "POST"))
 #' plot(out)
 #'
 #' # Pass in a tree from a URL on the web
 #' spp <- c('Abies amabilis','Abies balsamea','Abies bracteata','Abies concolor','Abies fraseri',
 #'    'Abies grandis','Abies lasiocarpa','Abies magnifica','Abies procera','Acacia berlandieri')
+#' spp <- c('Pinus koraiensis', 'Pinus sibirica', 'Pinus albicaulis', 'Pinus lambertiana',
+#'          'Pinus bungeana', 'Pinus strobus', 'Pinus_cembra')
 #' url <- "http://datadryad.org/bitstream/handle/10255/dryad.8791/final_tree.tre?sequence=1"
 #' phylomatic_tree(taxa=spp, treeuri=url)
 #'

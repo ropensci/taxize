@@ -16,10 +16,6 @@
 #' @export
 #' @rdname eol_hierarchy-defunct
 #' @keywords internal
-#' @examples \dontrun{
-#' # Using get_eolid
-#' eol_hierarchy(get_eolid(sciname='Poa annua'))
-#' }
 eol_hierarchy <- function(taxonid, common_names = NULL, synonyms = NULL,
                           key = NULL, callopts=list())
 {

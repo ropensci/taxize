@@ -861,6 +861,7 @@ searchbycommonname <- function(x, ...) {
 
 #' Searches common name and acts as thin wrapper around \code{searchbycommonnamebeginswith} and \code{searchbycommonnameendswith}
 #'
+#' @export
 #' @param x Search terms
 #' @param from Default is to search from beginning. Use \code{end} to serch from end.
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}

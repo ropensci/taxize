@@ -26,19 +26,6 @@ and \code{\link[Taxonstand]{TPLck}}, directly. However, we are keeping two funct
 that give you access to download Theplantlist.org data \code{\link[taxize]{tpl_get}}
 and to get Theplantlist.org families \code{\link[taxize]{tpl_families}}.
 }
-\examples{
-\dontrun{
-# Regular non-parallel
-splist <- c("Heliathus annuus","Abies procera","Poa annua",
-   "Platanus occidentalis","Carex abrupta","Arctostaphylos canescens",
-   "Ocimum basilicum","Vicia faba","Quercus kelloggii","Lactuca serriola")
-tpl_search(taxon = splist)
-
-# Use more arguments within TPLck
-tpl_search(taxon = "Microbryum curvicollum", corr = TRUE)
-tpl_search(taxon = "Microbryum curvicollum", corr = TRUE, max.distance=5)
-}
-}
 \seealso{
 \code{\link[taxize]{tpl_get}}, \code{\link[taxize]{tpl_families}}
 }

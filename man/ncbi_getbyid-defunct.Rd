@@ -25,15 +25,6 @@ Removes predicted sequences so you don't have to remove them.
 		"XR_" prefixes. This function retrieves one sequences for each species,
   	picking the longest available for the given gene.
 }
-\examples{
-\dontrun{
-# A single gene
-ncbi_getbyid(ids="360040093", format="fasta")
-
-# Many genes (with different accession numbers)
-ncbi_getbyid(ids=c("360040093","347448433"), format="fasta")
-}
-}
 \author{
 Scott Chamberlain \email{myrmecocystus@gmail.com}
 }

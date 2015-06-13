@@ -129,9 +129,15 @@ get_ubioid <- function(searchterm, searchtype = "scientific", ask = TRUE, verbos
       ubio_df <- switch(searchtype,
                         scientific = ubio_df[,c("namebankid","namestring","packagename","rankname")],
                         vernacular = ubio_df[,c("namebankid","namestring","packagename")])
-      ubio_df <- rename(ubio_df, c('packagename' = 'family', 'rankname' = 'rank',
-                                   'namebankid' = 'ubioid'))
-      ubio_df <- fix_ranks(ubio_df)
+      if (searchtype == "scientific") {
+        ubio_df <- rename(ubio_df, c('packagename' = 'family',
+                                     'rankname' = 'rank',
+                                     'namebankid' = 'ubioid'))
+      } else {
+        ubio_df <- rename(ubio_df, c('packagename' = 'family',
+                                     'namebankid' = 'ubioid'))
+      }
+      if (searchtype == "scientific") ubio_df <- fix_ranks(ubio_df)
 
       direct <- NA
       # should return NA if spec not found
@@ -176,10 +182,9 @@ get_ubioid <- function(searchterm, searchtype = "scientific", ask = TRUE, verbos
 
           if (!is.null(family) || !is.null(rank)) {
             ubio_df <- filt(ubio_df, "family", family)
-            ubio_df <- filt(ubio_df, "rank", rank)
+            if (searchtype == "scientific") ubio_df <- filt(ubio_df, "rank", rank)
             ubioid <- id <- ubio_df$ubioid
             if (length(id) == 1) {
-              rank_taken <- as.character(ubio_df$rank)
               att <- "found"
             }
           }

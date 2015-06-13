@@ -38,14 +38,6 @@
 #' @seealso \code{eol_invasive}
 #' @rdname gisd_invasive-defunct
 #' @keywords internal
-#' @examples \dontrun{
-#' sp <- c("Carpobrotus edulis", "Rosmarinus officinalis")
-#' ## first species is invasive, second one is not.
-#' gisd_isinvasive(sp)
-#' gisd_isinvasive(sp, simplify = TRUE)
-#' }
-#'
-
 gisd_isinvasive <- function(x, simplify = FALSE, verbose=TRUE)
 {
   .Defunct("g_invasive", "traits", msg = "This function is defunct. See traits::g_invasive()")

@@ -34,16 +34,6 @@ Removes predicted sequences so you don't have to remove them.
 		"XR_" prefixes. This function retrieves one sequences for each species,
   	picking the longest available for the given gene.
 }
-\examples{
-\dontrun{
-# A single species
-ncbi_getbyname(taxa="Acipenser brevirostrum")
-
-# Many species
-species <- c("Colletes similis","Halictus ligatus","Perdita trisignata")
-ncbi_getbyname(taxa=species, gene = c("coi", "co1"), seqrange = "1:2000")
-}
-}
 \author{
 Scott Chamberlain \email{myrmecocystus@gmail.com}
 }

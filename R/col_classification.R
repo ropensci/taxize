@@ -27,26 +27,6 @@
 #' @export
 #' @rdname col_classification-defunct
 #' @keywords internal
-#' @examples \dontrun{
-#' # A basic example
-#' col_classification(name="Apis")
-#'
-#' # An example where there is no classification
-#' col_classification(id=11935941)
-#'
-#' # Use a specific year's checklist
-#' col_classification(name="Apis", checklist="2012")
-#' col_classification(name="Apis", checklist="2009")
-#'
-#' # Pass in many names or many id's
-#' out <- col_classification(name=c("Buteo","Apis","Accipiter","asdf"),
-#'    checklist="2012")
-#' out$Apis # get just the output you want
-#' ldply(out) # or combine to one data.frame
-#'
-#' # Use get_colid to pass in ID directly
-#' col_classification(id=get_colid(sciname='Puma concolor'))
-#' }
 col_classification <- function(name=NULL, id=NULL, format=NULL, start=NULL, checklist=NULL)
 {
   .Defunct(msg="This function is defunct. See classification().")

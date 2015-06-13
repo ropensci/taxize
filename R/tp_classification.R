@@ -10,11 +10,6 @@
 #' @export
 #' @rdname tp_classification-defunct
 #' @keywords internal
-#' @examples \dontrun{
-#' tp_classification(id = 25509881)
-#' tp_classification(id = c(25509881,2700851))
-#' tp_classification(id = c(25509881,2700851), callopts=verbose())
-#' }
 tp_classification <- function(id=NULL, key=NULL, callopts=list())
 {
   .Defunct(msg="This function is defunct. See classification().")

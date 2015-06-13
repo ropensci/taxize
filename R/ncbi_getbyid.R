@@ -15,13 +15,6 @@
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @rdname ncbi_getbyid-defunct
 #' @keywords internal
-#' @examples \dontrun{
-#' # A single gene
-#' ncbi_getbyid(ids="360040093", format="fasta")
-#'
-#' # Many genes (with different accession numbers)
-#' ncbi_getbyid(ids=c("360040093","347448433"), format="fasta")
-#' }
 ncbi_getbyid <- function(ids, format="fasta", verbose=TRUE)
 {
   .Defunct("ncbi_byid", "traits", msg="This function is defunct. See traits::ncbi_byid()")

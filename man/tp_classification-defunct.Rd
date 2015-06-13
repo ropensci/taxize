@@ -19,13 +19,6 @@ A data.frame giving the hierarchy.
 \description{
 THIS FUNCTION IS DEFUNCT.
 }
-\examples{
-\dontrun{
-tp_classification(id = 25509881)
-tp_classification(id = c(25509881,2700851))
-tp_classification(id = c(25509881,2700851), callopts=verbose())
-}
-}
 \references{
 \url{http://services.tropicos.org/help?method=GetNameHigherTaxaXml}
 }

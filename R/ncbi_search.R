@@ -22,38 +22,6 @@
 #'   \email{zacharyfoster1989@@gmail.com}
 #' @rdname ncbi_search-defunct
 #' @keywords internal
-#' @examples \dontrun{
-#' # A single species
-#' out <- ncbi_search(taxa="Umbra limi", seqrange = "1:2000")
-#' # Get the same species information using a taxonomy id
-#' out <- ncbi_search(id = "75935", seqrange = "1:2000")
-#' # If the taxon name is unique, using the taxon name and id are equivalent
-#' all(ncbi_search(id = "75935") ==  ncbi_search(taxa="Umbra limi"))
-#' # If the taxon name is not unique, use taxon id
-#' #  "266948" is the uid for the butterfly genus, but there is also a genus of orchids with the
-#' #  same name
-#' nrow(ncbi_search(id = "266948")) ==  nrow(ncbi_search(taxa="Satyrium"))
-#' # get list of genes available, removing non-unique
-#' unique(out$gene_desc)
-#' # does the string 'RAG1' exist in any of the gene names
-#' out[grep("RAG1", out$gene_desc, ignore.case=TRUE),]
-#'
-#' # A single species without records in NCBI
-#' out <- ncbi_search(taxa="Sequoia wellingtonia", seqrange="1:2000", getrelated=TRUE)
-#'
-#' # Many species, can run in parallel or not using plyr
-#' species <- c("Salvelinus alpinus","Ictalurus nebulosus","Carassius auratus")
-#' out2 <- ncbi_search(taxa=species, seqrange = "1:2000")
-#' lapply(out2, head) # see heads of all
-#' library("plyr")
-#' out2df <- ldply(out2) # make data.frame of all
-#' unique(out2df$gene_desc) # get list of genes available, removing non-unique
-#' out2df[grep("60S ribosomal protein", out2df$gene_desc, ignore.case=TRUE),] # search across all
-#'
-#' # Using the getrelated and entrez_query options
-#' ncbi_search(taxa = "Olpidiopsidales", limit = 5, getrelated = TRUE,
-#'             entrez_query = "18S[title] AND 28S[title]")
-#' }
 #' @export
 ncbi_search <- function(taxa = NULL, id = NULL, seqrange="1:3000", getrelated=FALSE, limit = 500,
                         entrez_query = NULL, hypothetical = FALSE, verbose=TRUE)

@@ -14,14 +14,6 @@
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @rdname ncbi_getbyname-defunct
 #' @keywords internal
-#' @examples \dontrun{
-#' # A single species
-#' ncbi_getbyname(taxa="Acipenser brevirostrum")
-#'
-#' # Many species
-#' species <- c("Colletes similis","Halictus ligatus","Perdita trisignata")
-#' ncbi_getbyname(taxa=species, gene = c("coi", "co1"), seqrange = "1:2000")
-#' }
 ncbi_getbyname <- function(taxa, gene="COI", seqrange="1:3000", getrelated=FALSE,
                            verbose=TRUE)
 {

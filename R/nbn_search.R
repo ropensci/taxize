@@ -18,7 +18,7 @@
 #'
 #' @examples \dontrun{
 #' nbn_search(q = "blackbird")
-#' nbn_search(q = "blackbird", start = TRUE)
+#' nbn_search(q = "blackbird", start = 4)
 #' nbn_search(q = "blackbird", all = TRUE)
 #' nbn_search(q = "blackbird", taxonOutputGroupKey = "NHMSYS0000080039")
 #'

@@ -62,24 +62,6 @@
 #' @references See info for each data source at \url{http://eol.org/collections/55367/taxa}
 #' @rdname eol_invasive-defunct
 #' @keywords internal
-#'
-#' @examples \dontrun{
-#' eol_invasive(name='Brassica oleracea', dataset='gisd')
-#' eol_invasive(name=c('Lymantria dispar','Cygnus olor','Hydrilla verticillata','Pinus concolor'),
-#'    dataset='gisd')
-#' eol_invasive(name='Sargassum', dataset='gisd')
-#' eol_invasive(name='Ciona intestinalis', dataset='mineps')
-#' eol_invasive(name=c('Lymantria dispar','Cygnus olor','Hydrilla verticillata','Pinus concolor'),
-#'    dataset='i3n')
-#' eol_invasive(name=c('Branta canadensis','Gallus gallus','Myiopsitta monachus'),
-#'    dataset='daisie')
-#' eol_invasive(name=c('Branta canadensis','Gallus gallus','Myiopsitta monachus'), dataset='isc')
-#'
-#' # Count
-#' eol_invasive(name=c('Lymantria dispar','Cygnus olor','Hydrilla verticillata','Pinus concolor'),
-#'    dataset='gisd', count = TRUE)
-#' }
-
 eol_invasive <- function(name = NULL, dataset="all", searchby = grep, page=NULL,
   per_page=NULL, key = NULL, verbose=TRUE, count=FALSE, ...) {
 

@@ -44,14 +44,6 @@ GISD data occassionally. See notes in \code{eol_invasive}.
 \details{
 THIS FUNCTION IS DEFUNCT.
 }
-\examples{
-\dontrun{
-sp <- c("Carpobrotus edulis", "Rosmarinus officinalis")
-## first species is invasive, second one is not.
-gisd_isinvasive(sp)
-gisd_isinvasive(sp, simplify = TRUE)
-}
-}
 \author{
 Ignasi Bartomeus \email{nacho.bartomeus@gmail.com}
 }

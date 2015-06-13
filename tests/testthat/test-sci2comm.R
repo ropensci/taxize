@@ -1,7 +1,7 @@
 # tests for sci2comm fxn in taxize
 context("sci2comm")
 
-tt <- sci2comm(scinames = 'Helianthus annuus', db = 'ncbi')
+tt <- sci2comm(scinames = 'Helianthus annuus', db = 'ncbi', verbose = FALSE)
 uu <- sci2comm(scinames = 'Helianthus annuus', db = 'itis', verbose = FALSE)
 
 test_that("sci2comm returns the correct value", {

@@ -46,11 +46,8 @@ If there is no match in the Taxosaurus database, nothing is
 }
 \examples{
 \dontrun{
-# Default, uses GET curl method, you can't specify any other parameters when
-using GET
-mynames <- c("Panthera tigris", "Neotamias minimus", "Magnifera indica")
-tnrs(query = mynames)
-
+# Default, uses GET curl method, you can't specify any other
+# parameters when using GET
 # Specifying the source to match against
 mynames <- c("Helianthus annuus", "Poa annua")
 tnrs(query = mynames, source = "iPlant_TNRS")
