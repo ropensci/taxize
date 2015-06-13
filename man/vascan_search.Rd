@@ -20,7 +20,7 @@ taxon identifier (e.g. 861)}
 json, xml or a list.
 }
 \description{
-For more information, see \url{http://data.canadensys.net/vascan/search}.
+Search the CANADENSYS Vascan API.
 }
 \examples{
 \dontrun{
@@ -48,8 +48,7 @@ vascan_search(q = splist)
 Scott Chamberlain {myrmecocystus@gmail.com}
 }
 \references{
-API docs \url{http://data.canadensys.net/vascan/api}. You can also
-download bulk data \url{http://data.canadensys.net/ipt/resource.do?r=vascan&request_locale=en}
+API docs http://data.canadensys.net/vascan/api
 }
 \keyword{names}
 \keyword{taxonomy}

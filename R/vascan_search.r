@@ -1,7 +1,5 @@
 #' Search the CANADENSYS Vascan API.
 #'
-#' For more information, see \url{http://data.canadensys.net/vascan/search}.
-#'
 #' @import httr jsonlite
 #' @export
 #'
@@ -12,8 +10,7 @@
 #' @param callopts (list) Further args passed on to htt::GET.
 #' @author Scott Chamberlain {myrmecocystus@@gmail.com}
 #' @return json, xml or a list.
-#' @references API docs \url{http://data.canadensys.net/vascan/api}. You can also
-#' download bulk data \url{http://data.canadensys.net/ipt/resource.do?r=vascan&request_locale=en}
+#' @references API docs http://data.canadensys.net/vascan/api
 #' @keywords names taxonomy
 #' @examples \dontrun{
 #' vascan_search(q = "Helianthus annuus")
