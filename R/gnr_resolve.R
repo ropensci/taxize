@@ -63,35 +63,34 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
   num = NULL
   url <- "http://resolver.globalnames.org/name_resolvers.json"
   names2 <- paste0(names, collapse = "|")
-  if(length(names) > 300 && http == "get") http <- "post"
+  if (length(names) > 300 && http == "get") http <- "post"
 
   data_source_ids <- paste0(data_source_ids, collapse = "|")
   preferred_data_sources <- paste0(preferred_data_sources, collapse = "|")
-  if(nchar(preferred_data_sources)==0) preferred_data_sources <- NULL
+  if (nchar(preferred_data_sources) == 0) preferred_data_sources <- NULL
   resolve_once <- check_value(resolve_once)
   with_context <- check_value(with_context)
   highestscore <- check_value(highestscore)
   best_match_only <- check_value(best_match_only)
 
-  args <- taxize_compact(list(names=names2, data_source_ids=data_source_ids,
-            resolve_once=resolve_once,with_context=with_context,
-            best_match_only=best_match_only, preferred_data_sources=preferred_data_sources))
+  args <- taxize_compact(list(names = names2, data_source_ids = data_source_ids,
+            resolve_once = resolve_once, with_context = with_context,
+            best_match_only = best_match_only, preferred_data_sources = preferred_data_sources))
 
-  if (http=='get') {
-    tmp <- GET(url, query=args, ...)
+  if (http == 'get') {
+    tmp <- GET(url, query = args, ...)
     warn_for_status(tmp)
     tmp2 <- content(tmp, as = "text")
     dat <- jsonlite::fromJSON(tmp2, FALSE)$data
   } else {
     args <- args[!names(args) %in% "names"]
-
     nms <- split(names, ceiling(seq_along(names)/500))
     datbits <- list()
-    for(i in seq_along(nms)){
-      tt <- data.frame(num = 1:length(nms[[i]]), names=nms[[i]])
+    for (i in seq_along(nms)) {
+      tt <- data.frame(num = 1:length(nms[[i]]), names = nms[[i]])
       tt <- data.frame(ddply(tt, .(num), summarise, paste0(num, "|", names))[,2])
-      write.table(tt, file="~/gnr_names.txt", row.names=FALSE, col.names=FALSE, quote=FALSE)
-      ss <- POST(url, query=args, body=list(file = upload_file(path="~/gnr_names.txt")), ...)
+      write.table(tt, file = "~/gnr_names.txt", row.names = FALSE, col.names = FALSE, quote = FALSE)
+      ss <- POST(url, query = args, body = list(file = upload_file(path = "~/gnr_names.txt")), ...)
       warn_for_status(ss)
       ss <- content(ss, "text")
       datbits[[i]] <- jsonlite::fromJSON(ss, FALSE)$data
@@ -104,28 +103,45 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
                   function(y)
                     list(y[["supplied_name_string"]],
                         lapply(y$results, function(x) data.frame(x[c("name_string", "data_source_title", "score", "canonical_form")]))))
-  data_2 <- ldply(data_, function(x) data.frame(x[[1]], ldply( if(length(x[[2]])==0)
-      { list(data.frame(name_string="",data_source_title="",score=NaN,canonical_form="")) } else { x[[2]] } ), stringsAsFactors = FALSE))
-  names(data_2)[c(1,2,5)] <- c("submitted_name", "matched_name", "matched_name2")
-  data_2$matched_name <- as.character(data_2$matched_name)
-  data_2$data_source_title <- as.character(data_2$data_source_title)
-  data_2$matched_name2 <- as.character(data_2$matched_name2)
-  out <- data_2[order(data_2$submitted_name), ]
+
+  if (NROW(data_[[1]][[2]][[1]]) == 0) {
+    out <- "no results found"
+  } else {
+    data_2 <- ldply(data_, function(x) data.frame(x[[1]], ldply( if (length(x[[2]]) == 0) {
+      list(data.frame(name_string = "", data_source_title = "", score = NaN, canonical_form = ""))
+    } else {
+      x[[2]]
+    }), stringsAsFactors = FALSE))
+    names(data_2)[c(1,2,5)] <- c("submitted_name", "matched_name", "matched_name2")
+    data_2$matched_name <- as.character(data_2$matched_name)
+    data_2$data_source_title <- as.character(data_2$data_source_title)
+    data_2$matched_name2 <- as.character(data_2$matched_name2)
+    out <- data_2[order(data_2$submitted_name), ]
+
+    if (stripauthority) {
+      out <- out[ , !names(out) %in% "matched_name"]
+    } else {
+      out <- out[ , !names(out) %in% "matched_name2"]
+    }
+  }
 
   if (!is.null(preferred_data_sources)) {
     data_preferred <- lapply(dat,
       function(y)
           list(y[["supplied_name_string"]],
               lapply(y$preferred_results, function(x) data.frame(x[c("name_string", "data_source_title", "score", "canonical_form")]))))
-    data_2_preferred <- ldply(data_preferred, function(x) data.frame(x[[1]], ldply( if(length(x[[2]])==0)
-    { list(data.frame(name_string="",data_source_title="",score=NaN,canonical_form="")) } else { x[[2]] } ), stringsAsFactors = FALSE))
+    data_2_preferred <- ldply(data_preferred, function(x) data.frame(x[[1]], ldply(if (length(x[[2]]) == 0) {
+      list(data.frame(name_string = "", data_source_title = "", score = NaN, canonical_form = ""))
+    } else {
+      x[[2]]
+    }), stringsAsFactors = FALSE))
     names(data_2_preferred)[c(1,2,5)] <- c("submitted_name", "matched_name", "matched_name2")
     data_2_preferred$matched_name <- as.character(data_2_preferred$matched_name)
     data_2_preferred$data_source_title <- as.character(data_2_preferred$data_source_title)
     data_2_preferred$matched_name2 <- as.character(data_2_preferred$matched_name2)
     out_preferred <- data_2_preferred[order(data_2_preferred$submitted_name), ]
 
-    if (stripauthority){
+    if (stripauthority) {
       out_preferred <- out_preferred[ , !names(out_preferred) %in% "matched_name"]
     } else {
       out_preferred <- out_preferred[ , !names(out_preferred) %in% "matched_name2"]
@@ -134,14 +150,13 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
     out_preferred <- NULL
   }
 
-  if (stripauthority) {
-    out <- out[ , !names(out) %in% "matched_name"]
-  } else {
-    out <- out[ , !names(out) %in% "matched_name2"]
-  }
-  list(results=out, preferred=out_preferred)
+  list(results = out, preferred = out_preferred)
 }
 
 check_value <- function(x){
-  if(x){'true'} else{NULL}
+  if (x) {
+    'true'
+  } else {
+    NULL
+  }
 }

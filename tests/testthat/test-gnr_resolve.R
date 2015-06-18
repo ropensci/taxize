@@ -13,3 +13,25 @@ test_that("gnr_resolve returns the correct class", {
 	expect_is(tmp[[1]]$matched_name, "character")
 	expect_null(tmp[[2]])
 })
+
+test_that("best_match_only works correctly", {
+  x <- 'Aconitum degeni subsp. paniculatum'
+  a <- gnr_resolve(x, best_match_only = TRUE)
+  b <- gnr_resolve(x, best_match_only = FALSE)
+
+  expect_is(a, "list")
+  expect_is(b, "list")
+  expect_is(a$results, "character")
+  expect_is(b$results, "data.frame")
+})
+
+test_that("stripauthority works correctly", {
+  y <- "Helianthus annuus"
+  w <- gnr_resolve(y, stripauthority = TRUE)
+  z <- gnr_resolve(y, stripauthority = FALSE)
+
+  expect_is(w, "list")
+  expect_is(z, "list")
+  expect_named(w$results, c("submitted_name", "data_source_title", "score", "matched_name2"))
+  expect_named(z$results, c("submitted_name", "matched_name", "data_source_title", "score"))
+})
