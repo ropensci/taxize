@@ -75,13 +75,11 @@ children.default <- function(x, db = NULL, rows = NA, ...) {
   switch(db,
          itis = {
            id <- process_children_ids(x, db, get_tsn, rows = rows, ...)
-           # id <- get_tsn(x, rows = rows, ...)
            setNames(children(id, ...), x)
          },
 
          col = {
            id <- process_children_ids(x, db, get_colid, rows = rows, ...)
-           # id <- get_colid(x, rows = rows, ...)
            setNames(children(id, ...), x)
          },
 

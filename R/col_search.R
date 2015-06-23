@@ -121,7 +121,22 @@ parse_full <- function(x) {
                  h <- parse_one(z)
                  h_vals <- pluck(z$classification, "name", "")
                  h_nms <- pluck(z$classification, "rank", "")
-                 class <- setNames(rbind.data.frame(h_vals), h_nms)
+                 class <- setNames(rbind.data.frame(h_vals), tolower(h_nms))
+                 h <- cbind(h, class)
+                 rank <- z$rank
+                 id <- z$id
+               }
+             },
+             `provisionally accepted name` = {
+               if (length(z$classification) == 0) {
+                 h <- parse_one(z)
+                 rank <- z$rank
+                 id <- z$id
+               } else {
+                 h <- parse_one(z)
+                 h_vals <- pluck(z$classification, "name", "")
+                 h_nms <- pluck(z$classification, "rank", "")
+                 class <- setNames(rbind.data.frame(h_vals), tolower(h_nms))
                  h <- cbind(h, class)
                  rank <- z$rank
                  id <- z$id
@@ -130,7 +145,7 @@ parse_full <- function(x) {
              `common name` = {
                h_vals <- pluck(z$accepted_name$classification, "name", "")
                h_nms <- pluck(z$accepted_name$classification, "rank", "")
-               h <- setNames(rbind.data.frame(h_vals), h_nms)
+               h <- setNames(rbind.data.frame(h_vals), tolower(h_nms))
                rank <- z$accepted_name$rank
                id <- z$accepted_name$id
              },

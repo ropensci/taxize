@@ -27,6 +27,13 @@
 #'
 #' @export
 #' @examples \dontrun{
+#' # Plug in taxon IDs
+#' ## col Ids have to be character, as they are alphanumeric IDs
+#' downstream("015be25f6b061ba517f495394b80f108", db = "col", downto = "Species")
+#' ## ITIS tsn ids can be numeric or character
+#' downstream("154395", db = "itis", downto = "Species")
+#' downstream(154395, db = "itis", downto = "Species")
+#'
 #' # Plug in taxon names
 #' downstream("Insecta", db = 'col', downto = 'Order')
 #' downstream("Apis", db = 'col', downto = 'Species')
@@ -87,21 +94,30 @@ downstream.default <- function(x, db = NULL, downto = NULL, intermediate = FALSE
   nstop(db)
   switch(db,
          itis = {
-           id <- get_tsn(x, rows=rows, ...)
+           id <- process_downstream_ids(x, db, get_tsn, rows = rows, ...)
            setNames(downstream(id, downto = downto, intermediate = intermediate, ...), x)
          },
          col = {
-           id <- get_colid(x, rows=rows, ...)
+           id <- process_downstream_ids(x, db, get_tsn, rows = rows, ...)
            setNames(downstream(id, downto = downto, intermediate = intermediate, ...), x)
          },
          stop("the provided db value was not recognised", call. = FALSE)
   )
 }
 
+process_downstream_ids <- function(input, db, fxn, ...){
+  g <- tryCatch(as.numeric(as.character(input)), warning = function(e) e)
+  if (is(g, "numeric") || is.character(input) && grepl("[[:digit:]]", input)) {
+    as_fxn <- switch(db, itis = as.tsn, col = as.colid)
+    as_fxn(input, check = FALSE)
+  } else {
+    eval(fxn)(input, ...)
+  }
+}
+
 #' @export
 #' @rdname downstream
-downstream.tsn <- function(x, db = NULL, downto = NULL, intermediate = FALSE, ...)
-{
+downstream.tsn <- function(x, db = NULL, downto = NULL, intermediate = FALSE, ...) {
   fun <- function(y, downto, intermediate, ...){
     # return NA if NA is supplied
     if (is.na(y)) {
@@ -110,39 +126,37 @@ downstream.tsn <- function(x, db = NULL, downto = NULL, intermediate = FALSE, ..
 		  itis_downstream(tsns = y, downto = downto, intermediate = intermediate, ...)
     }
   }
-  out <- lapply(x, fun, downto=downto, intermediate=intermediate, ...)
-  structure(out, class='downstream', db='itis', .Names=x)
+  out <- lapply(x, fun, downto = downto, intermediate = intermediate, ...)
+  structure(out, class = 'downstream', db = 'itis', .Names = x)
 }
 
 #' @export
 #' @rdname downstream
-downstream.colid <- function(x, db = NULL, downto = NULL, intermediate = FALSE, ...)
-{
-  fun <- function(y, downto, intermediate, ...){
-    # return NA if NA is supplied
-    if(is.na(y)){
-      NA
-    } else {
-      col_downstream(id = y, downto = downto, intermediate = intermediate, ...)
-    }
-  }
-  out <- lapply(x, fun, downto=downto, intermediate=intermediate, ...)
-  structure(simp(out), class='downstream', db='col')
-}
-
-#' @export
-#' @rdname downstream
-downstream.ids <- function(x, db = NULL, downto = NULL, intermediate = FALSE, ...)
-{
+downstream.colid <- function(x, db = NULL, downto = NULL, intermediate = FALSE, ...) {
   fun <- function(y, downto, intermediate, ...){
     # return NA if NA is supplied
     if (is.na(y)) {
       NA
     } else {
-      downstream(y, downto = downto, intermediate=intermediate, ...)
+      col_downstream(id = y, downto = downto, intermediate = intermediate, ...)
     }
   }
-  structure(lapply(x, fun, downto=downto, intermediate=intermediate, ...), class='downstream_ids')
+  out <- lapply(x, fun, downto = downto, intermediate = intermediate, ...)
+  structure(simp(out), class = 'downstream', db = 'col')
 }
 
-simp <- function(x) if(length(x) == 1) x[[1]] else x
+#' @export
+#' @rdname downstream
+downstream.ids <- function(x, db = NULL, downto = NULL, intermediate = FALSE, ...) {
+  fun <- function(y, downto, intermediate, ...){
+    # return NA if NA is supplied
+    if (is.na(y)) {
+      NA
+    } else {
+      downstream(y, downto = downto, intermediate = intermediate, ...)
+    }
+  }
+  structure(lapply(x, fun, downto = downto, intermediate = intermediate, ...), class = 'downstream_ids')
+}
+
+simp <- function(x) if (length(x) == 1) x[[1]] else x
