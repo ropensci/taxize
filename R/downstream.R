@@ -94,18 +94,18 @@ downstream.default <- function(x, db = NULL, downto = NULL, intermediate = FALSE
   nstop(db)
   switch(db,
          itis = {
-           id <- process_downstream_ids(x, db, get_tsn, rows = rows, ...)
+           id <- process_stream_ids(x, db, get_tsn, rows = rows, ...)
            setNames(downstream(id, downto = downto, intermediate = intermediate, ...), x)
          },
          col = {
-           id <- process_downstream_ids(x, db, get_tsn, rows = rows, ...)
+           id <- process_stream_ids(x, db, get_colid, rows = rows, ...)
            setNames(downstream(id, downto = downto, intermediate = intermediate, ...), x)
          },
          stop("the provided db value was not recognised", call. = FALSE)
   )
 }
 
-process_downstream_ids <- function(input, db, fxn, ...){
+process_stream_ids <- function(input, db, fxn, ...){
   g <- tryCatch(as.numeric(as.character(input)), warning = function(e) e)
   if (is(g, "numeric") || is.character(input) && grepl("[[:digit:]]", input)) {
     as_fxn <- switch(db, itis = as.tsn, col = as.colid)

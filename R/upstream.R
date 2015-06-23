@@ -53,11 +53,13 @@ upstream.default <- function(x, db = NULL, upto = NULL, rows = NA, ...){
   nstop(db)
   switch(db,
          itis = {
-           id <- get_tsn(x, rows = rows, ...)
+           # id <- get_tsn(x, rows = rows, ...)
+           id <- process_stream_ids(x, db, get_tsn, rows = rows, ...)
            setNames(upstream(id, upto = upto, ...), x)
          },
          col = {
-           id <- get_colid(x, rows = rows, ...)
+           # id <- get_colid(x, rows = rows, ...)
+           id <- process_stream_ids(x, db, get_colid, rows = rows, ...)
            setNames(upstream(id, upto = upto, ...), x)
          },
          stop("the provided db value was not recognised", call. = FALSE)
@@ -66,18 +68,19 @@ upstream.default <- function(x, db = NULL, upto = NULL, rows = NA, ...){
 
 #' @export
 #' @rdname upstream
-upstream.tsn <- function(x, db = NULL, upto = NULL, ...)
-{
+upstream.tsn <- function(x, db = NULL, upto = NULL, ...) {
   fun <- function(y, ...){
     # return NA if NA is supplied
-    if (is.na(y)) { NA } else {
+    if (is.na(y)) {
+      NA
+    } else {
       class <- classification(y, ...)
       toget <- class[[1]][ grep(upto, class[[1]]$rank) - 1, c("name","id") ]
-      setNames(downstream(x=as.tsn(toget$id), downto = upto, ...), toget$name)
+      setNames(downstream(x = as.tsn(toget$id), downto = upto, ...), toget$name)
     }
   }
-  out <- if(length(x) > 1) lapply(x, fun, ...) else fun(x, ...)
-  structure(out, class='upstream', db='itis')
+  out <- if (length(x) > 1) lapply(x, fun, ...) else fun(x, ...)
+  structure(out, class = 'upstream', db = 'itis')
 }
 
 #' @export
@@ -85,20 +88,19 @@ upstream.tsn <- function(x, db = NULL, upto = NULL, ...)
 upstream.colid <- function(x, db = NULL, upto = NULL, ...) {
   fun <- function(y, ...){
     # return NA if NA is supplied
-    if(is.na(y)) { NA } else {
+    if (is.na(y)) { NA } else {
       class <- classification(y, ...)
       toget <- class[[1]][ grep(upto, class[[1]]$rank) - 1, "name" ]
       col_downstream(name = toget, downto = upto, ...)
     }
   }
-  out <- if(length(x) > 1) lapply(x, fun, ...) else fun(x, ...)
-  structure(out, class='upstream', db='col')
+  out <- if (length(x) > 1) lapply(x, fun, ...) else fun(x, ...)
+  structure(out, class = 'upstream', db = 'col')
 }
 
 #' @export
 #' @rdname upstream
-upstream.ids <- function(x, db = NULL, upto = NULL, ...)
-{
+upstream.ids <- function(x, db = NULL, upto = NULL, ...) {
   fun <- function(y, ...){
     # return NA if NA is supplied
     if (is.na(y)) {
@@ -108,5 +110,5 @@ upstream.ids <- function(x, db = NULL, upto = NULL, ...)
     }
     return(out)
   }
-  structure(if(length(x) > 1) lapply(x, fun, ...) else fun(x, ...), class='downstream_ids')
+  structure(if (length(x) > 1) lapply(x, fun, ...) else fun(x, ...), class = 'downstream_ids')
 }
