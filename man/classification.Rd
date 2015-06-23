@@ -56,7 +56,7 @@ rbind.classification_ids(...)
 \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_tpsid}},
 \code{\link[taxize]{get_gbifid}}.}
 
-\item{x}{character; taxons to query.}
+\item{x}{Vector of taxa names (character) or IDs (character or numeric) to query.}
 
 \item{db}{character; database to query. either \code{ncbi}, \code{itis},
 \code{eol}, \code{col}, \code{tropicos}, \code{gbif}, or \code{nbn}.}
@@ -104,7 +104,19 @@ sources.
 }
 \examples{
 \dontrun{
-# Plug in taxon names directly
+# Plug in taxon IDs
+classification(9606, db = 'ncbi')
+classification(c(9606, 55062), db = 'ncbi')
+classification(129313, db = 'itis')
+classification(57361017, db = 'eol')
+classification(c(2704179, 2441176), db = 'gbif')
+classification(25509881, db = 'tropicos')
+classification("NBNSYS0000004786", db = 'nbn')
+## works the same if IDs are in class character
+classification(c("2704179", "2441176"), db = 'gbif')
+
+# Plug in taxon names
+## in this case, we use get_*() fxns internally to first get taxon IDs
 classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi')
 classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi', verbose=FALSE)
 classification(c("Chironomus riparius", "aaa vva"), db = 'itis')
