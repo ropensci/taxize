@@ -25,6 +25,13 @@
 #'
 #' @export
 #' @examples \dontrun{
+#' # Plug in taxon IDs
+#' synonyms("183327", db="itis")
+#' synonyms("25509881", db="tropicos")
+#' synonyms("2529704", db='ubio')
+#' synonyms("NBNSYS0000004629", db='nbn')
+#' synonyms("87e986b0873f648711900866fa8abde7", db='col')
+#'
 #' # Plug in taxon names directly
 #' synonyms("Pinus contorta", db="itis")
 #' synonyms("Puma concolor", db="itis")
@@ -79,27 +86,43 @@ synonyms.default <- function(x, db = NULL, rows = NA, ...) {
   nstop(db)
   switch(db,
          itis = {
-           id <- get_tsn(x, rows = rows, ...)
+           id <- process_syn_ids(x, db, get_tsn, rows = rows, ...)
            setNames(synonyms(id, ...), x)
          },
          tropicos = {
-           id <- get_tpsid(x, rows = rows, ...)
+           id <- process_syn_ids(x, db, get_tpsid, rows = rows, ...)
            setNames(synonyms(id, ...), x)
          },
          ubio = {
-           id <- get_ubioid(x, searchtype = 'scientific', rows = rows, ...)
+           id <- process_syn_ids(x, db, get_ubioid, searchtype = 'scientific', rows = rows, ...)
            setNames(synonyms(id, ...), x)
          },
          nbn = {
-           id <- get_nbnid(x, rows = rows, ...)
+           id <- process_syn_ids(x, db, get_nbnid, rows = rows, ...)
            setNames(synonyms(id, ...), x)
          },
          col = {
-           id <- get_colid(x, rows = rows, ...)
+           id <- process_syn_ids(x, db, get_colid, rows = rows, ...)
            setNames(synonyms(id, ...), x)
          },
          stop("the provided db value was not recognised", call. = FALSE)
   )
+}
+
+process_syn_ids <- function(input, db, fxn, ...){
+  g <- tryCatch(as.numeric(as.character(input)), warning = function(e) e)
+  if (is(g,"numeric") || is.character(input) && grepl("N[HB]", input) ||
+      is.character(input) && grepl("[[:digit:]]", input)) {
+    as_fxn <- switch(db,
+                     itis = as.tsn,
+                     tropicos = as.tpsid,
+                     ubio = as.ubioid,
+                     nbn = as.nbnid,
+                     col = as.colid)
+    as_fxn(input, check = FALSE)
+  } else {
+    eval(fxn)(input, ...)
+  }
 }
 
 #' @export
@@ -119,11 +142,7 @@ synonyms.tsn <- function(id, ...) {
       }
       out <- setNames(getsynonymnamesfromtsn(x, ...), c('syn_name', 'syn_tsn'))
       if (as.character(out[1,1]) == 'nomatch') out <- data.frame(message = "no syns found", stringsAsFactors = FALSE)
-#       if (is(is_acc, "list")) {
         cbind(accdf, out)
-#       } else {
-#         out
-#       }
     }
   }
   setNames(lapply(id, fun), id)
@@ -144,20 +163,30 @@ synonyms.colid <- function(id, ...) {
 
 col_synonyms <- function(x, ...) {
   base <- "http://www.catalogueoflife.org/col/webservice"
-  args <- list(id = x, response = "full")
+  args <- list(id = x[1], response = "full", format = "json")
   res <- GET(base, query = args)
   stop_for_status(res)
-  out <- xmlParse(content(res, "text", encoding = "UTF-8"), encoding = "UTF-8")
-  xml <- xpathApply(out, "//synonyms")
-  if (length(xpathApply(xml[[1]], "synonym")) == 0) {
-    NULL
-  } else {
-    nodes <- getNodeSet(xml[[1]], "//synonym")
-    toget <- c("id", "name", "rank", "name_status", "genus", "species", "infraspecies", "author", "url")
-    taxize_ldfast(lapply(nodes, function(z) {
-      data.frame(sapply(toget, function(y) xpathApply(z, y, xmlValue)), stringsAsFactors = FALSE)
+  out <- jsonlite::fromJSON(content(res, "text"), FALSE)
+  tmp <- out$results[[1]]
+  if ("synonyms" %in% names(tmp)) {
+    taxize_ldfast(lapply(tmp$synonyms, function(w) {
+      w[sapply(w, length) == 0] <- NA
+      data.frame(w, stringsAsFactors = FALSE)
     }))
+  } else {
+    NULL
   }
+#   out <- xmlParse(content(res, "text", encoding = "UTF-8"), encoding = "UTF-8")
+#   xml <- xpathApply(out, "//synonyms")
+#   if (length(xpathApply(xml[[1]], "synonym")) == 0) {
+#     NULL
+#   } else {
+#     nodes <- getNodeSet(xml[[1]], "//synonym")
+#     toget <- c("id", "name", "rank", "name_status", "genus", "species", "infraspecies", "author", "url")
+#     taxize_ldfast(lapply(nodes, function(z) {
+#       data.frame(sapply(toget, function(y) xpathApply(z, y, xmlValue)), stringsAsFactors = FALSE)
+#     }))
+#   }
 }
 
 #' @export
