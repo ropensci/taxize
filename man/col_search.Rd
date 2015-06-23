@@ -47,11 +47,23 @@ col_search(name="Apis")
 col_search(name="Agapostemon")
 col_search(name="Poa")
 
+# Get full response, i.e., more data
+col_search(name="Apis", response="full")
+col_search(name="Poa", response="full")
+
 # Many names
 col_search(name=c("Apis","Puma concolor"))
+col_search(name=c("Apis","Puma concolor"), response = "full")
 
 # An example where there is no data
-col_search(id=11935941)
+col_search(id = "36c623ad9e3da39c2e978fa3576ad415")
+col_search(id = "36c623ad9e3da39c2e978fa3576ad415", response = "full")
+col_search(id = "787ce23969f5188c2467126d9a545be1")
+col_search(id = "787ce23969f5188c2467126d9a545be1", response = "full")
+col_search(id = c("36c623ad9e3da39c2e978fa3576ad415", "787ce23969f5188c2467126d9a545be1"))
+## a synonym
+col_search(id = "f726bdaa5924cabf8581f99889de51fc")
+col_search(id = "f726bdaa5924cabf8581f99889de51fc", response = "full")
 }
 }
 \references{

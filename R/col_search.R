@@ -1,6 +1,5 @@
 #' Search Catalogue of Life for taxonomic IDs
 #'
-#' @import XML plyr
 #' @export
 #' @param name The string to search for. Only exact matches found the name given
 #'   	will be returned, unless one or wildcards are included in the search
@@ -28,31 +27,33 @@
 #' col_search(name="Agapostemon")
 #' col_search(name="Poa")
 #'
+#' # Get full response, i.e., more data
+#' col_search(name="Apis", response="full")
+#' col_search(name="Poa", response="full")
+#'
 #' # Many names
 #' col_search(name=c("Apis","Puma concolor"))
+#' col_search(name=c("Apis","Puma concolor"), response = "full")
 #'
 #' # An example where there is no data
-#' col_search(id=11935941)
+#' col_search(id = "36c623ad9e3da39c2e978fa3576ad415")
+#' col_search(id = "36c623ad9e3da39c2e978fa3576ad415", response = "full")
+#' col_search(id = "787ce23969f5188c2467126d9a545be1")
+#' col_search(id = "787ce23969f5188c2467126d9a545be1", response = "full")
+#' col_search(id = c("36c623ad9e3da39c2e978fa3576ad415", "787ce23969f5188c2467126d9a545be1"))
+#' ## a synonym
+#' col_search(id = "f726bdaa5924cabf8581f99889de51fc")
+#' col_search(id = "f726bdaa5924cabf8581f99889de51fc", response = "full")
 #' }
 
 col_search <- function(name=NULL, id=NULL, start=NULL, checklist=NULL, response="terse", ...) {
   response <- match.arg(response, c("terse", "full"))
   func <- function(x, y, ...) {
-    if (is.null(checklist)) {
-      url <- col_base()
-    } else {
-      cc <- match.arg(checklist, choices = c(2012, 2011, 2010, 2009, 2008, 2007))
-      if (cc %in% c(2012, 2011, 2010)) {
-        url <- gsub("col", paste("annual-checklist/", cc, sep = ""), col_base())
-      } else {
-        url <- "http://webservice.catalogueoflife.org/annual-checklist/year/search.php"
-        url <- gsub("year", cc, url)
-      }
-    }
-    args <- compact(list(name = x, id = y, start = start, response = response))
+    url <- make_url(checklist)
+    args <- compact(list(name = x, id = y, start = start, response = response, format = "json"))
     temp <- GET(url, query = args, ...)
     stop_for_status(temp)
-    tt <- content(temp)
+    tt <- jsonlite::fromJSON(content(temp, as = "text"), FALSE)
     switch(response,
            terse = parse_terse(tt),
            full = parse_full(tt))
@@ -65,61 +66,29 @@ col_search <- function(name=NULL, id=NULL, start=NULL, checklist=NULL, response=
   }
 }
 
+make_url <- function(checklist) {
+  if (is.null(checklist)) {
+    col_base()
+  } else {
+    cc <- match.arg(as.character(checklist), choices = c(2012, 2011, 2010, 2009, 2008, 2007))
+    if (cc %in% c(2012, 2011, 2010)) {
+      gsub("col", paste("annual-checklist/", cc, sep = ""), col_base())
+    } else {
+      url <- "http://webservice.catalogueoflife.org/annual-checklist/year/search.php"
+      gsub("year", cc, url)
+    }
+  }
+}
+
 col_base <- function() "http://www.catalogueoflife.org/col/webservice"
 
 parse_terse <- function(x) {
-  nodes <- getNodeSet(x, "//result", fun = xmlToList)
+  nodes <- x$results
   ldply(nodes, parsecoldata)
 }
 
-parse_full <- function(x) {
-  tmp <- getNodeSet(x, "//result")
-  taxize_ldfast(lapply(tmp, function(z) {
-    switch(xpathSApply(z, "name_status", xmlValue),
-           `accepted name` = {
-             if (xpathSApply(z, "classification", xmlValue) == "") {
-                h <- parse_terse(z)
-                rank <- xpathSApply(z, "rank", xmlValue)
-                id <- xpathSApply(z, "id", xmlValue)
-             } else {
-               h_vals <- xpathSApply(z, "classification//name", xmlValue)
-               h_nms <- xpathSApply(z, "classification//rank", xmlValue)
-               h <- setNames(rbind.data.frame(h_vals), h_nms)
-               rank <- xpathSApply(z, "rank", xmlValue)
-               id <- xpathSApply(z, "id", xmlValue)
-             }
-           },
-           `common name` = {
-             h_vals <- xpathSApply(z, "accepted_name//classification//name", xmlValue)
-             h_nms <- xpathSApply(z, "accepted_name//classification//rank", xmlValue)
-             h <- setNames(rbind.data.frame(h_vals), h_nms)
-             rank <- xpathSApply(z, "accepted_name/rank", xmlValue)
-             id <- xpathSApply(z, "accepted_name/id", xmlValue)
-           },
-           synonym = {
-             if (length(xpathSApply(z, "classification")) == 0) {
-               h <- parse_terse(z)
-               rank <- xpathSApply(z, "rank", xmlValue)
-               id <- xpathSApply(z, "id", xmlValue)
-             } else {
-               h_vals <- xpathSApply(z, "accepted_name//classification//name", xmlValue)
-               h_nms <- xpathSApply(z, "accepted_name//classification//rank", xmlValue)
-               h <- setNames(rbind.data.frame(h_vals), h_nms)
-               rank <- xpathSApply(z, "accepted_name/rank", xmlValue)
-               id <- xpathSApply(z, "accepted_name/id", xmlValue)
-             }
-           }
-    )
-    target <- setNames(rbind.data.frame(
-      c(xpathSApply(z, "name", xmlValue),
-        rank,
-        id,
-        xpathSApply(z, "name_status", xmlValue))),
-      c("name", "rank", "id", "name_status"))
-    tempdf <- cbind(target, h)
-    tempdf[] <- lapply(tempdf, as.character)
-    tempdf
-  }))
+pop <- function(x, nms) {
+  x[ !names(x) %in% nms ]
 }
 
 parsecoldata <- function(x){
@@ -136,4 +105,79 @@ parsecoldata <- function(x){
     names(accdf) <- c('acc_id','acc_name','acc_rank','acc_status','acc_source')
   }
   cbind(bb, accdf)
+}
+
+parse_full <- function(x) {
+  tmp <- x$results
+  taxize_ldfast(
+    lapply(tmp, function(z) {
+      switch(z$name_status,
+             `accepted name` = {
+               if (length(z$classification) == 0) {
+                 h <- parse_one(z)
+                 rank <- z$rank
+                 id <- z$id
+               } else {
+                 h <- parse_one(z)
+                 h_vals <- pluck(z$classification, "name", "")
+                 h_nms <- pluck(z$classification, "rank", "")
+                 class <- setNames(rbind.data.frame(h_vals), h_nms)
+                 h <- cbind(h, class)
+                 rank <- z$rank
+                 id <- z$id
+               }
+             },
+             `common name` = {
+               h_vals <- pluck(z$accepted_name$classification, "name", "")
+               h_nms <- pluck(z$accepted_name$classification, "rank", "")
+               h <- setNames(rbind.data.frame(h_vals), h_nms)
+               rank <- z$accepted_name$rank
+               id <- z$accepted_name$id
+             },
+             `synonym` = {
+               h <- parse_one(z)
+               name <- z$accepted_name$name
+               rank <- z$accepted_name$rank
+               id <- z$accepted_name$id
+               name_status <- z$accepted_name$name_status
+               h <- cbind(h, setNames(data.frame(id, name, rank, name_status, stringsAsFactors = FALSE),
+                                      c('acc_id','acc_name','acc_rank','acc_status')))
+             },
+             `ambiguous synonym` = {
+               h <- parse_one(z)
+               name <- z$accepted_name$name
+               rank <- z$accepted_name$rank
+               id <- z$accepted_name$id
+               name_status <- z$accepted_name$name_status
+               h <- cbind(h, setNames(data.frame(id, name, rank, name_status, stringsAsFactors = FALSE),
+                                      c('acc_id','acc_name','acc_rank','acc_status')))
+             }
+      )
+      target <- setNames(rbind.data.frame(
+        c(z$name,
+          rank,
+          id,
+          z$name_status)),
+        c("name", "rank", "id", "name_status"))
+      tempdf <- cbind(target, h)
+      tempdf[] <- lapply(tempdf, as.character)
+      tempdf
+    })
+  )
+}
+
+parse_one <- function(z) {
+  scrut <- z$record_scrutiny_date
+  scrutie <- if (is.null(scrut) || scrut[[1]] == FALSE) FALSE else TRUE
+  if (scrutie) scrut <- data.frame(record_scrutiny_date = scrut$scrutiny, stringsAsFactors = FALSE)
+  refs <- z$references
+  refsie <- if (is.null(refs) || length(refs) == 0) FALSE else TRUE
+  if (refsie) refs <- data.frame(taxize_compact(refs[[1]]), stringsAsFactors = FALSE)
+  lst <- pop(z, c("distribution", "classification", "synonyms", "common_names",
+                  "record_scrutiny_date", "references", "accepted_name", "child_taxa",
+                  "name_html"))
+  df <- data.frame(lst, stringsAsFactors = FALSE)
+  if (is(scrut, "data.frame")) df <- cbind(df, scrut)
+  if (is(refs, "data.frame")) df <- cbind(df, refs)
+  df
 }

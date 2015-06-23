@@ -45,6 +45,13 @@ taxonomic rank, e.g., getting all species in a family.
 }
 \examples{
 \dontrun{
+# Plug in taxonomic IDs
+children(161994, db = "itis")
+children(8028, db = "ncbi")
+children("578cbfd2674a9b589f19af71a33b89b6", db = "col")
+## works with numeric if as character as well
+children("161994", db = "itis")
+
 # Plug in taxon names
 children("Salmo", db = 'col')
 children("Salmo", db = 'itis')
