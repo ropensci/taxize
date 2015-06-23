@@ -26,7 +26,7 @@ children(...)
 \code{\link{gethierarchydownfromtsn}}, or \code{\link{ncbi_children}}.
 See those functions for what parameters can be passed on.}
 
-\item{x}{character; taxons to query.}
+\item{x}{Vector of taxa names (character) or IDs (character or numeric) to query.}
 
 \item{db}{character; database to query. One or more of \code{itis}, \code{col}, or \code{ncbi}.}
 

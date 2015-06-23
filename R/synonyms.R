@@ -1,6 +1,6 @@
 #' Retrieve synonyms from various sources given input taxonomic names or identifiers.
 #'
-#' @param x character; taxons to query.
+#' @param x Vector of taxa names (character) or IDs (character or numeric) to query.
 #' @param db character; database to query. either \code{itis}, \code{tropicos},
 #' \code{ubio}, \code{col}, or \code{nbn}.
 #' @param id character; identifiers, returned by \code{\link[taxize]{get_tsn}},

@@ -6,7 +6,7 @@
 #' or col for getting taxa at a specific taxonomic rank, so we do it ourselves inside
 #' the function.
 #'
-#' @param x character; taxons to query.
+#' @param x Vector of taxa names (character) or IDs (character or numeric) to query.
 #' @param db character; database to query. One or both of \code{itis}, \code{col}.
 #' @param downto What taxonomic rank to go down to. One of: 'Superkingdom','Kingdom',
 #' 'Subkingdom','Infrakingdom','Phylum','Division','Subphylum','Subdivision','Infradivision',

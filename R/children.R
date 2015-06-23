@@ -6,7 +6,7 @@
 #'
 #' @export
 #'
-#' @param x character; taxons to query.
+#' @param x Vector of taxa names (character) or IDs (character or numeric) to query.
 #' @param db character; database to query. One or more of \code{itis}, \code{col}, or \code{ncbi}.
 #' @param rows (numeric) Any number from 1 to inifity. If the default NA, all rows are
 #' considered. Note that this parameter is ignored if you pass in a taxonomic id of any of the

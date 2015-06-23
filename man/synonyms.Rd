@@ -31,7 +31,7 @@ synonyms(...)
 \item{...}{Other passed arguments to internal functions \code{get_*()} and functions to
 gather synonyms.}
 
-\item{x}{character; taxons to query.}
+\item{x}{Vector of taxa names (character) or IDs (character or numeric) to query.}
 
 \item{db}{character; database to query. either \code{itis}, \code{tropicos},
 \code{ubio}, \code{col}, or \code{nbn}.}

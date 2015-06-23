@@ -21,7 +21,7 @@ upstream(...)
 \arguments{
 \item{...}{Further args passed on to \code{itis_downstream} or \code{col_downstream}}
 
-\item{x}{character; taxons to query.}
+\item{x}{Vector of taxa names (character) or IDs (character or numeric) to query.}
 
 \item{db}{character; database to query. One or both of \code{itis}, \code{col}.}
 
