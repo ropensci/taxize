@@ -115,7 +115,7 @@ get_colid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
   fun <- function(sciname, ask, verbose, rows, ...) {
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
     df <- col_search(name = sciname, response = "full", ...)[[1]]
-    df <- df[, c("name","rank","id","name_status","kingdom","family")]
+    df <- df[, names(df) %in% c("name","rank","id","name_status","kingdom","family")]
     df <- sub_rows(df, rows)
 
     rank_taken <- NA
