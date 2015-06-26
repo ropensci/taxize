@@ -42,6 +42,7 @@
 #' are not used in the search to the data provider, but are used in filtering the data down
 #' to a subset that is closer to the target you want.  For all these parameters,
 #' you can use regex strings since we use \code{\link{grep}} internally to match.
+#' Filtering narrows down to the set that matches your query, and removes the rest.
 #'
 #' @examples \dontrun{
 #' get_gbifid(sciname='Poa annua')
@@ -159,6 +160,7 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
             df <- filt(df, "order", order)
             df <- filt(df, "family", family)
             df <- filt(df, "rank", rank)
+            if (NROW(df) > 1) rownames(df) <- 1:nrow(df)
             id <- df$gbifid
             if (length(id) == 1) {
               rank_taken <- as.character(df$rank)

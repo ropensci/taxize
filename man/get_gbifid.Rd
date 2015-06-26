@@ -84,6 +84,7 @@ The parameters \code{phylum}, \code{class}, \code{order}, \code{family}, and \co
 are not used in the search to the data provider, but are used in filtering the data down
 to a subset that is closer to the target you want.  For all these parameters,
 you can use regex strings since we use \code{\link{grep}} internally to match.
+Filtering narrows down to the set that matches your query, and removes the rest.
 }
 \examples{
 \dontrun{

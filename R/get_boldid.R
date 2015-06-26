@@ -39,6 +39,7 @@
 #' used in the search to the data provider, but are used in filtering the data down to a
 #' subset that is closer to the target you want.  For all these parameters,
 #' you can use regex strings since we use \code{\link{grep}} internally to match.
+#' Filtering narrows down to the set that matches your query, and removes the rest.
 #'
 #' @seealso \code{\link[taxize]{get_uid}}, \code{\link[taxize]{classification}}
 #'
@@ -184,6 +185,7 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes='basic', includeTree
               bold_df <- filt(bold_df, "parent", parent)
               bold_df <- filt(bold_df, "rank", rank)
               boldid <- id <- bold_df$taxid
+              if (NROW(bold_df) > 1) rownames(bold_df) <- 1:nrow(bold_df)
               if (length(id) == 1) {
                 att <- "found"
               }
