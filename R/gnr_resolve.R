@@ -76,6 +76,7 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
   args <- taxize_compact(list(names = names2, data_source_ids = data_source_ids,
             resolve_once = resolve_once, with_context = with_context,
             best_match_only = best_match_only, preferred_data_sources = preferred_data_sources))
+  if (length(args) == 0) args <- NULL
 
   if (http == 'get') {
     tmp <- GET(url, query = args, ...)
@@ -104,7 +105,8 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
                     list(y[["supplied_name_string"]],
                         lapply(y$results, function(x) data.frame(x[c("name_string", "data_source_title", "score", "canonical_form")]))))
 
-  if (NROW(data_[[1]][[2]][[1]]) == 0) {
+  drill <- tryCatch(data_[[1]][[2]][[1]], error = function(e) e)
+  if (NROW(drill) == 0 || is(drill, "simpleError")) {
     out <- "no results found"
   } else {
     data_2 <- ldply(data_, function(x) data.frame(x[[1]], ldply( if (length(x[[2]]) == 0) {
