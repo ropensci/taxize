@@ -12,11 +12,18 @@
 #' Note that this function still only gives back a uid class object with one to many identifiers.
 #' See \code{\link[taxize]{get_uid_}} to get back all, or a subset, of the raw data that you are
 #' presented during the ask process.
-#' @param division (character) A division (aka phylum) name. Optional. See \code{Filtering}
-#' below.
-#' @param rank (character) A taxonomic rank name. See \code{\link{rank_ref}} for possible
-#' options. Though note that some data sources use atypical ranks, so inspect the
-#' data itself for options. Optional. See \code{Filtering} below.
+#' @param modifier (character) A modifier to the \code{sciname} given. Options include:
+#' Organism, Scientific Name, Common Name, All Names, and more.
+#' @param rank_query (character) A taxonomic rank name to modify the query sent to NCBI.
+#' See \code{\link{rank_ref}} for possible options. Though note
+#' that some data sources use atypical ranks, so inspect the data itself for options.
+#' Optional. See \code{Querying} below.
+#' @param division_filter (character) A division (aka phylum) name to filter data after
+#' retrieved from NCBI. Optional. See \code{Filtering} below.
+#' @param rank_filter (character) A taxonomic rank name to filter data after
+#' retrieved from NCBI. See \code{\link{rank_ref}} for possible options. Though note
+#' that some data sources use atypical ranks, so inspect the data itself for options.
+#' Optional. See \code{Filtering} below.
 #' @param x Input to \code{\link{as.uid}}
 #' @param ... Ignored
 #' @param check logical; Check if ID matches any existing on the DB, only used in
@@ -30,11 +37,17 @@
 #' given back, but not of the uid class, which you can't pass on to other functions
 #' as you normally can.
 #'
+#' @section Querying:
+#' The parameter \code{rank_query} is used in the search sent to NCBI, whereas
+#' \code{rank_filter} filters data after it comes back. The parameter
+#' \code{modifier} adds modifiers to the name. For example, \code{modifier="Organism"}
+#' adds that to the name, giving e.g., \code{Helianthus[Organism]}.
+#'
 #' @section Filtering:
-#' The parameters \code{division} and \code{rank} are not used in the search to the
-#' data provider, but are used in filtering the data down to a subset that is closer
-#' to the target you want.  For all these parameters, you can use regex strings since
-#' we use \code{\link{grep}} internally to match.
+#' The parameters \code{division_filter} and \code{rank_filter} are not used in
+#' the search to the data provider, but are used in filtering the data down to a
+#' subset that is closer to the target you want. For all these parameters, you can
+#' use regex strings since we use \code{\link{grep}} internally to match.
 #'
 #' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{classification}}
 #'
@@ -50,28 +63,39 @@
 #' get_uid(c("Chironomus riparius", "howdy"))
 #'
 #' # Narrow down results to a division or rank, or both
+#' ## By modifying the query
+#' ### w/ modifiers to the name
+#' get_uid(sciname = "Aratinga acuticauda", modifier = "Organism")
+#' get_uid(sciname = "bear", modifier = "Common Name")
+#'
+#' ### w/ rank query
+#' get_uid(sciname = "Pinus", rank_query = "genus")
+#' get_uid(sciname = "Pinus", rank_query = "subgenus")
+#' ### division query doesn't really work, for unknown reasons, so not available
+#'
+#' ## By filtering the result
 #' ## Echinacea example
 #' ### Results w/o narrowing
 #' get_uid("Echinacea")
 #' ### w/ division
-#' get_uid(sciname = "Echinacea", division = "eudicots")
-#' get_uid(sciname = "Echinacea", division = "sea urchins")
+#' get_uid(sciname = "Echinacea", division_filter = "eudicots")
+#' get_uid(sciname = "Echinacea", division_filter = "sea urchins")
 #'
 #' ## Satyrium example
 #' ### Results w/o narrowing
 #' get_uid(sciname = "Satyrium")
 #' ### w/ division
-#' get_uid(sciname = "Satyrium", division = "monocots")
-#' get_uid(sciname = "Satyrium", division = "butterflies")
+#' get_uid(sciname = "Satyrium", division_filter = "monocots")
+#' get_uid(sciname = "Satyrium", division_filter = "butterflies")
 #'
 #' ## Rank example
 #' get_uid(sciname = "Pinus")
-#' get_uid(sciname = "Pinus", rank = "genus")
-#' get_uid(sciname = "Pinus", rank = "subgenus")
+#' get_uid(sciname = "Pinus", rank_filter = "genus")
+#' get_uid(sciname = "Pinus", rank_filter = "subgenus")
 #'
 #' # Fuzzy filter on any filtering fields
 #' ## uses grep on the inside
-#' get_uid("Satyrium", division = "m")
+#' get_uid("Satyrium", division_filter = "m")
 #'
 #' # specify rows to limit choices available
 #' get_uid('Dugesia') # user prompt needed
@@ -113,16 +137,20 @@
 #' bb <- get_uid("Quercus douglasii", config=progress())
 #' }
 
-get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, division = NULL,
-                    rank = NULL, ...) {
+get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, modifier = NULL,
+                    rank_query = NULL, division_filter = NULL, rank_filter = NULL, ...) {
 
   fun <- function(sciname, ask, verbose, rows, ...) {
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
     sciname <- gsub(" ", "+", sciname)
-    searchurl <- paste("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=",
-                       sciname, sep = "")
+    if (!is.null(modifier)) sciname <- paste0(sciname, sprintf("[%s]", modifier))
+    url <- paste("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=",
+                 sciname, sep = "")
+    if (!is.null(division_query)) url <- paste0(url, sprintf(" AND %s[Division]", division_query))
+    if (!is.null(rank_query)) url <- paste0(url, sprintf(" AND %s[Rank]", rank_query))
+    url <- URLencode(url)
     errors_to_catch <- c("Could not resolve host: eutils.ncbi.nlm.nih.gov")
-    xml_result <- xmlParse(repeat_until_it_works(catch = errors_to_catch, url = searchurl, ...))
+    xml_result <- xmlParse(repeat_until_it_works(catch = errors_to_catch, url = url, ...))
 
     # NCBI limits requests to three per second
     Sys.sleep(0.33)
@@ -144,18 +172,27 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, division = N
       if (ask) {
         baseurl <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy"
         ID <- paste("ID=", paste(uid, collapse = ","), sep = "")
-        searchurl <- paste(baseurl, ID, sep = "&")
+        url <- paste(baseurl, ID, sep = "&")
         errors_to_catch <- c("Could not resolve host: eutils.ncbi.nlm.nih.gov")
-        tt <- repeat_until_it_works(catch = errors_to_catch, url = searchurl, ...)
+        tt <- repeat_until_it_works(catch = errors_to_catch, url = url, ...)
         ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)
         df <- parse_ncbi(ttp)
         rownames(df) <- 1:nrow(df)
 
-        if (!is.null(division) || !is.null(rank)) {
-          df <- filt(df, "division", division)
-          df <- filt(df, "rank", rank)
+        if (!is.null(division_filter) || !is.null(rank_filter)) {
+          df <- filt(df, "division", division_filter)
+          df <- filt(df, "rank", rank_filter)
           uid <- df$uid
-        } else {
+          if (NROW(df) > 1) rownames(df) <- 1:nrow(df)
+          if (length(uid) == 1) {
+            att <- "found"
+          }
+          if (length(uid) == 0) {
+            uid <- NA
+          }
+        }
+
+        if (length(uid) > 1) {
           # prompt
           message("\n\n")
           message("\nMore than one UID found for taxon '", sciname, "'!\n
@@ -265,16 +302,16 @@ get_uid_ <- function(sciname, verbose = TRUE, rows = NA){
 
 get_uid_help <- function(sciname, verbose, rows){
   mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
-  searchurl <- paste("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=",
-                     gsub(" ", "+", sciname), sep = "")
-  xml_result <- xmlParse(getURL(searchurl))
+  url <- paste("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=",
+               gsub(" ", "+", sciname), sep = "")
+  xml_result <- xmlParse(getURL(url))
   Sys.sleep(0.33)
   uid <- xpathSApply(xml_result, "//IdList/Id", xmlValue)
   if (length(uid) == 0) { NULL } else {
     baseurl <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy"
     ID <- paste("ID=", paste(uid, collapse = ","), sep = "")
-    searchurl <- paste(baseurl, ID, sep = "&")
-    tt <- getURL(searchurl)
+    url <- paste(baseurl, ID, sep = "&")
+    tt <- getURL(url)
     ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)
     df <- parse_ncbi(ttp)
     sub_rows(df, rows)

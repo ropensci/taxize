@@ -230,15 +230,19 @@ strtrim <- function(str) {
 
 # function to help filter get_*() functions for a rank name or rank itself --------------
 filt <- function(df, rank, z) {
-  if (!is.null(z)) {
-    mtch <- grep(tolower(z), tolower(df[,rank]))
-    if (length(mtch) != 0) {
-      df[mtch, ]
+  if (NROW(df) == 0) {
+    df
+  } else {
+    if (!is.null(z)) {
+      mtch <- grep(tolower(z), tolower(df[,rank]))
+      if (length(mtch) != 0) {
+        df[mtch, ]
+      } else {
+        data.frame(NULL)
+      }
     } else {
       df
     }
-  } else {
-    df
   }
 }
 
