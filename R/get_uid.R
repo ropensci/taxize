@@ -147,7 +147,6 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, modifier = N
     if (!is.null(modifier)) sciname <- paste0(sciname, sprintf("[%s]", modifier))
     url <- paste("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=",
                  sciname, sep = "")
-    if (!is.null(division_query)) url <- paste0(url, sprintf(" AND %s[Division]", division_query))
     if (!is.null(rank_query)) url <- paste0(url, sprintf(" AND %s[Rank]", rank_query))
     url <- URLencode(url)
     errors_to_catch <- c("Could not resolve host: eutils.ncbi.nlm.nih.gov")
