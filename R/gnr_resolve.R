@@ -100,13 +100,22 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
     dat <- do.call("c", datbits)
   }
 
-  data_ <- lapply(dat,
-                  function(y)
-                    list(y[["supplied_name_string"]],
-                        lapply(y$results, function(x) data.frame(x[c("name_string", "data_source_title", "score", "canonical_form")]))))
+  data_ <-
+    lapply(dat, function(y) {
+      if (!is.null(unlist(y$results))) {
+        res <- lapply(y$results, function(x) data.frame(x[c("name_string", "data_source_title",
+                                                     "score", "canonical_form")], stringsAsFactors = FALSE))
+      } else {
+        res <- NULL
+      }
+      list(y[["supplied_name_string"]], res)
+    })
+  not_known <- Filter(function(x) is.null(x[[2]]), data_)
+  not_known <- vapply(not_known, "[[", "", 1)
+  data_ <- Filter(function(x) !is.null(x[[2]]), data_)
 
-  drill <- tryCatch(data_[[1]][[2]][[1]], error = function(e) e)
-  if (NROW(drill) == 0 || is(drill, "simpleError")) {
+  drill <- tryCatch(data_[[1]], error = function(e) e)
+  if (is(drill, "simpleError")) {
     out <- "no results found"
   } else {
     data_2 <- ldply(data_, function(x) data.frame(x[[1]], ldply( if (length(x[[2]]) == 0) {
@@ -128,10 +137,18 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
   }
 
   if (!is.null(preferred_data_sources)) {
-    data_preferred <- lapply(dat,
-      function(y)
-          list(y[["supplied_name_string"]],
-              lapply(y$preferred_results, function(x) data.frame(x[c("name_string", "data_source_title", "score", "canonical_form")]))))
+    data_preferred <-
+      lapply(dat, function(y) {
+        if (!is.null(unlist(y$preferred_results))) {
+          res <- lapply(y$preferred_results, function(x) {
+            data.frame(x[c("name_string", "data_source_title", "score", "canonical_form")], stringsAsFactors = FALSE)
+          })
+        } else {
+          res <- NULL
+        }
+        list(y[["supplied_name_string"]], res)
+    })
+    data_preferred <- Filter(function(x) !is.null(x[[2]]), data_preferred)
     data_2_preferred <- ldply(data_preferred, function(x) data.frame(x[[1]], ldply(if (length(x[[2]]) == 0) {
       list(data.frame(name_string = "", data_source_title = "", score = NaN, canonical_form = ""))
     } else {
@@ -152,7 +169,7 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
     out_preferred <- NULL
   }
 
-  list(results = out, preferred = out_preferred)
+  list(results = out, preferred = out_preferred, not_known = not_known)
 }
 
 check_value <- function(x){

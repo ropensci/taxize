@@ -16,7 +16,7 @@ test_that("gnr_resolve returns the correct class", {
 
 test_that("best_match_only works correctly", {
   x <- 'Aconitum degeni subsp. paniculatum'
-  a <- gnr_resolve(x, best_match_only = TRUE)
+  a <- gnr_resolve(names = x, best_match_only = TRUE)
   b <- gnr_resolve(x, best_match_only = FALSE)
 
   expect_is(a, "list")
