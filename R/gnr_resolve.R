@@ -90,8 +90,9 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
     for (i in seq_along(nms)) {
       tt <- data.frame(num = 1:length(nms[[i]]), names = nms[[i]])
       tt <- data.frame(ddply(tt, .(num), summarise, paste0(num, "|", names))[,2])
-      write.table(tt, file = "~/gnr_names.txt", row.names = FALSE, col.names = FALSE, quote = FALSE)
-      ss <- POST(url, query = args, body = list(file = upload_file(path = "~/gnr_names.txt")), ...)
+      file <- tempfile(fileext = ".txt")
+      write.table(tt, file = file, row.names = FALSE, col.names = FALSE, quote = FALSE)
+      ss <- POST(url, query = args, body = list(file = upload_file(path = file)), ...)
       warn_for_status(ss)
       ss <- content(ss, "text")
       datbits[[i]] <- jsonlite::fromJSON(ss, FALSE)$data
