@@ -1,11 +1,11 @@
 #' Search the Phylotastic Taxonomic Name Resolution Service.
 #'
+#' THIS FUNCTION IS DEFUNCT.
+#'
 #' Match taxonomic names using the Taxonomic Name Resolution Service (TNRS).
 #' Returns score of the matched name, and whether it was accepted or not.
 #'
-#' @import RCurl XML plyr stringr jsonlite data.table
 #' @export
-#'
 #' @param query Quoted taxonomic names to search in a vector (character).
 #' @param source Specify the source you want to match names against. Defaults
 #' 		to just retrieve data from all sources. Options: NCBI, iPlant_TNRS,
@@ -26,40 +26,12 @@
 #' @return data.frame of results from TNRS plus the name submitted.
 #' @details If there is no match in the Taxosaurus database, nothing is
 #'    returned, so youwill not get anything back for non matches.
-#' @examples \dontrun{
-#' # Default, uses GET curl method, you can't specify any other
-#' # parameters when using GET
-#' # Specifying the source to match against
-#' mynames <- c("Helianthus annuus", "Poa annua")
-#' tnrs(query = mynames, source = "iPlant_TNRS")
-#'
-#' # Specifying the nomenclatural code to match against
-#' mynames <- c("Helianthus annuus", "Poa annua")
-#' tnrs(query = mynames, code = "ICBN")
-#'
-#' # You can specify multiple sources, by comma-separating them
-#' mynames <- c("Panthera tigris", "Eutamias minimus", "Magnifera indica",
-#' "Humbert humbert")
-#' tnrs(query = mynames, source = "NCBI,MSW3")
-#'
-#' # Using POST method, especially useful when you have a lot of species
-#' mynames <- c("Panthera tigris", "Eutamias minimus", "Magnifera indica",
-#'    "Humbert humbert", "Helianthus annuus", "Pinus contorta", "Poa annua",
-#'    "Abies magnifica", "Rosa california", "Festuca arundinace",
-#'    "Mimulus bicolor", "Sorbus occidentalis","Madia sativa", "Thymopsis thymodes",
-#'    "Bartlettia scaposa")
-#' tnrs(mynames, source = "NCBI")
-#'
-#' # And even more names
-#' mynames <- names_list(rank="species", size=75)
-#' tnrs(query=mynames, source = "NCBI")
-#' ## Or use splitby
-#' tnrs(mynames, source = "NCBI", splitby=50)
-#' }
+#' @rdname tnrs-defunct
 
 tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
-                 sleep = 0, splitby = 30, verbose = TRUE, callopts = list())
-{
+                 sleep = 0, splitby = 30, verbose = TRUE, callopts = list()) {
+  .Defunct(msg = "This function is defunct. See ?taxize-defunct")
+
 	mainfunc <- function(x){
 	  url = "http://taxosaurus.org/submit"
 
@@ -139,48 +111,48 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
 	}
 }
 
-# Function to parse results
-parseres <- function(w){
-  matches <- w$matches
-  foome <- function(z) {
-    z[sapply(z, length)==0] <- "none"
-    data.frame(z)
-  }
-  matches2 <- data.frame(rbindlist(lapply(matches, foome)))
-  df <- data.frame(submittedName=w$submittedName, matches2)
-  df$score <- round(as.numeric(as.character(df$score)), 2)
-  df
-}
-
-# Function to split up the species list into more manageable chunks
-slice <- function(input, by = 2) {
-  starts <- seq(1, length(input), by)
-  tt <- lapply(starts, function(y) input[y:(y + (by - 1))])
-  lapply(tt, function(x) x[!is.na(x)])
-}
-
-error_handle <- function(x, checkcontent=FALSE){
-  tocheck <- x$status_code
-  if(checkcontent){
-    if( "metadata" %in% names(jsonlite::fromJSON(content(x), FALSE)) ){
-      codes <- sapply(jsonlite::fromJSON(content(x), FALSE)$metadata$sources, "[[", "status")
-      codes <- as.numeric(str_extract(codes, "[0-9]+"))
-      tocheck <- c(tocheck, codes)
-    }
-  }
-  if(any(tocheck >= 400)){
-    it <- tocheck[ tocheck >= 400 ]
-    mssg <- switch(as.character(it),
-       '400' = "Bad Request. The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modifications.",
-       '401' = 'Unauthorized',
-       '403' = 'Forbidden',
-       '404' = 'Not Found',
-       '500' = 'Internal Server Error. The server encountered an unexpected condition which prevented it from fulfilling the request.',
-       '501' = 'Not Implemented',
-       '502' = 'Bad Gateway',
-       '503' = 'Service Unavailable',
-       '504' = 'Gateway Timeout'
-    )
-    stop(sprintf("HTTP status %s - %s", it, mssg), call. = FALSE)
-  }
-}
+# # Function to parse results
+# parseres <- function(w){
+#   matches <- w$matches
+#   foome <- function(z) {
+#     z[sapply(z, length)==0] <- "none"
+#     data.frame(z)
+#   }
+#   matches2 <- data.frame(rbindlist(lapply(matches, foome)))
+#   df <- data.frame(submittedName=w$submittedName, matches2)
+#   df$score <- round(as.numeric(as.character(df$score)), 2)
+#   df
+# }
+#
+# # Function to split up the species list into more manageable chunks
+# slice <- function(input, by = 2) {
+#   starts <- seq(1, length(input), by)
+#   tt <- lapply(starts, function(y) input[y:(y + (by - 1))])
+#   lapply(tt, function(x) x[!is.na(x)])
+# }
+#
+# error_handle <- function(x, checkcontent=FALSE){
+#   tocheck <- x$status_code
+#   if(checkcontent){
+#     if( "metadata" %in% names(jsonlite::fromJSON(content(x), FALSE)) ){
+#       codes <- sapply(jsonlite::fromJSON(content(x), FALSE)$metadata$sources, "[[", "status")
+#       codes <- as.numeric(str_extract(codes, "[0-9]+"))
+#       tocheck <- c(tocheck, codes)
+#     }
+#   }
+#   if(any(tocheck >= 400)){
+#     it <- tocheck[ tocheck >= 400 ]
+#     mssg <- switch(as.character(it),
+#        '400' = "Bad Request. The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modifications.",
+#        '401' = 'Unauthorized',
+#        '403' = 'Forbidden',
+#        '404' = 'Not Found',
+#        '500' = 'Internal Server Error. The server encountered an unexpected condition which prevented it from fulfilling the request.',
+#        '501' = 'Not Implemented',
+#        '502' = 'Bad Gateway',
+#        '503' = 'Service Unavailable',
+#        '504' = 'Gateway Timeout'
+#     )
+#     stop(sprintf("HTTP status %s - %s", it, mssg), call. = FALSE)
+#   }
+# }

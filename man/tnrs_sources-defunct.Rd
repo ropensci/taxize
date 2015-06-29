@@ -14,15 +14,6 @@ tnrs_sources(source = NULL)
 Sources for the TNRS API.
 }
 \description{
-Get sources for the Phylotastic Taxonomic Name Resolution Service.
-}
-\examples{
-\dontrun{
-# All
-tnrs_sources()
-
-# A specific source
-tnrs_sources(source="NCBI")
-}
+THIS FUNCTION IS DEFUNCT.
 }
 

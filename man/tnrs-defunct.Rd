@@ -37,43 +37,13 @@ seconds. Use when doing many calls in a for loop ar lapply type call.}
 data.frame of results from TNRS plus the name submitted.
 }
 \description{
-Match taxonomic names using the Taxonomic Name Resolution Service (TNRS).
-Returns score of the matched name, and whether it was accepted or not.
+THIS FUNCTION IS DEFUNCT.
 }
 \details{
+Match taxonomic names using the Taxonomic Name Resolution Service (TNRS).
+Returns score of the matched name, and whether it was accepted or not.
+
 If there is no match in the Taxosaurus database, nothing is
    returned, so youwill not get anything back for non matches.
-}
-\examples{
-\dontrun{
-# Default, uses GET curl method, you can't specify any other
-# parameters when using GET
-# Specifying the source to match against
-mynames <- c("Helianthus annuus", "Poa annua")
-tnrs(query = mynames, source = "iPlant_TNRS")
-
-# Specifying the nomenclatural code to match against
-mynames <- c("Helianthus annuus", "Poa annua")
-tnrs(query = mynames, code = "ICBN")
-
-# You can specify multiple sources, by comma-separating them
-mynames <- c("Panthera tigris", "Eutamias minimus", "Magnifera indica",
-"Humbert humbert")
-tnrs(query = mynames, source = "NCBI,MSW3")
-
-# Using POST method, especially useful when you have a lot of species
-mynames <- c("Panthera tigris", "Eutamias minimus", "Magnifera indica",
-   "Humbert humbert", "Helianthus annuus", "Pinus contorta", "Poa annua",
-   "Abies magnifica", "Rosa california", "Festuca arundinace",
-   "Mimulus bicolor", "Sorbus occidentalis","Madia sativa", "Thymopsis thymodes",
-   "Bartlettia scaposa")
-tnrs(mynames, source = "NCBI")
-
-# And even more names
-mynames <- names_list(rank="species", size=75)
-tnrs(query=mynames, source = "NCBI")
-## Or use splitby
-tnrs(mynames, source = "NCBI", splitby=50)
-}
 }
 

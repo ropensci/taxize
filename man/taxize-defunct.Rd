@@ -21,6 +21,10 @@ The following functions are now defunct (no longer available):
  \item \code{\link{ncbi_search}}: See \code{ncbi_searcher} in the \code{traits} package.
  \item \code{\link{eol_invasive}}: See \code{eol_invasive_} in the \code{traits} package.
  \item \code{\link{gisd_isinvasive}}: See \code{g_invasive} in the \code{traits} package.
+ \item \code{\link{tnrs}}: The service is too unreliable. See source of function, also at
+ gist https://gist.github.com/sckott/ede697f02ce6a2c96e61
+ \item \code{\link{tnrs_sources}}: The service is too unreliable.  See source of function,
+ also at gist https://gist.github.com/sckott/ede697f02ce6a2c96e61
 }
 }
 
