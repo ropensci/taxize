@@ -5,11 +5,9 @@
 #' citations for the package.
 #' @param what One of citation (default), license, or both.
 #' @examples
-#' taxize_cite(fxn='tnrs')
 #' taxize_cite(fxn='eol_search')
 #' taxize_cite(fxn='itis_hierarchy')
 #' taxize_cite(fxn='tp_classification')
-#' taxize_cite(fxn='tnrs')
 #' taxize_cite(fxn='gbif_ping')
 #'
 #' # Functions that use many data sources
@@ -21,7 +19,6 @@
 #'
 #' # Get license information
 #' taxize_cite(fxn='taxize', "license")
-#' taxize_cite(fxn='tnrs', "license")
 
 taxize_cite <- function(fxn = "itis", what = 'citation'){
   what <- match.arg(what, c("citation","license","both"))
@@ -130,7 +127,7 @@ data_citations <- function(x){
     as.eolid = list(eol = c_eol),
     as.gbifid = list(gbif = c_gbif),
     as.nbnid = list(nbn = c_nbn),
-    as.tpsid = list(tropicos = c_tropicos),
+    as.tpsid = list(tropicos = tropicos),
     as.tsn = list(itis = c_itis),
     as.ubioid = list(ubio = c_ubio),
     as.uid = list(ncbi = c_ncbi),
@@ -210,15 +207,13 @@ data_citations <- function(x){
     rankagg = list(none = c_none),
     rbind.classification = list(none = c_none),
     rbind.classification_ids = list(none = c_none),
-    resolve = list(global_names = c_gnames, iplant = c_iplant, taxosaurus = c_taxo),
+    resolve = list(global_names = c_gnames, iplant = c_iplant),
     sci2comm = list(itis = c_itis, ncbi = c_ncbi, eol = c_eol),
     scrapenames = list(global_names = c_gnames),
     synonyms = list(itis = c_itis, col = c_col, tropicos = c_tropicos, nbn = c_nbn, ubio = c_ubio),
     tax_agg = list(itis = c_itis, ncbi = c_ncbi),
     tax_name = list(itis = c_itis, ncbi = c_ncbi),
     tax_rank = list(itis = c_itis, ncbi = c_ncbi),
-    tnrs = list(tnrs = c_taxo),
-    tnrs_sources = list(tnrs = c_taxo),
     tp_acceptednames = list(tropicos = c_tropicos),
     tp_accnames = list(tropicos = c_tropicos),
     tp_classification = list(tropicos = c_tropicos),
@@ -292,4 +287,3 @@ c_apg <- list(url_home = "http://www.mobot.org/MOBOT/research/APweb/", apidocs =
               citation = "Stevens, P. F. (<year>). Angiosperm Phylogeny Website. Version 13, July 2012.")
 c_gisd <- list(url_home = "http://www.issg.org/database/welcome/", apidocs = NULL, citation = NULL)
 c_none <- list(url_home = "no data source", apidocs = "no data source", citation = "no data source")
-c_taxo <- list(url_home = 'http://taxosaurus.org/', apidocs = 'http://www.evoio.org/wiki/Phylotastic/TNRS', citation = NULL)

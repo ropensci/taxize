@@ -16,11 +16,9 @@ citations for the package.}
 Get citations and licenses for data sources used in taxize
 }
 \examples{
-taxize_cite(fxn='tnrs')
 taxize_cite(fxn='eol_search')
 taxize_cite(fxn='itis_hierarchy')
 taxize_cite(fxn='tp_classification')
-taxize_cite(fxn='tnrs')
 taxize_cite(fxn='gbif_ping')
 
 # Functions that use many data sources
@@ -32,6 +30,5 @@ taxize_cite(fxn='taxize')
 
 # Get license information
 taxize_cite(fxn='taxize', "license")
-taxize_cite(fxn='tnrs', "license")
 }
 

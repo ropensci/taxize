@@ -2,38 +2,35 @@
 % Please edit documentation in R/resolve.R
 \name{resolve}
 \alias{resolve}
-\title{Resolve names from many different sources}
+\title{Resolve names from different data sources}
 \usage{
 resolve(query, db = "gnr", callopts = list(), ...)
 }
 \arguments{
 \item{query}{Vector of one or more names.}
 
-\item{db}{Source to check names against. One of iplant, tnrs, or gnr. Default: gnr}
+\item{db}{Source to check names against. One of iplant or gnr. Default: gnr}
 
-\item{callopts}{Curl options passed on to httr::GET}
+\item{callopts}{Curl options passed on to \code{\link[httr]{GET}}}
 
 \item{...}{Further named args passed on to each respective function. See examples. Note that
-parameters for specific data sources are specific to those data sources. E.g. you can pass the
-parameter \code{source} when using \code{db="tnrs"}, but is meaningless when passed when
-\code{db="gnr"}. There is one exception - the \code{callopts} parameter is shared among all
+parameters for specific data sources are specific to those data sources. There is one
+exception - the \code{callopts} parameter is shared among all
 data sources, so if you pass that parameter it will influence each data source.}
 }
 \value{
 A list with length equal to length of the db parameter (number of sources requested.)
 }
 \description{
-Resolve names from iPlant's name resolver, the Taxonomic Name Resolution Service (TNRS), the
-Global Names Resolver (GNR)
+Resolve names from iPlant's name resolver, and the Global Names Resolver (GNR)
 }
 \examples{
 \dontrun{
 resolve(query=c("Helianthus annuus", "Homo sapiens"))
-resolve(query=c("Helianthus annuus", "Homo sapiens"), db='tnrs', source="iPlant_TNRS")
 resolve(query="Quercus keloggii", db='gnr')
 resolve(query="Helianthus annuus", db='gnr', preferred_data_sources = c(3,4))
 resolve(query=c("Helianthus annuus", "Homo sapiens"), db=c('iplant','gnr'))
-resolve(query="Quercus keloggii", db=c('iplant','gnr','tnrs'))
+resolve(query="Quercus keloggii", db=c('iplant','gnr'))
 library("httr")
 resolve(query="Qercuss", callopts=verbose())
 resolve(query=c("Helianthus annuus", "Homo sapiens"), callopts=timeout(3))
