@@ -18,4 +18,4 @@ We love collaboration.
 
 ### Questions? Get in touch: [scott@ropensci.org](mailto:scott@ropensci.org)
 
-### Thanks for contibuting!
+### Thanks for contributing!
