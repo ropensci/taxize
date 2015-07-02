@@ -34,7 +34,6 @@ Imports:
     foreach,
     ape,
     Taxonstand,
-    data.table,
     bold
 Suggests:
     testthat,

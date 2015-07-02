@@ -127,7 +127,7 @@ data_citations <- function(x){
     as.eolid = list(eol = c_eol),
     as.gbifid = list(gbif = c_gbif),
     as.nbnid = list(nbn = c_nbn),
-    as.tpsid = list(tropicos = tropicos),
+    as.tpsid = list(tropicos = c_tropicos),
     as.tsn = list(itis = c_itis),
     as.ubioid = list(ubio = c_ubio),
     as.uid = list(ncbi = c_ncbi),
