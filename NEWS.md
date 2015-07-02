@@ -1,3 +1,13 @@
+taxize 0.6.1
+===============
+
+## MINOR IMPROVEMENTS
+* rankagg() doesn't depend on data.table anymore (fixes issue with CRAN checks).
+
+## BUG FIXES
+* typo in taxize_cite()
+
+
 taxize 0.6.0
 ===============
 

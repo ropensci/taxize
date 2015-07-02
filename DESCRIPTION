@@ -34,8 +34,8 @@ Imports:
     foreach,
     ape,
     Taxonstand,
-    data.table,
-    bold
+    bold,
+    data.table
 Suggests:
     testthat,
     roxygen2,

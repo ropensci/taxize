@@ -15,3 +15,4 @@ vignettes/cache/
 ^appveyor\.yml$
 cran-comments.md
 ^\.httr-oauth$
+NEWS.md
