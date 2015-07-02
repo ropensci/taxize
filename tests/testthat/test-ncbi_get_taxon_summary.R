@@ -15,6 +15,3 @@ test_that("ncbi_get_taxon_summary returns correct class and result", {
   expect_equal(tt3, NULL)
 })
 
-test_that("vascan_search returns the correct dimensions", {
-  expect_equal(NCOL(aa[[1]]$matches[[1]]$taxonomicassertions), 7)
-})
