@@ -1,7 +1,7 @@
 # tests for tp_synonyms fxn in taxize
 context("tp_synonyms")
 
-dat <- tp_synonyms(id = 25509881)
+dat <- suppressMessages(tp_synonyms(id = 25509881))
 
 test_that("tp_synonyms returns the correct value", {
 	expect_that(names(dat)[[1]], matches("accepted"))

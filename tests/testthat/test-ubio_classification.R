@@ -2,7 +2,7 @@
 
 context("ubio_classification")
 
-tt <- ubio_classification(hierarchiesID = 2483153)
+tt <- suppressMessages(ubio_classification(hierarchiesID = 2483153))
 
 
 test_that("ncbi_get_taxon_summary returns correct class and result", {

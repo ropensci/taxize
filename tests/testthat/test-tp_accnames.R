@@ -1,7 +1,7 @@
 # tests for tp_accnames fxn in taxize
 context("tp_accnames")
 
-out <- tp_accnames(id = 25503923)
+out <- suppressMessages(tp_accnames(id = 25503923))
 
 test_that("tp_accnames returns the correct class", {
 	expect_that(out, is_a("list"))

@@ -1,8 +1,8 @@
 # tests for tp_search fxn in taxize
 context("tp_search")
 
-ttt <- tp_search(name = 'Poa annua')
-uuu <- tp_search(name = 'stuff things')
+ttt <- suppressMessages(tp_search(name = 'Poa annua'))
+uuu <- suppressMessages(tp_search(name = 'stuff things'))
 
 test_that("tp_search returns the correct class", {
 	expect_that(ttt, is_a("data.frame"))

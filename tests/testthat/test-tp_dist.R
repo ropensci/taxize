@@ -1,7 +1,7 @@
 # tests for tp_dist fxn in taxize
 context("tp_dist")
 
-tt <- tp_dist(id = 25509881)
+tt <- suppressMessages(tp_dist(id = 25509881))
 
 test_that("tp_dist returns the correct class", {
 	expect_that(tt, is_a("list"))
