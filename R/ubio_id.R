@@ -1,6 +1,5 @@
 #' Search uBio by namebank ID.
 #'
-#' @import XML
 #' @export
 #' @param namebankID (character) uBio namebank ID
 #' @param keyCode Your uBio API key; loads from .Rprofile. If you don't have

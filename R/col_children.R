@@ -1,6 +1,5 @@
 #' Search Catalogue of Life for for direct children of a particular taxon.
 #'
-#' @import XML
 #' @export
 #' @param name The string to search for. Only exact matches found the name given
 #' 		will be returned, unless one or wildcards are included in the search
@@ -51,7 +50,7 @@ col_children <- function(name = NULL, id = NULL, format = NULL, start = NULL, ch
   url = "http://www.catalogueoflife.org/col/webservice"
 	func <- function(x, y, ...) {
 	  url <- make_url(checklist)
-		args <- compact(list(name = x, id = y, format = format, response = "full", start = start))
+		args <- tc(list(name = x, id = y, format = format, response = "full", start = start))
 		out <- GET(url, query = argsnull(args), ...)
 		stop_for_status(out)
 		tt <- xmlParse(content(out, "text"))

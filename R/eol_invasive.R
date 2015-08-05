@@ -98,7 +98,7 @@ eol_invasive <- function(name = NULL, dataset="all", searchby = grep, page=NULL,
 #   if (!is.null(pages_get)) {
 #     out <- list()
 #     for (i in seq_along(pages_get)) {
-#       args <- compact(list(id=datasetid,page=pages_get[i],per_page=500,filter='taxa'))
+#       args <- tc(list(id=datasetid,page=pages_get[i],per_page=500,filter='taxa'))
 #       tt <- GET(url, query = args, ...)
 #       res <- jsonlite::fromJSON(content(tt, as="text"), FALSE)
 #       out[[i]] <- res$collection_items

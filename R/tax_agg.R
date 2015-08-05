@@ -1,8 +1,5 @@
 #' Aggregate species data to given taxonomic rank
 #'
-#' @importFrom reshape2 melt
-#' @importFrom reshape2 dcast
-#'
 #' @param x Community data matrix. Taxa in columns, samples in rows.
 #' @param rank character; Taxonomic rank to aggregate by.
 #' @param db character; taxonomic API to use, 'ncbi, 'itis' or both, see

@@ -1,7 +1,6 @@
 #' Retrieve the taxonomic hierarchy for a given taxon ID.
 #'
 #' @export
-#' @import XML
 #'
 #' @param x Vector of taxa names (character) or IDs (character or numeric) to query.
 #' @param db character; database to query. either \code{ncbi}, \code{itis},
@@ -264,7 +263,7 @@ classification.eolid <- function(id, key = NULL, callopts = list(), return_id = 
       url = 'http://eol.org/api/hierarchy_entries/1.0/'
       key <- getkey(key, "eolApiKey")
       urlget <- paste(url, x, '.json', sep = "")
-      args <- compact(list(common_names = common_names, synonyms = synonyms))
+      args <- tc(list(common_names = common_names, synonyms = synonyms))
       tt <- GET(urlget, query = args, callopts)
       stop_for_status(tt)
       res <- content(tt)
@@ -306,7 +305,7 @@ classification.colid <- function(id, start = NULL, checklist = NULL, callopts = 
         }
       }
 
-      args <- compact(list(id = x, response = "full", start = start))
+      args <- tc(list(id = x, response = "full", start = start))
       out <- GET(url, query = args, callopts)
       stop_for_status(out)
       tt <- xmlParse(content(out, "text"))

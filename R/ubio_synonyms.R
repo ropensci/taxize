@@ -1,6 +1,5 @@
 #' Search uBio for taxonomic synonyms by hierarchiesID.
 #'
-#' @import XML
 #' @export
 #' @param hierarchiesID you must include the hierarchiesID (ClassificationBankID)
 #'    to receive the classification synonyms

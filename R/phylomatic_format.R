@@ -2,7 +2,6 @@
 #'    to Phylomatic for use in the function phylomatic_tree.
 #'
 #' @export
-#' @import XML
 #' @param taxa quoted tsn number (taxonomic serial number)
 #' @param format output format, isubmit (you can paste in to the Phylomatic
 #'     website), or 'rsubmit' to use in fxn phylomatic_tree
@@ -18,7 +17,7 @@ phylomatic_format <- function(taxa = NA, format='isubmit', db="ncbi") {
   foo <- function(nnn){
     # split up strings if a species name
     taxa2 <- strsplit(gsub("_"," ",nnn), "\\s")[[1]]
-    taxa_genus <- tc(taxa2[[1]], onlyfirst = TRUE)
+    taxa_genus <- taxize_capwords(taxa2[[1]], onlyfirst = TRUE)
 
     if (db %in% c("ncbi","itis")) {
       family <- tax_name(query = taxa_genus, get = "family", db = db)$family

@@ -1,11 +1,12 @@
-#' Resolve names using Global Names Recognition and Discovery.
+#' @title Resolve names using Global Names Recognition and Discovery.
 #'
-#' Uses the Global Names Recognition and Discovery service, see
+#' @description Uses the Global Names Recognition and Discovery service, see
 #' \url{http://gnrd.globalnames.org/}.
 #'
-#' Note: this function somestimes gives data back and sometimes not. The API that this function is
-#' extremely buggy.
+#' Note: this function somestimes gives data back and sometimes not. The API that this
+#' function is extremely buggy.
 #'
+#' @export
 #' @param url An encoded URL for a web page, PDF, Microsoft Office document, or
 #'    image file, see examples
 #' @param file When using multipart/form-data as the content-type, a file may be sent.
@@ -14,22 +15,22 @@
 #'    examples
 #' @param engine (optional) (integer) Default: 0. Either 1 for TaxonFinder,
 #'    2 for NetiNeti, or 0 for both. If absent, both engines are used.
-#' @param unique (optional) (logical) If TRUE (default), response has unique names without offsets.
-#' @param verbatim (optional) Type: boolean, If TRUE (default to FALSE), response excludes verbatim
-#'    strings.
-#' @param detect_language (optional) Type: boolean, When TRUE (default), NetiNeti is not used if
-#'    the language of incoming text is determined not to be English. When 'false', NetiNeti will
-#'    be used if requested.
-#' @param all_data_sources (optional) Type: bolean. Resolve found names against all available
+#' @param unique (optional) (logical) If \code{TRUE} (default), response has unique
+#'    names without offsets.
+#' @param verbatim (optional) Type: boolean, If \code{TRUE} (default to \code{FALSE}),
+#'    response excludes verbatim strings.
+#' @param detect_language (optional) Type: boolean, When \code{TRUE} (default), NetiNeti
+#'    is not used if the language of incoming text is determined not to be English. When
+#'    \code{FALSE}, NetiNeti will be used if requested.
+#' @param all_data_sources (optional) Type: boolean. Resolve found names against all available
 #'    Data Sources.
 #' @param data_source_ids (optional) Type: string. Pipe separated list of data source ids to
 #'    resolve found names against. See list of Data Sources
 #'    \url{http://resolver.globalnames.org/data_sources}.
-#' @param callopts Further args passed to \code{\link[httr]{GET}}
+#' @param ... Further args passed to \code{\link[httr]{GET}}
 #' @author Scott Chamberlain {myrmecocystus@@gmail.com}
 #' @return A list of length two, first is metadata, second is the data as a data.frame.
 #' @details One of url, file, or text must be specified - and only one of them.
-#' @export
 #' @examples \dontrun{
 #' # Get data from a website using its URL
 #' scrapenames(url = 'http://en.wikipedia.org/wiki/Araneae')
@@ -39,7 +40,7 @@
 #' scrapenames(url = 'http://ucjeps.berkeley.edu/cgi-bin/get_JM_treatment.pl?CARYOPHYLLACEAE')
 #'
 #' # Scrape names from a pdf at a URL
-#' url = 'http://www.plosone.org/article/fetchObject.action?uri=
+#' url <- 'http://www.plosone.org/article/fetchObject.action?uri=
 #' info%3Adoi%2F10.1371%2Fjournal.pone.0058268&representation=PDF'
 #' scrapenames(url = sub('\n', '', url))
 #'
@@ -57,36 +58,37 @@
 
 scrapenames <- function(url = NULL, file = NULL, text = NULL, engine = NULL,
   unique = NULL, verbatim = NULL, detect_language = NULL, all_data_sources = NULL,
-  data_source_ids = NULL, callopts=list())
-{
-  method <- tc(list(url=url, file=file, text=text))
-  if(length(method) > 1)
-    stop("Only one of url, file, or text can be used")
+  data_source_ids = NULL, ...) {
+
+  method <- tc(list(url = url, file = file, text = text))
+  if (length(method) > 1) {
+    stop("Only one of url, file, or text can be used", call. = FALSE)
+  }
 
   base <- "http://gnrd.globalnames.org/name_finder.json"
-  if(!is.null(data_source_ids)) data_source_ids <- paste0(data_source_ids, collapse = "|")
-  args <- tc(list(url=url,text=text,engine=engine,unique=unique,
-                       verbatim=verbatim, detect_language=detect_language,
-                       all_data_sources=all_data_sources,
-                       data_source_ids=data_source_ids))
-  if(names(method) == 'url'){
-    tt <- GET(base, query=args, callopts)
+  if (!is.null(data_source_ids)) data_source_ids <- paste0(data_source_ids, collapse = "|")
+  args <- tc(list(url = url, text = text, engine = engine, unique = unique,
+                  verbatim = verbatim, detect_language = detect_language,
+                  all_data_sources = all_data_sources,
+                  data_source_ids = data_source_ids))
+  if (names(method) == 'url') {
+    tt <- GET(base, query = args, ...)
   } else {
-    if(names(method) == "text"){
-      tt <- POST(base, query=args, encode = "json", body = text)
+    if (names(method) == "text") {
+      tt <- POST(base, query = args, encode = "json", body = text, ...)
     } else {
-      tt <- POST(base, query=args, multipart=TRUE, body = list(file=upload_file(file)))
+      tt <- POST(base, query = args, multipart = TRUE, body = list(file = upload_file(file)), ...)
     }
   }
   warn_for_status(tt)
   out <- content(tt)
 
-  if(!out$status == 303){
-    warning("Woops, something went wrong")
+  if (!out$status == 303) {
+    warning("Woops, something went wrong", call. = FALSE)
   } else {
     token_url <- out$token_url
     st <- 303
-    while(st == 303){
+    while (st == 303) {
       dat <- GET(token_url)
       warn_for_status(dat)
       tmp <- content(dat, "text")

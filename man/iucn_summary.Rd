@@ -3,7 +3,7 @@
 \name{iucn_summary}
 \alias{iucn_status.iucn}
 \alias{iucn_summary}
-\title{Get a summary from the IUCN Red List.}
+\title{Get a summary from the IUCN Red List}
 \usage{
 iucn_summary(sciname, silent = TRUE, parallel = FALSE, ...)
 

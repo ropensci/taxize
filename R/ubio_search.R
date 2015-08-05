@@ -1,6 +1,5 @@
 #' This function will return NameBankIDs that match given search terms
 #'
-#' @import XML
 #' @export
 #' @param searchName (character) - term to search within name string
 #' @param searchAuth (character) - term to search within name authorship

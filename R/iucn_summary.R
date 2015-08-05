@@ -1,8 +1,7 @@
-#' Get a summary from the IUCN Red List.
+#' @title Get a summary from the IUCN Red List
 #'
-#' Get a summary from the IUCN Red List (\url{http://www.iucnredlist.org/}).
+#' @description Get a summary from the IUCN Red List (\url{http://www.iucnredlist.org/}).
 #'
-#' @import XML
 #' @param sciname character; Scientific name. Should be cleand and in the
 #' format \emph{<Genus> <Species>}.
 #' @param silent logical; Make errors silent or not (when species not found).
@@ -106,7 +105,7 @@ iucn_status <- function(x, ...){
 #' @method iucn_status default
 iucn_status.default <- function(x, ...) {
   stop("No default method for status defined!\n
-       Did you mean iucn_status.iucn?\n")
+       Did you mean iucn_status.iucn?\n", .call = FALSE)
 }
 
 #' @method iucn_status iucn
@@ -115,6 +114,5 @@ iucn_status.default <- function(x, ...) {
 #' @export
 #' @rdname iucn_summary
 iucn_status.iucn <- function(x, ...) {
-  out <- unlist(lapply(x, function(x) x$status))
-  return(out)
+  unlist(lapply(x, function(x) x$status))
 }

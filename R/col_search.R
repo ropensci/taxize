@@ -50,7 +50,7 @@ col_search <- function(name=NULL, id=NULL, start=NULL, checklist=NULL, response=
   response <- match.arg(response, c("terse", "full"))
   func <- function(x, y, ...) {
     url <- make_url(checklist)
-    args <- compact(list(name = x, id = y, start = start, response = response, format = "json"))
+    args <- tc(list(name = x, id = y, start = start, response = response, format = "json"))
     temp <- GET(url, query = argsnull(args), ...)
     stop_for_status(temp)
     tt <- jsonlite::fromJSON(content(temp, as = "text"), FALSE)

@@ -1,6 +1,5 @@
 #' Retrieve all taxa names or TSNs downstream in hierarchy from given TSN.
 #'
-#' @import XML
 #' @export
 #' @param tsns A taxonomic serial number.
 #' @param downto The taxonomic level you want to go down to. See examples below.

@@ -57,9 +57,12 @@
 #' @importFrom httr GET POST content stop_for_status upload_file warn_for_status
 #' add_headers timeout
 #' @importFrom data.table rbindlist
-#' @importFrom foreach foreach
+#' @importFrom foreach foreach %do%
 #' @importFrom stringr str_extract str_split str_replace
-#' @importFrom plyr rbind.fill llply ldply
+#' @importFrom plyr failwith rbind.fill llply ldply ddply laply l_ply summarise .
+#' @importFrom reshape2 melt dcast
+#' @importFrom XML xpathApply xpathSApply getNodeSet htmlParse xmlParse xmlValue
+#' xmlTreeParse xmlGetAttr xmlToList
 #' @name taxize-package
 #' @aliases taxize
 #' @docType package

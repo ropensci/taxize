@@ -1,9 +1,7 @@
 #' This function will return all ClassificationBank data pertaining to a
 #' particular ClassificationBankID
 #'
-#' @import XML
 #' @export
-#'
 #' @param hierarchiesID (string) - ClassificationBank identifier for the record you
 #'    wish to receive
 #' @param childrenFlag (0 or 1) to include the taxon's children taxa

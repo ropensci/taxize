@@ -37,7 +37,6 @@ Imports:
     plyr,
     foreach,
     ape,
-    Taxonstand,
     bold,
     data.table
 Suggests:

@@ -43,7 +43,7 @@ col_classification <- function(name=NULL, id=NULL, format=NULL, start=NULL, chec
   #     }
   #   }
   #
-  #   args <- compact(list(name = x, id = y, format = format,
+  #   args <- tc(list(name = x, id = y, format = format,
   #                        response = "full", start = start))
   #   out <- getForm(url, .params = args)
   #   tt <- xmlParse(out)

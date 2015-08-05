@@ -1,7 +1,6 @@
 #' This function will return ClassificationBankIDs (hierarchiesIDs) that refer to the
 #' given NamebankID
 #'
-#' @import XML
 #' @export
 #' @param namebankID (charcter) NameBank identifier you wish to search for in
 #'    ClassificationBank

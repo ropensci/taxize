@@ -6,7 +6,7 @@
 \usage{
 scrapenames(url = NULL, file = NULL, text = NULL, engine = NULL,
   unique = NULL, verbatim = NULL, detect_language = NULL,
-  all_data_sources = NULL, data_source_ids = NULL, callopts = list())
+  all_data_sources = NULL, data_source_ids = NULL, ...)
 }
 \arguments{
 \item{url}{An encoded URL for a web page, PDF, Microsoft Office document, or
@@ -37,7 +37,7 @@ Data Sources.}
 resolve found names against. See list of Data Sources
 \url{http://resolver.globalnames.org/data_sources}.}
 
-\item{callopts}{Further args passed to \code{\link[httr]{GET}}}
+\item{...}{Further args passed to \code{\link[httr]{GET}}}
 }
 \value{
 A list of length two, first is metadata, second is the data as a data.frame.
@@ -45,11 +45,11 @@ A list of length two, first is metadata, second is the data as a data.frame.
 \description{
 Uses the Global Names Recognition and Discovery service, see
 \url{http://gnrd.globalnames.org/}.
+
+Note: this function somestimes gives data back and sometimes not. The API that this
+function is extremely buggy.
 }
 \details{
-Note: this function somestimes gives data back and sometimes not. The API that this function is
-extremely buggy.
-
 One of url, file, or text must be specified - and only one of them.
 }
 \examples{

@@ -26,7 +26,7 @@ tp_dist <- function(id, key=NULL, ...) {
 
   url = sprintf('http://services.tropicos.org/Name/%s/Distributions', id)
 	key <- getkey(key, "tropicosApiKey")
-  args <- compact(list(format = 'json', apikey = key))
+  args <- tc(list(format = 'json', apikey = key))
   tt <- GET(url, query = args, ...)
   stop_for_status(tt)
   out <- content(tt)
