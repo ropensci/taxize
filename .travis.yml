@@ -1,13 +1,16 @@
 language: r
+sudo: required
 
 r_github_packages:
- - jimhester/robustr
  - jimhester/covr
  - jeroenooms/curl
 
 after_success:
-  - Rscript -e 'library(covr); coveralls()'
+  - Rscript -e 'covr::codecov()'
 
 notifications:
+  email:
+    on_success: change
+    on_failure: change
   slack:
     secure: YOxbPBFVAMbDbNc/6tDn5749/qOfJkM+hfTraG9LGstCZC2C4I7rxb3BRkUHphIbFuQiH8BW/L+BKPXkLBL8Hrz4uMMyD3RtMX1A9fZ9WizkHMT4GLCHE011TITiYIeJvv41R7RBuy6rn3RLpID5KeMTTDphIz1TOZdl1zsxqds=

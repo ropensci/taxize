@@ -6,7 +6,7 @@ taxize
 
 [![Build Status](https://api.travis-ci.org/ropensci/taxize.png?branch=master)](https://travis-ci.org/ropensci/taxize)
 [![Build status](https://ci.appveyor.com/api/projects/status/6mgc02mkd8j4sq3g/branch/master)](https://ci.appveyor.com/project/sckott/taxize-175/branch/master)
-[![Coverage Status](https://coveralls.io/repos/ropensci/taxize/badge.svg)](https://coveralls.io/r/ropensci/taxize)
+[![codecov.io](https://codecov.io/github/ropensci/taxize/coverage.svg?branch=master)](https://codecov.io/github/ropensci/taxize?branch=master)
 [![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/taxize)](https://github.com/metacran/cranlogs.app)
 [![cran version](http://www.r-pkg.org/badges/version/taxize)](http://cran.rstudio.com/web/packages/taxize)
 
@@ -404,8 +404,8 @@ get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn', rows=1:3)
 #> $nbn$`Chironomus riparius`
 #>   ptaxonVersionKey    searchMatchTitle    rank  nameStatus
 #> 1 NBNSYS0000027573 Chironomus riparius Species Recommended
-#> 2 NHMSYS0001718042   Elaphrus riparius Species Recommended
-#> 3 NBNSYS0000023345   Paederus riparius Species Recommended
+#> 2 NBNSYS0000023345   Paederus riparius Species Recommended
+#> 3 NHMSYS0001718042   Elaphrus riparius Species Recommended
 #> 
 #> $nbn$`Pinus contorta`
 #>   ptaxonVersionKey               searchMatchTitle       rank  nameStatus
@@ -434,10 +434,10 @@ sci2comm('Helianthus annuus', db = 'itis')
 ```r
 comm2sci("black bear", db = "itis")
 #> $`black bear`
-#> [1] "Ursus thibetanus"            "Ursus thibetanus"           
-#> [3] "Chiropotes satanas"          "Ursus americanus luteolus"  
-#> [5] "Ursus americanus"            "Ursus americanus"           
-#> [7] "Ursus americanus americanus"
+#> [1] "Ursus americanus luteolus"   "Ursus americanus americanus"
+#> [3] "Ursus americanus"            "Ursus americanus"           
+#> [5] "Chiropotes satanas"          "Ursus thibetanus"           
+#> [7] "Ursus thibetanus"
 ```
 
 ### Coerce codes to taxonomic id classes
@@ -493,6 +493,10 @@ out <- as.uid(c(315567, 3339, 9696))
 + [Karthik Ram](https://github.com/karthik)
 + [Ignasi Bartomeus](https://github.com/ibartomeus)
 + [John Baumgartner](https://github.com/johnbaums)
+
+## Road map
+
+Check out our [milestones](https://github.com/ropensci/taxize/milestones) to see what we plan to get done for each version.
 
 ## Meta
 

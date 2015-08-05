@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 
 [![Build Status](https://api.travis-ci.org/ropensci/taxize.png?branch=master)](https://travis-ci.org/ropensci/taxize)
 [![Build status](https://ci.appveyor.com/api/projects/status/6mgc02mkd8j4sq3g/branch/master)](https://ci.appveyor.com/project/sckott/taxize-175/branch/master)
-[![Coverage Status](https://coveralls.io/repos/ropensci/taxize/badge.svg)](https://coveralls.io/r/ropensci/taxize)
+[![codecov.io](https://codecov.io/github/ropensci/taxize/coverage.svg?branch=master)](https://codecov.io/github/ropensci/taxize?branch=master)
 [![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/taxize)](https://github.com/metacran/cranlogs.app)
 [![cran version](http://www.r-pkg.org/badges/version/taxize)](http://cran.rstudio.com/web/packages/taxize)
 
@@ -304,6 +304,10 @@ out <- as.uid(c(315567, 3339, 9696))
 + [Karthik Ram](https://github.com/karthik)
 + [Ignasi Bartomeus](https://github.com/ibartomeus)
 + [John Baumgartner](https://github.com/johnbaums)
+
+## Road map
+
+Check out our [milestones](https://github.com/ropensci/taxize/milestones) to see what we plan to get done for each version.
 
 ## Meta
 
