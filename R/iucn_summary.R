@@ -2,7 +2,7 @@
 #'
 #' Get a summary from the IUCN Red List (\url{http://www.iucnredlist.org/}).
 #'
-#' @import XML plyr
+#' @import XML
 #' @param sciname character; Scientific name. Should be cleand and in the
 #' format \emph{<Genus> <Species>}.
 #' @param silent logical; Make errors silent or not (when species not found).

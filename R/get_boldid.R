@@ -1,6 +1,5 @@
 #' Get the BOLD (Barcode of Life) code for a search term.
 #'
-#' @import plyr
 #' @importFrom bold bold_tax_name bold_tax_id
 #' @export
 #' @param searchterm character; A vector of common or scientific names.

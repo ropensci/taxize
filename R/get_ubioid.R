@@ -4,7 +4,6 @@
 #' to search for names.
 #'
 #' @export
-#' @import plyr
 #' @param searchterm character; A vector of common or scientific names.
 #' @param searchtype character; One of 'scientific' or 'common', or any unique abbreviation
 #' @param ask logical; should get_tsn be run in interactive mode?

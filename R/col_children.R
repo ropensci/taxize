@@ -1,6 +1,6 @@
 #' Search Catalogue of Life for for direct children of a particular taxon.
 #'
-#' @import XML plyr
+#' @import XML
 #' @export
 #' @param name The string to search for. Only exact matches found the name given
 #' 		will be returned, unless one or wildcards are included in the search

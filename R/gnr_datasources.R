@@ -3,9 +3,7 @@
 #' Retrieve data sources used in Global Names Index, see
 #' \url{http://gni.globalnames.org/} for information.
 #'
-#' @import plyr
 #' @param todf logical; Should a data.frame be returned?
-#'
 #' @author Scott Chamberlain {myrmecocystus@@gmail.com}
 #' @return json or a data.frame
 #' @seealso \code{\link[taxize]{gnr_resolve}}

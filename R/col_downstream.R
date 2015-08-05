@@ -1,6 +1,6 @@
 #' Use Catalogue of Life to get downstream taxa to a given taxonomic level.
 #'
-#' @import XML plyr
+#' @import XML
 #' @param name The string to search for. Only exact matches found the name given
 #'     will be returned, unless one or wildcards are included in the search
 #'   	string. An * (asterisk) character denotes a wildcard; a % (percentage)

@@ -1,7 +1,7 @@
 #' This function will return all ClassificationBank data pertaining to a
 #' particular ClassificationBankID
 #'
-#' @import httr XML
+#' @import XML
 #' @export
 #'
 #' @param hierarchiesID (string) - ClassificationBank identifier for the record you

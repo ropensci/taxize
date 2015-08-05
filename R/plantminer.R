@@ -1,6 +1,5 @@
 #' Search for taxonomy data from Plantminer.com
 #'
-#' @import foreach
 #' @param plants Vector of plant species names.
 #' @param key Your api key for the plantminer.com site.  Go to
 #' 		\url{http://www.plantminer.com/} to get your api key.  Two options for

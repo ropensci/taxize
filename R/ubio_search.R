@@ -1,6 +1,6 @@
 #' This function will return NameBankIDs that match given search terms
 #'
-#' @import httr XML plyr
+#' @import XML
 #' @export
 #' @param searchName (character) - term to search within name string
 #' @param searchAuth (character) - term to search within name authorship
@@ -53,7 +53,8 @@ ubio_search <- function(searchName = NULL, searchAuth = NULL, searchYear=NULL,
   if (!vern == 1) {
     vernout <- NULL
   } else {
-    verntoget <- c("namebankID", "nameString", "languageCode", "languageName", "packageID", "packageName", "namebankIDLink", "nameStringLink", "fullNameStringLink")
+    verntoget <- c("namebankID", "nameString", "languageCode", "languageName",
+      "packageID", "packageName", "namebankIDLink", "nameStringLink", "fullNameStringLink")
     temp2 <- lapply(verntoget, function(x) sapply(xpathApply(tt, paste("//vernacularNames//", x, sep = "")), xmlValue))
     temp2[c(2,8,9)] <- lapply(temp2[c(2,8,9)], function(x) {
       unname(sapply(x, function(z) rawToChar(openssl::base64_decode(z))))

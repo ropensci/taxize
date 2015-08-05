@@ -3,7 +3,6 @@
 #' @description Uses the Global Names Index, see \url{http://gni.globalnames.org/}.
 #'
 #' @export
-#' @import stringr plyr
 #' @param id Name id. Required.
 #' @param all_records If all_records is 1, GNI returns all records from all
 #' 		repositories for the name string (takes 0, or 1 [default]).

@@ -54,6 +54,12 @@
 #' @importFrom ape read.tree as.phylo.hclust plot.phylo
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom openssl base64_decode
+#' @importFrom httr GET POST content stop_for_status upload_file warn_for_status
+#' add_headers timeout
+#' @importFrom data.table rbindlist
+#' @importFrom foreach foreach
+#' @importFrom stringr str_extract str_split str_replace
+#' @importFrom plyr rbind.fill llply ldply
 #' @name taxize-package
 #' @aliases taxize
 #' @docType package

@@ -6,7 +6,6 @@
 #' Note: this function somestimes gives data back and sometimes not. The API that this function is
 #' extremely buggy.
 #'
-#' @import httr
 #' @param url An encoded URL for a web page, PDF, Microsoft Office document, or
 #'    image file, see examples
 #' @param file When using multipart/form-data as the content-type, a file may be sent.
@@ -72,8 +71,7 @@ scrapenames <- function(url = NULL, file = NULL, text = NULL, engine = NULL,
                        data_source_ids=data_source_ids))
   if(names(method) == 'url'){
     tt <- GET(base, query=args, callopts)
-  } else
-  {
+  } else {
     if(names(method) == "text"){
       tt <- POST(base, query=args, encode = "json", body = text)
     } else {

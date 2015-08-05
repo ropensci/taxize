@@ -2,7 +2,6 @@
 #'
 #' Retrieve the taxonomic serial numbers (TSN) of a taxon from ITIS.
 #'
-#' @import plyr
 #' @param searchterm character; A vector of common or scientific names.
 #' @param searchtype character; One of 'scientific' or 'common', or any unique abbreviation
 #' @param accepted logical; If TRUE, removes names that are not accepted valid names

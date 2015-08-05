@@ -1,6 +1,5 @@
 #' iPlant name resolution
 #'
-#' @import httr
 #' @export
 #' @param query Vector of one or more taxonomic names. (no common names)
 #' @param retrieve Specifies whether to retrieve all matches for the names submitted. One of 'best'

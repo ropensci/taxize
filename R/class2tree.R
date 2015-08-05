@@ -5,7 +5,6 @@
 #' based on taxonomy alone, and outputs either a phylo or dist object. See details
 #' for more information.
 #'
-#' @import plyr
 #' @param input List of classification data.frame's from the function classification().
 #' @param varstep Vary step lengths between successive levels relative to proportional
 #' loss of the number of distinct classes.

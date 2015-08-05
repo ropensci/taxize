@@ -1,6 +1,5 @@
 #' Query Phylomatic for a phylogenetic tree.
 #'
-#' @import httr stringr
 #' @export
 #'
 #' @param taxa Phylomatic format input of taxa names.

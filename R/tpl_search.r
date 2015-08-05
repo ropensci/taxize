@@ -8,7 +8,7 @@
 #' that give you access to download Theplantlist.org data \code{\link[taxize]{tpl_get}}
 #' and to get Theplantlist.org families \code{\link[taxize]{tpl_families}}.
 #'
-#' @import Taxonstand plyr
+#' @import Taxonstand
 #' @param taxon A taxonomic name, or a vector of names.
 #' @param paral Paralellize or not (logical). Which back-end package you use
 #' 		depends on your operating system and just general taste. Possibilities

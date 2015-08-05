@@ -2,7 +2,6 @@
 #'
 #' THIS FUNCTION IS DEFUNCT.
 #'
-#' @import httr plyr
 #' @param taxonid the EOL page identifier (character)
 #' @param common_names Return common names or not (defaults to returning them,
 #'     give commonnames=0 if not)

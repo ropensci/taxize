@@ -1,7 +1,7 @@
 #' Retrieve the taxonomic hierarchy for a given taxon ID.
 #'
 #' @export
-#' @import XML plyr
+#' @import XML
 #'
 #' @param x Vector of taxa names (character) or IDs (character or numeric) to query.
 #' @param db character; database to query. either \code{ncbi}, \code{itis},

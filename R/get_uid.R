@@ -2,7 +2,6 @@
 #'
 #' Retrieve the Unique Identifier (UID) of a taxon from NCBI taxonomy browser.
 #'
-#' @import plyr
 #' @param sciname character; scientific name.
 #' @param ask logical; should get_uid be run in interactive mode?
 #' If TRUE and more than one TSN is found for the species, the user is asked for

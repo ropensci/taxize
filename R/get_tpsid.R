@@ -1,7 +1,6 @@
 #' Get the NameID codes from Tropicos for taxonomic names.
 #'
 #' @export
-#' @import plyr
 #' @param sciname (character) One or more scientific name's as a vector or list.
 #' @param ask logical; should get_tpsid be run in interactive mode?
 #' If TRUE and more than one ID is found for the species, the user is asked for
