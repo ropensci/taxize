@@ -4,7 +4,7 @@
 \alias{ubio_id}
 \title{Search uBio by namebank ID.}
 \usage{
-ubio_id(namebankID = NULL, keyCode = NULL, callopts = list())
+ubio_id(namebankID = NULL, keyCode = NULL, ...)
 }
 \arguments{
 \item{namebankID}{(character) uBio namebank ID}
@@ -12,7 +12,7 @@ ubio_id(namebankID = NULL, keyCode = NULL, callopts = list())
 \item{keyCode}{Your uBio API key; loads from .Rprofile. If you don't have
 one, obtain one at http://www.ubio.org/index.php?pagename=form.}
 
-\item{callopts}{Parameters passed on to httr::GET call.}
+\item{...}{Parameters passed on to \code{\link[httr]{GET}}}
 }
 \value{
 A list of four data.frame's, one for the name itself, one for synonyms,

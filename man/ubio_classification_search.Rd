@@ -6,7 +6,7 @@
 given NamebankID}
 \usage{
 ubio_classification_search(namebankID = NULL, classificationTitleID = NULL,
-  keyCode = NULL, callopts = list())
+  keyCode = NULL, ...)
 }
 \arguments{
 \item{namebankID}{(charcter) NameBank identifier you wish to search for in
@@ -18,7 +18,7 @@ particular classification}
 \item{keyCode}{Your uBio API key; loads from .Rprofile. If you don't have
 one, obtain one at http://www.ubio.org/index.php?pagename=form.}
 
-\item{callopts}{Parameters passed on to httr::GET call.}
+\item{...}{Parameters passed on to \code{\link[httr]{GET}}}
 }
 \value{
 A data.frame with columns classificationBankID, classificationTitleID, and

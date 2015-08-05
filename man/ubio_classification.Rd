@@ -7,7 +7,7 @@ particular ClassificationBankID}
 \usage{
 ubio_classification(hierarchiesID = NULL, childrenFlag = 0,
   ancestryFlag = 0, justificationsFlag = 0, synonymsFlag = 0,
-  keyCode = NULL, callopts = list())
+  keyCode = NULL, ...)
 }
 \arguments{
 \item{hierarchiesID}{(string) - ClassificationBank identifier for the record you
@@ -24,7 +24,7 @@ wish to receive}
 \item{keyCode}{Your uBio API key; loads from .Rprofile. If you don't have
 one, obtain one at http://www.ubio.org/index.php?pagename=form.}
 
-\item{callopts}{Parameters passed on to httr::GET call.}
+\item{...}{Parameters passed on to \code{\link[httr]{GET}}}
 }
 \value{
 A list of four data.frame's, one for the name itself, one for synonyms,
