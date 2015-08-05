@@ -7,7 +7,7 @@
 phylomatic_tree(taxa, taxnames = TRUE, get = "GET", informat = "newick",
   method = "phylomatic", storedtree = "R20120829", treeuri = NULL,
   taxaformat = "slashpath", outformat = "newick", clean = "true",
-  db = "apg", verbose = TRUE)
+  db = "apg", verbose = TRUE, ...)
 }
 \arguments{
 \item{taxa}{Phylomatic format input of taxa names.}
@@ -39,6 +39,8 @@ mammals).}
 list, don't use apg, intead use ncbi or itis.}
 
 \item{verbose}{Print messages (default: TRUE).}
+
+\item{...}{Curl options passed on to \code{\link[httr]{GET}} or \code{\link[httr]{POST}}}
 }
 \value{
 Newick formatted tree or nexml text.
