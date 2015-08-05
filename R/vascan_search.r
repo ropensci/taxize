@@ -1,6 +1,6 @@
 #' Search the CANADENSYS Vascan API.
 #'
-#' @import httr jsonlite
+#' @import httr
 #' @importFrom data.table rbindlist
 #' @export
 #'

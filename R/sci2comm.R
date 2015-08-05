@@ -110,24 +110,26 @@ sci2comm.tsn <- function(id, simplify=TRUE, ...){
 
 itis_foo <- function(x, simplify=TRUE, ...){
   # if tsn is not found
-  if(is.na(x)) {
+  if (is.na(x)) {
     out <- NA
   } else {
     out <- getcommonnamesfromtsn(x)
     #if common name is not found
-    if(nrow(out) == 0)
+    if (nrow(out) == 0)
       out <- NA
   }
-  if(simplify){
-    if(!is(out, "data.frame")) out else as.character(out$comname)
-  } else{ out }
+  if (simplify) {
+    if (!is(out, "data.frame")) out else as.character(out$comname)
+  } else{
+    out
+  }
 }
 
 ncbi_foo <- function(x, ...){
   baseurl <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy"
   ID <- paste("ID=", x, sep = "")
   searchurl <- paste(baseurl, ID, sep = "&")
-  tt <- getURL(searchurl)
+  tt <- content(GET(searchurl, ...), "text")
   ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)
   # common name
   out <- xpathSApply(ttp, "//TaxaSet/Taxon/OtherNames/GenbankCommonName", xmlValue)

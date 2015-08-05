@@ -61,7 +61,7 @@ comm2sci <- function(commnames, db='eol', itisby='search', simplify=TRUE, ...)
     baseurl <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy"
     ID <- paste("ID=", uid, sep = "")
     searchurl <- paste(baseurl, ID, sep = "&")
-    tt <- getURL(searchurl)
+    tt <- content(GET(searchurl), "text")
     ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)
     # common name
     out <- xpathSApply(ttp, "//TaxaSet/Taxon/ScientificName", xmlValue)

@@ -1,6 +1,6 @@
 #' Parse taxon names using the GBIF name parser.
 #'
-#' @import httr plyr jsonlite
+#' @import httr plyr
 #' @param scientificname A character vector of scientific names.
 #' @return A \code{data.frame} containing fields extracted from parsed
 #' taxon names. Fields returned are the union of fields extracted from

@@ -2,7 +2,7 @@
 #'
 #' Retrieve the Unique Identifier (UID) of a taxon from NCBI taxonomy browser.
 #'
-#' @import plyr RCurl
+#' @import plyr
 #' @param sciname character; scientific name.
 #' @param ask logical; should get_uid be run in interactive mode?
 #' If TRUE and more than one TSN is found for the species, the user is asked for
@@ -304,14 +304,14 @@ get_uid_help <- function(sciname, verbose, rows){
   mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
   url <- paste("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=",
                gsub(" ", "+", sciname), sep = "")
-  xml_result <- xmlParse(getURL(url))
+  xml_result <- xmlParse(content(GET(url)))
   Sys.sleep(0.33)
   uid <- xpathSApply(xml_result, "//IdList/Id", xmlValue)
   if (length(uid) == 0) { NULL } else {
     baseurl <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy"
     ID <- paste("ID=", paste(uid, collapse = ","), sep = "")
     url <- paste(baseurl, ID, sep = "&")
-    tt <- getURL(url)
+    tt <- content(GET(url))
     ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)
     df <- parse_ncbi(ttp)
     sub_rows(df, rows)

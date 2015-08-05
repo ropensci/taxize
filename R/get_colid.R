@@ -1,6 +1,6 @@
 #' Get the Catalogue of Life ID from taxonomic names.
 #'
-#' @import plyr RCurl
+#' @import plyr
 #' @param sciname character; scientific name.
 #' @param ask logical; should get_colid be run in interactive mode?
 #' If TRUE and more than one ID is found for the species, the user is asked for

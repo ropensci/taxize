@@ -1,7 +1,7 @@
 #' Retrieve the taxonomic hierarchy for a given taxon ID.
 #'
 #' @export
-#' @import XML RCurl plyr
+#' @import XML plyr
 #'
 #' @param x Vector of taxa names (character) or IDs (character or numeric) to query.
 #' @param db character; database to query. either \code{ncbi}, \code{itis},
@@ -231,7 +231,6 @@ classification.uid <- function(id, callopts = list(), return_id = TRUE, ...) {
       baseurl <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy"
       ID <- paste("ID=", x, sep = "")
       searchurl <- paste(baseurl, ID, sep = "&")
-      # tt <- getURL(searchurl)
       tt <- GET(searchurl, callopts)
       ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)
       out <- data.frame(name = xpathSApply(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/ScientificName", xmlValue),

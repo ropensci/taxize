@@ -3,7 +3,7 @@
 #' Retrieve data sources used in Global Names Index, see
 #' \url{http://gni.globalnames.org/} for information.
 #'
-#' @import jsonlite plyr
+#' @import plyr
 #' @param todf logical; Should a data.frame be returned?
 #'
 #' @author Scott Chamberlain {myrmecocystus@@gmail.com}

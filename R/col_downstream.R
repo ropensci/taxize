@@ -1,6 +1,6 @@
 #' Use Catalogue of Life to get downstream taxa to a given taxonomic level.
 #'
-#' @import RCurl XML plyr
+#' @import XML plyr
 #' @param name The string to search for. Only exact matches found the name given
 #'     will be returned, unless one or wildcards are included in the search
 #'   	string. An * (asterisk) character denotes a wildcard; a % (percentage)
@@ -57,7 +57,7 @@ col_downstream <- function(name = NULL, id = NULL, downto, format = NULL, start 
   downto <- match.arg(downto, choices = poss_ranks)
 
   searchcol <- function(x=NULL, y=NULL, ...) {
-    args <- compact(list(name=x, id=y, format=format, response="full", start=start))
+    args <- tc(list(name=x, id=y, format=format, response="full", start=start))
     out_ <- GET(url, query = argsnull(args), ...)
     out_ <- content(out_, "text")
     tt <- xmlParse(out_)
@@ -118,7 +118,7 @@ col_downstream <- function(name = NULL, id = NULL, downto, format = NULL, start 
     if(length(out) == 0){
       ret <-  data.frame(childtaxa_id=NA, childtaxa_name=NA, childtaxa_rank=NA)
     } else {
-      res <- compact(out)
+      res <- tc(out)
       ret <- do.call(rbind.fill, res)
     }
     if(intermediate) list(target=ret, intermediate=intermed) else ret

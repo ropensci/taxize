@@ -2,7 +2,7 @@
 #'
 #' Uses the Global Names Index, see \url{http://gni.globalnames.org/}.
 #'
-#' @import stringr plyr httr jsonlite
+#' @import stringr plyr httr
 #' @param names character; taxonomic names to be resolved. Doesn't work for verncular/common names.
 #' @param data_source_ids character; IDs to specify what data source
 #'     is searched. See \code{\link[taxize]{gnr_datasources}}.

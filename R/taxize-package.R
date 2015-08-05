@@ -51,6 +51,9 @@
 #' @importFrom methods as is
 #' @importFrom stats as.dist hclust na.omit setNames
 #' @importFrom utils URLencode citation download.file read.delim write.table
+#' @importFrom ape read.tree as.phylo.hclust plot.phylo
+#' @importFrom jsonlite fromJSON toJSON
+#' @importFrom openssl base64_decode
 #' @name taxize-package
 #' @aliases taxize
 #' @docType package

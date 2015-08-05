@@ -3,7 +3,7 @@
 #' @description Uses the Global Names Index, see \url{http://gni.globalnames.org/}.
 #'
 #' @export
-#' @import stringr jsonlite RCurl plyr
+#' @import stringr plyr
 #' @param id Name id. Required.
 #' @param all_records If all_records is 1, GNI returns all records from all
 #' 		repositories for the name string (takes 0, or 1 [default]).
@@ -29,8 +29,7 @@ gni_details <- function(id, all_records = 1, ...) {
 
 	url2 <- paste0(gni_base(), "name_strings/", id, ".json")
 	query <- tc(list(all_records = all_records))
-	tt <- GET(url2, query = query, ...)
-	# tt <- GET(url2, query = argsnull(query), ...)
+	tt <- GET(url2, query = argsnull(query), ...)
 	stop_for_status(tt)
   res <- content(tt, as = "text")
   out <- jsonlite::fromJSON(res, FALSE)
