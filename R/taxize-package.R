@@ -1,5 +1,6 @@
-#' Taxnomic search and phylogeny retrieval.
+#' @title Taxnomic search and phylogeny retrieval.
 #'
+#' @section About:
 #' We are developing taxize as a package to allow users to search over many
 #' websites for species names (scientific and common) and download up- and
 #' downstream taxonomic hierarchical information - and many other things.
@@ -15,7 +16,7 @@
 #' You need API keys for Encyclopedia of Life (EOL), the Universal Biological
 #' Indexer and Organizer (uBio), Tropicos, and Plantminer.
 #'
-#' Currently supported APIs are:
+#' @section Currently supported APIs:
 #'
 #' \tabular{llc}{
 #' API \tab prefix \tab SOAP? \cr
@@ -41,10 +42,15 @@
 #' National Biodiversity Network (UK)	\tab nbn \tab FALSE \cr
 #' }
 #'
-#' If the source above has a \code{TRUE} in the \code{SOAP?} column, it is not available if you
-#' installed this package from CRAN. They are available from a different package called taxizesoap.
-#' See the Github repo for how to install \url{https://github.com/ropensci/taxizesoap}
+#' If the source above has a \code{TRUE} in the \code{SOAP?} column, it is not available
+#' if you installed this package from CRAN. They are available from a different package
+#' called taxizesoap. See the GitHub repo for how to install
+#' \url{https://github.com/ropensci/taxizesoap}
 #'
+#' @importFrom graphics plot
+#' @importFrom methods as is
+#' @importFrom stats as.dist hclust na.omit setNames
+#' @importFrom utils URLencode citation download.file read.delim write.table
 #' @name taxize-package
 #' @aliases taxize
 #' @docType package

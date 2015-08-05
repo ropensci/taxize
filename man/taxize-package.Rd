@@ -4,11 +4,12 @@
 \name{taxize-package}
 \alias{taxize}
 \alias{taxize-package}
-\title{Taxonomic information from around the web.}
+\title{Taxnomic search and phylogeny retrieval.}
 \description{
 Taxnomic search and phylogeny retrieval.
 }
-\details{
+\section{About}{
+
 We are developing taxize as a package to allow users to search over many
 websites for species names (scientific and common) and download up- and
 downstream taxonomic hierarchical information - and many other things.
@@ -23,8 +24,10 @@ two words separated by an underscore, e.g., \code{classification}
 
 You need API keys for Encyclopedia of Life (EOL), the Universal Biological
 Indexer and Organizer (uBio), Tropicos, and Plantminer.
+}
 
-Currently supported APIs are:
+\section{Currently supported APIs}{
+
 
 \tabular{llc}{
 API \tab prefix \tab SOAP? \cr
@@ -50,9 +53,10 @@ Mycobank \tab myco \tab TRUE \cr
 National Biodiversity Network (UK)	\tab nbn \tab FALSE \cr
 }
 
-If the source above has a \code{TRUE} in the \code{SOAP?} column, it is not available if you
-installed this package from CRAN. They are available from a different package called taxizesoap.
-See the Github repo for how to install \url{https://github.com/ropensci/taxizesoap}
+If the source above has a \code{TRUE} in the \code{SOAP?} column, it is not available
+if you installed this package from CRAN. They are available from a different package
+called taxizesoap. See the GitHub repo for how to install
+\url{https://github.com/ropensci/taxizesoap}
 }
 \author{
 Scott Chamberlain \email{myrmecocystus@gmail.com}
