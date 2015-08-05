@@ -1,8 +1,8 @@
-#' Search for taxonomic names using the Global Names Index.
+#' @title Search for taxonomic names using the Global Names Index.
 #'
-#' Uses the Global Names Index, see \url{http://gni.globalnames.org/} for
-#' information.
+#' @description Uses the Global Names Index, see \url{http://gni.globalnames.org/}.
 #'
+#' @export
 #' @param search_term Name pattern you want to search for. WARNING: Does not work for
 #'    vernacular/common names. Search term may
 #'    include following options (Note: can, uni, gen, sp, ssp, au, yr work only
@@ -23,10 +23,11 @@
 #' 		than 1000 will be decreased to 1000) (default is 30).
 #' @param page Page number you want to see (default is 1).
 #' @param justtotal Return only the total results found.
-#' @param parse_names If TRUE, use \code{\link{gni_parse}} to parse names.
-#'    Default is FALSE.
+#' @param parse_names If \code{TRUE}, use \code{\link{gni_parse}} to parse names.
+#'    Default: \code{FALSE}
+#' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @author Scott Chamberlain {myrmecocystus@@gmail.com}
-#' @return Data.frame of results.
+#' @return data.frame of results.
 #' @seealso \code{\link{gnr_datasources}}, \code{\link{gni_search}}.
 #' @keywords globalnamesindex names taxonomy
 #' @references \url{http://gni.globalnames.org/}, \url{https://github.com/dimus/gni/wiki/api}
@@ -39,27 +40,32 @@
 #' gni_search(search_term = "animalia", per_page = 8, page = 1, justtotal=TRUE)
 #'
 #' gni_search(search_term = "Cyanistes caeruleus", parse_names=TRUE)
+#'
+#' # pass on curl options to httr
+#' library("httr")
+#' gni_search(search_term = "ani*", config = verbose())
 #' }
-#' @export
 gni_search <- function(search_term = NULL, per_page = NULL, page = NULL,
-  justtotal = FALSE, parse_names = FALSE)
-{
-  url = "http://gni.globalnames.org/name_strings.json"
-	query <- compact(list(search_term = search_term, per_page = per_page, page = page))
-	out <- content( GET(url, query = query), "parsed")
+  justtotal = FALSE, parse_names = FALSE, ...) {
 
-	if(justtotal == TRUE){out$name_strings_total} else
-	{
-	  checknull <- function(x) {if(is.null(x)){"none"} else{x}}
+	query <- tc(list(search_term = search_term, per_page = per_page, page = page))
+	tt <- GET(paste0(gni_base(), "name_strings.json"), query = argsnull(query), ...)
+	stop_for_status(tt)
+	out <- content(tt, "parsed")
+
+	if (justtotal) {
+	  out$name_strings_total
+	} else {
 	  df <- ldply(out$name_strings, function(x)
 	    t(data.frame(c( checknull(x[["name"]]), checknull(x[["id"]]),
 	                    checknull(x[["lsid"]]), checknull(x[["uuid_hex"]]),
 	                    checknull(x[["resource_url"]]) ))))
 	  names(df) <- c("name","id","lsid","uuid_hex","resource_url")
 
-    if(parse_names){
+    if (parse_names) {
       data.frame(df, gni_parse(as.character(df$name)), stringsAsFactors = FALSE)
-    } else
-      { df }
+    } else {
+      df
+    }
 	}
 }

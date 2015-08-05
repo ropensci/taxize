@@ -4,10 +4,12 @@
 \alias{gni_parse}
 \title{Parse scientific names using EOL's name parser.}
 \usage{
-gni_parse(names)
+gni_parse(names, ...)
 }
 \arguments{
 \item{names}{A vector of length 1 or more of taxonomic names}
+
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
 A data.frame with results, the submitted names, and the parsed names
@@ -22,6 +24,10 @@ gni_parse("Cyanistes caeruleus")
 gni_parse("Plantago minor")
 gni_parse("Plantago minor minor")
 gni_parse(c("Plantago minor minor","Helianthus annuus texanus"))
+
+# pass on curl options to httr
+library("httr")
+gni_parse("Cyanistes caeruleus", config = verbose())
 }
 }
 \references{

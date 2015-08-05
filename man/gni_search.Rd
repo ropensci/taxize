@@ -5,7 +5,7 @@
 \title{Search for taxonomic names using the Global Names Index.}
 \usage{
 gni_search(search_term = NULL, per_page = NULL, page = NULL,
-  justtotal = FALSE, parse_names = FALSE)
+  justtotal = FALSE, parse_names = FALSE, ...)
 }
 \arguments{
 \item{search_term}{Name pattern you want to search for. WARNING: Does not work for
@@ -32,15 +32,16 @@ than 1000 will be decreased to 1000) (default is 30).}
 
 \item{justtotal}{Return only the total results found.}
 
-\item{parse_names}{If TRUE, use \code{\link{gni_parse}} to parse names.
-Default is FALSE.}
+\item{parse_names}{If \code{TRUE}, use \code{\link{gni_parse}} to parse names.
+Default: \code{FALSE}}
+
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
-Data.frame of results.
+data.frame of results.
 }
 \description{
-Uses the Global Names Index, see \url{http://gni.globalnames.org/} for
-information.
+Uses the Global Names Index, see \url{http://gni.globalnames.org/}.
 }
 \details{
 Note that you can use fuzzy searching, e.g., by attaching an asterisk to the
@@ -54,6 +55,10 @@ gni_search(search_term = "animalia", per_page = 8, page = 1)
 gni_search(search_term = "animalia", per_page = 8, page = 1, justtotal=TRUE)
 
 gni_search(search_term = "Cyanistes caeruleus", parse_names=TRUE)
+
+# pass on curl options to httr
+library("httr")
+gni_search(search_term = "ani*", config = verbose())
 }
 }
 \author{
