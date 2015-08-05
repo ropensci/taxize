@@ -80,18 +80,19 @@
 #' # Convert a uid without class information to a uid class
 #' as.colid(get_colid("Chironomus riparius")) # already a uid, returns the same
 #' as.colid(get_colid(c("Chironomus riparius","Pinus contorta"))) # same
-#' as.colid(8663146) # numeric
-#' as.colid(c(8663146,19736162,18158318)) # numeric vector, length > 1
-#' as.colid("19736162") # character
-#' as.colid(c("8663146","19736162","18158318")) # character vector, length > 1
-#' as.colid(list("8663146","19736162","18158318")) # list, either numeric or character
+#' as.colid("714831352ad94741e4321eccdeb29f58") # character
+#' # character vector, length > 1
+#' as.colid(c("714831352ad94741e4321eccdeb29f58", "3b35900f74ff6e4b073ddb95c32b1f8d"))
+#' # list, either numeric or character
+#' as.colid(list("714831352ad94741e4321eccdeb29f58", "3b35900f74ff6e4b073ddb95c32b1f8d"))
 #' ## dont check, much faster
-#' as.colid("8663146", check=FALSE)
-#' as.colid(8663146, check=FALSE)
-#' as.colid(c("8663146","19736162","18158318"), check=FALSE)
-#' as.colid(list("8663146","19736162","18158318"), check=FALSE)
+#' as.colid("714831352ad94741e4321eccdeb29f58", check=FALSE)
+#' as.colid(c("714831352ad94741e4321eccdeb29f58", "3b35900f74ff6e4b073ddb95c32b1f8d"),
+#'  check=FALSE)
+#' as.colid(list("714831352ad94741e4321eccdeb29f58", "3b35900f74ff6e4b073ddb95c32b1f8d"),
+#'  check=FALSE)
 #'
-#' (out <- as.colid(c(8663146,19736162,18158318)))
+#' (out <- as.colid(c("714831352ad94741e4321eccdeb29f58", "3b35900f74ff6e4b073ddb95c32b1f8d")))
 #' data.frame(out)
 #' as.colid( data.frame(out) )
 #'
@@ -198,12 +199,14 @@ get_colid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
   if ( !all(is.na(ids)) ) {
     urls <- sapply(out, function(z){
       if (!is.na(z[['id']])) {
-        if (tolower(z['rank']) == "Species") {
+        if (tolower(z['rank']) == "species") {
           sprintf('http://www.catalogueoflife.org/col/details/species/id/%s', z[['id']])
         } else {
           sprintf('http://www.catalogueoflife.org/col/browse/tree/id/%s', z[['id']])
         }
-      } else { NA }
+      } else {
+        NA
+      }
     })
     attr(ids, 'uri') <- unlist(urls)
   }
@@ -220,19 +223,15 @@ as.colid.colid <- function(x, check=TRUE) x
 
 #' @export
 #' @rdname get_colid
-as.colid.character <- function(x, check=TRUE) if(length(x) == 1) make_colid(x, check) else collapse(x, make_colid, "colid", check=check)
+as.colid.character <- function(x, check=TRUE) if (length(x) == 1) make_colid(x, check) else collapse(x, make_colid, "colid", check = check)
 
 #' @export
 #' @rdname get_colid
-as.colid.list <- function(x, check=TRUE) if(length(x) == 1) make_colid(x, check) else collapse(x, make_colid, "colid", check=check)
+as.colid.list <- function(x, check=TRUE) if (length(x) == 1) make_colid(x, check) else collapse(x, make_colid, "colid", check = check)
 
 #' @export
 #' @rdname get_colid
-as.colid.numeric <- function(x, check=TRUE) as.colid(as.character(x), check)
-
-#' @export
-#' @rdname get_colid
-as.colid.data.frame <- function(x, check=TRUE) structure(x$ids, class="colid", match=x$match, uri=x$uri)
+as.colid.data.frame <- function(x, check=TRUE) structure(x$ids, class = "colid", match = x$match, uri = x$uri)
 
 #' @export
 #' @rdname get_colid
@@ -262,6 +261,6 @@ get_colid_ <- function(sciname, verbose = TRUE, rows = NA){
 
 get_colid_help <- function(sciname, verbose, rows){
   mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
-  df <- col_search(name=sciname)[[1]]
-  if(NROW(df) == 0) NULL else sub_rows(df, rows)
+  df <- col_search(name = sciname)[[1]]
+  if (NROW(df) == 0) NULL else sub_rows(df, rows)
 }

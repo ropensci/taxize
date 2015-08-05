@@ -6,7 +6,6 @@
 \alias{as.colid.colid}
 \alias{as.colid.data.frame}
 \alias{as.colid.list}
-\alias{as.colid.numeric}
 \alias{as.data.frame.colid}
 \alias{get_colid}
 \alias{get_colid_}
@@ -23,8 +22,6 @@ as.colid(x, check = TRUE)
 \method{as.colid}{character}(x, check = TRUE)
 
 \method{as.colid}{list}(x, check = TRUE)
-
-\method{as.colid}{numeric}(x, check = TRUE)
 
 \method{as.colid}{data.frame}(x, check = TRUE)
 
@@ -124,18 +121,19 @@ get_colid("Satyrium", kingdom = "p")
 # Convert a uid without class information to a uid class
 as.colid(get_colid("Chironomus riparius")) # already a uid, returns the same
 as.colid(get_colid(c("Chironomus riparius","Pinus contorta"))) # same
-as.colid(8663146) # numeric
-as.colid(c(8663146,19736162,18158318)) # numeric vector, length > 1
-as.colid("19736162") # character
-as.colid(c("8663146","19736162","18158318")) # character vector, length > 1
-as.colid(list("8663146","19736162","18158318")) # list, either numeric or character
+as.colid("714831352ad94741e4321eccdeb29f58") # character
+# character vector, length > 1
+as.colid(c("714831352ad94741e4321eccdeb29f58", "3b35900f74ff6e4b073ddb95c32b1f8d"))
+# list, either numeric or character
+as.colid(list("714831352ad94741e4321eccdeb29f58", "3b35900f74ff6e4b073ddb95c32b1f8d"))
 ## dont check, much faster
-as.colid("8663146", check=FALSE)
-as.colid(8663146, check=FALSE)
-as.colid(c("8663146","19736162","18158318"), check=FALSE)
-as.colid(list("8663146","19736162","18158318"), check=FALSE)
+as.colid("714831352ad94741e4321eccdeb29f58", check=FALSE)
+as.colid(c("714831352ad94741e4321eccdeb29f58", "3b35900f74ff6e4b073ddb95c32b1f8d"),
+ check=FALSE)
+as.colid(list("714831352ad94741e4321eccdeb29f58", "3b35900f74ff6e4b073ddb95c32b1f8d"),
+ check=FALSE)
 
-(out <- as.colid(c(8663146,19736162,18158318)))
+(out <- as.colid(c("714831352ad94741e4321eccdeb29f58", "3b35900f74ff6e4b073ddb95c32b1f8d")))
 data.frame(out)
 as.colid( data.frame(out) )
 
