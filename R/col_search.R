@@ -51,7 +51,7 @@ col_search <- function(name=NULL, id=NULL, start=NULL, checklist=NULL, response=
   func <- function(x, y, ...) {
     url <- make_url(checklist)
     args <- compact(list(name = x, id = y, start = start, response = response, format = "json"))
-    temp <- GET(url, query = args, ...)
+    temp <- GET(url, query = argsnull(args), ...)
     stop_for_status(temp)
     tt <- jsonlite::fromJSON(content(temp, as = "text"), FALSE)
     switch(response,
@@ -187,7 +187,7 @@ parse_one <- function(z) {
   if (scrutie) scrut <- data.frame(record_scrutiny_date = scrut$scrutiny, stringsAsFactors = FALSE)
   refs <- z$references
   refsie <- if (is.null(refs) || length(refs) == 0) FALSE else TRUE
-  if (refsie) refs <- data.frame(taxize_compact(refs[[1]]), stringsAsFactors = FALSE)
+  if (refsie) refs <- data.frame(tc(refs[[1]]), stringsAsFactors = FALSE)
   lst <- pop(z, c("distribution", "classification", "synonyms", "common_names",
                   "record_scrutiny_date", "references", "accepted_name", "child_taxa",
                   "name_html"))

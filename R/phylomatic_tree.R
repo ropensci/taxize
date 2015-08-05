@@ -95,7 +95,7 @@ phylomatic_tree <- function(taxa, taxnames = TRUE, get = 'GET',
   # Only one of storedtree or treeuri
   if(!is.null(treeuri)) storedtree <- NULL
 
-  args <- taxize_compact(list(taxa = dat_, informat = informat, method = method,
+  args <- tc(list(taxa = dat_, informat = informat, method = method,
                        storedtree = storedtree, treeuri = treeuri, taxaformat = taxaformat,
                        outformat = outformat, clean = clean))
 

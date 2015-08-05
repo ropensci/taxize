@@ -52,7 +52,7 @@ col_children <- function(name = NULL, id = NULL, format = NULL, start = NULL, ch
 	func <- function(x, y, ...) {
 	  url <- make_url(checklist)
 		args <- compact(list(name = x, id = y, format = format, response = "full", start = start))
-		out <- GET(url, query = args, ...)
+		out <- GET(url, query = argsnull(args), ...)
 		stop_for_status(out)
 		tt <- xmlParse(content(out, "text"))
 

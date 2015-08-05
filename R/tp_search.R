@@ -23,7 +23,7 @@ tp_search <- function(name=NULL, commonname=NULL, nameid=NULL, orderby=NULL,
 
   url = 'http://services.tropicos.org/Name/Search'
   key <- getkey(key, "tropicosApiKey")
-  args <- taxize_compact(list(format='json', name=name, nameid=nameid,
+  args <- tc(list(format='json', name=name, nameid=nameid,
                        commonname=commonname, orderby=orderby, sortorder=sortorder,
                        pagesize=pagesize, startrow=startrow, type=type, apikey=key))
   tt <- GET(url, query = args, ...)

@@ -58,7 +58,7 @@ col_downstream <- function(name = NULL, id = NULL, downto, format = NULL, start 
 
   searchcol <- function(x=NULL, y=NULL, ...) {
     args <- compact(list(name=x, id=y, format=format, response="full", start=start))
-    out_ <- GET(url, query = args, ...)
+    out_ <- GET(url, query = argsnull(args), ...)
     out_ <- content(out_, "text")
     tt <- xmlParse(out_)
 

@@ -74,7 +74,7 @@ ipni_search <- function(family=NULL, infrafamily=NULL, genus=NULL, infragenus=NU
   output <- match.arg(output, c('minimal','classic','short','extended'), FALSE)
   output_format <- sprintf('delimited-%s', output)
   url <- "http://www.ipni.org/ipni/advPlantNameSearch.do"
-  args <- taxize_compact(list(output_format=output_format, find_family=family,
+  args <- tc(list(output_format=output_format, find_family=family,
           find_infrafamily=infrafamily, find_genus=genus, find_infragenus=infragenus,
           find_species=species, find_infraspecies=infraspecies,
           find_publicationTitle=publicationtitle, find_authorAbbrev=authorabbrev,

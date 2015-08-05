@@ -21,7 +21,7 @@ ubio_classification_search <- function(namebankID = NULL, classificationTitleID 
 {
   url <- "http://www.ubio.org/webservices/service.php"
   keyCode <- getkey(keyCode, "ubioApiKey")
-  args <- taxize_compact(list(
+  args <- tc(list(
     'function' = 'classificationbank_search', namebankID = namebankID,
     classificationTitleID = classificationTitleID, keyCode = keyCode))
   tmp <- GET(url, query=args, callopts)

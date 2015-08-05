@@ -30,10 +30,10 @@ eol_search <- function(terms, page=1, exact=NULL, filter_tid=NULL, filter_heid=N
 
 	key <- getkey(key, "eolApiKey")
 	query <- gsub("\\s", "+", terms)
-  args <- taxize_compact(list(q=query,page=page,exact=exact,filter_by_taxon_concept_id=filter_tid,
+  args <- tc(list(q=query,page=page,exact=exact,filter_by_taxon_concept_id=filter_tid,
       filter_by_hierarchy_entry_id=filter_heid, filter_by_string=filter_by_string,
       cache_ttl=cache_ttl, key = key))
-  tt <- GET(paste0(eol_url("search"), ".json"), query = args, ...)
+  tt <- GET(paste0(eol_url("search"), ".json"), query = argsnull(args), ...)
   warn_for_status(tt)
   stopifnot(tt$headers$`content-type`[1] == 'application/json; charset=utf-8')
   parsed <- content(tt, as = "text")

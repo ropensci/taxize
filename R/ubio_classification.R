@@ -27,7 +27,7 @@ ubio_classification <- function(hierarchiesID = NULL, childrenFlag = 0,
 {
   url <- "http://www.ubio.org/webservices/service.php"
   keyCode <- getkey(keyCode, "ubioApiKey")
-  args <- taxize_compact(list(
+  args <- tc(list(
     'function' = 'classificationbank_object', hierarchiesID = hierarchiesID,
     childrenFlag = childrenFlag, ancestryFlag = ancestryFlag,
     justificationsFlag = justificationsFlag, synonymsFlag = synonymsFlag, keyCode = keyCode))

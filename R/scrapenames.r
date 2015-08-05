@@ -60,13 +60,13 @@ scrapenames <- function(url = NULL, file = NULL, text = NULL, engine = NULL,
   unique = NULL, verbatim = NULL, detect_language = NULL, all_data_sources = NULL,
   data_source_ids = NULL, callopts=list())
 {
-  method <- taxize_compact(list(url=url, file=file, text=text))
+  method <- tc(list(url=url, file=file, text=text))
   if(length(method) > 1)
     stop("Only one of url, file, or text can be used")
 
   base <- "http://gnrd.globalnames.org/name_finder.json"
   if(!is.null(data_source_ids)) data_source_ids <- paste0(data_source_ids, collapse = "|")
-  args <- taxize_compact(list(url=url,text=text,engine=engine,unique=unique,
+  args <- tc(list(url=url,text=text,engine=engine,unique=unique,
                        verbatim=verbatim, detect_language=detect_language,
                        all_data_sources=all_data_sources,
                        data_source_ids=data_source_ids))

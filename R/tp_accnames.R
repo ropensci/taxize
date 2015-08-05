@@ -16,7 +16,7 @@
 tp_accnames <- function(id, key = NULL, ...) {
   url = sprintf('http://services.tropicos.org/Name/%s/AcceptedNames', id)
 	key <- getkey(key, "tropicosApiKey")
-  args <- taxize_compact(list(apikey = key, format = 'json'))
+  args <- tc(list(apikey = key, format = 'json'))
   tmp <- GET(url, query = args, ...)
   stop_for_status(tmp)
   tmp2 <- content(tmp, as = "text")

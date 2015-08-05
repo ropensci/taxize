@@ -1,7 +1,7 @@
 itbase <- function() 'http://www.itis.gov/ITISWebService/services/ITISService/'
 
 itis_GET <- function(endpt, args, ...){
-  if (length(args) == 0) args <- NULL
+  args <- argsnull(args)
   tt <- GET(paste0(itbase(), endpt), query = args, ...)
   xmlParse(content(tt, "text"), encoding = "UTF-8")
 }
@@ -979,7 +979,7 @@ searchforanymatch <- function(x, ...) {
 #' @export
 #' @keywords internal
 searchforanymatchpaged <- function(x, pagesize = NULL, pagenum = NULL, ascend = NULL, ...) {
-  args <- taxize_compact(list(srchKey=x, pageSize=pagesize, pageNum=pagenum, ascend=ascend))
+  args <- tc(list(srchKey=x, pageSize=pagesize, pageNum=pagenum, ascend=ascend))
 	out <- itis_GET("searchForAnyMatchPaged", args, ...)
   namespaces <- c(namespaces <- c(ax21 = "http://data.itis_service.itis.usgs.gov/xsd"))
 

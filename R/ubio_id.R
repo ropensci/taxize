@@ -24,7 +24,7 @@ ubio_id <- function(namebankID = NULL, keyCode = NULL, callopts=list())
 {
   url <- "http://www.ubio.org/webservices/service.php"
   keyCode <- getkey(keyCode, "ubioApiKey")
-  args <- taxize_compact(list(
+  args <- tc(list(
     'function' = 'namebank_object', namebankID = namebankID, keyCode = keyCode))
   tmp <- GET(url, query=args, callopts)
   stop_for_status(tmp)

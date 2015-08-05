@@ -65,7 +65,7 @@ sci2comm.default <- function(scinames, db='eol', simplify=TRUE, ...)
   eol2comm <- function(x, ...){
     tmp <- eol_search(terms=x, ...)
     pageids <- tmp[grep(x, tmp$name), "pageid"]
-    dfs <- taxize_compact(lapply(pageids, function(x) eol_pages(taxonconceptID=x, common_names=TRUE, ...)$vernac))
+    dfs <- tc(lapply(pageids, function(x) eol_pages(taxonconceptID=x, common_names=TRUE, ...)$vernac))
     tt <- ldply(dfs[sapply(dfs, class)=="data.frame"])
     if(simplify){
       ss <- as.character(tt$vernacularname)

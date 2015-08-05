@@ -73,10 +73,10 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
   highestscore <- check_value(highestscore)
   best_match_only <- check_value(best_match_only)
 
-  args <- taxize_compact(list(names = names2, data_source_ids = data_source_ids,
+  args <- tc(list(names = names2, data_source_ids = data_source_ids,
             resolve_once = resolve_once, with_context = with_context,
             best_match_only = best_match_only, preferred_data_sources = preferred_data_sources))
-  if (length(args) == 0) args <- NULL
+  args <- argsnull(args)
 
   if (http == 'get') {
     tmp <- GET(url, query = args, ...)

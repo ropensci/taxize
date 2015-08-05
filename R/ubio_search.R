@@ -31,7 +31,7 @@ ubio_search <- function(searchName = NULL, searchAuth = NULL, searchYear=NULL,
 
 	url = "http://www.ubio.org/webservices/service.php"
 	keyCode <- getkey(keyCode, "ubioApiKey")
-	args <- taxize_compact(list('function' = 'namebank_search', searchName = searchName,
+	args <- tc(list('function' = 'namebank_search', searchName = searchName,
                        searchAuth = searchAuth,
 	                     searchYear = searchYear, order = order,
 	                     sci = sci, vern = vern, keyCode = keyCode))

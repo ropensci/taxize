@@ -19,7 +19,7 @@
 eol_dataobjects <- function(id, asdf = TRUE, usekey = TRUE, key = NULL,
                             verbose = TRUE, ...) {
   if (usekey) key <- getkey(key, "eolApiKey")
-  tt <- GET(file.path(eol_url("data_objects"), paste0(id, ".json")), query = tc(list(key = key)))
+  tt <- GET(file.path(eol_url("data_objects"), paste0(id, ".json")), query = argsnull(tc(list(key = key))))
   stop_for_status(tt)
   res <- content(tt, as = "text")
   jsonlite::fromJSON(res, asdf)

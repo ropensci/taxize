@@ -60,9 +60,7 @@ taxize_ldfast <- function(x, convertvec=FALSE){
 }
 
 mssg <- function(v, ...) if(v) message(...)
-
-taxize_compact <- function (l) Filter(Negate(is.null), l)
-tc <- taxize_compact
+tc <- function (l) Filter(Negate(is.null), l)
 
 #' Lookup details for specific names in all taxonomies in GBIF.
 #'
@@ -149,8 +147,6 @@ gbif_name_usage <- function(key=NULL, name=NULL, data='all', language=NULL, data
 
   out
 }
-
-taxize_compact <- function (l) Filter(Negate(is.null), l)
 
 pluck <- function(x, name, type) {
   if (missing(type)) {
@@ -262,4 +258,12 @@ try_default <- function(expr, default, quiet = FALSE){
 failwith <- function(default = NULL, f, quiet = FALSE){
   f <- match.fun(f)
   function(...) try_default(f(...), default, quiet = quiet)
+}
+
+argsnull <- function(x) {
+  if (length(x) == 0) {
+    NULL
+  } else {
+    x
+  }
 }

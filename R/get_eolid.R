@@ -91,7 +91,7 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
       } else {
         dfs <- lapply(pageids, function(x) eol_pages(x)$scinames)
         names(dfs) <- pageids
-        dfs <- taxize_compact(dfs)
+        dfs <- tc(dfs)
         if (length(dfs) > 1) dfs <- dfs[!sapply(dfs, nrow) == 0]
         df <- ldply(dfs)
 #         df <- dfs[,c('.id','identifier','scientificname','nameaccordingto')]
@@ -258,7 +258,7 @@ get_eolid_help <- function(sciname, verbose, key, rows, ...){
     } else {
       dfs <- lapply(pageids, function(x) eol_pages(x)$scinames)
       names(dfs) <- pageids
-      dfs <- taxize_compact(dfs)
+      dfs <- tc(dfs)
       if (length(dfs) > 1) dfs <- dfs[!sapply(dfs, nrow) == 0]
       dfs <- ldply(dfs)
       df <- dfs[,c('.id','identifier','scientificname','nameaccordingto')]

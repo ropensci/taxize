@@ -80,7 +80,7 @@ eol_invasive <- function(name = NULL, dataset="all", searchby = grep, page=NULL,
 #   url = 'http://eol.org/api/collections/1.0.json'
 #   key <- getkey(key, "eolApiKey")
 #
-#   args <- taxize_compact(list(id=datasetid, page=page, per_page=500, filter='taxa', key=key))
+#   args <- tc(list(id=datasetid, page=page, per_page=500, filter='taxa', key=key))
 #   tt <- GET(url, query = args, ...)
 #   res <- jsonlite::fromJSON(content(tt, as="text"), FALSE)
 #   data_init <- res$collection_items
@@ -103,7 +103,7 @@ eol_invasive <- function(name = NULL, dataset="all", searchby = grep, page=NULL,
 #       res <- jsonlite::fromJSON(content(tt, as="text"), FALSE)
 #       out[[i]] <- res$collection_items
 #     }
-#     res2 <- taxize_compact(out)
+#     res2 <- tc(out)
 #     dat_all <- do.call(c, list(data_init, do.call(c, res2)))
 #     dat_all <- lapply(dat_all, "[", c("name","object_id"))
 #     dat <- do.call(rbind, lapply(dat_all, data.frame, stringsAsFactors=FALSE))

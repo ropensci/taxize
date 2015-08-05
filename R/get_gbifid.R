@@ -210,7 +210,7 @@ gbif_name_suggest <- function(q=NULL, datasetKey=NULL, rank=NULL, fields=NULL, s
 
   url = 'http://api.gbif.org/v1/species/suggest'
   args <- compact(list(q = q, rank = rank, offset = start, limit = limit))
-  temp <- GET(url, query = args, ...)
+  temp <- GET(url, query = argsnull(args), ...)
   stop_for_status(temp)
   tt <- content(temp)
   if (is.null(fields)) {

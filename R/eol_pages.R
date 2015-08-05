@@ -52,7 +52,7 @@ eol_pages <- function(taxonconceptID, iucn=FALSE, images=0, videos=0, sounds=0,
 	                maps=maps,text=text,subject=subject,licenses=licenses,
 	                details=details,common_names=common_names,synonyms=synonyms,
 	                references=references,vetted=vetted,cache_ttl=cache_ttl, key=key))
-  tt <- GET(file.path(eol_url("pages"), paste0(taxonconceptID, ".json")), query=args, ...)
+  tt <- GET(file.path(eol_url("pages"), paste0(taxonconceptID, ".json")), query=argsnull(args), ...)
   stop_for_status(tt)
   stopifnot(tt$headers$`content-type` == "application/json; charset=utf-8")
   temp <- content(tt, as = "text", encoding="utf-8")

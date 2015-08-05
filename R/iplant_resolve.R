@@ -23,7 +23,7 @@
 iplant_resolve <- function(query, retrieve='all', callopts=list()){
   url <- "http://tnrs.iplantc.org/tnrsm-svc/matchNames"
   query <- paste(query, collapse = ",")
-  args <- taxize_compact(list(names=query, retrieve=retrieve))
+  args <- tc(list(names=query, retrieve=retrieve))
   out <- GET(url, query=args, callopts)
   warn_for_status(out)
   tt <- content(out, as = "text")

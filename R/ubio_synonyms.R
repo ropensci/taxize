@@ -24,7 +24,7 @@ ubio_synonyms <- function(hierarchiesID = NULL, keyCode = NULL, callopts=list())
 
   url <- "http://www.ubio.org/webservices/service.php"
   keyCode <- getkey(keyCode, "ubioApiKey")
-  args <- taxize_compact(list(
+  args <- tc(list(
     'function' = 'synonym_list', hierarchiesID = hierarchiesID, keyCode = keyCode))
   tmp <- GET(url, query=args, callopts)
   stop_for_status(tmp)

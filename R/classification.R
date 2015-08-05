@@ -339,7 +339,7 @@ classification.tpsid <- function(id, key = NULL, callopts = list(), return_id = 
     } else {
       url <- sprintf('http://services.tropicos.org/Name/%s/HigherTaxa', x)
       key <- getkey(key, "tropicosApiKey")
-      args <- taxize_compact(list(format = 'json', apikey = key))
+      args <- tc(list(format = 'json', apikey = key))
       tt <- GET(url, query = args, callopts)
       stop_for_status(tt)
       out <- content(tt)

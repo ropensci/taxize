@@ -164,7 +164,7 @@ synonyms.colid <- function(id, ...) {
 col_synonyms <- function(x, ...) {
   base <- "http://www.catalogueoflife.org/col/webservice"
   args <- list(id = x[1], response = "full", format = "json")
-  res <- GET(base, query = args)
+  res <- GET(base, query = args, ...)
   stop_for_status(res)
   out <- jsonlite::fromJSON(content(res, "text"), FALSE)
   tmp <- out$results[[1]]
