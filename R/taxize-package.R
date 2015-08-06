@@ -55,7 +55,7 @@
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom openssl base64_decode
 #' @importFrom httr GET POST content stop_for_status upload_file warn_for_status
-#' add_headers timeout
+#' add_headers timeout config
 #' @importFrom data.table rbindlist
 #' @importFrom foreach foreach %do%
 #' @importFrom stringr str_extract str_split str_replace

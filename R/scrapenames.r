@@ -46,14 +46,23 @@
 #'
 #' # With arguments
 #' scrapenames(url = 'http://www.mapress.com/zootaxa/2012/f/z03372p265f.pdf', unique=TRUE)
-#' scrapenames(url = 'http://en.wikipedia.org/wiki/Araneae', data_source_ids=c(1,169))
+#' scrapenames(url = 'http://en.wikipedia.org/wiki/Araneae', data_source_ids=c(1, 169))
 #'
-#' # Get data from a file - NOT WORKING YET
-#' scrapenames(file = '~/github/sac/joshwork/species_for_Scott.txt')
+#' # Get data from a file
+#' speciesfile <- system.file("examples", "species.txt", package = "taxize")
+#' scrapenames(file = speciesfile)
 #'
-#' # Get data from text string as an R object
+#' nms <- paste0(names_list("species"), collapse="\n")
+#' file <- tempfile(fileext = ".txt")
+#' writeLines(nms, file)
+#' scrapenames(file = file)
+#'
+#' # Get data from text string
 #' scrapenames(text='A spider named Pardosa moesta Banks, 1892')
-#' scrapenames(text=paste0(names_list("species"), collapse=" "))
+#'
+#' # use curl options
+#' library("httr")
+#' scrapenames(text='A spider named Pardosa moesta Banks, 1892', config = verbose())
 #' }
 
 scrapenames <- function(url = NULL, file = NULL, text = NULL, engine = NULL,
@@ -73,29 +82,29 @@ scrapenames <- function(url = NULL, file = NULL, text = NULL, engine = NULL,
                   data_source_ids = data_source_ids))
   if (names(method) == 'url') {
     tt <- GET(base, query = args, ...)
+    warn_for_status(tt)
+    out <- content(tt)
+    token_url <- out$token_url
   } else {
     if (names(method) == "text") {
-      tt <- POST(base, query = args, encode = "json", body = text, ...)
+      tt <- POST(base, body = list(text = text), encode = "form", dontfollow(), ...)
     } else {
-      tt <- POST(base, query = args, multipart = TRUE, body = list(file = upload_file(file)), ...)
+      tt <- POST(base, query = argsnull(args), encode = "multipart", body = list(file = upload_file(file)), dontfollow())
     }
+    if (tt$status_code != 303) warn_for_status(tt)
+    token_url <- tt$headers$location
   }
-  warn_for_status(tt)
-  out <- content(tt)
 
-  if (!out$status == 303) {
-    warning("Woops, something went wrong", call. = FALSE)
-  } else {
-    token_url <- out$token_url
-    st <- 303
-    while (st == 303) {
-      dat <- GET(token_url)
-      warn_for_status(dat)
-      tmp <- content(dat, "text")
-      datout <- jsonlite::fromJSON(tmp)
-      st <- datout$status
-    }
-    meta <- datout[!names(datout) %in% c("names")]
-    list(meta = meta, data = datout$names)
+  st <- 303
+  while (st == 303) {
+    dat <- GET(token_url)
+    warn_for_status(dat)
+    tmp <- content(dat, "text")
+    datout <- jsonlite::fromJSON(tmp)
+    st <- datout$status
   }
+  meta <- datout[!names(datout) %in% c("names")]
+  list(meta = meta, data = datout$names)
 }
+
+dontfollow <- function() config(followlocation = 0)
