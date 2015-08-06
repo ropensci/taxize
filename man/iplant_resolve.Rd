@@ -4,7 +4,7 @@
 \alias{iplant_resolve}
 \title{iPlant name resolution}
 \usage{
-iplant_resolve(query, retrieve = "all", callopts = list())
+iplant_resolve(query, retrieve = "all", ...)
 }
 \arguments{
 \item{query}{Vector of one or more taxonomic names. (no common names)}
@@ -12,10 +12,10 @@ iplant_resolve(query, retrieve = "all", callopts = list())
 \item{retrieve}{Specifies whether to retrieve all matches for the names submitted. One of 'best'
 (retrieves only the single best match for each name submitted) or 'all' (retrieves all matches)}
 
-\item{callopts}{Curl options passed on to \code{httr::GET}}
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
-A data frame
+A data.frame
 }
 \description{
 iPlant name resolution
@@ -27,7 +27,7 @@ iplant_resolve("Helianthusss")
 iplant_resolve("Pooa")
 
 library("httr")
-iplant_resolve("Helianthusss", callopts=verbose())
+iplant_resolve("Helianthusss", config=verbose())
 }
 }
 

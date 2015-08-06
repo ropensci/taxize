@@ -89,7 +89,8 @@ scrapenames <- function(url = NULL, file = NULL, text = NULL, engine = NULL,
     if (names(method) == "text") {
       tt <- POST(base, body = list(text = text), encode = "form", dontfollow(), ...)
     } else {
-      tt <- POST(base, query = argsnull(args), encode = "multipart", body = list(file = upload_file(file)), dontfollow())
+      tt <- POST(base, query = argsnull(args), encode = "multipart",
+                 body = list(file = upload_file(file)), dontfollow(), ...)
     }
     if (tt$status_code != 303) warn_for_status(tt)
     token_url <- tt$headers$location
