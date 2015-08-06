@@ -12,7 +12,7 @@ The following functions are now defunct (no longer available):
  \item \code{\link{eol_hierarchy}}: See \code{\link{classification}}
  \item \code{\link{tp_classification}}: See \code{\link{classification}}
  \item \code{\link{tpl_search}}: Use the \code{Taxonstand} functions
- \code{\link[Taxonstand]{TPL}} or \code{\link[Taxonstand]{TPLck}} directly.
+ \code{TPL} or \code{TPLck} directly.
  \item \code{\link{get_seqs}}: This function changed name to \code{\link{ncbi_getbyname}}.
  \item \code{\link{get_genes}}: This function changed name to \code{\link{ncbi_getbyid}}.
  \item \code{\link{get_genes_avail}}: This function changed name to \code{\link{ncbi_search}}.
