@@ -161,7 +161,7 @@ Note that a few data sources require SOAP web services, which are difficult to s
 </tbody>
 </table>
 
-**: There are none! We suggest using `TPL` and `TPLck` functions in the [taxonstand package](http://cran.r-project.org/web/packages/Taxonstand/index.html). We provide two functions to get bullk data: `tpl_families` and `tpl_get`.
+**: There are none! We suggest using `TPL` and `TPLck` functions in the [taxonstand package](https://cran.rstudio.com/package=Taxonstand). We provide two functions to get bullk data: `tpl_families` and `tpl_get`.
 
 \***: There are none! The function scrapes the web directly.
 
