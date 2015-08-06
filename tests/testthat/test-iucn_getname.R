@@ -1,8 +1,8 @@
 context("iucn_getname")
 
-temp <- iucn_getname(name = "Cyanistes caeruleus", verbose=FALSE)
+temp <- iucn_getname(name = "Cyanistes caeruleus", verbose = FALSE)
 
-test_that("iucn_summary returns the correct value", {
+test_that("iucn_getname returns the correct value", {
 	expect_that(temp, equals("Parus caeruleus"))
 })
 
