@@ -13,9 +13,6 @@ In addition, `importFrom` for all non-base R pkgs, including `graphics`, `method
 list to the `query` parameter in `GET()`, but can pass `NULL` (#445)
 * Fixes to all of the `gni_*()` functions, including code tidying, some 
 DRYing out, and ability to pass in curl options (#444)
-* `tnrs()` and `tnrs_sources()` now defunct (not available). The web service
-behind these functions is too unreliable, but functions may come back if 
-reliability comes back to the web service (#437) (#438)
 
 ## BUG FIXES
 

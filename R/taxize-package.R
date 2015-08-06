@@ -58,8 +58,8 @@
 #' add_headers timeout config
 #' @importFrom data.table rbindlist
 #' @importFrom foreach foreach %do%
-#' @importFrom stringr str_extract str_split str_replace
-#' @importFrom plyr failwith rbind.fill llply ldply ddply laply l_ply summarise .
+#' @importFrom stringr str_extract str_split str_replace str_replace_all
+#' @importFrom plyr failwith rbind.fill llply ldply ddply laply l_ply summarise colwise .
 #' @importFrom reshape2 melt dcast
 #' @importFrom XML xpathApply xpathSApply getNodeSet htmlParse xmlParse xmlValue
 #' xmlTreeParse xmlGetAttr xmlToList
@@ -201,10 +201,6 @@ NULL
 #'  \item \code{\link{ncbi_search}}: See \code{ncbi_searcher} in the \code{traits} package.
 #'  \item \code{\link{eol_invasive}}: See \code{eol_invasive_} in the \code{traits} package.
 #'  \item \code{\link{gisd_isinvasive}}: See \code{g_invasive} in the \code{traits} package.
-#'  \item \code{\link{tnrs}}: The service is too unreliable. See source of function, also at
-#'  gist https://gist.github.com/sckott/ede697f02ce6a2c96e61
-#'  \item \code{\link{tnrs_sources}}: The service is too unreliable.  See source of function,
-#'  also at gist https://gist.github.com/sckott/ede697f02ce6a2c96e61
 #' }
 #'
 #' @name taxize-defunct
