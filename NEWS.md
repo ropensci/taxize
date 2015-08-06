@@ -1,11 +1,30 @@
-taxize 0.6.1
+taxize 0.6.2
 ===============
 
 ## MINOR IMPROVEMENTS
-* rankagg() doesn't depend on data.table anymore (fixes issue with CRAN checks).
+
+* `rankagg()` doesn't depend on `data.table` anymore (fixes issue with CRAN checks)
+* Replaced `RCurl::base64Decode()` with `openssl::base64_decode()`, needed for
+`ubio_*()` functions (#447)
+* Importing only functions (via `importFrom`) used across all imports now (#446). 
+In addition, `importFrom` for all non-base R pkgs, including `graphics`, `methods`,
+`stats` and `utils` packages (#441)
+* Fixes to prevent problems with httr v1, where you can't pass a zero length
+list to the `query` parameter in `GET()`, but can pass `NULL` (#445)
+* Fixes to all of the `gni_*()` functions, including code tidying, some 
+DRYing out, and ability to pass in curl options (#444)
+* `tnrs()` and `tnrs_sources()` now defunct (not available). The web service
+behind these functions is too unreliable, but functions may come back if 
+reliability comes back to the web service (#437) (#438)
 
 ## BUG FIXES
-* typo in taxize_cite()
+
+* Fixed typo in `taxize_cite()`
+* Fixed a bug in `classification()` where numeric IDs as input got 
+converted to itis ids just because they were numeric. Fixed now. (#434)
+* Catalogue of Life (COL) changed from using short numeric codes for taxa to 
+long alphanumeric UUID type ids. This required fixing functions using COL 
+web services (#435)
 
 
 taxize 0.6.0
