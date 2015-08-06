@@ -1,5 +1,7 @@
 context("phylomatic_tree")
 
+data("apg_families", package = "taxize")
+
 taxa <- c("Poa annua", "Phlox diffusa", "Helianthus annuus")
 tree <- suppressWarnings(phylomatic_tree(taxa=taxa, get = 'GET', verbose = FALSE))
 tree2 <- suppressWarnings(phylomatic_tree(taxa=taxa, get = 'POST', verbose = FALSE))
