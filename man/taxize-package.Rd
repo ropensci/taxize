@@ -32,6 +32,7 @@ Indexer and Organizer (uBio), Tropicos, and Plantminer.
 \tabular{llc}{
 API \tab prefix \tab SOAP? \cr
 Encyclopedia of Life (EOL)  \tab eol \tab FALSE \cr
+Taxonomic Name Resolution Service \tab tnrs \tab FALSE \cr
 Integrated Taxonomic Information Service (ITIS)  \tab itis \tab FALSE \cr
 Phylomatic \tab phylomatic \tab FALSE \cr
 uBio \tab ubio \tab FALSE \cr
@@ -54,9 +55,8 @@ National Biodiversity Network (UK)	\tab nbn \tab FALSE \cr
 }
 
 If the source above has a \code{TRUE} in the \code{SOAP?} column, it is not available
-if you installed this package from CRAN. They are available from a different package
-called taxizesoap. See the GitHub repo for how to install
-\url{https://github.com/ropensci/taxizesoap}
+in this package. They are available from a different package called taxizesoap.
+See the GitHub repo for how to install \url{https://github.com/ropensci/taxizesoap}
 }
 \author{
 Scott Chamberlain \email{myrmecocystus@gmail.com}

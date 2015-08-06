@@ -16,3 +16,4 @@ vignettes/cache/
 cran-comments.md
 ^\.httr-oauth$
 NEWS.md
+tests/test-all.R
