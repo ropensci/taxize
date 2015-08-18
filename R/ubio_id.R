@@ -1,5 +1,8 @@
 #' Search uBio by namebank ID.
 #'
+#' THIS FUNCTION IS DEFUNCT.
+#'
+#' @rdname ubio_id-defunct
 #' @export
 #' @param namebankID (character) uBio namebank ID
 #' @param keyCode Your uBio API key; loads from .Rprofile. If you don't have
@@ -20,6 +23,7 @@
 #' }
 
 ubio_id <- function(namebankID = NULL, keyCode = NULL, ...) {
+  .Defunct(msg = "the uBio API is down, for good as far as we know")
 
   url <- "http://www.ubio.org/webservices/service.php"
   keyCode <- getkey(keyCode, "ubioApiKey")

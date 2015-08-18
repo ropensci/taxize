@@ -13,7 +13,7 @@
 #' @export
 getkey <- function(x = NULL, service) {
 	if(is.null(x)){
-	  keynames <- c("tropicosApiKey","eolApiKey","ubioApiKey","pmApiKey")
+	  keynames <- c("tropicosApiKey", "eolApiKey", "pmApiKey")
 		service <- match.arg(service, keynames, several.ok=F)
 		key <- getOption(service)
 		if(is.null(key)){
@@ -25,7 +25,6 @@ getkey <- function(x = NULL, service) {
 			key <- keys[[service]]
 			urls <- c("http://services.tropicos.org/help?requestkey",
 								"http://eol.org/users/register",
-								"http://www.ubio.org/index.php?pagename=form",
 								"http://www.plantminer.com/")
 			names(urls) <- keynames
 			message(paste("Using default key: Please get your own API key at ",

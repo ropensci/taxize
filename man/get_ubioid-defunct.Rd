@@ -10,7 +10,7 @@
 \alias{as.ubioid.ubioid}
 \alias{get_ubioid}
 \alias{get_ubioid_}
-\title{Get the uBio id for a search term.}
+\title{Get the uBio id for a search term}
 \usage{
 get_ubioid(searchterm, searchtype = "scientific", ask = TRUE,
   verbose = TRUE, rows = NA, family = NULL, rank = NULL, ...)
@@ -68,8 +68,7 @@ A vector of uBio ids. If a taxon is not found NA is given. If more than one uBio
    'found' or if ask = FALSE 'multi match')
 }
 \description{
-Retrieve the uBio id of a taxon. This function uses \code{\link[taxize]{ubio_search}} internally
-to search for names.
+THIS FUNCTION IS DEFUNCT.
 }
 \section{Filtering}{
 

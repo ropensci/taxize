@@ -1,5 +1,8 @@
 #' This function will return NameBankIDs that match given search terms
 #'
+#' THIS FUNCTION IS DEFUNCT.
+#'
+#' @rdname ubio_search-defunct
 #' @export
 #' @param searchName (character) - term to search within name string
 #' @param searchAuth (character) - term to search within name authorship
@@ -22,6 +25,7 @@
 
 ubio_search <- function(searchName = NULL, searchAuth = NULL, searchYear=NULL,
 		order = NULL, sci = 1, vern = 1, keyCode = NULL, ...) {
+  .Defunct(msg = "the uBio API is down, for good as far as we know")
 
   #check for both zeros in sci and vern
   if (sci == 0 && vern == 0) {

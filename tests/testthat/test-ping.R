@@ -32,12 +32,6 @@ test_that("gbif_ping returns the correct value", {
   expect_true(gbif_ping("content"))
 })
 
-test_that("ubio_ping returns the correct value", {
-  expect_true(ubio_ping())
-  expect_false(ubio_ping(503))
-  expect_true(ubio_ping("content"))
-})
-
 test_that("bold_ping returns the correct value", {
   expect_true(bold_ping())
   expect_false(bold_ping(503))

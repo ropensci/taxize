@@ -31,7 +31,7 @@ one, obtain one at http://www.ubio.org/index.php?pagename=form.}
 A data.frame.
 }
 \description{
-This function will return NameBankIDs that match given search terms
+THIS FUNCTION IS DEFUNCT.
 }
 \examples{
 \dontrun{

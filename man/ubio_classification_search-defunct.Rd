@@ -25,8 +25,7 @@ A data.frame with columns classificationBankID, classificationTitleID, and
 classificationTitle
 }
 \description{
-This function will return ClassificationBankIDs (hierarchiesIDs) that refer to the
-given NamebankID
+THIS FUNCTION IS DEFUNCT.
 }
 \examples{
 \dontrun{

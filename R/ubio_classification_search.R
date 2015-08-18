@@ -1,6 +1,9 @@
 #' This function will return ClassificationBankIDs (hierarchiesIDs) that refer to the
 #' given NamebankID
 #'
+#' THIS FUNCTION IS DEFUNCT.
+#'
+#' @rdname ubio_classification_search-defunct
 #' @export
 #' @param namebankID (charcter) NameBank identifier you wish to search for in
 #'    ClassificationBank
@@ -17,6 +20,7 @@
 
 ubio_classification_search <- function(namebankID = NULL, classificationTitleID = NULL,
   keyCode = NULL, ...) {
+  .Defunct(msg = "the uBio API is down, for good as far as we know")
 
   url <- "http://www.ubio.org/webservices/service.php"
   keyCode <- getkey(keyCode, "ubioApiKey")

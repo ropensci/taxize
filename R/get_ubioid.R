@@ -1,8 +1,8 @@
-#' Get the uBio id for a search term.
+#' Get the uBio id for a search term
 #'
-#' Retrieve the uBio id of a taxon. This function uses \code{\link[taxize]{ubio_search}} internally
-#' to search for names.
+#' THIS FUNCTION IS DEFUNCT.
 #'
+#' @rdname get_ubioid-defunct
 #' @export
 #' @param searchterm character; A vector of common or scientific names.
 #' @param searchtype character; One of 'scientific' or 'common', or any unique abbreviation
@@ -108,8 +108,9 @@
 #' }
 
 get_ubioid <- function(searchterm, searchtype = "scientific", ask = TRUE, verbose = TRUE,
-                       rows = NA, family = NULL, rank = NULL, ...)
-{
+                       rows = NA, family = NULL, rank = NULL, ...) {
+  .Defunct(msg = "the uBio API is down, for good as far as we know")
+
   fun <- function(x, searchtype, ask, verbose, rows, ...) {
     mssg(verbose, "\nRetrieving data for taxon '", x, "'\n")
 
@@ -231,32 +232,48 @@ get_ubioid <- function(searchterm, searchtype = "scientific", ask = TRUE, verbos
 
 
 #' @export
-#' @rdname get_ubioid
+#' @rdname get_ubioid-defunct
 as.ubioid <- function(x, check=TRUE) UseMethod("as.ubioid")
 
 #' @export
-#' @rdname get_ubioid
-as.ubioid.ubioid <- function(x, check=TRUE) x
+#' @rdname get_ubioid-defunct
+as.ubioid.ubioid <- function(x, check=TRUE) {
+  .Defunct(msg = "the uBio API is down, for good as far as we know")
+  x
+}
 
 #' @export
-#' @rdname get_ubioid
-as.ubioid.character <- function(x, check=TRUE) if(length(x) == 1) make_ubioid(x, check) else collapse(x, make_ubioid, "ubioid", check=check)
+#' @rdname get_ubioid-defunct
+as.ubioid.character <- function(x, check=TRUE) {
+  .Defunct(msg = "the uBio API is down, for good as far as we know")
+  if(length(x) == 1) make_ubioid(x, check) else collapse(x, make_ubioid, "ubioid", check=check)
+}
 
 #' @export
-#' @rdname get_ubioid
-as.ubioid.list <- function(x, check=TRUE) if(length(x) == 1) make_ubioid(x, check) else collapse(x, make_ubioid, "ubioid", check=check)
+#' @rdname get_ubioid-defunct
+as.ubioid.list <- function(x, check=TRUE) {
+  .Defunct(msg = "the uBio API is down, for good as far as we know")
+  if(length(x) == 1) make_ubioid(x, check) else collapse(x, make_ubioid, "ubioid", check=check)
+}
 
 #' @export
-#' @rdname get_ubioid
-as.ubioid.numeric <- function(x, check=TRUE) as.ubioid(as.character(x), check)
+#' @rdname get_ubioid-defunct
+as.ubioid.numeric <- function(x, check=TRUE) {
+  .Defunct(msg = "the uBio API is down, for good as far as we know")
+  as.ubioid(as.character(x), check)
+}
 
 #' @export
-#' @rdname get_ubioid
-as.ubioid.data.frame <- function(x, check=TRUE) structure(x$ids, class="ubioid", match=x$match, uri=x$uri)
+#' @rdname get_ubioid-defunct
+as.ubioid.data.frame <- function(x, check=TRUE) {
+  .Defunct(msg = "the uBio API is down, for good as far as we know")
+  structure(x$ids, class="ubioid", match=x$match, uri=x$uri)
+}
 
 #' @export
-#' @rdname get_ubioid
+#' @rdname get_ubioid-defunct
 as.data.frame.ubioid <- function(x, ...){
+  .Defunct(msg = "the uBio API is down, for good as far as we know")
   data.frame(ids = as.character(unclass(x)),
              class = "ubioid",
              match = attr(x, "match"),
@@ -272,8 +289,9 @@ check_ubioid <- function(x){
 }
 
 #' @export
-#' @rdname get_ubioid
+#' @rdname get_ubioid-defunct
 get_ubioid_ <- function(searchterm, verbose = TRUE, searchtype = "scientific", rows = NA){
+  .Defunct(msg = "the uBio API is down, for good as far as we know")
   setNames(lapply(searchterm, get_ubioid_help, verbose = verbose, searchtype=searchtype, rows=rows), searchterm)
 }
 

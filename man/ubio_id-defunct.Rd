@@ -19,7 +19,7 @@ A list of four data.frame's, one for the name itself, one for synonyms,
 one for vernacular names, and one for citations.
 }
 \description{
-Search uBio by namebank ID.
+THIS FUNCTION IS DEFUNCT.
 }
 \examples{
 \dontrun{

@@ -93,11 +93,6 @@ children.default <- function(x, db = NULL, rows = NA, ...) {
              structure(out, class = 'children', db = 'ncbi', .Names = x)
            }
          },
-#        ubio = {
-#          id <- get_ubioid(x, ...)
-#          out <- children(id, ...)
-#          names(out) <- x
-#        },
          stop("the provided db value was not recognised", call. = FALSE)
   )
 }
@@ -150,24 +145,6 @@ children.colid <- function(x,  db = NULL, ...) {
   attr(out, 'db') <- 'col'
   return(out)
 }
-
-# children.ubioid <- function(x,  db = NULL, ...) {
-#   fun <- function(y){
-#     # return NA if NA is supplied
-#     if(is.na(y)){
-#       out <- NA
-#     } else {
-#       hierid <- ubio_classification_search(namebankID = y)
-#       hierid <- hierid[ grep(104, hierid$classificationtitleid), 'hierarchiesid' ]
-#       out <- ubio_classification(hierarchiesID = hierid, childrenFlag = 1, ...)[['children']]
-#     }
-#     return(out)
-#   }
-#   out <- lapply(x, fun)
-#   class(out) <- 'children'
-#   attr(out, 'db') <- 'ubio'
-#   return(out)
-# }
 
 #' @export
 #' @rdname children

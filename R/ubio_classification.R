@@ -1,6 +1,8 @@
-#' This function will return all ClassificationBank data pertaining to a
-#' particular ClassificationBankID
+#' uBio classification
 #'
+#' THIS FUNCTION IS DEFUNCT.
+#'
+#' @rdname ubio_classification-defunct
 #' @export
 #' @param hierarchiesID (string) - ClassificationBank identifier for the record you
 #'    wish to receive
@@ -22,6 +24,8 @@
 ubio_classification <- function(hierarchiesID = NULL, childrenFlag = 0,
   ancestryFlag = 0, justificationsFlag = 0, synonymsFlag = 0,
   keyCode = NULL, ...) {
+
+  .Defunct(msg = "the uBio API is down, for good as far as we know")
 
   url <- "http://www.ubio.org/webservices/service.php"
   keyCode <- getkey(keyCode, "ubioApiKey")

@@ -22,8 +22,7 @@ species names.
 General functions in the package that don't hit a specific API don't have
 two words separated by an underscore, e.g., \code{classification}
 
-You need API keys for Encyclopedia of Life (EOL), the Universal Biological
-Indexer and Organizer (uBio), Tropicos, and Plantminer.
+You need API keys for Encyclopedia of Life (EOL), Tropicos, and Plantminer.
 }
 
 \section{Currently supported APIs}{
@@ -35,7 +34,6 @@ Encyclopedia of Life (EOL)  \tab eol \tab FALSE \cr
 Taxonomic Name Resolution Service \tab tnrs \tab FALSE \cr
 Integrated Taxonomic Information Service (ITIS)  \tab itis \tab FALSE \cr
 Phylomatic \tab phylomatic \tab FALSE \cr
-uBio \tab ubio \tab FALSE \cr
 Global Names Resolver (from EOL/GBIF) \tab gnr \tab FALSE \cr
 Global Names Index (from EOL/GBIF) \tab gni \tab FALSE \cr
 IUCN Red List \tab iucn \tab FALSE \cr

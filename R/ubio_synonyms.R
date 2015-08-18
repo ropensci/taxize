@@ -1,5 +1,8 @@
 #' Search uBio for taxonomic synonyms by hierarchiesID.
 #'
+#' THIS FUNCTION IS DEFUNCT.
+#'
+#' @rdname ubio_synonyms-defunct
 #' @export
 #' @param hierarchiesID you must include the hierarchiesID (ClassificationBankID)
 #'    to receive the classification synonyms
@@ -20,6 +23,8 @@
 #' }
 
 ubio_synonyms <- function(hierarchiesID = NULL, keyCode = NULL, ...) {
+  .Defunct(msg = "the uBio API is down, for good as far as we know")
+
   hierarchiesID <- as.numeric(as.character(hierarchiesID))
   if (!inherits(hierarchiesID, "numeric")) {
     stop("hierarchiesID must by a numeric", call. = FALSE)

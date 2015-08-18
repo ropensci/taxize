@@ -19,7 +19,7 @@ one, obtain one at http://www.ubio.org/index.php?pagename=form.}
 A data.frame.
 }
 \description{
-Search uBio for taxonomic synonyms by hierarchiesID.
+THIS FUNCTION IS DEFUNCT.
 }
 \examples{
 \dontrun{

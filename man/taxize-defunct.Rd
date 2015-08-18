@@ -21,6 +21,13 @@ The following functions are now defunct (no longer available):
  \item \code{\link{ncbi_search}}: See \code{ncbi_searcher} in the \code{traits} package.
  \item \code{\link{eol_invasive}}: See \code{eol_invasive_} in the \code{traits} package.
  \item \code{\link{gisd_isinvasive}}: See \code{g_invasive} in the \code{traits} package.
+ \item \code{\link{ubio_classification}}: The uBio web services are apparently down indefinitely.
+ \item \code{\link{ubio_classification_search}}: The uBio web services are apparently down indefinitely.
+ \item \code{\link{ubio_id}}: The uBio web services are apparently down indefinitely.
+ \item \code{\link{ubio_ping}}: The uBio web services are apparently down indefinitely.
+ \item \code{\link{ubio_search}}: The uBio web services are apparently down indefinitely.
+ \item \code{\link{ubio_synonyms}}: The uBio web services are apparently down indefinitely.
+ \item \code{\link{get_ubioid}}: The uBio web services are apparently down indefinitely.
 }
 }
 

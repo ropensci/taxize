@@ -120,16 +120,6 @@ gbif_ping <- function(what = "status", ...) {
 
 #' @export
 #' @rdname ping
-ubio_ping <- function(what = "status", ...) {
-  res <- GET("http://www.ubio.org/webservices/service.php?function=namebank_object&namebankID=2483153&keyCode=b052625da5f330e334471f8efe725c07bf4630a6", ...)
-  switch(matchwhat(what),
-         status = match_status(res),
-         code = match_code(res, what),
-         content = grepl("2483153", xpathApply(content(res), "//namebankID", xmlValue)[[1]], ignore.case = TRUE))
-}
-
-#' @export
-#' @rdname ping
 bold_ping <- function(what = "status", ...) {
   res <- GET("http://www.boldsystems.org/index.php/API_Tax/TaxonData?taxId=88899&dataTypes=basic&includeTree=FALSE", ...)
   switch(matchwhat(what),
@@ -177,4 +167,12 @@ match_status <- function(x){
 match_code <- function(x, y){
   stopifnot(is(x, "response"))
   x$status_code == y
+}
+
+#' uBio ping
+#'
+#' @export
+#' @rdname ubio_ping-defunct
+ubio_ping <- function() {
+  .Defunct(msg = "the uBio API is down, for good as far as we know")
 }

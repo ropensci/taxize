@@ -11,7 +11,6 @@
 \alias{ncbi_ping}
 \alias{ping}
 \alias{tropicos_ping}
-\alias{ubio_ping}
 \alias{vascan_ping}
 \title{Ping an API used in taxize to see if it's working.}
 \usage{
@@ -28,8 +27,6 @@ tropicos_ping(what = "status", ...)
 nbn_ping(what = "status", ...)
 
 gbif_ping(what = "status", ...)
-
-ubio_ping(what = "status", ...)
 
 bold_ping(what = "status", ...)
 
