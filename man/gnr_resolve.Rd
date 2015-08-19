@@ -5,7 +5,7 @@
 \title{Resolve names using Global Names Resolver.}
 \usage{
 gnr_resolve(names, data_source_ids = NULL, resolve_once = FALSE,
-  with_context = FALSE, stripauthority = FALSE, highestscore = TRUE,
+  with_context = FALSE, canonical = FALSE, highestscore = TRUE,
   best_match_only = FALSE, preferred_data_sources = NULL, http = "get",
   ...)
 }
@@ -25,8 +25,9 @@ all supplied names from matches in data sources that have classification
 tree paths. Names out of determined context are penalized during score
 calculation.}
 
-\item{stripauthority}{logical; If FALSE (default), gives back names with
-taxonomic authorities. If TRUE, strips author names.}
+\item{canonical}{logical; If FALSE (default), gives back names with
+taxonomic authorities. If TRUE, returns canocial names
+(without tax. authorities and abbreviations).}
 
 \item{highestscore}{logical; Return those names with the highest score for
 each searched name?}
@@ -75,9 +76,9 @@ gnr_resolve(names = "Helianthus annuus", best_match_only = TRUE)
 # Preferred data source
 gnr_resolve(names = "Helianthus annuus", preferred_data_sources = c(3,4))
 
-# Strip taxonomic authorities - default is stripauthority=FALSE
+# Return canonical names - default is canonical=FALSE
 head(gnr_resolve(names = "Helianthus annuus")$results)
-head(gnr_resolve(names = "Helianthus annuus", stripauthority=TRUE)$results)
+head(gnr_resolve(names = "Helianthus annuus", canonical=TRUE)$results)
 }
 }
 \author{

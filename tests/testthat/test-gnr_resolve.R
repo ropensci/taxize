@@ -25,10 +25,10 @@ test_that("best_match_only works correctly", {
   expect_is(b$results, "data.frame")
 })
 
-test_that("stripauthority works correctly", {
+test_that("canonical works correctly", {
   y <- "Helianthus annuus"
-  w <- gnr_resolve(y, stripauthority = TRUE)
-  z <- gnr_resolve(y, stripauthority = FALSE)
+  w <- gnr_resolve(y, canonical = TRUE)
+  z <- gnr_resolve(y, canonical = FALSE)
 
   expect_is(w, "list")
   expect_is(z, "list")
