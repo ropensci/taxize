@@ -109,8 +109,11 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
   data_ <-
     lapply(dat, function(y) {
       if (!is.null(unlist(y$results))) {
-        res <- lapply(y$results, function(x) data.frame(x[c("name_string", "data_source_title",
-                                                     "score", "canonical_form")], stringsAsFactors = FALSE))
+        res <- lapply(y$results, function(x) {
+          take <- x[c("name_string", "data_source_title","score", "canonical_form")]
+          take[sapply(take, is.null)] <- NA
+          return(data.frame(take, stringsAsFactors = FALSE))
+        })
       } else {
         res <- NULL
       }
