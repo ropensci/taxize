@@ -168,7 +168,8 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
   } else {
     out_preferred <- NULL
   }
-
+  # stripauthority = TRUE, may result into duplicates
+  out <- unique(out)
   list(results = out, preferred = out_preferred, not_known = not_known)
 }
 
