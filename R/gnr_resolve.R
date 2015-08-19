@@ -13,8 +13,9 @@
 #'    all supplied names from matches in data sources that have classification
 #'    tree paths. Names out of determined context are penalized during score
 #'    calculation.
-#' @param stripauthority logical; If FALSE (default), gives back names with
-#'    taxonomic authorities. If TRUE, strips author names.
+#' @param canonical logical; If FALSE (default), gives back names with
+#'    taxonomic authorities. If TRUE, returns canocial names 
+#'    (without tax. authorities and abbreviations).
 #' @param highestscore logical; Return those names with the highest score for
 #'    each searched name?
 #' @param best_match_only (logical) If TRUE, best match only returned.
@@ -55,13 +56,13 @@
 #' # Preferred data source
 #' gnr_resolve(names = "Helianthus annuus", preferred_data_sources = c(3,4))
 #'
-#' # Strip taxonomic authorities - default is stripauthority=FALSE
+#' # Return canonical names - default is canonical=FALSE
 #' head(gnr_resolve(names = "Helianthus annuus")$results)
-#' head(gnr_resolve(names = "Helianthus annuus", stripauthority=TRUE)$results)
+#' head(gnr_resolve(names = "Helianthus annuus", canonical=TRUE)$results)
 #' }
 
 gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
-  with_context = FALSE, stripauthority = FALSE, highestscore = TRUE, best_match_only = FALSE,
+  with_context = FALSE, canonical = FALSE, highestscore = TRUE, best_match_only = FALSE,
   preferred_data_sources = NULL, http="get", ...) {
 
   http <- match.arg(http, c("get","post"))
@@ -109,8 +110,11 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
   data_ <-
     lapply(dat, function(y) {
       if (!is.null(unlist(y$results))) {
-        res <- lapply(y$results, function(x) data.frame(x[c("name_string", "data_source_title",
-                                                     "score", "canonical_form")], stringsAsFactors = FALSE))
+        res <- lapply(y$results, function(x) {
+          take <- x[c("name_string", "data_source_title","score", "canonical_form")]
+          take[sapply(take, is.null)] <- NA
+          return(data.frame(take, stringsAsFactors = FALSE))
+        })
       } else {
         res <- NULL
       }
@@ -135,7 +139,7 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
     data_2$matched_name2 <- as.character(data_2$matched_name2)
     out <- data_2[order(data_2$submitted_name), ]
 
-    if (stripauthority) {
+    if (canonical) {
       out <- out[ , !names(out) %in% "matched_name"]
     } else {
       out <- out[ , !names(out) %in% "matched_name2"]
@@ -166,7 +170,7 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
     data_2_preferred$matched_name2 <- as.character(data_2_preferred$matched_name2)
     out_preferred <- data_2_preferred[order(data_2_preferred$submitted_name), ]
 
-    if (stripauthority) {
+    if (canonical) {
       out_preferred <- out_preferred[ , !names(out_preferred) %in% "matched_name"]
     } else {
       out_preferred <- out_preferred[ , !names(out_preferred) %in% "matched_name2"]
@@ -174,7 +178,7 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
   } else {
     out_preferred <- NULL
   }
-  # stripauthority = TRUE, may result into duplicates
+  # canonical = TRUE, may result into duplicates
   out <- unique(out)
   list(results = out, preferred = out_preferred, not_known = not_known)
 }
