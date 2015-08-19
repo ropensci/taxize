@@ -24,7 +24,13 @@
 #'    automatically because "get" would fail
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @author Scott Chamberlain {myrmecocystus@@gmail.com}
-#' @return A data.frame.
+#' @return A list with three slots:
+#' \itemize{
+#'  \item results - data.frame with results
+#'  \item preferred - data.frame with results from only preferred data
+#'  sources, if requested
+#'  \item not_known - a character vector of taxa unknown to the Global Names Index
+#' }
 #' @seealso \code{\link[taxize]{gnr_datasources}}
 #' @export
 #' @keywords resolve names taxonomy

@@ -42,7 +42,13 @@ automatically because "get" would fail}
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
-A data.frame.
+A list with three slots:
+\itemize{
+ \item results - data.frame with results
+ \item preferred - data.frame with results from only preferred data
+ sources, if requested
+ \item not_known - a character vector of taxa unknown to the Global Names Index
+}
 }
 \description{
 Uses the Global Names Index, see \url{http://gni.globalnames.org/}.
