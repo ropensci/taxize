@@ -87,7 +87,7 @@ ipni_search <- function(family=NULL, infrafamily=NULL, genus=NULL, infragenus=NU
   warn_for_status(tt)
   stopifnot(tt$headers$`content-type` == "text/plain;charset=UTF-8")
   res <- content(tt, as = "text")
-  if(nchar(res) == 0){
+  if(nchar(res, keepNA = FALSE) == 0){
     warning("No data found")
     df <- NA
   } else {
