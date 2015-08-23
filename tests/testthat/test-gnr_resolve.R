@@ -26,6 +26,8 @@ test_that("best_match_only works correctly", {
 })
 
 test_that("canonical works correctly", {
+  # x = a canse where no canonical names is found
+  x <- gnr_resolve("Metzgeria", data_source_ids = c(12), canonical = T)
   y <- "Helianthus annuus"
   w <- gnr_resolve(y, canonical = TRUE)
   z <- gnr_resolve(y, canonical = FALSE)
@@ -34,4 +36,6 @@ test_that("canonical works correctly", {
   expect_is(z, "list")
   expect_named(w$results, c("submitted_name", "data_source_title", "score", "matched_name2"))
   expect_named(z$results, c("submitted_name", "matched_name", "data_source_title", "score"))
+  expect_equal(nrow(x$results), 2)
+  expect_true(is.na(x$results$matched_name2[2]))
 })

@@ -73,7 +73,7 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
 
   data_source_ids <- paste0(data_source_ids, collapse = "|")
   preferred_data_sources <- paste0(preferred_data_sources, collapse = "|")
-  if (nchar(preferred_data_sources) == 0) preferred_data_sources <- NULL
+  if (nchar(preferred_data_sources, keepNA = FALSE) == 0) preferred_data_sources <- NULL
   resolve_once <- check_value(resolve_once)
   with_context <- check_value(with_context)
   highestscore <- check_value(highestscore)
