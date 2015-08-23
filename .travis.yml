@@ -1,12 +1,31 @@
-language: r
+language: c
 sudo: required
 
-r_github_packages:
- - jimhester/covr
- - jeroenooms/curl
+before_install:
+  - curl -OL https://raw.githubusercontent.com/metacran/r-builder/master/pkg-build.sh
+  - chmod 755 pkg-build.sh
+  - ./pkg-build.sh bootstrap
 
+install:
+  - ./pkg-build.sh install_deps
+  - ./pkg-build.sh install_github jimhester/robustr
+  - ./pkg-build.sh install_github jimhester/covr
+  - ./pkg-build.sh install_github jeroenooms/curl
+
+script:
+  - ./pkg-build.sh run_tests
+
+# print timings (of examples) and sysinfo
+after_script:
+  - ./pkg-build.sh dump_logs_by_extension "timings"
+  - ./pkg-build.sh dump_sysinfo
+
+after_failure:
+  - ./pkg-build.sh dump_logs
+
+# report to coveralls
 after_success:
-  - Rscript -e 'covr::codecov()'
+  - if [[ ! -z "$COVERAGE" ]];then ./pkg-build.sh run_script -e 'covr::codecov()'; fi
 
 notifications:
   email:
@@ -14,3 +33,12 @@ notifications:
     on_failure: change
   slack:
     secure: YOxbPBFVAMbDbNc/6tDn5749/qOfJkM+hfTraG9LGstCZC2C4I7rxb3BRkUHphIbFuQiH8BW/L+BKPXkLBL8Hrz4uMMyD3RtMX1A9fZ9WizkHMT4GLCHE011TITiYIeJvv41R7RBuy6rn3RLpID5KeMTTDphIz1TOZdl1zsxqds=
+
+env:
+  matrix:
+    - RVERSION=release
+    - RVERSION=devel COVERAGE=true
+
+  global:
+    - R_CHECK_ARGS="--no-build-vignettes --no-manual --timings --as-cran --run-donttest"
+    - _R_CHECK_TIMINGS_="0"
