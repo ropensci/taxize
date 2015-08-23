@@ -1,3 +1,17 @@
+taxize 0.6.3
+===============
+
+## MINOR IMPROVEMENTS
+* stripauthority argument in `gnr_resolve()` has been renamed to 'canonical'
+
+## BUG FIXES
+* `gnr_resolve()` failed when no canonical form was found.
+
+## NEW FEATURES
+
+## DEPRECATED AND DEFUNCT
+
+
 taxize 0.6.2
 ===============
 
