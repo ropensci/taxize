@@ -48,13 +48,9 @@ automatically because "get" would fail}
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
-A list with three slots:
-\itemize{
- \item results - data.frame with results
- \item preferred - data.frame with results from only preferred data
- sources, if requested
- \item not_known - a character vector of taxa unknown to the Global Names Index
-}
+A data.frame with one attribute \code{not_known}: a character vector of
+taxa unknown to the Global Names Index. Acccess like \code{attr(output, "not_known")},
+or \code{attributes(output)$not_known}
 }
 \description{
 Uses the Global Names Index, see \url{http://gni.globalnames.org/}.
@@ -82,8 +78,8 @@ gnr_resolve(names = "Helianthus annuus", best_match_only = TRUE)
 gnr_resolve(names = "Helianthus annuus", preferred_data_sources = c(3,4))
 
 # Return canonical names - default is canonical=FALSE
-head(gnr_resolve(names = "Helianthus annuus")$results)
-head(gnr_resolve(names = "Helianthus annuus", canonical=TRUE)$results)
+head(gnr_resolve(names = "Helianthus annuus"))
+head(gnr_resolve(names = "Helianthus annuus", canonical=TRUE))
 
 # Return canonical names with authority stripped but
 # ranks still present

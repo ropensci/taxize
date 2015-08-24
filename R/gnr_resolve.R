@@ -29,13 +29,9 @@
 #'    automatically because "get" would fail
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @author Scott Chamberlain {myrmecocystus@@gmail.com}
-#' @return A list with three slots:
-#' \itemize{
-#'  \item results - data.frame with results
-#'  \item preferred - data.frame with results from only preferred data
-#'  sources, if requested
-#'  \item not_known - a character vector of taxa unknown to the Global Names Index
-#' }
+#' @return A data.frame with one attribute \code{not_known}: a character vector of
+#' taxa unknown to the Global Names Index. Acccess like \code{attr(output, "not_known")},
+#' or \code{attributes(output)$not_known}
 #' @seealso \code{\link[taxize]{gnr_datasources}}
 #' @export
 #' @keywords resolve names taxonomy
@@ -61,8 +57,8 @@
 #' gnr_resolve(names = "Helianthus annuus", preferred_data_sources = c(3,4))
 #'
 #' # Return canonical names - default is canonical=FALSE
-#' head(gnr_resolve(names = "Helianthus annuus")$results)
-#' head(gnr_resolve(names = "Helianthus annuus", canonical=TRUE)$results)
+#' head(gnr_resolve(names = "Helianthus annuus"))
+#' head(gnr_resolve(names = "Helianthus annuus", canonical=TRUE))
 #'
 #' # Return canonical names with authority stripped but
 #' # ranks still present
@@ -134,63 +130,63 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
   not_known <- vapply(not_known, "[[", "", 1)
   data_ <- Filter(function(x) !is.null(x[[2]]), data_)
 
+  # check for empty data object
   drill <- tryCatch(data_[[1]], error = function(e) e)
   if (is(drill, "simpleError")) {
-    out <- "no results found"
+    out <- data.frame(NULL)
   } else {
-    data_2 <- ldply(data_, function(x) data.frame(x[[1]], ldply( if (length(x[[2]]) == 0) {
-      list(data.frame(name_string = "", data_source_title = "", score = NaN, canonical_form = ""))
-    } else {
-      x[[2]]
-    }), stringsAsFactors = FALSE))
-    names(data_2)[c(1,2,5)] <- c("submitted_name", "matched_name", "matched_name2")
-    data_2$matched_name <- as.character(data_2$matched_name)
-    data_2$data_source_title <- as.character(data_2$data_source_title)
-    data_2$matched_name2 <- as.character(data_2$matched_name2)
-    out <- data_2[order(data_2$submitted_name), ]
+    if (is.null(preferred_data_sources)) {
+      data_2 <- ldply(data_, function(x) data.frame(x[[1]], ldply( if (length(x[[2]]) == 0) {
+        list(data.frame(name_string = "", data_source_title = "", score = NaN, canonical_form = ""))
+      } else {
+        x[[2]]
+      }), stringsAsFactors = FALSE))
+      names(data_2)[c(1,2,5)] <- c("submitted_name", "matched_name", "matched_name2")
+      data_2$matched_name <- as.character(data_2$matched_name)
+      data_2$data_source_title <- as.character(data_2$data_source_title)
+      data_2$matched_name2 <- as.character(data_2$matched_name2)
+      out <- data_2[order(data_2$submitted_name), ]
 
-    if (canonical) {
-      out <- out[ , !names(out) %in% "matched_name"]
+      if (canonical) {
+        out <- out[ , !names(out) %in% "matched_name"]
+      } else {
+        out <- out[ , !names(out) %in% "matched_name2"]
+      }
+      # canonical = TRUE, may result into duplicates
+      out <- unique(out)
     } else {
-      out <- out[ , !names(out) %in% "matched_name2"]
+      data_preferred <-
+        lapply(dat, function(y) {
+          if (!is.null(unlist(y$preferred_results))) {
+            res <- lapply(y$preferred_results, function(x) {
+              data.frame(x[c("name_string", "data_source_title", "score", "canonical_form")], stringsAsFactors = FALSE)
+            })
+          } else {
+            res <- NULL
+          }
+          list(y[["supplied_name_string"]], res)
+        })
+      data_preferred <- Filter(function(x) !is.null(x[[2]]), data_preferred)
+      data_2_preferred <- ldply(data_preferred, function(x) data.frame(x[[1]], ldply(if (length(x[[2]]) == 0) {
+        list(data.frame(name_string = "", data_source_title = "", score = NaN, canonical_form = ""))
+      } else {
+        x[[2]]
+      }), stringsAsFactors = FALSE))
+      names(data_2_preferred)[c(1,2,5)] <- c("submitted_name", "matched_name", "matched_name2")
+      data_2_preferred$matched_name <- as.character(data_2_preferred$matched_name)
+      data_2_preferred$data_source_title <- as.character(data_2_preferred$data_source_title)
+      data_2_preferred$matched_name2 <- as.character(data_2_preferred$matched_name2)
+      out_preferred <- data_2_preferred[order(data_2_preferred$submitted_name), ]
+
+      if (canonical) {
+        out <- out_preferred[ , !names(out_preferred) %in% "matched_name"]
+      } else {
+        out <- out_preferred[ , !names(out_preferred) %in% "matched_name2"]
+      }
     }
   }
 
-  if (!is.null(preferred_data_sources)) {
-    data_preferred <-
-      lapply(dat, function(y) {
-        if (!is.null(unlist(y$preferred_results))) {
-          res <- lapply(y$preferred_results, function(x) {
-            data.frame(x[c("name_string", "data_source_title", "score", "canonical_form")], stringsAsFactors = FALSE)
-          })
-        } else {
-          res <- NULL
-        }
-        list(y[["supplied_name_string"]], res)
-    })
-    data_preferred <- Filter(function(x) !is.null(x[[2]]), data_preferred)
-    data_2_preferred <- ldply(data_preferred, function(x) data.frame(x[[1]], ldply(if (length(x[[2]]) == 0) {
-      list(data.frame(name_string = "", data_source_title = "", score = NaN, canonical_form = ""))
-    } else {
-      x[[2]]
-    }), stringsAsFactors = FALSE))
-    names(data_2_preferred)[c(1,2,5)] <- c("submitted_name", "matched_name", "matched_name2")
-    data_2_preferred$matched_name <- as.character(data_2_preferred$matched_name)
-    data_2_preferred$data_source_title <- as.character(data_2_preferred$data_source_title)
-    data_2_preferred$matched_name2 <- as.character(data_2_preferred$matched_name2)
-    out_preferred <- data_2_preferred[order(data_2_preferred$submitted_name), ]
-
-    if (canonical) {
-      out_preferred <- out_preferred[ , !names(out_preferred) %in% "matched_name"]
-    } else {
-      out_preferred <- out_preferred[ , !names(out_preferred) %in% "matched_name2"]
-    }
-  } else {
-    out_preferred <- NULL
-  }
-  # canonical = TRUE, may result into duplicates
-  out <- unique(out)
-  list(results = out, preferred = out_preferred, not_known = not_known)
+  structure(out, not_known = not_known)
 }
 
 cv <- function(x){
