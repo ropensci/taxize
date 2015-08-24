@@ -13,15 +13,19 @@
 #'    all supplied names from matches in data sources that have classification
 #'    tree paths. Names out of determined context are penalized during score
 #'    calculation.
-#' @param canonical logical; If FALSE (default), gives back names with
-#'    taxonomic authorities. If TRUE, returns canocial names 
+#' @param canonical logical; If \code{FALSE} (default), gives back names with
+#'    taxonomic authorities. If \code{TRUE}, returns canocial names
 #'    (without tax. authorities and abbreviations).
 #' @param highestscore logical; Return those names with the highest score for
-#'    each searched name?
-#' @param best_match_only (logical) If TRUE, best match only returned.
+#'    each searched name? Defunct
+#' @param best_match_only (logical) If \code{TRUE}, best match only returned. Default:
+#' \code{FALSE}
 #' @param preferred_data_sources (character) A vector of one or more data source IDs.
-#' @param http The HTTP method to use, one of "get" or "post". Default="get".
-#'    Use http="post" with large queries. Queries with > 300 records use "post"
+#' @param with_canonical_ranks (logical) Returns names with infraspecific ranks, if present.
+#'    If \code{TRUE}, we force \code{canonical=TRUE}, otherwise this parameter would
+#'    have no effect. Default: \code{FALSE}
+#' @param http The HTTP method to use, one of "get" or "post". Default: "get".
+#'    Use \code{http="post"} with large queries. Queries with > 300 records use "post"
 #'    automatically because "get" would fail
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @author Scott Chamberlain {myrmecocystus@@gmail.com}
@@ -59,13 +63,20 @@
 #' # Return canonical names - default is canonical=FALSE
 #' head(gnr_resolve(names = "Helianthus annuus")$results)
 #' head(gnr_resolve(names = "Helianthus annuus", canonical=TRUE)$results)
+#'
+#' # Return canonical names with authority stripped but
+#' # ranks still present
+#' gnr_resolve("Scorzonera hispanica L. subsp. asphodeloides Wallr.")
+#' ## vs.
+#' gnr_resolve("Scorzonera hispanica L. subsp. asphodeloides Wallr.",
+#'    with_canonical_ranks = TRUE)
 #' }
 
 gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
   with_context = FALSE, canonical = FALSE, highestscore = TRUE, best_match_only = FALSE,
-  preferred_data_sources = NULL, http="get", ...) {
+  preferred_data_sources = NULL, with_canonical_ranks = FALSE, http = "get", ...) {
 
-  http <- match.arg(http, c("get","post"))
+  http <- match.arg(http, c("get", "post"))
   num = NULL
   url <- "http://resolver.globalnames.org/name_resolvers.json"
   names2 <- paste0(names, collapse = "|")
@@ -74,14 +85,13 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
   data_source_ids <- paste0(data_source_ids, collapse = "|")
   preferred_data_sources <- paste0(preferred_data_sources, collapse = "|")
   if (nchar(preferred_data_sources, keepNA = FALSE) == 0) preferred_data_sources <- NULL
-  resolve_once <- check_value(resolve_once)
-  with_context <- check_value(with_context)
-  highestscore <- check_value(highestscore)
-  best_match_only <- check_value(best_match_only)
+  if (with_canonical_ranks) canonical <- TRUE
 
   args <- tc(list(names = names2, data_source_ids = data_source_ids,
-            resolve_once = resolve_once, with_context = with_context,
-            best_match_only = best_match_only, preferred_data_sources = preferred_data_sources))
+            resolve_once = cv(resolve_once), with_context = cv(with_context),
+            best_match_only = cv(best_match_only),
+            preferred_data_sources = preferred_data_sources,
+            with_canonical_ranks = cv(with_canonical_ranks)))
   args <- argsnull(args)
 
   if (http == 'get') {
@@ -183,7 +193,7 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
   list(results = out, preferred = out_preferred, not_known = not_known)
 }
 
-check_value <- function(x){
+cv <- function(x){
   if (x) {
     'true'
   } else {

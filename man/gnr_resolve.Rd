@@ -6,8 +6,8 @@
 \usage{
 gnr_resolve(names, data_source_ids = NULL, resolve_once = FALSE,
   with_context = FALSE, canonical = FALSE, highestscore = TRUE,
-  best_match_only = FALSE, preferred_data_sources = NULL, http = "get",
-  ...)
+  best_match_only = FALSE, preferred_data_sources = NULL,
+  with_canonical_ranks = FALSE, http = "get", ...)
 }
 \arguments{
 \item{names}{character; taxonomic names to be resolved. Doesn't work for verncular/common names.}
@@ -25,19 +25,24 @@ all supplied names from matches in data sources that have classification
 tree paths. Names out of determined context are penalized during score
 calculation.}
 
-\item{canonical}{logical; If FALSE (default), gives back names with
-taxonomic authorities. If TRUE, returns canocial names
+\item{canonical}{logical; If \code{FALSE} (default), gives back names with
+taxonomic authorities. If \code{TRUE}, returns canocial names
 (without tax. authorities and abbreviations).}
 
 \item{highestscore}{logical; Return those names with the highest score for
-each searched name?}
+each searched name? Defunct}
 
-\item{best_match_only}{(logical) If TRUE, best match only returned.}
+\item{best_match_only}{(logical) If \code{TRUE}, best match only returned. Default:
+\code{FALSE}}
 
 \item{preferred_data_sources}{(character) A vector of one or more data source IDs.}
 
-\item{http}{The HTTP method to use, one of "get" or "post". Default="get".
-Use http="post" with large queries. Queries with > 300 records use "post"
+\item{with_canonical_ranks}{(logical) Returns names with infraspecific ranks, if present.
+If \code{TRUE}, we force \code{canonical=TRUE}, otherwise this parameter would
+have no effect. Default: \code{FALSE}}
+
+\item{http}{The HTTP method to use, one of "get" or "post". Default: "get".
+Use \code{http="post"} with large queries. Queries with > 300 records use "post"
 automatically because "get" would fail}
 
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
@@ -79,6 +84,13 @@ gnr_resolve(names = "Helianthus annuus", preferred_data_sources = c(3,4))
 # Return canonical names - default is canonical=FALSE
 head(gnr_resolve(names = "Helianthus annuus")$results)
 head(gnr_resolve(names = "Helianthus annuus", canonical=TRUE)$results)
+
+# Return canonical names with authority stripped but
+# ranks still present
+gnr_resolve("Scorzonera hispanica L. subsp. asphodeloides Wallr.")
+## vs.
+gnr_resolve("Scorzonera hispanica L. subsp. asphodeloides Wallr.",
+   with_canonical_ranks = TRUE)
 }
 }
 \author{
