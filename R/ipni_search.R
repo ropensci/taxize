@@ -69,8 +69,8 @@ ipni_search <- function(family=NULL, infrafamily=NULL, genus=NULL, infragenus=NU
   infraspecies=NULL, publicationtitle=NULL, authorabbrev=NULL, includepublicationauthors=NULL,
   includebasionymauthors=NULL, geounit=NULL, addedsince=NULL, modifiedsince=NULL,
   isapnirecord=NULL, isgcirecord=NULL, isikrecord=NULL, ranktoreturn=NULL, output="minimal",
-  callopts=list())
-{
+  ...) {
+
   output <- match.arg(output, c('minimal','classic','short','extended'), FALSE)
   output_format <- sprintf('delimited-%s', output)
   url <- "http://www.ipni.org/ipni/advPlantNameSearch.do"
@@ -83,22 +83,29 @@ ipni_search <- function(family=NULL, infrafamily=NULL, genus=NULL, infragenus=NU
           find_addedSince=addedsince, find_modifiedSince=modifiedsince,
           find_isAPNIRecord=l2(isapnirecord), find_isGCIRecord=l2(isgcirecord),
           find_isIKRecord=l2(isikrecord), rankToReturn=ranktoreturn))
-  tt <- GET(url, query=args, callopts)
-  warn_for_status(tt)
-  stopifnot(tt$headers$`content-type` == "text/plain;charset=UTF-8")
+  tt <- GET(url, query = args, ...)
+  if (tt$status_code > 200 || tt$headers$`content-type` != "text/plain;charset=UTF-8") {
+    stop("No results", call. = FALSE)
+  }
   res <- content(tt, as = "text")
-  if(nchar(res, keepNA = FALSE) == 0){
+  if (nchar(res, keepNA = FALSE) == 0) {
     warning("No data found")
     df <- NA
   } else {
-    df <- read.delim(text=res, sep="%", stringsAsFactors=FALSE)
+    df <- read.delim(text = res, sep = "%", stringsAsFactors = FALSE)
     names(df) <- gsub("\\.", "_", tolower(names(df)))
   }
   return( df )
 }
 
-l2 <- function(x){
-  if(!is.null(x)){
-    if(x){ "on" } else { "off" }
-  } else{ NULL }
+l2 <- function(x) {
+  if (!is.null(x)) {
+    if (x) {
+      "on"
+    } else {
+      "off"
+    }
+  } else{
+    NULL
+  }
 }

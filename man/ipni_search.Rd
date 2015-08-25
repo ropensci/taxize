@@ -10,7 +10,7 @@ ipni_search(family = NULL, infrafamily = NULL, genus = NULL,
   includepublicationauthors = NULL, includebasionymauthors = NULL,
   geounit = NULL, addedsince = NULL, modifiedsince = NULL,
   isapnirecord = NULL, isgcirecord = NULL, isikrecord = NULL,
-  ranktoreturn = NULL, output = "minimal", callopts = list())
+  ranktoreturn = NULL, output = "minimal", ...)
 }
 \arguments{
 \item{family}{Family name to search on (Optional)}
