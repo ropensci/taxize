@@ -1,5 +1,6 @@
 context("phylomatic_tree")
 
+library("ape")
 data("apg_families", package = "taxize")
 
 taxa <- c("Poa annua", "Phlox diffusa", "Helianthus annuus")

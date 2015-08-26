@@ -35,7 +35,7 @@
 #' @param isikrecord FALSE (default) to exclude records from the Index Kewensis
 #' @param ranktoreturn One of a few options to choose the ranks returned. See details.
 #' @param output One of minimal (default), classic, short, or extended
-#' @param callopts Curl options passed on to httr::GET
+#' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' (Optional). Default: returns all ranks.
 #' @references \url{http://www.ipni.org/link_to_ipni.html}
 #' @details
