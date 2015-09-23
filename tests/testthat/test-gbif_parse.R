@@ -1,11 +1,10 @@
-# tests for gbif_parse fxn in taxize
 context("gbif_parse")
 
-tt <- gbif_parse(scientificname='x Agropogon littoralis')
+tt <- gbif_parse(scientificname = 'x Agropogon littoralis')
 
 test_that("gbif_parse returns the correct value", {
 	expect_that(as.character(tt[1,1]), matches('x Agropogon littoralis'))
-	expect_that(as.character(tt[1,2]), matches('SCINAME'))
+	expect_that(as.character(tt[1,2]), matches('SCIENTIFIC'))
 })
 
 test_that("gbif_parse returns the correct dimensions", {
@@ -13,7 +12,7 @@ test_that("gbif_parse returns the correct dimensions", {
 })
 
 test_that("gbif_parse returns the correct class", {
-	expect_that(tt, is_a("data.frame"))
-	expect_that(tt$specificepithet, is_a("factor"))
-	expect_that(tt$authorsparsed, is_a("logical"))
+	expect_is(tt, "data.frame")
+	expect_is(tt$specificepithet, "character")
+	expect_is(tt$authorsparsed, "logical")
 })
