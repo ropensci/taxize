@@ -21,10 +21,13 @@ itisdf <- function(a, b, matches, colnames, pastens="ax21"){
     nodes <- getNodeSet(a, matches[[i]], namespaces = b)
     output[[i]] <- sapply(nodes, xmlValue)
   }
-  if (all(sapply(output, length) == 1))
+  if (length(unique(sapply(output, length))) == 1 && unique(sapply(output, length)) == 0) {
+    data.frame(NULL, stringsAsFactors = FALSE)
+  } else if (all(sapply(output, length) == 1)) {
     setNames(data.frame(t(output), stringsAsFactors = FALSE), colnames)
-  else
-    setNames(data.frame(output), colnames)
+  } else {
+    setNames(data.frame(output, stringsAsFactors = FALSE), colnames)
+  }
 }
 
 #' Get accepted names from tsn
