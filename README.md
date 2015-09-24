@@ -17,7 +17,7 @@ The `taxize` tutorial is can be found at [http://ropensci.org/tutorials/taxize.h
 
 The functions in the package that hit a specific API have a prefix and suffix separated by an underscore. They follow the format of `service_whatitdoes`.  For example, `gnr_resolve` uses the Global Names Resolver API to resolve species names.  General functions in the package that don't hit a specific API don't have two words separated by an underscore, e.g., `classification`.
 
-You need API keys for Encyclopedia of Life (EOL), Tropicos, and Plantminer.
+You need API keys for Encyclopedia of Life (EOL), and Tropicos.
 
 ## SOAP
 
@@ -90,12 +90,6 @@ Note that a few data sources require SOAP web services, which are difficult to s
 	<td style="text-align:left;"><code>tp</code></td>
 	<td style="text-align:left;"><a href="http://services.tropicos.org/help">link</a></td>
 	<td style="text-align:left;"><a href="http://services.tropicos.org/help?requestkey">link</a></td>
-</tr>
-<tr>
-	<td style="text-align:left;">Plantminer</td>
-	<td style="text-align:left;"><code>plantminer</code></td>
-	<td style="text-align:left;"><a href="http://www.plantminer.com/help">link</a></td>
-	<td style="text-align:left;"><a href="http://www.plantminer.com/help">link</a></td>
 </tr>
 <tr>
 	<td style="text-align:left;">Theplantlist dot org</td>
@@ -419,9 +413,9 @@ sci2comm('Helianthus annuus', db = 'itis')
 comm2sci("black bear", db = "itis")
 #> $`black bear`
 #> [1] "Ursus thibetanus"            "Ursus thibetanus"           
-#> [3] "Chiropotes satanas"          "Ursus americanus luteolus"  
-#> [5] "Ursus americanus americanus" "Ursus americanus"           
-#> [7] "Ursus americanus"
+#> [3] "Ursus americanus luteolus"   "Ursus americanus"           
+#> [5] "Ursus americanus"            "Ursus americanus americanus"
+#> [7] "Chiropotes satanas"
 ```
 
 ### Coerce codes to taxonomic id classes
