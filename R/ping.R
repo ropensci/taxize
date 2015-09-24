@@ -25,7 +25,6 @@
 #'
 #' gbif_ping()
 #' gbif_ping(200)
-#' ubio_ping()
 #'
 #' bold_ping()
 #' bold_ping(200)
