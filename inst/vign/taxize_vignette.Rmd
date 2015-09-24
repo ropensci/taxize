@@ -38,7 +38,7 @@ This is a common task in biology. We often have a list of species names and we w
 
 ```{r resolvenames}
 temp <- gnr_resolve(names = c("Helianthos annus", "Homo saapiens"))
-head( temp$results )
+head(temp)
 ```
 
 The correct spellings are *Helianthus annuus* and *Homo sapiens*. Another approach uses the Taxonomic Name Resolution Service via the Taxosaurus API developed by iPLant and the Phylotastic organization. In this example, we provide a list of species names, some of which are misspelled, and we'll call the API with the *tnrs* function.
@@ -107,7 +107,6 @@ There are functions for many other sources
 * `get_gbifid()`
 * `get_nbnid()`
 * `get_tpsid()`
-* `get_ubioid()`
 
 Sometimes with these functions you get a lot of data back. In these cases you may want to limit your choices. Soon we will incorporate the ability to filter using `regex` to limit matches, but for now, we have a new parameter, `rows`, which lets you select certain rows. For example, you can select the first row of each given name, which means there is no interactive component:
 
@@ -136,7 +135,7 @@ get_nbnid_("Poa annua", rows = 1:10)
 
 ## Coerce numerics/alphanumerics to taxon IDs
 
-We've also introduced in `v0.5` the ability to coerce numerics and alphanumerics to taxonomic ID classes that are usually only retrieved via `get_*()` functions. 
+We've also introduced in `v0.5` the ability to coerce numerics and alphanumerics to taxonomic ID classes that are usually only retrieved via `get_*()` functions.
 
 For example, adfafd
 
