@@ -47,12 +47,6 @@
 #'    "Bartlettia scaposa")
 #' tnrs(mynames, source = "NCBI")
 #'
-#' # And even more names
-#' mynames <- names_list(rank="species", size=75)
-#' tnrs(query=mynames, source = "NCBI")
-#' ## Or use splitby
-#' tnrs(mynames, source = "NCBI", splitby=50)
-#'
 #' # Pass on curl options
 #' library("httr")
 #' mynames <- c("Helianthus annuus", "Poa annua", "Mimulus bicolor")
@@ -84,7 +78,7 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
       loc <- tempfile(fileext = ".txt")
       write.table(data.frame(x), file = loc, col.names = FALSE, row.names = FALSE)
       args <- tc(list(file = upload_file(loc), source = source, code = code))
-      out <- POST(url, body = args, config = config(followlocation = 0), ...)
+      out <- POST(url, body = args, config(followlocation = 0), ...)
       error_handle(out)
       tt <- content(out, as = "text")
       message <- jsonlite::fromJSON(tt, FALSE)[["message"]]

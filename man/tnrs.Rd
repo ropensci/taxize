@@ -67,12 +67,6 @@ mynames <- c("Panthera tigris", "Eutamias minimus", "Magnifera indica",
    "Bartlettia scaposa")
 tnrs(mynames, source = "NCBI")
 
-# And even more names
-mynames <- names_list(rank="species", size=75)
-tnrs(query=mynames, source = "NCBI")
-## Or use splitby
-tnrs(mynames, source = "NCBI", splitby=50)
-
 # Pass on curl options
 library("httr")
 mynames <- c("Helianthus annuus", "Poa annua", "Mimulus bicolor")
