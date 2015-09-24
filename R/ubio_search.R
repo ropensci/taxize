@@ -16,13 +16,6 @@
 #'    one, obtain one at http://www.ubio.org/index.php?pagename=form.
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @return A data.frame.
-#' @examples \dontrun{
-#' ubio_search(searchName = 'elephant')
-#' ubio_search(searchName = 'elephant', sci = 1, vern = 0)
-#' ubio_search(searchName = 'Astragalus aduncus', sci = 1, vern = 0)
-#' ubio_search(searchName = 'puma concolor', sci=1, vern=0)
-#' }
-
 ubio_search <- function(searchName = NULL, searchAuth = NULL, searchYear=NULL,
 		order = NULL, sci = 1, vern = 1, keyCode = NULL, ...) {
   .Defunct(msg = "the uBio API is down, for good as far as we know")

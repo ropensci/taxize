@@ -27,9 +27,4 @@ classificationTitle
 \description{
 THIS FUNCTION IS DEFUNCT.
 }
-\examples{
-\dontrun{
-ubio_classification_search(namebankID = 3070378)
-}
-}
 

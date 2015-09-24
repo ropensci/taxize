@@ -10,18 +10,6 @@
 #'    one, obtain one at http://www.ubio.org/index.php?pagename=form.
 #' @param ... Parameters passed on to \code{\link[httr]{GET}}
 #' @return A data.frame.
-#' @examples \dontrun{
-#' ubio_synonyms(hierarchiesID = 4091702)
-#' ubio_synonyms(hierarchiesID = 2483153)
-#' ubio_synonyms(hierarchiesID = 2465599)
-#' ubio_synonyms(hierarchiesID = 1249021)
-#' ubio_synonyms(hierarchiesID = 4069372)
-#'
-#' # Pass in curl options
-#' library("httr")
-#' ubio_synonyms(hierarchiesID = 4091702, config=verbose())
-#' }
-
 ubio_synonyms <- function(hierarchiesID = NULL, keyCode = NULL, ...) {
   .Defunct(msg = "the uBio API is down, for good as far as we know")
 

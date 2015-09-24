@@ -21,17 +21,4 @@ one for vernacular names, and one for citations.
 \description{
 THIS FUNCTION IS DEFUNCT.
 }
-\examples{
-\dontrun{
-ubio_id(namebankID = 2483153)
-ubio_id(namebankID = 105509)
-ubio_id(namebankID = 2843601)
-ubio_id(namebankID = 2478181)
-
-# Pass in curl options
-library("httr")
-ubio_id(namebankID = 2478181, callopts=verbose())
-ubio_id(namebankID = 2478181, callopts=timeout(3))
-}
-}
 

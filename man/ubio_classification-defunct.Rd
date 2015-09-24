@@ -32,11 +32,4 @@ one for vernacular names, and one for citations.
 \description{
 THIS FUNCTION IS DEFUNCT.
 }
-\examples{
-\dontrun{
-ubio_classification(hierarchiesID = 2483153)
-ubio_classification(hierarchiesID = 2483153, childrenFlag=1)
-ubio_classification(hierarchiesID = 2483153, ancestryFlag=1)
-}
-}
 

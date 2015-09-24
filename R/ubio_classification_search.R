@@ -14,10 +14,6 @@
 #' @param ... Parameters passed on to \code{\link[httr]{GET}}
 #' @return A data.frame with columns classificationBankID, classificationTitleID, and
 #' classificationTitle
-#' @examples \dontrun{
-#' ubio_classification_search(namebankID = 3070378)
-#' }
-
 ubio_classification_search <- function(namebankID = NULL, classificationTitleID = NULL,
   keyCode = NULL, ...) {
   .Defunct(msg = "the uBio API is down, for good as far as we know")

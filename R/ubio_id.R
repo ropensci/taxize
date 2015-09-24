@@ -10,18 +10,6 @@
 #' @param ... Parameters passed on to \code{\link[httr]{GET}}
 #' @return A list of four data.frame's, one for the name itself, one for synonyms,
 #' one for vernacular names, and one for citations.
-#' @examples \dontrun{
-#' ubio_id(namebankID = 2483153)
-#' ubio_id(namebankID = 105509)
-#' ubio_id(namebankID = 2843601)
-#' ubio_id(namebankID = 2478181)
-#'
-#' # Pass in curl options
-#' library("httr")
-#' ubio_id(namebankID = 2478181, callopts=verbose())
-#' ubio_id(namebankID = 2478181, callopts=timeout(3))
-#' }
-
 ubio_id <- function(namebankID = NULL, keyCode = NULL, ...) {
   .Defunct(msg = "the uBio API is down, for good as far as we know")
 
