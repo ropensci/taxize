@@ -8,7 +8,6 @@
 \alias{synonyms.nbnid}
 \alias{synonyms.tpsid}
 \alias{synonyms.tsn}
-\alias{synonyms.ubioid}
 \title{Retrieve synonyms from various sources given input taxonomic names or identifiers.}
 \usage{
 synonyms(...)
@@ -20,8 +19,6 @@ synonyms(...)
 \method{synonyms}{colid}(id, ...)
 
 \method{synonyms}{tpsid}(id, ...)
-
-\method{synonyms}{ubioid}(id, ...)
 
 \method{synonyms}{nbnid}(id, ...)
 

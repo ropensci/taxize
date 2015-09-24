@@ -88,10 +88,6 @@ synonyms.default <- function(x, db = NULL, rows = NA, ...) {
            id <- process_syn_ids(x, db, get_tpsid, rows = rows, ...)
            setNames(synonyms(id, ...), x)
          },
-         ubio = {
-           id <- process_syn_ids(x, db, get_ubioid, searchtype = 'scientific', rows = rows, ...)
-           setNames(synonyms(id, ...), x)
-         },
          nbn = {
            id <- process_syn_ids(x, db, get_nbnid, rows = rows, ...)
            setNames(synonyms(id, ...), x)
@@ -111,7 +107,6 @@ process_syn_ids <- function(input, db, fxn, ...){
     as_fxn <- switch(db,
                      itis = as.tsn,
                      tropicos = as.tpsid,
-                     ubio = as.ubioid,
                      nbn = as.nbnid,
                      col = as.colid)
     as_fxn(input, check = FALSE)
@@ -192,19 +187,6 @@ synonyms.tpsid <- function(id, ...) {
       NA
     } else {
       tp_synonyms(x, ...)$synonyms
-    }
-  }
-  setNames(lapply(id, fun), id)
-}
-
-#' @export
-#' @rdname synonyms
-synonyms.ubioid <- function(id, ...) {
-  fun <- function(x){
-    if (is.na(x)) {
-      NA
-    } else {
-      ubio_id(namebankID = x, ...)[['synonyms']]
     }
   }
   setNames(lapply(id, fun), id)
