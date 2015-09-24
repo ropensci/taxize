@@ -1,17 +1,42 @@
-taxize 0.6.3
+taxize 0.6.4
 ===============
 
 ## MINOR IMPROVEMENTS
-* stripauthority argument in `gnr_resolve()` has been renamed to 'canonical'
+
+* `stripauthority` argument in `gnr_resolve()` has been renamed to `canonical`
+to better match what it actually does (#451)
+* `gnr_resolve()` now returns a single data.frame in output, or `NULL` 
+when no data found. The input taxa that have no match at all are returned in
+an attribute with name `not_known` (#448)
 * updated functions work with to R >3.2.x
+* In `ipni_search()` changed `callopts` parameter to `...` to pass in curl
+options to the request. In addition, better http error handling, and 
+added a test suite for this function. (#458)
+* `stringsAsFactors=FALSE` now used for `gibf_parse()` (https://github.com/ropensci/taxize/commit/c0c4175d3a0b24d403f18c057258b67d3fbf17f0)
 
 ## BUG FIXES
+
 * `gnr_resolve()` failed when no canonical form was found.
+* Fixed `gnr_resolve()` when no results found when `best_match_only=TRUE` (#432)
+* Fixed bug in internal function `itisdf()` to give back an empty data.frame 
+when no results found, often with subspecific taxa. Helps solve errors reported
+in use of `downstream()`, `itis_downstream()`, and `gethierarchydownfromtsn()` (#459)
 
 ## NEW FEATURES
 
-## DEPRECATED AND DEFUNCT
+* `gnr_resolve()` gains new parameter `with_canonical_ranks` (logical) to choose
+whether infraspecific ranks are returned or not. 
 
+## DEFUNCT
+
+* All functions that interacted with the taxonomy service uBio are now 
+defunct. Of course we would deprecate first, then make defunct later, to
+make transition easier, but that is out of our hands. The functions 
+that are defunct are: `ubio_classification()`, `ubio_classification_search()`, 
+`ubio_id()`, `ubio_search()`, `ubio_synonyms()`, `get_ubioid()`, `ubio_ping()`. 
+In addition, ubio has been removed as an option in the `synonyms()` function,
+and references for uBio have been removed from the `taxize_cite()` utility
+function.
 
 taxize 0.6.2
 ===============

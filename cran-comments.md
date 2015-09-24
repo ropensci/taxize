@@ -1,5 +1,9 @@
-R CMD CHECK passed on my local OS X install with R 3.2.1 and R development version, Ubuntu running on Travis-CI, and Win builder.
+R CMD CHECK passed on my local OS X install with R 3.2.2 and 
+R development version, Ubuntu running on Travis-CI, and Win builder.
 
-This submission fixes a number of broken functions due to the recent update in httr on CRAN to v1.0. In addition, this package now imports non-base functions explicitly as needed in accordance with R-devel changes. Last, this submission has a number of bug fixes that improve package functionality. 
+This submission includes some defunct functions for online data 
+services that are no longer online; and minor improvements, and 
+bug fixes. 
 
-Thanks! Scott Chamberlain
+Thanks! 
+Scott Chamberlain
