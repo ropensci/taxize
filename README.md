@@ -17,7 +17,7 @@ The `taxize` tutorial is can be found at [http://ropensci.org/tutorials/taxize.h
 
 The functions in the package that hit a specific API have a prefix and suffix separated by an underscore. They follow the format of `service_whatitdoes`.  For example, `gnr_resolve` uses the Global Names Resolver API to resolve species names.  General functions in the package that don't hit a specific API don't have two words separated by an underscore, e.g., `classification`.
 
-You need API keys for Encyclopedia of Life (EOL), the Universal Biological Indexer and Organizer (uBio), Tropicos, and Plantminer.
+You need API keys for Encyclopedia of Life (EOL), Tropicos, and Plantminer.
 
 ## SOAP
 
@@ -66,12 +66,6 @@ Note that a few data sources require SOAP web services, which are difficult to s
 	<td style="text-align:left;"><code>phylomatic</code></td>
 	<td style="text-align:left;"><a href="http://phylodiversity.net/phylomatic/html/documentation.html">link</a></td>
 	<td style="text-align:left;">none</td>
-</tr>
-<tr>
-	<td style="text-align:left;">uBio</td>
-	<td style="text-align:left;"><code>ubio</code></td>
-	<td style="text-align:left;"><a href="http://www.ubio.org/index.php?pagename=xml_services">link</a></td>
-	<td style="text-align:left;"><a href="http://www.ubio.org/index.php?pagename=form">link</a></td>
 </tr>
 <tr>
 	<td style="text-align:left;">Global Names Resolver</td>
@@ -325,42 +319,32 @@ upstream("Pinus contorta", db = 'itis', upto = 'Genus', verbose=FALSE)
 
 
 ```r
-synonyms("Salmo friderici", db='ubio')
-#>    ubioid          target family    rank
-#> 1 2529704 Salmo friderici Pisces species
-#> 2  169693 Salmo friderici Pisces species
-#> $`Salmo friderici`
-#>   namebankid                    namestring
-#> 1     130562 Leporinus friderici friderici
-#> 2     169693               Salmo friderici
-#> 3    2495407 Leporinus friderici friderici
-#>                                fullnamestring
-#> 1 Leporinus friderici friderici (Bloch, 1794)
-#> 2                 Salmo friderici Bloch, 1794
-#> 3               Leporinus friderici friderici
+synonyms("Acer drummondii", db="itis")
+#> $`Acer drummondii`
+#>   sub_tsn                    acc_name acc_tsn                    syn_name
+#> 1  183671 Acer rubrum var. drummondii  526853 Acer rubrum ssp. drummondii
+#> 2  183671 Acer rubrum var. drummondii  526853             Acer drummondii
+#> 3  183671 Acer rubrum var. drummondii  526853          Rufacer drummondii
+#>   syn_tsn
+#> 1   28730
+#> 2  183671
+#> 3  183672
 ```
 
 ### Get taxonomic IDs from many sources
 
 
 ```r
-get_ids(names="Salvelinus fontinalis", db = c('ubio','ncbi'), verbose=FALSE)
-#>    ubioid                target     family      rank
-#> 1 2501330 Salvelinus fontinalis     Pisces   species
-#> 2 6581534 Salvelinus fontinalis Salmonidae   species
-#> 3  137827 Salvelinus fontinalis     Pisces   species
-#> 4 6244425 Salvelinus fontinalis Salmonidae trinomial
-#> 5 7130714 Salvelinus fontinalis Salmonidae trinomial
-#> 6 6653671 Salvelinus fontinalis Salmonidae trinomial
-#> $ubio
+get_ids(names="Salvelinus fontinalis", db = c('itis', 'ncbi'), verbose=FALSE)
+#> $itis
 #> Salvelinus fontinalis 
-#>             "2501330" 
-#> attr(,"class")
-#> [1] "ubioid"
+#>              "162003" 
 #> attr(,"match")
 #> [1] "found"
 #> attr(,"uri")
-#> [1] "http://www.ubio.org/browser/details.php?namebankID=2501330"
+#> [1] "http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=162003"
+#> attr(,"class")
+#> [1] "tsn"
 #> 
 #> $ncbi
 #> Salvelinus fontinalis 
@@ -404,8 +388,8 @@ get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn', rows=1:3)
 #> $nbn$`Chironomus riparius`
 #>   ptaxonVersionKey    searchMatchTitle    rank  nameStatus
 #> 1 NBNSYS0000027573 Chironomus riparius Species Recommended
-#> 2 NBNSYS0000023345   Paederus riparius Species Recommended
-#> 3 NHMSYS0001718042   Elaphrus riparius Species Recommended
+#> 2 NHMSYS0001718042   Elaphrus riparius Species Recommended
+#> 3 NBNSYS0000023345   Paederus riparius Species Recommended
 #> 
 #> $nbn$`Pinus contorta`
 #>   ptaxonVersionKey               searchMatchTitle       rank  nameStatus
@@ -434,10 +418,10 @@ sci2comm('Helianthus annuus', db = 'itis')
 ```r
 comm2sci("black bear", db = "itis")
 #> $`black bear`
-#> [1] "Ursus americanus luteolus"   "Ursus americanus americanus"
-#> [3] "Ursus americanus"            "Ursus americanus"           
-#> [5] "Chiropotes satanas"          "Ursus thibetanus"           
-#> [7] "Ursus thibetanus"
+#> [1] "Ursus thibetanus"            "Ursus thibetanus"           
+#> [3] "Chiropotes satanas"          "Ursus americanus luteolus"  
+#> [5] "Ursus americanus americanus" "Ursus americanus"           
+#> [7] "Ursus americanus"
 ```
 
 ### Coerce codes to taxonomic id classes
