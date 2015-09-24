@@ -303,14 +303,16 @@ get_uid_help <- function(sciname, verbose, rows){
   mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
   url <- paste("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=",
                gsub(" ", "+", sciname), sep = "")
-  xml_result <- xmlParse(content(GET(url)))
+  xml_result <- xmlParse(content(GET(url), "text"))
   Sys.sleep(0.33)
   uid <- xpathSApply(xml_result, "//IdList/Id", xmlValue)
-  if (length(uid) == 0) { NULL } else {
+  if (length(uid) == 0) {
+    NULL
+  } else {
     baseurl <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy"
     ID <- paste("ID=", paste(uid, collapse = ","), sep = "")
     url <- paste(baseurl, ID, sep = "&")
-    tt <- content(GET(url))
+    tt <- content(GET(url), "text")
     ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)
     df <- parse_ncbi(ttp)
     sub_rows(df, rows)

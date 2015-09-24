@@ -147,7 +147,7 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
     # more than one found -> user input
     if (length(id) > 1) {
       # check for exact match
-      matchtmp <- df[df$canonicalName %in% sciname, "gbifid"]
+      matchtmp <- df[as.character(df$canonicalname) %in% sciname, "gbifid"]
       if (length(matchtmp) == 1) {
         id <- as.character(matchtmp)
       } else {
@@ -160,10 +160,15 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
             df <- filt(df, "family", family)
             df <- filt(df, "rank", rank)
             if (NROW(df) > 1) rownames(df) <- 1:nrow(df)
-            id <- df$gbifid
-            if (length(id) == 1) {
-              rank_taken <- as.character(df$rank)
-              att <- "found"
+            if (NROW(df) == 0) {
+              id <- NA
+              att <- "not found"
+            } else {
+              id <- df$gbifid
+              if (length(id) == 1) {
+                rank_taken <- as.character(df$rank)
+                att <- "found"
+              }
             }
           }
 

@@ -6,23 +6,22 @@
 \title{Retrieve taxonomic identifiers for a given taxon name.}
 \usage{
 get_ids(names, db = c("itis", "ncbi", "eol", "col", "tropicos", "gbif",
-  "ubio", "nbn"), ...)
+  "nbn"), ...)
 
 get_ids_(names, db = c("itis", "ncbi", "eol", "col", "tropicos", "gbif",
-  "ubio", "nbn"), rows = NA, ...)
+  "nbn"), rows = NA, ...)
 }
 \arguments{
 \item{names}{character; Taxonomic name to query.}
 
 \item{db}{character; database to query. One or  more of \code{ncbi}, \code{itis},
-\code{eol}, \code{col}, \code{tropicos}, \code{gbif}, \code{ubio}, or \code{nbn}. By
+\code{eol}, \code{col}, \code{tropicos}, \code{gbif}, or \code{nbn}. By
 default db is set to search all data sources.}
 
 \item{...}{Other arguments passed to \code{\link[taxize]{get_tsn}},
 \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}},
 \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_tpsid}},
-\code{\link[taxize]{get_gbifid}}, \code{\link[taxize]{get_ubioid}},
-\code{\link[taxize]{get_nbnid}}.}
+\code{\link[taxize]{get_gbifid}},  \code{\link[taxize]{get_nbnid}}.}
 
 \item{rows}{numeric; Any number from 1 to inifity. If the default NA, all rows are returned.
 When used in \code{get_ids} this function still only gives back a ids class object with one to
@@ -53,7 +52,6 @@ get_ids(names="Poa annua", db=c("col","eol"), rows=1:2)
 
 ## Or you can specify which source you want via the db parameter
 get_ids(names="Chironomus riparius", db = 'ncbi')
-get_ids(names="Salvelinus fontinalis", db = 'ubio')
 
 get_ids(names="Salvelinus fontinalis", db = 'nbn')
 
@@ -83,6 +81,6 @@ bb <- get_ids("Pinus contorta", db = c('nbn','gbif'), config=progress())
 \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_uid}},
    \code{\link[taxize]{get_eolid}}, \code{\link[taxize]{get_colid}},
    \code{\link[taxize]{get_tpsid}}, \code{\link[taxize]{get_gbifid}},
-   \code{\link[taxize]{get_ubioid}}, or \code{\link[taxize]{get_nbnid}}.
+   or \code{\link[taxize]{get_nbnid}}.
 }
 

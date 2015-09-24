@@ -7,7 +7,7 @@
 #' @export
 #' @param names character; Taxonomic name to query.
 #' @param db character; database to query. One or  more of \code{ncbi}, \code{itis},
-#'    \code{eol}, \code{col}, \code{tropicos}, \code{gbif}, \code{ubio}, or \code{nbn}. By
+#'    \code{eol}, \code{col}, \code{tropicos}, \code{gbif}, or \code{nbn}. By
 #'    default db is set to search all data sources.
 #' @param rows numeric; Any number from 1 to inifity. If the default NA, all rows are returned.
 #' When used in \code{get_ids} this function still only gives back a ids class object with one to
@@ -16,15 +16,14 @@
 #' @param ... Other arguments passed to \code{\link[taxize]{get_tsn}},
 #'    \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}},
 #'    \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_tpsid}},
-#'    \code{\link[taxize]{get_gbifid}}, \code{\link[taxize]{get_ubioid}},
-#'    \code{\link[taxize]{get_nbnid}}.
+#'    \code{\link[taxize]{get_gbifid}},  \code{\link[taxize]{get_nbnid}}.
 #' @return A vector of taxonomic identifiers, each retaining their respective S3
 #'    classes so that each element can be passed on to another function (see e.g.'s).
 #' @note There is a timeout of 1/3 seconds between queries to NCBI.
 #' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_uid}},
 #'    \code{\link[taxize]{get_eolid}}, \code{\link[taxize]{get_colid}},
 #'    \code{\link[taxize]{get_tpsid}}, \code{\link[taxize]{get_gbifid}},
-#'    \code{\link[taxize]{get_ubioid}}, or \code{\link[taxize]{get_nbnid}}.
+#'    or \code{\link[taxize]{get_nbnid}}.
 #' @examples \dontrun{
 #' # Plug in taxon names directly
 #' ## By default you get ids for all data sources
@@ -36,7 +35,6 @@
 #'
 #' ## Or you can specify which source you want via the db parameter
 #' get_ids(names="Chironomus riparius", db = 'ncbi')
-#' get_ids(names="Salvelinus fontinalis", db = 'ubio')
 #'
 #' get_ids(names="Salvelinus fontinalis", db = 'nbn')
 #'
@@ -62,13 +60,13 @@
 #' bb <- get_ids("Pinus contorta", db = c('nbn','gbif'), config=progress())
 #' }
 
-get_ids <- function(names, db = c('itis','ncbi','eol','col','tropicos','gbif','ubio','nbn'), ...) {
+get_ids <- function(names, db = c('itis','ncbi','eol','col','tropicos','gbif','nbn'), ...) {
 
   if (is.null(db)) {
     stop("Must specify on or more values for db!")
   }
 
-  db <- match.arg(db, choices = c('itis','ncbi','eol','col','tropicos','gbif','ubio','nbn'),
+  db <- match.arg(db, choices = c('itis','ncbi','eol','col','tropicos','gbif','nbn'),
                   several.ok = TRUE)
 
   foo <- function(x, names, ...){
@@ -79,7 +77,6 @@ get_ids <- function(names, db = c('itis','ncbi','eol','col','tropicos','gbif','u
                   col = get_colid(names, ...),
                   tropicos = get_tpsid(names, ...),
                   gbif = get_gbifid(names, ...),
-                  ubio = get_ubioid(names, ...),
                   nbn = get_nbnid(names, ...))
     names(ids) <- names
     return( ids )
@@ -93,10 +90,10 @@ get_ids <- function(names, db = c('itis','ncbi','eol','col','tropicos','gbif','u
 
 #' @export
 #' @rdname get_ids
-get_ids_ <- function(names, db = c('itis','ncbi','eol','col','tropicos','gbif','ubio','nbn'), rows=NA, ...)
+get_ids_ <- function(names, db = c('itis','ncbi','eol','col','tropicos','gbif','nbn'), rows=NA, ...)
 {
   if(is.null(db)) stop("Must specify on or more values for db!")
-  db <- match.arg(db, choices = c('itis','ncbi','eol','col','tropicos','gbif','ubio','nbn'),
+  db <- match.arg(db, choices = c('itis','ncbi','eol','col','tropicos','gbif','nbn'),
                   several.ok = TRUE)
   foo <- function(x, names, rows, ...){
     ids <- switch(x,
@@ -106,7 +103,6 @@ get_ids_ <- function(names, db = c('itis','ncbi','eol','col','tropicos','gbif','
                   col = get_colid_(names, rows=rows, ...),
                   tropicos = get_tpsid_(names, rows=rows, ...),
                   gbif = get_gbifid_(names, rows=rows, ...),
-                  ubio = get_ubioid_(names, rows=rows, ...),
                   nbn = get_nbnid_(names, rows=rows, ...))
     setNames(ids, names)
   }
