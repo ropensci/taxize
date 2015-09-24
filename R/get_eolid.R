@@ -67,7 +67,7 @@
 #' get_eolid_("Poa annua")
 #' get_eolid_("Poa annua", rows=2)
 #' get_eolid_("Poa annua", rows=1:2)
-#' get_eolid_(c("asdfadfasd","Pinus contorta"))
+#' get_eolid_(c("asdfadfasd", "Pinus contorta"))
 #' }
 
 get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA, ...){
@@ -89,13 +89,14 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
         mssg(verbose, paste(ms, sprintf('\nDid find: %s', paste(tmp$name, collapse = "; "))))
         id <- NA
       } else {
-        dfs <- lapply(pageids, function(x) eol_pages(x)$scinames)
+        dfs <- lapply(pageids, function(x) {
+          y <- tryCatch(eol_pages(x), error = function(e) e)
+          if (is(y, "error")) NULL else y$scinames
+        })
         names(dfs) <- pageids
         dfs <- tc(dfs)
         if (length(dfs) > 1) dfs <- dfs[!sapply(dfs, nrow) == 0]
         df <- ldply(dfs)
-#         df <- dfs[,c('.id','identifier','scientificname','nameaccordingto')]
-#         names(df) <- c('pageid','eolid','name','source')
         df <- rename(df, c('.id' = 'pageid', 'identifier' = 'eolid',
                      'scientificname' = 'name', 'nameaccordingto' = 'source',
                      'taxonrank' = 'rank'))
@@ -114,7 +115,7 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
     }
 
     # not found on eol
-    if (length(id) == 0) {
+    if (length(id) == 0 || all(is.na(id))) {
       mssg(verbose, ms)
       id <- NA
       att <- 'not found'
@@ -256,7 +257,10 @@ get_eolid_help <- function(sciname, verbose, key, rows, ...){
     if (length(pageids) == 0) {
       NULL
     } else {
-      dfs <- lapply(pageids, function(x) eol_pages(x)$scinames)
+      dfs <- lapply(pageids, function(x) {
+        y <- tryCatch(eol_pages(x), error = function(e) e)
+        if (is(y, "error")) NULL else y$scinames
+      })
       names(dfs) <- pageids
       dfs <- tc(dfs)
       if (length(dfs) > 1) dfs <- dfs[!sapply(dfs, nrow) == 0]

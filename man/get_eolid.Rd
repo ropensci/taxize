@@ -103,7 +103,7 @@ as.eolid( data.frame(out) )
 get_eolid_("Poa annua")
 get_eolid_("Poa annua", rows=2)
 get_eolid_("Poa annua", rows=1:2)
-get_eolid_(c("asdfadfasd","Pinus contorta"))
+get_eolid_(c("asdfadfasd", "Pinus contorta"))
 }
 }
 \author{
