@@ -23,13 +23,6 @@ for help on how to put api keys in your .Rprofile file.}
 data.frame of results.
 }
 \description{
-Search for taxonomy data from Plantminer.com
-}
-\examples{
-\dontrun{
-plants <- c("Myrcia lingua", "Myrcia bella", "Ocotea pulchella",
-		"Miconia", "Coffea arabica var. amarella", "Bleh")
-plantminer(plants)
-}
+THIS FUNCTION IS DEFUNCT.
 }
 

@@ -13,7 +13,7 @@
 #' General functions in the package that don't hit a specific API don't have
 #' two words separated by an underscore, e.g., \code{classification}
 #'
-#' You need API keys for Encyclopedia of Life (EOL), Tropicos, and Plantminer.
+#' You need API keys for Encyclopedia of Life (EOL), and Tropicos.
 #'
 #' @section Currently supported APIs:
 #'
@@ -27,7 +27,6 @@
 #' Global Names Index (from EOL/GBIF) \tab gni \tab FALSE \cr
 #' IUCN Red List \tab iucn \tab FALSE \cr
 #' Tropicos (from Missouri Botanical Garden) \tab tp \tab FALSE \cr
-#' Plantminer \tab plantminer \tab FALSE \cr
 #' Theplantlist.org \tab tpl \tab FALSE \cr
 #' Catalogue of Life \tab col \tab FALSE \cr
 #' Global Invasive Species Database \tab gisd \tab FALSE \cr
@@ -206,6 +205,8 @@ NULL
 #'  \item \code{\link{ubio_search}}: The uBio web services are apparently down indefinitely.
 #'  \item \code{\link{ubio_synonyms}}: The uBio web services are apparently down indefinitely.
 #'  \item \code{\link{get_ubioid}}: The uBio web services are apparently down indefinitely.
+#'  \item \code{\link{plantminer}}: The Plantminer web service is down. There is a Shiny app
+#'  though, at http://www.plantminer.com/
 #' }
 #'
 #' @name taxize-defunct

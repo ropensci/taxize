@@ -1,5 +1,9 @@
 #' Search for taxonomy data from Plantminer.com
 #'
+#' THIS FUNCTION IS DEFUNCT.
+#'
+#' @export
+#' @rdname plantminer-defunct
 #' @param plants Vector of plant species names.
 #' @param key Your api key for the plantminer.com site.  Go to
 #' 		\url{http://www.plantminer.com/} to get your api key.  Two options for
@@ -10,19 +14,14 @@
 #' 		for help on how to put api keys in your .Rprofile file.
 #' @param verbose Verbose or not, logical
 #' @return data.frame of results.
-#' @export
-#' @examples \dontrun{
-#' plants <- c("Myrcia lingua", "Myrcia bella", "Ocotea pulchella",
-#' 		"Miconia", "Coffea arabica var. amarella", "Bleh")
-#' plantminer(plants)
-#' }
 
-plantminer <- function(plants, key = NULL, verbose=TRUE)
-{
+plantminer <- function(plants, key = NULL, verbose = TRUE) {
+
+  .Defunct(msg = "the Plantminer API is down, for good as far as we know")
+
 	key <- getkey(key, "pmApiKey")
-
   i <- NULL
-  compiled.list <- foreach (i=1:length(plants), .combine = rbind) %do% {
+  compiled.list <- foreach(i = 1:length(plants), .combine = rbind) %do% {
     full.name <- strsplit(plants[i], " ")[[1]]
     mssg(verbose, paste(full.name, collapse = " "))
     genus <- full.name[1]
