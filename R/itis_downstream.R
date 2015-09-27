@@ -81,6 +81,7 @@ itis_downstream <- function(tsns, downto, intermediate = FALSE, ...) {
 		    stop_ <- "not"
 		  }
 		}
+		if (intermediate) intermed[[iter]] <- setNames(intermed[[iter]], tolower(names(intermed[[iter]])))
 	}
   tmp <- ldply(out)
 	if (intermediate) {
