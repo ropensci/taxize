@@ -1,13 +1,17 @@
-# # tests for plantminer fxn in taxize
-# context("plantminer")
+context("plantminer")
 
-# plants <- c("Myrcia lingua", "Myrcia bella")
-# df <- suppressMessages(plantminer(plants, verbose=FALSE))
+test_that("plantminer returns the correct value", {
+  plants <- c("Myrcia lingua", "Myrcia bella", "Ocotea pulchella",
+              "Miconia", "Coffea arabica var. amarella", "Bleh")
+  df <- plantminer(plants, verbose = FALSE)
 
-# test_that("plantminer returns the correct value", {
-# 	expect_that(as.character(df[1,1]), matches("Myrtaceae"))
-# })
+	expect_is(df, "data.frame")
+	expect_is(df$id, "character")
 
-# test_that("plantminer returns the correct class", {
-# 	expect_that(df, is_a("data.frame"))
-# })
+	expect_equal(df$original.search[1], plants[1])
+})
+
+test_that("plantminer fails well", {
+  expect_error(plantminer(), "argument \"plants\" is missing")
+  expect_equal(plantminer("foo bar", verbose=FALSE)$note, "not found")
+})

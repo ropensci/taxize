@@ -28,8 +28,6 @@ The following functions are now defunct (no longer available):
  \item \code{\link{ubio_search}}: The uBio web services are apparently down indefinitely.
  \item \code{\link{ubio_synonyms}}: The uBio web services are apparently down indefinitely.
  \item \code{\link{get_ubioid}}: The uBio web services are apparently down indefinitely.
- \item \code{\link{plantminer}}: The Plantminer web service is down. There is a Shiny app
- though, at http://www.plantminer.com/
 }
 }
 
