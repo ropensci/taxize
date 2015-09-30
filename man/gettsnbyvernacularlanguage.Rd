@@ -17,7 +17,7 @@ Get tsn by vernacular language
 }
 \examples{
 \dontrun{
-gettsnbyvernacularlanguage("french", config=timeout(3))
+# gettsnbyvernacularlanguage("french", config=timeout(3))
 }
 }
 \keyword{internal}

@@ -408,8 +408,8 @@ gethierarchyupfromtsn <- function(tsn, ...) {
 #' @examples \dontrun{
 #' getitistermsfromcommonname("buya")
 #'
-#' library('httr')
-#' getitistermsfromcommonname("buya", config=timeout(1))
+#' # library('httr')
+#' # getitistermsfromcommonname("buya", config=timeout(1))
 #' }
 #' @export
 #' @keywords internal
@@ -792,7 +792,7 @@ gettaxonomicusagefromtsn <- function(tsn, ...) {
 #'    not the international language code (character)
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @examples \dontrun{
-#' gettsnbyvernacularlanguage("french", config=timeout(3))
+#' # gettsnbyvernacularlanguage("french", config=timeout(3))
 #' }
 #' @export
 #' @keywords internal
@@ -987,8 +987,8 @@ searchforanymatch <- function(x, ...) {
 #' @param ascend A boolean containing true for ascending sort order or false
 #'    for descending (logical)
 #' @examples \dontrun{
-#' searchforanymatchpaged(202385, pagesize=100, pagenum=1, ascend=FALSE, config=timeout(3))
-#' searchforanymatchpaged("Zy", pagesize=100, pagenum=1, ascend=FALSE, config=timeout(3))
+#' # searchforanymatchpaged(202385, pagesize=100, pagenum=1, ascend=FALSE, config=timeout(3))
+#' # searchforanymatchpaged("Zy", pagesize=100, pagenum=1, ascend=FALSE, config=timeout(3))
 #' }
 #' @export
 #' @keywords internal
