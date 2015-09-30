@@ -406,7 +406,10 @@ sci2comm('Helianthus annuus', db = 'itis')
 ```r
 comm2sci("black bear", db = "itis")
 #> $`black bear`
-#> character(0)
+#> [1] "Ursus thibetanus"            "Ursus thibetanus"           
+#> [3] "Ursus americanus luteolus"   "Ursus americanus americanus"
+#> [5] "Ursus americanus"            "Ursus americanus"           
+#> [7] "Chiropotes satanas"
 ```
 
 ### Coerce codes to taxonomic id classes
