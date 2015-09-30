@@ -27,9 +27,6 @@ itis_native(what="originvalues")
 # Get values by tsn
 itis_native(tsn=180543)
 itis_native(tsn=c(180543,41074,36616))
-
-# suppress message
-itis_native(c(180543,41074,36616), verbose=FALSE)
 }
 }
 

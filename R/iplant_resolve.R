@@ -22,5 +22,6 @@ iplant_resolve <- function(query, retrieve='all', ...){
   warn_for_status(out)
   tt <- content(out, as = "text")
   res <- jsonlite::fromJSON(tt, FALSE)$items
-  do.call(rbind, lapply(res, data.frame, stringsAsFactors = FALSE))
+  df <- do.call(rbind, lapply(res, data.frame, stringsAsFactors = FALSE))
+  if (!is.null(df)) nmslwr(df) else df
 }

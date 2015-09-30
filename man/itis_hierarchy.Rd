@@ -2,8 +2,7 @@
 % Please edit documentation in R/itis_hierarchy.R
 \name{itis_hierarchy}
 \alias{itis_hierarchy}
-\title{Get hierarchies from TSN values, full, upstream only, or immediate downstream
-only}
+\title{ITIS hierarchy}
 \usage{
 itis_hierarchy(tsn = NULL, what = "full", ...)
 }
@@ -16,8 +15,8 @@ itis_hierarchy(tsn = NULL, what = "full", ...)
 \item{...}{Further arguments passed on to \code{\link{getjurisdictionaloriginfromtsn}}}
 }
 \description{
-Get hierarchies from TSN values, full, upstream only, or immediate downstream
-only
+Get hierarchies from TSN values, full, upstream only, or immediate
+downstream only
 }
 \details{
 Note that \code{\link{itis_downstream}} gets taxa downstream to a particular

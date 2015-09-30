@@ -9,6 +9,7 @@
 #' taxize_cite(fxn='itis_hierarchy')
 #' taxize_cite(fxn='tp_classification')
 #' taxize_cite(fxn='gbif_ping')
+#' taxize_cite(fxn='plantminer')
 #'
 #' # Functions that use many data sources
 #' taxize_cite(fxn='synonyms')
@@ -200,6 +201,7 @@ data_citations <- function(x){
     ncbi_search = list(genbank = c_genbank),
     phylomatic_format = list(phylomatic = c_phylomatic),
     phylomatic_tree = list(phylomatic = c_phylomatic),
+    plantminer = list(plantminer = c_plantminer),
     rankagg = list(none = c_none),
     rbind.classification = list(none = c_none),
     rbind.classification_ids = list(none = c_none),
@@ -250,6 +252,8 @@ c_plist <- list(url_home = "http://theplantlist.org/", apidocs = NULL,
                 citation = "The Plant List (2013). Version 1.1. Published on the Internet; http://www.theplantlist.org/ ([accessed <date>).")
 c_vascan <- list(url_home = "http://data.canadensys.net/explorer/en/search", apidocs = "http://data.canadensys.net/vascan/api",
                  citation = "Brouillet, L., F. Coursol, S.J. Meades, M. Favreau, M. Anions, P. Belisle & P. Desmet. 2010+. VASCAN, the Database of Vascular Plants of Canada. http://data.canadensys.net/vascan/ (consulted on <date>)")
+c_plantminer <- list(url_home = "http://www.plantminer.com/", apidocs = "http://www.plantminer.com/help",
+                     citation = 'See The Plant List or Tropicos citations')
 c_phylomatic <- list(url_home = "http://phylodiversity.net/phylomatic/", apidocs = NULL,
                      citation = "Webb CO, Donoghue MJ (2005) Phylomatic: Tree assembly for applied phylogenetics. Mol. Ecol. Notes 5:181-183.")
 c_nbn <- list(url_home = "http://www.nbn.org.uk/", apidocs = "https://data.nbn.org.uk/Documentation/Web_Services/",

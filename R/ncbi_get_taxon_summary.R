@@ -1,8 +1,9 @@
-#' NCBI taxon information from uids
+#' @title NCBI taxon information from uids
 #'
-#' Downloads summary taxon information from the NCBI taxonomy databases for a set of taxonomy uids
-#' using eutils esummary.
+#' @description Downloads summary taxon information from the NCBI taxonomy databases
+#' for a set of taxonomy UIDs using eutils esummary.
 #'
+#' @export
 #' @param id (character) NCBI taxonomy uids to retrieve information for.
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @return A \code{data.frame} with the following rows:
@@ -11,16 +12,14 @@
 #'     \item{name}{The name of the taxon; a binomial name if the taxon is of rank species}
 #'     \item{rank}{The taxonomic rank (e.g. 'Genus')}
 #'   }
-#' @examples
-#' \dontrun{
+#' @author Zachary Foster \email{zacharyfoster1989@@Sgmail.com}
+#' @examples \dontrun{
 #' ncbi_get_taxon_summary(c(1430660, 4751))
 #'
 #' # use curl options
 #' library("httr")
 #' ncbi_get_taxon_summary(c(1430660, 4751), config = verbose())
 #' }
-#' @author Zachary Foster \email{zacharyfoster1989@@Sgmail.com}
-#' @export
 ncbi_get_taxon_summary <- function(id, ...) {
   # Argument validation ----------------------------------------------------------------------------
   if (is.null(id)) return(NULL)

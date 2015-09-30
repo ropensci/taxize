@@ -61,9 +61,6 @@
 #' head(ipni_search(genus='Ceanothus', output='short'))
 #' head(ipni_search(genus='Ceanothus', output='extended'))
 #' }
-#' @examples \dontrun{
-#' ipni_search(genus='Brintoniaasasf')
-#' }
 
 ipni_search <- function(family=NULL, infrafamily=NULL, genus=NULL, infragenus=NULL, species=NULL,
   infraspecies=NULL, publicationtitle=NULL, authorabbrev=NULL, includepublicationauthors=NULL,

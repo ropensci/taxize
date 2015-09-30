@@ -20,8 +20,8 @@ A \code{data.frame} with the following rows:
   }
 }
 \description{
-Downloads summary taxon information from the NCBI taxonomy databases for a set of taxonomy uids
-using eutils esummary.
+Downloads summary taxon information from the NCBI taxonomy databases
+for a set of taxonomy UIDs using eutils esummary.
 }
 \examples{
 \dontrun{

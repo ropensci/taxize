@@ -105,7 +105,7 @@ scrapenames <- function(url = NULL, file = NULL, text = NULL, engine = NULL,
     st <- datout$status
   }
   meta <- datout[!names(datout) %in% c("names")]
-  list(meta = meta, data = datout$names)
+  list(meta = meta, data = nmslwr(datout$names))
 }
 
 dontfollow <- function() config(followlocation = 0)

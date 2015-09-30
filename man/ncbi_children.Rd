@@ -38,10 +38,9 @@ The output type depends on the value of the \code{out_type} parameter. Taxa that
 be found will result in \code{NA}s and a lack of children results in an empty data structure.
 }
 \description{
-Search the NCBI Taxonomy database for uids of children of taxa. Taxa can be referenced by name
-or uid. Referencing by name is faster.
-}
-\details{
+Search the NCBI Taxonomy database for uids of children of taxa. Taxa can
+be referenced by name or uid. Referencing by name is faster.
+
 In a few cases, different taxa have the same name (e.g. Satyrium; see examples). If one of these
 are searched for then the children of both taxa will be returned. This can be avoided by
 using a uid instead of the name or specifying an ancestor. If an ancestor is provided, only

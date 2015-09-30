@@ -25,7 +25,7 @@ console.}
 A data.frame with one column for every queried taxon.
 }
 \description{
-Get taxonomic rank for a given taxon name.
+Get rank for a given taxonomic name.
 }
 \note{
 While \code{\link[taxize]{tax_name}} returns the name of a specified
@@ -41,7 +41,7 @@ tax_rank(query = "Helianthus", db = "itis")
 # query both
 tax_rank(query=c("Helianthus annuus", 'Puma'), db="both")
 
-# An alternative way would be to use \\link{classification} and sapply over
+# An alternative way would be to use classification() and sapply over
 # the list
 x <- 'Baetis'
 classi <- classification(get_uid(x))

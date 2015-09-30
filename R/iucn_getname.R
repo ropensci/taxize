@@ -8,8 +8,7 @@
 #' @examples \dontrun{
 #' iucn_getname(name = "Cyanistes caeruleus")
 #' }
-iucn_getname <- function(name, verbose = TRUE, ...)
-{
+iucn_getname <- function(name, verbose = TRUE, ...) {
   mssg(verbose, "searching EOL's Global Names Index...")
   all_names <- gni_search(search_term = name, parse_names = TRUE)
   mssg(verbose, "searching IUCN...")

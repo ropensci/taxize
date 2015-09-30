@@ -1,6 +1,9 @@
-#' Get hierarchies from TSN values, full, upstream only, or immediate downstream
-#' only
+#' @title ITIS hierarchy
 #'
+#' @description Get hierarchies from TSN values, full, upstream only, or immediate
+#' downstream only
+#'
+#' @export
 #' @param tsn One or more TSN's (taxonomic serial number)
 #' @param what One of full (full hierarchy), up (immediate upstream), or down
 #'    (immediate downstream)
@@ -21,23 +24,19 @@
 #' # Many tsn's
 #' itis_hierarchy(tsn=c(180543,41074,36616))
 #' }
-#' @export
 
-itis_hierarchy <- function(tsn=NULL, what="full", ...)
-{
-  if(is.null(tsn))
-    stop('You must supply one or more values in tsn parameter')
+itis_hierarchy <- function(tsn=NULL, what="full", ...) {
+  if (is.null(tsn)) stop('You must supply one or more values in tsn parameter', call. = FALSE)
 
   temp <- switch(what,
          full = lapply(tsn, function(x) getfullhierarchyfromtsn(x, ...)),
          up = lapply(tsn, function(x) gethierarchyupfromtsn(x, ...)),
          down = lapply(tsn, function(x) gethierarchydownfromtsn(x, ...)))
-  if(length(tsn)==1){
+  if (length(tsn) == 1) {
     tmp <- temp[[1]]
     names(tmp) <- tolower(names(tmp))
     tmp
-  } else
-  {
+  } else {
     names(temp) <- tsn
     lapply(temp, function(x){
       names(x) <- tolower(names(x))

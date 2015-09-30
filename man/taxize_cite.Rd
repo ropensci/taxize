@@ -20,6 +20,7 @@ taxize_cite(fxn='eol_search')
 taxize_cite(fxn='itis_hierarchy')
 taxize_cite(fxn='tp_classification')
 taxize_cite(fxn='gbif_ping')
+taxize_cite(fxn='plantminer')
 
 # Functions that use many data sources
 taxize_cite(fxn='synonyms')

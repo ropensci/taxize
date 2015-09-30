@@ -1,5 +1,6 @@
-#' Get kingdom names.
+#' Get kingdom names
 #'
+#' @export
 #' @param lsid One or more lsid's
 #' @param what What to retrieve. One of tsn, record, or fullrecord
 #' @param ... Further arguments passed on to \code{\link{gettsnfromlsid}},
@@ -18,19 +19,14 @@
 #' # An invalid lsid (a tsn actually)
 #' itis_lsid(202385)
 #' }
-#' @export
-
-itis_lsid <- function(lsid=NULL, what='tsn', ...)
-{
+itis_lsid <- function(lsid=NULL, what='tsn', ...) {
   temp <- switch(what,
          tsn = lapply(lsid, function(x) gettsnfromlsid(x, ...)),
          record = lapply(lsid, function(x) getrecordfromlsid(x, ...)),
          fullrecord = lapply(lsid, function(x) getfullrecordfromlsid(x, ...)) )
-  if(length(lsid)==1){
+  if (length(lsid) == 1) {
     temp[[1]]
-  } else
-  {
-    names(temp) <- lsid
-    temp
+  } else {
+    setNames(temp, lsid)
   }
 }

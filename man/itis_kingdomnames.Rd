@@ -2,7 +2,7 @@
 % Please edit documentation in R/itis_kingdomnames.R
 \name{itis_kingdomnames}
 \alias{itis_kingdomnames}
-\title{Get kingdom names.}
+\title{Get kingdom names}
 \usage{
 itis_kingdomnames(tsn = NULL, ...)
 }
@@ -12,15 +12,12 @@ itis_kingdomnames(tsn = NULL, ...)
 \item{...}{Further arguments passed on to getkingdomnamefromtsn}
 }
 \description{
-Get kingdom names.
+Get kingdom names
 }
 \examples{
 \dontrun{
 itis_kingdomnames(202385)
 itis_kingdomnames(tsn=c(202385,183833,180543))
-
-# suppress message
-itis_kingdomnames(c(202385,183833,180543), verbose=FALSE)
 }
 }
 

@@ -1,7 +1,6 @@
 #' Get rank for a given taxonomic name.
 #'
-#' Get taxonomic rank for a given taxon name.
-#'
+#' @export
 #' @param query character; Vector of taxonomic names to query.
 #' @param db character; The database to search from: 'tis', 'ncbi' or 'both'.
 #'  If 'both' both NCBI and ITIS will be queried. Result will be the union of
@@ -28,15 +27,14 @@
 #' # query both
 #' tax_rank(query=c("Helianthus annuus", 'Puma'), db="both")
 #'
-#' # An alternative way would be to use \link{classification} and sapply over
+#' # An alternative way would be to use classification() and sapply over
 #' # the list
 #' x <- 'Baetis'
 #' classi <- classification(get_uid(x))
 #' sapply(classi, function(x) x[nrow(x), 'rank'])
 #' }
-#' @export
-tax_rank <- function(query = NULL, db = "itis", pref = 'ncbi', verbose = TRUE, ...)
-{
+
+tax_rank <- function(query = NULL, db = "itis", pref = 'ncbi', verbose = TRUE, ...) {
   if(is.null(query))
     stop('Need to specify query!\n')
   if(!db %in% c('itis', 'ncbi', 'both'))

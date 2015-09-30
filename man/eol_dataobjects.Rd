@@ -4,13 +4,10 @@
 \alias{eol_dataobjects}
 \title{Given the identifier for a data object, return all metadata about the object}
 \usage{
-eol_dataobjects(id, asdf = TRUE, usekey = TRUE, key = NULL,
-  verbose = TRUE, ...)
+eol_dataobjects(id, usekey = TRUE, key = NULL, verbose = TRUE, ...)
 }
 \arguments{
 \item{id}{(character) The EOL data object identifier}
-
-\item{asdf}{(logical) Return "list" or "data.frame". Default: TRUE (return data.frame)}
 
 \item{usekey}{(logical) use your API key or not (TRUE or FALSE)}
 
@@ -35,7 +32,10 @@ It's possible to return JSON or XML with the EOL API. However,
 \dontrun{
 eol_dataobjects(id = "d72801627bf4adf1a38d9c5f10cc767f")
 eol_dataobjects(id = "21929584")
-eol_dataobjects(id = "21929584", FALSE)
+
+# curl options
+library("httr")
+eol_dataobjects(id = "21929584", config = verbose())
 }
 }
 

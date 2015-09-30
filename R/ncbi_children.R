@@ -1,7 +1,7 @@
-#' Search NCBI for children of a taxon
+#' @title Search NCBI for children of a taxon
 #'
-#' Search the NCBI Taxonomy database for uids of children of taxa. Taxa can be referenced by name
-#' or uid. Referencing by name is faster.
+#' @description Search the NCBI Taxonomy database for uids of children of taxa. Taxa can
+#' be referenced by name or uid. Referencing by name is faster.
 #'
 #' In a few cases, different taxa have the same name (e.g. Satyrium; see examples). If one of these
 #' are searched for then the children of both taxa will be returned. This can be avoided by
@@ -9,6 +9,7 @@
 #' children of both the taxon and its ancestor are returned. This will only fail if there are two
 #' taxa with the same name and the same specified ancestor.
 #'
+#' @export
 #' @param name (\code{character}) The string to search for. Only exact matches found the name given
 #' will be returned. Not compatible with \code{id}.
 #' @param id (\code{character}) The uid to search for. Not compatible with \code{name}.
@@ -29,6 +30,7 @@
 #' @return The output type depends on the value of the \code{out_type} parameter. Taxa that cannot
 #' be found will result in \code{NA}s and a lack of children results in an empty data structure.
 #' @seealso \code{\link{ncbi_get_taxon_summary}}, \code{\link[taxize]{children}}
+#' @author Zachary Foster \email{zacharyfoster1989@@gmail.com}
 #' @examples
 #' \dontrun{
 #' ncbi_children(name="Satyrium") #Satyrium is the name of two different genera
@@ -41,8 +43,6 @@
 #' library("httr")
 #' ncbi_children(name="Satyrium", ancestor="Eumaeini", config=verbose())
 #' }
-#' @author Zachary Foster \email{zacharyfoster1989@@gmail.com}
-#' @export
 ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
                           ancestor = NULL, out_type = c("summary", "uid"), ambiguous = FALSE, ...) {
   # Constants --------------------------------------------------------------------------------------

@@ -9,8 +9,7 @@
 #' @examples \dontrun{
 #' tp_refs(id = 25509881)
 #' }
-tp_refs <- function(id, key = NULL, ...)
-{
+tp_refs <- function(id, key = NULL, ...) {
   url = sprintf('http://services.tropicos.org/Name/%s/References', id)
 	key <- getkey(key, "tropicosApiKey")
 

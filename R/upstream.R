@@ -1,11 +1,12 @@
-#' Retrieve the upstream taxa for a given taxon name or ID.
+#' @title Retrieve the upstream taxa for a given taxon name or ID.
 #'
-#' This function uses a while loop to continually collect taxa up to the
+#' @description This function uses a while loop to continually collect taxa up to the
 #' taxonomic rank that you specify in the \code{upto} parameter. You can get data
 #' from ITIS (itis) or Catalogue of Life (col). There is no method exposed by itis
 #' or col for getting taxa at a specific taxonomic rank, so we do it ourselves inside
 #' the function.
 #'
+#' @export
 #' @param x Vector of taxa names (character) or IDs (character or numeric) to query.
 #' @param db character; database to query. One or both of \code{itis}, \code{col}.
 #' @param upto What taxonomic rank to go down to. One of: 'Superkingdom','Kingdom',
@@ -22,7 +23,6 @@
 #' @return A named list of data.frames with the upstream names of every supplied taxa.
 #' You get an NA if there was no match in the database.
 #'
-#' @export
 #' @examples \dontrun{
 #' ## col
 #' upstream("Pinus contorta", db = 'col', upto = 'Genus') # get all genera at one level up

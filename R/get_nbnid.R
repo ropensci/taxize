@@ -81,19 +81,18 @@ get_nbnid <- function(name, ask = TRUE, verbose = TRUE, rec_only = FALSE, rank =
   fun <- function(name, ask, verbose, rows) {
     mssg(verbose, "\nRetrieving data for taxon '", name, "'\n")
     df <- nbn_search(q = name, all = TRUE, ...)$data
-    if(is.null(df)) df <- data.frame(NULL)
+    if (is.null(df)) df <- data.frame(NULL)
     df <- sub_rows(df, rows)
 
     rank_taken <- NA
-    if(nrow(df)==0){
+    if (nrow(df) == 0) {
       mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
       id <- NA
       att <- 'not found'
-    } else
-    {
-      if(rec_only) df <- df[ df$nameStatus == 'Recommended', ]
-      if(!is.null(rank)) df <- df[ df$rank == rank, ]
-      df <- df[,c('ptaxonVersionKey','searchMatchTitle','rank','nameStatus')]
+    } else {
+      if (rec_only) df <- df[ df$namestatus == 'Recommended', ]
+      if (!is.null(rank)) df <- df[ df$rank == rank, ]
+      df <- df[,c('ptaxonversionkey','searchmatchtitle','rank','namestatus')]
       names(df)[1] <- 'nbnid'
       id <- df$nbnid
       rank_taken <- as.character(df$rank)
@@ -101,14 +100,14 @@ get_nbnid <- function(name, ask = TRUE, verbose = TRUE, rec_only = FALSE, rank =
     }
 
     # not found on NBN
-    if(length(id) == 0){
+    if (length(id) == 0) {
       mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
       id <- NA
       att <- 'not found'
     }
     # more than one found -> user input
-    if(length(id) > 1){
-      if(ask){
+    if (length(id) > 1) {
+      if (ask) {
         rownames(df) <- 1:nrow(df)
         # prompt
         message("\n\n")
@@ -117,7 +116,7 @@ get_nbnid <- function(name, ask = TRUE, verbose = TRUE, rec_only = FALSE, rank =
         print(df)
         take <- scan(n = 1, quiet = TRUE, what = 'raw')
 
-        if(length(take) == 0){
+        if (length(take) == 0) {
           take <- 'notake'
           att <- 'nothing chosen'
         }
@@ -140,13 +139,13 @@ get_nbnid <- function(name, ask = TRUE, verbose = TRUE, rec_only = FALSE, rank =
     return( c(id=id, rank=rank_taken, att=att) )
   }
   name <- as.character(name)
-  out <- lapply(name, fun, ask=ask, verbose=verbose, rows=rows)
+  out <- lapply(name, fun, ask = ask, verbose = verbose, rows = rows)
   ids <- sapply(out, "[[", "id")
   atts <- sapply(out, "[[", "att")
-  ids <- structure(ids, class="nbnid", match=atts)
-  if( !all(is.na(ids)) ){
+  ids <- structure(ids, class = "nbnid", match = atts)
+  if ( !all(is.na(ids)) ) {
     urls <- sapply(out, function(z){
-      if(!is.na(z[['id']]))
+      if (!is.na(z[['id']]))
         sprintf('https://data.nbn.org.uk/Taxa/%s', z[['id']])
       else
         NA
@@ -191,32 +190,26 @@ make_nbnid <- function(x, check=TRUE) make_generic(x, 'https://data.nbn.org.uk/T
 check_nbnid <- function(x){
   url <- "https://data.nbn.org.uk/api/taxa/"
   res <- GET(paste0(url, x))
-  if( res$status_code == 200 ) TRUE else FALSE
+  if ( res$status_code == 200 ) TRUE else FALSE
 }
-
-# print.nbnid <- function(x){
-#   cat(sprintf("<nbnid> %s", x), sep = "\n")
-#   cat(sprintf("   match: %s", attr(x, "match")), sep = "\n")
-#   cat(sprintf("   uri: %s", attr(x, "uri")))
-# }
 
 #' @export
 #' @rdname get_nbnid
 get_nbnid_ <- function(name, verbose = TRUE, rec_only = FALSE, rank = NULL, rows = NA, ...){
-  setNames(lapply(name, get_nbnid_help, verbose = verbose, rec_only=rec_only, rank=rank, rows = rows, ...), name)
+  setNames(lapply(name, get_nbnid_help, verbose = verbose, rec_only = rec_only, rank = rank, rows = rows, ...), name)
 }
 
 get_nbnid_help <- function(name, verbose, rec_only, rank, rows, ...){
   mssg(verbose, "\nRetrieving data for taxon '", name, "'\n")
   df <- nbn_search(q = name, all = TRUE, ...)$data
-  if(is.null(df)) df <- data.frame(NULL)
+  if (is.null(df)) df <- data.frame(NULL)
 
-  if(NROW(df) == 0){
+  if (NROW(df) == 0) {
     NULL
   } else {
-    if(rec_only) df <- df[ df$nameStatus == 'Recommended', ]
-    if(!is.null(rank)) df <- df[ df$rank == rank, ]
-    df <- df[,c('ptaxonVersionKey','searchMatchTitle','rank','nameStatus')]
-    if(NROW(df) == 0) NULL else sub_rows(df, rows)
+    if (rec_only) df <- df[ df$nameStatus == 'Recommended', ]
+    if (!is.null(rank)) df <- df[ df$rank == rank, ]
+    df <- df[,c('ptaxonversionkey', 'searchmatchtitle', 'rank', 'namestatus')]
+    if (NROW(df) == 0) NULL else sub_rows(df, rows)
   }
 }

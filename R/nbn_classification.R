@@ -17,15 +17,14 @@
 #' library('httr')
 #' nbn_classification(id="NHMSYS0000502940", config=verbose())
 #' }
-nbn_classification <- function(id, ...)
-{
+nbn_classification <- function(id, ...) {
   url <- sprintf("https://data.nbn.org.uk/api/taxa/%s/taxonomy", id)
   nbn_GET_2(url, ...)
 }
 
-nbn_GET_2 <- function(url, ...){
+nbn_GET_2 <- function(url, ...) {
   res <- GET(url, ...)
   stop_for_status(res)
   tt <- content(res, as = "text")
-  jsonlite::fromJSON(tt, TRUE)
+  nmslwr(jsonlite::fromJSON(tt, TRUE))
 }

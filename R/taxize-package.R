@@ -56,7 +56,7 @@
 #' @importFrom data.table rbindlist
 #' @importFrom foreach foreach %do%
 #' @importFrom stringr str_extract str_split str_replace str_replace_all
-#' @importFrom plyr failwith rbind.fill llply ldply ddply laply l_ply summarise colwise .
+#' @importFrom plyr failwith rbind.fill llply ldply ddply l_ply summarise colwise .
 #' @importFrom reshape2 melt dcast
 #' @importFrom XML xpathApply xpathSApply getNodeSet htmlParse xmlParse xmlValue
 #' xmlTreeParse xmlGetAttr xmlToList

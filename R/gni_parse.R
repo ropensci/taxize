@@ -22,22 +22,20 @@ gni_parse <- function(names, ...) {
   tt <- GET(paste0(gni_base(), "parsers.json"), query = list(names = names), ...)
   stop_for_status(tt)
   out <- content(tt)
+  rbind.fill(lapply(out, gni_parser))
+}
 
-  parser <- function(x) {
-    positions_names <- laply(x$scientificName$positions, function(y) paste("position_", y[[1]], sep = "") )
-    positions_values <- data.frame(t(data.frame(laply(x$scientificName$positions, function(y) y[[2]]), stringsAsFactors = FALSE)))
-    row.names(positions_values) <- NULL
-    names(positions_values) <- positions_names
+gni_parser <- function(x) {
+  positions_names <- vapply(x$scientificName$positions, function(y) paste("position_", y[[1]], sep = ""), "", USE.NAMES = FALSE)
+  nums <- vapply(x$scientificName$positions, function(y) y[[2]], 1, USE.NAMES = FALSE)
+  pv <- data.frame(as.list(setNames(nums, positions_names)), stringsAsFactors = FALSE)
 
-    singles <- data.frame(x$scientificName[c("verbatim","canonical","normalized","hybrid","parsed")], stringsAsFactors = FALSE)
-    details_ <- x$scientificName$details[[1]]
-    details_ <- details_[!names(details_) %in% 'status']
-    details <- ldply(details_, function(x) as.data.frame(x))[,-3]
-    details2 <- as.data.frame(t(data.frame(details[,2])))
-    names(details2) <- details[,1]
-    row.names(details2) <- NULL
-    data.frame(details2, singles, positions_values, stringsAsFactors = FALSE)
-  }
-
-  ldply(out, parser)
+  singles <- data.frame(x$scientificName[c("verbatim","canonical","normalized","hybrid","parsed")], stringsAsFactors = FALSE)
+  details_ <- x$scientificName$details[[1]]
+  details_ <- details_[!names(details_) %in% 'status']
+  details <- rbind.fill(Map(function(x, y) data.frame(y, x, stringsAsFactors = FALSE), details_, names(details_)))[,-3]
+  details2 <- as.data.frame(t(data.frame(details[,2])))
+  names(details2) <- details[,1]
+  row.names(details2) <- NULL
+  data.frame(details2, singles, pv, stringsAsFactors = FALSE)
 }

@@ -4,7 +4,7 @@
 \alias{vascan_search}
 \title{Search the CANADENSYS Vascan API.}
 \usage{
-vascan_search(q, format = "json", raw = FALSE, callopts = list())
+vascan_search(q, format = "json", raw = FALSE, ...)
 }
 \arguments{
 \item{q}{(character) Can be a scientific name, a vernacular name or a VASCAN
@@ -14,13 +14,17 @@ taxon identifier (e.g. 861)}
 
 \item{raw}{(logical) If TRUE, raw json or xml returned, if FALSE, parsed data returned.}
 
-\item{callopts}{(list) Further args passed on to htt::GET.}
+\item{...}{(list) Further args passed on to htt::GET.}
 }
 \value{
 json, xml or a list.
 }
 \description{
 Search the CANADENSYS Vascan API.
+}
+\details{
+Note that we lowercase all outputs in data.frame's, but when a list is
+given back, we don't touch the list names.
 }
 \examples{
 \dontrun{
@@ -42,6 +46,10 @@ xmlParse(d)
 # lots of names, in this case 50
 splist <- names_list(rank='species', size=50)
 vascan_search(q = splist)
+
+# Curl options
+library("httr")
+vascan_search(q = "Helianthus annuus", config = verbose())
 }
 }
 \author{

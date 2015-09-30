@@ -38,17 +38,17 @@
 
 itis_downstream <- function(tsns, downto, intermediate = FALSE, ...) {
 
-	downto2 <- rank_ref[grep(downto, rank_ref$ranks),"rankId"]
-	torank_ids <- rank_ref[grep(downto, rank_ref$ranks):nrow(rank_ref),"rankId"]
+	downto2 <- rank_ref[grep(downto, rank_ref$ranks),"rankid"]
+	torank_ids <- rank_ref[grep(downto, rank_ref$ranks):nrow(rank_ref),"rankid"]
 
 	stop_ <- "not"
-	notout <- data.frame(rankName = "")
+	notout <- data.frame(rankname = "")
 	out <- list()
   if (intermediate) intermed <- list()
 	iter <- 0
 	while (stop_ == "not") {
 		iter <- iter + 1
-		if (!nchar(as.character(notout$rankName[[1]])) > 0) {
+		if (!nchar(as.character(notout$rankname[[1]])) > 0) {
 			temp <- ldply(as.character(tsns), gettaxonomicranknamefromtsn)
 		} else {
 		  temp <- notout
@@ -56,7 +56,7 @@ itis_downstream <- function(tsns, downto, intermediate = FALSE, ...) {
 		tt <- ldply(as.character(temp$tsn), gethierarchydownfromtsn)
 		## FIXME - do we need this since rank is given above in `tt`
 		names_ <- ldply(split(tt, row.names(tt)), function(x) {
-			gettaxonomicranknamefromtsn(as.character(x$tsn))[,c("rankId","rankName","tsn")]
+			gettaxonomicranknamefromtsn(as.character(x$tsn))[,c("rankid","rankname","tsn")]
 		})
 		##
 		if (nrow(names_) == 0) {
@@ -67,14 +67,14 @@ itis_downstream <- function(tsns, downto, intermediate = FALSE, ...) {
 		} else {
 		  tt <- merge(tt[,-3], names_[,-1], by = "tsn")
 		  if (intermediate) intermed[[iter]] <- tt
-		  if (nrow(tt[tt$rankId == downto2, ]) > 0) out[[iter]] <- tt[tt$rankId == downto2, ]
-		  if (nrow(tt[!tt$rankId == downto2, ]) > 0) {
-		    notout <- tt[!tt$rankId %in% torank_ids, ]
+		  if (nrow(tt[tt$rankid == downto2, ]) > 0) out[[iter]] <- tt[tt$rankid == downto2, ]
+		  if (nrow(tt[!tt$rankid == downto2, ]) > 0) {
+		    notout <- tt[!tt$rankid %in% torank_ids, ]
 		  } else {
-		    notout <- data.frame(rankName = downto)
+		    notout <- data.frame(rankname = downto)
 		  }
 
-		  if (all(notout$rankName == downto)) {
+		  if (all(notout$rankname == downto)) {
 		    stop_ <- "fam"
 		  } else {
 		    tsns <- notout$tsn

@@ -2,7 +2,7 @@
 % Please edit documentation in R/itis_lsid.R
 \name{itis_lsid}
 \alias{itis_lsid}
-\title{Get kingdom names.}
+\title{Get kingdom names}
 \usage{
 itis_lsid(lsid = NULL, what = "tsn", ...)
 }
@@ -15,7 +15,7 @@ itis_lsid(lsid = NULL, what = "tsn", ...)
 \code{\link{getrecordfromlsid}}, or \code{\link{getfullrecordfromlsid}}}
 }
 \description{
-Get kingdom names.
+Get kingdom names
 }
 \examples{
 \dontrun{

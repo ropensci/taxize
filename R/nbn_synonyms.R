@@ -11,8 +11,7 @@
 #' nbn_synonyms(id = 'NHMSYS0000456036')
 #' }
 
-nbn_synonyms <- function(id, ...)
-{
+nbn_synonyms <- function(id, ...) {
   url <- sprintf("https://data.nbn.org.uk/api/taxa/%s/synonyms", id)
   nbn_GET_2(url, ...)
 }

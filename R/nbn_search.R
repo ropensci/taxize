@@ -27,17 +27,19 @@
 #' nbn_search(q = "blackbird", config = verbose())
 #' }
 nbn_search <- function(q, prefered = FALSE, order = 'asc', sort = NULL, start = 0,
-  rows = 25, taxonOutputGroupKey = NULL, all = FALSE, ...)
-{
+  rows = 25, taxonOutputGroupKey = NULL, all = FALSE, ...) {
+
   url <- "https://data.nbn.org.uk/api/search/taxa"
   args <- tc(list(q = q, prefered = prefered, order = order, sort = sort, start = start,
                               rows = rows, taxonOutputGroupKey = taxonOutputGroupKey))
-  if(all){
+  if (all) {
     args$rows <- 0
     num <- nbn_GET(url, args)$meta$numFound
     args$rows <- num
     nbn_GET(url, args, ...)
-  } else { nbn_GET(url, args, ...) }
+  } else {
+    nbn_GET(url, args, ...)
+  }
 }
 
 nbn_GET <- function(url, args, ...){
@@ -46,5 +48,6 @@ nbn_GET <- function(url, args, ...){
   tt <- content(res, as = "text")
   json <- jsonlite::fromJSON(tt, FALSE)
   dat <- do.call(rbind.fill, lapply(json$results, data.frame, stringsAsFactors = FALSE))
-  list(meta=data.frame(json$header, stringsAsFactors = FALSE), data=dat)
+  if (!is.null(dat)) dat <- nmslwr(dat)
+  list(meta = data.frame(json$header, stringsAsFactors = FALSE), data = dat)
 }

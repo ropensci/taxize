@@ -20,8 +20,7 @@
 #' # You can get a lot of genus or species names if you want
 #' nrow(theplantlist)
 #' names_list('genus', 500)
-names_list <-  function(rank='genus', size=10)
-{
+names_list <-  function(rank='genus', size=10) {
   getsp <- function(size){
     tmp <- apply(theplantlist[sample(1:nrow(theplantlist), size), c('genus','species')], 1,
                  function(y) paste(y, collapse = " "))

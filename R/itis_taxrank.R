@@ -15,19 +15,15 @@
 #'
 #' # A single TSN
 #' itis_taxrank(query=202385)
-#' # without message
-#' itis_taxrank(query=202385, verbose=FALSE)
 #'
 #' # Many TSN's
 #' itis_taxrank(query=c(202385,183833,180543))
 #' }
 
-itis_taxrank <- function(query = NULL, ...)
-{
-  if(is.null(query)){
+itis_taxrank <- function(query = NULL, ...) {
+  if (is.null(query)) {
     getranknames()
-  } else
-  {
-    sapply(query, function(z) as.character(gettaxonomicranknamefromtsn(z, ...)$rankName))
+  } else {
+    sapply(query, function(z) as.character(gettaxonomicranknamefromtsn(z, ...)$rankname))
   }
 }
