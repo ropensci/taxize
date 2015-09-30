@@ -46,7 +46,9 @@ See \code{\link[taxize]{get_uid_}} to get back all, or a subset, of the raw data
 presented during the ask process.}
 
 \item{modifier}{(character) A modifier to the \code{sciname} given. Options include:
-Organism, Scientific Name, Common Name, All Names, and more.}
+Organism, Scientific Name, Common Name, All Names, Division, Filter, Lineage, GC,
+MGC, Name Tokens, Next Level, PGC, Properties, Rank, Subtree, Synonym, Text Word.
+These are not checked, so make sure they are entered correctly, as is.}
 
 \item{rank_query}{(character) A taxonomic rank name to modify the query sent to NCBI.
 See \code{\link{rank_ref}} for possible options. Though note
@@ -95,6 +97,16 @@ the search to the data provider, but are used in filtering the data down to a
 subset that is closer to the target you want. For all these parameters, you can
 use regex strings since we use \code{\link{grep}} internally to match.
 Filtering narrows down to the set that matches your query, and removes the rest.
+}
+
+\section{Beware}{
+
+NCBI does funny things sometimes. E.g., if you search on Fringella morel, a slight
+misspelling of the genus name, and a non-existent epithet, NCBI gives back a morel
+fungal species. In addition, NCBI doesn't really do fuzzy searching very well, so if
+there is a slight mis-spelling in your names, you likely won't get what you are
+expecting. The lesson: clean your names before using this function. Other data
+sources are better about fuzzy matching.
 }
 \examples{
 \dontrun{
