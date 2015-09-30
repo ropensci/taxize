@@ -4,31 +4,10 @@
 \alias{ubio_search}
 \title{This function will return NameBankIDs that match given search terms}
 \usage{
-ubio_search(searchName = NULL, searchAuth = NULL, searchYear = NULL,
-  order = NULL, sci = 1, vern = 1, keyCode = NULL, ...)
+ubio_search(...)
 }
 \arguments{
-\item{searchName}{(character) - term to search within name string}
-
-\item{searchAuth}{(character) - term to search within name authorship}
-
-\item{searchYear}{(character) - term to search within name year}
-
-\item{order}{(character) - (name or namebankID) field by which the results will
-be sorted (default is namebankID)}
-
-\item{sci}{(integer) - O (no) or 1 (yes; default) to include scientific name results
-(default is all)}
-
-\item{vern}{(integer) - O (no) or 1 (yes; default) to include common name (vernacular) results}
-
-\item{keyCode}{(character) Your uBio API key; loads from .Rprofile. If you don't have
-one, obtain one at http://www.ubio.org/index.php?pagename=form.}
-
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
-}
-\value{
-A data.frame.
+\item{...}{Parameters, ignored}
 }
 \description{
 THIS FUNCTION IS DEFUNCT.

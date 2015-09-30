@@ -4,30 +4,10 @@
 \alias{ubio_classification}
 \title{uBio classification}
 \usage{
-ubio_classification(hierarchiesID = NULL, childrenFlag = 0,
-  ancestryFlag = 0, justificationsFlag = 0, synonymsFlag = 0,
-  keyCode = NULL, ...)
+ubio_classification(...)
 }
 \arguments{
-\item{hierarchiesID}{(string) - ClassificationBank identifier for the record you
-wish to receive}
-
-\item{childrenFlag}{(0 or 1) to include the taxon's children taxa}
-
-\item{ancestryFlag}{(0 or 1) to include the taxon's taxonomic ancestry}
-
-\item{justificationsFlag}{(0 or 1) to include the bibliographic references}
-
-\item{synonymsFlag}{(0 or 1) to include the taxon's synonymous taxa}
-
-\item{keyCode}{Your uBio API key; loads from .Rprofile. If you don't have
-one, obtain one at http://www.ubio.org/index.php?pagename=form.}
-
-\item{...}{Parameters passed on to \code{\link[httr]{GET}}}
-}
-\value{
-A list of four data.frame's, one for the name itself, one for synonyms,
-one for vernacular names, and one for citations.
+\item{...}{Parameters, ignored}
 }
 \description{
 THIS FUNCTION IS DEFUNCT.

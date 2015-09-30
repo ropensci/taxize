@@ -26,6 +26,8 @@ avoid certain pitfalls (#436)
 returning data.frame's only.
 * Added some error catching to `get_eolid()` via `tryCatch()` to fail better 
 when names not found.
+* Dropped `openssl` as a package dependency. Not needed anymore because uBio 
+dropped.
 
 ## BUG FIXES
 

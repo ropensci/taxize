@@ -5,24 +5,10 @@
 \title{This function will return ClassificationBankIDs (hierarchiesIDs) that refer to the
 given NamebankID}
 \usage{
-ubio_classification_search(namebankID = NULL, classificationTitleID = NULL,
-  keyCode = NULL, ...)
+ubio_classification_search(...)
 }
 \arguments{
-\item{namebankID}{(charcter) NameBank identifier you wish to search for in
-ClassificationBank}
-
-\item{classificationTitleID}{Include if you only which to search within a
-particular classification}
-
-\item{keyCode}{Your uBio API key; loads from .Rprofile. If you don't have
-one, obtain one at http://www.ubio.org/index.php?pagename=form.}
-
-\item{...}{Parameters passed on to \code{\link[httr]{GET}}}
-}
-\value{
-A data.frame with columns classificationBankID, classificationTitleID, and
-classificationTitle
+\item{...}{Parameters, ignored}
 }
 \description{
 THIS FUNCTION IS DEFUNCT.

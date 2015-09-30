@@ -4,19 +4,10 @@
 \alias{ubio_synonyms}
 \title{Search uBio for taxonomic synonyms by hierarchiesID.}
 \usage{
-ubio_synonyms(hierarchiesID = NULL, keyCode = NULL, ...)
+ubio_synonyms(...)
 }
 \arguments{
-\item{hierarchiesID}{you must include the hierarchiesID (ClassificationBankID)
-to receive the classification synonyms}
-
-\item{keyCode}{Your uBio API key; loads from .Rprofile. If you don't have
-one, obtain one at http://www.ubio.org/index.php?pagename=form.}
-
-\item{...}{Parameters passed on to \code{\link[httr]{GET}}}
-}
-\value{
-A data.frame.
+\item{...}{Parameters, ignored}
 }
 \description{
 THIS FUNCTION IS DEFUNCT.
