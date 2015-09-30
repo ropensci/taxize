@@ -9,7 +9,7 @@ four <- itis_lsid(202385, verbose=FALSE)
 test_that("itis_lsid returns the correct value", {
   expect_that(one, equals(180543))
   expect_that(as.character(two[1,2]), matches("Ursus"))
-  expect_that(three$acceptedNameList$tsn, matches("180543"))
+  expect_that(three$acceptednamelist$tsn, matches("180543"))
   expect_that(four, matches("invalid TSN"))
 })
 

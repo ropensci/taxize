@@ -5,6 +5,6 @@ temp <- suppressMessages(eol_dataobjects(id="d72801627bf4adf1a38d9c5f10cc767f", 
 
 test_that("eol_dataobjects returns the correct class", {
 	expect_is(temp, "list")
-	expect_is(temp$scientificName, "character")
+	expect_is(temp$scientificname, "character")
 	expect_is(temp$identifier, "integer")
 })

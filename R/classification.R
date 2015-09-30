@@ -393,7 +393,7 @@ classification.nbnid <- function(id, callopts = list(), return_id = TRUE, ...) {
       if (is(out, "simpleError")) {
         NA
       } else {
-        out <- out[ , c('name','rank', 'taxonVersionKey')]
+        out <- out[ , c('name','rank', 'taxonversionkey')]
         names(out) <- c('name', 'rank', 'id')
         # Optionally return id of lineage
         if (!return_id) out <- out[, c('name', 'rank')]
