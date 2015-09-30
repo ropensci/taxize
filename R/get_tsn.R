@@ -221,7 +221,7 @@ make_tsn <- function(x, check=TRUE) make_generic(x, 'http://www.itis.gov/servlet
 
 check_tsn <- function(x){
   tt <- suppressMessages(itis_getrecord(x))
-  identical(tt$acceptedNameList[[1]], as.character(x))
+  identical(tt$acceptednamelist[[1]], as.character(x))
 }
 
 #' @export

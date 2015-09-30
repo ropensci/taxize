@@ -315,14 +315,8 @@ upstream("Pinus contorta", db = 'itis', upto = 'Genus', verbose=FALSE)
 ```r
 synonyms("Acer drummondii", db="itis")
 #> $`Acer drummondii`
-#>   sub_tsn                    acc_name acc_tsn                    syn_name
-#> 1  183671 Acer rubrum var. drummondii  526853 Acer rubrum ssp. drummondii
-#> 2  183671 Acer rubrum var. drummondii  526853             Acer drummondii
-#> 3  183671 Acer rubrum var. drummondii  526853          Rufacer drummondii
-#>   syn_tsn
-#> 1   28730
-#> 2  183671
-#> 3  183672
+#>   sub_tsn                    acc_name acc_tsn       message
+#> 1  183671 Acer rubrum var. drummondii  526853 no syns found
 ```
 
 ### Get taxonomic IDs from many sources
@@ -380,13 +374,13 @@ Furthermore, you can just back all ids if that's your jam with the `get_*_()` fu
 get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn', rows=1:3)
 #> $nbn
 #> $nbn$`Chironomus riparius`
-#>   ptaxonVersionKey    searchMatchTitle    rank  nameStatus
+#>   ptaxonversionkey    searchmatchtitle    rank  namestatus
 #> 1 NBNSYS0000027573 Chironomus riparius Species Recommended
-#> 2 NHMSYS0001718042   Elaphrus riparius Species Recommended
-#> 3 NBNSYS0000023345   Paederus riparius Species Recommended
+#> 2 NBNSYS0000023345   Paederus riparius Species Recommended
+#> 3 NHMSYS0001719942    Quedius riparius Species Recommended
 #> 
 #> $nbn$`Pinus contorta`
-#>   ptaxonVersionKey               searchMatchTitle       rank  nameStatus
+#>   ptaxonversionkey               searchmatchtitle       rank  namestatus
 #> 1 NHMSYS0000494848   Pinus contorta var. contorta    Variety Recommended
 #> 2 NBNSYS0000004786                 Pinus contorta    Species Recommended
 #> 3 NHMSYS0000494848 Pinus contorta subsp. contorta Subspecies Recommended
@@ -412,10 +406,7 @@ sci2comm('Helianthus annuus', db = 'itis')
 ```r
 comm2sci("black bear", db = "itis")
 #> $`black bear`
-#> [1] "Ursus thibetanus"            "Ursus thibetanus"           
-#> [3] "Ursus americanus luteolus"   "Ursus americanus"           
-#> [5] "Ursus americanus"            "Ursus americanus americanus"
-#> [7] "Chiropotes satanas"
+#> character(0)
 ```
 
 ### Coerce codes to taxonomic id classes

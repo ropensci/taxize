@@ -1,4 +1,4 @@
-taxize 0.6.4
+taxize 0.6.6
 ===============
 
 ## MINOR IMPROVEMENTS
@@ -8,11 +8,24 @@ to better match what it actually does (#451)
 * `gnr_resolve()` now returns a single data.frame in output, or `NULL` 
 when no data found. The input taxa that have no match at all are returned in
 an attribute with name `not_known` (#448)
-* updated functions work with to R >3.2.x
+* updated some functions to work with to R >3.2.x
+* In `vascan_search()` changed `callopts` parameter to `...` to pass in curl
+options to the request. 
 * In `ipni_search()` changed `callopts` parameter to `...` to pass in curl
 options to the request. In addition, better http error handling, and 
 added a test suite for this function. (#458)
 * `stringsAsFactors=FALSE` now used for `gibf_parse()` (https://github.com/ropensci/taxize/commit/c0c4175d3a0b24d403f18c057258b67d3fbf17f0)
+* Made nearly all column headers and list names lowercase to simplify
+indexing to elements, as well as combining outputs. (#462)
+* Plantminer API updated to use a new API. Option to search ThePlantList or 
+the Brazilian Flora Checklist (#464)
+* Added more details to the documentation for `get_uid()` to make more clear
+how to use the varoious parameters to get the desired result, and how to 
+avoid certain pitfalls (#436)
+* Removed the parameter `asdf` from the function `eol_dataobjects()` - now 
+returning data.frame's only.
+* Added some error catching to `get_eolid()` via `tryCatch()` to fail better 
+when names not found.
 
 ## BUG FIXES
 
@@ -26,6 +39,7 @@ in use of `downstream()`, `itis_downstream()`, and `gethierarchydownfromtsn()` (
 
 * `gnr_resolve()` gains new parameter `with_canonical_ranks` (logical) to choose
 whether infraspecific ranks are returned or not. 
+* New function `iucn_id()` to get the IUCN ID for a taxon from it's name. (#431)
 
 ## DEFUNCT
 
@@ -36,7 +50,7 @@ that are defunct are: `ubio_classification()`, `ubio_classification_search()`,
 `ubio_id()`, `ubio_search()`, `ubio_synonyms()`, `get_ubioid()`, `ubio_ping()`. 
 In addition, ubio has been removed as an option in the `synonyms()` function,
 and references for uBio have been removed from the `taxize_cite()` utility
-function.
+function. (#449)
 
 taxize 0.6.2
 ===============
