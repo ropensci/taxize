@@ -124,7 +124,7 @@ In addition, in case you don't want to do interactive name selection in the case
 
 ```{r}
 out <- get_nbnid_("Poa annua")
-NROW(out)
+NROW(out$`Poa annua`)
 ```
 
 That's a lot of data, so we can get only certain rows back

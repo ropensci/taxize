@@ -196,11 +196,13 @@ get_uid(sciname = "Pinus")
 ```
 
 ```
-#> [1] NA
+#> [1] "139271"
 #> attr(,"class")
 #> [1] "uid"
 #> attr(,"match")
-#> [1] "not found"
+#> [1] "found"
+#> attr(,"uri")
+#> [1] "http://www.ncbi.nlm.nih.gov/taxonomy/139271"
 ```
 
 In another example, you can pass in a long character vector of taxonomic names (although this one is rather short for demo purposes):
@@ -258,15 +260,15 @@ get_nbnid(c("Zootoca vivipara","Pinus contorta"), rows = 1:3)
 ```
 
 ```
-#>              nbnid                  searchMatchTitle       rank
+#>              nbnid                  searchmatchtitle       rank
 #> 1 NHMSYS0001706186                  Zootoca vivipara    Species
 #> 2 NHMSYS0020784960 Zootoca vivipara subsp. pannonica Subspecies
 #> 3 NHMSYS0001706185                           Zootoca      Genus
-#>    nameStatus
+#>    namestatus
 #> 1 Recommended
 #> 2 Recommended
 #> 3 Recommended
-#>              nbnid               searchMatchTitle       rank  nameStatus
+#>              nbnid               searchmatchtitle       rank  namestatus
 #> 1 NHMSYS0000494848   Pinus contorta var. contorta    Variety Recommended
 #> 2 NBNSYS0000004786                 Pinus contorta    Species Recommended
 #> 3 NHMSYS0000494848 Pinus contorta subsp. contorta Subspecies Recommended
@@ -288,11 +290,11 @@ In addition, in case you don't want to do interactive name selection in the case
 
 ```r
 out <- get_nbnid_("Poa annua")
-NROW(out)
+NROW(out$`Poa annua`)
 ```
 
 ```
-#> [1] 1
+#> [1] 147
 ```
 
 That's a lot of data, so we can get only certain rows back
@@ -304,16 +306,16 @@ get_nbnid_("Poa annua", rows = 1:10)
 
 ```
 #> $`Poa annua`
-#>    ptaxonVersionKey searchMatchTitle    rank   nameStatus
+#>    ptaxonversionkey searchmatchtitle    rank   namestatus
 #> 1  NBNSYS0000002544        Poa annua Species  Recommended
 #> 2  NHMSYS0000461798              Poa   Genus  Recommended
 #> 3  NHMSYS0000461804         Poa laxa Species      Synonym
 #> 4  NHMSYS0021060390           Poales   Order  Recommended
 #> 5  NBNSYS0000002547       Poa alpina Species  Recommended
 #> 6  NBNSYS0000002551       Poa glauca Species  Recommended
-#> 7  NBNSYS0000160753          Poaceae  Family  Recommended
-#> 8  NHMSYS0000461804        Poa minor Species      Synonym
-#> 9  NHMSYS0000456981       Poa rigida Species      Synonym
+#> 7  NBNSYS0000002551       Poa caesia Species      Synonym
+#> 8  NBNSYS0000160753          Poaceae  Family  Recommended
+#> 9  NHMSYS0000461804        Poa minor Species      Synonym
 #> 10 NBNSYS0000002545       Poa exilis Species Undetermined
 ```
 
@@ -326,51 +328,6 @@ For example, adfafd
 
 ```r
 as.gbifid(get_gbifid("Poa annua")) # already a uid, returns the same
-```
-
-```
-#>     gbifid        phylum  order  family          canonicalname       rank
-#> 1  2704179 Magnoliophyta Poales Poaceae              Poa annua    SPECIES
-#> 2  4128735 Magnoliophyta Poales Poaceae   Poa annua raniglumis SUBSPECIES
-#> 3  4128771 Magnoliophyta Poales Poaceae    Poa annua notabilis SUBSPECIES
-#> 4  5947756 Magnoliophyta Poales Poaceae       Poa annua supina SUBSPECIES
-#> 5  6313730 Magnoliophyta Poales Poaceae       Poa annua exilis SUBSPECIES
-#> 6  6313731 Magnoliophyta Poales Poaceae        Poa annua varia SUBSPECIES
-#> 7  7262139 Magnoliophyta Poales Poaceae        Poa annua annua SUBSPECIES
-#> 8  4128778 Magnoliophyta Poales Poaceae   Poa annua nepalensis    VARIETY
-#> 9  4128785 Magnoliophyta Poales Poaceae    Poa annua eriolepis    VARIETY
-#> 10 4128718 Magnoliophyta Poales Poaceae Poa annua rigidiuscula    VARIETY
-#> 11 4128763 Magnoliophyta Poales Poaceae     Poa annua pilantha    VARIETY
-#> 12 5947757 Magnoliophyta Poales Poaceae        Poa annua varia    VARIETY
-#> 13 5947811 Magnoliophyta Poales Poaceae      Poa annua sericea    VARIETY
-#> 14 5947873 Magnoliophyta Poales Poaceae   Poa annua hypsophila    VARIETY
-#> 15 2704180 Magnoliophyta Poales Poaceae     Poa annua aquatica    VARIETY
-#> 16 5947510 Magnoliophyta Poales Poaceae      Poa annua stricta    VARIETY
-#> 17 5947556 Magnoliophyta Poales Poaceae  Poa annua sikkimensis    VARIETY
-#> 18 5947582 Magnoliophyta Poales Poaceae       Poa annua exilis    VARIETY
-#> 19 5947583 Magnoliophyta Poales Poaceae    Poa annua maroccana    VARIETY
-#> 20 5947584 Magnoliophyta Poales Poaceae  Poa annua remotiflora    VARIETY
-#>         class
-#> 1  Liliopsida
-#> 2  Liliopsida
-#> 3  Liliopsida
-#> 4  Liliopsida
-#> 5  Liliopsida
-#> 6  Liliopsida
-#> 7  Liliopsida
-#> 8  Liliopsida
-#> 9  Liliopsida
-#> 10 Liliopsida
-#> 11 Liliopsida
-#> 12 Liliopsida
-#> 13 Liliopsida
-#> 14 Liliopsida
-#> 15 Liliopsida
-#> 16 Liliopsida
-#> 17 Liliopsida
-#> 18 Liliopsida
-#> 19 Liliopsida
-#> 20 Liliopsida
 ```
 
 ```
@@ -436,7 +393,7 @@ system.time( replicate(3, as.gbifid(c("2704179","2435099","3171445"), check=TRUE
 
 ```
 #>    user  system elapsed 
-#>   0.171   0.005   1.888
+#>   0.117   0.003   1.753
 ```
 
 ```r

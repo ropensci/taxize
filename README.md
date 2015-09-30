@@ -104,12 +104,6 @@ Note that a few data sources require SOAP web services, which are difficult to s
 	<td style="text-align:left;">none</td>
 </tr>
 <tr>
-	<td style="text-align:left;">Global Invasive Species Database</td>
-	<td style="text-align:left;"><code>gisd</code></td>
-	<td style="text-align:left;">***</td>
-	<td style="text-align:left;">none</td>
-</tr>
-<tr>
 	<td style="text-align:left;">National Center for Biotechnology Information</td>
 	<td style="text-align:left;"><code>ncbi</code></td>
 	<td style="text-align:left;">none</td>
@@ -406,10 +400,10 @@ sci2comm('Helianthus annuus', db = 'itis')
 ```r
 comm2sci("black bear", db = "itis")
 #> $`black bear`
-#> [1] "Ursus thibetanus"            "Ursus thibetanus"           
-#> [3] "Ursus americanus luteolus"   "Ursus americanus americanus"
-#> [5] "Ursus americanus"            "Ursus americanus"           
-#> [7] "Chiropotes satanas"
+#> [1] "Ursus americanus luteolus"   "Ursus americanus americanus"
+#> [3] "Ursus americanus"            "Ursus americanus"           
+#> [5] "Chiropotes satanas"          "Ursus thibetanus"           
+#> [7] "Ursus thibetanus"
 ```
 
 ### Coerce codes to taxonomic id classes

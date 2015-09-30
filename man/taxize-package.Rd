@@ -40,7 +40,6 @@ IUCN Red List \tab iucn \tab FALSE \cr
 Tropicos (from Missouri Botanical Garden) \tab tp \tab FALSE \cr
 Theplantlist.org \tab tpl \tab FALSE \cr
 Catalogue of Life \tab col \tab FALSE \cr
-Global Invasive Species Database \tab gisd \tab FALSE \cr
 National Center for Biotechnology Information \tab ncbi \tab FALSE \cr
 CANADENSYS Vascan name search API \tab vascan \tab FALSE \cr
 International Plant Names Index (IPNI) \tab ipni \tab FALSE \cr
