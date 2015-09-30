@@ -78,8 +78,7 @@ iucn_summary <- function(sciname, silent = TRUE, parallel = FALSE, ...)
   }
   if(parallel){
     out <- llply(sciname, fun, .parallel = TRUE)
-  } else
-  {
+  } else {
     out <- llply(sciname, fun)
   }
 
