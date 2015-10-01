@@ -17,4 +17,3 @@ cran-comments.md
 ^\.httr-oauth$
 NEWS.md
 ^CONDUCT\.md$
-tests/test-all.R
