@@ -7,10 +7,11 @@
 gnr_resolve(names, data_source_ids = NULL, resolve_once = FALSE,
   with_context = FALSE, canonical = FALSE, highestscore = TRUE,
   best_match_only = FALSE, preferred_data_sources = NULL,
-  with_canonical_ranks = FALSE, http = "get", ...)
+  with_canonical_ranks = FALSE, http = "get", cap_first = TRUE, ...)
 }
 \arguments{
-\item{names}{character; taxonomic names to be resolved. Doesn't work for verncular/common names.}
+\item{names}{character; taxonomic names to be resolved. Doesn't work for
+vernacular/common names.}
 
 \item{data_source_ids}{character; IDs to specify what data source
 is searched. See \code{\link[taxize]{gnr_datasources}}.}
@@ -44,6 +45,12 @@ have no effect. Default: \code{FALSE}}
 \item{http}{The HTTP method to use, one of "get" or "post". Default: "get".
 Use \code{http="post"} with large queries. Queries with > 300 records use "post"
 automatically because "get" would fail}
+
+\item{cap_first}{(logical) For each name, fix so that the first name part is
+capitalized, while others are not. This web service is sensitive to capitalization, so
+you'll get different results depending on capitalization. First name capitalized is
+likely what you'll want and is the default. If \code{FALSE}, names are not modified.
+Default: \code{TRUE}}
 
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }

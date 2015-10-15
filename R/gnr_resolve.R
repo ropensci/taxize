@@ -2,7 +2,8 @@
 #'
 #' Uses the Global Names Index, see \url{http://gni.globalnames.org/}.
 #'
-#' @param names character; taxonomic names to be resolved. Doesn't work for verncular/common names.
+#' @param names character; taxonomic names to be resolved. Doesn't work for
+#' vernacular/common names.
 #' @param data_source_ids character; IDs to specify what data source
 #'     is searched. See \code{\link[taxize]{gnr_datasources}}.
 #' @param resolve_once logical; Find the first available match instead of
@@ -28,6 +29,12 @@
 #'    Use \code{http="post"} with large queries. Queries with > 300 records use "post"
 #'    automatically because "get" would fail
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' @param cap_first (logical) For each name, fix so that the first name part is
+#' capitalized, while others are not. This web service is sensitive to capitalization, so
+#' you'll get different results depending on capitalization. First name capitalized is
+#' likely what you'll want and is the default. If \code{FALSE}, names are not modified.
+#' Default: \code{TRUE}
+#'
 #' @author Scott Chamberlain {myrmecocystus@@gmail.com}
 #' @return A data.frame with one attribute \code{not_known}: a character vector of
 #' taxa unknown to the Global Names Index. Acccess like \code{attr(output, "not_known")},
@@ -70,11 +77,13 @@
 
 gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
   with_context = FALSE, canonical = FALSE, highestscore = TRUE, best_match_only = FALSE,
-  preferred_data_sources = NULL, with_canonical_ranks = FALSE, http = "get", ...) {
+  preferred_data_sources = NULL, with_canonical_ranks = FALSE, http = "get",
+  cap_first = TRUE, ...) {
 
   http <- match.arg(http, c("get", "post"))
   num = NULL
   url <- "http://resolver.globalnames.org/name_resolvers.json"
+  if (cap_first) names <- taxize_capwords(names, onlyfirst = TRUE)
   names2 <- paste0(names, collapse = "|")
   if (length(names) > 300 && http == "get") http <- "post"
 
