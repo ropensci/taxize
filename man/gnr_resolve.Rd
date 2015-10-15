@@ -7,7 +7,8 @@
 gnr_resolve(names, data_source_ids = NULL, resolve_once = FALSE,
   with_context = FALSE, canonical = FALSE, highestscore = TRUE,
   best_match_only = FALSE, preferred_data_sources = NULL,
-  with_canonical_ranks = FALSE, http = "get", cap_first = TRUE, ...)
+  with_canonical_ranks = FALSE, http = "get", cap_first = TRUE,
+  fields = "minimal", ...)
 }
 \arguments{
 \item{names}{character; taxonomic names to be resolved. Doesn't work for
@@ -51,6 +52,9 @@ capitalized, while others are not. This web service is sensitive to capitalizati
 you'll get different results depending on capitalization. First name capitalized is
 likely what you'll want and is the default. If \code{FALSE}, names are not modified.
 Default: \code{TRUE}}
+
+\item{fields}{(character) One of mimimal (default) or all. Minimal gives back just four
+fields, whereas all gives all fields back.}
 
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }

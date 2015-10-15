@@ -11,8 +11,8 @@ iucn_id(sciname)
 format \emph{<Genus> <Species>}. One or more.}
 }
 \value{
-A vector of one or more numeric IDs. Warnings are thrown
-when the taxon is not found
+A named list (names are input taxa names) of one or more IUCN IDs.
+Taxa that aren't found are silently dropped.
 }
 \description{
 Get an ID for a IUCN listed taxon

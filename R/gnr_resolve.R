@@ -34,6 +34,8 @@
 #' you'll get different results depending on capitalization. First name capitalized is
 #' likely what you'll want and is the default. If \code{FALSE}, names are not modified.
 #' Default: \code{TRUE}
+#' @param fields (character) One of mimimal (default) or all. Minimal gives back just four
+#' fields, whereas all gives all fields back.
 #'
 #' @author Scott Chamberlain {myrmecocystus@@gmail.com}
 #' @return A data.frame with one attribute \code{not_known}: a character vector of
@@ -78,8 +80,9 @@
 gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
   with_context = FALSE, canonical = FALSE, highestscore = TRUE, best_match_only = FALSE,
   preferred_data_sources = NULL, with_canonical_ranks = FALSE, http = "get",
-  cap_first = TRUE, ...) {
+  cap_first = TRUE, fields = "minimal", ...) {
 
+  fields <- match.arg(fields, c("minimal", "all"))
   http <- match.arg(http, c("get", "post"))
   num = NULL
   url <- "http://resolver.globalnames.org/name_resolvers.json"
@@ -126,7 +129,11 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
     lapply(dat, function(y) {
       if (!is.null(unlist(y$results))) {
         res <- lapply(y$results, function(x) {
-          take <- x[c("name_string", "data_source_title","score", "canonical_form")]
+          take_fields <- switch(fields,
+            minimal = c("name_string", "data_source_title","score", "canonical_form"),
+            all = names(x)
+          )
+          take <- x[take_fields]
           take[sapply(take, is.null)] <- NA
           return(data.frame(take, stringsAsFactors = FALSE))
         })
