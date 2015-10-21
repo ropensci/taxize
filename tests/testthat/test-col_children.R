@@ -21,7 +21,6 @@ test_that("col_children returns the correct class", {
 	# expect_that(temp12, "list"))
   expect_is(temp4$Animalia, "data.frame")
   expect_is(temp5$Plantae, "data.frame")
-  expect_is(temp6$Salicaceae, "data.frame")
   expect_is(temp11$`Accipiter striatus`, "data.frame")
   expect_is(temp13$`2346405`, "data.frame")
 })

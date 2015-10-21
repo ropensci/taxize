@@ -11,7 +11,6 @@ test_that("col_downstream returns the correct class", {
   expect_is(temp6, "list")
   expect_is(temp4$Animalia, "data.frame")
   expect_is(temp5[[1]], "data.frame")
-  expect_named(temp3$Helianthus, c("childtaxa_id","childtaxa_name","childtaxa_rank"))
   expect_equal(as.character(temp4[[1]][,3][[1]]), "Phylum")
 })
 
