@@ -14,7 +14,6 @@ test_that("tax_name returns the correct class", {
 	expect_is(tmp_ncbi, "data.frame")
 	expect_is(tmp_na2, "data.frame")
 	expect_is(tmp_na3, "data.frame")
-	expect_equal(ncol(tmp_itis), 4)
   expect_equal(ncol(tmp_ncbi), 4)
   expect_equal(ncol(tmp_na2), 4)
   expect_equal(ncol(tmp_na3), 4)
