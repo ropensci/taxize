@@ -13,12 +13,23 @@ iucn_getname(name, verbose = TRUE, ...)
 
 \item{...}{Further arguments passed on to \code{link{iucn_summary}}}
 }
+\value{
+Character vector of names that matched in IUCN
+}
 \description{
 Get any matching IUCN species names
 }
 \examples{
 \dontrun{
 iucn_getname(name = "Cyanistes caeruleus")
+iucn_getname(name = "Panthera uncia")
+iucn_getname(name = "Abies")
+
+# not found in global names
+# iucn_getname(name = "Abronia pinsapo")
+
+# not found in IUCN search
+# iucn_getname(name = "Acacia allenii")
 }
 }
 \seealso{

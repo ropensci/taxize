@@ -22,6 +22,6 @@
 #' iucn_id("Foo bar")
 #' }
 iucn_id <- function(sciname) {
-  res <- gnr_resolve(sciname, data_source_ids = 163, fields = "all")
-  as.list(setNames(res$taxon_id, res$submitted_name))
+  res <- gnr_resolve(sciname, data_source_ids = 175, fields = "all")
+  as.list(setNames(res$local_id, res$submitted_name))
 }
