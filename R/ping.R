@@ -152,6 +152,17 @@ vascan_ping <- function(what = "status", ...) {
   )
 }
 
+#' @export
+#' @rdname ping
+fg_ping <- function(what = "status", ...) {
+  res <- GET("http://www.indexfungorum.org/ixfwebservice/fungus.asmx/NameFullByKey?NameLsid=urn:lsid:indexfungorum.org:names:17703", ...)
+  switch(matchwhat(what),
+         status = match_status(res),
+         code = match_code(res, what),
+         content = grepl("Gymnopus", xmlToList(content(res)), ignore.case = TRUE)
+  )
+}
+
 
 matchwhat <- function(x){
   x <- as.character(x)

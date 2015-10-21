@@ -4,6 +4,7 @@
 \alias{bold_ping}
 \alias{col_ping}
 \alias{eol_ping}
+\alias{fg_ping}
 \alias{gbif_ping}
 \alias{ipni_ping}
 \alias{itis_ping}
@@ -33,6 +34,8 @@ bold_ping(what = "status", ...)
 ipni_ping(what = "status", ...)
 
 vascan_ping(what = "status", ...)
+
+fg_ping(what = "status", ...)
 }
 \arguments{
 \item{what}{(character) One of status (default), content, or an HTTP status code. If status,
