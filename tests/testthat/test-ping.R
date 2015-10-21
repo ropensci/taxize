@@ -1,13 +1,6 @@
 # tests for eol_ping fxn in taxize
 context("ping")
 
-test_that("col_ping returns the correct value", {
-  expect_true(col_ping())
-  expect_false(col_ping(503))
-  expect_true(col_ping("content"))
-})
-
-
 test_that("ncbi_ping returns the correct value", {
   expect_true(ncbi_ping())
   expect_false(ncbi_ping(503))

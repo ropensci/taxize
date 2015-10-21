@@ -114,7 +114,8 @@ test_that("passing in an id works", {
 test_that("rbind and cbind work correctly", {
   skip_on_cran()
 
-  out <- get_ids(names = c("Puma concolor","Accipiter striatus"), db = c('ncbi','itis'))
+  out <- get_ids(names = c("Puma concolor","Accipiter striatus"),
+                 db = c('ncbi','itis'), verbose=FALSE)
   cl <- classification(out)
 
   # rbind
@@ -134,8 +135,4 @@ nn <- apply(df, 1, function(x) paste(x["genus"], x["sp"], collapse = " "))
 test_that("works on a variety of names", {
 	expect_that(classification(nn[1], db = "ncbi", verbose=FALSE), is_a("classification"))
 	expect_that(classification(nn[2], db = "ncbi", verbose=FALSE), is_a("classification"))
-	expect_that(classification(nn[3], db = "ncbi", verbose=FALSE), is_a("classification"))
-	expect_that(classification(nn[4], db = "ncbi", verbose=FALSE), is_a("classification"))
-	expect_that(classification(nn[5], db = "ncbi", verbose=FALSE), is_a("classification"))
-	expect_that(classification(nn[6], db = "ncbi", verbose=FALSE), is_a("classification"))
 })

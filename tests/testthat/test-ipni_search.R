@@ -3,11 +3,9 @@ context("ipni_search")
 test_that("ipni_search works", {
   aa <- ipni_search(genus = 'Brintonia', isapnirecord = TRUE,
                     isgcirecord = TRUE, isikrecord = TRUE)
-  bb <- ipni_search(genus = 'Ceanothus')
   cc <- ipni_search(genus = 'Pinus', species = 'contorta')
 
   expect_is(aa, "data.frame")
-  expect_is(bb, "data.frame")
   expect_is(cc, "data.frame")
   expect_is(aa$id, "character")
   expect_is(aa$family, "character")
@@ -17,10 +15,10 @@ test_that("ipni_search works", {
 })
 
 test_that("ipni_search works with different output formats", {
-  aa <- ipni_search(genus = 'Ceanothus')
-  bb <- ipni_search(genus = 'Ceanothus', output = 'short')
-  cc <- ipni_search(genus = 'Ceanothus', output = 'classic')
-  dd <- ipni_search(genus = 'Ceanothus', output = 'extended')
+  aa <- ipni_search(genus = 'Brintonia')
+  bb <- ipni_search(genus = 'Brintonia', output = 'short')
+  cc <- ipni_search(genus = 'Brintonia', output = 'classic')
+  dd <- ipni_search(genus = 'Brintonia', output = 'extended')
 
   expect_is(aa, "data.frame")
   expect_is(bb, "data.frame")
