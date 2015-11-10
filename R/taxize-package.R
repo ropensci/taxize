@@ -1,9 +1,13 @@
-#' @title Taxnomic search and phylogeny retrieval.
+#' @title Taxonomic Information from Around the Web
+#'
+#' @description This package interacts with a suite of web 'APIs'
+#' for taxonomic tasks, such as verifying species names, getting
+#' taxonomic hierarchies, and verifying name spelling.
 #'
 #' @section About:
-#' We are developing taxize as a package to allow users to search over many
-#' websites for species names (scientific and common) and download up- and
-#' downstream taxonomic hierarchical information - and many other things.
+#' Allows users to search over many websites for species names (scientific and
+#' common) and download up- and downstream taxonomic hierarchical information -
+#' and many other things.
 #'
 #' The functions in the package that hit a specific API have a prefix and suffix
 #' separated by an underscore. They follow the format of \code{service_whatitdoes}.

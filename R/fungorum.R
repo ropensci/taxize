@@ -1,4 +1,6 @@
-#' @title Search for taxonomic names in Index Fungorum
+#' @title Index Fungorum
+#'
+#' @description Search for taxonomic names in Index Fungorum
 #'
 #' @name fungorum
 #' @param q (character) Query term
