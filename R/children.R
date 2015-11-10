@@ -5,7 +5,6 @@
 #' taxonomic rank, e.g., getting all species in a family.
 #'
 #' @export
-#'
 #' @param x Vector of taxa names (character) or IDs (character or numeric) to query.
 #' @param db character; database to query. One or more of \code{itis}, \code{col}, or \code{ncbi}.
 #' @param rows (numeric) Any number from 1 to inifity. If the default NA, all rows are

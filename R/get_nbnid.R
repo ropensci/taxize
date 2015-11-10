@@ -1,7 +1,6 @@
 #' Get the UK National Biodiversity Network ID from taxonomic names.
 #'
 #' @export
-#'
 #' @param name character; scientific name.
 #' @param ask logical; should get_nbnid be run in interactive mode?
 #' If TRUE and more than one ID is found for the species, the user is asked for

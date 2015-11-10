@@ -1,7 +1,6 @@
 #' Search the CANADENSYS Vascan API.
 #'
 #' @export
-#'
 #' @param q (character) Can be a scientific name, a vernacular name or a VASCAN
 #'    taxon identifier (e.g. 861)
 #' @param format (character) One of json (default) or xml.

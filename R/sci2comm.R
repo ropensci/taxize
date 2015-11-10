@@ -1,7 +1,6 @@
 #' Get common names from scientific names.
 #'
 #' @export
-#'
 #' @param scinames character; One or more scientific names or partial names.
 #' @param db character; Data source, one of \emph{"eol"} (default), \emph{"itis"}
 #'   or \emph{"ncbi"}.

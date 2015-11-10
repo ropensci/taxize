@@ -3,7 +3,6 @@
 #' THIS FUNCTION IS DEFUNCT.
 #'
 #' @export
-#'
 #' @param x character; a vector of scientific species names in the form of
 #'    c("Genus species").
 #' @param simplify logical; returns a data.frame with the species name and the

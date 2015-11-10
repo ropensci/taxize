@@ -1,7 +1,6 @@
 #' Search UK National Biodiversity Network database
 #'
 #' @export
-#'
 #' @param q (character) The query terms(s)
 #' @param prefered (logical) Restrict search to preferred or any
 #' @param order (character) The order in which we should sort the results. Default: asc

@@ -1,7 +1,6 @@
 #' Search Tropicos by scientific name, common name, or Tropicos ID.
 #'
 #' @export
-#'
 #' @param name Your search string. For instance "poa annua"
 #' @param commonname Your search string. For instance "annual blue grass"
 #' @param nameid Your search string. For instance "25509881"

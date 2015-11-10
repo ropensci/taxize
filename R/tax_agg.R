@@ -1,5 +1,6 @@
 #' Aggregate species data to given taxonomic rank
 #'
+#' @export
 #' @param x Community data matrix. Taxa in columns, samples in rows.
 #' @param rank character; Taxonomic rank to aggregate by.
 #' @param db character; taxonomic API to use, 'ncbi, 'itis' or both, see
@@ -17,8 +18,6 @@
 #' \item{by}{A lookup-table showing which taxa were aggregated.}
 #' \item{n_pre}{Number of taxa before aggregation.}
 #' \item{rank}{Rank at which taxa have been aggregated.}
-#'
-#' @export
 #'
 #' @seealso \code{\link[taxize]{tax_name}}
 #' @examples \dontrun{

@@ -1,7 +1,6 @@
 #' Return all reference records for for a taxon name with a given id.
 #'
 #' @export
-#'
 #' @param id the taxon identifier code
 #' @param key Your Tropicos API key; loads from .Rprofile.
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}

@@ -1,7 +1,6 @@
 #' Query Phylomatic for a phylogenetic tree.
 #'
 #' @export
-#'
 #' @param taxa Phylomatic format input of taxa names.
 #' @param taxnames If true, we get the family names for you to attach to your
 #'    species names to send to Phylomatic API. If FALSE, you have to provide the
