@@ -22,7 +22,7 @@ LazyData: yes
 VignetteBuilder: knitr
 Roxygen: list(wrap = FALSE)
 Depends:
-    R(>= 2.10.0)
+    R(>= 3.2.1)
 Imports:
     graphics,
     methods,
@@ -43,3 +43,4 @@ Suggests:
     roxygen2,
     knitr,
     vegan
+RoxygenNote: 5.0.0
