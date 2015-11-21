@@ -26,7 +26,6 @@
 #' Encyclopedia of Life (EOL)  \tab eol \tab FALSE \cr
 #' Taxonomic Name Resolution Service \tab tnrs \tab FALSE \cr
 #' Integrated Taxonomic Information Service (ITIS)  \tab itis \tab FALSE \cr
-#' Phylomatic \tab phylomatic \tab FALSE \cr
 #' Global Names Resolver (from EOL/GBIF) \tab gnr \tab FALSE \cr
 #' Global Names Index (from EOL/GBIF) \tab gni \tab FALSE \cr
 #' IUCN Red List \tab iucn \tab FALSE \cr
@@ -86,10 +85,9 @@ NULL
 #' Lookup-table for family, genus, and species names for ThePlantList
 #'
 #' These names are from \url{http://www.theplantlist.org/}, and are from
-#' version 1.1 of their data. This data is used in the functions
-#' \code{\link{phylomatic_format}} and \code{\link{names_list}}. This
-#' is a randomly selected subset of the ~350K accepted species names
-#' in Theplantlist.
+#' version 1.1 of their data. This data is used in the function
+#' \code{\link{names_list}}. This is a randomly selected subset of the ~350K
+#' accepted species names in Theplantlist.
 #'
 #' @format A data frame with 10,000 rows and 3 variables:
 #' \describe{
@@ -169,19 +167,6 @@ NULL
 #' @keywords data
 NULL
 
-#' Deprecated functions in taxize
-#'
-#' The following functions are now deprecated:
-#'
-#' \itemize{
-#'  \item \code{\link{phylomatic_tree}}: This function is deprecated and will be removed
-#'  in a future version of this package. Use this same function in another package called
-#'  \code{branching} (see \url{https://github.com/ropensci/branching}).
-#' }
-#'
-#' @name taxize-deprecated
-NULL
-
 #' Defunct functions in taxize
 #'
 #' The following functions are now defunct (no longer available):
@@ -207,6 +192,10 @@ NULL
 #'  \item \code{\link{ubio_search}}: The uBio web services are apparently down indefinitely.
 #'  \item \code{\link{ubio_synonyms}}: The uBio web services are apparently down indefinitely.
 #'  \item \code{\link{get_ubioid}}: The uBio web services are apparently down indefinitely.
+#'  \item \code{\link{phylomatic_tree}}: This function is defunct. See
+#'  \code{\link[brranching]{phylomatic}}
+#'  \item \code{\link{phylomatic_format}}: This function is defunct. See
+#'  \code{\link[brranching]{phylomatic_names}}
 #' }
 #'
 #' @name taxize-defunct

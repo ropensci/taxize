@@ -69,12 +69,6 @@ Note that a few data sources require SOAP web services, which are difficult to s
 	<td style="text-align:left;">none</td>
 </tr>
 <tr>
-	<td style="text-align:left;">Phylomatic</td>
-	<td style="text-align:left;"><code>phylomatic</code></td>
-	<td style="text-align:left;"><a href="http://phylodiversity.net/phylomatic/html/documentation.html">link</a></td>
-	<td style="text-align:left;">none</td>
-</tr>
-<tr>
 	<td style="text-align:left;">Global Names Resolver</td>
 	<td style="text-align:left;"><code>gnr</code></td>
 	<td style="text-align:left;"><a href="http://resolver.globalnames.org/api">link</a></td>

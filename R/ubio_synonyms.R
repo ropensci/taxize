@@ -6,5 +6,5 @@
 #' @export
 #' @param ... Parameters, ignored
 ubio_synonyms <- function(...) {
-  .Defunct(msg = "the uBio API is down, for good as far as we know")
+  .Defunct(msg = "the uBio API is down, for good as far as we know, see `?taxize-defunct`")
 }

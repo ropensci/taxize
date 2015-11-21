@@ -199,8 +199,6 @@ data_citations <- function(x){
     ncbi_getbyname = list(genbank = c_genbank),
     ncbi_ping = list(ncbi = c_ncbi),
     ncbi_search = list(genbank = c_genbank),
-    phylomatic_format = list(phylomatic = c_phylomatic),
-    phylomatic_tree = list(phylomatic = c_phylomatic),
     plantminer = list(plantminer = c_plantminer),
     rankagg = list(none = c_none),
     rbind.classification = list(none = c_none),
@@ -254,8 +252,6 @@ c_vascan <- list(url_home = "http://data.canadensys.net/explorer/en/search", api
                  citation = "Brouillet, L., F. Coursol, S.J. Meades, M. Favreau, M. Anions, P. Belisle & P. Desmet. 2010+. VASCAN, the Database of Vascular Plants of Canada. http://data.canadensys.net/vascan/ (consulted on <date>)")
 c_plantminer <- list(url_home = "http://www.plantminer.com/", apidocs = "http://www.plantminer.com/help",
                      citation = 'See The Plant List or Tropicos citations')
-c_phylomatic <- list(url_home = "http://phylodiversity.net/phylomatic/", apidocs = NULL,
-                     citation = "Webb CO, Donoghue MJ (2005) Phylomatic: Tree assembly for applied phylogenetics. Mol. Ecol. Notes 5:181-183.")
 c_nbn <- list(url_home = "http://www.nbn.org.uk/", apidocs = "https://data.nbn.org.uk/Documentation/Web_Services/",
               citation = NULL)
 c_ncbi <- list(url_home = "http://www.ncbi.nlm.nih.gov/taxonomy", apidocs = "http://www.ncbi.nlm.nih.gov/books/NBK25501/",

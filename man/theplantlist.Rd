@@ -15,10 +15,9 @@
 }
 \description{
 These names are from \url{http://www.theplantlist.org/}, and are from
-version 1.1 of their data. This data is used in the functions
-\code{\link{phylomatic_format}} and \code{\link{names_list}}. This
-is a randomly selected subset of the ~350K accepted species names
-in Theplantlist.
+version 1.1 of their data. This data is used in the function
+\code{\link{names_list}}. This is a randomly selected subset of the ~350K
+accepted species names in Theplantlist.
 }
 \keyword{data}
 

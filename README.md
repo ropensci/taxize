@@ -62,12 +62,6 @@ Note that a few data sources require SOAP web services, which are difficult to s
 	<td style="text-align:left;">none</td>
 </tr>
 <tr>
-	<td style="text-align:left;">Phylomatic</td>
-	<td style="text-align:left;"><code>phylomatic</code></td>
-	<td style="text-align:left;"><a href="http://phylodiversity.net/phylomatic/html/documentation.html">link</a></td>
-	<td style="text-align:left;">none</td>
-</tr>
-<tr>
 	<td style="text-align:left;">Global Names Resolver</td>
 	<td style="text-align:left;"><code>gnr</code></td>
 	<td style="text-align:left;"><a href="http://resolver.globalnames.org/api">link</a></td>
@@ -370,8 +364,8 @@ get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn', rows=1:3)
 #> $nbn$`Chironomus riparius`
 #>   ptaxonversionkey    searchmatchtitle    rank  namestatus
 #> 1 NBNSYS0000027573 Chironomus riparius Species Recommended
-#> 2 NBNSYS0000023345   Paederus riparius Species Recommended
-#> 3 NHMSYS0001719942    Quedius riparius Species Recommended
+#> 2 NHMSYS0001718042   Elaphrus riparius Species Recommended
+#> 3 NBNSYS0000023345   Paederus riparius Species Recommended
 #> 
 #> $nbn$`Pinus contorta`
 #>   ptaxonversionkey               searchmatchtitle       rank  namestatus
@@ -400,10 +394,10 @@ sci2comm('Helianthus annuus', db = 'itis')
 ```r
 comm2sci("black bear", db = "itis")
 #> $`black bear`
-#> [1] "Ursus americanus luteolus"   "Ursus americanus americanus"
-#> [3] "Ursus americanus"            "Ursus americanus"           
-#> [5] "Chiropotes satanas"          "Ursus thibetanus"           
-#> [7] "Ursus thibetanus"
+#> [1] "Ursus thibetanus"            "Ursus thibetanus"           
+#> [3] "Ursus americanus luteolus"   "Ursus americanus"           
+#> [5] "Ursus americanus"            "Ursus americanus americanus"
+#> [7] "Chiropotes satanas"
 ```
 
 ### Coerce codes to taxonomic id classes
