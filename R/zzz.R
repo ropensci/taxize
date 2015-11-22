@@ -93,7 +93,7 @@ tc <- function (l) Filter(Negate(is.null), l)
 #' either a data.frame (verbose=FALSE, default) or a list (verbose=TRUE)
 
 gbif_name_usage <- function(key=NULL, name=NULL, data='all', language=NULL, datasetKey=NULL, uuid=NULL,
-                       sourceId=NULL, rank=NULL, shortname=NULL, start=NULL, limit=20, callopts=list())
+                       sourceId=NULL, rank=NULL, shortname=NULL, start=NULL, limit=20, ...)
 {
   calls <- names(sapply(match.call(), deparse))[-1]
   calls_vec <- c("sourceId") %in% calls
@@ -131,7 +131,7 @@ gbif_name_usage <- function(key=NULL, name=NULL, data='all', language=NULL, data
             url <- sprintf('http://api.gbif.org/v1/species/root/%s/%s', uuid, shortname)
           }
     }
-    tt <- GET(url, query=args, callopts)
+    tt <- GET(url, query=args, ...)
     stop_for_status(tt)
     stopifnot(tt$headers$`content-type`=='application/json')
     res <- content(tt, as = 'text', encoding = "UTF-8")
