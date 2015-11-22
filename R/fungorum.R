@@ -98,13 +98,19 @@ fung_GET <- function(path, args, ...) {
 fung_parse <- function(x) {
   xml <- xmlParse(x)
   nodes <- getNodeSet(xml, "//IndexFungorum")
-  do.call("rbind.fill", lapply(nodes, function(z) {
+  df <- do.call("rbind.fill", lapply(nodes, function(z) {
     data.frame(tc(xmlToList(z)), stringsAsFactors = FALSE)
   }))
+  if (is(df, "data.frame")) {
+    nms <- gsub("x0020_", "", tolower(names(df)))
+    setNames(df, nms)
+  } else {
+    NULL
+  }
 }
 
 by_name_search <- function(path, q, anywhere, limit, ...) {
   args <- tc(list(SearchText = q, AnywhereInText = as_l(anywhere), MaxNumber = limit))
-  tmp <- fung_GET("NameSearch", args, ...)
+  tmp <- fung_GET(path, args, ...)
   fung_parse(tmp)
 }

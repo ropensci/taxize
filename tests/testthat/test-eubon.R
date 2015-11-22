@@ -1,7 +1,7 @@
 # tests for eubon fxn in taxize
 context("eubon")
 
-test_that("eubon fails well", {
+test_that("eubon works", {
   skip_on_cran()
 
   aa <- eubon("Prionus")
