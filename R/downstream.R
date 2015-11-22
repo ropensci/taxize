@@ -7,7 +7,8 @@
 #' the function.
 #'
 #' @param x Vector of taxa names (character) or IDs (character or numeric) to query.
-#' @param db character; database to query. One or both of \code{itis}, \code{col}.
+#' @param db character; database to query. One or both of \code{itis}, \code{col}, or
+#' \code{gbif}.
 #' @param downto What taxonomic rank to go down to. One of: 'Superkingdom','Kingdom',
 #' 'Subkingdom','Infrakingdom','Phylum','Division','Subphylum','Subdivision','Infradivision',
 #' 'Superclass','Class','Subclass','Infraclass','Superorder','Order','Suborder',
@@ -40,6 +41,8 @@
 #' downstream("Apis", db = 'itis', downto = 'Species')
 #' downstream(c("Apis","Epeoloides"), db = 'itis', downto = 'Species')
 #' downstream(c("Apis","Epeoloides"), db = 'col', downto = 'Species')
+#' downstream("Ursus", db = 'gbif', downto = 'Species')
+#' downstream(get_gbifid("Ursus"), db = 'gbif', downto = 'Species')
 #'
 #' # Plug in IDs
 #' id <- get_colid("Apis")
@@ -57,6 +60,7 @@
 #' sp <- names_list("genus", 3)
 #' downstream(sp, db = 'col', downto = 'Species')
 #' downstream(sp, db = 'itis', downto = 'Species')
+#' downstream(sp, db = 'gbif', downto = 'Species')
 #'
 #' # Both data sources
 #' ids <- get_ids("Apis", db = c('col','itis'))
@@ -82,6 +86,7 @@
 #' # use curl options
 #' res <- downstream("Apis", db = 'col', downto = 'Species', config=verbose())
 #' res <- downstream("Apis", db = 'itis', downto = 'Species', config=verbose())
+#' res <- downstream("Ursus", db = 'gbif', downto = 'Species', config=verbose())
 #' }
 downstream <- function(...){
   UseMethod("downstream")
@@ -101,6 +106,10 @@ downstream.default <- function(x, db = NULL, downto = NULL, intermediate = FALSE
            id <- process_stream_ids(x, db, get_colid, rows = rows, ...)
            setNames(downstream(id, downto = downto, intermediate = intermediate, ...), x)
          },
+         gbif = {
+           id <- process_stream_ids(x, db, get_gbifid, rows = rows, ...)
+           setNames(downstream(id, downto = downto, intermediate = intermediate, ...), x)
+         },
          stop("the provided db value was not recognised", call. = FALSE)
   )
 }
@@ -108,7 +117,7 @@ downstream.default <- function(x, db = NULL, downto = NULL, intermediate = FALSE
 process_stream_ids <- function(input, db, fxn, ...){
   g <- tryCatch(as.numeric(as.character(input)), warning = function(e) e)
   if (is(g, "numeric") || is.character(input) && grepl("[[:digit:]]", input)) {
-    as_fxn <- switch(db, itis = as.tsn, col = as.colid)
+    as_fxn <- switch(db, itis = as.tsn, col = as.colid, gbif = as.gbifid)
     as_fxn(input, check = FALSE)
   } else {
     eval(fxn)(input, ...)
@@ -143,6 +152,21 @@ downstream.colid <- function(x, db = NULL, downto = NULL, intermediate = FALSE, 
   }
   out <- lapply(x, fun, downto = downto, intermediate = intermediate, ...)
   structure(simp(out), class = 'downstream', db = 'col')
+}
+
+#' @export
+#' @rdname downstream
+downstream.gbifid <- function(x, db = NULL, downto = NULL, intermediate = FALSE, ...) {
+  fun <- function(y, downto, intermediate, ...){
+    # return NA if NA is supplied
+    if (is.na(y)) {
+      NA
+    } else {
+      gbif_downstream(key = y, downto = downto, intermediate = intermediate, ...)
+    }
+  }
+  out <- lapply(x, fun, downto = downto, intermediate = intermediate, ...)
+  structure(out, class = 'downstream', db = 'gbif')
 }
 
 #' @export

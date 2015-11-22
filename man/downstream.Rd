@@ -4,6 +4,7 @@
 \alias{downstream}
 \alias{downstream.colid}
 \alias{downstream.default}
+\alias{downstream.gbifid}
 \alias{downstream.ids}
 \alias{downstream.tsn}
 \title{Retrieve the downstream taxa for a given taxon name or ID.}
@@ -19,6 +20,9 @@ downstream(...)
 \method{downstream}{colid}(x, db = NULL, downto = NULL,
   intermediate = FALSE, ...)
 
+\method{downstream}{gbifid}(x, db = NULL, downto = NULL,
+  intermediate = FALSE, ...)
+
 \method{downstream}{ids}(x, db = NULL, downto = NULL,
   intermediate = FALSE, ...)
 }
@@ -27,7 +31,8 @@ downstream(...)
 
 \item{x}{Vector of taxa names (character) or IDs (character or numeric) to query.}
 
-\item{db}{character; database to query. One or both of \code{itis}, \code{col}.}
+\item{db}{character; database to query. One or both of \code{itis}, \code{col}, or
+\code{gbif}.}
 
 \item{downto}{What taxonomic rank to go down to. One of: 'Superkingdom','Kingdom',
 'Subkingdom','Infrakingdom','Phylum','Division','Subphylum','Subdivision','Infradivision',
@@ -70,6 +75,8 @@ downstream("Apis", db = 'col', downto = 'Species')
 downstream("Apis", db = 'itis', downto = 'Species')
 downstream(c("Apis","Epeoloides"), db = 'itis', downto = 'Species')
 downstream(c("Apis","Epeoloides"), db = 'col', downto = 'Species')
+downstream("Ursus", db = 'gbif', downto = 'Species')
+downstream(get_gbifid("Ursus"), db = 'gbif', downto = 'Species')
 
 # Plug in IDs
 id <- get_colid("Apis")
@@ -87,6 +94,7 @@ downstream(get_colid("Apis"), downto = 'Species')
 sp <- names_list("genus", 3)
 downstream(sp, db = 'col', downto = 'Species')
 downstream(sp, db = 'itis', downto = 'Species')
+downstream(sp, db = 'gbif', downto = 'Species')
 
 # Both data sources
 ids <- get_ids("Apis", db = c('col','itis'))
@@ -112,6 +120,7 @@ downstream("Poa", db = 'col', downto="Species", rows=1)
 # use curl options
 res <- downstream("Apis", db = 'col', downto = 'Species', config=verbose())
 res <- downstream("Apis", db = 'itis', downto = 'Species', config=verbose())
+res <- downstream("Ursus", db = 'gbif', downto = 'Species', config=verbose())
 }
 }
 
