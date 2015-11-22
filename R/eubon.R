@@ -36,9 +36,16 @@ eubon <- function(query, providers = 'pesi', searchMode = 'scientificNameExact',
                   searchMode = searchMode, addSynonymy = as_l(addSynonymy),
                   timeout = timeout))
   res <- GET(eubon_base(), query = args, ...)
-  stop_for_status(res)
+  eubon_error(res)
   txt <- content(res, "text")
   jsonlite::fromJSON(txt, FALSE)
 }
 
 eubon_base <- function() "http://cybertaxonomy.eu/eubon-utis/search"
+
+eubon_error <- function(x) {
+  if (x$status_code > 201) {
+    msg <- xpathSApply(content(x), "//title", xmlValue)
+    stop(msg, call. = FALSE)
+  }
+}
