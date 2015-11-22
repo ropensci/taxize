@@ -5,51 +5,51 @@ taxize 0.6.6
 
 * `stripauthority` argument in `gnr_resolve()` has been renamed to `canonical`
 to better match what it actually does (#451)
-* `gnr_resolve()` now returns a single data.frame in output, or `NULL` 
+* `gnr_resolve()` now returns a single data.frame in output, or `NULL`
 when no data found. The input taxa that have no match at all are returned in
 an attribute with name `not_known` (#448)
 * updated some functions to work with to R >3.2.x
 * In `vascan_search()` changed `callopts` parameter to `...` to pass in curl
-options to the request. 
+options to the request.
 * In `ipni_search()` changed `callopts` parameter to `...` to pass in curl
-options to the request. In addition, better http error handling, and 
+options to the request. In addition, better http error handling, and
 added a test suite for this function. (#458)
 * `stringsAsFactors=FALSE` now used for `gibf_parse()` (https://github.com/ropensci/taxize/commit/c0c4175d3a0b24d403f18c057258b67d3fbf17f0)
 * Made nearly all column headers and list names lowercase to simplify
 indexing to elements, as well as combining outputs. (#462)
-* Plantminer API updated to use a new API. Option to search ThePlantList or 
+* Plantminer API updated to use a new API. Option to search ThePlantList or
 the Brazilian Flora Checklist (#464)
 * Added more details to the documentation for `get_uid()` to make more clear
-how to use the varoious parameters to get the desired result, and how to 
+how to use the varoious parameters to get the desired result, and how to
 avoid certain pitfalls (#436)
-* Removed the parameter `asdf` from the function `eol_dataobjects()` - now 
+* Removed the parameter `asdf` from the function `eol_dataobjects()` - now
 returning data.frame's only.
-* Added some error catching to `get_eolid()` via `tryCatch()` to fail better 
+* Added some error catching to `get_eolid()` via `tryCatch()` to fail better
 when names not found.
-* Dropped `openssl` as a package dependency. Not needed anymore because uBio 
+* Dropped `openssl` as a package dependency. Not needed anymore because uBio
 dropped.
 
 ## BUG FIXES
 
 * `gnr_resolve()` failed when no canonical form was found.
 * Fixed `gnr_resolve()` when no results found when `best_match_only=TRUE` (#432)
-* Fixed bug in internal function `itisdf()` to give back an empty data.frame 
+* Fixed bug in internal function `itisdf()` to give back an empty data.frame
 when no results found, often with subspecific taxa. Helps solve errors reported
 in use of `downstream()`, `itis_downstream()`, and `gethierarchydownfromtsn()` (#459)
 
 ## NEW FEATURES
 
 * `gnr_resolve()` gains new parameter `with_canonical_ranks` (logical) to choose
-whether infraspecific ranks are returned or not. 
+whether infraspecific ranks are returned or not.
 * New function `iucn_id()` to get the IUCN ID for a taxon from it's name. (#431)
 
 ## DEFUNCT
 
-* All functions that interacted with the taxonomy service uBio are now 
+* All functions that interacted with the taxonomy service uBio are now
 defunct. Of course we would deprecate first, then make defunct later, to
-make transition easier, but that is out of our hands. The functions 
-that are defunct are: `ubio_classification()`, `ubio_classification_search()`, 
-`ubio_id()`, `ubio_search()`, `ubio_synonyms()`, `get_ubioid()`, `ubio_ping()`. 
+make transition easier, but that is out of our hands. The functions
+that are defunct are: `ubio_classification()`, `ubio_classification_search()`,
+`ubio_id()`, `ubio_search()`, `ubio_synonyms()`, `get_ubioid()`, `ubio_ping()`.
 In addition, ubio has been removed as an option in the `synonyms()` function,
 and references for uBio have been removed from the `taxize_cite()` utility
 function. (#449)
@@ -62,21 +62,21 @@ taxize 0.6.2
 * `rankagg()` doesn't depend on `data.table` anymore (fixes issue with CRAN checks)
 * Replaced `RCurl::base64Decode()` with `openssl::base64_decode()`, needed for
 `ubio_*()` functions (#447)
-* Importing only functions (via `importFrom`) used across all imports now (#446). 
+* Importing only functions (via `importFrom`) used across all imports now (#446).
 In addition, `importFrom` for all non-base R pkgs, including `graphics`, `methods`,
 `stats` and `utils` packages (#441)
 * Fixes to prevent problems with httr v1, where you can't pass a zero length
 list to the `query` parameter in `GET()`, but can pass `NULL` (#445)
-* Fixes to all of the `gni_*()` functions, including code tidying, some 
+* Fixes to all of the `gni_*()` functions, including code tidying, some
 DRYing out, and ability to pass in curl options (#444)
 
 ## BUG FIXES
 
 * Fixed typo in `taxize_cite()`
-* Fixed a bug in `classification()` where numeric IDs as input got 
+* Fixed a bug in `classification()` where numeric IDs as input got
 converted to itis ids just because they were numeric. Fixed now. (#434)
-* Catalogue of Life (COL) changed from using short numeric codes for taxa to 
-long alphanumeric UUID type ids. This required fixing functions using COL 
+* Catalogue of Life (COL) changed from using short numeric codes for taxa to
+long alphanumeric UUID type ids. This required fixing functions using COL
 web services (#435)
 
 
