@@ -39,8 +39,7 @@ SUPERPHYLUM, SUPRAGENERIC_NAME, TRIBE, UNRANKED, VARIETY}
 
 \item{limit}{Number of records to return}
 
-\item{callopts}{Pass on options to httr::GET for more refined control of
-http calls, and error handling}
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
 A list of length two. The first element is metadata. The second is

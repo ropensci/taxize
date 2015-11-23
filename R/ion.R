@@ -1,7 +1,7 @@
 #' ION - Index to Organism Names
 #'
 #' @export
-#' @param lsid An LSID number. Required.
+#' @param x An LSID number. Required.
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @references \url{http://www.organismnames.com/}
 #' @return A data.frame

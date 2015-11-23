@@ -84,8 +84,7 @@ tc <- function (l) Filter(Negate(is.null), l)
 #' @param language (character) Language, default is english
 #' @param sourceId (numeric) Filters by the source identifier. Not used right now.
 #' @param shortname (character) A short name..need more info on this?
-#' @param callopts Pass on options to httr::GET for more refined control of
-#'    http calls, and error handling
+#' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @param limit Number of records to return
 #' @param start Record number to start at
 #' @references \url{http://www.gbif.org/developer/summary}

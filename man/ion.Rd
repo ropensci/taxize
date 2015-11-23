@@ -7,9 +7,9 @@
 ion(x, ...)
 }
 \arguments{
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{x}{An LSID number. Required.}
 
-\item{lsid}{An LSID number. Required.}
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
 A data.frame
