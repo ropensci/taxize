@@ -29,9 +29,9 @@ The following functions are now defunct (no longer available):
  \item \code{\link{ubio_synonyms}}: The uBio web services are apparently down indefinitely.
  \item \code{\link{get_ubioid}}: The uBio web services are apparently down indefinitely.
  \item \code{\link{phylomatic_tree}}: This function is defunct. See
- \code{\link[brranching]{phylomatic}}
+ \code{phylomatic} in the package \code{brranching}
  \item \code{\link{phylomatic_format}}: This function is defunct. See
- \code{\link[brranching]{phylomatic_names}}
+ \code{phylomatic_names} in the package \code{brranching}
 }
 }
 
