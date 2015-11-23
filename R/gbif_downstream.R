@@ -26,10 +26,6 @@
 #' # get species downstream from the genus Ursus
 #' gbif_downstream(key = 2433406, "Species")
 #'
-#' # get orders down from the division Rhodophyta (red algae)
-#' gbif_downstream(key = 106, "Class")
-#' gbif_downstream(key = 106, "Class", intermediate=TRUE)
-#'
 #' # get tribes down from the family Apidae
 #' gbif_downstream(key = 1334757, downto="Species")
 #' gbif_downstream(key = 1334757, downto="Species", intermediate=TRUE)
@@ -37,10 +33,11 @@
 
 gbif_downstream <- function(key, downto, intermediate = FALSE, ...) {
 
+  should_be('intermediate', intermediate, 'logical')
+
   downto <- taxize_capwords(downto)
   poss_ranks <- unique(do.call(c, sapply(rank_ref$ranks, strsplit, split = ",", USE.NAMES = FALSE)))
   downto <- match.arg(downto, choices = poss_ranks)
-
   torank <- sapply(rank_ref[grep(downto, rank_ref$ranks), "ranks"],
                    function(x) strsplit(x, ",")[[1]][[1]], USE.NAMES = FALSE)
 

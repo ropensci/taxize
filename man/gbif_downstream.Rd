@@ -41,10 +41,6 @@ gbif_downstream(key = 110610447, "Family", intermediate=TRUE)
 # get species downstream from the genus Ursus
 gbif_downstream(key = 2433406, "Species")
 
-# get orders down from the division Rhodophyta (red algae)
-gbif_downstream(key = 106, "Class")
-gbif_downstream(key = 106, "Class", intermediate=TRUE)
-
 # get tribes down from the family Apidae
 gbif_downstream(key = 1334757, downto="Species")
 gbif_downstream(key = 1334757, downto="Species", intermediate=TRUE)

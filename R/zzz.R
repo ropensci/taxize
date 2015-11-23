@@ -277,3 +277,9 @@ as_l <- function(z) {
     return(z)
   }
 }
+
+should_be <- function(arg_name, x, class) {
+  if (!is(x, class)) {
+    stop(sprintf("'%s' should be of class '%s'", arg_name, class), call. = FALSE)
+  }
+}
