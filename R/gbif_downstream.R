@@ -14,7 +14,7 @@
 #'   	with target taxon rank names, and intermediate names.
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @examples \dontrun{
-#' ## the plant class Bangiophyceae, tsn 846509
+#' ## the plant class Bangiophyceae
 #' gbif_downstream(key = 198, downto="Genus")
 #' gbif_downstream(key = 198, downto="Genus", intermediate=TRUE)
 #'

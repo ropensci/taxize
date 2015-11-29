@@ -23,6 +23,9 @@
 #' been received so far. The default timeout is 0 ms (wait for ever)
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @references \url{http://cybertaxonomy.eu/eubon-utis/doc.html}
+#' @details Note that paging is not yet implemented, so you only get the first chunk
+#' of up to 50 results for methods that require paging. We will implement paging
+#' here when it is available in the EU BON API.
 #' @examples \dontrun{
 #' eubon("Prionus")
 #' eubon("Salmo", 'worms')

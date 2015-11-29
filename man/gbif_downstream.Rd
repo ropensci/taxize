@@ -29,7 +29,7 @@ Retrieve all taxa names downstream in hierarchy for GBIF
 }
 \examples{
 \dontrun{
-## the plant class Bangiophyceae, tsn 846509
+## the plant class Bangiophyceae
 gbif_downstream(key = 198, downto="Genus")
 gbif_downstream(key = 198, downto="Genus", intermediate=TRUE)
 
