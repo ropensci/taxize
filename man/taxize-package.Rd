@@ -49,6 +49,9 @@ Barcode of Life Data Systems (BOLD) \tab bold \tab FALSE \cr
 Pan-European Species directories Infrastructure (PESI) \tab pesi \tab TRUE \cr
 Mycobank \tab myco \tab TRUE \cr
 National Biodiversity Network (UK)	\tab nbn \tab FALSE \cr
+Index Fungorum \tab fg \tab FALSE \cr
+EU BON \tab eubon \tab FALSE \cr
+Index of Names (ION) \tab ion \tab FALSE \cr
 }
 
 If the source above has a \code{TRUE} in the \code{SOAP?} column, it is not available
