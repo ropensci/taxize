@@ -17,6 +17,13 @@ Taxa that aren't found are silently dropped.
 \description{
 Get an ID for a IUCN listed taxon
 }
+\details{
+Beware: IUCN functions can give back incorrect data. This isn't our fault.
+We do our best to get you the correct data quickly, but sometimes IUCN gives
+back the wrong data, and sometimes Global Names gives back the wrong data.
+We will fix these as soon as possible. In the meantime, just make sure that
+the data you get back is correct.
+}
 \examples{
 \dontrun{
 iucn_id("Branta canadensis")

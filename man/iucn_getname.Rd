@@ -19,6 +19,13 @@ Character vector of names that matched in IUCN
 \description{
 Get any matching IUCN species names
 }
+\details{
+Beware: IUCN functions can give back incorrect data. This isn't our fault.
+We do our best to get you the correct data quickly, but sometimes IUCN gives
+back the wrong data, and sometimes Global Names gives back the wrong data.
+We will fix these as soon as possible. In the meantime, just make sure that
+the data you get back is correct.
+}
 \examples{
 \dontrun{
 iucn_getname(name = "Cyanistes caeruleus")

@@ -34,6 +34,13 @@ items:
 \description{
 Get a summary from the IUCN Red List (\url{http://www.iucnredlist.org/}).
 }
+\details{
+Beware: IUCN functions can give back incorrect data. This isn't our fault.
+We do our best to get you the correct data quickly, but sometimes IUCN gives
+back the wrong data, and sometimes Global Names gives back the wrong data.
+We will fix these as soon as possible. In the meantime, just make sure that
+the data you get back is correct.
+}
 \note{
 Not all entries (history, distr, trend) are available for every species
 and NA is returned.
