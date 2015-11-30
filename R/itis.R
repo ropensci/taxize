@@ -217,7 +217,7 @@ getdatedatafromtsn <- function(tsn, ...) {
 #'
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @examples \dontrun{
-#' getdescription(config=timeout(1))
+#' getdescription(config=timeout(4))
 #' }
 #' @export
 #' @keywords internal
@@ -668,7 +668,7 @@ getranknames <- function(...) {
 #'
 #' @inheritParams getfullrecordfromlsid
 #' @examples \dontrun{
-#' getrecordfromlsid("urn:lsid:itis.gov:itis_tsn:180543", config=timeout(3))
+#' getrecordfromlsid("urn:lsid:itis.gov:itis_tsn:180543", config=timeout(5))
 #' }
 #' @export
 #' @keywords internal
@@ -856,9 +856,9 @@ getvernacularlanguages <- function(...) {
 #'
 #' @inheritParams getanymatchcount
 #' @examples \dontrun{
-#' searchbycommonname("american bullfrog", config=timeout(3))
-#' searchbycommonname("ferret-badger", config=timeout(3))
-#' searchbycommonname("polar bear", config=timeout(3))
+#' searchbycommonname("american bullfrog", config=timeout(6))
+#' searchbycommonname("ferret-badger", config=timeout(6))
+#' searchbycommonname("polar bear", config=timeout(6))
 #' }
 #' @export
 #' @keywords internal

@@ -20,7 +20,7 @@ Gets the partial ITIS record for the TSN in the LSID, found by comparing the
 }
 \examples{
 \dontrun{
-getrecordfromlsid("urn:lsid:itis.gov:itis_tsn:180543", config=timeout(3))
+getrecordfromlsid("urn:lsid:itis.gov:itis_tsn:180543", config=timeout(5))
 }
 }
 \keyword{internal}

@@ -14,7 +14,7 @@ Get description of the ITIS service
 }
 \examples{
 \dontrun{
-getdescription(config=timeout(1))
+getdescription(config=timeout(4))
 }
 }
 \keyword{internal}
