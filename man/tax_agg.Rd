@@ -15,7 +15,10 @@ tax_agg(x, rank, db = "ncbi", verbose = FALSE, ...)
 \item{rank}{character; Taxonomic rank to aggregate by.}
 
 \item{db}{character; taxonomic API to use, 'ncbi, 'itis' or both, see
-\code{\link[taxize]{tax_name}}.}
+\code{\link[taxize]{tax_name}}. Note that each taxonomic data source has
+their own identifiers, so that if you provide the wrong \code{db} value
+for the identifier you could get a result, but it will likely be wrong (not
+what you were expecting).}
 
 \item{verbose}{(loigical) If FALSE (Default) suppresss messages}
 

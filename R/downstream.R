@@ -8,7 +8,9 @@
 #'
 #' @param x Vector of taxa names (character) or IDs (character or numeric) to query.
 #' @param db character; database to query. One or both of \code{itis}, \code{col}, or
-#' \code{gbif}.
+#' \code{gbif}. Note that each taxonomic data source has their own identifiers, so that if you
+#' provide the wrong \code{db} value for the identifier you could get a result,
+#' but it will likely be wrong (not what you were expecting).
 #' @param downto What taxonomic rank to go down to. One of: 'Superkingdom','Kingdom',
 #' 'Subkingdom','Infrakingdom','Phylum','Division','Subphylum','Subdivision','Infradivision',
 #' 'Superclass','Class','Subclass','Infraclass','Superorder','Order','Suborder',

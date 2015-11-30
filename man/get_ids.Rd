@@ -16,7 +16,10 @@ get_ids_(names, db = c("itis", "ncbi", "eol", "col", "tropicos", "gbif",
 
 \item{db}{character; database to query. One or  more of \code{ncbi}, \code{itis},
 \code{eol}, \code{col}, \code{tropicos}, \code{gbif}, or \code{nbn}. By
-default db is set to search all data sources.}
+default db is set to search all data sources. Note that each taxonomic data
+source has their own identifiers, so that if you vide the wrong \code{db} value
+for the identifier you could get a result, it will likely be wrong (not what
+you were expecting).}
 
 \item{...}{Other arguments passed to \code{\link[taxize]{get_tsn}},
 \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}},

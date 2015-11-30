@@ -23,7 +23,10 @@ upstream(...)
 
 \item{x}{Vector of taxa names (character) or IDs (character or numeric) to query.}
 
-\item{db}{character; database to query. One or both of \code{itis}, \code{col}.}
+\item{db}{character; database to query. One or both of \code{itis}, \code{col}.
+Note that each taxonomic data source has their own identifiers, so that if you
+provide the wrong \code{db} value for the identifier you could get a result,
+but it will likely be wrong (not what you were expecting).}
 
 \item{upto}{What taxonomic rank to go down to. One of: 'Superkingdom','Kingdom',
 'Subkingdom','Infrakingdom','Phylum','Division','Subphylum','Subdivision','Infradivision',

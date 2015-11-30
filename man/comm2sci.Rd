@@ -10,7 +10,9 @@ comm2sci(commnames, db = "eol", itisby = "search", simplify = TRUE, ...)
 \item{commnames}{One or more common names or partial names.}
 
 \item{db}{Data source, one of \emph{"eol"} (default), \emph{"itis"}, \emph{"tropicos"}
-or \emph{"ncbi"}.}
+or \emph{"ncbi"}. Note that each taxonomic data source has their own identifiers,
+so that if you provide the wrong \code{db} value for the identifier you could get
+a result, but it will likely be wrong (not what you were expecting).}
 
 \item{itisby}{Search for common names across entire names (search, default),
 at beginning of names (begin), or at end of names (end).}

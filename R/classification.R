@@ -3,7 +3,10 @@
 #' @export
 #' @param x Vector of taxa names (character) or IDs (character or numeric) to query.
 #' @param db character; database to query. either \code{ncbi}, \code{itis},
-#'    \code{eol}, \code{col}, \code{tropicos}, \code{gbif}, or \code{nbn}.
+#'    \code{eol}, \code{col}, \code{tropicos}, \code{gbif}, or \code{nbn}. Note
+#'    that each taxonomic data source has their own identifiers, so that if you
+#'    provide the wrong \code{db} value for the identifier you could get a result,
+#'    but it will likely be wrong (not what you were expecting).
 #' @param id character; identifiers, returned by \code{\link[taxize]{get_tsn}},
 #'    \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}},
 #'    \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_tpsid}},

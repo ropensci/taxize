@@ -4,7 +4,9 @@
 #' @param query character; Vector of taxonomic names to query.
 #' @param db character; The database to search from: 'tis', 'ncbi' or 'both'.
 #'  If 'both' both NCBI and ITIS will be queried. Result will be the union of
-#'  both.
+#'  both. Note that each taxonomic data source has their own identifiers, so
+#'  that if you provide the wrong \code{db} value for the identifier you could
+#'  get a result, but it will likely be wrong (not what you were expecting).
 #' @param pref If db = 'both', sets the preference for the union. Either 'ncbi'
 #' or 'itis'.
 #' @param verbose logical; If TRUE the actual taxon queried is printed on the

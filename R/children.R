@@ -7,6 +7,9 @@
 #' @export
 #' @param x Vector of taxa names (character) or IDs (character or numeric) to query.
 #' @param db character; database to query. One or more of \code{itis}, \code{col}, or \code{ncbi}.
+#' Note that each taxonomic data source has their own identifiers, so that if you
+#' provide the wrong \code{db} value for the identifier you could get a result,
+#' but it will likely be wrong (not what you were expecting).
 #' @param rows (numeric) Any number from 1 to inifity. If the default NA, all rows are
 #' considered. Note that this parameter is ignored if you pass in a taxonomic id of any of the
 #' acceptable classes: tsn, colid. NCBI has a method for this function but rows doesn't work.
