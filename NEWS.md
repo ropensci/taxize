@@ -5,28 +5,28 @@ taxize 0.7.0
 
 * Now requires `R >= 3.2.1`. Good idea to update your R installation anyway (#476)
 * New function `ion()` for obtaining data from Index of Organism Names (#345)
-* New function `eubon()` for obtaining data from EU (European Union) BON 
-taxonomy (#466) Note that you may onloy get partial results for some requests 
+* New function `eubon()` for obtaining data from EU (European Union) BON
+taxonomy (#466) Note that you may onloy get partial results for some requests
 as paging isn't implemented yet in the EU BON API (#481)
 * New suite of functions, with prefix `fg_*()` for obtaining data from Index
-Fungorum. More work has to be done yet on this data source, but these initial 
+Fungorum. More work has to be done yet on this data source, but these initial
 functions allow some Index Fungorum data access (#471)
-* New function `gbif_downstream()` for obtaining downstream names from 
-GBIF's backbone taxonomy. Also available in `downstream()`, where you can 
+* New function `gbif_downstream()` for obtaining downstream names from
+GBIF's backbone taxonomy. Also available in `downstream()`, where you can
 request downstream names from GBIF, along with other data sources (#414)
 
 ## MINOR IMPROVEMENTS
 
-* Note added in docs for all `db` parameters to warn users that if they 
-provide the wrong `db` value for the given taxon ID, they can get data 
+* Note added in docs for all `db` parameters to warn users that if they
+provide the wrong `db` value for the given taxon ID, they can get data
 back, but it would be wrong. That is, all taxonomic data sources available
 in `taxize` use their own unique IDs, so a single ID value can be in multiple
 data sources, even though the ID refers to different taxa in each data source.
 There is no way we can think of to prevent this from happening, so be cautious.
 (#465)
-* A note added to all IUCN functions to warn users that sometimes incorrect 
-data is returned. This is beyond our control, as sometimes IUCN itself gives 
-back incorrect data, and sometimes EOL/Global Names (which we use in some of 
+* A note added to all IUCN functions to warn users that sometimes incorrect
+data is returned. This is beyond our control, as sometimes IUCN itself gives
+back incorrect data, and sometimes EOL/Global Names (which we use in some of
 the IUCN functions) give back incorrect data. (#468) (#473) (#174) (472) (#475)
 
 ## BUG FIXES
@@ -36,8 +36,8 @@ passed to the function. GNR is case sensitive, so case matters (#469)
 
 ## DEFUNCT
 
-* `phylomatic_tree()` and `phylomatic_format()` are defunct. They were deprecated 
-in recent versions, but are now gone. See the new package `brranching` for 
+* `phylomatic_tree()` and `phylomatic_format()` are defunct. They were deprecated
+in recent versions, but are now gone. See the new package `brranching` for
 Phylomatic data (#479)
 
 taxize 0.6.6

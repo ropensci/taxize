@@ -12,7 +12,7 @@ Function name | What it does | Source |
 children | Get direct children | COL, NCBI, ITIS |
 classification | Upstream classification | COL, NCBI, ITIS, Tropicos, EOL, GBIF, NBN |
 comm2sci | Get scientific from common names | EOL, NCBI, ITIS, Tropicos |
-downstream | Downstream taxa to specified rank | COL, ITIS |
+downstream | Downstream taxa to specified rank | COL, ITIS, GBIF |
 get_ids | Get taxonomic identifiers | COL, NCBI, ITIS, Tropicos, EOL, GBIF, NBN |
 resolve | Resolve names using any resolver | GNR, TNRS, iPlant |
 sci2comm | Get common from scientific names | EOL, NCBI, ITIS |

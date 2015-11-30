@@ -311,12 +311,12 @@ get_nbnid_("Poa annua", rows = 1:10)
 #> 2  NHMSYS0000461798              Poa   Genus  Recommended
 #> 3  NHMSYS0000461804         Poa laxa Species      Synonym
 #> 4  NHMSYS0021060390           Poales   Order  Recommended
-#> 5  NBNSYS0000002547       Poa alpina Species  Recommended
+#> 5  NBNSYS0000160753          Poaceae  Family  Recommended
 #> 6  NBNSYS0000002551       Poa glauca Species  Recommended
-#> 7  NBNSYS0000002551       Poa caesia Species      Synonym
-#> 8  NBNSYS0000160753          Poaceae  Family  Recommended
-#> 9  NHMSYS0000461804        Poa minor Species      Synonym
-#> 10 NBNSYS0000002545       Poa exilis Species Undetermined
+#> 7  NBNSYS0000002547       Poa alpina Species  Recommended
+#> 8  NHMSYS0000461804        Poa minor Species      Synonym
+#> 9  NBNSYS0000002545       Poa exilis Species Undetermined
+#> 10 NBNSYS0000002551       Poa caesia Species      Synonym
 ```
 
 ## Coerce numerics/alphanumerics to taxon IDs
@@ -393,7 +393,7 @@ system.time( replicate(3, as.gbifid(c("2704179","2435099","3171445"), check=TRUE
 
 ```
 #>    user  system elapsed 
-#>   0.117   0.003   1.753
+#>   0.122   0.004   1.776
 ```
 
 ```r
@@ -402,7 +402,7 @@ system.time( replicate(3, as.gbifid(c("2704179","2435099","3171445"), check=FALS
 
 ```
 #>    user  system elapsed 
-#>   0.001   0.000   0.001
+#>   0.000   0.000   0.001
 ```
 
 ## What taxa are downstream of my taxon of interest?
