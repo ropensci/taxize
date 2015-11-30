@@ -62,7 +62,7 @@ test_that("fungorum - fg_all_updated_names", {
   expect_more_than(length(aa), 1)
   expect_match(aa, "indexfungorum")
 
-  date <- as.numeric(gsub("-", "", as.character(Sys.Date())))
+  date <- as.numeric(gsub("-", "", as.character(Sys.Date() + 1)))
   expect_null(fg_all_updated_names(date = date))
 })
 
@@ -76,7 +76,7 @@ test_that("fungorum - fg_deprecated_names", {
   expect_more_than(length(aa), 1)
   expect_match(aa, "indexfungorum")
 
-  date <- as.numeric(gsub("-", "", as.character(Sys.Date())))
+  date <- as.numeric(gsub("-", "", as.character(Sys.Date() + 1)))
   expect_null(fg_deprecated_names(date = date))
 })
 

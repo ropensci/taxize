@@ -127,6 +127,24 @@ Note that a few data sources require SOAP web services, which are difficult to s
 	<td style="text-align:left;"><a href="https://data.nbn.org.uk/Documentation/Web_Services/Web_Services-REST/resources/restapi/rest.html">link</a></td>
 	<td style="text-align:left;">none</td>
 </tr>
+<tr>
+	<td style="text-align:left;">Index Fungorum</td>
+	<td style="text-align:left;"><code>fg</code></td>
+	<td style="text-align:left;"><a href="http://www.indexfungorum.org/ixfwebservice/fungus.asmx">link</a></td>
+	<td style="text-align:left;">none</td>
+</tr>
+<tr>
+	<td style="text-align:left;">EU BON</td>
+	<td style="text-align:left;"><code>eubon</code></td>
+	<td style="text-align:left;"><a href="http://cybertaxonomy.eu/eubon-utis/doc.html">link</a></td>
+	<td style="text-align:left;">none</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Index of Names (ION)</td>
+	<td style="text-align:left;"><code>ion</code></td>
+	<td style="text-align:left;"><a href="http://www.organismnames.com/">link</a></td>
+	<td style="text-align:left;">none</td>
+</tr>
 </tbody>
 </table>
 
@@ -134,27 +152,24 @@ Note that a few data sources require SOAP web services, which are difficult to s
 
 \***: There are none! The function scrapes the web directly.
 
-#### May be in taxize in the future...
+### May be in taxize in the future...
 
-+ [NatureServe](http://www.natureserve.org/)
-+ [Lichen Taxon dictionary](http://www.thebls.org.uk/)
-+ [Wikispecies](https://species.wikimedia.org/wiki/Main_Page)
-+ And more, See the [newdatasource](https://github.com/ropensci/taxize/labels/newdatasource) tag in the issue tracker
+See the [newdatasource](https://github.com/ropensci/taxize/labels/newdatasource) tag in the issue tracker
 
-## Quickstart
+## Tutorial
 
 For more examples see the [tutorial][tut]
 
-### Installation
+## Installation
 
-#### Stable version from CRAN
+### Stable version from CRAN
 
 
 ```r
 install.packages("taxize")
 ```
 
-#### Development version from GitHub
+### Development version from GitHub
 
 Windows users install [Rtools](http://cran.r-project.org/bin/windows/Rtools/) first.
 
@@ -169,7 +184,7 @@ devtools::install_github("taxize", "ropensci")
 library('taxize')
 ```
 
-### Get unique taxonomic identifier from NCBI
+## Get unique taxonomic identifier from NCBI
 
 Alot of `taxize` revolves around taxonomic identifiers. Because, as you know, names can be a mess (misspelled, synonyms, etc.), it's better to get an identifier that a particular data sources knows about, then we can move forth acquiring more fun taxonomic data.
 
@@ -178,7 +193,7 @@ Alot of `taxize` revolves around taxonomic identifiers. Because, as you know, na
 uids <- get_uid(c("Chironomus riparius", "Chaetopteryx"))
 ```
 
-### Retrieve classifications
+## Retrieve classifications
 
 Classifications - think of a species, then all the taxonomic ranks up from that species, like genus, family, order, class, kingdom.
 
@@ -205,7 +220,7 @@ lapply(out, head)
 #> 6          Bilateria      no rank  33213
 ```
 
-### Immediate children
+## Immediate children
 
 Get immediate children of _Salmo_. In this case, _Salmo_ is a genus, so this gives species within the genus.
 
@@ -249,7 +264,7 @@ children("Salmo", db = 'ncbi')
 #> [1] "ncbi"
 ```
 
-### Downstream children to a rank
+## Downstream children to a rank
 
 Get all species in the genus _Apis_
 
@@ -272,7 +287,7 @@ downstream("Apis", db = 'itis', downto = 'Species', verbose = FALSE)
 #> [1] "itis"
 ```
 
-### Upstream taxa
+## Upstream taxa
 
 Get all genera up from the species _Pinus contorta_ (this includes the genus of the species, and its co-genera within the same family).
 
@@ -297,7 +312,7 @@ upstream("Pinus contorta", db = 'itis', upto = 'Genus', verbose=FALSE)
 #> [1] "itis"
 ```
 
-### Get synonyms
+## Get synonyms
 
 
 ```r
@@ -307,7 +322,7 @@ synonyms("Acer drummondii", db="itis")
 #> 1  183671 Acer rubrum var. drummondii  526853 no syns found
 ```
 
-### Get taxonomic IDs from many sources
+## Get taxonomic IDs from many sources
 
 
 ```r
@@ -378,7 +393,7 @@ get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn', rows=1:3)
 #> [1] "ids"
 ```
 
-### Common names from scientific names
+## Common names from scientific names
 
 
 ```r
@@ -388,19 +403,19 @@ sci2comm('Helianthus annuus', db = 'itis')
 #> [4] "annual sunflower"
 ```
 
-### Scientific names from common names
+## Scientific names from common names
 
 
 ```r
 comm2sci("black bear", db = "itis")
 #> $`black bear`
 #> [1] "Ursus thibetanus"            "Ursus thibetanus"           
-#> [3] "Ursus americanus luteolus"   "Ursus americanus"           
-#> [5] "Ursus americanus"            "Ursus americanus americanus"
-#> [7] "Chiropotes satanas"
+#> [3] "Chiropotes satanas"          "Ursus americanus luteolus"  
+#> [5] "Ursus americanus americanus" "Ursus americanus"           
+#> [7] "Ursus americanus"
 ```
 
-### Coerce codes to taxonomic id classes
+## Coerce codes to taxonomic id classes
 
 `numeric` to `uid`
 
@@ -432,7 +447,7 @@ as.uid(list("315567", "3339", "9696"))
 #> [3] "http://www.ncbi.nlm.nih.gov/taxonomy/9696"
 ```
 
-### Coerce taxonomic id classes to a data.frame
+## Coerce taxonomic id classes to a data.frame
 
 
 ```r
