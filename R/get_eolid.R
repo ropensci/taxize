@@ -5,6 +5,7 @@
 #' that deal with the species of interest, then use \code{\link[taxize]{eol_pages}}
 #' to find the actual taxon IDs.
 #'
+#' @export
 #' @param sciname character; scientific name.
 #' @param ask logical; should get_eolid be run in interactive mode?
 #' If TRUE and more than one ID is found for the species, the user is asked for
@@ -26,8 +27,17 @@
 #' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_uid}},
 #' \code{\link[taxize]{get_tpsid}}
 #'
-#' @export
 #' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
+#'
+#' @details EOL is a bit odd in that they have page IDs for each taxon, but then within
+#' that, they have taxon ids for various taxa within that page (e.g., GBIF and NCBI each
+#' have a taxon they refer to within the page [i.e., taxon]). And we need the taxon ids
+#' from a particular data provider (e.g, NCBI) to do other things, like get a higher
+#' classification tree. However, humans want the page id, not the taxon id. So, the
+#' id returned from this function is the taxon id, not the page id. You can get the page
+#' id for a taxon by using \code{\link{eol_search}} and \code{\link{eol_pages}}, and the
+#' URI returned in the attributes for a taxon will lead you to the taxon page, and the
+#' ID in the URL is the page id.
 #'
 #' @examples \dontrun{
 #' get_eolid(sciname='Pinus contorta')
@@ -80,6 +90,7 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
     if (all(is.na(tmp))) {
       mssg(verbose, ms)
       id <- NA
+      page_id <- NA
       att <- "not found"
     } else {
       pageids <- tmp[grep(tolower(sciname), tolower(tmp$name)), "pageid"]
@@ -107,6 +118,7 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
         if (nrow(df) == 0) {
           mssg(verbose, ms)
           id <- NA
+          page_id <- NA
         } else{
           id <- df$eolid
         }
@@ -118,11 +130,13 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
     if (length(id) == 0 || all(is.na(id))) {
       mssg(verbose, ms)
       id <- NA
+      page_id <- NA
       att <- 'not found'
     }
     # only one found on eol
     if (length(id) == 1 & !all(is.na(id))) {
       id <- df$eolid
+      page_id <- df$pageid
       datasource <- df$source
       att <- 'found'
     }
@@ -145,26 +159,30 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
           message("Input accepted, took eolid '", as.character(df$eolid[take]), "'.\n")
           id <- as.character(df$eolid[take])
           names(id) <- as.character(df$pageid[take])
+          page_id <- as.character(df$pageid[take])
           datasource <- as.character(df$source[take])
           att <- 'found'
         } else {
           id <- NA
+          page_id <- NA
           att <- 'not found'
           mssg(verbose, "\nReturned 'NA'!\n\n")
         }
       } else{
         id <- NA
+        page_id <- NA
         att <- "NA due to ask=FALSE"
       }
     }
-    list(id = id, source = datasource, att = att)
+    list(id = id, page_id = page_id, source = datasource, att = att)
   }
   sciname <- as.character(sciname)
   out <- lapply(sciname, fun, ask = ask, verbose = verbose, rows = rows, ...)
   ids <- unname(sapply(out, "[[", "id"))
   sources <- sapply(out, "[[", "source")
   ids <- structure(ids, class = "eolid", provider = sources, match = pluck(out, "att", ""))
-  add_uri(ids, 'http://eol.org/pages/%s/overview')
+  page_ids <- unlist(pluck(out, 'page_id'))
+  add_uri(ids, 'http://eol.org/pages/%s/overview', page_ids)
 }
 
 getsourceshortnames <- function(input){
@@ -201,7 +219,7 @@ as.eolid.eolid <- function(x, check=TRUE) {
 #' @export
 #' @rdname get_eolid
 as.eolid.character <- function(x, check=TRUE) {
-  if (length(x) == 1) make_eolid(x, check) else collapse(x, make_eolid, "eolid", check = check)
+  if (length(x) == 1) make_eolid(x, check) else collapse(x, fxn = make_eolid, class = "eolid", check = check)
 }
 
 #' @export
@@ -232,12 +250,31 @@ as.data.frame.eolid <- function(x, ...){
              stringsAsFactors = FALSE)
 }
 
-make_eolid <- function(x, check=TRUE) make_generic(x, 'http://eol.org/pages/%s/overview', "eolid", check)
+make_eolid <- function(x, check=TRUE) {
+  tmp <- make_generic(x, 'http://eol.org/pages/%s/overview', "eolid", check)
+  if (!check) {
+    attr(tmp, "uri") <- NULL
+  } else {
+    z <- get_eol_pageid(x)
+    if (!is.na(z)) {
+      attr(tmp, "uri") <- sprintf('http://eol.org/pages/%s/overview', z)
+    } else {
+      attr(tmp, "uri") <- NULL
+    }
+  }
+  tmp
+}
 
 check_eolid <- function(x){
   url <- sprintf("http://eol.org/api/hierarchy_entries/1.0/%s.json", x)
   tryid <- GET(url)
   if (tryid$status_code == 200) TRUE else FALSE
+}
+
+get_eol_pageid <- function(x){
+  url <- sprintf("http://eol.org/api/hierarchy_entries/1.0/%s.json", x)
+  tt <- GET(url)
+  if (tt$status_code == 200) content(tt)$taxonConceptID else NA
 }
 
 #' @export

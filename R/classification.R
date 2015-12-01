@@ -490,10 +490,6 @@ cbind.classification_ids <- function(...) {
   move_col(tt = dat, y = c('query','db'))
 }
 
-move_col <- function(tt, y){
-  tt[ c(names(tt)[ -sapply(y, function(m) grep(m, names(tt))) ], y) ]
-}
-
 #' @export
 #' @rdname classification
 rbind.classification_ids <- function(...) {
@@ -520,5 +516,5 @@ rbind.classification_ids <- function(...) {
   }
 
   tt <- if (length(get) == 1) get[[1]] else do.call(rbind.fill, get)
-  move_col(tt, c('query','db'))
+  move_col(tt, c('query', 'db'))
 }

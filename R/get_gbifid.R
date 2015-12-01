@@ -275,11 +275,6 @@ as.data.frame.gbifid <- function(x, ...){
 
 make_gbifid <- function(x, check=TRUE) make_generic(x, 'http://www.gbif.org/species/%s', "gbifid", check)
 
-toid <- function(x, url, class){
-  uri <- sprintf(url, x)
-  structure(x, class = class, match = "found", uri = uri)
-}
-
 check_gbifid <- function(x){
   tryid <- tryCatch(gbif_name_usage(key = x), error = function(e) e)
   if ( "error" %in% class(tryid) && is.null(tryid$key) ) FALSE else TRUE

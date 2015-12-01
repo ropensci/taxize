@@ -64,6 +64,17 @@ taxon ID's, so we first use the function \code{\link[taxize]{eol_search}} to fin
 that deal with the species of interest, then use \code{\link[taxize]{eol_pages}}
 to find the actual taxon IDs.
 }
+\details{
+EOL is a bit odd in that they have page IDs for each taxon, but then within
+that, they have taxon ids for various taxa within that page (e.g., GBIF and NCBI each
+have a taxon they refer to within the page [i.e., taxon]). And we need the taxon ids
+from a particular data provider (e.g, NCBI) to do other things, like get a higher
+classification tree. However, humans want the page id, not the taxon id. So, the
+id returned from this function is the taxon id, not the page id. You can get the page
+id for a taxon by using \code{\link{eol_search}} and \code{\link{eol_pages}}, and the
+URI returned in the attributes for a taxon will lead you to the taxon page, and the
+ID in the URL is the page id.
+}
 \examples{
 \dontrun{
 get_eolid(sciname='Pinus contorta')

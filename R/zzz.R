@@ -57,8 +57,9 @@ taxize_ldfast <- function(x, convertvec=FALSE){
     do.call(rbind.fill, x)
 }
 
-mssg <- function(v, ...) if(v) message(...)
-tc <- function (l) Filter(Negate(is.null), l)
+mssg <- function(v, ...) if (v) message(...)
+tc <- function(l) Filter(Negate(is.null), l)
+tcnull <- function(x) if (all(sapply(x, is.null))) NULL else x
 
 #' Lookup details for specific names in all taxonomies in GBIF.
 #'
@@ -155,18 +156,19 @@ pluck <- function(x, name, type) {
 
 collapse <- function(x, fxn, class, match=TRUE, ...){
   tmp <- lapply(x, fxn, ...)
-  if(match){
-    structure(sapply(tmp, unclass), class=class,
-              match=sapply(tmp, attr, which="match"),
-              uri=sapply(tmp, attr, which="uri"))
+  if (match) {
+    structure(sapply(tmp, unclass), class = class,
+              match = sapply(tmp, attr, which = "match"),
+              uri = tcnull(sapply(tmp, attr, which = "uri")))
   } else {
-    structure(sapply(tmp, unclass), class=class, uri=sapply(tmp, attr, which="uri"))
+    structure(sapply(tmp, unclass), class = class,
+              uri = tcnull(sapply(tmp, attr, which = "uri")))
   }
 }
 
 make_generic <- function(x, uu, clz, check=TRUE){
-  if(check){
-    if( evalfxn(clz)(x) ) toid(x, uu, clz) else structure(NA, class=clz, match="not found", uri=NA)
+  if (check) {
+    if ( evalfxn(clz)(x) ) toid(x, uu, clz) else structure(NA, class = clz, match = "not found", uri = NA)
   } else {
     toid(x, uu, clz)
   }
@@ -174,10 +176,16 @@ make_generic <- function(x, uu, clz, check=TRUE){
 
 evalfxn <- function(x) eval(parse(text = paste0("check", "_", x)))
 
-add_uri <- function(ids, url){
-  if( !all(is.na(ids)) ){
-    attr(ids, 'uri') <- sapply(ids, function(x){
-      if(!is.na(x)) sprintf(url, x) else NA
+toid <- function(x, url, class){
+  uri <- sprintf(url, x)
+  structure(x, class = class, match = "found", uri = uri)
+}
+
+add_uri <- function(ids, url, z = NULL){
+  if ( !all(is.na(ids)) ) {
+    uri_ids <- if (!is.null(z)) z else ids
+    attr(ids, 'uri') <- sapply(uri_ids, function(x) {
+      if (!is.na(x)) sprintf(url, x) else NA
     }, USE.NAMES = FALSE)
   }
   ids
@@ -186,15 +194,14 @@ add_uri <- function(ids, url){
 check_rows <- function(x){
   stopifnot(is.numeric(x) || any(is.na(x)))
   x
-  # if(length(x) == 1 && !any(is.na(x))) 1:x else x
 }
 
 sub_rows <- function(x, rows){
   rows <- check_rows(rows)
-  if( any(is.na(rows)) ){
+  if ( any(is.na(rows)) ) {
     x
   } else {
-    if(NROW(x) == 0) x else x[rows,]
+    if (NROW(x) == 0) x else x[rows, ]
   }
 }
 
@@ -282,3 +289,9 @@ should_be <- function(arg_name, x, class) {
     stop(sprintf("'%s' should be of class '%s'", arg_name, class), call. = FALSE)
   }
 }
+
+move_col <- function(tt, y){
+  tt[ c(names(tt)[ -sapply(y, function(m) grep(m, names(tt))) ], y) ]
+}
+
+move_col2 <- function(x, y) x[ c(names(x)[-grep(y, names(x))], y) ]
