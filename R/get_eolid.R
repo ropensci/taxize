@@ -83,7 +83,7 @@
 get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA, ...){
   fun <- function(sciname, ask, verbose, rows, ...) {
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
-    tmp <- eol_search(terms = sciname, key, ...)
+    tmp <- eol_search(terms = sciname, key = key, ...)
 
     ms <- "Not found. Consider checking the spelling or alternate classification"
     datasource <- NA
@@ -101,7 +101,7 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
         id <- NA
       } else {
         dfs <- lapply(pageids, function(x) {
-          y <- tryCatch(eol_pages(x), error = function(e) e)
+          y <- tryCatch(eol_pages(x, key = key), error = function(e) e)
           if (is(y, "error")) NULL else y$scinames
         })
         names(dfs) <- pageids
