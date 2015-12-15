@@ -46,41 +46,67 @@
 iucn_summary <- function(sciname, silent = TRUE, parallel = FALSE, ...)
 {
   fun <- function(sciname){
-    spec <- tolower(sciname)
+    #to deal with subspecies
+    sciname_q <- strsplit(sciname, " ")
+    spec <- tolower(paste(sciname_q[[1]][1], sciname_q[[1]][2]))
     spec <- gsub(" ", "-", spec)
-    url <- paste("http://api.iucnredlist.org/go/", spec, sep = "")
-    e <- try(h <- htmlParse(url), silent=silent)
-    if(!inherits(e, "try-error")){
-      # status
-      status <- xpathSApply(h, '//div[@id ="red_list_category_code"]', xmlValue)
-      # history
-      history <- data.frame(year = xpathSApply(h, '//div[@class="year"]', xmlValue),
-                            category = xpathSApply(h, '//div[@class="category"]', xmlValue))
-      if(nrow(history) == 0)
-        history <- NA
-      # distribution
-      distr <- xpathSApply(h, '//ul[@class="countries"]', xmlValue)
-      if(length(distr) == 0) {
-        distr <- NA
-      } else {
-        distr <- unlist(strsplit(distr, "\n"))
-      }
-      # trend
-      trend <- xpathSApply(h, '//div[@id="population_trend"]', xmlValue)
-      if(length(trend) == 0)
-        trend <- NA
-
-      out <- list(status = status,
-                  history = history,
-                  distr = distr,
-                  trend = trend)
-    } else {
-      warning("Species '", sciname , "' not found!\n Returning NA!")
-      out <- list(status = NA,
-                  history = NA,
-                  distr = NA,
-                  trend = NA)
+    
+    url <- paste("http://api.iucnredlist.org/index/species/", spec, ".json", sep = "")
+    e <- try(h <- fromJSON(url(url)), silent = TRUE)
+    if(!inherits(e, "try-error") && length(h$scientific_name)>0){
+      #check if there are several matches
+        scinamelist <- h$scientific_name
+        #add subspecies rank, if there are
+        for (i in 1:length(h$scientific_name)){
+          if (!is.na(h$infra_name[i])){
+            scinamelist[i] <- paste(h$scientific_name[i], h$infra_name[i])
+          }
+        }
+        #get species_if from exact match
+        species_id <- h$species_id[which(tolower(scinamelist) == tolower(sciname))]
     }
+    
+    if (!exists('species_id')){
+        warning("Species '", sciname , "' not found!\n Returning NA!")
+        out <- list(status = NA,
+                    history = NA,
+                    distr = NA,
+                    trend = NA)
+      }else{
+      url <- paste("http://api.iucnredlist.org/details/", species_id, "/0", sep = "")
+      e <- try(h <- htmlParse(url), silent=silent)
+      if(!inherits(e, "try-error")){
+        # status
+        status <- xpathSApply(h, '//div[@id ="red_list_category_code"]', xmlValue)
+        # history
+        history <- data.frame(year = xpathSApply(h, '//div[@class="year"]', xmlValue),
+                              category = xpathSApply(h, '//div[@class="category"]', xmlValue))
+        if(nrow(history) == 0)
+          history <- NA
+        # distribution
+        distr <- xpathSApply(h, '//ul[@class="countries"]', xmlValue)
+        if(length(distr) == 0) {
+          distr <- NA
+        } else {
+          distr <- unlist(strsplit(distr, "\n"))
+        }
+        # trend
+        trend <- xpathSApply(h, '//div[@id="population_trend"]', xmlValue)
+        if(length(trend) == 0)
+          trend <- NA
+        
+        out <- list(status = status,
+                    history = history,
+                    distr = distr,
+                    trend = trend)
+      }else{
+        warning("Species '", sciname , "' not found!\n Returning NA!")
+        out <- list(status = NA,
+                    history = NA,
+                    distr = NA,
+                    trend = NA)
+      }
+      }
     return(out)
   }
   if(parallel){
@@ -88,7 +114,7 @@ iucn_summary <- function(sciname, silent = TRUE, parallel = FALSE, ...)
   } else {
     out <- llply(sciname, fun)
   }
-
+  
   names(out) <- sciname
   class(out) <- "iucn"
   return(out)
