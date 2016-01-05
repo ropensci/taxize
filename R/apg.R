@@ -27,7 +27,7 @@ apgOrders <- function(...) {
   acc <- acc[nchar(acc) != 0]
   accorig <- accorig[nchar(accorig) != 0]
   accdf <- data.frame(order = acc, synonym = NA,
-                      comment = NA, accepted = TRUE,
+                      accepted = TRUE,
                       original = accorig, stringsAsFactors = FALSE)
 
   synorig <- syn <- grep("[Aa]ccepted", tmp5, invert = TRUE, value = TRUE)
