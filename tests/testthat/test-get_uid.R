@@ -24,7 +24,7 @@ test_that("get_uid query modifiers work", {
   expect_is(mod1, "uid")
   expect_is(mod2, "uid")
   expect_equal(mod1[[1]], "12945")
-  expect_equal(mod2[[1]], "867384")
+  expect_equal(mod2[[1]], "1230190")
 
   ### w/ rank query
   rq1 <- get_uid(sciname = "Pinus", rank_query = "genus", verbose=FALSE)

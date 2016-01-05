@@ -73,9 +73,9 @@ Optional. See \code{Filtering} below.}
 \value{
 A vector of unique identifiers (UID). If a taxon is not found NA.
 If more than one UID is found the function asks for user input (if ask = TRUE),
-otherwise returns NA. Comes with an attribute \emph{match} to investigate the
-reason for NA (either 'not found', 'found' or if ask = FALSE 'multi match').
-If \code{ask=FALSE} and \code{rows} does not equal NA, then a data.frame is
+otherwise returns \code{NA}. Comes with an attribute \emph{match} to investigate the
+reason for NA (either 'not found', 'found' or if \code{ask = FALSE} 'NA due to ask=FALSE').
+If \code{ask=FALSE} and \code{rows} does not equal \code{NA}, then a data.frame is
 given back, but not of the uid class, which you can't pass on to other functions
 as you normally can.
 }

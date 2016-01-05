@@ -32,9 +32,9 @@
 #'
 #' @return A vector of unique identifiers (UID). If a taxon is not found NA.
 #' If more than one UID is found the function asks for user input (if ask = TRUE),
-#' otherwise returns NA. Comes with an attribute \emph{match} to investigate the
-#' reason for NA (either 'not found', 'found' or if ask = FALSE 'multi match').
-#' If \code{ask=FALSE} and \code{rows} does not equal NA, then a data.frame is
+#' otherwise returns \code{NA}. Comes with an attribute \emph{match} to investigate the
+#' reason for NA (either 'not found', 'found' or if \code{ask = FALSE} 'NA due to ask=FALSE').
+#' If \code{ask=FALSE} and \code{rows} does not equal \code{NA}, then a data.frame is
 #' given back, but not of the uid class, which you can't pass on to other functions
 #' as you normally can.
 #'
@@ -168,10 +168,10 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, modifier = N
       uid <- NA
     } else {
       uid <- sub_vector(uid, rows)
+      att <- 'found'
     }
-    att <- 'found'
     # not found on ncbi
-    if (length(uid) == 0) {
+    if (length(uid) == 0 || is.na(uid)) {
       mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
       uid <- NA
       att <- 'not found'

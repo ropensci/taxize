@@ -76,7 +76,7 @@ taxon). Optional. See \code{Filtering} below.}
 A vector of BOLD ids. If a taxon is not found NA. If more than one BOLD ID is found
    the function asks for user input (if ask = TRUE), otherwise returns NA.
    Comes with an attribute \emph{match} to investigate the reason for NA (either 'not found',
-   'found' or if ask = FALSE 'multi match')
+   'found' or if ask = FALSE 'NA due to ask=FALSE')
 }
 \description{
 Get the BOLD (Barcode of Life) code for a search term.

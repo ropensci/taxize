@@ -65,7 +65,7 @@ data itself for options. Optional. See \code{Filtering} below.}
 A vector of uBio ids. If a taxon is not found NA is given. If more than one uBio
    id is found the function asks for user input (if ask = TRUE), otherwise returns NA.
    Comes with an attribute \emph{match} to investigate the reason for NA (either 'not found',
-   'found' or if ask = FALSE 'multi match')
+   'found' or if ask = FALSE 'NA due to ask=FALSE')
 }
 \description{
 THIS FUNCTION IS DEFUNCT.
