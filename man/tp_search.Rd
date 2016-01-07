@@ -9,7 +9,7 @@ tp_search(name = NULL, commonname = NULL, nameid = NULL, orderby = NULL,
   key = NULL, ...)
 }
 \arguments{
-\item{name}{Your search string. For instance "poa annua"}
+\item{name}{Your search string. For instance "poa annua". See Details.}
 
 \item{commonname}{Your search string. For instance "annual blue grass"}
 
@@ -36,9 +36,20 @@ List or dataframe.
 \description{
 Search Tropicos by scientific name, common name, or Tropicos ID.
 }
+\details{
+More details on the \code{name} parameter: Tropicos will fail
+if you include a period (\code{.}) in your name string, e.g., \code{var.},
+so we replace periods before the request is made to the Tropicos web service.
+In addition, Tropicos for some reason doesn't want to see sub-specific rank
+names like \code{var}/\code{subsp}, so remove those from your query.
+}
 \examples{
 \dontrun{
 tp_search(name = 'Poa annua')
+tp_search(name = 'Poa annua subsp. annua')
+tp_search(name = 'Poa annua var. annua')
+tp_search(name = 'Poa annua var annua')
+tp_search(name = 'Poa annua annua')
 }
 }
 \references{
