@@ -19,9 +19,9 @@
 #' gbif_downstream(key = 198, downto="Genus", intermediate=TRUE)
 #'
 #' # get families downstream from the superfamily Acridoidea
-#' gbif_downstream(key = 110610447, "Family")
+#' gbif_downstream(key = 1878, "Family")
 #' ## here, intermediate leads to the same result as the target
-#' gbif_downstream(key = 110610447, "Family", intermediate=TRUE)
+#' gbif_downstream(key = 1878, "Family", intermediate=TRUE)
 #'
 #' # get species downstream from the genus Ursus
 #' gbif_downstream(key = 2433406, "Species")
@@ -48,12 +48,9 @@ gbif_downstream <- function(key, downto, intermediate = FALSE, ...) {
   iter <- 0
   while (stop_ == "not") {
     iter <- iter + 1
-    # if (!nchar(notout$rank[[1]]) > 0) {
     temp <- ldply(key, function(x) gbif_name_usage_clean(x, ...))
-    # } else {
-    #   temp <- notout
-    # }
     tt <- ldply(temp$key, function(x) gbif_name_usage_children(x, ...))
+    tt <- prune_too_low(tt, downto)
 
     if (NROW(tt) == 0) {
       out[[iter]] <- data.frame(stringsAsFactors = FALSE)
@@ -83,6 +80,12 @@ gbif_downstream <- function(key, downto, intermediate = FALSE, ...) {
   } else {
     tmp
   }
+}
+
+prune_too_low <- function(x, rank) {
+  rank_target_no <- as.numeric(rank_ref[grep(rank, rank_ref$ranks), "rankid"])
+  rank_nos <- as.numeric(rank_ref[vapply(x$rank, function(z) grep(z, rank_ref$ranks), 1), "rankid"])
+  x[!rank_nos > rank_target_no, ]
 }
 
 gbif_name_usage_clean <- function(x, ...) {

@@ -111,29 +111,29 @@ gbif_name_usage <- function(key=NULL, name=NULL, data='all', language=NULL, data
 
   # Define function to get data
   getdata <- function(x){
-    if(!x == 'all' && is.null(key))
-      stop('You must specify a key if data does not equal "all"')
+    if (!x == 'all' && is.null(key)) {
+      stop('You must specify a key if data does not equal "all"', call. = FALSE)
+    }
 
-    if(x == 'all' && is.null(key)){
+    if (x == 'all' && is.null(key)) {
       url <- 'http://api.gbif.org/v1/species'
-    } else
-    {
-      if(x=='all' && !is.null(key)){
+    } else {
+      if (x == 'all' && !is.null(key)) {
         url <- sprintf('http://api.gbif.org/v1/species/%s', key)
       } else
-        if(x %in% c('verbatim', 'name', 'parents', 'children',
+        if (x %in% c('verbatim', 'name', 'parents', 'children',
                     'related', 'synonyms', 'descriptions',
                     'distributions', 'images', 'references', 'species_profiles',
-                    'vernacular_names', 'type_specimens')){
+                    'vernacular_names', 'type_specimens')) {
           url <- sprintf('http://api.gbif.org/v1/species/%s/%s', key, x)
         } else
-          if(x == 'root'){
+          if (x == 'root') {
             url <- sprintf('http://api.gbif.org/v1/species/root/%s/%s', uuid, shortname)
           }
     }
-    tt <- GET(url, query=args, ...)
+    tt <- GET(url, query = args, ...)
     stop_for_status(tt)
-    stopifnot(tt$headers$`content-type`=='application/json')
+    stopifnot(tt$headers$`content-type` == 'application/json')
     res <- content(tt, as = 'text', encoding = "UTF-8")
     jsonlite::fromJSON(res, FALSE)
   }

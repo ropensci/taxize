@@ -13,7 +13,7 @@ test_that("gbif_downstream works", {
 })
 
 test_that("gbif_downstream works, more egs", {
-  bb <- gbif_downstream(key = 110610447, "Family")
+  bb <- gbif_downstream(key = 1878, "Family")
 
   expect_is(bb, "data.frame")
   expect_is(bb$canonicalname, "character")

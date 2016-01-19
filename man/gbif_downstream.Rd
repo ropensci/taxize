@@ -34,9 +34,9 @@ gbif_downstream(key = 198, downto="Genus")
 gbif_downstream(key = 198, downto="Genus", intermediate=TRUE)
 
 # get families downstream from the superfamily Acridoidea
-gbif_downstream(key = 110610447, "Family")
+gbif_downstream(key = 1878, "Family")
 ## here, intermediate leads to the same result as the target
-gbif_downstream(key = 110610447, "Family", intermediate=TRUE)
+gbif_downstream(key = 1878, "Family", intermediate=TRUE)
 
 # get species downstream from the genus Ursus
 gbif_downstream(key = 2433406, "Species")
