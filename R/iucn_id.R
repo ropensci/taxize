@@ -6,11 +6,6 @@
 #' @return A named list (names are input taxa names) of one or more IUCN IDs.
 #' Taxa that aren't found are silently dropped.
 #' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
-#' @details Beware: IUCN functions can give back incorrect data. This isn't our fault.
-#' We do our best to get you the correct data quickly, but sometimes IUCN gives
-#' back the wrong data, and sometimes Global Names gives back the wrong data.
-#' We will fix these as soon as possible. In the meantime, just make sure that
-#' the data you get back is correct.
 #' @examples \dontrun{
 #' iucn_id("Branta canadensis")
 #' iucn_id("Branta bernicla")
@@ -25,27 +20,47 @@
 #'
 #' # a name not found
 #' iucn_id("Foo bar")
+#'
+#' # curl options
+#' library("httr")
+#' iucn_id("Branta canadensis", config = verbose())
 #' }
-iucn_id <- function(sciname) {
+iucn_id <- function(sciname, ...) {
   out <- list()
   for (i in seq_along(sciname)) {
-    out[[i]] <- get_iucn_id(sciname[[i]])
+    out[[i]] <- get_iucn_id(sciname[[i]], ...)
   }
   unlist(out)
 }
 
-get_iucn_id <- function(z) {
-  x <- gsub(" ", "-", tolower(z))
-  url <- paste("http://api.iucnredlist.org/go/", x, sep = "")
-  e <- tryCatch(suppressWarnings(readLines(url)), error = function(e) e)
-  if (is(e, "error")) {
-    warning(paste0(z, " - not found"), call. = FALSE)
-    return(NA)
+get_iucn_id <- function(z, ...) {
+  tmp <- rredlist::rl_search(z, ...)
+  if (NROW(tmp$result) == 0) {
+    NA
+  } else if (NROW(tmp$result) > 1) {
+    iduniq <- unique(tmp$result$taxonid)
+    if (length(iduniq) == 1) {
+      iduniq
+    } else {
+      stop("> 1 result found, alter your query", call. = FALSE)
+    }
   } else {
-    id <- grep("http://www.iucnredlist.org/apps/redlist/details/", e, value = TRUE)
-    as.numeric(gsub(".*/", "", id))
+    tmp$result$taxonid
   }
 }
+
+# get_iucn_id <- function(z) {
+#   x <- gsub(" ", "-", tolower(z))
+#   url <- paste("http://api.iucnredlist.org/go/", x, sep = "")
+#   e <- tryCatch(suppressWarnings(readLines(url)), error = function(e) e)
+#   if (is(e, "error")) {
+#     warning(paste0(z, " - not found"), call. = FALSE)
+#     return(NA)
+#   } else {
+#     id <- grep("http://www.iucnredlist.org/apps/redlist/details/", e, value = TRUE)
+#     as.numeric(gsub(".*/", "", id))
+#   }
+# }
 
 ## usage based on using gnr_resolve, maybe bring back when correct IUCN IDs given
 # iucn_id <- function(sciname) {

@@ -7,6 +7,7 @@ after_success:
 r_github_packages:
   - jimhester/covr
   - jeroenooms/curl
+  - ropenscilabs/rredlist
 
 # print timings (of examples) and sysinfo
 after_script:
