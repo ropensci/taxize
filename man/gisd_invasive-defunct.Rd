@@ -4,51 +4,10 @@
 \alias{gisd_isinvasive}
 \title{Check invasive species status for a set of species from GISD database}
 \usage{
-gisd_isinvasive(x, simplify = FALSE, verbose = TRUE)
-}
-\arguments{
-\item{x}{character; a vector of scientific species names in the form of
-c("Genus species").}
-
-\item{simplify}{logical; returns a data.frame with the species name and the
-values "Invasive", "Not in GISD". I recomend to check first the not
-simplified version (default), which contains raw information about the
-level of invasiveness.}
-
-\item{verbose}{logical; If TRUE (default), informative messages printed.}
-}
-\value{
-A data.frame with species names and invasiveness.
+gisd_isinvasive(...)
 }
 \description{
-This function check which species (both plants and animals) are
-considered "invaders" somewhere in the world.
-
-For that end, it checks GISD (http://www.issg.org/database/welcome/) and
-returns a value, either "Not in GISD" or the brief description presented in
-GISD.
-
-Note that the webpage contains more information. Also note that the function
-won't tell you if it's exotic in your area, a lot of exotic species are not
-considered invaders (yet).
-
-As expected, the function is as good as the database is, which I find quite
-reliable and well maintained.
-The database is also able to recognize a lot (but not all) of the species
-synonyms.
-
-Note that \code{eol_invasive} with source of gisd or gisd100 may end up with different results
-as this function goes directly to the GISD website, whereas eol_invasive only updates their
-GISD data occassionally. See notes in \code{eol_invasive}.
-}
-\details{
 THIS FUNCTION IS DEFUNCT.
-}
-\author{
-Ignasi Bartomeus \email{nacho.bartomeus@gmail.com}
-}
-\seealso{
-\code{eol_invasive}
 }
 \keyword{internal}
 
