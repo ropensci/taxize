@@ -5,15 +5,15 @@ bb <- iucn_id("Panthera uncia")
 cc <- iucn_id("Lynx lynx")
 
 test_that("iucn_id returns the correct class", {
-  expect_is(aa, "numeric")
-  expect_is(bb, "numeric")
-  expect_is(cc, "numeric")
+  expect_is(aa, "integer")
+  expect_is(bb, "integer")
+  expect_is(cc, "integer")
 })
 
 test_that("iucn_id returns the correct value", {
   expect_equal(aa, 22679935)
   expect_equal(bb, 22732)
-  expect_equal(cc, 68986842)
+  expect_equal(cc, 12519)
 })
 
 test_that("iucn_id fails well", {
