@@ -5,16 +5,16 @@
 \title{Search for pages in EOL database using a taxonconceptID.}
 \usage{
 eol_pages(taxonconceptID, iucn = FALSE, images = 0, videos = 0,
-  sounds = 0, maps = 0, text = 0, subject = "overview",
+  sounds = 0, maps = 0, text = 0, subjects = "overview",
   licenses = "all", details = FALSE, common_names = FALSE,
-  synonyms = FALSE, references = FALSE, vetted = 0, cache_ttl = NULL,
-  key = NULL, ...)
+  synonyms = FALSE, references = FALSE, taxonomy = TRUE, vetted = 0,
+  cache_ttl = NULL, key = NULL, ...)
 }
 \arguments{
 \item{taxonconceptID}{The taxonconceptID (numeric), which is also the page
 number.}
 
-\item{iucn}{Include the IUCN Red List status object (Default: False)}
+\item{iucn}{Include the IUCN Red List status object (Default: \code{FALSE})}
 
 \item{images}{Limits the number of returned image objects (values 0 - 75)}
 
@@ -26,7 +26,7 @@ number.}
 
 \item{text}{Limits the number of returned text objects (values 0 - 75)}
 
-\item{subject}{'overview' (default) to return the overview text (if exists), a
+\item{subjects}{'overview' (default) to return the overview text (if exists), a
 pipe | delimited list of subject names from the list of EOL accepted subjects
 (e.g. TaxonBiology, FossilHistory), or 'all' to get text in any subject. Always
 returns an overview text as a first result (if one exists in the given context).}
@@ -35,18 +35,21 @@ returns an overview text as a first result (if one exists in the given context).
 under any license. Licenses abbreviated cc- are all Creative Commons licenses.
 Visit their site for more information on the various licenses they offer.}
 
-\item{details}{Include all metadata for data objects. (Default: False)}
+\item{details}{Include all metadata for data objects. (Default: \code{FALSE})}
 
-\item{common_names}{Return all common names for the page's taxon (Default: False)}
+\item{common_names}{Return all common names for the page's taxon (Default: \code{FALSE})}
 
-\item{synonyms}{Return all synonyms for the page's taxon (Default: False)}
+\item{synonyms}{Return all synonyms for the page's taxon (Default: \code{FALSE})}
 
-\item{references}{Return all references for the page's taxon (Default: False)}
+\item{references}{Return all references for the page's taxon (Default: \code{FALSE})}
+
+\item{taxonomy}{(logical) Whether to return any taxonomy details from different
+taxon hierarchy providers, in an array named \code{taxonconcepts} (Default: \code{TRUE})}
 
 \item{vetted}{If 'vetted' is given a value of '1', then only trusted content will
 be returned. If 'vetted' is '2', then only trusted and unreviewed content will
 be returned (untrusted content will not be returned). The default is to return all
-content. (Default: False)}
+content. (Default: \code{FALSE})}
 
 \item{cache_ttl}{The number of seconds you wish to have the response cached.}
 
