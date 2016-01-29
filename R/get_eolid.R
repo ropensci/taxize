@@ -274,7 +274,7 @@ check_eolid <- function(x){
 get_eol_pageid <- function(x){
   url <- sprintf("http://eol.org/api/hierarchy_entries/1.0/%s.json", x)
   tt <- GET(url)
-  if (tt$status_code == 200) content(tt)$taxonConceptID else NA
+  if (tt$status_code == 200) jsonlite::fromJSON(con_utf8(tt), FALSE)$taxonConceptID else NA
 }
 
 #' @export

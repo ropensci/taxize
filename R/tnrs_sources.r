@@ -20,7 +20,7 @@ tnrs_sources <- function(source = NULL, ...) {
     url2 <- paste0(url, "/", source)
     tt <- GET(url2, ...)
     stop_for_status(tt)
-    res <- content(tt, as = "text")
+    res <- con_utf8(tt)
     tmp <- nmslwr(jsonlite::fromJSON(res))
     tmp$details <- nmslwr(tmp$details)
     tmp
@@ -28,7 +28,7 @@ tnrs_sources <- function(source = NULL, ...) {
     url2 <- paste0(url, "/list")
     tt <- GET(url2, ...)
     stop_for_status(tt)
-    res <- content(tt, as = "text")
+    res <- con_utf8(tt)
     jsonlite::fromJSON(res)$sources
   }
 }

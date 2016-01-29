@@ -14,7 +14,7 @@
 ion <- function(x, ...) {
   x <- GET(ion_base(), query = list(lsid = x), ...)
   stop_for_status(x)
-  xml <- xmlParse(content(x, "text"))
+  xml <- xmlParse(con_utf8(x))
   dc <- sapply(c('identifier', 'Title'), function(x) {
     xpathApply(xml, paste0("//dc:", x),
                namespaces = c(dc = "http://purl.org/dc/elements/1.1/"), xmlValue)

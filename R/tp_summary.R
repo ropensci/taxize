@@ -18,7 +18,7 @@ tp_summary <- function(id, key = NULL, ...) {
   args <- tc(list(apikey = key, format = 'json'))
   tmp <- GET(url, query = args, ...)
   stop_for_status(tmp)
-  tmp2 <- content(tmp, as = "text")
+  tmp2 <- con_utf8(tmp)
   res <- jsonlite::fromJSON(tmp2, FALSE)
   typespec <- data.frame(res$TypeSpecimens, stringsAsFactors = FALSE)
   df <- data.frame(res[!names(res) %in% "TypeSpecimens"], stringsAsFactors = FALSE)

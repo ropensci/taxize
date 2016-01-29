@@ -53,7 +53,7 @@ col_search <- function(name=NULL, id=NULL, start=NULL, checklist=NULL, response=
     args <- tc(list(name = x, id = y, start = start, response = response, format = "json"))
     temp <- GET(url, query = argsnull(args), ...)
     stop_for_status(temp)
-    tt <- jsonlite::fromJSON(content(temp, as = "text"), FALSE)
+    tt <- jsonlite::fromJSON(con_utf8(temp), FALSE)
     switch(response,
            terse = parse_terse(tt),
            full = parse_full(tt))

@@ -31,7 +31,7 @@ ncbi_get_taxon_summary <- function(id, ...) {
   # Search ncbi taxonomy for uid -------------------------------------------------------------------
   rr <- GET(query, ...)
   stop_for_status(rr)
-  raw_results <- content(rr, "text")
+  raw_results <- con_utf8(rr)
   # Parse results ----------------------------------------------------------------------------------
   results <- XML::xmlTreeParse(raw_results, useInternalNodes = TRUE)
   output <- data.frame(stringsAsFactors = FALSE,

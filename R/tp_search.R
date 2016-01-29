@@ -48,7 +48,7 @@ tp_search <- function(name=NULL, commonname=NULL, nameid=NULL, orderby=NULL,
   if (tt$status_code > 202) {
     NA
   } else {
-    out <- content(tt)
+    out <- jsonlite::fromJSON(con_utf8(tt), FALSE)
     tmp <- do.call(rbind.fill, lapply(out, data.frame, stringsAsFactors = FALSE))
     setNames(tmp, tolower(names(tmp)))
   }

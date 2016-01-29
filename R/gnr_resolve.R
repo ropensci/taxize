@@ -105,7 +105,7 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
   if (http == 'get') {
     tmp <- GET(url, query = args, ...)
     warn_for_status(tmp)
-    tmp2 <- content(tmp, as = "text")
+    tmp2 <- con_utf8(tmp)
     dat <- jsonlite::fromJSON(tmp2, FALSE)$data
   } else {
     args <- args[!names(args) %in% "names"]
@@ -118,7 +118,7 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
       write.table(tt, file = file, row.names = FALSE, col.names = FALSE, quote = FALSE)
       ss <- POST(url, query = args, body = list(file = upload_file(path = file)), ...)
       warn_for_status(ss)
-      ss <- content(ss, "text")
+      ss <- con_utf8(ss)
       datbits[[i]] <- jsonlite::fromJSON(ss, FALSE)$data
     }
 

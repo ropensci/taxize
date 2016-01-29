@@ -53,7 +53,7 @@ col_children <- function(name = NULL, id = NULL, format = NULL, start = NULL, ch
 		args <- tc(list(name = x, id = y, format = format, response = "full", start = start))
 		out <- GET(url, query = argsnull(args), ...)
 		stop_for_status(out)
-		tt <- xmlParse(content(out, "text"))
+		tt <- xmlParse(con_utf8(out))
 
 		childtaxa_id <- xpathSApply(tt, "//child_taxa//id", xmlValue)
 		childtaxa_name <- xpathSApply(tt, "//child_taxa//name", xmlValue)

@@ -30,8 +30,7 @@ gni_details <- function(id, all_records = 1, ...) {
 	query <- tc(list(all_records = all_records))
 	tt <- GET(url2, query = argsnull(query), ...)
 	stop_for_status(tt)
-  res <- content(tt, as = "text")
-  out <- jsonlite::fromJSON(res, FALSE)
+  out <- jsonlite::fromJSON(con_utf8(tt), FALSE)
 	outdf <-
 		ldply(out$data, function(x) data.frame(t(c(checknull(x$records[[1]]$created_at),
 					checknull(x$records[[1]]$updated_at), checknull(x$records[[1]]$global_id),

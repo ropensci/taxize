@@ -84,7 +84,7 @@ ipni_search <- function(family=NULL, infrafamily=NULL, genus=NULL, infragenus=NU
   if (tt$status_code > 200 || tt$headers$`content-type` != "text/plain;charset=UTF-8") {
     stop("No results", call. = FALSE)
   }
-  res <- content(tt, as = "text")
+  res <- con_utf8(tt)
   if (nchar(res, keepNA = FALSE) == 0) {
     warning("No data found")
     df <- NA

@@ -19,7 +19,7 @@ tp_accnames <- function(id, key = NULL, ...) {
   args <- tc(list(apikey = key, format = 'json'))
   tmp <- GET(url, query = args, ...)
   stop_for_status(tmp)
-  tmp2 <- content(tmp, as = "text")
+  tmp2 <- con_utf8(tmp)
   res <- jsonlite::fromJSON(tmp2, FALSE)
 
   if ("Error" %in% names(res[[1]])) {
@@ -42,18 +42,6 @@ getdata <- function(x) {
   names(ref) <- tolower(names(ref))
   list(syn = syn, acc = acc, ref = ref)
 }
-
-# getdata <- function(x) {
-#   syn <- ldply(x[[1]])
-#   syn$category <- rep("Synonym", nrow(syn))
-#   acc <- ldply(x[[2]])
-#   acc$category <- rep("Accepted", nrow(acc))
-#   ref <- ldply(x[[3]])
-#   ref$category <- rep("Reference", nrow(ref))
-#   temp <- rbind(syn, acc, ref)
-#   names(temp)[1:2] <- c('variable','value')
-#   temp
-# }
 
 #' Return all accepted names for a taxon name with a given id.
 #'

@@ -158,7 +158,7 @@ col_synonyms <- function(x, ...) {
   args <- list(id = x[1], response = "full", format = "json")
   res <- GET(base, query = args, ...)
   stop_for_status(res)
-  out <- jsonlite::fromJSON(content(res, "text"), FALSE)
+  out <- jsonlite::fromJSON(con_utf8(res), FALSE)
   tmp <- out$results[[1]]
   if ("synonyms" %in% names(tmp)) {
     taxize_ldfast(lapply(tmp$synonyms, function(w) {
@@ -168,17 +168,6 @@ col_synonyms <- function(x, ...) {
   } else {
     NULL
   }
-#   out <- xmlParse(content(res, "text", encoding = "UTF-8"), encoding = "UTF-8")
-#   xml <- xpathApply(out, "//synonyms")
-#   if (length(xpathApply(xml[[1]], "synonym")) == 0) {
-#     NULL
-#   } else {
-#     nodes <- getNodeSet(xml[[1]], "//synonym")
-#     toget <- c("id", "name", "rank", "name_status", "genus", "species", "infraspecies", "author", "url")
-#     taxize_ldfast(lapply(nodes, function(z) {
-#       data.frame(sapply(toget, function(y) xpathApply(z, y, xmlValue)), stringsAsFactors = FALSE)
-#     }))
-#   }
 }
 
 #' @export

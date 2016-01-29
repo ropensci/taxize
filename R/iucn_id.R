@@ -3,6 +3,7 @@
 #' @export
 #' @param sciname character; Scientific name. Should be cleand and in the
 #' format \emph{<Genus> <Species>}. One or more.
+#' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @return A named list (names are input taxa names) of one or more IUCN IDs.
 #' Taxa that aren't found are silently dropped.
 #' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}

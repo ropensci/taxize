@@ -92,7 +92,7 @@ fung_base <- function() "http://www.indexfungorum.org/ixfwebservice/fungus.asmx"
 fung_GET <- function(path, args, ...) {
   tt <- GET(file.path(fung_base(), path), query = args, ...)
   stop_for_status(tt)
-  content(tt, "text")
+  con_utf8(tt)
 }
 
 fung_parse <- function(x) {

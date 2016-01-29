@@ -237,10 +237,6 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, modifier = N
   add_uri(out, 'http://www.ncbi.nlm.nih.gov/taxonomy/%s')
 }
 
-get_content <- function(url, ...) {
-  content(GET(url = url, ...))
-}
-
 repeat_until_it_works <- function(catch, url, max_tries = 3, wait_time = 10, verbose = TRUE, ...) {
   error_handler <- function(e) {
     if (e$message %in% catch) {
@@ -251,7 +247,7 @@ repeat_until_it_works <- function(catch, url, max_tries = 3, wait_time = 10, ver
     }
   }
   for (count in 1:max_tries) {
-    output <- tryCatch(content(GET(url = url, ...), "text"), error = error_handler)
+    output <- tryCatch(con_utf8(GET(url = url, ...)), error = error_handler)
     if (!is.na(output)) return(output)
     Sys.sleep(wait_time * count)
   }
@@ -297,7 +293,7 @@ make_uid <- function(x, check=TRUE) make_generic(x, 'http://www.ncbi.nlm.nih.gov
 check_uid <- function(x){
   url <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&id="
   res <- GET(paste0(url, x))
-  tt <- content(res)
+  tt <- xmlParse(con_utf8(res))
   tryid <- xpathSApply(tt, "//Id", xmlValue)
   identical(x, tryid)
 }
@@ -313,7 +309,7 @@ get_uid_help <- function(sciname, verbose, rows){
   mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
   url <- paste("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=",
                gsub(" ", "+", sciname), sep = "")
-  xml_result <- xmlParse(content(GET(url), "text"))
+  xml_result <- xmlParse(con_utf8(GET(url)))
   Sys.sleep(0.33)
   uid <- xpathSApply(xml_result, "//IdList/Id", xmlValue)
   if (length(uid) == 0) {
@@ -322,7 +318,7 @@ get_uid_help <- function(sciname, verbose, rows){
     baseurl <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy"
     ID <- paste("ID=", paste(uid, collapse = ","), sep = "")
     url <- paste(baseurl, ID, sep = "&")
-    tt <- content(GET(url), "text")
+    tt <- con_utf8(GET(url))
     ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)
     df <- parse_ncbi(ttp)
     sub_rows(df, rows)

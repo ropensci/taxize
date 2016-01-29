@@ -92,7 +92,7 @@ apgFamilies <- function(...) {
 apg_GET <- function(x, ...) {
   res <- GET(paste0(apg_base(), sprintf("top/synonymy%s.html", x)), ...)
   stop_for_status(res)
-  content(res, "text")
+  con_utf8(res)
 }
 
 apg_base <- function() "http://www.mobot.org/MOBOT/research/APweb/"

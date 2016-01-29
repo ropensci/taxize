@@ -36,8 +36,7 @@ eol_search <- function(terms, page=1, exact=NULL, filter_tid=NULL, filter_heid=N
   tt <- GET(paste0(eol_url("search"), ".json"), query = argsnull(args), ...)
   warn_for_status(tt)
   stopifnot(tt$headers$`content-type`[1] == 'application/json; charset=utf-8')
-  parsed <- content(tt, as = "text")
-  res <- jsonlite::fromJSON(parsed, FALSE, encoding = "utf-8")
+  res <- jsonlite::fromJSON(con_utf8(tt), FALSE, encoding = "utf-8")
   if (res$totalResults == 0 | length(res$results) == 0) {
     data.frame(pageid = NA, name = NA, stringsAsFactors = FALSE)
   } else {

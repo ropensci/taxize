@@ -71,8 +71,7 @@ gbif_name_usage <- function(key=NULL, name=NULL, data='all', language=NULL, data
     tt <- GET(url, query = args, ...)
     stop_for_status(tt)
     stopifnot(tt$headers$`content-type` == 'application/json')
-    res <- content(tt, as = 'text', encoding = "UTF-8")
-    jsonlite::fromJSON(res, FALSE)
+    jsonlite::fromJSON(con_utf8(tt), FALSE)
   }
 
   # Get data

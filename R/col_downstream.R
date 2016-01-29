@@ -58,8 +58,7 @@ col_downstream <- function(name = NULL, id = NULL, downto, format = NULL, start 
   searchcol <- function(x=NULL, y=NULL, ...) {
     args <- tc(list(name=x, id=y, format=format, response="full", start=start))
     out_ <- GET(url, query = argsnull(args), ...)
-    out_ <- content(out_, "text")
-    tt <- xmlParse(out_)
+    tt <- xmlParse(con_utf8(out_))
 
     childtaxa_id <- xpathSApply(tt, "//child_taxa//id", xmlValue)
     childtaxa_name <- xpathSApply(tt, "//child_taxa//name", xmlValue)

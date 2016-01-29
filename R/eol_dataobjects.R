@@ -25,8 +25,7 @@ eol_dataobjects <- function(id, taxonomy = TRUE, usekey = TRUE, key = NULL, verb
   tt <- GET(file.path(eol_url("data_objects"), paste0(id, ".json")),
             query = argsnull(tc(list(key = key, taxonomy = as_l(taxonomy)))), ...)
   stop_for_status(tt)
-  res <- content(tt, as = "text")
-  tmp <- jsonlite::fromJSON(res)
+  tmp <- jsonlite::fromJSON(con_utf8(tt))
   tmp <- nmslwr(tmp)
   if (taxonomy) tmp$taxonconcepts <- nmslwr(tmp$taxonconcepts)
   return(tmp)

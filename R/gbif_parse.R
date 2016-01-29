@@ -23,7 +23,7 @@ gbif_parse <- function(scientificname) {
                                    'application/json')),
             body = jsonlite::toJSON(scientificname))
   stop_for_status(tt)
-  res <- content(tt)
+  res <- jsonlite::fromJSON(con_utf8(tt), FALSE)
   tmp <- do.call(rbind.fill, lapply(res, as.data.frame, stringsAsFactors = FALSE))
   setNames(tmp, tolower(names(tmp)))
 }

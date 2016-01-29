@@ -130,7 +130,7 @@ ncbi_foo <- function(x, ...){
   baseurl <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy"
   ID <- paste("ID=", x, sep = "")
   searchurl <- paste(baseurl, ID, sep = "&")
-  tt <- content(GET(searchurl, ...), "text")
+  tt <- con_utf8(GET(searchurl, ...))
   ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)
   # common name
   out <- xpathSApply(ttp, "//TaxaSet/Taxon/OtherNames/GenbankCommonName", xmlValue)

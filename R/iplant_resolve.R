@@ -20,7 +20,7 @@ iplant_resolve <- function(query, retrieve='all', ...){
   args <- tc(list(names = query, retrieve = retrieve))
   out <- GET(url, query = argsnull(args), ...)
   warn_for_status(out)
-  tt <- content(out, as = "text")
+  tt <- con_utf8(out)
   res <- jsonlite::fromJSON(tt, FALSE)$items
   df <- do.call(rbind, lapply(res, data.frame, stringsAsFactors = FALSE))
   if (!is.null(df)) nmslwr(df) else df

@@ -21,7 +21,7 @@ gni_parse <- function(names, ...) {
   names <- paste0(names, collapse = "|")
   tt <- GET(paste0(gni_base(), "parsers.json"), query = list(names = names), ...)
   stop_for_status(tt)
-  out <- content(tt)
+  out <- jsonlite::fromJSON(con_utf8(tt), FALSE)
   rbind.fill(lapply(out, gni_parser))
 }
 

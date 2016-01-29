@@ -80,7 +80,7 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
       args <- tc(list(file = upload_file(loc), source = source, code = code))
       out <- POST(url, body = args, config(followlocation = 0), ...)
       error_handle(out)
-      tt <- content(out, as = "text")
+      tt <- con_utf8(out)
       message <- jsonlite::fromJSON(tt, FALSE)[["message"]]
       retrieve <- jsonlite::fromJSON(tt, FALSE)[["uri"]]
     }
@@ -94,7 +94,7 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
       iter <- iter + 1
       ss <- GET(retrieve)
       error_handle(ss, TRUE)
-      temp <- jsonlite::fromJSON(content(ss, as = "text"), FALSE)
+      temp <- jsonlite::fromJSON(con_utf8(ss), FALSE)
       if (grepl("is still being processed", temp["message"]) == TRUE) {
         timeout <- "wait"
       } else {
@@ -152,8 +152,8 @@ slice <- function(input, by = 2) {
 error_handle <- function(x, checkcontent=FALSE){
   tocheck <- x$status_code
   if (checkcontent) {
-    if ( "metadata" %in% names(jsonlite::fromJSON(content(x), FALSE)) ) {
-      codes <- sapply(jsonlite::fromJSON(content(x), FALSE)$metadata$sources, "[[", "status")
+    if ( "metadata" %in% names(jsonlite::fromJSON(con_utf8(x), FALSE)) ) {
+      codes <- sapply(jsonlite::fromJSON(con_utf8(x), FALSE)$metadata$sources, "[[", "status")
       codes <- as.numeric(str_extract(codes, "[0-9]+"))
       tocheck <- c(tocheck, codes)
     }

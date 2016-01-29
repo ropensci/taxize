@@ -83,7 +83,7 @@ scrapenames <- function(url = NULL, file = NULL, text = NULL, engine = NULL,
   if (names(method) == 'url') {
     tt <- GET(base, query = args, ...)
     warn_for_status(tt)
-    out <- content(tt)
+    out <- jsonlite::fromJSON(con_utf8(tt))
     token_url <- out$token_url
   } else {
     if (names(method) == "text") {
@@ -100,7 +100,7 @@ scrapenames <- function(url = NULL, file = NULL, text = NULL, engine = NULL,
   while (st == 303) {
     dat <- GET(token_url)
     warn_for_status(dat)
-    tmp <- content(dat, "text")
+    tmp <- con_utf8(dat)
     datout <- jsonlite::fromJSON(tmp)
     st <- datout$status
   }

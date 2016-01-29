@@ -33,7 +33,7 @@ plantminer <- function(plants, from = "tpl", key = NULL, verbose = TRUE) {
     mssg(verbose, paste(plants[i], collapse = " "))
     sp <- GET(paste0(pmbase(), from), query = list(key = key, taxon = plants[i]))
     stop_for_status(sp)
-    jsonlite::fromJSON(content(sp, as = "text"))
+    jsonlite::fromJSON(con_utf8(sp))
   }
 }
 

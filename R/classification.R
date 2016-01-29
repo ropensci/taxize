@@ -269,7 +269,7 @@ classification.eolid <- function(id, key = NULL, callopts = list(), return_id = 
       args <- tc(list(common_names = common_names, synonyms = synonyms))
       tt <- GET(urlget, query = args, callopts)
       stop_for_status(tt)
-      res <- content(tt)
+      res <- con_utf8(tt)
       if (length(res$ancestors) == 0) {
         return(sprintf("No hierarchy information for %s", x))
       } else {
@@ -311,7 +311,7 @@ classification.colid <- function(id, start = NULL, checklist = NULL, callopts = 
       args <- tc(list(id = x, response = "full", start = start))
       out <- GET(url, query = args, callopts)
       stop_for_status(out)
-      tt <- xmlParse(content(out, "text"))
+      tt <- xmlParse(con_utf8(out))
 
       out <- data.frame(name = xpathSApply(tt, "//classification//name", xmlValue),
                         rank = xpathSApply(tt, "//classification//rank", xmlValue),
@@ -343,7 +343,7 @@ classification.tpsid <- function(id, key = NULL, callopts = list(), return_id = 
       args <- tc(list(format = 'json', apikey = key))
       tt <- GET(url, query = args, callopts)
       stop_for_status(tt)
-      out <- content(tt)
+      out <- jsonlite::fromJSON(con_utf8(tt), FALSE)
       if (names(out[[1]])[[1]] == "Error") {
         out <- data.frame(ScientificName = NA, Rank = NA)
       } else {

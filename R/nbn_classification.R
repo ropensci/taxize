@@ -24,6 +24,6 @@ nbn_classification <- function(id, ...) {
 nbn_GET_2 <- function(url, ...) {
   res <- GET(url, ...)
   stop_for_status(res)
-  tt <- content(res, as = "text")
+  tt <- con_utf8(res)
   nmslwr(jsonlite::fromJSON(tt, TRUE))
 }

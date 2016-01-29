@@ -86,7 +86,7 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
     # Search ncbi for children - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     rr <- GET(query, ...)
     stop_for_status(rr)
-    raw_results <- content(rr, "text")
+    raw_results <- con_utf8(rr)
     # Parse results  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     results <- XML::xmlTreeParse(raw_results, useInternalNodes = TRUE)
     children_uid <- XML::xpathSApply(results, "//eSearchResult/IdList/Id", XML::xmlValue)

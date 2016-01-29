@@ -28,7 +28,7 @@ tp_dist <- function(id, key=NULL, ...) {
   args <- tc(list(format = 'json', apikey = key))
   tt <- GET(url, query = args, ...)
   stop_for_status(tt)
-  out <- content(tt)
+  out <- jsonlite::fromJSON(con_utf8(tt), FALSE)
   getdata <- function(x, which) data.frame(x[[which]])
   locs <- do.call(rbind.fill, lapply(out, getdata, which = "Location"))
   names(locs) <- tolower(names(locs))
