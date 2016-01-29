@@ -25,8 +25,8 @@
 #'
 #' ## xml
 #' d <- vascan_search(q = "Helianthus annuus", format="xml", raw=TRUE)
-#' library("XML")
-#' xmlParse(d)
+#' library("xml2")
+#' xml2::read_xml(d)
 #'
 #' # lots of names, in this case 50
 #' splist <- names_list(rank='species', size=50)

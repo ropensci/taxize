@@ -291,45 +291,40 @@ classification.eolid <- function(id, key = NULL, callopts = list(), return_id = 
 
 #' @export
 #' @rdname classification
-classification.colid <- function(id, start = NULL, checklist = NULL, callopts = list(), return_id = TRUE, ...) {
-  fun <- function(x, callopts){
+classification.colid <- function(id, start = NULL, checklist = NULL,
+                                 callopts = list(), return_id = TRUE, ...) {
+  fun <- function(x, checklist, start, callopts){
     # return NA if NA is supplied
     if (is.na(x)) {
       out <- NA
     } else {
-      url <- "http://www.catalogueoflife.org/col/webservice"
-      if (!is.null(checklist)) {
-        cc <- match.arg(checklist, choices = c(2012, 2011, 2010, 2009, 2008, 2007))
-        if (cc %in% c(2012, 2011, 2010)) {
-          url <- gsub("col", paste("annual-checklist/", cc, sep = ""), url)
-        } else {
-          url <- "http://webservice.catalogueoflife.org/annual-checklist/year/search.php"
-          url <- gsub("year", cc, url)
-        }
-      }
-
+      url <- make_url(checklist)
       args <- tc(list(id = x, response = "full", start = start))
       out <- GET(url, query = args, callopts)
       stop_for_status(out)
-      tt <- xmlParse(con_utf8(out))
-
-      out <- data.frame(name = xpathSApply(tt, "//classification//name", xmlValue),
-                        rank = xpathSApply(tt, "//classification//rank", xmlValue),
-                        id  = xpathSApply(tt, "//classification//id", xmlValue),
-                        stringsAsFactors = FALSE)
-      # add querried taxon
-      out <- rbind(out, c(xpathSApply(tt, "//result/name", xmlValue),
-                          xpathSApply(tt, "//result/rank", xmlValue),
-                          xpathSApply(tt, "//result/id", xmlValue)))
+      tt <- read_xml(con_utf8(out))
+      out <- search_col_classification_df(tt)
+      # add query-ied taxon
+      out <- rbind(out, c(xml_text(xml_find_one(tt, "//result/name")),
+                          xml_text(xml_find_one(tt, "//result/rank")),
+                          xml_text(xml_find_one(tt, "//result/id"))))
       # Optionally return id of lineage
       if (!return_id) out <- out[, c('name', 'rank')]
     }
     return(out)
   }
-  out <- lapply(id, fun, callopts = callopts)
+  out <- lapply(id, fun, checklist = checklist, start = start, callopts = callopts)
   names(out) <- id
   structure(out, class = 'classification', db = 'col')
 }
+
+search_col_classification_df <- function(x) {
+  name <- xml_text(xml_find_all(x, "//classification//name"))
+  rank <- xml_text(xml_find_all(x, "//classification//rank"))
+  ids <- xml_text(xml_find_all(x, "//classification//id"))
+  data.frame(name, rank, ids, stringsAsFactors = FALSE)
+}
+
 
 #' @export
 #' @rdname classification

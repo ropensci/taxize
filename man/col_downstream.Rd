@@ -69,7 +69,7 @@ col_downstream(name=c("Plantae","Animalia"), downto="Class")
 col_downstream(name="Bryophyta", downto="Family", checklist=2009)
 
 # By id
-col_downstream(id=2346405, downto="Genus", checklist=2012)
+col_downstream(id='576d098d770a39d09e2bcfa1c0896b26', downto="Species", checklist=2012)
 }
 }
 

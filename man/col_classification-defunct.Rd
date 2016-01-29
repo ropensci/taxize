@@ -4,43 +4,10 @@
 \alias{col_classification}
 \title{Search Catalogue of Life for taxonomic classifications.}
 \usage{
-col_classification(name = NULL, id = NULL, format = NULL, start = NULL,
-  checklist = NULL)
-}
-\arguments{
-\item{name}{The string to search for. Only exact matches found the name given
- will be returned, unless one or wildcards are included in the search
-   string. An * (asterisk) character denotes a wildcard; a % (percentage)
-character may also be used. The name must be at least 3 characters long,
-not counting wildcard characters.}
-
-\item{id}{The record ID of the specific record to return (only for scientific
-names of species or infraspecific taxa)}
-
-\item{format}{format of the results returned. Valid values are format=xml and
-     format=php; if the format parameter is omitted, the results are returned
-   in the default XML format. If format=php then results are returned as a
-PHP array in serialized string format, which can be converted back to an
-array in PHP using the unserialize command}
-
-\item{start}{The first record to return. If omitted, the results are returned
-from the first record (start=0). This is useful if the total number of
-results is larger than the maximum number of results returned by a single
-Web service query (currently the maximum number of results returned by a
-single query is 500 for terse queries and 50 for full queries).}
-
-\item{checklist}{The year of the checklist to query, if you want a specific
-year's checklist instead of the lastest as default (numeric).}
-}
-\value{
-A list of data.frame's.
+col_classification(...)
 }
 \description{
 THIS FUNCTION IS DEFUNCT.
-}
-\details{
-You must provide one of name or id. The other parameters (format
-		and start) are optional.
 }
 \keyword{internal}
 

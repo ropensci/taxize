@@ -41,7 +41,7 @@ fg_deprecated_names(date, ...)
 \item{date}{(character) Date, of the form YYYMMDD}
 }
 \value{
-A \code{data.frame}, or NULL if no results
+A \code{data.frame}, or \code{NULL} if no results
 }
 \description{
 Search for taxonomic names in Index Fungorum
@@ -62,7 +62,7 @@ fg_name_by_key(17703)
 fg_name_full_by_lsid("urn:lsid:indexfungorum.org:names:81085")
 
 # AllUpdatedNames
-fg_all_updated_names(date=20151019)
+fg_all_updated_names(date=20160128)
 
 # DeprecatedNames
 fg_deprecated_names(date=20151001)

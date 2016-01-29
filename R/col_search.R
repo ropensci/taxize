@@ -70,13 +70,8 @@ make_url <- function(checklist) {
   if (is.null(checklist)) {
     col_base()
   } else {
-    cc <- match.arg(as.character(checklist), choices = c(2012, 2011, 2010, 2009, 2008, 2007))
-    if (cc %in% c(2012, 2011, 2010)) {
-      gsub("col", paste("annual-checklist/", cc, sep = ""), col_base())
-    } else {
-      url <- "http://webservice.catalogueoflife.org/annual-checklist/year/search.php"
-      gsub("year", cc, url)
-    }
+    cc <- match.arg(as.character(checklist), choices = 2015:2007)
+    sprintf("http://catalogueoflife.org/annual-checklist/%s/webservice", cc)
   }
 }
 

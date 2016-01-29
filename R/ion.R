@@ -12,16 +12,17 @@
 #' ion(1280626) # puma concolor
 #' }
 ion <- function(x, ...) {
-  x <- GET(ion_base(), query = list(lsid = x), ...)
-  stop_for_status(x)
-  xml <- xmlParse(con_utf8(x))
-  dc <- sapply(c('identifier', 'Title'), function(x) {
-    xpathApply(xml, paste0("//dc:", x),
-               namespaces = c(dc = "http://purl.org/dc/elements/1.1/"), xmlValue)
-  })
-  tdwg <- setNames(xpathApply(xml, "//tdwg_tn:nameComplete",
-               namespaces = c(tdwg_tn = "http://rs.tdwg.org/ontology/voc/TaxonName#"),
-               xmlValue), "nameComplete")
+  res <- GET(ion_base(), query = list(lsid = x), ...)
+  stop_for_status(res)
+  xml <- xml2::read_xml(con_utf8(res))
+  dc <- as.list(sapply(c('identifier', 'Title'), function(z) {
+    xml_text(xml_find_all(xml, paste0("//dc:", z), xml_ns(xml)))
+  }))
+  tdwg <- as.list(
+    setNames(
+      xml_text(xml_find_all(xml, "//tdwg_tn:nameComplete", xml_ns(xml))),
+      "nameComplete")
+  )
   df <- data.frame(c(dc, tdwg), stringsAsFactors = FALSE)
   setNames(df, tolower(names(df)))
 }

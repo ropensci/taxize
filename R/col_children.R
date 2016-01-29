@@ -29,45 +29,50 @@
 #' col_children(name="Apis")
 #'
 #' # An example where there is no classification, results in data.frame with no rows
-#' col_children(id=11935941)
+#' col_children(id='b2f88f382aa5568f93a97472c6be6516')
 #'
 #' # Use a specific year's checklist
-#' col_children(name="Apis", checklist="2012")
-#' col_children(name="Apis", checklist="2009")
+#' col_children(name="Apis", checklist=2012)
+#' col_children(name="Apis", checklist=2009)
 #'
 #' # Pass in many names or many id's
 #' out <- col_children(name=c("Buteo","Apis","Accipiter","asdf"), checklist="2012")
 #' out$Apis # get just the output you want
-#' library(plyr)
+#' library("plyr")
 #' ldply(out) # or combine to one data.frame
 #'
 #' # or pass many id's
-#' out <- col_children(id=c(2346405,2344165,2346405), checklist="2012")
-#' library(plyr)
+#' ids <- c('abe977b1d27007a76dd12a5c93a637bf', 'b2f88f382aa5568f93a97472c6be6516')
+#' out <- col_children(id = ids, checklist=2012)
+#' library("plyr")
 #' ldply(out) # combine to one data.frame
 #' }
 col_children <- function(name = NULL, id = NULL, format = NULL, start = NULL, checklist = NULL, ...) {
-  url = "http://www.catalogueoflife.org/col/webservice"
-	func <- function(x, y, ...) {
-	  url <- make_url(checklist)
-		args <- tc(list(name = x, id = y, format = format, response = "full", start = start))
-		out <- GET(url, query = argsnull(args), ...)
-		stop_for_status(out)
-		tt <- xmlParse(con_utf8(out))
-
-		childtaxa_id <- xpathSApply(tt, "//child_taxa//id", xmlValue)
-		childtaxa_name <- xpathSApply(tt, "//child_taxa//name", xmlValue)
-		childtaxa_rank <- xpathSApply(tt, "//child_taxa//rank", xmlValue)
-		data.frame(childtaxa_id, childtaxa_name, childtaxa_rank, stringsAsFactors = FALSE)
-	}
-	safe_func <- plyr::failwith(NULL, func)
 	if (is.null(id)) {
-		temp <- llply(name, safe_func, y = NULL, ...)
-		names(temp) <- name
-		temp
+		temp <- llply(name, search_col_safe, id = NULL, checklist = checklist,
+		              format = format, start = start, ...)
+		setNames(temp, name)
 	} else {
-		temp <- llply(id, safe_func, x = NULL, ...)
-		names(temp) <- id
-		temp
+		temp <- llply(id, search_col_safe, name = NULL, checklist = checklist,
+		              format = format, start = start, ...)
+		setNames(temp, id)
 	}
 }
+
+search_col <- function(name, id, checklist, format, start, ...) {
+  url <- make_url(checklist)
+  args <- tc(list(name = name, id = id, format = format, response = "full", start = start))
+  out <- GET(col_base(), query = argsnull(args), ...)
+  stop_for_status(out)
+  tt <- xml2::read_xml(con_utf8(out))
+  search_col_child_df(tt)
+}
+
+search_col_child_df <- function(x) {
+  ids <- xml_text(xml_find_all(x, "//child_taxa//id"))
+  nms <- xml_text(xml_find_all(x, "//child_taxa//name"))
+  ranks <- xml_text(xml_find_all(x, "//child_taxa//rank"))
+  data.frame(ids, nms, ranks, stringsAsFactors = FALSE)
+}
+
+search_col_safe <- plyr::failwith(NULL, search_col)

@@ -32,7 +32,9 @@ genbank2uid <- function(id, ...){
     id <- gsub(pattern = "\\.[0-9]+$", "", id) #removes version number of accession ids
     url2 <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=nucleotide&db=taxonomy&id="
     query <- paste0(url2, paste(id, collapse = "&id="))
-    result <- xpathSApply(xmlParse(con_utf8(GET(query, ...))), "//LinkSetDb//Link[position()=1]//Id", xmlValue)
+    res <- GET(query, ...)
+    stop_for_status(res)
+    result <- xml_text(xml_find_all(read_xml(con_utf8(res)), "//LinkSetDb//Link[position()=1]//Id"))
     if (length(result) != length(id)) {
       result <- rep(as.character(NA), length(id))
       warning("An error occured looking up taxon ID(s).")

@@ -57,14 +57,15 @@
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom httr GET POST content stop_for_status upload_file warn_for_status
 #' add_headers timeout config
-#' @importFrom data.table rbindlist
+#' @importFrom data.table rbindlist setDF
 #' @importFrom foreach foreach %do%
 #' @importFrom stringr str_extract str_split str_replace str_replace_all
 #' @importFrom plyr failwith rbind.fill llply ldply ddply l_ply summarise colwise .
 #' @importFrom reshape2 melt dcast
 #' @importFrom XML xpathApply xpathSApply getNodeSet htmlParse xmlParse xmlValue
 #' xmlTreeParse xmlGetAttr xmlToList
-#' @importFrom xml2 xml_text xml_find_one xml_children read_xml
+#' @importFrom xml2 xml_text xml_find_one xml_find_all xml_children read_xml
+#' xml_name xml_ns
 #' @importFrom rredlist rl_search
 #' @name taxize-package
 #' @aliases taxize

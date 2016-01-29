@@ -44,92 +44,79 @@
 #' col_downstream(name="Bryophyta", downto="Family", checklist=2009)
 #'
 #' # By id
-#' col_downstream(id=2346405, downto="Genus", checklist=2012)
+#' col_downstream(id='576d098d770a39d09e2bcfa1c0896b26', downto="Species", checklist=2012)
 #' }
 
 col_downstream <- function(name = NULL, id = NULL, downto, format = NULL, start = NULL,
-  checklist = NULL, verbose = TRUE, intermediate = FALSE, ...)
-{
-  url = "http://www.catalogueoflife.org/col/webservice"
+  checklist = NULL, verbose = TRUE, intermediate = FALSE, ...) {
+
   downto <- taxize_capwords(downto)
-  poss_ranks <- unique(do.call(c, sapply(rank_ref$ranks, strsplit, split=",", USE.NAMES = FALSE)))
+  poss_ranks <- unique(do.call(c, sapply(rank_ref$ranks, strsplit, split = ",", USE.NAMES = FALSE)))
   downto <- match.arg(downto, choices = poss_ranks)
 
-  searchcol <- function(x=NULL, y=NULL, ...) {
-    args <- tc(list(name=x, id=y, format=format, response="full", start=start))
-    out_ <- GET(url, query = argsnull(args), ...)
-    tt <- xmlParse(con_utf8(out_))
-
-    childtaxa_id <- xpathSApply(tt, "//child_taxa//id", xmlValue)
-    childtaxa_name <- xpathSApply(tt, "//child_taxa//name", xmlValue)
-    childtaxa_rank <- xpathSApply(tt, "//child_taxa//rank", xmlValue)
-    out <- data.frame(childtaxa_id, childtaxa_name, childtaxa_rank, stringsAsFactors = FALSE)
-    return(out)
-  }
-
-  func <- function(x=NULL, y=NULL, ...) {
-    if(!is.null(checklist)) {
-      cc <- match.arg(as.character(checklist), choices=c(2012,2011,2010,2009,2008,2007))
-      if(cc %in% c(2012,2011,2010)){
-        url <- gsub("col", paste("annual-checklist/", cc, sep=""), url)
-      } else {
-        url <- "http://webservice.catalogueoflife.org/annual-checklist/year/search.php"
-        url <- gsub("year", cc, url)
-      }
-    }
-
+  func <- function(x=NULL, y=NULL, checklist, format, start, ...) {
+    url <- make_url(checklist)
     torank <- sapply(rank_ref[grep(downto, rank_ref$ranks),"ranks"],
-                function(x) strsplit(x, ",")[[1]][[1]], USE.NAMES=FALSE)
+                function(x) strsplit(x, ",")[[1]][[1]], USE.NAMES = FALSE)
 
     toget <- ifelse(is.null(y), x, y)
     stop_ <- "not"
     notout <- data.frame(rankName = "")
     out <- list()
-    if(intermediate) intermed <- list()
+    if (intermediate) intermed <- list()
     iter <- 0
-    while(stop_ == "not"){
+    while (stop_ == "not") {
       iter <- iter + 1
-      if(is.null(x)){
-        tt <- ldply(toget, function(z) searchcol(y=z, ...))
+      if (is.null(x)) {
+        tt <- ldply(toget, function(z) {
+          search_col_safe(name = NULL, id = z, checklist = checklist,
+                          format = format, start = start, ...)
+        })
       } else {
-        tt <- ldply(toget, function(z) searchcol(x=z, ...))
+        tt <- ldply(toget, function(z) {
+          search_col_safe(name = z, id = NULL, checklist = checklist,
+                          format = format, start = start, ...)
+        })
       }
 
       # remove
-      if(nrow(tt[tt$childtaxa_rank == downto, ]) > 0)
+      if (nrow(tt[tt$childtaxa_rank == downto, ]) > 0)
         out[[iter]] <- tt[tt$childtaxa_rank == downto, ]
-      if(nrow(tt[!tt$childtaxa_rank == downto, ]) > 0) {
+      if (nrow(tt[!tt$childtaxa_rank == downto, ]) > 0) {
         notout <- tt[!tt$childtaxa_rank %in% torank, ]
       } else {
         notout <- data.frame(rankName = downto)
       }
-      if(all(notout$childtaxa_rank == downto)) {
+      if (all(notout$childtaxa_rank == downto)) {
         stop_ <- "fam"
       } else {
-        if(intermediate) intermed[[iter]] <- notout
+        if (intermediate) intermed[[iter]] <- notout
         x <- NULL
         toget <- as.character(notout$childtaxa_id)
         stop_ <- "not"
       }
     } # end while loop
 
-    if(length(out) == 0){
-      ret <-  data.frame(childtaxa_id=NA, childtaxa_name=NA, childtaxa_rank=NA)
+    if (length(out) == 0) {
+      ret <-  data.frame(childtaxa_id = NA, childtaxa_name = NA, childtaxa_rank = NA)
     } else {
       res <- tc(out)
       ret <- do.call(rbind.fill, res)
     }
-    if(intermediate) list(target=ret, intermediate=intermed) else ret
+    if (intermediate) list(target = ret, intermediate = intermed) else ret
   } # end fxn func
 
   safe_func <- plyr::failwith(NULL, func)
   if (is.null(id)) {
-    temp <- setNames(lapply(name, safe_func, y=NULL, ...), name)
+    temp <- setNames(lapply(name, safe_func, y = NULL,
+                            checklist = checklist, format = format, start = start, ...), name)
   } else {
-    temp <- setNames(lapply(id, function(z) safe_func(x=NULL, y=id, ...)), id)
+    temp <- setNames(lapply(id, function(z) {
+      safe_func(x = NULL, y = id, checklist = checklist, format = format, start = start, ...)
+    }), id)
   }
 
-  nas <- sapply(temp, function(z) NROW(na.omit( if(intermediate) z$target else z )))
-  if (verbose) message(sprintf('These taxa with no data: %s\nTry adjusting input parameters', names(nas[nas==0])))
+  nas <- sapply(temp, function(z) NROW(na.omit( if (intermediate) z$target else z )))
+  if (verbose) message(sprintf('These taxa with no data: %s\nTry adjusting input parameters', names(nas[nas == 0])))
   return( temp )
 }

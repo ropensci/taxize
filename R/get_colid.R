@@ -247,9 +247,7 @@ make_colid <- function(x, check=TRUE) make_generic(x, 'http://www.catalogueoflif
 check_colid <- function(x){
   url <- "http://www.catalogueoflife.org/col/details/species/id/"
   res <- GET(paste0(url, x))
-  tt <- xmlParse(con_utf8(res))
-  tryid <- xpathSApply(tt, '//p', xmlValue)
-  identical(list(), tryid)
+  !grepl("Species not found", res)
 }
 
 #' @export

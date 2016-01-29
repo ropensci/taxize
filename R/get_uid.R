@@ -159,11 +159,12 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, modifier = N
     if (!is.null(rank_query)) url <- paste0(url, sprintf(" AND %s[Rank]", rank_query))
     url <- URLencode(url)
     errors_to_catch <- c("Could not resolve host: eutils.ncbi.nlm.nih.gov")
-    xml_result <- xmlParse(repeat_until_it_works(catch = errors_to_catch, url = url, ...))
+    xml_result <- xml2::read_xml(repeat_until_it_works(catch = errors_to_catch, url = url))
+    #xml_result <- xmlParse(repeat_until_it_works(catch = errors_to_catch, url = url, ...))
 
     # NCBI limits requests to three per second
     Sys.sleep(0.33)
-    uid <- xpathSApply(xml_result, "//IdList/Id", xmlValue)
+    uid <- xml2::xml_text(xml2::xml_find_all(xml_result, "//IdList/Id"))
     if (length(uid) == 0) { # if taxon name is not found
       uid <- NA
     } else {
@@ -293,9 +294,9 @@ make_uid <- function(x, check=TRUE) make_generic(x, 'http://www.ncbi.nlm.nih.gov
 check_uid <- function(x){
   url <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&id="
   res <- GET(paste0(url, x))
-  tt <- xmlParse(con_utf8(res))
-  tryid <- xpathSApply(tt, "//Id", xmlValue)
-  identical(x, tryid)
+  tt <- xml2::read_xml(con_utf8(res))
+  tryid <- xml2::xml_text(xml2::xml_find_all(tt, "//Id"))
+  identical(as.character(x), tryid)
 }
 
 
