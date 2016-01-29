@@ -136,3 +136,11 @@ test_that("works on a variety of names", {
 	expect_that(classification(nn[1], db = "ncbi", verbose=FALSE), is_a("classification"))
 	expect_that(classification(nn[2], db = "ncbi", verbose=FALSE), is_a("classification"))
 })
+
+test_that("queries with no results fail well", {
+  aa <- classification(x = "Saurauia", db = "itis", verbose = FALSE)
+  bb <- classification(get_tsn("Saurauia", verbose = FALSE), verbose = FALSE)
+
+  expect_true(is.na(unclass(aa)[[1]]))
+  expect_identical(unname(aa), unname(bb))
+})

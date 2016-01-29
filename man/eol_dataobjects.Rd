@@ -4,12 +4,16 @@
 \alias{eol_dataobjects}
 \title{Given the identifier for a data object, return all metadata about the object}
 \usage{
-eol_dataobjects(id, usekey = TRUE, key = NULL, verbose = TRUE, ...)
+eol_dataobjects(id, taxonomy = TRUE, usekey = TRUE, key = NULL,
+  verbose = TRUE, ...)
 }
 \arguments{
 \item{id}{(character) The EOL data object identifier}
 
-\item{usekey}{(logical) use your API key or not (TRUE or FALSE)}
+\item{taxonomy}{(logical) Whether to return any taxonomy details from different
+taxon hierarchy providers, in an array named \code{taxonconcepts}}
+
+\item{usekey}{(logical) use your API key or not (\code{TRUE} or \code{FALSE})}
 
 \item{key}{(character) Your EOL API key; can load from .Rprofile if not passed as a parameter}
 
