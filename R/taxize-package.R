@@ -64,6 +64,7 @@
 #' @importFrom reshape2 melt dcast
 #' @importFrom XML xpathApply xpathSApply getNodeSet htmlParse xmlParse xmlValue
 #' xmlTreeParse xmlGetAttr xmlToList
+#' @importFrom xml2 xml_text xml_find_one xml_children read_xml
 #' @importFrom rredlist rl_search
 #' @name taxize-package
 #' @aliases taxize

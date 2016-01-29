@@ -28,6 +28,7 @@ Imports:
     utils,
     httr (>= 1.0.0),
     XML (>= 3.98.1.1),
+    xml2 (>= 0.1.2),
     jsonlite,
     reshape2,
     stringr,

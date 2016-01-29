@@ -51,7 +51,9 @@ col_ping <- function(what = "status", ...) {
   switch(matchwhat(what),
          status = match_status(res),
          code = match_code(res, what),
-         content = grepl("Apis", xmlToList(content(res))$result$name, ignore.case = TRUE))
+         content = identical("Apis",
+           xml_text(xml_find_one(xml_children(xml2::read_xml(con_utf8(res)))[[1]], "name")))
+  )
 }
 
 #' @export
@@ -61,7 +63,8 @@ eol_ping <- function(what = "status", ...) {
   switch(matchwhat(what),
          status = match_status(res),
          code = match_code(res, what),
-         content = grepl("success", xmlToList(content(res))$message, ignore.case = TRUE))
+         content = grepl("success", xml2::xml_text(xml2::read_xml(con_utf8(res))),
+                         ignore.case = TRUE))
 }
 
 #' @export
@@ -72,7 +75,7 @@ itis_ping <- function(what = "status", ...) {
          status = match_status(res),
          code = match_code(res, what),
          content = {
-           tt <- xmlToList(content(res))$return$description
+           tt <- xml_text(xml2::xml_children(xml2::read_xml(con_utf8(res)))[[1]])
            grepl("this is the itis web service", tt, ignore.case = TRUE)
          })
 }
@@ -84,7 +87,9 @@ ncbi_ping <- function(what = "status", ...) {
   switch(matchwhat(what),
          status = match_status(res),
          code = match_code(res, what),
-         content = grepl("4232", xmlToList(content(res))$Taxon$TaxId, ignore.case = TRUE))
+         content = identical("4232",
+                             xml_text(xml_find_one(xml_children(read_xml(con_utf8(res)))[[1]], "TaxId")))
+  )
 }
 
 #' @export
@@ -94,7 +99,7 @@ tropicos_ping <- function(what = "status", ...) {
   switch(matchwhat(what),
          status = match_status(res),
          code = match_code(res, what),
-         content = grepl("25509881", content(res)$NameId, ignore.case = TRUE))
+         content = grepl(25509881, jsonlite::fromJSON(con_utf8(res))$NameId))
 }
 
 #' @export
@@ -104,7 +109,7 @@ nbn_ping <- function(what = "status", ...) {
   switch(matchwhat(what),
          status = match_status(res),
          code = match_code(res, what),
-         content = content(res)$header$rows == 25)
+         content = jsonlite::fromJSON(con_utf8(res))$header$rows == 25)
 }
 
 #' @export
@@ -114,7 +119,7 @@ gbif_ping <- function(what = "status", ...) {
   switch(matchwhat(what),
          status = match_status(res),
          code = match_code(res, what),
-         content = grepl("1", content(res)$key, ignore.case = TRUE))
+         content = grepl("1", jsonlite::fromJSON(con_utf8(res))$key, ignore.case = TRUE))
 }
 
 #' @export
@@ -124,7 +129,7 @@ bold_ping <- function(what = "status", ...) {
   switch(matchwhat(what),
          status = match_status(res),
          code = match_code(res, what),
-         content = grepl("88899", jsonlite::fromJSON(content(res, "text"))[[1]]$taxid, ignore.case = TRUE))
+         content = grepl("88899", jsonlite::fromJSON(con_utf8(res))[[1]]$taxid, ignore.case = TRUE))
 }
 
 #' @export
@@ -135,8 +140,8 @@ ipni_ping <- function(what = "status", ...) {
          status = match_status(res),
          code = match_code(res, what),
          content = {
-           txt <- content(res, "text")
-           dat <- read.delim(text=txt, sep="%", stringsAsFactors=FALSE)
+           txt <- con_utf8(res)
+           dat <- read.delim(text = txt, sep = "%", stringsAsFactors = FALSE)
            grepl("Asteraceae", dat$Family[1], ignore.case = TRUE)
         })
 }
@@ -148,7 +153,7 @@ vascan_ping <- function(what = "status", ...) {
   switch(matchwhat(what),
          status = match_status(res),
          code = match_code(res, what),
-         content = grepl("Crataegus", content(res)$results[[1]]$searchedTerm, ignore.case = TRUE)
+         content = grepl("Crataegus", jsonlite::fromJSON(con_utf8(res))$results[[1]], ignore.case = TRUE)
   )
 }
 
@@ -159,14 +164,14 @@ fg_ping <- function(what = "status", ...) {
   switch(matchwhat(what),
          status = match_status(res),
          code = match_code(res, what),
-         content = grepl("Gymnopus", xmlToList(content(res)), ignore.case = TRUE)
+         content = grepl("Gymnopus", xml_text(read_xml(con_utf8(res))), ignore.case = TRUE)
   )
 }
 
 
 matchwhat <- function(x){
   x <- as.character(x)
-  if( x %in% c("status", "content") ) x else "code"
+  if ( x %in% c("status", "content") ) x else "code"
 }
 
 match_status <- function(x){
