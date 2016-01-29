@@ -23,7 +23,7 @@ console.}
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
-List or dataframe (default).
+A list, optionally with a data.frame if \code{taxonomy=TRUE}
 }
 \description{
 Given the identifier for a data object, return all metadata about the object
