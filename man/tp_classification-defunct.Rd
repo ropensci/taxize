@@ -4,23 +4,10 @@
 \alias{tp_classification}
 \title{Return all synonyms for a taxon name with a given id.}
 \usage{
-tp_classification(id = NULL, key = NULL, callopts = list())
-}
-\arguments{
-\item{id}{A Tropicos name ID}
-
-\item{key}{Your Tropicos API key; loads from .Rprofile.}
-
-\item{callopts}{Further args passed on to httr::GET}
-}
-\value{
-A data.frame giving the hierarchy.
+tp_classification(...)
 }
 \description{
 THIS FUNCTION IS DEFUNCT.
-}
-\references{
-\url{http://services.tropicos.org/help?method=GetNameHigherTaxaXml}
 }
 \keyword{internal}
 

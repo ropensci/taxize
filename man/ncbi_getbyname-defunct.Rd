@@ -4,41 +4,13 @@
 \alias{ncbi_getbyname}
 \title{Retrieve gene sequences from NCBI by taxon name and gene names.}
 \usage{
-ncbi_getbyname(taxa, gene = "COI", seqrange = "1:3000",
-  getrelated = FALSE, verbose = TRUE)
-}
-\arguments{
-\item{taxa}{(character) Scientific name to search for.}
-
-\item{gene}{(character) Gene or genes (in a vector) to search for. See examples.}
-
-\item{seqrange}{(character) Sequence range, as e.g., \code{"1:1000"}. This is the range of 
-sequence lengths to search for. So \code{"1:1000"} means search for sequences from 1 to 1000
-characters in length.}
-
-\item{getrelated}{(logical) If \code{TRUE}, gets the longest sequences of a species
-in the same genus as the one searched for. If \code{FALSE}, returns nothing if no match 
-found.}
-
-\item{verbose}{(logical) If \code{TRUE} (default), informative messages printed.}
-}
-\value{
-Data.frame of results.
+ncbi_getbyname(...)
 }
 \description{
 THIS FUNCTION IS DEFUNCT.
 }
-\details{
-Removes predicted sequences so you don't have to remove them.
-		Predicted sequences are those with accession numbers that have "XM_" or
-		"XR_" prefixes. This function retrieves one sequences for each species,
-  	picking the longest available for the given gene.
-}
 \author{
 Scott Chamberlain \email{myrmecocystus@gmail.com}
-}
-\seealso{
-\code{\link[taxize]{ncbi_search}}, \code{\link[taxize]{ncbi_getbyid}}
 }
 \keyword{internal}
 

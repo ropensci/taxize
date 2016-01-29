@@ -4,52 +4,10 @@
 \alias{ncbi_search}
 \title{Search for gene sequences available for taxa from NCBI.}
 \usage{
-ncbi_search(taxa = NULL, id = NULL, seqrange = "1:3000",
-  getrelated = FALSE, limit = 500, entrez_query = NULL,
-  hypothetical = FALSE, verbose = TRUE)
-}
-\arguments{
-\item{taxa}{(character) Scientific name to search for.}
-
-\item{id}{(\code{character}) Taxonomic id to search for. Not compatible with argument \code{taxa}.}
-
-\item{seqrange}{(character) Sequence range, as e.g., \code{"1:1000"}. This is the range of 
-sequence lengths to search for. So \code{"1:1000"} means search for sequences from 1 to 1000
-characters in length.}
-
-\item{getrelated}{(logical) If \code{TRUE}, gets the longest sequences of a species
-in the same genus as the one searched for. If \code{FALSE}, returns nothing if no match 
-found.}
-
-\item{limit}{(\code{numeric}) Number of sequences to search for and return. Max of 10,000.
-If you search for 6000 records, and only 5000 are found, you will of course
-only get 5000 back.}
-
-\item{entrez_query}{(\code{character}; length 1) An Entrez-format query to filter results with.
-This is useful to search for sequences with specific characteristics. The format is the same
-as the one used to seach genbank.
-(\url{http://www.ncbi.nlm.nih.gov/books/NBK3837/#EntrezHelp.Entrez_Searching_Options})}
-
-\item{hypothetical}{(\code{logical}; length 1) If \code{FALSE}, an attempt will be made to not
-return hypothetical or predicted sequences judging from accession number prefixs (XM and XR).
-This can result in less than the \code{limit} being returned even if there are more sequences
-available, since this filtering is done after searching NCBI.}
-
-\item{verbose}{(logical) If \code{TRUE} (default), informative messages printed.}
-}
-\value{
-\code{data.frame} of results if a single input is given. A list of \code{data.frame}s if
-  multiple inputs are given.
+ncbi_search(...)
 }
 \description{
 THIS FUNCTION IS DEFUNCT.
-}
-\author{
-Scott Chamberlain \email{myrmecocystus@gmail.com}, Zachary Foster
-  \email{zacharyfoster1989@gmail.com}
-}
-\seealso{
-\code{\link[taxize]{ncbi_getbyid}}, \code{\link[taxize]{ncbi_getbyname}}
 }
 \keyword{internal}
 
