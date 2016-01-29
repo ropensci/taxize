@@ -18,6 +18,7 @@
 #' search mode' in this case.
 #' @param addSynonymy (logical) Indicates whether the synonymy of the accepted taxon should be
 #' included into the response. Turning this option on may cause an increased response time.
+#' Default: \code{FALSE}
 #' @param timeout (numeric) The maximum of milliseconds to wait for responses from any of the
 #' providers. If the timeout is exceeded the service will jut return the resonses that have
 #' been received so far. The default timeout is 0 ms (wait for ever)
@@ -40,15 +41,14 @@ eubon <- function(query, providers = 'pesi', searchMode = 'scientificNameExact',
                   timeout = timeout))
   res <- GET(eubon_base(), query = args, ...)
   eubon_error(res)
-  txt <- content(res, "text")
-  jsonlite::fromJSON(txt, FALSE)
+  jsonlite::fromJSON(con_utf8(res), FALSE)
 }
 
 eubon_base <- function() "http://cybertaxonomy.eu/eubon-utis/search"
 
 eubon_error <- function(x) {
   if (x$status_code > 201) {
-    msg <- xpathSApply(content(x), "//title", xmlValue)
+    msg <- xml2::xml_text(xml2::xml_find_one(xml2::read_html(con_utf8(x)), "//title"))
     stop(msg, call. = FALSE)
   }
 }

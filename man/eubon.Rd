@@ -27,7 +27,8 @@ will be skipped and the status message in the tnrClientStatus will be set to 'un
 search mode' in this case.}
 
 \item{addSynonymy}{(logical) Indicates whether the synonymy of the accepted taxon should be
-included into the response. Turning this option on may cause an increased response time.}
+included into the response. Turning this option on may cause an increased response time.
+Default: \code{FALSE}}
 
 \item{timeout}{(numeric) The maximum of milliseconds to wait for responses from any of the
 providers. If the timeout is exceeded the service will jut return the resonses that have
