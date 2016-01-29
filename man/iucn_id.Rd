@@ -9,6 +9,8 @@ iucn_id(sciname, ...)
 \arguments{
 \item{sciname}{character; Scientific name. Should be cleand and in the
 format \emph{<Genus> <Species>}. One or more.}
+
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
 A named list (names are input taxa names) of one or more IUCN IDs.
