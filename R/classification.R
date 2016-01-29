@@ -208,6 +208,7 @@ classification.tsn <- function(id, callopts = list(), return_id = TRUE, ...) {
       out <- NA
     } else {
       out <- getfullhierarchyfromtsn(x, callopts, ...)
+      if (NROW(out) < 1) return(NA)
       # remove overhang
       out <- out[1:which(out$tsn == x), c('taxonname', 'rankname', 'tsn')]
       names(out) <- c('name', 'rank', 'id')
