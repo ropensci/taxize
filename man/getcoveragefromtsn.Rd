@@ -16,8 +16,8 @@ Get coverge from tsn
 }
 \examples{
 \dontrun{
-getcoveragefromtsn(tsn=28727, config=timeout(4))  # coverage data
-getcoveragefromtsn(526852, config=timeout(4))  # no coverage data
+getcoveragefromtsn(tsn=28727)  # coverage data
+getcoveragefromtsn(526852)  # no coverage data
 }
 }
 \keyword{internal}

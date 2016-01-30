@@ -16,7 +16,7 @@ Search for tsn by common name beginning with
 }
 \examples{
 \dontrun{
-searchbycommonnamebeginswith("inch", config=timeout(3))
+searchbycommonnamebeginswith(x="inch", config=timeout(3))
 }
 }
 \keyword{internal}

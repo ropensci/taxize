@@ -17,9 +17,7 @@ Get itis terms from common names
 \examples{
 \dontrun{
 getitistermsfromcommonname("buya")
-
-# library('httr')
-# getitistermsfromcommonname("buya", config=timeout(1))
+getitistermsfromcommonname("pum")
 }
 }
 \keyword{internal}

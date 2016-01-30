@@ -14,7 +14,7 @@ Get possible credibility ratings
 }
 \examples{
 \dontrun{
-getcredibilityratings(config=timeout(3))
+getcredibilityratings()
 }
 }
 \keyword{internal}

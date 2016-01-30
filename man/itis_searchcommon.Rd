@@ -21,7 +21,7 @@ Searches common name and acts as thin wrapper around \code{searchbycommonnamebeg
 }
 \examples{
 \dontrun{
-itis_searchcommon("inch", config=timeout(3))
+itis_searchcommon(x="inch", config=timeout(3))
 itis_searchcommon("inch", from = "end", config=timeout(3))
 }
 }

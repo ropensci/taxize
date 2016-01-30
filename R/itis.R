@@ -3,23 +3,27 @@ itbase <- function() 'http://www.itis.gov/ITISWebService/services/ITISService/'
 itis_GET <- function(endpt, args, ...){
   args <- argsnull(args)
   tt <- GET(paste0(itbase(), endpt), query = args, ...)
-  xmlParse(con_utf8(tt), encoding = "UTF-8")
+  #xmlParse(con_utf8(tt), encoding = "UTF-8")
+  xml2::read_xml(con_utf8(tt), encoding = "UTF-8")
 }
 
 itis_parse <- function(a, b, d) {
   xpathfunc <- function(x, y, nsp) {
-    sapply(getNodeSet(y, paste("//ax21:", x, sep = ''), namespaces = nsp), xmlValue)
+    xml_text(xml_find_all(y, paste0("//ax21:", x), nsp))
+    #sapply(getNodeSet(y, paste("//ax21:", x, sep = ''), namespaces = nsp), xmlValue)
   }
-  df <- setNames(data.frame(lapply(a, xpathfunc, y = b, nsp = d)), a)
-  colClasses(nmslwr(df), "character")
+  df <- setNames(data.frame(lapply(a, xpathfunc, y = b, nsp = d), stringsAsFactors = FALSE), a)
+  nmslwr(df)
 }
 
-itisdf <- function(a, b, matches, colnames, pastens="ax21"){
+itisdf <- function(a, b, matches, colnames, pastens="ax21") {
   matches <- paste0(sprintf('//%s:', pastens), matches)
   output <- c()
   for (i in seq_along(matches)) {
-    nodes <- getNodeSet(a, matches[[i]], namespaces = b)
-    output[[i]] <- sapply(nodes, xmlValue)
+    nodes <- xml_find_all(a, matches[[i]], b)
+    output[[i]] <- xml_text(nodes)
+    #nodes <- getNodeSet(a, matches[[i]], namespaces = b)
+    #output[[i]] <- sapply(nodes, xmlValue)
   }
   if (length(unique(sapply(output, length))) == 1 && unique(sapply(output, length)) == 0) {
     data.frame(NULL, stringsAsFactors = FALSE)
@@ -30,29 +34,47 @@ itisdf <- function(a, b, matches, colnames, pastens="ax21"){
   }
 }
 
+# itisdf <- function(a, b, matches, colnames, pastens="ax21"){
+#   matches <- paste0(sprintf('//%s:', pastens), matches)
+#   output <- c()
+#   for (i in seq_along(matches)) {
+#     nodes <- getNodeSet(a, matches[[i]], namespaces = b)
+#     output[[i]] <- sapply(nodes, xmlValue)
+#   }
+#   if (length(unique(sapply(output, length))) == 1 && unique(sapply(output, length)) == 0) {
+#     data.frame(NULL, stringsAsFactors = FALSE)
+#   } else if (all(sapply(output, length) == 1)) {
+#     setNames(data.frame(t(output), stringsAsFactors = FALSE), colnames)
+#   } else {
+#     setNames(data.frame(output, stringsAsFactors = FALSE), colnames)
+#   }
+# }
+
 #' Get accepted names from tsn
 #'
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \dontrun{
 #' # TSN accepted - good name
-#' library('httr')
-#' getacceptednamesfromtsn('208527', config=timeout(1))
+#' getacceptednamesfromtsn(tsn='208527')
 #'
 #' # TSN not accepted - input TSN is old name
-#' getacceptednamesfromtsn('504239', config=timeout(1))
+#' getacceptednamesfromtsn('504239')
 #'
 #' # TSN not accepted - input TSN is old name
-#' getacceptednamesfromtsn('504239', config=timeout(3))
+#' getacceptednamesfromtsn('504239')
 #' }
 #' @export
 #' @keywords internal
 getacceptednamesfromtsn <- function(tsn, ...) {
   tt_ <- itis_GET("getAcceptedNamesFromTSN", list(tsn = tsn), ...)
-	temp <- xmlToList(tt_)
-	if (length(temp$return$acceptedNames) == 1) {
-    temp$return$tsn
+  x_tsn <- xml_text(xml_find_all(tt_, "//ax21:tsn", xml_ns(tt_)))
+  x_acc_names <- lapply(xml_children(as_list(xml_find_all(tt_, "//ax21:acceptedNames", xml_ns(tt_)))[[1]]), function(z) {
+    as.list(setNames(xml_text(z), xml_name(z)))
+  })
+	if (length(x_acc_names) < 2) {
+    x_tsn
   } else {
-		nmslwr(c(submittedtsn = temp$return$tsn, temp$return$acceptedNames[1:2]))
+		nmslwr(unlist(c(submittedtsn = x_tsn, x_acc_names[1:2]), FALSE))
 	}
 }
 
@@ -70,7 +92,7 @@ getacceptednamesfromtsn <- function(tsn, ...) {
 #' @keywords internal
 getanymatchcount <- function(x, ...) {
 	out <- itis_GET("getAnyMatchCount", list(srchKey = x), ...)
-  as.numeric(xmlToList(out)$return)
+  as.numeric(xml2::xml_text(out))
 }
 
 #' Get comment detail from TSN
@@ -79,12 +101,12 @@ getanymatchcount <- function(x, ...) {
 #' @param ... optional additional curl options (debugging tools mostly)
 #' @return A data.frame with results.
 #' @examples \dontrun{
-#' getcommentdetailfromtsn(tsn=180543, config=timeout(4))
+#' getcommentdetailfromtsn(tsn=180543)
 #' }
 #' @export
 #' @keywords internal
 getcommentdetailfromtsn <- function(tsn, ...) {
-	out <- itis_GET("getCommentDetailFromTSN", list(tsn = tsn), config = timeout(1))
+	out <- itis_GET("getCommentDetailFromTSN", list(tsn = tsn), ...)
   namespaces <- c(namespaces <- c(ax21 = "http://data.itis_service.itis.usgs.gov/xsd"))
   matches <- c("commentDetail", "commentId", "commentTimeStamp", "commentator","updateDate")
   colnames <- c('comment','commid','commtime','commentator','updatedate')
@@ -95,19 +117,16 @@ getcommentdetailfromtsn <- function(tsn, ...) {
 #'
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \dontrun{
-#' getcommonnamesfromtsn(183833, config=timeout(1))
+#' getcommonnamesfromtsn(tsn=183833)
 #' }
 #' @export
 #' @keywords internal
 getcommonnamesfromtsn <- function(tsn, ...) {
 	out <- itis_GET("getCommonNamesFromTSN", list(tsn = tsn), ...)
   namespaces <- c(namespaces <- c(ax21 = "http://data.itis_service.itis.usgs.gov/xsd"))
-  nodes <- getNodeSet(out, "//ax21:commonName", namespaces = namespaces)
-  comname <- sapply(nodes, xmlValue)
-  nodes <- getNodeSet(out, "//ax21:language", namespaces = namespaces)
-  lang <- sapply(nodes, xmlValue)
-  nodes <- getNodeSet(out, "//ax21:tsn", namespaces = namespaces)
-  tsn <- sapply(nodes, xmlValue)
+  comname <- xml_text(xml_find_all(out, "//ax21:commonName", xml_ns(out)))
+  lang <- xml_text(xml_find_all(out, "//ax21:language", xml_ns(out)))
+  tsn <- xml_text(xml_find_all(out, "//ax21:tsn", xml_ns(out)))
   data.frame(comname = comname, lang = lang, tsn = tsn[-length(tsn)], stringsAsFactors = FALSE)
 }
 
@@ -115,8 +134,8 @@ getcommonnamesfromtsn <- function(tsn, ...) {
 #'
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \dontrun{
-#' getcoremetadatafromtsn(28727, config=timeout(3))  # coverage and currrency data
-#' getcoremetadatafromtsn(183671, config=timeout(4))  # no coverage or currrency data
+#' getcoremetadatafromtsn(tsn=28727)  # coverage and currrency data
+#' getcoremetadatafromtsn(183671)  # no coverage or currrency data
 #' }
 #' @export
 #' @keywords internal
@@ -124,15 +143,15 @@ getcoremetadatafromtsn <- function(tsn, ...) {
 	out <- itis_GET("getCoreMetadataFromTSN", list(tsn = tsn), ...)
   namespaces <- c(namespaces <- c(ax21 = "http://data.itis_service.itis.usgs.gov/xsd"))
   toget <- list("credRating","rankId","taxonCoverage","taxonCurrency","taxonUsageRating","tsn")
-	itis_parse(toget, out, namespaces)
+	itis_parse(a = toget, b = out, d = namespaces)
 }
 
 #' Get coverge from tsn
 #'
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \dontrun{
-#' getcoveragefromtsn(tsn=28727, config=timeout(4))  # coverage data
-#' getcoveragefromtsn(526852, config=timeout(4))  # no coverage data
+#' getcoveragefromtsn(tsn=28727)  # coverage data
+#' getcoveragefromtsn(526852)  # no coverage data
 #' }
 #' @export
 #' @keywords internal
@@ -147,7 +166,7 @@ getcoveragefromtsn <- function(tsn, ...) {
 #'
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \dontrun{
-#' getcredibilityratingfromtsn(526852, config=timeout(4))
+#' getcredibilityratingfromtsn(526852)
 #' }
 #' @export
 #' @keywords internal
@@ -162,23 +181,22 @@ getcredibilityratingfromtsn <- function(tsn, ...) {
 #'
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @examples \dontrun{
-#' getcredibilityratings(config=timeout(3))
+#' getcredibilityratings()
 #' }
 #' @export
 #' @keywords internal
 getcredibilityratings <- function(...) {
 	out <- itis_GET("getCredibilityRatings", list(), ...)
   namespaces <- c(ax23 = "http://metadata.itis_service.itis.usgs.gov/xsd")
-  nodes <- getNodeSet(out, "//ax23:credibilityValues", namespaces = namespaces)
-  credibilityValues <- sapply(nodes, xmlValue)
-  data.frame(credibilityvalues = credibilityValues, stringsAsFactors = FALSE)
+  xx <- xml_text(xml_find_all(out, "//ax23:credibilityValues", xml_ns(out)))
+  data.frame(credibilityvalues = xx, stringsAsFactors = FALSE)
 }
 
 #' Get currency from tsn
 #'
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \dontrun{
-#' getcurrencyfromtsn(28727, config=timeout(3)) # currency data
+#' getcurrencyfromtsn(tsn=28727, config=timeout(3)) # currency data
 #' getcurrencyfromtsn(526852, config=timeout(3)) # no currency dat
 #' }
 #' @export
@@ -214,14 +232,15 @@ getdatedatafromtsn <- function(tsn, ...) {
 #' @export
 #' @keywords internal
 getdescription <- function(...){
-	getNodeSet(itis_GET("getDescription", list(), ...), "//ns:return", fun = xmlValue)[[1]]
+  x <- itis_GET("getDescription", list(), ...)
+	xml_text(xml_find_all(x, "//ns:return", xml_ns(x)))[[1]]
 }
 
 #' Get expert information for the TSN.
 #'
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \dontrun{
-#' getexpertsfromtsn(180544, config=timeout(3))
+#' getexpertsfromtsn(tsn=180544, config=timeout(3))
 #' }
 #' @export
 #' @keywords internal
@@ -230,16 +249,16 @@ getexpertsfromtsn <- function(tsn, ...) {
   namespaces <- c(namespaces <- c(ax21 = "http://data.itis_service.itis.usgs.gov/xsd"))
   toget <- list("comment","expert","name","referredTsn","referenceFor","updateDate")
   xpathfunc <- function(x) {
-    sapply(getNodeSet(out, paste("//ax21:", x, sep = ''), namespaces = namespaces),xmlValue)
+    xml_text(xml_find_all(out, paste0("//ax21:", x), nsp))
   }
-  nmslwr(setNames(do.call(cbind, lapply(toget, as.data.frame(xpathfunc))), toget))
+  nmslwr(setNames(do.call(cbind, lapply(toget, function(z) as.data.frame(xpathfunc(z)))), toget))
 }
 
 #' Get full hierarchy from tsn
 #'
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \dontrun{
-#' getfullhierarchyfromtsn(37906, config=timeout(3))
+#' getfullhierarchyfromtsn(tsn=37906, config=timeout(3))
 #' getfullhierarchyfromtsn(100800, config=timeout(3))
 #' }
 #' @export
@@ -248,16 +267,11 @@ getexpertsfromtsn <- function(tsn, ...) {
 getfullhierarchyfromtsn <- function(tsn, ...) {
 	out <- itis_GET("getFullHierarchyFromTSN", list(tsn = tsn), ...)
   namespaces <- c(namespaces <- c(ax21 = "http://data.itis_service.itis.usgs.gov/xsd"))
-  nodes <- getNodeSet(out, "//ax21:parentName", namespaces = namespaces)
-  parentName <- sapply(nodes, xmlValue)
-  nodes <- getNodeSet(out, "//ax21:parentTsn", namespaces = namespaces)
-  parentTsn <- sapply(nodes, xmlValue)
-  nodes <- getNodeSet(out, "//ax21:rankName", namespaces = namespaces)
-  rankName <- sapply(nodes, xmlValue)
-  nodes <- getNodeSet(out, "//ax21:taxonName", namespaces = namespaces)
-  taxonName <- sapply(nodes, xmlValue)
-  nodes <- getNodeSet(out, "//ax21:tsn", namespaces = namespaces)
-  tsn <- sapply(nodes, xmlValue)
+  parentName <- xml_text(xml_find_all(out, "//ax21:parentName", xml_ns(out)))
+  parentTsn <- xml_text(xml_find_all(out, "//ax21:parentTsn", xml_ns(out)))
+  rankName <- xml_text(xml_find_all(out, "//ax21:rankName", xml_ns(out)))
+  taxonName <- xml_text(xml_find_all(out, "//ax21:taxonName", xml_ns(out)))
+  tsn <- xml_text(xml_find_all(out, "//ax21:tsn", xml_ns(out)))
 	nmslwr(data.frame(parentName = parentName, parentTsn = parentTsn,
 	           rankName = rankName[-length(rankName)],
 	           taxonName = taxonName, tsn = tsn[-1], stringsAsFactors = FALSE))
@@ -270,7 +284,7 @@ getfullhierarchyfromtsn <- function(tsn, ...) {
 #' @param lsid lsid for a taxonomic group (character)
 #' @param ... optional additional curl options (debugging tools mostly)
 #' @examples \dontrun{
-#' getfullrecordfromlsid("urn:lsid:itis.gov:itis_tsn:180543", config=timeout(3))
+#' getfullrecordfromlsid(lsid="urn:lsid:itis.gov:itis_tsn:180543", config=timeout(3))
 #' getfullrecordfromlsid("urn:lsid:itis.gov:itis_tsn:180543", config=timeout(3))
 #' }
 #' @export
@@ -283,19 +297,24 @@ getfullrecordfromlsid <- function(lsid, ...) {
 	           "geographicDivisionList","hierarchyUp","jurisdictionalOriginList",
 	           "kingdom","otherSourceList","parentTSN","publicationList","scientificName",
 	           "synonymList","taxRank","taxonAuthor","unacceptReason","usage")
-	parsedat <- function(x){
-	  tmp <- getNodeSet(out, sprintf("//ax21:%s",x), namespaces = namespaces, xmlToList)[[1]]
-	  tmp <- tmp[!names(tmp) %in% ".attrs"]
-	  if (!is.null(tmp)) nmslwr(tmp) else tmp
-	}
-	nmslwr(setNames(lapply(toget, parsedat), toget))
+	nmslwr(setNames(lapply(toget, parse_fulldat, dat = out), toget))
+}
+
+xml_ext <- function(x) {
+  as.list(setNames(xml_text(x), xml_name(x)))
+}
+
+parse_fulldat <- function(x, dat) {
+  tmp <- xml_children(xml_find_all(dat, sprintf("//ax21:%s", x), xml_ns(dat)))
+  tmp <- sapply(tmp, xml_ext)
+  if (!is.null(tmp)) nmslwr(tmp) else tmp
 }
 
 #' Get full record from TSN.
 #'
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \dontrun{
-#' getfullrecordfromtsn(504239, config=timeout(3))
+#' getfullrecordfromtsn(tsn=504239, config=timeout(3))
 #' getfullrecordfromtsn(202385, config=timeout(3))
 #' getfullrecordfromtsn(183833, config=timeout(3))
 #' }
@@ -309,19 +328,14 @@ getfullrecordfromtsn <- function(tsn, ...) {
              "geographicDivisionList","hierarchyUp","jurisdictionalOriginList",
              "kingdom","otherSourceList","parentTSN","publicationList","scientificName",
              "synonymList","taxRank","taxonAuthor","unacceptReason","usage")
-	parsedat <- function(x){
-	  tmp <- getNodeSet(out, sprintf("//ax21:%s",x), namespaces = namespaces, xmlToList)[[1]]
-    tmp <- tmp[!names(tmp) %in% ".attrs"]
-    if (!is.null(tmp)) nmslwr(tmp) else tmp
-	}
-  nmslwr(setNames(lapply(toget, parsedat), toget))
+  nmslwr(setNames(lapply(toget, parse_fulldat, dat = out), toget))
 }
 
 #' Get geographic divisions from tsn
 #'
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \dontrun{
-#' getgeographicdivisionsfromtsn(180543, config=timeout(3))
+#' getgeographicdivisionsfromtsn(tsn=180543, config=timeout(3))
 #' }
 #' @export
 #' @keywords internal
@@ -336,23 +350,22 @@ getgeographicdivisionsfromtsn <- function(tsn, ...) {
 #'
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @examples \dontrun{
-#' getgeographicvalues(config=timeout(3))
+#' getgeographicvalues()
 #' }
 #' @export
 #' @keywords internal
 getgeographicvalues <- function(...) {
 	out <- itis_GET("getGeographicValues", list(), ...)
   namespaces <- c(ax21 = "http://metadata.itis_service.itis.usgs.gov/xsd")
-  nodes <- getNodeSet(out, "//ax21:geographicValues", namespaces = namespaces)
-  geographicValues <- sapply(nodes, xmlValue)
-  data.frame(geographicvalues = geographicValues, stringsAsFactors=FALSE)
+  geographicValues <- xml_text(xml_find_all(out, "//ax21:geographicValues", namespaces))
+  data.frame(geographicvalues = geographicValues, stringsAsFactors = FALSE)
 }
 
 #' Get global species completeness from tsn
 #'
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \dontrun{
-#' getglobalspeciescompletenessfromtsn(180541, config=timeout(3))
+#' getglobalspeciescompletenessfromtsn(tsn=180541, config=timeout(3))
 #' }
 #' @export
 #' @keywords internal
@@ -367,7 +380,7 @@ getglobalspeciescompletenessfromtsn <- function(tsn, ...) {
 #'
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \dontrun{
-#' gethierarchydownfromtsn(161030, config=timeout(3))
+#' gethierarchydownfromtsn(tsn=161030, config=timeout(3))
 #' }
 #' @export
 #' @keywords internal
@@ -383,7 +396,7 @@ gethierarchydownfromtsn <- function(tsn, ...) {
 #'
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \dontrun{
-#' gethierarchyupfromtsn(36485, config=timeout(3))
+#' gethierarchyupfromtsn(tsn=36485, config=timeout(3))
 #' }
 #' @export
 #' @keywords internal
@@ -399,24 +412,24 @@ gethierarchyupfromtsn <- function(tsn, ...) {
 #' @inheritParams getanymatchcount
 #' @examples \dontrun{
 #' getitistermsfromcommonname("buya")
-#'
-#' # library('httr')
-#' # getitistermsfromcommonname("buya", config=timeout(1))
+#' getitistermsfromcommonname("pum")
 #' }
 #' @export
 #' @keywords internal
 getitistermsfromcommonname <- function(x, ...) {
   out <- itis_GET("getITISTermsFromCommonName", list(srchKey = x), ...)
   namespaces <- c(namespaces <- c(ax21 = "http://data.itis_service.itis.usgs.gov/xsd"))
-	gg <- getNodeSet(out, "//ax21:itisTerms", namespaces = namespaces, xmlToList)
-	tmp <- do.call(rbind.fill, lapply(gg, function(x) data.frame(x,stringsAsFactors=FALSE)))
+  gg <- xml_find_all(out, "//ax21:itisTerms", namespaces)
+  res <- lapply(gg, function(z) {
+    sapply(xml2::xml_children(z), xml_ext)
+  })
+	tmp <- do.call(rbind.fill, lapply(res, function(x) data.frame(x, stringsAsFactors = FALSE)))
   names(tmp) <- tolower(names(tmp))
 	row.names(tmp) <- NULL
-	if(nrow(tmp)==1 && names(tmp)=="x"){
+	if (NROW(tmp) == 1 && names(tmp) == "x") {
 	  NA
 	} else {
 	  tmp$commonnames <- gsub("true", NA, as.character(tmp$commonnames))
-	  tmp$.attrs <- as.character(tmp$.attrs)
     tmp
 	}
 }
@@ -425,22 +438,24 @@ getitistermsfromcommonname <- function(x, ...) {
 #'
 #' @inheritParams getanymatchcount
 #' @examples \dontrun{
-#' getitisterms("bear")
+#' getitisterms(x="bear")
 #' }
 #' @export
 #' @keywords internal
 getitisterms <- function(x, ...) {
   out <- itis_GET("getITISTerms", list(srchKey = x), ...)
   namespaces <- c(namespaces <- c(ax21 = "http://data.itis_service.itis.usgs.gov/xsd"))
-  gg <- getNodeSet(out, "//ax21:itisTerms", namespaces = namespaces, xmlToList)
-  tmp <- do.call(rbind.fill, lapply(gg, function(x) data.frame(x,stringsAsFactors=FALSE)))
+  gg <- xml_find_all(out, "//ax21:itisTerms", namespaces)
+  res <- lapply(gg, function(z) {
+    sapply(xml2::xml_children(z), xml_ext)
+  })
+  tmp <- do.call(rbind.fill, lapply(res, function(x) data.frame(x, stringsAsFactors = FALSE)))
   names(tmp) <- tolower(names(tmp))
   row.names(tmp) <- NULL
-  if(nrow(tmp)==1 && names(tmp)=="x"){
+  if (NROW(tmp) == 1 && names(tmp) == "x") {
     NA
   } else {
     tmp$commonnames <- gsub("true", NA, as.character(tmp$commonnames))
-    tmp$.attrs <- as.character(tmp$.attrs)
     tmp
   }
 }
@@ -449,7 +464,7 @@ getitisterms <- function(x, ...) {
 #'
 #' @inheritParams getanymatchcount
 #' @examples \dontrun{
-#' getitistermsfromscientificname("ursidae")
+#' getitistermsfromscientificname(x="ursidae")
 #' getitistermsfromscientificname("Ursus")
 #' }
 #' @export
@@ -457,18 +472,17 @@ getitisterms <- function(x, ...) {
 getitistermsfromscientificname <- function(x, ...) {
   out <- itis_GET("getITISTermsFromScientificName", list(srchKey = x), ...)
   namespaces <- c(namespaces <- c(ax21 = "http://data.itis_service.itis.usgs.gov/xsd"))
-  gg <- getNodeSet(out, "//ax21:itisTerms", namespaces = namespaces,
-                   xmlToList)
-  tmp <- do.call(rbind.fill, lapply(gg, function(x) data.frame(x,
+  gg <- xml_find_all(out, "//ax21:itisTerms", namespaces)
+  res <- lapply(gg, function(z) {
+    sapply(xml2::xml_children(z), xml_ext)
+  })
+  tmp <- do.call(rbind.fill, lapply(res, function(x) data.frame(x,
                                                                stringsAsFactors = FALSE)))
   names(tmp) <- tolower(names(tmp))
   row.names(tmp) <- NULL
-  if (nrow(tmp) == 1 && names(tmp) == "x") {
+  if (NROW(tmp) == 1 && names(tmp) == "x") {
     NA
-  }
-  else {
-    tmp$commonnames <- gsub("true", NA, as.character(tmp$commonnames))
-    tmp$.attrs <- as.character(tmp$.attrs)
+  } else {
     tmp
   }
 }
@@ -477,7 +491,7 @@ getitistermsfromscientificname <- function(x, ...) {
 #'
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \dontrun{
-#' getjurisdictionaloriginfromtsn(180543, config=timeout(3))
+#' getjurisdictionaloriginfromtsn(tsn=180543)
 #' }
 #' @export
 #' @keywords internal
@@ -486,11 +500,12 @@ getjurisdictionaloriginfromtsn <- function(tsn, ...) {
   namespaces <- c(namespaces <- c(ax21 = "http://data.itis_service.itis.usgs.gov/xsd"))
   toget <- list("jurisdictionValue","origin","updateDate")
   xpathfunc <- function(x) {
-    sapply(getNodeSet(out, paste("//ax21:", x, sep = ''), namespaces = namespaces),xmlValue)
+    xml_text(xml_find_all(out, paste("//ax21:", x, sep = ''), namespaces))
+    #sapply(getNodeSet(out, paste("//ax21:", x, sep = ''), namespaces = namespaces), xmlValue)
   }
-  df <-  do.call(cbind, lapply(toget, as.data.frame(xpathfunc)))
-  if(nrow(df) == 0){
-    data.frame(jurisdictionvalue=NA,origin=NA,updatedate=NA)
+  df <- do.call(cbind, lapply(toget, function(z) as.data.frame(xpathfunc(z))))
+  if (NROW(df) == 0) {
+    data.frame(jurisdictionvalue = NA, origin = NA, updatedate = NA, stringsAsFactors = FALSE)
   } else {
     setNames(df, tolower(toget))
   }
@@ -522,8 +537,7 @@ getjurisdictionoriginvalues <- function(...) {
 getjurisdictionvalues <- function(...) {
 	out <- itis_GET("getJurisdictionValues", list(), ...)
   namespaces <- c(ax23 = "http://metadata.itis_service.itis.usgs.gov/xsd")
-  nodes <- getNodeSet(out, "//ax23:jurisdictionValues", namespaces = namespaces)
-  jurisdictionValues <- sapply(nodes, xmlValue)
+  jurisdictionValues <- xml_text(xml_find_all(out, "//ax23:jurisdictionValues", namespaces))
   data.frame(jurisdictionvalues = jurisdictionValues, stringsAsFactors = FALSE)
 }
 
@@ -568,25 +582,27 @@ getkingdomnames <- function(...) {
 getlastchangedate <- function(...) {
 	out <- itis_GET("getLastChangeDate", list(), ...)
   namespaces <- c(ax21 = "http://metadata.itis_service.itis.usgs.gov/xsd")
-  nodes <- getNodeSet(out, "//ax21:updateDate", namespaces = namespaces)
-  sapply(nodes, xmlValue)
+  xml_text(xml_find_all(out, "//ax21:updateDate", namespaces))
 }
 
 #' Gets the unique LSID for the TSN, or an empty result if there is no match.
 #'
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \dontrun{
-#' getlsidfromtsn(155166, config=timeout(3))
+#' getlsidfromtsn(155166)
 #' }
 #' @export
 #' @keywords internal
-getlsidfromtsn <- function(tsn, ...) xmlToList(itis_GET("getLSIDFromTSN", list(tsn = tsn), ...))[[1]]
+getlsidfromtsn <- function(tsn, ...) {
+  x <- itis_GET("getLSIDFromTSN", list(tsn = tsn), ...)
+  xml_text(xml_children(x))
+}
 
 #' Returns a list of the other sources used for the TSN.
 #'
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \dontrun{
-#' getothersourcesfromtsn(182662, config=timeout(3))
+#' getothersourcesfromtsn(tsn=182662, config=timeout(3))
 #' }
 #' @export
 #' @keywords internal
@@ -596,9 +612,9 @@ getothersourcesfromtsn <- function(tsn, ...) {
   toget <- list("acquisitionDate","name","referredTsn","source",
                 "sourceType","updateDate","version")
   xpathfunc <- function(x) {
-    sapply(getNodeSet(out, paste("//ax21:", x, sep = ''), namespaces = namespaces),xmlValue)
+    xml_text(xml_find_all(out, paste("//ax21:", x, sep = ''), namespaces))
   }
-  nmslwr(setNames(do.call(cbind, lapply(toget, as.data.frame(xpathfunc))), toget))
+  nmslwr(setNames(do.call(cbind, lapply(toget, function(z) as.data.frame(xpathfunc(z)))), toget))
 }
 
 #' Returns the parent TSN for the entered TSN.
@@ -620,7 +636,7 @@ getparenttsnfromtsn <- function(tsn, ...) {
 #'
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \dontrun{
-#' getpublicationsfromtsn(70340, config=timeout(3))
+#' getpublicationsfromtsn(70340)
 #' }
 #' @export
 #' @keywords internal
@@ -631,9 +647,9 @@ getpublicationsfromtsn <- function(tsn, ...) {
                 "pubComment","pubName","pubPlace","publisher","referenceAuthor",
                 "name","refLanguage","referredTsn","title","updateDate")
   xpathfunc <- function(x) {
-    sapply(getNodeSet(out, paste("//ax21:", x, sep = ''), namespaces = namespaces),xmlValue)
+    xml_text(xml_find_all(out, paste("//ax21:", x, sep = ''), namespaces))
   }
-  df <-  do.call(cbind, lapply(toget, as.data.frame(xpathfunc)))
+  df <-  do.call(cbind, lapply(toget, function(z) as.data.frame(xpathfunc(z))))
   if (NROW(df) > 0) names(df) <- tolower(toget)
   df
 }
@@ -709,26 +725,25 @@ getscientificnamefromtsn <- function(tsn, ...) {
 #'
 #' @inheritParams getcommentdetailfromtsn
 #' @examples \dontrun{
-#' getsynonymnamesfromtsn(183671, config=timeout(3)) # tsn not accepted
-#' getsynonymnamesfromtsn(526852, config=timeout(5)) # tsn accepted
+#' getsynonymnamesfromtsn(tsn=183671) # tsn not accepted
+#' getsynonymnamesfromtsn(tsn=526852) # tsn accepted
 #' }
 #' @export
 #' @keywords internal
 getsynonymnamesfromtsn <- function(tsn, ...) {
 	out <- itis_GET("getSynonymNamesFromTSN", list(tsn = tsn), ...)
   namespaces <- c(ax21 = "http://data.itis_service.itis.usgs.gov/xsd")
-  nodes <- getNodeSet(out, "//ax21:sciName", namespaces = namespaces)
-  if ( length(sapply(nodes, xmlValue)) == 0 ) {
-    name <- list("nomatch")
+  nodes <- xml_text(xml_find_all(out, "//ax21:sciName", namespaces))
+  if ( length(nodes) == 0 ) {
+    name <- "nomatch"
   } else {
-    name <- sapply(nodes, xmlValue)
+    name <- nodes
   }
-  nodes <- getNodeSet(out, "//ax21:tsn", namespaces = namespaces)
-  if ( length(sapply(nodes, xmlValue)) == 1 ) {
-    tsn <- sapply(nodes, xmlValue)
+  nodes <- xml_text(xml_find_all(out, "//ax21:tsn", namespaces))
+  if ( length(nodes) == 1 ) {
+    tsn <- nodes
   } else {
-    tsn <- sapply(nodes, xmlValue)
-    tsn <- tsn[-1]
+    tsn <- nodes[-1]
   }
   data.frame(name = name, tsn = tsn, stringsAsFactors = FALSE)
 }
@@ -806,8 +821,9 @@ gettsnbyvernacularlanguage <- function(language, ...) {
 #' @keywords internal
 gettsnfromlsid <- function(lsid, ...) {
 	out <- itis_GET("getTSNFromLSID", list(lsid = lsid), ...)
-  if ( !is.na( suppressWarnings(as.numeric(xmlToList(out)[[1]])) ) ) {
-    suppressWarnings( as.numeric(xmlToList(out)[[1]]) )
+	tmp <- suppressWarnings(as.numeric(xml_text(xml_find_one(out, "ns:return", xml_ns(out)))))
+  if (!is.na(tmp)) {
+    tmp
   } else {
     return("invalid TSN")
   }
@@ -832,15 +848,14 @@ getunacceptabilityreasonfromtsn <- function(tsn, ...) {
 #'
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @examples \dontrun{
-#' getvernacularlanguages(config=timeout(3))
+#' getvernacularlanguages()
 #' }
 #' @export
 #' @keywords internal
 getvernacularlanguages <- function(...) {
 	out <- itis_GET("getVernacularLanguages", list(), ...)
   namespaces <- c(ax21 = "http://metadata.itis_service.itis.usgs.gov/xsd")
-  nodes <- getNodeSet(out, "//ax21:languageNames", namespaces = namespaces)
-  languageNames <- sapply(nodes, xmlValue)
+  languageNames <- xml_text(xml_find_all(out, "//ax21:languageNames", namespaces))
   data.frame(languagenames = languageNames, stringsAsFactors = FALSE)
 }
 
@@ -848,7 +863,7 @@ getvernacularlanguages <- function(...) {
 #'
 #' @inheritParams getanymatchcount
 #' @examples \dontrun{
-#' searchbycommonname("american bullfrog", config=timeout(6))
+#' searchbycommonname(x="american bullfrog", config=timeout(6))
 #' searchbycommonname("ferret-badger", config=timeout(6))
 #' searchbycommonname("polar bear", config=timeout(6))
 #' }
@@ -856,14 +871,7 @@ getvernacularlanguages <- function(...) {
 #' @keywords internal
 searchbycommonname <- function(x, ...) {
 	out <- itis_GET("searchByCommonName", list(srchKey = x), ...)
-  namespaces <- c(namespaces <- c(ax21 = "http://data.itis_service.itis.usgs.gov/xsd"))
-  nodes <- getNodeSet(out, "//ax21:commonName", namespaces = namespaces)
-  comname <- sapply(nodes, xmlValue)
-  nodes <- getNodeSet(out, "//ax21:language", namespaces = namespaces)
-  lang <- sapply(nodes, xmlValue)
-  nodes <- getNodeSet(out, "//ax21:tsn", namespaces = namespaces)
-  tsn <- sapply(nodes, xmlValue)
-  data.frame(comname=comname, lang=lang, tsn=tsn[-1], stringsAsFactors = FALSE)
+	com_lang_tsn(out)
 }
 
 #' Searches common name and acts as thin wrapper around \code{searchbycommonnamebeginswith} and \code{searchbycommonnameendswith}
@@ -875,7 +883,7 @@ searchbycommonname <- function(x, ...) {
 #' @seealso searchbycommonnamebeginswith searchbycommonnameendswith
 #' @return \code{data.frame}
 #' @examples \dontrun{
-#' itis_searchcommon("inch", config=timeout(3))
+#' itis_searchcommon(x="inch", config=timeout(3))
 #' itis_searchcommon("inch", from = "end", config=timeout(3))
 #'}
 itis_searchcommon <- function(x, from = "begin", ...) {
@@ -889,41 +897,34 @@ itis_searchcommon <- function(x, from = "begin", ...) {
 #'
 #' @inheritParams getanymatchcount
 #' @examples \dontrun{
-#' searchbycommonnamebeginswith("inch", config=timeout(3))
+#' searchbycommonnamebeginswith(x="inch", config=timeout(3))
 #' }
 #' @export
 #' @keywords internal
 searchbycommonnamebeginswith <- function(x, ...) {
 	out <- itis_GET("searchByCommonNameBeginsWith", list(srchKey = x), ...)
-  namespaces <- c(namespaces <- c(ax21 = "http://data.itis_service.itis.usgs.gov/xsd"))
-  nodes <- getNodeSet(out, "//ax21:commonName", namespaces = namespaces)
-  comname <- sapply(nodes, xmlValue)
-  nodes <- getNodeSet(out, "//ax21:language", namespaces = namespaces)
-  lang <- sapply(nodes, xmlValue)
-  nodes <- getNodeSet(out, "//ax21:tsn", namespaces = namespaces)
-  tsn <- sapply(nodes, xmlValue) # last one is a repeat
-  nodes <- getNodeSet(out, "//ax21:sciName", namespaces = namespaces)
-  data.frame(comname=comname, lang=lang, tsn=tsn[-length(tsn)], stringsAsFactors = FALSE)
+	com_lang_tsn(out)
 }
 
 #' Search for tsn by common name ending with
 #'
 #' @inheritParams getanymatchcount
 #' @examples \dontrun{
-#' searchbycommonnameendswith("snake", config=timeout(3))
+#' searchbycommonnameendswith(x="snake", config=timeout(3))
 #' }
 #' @export
 #' @keywords internal
 searchbycommonnameendswith <- function(x, ...) {
 	out <- itis_GET("searchByCommonNameEndsWith", list(srchKey = x), ...)
+	com_lang_tsn(out)
+}
+
+com_lang_tsn <- function(dat) {
   namespaces <- c(namespaces <- c(ax21 = "http://data.itis_service.itis.usgs.gov/xsd"))
-  nodes <- getNodeSet(out, "//ax21:commonName", namespaces = namespaces)
-  comname <- sapply(nodes, xmlValue)
-  nodes <- getNodeSet(out, "//ax21:language", namespaces = namespaces)
-  lang <- sapply(nodes, xmlValue)
-  nodes <- getNodeSet(out, "//ax21:tsn", namespaces = namespaces)
-  tsn <- sapply(nodes, xmlValue) # last one is a repeat
-  data.frame(comname=comname, lang=lang, tsn=tsn[!nchar(tsn) == 0], stringsAsFactors = FALSE)
+  comname <- xml_text(xml_find_all(dat, "//ax21:commonName", namespaces))
+  lang <- xml_text(xml_find_all(dat, "//ax21:language", namespaces))
+  tsn <- xml_text(xml_find_all(dat, "//ax21:tsn", namespaces))
+  data.frame(comname = comname, lang = lang, tsn = tsn[!nchar(tsn) == 0], stringsAsFactors = FALSE)
 }
 
 #' Search by scientific name
@@ -946,29 +947,51 @@ searchbyscientificname <- function(x, ...) {
 #'
 #' @inheritParams getanymatchcount
 #' @examples \dontrun{
-#' searchforanymatch(202385, config=timeout(3))
-#' searchforanymatch("dolphin", config=timeout(3))
+#' searchforanymatch(x=202385, config=timeout(3))
+#' searchforanymatch(x="dolphin", config=timeout(3))
 #' }
 #' @export
 #' @keywords internal
 searchforanymatch <- function(x, ...) {
 	out <- itis_GET("searchForAnyMatch", list(srchKey = x), ...)
-  namespaces <- c(ax21 = "http://data.itis_service.itis.usgs.gov/xsd")
+  ns <- c(ax21 = "http://data.itis_service.itis.usgs.gov/xsd")
 
 	if (is.character(x)) {
-	  me <- getNodeSet(out, "//ax21:anyMatchList", namespaces = namespaces)
-	  comname <- sapply(me, function(x) xmlValue(x[["commonNameList"]][["commonNames"]][["commonName"]]))
-	  comname_lang <- sapply(me, function(x) xmlValue(x[["commonNameList"]][["commonNames"]][["language"]]))
-	  sciname <- sapply(me, function(x) xmlValue(x[["sciName"]]))
-	  tsn <- sapply(me, function(x) xmlValue(x[["tsn"]]))
+	  me <- xml_find_all(out, "//ax21:anyMatchList", ns)
+	  comname <- vapply(me, foosam, "", y = 'commonName', ns = ns)
+	  comname_lang <- vapply(me, foosam, "", y = 'language', ns = ns)
+	  sciname <- vapply(me, function(x) xml_text(xml_find_one(x, "ax21:sciName", ns)), "")
+	  tsn <- vapply(me, function(x) xml_text(xml_find_one(x, "ax21:tsn", ns)), "")
 	  data.frame(tsn=tsn, sciname=sciname, comname=comname, comname_lang=comname_lang, stringsAsFactors = FALSE)
 	} else {
-	  me <- getNodeSet(out, "//ax21:commonNames", namespaces = namespaces)
-	  comname <- sapply(me, function(x) xmlValue(x[["commonName"]]))
-	  comname_tsn <- sapply(me, function(x) xmlValue(x[["tsn"]]))
-	  comname_lang <- sapply(me, function(x) xmlValue(x[["language"]]))
+	  me <- xml_find_all(out, "//ax21:commonNames", ns)
+	  comname <- sapply(me, function(x) xml_text(xml_find_one(x, "ax21:commonName", ns)))
+	  comname_tsn <- sapply(me, function(x) xml_text(xml_find_one(x, "ax21:tsn", ns)))
+	  comname_lang <- sapply(me, function(x) xml_text(xml_find_one(x, "ax21:language", ns)))
 	  data.frame(tsn=comname_tsn, comname=comname, comname_lang=comname_lang, stringsAsFactors = FALSE)
 	}
+}
+
+foosam <- function(x, y, ns) {
+  tt <- xml_find_one(x, "ax21:commonNameList", ns)
+  ttt <- tryCatch(xml_find_all(tt, "ax21:commonNames", ns), error = function(e) e)
+  if (!is(ttt, "error")) {
+    tttt <- tryCatch(xml_find_one(ttt, paste0("ax21:", y), ns), error = function(e) e)
+    if (!is(ttt, "error")) {
+      xx <- xml_text(tttt)
+      if (length(xx) > 1) {
+        paste0(xx, collapse = ",")
+      } else if (length(xx) == 0) {
+        ""
+      } else {
+        xx
+      }
+    } else {
+      ""
+    }
+  } else {
+    ""
+  }
 }
 
 #' Search for any matched page
@@ -979,28 +1002,28 @@ searchforanymatch <- function(x, ...) {
 #' @param ascend A boolean containing true for ascending sort order or false
 #'    for descending (logical)
 #' @examples \dontrun{
-#' # searchforanymatchpaged(202385, pagesize=100, pagenum=1, ascend=FALSE, config=timeout(3))
-#' # searchforanymatchpaged("Zy", pagesize=100, pagenum=1, ascend=FALSE, config=timeout(3))
+#' searchforanymatchpaged(x=202385, pagesize=100, pagenum=1, ascend=FALSE)
+#' searchforanymatchpaged(x="Zy", pagesize=100, pagenum=1, ascend=FALSE)
 #' }
 #' @export
 #' @keywords internal
 searchforanymatchpaged <- function(x, pagesize = NULL, pagenum = NULL, ascend = NULL, ...) {
   args <- tc(list(srchKey=x, pageSize=pagesize, pageNum=pagenum, ascend=ascend))
 	out <- itis_GET("searchForAnyMatchPaged", args, ...)
-  namespaces <- c(namespaces <- c(ax21 = "http://data.itis_service.itis.usgs.gov/xsd"))
+  ns <- c(namespaces <- c(ax21 = "http://data.itis_service.itis.usgs.gov/xsd"))
 
-	if (is.character(x)) {
-	  me <- getNodeSet(out, "//ax21:anyMatchList", namespaces = namespaces)
-	  comname <- sapply(me, function(x) xmlValue(x[["commonNameList"]][["commonNames"]][["commonName"]]))
-	  comname_lang <- sapply(me, function(x) xmlValue(x[["commonNameList"]][["commonNames"]][["language"]]))
-	  sciname <- sapply(me, function(x) xmlValue(x[["sciName"]]))
-	  tsn <- sapply(me, function(x) xmlValue(x[["tsn"]]))
-	  data.frame(tsn=tsn, sciname=sciname, comname=comname, comname_lang=comname_lang, stringsAsFactors = FALSE)
-	} else {
-	  me <- getNodeSet(out, "//ax21:commonNames", namespaces = namespaces)
-	  comname <- sapply(me, function(x) xmlValue(x[["commonName"]]))
-	  comname_tsn <- sapply(me, function(x) xmlValue(x[["tsn"]]))
-	  comname_lang <- sapply(me, function(x) xmlValue(x[["language"]]))
-	  data.frame(tsn=comname_tsn, comname=comname, comname_lang=comname_lang, stringsAsFactors = FALSE)
-	}
+  if (is.character(x)) {
+    me <- xml_find_all(out, "//ax21:anyMatchList", ns)
+    comname <- vapply(me, foosam, "", y = 'commonName', ns = ns)
+    comname_lang <- vapply(me, foosam, "", y = 'language', ns = ns)
+    sciname <- vapply(me, function(x) xml_text(xml_find_one(x, "ax21:sciName", ns)), "")
+    tsn <- vapply(me, function(x) xml_text(xml_find_one(x, "ax21:tsn", ns)), "")
+    data.frame(tsn=tsn, sciname=sciname, comname=comname, comname_lang=comname_lang, stringsAsFactors = FALSE)
+  } else {
+    me <- xml_find_all(out, "//ax21:commonNames", ns)
+    comname <- sapply(me, function(x) xml_text(xml_find_one(x, "ax21:commonName", ns)))
+    comname_tsn <- sapply(me, function(x) xml_text(xml_find_one(x, "ax21:tsn", ns)))
+    comname_lang <- sapply(me, function(x) xml_text(xml_find_one(x, "ax21:language", ns)))
+    data.frame(tsn=comname_tsn, comname=comname, comname_lang=comname_lang, stringsAsFactors = FALSE)
+  }
 }

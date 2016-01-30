@@ -16,7 +16,7 @@ Get credibility rating from tsn
 }
 \examples{
 \dontrun{
-getcredibilityratingfromtsn(526852, config=timeout(4))
+getcredibilityratingfromtsn(526852)
 }
 }
 \keyword{internal}

@@ -16,7 +16,7 @@ Get global species completeness from tsn
 }
 \examples{
 \dontrun{
-getglobalspeciescompletenessfromtsn(180541, config=timeout(3))
+getglobalspeciescompletenessfromtsn(tsn=180541, config=timeout(3))
 }
 }
 \keyword{internal}

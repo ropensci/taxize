@@ -16,8 +16,8 @@ Returns a list of the synonyms (if any) for the TSN.
 }
 \examples{
 \dontrun{
-getsynonymnamesfromtsn(183671, config=timeout(3)) # tsn not accepted
-getsynonymnamesfromtsn(526852, config=timeout(5)) # tsn accepted
+getsynonymnamesfromtsn(tsn=183671) # tsn not accepted
+getsynonymnamesfromtsn(tsn=526852) # tsn accepted
 }
 }
 \keyword{internal}

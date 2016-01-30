@@ -16,7 +16,7 @@ Get currency from tsn
 }
 \examples{
 \dontrun{
-getcurrencyfromtsn(28727, config=timeout(3)) # currency data
+getcurrencyfromtsn(tsn=28727, config=timeout(3)) # currency data
 getcurrencyfromtsn(526852, config=timeout(3)) # no currency dat
 }
 }

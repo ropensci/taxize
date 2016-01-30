@@ -14,7 +14,7 @@ Get all possible geographic values
 }
 \examples{
 \dontrun{
-getgeographicvalues(config=timeout(3))
+getgeographicvalues()
 }
 }
 \keyword{internal}

@@ -16,7 +16,7 @@ Get expert information for the TSN.
 }
 \examples{
 \dontrun{
-getexpertsfromtsn(180544, config=timeout(3))
+getexpertsfromtsn(tsn=180544, config=timeout(3))
 }
 }
 \keyword{internal}

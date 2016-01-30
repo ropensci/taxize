@@ -14,7 +14,7 @@ Provides a list of the unique languages used in the vernacular table.
 }
 \examples{
 \dontrun{
-getvernacularlanguages(config=timeout(3))
+getvernacularlanguages()
 }
 }
 \keyword{internal}

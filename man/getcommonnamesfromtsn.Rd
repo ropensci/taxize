@@ -16,7 +16,7 @@ Get common names from tsn
 }
 \examples{
 \dontrun{
-getcommonnamesfromtsn(183833, config=timeout(1))
+getcommonnamesfromtsn(tsn=183833)
 }
 }
 \keyword{internal}

@@ -16,7 +16,7 @@ Get itis terms from scientific names
 }
 \examples{
 \dontrun{
-getitistermsfromscientificname("ursidae")
+getitistermsfromscientificname(x="ursidae")
 getitistermsfromscientificname("Ursus")
 }
 }

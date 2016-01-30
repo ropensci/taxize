@@ -16,7 +16,7 @@ Get full hierarchy from tsn
 }
 \examples{
 \dontrun{
-getfullhierarchyfromtsn(37906, config=timeout(3))
+getfullhierarchyfromtsn(tsn=37906, config=timeout(3))
 getfullhierarchyfromtsn(100800, config=timeout(3))
 }
 }

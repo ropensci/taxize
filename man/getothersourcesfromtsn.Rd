@@ -16,7 +16,7 @@ Returns a list of the other sources used for the TSN.
 }
 \examples{
 \dontrun{
-getothersourcesfromtsn(182662, config=timeout(3))
+getothersourcesfromtsn(tsn=182662, config=timeout(3))
 }
 }
 \keyword{internal}

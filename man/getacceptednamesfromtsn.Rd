@@ -17,14 +17,13 @@ Get accepted names from tsn
 \examples{
 \dontrun{
 # TSN accepted - good name
-library('httr')
-getacceptednamesfromtsn('208527', config=timeout(1))
+getacceptednamesfromtsn(tsn='208527')
 
 # TSN not accepted - input TSN is old name
-getacceptednamesfromtsn('504239', config=timeout(1))
+getacceptednamesfromtsn('504239')
 
 # TSN not accepted - input TSN is old name
-getacceptednamesfromtsn('504239', config=timeout(3))
+getacceptednamesfromtsn('504239')
 }
 }
 \keyword{internal}

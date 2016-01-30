@@ -16,8 +16,8 @@ Search for any match
 }
 \examples{
 \dontrun{
-searchforanymatch(202385, config=timeout(3))
-searchforanymatch("dolphin", config=timeout(3))
+searchforanymatch(x=202385, config=timeout(3))
+searchforanymatch(x="dolphin", config=timeout(3))
 }
 }
 \keyword{internal}

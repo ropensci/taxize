@@ -16,7 +16,7 @@ Search for tsn by common name ending with
 }
 \examples{
 \dontrun{
-searchbycommonnameendswith("snake", config=timeout(3))
+searchbycommonnameendswith(x="snake", config=timeout(3))
 }
 }
 \keyword{internal}

@@ -16,7 +16,7 @@ Get hierarchy down from tsn
 }
 \examples{
 \dontrun{
-gethierarchydownfromtsn(161030, config=timeout(3))
+gethierarchydownfromtsn(tsn=161030, config=timeout(3))
 }
 }
 \keyword{internal}

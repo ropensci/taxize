@@ -16,7 +16,7 @@ Get jurisdictional origin from tsn
 }
 \examples{
 \dontrun{
-getjurisdictionaloriginfromtsn(180543, config=timeout(3))
+getjurisdictionaloriginfromtsn(tsn=180543)
 }
 }
 \keyword{internal}

@@ -16,7 +16,7 @@ Get itis terms from common names
 }
 \examples{
 \dontrun{
-getitisterms("bear")
+getitisterms(x="bear")
 }
 }
 \keyword{internal}

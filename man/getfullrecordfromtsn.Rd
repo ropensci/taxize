@@ -16,7 +16,7 @@ Get full record from TSN.
 }
 \examples{
 \dontrun{
-getfullrecordfromtsn(504239, config=timeout(3))
+getfullrecordfromtsn(tsn=504239, config=timeout(3))
 getfullrecordfromtsn(202385, config=timeout(3))
 getfullrecordfromtsn(183833, config=timeout(3))
 }

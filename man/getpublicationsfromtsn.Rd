@@ -16,7 +16,7 @@ Returns a list of the pulications used for the TSN.
 }
 \examples{
 \dontrun{
-getpublicationsfromtsn(70340, config=timeout(3))
+getpublicationsfromtsn(70340)
 }
 }
 \keyword{internal}

@@ -16,7 +16,7 @@ Get geographic divisions from tsn
 }
 \examples{
 \dontrun{
-getgeographicdivisionsfromtsn(180543, config=timeout(3))
+getgeographicdivisionsfromtsn(tsn=180543, config=timeout(3))
 }
 }
 \keyword{internal}

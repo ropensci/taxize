@@ -16,7 +16,7 @@ Gets the unique LSID for the TSN, or an empty result if there is no match.
 }
 \examples{
 \dontrun{
-getlsidfromtsn(155166, config=timeout(3))
+getlsidfromtsn(155166)
 }
 }
 \keyword{internal}

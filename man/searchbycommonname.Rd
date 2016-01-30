@@ -16,7 +16,7 @@ Search for tsn by common name
 }
 \examples{
 \dontrun{
-searchbycommonname("american bullfrog", config=timeout(6))
+searchbycommonname(x="american bullfrog", config=timeout(6))
 searchbycommonname("ferret-badger", config=timeout(6))
 searchbycommonname("polar bear", config=timeout(6))
 }

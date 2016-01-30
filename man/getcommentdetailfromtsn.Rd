@@ -19,7 +19,7 @@ Get comment detail from TSN
 }
 \examples{
 \dontrun{
-getcommentdetailfromtsn(tsn=180543, config=timeout(4))
+getcommentdetailfromtsn(tsn=180543)
 }
 }
 \keyword{internal}
