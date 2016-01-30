@@ -160,7 +160,6 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, modifier = N
     url <- URLencode(url)
     errors_to_catch <- c("Could not resolve host: eutils.ncbi.nlm.nih.gov")
     xml_result <- xml2::read_xml(repeat_until_it_works(catch = errors_to_catch, url = url))
-    #xml_result <- xmlParse(repeat_until_it_works(catch = errors_to_catch, url = url, ...))
 
     # NCBI limits requests to three per second
     Sys.sleep(0.33)
@@ -185,7 +184,7 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, modifier = N
         url <- paste(baseurl, ID, sep = "&")
         errors_to_catch <- c("Could not resolve host: eutils.ncbi.nlm.nih.gov")
         tt <- repeat_until_it_works(catch = errors_to_catch, url = url, ...)
-        ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)
+        ttp <- xml2::read_xml(tt)
         df <- parse_ncbi(ttp)
         rownames(df) <- 1:nrow(df)
 
@@ -310,9 +309,9 @@ get_uid_help <- function(sciname, verbose, rows){
   mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
   url <- paste("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=",
                gsub(" ", "+", sciname), sep = "")
-  xml_result <- xmlParse(con_utf8(GET(url)))
+  xml_result <- xml2::read_xml(con_utf8(GET(url)))
   Sys.sleep(0.33)
-  uid <- xpathSApply(xml_result, "//IdList/Id", xmlValue)
+  uid <- xml_text(xml_find_all(xml_result, "//IdList/Id"))
   if (length(uid) == 0) {
     NULL
   } else {
@@ -320,7 +319,8 @@ get_uid_help <- function(sciname, verbose, rows){
     ID <- paste("ID=", paste(uid, collapse = ","), sep = "")
     url <- paste(baseurl, ID, sep = "&")
     tt <- con_utf8(GET(url))
-    ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)
+    ttp <- xml2::read_xml(tt)
+    #ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)
     df <- parse_ncbi(ttp)
     sub_rows(df, rows)
   }
@@ -330,9 +330,14 @@ parse_ncbi <- function(x) {
   mget <- c("Status", "Rank", "Division", "ScientificName",
             "CommonName", "TaxId", "Genus", "Species", "Subsp", "ModificationDate")
   nget <- paste0('Item[@Name="', mget, "\"]")
-  nodes <- getNodeSet(x, "//DocSum")
+  nodes <- xml_find_all(x, "//DocSum")
   tmp <- taxize_ldfast(lapply(nodes, function(z) {
-    data.frame(setNames(sapply(nget, function(w) xpathApply(z, w, xmlValue)), tolower(mget)), stringsAsFactors = FALSE)
+    data.frame(as.list(setNames(sapply(nget, function(w) xml_text(xml_find_all(z, w))), tolower(mget))), stringsAsFactors = FALSE)
   }))
+
+  #nodes <- getNodeSet(x, "//DocSum")
+  # tmp <- taxize_ldfast(lapply(nodes, function(z) {
+  #   data.frame(setNames(sapply(nget, function(w) xpathApply(z, w, xmlValue)), tolower(mget)), stringsAsFactors = FALSE)
+  # }))
   rename(tmp, c('taxid' = 'uid'))
 }
