@@ -4,13 +4,15 @@
 \alias{tpl_get}
 \title{Get The Plant List csv files.}
 \usage{
-tpl_get(x, family = NULL)
+tpl_get(x, family = NULL, ...)
 }
 \arguments{
 \item{x}{Directory to write csv files to.}
 
 \item{family}{If you want just one, or >1 family, but not all, list them in
 a vector.}
+
+\item{...}{(list) Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
 Returns nothing to console, except a message and progress bar.

@@ -49,23 +49,12 @@ iucn_summary <- function(sciname, silent = TRUE, parallel = FALSE, ...) {
     #to deal with subspecies
     sciname_q <- strsplit(sciname, " ")
     spec <- tolower(paste(sciname_q[[1]][1], sciname_q[[1]][2]))
-    #spec <- gsub(" ", "-", spec)
-
-    #url <- paste("http://api.iucnredlist.org/index/species/", spec, ".json", sep = "")
-    #e <- try(h <- fromJSON(url(url)), silent = TRUE)
     res <- tryCatch(rredlist::rl_search(spec), error = function(e) e)
     if (!inherits(res, "try-error") && NROW(res$result) > 0) {
       df <- unique(res$result)
       #check if there are several matches
-        scinamelist <- df$scientific_name
-        #add subspecies rank, if there are
-        # for (i in 1:length(df$scientific_name)) {
-        #   if (!is.na(df$infra_name[i])) {
-        #     scinamelist[i] <- paste(h$scientific_name[i], h$infra_name[i])
-        #   }
-        # }
-        #get species_if from exact match
-        species_id <- df$taxonid[which(tolower(scinamelist) == tolower(sciname))]
+      scinamelist <- df$scientific_name
+      species_id <- df$taxonid[which(tolower(scinamelist) == tolower(sciname))]
     }
 
     if (!exists('species_id')) {
@@ -76,16 +65,16 @@ iucn_summary <- function(sciname, silent = TRUE, parallel = FALSE, ...) {
                     trend = NA)
     } else {
       url <- paste("http://api.iucnredlist.org/details/", species_id, "/0", sep = "")
-      e <- try(h <- htmlParse(url), silent = silent)
+      e <- try(h <- xml2::read_html(url), silent = silent)
       if (!inherits(e, "try-error")) {
         # status
-        status <- xpathSApply(h, '//div[@id ="red_list_category_code"]', xmlValue)
+        status <- xml2::xml_text(xml2::xml_find_all(h, '//div[@id ="red_list_category_code"]'))
         # history
-        history <- data.frame(year = xpathSApply(h, '//div[@class="year"]', xmlValue),
-                              category = xpathSApply(h, '//div[@class="category"]', xmlValue))
+        history <- data.frame(year = xml2::xml_text(xml2::xml_find_all(h, '//div[@class="year"]')),
+                              category = xml2::xml_text(xml2::xml_find_all(h, '//div[@class="category"]')))
         if (nrow(history) == 0) history <- NA
         # distribution
-        distr <- xpathSApply(h, '//ul[@class="countries"]', xmlValue)
+        distr <- xml2::xml_text(xml2::xml_find_all(h, '//ul[@class="countries"]'))
         if (length(distr) == 0) {
           distr <- NA
         } else {
@@ -93,7 +82,7 @@ iucn_summary <- function(sciname, silent = TRUE, parallel = FALSE, ...) {
         }
 
         # trend
-        trend <- xpathSApply(h, '//div[@id="population_trend"]', xmlValue)
+        trend <- xml2::xml_text(xml2::xml_find_all(h, '//div[@id="population_trend"]'))
         if (length(trend) == 0) trend <- NA
 
         out <- list(status = status,

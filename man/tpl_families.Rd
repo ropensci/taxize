@@ -4,7 +4,10 @@
 \alias{tpl_families}
 \title{Get The Plant List families.}
 \usage{
-tpl_families()
+tpl_families(...)
+}
+\arguments{
+\item{...}{(list) Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
 Returns a \code{data.frame} including the names of all families indexed

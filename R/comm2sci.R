@@ -62,10 +62,12 @@ comm2sci <- function(commnames, db='eol', itisby='search', simplify=TRUE, ...) {
     baseurl <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy"
     ID <- paste("ID=", uid, sep = "")
     searchurl <- paste(baseurl, ID, sep = "&")
-    tt <- con_utf8(GET(searchurl))
-    ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)
+    tt <- GET(searchurl)
+    stop_for_status(tt)
+    res <- con_utf8(tt)
+    ttp <- xml2::read_xml(res)
     # common name
-    out <- xpathSApply(ttp, "//TaxaSet/Taxon/ScientificName", xmlValue)
+    out <- xml_text(xml_find_all(ttp, "//TaxaSet/Taxon/ScientificName"))
     # NCBI limits requests to three per second
     Sys.sleep(0.33)
     return(out)

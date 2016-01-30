@@ -320,7 +320,6 @@ get_uid_help <- function(sciname, verbose, rows){
     url <- paste(baseurl, ID, sep = "&")
     tt <- con_utf8(GET(url))
     ttp <- xml2::read_xml(tt)
-    #ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)
     df <- parse_ncbi(ttp)
     sub_rows(df, rows)
   }
@@ -334,10 +333,5 @@ parse_ncbi <- function(x) {
   tmp <- taxize_ldfast(lapply(nodes, function(z) {
     data.frame(as.list(setNames(sapply(nget, function(w) xml_text(xml_find_all(z, w))), tolower(mget))), stringsAsFactors = FALSE)
   }))
-
-  #nodes <- getNodeSet(x, "//DocSum")
-  # tmp <- taxize_ldfast(lapply(nodes, function(z) {
-  #   data.frame(setNames(sapply(nget, function(w) xpathApply(z, w, xmlValue)), tolower(mget)), stringsAsFactors = FALSE)
-  # }))
   rename(tmp, c('taxid' = 'uid'))
 }

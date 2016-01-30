@@ -89,7 +89,7 @@ fg_deprecated_names <- function(date, ...) {
       vapply(xml_children(z), function(w) as.list(xml_text(w)), list(1))
     })
   ))
-  setNames(df, c('fungusnameoldlsid', 'fungusnamenewlsid'))
+  if (NROW(df) > 0) setNames(df, c('fungusnameoldlsid', 'fungusnamenewlsid')) else df
 }
 
 

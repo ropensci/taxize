@@ -80,13 +80,16 @@ col_downstream <- function(name = NULL, id = NULL, downto, format = NULL, start 
       }
 
       # remove
-      if (nrow(tt[tt$childtaxa_rank == downto, ]) > 0)
+      if (NROW(tt[tt$childtaxa_rank == downto, ]) > 0) {
         out[[iter]] <- tt[tt$childtaxa_rank == downto, ]
-      if (nrow(tt[!tt$childtaxa_rank == downto, ]) > 0) {
+      }
+
+      if (NROW(tt[!tt$childtaxa_rank == downto, ]) > 0) {
         notout <- tt[!tt$childtaxa_rank %in% torank, ]
       } else {
         notout <- data.frame(rankName = downto)
       }
+
       if (all(notout$childtaxa_rank == downto)) {
         stop_ <- "fam"
       } else {

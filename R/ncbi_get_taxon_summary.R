@@ -33,12 +33,11 @@ ncbi_get_taxon_summary <- function(id, ...) {
   stop_for_status(rr)
   raw_results <- con_utf8(rr)
   # Parse results ----------------------------------------------------------------------------------
-  results <- XML::xmlTreeParse(raw_results, useInternalNodes = TRUE)
+  results <- xml2::read_xml(raw_results)
   output <- data.frame(stringsAsFactors = FALSE,
-                       uid = XML::xpathSApply(results, "/eSummaryResult//DocSum/Id", XML::xmlValue),
-                       name = XML::xpathSApply(results, "/eSummaryResult//DocSum/Item[@Name='ScientificName']",
-                                               XML::xmlValue),
-                       rank = XML::xpathSApply(results, "/eSummaryResult//DocSum/Item[@Name='Rank']", XML::xmlValue)
+                       uid = xml2::xml_text(xml2::xml_find_all(results, "/eSummaryResult//DocSum/Id")),
+                       name = xml2::xml_text(xml2::xml_find_all(results, "/eSummaryResult//DocSum/Item[@Name='ScientificName']")),
+                       rank = xml2::xml_text(xml2::xml_find_all(results, "/eSummaryResult//DocSum/Item[@Name='Rank']"))
   )
   output$rank[output$rank == ''] <- "no rank"
   Sys.sleep(0.34) # NCBI limits requests to three per second

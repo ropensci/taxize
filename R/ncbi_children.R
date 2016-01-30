@@ -88,8 +88,8 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
     stop_for_status(rr)
     raw_results <- con_utf8(rr)
     # Parse results  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    results <- XML::xmlTreeParse(raw_results, useInternalNodes = TRUE)
-    children_uid <- XML::xpathSApply(results, "//eSearchResult/IdList/Id", XML::xmlValue)
+    results <- xml2::read_xml(raw_results)
+    children_uid <- xml2::xml_text(xml2::xml_find_all(results, "//eSearchResult/IdList/Id"))
     if (length(children_uid) == 0) {
       if (out_type == "summary") {
         output <- data.frame(childtaxa_id = numeric(), childtaxa_name = character(),

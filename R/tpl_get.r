@@ -4,6 +4,7 @@
 #' @param x Directory to write csv files to.
 #' @param family If you want just one, or >1 family, but not all, list them in
 #' a vector.
+#' @param ... (list) Curl options passed on to \code{\link[httr]{GET}}
 #' @details Throws a warning if you already have a directory of the one
 #' provided, but still works. Writes to your home directory, change dir_ as needed.
 #' @return Returns nothing to console, except a message and progress bar.
@@ -26,12 +27,12 @@
 #' ## tpl_get("~/foo")
 #' }
 
-tpl_get <- function(x, family = NULL) {
-  temp <- GET('http://www.theplantlist.org/1.1/browse/-/')
-  temp <- htmlParse(con_utf8(temp), encoding = "UTF-8")
-  families <- xpathSApply(temp, "//ul[@id='nametree']//a", xmlValue)
+tpl_get <- function(x, family = NULL, ...) {
+  temp <- GET('http://www.theplantlist.org/1.1/browse/-/', ...)
+  temp <- xml2::read_html(con_utf8(temp), encoding = "UTF-8")
+  families <- xml2::xml_text(xml2::xml_find_all(temp, "//ul[@id='nametree']//a"))
   csvlinks <- sprintf('http://www.theplantlist.org%s%s.csv',
-                      xpathSApply(temp, "//ul[@id='nametree']//a", xmlGetAttr, 'href'),
+                      xml2::xml_attr(xml2::xml_find_all(temp, "//ul[@id='nametree']//a"), 'href'),
                       families)
   if (!is.null(family) && all(!family %in% families)) {
     stop(paste('Requested families not found on TPL.',

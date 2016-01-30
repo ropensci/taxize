@@ -58,12 +58,12 @@ test_that("fungorum - fg_all_updated_names", {
   date <- as.numeric(gsub("-", "", as.character(Sys.Date()))) - 2
   aa <- fg_all_updated_names(date = date)
 
-  expect_is(aa, "character")
-  expect_more_than(length(aa), 1)
-  expect_match(aa, "indexfungorum")
+  expect_is(aa, "data.frame")
+  expect_more_than(NROW(aa), 1)
+  expect_match(aa[1,], "indexfungorum")
 
   date <- as.numeric(gsub("-", "", as.character(Sys.Date() + 1)))
-  expect_null(fg_all_updated_names(date = date))
+  expect_equal(NROW(fg_all_updated_names(date = date)), 0)
 })
 
 test_that("fungorum - fg_deprecated_names", {
@@ -72,12 +72,12 @@ test_that("fungorum - fg_deprecated_names", {
   date <- as.numeric(gsub("-", "", as.character(Sys.Date() - 30)))
   aa <- fg_deprecated_names(date = date)
 
-  expect_is(aa, "character")
-  expect_more_than(length(aa), 1)
-  expect_match(aa, "indexfungorum")
+  expect_is(aa, "data.frame")
+  expect_more_than(NROW(aa), 1)
+  expect_match(aa[1,1], "indexfungorum")
 
   date <- as.numeric(gsub("-", "", as.character(Sys.Date() + 1)))
-  expect_null(fg_deprecated_names(date = date))
+  expect_equal(NROW(fg_deprecated_names(date = date)), 0)
 })
 
 test_that("fungorum - fg_author_search", {

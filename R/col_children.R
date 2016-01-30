@@ -67,12 +67,11 @@ search_col <- function(name, id, checklist, format, start, ...) {
   tt <- xml2::read_xml(con_utf8(out))
   search_col_child_df(tt)
 }
+search_col_safe <- plyr::failwith(NULL, search_col)
 
 search_col_child_df <- function(x) {
-  ids <- xml_text(xml_find_all(x, "//child_taxa//id"))
-  nms <- xml_text(xml_find_all(x, "//child_taxa//name"))
-  ranks <- xml_text(xml_find_all(x, "//child_taxa//rank"))
-  data.frame(ids, nms, ranks, stringsAsFactors = FALSE)
+  childtaxa_id <- xml_text(xml_find_all(x, "//child_taxa//id"))
+  childtaxa_name <- xml_text(xml_find_all(x, "//child_taxa//name"))
+  childtaxa_rank <- xml_text(xml_find_all(x, "//child_taxa//rank"))
+  data.frame(childtaxa_id, childtaxa_name, childtaxa_rank, stringsAsFactors = FALSE)
 }
-
-search_col_safe <- plyr::failwith(NULL, search_col)

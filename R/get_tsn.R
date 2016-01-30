@@ -89,14 +89,13 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE, ask
     tsn_df <- itis_terms(x, what = searchtype, ...)
     tsn_df <- sub_rows(tsn_df, rows)
 
-    if(!class(tsn_df) == "data.frame"){
+    if (!class(tsn_df) == "data.frame" || NROW(tsn_df) == 0){
       tsn <- NA
       att <- "not found"
     } else {
-
       tsn_df <- tsn_df[,c("tsn","scientificname","commonnames","nameusage")]
 
-      if(accepted){
+      if (accepted) {
         tsn_df <- tsn_df[ tsn_df$nameusage %in% c('valid','accepted'), ]
       }
 

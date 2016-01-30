@@ -233,15 +233,18 @@ classification.uid <- function(id, callopts = list(), return_id = TRUE, ...) {
       baseurl <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy"
       ID <- paste("ID=", x, sep = "")
       searchurl <- paste(baseurl, ID, sep = "&")
-      tt <- GET(searchurl, callopts)
-      ttp <- xmlTreeParse(tt, useInternalNodes = TRUE)
-      out <- data.frame(name = xpathSApply(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/ScientificName", xmlValue),
-                        rank = xpathSApply(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/Rank", xmlValue),
-                        id = xpathSApply(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/TaxId", xmlValue),
+      res <- GET(searchurl, callopts)
+      stop_for_status(res)
+      tt <- con_utf8(res)
+      ttp <- xml2::read_xml(tt)
+      out <- data.frame(name = xml2::xml_text(xml2::xml_find_all(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/ScientificName")),
+                        rank = xml2::xml_text(xml2::xml_find_all(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/Rank")),
+                        id = xml2::xml_text(xml2::xml_find_all(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/TaxId")),
                         stringsAsFactors = FALSE)
-      out <- rbind(out, c(xpathSApply(ttp, "//TaxaSet/Taxon/ScientificName", xmlValue),
-                          xpathSApply(ttp, "//TaxaSet/Taxon/Rank", xmlValue),
-                          xpathSApply(ttp, "//TaxaSet/Taxon/TaxId", xmlValue)))
+      out <- rbind(out, c(xml2::xml_text(xml2::xml_find_all(ttp, "//TaxaSet/Taxon/ScientificName")),
+                          xml2::xml_text(xml2::xml_find_all(ttp, "//TaxaSet/Taxon/Rank")),
+                          xml2::xml_text(xml2::xml_find_all(ttp, "//TaxaSet/Taxon/TaxId")))
+      )
       # Optionally return tsn of lineage
       if (!return_id) out <- out[, c('name', 'rank')]
       return(out)
@@ -302,12 +305,12 @@ classification.colid <- function(id, start = NULL, checklist = NULL,
       args <- tc(list(id = x, response = "full", start = start))
       out <- GET(url, query = args, callopts)
       stop_for_status(out)
-      tt <- read_xml(con_utf8(out))
+      tt <- xml2::read_xml(con_utf8(out))
       out <- search_col_classification_df(tt)
       # add query-ied taxon
-      out <- rbind(out, c(xml_text(xml_find_one(tt, "//result/name")),
-                          xml_text(xml_find_one(tt, "//result/rank")),
-                          xml_text(xml_find_one(tt, "//result/id"))))
+      out <- rbind(out, c(xml2::xml_text(xml2::xml_find_one(tt, "//result/name")),
+                          xml2::xml_text(xml2::xml_find_one(tt, "//result/rank")),
+                          xml2::xml_text(xml2::xml_find_one(tt, "//result/id"))))
       # Optionally return id of lineage
       if (!return_id) out <- out[, c('name', 'rank')]
     }
@@ -319,9 +322,9 @@ classification.colid <- function(id, start = NULL, checklist = NULL,
 }
 
 search_col_classification_df <- function(x) {
-  name <- xml_text(xml_find_all(x, "//classification//name"))
-  rank <- xml_text(xml_find_all(x, "//classification//rank"))
-  ids <- xml_text(xml_find_all(x, "//classification//id"))
+  name <- xml2::xml_text(xml2::xml_find_all(x, "//classification//name"))
+  rank <- xml2::xml_text(xml2::xml_find_all(x, "//classification//rank"))
+  ids <- xml2::xml_text(xml2::xml_find_all(x, "//classification//id"))
   data.frame(name, rank, ids, stringsAsFactors = FALSE)
 }
 

@@ -62,10 +62,8 @@
 #' @importFrom stringr str_extract str_split str_replace str_replace_all
 #' @importFrom plyr failwith rbind.fill llply ldply ddply l_ply summarise colwise .
 #' @importFrom reshape2 melt dcast
-#' @importFrom XML xpathApply xpathSApply getNodeSet htmlParse xmlParse xmlValue
-#' xmlTreeParse xmlGetAttr xmlToList
 #' @importFrom xml2 xml_text xml_find_one xml_find_all xml_children read_xml
-#' xml_name xml_ns
+#' xml_name xml_ns as_list
 #' @importFrom rredlist rl_search
 #' @name taxize-package
 #' @aliases taxize

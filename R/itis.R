@@ -9,7 +9,6 @@ itis_GET <- function(endpt, args, ...){
 itis_parse <- function(a, b, d) {
   xpathfunc <- function(x, y, nsp) {
     xml_text(xml_find_all(y, paste0("//ax21:", x), nsp))
-    #sapply(getNodeSet(y, paste("//ax21:", x, sep = ''), namespaces = nsp), xmlValue)
   }
   df <- setNames(data.frame(lapply(a, xpathfunc, y = b, nsp = d), stringsAsFactors = FALSE), a)
   nmslwr(df)
@@ -21,8 +20,6 @@ itisdf <- function(a, b, matches, colnames, pastens="ax21") {
   for (i in seq_along(matches)) {
     nodes <- xml_find_all(a, matches[[i]], b)
     output[[i]] <- xml_text(nodes)
-    #nodes <- getNodeSet(a, matches[[i]], namespaces = b)
-    #output[[i]] <- sapply(nodes, xmlValue)
   }
   if (length(unique(sapply(output, length))) == 1 && unique(sapply(output, length)) == 0) {
     data.frame(NULL, stringsAsFactors = FALSE)
@@ -32,22 +29,6 @@ itisdf <- function(a, b, matches, colnames, pastens="ax21") {
     setNames(data.frame(output, stringsAsFactors = FALSE), colnames)
   }
 }
-
-# itisdf <- function(a, b, matches, colnames, pastens="ax21"){
-#   matches <- paste0(sprintf('//%s:', pastens), matches)
-#   output <- c()
-#   for (i in seq_along(matches)) {
-#     nodes <- getNodeSet(a, matches[[i]], namespaces = b)
-#     output[[i]] <- sapply(nodes, xmlValue)
-#   }
-#   if (length(unique(sapply(output, length))) == 1 && unique(sapply(output, length)) == 0) {
-#     data.frame(NULL, stringsAsFactors = FALSE)
-#   } else if (all(sapply(output, length) == 1)) {
-#     setNames(data.frame(t(output), stringsAsFactors = FALSE), colnames)
-#   } else {
-#     setNames(data.frame(output, stringsAsFactors = FALSE), colnames)
-#   }
-# }
 
 #' Get accepted names from tsn
 #'
@@ -248,7 +229,7 @@ getexpertsfromtsn <- function(tsn, ...) {
   namespaces <- c(namespaces <- c(ax21 = "http://data.itis_service.itis.usgs.gov/xsd"))
   toget <- list("comment","expert","name","referredTsn","referenceFor","updateDate")
   xpathfunc <- function(x) {
-    xml_text(xml_find_all(out, paste0("//ax21:", x), nsp))
+    xml_text(xml_find_all(out, paste0("//ax21:", x), namespaces))
   }
   nmslwr(setNames(do.call(cbind, lapply(toget, function(z) as.data.frame(xpathfunc(z)))), toget))
 }
@@ -500,7 +481,6 @@ getjurisdictionaloriginfromtsn <- function(tsn, ...) {
   toget <- list("jurisdictionValue","origin","updateDate")
   xpathfunc <- function(x) {
     xml_text(xml_find_all(out, paste("//ax21:", x, sep = ''), namespaces))
-    #sapply(getNodeSet(out, paste("//ax21:", x, sep = ''), namespaces = namespaces), xmlValue)
   }
   df <- do.call(cbind, lapply(toget, function(z) as.data.frame(xpathfunc(z))))
   if (NROW(df) == 0) {
