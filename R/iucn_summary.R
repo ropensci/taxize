@@ -2,11 +2,14 @@
 #'
 #' @description Get a summary from the IUCN Red List (\url{http://www.iucnredlist.org/}).
 #'
-#' @param sciname character; Scientific name. Should be cleand and in the
+#' @param sciname character; Scientific name. Should be cleaned and in the
 #' format \emph{<Genus> <Species>}.
 #' @param silent logical; Make errors silent or not (when species not found).
 #' @param parallel logical; Search in parallel to speed up search. You have to
 #' register a parallel backend if \code{TRUE}. See e.g., doMC, doSNOW, etc.
+#' @param distr_detail logical; If \code{TRUE}, the geographic distribution is
+#' returned as a list of up to two elements, corresponding to the native and 
+#' introduced ranges.
 #' @param ... Currently not used.
 #'
 #' @return A list (for every species one entry) of lists with the following
@@ -43,7 +46,8 @@
 #'
 #' @export
 #' @author Eduard Szoecs, \email{eduardszoecs@@gmail.com}
-iucn_summary <- function(sciname, silent = TRUE, parallel = FALSE, ...) {
+iucn_summary <- function(sciname, silent = TRUE, parallel = FALSE, 
+                         distr_detail = FALSE, ...) {
 
   fun <- function(sciname){
     #to deal with subspecies
@@ -78,7 +82,13 @@ iucn_summary <- function(sciname, silent = TRUE, parallel = FALSE, ...) {
         if (length(distr) == 0) {
           distr <- NA
         } else {
-          distr <- unlist(strsplit(distr, "\n"))
+          distr <- sub("^\n", "", distr)  # remove leading newline
+          distr <- strsplit(distr, "\n")
+          if (distr_detail) {
+              names(distr) <- xml2::xml_text(xml2::xml_find_all(h, '//ul[@class="country_distribution"]//div[@class="distribution_type"]'))
+          } else {
+              distr <- unlist(distr)
+          }
         }
 
         # trend
