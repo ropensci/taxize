@@ -74,13 +74,13 @@ get_iucn_summary <- function(query, silent, parallel, distr_detail, by_id, ...) 
             df <- unique(res$result)
             #check if there are several matches
             scinamelist <- df$scientific_name
-            species_id <- df$taxonid[which(tolower(scinamelist) == tolower(sciname))]
+            species_id <- df$taxonid[which(tolower(scinamelist) == tolower(query))]
         }
     } else {
         species_id <- query
     }
     if (!exists('species_id')) {
-        warning("Species '", sciname , "' not found!\n Returning NA!")
+        warning("Species '", query , "' not found!\n Returning NA!")
         out <- list(status = NA,
                     history = NA,
                     distr = NA,
