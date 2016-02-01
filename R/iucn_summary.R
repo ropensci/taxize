@@ -144,7 +144,7 @@ get_iucn_summary <- function(query, silent, parallel, distr_detail, by_id, ...) 
       names(out) <- llply(out, `[[`, "sciname")
       out <- llply(out, function(x) {x$sciname <- NULL; x})      
   } else {
-      names(out) <- sciname    
+      names(out) <- query    
   }
   class(out) <- "iucn"
   return(out)
