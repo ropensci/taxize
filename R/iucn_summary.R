@@ -48,7 +48,7 @@
 #' @author Eduard Szoecs, \email{eduardszoecs@@gmail.com}
 iucn_summary <- function(sciname, silent = TRUE, parallel = FALSE, 
                          distr_detail = FALSE, ...) {
-    get_iucn_summary(sciname, silent, parallel, distr_detail, by_id = FALSE)
+    get_iucn_summary(sciname, silent, parallel, distr_detail, by_id = FALSE, ...)
 }
 
 
@@ -57,12 +57,11 @@ iucn_summary <- function(sciname, silent = TRUE, parallel = FALSE,
 #' @rdname iucn_summary
 iucn_summary_from_id <- function(species_id, silent = TRUE, parallel = FALSE, 
                                  distr_detail = FALSE, ...) {
-    
-    get_iucn_summary(species_id, silent, parallel, distr_detail, by_id = TRUE)    
+    get_iucn_summary(species_id, silent, parallel, distr_detail, by_id = TRUE, ...)    
 }
 
 
-get_iucn_summary <- function(query, silent, parallel, distr_detail, by_id) {
+get_iucn_summary <- function(query, silent, parallel, distr_detail, by_id, ...) {
     
   fun <- function(query) {
       
