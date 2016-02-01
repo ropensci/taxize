@@ -3,9 +3,13 @@
 \name{iucn_summary}
 \alias{iucn_status.iucn}
 \alias{iucn_summary}
+\alias{iucn_summary_from_id}
 \title{Get a summary from the IUCN Red List}
 \usage{
 iucn_summary(sciname, silent = TRUE, parallel = FALSE,
+  distr_detail = FALSE, ...)
+
+iucn_summary_from_id(species_id, silent = TRUE, parallel = FALSE,
   distr_detail = FALSE, ...)
 
 \method{iucn_status}{iucn}(x, ...)
@@ -24,6 +28,8 @@ returned as a list of up to two elements, corresponding to the native and
 introduced ranges.}
 
 \item{...}{Currently not used.}
+
+\item{species_id}{an IUCN ID}
 
 \item{x}{an \code{iucn} object as returned by
 \code{\link[taxize]{iucn_summary}}.}
