@@ -3,13 +3,13 @@
 \name{iucn_summary}
 \alias{iucn_status.iucn}
 \alias{iucn_summary}
-\alias{iucn_summary_from_id}
+\alias{iucn_summary_id}
 \title{Get a summary from the IUCN Red List}
 \usage{
 iucn_summary(sciname, silent = TRUE, parallel = FALSE,
   distr_detail = FALSE, ...)
 
-iucn_summary_from_id(species_id, silent = TRUE, parallel = FALSE,
+iucn_summary_id(species_id, silent = TRUE, parallel = FALSE,
   distr_detail = FALSE, ...)
 
 \method{iucn_status}{iucn}(x, ...)
@@ -62,12 +62,17 @@ status into a vector.
 \dontrun{
 ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
 ia <- iucn_summary(c("Panthera uncia", "Lynx lynx", "aaa"))
+# get summary from IUCN ID
+ia <- iucn_summary_id(c(22732, 12519))
 # extract status
 iucn_status(ia)
 # extract other available information
 ia[['Lynx lynx']]$history
 ia[['Panthera uncia']]$distr
 ia[[2]]$trend
+# get detailed distribution
+iac <- iucn_summary("Ara chloropterus", distr_detail = TRUE)
+iac[[1]]$distr
 }
 }
 \author{

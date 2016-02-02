@@ -35,12 +35,17 @@
 #' @examples \dontrun{
 #' ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
 #' ia <- iucn_summary(c("Panthera uncia", "Lynx lynx", "aaa"))
+#' # get summary from IUCN ID
+#' ia <- iucn_summary_id(c(22732, 12519))
 #' # extract status
 #' iucn_status(ia)
 #' # extract other available information
 #' ia[['Lynx lynx']]$history
 #' ia[['Panthera uncia']]$distr
 #' ia[[2]]$trend
+#' # get detailed distribution
+#' iac <- iucn_summary("Ara chloropterus", distr_detail = TRUE)
+#' iac[[1]]$distr 
 #' }
 #'
 #'
@@ -55,8 +60,8 @@ iucn_summary <- function(sciname, silent = TRUE, parallel = FALSE,
 #' @param species_id an IUCN ID
 #' @export
 #' @rdname iucn_summary
-iucn_summary_from_id <- function(species_id, silent = TRUE, parallel = FALSE, 
-                                 distr_detail = FALSE, ...) {
+iucn_summary_id <- function(species_id, silent = TRUE, parallel = FALSE, 
+                            distr_detail = FALSE, ...) {
     get_iucn_summary(species_id, silent, parallel, distr_detail, by_id = TRUE, ...)    
 }
 
