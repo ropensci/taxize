@@ -8,8 +8,8 @@
 #' @param parallel logical; Search in parallel to speed up search. You have to
 #' register a parallel backend if \code{TRUE}. See e.g., doMC, doSNOW, etc.
 #' @param distr_detail logical; If \code{TRUE}, the geographic distribution is
-#' returned as a list of up to two elements, corresponding to the native and 
-#' introduced ranges.
+#' returned as a list of vectors corresponding to the different range types: 
+#' native, introduced, etc.
 #' @param ... Currently not used.
 #'
 #' @return A list (for every species one entry) of lists with the following
@@ -51,6 +51,7 @@
 #'
 #' @export
 #' @author Eduard Szoecs, \email{eduardszoecs@@gmail.com}
+#' @author Philippe Marchand, \email{marchand.philippe@@gmail.com}
 iucn_summary <- function(sciname, silent = TRUE, parallel = FALSE, 
                          distr_detail = FALSE, ...) {
     get_iucn_summary(sciname, silent, parallel, distr_detail, by_id = FALSE, ...)
