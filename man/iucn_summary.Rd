@@ -3,14 +3,19 @@
 \name{iucn_summary}
 \alias{iucn_status.iucn}
 \alias{iucn_summary}
+\alias{iucn_summary_id}
 \title{Get a summary from the IUCN Red List}
 \usage{
-iucn_summary(sciname, silent = TRUE, parallel = FALSE, ...)
+iucn_summary(sciname, silent = TRUE, parallel = FALSE,
+  distr_detail = FALSE, ...)
+
+iucn_summary_id(species_id, silent = TRUE, parallel = FALSE,
+  distr_detail = FALSE, ...)
 
 \method{iucn_status}{iucn}(x, ...)
 }
 \arguments{
-\item{sciname}{character; Scientific name. Should be cleand and in the
+\item{sciname}{character; Scientific name. Should be cleaned and in the
 format \emph{<Genus> <Species>}.}
 
 \item{silent}{logical; Make errors silent or not (when species not found).}
@@ -18,7 +23,13 @@ format \emph{<Genus> <Species>}.}
 \item{parallel}{logical; Search in parallel to speed up search. You have to
 register a parallel backend if \code{TRUE}. See e.g., doMC, doSNOW, etc.}
 
+\item{distr_detail}{logical; If \code{TRUE}, the geographic distribution is
+returned as a list of vectors corresponding to the different range types: 
+native, introduced, etc.}
+
 \item{...}{Currently not used.}
+
+\item{species_id}{an IUCN ID}
 
 \item{x}{an \code{iucn} object as returned by
 \code{\link[taxize]{iucn_summary}}.}
@@ -51,18 +62,25 @@ status into a vector.
 \dontrun{
 ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
 ia <- iucn_summary(c("Panthera uncia", "Lynx lynx", "aaa"))
+# get summary from IUCN ID
+ia <- iucn_summary_id(c(22732, 12519))
 # extract status
 iucn_status(ia)
 # extract other available information
 ia[['Lynx lynx']]$history
 ia[['Panthera uncia']]$distr
 ia[[2]]$trend
+# get detailed distribution
+iac <- iucn_summary("Ara chloropterus", distr_detail = TRUE)
+iac[[1]]$distr 
 }
 
 
 }
 \author{
 Eduard Szoecs, \email{eduardszoecs@gmail.com}
+
+Philippe Marchand, \email{marchand.philippe@gmail.com}
 }
 \seealso{
 \code{\link[taxize]{iucn_status}}
