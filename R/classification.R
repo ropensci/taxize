@@ -272,7 +272,7 @@ classification.eolid <- function(id, key = NULL, callopts = list(), return_id = 
       args <- tc(list(common_names = common_names, synonyms = synonyms))
       tt <- GET(urlget, query = args, callopts)
       stop_for_status(tt)
-      res <- con_utf8(tt)
+      res <- jsonlite::fromJSON(con_utf8(tt), FALSE)
       if (length(res$ancestors) == 0) {
         return(sprintf("No hierarchy information for %s", x))
       } else {
@@ -371,7 +371,7 @@ classification.gbifid <- function(id, callopts = list(), return_id = TRUE, ...) 
       } else {
         nms <- ldply(out[c('kingdom','phylum','class','order','family','genus','species')])
         keys <- unname(unlist(out[paste0(c('kingdom','phylum','class','order','family','genus','species'), "Key")]))
-        df <- data.frame(name = nms$V1, rank = nms$.id, id = keys)
+        df <- data.frame(name = nms$V1, rank = nms$.id, id = keys, stringsAsFactors = FALSE)
 
         # Optionally return id of lineage
         if (!return_id) df[, c('name', 'rank')] else df
