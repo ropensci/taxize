@@ -2,6 +2,7 @@
 #'
 #' @export
 #' @param id A GenBank accession alphanumeric string, or a gi numeric string.
+#' @param batch_size The number of queries to submit at a time.
 #' @param ... Curl args passed on to \code{\link[httr]{GET}}
 #' @details See \url{http://www.ncbi.nlm.nih.gov/Sitemap/sequenceIDs.html} for help on why
 #' there are two identifiers, and the difference between them.
@@ -26,8 +27,7 @@
 #' library('httr')
 #' genbank2uid(id = 156446673, config=verbose())
 #' }
-genbank2uid <- function(id, ...){
-  max_batch_size <- 100
+genbank2uid <- function(id, batch_size = 100, ...){
   process_batch <- function(id, ...) {
     id <- gsub(pattern = "\\.[0-9]+$", "", id) #removes version number of accession ids
     url2 <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=nucleotide&db=taxonomy&id="
@@ -42,7 +42,7 @@ genbank2uid <- function(id, ...){
     Sys.sleep(0.34) # NCBI limits requests to three per second
     return(result)
   }
-  batches <- split(id, ceiling(seq_along(id) / max_batch_size))
+  batches <- split(id, ceiling(seq_along(id) / batch_size))
   result <- lapply(batches, function(x) map_unique(x, process_batch, ...))
   result <- as.uid(unname(unlist(result)))
   matched <- rep("found", length(result))
