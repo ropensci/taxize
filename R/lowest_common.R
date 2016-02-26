@@ -48,7 +48,10 @@ lc_helper <- function(ids, class_list, low_rank = NULL) {
     }
     return(x)
   } else {
-    # could test, warn/error that supplied rank is valid
+	valid_ranks <- tolower(getranknames()[,"rankname"])
+	if(!(low_rank %in% valid_ranks)){
+		warning('the supplied rank is not valid')
+	}
     low_rank_names <- as.character(unique(unlist(lapply(idsc, function(x) x$name[which(x$rank == low_rank)]))))
     if(length(low_rank_names) == 1){
       return(low_rank_names)
