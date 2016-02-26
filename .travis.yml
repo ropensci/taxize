@@ -4,10 +4,8 @@ sudo: required
 after_success:
   - Rscript -e 'covr::codecov()'
 
-r_github_packages:
+r_packages:
   - jimhester/covr
-  - jeroenooms/curl
-  - ropenscilabs/rredlist
 
 # print timings (of examples) and sysinfo
 after_script:
