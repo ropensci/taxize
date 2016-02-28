@@ -14,7 +14,7 @@ Authors@R: c(
     person("Karthik", "Ram", role = "aut", email = "karthik@ropensci.org"),
     person("Ignasi", "Bartomeus", role = "aut", email = "nacho.bartomeus@gmail.com"),
     person("John", "Baumgartner", role = "aut", email = "johnbb@student.unimelb.edu.au"),
-    person("Jimmy", "O'Donnell", role = "aut", email = "jodonnellbio@gmail.com")
+    person("James", "O'Donnell", role = "aut", email = "jodonnellbio@gmail.com")
   )
 LazyLoad: yes
 LazyData: yes
