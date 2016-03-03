@@ -161,6 +161,15 @@ parse_full <- function(x) {
                name_status <- z$accepted_name$name_status
                h <- cbind(h, setNames(data.frame(id, name, rank, name_status, stringsAsFactors = FALSE),
                                       c('acc_id','acc_name','acc_rank','acc_status')))
+             },
+             `misapplied name` = {
+               h <- parse_one(z)
+               name <- z$accepted_name$name
+               rank <- z$accepted_name$rank
+               id <- z$accepted_name$id
+               name_status <- z$accepted_name$name_status
+               h <- cbind(h, setNames(data.frame(id, name, rank, name_status, stringsAsFactors = FALSE),
+                                      c('acc_id','acc_name','acc_rank','acc_status')))
              }
       )
       target <- setNames(rbind.data.frame(
