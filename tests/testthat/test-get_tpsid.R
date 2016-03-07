@@ -20,8 +20,7 @@ test_that("get_tpsid accepts ask-argument", {
 test_that("get_tpsid behaves correctly on dot inputs", {
   expect_that(get_tpsid('Pinus contorta var. yukonensis'),
               gives_warning("detected, being URL encoded"))
-  expect_that(get_tpsid('Pinus contorta yukonensis'),
-              not(gives_warning()))
+  expect_warning(get_tpsid('Pinus contorta yukonensis'), NA)
 })
 
 test_that("get_tpsid behaves correctly on subspecific inputs", {
@@ -36,6 +35,5 @@ test_that("get_tpsid behaves correctly on subspecific inputs", {
   expect_that(get_tpsid('Poa annua subspecies annua'),
               gives_warning("Tropicos doesn't like"))
 
-  expect_that(get_tpsid('Poa annua foo bar annua'),
-              not(gives_warning()))
+  expect_warning(get_tpsid('Poa annua foo bar annua'), NA)
 })

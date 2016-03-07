@@ -126,7 +126,7 @@ test_that("rbind and cbind work correctly", {
   # cbind
   clc <- cbind(cl)
   expect_is(clc, "data.frame")
-  expect_more_than(length(names(clc)), 50)
+  expect_gt(length(names(clc)), 50)
 })
 
 df <- theplantlist[sample(1:nrow(theplantlist), 50), ]

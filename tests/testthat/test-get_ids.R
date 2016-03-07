@@ -17,7 +17,7 @@ test_that("get_ids accepts ask and verbose arguments", {
 #   expect_that(is.na(get_ids(names="Pinus contorta", db = 'eol', ask=FALSE, verbose=FALSE)[[1]][[1]]),
 #               is_true())
   expect_message(get_ids(names="Pinus contorta", db = 'ncbi'))
-  expect_that(get_ids(names="Pinus contorta", db = 'ncbi', verbose=FALSE), not(shows_message()))
+  expect_message(get_ids(names="Pinus contorta", db = 'ncbi', verbose=FALSE), NA)
 })
 
 nn <- c('Imperata brasiliensis','Hylebates cordatus','Apocopis intermedius',

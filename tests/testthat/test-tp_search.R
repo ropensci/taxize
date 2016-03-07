@@ -17,8 +17,7 @@ test_that("tp_search returns a data.frame with one raw starting none found", {
 test_that("tp_search behaves correctly on dot inputs", {
   expect_that(tp_search('Poa annua .annua'),
               gives_warning("detected, being URL encoded"))
-  expect_that(tp_search('Poa annua annua'),
-                 not(gives_warning()))
+  expect_warning(tp_search('Poa annua annua'), NA)
 })
 
 test_that("tp_search behaves correctly on subspecific inputs", {
@@ -33,6 +32,5 @@ test_that("tp_search behaves correctly on subspecific inputs", {
   expect_that(tp_search('Poa annua subspecies annua'),
               gives_warning("Tropicos doesn't like"))
 
-  expect_that(tp_search('Poa annua foo bar annua'),
-              not(gives_warning()))
+  expect_warning(tp_search('Poa annua foo bar annua'), NA)
 })
