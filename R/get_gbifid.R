@@ -210,7 +210,7 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
 }
 
 gbif_name_suggest <- function(q=NULL, datasetKey=NULL, rank=NULL, fields=NULL, start=NULL,
-                         limit=20, ...) {
+                         limit=50, ...) {
 
   url = 'http://api.gbif.org/v1/species/suggest'
   args <- tc(list(q = q, rank = rank, offset = start, limit = limit))
