@@ -4,7 +4,7 @@ context("gnr_resolve")
 tmp <- gnr_resolve(names = c("Helianthus annuus", "Homo sapiens"))
 
 test_that("gnr_resolve returns the correct value", {
-	expect_equal(NCOL(tmp), 4)
+	expect_equal(NCOL(tmp), 5)
 })
 
 test_that("gnr_resolve returns the correct class", {
@@ -34,8 +34,8 @@ test_that("canonical works correctly", {
 
   expect_is(w, "data.frame")
   expect_is(z, "data.frame")
-  expect_named(w, c("submitted_name", "data_source_title", "score", "matched_name2"))
-  expect_named(z, c("submitted_name", "matched_name", "data_source_title", "score"))
+  expect_named(w, c("user_supplied_name", "submitted_name", "data_source_title", "score", "matched_name2"))
+  expect_named(z, c("user_supplied_name", "submitted_name", "matched_name", "data_source_title", "score"))
   expect_equal(NROW(x), 2)
   expect_true(is.na(x$matched_name2[2]))
 })

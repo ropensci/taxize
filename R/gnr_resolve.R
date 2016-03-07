@@ -86,6 +86,7 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
   http <- match.arg(http, c("get", "post"))
   num = NULL
   url <- "http://resolver.globalnames.org/name_resolvers.json"
+  orig_names <- names
   if (cap_first) names <- taxize_capwords(names, onlyfirst = TRUE)
   names2 <- paste0(names, collapse = "|")
   if (length(names) > 300 && http == "get") http <- "post"
@@ -125,6 +126,9 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
     dat <- do.call("c", datbits)
   }
 
+  # add original name supplied by user
+  dat <- Map(function(x,y) c(original_name = y, x), dat, orig_names)
+
   data_ <-
     lapply(dat, function(y) {
       if (!is.null(unlist(y$results))) {
@@ -140,15 +144,16 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
       } else {
         res <- NULL
       }
-      list(y[["supplied_name_string"]], res)
+      list(y[c("original_name", "supplied_name_string")], res)
     })
   not_known <- Filter(function(x) is.null(x[[2]]), data_)
-  not_known <- vapply(not_known, "[[", "", 1)
+  not_known <- sapply(not_known, function(x) x[[1]]$original_name)
+  # vapply(not_known, "[[", "", 1)
   data_ <- Filter(function(x) !is.null(x[[2]]), data_)
 
   # check for empty data object
   drill <- tryCatch(data_[[1]], error = function(e) e)
-  if (is(drill, "simpleError")) {
+  if (inherits(drill, "simpleError")) {
     out <- data.frame(NULL)
   } else {
     if (is.null(preferred_data_sources)) {
@@ -157,7 +162,7 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
       } else {
         x[[2]]
       }), stringsAsFactors = FALSE))
-      names(data_2)[c(1,2,5)] <- c("submitted_name", "matched_name", "matched_name2")
+      names(data_2)[c(1,2,3,6)] <- c("user_supplied_name", "submitted_name", "matched_name", "matched_name2")
       data_2$matched_name <- as.character(data_2$matched_name)
       data_2$data_source_title <- as.character(data_2$data_source_title)
       data_2$matched_name2 <- as.character(data_2$matched_name2)
@@ -180,7 +185,7 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
           } else {
             res <- NULL
           }
-          list(y[["supplied_name_string"]], res)
+          list(y[c("original_name", "supplied_name_string")], res)
         })
       data_preferred <- Filter(function(x) !is.null(x[[2]]), data_preferred)
       data_2_preferred <- ldply(data_preferred, function(x) data.frame(x[[1]], ldply(if (length(x[[2]]) == 0) {
@@ -188,7 +193,7 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
       } else {
         x[[2]]
       }), stringsAsFactors = FALSE))
-      names(data_2_preferred)[c(1,2,5)] <- c("submitted_name", "matched_name", "matched_name2")
+      names(data_2_preferred)[c(1,2,3,6)] <- c("user_supplied_name", "submitted_name", "matched_name", "matched_name2")
       data_2_preferred$matched_name <- as.character(data_2_preferred$matched_name)
       data_2_preferred$data_source_title <- as.character(data_2_preferred$data_source_title)
       data_2_preferred$matched_name2 <- as.character(data_2_preferred$matched_name2)
