@@ -15,7 +15,12 @@
 #'    \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_tpsid}},
 #'    \code{\link[taxize]{get_gbifid}}.
 #'
-#' @return a data.frame or character vector
+#' @return NA when no match, or a data.frame with columns
+#' \itemize{
+#'  \item name
+#'  \item rank
+#'  \item id
+#' }
 #' @author Jimmy O'Donnell \email{jodonnellbio@@gmail.com}
 #' Scott Chamberlain \email{myrmecocystus@gmail.com}
 #' @examples \dontrun{
@@ -123,7 +128,7 @@ lowest_common.gbifid <- function(x, class_list = NULL, low_rank = NULL, ...) {
 }
 
 # helpers -------------------------------------------------
-lc_helper <- function(x, class_list, low_rank = NULL) {
+lc_helper <- function(x, class_list, low_rank = NULL, ...) {
   idc <- class_list[x]
   # next line NCBI specific
   cseq <- vapply(idc, function(x) x[1, 1] != "unclassified sequences", logical(1))
@@ -136,12 +141,13 @@ lc_helper <- function(x, class_list, low_rank = NULL) {
     }
     return(x)
   } else {
-	valid_ranks <- tolower(getranknames()[,"rankname"])
-	if (!(low_rank %in% valid_ranks)) {
-		warning('the supplied rank is not valid')
-	}
-    low_rank_names <- as.character(unique(unlist(lapply(idc, function(x) x$name[which(x$rank == low_rank)]))))
-    if (length(low_rank_names) == 1) {
+    valid_ranks <- tolower(getranknames()[,"rankname"])
+    if (!(low_rank %in% valid_ranks)) {
+      warning('the supplied rank is not valid')
+    }
+    # low_rank_names <- as.character(unique(unlist(lapply(idc, function(x) x$name[which(x$rank == low_rank)]))))
+    low_rank_names <- unique(setDF(rbindlist(lapply(idc, function(x) x[which(x$rank == low_rank),]))))
+    if (NROW(low_rank_names) == 1) {
       return(low_rank_names)
     } else {
       return(NA)

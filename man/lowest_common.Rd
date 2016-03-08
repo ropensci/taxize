@@ -40,7 +40,12 @@ acceptable classes: tsn, colid. NCBI has a method for this function but rows doe
 \item{low_rank}{(character) taxonomic rank to return, of length 1}
 }
 \value{
-a data.frame or character vector
+NA when no match, or a data.frame with columns
+\itemize{
+ \item name
+ \item rank
+ \item id
+}
 }
 \description{
 Retrieve the lowest common taxon and rank for a given taxon ID.
