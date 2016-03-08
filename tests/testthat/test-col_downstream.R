@@ -11,7 +11,7 @@ test_that("col_downstream returns the correct class", {
   expect_is(temp6, "list")
   expect_is(temp4$Animalia, "data.frame")
   expect_is(temp5[[1]], "data.frame")
-  expect_equal(as.character(temp4[[1]][,3][[1]]), "Phylum")
+  expect_equal(as.character(temp4[[1]][,3][[1]]), "phylum")
 })
 
 test_that("gives what's expected on input errors", {

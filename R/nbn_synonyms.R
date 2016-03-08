@@ -12,5 +12,7 @@
 
 nbn_synonyms <- function(id, ...) {
   url <- sprintf("https://data.nbn.org.uk/api/taxa/%s/synonyms", id)
-  nbn_GET_2(url, ...)
+  df <- nbn_GET_2(url, ...)
+  df$rank <- tolower(df$rank)
+  df
 }

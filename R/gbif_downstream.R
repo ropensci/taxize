@@ -15,30 +15,30 @@
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @examples \dontrun{
 #' ## the plant class Bangiophyceae
-#' gbif_downstream(key = 198, downto="Genus")
-#' gbif_downstream(key = 198, downto="Genus", intermediate=TRUE)
+#' gbif_downstream(key = 198, downto="genus")
+#' gbif_downstream(key = 198, downto="genus", intermediate=TRUE)
 #'
 #' # get families downstream from the superfamily Acridoidea
-#' gbif_downstream(key = 1878, "Family")
+#' gbif_downstream(key = 1878, "family")
 #' ## here, intermediate leads to the same result as the target
-#' gbif_downstream(key = 1878, "Family", intermediate=TRUE)
+#' gbif_downstream(key = 1878, "family", intermediate=TRUE)
 #'
 #' # get species downstream from the genus Ursus
-#' gbif_downstream(key = 2433406, "Species")
+#' gbif_downstream(key = 2433406, "species")
 #'
 #' # get tribes down from the family Apidae
-#' gbif_downstream(key = 1334757, downto="Species")
-#' gbif_downstream(key = 1334757, downto="Species", intermediate=TRUE)
+#' gbif_downstream(key = 1334757, downto="species")
+#' gbif_downstream(key = 1334757, downto="species", intermediate=TRUE)
 #' }
 
 gbif_downstream <- function(key, downto, intermediate = FALSE, ...) {
 
   should_be('intermediate', intermediate, 'logical')
 
-  downto <- taxize_capwords(downto)
+  downto <- tolower(downto)
   poss_ranks <- unique(do.call(c, sapply(rank_ref$ranks, strsplit, split = ",", USE.NAMES = FALSE)))
   downto <- match.arg(downto, choices = poss_ranks)
-  torank <- sapply(rank_ref[grep(downto, rank_ref$ranks), "ranks"],
+  torank <- sapply(rank_ref[which_rank(downto), "ranks"],
                    function(x) strsplit(x, ",")[[1]][[1]], USE.NAMES = FALSE)
 
   stop_ <- "not"
@@ -83,15 +83,15 @@ gbif_downstream <- function(key, downto, intermediate = FALSE, ...) {
 }
 
 prune_too_low <- function(x, rank) {
-  rank_target_no <- as.numeric(rank_ref[grep(rank, rank_ref$ranks), "rankid"])
-  rank_nos <- as.numeric(rank_ref[vapply(x$rank, function(z) grep(z, rank_ref$ranks), 1), "rankid"])
+  rank_target_no <- as.numeric(rank_ref[which_rank(rank), "rankid"])
+  rank_nos <- as.numeric(rank_ref[vapply(x$rank, function(z) which_rank(z), 1), "rankid"])
   x[!rank_nos > rank_target_no, ]
 }
 
 gbif_name_usage_clean <- function(x, ...) {
   tt <- gbif_name_usage(x, ...)
   tt <- tt[sapply(tt, length) != 0]
-  tt$rank <- taxize_capwords(tt$rank, onlyfirst = TRUE)
+  tt$rank <- tolower(tt$rank)
   tt <- setNames(tt, tolower(names(tt)))
   data.frame(tt, stringsAsFactors = FALSE)[, c('canonicalname', 'rank', 'key')]
 }
@@ -101,7 +101,7 @@ gbif_name_usage_children <- function(x, ...) {
   rbind.fill(lapply(tt, function(z) {
     z <- z[sapply(z, length) != 0]
     df <- data.frame(z, stringsAsFactors = FALSE)
-    df$rank <- taxize_capwords(df$rank, onlyfirst = TRUE)
+    df$rank <- tolower(df$rank)
     df <- setNames(df, tolower(names(df)))
     df[, c('canonicalname', 'rank', 'key')]
   }))

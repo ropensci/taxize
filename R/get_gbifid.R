@@ -227,7 +227,9 @@ gbif_name_suggest <- function(q=NULL, datasetKey=NULL, rank=NULL, fields=NULL, s
     stop(sprintf("the fields %s are not valid", paste0(names(matched[matched == FALSE]), collapse = ",")))
   }
   out <- lapply(tt, function(x) x[names(x) %in% toget])
-  do.call(rbind.fill, lapply(out, data.frame))
+  df <- do.call(rbind.fill, lapply(out, data.frame))
+  if (!is.null(df)) df$rank <- tolower(df$rank)
+  df
 }
 
 gbif_suggestfields <- function() {

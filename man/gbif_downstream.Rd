@@ -30,20 +30,20 @@ Retrieve all taxa names downstream in hierarchy for GBIF
 \examples{
 \dontrun{
 ## the plant class Bangiophyceae
-gbif_downstream(key = 198, downto="Genus")
-gbif_downstream(key = 198, downto="Genus", intermediate=TRUE)
+gbif_downstream(key = 198, downto="genus")
+gbif_downstream(key = 198, downto="genus", intermediate=TRUE)
 
 # get families downstream from the superfamily Acridoidea
-gbif_downstream(key = 1878, "Family")
+gbif_downstream(key = 1878, "family")
 ## here, intermediate leads to the same result as the target
-gbif_downstream(key = 1878, "Family", intermediate=TRUE)
+gbif_downstream(key = 1878, "family", intermediate=TRUE)
 
 # get species downstream from the genus Ursus
-gbif_downstream(key = 2433406, "Species")
+gbif_downstream(key = 2433406, "species")
 
 # get tribes down from the family Apidae
-gbif_downstream(key = 1334757, downto="Species")
-gbif_downstream(key = 1334757, downto="Species", intermediate=TRUE)
+gbif_downstream(key = 1334757, downto="species")
+gbif_downstream(key = 1334757, downto="species", intermediate=TRUE)
 }
 }
 \author{

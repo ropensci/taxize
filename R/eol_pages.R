@@ -61,8 +61,9 @@ eol_pages <- function(taxonconceptID, iucn=FALSE, images=0, videos=0, sounds=0,
   res <- jsonlite::fromJSON(con_utf8(tt), FALSE)
 
   scinames <- do.call(rbind.fill, lapply(res$taxonConcepts, data.frame, stringsAsFactors=FALSE))
-  if(!is.null(scinames)) {
+  if (!is.null(scinames)) {
     names(scinames) <- tolower(names(scinames))
+    scinames$taxonrank <- tolower(scinames$taxonrank)
   }
   syns <- parseeoldata('synonyms', res)
   names(syns) <- tolower(names(syns))

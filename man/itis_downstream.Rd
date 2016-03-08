@@ -31,24 +31,24 @@ Retrieve all taxa names or TSNs downstream in hierarchy from given TSN.
 \examples{
 \dontrun{
 ## the plant class Bangiophyceae, tsn 846509
-itis_downstream(tsns = 846509, downto="Genus")
-itis_downstream(tsns = 846509, downto="Genus", intermediate=TRUE)
+itis_downstream(tsns = 846509, downto="genus")
+itis_downstream(tsns = 846509, downto="genus", intermediate=TRUE)
 
 # get families downstream from Acridoidea
-itis_downstream(tsns = 650497, "Family")
+itis_downstream(tsns = 650497, "family")
 ## here, intermediate leads to the same result as the target
-itis_downstream(tsns = 650497, "Family", intermediate=TRUE)
+itis_downstream(tsns = 650497, "family", intermediate=TRUE)
 
 # get species downstream from Ursus
-itis_downstream(tsns = 180541, "Species")
+itis_downstream(tsns = 180541, "species")
 
 # get orders down from the Division Rhodophyta (red algae)
-itis_downstream(tsns = 660046, "Order")
-itis_downstream(tsns = 660046, "Order", intermediate=TRUE)
+itis_downstream(tsns = 660046, "order")
+itis_downstream(tsns = 660046, "order", intermediate=TRUE)
 
 # get tribes down from the family Apidae
-itis_downstream(tsns = 154394, downto="Tribe")
-itis_downstream(tsns = 154394, downto="Tribe", intermediate=TRUE)
+itis_downstream(tsns = 154394, downto="tribe")
+itis_downstream(tsns = 154394, downto="tribe", intermediate=TRUE)
 }
 }
 \author{

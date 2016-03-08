@@ -161,10 +161,12 @@ col_synonyms <- function(x, ...) {
   out <- jsonlite::fromJSON(con_utf8(res), FALSE)
   tmp <- out$results[[1]]
   if ("synonyms" %in% names(tmp)) {
-    taxize_ldfast(lapply(tmp$synonyms, function(w) {
+    df <- taxize_ldfast(lapply(tmp$synonyms, function(w) {
       w[sapply(w, length) == 0] <- NA
       data.frame(w, stringsAsFactors = FALSE)
     }))
+    df$rank <- tolower(df$rank)
+    df
   } else {
     NULL
   }

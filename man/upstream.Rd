@@ -28,12 +28,12 @@ Note that each taxonomic data source has their own identifiers, so that if you
 provide the wrong \code{db} value for the identifier you could get a result,
 but it will likely be wrong (not what you were expecting).}
 
-\item{upto}{What taxonomic rank to go down to. One of: 'Superkingdom','Kingdom',
-'Subkingdom','Infrakingdom','Phylum','Division','Subphylum','Subdivision','Infradivision',
-'Superclass','Class','Subclass','Infraclass','Superorder','Order','Suborder',
-'Infraorder','Superfamily','Family','Subfamily','Tribe','Subtribe','Genus','Subgenus',
-'Section','Subsection','Species','Subspecies','Variety','Form','Subvariety','Race',
-'Stirp','Morph','Aberration','Subform','Unspecified'}
+\item{upto}{What taxonomic rank to go down to. One of: 'superkingdom','kingdom',
+subkingdom','infrakingdom','phylum','division','subphylum','subdivision','infradivision',
+'superclass','class','subclass','infraclass','superorder','order','suborder',
+'infraorder','superfamily','family','subfamily','tribe','subtribe','genus','subgenus',
+'section','subsection','species','subspecies','variety','form','subvariety','race',
+'stirp','morph','aberration','subform', or 'unspecified'}
 
 \item{rows}{(numeric) Any number from 1 to inifity. If the default NA, all rows are
 considered. Note that this parameter is ignored if you pass in a taxonomic id of any of the
@@ -53,24 +53,24 @@ the function.
 \examples{
 \dontrun{
 ## col
-upstream("Pinus contorta", db = 'col', upto = 'Genus') # get all genera at one level up
-upstream("Abies", db = 'col', upto = 'Genus') # goes to same level, Abies is a genus
-upstream('Pinus contorta', db = 'col', upto = 'Family')
-upstream('Poa annua', db = 'col', upto = 'Family')
-upstream('Poa annua', db = 'col', upto = 'Order')
+upstream("Pinus contorta", db = 'col', upto = 'genus') # get all genera at one level up
+upstream("Abies", db = 'col', upto = 'genus') # goes to same level, Abies is a genus
+upstream('Pinus contorta', db = 'col', upto = 'family')
+upstream('Poa annua', db = 'col', upto = 'family')
+upstream('Poa annua', db = 'col', upto = 'order')
 
 ## itis
-upstream(x='Pinus contorta', db = 'itis', upto = 'Genus')
+upstream(x='Pinus contorta', db = 'itis', upto = 'genus')
 
 ## both
-upstream(get_ids('Pinus contorta', db = c('col','itis')), upto = 'Genus')
+upstream(get_ids('Pinus contorta', db = c('col','itis')), upto = 'genus')
 
 # Use rows parameter to select certain
-upstream('Poa annua', db = 'col', upto = 'Genus')
-upstream('Poa annua', db = 'col', upto = 'Genus', rows=1)
+upstream('Poa annua', db = 'col', upto = 'genus')
+upstream('Poa annua', db = 'col', upto = 'genus', rows=1)
 
 # use curl options
-res <- upstream('Poa annua', db = 'col', upto = 'Genus', config=verbose())
+res <- upstream('Poa annua', db = 'col', upto = 'genus', config=verbose())
 }
 }
 

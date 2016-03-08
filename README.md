@@ -176,7 +176,7 @@ Windows users install [Rtools](http://cran.r-project.org/bin/windows/Rtools/) fi
 
 ```r
 install.packages("devtools")
-devtools::install_github("taxize", "ropensci")
+devtools::install_github("ropensci/taxize")
 ```
 
 
@@ -294,22 +294,7 @@ Get all genera up from the species _Pinus contorta_ (this includes the genus of 
 
 ```r
 upstream("Pinus contorta", db = 'itis', upto = 'Genus', verbose=FALSE)
-#> $`Pinus contorta`
-#>      tsn parentname parenttsn   taxonname rankid rankname
-#> 1  18031   Pinaceae     18030       Abies    180    Genus
-#> 2  18033   Pinaceae     18030       Picea    180    Genus
-#> 3  18035   Pinaceae     18030       Pinus    180    Genus
-#> 4 183396   Pinaceae     18030       Tsuga    180    Genus
-#> 5 183405   Pinaceae     18030      Cedrus    180    Genus
-#> 6 183409   Pinaceae     18030       Larix    180    Genus
-#> 7 183418   Pinaceae     18030 Pseudotsuga    180    Genus
-#> 8 822529   Pinaceae     18030  Keteleeria    180    Genus
-#> 9 822530   Pinaceae     18030 Pseudolarix    180    Genus
-#> 
-#> attr(,"class")
-#> [1] "upstream"
-#> attr(,"db")
-#> [1] "itis"
+#> Error in setNames(upstream(id, upto = upto, ...), x): 'names' attribute [1] must be the same length as the vector [0]
 ```
 
 ## Get synonyms
@@ -379,8 +364,8 @@ get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn', rows=1:3)
 #> $nbn$`Chironomus riparius`
 #>   ptaxonversionkey    searchmatchtitle    rank  namestatus
 #> 1 NBNSYS0000027573 Chironomus riparius Species Recommended
-#> 2 NHMSYS0001718042   Elaphrus riparius Species Recommended
-#> 3 NBNSYS0000023345   Paederus riparius Species Recommended
+#> 2 NBNSYS0000023345   Paederus riparius Species Recommended
+#> 3 NHMSYS0001718042   Elaphrus riparius Species Recommended
 #> 
 #> $nbn$`Pinus contorta`
 #>   ptaxonversionkey               searchmatchtitle       rank  namestatus
@@ -410,9 +395,19 @@ sci2comm('Helianthus annuus', db = 'itis')
 comm2sci("black bear", db = "itis")
 #> $`black bear`
 #> [1] "Ursus thibetanus"            "Ursus thibetanus"           
-#> [3] "Chiropotes satanas"          "Ursus americanus luteolus"  
-#> [5] "Ursus americanus americanus" "Ursus americanus"           
-#> [7] "Ursus americanus"
+#> [3] "Ursus americanus luteolus"   "Ursus americanus"           
+#> [5] "Ursus americanus"            "Ursus americanus americanus"
+#> [7] "Chiropotes satanas"
+```
+
+## Lowest common rank among taxa
+
+
+```r
+spp <- c("Sus scrofa", "Homo sapiens", "Nycticebus coucang")
+lowest_common(spp, db = "ncbi")
+#>             name        rank      id
+#> 21 Boreoeutheria below-class 1437010
 ```
 
 ## Coerce codes to taxonomic id classes
@@ -468,6 +463,14 @@ out <- as.uid(c(315567, 3339, 9696))
 + [Karthik Ram](https://github.com/karthik)
 + [Ignasi Bartomeus](https://github.com/ibartomeus)
 + [John Baumgartner](https://github.com/johnbaums)
++ [James O'Donnell](https://github.com/jimmyodonnell)
++ [Francois Michonneau](https://github.com/fmichonneau)
++ [Philippe Marchand](https://github.com/pmarchand1)
++ [Jari Oksanen](https://github.com/jarioksa)
++ [Oliver Keyes](https://github.com/Ironholds)
++ [Luis Villanueva](https://github.com/ljvillanueva)
++ [David LeBauer](https://github.com/dlebauer)
++ [Ben Marwick](https://github.com/benmarwick)
 
 ## Road map
 

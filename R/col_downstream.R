@@ -30,33 +30,33 @@
 #' @export
 #' @examples \dontrun{
 #' # Some basic examples
-#' col_downstream(name="Apis", downto="Species")
-#' col_downstream(name="Bryophyta", downto="Family")
+#' col_downstream(name="Apis", downto="species")
+#' col_downstream(name="Bryophyta", downto="family")
 #'
 #' # get classes down from the kingdom Animalia
-#' col_downstream(name="Animalia", downto="Class")
-#' col_downstream(name="Animalia", downto="Class", intermediate=TRUE)
+#' col_downstream(name="Animalia", downto="class")
+#' col_downstream(name="Animalia", downto="class", intermediate=TRUE)
 #'
 #' # An example that takes a bit longer
-#' col_downstream(name=c("Plantae","Animalia"), downto="Class")
+#' col_downstream(name=c("Plantae", "Animalia"), downto="class")
 #'
 #' # Using a checklist from a specific year
-#' col_downstream(name="Bryophyta", downto="Family", checklist=2009)
+#' col_downstream(name="Bryophyta", downto="family", checklist=2009)
 #'
 #' # By id
-#' col_downstream(id='576d098d770a39d09e2bcfa1c0896b26', downto="Species", checklist=2012)
+#' col_downstream(id='576d098d770a39d09e2bcfa1c0896b26', downto="species", checklist=2012)
 #' }
 
 col_downstream <- function(name = NULL, id = NULL, downto, format = NULL, start = NULL,
   checklist = NULL, verbose = TRUE, intermediate = FALSE, ...) {
 
-  downto <- taxize_capwords(downto)
+  downto <- tolower(downto)
   poss_ranks <- unique(do.call(c, sapply(rank_ref$ranks, strsplit, split = ",", USE.NAMES = FALSE)))
   downto <- match.arg(downto, choices = poss_ranks)
 
   func <- function(x=NULL, y=NULL, checklist, format, start, ...) {
     url <- make_url(checklist)
-    torank <- sapply(rank_ref[grep(downto, rank_ref$ranks),"ranks"],
+    torank <- sapply(rank_ref[which_rank(downto), "ranks"],
                 function(x) strsplit(x, ",")[[1]][[1]], USE.NAMES = FALSE)
 
     toget <- ifelse(is.null(y), x, y)

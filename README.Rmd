@@ -171,7 +171,7 @@ For more examples see the [tutorial][tut]
 
 ### Stable version from CRAN
 
-```{r install_stable, eval=FALSE}
+```{r eval=FALSE}
 install.packages("taxize")
 ```
 
@@ -179,12 +179,12 @@ install.packages("taxize")
 
 Windows users install [Rtools](http://cran.r-project.org/bin/windows/Rtools/) first.
 
-```{r install_dev, eval=FALSE}
+```{r eval=FALSE}
 install.packages("devtools")
-devtools::install_github("taxize", "ropensci")
+devtools::install_github("ropensci/taxize")
 ```
 
-```{r load}
+```{r}
 library('taxize')
 ```
 
@@ -265,6 +265,13 @@ sci2comm('Helianthus annuus', db = 'itis')
 comm2sci("black bear", db = "itis")
 ```
 
+## Lowest common rank among taxa
+
+```{r lowest}
+spp <- c("Sus scrofa", "Homo sapiens", "Nycticebus coucang")
+lowest_common(spp, db = "ncbi")
+```
+
 ## Coerce codes to taxonomic id classes
 
 `numeric` to `uid`
@@ -295,6 +302,14 @@ out <- as.uid(c(315567, 3339, 9696))
 + [Karthik Ram](https://github.com/karthik)
 + [Ignasi Bartomeus](https://github.com/ibartomeus)
 + [John Baumgartner](https://github.com/johnbaums)
++ [James O'Donnell](https://github.com/jimmyodonnell)
++ [Francois Michonneau](https://github.com/fmichonneau)
++ [Philippe Marchand](https://github.com/pmarchand1)
++ [Jari Oksanen](https://github.com/jarioksa)
++ [Oliver Keyes](https://github.com/Ironholds)
++ [Luis Villanueva](https://github.com/ljvillanueva)
++ [David LeBauer](https://github.com/dlebauer)
++ [Ben Marwick](https://github.com/benmarwick)
 
 ## Road map
 

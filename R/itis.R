@@ -369,7 +369,9 @@ gethierarchydownfromtsn <- function(tsn, ...) {
   namespaces <- c(namespaces <- c(ax21 = "http://data.itis_service.itis.usgs.gov/xsd"))
 	matches <- paste0("hierarchyList/ax21:",
                     c("parentName","parentTsn","rankName","taxonName","tsn"))
-	itisdf(out, namespaces, matches, tolower(c("parentName","parentTsn","rankName","taxonName","tsn")))
+	df <- itisdf(out, namespaces, matches, tolower(c("parentName","parentTsn","rankName","taxonName","tsn")))
+	df$rankname <- tolower(df$rankname)
+	df
 }
 
 #' Get hierarchy up from tsn

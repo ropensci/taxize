@@ -38,8 +38,6 @@
 #' children(id)
 #'
 #' ## Equivalently, plug in the call to get the id via e.g., get_colid into children
-#' identical(children(id), children(get_colid("Apis")))
-#'
 #' (id <- get_colid("Apis"))
 #' children(id)
 #' children(get_colid("Apis"))
