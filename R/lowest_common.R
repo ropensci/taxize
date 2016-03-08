@@ -1,4 +1,4 @@
-#' Retrieve the lowest common taxon and rank for a given taxon ID.
+#' Retrieve the lowest common taxon and rank for a given taxon name or ID
 #'
 #' @export
 #' @param x Vector of taxa names (character) or id (character or numeric) to query.

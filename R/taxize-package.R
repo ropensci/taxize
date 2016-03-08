@@ -52,7 +52,7 @@
 #' @importFrom graphics plot
 #' @importFrom methods as is
 #' @importFrom stats as.dist hclust na.omit setNames aggregate
-#' @importFrom utils URLencode citation download.file read.delim write.table
+#' @importFrom utils URLencode citation download.file read.delim write.table tail
 #' @importFrom ape read.tree as.phylo.hclust plot.phylo
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom httr GET POST content stop_for_status upload_file warn_for_status

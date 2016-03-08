@@ -6,7 +6,7 @@
 \alias{lowest_common.gbifid}
 \alias{lowest_common.tsn}
 \alias{lowest_common.uid}
-\title{Retrieve the lowest common taxon and rank for a given taxon ID.}
+\title{Retrieve the lowest common taxon and rank for a given taxon name or ID}
 \usage{
 lowest_common(...)
 
@@ -48,7 +48,7 @@ NA when no match, or a data.frame with columns
 }
 }
 \description{
-Retrieve the lowest common taxon and rank for a given taxon ID.
+Retrieve the lowest common taxon and rank for a given taxon name or ID
 }
 \examples{
 \dontrun{
