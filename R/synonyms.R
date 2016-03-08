@@ -163,6 +163,7 @@ col_synonyms <- function(x, ...) {
   if ("synonyms" %in% names(tmp)) {
     df <- taxize_ldfast(lapply(tmp$synonyms, function(w) {
       w[sapply(w, length) == 0] <- NA
+      w$references <- NULL
       data.frame(w, stringsAsFactors = FALSE)
     }))
     df$rank <- tolower(df$rank)

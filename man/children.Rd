@@ -70,7 +70,7 @@ children(id)
 children(get_colid("Apis"))
 
 # Many taxa
-(sp <- names_list("genus", 3))
+sp <- c("Tragia", "Schistocarpha", "Encalypta")
 children(sp, db = 'col')
 children(sp, db = 'itis')
 

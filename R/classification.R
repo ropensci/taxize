@@ -328,11 +328,11 @@ classification.colid <- function(id, start = NULL, checklist = NULL,
 search_col_classification_df <- function(x) {
   name <- xml2::xml_text(xml2::xml_find_all(x, "//classification//name"))
   rank <- xml2::xml_text(xml2::xml_find_all(x, "//classification//rank"))
-  ids <- xml2::xml_text(xml2::xml_find_all(x, "//classification//id"))
+  id <- xml2::xml_text(xml2::xml_find_all(x, "//classification//id"))
   if (any(grepl("species", rank, ignore.case = TRUE))) {
     name[which(rank %in% "Species")] <- paste(name[which(rank %in% "Genus")], name[which(rank %in% "Species")], collapse = " ")
   }
-  data.frame(name, rank, ids, stringsAsFactors = FALSE)
+  data.frame(name, rank, id, stringsAsFactors = FALSE)
 }
 
 
@@ -496,6 +496,10 @@ cbind.classification_ids <- function(...) {
     })
   )
   move_col(tt = dat, y = c('query','db'))
+}
+
+foo <- function(...) {
+  c(...)
 }
 
 #' @export
