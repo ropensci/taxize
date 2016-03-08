@@ -273,13 +273,13 @@ Get all species in the genus _Apis_
 downstream("Apis", db = 'itis', downto = 'Species', verbose = FALSE)
 #> $Apis
 #>      tsn parentname parenttsn          taxonname rankid rankname
-#> 1 154396       Apis    154395     Apis mellifera    220  Species
-#> 2 763550       Apis    154395 Apis andreniformis    220  Species
-#> 3 763551       Apis    154395        Apis cerana    220  Species
-#> 4 763552       Apis    154395       Apis dorsata    220  Species
-#> 5 763553       Apis    154395        Apis florea    220  Species
-#> 6 763554       Apis    154395 Apis koschevnikovi    220  Species
-#> 7 763555       Apis    154395   Apis nigrocincta    220  Species
+#> 1 154396       Apis    154395     Apis mellifera    220  species
+#> 2 763550       Apis    154395 Apis andreniformis    220  species
+#> 3 763551       Apis    154395        Apis cerana    220  species
+#> 4 763552       Apis    154395       Apis dorsata    220  species
+#> 5 763553       Apis    154395        Apis florea    220  species
+#> 6 763554       Apis    154395 Apis koschevnikovi    220  species
+#> 7 763555       Apis    154395   Apis nigrocincta    220  species
 #> 
 #> attr(,"class")
 #> [1] "downstream"
@@ -294,7 +294,22 @@ Get all genera up from the species _Pinus contorta_ (this includes the genus of 
 
 ```r
 upstream("Pinus contorta", db = 'itis', upto = 'Genus', verbose=FALSE)
-#> Error in setNames(upstream(id, upto = upto, ...), x): 'names' attribute [1] must be the same length as the vector [0]
+#> $`Pinus contorta`
+#>      tsn parentname parenttsn   taxonname rankid rankname
+#> 1  18031   Pinaceae     18030       Abies    180    genus
+#> 2  18033   Pinaceae     18030       Picea    180    genus
+#> 3  18035   Pinaceae     18030       Pinus    180    genus
+#> 4 183396   Pinaceae     18030       Tsuga    180    genus
+#> 5 183405   Pinaceae     18030      Cedrus    180    genus
+#> 6 183409   Pinaceae     18030       Larix    180    genus
+#> 7 183418   Pinaceae     18030 Pseudotsuga    180    genus
+#> 8 822529   Pinaceae     18030  Keteleeria    180    genus
+#> 9 822530   Pinaceae     18030 Pseudolarix    180    genus
+#> 
+#> attr(,"class")
+#> [1] "upstream"
+#> attr(,"db")
+#> [1] "itis"
 ```
 
 ## Get synonyms
@@ -363,15 +378,15 @@ get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn', rows=1:3)
 #> $nbn
 #> $nbn$`Chironomus riparius`
 #>   ptaxonversionkey    searchmatchtitle    rank  namestatus
-#> 1 NBNSYS0000027573 Chironomus riparius Species Recommended
-#> 2 NBNSYS0000023345   Paederus riparius Species Recommended
-#> 3 NHMSYS0001718042   Elaphrus riparius Species Recommended
+#> 1 NBNSYS0000027573 Chironomus riparius species Recommended
+#> 2 NBNSYS0000023345   Paederus riparius species Recommended
+#> 3 NHMSYS0001718042   Elaphrus riparius species Recommended
 #> 
 #> $nbn$`Pinus contorta`
 #>   ptaxonversionkey               searchmatchtitle       rank  namestatus
-#> 1 NHMSYS0000494848   Pinus contorta var. contorta    Variety Recommended
-#> 2 NBNSYS0000004786                 Pinus contorta    Species Recommended
-#> 3 NHMSYS0000494848 Pinus contorta subsp. contorta Subspecies Recommended
+#> 1 NHMSYS0000494848   Pinus contorta var. contorta    variety Recommended
+#> 2 NBNSYS0000004786                 Pinus contorta    species Recommended
+#> 3 NHMSYS0000494848 Pinus contorta subsp. contorta subspecies Recommended
 #> 
 #> 
 #> attr(,"class")
@@ -394,9 +409,9 @@ sci2comm('Helianthus annuus', db = 'itis')
 ```r
 comm2sci("black bear", db = "itis")
 #> $`black bear`
-#> [1] "Ursus thibetanus"            "Ursus thibetanus"           
-#> [3] "Ursus americanus luteolus"   "Ursus americanus"           
-#> [5] "Ursus americanus"            "Ursus americanus americanus"
+#> [1] "Ursus americanus luteolus"   "Ursus americanus"           
+#> [3] "Ursus americanus"            "Ursus americanus americanus"
+#> [5] "Ursus thibetanus"            "Ursus thibetanus"           
 #> [7] "Chiropotes satanas"
 ```
 
