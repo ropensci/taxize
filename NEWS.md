@@ -9,6 +9,9 @@ rank for a given taxon name or ID. Methods so far for ITIS, NCBI, and GBIF (#505
 * Now importing `rredlist` [rredlist](https://github.com/ropenscilabs/rredlist)
 * New function `iucn_summary_id()` - same as `iucn_summary()`, except takes
 IUCN IDs as input instead of taxonomic names (#493)
+* All taxonomic rank columns in data.frame's now given back as lower case. 
+This provides consistency, which is important, and many functions use ranks
+to determine what to do next, so using a consistent case is good.
 
 ## MINOR IMPROVEMENTS
 
