@@ -37,7 +37,7 @@
 #' @param fields (character) One of mimimal (default) or all. Minimal gives back just four
 #' fields, whereas all gives all fields back.
 #'
-#' @author Scott Chamberlain {myrmecocystus@@gmail.com}
+#' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @return A data.frame with one attribute \code{not_known}: a character vector of
 #' taxa unknown to the Global Names Index. Acccess like \code{attr(output, "not_known")},
 #' or \code{attributes(output)$not_known}
