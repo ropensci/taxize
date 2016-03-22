@@ -37,7 +37,7 @@ Imports:
     bold,
     data.table,
     rredlist (>= 0.1.0),
-    rredlist (>= 0.5.0)
+    rotl (>= 0.5.0)
 Suggests:
     testthat,
     knitr,
