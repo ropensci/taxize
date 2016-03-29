@@ -58,13 +58,14 @@
 #' }
 
 bold_search <- function(name = NULL, id = NULL, fuzzy = FALSE, dataTypes='basic',
-  includeTree=FALSE, response=FALSE, ...)
-{
+  includeTree=FALSE, response=FALSE, ...) {
+
   stopifnot(!is.null(name) | !is.null(id))
-  type <- if(is.null(name)) "id" else 'name'
+  type <- if (is.null(name)) "id" else 'name'
   tmp <- switch(type,
-         name = bold_tax_name(name=name, fuzzy=fuzzy, response=response, ...),
-         id = bold_tax_id(id=id, dataTypes=dataTypes, includeTree=includeTree, response=response, ...)
+         name = bold_tax_name(name = name, fuzzy = fuzzy, response = response, ...),
+         id = bold_tax_id(id = id, dataTypes = dataTypes, includeTree = includeTree,
+                          response = response, ...)
   )
   return(tmp)
 }
@@ -73,14 +74,14 @@ parsecoldata <- function(x){
   vals <- x[c('id','name','rank','name_status','source_database')]
   vals[sapply(vals, is.null)] <- NA
   names(vals) <- c('id','name','rank','name_status','source_database')
-  bb <- data.frame(vals, stringsAsFactors=FALSE)
-  names(bb)[4:5] <- c('status','source')
+  bb <- data.frame(vals, stringsAsFactors = FALSE)
+  names(bb)[4:5] <- c('status', 'source')
   acc <- x$accepted_name
-  if(is.null(acc)){
-    accdf <- data.frame(acc_id=NA, acc_name=NA, acc_rank=NA, acc_status=NA, acc_source=NA, stringsAsFactors = FALSE)
-  } else
-  {
-    accdf <- data.frame(acc[c('id','name','rank','name_status','source_database')], stringsAsFactors=FALSE)
+  if (is.null(acc)) {
+    accdf <- data.frame(acc_id = NA, acc_name = NA, acc_rank = NA,
+                        acc_status = NA, acc_source = NA, stringsAsFactors = FALSE)
+  } else {
+    accdf <- data.frame(acc[c('id','name','rank','name_status','source_database')], stringsAsFactors = FALSE)
     names(accdf) <- c('acc_id','acc_name','acc_rank','acc_status','acc_source')
   }
   cbind(bb, accdf)
