@@ -39,3 +39,18 @@ test_that("canonical works correctly", {
   expect_equal(NROW(x), 2)
   expect_true(is.na(x$matched_name2[2]))
 })
+
+test_that("fields parameter works correctly", {
+  tmp1 <- gnr_resolve(names = c("Asteraceae", "Plantae"), fields = 'all')
+  tmp2 <- gnr_resolve(names = c("Asteraceae", "Plantae"), fields = 'minimal')
+
+  expect_is(tmp1, "data.frame")
+  expect_is(tmp1$matched_name, "character")
+  expect_true(any(grepl("Asteraceae", tmp1$matched_name)))
+  expect_is(tmp2, "data.frame")
+  expect_is(tmp2$matched_name, "character")
+  expect_true(any(grepl("Asteraceae", tmp2$matched_name)))
+  expect_true(identical(tmp1$matched_name, tmp2$matched_name))
+
+  expect_lt(NCOL(tmp2), NCOL(tmp1))
+})
