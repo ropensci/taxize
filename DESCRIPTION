@@ -41,5 +41,6 @@ Imports:
 Suggests:
     testthat,
     knitr,
-    vegan
+    vegan,
+    covr
 RoxygenNote: 5.0.1

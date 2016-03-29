@@ -1,11 +1,9 @@
 language: r
-sudo: required
+sudo: false
+cache: packages
 
 after_success:
   - Rscript -e 'covr::codecov()'
-
-r_packages:
-  - covr
 
 # print timings (of examples) and sysinfo
 after_script:
