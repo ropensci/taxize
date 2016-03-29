@@ -3,28 +3,24 @@ context("downstream")
 
 test_that("downstream basic usage works", {
   aa <- downstream("015be25f6b061ba517f495394b80f108", db = "col", downto = "Species")
-  bb <- downstream(154395, db = "itis", downto = "Species")
   cc <- downstream("Ursus", db = 'gbif', downto = 'Species', verbose = FALSE)
 
   expect_is(aa, "downstream")
-  expect_is(bb, "downstream")
   expect_is(cc, "downstream")
 
   expect_named(aa, "015be25f6b061ba517f495394b80f108")
-  expect_named(bb, "154395")
   expect_named(cc, "Ursus")
 
   expect_is(aa$`015be25f6b061ba517f495394b80f108`$childtaxa_id, "character")
-  expect_is(bb$`154395`, "data.frame")
-  expect_is(bb$`154395`$taxonname, "character")
   expect_is(cc$Ursus$rank, "character")
 })
 
 test_that("downstream - many names input", {
-  aa <- downstream(c("Apis", "Ursus"), db = 'itis', downto = 'Species', verbose = FALSE)
+  aa <- downstream(c("015be25f6b061ba517f495394b80f108", "6df38b73c53ce9e2982f3e1883305fc4"),
+                   db = "col", downto = 'Species', verbose = FALSE)
 
   expect_is(aa, "downstream")
-  expect_named(aa, c('Apis', 'Ursus'))
+  expect_named(aa, c("015be25f6b061ba517f495394b80f108", "6df38b73c53ce9e2982f3e1883305fc4"))
 })
 
 test_that("downstream - taxonomic id input", {
@@ -45,7 +41,7 @@ test_that("downstream - multiple data sources", {
 })
 
 test_that("downstream - Use the rows parameter", {
-  aa <- downstream("Poa", db = 'col', downto = "Species", rows = 1, verbose = FALSE)
+  aa <- downstream("Carya", db = 'col', downto = "Species", rows = 1, verbose = FALSE)
 
   expect_is(aa, "downstream")
   expect_is(aa[[1]], "data.frame")
