@@ -7,7 +7,7 @@
 \title{Get a summary from the IUCN Red List}
 \usage{
 iucn_summary(sciname, silent = TRUE, parallel = FALSE,
-  distr_detail = FALSE, ...)
+  distr_detail = FALSE, key, ...)
 
 iucn_summary_id(species_id, silent = TRUE, parallel = FALSE,
   distr_detail = FALSE, ...)
@@ -24,8 +24,11 @@ format \emph{<Genus> <Species>}.}
 register a parallel backend if \code{TRUE}. See e.g., doMC, doSNOW, etc.}
 
 \item{distr_detail}{logical; If \code{TRUE}, the geographic distribution is
-returned as a list of vectors corresponding to the different range types: 
+returned as a list of vectors corresponding to the different range types:
 native, introduced, etc.}
+
+\item{key}{a Redlist API key, get one from \url{http://apiv3.iucnredlist.org/api/v3/token}
+Required for \code{iucn_summary} but not needed for \code{iucn_summary_id}}
 
 \item{...}{Currently not used.}
 
@@ -60,9 +63,13 @@ status into a vector.
 }
 \examples{
 \dontrun{
-ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
-ia <- iucn_summary(c("Panthera uncia", "Lynx lynx", "aaa"))
-# get summary from IUCN ID
+# if you send a taxon name, pass in a key
+# iucn_summary("Lutra lutra", key = "your key")
+
+# ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
+# ia <- iucn_summary(c("Panthera uncia", "Lynx lynx", "aaa"))
+
+# If you pass in an IUCN ID, you don't need to pass in a Redlist API Key
 ia <- iucn_summary_id(c(22732, 12519))
 # extract status
 iucn_status(ia)
@@ -72,10 +79,8 @@ ia[['Panthera uncia']]$distr
 ia[[2]]$trend
 # get detailed distribution
 iac <- iucn_summary("Ara chloropterus", distr_detail = TRUE)
-iac[[1]]$distr 
+iac[[1]]$distr
 }
-
-
 }
 \author{
 Eduard Szoecs, \email{eduardszoecs@gmail.com}

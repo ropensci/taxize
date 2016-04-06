@@ -8,8 +8,10 @@
 #' @param parallel logical; Search in parallel to speed up search. You have to
 #' register a parallel backend if \code{TRUE}. See e.g., doMC, doSNOW, etc.
 #' @param distr_detail logical; If \code{TRUE}, the geographic distribution is
-#' returned as a list of vectors corresponding to the different range types: 
+#' returned as a list of vectors corresponding to the different range types:
 #' native, introduced, etc.
+#' @param key a Redlist API key, get one from \url{http://apiv3.iucnredlist.org/api/v3/token}
+#' Required for \code{iucn_summary} but not needed for \code{iucn_summary_id}
 #' @param ... Currently not used.
 #'
 #' @return A list (for every species one entry) of lists with the following
@@ -33,9 +35,13 @@
 #' the data you get back is correct.
 #'
 #' @examples \dontrun{
-#' ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
-#' ia <- iucn_summary(c("Panthera uncia", "Lynx lynx", "aaa"))
-#' # get summary from IUCN ID
+#' # if you send a taxon name, pass in a key
+#' # iucn_summary("Lutra lutra", key = "your key")
+#'
+#' # ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
+#' # ia <- iucn_summary(c("Panthera uncia", "Lynx lynx", "aaa"))
+#'
+#' # If you pass in an IUCN ID, you don't need to pass in a Redlist API Key
 #' ia <- iucn_summary_id(c(22732, 12519))
 #' # extract status
 #' iucn_status(ia)
@@ -45,37 +51,34 @@
 #' ia[[2]]$trend
 #' # get detailed distribution
 #' iac <- iucn_summary("Ara chloropterus", distr_detail = TRUE)
-#' iac[[1]]$distr 
+#' iac[[1]]$distr
 #' }
-#'
-#'
 #' @export
 #' @author Eduard Szoecs, \email{eduardszoecs@@gmail.com}
 #' @author Philippe Marchand, \email{marchand.philippe@@gmail.com}
-iucn_summary <- function(sciname, silent = TRUE, parallel = FALSE, 
-                         distr_detail = FALSE, ...) {
-    get_iucn_summary(sciname, silent, parallel, distr_detail, by_id = FALSE, ...)
+iucn_summary <- function(sciname, silent = TRUE, parallel = FALSE,
+                         distr_detail = FALSE, key, ...) {
+  get_iucn_summary(sciname, silent, parallel, distr_detail, by_id = FALSE, key = key, ...)
 }
-
 
 #' @param species_id an IUCN ID
 #' @export
 #' @rdname iucn_summary
-iucn_summary_id <- function(species_id, silent = TRUE, parallel = FALSE, 
+iucn_summary_id <- function(species_id, silent = TRUE, parallel = FALSE,
                             distr_detail = FALSE, ...) {
-    get_iucn_summary(species_id, silent, parallel, distr_detail, by_id = TRUE, ...)    
+    get_iucn_summary(species_id, silent, parallel, distr_detail, by_id = TRUE, ...)
 }
 
 
-get_iucn_summary <- function(query, silent, parallel, distr_detail, by_id, ...) {
-    
+get_iucn_summary <- function(query, silent, parallel, distr_detail, by_id, key = NULL, ...) {
+
   fun <- function(query) {
-      
+
     if (!by_id) {
         #to deal with subspecies
         sciname_q <- strsplit(query, " ")
         spec <- tolower(paste(sciname_q[[1]][1], sciname_q[[1]][2]))
-        res <- tryCatch(rredlist::rl_search(spec), error = function(e) e)
+        res <- tryCatch(rredlist::rl_search(spec, key = key), error = function(e) e)
         if (!inherits(res, "try-error") && NROW(res$result) > 0) {
             df <- unique(res$result)
             #check if there are several matches
@@ -99,7 +102,7 @@ get_iucn_summary <- function(query, silent, parallel, distr_detail, by_id, ...) 
         if (by_id) {
             sciname <- xml2::xml_text(xml2::xml_find_all(h, '//h1[@id = "scientific_name"]'))
         }
-          
+
         # status
         status <- xml2::xml_text(xml2::xml_find_all(h, '//div[@id ="red_list_category_code"]'))
         # history
@@ -148,9 +151,9 @@ get_iucn_summary <- function(query, silent, parallel, distr_detail, by_id, ...) 
 
   if (by_id) {
       names(out) <- llply(out, `[[`, "sciname")
-      out <- llply(out, function(x) {x$sciname <- NULL; x})      
+      out <- llply(out, function(x) {x$sciname <- NULL; x})
   } else {
-      names(out) <- query    
+      names(out) <- query
   }
   class(out) <- "iucn"
   return(out)
