@@ -1,14 +1,20 @@
 taxize 0.7.5
 ============
 
-## MINOR IMPROVEMENTS
-
-* xxx (#xxx)
-* xxx (#xxx)
-
 ## BUG FIXES
 
-* xxx (#xxx)
+* Fixed bug in the package dependency `bold`, which fixes
+`taxize::bold_search()`, so no actual changes in `taxize` for
+this, but take note (#521)
+* Fixed problem in `gnr_resolve()` where we indexed to data
+incorrectly. And added tests to account for this problem.
+Thanks @raredd ! (#519) (#520)
+* Fixed bug in `iucn_summary()` introduced in last version.
+`iucn_summary()` now uses the package `rredlist`, which requires
+an API key, and I didn't document how to use the key. Function
+now allows user to pass the key in as a parameter, and documents
+how to get a key and save it in either `.Renviron` or in
+`.Rprofile` (#522)
 
 
 taxize 0.7.4

@@ -8,7 +8,7 @@ taxize
 [![Build status](https://ci.appveyor.com/api/projects/status/6mgc02mkd8j4sq3g/branch/master)](https://ci.appveyor.com/project/sckott/taxize-175/branch/master)
 [![codecov.io](https://codecov.io/github/ropensci/taxize/coverage.svg?branch=master)](https://codecov.io/github/ropensci/taxize?branch=master)
 [![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/taxize)](https://github.com/metacran/cranlogs.app)
-[![cran version](http://www.r-pkg.org/badges/version/taxize)](http://cran.rstudio.com/web/packages/taxize)
+[![cran version](http://www.r-pkg.org/badges/version/taxize)](https://cran.r-project.org/package=taxize)
 
 
 `taxize` allows users to search over many taxonomic data sources for species names (scientific and common) and download up and downstream taxonomic hierarchical information - among other things.
@@ -148,7 +148,7 @@ Note that a few data sources require SOAP web services, which are difficult to s
 </tbody>
 </table>
 
-**: There are none! We suggest using `TPL` and `TPLck` functions in the [taxonstand package](https://cran.rstudio.com/package=Taxonstand). We provide two functions to get bullk data: `tpl_families` and `tpl_get`.
+**: There are none! We suggest using `TPL` and `TPLck` functions in the [taxonstand package](https://cran.r-project.org/package=Taxonstand). We provide two functions to get bullk data: `tpl_families` and `tpl_get`.
 
 \***: There are none! The function scrapes the web directly.
 
