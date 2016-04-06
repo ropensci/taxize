@@ -11,7 +11,8 @@
 #' returned as a list of vectors corresponding to the different range types:
 #' native, introduced, etc.
 #' @param key a Redlist API key, get one from \url{http://apiv3.iucnredlist.org/api/v3/token}
-#' Required for \code{iucn_summary} but not needed for \code{iucn_summary_id}
+#' Required for \code{iucn_summary} but not needed for \code{iucn_summary_id}. Defaults to
+#' \code{NULL} in case you have your key stored (see \code{Redlist Authentication} below).
 #' @param ... Currently not used.
 #'
 #' @return A list (for every species one entry) of lists with the following
@@ -34,12 +35,26 @@
 #' We will fix these as soon as possible. In the meantime, just make sure that
 #' the data you get back is correct.
 #'
+#' @section Redlist Authentication:
+#' \code{iucn_summary} uses the new Redlist API for searching for a IUCN ID, so we
+#' use the \code{\link[rredlist]{rl_search}} function internally. This function
+#' requires an API key. Get the key at \url{http://apiv3.iucnredlist.org/api/v3/token},
+#' and pass it to the \code{key} parameter, or store in your \code{.Renviron} file like
+#' \code{IUCN_REDLIST_KEY=yourkey} or in your \code{.Rprofile} file like
+#' \code{options(iucn_redlist_key="yourkey"}. We strongly encourage you to not pass
+#' the key in the function call but rather store it in one of those two files.
+#' This key will also set you up to use the \pkg{rredlist} package.
+#'
 #' @examples \dontrun{
 #' # if you send a taxon name, pass in a key
-#' # iucn_summary("Lutra lutra", key = "your key")
+#' iucn_summary("Lutra lutra")
 #'
-#' # ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
-#' # ia <- iucn_summary(c("Panthera uncia", "Lynx lynx", "aaa"))
+#' ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
+#' ia <- iucn_summary(c("Panthera uncia", "Lynx lynx", "aaa"))
+#'
+#' ## get detailed distribution
+#' iac <- iucn_summary("Ara chloropterus", distr_detail = TRUE)
+#' iac[[1]]$distr
 #'
 #' # If you pass in an IUCN ID, you don't need to pass in a Redlist API Key
 #' ia <- iucn_summary_id(c(22732, 12519))
@@ -49,15 +64,13 @@
 #' ia[['Lynx lynx']]$history
 #' ia[['Panthera uncia']]$distr
 #' ia[[2]]$trend
-#' # get detailed distribution
-#' iac <- iucn_summary("Ara chloropterus", distr_detail = TRUE)
-#' iac[[1]]$distr
 #' }
 #' @export
 #' @author Eduard Szoecs, \email{eduardszoecs@@gmail.com}
 #' @author Philippe Marchand, \email{marchand.philippe@@gmail.com}
+#' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
 iucn_summary <- function(sciname, silent = TRUE, parallel = FALSE,
-                         distr_detail = FALSE, key, ...) {
+                         distr_detail = FALSE, key = NULL, ...) {
   get_iucn_summary(sciname, silent, parallel, distr_detail, by_id = FALSE, key = key, ...)
 }
 
