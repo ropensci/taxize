@@ -16,4 +16,3 @@ vignettes/cache/
 cran-comments.md
 ^\.httr-oauth$
 ^CONDUCT\.md$
-tests/test-all.R
