@@ -55,7 +55,7 @@ test_that("fungorum - fg_name_full_by_lsid", {
 test_that("fungorum - fg_all_updated_names", {
   skip_on_cran()
 
-  date <- as.numeric(gsub("-", "", as.character(Sys.Date()))) - 2
+  date <- as.numeric(gsub("-", "", as.character(Sys.Date()))) - 4
   aa <- fg_all_updated_names(date = date)
 
   expect_is(aa, "data.frame")
