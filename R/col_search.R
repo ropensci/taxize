@@ -190,7 +190,7 @@ parse_full <- function(x) {
 
 parse_one <- function(z) {
   scrut <- z$record_scrutiny_date
-  scrutie <- if (is.null(scrut) || scrut[[1]] == FALSE) FALSE else TRUE
+  scrutie <- if (is.null(scrut[[1]]) || scrut[[1]] == FALSE) FALSE else TRUE
   if (scrutie) scrut <- data.frame(record_scrutiny_date = scrut$scrutiny, stringsAsFactors = FALSE)
   refs <- z$references
   refsie <- if (is.null(refs) || length(refs) == 0) FALSE else TRUE
