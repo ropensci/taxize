@@ -139,12 +139,6 @@ Note that a few data sources require SOAP web services, which are difficult to s
 	<td style="text-align:left;"><a href="http://cybertaxonomy.eu/eubon-utis/doc.html">link</a></td>
 	<td style="text-align:left;">none</td>
 </tr>
-<tr>
-	<td style="text-align:left;">Index of Names (ION)</td>
-	<td style="text-align:left;"><code>ion</code></td>
-	<td style="text-align:left;"><a href="http://www.organismnames.com/">link</a></td>
-	<td style="text-align:left;">none</td>
-</tr>
 </tbody>
 </table>
 
@@ -358,13 +352,13 @@ You can limit to certain rows when getting ids in any `get_*()` functions
 get_ids(names="Poa annua", db = "gbif", rows=1)
 #> $gbif
 #> Poa annua 
-#> "2704179" 
+#> "7576620" 
 #> attr(,"class")
 #> [1] "gbifid"
 #> attr(,"match")
 #> [1] "found"
 #> attr(,"uri")
-#> [1] "http://www.gbif.org/species/2704179"
+#> [1] "http://www.gbif.org/species/7576620"
 #> 
 #> attr(,"class")
 #> [1] "ids"
@@ -380,7 +374,7 @@ get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn', rows=1:3)
 #>   ptaxonversionkey    searchmatchtitle    rank  namestatus
 #> 1 NBNSYS0000027573 Chironomus riparius species Recommended
 #> 2 NBNSYS0000023345   Paederus riparius species Recommended
-#> 3 NHMSYS0001718042   Elaphrus riparius species Recommended
+#> 3 NHMSYS0000864966    Damaeus riparius species Recommended
 #> 
 #> $nbn$`Pinus contorta`
 #>   ptaxonversionkey               searchmatchtitle       rank  namestatus
@@ -409,9 +403,9 @@ sci2comm('Helianthus annuus', db = 'itis')
 ```r
 comm2sci("black bear", db = "itis")
 #> $`black bear`
-#> [1] "Ursus americanus luteolus"   "Ursus americanus"           
-#> [3] "Ursus americanus"            "Ursus americanus americanus"
-#> [5] "Ursus thibetanus"            "Ursus thibetanus"           
+#> [1] "Ursus thibetanus"            "Ursus thibetanus"           
+#> [3] "Ursus americanus luteolus"   "Ursus americanus americanus"
+#> [5] "Ursus americanus"            "Ursus americanus"           
 #> [7] "Chiropotes satanas"
 ```
 

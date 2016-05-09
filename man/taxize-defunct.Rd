@@ -22,19 +22,27 @@ The following functions are now defunct (no longer available):
  \item \code{\link{ncbi_search}}: See \code{ncbi_searcher} in the \pkg{traits} package.
  \item \code{\link{eol_invasive}}: See \code{eol} in the \pkg{originr} package.
  \item \code{\link{gisd_isinvasive}}: See \code{gisd} in the \pkg{originr} package.
- \item \code{\link{ubio_classification}}: The uBio web services are apparently down
- indefinitely.
- \item \code{\link{ubio_classification_search}}: The uBio web services are apparently
- down indefinitely.
- \item \code{\link{ubio_id}}: The uBio web services are apparently down indefinitely.
- \item \code{\link{ubio_ping}}: The uBio web services are apparently down indefinitely.
- \item \code{\link{ubio_search}}: The uBio web services are apparently down indefinitely.
- \item \code{\link{ubio_synonyms}}: The uBio web services are apparently down indefinitely.
+ \item \code{\link{ubio_classification}}:  The uBio web services was down for quite a while, is
+ now (as of 2016-05-09) back up, but we don't trust that it will stay up and available.
+ \item \code{\link{ubio_classification_search}}: The uBio web services was down for quite
+ a while, is now (as of 2016-05-09) back up, but we don't trust that it will stay up
+ and available.
+ \item \code{\link{ubio_id}}: The uBio web services was down for quite a while, is
+ now (as of 2016-05-09) back up, but we don't trust that it will stay up and available.
+ \item \code{\link{ubio_ping}}:  The uBio web services was down for quite a while, is
+ now (as of 2016-05-09) back up, but we don't trust that it will stay up and available.
+ \item \code{\link{ubio_search}}:  The uBio web services was down for quite a while, is
+ now (as of 2016-05-09) back up, but we don't trust that it will stay up and available.
+ \item \code{\link{ubio_synonyms}}:  The uBio web services was down for quite a while, is
+ now (as of 2016-05-09) back up, but we don't trust that it will stay up and available.
  \item \code{\link{get_ubioid}}: The uBio web services are apparently down indefinitely.
  \item \code{\link{phylomatic_tree}}: This function is defunct. See
  \code{phylomatic} in the package \pkg{brranching}
  \item \code{\link{phylomatic_format}}: This function is defunct. See
  \code{phylomatic_names} in the package \pkg{brranching}
+ \item \code{\link{ion}}: The web service behind this function is down, apparently
+ forever (but we haven't confirmed this, though may have to do with recent sale of
+ Thomson Reuters).
 }
 }
 

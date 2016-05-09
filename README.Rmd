@@ -146,12 +146,6 @@ Note that a few data sources require SOAP web services, which are difficult to s
 	<td style="text-align:left;"><a href="http://cybertaxonomy.eu/eubon-utis/doc.html">link</a></td>
 	<td style="text-align:left;">none</td>
 </tr>
-<tr>
-	<td style="text-align:left;">Index of Names (ION)</td>
-	<td style="text-align:left;"><code>ion</code></td>
-	<td style="text-align:left;"><a href="http://www.organismnames.com/">link</a></td>
-	<td style="text-align:left;">none</td>
-</tr>
 </tbody>
 </table>
 
