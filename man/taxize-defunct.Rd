@@ -40,9 +40,6 @@ The following functions are now defunct (no longer available):
  \code{phylomatic} in the package \pkg{brranching}
  \item \code{\link{phylomatic_format}}: This function is defunct. See
  \code{phylomatic_names} in the package \pkg{brranching}
- \item \code{\link{ion}}: The web service behind this function is down, apparently
- forever (but we haven't confirmed this, though may have to do with recent sale of
- Thomson Reuters).
 }
 }
 

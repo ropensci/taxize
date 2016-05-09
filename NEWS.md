@@ -1,10 +1,15 @@
 taxize 0.7.6
 ============
 
+## MINOR IMPROVEMENTS
+
+* xx (#xx)
+* xx (#xx)
+
 ## BUG FIXES
 
-* 
-
+* xx (#xx)
+* xx (#xx)
 
 taxize 0.7.5
 ============

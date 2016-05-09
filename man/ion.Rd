@@ -4,18 +4,18 @@
 \alias{ion}
 \title{ION - Index to Organism Names}
 \usage{
-ion(...)
+ion(x, ...)
 }
 \arguments{
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
-
 \item{x}{An LSID number. Required.}
+
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
 A data.frame
 }
 \description{
-THIS FUNCTION IS DEFUNCT.
+ION - Index to Organism Names
 }
 \examples{
 \dontrun{
@@ -28,5 +28,4 @@ ion(1280626) # puma concolor
 \references{
 \url{http://www.organismnames.com/}
 }
-\keyword{internal}
 

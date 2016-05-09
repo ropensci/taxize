@@ -139,6 +139,12 @@ Note that a few data sources require SOAP web services, which are difficult to s
 	<td style="text-align:left;"><a href="http://cybertaxonomy.eu/eubon-utis/doc.html">link</a></td>
 	<td style="text-align:left;">none</td>
 </tr>
+<tr>
+	<td style="text-align:left;">Index of Names (ION)</td>
+	<td style="text-align:left;"><code>ion</code></td>
+	<td style="text-align:left;"><a href="http://www.organismnames.com/">link</a></td>
+	<td style="text-align:left;">none</td>
+</tr>
 </tbody>
 </table>
 
@@ -185,6 +191,7 @@ Alot of `taxize` revolves around taxonomic identifiers. Because, as you know, na
 
 ```r
 uids <- get_uid(c("Chironomus riparius", "Chaetopteryx"))
+#> Error in value[[3L]](cond): Server returned nothing (no headers, no data)
 ```
 
 ## Retrieve classifications
@@ -194,24 +201,9 @@ Classifications - think of a species, then all the taxonomic ranks up from that 
 
 ```r
 out <- classification(uids)
+#> Error in classification(uids): object 'uids' not found
 lapply(out, head)
-#> $`315576`
-#>                 name         rank     id
-#> 1 cellular organisms      no rank 131567
-#> 2          Eukaryota superkingdom   2759
-#> 3       Opisthokonta      no rank  33154
-#> 4            Metazoa      kingdom  33208
-#> 5          Eumetazoa      no rank   6072
-#> 6          Bilateria      no rank  33213
-#> 
-#> $`492549`
-#>                 name         rank     id
-#> 1 cellular organisms      no rank 131567
-#> 2          Eukaryota superkingdom   2759
-#> 3       Opisthokonta      no rank  33154
-#> 4            Metazoa      kingdom  33208
-#> 5          Eumetazoa      no rank   6072
-#> 6          Bilateria      no rank  33213
+#> Error in lapply(out, head): object 'out' not found
 ```
 
 ## Immediate children
@@ -403,10 +395,10 @@ sci2comm('Helianthus annuus', db = 'itis')
 ```r
 comm2sci("black bear", db = "itis")
 #> $`black bear`
-#> [1] "Ursus thibetanus"            "Ursus thibetanus"           
-#> [3] "Ursus americanus luteolus"   "Ursus americanus americanus"
-#> [5] "Ursus americanus"            "Ursus americanus"           
-#> [7] "Chiropotes satanas"
+#> [1] "Chiropotes satanas"          "Ursus thibetanus"           
+#> [3] "Ursus thibetanus"            "Ursus americanus luteolus"  
+#> [5] "Ursus americanus americanus" "Ursus americanus"           
+#> [7] "Ursus americanus"
 ```
 
 ## Lowest common rank among taxa

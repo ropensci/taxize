@@ -42,6 +42,7 @@
 #' National Biodiversity Network (UK)	\tab nbn \tab FALSE \cr
 #' Index Fungorum \tab fg \tab FALSE \cr
 #' EU BON \tab eubon \tab FALSE \cr
+#' Index of Names (ION) \tab ion \tab FALSE \cr
 #' }
 #'
 #' If the source above has a \code{TRUE} in the \code{SOAP?} column, it is not available
@@ -206,9 +207,6 @@ NULL
 #'  \code{phylomatic} in the package \pkg{brranching}
 #'  \item \code{\link{phylomatic_format}}: This function is defunct. See
 #'  \code{phylomatic_names} in the package \pkg{brranching}
-#'  \item \code{\link{ion}}: The web service behind this function is down, apparently
-#'  forever (but we haven't confirmed this, though may have to do with recent sale of
-#'  Thomson Reuters).
 #' }
 #'
 #' @name taxize-defunct
