@@ -14,7 +14,7 @@
 \usage{
 get_gbifid(sciname, ask = TRUE, verbose = TRUE, rows = NA,
   phylum = NULL, class = NULL, order = NULL, family = NULL,
-  rank = NULL, ...)
+  rank = NULL, method = "backbone", ...)
 
 as.gbifid(x, check = FALSE)
 
@@ -30,7 +30,7 @@ as.gbifid(x, check = FALSE)
 
 \method{as.data.frame}{gbifid}(x, ...)
 
-get_gbifid_(sciname, verbose = TRUE, rows = NA)
+get_gbifid_(sciname, verbose = TRUE, rows = NA, method = "backbone")
 }
 \arguments{
 \item{sciname}{character; scientific name.}
@@ -59,6 +59,8 @@ below.}
 options. Though note that some data sources use atypical ranks, so inspect the
 data itself for options. Optional. See \code{Filtering} below.}
 
+\item{method}{(character) one of "backbone" or "lookup". See Details.}
+
 \item{...}{Ignored}
 
 \item{x}{Input to \code{\link{as.gbifid}}}
@@ -78,6 +80,16 @@ Internally in this function we use a function to search GBIF's taxonomy,
 and if we find an exact match we return the ID for that match. If there isn't an
 exact match we return the options to you to pick from.
 }
+\section{method parameter}{
+
+"backbone" uses the \code{/species/match} GBIF API route, matching against their
+backbone taxonomy. We turn on fuzzy matching by default, as the search without
+fuzzy against backbone is quite narrow. "lookup" uses the \code{/species/search}
+GBIF API route, doing a full text search of name usages covering scientific
+and vernacular named, species descriptions, distributions and the entire
+classification.
+}
+
 \section{Filtering}{
 
 The parameters \code{phylum}, \code{class}, \code{order}, \code{family}, and \code{rank}
@@ -109,22 +121,21 @@ get_gbifid(c("Chironomus riparius", "uaudnadndj"))
 ### Results w/o narrowing
 get_gbifid("Satyrium")
 ### w/ phylum
-get_gbifid("Satyrium", phylum = "Magnoliophyta")
+get_gbifid("Satyrium", phylum = "Tracheophyta")
 get_gbifid("Satyrium", phylum = "Arthropoda")
 ### w/ phylum & rank
 get_gbifid("Satyrium", phylum = "Arthropoda", rank = "genus")
 
 ## Rank example
-get_gbifid("Poa")
-get_gbifid("Poa", rank = "order")
-get_gbifid("Poa", rank = "family")
-get_gbifid("Poa", family = "Coccidae")
+get_gbifid("Poa", method = "lookup")
+get_gbifid("Poa", method = "lookup", rank = "genus")
+get_gbifid("Poa", method = "lookup", family = "Thripidae")
 
 # Fuzzy filter on any filtering fields
 ## uses grep on the inside
 get_gbifid("Satyrium", phylum = "arthropoda")
-get_gbifid("Poa", order = "*tera")
-get_gbifid("Poa", order = "*ales")
+get_gbifid("A*", method = "lookup", order = "*tera")
+get_gbifid("A*", method = "lookup", order = "*ales")
 
 # Convert a uid without class information to a uid class
 as.gbifid(get_gbifid("Poa annua")) # already a uid, returns the same

@@ -13,6 +13,5 @@ vignettes/taxize_infotable.md
 vignettes/margins.sty
 vignettes/cache/
 ^appveyor\.yml$
-cran-comments.md
-^\.httr-oauth$
 ^CONDUCT\.md$
+^cran-comments\.md$
