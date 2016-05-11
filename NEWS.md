@@ -1,18 +1,15 @@
 taxize 0.7.6
 ============
 
-## NEW FEATURES
-
-* Access to IUCN taxonomy information is now provided through the newish
-[rredlist](https://github.com/ropenscilabs/rredlist) package. (Two issues
-dealing with IUCN problems (#475) (#492))
-
 ## MINOR IMPROVEMENTS
 
 * Changed defunct messages in `eol_invasive()` and `gisd_invasive()`
 to point to new location in the [originr](https://github.com/ropenscilabs/originr)
 package. Also, cleaned out code in those functions as not avail.
 anymore (#494)
+* Access to IUCN taxonomy information is now provided through the newish
+[rredlist](https://github.com/ropenscilabs/rredlist) package. (Two issues
+dealing with IUCN problems (#475) (#492))
 
 ## BUG FIXES
 
