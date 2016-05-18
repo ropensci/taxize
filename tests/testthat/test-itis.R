@@ -1,15 +1,17 @@
 # tests for itis fxn in taxize
 context("itis")
 
-one <- getacceptednamesfromtsn('208527')
-two <- gettaxonomicusagefromtsn(526852)
+test_that("getacceptednamesfromtsn works", {
+  aa <- getacceptednamesfromtsn(208527)
 
-test_that("itis returns the correct value", {
-	expect_that(one, equals("208527"))
-	expect_that(ncol(two), equals(2))
+  expect_is(aa, "list")
+	expect_equal(aa$submittedtsn, 208527)
+	expect_true(is.na(aa$acceptedname))
 })
 
 test_that("itis returns the correct class", {
-	expect_that(one, is_a("character"))
-	expect_that(two, is_a("data.frame"))
+  bb <- gettaxonomicusagefromtsn(526852)
+
+  expect_equal(NCOL(bb), 2)
+	expect_is(bb, "data.frame")
 })
