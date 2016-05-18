@@ -1,19 +1,18 @@
-#' Get taxonomic names for a given rank.
-#'
-#' Retrieve name of queried taxonomic rank of a taxon.
+#' Get taxonomic names for a given rank
 #'
 #' @export
-#' @param query character; Vector of taxonomic names to query.
-#' @param get character; The ranks of the taxonomic name to get, see
-#' \code{\link[taxize]{rank_ref}}.
-#' @param db character; The database to search from: 'itis', 'ncbi' or 'both'.
+#' @param query (character) Vector of taxonomic names to query. required.
+#' @param get (character) The ranks of the taxonomic name to get, see
+#' \code{\link[taxize]{rank_ref}}. required.
+#' @param db (character) The database to search from: 'itis', 'ncbi' or 'both'.
 #'  If 'both' both NCBI and ITIS will be queried. Result will be the union of
 #'  both.
-#' @param pref character; If db = 'both', sets the preference for the union.
+#' @param pref (character) If db = 'both', sets the preference for the union.
 #' Either 'ncbi' (default) or 'itis'. Currently not implemented.
 #' @param verbose logical; If TRUE the actual taxon queried is printed on the
 #' console.
-#' @param ... Other arguments passed to \code{\link[taxize]{get_tsn}} or \code{\link[taxize]{get_uid}}.
+#' @param ... Other arguments passed to \code{\link[taxize]{get_tsn}} or
+#' \code{\link[taxize]{get_uid}}.
 #'
 #' @return A data.frame with one column for every queried rank, in addition to a column for db
 #' and queried term.
@@ -34,7 +33,7 @@
 #' tax_name(query = "Helianthus annuus", get = "kingdom", db = "itis")
 #' tax_name(query = "Helianthus annuus", get = "kingdom", db = "ncbi")
 #'
-#' # multiple get arguments
+#' # multiple rank arguments
 #' tax_name(query = c("Helianthus annuus","Baetis rhodani"), get = c("genus",
 #' "kingdom"), db = "ncbi")
 #' tax_name(query = c("Helianthus annuus","Baetis rhodani"), get = c("genus",
@@ -47,6 +46,7 @@
 
 tax_name <- function(query, get, db = "itis", pref = 'ncbi', verbose = TRUE, ...) {
 
+  if (missing(get)) stop("you must supply a 'get' value", call. = FALSE)
   db <- match.arg(db, c('itis', 'ncbi', 'both'))
   if (db == 'both' & !pref %in% c('ncbi', 'itis'))
     stop("if db=both, pref must be either 'itis' or 'ncbi'!\n", call. = FALSE)
@@ -65,7 +65,7 @@ tax_name <- function(query, get, db = "itis", pref = 'ncbi', verbose = TRUE, ...
                    stringsAsFactors = FALSE), c("db", "query", get))
     }
   }
-  ldply(query, .fun=fun, get=get, db=db, verbose=verbose, ...)
+  plyr::ldply(query, .fun = fun, get = get, db = db, verbose = verbose, ...)
 }
 
 do_ncbi <- function(query, get, verbose, both=FALSE, ...) {

@@ -1,12 +1,27 @@
-# tests for itis_acceptname fxn in taxize
 context("itis_acceptname")
 
-temp <- itis_acceptname(208527, verbose=FALSE)
+test_that("itis_acceptname works with accepted tsn", {
+  skip_on_cran()
 
-test_that("itis_acceptname returns the correct value", {
-	expect_that(temp, matches("208527"))
+  temp <- itis_acceptname(208527)
+
+	expect_is(temp, "data.frame")
+	expect_named(temp, c('submittedtsn', 'acceptedname', 'acceptedtsn'))
+	expect_equal(temp$submittedtsn, 208527)
+	expect_true(is.na(temp$acceptedname))
 })
 
-test_that("itis_acceptname returns the correct class", {
-	expect_that(temp, is_a("character"))
+test_that("itis_acceptname works with non-accepted tsn", {
+  skip_on_cran()
+
+  temp <- itis_acceptname(504239)
+
+  expect_is(temp, "data.frame")
+  expect_named(temp, c('submittedtsn', 'acceptedname', 'acceptedtsn'))
+  expect_equal(temp$submittedtsn, 504239)
+  expect_that(is.na(temp$acceptedname), is_false())
+})
+
+test_that("itis_acceptname fails as expected", {
+  expect_error(itis_acceptname(), "\"searchtsn\" is missing")
 })
