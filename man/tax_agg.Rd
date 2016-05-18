@@ -55,8 +55,7 @@ if (requireNamespace("vegan", quietly = TRUE)) {
   millefolium",
   "Poa trivialis", "Chenopodium album", "Elymus repens", "Sagina procumbens",
   "Plantago lanceolata", "Agrostis stolonifera", "Lolium perenne", "Alopecurus
-  geniculatus",
-  "Bromus hordeaceus")
+  geniculatus", "Bromus hordeaceus")
   colnames(dune) <- species
 
   # aggregate sample to families

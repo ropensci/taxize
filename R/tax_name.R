@@ -3,25 +3,25 @@
 #' @export
 #' @param query (character) Vector of taxonomic names to query. required.
 #' @param get (character) The ranks of the taxonomic name to get, see
-#' \code{\link[taxize]{rank_ref}}. required.
+#' \code{\link{rank_ref}}. required.
 #' @param db (character) The database to search from: 'itis', 'ncbi' or 'both'.
 #'  If 'both' both NCBI and ITIS will be queried. Result will be the union of
 #'  both.
 #' @param pref (character) If db = 'both', sets the preference for the union.
 #' Either 'ncbi' (default) or 'itis'. Currently not implemented.
-#' @param verbose logical; If TRUE the actual taxon queried is printed on the
+#' @param verbose (logical) If \code{TRUE} the actual taxon queried is printed on the
 #' console.
-#' @param ... Other arguments passed to \code{\link[taxize]{get_tsn}} or
-#' \code{\link[taxize]{get_uid}}.
+#' @param ... Other arguments passed to \code{\link{get_tsn}} or
+#' \code{\link{get_uid}}.
 #'
-#' @return A data.frame with one column for every queried rank, in addition to a column for db
-#' and queried term.
+#' @return A data.frame with one column for every queried rank, in addition to
+#' a column for db and queried term.
 #'
-#' @note While \code{\link[taxize]{tax_rank}} returns the actual rank of a
-#' taxon, \code{\link[taxize]{tax_name}} searches and returns any specified rank
+#' @note While \code{\link{tax_rank}} returns the actual rank of a
+#' taxon, \code{\link{tax_name}} searches and returns any specified rank
 #' higher in taxonmy.
 #'
-#' @seealso \code{\link[taxize]{classification}}
+#' @seealso \code{\link{classification}}
 #'
 #' @examples \dontrun{
 #' # A case where itis and ncbi use the same names
@@ -45,11 +45,11 @@
 #' }
 
 tax_name <- function(query, get, db = "itis", pref = 'ncbi', verbose = TRUE, ...) {
-
   if (missing(get)) stop("you must supply a 'get' value", call. = FALSE)
   db <- match.arg(db, c('itis', 'ncbi', 'both'))
-  if (db == 'both' & !pref %in% c('ncbi', 'itis'))
+  if (db == 'both' & !pref %in% c('ncbi', 'itis')) {
     stop("if db=both, pref must be either 'itis' or 'ncbi'!\n", call. = FALSE)
+  }
 
   fun <- function(query, get, db, verbose, ...){
     # NCBI
@@ -76,7 +76,7 @@ do_ncbi <- function(query, get, verbose, both=FALSE, ...) {
   } else {
     hierarchy <- classification(uid, ...)[[1]]
     match <- hierarchy$name[match(tolower(get), tolower(hierarchy$rank))]
-    if (both) c(query, match) else setNames(data.frame(t(c("ncbi", query, match)), stringsAsFactors=FALSE), c("db", "query", get))
+    if (both) c(query, match) else setNames(data.frame(t(c("ncbi", query, match)), stringsAsFactors = FALSE), c("db", "query", get))
   }
 }
 
@@ -86,14 +86,29 @@ do_itis <- function(query, get, verbose, both=FALSE, ...){
     if (verbose) message("No TSN found for species '", query, "'!\n")
     if (both) c(query, rep(NA, length(get))) else setNames(data.frame(t(c("itis", query, rep(NA, length(get))))), c("db", "query", get))
   } else {
-    tt <- classification(tsn, verbose=verbose, ...)[[1]]
+    tt <- classification(tsn, verbose = verbose, ...)[[1]]
+    if (max(unlist(Filter(function(x) length(x) > 0, sapply(get, which_rank)))) <
+        which_rank(tt$rank[1])) {
+      warning(sprintf("%s: highest rank of ITIS classification is '%s'", query, tt$rank[1]), call. = FALSE)
+    }
+    if (!all(tolower(get) %in% tolower(tt$rank))) {
+      warning(
+        sprintf("%s: rank requested ('%s') not in ITIS classification",
+                query,
+                paste0(tolower(get)[!tolower(get) %in% tolower(tt$rank)], collapse = ", ")),
+        call. = FALSE)
+    }
     if (both) {
       c(query, tt$name[match(tolower(get), tolower(tt$rank))])
     } else {
       out <- as.character(tt[tolower(tt$rank) %in% tolower(get), "name"])
-      if (length(out) == 0) out <- data.frame(t(rep(NA, length(get))))
-      setNames( data.frame(t(c("itis", query, out)), stringsAsFactors = FALSE),
-                c("db", "query", tolower(as.character(tt[tolower(tt$rank) %in% tolower(get), "rank"]))) )
+      if (length(out) == 0) out <- rep(NA_character_, length(get))
+      rname <- tolower(as.character(tt[tolower(tt$rank) %in% tolower(get), "rank"]))
+      if (length(rname) == 0) rname <- get
+      setNames(
+        data.frame(t(c("itis", query, out)), stringsAsFactors = FALSE),
+        c("db", "query", rname)
+      )
     }
   }
 }
