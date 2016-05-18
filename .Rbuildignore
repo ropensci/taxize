@@ -15,5 +15,4 @@ vignettes/cache/
 ^appveyor\.yml$
 ^CONDUCT\.md$
 ^cran-comments\.md$
-tests/test-all.R
 ^revdep$
