@@ -5,7 +5,7 @@ data(rank_ref, package = "taxize")
 dat_ <- itis_downstream(tsns=183264, "Species", verbose=FALSE)
 
 test_that("itis_downstream returns the correct value", {
-	expect_that(as.character(dat_[1,"rankname"]), matches("Species"))
+	expect_that(as.character(dat_[1,"rankname"]), matches("species"))
 })
 
 test_that("itis_downstream returns the correct class", {

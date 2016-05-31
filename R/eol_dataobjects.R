@@ -27,7 +27,10 @@ eol_dataobjects <- function(id, taxonomy = TRUE, usekey = TRUE, key = NULL, verb
   stop_for_status(tt)
   tmp <- jsonlite::fromJSON(con_utf8(tt))
   tmp <- nmslwr(tmp)
-  if (taxonomy) tmp$taxonconcepts <- nmslwr(tmp$taxonconcepts)
+  if (taxonomy) {
+    tmp$taxonconcepts <- nmslwr(tmp$taxonconcepts)
+    tmp$taxonconcepts$taxonrank <- tolower(tmp$taxonconcepts$taxonrank)
+  }
   return(tmp)
 }
 

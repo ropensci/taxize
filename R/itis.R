@@ -52,9 +52,11 @@ getacceptednamesfromtsn <- function(tsn, ...) {
     as.list(setNames(xml_text(z), xml_name(z)))
   })
 	if (length(x_acc_names) < 2) {
-    x_tsn
+    list(submittedtsn = as.numeric(tsn), acceptedname = NA_character_, acceptedtsn = as.numeric(x_tsn))
   } else {
-		nmslwr(unlist(c(submittedtsn = x_tsn, x_acc_names[1:2]), FALSE))
+		tmp <- nmslwr(unlist(c(submittedtsn = as.numeric(x_tsn), x_acc_names[1:2]), FALSE))
+		tmp$acceptedtsn <- as.numeric(tmp$acceptedtsn)
+		tmp
 	}
 }
 
@@ -369,7 +371,9 @@ gethierarchydownfromtsn <- function(tsn, ...) {
   namespaces <- c(namespaces <- c(ax21 = "http://data.itis_service.itis.usgs.gov/xsd"))
 	matches <- paste0("hierarchyList/ax21:",
                     c("parentName","parentTsn","rankName","taxonName","tsn"))
-	itisdf(out, namespaces, matches, tolower(c("parentName","parentTsn","rankName","taxonName","tsn")))
+	df <- itisdf(out, namespaces, matches, tolower(c("parentName","parentTsn","rankName","taxonName","tsn")))
+	df$rankname <- tolower(df$rankname)
+	df
 }
 
 #' Get hierarchy up from tsn

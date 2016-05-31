@@ -92,12 +92,14 @@ parsecoldata <- function(x){
   names(vals) <- c('id', 'name', 'rank', 'name_status', 'source_database')
   bb <- data.frame(vals, stringsAsFactors = FALSE)
   names(bb)[4:5] <- c('status', 'source')
+  bb$rank <- tolower(bb$rank)
   acc <- x$accepted_name
   if (is.null(acc)) {
     accdf <- data.frame(acc_id=NA, acc_name=NA, acc_rank=NA, acc_status=NA, acc_source=NA, stringsAsFactors = FALSE)
   } else {
     accdf <- data.frame(acc[c('id','name','rank','name_status','source_database')], stringsAsFactors=FALSE)
     names(accdf) <- c('acc_id','acc_name','acc_rank','acc_status','acc_source')
+    accdf$acc_rank <- tolower(accdf$acc_rank)
   }
   cbind(bb, accdf)
 }
@@ -161,6 +163,15 @@ parse_full <- function(x) {
                name_status <- z$accepted_name$name_status
                h <- cbind(h, setNames(data.frame(id, name, rank, name_status, stringsAsFactors = FALSE),
                                       c('acc_id','acc_name','acc_rank','acc_status')))
+             },
+             `misapplied name` = {
+               h <- parse_one(z)
+               name <- z$accepted_name$name
+               rank <- z$accepted_name$rank
+               id <- z$accepted_name$id
+               name_status <- z$accepted_name$name_status
+               h <- cbind(h, setNames(data.frame(id, name, rank, name_status, stringsAsFactors = FALSE),
+                                      c('acc_id','acc_name','acc_rank','acc_status')))
              }
       )
       target <- setNames(rbind.data.frame(
@@ -169,6 +180,7 @@ parse_full <- function(x) {
           id,
           z$name_status)),
         c("name", "rank", "id", "name_status"))
+      target$rank <- tolower(target$rank)
       tempdf <- cbind(target, h)
       tempdf[] <- lapply(tempdf, as.character)
       tempdf
@@ -178,7 +190,7 @@ parse_full <- function(x) {
 
 parse_one <- function(z) {
   scrut <- z$record_scrutiny_date
-  scrutie <- if (is.null(scrut) || scrut[[1]] == FALSE) FALSE else TRUE
+  scrutie <- if (is.null(scrut[[1]]) || scrut[[1]] == FALSE) FALSE else TRUE
   if (scrutie) scrut <- data.frame(record_scrutiny_date = scrut$scrutiny, stringsAsFactors = FALSE)
   refs <- z$references
   refsie <- if (is.null(refs) || length(refs) == 0) FALSE else TRUE

@@ -232,12 +232,12 @@ get_tsn_ <- function(searchterm, verbose = TRUE, searchtype = "scientific", acce
 get_tsn_help <- function(searchterm, verbose, searchtype, accepted, rows){
   mssg(verbose, "\nRetrieving data for taxon '", searchterm, "'\n")
   searchtype <- match.arg(searchtype, c("scientific","common"))
-  df <- itis_terms(searchterm, what = searchtype, verbose=verbose)
-  if(!is(df, "data.frame")){
+  df <- itis_terms(searchterm, what = searchtype, verbose = verbose)
+  if (!is(df, "data.frame") || NROW(df) == 0) {
     NULL
   } else {
     df <- df[,c("tsn","scientificname","commonnames","nameusage")]
-    if(accepted) df <- df[ df$nameusage %in% c('valid','accepted'), ]
+    if (accepted) df <- df[ df$nameusage %in% c('valid','accepted'), ]
     sub_rows(df, rows)
   }
 }

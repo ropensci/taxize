@@ -59,7 +59,7 @@ only accepted names are used \code{accepted = TRUE}, or if all are used
 \examples{
 \dontrun{
 # Plug in taxon IDs
-synonyms("183327", db="itis")
+synonyms(183327, db="itis")
 synonyms("25509881", db="tropicos")
 synonyms("NBNSYS0000004629", db='nbn')
 synonyms("87e986b0873f648711900866fa8abde7", db='col')

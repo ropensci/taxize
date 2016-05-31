@@ -55,21 +55,21 @@ Provide only names instead of id's
 \examples{
 \dontrun{
 # Some basic examples
-col_downstream(name="Apis", downto="Species")
-col_downstream(name="Bryophyta", downto="Family")
+col_downstream(name="Apis", downto="species")
+col_downstream(name="Bryophyta", downto="family")
 
 # get classes down from the kingdom Animalia
-col_downstream(name="Animalia", downto="Class")
-col_downstream(name="Animalia", downto="Class", intermediate=TRUE)
+col_downstream(name="Animalia", downto="class")
+col_downstream(name="Animalia", downto="class", intermediate=TRUE)
 
 # An example that takes a bit longer
-col_downstream(name=c("Plantae","Animalia"), downto="Class")
+col_downstream(name=c("Plantae", "Animalia"), downto="class")
 
 # Using a checklist from a specific year
-col_downstream(name="Bryophyta", downto="Family", checklist=2009)
+col_downstream(name="Bryophyta", downto="family", checklist=2009)
 
 # By id
-col_downstream(id='576d098d770a39d09e2bcfa1c0896b26', downto="Species", checklist=2012)
+col_downstream(id='576d098d770a39d09e2bcfa1c0896b26', downto="species", checklist=2012)
 }
 }
 

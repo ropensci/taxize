@@ -25,11 +25,11 @@ test_that("ipni_search works with different output formats", {
   expect_is(cc, "data.frame")
   expect_is(dd, "data.frame")
 
-  expect_less_than(NCOL(aa), NCOL(bb))
-  expect_less_than(NCOL(bb), NCOL(cc))
-  expect_less_than(NCOL(aa), NCOL(cc))
-  expect_less_than(NCOL(aa), NCOL(dd))
-  expect_less_than(NCOL(cc), NCOL(dd))
+  expect_lt(NCOL(aa), NCOL(bb))
+  expect_lt(NCOL(bb), NCOL(cc))
+  expect_lt(NCOL(aa), NCOL(cc))
+  expect_lt(NCOL(aa), NCOL(dd))
+  expect_lt(NCOL(cc), NCOL(dd))
 })
 
 test_that("ipni_search fails correctly", {

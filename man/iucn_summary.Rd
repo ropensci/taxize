@@ -7,7 +7,7 @@
 \title{Get a summary from the IUCN Red List}
 \usage{
 iucn_summary(sciname, silent = TRUE, parallel = FALSE,
-  distr_detail = FALSE, ...)
+  distr_detail = FALSE, key = NULL, ...)
 
 iucn_summary_id(species_id, silent = TRUE, parallel = FALSE,
   distr_detail = FALSE, ...)
@@ -24,8 +24,12 @@ format \emph{<Genus> <Species>}.}
 register a parallel backend if \code{TRUE}. See e.g., doMC, doSNOW, etc.}
 
 \item{distr_detail}{logical; If \code{TRUE}, the geographic distribution is
-returned as a list of vectors corresponding to the different range types: 
+returned as a list of vectors corresponding to the different range types:
 native, introduced, etc.}
+
+\item{key}{a Redlist API key, get one from \url{http://apiv3.iucnredlist.org/api/v3/token}
+Required for \code{iucn_summary} but not needed for \code{iucn_summary_id}. Defaults to
+\code{NULL} in case you have your key stored (see \code{Redlist Authentication} below).}
 
 \item{...}{Currently not used.}
 
@@ -58,11 +62,30 @@ and NA is returned.
 \code{\link[taxize]{iucn_status}} is an extractor function to easily extract
 status into a vector.
 }
+\section{Redlist Authentication}{
+
+\code{iucn_summary} uses the new Redlist API for searching for a IUCN ID, so we
+use the \code{\link[rredlist]{rl_search}} function internally. This function
+requires an API key. Get the key at \url{http://apiv3.iucnredlist.org/api/v3/token},
+and pass it to the \code{key} parameter, or store in your \code{.Renviron} file like
+\code{IUCN_REDLIST_KEY=yourkey} or in your \code{.Rprofile} file like
+\code{options(iucn_redlist_key="yourkey"}. We strongly encourage you to not pass
+the key in the function call but rather store it in one of those two files.
+This key will also set you up to use the \pkg{rredlist} package.
+}
 \examples{
 \dontrun{
+# if you send a taxon name, pass in a key
+iucn_summary("Lutra lutra")
+
 ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
 ia <- iucn_summary(c("Panthera uncia", "Lynx lynx", "aaa"))
-# get summary from IUCN ID
+
+## get detailed distribution
+iac <- iucn_summary("Ara chloropterus", distr_detail = TRUE)
+iac[[1]]$distr
+
+# If you pass in an IUCN ID, you don't need to pass in a Redlist API Key
 ia <- iucn_summary_id(c(22732, 12519))
 # extract status
 iucn_status(ia)
@@ -70,17 +93,14 @@ iucn_status(ia)
 ia[['Lynx lynx']]$history
 ia[['Panthera uncia']]$distr
 ia[[2]]$trend
-# get detailed distribution
-iac <- iucn_summary("Ara chloropterus", distr_detail = TRUE)
-iac[[1]]$distr 
 }
-
-
 }
 \author{
 Eduard Szoecs, \email{eduardszoecs@gmail.com}
 
 Philippe Marchand, \email{marchand.philippe@gmail.com}
+
+Scott Chamberlain, \email{myrmecocystus@gmail.com}
 }
 \seealso{
 \code{\link[taxize]{iucn_status}}

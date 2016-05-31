@@ -115,7 +115,7 @@ test_that("rbind and cbind work correctly", {
   skip_on_cran()
 
   out <- get_ids(names = c("Puma concolor","Accipiter striatus"),
-                 db = c('ncbi','itis'), verbose=FALSE)
+                 db = 'ncbi', verbose=FALSE)
   cl <- classification(out)
 
   # rbind
@@ -126,7 +126,7 @@ test_that("rbind and cbind work correctly", {
   # cbind
   clc <- cbind(cl)
   expect_is(clc, "data.frame")
-  expect_more_than(length(names(clc)), 50)
+  expect_gt(length(names(clc)), 50)
 })
 
 df <- theplantlist[sample(1:nrow(theplantlist), 50), ]
@@ -143,4 +143,22 @@ test_that("queries with no results fail well", {
 
   expect_true(is.na(unclass(aa)[[1]]))
   expect_identical(unname(aa), unname(bb))
+})
+
+test_that("all rank character strings are lower case (all letters)", {
+  aa <- classification(9606, db = 'ncbi', verbose = FALSE)
+  bb <- classification(129313, db = 'itis', verbose = FALSE)
+  #cc <- classification(57361017, db = 'eol', verbose = FALSE)
+  dd <- classification(2441176, db = 'gbif', verbose = FALSE)
+  #ee <- classification(25509881, db = 'tropicos', verbose = FALSE)
+  ff <- classification("NBNSYS0000004786", db = 'nbn', verbose = FALSE)
+  gg <- classification("Chironomus riparius", db = 'col', verbose = FALSE)
+
+  expect_false(all(grepl("[A-Z]", aa[[1]]$rank)))
+  expect_false(all(grepl("[A-Z]", bb[[1]]$rank)))
+  #expect_false(all(grepl("[A-Z]", cc[[1]]$rank)))
+  expect_false(all(grepl("[A-Z]", dd[[1]]$rank)))
+  #expect_false(all(grepl("[A-Z]", ee[[1]]$rank)))
+  expect_false(all(grepl("[A-Z]", ff[[1]]$rank)))
+  expect_false(all(grepl("[A-Z]", gg[[1]]$rank)))
 })

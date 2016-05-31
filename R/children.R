@@ -38,14 +38,12 @@
 #' children(id)
 #'
 #' ## Equivalently, plug in the call to get the id via e.g., get_colid into children
-#' identical(children(id), children(get_colid("Apis")))
-#'
 #' (id <- get_colid("Apis"))
 #' children(id)
 #' children(get_colid("Apis"))
 #'
 #' # Many taxa
-#' (sp <- names_list("genus", 3))
+#' sp <- c("Tragia", "Schistocarpha", "Encalypta")
 #' children(sp, db = 'col')
 #' children(sp, db = 'itis')
 #'

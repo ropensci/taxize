@@ -73,5 +73,6 @@ search_col_child_df <- function(x) {
   childtaxa_id <- xml_text(xml_find_all(x, "//child_taxa//id"))
   childtaxa_name <- xml_text(xml_find_all(x, "//child_taxa//name"))
   childtaxa_rank <- xml_text(xml_find_all(x, "//child_taxa//rank"))
-  data.frame(childtaxa_id, childtaxa_name, childtaxa_rank, stringsAsFactors = FALSE)
+  data.frame(childtaxa_id, childtaxa_name, childtaxa_rank = tolower(childtaxa_rank),
+             stringsAsFactors = FALSE)
 }

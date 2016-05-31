@@ -2,7 +2,7 @@ Package: taxize
 Title: Taxonomic Information from Around the Web
 Description: Interacts with a suite of web 'APIs' for taxonomic tasks,
     such as verifying species names, and getting taxonomic 'hierarchies'.
-Version: 0.7.0.9540
+Version: 0.7.6.9157
 License: MIT + file LICENSE
 URL: https://github.com/ropensci/taxize
 BugReports: https://github.com/ropensci/taxize/issues
@@ -13,7 +13,8 @@ Authors@R: c(
     person("Carl", "Boettiger", role = "aut", email = "cboettig@gmail.com"),
     person("Karthik", "Ram", role = "aut", email = "karthik@ropensci.org"),
     person("Ignasi", "Bartomeus", role = "aut", email = "nacho.bartomeus@gmail.com"),
-    person("John", "Baumgartner", role = "aut", email = "johnbb@student.unimelb.edu.au")
+    person("John", "Baumgartner", role = "aut", email = "johnbb@student.unimelb.edu.au"),
+    person("James", "O'Donnell", role = "aut", email = "jodonnellbio@gmail.com")
   )
 LazyLoad: yes
 LazyData: yes
@@ -25,7 +26,7 @@ Imports:
     methods,
     stats,
     utils,
-    httr (>= 1.0.0),
+    httr (>= 1.1.0),
     xml2 (>= 0.1.2),
     jsonlite,
     reshape2,
@@ -33,11 +34,13 @@ Imports:
     plyr,
     foreach,
     ape,
-    bold,
+    bold (>= 0.3.5),
     data.table,
-    rredlist (>= 0.1.0)
+    rredlist (>= 0.1.0),
+    rotl (>= 0.5.0)
 Suggests:
     testthat,
     knitr,
-    vegan
+    vegan,
+    covr
 RoxygenNote: 5.0.1

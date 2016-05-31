@@ -2,38 +2,39 @@
 % Please edit documentation in R/tax_name.R
 \name{tax_name}
 \alias{tax_name}
-\title{Get taxonomic names for a given rank.}
+\title{Get taxonomic names for a given rank}
 \usage{
 tax_name(query, get, db = "itis", pref = "ncbi", verbose = TRUE, ...)
 }
 \arguments{
-\item{query}{character; Vector of taxonomic names to query.}
+\item{query}{(character) Vector of taxonomic names to query. required.}
 
-\item{get}{character; The ranks of the taxonomic name to get, see
-\code{\link[taxize]{rank_ref}}.}
+\item{get}{(character) The ranks of the taxonomic name to get, see
+\code{\link{rank_ref}}. required.}
 
-\item{db}{character; The database to search from: 'itis', 'ncbi' or 'both'.
+\item{db}{(character) The database to search from: 'itis', 'ncbi' or 'both'.
 If 'both' both NCBI and ITIS will be queried. Result will be the union of
 both.}
 
-\item{pref}{character; If db = 'both', sets the preference for the union.
+\item{pref}{(character) If db = 'both', sets the preference for the union.
 Either 'ncbi' (default) or 'itis'. Currently not implemented.}
 
 \item{verbose}{logical; If TRUE the actual taxon queried is printed on the
 console.}
 
-\item{...}{Other arguments passed to \code{\link[taxize]{get_tsn}} or \code{\link[taxize]{get_uid}}.}
+\item{...}{Other arguments passed to \code{\link{get_tsn}} or
+\code{\link{get_uid}}.}
 }
 \value{
 A data.frame with one column for every queried rank, in addition to a column for db
 and queried term.
 }
 \description{
-Retrieve name of queried taxonomic rank of a taxon.
+Get taxonomic names for a given rank
 }
 \note{
-While \code{\link[taxize]{tax_rank}} returns the actual rank of a
-taxon, \code{\link[taxize]{tax_name}} searches and returns any specified rank
+While \code{\link{tax_rank}} returns the actual rank of a
+taxon, \code{\link{tax_name}} searches and returns any specified rank
 higher in taxonmy.
 }
 \examples{
@@ -47,7 +48,7 @@ tax_name(query = "Helianthus annuus", get = c("genus","family","order"), db = "n
 tax_name(query = "Helianthus annuus", get = "kingdom", db = "itis")
 tax_name(query = "Helianthus annuus", get = "kingdom", db = "ncbi")
 
-# multiple get arguments
+# multiple rank arguments
 tax_name(query = c("Helianthus annuus","Baetis rhodani"), get = c("genus",
 "kingdom"), db = "ncbi")
 tax_name(query = c("Helianthus annuus","Baetis rhodani"), get = c("genus",
@@ -59,6 +60,6 @@ tax_name(query=c("Helianthus annuus", 'Baetis rhodani'), get=c("genus",
 }
 }
 \seealso{
-\code{\link[taxize]{classification}}
+\code{\link{classification}}
 }
 

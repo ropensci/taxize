@@ -8,8 +8,11 @@
 #' @param parallel logical; Search in parallel to speed up search. You have to
 #' register a parallel backend if \code{TRUE}. See e.g., doMC, doSNOW, etc.
 #' @param distr_detail logical; If \code{TRUE}, the geographic distribution is
-#' returned as a list of vectors corresponding to the different range types: 
+#' returned as a list of vectors corresponding to the different range types:
 #' native, introduced, etc.
+#' @param key a Redlist API key, get one from \url{http://apiv3.iucnredlist.org/api/v3/token}
+#' Required for \code{iucn_summary} but not needed for \code{iucn_summary_id}. Defaults to
+#' \code{NULL} in case you have your key stored (see \code{Redlist Authentication} below).
 #' @param ... Currently not used.
 #'
 #' @return A list (for every species one entry) of lists with the following
@@ -32,10 +35,28 @@
 #' We will fix these as soon as possible. In the meantime, just make sure that
 #' the data you get back is correct.
 #'
+#' @section Redlist Authentication:
+#' \code{iucn_summary} uses the new Redlist API for searching for a IUCN ID, so we
+#' use the \code{\link[rredlist]{rl_search}} function internally. This function
+#' requires an API key. Get the key at \url{http://apiv3.iucnredlist.org/api/v3/token},
+#' and pass it to the \code{key} parameter, or store in your \code{.Renviron} file like
+#' \code{IUCN_REDLIST_KEY=yourkey} or in your \code{.Rprofile} file like
+#' \code{options(iucn_redlist_key="yourkey"}. We strongly encourage you to not pass
+#' the key in the function call but rather store it in one of those two files.
+#' This key will also set you up to use the \pkg{rredlist} package.
+#'
 #' @examples \dontrun{
+#' # if you send a taxon name, pass in a key
+#' iucn_summary("Lutra lutra")
+#'
 #' ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
 #' ia <- iucn_summary(c("Panthera uncia", "Lynx lynx", "aaa"))
-#' # get summary from IUCN ID
+#'
+#' ## get detailed distribution
+#' iac <- iucn_summary("Ara chloropterus", distr_detail = TRUE)
+#' iac[[1]]$distr
+#'
+#' # If you pass in an IUCN ID, you don't need to pass in a Redlist API Key
 #' ia <- iucn_summary_id(c(22732, 12519))
 #' # extract status
 #' iucn_status(ia)
@@ -43,39 +64,34 @@
 #' ia[['Lynx lynx']]$history
 #' ia[['Panthera uncia']]$distr
 #' ia[[2]]$trend
-#' # get detailed distribution
-#' iac <- iucn_summary("Ara chloropterus", distr_detail = TRUE)
-#' iac[[1]]$distr 
 #' }
-#'
-#'
 #' @export
 #' @author Eduard Szoecs, \email{eduardszoecs@@gmail.com}
 #' @author Philippe Marchand, \email{marchand.philippe@@gmail.com}
-iucn_summary <- function(sciname, silent = TRUE, parallel = FALSE, 
-                         distr_detail = FALSE, ...) {
-    get_iucn_summary(sciname, silent, parallel, distr_detail, by_id = FALSE, ...)
+#' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
+iucn_summary <- function(sciname, silent = TRUE, parallel = FALSE,
+                         distr_detail = FALSE, key = NULL, ...) {
+  get_iucn_summary(sciname, silent, parallel, distr_detail, by_id = FALSE, key = key, ...)
 }
-
 
 #' @param species_id an IUCN ID
 #' @export
 #' @rdname iucn_summary
-iucn_summary_id <- function(species_id, silent = TRUE, parallel = FALSE, 
+iucn_summary_id <- function(species_id, silent = TRUE, parallel = FALSE,
                             distr_detail = FALSE, ...) {
-    get_iucn_summary(species_id, silent, parallel, distr_detail, by_id = TRUE, ...)    
+    get_iucn_summary(species_id, silent, parallel, distr_detail, by_id = TRUE, ...)
 }
 
 
-get_iucn_summary <- function(query, silent, parallel, distr_detail, by_id, ...) {
-    
+get_iucn_summary <- function(query, silent, parallel, distr_detail, by_id, key = NULL, ...) {
+
   fun <- function(query) {
-      
+
     if (!by_id) {
         #to deal with subspecies
         sciname_q <- strsplit(query, " ")
         spec <- tolower(paste(sciname_q[[1]][1], sciname_q[[1]][2]))
-        res <- tryCatch(rredlist::rl_search(spec), error = function(e) e)
+        res <- tryCatch(rredlist::rl_search(spec, key = key), error = function(e) e)
         if (!inherits(res, "try-error") && NROW(res$result) > 0) {
             df <- unique(res$result)
             #check if there are several matches
@@ -99,7 +115,7 @@ get_iucn_summary <- function(query, silent, parallel, distr_detail, by_id, ...) 
         if (by_id) {
             sciname <- xml2::xml_text(xml2::xml_find_all(h, '//h1[@id = "scientific_name"]'))
         }
-          
+
         # status
         status <- xml2::xml_text(xml2::xml_find_all(h, '//div[@id ="red_list_category_code"]'))
         # history
@@ -148,9 +164,9 @@ get_iucn_summary <- function(query, silent, parallel, distr_detail, by_id, ...) 
 
   if (by_id) {
       names(out) <- llply(out, `[[`, "sciname")
-      out <- llply(out, function(x) {x$sciname <- NULL; x})      
+      out <- llply(out, function(x) {x$sciname <- NULL; x})
   } else {
-      names(out) <- query    
+      names(out) <- query
   }
   class(out) <- "iucn"
   return(out)

@@ -16,30 +16,33 @@
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @examples \dontrun{
 #' ## the plant class Bangiophyceae, tsn 846509
-#' itis_downstream(tsns = 846509, downto="Genus")
-#' itis_downstream(tsns = 846509, downto="Genus", intermediate=TRUE)
+#' itis_downstream(tsns = 846509, downto="genus")
+#' itis_downstream(tsns = 846509, downto="genus", intermediate=TRUE)
 #'
 #' # get families downstream from Acridoidea
-#' itis_downstream(tsns = 650497, "Family")
+#' itis_downstream(tsns = 650497, "family")
 #' ## here, intermediate leads to the same result as the target
-#' itis_downstream(tsns = 650497, "Family", intermediate=TRUE)
+#' itis_downstream(tsns = 650497, "family", intermediate=TRUE)
 #'
 #' # get species downstream from Ursus
-#' itis_downstream(tsns = 180541, "Species")
+#' itis_downstream(tsns = 180541, "species")
 #'
 #' # get orders down from the Division Rhodophyta (red algae)
-#' itis_downstream(tsns = 660046, "Order")
-#' itis_downstream(tsns = 660046, "Order", intermediate=TRUE)
+#' itis_downstream(tsns = 660046, "order")
+#' itis_downstream(tsns = 660046, "order", intermediate=TRUE)
 #'
 #' # get tribes down from the family Apidae
-#' itis_downstream(tsns = 154394, downto="Tribe")
-#' itis_downstream(tsns = 154394, downto="Tribe", intermediate=TRUE)
+#' itis_downstream(tsns = 154394, downto="tribe")
+#' itis_downstream(tsns = 154394, downto="tribe", intermediate=TRUE)
 #' }
 
 itis_downstream <- function(tsns, downto, intermediate = FALSE, ...) {
 
-	downto2 <- rank_ref[grep(downto, rank_ref$ranks),"rankid"]
-	torank_ids <- rank_ref[grep(downto, rank_ref$ranks):nrow(rank_ref),"rankid"]
+  downto <- tolower(downto)
+	# downto2 <- rank_ref[grep(downto, rank_ref$ranks), "rankid"]
+	# torank_ids <- rank_ref[grep(downto, rank_ref$ranks):NROW(rank_ref), "rankid"]
+  downto2 <- rank_ref[which_rank(downto), "rankid"]
+  torank_ids <- rank_ref[which_rank(downto):NROW(rank_ref), "rankid"]
 
 	stop_ <- "not"
 	notout <- data.frame(rankname = "")
@@ -81,12 +84,23 @@ itis_downstream <- function(tsns, downto, intermediate = FALSE, ...) {
 		    stop_ <- "not"
 		  }
 		}
-		if (intermediate) intermed[[iter]] <- setNames(intermed[[iter]], tolower(names(intermed[[iter]])))
+		if (intermediate) {
+		  intermed[[iter]] <- setNames(intermed[[iter]], tolower(names(intermed[[iter]])))
+		  intermed[[iter]]$rankname <- tolower(intermed[[iter]]$rankname)
+		}
 	}
   tmp <- ldply(out)
+  tmp$rankname <- tolower(tmp$rankname)
 	if (intermediate) {
 	  list(target = setNames(tmp, tolower(names(tmp))), intermediate = intermed)
   } else {
     setNames(tmp, tolower(names(tmp)))
   }
+}
+
+which_rank <- function(x) {
+  which(sapply(rank_ref$ranks, function(z) {
+    any(unlist(strsplit(z, split = ",")) == x)
+  }, USE.NAMES = FALSE)
+  )
 }

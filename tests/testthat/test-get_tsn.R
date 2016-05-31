@@ -11,7 +11,7 @@ test_that("get_tsn returns the correct class", {
 
 test_that("get_tsn accepts ask and verbose arguments", {
   expect_message(get_tsn('Dugesia', verbose=TRUE))
-  expect_that(get_tsn('Dugesia', verbose=FALSE), not(shows_message()))
-  
+  expect_message(get_tsn('Dugesia', verbose=FALSE), NA)
+
   expect_that(is.na(get_tsn('black bear', searchtype="common", ask=FALSE, verbose=FALSE)), is_true())
 })

@@ -27,7 +27,7 @@
 #' @export
 #' @examples \dontrun{
 #' # Plug in taxon IDs
-#' synonyms("183327", db="itis")
+#' synonyms(183327, db="itis")
 #' synonyms("25509881", db="tropicos")
 #' synonyms("NBNSYS0000004629", db='nbn')
 #' synonyms("87e986b0873f648711900866fa8abde7", db='col')
@@ -123,18 +123,20 @@ synonyms.tsn <- function(id, ...) {
   fun <- function(x){
     if (is.na(x)) { NA } else {
       is_acc <- getacceptednamesfromtsn(x, ...)
-      if (is(is_acc, "list")) {
-        x <- is_acc$acceptedTsn
+      if (!is.na(is_acc$acceptedname)) {
+        x <- is_acc$acceptedtsn
         accdf <- setNames(data.frame(is_acc, stringsAsFactors = FALSE),
                           c("sub_tsn", "acc_name", "acc_tsn"))
-        message("Accepted name is '", is_acc$acceptedName, "'")
-        message("Using tsn ", is_acc$acceptedTsn, "\n")
+        message("Accepted name is '", is_acc$acceptedname, "'")
+        message("Using tsn ", is_acc$acceptedtsn, "\n")
       } else {
         accdf <- data.frame(sub_tsn = x, acc_tsn = x, stringsAsFactors = FALSE)
       }
       out <- setNames(getsynonymnamesfromtsn(x, ...), c('syn_name', 'syn_tsn'))
-      if (as.character(out[1,1]) == 'nomatch') out <- data.frame(message = "no syns found", stringsAsFactors = FALSE)
-        cbind(accdf, out)
+      if (as.character(out[1,1]) == 'nomatch') {
+        out <- data.frame(message = "no syns found", stringsAsFactors = FALSE)
+      }
+      cbind(accdf, out)
     }
   }
   setNames(lapply(id, fun), id)
@@ -161,10 +163,13 @@ col_synonyms <- function(x, ...) {
   out <- jsonlite::fromJSON(con_utf8(res), FALSE)
   tmp <- out$results[[1]]
   if ("synonyms" %in% names(tmp)) {
-    taxize_ldfast(lapply(tmp$synonyms, function(w) {
+    df <- taxize_ldfast(lapply(tmp$synonyms, function(w) {
       w[sapply(w, length) == 0] <- NA
+      w$references <- NULL
       data.frame(w, stringsAsFactors = FALSE)
     }))
+    df$rank <- tolower(df$rank)
+    df
   } else {
     NULL
   }

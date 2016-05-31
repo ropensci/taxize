@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 [![Build status](https://ci.appveyor.com/api/projects/status/6mgc02mkd8j4sq3g/branch/master)](https://ci.appveyor.com/project/sckott/taxize-175/branch/master)
 [![codecov.io](https://codecov.io/github/ropensci/taxize/coverage.svg?branch=master)](https://codecov.io/github/ropensci/taxize?branch=master)
 [![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/taxize)](https://github.com/metacran/cranlogs.app)
-[![cran version](http://www.r-pkg.org/badges/version/taxize)](http://cran.rstudio.com/web/packages/taxize)
+[![cran version](http://www.r-pkg.org/badges/version/taxize)](https://cran.r-project.org/package=taxize)
 
 
 `taxize` allows users to search over many taxonomic data sources for species names (scientific and common) and download up and downstream taxonomic hierarchical information - among other things.
@@ -155,7 +155,7 @@ Note that a few data sources require SOAP web services, which are difficult to s
 </tbody>
 </table>
 
-**: There are none! We suggest using `TPL` and `TPLck` functions in the [taxonstand package](https://cran.rstudio.com/package=Taxonstand). We provide two functions to get bullk data: `tpl_families` and `tpl_get`.
+**: There are none! We suggest using `TPL` and `TPLck` functions in the [taxonstand package](https://cran.r-project.org/package=Taxonstand). We provide two functions to get bullk data: `tpl_families` and `tpl_get`.
 
 \***: There are none! The function scrapes the web directly.
 
@@ -171,7 +171,7 @@ For more examples see the [tutorial][tut]
 
 ### Stable version from CRAN
 
-```{r install_stable, eval=FALSE}
+```{r eval=FALSE}
 install.packages("taxize")
 ```
 
@@ -179,12 +179,12 @@ install.packages("taxize")
 
 Windows users install [Rtools](http://cran.r-project.org/bin/windows/Rtools/) first.
 
-```{r install_dev, eval=FALSE}
+```{r eval=FALSE}
 install.packages("devtools")
-devtools::install_github("taxize", "ropensci")
+devtools::install_github("ropensci/taxize")
 ```
 
-```{r load}
+```{r}
 library('taxize')
 ```
 
@@ -265,6 +265,13 @@ sci2comm('Helianthus annuus', db = 'itis')
 comm2sci("black bear", db = "itis")
 ```
 
+## Lowest common rank among taxa
+
+```{r lowest}
+spp <- c("Sus scrofa", "Homo sapiens", "Nycticebus coucang")
+lowest_common(spp, db = "ncbi")
+```
+
 ## Coerce codes to taxonomic id classes
 
 `numeric` to `uid`
@@ -295,6 +302,14 @@ out <- as.uid(c(315567, 3339, 9696))
 + [Karthik Ram](https://github.com/karthik)
 + [Ignasi Bartomeus](https://github.com/ibartomeus)
 + [John Baumgartner](https://github.com/johnbaums)
++ [James O'Donnell](https://github.com/jimmyodonnell)
++ [Francois Michonneau](https://github.com/fmichonneau)
++ [Philippe Marchand](https://github.com/pmarchand1)
++ [Jari Oksanen](https://github.com/jarioksa)
++ [Oliver Keyes](https://github.com/Ironholds)
++ [Luis Villanueva](https://github.com/ljvillanueva)
++ [David LeBauer](https://github.com/dlebauer)
++ [Ben Marwick](https://github.com/benmarwick)
 
 ## Road map
 

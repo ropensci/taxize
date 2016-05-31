@@ -35,11 +35,13 @@ itis_hierarchy <- function(tsn=NULL, what="full", ...) {
   if (length(tsn) == 1) {
     tmp <- temp[[1]]
     names(tmp) <- tolower(names(tmp))
+    tmp$rankname <- tolower(tmp$rankname)
     tmp
   } else {
     names(temp) <- tsn
     lapply(temp, function(x){
       names(x) <- tolower(names(x))
+      x$rankname <- tolower(x$rankname)
       x
     })
   }

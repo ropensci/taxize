@@ -11,12 +11,12 @@
 #' \code{gbif}. Note that each taxonomic data source has their own identifiers, so that if you
 #' provide the wrong \code{db} value for the identifier you could get a result,
 #' but it will likely be wrong (not what you were expecting).
-#' @param downto What taxonomic rank to go down to. One of: 'Superkingdom','Kingdom',
-#' 'Subkingdom','Infrakingdom','Phylum','Division','Subphylum','Subdivision','Infradivision',
-#' 'Superclass','Class','Subclass','Infraclass','Superorder','Order','Suborder',
-#' 'Infraorder','Superfamily','Family','Subfamily','Tribe','Subtribe','Genus','Subgenus',
-#' 'Section','Subsection','Species','Subspecies','Variety','Form','Subvariety','Race',
-#' 'Stirp','Morph','Aberration','Subform','Unspecified'
+#' @param downto What taxonomic rank to go down to. One of: 'superkingdom','kingdom',
+#' subkingdom','infrakingdom','phylum','division','subphylum','subdivision','infradivision',
+#' 'superclass','class','subclass','infraclass','superorder','order','suborder',
+#' 'infraorder','superfamily','family','subfamily','tribe','subtribe','genus','subgenus',
+#' 'section','subsection','species','subspecies','variety','form','subvariety','race',
+#' 'stirp','morph','aberration','subform', or 'unspecified'
 #' @param intermediate (logical) If TRUE, return a list of length two with target
 #' taxon rank names, with additional list of data.frame's of intermediate
 #' taxonomic groups. Default: FALSE
@@ -32,63 +32,63 @@
 #' @examples \dontrun{
 #' # Plug in taxon IDs
 #' ## col Ids have to be character, as they are alphanumeric IDs
-#' downstream("015be25f6b061ba517f495394b80f108", db = "col", downto = "Species")
+#' downstream("015be25f6b061ba517f495394b80f108", db = "col", downto = "species")
 #' ## ITIS tsn ids can be numeric or character
-#' downstream("154395", db = "itis", downto = "Species")
-#' downstream(154395, db = "itis", downto = "Species")
+#' downstream("154395", db = "itis", downto = "species")
+#' downstream(154395, db = "itis", downto = "species")
 #'
 #' # Plug in taxon names
-#' downstream("Insecta", db = 'col', downto = 'Order')
-#' downstream("Apis", db = 'col', downto = 'Species')
-#' downstream("Apis", db = 'itis', downto = 'Species')
-#' downstream(c("Apis","Epeoloides"), db = 'itis', downto = 'Species')
-#' downstream(c("Apis","Epeoloides"), db = 'col', downto = 'Species')
-#' downstream("Ursus", db = 'gbif', downto = 'Species')
-#' downstream(get_gbifid("Ursus"), db = 'gbif', downto = 'Species')
+#' downstream("Insecta", db = 'col', downto = 'order')
+#' downstream("Apis", db = 'col', downto = 'species')
+#' downstream("Apis", db = 'itis', downto = 'species')
+#' downstream(c("Apis","Epeoloides"), db = 'itis', downto = 'species')
+#' downstream(c("Apis","Epeoloides"), db = 'col', downto = 'species')
+#' downstream("Ursus", db = 'gbif', downto = 'species')
+#' downstream(get_gbifid("Ursus"), db = 'gbif', downto = 'species')
 #'
 #' # Plug in IDs
 #' id <- get_colid("Apis")
-#' downstream(id, downto = 'Species')
+#' downstream(id, downto = 'species')
 #'
 #' ## Equivalently, plug in the call to get the id via e.g., get_colid into downstream
-#' identical(downstream(id, downto = 'Species'),
-#'          downstream(get_colid("Apis"), downto = 'Species'))
+#' identical(downstream(id, downto = 'species'),
+#'          downstream(get_colid("Apis"), downto = 'species'))
 #'
 #' id <- get_colid("Apis")
-#' downstream(id, downto = 'Species')
-#' downstream(get_colid("Apis"), downto = 'Species')
+#' downstream(id, downto = 'species')
+#' downstream(get_colid("Apis"), downto = 'species')
 #'
 #' # Many taxa
 #' sp <- names_list("genus", 3)
-#' downstream(sp, db = 'col', downto = 'Species')
-#' downstream(sp, db = 'itis', downto = 'Species')
-#' downstream(sp, db = 'gbif', downto = 'Species')
+#' downstream(sp, db = 'col', downto = 'species')
+#' downstream(sp, db = 'itis', downto = 'species')
+#' downstream(sp, db = 'gbif', downto = 'species')
 #'
 #' # Both data sources
 #' ids <- get_ids("Apis", db = c('col','itis'))
-#' downstream(ids, downto = 'Species')
+#' downstream(ids, downto = 'species')
 #' ## same result
-#' downstream(get_ids("Apis", db = c('col','itis')), downto = 'Species')
+#' downstream(get_ids("Apis", db = c('col','itis')), downto = 'species')
 #'
 #' # Collect intermediate names
 #' ## itis
-#' downstream('Bangiophyceae', db="itis", downto="Genus")
-#' downstream('Bangiophyceae', db="itis", downto="Genus", intermediate=TRUE)
-#' downstream(get_tsn('Bangiophyceae'), downto="Genus")
-#' downstream(get_tsn('Bangiophyceae'), downto="Genus", intermediate=TRUE)
+#' downstream('Bangiophyceae', db="itis", downto="genus")
+#' downstream('Bangiophyceae', db="itis", downto="genus", intermediate=TRUE)
+#' downstream(get_tsn('Bangiophyceae'), downto="genus")
+#' downstream(get_tsn('Bangiophyceae'), downto="genus", intermediate=TRUE)
 #' ## col
-#' downstream(get_colid("Animalia"), downto="Class")
-#' downstream(get_colid("Animalia"), downto="Class", intermediate=TRUE)
+#' downstream(get_colid("Animalia"), downto="class")
+#' downstream(get_colid("Animalia"), downto="class", intermediate=TRUE)
 #'
 #' # Use the rows parameter
 #' ## note how in the second function call you don't get the prompt
-#' downstream("Poa", db = 'col', downto="Species")
-#' downstream("Poa", db = 'col', downto="Species", rows=1)
+#' downstream("Poa", db = 'col', downto="species")
+#' downstream("Poa", db = 'col', downto="species", rows=1)
 #'
 #' # use curl options
-#' res <- downstream("Apis", db = 'col', downto = 'Species', config=verbose())
-#' res <- downstream("Apis", db = 'itis', downto = 'Species', config=verbose())
-#' res <- downstream("Ursus", db = 'gbif', downto = 'Species', config=verbose())
+#' res <- downstream("Apis", db = 'col', downto = 'species', config=verbose())
+#' res <- downstream("Apis", db = 'itis', downto = 'species', config=verbose())
+#' res <- downstream("Ursus", db = 'gbif', downto = 'species', config=verbose())
 #' }
 downstream <- function(...){
   UseMethod("downstream")
@@ -102,15 +102,15 @@ downstream.default <- function(x, db = NULL, downto = NULL, intermediate = FALSE
   switch(db,
          itis = {
            id <- process_stream_ids(x, db, get_tsn, rows = rows, ...)
-           setNames(downstream(id, downto = downto, intermediate = intermediate, ...), x)
+           setNames(downstream(id, downto = tolower(downto), intermediate = intermediate, ...), x)
          },
          col = {
            id <- process_stream_ids(x, db, get_colid, rows = rows, ...)
-           setNames(downstream(id, downto = downto, intermediate = intermediate, ...), x)
+           setNames(downstream(id, downto = tolower(downto), intermediate = intermediate, ...), x)
          },
          gbif = {
            id <- process_stream_ids(x, db, get_gbifid, rows = rows, ...)
-           setNames(downstream(id, downto = downto, intermediate = intermediate, ...), x)
+           setNames(downstream(id, downto = tolower(downto), intermediate = intermediate, ...), x)
          },
          stop("the provided db value was not recognised", call. = FALSE)
   )

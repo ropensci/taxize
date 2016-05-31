@@ -1,22 +1,29 @@
-R CMD CHECK passed on my local OS X install with R 3.2.2 and
-R development version, Ubuntu running on Travis-CI, and Win builder.
+## Release Summary
 
-This submission includes some defunct functions; a number of minor 
-improvements, and bug fixes.
+This submission fixes a number of bugs, clarifies location of
+defunct functions in a new package.
 
-There is one note on CRAN check results, for r-release-osx-x86_64-mavericks, and r-oldrel-windows-ix86+x86_64:
+## Test environments
 
-Result: NOTE 
-    gnr_resolve: possible error in nchar(preferred_data_sources, keepNA =
-     FALSE): unused argument (keepNA = FALSE)
-    ipni_search: possible error in nchar(res, keepNA = FALSE): unused
-     argument (keepNA = FALSE)
-    phylomatic_format : foo: possible error in nchar(as.character(dd$that),
-     keepNA = FALSE): unused argument (keepNA = FALSE) 
-     
-However, in this submission I require R(>= 3.2.1) in this package now, so users 
-will need to have a version of R that will have `keepNA` parameter in the `nchar()` 
-function. 
+* local OS X install, R 3.3.0
+* ubuntu 12.04 (on travis-ci), R 3.3.0
+* win-builder (devel and release)
+
+## R CMD check results
+
+0 errors | 0 warnings | 1 note
+
+* Note about license:
+License components with restrictions and base license permitting such:
+  MIT + file LICENSE
+File 'LICENSE':
+  YEAR: 2016
+  COPYRIGHT HOLDER: Scott Chamberlain
+
+## Reverse dependencies
+
+* I have run R CMD check on the 16 downstream dependencies (https://github.com/ropensci/taxize/blob/master/revdep/README.md).
+There are no problems related to taxize as far as I can tell.
 
 Thanks!
 Scott Chamberlain

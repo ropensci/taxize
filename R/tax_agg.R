@@ -24,30 +24,31 @@
 #'
 #' @seealso \code{\link[taxize]{tax_name}}
 #' @examples \dontrun{
-#' # use dune dataset
-#' library("vegan")
-#' data(dune, package='vegan')
-#' species <- c("Bellis perennis", "Empetrum nigrum", "Juncus bufonius",
-#' "Juncus articulatus",
-#' "Aira praecox", "Eleocharis parvula", "Rumex acetosa", "Vicia lathyroides",
-#' "Brachythecium rutabulum", "Ranunculus flammula", "Cirsium arvense",
-#' "Hypochaeris radicata", "Leontodon autumnalis", "Potentilla palustris",
-#' "Poa pratensis", "Calliergonella cuspidata", "Trifolium pratense",
-#' "Trifolium repens", "Anthoxanthum odoratum", "Salix repens", "Achillea
-#' millefolium",
-#' "Poa trivialis", "Chenopodium album", "Elymus repens", "Sagina procumbens",
-#' "Plantago lanceolata", "Agrostis stolonifera", "Lolium perenne", "Alopecurus
-#' geniculatus",
-#' "Bromus hordeaceus")
-#' colnames(dune) <- species
+#' if (requireNamespace("vegan", quietly = TRUE)) {
+#'   # use dune dataset
+#'   library("vegan")
+#'   data(dune, package='vegan')
+#'   species <- c("Bellis perennis", "Empetrum nigrum", "Juncus bufonius",
+#'   "Juncus articulatus",
+#'   "Aira praecox", "Eleocharis parvula", "Rumex acetosa", "Vicia lathyroides",
+#'   "Brachythecium rutabulum", "Ranunculus flammula", "Cirsium arvense",
+#'   "Hypochaeris radicata", "Leontodon autumnalis", "Potentilla palustris",
+#'   "Poa pratensis", "Calliergonella cuspidata", "Trifolium pratense",
+#'   "Trifolium repens", "Anthoxanthum odoratum", "Salix repens", "Achillea
+#'   millefolium",
+#'   "Poa trivialis", "Chenopodium album", "Elymus repens", "Sagina procumbens",
+#'   "Plantago lanceolata", "Agrostis stolonifera", "Lolium perenne", "Alopecurus
+#'   geniculatus", "Bromus hordeaceus")
+#'   colnames(dune) <- species
 #'
-#' # aggregate sample to families
-#' (agg <- tax_agg(dune, rank = 'family', db = 'ncbi'))
+#'   # aggregate sample to families
+#'   (agg <- tax_agg(dune, rank = 'family', db = 'ncbi'))
 #'
-#' # extract aggregated community data matrix for further usage
-#' agg$x
-#' # check which taxa have been aggregated
-#' agg$by
+#'   # extract aggregated community data matrix for further usage
+#'   agg$x
+#'   # check which taxa have been aggregated
+#'   agg$by
+#' }
 #'
 #' # A use case where there are different taxonomic levels in the same dataset
 #' spnames <- c('Puma','Ursus americanus','Ursidae')

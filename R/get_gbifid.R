@@ -17,6 +17,7 @@
 #' @param rank (character) A taxonomic rank name. See \code{\link{rank_ref}} for possible
 #' options. Though note that some data sources use atypical ranks, so inspect the
 #' data itself for options. Optional. See \code{Filtering} below.
+#' @param method (character) one of "backbone" or "lookup". See Details.
 #' @param x Input to \code{\link{as.gbifid}}
 #' @param check logical; Check if ID matches any existing on the DB, only used in
 #' \code{\link{as.gbifid}}
@@ -35,6 +36,14 @@
 #' @details Internally in this function we use a function to search GBIF's taxonomy,
 #' and if we find an exact match we return the ID for that match. If there isn't an
 #' exact match we return the options to you to pick from.
+#'
+#' @section method parameter:
+#' "backbone" uses the \code{/species/match} GBIF API route, matching against their
+#' backbone taxonomy. We turn on fuzzy matching by default, as the search without
+#' fuzzy against backbone is quite narrow. "lookup" uses the \code{/species/search}
+#' GBIF API route, doing a full text search of name usages covering scientific
+#' and vernacular named, species descriptions, distributions and the entire
+#' classification.
 #'
 #' @section Filtering:
 #' The parameters \code{phylum}, \code{class}, \code{order}, \code{family}, and \code{rank}
@@ -65,22 +74,21 @@
 #' ### Results w/o narrowing
 #' get_gbifid("Satyrium")
 #' ### w/ phylum
-#' get_gbifid("Satyrium", phylum = "Magnoliophyta")
+#' get_gbifid("Satyrium", phylum = "Tracheophyta")
 #' get_gbifid("Satyrium", phylum = "Arthropoda")
 #' ### w/ phylum & rank
 #' get_gbifid("Satyrium", phylum = "Arthropoda", rank = "genus")
 #'
 #' ## Rank example
-#' get_gbifid("Poa")
-#' get_gbifid("Poa", rank = "order")
-#' get_gbifid("Poa", rank = "family")
-#' get_gbifid("Poa", family = "Coccidae")
+#' get_gbifid("Poa", method = "lookup")
+#' get_gbifid("Poa", method = "lookup", rank = "genus")
+#' get_gbifid("Poa", method = "lookup", family = "Thripidae")
 #'
 #' # Fuzzy filter on any filtering fields
 #' ## uses grep on the inside
 #' get_gbifid("Satyrium", phylum = "arthropoda")
-#' get_gbifid("Poa", order = "*tera")
-#' get_gbifid("Poa", order = "*ales")
+#' get_gbifid("A*", method = "lookup", order = "*tera")
+#' get_gbifid("A*", method = "lookup", order = "*ales")
 #'
 #' # Convert a uid without class information to a uid class
 #' as.gbifid(get_gbifid("Poa annua")) # already a uid, returns the same
@@ -115,14 +123,16 @@
 
 get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
                        phylum = NULL, class = NULL, order = NULL,
-                       family = NULL, rank = NULL, ...){
+                       family = NULL, rank = NULL, method = "backbone", ...) {
 
   fun <- function(sciname, ask, verbose, rows, ...) {
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
-    df <- gbif_name_suggest(q = sciname, fields = c("key", "canonicalName", "rank",
-                                                    "class", "phylum", "order", "family"), ...)
+    df <- switch(
+      method,
+      backbone = gbif_name_backbone(sciname, ...),
+      lookup = gbif_name_lookup(sciname, ...)
+    )
     df <- sub_rows(df, rows)
-    df <- rename(df, c('canonicalName' = 'canonicalname'))
 
     if (is.null(df))
       df <- data.frame(NULL)
@@ -173,6 +183,9 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
           }
 
           if (length(id) > 1) {
+            # limit to subset of columns for ease of use
+            df <- df[, switch(method, backbone = gbif_cols_show_backbone, lookup = gbif_cols_show_lookup)]
+
             # prompt
             message("\n\n")
             message("\nMore than one eolid found for taxon '", sciname, "'!\n
@@ -207,37 +220,6 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
   out <- lapply(as.character(sciname), fun, ask, verbose, rows, ...)
   ids <- structure(sapply(out, "[[", "id"), class = "gbifid", match = sapply(out, "[[", "att"))
   add_uri(ids, 'http://www.gbif.org/species/%s')
-}
-
-gbif_name_suggest <- function(q=NULL, datasetKey=NULL, rank=NULL, fields=NULL, start=NULL,
-                         limit=20, ...) {
-
-  url = 'http://api.gbif.org/v1/species/suggest'
-  args <- tc(list(q = q, rank = rank, offset = start, limit = limit))
-  temp <- GET(url, query = argsnull(args), ...)
-  stop_for_status(temp)
-  tt <- jsonlite::fromJSON(con_utf8(temp), FALSE)
-  if (is.null(fields)) {
-    toget <- c("key", "scientificName", "rank")
-  } else {
-    toget <- fields
-  }
-  matched <- sapply(toget, function(x) x %in% gbif_suggestfields())
-  if (!any(matched)) {
-    stop(sprintf("the fields %s are not valid", paste0(names(matched[matched == FALSE]), collapse = ",")))
-  }
-  out <- lapply(tt, function(x) x[names(x) %in% toget])
-  do.call(rbind.fill, lapply(out, data.frame))
-}
-
-gbif_suggestfields <- function() {
-  c("key", "datasetTitle", "datasetKey", "nubKey", "parentKey", "parent",
-    "kingdom", "phylum", "clazz", "order", "family", "genus", "species",
-    "kingdomKey", "phylumKey", "classKey", "orderKey", "familyKey", "genusKey",
-    "speciesKey", "scientificName", "canonicalName", "authorship",
-    "accordingTo", "nameType", "taxonomicStatus", "rank", "numDescendants",
-    "numOccurrences", "sourceId", "nomenclaturalStatus", "threatStatuses",
-    "synonym")
 }
 
 #' @export
@@ -283,13 +265,17 @@ check_gbifid <- function(x){
 
 #' @export
 #' @rdname get_gbifid
-get_gbifid_ <- function(sciname, verbose = TRUE, rows = NA){
-  setNames(lapply(sciname, get_gbifd_help, verbose = verbose, rows = rows), sciname)
+get_gbifid_ <- function(sciname, verbose = TRUE, rows = NA, method = "backbone"){
+  setNames(lapply(sciname, get_gbifd_help, verbose = verbose, rows = rows, method = method), sciname)
 }
 
-get_gbifd_help <- function(sciname, verbose, rows){
+get_gbifd_help <- function(sciname, verbose, rows, method){
   mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
-  df <- gbif_name_suggest(q = sciname, fields = c("key","canonicalName","rank"))
+  df <- switch(
+    method,
+    backbone = gbif_name_backbone(sciname),
+    lookup = gbif_name_lookup(sciname)
+  )
   if (!is.null(df)) df <- nmslwr(df)
   sub_rows(df, rows)
 }

@@ -214,6 +214,7 @@ classification.tsn <- function(id, callopts = list(), return_id = TRUE, ...) {
       names(out) <- c('name', 'rank', 'id')
       # Optionally return tsn of lineage
       if (!return_id) out <- out[, c('name', 'rank')]
+      out$rank <- tolower(out$rank)
       return(out)
     }
   }
@@ -247,6 +248,7 @@ classification.uid <- function(id, callopts = list(), return_id = TRUE, ...) {
       )
       # Optionally return tsn of lineage
       if (!return_id) out <- out[, c('name', 'rank')]
+      out$rank <- tolower(out$rank)
       return(out)
     }
     # NCBI limits requests to three per second
@@ -283,6 +285,7 @@ classification.eolid <- function(id, key = NULL, callopts = list(), return_id = 
         names(out) <- c('name', 'rank', 'id')
         # Optionally return id of lineage
         if (!return_id) out <- out[, c('name', 'rank')]
+        out$rank <- tolower(out$rank)
         return(out)
       }
     }
@@ -313,6 +316,7 @@ classification.colid <- function(id, start = NULL, checklist = NULL,
                           xml2::xml_text(xml2::xml_find_one(tt, "//result/id"))))
       # Optionally return id of lineage
       if (!return_id) out <- out[, c('name', 'rank')]
+      out$rank <- tolower(out$rank)
     }
     return(out)
   }
@@ -324,8 +328,11 @@ classification.colid <- function(id, start = NULL, checklist = NULL,
 search_col_classification_df <- function(x) {
   name <- xml2::xml_text(xml2::xml_find_all(x, "//classification//name"))
   rank <- xml2::xml_text(xml2::xml_find_all(x, "//classification//rank"))
-  ids <- xml2::xml_text(xml2::xml_find_all(x, "//classification//id"))
-  data.frame(name, rank, ids, stringsAsFactors = FALSE)
+  id <- xml2::xml_text(xml2::xml_find_all(x, "//classification//id"))
+  if (any(grepl("species", rank, ignore.case = TRUE))) {
+    name[which(rank %in% "Species")] <- paste(name[which(rank %in% "Genus")], name[which(rank %in% "Species")], collapse = " ")
+  }
+  data.frame(name, rank, id, stringsAsFactors = FALSE)
 }
 
 
@@ -350,6 +357,7 @@ classification.tpsid <- function(id, key = NULL, callopts = list(), return_id = 
       names(out) <- c('name', 'rank', 'id')
       # Optionally return id of lineage
       if (!return_id) out <- out[, c('name', 'rank')]
+      out$rank <- tolower(out$rank)
     }
     return(out)
   }
@@ -372,7 +380,7 @@ classification.gbifid <- function(id, callopts = list(), return_id = TRUE, ...) 
         nms <- ldply(out[c('kingdom','phylum','class','order','family','genus','species')])
         keys <- unname(unlist(out[paste0(c('kingdom','phylum','class','order','family','genus','species'), "Key")]))
         df <- data.frame(name = nms$V1, rank = nms$.id, id = keys, stringsAsFactors = FALSE)
-
+        df$rank <- tolower(df$rank)
         # Optionally return id of lineage
         if (!return_id) df[, c('name', 'rank')] else df
       }
@@ -398,6 +406,7 @@ classification.nbnid <- function(id, callopts = list(), return_id = TRUE, ...) {
         names(out) <- c('name', 'rank', 'id')
         # Optionally return id of lineage
         if (!return_id) out <- out[, c('name', 'rank')]
+        out$rank <- tolower(out$rank)
         return(out)
       }
     }
@@ -487,6 +496,10 @@ cbind.classification_ids <- function(...) {
     })
   )
   move_col(tt = dat, y = c('query','db'))
+}
+
+foo <- function(...) {
+  c(...)
 }
 
 #' @export

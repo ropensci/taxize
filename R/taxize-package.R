@@ -52,7 +52,7 @@
 #' @importFrom graphics plot
 #' @importFrom methods as is
 #' @importFrom stats as.dist hclust na.omit setNames aggregate
-#' @importFrom utils URLencode citation download.file read.delim write.table
+#' @importFrom utils URLencode citation download.file read.delim write.table tail
 #' @importFrom ape read.tree as.phylo.hclust plot.phylo
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom httr GET POST content stop_for_status upload_file warn_for_status
@@ -65,6 +65,7 @@
 #' @importFrom xml2 xml_text xml_find_one xml_find_all xml_children read_xml
 #' xml_name xml_ns as_list
 #' @importFrom rredlist rl_search
+#' @importFrom rotl tnrs_match_names
 #' @name taxize-package
 #' @aliases taxize
 #' @docType package
@@ -188,14 +189,19 @@ NULL
 #'  \item \code{\link{ncbi_search}}: See \code{ncbi_searcher} in the \pkg{traits} package.
 #'  \item \code{\link{eol_invasive}}: See \code{eol} in the \pkg{originr} package.
 #'  \item \code{\link{gisd_isinvasive}}: See \code{gisd} in the \pkg{originr} package.
-#'  \item \code{\link{ubio_classification}}: The uBio web services are apparently down
-#'  indefinitely.
-#'  \item \code{\link{ubio_classification_search}}: The uBio web services are apparently
-#'  down indefinitely.
-#'  \item \code{\link{ubio_id}}: The uBio web services are apparently down indefinitely.
-#'  \item \code{\link{ubio_ping}}: The uBio web services are apparently down indefinitely.
-#'  \item \code{\link{ubio_search}}: The uBio web services are apparently down indefinitely.
-#'  \item \code{\link{ubio_synonyms}}: The uBio web services are apparently down indefinitely.
+#'  \item \code{\link{ubio_classification}}:  The uBio web services was down for quite a while, is
+#'  now (as of 2016-05-09) back up, but we don't trust that it will stay up and available.
+#'  \item \code{\link{ubio_classification_search}}: The uBio web services was down for quite
+#'  a while, is now (as of 2016-05-09) back up, but we don't trust that it will stay up
+#'  and available.
+#'  \item \code{\link{ubio_id}}: The uBio web services was down for quite a while, is
+#'  now (as of 2016-05-09) back up, but we don't trust that it will stay up and available.
+#'  \item \code{\link{ubio_ping}}:  The uBio web services was down for quite a while, is
+#'  now (as of 2016-05-09) back up, but we don't trust that it will stay up and available.
+#'  \item \code{\link{ubio_search}}:  The uBio web services was down for quite a while, is
+#'  now (as of 2016-05-09) back up, but we don't trust that it will stay up and available.
+#'  \item \code{\link{ubio_synonyms}}:  The uBio web services was down for quite a while, is
+#'  now (as of 2016-05-09) back up, but we don't trust that it will stay up and available.
 #'  \item \code{\link{get_ubioid}}: The uBio web services are apparently down indefinitely.
 #'  \item \code{\link{phylomatic_tree}}: This function is defunct. See
 #'  \code{phylomatic} in the package \pkg{brranching}

@@ -1,3 +1,105 @@
+taxize 0.7.6
+============
+
+## MINOR IMPROVEMENTS
+
+* Changed defunct messages in `eol_invasive()` and `gisd_invasive()`
+to point to new location in the [originr](https://github.com/ropenscilabs/originr)
+package. Also, cleaned out code in those functions as not avail.
+anymore (#494)
+* Access to IUCN taxonomy information is now provided through the newish
+[rredlist](https://github.com/ropenscilabs/rredlist) package. (Two issues
+dealing with IUCN problems (#475) (#492))
+
+## BUG FIXES
+
+* Fix to `get_gbifid()` to use new internal code to provide two
+ways to search GBIF taxonomy API, either via `/species/match` or via
+`/species/search`, instead of `/species/suggest`, which we used previously.
+The suggest route was too coarse. `get_gbifid()` also gains a parameter
+`method` to toggle whether you search for names using `/species/match` or
+`/species/search`.  (#528)
+* Fix for `col_search()` to handle when COL can return a value of
+`missapplied name`, which a `switch()` statement didn't handle yet (#511)
+thanks @JoStaerk !
+* Fixes for `get_colid()` and `col_search()` (#523) thanks @zachary-foster !
+
+taxize 0.7.5
+============
+
+## BUG FIXES
+
+* Fixed bug in the package dependency `bold`, which fixes
+`taxize::bold_search()`, so no actual changes in `taxize` for
+this, but take note (#521)
+* Fixed problem in `gnr_resolve()` where we indexed to data
+incorrectly. And added tests to account for this problem.
+Thanks @raredd ! (#519) (#520)
+* Fixed bug in `iucn_summary()` introduced in last version.
+`iucn_summary()` now uses the package `rredlist`, which requires
+an API key, and I didn't document how to use the key. Function
+now allows user to pass the key in as a parameter, and documents
+how to get a key and save it in either `.Renviron` or in
+`.Rprofile` (#522)
+
+
+taxize 0.7.4
+===============
+
+## NEW FEATURES
+
+* New function `lowest_common()` for obtaining the lowest common taxon and
+rank for a given taxon name or ID. Methods so far for ITIS, NCBI, and GBIF (#505)
+* New contributor James O'Donnell (@jimmyodonnell) (via #505)
+* Now importing `rredlist` [rredlist](https://github.com/ropenscilabs/rredlist)
+* New function `iucn_summary_id()` - same as `iucn_summary()`, except takes
+IUCN IDs as input instead of taxonomic names (#493)
+* All taxonomic rank columns in data.frame's now given back as lower case.
+This provides consistency, which is important, and many functions use ranks
+to determine what to do next, so using a consistent case is good.
+
+## MINOR IMPROVEMENTS
+
+* `iucn_summary()` fixes, long story short: a number of bug fixes, and uses
+the new IUCN API via the newish package `rredlist` when IDs are given as input,
+but uses the old IUCN API when taxonomic names given. Also: gains new parameter `distr_details`
+(#174) (#472) (#487) (#488)
+* Replaced `XML` with `xml2` for XML parsing (#499)
+* Fixes to internal use of `httr::content` to explicitly state `encoding="UTF-8"` (#498)
+* `gnr_resolve()` now outputs a column (`user_supplied_name`) for the exact input taxon
+name - facilitates merging data back to original data inputs (#486) thanks @Alectoria
+* `eol_dataobjects()` gains new parameter `taxonomy` to toggle whether to return
+any taxonomy details from different data providers (#497)
+* Catalogue of Life URLs changed - updated all appropriate COL functions to use
+the new URLs (#501)
+* `classification()` was giving back rank values in mixed case from different data
+providers (e.g., `class` vs. `Class`). All rank values are now all lowercase (#504)
+* Changed number of results returned from internal GBIF search in `get_gbfid` to
+50 from 20. Gives back more results, so more likely to get the thing searched for (#513)
+* Fix to `gni_search()` to make all output columns `character` class
+* `iucn_id()`, `tpl_families()`, and `tpl_get()` all gain a new parameter `...` to
+pass on curl options to `httr::GET()`
+
+## BUG FIXES
+
+* Fixes to `get_eolid()`: URI returned now always has the pageid, and goes to the
+right place; API key if passed in now actually used, woopsy (#484)
+* Fixes to `get_uid()`: when a taxon not found, the "match" attribute was saying
+found sometimes anyway - that is now fixed; additionally, fixed docs to correctly
+state that we give back `'NA due to ask=FALSE'` when `ask = FALSE` (#489) Additionally,
+made this doc fix in other `get_*()` function docs
+* Fix to `apgOrders()` function (#490)
+* Fixes to `tp_search()` which fixes `get_tpsid()`: Tropicos doesn't allow periods (`.`) in
+query strings, so those are URL encoded now; Tropicos doesn't like sub-specific rank names
+in name query strings, so we warn when those are found, but don't alter user inputs; and
+improved docs to be more clear about how the function fails (#491) thanks @scelmendorf !
+* Fix to `classification(db = "itis")` to fail better when no taxa found (#495) thanks @ashenkin !
+* `eol_pages()` fixes: the EOL API route for this method gained a new parameter `taxonomy`,
+this function gains that parameter. That change caused this fxn to fail. Now fixed. Also,
+parameter `subject` changed to `subjects` (#500)
+* Fix to `col_search()` due to when `misapplied name` come back as a data slot. There
+was previously no parser for that type. Now there is, and it works (#512)
+
 taxize 0.7.0
 ===============
 
