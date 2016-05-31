@@ -37,7 +37,6 @@ genbank2uid <- function(id, batch_size = 100, ...){
     result <- xml_text(xml_find_all(read_xml(con_utf8(res)), "//LinkSetDb//Link[position()=1]//Id"))
     if (length(result) != length(id)) {
       result <- rep(as.character(NA), length(id))
-      warning("An error occured looking up taxon ID(s).")
     }
     Sys.sleep(0.34) # NCBI limits requests to three per second
     return(result)
@@ -48,6 +47,15 @@ genbank2uid <- function(id, batch_size = 100, ...){
   matched <- rep("found", length(result))
   matched[is.na(result)] <- "not found"
   attr(result, "match") <- matched
+  
+  if (any(is.na(result))) {
+    warning("An error occured looking up taxon ID(s).")
+    if (batch_size > 1 && length(id) > 1) {
+      warning("NOTE: This function looks up IDs in batches to save time. However, the way that NCBI has implemented the API we use makes it so we cannot tell which IDs failed when a batch failed. Therefore, as few as one ID could be invalid yet still cause the whole batch to be NA. To identify the invalid IDs, set the 'batch_size' option to 1 and rerun the command.")
+    }
+  }
+  
+  
   return(result)
 }
 
