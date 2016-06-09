@@ -804,7 +804,7 @@ gettsnbyvernacularlanguage <- function(language, ...) {
 #' @keywords internal
 gettsnfromlsid <- function(lsid, ...) {
 	out <- itis_GET("getTSNFromLSID", list(lsid = lsid), ...)
-	tmp <- suppressWarnings(as.numeric(xml_text(xml_find_one(out, "ns:return", xml_ns(out)))))
+	tmp <- suppressWarnings(as.numeric(xml_text(xml_find_first(out, "ns:return", xml_ns(out)))))
   if (!is.na(tmp)) {
     tmp
   } else {
@@ -943,23 +943,23 @@ searchforanymatch <- function(x, ...) {
 	  me <- xml_find_all(out, "//ax21:anyMatchList", ns)
 	  comname <- vapply(me, foosam, "", y = 'commonName', ns = ns)
 	  comname_lang <- vapply(me, foosam, "", y = 'language', ns = ns)
-	  sciname <- vapply(me, function(x) xml_text(xml_find_one(x, "ax21:sciName", ns)), "")
-	  tsn <- vapply(me, function(x) xml_text(xml_find_one(x, "ax21:tsn", ns)), "")
+	  sciname <- vapply(me, function(x) xml_text(xml_find_first(x, "ax21:sciName", ns)), "")
+	  tsn <- vapply(me, function(x) xml_text(xml_find_first(x, "ax21:tsn", ns)), "")
 	  data.frame(tsn=tsn, sciname=sciname, comname=comname, comname_lang=comname_lang, stringsAsFactors = FALSE)
 	} else {
 	  me <- xml_find_all(out, "//ax21:commonNames", ns)
-	  comname <- sapply(me, function(x) xml_text(xml_find_one(x, "ax21:commonName", ns)))
-	  comname_tsn <- sapply(me, function(x) xml_text(xml_find_one(x, "ax21:tsn", ns)))
-	  comname_lang <- sapply(me, function(x) xml_text(xml_find_one(x, "ax21:language", ns)))
+	  comname <- sapply(me, function(x) xml_text(xml_find_first(x, "ax21:commonName", ns)))
+	  comname_tsn <- sapply(me, function(x) xml_text(xml_find_first(x, "ax21:tsn", ns)))
+	  comname_lang <- sapply(me, function(x) xml_text(xml_find_first(x, "ax21:language", ns)))
 	  data.frame(tsn=comname_tsn, comname=comname, comname_lang=comname_lang, stringsAsFactors = FALSE)
 	}
 }
 
 foosam <- function(x, y, ns) {
-  tt <- xml_find_one(x, "ax21:commonNameList", ns)
+  tt <- xml_find_first(x, "ax21:commonNameList", ns)
   ttt <- tryCatch(xml_find_all(tt, "ax21:commonNames", ns), error = function(e) e)
   if (!is(ttt, "error")) {
-    tttt <- tryCatch(xml_find_one(ttt, paste0("ax21:", y), ns), error = function(e) e)
+    tttt <- tryCatch(xml_find_first(ttt, paste0("ax21:", y), ns), error = function(e) e)
     if (!is(ttt, "error")) {
       xx <- xml_text(tttt)
       if (length(xx) > 1) {
@@ -999,14 +999,14 @@ searchforanymatchpaged <- function(x, pagesize = NULL, pagenum = NULL, ascend = 
     me <- xml_find_all(out, "//ax21:anyMatchList", ns)
     comname <- vapply(me, foosam, "", y = 'commonName', ns = ns)
     comname_lang <- vapply(me, foosam, "", y = 'language', ns = ns)
-    sciname <- vapply(me, function(x) xml_text(xml_find_one(x, "ax21:sciName", ns)), "")
-    tsn <- vapply(me, function(x) xml_text(xml_find_one(x, "ax21:tsn", ns)), "")
+    sciname <- vapply(me, function(x) xml_text(xml_find_first(x, "ax21:sciName", ns)), "")
+    tsn <- vapply(me, function(x) xml_text(xml_find_first(x, "ax21:tsn", ns)), "")
     data.frame(tsn=tsn, sciname=sciname, comname=comname, comname_lang=comname_lang, stringsAsFactors = FALSE)
   } else {
     me <- xml_find_all(out, "//ax21:commonNames", ns)
-    comname <- sapply(me, function(x) xml_text(xml_find_one(x, "ax21:commonName", ns)))
-    comname_tsn <- sapply(me, function(x) xml_text(xml_find_one(x, "ax21:tsn", ns)))
-    comname_lang <- sapply(me, function(x) xml_text(xml_find_one(x, "ax21:language", ns)))
+    comname <- sapply(me, function(x) xml_text(xml_find_first(x, "ax21:commonName", ns)))
+    comname_tsn <- sapply(me, function(x) xml_text(xml_find_first(x, "ax21:tsn", ns)))
+    comname_lang <- sapply(me, function(x) xml_text(xml_find_first(x, "ax21:language", ns)))
     data.frame(tsn=comname_tsn, comname=comname, comname_lang=comname_lang, stringsAsFactors = FALSE)
   }
 }

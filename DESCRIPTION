@@ -43,4 +43,5 @@ Suggests:
     knitr,
     vegan,
     covr
+Remotes: hadley/xml2
 RoxygenNote: 5.0.1

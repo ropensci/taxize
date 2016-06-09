@@ -52,7 +52,7 @@ col_ping <- function(what = "status", ...) {
          status = match_status(res),
          code = match_code(res, what),
          content = identical("Apis",
-           xml_text(xml_find_one(xml_children(xml2::read_xml(con_utf8(res)))[[1]], "name")))
+           xml_text(xml_find_first(xml_children(xml2::read_xml(con_utf8(res)))[[1]], "name")))
   )
 }
 
@@ -88,7 +88,7 @@ ncbi_ping <- function(what = "status", ...) {
          status = match_status(res),
          code = match_code(res, what),
          content = identical("4232",
-                             xml_text(xml_find_one(xml_children(read_xml(con_utf8(res)))[[1]], "TaxId")))
+                             xml_text(xml_find_first(xml_children(read_xml(con_utf8(res)))[[1]], "TaxId")))
   )
 }
 

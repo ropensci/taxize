@@ -28,7 +28,7 @@
 #' fg_name_full_by_lsid("urn:lsid:indexfungorum.org:names:81085")
 #'
 #' # AllUpdatedNames
-#' fg_all_updated_names(date=20160128)
+#' fg_all_updated_names(date = gsub("-", "", Sys.Date() - 2))
 #'
 #' # DeprecatedNames
 #' fg_deprecated_names(date=20151001)

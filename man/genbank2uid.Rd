@@ -4,10 +4,12 @@
 \alias{genbank2uid}
 \title{Get NCBI taxonomy UID from GenBankID}
 \usage{
-genbank2uid(id, ...)
+genbank2uid(id, batch_size = 100, ...)
 }
 \arguments{
 \item{id}{A GenBank accession alphanumeric string, or a gi numeric string.}
+
+\item{batch_size}{The number of queries to submit at a time.}
 
 \item{...}{Curl args passed on to \code{\link[httr]{GET}}}
 }

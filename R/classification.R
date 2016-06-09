@@ -311,9 +311,9 @@ classification.colid <- function(id, start = NULL, checklist = NULL,
       tt <- xml2::read_xml(con_utf8(out))
       out <- search_col_classification_df(tt)
       # add query-ied taxon
-      out <- rbind(out, c(xml2::xml_text(xml2::xml_find_one(tt, "//result/name")),
-                          xml2::xml_text(xml2::xml_find_one(tt, "//result/rank")),
-                          xml2::xml_text(xml2::xml_find_one(tt, "//result/id"))))
+      out <- rbind(out, c(xml2::xml_text(xml2::xml_find_first(tt, "//result/name")),
+                          xml2::xml_text(xml2::xml_find_first(tt, "//result/rank")),
+                          xml2::xml_text(xml2::xml_find_first(tt, "//result/id"))))
       # Optionally return id of lineage
       if (!return_id) out <- out[, c('name', 'rank')]
       out$rank <- tolower(out$rank)
