@@ -27,7 +27,7 @@ Imports:
     stats,
     utils,
     httr (>= 1.1.0),
-    xml2 (>= 0.1.2),
+    xml2 (>= 0.1.2.9000),
     jsonlite,
     reshape2,
     stringr,
