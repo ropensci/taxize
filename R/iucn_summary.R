@@ -92,6 +92,9 @@ get_iucn_summary <- function(query, silent, parallel, distr_detail, by_id, key =
         sciname_q <- strsplit(query, " ")
         spec <- tolower(paste(sciname_q[[1]][1], sciname_q[[1]][2]))
         res <- tryCatch(rredlist::rl_search(spec, key = key), error = function(e) e)
+        if (inherits(res, "error")) {
+          stop(res$message, " - see ?iucn_summary and http://apiv3.iucnredlist.org/api/v3/token", call. = FALSE)
+        }
         if (!inherits(res, "try-error") && NROW(res$result) > 0) {
             df <- unique(res$result)
             #check if there are several matches
