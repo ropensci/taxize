@@ -242,14 +242,18 @@ classification.uid <- function(id, callopts = list(), return_id = TRUE, ...) {
                         rank = xml2::xml_text(xml2::xml_find_all(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/Rank")),
                         id = xml2::xml_text(xml2::xml_find_all(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/TaxId")),
                         stringsAsFactors = FALSE)
-      out <- rbind(out, c(xml2::xml_text(xml2::xml_find_all(ttp, "//TaxaSet/Taxon/ScientificName")),
-                          xml2::xml_text(xml2::xml_find_all(ttp, "//TaxaSet/Taxon/Rank")),
-                          xml2::xml_text(xml2::xml_find_all(ttp, "//TaxaSet/Taxon/TaxId")))
-      )
-      # Optionally return tsn of lineage
-      if (!return_id) out <- out[, c('name', 'rank')]
-      out$rank <- tolower(out$rank)
-      return(out)
+      if (NROW(out) == 0) {
+        out <- NA
+      } else {
+        out <- rbind(out, c(xml2::xml_text(xml2::xml_find_all(ttp, "//TaxaSet/Taxon/ScientificName")),
+                            xml2::xml_text(xml2::xml_find_all(ttp, "//TaxaSet/Taxon/Rank")),
+                            xml2::xml_text(xml2::xml_find_all(ttp, "//TaxaSet/Taxon/TaxId")))
+        )
+        # Optionally return tsn of lineage
+        if (!return_id) out <- out[, c('name', 'rank')]
+        out$rank <- tolower(out$rank)
+        return(out)
+      }
     }
     # NCBI limits requests to three per second
     Sys.sleep(0.33)

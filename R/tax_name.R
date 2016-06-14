@@ -75,6 +75,7 @@ do_ncbi <- function(query, get, verbose, both=FALSE, ...) {
     if (both) c(query, rep(NA, length(get))) else setNames(data.frame(t(c("ncbi", query, rep(NA, length(get))))), c("db", "query", get))
   } else {
     hierarchy <- classification(uid, ...)[[1]]
+    if (all(is.na(hierarchy))) return(NULL)
     match <- hierarchy$name[match(tolower(get), tolower(hierarchy$rank))]
     if (both) c(query, match) else setNames(data.frame(t(c("ncbi", query, match)), stringsAsFactors = FALSE), c("db", "query", get))
   }
