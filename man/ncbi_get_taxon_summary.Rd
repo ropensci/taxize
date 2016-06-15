@@ -7,7 +7,7 @@
 ncbi_get_taxon_summary(id, ...)
 }
 \arguments{
-\item{id}{(character) NCBI taxonomy uids to retrieve information for.}
+\item{id}{(character) NCBI taxonomy uids to retrieve information for. See Details.}
 
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
@@ -22,6 +22,12 @@ A \code{data.frame} with the following rows:
 \description{
 Downloads summary taxon information from the NCBI taxonomy databases
 for a set of taxonomy UIDs using eutils esummary.
+}
+\details{
+If your input vector or list of NCBI IDs is longer than about 8000 characters
+(use \code{nchar(paste(ids, collapse = "+"))}), split the list up into chunks since
+at about that number of characters you will run into the HTTP 414 error
+"Request-URI Too Long".
 }
 \examples{
 \dontrun{
