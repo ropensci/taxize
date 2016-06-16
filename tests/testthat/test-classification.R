@@ -75,10 +75,6 @@ test_that("classification returns the correct values and classes", {
 # 	expect_that(clas_tp, is_a("classification"))
 # 	expect_that(clas_tp[[1]], is_a("data.frame"))
 # 	expect_that(length(clas_tp), equals(2))
-})
-
-test_that("check S3-methods for tsn and uid class", {
-  skip_on_cran()
 
   uids <- get_uid(c("Chironomus riparius", "aaa vva"), verbose=FALSE)
   tsns <- get_tsn(c("Chironomus riparius", "aaa vva"), verbose=FALSE)
