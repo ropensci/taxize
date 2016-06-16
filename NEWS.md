@@ -3,17 +3,19 @@ taxize 0.7.8
 
 ## MINOR IMPROVEMENTS
 
-* xxx (#xxx)
-* xxx (#xxx)
-* xxx (#xxx)
-* xxx (#xxx)
+* Fix to `iucn_summary()` (#543) thanks @mcsiple
+* Added message for when too many Ids passed in to `ncbi_get_taxon_summary()`
+suggesting to break up the ids into chunks (#541) thanks @daattali
+* Fix to `itis_acceptname()` to accept multiple names (#534) and now 
+gives back same output regardless of whether match found or not (#531)
 
 ## BUG FIXES
 
-* xxx (#xxx)
-* xxx (#xxx)
-* xxx (#xxx)
-* xxx (#xxx)
+* Fix to `tax_name()` for some queries that return no classification data 
+via internal call to `classification()` (#542) thanks @daattali
+* Another fix for `tax_name()` (#530) thanks @ibartomeus
+* Fixed docs for `rankagg()` function, use `requireNamespace()` in examples
+to make sure user has `vegan` installed (#529)
 
 taxize 0.7.6
 ============
