@@ -1,25 +1,24 @@
 context("iucn_summary")
 
-temp <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
-temp2 <- iucn_summary_id(c(22732, 12519))
 
 test_that("iucn_summary returns the correct value", {
+  skip_on_cran()
+
+  temp <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
+  temp2 <- iucn_summary_id(c(22732, 12519))
+
   expect_that(length(temp[[1]]), equals(4))
-})
 
-test_that("iucn_summary returns the correct class", {
   expect_that(temp, is_a("iucn"))
-})
 
-test_that("iucn_summary and iucn_summary_id have the same output", {
   expect_identical(temp, temp2)
-})
 
-test_that("iucn_status", {
   expect_that(length(iucn_status(temp)), equals(2))
 })
 
 test_that("iucn_summary gives expected result for lots of names", {
+  skip_on_cran()
+
   aa <- iucn_summary("Abies koreana")
   expect_equal(aa$`Abies koreana`$status, "EN")
 
@@ -46,13 +45,17 @@ test_that("iucn_summary gives expected result for lots of names", {
 })
 
 test_that("iucn_summary_id with distr_detail produces correct output", {
+  skip_on_cran()
+
   ii <- iucn_summary_id(22685566, distr_detail = TRUE)
   expect_equal(names(ii$`Ara chloropterus`$distr), c("Native", "Introduced"))
-  expect_equal(vapply(ii$`Ara chloropterus`$distr, length, 0), 
+  expect_equal(vapply(ii$`Ara chloropterus`$distr, length, 0),
                c(Native = 12, Introduced = 1))
 })
 
 test_that("iucn_summary and iucn_summary_id fail well", {
+  skip_on_cran()
+
   expect_warning(iucn_summary(""), "not found")
   expect_equal(suppressWarnings(iucn_summary(""))[[1]]$status, NA)
   expect_warning(iucn_summary("Abies"), "not found")

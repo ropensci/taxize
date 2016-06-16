@@ -1,15 +1,14 @@
 context("iucn_getname")
 
-temp <- iucn_getname(name = "Cyanistes caeruleus", verbose = FALSE)
 
 test_that("iucn_getname returns the correct value", {
-	expect_equal(temp, "Parus caeruleus")
-})
+  skip_on_cran()
 
-test_that("iucn_getname returns the correct class", {
+  temp <- iucn_getname(name = "Cyanistes caeruleus", verbose = FALSE)
+
+  expect_equal(temp, "Parus caeruleus")
+
 	expect_is(temp, "character")
-})
 
-test_that("iucn_getname gets the right dimensions", {
   expect_equal(length(temp), 1)
 })

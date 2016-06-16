@@ -2,6 +2,8 @@
 context("gbif_downstream")
 
 test_that("gbif_downstream works", {
+  skip_on_cran()
+
 	aa <- gbif_downstream(key = 198, downto = "Genus")
 
 	expect_is(aa, "data.frame")
@@ -13,6 +15,8 @@ test_that("gbif_downstream works", {
 })
 
 test_that("gbif_downstream works, more egs", {
+  skip_on_cran()
+
   bb <- gbif_downstream(key = 1227, "Family")
 
   expect_is(bb, "data.frame")
@@ -24,6 +28,8 @@ test_that("gbif_downstream works, more egs", {
 })
 
 test_that("gbif_downstream intermediate param works", {
+  skip_on_cran()
+
   cc <- gbif_downstream(key = 198, downto = "genus", intermediate = TRUE)
 
   expect_is(cc, "list")
@@ -38,6 +44,8 @@ test_that("gbif_downstream intermediate param works", {
 })
 
 test_that("gbif_downstream fails well", {
+  skip_on_cran()
+
   expect_error(gbif_downstream(198, "adfadf"), "'arg' should be one of")
   expect_error(gbif_downstream(198, "Genus", intermediate = "adf"),
                "'intermediate' should be of class 'logical'")

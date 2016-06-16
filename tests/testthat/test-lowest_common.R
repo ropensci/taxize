@@ -1,6 +1,8 @@
 context("lowest_common")
 
 test_that("lowest_common works with ncbi, passing in classifications and doing internally", {
+  skip_on_cran()
+
   id <- c("9031", "9823", "9606", "9470")
   idc <- classification(id, db = 'ncbi')
   aa <- lowest_common(id[2:4], db = "ncbi")
@@ -26,6 +28,8 @@ test_that("lowest_common works with ncbi, passing in classifications and doing i
 })
 
 test_that("lowest_common works with itis", {
+  skip_on_cran()
+
   #lowest_common(spp, db = "itis")
   #spp <- c("Sus scrofa", "Homo sapiens", "Nycticebus coucang")
 

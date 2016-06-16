@@ -14,6 +14,8 @@ test_that("eol_dataobjects with taxonomy TRUE", {
 })
 
 test_that("eol_dataobjects with taxonomy FALSE", {
+  skip_on_cran()
+
 	# taxonomy=FALSE - gives no taxonconcepts data.frame
 	temp2 <- suppressMessages(eol_dataobjects(id = "d72801627bf4adf1a38d9c5f10cc767f",
 	                                         taxonomy = FALSE, verbose = FALSE))

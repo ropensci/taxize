@@ -21,25 +21,12 @@ context("classification")
 #   expect_is(classification(c("Chironomus riparius", "aaa vva"), db = 'itis', verbose=FALSE), "classification")
 # }
 
-uids <- get_uid(c("Chironomus riparius", "aaa vva"), verbose=FALSE)
-tsns <- get_tsn(c("Chironomus riparius", "aaa vva"), verbose=FALSE)
 # eolids <- get_tsn(c("Chironomus riparius", "aaa vva"), verbose=FALSE)
 # colids <- get_colid(c("Chironomus riparius", "aaa vva"), verbose=FALSE)
 # tpsids <- get_tpsid(sciname=c("Helianthus excubitor", "aaa vva"), verbose=FALSE)
-clas_uids <- classification(uids, verbose=FALSE)
-names(clas_uids) <- NULL
-clas_tsns <- classification(tsns, verbose=FALSE)
-names(clas_tsns) <- NULL
 # clas_eolids <- classification(eolids, verbose=FALSE)
 # clas_colids <- classification(colids)
 # clas_tpids <- classification(tpsids, verbose=FALSE)
-
-clas_ncbi <- classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi',
-                            verbose=FALSE)
-names(clas_ncbi) <- NULL
-
-clas_itis <- classification(c("Chironomus riparius", "aaa vva"), db = 'itis', verbose=FALSE)
-names(clas_itis) <- NULL
 
 # clas_eol <- classification(c("Helianthus petiolaris Nutt.", "aaa vva"), db = 'eol')
 # names(clas_eol) <- NULL
@@ -53,15 +40,22 @@ names(clas_itis) <- NULL
 # clas_tp <- suppressMessages(classification(c("Helianthus excubitor", "aaa vva"), db = 'tropicos'))
 # names(clas_tp) <- NULL
 
-test_that("classification returns the correct value", {
+test_that("classification returns the correct values and classes", {
+  skip_on_cran()
+
+  clas_ncbi <- classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi',
+                              verbose=FALSE)
+  names(clas_ncbi) <- NULL
+
+  clas_itis <- classification(c("Chironomus riparius", "aaa vva"), db = 'itis', verbose=FALSE)
+  names(clas_itis) <- NULL
+
 	expect_that(clas_ncbi[[2]], equals(NA))
 	expect_that(clas_itis[[2]], equals(NA))
 # 	expect_that(clas_eol[[2]], equals(NA))
 # 	expect_that(clas_col[[2]], equals(NA))
 # 	expect_that(clas_tp[[2]], equals(NA))
-})
 
-test_that("classification returns the correct class", {
 	expect_that(clas_ncbi, is_a("classification"))
 	expect_that(clas_ncbi[[1]], is_a("data.frame"))
 	expect_that(length(clas_ncbi), equals(2))
@@ -84,6 +78,15 @@ test_that("classification returns the correct class", {
 })
 
 test_that("check S3-methods for tsn and uid class", {
+  skip_on_cran()
+
+  uids <- get_uid(c("Chironomus riparius", "aaa vva"), verbose=FALSE)
+  tsns <- get_tsn(c("Chironomus riparius", "aaa vva"), verbose=FALSE)
+  clas_uids <- classification(uids, verbose=FALSE)
+  names(clas_uids) <- NULL
+  clas_tsns <- classification(tsns, verbose=FALSE)
+  names(clas_tsns) <- NULL
+
   expect_identical(clas_uids, clas_ncbi)
   expect_equal(clas_tsns, clas_itis)
 #   expect_identical(clas_eolids, clas_ncbi)
@@ -93,6 +96,8 @@ test_that("check S3-methods for tsn and uid class", {
 })
 
 test_that("passing in an id works", {
+  skip_on_cran()
+
   fromid_ncbi <- classification(9606, db = 'ncbi')
   fromid_itis <- classification(129313, db = 'itis')
   fromid_gbif <- classification(c(2704179, 2441176), db = 'gbif')
@@ -133,11 +138,15 @@ df <- theplantlist[sample(1:nrow(theplantlist), 50), ]
 nn <- apply(df, 1, function(x) paste(x["genus"], x["sp"], collapse = " "))
 
 test_that("works on a variety of names", {
+  skip_on_cran()
+
 	expect_that(classification(nn[1], db = "ncbi", verbose=FALSE), is_a("classification"))
 	expect_that(classification(nn[2], db = "ncbi", verbose=FALSE), is_a("classification"))
 })
 
 test_that("queries with no results fail well", {
+  skip_on_cran()
+
   aa <- classification(x = "Saurauia", db = "itis", verbose = FALSE)
   bb <- classification(get_tsn("Saurauia", verbose = FALSE), verbose = FALSE)
 
@@ -146,6 +155,8 @@ test_that("queries with no results fail well", {
 })
 
 test_that("all rank character strings are lower case (all letters)", {
+  skip_on_cran()
+
   aa <- classification(9606, db = 'ncbi', verbose = FALSE)
   bb <- classification(129313, db = 'itis', verbose = FALSE)
   #cc <- classification(57361017, db = 'eol', verbose = FALSE)

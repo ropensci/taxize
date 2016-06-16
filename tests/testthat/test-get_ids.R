@@ -1,21 +1,22 @@
 # tests for get_ids fxn in taxize
 context("get_ids")
 
-tt <- get_ids(names="Chironomus riparius", db = 'ncbi', verbose=FALSE)
 
-test_that("get_ids returns the correct value", {
+test_that("get_ids returns the correct values and classses", {
+  skip_on_cran()
+
+  tt <- get_ids(names="Chironomus riparius", db = 'ncbi', verbose=FALSE)
+
   expect_equal(tt[[1]][[1]], "315576")
-})
 
-test_that("get_ids returns the correct class", {
   expect_that(tt, is_a("ids"))
   expect_that(tt[[1]], is_a("uid"))
   expect_that(tt[[1]][[1]], is_a("character"))
 })
 
 test_that("get_ids accepts ask and verbose arguments", {
-#   expect_that(is.na(get_ids(names="Pinus contorta", db = 'eol', ask=FALSE, verbose=FALSE)[[1]][[1]]),
-#               is_true())
+  skip_on_cran()
+
   expect_message(get_ids(names="Pinus contorta", db = 'ncbi'))
   expect_message(get_ids(names="Pinus contorta", db = 'ncbi', verbose=FALSE), NA)
 })
@@ -34,6 +35,8 @@ nn <- c('Imperata brasiliensis','Hylebates cordatus','Apocopis intermedius',
         'Aegilops caudata','Elymus cognatus','Agrostis gracililaxa','Gymnopogon foliosus')
 
 test_that("works on a variety of names", {
+  skip_on_cran()
+
   expect_that(get_ids(nn[13], db = c('ncbi','itis','col','tropicos'), ask=FALSE, verbose=FALSE), is_a("ids"))
   expect_that(get_ids(nn[14], db = c('ncbi','itis','col','tropicos'), ask=FALSE, verbose=FALSE), is_a("ids"))
   expect_that(get_ids(nn[15], db = c('ncbi','itis','col','tropicos'), ask=FALSE, verbose=FALSE), is_a("ids"))

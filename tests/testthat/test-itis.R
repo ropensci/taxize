@@ -2,6 +2,8 @@
 context("itis")
 
 test_that("getacceptednamesfromtsn works", {
+  skip_on_cran()
+
   aa <- getacceptednamesfromtsn(208527)
 
   expect_is(aa, "list")
@@ -10,6 +12,8 @@ test_that("getacceptednamesfromtsn works", {
 })
 
 test_that("itis returns the correct class", {
+  skip_on_cran()
+
   bb <- gettaxonomicusagefromtsn(526852)
 
   expect_equal(NCOL(bb), 2)

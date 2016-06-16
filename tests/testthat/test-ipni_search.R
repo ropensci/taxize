@@ -1,6 +1,8 @@
 context("ipni_search")
 
 test_that("ipni_search works", {
+  skip_on_cran()
+
   aa <- ipni_search(genus = 'Brintonia', isapnirecord = TRUE,
                     isgcirecord = TRUE, isikrecord = TRUE)
   cc <- ipni_search(genus = 'Pinus', species = 'contorta')
@@ -15,6 +17,8 @@ test_that("ipni_search works", {
 })
 
 test_that("ipni_search works with different output formats", {
+  skip_on_cran()
+
   aa <- ipni_search(genus = 'Brintonia')
   bb <- ipni_search(genus = 'Brintonia', output = 'short')
   cc <- ipni_search(genus = 'Brintonia', output = 'classic')
@@ -33,6 +37,8 @@ test_that("ipni_search works with different output formats", {
 })
 
 test_that("ipni_search fails correctly", {
+  skip_on_cran()
+
   expect_error(ipni_search(), "No results")
   expect_error(ipni_search(family = 5), "No results")
   expect_warning(ipni_search(genus = "adfasdfasffd"), "No data found")

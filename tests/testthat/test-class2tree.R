@@ -7,15 +7,16 @@ spnames <- c('Klattia flava', 'Trollius sibiricus', 'Arachis paraguariensis',
  'Schoenus centralis','Berkheya echinacea','Androcymbium villosum',
  'Helianthus annuus','Madia elegans','Lupinus albicaulis','Poa annua',
  'Pinus lambertiana')
-out <- classification(spnames, db='ncbi', verbose=FALSE)
-out <- out[!is.na(out)]
-tr <- class2tree(out)
 
-test_that("class2tree returns the correct value", {
+test_that("class2tree returns the correct value and class", {
+  skip_on_cran()
+
+  out <- classification(spnames, db='ncbi', verbose=FALSE)
+  out <- out[!is.na(out)]
+  tr <- class2tree(out)
+
   expect_identical(tr$names, names(out))
-})
 
-test_that("class2tree returns the correct class", {
   expect_is(plot(tr), "list")
   expect_is(tr, "classtree")
   expect_is(tr$phylo, "phylo")

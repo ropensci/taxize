@@ -2,21 +2,29 @@
 context("get_uid")
 
 test_that("get_uid returns the correct value", {
+  skip_on_cran()
+
 	expect_that(is.na(get_uid(c("Chironomus riparius", "aaa"), verbose=FALSE)[2]),
               is_true())
 })
 
 test_that("get_uid returns the correct class", {
+  skip_on_cran()
+
 	expect_that(get_uid(c("Chironomus riparius", "Chaetopteryx"), verbose=FALSE),
               is_a("uid"))
 })
 
 test_that("get_uid accepts ask-argument", {
+  skip_on_cran()
+
   expect_that(is.na(get_uid('Dugesia', ask = FALSE, verbose=FALSE)),
               is_true())
 })
 
 test_that("get_uid query modifiers work", {
+  skip_on_cran()
+
   ### w/ modifiers to the name
   mod1 <- get_uid(sciname = "Aratinga", verbose=FALSE)
   mod2 <- get_uid(sciname = "Aratinga", modifier = "Organism", rows = 1, verbose=FALSE)
@@ -37,6 +45,8 @@ test_that("get_uid query modifiers work", {
 })
 
 test_that("get_uid filtering works", {
+  skip_on_cran()
+
   ### w/ division
   df1 <- get_uid(sciname = "Echinacea", division_filter = "eudicots", verbose=FALSE)
   df2 <- get_uid(sciname = "Echinacea", division_filter = "sea urchins", verbose=FALSE)

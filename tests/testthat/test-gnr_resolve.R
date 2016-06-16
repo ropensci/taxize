@@ -1,18 +1,21 @@
 # tests for gnr_resolve fxn in taxize
 context("gnr_resolve")
 
-tmp <- gnr_resolve(names = c("Helianthus annuus", "Homo sapiens"))
 
 test_that("gnr_resolve returns the correct value", {
-	expect_equal(NCOL(tmp), 5)
-})
+  skip_on_cran()
 
-test_that("gnr_resolve returns the correct class", {
+  tmp <- gnr_resolve(names = c("Helianthus annuus", "Homo sapiens"))
+
+  expect_equal(NCOL(tmp), 5)
+
 	expect_is(tmp, "data.frame")
 	expect_is(tmp$matched_name, "character")
 })
 
 test_that("best_match_only works correctly", {
+  skip_on_cran()
+
   x <- 'Aconitum degeni subsp. paniculatum'
   a <- gnr_resolve(names = x, best_match_only = TRUE)
   b <- gnr_resolve(x, best_match_only = FALSE)
@@ -26,6 +29,8 @@ test_that("best_match_only works correctly", {
 })
 
 test_that("canonical works correctly", {
+  skip_on_cran()
+
   # x = a canse where no canonical names is found
   x <- gnr_resolve("Metzgeria", data_source_ids = c(12), canonical = TRUE)
   y <- "Helianthus annuus"
@@ -41,6 +46,8 @@ test_that("canonical works correctly", {
 })
 
 test_that("fields parameter works correctly", {
+  skip_on_cran()
+
   tmp1 <- gnr_resolve(names = c("Asteraceae", "Plantae"), fields = 'all')
   tmp2 <- gnr_resolve(names = c("Asteraceae", "Plantae"), fields = 'minimal')
 
