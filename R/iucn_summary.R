@@ -46,7 +46,9 @@
 #' This key will also set you up to use the \pkg{rredlist} package.
 #'
 #' @examples \dontrun{
-#' # if you send a taxon name, pass in a key
+#' # if you send a taxon name, an IUCN API key is required
+#' ## here, the key is being detected from a .Rprofile file
+#' ## or .Renviron file, See "Redlist Authentication" above
 #' iucn_summary("Lutra lutra")
 #'
 #' ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
@@ -56,6 +58,7 @@
 #' iac <- iucn_summary("Ara chloropterus", distr_detail = TRUE)
 #' iac[[1]]$distr
 #'
+#'
 #' # If you pass in an IUCN ID, you don't need to pass in a Redlist API Key
 #' ia <- iucn_summary_id(c(22732, 12519))
 #' # extract status
@@ -64,6 +67,12 @@
 #' ia[['Lynx lynx']]$history
 #' ia[['Panthera uncia']]$distr
 #' ia[[2]]$trend
+#'
+#' # using parallel, e.g., with doMC package, register cores first
+#' # library(doMC)
+#' # registerDoMC(cores = 2)
+#' # nms <- c("Panthera uncia", "Lynx lynx", "Ara chloropterus", "Lutra lutra")
+#' # (res <- iucn_summary(nms, parallel = TRUE))
 #' }
 #' @export
 #' @author Eduard Szoecs, \email{eduardszoecs@@gmail.com}
