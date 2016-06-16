@@ -1,7 +1,6 @@
 ## Release Summary
 
-This submission fixes a number of bugs, clarifies location of
-defunct functions in a new package.
+This submission fixes a number of bugs, and makes some small improvements.
 
 ## Test environments
 
@@ -22,7 +21,7 @@ File 'LICENSE':
 
 ## Reverse dependencies
 
-* I have run R CMD check on the 16 downstream dependencies (https://github.com/ropensci/taxize/blob/master/revdep/README.md).
+* I have run R CMD check on the 16 downstream dependencies (<https://github.com/ropensci/taxize/blob/master/revdep/README.md>).
 There are no problems related to taxize as far as I can tell.
 
 Thanks!
