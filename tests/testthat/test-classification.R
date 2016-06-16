@@ -101,7 +101,7 @@ test_that("passing in an id works", {
   fromid_ncbi <- classification(9606, db = 'ncbi')
   fromid_itis <- classification(129313, db = 'itis')
   fromid_gbif <- classification(c(2704179, 2441176), db = 'gbif')
-  fromid_nbn <- classification("NBNSYS0000004786", db = 'nbn')
+  #fromid_nbn <- classification("NBNSYS0000004786", db = 'nbn')
 
   expect_is(fromid_ncbi, "classification")
   expect_equal(attr(fromid_ncbi, "db"), "ncbi")
@@ -112,8 +112,8 @@ test_that("passing in an id works", {
   expect_is(fromid_gbif, "classification")
   expect_equal(attr(fromid_gbif, "db"), "gbif")
 
-  expect_is(fromid_nbn, "classification")
-  expect_equal(attr(fromid_nbn, "db"), "nbn")
+  #expect_is(fromid_nbn, "classification")
+  #expect_equal(attr(fromid_nbn, "db"), "nbn")
 })
 
 test_that("rbind and cbind work correctly", {
@@ -162,7 +162,7 @@ test_that("all rank character strings are lower case (all letters)", {
   #cc <- classification(57361017, db = 'eol', verbose = FALSE)
   dd <- classification(2441176, db = 'gbif', verbose = FALSE)
   #ee <- classification(25509881, db = 'tropicos', verbose = FALSE)
-  ff <- classification("NBNSYS0000004786", db = 'nbn', verbose = FALSE)
+  #ff <- classification("NBNSYS0000004786", db = 'nbn', verbose = FALSE)
   gg <- classification("Chironomus riparius", db = 'col', verbose = FALSE)
 
   expect_false(all(grepl("[A-Z]", aa[[1]]$rank)))
@@ -170,6 +170,6 @@ test_that("all rank character strings are lower case (all letters)", {
   #expect_false(all(grepl("[A-Z]", cc[[1]]$rank)))
   expect_false(all(grepl("[A-Z]", dd[[1]]$rank)))
   #expect_false(all(grepl("[A-Z]", ee[[1]]$rank)))
-  expect_false(all(grepl("[A-Z]", ff[[1]]$rank)))
+  #expect_false(all(grepl("[A-Z]", ff[[1]]$rank)))
   expect_false(all(grepl("[A-Z]", gg[[1]]$rank)))
 })
