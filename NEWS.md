@@ -1,3 +1,20 @@
+taxize 0.7.8
+============
+
+## MINOR IMPROVEMENTS
+
+* xxx (#xxx)
+* xxx (#xxx)
+* xxx (#xxx)
+* xxx (#xxx)
+
+## BUG FIXES
+
+* xxx (#xxx)
+* xxx (#xxx)
+* xxx (#xxx)
+* xxx (#xxx)
+
 taxize 0.7.6
 ============
 
