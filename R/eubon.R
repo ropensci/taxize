@@ -48,7 +48,7 @@ eubon_base <- function() "http://cybertaxonomy.eu/eubon-utis/search"
 
 eubon_error <- function(x) {
   if (x$status_code > 201) {
-    msg <- xml2::xml_text(xml2::xml_find_first(xml2::read_html(con_utf8(x)), "//title"))
+    msg <- xml2::xml_text(xml2::xml_find_one(xml2::read_html(con_utf8(x)), "//title"))
     stop(msg, call. = FALSE)
   }
 }

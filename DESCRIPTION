@@ -2,7 +2,7 @@ Package: taxize
 Title: Taxonomic Information from Around the Web
 Description: Interacts with a suite of web 'APIs' for taxonomic tasks,
     such as verifying species names, and getting taxonomic 'hierarchies'.
-Version: 0.7.7.9400
+Version: 0.7.7.9600
 License: MIT + file LICENSE
 URL: https://github.com/ropensci/taxize
 BugReports: https://github.com/ropensci/taxize/issues
@@ -27,7 +27,7 @@ Imports:
     stats,
     utils,
     httr (>= 1.1.0),
-    xml2 (>= 0.1.2.9000),
+    xml2 (>= 0.1.2),
     jsonlite,
     reshape2,
     stringr,
@@ -43,5 +43,4 @@ Suggests:
     knitr,
     vegan,
     covr
-Remotes: hadley/xml2
 RoxygenNote: 5.0.1
