@@ -20,12 +20,12 @@
 #' @param x Input to \code{\link{as.eolid}}
 #' @param check logical; Check if ID matches any existing on the DB, only used in
 #' \code{\link{as.eolid}}
-#'
-#' @return A vector of unique identifiers (EOL). If a taxon is not found NA.
-#' If more than one ID is found the function asks for user input.
+#' @template getreturn
 #'
 #' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_uid}},
-#' \code{\link[taxize]{get_tpsid}}
+#' \code{\link[taxize]{get_tpsid}}, \code{\link[taxize]{get_gbifid}},
+#' \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_ids}},
+#' \code{\link[taxize]{classification}}
 #'
 #' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
 #'
@@ -82,23 +82,25 @@
 
 get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA, ...){
   fun <- function(sciname, ask, verbose, rows, ...) {
+    direct <- FALSE
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
     tmp <- eol_search(terms = sciname, key = key, ...)
 
     ms <- "Not found. Consider checking the spelling or alternate classification"
-    datasource <- NA
+    datasource <- NA_character_
     if (all(is.na(tmp))) {
       mssg(verbose, ms)
-      id <- NA
-      page_id <- NA
+      id <- NA_character_
+      page_id <- NA_character_
       att <- "not found"
+      mm <- FALSE
     } else {
       pageids <- tmp[grep(tolower(sciname), tolower(tmp$name)), "pageid"]
 
       if (length(pageids) == 0) {
         if (nrow(tmp) > 0)
         mssg(verbose, paste(ms, sprintf('\nDid find: %s', paste(tmp$name, collapse = "; "))))
-        id <- NA
+        id <- NA_character_
       } else {
         dfs <- lapply(pageids, function(x) {
           y <- tryCatch(eol_pages(x, key = key), error = function(e) e)
@@ -113,12 +115,13 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
                      'taxonrank' = 'rank'))
         df <- getsourceshortnames(df)
         df$source <- as.character(df$source)
+        mm <- NROW(df) > 1
         df <- sub_rows(df, rows)
 
         if (nrow(df) == 0) {
           mssg(verbose, ms)
-          id <- NA
-          page_id <- NA
+          id <- NA_character_
+          page_id <- NA_character_
         } else{
           id <- df$eolid
         }
@@ -129,8 +132,8 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
     # not found on eol
     if (length(id) == 0 || all(is.na(id))) {
       mssg(verbose, ms)
-      id <- NA
-      page_id <- NA
+      id <- NA_character_
+      page_id <- NA_character_
       att <- 'not found'
     }
     # only one found on eol
@@ -138,6 +141,7 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
       id <- df$eolid
       page_id <- df$pageid
       datasource <- df$source
+      direct <- TRUE
       att <- 'found'
     }
     # more than one found on eol -> user input
@@ -163,24 +167,27 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
           datasource <- as.character(df$source[take])
           att <- 'found'
         } else {
-          id <- NA
-          page_id <- NA
+          id <- NA_character_
+          page_id <- NA_character_
           att <- 'not found'
           mssg(verbose, "\nReturned 'NA'!\n\n")
         }
       } else{
-        id <- NA
-        page_id <- NA
+        id <- NA_character_
+        page_id <- NA_character_
         att <- "NA due to ask=FALSE"
       }
     }
-    list(id = id, page_id = page_id, source = datasource, att = att)
+    list(id = as.character(id), page_id = page_id, source = datasource, att = att, multiple = mm, direct = direct)
   }
   sciname <- as.character(sciname)
   out <- lapply(sciname, fun, ask = ask, verbose = verbose, rows = rows, ...)
   ids <- unname(sapply(out, "[[", "id"))
-  sources <- sapply(out, "[[", "source")
-  ids <- structure(ids, class = "eolid", provider = sources, match = pluck(out, "att", ""))
+  sources <- pluck(out, "source", "")
+  ids <- structure(ids, class = "eolid", provider = sources,
+                   match = pluck(out, "att", ""),
+                   multiple_matches = pluck(out, "multiple", logical(1)),
+                   pattern_match = pluck(out, "direct", logical(1)))
   page_ids <- unlist(pluck(out, 'page_id'))
   add_uri(ids, 'http://eol.org/pages/%s/overview', page_ids)
 }
@@ -237,7 +244,9 @@ as.eolid.numeric <- function(x, check=TRUE) {
 #' @export
 #' @rdname get_eolid
 as.eolid.data.frame <- function(x, check=TRUE) {
-  structure(x$ids, class = "eolid", match = x$match, uri = x$uri)
+  structure(x$ids, class = "eolid", match = x$match,
+            multiple_matches = x$multiple_matches,
+            pattern_match = x$pattern_match, uri = x$uri)
 }
 
 #' @export
@@ -246,6 +255,8 @@ as.data.frame.eolid <- function(x, ...){
   data.frame(ids = as.character(unclass(x)),
              class = "eolid",
              match = attr(x, "match"),
+             multiple_matches = attr(x, "multiple_matches"),
+             pattern_match = attr(x, "pattern_match"),
              uri = attr(x, "uri"),
              stringsAsFactors = FALSE)
 }

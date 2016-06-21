@@ -17,6 +17,8 @@ collapse <- function(x, fxn, class, match=TRUE, ...){
   if (match) {
     structure(sapply(tmp, unclass), class = class,
               match = sapply(tmp, attr, which = "match"),
+              multiple_matches = sapply(tmp, attr, which = "multiple_matches"),
+              pattern_match = sapply(tmp, attr, which = "pattern_match"),
               uri = tcnull(sapply(tmp, attr, which = "uri")))
   } else {
     structure(sapply(tmp, unclass), class = class,
@@ -26,7 +28,11 @@ collapse <- function(x, fxn, class, match=TRUE, ...){
 
 make_generic <- function(x, uu, clz, check=TRUE){
   if (check) {
-    if ( evalfxn(clz)(x) ) toid(x, uu, clz) else structure(NA, class = clz, match = "not found", uri = NA)
+    if ( evalfxn(clz)(x) ) {
+      toid(x, uu, clz)
+    } else {
+      structure(NA, class = clz, match = "not found", multiple_matches = FALSE, pattern_match = FALSE, uri = NA)
+    }
   } else {
     toid(x, uu, clz)
   }
@@ -36,7 +42,7 @@ evalfxn <- function(x) eval(parse(text = paste0("check", "_", x)))
 
 toid <- function(x, url, class){
   uri <- sprintf(url, x)
-  structure(x, class = class, match = "found", uri = uri)
+  structure(x, class = class, match = "found", multiple_matches = FALSE, pattern_match = FALSE, uri = uri)
 }
 
 add_uri <- function(ids, url, z = NULL){

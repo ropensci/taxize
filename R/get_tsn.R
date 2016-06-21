@@ -2,6 +2,7 @@
 #'
 #' Retrieve the taxonomic serial numbers (TSN) of a taxon from ITIS.
 #'
+#' @export
 #' @param searchterm character; A vector of common or scientific names.
 #' @param searchtype character; One of 'scientific' or 'common', or any unique abbreviation
 #' @param accepted logical; If TRUE, removes names that are not accepted valid names
@@ -18,16 +19,13 @@
 #' @param ... Ignored
 #' @param check logical; Check if ID matches any existing on the DB, only used in
 #' \code{\link{as.tsn}}
+#' @template getreturn
 #'
-#' @return A vector of taxonomic serial numbers (TSN). If a taxon is not
-#'    found NA. If more than one TSN is found the function asks for user input
-#'    (if ask = TRUE), otherwise returns NA.
-#'    Comes with an attribute \emph{match} to investigate the reason for NA (either 'not found',
-#'      'found' or if ask = FALSE 'NA due to ask=FALSE')
+#' @seealso \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_tsn}},
+#' \code{\link[taxize]{get_gbifid}}, \code{\link[taxize]{get_tpsid}},
+#' \code{\link[taxize]{get_eolid}}, \code{\link[taxize]{get_colid}},
+#' \code{\link[taxize]{get_ids}}, \code{\link[taxize]{classification}}
 #'
-#' @seealso \code{\link[taxize]{classification}}
-#'
-#' @export
 #' @examples \dontrun{
 #' get_tsn(searchterm = "Quercus douglasii")
 #' get_tsn(searchterm = "Chironomus riparius")
@@ -83,14 +81,16 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE, ask
 {
   fun <- function(x, searchtype, ask, verbose, ...)
   {
+    direct <- FALSE
     mssg(verbose, "\nRetrieving data for taxon '", x, "'\n")
 
     searchtype <- match.arg(searchtype, c("scientific","common"))
     tsn_df <- itis_terms(x, what = searchtype, ...)
+    mm <- NROW(tsn_df) > 1
     tsn_df <- sub_rows(tsn_df, rows)
 
-    if (!class(tsn_df) == "data.frame" || NROW(tsn_df) == 0){
-      tsn <- NA
+    if (!class(tsn_df) == "data.frame" || NROW(tsn_df) == 0) {
+      tsn <- NA_character_
       att <- "not found"
     } else {
       tsn_df <- tsn_df[,c("tsn","scientificname","commonnames","nameusage")]
@@ -99,41 +99,41 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE, ask
         tsn_df <- tsn_df[ tsn_df$nameusage %in% c('valid','accepted'), ]
       }
 
-      direct <- NA
       # should return NA if spec not found
-      if (nrow(tsn_df) == 0){
+      if (nrow(tsn_df) == 0) {
         mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
-        tsn <- NA
+        tsn <- NA_character_
         att <- 'not found'
       }
+
       # take the one tsn from data.frame
-      if (nrow(tsn_df) == 1){
+      if (nrow(tsn_df) == 1) {
         tsn <- tsn_df$tsn
         att <- 'found'
       }
+
       # check for direct match
-      if (nrow(tsn_df) > 1){
+      if (nrow(tsn_df) > 1) {
+
         names(tsn_df)[grep(searchtype, names(tsn_df))] <- "target"
-        #       direct <- match(tolower(x), tolower(tsn_df$target))
         direct <- match(tolower(tsn_df$target), tolower(x))
-        if(!all(is.na(direct))){
-          #         tsn <- tsn_df$tsn[direct]
+
+        if (!all(is.na(direct))) {
           tsn <- tsn_df$tsn[!is.na(direct)]
+          direct <- TRUE
           att <- 'found'
         } else {
-          tsn <- NA
-          direct <- NA
+          tsn <- NA_character_
           att <- 'not found'
         }
       }
+
       # multiple matches
-      if( any(
-        nrow(tsn_df) > 1 & is.na(tsn) |
-        nrow(tsn_df) > 1 & att == "found" & length(tsn) > 1
-      ) ){
-        #     if ( nrow(tsn_df) > 1 & any(!is.na(direct)) | !"tsn" %in% ls() ){
-        if(ask) {
-          #         names(tsn_df)[1] <- "target"
+      if (any(
+        nrow(tsn_df) > 1 && is.na(tsn) |
+        nrow(tsn_df) > 1 && att == "found" & length(tsn) > 1
+      )) {
+        if (ask) {
           names(tsn_df)[grep(searchtype, names(tsn_df))] <- "target"
           # user prompt
           tsn_df <- tsn_df[order(tsn_df$target), ]
@@ -146,34 +146,42 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE, ask
             Enter rownumber of taxon (other inputs will return 'NA'):\n") # prompt
           take <- scan(n = 1, quiet = TRUE, what = 'raw')
 
-          if(length(take) == 0){
+          if (length(take) == 0) {
             take <- 'notake'
             att <- 'nothing chosen'
           }
-          if(take %in% seq_len(nrow(tsn_df))){
+          if (take %in% seq_len(nrow(tsn_df))) {
             take <- as.numeric(take)
             message("Input accepted, took taxon '", as.character(tsn_df$target[take]), "'.\n")
             tsn <-  tsn_df$tsn[take]
             att <- 'found'
           } else {
-            tsn <- NA
+            tsn <- NA_character_
             mssg(verbose, "\nReturned 'NA'!\n\n")
             att <- 'not found'
           }
         } else {
-          tsn <- NA
+          tsn <- NA_character_
           att <- "NA due to ask=FALSE"
         }
       }
 
     }
-    return(data.frame(tsn = as.character(tsn), att = att, stringsAsFactors=FALSE))
+
+    data.frame(
+      tsn = as.character(tsn),
+      att = att,
+      multiple = mm,
+      direct = direct,
+      stringsAsFactors = FALSE)
   }
   searchterm <- as.character(searchterm)
   outd <- ldply(searchterm, fun, searchtype, ask, verbose, ...)
   out <- outd$tsn
   attr(out, 'match') <- outd$att
-  if( !all(is.na(out)) ){
+  attr(out, 'multiple_matches') <- outd$multiple
+  attr(out, 'pattern_match') <- outd$direct
+  if ( !all(is.na(out)) ) {
     urlmake <- na.omit(out)
     attr(out, 'uri') <-
       sprintf('http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=%s', urlmake)
@@ -192,11 +200,11 @@ as.tsn.tsn <- function(x, check=TRUE) x
 
 #' @export
 #' @rdname get_tsn
-as.tsn.character <- function(x, check=TRUE) if(length(x) == 1) make_tsn(x, check) else collapse(x, make_tsn, "tsn", check=check)
+as.tsn.character <- function(x, check=TRUE) if(length(x) == 1) make_tsn(x, check) else collapse(x, make_tsn, "tsn", check = check)
 
 #' @export
 #' @rdname get_tsn
-as.tsn.list <- function(x, check=TRUE) if(length(x) == 1) make_tsn(x, check) else collapse(x, make_tsn, "tsn", check=check)
+as.tsn.list <- function(x, check=TRUE) if (length(x) == 1) make_tsn(x, check) else collapse(x, make_tsn, "tsn", check = check)
 
 #' @export
 #' @rdname get_tsn
@@ -204,7 +212,11 @@ as.tsn.numeric <- function(x, check=TRUE) as.tsn(as.character(x), check)
 
 #' @export
 #' @rdname get_tsn
-as.tsn.data.frame <- function(x, check=TRUE) structure(x$ids, class="tsn", match=x$match, uri=x$uri)
+as.tsn.data.frame <- function(x, check=TRUE) {
+  structure(x$ids, class = "tsn", match = x$match,
+            multiple_matches = x$multiple_matches,
+            pattern_match = x$pattern_match, uri = x$uri)
+}
 
 #' @export
 #' @rdname get_tsn
@@ -212,6 +224,8 @@ as.data.frame.tsn <- function(x, ...){
   data.frame(ids = as.character(unclass(x)),
              class = "tsn",
              match = attr(x, "match"),
+             multiple_matches = attr(x, "multiple_matches"),
+             pattern_match = attr(x, "pattern_match"),
              uri = attr(x, "uri"),
              stringsAsFactors = FALSE)
 }

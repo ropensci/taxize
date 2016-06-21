@@ -1,5 +1,6 @@
 #' Get the GBIF backbone taxon ID from taxonomic names.
 #'
+#' @export
 #' @param sciname character; scientific name.
 #' @param ask logical; should get_colid be run in interactive mode?
 #' If TRUE and more than one ID is found for the species, the user is asked for
@@ -22,15 +23,13 @@
 #' @param check logical; Check if ID matches any existing on the DB, only used in
 #' \code{\link{as.gbifid}}
 #' @param ... Ignored
-#'
-#' @return A vector of unique identifiers. If a taxon is not found NA.
-#' If more than one ID is found the function asks for user input.
+#' @template getreturn
 #'
 #' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_uid}},
 #' \code{\link[taxize]{get_tpsid}}, \code{\link[taxize]{get_eolid}},
-#' \code{\link[taxize]{get_colid}}
+#' \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_ids}},
+#' \code{\link[taxize]{classification}}
 #'
-#' @export
 #' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
 #'
 #' @details Internally in this function we use a function to search GBIF's taxonomy,
@@ -126,20 +125,21 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
                        family = NULL, rank = NULL, method = "backbone", ...) {
 
   fun <- function(sciname, ask, verbose, rows, ...) {
+    direct <- FALSE
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
     df <- switch(
       method,
       backbone = gbif_name_backbone(sciname, ...),
       lookup = gbif_name_lookup(sciname, ...)
     )
+    mm <- NROW(df) > 1
     df <- sub_rows(df, rows)
 
-    if (is.null(df))
-      df <- data.frame(NULL)
+    if (is.null(df)) df <- data.frame(NULL)
 
     if (nrow(df) == 0) {
       mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
-      id <- NA
+      id <- NA_character_
       att <- "not found"
     } else {
       names(df)[1] <- 'gbifid'
@@ -150,7 +150,7 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
     # not found
     if (length(id) == 0) {
       mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
-      id <- NA
+      id <- NA_character_
       att <- "not found"
     }
 
@@ -160,6 +160,7 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
       matchtmp <- df[as.character(df$canonicalname) %in% sciname, "gbifid"]
       if (length(matchtmp) == 1) {
         id <- as.character(matchtmp)
+        direct <- TRUE
       } else {
         if (ask) {
           if (!is.null(phylum) || !is.null(class) || !is.null(order) ||
@@ -171,7 +172,7 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
             df <- filt(df, "rank", rank)
             if (NROW(df) > 1) rownames(df) <- 1:nrow(df)
             if (NROW(df) == 0) {
-              id <- NA
+              id <- NA_character_
               att <- "not found"
             } else {
               id <- df$gbifid
@@ -204,21 +205,24 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
               id <- as.character(df$gbifid[take])
               att <- "found"
             } else {
-              id <- NA
+              id <- NA_character_
               att <- "not found"
               mssg(verbose, "\nReturned 'NA'!\n\n")
             }
           }
         } else {
-          id <- NA
+          id <- NA_character_
           att <- "NA due to ask=FALSE"
         }
       }
     }
-    c(id = id, att = att)
+    list(id = id, att = att, multiple = mm, direct = direct)
   }
   out <- lapply(as.character(sciname), fun, ask, verbose, rows, ...)
-  ids <- structure(sapply(out, "[[", "id"), class = "gbifid", match = sapply(out, "[[", "att"))
+  ids <- structure(pluck(out, "id", ""), class = "gbifid",
+                   match = pluck(out, "att", ""),
+                   multiple_matches = pluck(out, "multiple", logical(1)),
+                   pattern_match = pluck(out, "direct", logical(1)))
   add_uri(ids, 'http://www.gbif.org/species/%s')
 }
 
@@ -244,7 +248,11 @@ as.gbifid.numeric <- function(x, check=TRUE) as.gbifid(as.character(x), check)
 
 #' @export
 #' @rdname get_gbifid
-as.gbifid.data.frame <- function(x, check = TRUE) structure(x$ids, class = "gbifid", match = x$match, uri = x$uri)
+as.gbifid.data.frame <- function(x, check = TRUE) {
+  structure(x$ids, class = "gbifid", match = x$match,
+            multiple_matches = x$multiple_matches,
+            pattern_match = x$pattern_match, uri = x$uri)
+}
 
 #' @export
 #' @rdname get_gbifid
@@ -252,6 +260,8 @@ as.data.frame.gbifid <- function(x, ...){
   data.frame(ids = as.character(unclass(x)),
              class = "gbifid",
              match = attr(x, "match"),
+             multiple_matches = attr(x, "multiple_matches"),
+             pattern_match = attr(x, "pattern_match"),
              uri = attr(x, "uri"),
              stringsAsFactors = FALSE)
 }

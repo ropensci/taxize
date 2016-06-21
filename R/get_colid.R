@@ -1,5 +1,6 @@
 #' Get the Catalogue of Life ID from taxonomic names.
 #'
+#' @export
 #' @param sciname character; scientific name.
 #' @param ask logical; should get_colid be run in interactive mode?
 #' If TRUE and more than one ID is found for the species, the user is asked for
@@ -24,9 +25,7 @@
 #' @param ... Ignored
 #' @param check logical; Check if ID matches any existing on the DB, only used in
 #' \code{\link{as.colid}}
-#'
-#' @return A vector of unique identifiers. If a taxon is not found NA.
-#' If more than one ID is found the function asks for user input.
+#' @template getreturn
 #'
 #' @section Filtering:
 #' The parameters \code{kingdom}, \code{phylum}, \code{class}, \code{order}, \code{family},
@@ -37,8 +36,9 @@
 #'
 #' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_colid}},
 #' \code{\link[taxize]{get_tpsid}}, \code{\link[taxize]{get_eolid}}
+#' \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_gbifid}},
+#' \code{\link[taxize]{get_ids}}, \code{\link[taxize]{classification}}
 #'
-#' @export
 #' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
 #'
 #' @examples \dontrun{
@@ -114,14 +114,16 @@ get_colid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
                       family = NULL, rank = NULL, ...){
 
   fun <- function(sciname, ask, verbose, rows, ...) {
+    direct <- FALSE
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
     df <- col_search(name = sciname, response = "full", ...)[[1]]
     df <- df[, names(df) %in% c("name","rank","id","name_status","kingdom","family","acc_name")]
+    mm <- NROW(df) > 1
     df <- sub_rows(df, rows)
 
     rank_taken <- NA
     if (NROW(df) == 0) {
-      id <- NA
+      id <- NA_character_
       att <- "not found"
     } else {
       df <- setNames(df, tolower(names(df)))
@@ -135,7 +137,7 @@ get_colid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
     # not found on col
     if (all(is.na(id))) {
       mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
-      id <- NA
+      id <- NA_character_
       att <- "not found"
     }
     # more than one found -> user input
@@ -155,6 +157,7 @@ get_colid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
           if (NROW(df) > 1) rownames(df) <- 1:nrow(df)
           if (length(id) == 1) {
             rank_taken <- as.character(df$rank)
+            direct <- TRUE
             att <- "found"
           }
         }
@@ -178,23 +181,25 @@ get_colid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
             rank_taken <- as.character(df$rank[take])
             att <- "found"
           } else {
-            id <- NA
+            id <- NA_character_
             att <- "not found"
             mssg(verbose, "\nReturned 'NA'!\n\n")
           }
         }
       } else{
-        id <- NA
+        id <- NA_character_
         att <- "NA due to ask=FALSE"
       }
     }
-    c(id = id, rank = rank_taken, att = att)
+    list(id = id, rank = rank_taken, att = att, multiple = mm, direct = direct)
   }
   sciname <- as.character(sciname)
   out <- lapply(sciname, fun, ask = ask, verbose = verbose, rows = rows, ...)
-  ids <- sapply(out, "[[", "id")
-  atts <- sapply(out, "[[", "att")
-  ids <- structure(ids, class = "colid", match = atts)
+  ids <- pluck(out, "id", "")
+  atts <- pluck(out, "att", "")
+  ids <- structure(ids, class = "colid", match = atts,
+                   multiple_matches = pluck(out, "multiple", logical(1)),
+                   pattern_match = pluck(out, "direct", logical(1)))
   if ( !all(is.na(ids)) ) {
     urls <- sapply(out, function(z){
       if (!is.na(z[['id']])) {
@@ -230,7 +235,11 @@ as.colid.list <- function(x, check=TRUE) if (length(x) == 1) make_colid(x, check
 
 #' @export
 #' @rdname get_colid
-as.colid.data.frame <- function(x, check=TRUE) structure(x$ids, class = "colid", match = x$match, uri = x$uri)
+as.colid.data.frame <- function(x, check=TRUE) {
+  structure(x$ids, class = "colid", match = x$match,
+            multiple_matches = x$multiple_matches,
+            pattern_match = x$pattern_match, uri = x$uri)
+}
 
 #' @export
 #' @rdname get_colid
@@ -238,6 +247,8 @@ as.data.frame.colid <- function(x, ...){
   data.frame(ids = as.character(unclass(x)),
              class = "colid",
              match = attr(x, "match"),
+             multiple_matches = attr(x, "multiple_matches"),
+             pattern_match = attr(x, "pattern_match"),
              uri = attr(x, "uri"),
              stringsAsFactors = FALSE)
 }

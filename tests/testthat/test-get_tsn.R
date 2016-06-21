@@ -19,5 +19,5 @@ test_that("get_tsn accepts ask and verbose arguments", {
   expect_message(get_tsn('Dugesia', verbose=TRUE))
   expect_message(get_tsn('Dugesia', verbose=FALSE), NA)
 
-  expect_that(is.na(get_tsn('black bear', searchtype="common", ask=FALSE, verbose=FALSE)), is_true())
+  expect_that(all(is.na(get_tsn('black bear', searchtype="common", ask=FALSE, verbose=FALSE))), is_true())
 })

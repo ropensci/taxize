@@ -19,9 +19,7 @@
 #' @param x Input to \code{\link{as.tpsid}}
 #' @param check logical; Check if ID matches any existing on the DB, only used in
 #' \code{\link{as.tpsid}}
-#'
-#' @return A vector of unique identifiers. If a taxon is not found NA.
-#' If more than one ID is found the function asks for user input.
+#' @template getreturn
 #'
 #' @section Filtering:
 #' The parameters \code{family} and \code{rank} are not used in the search to the data
@@ -30,7 +28,10 @@
 #' you can use regex strings since we use \code{\link{grep}} internally to match.
 #' Filtering narrows down to the set that matches your query, and removes the rest.
 #'
-#' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_tpsid}}
+#' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_uid}},
+#' \code{\link[taxize]{get_nbnid}}, \code{\link[taxize]{get_eolid}},
+#' \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_gbifid}},
+#' \code{\link[taxize]{get_ids}}, \code{\link[taxize]{classification}}
 #'
 #' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
 #'
@@ -113,13 +114,15 @@
 get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA,
                       family = NULL, rank = NULL, ...){
   fun <- function(sciname, ask, verbose, rows, ...) {
+    direct <- FALSE
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
     tmp <- tp_search(name = sciname, key = key, ...)
+    mm <- NROW(tmp) > 1
     tmp <- sub_rows(tmp, rows)
 
     if (names(tmp)[[1]] == 'error' || is.na(tmp)) {
       mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
-      id <- NA
+      id <- NA_character_
       att <- 'not found'
     } else {
       df <- tmp[,c('nameid','scientificname','family','rankabbreviation',
@@ -132,7 +135,7 @@ get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
     # not found on tropicos
     if (length(id) == 0) {
       mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
-      id <- NA
+      id <- NA_character_
       att <- 'not found'
     }
     # more than one found on tropicos -> user input
@@ -146,6 +149,7 @@ get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
           id <- df$tpsid
           if (length(id) == 1) {
             rank_taken <- as.character(df$rank)
+            direct <- TRUE
             att <- "found"
           }
         }
@@ -169,23 +173,25 @@ get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
             id <- as.character(df$tpsid[take])
             att <- 'found'
           } else {
-            id <- NA
+            id <- NA_character_
             mssg(verbose, "\nReturned 'NA'!\n\n")
             att <- 'not found'
           }
         }
       } else{
-        id <- NA
+        id <- NA_character_
         att <- 'NA due to ask=FALSE'
       }
     }
-    list(id = id, att = att)
+    list(id = as.character(id), att = att, multiple = mm, direct = direct)
   }
   sciname <- as.character(sciname)
   out <- lapply(sciname, fun, ask, verbose, rows, ...)
-  ids <- unlist(pluck(out, "id"))
+  ids <- pluck(out, "id", "")
   atts <- pluck(out, "att", "")
-  ids <- structure(ids, class = "tpsid", match = atts)
+  ids <- structure(ids, class = "tpsid", match = atts,
+                   multiple_matches = pluck(out, "multiple", logical(1)),
+                   pattern_match = pluck(out, "direct", logical(1)))
   add_uri(ids, 'http://tropicos.org/Name/%s')
 }
 
@@ -211,7 +217,11 @@ as.tpsid.numeric <- function(x, check=TRUE) as.tpsid(as.character(x), check)
 
 #' @export
 #' @rdname get_tpsid
-as.tpsid.data.frame <- function(x, check=TRUE) structure(x$ids, class="tpsid", match=x$match, uri=x$uri)
+as.tpsid.data.frame <- function(x, check=TRUE) {
+  structure(x$ids, class="tpsid", match=x$match,
+            multiple_matches = x$multiple_matches,
+            pattern_match = x$pattern_match, uri=x$uri)
+}
 
 #' @export
 #' @rdname get_tpsid
@@ -219,6 +229,8 @@ as.data.frame.tpsid <- function(x, ...){
   data.frame(ids = as.character(unclass(x)),
              class = "tpsid",
              match = attr(x, "match"),
+             multiple_matches = attr(x, "multiple_matches"),
+             pattern_match = attr(x, "pattern_match"),
              uri = attr(x, "uri"),
              stringsAsFactors = FALSE)
 }

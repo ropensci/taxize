@@ -4,7 +4,7 @@ context("get_tpsid")
 test_that("get_tpsid returns the correct value", {
   skip_on_cran()
 
-  expect_equal(get_tpsid(sciname='Helianthus excubitor', verbose=FALSE)[[1]], 50230899)
+  expect_equal(get_tpsid(sciname='Helianthus excubitor', verbose=FALSE)[[1]], "50230899")
   expect_that(is.na(get_tpsid(sciname='adsf asdf asdf', verbose=FALSE)[[1]]),
               is_true())
 })
