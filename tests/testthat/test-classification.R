@@ -169,3 +169,16 @@ test_that("all rank character strings are lower case (all letters)", {
   #expect_false(all(grepl("[A-Z]", ff[[1]]$rank)))
   expect_false(all(grepl("[A-Z]", gg[[1]]$rank)))
 })
+
+
+test_that("rows parameter, when used, works", {
+  skip_on_cran()
+
+  expect_is(classification("Asdfafsfd", db = 'ncbi', rows = 1, verbose = FALSE), "classification")
+  expect_is(classification("Asdfafsfd", db = 'itis', rows = 1, verbose = FALSE), "classification")
+  expect_is(classification("Asdfafsfd", db = 'gbif', rows = 1, verbose = FALSE), "classification")
+  expect_is(classification("Asdfafsfd", db = 'eol', rows = 1, verbose = FALSE), "classification")
+  expect_is(classification("Asdfafsfd", db = 'col', rows = 1, verbose = FALSE), "classification")
+  expect_is(classification("Asdfafsfd", db = 'tropicos', rows = 1, verbose = FALSE), "classification")
+  expect_is(classification("Asdfafsfd", db = 'nbn', rows = 1, verbose = FALSE), "classification")
+})

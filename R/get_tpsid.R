@@ -120,7 +120,7 @@ get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
     mm <- NROW(tmp) > 1
     tmp <- sub_rows(tmp, rows)
 
-    if (names(tmp)[[1]] == 'error' || is.na(tmp)) {
+    if (names(tmp)[[1]] == 'error' || is.na(tmp) || inherits(tmp, "character")) {
       mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
       id <- NA_character_
       att <- 'not found'
