@@ -5,10 +5,10 @@
 #' @param searchterm character; A vector of common or scientific names.
 #' @param searchtype character; One of 'scientific' or 'common', or any unique abbreviation
 #' @param accepted logical; If TRUE, removes names that are not accepted valid names
-#' by ITIS. Set to FALSE (default) to give back both accepted and unaccepted names.
+#' by ITIS. Set to \code{FALSE} (default) to give back both accepted and unaccepted names.
 #' @param ask logical; should get_tsn be run in interactive mode?
-#' If TRUE and more than one TSN is found for teh species, the user is asked for
-#' input. If FALSE NA is returned for multiple matches.
+#' If \code{TRUE} and more than one TSN is found for the species, the user is asked for
+#' input. If \code{FALSE} NA is returned for multiple matches.
 #' @param verbose logical; should progress be printed?
 #' @param rows numeric; Any number from 1 to inifity. If the default NA, all rows are considered.
 #' Note that this function still only gives back a tsn class object with one to many identifiers.

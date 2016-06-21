@@ -38,11 +38,11 @@ get_tsn_(searchterm, verbose = TRUE, searchtype = "scientific",
 \item{searchtype}{character; One of 'scientific' or 'common', or any unique abbreviation}
 
 \item{accepted}{logical; If TRUE, removes names that are not accepted valid names
-by ITIS. Set to FALSE (default) to give back both accepted and unaccepted names.}
+by ITIS. Set to \code{FALSE} (default) to give back both accepted and unaccepted names.}
 
 \item{ask}{logical; should get_tsn be run in interactive mode?
-If TRUE and more than one TSN is found for teh species, the user is asked for
-input. If FALSE NA is returned for multiple matches.}
+If \code{TRUE} and more than one TSN is found for the species, the user is asked for
+input. If \code{FALSE} NA is returned for multiple matches.}
 
 \item{verbose}{logical; should progress be printed?}
 
