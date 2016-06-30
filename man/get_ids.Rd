@@ -26,7 +26,7 @@ you were expecting).}
 \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_tpsid}},
 \code{\link[taxize]{get_gbifid}},  \code{\link[taxize]{get_nbnid}}.}
 
-\item{rows}{numeric; Any number from 1 to inifity. If the default NA, all rows are returned.
+\item{rows}{numeric; Any number from 1 to infinity. If the default NA, all rows are returned.
 When used in \code{get_ids} this function still only gives back a ids class object with one to
 many identifiers. See \code{get_ids_} to get back all, or a subset, of the raw data that you are
 presented during the ask process.}

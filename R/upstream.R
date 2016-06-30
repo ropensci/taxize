@@ -18,7 +18,7 @@
 #' 'infraorder','superfamily','family','subfamily','tribe','subtribe','genus','subgenus',
 #' 'section','subsection','species','subspecies','variety','form','subvariety','race',
 #' 'stirp','morph','aberration','subform', or 'unspecified'
-#' @param rows (numeric) Any number from 1 to inifity. If the default NA, all rows are
+#' @param rows (numeric) Any number from 1 to infinity. If the default NA, all rows are
 #' considered. Note that this parameter is ignored if you pass in a taxonomic id of any of the
 #' acceptable classes: tsn, colid.
 #' @param ... Further args passed on to \code{itis_downstream} or \code{col_downstream}

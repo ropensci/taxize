@@ -20,7 +20,7 @@
 #' @param intermediate (logical) If TRUE, return a list of length two with target
 #' taxon rank names, with additional list of data.frame's of intermediate
 #' taxonomic groups. Default: FALSE
-#' @param rows (numeric) Any number from 1 to inifity. If the default NA, all rows are
+#' @param rows (numeric) Any number from 1 to infinity. If the default NA, all rows are
 #' considered. Note that this parameter is ignored if you pass in a taxonomic id of any of the
 #' acceptable classes: tsn, colid.
 #' @param ... Further args passed on to \code{itis_downstream} or \code{col_downstream}

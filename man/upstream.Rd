@@ -35,7 +35,7 @@ subkingdom','infrakingdom','phylum','division','subphylum','subdivision','infrad
 'section','subsection','species','subspecies','variety','form','subvariety','race',
 'stirp','morph','aberration','subform', or 'unspecified'}
 
-\item{rows}{(numeric) Any number from 1 to inifity. If the default NA, all rows are
+\item{rows}{(numeric) Any number from 1 to infinity. If the default NA, all rows are
 considered. Note that this parameter is ignored if you pass in a taxonomic id of any of the
 acceptable classes: tsn, colid.}
 }
