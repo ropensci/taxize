@@ -46,7 +46,7 @@ taxa with 'recommended' name status.}
 \item{rank}{(character) If given, we attempt to limit the results to those taxa with the
 matching rank.}
 
-\item{rows}{numeric; Any number from 1 to inifity. If the default NA, all rows are considered.
+\item{rows}{numeric; Any number from 1 to infinity. If the default NA, all rows are considered.
 Note that this function still only gives back a nbnid class object with one to many identifiers.
 See \code{\link[taxize]{get_nbnid_}} to get back all, or a subset, of the raw data that you are
 presented during the ask process.}

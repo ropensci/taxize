@@ -47,7 +47,7 @@ subkingdom','infrakingdom','phylum','division','subphylum','subdivision','infrad
 taxon rank names, with additional list of data.frame's of intermediate
 taxonomic groups. Default: FALSE}
 
-\item{rows}{(numeric) Any number from 1 to inifity. If the default NA, all rows are
+\item{rows}{(numeric) Any number from 1 to infinity. If the default NA, all rows are
 considered. Note that this parameter is ignored if you pass in a taxonomic id of any of the
 acceptable classes: tsn, colid.}
 }

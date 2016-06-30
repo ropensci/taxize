@@ -11,7 +11,7 @@
 #' If \code{TRUE} and more than one TSN is found for the species, the user is asked for
 #' input. If \code{FALSE} NA is returned for multiple matches.
 #' @param verbose logical; should progress be printed?
-#' @param rows numeric; Any number from 1 to inifity. If the default NA, all rows are considered.
+#' @param rows numeric; Any number from 1 to infinity. If the default NA, all rows are considered.
 #' Note that this function still only gives back a tsn class object with one to many identifiers.
 #' See \code{\link[taxize]{get_tsn_}} to get back all, or a subset, of the raw data that you are
 #' presented during the ask process.

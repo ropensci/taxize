@@ -4,7 +4,7 @@
 #' @param x Vector of taxa names (character) or id (character or numeric) to query.
 #' @param db character; database to query. either \code{ncbi}, \code{itis}, or
 #'    \code{gbif}.
-#' @param rows (numeric) Any number from 1 to inifity. If the default NA, all rows are
+#' @param rows (numeric) Any number from 1 to infinity. If the default NA, all rows are
 #' considered. Note that this parameter is ignored if you pass in a taxonomic id of any of the
 #' acceptable classes: tsn, colid. NCBI has a method for this function but rows doesn't work.
 #' @param class_list (list) A list of classifications, as returned from

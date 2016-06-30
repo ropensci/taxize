@@ -12,7 +12,7 @@
 #'    source has their own identifiers, so that if you vide the wrong \code{db} value
 #'    for the identifier you could get a result, it will likely be wrong (not what
 #'    you were expecting).
-#' @param rows numeric; Any number from 1 to inifity. If the default NA, all rows are returned.
+#' @param rows numeric; Any number from 1 to infinity. If the default NA, all rows are returned.
 #' When used in \code{get_ids} this function still only gives back a ids class object with one to
 #' many identifiers. See \code{get_ids_} to get back all, or a subset, of the raw data that you are
 #' presented during the ask process.

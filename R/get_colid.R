@@ -7,7 +7,7 @@
 #' input. If FALSE NA is returned for multiple matches.
 #' @param verbose logical; If TRUE the actual taxon queried is printed on the
 #'    console.
-#' @param rows numeric; Any number from 1 to inifity. If the default NA, all rows are considered.
+#' @param rows numeric; Any number from 1 to infinity. If the default NA, all rows are considered.
 #' Note that this function still only gives back a colid class object with one to many identifiers.
 #' See \code{\link[taxize]{get_colid_}} to get back all, or a subset, of the raw data that you are
 #' presented during the ask process.

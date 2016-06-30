@@ -69,7 +69,7 @@ but it will likely be wrong (not what you were expecting).}
 \item{return_id}{(logical) If TRUE (default), return the taxon id as well as the name
 and rank of taxa in the lineage returned.}
 
-\item{rows}{(numeric) Any number from 1 to inifity. If the default NA, all rows are
+\item{rows}{(numeric) Any number from 1 to infinity. If the default NA, all rows are
 considered. Note that this parameter is ignored if you pass in a taxonomic id instead
 of a name of class character.}
 

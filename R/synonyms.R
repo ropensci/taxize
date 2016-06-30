@@ -7,7 +7,7 @@
 #' you could get a result, but it will likely be wrong (not what you were expecting).
 #' @param id character; identifiers, returned by \code{\link[taxize]{get_tsn}},
 #'    \code{\link[taxize]{get_tpsid}}, or \code{\link[taxize]{get_nbnid}}
-#' @param rows (numeric) Any number from 1 to inifity. If the default NA, all rows are
+#' @param rows (numeric) Any number from 1 to infinity. If the default NA, all rows are
 #' considered. Note that this parameter is ignored if you pass in a taxonomic id of any of the
 #' acceptable classes: tsn, tpsid, nbnid, ids.
 #' @param ... Other passed arguments to internal functions \code{get_*()} and functions to
