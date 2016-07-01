@@ -133,7 +133,7 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
       lookup = gbif_name_lookup(sciname, ...)
     )
     mm <- NROW(df) > 1
-    df <- sub_rows(df, rows)
+    #df <- sub_rows(df, rows)
 
     if (is.null(df)) df <- data.frame(NULL)
 
@@ -170,16 +170,18 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
             df <- filt(df, "order", order)
             df <- filt(df, "family", family)
             df <- filt(df, "rank", rank)
-            if (NROW(df) > 1) rownames(df) <- 1:nrow(df)
-            if (NROW(df) == 0) {
-              id <- NA_character_
-              att <- "not found"
-            } else {
-              id <- df$gbifid
-              if (length(id) == 1) {
-                rank_taken <- as.character(df$rank)
-                att <- "found"
-              }
+          }
+
+          df <- sub_rows(df, rows)
+          if (NROW(df) > 1) rownames(df) <- 1:nrow(df)
+          if (NROW(df) == 0) {
+            id <- NA_character_
+            att <- "not found"
+          } else {
+            id <- df$gbifid
+            if (length(id) == 1) {
+              rank_taken <- as.character(df$rank)
+              att <- "found"
             }
           }
 
@@ -219,7 +221,7 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
     list(id = id, att = att, multiple = mm, direct = direct)
   }
   out <- lapply(as.character(sciname), fun, ask, verbose, rows, ...)
-  ids <- structure(pluck(out, "id", 1), class = "gbifid",
+  ids <- structure(as.character(unlist(pluck(out, "id"))), class = "gbifid",
                    match = pluck(out, "att", ""),
                    multiple_matches = pluck(out, "multiple", logical(1)),
                    pattern_match = pluck(out, "direct", logical(1)))

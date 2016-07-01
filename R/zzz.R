@@ -65,7 +65,14 @@ sub_rows <- function(x, rows){
   if ( any(is.na(rows)) ) {
     x
   } else {
-    if (NROW(x) == 0) x else x[rows, ]
+    # subset
+    if (NROW(x) == 0) {
+      x
+    } else {
+      # check that vector is = or > nrow of data.frame
+      if (NROW(x) < max(rows)) rows <- min(rows):NROW(x)
+      x[rows, ]
+    }
   }
 }
 
