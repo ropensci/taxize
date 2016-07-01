@@ -78,7 +78,8 @@ sub_rows <- function(x, rows){
 
 sub_vector <- function(x, rows){
   rows <- check_rows(rows)
-  if( any(is.na(rows)) ) x else x[rows]
+  if (length(x) < max(rows)) rows <- min(rows):length(x)
+  if ( any(is.na(rows)) ) x else x[rows]
 }
 
 nstop <- function(x, arg='db') if (is.null(x)) stop(sprintf("Must specify %s!", arg), call. = FALSE)

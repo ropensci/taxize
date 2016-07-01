@@ -118,7 +118,7 @@ get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
     tmp <- tp_search(name = sciname, key = key, ...)
     mm <- NROW(tmp) > 1
-    tmp <- sub_rows(tmp, rows)
+    # tmp <- sub_rows(tmp, rows)
 
     if (names(tmp)[[1]] == 'error' || is.na(tmp) || inherits(tmp, "character")) {
       mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
@@ -145,17 +145,19 @@ get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
         if (!is.null(family) || !is.null(rank)) {
           df <- filt(df, "family", family)
           df <- filt(df, "rank", rank)
-          if (NROW(df) > 1) rownames(df) <- 1:nrow(df)
-          id <- df$tpsid
-          if (length(id) == 1) {
-            rank_taken <- as.character(df$rank)
-            direct <- TRUE
-            att <- "found"
-          }
+        }
+
+        df <- sub_rows(df, rows)
+        id <- df$tpsid
+        if (length(id) == 1) {
+          rank_taken <- as.character(df$rank)
+          direct <- TRUE
+          att <- "found"
         }
 
         if (length(id) > 1) {
           # prompt
+          rownames(df) <- 1:nrow(df)
           message("\n\n")
           message("\nMore than one tpsid found for taxon '", sciname, "'!\n
           Enter rownumber of taxon (other inputs will return 'NA'):\n")

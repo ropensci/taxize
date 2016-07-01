@@ -127,7 +127,7 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes = 'basic', includeTr
     bold_df <- bold_search(name = x, fuzzy = fuzzy,
                            dataTypes = dataTypes, includeTree = includeTree, ...)
     mm <- NROW(bold_df) > 1
-    bold_df <- sub_rows(bold_df, rows)
+    #bold_df <- sub_rows(bold_df, rows)
 
     if (!class(bold_df) == "data.frame") {
       boldid <- NA_character_
@@ -183,12 +183,13 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes = 'basic', includeTr
               bold_df <- filt(bold_df, "division", division)
               bold_df <- filt(bold_df, "parent", parent)
               bold_df <- filt(bold_df, "rank", rank)
-              boldid <- id <- bold_df$taxid
-              if (NROW(bold_df) > 1) rownames(bold_df) <- 1:nrow(bold_df)
-              if (length(id) == 1) {
-                direct <- TRUE
-                att <- "found"
-              }
+            }
+
+            bold_df <- sub_rows(bold_df, rows)
+            boldid <- id <- bold_df$taxid
+            if (length(id) == 1) {
+              direct <- TRUE
+              att <- "found"
             }
 
             # user prompt

@@ -87,7 +87,7 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE, ask
     searchtype <- match.arg(searchtype, c("scientific","common"))
     tsn_df <- itis_terms(x, what = searchtype, ...)
     mm <- NROW(tsn_df) > 1
-    tsn_df <- sub_rows(tsn_df, rows)
+    # tsn_df <- sub_rows(tsn_df, rows)
 
     if (!class(tsn_df) == "data.frame" || NROW(tsn_df) == 0) {
       tsn <- NA_character_
@@ -98,6 +98,8 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE, ask
       if (accepted) {
         tsn_df <- tsn_df[ tsn_df$nameusage %in% c('valid','accepted'), ]
       }
+
+      tsn_df <- sub_rows(tsn_df, rows)
 
       # should return NA if spec not found
       if (nrow(tsn_df) == 0) {

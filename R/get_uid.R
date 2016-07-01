@@ -166,7 +166,7 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, modifier = N
     if (length(uid) == 0) { # if taxon name is not found
       uid <- NA_character_
     } else {
-      uid <- sub_vector(uid, rows)
+      #uid <- sub_vector(uid, rows)
       att <- 'found'
     }
     # not found on ncbi
@@ -190,19 +190,21 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, modifier = N
         if (!is.null(division_filter) || !is.null(rank_filter)) {
           df <- filt(df, "division", division_filter)
           df <- filt(df, "rank", rank_filter)
-          uid <- df$uid
-          if (NROW(df) > 1) rownames(df) <- 1:nrow(df)
-          if (length(uid) == 1) {
-            direct <- TRUE
-            att <- "found"
-          }
-          if (length(uid) == 0) {
-            uid <- NA_character_
-          }
+        }
+
+        df <- sub_rows(df, rows)
+        uid <- df$uid
+        if (length(uid) == 1) {
+          direct <- TRUE
+          att <- "found"
+        }
+        if (length(uid) == 0) {
+          uid <- NA_character_
         }
 
         if (length(uid) > 1) {
           # prompt
+          rownames(df) <- 1:nrow(df)
           message("\n\n")
           message("\nMore than one UID found for taxon '", sciname, "'!\n
             Enter rownumber of taxon (other inputs will return 'NA'):\n")

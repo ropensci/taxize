@@ -119,7 +119,7 @@ get_colid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
     df <- col_search(name = sciname, response = "full", ...)[[1]]
     df <- df[, names(df) %in% c("name","rank","id","name_status","kingdom","family","acc_name")]
     mm <- NROW(df) > 1
-    df <- sub_rows(df, rows)
+    #df <- sub_rows(df, rows)
 
     rank_taken <- NA
     if (NROW(df) == 0) {
@@ -153,17 +153,19 @@ get_colid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
           df <- filt(df, "order", order)
           df <- filt(df, "family", family)
           df <- filt(df, "rank", rank)
-          id <- df$colid
-          if (NROW(df) > 1) rownames(df) <- 1:nrow(df)
-          if (length(id) == 1) {
-            rank_taken <- as.character(df$rank)
-            direct <- TRUE
-            att <- "found"
-          }
+        }
+
+        df <- sub_rows(df, rows)
+        id <- df$colid
+        if (length(id) == 1) {
+          rank_taken <- as.character(df$rank)
+          direct <- TRUE
+          att <- "found"
         }
 
         if (length(id) > 1) {
           # prompt
+          rownames(df) <- 1:nrow(df)
           message("\n\n")
           message("\nMore than one colid found for taxon '", sciname, "'!\n
             Enter rownumber of taxon (other inputs will return 'NA'):\n")

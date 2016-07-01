@@ -83,7 +83,7 @@ get_nbnid <- function(name, ask = TRUE, verbose = TRUE, rec_only = FALSE, rank =
     df <- nbn_search(q = name, all = TRUE, ...)$data
     if (is.null(df)) df <- data.frame(NULL)
     mm <- NROW(df) > 1
-    df <- sub_rows(df, rows)
+    # df <- sub_rows(df, rows)
 
     rank_taken <- NA
     if (nrow(df) == 0) {
@@ -93,6 +93,7 @@ get_nbnid <- function(name, ask = TRUE, verbose = TRUE, rec_only = FALSE, rank =
     } else {
       if (rec_only) df <- df[ df$namestatus == 'Recommended', ]
       if (!is.null(rank)) df <- df[ tolower(df$rank) == tolower(rank), ]
+      df <- sub_rows(df, rows)
       df <- df[,c('ptaxonversionkey','searchmatchtitle','rank','namestatus')]
       names(df)[1] <- 'nbnid'
       id <- df$nbnid

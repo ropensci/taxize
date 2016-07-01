@@ -173,7 +173,6 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
           }
 
           df <- sub_rows(df, rows)
-          if (NROW(df) > 1) rownames(df) <- 1:nrow(df)
           if (NROW(df) == 0) {
             id <- NA_character_
             att <- "not found"
