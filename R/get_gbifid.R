@@ -219,7 +219,7 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
     list(id = id, att = att, multiple = mm, direct = direct)
   }
   out <- lapply(as.character(sciname), fun, ask, verbose, rows, ...)
-  ids <- structure(pluck(out, "id", ""), class = "gbifid",
+  ids <- structure(pluck(out, "id", 1), class = "gbifid",
                    match = pluck(out, "att", ""),
                    multiple_matches = pluck(out, "multiple", logical(1)),
                    pattern_match = pluck(out, "direct", logical(1)))
