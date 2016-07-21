@@ -1,6 +1,4 @@
-# tests for gnr_resolve fxn in taxize
 context("gnr_resolve")
-
 
 test_that("gnr_resolve returns the correct value", {
   skip_on_cran()
@@ -60,4 +58,14 @@ test_that("fields parameter works correctly", {
   expect_true(identical(tmp1$matched_name, tmp2$matched_name))
 
   expect_lt(NCOL(tmp2), NCOL(tmp1))
+})
+
+test_that("works correctly when no data found for preferred data source", {
+  skip_on_cran()
+
+  aa <- gnr_resolve("Scabiosa triandra", preferred_data_sources = c(3,12), best_match_only = TRUE)
+
+  expect_is(aa, "data.frame")
+  expect_equal(NROW(aa), 0)
+  expect_equal(length(attributes(aa)$not_known), 0)
 })
