@@ -188,7 +188,9 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
           }
           list(y[c("original_name", "supplied_name_string")], res)
         })
-      data_preferred <- Filter(function(x) !is.null(x[[2]]), data_preferred)
+      # data_preferred <- Filter(function(x) !is.null(x[[2]]), data_preferred)
+      # data_preferred <-
+      #   Filter(function(x) if ( !is.null(x[[2]]) ) x else x[[1]], data_preferred)
       data_2_preferred <- ldply(data_preferred, function(x) data.frame(x[[1]], ldply(if (length(x[[2]]) == 0) {
         list(data.frame(name_string = "", data_source_title = "", score = NaN, canonical_form = ""))
       } else {
@@ -216,7 +218,7 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
   structure(out, not_known = not_known)
 }
 
-cv <- function(x){
+cv <- function(x) {
   if (x) {
     'true'
   } else {

@@ -66,6 +66,6 @@ test_that("works correctly when no data found for preferred data source", {
   aa <- gnr_resolve("Scabiosa triandra", preferred_data_sources = c(3,12), best_match_only = TRUE)
 
   expect_is(aa, "data.frame")
-  expect_equal(NROW(aa), 0)
+  expect_equal(NROW(aa), 1)
   expect_equal(length(attributes(aa)$not_known), 0)
 })
