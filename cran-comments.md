@@ -22,8 +22,10 @@ File 'LICENSE':
 
 ## Reverse dependencies
 
-* I have run R CMD check on the 16 downstream dependencies (<https://github.com/ropensci/taxize/blob/master/revdep/README.md>).
-There are no problems related to taxize as far as I can tell.
+* I have run R CMD check on the 16 downstream dependencies 
+(<https://github.com/ropensci/taxize/blob/master/revdep/README.md>).
+There was one problem, but was not related to taxize as far as I can tell.
+* All revdep maintainers were notified of the release on 2016-07-22 
 
 Thanks!
 Scott Chamberlain
