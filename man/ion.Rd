@@ -26,6 +26,6 @@ ion(1280626) # puma concolor
 }
 }
 \references{
-\url{http://www.organismnames.com/}
+http://www.organismnames.com
 }
 

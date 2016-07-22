@@ -1,18 +1,37 @@
-taxize 0.8.0
+taxize 0.7.9
 ============
+
+## NEW FEATURES
+
+* New vignette: "Strategies for programmatic name cleaning" (#549)
 
 ## MINOR IMPROVEMENTS
 
-* xxx (#543)
-* xxx (#543)
-* xxx (#543)
+* `get_*()` functions now have new attributes to further help the user:
+`multiple_matches` (logical) indicating whether there were multiple
+matches or not, and `pattern_match` (logical) indicating whether a
+pattern match was made, or not. (#550) from (#547) discussion,
+thanks @ahhurlbert ! see also (#551)
+* Change all `xml2::xml_find_one()` to `xml2::xml_find_first()`
+for new `xml2` version (#546)
+* `gnr_resolve()` now retains user supplied taxa that had no matches -
+this could affect your code, make sure to check your existing code (#558)
+* `gnr_resolve()` - stop sorting output data.frame, so order of rows
+in output data.frame now same as user input vector/list (#559)
 
 ## BUG FIXES
 
-* xxx (#543)
-* xxx (#543)
-* xxx (#543)
-
+* Fixed internal fxn `sub_rows()` inside of most `get_*()` functions
+to not fail when the data.frame rows were less than that requested by
+the user in `rows` parameter (#556)
+* Fixed `get_gbifid()`, as sometimes calls failed because we now
+return numberic IDs but used to return character IDs (#555)
+* Fix to all `get_()` functions to call the internal `sub_rows()`
+function later in the function flow so as not to interfere with
+taxonomic based filtering (e.g., user filtering by a taxonomic rank)
+(#555)
+* Fix to `gnr_resolve()`, to not fail on parsing when no data
+returned when a preferred data source specified (#557)
 
 taxize 0.7.8
 ============

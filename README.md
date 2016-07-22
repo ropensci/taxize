@@ -191,7 +191,6 @@ Alot of `taxize` revolves around taxonomic identifiers. Because, as you know, na
 
 ```r
 uids <- get_uid(c("Chironomus riparius", "Chaetopteryx"))
-#> Error in value[[3L]](cond): Server returned nothing (no headers, no data)
 ```
 
 ## Retrieve classifications
@@ -201,9 +200,24 @@ Classifications - think of a species, then all the taxonomic ranks up from that 
 
 ```r
 out <- classification(uids)
-#> Error in classification(uids): object 'uids' not found
 lapply(out, head)
-#> Error in lapply(out, head): object 'out' not found
+#> $`315576`
+#>                 name         rank     id
+#> 1 cellular organisms      no rank 131567
+#> 2          Eukaryota superkingdom   2759
+#> 3       Opisthokonta      no rank  33154
+#> 4            Metazoa      kingdom  33208
+#> 5          Eumetazoa      no rank   6072
+#> 6          Bilateria      no rank  33213
+#> 
+#> $`492549`
+#>                 name         rank     id
+#> 1 cellular organisms      no rank 131567
+#> 2          Eukaryota superkingdom   2759
+#> 3       Opisthokonta      no rank  33154
+#> 4            Metazoa      kingdom  33208
+#> 5          Eumetazoa      no rank   6072
+#> 6          Bilateria      no rank  33213
 ```
 
 ## Immediate children
@@ -304,8 +318,14 @@ upstream("Pinus contorta", db = 'itis', upto = 'Genus', verbose=FALSE)
 ```r
 synonyms("Acer drummondii", db="itis")
 #> $`Acer drummondii`
-#>   sub_tsn                    acc_name acc_tsn       message
-#> 1  183671 Acer rubrum var. drummondii  526853 no syns found
+#>   sub_tsn                    acc_name acc_tsn                    syn_name
+#> 1  183671 Acer rubrum var. drummondii  526853 Acer rubrum ssp. drummondii
+#> 2  183671 Acer rubrum var. drummondii  526853             Acer drummondii
+#> 3  183671 Acer rubrum var. drummondii  526853          Rufacer drummondii
+#>   syn_tsn
+#> 1   28730
+#> 2  183671
+#> 3  183672
 ```
 
 ## Get taxonomic IDs from many sources
@@ -318,6 +338,10 @@ get_ids(names="Salvelinus fontinalis", db = c('itis', 'ncbi'), verbose=FALSE)
 #>              "162003" 
 #> attr(,"match")
 #> [1] "found"
+#> attr(,"multiple_matches")
+#> [1] FALSE
+#> attr(,"pattern_match")
+#> [1] FALSE
 #> attr(,"uri")
 #> [1] "http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=162003"
 #> attr(,"class")
@@ -330,6 +354,10 @@ get_ids(names="Salvelinus fontinalis", db = c('itis', 'ncbi'), verbose=FALSE)
 #> [1] "uid"
 #> attr(,"match")
 #> [1] "found"
+#> attr(,"multiple_matches")
+#> [1] FALSE
+#> attr(,"pattern_match")
+#> [1] FALSE
 #> attr(,"uri")
 #> [1] "http://www.ncbi.nlm.nih.gov/taxonomy/8038"
 #> 
@@ -344,13 +372,17 @@ You can limit to certain rows when getting ids in any `get_*()` functions
 get_ids(names="Poa annua", db = "gbif", rows=1)
 #> $gbif
 #> Poa annua 
-#> "7576620" 
+#> "2704179" 
 #> attr(,"class")
 #> [1] "gbifid"
 #> attr(,"match")
 #> [1] "found"
+#> attr(,"multiple_matches")
+#> [1] TRUE
+#> attr(,"pattern_match")
+#> [1] FALSE
 #> attr(,"uri")
-#> [1] "http://www.gbif.org/species/7576620"
+#> [1] "http://www.gbif.org/species/2704179"
 #> 
 #> attr(,"class")
 #> [1] "ids"
@@ -365,8 +397,8 @@ get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn', rows=1:3)
 #> $nbn$`Chironomus riparius`
 #>   ptaxonversionkey    searchmatchtitle    rank  namestatus
 #> 1 NBNSYS0000027573 Chironomus riparius species Recommended
-#> 2 NBNSYS0000023345   Paederus riparius species Recommended
-#> 3 NHMSYS0000864966    Damaeus riparius species Recommended
+#> 2 NHMSYS0001718042   Elaphrus riparius species Recommended
+#> 3 NBNSYS0000023345   Paederus riparius species Recommended
 #> 
 #> $nbn$`Pinus contorta`
 #>   ptaxonversionkey               searchmatchtitle       rank  namestatus
@@ -395,10 +427,10 @@ sci2comm('Helianthus annuus', db = 'itis')
 ```r
 comm2sci("black bear", db = "itis")
 #> $`black bear`
-#> [1] "Chiropotes satanas"          "Ursus thibetanus"           
-#> [3] "Ursus thibetanus"            "Ursus americanus luteolus"  
-#> [5] "Ursus americanus americanus" "Ursus americanus"           
-#> [7] "Ursus americanus"
+#> [1] "Ursus thibetanus"            "Ursus thibetanus"           
+#> [3] "Ursus americanus luteolus"   "Ursus americanus americanus"
+#> [5] "Ursus americanus"            "Ursus americanus"           
+#> [7] "Chiropotes satanas"
 ```
 
 ## Lowest common rank among taxa
@@ -423,6 +455,10 @@ as.uid(315567)
 #> [1] "uid"
 #> attr(,"match")
 #> [1] "found"
+#> attr(,"multiple_matches")
+#> [1] FALSE
+#> attr(,"pattern_match")
+#> [1] FALSE
 #> attr(,"uri")
 #> [1] "http://www.ncbi.nlm.nih.gov/taxonomy/315567"
 ```
@@ -437,6 +473,10 @@ as.uid(list("315567", "3339", "9696"))
 #> [1] "uid"
 #> attr(,"match")
 #> [1] "found" "found" "found"
+#> attr(,"multiple_matches")
+#> [1] FALSE FALSE FALSE
+#> attr(,"pattern_match")
+#> [1] FALSE FALSE FALSE
 #> attr(,"uri")
 #> [1] "http://www.ncbi.nlm.nih.gov/taxonomy/315567"
 #> [2] "http://www.ncbi.nlm.nih.gov/taxonomy/3339"  
@@ -449,10 +489,14 @@ as.uid(list("315567", "3339", "9696"))
 ```r
 out <- as.uid(c(315567, 3339, 9696))
 (res <- data.frame(out))
-#>      ids class match                                         uri
-#> 1 315567   uid found http://www.ncbi.nlm.nih.gov/taxonomy/315567
-#> 2   3339   uid found   http://www.ncbi.nlm.nih.gov/taxonomy/3339
-#> 3   9696   uid found   http://www.ncbi.nlm.nih.gov/taxonomy/9696
+#>      ids class match multiple_matches pattern_match
+#> 1 315567   uid found            FALSE         FALSE
+#> 2   3339   uid found            FALSE         FALSE
+#> 3   9696   uid found            FALSE         FALSE
+#>                                           uri
+#> 1 http://www.ncbi.nlm.nih.gov/taxonomy/315567
+#> 2   http://www.ncbi.nlm.nih.gov/taxonomy/3339
+#> 3   http://www.ncbi.nlm.nih.gov/taxonomy/9696
 ```
 
 ## Contributors

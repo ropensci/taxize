@@ -1,11 +1,12 @@
 ## Release Summary
 
-This submission fixes a number of bugs, and makes some small improvements.
+This submission fixes a number of bugs, and makes some small improvements,
+and adds a new vignette.
 
 ## Test environments
 
-* local OS X install, R 3.3.0
-* ubuntu 12.04 (on travis-ci), R 3.3.0
+* local OS X install, R 3.3.1
+* ubuntu 12.04 (on travis-ci), R 3.3.1
 * win-builder (devel and release)
 
 ## R CMD check results
