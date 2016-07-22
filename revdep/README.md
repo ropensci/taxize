@@ -4,20 +4,19 @@
 
 |setting  |value                                       |
 |:--------|:-------------------------------------------|
-|version  |R version 3.3.0 Patched (2016-05-09 r70593) |
+|version  |R version 3.3.1 Patched (2016-07-13 r70908) |
 |system   |x86_64, darwin13.4.0                        |
-|ui       |RStudio (0.99.1218)                         |
+|ui       |RStudio (0.99.1266)                         |
 |language |(EN)                                        |
 |collate  |en_US.UTF-8                                 |
 |tz       |America/Los_Angeles                         |
-|date     |2016-06-16                                  |
+|date     |2016-07-22                                  |
 
 ## Packages
 
-|package |*  |version    |date       |source                          |
-|:-------|:--|:----------|:----------|:-------------------------------|
-|covr    |   |2.0.1.9000 |2016-06-16 |Github (jimhester/covr@ba7ef46) |
-|taxize  |   |0.7.7.9600 |2016-06-16 |local (ropensci/taxize@NA)      |
+|package |*  |version    |date       |source                     |
+|:-------|:--|:----------|:----------|:--------------------------|
+|taxize  |   |0.7.8.9999 |2016-07-22 |local (ropensci/taxize@NA) |
 
 # Check results
 16 packages
@@ -39,10 +38,10 @@ Bug reports: http://www.github.com/ropensci/brranching/issues
 
 0 errors | 0 warnings | 0 notes
 
-## camtrapR (0.99.1)
+## camtrapR (0.99.2)
 Maintainer: Juergen Niedballa <niedballa@izw-berlin.de>
 
-0 errors | 1 warning  | 0 notes
+0 errors | 1 warning  | 1 note 
 
 ```
 checking re-building of vignette outputs ... WARNING
@@ -61,6 +60,9 @@ Error: processing vignette 'DataExtraction.Rmd' failed with diagnostics:
 cannot find ExifTool
 Execution halted
 
+
+checking for unstated dependencies in vignettes ... NOTE
+'library' or 'require' call not declared from: ‘raster’
 ```
 
 ## mapr (0.2.0)
@@ -92,60 +94,11 @@ Bug reports: https://github.com/ropensci/rbison/issues
 
 0 errors | 0 warnings | 0 notes
 
-## RNeXML (2.0.6)
+## RNeXML (2.0.7)
 Maintainer: Carl Boettiger <cboettig@gmail.com>  
 Bug reports: https://github.com/ropensci/RNeXML/issues
 
-2 errors | 1 warning  | 0 notes
-
-```
-checking examples ... ERROR
-Running examples in ‘RNeXML-Ex.R’ failed
-The error most likely occurred in:
-
-> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: add_basic_meta
-> ### Title: Add basic metadata
-> ### Aliases: add_basic_meta
-> 
-> ### ** Examples
-> 
-> nex <- add_basic_meta(title = "My test title",
-+              description = "A description of my test",
-+              creator = "Carl Boettiger <cboettig@gmail.com>",
-+              publisher = "unpublished data",
-+              pubdate = "2012-04-01")
-Error in stopc("Unknown column '", i, "'") : Unknown column 'content'
-Calls: add_basic_meta -> $ -> $.tbl_df -> stopc
-Execution halted
-
-checking tests ... ERROR
-Running the tests in ‘tests/test-all.R’ failed.
-Last 13 lines of output:
-  1. Error: We can serialize the various versions of the ape format (@test_ape.R#40) 
-  2. Error: We can read and write NeXML to phylo and back without edge.lengths (@test_ape.R#52) 
-  3. Error: Rooted trees remain rooted on conversions (@test_ape.R#65) 
-  4. Error: Unrooted trees remain unrooted on conversions (@test_ape.R#74) 
-  5. Error: we can extract character matrix with get_characters (@test_characters.R#44) 
-  6. Error: we can add characters to a nexml file using a data.frame (@test_characters.R#88) 
-  7. Error: We can extract tree and trait data to run fitContinuous and fitDiscrete (@test_comp_analysis.R#9) 
-  8. Error: We can serialize tree and trait data for a comparative analysis (@test_comp_analysis.R#25) 
-  9. Error: Getting characters (@test_get_characters.R#7) 
-  1. ...
-  
-  Error: testthat unit tests failed
-  Execution halted
-
-checking re-building of vignette outputs ... WARNING
-Error in re-building vignettes:
-  ...
-Loading required package: ape
-Quitting from lines 46-67 (metadata.Rmd) 
-Error: processing vignette 'metadata.Rmd' failed with diagnostics:
-Unknown column 'content'
-Execution halted
-
-```
+0 errors | 0 warnings | 0 notes
 
 ## rnoaa (0.5.6)
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
