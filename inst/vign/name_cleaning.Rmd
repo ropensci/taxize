@@ -22,7 +22,7 @@ than one match found.
 
 However, to make your code reproducible you don't want interactive prompts.
 
-This vignette covers various options for programmatic name cleaning.
+This vignette covers some options for programmatic name cleaning.
 
 ```{r}
 library("taxize")
@@ -84,8 +84,8 @@ to know which one you want:
 get_tsn(searchterm = 'Quercus b', rows = 3)
 ```
 
-In reality it is unlikely you'll know which row you want, unless perhaps you 
-just one one result from each query, regardless of what it is.
+In reality it is unlikely you'll know which row you want, unless perhaps you
+just want one result from each query, regardless of what it is.
 
 ### underscore methods
 
@@ -96,7 +96,7 @@ has a sister method with and trailing underscore, e.g., `get_tsn()` and `get_tsn
 get_tsn_(searchterm = "Quercus b")
 ```
 
-The result is a single data.frame for each taxon queried, which can be 
+The result is a single data.frame for each taxon queried, which can be
 processed downstream with whatever logic is required in your workflow.
 
 You can also combine `rows` parameter with underscore functions, as a single
@@ -110,16 +110,59 @@ get_tsn_(searchterm = "Quercus b", rows = 1)
 get_tsn_(searchterm = "Quercus b", rows = 1:2)
 ```
 
+## as.* methods
+
+All `get_*()` functions have associated `as.*()` functions (e.g., `get_tsn()` and `as.tsn()`).
+
+Many `taxize` functions use taxonomic identifier classes (S3 objects) that are the output
+of `get_*()` functions. `as.*()` methods make it easy to make the required S3 taxonomic
+identifier classes if you already know the identifier. For example:
+
+Already a tsn, returns the same
+
+```{r}
+as.tsn(get_tsn("Quercus douglasii"))
+```
+
+numeric
+
+```{r}
+as.tsn(c(19322, 129313, 506198))
+```
+
+And you can do the same for character, or list inputs - depending on the data source.
+
+The above `as.tsn()` examples have the parameter `check = TRUE`, meaning we ping the 
+data source web service to make sure the identifier exists. You can skip that check 
+if you like by setting `check = FALSE`, and the result is returned much faster:
+
+```{r}
+as.tsn(c("19322","129313","506198"), check = FALSE)
+```
+
+With the output of `as.*()` methods, you can then proceed with other `taxize` functions.
+
 ## gnr_resolve
 
 Some functions in `taxize` are meant specifically for name cleaning. One of those
 is `gnr_resolve()`.
 
 `gnr_resolve()` doesn't provide prompts as do `get_*()` functions, but instead
-return data.frame's. So we don't face the same problem, and can use `gnr_resolve()` 
+return data.frame's. So we don't face the same problem, and can use `gnr_resolve()`
 in a programmatic workflow straight away.
 
 ```{r}
 spp <- names_list(rank = "species", size = 10)
 gnr_resolve(names = spp, preferred_data_sources = 11)
 ```
+
+## Other functions
+
+Some other functions in `taxize` use `get_*()` functions internally (e.g., `classification()`),
+but you can can generally pass on parameters to the `get_*()` functions internally.
+
+
+## Feedback?
+
+Let us know if you have ideas for better ways to do programmatic name cleaning at 
+<https://github.com/ropensci/taxize/issues> or <https://discuss.ropensci.org/> !

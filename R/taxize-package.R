@@ -46,7 +46,7 @@
 #' }
 #'
 #' If the source above has a \code{TRUE} in the \code{SOAP?} column, it is not available
-#' in this package. They are available from a different package called taxizesoap.
+#' in this package. They are available from a different package called \strong{taxizesoap}.
 #' See the GitHub repo for how to install \url{https://github.com/ropensci/taxizesoap}
 #'
 #' @importFrom graphics plot
@@ -76,6 +76,7 @@
 #' @author Karthik Ram \email{karthik@@ropensci.org}
 #' @author Ignasi Bartomeus \email{nacho.bartomeus@@gmail.com}
 #' @author John Baumgartner \email{johnbb@@student.unimelb.edu.au}
+#' @author James O'Donnell \email{jodonnellbio@@gmail.com}
 #' @keywords package
 NULL
 

@@ -55,7 +55,7 @@ Index of Names (ION) \tab ion \tab FALSE \cr
 }
 
 If the source above has a \code{TRUE} in the \code{SOAP?} column, it is not available
-in this package. They are available from a different package called taxizesoap.
+in this package. They are available from a different package called \strong{taxizesoap}.
 See the GitHub repo for how to install \url{https://github.com/ropensci/taxizesoap}
 }
 \author{
@@ -72,6 +72,8 @@ Karthik Ram \email{karthik@ropensci.org}
 Ignasi Bartomeus \email{nacho.bartomeus@gmail.com}
 
 John Baumgartner \email{johnbb@student.unimelb.edu.au}
+
+James O'Donnell \email{jodonnellbio@gmail.com}
 }
 \keyword{package}
 

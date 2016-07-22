@@ -15,7 +15,7 @@ than one match found.
 
 However, to make your code reproducible you don't want interactive prompts.
 
-This vignette covers various options for programmatic name cleaning.
+This vignette covers some options for programmatic name cleaning.
 
 
 ```r
@@ -92,8 +92,8 @@ get_tsn(searchterm = 'Quercus b', rows = 3)
 #> [1] "tsn"
 ```
 
-In reality it is unlikely you'll know which row you want, unless perhaps you 
-just one one result from each query, regardless of what it is.
+In reality it is unlikely you'll know which row you want, unless perhaps you
+just want one result from each query, regardless of what it is.
 
 ### underscore methods
 
@@ -112,7 +112,7 @@ get_tsn_(searchterm = "Quercus b")
 #> 10 507263 Quercus berberidifolia               scrub oak  accepted
 ```
 
-The result is a single data.frame for each taxon queried, which can be 
+The result is a single data.frame for each taxon queried, which can be
 processed downstream with whatever logic is required in your workflow.
 
 You can also combine `rows` parameter with underscore functions, as a single
@@ -135,39 +135,122 @@ get_tsn_(searchterm = "Quercus b", rows = 1:2)
 #> 7 195166 Quercus boyntonii Boynton's sand post oak  accepted
 ```
 
+## as.* methods
+
+All `get_*()` functions have associated `as.*()` functions (e.g., `get_tsn()` and `as.tsn()`).
+
+Many `taxize` functions use taxonomic identifier classes (S3 objects) that are the output
+of `get_*()` functions. `as.*()` methods make it easy to make the required S3 taxonomic
+identifier classes if you already know the identifier. For example:
+
+Already a tsn, returns the same
+
+
+```r
+as.tsn(get_tsn("Quercus douglasii"))
+#> [1] "19322"
+#> attr(,"match")
+#> [1] "found"
+#> attr(,"multiple_matches")
+#> [1] FALSE
+#> attr(,"pattern_match")
+#> [1] FALSE
+#> attr(,"uri")
+#> [1] "http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=19322"
+#> attr(,"class")
+#> [1] "tsn"
+```
+
+numeric
+
+
+```r
+as.tsn(c(19322, 129313, 506198))
+#> [1] "19322"  "129313" "506198"
+#> attr(,"class")
+#> [1] "tsn"
+#> attr(,"match")
+#> [1] "found" "found" "found"
+#> attr(,"multiple_matches")
+#> [1] FALSE FALSE FALSE
+#> attr(,"pattern_match")
+#> [1] FALSE FALSE FALSE
+#> attr(,"uri")
+#> [1] "http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=19322" 
+#> [2] "http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=129313"
+#> [3] "http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=506198"
+```
+
+And you can do the same for character, or list inputs - depending on the data source.
+
+The above `as.tsn()` examples have the parameter `check = TRUE`, meaning we ping the 
+data source web service to make sure the identifier exists. You can skip that check 
+if you like by setting `check = FALSE`, and the result is returned much faster:
+
+
+```r
+as.tsn(c("19322","129313","506198"), check = FALSE)
+#> [1] "19322"  "129313" "506198"
+#> attr(,"class")
+#> [1] "tsn"
+#> attr(,"match")
+#> [1] "found" "found" "found"
+#> attr(,"multiple_matches")
+#> [1] FALSE FALSE FALSE
+#> attr(,"pattern_match")
+#> [1] FALSE FALSE FALSE
+#> attr(,"uri")
+#> [1] "http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=19322" 
+#> [2] "http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=129313"
+#> [3] "http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=506198"
+```
+
+With the output of `as.*()` methods, you can then proceed with other `taxize` functions.
+
 ## gnr_resolve
 
 Some functions in `taxize` are meant specifically for name cleaning. One of those
 is `gnr_resolve()`.
 
 `gnr_resolve()` doesn't provide prompts as do `get_*()` functions, but instead
-return data.frame's. So we don't face the same problem, and can use `gnr_resolve()` 
+return data.frame's. So we don't face the same problem, and can use `gnr_resolve()`
 in a programmatic workflow straight away.
 
 
 ```r
 spp <- names_list(rank = "species", size = 10)
 gnr_resolve(names = spp, preferred_data_sources = 11)
-#>           user_supplied_name            submitted_name
-#> 1          Sedum morganianum         Sedum morganianum
-#> 2  Anthurium oblongo-nitidus Anthurium oblongo-nitidus
-#> 3         Lupinus syriggedes        Lupinus syriggedes
-#> 4         Alona phylicifolia        Alona phylicifolia
-#> 5              Cissus nodosa             Cissus nodosa
-#> 6              Olyra caudata             Olyra caudata
-#> 7         Vochysia oppugnata        Vochysia oppugnata
-#> 8        Jadunia racemiflora       Jadunia racemiflora
-#> 9         Senecio bulleyanus        Senecio bulleyanus
-#> 10       Abutilon fruticosum       Abutilon fruticosum
+#>         user_supplied_name          submitted_name
+#> 1        Shorea beccariana       Shorea beccariana
+#> 2           Draba ramulosa          Draba ramulosa
+#> 3      Cyrtandra phoenicea     Cyrtandra phoenicea
+#> 4      Pulicaria pomeliana     Pulicaria pomeliana
+#> 5   Helichrysum gymnocomum  Helichrysum gymnocomum
+#> 6         Campium costatum        Campium costatum
+#> 7  Pseudosedum condensatum Pseudosedum condensatum
+#> 8      Grammitis mollipila     Grammitis mollipila
+#> 9      Dioscorea cruzensis     Dioscorea cruzensis
+#> 10         Cereus coracare         Cereus coracare
 #>                          matched_name      data_source_title score
-#> 1            Sedum morganianum Walth. GBIF Backbone Taxonomy 0.988
-#> 2                                                              NaN
-#> 3          Lupinus syriggedes C.P.Sm. GBIF Backbone Taxonomy 0.988
-#> 4            Alona phylicifolia Phil. GBIF Backbone Taxonomy 0.988
-#> 5                 Cissus nodosa Blume GBIF Backbone Taxonomy 0.988
-#> 6                 Olyra caudata Trin. GBIF Backbone Taxonomy 0.988
-#> 7            Vochysia oppugnata Warm. GBIF Backbone Taxonomy 0.988
-#> 8         Jadunia racemiflora Bremek. GBIF Backbone Taxonomy 0.988
-#> 9            Senecio bulleyanus Diels GBIF Backbone Taxonomy 0.988
-#> 10 Abutilon fruticosum Guill. & Perr. GBIF Backbone Taxonomy 0.988
+#> 1             Shorea beccariana Burck GBIF Backbone Taxonomy 0.988
+#> 2              Draba ramulosa Rollins GBIF Backbone Taxonomy 0.988
+#> 3     Cyrtandra phoenicea C.B. Clarke GBIF Backbone Taxonomy 0.988
+#> 4   Pulicaria pomeliana Faure & Maire GBIF Backbone Taxonomy 0.988
+#> 5          Helichrysum gymnocomum DC. GBIF Backbone Taxonomy 0.988
+#> 6             Campium costatum Copel. GBIF Backbone Taxonomy 0.988
+#> 7     Pseudosedum condensatum Boriss. GBIF Backbone Taxonomy 0.988
+#> 8  Grammitis mollipila (Baker) Copel. GBIF Backbone Taxonomy 0.988
+#> 9         Dioscorea cruzensis R.Knuth GBIF Backbone Taxonomy 0.988
+#> 10                                                             NaN
 ```
+
+## Other functions
+
+Some other functions in `taxize` use `get_*()` functions internally (e.g., `classification()`),
+but you can can generally pass on parameters to the `get_*()` functions internally.
+
+
+## Feedback?
+
+Let us know if you have ideas for better ways to do programmatic name cleaning at 
+<https://github.com/ropensci/taxize/issues> or <https://discuss.ropensci.org/> !

@@ -1,3 +1,19 @@
+taxize 0.8.0
+============
+
+## MINOR IMPROVEMENTS
+
+* xxx (#543)
+* xxx (#543)
+* xxx (#543)
+
+## BUG FIXES
+
+* xxx (#543)
+* xxx (#543)
+* xxx (#543)
+
+
 taxize 0.7.8
 ============
 
@@ -6,12 +22,12 @@ taxize 0.7.8
 * Fix to `iucn_summary()` (#543) thanks @mcsiple
 * Added message for when too many Ids passed in to `ncbi_get_taxon_summary()`
 suggesting to break up the ids into chunks (#541) thanks @daattali
-* Fix to `itis_acceptname()` to accept multiple names (#534) and now 
+* Fix to `itis_acceptname()` to accept multiple names (#534) and now
 gives back same output regardless of whether match found or not (#531)
 
 ## BUG FIXES
 
-* Fix to `tax_name()` for some queries that return no classification data 
+* Fix to `tax_name()` for some queries that return no classification data
 via internal call to `classification()` (#542) thanks @daattali
 * Another fix for `tax_name()` (#530) thanks @ibartomeus
 * Fixed docs for `rankagg()` function, use `requireNamespace()` in examples
