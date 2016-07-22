@@ -188,9 +188,6 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
           }
           list(y[c("original_name", "supplied_name_string")], res)
         })
-      # data_preferred <- Filter(function(x) !is.null(x[[2]]), data_preferred)
-      # data_preferred <-
-      #   Filter(function(x) if ( !is.null(x[[2]]) ) x else x[[1]], data_preferred)
       data_2_preferred <- ldply(data_preferred, function(x) data.frame(x[[1]], ldply(if (length(x[[2]]) == 0) {
         list(data.frame(name_string = "", data_source_title = "", score = NaN, canonical_form = ""))
       } else {
@@ -203,12 +200,11 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
         data_2_preferred$matched_name <- as.character(data_2_preferred$matched_name)
         data_2_preferred$data_source_title <- as.character(data_2_preferred$data_source_title)
         data_2_preferred$matched_name2 <- as.character(data_2_preferred$matched_name2)
-        out_preferred <- data_2_preferred[order(data_2_preferred$submitted_name), ]
 
         if (canonical) {
-          out <- out_preferred[ , !names(out_preferred) %in% "matched_name"]
+          out <- data_2_preferred[ , !names(data_2_preferred) %in% "matched_name"]
         } else {
-          out <- out_preferred[ , !names(out_preferred) %in% "matched_name2"]
+          out <- data_2_preferred[ , !names(data_2_preferred) %in% "matched_name2"]
         }
       }
     }
