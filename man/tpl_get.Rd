@@ -45,7 +45,7 @@ tpl_get("~/foo4", family = "Echinodiaceae")
 John Baumgartner (johnbb@student.unimelb.edu.au)
 }
 \references{
-The Plant List \url{http://www.theplantlist.org/}
+The Plant List http://www.theplantlist.org
 }
 \seealso{
 \code{\link{tpl_families}}

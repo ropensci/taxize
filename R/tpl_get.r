@@ -11,7 +11,7 @@
 #' Writes csv files to x.
 #' @author John Baumgartner (johnbb@@student.unimelb.edu.au)
 #' @seealso \code{\link{tpl_families}}
-#' @references The Plant List \url{http://www.theplantlist.org/}
+#' @references The Plant List http://www.theplantlist.org
 #' @examples \dontrun{
 #' # Get a few families
 #' tpl_get("~/foo2", family = c("Platanaceae","Winteraceae"))
