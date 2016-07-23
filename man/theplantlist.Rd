@@ -11,10 +11,10 @@
   \item{species}{specific epithet name}
 }}
 \source{
-\url{http://www.theplantlist.org/}
+http://www.theplantlist.org
 }
 \description{
-These names are from \url{http://www.theplantlist.org/}, and are from
+These names are from http://www.theplantlist.org, and are from
 version 1.1 of their data. This data is used in the function
 \code{\link{names_list}}. This is a randomly selected subset of the ~350K
 accepted species names in Theplantlist.

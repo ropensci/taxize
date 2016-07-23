@@ -89,7 +89,7 @@ NULL
 
 #' Lookup-table for family, genus, and species names for ThePlantList
 #'
-#' These names are from \url{http://www.theplantlist.org/}, and are from
+#' These names are from http://www.theplantlist.org, and are from
 #' version 1.1 of their data. This data is used in the function
 #' \code{\link{names_list}}. This is a randomly selected subset of the ~350K
 #' accepted species names in Theplantlist.
@@ -100,7 +100,7 @@ NULL
 #'   \item{genus}{genus name}
 #'   \item{species}{specific epithet name}
 #' }
-#' @source \url{http://www.theplantlist.org/}
+#' @source http://www.theplantlist.org
 #' @name theplantlist
 #' @docType data
 #' @keywords data
@@ -147,13 +147,13 @@ NULL
 
 #' Vector of plant species (genus - specific epithet) names from ThePlantList
 #'
-#' These names are from \url{http://www.theplantlist.org/}, and are a
+#' These names are from http://www.theplantlist.org, and are a
 #' randomly chosen subset of names of the form genus/specific epithet
 #' for the purpose of having some names to play with for examples in
 #' this package.
 #'
 #' @format A vector of length 1182
-#' @source \url{http://www.theplantlist.org/}
+#' @source http://www.theplantlist.org
 #' @name plantNames
 #' @docType data
 #' @keywords data
@@ -161,12 +161,12 @@ NULL
 
 #' Vector of plant genus names from ThePlantList
 #'
-#' These names are from \url{http://www.theplantlist.org/}, and are a
+#' These names are from http://www.theplantlist.org, and are a
 #' randomly chosen subset of genera names for the purpose of having some
 #' names to play with for examples in this package.
 #'
 #' @format A vector of length 793
-#' @source \url{http://www.theplantlist.org/}
+#' @source http://www.theplantlist.org
 #' @name plantGenusNames
 #' @docType data
 #' @keywords data

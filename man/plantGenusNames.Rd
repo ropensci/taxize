@@ -6,10 +6,10 @@
 \title{Vector of plant genus names from ThePlantList}
 \format{A vector of length 793}
 \source{
-\url{http://www.theplantlist.org/}
+http://www.theplantlist.org
 }
 \description{
-These names are from \url{http://www.theplantlist.org/}, and are a
+These names are from http://www.theplantlist.org, and are a
 randomly chosen subset of genera names for the purpose of having some
 names to play with for examples in this package.
 }
