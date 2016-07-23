@@ -427,9 +427,9 @@ sci2comm('Helianthus annuus', db = 'itis')
 ```r
 comm2sci("black bear", db = "itis")
 #> $`black bear`
-#> [1] "Ursus thibetanus"            "Ursus thibetanus"           
-#> [3] "Ursus americanus luteolus"   "Ursus americanus americanus"
-#> [5] "Ursus americanus"            "Ursus americanus"           
+#> [1] "Ursus americanus luteolus"   "Ursus americanus"           
+#> [3] "Ursus americanus"            "Ursus americanus americanus"
+#> [5] "Ursus thibetanus"            "Ursus thibetanus"           
 #> [7] "Chiropotes satanas"
 ```
 
