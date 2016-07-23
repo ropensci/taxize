@@ -37,7 +37,7 @@
 #' @param output One of minimal (default), classic, short, or extended
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' (Optional). Default: returns all ranks.
-#' @references \url{http://www.ipni.org/link_to_ipni.html}
+#' @references http://www.ipni.org/link_to_ipni.html
 #' @details
 #' \code{rankToReturn} options:
 #' \itemize{
