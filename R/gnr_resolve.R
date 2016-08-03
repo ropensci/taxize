@@ -167,15 +167,14 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
       data_2$matched_name <- as.character(data_2$matched_name)
       data_2$data_source_title <- as.character(data_2$data_source_title)
       data_2$matched_name2 <- as.character(data_2$matched_name2)
-      out <- data_2[order(data_2$submitted_name), ]
 
       if (canonical) {
-        out <- out[ , !names(out) %in% "matched_name"]
+        data_2 <- data_2[ , !names(data_2) %in% "matched_name"]
       } else {
-        out <- out[ , !names(out) %in% "matched_name2"]
+        data_2 <- data_2[ , !names(data_2) %in% "matched_name2"]
       }
       # canonical = TRUE, may result into duplicates
-      out <- unique(out)
+      out <- unique(data_2)
     } else {
       data_preferred <-
         lapply(dat, function(y) {

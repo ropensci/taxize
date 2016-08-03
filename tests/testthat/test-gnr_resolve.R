@@ -24,6 +24,10 @@ test_that("best_match_only works correctly", {
   expect_equal(attributes(a)$not_known, x)
   expect_named(attributes(a), c("names", "row.names", "class", "not_known"))
   expect_is(b$data_source_title, "character")
+
+  ## same order as user supplied
+  cc <- gnr_resolve(names = c("Homo sapiens", "Helianthus annuus"), best_match_only = TRUE)
+  expect_identical(cc$user_supplied_name, c("Homo sapiens", "Helianthus annuus"))
 })
 
 test_that("canonical works correctly", {
