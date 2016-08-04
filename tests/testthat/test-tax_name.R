@@ -10,8 +10,8 @@ test_that("tax_name returns the correct class", {
                         get = c("genus", "kingdom"), db = "ncbi", verbose=FALSE)
   tmp_na2 <- tax_name(query=c("Helianthus annuus", 'xxxx'),
                       get=c("family", "order"), db="ncbi", verbose=FALSE)
-  tmp_na3 <- tax_name(query=c("Helianthus annuus", 'xxxx'),
-                      get=c("family", "order"), db="itis",verbose=FALSE)
+  tmp_na3 <- tax_name(query = c("Helianthus annuus", 'xxxx'),
+                      get = c("family", "order"), db="itis",verbose=FALSE)
 
 	expect_is(tmp_ncbi, "data.frame")
 	expect_is(tmp_na2, "data.frame")
@@ -35,4 +35,22 @@ test_that("tax_name accepts ask-argument", {
                              ask = FALSE, verbose = FALSE)$family), is_true())
 })
 
+test_that("taxon with no data returned from classification() works", {
+  aa <- suppressWarnings(tax_name("Galagoides demidovii", get = "species", verbose = FALSE))
+  expect_is(aa, "data.frame")
+  expect_true(is.na(aa$species))
+  expect_warning(tax_name("Galagoides demidovii", get = "species", verbose = FALSE),
+                 "no hierarchy data found in ITIS")
 
+  bb <- suppressWarnings(tax_name("Asterias helianthus", get = "species", verbose = FALSE))
+  expect_is(bb, "data.frame")
+  expect_true(is.na(bb$species))
+  expect_warning(tax_name("Asterias helianthus", get = "species", verbose = FALSE),
+                 "no hierarchy data found in ITIS")
+
+  cc <- suppressWarnings(tax_name("Stellonia helianthus", get = "species", verbose = FALSE))
+  expect_is(cc, "data.frame")
+  expect_true(is.na(cc$species))
+  expect_warning(tax_name("Stellonia helianthus", get = "species", verbose = FALSE),
+                 "no hierarchy data found in ITIS")
+})

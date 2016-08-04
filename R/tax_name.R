@@ -81,35 +81,40 @@ do_ncbi <- function(query, get, verbose, both=FALSE, ...) {
   }
 }
 
-do_itis <- function(query, get, verbose, both=FALSE, ...){
+do_itis <- function(query, get, verbose, both = FALSE, ...){
   tsn <- get_tsn(query, searchtype = "scientific", verbose = verbose, ...)
   if (is.na(tsn)) {
     if (verbose) message("No TSN found for species '", query, "'!\n")
-    if (both) c(query, rep(NA, length(get))) else setNames(data.frame(t(c("itis", query, rep(NA, length(get))))), c("db", "query", get))
+    if (both) c(query, rep(NA, length(get))) else setNames(data.frame(t(c("itis", query, rep(NA, length(get)))), stringsAsFactors = FALSE), c("db", "query", get))
   } else {
     tt <- classification(tsn, verbose = verbose, ...)[[1]]
-    if (max(unlist(Filter(function(x) length(x) > 0, sapply(get, which_rank)))) <
-        which_rank(tt$rank[1])) {
-      warning(sprintf("%s: highest rank of ITIS classification is '%s'", query, tt$rank[1]), call. = FALSE)
-    }
-    if (!all(tolower(get) %in% tolower(tt$rank))) {
-      warning(
-        sprintf("%s: rank requested ('%s') not in ITIS classification",
-                query,
-                paste0(tolower(get)[!tolower(get) %in% tolower(tt$rank)], collapse = ", ")),
-        call. = FALSE)
-    }
-    if (both) {
-      c(query, tt$name[match(tolower(get), tolower(tt$rank))])
+    if (all(is.na(tt))) {
+      warning(sprintf("%s: no hierarchy data found in ITIS", query), call. = FALSE)
+      setNames(data.frame(t(c("itis", query, rep(NA, length(get)))), stringsAsFactors = FALSE), c("db", "query", get))
     } else {
-      out <- as.character(tt[tolower(tt$rank) %in% tolower(get), "name"])
-      if (length(out) == 0) out <- rep(NA_character_, length(get))
-      rname <- tolower(as.character(tt[tolower(tt$rank) %in% tolower(get), "rank"]))
-      if (length(rname) == 0) rname <- get
-      setNames(
-        data.frame(t(c("itis", query, out)), stringsAsFactors = FALSE),
-        c("db", "query", rname)
-      )
+      if (max(unlist(Filter(function(x) length(x) > 0, sapply(get, which_rank)))) <
+          which_rank(tt$rank[1])) {
+        warning(sprintf("%s: highest rank of ITIS classification is '%s'", query, tt$rank[1]), call. = FALSE)
+      }
+      if (!all(tolower(get) %in% tolower(tt$rank))) {
+        warning(
+          sprintf("%s: rank requested ('%s') not in ITIS classification",
+                  query,
+                  paste0(tolower(get)[!tolower(get) %in% tolower(tt$rank)], collapse = ", ")),
+          call. = FALSE)
+      }
+      if (both) {
+        c(query, tt$name[match(tolower(get), tolower(tt$rank))])
+      } else {
+        out <- as.character(tt[tolower(tt$rank) %in% tolower(get), "name"])
+        if (length(out) == 0) out <- rep(NA_character_, length(get))
+        rname <- tolower(as.character(tt[tolower(tt$rank) %in% tolower(get), "rank"]))
+        if (length(rname) == 0) rname <- get
+        setNames(
+          data.frame(t(c("itis", query, out)), stringsAsFactors = FALSE),
+          c("db", "query", rname)
+        )
+      }
     }
   }
 }
