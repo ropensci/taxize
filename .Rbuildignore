@@ -16,3 +16,5 @@ vignettes/cache/
 ^CONDUCT\.md$
 ^cran-comments\.md$
 ^revdep$
+^issue_template\.md$
+
