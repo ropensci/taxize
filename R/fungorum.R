@@ -5,7 +5,8 @@
 #' @name fungorum
 #' @param q (character) Query term
 #' @param anywhere (logical) Default: \code{TRUE}
-#' @param limit (integer) Number of results to return
+#' @param limit (integer) Number of results to return. max limit
+#' value appears to be 6000, not positive about that though
 #' @param key (character) A IndexFungorum taxon key
 #' @param lsid (character) an LSID, e.,g. "urn:lsid:indexfungorum.org:names:81085"
 #' @param date (character) Date, of the form YYYMMDD

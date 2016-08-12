@@ -30,7 +30,8 @@ fg_deprecated_names(date, ...)
 
 \item{anywhere}{(logical) Default: \code{TRUE}}
 
-\item{limit}{(integer) Number of results to return}
+\item{limit}{(integer) Number of results to return. max limit
+value appears to be 6000, not positive about that though}
 
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 
