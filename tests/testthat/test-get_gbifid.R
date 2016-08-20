@@ -49,7 +49,7 @@ test_that("get_gbifid rank parameter works", {
 
   expect_is(rf1, "gbifid")
   expect_is(rf2, "gbifid")
-  expect_true(is.na(rf1[[1]]))
+  expect_false(is.na(rf1[[1]]))
   expect_equal(rf2[[1]], "2441176")
 })
 

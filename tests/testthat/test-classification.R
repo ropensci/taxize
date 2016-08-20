@@ -56,13 +56,13 @@ test_that("classification returns the correct values and classes", {
 # 	expect_that(clas_col[[2]], equals(NA))
 # 	expect_that(clas_tp[[2]], equals(NA))
 
-	expect_that(clas_ncbi, is_a("classification"))
-	expect_that(clas_ncbi[[1]], is_a("data.frame"))
-	expect_that(length(clas_ncbi), equals(2))
+	expect_is(clas_ncbi, "classification")
+	expect_is(clas_ncbi[[1]], "data.frame")
+	expect_equal(length(clas_ncbi), 2)
 
-  expect_that(clas_itis, is_a("classification"))
-	expect_that(clas_itis[[1]], is_a("data.frame"))
-  expect_that(length(clas_itis), equals(2))
+  expect_is(clas_itis, "classification")
+	expect_is(clas_itis[[1]], "data.frame")
+  expect_equal(length(clas_itis), 2)
 
 # 	expect_that(clas_eol, is_a("list"))
 # 	expect_that(clas_eol[[1]], is_a("data.frame"))
