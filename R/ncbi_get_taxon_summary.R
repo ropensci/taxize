@@ -6,7 +6,7 @@
 #' @export
 #' @param id (character) NCBI taxonomy uids to retrieve information for. See Details.
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
-#' @return A \code{data.frame} with the following rows:
+#' @return A \code{data.frame} with the following columns:
 #'   \describe{
 #'     \item{uid}{The uid queried for}
 #'     \item{name}{The name of the taxon; a binomial name if the taxon is of rank species}
