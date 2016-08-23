@@ -12,7 +12,7 @@ ncbi_get_taxon_summary(id, ...)
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
-A \code{data.frame} with the following rows:
+A \code{data.frame} with the following columns:
   \describe{
     \item{uid}{The uid queried for}
     \item{name}{The name of the taxon; a binomial name if the taxon is of rank species}
