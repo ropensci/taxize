@@ -52,19 +52,19 @@ test_that("fungorum - fg_name_full_by_lsid", {
   expect_true(grepl("1985", aa))
 })
 
-test_that("fungorum - fg_all_updated_names", {
-  skip_on_cran()
-
-  date <- as.numeric(gsub("-", "", as.character(Sys.Date()))) - 200
-  aa <- fg_all_updated_names(date = date)
-
-  expect_is(aa, "data.frame")
-  expect_gt(NROW(aa), 1)
-  expect_match(aa[1,], "indexfungorum")
-
-  date <- as.numeric(gsub("-", "", as.character(Sys.Date() + 1)))
-  expect_equal(NROW(fg_all_updated_names(date = date)), 0)
-})
+#test_that("fungorum - fg_all_updated_names", {
+#  skip_on_cran()
+#
+#  date <- as.numeric(gsub("-", "", as.character(Sys.Date()))) - 200
+#  aa <- fg_all_updated_names(date = date)
+#
+#  expect_is(aa, "data.frame")
+#  expect_gt(NROW(aa), 1)
+#  expect_match(aa[1,], "indexfungorum")
+#
+#  date <- as.numeric(gsub("-", "", as.character(Sys.Date() + 1)))
+#  expect_equal(NROW(fg_all_updated_names(date = date)), 0)
+#})
 
 test_that("fungorum - fg_deprecated_names", {
   skip_on_cran()
