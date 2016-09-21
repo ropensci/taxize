@@ -1,4 +1,4 @@
-#' Resolve names using Open Tree of Life resolver
+#' Resolve names using Open Tree of Life (OTL) resolver
 #'
 #' @export
 #' @param names (character vector) taxon names to be queried
@@ -9,7 +9,7 @@
 #' to perform approximate string (a.k.a. \dQuote{fuzzy})
 #' matching. Using \code{FALSE} will greatly improve
 #' speed. Default: \code{TRUE}
-#' @param ids An array of ids to use for identifying names. These
+#' @param ids An array of OTL ids to use for identifying names. These
 #' will be assigned to each name in the names array. If ids is
 #' provided, then ids and names must be identical in length.
 #' @param include_suppressed (logical) Ordinarily, some quasi-taxa, such as

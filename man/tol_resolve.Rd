@@ -2,7 +2,7 @@
 % Please edit documentation in R/tol_resolve.R
 \name{tol_resolve}
 \alias{tol_resolve}
-\title{Resolve names using Open Tree of Life resolver}
+\title{Resolve names using Open Tree of Life (OTL) resolver}
 \usage{
 tol_resolve(names = NULL, context_name = NULL,
   do_approximate_matching = TRUE, ids = NULL, include_suppressed = FALSE,
@@ -20,7 +20,7 @@ to perform approximate string (a.k.a. \dQuote{fuzzy})
 matching. Using \code{FALSE} will greatly improve
 speed. Default: \code{TRUE}}
 
-\item{ids}{An array of ids to use for identifying names. These
+\item{ids}{An array of OTL ids to use for identifying names. These
 will be assigned to each name in the names array. If ids is
 provided, then ids and names must be identical in length.}
 
@@ -39,7 +39,7 @@ returned object (and can be obtained using \code{attr(object,
 "original_response")}).
 }
 \description{
-Resolve names using Open Tree of Life resolver
+Resolve names using Open Tree of Life (OTL) resolver
 }
 \examples{
 \dontrun{
