@@ -219,7 +219,7 @@ make_tol <- function(x, check=TRUE) {
 }
 
 check_tol <- function(x){
-  tt <- tryCatch(taxonomy_taxon_info(x), error = function(e) e)
+  tt <- tryCatch(rotl::taxonomy_taxon_info(x), error = function(e) e)
   !inherits(tt, "error")
 }
 
