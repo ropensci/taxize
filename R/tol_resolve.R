@@ -40,8 +40,6 @@
 #' turducken_spp <- c("Meleagris gallopavo", "Anas platyrhynchos",
 #'   "Gallus gallus")
 #' tol_resolve(turducken_spp, context_name="Animals")
-#'
-#' tol_resolve(ids = 515698)
 #' }
 tol_resolve <- function(names = NULL, context_name = NULL,
   do_approximate_matching = TRUE, ids = NULL, include_suppressed = FALSE, ...) {
@@ -49,4 +47,35 @@ tol_resolve <- function(names = NULL, context_name = NULL,
   rotl::tnrs_match_names(names = names, context_name = context_name,
                          do_approximate_matching = do_approximate_matching,
                          ids = ids, include_suppressed = include_suppressed, ...)
+}
+
+tol_fetch_fuzzy <- function(x) {
+  atts <- attr(x, "original_response")
+  df <- dtrbsetdf(lapply(atts$results, function(z) {
+    dtrbsetdf(lapply(z$matches, function(w) {
+      c(
+        pop(w, "taxon"),
+        lapply(w$taxon, function(m) {
+          if (length(m) > 1) {
+            paste0(m, collapse = ",")
+          } else if (length(m) == 0) {
+            ""
+          } else if (length(m) == 1) {
+            m[[1]]
+          } else {
+            m
+          }
+        })
+      )
+    }))
+  }))
+  df <- move_col_begin(df, "matched_name")
+  df <- move_col_begin(df, "unique_name")
+  df
+}
+
+dtrbsetdf <- function(x) {
+  (out <- data.table::setDF(
+    data.table::rbindlist(x, use.names = TRUE, fill = TRUE)
+  ))
 }

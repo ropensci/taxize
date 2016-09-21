@@ -82,10 +82,6 @@ parse_terse <- function(x) {
   ldply(nodes, parsecoldata)
 }
 
-pop <- function(x, nms) {
-  x[ !names(x) %in% nms ]
-}
-
 parsecoldata <- function(x){
   vals <- x[c('id', 'name', 'rank', 'name_status', 'source_database')]
   vals[sapply(vals, is.null)] <- NA

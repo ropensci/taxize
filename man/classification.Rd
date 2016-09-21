@@ -10,6 +10,7 @@
 \alias{classification.gbifid}
 \alias{classification.ids}
 \alias{classification.nbnid}
+\alias{classification.tolid}
 \alias{classification.tpsid}
 \alias{classification.tsn}
 \alias{classification.uid}
@@ -39,6 +40,8 @@ classification(...)
   ...)
 
 \method{classification}{nbnid}(id, callopts = list(), return_id = TRUE, ...)
+
+\method{classification}{tolid}(id, callopts = list(), return_id = TRUE, ...)
 
 \method{classification}{ids}(id, ...)
 
@@ -76,7 +79,7 @@ of a name of class character.}
 \item{id}{character; identifiers, returned by \code{\link[taxize]{get_tsn}},
 \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}},
 \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_tpsid}},
-\code{\link[taxize]{get_gbifid}}.}
+\code{\link[taxize]{get_gbifid}}, \code{\link[taxize]{get_tolid}}}
 
 \item{key}{Your API key; loads from .Rprofile.}
 
@@ -115,6 +118,7 @@ classification(57361017, db = 'eol')
 classification(c(2704179, 2441176), db = 'gbif')
 classification(25509881, db = 'tropicos')
 classification("NBNSYS0000004786", db = 'nbn')
+classification(3930798, db = 'tol')
 ## works the same if IDs are in class character
 classification(c("2704179", "2441176"), db = 'gbif')
 
@@ -129,6 +133,7 @@ classification(c("Chironomus riparius", "aaa vva"), db = 'col')
 classification("Alopias vulpinus", db = 'nbn')
 classification(c("Chironomus riparius", "aaa vva"), db = 'col', verbose=FALSE)
 classification(c("Chironomus riparius", "asdfasdfsfdfsd"), db = 'gbif')
+classification("Chironomus", db = 'tol')
 classification("Poa annua", db = 'tropicos')
 
 # Use methods for get_uid, get_tsn, get_eolid, get_colid, get_tpsid

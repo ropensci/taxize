@@ -168,3 +168,11 @@ move_col <- function(tt, y){
 }
 
 move_col2 <- function(x, y) x[ c(names(x)[-grep(y, names(x))], y) ]
+
+move_col_begin <- function(tt, y){
+  tt[ c(y, names(tt)[ -sapply(y, function(m) grep(m, names(tt))) ]) ]
+}
+
+pop <- function(x, nms) {
+  x[ !names(x) %in% nms ]
+}

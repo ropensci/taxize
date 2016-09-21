@@ -10,7 +10,7 @@
 #' @param id character; identifiers, returned by \code{\link[taxize]{get_tsn}},
 #'    \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}},
 #'    \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_tpsid}},
-#'    \code{\link[taxize]{get_gbifid}}.
+#'    \code{\link[taxize]{get_gbifid}}, \code{\link[taxize]{get_tolid}}
 #' @param callopts Curl options passed on to \code{\link[httr]{GET}}
 #' @param ... Other arguments passed to \code{\link[taxize]{get_tsn}},
 #'    \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}},
@@ -53,6 +53,7 @@
 #' classification(c(2704179, 2441176), db = 'gbif')
 #' classification(25509881, db = 'tropicos')
 #' classification("NBNSYS0000004786", db = 'nbn')
+#' classification(3930798, db = 'tol')
 #' ## works the same if IDs are in class character
 #' classification(c("2704179", "2441176"), db = 'gbif')
 #'
@@ -67,6 +68,7 @@
 #' classification("Alopias vulpinus", db = 'nbn')
 #' classification(c("Chironomus riparius", "aaa vva"), db = 'col', verbose=FALSE)
 #' classification(c("Chironomus riparius", "asdfasdfsfdfsd"), db = 'gbif')
+#' classification("Chironomus", db = 'tol')
 #' classification("Poa annua", db = 'tropicos')
 #'
 #' # Use methods for get_uid, get_tsn, get_eolid, get_colid, get_tpsid
@@ -147,38 +149,44 @@ classification <- function(...){
 
 #' @export
 #' @rdname classification
-classification.default <- function(x, db = NULL, callopts=list(), return_id = TRUE, rows = NA, ...){
+classification.default <- function(x, db = NULL, callopts = list(),
+                                   return_id = TRUE, rows = NA, ...) {
   nstop(db)
-  switch(db,
-         itis = {
-           id <- process_ids(x, db, get_tsn, rows = rows, ...)
-           setNames(classification(id, callopts = callopts, return_id = return_id, ...), x)
-         },
-         ncbi = {
-           id <- process_ids(x, db, get_uid, rows = rows, ...)
-           setNames(classification(id, callopts = callopts, return_id = return_id, ...), x)
-         },
-         eol = {
-           id <- process_ids(x, db, get_eolid, rows = rows, ...)
-           setNames(classification(id, callopts = callopts, return_id = return_id, ...), x)
-         },
-         col = {
-           id <- process_ids(x, db, get_colid, rows = rows, ...)
-           setNames(classification(id, callopts = callopts, return_id = return_id, ...), x)
-         },
-         tropicos = {
-           id <- process_ids(x, db, get_tpsid, rows = rows, ...)
-           setNames(classification(id, callopts = callopts, return_id = return_id, ...), x)
-         },
-         gbif = {
-           id <- process_ids(x, db, get_gbifid, rows = rows, ...)
-           setNames(classification(id, callopts = callopts, return_id = return_id, ...), x)
-         },
-         nbn = {
-           id <- process_ids(x, db, get_nbnid, rows = rows, ...)
-           setNames(classification(id, callopts = callopts, return_id = return_id, ...), x)
-         },
-         stop("the provided db value was not recognised", call. = FALSE)
+  switch(
+    db,
+    itis = {
+      id <- process_ids(x, db, get_tsn, rows = rows, ...)
+      setNames(classification(id, callopts = callopts, return_id = return_id, ...), x)
+    },
+    ncbi = {
+      id <- process_ids(x, db, get_uid, rows = rows, ...)
+      setNames(classification(id, callopts = callopts, return_id = return_id, ...), x)
+    },
+    eol = {
+      id <- process_ids(x, db, get_eolid, rows = rows, ...)
+      setNames(classification(id, callopts = callopts, return_id = return_id, ...), x)
+    },
+    col = {
+      id <- process_ids(x, db, get_colid, rows = rows, ...)
+      setNames(classification(id, callopts = callopts, return_id = return_id, ...), x)
+    },
+    tropicos = {
+      id <- process_ids(x, db, get_tpsid, rows = rows, ...)
+      setNames(classification(id, callopts = callopts, return_id = return_id, ...), x)
+    },
+    gbif = {
+      id <- process_ids(x, db, get_gbifid, rows = rows, ...)
+      setNames(classification(id, callopts = callopts, return_id = return_id, ...), x)
+    },
+    nbn = {
+      id <- process_ids(x, db, get_nbnid, rows = rows, ...)
+      setNames(classification(id, callopts = callopts, return_id = return_id, ...), x)
+    },
+    tol = {
+      id <- process_ids(x, db, get_tolid, rows = rows, ...)
+      setNames(classification(id, callopts = callopts, return_id = return_id, ...), x)
+    },
+    stop("the provided db value was not recognised", call. = FALSE)
   )
 }
 
@@ -192,7 +200,8 @@ process_ids <- function(input, db, fxn, ...){
            col = as.colid,
            tropicos = as.tpsid,
            gbif = as.gbifid,
-           nbn = as.nbnid)
+           nbn = as.nbnid,
+           tol = as.tolid)
     as_fxn(input, check = FALSE)
   } else {
     eval(fxn)(input, ...)
@@ -418,6 +427,30 @@ classification.nbnid <- function(id, callopts = list(), return_id = TRUE, ...) {
   out <- lapply(id, fun, callopts = callopts)
   names(out) <- id
   structure(out, class = 'classification', db = 'nbn')
+}
+
+#' @export
+#' @rdname classification
+classification.tolid <- function(id, callopts = list(), return_id = TRUE, ...) {
+  fun <- function(x, callopts){
+    if (is.na(x)) {
+      out <- NA
+    } else {
+      out <- tryCatch(rotl::taxonomy_taxon_info(id, include_lineage = TRUE), error = function(e) e)
+      if (inherits(out, "error")) {
+        NA
+      } else {
+        out <- rotl::tax_lineage(out)[[1]]
+        out <- out[ , c('name','rank', 'ott_id')]
+        names(out) <- c('name', 'rank', 'id')
+        if (!return_id) out <- out[, c('name', 'rank')]
+        return(out)
+      }
+    }
+  }
+  out <- lapply(id, fun, callopts = callopts)
+  names(out) <- id
+  structure(out, class = 'classification', db = 'tol')
 }
 
 #' @export

@@ -52,8 +52,6 @@ tol_resolve(c("Hyla", "Salmo", "Diadema", "Nautilus"),
 turducken_spp <- c("Meleagris gallopavo", "Anas platyrhynchos",
   "Gallus gallus")
 tol_resolve(turducken_spp, context_name="Animals")
-
-tol_resolve(ids = 515698)
 }
 }
 \author{
