@@ -1,25 +1,28 @@
-#' Retrieve synonyms from various sources given input taxonomic names or identifiers.
+#' Retrieve synonyms from various sources given input taxonomic
+#' names or identifiers
 #'
-#' @param x Vector of taxa names (character) or IDs (character or numeric) to query.
+#' @param x Vector of taxa names (character) or IDs (character or numeric) to
+#' query.
 #' @param db character; database to query. either \code{itis}, \code{tropicos},
-#' \code{col}, or \code{nbn}. Note that each taxonomic data source has their own
-#' identifiers, so that if you provide the wrong \code{db} value for the identifier
-#' you could get a result, but it will likely be wrong (not what you were expecting).
+#' \code{col}, or \code{nbn}. Note that each taxonomic data source has their
+#' own identifiers, so that if you provide the wrong \code{db} value for the
+#' identifier you could get a result, but it will likely be wrong (not what
+#' you were expecting).
 #' @param id character; identifiers, returned by \code{\link[taxize]{get_tsn}},
-#'    \code{\link[taxize]{get_tpsid}}, or \code{\link[taxize]{get_nbnid}}
-#' @param rows (numeric) Any number from 1 to infinity. If the default NA, all rows are
-#' considered. Note that this parameter is ignored if you pass in a taxonomic id of any of the
-#' acceptable classes: tsn, tpsid, nbnid, ids.
-#' @param ... Other passed arguments to internal functions \code{get_*()} and functions to
-#' gather synonyms.
+#' \code{\link[taxize]{get_tpsid}}, or \code{\link[taxize]{get_nbnid}}
+#' @param rows (numeric) Any number from 1 to infinity. If the default NA, all
+#' rows are considered. Note that this parameter is ignored if you pass in a
+#' taxonomic id of any of the acceptable classes: tsn, tpsid, nbnid, ids.
+#' @param ... Other passed arguments to internal functions \code{get_*()} and
+#' functions to gather synonyms.
 #'
 #' @return A named list of data.frames with the synonyms of every supplied taxa.
-#' @details If IDs are supplied directly (not from the \code{get_*} functions) you
-#' must specify the type of ID.
+#' @details If IDs are supplied directly (not from the \code{get_*} functions)
+#' you must specify the type of ID.
 #'
-#' For \code{db = "itis"} you can pass in a parameter \code{accepted} to toggle whether
-#' only accepted names are used \code{accepted = TRUE}, or if all are used
-#' \code{accepted = FALSE}. The default is \code{accepted = FALSE}.
+#' For \code{db = "itis"} you can pass in a parameter \code{accepted} to
+#' toggle whether only accepted names are used \code{accepted = TRUE}, or if
+#' all are used \code{accepted = FALSE}. The default is \code{accepted = FALSE}
 #'
 #' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_tpsid}},
 #' \code{\link[taxize]{get_nbnid}}
@@ -81,30 +84,31 @@ synonyms <- function(...) {
 #' @rdname synonyms
 synonyms.default <- function(x, db = NULL, rows = NA, ...) {
   nstop(db)
-  switch(db,
-         itis = {
-           id <- process_syn_ids(x, db, get_tsn, rows = rows, ...)
-           setNames(synonyms(id, ...), x)
-         },
-         tropicos = {
-           id <- process_syn_ids(x, db, get_tpsid, rows = rows, ...)
-           setNames(synonyms(id, ...), x)
-         },
-         nbn = {
-           id <- process_syn_ids(x, db, get_nbnid, rows = rows, ...)
-           setNames(synonyms(id, ...), x)
-         },
-         col = {
-           id <- process_syn_ids(x, db, get_colid, rows = rows, ...)
-           setNames(synonyms(id, ...), x)
-         },
-         stop("the provided db value was not recognised", call. = FALSE)
+  switch(
+    db,
+    itis = {
+      id <- process_syn_ids(x, db, get_tsn, rows = rows, ...)
+      setNames(synonyms(id, ...), x)
+    },
+    tropicos = {
+      id <- process_syn_ids(x, db, get_tpsid, rows = rows, ...)
+      setNames(synonyms(id, ...), x)
+    },
+    nbn = {
+      id <- process_syn_ids(x, db, get_nbnid, rows = rows, ...)
+      setNames(synonyms(id, ...), x)
+    },
+    col = {
+      id <- process_syn_ids(x, db, get_colid, rows = rows, ...)
+      setNames(synonyms(id, ...), x)
+    },
+    stop("the provided db value was not recognised", call. = FALSE)
   )
 }
 
 process_syn_ids <- function(input, db, fxn, ...){
   g <- tryCatch(as.numeric(as.character(input)), warning = function(e) e)
-  if (is(g,"numeric") || is.character(input) && grepl("N[HB]", input) ||
+  if (inherits(g,"numeric") || is.character(input) && grepl("N[HB]", input) ||
       is.character(input) && grepl("[[:digit:]]", input)) {
     as_fxn <- switch(db,
                      itis = as.tsn,
@@ -122,17 +126,26 @@ process_syn_ids <- function(input, db, fxn, ...){
 synonyms.tsn <- function(id, ...) {
   fun <- function(x){
     if (is.na(x)) { NA } else {
-      is_acc <- getacceptednamesfromtsn(x, ...)
-      if (!is.na(is_acc$acceptedname)) {
-        x <- is_acc$acceptedtsn
-        accdf <- setNames(data.frame(is_acc, stringsAsFactors = FALSE),
-                          c("sub_tsn", "acc_name", "acc_tsn"))
-        message("Accepted name is '", is_acc$acceptedname, "'")
-        message("Using tsn ", is_acc$acceptedtsn, "\n")
+      is_acc <- rit_acc_name(x, ...)
+      if (!is.na(is_acc$acceptedName)) {
+        x <- is_acc$acceptedTsn
+        accdf <- setNames(
+          data.frame(x[1], is_acc, stringsAsFactors = FALSE),
+          c("sub_tsn", "acc_name", "acc_tsn", "author")
+        )
+        message("Accepted name is '", is_acc$acceptedName, "'")
+        message("Using tsn ", is_acc$acceptedTsn, "\n")
       } else {
-        accdf <- data.frame(sub_tsn = x, acc_tsn = x, stringsAsFactors = FALSE)
+        accdf <- data.frame(sub_tsn = x[1], acc_tsn = x[1],
+                            stringsAsFactors = FALSE)
       }
-      out <- setNames(getsynonymnamesfromtsn(x, ...), c('syn_name', 'syn_tsn'))
+      out <- ritis::synonym_names(x, ...)
+      if (NROW(out) == 0) {
+        out <- data.frame(syn_name = "nomatch", syn_tsn = x[1],
+                          stringsAsFactors = FALSE)
+      } else {
+        out <- setNames(out, c('author', 'syn_name', 'syn_tsn'))
+      }
       if (as.character(out[1,1]) == 'nomatch') {
         out <- data.frame(message = "no syns found", stringsAsFactors = FALSE)
       }
@@ -140,6 +153,16 @@ synonyms.tsn <- function(id, ...) {
     }
   }
   setNames(lapply(id, fun), id)
+}
+
+rit_acc_name <- function(x, ...) {
+  tmp <- ritis::accepted_names(x, ...)
+  if (NROW(tmp) == 0) {
+    data.frame(submittedtsn = x[1], acceptedName = NA, acceptedTsn = x[1],
+               stringsAsFactors = FALSE)
+  } else {
+    tmp
+  }
 }
 
 #' @export

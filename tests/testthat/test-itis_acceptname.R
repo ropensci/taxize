@@ -6,7 +6,7 @@ test_that("itis_acceptname works with accepted tsn", {
   temp <- itis_acceptname(208527)
 
 	expect_is(temp, "data.frame")
-	expect_named(temp, c('submittedtsn', 'acceptedname', 'acceptedtsn'))
+	expect_named(temp, c('submittedtsn', 'acceptedname', 'acceptedtsn', 'author'))
 	expect_equal(temp$submittedtsn, 208527)
 	expect_true(is.na(temp$acceptedname))
 })
@@ -17,7 +17,7 @@ test_that("itis_acceptname works with non-accepted tsn", {
   temp <- itis_acceptname(504239)
 
   expect_is(temp, "data.frame")
-  expect_named(temp, c('submittedtsn', 'acceptedname', 'acceptedtsn'))
+  expect_named(temp, c('submittedtsn', 'acceptedname', 'acceptedtsn', 'author'))
   expect_equal(temp$submittedtsn, 504239)
   expect_that(is.na(temp$acceptedname), is_false())
 })

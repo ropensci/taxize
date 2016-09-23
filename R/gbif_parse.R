@@ -1,14 +1,13 @@
 #' Parse taxon names using the GBIF name parser.
 #'
+#' @export
 #' @param scientificname A character vector of scientific names.
 #' @return A \code{data.frame} containing fields extracted from parsed
 #' taxon names. Fields returned are the union of fields extracted from
 #' all species names in \code{scientificname}.
 #' @author John Baumgartner (johnbb@@student.unimelb.edu.au)
-#' @references \url{http://dev.gbif.org/wiki/display/POR/Webservice+API},
-#' \url{http://tools.gbif.org/nameparser/api.do}
+#' @references \url{http://tools.gbif.org/nameparser/api.do}
 #' @seealso \code{\link{gni_parse}}
-#' @export
 #' @examples \dontrun{
 #' gbif_parse(scientificname='x Agropogon littoralis')
 #' gbif_parse(c('Arrhenatherum elatius var. elatius',

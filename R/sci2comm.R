@@ -22,9 +22,7 @@
 #'
 #' @return List of character vectors.
 #'
-#' @seealso \code{\link[taxize]{searchbycommonname}},
-#' \code{\link[taxize]{searchbycommonnamebeginswith}},
-#' \code{\link[taxize]{searchbycommonnameendswith}}, \code{\link[taxize]{eol_search}},
+#' @seealso \code{\link[ritis]{search_common}}, \code{\link[taxize]{eol_search}},
 #' \code{\link[taxize]{tp_search}}, \code{\link[taxize]{comm2sci}}
 #'
 #' @author Scott Chamberlain (myrmecocystus@@gmail.com)
@@ -56,22 +54,23 @@ sci2comm <- function(...){
 #' @method sci2comm default
 #' @export
 #' @rdname sci2comm
-sci2comm.default <- function(scinames, db='eol', simplify=TRUE, ...)
-{
+sci2comm.default <- function(scinames, db='eol', simplify=TRUE, ...) {
   itis2comm <- function(x, simplify=TRUE, ...){
     tsn <- get_tsn(x, ...)
     itis_foo(tsn, simplify, ...)
   }
 
   eol2comm <- function(x, ...){
-    tmp <- eol_search(terms=x, ...)
+    tmp <- eol_search(terms = x, ...)
     pageids <- tmp[grep(x, tmp$name), "pageid"]
-    dfs <- tc(lapply(pageids, function(x) eol_pages(taxonconceptID=x, common_names=TRUE, ...)$vernac))
-    tt <- ldply(dfs[sapply(dfs, class)=="data.frame"])
-    if(simplify){
+    dfs <- tc(lapply(pageids, function(x) eol_pages(taxonconceptID = x, common_names = TRUE, ...)$vernac))
+    tt <- ldply(dfs[sapply(dfs, class) == "data.frame"])
+    if (simplify) {
       ss <- as.character(tt$vernacularname)
       ss[ !is.na(ss) ]
-    } else{ tt }
+    } else{
+      tt
+    }
   }
 
   ncbi2comm <- function(x, ...){
@@ -79,13 +78,13 @@ sci2comm.default <- function(scinames, db='eol', simplify=TRUE, ...)
     ncbi_foo(uid, ...)
   }
 
-  getsci <- function(nn, ...){
+  getsci <- function(nn, simplify, ...){
     switch(db,
            eol = eol2comm(nn, simplify, ...),
            itis = itis2comm(nn, simplify, ...),
            ncbi = ncbi2comm(nn, ...))
   }
-  temp <- lapply(scinames, function(x) getsci(x, ...))
+  temp <- lapply(scinames, getsci, simplify, ...)
   names(temp) <- scinames
   temp
 }
@@ -93,8 +92,7 @@ sci2comm.default <- function(scinames, db='eol', simplify=TRUE, ...)
 #' @method sci2comm uid
 #' @export
 #' @rdname sci2comm
-sci2comm.uid <- function(id, ...)
-{
+sci2comm.uid <- function(id, ...) {
   out <- lapply(id, function(x) ncbi_foo(x, ...))
   names(out) <- id
   return(out)
@@ -103,8 +101,8 @@ sci2comm.uid <- function(id, ...)
 #' @method sci2comm tsn
 #' @export
 #' @rdname sci2comm
-sci2comm.tsn <- function(id, simplify=TRUE, ...){
-  out <- lapply(id, function(x) itis_foo(x, ...))
+sci2comm.tsn <- function(id, simplify=TRUE, ...) {
+  out <- lapply(id, function(x) itis_foo(x, simplify, ...))
   names(out) <- id
   return(out)
 }
@@ -114,13 +112,14 @@ itis_foo <- function(x, simplify=TRUE, ...){
   if (is.na(x)) {
     out <- NA
   } else {
-    out <- getcommonnamesfromtsn(x)
+    out <- ritis::common_names(x)
     #if common name is not found
-    if (nrow(out) == 0)
+    if (nrow(out) == 0) {
       out <- NA
+    }
   }
   if (simplify) {
-    if (!is(out, "data.frame")) out else as.character(out$comname)
+    if (!inherits(out, "tbl_df")) out else as.character(out$commonName)
   } else{
     out
   }

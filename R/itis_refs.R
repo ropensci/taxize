@@ -7,5 +7,6 @@
 #' itis_refs(202385)
 #' itis_refs(c(202385, 70340))
 #' }
-
-itis_refs <- function(tsn, ...) lapply(tsn, function(x) getpublicationsfromtsn(x, ...))
+itis_refs <- function(tsn, ...) {
+  lapply(tsn, ritis::publications, ...)
+}

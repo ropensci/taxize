@@ -4,23 +4,24 @@
 \alias{itis_hierarchy}
 \title{ITIS hierarchy}
 \usage{
-itis_hierarchy(tsn = NULL, what = "full", ...)
+itis_hierarchy(tsn, what = "full", ...)
 }
 \arguments{
-\item{tsn}{One or more TSN's (taxonomic serial number)}
+\item{tsn}{One or more TSN's (taxonomic serial number). Required.}
 
 \item{what}{One of full (full hierarchy), up (immediate upstream), or down
 (immediate downstream)}
 
-\item{...}{Further arguments passed on to \code{\link{getjurisdictionaloriginfromtsn}}}
+\item{...}{Further arguments passed on to \code{\link[ritis]{hierarchy_full}},
+\code{\link[ritis]{hierarchy_up}}, or \code{\link[ritis]{hierarchy_down}}}
 }
 \description{
-Get hierarchies from TSN values, full, upstream only, or immediate
-downstream only
+Get hierarchies from TSN values, full, upstream only, or
+immediate downstream only
 }
 \details{
-Note that \code{\link{itis_downstream}} gets taxa downstream to a particular
-   rank, whilc this function only gets immediate names downstream.
+Note that \code{\link{itis_downstream}} gets taxa downstream to a
+particular rank, while this function only gets immediate names downstream.
 }
 \examples{
 \dontrun{

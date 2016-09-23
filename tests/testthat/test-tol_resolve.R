@@ -50,9 +50,9 @@ test_that("do_approximate_matching works correctly", {
 
 test_that("fails well", {
   expect_error(tol_resolve(), "You must supply")
-  expect_error(tol_resolve(ids = 5), "You must supply a ‘names’ argument")
+  expect_error(tol_resolve(ids = 5), "You must supply a")
   expect_error(tol_resolve(context_name = "stuff"), "is not valid")
-  expect_error(tol_resolve(names = 5), "Argument ‘names’ must be of class")
+  expect_error(tol_resolve(names = 5), "must be of class")
 })
 
 test_that("fails well - HTTP needed", {

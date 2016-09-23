@@ -71,9 +71,7 @@ sci2comm('Helianthus annuus', db="ncbi", config=verbose())
 Scott Chamberlain (myrmecocystus@gmail.com)
 }
 \seealso{
-\code{\link[taxize]{searchbycommonname}},
-\code{\link[taxize]{searchbycommonnamebeginswith}},
-\code{\link[taxize]{searchbycommonnameendswith}}, \code{\link[taxize]{eol_search}},
+\code{\link[ritis]{search_common}}, \code{\link[taxize]{eol_search}},
 \code{\link[taxize]{tp_search}}, \code{\link[taxize]{comm2sci}}
 }
 

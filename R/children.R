@@ -1,24 +1,28 @@
 #' Retrieve immediate children taxa for a given taxon name or ID.
 #'
-#' This function is different from \code{\link{downstream}} in that it only collects immediate
-#' taxonomic children, while \code{\link{downstream}} collects taxonomic names down to a specified
-#' taxonomic rank, e.g., getting all species in a family.
+#' This function is different from \code{\link{downstream}} in that it only
+#' collects immediate taxonomic children, while \code{\link{downstream}}
+#' collects taxonomic names down to a specified taxonomic rank, e.g.,
+#' getting all species in a family.
 #'
 #' @export
-#' @param x Vector of taxa names (character) or IDs (character or numeric) to query.
-#' @param db character; database to query. One or more of \code{itis}, \code{col}, or \code{ncbi}.
-#' Note that each taxonomic data source has their own identifiers, so that if you
-#' provide the wrong \code{db} value for the identifier you could get a result,
-#' but it will likely be wrong (not what you were expecting).
-#' @param rows (numeric) Any number from 1 to infinity. If the default NA, all rows are
-#' considered. Note that this parameter is ignored if you pass in a taxonomic id of any of the
-#' acceptable classes: tsn, colid. NCBI has a method for this function but rows doesn't work.
+#' @param x Vector of taxa names (character) or IDs (character or numeric)
+#' to query.
+#' @param db character; database to query. One or more of \code{itis},
+#' \code{col}, or \code{ncbi}. Note that each taxonomic data source has their
+#' own identifiers, so that if you provide the wrong \code{db} value for
+#' the identifier you could get a result, but it will likely be wrong
+#' (not what you were expecting).
+#' @param rows (numeric) Any number from 1 to infinity. If the default NA, all
+#' rows are considered. Note that this parameter is ignored if you pass in a
+#' taxonomic id of any of the acceptable classes: tsn, colid. NCBI has a
+#' method for this function but rows doesn't work.
 #' @param ... Further args passed on to \code{\link{col_children}},
-#' \code{\link{gethierarchydownfromtsn}}, or \code{\link{ncbi_children}}.
+#' \code{\link[ritis]{hierarchy_down}}, or \code{\link{ncbi_children}}.
 #' See those functions for what parameters can be passed on.
 #'
-#' @return A named list of data.frames with the children names of every supplied taxa.
-#' You get an NA if there was no match in the database.
+#' @return A named list of data.frames with the children names of every
+#' supplied taxa. You get an NA if there was no match in the database.
 #'
 #' @examples \dontrun{
 #' # Plug in taxonomic IDs
@@ -37,7 +41,8 @@
 #' (id <- get_colid("Apis"))
 #' children(id)
 #'
-#' ## Equivalently, plug in the call to get the id via e.g., get_colid into children
+#' ## Equivalently, plug in the call to get the id via e.g., get_colid
+#' ## into children
 #' (id <- get_colid("Apis"))
 #' children(id)
 #' children(get_colid("Apis"))
@@ -72,28 +77,29 @@ children <- function(...){
 #' @rdname children
 children.default <- function(x, db = NULL, rows = NA, ...) {
   nstop(db)
-  switch(db,
-         itis = {
-           id <- process_children_ids(x, db, get_tsn, rows = rows, ...)
-           setNames(children(id, ...), x)
-         },
+  switch(
+    db,
+    itis = {
+      id <- process_children_ids(x, db, get_tsn, rows = rows, ...)
+      setNames(children(id, ...), x)
+    },
 
-         col = {
-           id <- process_children_ids(x, db, get_colid, rows = rows, ...)
-           setNames(children(id, ...), x)
-         },
+    col = {
+      id <- process_children_ids(x, db, get_colid, rows = rows, ...)
+      setNames(children(id, ...), x)
+    },
 
-         ncbi = {
-           if (all(grepl("^[[:digit:]]*$", x))) {
-             id <- x
-             class(id) <- "uid"
-             setNames(children(id, ...), x)
-           } else {
-             out <- ncbi_children(name = x, ...)
-             structure(out, class = 'children', db = 'ncbi', .Names = x)
-           }
-         },
-         stop("the provided db value was not recognised", call. = FALSE)
+    ncbi = {
+      if (all(grepl("^[[:digit:]]*$", x))) {
+        id <- x
+        class(id) <- "uid"
+        setNames(children(id, ...), x)
+      } else {
+        out <- ncbi_children(name = x, ...)
+        structure(out, class = 'children', db = 'ncbi', .Names = x)
+      }
+    },
+    stop("the provided db value was not recognised", call. = FALSE)
   )
 }
 
@@ -109,13 +115,13 @@ process_children_ids <- function(input, db, fxn, ...){
 
 #' @export
 #' @rdname children
-children.tsn <- function(x,  db = NULL, ...) {
+children.tsn <- function(x, db = NULL, ...) {
   fun <- function(y){
     # return NA if NA is supplied
     if (is.na(y)) {
       out <- NA
     } else {
-		  out <- gethierarchydownfromtsn(tsn = y, ...)
+		  out <- ritis::hierarchy_down(y, ...)
     }
   }
   out <- lapply(x, fun)

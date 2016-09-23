@@ -9,8 +9,15 @@
 #' }
 itis_kingdomnames <- function(tsn=NULL, ...) {
   if (is.null(tsn)) {
-    getkingdomnames()
+    ritis::kingdom_names(...)
   } else {
-    sapply(tsn, function(z) as.character(getkingdomnamefromtsn(z, ...)$kingdomname))
+    sapply(
+      tsn,
+      function(z) {
+        suppressWarnings(
+          as.character(ritis::kingdom_name(z, ...)$kingdomname)
+        )
+      }
+    )
   }
 }

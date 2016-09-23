@@ -11,9 +11,7 @@
 #'    return variable formats from different sources, usually a data.frame.
 #' @param ... Further arguments passed on to internal methods.
 #' @return A vector of names.
-#' @seealso \code{\link[taxize]{searchbycommonname}},
-#' \code{\link[taxize]{searchbycommonnamebeginswith}},
-#' \code{\link[taxize]{searchbycommonnameendswith}}, \code{\link[taxize]{eol_search}},
+#' @seealso \code{\link[ritis]{search_common}}, \code{\link[taxize]{eol_search}},
 #' \code{\link[taxize]{tp_search}}
 #' @export
 #' @seealso \code{\link[taxize]{sci2comm}}
@@ -39,15 +37,22 @@
 
 comm2sci <- function(commnames, db='eol', itisby='search', simplify=TRUE, ...) {
   foo <- function(x, by='search', simplify, ...){
-    tmp <- switch(by,
-                  search = searchbycommonname(x, ...),
-                  begin = searchbycommonnamebeginswith(x, ...),
-                  end = searchbycommonnameendswith(x, ...))
+    tmp <- switch(
+      by,
+      search = ritis::search_common(x, ...),
+      begin = ritis::search_common(x, from = "begin", ...),
+      end = ritis::search_common(x, from = "end", ...)
+    )
     # remove empty tsn slots
     tsns <- as.character(tmp$tsn)
     tsns <- tsns[!sapply(tsns, nchar, keepNA = FALSE) == 0]
     # get scientific names
-    tmp <- do.call(rbind, lapply(tsns, getscientificnamefromtsn))
+    tmp <- data.table::setDF(
+      data.table::rbindlist(
+        lapply(tsns, ritis::scientific_name),
+        fill = TRUE, use.names = TRUE
+      )
+    )
     if (simplify) {
       as.character(tmp$combinedname)
     } else{
@@ -91,14 +96,16 @@ comm2sci <- function(commnames, db='eol', itisby='search', simplify=TRUE, ...) {
     }
   }
 
-  getsci <- function(nn, ...){
-    switch(db,
-           eol = eol_search_(terms = nn, simplify, ...),
-           itis = foo(nn, itisby, simplify, ...),
-           tropicos = tp_search_(simplify, commonname = nn, ...),
-           ncbi = ncbi2sci(nn, ...))
+  getsci <- function(nn, simplify, ...) {
+    switch(
+      db,
+      eol = eol_search_(terms = nn, simplify, ...),
+      itis = foo(nn, itisby, simplify, ...),
+      tropicos = tp_search_(simplify, commonname = nn, ...),
+      ncbi = ncbi2sci(nn, ...)
+    )
   }
-  temp <- lapply(commnames, function(x) getsci(x, ...))
+  temp <- lapply(commnames, getsci, simplify = simplify, ...)
   names(temp) <- commnames
   temp
 }

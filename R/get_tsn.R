@@ -44,7 +44,7 @@
 #' get_tsn(c("Chironomus riparius", "howdy"))
 #'
 #' # Using common names
-#' get_tsn(searchterm="black bear", searchtype="c")
+#' get_tsn(searchterm="black bear", searchtype="common")
 #'
 #' # Convert a tsn without class information to a tsn class
 #' as.tsn(get_tsn("Quercus douglasii")) # already a tsn, returns the same
@@ -84,19 +84,24 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE, ask
     direct <- FALSE
     mssg(verbose, "\nRetrieving data for taxon '", x, "'\n")
 
-    searchtype <- match.arg(searchtype, c("scientific","common"))
-    tsn_df <- itis_terms(x, what = searchtype, ...)
+    searchtype <- match.arg(searchtype, c("scientific", "common"))
+    tsn_df <- ritis::terms(x, what = searchtype, ...)
     mm <- NROW(tsn_df) > 1
     # tsn_df <- sub_rows(tsn_df, rows)
 
-    if (!class(tsn_df) == "data.frame" || NROW(tsn_df) == 0) {
+    if (!inherits(tsn_df, "tbl_df") || NROW(tsn_df) == 0) {
       tsn <- NA_character_
       att <- "not found"
     } else {
-      tsn_df <- tsn_df[,c("tsn","scientificname","commonnames","nameusage")]
+      if ("commonNames" %in% names(tsn_df)) {
+        tsn_df$commonNames <-
+          sapply(tsn_df$commonNames, function(z) paste0(z, collapse = ","))
+      }
+
+      tsn_df <- tsn_df[,c("tsn","scientificName","commonNames","nameUsage")]
 
       if (accepted) {
-        tsn_df <- tsn_df[ tsn_df$nameusage %in% c('valid','accepted'), ]
+        tsn_df <- tsn_df[ tsn_df$nameUsage %in% c('valid','accepted'), ]
       }
 
       tsn_df <- sub_rows(tsn_df, rows)
@@ -125,6 +130,7 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE, ask
           direct <- TRUE
           att <- 'found'
         } else {
+          direct <- FALSE
           tsn <- NA_character_
           att <- 'not found'
         }
@@ -139,7 +145,7 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE, ask
           names(tsn_df)[grep(searchtype, names(tsn_df))] <- "target"
           # user prompt
           tsn_df <- tsn_df[order(tsn_df$target), ]
-          rownames(tsn_df) <- 1:nrow(tsn_df)
+          #rownames(tsn_df) <- 1:NROW(tsn_df)
 
           # prompt
           message("\n\n")
@@ -202,7 +208,7 @@ as.tsn.tsn <- function(x, check=TRUE) x
 
 #' @export
 #' @rdname get_tsn
-as.tsn.character <- function(x, check=TRUE) if(length(x) == 1) make_tsn(x, check) else collapse(x, make_tsn, "tsn", check = check)
+as.tsn.character <- function(x, check=TRUE) if (length(x) == 1) make_tsn(x, check) else collapse(x, make_tsn, "tsn", check = check)
 
 #' @export
 #' @rdname get_tsn
@@ -236,24 +242,33 @@ make_tsn <- function(x, check=TRUE) make_generic(x, 'http://www.itis.gov/servlet
 
 check_tsn <- function(x){
   tt <- suppressMessages(itis_getrecord(x))
-  identical(tt$acceptednamelist[[1]], as.character(x))
+  identical(tt$acceptedNameList$tsn, as.character(x))
 }
 
 #' @export
 #' @rdname get_tsn
-get_tsn_ <- function(searchterm, verbose = TRUE, searchtype = "scientific", accepted = TRUE, rows = NA){
-  setNames(lapply(searchterm, get_tsn_help, verbose = verbose, searchtype=searchtype, accepted=accepted, rows=rows), searchterm)
+get_tsn_ <- function(searchterm, verbose = TRUE, searchtype = "scientific",
+                     accepted = TRUE, rows = NA, ...) {
+  stats::setNames(
+    lapply(searchterm, get_tsn_help, verbose = verbose,
+           searchtype = searchtype, accepted = accepted, rows = rows, ...),
+    searchterm
+  )
 }
 
-get_tsn_help <- function(searchterm, verbose, searchtype, accepted, rows){
+get_tsn_help <- function(searchterm, verbose, searchtype, accepted, rows, ...) {
   mssg(verbose, "\nRetrieving data for taxon '", searchterm, "'\n")
   searchtype <- match.arg(searchtype, c("scientific","common"))
-  df <- itis_terms(searchterm, what = searchtype, verbose = verbose)
-  if (!is(df, "data.frame") || NROW(df) == 0) {
+  df <- ritis::terms(searchterm, what = searchtype, ...)
+  if (!inherits(df, "tbl_df") || NROW(df) == 0) {
     NULL
   } else {
-    df <- df[,c("tsn","scientificname","commonnames","nameusage")]
-    if (accepted) df <- df[ df$nameusage %in% c('valid','accepted'), ]
+    df <- df[,c("tsn","scientificName","commonNames","nameUsage")]
+    if ("commonNames" %in% names(df)) {
+      df$commonNames <-
+        sapply(df$commonNames, function(z) paste0(z, collapse = ","))
+    }
+    if (accepted) df <- df[ df$nameUsage %in% c('valid','accepted'), ]
     sub_rows(df, rows)
   }
 }

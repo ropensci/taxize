@@ -23,28 +23,32 @@ children(...)
 }
 \arguments{
 \item{...}{Further args passed on to \code{\link{col_children}},
-\code{\link{gethierarchydownfromtsn}}, or \code{\link{ncbi_children}}.
+\code{\link[ritis]{hierarchy_down}}, or \code{\link{ncbi_children}}.
 See those functions for what parameters can be passed on.}
 
-\item{x}{Vector of taxa names (character) or IDs (character or numeric) to query.}
+\item{x}{Vector of taxa names (character) or IDs (character or numeric)
+to query.}
 
-\item{db}{character; database to query. One or more of \code{itis}, \code{col}, or \code{ncbi}.
-Note that each taxonomic data source has their own identifiers, so that if you
-provide the wrong \code{db} value for the identifier you could get a result,
-but it will likely be wrong (not what you were expecting).}
+\item{db}{character; database to query. One or more of \code{itis},
+\code{col}, or \code{ncbi}. Note that each taxonomic data source has their
+own identifiers, so that if you provide the wrong \code{db} value for
+the identifier you could get a result, but it will likely be wrong
+(not what you were expecting).}
 
-\item{rows}{(numeric) Any number from 1 to infinity. If the default NA, all rows are
-considered. Note that this parameter is ignored if you pass in a taxonomic id of any of the
-acceptable classes: tsn, colid. NCBI has a method for this function but rows doesn't work.}
+\item{rows}{(numeric) Any number from 1 to infinity. If the default NA, all
+rows are considered. Note that this parameter is ignored if you pass in a
+taxonomic id of any of the acceptable classes: tsn, colid. NCBI has a
+method for this function but rows doesn't work.}
 }
 \value{
-A named list of data.frames with the children names of every supplied taxa.
-You get an NA if there was no match in the database.
+A named list of data.frames with the children names of every
+supplied taxa. You get an NA if there was no match in the database.
 }
 \description{
-This function is different from \code{\link{downstream}} in that it only collects immediate
-taxonomic children, while \code{\link{downstream}} collects taxonomic names down to a specified
-taxonomic rank, e.g., getting all species in a family.
+This function is different from \code{\link{downstream}} in that it only
+collects immediate taxonomic children, while \code{\link{downstream}}
+collects taxonomic names down to a specified taxonomic rank, e.g.,
+getting all species in a family.
 }
 \examples{
 \dontrun{
@@ -64,7 +68,8 @@ children("Salmo", db = 'ncbi')
 (id <- get_colid("Apis"))
 children(id)
 
-## Equivalently, plug in the call to get the id via e.g., get_colid into children
+## Equivalently, plug in the call to get the id via e.g., get_colid
+## into children
 (id <- get_colid("Apis"))
 children(id)
 children(get_colid("Apis"))

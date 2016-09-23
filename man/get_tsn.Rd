@@ -30,7 +30,7 @@ as.tsn(x, check = TRUE)
 \method{as.data.frame}{tsn}(x, ...)
 
 get_tsn_(searchterm, verbose = TRUE, searchtype = "scientific",
-  accepted = TRUE, rows = NA)
+  accepted = TRUE, rows = NA, ...)
 }
 \arguments{
 \item{searchterm}{character; A vector of common or scientific names.}
@@ -102,7 +102,7 @@ get_tsn("howdy")
 get_tsn(c("Chironomus riparius", "howdy"))
 
 # Using common names
-get_tsn(searchterm="black bear", searchtype="c")
+get_tsn(searchterm="black bear", searchtype="common")
 
 # Convert a tsn without class information to a tsn class
 as.tsn(get_tsn("Quercus douglasii")) # already a tsn, returns the same

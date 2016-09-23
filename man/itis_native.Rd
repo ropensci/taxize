@@ -11,7 +11,10 @@ itis_native(tsn = NULL, what = "bytsn", ...)
 
 \item{what}{One of bytsn, values, or originvalues}
 
-\item{...}{Further arguments passed on to \code{\link{getjurisdictionaloriginfromtsn}}}
+\item{...}{Further arguments passed on to
+\code{\link[ritis]{jurisdictional_origin}},
+\code{\link[ritis]{jurisdiction_values}}, or
+\code{\link[ritis]{jurisdiction_origin_values}}}
 }
 \description{
 Get jurisdiction data, i.e., native or not native in a region.

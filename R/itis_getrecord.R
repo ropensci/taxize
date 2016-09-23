@@ -1,10 +1,10 @@
 #' Get full ITIS record for one or more ITIS TSN's or lsid's.
 #'
 #' @export
-#' @param values One or more TSN's (taxonomic serial number) or lsid's for a
-#'    taxonomic group (character)
-#' @param by By "tsn" (default) or "lsid"
-#' @param ... Further arguments passed on to getpublicationsfromtsn
+#' @param values (character) One or more TSN's (taxonomic serial number) or lsid's for a
+#' taxonomic group
+#' @param by (character) By "tsn" (default) or "lsid"
+#' @param ... Further arguments passed on to \code{\link[ritis]{full_record}}
 #' @details You can only enter values in tsn parameter or lsid, not both.
 #' @examples \dontrun{
 #' # by TSN
@@ -16,10 +16,11 @@
 #' }
 
 itis_getrecord <- function(values, by="tsn", ...) {
-  by <- match.arg(by, c("tsn","lsid"))
-  temp <- switch(by,
-         tsn = lapply(values, function(x) getfullrecordfromtsn(x, ...)),
-         lsid = lapply(values, function(x) getfullrecordfromlsid(x, ...))
+  if (!by %in% c("tsn","lsid")) stop("by must be one of 'tsn' or 'lsid'", call. = FALSE)
+  temp <- switch(
+    by,
+    tsn = lapply(values, ritis::full_record, ...),
+    lsid = lapply(values, function(x) ritis::full_record(lsid = x, ...))
   )
   if (length(values) == 1) {
     temp[[1]]

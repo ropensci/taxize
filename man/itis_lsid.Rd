@@ -2,7 +2,7 @@
 % Please edit documentation in R/itis_lsid.R
 \name{itis_lsid}
 \alias{itis_lsid}
-\title{Get kingdom names}
+\title{Get TSN from LSID}
 \usage{
 itis_lsid(lsid = NULL, what = "tsn", ...)
 }
@@ -11,11 +11,11 @@ itis_lsid(lsid = NULL, what = "tsn", ...)
 
 \item{what}{What to retrieve. One of tsn, record, or fullrecord}
 
-\item{...}{Further arguments passed on to \code{\link{gettsnfromlsid}},
-\code{\link{getrecordfromlsid}}, or \code{\link{getfullrecordfromlsid}}}
+\item{...}{Further arguments passed on to \code{\link[ritis]{lsid2tsn}},
+\code{\link[ritis]{record}}, or \code{\link[ritis]{full_record}}}
 }
 \description{
-Get kingdom names
+Get TSN from LSID
 }
 \examples{
 \dontrun{

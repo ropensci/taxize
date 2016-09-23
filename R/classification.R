@@ -216,7 +216,7 @@ classification.tsn <- function(id, callopts = list(), return_id = TRUE, ...) {
     if (is.na(x)) {
       out <- NA
     } else {
-      out <- getfullhierarchyfromtsn(x, callopts, ...)
+      out <- ritis::hierarchy_full(x, wt = "json", raw = FALSE, callopts)
       if (NROW(out) < 1) return(NA)
       # remove overhang
       out <- out[1:which(out$tsn == x), c('taxonname', 'rankname', 'tsn')]
@@ -509,42 +509,40 @@ rbind.classification <- function(x) {
 #' @rdname classification
 cbind.classification_ids <- function(...) {
   input <- c(...)
+
   # remove non-data.frames
-  input <- input[vapply(input, function(x) class(x[[1]]), "") %in% "data.frame"]
+  input <- input[vapply(input, function(x) class(x[[1]])[1], "") %in% c("data.frame", "tbl_df")]
 
   gethiernames <- function(x){
     x$name <- as.character(x$name)
     x$rank <- as.character(x$rank)
-    values <- setNames(data.frame(t(x[,'name']), stringsAsFactors = FALSE), tolower(x[,'rank']))
+    values <- setNames(data.frame(t(x$name), stringsAsFactors = FALSE), tolower(x$rank))
     if ("id" %in% names(x)) {
       x$id <- as.character(x$id)
-      ids <- setNames(data.frame(t(x[,'id']), stringsAsFactors = FALSE), paste0(tolower(x[,'rank']),"_id") )
+      ids <- setNames(data.frame(t(x$id), stringsAsFactors = FALSE), paste0(tolower(x$rank), "_id") )
       data.frame(values, ids)
     } else {
       values
     }
   }
   dat <- do.call(rbind.fill, lapply(input, function(h){
-      tmp <- lapply(h, gethiernames)
-      tmp <- do.call(rbind.fill, tmp)
-      tmp$query <- names(h)
-      tmp$db <- attr(h, "db")
-      tmp
-    })
+    tmp <- lapply(h, gethiernames)
+    tmp <- do.call(rbind.fill, tmp)
+    tmp$query <- names(h)
+    tmp$db <- attr(h, "db")
+    tmp
+  })
   )
   move_col(tt = dat, y = c('query','db'))
-}
-
-foo <- function(...) {
-  c(...)
 }
 
 #' @export
 #' @rdname classification
 rbind.classification_ids <- function(...) {
   input <- c(...)
+
   # remove non-data.frames
-  input <- input[vapply(input, function(x) class(x[[1]]), "") %in% "data.frame"]
+  input <- input[vapply(input, function(x) class(x[[1]])[1], "") %in% c("data.frame", "tbl_df")]
 
   df <- lapply(input, function(x){
     coll <- list()

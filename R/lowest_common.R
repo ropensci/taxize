@@ -1,12 +1,14 @@
 #' Retrieve the lowest common taxon and rank for a given taxon name or ID
 #'
 #' @export
-#' @param x Vector of taxa names (character) or id (character or numeric) to query.
+#' @param x Vector of taxa names (character) or id (character or numeric) to
+#' query.
 #' @param db character; database to query. either \code{ncbi}, \code{itis}, or
-#'    \code{gbif}.
-#' @param rows (numeric) Any number from 1 to infinity. If the default NA, all rows are
-#' considered. Note that this parameter is ignored if you pass in a taxonomic id of any of the
-#' acceptable classes: tsn, colid. NCBI has a method for this function but rows doesn't work.
+#' \code{gbif}.
+#' @param rows (numeric) Any number from 1 to infinity. If the default NA,
+#' all rows are considered. Note that this parameter is ignored if you pass in
+#' a taxonomic id of any of the acceptable classes: tsn, colid. NCBI has a
+#' method for this function but rows doesn't work.
 #' @param class_list (list) A list of classifications, as returned from
 #' \code{\link[taxize]{classification}}
 #' @param low_rank (character) taxonomic rank to return, of length 1
@@ -47,24 +49,34 @@
 #' lowest_common(spp, db = "gbif")
 #' lowest_common(get_gbifid(spp))
 #'
-#' cool_orchid <- c("Angraecum sesquipedale", "Dracula vampira", "Masdevallia coccinea")
+#' cool_orchid <- c("Angraecum sesquipedale", "Dracula vampira",
+#'   "Masdevallia coccinea")
 #' orchid_ncbi <- get_uid(cool_orchid)
 #' orchid_gbif <- get_gbifid(cool_orchid)
-#' orchid_itis <- get_tsn(cool_orchid)
+#'
+#' cool_orchids2 <- c("Domingoa haematochila", "Gymnadenia conopsea",
+#'   "Masdevallia coccinea")
+#' orchid_itis <- get_tsn(cool_orchids2)
 #'
 #' orchid_hier_ncbi <- classification(orchid_ncbi, db = 'ncbi')
 #' orchid_hier_gbif <- classification(orchid_gbif, db = 'gbif')
 #' orchid_hier_itis <- classification(orchid_itis, db = 'itis')
 #'
 #' lowest_common(orchid_ncbi, low_rank = 'class')
-#' lowest_common(orchid_ncbi, class_list = orchid_hier_ncbi, low_rank = 'class')
+#' lowest_common(orchid_ncbi, class_list = orchid_hier_ncbi,
+#'   low_rank = 'class')
 #' lowest_common(orchid_gbif, low_rank = 'class')
 #' lowest_common(orchid_gbif, orchid_hier_gbif, low_rank = 'class')
 #' lowest_common(get_uid(cool_orchid), low_rank = 'class')
 #' lowest_common(get_uid(cool_orchid), low_rank = 'family')
 #'
-#' lowest_common(orchid_ncbi, class_list = orchid_hier_ncbi, low_rank = 'subfamily')
-#' lowest_common(orchid_gbif, class_list = orchid_hier_gbif, low_rank = 'subfamily')
+#' lowest_common(orchid_ncbi, class_list = orchid_hier_ncbi,
+#'   low_rank = 'subfamily')
+#' lowest_common(orchid_gbif, class_list = orchid_hier_gbif,
+#'   low_rank = 'subfamily')
+#'
+#' lowest_common(orchid_itis, class_list = orchid_hier_itis,
+#'   low_rank = 'class')
 #'
 #' ## Pass in sci. names
 #' nms <- c("Angraecum sesquipedale", "Dracula vampira", "Masdevallia coccinea")
@@ -82,23 +94,25 @@ lowest_common <- function(...){
 
 #' @export
 #' @rdname lowest_common
-lowest_common.default <- function(x, db = NULL, rows = NA, class_list = NULL, low_rank = NULL, ...) {
+lowest_common.default <- function(x, db = NULL, rows = NA, class_list = NULL,
+                                  low_rank = NULL, ...) {
   if (is.null(db)) if (!is.null(class_list)) db <- attr(class_list, "db")
   nstop(db)
-  switch(db,
-         itis = {
-           id <- process_lowest_ids(x, db, get_tsn, rows = rows, ...)
-           lowest_common(id, class_list, ...)
-         },
-         ncbi = {
-           id <- process_lowest_ids(x, db, get_uid, rows = rows, ...)
-           lowest_common(id, class_list, ...)
-         },
-         gbif = {
-           id <- process_lowest_ids(x, db, get_gbifid, rows = rows, ...)
-           lowest_common(id, class_list, ...)
-         },
-         stop("the provided db value was not recognised", call. = FALSE)
+  switch(
+    db,
+    itis = {
+      id <- process_lowest_ids(x, db, get_tsn, rows = rows, ...)
+      lowest_common(id, class_list, ...)
+    },
+    ncbi = {
+      id <- process_lowest_ids(x, db, get_uid, rows = rows, ...)
+      lowest_common(id, class_list, ...)
+    },
+    gbif = {
+      id <- process_lowest_ids(x, db, get_gbifid, rows = rows, ...)
+      lowest_common(id, class_list, ...)
+    },
+    stop("the provided db value was not recognised", call. = FALSE)
   )
 }
 
@@ -140,7 +154,7 @@ lc_helper <- function(x, class_list, low_rank = NULL, ...) {
     }
     return(x)
   } else {
-    valid_ranks <- tolower(getranknames()[,"rankname"])
+    valid_ranks <- tolower(ritis::rank_names()$rankname)
     if (!(low_rank %in% valid_ranks)) {
       warning('the supplied rank is not valid')
     }

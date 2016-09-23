@@ -8,8 +8,8 @@
 #' @param intermediate (logical) If TRUE, return a list of length two with target
 #'    taxon rank names, with additional list of data.frame's of intermediate
 #'    taxonomic groups. Default: FALSE
-#' @param ... Further args passed on to \code{\link{gettaxonomicranknamefromtsn}} and
-#'    \code{\link{gethierarchydownfromtsn}}
+#' @param ... Further args passed on to \code{\link[ritis]{rank_name}} and
+#'    \code{\link[ritis]{hierarchy_down}}
 #' @return Data.frame of taxonomic information downstream to family from e.g.,
 #' 		Order, Class, etc., or if \code{intermediated=TRUE}, list of length two,
 #'   	with target taxon rank names, and intermediate names.
@@ -37,10 +37,7 @@
 #' }
 
 itis_downstream <- function(tsns, downto, intermediate = FALSE, ...) {
-
   downto <- tolower(downto)
-	# downto2 <- rank_ref[grep(downto, rank_ref$ranks), "rankid"]
-	# torank_ids <- rank_ref[grep(downto, rank_ref$ranks):NROW(rank_ref), "rankid"]
   downto2 <- rank_ref[which_rank(downto), "rankid"]
   torank_ids <- rank_ref[which_rank(downto):NROW(rank_ref), "rankid"]
 
@@ -52,14 +49,14 @@ itis_downstream <- function(tsns, downto, intermediate = FALSE, ...) {
 	while (stop_ == "not") {
 		iter <- iter + 1
 		if (!nchar(as.character(notout$rankname[[1]])) > 0) {
-			temp <- ldply(as.character(tsns), gettaxonomicranknamefromtsn)
+			temp <- ldply(as.character(tsns), ritis::rank_name)
 		} else {
 		  temp <- notout
 		}
-		tt <- ldply(as.character(temp$tsn), gethierarchydownfromtsn)
+		tt <- ldply(as.character(temp$tsn), ritis::hierarchy_down)
 		## FIXME - do we need this since rank is given above in `tt`
 		names_ <- ldply(split(tt, row.names(tt)), function(x) {
-			gettaxonomicranknamefromtsn(as.character(x$tsn))[,c("rankid","rankname","tsn")]
+		  ritis::rank_name(as.character(x$tsn))[,c("rankid","rankname","tsn")]
 		})
 		##
 		if (nrow(names_) == 0) {
@@ -85,16 +82,16 @@ itis_downstream <- function(tsns, downto, intermediate = FALSE, ...) {
 		  }
 		}
 		if (intermediate) {
-		  intermed[[iter]] <- setNames(intermed[[iter]], tolower(names(intermed[[iter]])))
+		  intermed[[iter]] <- stats::setNames(intermed[[iter]], tolower(names(intermed[[iter]])))
 		  intermed[[iter]]$rankname <- tolower(intermed[[iter]]$rankname)
 		}
 	}
   tmp <- ldply(out)
   tmp$rankname <- tolower(tmp$rankname)
 	if (intermediate) {
-	  list(target = setNames(tmp, tolower(names(tmp))), intermediate = intermed)
+	  list(target = stats::setNames(tmp, tolower(names(tmp))), intermediate = intermed)
   } else {
-    setNames(tmp, tolower(names(tmp)))
+    stats::setNames(tmp, tolower(names(tmp)))
   }
 }
 

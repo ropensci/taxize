@@ -1,10 +1,10 @@
-#' Get kingdom names
+#' Get TSN from LSID
 #'
 #' @export
 #' @param lsid One or more lsid's
 #' @param what What to retrieve. One of tsn, record, or fullrecord
-#' @param ... Further arguments passed on to \code{\link{gettsnfromlsid}},
-#'    \code{\link{getrecordfromlsid}}, or \code{\link{getfullrecordfromlsid}}
+#' @param ... Further arguments passed on to \code{\link[ritis]{lsid2tsn}},
+#'    \code{\link[ritis]{record}}, or \code{\link[ritis]{full_record}}
 #' @examples \dontrun{
 #' # Get TSN
 #' itis_lsid("urn:lsid:itis.gov:itis_tsn:180543")
@@ -20,10 +20,12 @@
 #' itis_lsid(202385)
 #' }
 itis_lsid <- function(lsid=NULL, what='tsn', ...) {
-  temp <- switch(what,
-         tsn = lapply(lsid, function(x) gettsnfromlsid(x, ...)),
-         record = lapply(lsid, function(x) getrecordfromlsid(x, ...)),
-         fullrecord = lapply(lsid, function(x) getfullrecordfromlsid(x, ...)) )
+  temp <- switch(
+    what,
+    tsn = lapply(lsid, function(x) ritis::lsid2tsn(x, ...)),
+    record = lapply(lsid, function(x) ritis::record(x, ...)),
+    fullrecord = lapply(lsid, function(x) ritis::full_record(lsid = x, ...))
+  )
   if (length(lsid) == 1) {
     temp[[1]]
   } else {

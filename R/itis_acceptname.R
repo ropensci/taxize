@@ -13,6 +13,7 @@
 #'  name along with the TSN if it's an accepted name. We could make an extra HTTP
 #'  request to ITIS, but that means additional time.
 #'  \item acceptedtsn (numeric) - The accepted TSN
+#'  \item author (character) - taxonomic authority
 #' }
 #'
 #' @examples \dontrun{
@@ -40,7 +41,16 @@
 #' }
 itis_acceptname <- function(searchtsn, ...) {
   (dddd <- data.table::setDF(data.table::rbindlist(lapply(searchtsn, function(z) {
-    tmp <- data.frame(getacceptednamesfromtsn(z, ...), stringsAsFactors = FALSE)
-    setNames(tmp, tolower(names(tmp)))
+    tmp <- ritis::accepted_names(z)
+    if (NROW(tmp) == 0) {
+      data.frame(submittedtsn = z, acceptedname = NA, acceptedtsn = z,
+                 author = NA, stringsAsFactors = FALSE)
+    } else {
+      data.frame(
+        submittedtsn = z,
+        stats::setNames(tmp, tolower(names(tmp))),
+        stringsAsFactors = FALSE
+      )
+    }
   }), fill = TRUE, use.names = TRUE)))
 }

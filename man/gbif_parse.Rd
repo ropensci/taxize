@@ -29,7 +29,6 @@ gbif_parse(c('Arrhenatherum elatius var. elatius',
 John Baumgartner (johnbb@student.unimelb.edu.au)
 }
 \references{
-\url{http://dev.gbif.org/wiki/display/POR/Webservice+API},
 \url{http://tools.gbif.org/nameparser/api.do}
 }
 \seealso{

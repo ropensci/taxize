@@ -7,12 +7,12 @@
 itis_getrecord(values, by = "tsn", ...)
 }
 \arguments{
-\item{values}{One or more TSN's (taxonomic serial number) or lsid's for a
-taxonomic group (character)}
+\item{values}{(character) One or more TSN's (taxonomic serial number) or lsid's for a
+taxonomic group}
 
-\item{by}{By "tsn" (default) or "lsid"}
+\item{by}{(character) By "tsn" (default) or "lsid"}
 
-\item{...}{Further arguments passed on to getpublicationsfromtsn}
+\item{...}{Further arguments passed on to \code{\link[ritis]{full_record}}}
 }
 \description{
 Get full ITIS record for one or more ITIS TSN's or lsid's.

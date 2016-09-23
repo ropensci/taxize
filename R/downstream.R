@@ -96,23 +96,24 @@ downstream <- function(...){
 
 #' @export
 #' @rdname downstream
-downstream.default <- function(x, db = NULL, downto = NULL, intermediate = FALSE, rows=NA, ...){
+downstream.default <- function(x, db = NULL, downto = NULL, intermediate = FALSE, rows=NA, ...) {
   nstop(downto, "downto")
   nstop(db)
-  switch(db,
-         itis = {
-           id <- process_stream_ids(x, db, get_tsn, rows = rows, ...)
-           setNames(downstream(id, downto = tolower(downto), intermediate = intermediate, ...), x)
-         },
-         col = {
-           id <- process_stream_ids(x, db, get_colid, rows = rows, ...)
-           setNames(downstream(id, downto = tolower(downto), intermediate = intermediate, ...), x)
-         },
-         gbif = {
-           id <- process_stream_ids(x, db, get_gbifid, rows = rows, ...)
-           setNames(downstream(id, downto = tolower(downto), intermediate = intermediate, ...), x)
-         },
-         stop("the provided db value was not recognised", call. = FALSE)
+  switch(
+    db,
+    itis = {
+      id <- process_stream_ids(x, db, get_tsn, rows = rows, ...)
+      setNames(downstream(id, downto = tolower(downto), intermediate = intermediate, ...), x)
+    },
+    col = {
+      id <- process_stream_ids(x, db, get_colid, rows = rows, ...)
+      setNames(downstream(id, downto = tolower(downto), intermediate = intermediate, ...), x)
+    },
+    gbif = {
+      id <- process_stream_ids(x, db, get_gbifid, rows = rows, ...)
+      setNames(downstream(id, downto = tolower(downto), intermediate = intermediate, ...), x)
+    },
+    stop("the provided db value was not recognised", call. = FALSE)
   )
 }
 

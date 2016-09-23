@@ -106,9 +106,9 @@ do_itis <- function(query, get, verbose, both = FALSE, ...){
       if (both) {
         c(query, tt$name[match(tolower(get), tolower(tt$rank))])
       } else {
-        out <- as.character(tt[tolower(tt$rank) %in% tolower(get), "name"])
+        out <- tt[tolower(tt$rank) %in% tolower(get), ]$name
         if (length(out) == 0) out <- rep(NA_character_, length(get))
-        rname <- tolower(as.character(tt[tolower(tt$rank) %in% tolower(get), "rank"]))
+        rname <- tolower(tt[tolower(tt$rank) %in% tolower(get), ]$rank)
         if (length(rname) == 0) rname <- get
         setNames(
           data.frame(t(c("itis", query, out)), stringsAsFactors = FALSE),

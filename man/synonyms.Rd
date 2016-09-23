@@ -8,7 +8,8 @@
 \alias{synonyms.nbnid}
 \alias{synonyms.tpsid}
 \alias{synonyms.tsn}
-\title{Retrieve synonyms from various sources given input taxonomic names or identifiers.}
+\title{Retrieve synonyms from various sources given input taxonomic
+names or identifiers}
 \usage{
 synonyms(...)
 
@@ -25,19 +26,21 @@ synonyms(...)
 \method{synonyms}{ids}(id, ...)
 }
 \arguments{
-\item{...}{Other passed arguments to internal functions \code{get_*()} and functions to
-gather synonyms.}
+\item{...}{Other passed arguments to internal functions \code{get_*()} and
+functions to gather synonyms.}
 
-\item{x}{Vector of taxa names (character) or IDs (character or numeric) to query.}
+\item{x}{Vector of taxa names (character) or IDs (character or numeric) to
+query.}
 
 \item{db}{character; database to query. either \code{itis}, \code{tropicos},
-\code{col}, or \code{nbn}. Note that each taxonomic data source has their own
-identifiers, so that if you provide the wrong \code{db} value for the identifier
-you could get a result, but it will likely be wrong (not what you were expecting).}
+\code{col}, or \code{nbn}. Note that each taxonomic data source has their
+own identifiers, so that if you provide the wrong \code{db} value for the
+identifier you could get a result, but it will likely be wrong (not what
+you were expecting).}
 
-\item{rows}{(numeric) Any number from 1 to infinity. If the default NA, all rows are
-considered. Note that this parameter is ignored if you pass in a taxonomic id of any of the
-acceptable classes: tsn, tpsid, nbnid, ids.}
+\item{rows}{(numeric) Any number from 1 to infinity. If the default NA, all
+rows are considered. Note that this parameter is ignored if you pass in a
+taxonomic id of any of the acceptable classes: tsn, tpsid, nbnid, ids.}
 
 \item{id}{character; identifiers, returned by \code{\link[taxize]{get_tsn}},
 \code{\link[taxize]{get_tpsid}}, or \code{\link[taxize]{get_nbnid}}}
@@ -46,15 +49,16 @@ acceptable classes: tsn, tpsid, nbnid, ids.}
 A named list of data.frames with the synonyms of every supplied taxa.
 }
 \description{
-Retrieve synonyms from various sources given input taxonomic names or identifiers.
+Retrieve synonyms from various sources given input taxonomic
+names or identifiers
 }
 \details{
-If IDs are supplied directly (not from the \code{get_*} functions) you
-must specify the type of ID.
+If IDs are supplied directly (not from the \code{get_*} functions)
+you must specify the type of ID.
 
-For \code{db = "itis"} you can pass in a parameter \code{accepted} to toggle whether
-only accepted names are used \code{accepted = TRUE}, or if all are used
-\code{accepted = FALSE}. The default is \code{accepted = FALSE}.
+For \code{db = "itis"} you can pass in a parameter \code{accepted} to
+toggle whether only accepted names are used \code{accepted = TRUE}, or if
+all are used \code{accepted = FALSE}. The default is \code{accepted = FALSE}
 }
 \examples{
 \dontrun{

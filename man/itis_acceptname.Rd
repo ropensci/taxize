@@ -21,6 +21,7 @@ with three columns:
  name along with the TSN if it's an accepted name. We could make an extra HTTP
  request to ITIS, but that means additional time.
  \item acceptedtsn (numeric) - The accepted TSN
+ \item author (character) - taxonomic authority
 }
 }
 \description{

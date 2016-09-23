@@ -1,15 +1,15 @@
 #' Ping an API used in taxize to see if it's working.
 #'
 #' @name ping
-#' @param what (character) One of status (default), content, or an HTTP status code. If status,
-#' we just check that the HTTP status code is 200, or similar signifying the service is up.
-#' If content, we do a simple, quick check to determine if returned content matches what's
-#' expected. If an HTTP status code, it must match an appropriate code.
-#' See \code{\link{status_codes}}.
+#' @param what (character) One of status (default), content, or an HTTP status
+#' code. If status, we just check that the HTTP status code is 200, or similar
+#' signifying the service is up. If content, we do a simple, quick check to
+#' determine if returned content matches what's expected. If an HTTP status
+#' code, it must match an appropriate code. See \code{\link{status_codes}}.
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @return A logical, TRUE or FALSE
-#' @details For ITIS, see \code{\link{getdescription}}, which provides number of
-#' scientific and common names in a character string.
+#' @details For ITIS, see \code{\link[ritis]{description}}, which provides
+#' number of scientific and common names in a character string.
 #' @examples \dontrun{
 #' col_ping()
 #' col_ping("content")
@@ -48,11 +48,15 @@
 #' @rdname ping
 col_ping <- function(what = "status", ...) {
   res <- GET('http://www.catalogueoflife.org/col/webservice?name=Apis', ...)
-  switch(matchwhat(what),
-         status = match_status(res),
-         code = match_code(res, what),
-         content = identical("Apis",
-           xml_text(xml_find_first(xml_children(xml2::read_xml(con_utf8(res)))[[1]], "name")))
+  switch(
+    matchwhat(what),
+    status = match_status(res),
+    code = match_code(res, what),
+    content = {
+      identical(
+        "Apis",
+        xml_text(xml_find_first(xml_children(xml2::read_xml(con_utf8(res)))[[1]], "name")))
+    }
   )
 }
 
@@ -70,7 +74,7 @@ eol_ping <- function(what = "status", ...) {
 #' @export
 #' @rdname ping
 itis_ping <- function(what = "status", ...) {
-  res <- GET(paste0(itbase(), "getDescription"), ...)
+  res <- GET("http://www.itis.gov/ITISWebService/services/ITISService/getDescription", ...)
   switch(matchwhat(what),
          status = match_status(res),
          code = match_code(res, what),
