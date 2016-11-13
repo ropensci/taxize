@@ -64,7 +64,7 @@ comm2sci <- function(commnames, db='eol', itisby='search', simplify=TRUE, ...) {
     uid <- get_uid(x, ...)
     if (is.na(uid))
       return(NA)
-    baseurl <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy"
+    baseurl <- paste0(ncbi_base(), "/entrez/eutils/efetch.fcgi?db=taxonomy")
     ID <- paste("ID=", uid, sep = "")
     searchurl <- paste(baseurl, ID, sep = "&")
     tt <- GET(searchurl)

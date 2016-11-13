@@ -30,7 +30,7 @@
 genbank2uid <- function(id, batch_size = 100, ...){
   process_batch <- function(id, ...) {
     id <- gsub(pattern = "\\.[0-9]+$", "", id) #removes version number of accession ids
-    url2 <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=nucleotide&db=taxonomy&id="
+    url2 <- paste0(ncbi_base(), "/entrez/eutils/elink.fcgi?dbfrom=nucleotide&db=taxonomy&id=")
     query <- paste0(url2, paste(id, collapse = "&id="))
     res <- GET(query, ...)
     stop_for_status(res)
@@ -47,15 +47,15 @@ genbank2uid <- function(id, batch_size = 100, ...){
   matched <- rep("found", length(result))
   matched[is.na(result)] <- "not found"
   attr(result, "match") <- matched
-  
+
   if (any(is.na(result))) {
     warning("An error occured looking up taxon ID(s).")
     if (batch_size > 1 && length(id) > 1) {
       warning("NOTE: This function looks up IDs in batches to save time. However, the way that NCBI has implemented the API we use makes it so we cannot tell which IDs failed when a batch failed. Therefore, as few as one ID could be invalid yet still cause the whole batch to be NA. To identify the invalid IDs, set the 'batch_size' option to 1 and rerun the command.")
     }
   }
-  
-  
+
+
   return(result)
 }
 

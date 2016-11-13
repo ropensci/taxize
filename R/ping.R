@@ -87,7 +87,7 @@ itis_ping <- function(what = "status", ...) {
 #' @export
 #' @rdname ping
 ncbi_ping <- function(what = "status", ...) {
-  res <- GET("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=4232", ...)
+  res <- GET(paste0(ncbi_base(), "/entrez/eutils/efetch.fcgi?db=taxonomy&ID=4232"), ...)
   switch(matchwhat(what),
          status = match_status(res),
          code = match_code(res, what),

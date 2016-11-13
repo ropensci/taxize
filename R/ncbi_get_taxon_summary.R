@@ -31,7 +31,7 @@ ncbi_get_taxon_summary <- function(id, ...) {
   id <- as.character(id)
   if (nchar(paste(id, collapse = "+")) > 8000L) message("You may want to split your ids up into chunks")
   # Make eutils esummary query ---------------------------------------------------------------------
-  base_url <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy"
+  base_url <- paste0(ncbi_base(), "/entrez/eutils/esummary.fcgi?db=taxonomy")
   query <- paste0(base_url, "&id=", paste(id, collapse = "+"))
   # Search ncbi taxonomy for uid -------------------------------------------------------------------
   rr <- GET(query, ...)

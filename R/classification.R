@@ -240,7 +240,7 @@ classification.uid <- function(id, callopts = list(), return_id = TRUE, ...) {
     if (is.na(x)) {
       out <- NA
     } else {
-      baseurl <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy"
+      baseurl <- paste0(ncbi_base(), "/entrez/eutils/efetch.fcgi?db=taxonomy")
       ID <- paste("ID=", x, sep = "")
       searchurl <- paste(baseurl, ID, sep = "&")
       res <- GET(searchurl, callopts)

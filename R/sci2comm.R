@@ -126,7 +126,7 @@ itis_foo <- function(x, simplify=TRUE, ...){
 }
 
 ncbi_foo <- function(x, ...){
-  baseurl <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy"
+  baseurl <- paste0(ncbi_base(), "/entrez/eutils/efetch.fcgi?db=taxonomy")
   ID <- paste("ID=", x, sep = "")
   searchurl <- paste(baseurl, ID, sep = "&")
   tt <- GET(searchurl, ...)

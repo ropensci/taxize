@@ -151,10 +151,10 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, modifier = N
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
     sciname <- gsub(" ", "+", sciname)
     if (!is.null(modifier)) sciname <- paste0(sciname, sprintf("[%s]", modifier))
-    url <- paste("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=",
+    url <- paste(paste0(ncbi_base(), "/entrez/eutils/esearch.fcgi?db=taxonomy&term="),
                  sciname, sep = "")
     if (!is.null(rank_query)) url <- paste0(url, sprintf(" AND %s[Rank]", rank_query))
-    url <- URLencode(url)
+    url <- utils::URLencode(url)
     errors_to_catch <- c("Could not resolve host: eutils.ncbi.nlm.nih.gov")
     xml_result <- xml2::read_xml(repeat_until_it_works(catch = errors_to_catch, url = url))
 
@@ -178,7 +178,7 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, modifier = N
     # more than one found on ncbi -> user input
     if (length(uid) > 1) {
       if (ask) {
-        baseurl <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy"
+        baseurl <- paste0(ncbi_base(), "/entrez/eutils/esummary.fcgi?db=taxonomy")
         ID <- paste("ID=", paste(uid, collapse = ","), sep = "")
         url <- paste(baseurl, ID, sep = "&")
         errors_to_catch <- c("Could not resolve host: eutils.ncbi.nlm.nih.gov")
@@ -239,7 +239,7 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, modifier = N
                    match = outd$att,
                    multiple_matches = outd$multiple,
                    pattern_match = outd$direct)
-  add_uri(out, 'http://www.ncbi.nlm.nih.gov/taxonomy/%s')
+  add_uri(out, 'https://www.ncbi.nlm.nih.gov/taxonomy/%s')
 }
 
 repeat_until_it_works <- function(catch, url, max_tries = 3, wait_time = 10, verbose = TRUE, ...) {
@@ -302,7 +302,7 @@ as.data.frame.uid <- function(x, ...){
 make_uid <- function(x, check=TRUE) make_generic(x, 'http://www.ncbi.nlm.nih.gov/taxonomy/%s', "uid", check)
 
 check_uid <- function(x){
-  url <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&id="
+  url <- paste0(ncbi_base(), "/entrez/eutils/esummary.fcgi?db=taxonomy&id=")
   res <- GET(paste0(url, x))
   tt <- xml2::read_xml(con_utf8(res))
   tryid <- xml2::xml_text(xml2::xml_find_all(tt, "//Id"))
@@ -318,7 +318,7 @@ get_uid_ <- function(sciname, verbose = TRUE, rows = NA){
 
 get_uid_help <- function(sciname, verbose, rows){
   mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
-  url <- paste("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=",
+  url <- paste(paste0(ncbi_base(), "/entrez/eutils/esearch.fcgi?db=taxonomy&term="),
                gsub(" ", "+", sciname), sep = "")
   xml_result <- xml2::read_xml(con_utf8(GET(url)))
   Sys.sleep(0.33)
@@ -326,7 +326,7 @@ get_uid_help <- function(sciname, verbose, rows){
   if (length(uid) == 0) {
     NULL
   } else {
-    baseurl <- "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy"
+    baseurl <- paste0(ncbi_base(), "/entrez/eutils/esummary.fcgi?db=taxonomy")
     ID <- paste("ID=", paste(uid, collapse = ","), sep = "")
     url <- paste(baseurl, ID, sep = "&")
     tt <- con_utf8(GET(url))
@@ -346,3 +346,5 @@ parse_ncbi <- function(x) {
   }))
   rename(tmp, c('taxid' = 'uid'))
 }
+
+ncbi_base <- function() "https://eutils.ncbi.nlm.nih.gov"
