@@ -16,7 +16,7 @@ test_that("itis_kingdomnames - with TSN's", {
   skip_on_cran()
 
   one <- itis_kingdomnames(202385)
-  two <- itis_kingdomnames(tsn=c(202385,183833,180543))
+  two <- itis_kingdomnames(tsn = c(202385, 183833, 180543))
 
   expect_that(one, matches("Animalia"))
   expect_that(two[[1]], matches("Animalia"))
@@ -25,8 +25,8 @@ test_that("itis_kingdomnames - with TSN's", {
   expect_that(two, is_a("character"))
 })
 
-test_that("itis_kingdomnames returns empty character string when given nonsense", {
+test_that("itis_kingdomnames returns error when not found", {
   skip_on_cran()
 
-  expect_equal(length(itis_kingdomnames("stuff")[[1]]), 0)
+  expect_error(length(itis_kingdomnames("stuff")[[1]]), "Not Found")
 })
