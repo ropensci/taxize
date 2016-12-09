@@ -67,7 +67,8 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
     if (getpost == "get") {
       if (!any(is.na(x))) {
         query2 <- paste(str_replace_all(x, ' ', '+'), collapse = '%0A')
-        args <- tc(list(query = query2))
+        #args <- tc(list(query = query2))
+        args <- tc(list(query = query2, source = source, code = code))
         out <- GET(url, query = args, ...)
         error_handle(out)
         retrieve <- out$url
@@ -77,8 +78,10 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
     } else {
       loc <- tempfile(fileext = ".txt")
       write.table(data.frame(x), file = loc, col.names = FALSE, row.names = FALSE)
-      args <- tc(list(file = upload_file(loc), source = source, code = code))
-      out <- POST(url, body = args, config(followlocation = 0), ...)
+      #args <- tc(list(file = upload_file(loc), source = source, code = code))
+      args <- tc(list(source = source, code = code))
+      body <- tc(list(file = upload_file(loc)))
+      out <- POST(url, query = args, body = body, config(followlocation = 0), ...)
       error_handle(out)
       tt <- con_utf8(out)
       message <- jsonlite::fromJSON(tt, FALSE)[["message"]]
