@@ -28,6 +28,17 @@
 #' from any of the providers. If the timeout is exceeded the service will just
 #' return the resonses that have been received so far. The default timeout is
 #' 0 ms (wait for ever)
+#' @param dedup (character) Allows to deduplicate the resuls by making use of
+#' a deduplication strategy. The deduplication is done by comparing
+#' specific properties of the taxon:
+#' \itemize{
+#'  \item id: compares 'taxon.identifier'
+#'  \item id_name: compares 'taxon.identifier' AND
+#'  'taxon.taxonName.scientificName'
+#'  \item name: compares 'taxon.taxonName.scientificName' Using the pure
+#'  'name' strategy is not recommended.
+#' }
+#'
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @references \url{http://cybertaxonomy.eu/eu-bon/utis/1.2/doc.html}
 #' @details Note that paging is not yet implemented, so you only get the first

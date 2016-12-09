@@ -1,42 +1,43 @@
 # tests for eubon fxn in taxize
-context("eubon")
+context("eubon_search")
 
-test_that("eubon works", {
+test_that("eubon_search works", {
   skip_on_cran()
 
-  aa <- eubon("Prionus")
-  bb <- eubon("Salmo", providers = 'worms')
-  cc <- eubon("Salmo", providers = c('pesi', 'worms'))
+  aa <- eubon_search("Prionus")
+  bb <- eubon_search("Salmo", providers = 'worms')
+  cc <- eubon_search("Salmo", providers = c('pesi', 'worms'))
 
-  expect_is(aa, "list")
-  expect_is(bb, "list")
-  expect_is(cc, "list")
+  expect_is(aa, "data.frame")
+  expect_is(bb, "data.frame")
+  expect_is(cc, "data.frame")
 
-  expect_is(aa$query, "list")
-  expect_equal(length(aa$query), 1)
-  expect_equal(length(aa$query[[1]]$response), 1)
-  expect_is(aa$query[[1]]$request, "list")
-  expect_equal(aa$query[[1]]$request$queryString, "Prionus")
+  expect_is(aa$otherNames, "list")
+  expect_match(aa$taxon.taxonName.scientificName, "Prionus")
+  expect_equal(NROW(aa), 1)
 
-  expect_is(bb$query, "list")
-  expect_equal(length(bb$query), 1)
-  expect_equal(length(bb$query[[1]]$response), 1)
-  expect_is(bb$query[[1]]$request, "list")
-  expect_equal(bb$query[[1]]$request$queryString, "Salmo")
+  expect_is(bb$checklistId, "character")
+  expect_match(bb$taxon.taxonName.scientificName, "Salmo")
+  expect_equal(NROW(bb), 1)
 
-  expect_is(cc$query, "list")
-  expect_equal(length(cc$query), 1)
-  expect_equal(length(cc$query[[1]]$response), 2)
-  expect_is(cc$query[[1]]$request, "list")
-  expect_equal(cc$query[[1]]$request$queryString, "Salmo")
+  expect_is(cc$taxon.accordingTo, "character")
+  expect_match(cc$taxon.taxonName.scientificName, "Salmo")
+  expect_equal(NROW(cc), 2)
 })
 
-test_that("eubon fails well", {
+test_that("eubon_search fails well", {
   skip_on_cran()
 
-  expect_error(eubon("Salmo", 'asdfdf'),
+  expect_error(eubon_search("Salmo", 'asdfdf'),
                "Error 400 invalid value for request parameter 'providers'")
 
-  expect_error(eubon("Salmo", searchMode = "adfdf"),
+  expect_error(eubon_search("Salmo", searchMode = "adfdf"),
                "Error 400 Bad Request")
 })
+
+test_that("eubon and eubon_search are aliases of each other", {
+  skip_on_cran()
+
+  expect_identical(eubon, eubon_search)
+})
+
