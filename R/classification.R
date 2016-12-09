@@ -436,15 +436,21 @@ classification.tolid <- function(id, callopts = list(), return_id = TRUE, ...) {
     if (is.na(x)) {
       out <- NA
     } else {
-      out <- tryCatch(rotl::taxonomy_taxon_info(id, include_lineage = TRUE), error = function(e) e)
+      out <- tryCatch(rotl::taxonomy_taxon_info(x, include_lineage = TRUE), error = function(e) e)
       if (inherits(out, "error")) {
         NA
       } else {
-        out <- rotl::tax_lineage(out)[[1]]
-        out <- out[ , c('name','rank', 'ott_id')]
-        names(out) <- c('name', 'rank', 'id')
-        if (!return_id) out <- out[, c('name', 'rank')]
-        return(out)
+        outdf <- rotl::tax_lineage(out)[[1]]
+        # we have to reverse row order
+        outdf <- outdf[NROW(outdf):1, ]
+        # tack on species searched for
+        orig <- c(out[[1]]$rank, out[[1]]$name, out[[1]]$unique_name, out[[1]]$ott_id)
+        outdf <- rbind(outdf, orig)
+        row.names(outdf) <- NULL
+        outdf <- outdf[ , c('name','rank', 'ott_id')]
+        names(outdf) <- c('name', 'rank', 'id')
+        if (!return_id) outdf <- outdf[, c('name', 'rank')]
+        return(outdf)
       }
     }
   }

@@ -2,8 +2,10 @@
 % Please edit documentation in R/lowest_common.R
 \name{lowest_common}
 \alias{lowest_common}
+\alias{lowest_common.colid}
 \alias{lowest_common.default}
 \alias{lowest_common.gbifid}
+\alias{lowest_common.tolid}
 \alias{lowest_common.tsn}
 \alias{lowest_common.uid}
 \title{Retrieve the lowest common taxon and rank for a given taxon name or ID}
@@ -18,23 +20,26 @@ lowest_common(...)
 \method{lowest_common}{tsn}(x, class_list = NULL, low_rank = NULL, ...)
 
 \method{lowest_common}{gbifid}(x, class_list = NULL, low_rank = NULL, ...)
+
+\method{lowest_common}{colid}(x, class_list = NULL, low_rank = NULL, ...)
+
+\method{lowest_common}{tolid}(x, class_list = NULL, low_rank = NULL, ...)
 }
 \arguments{
 \item{...}{Other arguments passed to \code{\link[taxize]{get_tsn}},
-\code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}},
-\code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_tpsid}},
-\code{\link[taxize]{get_gbifid}}.}
+\code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_colid}},
+\code{\link[taxize]{get_gbifid}}, \code{\link[taxize]{get_tolid}}}
 
 \item{x}{Vector of taxa names (character) or id (character or numeric) to
 query.}
 
-\item{db}{character; database to query. either \code{ncbi}, \code{itis}, or
-\code{gbif}.}
+\item{db}{character; database to query. either \code{ncbi}, \code{itis},
+\code{gbif}, \code{col}, or \code{tol}}
 
 \item{rows}{(numeric) Any number from 1 to infinity. If the default NA,
 all rows are considered. Note that this parameter is ignored if you pass in
-a taxonomic id of any of the acceptable classes: tsn, colid. NCBI has a
-method for this function but rows doesn't work.}
+a taxonomic id of any of the acceptable classes: tsn, colid, gbifid, tolid.
+NCBI has a method for this function but rows doesn't work.}
 
 \item{class_list}{(list) A list of classifications, as returned from
 \code{\link[taxize]{classification}}}
@@ -62,6 +67,23 @@ lowest_common(id[2:4], db = "ncbi", low_rank = 'family')
 lowest_common(id[2:4], class_list = id_class)
 lowest_common(id[2:4], class_list = id_class, low_rank = 'class')
 lowest_common(id[2:4], class_list = id_class, low_rank = 'family')
+
+# COL
+taxa <- c('Nycticebus coucang', 'Homo sapiens', 'Sus scrofa')
+cls <- classification(taxa, db = "col")
+lowest_common(taxa, cls, db = "col")
+lowest_common(get_colid(taxa), class_list = cls)
+xx <- get_colid(taxa)
+lowest_common(xx, class_list = cls)
+
+# TOL
+taxa <- c("Angraecum sesquipedale", "Dracula vampira",
+  "Masdevallia coccinea")
+(cls <- classification(taxa, db = "tol"))
+lowest_common(taxa, db = "tol", class_list = cls)
+lowest_common(get_tolid(taxa), class_list = cls)
+xx <- get_tolid(taxa)
+lowest_common(xx, class_list = cls)
 
 spp <- c("Sus scrofa", "Homo sapiens", "Nycticebus coucang")
 lowest_common(spp, db = "ncbi")

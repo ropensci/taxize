@@ -3,19 +3,18 @@
 #' @export
 #' @param x Vector of taxa names (character) or id (character or numeric) to
 #' query.
-#' @param db character; database to query. either \code{ncbi}, \code{itis}, or
-#' \code{gbif}.
+#' @param db character; database to query. either \code{ncbi}, \code{itis},
+#' \code{gbif}, \code{col}, or \code{tol}
 #' @param rows (numeric) Any number from 1 to infinity. If the default NA,
 #' all rows are considered. Note that this parameter is ignored if you pass in
-#' a taxonomic id of any of the acceptable classes: tsn, colid. NCBI has a
-#' method for this function but rows doesn't work.
+#' a taxonomic id of any of the acceptable classes: tsn, colid, gbifid, tolid.
+#' NCBI has a method for this function but rows doesn't work.
 #' @param class_list (list) A list of classifications, as returned from
 #' \code{\link[taxize]{classification}}
 #' @param low_rank (character) taxonomic rank to return, of length 1
 #' @param ... Other arguments passed to \code{\link[taxize]{get_tsn}},
-#'    \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}},
-#'    \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_tpsid}},
-#'    \code{\link[taxize]{get_gbifid}}.
+#' \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_colid}},
+#' \code{\link[taxize]{get_gbifid}}, \code{\link[taxize]{get_tolid}}
 #'
 #' @return NA when no match, or a data.frame with columns
 #' \itemize{
@@ -34,6 +33,23 @@
 #' lowest_common(id[2:4], class_list = id_class)
 #' lowest_common(id[2:4], class_list = id_class, low_rank = 'class')
 #' lowest_common(id[2:4], class_list = id_class, low_rank = 'family')
+#'
+#' # COL
+#' taxa <- c('Nycticebus coucang', 'Homo sapiens', 'Sus scrofa')
+#' cls <- classification(taxa, db = "col")
+#' lowest_common(taxa, cls, db = "col")
+#' lowest_common(get_colid(taxa), class_list = cls)
+#' xx <- get_colid(taxa)
+#' lowest_common(xx, class_list = cls)
+#'
+#' # TOL
+#' taxa <- c("Angraecum sesquipedale", "Dracula vampira",
+#'   "Masdevallia coccinea")
+#' (cls <- classification(taxa, db = "tol"))
+#' lowest_common(taxa, db = "tol", class_list = cls)
+#' lowest_common(get_tolid(taxa), class_list = cls)
+#' xx <- get_tolid(taxa)
+#' lowest_common(xx, class_list = cls)
 #'
 #' spp <- c("Sus scrofa", "Homo sapiens", "Nycticebus coucang")
 #' lowest_common(spp, db = "ncbi")
@@ -112,6 +128,14 @@ lowest_common.default <- function(x, db = NULL, rows = NA, class_list = NULL,
       id <- process_lowest_ids(x, db, get_gbifid, rows = rows, ...)
       lowest_common(id, class_list, ...)
     },
+    col = {
+      id <- process_lowest_ids(x, db, get_colid, rows = rows, ...)
+      lowest_common(id, class_list, ...)
+    },
+    tol = {
+      id <- process_lowest_ids(x, db, get_tolid, rows = rows, ...)
+      lowest_common(id, class_list, ...)
+    },
     stop("the provided db value was not recognised", call. = FALSE)
   )
 }
@@ -137,6 +161,24 @@ lowest_common.tsn <- function(x, class_list = NULL, low_rank = NULL, ...) {
 lowest_common.gbifid <- function(x, class_list = NULL, low_rank = NULL, ...) {
   check_lowest_ids(x)
   class_list <- get_class(x, class_list, db = "gbif", ...)
+  lc_helper(x, class_list, low_rank, ...)
+}
+
+#' @export
+#' @rdname lowest_common
+lowest_common.colid <- function(x, class_list = NULL, low_rank = NULL, ...) {
+  check_lowest_ids(x)
+  class_list <- get_class(x, class_list, db = "col", ...)
+  names(class_list) <- x
+  lc_helper(x, class_list, low_rank, ...)
+}
+
+#' @export
+#' @rdname lowest_common
+lowest_common.tolid <- function(x, class_list = NULL, low_rank = NULL, ...) {
+  check_lowest_ids(x)
+  class_list <- get_class(x, class_list, db = "tol", ...)
+  names(class_list) <- x
   lc_helper(x, class_list, low_rank, ...)
 }
 
@@ -193,10 +235,11 @@ check_lowest_ids <- function(x) {
   }
 }
 
-process_lowest_ids <- function(input, db, fxn, ...){
+process_lowest_ids <- function(input, db, fxn, ...) {
   g <- tryCatch(as.numeric(as.character(input)), warning = function(e) e)
-  if (is(g, "numeric") || is.character(input) && grepl("[[:digit:]]", input)) {
-    as_fxn <- switch(db, itis = as.tsn, gbif = as.gbifid, ncbi = as.uid)
+  if (inherits(g, "numeric") || is.character(input) && grepl("[[:digit:]]", input)) {
+    as_fxn <- switch(db, itis = as.tsn, gbif = as.gbifid,
+                     ncbi = as.uid, col = as.colid, tol = as.tolid)
     as_fxn(input, check = FALSE)
   } else {
     eval(fxn)(input, ...)

@@ -181,13 +181,13 @@ as.tolid.tolid <- function(x, check=TRUE) x
 #' @export
 #' @rdname get_tolid
 as.tolid.character <- function(x, check=TRUE) {
-  if(length(x) == 1) make_tol(x, check) else collapse(x, make_tol, "tol", check = check)
+  if (length(x) == 1) make_tol(x, check) else collapse(x, make_tol, "tolid", check = check)
 }
 
 #' @export
 #' @rdname get_tolid
 as.tolid.list <- function(x, check=TRUE) {
-  if (length(x) == 1) make_tol(x, check) else collapse(x, make_tol, "tol", check = check)
+  if (length(x) == 1) make_tol(x, check) else collapse(x, make_tol, "tolid", check = check)
 }
 
 #' @export
@@ -197,7 +197,7 @@ as.tolid.numeric <- function(x, check=TRUE) as.tolid(as.character(x), check)
 #' @export
 #' @rdname get_tolid
 as.tolid.data.frame <- function(x, check=TRUE) {
-  structure(x$ids, class = "tol", match = x$match,
+  structure(x$ids, class = "tolid", match = x$match,
             multiple_matches = x$multiple_matches,
             pattern_match = x$pattern_match, uri = x$uri)
 }
@@ -206,7 +206,7 @@ as.tolid.data.frame <- function(x, check=TRUE) {
 #' @rdname get_tolid
 as.data.frame.tol <- function(x, ...){
   data.frame(ids = as.character(unclass(x)),
-             class = "tol",
+             class = "tolid",
              match = attr(x, "match"),
              multiple_matches = attr(x, "multiple_matches"),
              pattern_match = attr(x, "pattern_match"),
@@ -215,7 +215,7 @@ as.data.frame.tol <- function(x, ...){
 }
 
 make_tol <- function(x, check=TRUE) {
-  make_generic(x, 'https://tree.opentreeoflife.org/opentree/argus/ottol@%s', "tol", check)
+  make_generic(x, 'https://tree.opentreeoflife.org/opentree/argus/ottol@%s', "tolid", check)
 }
 
 check_tol <- function(x){
