@@ -40,7 +40,7 @@
 #' synonyms("Puma concolor", db="itis")
 #' synonyms(c("Poa annua",'Pinus contorta','Puma concolor'), db="itis")
 #' synonyms("Poa annua", db="tropicos")
-#' synonyms("Pinus contorta", db="tropicos")
+#' synonyms("Pinus contorta", db="tropicos")do
 #' synonyms(c("Poa annua",'Pinus contorta'), db="tropicos")
 #' synonyms("Pinus sylvestris", db='nbn')
 #' synonyms("Puma concolor", db='col')
@@ -74,6 +74,23 @@
 #' synonyms("Poa annua", db='tropicos', rows=1, config=verbose())
 #' synonyms("Poa annua", db='itis', rows=1, config=verbose())
 #' synonyms("Poa annua", db='col', rows=1, config=verbose())
+#'
+#'
+#' # combine many outputs together
+#' x <- synonyms(c("Osmia bicornis", "Osmia rufa", "Osmia"), db = "itis")
+#' synonyms_df(x)
+#'
+#' ## note here how Pinus contorta is dropped due to no synonyms found
+#' x <- synonyms(c("Poa annua",'Pinus contorta','Puma concolor'), db="col")
+#' synonyms_df(x)
+#'
+#' ## note here that ids are taxon identifiers b/c you start with them
+#' x <- synonyms(c(25509881, 13100094), db="tropicos")
+#' synonyms_df(x)
+#'
+#' ## xxx
+#' x <- synonyms(c('Aglais io', 'Usnea hirta', 'Arctostaphylos uva-ursi'), db="nbn")
+#' synonyms_df(x)
 #' }
 
 synonyms <- function(...) {
@@ -88,19 +105,23 @@ synonyms.default <- function(x, db = NULL, rows = NA, ...) {
     db,
     itis = {
       id <- process_syn_ids(x, db, get_tsn, rows = rows, ...)
-      setNames(synonyms(id, ...), x)
+      structure(stats::setNames(synonyms(id, ...), x),
+                class = "synonyms", db = "itis")
     },
     tropicos = {
       id <- process_syn_ids(x, db, get_tpsid, rows = rows, ...)
-      setNames(synonyms(id, ...), x)
+      structure(stats::setNames(synonyms(id, ...), x),
+                class = "synonyms", db = "tropicos")
     },
     nbn = {
       id <- process_syn_ids(x, db, get_nbnid, rows = rows, ...)
-      setNames(synonyms(id, ...), x)
+      structure(stats::setNames(synonyms(id, ...), x),
+                class = "synonyms", db = "nbn")
     },
     col = {
       id <- process_syn_ids(x, db, get_colid, rows = rows, ...)
-      setNames(synonyms(id, ...), x)
+      structure(stats::setNames(synonyms(id, ...), x),
+                class = "synonyms", db = "col")
     },
     stop("the provided db value was not recognised", call. = FALSE)
   )
@@ -152,7 +173,7 @@ synonyms.tsn <- function(id, ...) {
       cbind(accdf, out)
     }
   }
-  setNames(lapply(id, fun), id)
+  stats::setNames(lapply(id, fun), id)
 }
 
 rit_acc_name <- function(x, ...) {
@@ -175,14 +196,14 @@ synonyms.colid <- function(id, ...) {
       col_synonyms(x, ...)
     }
   }
-  setNames(lapply(id, fun), id)
+  stats::setNames(lapply(id, fun), id)
 }
 
 col_synonyms <- function(x, ...) {
   base <- "http://www.catalogueoflife.org/col/webservice"
   args <- list(id = x[1], response = "full", format = "json")
-  res <- GET(base, query = args, ...)
-  stop_for_status(res)
+  res <- httr::GET(base, query = args, ...)
+  httr::stop_for_status(res)
   out <- jsonlite::fromJSON(con_utf8(res), FALSE)
   tmp <- out$results[[1]]
   if ("synonyms" %in% names(tmp)) {
@@ -192,6 +213,7 @@ col_synonyms <- function(x, ...) {
       data.frame(w, stringsAsFactors = FALSE)
     }))
     df$rank <- tolower(df$rank)
+
     df
   } else {
     NULL
@@ -208,7 +230,7 @@ synonyms.tpsid <- function(id, ...) {
       tp_synonyms(x, ...)$synonyms
     }
   }
-  setNames(lapply(id, fun), id)
+  stats::setNames(lapply(id, fun), id)
 }
 
 #' @export
@@ -221,7 +243,7 @@ synonyms.nbnid <- function(id, ...) {
       nbn_synonyms(x, ...)
     }
   }
-  setNames(lapply(id, fun), id)
+  stats::setNames(lapply(id, fun), id)
 }
 
 #' @export
@@ -236,4 +258,23 @@ synonyms.ids <- function(id, ...) {
     return( out )
   }
   lapply(id, fun)
+}
+
+### Combine synonyms output into single data.frame -----------
+#' @export
+#' @rdname synonyms
+synonyms_df <- function(x) {
+  UseMethod("synonyms_df")
+}
+
+#' @export
+synonyms_df.default <- function(x) {
+  stop("no 'synonyms_df' method for ", class(x), call. = FALSE)
+}
+
+#' @export
+synonyms_df.synonyms <- function(x) {
+  (data.table::setDF(
+    data.table::rbindlist(x, use.names = TRUE, fill = TRUE, idcol = TRUE)
+  ))
 }

@@ -8,6 +8,7 @@
 \alias{synonyms.nbnid}
 \alias{synonyms.tpsid}
 \alias{synonyms.tsn}
+\alias{synonyms_df}
 \title{Retrieve synonyms from various sources given input taxonomic
 names or identifiers}
 \usage{
@@ -24,6 +25,8 @@ synonyms(...)
 \method{synonyms}{nbnid}(id, ...)
 
 \method{synonyms}{ids}(id, ...)
+
+synonyms_df(x)
 }
 \arguments{
 \item{...}{Other passed arguments to internal functions \code{get_*()} and
@@ -73,7 +76,7 @@ synonyms("Pinus contorta", db="itis")
 synonyms("Puma concolor", db="itis")
 synonyms(c("Poa annua",'Pinus contorta','Puma concolor'), db="itis")
 synonyms("Poa annua", db="tropicos")
-synonyms("Pinus contorta", db="tropicos")
+synonyms("Pinus contorta", db="tropicos")do
 synonyms(c("Poa annua",'Pinus contorta'), db="tropicos")
 synonyms("Pinus sylvestris", db='nbn')
 synonyms("Puma concolor", db='col')
@@ -107,6 +110,23 @@ synonyms("Amblyomma rotundatum", db='col', rows=2:3)
 synonyms("Poa annua", db='tropicos', rows=1, config=verbose())
 synonyms("Poa annua", db='itis', rows=1, config=verbose())
 synonyms("Poa annua", db='col', rows=1, config=verbose())
+
+
+# combine many outputs together
+x <- synonyms(c("Osmia bicornis", "Osmia rufa", "Osmia"), db = "itis")
+synonyms_df(x)
+
+## note here how Pinus contorta is dropped due to no synonyms found
+x <- synonyms(c("Poa annua",'Pinus contorta','Puma concolor'), db="col")
+synonyms_df(x)
+
+## note here that ids are taxon identifiers b/c you start with them
+x <- synonyms(c(25509881, 13100094), db="tropicos")
+synonyms_df(x)
+
+## xxx
+x <- synonyms(c('Aglais io', 'Usnea hirta', 'Arctostaphylos uva-ursi'), db="nbn")
+synonyms_df(x)
 }
 }
 \seealso{
