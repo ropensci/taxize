@@ -11,7 +11,7 @@ iucn_getname(name, verbose = TRUE, ...)
 
 \item{verbose}{logical; should messages be printed?}
 
-\item{...}{Further arguments passed on to \code{link{iucn_summary}}}
+\item{...}{Further arguments passed on to \code{\link{iucn_summary}}}
 }
 \value{
 Character vector of names that matched in IUCN
@@ -20,11 +20,11 @@ Character vector of names that matched in IUCN
 Get any matching IUCN species names
 }
 \details{
-Beware: IUCN functions can give back incorrect data. This isn't our fault.
-We do our best to get you the correct data quickly, but sometimes IUCN gives
-back the wrong data, and sometimes Global Names gives back the wrong data.
-We will fix these as soon as possible. In the meantime, just make sure that
-the data you get back is correct.
+Beware: IUCN functions can give back incorrect data. This isn't
+our fault. We do our best to get you the correct data quickly, but sometimes
+IUCN gives back the wrong data, and sometimes Global Names gives back the
+wrong data. We will fix these as soon as possible. In the meantime, just
+make sure that the data you get back is correct.
 }
 \examples{
 \dontrun{

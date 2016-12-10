@@ -3,14 +3,14 @@
 #' @export
 #' @param name character; taxon name
 #' @param verbose logical; should messages be printed?
-#' @param ... Further arguments passed on to \code{link{iucn_summary}}
+#' @param ... Further arguments passed on to \code{\link{iucn_summary}}
 #' @seealso \code{\link{iucn_summary}} \code{\link{iucn_status}}
 #' @return Character vector of names that matched in IUCN
-#' @details Beware: IUCN functions can give back incorrect data. This isn't our fault.
-#' We do our best to get you the correct data quickly, but sometimes IUCN gives
-#' back the wrong data, and sometimes Global Names gives back the wrong data.
-#' We will fix these as soon as possible. In the meantime, just make sure that
-#' the data you get back is correct.
+#' @details Beware: IUCN functions can give back incorrect data. This isn't
+#' our fault. We do our best to get you the correct data quickly, but sometimes
+#' IUCN gives back the wrong data, and sometimes Global Names gives back the
+#' wrong data. We will fix these as soon as possible. In the meantime, just
+#' make sure that the data you get back is correct.
 #' @examples \dontrun{
 #' iucn_getname(name = "Cyanistes caeruleus")
 #' iucn_getname(name = "Panthera uncia")
