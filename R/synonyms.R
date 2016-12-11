@@ -40,7 +40,7 @@
 #' synonyms("Puma concolor", db="itis")
 #' synonyms(c("Poa annua",'Pinus contorta','Puma concolor'), db="itis")
 #' synonyms("Poa annua", db="tropicos")
-#' synonyms("Pinus contorta", db="tropicos")do
+#' synonyms("Pinus contorta", db="tropicos")
 #' synonyms(c("Poa annua",'Pinus contorta'), db="tropicos")
 #' synonyms("Pinus sylvestris", db='nbn')
 #' synonyms("Puma concolor", db='col')

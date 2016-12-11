@@ -9,8 +9,8 @@ tpl_get(x, family = NULL, ...)
 \arguments{
 \item{x}{Directory to write csv files to.}
 
-\item{family}{If you want just one, or >1 family, but not all, list them in
-a vector.}
+\item{family}{If you want just one, or >1 family, but not all, list
+them in a vector.}
 
 \item{...}{(list) Curl options passed on to \code{\link[httr]{GET}}}
 }
@@ -23,22 +23,27 @@ Get The Plant List csv files.
 }
 \details{
 Throws a warning if you already have a directory of the one
-provided, but still works. Writes to your home directory, change dir_ as needed.
+provided, but still works. Writes to your home directory, change x
+as needed.
 }
 \examples{
 \dontrun{
 # Get a few families
-tpl_get("~/foo2", family = c("Platanaceae","Winteraceae"))
+dir <- file.path(tempdir(), "abc")
+tpl_get(dir, family = c("Platanaceae","Winteraceae"))
 
 # You can now get Gymnosperms as well
-tpl_get("~/foo2", family = c("Pinaceae","Taxaceae"))
+dir1 <- file.path(tempdir(), "def")
+tpl_get(dir1, family = c("Pinaceae","Taxaceae"))
 
 # You can get mosses too!
-tpl_get("~/foo4", family = "Echinodiaceae")
+dir2 <- file.path(tempdir(), "ghi")
+tpl_get(dir2, family = "Echinodiaceae")
 
 # Get all families
 ## Beware, will take a while
-## tpl_get("~/foo")
+## dir3 <- file.path(tempdir(), "jkl")
+## tpl_get("dir3)
 }
 }
 \author{

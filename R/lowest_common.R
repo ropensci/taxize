@@ -37,7 +37,7 @@
 #' # COL
 #' taxa <- c('Nycticebus coucang', 'Homo sapiens', 'Sus scrofa')
 #' cls <- classification(taxa, db = "col")
-#' lowest_common(taxa, cls, db = "col")
+#' lowest_common(taxa, class_list = cls, db = "col")
 #' lowest_common(get_colid(taxa), class_list = cls)
 #' xx <- get_colid(taxa)
 #' lowest_common(xx, class_list = cls)
@@ -186,7 +186,8 @@ lowest_common.tolid <- function(x, class_list = NULL, low_rank = NULL, ...) {
 lc_helper <- function(x, class_list, low_rank = NULL, ...) {
   idc <- class_list[x]
   # next line NCBI specific
-  cseq <- vapply(idc, function(x) x[1, 1] != "unclassified sequences", logical(1))
+  cseq <- vapply(idc, function(x) x[1, 1] != "unclassified sequences",
+                 logical(1))
   idc <- idc[cseq]
   if (is.null(low_rank)) {
     x_row <- length(Reduce(intersect, lapply(idc, "[[", 1)))
@@ -201,7 +202,8 @@ lc_helper <- function(x, class_list, low_rank = NULL, ...) {
       warning('the supplied rank is not valid')
     }
     # low_rank_names <- as.character(unique(unlist(lapply(idc, function(x) x$name[which(x$rank == low_rank)]))))
-    low_rank_names <- unique(setDF(rbindlist(lapply(idc, function(x) x[which(x$rank == low_rank),]))))
+    low_rank_names <- unique(setDF(rbindlist(lapply(idc, function(x)
+      x[which(x$rank == low_rank),]))))
     if (NROW(low_rank_names) == 1) {
       return(low_rank_names)
     } else {
@@ -231,13 +233,15 @@ get_class <- function(x, y, db, ...) {
 check_lowest_ids <- function(x) {
   notmiss <- na.omit(x)
   if (length(notmiss) < 2) {
-    stop(length(notmiss), " found, ", length(x) - length(notmiss), " were NA; > 1 needed", call. = FALSE)
+    stop(length(notmiss), " found, ", length(x) - length(notmiss),
+         " were NA; > 1 needed", call. = FALSE)
   }
 }
 
 process_lowest_ids <- function(input, db, fxn, ...) {
   g <- tryCatch(as.numeric(as.character(input)), warning = function(e) e)
-  if (inherits(g, "numeric") || is.character(input) && grepl("[[:digit:]]", input)) {
+  if (inherits(g, "numeric") || is.character(input) &&
+      grepl("[[:digit:]]", input)) {
     as_fxn <- switch(db, itis = as.tsn, gbif = as.gbifid,
                      ncbi = as.uid, col = as.colid, tol = as.tolid)
     as_fxn(input, check = FALSE)

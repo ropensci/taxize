@@ -71,7 +71,7 @@ lowest_common(id[2:4], class_list = id_class, low_rank = 'family')
 # COL
 taxa <- c('Nycticebus coucang', 'Homo sapiens', 'Sus scrofa')
 cls <- classification(taxa, db = "col")
-lowest_common(taxa, cls, db = "col")
+lowest_common(taxa, class_list = cls, db = "col")
 lowest_common(get_colid(taxa), class_list = cls)
 xx <- get_colid(taxa)
 lowest_common(xx, class_list = cls)

@@ -204,7 +204,7 @@ as.tolid.data.frame <- function(x, check=TRUE) {
 
 #' @export
 #' @rdname get_tolid
-as.data.frame.tol <- function(x, ...){
+as.data.frame.tolid <- function(x, ...){
   data.frame(ids = as.character(unclass(x)),
              class = "tolid",
              match = attr(x, "match"),
@@ -218,7 +218,7 @@ make_tol <- function(x, check=TRUE) {
   make_generic(x, 'https://tree.opentreeoflife.org/opentree/argus/ottol@%s', "tolid", check)
 }
 
-check_tol <- function(x){
+check_tolid <- function(x){
   tt <- tryCatch(rotl::taxonomy_taxon_info(x), error = function(e) e)
   !inherits(tt, "error")
 }

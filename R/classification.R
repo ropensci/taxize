@@ -140,7 +140,7 @@
 #' }
 #'
 #' @examples \dontrun{
-#' # Fails
+#' # Fails without db param set
 #' classification(315576)
 #' }
 classification <- function(...){
@@ -478,6 +478,7 @@ classification.ids <- function(id, ...) {
 #' @rdname classification
 cbind.classification <- function(x) {
   gethiernames <- function(x) {
+    x <- data.frame(x)
     x$name <- as.character(x$name)
     x$rank <- as.character(x$rank)
     values <- setNames(data.frame(t(x[,'name']), stringsAsFactors = FALSE), tolower(x[,'rank']))
@@ -490,7 +491,8 @@ cbind.classification <- function(x) {
     }
   }
   input <- x
-  input <- input[sapply(input, class) %in% "data.frame"]
+  #input <- input[sapply(input, class) %in% "data.frame"]
+  input <- input[vapply(x, function(z) inherits(z, "data.frame"), logical(1))]
   tmp <- do.call(rbind.fill, lapply(input, gethiernames))
   tmp$query <- names(x)
   tmp$db <- attr(x, "db")
@@ -502,7 +504,8 @@ cbind.classification <- function(x) {
 rbind.classification <- function(x) {
   input <- x
   db <- attr(input, "db")
-  x <- input[vapply(x, class, "") %in% "data.frame"]
+  #x <- input[vapply(x, class, "") %in% "data.frame"]
+  x <- input[vapply(x, function(z) inherits(z, "data.frame"), logical(1))]
   for (i in seq_along(x)) {
     x[[i]]$query <- names(x[i])
   }
