@@ -1,3 +1,47 @@
+taxize 0.8.0
+============
+
+## NEW FEATURES
+
+* New data source added: Open Tree of Life. New functions for the data source
+added: `get_tolid()`, `get_tolid_()`, and `as.tolid()` (#517)
+* related to above `classification()` gains new method for TOL data
+* related to above `lowest_common()` gains new method for TOL data
+* Now using `ritis` package, an external dependency for ITIS taxonomy 
+data. Note that a large number of ITIS functions were removed, and are
+now available via the package `ritis`. However, there are still many
+high level functions for working with ITIS data (see functions prefixed
+with `itis_`), and `get_tsn()`, `classification.tsn()`, and similar
+high level functions remain unchanged. (#525)
+* EUBON has a new API (v1.2). We now interact with that new API version.
+In addition, `eubon()` fxn is now `eubon_search()`, although either still 
+work - though `eubon()` will be made defunct in the next version of 
+this package. Additional new functions were added: `eubon_capabilities()`,
+`eubon_children()`, and `eubon_hierarchy()` (#567)
+* `lowest_common()` function gains two new data source options: COL (Catalogue 
+of Life) and TOL (Tree of Life) (#505)
+* Addded new function `synonyms_df()` as a slim wrapper around 
+`data.table::rbindlist()` to make it easy to combine many outputs
+from `synonyms()` for a single data source - there is a lot of heterogeneity 
+among data sources in how they report synonyms data, so we don't attempt
+to combine data across sources (#533)
+
+## MINOR IMPROVEMENTS
+
+* Change NCBI URLs to `https` from `http` (#571)
+
+## BUG FIXES
+
+* Fixed bug in `tax_name()` in which when an invalid taxon was searched 
+for then `classification()` returned no data and caused an error. 
+Fixed now. (#560) thanks @ljvillanueva for reporting it!
+* Fixed bug in `gnr_resolve()` in which order of input names to the function 
+was not retained. fixed now. (#561) thanks @bomeara for reporting it!
+* Fixed bug in `gbif_parse()` - data format changed coming back from 
+GBIF - needed to replace `NULL` with `NA` (#568)  thanks @ChrKoenig for 
+reporting it!
+
+
 taxize 0.7.9
 ============
 

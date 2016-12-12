@@ -1,5 +1,5 @@
 taxize
-=======
+======
 
 
 
@@ -13,7 +13,7 @@ taxize
 
 `taxize` allows users to search over many taxonomic data sources for species names (scientific and common) and download up and downstream taxonomic hierarchical information - among other things.
 
-The `taxize` tutorial is can be found at [https://ropensci.org/tutorials/taxize.html][tut].
+The `taxize` tutorial is can be found at <https://ropensci.org/tutorials/taxize.html>
 
 The functions in the package that hit a specific API have a prefix and suffix separated by an underscore. They follow the format of `service_whatitdoes`.  For example, `gnr_resolve` uses the Global Names Resolver API to resolve species names.  General functions in the package that don't hit a specific API don't have two words separated by an underscore, e.g., `classification`.
 
@@ -21,7 +21,7 @@ You need API keys for Encyclopedia of Life (EOL), and Tropicos.
 
 ## SOAP
 
-Note that a few data sources require SOAP web services, which are difficult to support in R across all operating systems. These include: World Register of Marine Species, Pan-European Species directories Infrastructure , and Mycobank, so far. Data sources that use SOAP web services have been moved to a new package called `taxizesoap`. Find it at [https://github.com/ropensci/taxizesoap](https://github.com/ropensci/taxizesoap).
+Note that a few data sources require SOAP web services, which are difficult to support in R across all operating systems. These include: World Register of Marine Species, Pan-European Species directories Infrastructure , and Mycobank, so far. Data sources that use SOAP web services have been moved to a new package called `taxizesoap`. Find it at <https://github.com/ropensci/taxizesoap>.
 
 ## Currently implemented in `taxize`
 
@@ -145,6 +145,12 @@ Note that a few data sources require SOAP web services, which are difficult to s
 	<td style="text-align:left;"><a href="http://www.organismnames.com/">link</a></td>
 	<td style="text-align:left;">none</td>
 </tr>
+<tr>
+	<td style="text-align:left;">Open Tree of Life (TOL)</td>
+	<td style="text-align:left;"><code>tol</code></td>
+	<td style="text-align:left;"><a href="https://opentreeoflife.org">link</a></td>
+	<td style="text-align:left;">none</td>
+</tr>
 </tbody>
 </table>
 
@@ -171,7 +177,7 @@ install.packages("taxize")
 
 ### Development version from GitHub
 
-Windows users install [Rtools](http://cran.r-project.org/bin/windows/Rtools/) first.
+Windows users install [Rtools](https://cran.r-project.org/bin/windows/Rtools/) first.
 
 
 ```r
@@ -318,14 +324,23 @@ upstream("Pinus contorta", db = 'itis', upto = 'Genus', verbose=FALSE)
 ```r
 synonyms("Acer drummondii", db="itis")
 #> $`Acer drummondii`
-#>   sub_tsn                    acc_name acc_tsn                    syn_name
-#> 1  183671 Acer rubrum var. drummondii  526853 Acer rubrum ssp. drummondii
-#> 2  183671 Acer rubrum var. drummondii  526853             Acer drummondii
-#> 3  183671 Acer rubrum var. drummondii  526853          Rufacer drummondii
-#>   syn_tsn
-#> 1   28730
-#> 2  183671
-#> 3  183672
+#>   sub_tsn                    acc_name acc_tsn
+#> 1  526853 Acer rubrum var. drummondii  526853
+#> 2  526853 Acer rubrum var. drummondii  526853
+#> 3  526853 Acer rubrum var. drummondii  526853
+#>                          author                            author
+#> 1 (Hook. & Arn. ex Nutt.) Sarg. (Hook. & Arn. ex Nutt.) E. Murray
+#> 2 (Hook. & Arn. ex Nutt.) Sarg.             Hook. & Arn. ex Nutt.
+#> 3 (Hook. & Arn. ex Nutt.) Sarg.     (Hook. & Arn. ex Nutt.) Small
+#>                      syn_name syn_tsn
+#> 1 Acer rubrum ssp. drummondii   28730
+#> 2             Acer drummondii  183671
+#> 3          Rufacer drummondii  183672
+#> 
+#> attr(,"class")
+#> [1] "synonyms"
+#> attr(,"db")
+#> [1] "itis"
 ```
 
 ## Get taxonomic IDs from many sources
@@ -359,7 +374,7 @@ get_ids(names="Salvelinus fontinalis", db = c('itis', 'ncbi'), verbose=FALSE)
 #> attr(,"pattern_match")
 #> [1] FALSE
 #> attr(,"uri")
-#> [1] "http://www.ncbi.nlm.nih.gov/taxonomy/8038"
+#> [1] "https://www.ncbi.nlm.nih.gov/taxonomy/8038"
 #> 
 #> attr(,"class")
 #> [1] "ids"
@@ -427,10 +442,10 @@ sci2comm('Helianthus annuus', db = 'itis')
 ```r
 comm2sci("black bear", db = "itis")
 #> $`black bear`
-#> [1] "Ursus americanus luteolus"   "Ursus americanus"           
-#> [3] "Ursus americanus"            "Ursus americanus americanus"
-#> [5] "Ursus thibetanus"            "Ursus thibetanus"           
-#> [7] "Chiropotes satanas"
+#> [1] "Chiropotes satanas"          "Ursus thibetanus"           
+#> [3] "Ursus thibetanus"            "Ursus americanus luteolus"  
+#> [5] "Ursus americanus"            "Ursus americanus"           
+#> [7] "Ursus americanus americanus"
 ```
 
 ## Lowest common rank among taxa
@@ -501,21 +516,27 @@ out <- as.uid(c(315567, 3339, 9696))
 
 ## Contributors
 
-+ [Scott Chamberlain](https://github.com/sckott)
-+ [Eduard Szöcs](https://github.com/EDiLD)
-+ [Zachary Foster](https://github.com/zachary-foster)
-+ [Carl Boettiger](https://github.com/cboettig)
-+ [Karthik Ram](https://github.com/karthik)
+Alphebetical
+
 + [Ignasi Bartomeus](https://github.com/ibartomeus)
 + [John Baumgartner](https://github.com/johnbaums)
-+ [James O'Donnell](https://github.com/jimmyodonnell)
-+ [Francois Michonneau](https://github.com/fmichonneau)
-+ [Philippe Marchand](https://github.com/pmarchand1)
-+ [Jari Oksanen](https://github.com/jarioksa)
++ [Carl Boettiger](https://github.com/cboettig)
++ [Joseph Brown](https://github.com/josephwb)
++ [Scott Chamberlain](https://github.com/sckott)
++ [Anirvan Chatterjee](https://github.com/anirvan)
++ [Zachary Foster](https://github.com/zachary-foster)
 + [Oliver Keyes](https://github.com/Ironholds)
-+ [Luis Villanueva](https://github.com/ljvillanueva)
 + [David LeBauer](https://github.com/dlebauer)
++ [Philippe Marchand](https://github.com/pmarchand1)
 + [Ben Marwick](https://github.com/benmarwick)
++ [Francois Michonneau](https://github.com/fmichonneau)
++ [James O'Donnell](https://github.com/jimmyodonnell)
++ [Jari Oksanen](https://github.com/jarioksa)
++ [Karthik Ram](https://github.com/karthik)
++ [raredd](https://github.com/raredd)
++ [Eduard Szöcs](https://github.com/EDiLD)
++ [Luis Villanueva](https://github.com/ljvillanueva)
++ [Jakub Wilk](https://github.com/jwilk)
 
 ## Road map
 
@@ -526,8 +547,9 @@ Check out our [milestones](https://github.com/ropensci/taxize/milestones) to see
 * Please [report any issues or bugs](https://github.com/ropensci/taxize/issues).
 * License: MIT
 * Get citation information for `taxize` in R doing `citation(package = 'taxize')`
-* Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
+* Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). 
+By participating in this project you agree to abide by its terms.
 
-[![ropensci](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
+[![ropensci](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
 
-[tut]: http://ropensci.org/tutorials/taxize.html
+[tut]: https://ropensci.org/tutorials/taxize.html
