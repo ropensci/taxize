@@ -17,4 +17,4 @@ vignettes/cache/
 ^cran-comments\.md$
 ^revdep$
 ^issue_template\.md$
-
+^\.httr-oauth$
