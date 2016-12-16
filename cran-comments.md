@@ -19,12 +19,14 @@ File 'LICENSE':
 
 * I have run R CMD check on the 16 downstream dependencies
 (<https://github.com/ropensci/taxize/blob/master/revdep/README.md>).
-There was one problem, but was not related to taxize as far as I can tell.
-* All revdep maintainers were notified of the release
+All revdep maintainers were notified of the release. There was one
+problem with the pacakge camtrapR - I have notified the
+maintainer earlier this week and said is ready to deploy fixes.
 
 ------
 
-This version includes some new functions, removes some functions to instead use those from an imported package - a number of bug fixes.
+This version includes some new functions, removes some functions to instead use those
+from an imported package - a number of bug fixes.
 
 Thanks!
 Scott Chamberlain
