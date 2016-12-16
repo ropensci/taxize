@@ -66,5 +66,5 @@ tpl_get <- function(x, family = NULL, ...) {
 
 getcsv <- function(z, x) {
   #download.file(z, destfile = file.path(x, basename(z)), quiet = TRUE)
-  invisible(GET(z, write_disk(path = file.path(x, basename(z)), overwrite = TRUE)))
+  invisible(GET(z, httr::write_disk(path = file.path(x, basename(z)), overwrite = TRUE)))
 }
