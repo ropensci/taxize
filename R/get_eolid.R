@@ -1,25 +1,28 @@
 #' Get the EOL ID from Encyclopedia of Life from taxonomic names.
 #'
 #' Note that EOL doesn't expose an API endpoint for directly querying for EOL
-#' taxon ID's, so we first use the function \code{\link[taxize]{eol_search}} to find pages
-#' that deal with the species of interest, then use \code{\link[taxize]{eol_pages}}
-#' to find the actual taxon IDs.
+#' taxon ID's, so we first use the function \code{\link[taxize]{eol_search}}
+#' to find pages that deal with the species of interest, then use
+#' \code{\link[taxize]{eol_pages}} to find the actual taxon IDs.
 #'
 #' @export
 #' @param sciname character; scientific name.
 #' @param ask logical; should get_eolid be run in interactive mode?
 #' If TRUE and more than one ID is found for the species, the user is asked for
 #' input. If FALSE NA is returned for multiple matches.
-#' @param key API key
-#' @param ... Further args passed on to eol_search()
-#' @param verbose logical; If TRUE the actual taxon queried is printed on the console.
-#' @param rows numeric; Any number from 1 to infinity. If the default NA, all rows are considered.
-#' Note that this function still only gives back a eolid class object with one to many identifiers.
-#' See \code{\link[taxize]{get_eolid_}} to get back all, or a subset, of the raw data that you are
-#' presented during the ask process.
+#' @param key API key. passed on to \code{\link{eol_search}} and
+#' \code{\link{eol_pages}} internally
+#' @param ... Further args passed on to \code{\link{eol_search}}
+#' @param verbose logical; If \code{TRUE} the actual taxon queried is printed
+#' on the console.
+#' @param rows numeric; Any number from 1 to infinity. If the default NA, all
+#' rows are considered. Note that this function still only gives back a eolid
+#' class object with one to many identifiers. See
+#' \code{\link[taxize]{get_eolid_}} to get back all, or a subset, of the raw
+#' data that you are presented during the ask process.
 #' @param x Input to \code{\link{as.eolid}}
-#' @param check logical; Check if ID matches any existing on the DB, only used in
-#' \code{\link{as.eolid}}
+#' @param check logical; Check if ID matches any existing on the DB, only
+#' used in \code{\link{as.eolid}}
 #' @template getreturn
 #'
 #' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_uid}},
@@ -29,15 +32,17 @@
 #'
 #' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
 #'
-#' @details EOL is a bit odd in that they have page IDs for each taxon, but then within
-#' that, they have taxon ids for various taxa within that page (e.g., GBIF and NCBI each
-#' have a taxon they refer to within the page [i.e., taxon]). And we need the taxon ids
-#' from a particular data provider (e.g, NCBI) to do other things, like get a higher
-#' classification tree. However, humans want the page id, not the taxon id. So, the
-#' id returned from this function is the taxon id, not the page id. You can get the page
-#' id for a taxon by using \code{\link{eol_search}} and \code{\link{eol_pages}}, and the
-#' URI returned in the attributes for a taxon will lead you to the taxon page, and the
-#' ID in the URL is the page id.
+#' @details EOL is a bit odd in that they have page IDs for each taxon, but
+#' then within that, they have taxon ids for various taxa within that page
+#' (e.g., GBIF and NCBI each have a taxon they refer to within the
+#' page [i.e., taxon]). And we need the taxon ids from a particular data
+#' provider (e.g, NCBI) to do other things, like get a higher classification
+#' tree. However, humans want the page id, not the taxon id. So, the
+#' id returned from this function is the taxon id, not the page id. You can
+#' get the page id for a taxon by using \code{\link{eol_search}} and
+#' \code{\link{eol_pages}}, and the URI returned in the attributes for a
+#' taxon will lead you to the taxon page, and the ID in the URL is the
+#' page id.
 #'
 #' @examples \dontrun{
 #' get_eolid(sciname='Pinus contorta')
@@ -56,13 +61,20 @@
 #' get_eolid(c("Chironomus riparius", "uaudnadndj"))
 #'
 #' # Convert a eolid without class information to a eolid class
-#' as.eolid(get_eolid("Chironomus riparius")) # already a eolid, returns the same
-#' as.eolid(get_eolid(c("Chironomus riparius","Pinus contorta"))) # same
-#' as.eolid(24954444) # numeric
-#' as.eolid(c(24954444,51389511,57266265)) # numeric vector, length > 1
-#' as.eolid("24954444") # character
-#' as.eolid(c("24954444","51389511","57266265")) # character vector, length > 1
-#' as.eolid(list("24954444","51389511","57266265")) # list, either numeric or character
+#' # already a eolid, returns the same
+#' as.eolid(get_eolid("Chironomus riparius"))
+#' # same
+#' as.eolid(get_eolid(c("Chironomus riparius","Pinus contorta")))
+#' # numeric
+#' as.eolid(24954444)
+#' # numeric vector, length > 1
+#' as.eolid(c(24954444,51389511,57266265))
+#' # character
+#' as.eolid("24954444")
+#' # character vector, length > 1
+#' as.eolid(c("24954444","51389511","57266265"))
+#' # list, either numeric or character
+#' as.eolid(list("24954444","51389511","57266265"))
 #' ## dont check, much faster
 #' as.eolid("24954444", check=FALSE)
 #' as.eolid(24954444, check=FALSE)
@@ -80,7 +92,9 @@
 #' get_eolid_(c("asdfadfasd", "Pinus contorta"))
 #' }
 
-get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA, ...){
+get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL,
+                      rows = NA, ...){
+
   fun <- function(sciname, ask, verbose, rows, ...) {
     direct <- FALSE
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
@@ -99,7 +113,8 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
 
       if (length(pageids) == 0) {
         if (nrow(tmp) > 0)
-        mssg(verbose, paste(ms, sprintf('\nDid find: %s', paste(tmp$name, collapse = "; "))))
+        mssg(verbose, paste(ms, sprintf('\nDid find: %s',
+                                        paste(tmp$name, collapse = "; "))))
         id <- NA_character_
       } else {
         dfs <- lapply(pageids, function(x) {
@@ -160,7 +175,8 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
         }
         if (take %in% seq_len(nrow(df))) {
           take <- as.numeric(take)
-          message("Input accepted, took eolid '", as.character(df$eolid[take]), "'.\n")
+          message("Input accepted, took eolid '",
+                  as.character(df$eolid[take]), "'.\n")
           id <- as.character(df$eolid[take])
           names(id) <- as.character(df$pageid[take])
           page_id <- as.character(df$pageid[take])
@@ -178,7 +194,8 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
         att <- "NA due to ask=FALSE"
       }
     }
-    list(id = as.character(id), page_id = page_id, source = datasource, att = att, multiple = mm, direct = direct)
+    list(id = as.character(id), page_id = page_id, source = datasource,
+         att = att, multiple = mm, direct = direct)
   }
   sciname <- as.character(sciname)
   out <- lapply(sciname, fun, ask = ask, verbose = verbose, rows = rows, ...)
@@ -193,13 +210,14 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
 }
 
 getsourceshortnames <- function(input){
-  lookup <- data.frame(z = c('COL','ITIS','GBIF','NCBI','IUCN'),
-                       b = c('Species 2000 & ITIS Catalogue of Life: April 2013',
-                           'Integrated Taxonomic Information System (ITIS)',
-                           'GBIF Nub Taxonomy',
-                           'NCBI Taxonomy',
-                           'IUCN Red List (Species Assessed for Global Conservation)'),
-                       stringsAsFactors = FALSE)
+  lookup <- data.frame(
+    z = c('COL','ITIS','GBIF','NCBI','IUCN'),
+    b = c('Species 2000 & ITIS Catalogue of Life: April 2013',
+          'Integrated Taxonomic Information System (ITIS)',
+          'GBIF Nub Taxonomy',
+          'NCBI Taxonomy',
+          'IUCN Red List (Species Assessed for Global Conservation)'),
+    stringsAsFactors = FALSE)
   bb <- merge(input, lookup, by.x = "source", by.y = "b")[, -1]
   # names(bb)[4] <- "source"
   taxize_sort_df(rename(bb, c('z' = 'source')), "name")
@@ -226,13 +244,21 @@ as.eolid.eolid <- function(x, check=TRUE) {
 #' @export
 #' @rdname get_eolid
 as.eolid.character <- function(x, check=TRUE) {
-  if (length(x) == 1) make_eolid(x, check) else collapse(x, fxn = make_eolid, class = "eolid", check = check)
+  if (length(x) == 1) {
+    make_eolid(x, check)
+  } else {
+    collapse(x, fxn = make_eolid, class = "eolid", check = check)
+  }
 }
 
 #' @export
 #' @rdname get_eolid
 as.eolid.list <- function(x, check=TRUE) {
-  if (length(x) == 1) make_eolid(x, check) else collapse(x, make_eolid, "eolid", check = check)
+  if (length(x) == 1) {
+    make_eolid(x, check)
+  } else {
+    collapse(x, make_eolid, "eolid", check = check)
+  }
 }
 
 #' @export
@@ -285,13 +311,18 @@ check_eolid <- function(x){
 get_eol_pageid <- function(x){
   url <- sprintf("http://eol.org/api/hierarchy_entries/1.0/%s.json", x)
   tt <- GET(url)
-  if (tt$status_code == 200) jsonlite::fromJSON(con_utf8(tt), FALSE)$taxonConceptID else NA
+  if (tt$status_code == 200) {
+    jsonlite::fromJSON(con_utf8(tt), FALSE)$taxonConceptID
+  } else {
+    NA
+  }
 }
 
 #' @export
 #' @rdname get_eolid
 get_eolid_ <- function(sciname, verbose = TRUE, key = NULL, rows = NA, ...){
-  setNames(lapply(sciname, get_eolid_help, verbose = verbose, key = key, rows = rows, ...), sciname)
+  stats::setNames(lapply(sciname, get_eolid_help, verbose = verbose,
+                  key = key, rows = rows, ...), sciname)
 }
 
 get_eolid_help <- function(sciname, verbose, key, rows, ...){
@@ -306,8 +337,8 @@ get_eolid_help <- function(sciname, verbose, key, rows, ...){
       NULL
     } else {
       dfs <- lapply(pageids, function(x) {
-        y <- tryCatch(eol_pages(x), error = function(e) e)
-        if (is(y, "error")) NULL else y$scinames
+        y <- tryCatch(eol_pages(x, key = key), error = function(e) e)
+        if (inherits(y, "error")) NULL else y$scinames
       })
       names(dfs) <- pageids
       dfs <- tc(dfs)

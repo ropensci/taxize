@@ -38,21 +38,24 @@ get_eolid_(sciname, verbose = TRUE, key = NULL, rows = NA, ...)
 If TRUE and more than one ID is found for the species, the user is asked for
 input. If FALSE NA is returned for multiple matches.}
 
-\item{verbose}{logical; If TRUE the actual taxon queried is printed on the console.}
+\item{verbose}{logical; If \code{TRUE} the actual taxon queried is printed
+on the console.}
 
-\item{key}{API key}
+\item{key}{API key. passed on to \code{\link{eol_search}} and
+\code{\link{eol_pages}} internally}
 
-\item{rows}{numeric; Any number from 1 to infinity. If the default NA, all rows are considered.
-Note that this function still only gives back a eolid class object with one to many identifiers.
-See \code{\link[taxize]{get_eolid_}} to get back all, or a subset, of the raw data that you are
-presented during the ask process.}
+\item{rows}{numeric; Any number from 1 to infinity. If the default NA, all
+rows are considered. Note that this function still only gives back a eolid
+class object with one to many identifiers. See
+\code{\link[taxize]{get_eolid_}} to get back all, or a subset, of the raw
+data that you are presented during the ask process.}
 
-\item{...}{Further args passed on to eol_search()}
+\item{...}{Further args passed on to \code{\link{eol_search}}}
 
 \item{x}{Input to \code{\link{as.eolid}}}
 
-\item{check}{logical; Check if ID matches any existing on the DB, only used in
-\code{\link{as.eolid}}}
+\item{check}{logical; Check if ID matches any existing on the DB, only
+used in \code{\link{as.eolid}}}
 }
 \value{
 A vector of taxonomic identifiers as an S3 class.
@@ -78,20 +81,22 @@ Comes with the following attributes:
 }
 \description{
 Note that EOL doesn't expose an API endpoint for directly querying for EOL
-taxon ID's, so we first use the function \code{\link[taxize]{eol_search}} to find pages
-that deal with the species of interest, then use \code{\link[taxize]{eol_pages}}
-to find the actual taxon IDs.
+taxon ID's, so we first use the function \code{\link[taxize]{eol_search}}
+to find pages that deal with the species of interest, then use
+\code{\link[taxize]{eol_pages}} to find the actual taxon IDs.
 }
 \details{
-EOL is a bit odd in that they have page IDs for each taxon, but then within
-that, they have taxon ids for various taxa within that page (e.g., GBIF and NCBI each
-have a taxon they refer to within the page [i.e., taxon]). And we need the taxon ids
-from a particular data provider (e.g, NCBI) to do other things, like get a higher
-classification tree. However, humans want the page id, not the taxon id. So, the
-id returned from this function is the taxon id, not the page id. You can get the page
-id for a taxon by using \code{\link{eol_search}} and \code{\link{eol_pages}}, and the
-URI returned in the attributes for a taxon will lead you to the taxon page, and the
-ID in the URL is the page id.
+EOL is a bit odd in that they have page IDs for each taxon, but
+then within that, they have taxon ids for various taxa within that page
+(e.g., GBIF and NCBI each have a taxon they refer to within the
+page [i.e., taxon]). And we need the taxon ids from a particular data
+provider (e.g, NCBI) to do other things, like get a higher classification
+tree. However, humans want the page id, not the taxon id. So, the
+id returned from this function is the taxon id, not the page id. You can
+get the page id for a taxon by using \code{\link{eol_search}} and
+\code{\link{eol_pages}}, and the URI returned in the attributes for a
+taxon will lead you to the taxon page, and the ID in the URL is the
+page id.
 }
 \examples{
 \dontrun{
@@ -111,13 +116,20 @@ get_eolid(sciname="uaudnadndj")
 get_eolid(c("Chironomus riparius", "uaudnadndj"))
 
 # Convert a eolid without class information to a eolid class
-as.eolid(get_eolid("Chironomus riparius")) # already a eolid, returns the same
-as.eolid(get_eolid(c("Chironomus riparius","Pinus contorta"))) # same
-as.eolid(24954444) # numeric
-as.eolid(c(24954444,51389511,57266265)) # numeric vector, length > 1
-as.eolid("24954444") # character
-as.eolid(c("24954444","51389511","57266265")) # character vector, length > 1
-as.eolid(list("24954444","51389511","57266265")) # list, either numeric or character
+# already a eolid, returns the same
+as.eolid(get_eolid("Chironomus riparius"))
+# same
+as.eolid(get_eolid(c("Chironomus riparius","Pinus contorta")))
+# numeric
+as.eolid(24954444)
+# numeric vector, length > 1
+as.eolid(c(24954444,51389511,57266265))
+# character
+as.eolid("24954444")
+# character vector, length > 1
+as.eolid(c("24954444","51389511","57266265"))
+# list, either numeric or character
+as.eolid(list("24954444","51389511","57266265"))
 ## dont check, much faster
 as.eolid("24954444", check=FALSE)
 as.eolid(24954444, check=FALSE)
