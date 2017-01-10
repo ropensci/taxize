@@ -8,6 +8,7 @@
 \alias{synonyms.nbnid}
 \alias{synonyms.tpsid}
 \alias{synonyms.tsn}
+\alias{synonyms.wormsid}
 \alias{synonyms_df}
 \title{Retrieve synonyms from various sources given input taxonomic
 names or identifiers}
@@ -24,6 +25,8 @@ synonyms(...)
 
 \method{synonyms}{nbnid}(id, ...)
 
+\method{synonyms}{wormsid}(id, ...)
+
 \method{synonyms}{ids}(id, ...)
 
 synonyms_df(x)
@@ -36,17 +39,18 @@ functions to gather synonyms.}
 query.}
 
 \item{db}{character; database to query. either \code{itis}, \code{tropicos},
-\code{col}, or \code{nbn}. Note that each taxonomic data source has their
-own identifiers, so that if you provide the wrong \code{db} value for the
-identifier you could get a result, but it will likely be wrong (not what
-you were expecting).}
+\code{col}, \code{nbn}, or \code{worms}. Note that each taxonomic data
+source has their own identifiers, so that if you provide the wrong
+\code{db} value for the identifier you could get a result, but it will
+likely be wrong (not what you were expecting).}
 
 \item{rows}{(numeric) Any number from 1 to infinity. If the default NA, all
 rows are considered. Note that this parameter is ignored if you pass in a
 taxonomic id of any of the acceptable classes: tsn, tpsid, nbnid, ids.}
 
 \item{id}{character; identifiers, returned by \code{\link[taxize]{get_tsn}},
-\code{\link[taxize]{get_tpsid}}, or \code{\link[taxize]{get_nbnid}}}
+\code{\link[taxize]{get_tpsid}}, \code{\link[taxize]{get_nbnid}},
+\code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_wormsid}}}
 }
 \value{
 A named list of data.frames with the synonyms of every supplied taxa.
@@ -70,6 +74,7 @@ synonyms(183327, db="itis")
 synonyms("25509881", db="tropicos")
 synonyms("NBNSYS0000004629", db='nbn')
 synonyms("87e986b0873f648711900866fa8abde7", db='col')
+synonyms(105706, db='worms')
 
 # Plug in taxon names directly
 synonyms("Pinus contorta", db="itis")
@@ -82,6 +87,8 @@ synonyms("Pinus sylvestris", db='nbn')
 synonyms("Puma concolor", db='col')
 synonyms("Ursus americanus", db='col')
 synonyms("Amblyomma rotundatum", db='col')
+synonyms('Pomatomus', db='worms')
+synonyms('Pomatomus saltatrix', db='worms')
 
 # not accepted names, with ITIS
 ## looks for whether the name given is an accepted name,
@@ -125,12 +132,14 @@ x <- synonyms(c(25509881, 13100094), db="tropicos")
 synonyms_df(x)
 
 ## xxx
-x <- synonyms(c('Aglais io', 'Usnea hirta', 'Arctostaphylos uva-ursi'), db="nbn")
+x <- synonyms(c('Aglais io', 'Usnea hirta', 'Arctostaphylos uva-ursi'),
+  db="nbn")
 synonyms_df(x)
 }
 }
 \seealso{
 \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_tpsid}},
-\code{\link[taxize]{get_nbnid}}
+\code{\link[taxize]{get_nbnid}}, \code{\link[taxize]{get_colid}},
+\code{\link[taxize]{get_wormsid}}
 }
 

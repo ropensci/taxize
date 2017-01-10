@@ -25,10 +25,8 @@
 #' @param ... Ignored
 #' @template getreturn
 #'
-#' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_uid}},
-#' \code{\link[taxize]{get_tpsid}}, \code{\link[taxize]{get_eolid}},
-#' \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_ids}},
-#' \code{\link[taxize]{classification}}
+#' @family taxonomic-ids
+#' @seealso \code{\link[taxize]{classification}}
 #'
 #' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
 #'

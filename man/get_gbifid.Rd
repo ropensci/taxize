@@ -190,9 +190,13 @@ bb <- get_gbifid("Quercus douglasii", config=progress())
 Scott Chamberlain, \email{myrmecocystus@gmail.com}
 }
 \seealso{
-\code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_uid}},
-\code{\link[taxize]{get_tpsid}}, \code{\link[taxize]{get_eolid}},
-\code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_ids}},
 \code{\link[taxize]{classification}}
+
+Other taxonomic-ids: \code{\link{get_boldid}},
+  \code{\link{get_colid}}, \code{\link{get_eolid}},
+  \code{\link{get_ids}}, \code{\link{get_nbnid}},
+  \code{\link{get_tolid}}, \code{\link{get_tpsid}},
+  \code{\link{get_tsn}}, \code{\link{get_uid}},
+  \code{\link{get_wormsid}}
 }
 

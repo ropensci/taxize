@@ -43,6 +43,9 @@
 #' Index Fungorum \tab fg \tab FALSE \cr
 #' EU BON \tab eubon \tab FALSE \cr
 #' Index of Names (ION) \tab ion \tab FALSE \cr
+#' Open Tree of Life (TOL) \tab tol \tab FALSE \cr
+#' World Register of Marine Species (WoRMS) \tab worms \tab FALSE \cr
+#' NatureServe \tab natserv \tab FALSE \cr
 #' }
 #'
 #' If the source above has a \code{TRUE} in the \code{SOAP?} column, it is not available

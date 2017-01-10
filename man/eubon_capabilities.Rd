@@ -21,7 +21,7 @@ eubon_capabilities()
 \url{http://cybertaxonomy.eu/eu-bon/utis/1.2/doc.html}
 }
 \seealso{
-Other eubon.methods: \code{\link{eubon_children}},
+Other eubon-methods: \code{\link{eubon_children}},
   \code{\link{eubon_hierarchy}}, \code{\link{eubon}}
 }
 

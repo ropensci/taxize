@@ -4,12 +4,13 @@
 #' @param x Vector of taxa names (character) or IDs (character or numeric) to
 #' query.
 #' @param db character; database to query. either \code{itis}, \code{tropicos},
-#' \code{col}, or \code{nbn}. Note that each taxonomic data source has their
-#' own identifiers, so that if you provide the wrong \code{db} value for the
-#' identifier you could get a result, but it will likely be wrong (not what
-#' you were expecting).
+#' \code{col}, \code{nbn}, or \code{worms}. Note that each taxonomic data
+#' source has their own identifiers, so that if you provide the wrong
+#' \code{db} value for the identifier you could get a result, but it will
+#' likely be wrong (not what you were expecting).
 #' @param id character; identifiers, returned by \code{\link[taxize]{get_tsn}},
-#' \code{\link[taxize]{get_tpsid}}, or \code{\link[taxize]{get_nbnid}}
+#' \code{\link[taxize]{get_tpsid}}, \code{\link[taxize]{get_nbnid}},
+#' \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_wormsid}}
 #' @param rows (numeric) Any number from 1 to infinity. If the default NA, all
 #' rows are considered. Note that this parameter is ignored if you pass in a
 #' taxonomic id of any of the acceptable classes: tsn, tpsid, nbnid, ids.
@@ -25,7 +26,8 @@
 #' all are used \code{accepted = FALSE}. The default is \code{accepted = FALSE}
 #'
 #' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_tpsid}},
-#' \code{\link[taxize]{get_nbnid}}
+#' \code{\link[taxize]{get_nbnid}}, \code{\link[taxize]{get_colid}},
+#' \code{\link[taxize]{get_wormsid}}
 #'
 #' @export
 #' @examples \dontrun{
@@ -34,6 +36,7 @@
 #' synonyms("25509881", db="tropicos")
 #' synonyms("NBNSYS0000004629", db='nbn')
 #' synonyms("87e986b0873f648711900866fa8abde7", db='col')
+#' synonyms(105706, db='worms')
 #'
 #' # Plug in taxon names directly
 #' synonyms("Pinus contorta", db="itis")
@@ -46,6 +49,8 @@
 #' synonyms("Puma concolor", db='col')
 #' synonyms("Ursus americanus", db='col')
 #' synonyms("Amblyomma rotundatum", db='col')
+#' synonyms('Pomatomus', db='worms')
+#' synonyms('Pomatomus saltatrix', db='worms')
 #'
 #' # not accepted names, with ITIS
 #' ## looks for whether the name given is an accepted name,
@@ -89,7 +94,8 @@
 #' synonyms_df(x)
 #'
 #' ## xxx
-#' x <- synonyms(c('Aglais io', 'Usnea hirta', 'Arctostaphylos uva-ursi'), db="nbn")
+#' x <- synonyms(c('Aglais io', 'Usnea hirta', 'Arctostaphylos uva-ursi'),
+#'   db="nbn")
 #' synonyms_df(x)
 #' }
 
@@ -123,6 +129,11 @@ synonyms.default <- function(x, db = NULL, rows = NA, ...) {
       structure(stats::setNames(synonyms(id, ...), x),
                 class = "synonyms", db = "col")
     },
+    worms = {
+      id <- process_syn_ids(x, db, get_wormsid, rows = rows, ...)
+      structure(stats::setNames(synonyms(id, ...), x),
+                class = "synonyms", db = "worms")
+    },
     stop("the provided db value was not recognised", call. = FALSE)
   )
 }
@@ -135,7 +146,8 @@ process_syn_ids <- function(input, db, fxn, ...){
                      itis = as.tsn,
                      tropicos = as.tpsid,
                      nbn = as.nbnid,
-                     col = as.colid)
+                     col = as.colid,
+                     worms = as.wormsid)
     as_fxn(input, check = FALSE)
   } else {
     eval(fxn)(input, ...)
@@ -245,6 +257,22 @@ synonyms.nbnid <- function(id, ...) {
   }
   stats::setNames(lapply(id, fun), id)
 }
+
+#' @export
+#' @rdname synonyms
+synonyms.wormsid <- function(id, ...) {
+  fun <- function(x) {
+    if (is.na(x)) {
+      NA
+    } else {
+      worrms::wm_synonyms(as.numeric(x), ...)
+    }
+  }
+  stats::setNames(lapply(id, fun), id)
+}
+
+
+
 
 #' @export
 #' @rdname synonyms

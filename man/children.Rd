@@ -7,6 +7,7 @@
 \alias{children.ids}
 \alias{children.tsn}
 \alias{children.uid}
+\alias{children.wormsid}
 \title{Retrieve immediate children taxa for a given taxon name or ID.}
 \usage{
 children(...)
@@ -17,23 +18,26 @@ children(...)
 
 \method{children}{colid}(x, db = NULL, ...)
 
+\method{children}{wormsid}(x, db = NULL, ...)
+
 \method{children}{ids}(x, db = NULL, ...)
 
 \method{children}{uid}(x, db = NULL, ...)
 }
 \arguments{
 \item{...}{Further args passed on to \code{\link{col_children}},
-\code{\link[ritis]{hierarchy_down}}, or \code{\link{ncbi_children}}.
+\code{\link[ritis]{hierarchy_down}}, \code{\link{ncbi_children}},
+or \code{\link[worrms]{wm_children}}
 See those functions for what parameters can be passed on.}
 
 \item{x}{Vector of taxa names (character) or IDs (character or numeric)
 to query.}
 
 \item{db}{character; database to query. One or more of \code{itis},
-\code{col}, or \code{ncbi}. Note that each taxonomic data source has their
-own identifiers, so that if you provide the wrong \code{db} value for
-the identifier you could get a result, but it will likely be wrong
-(not what you were expecting).}
+\code{col}, \code{ncbi}, or \code{worms}. Note that each taxonomic data
+source has their own identifiers, so that if you provide the wrong
+\code{db} value for the identifier you could get a result, but it will
+likely be wrong (not what you were expecting).}
 
 \item{rows}{(numeric) Any number from 1 to infinity. If the default NA, all
 rows are considered. Note that this parameter is ignored if you pass in a
@@ -63,9 +67,13 @@ children("161994", db = "itis")
 children("Salmo", db = 'col')
 children("Salmo", db = 'itis')
 children("Salmo", db = 'ncbi')
+children("Salmo", db = 'worms')
 
 # Plug in IDs
 (id <- get_colid("Apis"))
+children(id)
+
+(id <- get_wormsid("Platanista"))
 children(id)
 
 ## Equivalently, plug in the call to get the id via e.g., get_colid

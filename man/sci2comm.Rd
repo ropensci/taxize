@@ -5,6 +5,7 @@
 \alias{sci2comm.default}
 \alias{sci2comm.tsn}
 \alias{sci2comm.uid}
+\alias{sci2comm.wormsid}
 \title{Get common names from scientific names.}
 \usage{
 sci2comm(...)
@@ -14,36 +15,41 @@ sci2comm(...)
 \method{sci2comm}{uid}(id, ...)
 
 \method{sci2comm}{tsn}(id, simplify = TRUE, ...)
+
+\method{sci2comm}{wormsid}(id, simplify = TRUE, ...)
 }
 \arguments{
-\item{...}{Further arguments passed on to functions \code{\link[taxize]{get_uid}},
-\code{\link[taxize]{get_tsn}}.}
+\item{...}{Further arguments passed on to functions
+\code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_tsn}}.}
 
 \item{scinames}{character; One or more scientific names or partial names.}
 
-\item{db}{character; Data source, one of \emph{"eol"} (default), \emph{"itis"}
-or \emph{"ncbi"}. Note that each taxonomic data source has their own identifiers,
-so that if you provide the wrong \code{db} value for the identifier you could get
-a result, but it will likely be wrong (not what you were expecting).}
+\item{db}{character; Data source, one of \emph{"eol"} (default),
+\emph{"itis"} \emph{"ncbi"}, \emph{"worms"}. Note that each taxonomic data
+source has their own identifiers,  so that if you provide the wrong
+\code{db} value for the identifier you could get a result, but it will
+likely be wrong (not what you were expecting).}
 
-\item{simplify}{(logical) If TRUE, simplify output to a vector of names. If FALSE,
-return variable formats from different sources, usually a data.frame. Only applies to
-eol and itis.}
+\item{simplify}{(logical) If TRUE, simplify output to a vector of names.
+If FALSE, return variable formats from different sources, usually a
+data.frame. Only applies to eol and itis.}
 
-\item{id}{character; identifiers, as returned by \code{\link[taxize]{get_tsn}},
-\code{\link[taxize]{get_uid}}.}
+\item{id}{character; identifiers, as returned by
+\code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_uid}}.}
 }
 \value{
-List of character vectors.
+List of character vectors, named by input taxon name, or taxon ID
 }
 \description{
 Get common names from scientific names.
 }
 \details{
-Note that EOL requires an API key. You can pass in your EOL api key in the function
-call like \code{sci2comm('Helianthus annuus', key="<your eol api key>")}. You can also store your
-EOL API key in your .Rprofile file as \code{options(eolApiKey = "<your eol api key>")}, or
-just for the current session by running \code{options(eolApiKey = "<your eol api key>")} in
+Note that EOL requires an API key. You can pass in your EOL api
+key in the function call like
+\code{sci2comm('Helianthus annuus', key="<your eol api key>")}. You can
+also store your EOL API key in your .Rprofile file as
+\code{options(eolApiKey = "<your eol api key>")}, or just for the current
+session by running \code{options(eolApiKey = "<your eol api key>")} in
 the console.
 }
 \examples{
@@ -52,10 +58,13 @@ sci2comm(scinames='Helianthus annuus', db='eol')
 sci2comm(scinames='Helianthus annuus', db='itis')
 sci2comm(scinames=c('Helianthus annuus', 'Poa annua'))
 sci2comm(scinames='Puma concolor', db='ncbi')
+sci2comm('Gadus morhua', db='worms')
+sci2comm('Pomatomus saltatrix', db='worms')
 
 # Passing id in, works for sources: itis and ncbi, not eol
 sci2comm(get_tsn('Helianthus annuus'))
 sci2comm(get_uid('Helianthus annuus'))
+sci2comm(get_wormsid('Gadus morhua'))
 
 # Don't simplify returned
 sci2comm(get_tsn('Helianthus annuus'), simplify=FALSE)
@@ -71,7 +80,6 @@ sci2comm('Helianthus annuus', db="ncbi", config=verbose())
 Scott Chamberlain (myrmecocystus@gmail.com)
 }
 \seealso{
-\code{\link[ritis]{search_common}}, \code{\link[taxize]{eol_search}},
-\code{\link[taxize]{tp_search}}, \code{\link[taxize]{comm2sci}}
+\code{\link[taxize]{comm2sci}}
 }
 

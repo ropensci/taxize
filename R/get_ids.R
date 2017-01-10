@@ -23,10 +23,10 @@
 #' @return A vector of taxonomic identifiers, each retaining their respective S3
 #'    classes so that each element can be passed on to another function (see e.g.'s).
 #' @note There is a timeout of 1/3 seconds between queries to NCBI.
-#' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_uid}},
-#'    \code{\link[taxize]{get_eolid}}, \code{\link[taxize]{get_colid}},
-#'    \code{\link[taxize]{get_tpsid}}, \code{\link[taxize]{get_gbifid}},
-#'    or \code{\link[taxize]{get_nbnid}}.
+#'
+#' @family taxonomic-ids
+#' @seealso \code{\link[taxize]{classification}}
+#'
 #' @examples \dontrun{
 #' # Plug in taxon names directly
 #' ## By default you get ids for all data sources

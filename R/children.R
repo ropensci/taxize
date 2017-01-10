@@ -9,16 +9,17 @@
 #' @param x Vector of taxa names (character) or IDs (character or numeric)
 #' to query.
 #' @param db character; database to query. One or more of \code{itis},
-#' \code{col}, or \code{ncbi}. Note that each taxonomic data source has their
-#' own identifiers, so that if you provide the wrong \code{db} value for
-#' the identifier you could get a result, but it will likely be wrong
-#' (not what you were expecting).
+#' \code{col}, \code{ncbi}, or \code{worms}. Note that each taxonomic data
+#' source has their own identifiers, so that if you provide the wrong
+#' \code{db} value for the identifier you could get a result, but it will
+#' likely be wrong (not what you were expecting).
 #' @param rows (numeric) Any number from 1 to infinity. If the default NA, all
 #' rows are considered. Note that this parameter is ignored if you pass in a
 #' taxonomic id of any of the acceptable classes: tsn, colid. NCBI has a
 #' method for this function but rows doesn't work.
 #' @param ... Further args passed on to \code{\link{col_children}},
-#' \code{\link[ritis]{hierarchy_down}}, or \code{\link{ncbi_children}}.
+#' \code{\link[ritis]{hierarchy_down}}, \code{\link{ncbi_children}},
+#' or \code{\link[worrms]{wm_children}}
 #' See those functions for what parameters can be passed on.
 #'
 #' @return A named list of data.frames with the children names of every
@@ -36,9 +37,13 @@
 #' children("Salmo", db = 'col')
 #' children("Salmo", db = 'itis')
 #' children("Salmo", db = 'ncbi')
+#' children("Salmo", db = 'worms')
 #'
 #' # Plug in IDs
 #' (id <- get_colid("Apis"))
+#' children(id)
+#'
+#' (id <- get_wormsid("Platanista"))
 #' children(id)
 #'
 #' ## Equivalently, plug in the call to get the id via e.g., get_colid
@@ -81,24 +86,30 @@ children.default <- function(x, db = NULL, rows = NA, ...) {
     db,
     itis = {
       id <- process_children_ids(x, db, get_tsn, rows = rows, ...)
-      setNames(children(id, ...), x)
+      stats::setNames(children(id, ...), x)
     },
 
     col = {
       id <- process_children_ids(x, db, get_colid, rows = rows, ...)
-      setNames(children(id, ...), x)
+      stats::setNames(children(id, ...), x)
     },
 
     ncbi = {
       if (all(grepl("^[[:digit:]]*$", x))) {
         id <- x
         class(id) <- "uid"
-        setNames(children(id, ...), x)
+        stats::setNames(children(id, ...), x)
       } else {
         out <- ncbi_children(name = x, ...)
         structure(out, class = 'children', db = 'ncbi', .Names = x)
       }
     },
+
+    worms = {
+      id <- process_children_ids(x, db, get_wormsid, rows = rows, ...)
+      stats::setNames(children(id, ...), x)
+    },
+
     stop("the provided db value was not recognised", call. = FALSE)
   )
 }
@@ -149,6 +160,46 @@ children.colid <- function(x,  db = NULL, ...) {
   }
   class(out) <- 'children'
   attr(out, 'db') <- 'col'
+  return(out)
+}
+
+df2dt2tbl <- function(x) {
+  tibble::as_tibble(
+    data.table::setDF(
+      data.table::rbindlist(
+        x, use.names = TRUE, fill = TRUE)
+    )
+  )
+}
+
+#' @export
+#' @rdname children
+children.wormsid <- function(x, db = NULL, ...) {
+  fun <- function(y){
+    # return NA if NA is supplied
+    if (is.na(y)) {
+      out <- NA
+    } else {
+      out <- worrms::wm_children(as.numeric(y))
+      out <- list(out)
+      i <- 1
+      while (NROW(out[[length(out)]]) == 50) {
+        i <- i + 1
+        out[[i]] <- worrms::wm_children(
+          as.numeric(y),
+          offset = sum(unlist(sapply(out, NROW))))
+      }
+      out <- df2dt2tbl(out)
+      stats::setNames(
+        out[names(out) %in% c('AphiaID', 'scientificname', 'rank')],
+        c('childtaxa_id', 'childtaxa_name', 'childtaxa_rank')
+      )
+    }
+  }
+  out <- lapply(x, fun)
+  names(out) <- x
+  class(out) <- 'children'
+  attr(out, 'db') <- 'worms'
   return(out)
 }
 

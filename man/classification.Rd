@@ -14,6 +14,7 @@
 \alias{classification.tpsid}
 \alias{classification.tsn}
 \alias{classification.uid}
+\alias{classification.wormsid}
 \alias{rbind.classification}
 \alias{rbind.classification_ids}
 \title{Retrieve the taxonomic hierarchy for a given taxon ID.}
@@ -43,6 +44,9 @@ classification(...)
 
 \method{classification}{tolid}(id, callopts = list(), return_id = TRUE, ...)
 
+\method{classification}{wormsid}(id, callopts = list(), return_id = TRUE,
+  ...)
+
 \method{classification}{ids}(id, ...)
 
 cbind.classification(x)
@@ -59,22 +63,24 @@ rbind.classification_ids(...)
 \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_tpsid}},
 \code{\link[taxize]{get_gbifid}}.}
 
-\item{x}{Vector of taxa names (character) or IDs (character or numeric) to query.}
+\item{x}{Vector of taxa names (character) or IDs (character or numeric)
+to query.}
 
 \item{db}{character; database to query. either \code{ncbi}, \code{itis},
-\code{eol}, \code{col}, \code{tropicos}, \code{gbif}, or \code{nbn}. Note
-that each taxonomic data source has their own identifiers, so that if you
-provide the wrong \code{db} value for the identifier you could get a result,
-but it will likely be wrong (not what you were expecting).}
+\code{eol}, \code{col}, \code{tropicos}, \code{gbif}, \code{nbn},
+or \code{worms}. Note that each taxonomic data source has their own
+identifiers, so that if you provide the wrong \code{db} value for the
+identifier you could get a result, but it will likely be wrong (not
+what you were expecting).}
 
 \item{callopts}{Curl options passed on to \code{\link[httr]{GET}}}
 
-\item{return_id}{(logical) If TRUE (default), return the taxon id as well as the name
-and rank of taxa in the lineage returned.}
+\item{return_id}{(logical) If TRUE (default), return the taxon id as well
+as the name and rank of taxa in the lineage returned.}
 
-\item{rows}{(numeric) Any number from 1 to infinity. If the default NA, all rows are
-considered. Note that this parameter is ignored if you pass in a taxonomic id instead
-of a name of class character.}
+\item{rows}{(numeric) Any number from 1 to infinity. If the default NA,
+all rows are considered. Note that this parameter is ignored if you pass
+in a taxonomic id instead of a name of class character.}
 
 \item{id}{character; identifiers, returned by \code{\link[taxize]{get_tsn}},
 \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}},
@@ -89,8 +95,8 @@ results is larger than the maximum number of results returned by a single
 Web service query (currently the maximum number of results returned by a
 single query is 500 for terse queries and 50 for full queries).}
 
-\item{checklist}{character; The year of the checklist to query, if you want a specific
-year's checklist instead of the lastest as default (numeric).}
+\item{checklist}{character; The year of the checklist to query, if you want
+a specific year's checklist instead of the lastest as default (numeric).}
 }
 \value{
 A named list of data.frames with the taxonomic classification of
@@ -100,13 +106,13 @@ A named list of data.frames with the taxonomic classification of
 Retrieve the taxonomic hierarchy for a given taxon ID.
 }
 \details{
-If IDs are supplied directly (not from the \code{get_*} functions) you
-must specify the type of ID. There is a timeout of 1/3 seconds between
+If IDs are supplied directly (not from the \code{get_*} functions)
+you must specify the type of ID. There is a timeout of 1/3 seconds between
 querries to NCBI.
 
-BEWARE: Right now, NBN doesn't return the queried taxon in the classification. But you can
-attach it yourself quite easily of course. This behavior is different from the other data
-sources.
+BEWARE: Right now, NBN doesn't return the queried taxon in the
+classification. But you can attach it yourself quite easily of course.
+This behavior is different from the other data sources.
 }
 \examples{
 \dontrun{
@@ -115,6 +121,7 @@ classification(9606, db = 'ncbi')
 classification(c(9606, 55062), db = 'ncbi')
 classification(129313, db = 'itis')
 classification(57361017, db = 'eol')
+classification(126436, db = 'worms')
 classification(c(2704179, 2441176), db = 'gbif')
 classification(25509881, db = 'tropicos')
 classification("NBNSYS0000004786", db = 'nbn')
@@ -131,6 +138,7 @@ classification(c("Chironomus riparius", "aaa vva"), db = 'itis', verbose=FALSE)
 classification(c("Chironomus riparius", "aaa vva"), db = 'eol')
 classification(c("Chironomus riparius", "aaa vva"), db = 'col')
 classification("Alopias vulpinus", db = 'nbn')
+classification('Gadus morhua', db = 'worms')
 classification(c("Chironomus riparius", "aaa vva"), db = 'col', verbose=FALSE)
 classification(c("Chironomus riparius", "asdfasdfsfdfsd"), db = 'gbif')
 classification("Chironomus", db = 'tol')

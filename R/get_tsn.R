@@ -21,10 +21,8 @@
 #' \code{\link{as.tsn}}
 #' @template getreturn
 #'
-#' @seealso \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_tsn}},
-#' \code{\link[taxize]{get_gbifid}}, \code{\link[taxize]{get_tpsid}},
-#' \code{\link[taxize]{get_eolid}}, \code{\link[taxize]{get_colid}},
-#' \code{\link[taxize]{get_ids}}, \code{\link[taxize]{classification}}
+#' @family taxonomic-ids
+#' @seealso \code{\link[taxize]{classification}}
 #'
 #' @examples \dontrun{
 #' get_tsn(searchterm = "Quercus douglasii")
