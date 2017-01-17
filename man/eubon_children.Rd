@@ -43,7 +43,7 @@ head(x)
 \url{http://cybertaxonomy.eu/eu-bon/utis/1.2/doc.html}
 }
 \seealso{
-Other eubon.methods: \code{\link{eubon_capabilities}},
+Other eubon-methods: \code{\link{eubon_capabilities}},
   \code{\link{eubon_hierarchy}}, \code{\link{eubon}}
 }
 

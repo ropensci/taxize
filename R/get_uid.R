@@ -53,10 +53,8 @@
 #' expecting. The lesson: clean your names before using this function. Other data
 #' sources are better about fuzzy matching.
 #'
-#' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_tsn}},
-#' \code{\link[taxize]{get_gbifid}}, \code{\link[taxize]{get_tpsid}},
-#' \code{\link[taxize]{get_eolid}}, \code{\link[taxize]{get_colid}},
-#' \code{\link[taxize]{get_ids}}, \code{\link[taxize]{classification}}
+#' @family taxonomic-ids
+#' @seealso \code{\link[taxize]{classification}}
 #'
 #' @author Eduard Szoecs, \email{eduardszoecs@@gmail.com}
 #'

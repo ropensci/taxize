@@ -36,10 +36,8 @@
 #' you can use regex strings since we use \code{\link{grep}} internally to match.
 #' Filtering narrows down to the set that matches your query, and removes the rest.
 #'
-#' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_uid}},
-#' \code{\link[taxize]{get_tpsid}}, \code{\link[taxize]{get_eolid}},
-#' \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_ids}},
-#' \code{\link[taxize]{classification}}
+#' @family taxonomic-ids
+#' @seealso \code{\link[taxize]{classification}}
 #'
 #' @examples \dontrun{
 #' get_boldid(searchterm = "Agapostemon")

@@ -9,16 +9,19 @@ comm2sci(commnames, db = "eol", itisby = "search", simplify = TRUE, ...)
 \arguments{
 \item{commnames}{One or more common names or partial names.}
 
-\item{db}{Data source, one of \emph{"eol"} (default), \emph{"itis"}, \emph{"tropicos"}
-or \emph{"ncbi"}. Note that each taxonomic data source has their own identifiers,
-so that if you provide the wrong \code{db} value for the identifier you could get
-a result, but it will likely be wrong (not what you were expecting).}
+\item{db}{Data source, one of \emph{"eol"} (default), \emph{"itis"},
+\emph{"tropicos"}, \emph{"ncbi"}, or \emph{"worms"}. Note that each
+taxonomic data source
+has their own identifiers, so that if you provide the wrong \code{db}
+value for the identifier you could get a result, but it will likely be
+wrong (not what you were expecting).}
 
 \item{itisby}{Search for common names across entire names (search, default),
 at beginning of names (begin), or at end of names (end).}
 
-\item{simplify}{(logical) If TRUE, simplify output to a vector of names. If FALSE,
-return variable formats from different sources, usually a data.frame.}
+\item{simplify}{(logical) If TRUE, simplify output to a vector of names.
+If \code{FALSE}, return variable formats from different sources,
+usually a data.frame.}
 
 \item{...}{Further arguments passed on to internal methods.}
 }
@@ -35,10 +38,13 @@ comm2sci(commnames='black bear', db='itis')
 comm2sci(commnames='annual blue grass', db='tropicos')
 comm2sci(commnames=c('annual blue grass','tree of heaven'), db='tropicos')
 comm2sci(commnames=c('black bear', 'roe deer'))
+comm2sci('blue whale', db = "worms")
+comm2sci(c('blue whale', 'dwarf surfclam'), db = "worms")
 
 # Output easily converts to a data.frame with \\code{\\link[plyr]{ldply}}
 library(plyr)
-ldply(comm2sci(commnames=c('annual blue grass','tree of heaven'), db='tropicos'))
+ldply(comm2sci(commnames=c('annual blue grass','tree of heaven'),
+  db='tropicos'))
 
 # Use curl options
 library("httr")
@@ -52,7 +58,8 @@ comm2sci(commnames='annual blue grass', db="tropicos", config=verbose())
 Scott Chamberlain (myrmecocystus@gmail.com)
 }
 \seealso{
-\code{\link[ritis]{search_common}}, \code{\link[taxize]{eol_search}},
+\code{\link[ritis]{search_common}},
+\code{\link[taxize]{eol_search}},
 \code{\link[taxize]{tp_search}}
 
 \code{\link[taxize]{sci2comm}}

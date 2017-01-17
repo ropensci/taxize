@@ -82,7 +82,7 @@ eubon_search("Salmo", 'worms', addParentTaxon = TRUE)
 \url{http://cybertaxonomy.eu/eu-bon/utis/1.2/doc.html}
 }
 \seealso{
-Other eubon.methods: \code{\link{eubon_capabilities}},
+Other eubon-methods: \code{\link{eubon_capabilities}},
   \code{\link{eubon_children}},
   \code{\link{eubon_hierarchy}}
 }
