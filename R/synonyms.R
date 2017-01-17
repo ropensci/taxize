@@ -105,7 +105,7 @@ synonyms <- function(...) {
 
 #' @export
 #' @rdname synonyms
-synonyms.default <- function(x, db = NULL, rows = NA, ...) {
+synonyms.default <- function(x, db = NULL, rows = NaN, ...) {
   nstop(db)
   switch(
     db,

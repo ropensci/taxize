@@ -13,7 +13,7 @@
 \title{Get Worms ID for a taxon name}
 \usage{
 get_wormsid(query, searchtype = "scientific", accepted = FALSE,
-  ask = TRUE, verbose = TRUE, rows = NA, ...)
+  ask = TRUE, verbose = TRUE, rows = NaN, ...)
 
 as.wormsid(x, check = TRUE)
 
@@ -49,7 +49,7 @@ multiple matches.}
 
 \item{verbose}{logical; should progress be printed?}
 
-\item{rows}{numeric; Any number from 1 to infinity. If the default NA, all
+\item{rows}{numeric; Any number from 1 to infinity. If the default NaN, all
 rows are considered. Note that this function still only gives back a wormsid
 class object with one to many identifiers. See
 \code{\link[taxize]{get_wormsid_}} to get back all, or a subset, of the raw

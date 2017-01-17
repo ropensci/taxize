@@ -15,7 +15,7 @@
 #' user is asked for input. If \code{FALSE} NA is returned for
 #' multiple matches.
 #' @param verbose logical; should progress be printed?
-#' @param rows numeric; Any number from 1 to infinity. If the default NA, all
+#' @param rows numeric; Any number from 1 to infinity. If the default NaN, all
 #' rows are considered. Note that this function still only gives back a wormsid
 #' class object with one to many identifiers. See
 #' \code{\link[taxize]{get_wormsid_}} to get back all, or a subset, of the raw
@@ -87,7 +87,13 @@
 #' get_wormsid_(c("asdfadfasd","Plat"), rows=1:5)
 #' }
 get_wormsid <- function(query, searchtype = "scientific", accepted = FALSE,
-                      ask = TRUE, verbose = TRUE, rows = NA, ...) {
+                      ask = TRUE, verbose = TRUE, rows = NaN, ...) {
+
+  assert(searchtype, "character")
+  assert(accepted, "logical")
+  assert(ask, "logical")
+  assert(verbose, "logical")
+  assert(rows, c("numeric", "integer"))
 
   fun <- function(x, searchtype, ask, verbose, ...) {
     direct <- FALSE
