@@ -28,7 +28,7 @@ dat$abundance <- round(rlnorm(n=nrow(dat),meanlog=5,sdlog=2),0)
 rankagg(data=dat, datacol="abundance", rank="Genus")
 rankagg(data=dat, "abundance", rank="Family")
 rankagg(data=dat, "abundance", rank="Genus", fxn="mean")
-rankagg(data=dat, "abundance", rank="Class")
-rankagg(data=dat, "abundance", rank="Class", fxn="sd")
+rankagg(data=dat, "abundance", rank="Subclass")
+rankagg(data=dat, "abundance", rank="Subclass", fxn="sd")
 }
 

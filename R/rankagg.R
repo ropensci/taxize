@@ -15,8 +15,8 @@
 #' rankagg(data=dat, datacol="abundance", rank="Genus")
 #' rankagg(data=dat, "abundance", rank="Family")
 #' rankagg(data=dat, "abundance", rank="Genus", fxn="mean")
-#' rankagg(data=dat, "abundance", rank="Class")
-#' rankagg(data=dat, "abundance", rank="Class", fxn="sd")
+#' rankagg(data=dat, "abundance", rank="Subclass")
+#' rankagg(data=dat, "abundance", rank="Subclass", fxn="sd")
 rankagg <- function(data=NULL, datacol=NULL, rank=NULL, fxn="sum") {
   if (is.null(data) | is.null(rank))
     stop("You must specify your data.frame and taxonomic rank")
