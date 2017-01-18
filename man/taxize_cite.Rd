@@ -21,6 +21,8 @@ taxize_cite(fxn='itis_hierarchy')
 taxize_cite(fxn='tp_classification')
 taxize_cite(fxn='gbif_ping')
 taxize_cite(fxn='plantminer')
+taxize_cite(fxn='get_natservid_')
+taxize_cite(fxn='as.natservid')
 
 # Functions that use many data sources
 taxize_cite(fxn='synonyms')

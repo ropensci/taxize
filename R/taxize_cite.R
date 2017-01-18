@@ -10,6 +10,8 @@
 #' taxize_cite(fxn='tp_classification')
 #' taxize_cite(fxn='gbif_ping')
 #' taxize_cite(fxn='plantminer')
+#' taxize_cite(fxn='get_natservid_')
+#' taxize_cite(fxn='as.natservid')
 #'
 #' # Functions that use many data sources
 #' taxize_cite(fxn='synonyms')
@@ -76,6 +78,7 @@ data_citations <- function(x){
     as.colid = list(col = c_col),
     as.eolid = list(eol = c_eol),
     as.gbifid = list(gbif = c_gbif),
+    as.natservid = list(natserv = c_natureserve),
     as.nbnid = list(nbn = c_nbn),
     as.tpsid = list(tropicos = c_tropicos),
     as.tsn = list(itis = c_itis),
@@ -116,6 +119,8 @@ data_citations <- function(x){
                    tropicos = c_tropicos, nbn = c_nbn),
     get_ids_ = list(itis = c_itis, col = c_col, ncbi = c_ncbi, gbif = c_gbif, eol = c_eol,
                     tropicos = c_tropicos, nbn = c_nbn),
+    get_natservid = list(natserv = c_natureserve),
+    get_natservid_ = list(natserv = c_natureserve),
     get_nbnid = list(nbn = c_nbn),
     get_nbnid_ = list(nbn = c_nbn),
     get_seqs = list(genbank = c_genbank),
@@ -223,3 +228,4 @@ c_apg <- list(url_home = "http://www.mobot.org/MOBOT/research/APweb/", apidocs =
               citation = "Stevens, P. F. (<year>). Angiosperm Phylogeny Website. Version 13, July 2012.")
 c_gisd <- list(url_home = "http://www.issg.org/database/welcome/", apidocs = NULL, citation = NULL)
 c_none <- list(url_home = "no data source", apidocs = "no data source", citation = "no data source")
+c_natureserve <- list(url_home = "http://www.natureserve.org/", apidocs = "https://services.natureserve.org/index.jsp", citation = "Citation: Natureserve. 2017. NatureServe Web Service. Arlington, VA. U.S.A. Available http://services.natureserve.org. (Accessed: <date>)")

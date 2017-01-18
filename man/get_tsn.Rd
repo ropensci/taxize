@@ -140,8 +140,8 @@ bb <- get_tsn("Quercus douglasii", config=progress())
 Other taxonomic-ids: \code{\link{get_boldid}},
   \code{\link{get_colid}}, \code{\link{get_eolid}},
   \code{\link{get_gbifid}}, \code{\link{get_ids}},
-  \code{\link{get_nbnid}}, \code{\link{get_tolid}},
-  \code{\link{get_tpsid}}, \code{\link{get_uid}},
-  \code{\link{get_wormsid}}
+  \code{\link{get_natservid}}, \code{\link{get_nbnid}},
+  \code{\link{get_tolid}}, \code{\link{get_tpsid}},
+  \code{\link{get_uid}}, \code{\link{get_wormsid}}
 }
 

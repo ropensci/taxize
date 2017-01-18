@@ -9,6 +9,7 @@
 \alias{classification.eolid}
 \alias{classification.gbifid}
 \alias{classification.ids}
+\alias{classification.natservid}
 \alias{classification.nbnid}
 \alias{classification.tolid}
 \alias{classification.tpsid}
@@ -22,7 +23,7 @@
 classification(...)
 
 \method{classification}{default}(x, db = NULL, callopts = list(),
-  return_id = TRUE, rows = NA, ...)
+  return_id = TRUE, rows = NaN, ...)
 
 \method{classification}{tsn}(id, callopts = list(), return_id = TRUE, ...)
 
@@ -47,6 +48,9 @@ classification(...)
 \method{classification}{wormsid}(id, callopts = list(), return_id = TRUE,
   ...)
 
+\method{classification}{natservid}(id, callopts = list(), return_id = TRUE,
+  ...)
+
 \method{classification}{ids}(id, ...)
 
 cbind.classification(x)
@@ -61,22 +65,25 @@ rbind.classification_ids(...)
 \item{...}{Other arguments passed to \code{\link[taxize]{get_tsn}},
 \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}},
 \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_tpsid}},
-\code{\link[taxize]{get_gbifid}}.}
+\code{\link[taxize]{get_gbifid}}, \code{\link[taxize]{get_wormsid}},
+or \code{\link[taxize]{get_natservid}}}
 
 \item{x}{Vector of taxa names (character) or IDs (character or numeric)
 to query.}
 
 \item{db}{character; database to query. either \code{ncbi}, \code{itis},
 \code{eol}, \code{col}, \code{tropicos}, \code{gbif}, \code{nbn},
-or \code{worms}. Note that each taxonomic data source has their own
-identifiers, so that if you provide the wrong \code{db} value for the
-identifier you could get a result, but it will likely be wrong (not
+\code{worms}, or \code{natserv}. Note that each taxonomic data source has
+their own identifiers, so that if you provide the wrong \code{db} value
+for the identifier you could get a result, but it will likely be wrong (not
 what you were expecting).}
 
 \item{callopts}{Curl options passed on to \code{\link[httr]{GET}}}
 
-\item{return_id}{(logical) If TRUE (default), return the taxon id as well
-as the name and rank of taxa in the lineage returned.}
+\item{return_id}{(logical) If \code{TRUE} (default), return the taxon id
+as well as the name and rank of taxa in the lineage returned.
+Ignored for natserv as they don't return IDs in their taxonomic
+classification data.}
 
 \item{rows}{(numeric) Any number from 1 to infinity. If the default NA,
 all rows are considered. Note that this parameter is ignored if you pass
@@ -85,7 +92,8 @@ in a taxonomic id instead of a name of class character.}
 \item{id}{character; identifiers, returned by \code{\link[taxize]{get_tsn}},
 \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}},
 \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_tpsid}},
-\code{\link[taxize]{get_gbifid}}, \code{\link[taxize]{get_tolid}}}
+\code{\link[taxize]{get_gbifid}}, \code{\link[taxize]{get_tolid}},
+\code{\link[taxize]{get_wormsid}}, \code{\link[taxize]{get_natservid}}}
 
 \item{key}{Your API key; loads from .Rprofile.}
 
@@ -122,6 +130,7 @@ classification(c(9606, 55062), db = 'ncbi')
 classification(129313, db = 'itis')
 classification(57361017, db = 'eol')
 classification(126436, db = 'worms')
+classification("ELEMENT_GLOBAL.2.134717", db = 'natserv')
 classification(c(2704179, 2441176), db = 'gbif')
 classification(25509881, db = 'tropicos')
 classification("NBNSYS0000004786", db = 'nbn')
@@ -132,14 +141,21 @@ classification(c("2704179", "2441176"), db = 'gbif')
 # Plug in taxon names
 ## in this case, we use get_*() fxns internally to first get taxon IDs
 classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi')
-classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi', verbose=FALSE)
+classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi',
+  verbose=FALSE)
 classification(c("Chironomus riparius", "aaa vva"), db = 'itis')
-classification(c("Chironomus riparius", "aaa vva"), db = 'itis', verbose=FALSE)
+classification(c("Chironomus riparius", "aaa vva"), db = 'itis',
+  verbose=FALSE)
 classification(c("Chironomus riparius", "aaa vva"), db = 'eol')
 classification(c("Chironomus riparius", "aaa vva"), db = 'col')
 classification("Alopias vulpinus", db = 'nbn')
 classification('Gadus morhua', db = 'worms')
-classification(c("Chironomus riparius", "aaa vva"), db = 'col', verbose=FALSE)
+classification('Aquila chrysaetos', db = 'natserv')
+classification('Gadus morhua', db = 'natserv')
+classification('Pomatomus saltatrix', db = 'natserv')
+classification('Aquila chrysaetos', db = 'natserv')
+classification(c("Chironomus riparius", "aaa vva"), db = 'col',
+  verbose=FALSE)
 classification(c("Chironomus riparius", "asdfasdfsfdfsd"), db = 'gbif')
 classification("Chironomus", db = 'tol')
 classification("Poa annua", db = 'tropicos')
@@ -149,7 +165,8 @@ classification(get_uid(c("Chironomus riparius", "Puma concolor")))
 
 classification(get_uid(c("Chironomus riparius", "aaa vva")))
 classification(get_tsn(c("Chironomus riparius", "aaa vva")))
-classification(get_tsn(c("Chironomus riparius", "aaa vva"), verbose = FALSE))
+classification(get_tsn(c("Chironomus riparius", "aaa vva"),
+  verbose = FALSE))
 classification(get_eolid(c("Chironomus riparius", "aaa vva")))
 classification(get_colid(c("Chironomus riparius", "aaa vva")))
 classification(get_tpsid(c("Poa annua", "aaa vva")))
@@ -166,7 +183,8 @@ cbind(cl)
 rbind(cl)
 
 # Many names to get_ids
-(out <- get_ids(names=c("Puma concolor","Accipiter striatus"), db = c('ncbi','itis','col')))
+(out <- get_ids(names=c("Puma concolor","Accipiter striatus"),
+  db = c('ncbi','itis','col')))
 (cl <- classification(out))
 rbind(cl)
 ## cbind with so many names results in some messy data
@@ -174,17 +192,20 @@ cbind(cl)
 ## so you can turn off return_id
 cbind( classification(out, return_id=FALSE) )
 
-# rbind and cbind on class classification (from a call to get_colid, get_tsn, etc.
-# - other than get_ids)
-(cl_col <- classification(get_colid(c("Puma concolor","Accipiter striatus"))))
+# rbind and cbind on class classification (from a
+# call to get_colid, get_tsn, etc. other than get_ids)
+(cl_col <- classification(
+  get_colid(c("Puma concolor","Accipiter striatus"))))
 rbind(cl_col)
 cbind(cl_col)
 
-(cl_uid <- classification(get_uid(c("Puma concolor","Accipiter striatus")), return_id=FALSE))
+(cl_uid <- classification(get_uid(c("Puma concolor","Accipiter striatus")),
+  return_id=FALSE))
 rbind(cl_uid)
 cbind(cl_uid)
 ## cbind works a bit odd when there are lots of ranks without names
-(cl_uid <- classification(get_uid(c("Puma concolor","Accipiter striatus")), return_id=TRUE))
+(cl_uid <- classification(get_uid(c("Puma concolor","Accipiter striatus")),
+  return_id=TRUE))
 cbind(cl_uid)
 
 (cl_tsn <- classification(get_tsn(c("Puma concolor","Accipiter striatus"))))
@@ -196,14 +217,18 @@ cbind(cl_tsn)
 cbind(cl_tsns)
 
 # NBN data
-(res <- classification(c("Alopias vulpinus","Pinus sylvestris"), db = 'nbn'))
+(res <- classification(c("Alopias vulpinus","Pinus sylvestris"),
+  db = 'nbn'))
 rbind(res)
 cbind(res)
 
 # Return taxonomic IDs
-## the return_id parameter is logical, and you can turn it on or off. It's TRUE by default
-classification(c("Alopias vulpinus","Pinus sylvestris"), db = 'ncbi', return_id = TRUE)
-classification(c("Alopias vulpinus","Pinus sylvestris"), db = 'ncbi', return_id = FALSE)
+## the return_id parameter is logical, and you can turn it on or off.
+## It's TRUE by default
+classification(c("Alopias vulpinus","Pinus sylvestris"), db = 'ncbi',
+  return_id = TRUE)
+classification(c("Alopias vulpinus","Pinus sylvestris"), db = 'ncbi',
+  return_id = FALSE)
 
 # Use rows parameter to select certain
 classification('Poa annua', db = 'tropicos')
@@ -214,8 +239,9 @@ classification('Poa annua', db = 'tropicos', rows=6)
 
 }
 \seealso{
-\code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_uid}},
-   \code{\link[taxize]{get_eolid}}, \code{\link[taxize]{get_colid}},
-   \code{\link[taxize]{get_tpsid}}, \code{\link[taxize]{get_gbifid}}
+\code{\link{get_tsn}}, \code{\link{get_uid}},
+   \code{\link{get_eolid}}, \code{\link{get_colid}},
+   \code{\link{get_tpsid}}, \code{\link{get_gbifid}}
+   \code{\link{get_wormsid}}, \code{\link{get_natservid}}
 }
 
