@@ -1,3 +1,23 @@
+taxize 0.8.4
+============
+
+## NEW FEATURES
+
+* Added WoRMS integration via the new `worrms` package on CRAN.
+Adds functions `as.wormsid()`, `get_wormsid()`, `get_wormsid_()`, 
+`children.wormsid()`, `classification.wormsid()`, `sci2comm.wormsid()`, 
+`comm2sci.wormsid()`, and `synonyms.wormsid()` (#574) (#579)
+* New functions for NatureServe data, including `as.natservid`,
+`get_natservid`, `get_natservid_`, and `classification.natservid` 
+(#126)
+
+## BUG FIXES
+
+* EOL API keys were not passed on to internal functions. fixed now. 
+thanks @dschlaep ! (#576)
+* Fix in `rankagg()` with respect to `vegan` package to work with 
+older and new version of `vegan` - thank @jarioksa (#580) (#581)
+
 taxize 0.8.0
 ============
 

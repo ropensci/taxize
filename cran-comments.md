@@ -12,7 +12,7 @@
 License components with restrictions and base license permitting such:
   MIT + file LICENSE
 File 'LICENSE':
-  YEAR: 2016
+  YEAR: 2017
   COPYRIGHT HOLDER: Scott Chamberlain
 
 ## Reverse dependencies
@@ -20,13 +20,13 @@ File 'LICENSE':
 * I have run R CMD check on the 16 downstream dependencies
 (<https://github.com/ropensci/taxize/blob/master/revdep/README.md>).
 All revdep maintainers were notified of the release. There was one
-problem with the pacakge camtrapR - I have notified the
-maintainer earlier this week and said is ready to deploy fixes.
+problem with a vignette build with the pacakge camtrapR - I have 
+notified the maintainer.
 
 ------
 
-This version includes some new functions, removes some functions to instead use those
-from an imported package - a number of bug fixes.
+This version includes two new data sources, and two bug fixes, including 
+for a recent CRAN check failure that Kurt contacted me about.
 
 Thanks!
 Scott Chamberlain
