@@ -2,6 +2,9 @@ language: r
 sudo: false
 cache: packages
 
+r_binary_packages:
+  - vegan
+
 r:
   - oldrel
   - release
