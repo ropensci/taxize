@@ -1,20 +1,24 @@
 Package: taxize
 Title: Taxonomic Information from Around the Web
 Description: Interacts with a suite of web 'APIs' for taxonomic tasks,
-    such as verifying species names, and getting taxonomic 'hierarchies'.
-Version: 0.8.2.9510
+    such as getting database specific taxonomic identifiers, verifying 
+    species names, getting taxonomic hierarchies, fetching downstream and 
+    upstream taxonomic names, getting taxonomic synonyms, converting 
+    scientific to common names and vice versa, and more.
+Version: 0.8.2.9515
 License: MIT + file LICENSE
 URL: https://github.com/ropensci/taxize
 BugReports: https://github.com/ropensci/taxize/issues
 Authors@R: c(
     person("Scott", "Chamberlain", role = c("aut", "cre"), email = "myrmecocystus@gmail.com"),
-    person("Eduard", "Szoecs", role = "aut", email = "eduardszoecs@gmail.com"),
-    person("Zachary", "Foster", role = "aut", email = "zacharyfoster1989@gmail.com"),
-    person("Carl", "Boettiger", role = "aut", email = "cboettig@gmail.com"),
-    person("Karthik", "Ram", role = "aut", email = "karthik@ropensci.org"),
-    person("Ignasi", "Bartomeus", role = "aut", email = "nacho.bartomeus@gmail.com"),
-    person("John", "Baumgartner", role = "aut", email = "johnbb@student.unimelb.edu.au"),
-    person("James", "O'Donnell", role = "aut", email = "jodonnellbio@gmail.com")
+    person("Eduard", "Szoecs", role = "aut"),
+    person("Zachary", "Foster", role = "aut"),
+    person("Carl", "Boettiger", role = "ctb"),
+    person("Karthik", "Ram", role = "ctb"),
+    person("Ignasi", "Bartomeus", role = "ctb"),
+    person("John", "Baumgartner", role = "ctb"),
+    person("James", "O'Donnell", role = "ctb"),
+    person("Jari", "Oksanen", role = "ctb")
   )
 LazyLoad: yes
 LazyData: yes
@@ -47,5 +51,4 @@ Suggests:
     knitr,
     vegan,
     covr
-Remotes: ropensci/worrms
 RoxygenNote: 5.0.1
