@@ -7,7 +7,7 @@ test_that("tp_summary returns the correct value", {
 
   dat <- suppressMessages(tp_summary(id = 25509881))
 
-	expect_that(names(dat)[[1]], matches(".id"))
+  expect_match(names(dat)[[1]], ".id")
 
 	expect_is(dat, "data.frame")
 	expect_equal(NCOL(dat), 22)

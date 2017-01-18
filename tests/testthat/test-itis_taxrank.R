@@ -7,7 +7,7 @@ test_that("itis_taxrank returns the correct value", {
 
   temp <- itis_taxrank(query=202385, verbose=FALSE)
 
-	expect_that(as.character(temp), matches("Subspecies"))
+  expect_match(as.character(temp), "Subspecies")
 
-	expect_that(temp, is_a("character"))
+	expect_is(temp, "character")
 })

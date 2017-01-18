@@ -80,7 +80,7 @@ children <- function(...){
 
 #' @export
 #' @rdname children
-children.default <- function(x, db = NULL, rows = NA, ...) {
+children.default <- function(x, db = NULL, rows = NaN, ...) {
   nstop(db)
   switch(
     db,

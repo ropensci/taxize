@@ -3,7 +3,7 @@ context("get_gbifid")
 test_that("get_gbifid returns the correct value", {
   skip_on_cran()
 
-  expect_true(is.na(get_gbifid(c("Chironomus riparius", "aaa"), verbose = FALSE)[2]))
+  expect_true(is.na(get_gbifid(c("Chironomus riparius", "aaasdfadsfasdf"), verbose = FALSE)[2]))
 })
 
 test_that("get_gbifid returns the correct class", {

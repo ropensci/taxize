@@ -8,7 +8,7 @@ test_that("itis_downstream returns the correct value", {
   data(rank_ref, package = "taxize")
   dat_ <- itis_downstream(tsns=183264, "Species", verbose=FALSE)
 
-	expect_that(as.character(dat_[1,"rankname"]), matches("species"))
+  expect_match(as.character(dat_[1,"rankname"]), "species")
 
 	expect_that(dat_, is_a("data.frame"))
 

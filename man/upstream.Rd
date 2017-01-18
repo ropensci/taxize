@@ -10,7 +10,7 @@
 \usage{
 upstream(...)
 
-\method{upstream}{default}(x, db = NULL, upto = NULL, rows = NA, ...)
+\method{upstream}{default}(x, db = NULL, upto = NULL, rows = NaN, ...)
 
 \method{upstream}{tsn}(x, db = NULL, upto = NULL, ...)
 

@@ -18,8 +18,8 @@ test_that("itis_kingdomnames - with TSN's", {
   one <- itis_kingdomnames(202385)
   two <- itis_kingdomnames(tsn = c(202385, 183833, 180543))
 
-  expect_that(one, matches("Animalia"))
-  expect_that(two[[1]], matches("Animalia"))
+  expect_match(one, "Animalia")
+  expect_match(two[[1]], "Animalia")
 
   expect_that(one, is_a("character"))
   expect_that(two, is_a("character"))

@@ -7,7 +7,7 @@ test_that("tp_synonyms returns the correct value", {
 
   dat <- suppressMessages(tp_synonyms(id = 25509881))
 
-  expect_that(names(dat)[[1]], matches("accepted"))
+  expect_match(names(dat)[[1]], "accepted")
 
 	expect_that(dat, is_a("list"))
 	expect_that(dat[[1]], is_a("data.frame"))

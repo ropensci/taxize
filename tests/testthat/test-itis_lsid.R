@@ -11,8 +11,8 @@ test_that("itis_lsid returns the correct value", {
   four <- itis_lsid(202385)
 
   expect_equal(one, "180543")
-  expect_that(as.character(two[1, "genuspart"]), matches("Ursus"))
-  expect_that(three$acceptedNameList$tsn, matches("180543"))
+  expect_match(as.character(two[1, "genuspart"]), "Ursus")
+  expect_match(three$acceptedNameList$tsn, "180543")
   expect_null(four)
 
   expect_is(one, "character")

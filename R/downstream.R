@@ -96,7 +96,7 @@ downstream <- function(...){
 
 #' @export
 #' @rdname downstream
-downstream.default <- function(x, db = NULL, downto = NULL, intermediate = FALSE, rows=NA, ...) {
+downstream.default <- function(x, db = NULL, downto = NULL, intermediate = FALSE, rows=NaN, ...) {
   nstop(downto, "downto")
   nstop(db)
   switch(

@@ -12,7 +12,7 @@
 \usage{
 children(...)
 
-\method{children}{default}(x, db = NULL, rows = NA, ...)
+\method{children}{default}(x, db = NULL, rows = NaN, ...)
 
 \method{children}{tsn}(x, db = NULL, ...)
 

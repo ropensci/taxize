@@ -7,7 +7,7 @@ test_that("gni_parse returns the correct value", {
 
   tt <- gni_parse("Cyanistes caeruleus")
 
-  expect_that(as.character(tt[,2]), matches("caeruleus"))
+  expect_match(as.character(tt[,2]), "caeruleus")
 	expect_that(tt[,"position_genus"], equals(9))
 
 	expect_that(tt, is_a("data.frame"))
