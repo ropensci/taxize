@@ -34,10 +34,6 @@ iucn_id(c("Panthera uncia", "Lynx lynx", "foo bar", "hello world"))
 
 # a name not found
 iucn_id("Foo bar")
-
-# curl options
-library("httr")
-iucn_id("Branta canadensis", config = verbose())
 }
 }
 \author{

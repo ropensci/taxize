@@ -84,7 +84,7 @@
 #' get_wormsid_("Plat", rows=1)
 #' get_wormsid_("Plat", rows=1:2)
 #' get_wormsid_("Plat", rows=1:75)
-#' get_wormsid_(c("asdfadfasd","Plat"), rows=1:5)
+#' # get_wormsid_(c("asdfadfasd","Plat"), rows=1:5)
 #' }
 get_wormsid <- function(query, searchtype = "scientific", accepted = FALSE,
                       ask = TRUE, verbose = TRUE, rows = NaN, ...) {

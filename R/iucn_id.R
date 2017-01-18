@@ -21,10 +21,6 @@
 #'
 #' # a name not found
 #' iucn_id("Foo bar")
-#'
-#' # curl options
-#' library("httr")
-#' iucn_id("Branta canadensis", config = verbose())
 #' }
 iucn_id <- function(sciname, ...) {
   out <- list()
