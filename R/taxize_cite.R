@@ -1,8 +1,8 @@
 #' Get citations and licenses for data sources used in taxize
 #'
 #' @export
-#' @param fxn Function to search on. A special case is the package name 'taxize' that will give the
-#' citations for the package.
+#' @param fxn Function to search on. A special case is the package name
+#' 'taxize' that will give the citations for the package.
 #' @param what One of citation (default), license, or both.
 #' @examples
 #' taxize_cite(fxn='eol_search')
@@ -12,6 +12,8 @@
 #' taxize_cite(fxn='plantminer')
 #' taxize_cite(fxn='get_natservid_')
 #' taxize_cite(fxn='as.natservid')
+#' taxize_cite(fxn='get_wormsid')
+#' taxize_cite(fxn='as.wormsid')
 #'
 #' # Functions that use many data sources
 #' taxize_cite(fxn='synonyms')
@@ -83,19 +85,22 @@ data_citations <- function(x){
     as.tpsid = list(tropicos = c_tropicos),
     as.tsn = list(itis = c_itis),
     as.uid = list(ncbi = c_ncbi),
+    as.wormsid = list(worms = c_worms),
     bold_ping = list(bold = c_bold),
     bold_search = list(bold = c_bold),
     cbind.classification = list(none = c_none),
     cbind.classification_ids = list(none = c_none),
-    children = list(itis = c_itis, col = c_col, ncbi = c_ncbi),
+    children = list(itis = c_itis, col = c_col, ncbi = c_ncbi, worms = c_worms),
     class2tree = list(none = c_none),
-    classification = list(itis = c_itis, col = c_col, ncbi = c_ncbi, gbif = c_gbif, eol = c_eol, troicos = c_tropicos, nbn = c_nbn),
+    classification = list(itis = c_itis, col = c_col, ncbi = c_ncbi,
+                          gbif = c_gbif, eol = c_eol, troicos = c_tropicos,
+                          nbn = c_nbn, worms = c_worms, natserv = c_natureserve),
     col_children = list(col = c_col),
     col_classification = list(col = c_col),
     col_downstream = list(col = c_col),
     col_ping = list(col = c_col),
     col_search = list(col = c_col),
-    comm2sci = list(c_itis, c_ncbi, c_eol, c_tropicos),
+    comm2sci = list(c_itis, c_ncbi, c_eol, c_tropicos, worms = c_worms),
     downstream = list(itis = c_itis, col = c_col),
     eol_dataobjects = list(eol = c_eol),
     eol_hierarchy = list(eol = c_eol),
@@ -130,6 +135,8 @@ data_citations <- function(x){
     get_tsn_ = list(itis = c_itis),
     get_uid = list(ncbi = c_ncbi),
     get_uid_ = list(ncbi = c_ncbi),
+    get_wormsid = list(worms = c_worms),
+    get_wormsid_ = list(worms = c_worms),
     gisd_isinvasive = list(gisd = c_gisd),
     gni_details = list(gni = c_gni),
     gni_parse = list(gni = c_gni),
@@ -158,9 +165,10 @@ data_citations <- function(x){
     rbind.classification = list(none = c_none),
     rbind.classification_ids = list(none = c_none),
     resolve = list(global_names = c_gnames, iplant = c_iplant),
-    sci2comm = list(itis = c_itis, ncbi = c_ncbi, eol = c_eol),
+    sci2comm = list(itis = c_itis, ncbi = c_ncbi, eol = c_eol, worms = c_worms),
     scrapenames = list(global_names = c_gnames),
-    synonyms = list(itis = c_itis, col = c_col, tropicos = c_tropicos, nbn = c_nbn),
+    synonyms = list(itis = c_itis, col = c_col, tropicos = c_tropicos,
+                    nbn = c_nbn, worms = c_worms),
     tax_agg = list(itis = c_itis, ncbi = c_ncbi),
     tax_name = list(itis = c_itis, ncbi = c_ncbi),
     tax_rank = list(itis = c_itis, ncbi = c_ncbi),
@@ -228,4 +236,5 @@ c_apg <- list(url_home = "http://www.mobot.org/MOBOT/research/APweb/", apidocs =
               citation = "Stevens, P. F. (<year>). Angiosperm Phylogeny Website. Version 13, July 2012.")
 c_gisd <- list(url_home = "http://www.issg.org/database/welcome/", apidocs = NULL, citation = NULL)
 c_none <- list(url_home = "no data source", apidocs = "no data source", citation = "no data source")
+c_worms <- list(url_home = "http://www.marinespecies.org/", apidocs = "http://www.marinespecies.org/rest/", citation = "We ask you to cite the individual global or regional species lists, or species pages as appropriate. Their citations are shown on their web pages. The database as a whole is to be cited as follows:\n\n     WoRMS Editorial Board (2017). World Register of Marine Species. Available from http://www.marinespecies.org at VLIZ. Accessed <date>. doi:10.14284/170")
 c_natureserve <- list(url_home = "http://www.natureserve.org/", apidocs = "https://services.natureserve.org/index.jsp", citation = "Citation: Natureserve. 2017. NatureServe Web Service. Arlington, VA. U.S.A. Available http://services.natureserve.org. (Accessed: <date>)")
