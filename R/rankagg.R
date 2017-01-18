@@ -20,7 +20,7 @@
 rankagg <- function(data=NULL, datacol=NULL, rank=NULL, fxn="sum") {
   if (is.null(data) | is.null(rank))
     stop("You must specify your data.frame and taxonomic rank")
-  rank <- match.arg(rank, choices = c('Specices', 'Genus', 'Tribe', 'Family',
+  rank <- match.arg(rank, choices = c('Species', 'Genus', 'Tribe', 'Family',
                                       'Order', 'Subclass', 'Class', 'Phylum',
                                       'Kingdom'))
   fn <- match.fun(fxn)
