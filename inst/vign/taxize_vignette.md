@@ -42,16 +42,16 @@ head(temp)
 #> 1   Helianthos annus Helianthos annus     Helianthus annus
 #> 2   Helianthos annus Helianthos annus  Helianthus annus L.
 #> 3   Helianthos annus Helianthos annus     Helianthus annus
-#> 4   Helianthos annus Helianthos annus Helianthus annuus L.
+#> 4   Helianthos annus Helianthos annus     Helianthus annus
 #> 5   Helianthos annus Helianthos annus Helianthus annuus L.
-#> 6   Helianthos annus Helianthos annus    Helianthus annuus
-#>   data_source_title score
-#> 1               EOL  0.75
-#> 2               EOL  0.75
-#> 3     uBio NameBank  0.75
-#> 4 Catalogue of Life  0.75
-#> 5              ITIS  0.75
-#> 6              NCBI  0.75
+#> 6   Helianthos annus Helianthos annus Helianthus annuus L.
+#>                      data_source_title score
+#> 1                                  EOL  0.75
+#> 2                                  EOL  0.75
+#> 3                        uBio NameBank  0.75
+#> 4 Open Tree of Life Reference Taxonomy  0.75
+#> 5                    Catalogue of Life  0.75
+#> 6                                 ITIS  0.75
 ```
 
 The correct spellings are *Helianthus annuus* and *Homo sapiens*. Another approach uses the Taxonomic Name Resolution Service via the Taxosaurus API developed by iPLant and the Phylotastic organization. In this example, we provide a list of species names, some of which are misspelled, and we'll call the API with the *tnrs* function.
@@ -109,16 +109,16 @@ lapply(tsn, itis_acceptname)
 
 ```
 [[1]]
-  submittedtsn      acceptedname acceptedtsn
-1       525928 Helianthus annuus       36616
+  submittedtsn      acceptedname acceptedtsn author
+1       525928 Helianthus annuus       36616     L.
 
 [[2]]
-  submittedtsn      acceptedname acceptedtsn
-1       525929 Helianthus annuus       36616
+  submittedtsn      acceptedname acceptedtsn author
+1       525929 Helianthus annuus       36616     L.
 
 [[3]]
-  submittedtsn      acceptedname acceptedtsn
-1       525930 Helianthus annuus       36616
+  submittedtsn      acceptedname acceptedtsn author
+1       525930 Helianthus annuus       36616     L.
 ```
 
 ## Retrieve higher taxonomic names
@@ -135,7 +135,9 @@ classification(specieslist, db = 'itis')
 
 ```
 #> $`Abies procera`
+#> # A tibble: 12 × 3
 #>               name          rank     id
+#>              <chr>         <chr>  <chr>
 #> 1          Plantae       kingdom 202422
 #> 2    Viridiplantae    subkingdom 954898
 #> 3     Streptophyta  infrakingdom 846494
@@ -150,7 +152,9 @@ classification(specieslist, db = 'itis')
 #> 12   Abies procera       species 181835
 #> 
 #> $`Pinus contorta`
+#> # A tibble: 12 × 3
 #>               name          rank     id
+#>              <chr>         <chr>  <chr>
 #> 1          Plantae       kingdom 202422
 #> 2    Viridiplantae    subkingdom 954898
 #> 3     Streptophyta  infrakingdom 846494
@@ -217,7 +221,7 @@ get_uid(sciname = "Pinus")
 #> attr(,"pattern_match")
 #> [1] FALSE
 #> attr(,"uri")
-#> [1] "http://www.ncbi.nlm.nih.gov/taxonomy/139271"
+#> [1] "https://www.ncbi.nlm.nih.gov/taxonomy/139271"
 ```
 
 In another example, you can pass in a long character vector of taxonomic names (although this one is rather short for demo purposes):
@@ -321,7 +325,7 @@ NROW(out$`Poa annua`)
 ```
 
 ```
-#> [1] 147
+#> [1] 152
 ```
 
 That's a lot of data, so we can get only certain rows back
@@ -333,17 +337,17 @@ get_nbnid_("Poa annua", rows = 1:10)
 
 ```
 #> $`Poa annua`
-#>    ptaxonversionkey searchmatchtitle    rank  namestatus
-#> 1  NBNSYS0000002544        Poa annua species Recommended
-#> 2  NHMSYS0000461798              Poa   genus Recommended
-#> 3  NHMSYS0000461804         Poa laxa species     Synonym
-#> 4  NHMSYS0021060390           Poales   order Recommended
-#> 5  NBNSYS0000002547       Poa alpina species Recommended
-#> 6  NBNSYS0000002551       Poa glauca species Recommended
-#> 7  NBNSYS0000160753          Poaceae  family Recommended
-#> 8  NBNSYS0000002551       Poa caesia species     Synonym
-#> 9  NHMSYS0000456981       Poa rigida species     Synonym
-#> 10 NHMSYS0000461804        Poa minor species     Synonym
+#>    ptaxonversionkey searchmatchtitle    rank   namestatus
+#> 1  NBNSYS0000002544        Poa annua species  Recommended
+#> 2  NHMSYS0000461798              Poa   genus  Recommended
+#> 3  NHMSYS0000461804         Poa laxa species      Synonym
+#> 4  NHMSYS0021060390           Poales   order  Recommended
+#> 5  NBNSYS0000002551       Poa glauca species  Recommended
+#> 6  NBNSYS0000002547       Poa alpina species  Recommended
+#> 7  NHMSYS0000456981       Poa rigida species      Synonym
+#> 8  NBNSYS0000002551       Poa caesia species      Synonym
+#> 9  NBNSYS0000002545       Poa exilis species Undetermined
+#> 10 NHMSYS0000461804        Poa minor species      Synonym
 ```
 
 ## Coerce numerics/alphanumerics to taxon IDs
@@ -358,30 +362,10 @@ as.gbifid(get_gbifid("Poa annua")) # already a uid, returns the same
 ```
 
 ```
-#>     gbifid                        scientificname    rank   status
-#> 1  2704179                          Poa annua L. species ACCEPTED
-#> 2  8422205 Poa annua Cham. & Schltdl., nom. nud. species  SYNONYM
-#> 3  7730008                      Poa annua Steud. species DOUBTFUL
-#> 4  4129172                        Poa anae Tovar species ACCEPTED
-#> 5  4911998  Palanaea S.C.D. Sah & R.K. Kar, 1974   genus ACCEPTED
-#> 6  4687090             Paranoea Walsingham, 1911   genus DOUBTFUL
-#> 7  3575742                × Piaroanea G.D.Rowley   genus DOUBTFUL
-#> 8  8233270                 Paronaea Prever, 1903   genus  SYNONYM
-#> 9  3313977              Poronea Rafinesque, 1815   genus DOUBTFUL
-#> 10 4896986                 Paronaea Prever, 1903   genus DOUBTFUL
-#> 11 4899892                Potoniea Zeiller, 1899   genus DOUBTFUL
-#>    matchtype
-#> 1      EXACT
-#> 2      EXACT
-#> 3      EXACT
-#> 4      FUZZY
-#> 5      FUZZY
-#> 6      FUZZY
-#> 7      FUZZY
-#> 8      FUZZY
-#> 9      FUZZY
-#> 10     FUZZY
-#> 11     FUZZY
+#>    gbifid             scientificname    rank   status matchtype
+#> 1 2704179               Poa annua L. species ACCEPTED     EXACT
+#> 2 8422205 Poa annua Cham. & Schltdl. species  SYNONYM     EXACT
+#> 3 7730008           Poa annua Steud. species DOUBTFUL     EXACT
 ```
 
 ```
@@ -463,7 +447,7 @@ system.time( replicate(3, as.gbifid(c("2704179","2435099","3171445"), check=TRUE
 
 ```
 #>    user  system elapsed 
-#>   0.096   0.009   4.560
+#>   0.072   0.002   1.703
 ```
 
 ```r

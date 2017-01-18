@@ -6,40 +6,20 @@
 |:--------|:----------------------------|
 |version  |R version 3.3.2 (2016-10-31) |
 |system   |x86_64, darwin13.4.0         |
-|ui       |X11                          |
+|ui       |RStudio (1.1.21)             |
 |language |(EN)                         |
 |collate  |en_US.UTF-8                  |
 |tz       |America/Los_Angeles          |
-|date     |2016-12-12                   |
+|date     |2017-01-18                   |
 
 ## Packages
 
 |package |*  |version |date       |source                     |
 |:-------|:--|:-------|:----------|:--------------------------|
-|taxize  |   |0.8.0   |2016-12-12 |local (ropensci/taxize@NA) |
+|taxize  |   |0.8.4   |2017-01-18 |local (ropensci/taxize@NA) |
 
 # Check results
-
 16 packages
-
-|package    |version | errors| warnings| notes|
-|:----------|:-------|------:|--------:|-----:|
-|bdvis      |0.2.9   |      0|        0|     0|
-|binomen    |0.1.0   |      0|        0|     0|
-|brranching |0.2.0   |      0|        0|     0|
-|camtrapR   |0.99.5  |      1|        0|     0|
-|mapr       |0.3.0   |      0|        0|     0|
-|metacoder  |0.1.2   |      0|        0|     0|
-|MonoPhy    |1.2     |      0|        0|     0|
-|myTAI      |0.4.0   |      0|        0|     0|
-|originr    |0.2.0   |      0|        0|     0|
-|rbison     |0.5.0   |      0|        0|     0|
-|RNeXML     |2.0.7   |      0|        0|     0|
-|rnoaa      |0.6.6   |      0|        0|     0|
-|rusda      |1.0.8   |      0|        0|     0|
-|spocc      |0.6.0   |      0|        0|     0|
-|TR8        |0.9.14  |      0|        0|     0|
-|traits     |0.2.0   |      0|        0|     0|
 
 ## bdvis (0.2.9)
 Maintainer: Vijay Barve <vijay.barve@gmail.com>
@@ -58,19 +38,28 @@ Bug reports: http://www.github.com/ropensci/brranching/issues
 
 0 errors | 0 warnings | 0 notes
 
-## camtrapR (0.99.5)
+## camtrapR (0.99.6)
 Maintainer: Juergen Niedballa <niedballa@izw-berlin.de>
 
-1 error  | 0 warnings | 0 notes
+0 errors | 1 warning  | 0 notes
 
 ```
-checking package dependencies ... ERROR
-Packages required but not available: ‘overlap’ ‘secr’
+checking re-building of vignette outputs ... WARNING
+Error in re-building vignettes:
+  ...
+Loading required package: sp
+rgdal: version: 1.2-5, (SVN revision 648)
+ Geospatial Data Abstraction Library extensions to R successfully loaded
+ Loaded GDAL runtime: GDAL 2.1.2, released 2016/10/24
+ Path to GDAL shared files: /usr/local/share/epsg_csv
+ Loaded PROJ.4 runtime: Rel. 4.9.1, 04 March 2015, [PJ_VERSION: 491]
+ Path to PROJ.4 shared files: (autodetected)
+ Linking to sp version: 1.2-3 
+Quitting from lines 50-54 (DataExtraction.Rmd) 
+Error: processing vignette 'DataExtraction.Rmd' failed with diagnostics:
+cannot find ExifTool
+Execution halted
 
-Package suggested but not available for checking: ‘unmarked’
-
-See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-manual.
 ```
 
 ## mapr (0.3.0)
@@ -130,7 +119,7 @@ Bug reports: https://github.com/ropensci/spocc/issues
 
 0 errors | 0 warnings | 0 notes
 
-## TR8 (0.9.14)
+## TR8 (0.9.15)
 Maintainer: Gionata Bocci <boccigionata@gmail.com>  
 Bug reports: https://github.com/GioBo/TR8/issues
 

@@ -4,7 +4,7 @@ taxize
 
 
 
-[![Build Status](https://api.travis-ci.org/ropensci/taxize.png?branch=master)](https://travis-ci.org/ropensci/taxize)
+[![Build Status](https://travis-ci.org/ropensci/taxize.svg?branch=master)](https://travis-ci.org/ropensci/taxize)
 [![Build status](https://ci.appveyor.com/api/projects/status/6mgc02mkd8j4sq3g/branch/master)](https://ci.appveyor.com/project/sckott/taxize-175/branch/master)
 [![codecov.io](https://codecov.io/github/ropensci/taxize/coverage.svg?branch=master)](https://codecov.io/github/ropensci/taxize?branch=master)
 [![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/taxize)](https://github.com/metacran/cranlogs.app)
@@ -21,7 +21,7 @@ You need API keys for Encyclopedia of Life (EOL), and Tropicos.
 
 ## SOAP
 
-Note that a few data sources require SOAP web services, which are difficult to support in R across all operating systems. These include: World Register of Marine Species, Pan-European Species directories Infrastructure , and Mycobank, so far. Data sources that use SOAP web services have been moved to a new package called `taxizesoap`. Find it at <https://github.com/ropensci/taxizesoap>.
+Note that a few data sources require SOAP web services, which are difficult to support in R across all operating systems. These include: Pan-European Species directories Infrastructure and Mycobank. Data sources that use SOAP web services have been moved to `taxizesoap` at <https://github.com/ropensci/taxizesoap>.
 
 ## Currently implemented in `taxize`
 
@@ -150,6 +150,18 @@ Note that a few data sources require SOAP web services, which are difficult to s
 	<td style="text-align:left;"><code>tol</code></td>
 	<td style="text-align:left;"><a href="https://opentreeoflife.org">link</a></td>
 	<td style="text-align:left;">none</td>
+</tr>
+<tr>
+	<td style="text-align:left;">World Register of Marine Species (WoRMS)</td>
+	<td style="text-align:left;"><code>worms</code></td>
+	<td style="text-align:left;"><a href="http://www.marinespecies.org/aphia.php?p=webservice">link</a></td>
+	<td style="text-align:left;">none</td>
+</tr>
+<tr>
+	<td style="text-align:left;">NatureServe</td>
+	<td style="text-align:left;"><code>natserv</code></td>
+	<td style="text-align:left;"><a href="https://services.natureserve.org/BrowseServices/getSpeciesData/getSpeciesListREST.jsp">link</a></td>
+	<td style="text-align:left;"><a href="https://services.natureserve.org/developer/index.jsp">link</a></td>
 </tr>
 </tbody>
 </table>
@@ -442,10 +454,10 @@ sci2comm('Helianthus annuus', db = 'itis')
 ```r
 comm2sci("black bear", db = "itis")
 #> $`black bear`
-#> [1] "Chiropotes satanas"          "Ursus thibetanus"           
-#> [3] "Ursus thibetanus"            "Ursus americanus luteolus"  
-#> [5] "Ursus americanus"            "Ursus americanus"           
-#> [7] "Ursus americanus americanus"
+#> [1] "Ursus thibetanus"            "Ursus thibetanus"           
+#> [3] "Ursus americanus luteolus"   "Ursus americanus"           
+#> [5] "Ursus americanus"            "Ursus americanus americanus"
+#> [7] "Chiropotes satanas"
 ```
 
 ## Lowest common rank among taxa
@@ -547,7 +559,7 @@ Check out our [milestones](https://github.com/ropensci/taxize/milestones) to see
 * Please [report any issues or bugs](https://github.com/ropensci/taxize/issues).
 * License: MIT
 * Get citation information for `taxize` in R doing `citation(package = 'taxize')`
-* Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). 
+* Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md).
 By participating in this project you agree to abide by its terms.
 
 [![ropensci](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)

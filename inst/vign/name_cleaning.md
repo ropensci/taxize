@@ -104,12 +104,15 @@ has a sister method with and trailing underscore, e.g., `get_tsn()` and `get_tsn
 ```r
 get_tsn_(searchterm = "Quercus b")
 #> $`Quercus b`
-#>       tsn         scientificname             commonnames nameusage
-#> 2   19300        Quercus bicolor         swamp white oak  accepted
-#> 7  195166      Quercus boyntonii Boynton's sand post oak  accepted
-#> 8  195168       Quercus buckleyi               Texas oak  accepted
-#> 9  506533        Quercus brantii             Brant's oak  accepted
-#> 10 507263 Quercus berberidifolia               scrub oak  accepted
+#> # A tibble: 5 × 4
+#>      tsn         scientificName                           commonNames
+#>    <chr>                  <chr>                                 <chr>
+#> 1  19300        Quercus bicolor     swamp white oak,ch<ea>ne bicolore
+#> 2 195166      Quercus boyntonii Boynton's sand post oak,Boynton's oak
+#> 3 195168       Quercus buckleyi               Texas oak,Buckley's oak
+#> 4 506533        Quercus brantii                           Brant's oak
+#> 5 507263 Quercus berberidifolia                             scrub oak
+#> # ... with 1 more variables: nameUsage <chr>
 ```
 
 The result is a single data.frame for each taxon queried, which can be
@@ -122,17 +125,21 @@ number of a range of numbers:
 ```r
 get_tsn_(searchterm = "Quercus b", rows = 1)
 #> $`Quercus b`
-#>     tsn  scientificname     commonnames nameusage
-#> 2 19300 Quercus bicolor swamp white oak  accepted
+#> # A tibble: 1 × 4
+#>     tsn  scientificName                       commonNames nameUsage
+#>   <chr>           <chr>                             <chr>     <chr>
+#> 1 19300 Quercus bicolor swamp white oak,ch<ea>ne bicolore  accepted
 ```
 
 
 ```r
 get_tsn_(searchterm = "Quercus b", rows = 1:2)
 #> $`Quercus b`
-#>      tsn    scientificname             commonnames nameusage
-#> 2  19300   Quercus bicolor         swamp white oak  accepted
-#> 7 195166 Quercus boyntonii Boynton's sand post oak  accepted
+#> # A tibble: 2 × 4
+#>      tsn    scientificName                           commonNames nameUsage
+#>    <chr>             <chr>                                 <chr>     <chr>
+#> 1  19300   Quercus bicolor     swamp white oak,ch<ea>ne bicolore  accepted
+#> 2 195166 Quercus boyntonii Boynton's sand post oak,Boynton's oak  accepted
 ```
 
 ## as.* methods
@@ -220,28 +227,42 @@ in a programmatic workflow straight away.
 ```r
 spp <- names_list(rank = "species", size = 10)
 gnr_resolve(names = spp, preferred_data_sources = 11)
-#>         user_supplied_name          submitted_name
-#> 1        Shorea beccariana       Shorea beccariana
-#> 2           Draba ramulosa          Draba ramulosa
-#> 3      Cyrtandra phoenicea     Cyrtandra phoenicea
-#> 4      Pulicaria pomeliana     Pulicaria pomeliana
-#> 5   Helichrysum gymnocomum  Helichrysum gymnocomum
-#> 6         Campium costatum        Campium costatum
-#> 7  Pseudosedum condensatum Pseudosedum condensatum
-#> 8      Grammitis mollipila     Grammitis mollipila
-#> 9      Dioscorea cruzensis     Dioscorea cruzensis
-#> 10         Cereus coracare         Cereus coracare
-#>                          matched_name      data_source_title score
-#> 1             Shorea beccariana Burck GBIF Backbone Taxonomy 0.988
-#> 2              Draba ramulosa Rollins GBIF Backbone Taxonomy 0.988
-#> 3     Cyrtandra phoenicea C.B. Clarke GBIF Backbone Taxonomy 0.988
-#> 4   Pulicaria pomeliana Faure & Maire GBIF Backbone Taxonomy 0.988
-#> 5          Helichrysum gymnocomum DC. GBIF Backbone Taxonomy 0.988
-#> 6             Campium costatum Copel. GBIF Backbone Taxonomy 0.988
-#> 7     Pseudosedum condensatum Boriss. GBIF Backbone Taxonomy 0.988
-#> 8  Grammitis mollipila (Baker) Copel. GBIF Backbone Taxonomy 0.988
-#> 9         Dioscorea cruzensis R.Knuth GBIF Backbone Taxonomy 0.988
-#> 10                                                             NaN
+#>               user_supplied_name                submitted_name
+#> 1             Eucalyptus oreades            Eucalyptus oreades
+#> 2          Alloispermum insuetum         Alloispermum insuetum
+#> 3                   Thymus rudis                  Thymus rudis
+#> 4                   Thymus rudis                  Thymus rudis
+#> 5      Trichosanthes dafangensis     Trichosanthes dafangensis
+#> 6  Ectropothecium subhaplocladum Ectropothecium subhaplocladum
+#> 7           Persoonia mitchellii          Persoonia mitchellii
+#> 8                Gilia propinqua               Gilia propinqua
+#> 9            Aberemoa furfuracea           Aberemoa furfuracea
+#> 10           Myrcia australasiae           Myrcia australasiae
+#> 11                Lotus borbasii                Lotus borbasii
+#>                                                    matched_name
+#> 1                                   Eucalyptus oreades R. Baker
+#> 2  Alloispermum insuetum C.F.Fernández, Urbatsch & G.A.Sullivan
+#> 3                                          Thymus rudis A.Kern.
+#> 4                              Thymus rudis A.Kern. ex Mazzetti
+#> 5                   Trichosanthes dafangensis N.G. Ye & S.J. Li
+#> 6                 Ectropothecium subhaplocladum Brotherus, 1928
+#> 7                                  Persoonia mitchellii Meissn.
+#> 8                             Gilia propinqua (Suksd.) St. John
+#> 9                      Aberemoa furfuracea (A. St.-Hil.) Baill.
+#> 10                                 Myrcia australasiae F.Muell.
+#> 11                                       Lotus borbasii Ujhelyi
+#>         data_source_title score
+#> 1  GBIF Backbone Taxonomy 0.988
+#> 2  GBIF Backbone Taxonomy 0.988
+#> 3  GBIF Backbone Taxonomy 0.988
+#> 4  GBIF Backbone Taxonomy 0.988
+#> 5  GBIF Backbone Taxonomy 0.988
+#> 6  GBIF Backbone Taxonomy 0.988
+#> 7  GBIF Backbone Taxonomy 0.988
+#> 8  GBIF Backbone Taxonomy 0.988
+#> 9  GBIF Backbone Taxonomy 0.988
+#> 10 GBIF Backbone Taxonomy 0.988
+#> 11 GBIF Backbone Taxonomy 0.988
 ```
 
 ## Other functions

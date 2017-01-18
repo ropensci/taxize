@@ -11,7 +11,7 @@ knitr::opts_chunk$set(
 ```
 
 
-[![Build Status](https://api.travis-ci.org/ropensci/taxize.png?branch=master)](https://travis-ci.org/ropensci/taxize)
+[![Build Status](https://travis-ci.org/ropensci/taxize.svg?branch=master)](https://travis-ci.org/ropensci/taxize)
 [![Build status](https://ci.appveyor.com/api/projects/status/6mgc02mkd8j4sq3g/branch/master)](https://ci.appveyor.com/project/sckott/taxize-175/branch/master)
 [![codecov.io](https://codecov.io/github/ropensci/taxize/coverage.svg?branch=master)](https://codecov.io/github/ropensci/taxize?branch=master)
 [![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/taxize)](https://github.com/metacran/cranlogs.app)
@@ -28,7 +28,7 @@ You need API keys for Encyclopedia of Life (EOL), and Tropicos.
 
 ## SOAP
 
-Note that a few data sources require SOAP web services, which are difficult to support in R across all operating systems. These include: World Register of Marine Species, Pan-European Species directories Infrastructure , and Mycobank, so far. Data sources that use SOAP web services have been moved to a new package called `taxizesoap`. Find it at <https://github.com/ropensci/taxizesoap>.
+Note that a few data sources require SOAP web services, which are difficult to support in R across all operating systems. These include: Pan-European Species directories Infrastructure and Mycobank. Data sources that use SOAP web services have been moved to `taxizesoap` at <https://github.com/ropensci/taxizesoap>.
 
 ## Currently implemented in `taxize`
 
@@ -168,7 +168,7 @@ Note that a few data sources require SOAP web services, which are difficult to s
 	<td style="text-align:left;">NatureServe</td>
 	<td style="text-align:left;"><code>natserv</code></td>
 	<td style="text-align:left;"><a href="https://services.natureserve.org/BrowseServices/getSpeciesData/getSpeciesListREST.jsp">link</a></td>
-	<td style="text-align:left;">none</td>
+	<td style="text-align:left;"><a href="https://services.natureserve.org/developer/index.jsp">link</a></td>
 </tr>
 </tbody>
 </table>
