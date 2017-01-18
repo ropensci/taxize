@@ -15,6 +15,8 @@
 #' natservid class object with one to many identifiers. See
 #' \code{\link[taxize]{get_natservid_}} to get back all, or a subset, of the raw
 #' data that you are presented during the ask process.
+#' @param key (character) your NatureServe API key. Required. See
+#' \strong{Authentication} below for more.
 #' @param x Input to as.natservid
 #' @param ... Ignored
 #' @param check logical; Check if ID matches any existing on the DB, only
@@ -23,6 +25,21 @@
 #'
 #' @family taxonomic-ids
 #' @seealso \code{\link[taxize]{classification}}
+#'
+#' @section Authentication:
+#' Get an API key from NatureServe at
+#' \url{https://services.natureserve.org/developer/index.jsp}.
+#' You can pass your token in as an argument or store it one of two places:
+#'
+#' \itemize{
+#'   \item your .Rprofile file with an entry like
+#'   \code{options(NatureServeKey = "your-natureserve-key")}
+#'   \item your .Renviron file with an entry like
+#'   \code{NATURE_SERVE_KEY=your-natureserve-key}
+#' }
+#'
+#' See \code{\link{Startup}} for information on how to create/find your
+#' .Rrofile and .Renviron files
 #'
 #' @examples \dontrun{
 #' (x <- get_natservid("Helianthus annuus"))
@@ -210,7 +227,7 @@ as.natservid.list <- function(x, check=TRUE) if (length(x) == 1) make_natserv(x,
 
 #' @export
 #' @rdname get_natservid
-as.natservid.numeric <- function(x, check=TRUE) as.wnatservid(as.character(x), check)
+as.natservid.numeric <- function(x, check=TRUE) as.natservid(as.character(x), check)
 
 #' @export
 #' @rdname get_natservid
