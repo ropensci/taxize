@@ -87,13 +87,6 @@ gbif_downstream <- function(key, downto, intermediate = FALSE, ...) {
   }
 }
 
-prune_too_low <- function(x, rank) {
-  rank_target_no <- as.numeric(rank_ref[which_rank(rank), "rankid"])
-  rank_nos <- as.numeric(rank_ref[vapply(x$rank, function(z) which_rank(z), 1),
-                                  "rankid"])
-  x[!rank_nos > rank_target_no, ]
-}
-
 gbif_name_usage_clean <- function(x, ...) {
   tt <- gbif_name_usage(x, ...)
   tt <- tt[sapply(tt, length) != 0]

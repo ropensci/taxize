@@ -185,3 +185,8 @@ assert <- function(x, y) {
     }
   }
 }
+
+dt2df <- function(x) {
+  (data.table::setDF(
+    data.table::rbindlist(x, use.names = TRUE, fill = TRUE, idcol = TRUE)))
+}

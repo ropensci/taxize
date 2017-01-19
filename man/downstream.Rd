@@ -7,6 +7,7 @@
 \alias{downstream.gbifid}
 \alias{downstream.ids}
 \alias{downstream.tsn}
+\alias{downstream.uid}
 \title{Retrieve the downstream taxa for a given taxon name or ID.}
 \usage{
 downstream(...)
@@ -23,33 +24,36 @@ downstream(...)
 \method{downstream}{gbifid}(x, db = NULL, downto = NULL,
   intermediate = FALSE, ...)
 
+\method{downstream}{uid}(x, db = NULL, downto = NULL,
+  intermediate = FALSE, ...)
+
 \method{downstream}{ids}(x, db = NULL, downto = NULL,
   intermediate = FALSE, ...)
 }
 \arguments{
-\item{...}{Further args passed on to \code{itis_downstream} or
-\code{col_downstream}}
+\item{...}{Further args passed on to \code{itis_downstream},
+\code{col_downstream}, \code{gbif_downstream}, or \code{ncbi_downstream}}
 
 \item{x}{Vector of taxa names (character) or IDs (character or numeric)
 to query.}
 
-\item{db}{character; database to query. One or both of \code{itis},
-\code{col}, or \code{gbif}. Note that each taxonomic data source has their
-own identifiers, so that if you provide the wrong \code{db} value for the
-identifier you could get a result, but it will likely be wrong (not what
-you were expecting).}
+\item{db}{character; database to query. One or more of \code{itis},
+\code{col}, \code{gbif}, or \code{ncbi}. Note that each taxonomic data
+source has their own identifiers, so that if you provide the wrong \code{db}
+value for the identifier you could get a result, but it will likely be
+wrong (not what you were expecting).}
 
 \item{downto}{What taxonomic rank to go down to. One of: 'superkingdom',
 'kingdom', 'subkingdom','infrakingdom','phylum','division','subphylum',
 'subdivision','infradivision', 'superclass','class','subclass','infraclass',
 'superorder','order','suborder','infraorder','superfamily','family',
 'subfamily','tribe','subtribe','genus','subgenus','section','subsection',
-'species','subspecies','variety','form','subvariety','race', 'stirp',
-'morph','aberration','subform', or 'unspecified'}
+'species group','species','subspecies','variety','form','subvariety','race',
+'stirp', 'morph','aberration','subform', 'unspecified', 'no rank'}
 
-\item{intermediate}{(logical) If TRUE, return a list of length two with
-target taxon rank names, with additional list of data.frame's of intermediate
-taxonomic groups. Default: FALSE}
+\item{intermediate}{(logical) If \code{TRUE}, return a list of length two
+with target taxon rank names, with additional list of data.frame's of
+intermediate taxonomic groups. Default: \code{FALSE}}
 
 \item{rows}{(numeric) Any number from 1 to infinity. If the default NA, all
 rows are considered. Note that this parameter is ignored if you pass in a
@@ -62,9 +66,9 @@ supplied taxa. You get an NA if there was no match in the database.
 \description{
 This function uses a while loop to continually collect children taxa down
 to the taxonomic rank that you specify in the \code{downto} parameter. You
-can get data from ITIS (itis) or Catalogue of Life (col). There is no
-method exposed by itis or col for getting taxa at a specific taxonomic rank,
-so we do it ourselves inside the function.
+can get data from ITIS (itis), Catalogue of Life (col), GBIF (gbif), or
+NCBI (ncbi). There is no method exposed by these four services for
+getting taxa at a specific taxonomic rank, so we do it ourselves here.
 }
 \examples{
 \dontrun{
@@ -79,6 +83,7 @@ downstream(154395, db = "itis", downto = "species")
 # Plug in taxon names
 downstream("Insecta", db = 'col', downto = 'order')
 downstream("Apis", db = 'col', downto = 'species')
+downstream("Apis", db = 'ncbi', downto = 'species')
 downstream("Apis", db = 'itis', downto = 'species')
 downstream(c("Apis","Epeoloides"), db = 'itis', downto = 'species')
 downstream(c("Apis","Epeoloides"), db = 'col', downto = 'species')
@@ -124,6 +129,8 @@ downstream(get_colid("Animalia"), downto="class", intermediate=TRUE)
 ## note how in the second function call you don't get the prompt
 downstream("Poa", db = 'col', downto="species")
 downstream("Poa", db = 'col', downto="species", rows=1)
+
+downstream("Poa", db = 'ncbi', downto="species")
 
 # use curl options
 res <- downstream("Apis", db = 'col', downto = 'species', config=verbose())
