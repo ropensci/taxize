@@ -44,14 +44,16 @@
 #' col_downstream(name="Bryophyta", downto="family", checklist=2009)
 #'
 #' # By id
-#' col_downstream(id='576d098d770a39d09e2bcfa1c0896b26', downto="species", checklist=2012)
+#' col_downstream(id='576d098d770a39d09e2bcfa1c0896b26', downto="species",
+#'   checklist=2012)
 #' }
 
-col_downstream <- function(name = NULL, id = NULL, downto, format = NULL, start = NULL,
-  checklist = NULL, verbose = TRUE, intermediate = FALSE, ...) {
+col_downstream <- function(name = NULL, id = NULL, downto, format = NULL,
+  start = NULL, checklist = NULL, verbose = TRUE, intermediate = FALSE, ...) {
 
   downto <- tolower(downto)
-  poss_ranks <- unique(do.call(c, sapply(rank_ref$ranks, strsplit, split = ",", USE.NAMES = FALSE)))
+  poss_ranks <- unique(do.call(c, sapply(rank_ref$ranks, strsplit, split = ",",
+                                         USE.NAMES = FALSE)))
   downto <- match.arg(downto, choices = poss_ranks)
 
   func <- function(x=NULL, y=NULL, checklist, format, start, ...) {
@@ -101,7 +103,8 @@ col_downstream <- function(name = NULL, id = NULL, downto, format = NULL, start 
     } # end while loop
 
     if (length(out) == 0) {
-      ret <-  data.frame(childtaxa_id = NA, childtaxa_name = NA, childtaxa_rank = NA)
+      ret <-  data.frame(childtaxa_id = NA, childtaxa_name = NA,
+                         childtaxa_rank = NA)
     } else {
       res <- tc(out)
       ret <- do.call(rbind.fill, res)
@@ -112,14 +115,20 @@ col_downstream <- function(name = NULL, id = NULL, downto, format = NULL, start 
   safe_func <- plyr::failwith(NULL, func)
   if (is.null(id)) {
     temp <- setNames(lapply(name, safe_func, y = NULL,
-                            checklist = checklist, format = format, start = start, ...), name)
+                            checklist = checklist, format = format,
+                            start = start, ...), name)
   } else {
     temp <- setNames(lapply(id, function(z) {
-      safe_func(x = NULL, y = id, checklist = checklist, format = format, start = start, ...)
+      safe_func(x = NULL, y = id, checklist = checklist, format = format,
+                start = start, ...)
     }), id)
   }
 
-  nas <- sapply(temp, function(z) NROW(na.omit( if (intermediate) z$target else z )))
-  if (verbose) message(sprintf('These taxa with no data: %s\nTry adjusting input parameters', names(nas[nas == 0])))
+  nas <- sapply(temp, function(z)
+    NROW(na.omit( if (intermediate) z$target else z )))
+  if (verbose)
+    message(
+      sprintf('These taxa with no data: %s\nTry adjusting input parameters',
+              names(nas[nas == 0])))
   return( temp )
 }

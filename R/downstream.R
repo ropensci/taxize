@@ -1,38 +1,43 @@
 #' Retrieve the downstream taxa for a given taxon name or ID.
 #'
-#' This function uses a while loop to continually collect children taxa down to the
-#' taxonomic rank that you specify in the \code{downto} parameter. You can get data
-#' from ITIS (itis) or Catalogue of Life (col). There is no method exposed by itis
-#' or col for getting taxa at a specific taxonomic rank, so we do it ourselves inside
-#' the function.
+#' This function uses a while loop to continually collect children taxa down
+#' to the taxonomic rank that you specify in the \code{downto} parameter. You
+#' can get data from ITIS (itis) or Catalogue of Life (col). There is no
+#' method exposed by itis or col for getting taxa at a specific taxonomic rank,
+#' so we do it ourselves inside the function.
 #'
-#' @param x Vector of taxa names (character) or IDs (character or numeric) to query.
-#' @param db character; database to query. One or both of \code{itis}, \code{col}, or
-#' \code{gbif}. Note that each taxonomic data source has their own identifiers, so that if you
-#' provide the wrong \code{db} value for the identifier you could get a result,
-#' but it will likely be wrong (not what you were expecting).
-#' @param downto What taxonomic rank to go down to. One of: 'superkingdom','kingdom',
-#' subkingdom','infrakingdom','phylum','division','subphylum','subdivision','infradivision',
-#' 'superclass','class','subclass','infraclass','superorder','order','suborder',
-#' 'infraorder','superfamily','family','subfamily','tribe','subtribe','genus','subgenus',
-#' 'section','subsection','species','subspecies','variety','form','subvariety','race',
-#' 'stirp','morph','aberration','subform', or 'unspecified'
-#' @param intermediate (logical) If TRUE, return a list of length two with target
-#' taxon rank names, with additional list of data.frame's of intermediate
+#' @param x Vector of taxa names (character) or IDs (character or numeric)
+#' to query.
+#' @param db character; database to query. One or both of \code{itis},
+#' \code{col}, or \code{gbif}. Note that each taxonomic data source has their
+#' own identifiers, so that if you provide the wrong \code{db} value for the
+#' identifier you could get a result, but it will likely be wrong (not what
+#' you were expecting).
+#' @param downto What taxonomic rank to go down to. One of: 'superkingdom',
+#' 'kingdom', 'subkingdom','infrakingdom','phylum','division','subphylum',
+#' 'subdivision','infradivision', 'superclass','class','subclass','infraclass',
+#' 'superorder','order','suborder','infraorder','superfamily','family',
+#' 'subfamily','tribe','subtribe','genus','subgenus','section','subsection',
+#' 'species','subspecies','variety','form','subvariety','race', 'stirp',
+#' 'morph','aberration','subform', or 'unspecified'
+#' @param intermediate (logical) If TRUE, return a list of length two with
+#' target taxon rank names, with additional list of data.frame's of intermediate
 #' taxonomic groups. Default: FALSE
-#' @param rows (numeric) Any number from 1 to infinity. If the default NA, all rows are
-#' considered. Note that this parameter is ignored if you pass in a taxonomic id of any of the
-#' acceptable classes: tsn, colid.
-#' @param ... Further args passed on to \code{itis_downstream} or \code{col_downstream}
+#' @param rows (numeric) Any number from 1 to infinity. If the default NA, all
+#' rows are considered. Note that this parameter is ignored if you pass in a
+#' taxonomic id of any of the acceptable classes: tsn, colid.
+#' @param ... Further args passed on to \code{itis_downstream} or
+#' \code{col_downstream}
 #'
-#' @return A named list of data.frames with the downstream names of every supplied taxa.
-#' You get an NA if there was no match in the database.
+#' @return A named list of data.frames with the downstream names of every
+#' supplied taxa. You get an NA if there was no match in the database.
 #'
 #' @export
 #' @examples \dontrun{
 #' # Plug in taxon IDs
 #' ## col Ids have to be character, as they are alphanumeric IDs
-#' downstream("015be25f6b061ba517f495394b80f108", db = "col", downto = "species")
+#' downstream("015be25f6b061ba517f495394b80f108", db = "col",
+#'   downto = "species")
 #' ## ITIS tsn ids can be numeric or character
 #' downstream("154395", db = "itis", downto = "species")
 #' downstream(154395, db = "itis", downto = "species")
@@ -50,7 +55,8 @@
 #' id <- get_colid("Apis")
 #' downstream(id, downto = 'species')
 #'
-#' ## Equivalently, plug in the call to get the id via e.g., get_colid into downstream
+#' ## Equivalently, plug in the call to get the id via e.g., get_colid
+#' ## into downstream
 #' identical(downstream(id, downto = 'species'),
 #'          downstream(get_colid("Apis"), downto = 'species'))
 #'
@@ -96,24 +102,29 @@ downstream <- function(...){
 
 #' @export
 #' @rdname downstream
-downstream.default <- function(x, db = NULL, downto = NULL, intermediate = FALSE, rows=NaN, ...) {
+downstream.default <- function(x, db = NULL, downto = NULL,
+                               intermediate = FALSE, rows=NaN, ...) {
   nstop(downto, "downto")
   nstop(db)
   switch(
     db,
     itis = {
       id <- process_stream_ids(x, db, get_tsn, rows = rows, ...)
-      setNames(downstream(id, downto = tolower(downto), intermediate = intermediate, ...), x)
+      stats::setNames(downstream(id, downto = tolower(downto),
+                                 intermediate = intermediate, ...), x)
     },
     col = {
       id <- process_stream_ids(x, db, get_colid, rows = rows, ...)
-      setNames(downstream(id, downto = tolower(downto), intermediate = intermediate, ...), x)
+      stats::setNames(downstream(id, downto = tolower(downto),
+                                 intermediate = intermediate, ...), x)
     },
     gbif = {
       id <- process_stream_ids(x, db, get_gbifid, rows = rows, ...)
-      setNames(downstream(id, downto = tolower(downto), intermediate = intermediate, ...), x)
+      stats::setNames(downstream(id, downto = tolower(downto),
+                                 intermediate = intermediate, ...), x)
     },
-    stop("the provided db value was not recognised", call. = FALSE)
+    stop("the provided db value was not recognised/is not supported",
+         call. = FALSE)
   )
 }
 
@@ -129,13 +140,15 @@ process_stream_ids <- function(input, db, fxn, ...){
 
 #' @export
 #' @rdname downstream
-downstream.tsn <- function(x, db = NULL, downto = NULL, intermediate = FALSE, ...) {
+downstream.tsn <- function(x, db = NULL, downto = NULL,
+                           intermediate = FALSE, ...) {
   fun <- function(y, downto, intermediate, ...){
     # return NA if NA is supplied
     if (is.na(y)) {
       NA
     } else {
-		  itis_downstream(tsns = y, downto = downto, intermediate = intermediate, ...)
+		  itis_downstream(tsns = y, downto = downto,
+		                  intermediate = intermediate, ...)
     }
   }
   out <- lapply(x, fun, downto = downto, intermediate = intermediate, ...)
@@ -144,7 +157,8 @@ downstream.tsn <- function(x, db = NULL, downto = NULL, intermediate = FALSE, ..
 
 #' @export
 #' @rdname downstream
-downstream.colid <- function(x, db = NULL, downto = NULL, intermediate = FALSE, ...) {
+downstream.colid <- function(x, db = NULL, downto = NULL,
+                             intermediate = FALSE, ...) {
   fun <- function(y, downto, intermediate, ...){
     # return NA if NA is supplied
     if (is.na(y)) {
@@ -159,13 +173,15 @@ downstream.colid <- function(x, db = NULL, downto = NULL, intermediate = FALSE, 
 
 #' @export
 #' @rdname downstream
-downstream.gbifid <- function(x, db = NULL, downto = NULL, intermediate = FALSE, ...) {
+downstream.gbifid <- function(x, db = NULL, downto = NULL,
+                              intermediate = FALSE, ...) {
   fun <- function(y, downto, intermediate, ...){
     # return NA if NA is supplied
     if (is.na(y)) {
       NA
     } else {
-      gbif_downstream(key = y, downto = downto, intermediate = intermediate, ...)
+      gbif_downstream(key = y, downto = downto,
+                      intermediate = intermediate, ...)
     }
   }
   out <- lapply(x, fun, downto = downto, intermediate = intermediate, ...)
@@ -174,7 +190,8 @@ downstream.gbifid <- function(x, db = NULL, downto = NULL, intermediate = FALSE,
 
 #' @export
 #' @rdname downstream
-downstream.ids <- function(x, db = NULL, downto = NULL, intermediate = FALSE, ...) {
+downstream.ids <- function(x, db = NULL, downto = NULL,
+                           intermediate = FALSE, ...) {
   fun <- function(y, downto, intermediate, ...){
     # return NA if NA is supplied
     if (is.na(y)) {
@@ -183,7 +200,8 @@ downstream.ids <- function(x, db = NULL, downto = NULL, intermediate = FALSE, ..
       downstream(y, downto = downto, intermediate = intermediate, ...)
     }
   }
-  structure(lapply(x, fun, downto = downto, intermediate = intermediate, ...), class = 'downstream_ids')
+  structure(lapply(x, fun, downto = downto, intermediate = intermediate, ...),
+            class = 'downstream_ids')
 }
 
 simp <- function(x) if (length(x) == 1) x[[1]] else x

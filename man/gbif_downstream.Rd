@@ -13,9 +13,9 @@ gbif_downstream(key, downto, intermediate = FALSE, ...)
 The taxonomic level IS case sensitive, and you do have to spell it
 correctly. See \code{data(rank_ref)} for spelling.}
 
-\item{intermediate}{(logical) If TRUE, return a list of length two with target
-taxon rank names, with additional list of data.frame's of intermediate
-taxonomic groups. Default: FALSE}
+\item{intermediate}{(logical) If TRUE, return a list of length two with
+target taxon rank names, with additional list of data.frame's of
+intermediate taxonomic groups. Default: FALSE}
 
 \item{...}{Further args passed on to \code{\link{gbif_name_usage}}}
 }
@@ -33,7 +33,7 @@ Retrieve all taxa names downstream in hierarchy for GBIF
 gbif_downstream(key = 198, downto="genus")
 gbif_downstream(key = 198, downto="genus", intermediate=TRUE)
 
-# get families downstream from the family Strepsiptera (twisted wing parasites)
+# families downstream from the family Strepsiptera (twisted wing parasites)
 gbif_downstream(key = 1227, "family")
 ## here, intermediate leads to the same result as the target
 gbif_downstream(key = 1227, "family", intermediate=TRUE)
