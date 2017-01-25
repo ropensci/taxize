@@ -50,13 +50,17 @@ col_search <- function(name=NULL, id=NULL, start=NULL, checklist=NULL, response=
   response <- match.arg(response, c("terse", "full"))
   func <- function(x, y, ...) {
     url <- make_url(checklist)
-    args <- tc(list(name = x, id = y, start = start, response = response, format = "json"))
+    args <- tc(list(name = x, id = y, start = start, response = response,
+                    format = "json"))
     temp <- GET(url, query = argsnull(args), ...)
-    stop_for_status(temp)
-    tt <- jsonlite::fromJSON(con_utf8(temp), FALSE)
-    switch(response,
-           terse = parse_terse(tt),
-           full = parse_full(tt))
+    if (temp$status_code >= 300) {
+      warning("COL taxon not found", call. = FALSE)
+    } else {
+      tt <- jsonlite::fromJSON(con_utf8(temp), FALSE)
+      switch(response,
+             terse = parse_terse(tt),
+             full = parse_full(tt))
+    }
   }
   safe_func <- plyr::failwith(NULL, func)
   if (is.null(id)) {
@@ -101,7 +105,7 @@ parsecoldata <- function(x){
 }
 
 parse_full <- function(x) {
-  tmp <- x$results
+  tmp <- Filter(length, x$results)
   taxize_ldfast(
     lapply(tmp, function(z) {
       switch(z$name_status,
