@@ -190,3 +190,21 @@ dt2df <- function(x) {
   (data.table::setDF(
     data.table::rbindlist(x, use.names = TRUE, fill = TRUE, idcol = TRUE)))
 }
+
+dbswap <- function(x) {
+  switch(
+    x,
+    boldid = "bold",
+    colid = "col",
+    eolid = "eol",
+    gbifid = "gbif",
+    natservid = "natserv",
+    nbnid = "nbn",
+    tolid = "tol",
+    tpsid = "tropicos",
+    tsn = "itis",
+    uid = "ncbi",
+    wormsid = "worms",
+    stop("'db' not recognized", call. = FALSE)
+  )
+}

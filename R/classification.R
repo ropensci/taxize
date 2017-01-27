@@ -5,21 +5,22 @@
 #' to query.
 #' @param db character; database to query. either \code{ncbi}, \code{itis},
 #' \code{eol}, \code{col}, \code{tropicos}, \code{gbif}, \code{nbn},
-#' \code{worms}, or \code{natserv}. Note that each taxonomic data source has
-#' their own identifiers, so that if you provide the wrong \code{db} value
-#' for the identifier you could get a result, but it will likely be wrong (not
-#' what you were expecting).
-#' @param id character; identifiers, returned by \code{\link[taxize]{get_tsn}},
-#' \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}},
-#' \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_tpsid}},
-#' \code{\link[taxize]{get_gbifid}}, \code{\link[taxize]{get_tolid}},
-#' \code{\link[taxize]{get_wormsid}}, \code{\link[taxize]{get_natservid}}
+#' \code{worms}, \code{natserv}, or \code{bold}. Note that each taxonomic
+#' data source has, their own identifiers, so that if you provide the wrong
+#' \code{db} value for the identifier you could get a result, but it will
+#' likely be wrong (not what you were expecting).
+#' @param id character; identifiers, returned by \code{\link{get_tsn}},
+#' \code{\link{get_uid}}, \code{\link{get_eolid}},
+#' \code{\link{get_colid}}, \code{\link{get_tpsid}},
+#' \code{\link{get_gbifid}}, \code{\link{get_tolid}},
+#' \code{\link{get_wormsid}}, \code{\link{get_natservid}},
+#' \code{\link{get_wormsid}}
 #' @param callopts Curl options passed on to \code{\link[httr]{GET}}
-#' @param ... Other arguments passed to \code{\link[taxize]{get_tsn}},
-#' \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}},
-#' \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_tpsid}},
-#' \code{\link[taxize]{get_gbifid}}, \code{\link[taxize]{get_wormsid}},
-#' or \code{\link[taxize]{get_natservid}}
+#' @param ... Other arguments passed to \code{\link{get_tsn}},
+#' \code{\link{get_uid}}, \code{\link{get_eolid}},
+#' \code{\link{get_colid}}, \code{\link{get_tpsid}},
+#' \code{\link{get_gbifid}}, \code{\link{get_wormsid}},
+#' \code{\link{get_natservid}}, \code{\link{get_wormsid}}
 #' @param start The first record to return. If omitted, the results are returned
 #' 		from the first record (start=0). This is useful if the total number of
 #' 		results is larger than the maximum number of results returned by a single
@@ -49,7 +50,8 @@
 #' @seealso \code{\link{get_tsn}}, \code{\link{get_uid}},
 #'    \code{\link{get_eolid}}, \code{\link{get_colid}},
 #'    \code{\link{get_tpsid}}, \code{\link{get_gbifid}}
-#'    \code{\link{get_wormsid}}, \code{\link{get_natservid}}
+#'    \code{\link{get_wormsid}}, \code{\link{get_natservid}},
+#'    \code{\link{get_boldid}}
 #'
 #' @examples \dontrun{
 #' # Plug in taxon IDs
@@ -65,6 +67,7 @@
 #' classification(3930798, db = 'tol')
 #' ## works the same if IDs are in class character
 #' classification(c("2704179", "2441176"), db = 'gbif')
+#' classification("Agapostemon", db = "bold")
 #'
 #' # Plug in taxon names
 #' ## in this case, we use get_*() fxns internally to first get taxon IDs
@@ -220,6 +223,10 @@ classification.default <- function(x, db = NULL, callopts = list(),
       id <- process_ids(x, db, get_natservid, rows = rows, ...)
       stats::setNames(classification(id, callopts = callopts, return_id = return_id, ...), x)
     },
+    bold = {
+      id <- process_ids(x, db, get_boldid, rows = rows, ...)
+      stats::setNames(classification(id, callopts = callopts, return_id = return_id, ...), x)
+    },
     stop("the provided db value was not recognised", call. = FALSE)
   )
 }
@@ -241,7 +248,8 @@ process_ids <- function(input, db, fxn, ...){
            nbn = as.nbnid,
            tol = as.tolid,
            worms = as.wormsid,
-           natserv = as.natservid)
+           natserv = as.natservid,
+           bold = as.boldid)
     as_fxn(input, check = FALSE)
   } else {
     eval(fxn)(input, ...)
@@ -556,8 +564,31 @@ classification.natservid <- function(id, callopts = list(), return_id = TRUE, ..
   structure(out, class = 'classification', db = 'natserv')
 }
 
-# ---------
+#' @export
+#' @rdname classification
+classification.boldid <- function(id, callopts = list(), return_id = TRUE, ...) {
+  fun <- function(x, callopts) {
+    if (is.na(x)) {
+      out <- NA
+    } else {
+      out <- tryCatch(bold_search(id = x, includeTree = TRUE), error = function(e) e)
+      if (inherits(out, "error")) {
+        NA
+      } else {
+        if (is.null(out)) return(NA)
+        tmp <- out[names(out) %in% c('taxid', 'taxon', 'tax_rank')]
+        df <- data.frame(name = tmp$taxon, rank = tmp$tax_rank,
+                          id = tmp$taxid, stringsAsFactors = FALSE)
+        return(df)
+      }
+    }
+  }
+  out <- lapply(id, fun, callopts = callopts)
+  names(out) <- id
+  structure(out, class = 'classification', db = 'bold')
+}
 
+# ---------
 #' @export
 #' @rdname classification
 classification.ids <- function(id, ...) {

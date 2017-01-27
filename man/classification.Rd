@@ -4,6 +4,7 @@
 \alias{cbind.classification}
 \alias{cbind.classification_ids}
 \alias{classification}
+\alias{classification.boldid}
 \alias{classification.colid}
 \alias{classification.default}
 \alias{classification.eolid}
@@ -51,6 +52,9 @@ classification(...)
 \method{classification}{natservid}(id, callopts = list(), return_id = TRUE,
   ...)
 
+\method{classification}{boldid}(id, callopts = list(), return_id = TRUE,
+  ...)
+
 \method{classification}{ids}(id, ...)
 
 cbind.classification(x)
@@ -62,21 +66,21 @@ cbind.classification_ids(...)
 rbind.classification_ids(...)
 }
 \arguments{
-\item{...}{Other arguments passed to \code{\link[taxize]{get_tsn}},
-\code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}},
-\code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_tpsid}},
-\code{\link[taxize]{get_gbifid}}, \code{\link[taxize]{get_wormsid}},
-or \code{\link[taxize]{get_natservid}}}
+\item{...}{Other arguments passed to \code{\link{get_tsn}},
+\code{\link{get_uid}}, \code{\link{get_eolid}},
+\code{\link{get_colid}}, \code{\link{get_tpsid}},
+\code{\link{get_gbifid}}, \code{\link{get_wormsid}},
+\code{\link{get_natservid}}, \code{\link{get_wormsid}}}
 
 \item{x}{Vector of taxa names (character) or IDs (character or numeric)
 to query.}
 
 \item{db}{character; database to query. either \code{ncbi}, \code{itis},
 \code{eol}, \code{col}, \code{tropicos}, \code{gbif}, \code{nbn},
-\code{worms}, or \code{natserv}. Note that each taxonomic data source has
-their own identifiers, so that if you provide the wrong \code{db} value
-for the identifier you could get a result, but it will likely be wrong (not
-what you were expecting).}
+\code{worms}, \code{natserv}, or \code{bold}. Note that each taxonomic
+data source has, their own identifiers, so that if you provide the wrong
+\code{db} value for the identifier you could get a result, but it will
+likely be wrong (not what you were expecting).}
 
 \item{callopts}{Curl options passed on to \code{\link[httr]{GET}}}
 
@@ -89,11 +93,12 @@ classification data.}
 all rows are considered. Note that this parameter is ignored if you pass
 in a taxonomic id instead of a name of class character.}
 
-\item{id}{character; identifiers, returned by \code{\link[taxize]{get_tsn}},
-\code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}},
-\code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_tpsid}},
-\code{\link[taxize]{get_gbifid}}, \code{\link[taxize]{get_tolid}},
-\code{\link[taxize]{get_wormsid}}, \code{\link[taxize]{get_natservid}}}
+\item{id}{character; identifiers, returned by \code{\link{get_tsn}},
+\code{\link{get_uid}}, \code{\link{get_eolid}},
+\code{\link{get_colid}}, \code{\link{get_tpsid}},
+\code{\link{get_gbifid}}, \code{\link{get_tolid}},
+\code{\link{get_wormsid}}, \code{\link{get_natservid}},
+\code{\link{get_wormsid}}}
 
 \item{key}{Your API key; loads from .Rprofile.}
 
@@ -137,6 +142,7 @@ classification("NBNSYS0000004786", db = 'nbn')
 classification(3930798, db = 'tol')
 ## works the same if IDs are in class character
 classification(c("2704179", "2441176"), db = 'gbif')
+classification("Agapostemon", db = "bold")
 
 # Plug in taxon names
 ## in this case, we use get_*() fxns internally to first get taxon IDs
@@ -242,6 +248,7 @@ classification('Poa annua', db = 'tropicos', rows=6)
 \code{\link{get_tsn}}, \code{\link{get_uid}},
    \code{\link{get_eolid}}, \code{\link{get_colid}},
    \code{\link{get_tpsid}}, \code{\link{get_gbifid}}
-   \code{\link{get_wormsid}}, \code{\link{get_natservid}}
+   \code{\link{get_wormsid}}, \code{\link{get_natservid}},
+   \code{\link{get_boldid}}
 }
 
