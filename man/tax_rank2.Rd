@@ -2,9 +2,20 @@
 % Please edit documentation in R/tax_rank2.R
 \name{tax_rank2}
 \alias{tax_rank2}
+\alias{tax_rank2.character}
+\alias{tax_rank2.default}
+\alias{tax_rank2.numeric}
 \title{get rank names}
 \usage{
 tax_rank2(...)
+
+\method{tax_rank2}{default}(x, db = NULL, ...)
+
+\method{tax_rank2}{default}(x, db = NULL, ...)
+
+\method{tax_rank2}{character}(x, db = NULL, ...)
+
+\method{tax_rank2}{numeric}(x, db = NULL, ...)
 }
 \arguments{
 \item{...}{Additional arguments to \code{\link{classification}}}

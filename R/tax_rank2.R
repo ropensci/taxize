@@ -33,16 +33,19 @@ tax_rank2 <- function(...) {
 }
 
 #' @export
+#' @rdname tax_rank2
 tax_rank2.default <- function(x, db = NULL, ...) {
   stop("no 'tax_rank2' method for ", class(x), call. = FALSE)
 }
 
 #' @export
+#' @rdname tax_rank2
 tax_rank2.default <- function(x, db = NULL, ...) {
   stats::setNames(tax_rank2_(x, ...), x)
 }
 
 #' @export
+#' @rdname tax_rank2
 tax_rank2.character <- function(x, db = NULL, ...) {
   nstop(db)
   stopifnot(length(db) == 1)
@@ -64,6 +67,7 @@ tax_rank2.character <- function(x, db = NULL, ...) {
 }
 
 #' @export
+#' @rdname tax_rank2
 tax_rank2.numeric <- function(x, db = NULL, ...) {
   tax_rank2(as.character(x), db, ...)
 }
