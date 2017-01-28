@@ -36,6 +36,8 @@ test_that("tax_name accepts ask-argument", {
 })
 
 test_that("taxon with no data returned from classification() works", {
+  skip_on_cran()
+
   aa <- suppressWarnings(tax_name("Galagoides demidovii", get = "species", verbose = FALSE))
   expect_is(aa, "data.frame")
   expect_true(is.na(aa$species))
