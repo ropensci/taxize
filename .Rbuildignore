@@ -18,3 +18,5 @@ vignettes/cache/
 ^revdep$
 ^issue_template\.md$
 ^\.httr-oauth$
+docs
+
