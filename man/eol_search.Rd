@@ -51,4 +51,3 @@ eol_search(terms='Salix')
 eol_search(terms='Ursus americanus luteolus')
 }
 }
-

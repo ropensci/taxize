@@ -33,13 +33,12 @@ out[agrep("zoo", out$title, ignore.case = TRUE), ]
 gnr_datasources(FALSE)
 }
 }
-\author{
-Scott Chamberlain {myrmecocystus@gmail.com}
-}
 \seealso{
 \code{\link[taxize]{gnr_resolve}}
+}
+\author{
+Scott Chamberlain {myrmecocystus@gmail.com}
 }
 \keyword{names}
 \keyword{resolve}
 \keyword{taxonomy}
-

@@ -10,4 +10,3 @@ ncbi_search(...)
 THIS FUNCTION IS DEFUNCT.
 }
 \keyword{internal}
-

@@ -15,4 +15,3 @@ taxize_ldfast(x, convertvec = FALSE)
 Replacement function for ldply that should be faster in all cases.
 }
 \keyword{internal}
-

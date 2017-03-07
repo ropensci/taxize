@@ -13,4 +13,3 @@ data.frame of 35 rows, with 2 columns:
 }
 }
 \keyword{data}
-

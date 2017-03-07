@@ -61,16 +61,15 @@ library("httr")
 gni_search(search_term = "ani*", config = verbose())
 }
 }
-\author{
-Scott Chamberlain {myrmecocystus@gmail.com}
-}
 \references{
 \url{http://gni.globalnames.org/}, \url{https://github.com/dimus/gni/wiki/api}
 }
 \seealso{
 \code{\link{gnr_datasources}}, \code{\link{gni_search}}.
 }
+\author{
+Scott Chamberlain {myrmecocystus@gmail.com}
+}
 \keyword{globalnamesindex}
 \keyword{names}
 \keyword{taxonomy}
-

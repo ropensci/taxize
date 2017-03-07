@@ -55,4 +55,3 @@ tp_search(name = 'Poa annua annua')
 \references{
 \url{http://services.tropicos.org/help?method=SearchNameXml}
 }
-

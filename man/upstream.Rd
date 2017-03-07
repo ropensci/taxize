@@ -2,10 +2,10 @@
 % Please edit documentation in R/upstream.R
 \name{upstream}
 \alias{upstream}
-\alias{upstream.colid}
 \alias{upstream.default}
-\alias{upstream.ids}
 \alias{upstream.tsn}
+\alias{upstream.colid}
+\alias{upstream.ids}
 \title{Retrieve the upstream taxa for a given taxon name or ID.}
 \usage{
 upstream(...)
@@ -79,4 +79,3 @@ upstream('Poa annua', db = 'col', upto = 'genus', rows=1)
 res <- upstream('Poa annua', db = 'col', upto = 'genus', config=verbose())
 }
 }
-

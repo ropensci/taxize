@@ -3,8 +3,8 @@
 \name{sci2comm}
 \alias{sci2comm}
 \alias{sci2comm.default}
-\alias{sci2comm.tsn}
 \alias{sci2comm.uid}
+\alias{sci2comm.tsn}
 \alias{sci2comm.wormsid}
 \title{Get common names from scientific names.}
 \usage{
@@ -76,10 +76,9 @@ sci2comm('Helianthus annuus', db="itis", config=verbose())
 sci2comm('Helianthus annuus', db="ncbi", config=verbose())
 }
 }
-\author{
-Scott Chamberlain (myrmecocystus@gmail.com)
-}
 \seealso{
 \code{\link[taxize]{comm2sci}}
 }
-
+\author{
+Scott Chamberlain (myrmecocystus@gmail.com)
+}

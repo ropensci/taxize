@@ -15,4 +15,3 @@ status_codes()
 \seealso{
 \code{\link{ping}}
 }
-

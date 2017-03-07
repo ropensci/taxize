@@ -73,4 +73,3 @@ mynames <- c("Helianthus annuus", "Poa annua", "Mimulus bicolor")
 tnrs(query = mynames, source = "iPlant_TNRS", config = verbose())
 }
 }
-

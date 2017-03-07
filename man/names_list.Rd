@@ -34,4 +34,3 @@ names_list('genus', 500)
 \author{
 Scott Chamberlain \email{myrmecocystus@gmail.com}
 }
-

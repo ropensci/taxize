@@ -13,4 +13,3 @@ THIS FUNCTION IS DEFUNCT.
 Scott Chamberlain \email{myrmecocystus@gmail.com}
 }
 \keyword{internal}
-

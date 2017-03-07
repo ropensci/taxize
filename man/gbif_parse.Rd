@@ -27,13 +27,12 @@ gbif_parse(c('Arrhenatherum elatius var. elatius',
              'Vanessa atalanta (Linnaeus, 1758)'))
 }
 }
-\author{
-John Baumgartner (johnbb@student.unimelb.edu.au)
-}
 \references{
 \url{http://tools.gbif.org/nameparser/api.do}
 }
 \seealso{
 \code{\link{gni_parse}}
 }
-
+\author{
+John Baumgartner (johnbb@student.unimelb.edu.au)
+}

@@ -34,4 +34,3 @@ apg_lookup(taxa = "Poaceae", rank = "family")
 # Name not found
 apg_lookup(taxa = "Asteraceae", rank = "family")
 }
-

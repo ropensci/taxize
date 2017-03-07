@@ -60,10 +60,9 @@ library("httr")
 ncbi_children(name="Satyrium", ancestor="Eumaeini", config=verbose())
 }
 }
-\author{
-Zachary Foster \email{zacharyfoster1989@gmail.com}
-}
 \seealso{
 \code{\link{ncbi_get_taxon_summary}}, \code{\link[taxize]{children}}
 }
-
+\author{
+Zachary Foster \email{zacharyfoster1989@gmail.com}
+}

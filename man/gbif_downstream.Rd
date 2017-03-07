@@ -52,4 +52,3 @@ gbif_downstream(key = 7799978, downto="species", intermediate=TRUE)
 \author{
 Scott Chamberlain \email{myrmecocystus@gmail.com}
 }
-

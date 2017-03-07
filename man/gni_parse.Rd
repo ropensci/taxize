@@ -36,4 +36,3 @@ gni_parse("Cyanistes caeruleus", config = verbose())
 \seealso{
 \code{\link{gbif_parse}}
 }
-

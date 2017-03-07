@@ -57,4 +57,3 @@ resolve(query="Qercuss", db = "iplant", config=verbose())
 res <- resolve(query=c("Helianthus annuus", "Homo sapiens"), config=progress())
 }
 }
-

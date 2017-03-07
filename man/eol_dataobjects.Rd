@@ -42,4 +42,3 @@ library("httr")
 eol_dataobjects(id = "21929584", config = verbose())
 }
 }
-

@@ -9,4 +9,3 @@ ubio_ping()
 \description{
 uBio ping
 }
-

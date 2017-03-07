@@ -22,4 +22,3 @@ getkey(service="eol")
 }
 }
 \keyword{internal}
-

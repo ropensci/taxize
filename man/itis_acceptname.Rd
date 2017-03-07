@@ -52,4 +52,3 @@ ids <- c(18161, 18162, 47527, 47546, 47622, 46200)
 itis_acceptname(searchtsn = ids)
 }
 }
-

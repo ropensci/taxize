@@ -10,4 +10,3 @@ eol_hierarchy(...)
 THIS FUNCTION IS DEFUNCT.
 }
 \keyword{internal}
-

@@ -69,4 +69,3 @@ col_search(id = "f726bdaa5924cabf8581f99889de51fc", response = "full")
 \references{
 \url{http://webservice.catalogueoflife.org/}
 }
-

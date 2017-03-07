@@ -2,8 +2,8 @@
 % Please edit documentation in R/taxize-package.R
 \docType{package}
 \name{taxize-package}
-\alias{taxize}
 \alias{taxize-package}
+\alias{taxize}
 \title{Taxonomic Information from Around the Web}
 \description{
 This package interacts with a suite of web 'APIs'
@@ -61,6 +61,7 @@ If the source above has a \code{TRUE} in the \code{SOAP?} column, it is not avai
 in this package. They are available from a different package called \strong{taxizesoap}.
 See the GitHub repo for how to install \url{https://github.com/ropensci/taxizesoap}
 }
+
 \author{
 Scott Chamberlain \email{myrmecocystus@gmail.com}
 
@@ -79,4 +80,3 @@ John Baumgartner \email{johnbb@student.unimelb.edu.au}
 James O'Donnell \email{jodonnellbio@gmail.com}
 }
 \keyword{package}
-

@@ -42,4 +42,3 @@ plantminer(plants)
 plantminer("Ocotea pulchella", from = "flora")
 }
 }
-

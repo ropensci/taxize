@@ -2,13 +2,13 @@
 % Please edit documentation in R/synonyms.R
 \name{synonyms}
 \alias{synonyms}
-\alias{synonyms.colid}
 \alias{synonyms.default}
-\alias{synonyms.ids}
-\alias{synonyms.nbnid}
-\alias{synonyms.tpsid}
 \alias{synonyms.tsn}
+\alias{synonyms.colid}
+\alias{synonyms.tpsid}
+\alias{synonyms.nbnid}
 \alias{synonyms.wormsid}
+\alias{synonyms.ids}
 \alias{synonyms_df}
 \title{Retrieve synonyms from various sources given input taxonomic
 names or identifiers}
@@ -142,4 +142,3 @@ synonyms_df(x)
 \code{\link[taxize]{get_nbnid}}, \code{\link[taxize]{get_colid}},
 \code{\link[taxize]{get_wormsid}}
 }
-

@@ -52,4 +52,3 @@ import rgbif and thus require GDAL binary installation.
 \references{
 \url{http://www.gbif.org/developer/summary}
 }
-

@@ -18,4 +18,3 @@ key in this arg.}
 Function name changed to tp_dist.
 }
 \keyword{internal}
-

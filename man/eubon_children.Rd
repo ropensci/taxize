@@ -46,4 +46,3 @@ head(x)
 Other eubon-methods: \code{\link{eubon_capabilities}},
   \code{\link{eubon_hierarchy}}, \code{\link{eubon}}
 }
-

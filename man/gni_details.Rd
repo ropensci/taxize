@@ -31,13 +31,12 @@ library("httr")
 gni_details(id = 17802847, config = verbose())
 }
 }
-\author{
-Scott Chamberlain {myrmecocystus@gmail.com}
-}
 \seealso{
 \code{\link{gnr_datasources}}, \code{\link{gni_search}}.
+}
+\author{
+Scott Chamberlain {myrmecocystus@gmail.com}
 }
 \keyword{globalnamesindex}
 \keyword{names}
 \keyword{taxonomy}
-

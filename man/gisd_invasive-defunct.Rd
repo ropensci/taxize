@@ -10,4 +10,3 @@ gisd_isinvasive(...)
 THIS FUNCTION IS DEFUNCT.
 }
 \keyword{internal}
-

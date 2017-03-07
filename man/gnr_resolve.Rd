@@ -100,13 +100,12 @@ gnr_resolve("Scorzonera hispanica L. subsp. asphodeloides Wallr.",
    with_canonical_ranks = TRUE)
 }
 }
-\author{
-Scott Chamberlain \email{myrmecocystus@gmail.com}
-}
 \seealso{
 \code{\link[taxize]{gnr_datasources}}
+}
+\author{
+Scott Chamberlain \email{myrmecocystus@gmail.com}
 }
 \keyword{names}
 \keyword{resolve}
 \keyword{taxonomy}
-

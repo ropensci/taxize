@@ -36,4 +36,3 @@ taxize_cite(fxn='taxize')
 # Get license information
 taxize_cite(fxn='taxize', "license")
 }
-

@@ -12,4 +12,3 @@ ubio_synonyms(...)
 \description{
 THIS FUNCTION IS DEFUNCT.
 }
-

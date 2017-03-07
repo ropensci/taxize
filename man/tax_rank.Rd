@@ -53,4 +53,3 @@ sapply(classi, function(x) x[nrow(x), 'rank'])
 \seealso{
 \code{\link[taxize]{classification}}, \code{\link[taxize]{tax_name}}
 }
-

@@ -41,4 +41,3 @@ ncbi_get_taxon_summary(c(1430660, 4751), config = verbose())
 \author{
 Zachary Foster \email{zacharyfoster1989@Sgmail.com}
 }
-

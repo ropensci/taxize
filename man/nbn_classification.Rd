@@ -29,4 +29,3 @@ nbn_classification(id="NHMSYS0000502940", config=verbose())
 \author{
 Scott Chamberlain, \email{myrmecocystus@gmail.com}
 }
-

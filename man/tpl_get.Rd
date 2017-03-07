@@ -46,13 +46,12 @@ tpl_get(dir2, family = "Echinodiaceae")
 ## tpl_get("dir3)
 }
 }
-\author{
-John Baumgartner (johnbb@student.unimelb.edu.au)
-}
 \references{
 The Plant List http://www.theplantlist.org
 }
 \seealso{
 \code{\link{tpl_families}}
 }
-
+\author{
+John Baumgartner (johnbb@student.unimelb.edu.au)
+}

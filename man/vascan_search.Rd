@@ -52,12 +52,11 @@ library("httr")
 vascan_search(q = "Helianthus annuus", config = verbose())
 }
 }
-\author{
-Scott Chamberlain {myrmecocystus@gmail.com}
-}
 \references{
 API docs http://data.canadensys.net/vascan/api
 }
+\author{
+Scott Chamberlain {myrmecocystus@gmail.com}
+}
 \keyword{names}
 \keyword{taxonomy}
-

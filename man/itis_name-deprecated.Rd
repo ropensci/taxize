@@ -22,4 +22,3 @@ Get taxonomic names for a given taxonomic name query.
 itis_name(query="Helianthus annuus", get="family")
 }
 }
-

@@ -2,12 +2,12 @@
 % Please edit documentation in R/lowest_common.R
 \name{lowest_common}
 \alias{lowest_common}
-\alias{lowest_common.colid}
 \alias{lowest_common.default}
-\alias{lowest_common.gbifid}
-\alias{lowest_common.tolid}
-\alias{lowest_common.tsn}
 \alias{lowest_common.uid}
+\alias{lowest_common.tsn}
+\alias{lowest_common.gbifid}
+\alias{lowest_common.colid}
+\alias{lowest_common.tolid}
 \title{Retrieve the lowest common taxon and rank for a given taxon name or ID}
 \usage{
 lowest_common(...)
@@ -143,4 +143,3 @@ lowest_common(x = nms, db = "gbif")
 Jimmy O'Donnell \email{jodonnellbio@gmail.com}
 Scott Chamberlain \email{myrmecocystus@gmail.com}
 }
-

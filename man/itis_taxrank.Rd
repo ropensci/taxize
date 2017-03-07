@@ -36,4 +36,3 @@ itis_taxrank(query=202385)
 itis_taxrank(query=c(202385,183833,180543))
 }
 }
-

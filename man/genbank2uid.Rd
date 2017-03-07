@@ -43,4 +43,3 @@ library('httr')
 genbank2uid(id = 156446673, config=verbose())
 }
 }
-

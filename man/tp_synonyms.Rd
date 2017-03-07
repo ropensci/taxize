@@ -24,4 +24,3 @@ Return all synonyms for a taxon name with a given id.
 tp_synonyms(id = 25509881)
 }
 }
-

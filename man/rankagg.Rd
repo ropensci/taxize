@@ -31,4 +31,3 @@ rankagg(data=dat, "abundance", rank="Genus", fxn="mean")
 rankagg(data=dat, "abundance", rank="Subclass")
 rankagg(data=dat, "abundance", rank="Subclass", fxn="sd")
 }
-

@@ -15,4 +15,3 @@ for the purpose of having some names to play with for examples in
 this package.
 }
 \keyword{data}
-

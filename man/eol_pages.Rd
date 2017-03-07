@@ -80,4 +80,3 @@ It's possible to return JSON or XML with the EOL API. However,
 eol_pages(taxonconceptID=pageid)$scinames
 }
 }
-

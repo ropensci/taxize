@@ -2,8 +2,9 @@
 % Please edit documentation in R/tax_rank2.R
 \name{tax_rank2}
 \alias{tax_rank2}
-\alias{tax_rank2.character}
 \alias{tax_rank2.default}
+\alias{tax_rank2.default}
+\alias{tax_rank2.character}
 \alias{tax_rank2.numeric}
 \title{get rank names}
 \usage{
@@ -55,4 +56,3 @@ tax_rank2(names_list("family"), db = 'gbif')
 tax_rank2(c("Platanista gangetica", "Lichenopora neapolitana"), db = "worms")
 }
 }
-

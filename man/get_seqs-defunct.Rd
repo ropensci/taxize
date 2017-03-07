@@ -10,4 +10,3 @@ get_seqs(...)
 THIS FUNCTION IS DEFUNCT.
 }
 \keyword{internal}
-

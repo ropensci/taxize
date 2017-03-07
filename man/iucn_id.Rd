@@ -39,4 +39,3 @@ iucn_id("Foo bar")
 \author{
 Scott Chamberlain, \email{myrmecocystus@gmail.com}
 }
-

@@ -54,9 +54,6 @@ comm2sci(commnames='bear', db="ncbi", config=verbose())
 comm2sci(commnames='annual blue grass', db="tropicos", config=verbose())
 }
 }
-\author{
-Scott Chamberlain (myrmecocystus@gmail.com)
-}
 \seealso{
 \code{\link[ritis]{search_common}},
 \code{\link[taxize]{eol_search}},
@@ -64,4 +61,6 @@ Scott Chamberlain (myrmecocystus@gmail.com)
 
 \code{\link[taxize]{sci2comm}}
 }
-
+\author{
+Scott Chamberlain (myrmecocystus@gmail.com)
+}

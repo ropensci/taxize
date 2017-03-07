@@ -26,10 +26,9 @@ Requires an internet connection in order to connect to www.theplantlist.org.
 head( tpl_families() )
 }
 }
-\author{
-John Baumgartner (johnbb@student.unimelb.edu.au)
-}
 \seealso{
 \code{\link{tpl_get}}
 }
-
+\author{
+John Baumgartner (johnbb@student.unimelb.edu.au)
+}

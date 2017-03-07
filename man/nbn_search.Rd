@@ -46,4 +46,3 @@ nbn_search(q = "blackbird", config = verbose())
 \author{
 Scott Chamberlain, \email{myrmecocystus@gmail.com}
 }
-

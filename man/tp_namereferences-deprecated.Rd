@@ -22,4 +22,3 @@ tp_namereferences(id, format = "json", output = "df", key = NULL,
 Function name changed to tp_refs.
 }
 \keyword{internal}
-

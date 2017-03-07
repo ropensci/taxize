@@ -42,4 +42,3 @@ iucn_getname(name = "Abies")
 \seealso{
 \code{\link{iucn_summary}} \code{\link{iucn_status}}
 }
-

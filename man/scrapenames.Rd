@@ -91,4 +91,3 @@ scrapenames(text='A spider named Pardosa moesta Banks, 1892', config = verbose()
 \author{
 Scott Chamberlain {myrmecocystus@gmail.com}
 }
-

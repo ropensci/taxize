@@ -10,4 +10,3 @@ eol_invasive(...)
 THIS FUNCTION IS DEFUNCT.
 }
 \keyword{internal}
-

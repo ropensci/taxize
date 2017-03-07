@@ -13,4 +13,3 @@ ubio_classification_search(...)
 \description{
 THIS FUNCTION IS DEFUNCT.
 }
-

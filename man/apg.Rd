@@ -2,8 +2,8 @@
 % Please edit documentation in R/apg.R
 \name{apg}
 \alias{apg}
-\alias{apgFamilies}
 \alias{apgOrders}
+\alias{apgFamilies}
 \title{Get APG names}
 \usage{
 apgOrders(...)
@@ -26,4 +26,3 @@ head(apgFamilies())
 \references{
 \url{http://www.mobot.org/MOBOT/research/APweb/}
 }
-

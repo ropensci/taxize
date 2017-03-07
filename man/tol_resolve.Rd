@@ -54,17 +54,16 @@ turducken_spp <- c("Meleagris gallopavo", "Anas platyrhynchos",
 tol_resolve(turducken_spp, context_name="Animals")
 }
 }
-\author{
-Francois Michonneau \email{francois.michonneau@gmail.com}
-Scott Chamberlain \email{myrmecocystus@gmail.com}
-}
 \references{
 \url{https://github.com/OpenTreeOfLife/germinator/wiki/TNRS-API-v3#match_names}
 }
 \seealso{
 \code{\link{gnr_resolve}}, \code{\link{tnrs}}
 }
+\author{
+Francois Michonneau \email{francois.michonneau@gmail.com}
+Scott Chamberlain \email{myrmecocystus@gmail.com}
+}
 \keyword{names}
 \keyword{resolve}
 \keyword{taxonomy}
-

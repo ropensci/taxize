@@ -2,12 +2,12 @@
 % Please edit documentation in R/downstream.R
 \name{downstream}
 \alias{downstream}
-\alias{downstream.colid}
 \alias{downstream.default}
-\alias{downstream.gbifid}
-\alias{downstream.ids}
 \alias{downstream.tsn}
+\alias{downstream.colid}
+\alias{downstream.gbifid}
 \alias{downstream.uid}
+\alias{downstream.ids}
 \title{Retrieve the downstream taxa for a given taxon name or ID.}
 \usage{
 downstream(...)
@@ -138,4 +138,3 @@ res <- downstream("Apis", db = 'itis', downto = 'species', config=verbose())
 res <- downstream("Ursus", db = 'gbif', downto = 'species', config=verbose())
 }
 }
-

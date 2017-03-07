@@ -25,4 +25,3 @@ iucn_status(ia)}
 \seealso{
 \code{\link[taxize]{iucn_summary}}
 }
-

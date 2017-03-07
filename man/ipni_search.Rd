@@ -100,4 +100,3 @@ head(ipni_search(genus='Ceanothus', output='extended'))
 \references{
 http://www.ipni.org/link_to_ipni.html
 }
-

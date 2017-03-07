@@ -35,6 +35,7 @@ do with that taxon. Of course one can manually look at a name and perhaps
 know what it is, or look it up on the web - but we can't do anything
 programatically. So, no rank things will sometimes be missing.
 }
+
 \examples{
 \dontrun{
 ## genus Apis
@@ -52,4 +53,3 @@ ncbi_downstream(id = id, downto = "family")
 \author{
 Scott Chamberlain \email{myrmecocystus@gmail.com}
 }
-

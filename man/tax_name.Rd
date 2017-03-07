@@ -62,4 +62,3 @@ tax_name(query=c("Helianthus annuus", 'Baetis rhodani'), get=c("genus",
 \seealso{
 \code{\link{classification}}
 }
-

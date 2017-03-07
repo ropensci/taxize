@@ -30,4 +30,3 @@ itis_getrecord(c(202385,70340))
 itis_getrecord("urn:lsid:itis.gov:itis_tsn:180543", "lsid")
 }
 }
-

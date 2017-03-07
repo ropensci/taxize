@@ -32,4 +32,3 @@ itis_native(tsn=180543)
 itis_native(tsn=c(180543,41074,36616))
 }
 }
-

@@ -41,4 +41,3 @@ itis_hierarchy(tsn=c(180543,41074,36616))
 \seealso{
 \code{\link{itis_downstream}}
 }
-
