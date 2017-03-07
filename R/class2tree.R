@@ -7,7 +7,7 @@
 #'
 #' @export
 #' @param input List of classification data.frame's from the function
-#' \link{\code{classification}}
+#' \code{\link{classification}}
 #' @param varstep Vary step lengths between successive levels relative to
 #' proportional loss of the number of distinct classes.
 #' @param check	If TRUE, remove all redundant levels which are different for
