@@ -4,14 +4,14 @@ context("class2tree")
 spnames <- c('Klattia flava', 'Trollius sibiricus', 'Arachis paraguariensis',
  'Tanacetum boreale', 'Gentiana yakushimensis','Sesamum schinzianum',
  'Pilea verrucosa','Tibouchina striphnocalyx','Lycium dasystemum',
- 'Schoenus centralis','Berkheya echinacea','Androcymbium villosum',
- 'Helianthus annuus','Madia elegans','Lupinus albicaulis','Poa annua',
+ 'Berkheya echinacea','Androcymbium villosum',
+ 'Helianthus annuus','Madia elegans','Lupinus albicaulis',
  'Pinus lambertiana')
 
 test_that("class2tree returns the correct value and class", {
   skip_on_cran()
 
-  out <- classification(spnames, db='ncbi', verbose=FALSE)
+  out <- classification(spnames, db = 'ncbi', verbose = FALSE)
   out <- out[!is.na(out)]
   tr <- class2tree(out)
 
