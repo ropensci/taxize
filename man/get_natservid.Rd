@@ -100,7 +100,7 @@ You can pass your token in as an argument or store it one of two places:
 }
 
 See \code{\link{Startup}} for information on how to create/find your
-.Rrofile and .Renviron files
+.Rprofile and .Renviron files
 }
 
 \examples{

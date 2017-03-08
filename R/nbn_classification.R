@@ -1,7 +1,7 @@
 #' Search UK National Biodiversity Network database for taxonomic classification
 #'
 #' @export
-#' @param id (character) An NBN idientifier.
+#' @param id (character) An NBN identifier.
 #' @param ... Further args passed on to \code{\link[httr]{GET}}.
 #'
 #' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}

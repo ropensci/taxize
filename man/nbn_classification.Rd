@@ -7,7 +7,7 @@
 nbn_classification(id, ...)
 }
 \arguments{
-\item{id}{(character) An NBN idientifier.}
+\item{id}{(character) An NBN identifier.}
 
 \item{...}{Further args passed on to \code{\link[httr]{GET}}.}
 }

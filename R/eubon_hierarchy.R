@@ -9,11 +9,11 @@
 #' obtained from the '/capabilities' service end point. Providers can be
 #' nested, that is a parent provider can have sub providers. If the id of the
 #' parent provider is supplied all subproviders will be queried. The query
-#' can also be restriced to one or more subproviders by using the following
+#' can also be restricted to one or more subproviders by using the following
 #' syntax: parent-id[sub-id-1,sub-id2,...]
 #' @param timeout (numeric) The maximum of milliseconds to wait for responses
 #' from any of the providers. If the timeout is exceeded the service will just
-#' return the resonses that have been received so far. The default timeout is
+#' return the responses that have been received so far. The default timeout is
 #' 0 ms (wait for ever)
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @references \url{http://cybertaxonomy.eu/eu-bon/utis/1.2/doc.html}

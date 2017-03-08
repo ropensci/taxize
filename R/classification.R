@@ -41,7 +41,7 @@
 #'    every supplied taxa.
 #' @details If IDs are supplied directly (not from the \code{get_*} functions)
 #' you must specify the type of ID. There is a timeout of 1/3 seconds between
-#' querries to NCBI.
+#' queries to NCBI.
 #'
 #' BEWARE: Right now, NBN doesn't return the queried taxon in the
 #' classification. But you can attach it yourself quite easily of course.

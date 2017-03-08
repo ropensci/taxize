@@ -2,7 +2,7 @@
 % Please edit documentation in R/eubon_capabilities.R
 \name{eubon_capabilities}
 \alias{eubon_capabilities}
-\title{EUBON capabilites}
+\title{EUBON capabilities}
 \usage{
 eubon_capabilities(...)
 }
@@ -10,7 +10,7 @@ eubon_capabilities(...)
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \description{
-EUBON capabilites
+EUBON capabilities
 }
 \examples{
 \dontrun{

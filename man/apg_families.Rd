@@ -8,7 +8,7 @@
 \describe{
   \item{original}{original data record from APG website}
   \item{this}{Order name}
-  \item{that}{Replacment order name}
+  \item{that}{Replacement order name}
   \item{order}{Order name}
 }}
 \source{
