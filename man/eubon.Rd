@@ -24,7 +24,7 @@ this parameter is not set. A list of all available provider ids can be
 obtained from the '/capabilities' service end point. Providers can be
 nested, that is a parent provider can have sub providers. If the id of the
 parent provider is supplied all subproviders will be queried. The query
-can also be restriced to one or more subproviders by using the following
+can also be restricted to one or more subproviders by using the following
 syntax: parent-id[sub-id-1,sub-id2,...]}
 
 \item{searchMode}{(character) Specifies the searchMode. Possible search
@@ -44,10 +44,10 @@ on may cause a slightly increased response time. Default: \code{FALSE}}
 
 \item{timeout}{(numeric) The maximum of milliseconds to wait for responses
 from any of the providers. If the timeout is exceeded the service will just
-return the resonses that have been received so far. The default timeout is
+return the responses that have been received so far. The default timeout is
 0 ms (wait for ever)}
 
-\item{dedup}{(character) Allows to deduplicate the resuls by making use of
+\item{dedup}{(character) Allows to deduplicate the results by making use of
 a deduplication strategy. The deduplication is done by comparing
 specific properties of the taxon:
 \itemize{

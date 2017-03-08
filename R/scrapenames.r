@@ -3,7 +3,7 @@
 #' @description Uses the Global Names Recognition and Discovery service, see
 #' \url{http://gnrd.globalnames.org/}.
 #'
-#' Note: this function somestimes gives data back and sometimes not. The API that this
+#' Note: this function sometimes gives data back and sometimes not. The API that this
 #' function is extremely buggy.
 #'
 #' @export

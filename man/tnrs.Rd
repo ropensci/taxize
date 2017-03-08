@@ -24,7 +24,7 @@ IMPORTANT!!!!! ->
     POST is the only option for this parameter if you want to
     use source or code parameters.}
 
-\item{sleep}{Numer of seconds by which to pause between calls. Defaults to 0
+\item{sleep}{Number of seconds by which to pause between calls. Defaults to 0
 seconds. Use when doing many calls in a for loop ar lapply type call.}
 
 \item{splitby}{Number by which to split species list for querying the TNRS.}

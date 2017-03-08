@@ -125,7 +125,7 @@ NULL
 #' \describe{
 #'   \item{original}{original data record from APG website}
 #'   \item{this}{Order name}
-#'   \item{that}{Replacment order name}
+#'   \item{that}{Replacement order name}
 #'   \item{order}{Order name}
 #' }
 #' @source \url{http://www.mobot.org/MOBOT/research/APweb/}
@@ -145,7 +145,7 @@ NULL
 #' \describe{
 #'   \item{original}{original data record from APG website}
 #'   \item{this}{Order name}
-#'   \item{that}{Replacment order name}
+#'   \item{that}{Replacement order name}
 #' }
 #' @source \url{http://www.mobot.org/MOBOT/research/APweb/}
 #' @name apg_orders

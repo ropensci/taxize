@@ -20,7 +20,7 @@ their own identifiers, so that if you provide the wrong \code{db} value
 for the identifier you could get a result, but it will likely be wrong (not
 what you were expecting).}
 
-\item{verbose}{(loigical) If FALSE (Default) suppresss messages}
+\item{verbose}{(logical) If FALSE (Default) suppress messages}
 
 \item{...}{Other arguments passed to \code{\link[taxize]{get_tsn}} or \code{\link[taxize]{get_uid}}.}
 }

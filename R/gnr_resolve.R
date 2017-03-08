@@ -34,12 +34,12 @@
 #' you'll get different results depending on capitalization. First name capitalized is
 #' likely what you'll want and is the default. If \code{FALSE}, names are not modified.
 #' Default: \code{TRUE}
-#' @param fields (character) One of mimimal (default) or all. Minimal gives back just four
+#' @param fields (character) One of minimal (default) or all. Minimal gives back just four
 #' fields, whereas all gives all fields back.
 #'
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @return A data.frame with one attribute \code{not_known}: a character vector of
-#' taxa unknown to the Global Names Index. Acccess like \code{attr(output, "not_known")},
+#' taxa unknown to the Global Names Index. Access like \code{attr(output, "not_known")},
 #' or \code{attributes(output)$not_known}
 #' @seealso \code{\link[taxize]{gnr_datasources}}
 #' @export

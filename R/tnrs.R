@@ -17,7 +17,7 @@
 #'    IMPORTANT!!!!! ->
 #'        POST is the only option for this parameter if you want to
 #'        use source or code parameters.
-#' @param sleep Numer of seconds by which to pause between calls. Defaults to 0
+#' @param sleep Number of seconds by which to pause between calls. Defaults to 0
 #' 		seconds. Use when doing many calls in a for loop ar lapply type call.
 #' @param splitby Number by which to split species list for querying the TNRS.
 #' @param verbose Verbosity or not (default \code{TRUE})
