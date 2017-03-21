@@ -19,4 +19,5 @@ vignettes/cache/
 ^issue_template\.md$
 ^\.httr-oauth$
 docs
+.github
 
