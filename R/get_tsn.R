@@ -85,7 +85,6 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE, ask
     searchtype <- match.arg(searchtype, c("scientific", "common"))
     tsn_df <- ritis::terms(x, what = searchtype, ...)
     mm <- NROW(tsn_df) > 1
-    # tsn_df <- sub_rows(tsn_df, rows)
 
     if (!inherits(tsn_df, "tbl_df") || NROW(tsn_df) == 0) {
       tsn <- NA_character_
@@ -119,6 +118,7 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE, ask
 
       # check for direct match
       if (nrow(tsn_df) > 1) {
+        tsn_df <- data.frame(tsn_df, stringsAsFactors = FALSE)
 
         names(tsn_df)[grep(searchtype, names(tsn_df))] <- "target"
         direct <- match(tolower(tsn_df$target), tolower(x))
@@ -143,7 +143,7 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE, ask
           names(tsn_df)[grep(searchtype, names(tsn_df))] <- "target"
           # user prompt
           tsn_df <- tsn_df[order(tsn_df$target), ]
-          #rownames(tsn_df) <- 1:NROW(tsn_df)
+          rownames(tsn_df) <- NULL
 
           # prompt
           message("\n\n")
