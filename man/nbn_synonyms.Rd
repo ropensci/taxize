@@ -19,8 +19,18 @@ Return all synonyms for a taxon name with a given id from NBN
 }
 \examples{
 \dontrun{
-nbn_synonyms(id = 'NHMSYS0000502940')
 nbn_synonyms(id = 'NHMSYS0001501147')
 nbn_synonyms(id = 'NHMSYS0000456036')
+
+# none
+nbn_synonyms(id = 'NHMSYS0000502940')
 }
+}
+\references{
+<https://api.nbnatlas.org/>
+}
+\seealso{
+Other nbn: \code{\link{get_nbnid}},
+  \code{\link{nbn_classification}},
+  \code{\link{nbn_search}}
 }

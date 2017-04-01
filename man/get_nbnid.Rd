@@ -39,24 +39,25 @@ input. If FALSE NA is returned for multiple matches.}
 \item{verbose}{logical; If TRUE the actual taxon queried is printed on the
 console.}
 
-\item{rec_only}{(logical) If \code{TRUE} ids of recommended names are returned (i.e.
-synonyms are removed). Defaults to \code{FALSE}. Remember, the id of a synonym is a
-taxa with 'recommended' name status.}
+\item{rec_only}{(logical) If \code{TRUE} ids of recommended names are
+returned (i.e. synonyms are removed). Defaults to \code{FALSE}. Remember,
+the id of a synonym is a taxa with 'recommended' name status.}
 
-\item{rank}{(character) If given, we attempt to limit the results to those taxa with the
-matching rank.}
+\item{rank}{(character) If given, we attempt to limit the results to those
+taxa with the matching rank.}
 
-\item{rows}{numeric; Any number from 1 to infinity. If the default NA, all rows are considered.
-Note that this function still only gives back a nbnid class object with one to many identifiers.
-See \code{\link[taxize]{get_nbnid_}} to get back all, or a subset, of the raw data that you are
-presented during the ask process.}
+\item{rows}{numeric; Any number from 1 to infinity. If the default NA, all
+rows are considered. Note that this function still only gives back a nbnid
+class object with one to many identifiers. See
+\code{\link[taxize]{get_nbnid_}} to get back all, or a subset, of the raw
+data that you are presented during the ask process.}
 
 \item{...}{Further args passed on to \code{nbn_search}}
 
 \item{x}{Input to \code{\link{as.nbnid}}}
 
-\item{check}{logical; Check if ID matches any existing on the DB, only used in
-\code{\link{as.nbnid}}}
+\item{check}{logical; Check if ID matches any existing on the DB, only
+used in \code{\link{as.nbnid}}}
 }
 \value{
 A vector of taxonomic identifiers as an S3 class.
@@ -79,6 +80,10 @@ Comes with the following attributes:
  then \code{multiple_matches} must be \code{TRUE}, and we found a perfect match to your
  name, ignoring case. If \code{FALSE}
 }
+
+an object of class nbnid, a light wrapper around a character
+string that is the taxonomic ID - includes attributes with relavant
+metadata
 }
 \description{
 Get the UK National Biodiversity Network ID from taxonomic names.
@@ -109,13 +114,17 @@ get_nbnid(c("Zootoca vivipara","Chironomus riparius", "uaudnadndj"))
 as.nbnid(get_nbnid("Zootoca vivipara")) # already a nbnid, returns the same
 as.nbnid(get_nbnid(c("Zootoca vivipara","Pinus contorta"))) # same
 as.nbnid('NHMSYS0001706186') # character
-as.nbnid(c("NHMSYS0001706186","NHMSYS0000494848","NBNSYS0000010867")) # character vector, length > 1
-as.nbnid(list("NHMSYS0001706186","NHMSYS0000494848","NBNSYS0000010867")) # list
+# character vector, length > 1
+as.nbnid(c("NHMSYS0001706186","NHMSYS0000494848","NBNSYS0000010867"))
+# list
+as.nbnid(list("NHMSYS0001706186","NHMSYS0000494848","NBNSYS0000010867"))
 ## dont check, much faster
 as.nbnid('NHMSYS0001706186', check=FALSE)
-as.nbnid(list("NHMSYS0001706186","NHMSYS0000494848","NBNSYS0000010867"), check=FALSE)
+as.nbnid(list("NHMSYS0001706186","NHMSYS0000494848","NBNSYS0000010867"),
+  check=FALSE)
 
-(out <- as.nbnid(c("NHMSYS0001706186","NHMSYS0000494848","NBNSYS0000010867")))
+(out <- as.nbnid(c("NHMSYS0001706186","NHMSYS0000494848",
+  "NBNSYS0000010867")))
 data.frame(out)
 as.nbnid( data.frame(out) )
 
@@ -131,6 +140,9 @@ get_nbnid("Quercus douglasii", config=verbose())
 bb <- get_nbnid("Quercus douglasii", config=progress())
 }
 }
+\references{
+<https://api.nbnatlas.org/>
+}
 \seealso{
 \code{\link[taxize]{classification}}
 
@@ -140,6 +152,9 @@ Other taxonomic-ids: \code{\link{get_boldid}},
   \code{\link{get_natservid}}, \code{\link{get_tolid}},
   \code{\link{get_tpsid}}, \code{\link{get_tsn}},
   \code{\link{get_uid}}, \code{\link{get_wormsid}}
+
+Other nbn: \code{\link{nbn_classification}},
+  \code{\link{nbn_search}}, \code{\link{nbn_synonyms}}
 }
 \author{
 Scott Chamberlain, \email{myrmecocystus@gmail.com}

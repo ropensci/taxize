@@ -139,6 +139,7 @@ classification("ELEMENT_GLOBAL.2.134717", db = 'natserv')
 classification(c(2704179, 2441176), db = 'gbif')
 classification(25509881, db = 'tropicos')
 classification("NBNSYS0000004786", db = 'nbn')
+classification(as.nbnid("NBNSYS0000004786"), db = 'nbn')
 classification(3930798, db = 'tol')
 ## works the same if IDs are in class character
 classification(c("2704179", "2441176"), db = 'gbif')

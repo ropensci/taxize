@@ -1,55 +1,54 @@
-#' Search UK National Biodiversity Network database
+#' Search UK National Biodiversity Network
 #'
 #' @export
 #' @param q (character) The query terms(s)
-#' @param prefered (logical) Restrict search to preferred or any
-#' @param order (character) The order in which we should sort the results. Default: asc
-#' @param sort (character) Sort the results or not.
-#' @param start (integer/numeric) The page that the user wants to start displaying the results at.
-#' Default: 0
-#' @param rows (integer/numeric) The number of rows to show in each page of search results.
-#' Default: 25
-#' @param taxonOutputGroupKey (character) Vector of taxon output groups.
-#' @param all (logical) Get all results, overrides rows parameter if TRUE. Default: FALSE
+#' @param fq (character) Filters to be applied to the original query. These
+#' are additional params of the form fq=INDEXEDFIELD:VALUE e.g.
+#' fq=rank:kingdom. See <https://species-ws.nbnatlas.org/indexFields> for all
+#' the fields that are queryable.
+#' @param rows (integer) Number of records to return
+#' @param start (integer) Record offset, to enable paging
+#' @param sort (character) The indexed field to sort by
+#' @param order (character) Supports "asc" or "desc"
+#' @param facets (list) Comma separated list of the fields to create facets
+#' on e.g. facets=basis_of_record.
 #' @param ... Further args passed on to \code{\link[httr]{GET}}.
-#'
+#' @family nbn
+#' @return a list with slots for metadata (`meta`) with list of response
+#' attributes, and data (`data``) with a data.frame of results
 #' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
+#' @references <https://api.nbnatlas.org/>
 #'
 #' @examples \dontrun{
-#' nbn_search(q = "blackbird")
+#' x <- nbn_search(q = "Vulpes")
+#' x$meta$totalRecords
+#' x$meta$pageSize
+#' x$meta$urlParameters
+#' x$meta$queryTitle
+#' head(x$data)
+#'
 #' nbn_search(q = "blackbird", start = 4)
-#' nbn_search(q = "blackbird", all = TRUE)
-#' nbn_search(q = "blackbird", taxonOutputGroupKey = "NHMSYS0000080039")
 #'
 #' # debug curl stuff
 #' library('httr')
 #' nbn_search(q = "blackbird", config = verbose())
 #' }
-nbn_search <- function(q, prefered = FALSE, order = 'asc', sort = NULL, start = 0,
-  rows = 25, taxonOutputGroupKey = NULL, all = FALSE, ...) {
+nbn_search <- function(q, order = NULL, sort = NULL, start = 0, rows = 25,
+  facets = NULL, ...) {
 
-  url <- "https://data.nbn.org.uk/api/search/taxa"
-  args <- tc(list(q = q, prefered = prefered, order = order, sort = sort, start = start,
-                              rows = rows, taxonOutputGroupKey = taxonOutputGroupKey))
-  if (all) {
-    args$rows <- 0
-    num <- nbn_GET(url, args)$meta$numFound
-    args$rows <- num
-    nbn_GET(url, args, ...)
-  } else {
-    nbn_GET(url, args, ...)
-  }
+  args <- tc(list(
+    q = q, pageSize = rows, startIndex = start, sort = sort,
+    dir = order, facets = facets
+  ))
+  nbn_GET(file.path(nbn_base(), "search"), args, ...)
 }
 
 nbn_GET <- function(url, args, ...){
   res <- GET(url, query = argsnull(args), ...)
   stop_for_status(res)
   tt <- con_utf8(res)
-  json <- jsonlite::fromJSON(tt, FALSE)
-  dat <- do.call(rbind.fill, lapply(json$results, data.frame, stringsAsFactors = FALSE))
-  if (!is.null(dat)) {
-    dat <- nmslwr(dat)
-    dat$rank <- tolower(dat$rank)
-  }
-  list(meta = data.frame(json$header, stringsAsFactors = FALSE), data = dat)
+  json <- jsonlite::fromJSON(tt)$searchResults
+  list(meta = pop(json, "results"), data = json$results)
 }
+
+nbn_base <- function() "https://species-ws.nbnatlas.org"

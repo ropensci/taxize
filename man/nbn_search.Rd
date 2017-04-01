@@ -2,46 +2,62 @@
 % Please edit documentation in R/nbn_search.R
 \name{nbn_search}
 \alias{nbn_search}
-\title{Search UK National Biodiversity Network database}
+\title{Search UK National Biodiversity Network}
 \usage{
-nbn_search(q, prefered = FALSE, order = "asc", sort = NULL, start = 0,
-  rows = 25, taxonOutputGroupKey = NULL, all = FALSE, ...)
+nbn_search(q, order = NULL, sort = NULL, start = 0, rows = 25,
+  facets = NULL, ...)
 }
 \arguments{
 \item{q}{(character) The query terms(s)}
 
-\item{prefered}{(logical) Restrict search to preferred or any}
+\item{order}{(character) Supports "asc" or "desc"}
 
-\item{order}{(character) The order in which we should sort the results. Default: asc}
+\item{sort}{(character) The indexed field to sort by}
 
-\item{sort}{(character) Sort the results or not.}
+\item{start}{(integer) Record offset, to enable paging}
 
-\item{start}{(integer/numeric) The page that the user wants to start displaying the results at.
-Default: 0}
+\item{rows}{(integer) Number of records to return}
 
-\item{rows}{(integer/numeric) The number of rows to show in each page of search results.
-Default: 25}
-
-\item{taxonOutputGroupKey}{(character) Vector of taxon output groups.}
-
-\item{all}{(logical) Get all results, overrides rows parameter if TRUE. Default: FALSE}
+\item{facets}{(list) Comma separated list of the fields to create facets
+on e.g. facets=basis_of_record.}
 
 \item{...}{Further args passed on to \code{\link[httr]{GET}}.}
+
+\item{fq}{(character) Filters to be applied to the original query. These
+are additional params of the form fq=INDEXEDFIELD:VALUE e.g.
+fq=rank:kingdom. See <https://species-ws.nbnatlas.org/indexFields> for all
+the fields that are queryable.}
+}
+\value{
+a list with slots for metadata (`meta`) with list of response
+attributes, and data (`data``) with a data.frame of results
 }
 \description{
-Search UK National Biodiversity Network database
+Search UK National Biodiversity Network
 }
 \examples{
 \dontrun{
-nbn_search(q = "blackbird")
+x <- nbn_search(q = "Vulpes")
+x$meta$totalRecords
+x$meta$pageSize
+x$meta$urlParameters
+x$meta$queryTitle
+head(x$data)
+
 nbn_search(q = "blackbird", start = 4)
-nbn_search(q = "blackbird", all = TRUE)
-nbn_search(q = "blackbird", taxonOutputGroupKey = "NHMSYS0000080039")
 
 # debug curl stuff
 library('httr')
 nbn_search(q = "blackbird", config = verbose())
 }
+}
+\references{
+<https://api.nbnatlas.org/>
+}
+\seealso{
+Other nbn: \code{\link{get_nbnid}},
+  \code{\link{nbn_classification}},
+  \code{\link{nbn_synonyms}}
 }
 \author{
 Scott Chamberlain, \email{myrmecocystus@gmail.com}

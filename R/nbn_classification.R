@@ -1,13 +1,15 @@
-#' Search UK National Biodiversity Network database for taxonomic classification
+#' Search UK National Biodiversity Network database for
+#' taxonomic classification
 #'
 #' @export
 #' @param id (character) An NBN identifier.
 #' @param ... Further args passed on to \code{\link[httr]{GET}}.
-#'
+#' @return A data.frame
+#' @family nbn
 #' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
-#'
+#' @references <https://api.nbnatlas.org/>
 #' @examples \dontrun{
-#' nbn_classification(id="NHMSYS0000502940")
+#' nbn_classification(id="NHMSYS0000376773")
 #'
 #' # get id first, then pass to this fxn
 #' id <- get_nbnid("blue tit", rec_only = TRUE, rank = "Species")
@@ -17,7 +19,7 @@
 #' nbn_classification(id="NHMSYS0000502940", config=verbose())
 #' }
 nbn_classification <- function(id, ...) {
-  url <- sprintf("https://data.nbn.org.uk/api/taxa/%s/taxonomy", id)
+  url <- file.path(nbn_base(), "classification", id)
   nbn_GET_2(url, ...)
 }
 
