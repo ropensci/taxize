@@ -33,11 +33,11 @@
 #' library('httr')
 #' nbn_search(q = "blackbird", config = verbose())
 #' }
-nbn_search <- function(q, order = NULL, sort = NULL, start = 0, rows = 25,
-  facets = NULL, ...) {
+nbn_search <- function(q, fq = NULL, order = NULL, sort = NULL, start = 0,
+                       rows = 25, facets = NULL, ...) {
 
   args <- tc(list(
-    q = q, pageSize = rows, startIndex = start, sort = sort,
+    q = q, fq = fq, pageSize = rows, startIndex = start, sort = sort,
     dir = order, facets = facets
   ))
   nbn_GET(file.path(nbn_base(), "search"), args, ...)

@@ -4,11 +4,16 @@
 \alias{nbn_search}
 \title{Search UK National Biodiversity Network}
 \usage{
-nbn_search(q, order = NULL, sort = NULL, start = 0, rows = 25,
-  facets = NULL, ...)
+nbn_search(q, fq = NULL, order = NULL, sort = NULL, start = 0,
+  rows = 25, facets = NULL, ...)
 }
 \arguments{
 \item{q}{(character) The query terms(s)}
+
+\item{fq}{(character) Filters to be applied to the original query. These
+are additional params of the form fq=INDEXEDFIELD:VALUE e.g.
+fq=rank:kingdom. See <https://species-ws.nbnatlas.org/indexFields> for all
+the fields that are queryable.}
 
 \item{order}{(character) Supports "asc" or "desc"}
 
@@ -22,11 +27,6 @@ nbn_search(q, order = NULL, sort = NULL, start = 0, rows = 25,
 on e.g. facets=basis_of_record.}
 
 \item{...}{Further args passed on to \code{\link[httr]{GET}}.}
-
-\item{fq}{(character) Filters to be applied to the original query. These
-are additional params of the form fq=INDEXEDFIELD:VALUE e.g.
-fq=rank:kingdom. See <https://species-ws.nbnatlas.org/indexFields> for all
-the fields that are queryable.}
 }
 \value{
 a list with slots for metadata (`meta`) with list of response

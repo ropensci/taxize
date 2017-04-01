@@ -109,11 +109,15 @@ tropicos_ping <- function(what = "status", ...) {
 #' @export
 #' @rdname ping
 nbn_ping <- function(what = "status", ...) {
-  res <- GET("https://data.nbn.org.uk/api/search/taxa?=blackbird", ...)
-  switch(matchwhat(what),
-         status = match_status(res),
-         code = match_code(res, what),
-         content = jsonlite::fromJSON(con_utf8(res))$header$rows == 25)
+  res <- GET("https://species-ws.nbnatlas.org/species/NHMSYS0000502940", ...)
+  switch(
+    matchwhat(what),
+    status = match_status(res),
+    code = match_code(res, what),
+    content = {
+      jsonlite::fromJSON(con_utf8(res))$taxonConcept$guid == 'NHMSYS0000502940'
+    }
+  )
 }
 
 #' @export
