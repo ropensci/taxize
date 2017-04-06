@@ -52,8 +52,8 @@ gbif_downstream <- function(key, downto, intermediate = FALSE, ...) {
   iter <- 0
   while (stop_ == "not") {
     iter <- iter + 1
-    temp <- ldply(key, function(x) gbif_name_usage_clean(x, ...))
-    tt <- ldply(temp$key, function(x) gbif_name_usage_children(x, ...))
+    temp <- ldply(key, function(x) gbif_name_usage_clean(x))
+    tt <- ldply(temp$key, function(x) gbif_name_usage_children(x))
     tt <- prune_too_low(tt, downto)
 
     if (NROW(tt) == 0) {
