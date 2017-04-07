@@ -26,18 +26,6 @@ collapse <- function(x, fxn, class, match=TRUE, ...){
   }
 }
 
-make_generic <- function(x, uu, clz, check=TRUE){
-  if (check) {
-    if ( evalfxn(clz)(x) ) {
-      toid(x, uu, clz)
-    } else {
-      structure(NA, class = clz, match = "not found", multiple_matches = FALSE, pattern_match = FALSE, uri = NA)
-    }
-  } else {
-    toid(x, uu, clz)
-  }
-}
-
 evalfxn <- function(x) eval(parse(text = paste0("check", "_", x)))
 
 toid <- function(x, url, class){

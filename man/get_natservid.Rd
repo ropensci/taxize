@@ -161,5 +161,6 @@ Other taxonomic-ids: \code{\link{get_boldid}},
   \code{\link{get_gbifid}}, \code{\link{get_ids}},
   \code{\link{get_nbnid}}, \code{\link{get_tolid}},
   \code{\link{get_tpsid}}, \code{\link{get_tsn}},
-  \code{\link{get_uid}}, \code{\link{get_wormsid}}
+  \code{\link{get_uid}}, \code{\link{get_wiki}},
+  \code{\link{get_wormsid}}
 }

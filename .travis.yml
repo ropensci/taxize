@@ -2,6 +2,9 @@ language: r
 sudo: false
 cache: packages
 
+r_github_packages:
+  - jimhester/covr
+
 r_binary_packages:
   - vegan
 

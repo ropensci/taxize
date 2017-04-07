@@ -5,22 +5,24 @@
 #' to query.
 #' @param db character; database to query. either \code{ncbi}, \code{itis},
 #' \code{eol}, \code{col}, \code{tropicos}, \code{gbif}, \code{nbn},
-#' \code{worms}, \code{natserv}, or \code{bold}. Note that each taxonomic
-#' data source has, their own identifiers, so that if you provide the wrong
-#' \code{db} value for the identifier you could get a result, but it will
-#' likely be wrong (not what you were expecting).
+#' \code{worms}, \code{natserv}, \code{bold}, or \code{wiki}. Note that each
+#' taxonomic data source has, their own identifiers, so that if you provide
+#' the wrong \code{db} value for the identifier you could get a result, but
+#' it will likely be wrong (not what you were expecting).
 #' @param id character; identifiers, returned by \code{\link{get_tsn}},
 #' \code{\link{get_uid}}, \code{\link{get_eolid}},
 #' \code{\link{get_colid}}, \code{\link{get_tpsid}},
 #' \code{\link{get_gbifid}}, \code{\link{get_tolid}},
 #' \code{\link{get_wormsid}}, \code{\link{get_natservid}},
-#' \code{\link{get_wormsid}}
+#' \code{\link{get_wormsid}}, \code{\link{get_wiki}}
 #' @param callopts Curl options passed on to \code{\link[httr]{GET}}
 #' @param ... Other arguments passed to \code{\link{get_tsn}},
 #' \code{\link{get_uid}}, \code{\link{get_eolid}},
 #' \code{\link{get_colid}}, \code{\link{get_tpsid}},
 #' \code{\link{get_gbifid}}, \code{\link{get_wormsid}},
-#' \code{\link{get_natservid}}, \code{\link{get_wormsid}}
+#' \code{\link{get_natservid}}, \code{\link{get_wormsid}},
+#' \code{\link{get_wiki}}
+#'
 #' @param start The first record to return. If omitted, the results are returned
 #' 		from the first record (start=0). This is useful if the total number of
 #' 		results is larger than the maximum number of results returned by a single
@@ -51,7 +53,7 @@
 #'    \code{\link{get_eolid}}, \code{\link{get_colid}},
 #'    \code{\link{get_tpsid}}, \code{\link{get_gbifid}}
 #'    \code{\link{get_wormsid}}, \code{\link{get_natservid}},
-#'    \code{\link{get_boldid}}
+#'    \code{\link{get_boldid}}, \code{\link{get_wiki}}
 #'
 #' @examples \dontrun{
 #' # Plug in taxon IDs
@@ -69,6 +71,17 @@
 #' ## works the same if IDs are in class character
 #' classification(c("2704179", "2441176"), db = 'gbif')
 #' classification("Agapostemon", db = "bold")
+#'
+#' # wikispecies
+#' classification("Malus domestica", db = "wiki")
+#' classification("Pinus contorta", db = "wiki")
+#' classification("Pinus contorta", db = "wiki", wiki_site = "commons")
+#' classification("Pinus contorta", db = "wiki", wiki_site = "pedia")
+#' classification("Pinus contorta", db = "wiki", wiki_site = "pedia", wiki = "fr")
+#'
+#' classification(get_wiki("Malus domestica", "commons"))
+#' classification(get_wiki("Malus domestica", "species"))
+#' classification(c("Pinus contorta", "Malus domestica"), db = "wiki")
 #'
 #' # Plug in taxon names
 #' ## in this case, we use get_*() fxns internally to first get taxon IDs
@@ -228,6 +241,10 @@ classification.default <- function(x, db = NULL, callopts = list(),
       id <- process_ids(x, db, get_boldid, rows = rows, ...)
       stats::setNames(classification(id, callopts = callopts, return_id = return_id, ...), x)
     },
+    wiki = {
+      id <- process_ids(x, db, get_wiki, rows = rows, ...)
+      stats::setNames(classification(id, callopts = callopts, return_id = return_id, ...), x)
+    },
     stop("the provided db value was not recognised", call. = FALSE)
   )
 }
@@ -250,7 +267,8 @@ process_ids <- function(input, db, fxn, ...){
            tol = as.tolid,
            worms = as.wormsid,
            natserv = as.natservid,
-           bold = as.boldid)
+           bold = as.boldid,
+           wiki = as.wiki)
     as_fxn(input, check = FALSE)
   } else {
     eval(fxn)(input, ...)
@@ -590,6 +608,41 @@ classification.boldid <- function(id, callopts = list(), return_id = TRUE, ...) 
   out <- lapply(id, fun, callopts = callopts)
   names(out) <- id
   structure(out, class = 'classification', db = 'bold')
+}
+
+#' @export
+#' @rdname classification
+classification.wiki <- function(id, callopts = list(), return_id = TRUE, ...) {
+  fun <- function(x, wiki_site = "species", wiki = "en", callopts) {
+    if (is.na(x)) {
+      out <- NA
+    } else {
+      fxn <- switch(
+        wiki_site,
+        species = wikitaxa::wt_wikispecies,
+        commons = wikitaxa::wt_wikicommons,
+        pedia = wikitaxa::wt_wikipedia
+      )
+      out <- tryCatch(fxn(x)$classification, error = function(e) e)
+      if (inherits(out, "error")) {
+        NA
+      } else {
+        if (is.null(out) || NROW(out) == 0) return(NA)
+        df <- data.frame(name = out$name, rank = out$rank,
+                         stringsAsFactors = FALSE)
+        return(df)
+      }
+    }
+  }
+  out <- list()
+  for (i in seq_along(id)) {
+    out[[i]] <-
+      fun(id[i], attr(id, "wiki_site"), attr(id, "wiki_lang"))
+  }
+  #out <- lapply(id, fun, callopts = callopts)
+  names(out) <- id
+  structure(out, class = 'classification', db = 'wiki',
+            wiki_site = attr(id, "wiki_site"), wiki = attr(id, "wiki_lang"))
 }
 
 # ---------
