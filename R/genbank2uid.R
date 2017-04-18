@@ -4,8 +4,9 @@
 #' @param id A GenBank accession alphanumeric string, or a gi numeric string.
 #' @param batch_size The number of queries to submit at a time.
 #' @param ... Curl args passed on to \code{\link[httr]{GET}}
-#' @details See \url{http://www.ncbi.nlm.nih.gov/Sitemap/sequenceIDs.html} for help on why
-#' there are two identifiers, and the difference between them.
+#' @details See \url{http://www.ncbi.nlm.nih.gov/Sitemap/sequenceIDs.html} for
+#' help on why there are two identifiers, and the difference between them.
+#' @return one or more NCBI taxonomic IDs
 #' @examples \dontrun{
 #' # with accession numbers
 #' genbank2uid(id = 'AJ748748')
@@ -29,24 +30,57 @@
 #' }
 genbank2uid <- function(id, batch_size = 100, ...){
   process_batch <- function(id, ...) {
-    id <- gsub(pattern = "\\.[0-9]+$", "", id) #removes version number of accession ids
-    url2 <- paste0(ncbi_base(), "/entrez/eutils/elink.fcgi?dbfrom=nucleotide&db=taxonomy&id=")
+    #removes version number of accession ids
+    id <- gsub(pattern = "\\.[0-9]+$", "", id)
+    url2 <- paste0(
+      ncbi_base(),
+      "/entrez/eutils/elink.fcgi?dbfrom=nucleotide&db=taxonomy&id=")
     query <- paste0(url2, paste(id, collapse = "&id="))
     res <- GET(query, ...)
     stop_for_status(res)
-    result <- xml_text(xml_find_all(read_xml(con_utf8(res)), "//LinkSetDb//Link[position()=1]//Id"))
-    if (length(result) != length(id)) {
-      result <- rep(as.character(NA), length(id))
+    # result <- xml_text(xml_find_all(read_xml(con_utf8(res)),
+    #                                 "//LinkSetDb//Link[position()=1]//Id"))
+    result <- xml_text(xml_find_all(read_xml(con_utf8(res)),
+                                    "//LinkSetDb//Link//Id"))
+    if (length(result) > length(id)) {
+      url3 <- paste0(
+        ncbi_base(),
+        "/entrez/eutils/esummary.fcgi?db=taxonomy&id=")
+      query <- paste0(url3, paste(result, collapse = ","))
+      res <- GET(query, ...)
+      stop_for_status(res)
+      nn <- xml_find_all(read_xml(con_utf8(res)), "//eSummaryResult//DocSum")
+      result <- lapply(nn, function(z) {
+        list(
+          name = xml_text(xml_find_all(z, "Item[@Name=\"ScientificName\"]")),
+          id = xml_text(xml_find_all(z, "Item[@Name=\"TaxId\"]"))
+        )
+      })
     }
+    # if (length(result) != length(id)) {
+    #   result <- rep(NA_character_, length(id))
+    # }
     Sys.sleep(0.34) # NCBI limits requests to three per second
     return(result)
   }
   batches <- split(id, ceiling(seq_along(id) / batch_size))
   result <- lapply(batches, function(x) map_unique(x, process_batch, ...))
-  result <- as.uid(unname(unlist(result)))
-  matched <- rep("found", length(result))
-  matched[is.na(result)] <- "not found"
-  attr(result, "match") <- matched
+
+  if (!is.null(names(result[[1]][[1]]))) {
+    result <- lapply(result[[1]], function(z) {
+      m <- rep("found", length(z$id))
+      m[is.na(z$id)] <- "not found"
+      f <- as.uid(z$id, check = FALSE)
+      attr(f, "match") <- m
+      attr(f, "name") <- z$name
+      f
+    })
+  } else {
+    result <- as.uid(unname(unlist(result)))
+    matched <- rep("found", length(result))
+    matched[is.na(result)] <- "not found"
+    attr(result, "match") <- matched
+  }
 
   if (any(is.na(result))) {
     warning("An error occured looking up taxon ID(s).")
@@ -54,8 +88,6 @@ genbank2uid <- function(id, batch_size = 100, ...){
       warning("NOTE: This function looks up IDs in batches to save time. However, the way that NCBI has implemented the API we use makes it so we cannot tell which IDs failed when a batch failed. Therefore, as few as one ID could be invalid yet still cause the whole batch to be NA. To identify the invalid IDs, set the 'batch_size' option to 1 and rerun the command.")
     }
   }
-
-
   return(result)
 }
 
@@ -64,20 +96,19 @@ is_acc <- function(x){
   is.na(gg)
 }
 
-#===================================================================================================
+#=====================================================================
 # get indexes of a unique set of the input
 unique_mapping <- function(input) {
   unique_input <- unique(input)
   vapply(input, function(x) which(x == unique_input), numeric(1))
 }
 
-
-#===================================================================================================
+#=====================================================================
 # run a function on unique values of a iterable
 map_unique <- function(input, func, ...) {
   input_class <- class(input)
-  unique_input = unique(input)
+  unique_input <- unique(input)
   class(unique_input) <- input_class
-  func(unique_input, ...)[unique_mapping(input)]
+  func(unique_input, ...)
+  # func(unique_input, ...)[unique_mapping(input)]
 }
-
