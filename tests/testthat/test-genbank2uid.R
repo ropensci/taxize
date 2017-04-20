@@ -59,3 +59,31 @@ test_that("genbank2uid - where ID has more than one taxon associated", {
   expect_match(attr(aa[[2]], "name"), "Saccharopolyspora")
   expect_match(attr(aa[[3]], "name"), "Saccharopolyspora")
 })
+
+test_that("genbank2uid - fails well", {
+  skip_on_cran()
+
+  # one Id not found
+  expect_warning(genbank2uid(id = "gwa2_scaffold_1731_16S_1"),
+                 "An error occurred looking up taxon ID\\(s\\)\\.")
+  aa <- suppressWarnings(genbank2uid(id = "gwa2_scaffold_1731_16S_1"))
+  expect_is(aa, "uid")
+  expect_true(is.na(unclass(aa)))
+
+  # many Ids not found
+  expect_warning(genbank2uid(id = c("gwa2_scaffold_1731_16S_1", "asdfadfs")),
+                 "An error occurred looking up taxon ID\\(s\\)\\.")
+  expect_warning(genbank2uid(id = c("gwa2_scaffold_1731_16S_1", "asdfadfs")),
+                 "set the 'batch_size' option to 1")
+  aa <- suppressWarnings(genbank2uid(id = c("gwa2_scaffold_1731_16S_1",
+                                            "asdfadfs")))
+  expect_is(aa, "uid")
+  expect_true(all(is.na(unclass(aa))))
+
+  # id not given
+  expect_error(genbank2uid(), "argument \"id\" is missing")
+
+  # id not given
+  expect_error(genbank2uid("Asdfdf", batch_size = "Asdf"),
+               "batch_size must be of class integer, numeric")
+})
