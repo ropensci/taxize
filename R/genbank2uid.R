@@ -45,8 +45,6 @@ genbank2uid <- function(id, batch_size = 100, ...) {
     query <- paste0(url2, paste(id, collapse = "&id="))
     res <- GET(query, ...)
     stop_for_status(res)
-    # result <- xml_text(xml_find_all(read_xml(con_utf8(res)),
-    #                                 "//LinkSetDb//Link[position()=1]//Id"))
     result <- xml_text(xml_find_all(read_xml(con_utf8(res)),
                                     "//LinkSetDb//Link//Id"))
     if (length(result) > length(id)) {
@@ -64,7 +62,7 @@ genbank2uid <- function(id, batch_size = 100, ...) {
         )
       })
     }
-    if (length(result) != length(id)) {
+    if (length(result) < length(id)) {
       result <- rep(NA_character_, length(id))
     }
     Sys.sleep(0.34) # NCBI limits requests to three per second
