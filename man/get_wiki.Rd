@@ -35,7 +35,7 @@ as.wiki(x, check = TRUE, wiki_site = "species", wiki = "en")
 \method{as.data.frame}{wiki}(x, ...)
 
 get_wiki_(x, verbose = TRUE, wiki_site = "species", wiki = "en",
-  rows = NA, ...)
+  limit = 100, rows = NA, ...)
 }
 \arguments{
 \item{x}{(character) A vector of common or scientific names.}
@@ -43,11 +43,15 @@ get_wiki_(x, verbose = TRUE, wiki_site = "species", wiki = "en",
 \item{wiki_site}{(character) Wiki site. One of species (default), pedia,
 commons}
 
+\item{wiki}{(character) language. Default: en}
+
 \item{ask}{logical; should get_wiki be run in interactive mode?
 If \code{TRUE} and more than one wiki is found for the species, the user is
 asked for input. If \code{FALSE} NA is returned for multiple matches.}
 
 \item{verbose}{logical; should progress be printed?}
+
+\item{limit}{(integer) number of records to return}
 
 \item{rows}{numeric; Any number from 1 to infinity. If the default NA, all
 rows are considered. Note that this function still only gives back a wiki
@@ -59,8 +63,6 @@ raw data that you are presented during the ask process.}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only
 used in \code{\link{as.wiki}}}
-
-\item{x}{Input to as.wiki}
 }
 \value{
 A vector of taxonomic identifiers as an S3 class.

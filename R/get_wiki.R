@@ -4,6 +4,7 @@
 #' @param x (character) A vector of common or scientific names.
 #' @param wiki_site (character) Wiki site. One of species (default), pedia,
 #' commons
+#' @param wiki (character) language. Default: en
 #' @param ask logical; should get_wiki be run in interactive mode?
 #' If \code{TRUE} and more than one wiki is found for the species, the user is
 #' asked for input. If \code{FALSE} NA is returned for multiple matches.
@@ -13,7 +14,7 @@
 #' class object with one to many identifiers. See
 #' \code{\link[taxize]{get_wiki_}} to get back all, or a subset, of the
 #' raw data that you are presented during the ask process.
-#' @param x Input to as.wiki
+#' @param limit (integer) number of records to return
 #' @param ... Ignored
 #' @param check logical; Check if ID matches any existing on the DB, only
 #' used in \code{\link{as.wiki}}
@@ -253,7 +254,7 @@ check_wiki <- function(x) {
 #' @export
 #' @rdname get_wiki
 get_wiki_ <- function(x, verbose = TRUE, wiki_site = "species",
-                      wiki = "en", rows = NA, ...) {
+                      wiki = "en", limit = 100, rows = NA, ...) {
   stats::setNames(
     lapply(x, get_wiki_help, verbose = verbose, wiki_site = wiki_site,
            wiki = wiki, limit = limit, rows = rows, ...),
