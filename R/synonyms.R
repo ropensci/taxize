@@ -35,7 +35,7 @@
 #' synonyms(183327, db="itis")
 #' synonyms("25509881", db="tropicos")
 #' synonyms("NBNSYS0000004629", db='nbn')
-#' synonyms("87e986b0873f648711900866fa8abde7", db='col')
+#' # synonyms("87e986b0873f648711900866fa8abde7", db='col') # FIXME
 #' synonyms(105706, db='worms')
 #'
 #' # Plug in taxon names directly
@@ -160,24 +160,26 @@ synonyms.tsn <- function(id, ...) {
   fun <- function(x){
     if (is.na(x)) { NA } else {
       is_acc <- rit_acc_name(x, ...)
-      if (!is.na(is_acc$acceptedName)) {
-        x <- is_acc$acceptedTsn
-        accdf <- setNames(
+      if (all(!is.na(is_acc$acceptedName))) {
+        accdf <- stats::setNames(
           data.frame(x[1], is_acc, stringsAsFactors = FALSE),
-          c("sub_tsn", "acc_name", "acc_tsn", "author")
+          c("sub_tsn", "acc_name", "acc_tsn", "acc_author")
         )
-        message("Accepted name is '", is_acc$acceptedName, "'")
-        message("Using tsn ", is_acc$acceptedTsn, "\n")
+        x <- is_acc$acceptedTsn
+        message("Accepted name(s) is/are '",
+                paste0(is_acc$acceptedName, collapse = "/"), "'")
+        message("Using tsn(s) ", paste0(is_acc$acceptedTsn, collapse = "/"),
+                "\n")
       } else {
         accdf <- data.frame(sub_tsn = x[1], acc_tsn = x[1],
                             stringsAsFactors = FALSE)
       }
-      out <- ritis::synonym_names(x, ...)
+      out <- do.call("rbind", lapply(x, ritis::synonym_names, ...))
       if (NROW(out) == 0) {
         out <- data.frame(syn_name = "nomatch", syn_tsn = x[1],
                           stringsAsFactors = FALSE)
       } else {
-        out <- setNames(out, c('author', 'syn_name', 'syn_tsn'))
+        out <- stats::setNames(out, c('syn_author', 'syn_name', 'syn_tsn'))
       }
       if (as.character(out[1,1]) == 'nomatch') {
         out <- data.frame(message = "no syns found", stringsAsFactors = FALSE)

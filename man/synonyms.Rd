@@ -73,7 +73,7 @@ all are used \code{accepted = FALSE}. The default is \code{accepted = FALSE}
 synonyms(183327, db="itis")
 synonyms("25509881", db="tropicos")
 synonyms("NBNSYS0000004629", db='nbn')
-synonyms("87e986b0873f648711900866fa8abde7", db='col')
+# synonyms("87e986b0873f648711900866fa8abde7", db='col') # FIXME
 synonyms(105706, db='worms')
 
 # Plug in taxon names directly
