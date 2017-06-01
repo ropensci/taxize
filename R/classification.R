@@ -16,12 +16,15 @@
 #' \code{\link{get_wormsid}}, \code{\link{get_natservid}},
 #' \code{\link{get_wormsid}}, \code{\link{get_wiki}}
 #' @param callopts Curl options passed on to \code{\link[httr]{GET}}
-#' @param ... Other arguments passed to \code{\link{get_tsn}},
+#' @param ... For \code{classification}: other arguments passed to
+#' \code{\link{get_tsn}},
 #' \code{\link{get_uid}}, \code{\link{get_eolid}},
 #' \code{\link{get_colid}}, \code{\link{get_tpsid}},
 #' \code{\link{get_gbifid}}, \code{\link{get_wormsid}},
 #' \code{\link{get_natservid}}, \code{\link{get_wormsid}},
-#' \code{\link{get_wiki}}
+#' \code{\link{get_wiki}}. For \code{rbind.classification} and
+#' \code{cbind.classification}: one or more objects of class
+#' \code{classification}
 #'
 #' @param start The first record to return. If omitted, the results are returned
 #' 		from the first record (start=0). This is useful if the total number of
@@ -663,7 +666,7 @@ classification.ids <- function(id, ...) {
 
 #' @export
 #' @rdname classification
-cbind.classification <- function(x) {
+cbind.classification <- function(...) {
   gethiernames <- function(x) {
     x <- data.frame(x)
     x$name <- as.character(x$name)
@@ -677,8 +680,7 @@ cbind.classification <- function(x) {
       values
     }
   }
-  input <- x
-  #input <- input[sapply(input, class) %in% "data.frame"]
+  input <- x <- c(...)
   input <- input[vapply(x, function(z) inherits(z, "data.frame"), logical(1))]
   tmp <- do.call(rbind.fill, lapply(input, gethiernames))
   tmp$query <- names(x)
@@ -688,10 +690,9 @@ cbind.classification <- function(x) {
 
 #' @export
 #' @rdname classification
-rbind.classification <- function(x) {
-  input <- x
+rbind.classification <- function(...) {
+  input <- x <- c(...)
   db <- attr(input, "db")
-  #x <- input[vapply(x, class, "") %in% "data.frame"]
   x <- input[vapply(x, function(z) inherits(z, "data.frame"), logical(1))]
   for (i in seq_along(x)) {
     x[[i]]$query <- names(x[i])

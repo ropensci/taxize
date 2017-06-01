@@ -60,21 +60,24 @@ classification(...)
 
 \method{classification}{ids}(id, ...)
 
-\method{cbind}{classification}(x)
+\method{cbind}{classification}(...)
 
-\method{rbind}{classification}(x)
+\method{rbind}{classification}(...)
 
 \method{cbind}{classification_ids}(...)
 
 \method{rbind}{classification_ids}(...)
 }
 \arguments{
-\item{...}{Other arguments passed to \code{\link{get_tsn}},
+\item{...}{For \code{classification}: other arguments passed to
+\code{\link{get_tsn}},
 \code{\link{get_uid}}, \code{\link{get_eolid}},
 \code{\link{get_colid}}, \code{\link{get_tpsid}},
 \code{\link{get_gbifid}}, \code{\link{get_wormsid}},
 \code{\link{get_natservid}}, \code{\link{get_wormsid}},
-\code{\link{get_wiki}}}
+\code{\link{get_wiki}}. For \code{rbind.classification} and
+\code{cbind.classification}: one or more objects of class
+\code{classification}}
 
 \item{x}{Vector of taxa names (character) or IDs (character or numeric)
 to query.}
