@@ -1,91 +1,97 @@
 #' Get rank for a given taxonomic name.
 #'
 #' @export
-#' @param query character; Vector of taxonomic names to query.
-#' @param db character; The database to search from: 'tis', 'ncbi' or 'both'.
-#'  If 'both' both NCBI and ITIS will be queried. Result will be the union of
-#'  both. Note that each taxonomic data source has their own identifiers, so
-#'  that if you provide the wrong \code{db} value for the identifier you could
-#'  get a result, but it will likely be wrong (not what you were expecting).
-#' @param pref If db = 'both', sets the preference for the union. Either 'ncbi'
-#' or 'itis'.
-#' @param verbose logical; If TRUE the actual taxon queried is printed on the
-#' console.
-#' @param ... Other arguments passed to \code{\link[taxize]{get_tsn}} or \code{\link[taxize]{get_uid}}.
-#'
+#' @param x (character) Vector of one or more taxon names (character) or
+#' IDs (character or numeric) to query. Or objects returned from
+#' \code{get_*()} functions like \code{\link{get_tsn}}
+#' @param db (character) database to query. either \code{ncbi}, \code{itis},
+#' \code{eol}, \code{col}, \code{tropicos}, \code{gbif}, \code{nbn},
+#' \code{worms}, \code{natserv}, \code{bold}. Note that each taxonomic data
+#' source has their own identifiers, so that if you provide the wrong
+#' \code{db} value for the identifier you may get a result, but it will
+#' likely be wrong (not what you were expecting).
+#' @param ... Additional arguments to \code{\link{classification}}
+#' @return A named list of character vectors with ranks (all lower-cased)
 #' @note While \code{\link[taxize]{tax_name}} returns the name of a specified
-#' rank,
-#' \code{\link[taxize]{tax_rank}} returns the actual rank of the taxon.
-#'
-#' @return A data.frame with one column for every queried taxon.
-#'
+#' rank, \code{\link[taxize]{tax_rank}} returns the actual rank of the taxon.
 #' @seealso \code{\link[taxize]{classification}}, \code{\link[taxize]{tax_name}}
-#'
 #' @examples \dontrun{
-#' tax_rank(query = "Helianthus annuus", db = "itis")
-#' tax_rank(query = "Helianthus annuus", db = "ncbi")
-#' tax_rank(query = "Helianthus", db = "itis")
+#' tax_rank(x = "Helianthus annuus", db = "itis")
+#' tax_rank(get_tsn("Helianthus annuus"))
+#' tax_rank(c("Helianthus", "Pinus", "Poa"), db = "itis")
 #'
-#' # query both
-#' tax_rank(query=c("Helianthus annuus", 'Puma'), db="both")
+#' tax_rank(get_boldid("Helianthus annuus"))
+#' tax_rank("421377", db = "bold")
+#' tax_rank(421377, db = "bold")
 #'
-#' # An alternative way would be to use classification() and sapply over
-#' # the list
-#' x <- 'Baetis'
-#' classi <- classification(get_uid(x))
-#' sapply(classi, function(x) x[nrow(x), 'rank'])
+#' tax_rank(c("Plantae", "Helianthus annuus",
+#'   "Puma", "Homo sapiens"), db = 'itis')
+#' tax_rank(c("Helianthus annuus", "Quercus", "Fabaceae"), db = 'tropicos')
+#'
+#' tax_rank(names_list("species"), db = 'gbif')
+#' tax_rank(names_list("family"), db = 'gbif')
+#'
+#' tax_rank(c("Platanista gangetica", "Lichenopora neapolitana"),
+#'   db = "worms")
 #' }
+tax_rank <- function(x, db = NULL, ...) {
+  UseMethod("tax_rank")
+}
 
-tax_rank <- function(query = NULL, db = "itis", pref = 'ncbi', verbose = TRUE, ...) {
-  if(is.null(query))
-    stop('Need to specify query!\n')
-  if(!db %in% c('itis', 'ncbi', 'both'))
-    stop("db must be one of 'itis', 'ncbi' or 'both'!\n")
-  if(db == 'both' & !pref %in% c('ncbi', 'itis'))
-    stop("if db=both, pref must be either 'itis' or 'ncbi'!\n")
+#' @export
+tax_rank.default <- function(x, db = NULL, ...) {
+  stop("no 'tax_rank' method for ", class(x), call. = FALSE)
+}
 
-  fun <- function(query, get, db, verbose, ...){
-    # ITIS
-    if(db == "itis" | db == 'both'){
-      tsn <- get_tsn(query, searchtype = "scientific", verbose = verbose, ...)
-      if(is.na(tsn)) {
-        if(verbose)
-          message("No TSN found for species '", query, "'!\n")
-        out_tsn <- NA
+#' @export
+tax_rank.default <- function(x, db = NULL, ...) {
+  stats::setNames(tax_rank_(x, ...), x)
+}
+
+#' @export
+tax_rank.character <- function(x, db = NULL, ...) {
+  nstop(db)
+  stopifnot(length(db) == 1)
+  switch(
+    db,
+    bold = stats::setNames(tax_rank_(process_ids(x, db, get_boldid), ...), x),
+    col = stats::setNames(tax_rank_(process_ids(x, db, get_colid), ...), x),
+    eol = stats::setNames(tax_rank_(process_ids(x, db, get_eolid), ...), x),
+    gbif = stats::setNames(tax_rank_(process_ids(x, db, get_gbifid), ...), x),
+    natserv = stats::setNames(tax_rank_(process_ids(x, db, get_natservid),
+                                         ...), x),
+    nbn = stats::setNames(tax_rank_(process_ids(x, db, get_nbnid), ...), x),
+    tol = stats::setNames(tax_rank_(process_ids(x, db, get_tolid), ...), x),
+    tropicos = stats::setNames(tax_rank_(process_ids(x, db, get_tpsid), ...),
+                               x),
+    itis = stats::setNames(tax_rank_(process_ids(x, db, get_tsn), ...), x),
+    ncbi = stats::setNames(tax_rank_(process_ids(x, db, get_uid), ...), x),
+    worms = stats::setNames(tax_rank_(process_ids(x, db, get_wormsid), ...),
+                            x),
+    stop("the provided db value was not recognised", call. = FALSE)
+  )
+}
+
+#' @export
+tax_rank.numeric <- function(x, db = NULL, ...) {
+  tax_rank(as.character(x), db, ...)
+}
+
+# ---------
+tax_rank_ <- function(id, ...) {
+  fun <- function(x, clz, ...) {
+    res <- classification(x, db = clz, ...)
+    if (is.na(res)) {
+      NA_character_
+    } else {
+      if (NROW(res[[1]]) > 0) {
+        tt <- res[[1]]
+        out <- tt[nrow(tt), 'rank'][[1]]
+        if (length(out) == 0) NA_character_ else tolower(out)
       } else {
-        tt <- classification(tsn, verbose=verbose, ...)[[1]]
-        out_tsn <- tt[nrow(tt), 'rank']
-        if(length(out_tsn) == 0)
-          out_tsn <- NA
+        NA_character_
       }
     }
-
-    # NCBI
-    if(db == "ncbi" | db == 'both')	{
-      uid <- get_uid(query, verbose = verbose, ...)
-      if(is.na(uid)){
-        if(verbose)
-          message("No UID found for species '", query, "'!\n")
-        out_uid <- NA
-      } else {
-        hierarchy <- classification(uid, ...)[[1]]
-        out_uid <- hierarchy[nrow(hierarchy), 'rank']
-        if(length(out_uid) == 0)
-          out_uid <- NA
-      }
-    }
-
-    # combine
-    if(db == 'both') {
-      out <- ifelse(is.na(out_uid), out_tsn, out_uid)
-    }
-    if(db == 'ncbi')
-      out <- out_uid
-    if(db == 'itis')
-      out <- out_tsn
-    return(tolower(out))
   }
-  out <- ldply(query, fun, get, db, verbose, ...)
-  names(out) <- 'rank'
-  return(out)
+  lapply(id, fun, clz = dbswap(class(id)), ...)
 }

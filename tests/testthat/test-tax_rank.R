@@ -1,22 +1,41 @@
-# tests for tax_name fxn in taxize
 context("tax_rank")
-
 
 test_that("tax_rank returns the correct class", {
   skip_on_cran()
 
-  A <- tax_rank(query = c("Helianthus annuus", "Baetis"), db = "ncbi", verbose=FALSE)
-  B <- tax_rank(query = "Helianthus", db = "itis", verbose=FALSE)
-  C <- tax_rank(query = c("Helianthus annuus", "xxxxxx"), db = "ncbi", verbose=FALSE)
+  A <- suppressMessages(tax_rank(c("Helianthus annuus", "Baetis"), db = "ncbi",
+                                 verbose=FALSE))
+  B <- suppressMessages(tax_rank("Helianthus", db = "itis", verbose=FALSE))
+  C <- suppressMessages(tax_rank(c("Helianthus annuus", "xxxxxx"), db = "ncbi",
+                                 verbose=FALSE))
 
-  expect_that(A, is_a("data.frame"))
-  expect_that(B, is_a("data.frame"))
-  expect_that(C, is_a("data.frame"))
-  expect_equal(names(C), 'rank')
+  expect_is(A, "list")
+  expect_is(B, "list")
+  expect_is(C, "list")
+  expect_equal(names(C), c("Helianthus annuus", "xxxxxx"))
 
-  expect_equal(A$rank[1], "species")
-  expect_true(is.na(C$rank[2]))
+  expect_equal(A$`Helianthus annuus`, "species")
+  expect_true(is.na(C$xxxxxx))
 
-  expect_that(nrow(A), equals(2))
-  expect_that(nrow(C), equals(2))
+  expect_equal(length(A), 2)
+  expect_equal(length(C), 2)
+})
+
+test_that("works with get_*() input", {
+  aa <- suppressMessages(tax_rank(get_boldid("Helianthus annuus")))
+
+  expect_is(aa, "list")
+  expect_equal(names(aa), "421377")
+  expect_equal(aa$`421377`, "genus")
+})
+
+test_that("tax_rank fails well", {
+  skip_on_cran()
+
+  expect_error(tax_rank(), "argument \"x\" is missing")
+  expect_error(tax_rank("aadfd"), "Must specify db!")
+  expect_error(tax_rank("Asdfadsf", db = "asdfd"),
+               "the provided db value was not recognised")
+  expect_error(tax_rank(NA, db = "itis"),
+               "'db' not recognized")
 })

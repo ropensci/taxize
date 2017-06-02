@@ -2,52 +2,63 @@
 % Please edit documentation in R/tax_rank.R
 \name{tax_rank}
 \alias{tax_rank}
+\alias{tax_rank.default}
+\alias{tax_rank.default}
+\alias{tax_rank.character}
+\alias{tax_rank.numeric}
 \title{Get rank for a given taxonomic name.}
 \usage{
-tax_rank(query = NULL, db = "itis", pref = "ncbi", verbose = TRUE, ...)
+tax_rank(x, db = NULL, ...)
+
+\method{tax_rank}{default}(x, db = NULL, ...)
+
+\method{tax_rank}{default}(x, db = NULL, ...)
+
+\method{tax_rank}{character}(x, db = NULL, ...)
+
+\method{tax_rank}{numeric}(x, db = NULL, ...)
 }
 \arguments{
-\item{query}{character; Vector of taxonomic names to query.}
+\item{x}{(character) Vector of one or more taxon names (character) or
+IDs (character or numeric) to query.}
 
-\item{db}{character; The database to search from: 'tis', 'ncbi' or 'both'.
-If 'both' both NCBI and ITIS will be queried. Result will be the union of
-both. Note that each taxonomic data source has their own identifiers, so
-that if you provide the wrong \code{db} value for the identifier you could
-get a result, but it will likely be wrong (not what you were expecting).}
+\item{db}{(character) database to query. either \code{ncbi}, \code{itis},
+\code{eol}, \code{col}, \code{tropicos}, \code{gbif}, \code{nbn},
+\code{worms}, \code{natserv}, \code{bold}. Note that each taxonomic data
+source has their own identifiers, so that if you provide the wrong
+\code{db} value for the identifier you could get a result, but it will
+likely be wrong (not what you were expecting).}
 
-\item{pref}{If db = 'both', sets the preference for the union. Either 'ncbi'
-or 'itis'.}
-
-\item{verbose}{logical; If TRUE the actual taxon queried is printed on the
-console.}
-
-\item{...}{Other arguments passed to \code{\link[taxize]{get_tsn}} or \code{\link[taxize]{get_uid}}.}
+\item{...}{Additional arguments to \code{\link{classification}}}
 }
 \value{
-A data.frame with one column for every queried taxon.
+A named list of character vectors with ranks (all lower-cased)
 }
 \description{
 Get rank for a given taxonomic name.
 }
 \note{
 While \code{\link[taxize]{tax_name}} returns the name of a specified
-rank,
-\code{\link[taxize]{tax_rank}} returns the actual rank of the taxon.
+rank, \code{\link[taxize]{tax_rank}} returns the actual rank of the taxon.
 }
 \examples{
 \dontrun{
-tax_rank(query = "Helianthus annuus", db = "itis")
-tax_rank(query = "Helianthus annuus", db = "ncbi")
-tax_rank(query = "Helianthus", db = "itis")
+tax_rank(x = "Helianthus annuus", db = "itis")
+tax_rank(get_tsn("Helianthus annuus"))
+tax_rank(c("Helianthus", "Pinus", "Poa"), db = "itis")
 
-# query both
-tax_rank(query=c("Helianthus annuus", 'Puma'), db="both")
+tax_rank(get_boldid("Helianthus annuus"))
+tax_rank("421377", db = "bold")
+tax_rank(421377, db = "bold")
 
-# An alternative way would be to use classification() and sapply over
-# the list
-x <- 'Baetis'
-classi <- classification(get_uid(x))
-sapply(classi, function(x) x[nrow(x), 'rank'])
+tax_rank(c("Helianthus annuus", "Puma", "Homo sapiens"), db = 'ncbi')
+tax_rank(c("Helianthus annuus", "Quercus", "Fabaceae"), db = 'tropicos')
+
+tax_rank(names_list("species"), db = 'gbif')
+tax_rank(names_list("family"), db = 'gbif')
+
+tax_rank(c("Platanista gangetica", "Lichenopora neapolitana"),
+  db = "worms")
 }
 }
 \seealso{
