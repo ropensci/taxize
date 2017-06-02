@@ -134,6 +134,17 @@ BEWARE: Right now, NBN doesn't return the queried taxon in the
 classification. But you can attach it yourself quite easily of course.
 This behavior is different from the other data sources.
 }
+\section{Lots of results}{
+
+It may happen sometimes that you get more results back from your query
+than will show in the data.frame on screen. Our advice is to refine your
+query in those cases. On a data source basis we can attempt to help
+make it easier to refine queries, whether it be with the data provider
+(unlikely to happen), or in the code in this package (more likely) -
+let us know if you run into too many results problem and we'll see what
+we can do.
+}
+
 \examples{
 \dontrun{
 # Plug in taxon IDs

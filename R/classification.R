@@ -58,6 +58,15 @@
 #'    \code{\link{get_wormsid}}, \code{\link{get_natservid}},
 #'    \code{\link{get_boldid}}, \code{\link{get_wiki}}
 #'
+#' @section Lots of results:
+#' It may happen sometimes that you get more results back from your query
+#' than will show in the data.frame on screen. Our advice is to refine your
+#' query in those cases. On a data source basis we can attempt to help
+#' make it easier to refine queries, whether it be with the data provider
+#' (unlikely to happen), or in the code in this package (more likely) -
+#' let us know if you run into too many results problem and we'll see what
+#' we can do.
+#'
 #' @examples \dontrun{
 #' # Plug in taxon IDs
 #' classification(9606, db = 'ncbi')
