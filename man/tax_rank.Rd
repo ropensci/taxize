@@ -2,31 +2,20 @@
 % Please edit documentation in R/tax_rank.R
 \name{tax_rank}
 \alias{tax_rank}
-\alias{tax_rank.default}
-\alias{tax_rank.default}
-\alias{tax_rank.character}
-\alias{tax_rank.numeric}
 \title{Get rank for a given taxonomic name.}
 \usage{
 tax_rank(x, db = NULL, ...)
-
-\method{tax_rank}{default}(x, db = NULL, ...)
-
-\method{tax_rank}{default}(x, db = NULL, ...)
-
-\method{tax_rank}{character}(x, db = NULL, ...)
-
-\method{tax_rank}{numeric}(x, db = NULL, ...)
 }
 \arguments{
 \item{x}{(character) Vector of one or more taxon names (character) or
-IDs (character or numeric) to query.}
+IDs (character or numeric) to query. Or objects returned from
+\code{get_*()} functions like \code{\link{get_tsn}}}
 
 \item{db}{(character) database to query. either \code{ncbi}, \code{itis},
 \code{eol}, \code{col}, \code{tropicos}, \code{gbif}, \code{nbn},
 \code{worms}, \code{natserv}, \code{bold}. Note that each taxonomic data
 source has their own identifiers, so that if you provide the wrong
-\code{db} value for the identifier you could get a result, but it will
+\code{db} value for the identifier you may get a result, but it will
 likely be wrong (not what you were expecting).}
 
 \item{...}{Additional arguments to \code{\link{classification}}}
@@ -51,7 +40,8 @@ tax_rank(get_boldid("Helianthus annuus"))
 tax_rank("421377", db = "bold")
 tax_rank(421377, db = "bold")
 
-tax_rank(c("Helianthus annuus", "Puma", "Homo sapiens"), db = 'ncbi')
+tax_rank(c("Plantae", "Helianthus annuus",
+  "Puma", "Homo sapiens"), db = 'itis')
 tax_rank(c("Helianthus annuus", "Quercus", "Fabaceae"), db = 'tropicos')
 
 tax_rank(names_list("species"), db = 'gbif')
