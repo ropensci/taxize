@@ -126,7 +126,6 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
 
     out <- lapply(species_split, function(x) mainfunc(x, ...))
     tmp <- data.frame(rbindlist(out), stringsAsFactors = FALSE)
-    #stats::setNames(tmp, tolower(names(tmp)))
   } else {
     tmp <- mainfunc(query, ...)
   }
