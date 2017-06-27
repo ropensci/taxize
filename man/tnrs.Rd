@@ -35,7 +35,9 @@ seconds. Use when doing many calls in a for loop ar lapply type call.}
 \code{\link[httr]{POST}}}
 }
 \value{
-data.frame of results from TNRS plus the name submitted.
+data.frame of results from TNRS plus the name submitted, with
+rows in order of user supplied names, though those with no matches are
+dropped
 }
 \description{
 Match taxonomic names using the Taxonomic Name Resolution

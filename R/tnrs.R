@@ -24,7 +24,9 @@
 #' @param ... Curl options to pass in \code{\link[httr]{GET}} or
 #' \code{\link[httr]{POST}}
 #'
-#' @return data.frame of results from TNRS plus the name submitted.
+#' @return data.frame of results from TNRS plus the name submitted, with
+#' rows in order of user supplied names, though those with no matches are
+#' dropped
 #' @details If there is no match in the Taxosaurus database, nothing is
 #'    returned, so you will not get anything back for non-matches.
 #' @examples \dontrun{
@@ -67,7 +69,6 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
     if (getpost == "get") {
       if (!any(is.na(x))) {
         query2 <- paste(str_replace_all(x, ' ', '+'), collapse = '%0A')
-        #args <- tc(list(query = query2))
         args <- tc(list(query = query2, source = source, code = code))
         out <- GET(url, query = args, ...)
         error_handle(out)
@@ -78,7 +79,6 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
     } else {
       loc <- tempfile(fileext = ".txt")
       write.table(data.frame(x), file = loc, col.names = FALSE, row.names = FALSE)
-      #args <- tc(list(file = upload_file(loc), source = source, code = code))
       args <- tc(list(source = source, code = code))
       body <- tc(list(file = upload_file(loc)))
       out <- POST(url, query = args, body = body, config(followlocation = 0), ...)
@@ -120,16 +120,20 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
 
   if (length(query) < 1 || is.na(query)) stop("Please supply at least one name", call. = FALSE)
 
-  if (getpost == "get" && length(query) > 75 | length(query) > 30 && getpost == "post") {
+  if (getpost == "get" && length(query) > 75 |
+      length(query) > 30 && getpost == "post") {
     species_split <- slice(query, by = splitby)
 
     out <- lapply(species_split, function(x) mainfunc(x, ...))
     tmp <- data.frame(rbindlist(out), stringsAsFactors = FALSE)
-    setNames(tmp, tolower(names(tmp)))
+    #stats::setNames(tmp, tolower(names(tmp)))
   } else {
     tmp <- mainfunc(query, ...)
-    setNames(tmp, tolower(names(tmp)))
   }
+  tmp <- tmp[match(query, tmp$submittedName), ]
+  tmp <- na.omit(tmp)
+  row.names(tmp) <- NULL
+  stats::setNames(tmp, tolower(names(tmp)))
 }
 
 # Function to parse results
