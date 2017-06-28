@@ -19,28 +19,29 @@
 #'    (without tax. authorities and abbreviations).
 #' @param highestscore logical; Return those names with the highest score for
 #'    each searched name? Defunct
-#' @param best_match_only (logical) If \code{TRUE}, best match only returned. Default:
-#' \code{FALSE}
-#' @param preferred_data_sources (character) A vector of one or more data source IDs.
-#' @param with_canonical_ranks (logical) Returns names with infraspecific ranks, if present.
-#'    If \code{TRUE}, we force \code{canonical=TRUE}, otherwise this parameter would
-#'    have no effect. Default: \code{FALSE}
+#' @param best_match_only (logical) If \code{TRUE}, best match only returned.
+#' Default: \code{FALSE}
+#' @param preferred_data_sources (character) A vector of one or more data
+#' source IDs.
+#' @param with_canonical_ranks (logical) Returns names with infraspecific
+#' ranks, if present. If \code{TRUE}, we force \code{canonical=TRUE}, otherwise
+#' this parameter would have no effect. Default: \code{FALSE}
 #' @param http The HTTP method to use, one of "get" or "post". Default: "get".
-#'    Use \code{http="post"} with large queries. Queries with > 300 records use "post"
-#'    automatically because "get" would fail
+#' Use \code{http="post"} with large queries. Queries with > 300 records
+#' use "post" automatically because "get" would fail
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @param cap_first (logical) For each name, fix so that the first name part is
-#' capitalized, while others are not. This web service is sensitive to capitalization, so
-#' you'll get different results depending on capitalization. First name capitalized is
-#' likely what you'll want and is the default. If \code{FALSE}, names are not modified.
-#' Default: \code{TRUE}
-#' @param fields (character) One of minimal (default) or all. Minimal gives back just four
-#' fields, whereas all gives all fields back.
+#' capitalized, while others are not. This web service is sensitive to
+#' capitalization, so you'll get different results depending on capitalization.
+#' First name capitalized is likely what you'll want and is the default.
+#' If \code{FALSE}, names are not modified. Default: \code{TRUE}
+#' @param fields (character) One of minimal (default) or all. Minimal gives
+#' back just four fields, whereas all gives all fields back.
 #'
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
-#' @return A data.frame with one attribute \code{not_known}: a character vector of
-#' taxa unknown to the Global Names Index. Access like \code{attr(output, "not_known")},
-#' or \code{attributes(output)$not_known}
+#' @return A data.frame with one attribute \code{not_known}: a character
+#' vector of taxa unknown to the Global Names Index. Access like
+#' \code{attr(output, "not_known")}, or \code{attributes(output)$not_known}
 #' @seealso \code{\link[taxize]{gnr_datasources}}
 #' @export
 #' @keywords resolve names taxonomy
@@ -162,17 +163,22 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
 
   # check for empty data object
   drill <- tryCatch(data_[[1]], error = function(e) e)
-  to_rename <- c("original_name", "supplied_name_string", "name_string", "canonical_form")
+  to_rename <- c("original_name", "supplied_name_string", "name_string",
+                 "canonical_form")
   if (inherits(drill, "simpleError")) {
     out <- data.frame(NULL)
   } else {
     if (is.null(preferred_data_sources)) {
-      data_2 <- ldply(data_, function(x) data.frame(x[[1]], ldply( if (length(x[[2]]) == 0) {
-        list(data.frame(name_string = "", data_source_title = "", score = NaN, canonical_form = ""))
+      data_2 <- ldply(data_, function(x)
+        data.frame(x[[1]], ldply( if (length(x[[2]]) == 0) {
+        list(data.frame(name_string = "", data_source_title = "", score = NaN,
+                        canonical_form = ""))
       } else {
         x[[2]]
       }), stringsAsFactors = FALSE))
-      names(data_2)[names(data_2) %in% to_rename] <- c("user_supplied_name", "submitted_name", "matched_name", "matched_name2")
+      names(data_2)[names(data_2) %in% to_rename] <-
+        c("user_supplied_name", "submitted_name",
+          "matched_name", "matched_name2")
       data_2$matched_name <- as.character(data_2$matched_name)
       data_2$data_source_title <- as.character(data_2$data_source_title)
       data_2$matched_name2 <- as.character(data_2$matched_name2)
@@ -189,30 +195,40 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
         lapply(dat, function(y) {
           if (!is.null(unlist(y$preferred_results))) {
             res <- lapply(y$preferred_results, function(x) {
-              data.frame(x[c("name_string", "data_source_title", "score", "canonical_form")], stringsAsFactors = FALSE)
+              data.frame(x[c("name_string", "data_source_title", "score",
+                             "canonical_form")], stringsAsFactors = FALSE)
             })
           } else {
             res <- NULL
           }
           list(y[c("original_name", "supplied_name_string")], res)
         })
-      data_2_preferred <- ldply(data_preferred, function(x) data.frame(x[[1]], ldply(if (length(x[[2]]) == 0) {
-        list(data.frame(name_string = "", data_source_title = "", score = NaN, canonical_form = ""))
+      data_2_preferred <- ldply(data_preferred, function(x)
+        data.frame(x[[1]], ldply(if (length(x[[2]]) == 0) {
+        list(data.frame(name_string = "", data_source_title = "", score = NaN,
+                        canonical_form = ""))
       } else {
         x[[2]]
       }), stringsAsFactors = FALSE))
       if (NROW(data_2_preferred) == 0) {
         out <- data_2_preferred
       } else {
-        names(data_2_preferred)[names(data_2_preferred) %in% to_rename] <- c("user_supplied_name", "submitted_name", "matched_name", "matched_name2")
-        data_2_preferred$matched_name <- as.character(data_2_preferred$matched_name)
-        data_2_preferred$data_source_title <- as.character(data_2_preferred$data_source_title)
-        data_2_preferred$matched_name2 <- as.character(data_2_preferred$matched_name2)
+        names(data_2_preferred)[names(data_2_preferred) %in% to_rename] <-
+          c("user_supplied_name", "submitted_name",
+            "matched_name", "matched_name2")
+        data_2_preferred$matched_name <-
+          as.character(data_2_preferred$matched_name)
+        data_2_preferred$data_source_title <-
+          as.character(data_2_preferred$data_source_title)
+        data_2_preferred$matched_name2 <-
+          as.character(data_2_preferred$matched_name2)
 
         if (canonical) {
-          out <- data_2_preferred[ , !names(data_2_preferred) %in% "matched_name"]
+          out <-
+            data_2_preferred[ , !names(data_2_preferred) %in% "matched_name"]
         } else {
-          out <- data_2_preferred[ , !names(data_2_preferred) %in% "matched_name2"]
+          out <-
+            data_2_preferred[ , !names(data_2_preferred) %in% "matched_name2"]
         }
       }
     }

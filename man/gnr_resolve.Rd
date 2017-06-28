@@ -34,34 +34,35 @@ taxonomic authorities. If \code{TRUE}, returns canocial names
 \item{highestscore}{logical; Return those names with the highest score for
 each searched name? Defunct}
 
-\item{best_match_only}{(logical) If \code{TRUE}, best match only returned. Default:
-\code{FALSE}}
+\item{best_match_only}{(logical) If \code{TRUE}, best match only returned.
+Default: \code{FALSE}}
 
-\item{preferred_data_sources}{(character) A vector of one or more data source IDs.}
+\item{preferred_data_sources}{(character) A vector of one or more data
+source IDs.}
 
-\item{with_canonical_ranks}{(logical) Returns names with infraspecific ranks, if present.
-If \code{TRUE}, we force \code{canonical=TRUE}, otherwise this parameter would
-have no effect. Default: \code{FALSE}}
+\item{with_canonical_ranks}{(logical) Returns names with infraspecific
+ranks, if present. If \code{TRUE}, we force \code{canonical=TRUE}, otherwise
+this parameter would have no effect. Default: \code{FALSE}}
 
 \item{http}{The HTTP method to use, one of "get" or "post". Default: "get".
-Use \code{http="post"} with large queries. Queries with > 300 records use "post"
-automatically because "get" would fail}
+Use \code{http="post"} with large queries. Queries with > 300 records
+use "post" automatically because "get" would fail}
 
 \item{cap_first}{(logical) For each name, fix so that the first name part is
-capitalized, while others are not. This web service is sensitive to capitalization, so
-you'll get different results depending on capitalization. First name capitalized is
-likely what you'll want and is the default. If \code{FALSE}, names are not modified.
-Default: \code{TRUE}}
+capitalized, while others are not. This web service is sensitive to
+capitalization, so you'll get different results depending on capitalization.
+First name capitalized is likely what you'll want and is the default.
+If \code{FALSE}, names are not modified. Default: \code{TRUE}}
 
-\item{fields}{(character) One of minimal (default) or all. Minimal gives back just four
-fields, whereas all gives all fields back.}
+\item{fields}{(character) One of minimal (default) or all. Minimal gives
+back just four fields, whereas all gives all fields back.}
 
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
-A data.frame with one attribute \code{not_known}: a character vector of
-taxa unknown to the Global Names Index. Access like \code{attr(output, "not_known")},
-or \code{attributes(output)$not_known}
+A data.frame with one attribute \code{not_known}: a character
+vector of taxa unknown to the Global Names Index. Access like
+\code{attr(output, "not_known")}, or \code{attributes(output)$not_known}
 }
 \description{
 Uses the Global Names Index, see \url{http://gni.globalnames.org/}.
