@@ -78,14 +78,18 @@
 #' }
 
 gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
-  with_context = FALSE, canonical = FALSE, highestscore = TRUE, best_match_only = FALSE,
-  preferred_data_sources = NULL, with_canonical_ranks = FALSE, http = "get",
-  cap_first = TRUE, fields = "minimal", ...) {
+  with_context = FALSE, canonical = FALSE, highestscore = TRUE,
+  best_match_only = FALSE, preferred_data_sources = NULL,
+  with_canonical_ranks = FALSE, http = "get", cap_first = TRUE,
+  fields = "minimal", ...) {
 
   fields <- match.arg(fields, c("minimal", "all"))
   http <- match.arg(http, c("get", "post"))
   num = NULL
   url <- "http://resolver.globalnames.org/name_resolvers.json"
+  # clean out zero length strings
+  names <- Filter(function(x) nzchar(x) && !is.na(x) && is.character(x), names)
+  # store original names supplied by user
   orig_names <- names
   if (cap_first) names <- taxize_capwords(names, onlyfirst = TRUE)
   names2 <- paste0(names, collapse = "|")
@@ -93,7 +97,8 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
 
   data_source_ids <- paste0(data_source_ids, collapse = "|")
   preferred_data_sources <- paste0(preferred_data_sources, collapse = "|")
-  if (nchar(preferred_data_sources, keepNA = FALSE) == 0) preferred_data_sources <- NULL
+  if (nchar(preferred_data_sources, keepNA = FALSE) == 0)
+    preferred_data_sources <- NULL
   if (with_canonical_ranks) canonical <- TRUE
 
   args <- tc(list(names = names2, data_source_ids = data_source_ids,
@@ -114,10 +119,13 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
     datbits <- list()
     for (i in seq_along(nms)) {
       tt <- data.frame(num = 1:length(nms[[i]]), names = nms[[i]])
-      tt <- data.frame(ddply(tt, .(num), summarise, paste0(num, "|", names))[,2])
+      tt <- data.frame(ddply(tt, .(num), summarise,
+                             paste0(num, "|", names))[,2])
       file <- tempfile(fileext = ".txt")
-      write.table(tt, file = file, row.names = FALSE, col.names = FALSE, quote = FALSE)
-      ss <- POST(url, query = args, body = list(file = upload_file(path = file)), ...)
+      write.table(tt, file = file, row.names = FALSE,
+                  col.names = FALSE, quote = FALSE)
+      ss <- POST(url, query = args,
+                 body = list(file = upload_file(path = file)), ...)
       warn_for_status(ss)
       ss <- con_utf8(ss)
       datbits[[i]] <- jsonlite::fromJSON(ss, FALSE)$data
@@ -134,7 +142,8 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
       if (!is.null(unlist(y$results))) {
         res <- lapply(y$results, function(x) {
           take_fields <- switch(fields,
-            minimal = c("name_string", "data_source_title","score", "canonical_form"),
+            minimal = c("name_string", "data_source_title","score",
+                        "canonical_form"),
             all = names(x)
           )
           take <- x[take_fields]
