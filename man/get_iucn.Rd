@@ -40,25 +40,22 @@ IUCN Redlist}
 }
 \value{
 A vector of taxonomic identifiers as an S3 class.
-If a taxon is not found an \code{NA} is given. If more than one identifier is found the
-function asks for user input if \code{ask = TRUE}, otherwise returns \code{NA}.
-If \code{ask=FALSE} and \code{rows} does not equal \code{NA}, then a data.frame is
-given back, but not of the uid class, which you can't pass on to other functions
-as you normally can.
 
 Comes with the following attributes:
 \itemize{
- \item \emph{match} (character) - the reason for NA, either 'not found', 'found' or
- if \code{ask = FALSE} then 'NA due to ask=FALSE')
- \item \emph{multiple_matches} (logical) - Whether multiple matches were returned by
- the data source. This can be \code{TRUE}, even if you get 1 name back because we try
- to pattern match the name to see if there's any direct matches. So sometimes
- this attribute is \code{TRUE}, as well as \code{pattern_match}, which then returns 1
- resulting name without user prompt.
- \item \emph{pattern_match} (logical) - Whether a pattern match was made. If \code{TRUE}
- then \code{multiple_matches} must be \code{TRUE}, and we found a perfect match to your
- name, ignoring case. If \code{FALSE}
+ \item \emph{match} (character) - the reason for NA, either 'not found',
+ 'found' or if \code{ask = FALSE} then 'NA due to ask=FALSE')
+ \item \emph{name} (character) - the taxonomic name, which is needed in
+ \code{\link{synonyms}} and \code{\link{sci2comm}} methods since they
+ internally use \pkg{rredlist} functions which require the taxonomic name,
+ and not the taxonomic identifier
+ \item \emph{uri} (character) - The URI where more information can be
+ read on the taxon - includes the taxonomic identifier in the URL somewhere
 }
+
+\emph{multiple_matches} and \emph{pattern_match} do not apply here as in
+other \code{get_*} methods since there is no IUCN Redlist search,
+so you either get a match or you do not get a match.
 }
 \description{
 Get a IUCN Redlist taxon
@@ -68,6 +65,9 @@ There is no underscore method, because there's no real
 search for IUCN, that is, where you search for a string, and get back
 a bunch of results due to fuzzy matching. If that exists in the future
 we'll add an underscore method here.
+
+IUCN ids only work with \code{\link{synonyms}} and \code{\link{sci2comm}}
+methods.
 }
 \examples{
 \dontrun{
@@ -84,8 +84,6 @@ as.iucn(data.frame(res))
 }
 }
 \seealso{
-\code{\link[taxize]{classification}}
-
 Other taxonomic-ids: \code{\link{get_boldid}},
   \code{\link{get_colid}}, \code{\link{get_eolid}},
   \code{\link{get_gbifid}}, \code{\link{get_ids}},

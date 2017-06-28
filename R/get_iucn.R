@@ -7,15 +7,34 @@
 #' \code{\link[rredlist]{rredlist-package}} for help on authenticating with
 #' IUCN Redlist
 #' @param ... Ignored
-#' @template getreturn
+#'
+#' @return A vector of taxonomic identifiers as an S3 class.
+#'
+#' Comes with the following attributes:
+#' \itemize{
+#'  \item \emph{match} (character) - the reason for NA, either 'not found',
+#'  'found' or if \code{ask = FALSE} then 'NA due to ask=FALSE')
+#'  \item \emph{name} (character) - the taxonomic name, which is needed in
+#'  \code{\link{synonyms}} and \code{\link{sci2comm}} methods since they
+#'  internally use \pkg{rredlist} functions which require the taxonomic name,
+#'  and not the taxonomic identifier
+#'  \item \emph{uri} (character) - The URI where more information can be
+#'  read on the taxon - includes the taxonomic identifier in the URL somewhere
+#' }
+#'
+#' \emph{multiple_matches} and \emph{pattern_match} do not apply here as in
+#' other \code{get_*} methods since there is no IUCN Redlist search,
+#' so you either get a match or you do not get a match.
 #'
 #' @details There is no underscore method, because there's no real
 #' search for IUCN, that is, where you search for a string, and get back
 #' a bunch of results due to fuzzy matching. If that exists in the future
 #' we'll add an underscore method here.
 #'
+#' IUCN ids only work with \code{\link{synonyms}} and \code{\link{sci2comm}}
+#' methods.
+#'
 #' @family taxonomic-ids
-#' @seealso \code{\link[taxize]{classification}}
 #'
 #' @examples \dontrun{
 #' get_iucn(x = "Branta canadensis")
@@ -77,8 +96,6 @@ get_iucn <- function(x, verbose = TRUE, key = NULL, ...) {
   out <- outd$id
   attr(out, 'match') <- outd$att
   attr(out, 'name') <- outd$name
-  attr(out, 'multiple_matches') <- NA
-  attr(out, 'pattern_match') <- NA
   if ( !all(is.na(out)) ) {
     attr(out, 'uri') <- sprintf("http://www.iucnredlist.org/details/%s/0", out)
   }
@@ -126,9 +143,7 @@ as.iucn.numeric <- function(x, check=TRUE, key = NULL) {
 #' @rdname get_iucn
 as.iucn.data.frame <- function(x, check=TRUE, key = NULL) {
   structure(x$ids, class = "iucn", match = x$match,
-            name = x$name,
-            multiple_matches = x$multiple_matches,
-            pattern_match = x$pattern_match, uri = x$uri)
+            name = x$name, uri = x$uri)
 }
 
 #' @export
