@@ -37,6 +37,9 @@ as.iucn(x, check = TRUE, key = NULL)
 IUCN Redlist}
 
 \item{...}{Ignored}
+
+\item{check}{(logical) Check if ID matches any existing on the DB, only
+used in \code{\link{as.iucn}}}
 }
 \value{
 A vector of taxonomic identifiers as an S3 class.

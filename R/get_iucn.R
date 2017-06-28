@@ -6,6 +6,8 @@
 #' @param key (character) you IUCN Redlist API key. See
 #' \code{\link[rredlist]{rredlist-package}} for help on authenticating with
 #' IUCN Redlist
+#' @param check (logical) Check if ID matches any existing on the DB, only
+#' used in \code{\link{as.iucn}}
 #' @param ... Ignored
 #'
 #' @return A vector of taxonomic identifiers as an S3 class.
