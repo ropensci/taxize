@@ -62,7 +62,40 @@ back just four fields, whereas all gives all fields back.}
 \value{
 A data.frame with one attribute \code{not_known}: a character
 vector of taxa unknown to the Global Names Index. Access like
-\code{attr(output, "not_known")}, or \code{attributes(output)$not_known}
+\code{attr(output, "not_known")}, or \code{attributes(output)$not_known}.
+Columns of the output data.frame:
+\itemize{
+ \item user_supplied_name (character) - the name you passed in to the
+ \code{names} parameter, unchanged.
+ \item submitted_name (character) - the actual name submitted to the GNR
+ service
+ \item data_source_id (integer/numeric) - data source ID
+ \item data_source_title (character) - data source name
+ \item gni_uuid (character) - Global Names Index UUID (aka identifier)
+ \item matched_name (character) - the matched name in the GNR service
+ \item matched_name2 (character) - returned if \code{canonical=TRUE}, in
+ which case \emph{matched_name} is not returned
+ \item classification_path (character) - names of the taxonomic
+ classification tree, with names separated by pipes (\code{|})
+ \item classification_path_ranks (character) - ranks of the taxonomic
+ classification tree, with names separated by pipes (\code{|})
+ \item classification_path_ids (character) - identifiers of the taxonomic
+ classification tree, with names separated by pipes (\code{|})
+ \item taxon_id (character) - taxon identifier
+ \item edit_distance (integer/numeric) - edit distance
+ \item imported_at (character) - date imported
+ \item match_type (integer/numeric) - match type
+ \item match_value (character) - description of match type
+ \item prescore (character) - pre score
+ \item score (numeric) - score
+ \item local_id (character) - local identifier
+ \item url (character) - URL for taxon
+ \item global_id (character) - global identifier
+ \item current_taxon_id (character) - current taxon id
+ \item current_name_string (character) - current name string
+}
+Note that names (i.e. rows) are dropped that are NA, are zero length
+strings, are not character vectors, or are not found by the API.
 }
 \description{
 Uses the Global Names Index, see \url{http://gni.globalnames.org/}.
@@ -101,8 +134,12 @@ gnr_resolve("Scorzonera hispanica L. subsp. asphodeloides Wallr.",
    with_canonical_ranks = TRUE)
 }
 }
+\references{
+\url{http://gnrd.globalnames.org/api}
+\url{http://gnrd.globalnames.org/}
+}
 \seealso{
-\code{\link[taxize]{gnr_datasources}}
+\code{\link[taxize]{gnr_datasources}} \code{\link{tnrs}}
 }
 \author{
 Scott Chamberlain \email{myrmecocystus@gmail.com}

@@ -46,7 +46,18 @@ accepted or not.
 }
 \details{
 If there is no match in the Taxosaurus database, nothing is
-   returned, so you will not get anything back for non-matches.
+returned, so you will not get anything back for non-matches.
+
+TNRS doesn't provide any advice about the occurrence of homonyms when
+queries have no indication of a taxonomic name's authority. So if there
+is any chance of a homonym, you probably want to send the authority as
+well, or use \code{\link{gnr_resolve}}. For example,
+\code{tnrs(query="Jussiaea linearis", source="iPlant_TNRS")} gives result of
+\emph{Jussiaea linearis (Willd.) Oliv. ex Kuntze}, but there is a
+homonym. If you do
+\code{tnrs(query="Jussiaea linearis Hochst.", source="iPlant_TNRS")} you
+get a direct match for that name. So, beware that there's no indication
+of homonyms.
 }
 \examples{
 \dontrun{
@@ -74,4 +85,10 @@ library("httr")
 mynames <- c("Helianthus annuus", "Poa annua", "Mimulus bicolor")
 tnrs(query = mynames, source = "iPlant_TNRS", config = verbose())
 }
+}
+\references{
+\url{http://taxosaurus.org/}
+}
+\seealso{
+\code{\link{gnr_resolve}}
 }
