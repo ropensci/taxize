@@ -12,10 +12,11 @@ pluck <- function(x, name, type) {
   }
 }
 
-collapse <- function(x, fxn, class, match=TRUE, ...){
+collapse <- function(x, fxn, class, match=TRUE, ...) {
   tmp <- lapply(x, fxn, ...)
   if (match) {
     structure(sapply(tmp, unclass), class = class,
+              name = unlist(sapply(tmp, attr, which = "name")),
               match = sapply(tmp, attr, which = "match"),
               multiple_matches = sapply(tmp, attr, which = "multiple_matches"),
               pattern_match = sapply(tmp, attr, which = "pattern_match"),
@@ -28,9 +29,10 @@ collapse <- function(x, fxn, class, match=TRUE, ...){
 
 evalfxn <- function(x) eval(parse(text = paste0("check", "_", x)))
 
-toid <- function(x, url, class){
+toid <- function(x, url, class, ...) {
   uri <- sprintf(url, x)
-  structure(x, class = class, match = "found", multiple_matches = FALSE, pattern_match = FALSE, uri = uri)
+  structure(x, class = class, match = "found", multiple_matches = FALSE,
+            pattern_match = FALSE, uri = uri, ...)
 }
 
 add_uri <- function(ids, url, z = NULL){

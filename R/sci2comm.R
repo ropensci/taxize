@@ -3,10 +3,10 @@
 #' @export
 #' @param scinames character; One or more scientific names or partial names.
 #' @param db character; Data source, one of \emph{"eol"} (default),
-#' \emph{"itis"} \emph{"ncbi"}, \emph{"worms"}. Note that each taxonomic data
-#' source has their own identifiers,  so that if you provide the wrong
-#' \code{db} value for the identifier you could get a result, but it will
-#' likely be wrong (not what you were expecting).
+#' \emph{"itis"} \emph{"ncbi"}, \emph{"worms"}, or \emph{"iucn"}. Note that
+#' each taxonomic data source has their own identifiers,  so that if you
+#' provide the wrong \code{db} value for the identifier you could get a
+#' result, but it will likely be wrong (not what you were expecting).
 #' @param simplify (logical) If TRUE, simplify output to a vector of names.
 #' If FALSE, return variable formats from different sources, usually a
 #' data.frame. Only applies to eol and itis.
@@ -23,6 +23,10 @@
 #' session by running \code{options(eolApiKey = "<your eol api key>")} in
 #' the console.
 #'
+#' Note that IUCN also requires an API key. See
+#' \code{\link[rredlist]{rredlist-package}} for help on authentiating with
+#' IUCN Redlist
+#'
 #' @return List of character vectors, named by input taxon name, or taxon ID
 #'
 #' @seealso \code{\link[taxize]{comm2sci}}
@@ -36,19 +40,21 @@
 #' sci2comm(scinames='Puma concolor', db='ncbi')
 #' sci2comm('Gadus morhua', db='worms')
 #' sci2comm('Pomatomus saltatrix', db='worms')
+#' sci2comm('Loxodonta africana', db='iucn')
 #'
 #' # Passing id in, works for sources: itis and ncbi, not eol
 #' sci2comm(get_tsn('Helianthus annuus'))
 #' sci2comm(get_uid('Helianthus annuus'))
 #' sci2comm(get_wormsid('Gadus morhua'))
+#' sci2comm(get_iucn('Loxodonta africana'))
 #'
 #' # Don't simplify returned
 #' sci2comm(get_tsn('Helianthus annuus'), simplify=FALSE)
+#' sci2comm(get_iucn('Loxodonta africana'), simplify=FALSE)
 #'
 #' # Use curl options
 #' library("httr")
 #' sci2comm(scinames='Helianthus annuus', config=verbose())
-#' sci2comm('Helianthus annuus', db="itis", config=verbose())
 #' sci2comm('Helianthus annuus', db="ncbi", config=verbose())
 #' }
 #' @rdname sci2comm
@@ -89,13 +95,19 @@ sci2comm.default <- function(scinames, db='eol', simplify=TRUE, ...) {
     worms_foo(id, ...)
   }
 
+  iucn2comm <- function(x, ...){
+    id <- get_iucn(x, ...)
+    iucn_foo(attr(id, "name"), ...)
+  }
+
   getsci <- function(nn, simplify, ...){
     switch(
       db,
       eol = eol2comm(nn, simplify, ...),
       itis = itis2comm(nn, simplify, ...),
       ncbi = ncbi2comm(nn, ...),
-      worms = worms2comm(nn, ...)
+      worms = worms2comm(nn, simplify, ...),
+      iucn = iucn2comm(nn, simplify, ...)
     )
   }
   temp <- lapply(scinames, getsci, simplify, ...)
@@ -126,6 +138,23 @@ sci2comm.wormsid <- function(id, simplify=TRUE, ...) {
   names(out) <- id
   return(out)
 }
+
+#' @export
+#' @rdname sci2comm
+sci2comm.iucn <- function(id, simplify=TRUE, ...) {
+  #out <- lapply(id, function(x) iucn_foo(x, simplify, ...))
+  out <- vector("list", length(id))
+  for (i in seq_along(id)) {
+    out[[i]] <- iucn_foo(attr(id, "name")[i], simplify, ...)
+  }
+  names(out) <- id
+  return(out)
+}
+
+
+
+
+
 
 itis_foo <- function(x, simplify=TRUE, ...){
   # if tsn is not found
@@ -176,5 +205,27 @@ worms_foo <- function(x, simplify=TRUE, ...){
     if (!inherits(out, "tbl_df")) out else as.character(out$vernacular)
   } else{
     out
+  }
+}
+
+iucn_foo <- function(x, simplify=TRUE, ...){
+  # if id is not found
+  if (is.na(x)) {
+    out <- NA
+  } else {
+    out <- rredlist::rl_common_names(name = x, ...)
+    # if common name is not found
+    if (NROW(out$result) == 0) {
+      out <- NA
+    }
+  }
+  if (simplify) {
+    if (!inherits(out$result, "data.frame")) {
+      out$result
+    } else {
+      as.character(out$result$taxonname)
+    }
+  } else{
+    out$result
   }
 }

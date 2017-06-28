@@ -8,6 +8,7 @@
 \alias{synonyms.tpsid}
 \alias{synonyms.nbnid}
 \alias{synonyms.wormsid}
+\alias{synonyms.iucn}
 \alias{synonyms.ids}
 \alias{synonyms_df}
 \title{Retrieve synonyms from various sources given input taxonomic
@@ -26,6 +27,8 @@ synonyms(...)
 \method{synonyms}{nbnid}(id, ...)
 
 \method{synonyms}{wormsid}(id, ...)
+
+\method{synonyms}{iucn}(id, ...)
 
 \method{synonyms}{ids}(id, ...)
 
@@ -66,6 +69,10 @@ you must specify the type of ID.
 For \code{db = "itis"} you can pass in a parameter \code{accepted} to
 toggle whether only accepted names are used \code{accepted = TRUE}, or if
 all are used \code{accepted = FALSE}. The default is \code{accepted = FALSE}
+
+Note that IUCN requires an API key. See
+\code{\link[rredlist]{rredlist-package}} for help on authentiating with
+IUCN Redlist
 }
 \examples{
 \dontrun{
@@ -75,6 +82,7 @@ synonyms("25509881", db="tropicos")
 synonyms("NBNSYS0000004629", db='nbn')
 # synonyms("87e986b0873f648711900866fa8abde7", db='col') # FIXME
 synonyms(105706, db='worms')
+synonyms(22679935, db='iucn')
 
 # Plug in taxon names directly
 synonyms("Pinus contorta", db="itis")
@@ -101,6 +109,7 @@ synonyms(get_tsn("Poa annua"))
 synonyms(get_tpsid("Poa annua"))
 synonyms(get_nbnid("Carcharodon carcharias"))
 synonyms(get_colid("Ornithodoros lagophilus"))
+synonyms(get_iucn('Loxodonta africana'))
 
 # Pass many ids from class "ids"
 out <- get_ids(names="Poa annua", db = c('itis','tropicos'))
@@ -140,5 +149,5 @@ synonyms_df(x)
 \seealso{
 \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_tpsid}},
 \code{\link[taxize]{get_nbnid}}, \code{\link[taxize]{get_colid}},
-\code{\link[taxize]{get_wormsid}}
+\code{\link[taxize]{get_wormsid}}, \code{\link[taxize]{get_iucn}}
 }

@@ -127,11 +127,6 @@ get_tsn_("Arni")
 get_tsn_("Arni", rows=1)
 get_tsn_("Arni", rows=1:2)
 get_tsn_(c("asdfadfasd","Pinus contorta"), rows=1:5)
-
-# use curl options
-library("httr")
-get_tsn("Quercus douglasii", config=verbose())
-bb <- get_tsn("Quercus douglasii", config=progress())
 }
 }
 \seealso{
@@ -140,8 +135,8 @@ bb <- get_tsn("Quercus douglasii", config=progress())
 Other taxonomic-ids: \code{\link{get_boldid}},
   \code{\link{get_colid}}, \code{\link{get_eolid}},
   \code{\link{get_gbifid}}, \code{\link{get_ids}},
-  \code{\link{get_natservid}}, \code{\link{get_nbnid}},
-  \code{\link{get_tolid}}, \code{\link{get_tpsid}},
-  \code{\link{get_uid}}, \code{\link{get_wiki}},
-  \code{\link{get_wormsid}}
+  \code{\link{get_iucn}}, \code{\link{get_natservid}},
+  \code{\link{get_nbnid}}, \code{\link{get_tolid}},
+  \code{\link{get_tpsid}}, \code{\link{get_uid}},
+  \code{\link{get_wiki}}, \code{\link{get_wormsid}}
 }

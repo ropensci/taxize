@@ -25,9 +25,13 @@
 #' toggle whether only accepted names are used \code{accepted = TRUE}, or if
 #' all are used \code{accepted = FALSE}. The default is \code{accepted = FALSE}
 #'
+#' Note that IUCN requires an API key. See
+#' \code{\link[rredlist]{rredlist-package}} for help on authentiating with
+#' IUCN Redlist
+#'
 #' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_tpsid}},
 #' \code{\link[taxize]{get_nbnid}}, \code{\link[taxize]{get_colid}},
-#' \code{\link[taxize]{get_wormsid}}
+#' \code{\link[taxize]{get_wormsid}}, \code{\link[taxize]{get_iucn}}
 #'
 #' @export
 #' @examples \dontrun{
@@ -37,6 +41,7 @@
 #' synonyms("NBNSYS0000004629", db='nbn')
 #' # synonyms("87e986b0873f648711900866fa8abde7", db='col') # FIXME
 #' synonyms(105706, db='worms')
+#' synonyms(22679935, db='iucn')
 #'
 #' # Plug in taxon names directly
 #' synonyms("Pinus contorta", db="itis")
@@ -63,6 +68,7 @@
 #' synonyms(get_tpsid("Poa annua"))
 #' synonyms(get_nbnid("Carcharodon carcharias"))
 #' synonyms(get_colid("Ornithodoros lagophilus"))
+#' synonyms(get_iucn('Loxodonta africana'))
 #'
 #' # Pass many ids from class "ids"
 #' out <- get_ids(names="Poa annua", db = c('itis','tropicos'))
@@ -134,6 +140,11 @@ synonyms.default <- function(x, db = NULL, rows = NaN, ...) {
       structure(stats::setNames(synonyms(id, ...), x),
                 class = "synonyms", db = "worms")
     },
+    iucn = {
+      id <- process_syn_ids(x, db, get_iucn, ...)
+      structure(stats::setNames(synonyms(id, ...), x),
+                class = "synonyms", db = "iucn")
+    },
     stop("the provided db value was not recognised", call. = FALSE)
   )
 }
@@ -147,7 +158,8 @@ process_syn_ids <- function(input, db, fxn, ...){
                      tropicos = as.tpsid,
                      nbn = as.nbnid,
                      col = as.colid,
-                     worms = as.wormsid)
+                     worms = as.wormsid,
+                     iucn = as.iucn)
     as_fxn(input, check = FALSE)
   } else {
     eval(fxn)(input, ...)
@@ -272,6 +284,22 @@ synonyms.wormsid <- function(id, ...) {
   }
   stats::setNames(lapply(id, fun), id)
 }
+
+#' @export
+#' @rdname synonyms
+synonyms.iucn <- function(id, ...) {
+  out <- vector(mode = "list", length = length(id))
+  for (i in seq_along(id)) {
+    if (is.na(id[[i]])) {
+      out[[i]] <- NA
+    } else {
+      out[[i]] <- rredlist::rl_synonyms(attr(id, "name")[i], ...)$result
+    }
+  }
+  stats::setNames(out, id)
+}
+
+
 
 
 

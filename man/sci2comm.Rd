@@ -6,6 +6,7 @@
 \alias{sci2comm.uid}
 \alias{sci2comm.tsn}
 \alias{sci2comm.wormsid}
+\alias{sci2comm.iucn}
 \title{Get common names from scientific names.}
 \usage{
 sci2comm(...)
@@ -17,6 +18,8 @@ sci2comm(...)
 \method{sci2comm}{tsn}(id, simplify = TRUE, ...)
 
 \method{sci2comm}{wormsid}(id, simplify = TRUE, ...)
+
+\method{sci2comm}{iucn}(id, simplify = TRUE, ...)
 }
 \arguments{
 \item{...}{Further arguments passed on to functions
@@ -25,10 +28,10 @@ sci2comm(...)
 \item{scinames}{character; One or more scientific names or partial names.}
 
 \item{db}{character; Data source, one of \emph{"eol"} (default),
-\emph{"itis"} \emph{"ncbi"}, \emph{"worms"}. Note that each taxonomic data
-source has their own identifiers,  so that if you provide the wrong
-\code{db} value for the identifier you could get a result, but it will
-likely be wrong (not what you were expecting).}
+\emph{"itis"} \emph{"ncbi"}, \emph{"worms"}, or \emph{"iucn"}. Note that
+each taxonomic data source has their own identifiers,  so that if you
+provide the wrong \code{db} value for the identifier you could get a
+result, but it will likely be wrong (not what you were expecting).}
 
 \item{simplify}{(logical) If TRUE, simplify output to a vector of names.
 If FALSE, return variable formats from different sources, usually a
@@ -51,6 +54,10 @@ also store your EOL API key in your .Rprofile file as
 \code{options(eolApiKey = "<your eol api key>")}, or just for the current
 session by running \code{options(eolApiKey = "<your eol api key>")} in
 the console.
+
+Note that IUCN also requires an API key. See
+\code{\link[rredlist]{rredlist-package}} for help on authentiating with
+IUCN Redlist
 }
 \examples{
 \dontrun{
@@ -60,19 +67,21 @@ sci2comm(scinames=c('Helianthus annuus', 'Poa annua'))
 sci2comm(scinames='Puma concolor', db='ncbi')
 sci2comm('Gadus morhua', db='worms')
 sci2comm('Pomatomus saltatrix', db='worms')
+sci2comm('Loxodonta africana', db='iucn')
 
 # Passing id in, works for sources: itis and ncbi, not eol
 sci2comm(get_tsn('Helianthus annuus'))
 sci2comm(get_uid('Helianthus annuus'))
 sci2comm(get_wormsid('Gadus morhua'))
+sci2comm(get_iucn('Loxodonta africana'))
 
 # Don't simplify returned
 sci2comm(get_tsn('Helianthus annuus'), simplify=FALSE)
+sci2comm(get_iucn('Loxodonta africana'), simplify=FALSE)
 
 # Use curl options
 library("httr")
 sci2comm(scinames='Helianthus annuus', config=verbose())
-sci2comm('Helianthus annuus', db="itis", config=verbose())
 sci2comm('Helianthus annuus', db="ncbi", config=verbose())
 }
 }
