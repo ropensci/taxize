@@ -98,7 +98,7 @@ Note that names (i.e. rows) are dropped that are NA, are zero length
 strings, are not character vectors, or are not found by the API.
 }
 \description{
-Uses the Global Names Index, see \url{http://gni.globalnames.org/}.
+Resolve names using Global Names Resolver.
 }
 \examples{
 \dontrun{

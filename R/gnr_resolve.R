@@ -1,7 +1,5 @@
 #' Resolve names using Global Names Resolver.
 #'
-#' Uses the Global Names Index, see \url{http://gni.globalnames.org/}.
-#'
 #' @export
 #' @param names character; taxonomic names to be resolved. Doesn't work for
 #' vernacular/common names.

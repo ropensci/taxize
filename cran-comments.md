@@ -25,7 +25,8 @@ unrelated to this package.
 
 ------
 
-This version xxxx
+This version adds a few new functions, a few functions gain new parameters,
+and many bugs fixed.
 
 Thanks!
 Scott Chamberlain

@@ -3,21 +3,63 @@ taxize 0.8.8
 
 ## NEW FEATURES
 
-* xxx (#xxx)
-* xxx (#xxx)
-* xxx (#xxx)
+* New function `ncbi_downstream()` and now NCBI is an option in 
+the function `downstream()` (#583) thanks for the push @andzandz11
+* New data source: Wiki*, which includes Wikipedia, Wikispecies, and 
+Wikidata - you can choose which you'd like to search. Uses new package
+`wikitaxa`, with contributions from @ezwelty (#317)
+* `scrapenames()` gains a parameter `return_content`, a boolean, to 
+optionally return the OCR content as a text string with the results. (#614)
+thanks @fgabriel1891
+* New function `get_iucn()` - to get IUCN Red List ids for taxa. In addition,
+new S3 methods `synonyms.iucn` and `sci2comm.iucn` - no other methods could 
+be made to work with IUCN Red List ids as they do no share their taxonomic
+classification data (#578) thanks @diogoprov 
 
 ## MINOR IMPROVEMENTS
 
-* xxx (#xxx)
-* xxx (#xxx)
-* xxx (#xxx)
+* `bold` now an option in `classification()` function (#588)
+* fix to NBN to use new base URL (#582) ($597)
+* `genbank2uid()` can give back more than 1 taxon matched to a given
+Genbank accession number. Now the function can return more than one 
+match for each query, e.g., try `genbank2uid(id = "AM420293")` (#602)
+ thanks @sariya
+* had to modify `cbind()` usage to incclude `...` for method 
+consistency (#612)
+* `tax_rank()` used to be able to do only ncbi and itis. Can now do a 
+lot more data sources: ncbi, itis, eol, col, tropicos, gbif, nbn,
+worms, natserv, bold  (#587)
+* Added to `classification()` docs in a section `Lots of results` a 
+note about how to deal with results when there are A LOT of them. (#596)
+thanks @ahhurlbert for raising the issue
+* `tnrs()` now returns the resulting data.frame in the oder of the 
+names passed in by the user (#613) thanks @wpetry
+* Changes to `gnr_resolve()` to now strip out taxonomic names submitted 
+by user that are NA, or zero length strings, or are not of class 
+character (#606)
+* Added description of the columns of the data.frame output in 
+`gnr_resolve()` (#610) thanks @kamapu 
+* Added noted in `tnrs()` docs that the service doesn't provide any
+information about homonyms. (#610) thanks @kamapu 
+* Added `parvorder` to the `taxize` `rank_ref` dataset - used by NCBI - 
+if tax returned with that rank, some functions in `taxize` were failing 
+due to that rank missing in our reference dataset `rank_ref` (#615)
 
 ## BUG FIXES
 
-* xxx (#xxx)
-* xxx (#xxx)
-* xxx (#xxx)
+* Fix to `get_colid()` via problem in parsing within `col_search()` (#585)
+* Fix to `gbif_downstream` (and thus fix in `downstream()`): there 
+was two rows with form in our `rank_ref` reference dataset of rank names, 
+causing > 1 result in some cases, then causing `vapply` to fail as it's 
+expecting length 1 result (#599) thanks @andzandz11
+* Fix `genbank2uid()`: was failing when getting more than 1 result back, 
+works now (#603) and fails better now, giving back warnings/error messages
+that are more informative (see also #602) thanks @sariya
+* Fix to `synonyms.tsn()`: in some cases a TSN has > 1 accepted name. We 
+get accepted names first from the TSN, then look for synonyms, and hadn't 
+accounted for > 1 accepted name. Fixed now (#607) thanks @tdjames
+* Fixed bug in `sci2comm()` - was not dealing internally with passing 
+the `simplify` parameter (#616)
 
 
 taxize 0.8.4
