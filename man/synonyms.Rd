@@ -82,7 +82,7 @@ synonyms("25509881", db="tropicos")
 synonyms("NBNSYS0000004629", db='nbn')
 # synonyms("87e986b0873f648711900866fa8abde7", db='col') # FIXME
 synonyms(105706, db='worms')
-synonyms(22679935, db='iucn')
+synonyms(12392, db='iucn')
 
 # Plug in taxon names directly
 synonyms("Pinus contorta", db="itis")

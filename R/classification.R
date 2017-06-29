@@ -196,7 +196,7 @@
 #'
 #' @examples \dontrun{
 #' # Fails without db param set
-#' classification(315576)
+#' # classification(315576)
 #' }
 classification <- function(...){
   UseMethod("classification")
@@ -289,13 +289,13 @@ process_ids <- function(input, db, fxn, ...){
 
 #' @export
 #' @rdname classification
-classification.tsn <- function(id, callopts = list(), return_id = TRUE, ...) {
-  fun <- function(x, callopts){
+classification.tsn <- function(id, return_id = TRUE, ...) {
+  fun <- function(x) {
     # return NA if NA is supplied
     if (is.na(x)) {
       out <- NA
     } else {
-      out <- ritis::hierarchy_full(x, wt = "json", raw = FALSE, callopts)
+      out <- ritis::hierarchy_full(as.character(x), wt = "json", raw = FALSE)
       if (NROW(out) < 1) return(NA)
       # make normal data.frame
       out <- data.frame(out, stringsAsFactors = FALSE)
@@ -305,10 +305,10 @@ classification.tsn <- function(id, callopts = list(), return_id = TRUE, ...) {
       # Optionally return tsn of lineage
       if (!return_id) out <- out[, c('name', 'rank')]
       out$rank <- tolower(out$rank)
-      return(out)
     }
+    return(out)
   }
-  out <- lapply(id, fun, callopts = callopts)
+  out <- lapply(id, fun)
   names(out) <- id
   structure(out, class = 'classification', db = 'itis')
 }

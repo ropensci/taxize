@@ -54,7 +54,6 @@
 #'
 #' # Use curl options
 #' library("httr")
-#' sci2comm(scinames='Helianthus annuus', config=verbose())
 #' sci2comm('Helianthus annuus', db="ncbi", config=verbose())
 #' }
 #' @rdname sci2comm
@@ -66,53 +65,8 @@ sci2comm <- function(...){
 #' @export
 #' @rdname sci2comm
 sci2comm.default <- function(scinames, db='eol', simplify=TRUE, ...) {
-  itis2comm <- function(x, simplify=TRUE, ...){
-    tsn <- get_tsn(x, ...)
-    itis_foo(tsn, simplify, ...)
-  }
-
-  eol2comm <- function(x, ...){
-    tmp <- eol_search(terms = x, ...)
-    pageids <- tmp[grep(x, tmp$name), "pageid"]
-    dfs <- tc(lapply(pageids, function(x)
-      eol_pages(taxonconceptID = x, common_names = TRUE, ...)$vernac))
-    tt <- ldply(dfs[sapply(dfs, class) == "data.frame"])
-    if (simplify) {
-      ss <- as.character(tt$vernacularname)
-      ss[ !is.na(ss) ]
-    } else{
-      tt
-    }
-  }
-
-  ncbi2comm <- function(x, ...){
-    uid <- get_uid(x, ...)
-    ncbi_foo(uid, ...)
-  }
-
-  worms2comm <- function(x, ...){
-    id <- get_wormsid(x, ...)
-    worms_foo(id, ...)
-  }
-
-  iucn2comm <- function(x, ...){
-    id <- get_iucn(x, ...)
-    iucn_foo(attr(id, "name"), ...)
-  }
-
-  getsci <- function(nn, simplify, ...){
-    switch(
-      db,
-      eol = eol2comm(nn, simplify, ...),
-      itis = itis2comm(nn, simplify, ...),
-      ncbi = ncbi2comm(nn, ...),
-      worms = worms2comm(nn, simplify, ...),
-      iucn = iucn2comm(nn, simplify, ...)
-    )
-  }
-  temp <- lapply(scinames, getsci, simplify, ...)
-  names(temp) <- scinames
-  temp
+  temp <- lapply(scinames, getsci, db = db, simplify = simplify, ...)
+  stats::setNames(temp, scinames)
 }
 
 #' @export
@@ -153,7 +107,50 @@ sci2comm.iucn <- function(id, simplify=TRUE, ...) {
 
 
 
+itis2comm <- function(x, simplify, ...){
+  tsn <- get_tsn(x, ...)
+  itis_foo(tsn, simplify = simplify, ...)
+}
 
+eol2comm <- function(x, simplify, ...){
+  tmp <- eol_search(terms = x, ...)
+  pageids <- tmp[grep(x, tmp$name), "pageid"]
+  dfs <- tc(lapply(pageids, function(x)
+    eol_pages(taxonconceptID = x, common_names = TRUE, ...)$vernac))
+  tt <- ldply(dfs[sapply(dfs, class) == "data.frame"])
+  if (simplify) {
+    ss <- as.character(tt$vernacularname)
+    ss[ !is.na(ss) ]
+  } else{
+    tt
+  }
+}
+
+ncbi2comm <- function(x, ...){
+  uid <- get_uid(x, ...)
+  ncbi_foo(uid, ...)
+}
+
+worms2comm <- function(x, simplify, ...){
+  id <- get_wormsid(x, ...)
+  worms_foo(id, simplify = simplify, ...)
+}
+
+iucn2comm <- function(x, simplify, ...){
+  id <- get_iucn(x, ...)
+  iucn_foo(attr(id, "name"), simplify = simplify, ...)
+}
+
+getsci <- function(nn, db, simplify, ...){
+  switch(
+    db,
+    eol = eol2comm(nn, simplify, ...),
+    itis = itis2comm(nn, simplify, ...),
+    ncbi = ncbi2comm(nn, ...),
+    worms = worms2comm(nn, simplify, ...),
+    iucn = iucn2comm(nn, simplify, ...)
+  )
+}
 
 
 itis_foo <- function(x, simplify=TRUE, ...){

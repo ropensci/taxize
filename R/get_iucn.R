@@ -169,6 +169,6 @@ check_iucn <- function(x) {
   tt$status_code == 200
 }
 
-check_iucn_getname <- function(x, key = NULL, ...) {
+check_iucn_getname <- function(x, key = NULL) {
   rredlist::rl_search(id = as.numeric(x), key = key)
 }

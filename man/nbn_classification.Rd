@@ -24,7 +24,7 @@ taxonomic classification
 nbn_classification(id="NHMSYS0000376773")
 
 # get id first, then pass to this fxn
-id <- get_nbnid("blue tit", rec_only = TRUE, rank = "Species")
+id <- get_nbnid("Zootoca vivipara", rec_only = TRUE, rank = "Species")
 nbn_classification(id)
 
 library('httr')

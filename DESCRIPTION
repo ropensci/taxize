@@ -1,11 +1,11 @@
 Package: taxize
 Title: Taxonomic Information from Around the Web
-Description: Interacts with a suite of web 'APIs' for taxonomic tasks,
+Description: Interacts with a suite of web API's for taxonomic tasks,
     such as getting database specific taxonomic identifiers, verifying 
     species names, getting taxonomic hierarchies, fetching downstream and 
     upstream taxonomic names, getting taxonomic synonyms, converting 
     scientific to common names and vice versa, and more.
-Version: 0.8.7.9144
+Version: 0.8.7.9881
 License: MIT + file LICENSE
 URL: https://github.com/ropensci/taxize
 BugReports: https://github.com/ropensci/taxize/issues

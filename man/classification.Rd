@@ -27,7 +27,7 @@ classification(...)
 \method{classification}{default}(x, db = NULL, callopts = list(),
   return_id = TRUE, rows = NaN, ...)
 
-\method{classification}{tsn}(id, callopts = list(), return_id = TRUE, ...)
+\method{classification}{tsn}(id, return_id = TRUE, ...)
 
 \method{classification}{uid}(id, callopts = list(), return_id = TRUE, ...)
 
@@ -275,7 +275,7 @@ classification('Poa annua', db = 'tropicos', rows=6)
 
 \dontrun{
 # Fails without db param set
-classification(315576)
+# classification(315576)
 }
 }
 \seealso{

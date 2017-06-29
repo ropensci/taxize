@@ -1,7 +1,7 @@
 ## Test environments
 
-* local OS X install, R 3.3.2
-* ubuntu 12.04 (on travis-ci), R 3.3.2
+* local OS X install, R 3.4.0 patched
+* ubuntu 12.04 (on travis-ci), R 3.4.0
 * win-builder (devel and release)
 
 ## R CMD check results
@@ -17,16 +17,15 @@ File 'LICENSE':
 
 ## Reverse dependencies
 
-* I have run R CMD check on the 16 downstream dependencies
+* I have run R CMD check on the 18 downstream dependencies
 (<https://github.com/ropensci/taxize/blob/master/revdep/README.md>).
 All revdep maintainers were notified of the release. There was one
-problem with a vignette build with the pacakge camtrapR - I have 
-notified the maintainer.
+problem with a vignette build with the test suite for myTAI - but is
+unrelated to this package.
 
 ------
 
-This version includes two new data sources, and two bug fixes, including 
-for a recent CRAN check failure that Kurt contacted me about.
+This version xxxx
 
 Thanks!
 Scott Chamberlain

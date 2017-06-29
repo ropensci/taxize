@@ -47,7 +47,8 @@ test_that("classification returns the correct values and classes", {
                               verbose=FALSE)
   names(clas_ncbi) <- NULL
 
-  clas_itis <- classification(c("Chironomus riparius", "aaa vva"), db = 'itis', verbose=FALSE)
+  clas_itis <- classification(c("Chironomus riparius", "aaa vva"), db = 'itis',
+                              verbose=FALSE)
   names(clas_itis) <- NULL
 
 	expect_that(clas_ncbi[[2]], equals(NA))

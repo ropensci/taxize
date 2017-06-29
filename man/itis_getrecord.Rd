@@ -27,6 +27,6 @@ itis_getrecord(202385)
 itis_getrecord(c(202385,70340))
 
 # by lsid
-itis_getrecord("urn:lsid:itis.gov:itis_tsn:180543", "lsid")
+itis_getrecord("urn:lsid:itis.gov:itis_tsn:202385", "lsid")
 }
 }

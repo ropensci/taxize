@@ -81,7 +81,6 @@ sci2comm(get_iucn('Loxodonta africana'), simplify=FALSE)
 
 # Use curl options
 library("httr")
-sci2comm(scinames='Helianthus annuus', config=verbose())
 sci2comm('Helianthus annuus', db="ncbi", config=verbose())
 }
 }

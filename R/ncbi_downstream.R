@@ -22,14 +22,16 @@
 #' @examples \dontrun{
 #' ## genus Apis
 #' ncbi_downstream(id = 7459, downto="species")
+#'
+#' ## get intermediate taxa as a separate object
 #' ncbi_downstream(id = 7459, downto="species", intermediate = TRUE)
 #'
 #' ## Lepidoptera
-#' ncbi_downstream(id = 7088, downto="family")
+#' ncbi_downstream(id = 7088, downto="superfamily")
 #'
 #' ## families in the ferns (Moniliformopses)
 #' (id <- get_uid("Moniliformopses"))
-#' ncbi_downstream(id = id, downto = "family")
+#' ncbi_downstream(id = id, downto = "order")
 #' }
 ncbi_downstream <- function(id, downto, intermediate = FALSE, ...) {
 

@@ -41,7 +41,7 @@
 #' synonyms("NBNSYS0000004629", db='nbn')
 #' # synonyms("87e986b0873f648711900866fa8abde7", db='col') # FIXME
 #' synonyms(105706, db='worms')
-#' synonyms(22679935, db='iucn')
+#' synonyms(12392, db='iucn')
 #'
 #' # Plug in taxon names directly
 #' synonyms("Pinus contorta", db="itis")
@@ -160,7 +160,8 @@ process_syn_ids <- function(input, db, fxn, ...){
                      col = as.colid,
                      worms = as.wormsid,
                      iucn = as.iucn)
-    as_fxn(input, check = FALSE)
+    if (db == "iucn") return(as_fxn(input, check = TRUE))
+    return(as_fxn(input, check = FALSE))
   } else {
     eval(fxn)(input, ...)
   }

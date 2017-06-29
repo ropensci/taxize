@@ -1,21 +1,43 @@
+taxize 0.8.8
+============
+
+## NEW FEATURES
+
+* xxx (#xxx)
+* xxx (#xxx)
+* xxx (#xxx)
+
+## MINOR IMPROVEMENTS
+
+* xxx (#xxx)
+* xxx (#xxx)
+* xxx (#xxx)
+
+## BUG FIXES
+
+* xxx (#xxx)
+* xxx (#xxx)
+* xxx (#xxx)
+
+
 taxize 0.8.4
 ============
 
 ## NEW FEATURES
 
 * Added WoRMS integration via the new `worrms` package on CRAN.
-Adds functions `as.wormsid()`, `get_wormsid()`, `get_wormsid_()`, 
-`children.wormsid()`, `classification.wormsid()`, `sci2comm.wormsid()`, 
+Adds functions `as.wormsid()`, `get_wormsid()`, `get_wormsid_()`,
+`children.wormsid()`, `classification.wormsid()`, `sci2comm.wormsid()`,
 `comm2sci.wormsid()`, and `synonyms.wormsid()` (#574) (#579)
 * New functions for NatureServe data, including `as.natservid`,
-`get_natservid`, `get_natservid_`, and `classification.natservid` 
+`get_natservid`, `get_natservid_`, and `classification.natservid`
 (#126)
 
 ## BUG FIXES
 
-* EOL API keys were not passed on to internal functions. fixed now. 
+* EOL API keys were not passed on to internal functions. fixed now.
 thanks @dschlaep ! (#576)
-* Fix in `rankagg()` with respect to `vegan` package to work with 
+* Fix in `rankagg()` with respect to `vegan` package to work with
 older and new version of `vegan` - thank @jarioksa (#580) (#581)
 
 taxize 0.8.0
@@ -27,22 +49,22 @@ taxize 0.8.0
 added: `get_tolid()`, `get_tolid_()`, and `as.tolid()` (#517)
 * related to above `classification()` gains new method for TOL data
 * related to above `lowest_common()` gains new method for TOL data
-* Now using `ritis` package, an external dependency for ITIS taxonomy 
+* Now using `ritis` package, an external dependency for ITIS taxonomy
 data. Note that a large number of ITIS functions were removed, and are
 now available via the package `ritis`. However, there are still many
 high level functions for working with ITIS data (see functions prefixed
 with `itis_`), and `get_tsn()`, `classification.tsn()`, and similar
 high level functions remain unchanged. (#525)
 * EUBON has a new API (v1.2). We now interact with that new API version.
-In addition, `eubon()` fxn is now `eubon_search()`, although either still 
-work - though `eubon()` will be made defunct in the next version of 
+In addition, `eubon()` fxn is now `eubon_search()`, although either still
+work - though `eubon()` will be made defunct in the next version of
 this package. Additional new functions were added: `eubon_capabilities()`,
 `eubon_children()`, and `eubon_hierarchy()` (#567)
-* `lowest_common()` function gains two new data source options: COL (Catalogue 
+* `lowest_common()` function gains two new data source options: COL (Catalogue
 of Life) and TOL (Tree of Life) (#505)
-* Addded new function `synonyms_df()` as a slim wrapper around 
+* Addded new function `synonyms_df()` as a slim wrapper around
 `data.table::rbindlist()` to make it easy to combine many outputs
-from `synonyms()` for a single data source - there is a lot of heterogeneity 
+from `synonyms()` for a single data source - there is a lot of heterogeneity
 among data sources in how they report synonyms data, so we don't attempt
 to combine data across sources (#533)
 
@@ -52,13 +74,13 @@ to combine data across sources (#533)
 
 ## BUG FIXES
 
-* Fixed bug in `tax_name()` in which when an invalid taxon was searched 
-for then `classification()` returned no data and caused an error. 
+* Fixed bug in `tax_name()` in which when an invalid taxon was searched
+for then `classification()` returned no data and caused an error.
 Fixed now. (#560) thanks @ljvillanueva for reporting it!
-* Fixed bug in `gnr_resolve()` in which order of input names to the function 
+* Fixed bug in `gnr_resolve()` in which order of input names to the function
 was not retained. fixed now. (#561) thanks @bomeara for reporting it!
-* Fixed bug in `gbif_parse()` - data format changed coming back from 
-GBIF - needed to replace `NULL` with `NA` (#568)  thanks @ChrKoenig for 
+* Fixed bug in `gbif_parse()` - data format changed coming back from
+GBIF - needed to replace `NULL` with `NA` (#568)  thanks @ChrKoenig for
 reporting it!
 
 
