@@ -135,9 +135,7 @@ classification(specieslist, db = 'itis')
 
 ```
 #> $`Abies procera`
-#> # A tibble: 12 × 3
 #>               name          rank     id
-#>              <chr>         <chr>  <chr>
 #> 1          Plantae       kingdom 202422
 #> 2    Viridiplantae    subkingdom 954898
 #> 3     Streptophyta  infrakingdom 846494
@@ -152,9 +150,7 @@ classification(specieslist, db = 'itis')
 #> 12   Abies procera       species 181835
 #> 
 #> $`Pinus contorta`
-#> # A tibble: 12 × 3
 #>               name          rank     id
-#>              <chr>         <chr>  <chr>
 #> 1          Plantae       kingdom 202422
 #> 2    Viridiplantae    subkingdom 954898
 #> 3     Streptophyta  infrakingdom 846494
@@ -265,7 +261,7 @@ get_nbnid(c("Zootoca vivipara","Pinus contorta"), rows = 1)
 ```
 
 ```
-#> [1] "NHMSYS0001706186" "NHMSYS0000494848"
+#> [1] "NHMSYS0001706186" "NBNSYS0000004786"
 #> attr(,"class")
 #> [1] "nbnid"
 #> attr(,"match")
@@ -276,7 +272,7 @@ get_nbnid(c("Zootoca vivipara","Pinus contorta"), rows = 1)
 #> [1] FALSE FALSE
 #> attr(,"uri")
 #> [1] "https://data.nbn.org.uk/Taxa/NHMSYS0001706186"
-#> [2] "https://data.nbn.org.uk/Taxa/NHMSYS0000494848"
+#> [2] "https://data.nbn.org.uk/Taxa/NBNSYS0000004786"
 ```
 
 Or you can select a range of rows
@@ -287,22 +283,26 @@ get_nbnid(c("Zootoca vivipara","Pinus contorta"), rows = 1:3)
 ```
 
 ```
-#>              nbnid                  searchmatchtitle       rank
+#>              nbnid                    scientificName       rank
 #> 1 NHMSYS0001706186                  Zootoca vivipara    species
 #> 2 NHMSYS0020784960 Zootoca vivipara subsp. pannonica subspecies
-#> 3 NHMSYS0001706185                           Zootoca      genus
-#>    namestatus
-#> 1 Recommended
-#> 2 Recommended
-#> 3 Recommended
-#>              nbnid               searchmatchtitle       rank  namestatus
-#> 1 NHMSYS0000494848   Pinus contorta var. contorta    variety Recommended
-#> 2 NBNSYS0000004786                 Pinus contorta    species Recommended
-#> 3 NHMSYS0000494848 Pinus contorta subsp. contorta subspecies Recommended
+#> 3 NHMSYS0000461615                 Bistorta vivipara    species
+#>   taxonomicStatus
+#> 1        accepted
+#> 2        accepted
+#> 3         synonym
+#>              nbnid                  scientificName       rank
+#> 1 NBNSYS0000004786                  Pinus contorta    species
+#> 2 NHMSYS0000494848  Pinus contorta subsp. contorta subspecies
+#> 3 NHMSYS0000494858 Pinus contorta subsp. murreyana subspecies
+#>   taxonomicStatus
+#> 1        accepted
+#> 2         synonym
+#> 3         synonym
 ```
 
 ```
-#> [1] "NHMSYS0001706186" "NHMSYS0000494848"
+#> [1] "NHMSYS0001706186" "NBNSYS0000004786"
 #> attr(,"class")
 #> [1] "nbnid"
 #> attr(,"match")
@@ -313,7 +313,7 @@ get_nbnid(c("Zootoca vivipara","Pinus contorta"), rows = 1:3)
 #> [1] FALSE FALSE
 #> attr(,"uri")
 #> [1] "https://data.nbn.org.uk/Taxa/NHMSYS0001706186"
-#> [2] "https://data.nbn.org.uk/Taxa/NHMSYS0000494848"
+#> [2] "https://data.nbn.org.uk/Taxa/NBNSYS0000004786"
 ```
 
 In addition, in case you don't want to do interactive name selection in the case where there are a lot of names, you can get all data back with functions of the form, e.g., `get_tsn_()`, and likewise for other data sources. For example:
@@ -325,7 +325,7 @@ NROW(out$`Poa annua`)
 ```
 
 ```
-#> [1] 152
+#> [1] 25
 ```
 
 That's a lot of data, so we can get only certain rows back
@@ -337,17 +337,17 @@ get_nbnid_("Poa annua", rows = 1:10)
 
 ```
 #> $`Poa annua`
-#>    ptaxonversionkey searchmatchtitle    rank   namestatus
-#> 1  NBNSYS0000002544        Poa annua species  Recommended
-#> 2  NHMSYS0000461798              Poa   genus  Recommended
-#> 3  NHMSYS0000461804         Poa laxa species      Synonym
-#> 4  NHMSYS0021060390           Poales   order  Recommended
-#> 5  NBNSYS0000002551       Poa glauca species  Recommended
-#> 6  NBNSYS0000002547       Poa alpina species  Recommended
-#> 7  NHMSYS0000456981       Poa rigida species      Synonym
-#> 8  NBNSYS0000002551       Poa caesia species      Synonym
-#> 9  NBNSYS0000002545       Poa exilis species Undetermined
-#> 10 NHMSYS0000461804        Poa minor species      Synonym
+#>                guid    scientificName    rank taxonomicStatus
+#> 1  NBNSYS0000002544         Poa annua species        accepted
+#> 2  NBNSYS0000002739      Adonis annua species         synonym
+#> 3  NBNSYS0200001901      Bellis annua species        accepted
+#> 4  NHMSYS0000456951 Carrichtera annua species         synonym
+#> 5  NBNSYS0200003392  Triumfetta annua species        accepted
+#> 6  NBNSYS0000002918     Lunaria annua species        accepted
+#> 7  NBNSYS0200002555       Lonas annua species        accepted
+#> 8  NBNSYS0000033325   Artemisia annua species        accepted
+#> 9  NHMSYS0000456951 Carrichtera annua species        accepted
+#> 10 NHMSYS0000461806     Poa imbecilla species         synonym
 ```
 
 ## Coerce numerics/alphanumerics to taxon IDs
@@ -447,7 +447,7 @@ system.time( replicate(3, as.gbifid(c("2704179","2435099","3171445"), check=TRUE
 
 ```
 #>    user  system elapsed 
-#>   0.072   0.002   1.703
+#>   0.072   0.002   1.656
 ```
 
 ```r
@@ -456,7 +456,7 @@ system.time( replicate(3, as.gbifid(c("2704179","2435099","3171445"), check=FALS
 
 ```
 #>    user  system elapsed 
-#>   0.001   0.000   0.001
+#>   0.002   0.000   0.002
 ```
 
 ## What taxa are downstream of my taxon of interest?

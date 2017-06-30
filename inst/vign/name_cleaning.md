@@ -104,7 +104,7 @@ has a sister method with and trailing underscore, e.g., `get_tsn()` and `get_tsn
 ```r
 get_tsn_(searchterm = "Quercus b")
 #> $`Quercus b`
-#> # A tibble: 5 × 4
+#> # A tibble: 5 x 4
 #>      tsn         scientificName                           commonNames
 #>    <chr>                  <chr>                                 <chr>
 #> 1  19300        Quercus bicolor     swamp white oak,ch<ea>ne bicolore
@@ -125,7 +125,7 @@ number of a range of numbers:
 ```r
 get_tsn_(searchterm = "Quercus b", rows = 1)
 #> $`Quercus b`
-#> # A tibble: 1 × 4
+#> # A tibble: 1 x 4
 #>     tsn  scientificName                       commonNames nameUsage
 #>   <chr>           <chr>                             <chr>     <chr>
 #> 1 19300 Quercus bicolor swamp white oak,ch<ea>ne bicolore  accepted
@@ -135,7 +135,7 @@ get_tsn_(searchterm = "Quercus b", rows = 1)
 ```r
 get_tsn_(searchterm = "Quercus b", rows = 1:2)
 #> $`Quercus b`
-#> # A tibble: 2 × 4
+#> # A tibble: 2 x 4
 #>      tsn    scientificName                           commonNames nameUsage
 #>    <chr>             <chr>                                 <chr>     <chr>
 #> 1  19300   Quercus bicolor     swamp white oak,ch<ea>ne bicolore  accepted
@@ -227,30 +227,42 @@ in a programmatic workflow straight away.
 ```r
 spp <- names_list(rank = "species", size = 10)
 gnr_resolve(names = spp, preferred_data_sources = 11)
-#>               user_supplied_name                submitted_name
-#> 1             Eucalyptus oreades            Eucalyptus oreades
-#> 2          Alloispermum insuetum         Alloispermum insuetum
-#> 3                   Thymus rudis                  Thymus rudis
-#> 4                   Thymus rudis                  Thymus rudis
-#> 5      Trichosanthes dafangensis     Trichosanthes dafangensis
-#> 6  Ectropothecium subhaplocladum Ectropothecium subhaplocladum
-#> 7           Persoonia mitchellii          Persoonia mitchellii
-#> 8                Gilia propinqua               Gilia propinqua
-#> 9            Aberemoa furfuracea           Aberemoa furfuracea
-#> 10           Myrcia australasiae           Myrcia australasiae
-#> 11                Lotus borbasii                Lotus borbasii
-#>                                                    matched_name
-#> 1                                   Eucalyptus oreades R. Baker
-#> 2  Alloispermum insuetum C.F.Fernández, Urbatsch & G.A.Sullivan
-#> 3                                          Thymus rudis A.Kern.
-#> 4                              Thymus rudis A.Kern. ex Mazzetti
-#> 5                   Trichosanthes dafangensis N.G. Ye & S.J. Li
-#> 6                 Ectropothecium subhaplocladum Brotherus, 1928
-#> 7                                  Persoonia mitchellii Meissn.
-#> 8                             Gilia propinqua (Suksd.) St. John
-#> 9                      Aberemoa furfuracea (A. St.-Hil.) Baill.
-#> 10                                 Myrcia australasiae F.Muell.
-#> 11                                       Lotus borbasii Ujhelyi
+#>          user_supplied_name           submitted_name
+#> 1     Helichrysum candollei    Helichrysum candollei
+#> 2          Haworthia retusa         Haworthia retusa
+#> 3          Crypsinus bakeri         Crypsinus bakeri
+#> 4  Mangifera philippinensis Mangifera philippinensis
+#> 5    Selaginella atirrensis   Selaginella atirrensis
+#> 6   Hymenostomum sullivanii  Hymenostomum sullivanii
+#> 7   Hymenostomum sullivanii  Hymenostomum sullivanii
+#> 8         Cytisus urumoffii        Cytisus urumoffii
+#> 9         Cytisus urumoffii        Cytisus urumoffii
+#> 10        Cytisus urumoffii        Cytisus urumoffii
+#> 11        Baptisia uniflora        Baptisia uniflora
+#> 12        Baptisia uniflora        Baptisia uniflora
+#> 13        Baptisia uniflora        Baptisia uniflora
+#> 14        Baptisia uniflora        Baptisia uniflora
+#> 15     Nephelium xerocarpum     Nephelium xerocarpum
+#> 16  Baccharis gnaphalioides  Baccharis gnaphalioides
+#> 17  Baccharis gnaphalioides  Baccharis gnaphalioides
+#>                                             matched_name
+#> 1  Helichrysum candollei (Bojer ex DC.) R.Vig. & Humbert
+#> 2                            Haworthia retusa (L.) Duval
+#> 3                        Crypsinus bakeri (Luerss.) Tag.
+#> 4                      Mangifera philippinensis Mukherji
+#> 5                         Selaginella atirrensis Hieron.
+#> 6      Hymenostomum sullivanii C. Müller ex Geheeb, 1897
+#> 7                      Hymenostomum sullivanii C. Müller
+#> 8                     Cytisus urumoffii Davidov ex Stoj.
+#> 9                Cytisus urumoffii Davidoff ex Stoyanoff
+#> 10                            Cytisus urumoffii Davidoff
+#> 11                               Baptisia uniflora Hook.
+#> 12                      Baptisia uniflora (Michx.) Nutt.
+#> 13                        Baptisia uniflora (Michx.) Sm.
+#> 14                             Baptisia uniflora Spreng.
+#> 15                   Nephelium xerocarpum (Bl.) Cambess.
+#> 16                       Baccharis gnaphalioides Spreng.
+#> 17                           Baccharis gnaphalioides DC.
 #>         data_source_title score
 #> 1  GBIF Backbone Taxonomy 0.988
 #> 2  GBIF Backbone Taxonomy 0.988
@@ -263,6 +275,12 @@ gnr_resolve(names = spp, preferred_data_sources = 11)
 #> 9  GBIF Backbone Taxonomy 0.988
 #> 10 GBIF Backbone Taxonomy 0.988
 #> 11 GBIF Backbone Taxonomy 0.988
+#> 12 GBIF Backbone Taxonomy 0.988
+#> 13 GBIF Backbone Taxonomy 0.988
+#> 14 GBIF Backbone Taxonomy 0.988
+#> 15 GBIF Backbone Taxonomy 0.988
+#> 16 GBIF Backbone Taxonomy 0.988
+#> 17 GBIF Backbone Taxonomy 0.988
 ```
 
 ## Other functions
