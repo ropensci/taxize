@@ -10,5 +10,5 @@ test_that("tp_summary returns the correct value", {
   expect_match(names(dat)[[1]], ".id")
 
 	expect_is(dat, "data.frame")
-	expect_equal(NCOL(dat), 22)
+	expect_gt(NCOL(dat), 10)
 })
