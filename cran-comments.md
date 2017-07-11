@@ -25,8 +25,8 @@ unrelated to this package.
 
 ------
 
-This version adds a few new functions, a few functions gain new parameters,
-and many bugs fixed.
+This version fixes a bug - that was causing failed installation for at 
+least one user; so may affect others.
 
 Thanks!
 Scott Chamberlain

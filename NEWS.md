@@ -1,3 +1,12 @@
+taxize 0.8.9
+============
+
+## BUG FIXES
+
+* Remove `ape::neworder_phylo` object, which is not used anymore in `taxize`  
+(#618) (#619) thanks @ashiklom
+
+
 taxize 0.8.8
 ============
 
