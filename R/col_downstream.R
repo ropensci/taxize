@@ -80,25 +80,32 @@ col_downstream <- function(name = NULL, id = NULL, downto, format = NULL,
                           format = format, start = start, ...)
         })
       }
+      # prune if too low
+      tt <- prune_too_low_col(tt, downto)
 
-      # remove
-      if (NROW(tt[tt$childtaxa_rank == downto, ]) > 0) {
-        out[[iter]] <- tt[tt$childtaxa_rank == downto, ]
-      }
-
-      if (NROW(tt[!tt$childtaxa_rank == downto, ]) > 0) {
-        notout <- tt[!tt$childtaxa_rank %in% torank, ]
+      if (NROW(tt) == 0) {
+        out[[iter]] <- data.frame(stringsAsFactors = FALSE)
+        stop_ <- "nodata"
       } else {
-        notout <- data.frame(rankName = downto)
-      }
+        # remove
+        if (NROW(tt[tt$childtaxa_rank == downto, ]) > 0) {
+          out[[iter]] <- tt[tt$childtaxa_rank == downto, ]
+        }
 
-      if (all(notout$childtaxa_rank == downto)) {
-        stop_ <- "fam"
-      } else {
-        if (intermediate) intermed[[iter]] <- notout
-        x <- NULL
-        toget <- as.character(notout$childtaxa_id)
-        stop_ <- "not"
+        if (NROW(tt[!tt$childtaxa_rank == downto, ]) > 0) {
+          notout <- tt[!tt$childtaxa_rank %in% torank, ]
+        } else {
+          notout <- data.frame(rankName = downto)
+        }
+
+        if (all(notout$childtaxa_rank == downto)) {
+          stop_ <- "fam"
+        } else {
+          if (intermediate) intermed[[iter]] <- notout
+          x <- NULL
+          toget <- as.character(notout$childtaxa_id)
+          stop_ <- "not"
+        }
       }
     } # end while loop
 

@@ -58,6 +58,20 @@ test_that("downstream - Use the rows parameter", {
   expect_is(aa[[1]]$childtaxa_id, "character")
 })
 
+
+test_that("downstream - Works with COL which previously failed
+          due to lack of infraspecies value in rank_ref dataset", {
+  skip_on_cran()
+
+  x <- as.colid("d324f3777e98688584cf8b68d0f06e5f", FALSE)
+  aa <- downstream(x, db = 'col', downto = "suborder", verbose = FALSE)
+
+  expect_is(aa, "downstream")
+  expect_is(aa[[1]], "data.frame")
+  expect_equal(NROW(aa[[1]]), 0)
+})
+
+
 test_that("downstream fails well", {
   skip_on_cran()
 
