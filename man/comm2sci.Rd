@@ -4,32 +4,35 @@
 \alias{comm2sci}
 \title{Get scientific names from common names.}
 \usage{
-comm2sci(commnames, db = "eol", itisby = "search", simplify = TRUE, ...)
+comm2sci(...)
 }
 \arguments{
+\item{...}{Further arguments passed on to internal methods.}
+
 \item{commnames}{One or more common names or partial names.}
 
 \item{db}{Data source, one of \emph{"eol"} (default), \emph{"itis"},
-\emph{"tropicos"}, \emph{"ncbi"}, or \emph{"worms"}. Note that each
-taxonomic data source
-has their own identifiers, so that if you provide the wrong \code{db}
-value for the identifier you could get a result, but it will likely be
-wrong (not what you were expecting).}
+\emph{"tropicos"}, \emph{"ncbi"}, or \emph{"worms"}.}
 
 \item{itisby}{Search for common names across entire names (search, default),
 at beginning of names (begin), or at end of names (end).}
 
-\item{simplify}{(logical) If TRUE, simplify output to a vector of names.
-If \code{FALSE}, return variable formats from different sources,
+\item{simplify}{(logical) If \code{TRUE}, simplify output to a vector
+of names. If \code{FALSE}, return variable formats from different sources,
 usually a data.frame.}
-
-\item{...}{Further arguments passed on to internal methods.}
 }
 \value{
-A vector of names.
+A list of scientific names, with list labeled by your input names
 }
 \description{
 Get scientific names from common names.
+}
+\details{
+For data sources ITIS and NCBI you can pass in common names
+directly, and use \code{\link[taxize]{get_uid}} or
+\code{\link[taxize]{get_tsn}} to get ids first, then pass in to this fxn.
+
+For the other data sources, you can only pass in common names directly.
 }
 \examples{
 \dontrun{
@@ -46,21 +49,18 @@ library(plyr)
 ldply(comm2sci(commnames=c('annual blue grass','tree of heaven'),
   db='tropicos'))
 
-# Use curl options
-library("httr")
-comm2sci(commnames='black bear', config=verbose())
-comm2sci(commnames='black bear', db="itis", config=verbose())
-comm2sci(commnames='bear', db="ncbi", config=verbose())
-comm2sci(commnames='annual blue grass', db="tropicos", config=verbose())
+# ncbi: pass in uid's from get_uid() directly
+x <- get_uid("western capercaillie", modifier = "Common Name")
+comm2sci(x)
+# itis: pass in tsn's from get_tsn() directly
+x <- get_tsn(c("Louisiana black bear", "american crow"),
+  searchtype = "common")
+comm2sci(x)
 }
 }
 \seealso{
-\code{\link[ritis]{search_common}},
-\code{\link[taxize]{eol_search}},
-\code{\link[taxize]{tp_search}}
-
 \code{\link[taxize]{sci2comm}}
 }
 \author{
-Scott Chamberlain (myrmecocystus@gmail.com)
+Scott Chamberlain
 }

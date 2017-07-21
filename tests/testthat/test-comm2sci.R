@@ -25,3 +25,18 @@ test_that("comm2sci returns the correct values and classes", {
   expect_that(uu[[1]], is_a("character"))
   expect_is(suppressMessages(comm2sci(commnames='black bear', db='itis', simplify = FALSE))[[1]], "data.frame")
 })
+
+test_that("comm2sci fails well", {
+  expect_error(comm2sci(5), "commnames must be of class character")
+  expect_error(comm2sci(list()), "commnames must be of class character")
+  expect_error(comm2sci(mtcars), "commnames must be of class character")
+
+  expect_error(comm2sci("bear", db = "adsf"),
+               "'db' must be one of 'eol', 'itis', 'tropicos', 'ncbi', 'worms'")
+
+  expect_error(comm2sci("bear", simplify = "Asdf"),
+               "simplify must be of class logical")
+
+  # no results if itisby is not a valid value, doesn't error though
+  expect_equal(length(comm2sci('bear', db='itis', itisby = "asdff")[[1]]), 0)
+})
