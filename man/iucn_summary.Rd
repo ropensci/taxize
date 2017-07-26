@@ -3,23 +3,14 @@
 \name{iucn_summary}
 \alias{iucn_summary}
 \alias{iucn_summary_id}
-\alias{iucn_status.iucn}
 \title{Get a summary from the IUCN Red List}
 \usage{
-iucn_summary(sciname, silent = TRUE, parallel = FALSE,
-  distr_detail = FALSE, key = NULL, ...)
+iucn_summary(x, parallel = FALSE, distr_detail = FALSE, key = NULL, ...)
 
 iucn_summary_id(species_id, silent = TRUE, parallel = FALSE,
   distr_detail = FALSE, ...)
-
-\method{iucn_status}{iucn}(x, ...)
 }
 \arguments{
-\item{sciname}{character; Scientific name. Should be cleaned and in the
-format \emph{<Genus> <Species>}.}
-
-\item{silent}{logical; Make errors silent or not (when species not found).}
-
 \item{parallel}{logical; Search in parallel to speed up search. You have to
 register a parallel backend if \code{TRUE}. See e.g., doMC, doSNOW, etc.}
 
@@ -35,8 +26,10 @@ Required for \code{iucn_summary} but not needed for \code{iucn_summary_id}. Defa
 
 \item{species_id}{an IUCN ID}
 
-\item{x}{an \code{iucn} object as returned by
-\code{\link[taxize]{iucn_summary}}.}
+\item{silent}{logical; Make errors silent or not (when species not found).}
+
+\item{sciname}{character; Scientific name. Should be cleaned and in the
+format \emph{<Genus> <Species>}.}
 }
 \value{
 A list (for every species one entry) of lists with the following
@@ -55,6 +48,14 @@ We do our best to get you the correct data quickly, but sometimes IUCN gives
 back the wrong data, and sometimes Global Names gives back the wrong data.
 We will fix these as soon as possible. In the meantime, just make sure that
 the data you get back is correct.
+
+\code{iucn_summary} has a default method that errors when anything's
+passed in that's not \code{character} or \code{iucn} class - a
+\code{iucn_summary.character} method for when you pass in taxon names -
+and a \code{iucn_summary.iucn} method so you can pass in iucn class objects
+as output from \code{\link{get_iucn}} or \code{\link{as.iucn}}. If you
+already have IUCN IDs, coerce them to \code{iucn} class via
+\code{as.iucn(..., check = FALSE)}
 }
 \note{
 Not all entries (history, distr, trend) are available for every species
@@ -85,7 +86,7 @@ ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
 ia <- iucn_summary(c("Panthera uncia", "Lynx lynx", "aaa"))
 
 ## get detailed distribution
-iac <- iucn_summary("Ara chloropterus", distr_detail = TRUE)
+iac <- iucn_summary(x="Ara chloropterus", distr_detail = TRUE)
 iac[[1]]$distr
 
 
@@ -97,6 +98,11 @@ iucn_status(ia)
 ia[['Lynx lynx']]$history
 ia[['Panthera uncia']]$distr
 ia[[2]]$trend
+## the outputs aren't quite identical, but we're working on it
+identical(
+  iucn_summary_id(c(22732, 12519)),
+  iucn_summary(as.iucn(c(22732, 12519)))
+)
 
 # using parallel, e.g., with doMC package, register cores first
 # library(doMC)

@@ -2,6 +2,7 @@
 #'
 #' @description Get a summary from the IUCN Red List (\url{http://www.iucnredlist.org/}).
 #'
+#' @export
 #' @param sciname character; Scientific name. Should be cleaned and in the
 #' format \emph{<Genus> <Species>}.
 #' @param silent logical; Make errors silent or not (when species not found).
@@ -35,6 +36,18 @@
 #' We will fix these as soon as possible. In the meantime, just make sure that
 #' the data you get back is correct.
 #'
+#' \code{iucn_summary} has a default method that errors when anything's
+#' passed in that's not \code{character} or \code{iucn} class - a
+#' \code{iucn_summary.character} method for when you pass in taxon names -
+#' and a \code{iucn_summary.iucn} method so you can pass in iucn class objects
+#' as output from \code{\link{get_iucn}} or \code{\link{as.iucn}}. If you
+#' already have IUCN IDs, coerce them to \code{iucn} class via
+#' \code{as.iucn(..., check = FALSE)}
+#'
+#' @author Eduard Szoecs, \email{eduardszoecs@@gmail.com}
+#' @author Philippe Marchand, \email{marchand.philippe@@gmail.com}
+#' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
+#'
 #' @section Redlist Authentication:
 #' \code{iucn_summary} uses the new Redlist API for searching for a IUCN ID, so we
 #' use the \code{\link[rredlist]{rl_search}} function internally. This function
@@ -55,7 +68,7 @@
 #' ia <- iucn_summary(c("Panthera uncia", "Lynx lynx", "aaa"))
 #'
 #' ## get detailed distribution
-#' iac <- iucn_summary("Ara chloropterus", distr_detail = TRUE)
+#' iac <- iucn_summary(x="Ara chloropterus", distr_detail = TRUE)
 #' iac[[1]]$distr
 #'
 #'
@@ -67,6 +80,11 @@
 #' ia[['Lynx lynx']]$history
 #' ia[['Panthera uncia']]$distr
 #' ia[[2]]$trend
+#' ## the outputs aren't quite identical, but we're working on it
+#' identical(
+#'   iucn_summary_id(c(22732, 12519)),
+#'   iucn_summary(as.iucn(c(22732, 12519)))
+#' )
 #'
 #' # using parallel, e.g., with doMC package, register cores first
 #' # library(doMC)
@@ -74,13 +92,39 @@
 #' # nms <- c("Panthera uncia", "Lynx lynx", "Ara chloropterus", "Lutra lutra")
 #' # (res <- iucn_summary(nms, parallel = TRUE))
 #' }
+iucn_summary <- function(x, parallel = FALSE, distr_detail = FALSE,
+                         key = NULL, ...) {
+  UseMethod("iucn_summary")
+}
+
 #' @export
-#' @author Eduard Szoecs, \email{eduardszoecs@@gmail.com}
-#' @author Philippe Marchand, \email{marchand.philippe@@gmail.com}
-#' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
-iucn_summary <- function(sciname, silent = TRUE, parallel = FALSE,
-                         distr_detail = FALSE, key = NULL, ...) {
-  get_iucn_summary(sciname, silent, parallel, distr_detail, by_id = FALSE, key = key, ...)
+iucn_summary.default <- function(x, parallel = FALSE, distr_detail = FALSE,
+                                 key = NULL, ...) {
+  stop("no 'iucn_summary' method for ", class(x), call. = FALSE)
+}
+
+#' @export
+iucn_summary.character <- function(x, parallel = FALSE, distr_detail = FALSE,
+                                   key = NULL, ...) {
+  xid <- get_iucn(x)
+  if (any(is.na(xid))) {
+    nas <- x[is.na(xid)]
+    warning("taxa '", paste0(nas, collapse = ", ") ,
+            "' not found!\n Returning NAs!")
+    if (all(is.na(xid))) {
+      return(list(status = NA, history = NA, distr = NA, trend = NA))
+    }
+  }
+  xid <- as.numeric(xid)
+  res <- get_iucn_summary2(xid, parallel, distr_detail, key = key, ...)
+  structure(stats::setNames(res, x), class = "iucn_summary")
+}
+
+#' @export
+iucn_summary.iucn <- function(x, parallel = FALSE, distr_detail = FALSE,
+                              key = NULL, ...) {
+  res <- get_iucn_summary2(x, parallel, distr_detail, key = key, ...)
+  structure(stats::setNames(res, x), class = "iucn_summary")
 }
 
 #' @param species_id an IUCN ID
@@ -88,44 +132,49 @@ iucn_summary <- function(sciname, silent = TRUE, parallel = FALSE,
 #' @rdname iucn_summary
 iucn_summary_id <- function(species_id, silent = TRUE, parallel = FALSE,
                             distr_detail = FALSE, ...) {
-    get_iucn_summary(species_id, silent, parallel, distr_detail, by_id = TRUE, ...)
+  .Deprecated(msg = gsub("\\s\\s|\n", "", "this function will be deprecated in
+      the next version. use iucn_summary()"))
+  res <- get_iucn_summary(species_id, silent, parallel, distr_detail,
+                          by_id = TRUE, ...)
+  structure(stats::setNames(res, species_id), class = "iucn_summary")
 }
 
 
+## helpers --------
 get_iucn_summary <- function(query, silent, parallel, distr_detail, by_id, key = NULL, ...) {
 
   fun <- function(query) {
 
     if (!by_id) {
-        #to deal with subspecies
-        sciname_q <- strsplit(query, " ")
-        spec <- tolower(paste(sciname_q[[1]][1], sciname_q[[1]][2]))
-        res <- tryCatch(rredlist::rl_search(spec, key = key), error = function(e) e)
-        if (inherits(res, "error")) {
-          stop(res$message, " - see ?iucn_summary and http://apiv3.iucnredlist.org/api/v3/token", call. = FALSE)
-        }
-        if (!inherits(res, "try-error") && NROW(res$result) > 0) {
-            df <- unique(res$result)
-            #check if there are several matches
-            scinamelist <- df$scientific_name
-            species_id <- df$taxonid[which(tolower(scinamelist) == tolower(query))]
-        }
+      #to deal with subspecies
+      sciname_q <- strsplit(query, " ")
+      spec <- tolower(paste(sciname_q[[1]][1], sciname_q[[1]][2]))
+      res <- tryCatch(rredlist::rl_search(spec, key = key), error = function(e) e)
+      if (inherits(res, "error")) {
+        stop(res$message, " - see ?iucn_summary and http://apiv3.iucnredlist.org/api/v3/token", call. = FALSE)
+      }
+      if (!inherits(res, "try-error") && NROW(res$result) > 0) {
+        df <- unique(res$result)
+        #check if there are several matches
+        scinamelist <- df$scientific_name
+        species_id <- df$taxonid[which(tolower(scinamelist) == tolower(query))]
+      }
     } else {
-        species_id <- query
+      species_id <- query
     }
     if (!exists('species_id')) {
-        warning("Species '", query , "' not found!\n Returning NA!")
-        out <- list(status = NA,
-                    history = NA,
-                    distr = NA,
-                    trend = NA)
+      warning("Species '", query , "' not found!\n Returning NA!")
+      out <- list(status = NA,
+                  history = NA,
+                  distr = NA,
+                  trend = NA)
     } else {
       url <- paste("http://api.iucnredlist.org/details/", species_id, "/0", sep = "")
       e <- try(h <- xml2::read_html(url), silent = silent)
       if (!inherits(e, "try-error")) {
         # scientific name
         if (by_id) {
-            sciname <- xml2::xml_text(xml2::xml_find_all(h, '//h1[@id = "scientific_name"]'))
+          sciname <- xml2::xml_text(xml2::xml_find_all(h, '//h1[@id = "scientific_name"]'))
         }
 
         # status
@@ -142,9 +191,9 @@ get_iucn_summary <- function(query, silent, parallel, distr_detail, by_id, key =
           distr <- sub("^\n", "", distr)  # remove leading newline
           distr <- strsplit(distr, "\n")
           if (distr_detail) {
-              names(distr) <- xml2::xml_text(xml2::xml_find_all(h, '//ul[@class="country_distribution"]//div[@class="distribution_type"]'))
+            names(distr) <- xml2::xml_text(xml2::xml_find_all(h, '//ul[@class="country_distribution"]//div[@class="distribution_type"]'))
           } else {
-              distr <- unlist(distr)
+            distr <- unlist(distr)
           }
         }
 
@@ -171,27 +220,75 @@ get_iucn_summary <- function(query, silent, parallel, distr_detail, by_id, key =
   if (parallel) {
     out <- llply(query, fun, .parallel = TRUE)
   } else {
-    out <- llply(query, fun)
+    out <- lapply(query, fun)
   }
 
   if (by_id) {
-      names(out) <- llply(out, `[[`, "sciname")
-      out <- llply(out, function(x) {x$sciname <- NULL; x})
+    names(out) <- llply(out, `[[`, "sciname")
+    out <- llply(out, function(x) {x$sciname <- NULL; x})
   } else {
-      names(out) <- query
+    names(out) <- query
   }
-  class(out) <- "iucn"
   return(out)
 }
 
+try_red <- function(fun, x) {
+  tryCatch(fun(id = x), error = function(e) e)
+}
+
+null_res <- list(status = NA, history = NA, distr = NA, trend = NA)
+
+get_iucn_summary2 <- function(query, parallel, distr_detail, key = NULL, ...) {
+  fun <- function(z) {
+    if (is.na(z)) return(null_res)
+    res <- try_red(rredlist::rl_search, z)
+    if (!inherits(res, "error")) {
+      # history
+      history <- try_red(rredlist::rl_history, z)
+      if (NROW(history$result) == 0 || inherits(history, "error")) {
+        history <- NA
+      } else {
+        history <- history$result
+      }
+
+      # distribution
+      distr <- try_red(rredlist::rl_occ_country, z)
+      if (NROW(distr$result) == 0 || inherits(distr, "error")) {
+        distr <- NA
+      } else {
+        distr <- distr$result
+        if (distr_detail) {
+          distr <- split(distr, distr$distribution_code)
+        } else {
+          distr <- distr$country
+        }
+      }
+
+      # trend - NOT SURE HOW TO GET IT
+      # build output
+      out <- list(status = res$result$category,
+                  history = history, distr = distr, trend = NA)
+    } else {
+      warning("taxon ID '", z , "' not found!\n Returning NA!", call. = FALSE)
+      out <- null_res
+    }
+    return(out)
+  }
+
+  if (parallel) {
+    llply(query, fun, .parallel = TRUE)
+  } else {
+    lapply(query, fun)
+  }
+}
 
 #' Extractor functions for \code{iucn}-class.
 #'
+#' @export
 #' @param x an \code{iucn}-object as returned by \code{iucn_summary}
 #' @param ... Currently not used
 #' @return A character vector with the status.
 #' @seealso \code{\link[taxize]{iucn_summary}}
-#' @export
 #' @examples \dontrun{
 #' ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
 #' iucn_status(ia)}
@@ -199,17 +296,12 @@ iucn_status <- function(x, ...){
   UseMethod("iucn_status")
 }
 
-#' @method iucn_status default
+#' @export
 iucn_status.default <- function(x, ...) {
-  stop("No default method for status defined!\n
-       Did you mean iucn_status.iucn?\n", .call = FALSE)
+  stop("no method for 'iucn_status' for ", class(x), call. = FALSE)
 }
 
-#' @method iucn_status iucn
-#' @param x an \code{iucn} object as returned by
-#' \code{\link[taxize]{iucn_summary}}.
 #' @export
-#' @rdname iucn_summary
-iucn_status.iucn <- function(x, ...) {
+iucn_status.iucn_summary <- function(x, ...) {
   unlist(lapply(x, function(x) x$status))
 }
