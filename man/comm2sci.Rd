@@ -4,11 +4,9 @@
 \alias{comm2sci}
 \title{Get scientific names from common names.}
 \usage{
-comm2sci(...)
+comm2sci(commnames, db = "eol", itisby = "search", simplify = TRUE, ...)
 }
 \arguments{
-\item{...}{Further arguments passed on to internal methods.}
-
 \item{commnames}{One or more common names or partial names.}
 
 \item{db}{Data source, one of \emph{"eol"} (default), \emph{"itis"},
@@ -20,6 +18,8 @@ at beginning of names (begin), or at end of names (end).}
 \item{simplify}{(logical) If \code{TRUE}, simplify output to a vector
 of names. If \code{FALSE}, return variable formats from different sources,
 usually a data.frame.}
+
+\item{...}{Further arguments passed on to internal methods.}
 }
 \value{
 A list of scientific names, with list labeled by your input names

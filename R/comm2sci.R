@@ -40,7 +40,8 @@
 #'   searchtype = "common")
 #' comm2sci(x)
 #' }
-comm2sci <- function(...) {
+comm2sci <- function(commnames, db='eol', itisby='search',
+                     simplify=TRUE, ...) {
   UseMethod("comm2sci")
 }
 
@@ -71,13 +72,15 @@ sci_from_comm <- function(nn, db, simplify, itisby, ...) {
 }
 
 #' @export
-comm2sci.tsn <- function(commnames, simplify=TRUE, ...) {
+comm2sci.tsn <- function(commnames, db='eol', itisby='search',
+                         simplify=TRUE, ...) {
   temp <- lapply(commnames, c2s_itis_, simplify = simplify, ...)
   stats::setNames(temp, commnames)
 }
 
 #' @export
-comm2sci.uid <- function(commnames, simplify=TRUE, ...) {
+comm2sci.uid <- function(commnames, db='eol', itisby='search',
+                         simplify=TRUE, ...) {
   temp <- lapply(commnames, c2s_ncbi, simplify = simplify, ...)
   stats::setNames(temp, commnames)
 }

@@ -11,6 +11,9 @@ iucn_summary_id(species_id, silent = TRUE, parallel = FALSE,
   distr_detail = FALSE, ...)
 }
 \arguments{
+\item{x}{character; Scientific name. Should be cleaned and in the
+format \emph{<Genus> <Species>}.}
+
 \item{parallel}{logical; Search in parallel to speed up search. You have to
 register a parallel backend if \code{TRUE}. See e.g., doMC, doSNOW, etc.}
 
@@ -27,9 +30,6 @@ Required for \code{iucn_summary} but not needed for \code{iucn_summary_id}. Defa
 \item{species_id}{an IUCN ID}
 
 \item{silent}{logical; Make errors silent or not (when species not found).}
-
-\item{sciname}{character; Scientific name. Should be cleaned and in the
-format \emph{<Genus> <Species>}.}
 }
 \value{
 A list (for every species one entry) of lists with the following

@@ -3,7 +3,7 @@
 #' @description Get a summary from the IUCN Red List (\url{http://www.iucnredlist.org/}).
 #'
 #' @export
-#' @param sciname character; Scientific name. Should be cleaned and in the
+#' @param x character; Scientific name. Should be cleaned and in the
 #' format \emph{<Genus> <Species>}.
 #' @param silent logical; Make errors silent or not (when species not found).
 #' @param parallel logical; Search in parallel to speed up search. You have to
