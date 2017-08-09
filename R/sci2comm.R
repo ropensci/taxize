@@ -9,7 +9,8 @@
 #' result, but it will likely be wrong (not what you were expecting).
 #' @param simplify (logical) If TRUE, simplify output to a vector of names.
 #' If FALSE, return variable formats from different sources, usually a
-#' data.frame. Only applies to eol and itis.
+#' data.frame. Only applies to eol and itis. Specify \code{FALSE} to obtain
+#' the language of each vernacular in the output for eol and itis.
 #' @param ... Further arguments passed on to functions
 #' \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_tsn}}.
 #' @param id character; identifiers, as returned by
@@ -114,10 +115,18 @@ itis2comm <- function(x, simplify, ...){
 
 eol2comm <- function(x, simplify, ...){
   tmp <- eol_search(terms = x, ...)
-  pageids <- tmp[grep(x, tmp$name), "pageid"]
-  dfs <- tc(lapply(pageids, function(x)
-    eol_pages(taxonconceptID = x, common_names = TRUE, ...)$vernac))
+  pageids <- tmp[grep(x, tmp$name, ignore.case = TRUE), "pageid"]
+  dfs <- tc(
+    lapply(pageids, function(x) {
+      tmp <- tryCatch(
+        eol_pages(taxonconceptID = x, common_names = TRUE, ...),
+        error = function(e) e
+      )
+      if (inherits(tmp, "error")) NULL else tmp$vernac
+    })
+  )
   tt <- ldply(dfs[sapply(dfs, class) == "data.frame"])
+  tt <- tt[!duplicated(tt), ]
   if (simplify) {
     ss <- as.character(tt$vernacularname)
     ss[ !is.na(ss) ]

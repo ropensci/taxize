@@ -35,7 +35,8 @@ result, but it will likely be wrong (not what you were expecting).}
 
 \item{simplify}{(logical) If TRUE, simplify output to a vector of names.
 If FALSE, return variable formats from different sources, usually a
-data.frame. Only applies to eol and itis.}
+data.frame. Only applies to eol and itis. Specify \code{FALSE} to obtain
+the language of each vernacular in the output for eol and itis.}
 
 \item{id}{character; identifiers, as returned by
 \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_uid}}.}
