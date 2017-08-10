@@ -292,15 +292,15 @@ process_ids <- function(input, db, fxn, ...){
 classification.tsn <- function(id, return_id = TRUE, ...) {
   fun <- function(x) {
     # return NA if NA is supplied
-    if (is.na(x)) {
+    if (is.na(x$name$name)) {
       out <- NA
     } else {
-      out <- ritis::hierarchy_full(as.character(x), wt = "json", raw = FALSE)
+      out <- ritis::hierarchy_full(as.character(x$id$id), wt = "json", raw = FALSE)
       if (NROW(out) < 1) return(NA)
       # make normal data.frame
       out <- data.frame(out, stringsAsFactors = FALSE)
       # remove overhang
-      out <- out[1:which(out$tsn == x), c('taxonname', 'rankname', 'tsn')]
+      out <- out[1:which(out$tsn == x$id$id), c('taxonname', 'rankname', 'tsn')]
       names(out) <- c('name', 'rank', 'id')
       # Optionally return tsn of lineage
       if (!return_id) out <- out[, c('name', 'rank')]
@@ -309,7 +309,7 @@ classification.tsn <- function(id, return_id = TRUE, ...) {
     return(out)
   }
   out <- lapply(id, fun)
-  names(out) <- id
+  names(out) <- vapply(id, function(z) z$id$id, "")
   structure(out, class = 'classification', db = 'itis')
 }
 

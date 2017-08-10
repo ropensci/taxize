@@ -46,10 +46,12 @@ Imports:
     tibble (>= 1.2),
     worrms (>= 0.1.0),
     natserv (>= 0.1.4),
-    wikitaxa (>= 0.1.4)
+    wikitaxa (>= 0.1.4),
+    taxa (>= 0.1.0.9113)
 Suggests:
     testthat,
     roxygen2 (>= 6.0.1),
     knitr,
     vegan
+Remotes: ropensci/taxa@taxize-compat-changes
 RoxygenNote: 6.0.1

@@ -198,3 +198,5 @@ dbswap <- function(x) {
     stop("'db' not recognized", call. = FALSE)
   )
 }
+
+`%||%` <- function(x, y) if (is.null(x) || length(x) == 0 || is.na(x)) y else x

@@ -146,6 +146,7 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, modifier = N
 
   fun <- function(sciname, ask, verbose, rows, ...) {
     direct <- FALSE
+    rank <- targname <- NA_character_
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
     sciname <- gsub(" ", "+", sciname)
     if (!is.null(modifier)) sciname <- paste0(sciname, sprintf("[%s]", modifier))
@@ -164,7 +165,6 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, modifier = N
     if (length(uid) == 0) { # if taxon name is not found
       uid <- NA_character_
     } else {
-      #uid <- sub_vector(uid, rows)
       att <- 'found'
     }
     # not found on ncbi
@@ -172,6 +172,17 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, modifier = N
       mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
       uid <- NA_character_
       att <- 'not found'
+    }
+    # single record found
+    if (length(uid) == 1) {
+      baseurl <- paste0(ncbi_base(), "/entrez/eutils/esummary.fcgi?db=taxonomy")
+      url <- paste(baseurl, paste0("ID=", uid), sep = "&")
+      errors_to_catch <- c("Could not resolve host: eutils.ncbi.nlm.nih.gov")
+      tt <- repeat_until_it_works(catch = errors_to_catch, url = url, ...)
+      ttp <- xml2::read_xml(tt)
+      df <- parse_ncbi(ttp)
+      targname <- df$scientificname
+      rank <- df$rank
     }
     # more than one found on ncbi -> user input
     if (length(uid) > 1) {
@@ -217,6 +228,7 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, modifier = N
             take <- as.numeric(take)
             message("Input accepted, took UID '", as.character(df$uid[take]), "'.\n")
             uid <- as.character(df$uid[take])
+            rank <- df$rank[take]
             att <- 'found'
           } else {
             uid <- NA_character_
@@ -229,15 +241,31 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, modifier = N
         att <- 'NA due to ask=FALSE'
       }
     }
-    return(data.frame(uid, att, multiple = mm, direct = direct, stringsAsFactors = FALSE))
+    return(list(uid = uid, att = att, multiple = mm,
+                direct = direct, name = targname, rank = rank))
   }
   sciname <- as.character(sciname)
-  outd <- ldply(sciname, fun, ask, verbose, rows, ...)
-  out <- structure(outd$uid, class = "uid",
-                   match = outd$att,
-                   multiple_matches = outd$multiple,
-                   pattern_match = outd$direct)
-  add_uri(out, 'https://www.ncbi.nlm.nih.gov/taxonomy/%s')
+  outd <- lapply(sciname, fun, ask, verbose, rows, ...)
+  res <- taxa::taxa(.list = lapply(outd, function(z) {
+    url <- paste0('https://www.ncbi.nlm.nih.gov/taxonomy/', z$uid)
+    out <- taxa::taxon(
+      taxa::taxon_name(z$name %||% "", taxa::database_list$ncbi),
+      taxa::taxon_rank(z$rank, taxa::database_list$ncbi),
+      taxa::taxon_id(z$uid %||% "", url, taxa::database_list$ncbi)
+    )
+    out$attributes <- list(
+      match = z$att,
+      multiple_matches = z$multiple,
+      pattern_match = z$direct
+    )
+    out
+  }))
+  structure(res, class = c(class(res), "uid"))
+  # out <- structure(outd$uid, class = "uid",
+  #                  match = outd$att,
+  #                  multiple_matches = outd$multiple,
+  #                  pattern_match = outd$direct)
+  # add_uri(out, 'https://www.ncbi.nlm.nih.gov/taxonomy/%s')
 }
 
 repeat_until_it_works <- function(catch, url, max_tries = 3, wait_time = 10, verbose = TRUE, ...) {

@@ -75,13 +75,14 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE, ask
   fun <- function(x, searchtype, ask, verbose, ...)
   {
     direct <- FALSE
+    targname <- NA_character_
     mssg(verbose, "\nRetrieving data for taxon '", x, "'\n")
 
     searchtype <- match.arg(searchtype, c("scientific", "common"))
-    tsn_df <- ritis::terms(x, what = searchtype, ...)
+    tsn_df <- suppressWarnings(data.frame(ritis::terms(x, what = searchtype, ...)))
     mm <- NROW(tsn_df) > 1
 
-    if (!inherits(tsn_df, "tbl_df") || NROW(tsn_df) == 0) {
+    if (!inherits(tsn_df, "data.frame") || NROW(tsn_df) == 0) {
       tsn <- NA_character_
       att <- "not found"
     } else {
@@ -109,6 +110,7 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE, ask
       if (nrow(tsn_df) == 1) {
         tsn <- tsn_df$tsn
         att <- 'found'
+        targname <- tsn_df$scientificName
       }
 
       # check for direct match
@@ -120,6 +122,7 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE, ask
 
         if (!all(is.na(direct))) {
           tsn <- tsn_df$tsn[!is.na(direct)]
+          targname <- tsn_df$target[!is.na(direct)]
           direct <- TRUE
           att <- 'found'
         } else {
@@ -156,6 +159,7 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE, ask
             message("Input accepted, took taxon '", as.character(tsn_df$target[take]), "'.\n")
             tsn <-  tsn_df$tsn[take]
             att <- 'found'
+            targname <- tsn_df$target[take]
           } else {
             tsn <- NA_character_
             mssg(verbose, "\nReturned 'NA'!\n\n")
@@ -169,26 +173,32 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE, ask
 
     }
 
-    data.frame(
+    list(
       tsn = as.character(tsn),
       att = att,
       multiple = mm,
       direct = direct,
-      stringsAsFactors = FALSE)
+      name = targname
+    )
   }
   searchterm <- as.character(searchterm)
-  outd <- ldply(searchterm, fun, searchtype, ask, verbose, ...)
-  out <- outd$tsn
-  attr(out, 'match') <- outd$att
-  attr(out, 'multiple_matches') <- outd$multiple
-  attr(out, 'pattern_match') <- outd$direct
-  if ( !all(is.na(out)) ) {
-    urlmake <- na.omit(out)
-    attr(out, 'uri') <-
-      sprintf('http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=%s', urlmake)
-  }
-  class(out) <- "tsn"
-  return(out)
+  outd <- lapply(searchterm, fun, searchtype, ask, verbose, ...)
+  res <- taxa::taxa(.list = lapply(outd, function(z) {
+    url <- paste0('http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=%s', z$tsn)
+    rk <- if (!is.na(z$tsn)) tolower(ritis::rank_name(z$tsn)$rankname) else ""
+    out <- taxa::taxon(
+      taxa::taxon_name(z$name %||% "", taxa::database_list$itis),
+      taxa::taxon_rank(rk, taxa::database_list$itis),
+      taxa::taxon_id(z$tsn %||% "", url, taxa::database_list$itis)
+    )
+    out$attributes <- list(
+      match = z$att,
+      multiple_matches = z$multiple,
+      pattern_match = z$direct
+    )
+    out
+  }))
+  structure(res, class = c(class(res), "tsn"))
 }
 
 #' @export
