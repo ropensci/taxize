@@ -5,6 +5,7 @@ dist: trusty
 
 r_github_packages:
   - jimhester/covr
+  - ropensci/taxa
 
 r_binary_packages:
   - vegan

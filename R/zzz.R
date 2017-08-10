@@ -228,7 +228,7 @@ taxize_ua <- function(x) {
   paste0(names(versions), "/", versions, collapse = " ")
 }
 
-`%||%` <- function (x, y) if (is.null(x) || length(x) == 0) y else x
+`%||%` <- function(x, y) if (is.null(x) || length(x) == 0 || is.na(x)) y else x
 
 # a common set of functions used together, so a helper fxn to do that
 xml_text_all <- function(x, xpath) {
