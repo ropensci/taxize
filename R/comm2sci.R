@@ -10,7 +10,9 @@
 #' of names. If \code{FALSE}, return variable formats from different sources,
 #' usually a data.frame.
 #' @param ... Further arguments passed on to internal methods.
-#' @return A list of scientific names, with list labeled by your input names
+#' @return If \code{simplify=TRUE}, a list of scientific names, with list
+#' labeled by your input names. If \code{simplify=FALSE}, a data.frame with
+#' columns that vary by data source
 #' @seealso \code{\link[taxize]{sci2comm}}
 #' @details For data sources ITIS and NCBI you can pass in common names
 #' directly, and use \code{\link[taxize]{get_uid}} or
@@ -20,6 +22,7 @@
 #' @author Scott Chamberlain
 #' @examples \dontrun{
 #' comm2sci(commnames='black bear')
+#' comm2sci(commnames='black bear', simplify = FALSE)
 #' comm2sci(commnames='black bear', db='itis')
 #' comm2sci(commnames='annual blue grass', db='tropicos')
 #' comm2sci(commnames=c('annual blue grass','tree of heaven'), db='tropicos')
@@ -27,7 +30,7 @@
 #' comm2sci('blue whale', db = "worms")
 #' comm2sci(c('blue whale', 'dwarf surfclam'), db = "worms")
 #'
-#' # Output easily converts to a data.frame with \code{\link[plyr]{ldply}}
+#' # Output easily converts to a data.frame with plyr::ldply
 #' library(plyr)
 #' ldply(comm2sci(commnames=c('annual blue grass','tree of heaven'),
 #'   db='tropicos'))
