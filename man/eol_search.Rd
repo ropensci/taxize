@@ -35,7 +35,17 @@ to filter search results}
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
-A data frame.
+A data frame with four columns:
+\itemize{
+ \item pageid: pageid, this is the same as the eolid you can get from
+ \code{\link{get_eolid}}
+ \item name: taxonomic name, may or may not contain the taxonomic
+ authority
+ \item link: URL for the taxon in question
+ \item content: a string of semi-colon separated names. it's not clear
+ to us what these represent exactly, but figured why not give it to users
+ in case some may find it useful
+}
 }
 \description{
 Search for terms in EOL database.
