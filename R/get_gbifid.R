@@ -122,6 +122,15 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
                        phylum = NULL, class = NULL, order = NULL,
                        family = NULL, rank = NULL, method = "backbone", ...) {
 
+  assert(ask, "logical")
+  assert(verbose, "logical")
+  assert(phylum, "character")
+  assert(class, "character")
+  assert(order, "character")
+  assert(family, "character")
+  assert(rank, "character")
+  assert(method, "character")
+
   fun <- function(sciname, ask, verbose, rows, ...) {
     direct <- FALSE
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")

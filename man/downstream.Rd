@@ -13,7 +13,7 @@
 downstream(...)
 
 \method{downstream}{default}(x, db = NULL, downto = NULL,
-  intermediate = FALSE, rows = NaN, ...)
+  intermediate = FALSE, rows = NA, ...)
 
 \method{downstream}{tsn}(x, db = NULL, downto = NULL,
   intermediate = FALSE, ...)

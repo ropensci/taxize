@@ -16,7 +16,7 @@ names or identifiers}
 \usage{
 synonyms(...)
 
-\method{synonyms}{default}(x, db = NULL, rows = NaN, ...)
+\method{synonyms}{default}(x, db = NULL, rows = NA, ...)
 
 \method{synonyms}{tsn}(id, ...)
 

@@ -4,10 +4,10 @@
 #' @export
 #' @param searchterm character; A vector of common or scientific names.
 #' @param fuzzy (logical) Whether to use fuzzy search or not (default: FALSE).
-#' @param dataTypes (character) Specifies the datatypes that will be returned. See Details for
-#' options.
-#' @param includeTree (logical) If TRUE (default: FALSE), returns a list containing information
-#' for parent taxa as well as the specified taxon.
+#' @param dataTypes (character) Specifies the datatypes that will be returned.
+#' See \code{\link{bold_search}} for options.
+#' @param includeTree (logical) If TRUE (default: FALSE), returns a list
+#' containing information for parent taxa as well as the specified taxon.
 #' @param ask logical; should get_tsn be run in interactive mode?
 #' If TRUE and more than one TSN is found for teh species, the user is asked for
 #' input. If FALSE NA is returned for multiple matches.
@@ -102,24 +102,22 @@
 #' get_boldid_("Osmia", fuzzy=TRUE, rows=1:5)
 #' get_boldid_("Osmia", fuzzy=TRUE, rows=1)
 #' get_boldid_(c("Osmi","Aga"), fuzzy=TRUE, rows = 1:3)
-#'
-#' # Curl options
-#' library("httr")
-#' get_boldid(searchterm = "Agapostemon", config=verbose())
-#' get_boldid(searchterm = "Agapostemon", config=progress())
-#'
-#' # use curl options
-#' library("httr")
-#' get_boldid("Agapostemon", config=verbose())
-#' bb <- get_boldid("Agapostemon", config=progress())
 #' }
 
-get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes = 'basic', includeTree = FALSE,
-                       ask = TRUE, verbose = TRUE, rows = NA, rank = NULL,
-                       division = NULL, parent = NULL, ...)
-{
-  fun <- function(x, ask, verbose, rows)
-  {
+get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes = 'basic',
+                       includeTree = FALSE, ask = TRUE, verbose = TRUE,
+                       rows = NA, rank = NULL, division = NULL,
+                       parent = NULL, ...) {
+
+  assert(verbose, "logical")
+  assert(fuzzy, "logical")
+  assert(dataTypes, "character")
+  assert(includeTree, "logical")
+  assert(rank, "character")
+  assert(division, "character")
+  assert(parent, "character")
+
+  fun <- function(x, ask, verbose, rows) {
     direct <- FALSE
     mssg(verbose, "\nRetrieving data for taxon '", x, "'\n")
     bold_df <- bold_search(name = x, fuzzy = fuzzy,
@@ -174,6 +172,7 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes = 'basic', includeTr
           nrow(bold_df) > 1 & is.na(boldid) |
           nrow(bold_df) > 1 & att == "found" & length(boldid) > 1
         )) {
+          assert(ask, "logical")
           if (ask) {
             names(bold_df)[grep('^taxon$', names(bold_df))] <- "target"
 

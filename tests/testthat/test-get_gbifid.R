@@ -64,3 +64,36 @@ test_that("works regardless of character or numeric GGBIF ID given back", {
   expect_is(bb, "gbifid")
   expect_is(bb[[1]], "character")
 })
+
+test_that("get_gbifid fails as expected", {
+  skip_on_cran()
+
+  expect_error(get_gbifid(), "argument \"sciname\" is missing")
+  expect_error(get_gbifid('Poa annua', ask = 4, verbose = FALSE),
+               "ask must be of class logical")
+  expect_error(
+    get_gbifid("Satyrium", phylum = TRUE, verbose = FALSE),
+    "phylum must be of class character")
+  expect_error(
+    get_gbifid("Satyrium", class = TRUE, verbose = FALSE),
+    "class must be of class character")
+  expect_error(
+    get_gbifid("Satyrium", order = TRUE, verbose = FALSE),
+    "order must be of class character")
+  expect_error(
+    get_gbifid("Satyrium", family = TRUE, verbose = FALSE),
+    "family must be of class character")
+  expect_error(
+    get_gbifid("Satyrium", rank = TRUE, verbose = FALSE),
+    "rank must be of class character")
+  expect_error(
+    get_gbifid("Satyrium", method = 55, verbose = FALSE),
+    "method must be of class character")
+
+  # rows param
+  expect_error(get_gbifid("Satyrium", rows = "foobar", verbose = FALSE),
+               "'rows' must be numeric or NA")
+  expect_error(get_gbifid("Satyrium", rows = 0, verbose = FALSE),
+               "'rows' value must be an integer 1 or greater")
+})
+

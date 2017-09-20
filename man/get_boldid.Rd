@@ -38,11 +38,11 @@ get_boldid_(searchterm, verbose = TRUE, fuzzy = FALSE,
 
 \item{fuzzy}{(logical) Whether to use fuzzy search or not (default: FALSE).}
 
-\item{dataTypes}{(character) Specifies the datatypes that will be returned. See Details for
-options.}
+\item{dataTypes}{(character) Specifies the datatypes that will be returned.
+See \code{\link{bold_search}} for options.}
 
-\item{includeTree}{(logical) If TRUE (default: FALSE), returns a list containing information
-for parent taxa as well as the specified taxon.}
+\item{includeTree}{(logical) If TRUE (default: FALSE), returns a list
+containing information for parent taxa as well as the specified taxon.}
 
 \item{ask}{logical; should get_tsn be run in interactive mode?
 If TRUE and more than one TSN is found for teh species, the user is asked for
@@ -80,22 +80,8 @@ returns \code{NA}. If \code{ask=FALSE} and \code{rows} does not equal
 \code{NA}, then a data.frame is given back, but not of the uid class, which
 you can't pass on to other functions as you normally can.
 
-Comes with the following attributes:
-\itemize{
- \item \emph{match} (character) - the reason for NA, either 'not found',
- 'found' or if \code{ask = FALSE} then 'NA due to ask=FALSE')
- \item \emph{multiple_matches} (logical) - Whether multiple matches were
- returned by the data source. This can be \code{TRUE}, even if you get 1
- name back because we try to pattern match the name to see if there's any
- direct matches. So sometimes this attribute is \code{TRUE}, as well as
- \code{pattern_match}, which then returns 1 resulting name without user
- prompt.
- \item \emph{pattern_match} (logical) - Whether a pattern match was made.
- If \code{TRUE} then \code{multiple_matches} must be \code{TRUE}, and we
- found a perfect match to your name, ignoring case. If \code{FALSE}
- \item \emph{uri} (character) - The URI where more information can be
- read on the taxon - includes the taxonomic identifier in the URL somewhere
-}
+See \code{\link{get_id_details}} for further details including
+attributes and exceptions
 }
 \description{
 Get the BOLD (Barcode of Life) code for a search term.
@@ -173,16 +159,6 @@ as.boldid( data.frame(out) )
 get_boldid_("Osmia", fuzzy=TRUE, rows=1:5)
 get_boldid_("Osmia", fuzzy=TRUE, rows=1)
 get_boldid_(c("Osmi","Aga"), fuzzy=TRUE, rows = 1:3)
-
-# Curl options
-library("httr")
-get_boldid(searchterm = "Agapostemon", config=verbose())
-get_boldid(searchterm = "Agapostemon", config=progress())
-
-# use curl options
-library("httr")
-get_boldid("Agapostemon", config=verbose())
-bb <- get_boldid("Agapostemon", config=progress())
 }
 }
 \seealso{

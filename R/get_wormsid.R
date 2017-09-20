@@ -87,13 +87,12 @@
 #' # get_wormsid_(c("asdfadfasd","Plat"), rows=1:5)
 #' }
 get_wormsid <- function(query, searchtype = "scientific", accepted = FALSE,
-                      ask = TRUE, verbose = TRUE, rows = NaN, ...) {
+                      ask = TRUE, verbose = TRUE, rows = NA, ...) {
 
   assert(searchtype, "character")
   assert(accepted, "logical")
   assert(ask, "logical")
   assert(verbose, "logical")
-  assert(rows, c("numeric", "integer"))
 
   fun <- function(x, searchtype, ask, verbose, ...) {
     direct <- FALSE

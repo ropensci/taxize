@@ -31,4 +31,10 @@ test_that("get_natservid fails well", {
                "'searchtype' must be one of")
   expect_error(get_natservid("clam", ask = 4),
                "ask must be of class logical")
+
+  # rows param
+  expect_error(get_natservid('Ruby*', 'common', rows = "foobar", verbose = FALSE),
+               "'rows' must be numeric or NA")
+  expect_error(get_natservid('Ruby*', 'common', rows = 0, verbose = FALSE),
+               "'rows' value must be an integer 1 or greater")
 })

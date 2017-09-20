@@ -133,11 +133,14 @@ gbif_ping <- function(what = "status", ...) {
 #' @export
 #' @rdname ping
 bold_ping <- function(what = "status", ...) {
-  res <- GET("http://www.boldsystems.org/index.php/API_Tax/TaxonData?taxId=88899&dataTypes=basic&includeTree=FALSE", ...)
-  switch(matchwhat(what),
-         status = match_status(res),
-         code = match_code(res, what),
-         content = grepl("88899", jsonlite::fromJSON(con_utf8(res))[[1]]$taxid, ignore.case = TRUE))
+  res <- GET("http://v4.boldsystems.org/index.php/API_Tax/TaxonData?taxId=88899&dataTypes=basic&includeTree=FALSE", ...)
+  switch(
+    matchwhat(what),
+    status = match_status(res),
+    code = match_code(res, what),
+    content = grepl("88899", jsonlite::fromJSON(con_utf8(res))$taxid,
+                    ignore.case = TRUE)
+  )
 }
 
 #' @export

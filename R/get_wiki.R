@@ -47,9 +47,11 @@
 get_wiki <- function(x, wiki_site = "species", wiki = "en", ask = TRUE,
                      verbose = TRUE, limit = 100, rows = NA, ...) {
 
+  assert(ask, "logical")
   assert(x, "character")
   assert(wiki_site, "character")
   assert(wiki, "character")
+  assert(verbose, "logical")
 
   fun <- function(x, wiki_site, wiki, ask, verbose, limit, ...) {
     direct <- FALSE

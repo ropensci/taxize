@@ -93,6 +93,8 @@
 get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL,
                       rows = NA, ...){
 
+  assert(ask, "logical")
+  assert(verbose, "logical")
   fun <- function(sciname, ask, verbose, rows, ...) {
     direct <- FALSE
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")

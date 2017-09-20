@@ -9,16 +9,16 @@ test_that("col_search returns the correct value, dimensions, and classes", {
   c <- bold_search(name=c("Apis","Puma concolor"))
   d <- bold_search(id=88899)
 
-	expect_equal(names(a)[1], "input")
+	expect_equal(names(a)[1], "taxid")
 	expect_that(a$taxon, equals("Apis"))
 
-  expect_that(dim(a), equals(c(1,8)))
-  expect_that(dim(b)[2], equals(8))
-  expect_that(dim(c), equals(c(2,8)))
-  expect_that(dim(d), equals(c(1,7)))
+  expect_equal(NROW(a), 1)
+  expect_gt(NROW(b), 10)
+  expect_gt(NROW(c), 1)
+  expect_equal(NROW(d), 1)
 
-	expect_that(a, is_a("data.frame"))
-	expect_that(b, is_a("data.frame"))
+	expect_is(a, "data.frame")
+	expect_is(b, "data.frame")
 
 	expect_that(a$tax_rank, is_a("character"))
 	expect_that(d$parentname, is_a("character"))

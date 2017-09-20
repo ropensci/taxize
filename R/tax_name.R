@@ -9,8 +9,8 @@
 #'  both.
 #' @param pref (character) If db = 'both', sets the preference for the union.
 #' Either 'ncbi' (default) or 'itis'. Currently not implemented.
-#' @param verbose (logical) If \code{TRUE} the actual taxon queried is printed on the
-#' console.
+#' @param verbose (logical) If \code{TRUE} the actual taxon queried is printed
+#' on the console.
 #' @param ... Other arguments passed to \code{\link{get_tsn}} or
 #' \code{\link{get_uid}}.
 #'
@@ -27,7 +27,8 @@
 #' # A case where itis and ncbi use the same names
 #' tax_name(query = "Helianthus annuus", get = "family", db = "itis")
 #' tax_name(query = "Helianthus annuus", get = "family", db = "ncbi")
-#' tax_name(query = "Helianthus annuus", get = c("genus","family","order"), db = "ncbi")
+#' tax_name(query = "Helianthus annuus", get = c("genus","family","order"),
+#'   db = "ncbi")
 #'
 #' # Case where itis and ncbi use different names
 #' tax_name(query = "Helianthus annuus", get = "kingdom", db = "itis")
@@ -44,7 +45,9 @@
 #' "kingdom"), db="both")
 #' }
 
-tax_name <- function(query, get, db = "itis", pref = 'ncbi', verbose = TRUE, ...) {
+tax_name <- function(query, get, db = "itis", pref = 'ncbi', verbose = TRUE,
+                     ...) {
+
   if (missing(get)) stop("you must supply a 'get' value", call. = FALSE)
   db <- match.arg(db, c('itis', 'ncbi', 'both'))
   if (db == 'both' & !pref %in% c('ncbi', 'itis')) {

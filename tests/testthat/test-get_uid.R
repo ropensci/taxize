@@ -18,7 +18,8 @@ test_that("get_uid returns the correct class", {
 test_that("get_uid accepts ask-argument", {
   skip_on_cran()
 
-  expect_that(is.na(get_uid('Dugesia', ask = FALSE, verbose=FALSE)),
+  expect_that(is.na(
+    suppressWarnings(get_uid('Dugesia', ask = FALSE, verbose=FALSE))),
               is_true())
 })
 
@@ -64,4 +65,34 @@ test_that("get_uid filtering works", {
   expect_is(rf2, "uid")
   expect_equal(rf1[[1]], "3337")
   expect_equal(rf2[[1]], "139271")
+})
+
+test_that("get_uid fails as expected", {
+  skip_on_cran()
+
+  expect_error(get_uid(), "argument \"sciname\" is missing")
+  expect_error(get_uid("Satyrium", ask = 4, verbose = FALSE),
+               "ask must be of class logical")
+  expect_error(
+    get_uid(sciname = "Aratinga acuticauda", modifier = 5,
+            verbose = FALSE),
+               "modifier must be of class character")
+  expect_error(
+    get_uid(sciname = "Pinus", rank_query = TRUE,
+            verbose = FALSE),
+    "rank_query must be of class character")
+  expect_error(
+    get_uid(sciname = "Echinacea", division_filter = 4,
+            verbose = FALSE),
+    "division_filter must be of class character")
+  expect_error(
+    get_uid(sciname = "Pinus", rank_filter = 34,
+            verbose = FALSE),
+    "rank_filter must be of class character")
+
+  # rows param
+  expect_error(get_uid("Achlya", rows = "foobar", verbose = FALSE),
+               "'rows' must be numeric or NA")
+  expect_error(get_uid("Achlya", rows = 0, verbose = FALSE),
+               "'rows' value must be an integer 1 or greater")
 })

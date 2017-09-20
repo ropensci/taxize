@@ -205,7 +205,7 @@ classification <- function(...){
 #' @export
 #' @rdname classification
 classification.default <- function(x, db = NULL, callopts = list(),
-                                   return_id = TRUE, rows = NaN, ...) {
+                                   return_id = TRUE, rows = NA, ...) {
   nstop(db)
   switch(
     db,

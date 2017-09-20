@@ -47,3 +47,26 @@ test_that("get_tpsid behaves correctly on subspecific inputs", {
 
   expect_warning(get_tpsid('Poa annua foo bar annua'), NA)
 })
+
+test_that("get_tpsid fails as expected", {
+  skip_on_cran()
+
+  expect_error(get_tpsid(), "argument \"sciname\" is missing")
+  expect_error(get_tpsid('Poa annua', ask = 4, verbose = FALSE),
+               "ask must be of class logical")
+
+  expect_error(
+    get_tpsid("Poa annua", family = TRUE, verbose = FALSE),
+    "family must be of class character")
+  expect_error(
+    get_tpsid("Poa annua", rank = TRUE, verbose = FALSE),
+    "rank must be of class character")
+
+  # rows param
+  expect_error(get_tpsid("Poa annua", rows = "foobar", verbose = FALSE),
+               "'rows' must be numeric or NA")
+  expect_error(get_tpsid("Poa annua", rows = 0, verbose = FALSE),
+               "'rows' value must be an integer 1 or greater")
+})
+
+

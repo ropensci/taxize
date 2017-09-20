@@ -4,54 +4,57 @@
 #'
 #' @export
 #' @param sciname character; scientific name.
-#' @param ask logical; should get_uid be run in interactive mode?
-#' If TRUE and more than one TSN is found for the species, the user is asked for
-#' input. If FALSE NA is returned for multiple matches.
-#' @param verbose logical; If TRUE the actual taxon queried is printed on the console.
-#' @param rows numeric; Any number from 1 to infinity. If the default NA, all rows are considered.
-#' Note that this function still only gives back a uid class object with one to many identifiers.
-#' See \code{\link[taxize]{get_uid_}} to get back all, or a subset, of the raw data that you are
-#' presented during the ask process.
-#' @param modifier (character) A modifier to the \code{sciname} given. Options include:
-#' Organism, Scientific Name, Common Name, All Names, Division, Filter, Lineage, GC,
-#' MGC, Name Tokens, Next Level, PGC, Properties, Rank, Subtree, Synonym, Text Word.
-#' These are not checked, so make sure they are entered correctly, as is.
-#' @param rank_query (character) A taxonomic rank name to modify the query sent to NCBI.
-#' See \code{\link{rank_ref}} for possible options. Though note
-#' that some data sources use atypical ranks, so inspect the data itself for options.
-#' Optional. See \code{Querying} below.
-#' @param division_filter (character) A division (aka phylum) name to filter data after
-#' retrieved from NCBI. Optional. See \code{Filtering} below.
+#' @param ask logical; should get_uid be run in interactive mode? If TRUE and
+#'   more than one TSN is found for the species, the user is asked for input. If
+#'   FALSE NA is returned for multiple matches.
+#' @param verbose logical; If TRUE the actual taxon queried is printed on the
+#'   console.
+#' @param rows numeric; Any number from 1 to infinity. If the default NA, all
+#'   rows are considered. Note that this function still only gives back a uid
+#'   class object with one to many identifiers. See
+#'   \code{\link[taxize]{get_uid_}} to get back all, or a subset, of the raw
+#'   data that you are presented during the ask process.
+#' @param modifier (character) A modifier to the \code{sciname} given. Options
+#'   include: Organism, Scientific Name, Common Name, All Names, Division,
+#'   Filter, Lineage, GC, MGC, Name Tokens, Next Level, PGC, Properties, Rank,
+#'   Subtree, Synonym, Text Word. These are not checked, so make sure they are
+#'   entered correctly, as is.
+#' @param rank_query (character) A taxonomic rank name to modify the query sent
+#'   to NCBI. See \code{\link{rank_ref}} for possible options. Though note that
+#'   some data sources use atypical ranks, so inspect the data itself for
+#'   options. Optional. See \code{Querying} below.
+#' @param division_filter (character) A division (aka phylum) name to filter
+#'   data after retrieved from NCBI. Optional. See \code{Filtering} below.
 #' @param rank_filter (character) A taxonomic rank name to filter data after
-#' retrieved from NCBI. See \code{\link{rank_ref}} for possible options. Though note
-#' that some data sources use atypical ranks, so inspect the data itself for options.
-#' Optional. See \code{Filtering} below.
+#'   retrieved from NCBI. See \code{\link{rank_ref}} for possible options.
+#'   Though note that some data sources use atypical ranks, so inspect the data
+#'   itself for options. Optional. See \code{Filtering} below.
 #' @param x Input to \code{\link{as.uid}}
 #' @param ... Ignored
-#' @param check logical; Check if ID matches any existing on the DB, only used in
-#' \code{\link{as.uid}}
+#' @param check logical; Check if ID matches any existing on the DB, only used
+#'   in \code{\link{as.uid}}
 #' @template getreturn
 #'
-#' @section Querying:
-#' The parameter \code{rank_query} is used in the search sent to NCBI, whereas
-#' \code{rank_filter} filters data after it comes back. The parameter
-#' \code{modifier} adds modifiers to the name. For example, \code{modifier="Organism"}
-#' adds that to the name, giving e.g., \code{Helianthus[Organism]}.
+#' @section Querying: The parameter \code{rank_query} is used in the search sent
+#'   to NCBI, whereas \code{rank_filter} filters data after it comes back. The
+#'   parameter \code{modifier} adds modifiers to the name. For example,
+#'   \code{modifier="Organism"} adds that to the name, giving e.g.,
+#'   \code{Helianthus[Organism]}.
 #'
-#' @section Filtering:
-#' The parameters \code{division_filter} and \code{rank_filter} are not used in
-#' the search to the data provider, but are used in filtering the data down to a
-#' subset that is closer to the target you want. For all these parameters, you can
-#' use regex strings since we use \code{\link{grep}} internally to match.
-#' Filtering narrows down to the set that matches your query, and removes the rest.
+#' @section Filtering: The parameters \code{division_filter} and
+#'   \code{rank_filter} are not used in the search to the data provider, but are
+#'   used in filtering the data down to a subset that is closer to the target
+#'   you want. For all these parameters, you can use regex strings since we use
+#'   \code{\link{grep}} internally to match. Filtering narrows down to the set
+#'   that matches your query, and removes the rest.
 #'
-#' @section Beware:
-#' NCBI does funny things sometimes. E.g., if you search on Fringella morel, a slight
-#' misspelling of the genus name, and a non-existent epithet, NCBI gives back a morel
-#' fungal species. In addition, NCBI doesn't really do fuzzy searching very well, so if
-#' there is a slight mis-spelling in your names, you likely won't get what you are
-#' expecting. The lesson: clean your names before using this function. Other data
-#' sources are better about fuzzy matching.
+#' @section Beware: NCBI does funny things sometimes. E.g., if you search on
+#'   Fringella morel, a slight misspelling of the genus name, and a non-existent
+#'   epithet, NCBI gives back a morel fungal species. In addition, NCBI doesn't
+#'   really do fuzzy searching very well, so if there is a slight mis-spelling
+#'   in your names, you likely won't get what you are expecting. The lesson:
+#'   clean your names before using this function. Other data sources are better
+#'   about fuzzy matching.
 #'
 #' @family taxonomic-ids
 #' @seealso \code{\link[taxize]{classification}}
@@ -141,8 +144,16 @@
 #' bb <- get_uid("Quercus douglasii", config=progress())
 #' }
 
-get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, modifier = NULL,
-                    rank_query = NULL, division_filter = NULL, rank_filter = NULL, ...) {
+get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
+                    modifier = NULL, rank_query = NULL,
+                    division_filter = NULL, rank_filter = NULL, ...) {
+
+  assert(ask, "logical")
+  assert(verbose, "logical")
+  assert(modifier, "character")
+  assert(rank_query, "character")
+  assert(division_filter, "character")
+  assert(rank_filter, "character")
 
   fun <- function(sciname, ask, verbose, rows, ...) {
     direct <- FALSE
@@ -164,43 +175,56 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, modifier = N
     if (length(uid) == 0) { # if taxon name is not found
       uid <- NA_character_
     } else {
-      #uid <- sub_vector(uid, rows)
       att <- 'found'
     }
+
     # not found on ncbi
     if (length(uid) == 0 || is.na(uid)) {
       mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
       uid <- NA_character_
-      att <- 'not found'
+      att <- 'NA due to not found'
     }
     # more than one found on ncbi -> user input
     if (length(uid) > 1) {
-      if (ask) {
-        baseurl <- paste0(ncbi_base(), "/entrez/eutils/esummary.fcgi?db=taxonomy")
-        ID <- paste("ID=", paste(uid, collapse = ","), sep = "")
-        url <- paste(baseurl, ID, sep = "&")
-        errors_to_catch <- c("Could not resolve host: eutils.ncbi.nlm.nih.gov")
-        tt <- repeat_until_it_works(catch = errors_to_catch, url = url, ...)
-        ttp <- xml2::read_xml(tt)
-        df <- parse_ncbi(ttp)
-        rownames(df) <- 1:nrow(df)
+      baseurl <- paste0(ncbi_base(),
+                        "/entrez/eutils/esummary.fcgi?db=taxonomy")
+      ID <- paste("ID=", paste(uid, collapse = ","), sep = "")
+      url <- paste(baseurl, ID, sep = "&")
+      errors_to_catch <- c("Could not resolve host: eutils.ncbi.nlm.nih.gov")
+      tt <- repeat_until_it_works(catch = errors_to_catch, url = url, ...)
+      ttp <- xml2::read_xml(tt)
+      df <- parse_ncbi(ttp)
+      rownames(df) <- 1:nrow(df)
 
-        if (!is.null(division_filter) || !is.null(rank_filter)) {
-          df <- filt(df, "division", division_filter)
-          df <- filt(df, "rank", rank_filter)
-        }
+      if (!is.null(division_filter) || !is.null(rank_filter)) {
+        df <- filt(df, "division", division_filter)
+        df <- filt(df, "rank", rank_filter)
+      }
 
-        df <- sub_rows(df, rows)
-        uid <- df$uid
-        if (length(uid) == 1) {
-          direct <- TRUE
-          att <- "found"
-        }
-        if (length(uid) == 0) {
-          uid <- NA_character_
-        }
+      df <- sub_rows(df, rows)
+      uid <- df$uid
+      if (length(uid) == 1) {
+        direct <- TRUE
+        att <- "found"
+      }
+      if (length(uid) == 0) {
+        uid <- NA_character_
+      }
 
-        if (length(uid) > 1) {
+      if (length(uid) > 1) {
+        if (!ask) {
+          warning(
+            sprintf("More than one UID found for taxon '%s'; refine query or set ask=TRUE",
+                    sciname),
+            call. = FALSE
+          )
+          if (length(uid) == 1) {
+            att <- "found"
+          } else {
+            uid <- NA_character_
+            att <- 'NA due to ask=FALSE & > 1 result'
+          }
+        } else {
           # prompt
           rownames(df) <- 1:nrow(df)
           message("\n\n")
@@ -215,21 +239,20 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, modifier = N
           }
           if (take %in% seq_len(nrow(df))) {
             take <- as.numeric(take)
-            message("Input accepted, took UID '", as.character(df$uid[take]), "'.\n")
+            message("Input accepted, took UID '",
+                    as.character(df$uid[take]), "'.\n")
             uid <- as.character(df$uid[take])
             att <- 'found'
           } else {
             uid <- NA_character_
-            att <- 'not found'
+            att <- 'NA due to user input out of range'
             mssg(verbose, "\nReturned 'NA'!\n\n")
           }
         }
-      } else {
-        uid <- NA_character_
-        att <- 'NA due to ask=FALSE'
       }
     }
-    return(data.frame(uid, att, multiple = mm, direct = direct, stringsAsFactors = FALSE))
+    return(data.frame(uid, att, multiple = mm, direct = direct,
+                      stringsAsFactors = FALSE))
   }
   sciname <- as.character(sciname)
   outd <- ldply(sciname, fun, ask, verbose, rows, ...)

@@ -69,11 +69,15 @@
 #' get_tsn_(c("asdfadfasd","Pinus contorta"), rows=1:5)
 #' }
 
-get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE, ask = TRUE,
-  verbose = TRUE, rows = NA, ...)
-{
-  fun <- function(x, searchtype, ask, verbose, ...)
-  {
+get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE,
+                    ask = TRUE, verbose = TRUE, rows = NA, ...) {
+
+  assert(ask, "logical")
+  assert(verbose, "logical")
+  assert(searchtype, "character")
+  assert(accepted, "logical")
+
+  fun <- function(x, searchtype, ask, verbose, ...) {
     direct <- FALSE
     mssg(verbose, "\nRetrieving data for taxon '", x, "'\n")
 

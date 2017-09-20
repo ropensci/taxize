@@ -13,7 +13,7 @@
 \title{Get Worms ID for a taxon name}
 \usage{
 get_wormsid(query, searchtype = "scientific", accepted = FALSE,
-  ask = TRUE, verbose = TRUE, rows = NaN, ...)
+  ask = TRUE, verbose = TRUE, rows = NA, ...)
 
 as.wormsid(x, check = TRUE)
 
@@ -70,22 +70,8 @@ returns \code{NA}. If \code{ask=FALSE} and \code{rows} does not equal
 \code{NA}, then a data.frame is given back, but not of the uid class, which
 you can't pass on to other functions as you normally can.
 
-Comes with the following attributes:
-\itemize{
- \item \emph{match} (character) - the reason for NA, either 'not found',
- 'found' or if \code{ask = FALSE} then 'NA due to ask=FALSE')
- \item \emph{multiple_matches} (logical) - Whether multiple matches were
- returned by the data source. This can be \code{TRUE}, even if you get 1
- name back because we try to pattern match the name to see if there's any
- direct matches. So sometimes this attribute is \code{TRUE}, as well as
- \code{pattern_match}, which then returns 1 resulting name without user
- prompt.
- \item \emph{pattern_match} (logical) - Whether a pattern match was made.
- If \code{TRUE} then \code{multiple_matches} must be \code{TRUE}, and we
- found a perfect match to your name, ignoring case. If \code{FALSE}
- \item \emph{uri} (character) - The URI where more information can be
- read on the taxon - includes the taxonomic identifier in the URL somewhere
-}
+See \code{\link{get_id_details}} for further details including
+attributes and exceptions
 }
 \description{
 Retrieve Worms ID of a taxon from World Register of Marine

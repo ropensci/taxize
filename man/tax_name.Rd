@@ -19,8 +19,8 @@ both.}
 \item{pref}{(character) If db = 'both', sets the preference for the union.
 Either 'ncbi' (default) or 'itis'. Currently not implemented.}
 
-\item{verbose}{(logical) If \code{TRUE} the actual taxon queried is printed on the
-console.}
+\item{verbose}{(logical) If \code{TRUE} the actual taxon queried is printed
+on the console.}
 
 \item{...}{Other arguments passed to \code{\link{get_tsn}} or
 \code{\link{get_uid}}.}
@@ -42,7 +42,8 @@ higher in taxonomy.
 # A case where itis and ncbi use the same names
 tax_name(query = "Helianthus annuus", get = "family", db = "itis")
 tax_name(query = "Helianthus annuus", get = "family", db = "ncbi")
-tax_name(query = "Helianthus annuus", get = c("genus","family","order"), db = "ncbi")
+tax_name(query = "Helianthus annuus", get = c("genus","family","order"),
+  db = "ncbi")
 
 # Case where itis and ncbi use different names
 tax_name(query = "Helianthus annuus", get = "kingdom", db = "itis")

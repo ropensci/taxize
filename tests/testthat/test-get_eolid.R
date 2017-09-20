@@ -21,3 +21,18 @@ test_that("get_eolid accepts ask-argument", {
   expect_that(is.na(get_eolid(sciname='adsf asdf asdf', ask=FALSE, verbose=FALSE)[[1]]),
               is_true())
 })
+
+test_that("get_eolid fails as expected", {
+  skip_on_cran()
+
+  expect_error(get_eolid(), "argument \"sciname\" is missing")
+  expect_error(get_eolid("Poa annua", ask = 4, verbose = FALSE),
+               "ask must be of class logical")
+
+  # rows param
+  expect_error(get_eolid("Poa annua", rows = "foobar", verbose = FALSE),
+               "'rows' must be numeric or NA")
+  expect_error(get_eolid("Poa annua", rows = 0, verbose = FALSE),
+               "'rows' value must be an integer 1 or greater")
+})
+

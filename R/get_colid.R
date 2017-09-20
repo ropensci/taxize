@@ -111,13 +111,21 @@ get_colid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
                       kingdom = NULL, phylum = NULL, class = NULL, order = NULL,
                       family = NULL, rank = NULL, ...){
 
+  assert(ask, "logical")
+  assert(verbose, "logical")
+  assert(kingdom, "character")
+  assert(phylum, "character")
+  assert(class, "character")
+  assert(order, "character")
+  assert(family, "character")
+  assert(rank, "character")
+
   fun <- function(sciname, ask, verbose, rows, ...) {
     direct <- FALSE
     mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
     df <- col_search(name = sciname, response = "full", ...)[[1]]
     df <- df[, names(df) %in% c("name","rank","id","name_status","kingdom","family","acc_name")]
     mm <- NROW(df) > 1
-    #df <- sub_rows(df, rows)
 
     rank_taken <- NA
     if (NROW(df) == 0) {

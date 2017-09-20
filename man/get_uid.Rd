@@ -34,41 +34,44 @@ get_uid_(sciname, verbose = TRUE, rows = NA)
 \arguments{
 \item{sciname}{character; scientific name.}
 
-\item{ask}{logical; should get_uid be run in interactive mode?
-If TRUE and more than one TSN is found for the species, the user is asked for
-input. If FALSE NA is returned for multiple matches.}
+\item{ask}{logical; should get_uid be run in interactive mode? If TRUE and
+more than one TSN is found for the species, the user is asked for input. If
+FALSE NA is returned for multiple matches.}
 
-\item{verbose}{logical; If TRUE the actual taxon queried is printed on the console.}
+\item{verbose}{logical; If TRUE the actual taxon queried is printed on the
+console.}
 
-\item{rows}{numeric; Any number from 1 to infinity. If the default NA, all rows are considered.
-Note that this function still only gives back a uid class object with one to many identifiers.
-See \code{\link[taxize]{get_uid_}} to get back all, or a subset, of the raw data that you are
-presented during the ask process.}
+\item{rows}{numeric; Any number from 1 to infinity. If the default NA, all
+rows are considered. Note that this function still only gives back a uid
+class object with one to many identifiers. See
+\code{\link[taxize]{get_uid_}} to get back all, or a subset, of the raw
+data that you are presented during the ask process.}
 
-\item{modifier}{(character) A modifier to the \code{sciname} given. Options include:
-Organism, Scientific Name, Common Name, All Names, Division, Filter, Lineage, GC,
-MGC, Name Tokens, Next Level, PGC, Properties, Rank, Subtree, Synonym, Text Word.
-These are not checked, so make sure they are entered correctly, as is.}
+\item{modifier}{(character) A modifier to the \code{sciname} given. Options
+include: Organism, Scientific Name, Common Name, All Names, Division,
+Filter, Lineage, GC, MGC, Name Tokens, Next Level, PGC, Properties, Rank,
+Subtree, Synonym, Text Word. These are not checked, so make sure they are
+entered correctly, as is.}
 
-\item{rank_query}{(character) A taxonomic rank name to modify the query sent to NCBI.
-See \code{\link{rank_ref}} for possible options. Though note
-that some data sources use atypical ranks, so inspect the data itself for options.
-Optional. See \code{Querying} below.}
+\item{rank_query}{(character) A taxonomic rank name to modify the query sent
+to NCBI. See \code{\link{rank_ref}} for possible options. Though note that
+some data sources use atypical ranks, so inspect the data itself for
+options. Optional. See \code{Querying} below.}
 
-\item{division_filter}{(character) A division (aka phylum) name to filter data after
-retrieved from NCBI. Optional. See \code{Filtering} below.}
+\item{division_filter}{(character) A division (aka phylum) name to filter
+data after retrieved from NCBI. Optional. See \code{Filtering} below.}
 
 \item{rank_filter}{(character) A taxonomic rank name to filter data after
-retrieved from NCBI. See \code{\link{rank_ref}} for possible options. Though note
-that some data sources use atypical ranks, so inspect the data itself for options.
-Optional. See \code{Filtering} below.}
+retrieved from NCBI. See \code{\link{rank_ref}} for possible options.
+Though note that some data sources use atypical ranks, so inspect the data
+itself for options. Optional. See \code{Filtering} below.}
 
 \item{...}{Ignored}
 
 \item{x}{Input to \code{\link{as.uid}}}
 
-\item{check}{logical; Check if ID matches any existing on the DB, only used in
-\code{\link{as.uid}}}
+\item{check}{logical; Check if ID matches any existing on the DB, only used
+in \code{\link{as.uid}}}
 }
 \value{
 A vector of taxonomic identifiers as an S3 class.
@@ -78,51 +81,37 @@ returns \code{NA}. If \code{ask=FALSE} and \code{rows} does not equal
 \code{NA}, then a data.frame is given back, but not of the uid class, which
 you can't pass on to other functions as you normally can.
 
-Comes with the following attributes:
-\itemize{
- \item \emph{match} (character) - the reason for NA, either 'not found',
- 'found' or if \code{ask = FALSE} then 'NA due to ask=FALSE')
- \item \emph{multiple_matches} (logical) - Whether multiple matches were
- returned by the data source. This can be \code{TRUE}, even if you get 1
- name back because we try to pattern match the name to see if there's any
- direct matches. So sometimes this attribute is \code{TRUE}, as well as
- \code{pattern_match}, which then returns 1 resulting name without user
- prompt.
- \item \emph{pattern_match} (logical) - Whether a pattern match was made.
- If \code{TRUE} then \code{multiple_matches} must be \code{TRUE}, and we
- found a perfect match to your name, ignoring case. If \code{FALSE}
- \item \emph{uri} (character) - The URI where more information can be
- read on the taxon - includes the taxonomic identifier in the URL somewhere
-}
+See \code{\link{get_id_details}} for further details including
+attributes and exceptions
 }
 \description{
 Retrieve the Unique Identifier (UID) of a taxon from NCBI taxonomy browser.
 }
 \section{Querying}{
-
-The parameter \code{rank_query} is used in the search sent to NCBI, whereas
-\code{rank_filter} filters data after it comes back. The parameter
-\code{modifier} adds modifiers to the name. For example, \code{modifier="Organism"}
-adds that to the name, giving e.g., \code{Helianthus[Organism]}.
+ The parameter \code{rank_query} is used in the search sent
+  to NCBI, whereas \code{rank_filter} filters data after it comes back. The
+  parameter \code{modifier} adds modifiers to the name. For example,
+  \code{modifier="Organism"} adds that to the name, giving e.g.,
+  \code{Helianthus[Organism]}.
 }
 
 \section{Filtering}{
-
-The parameters \code{division_filter} and \code{rank_filter} are not used in
-the search to the data provider, but are used in filtering the data down to a
-subset that is closer to the target you want. For all these parameters, you can
-use regex strings since we use \code{\link{grep}} internally to match.
-Filtering narrows down to the set that matches your query, and removes the rest.
+ The parameters \code{division_filter} and
+  \code{rank_filter} are not used in the search to the data provider, but are
+  used in filtering the data down to a subset that is closer to the target
+  you want. For all these parameters, you can use regex strings since we use
+  \code{\link{grep}} internally to match. Filtering narrows down to the set
+  that matches your query, and removes the rest.
 }
 
 \section{Beware}{
-
-NCBI does funny things sometimes. E.g., if you search on Fringella morel, a slight
-misspelling of the genus name, and a non-existent epithet, NCBI gives back a morel
-fungal species. In addition, NCBI doesn't really do fuzzy searching very well, so if
-there is a slight mis-spelling in your names, you likely won't get what you are
-expecting. The lesson: clean your names before using this function. Other data
-sources are better about fuzzy matching.
+ NCBI does funny things sometimes. E.g., if you search on
+  Fringella morel, a slight misspelling of the genus name, and a non-existent
+  epithet, NCBI gives back a morel fungal species. In addition, NCBI doesn't
+  really do fuzzy searching very well, so if there is a slight mis-spelling
+  in your names, you likely won't get what you are expecting. The lesson:
+  clean your names before using this function. Other data sources are better
+  about fuzzy matching.
 }
 
 \examples{

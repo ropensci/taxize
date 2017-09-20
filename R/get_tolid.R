@@ -68,6 +68,9 @@
 #' }
 
 get_tolid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, ...) {
+
+  assert(ask, "logical")
+  assert(verbose, "logical")
   fun <- function(x, ask, verbose, ...) {
     mssg(verbose, "\nRetrieving data for taxon '", x, "'\n")
 

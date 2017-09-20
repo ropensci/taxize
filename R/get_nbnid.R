@@ -87,6 +87,10 @@
 get_nbnid <- function(name, ask = TRUE, verbose = TRUE, rec_only = FALSE,
                       rank = NULL, rows = NA, ...){
 
+  assert(ask, "logical")
+  assert(rec_only, "logical")
+  assert(rank, "character")
+  assert(verbose, "logical")
   fun <- function(name, ask, verbose, rows) {
     direct <- FALSE
     mssg(verbose, "\nRetrieving data for taxon '", name, "'\n")

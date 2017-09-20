@@ -53,6 +53,7 @@
 get_iucn <- function(x, verbose = TRUE, key = NULL, ...) {
 
   assert(x, "character")
+  assert(verbose, "logical")
 
   fun <- function(x, verbose, key, ...) {
     direct <- FALSE

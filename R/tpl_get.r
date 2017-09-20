@@ -17,6 +17,7 @@
 #' # Get a few families
 #' dir <- file.path(tempdir(), "abc")
 #' tpl_get(dir, family = c("Platanaceae","Winteraceae"))
+#' readLines(file.path(dir, "Platanaceae.csv"), n = 5)
 #'
 #' # You can now get Gymnosperms as well
 #' dir1 <- file.path(tempdir(), "def")

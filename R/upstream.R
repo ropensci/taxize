@@ -59,7 +59,7 @@ upstream <- function(...) {
 
 #' @export
 #' @rdname upstream
-upstream.default <- function(x, db = NULL, upto = NULL, rows = NaN, ...){
+upstream.default <- function(x, db = NULL, upto = NULL, rows = NA, ...){
   nstop(upto, "upto")
   nstop(db)
   switch(

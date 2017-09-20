@@ -90,14 +90,14 @@
 #' get_natservid_("Ruby*", rows=1:3)
 #' }
 get_natservid <- function(query, searchtype = "scientific", ask = TRUE,
-                          verbose = TRUE, rows = NaN, key = NULL, ...) {
+                          verbose = TRUE, rows = NA, key = NULL, ...) {
 
+  assert(ask, "logical")
   assert(searchtype, "character")
   assert(ask, "logical")
   assert(verbose, "logical")
-  assert(rows, c("numeric", "integer"))
 
-  fun <- function(x, searchtype, ask, verbose, key, ...) {
+  fun <- function(x, searchtype, ask, verbose, key, rows, ...) {
     direct <- FALSE
     mssg(verbose, "\nRetrieving data for taxon '", x, "'\n")
 
@@ -196,7 +196,8 @@ get_natservid <- function(query, searchtype = "scientific", ask = TRUE,
       stringsAsFactors = FALSE)
   }
   query <- as.character(query)
-  outd <- ldply(query, fun, searchtype, ask, verbose, key, ...)
+  outd <- ldply(query, fun, searchtype = searchtype, ask = ask,
+                verbose = verbose, key = key, rows = rows, ...)
   out <- outd$nsid
   attr(out, 'match') <- outd$att
   attr(out, 'multiple_matches') <- outd$multiple
@@ -258,7 +259,7 @@ check_natservid <- function(x){
 
 #' @export
 #' @rdname get_natservid
-get_natservid_ <- function(query, verbose = TRUE, rows = NaN, key = NULL, ...) {
+get_natservid_ <- function(query, verbose = TRUE, rows = NA, key = NULL, ...) {
   stats::setNames(
     lapply(query, get_natservid_help, verbose = verbose, rows = rows,
            key = key, ...),

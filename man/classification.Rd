@@ -25,7 +25,7 @@
 classification(...)
 
 \method{classification}{default}(x, db = NULL, callopts = list(),
-  return_id = TRUE, rows = NaN, ...)
+  return_id = TRUE, rows = NA, ...)
 
 \method{classification}{tsn}(id, return_id = TRUE, ...)
 

@@ -1,7 +1,7 @@
 ## Test environments
 
-* local OS X install, R 3.4.0 patched
-* ubuntu 12.04 (on travis-ci), R 3.4.0
+* local OS X install, R 3.4.1 patched
+* ubuntu 12.04 (on travis-ci), R 3.4.1
 * win-builder (devel and release)
 
 ## R CMD check results
@@ -25,8 +25,7 @@ unrelated to this package.
 
 ------
 
-This version fixes a bug - that was causing failed installation for at 
-least one user; so may affect others.
+This version fixes a number of bugs and xxx.
 
 Thanks!
 Scott Chamberlain
