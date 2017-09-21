@@ -97,7 +97,6 @@ get_nbnid <- function(name, ask = TRUE, verbose = TRUE, rec_only = FALSE,
     df <- nbn_search(q = name, rows = 500, ...)$data
     if (is.null(df) || length(df) == 0) df <- data.frame(NULL)
     mm <- NROW(df) > 1
-    # df <- sub_rows(df, rows)
 
     rank_taken <- NA
     if (NROW(df) == 0) {
@@ -131,7 +130,7 @@ get_nbnid <- function(name, ask = TRUE, verbose = TRUE, rec_only = FALSE,
         rownames(df) <- seq_len(NROW(df))
         # prompt
         message("\n\n")
-        message("\nMore than one nbnid found for taxon '", name, "'!\n
+        message("\nMore than one NBN ID found for taxon '", name, "'!\n
             Enter rownumber of taxon (other inputs will return 'NA'):\n")
         print(df)
         take <- scan(n = 1, quiet = TRUE, what = 'raw')
@@ -153,8 +152,15 @@ get_nbnid <- function(name, ask = TRUE, verbose = TRUE, rec_only = FALSE,
           mssg(verbose, "\nReturned 'NA'!\n\n")
         }
       } else{
-        id <- NA_character_
-        att <- 'NA due to ask=FALSE'
+        if (length(id) != 1) {
+          warning(
+            sprintf("More than one NBN ID found for taxon '%s'; refine query or set ask=TRUE",
+                    x),
+            call. = FALSE
+          )
+          id <- NA_character_
+          att <- 'NA due to ask=FALSE & > 1 result'
+        }
       }
     }
     list(id = id, rank = rank_taken, att = att, multiple = mm, direct = direct)
@@ -169,7 +175,7 @@ get_nbnid <- function(name, ask = TRUE, verbose = TRUE, rec_only = FALSE,
   if ( !all(is.na(ids)) ) {
     urls <- sapply(out, function(z){
       if (!is.na(z[['id']]))
-        sprintf('https://data.nbn.org.uk/Taxa/%s', z[['id']])
+        sprintf('https://species.nbnatlas.org/species/%s', z[['id']])
       else
         NA
     })

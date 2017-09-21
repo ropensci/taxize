@@ -50,8 +50,11 @@ check_rows <- function(x){
     stop("'rows' must be numeric or NA", call. = FALSE)
   }
   if (is.numeric(x)) {
-    if (x < 1) {
-      stop("'rows' value must be an integer 1 or greater", call. = FALSE)
+    if (length(x) == 1) {
+      if (x < 1) {
+        stop("'rows' value must be an integer 1 or greater",
+             call. = FALSE)
+      }
     }
   }
 }

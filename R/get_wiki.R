@@ -53,7 +53,7 @@ get_wiki <- function(x, wiki_site = "species", wiki = "en", ask = TRUE,
   assert(wiki, "character")
   assert(verbose, "logical")
 
-  fun <- function(x, wiki_site, wiki, ask, verbose, limit, ...) {
+  fun <- function(x, wiki_site, wiki, ask, verbose, limit, rows, ...) {
     direct <- FALSE
     mssg(verbose, "\nRetrieving data for taxon '", x, "'\n")
     df <- switch(
@@ -93,21 +93,28 @@ get_wiki <- function(x, wiki_site = "species", wiki = "en", ask = TRUE,
 
         direct <- match(tolower(df$title), gsub("\\s", "_", tolower(x)))
 
-        if (!all(is.na(direct))) {
-          id <- df$title[!is.na(direct)]
-          direct <- TRUE
-          att <- 'found'
+        if (length(direct) == 1) {
+          if (!all(is.na(direct))) {
+            id <- df$title[!is.na(direct)]
+            direct <- TRUE
+            att <- 'found'
+          } else {
+            direct <- FALSE
+            id <- NA_character_
+            att <- 'not found'
+          }
         } else {
           direct <- FALSE
           id <- NA_character_
-          att <- 'not found'
+          att <- 'NA due to ask=FALSE & no direct match found'
+          warning("> 1 result; no direct match found", call. = FALSE)
         }
       }
 
       # multiple matches
       if (any(
         NROW(df) > 1 && is.na(id) |
-        NROW(df) > 1 && att == "found" & length(id) > 1
+        NROW(df) > 1 && att == "found" && length(id) > 1
       )) {
         if (ask) {
           # user prompt
@@ -117,7 +124,7 @@ get_wiki <- function(x, wiki_site = "species", wiki = "en", ask = TRUE,
           # prompt
           message("\n\n")
           print(df)
-          message("\nMore than one wiki found for taxon '", x, "'!\n
+          message("\nMore than one wiki ID found for taxon '", x, "'!\n
                   Enter rownumber of taxon (other inputs will return 'NA'):\n")
           take <- scan(n = 1, quiet = TRUE, what = 'raw')
 
@@ -137,8 +144,15 @@ get_wiki <- function(x, wiki_site = "species", wiki = "en", ask = TRUE,
             att <- 'not found'
           }
         } else {
-          id <- NA_character_
-          att <- "NA due to ask=FALSE"
+          if (length(id) != 1) {
+            warning(
+              sprintf("More than one wiki ID found for taxon '%s'; refine query or set ask=TRUE",
+                      x),
+              call. = FALSE
+            )
+            id <- NA_character_
+            att <- 'NA due to ask=FALSE & > 1 result'
+          }
         }
       }
 
@@ -151,7 +165,7 @@ get_wiki <- function(x, wiki_site = "species", wiki = "en", ask = TRUE,
       direct = direct,
       stringsAsFactors = FALSE)
   }
-  outd <- ldply(x, fun, wiki_site, wiki, ask, verbose, limit, ...)
+  outd <- ldply(x, fun, wiki_site, wiki, ask, verbose, limit, rows, ...)
   out <- outd$id
   attr(out, 'match') <- outd$att
   attr(out, 'multiple_matches') <- outd$multiple

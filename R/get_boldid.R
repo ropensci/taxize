@@ -109,6 +109,7 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes = 'basic',
                        rows = NA, rank = NULL, division = NULL,
                        parent = NULL, ...) {
 
+  assert(ask, "logical")
   assert(verbose, "logical")
   assert(fuzzy, "logical")
   assert(dataTypes, "character")
@@ -123,7 +124,6 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes = 'basic',
     bold_df <- bold_search(name = x, fuzzy = fuzzy,
                            dataTypes = dataTypes, includeTree = includeTree, ...)
     mm <- NROW(bold_df) > 1
-    #bold_df <- sub_rows(bold_df, rows)
 
     if (!class(bold_df) == "data.frame") {
       boldid <- NA_character_
@@ -163,32 +163,32 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes = 'basic',
               att <- 'not found'
             }
           } else {
+            direct <- FALSE
             boldid <- NA_character_
             att <- 'found'
           }
         }
         # multiple matches
         if (any(
-          nrow(bold_df) > 1 & is.na(boldid) |
-          nrow(bold_df) > 1 & att == "found" & length(boldid) > 1
+          nrow(bold_df) > 1 && is.na(boldid) |
+          nrow(bold_df) > 1 && att == "found" && length(boldid) > 1
         )) {
-          assert(ask, "logical")
+          names(bold_df)[grep('^taxon$', names(bold_df))] <- "target"
+
+          if (!is.null(division) || !is.null(parent) || !is.null(rank)) {
+            bold_df <- filt(bold_df, "division", division)
+            bold_df <- filt(bold_df, "parent", parent)
+            bold_df <- filt(bold_df, "rank", rank)
+          }
+
+          bold_df <- sub_rows(bold_df, rows)
+          boldid <- id <- bold_df$taxid
+          if (length(id) == 1) {
+            direct <- TRUE
+            att <- "found"
+          }
+
           if (ask) {
-            names(bold_df)[grep('^taxon$', names(bold_df))] <- "target"
-
-            if (!is.null(division) || !is.null(parent) || !is.null(rank)) {
-              bold_df <- filt(bold_df, "division", division)
-              bold_df <- filt(bold_df, "parent", parent)
-              bold_df <- filt(bold_df, "rank", rank)
-            }
-
-            bold_df <- sub_rows(bold_df, rows)
-            boldid <- id <- bold_df$taxid
-            if (length(id) == 1) {
-              direct <- TRUE
-              att <- "found"
-            }
-
             # user prompt
             bold_df <- bold_df[order(bold_df$target), ]
             rownames(bold_df) <- 1:nrow(bold_df)
@@ -214,8 +214,17 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes = 'basic',
               }
             }
           } else {
-            boldid <- NA_character_
-            att <- "NA due to ask=FALSE"
+            if (length(boldid) == 1) {
+              att <- "found"
+            } else {
+              warning(
+                sprintf("More than one boldid found for taxon '%s'; refine query or set ask=TRUE",
+                        x),
+                call. = FALSE
+              )
+              boldid <- NA_character_
+              att <- 'NA due to ask=FALSE & > 1 result'
+            }
           }
         }
       }

@@ -71,7 +71,8 @@ get_tolid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, ...) {
 
   assert(ask, "logical")
   assert(verbose, "logical")
-  fun <- function(x, ask, verbose, ...) {
+
+  fun <- function(x, ask, verbose, rows, ...) {
     mssg(verbose, "\nRetrieving data for taxon '", x, "'\n")
 
     tol_df <- tryCatch(tol_resolve(x, ...), error = function(e) e)
@@ -104,23 +105,23 @@ get_tolid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, ...) {
           id <- as.character(matchtmp)
           direct <- TRUE
         } else {
-          if (ask) {
-            tol_df <- sub_rows(tol_df, rows)
-            if (NROW(tol_df) == 0) {
-              id <- NA_character_
-              att <- "not found"
-            } else {
-              id <- tol_df$ott_id
-              if (length(id) == 1) {
-                rank_taken <- tol_df$rank
-                att <- "found"
-              }
+          tol_df <- sub_rows(tol_df, rows)
+          if (NROW(tol_df) == 0) {
+            id <- NA_character_
+            att <- "not found"
+          } else {
+            id <- tol_df$ott_id
+            if (length(id) == 1) {
+              rank_taken <- tol_df$rank
+              att <- "found"
             }
+          }
 
-            if (length(id) > 1) {
+          if (length(id) > 1) {
+            if (ask) {
               # prompt
               message("\n\n")
-              message("\nMore than one tol ID found for taxon '", x, "'!\n
+              message("\nMore than one ToL ID found for taxon '", x, "'!\n
                       Enter rownumber of taxon (other inputs will return 'NA'):\n")
               rownames(tol_df) <- 1:nrow(tol_df)
               print(tol_df)
@@ -141,9 +142,17 @@ get_tolid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, ...) {
                 mssg(verbose, "\nReturned 'NA'!\n\n")
               }
             }
-          } else {
-            id <- NA_character_
-            att <- "NA due to ask=FALSE"
+            else {
+              if (length(id) != 1) {
+                warning(
+                  sprintf("More than one ToL ID found for taxon '%s'; refine query or set ask=TRUE",
+                          x),
+                  call. = FALSE
+                )
+                id <- NA_character_
+                att <- 'NA due to ask=FALSE & > 1 result'
+              }
+            }
           }
         }
       }
@@ -157,7 +166,7 @@ get_tolid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, ...) {
       stringsAsFactors = FALSE)
   }
   sciname <- as.character(sciname)
-  outd <- ldply(sciname, fun, ask, verbose, ...)
+  outd <- ldply(sciname, fun, ask, verbose, rows, ...)
   out <- outd$tol
   attr(out, 'match') <- outd$att
   attr(out, 'multiple_matches') <- outd$multiple

@@ -213,14 +213,14 @@ get_uid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
 
       if (length(uid) > 1) {
         if (!ask) {
-          warning(
-            sprintf("More than one UID found for taxon '%s'; refine query or set ask=TRUE",
-                    sciname),
-            call. = FALSE
-          )
           if (length(uid) == 1) {
             att <- "found"
           } else {
+            warning(
+              sprintf("More than one UID found for taxon '%s'; refine query or set ask=TRUE",
+                      sciname),
+              call. = FALSE
+            )
             uid <- NA_character_
             att <- 'NA due to ask=FALSE & > 1 result'
           }

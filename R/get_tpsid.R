@@ -144,7 +144,6 @@ get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
     }
     # more than one found on tropicos -> user input
     if (length(id) > 1) {
-      if (ask) {
 
         if (!is.null(family) || !is.null(rank)) {
           df <- filt(df, "family", family)
@@ -160,34 +159,42 @@ get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
         }
 
         if (length(id) > 1) {
-          # prompt
-          rownames(df) <- 1:nrow(df)
-          message("\n\n")
-          message("\nMore than one tpsid found for taxon '", sciname, "'!\n
+          if (ask) {
+            # prompt
+            rownames(df) <- 1:nrow(df)
+            message("\n\n")
+            message("\nMore than one tpsid found for taxon '", sciname, "'!\n
           Enter rownumber of taxon (other inputs will return 'NA'):\n")
-          rownames(df) <- 1:nrow(df)
-          print(df)
-          take <- scan(n = 1, quiet = TRUE, what = 'raw')
+            rownames(df) <- 1:nrow(df)
+            print(df)
+            take <- scan(n = 1, quiet = TRUE, what = 'raw')
 
-          if (length(take) == 0) {
-            take <- 'notake'
-            att <- 'nothing chosen'
-          }
-          if (take %in% seq_len(nrow(df))) {
-            take <- as.numeric(take)
-            message("Input accepted, took tpsid '", as.character(df$tpsid[take]), "'.\n")
-            id <- as.character(df$tpsid[take])
-            att <- 'found'
+            if (length(take) == 0) {
+              take <- 'notake'
+              att <- 'nothing chosen'
+            }
+            if (take %in% seq_len(nrow(df))) {
+              take <- as.numeric(take)
+              message("Input accepted, took tpsid '", as.character(df$tpsid[take]), "'.\n")
+              id <- as.character(df$tpsid[take])
+              att <- 'found'
+            } else {
+              id <- NA_character_
+              mssg(verbose, "\nReturned 'NA'!\n\n")
+              att <- 'not found'
+            }
           } else {
-            id <- NA_character_
-            mssg(verbose, "\nReturned 'NA'!\n\n")
-            att <- 'not found'
+            if (length(id) != 1) {
+              warning(
+                sprintf("More than one tpsid found for taxon '%s'; refine query or set ask=TRUE",
+                        sciname),
+                call. = FALSE
+              )
+              id <- NA_character_
+              att <- 'NA due to ask=FALSE & > 1 result'
+            }
           }
         }
-      } else{
-        id <- NA_character_
-        att <- 'NA due to ask=FALSE'
-      }
     }
     list(id = as.character(id), att = att, multiple = mm, direct = direct)
   }

@@ -140,7 +140,6 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
       lookup = gbif_name_lookup(sciname, ...)
     )
     mm <- NROW(df) > 1
-    #df <- sub_rows(df, rows)
 
     if (is.null(df)) df <- data.frame(NULL)
 
@@ -169,35 +168,37 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
         id <- as.character(matchtmp)
         direct <- TRUE
       } else {
-        if (ask) {
-          if (!is.null(phylum) || !is.null(class) || !is.null(order) ||
-              !is.null(family) || !is.null(rank)) {
-            df <- filt(df, "phylum", phylum)
-            df <- filt(df, "class", class)
-            df <- filt(df, "order", order)
-            df <- filt(df, "family", family)
-            df <- filt(df, "rank", rank)
-          }
+        if (!is.null(phylum) || !is.null(class) || !is.null(order) ||
+            !is.null(family) || !is.null(rank)) {
+          df <- filt(df, "phylum", phylum)
+          df <- filt(df, "class", class)
+          df <- filt(df, "order", order)
+          df <- filt(df, "family", family)
+          df <- filt(df, "rank", rank)
+        }
 
-          df <- sub_rows(df, rows)
-          if (NROW(df) == 0) {
-            id <- NA_character_
-            att <- "not found"
-          } else {
-            id <- df$gbifid
-            if (length(id) == 1) {
-              rank_taken <- as.character(df$rank)
-              att <- "found"
-            }
+        df <- sub_rows(df, rows)
+        if (NROW(df) == 0) {
+          id <- NA_character_
+          att <- "not found"
+        } else {
+          id <- df$gbifid
+          if (length(id) == 1) {
+            rank_taken <- as.character(df$rank)
+            att <- "found"
           }
+        }
 
-          if (length(id) > 1) {
+        if (length(id) > 1) {
+          if (ask) {
             # limit to subset of columns for ease of use
-            df <- df[, switch(method, backbone = gbif_cols_show_backbone, lookup = gbif_cols_show_lookup)]
+            df <- df[, switch(method,
+                              backbone = gbif_cols_show_backbone,
+                              lookup = gbif_cols_show_lookup)]
 
             # prompt
             message("\n\n")
-            message("\nMore than one eolid found for taxon '", sciname, "'!\n
+            message("\nMore than one GBIF ID found for taxon '", sciname, "'!\n
             Enter rownumber of taxon (other inputs will return 'NA'):\n")
             rownames(df) <- 1:nrow(df)
             print(df)
@@ -209,7 +210,8 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
             }
             if (take %in% seq_len(nrow(df))) {
               take <- as.numeric(take)
-              message("Input accepted, took gbifid '", as.character(df$gbifid[take]), "'.\n")
+              message("Input accepted, took gbifid '",
+                      as.character(df$gbifid[take]), "'.\n")
               id <- as.character(df$gbifid[take])
               att <- "found"
             } else {
@@ -217,10 +219,17 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
               att <- "not found"
               mssg(verbose, "\nReturned 'NA'!\n\n")
             }
+          } else {
+            if (length(id) != 1) {
+              warning(
+                sprintf("More than one GBIF ID found for taxon '%s'; refine query or set ask=TRUE",
+                        sciname),
+                call. = FALSE
+              )
+              id <- NA_character_
+              att <- 'NA due to ask=FALSE & > 1 result'
+            }
           }
-        } else {
-          id <- NA_character_
-          att <- "NA due to ask=FALSE"
         }
       }
     }

@@ -77,7 +77,7 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE,
   assert(searchtype, "character")
   assert(accepted, "logical")
 
-  fun <- function(x, searchtype, ask, verbose, ...) {
+  fun <- function(x, searchtype, ask, verbose, rows, ...) {
     direct <- FALSE
     mssg(verbose, "\nRetrieving data for taxon '", x, "'\n")
 
@@ -122,21 +122,28 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE,
         names(tsn_df)[grep(searchtype, names(tsn_df))] <- "target"
         direct <- match(tolower(tsn_df$target), tolower(x))
 
-        if (!all(is.na(direct))) {
-          tsn <- tsn_df$tsn[!is.na(direct)]
-          direct <- TRUE
-          att <- 'found'
+        if (length(direct) == 1) {
+          if (!all(is.na(direct))) {
+            tsn <- tsn_df$tsn[!is.na(direct)]
+            direct <- TRUE
+            att <- 'found'
+          } else {
+            direct <- FALSE
+            tsn <- NA_character_
+            att <- 'not found'
+          }
         } else {
           direct <- FALSE
           tsn <- NA_character_
-          att <- 'not found'
+          att <- 'NA due to ask=FALSE & no direct match found'
+          warning("> 1 result; no direct match found", call. = FALSE)
         }
       }
 
       # multiple matches
       if (any(
         nrow(tsn_df) > 1 && is.na(tsn) |
-        nrow(tsn_df) > 1 && att == "found" & length(tsn) > 1
+        nrow(tsn_df) > 1 && att == "found" && length(tsn) > 1
       )) {
         if (ask) {
           names(tsn_df)[grep(searchtype, names(tsn_df))] <- "target"
@@ -166,8 +173,15 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE,
             att <- 'not found'
           }
         } else {
-          tsn <- NA_character_
-          att <- "NA due to ask=FALSE"
+          if (length(tsn) != 1) {
+            warning(
+              sprintf("More than one tsn found for taxon '%s'; refine query or set ask=TRUE",
+                      sciname),
+              call. = FALSE
+            )
+            tsn <- NA_character_
+            att <- 'NA due to ask=FALSE & > 1 result'
+          }
         }
       }
 
@@ -181,7 +195,7 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE,
       stringsAsFactors = FALSE)
   }
   searchterm <- as.character(searchterm)
-  outd <- ldply(searchterm, fun, searchtype, ask, verbose, ...)
+  outd <- ldply(searchterm, fun, searchtype, ask, verbose, rows, ...)
   out <- outd$tsn
   attr(out, 'match') <- outd$att
   attr(out, 'multiple_matches') <- outd$multiple

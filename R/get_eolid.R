@@ -188,10 +188,17 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL,
           att <- 'not found'
           mssg(verbose, "\nReturned 'NA'!\n\n")
         }
-      } else{
-        id <- NA_character_
-        page_id <- NA_character_
-        att <- "NA due to ask=FALSE"
+      } else {
+        if (length(id) != 1) {
+          warning(
+            sprintf("More than one eolid found for taxon '%s'; refine query or set ask=TRUE",
+                    sciname),
+            call. = FALSE
+          )
+          id <- NA_character_
+          page_id <- NA_character_
+          att <- 'NA due to ask=FALSE & > 1 result'
+        }
       }
     }
     list(id = as.character(id), page_id = page_id, source = datasource,
