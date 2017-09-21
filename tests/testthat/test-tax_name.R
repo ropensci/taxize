@@ -38,19 +38,23 @@ test_that("tax_name accepts ask-argument", {
 test_that("taxon with no data returned from classification() works", {
   skip_on_cran()
 
-  aa <- suppressWarnings(tax_name("Galagoides demidovii", get = "species", verbose = FALSE))
+  aa <- sw(tax_name("Galagoides demidovii", get = "species",
+                                  rows = 1, verbose = FALSE))
   expect_is(aa, "data.frame")
   expect_true(is.na(aa$species))
-  expect_warning(tax_name("Galagoides demidovii", get = "species", verbose = FALSE),
-                 "no hierarchy data found in ITIS")
+  expect_warning(
+    tax_name("Galagoides demidovii", get = "species", rows = 1,
+             verbose = FALSE),
+    "no hierarchy data found in ITIS"
+  )
 
-  bb <- suppressWarnings(tax_name("Asterias helianthus", get = "species", verbose = FALSE))
+  bb <- sw(tax_name("Asterias helianthus", get = "species", verbose = FALSE))
   expect_is(bb, "data.frame")
   expect_true(is.na(bb$species))
   expect_warning(tax_name("Asterias helianthus", get = "species", verbose = FALSE),
                  "no hierarchy data found in ITIS")
 
-  cc <- suppressWarnings(tax_name("Stellonia helianthus", get = "species", verbose = FALSE))
+  cc <- sw(tax_name("Stellonia helianthus", get = "species", verbose = FALSE))
   expect_is(cc, "data.frame")
   expect_true(is.na(cc$species))
   expect_warning(tax_name("Stellonia helianthus", get = "species", verbose = FALSE),

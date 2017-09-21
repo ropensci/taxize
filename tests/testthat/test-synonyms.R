@@ -5,7 +5,7 @@ context("synonyms")
 test_that("synonyms returns the correct value", {
   skip_on_cran()
 
-  tt <- sw(synonyms("Poa annua", db = "itis"))
+  tt <- sw(synonyms("Poa annua", db = "itis", rows = 1, verbose = FALSE))
 
 	expect_match(names(tt), "Poa annua")
 	expect_match(tt[[1]][1, "syn_name"], "Poa annua var. aquatica")

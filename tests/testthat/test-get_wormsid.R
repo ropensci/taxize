@@ -27,12 +27,9 @@ test_that("get_wormsid query modifiers work", {
   skip_on_cran()
 
   ### w/ modifiers to the name
-  mod1 <- sw(get_wormsid('Platanista gangetica', verbose=FALSE))
   mod2 <- sw(get_wormsid('asiatic clam', "common", verbose=FALSE))
 
-  expect_is(mod1, "wormsid")
   expect_is(mod2, "wormsid")
-  expect_equal(mod1[1], "254967")
   expect_equal(mod2[1], "181580")
 })
 

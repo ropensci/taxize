@@ -91,6 +91,7 @@ get_nbnid <- function(name, ask = TRUE, verbose = TRUE, rec_only = FALSE,
   assert(rec_only, "logical")
   assert(rank, "character")
   assert(verbose, "logical")
+
   fun <- function(name, ask, verbose, rows) {
     direct <- FALSE
     mssg(verbose, "\nRetrieving data for taxon '", name, "'\n")
@@ -155,7 +156,7 @@ get_nbnid <- function(name, ask = TRUE, verbose = TRUE, rec_only = FALSE,
         if (length(id) != 1) {
           warning(
             sprintf("More than one NBN ID found for taxon '%s'; refine query or set ask=TRUE",
-                    x),
+                    name),
             call. = FALSE
           )
           id <- NA_character_

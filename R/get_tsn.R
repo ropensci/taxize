@@ -176,7 +176,7 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE,
           if (length(tsn) != 1) {
             warning(
               sprintf("More than one tsn found for taxon '%s'; refine query or set ask=TRUE",
-                      sciname),
+                      x),
               call. = FALSE
             )
             tsn <- NA_character_
