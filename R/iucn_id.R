@@ -3,7 +3,10 @@
 #' @export
 #' @param sciname character; Scientific name. Should be cleand and in the
 #' format \emph{<Genus> <Species>}. One or more.
-#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' @param key (character) required. you IUCN Redlist API key. See
+#' \code{\link[rredlist]{rredlist-package}} for help on authenticating with
+#' IUCN Redlist
+#' @param ... Curl options passed on to \code{crul::HttpClient}
 #' @return A named list (names are input taxa names) of one or more IUCN IDs.
 #' Taxa that aren't found are silently dropped.
 #' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
@@ -22,16 +25,16 @@
 #' # a name not found
 #' iucn_id("Foo bar")
 #' }
-iucn_id <- function(sciname, ...) {
+iucn_id <- function(sciname, key = NULL, ...) {
   out <- list()
   for (i in seq_along(sciname)) {
-    out[[i]] <- get_iucn_id(sciname[[i]], ...)
+    out[[i]] <- get_iucn_id(sciname[[i]], key = key, ...)
   }
   unlist(out)
 }
 
-get_iucn_id <- function(z, ...) {
-  tmp <- rredlist::rl_search(z, ...)
+get_iucn_id <- function(z, key = NULL, ...) {
+  tmp <- rredlist::rl_search(z, key = key, ...)
   if (NROW(tmp$result) == 0) {
     NA
   } else if (NROW(tmp$result) > 1) {
@@ -46,21 +49,3 @@ get_iucn_id <- function(z, ...) {
   }
 }
 
-# get_iucn_id <- function(z) {
-#   x <- gsub(" ", "-", tolower(z))
-#   url <- paste("http://api.iucnredlist.org/go/", x, sep = "")
-#   e <- tryCatch(suppressWarnings(readLines(url)), error = function(e) e)
-#   if (is(e, "error")) {
-#     warning(paste0(z, " - not found"), call. = FALSE)
-#     return(NA)
-#   } else {
-#     id <- grep("http://www.iucnredlist.org/apps/redlist/details/", e, value = TRUE)
-#     as.numeric(gsub(".*/", "", id))
-#   }
-# }
-
-## usage based on using gnr_resolve, maybe bring back when correct IUCN IDs given
-# iucn_id <- function(sciname) {
-#   res <- gnr_resolve(sciname, data_source_ids = 163, fields = "all")
-#   as.list(setNames(res$local_id, res$submitted_name))
-# }

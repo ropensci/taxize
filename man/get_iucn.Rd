@@ -32,7 +32,7 @@ as.iucn(x, check = TRUE, key = NULL)
 
 \item{verbose}{logical; should progress be printed?}
 
-\item{key}{(character) you IUCN Redlist API key. See
+\item{key}{(character) required. you IUCN Redlist API key. See
 \code{\link[rredlist]{rredlist-package}} for help on authenticating with
 IUCN Redlist}
 

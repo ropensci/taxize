@@ -3,7 +3,7 @@
 #' @export
 #' @param x (character) A vector of common or scientific names
 #' @param verbose logical; should progress be printed?
-#' @param key (character) you IUCN Redlist API key. See
+#' @param key (character) required. you IUCN Redlist API key. See
 #' \code{\link[rredlist]{rredlist-package}} for help on authenticating with
 #' IUCN Redlist
 #' @param check (logical) Check if ID matches any existing on the DB, only

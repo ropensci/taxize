@@ -4,13 +4,17 @@
 \alias{iucn_id}
 \title{Get an ID for a IUCN listed taxon}
 \usage{
-iucn_id(sciname, ...)
+iucn_id(sciname, key = NULL, ...)
 }
 \arguments{
 \item{sciname}{character; Scientific name. Should be cleand and in the
 format \emph{<Genus> <Species>}. One or more.}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{key}{(character) required. you IUCN Redlist API key. See
+\code{\link[rredlist]{rredlist-package}} for help on authenticating with
+IUCN Redlist}
+
+\item{...}{Curl options passed on to \code{crul::HttpClient}}
 }
 \value{
 A named list (names are input taxa names) of one or more IUCN IDs.
