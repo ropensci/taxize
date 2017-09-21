@@ -24,7 +24,7 @@ The `taxize` tutorial is can be found at <https://ropensci.org/tutorials/taxize.
 
 The functions in the package that hit a specific API have a prefix and suffix separated by an underscore. They follow the format of `service_whatitdoes`.  For example, `gnr_resolve` uses the Global Names Resolver API to resolve species names.  General functions in the package that don't hit a specific API don't have two words separated by an underscore, e.g., `classification`.
 
-You need API keys for Encyclopedia of Life (EOL), and Tropicos.
+You need API keys for Encyclopedia of Life (EOL), Tropicos, IUCN, and NatureServe.
 
 ## SOAP
 
@@ -84,7 +84,7 @@ Note that a few data sources require SOAP web services, which are difficult to s
 	<td style="text-align:left;">IUCN Red List</td>
 	<td style="text-align:left;"><code>iucn</code></td>
 	<td style="text-align:left;"><a href="https://www.assembla.com/spaces/sis/wiki/Red_List_API?version=3">link</a></td>
-	<td style="text-align:left;">none</td>
+	<td style="text-align:left;"><a href="http://apiv3.iucnredlist.org/api/v3/token">link</a></td>
 </tr>
 <tr>
 	<td style="text-align:left;">Tropicos</td>
@@ -170,6 +170,12 @@ Note that a few data sources require SOAP web services, which are difficult to s
 	<td style="text-align:left;"><a href="https://services.natureserve.org/BrowseServices/getSpeciesData/getSpeciesListREST.jsp">link</a></td>
 	<td style="text-align:left;"><a href="https://services.natureserve.org/developer/index.jsp">link</a></td>
 </tr>
+<tr>
+	<td style="text-align:left;">Wikipedia</td>
+	<td style="text-align:left;"><code>wiki</code></td>
+	<td style="text-align:left;"><a href="https://www.mediawiki.org/wiki/API:Main_page">link</a></td>
+	<td style="text-align:left;">none</td>
+</tr>
 </tbody>
 </table>
 
@@ -236,7 +242,7 @@ children("Salmo", db = 'ncbi')
 Get all species in the genus _Apis_
 
 ```{r downstream}
-downstream("Apis", db = 'itis', downto = 'Species', verbose = FALSE)
+downstream(as.tsn(154395), db = 'itis', downto = 'species', verbose = FALSE)
 ```
 
 ## Upstream taxa

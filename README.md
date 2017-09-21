@@ -17,7 +17,7 @@ The `taxize` tutorial is can be found at <https://ropensci.org/tutorials/taxize.
 
 The functions in the package that hit a specific API have a prefix and suffix separated by an underscore. They follow the format of `service_whatitdoes`.  For example, `gnr_resolve` uses the Global Names Resolver API to resolve species names.  General functions in the package that don't hit a specific API don't have two words separated by an underscore, e.g., `classification`.
 
-You need API keys for Encyclopedia of Life (EOL), and Tropicos.
+You need API keys for Encyclopedia of Life (EOL), Tropicos, IUCN, and NatureServe.
 
 ## SOAP
 
@@ -77,7 +77,7 @@ Note that a few data sources require SOAP web services, which are difficult to s
 	<td style="text-align:left;">IUCN Red List</td>
 	<td style="text-align:left;"><code>iucn</code></td>
 	<td style="text-align:left;"><a href="https://www.assembla.com/spaces/sis/wiki/Red_List_API?version=3">link</a></td>
-	<td style="text-align:left;">none</td>
+	<td style="text-align:left;"><a href="http://apiv3.iucnredlist.org/api/v3/token">link</a></td>
 </tr>
 <tr>
 	<td style="text-align:left;">Tropicos</td>
@@ -162,6 +162,12 @@ Note that a few data sources require SOAP web services, which are difficult to s
 	<td style="text-align:left;"><code>natserv</code></td>
 	<td style="text-align:left;"><a href="https://services.natureserve.org/BrowseServices/getSpeciesData/getSpeciesListREST.jsp">link</a></td>
 	<td style="text-align:left;"><a href="https://services.natureserve.org/developer/index.jsp">link</a></td>
+</tr>
+<tr>
+	<td style="text-align:left;">Wikipedia</td>
+	<td style="text-align:left;"><code>wiki</code></td>
+	<td style="text-align:left;"><a href="https://www.mediawiki.org/wiki/API:Main_page">link</a></td>
+	<td style="text-align:left;">none</td>
 </tr>
 </tbody>
 </table>
@@ -288,8 +294,8 @@ Get all species in the genus _Apis_
 
 
 ```r
-downstream("Apis", db = 'itis', downto = 'Species', verbose = FALSE)
-#> $Apis
+downstream(as.tsn(154395), db = 'itis', downto = 'species', verbose = FALSE)
+#> $`154395`
 #>      tsn parentname parenttsn          taxonname rankid rankname
 #> 1 154396       Apis    154395     Apis mellifera    220  species
 #> 2 763550       Apis    154395 Apis andreniformis    220  species
@@ -312,6 +318,36 @@ Get all genera up from the species _Pinus contorta_ (this includes the genus of 
 
 ```r
 upstream("Pinus contorta", db = 'itis', upto = 'Genus', verbose=FALSE)
+#>      tsn                        target
+#> 1 183327                Pinus contorta
+#> 2 183332 Pinus contorta ssp. bolanderi
+#> 3 822698  Pinus contorta ssp. contorta
+#> 4 183329 Pinus contorta ssp. latifolia
+#> 5 183330 Pinus contorta ssp. murrayana
+#> 6 529672 Pinus contorta var. bolanderi
+#> 7 183328  Pinus contorta var. contorta
+#> 8 529673 Pinus contorta var. latifolia
+#> 9 529674 Pinus contorta var. murrayana
+#>                                                        commonNames
+#> 1               scrub pine,shore pine,tamarack pine,lodgepole pine
+#> 2                                            Bolander's beach pine
+#> 3                                                               NA
+#> 4                         black pine,Rocky Mountain lodgepole pine
+#> 5                              tamarack pine,Sierra lodgepole pine
+#> 6                                              Bolander beach pine
+#> 7                  coast pine,lodgepole pine,beach pine,shore pine
+#> 8 tall lodgepole pine,lodgepole pine,Rocky Mountain lodgepole pine
+#> 9      Murray's lodgepole pine,Sierra lodgepole pine,tamarack pine
+#>      nameUsage
+#> 1     accepted
+#> 2 not accepted
+#> 3 not accepted
+#> 4 not accepted
+#> 5 not accepted
+#> 6     accepted
+#> 7     accepted
+#> 8     accepted
+#> 9     accepted
 #> $`Pinus contorta`
 #>      tsn parentname parenttsn   taxonname rankid rankname
 #> 1  18031   Pinaceae     18030       Abies    180    genus
@@ -335,6 +371,9 @@ upstream("Pinus contorta", db = 'itis', upto = 'Genus', verbose=FALSE)
 
 ```r
 synonyms("Acer drummondii", db="itis")
+#>      tsn             target commonNames    nameUsage
+#> 1 183671    Acer drummondii          NA not accepted
+#> 2 183672 Rufacer drummondii          NA not accepted
 #> $`Acer drummondii`
 #>   sub_tsn                    acc_name acc_tsn
 #> 1  183671 Acer rubrum var. drummondii  526853
@@ -424,18 +463,14 @@ get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn', rows=1:3)
 #> $nbn$`Chironomus riparius`
 #>               guid             scientificName    rank taxonomicStatus
 #> 1 NBNSYS0000027573        Chironomus riparius species        accepted
-#> 2 NHMSYS0001718585      Cryptohypnus riparius species         synonym
-#> 3 NHMSYS0000864966 Damaeus (Damaeus) riparius species        accepted
+#> 2 NHMSYS0000864966 Damaeus (Damaeus) riparius species        accepted
+#> 3 NHMSYS0021059238      Rhizoclonium riparium species        accepted
 #> 
 #> $nbn$`Pinus contorta`
-#>               guid                  scientificName       rank
-#> 1 NBNSYS0000004786                  Pinus contorta    species
-#> 2 NHMSYS0000494848  Pinus contorta subsp. contorta subspecies
-#> 3 NHMSYS0000494858 Pinus contorta subsp. murreyana subspecies
-#>   taxonomicStatus
-#> 1        accepted
-#> 2         synonym
-#> 3         synonym
+#>               guid                scientificName    rank taxonomicStatus
+#> 1 NBNSYS0000004786                Pinus contorta species        accepted
+#> 2 NHMSYS0000494858 Pinus contorta var. murrayana variety        accepted
+#> 3 NHMSYS0000494848  Pinus contorta var. contorta variety        accepted
 #> 
 #> 
 #> attr(,"class")
@@ -447,6 +482,22 @@ get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn', rows=1:3)
 
 ```r
 sci2comm('Helianthus annuus', db = 'itis')
+#>      tsn                              target
+#> 1  36616                   Helianthus annuus
+#> 2 525928      Helianthus annuus ssp. jaegeri
+#> 3 525929 Helianthus annuus ssp. lenticularis
+#> 4 525930      Helianthus annuus ssp. texanus
+#> 5 536095 Helianthus annuus var. lenticularis
+#> 6 536096  Helianthus annuus var. macrocarpus
+#> 7 536097      Helianthus annuus var. texanus
+#>                                                  commonNames    nameUsage
+#> 1 annual sunflower,sunflower,wild sunflower,common sunflower     accepted
+#> 2                                                         NA not accepted
+#> 3                                                         NA not accepted
+#> 4                                                         NA not accepted
+#> 5                                                         NA not accepted
+#> 6                                                         NA not accepted
+#> 7                                                         NA not accepted
 #> $`Helianthus annuus`
 #> [1] "common sunflower" "sunflower"        "wild sunflower"  
 #> [4] "annual sunflower"
@@ -458,10 +509,10 @@ sci2comm('Helianthus annuus', db = 'itis')
 ```r
 comm2sci("black bear", db = "itis")
 #> $`black bear`
-#> [1] "Ursus thibetanus"            "Ursus thibetanus"           
-#> [3] "Ursus americanus luteolus"   "Ursus americanus americanus"
+#> [1] "Chiropotes satanas"          "Ursus thibetanus"           
+#> [3] "Ursus thibetanus"            "Ursus americanus luteolus"  
 #> [5] "Ursus americanus"            "Ursus americanus"           
-#> [7] "Chiropotes satanas"
+#> [7] "Ursus americanus americanus"
 ```
 
 ## Lowest common rank among taxa
