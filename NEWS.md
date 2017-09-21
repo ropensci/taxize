@@ -1,7 +1,7 @@
 taxize 0.9.0
 ============
 
-## Changes to `get_*()` functions
+### Changes to `get_*()` functions
 
 * Added separate documentation file for all get* functions 
 describing attributes and various exception behaviors
@@ -19,7 +19,14 @@ give back just `NA` with no inication that there were multiple matches.
 * Please let me know if any of these changes cause problems for your
 code or package.
 
-## MINOR IMPROVEMENTS
+### NEW FEATURES
+
+* Change `comm2sci()` to S3 setup with methods for `character`, `uid`, 
+and `tsn` (#621)
+* `iucn_status()` now has S3 setup with a single method that only handles
+output from the `iucn_summary()` function.
+
+### MINOR IMPROVEMENTS
 
 * Add required `key` parameter to fxn `iucn_id()` (#633)
 * imrove docs for `sci2comm()`: to indicate how to get non-simplified
@@ -27,10 +34,12 @@ output (which includes what language the common name is from) vs.
 getting simplified output (#623) thanks @glaroc !
 * Fix to `sci2comm()` to not be case sensitive when looking for matches 
 (#625) thanks @glaroc !
-* Change `comm2sci()` to S3 setup with methods for `character`, `uid`, 
-and `tsn` (#621)
+* Two additional columns now returned with `eol_search()`: `link` and `content`
+* Improve docs in `eol_search()` to describe returned `data.frame`
+* Fix `bold_bing()` to use new base URL for their API
+* Improved description of the dataset `rank_ref`, see `?rank_ref`
 
-## BUG FIXES
+### BUG FIXES
 
 * Fix to `downstream()` via fix to `rank_ref` dataset to include
 "infraspecies" and make "unspecified" and "no rank" requivalent.
@@ -51,7 +60,7 @@ failed requests for specific pageid's (#624) thanks @glaroc !
 taxize 0.8.9
 ============
 
-## BUG FIXES
+### BUG FIXES
 
 * Remove `ape::neworder_phylo` object, which is not used anymore in `taxize`  
 (#618) (#619) thanks @ashiklom
@@ -60,7 +69,7 @@ taxize 0.8.9
 taxize 0.8.8
 ============
 
-## NEW FEATURES
+### NEW FEATURES
 
 * New function `ncbi_downstream()` and now NCBI is an option in 
 the function `downstream()` (#583) thanks for the push @andzandz11
@@ -75,7 +84,7 @@ new S3 methods `synonyms.iucn` and `sci2comm.iucn` - no other methods could
 be made to work with IUCN Red List ids as they do no share their taxonomic
 classification data (#578) thanks @diogoprov 
 
-## MINOR IMPROVEMENTS
+### MINOR IMPROVEMENTS
 
 * `bold` now an option in `classification()` function (#588)
 * fix to NBN to use new base URL (#582) ($597)
@@ -104,7 +113,7 @@ information about homonyms. (#610) thanks @kamapu
 if tax returned with that rank, some functions in `taxize` were failing 
 due to that rank missing in our reference dataset `rank_ref` (#615)
 
-## BUG FIXES
+### BUG FIXES
 
 * Fix to `get_colid()` via problem in parsing within `col_search()` (#585)
 * Fix to `gbif_downstream` (and thus fix in `downstream()`): there 
@@ -124,7 +133,7 @@ the `simplify` parameter (#616)
 taxize 0.8.4
 ============
 
-## NEW FEATURES
+### NEW FEATURES
 
 * Added WoRMS integration via the new `worrms` package on CRAN.
 Adds functions `as.wormsid()`, `get_wormsid()`, `get_wormsid_()`,
@@ -134,7 +143,7 @@ Adds functions `as.wormsid()`, `get_wormsid()`, `get_wormsid_()`,
 `get_natservid`, `get_natservid_`, and `classification.natservid`
 (#126)
 
-## BUG FIXES
+### BUG FIXES
 
 * EOL API keys were not passed on to internal functions. fixed now.
 thanks @dschlaep ! (#576)
@@ -144,7 +153,7 @@ older and new version of `vegan` - thank @jarioksa (#580) (#581)
 taxize 0.8.0
 ============
 
-## NEW FEATURES
+### NEW FEATURES
 
 * New data source added: Open Tree of Life. New functions for the data source
 added: `get_tolid()`, `get_tolid_()`, and `as.tolid()` (#517)
@@ -169,11 +178,11 @@ from `synonyms()` for a single data source - there is a lot of heterogeneity
 among data sources in how they report synonyms data, so we don't attempt
 to combine data across sources (#533)
 
-## MINOR IMPROVEMENTS
+### MINOR IMPROVEMENTS
 
 * Change NCBI URLs to `https` from `http` (#571)
 
-## BUG FIXES
+### BUG FIXES
 
 * Fixed bug in `tax_name()` in which when an invalid taxon was searched
 for then `classification()` returned no data and caused an error.
@@ -188,11 +197,11 @@ reporting it!
 taxize 0.7.9
 ============
 
-## NEW FEATURES
+### NEW FEATURES
 
 * New vignette: "Strategies for programmatic name cleaning" (#549)
 
-## MINOR IMPROVEMENTS
+### MINOR IMPROVEMENTS
 
 * `get_*()` functions now have new attributes to further help the user:
 `multiple_matches` (logical) indicating whether there were multiple
@@ -206,7 +215,7 @@ this could affect your code, make sure to check your existing code (#558)
 * `gnr_resolve()` - stop sorting output data.frame, so order of rows
 in output data.frame now same as user input vector/list (#559)
 
-## BUG FIXES
+### BUG FIXES
 
 * Fixed internal fxn `sub_rows()` inside of most `get_*()` functions
 to not fail when the data.frame rows were less than that requested by
@@ -223,7 +232,7 @@ returned when a preferred data source specified (#557)
 taxize 0.7.8
 ============
 
-## MINOR IMPROVEMENTS
+### MINOR IMPROVEMENTS
 
 * Fix to `iucn_summary()` (#543) thanks @mcsiple
 * Added message for when too many Ids passed in to `ncbi_get_taxon_summary()`
@@ -231,7 +240,7 @@ suggesting to break up the ids into chunks (#541) thanks @daattali
 * Fix to `itis_acceptname()` to accept multiple names (#534) and now
 gives back same output regardless of whether match found or not (#531)
 
-## BUG FIXES
+### BUG FIXES
 
 * Fix to `tax_name()` for some queries that return no classification data
 via internal call to `classification()` (#542) thanks @daattali
@@ -242,7 +251,7 @@ to make sure user has `vegan` installed (#529)
 taxize 0.7.6
 ============
 
-## MINOR IMPROVEMENTS
+### MINOR IMPROVEMENTS
 
 * Changed defunct messages in `eol_invasive()` and `gisd_invasive()`
 to point to new location in the [originr](https://github.com/ropenscilabs/originr)
@@ -252,7 +261,7 @@ anymore (#494)
 [rredlist](https://github.com/ropenscilabs/rredlist) package. (Two issues
 dealing with IUCN problems (#475) (#492))
 
-## BUG FIXES
+### BUG FIXES
 
 * Fix to `get_gbifid()` to use new internal code to provide two
 ways to search GBIF taxonomy API, either via `/species/match` or via
@@ -268,7 +277,7 @@ thanks @JoStaerk !
 taxize 0.7.5
 ============
 
-## BUG FIXES
+### BUG FIXES
 
 * Fixed bug in the package dependency `bold`, which fixes
 `taxize::bold_search()`, so no actual changes in `taxize` for
@@ -287,7 +296,7 @@ how to get a key and save it in either `.Renviron` or in
 taxize 0.7.4
 ===============
 
-## NEW FEATURES
+### NEW FEATURES
 
 * New function `lowest_common()` for obtaining the lowest common taxon and
 rank for a given taxon name or ID. Methods so far for ITIS, NCBI, and GBIF (#505)
@@ -299,7 +308,7 @@ IUCN IDs as input instead of taxonomic names (#493)
 This provides consistency, which is important, and many functions use ranks
 to determine what to do next, so using a consistent case is good.
 
-## MINOR IMPROVEMENTS
+### MINOR IMPROVEMENTS
 
 * `iucn_summary()` fixes, long story short: a number of bug fixes, and uses
 the new IUCN API via the newish package `rredlist` when IDs are given as input,
@@ -321,7 +330,7 @@ providers (e.g., `class` vs. `Class`). All rank values are now all lowercase (#5
 * `iucn_id()`, `tpl_families()`, and `tpl_get()` all gain a new parameter `...` to
 pass on curl options to `httr::GET()`
 
-## BUG FIXES
+### BUG FIXES
 
 * Fixes to `get_eolid()`: URI returned now always has the pageid, and goes to the
 right place; API key if passed in now actually used, woopsy (#484)
@@ -344,7 +353,7 @@ was previously no parser for that type. Now there is, and it works (#512)
 taxize 0.7.0
 ===============
 
-## NEW FEATURES
+### NEW FEATURES
 
 * Now requires `R >= 3.2.1`. Good idea to update your R installation anyway (#476)
 * New function `ion()` for obtaining data from Index of Organism Names (#345)
@@ -358,7 +367,7 @@ functions allow some Index Fungorum data access (#471)
 GBIF's backbone taxonomy. Also available in `downstream()`, where you can
 request downstream names from GBIF, along with other data sources (#414)
 
-## MINOR IMPROVEMENTS
+### MINOR IMPROVEMENTS
 
 * Note added in docs for all `db` parameters to warn users that if they
 provide the wrong `db` value for the given taxon ID, they can get data
@@ -372,12 +381,12 @@ data is returned. This is beyond our control, as sometimes IUCN itself gives
 back incorrect data, and sometimes EOL/Global Names (which we use in some of
 the IUCN functions) give back incorrect data. (#468) (#473) (#174) (472) (#475)
 
-## BUG FIXES
+### BUG FIXES
 
 * Fix to `gnr_resolve()` to by default capitalize first name of a name string
 passed to the function. GNR is case sensitive, so case matters (#469)
 
-## DEFUNCT
+### DEFUNCT
 
 * `phylomatic_tree()` and `phylomatic_format()` are defunct. They were deprecated
 in recent versions, but are now gone. See the new package `brranching` for
@@ -386,7 +395,7 @@ Phylomatic data (#479)
 taxize 0.6.6
 ===============
 
-## MINOR IMPROVEMENTS
+### MINOR IMPROVEMENTS
 
 * `stripauthority` argument in `gnr_resolve()` has been renamed to `canonical`
 to better match what it actually does (#451)
@@ -414,7 +423,7 @@ when names not found.
 * Dropped `openssl` as a package dependency. Not needed anymore because uBio
 dropped.
 
-## BUG FIXES
+### BUG FIXES
 
 * `gnr_resolve()` failed when no canonical form was found.
 * Fixed `gnr_resolve()` when no results found when `best_match_only=TRUE` (#432)
@@ -422,13 +431,13 @@ dropped.
 when no results found, often with subspecific taxa. Helps solve errors reported
 in use of `downstream()`, `itis_downstream()`, and `gethierarchydownfromtsn()` (#459)
 
-## NEW FEATURES
+### NEW FEATURES
 
 * `gnr_resolve()` gains new parameter `with_canonical_ranks` (logical) to choose
 whether infraspecific ranks are returned or not.
 * New function `iucn_id()` to get the IUCN ID for a taxon from it's name. (#431)
 
-## DEFUNCT
+### DEFUNCT
 
 * All functions that interacted with the taxonomy service uBio are now
 defunct. Of course we would deprecate first, then make defunct later, to
@@ -442,7 +451,7 @@ function. (#449)
 taxize 0.6.2
 ===============
 
-## MINOR IMPROVEMENTS
+### MINOR IMPROVEMENTS
 
 * `rankagg()` doesn't depend on `data.table` anymore (fixes issue with CRAN checks)
 * Replaced `RCurl::base64Decode()` with `openssl::base64_decode()`, needed for
@@ -455,7 +464,7 @@ list to the `query` parameter in `GET()`, but can pass `NULL` (#445)
 * Fixes to all of the `gni_*()` functions, including code tidying, some
 DRYing out, and ability to pass in curl options (#444)
 
-## BUG FIXES
+### BUG FIXES
 
 * Fixed typo in `taxize_cite()`
 * Fixed a bug in `classification()` where numeric IDs as input got
@@ -468,7 +477,7 @@ web services (#435)
 taxize 0.6.0
 ===============
 
-## NEW FEATURES
+### NEW FEATURES
 
 * Added a method for Catalogue of Life for the `synonyms` function to get
 name synonyms. (#430)
@@ -495,7 +504,7 @@ information (mostly higher taxonomic data) to help in the interactive decision
 process. (#327)
 * New data source added to `synonyms()` function: Catalogue of Life. (#430)
 
-## MINOR IMPROVEMENTS
+### MINOR IMPROVEMENTS
 
 * `vegan` package, used in `class2tree()` function, moved from Imports to Suggests. (#392)
 * Improved `taxize_cite()` a lot - get URLs and sometimes citation information
@@ -512,11 +521,11 @@ examples of curl option use.
 often quite slow.
 * General code tidying across the package to make code easier to read.
 
-## BUG FIXES
+### BUG FIXES
 
 * Fixed encoding issues in `tpl_families()` and `tpl_get()`. (#424)
 
-## DEPRECATED AND DEFUNCT
+### DEPRECATED AND DEFUNCT
 
 * The following functions that were deprecated are now defunct (no longer available):
 `ncbi_getbyname()`, `ncbi_getbyid()`, `ncbi_search()`, `eol_invasive()`,
@@ -526,24 +535,24 @@ often quite slow.
 taxize 0.5.2
 ===============
 
-## NEW FEATURES
+### NEW FEATURES
 
 * New set of functions to ping each of the APIs used in `taxize`. E.g., `itis_ping()` pings ITIS and returns a logical, indicating if the ITIS API is working or not. You can also do a very basic test to see whether content returned matches what's expected. (#394)
 * New function `status_codes()` to get vector of HTTP status codes. (#394)
 
-## MINOR IMPROVEMENTS
+### MINOR IMPROVEMENTS
 
 * Removed startup message.
 * Now can pass in curl options to `itis_ping()`, and all `*_ping()` functions.
 
-## BUG FIXES
+### BUG FIXES
 
 * Moved examples that were in `\donttest` into `\dontrun`.
 
 taxize 0.5.0
 ===============
 
-## NEW FEATURES
+### NEW FEATURES
 
 * New function `genbank2uid()` to get a NCBI taxonomic id (i.e., a _uid_) from a either a GenBank accession number of GI number. (#375)
 * New function `get_nbnid()` to get a UK National Biodiversity Network taxonomic id (i.e., a _nbnid_). (#332)
@@ -556,7 +565,7 @@ taxize 0.5.0
 * New suite of functions named, for example, `get_tsn_()` (the underscore is the only different from the previous function name). These functions don't do the normal interactive process of prompts that e.g., `get_tsn()` do, but instead returned a list of all ids, or a subset via the `rows` parameter. (#237)
 * New function `ncbi_get_taxon_summary()` to get taxonomic name and rank for 1 or more NCBI uid's. (#348)
 
-## MINOR IMPROVEMENTS
+### MINOR IMPROVEMENTS
 
 * `assertthat` removed from package imports, replaced with `stopifnot()`, to reduce dependency load. (#387)
 * `eol_hierarchy()` now defunct (no longer available) (#228) (#381)
@@ -567,14 +576,14 @@ taxize 0.5.0
 * `classification()` now by default returns taxonomic identifiers for each of the names. This can be toggled off by the `return_id=FALSE`. (#359) (#360)
 * Simplification of many higher level functions to use `switch()` on the `db` parameter, which helps give better error message when a `db` value is not possible or spelled incorrectly. (#379)
 
-## BUG FIXES
+### BUG FIXES
 
 * Lots of reduction of redundancy in internal functions. (#378)
 
 taxize 0.4.0
 ===============
 
-## NEW FEATURES
+### NEW FEATURES
 
 * New data sources added to taxize: BOLD (Biodiversity of Life Database). Three more data sources were added (World Register of Marine Species (WoRMS), Pan-European Species directories Infrastructure (PESI), and Mycobank), but are not available on CRAN. Those three data sources provide data via SOAP web services protocol, which is hard to support in R. Thus, those sources are available on Github. See https://github.com/ropensci/taxize#version-with-soap-data-sources
 * New function `children()`, which is a single interface to various data sources to get immediate children from a given taxonomic name. (#304)
@@ -582,7 +591,7 @@ taxize 0.4.0
 * New function `get_ubioid()` to get a uBio taxon identifier. (#318)
 * New function started (not complete yet) to get suggested citations for the various data sources available in `taxize`: `taxize_cite()`. (#270)
 
-## MINOR IMPROVEMENTS
+### MINOR IMPROVEMENTS
 
 * Using `jsonlite` instead of `RJSONIO` throughout the `taxize`.
 * `get_ids()` gains new option to search for a uBio ID, in addition to the others, itis, ncbi, eol, col, tropicos, and gbif.
@@ -592,7 +601,7 @@ taxize 0.4.0
 * `synonyms()` gains new data source, can now get synonyms from uBio data source (#319)
 * `vascan_search()` giving back more useful results now.
 
-## BUG FIXES
+### BUG FIXES
 
 * Added error catching for when URI is too long, i.e., when too many names provided (#329) (#330)
 * Various fixes to `tnrs()` function, including more meaningful error messages on failures (#323) (#331)
@@ -604,7 +613,7 @@ taxize 0.4.0
 taxize 0.3.0
 ===============
 
-## NEW FEATURES
+### NEW FEATURES
 
 * New function `iplant_resolve()` to do name resolution using the iPlant name resolution service. Note, this is different from http://taxosaurus.org/ that is wrapped in the `tnrs()` function.
 * New function `ipni_search()` to search for names in the International Plant Names Index (IPNI).
@@ -615,7 +624,7 @@ taxize 0.3.0
 * `gnr_resolve()` gains two new parameters `best_match_only` (logical, to return best match only) and `preferred_data_sources` (to return preferred data sources) and `callopts` to pass in curl options.
 * `tnrs()`, `tp_accnames()`, `tp_refs()`, `tp_summary()`, and `tp_synonyms()` gain new parameter `callopts` to pass in curl options.
 
-## MINOR IMPROVEMENTS
+### MINOR IMPROVEMENTS
 
 * `class2tree()` can now handle NA in classification objects.
 * `classification.eolid()` and `classification.colid()` now return the submitted name along with the classification.
@@ -629,7 +638,7 @@ taxize 0.3.0
 * Most long-named ITIS functions (e.g., `getexpertsfromtsn`, `getgeographicdivisionsfromtsn`) gain parameter `curlopts` to pass in curl options.
 * Added `stringsAsFactors=FALSE` to all `data.frame` creations to eliminate factor variables.
 
-## BUG FIXES
+### BUG FIXES
 
 * `classification.gbifid()` did not return the correct result when taxon not found.
 * Fixed bugs in many functions, see #245, #248, #254, #277.
@@ -638,15 +647,15 @@ taxize 0.3.0
 taxize 0.2.2
 ===============
 
-## NEW FEATURES
+### NEW FEATURES
 
 * itis_downstream() and col_downstream() functions accessible now from a single function downstream() (https://github.com/ropensci/taxize/issues/238)
 
-## MINOR IMPROVEMENTS
+### MINOR IMPROVEMENTS
 
 * Added a extension function classification() for the gbif id class, classification.gbifid() (https://github.com/ropensci/taxize/issues/241)
 
-## BUG FIXES
+### BUG FIXES
 
 * Added some error catching to class2tree function. (https://github.com/ropensci/taxize/issues/240)
 * Fixed problems in cbind.classification() and rbind.classification() where the first column of the ouput was a useless column name, and all column names now lower case for consistency. (https://github.com/ropensci/taxize/issues/243)
@@ -657,18 +666,18 @@ taxize 0.2.2
 taxize 0.2.0
 ===============
 
-## MINOR IMPROVEMENTS
+### MINOR IMPROVEMENTS
 
 * New dataset: Lookup-table for family, genus, and species names for ThePlantList under dataset name "theplantlist".
 * get_ids() now accepts "gbif" as an option via use of get_gbifid().
 * Changed function itis_phymat_format() to phylomatic_format() - this function gets the typical Phylomatic format name string "family/genus/genus_epithet"
 
-## BUG FIXES
+### BUG FIXES
 
 * Updated gbif_parse() base url to the new one (http://api.gbif.org/v1/parser/name).
 * Fixes to phylomatic_tree().
 
-## NEW FEATURES
+### NEW FEATURES
 
 * New function class2tree() to convert list of classifications to a tree. For example, go from a list of classifications from the function classification() to this function to get a taxonomy tree in ape phylo format.
 * New function get_gbfid() to get a Global Biodiversity Information Facility identifier. This is the ID GBIF uses in their backbone taxonomy.
@@ -677,25 +686,25 @@ taxize 0.2.0
 taxize 0.1.9
 ===============
 
-## MINOR IMPROVEMENTS
+### MINOR IMPROVEMENTS
 
 * Updated ncbi_search() to retrieve more than a max of 500, slightly changed column headers in output data files, and if didn't before, now accepts a vector/list of taxonomic names instead of just one name.
 
 taxize 0.1.8
 ===============
 
-## NEW FEATURES
+### NEW FEATURES
 
 * We attempted to make all ouput column names lowercase, and to increase consistency across column names in outputs from similar functions.
 * New function scrapenames() uses the Global Names Recognition and Discovery service to extract taxonomic names from a web page, pdf, or other document.
 * New function vascan_search() to search the CANADENSYS Vascan names database.
 
-## BUG FIXES
+### BUG FIXES
 
 * Fixed bugs in get_tpsid(), get_eolid() and eol_pages().
 * phylomatic_tree() bugs fixed.
 
-## MINOR IMPROVEMENTS
+### MINOR IMPROVEMENTS
 
 * classification() methods were simplified. Now classification() is the workhorse for every data-source. col_classification(), eol_hierarchy(), and tp_classification() are now deprecated and will be removed in the next taxize version.
 * classification() gains four new arguments: start, checklist, key, and callopts.
@@ -705,7 +714,7 @@ taxize 0.1.8
 * tax_agg() now accepts a matrix in addition to a data.frame. Thanks to @tpoi
 * tnrs() changes: Using httr instead of RCurl; now forcing splitting up name vector when long. Still issues when using POST requests (getpost="POST") wherein a request sent with 100 names only returns 30 for example. Investigating this now.
 
-## NOTES
+### NOTES
 
 * Function name change: tp_acceptednames() now tp_accnames().
 * Function name change: tp_namedistributions() now tp_dist().
@@ -716,7 +725,7 @@ taxize 0.1.8
 taxize 0.1.5
 ===============
 
-## NEW FEATURES
+### NEW FEATURES
 
 * classification() gains extension method classification.ids() to accept output from get_ids() - which attempts to get a taxonomic hierarchy from each of the taxon identifiers with the output from get_ids().
 * synonyms() gains extension method synonyms.ids() to accept output from get_ids() - which attempts to get synonyms from each of the taxon identifiers with the output from get_ids().
@@ -724,7 +733,7 @@ taxize 0.1.5
 taxize 0.1.4
 ===============
 
-## NEW FEATURES
+### NEW FEATURES
 
 * Reworked functions that interact with the ITIS API so that lower level functions were grouped together into higher level functions. All the approximately 50 lower level functions are still exported but are not included in the index help file (due to @keywords internal for each fxn) - but can still be used normally, and man files are avaialable at ?functionName.
 * New function itis_ping() to check if the ITIS API service is up, similar to eol_ping() for the EOL API.
@@ -739,7 +748,7 @@ taxize 0.1.4
 * New function comm2sci() to get scientific names from input common (vernacular) names from various data sources.
 * New function get_ids() to get taxonomic identifiers across all sources.
 
-## MINOR IMPROVEMENTS
+### MINOR IMPROVEMENTS
 
 * itis_taxrank() now outputs a character, not a factor; loses parameter verbose, and gains ..., which passes on further arguments to gettaxonomicranknamefromtsn.
 * tp_synonyms(), tp_summary(), plantminer(), itis_downstream(), gisd_isinvasive(), get_genes_avail(), get_genes(), eol_invasive(), eol_dataobjects(), andn tnrs() gain parameter verbose to optionally suppress messages.
@@ -749,7 +758,7 @@ taxize 0.1.4
 * get_tsn() and get_uid() return infomation about match as attribute.
 * clarified iucn-documentation
 
-## BUG	FIXES
+### BUG FIXES
 
 * Fixed bug in synonyms() so that further arguments can be passed on to get_tsn() to suppress messages.
 * Removed test for ubio_classification_search(), a function that isn't operational yet.
@@ -757,7 +766,7 @@ taxize 0.1.4
 taxize 0.1.1
 ===============
 
-## NEW FEATURES
+### NEW FEATURES
 
 * New functions added just like get_uid()/get_tsn() but for EOL, Catalogue of Life, and Tropicos, see get_eolid(), get_colid(), and get_tpsid(), respectively.
 * classification() methods added for EOL, Catalogue of Life, and Tropicos, see functions classification.eolid(), classification.colid(), and classification.tpsid() respectively.
@@ -770,17 +779,17 @@ taxize 0.1.1
 * New function itis_searchcommon() to search for common names across both searchbycommonnamebeginswith, and searchbycommonnameendswith.
 
 
-## BUG FIXES
+### BUG FIXES
 
 * tax_name() and other function broke, because get_tsn() and get_uid() returned wrong value when a taxon was not found. Fixed.
 
 
-## MINOR IMPROVEMENTS
+### MINOR IMPROVEMENTS
 
 * Added tests for new classification() methods for EOL, COL, and Tropicos.
 * Added tests for new functions tp_search() and tp_classification().
 
-## NOTES
+### NOTES
 
 * Moved tests from inst/tests to tests/testthat according to new preferred location of tests.
 * Updated CITATION in inst/ with our F1000Research paper info.
@@ -790,7 +799,7 @@ taxize 0.1.1
 taxize 0.1.0
 ===============
 
-## NEW FEATURES
+### NEW FEATURES
 
 * New function tpl_families() to get data.frame of families from The Plantlist.org site.
 * New function names_list() to get a random vector of species names using the
@@ -799,7 +808,7 @@ taxize 0.1.0
 * Changed API key names to be more consistent, now tropicosApiKey, eolApiKey, ubioApiKey, and pmApiKey - do change these in your .Rprofile if you store them there.
 * Added a startup message.
 
-## MINOR IMPROVEMENTS
+### MINOR IMPROVEMENTS
 
 * Across most functions, removed dependencies on plyr, using ldfast() instead, for increased speed.
 * Across most functions, changed from using RCurl to using httr.
@@ -813,19 +822,19 @@ taxize 0.1.0
 * tpl_get() updated with fixes/improvements by John Baumgartner - now gets taxa from all groups, whereas only retrieved from Angiosperms before. In addition, csv files from The Plantlist.org are downloaded directly rather than read into R and written out again.
 * tpl_search() now checks for missing data or errors, and stops function with error message.
 
-## BUG FIXES
+### BUG FIXES
 
 * capwords() fxn changed to taxize_capwords() to avoid namespace conflicts with other packages with a similar function.
 * ubio_namebank() was giving back base64 encoded data, now decoded appropriately.
 
-## NOTES
+### NOTES
 
 * Added John Baumgartner as an author.
 
 taxize 0.0.6
 ===============
 
-## NEW FEATURES
+### NEW FEATURES
 * tax_name() accepts multiple ranks to query.
 * tax_name() accepts vectors as input.
 * tax_name() has an option to query both, NCBI and ITIS, in one call and return the union of both.
@@ -842,13 +851,13 @@ taxize 0.0.6
 * gnr_resolve() gains new arguments gnr_resolvee_once, with_context, stripauthority, highestscore, and http, and loses returndf (that is, a data.frame is returned by default)
 * gni_search() gains parameter parse_names
 
-## MINOR IMPROVEMENTS
+### MINOR IMPROVEMENTS
 * tnrs() parameter getpost changed from default of 'GET' to 'POST'
 * Across all functions, the url parameter specifying an API endpoint was moved inside of functions (i.e., not available as a parameter in the function call)
 * gnr_datasources() parameter todf=TRUE by default now, returning a data.frame
 * col_classification() minor formatting improvements
 
-## BUG FIXES
+### BUG FIXES
 * iucn_summary() returns no information about population estimates.
 * get_tsn() raised a warning in specific situations.
 * tax_name() did not work for multiple ranks with ITIS.
@@ -858,7 +867,7 @@ taxize 0.0.6
 * fixed errors in searchforanymatch()
 * fixed errors in searchforanymatchedpage()
 
-## NOTES
+### NOTES
 * Removed dependency to NCBI2R
 * Improvements of documentation
 * Citation added
@@ -866,26 +875,26 @@ taxize 0.0.6
 taxize 0.0.5
 ===============
 
-## BUG FIXES
+### BUG FIXES
 * removed tests for now until longer term fix is made so that web APIs that are temporarily down don't cause tests to fail.
 
 taxize 0.0.4
 ===============
 
-## BUG FIXES
+### BUG FIXES
 * added R (>= 2.15.0) so that package tests don't fail on some systems due to paste0()
 * remove test for ubio_namebank() function as it sometimes fails
 
 taxize 0.0.3
 ===============
 
-## BUG FIXES
+### BUG FIXES
 * iucn_summary() does not break when API returns no information.
 * tax_name() returns NA when taxon is not found on API.
 * get_uid() asks for user input when more then one UID is found for a taxon.
 * changed base URL for phylomatic_tree(), and associated parameter changes
 
-## NEW FEATURES
+### NEW FEATURES
 * added check for invasive species status for a set of species from GISD database via gisd_isinvasive().
 * Further development with the EOL-API: eol_dataobjects().
 * added Catalogue of Life: col_classification(), col_children(), and col_downstream().
@@ -893,20 +902,20 @@ taxize 0.0.3
 * new functions to interact with the Phylotastic name resolution service: tnrs_sources() and tnrs()
 * Added unit tests
 
-## DEPRECATED AND DEFUNCT
+### DEPRECATED AND DEFUNCT
 * itis_name() fxn deprecated - use tax_name() instead
 
 
 taxize 0.0.2
 ===============
 
-## BUG FIXES
+### BUG FIXES
 
 * changed paste0 to paste to avoid problems on certain platforms.
 * removed all tests until the next version so that tests will not fail on any platforms.
 * plyr was missing as import for iucn_summary fxn.
 
-## NEW FEATURES
+### NEW FEATURES
 
 * added NEWS file.
 
@@ -914,6 +923,6 @@ taxize 0.0.2
 taxize 0.0.1
 ===============
 
-## NEW FEATURES
+### NEW FEATURES
 
 * released to CRAN
