@@ -1,23 +1,51 @@
 taxize 0.9.0
 ============
 
-## NEW FEATURES
+## Changes to `get_*()` functions
 
-* xxx (#xxx)
-* xxx (#xxx)
-* xxx (#xxx)
+* Added separate documentation file for all get* functions 
+describing attributes and various exception behaviors
+* Some `get*()` functions had `NaN` as default `rows` parameter
+value. Those all changed to `NA`
+* Better failure behavior now when non-acceptable `rows` 
+parameter value given
+* Added in all type checks for parameters across `get_*()` functions
+* Changed behavior across all `get_*()` functions to behave the 
+same when `ask = FALSE, rows = 1` and `ask = TRUE, rows = 1` as these
+should result in the same outcome. (#627) thanks @zachary-foster !
+* Fixed direct match behavior so that when there's multiple results 
+from the data provider, but no direct match, that the functions don't 
+give back just `NA` with no inication that there were multiple matches.
+* Please let me know if any of these changes cause problems for your
+code or package.
 
 ## MINOR IMPROVEMENTS
 
-* xxx (#xxx)
-* xxx (#xxx)
-* xxx (#xxx)
+* Add required `key` parameter to fxn `iucn_id()` (#633)
+* imrove docs for `sci2comm()`: to indicate how to get non-simplified
+output (which includes what language the common name is from) vs. 
+getting simplified output (#623) thanks @glaroc !
+* Fix to `sci2comm()` to not be case sensitive when looking for matches 
+(#625) thanks @glaroc !
+* Change `comm2sci()` to S3 setup with methods for `character`, `uid`, 
+and `tsn` (#621)
 
 ## BUG FIXES
 
-* xxx (#xxx)
-* xxx (#xxx)
-* xxx (#xxx)
+* Fix to `downstream()` via fix to `rank_ref` dataset to include
+"infraspecies" and make "unspecified" and "no rank" requivalent.
+Fix to `col_downstream()` to remove properly ranks lower than 
+allowed. (#620) thanks @cdeterman !
+* `iucn_summary`: changed to using `rredlist` package internally.
+`sciname` param changed to `x`. `iucn_summary_id()` now is 
+deprecated in favor of `iucn_summary()`. `iucn_summary()` now has a
+S3 setup, with methods for `character` and `iucn` (#622)
+* Added "cohort" to `rank_ref` dataset as that rank sometimes used 
+at NCBI (from bug reported in `ncbi_downstream()`) (#626)
+* Fix to `sci2comm()`, add `tryCatch()` to internals to catch 
+failed requests for specific pageid's (#624) thanks @glaroc !
+* Fix URL for taxa for NBN taxonomic ids retrieved via 
+`get_nbnid()` (#632)
 
 
 taxize 0.8.9
