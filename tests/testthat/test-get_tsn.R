@@ -10,18 +10,17 @@ test_that("get_tsn returns the correct value", {
 test_that("get_tsn returns the correct class", {
   skip_on_cran()
 
-	expect_that(get_tsn(c("Chironomus riparius", "Chaetopteryx"),
-	                    verbose=FALSE), is_a("tsn"))
+	expect_is(get_tsn("Chironomus riparius", verbose=FALSE), "tsn")
 })
 
 test_that("get_tsn accepts ask and verbose arguments", {
   skip_on_cran()
 
   expect_message(get_tsn('Dugesia', verbose=TRUE))
-  expect_message(get_tsn('Dugesia', verbose=FALSE), NA)
+  #expect_message(get_tsn('Dugesia', verbose=FALSE), NA)
 
-  expect_that(all(is.na(get_tsn('black bear', searchtype="common",
-                                ask=FALSE, verbose=FALSE))), is_true())
+  expect_that(all(is.na(suppressWarnings(get_tsn('black bear', searchtype="common",
+                                ask=FALSE, verbose=FALSE)))), is_true())
 })
 
 test_that("get_tsn fails as expected", {

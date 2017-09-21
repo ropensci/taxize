@@ -3,20 +3,22 @@ context("get_wormsid")
 test_that("get_wormsid returns the correct value", {
   skip_on_cran()
 
-  expect_true(is.na(get_wormsid(c('Gadus morhua', "howdy"), verbose=FALSE)[2]))
+  expect_true(is.na(sw(get_wormsid(c('Gadus morhua', "howdy"), verbose=FALSE))[2]))
 })
 
 test_that("get_wormsid returns the correct class", {
   skip_on_cran()
 
-  expect_is(get_wormsid(c("Platanista gangetica", "Lichenopora neapolitana"), verbose=FALSE),
+  expect_is(
+    sw(get_wormsid(c("Platanista gangetica", "Lichenopora neapolitana"),
+                   verbose=FALSE)),
             "wormsid")
 })
 
 test_that("get_wormsid accepts ask-argument", {
   skip_on_cran()
 
-  expect_is(get_wormsid('Platanista gangetica', ask = FALSE, verbose=FALSE),
+  expect_is(sw(get_wormsid('Platanista gangetica', ask = FALSE, verbose=FALSE)),
               "wormsid")
   expect_true(is.na(get_wormsid('asdasf', ask = FALSE, verbose=FALSE)))
 })
@@ -25,8 +27,8 @@ test_that("get_wormsid query modifiers work", {
   skip_on_cran()
 
   ### w/ modifiers to the name
-  mod1 <- get_wormsid('Platanista gangetica', verbose=FALSE)
-  mod2 <- get_wormsid('asiatic clam', "common", verbose=FALSE)
+  mod1 <- sw(get_wormsid('Platanista gangetica', verbose=FALSE))
+  mod2 <- sw(get_wormsid('asiatic clam', "common", verbose=FALSE))
 
   expect_is(mod1, "wormsid")
   expect_is(mod2, "wormsid")

@@ -5,7 +5,7 @@ context("synonyms")
 test_that("synonyms returns the correct value", {
   skip_on_cran()
 
-  tt <- synonyms("Poa annua", db = "itis")
+  tt <- sw(synonyms("Poa annua", db = "itis"))
 
 	expect_match(names(tt), "Poa annua")
 	expect_match(tt[[1]][1, "syn_name"], "Poa annua var. aquatica")
@@ -14,7 +14,7 @@ test_that("synonyms returns the correct value", {
 	expect_equal(attr(tt, "db"), "itis")
 	expect_is(tt[[1]], "data.frame")
 
-	expect_equal(dim(tt[[1]]), c(11, 5))
+	expect_gt(NROW(tt[[1]]), 1)
 })
 
 test_that("synonyms works with worms data", {
