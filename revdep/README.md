@@ -4,31 +4,30 @@
 
 |setting  |value                                       |
 |:--------|:-------------------------------------------|
-|version  |R version 3.4.1 Patched (2017-07-04 r72893) |
+|version  |R version 3.4.1 Patched (2017-09-11 r73247) |
 |system   |x86_64, darwin15.6.0                        |
-|ui       |RStudio (1.0.143)                           |
+|ui       |X11                                         |
 |language |(EN)                                        |
 |collate  |en_US.UTF-8                                 |
-|tz       |America/Vancouver                           |
-|date     |2017-07-11                                  |
+|tz       |America/Los_Angeles                         |
+|date     |2017-09-21                                  |
 
 ## Packages
 
 |package |*  |version |date       |source                     |
 |:-------|:--|:-------|:----------|:--------------------------|
-|taxize  |   |0.8.9   |2017-07-11 |local (ropensci/taxize@NA) |
+|taxize  |   |0.9.0   |2017-09-22 |local (ropensci/taxize@NA) |
 
 # Check results
 
-18 packages
+17 packages
 
 |package    |version | errors| warnings| notes|
 |:----------|:-------|------:|--------:|-----:|
-|aptg       |0.1.0   |      0|        0|     0|
-|bdvis      |0.2.15  |      0|        0|     0|
+|bdvis      |0.2.18  |      0|        0|     0|
 |binomen    |0.1.2   |      0|        0|     0|
 |brranching |0.2.0   |      0|        0|     0|
-|camtrapR   |0.99.8  |      0|        0|     0|
+|camtrapR   |0.99.8  |      0|        1|     0|
 |mapr       |0.3.4   |      0|        0|     0|
 |metacoder  |0.1.3   |      0|        0|     0|
 |MonoPhy    |1.2     |      0|        0|     0|
@@ -39,16 +38,11 @@
 |rnoaa      |0.7.0   |      0|        0|     0|
 |rusda      |1.0.8   |      0|        0|     0|
 |spocc      |0.7.0   |      0|        0|     0|
-|taxlist    |0.1.0   |      0|        0|     0|
-|TR8        |0.9.16  |      0|        0|     0|
+|taxa       |0.1.0   |      0|        0|     0|
+|TR8        |0.9.18  |      0|        0|     0|
 |traits     |0.2.0   |      0|        0|     0|
 
-## aptg (0.1.0)
-Maintainer: Christophe Benjamin <c.chignac.benjamin@gmail.com>
-
-0 errors | 0 warnings | 0 notes
-
-## bdvis (0.2.15)
+## bdvis (0.2.18)
 Maintainer: Vijay Barve <vijay.barve@gmail.com>
 
 0 errors | 0 warnings | 0 notes
@@ -68,7 +62,32 @@ Bug reports: http://www.github.com/ropensci/brranching/issues
 ## camtrapR (0.99.8)
 Maintainer: Juergen Niedballa <niedballa@izw-berlin.de>
 
-0 errors | 0 warnings | 0 notes
+0 errors | 1 warning  | 0 notes
+
+```
+checking re-building of vignette outputs ... WARNING
+Error in re-building vignettes:
+  ...
+Warning: [minor] Entries in IFD0 were out of sequence. Fixed. - /var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpDaloTG/sample_images/StationC/PBE/StationC__2009-05-05__18-24-00(1).JPG
+Warning: [minor] Entries in IFD0 were out of sequence. Fixed. - /var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpDaloTG/sample_images/StationC/PBE/StationC__2009-05-05__18-25-00(1).JPG
+Warning: [minor] Entries in IFD0 were out of sequence. Fixed. - /var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpDaloTG/sample_images/StationC/PBE/StationC__2009-05-07__18-47-00(1).JPG
+Warning: [minor] Entries in IFD0 were out of sequence. Fixed. - /var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpDaloTG/sample_images/StationC/TRA/StationC__2009-04-11__21-44-00(1).JPG
+Warning: [minor] Entries in IFD0 were out of sequence. Fixed. - /var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpDaloTG/sample_images/StationC/TRA/StationC__2009-04-11__21-46-00(1).JPG
+Warning: [minor] Entries in IFD0 were out of sequence. Fixed. - /var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpDaloTG/sample_images/StationC/TRA/StationC__2009-04-11__21-46-00(2).JPG
+Warning: [minor] Entries in IFD0 were out of sequence. Fixed. - /var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpDaloTG/sample_images/StationC/TRA/StationC__2009-04-13__22-38-00(1).JPG
+... 8 lines ...
+Warning: [minor] Entries in IFD0 were out of sequence. Fixed. - /var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpDaloTG/sample_images/StationC/TRA/StationC__2009-05-01__20-10-00(1).JPG
+Warning: [minor] Entries in IFD0 were out of sequence. Fixed. - /var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpDaloTG/sample_images/StationC/TRA/StationC__2009-05-01__20-12-00(1).JPG
+Warning: [minor] Entries in IFD0 were out of sequence. Fixed. - /var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpDaloTG/sample_images/StationC/TRA/StationC__2009-05-02__00-10-00(1).JPG
+Warning: [minor] Entries in IFD0 were out of sequence. Fixed. - /var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpDaloTG/sample_images/StationC/TRA/StationC__2009-05-02__00-11-00(1).JPG
+Warning: [minor] Entries in IFD0 were out of sequence. Fixed. - /var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpDaloTG/sample_images/StationC/TRA/StationC__2009-05-12__02-32-00(1).JPG
+Warning: [minor] Entries in IFD0 were out of sequence. Fixed. - /var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpDaloTG/sample_images/StationC/TRA/StationC__2009-05-12__02-34-00(1).JPG
+Warning: [minor] Entries in IFD0 were out of sequence. Fixed. - /var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpDaloTG/sample_images/StationC/VTA/StationC__2009-04-24__02-57-00(1).JPG
+Quitting from lines 182-205 (SpeciesIndividualIdentification.Rmd) 
+Error: processing vignette 'SpeciesIndividualIdentification.Rmd' failed with diagnostics:
+found no TSNs for speciesNames
+Execution halted
+```
 
 ## mapr (0.3.4)
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
@@ -141,13 +160,13 @@ Bug reports: https://github.com/ropensci/spocc/issues
 
 0 errors | 0 warnings | 0 notes
 
-## taxlist (0.1.0)
-Maintainer: Miguel Alvarez <kamapu78@gmail.com>  
-Bug reports: https://github.com/kamapu/taxlist/issues
+## taxa (0.1.0)
+Maintainer: Scott Chamberlain <myrmecocystus+r@gmail.com>  
+Bug reports: https://github.com/ropensci/taxa/issues
 
 0 errors | 0 warnings | 0 notes
 
-## TR8 (0.9.16)
+## TR8 (0.9.18)
 Maintainer: Gionata Bocci <boccigionata@gmail.com>  
 Bug reports: https://github.com/GioBo/TR8/issues
 
