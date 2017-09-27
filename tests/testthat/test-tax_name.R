@@ -10,8 +10,8 @@ test_that("tax_name returns the correct class", {
                         get = c("genus", "kingdom"), db = "ncbi", verbose=FALSE)
   tmp_na2 <- tax_name(query=c("Helianthus annuus", 'xxxx'),
                       get=c("family", "order"), db="ncbi", verbose=FALSE)
-  tmp_na3 <- sw(tax_name(query = c("Helianthus annuus", 'xxxx'),
-                      get = c("family", "order"), db="itis",verbose=FALSE))
+  tmp_na3 <- sw(tax_name(query = c("Helianthus annuus", 'xxxx'), rows = 1,
+                      get = c("family", "order"), db="itis", verbose = FALSE))
 
 	expect_is(tmp_ncbi, "data.frame")
 	expect_is(tmp_na2, "data.frame")

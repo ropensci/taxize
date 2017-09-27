@@ -71,7 +71,7 @@ tax_name <- function(query, get, db = "itis", pref = 'ncbi', verbose = TRUE,
   plyr::ldply(query, .fun = fun, get = get, db = db, verbose = verbose, ...)
 }
 
-do_ncbi <- function(query, get, verbose, both=FALSE, ...) {
+do_ncbi <- function(query, get, verbose, both=FALSE, rows = NA, ...) {
   uid <- get_uid(query, verbose = verbose, ...)
   if (is.na(uid)) {
     if (verbose) message("No UID found for species '", query, "'!\n")
@@ -84,8 +84,9 @@ do_ncbi <- function(query, get, verbose, both=FALSE, ...) {
   }
 }
 
-do_itis <- function(query, get, verbose, both = FALSE, ...){
-  tsn <- get_tsn(query, searchtype = "scientific", verbose = verbose, ...)
+do_itis <- function(query, get, verbose, both = FALSE, rows = NA, ...){
+  tsn <- get_tsn(query, searchtype = "scientific", verbose = verbose,
+                 rows = rows, ...)
   if (is.na(tsn)) {
     if (verbose) message("No TSN found for species '", query, "'!\n")
     if (both) c(query, rep(NA, length(get))) else setNames(data.frame(t(c("itis", query, rep(NA, length(get)))), stringsAsFactors = FALSE), c("db", "query", get))

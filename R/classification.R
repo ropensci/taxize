@@ -211,7 +211,7 @@ classification.default <- function(x, db = NULL, callopts = list(),
     db,
     itis = {
       id <- process_ids(x, db, get_tsn, rows = rows, ...)
-      stats::setNames(classification(id, callopts = callopts, return_id = return_id, ...), x)
+      stats::setNames(classification(id, return_id = return_id, ...), x)
     },
     ncbi = {
       id <- process_ids(x, db, get_uid, rows = rows, ...)
