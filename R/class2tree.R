@@ -61,6 +61,7 @@ class2tree <- function(input, varstep = TRUE, check = TRUE, ...) {
   if (length(input) < 3)
     stop("Your input list of classifications must be 3 or longer.")
 
+  dat <- rbind.fill(lapply(input, class2tree_helper))
   # Get rank and ID list
   rankList <- rbind.fill(lapply(input, getRankList))
   idList <- rbind.fill(lapply(input, getIdList))
@@ -79,10 +80,17 @@ class2tree <- function(input, varstep = TRUE, check = TRUE, ...) {
   if (is(taxdis, 'simpleError'))
     stop("Try check=FALSE, but see docs for taxa2dist function in the vegan package for details.")
   out <- as.phylo.hclust(hclust(taxdis, ...))
-  res <- list(phylo = out, classification = idList, distmat = taxdis,
+  res <- list(phylo = out, classification = dat, distmat = taxdis,
               names = names(input))
   class(res) <- 'classtree'
   return( res )
+}
+
+class2tree_helper <- function(x){
+  df <- x[-nrow(x), 'name']
+  names(df) <- x[-nrow(x), 'rank']
+  df <- data.frame(t(data.frame(df)), stringsAsFactors = FALSE)
+  data.frame(tip = x[nrow(x), "name"], df, stringsAsFactors = FALSE)
 }
 
 #' @method plot classtree
