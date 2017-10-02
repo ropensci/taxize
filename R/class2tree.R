@@ -292,7 +292,7 @@ taxonomyTableCreator <- function(idList,rankList){
     fullRankIDdf <- fullRankIDdf[order(fullRankIDdf$index),]
 
     ### replace NA id by id of previous rank
-    fullRankIDdf <- zoo::na.locf(fullRankIDdf)
+    fullRankIDdf <- na.locf(fullRankIDdf)
   }
 
   ### remove index column
