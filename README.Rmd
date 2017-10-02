@@ -317,6 +317,10 @@ out <- as.uid(c(315567, 3339, 9696))
 (res <- data.frame(out))
 ```
 
+## Contributing
+
+See our [CONTRIBUTING](.github/CONTRIBUTING.md) document.
+
 ## Contributors
 
 Alphebetical
