@@ -1,4 +1,4 @@
-#' Convert list of classifications to a tree.
+#' Convert a list of classifications to a tree.
 #'
 #' This function converts a list of hierarchies for individual species into
 #' a single species by taxonomic level matrix, then calculates a distance
