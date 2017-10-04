@@ -72,6 +72,10 @@ class2tree <- function(input, varstep = TRUE, check = TRUE, ...) {
   # Create taxonomy matrix
   df <- taxonomy_table_creator(nameList,rankList)
 
+  if (!inherits(df, "data.frame")) {
+    stop("no taxon ranks in common - try different inputs")
+  }
+
   row.names(df) <- df[,1]
   df <- df[,-1]
 
@@ -79,11 +83,17 @@ class2tree <- function(input, varstep = TRUE, check = TRUE, ...) {
   taxdis <- tryCatch(taxa2dist(df, varstep = varstep, check = check),
                      error = function(e) e)
 
+  tdf = t(df)
+  for (i in 1:ncol(tdf)){
+    tdf[,i][duplicated(tdf[,i])] <- NA
+  }
+
+
   # check for incorrect dimensions error
   if (is(taxdis, 'simpleError'))
     stop("Try check=FALSE, but see docs for taxa2dist function in the vegan package for details.")
   out <- as.phylo.hclust(hclust(taxdis, ...))
-  res <- list(phylo = out, classification = df, distmat = taxdis,
+  res <- list(phylo = out, classification = as.data.frame(t(tdf)), distmat = taxdis,
               names = names(input))
   class(res) <- 'classtree'
   return( res )
@@ -187,11 +197,13 @@ get_name <- function(x){
   names(rankDf) <- x[, 'rank']
 
   nameDf <- x[, 'name']
+  idDf <- x[, 'id']
+
   joinedDf <- cbind(data.frame(rankDf,stringsAsFactors=FALSE),
                     data.frame(nameDf,stringsAsFactors=FALSE))
   joinedDf <- within(joinedDf,
                      rankDf[rankDf=='no rank'] <-
-                     paste0("norank_",nameDf[rankDf=='no rank']))
+                     paste0("norank_",idDf[rankDf=='no rank']))
   joinedDf$name <- paste0(joinedDf$nameDf,"#",joinedDf$rankDf)
 
   df <- data.frame(t(data.frame(rev(joinedDf$name))), stringsAsFactors = FALSE)
