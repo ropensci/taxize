@@ -167,10 +167,14 @@ getRankList <- function(x){
   names(rankDf) <- x[, 'rank']
 
   idDf <- x[, 'id']
-  joinedDf <- cbind(data.frame(rankDf,stringsAsFactors=FALSE),data.frame(idDf,stringsAsFactors=FALSE))
-  joinedDf <- within(joinedDf, rankDf[rankDf=='no rank'] <- paste0("norank_",idDf[rankDf=='no rank']))
+  joinedDf <- cbind(data.frame(rankDf,stringsAsFactors=FALSE),
+                    data.frame(idDf,stringsAsFactors=FALSE))
+  joinedDf <- within(joinedDf,
+                     rankDf[rankDf=='no rank'] <-
+                     paste0("norank_",idDf[rankDf=='no rank']))
 
-  df <- data.frame(t(data.frame(rev(joinedDf$rankDf))), stringsAsFactors = FALSE)
+  df <- data.frame(t(data.frame(rev(joinedDf$rankDf))),
+                   stringsAsFactors = FALSE)
   outDf <- data.frame(tip = x[nrow(x), "name"], df, stringsAsFactors = FALSE)
 }
 
@@ -179,30 +183,39 @@ getIdList <- function(x){
   names(rankDf) <- x[, 'rank']
 
   idDf <- x[, 'id']
-  joinedDf <- cbind(data.frame(rankDf,stringsAsFactors=FALSE),data.frame(idDf,stringsAsFactors=FALSE))
-  joinedDf <- within(joinedDf, rankDf[rankDf=='no rank'] <- paste0("norank_",idDf[rankDf=='no rank']))
+  joinedDf <- cbind(data.frame(rankDf,stringsAsFactors=FALSE),
+                    data.frame(idDf,stringsAsFactors=FALSE))
+  joinedDf <- within(joinedDf,
+                     rankDf[rankDf=='no rank'] <-
+                     paste0("norank_",idDf[rankDf=='no rank']))
   joinedDf$id <- paste0(joinedDf$idDf,"#",joinedDf$rankDf)
 
   df <- data.frame(t(data.frame(rev(joinedDf$id))), stringsAsFactors = FALSE)
   outDf <- data.frame(tip = x[nrow(x), "name"], df, stringsAsFactors = FALSE)
 }
 
-#########################################################################################
-#################### INDEXING ALL AVAILABLE RANKS (INCLUDING NORANK) ####################
-#########################################################################################
+###############################################################################
+#################### INDEXING ALL AVAILABLE RANKS (INCLUDING NORANK) ##########
+###############################################################################
 rankIndexing <- function(rankList){
   ##### input is a dataframe, where each row is a rank list of a taxon
 
   ### get all available ranks from input rankList
   uList <- unlist(rankList)
-  # remove unique rank by replacing with NA (unique rank is uninformative for sorting taxa)
+  # remove unique rank by replacing with NA
+  # (unique rank is uninformative for sorting taxa)
   uList[!duplicated(uList)] <- NA
   # get final list of available ranks (remove NA items)
   allInputRank <- as.character(unique(uList))
   allInputRank <- allInputRank[!is.na(allInputRank)]
 
   ### initial index for main ranks
-  mainRank <- c("strain","forma","subspecies","varietas","species","speciessubgroup","speciesgroup","subgenus","genus","subtribe","tribe","subfamily","family","superfamily","parvorder","infraorder","suborder","order","superorder","infraclass","subclass","class","superclass","subphylum","phylum","superphylum","subkingdom","kingdom","superkingdom")
+  mainRank <- c("strain","forma","subspecies","varietas","species",
+                "speciessubgroup","speciesgroup","subgenus","genus","subtribe",
+                "tribe","subfamily","family","superfamily","parvorder",
+                "infraorder","suborder","order","superorder","infraclass",
+                "subclass","class","superclass","subphylum","phylum",
+                "superphylum","subkingdom","kingdom","superkingdom")
   rank2Index <- new.env()
   for(i in 1:length(mainRank)){
     rank2Index[[mainRank[i]]] = i
@@ -210,7 +223,8 @@ rankIndexing <- function(rankList){
 
   ### the magic happens here
   for(k in 1:nrow(rankList)){
-    ### get subset of rank list for current taxon which contains only ranks existing in allInputRank
+    ### get subset of rank list for current taxon which
+    ### contains only ranks existing in allInputRank
     subList <- rankList[k,][!is.na(rankList[k,])]
     filter <- sapply(subList, function(x) x %in% allInputRank)
     subList <- subList[filter]
@@ -229,11 +243,13 @@ rankIndexing <- function(rankList){
           }
         }
       }
-      ## else, check if the current index is smaller than the index of previous rank,
+      ## else, check if the current index is smaller than
+      ## the index of previous rank,
       else {
         if(i>1){
           preRank <- subList[i-1]
-          ## if so, increase index of this current rank by (index of previous rank + 1)
+          ## if so, increase index of this current rank
+          ## by (index of previous rank + 1)
           if(rank2Index[[subList[i]]] <= rank2Index[[preRank]]){
             rank2Index[[subList[i]]] = rank2Index[[preRank]] + 1
           }
@@ -243,7 +259,9 @@ rankIndexing <- function(rankList){
   }
 
   ### output a list of indexed ranks
-  index2RankDf <- data.frame("index"=character(), "rank"=character(), stringsAsFactors=FALSE)
+  index2RankDf <- data.frame("index"=character(),
+                             "rank"=character(),
+                             stringsAsFactors=FALSE)
   for(i in 1:length(allInputRank)){
     index2RankDf[i,] = c(rank2Index[[allInputRank[i]]],allInputRank[i])
   }
@@ -254,9 +272,9 @@ rankIndexing <- function(rankList){
   return(index2RankDf)
 }
 
-###############################################################################################
-#################### ARRANGE RANK IDs INTO SORTED RANK LIST (index2RankDf) ####################
-###############################################################################################
+###############################################################################
+#################### ARRANGE RANK IDs INTO SORTED RANK LIST (index2RankDf) ####
+###############################################################################
 taxonomyTableCreator <- function(idList,rankList){
   colnames(idList)[1] <- "tip"
 
@@ -267,18 +285,27 @@ taxonomyTableCreator <- function(idList,rankList){
   orderedRank <- factor(index2RankDf$rank, levels = index2RankDf$rank)
 
   ### create a dataframe containing ordered ranks
-  fullRankIDdf <- data.frame("rank"=matrix(unlist(orderedRank), nrow=length(orderedRank), byrow=T),stringsAsFactors=FALSE)
+  fullRankIDdf <- data.frame("rank"=matrix(unlist(orderedRank),
+                             nrow=length(orderedRank),
+                             byrow=TRUE),
+                             stringsAsFactors=FALSE)
   fullRankIDdf$index <- as.numeric(rownames(fullRankIDdf))
 
   for(i in 1:nrow(idList)){
     ### get list of all IDs for this taxon
     taxonDf <- data.frame(idList[i,])
-    taxonName <- unlist(strsplit(as.character(idList[i,]$tip), "#", fixed = TRUE))
+    taxonName <- unlist(strsplit(as.character(idList[i,]$tip),
+                                "#",
+                                fixed = TRUE))
+
     ### convert into long format
     mTaxonDf <- suppressWarnings(melt(taxonDf,id = "tip"))
 
     ### get rank names and corresponding IDs
-    splitCol <- data.frame(do.call('rbind', strsplit(as.character(mTaxonDf$value), '#', fixed=TRUE)))
+    splitCol <- data.frame(do.call('rbind',
+                                   strsplit(as.character(mTaxonDf$value),
+                                   '#',
+                                   fixed=TRUE)))
     mTaxonDf <- cbind(mTaxonDf,splitCol)
 
     ### remove NA cases
@@ -287,13 +314,15 @@ taxonomyTableCreator <- function(idList,rankList){
     ### subselect mTaxonDf to keep only 2 column rank id and rank name
     mTaxonDf <- mTaxonDf[,c("X1","X2")]
     if(mTaxonDf$X2[1] != index2RankDf$rank[1]){
-      mTaxonDf <- rbind(data.frame("X1"=mTaxonDf$X1[1],"X2"=index2RankDf$rank[1]),mTaxonDf)
+      mTaxonDf <- rbind(data.frame("X1"=mTaxonDf$X1[1],
+                                   "X2"=index2RankDf$rank[1]),
+                                   mTaxonDf)
     }
 
     ### rename columns
     colnames(mTaxonDf) <- c(taxonName[1],"rank")
 
-    ### merge with index2RankDf (Df contains all available ranks from input data)
+    ### merge with index2RankDf (Df contains all available ranks of input data)
     fullRankIDdf <- merge(fullRankIDdf,mTaxonDf, by=c("rank"), all.x = T)
 
     ### reorder ranks
@@ -325,7 +354,8 @@ taxonomyTableCreator <- function(idList,rankList){
         }
       }
       if(is.na(t_fullRankIDdfEdit[i,ncol(t_fullRankIDdf)])){
-        t_fullRankIDdfEdit[i,ncol(t_fullRankIDdf)] <- t_fullRankIDdfEdit[i,ncol(t_fullRankIDdf)-1]
+        t_fullRankIDdfEdit[i,ncol(t_fullRankIDdf)] <-
+        t_fullRankIDdfEdit[i,ncol(t_fullRankIDdf)-1]
       }
     }
     t_fullRankIDdf <- rbind(t_fullRankIDdfEdit,t_fullRankIDdfTMP)
