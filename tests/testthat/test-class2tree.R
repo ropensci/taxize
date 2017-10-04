@@ -8,6 +8,9 @@ spnames <- c('Klattia flava', 'Trollius sibiricus', 'Arachis paraguariensis',
  'Helianthus annuus','Madia elegans','Lupinus albicaulis',
  'Pinus lambertiana')
 
+dupnames <- c('Mus musculus', 'Escherichia coli',
+              'Haloferax denitrificans','Mus musculus')
+
 test_that("class2tree returns the correct value and class", {
   skip_on_cran()
 
@@ -23,4 +26,10 @@ test_that("class2tree returns the correct value and class", {
   expect_is(tr$classification, "data.frame")
   expect_is(tr$distmat, "dist")
   expect_is(tr$names, "character")
+})
+
+test_that("class2tree will abort when input contains duplicate taxa", {
+  skip_on_cran()
+  out <- classification(dupnames, db = 'ncbi', verbose = FALSE)
+  expect_error(class2tree(out), "Input list of classifications contains duplicates")
 })
