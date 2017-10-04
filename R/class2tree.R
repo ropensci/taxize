@@ -176,6 +176,7 @@ getRankList <- function(x){
   df <- data.frame(t(data.frame(rev(joinedDf$rankDf))),
                    stringsAsFactors = FALSE)
   outDf <- data.frame(tip = x[nrow(x), "name"], df, stringsAsFactors = FALSE)
+  return(outDf)
 }
 
 getIdList <- function(x){
@@ -192,6 +193,7 @@ getIdList <- function(x){
 
   df <- data.frame(t(data.frame(rev(joinedDf$id))), stringsAsFactors = FALSE)
   outDf <- data.frame(tip = x[nrow(x), "name"], df, stringsAsFactors = FALSE)
+  return(outDf)
 }
 
 ###############################################################################
