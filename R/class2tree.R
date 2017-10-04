@@ -61,6 +61,9 @@ class2tree <- function(input, varstep = TRUE, check = TRUE, ...) {
   if (length(input) < 3)
     stop("Your input list of classifications must be 3 or longer.")
 
+  if (length(unique(names(input))) < length(names(input)))
+    stop("Input list of classifications contains duplicates")
+
   dat <- rbind.fill(lapply(input, class2tree_helper))
   # Get rank and ID list
   rankList <- rbind.fill(lapply(input, getRankList))
