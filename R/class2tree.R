@@ -66,11 +66,11 @@ class2tree <- function(input, varstep = TRUE, check = TRUE, ...) {
 
   dat <- rbind.fill(lapply(input, class2tree_helper))
   # Get rank and ID list
-  rankList <- rbind.fill(lapply(input, getRankList))
-  idList <- rbind.fill(lapply(input, getIdList))
+  rankList <- rbind.fill(lapply(input, get_rank))
+  nameList <- rbind.fill(lapply(input, get_name))
 
   # Create taxonomy matrix
-  df <- taxonomyTableCreator(idList,rankList)
+  df <- taxonomy_table_creator(nameList,rankList)
 
   row.names(df) <- df[,1]
   df <- df[,-1]
@@ -83,7 +83,7 @@ class2tree <- function(input, varstep = TRUE, check = TRUE, ...) {
   if (is(taxdis, 'simpleError'))
     stop("Try check=FALSE, but see docs for taxa2dist function in the vegan package for details.")
   out <- as.phylo.hclust(hclust(taxdis, ...))
-  res <- list(phylo = out, classification = dat, distmat = taxdis,
+  res <- list(phylo = out, classification = df, distmat = taxdis,
               names = names(input))
   class(res) <- 'classtree'
   return( res )
@@ -165,7 +165,7 @@ taxa2dist <- function(x, varstep = FALSE, check = TRUE, labels) {
 ###############################################################################
 #################### GET LIST OF ALL TAXONOMY RANK AND IDs ####################
 ###############################################################################
-getRankList <- function(x){
+get_rank <- function(x){
   rankDf <- x[, 'rank']
   names(rankDf) <- x[, 'rank']
 
@@ -182,19 +182,19 @@ getRankList <- function(x){
   return(outDf)
 }
 
-getIdList <- function(x){
+get_name <- function(x){
   rankDf <- x[, 'rank']
   names(rankDf) <- x[, 'rank']
 
-  idDf <- x[, 'id']
+  nameDf <- x[, 'name']
   joinedDf <- cbind(data.frame(rankDf,stringsAsFactors=FALSE),
-                    data.frame(idDf,stringsAsFactors=FALSE))
+                    data.frame(nameDf,stringsAsFactors=FALSE))
   joinedDf <- within(joinedDf,
                      rankDf[rankDf=='no rank'] <-
-                     paste0("norank_",idDf[rankDf=='no rank']))
-  joinedDf$id <- paste0(joinedDf$idDf,"#",joinedDf$rankDf)
+                     paste0("norank_",nameDf[rankDf=='no rank']))
+  joinedDf$name <- paste0(joinedDf$nameDf,"#",joinedDf$rankDf)
 
-  df <- data.frame(t(data.frame(rev(joinedDf$id))), stringsAsFactors = FALSE)
+  df <- data.frame(t(data.frame(rev(joinedDf$name))), stringsAsFactors = FALSE)
   outDf <- data.frame(tip = x[nrow(x), "name"], df, stringsAsFactors = FALSE)
   return(outDf)
 }
@@ -202,7 +202,7 @@ getIdList <- function(x){
 ###############################################################################
 #################### INDEXING ALL AVAILABLE RANKS (INCLUDING NORANK) ##########
 ###############################################################################
-rankIndexing <- function(rankList){
+rank_indexing <- function(rankList){
   ##### input is a dataframe, where each row is a rank list of a taxon
 
   ### get all available ranks from input rankList
@@ -280,26 +280,26 @@ rankIndexing <- function(rankList){
 ###############################################################################
 #################### ARRANGE RANK IDs INTO SORTED RANK LIST (index2RankDf) ####
 ###############################################################################
-taxonomyTableCreator <- function(idList,rankList){
-  colnames(idList)[1] <- "tip"
+taxonomy_table_creator <- function(nameList,rankList){
+  colnames(nameList)[1] <- "tip"
 
   ### get indexed rank list
-  index2RankDf <- rankIndexing(rankList)
+  index2RankDf <- rank_indexing(rankList)
 
   ### get ordered rank list
   orderedRank <- factor(index2RankDf$rank, levels = index2RankDf$rank)
 
   ### create a dataframe containing ordered ranks
-  fullRankIDdf <- data.frame("rank"=matrix(unlist(orderedRank),
+  full_rank_name_df <- data.frame("rank"=matrix(unlist(orderedRank),
                              nrow=length(orderedRank),
                              byrow=TRUE),
                              stringsAsFactors=FALSE)
-  fullRankIDdf$index <- as.numeric(rownames(fullRankIDdf))
+  full_rank_name_df$index <- as.numeric(rownames(full_rank_name_df))
 
-  for(i in 1:nrow(idList)){
+  for(i in 1:nrow(nameList)){
     ### get list of all IDs for this taxon
-    taxonDf <- data.frame(idList[i,])
-    taxonName <- unlist(strsplit(as.character(idList[i,]$tip),
+    taxonDf <- data.frame(nameList[i,])
+    taxonName <- unlist(strsplit(as.character(nameList[i,]$tip),
                                 "#",
                                 fixed = TRUE))
 
@@ -328,48 +328,48 @@ taxonomyTableCreator <- function(idList,rankList){
     colnames(mTaxonDf) <- c(taxonName[1],"rank")
 
     ### merge with index2RankDf (Df contains all available ranks of input data)
-    fullRankIDdf <- merge(fullRankIDdf,mTaxonDf, by=c("rank"), all.x = T)
+    full_rank_name_df <- merge(full_rank_name_df,mTaxonDf, by=c("rank"), all.x = T)
 
     ### reorder ranks
-    fullRankIDdf <- fullRankIDdf[order(fullRankIDdf$index),]
+    full_rank_name_df <- full_rank_name_df[order(full_rank_name_df$index),]
 
     ### replace NA id by id of previous rank
-    fullRankIDdf <- na.locf(fullRankIDdf)
+    full_rank_name_df <- na.locf(full_rank_name_df)
   }
 
   ### remove index column
-  fullRankIDdf <- subset(fullRankIDdf, select = -c(index))
+  full_rank_name_df <- subset(full_rank_name_df, select = -c(index))
 
   ### transpose into wide format
-  t_fullRankIDdf <- transpose(fullRankIDdf)
+  t_full_rank_name_df <- transpose(full_rank_name_df)
 
   ### set first row to column names
-  colnames(t_fullRankIDdf) = as.character(unlist(t_fullRankIDdf[1,]))
-  t_fullRankIDdf <- t_fullRankIDdf[-1,]
+  colnames(t_full_rank_name_df) = as.character(unlist(t_full_rank_name_df[1,]))
+  t_full_rank_name_df <- t_full_rank_name_df[-1,]
 
-  ### replace NA values in the dataframe t_fullRankIDdf
-  if(nrow(t_fullRankIDdf[is.na(t_fullRankIDdf),]) > 0){
-    t_fullRankIDdfTMP <- t_fullRankIDdf[complete.cases(t_fullRankIDdf),]
-    t_fullRankIDdfEdit <- t_fullRankIDdf[is.na(t_fullRankIDdf),]
+  ### replace NA values in the dataframe t_full_rank_name_df
+  if(nrow(t_full_rank_name_df[is.na(t_full_rank_name_df),]) > 0){
+    t_full_rank_name_dfTMP <- t_full_rank_name_df[complete.cases(t_full_rank_name_df),]
+    t_full_rank_name_dfEdit <- t_full_rank_name_df[is.na(t_full_rank_name_df),]
 
-    for(i in 1:nrow(t_fullRankIDdfEdit)){
-      for(j in 1:(ncol(t_fullRankIDdf)-1)){
-        if(is.na(t_fullRankIDdfEdit[i,j])){
-          t_fullRankIDdfEdit[i,j] <- t_fullRankIDdfEdit[i,j+1]
+    for(i in 1:nrow(t_full_rank_name_dfEdit)){
+      for(j in 1:(ncol(t_full_rank_name_df)-1)){
+        if(is.na(t_full_rank_name_dfEdit[i,j])){
+          t_full_rank_name_dfEdit[i,j] <- t_full_rank_name_dfEdit[i,j+1]
         }
       }
-      if(is.na(t_fullRankIDdfEdit[i,ncol(t_fullRankIDdf)])){
-        t_fullRankIDdfEdit[i,ncol(t_fullRankIDdf)] <-
-        t_fullRankIDdfEdit[i,ncol(t_fullRankIDdf)-1]
+      if(is.na(t_full_rank_name_dfEdit[i,ncol(t_full_rank_name_df)])){
+        t_full_rank_name_dfEdit[i,ncol(t_full_rank_name_df)] <-
+        t_full_rank_name_dfEdit[i,ncol(t_full_rank_name_df)-1]
       }
     }
-    t_fullRankIDdf <- rbind(t_fullRankIDdfEdit,t_fullRankIDdfTMP)
+    t_full_rank_name_df <- rbind(t_full_rank_name_dfEdit,t_full_rank_name_dfTMP)
   }
 
-  ### add fullName column into t_fullRankIDdf
-  fullName <- colnames(fullRankIDdf)[-c(1)]
-  fullRankIDdf <- cbind(fullName,t_fullRankIDdf)
+  ### add fullName column into t_full_rank_name_df
+  fullName <- colnames(full_rank_name_df)[-c(1)]
+  full_rank_name_df <- cbind(fullName,t_full_rank_name_df)
 
   ### return
-  return(fullRankIDdf)
+  return(full_rank_name_df)
 }
