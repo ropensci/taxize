@@ -4,7 +4,7 @@
 \alias{class2tree}
 \alias{plot.classtree}
 \alias{print.classtree}
-\title{Convert list of classifications to a tree.}
+\title{Convert a list of classifications to a tree.}
 \usage{
 class2tree(input, varstep = TRUE, check = TRUE, ...)
 

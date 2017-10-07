@@ -38,6 +38,7 @@ Imports:
     plyr,
     foreach,
     ape,
+    zoo,
     bold (>= 0.3.5),
     data.table,
     rredlist (>= 0.3.0),

@@ -54,13 +54,14 @@
 #'
 #' @importFrom graphics plot
 #' @importFrom methods as is
-#' @importFrom stats as.dist hclust na.omit setNames aggregate
+#' @importFrom stats as.dist hclust na.omit setNames aggregate complete.cases
+#' @importFrom zoo na.locf
 #' @importFrom utils URLencode citation download.file read.delim write.table tail
 #' @importFrom ape read.tree as.phylo.hclust plot.phylo
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom httr GET POST content stop_for_status upload_file warn_for_status
 #' add_headers timeout config
-#' @importFrom data.table rbindlist setDF
+#' @importFrom data.table rbindlist setDF transpose
 #' @importFrom foreach foreach %do%
 #' @importFrom stringr str_extract str_split str_replace str_replace_all
 #' @importFrom plyr failwith rbind.fill llply ldply ddply l_ply summarise colwise .
