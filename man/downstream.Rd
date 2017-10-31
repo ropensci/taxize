@@ -22,7 +22,7 @@ downstream(...)
   intermediate = FALSE, ...)
 
 \method{downstream}{gbifid}(x, db = NULL, downto = NULL,
-  intermediate = FALSE, ...)
+  intermediate = FALSE, limit = 100, start = NULL, ...)
 
 \method{downstream}{uid}(x, db = NULL, downto = NULL,
   intermediate = FALSE, ...)

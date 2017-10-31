@@ -8,6 +8,8 @@
 #' @param intermediate (logical) If TRUE, return a list of length two with
 #' target taxon rank names, with additional list of data.frame's of
 #' intermediate taxonomic groups. Default: FALSE
+#' @param limit Number of records to return
+#' @param start Record number to start at
 #' @param ... Further args passed on to \code{\link{gbif_name_usage}}
 #' @return Data.frame of taxonomic information downstream to family from e.g.,
 #' 		Order, Class, etc., or if \code{intermediated=TRUE}, list of length two,
@@ -34,7 +36,8 @@
 #' gbif_downstream(key = 7799978, downto="species", intermediate=TRUE)
 #' }
 
-gbif_downstream <- function(key, downto, intermediate = FALSE, ...) {
+gbif_downstream <- function(key, downto, intermediate = FALSE, limit = 100,
+  start = NULL, ...) {
 
   should_be('intermediate', intermediate, 'logical')
 
@@ -53,7 +56,8 @@ gbif_downstream <- function(key, downto, intermediate = FALSE, ...) {
   while (stop_ == "not") {
     iter <- iter + 1
     temp <- ldply(key, function(x) gbif_name_usage_clean(x))
-    tt <- ldply(temp$key, function(x) gbif_name_usage_children(x))
+    tt <- ldply(temp$key, function(x) gbif_name_usage_children(x,
+      limit = limit, start = start, ...))
     tt <- prune_too_low(tt, downto)
 
     if (NROW(tt) == 0) {
@@ -95,8 +99,8 @@ gbif_name_usage_clean <- function(x, ...) {
   data.frame(tt, stringsAsFactors = FALSE)[, c('canonicalname', 'rank', 'key')]
 }
 
-gbif_name_usage_children <- function(x, ...) {
-  tt <- gbif_name_usage(x, data = 'children', limit = 100, ...)$results
+gbif_name_usage_children <- function(x, limit = 100, start = NULL, ...) {
+  tt <- gbif_name_usage(x, data = 'children', limit = limit, start = start, ...)$results
   rbind.fill(lapply(tt, function(z) {
     z <- z[sapply(z, length) != 0]
     df <- data.frame(z, stringsAsFactors = FALSE)

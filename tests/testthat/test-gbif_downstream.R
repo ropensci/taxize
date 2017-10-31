@@ -43,6 +43,17 @@ test_that("gbif_downstream intermediate param works", {
   expect_equal(unique(cc$target$rank), "genus")
 })
 
+test_that("gbif_downstream - limit and start params", {
+  skip_on_cran()
+
+  aa <- gbif_downstream(2978223, "species", limit = 3)
+  bb <- gbif_downstream(2978223, "species", limit = 3, start = 3)
+
+  expect_is(aa, "data.frame")
+  expect_is(bb, "data.frame")
+  expect_true(!all(aa$key %in% bb$key))
+})
+
 test_that("gbif_downstream fails well", {
   skip_on_cran()
 

@@ -182,17 +182,20 @@ downstream.colid <- function(x, db = NULL, downto = NULL,
 #' @export
 #' @rdname downstream
 downstream.gbifid <- function(x, db = NULL, downto = NULL,
-                              intermediate = FALSE, ...) {
-  fun <- function(y, downto, intermediate, ...){
+                              intermediate = FALSE, limit = 100,
+                              start = NULL, ...) {
+  fun <- function(y, downto, intermediate, limit, start, ...){
     # return NA if NA is supplied
     if (is.na(y)) {
       NA
     } else {
       gbif_downstream(key = y, downto = downto,
-                      intermediate = intermediate, ...)
+                      intermediate = intermediate, limit = limit,
+                      start = start, ...)
     }
   }
-  out <- lapply(x, fun, downto = downto, intermediate = intermediate, ...)
+  out <- lapply(x, fun, downto = downto, intermediate = intermediate,
+    limit = limit, start = start, ...)
   structure(out, class = 'downstream', db = 'gbif')
 }
 

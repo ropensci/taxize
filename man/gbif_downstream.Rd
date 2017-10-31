@@ -4,7 +4,8 @@
 \alias{gbif_downstream}
 \title{Retrieve all taxa names downstream in hierarchy for GBIF}
 \usage{
-gbif_downstream(key, downto, intermediate = FALSE, ...)
+gbif_downstream(key, downto, intermediate = FALSE, limit = 100,
+  start = NULL, ...)
 }
 \arguments{
 \item{key}{A taxonomic serial number.}
@@ -16,6 +17,10 @@ correctly. See \code{data(rank_ref)} for spelling.}
 \item{intermediate}{(logical) If TRUE, return a list of length two with
 target taxon rank names, with additional list of data.frame's of
 intermediate taxonomic groups. Default: FALSE}
+
+\item{limit}{Number of records to return}
+
+\item{start}{Record number to start at}
 
 \item{...}{Further args passed on to \code{\link{gbif_name_usage}}}
 }
