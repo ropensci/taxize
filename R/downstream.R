@@ -27,6 +27,8 @@
 #' @param rows (numeric) Any number from 1 to infinity. If the default NA, all
 #' rows are considered. Note that this parameter is ignored if you pass in a
 #' taxonomic id of any of the acceptable classes: tsn, colid.
+#' @param limit Number of records to return
+#' @param start Record number to start at
 #' @param ... Further args passed on to \code{itis_downstream},
 #' \code{col_downstream}, \code{gbif_downstream}, or \code{ncbi_downstream}
 #'

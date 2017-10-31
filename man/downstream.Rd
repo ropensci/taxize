@@ -58,6 +58,10 @@ intermediate taxonomic groups. Default: \code{FALSE}}
 \item{rows}{(numeric) Any number from 1 to infinity. If the default NA, all
 rows are considered. Note that this parameter is ignored if you pass in a
 taxonomic id of any of the acceptable classes: tsn, colid.}
+
+\item{limit}{Number of records to return}
+
+\item{start}{Record number to start at}
 }
 \value{
 A named list of data.frames with the downstream names of every

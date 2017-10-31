@@ -340,7 +340,7 @@ taxonomy_table_creator <- function(nameList,rankList){
     colnames(mTaxonDf) <- c(taxonName[1],"rank")
 
     ### merge with index2RankDf (Df contains all available ranks of input data)
-    full_rank_name_df <- merge(full_rank_name_df,mTaxonDf, by=c("rank"), all.x = T)
+    full_rank_name_df <- merge(full_rank_name_df,mTaxonDf, by=c("rank"), all.x = TRUE)
 
     ### reorder ranks
     full_rank_name_df <- full_rank_name_df[order(full_rank_name_df$index),]
