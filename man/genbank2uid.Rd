@@ -22,12 +22,6 @@ Get NCBI taxonomy UID from GenBankID
 \details{
 See \url{http://www.ncbi.nlm.nih.gov/Sitemap/sequenceIDs.html} for
 help on why there are two identifiers, and the difference between them.
-
-Note that if you pass in > 1 item, if one or more of your items is not
-found, the entire batch will return \code{NA}'s. To get around this,
-set \code{batch_size = 1} - so each is sent separtaely to NCBI.
-However, this of course is much slower than the default, which is to send
-up to 100 at a time.
 }
 \examples{
 \dontrun{

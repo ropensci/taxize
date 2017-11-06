@@ -41,6 +41,8 @@ getting simplified output (#623) thanks @glaroc !
 
 ### BUG FIXES
 
+* `genbank2uid` now returns the correct ID when there are multiple possibilities
+and invalid IDs no longer make whole batches fail.
 * Fix to `downstream()` via fix to `rank_ref` dataset to include
 "infraspecies" and make "unspecified" and "no rank" requivalent.
 Fix to `col_downstream()` to remove properly ranks lower than 
