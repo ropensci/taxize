@@ -56,9 +56,13 @@ genbank2uid <- function(id, batch_size = 100, ...) {
     # Add NAs for failed queries
     raw_errors <- xml_text(xml_find_all(parsed_xml, "//eSummaryResult//ERROR"))
     if (length(raw_errors) > 0) {
-      error_pos <- gsub(raw_errors, pattern = "", replacement = "")
-      error_ids <- stringr::str_match(raw_errors,
-                                      '^Invalid uid (.+) at position=[0-9]+$')[,2]
+      error_regexes <- c('^Invalid uid (.+) at position=[0-9]+$', 
+                         '^Failed uid="(.+)"$')
+      error_ids <- lapply(error_regexes,
+                          function(r) stringr::str_match(raw_errors, r)[,2])
+      error_ids <- unlist(error_ids)
+      error_ids <- error_ids[!is.na(error_ids)]
+      error_ids <- unique(error_ids)
       add_error_na <- function(values) {
         output <- rep(NA, length(id))
         output[- match(error_ids, id)] <- values
