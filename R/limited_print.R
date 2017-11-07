@@ -12,29 +12,29 @@
 #'
 #' @return `NULL`
 #'
-#' @examples
+#' @examples \dontrun{
 #' taxa:::limited_print(1:100)
 #' taxa:::limited_print(1:10000)
 #' taxa:::limited_print(1:10000, prefix = "stuff:")
-#'
+#' }
 #' @keywords internal
 limited_print <- function(chars, prefix = "",
                           max_chars = getOption("width") - nchar(prefix) - 5,
                           type = "message") {
-  
+
   if (length(chars) == 0) {
     cat(prefix)
     return(invisible(NULL))
   }
-  
-  
+
+
   # https://stat.ethz.ch/pipermail/r-help/2006-March/101023.html
   interleave <- function(v1,v2) {
     ord1 <- 2*(1:length(v1))-1
     ord2 <- 2*(1:length(v2))
     c(v1,v2)[order(c(ord1,ord2))]
   }
-  
+
   q = "'"
   interleaved <- interleave(chars[1:(length(chars) / 2)],
                             rev(chars[(length(chars) / 2 + 1):length(chars)]))
@@ -56,7 +56,7 @@ limited_print <- function(chars, prefix = "",
     output <- paste0(paste0(collapse = ", ", chars), "\n")
   }
   output <- paste(prefix, output, collapse = "")
-  
+
   if (type == "error") {
     stop(output)
   } else if (type == "warning") {
