@@ -1,3 +1,12 @@
+Development version
+===================
+
+### BUG FIXES
+
+* `genbank2uid` now returns the correct ID when there are multiple possibilities
+and invalid IDs no longer make whole batches fail.
+
+
 taxize 0.9.0
 ============
 
