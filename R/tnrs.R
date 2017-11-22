@@ -142,7 +142,7 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
   } else {
     tmp <- mainfunc(query, ...)
   }
-  tmp <- tmp[match(query, tmp$submittedName), ]
+  tmp <- tmp[match(query, gsub("\r", "", tmp$submittedName)), ]
   tmp <- na.omit(tmp)
   row.names(tmp) <- NULL
   stats::setNames(tmp, tolower(names(tmp)))
