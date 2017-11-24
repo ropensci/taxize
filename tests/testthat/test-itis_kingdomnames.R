@@ -28,5 +28,6 @@ test_that("itis_kingdomnames - with TSN's", {
 test_that("itis_kingdomnames returns error when not found", {
   skip_on_cran()
 
-  expect_error(length(itis_kingdomnames("stuff")[[1]]), "Not Found")
+  expect_error(length(itis_kingdomnames("stuff")[[1]]),
+    "Bad Request \\(HTTP 400\\)")
 })
