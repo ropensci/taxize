@@ -207,3 +207,14 @@ dbswap <- function(x) {
     stop("'db' not recognized", call. = FALSE)
   )
 }
+
+check_entrez_key <- function (x) {
+  tmp <- if (is.null(x)) Sys.getenv("ENTREZ_KEY", "") else x
+  if (tmp == "") {
+    getOption("entrez_key", 
+      warning("no API key found for Entrez, proceeding w/o key", 
+        call. = FALSE))
+  } else {
+    tmp
+  }
+}
