@@ -16,6 +16,13 @@ test_that("passing in an id works", {
   skip_on_cran()
 
   ch_ncbi <- children(8028, db = 'ncbi')
+  ch_worms <- children(254966, db='worms')
+
+  expect_is(ch_worms, "children")
+  expect_equal(attr(ch_worms, "db"), "worms")
+  expect_named(ch_worms, '254966')
+  expect_is(ch_worms$`254966`, "data.frame")
+  expect_named(ch_worms$`254966`, c('childtaxa_id', 'childtaxa_name', 'childtaxa_rank'))
 
   expect_is(ch_ncbi, "children")
   expect_equal(attr(ch_ncbi, "db"), "ncbi")
