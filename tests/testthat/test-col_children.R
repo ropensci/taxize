@@ -28,5 +28,6 @@ test_that("missing/wrong data given returns result", {
 
   expect_equal(nrow(col_children(name="")[[1]]), 0)
   expect_equal(nrow(col_children(name="asdfasdfdf")[[1]]), 0)
+  expect_equal(unname(sapply(col_children(name="asdfasdfdf")[[1]], class)), rep('character', 3))
   expect_is(col_children(), "list")
 })

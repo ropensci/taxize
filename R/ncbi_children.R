@@ -92,8 +92,12 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
     children_uid <- xml2::xml_text(xml2::xml_find_all(results, "//eSearchResult/IdList/Id"))
     if (length(children_uid) == 0) {
       if (out_type == "summary") {
-        output <- data.frame(childtaxa_id = numeric(), childtaxa_name = character(),
-                             childtaxa_rank = character())
+        output <- data.frame(
+          childtaxa_id     = character(),
+          childtaxa_name   = character(),
+          childtaxa_rank   = character(),
+          stringsAsFactors = FALSE
+        )
       } else {
         output <- numeric()
       }
