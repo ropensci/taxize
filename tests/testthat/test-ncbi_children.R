@@ -17,4 +17,9 @@ test_that("ncbi_children returns correct class and result", {
   expect_is(tt2[[1]], "character")
   expect_error(ncbi_children(name = 'Ilex', id = 4751))
   expect_equal(ncbi_children(name = NA)[[1]], NA)
+
+  expect_equal(
+    unname(sapply(ncbi_children('dragon', db='ncbi')[[1]], class)),
+    c('character', 'character', 'character')
+  )
 })

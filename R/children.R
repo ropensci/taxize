@@ -80,7 +80,7 @@ children <- function(...){
 #' @rdname children
 children.default <- function(x, db = NULL, rows = NA, ...) {
   nstop(db)
-  switch(
+  results <- switch(
     db,
     itis = {
       id <- process_children_ids(x, db, get_tsn, rows = rows, ...)
@@ -110,6 +110,40 @@ children.default <- function(x, db = NULL, rows = NA, ...) {
 
     stop("the provided db value was not recognised", call. = FALSE)
   )
+
+  set_output_types(results, x, db)
+}
+
+# Ensure that the output types are consistent when searches return nothing
+set_output_types <- function(x, x_names, db){
+  itis_blank <- data.frame(
+    parentname = character(0),
+    parenttsn  = character(0),
+    rankname   = character(0),
+    taxonname  = character(0),
+    tsn        = character(0),
+    stringsAsFactors=FALSE
+  )
+  worms_blank <- col_blank <- ncbi_blank <-
+    data.frame(
+      childtaxa_id     = character(0),
+      childtaxa_name   = character(0),
+      childtaxa_rank   = character(0),
+      stringsAsFactors = FALSE
+    )
+
+  blank_fun <- switch(
+    db,
+    itis  = function(x) if(nrow(x) == 0) itis_blank  else x,
+    col   = function(x) if(nrow(x) == 0) col_blank   else x,
+    ncbi  = function(x) if(nrow(x) == 0) ncbi_blank  else x,
+    worms = function(x) if(is.na(x))     worms_blank else x
+  )
+
+  typed_results <- lapply(seq_along(x), function(i) blank_fun(x[[i]]))
+  names(typed_results) <- x_names
+  attributes(typed_results) <- attributes(x)
+  typed_results
 }
 
 process_children_ids <- function(input, db, fxn, ...){
