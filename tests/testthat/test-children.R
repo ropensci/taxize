@@ -31,6 +31,28 @@ test_that("queries with no results fail well", {
   expect_equal(NROW(aa[[1]]), 0)
 })
 
+test_that("itis types are correct", {
+  skip_on_cran()
+
+  itis_expected_col_types <- c(
+      parentname = 'character',
+      parenttsn  = 'character',
+      rankname   = 'character',
+      taxonname  = 'character',
+      tsn        = 'character'
+    )
+  # for no result
+  expect_equal(
+    sapply(children(1234123434, 'itis')[['1234123434']], class), 
+    itis_expected_col_types 
+  )
+  # for good result
+  expect_equal(
+    sapply(children(161994, 'itis')[['161994']], class), 
+    itis_expected_col_types 
+  )
+})
+
 test_that("rows parameter, when used, works", {
   skip_on_cran()
 
