@@ -26,6 +26,9 @@
 #' ## get intermediate taxa as a separate object
 #' ncbi_downstream(id = 7459, downto="species", intermediate = TRUE)
 #'
+#' ## get intermediate taxa as a separate object
+#' ncbi_downstream(id = 7459, downto="species", intermediate = TRUE)
+#'
 #' ## Lepidoptera
 #' ncbi_downstream(id = 7088, downto="superfamily")
 #'
@@ -51,7 +54,7 @@ ncbi_downstream <- function(id, downto, intermediate = FALSE, ...) {
   iter <- 0
   while (stop_ == "not") {
     iter <- iter + 1
-    tt <- dt2df(lapply(id, function(x) ncbi_children(id = x)[[1]]))
+    tt <- dt2df(lapply(id, function(x) ncbi_children(id = x, ...)[[1]]))
     tt$.id <- NULL
     tt <- rename(tt, c('childtaxa_rank' = 'rank'))
     tt <- prune_too_low(tt, downto, ignore_no_rank = TRUE)
