@@ -44,6 +44,9 @@ ncbi_downstream(id = 7459, downto="species")
 ## get intermediate taxa as a separate object
 ncbi_downstream(id = 7459, downto="species", intermediate = TRUE)
 
+## get intermediate taxa as a separate object
+ncbi_downstream(id = 7459, downto="species", intermediate = TRUE)
+
 ## Lepidoptera
 ncbi_downstream(id = 7088, downto="superfamily")
 
