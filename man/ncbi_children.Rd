@@ -5,7 +5,8 @@
 \title{Search NCBI for children of a taxon}
 \usage{
 ncbi_children(name = NULL, id = NULL, start = 0, max_return = 1000,
-  ancestor = NULL, out_type = c("summary", "uid"), ambiguous = FALSE, ...)
+  ancestor = NULL, out_type = c("summary", "uid"), ambiguous = FALSE,
+  key = NULL, ...)
 }
 \arguments{
 \item{name}{(\code{character}) The string to search for. Only exact matches found the name given
@@ -31,7 +32,9 @@ if there could be more than one taxon with the same name. Has no effect if \code
 "unclassified", "unknown", "uncultured", or "sp." are removed from the output.
 NOTE: This option only applies when \code{out_type = "summary"}.}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{key}{(character) NCBI Entrez API key. optional. See Details.}
+
+\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
 }
 \value{
 The output type depends on the value of the \code{out_type} parameter. Taxa that cannot
@@ -47,6 +50,17 @@ using a uid instead of the name or specifying an ancestor. If an ancestor is pro
 children of both the taxon and its ancestor are returned. This will only fail if there are two
 taxa with the same name and the same specified ancestor.
 }
+\section{Authentication}{
+
+From NCBI's docs: "E-utils users are allowed 3 requests/second without an 
+API key. Create an API key (in your account at 
+https://www.ncbi.nlm.nih.gov/account/) to increase your e-utils limit to 10 
+requests/second. Contact our help department (eutilities@ncbi.nlm.nih.gov) 
+if you need higher throughput. Only one API Key per user. Replacing or 
+deleting will inactivate the current key. Refer to documentation 
+(https://www.ncbi.nlm.nih.gov/books/NBK25497/) for more."
+}
+
 \examples{
 \dontrun{
 ncbi_children(name="Satyrium") #Satyrium is the name of two different genera
@@ -56,8 +70,7 @@ ncbi_children(id="266948") #"266948" is the uid for the butterfly genus
 ncbi_children(id="62858") #"62858" is the uid for the orchid genus
 
 # use curl options
-library("httr")
-ncbi_children(name="Satyrium", ancestor="Eumaeini", config=verbose())
+ncbi_children(name="Satyrium", ancestor="Eumaeini", verbose = TRUE)
 }
 }
 \seealso{
