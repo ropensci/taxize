@@ -191,7 +191,6 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
     })
   not_known <- Filter(function(x) is.null(x[[2]]), data_)
   not_known <- sapply(not_known, function(x) x[[1]]$original_name)
-  # vapply(not_known, "[[", "", 1)
   data_ <- Filter(function(x) !is.null(x[[2]]), data_)
 
   # check for empty data object
@@ -243,6 +242,7 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
       } else {
         x[[2]]
       }), stringsAsFactors = FALSE))
+
       if (NROW(data_2_preferred) == 0) {
         out <- data_2_preferred
       } else {
