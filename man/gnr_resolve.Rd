@@ -57,12 +57,13 @@ If \code{FALSE}, names are not modified. Default: \code{TRUE}}
 \item{fields}{(character) One of minimal (default) or all. Minimal gives
 back just four fields, whereas all gives all fields back.}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
 }
 \value{
-A data.frame with one attribute \code{not_known}: a character
+A list with two data.frame's with one attribute \code{not_known}: a character
 vector of taxa unknown to the Global Names Index. Access like
 \code{attr(output, "not_known")}, or \code{attributes(output)$not_known}.
+
 Columns of the output data.frame:
 \itemize{
  \item user_supplied_name (character) - the name you passed in to the
