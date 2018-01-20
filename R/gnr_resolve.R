@@ -38,7 +38,7 @@
 #' back just four fields, whereas all gives all fields back.
 #'
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
-#' @return A list with two data.frame's with one attribute \code{not_known}: a character
+#' @return A data.frame with one attribute \code{not_known}: a character
 #' vector of taxa unknown to the Global Names Index. Access like
 #' \code{attr(output, "not_known")}, or \code{attributes(output)$not_known}.
 #' 
@@ -75,6 +75,10 @@
 #' }
 #' Note that names (i.e. rows) are dropped that are NA, are zero length
 #' strings, are not character vectors, or are not found by the API.
+#' 
+#' @section preferred_data_sources:
+#' If \code{preferred_data_sources} is used, only the preferred data 
+#' is returned - if it has any results.
 #' 
 #' @seealso \code{\link[taxize]{gnr_datasources}} \code{\link{tnrs}}
 #' @keywords resolve names taxonomy
