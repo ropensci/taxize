@@ -21,3 +21,4 @@ vignettes/cache/
 docs
 .github
 
+^codemeta\.json$
