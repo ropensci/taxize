@@ -16,7 +16,7 @@ test_that("passing in an id works", {
   skip_on_cran()
 
   ch_ncbi <- children(8028, db = 'ncbi')
-  ch_worms <- children(254966, db='worms')
+  ch_worms <- sw(children(254966, db='worms'))
 
   expect_is(ch_worms, "children")
   expect_equal(attr(ch_worms, "db"), "worms")

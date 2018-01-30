@@ -6,8 +6,8 @@ test_that("gbif_parse returns the correct values and dimensions classes", {
 
   tt <- gbif_parse(scientificname = 'x Agropogon littoralis')
 
-	expect_that(as.character(tt[1,1]), matches('x Agropogon littoralis'))
-	expect_that(as.character(tt[1,2]), matches('SCIENTIFIC'))
+	expect_match(as.character(tt[1,1]), 'x Agropogon littoralis')
+	expect_match(as.character(tt[1,2]), 'SCIENTIFIC')
 
   expect_that(dim(tt), equals(c(1,11)))
 

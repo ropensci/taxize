@@ -17,6 +17,8 @@ test_that("get_eolid returns the correct class", {
   Sys.sleep(1)
 })
 
+Sys.sleep(1)
+
 test_that("get_eolid accepts ask-argument", {
   skip_on_cran()
 
@@ -31,6 +33,7 @@ test_that("get_eolid fails as expected", {
   expect_error(get_eolid("Poa annua", ask = 4, verbose = FALSE),
                "ask must be of class logical")
 
+  Sys.sleep(1)
   # rows param
   expect_error(get_eolid("Poa annua", rows = "foobar", verbose = FALSE),
                "'rows' must be numeric or NA")

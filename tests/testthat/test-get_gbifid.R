@@ -15,7 +15,7 @@ test_that("get_gbifid returns the correct class", {
 test_that("get_gbifid accepts ask-argument", {
   skip_on_cran()
 
-  expect_true(is.na(get_gbifid('Dugesia', ask = FALSE, verbose = FALSE)))
+  expect_true(is.na(sw(get_gbifid('Dugesia', ask = FALSE, verbose = FALSE))))
 })
 
 test_that("get_gbifid method parameter works", {

@@ -40,7 +40,7 @@ test_that("downstream - taxonomic id input", {
 test_that("downstream - multiple data sources", {
   skip_on_cran()
 
-  ids <- get_ids("Ursus", db = c('gbif', 'itis'), verbose = FALSE)
+  ids <- sw(get_ids("Ursus", db = c('gbif', 'itis'), verbose = FALSE))
   aa <- downstream(ids, downto = 'Species')
 
   expect_is(aa, "downstream_ids")

@@ -5,7 +5,7 @@ test_that("tax_rank returns the correct class", {
 
   A <- suppressMessages(tax_rank(c("Helianthus annuus", "Baetis"), db = "ncbi",
                                  verbose=FALSE))
-  B <- suppressMessages(tax_rank("Helianthus", db = "itis", verbose=FALSE))
+  B <- suppressMessages(sw(tax_rank("Helianthus", db = "itis", verbose=FALSE)))
   C <- suppressMessages(tax_rank(c("Helianthus annuus", "xxxxxx"), db = "ncbi",
                                  verbose=FALSE))
 
