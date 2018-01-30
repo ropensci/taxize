@@ -18,7 +18,7 @@ test_that("get_ids accepts ask and verbose arguments", {
   skip_on_cran()
 
   expect_message(get_ids(names="Pinus contorta", db = 'ncbi'))
-  expect_message(get_ids(names="Pinus contorta", db = 'ncbi', verbose=FALSE), NA)
+  expect_message(get_ids(names="Pinus contorta", db = 'ncbi', messages=FALSE), NA)
 })
 
 nn <- c('Imperata brasiliensis','Hylebates cordatus','Apocopis intermedius',
@@ -37,7 +37,10 @@ nn <- c('Imperata brasiliensis','Hylebates cordatus','Apocopis intermedius',
 test_that("works on a variety of names", {
   skip_on_cran()
 
-  expect_that(get_ids(nn[13], db = c('ncbi','itis','col','tropicos'), ask=FALSE, verbose=FALSE), is_a("ids"))
-  expect_that(get_ids(nn[14], db = c('ncbi','itis','col','tropicos'), ask=FALSE, verbose=FALSE), is_a("ids"))
-  expect_that(get_ids(nn[15], db = c('ncbi','itis','col','tropicos'), ask=FALSE, verbose=FALSE), is_a("ids"))
+  expect_is(sw(get_ids(nn[13], db = c('ncbi','itis','col','tropicos'), 
+    ask=FALSE, verbose=FALSE)), "ids")
+  expect_is(sw(get_ids(nn[14], db = c('ncbi','itis','col','tropicos'), 
+    ask=FALSE, verbose=FALSE)), "ids")
+  expect_is(sw(get_ids(nn[15], db = c('ncbi','itis','col','tropicos'), 
+    ask=FALSE, verbose=FALSE)), "ids")
 })

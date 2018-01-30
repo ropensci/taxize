@@ -4,8 +4,9 @@ context("get_eolid")
 test_that("get_eolid returns the correct value", {
   skip_on_cran()
 
-  expect_that(is.na(get_eolid(sciname='adsf asdf asdf', verbose=FALSE)[[1]]),
-              is_true())
+  expect_true(is.na(get_eolid(sciname='adsf asdf asdf', 
+    verbose=FALSE)[[1]]))
+  Sys.sleep(1)
 })
 
 test_that("get_eolid returns the correct class", {
@@ -13,6 +14,7 @@ test_that("get_eolid returns the correct class", {
 
   expect_that(get_eolid("adsf asdf asdf", verbose=FALSE),
               is_a("eolid"))
+  Sys.sleep(1)
 })
 
 test_that("get_eolid accepts ask-argument", {
