@@ -6,7 +6,7 @@ test_that("get_eolid returns the correct value", {
 
   expect_true(is.na(get_eolid(sciname='adsf asdf asdf', 
     verbose=FALSE)[[1]]))
-  Sys.sleep(1)
+  Sys.sleep(3)
 })
 
 test_that("get_eolid returns the correct class", {
