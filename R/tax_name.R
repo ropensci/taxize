@@ -9,7 +9,7 @@
 #'  both.
 #' @param pref (character) If db = 'both', sets the preference for the union.
 #' Either 'ncbi' (default) or 'itis'. Currently not implemented.
-#' @param verbose (logical) If \code{TRUE} the actual taxon queried is printed
+#' @param messages (logical) If \code{TRUE} the actual taxon queried is printed
 #' on the console.
 #' @param ... Other arguments passed to \code{\link{get_tsn}} or
 #' \code{\link{get_uid}}.

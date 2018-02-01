@@ -19,11 +19,11 @@ both.}
 \item{pref}{(character) If db = 'both', sets the preference for the union.
 Either 'ncbi' (default) or 'itis'. Currently not implemented.}
 
+\item{messages}{(logical) If \code{TRUE} the actual taxon queried is printed
+on the console.}
+
 \item{...}{Other arguments passed to \code{\link{get_tsn}} or
 \code{\link{get_uid}}.}
-
-\item{verbose}{(logical) If \code{TRUE} the actual taxon queried is printed
-on the console.}
 }
 \value{
 A data.frame with one column for every queried rank, in addition to
