@@ -140,7 +140,7 @@ synonyms_df(x)
 x <- synonyms(c(25509881, 13100094), db="tropicos")
 synonyms_df(x)
 
-## xxx
+## NBN
 x <- synonyms(c('Aglais io', 'Usnea hirta', 'Arctostaphylos uva-ursi'),
   db="nbn")
 synonyms_df(x)

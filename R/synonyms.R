@@ -99,7 +99,7 @@
 #' x <- synonyms(c(25509881, 13100094), db="tropicos")
 #' synonyms_df(x)
 #'
-#' ## xxx
+#' ## NBN
 #' x <- synonyms(c('Aglais io', 'Usnea hirta', 'Arctostaphylos uva-ursi'),
 #'   db="nbn")
 #' synonyms_df(x)
@@ -333,6 +333,7 @@ synonyms_df.default <- function(x) {
 
 #' @export
 synonyms_df.synonyms <- function(x) {
+  x <- Filter(function(z) inherits(z[1], "data.frame"), x)
   (data.table::setDF(
     data.table::rbindlist(x, use.names = TRUE, fill = TRUE, idcol = TRUE)
   ))
