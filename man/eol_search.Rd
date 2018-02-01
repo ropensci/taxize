@@ -30,9 +30,10 @@ to filter search results}
 
 \item{cache_ttl}{The number of seconds you wish to have the response cached.}
 
-\item{key}{Your EOL API key; loads from .Rprofile.}
+\item{key}{Your EOL API key. See \code{\link{taxize-authentication}} for 
+help on authentication}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
 }
 \value{
 A data frame with four columns:
@@ -54,6 +55,11 @@ Search for terms in EOL database.
 It's possible to return JSON or XML with the EOL API. However,
 		this function only returns JSON for now.
 }
+\section{Authentication}{
+
+See \code{\link{taxize-authentication}} for help on authentication
+}
+
 \examples{
 \dontrun{
 eol_search(terms='Homo')

@@ -74,6 +74,11 @@ can get data from ITIS (itis), Catalogue of Life (col), GBIF (gbif), or
 NCBI (ncbi). There is no method exposed by these four services for
 getting taxa at a specific taxonomic rank, so we do it ourselves here.
 }
+\section{Authentication}{
+
+See \code{\link{taxize-authentication}} for help on authentication
+}
+
 \examples{
 \dontrun{
 # Plug in taxon IDs

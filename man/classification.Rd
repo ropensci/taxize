@@ -31,14 +31,12 @@ classification(...)
 
 \method{classification}{uid}(id, callopts = list(), return_id = TRUE, ...)
 
-\method{classification}{eolid}(id, key = NULL, callopts = list(),
-  return_id = TRUE, ...)
+\method{classification}{eolid}(id, callopts = list(), return_id = TRUE, ...)
 
 \method{classification}{colid}(id, start = NULL, checklist = NULL,
   callopts = list(), return_id = TRUE, ...)
 
-\method{classification}{tpsid}(id, key = NULL, callopts = list(),
-  return_id = TRUE, ...)
+\method{classification}{tpsid}(id, callopts = list(), return_id = TRUE, ...)
 
 \method{classification}{gbifid}(id, callopts = list(), return_id = TRUE,
   ...)
@@ -107,8 +105,6 @@ in a taxonomic id instead of a name of class character.}
 \code{\link{get_wormsid}}, \code{\link{get_natservid}},
 \code{\link{get_wormsid}}, \code{\link{get_wiki}}}
 
-\item{key}{Your API key; loads from .Rprofile.}
-
 \item{start}{The first record to return. If omitted, the results are returned
 from the first record (start=0). This is useful if the total number of
 results is larger than the maximum number of results returned by a single
@@ -145,6 +141,11 @@ let us know if you run into too many results problem and we'll see what
 we can do.
 }
 
+\section{Authentication}{
+
+See \code{\link{getkey}}
+}
+
 \examples{
 \dontrun{
 # Plug in taxon IDs
@@ -159,6 +160,7 @@ classification(25509881, db = 'tropicos')
 classification("NBNSYS0000004786", db = 'nbn')
 classification(as.nbnid("NBNSYS0000004786"), db = 'nbn')
 classification(3930798, db = 'tol')
+
 ## works the same if IDs are in class character
 classification(c("2704179", "2441176"), db = 'gbif')
 classification("Agapostemon", db = "bold")

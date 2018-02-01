@@ -57,6 +57,11 @@ NA when no match, or a data.frame with columns
 \description{
 Retrieve the lowest common taxon and rank for a given taxon name or ID
 }
+\section{Authentication}{
+
+See \code{\link{taxize-authentication}} for help on authentication
+}
+
 \examples{
 \dontrun{
 id <- c("9031", "9823", "9606", "9470")

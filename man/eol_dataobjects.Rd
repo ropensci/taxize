@@ -4,23 +4,21 @@
 \alias{eol_dataobjects}
 \title{Given the identifier for a data object, return all metadata about the object}
 \usage{
-eol_dataobjects(id, taxonomy = TRUE, usekey = TRUE, key = NULL,
-  verbose = TRUE, ...)
+eol_dataobjects(id, taxonomy = TRUE, usekey = TRUE, key = NULL, ...)
 }
 \arguments{
 \item{id}{(character) The EOL data object identifier}
 
-\item{taxonomy}{(logical) Whether to return any taxonomy details from different
-taxon hierarchy providers, in an array named \code{taxonconcepts}}
+\item{taxonomy}{(logical) Whether to return any taxonomy details from 
+different taxon hierarchy providers, in an array named 
+\code{taxonconcepts}}
 
 \item{usekey}{(logical) use your API key or not (\code{TRUE} or \code{FALSE})}
 
-\item{key}{(character) Your EOL API key; can load from .Rprofile if not passed as a parameter}
+\item{key}{(character) Your EOL API key; ; see \code{\link{taxize-authentication}} 
+for help on authentication}
 
-\item{verbose}{(logical); If TRUE the actual taxon queried is printed on the
-console.}
-
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
 }
 \value{
 A list, optionally with a data.frame if \code{taxonomy=TRUE}
@@ -38,7 +36,6 @@ eol_dataobjects(id = "d72801627bf4adf1a38d9c5f10cc767f")
 eol_dataobjects(id = "21929584")
 
 # curl options
-library("httr")
-eol_dataobjects(id = "21929584", config = verbose())
+eol_dataobjects(id = "21929584", verbose = TRUE)
 }
 }

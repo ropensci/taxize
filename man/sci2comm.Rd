@@ -47,19 +47,11 @@ List of character vectors, named by input taxon name, or taxon ID
 \description{
 Get common names from scientific names.
 }
-\details{
-Note that EOL requires an API key. You can pass in your EOL api
-key in the function call like
-\code{sci2comm('Helianthus annuus', key="<your eol api key>")}. You can
-also store your EOL API key in your .Rprofile file as
-\code{options(eolApiKey = "<your eol api key>")}, or just for the current
-session by running \code{options(eolApiKey = "<your eol api key>")} in
-the console.
+\section{Authentication}{
 
-Note that IUCN also requires an API key. See
-\code{\link[rredlist]{rredlist-package}} for help on authentiating with
-IUCN Redlist
+See \code{\link{taxize-authentication}} for help on authentication
 }
+
 \examples{
 \dontrun{
 sci2comm(scinames='Helianthus annuus', db='eol')
@@ -81,8 +73,7 @@ sci2comm(get_tsn('Helianthus annuus'), simplify=FALSE)
 sci2comm(get_iucn('Loxodonta africana'), simplify=FALSE)
 
 # Use curl options
-library("httr")
-sci2comm('Helianthus annuus', db="ncbi", config=verbose())
+sci2comm('Helianthus annuus', db="ncbi", verbose = TRUE)
 }
 }
 \seealso{

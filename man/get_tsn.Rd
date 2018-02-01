@@ -13,7 +13,7 @@
 \title{Get the TSN code for a search term.}
 \usage{
 get_tsn(searchterm, searchtype = "scientific", accepted = FALSE,
-  ask = TRUE, verbose = TRUE, rows = NA, ...)
+  ask = TRUE, messages = TRUE, rows = NA, ...)
 
 as.tsn(x, check = TRUE)
 
@@ -29,7 +29,7 @@ as.tsn(x, check = TRUE)
 
 \method{as.data.frame}{tsn}(x, ...)
 
-get_tsn_(searchterm, verbose = TRUE, searchtype = "scientific",
+get_tsn_(searchterm, messages = TRUE, searchtype = "scientific",
   accepted = TRUE, rows = NA, ...)
 }
 \arguments{
@@ -44,7 +44,7 @@ by ITIS. Set to \code{FALSE} (default) to give back both accepted and unaccepted
 If \code{TRUE} and more than one TSN is found for the species, the user is asked for
 input. If \code{FALSE} NA is returned for multiple matches.}
 
-\item{verbose}{logical; should progress be printed?}
+\item{messages}{logical; should progress be printed?}
 
 \item{rows}{numeric; Any number from 1 to infinity. If the default NA, all rows are considered.
 Note that this function still only gives back a tsn class object with one to many identifiers.

@@ -33,9 +33,9 @@
 #' unreviewed content will be returned (untrusted content will not be returned).
 #' The default is to return all content. (Default: \code{FALSE})
 #' @param cache_ttl The number of seconds you wish to have the response cached.
-#' @param key Your EOL API key; loads from .Rprofile, or you can specify the
-#' 		key manually the in the function call.
-#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' @param key Your EOL API key; see \code{\link{taxize-authentication}} 
+#' for help on authentication
+#' @param ... Curl options passed on to \code{\link[crul]{HttpClient}}
 #' @details It's possible to return JSON or XML with the EOL API. However,
 #' 		this function only returns JSON for now.
 #' @return JSON list object, or data.frame.
@@ -55,17 +55,25 @@ eol_pages <- function(taxonconceptID, iucn=FALSE, images=0, videos=0, sounds=0,
   synonyms <- tolower(synonyms)
   references <- tolower(references)
 
-	key <- getkey(key, "eolApiKey")
+	key <- getkey(key, "EOL_KEY")
 	args <- tc(list(iucn=iucn,images=images,videos=videos,sounds=sounds,
 	                maps=maps,text=text,subjects=subjects,licenses=licenses,
 	                details=details,common_names=common_names,synonyms=synonyms,
 	                references=references,taxonomy=taxonomy,
 	                vetted=vetted,cache_ttl=cache_ttl, key=key))
-  tt <- GET(file.path(eol_url("pages"), paste0(taxonconceptID, ".json")),
-            query=argsnull(args), ...)
-  stop_for_status(tt)
-  stopifnot(tt$headers$`content-type` == "application/json; charset=utf-8")
-  res <- jsonlite::fromJSON(con_utf8(tt), FALSE)
+  cli <- crul::HttpClient$new(
+    url = file.path(eol_url("pages"), paste0(taxonconceptID, ".json")),
+    opts = list(...)
+  )
+  res <- cli$get(query = argsnull(args))
+  res$raise_for_status()
+  tt <- res$parse("UTF-8")
+  # tt <- GET(file.path(eol_url("pages"), paste0(taxonconceptID, ".json")),
+  #           query=argsnull(args), ...)
+  # stop_for_status(tt)
+  stopifnot(res$response_headers$`content-type` == 
+    "application/json; charset=utf-8")
+  res <- jsonlite::fromJSON(tt, FALSE)
 
   scinames <- do.call(rbind.fill, lapply(res$taxonConcepts, data.frame,
                                          stringsAsFactors=FALSE))

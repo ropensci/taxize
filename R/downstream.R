@@ -34,6 +34,9 @@
 #'
 #' @return A named list of data.frames with the downstream names of every
 #' supplied taxa. You get an NA if there was no match in the database.
+#' 
+#' @section Authentication:
+#' See \code{\link{taxize-authentication}} for help on authentication
 #'
 #' @examples \dontrun{
 #' # Plug in taxon IDs

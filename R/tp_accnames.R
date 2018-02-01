@@ -2,8 +2,9 @@
 #'
 #' @export
 #' @param id the taxon identifier code
-#' @param key Your Tropicos API key; loads from .Rprofile.
-#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' @param key Your Tropicos API key; See \code{\link{taxize-authentication}} 
+#' for help on authentication
+#' @param ... Curl options passed on to \code{\link[crul]{HttpClient}}
 #' @return List or dataframe.
 #' @examples \dontrun{
 #' tp_accnames(id = 25503923)
@@ -15,12 +16,10 @@
 
 tp_accnames <- function(id, key = NULL, ...) {
   url = sprintf('http://services.tropicos.org/Name/%s/AcceptedNames', id)
-	key <- getkey(key, "tropicosApiKey")
+	key <- getkey(key, "TROPICOS_KEY")
   args <- tc(list(apikey = key, format = 'json'))
-  tmp <- GET(url, query = args, ...)
-  stop_for_status(tmp)
-  tmp2 <- con_utf8(tmp)
-  res <- jsonlite::fromJSON(tmp2, FALSE)
+  tt <- tp_GET(url, args, ...)
+  res <- jsonlite::fromJSON(tt, FALSE)
 
   if ("Error" %in% names(res[[1]])) {
     res[[1]]
@@ -47,13 +46,10 @@ getdata <- function(x) {
 #'
 #' Function name changed to tp_accnames.
 #'
-#' @param id the taxon identifier code
-#' @param format return in json or xml format (defaults to json)
-#' @param output raw = json or xml; or df = data.frame
-#' @param key Your Tropicos API key; loads from .Rprofile.
 #' @export
 #' @keywords internal
+#' @param ... ignored
 #' @rdname tp_acceptednames-deprecated
-tp_acceptednames <- function(id, format = 'json', output = 'df', key = NULL) {
+tp_acceptednames <- function(...) {
   .Deprecated("tp_accnames", "taxize", "Function name changed. See tp_accnames", "tp_acceptednames")
 }

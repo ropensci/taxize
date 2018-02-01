@@ -2,21 +2,20 @@
 #'
 #' @export
 #' @param id the taxon identifier code
-#' @param key Your Tropicos API key; loads from .Rprofile.
-#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' @param key Your Tropicos API key; See \code{\link{taxize-authentication}} 
+#' for help on authentication
+#' @param ... Curl options passed on to \code{\link[crul]{HttpClient}}
 #' @return List or dataframe.
 #' @examples \dontrun{
 #' tp_refs(id = 25509881)
 #' }
 tp_refs <- function(id, key = NULL, ...) {
   url = sprintf('http://services.tropicos.org/Name/%s/References', id)
-	key <- getkey(key, "tropicosApiKey")
+	key <- getkey(key, "TROPICOS_KEY")
 
   args <- tc(list(apikey = key, format = 'json'))
-  tmp <- GET(url, query = args, ...)
-  stop_for_status(tmp)
-  tmp2 <- con_utf8(tmp)
-  res <- jsonlite::fromJSON(tmp2, FALSE)
+  tt <- tp_GET(url, args, ...)
+  res <- jsonlite::fromJSON(tt, FALSE)
   do.call(rbind.fill, lapply(res, function(x){
     x <- x$Reference
     names(x) <- tolower(names(x))
@@ -28,15 +27,10 @@ tp_refs <- function(id, key = NULL, ...) {
 #'
 #' Function name changed to tp_refs.
 #'
-#' @param id the taxon identifier code
-#' @param format return in json or xml format (defaults to json)
-#' @param output raw = json or xml; or df = data.frame
-#' @param key Your Tropicos API key; loads from .Rprofile.
-#' @param verbose Print messages (default) or not, logical
 #' @export
 #' @keywords internal
+#' @param ... ignored
 #' @rdname tp_namereferences-deprecated
-tp_namereferences <- function(id, format = 'json', output = 'df', key = NULL, verbose=TRUE)
-{
+tp_namereferences <- function(...) {
   .Deprecated("tp_refs", "taxize", "Function name changed. See tp_refs", "tp_namereferences")
 }

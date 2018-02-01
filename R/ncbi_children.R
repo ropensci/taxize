@@ -34,13 +34,7 @@
 #' @author Zachary Foster \email{zacharyfoster1989@@gmail.com}
 #' 
 #' @section Authentication:
-#' From NCBI's docs: "E-utils users are allowed 3 requests/second without an 
-#' API key. Create an API key (in your account at 
-#' https://www.ncbi.nlm.nih.gov/account/) to increase your e-utils limit to 10 
-#' requests/second. Contact our help department (eutilities@ncbi.nlm.nih.gov) 
-#' if you need higher throughput. Only one API Key per user. Replacing or 
-#' deleting will inactivate the current key. Refer to documentation 
-#' (https://www.ncbi.nlm.nih.gov/books/NBK25497/) for more."
+#' See \code{\link{taxize-authentication}} for help on authentication
 #'
 #' @examples
 #' \dontrun{
@@ -57,7 +51,7 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
                           ancestor = NULL, out_type = c("summary", "uid"), ambiguous = FALSE, 
                           key = NULL, ...) {
 
-  key <- check_entrez_key(key)
+  key <- getkey(key, "ENTREZ_KEY")
 
   # Constants --------------------------------------------------------------------------------------
   ambiguous_regex <- paste(sep = "|", "unclassified", "environmental", "uncultured", "unknown",

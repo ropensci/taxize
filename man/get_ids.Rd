@@ -43,6 +43,11 @@ you like.
 \note{
 There is a timeout of 1/3 seconds between queries to NCBI.
 }
+\section{Authentication}{
+
+See \code{\link{taxize-authentication}} for help on authentication
+}
+
 \examples{
 \dontrun{
 # Plug in taxon names directly
@@ -75,9 +80,7 @@ get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn', rows=1:10)
 get_ids_(c("Chironomus riparius", "Pinus contorta"), db = c('nbn','gbif'), rows=1:10)
 
 # use curl options
-library("httr")
-get_ids("Agapostemon", db = "ncbi", config=verbose())
-bb <- get_ids("Pinus contorta", db = c('nbn','gbif'), config=progress())
+get_ids("Agapostemon", db = "ncbi", verbose = TRUE)
 }
 }
 \seealso{

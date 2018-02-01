@@ -9,9 +9,10 @@ tp_summary(id, key = NULL, ...)
 \arguments{
 \item{id}{the taxon identifier code}
 
-\item{key}{Your Tropicos API key; loads from .Rprofile.}
+\item{key}{Your Tropicos API key; See \code{\link{taxize-authentication}} 
+for help on authentication}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
 }
 \value{
 A data.frame.

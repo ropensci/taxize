@@ -36,6 +36,11 @@ directly, and use \code{\link[taxize]{get_uid}} or
 
 For the other data sources, you can only pass in common names directly.
 }
+\section{Authentication}{
+
+See \code{\link{taxize-authentication}} for help on authentication
+}
+
 \examples{
 \dontrun{
 comm2sci(commnames='black bear')

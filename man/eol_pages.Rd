@@ -59,10 +59,10 @@ The default is to return all content. (Default: \code{FALSE})}
 
 \item{cache_ttl}{The number of seconds you wish to have the response cached.}
 
-\item{key}{Your EOL API key; loads from .Rprofile, or you can specify the
-key manually the in the function call.}
+\item{key}{Your EOL API key; see \code{\link{taxize-authentication}} 
+for help on authentication}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
 }
 \value{
 JSON list object, or data.frame.

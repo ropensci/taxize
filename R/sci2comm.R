@@ -16,18 +16,9 @@
 #' @param id character; identifiers, as returned by
 #' \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_uid}}.
 #'
-#' @details Note that EOL requires an API key. You can pass in your EOL api
-#' key in the function call like
-#' \code{sci2comm('Helianthus annuus', key="<your eol api key>")}. You can
-#' also store your EOL API key in your .Rprofile file as
-#' \code{options(eolApiKey = "<your eol api key>")}, or just for the current
-#' session by running \code{options(eolApiKey = "<your eol api key>")} in
-#' the console.
-#'
-#' Note that IUCN also requires an API key. See
-#' \code{\link[rredlist]{rredlist-package}} for help on authentiating with
-#' IUCN Redlist
-#'
+#' @section Authentication:
+#' See \code{\link{taxize-authentication}} for help on authentication
+#' 
 #' @return List of character vectors, named by input taxon name, or taxon ID
 #'
 #' @seealso \code{\link[taxize]{comm2sci}}
@@ -54,8 +45,7 @@
 #' sci2comm(get_iucn('Loxodonta africana'), simplify=FALSE)
 #'
 #' # Use curl options
-#' library("httr")
-#' sci2comm('Helianthus annuus', db="ncbi", config=verbose())
+#' sci2comm('Helianthus annuus', db="ncbi", verbose = TRUE)
 #' }
 #' @rdname sci2comm
 sci2comm <- function(...){
@@ -181,13 +171,13 @@ itis_foo <- function(x, simplify=TRUE, ...){
 }
 
 ncbi_foo <- function(x, ...){
-  baseurl <- paste0(ncbi_base(), "/entrez/eutils/efetch.fcgi?db=taxonomy")
-  ID <- paste("ID=", x, sep = "")
-  searchurl <- paste(baseurl, ID, sep = "&")
-  tt <- GET(searchurl, ...)
-  stop_for_status(tt)
-  res <- con_utf8(tt)
-  ttp <- xml2::read_xml(res)
+  key <- getkey(NULL, "ENTREZ_KEY")
+  query <- list(db = "taxonomy", ID = x, api_key = key)
+  cli <- crul::HttpClient$new(url = ncbi_base(), opts = list(...))
+  res <- cli$get("entrez/eutils/efetch.fcgi", query = query)
+  res$raise_for_status()
+  tt <- res$parse("UTF-8")
+  ttp <- xml2::read_xml(tt)
   # common name
   out <- xml_text(xml_find_all(ttp,
                                "//TaxaSet/Taxon/OtherNames/GenbankCommonName"))

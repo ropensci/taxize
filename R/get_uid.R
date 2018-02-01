@@ -58,13 +58,11 @@
 #'   about fuzzy matching.
 #' 
 #' @section Authentication:
-#' From NCBI's docs: "E-utils users are allowed 3 requests/second without an 
-#' API key. Create an API key (in your account at 
-#' https://www.ncbi.nlm.nih.gov/account/) to increase your e-utils limit to 10 
-#' requests/second. Contact our help department (eutilities@ncbi.nlm.nih.gov) 
-#' if you need higher throughput. Only one API Key per user. Replacing or 
-#' deleting will inactivate the current key. Refer to documentation 
-#' (https://www.ncbi.nlm.nih.gov/books/NBK25497/) for more."
+#' See \code{\link{taxize-authentication}} for help on authentication
+#' 
+#' Note that even though you can't pass in your key to `as.uid` functions, 
+#' we still use your Entrez API key if you have it saved as an R option
+#' or environment variable.
 #'
 #' @family taxonomic-ids
 #' @seealso \code{\link[taxize]{classification}}
@@ -163,7 +161,7 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
   assert(rank_query, "character")
   assert(division_filter, "character")
   assert(rank_filter, "character")
-  key <- check_entrez_key(key)
+  key <- getkey(key, service="entrez")
 
   fun <- function(sciname, ask, messages, rows, ...) {
     direct <- FALSE
@@ -339,9 +337,10 @@ make_uid <- function(x, check=TRUE) {
 }
 
 check_uid <- function(x){
+  key <- getkey(NULL, "ENTREZ_KEY")
   cli <- crul::HttpClient$new(url = ncbi_base())
   res <- cli$get("entrez/eutils/esummary.fcgi", 
-    query = list(db = "taxonomy", id = x))
+    query = list(db = "taxonomy", id = x, api_key = key))
   res$raise_for_status()
   tt <- xml2::read_xml(res$parse("UTF-8"))
   tryid <- xml2::xml_text(xml2::xml_find_all(tt, "//Id"))
@@ -352,7 +351,7 @@ check_uid <- function(x){
 #' @export
 #' @rdname get_uid
 get_uid_ <- function(sciname, messages = TRUE, rows = NA, key = NULL, ...){
-  key <- check_entrez_key(key)
+  key <- getkey(key, "ENTREZ_KEY")
   stats::setNames(lapply(sciname, get_uid_help, messages = messages, 
     rows = rows, key = key, ...), sciname)
 }

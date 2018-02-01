@@ -10,8 +10,9 @@
 #' @param startrow Your search string. For instance "1"
 #' @param type Type of search, "wildcard" (default) will add a wildcard to the end
 #'    of your search string. "exact" will use your search string exactly.
-#' @param key Your Tropicos API key; loads from .Rprofile.
-#' @param ... Further args passed on to \code{\link[httr]{GET}}
+#' @param key Your Tropicos API key; See \code{\link{taxize-authentication}} 
+#' for help on authentication
+#' @param ... Further args passed on to \code{\link[crul]{HttpClient}}
 #' @return List or dataframe.
 #' @references \url{http://services.tropicos.org/help?method=SearchNameXml}
 #' @details More details on the \code{name} parameter: Tropicos will fail
@@ -30,7 +31,7 @@ tp_search <- function(name=NULL, commonname=NULL, nameid=NULL, orderby=NULL,
   sortorder=NULL, pagesize=NULL, startrow=NULL, type=NULL, key=NULL, ...) {
 
   url = 'http://services.tropicos.org/Name/Search'
-  key <- getkey(key, "tropicosApiKey")
+  key <- getkey(key, "TROPICOS_KEY")
   if (!is.null(name)) {
     if (grepl(paste(sprintf("\\s%s\\.?\\s", subsp_ranks), collapse = "|"), name)) {
       warning("Tropicos doesn't like sub-specific ranks - remove them in your query", call. = FALSE)
@@ -43,12 +44,12 @@ tp_search <- function(name=NULL, commonname=NULL, nameid=NULL, orderby=NULL,
   args <- tc(list(format='json', name=name, nameid=nameid,
                   commonname=commonname, orderby=orderby, sortorder=sortorder,
                   pagesize=pagesize, startrow=startrow, type=type, apikey=key))
-  tt <- GET(url, query = args, ...)
-  warn_for_status(tt)
+  tt <- tp_GET(url, args, raise = FALSE, ...)
   if (tt$status_code > 202) {
+    warning(tt$status_code, " - problem with request")
     NA
   } else {
-    out <- jsonlite::fromJSON(con_utf8(tt), FALSE)
+    out <- jsonlite::fromJSON(tt$parse("UTF-8"), FALSE)
     tmp <- do.call(rbind.fill, lapply(out, data.frame, stringsAsFactors = FALSE))
     setNames(tmp, tolower(names(tmp)))
   }

@@ -26,6 +26,9 @@
 #'
 #' @family taxonomic-ids
 #' @seealso \code{\link[taxize]{classification}}
+#' 
+#' @section Authentication:
+#' See \code{\link{taxize-authentication}} for help on authentication
 #'
 #' @examples \dontrun{
 #' # Plug in taxon names directly
@@ -58,9 +61,7 @@
 #' get_ids_(c("Chironomus riparius", "Pinus contorta"), db = c('nbn','gbif'), rows=1:10)
 #'
 #' # use curl options
-#' library("httr")
-#' get_ids("Agapostemon", db = "ncbi", config=verbose())
-#' bb <- get_ids("Pinus contorta", db = c('nbn','gbif'), config=progress())
+#' get_ids("Agapostemon", db = "ncbi", verbose = TRUE)
 #' }
 
 get_ids <- function(names, db = c('itis','ncbi','eol','col','tropicos','gbif','nbn'), ...) {

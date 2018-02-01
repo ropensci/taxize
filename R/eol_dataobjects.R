@@ -2,13 +2,13 @@
 #'
 #' @export
 #' @param id (character) The EOL data object identifier
-#' @param taxonomy (logical) Whether to return any taxonomy details from different
-#' taxon hierarchy providers, in an array named \code{taxonconcepts}
+#' @param taxonomy (logical) Whether to return any taxonomy details from 
+#' different taxon hierarchy providers, in an array named 
+#' \code{taxonconcepts}
 #' @param usekey (logical) use your API key or not (\code{TRUE} or \code{FALSE})
-#' @param key (character) Your EOL API key; can load from .Rprofile if not passed as a parameter
-#' @param verbose (logical); If TRUE the actual taxon queried is printed on the
-#'    console.
-#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' @param key (character) Your EOL API key; ; see \code{\link{taxize-authentication}} 
+#' for help on authentication
+#' @param ... Curl options passed on to \code{\link[crul]{HttpClient}}
 #' @details It's possible to return JSON or XML with the EOL API. However,
 #' 		this function only returns JSON for now.
 #' @return A list, optionally with a data.frame if \code{taxonomy=TRUE}
@@ -17,15 +17,18 @@
 #' eol_dataobjects(id = "21929584")
 #'
 #' # curl options
-#' library("httr")
-#' eol_dataobjects(id = "21929584", config = verbose())
+#' eol_dataobjects(id = "21929584", verbose = TRUE)
 #' }
-eol_dataobjects <- function(id, taxonomy = TRUE, usekey = TRUE, key = NULL, verbose = TRUE, ...) {
-  if (usekey) key <- getkey(key, "eolApiKey")
-  tt <- GET(file.path(eol_url("data_objects"), paste0(id, ".json")),
-            query = argsnull(tc(list(key = key, taxonomy = as_l(taxonomy)))), ...)
-  stop_for_status(tt)
-  tmp <- jsonlite::fromJSON(con_utf8(tt))
+eol_dataobjects <- function(id, taxonomy = TRUE, usekey = TRUE, key = NULL, ...) {
+  if (usekey) key <- getkey(key, "EOL_KEY")
+  cli <- crul::HttpClient$new(
+    url = file.path(eol_url("data_objects"), paste0(id, ".json")),
+    opts = list(...)
+  )
+  res <- cli$get(query = argsnull(tc(list(key = key, taxonomy = as_l(taxonomy)))))
+  res$raise_for_status()
+  tt <- res$parse("UTF-8")
+  tmp <- jsonlite::fromJSON(tt)
   tmp <- nmslwr(tmp)
   if (taxonomy) {
     tmp$taxonconcepts <- nmslwr(tmp$taxonconcepts)

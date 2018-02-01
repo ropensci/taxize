@@ -13,7 +13,7 @@
 #' @param key API key. passed on to \code{\link{eol_search}} and
 #' \code{\link{eol_pages}} internally
 #' @param ... Further args passed on to \code{\link{eol_search}}
-#' @param verbose logical; If \code{TRUE} the actual taxon queried is printed
+#' @param messages logical; If \code{TRUE} the actual taxon queried is printed
 #' on the console.
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, all
 #' rows are considered. Note that this function still only gives back a eolid
@@ -24,6 +24,9 @@
 #' @param check logical; Check if ID matches any existing on the DB, only
 #' used in \code{\link{as.eolid}}
 #' @template getreturn
+#' 
+#' @section Authentication:
+#' See \code{\link{taxize-authentication}} for help on authentication
 #'
 #' @family taxonomic-ids
 #' @seealso \code{\link[taxize]{classification}}
@@ -90,20 +93,20 @@
 #' get_eolid_(c("asdfadfasd", "Pinus contorta"))
 #' }
 
-get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL,
+get_eolid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
                       rows = NA, ...){
 
   assert(ask, "logical")
-  assert(verbose, "logical")
-  fun <- function(sciname, ask, verbose, rows, ...) {
+  assert(messages, "logical")
+  fun <- function(sciname, ask, messages, rows, ...) {
     direct <- FALSE
-    mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
+    mssg(messages, "\nRetrieving data for taxon '", sciname, "'\n")
     tmp <- eol_search(terms = sciname, key = key, ...)
 
     ms <- "Not found. Consider checking the spelling or alternate classification"
     datasource <- NA_character_
     if (all(is.na(tmp))) {
-      mssg(verbose, ms)
+      mssg(messages, ms)
       id <- NA_character_
       page_id <- NA_character_
       att <- "not found"
@@ -113,7 +116,7 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL,
 
       if (length(pageids) == 0) {
         if (nrow(tmp) > 0)
-        mssg(verbose, paste(ms, sprintf('\nDid find: %s',
+        mssg(messages, paste(ms, sprintf('\nDid find: %s',
                                         paste(tmp$name, collapse = "; "))))
         id <- NA_character_
       } else {
@@ -134,7 +137,7 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL,
         df <- sub_rows(df, rows)
 
         if (nrow(df) == 0) {
-          mssg(verbose, ms)
+          mssg(messages, ms)
           id <- NA_character_
           page_id <- NA_character_
         } else{
@@ -146,7 +149,7 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL,
 
     # not found on eol
     if (length(id) == 0 || all(is.na(id))) {
-      mssg(verbose, ms)
+      mssg(messages, ms)
       id <- NA_character_
       page_id <- NA_character_
       att <- 'not found'
@@ -186,7 +189,7 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL,
           id <- NA_character_
           page_id <- NA_character_
           att <- 'not found'
-          mssg(verbose, "\nReturned 'NA'!\n\n")
+          mssg(messages, "\nReturned 'NA'!\n\n")
         }
       } else {
         if (length(id) != 1) {
@@ -205,7 +208,7 @@ get_eolid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL,
          att = att, multiple = mm, direct = direct)
   }
   sciname <- as.character(sciname)
-  out <- lapply(sciname, fun, ask = ask, verbose = verbose, rows = rows, ...)
+  out <- lapply(sciname, fun, ask = ask, messages = messages, rows = rows, ...)
   ids <- unname(sapply(out, "[[", "id"))
   sources <- pluck(out, "source", "")
   ids <- structure(ids, class = "eolid", provider = sources,
@@ -327,13 +330,13 @@ get_eol_pageid <- function(x){
 
 #' @export
 #' @rdname get_eolid
-get_eolid_ <- function(sciname, verbose = TRUE, key = NULL, rows = NA, ...){
-  stats::setNames(lapply(sciname, get_eolid_help, verbose = verbose,
+get_eolid_ <- function(sciname, messages = TRUE, key = NULL, rows = NA, ...){
+  stats::setNames(lapply(sciname, get_eolid_help, messages = messages,
                   key = key, rows = rows, ...), sciname)
 }
 
-get_eolid_help <- function(sciname, verbose, key, rows, ...){
-  mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
+get_eolid_help <- function(sciname, messages, key, rows, ...){
+  mssg(messages, "\nRetrieving data for taxon '", sciname, "'\n")
   tmp <- eol_search(terms = sciname, key, ...)
 
   if (all(is.na(tmp))) {

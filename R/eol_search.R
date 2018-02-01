@@ -15,10 +15,15 @@
 #' and that matching page will be used as the taxonomic group against which
 #' to filter search results
 #' @param cache_ttl The number of seconds you wish to have the response cached.
-#' @param key Your EOL API key; loads from .Rprofile.
-#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' @param key Your EOL API key. See \code{\link{taxize-authentication}} for 
+#' help on authentication
+#' @param ... Curl options passed on to \code{\link[crul]{HttpClient}}
 #' @details It's possible to return JSON or XML with the EOL API. However,
 #' 		this function only returns JSON for now.
+#' 
+#' @section Authentication:
+#' See \code{\link{taxize-authentication}} for help on authentication
+#' 
 #' @return A data frame with four columns:
 #' \itemize{
 #'  \item pageid: pageid, this is the same as the eolid you can get from
@@ -39,17 +44,22 @@
 eol_search <- function(terms, page=1, exact=NULL, filter_tid=NULL,
   filter_heid=NULL, filter_by_string=NULL, cache_ttl=NULL, key = NULL, ...) {
 
-	key <- getkey(key, "eolApiKey")
+	key <- getkey(key, "EOL_KEY")
 	query <- gsub("\\s", "+", terms)
   args <- tc(list(q = query, page = page, exact = exact,
                   filter_by_taxon_concept_id = filter_tid,
                   filter_by_hierarchy_entry_id = filter_heid,
                   filter_by_string = filter_by_string,
                   cache_ttl = cache_ttl, key = key))
-  tt <- GET(paste0(eol_url("search"), ".json"), query = argsnull(args), ...)
-  warn_for_status(tt)
-  stopifnot(tt$headers$`content-type`[1] == 'application/json; charset=utf-8')
-  res <- jsonlite::fromJSON(con_utf8(tt), FALSE, encoding = "utf-8")
+  cli <- crul::HttpClient$new(
+    url = paste0(eol_url("search"), ".json"),
+    opts = list(...)
+  )
+  res <- cli$get(query = argsnull(args))
+  res$raise_for_status()
+  tt <- res$parse("UTF-8")
+  stopifnot(res$response_headers$`content-type`[1] == 'application/json; charset=utf-8')
+  res <- jsonlite::fromJSON(tt, FALSE, encoding = "utf-8")
   if (res$totalResults == 0 | length(res$results) == 0) {
     data.frame(pageid = NA, name = NA, stringsAsFactors = FALSE)
   } else {

@@ -19,6 +19,10 @@
 #' \code{\link[taxize]{get_tsn}} to get ids first, then pass in to this fxn.
 #'
 #' For the other data sources, you can only pass in common names directly.
+#' 
+#' @section Authentication:
+#' See \code{\link{taxize-authentication}} for help on authentication
+#' 
 #' @author Scott Chamberlain
 #' @examples \dontrun{
 #' comm2sci(commnames='black bear')
@@ -128,13 +132,13 @@ c2s_itis_ <- function(x, by='search', simplify, ...){
 }
 
 c2s_ncbi <- function(x, simplify, ...) {
-  baseurl <- paste0(ncbi_base(), "/entrez/eutils/efetch.fcgi?db=taxonomy")
-  ID <- paste("ID=", x, sep = "")
-  searchurl <- paste(baseurl, ID, sep = "&")
-  tt <- GET(searchurl)
-  stop_for_status(tt)
-  res <- con_utf8(tt)
-  ttp <- xml2::read_xml(res)
+  key <- getkey(NULL, "ENTREZ_KEY")
+  query <- list(db = "taxonomy", ID = x, api_key = key)
+  cli <- crul::HttpClient$new(url = ncbi_base(), options = list(...))
+  res <- cli$get("entrez/eutils/efetch.fcgi", query = query)
+  res$raise_for_status()
+  tt <- res$parse("UTF-8")
+  ttp <- xml2::read_xml(tt)
   # common name
   out <- xml_text(xml_find_all(ttp, "//TaxaSet/Taxon/ScientificName"))
   # NCBI limits requests to three per second

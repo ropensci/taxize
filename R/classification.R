@@ -33,7 +33,6 @@
 #' 		single query is 500 for terse queries and 50 for full queries).
 #' @param checklist character; The year of the checklist to query, if you want
 #' a specific year's checklist instead of the lastest as default (numeric).
-#' @param key Your API key; loads from .Rprofile.
 #' @param return_id (logical) If \code{TRUE} (default), return the taxon id
 #' as well as the name and rank of taxa in the lineage returned.
 #' Ignored for natserv as they don't return IDs in their taxonomic
@@ -66,6 +65,9 @@
 #' (unlikely to happen), or in the code in this package (more likely) -
 #' let us know if you run into too many results problem and we'll see what
 #' we can do.
+#' 
+#' @section Authentication:
+#' See \code{\link{getkey}}
 #'
 #' @examples \dontrun{
 #' # Plug in taxon IDs
@@ -80,6 +82,7 @@
 #' classification("NBNSYS0000004786", db = 'nbn')
 #' classification(as.nbnid("NBNSYS0000004786"), db = 'nbn')
 #' classification(3930798, db = 'tol')
+#' 
 #' ## works the same if IDs are in class character
 #' classification(c("2704179", "2441176"), db = 'gbif')
 #' classification("Agapostemon", db = "bold")
@@ -321,17 +324,21 @@ classification.uid <- function(id, callopts = list(), return_id = TRUE, ...) {
     if (is.na(x)) {
       out <- NA
     } else {
-      baseurl <- paste0(ncbi_base(), "/entrez/eutils/efetch.fcgi?db=taxonomy")
-      ID <- paste("ID=", x, sep = "")
-      searchurl <- paste(baseurl, ID, sep = "&")
-      res <- GET(searchurl, callopts)
-      stop_for_status(res)
-      tt <- con_utf8(res)
+      key <- getkey(NULL, service="entrez")
+      query <- list(db = "taxonomy", ID = x, api_key = key)
+      cli <- crul::HttpClient$new(url = ncbi_base(), opts = callopts)
+      res <- cli$get("entrez/eutils/efetch.fcgi", query = query)
+      res$raise_for_status()
+      tt <- res$parse("UTF-8")
       ttp <- xml2::read_xml(tt)
-      out <- data.frame(name = xml2::xml_text(xml2::xml_find_all(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/ScientificName")),
-                        rank = xml2::xml_text(xml2::xml_find_all(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/Rank")),
-                        id = xml2::xml_text(xml2::xml_find_all(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/TaxId")),
-                        stringsAsFactors = FALSE)
+      out <- data.frame(
+        name = xml2::xml_text(
+          xml2::xml_find_all(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/ScientificName")),
+        rank = xml2::xml_text(
+          xml2::xml_find_all(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/Rank")),
+        id = xml2::xml_text(
+          xml2::xml_find_all(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/TaxId")),
+        stringsAsFactors = FALSE)
       if (NROW(out) == 0) {
         out <- NA
       } else {
@@ -356,14 +363,15 @@ classification.uid <- function(id, callopts = list(), return_id = TRUE, ...) {
 
 #' @export
 #' @rdname classification
-classification.eolid <- function(id, key = NULL, callopts = list(), return_id = TRUE, ...) {
+classification.eolid <- function(id, callopts = list(), return_id = TRUE, ...) {
   common_names = synonyms = NULL
   fun <- function(x){
     if (is.na(x)) {
       out <- NA
     } else {
-      url = 'http://eol.org/api/hierarchy_entries/1.0/'
-      key <- getkey(key, "eolApiKey")
+      url <- 
+      'http://eol.org/api/hierarchy_entries/1.0/'
+      key <- getkey(NULL, "EOL_KEY")
       urlget <- paste(url, x, '.json', sep = "")
       args <- tc(list(common_names = common_names, synonyms = synonyms))
       tt <- GET(urlget, query = args, callopts)
@@ -432,13 +440,13 @@ search_col_classification_df <- function(x) {
 
 #' @export
 #' @rdname classification
-classification.tpsid <- function(id, key = NULL, callopts = list(), return_id = TRUE, ...) {
+classification.tpsid <- function(id, callopts = list(), return_id = TRUE, ...) {
   fun <- function(x, callopts){
     if (is.na(x)) {
       out <- NA
     } else {
       url <- sprintf('http://services.tropicos.org/Name/%s/HigherTaxa', x)
-      key <- getkey(key, "tropicosApiKey")
+      key <- getkey(NULL, "TROPICOS_KEY")
       args <- tc(list(format = 'json', apikey = key))
       tt <- GET(url, query = args, callopts)
       stop_for_status(tt)

@@ -10,7 +10,7 @@
 #' @param ask logical; should get_tsn be run in interactive mode?
 #' If \code{TRUE} and more than one TSN is found for the species, the user is asked for
 #' input. If \code{FALSE} NA is returned for multiple matches.
-#' @param verbose logical; should progress be printed?
+#' @param messages logical; should progress be printed?
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, all rows are considered.
 #' Note that this function still only gives back a tsn class object with one to many identifiers.
 #' See \code{\link[taxize]{get_tsn_}} to get back all, or a subset, of the raw data that you are
@@ -70,16 +70,16 @@
 #' }
 
 get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE,
-                    ask = TRUE, verbose = TRUE, rows = NA, ...) {
+                    ask = TRUE, messages = TRUE, rows = NA, ...) {
 
   assert(ask, "logical")
-  assert(verbose, "logical")
+  assert(messages, "logical")
   assert(searchtype, "character")
   assert(accepted, "logical")
 
-  fun <- function(x, searchtype, ask, verbose, rows, ...) {
+  fun <- function(x, searchtype, ask, messages, rows, ...) {
     direct <- FALSE
-    mssg(verbose, "\nRetrieving data for taxon '", x, "'\n")
+    mssg(messages, "\nRetrieving data for taxon '", x, "'\n")
 
     searchtype <- match.arg(searchtype, c("scientific", "common"))
     tsn_df <- ritis::terms(x, what = searchtype, ...)
@@ -104,7 +104,7 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE,
 
       # should return NA if spec not found
       if (nrow(tsn_df) == 0) {
-        mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
+        mssg(messages, "Not found. Consider checking the spelling or alternate classification")
         tsn <- NA_character_
         att <- 'not found'
       }
@@ -169,7 +169,7 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE,
             att <- 'found'
           } else {
             tsn <- NA_character_
-            mssg(verbose, "\nReturned 'NA'!\n\n")
+            mssg(messages, "\nReturned 'NA'!\n\n")
             att <- 'not found'
           }
         } else {
@@ -195,7 +195,7 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE,
       stringsAsFactors = FALSE)
   }
   searchterm <- as.character(searchterm)
-  outd <- ldply(searchterm, fun, searchtype, ask, verbose, rows, ...)
+  outd <- ldply(searchterm, fun, searchtype, ask, messages, rows, ...)
   out <- outd$tsn
   attr(out, 'match') <- outd$att
   attr(out, 'multiple_matches') <- outd$multiple
@@ -258,17 +258,17 @@ check_tsn <- function(x){
 
 #' @export
 #' @rdname get_tsn
-get_tsn_ <- function(searchterm, verbose = TRUE, searchtype = "scientific",
+get_tsn_ <- function(searchterm, messages = TRUE, searchtype = "scientific",
                      accepted = TRUE, rows = NA, ...) {
   stats::setNames(
-    lapply(searchterm, get_tsn_help, verbose = verbose,
+    lapply(searchterm, get_tsn_help, messages = messages,
            searchtype = searchtype, accepted = accepted, rows = rows, ...),
     searchterm
   )
 }
 
-get_tsn_help <- function(searchterm, verbose, searchtype, accepted, rows, ...) {
-  mssg(verbose, "\nRetrieving data for taxon '", searchterm, "'\n")
+get_tsn_help <- function(searchterm, messages, searchtype, accepted, rows, ...) {
+  mssg(messages, "\nRetrieving data for taxon '", searchterm, "'\n")
   searchtype <- match.arg(searchtype, c("scientific","common"))
   df <- ritis::terms(searchterm, what = searchtype, ...)
   if (!inherits(df, "tbl_df") || NROW(df) == 0) {

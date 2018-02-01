@@ -4,7 +4,7 @@
 \alias{tax_name}
 \title{Get taxonomic names for a given rank}
 \usage{
-tax_name(query, get, db = "itis", pref = "ncbi", verbose = TRUE, ...)
+tax_name(query, get, db = "itis", pref = "ncbi", messages = TRUE, ...)
 }
 \arguments{
 \item{query}{(character) Vector of taxonomic names to query. required.}
@@ -19,11 +19,11 @@ both.}
 \item{pref}{(character) If db = 'both', sets the preference for the union.
 Either 'ncbi' (default) or 'itis'. Currently not implemented.}
 
-\item{verbose}{(logical) If \code{TRUE} the actual taxon queried is printed
-on the console.}
-
 \item{...}{Other arguments passed to \code{\link{get_tsn}} or
 \code{\link{get_uid}}.}
+
+\item{verbose}{(logical) If \code{TRUE} the actual taxon queried is printed
+on the console.}
 }
 \value{
 A data.frame with one column for every queried rank, in addition to
@@ -37,6 +37,11 @@ While \code{\link{tax_rank}} returns the actual rank of a
 taxon, \code{\link{tax_name}} searches and returns any specified rank
 higher in taxonomy.
 }
+\section{Authentication}{
+
+See \code{\link{taxize-authentication}} for help on authentication
+}
+
 \examples{
 \dontrun{
 # A case where itis and ncbi use the same names

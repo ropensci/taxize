@@ -22,6 +22,10 @@
 #'  \item rank
 #'  \item id
 #' }
+#' 
+#' @section Authentication:
+#' See \code{\link{taxize-authentication}} for help on authentication
+#' 
 #' @author Jimmy O'Donnell \email{jodonnellbio@@gmail.com}
 #' Scott Chamberlain \email{myrmecocystus@gmail.com}
 #' @examples \dontrun{

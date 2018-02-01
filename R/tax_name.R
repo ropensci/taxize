@@ -20,6 +20,9 @@
 #' @note While \code{\link{tax_rank}} returns the actual rank of a
 #' taxon, \code{\link{tax_name}} searches and returns any specified rank
 #' higher in taxonomy.
+#' 
+#' @section Authentication:
+#' See \code{\link{taxize-authentication}} for help on authentication
 #'
 #' @seealso \code{\link{classification}}
 #'
@@ -45,7 +48,7 @@
 #' "kingdom"), db="both")
 #' }
 
-tax_name <- function(query, get, db = "itis", pref = 'ncbi', verbose = TRUE,
+tax_name <- function(query, get, db = "itis", pref = 'ncbi', messages = TRUE,
                      ...) {
 
   if (missing(get)) stop("you must supply a 'get' value", call. = FALSE)
@@ -54,51 +57,76 @@ tax_name <- function(query, get, db = "itis", pref = 'ncbi', verbose = TRUE,
     stop("if db=both, pref must be either 'itis' or 'ncbi'!\n", call. = FALSE)
   }
 
-  fun <- function(query, get, db, verbose, ...){
+  fun <- function(query, get, db, messages, ...){
     # NCBI
-    if (db == "ncbi") return( do_ncbi(query, get, verbose, ...) )
+    if (db == "ncbi") return( do_ncbi(query, get, messages, ...) )
     # ITIS
-  	if (db == "itis") return( do_itis(query, get, verbose, ...) )
+  	if (db == "itis") return( do_itis(query, get, messages, ...) )
     # combine both
     if (db == 'both') {
-      match_uid <- do_ncbi(query, get, verbose, TRUE, ...)
-      match_tsn <- do_itis(query, get, verbose, TRUE, ...)
+      match_uid <- do_ncbi(query, get, messages, TRUE, ...)
+      match_tsn <- do_itis(query, get, messages, TRUE, ...)
       setNames(
         data.frame(rbind(t(c("itis", match_tsn)), t(c("ncbi", match_uid))),
                    stringsAsFactors = FALSE), c("db", "query", get))
     }
   }
-  plyr::ldply(query, .fun = fun, get = get, db = db, verbose = verbose, ...)
+  plyr::ldply(query, .fun = fun, get = get, db = db, messages = messages, ...)
 }
 
-do_ncbi <- function(query, get, verbose, both=FALSE, rows = NA, ...) {
-  uid <- get_uid(query, verbose = verbose, ...)
+do_ncbi <- function(query, get, messages, both=FALSE, rows = NA, ...) {
+  uid <- get_uid(query, messages = messages, ...)
   if (is.na(uid)) {
-    if (verbose) message("No UID found for species '", query, "'!\n")
-    if (both) c(query, rep(NA, length(get))) else setNames(data.frame(t(c("ncbi", query, rep(NA, length(get))))), c("db", "query", get))
+    if (messages) message("No UID found for species '", query, "'!\n")
+    if (both) {
+      c(query, rep(NA, length(get))) 
+    } else {
+      stats::setNames(
+        data.frame(t(c("ncbi", query, rep(NA, length(get)))), stringsAsFactors = FALSE), 
+        c("db", "query", get)
+      )
+    }
   } else {
     hierarchy <- classification(uid, ...)[[1]]
     if (all(is.na(hierarchy))) return(NULL)
     match <- hierarchy$name[match(tolower(get), tolower(hierarchy$rank))]
-    if (both) c(query, match) else setNames(data.frame(t(c("ncbi", query, match)), stringsAsFactors = FALSE), c("db", "query", get))
+    if (both) {
+      c(query, match) 
+    } else {
+      stats::setNames(
+        data.frame(t(c("ncbi", query, match)), stringsAsFactors = FALSE), 
+        c("db", "query", get)
+      )
+    }
   }
 }
 
-do_itis <- function(query, get, verbose, both = FALSE, rows = NA, ...){
-  tsn <- get_tsn(query, searchtype = "scientific", verbose = verbose,
+do_itis <- function(query, get, messages, both = FALSE, rows = NA, ...){
+  tsn <- get_tsn(query, searchtype = "scientific", messages = messages,
                  rows = rows, ...)
   if (is.na(tsn)) {
-    if (verbose) message("No TSN found for species '", query, "'!\n")
-    if (both) c(query, rep(NA, length(get))) else setNames(data.frame(t(c("itis", query, rep(NA, length(get)))), stringsAsFactors = FALSE), c("db", "query", get))
+    if (messages) message("No TSN found for species '", query, "'!\n")
+    if (both) {
+      c(query, rep(NA, length(get))) 
+    } else {
+      stats::setNames(
+        data.frame(t(c("itis", query, rep(NA, length(get)))), stringsAsFactors = FALSE), 
+        c("db", "query", get)
+      )
+    }
   } else {
-    tt <- classification(tsn, verbose = verbose, ...)[[1]]
+    tt <- classification(tsn, messages = messages, ...)[[1]]
     if (all(is.na(tt))) {
       warning(sprintf("%s: no hierarchy data found in ITIS", query), call. = FALSE)
-      setNames(data.frame(t(c("itis", query, rep(NA, length(get)))), stringsAsFactors = FALSE), c("db", "query", get))
+      stats::setNames(
+        data.frame(t(c("itis", query, rep(NA, length(get)))), stringsAsFactors = FALSE),
+        c("db", "query", get)
+      )
     } else {
       if (max(unlist(Filter(function(x) length(x) > 0, sapply(get, which_rank)))) <
           which_rank(tt$rank[1])) {
-        warning(sprintf("%s: highest rank of ITIS classification is '%s'", query, tt$rank[1]), call. = FALSE)
+        warning(sprintf("%s: highest rank of ITIS classification is '%s'", query, tt$rank[1]), 
+          call. = FALSE)
       }
       if (!all(tolower(get) %in% tolower(tt$rank))) {
         warning(
@@ -114,7 +142,7 @@ do_itis <- function(query, get, verbose, both = FALSE, rows = NA, ...){
         if (length(out) == 0) out <- rep(NA_character_, length(get))
         rname <- tolower(tt[tolower(tt$rank) %in% tolower(get), ]$rank)
         if (length(rname) == 0) rname <- get
-        setNames(
+        stats::setNames(
           data.frame(t(c("itis", query, out)), stringsAsFactors = FALSE),
           c("db", "query", rname)
         )

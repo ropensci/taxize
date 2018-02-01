@@ -52,13 +52,7 @@ taxa with the same name and the same specified ancestor.
 }
 \section{Authentication}{
 
-From NCBI's docs: "E-utils users are allowed 3 requests/second without an 
-API key. Create an API key (in your account at 
-https://www.ncbi.nlm.nih.gov/account/) to increase your e-utils limit to 10 
-requests/second. Contact our help department (eutilities@ncbi.nlm.nih.gov) 
-if you need higher throughput. Only one API Key per user. Replacing or 
-deleting will inactivate the current key. Refer to documentation 
-(https://www.ncbi.nlm.nih.gov/books/NBK25497/) for more."
+See \code{\link{taxize-authentication}} for help on authentication
 }
 
 \examples{

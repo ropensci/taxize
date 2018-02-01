@@ -12,7 +12,7 @@
 \alias{get_eolid_}
 \title{Get the EOL ID from Encyclopedia of Life from taxonomic names.}
 \usage{
-get_eolid(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA,
+get_eolid(sciname, ask = TRUE, messages = TRUE, key = NULL, rows = NA,
   ...)
 
 as.eolid(x, check = TRUE)
@@ -29,7 +29,7 @@ as.eolid(x, check = TRUE)
 
 \method{as.data.frame}{eolid}(x, ...)
 
-get_eolid_(sciname, verbose = TRUE, key = NULL, rows = NA, ...)
+get_eolid_(sciname, messages = TRUE, key = NULL, rows = NA, ...)
 }
 \arguments{
 \item{sciname}{character; scientific name.}
@@ -38,7 +38,7 @@ get_eolid_(sciname, verbose = TRUE, key = NULL, rows = NA, ...)
 If TRUE and more than one ID is found for the species, the user is asked for
 input. If FALSE NA is returned for multiple matches.}
 
-\item{verbose}{logical; If \code{TRUE} the actual taxon queried is printed
+\item{messages}{logical; If \code{TRUE} the actual taxon queried is printed
 on the console.}
 
 \item{key}{API key. passed on to \code{\link{eol_search}} and
@@ -87,6 +87,11 @@ get the page id for a taxon by using \code{\link{eol_search}} and
 taxon will lead you to the taxon page, and the ID in the URL is the
 page id.
 }
+\section{Authentication}{
+
+See \code{\link{taxize-authentication}} for help on authentication
+}
+
 \examples{
 \dontrun{
 get_eolid(sciname='Pinus contorta')
