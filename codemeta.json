@@ -1,5 +1,8 @@
 {
-  "@context": ["http://purl.org/codemeta/2.0", "http://schema.org"],
+  "@context": [
+    "http://purl.org/codemeta/2.0",
+    "http://schema.org"
+  ],
   "@type": "SoftwareSourceCode",
   "identifier": "taxize",
   "description": "Interacts with a suite of web 'APIs' for taxonomic tasks,\n    such as getting database specific taxonomic identifiers, verifying\n    species names, getting taxonomic hierarchies, fetching downstream and\n    upstream taxonomic names, getting taxonomic synonyms, converting\n    scientific to common names and vice versa, and more.",
@@ -7,7 +10,7 @@
   "codeRepository": "https://github.com/ropensci/taxize",
   "issueTracker": "https://github.com/ropensci/taxize/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.9.0.9371",
+  "version": "0.9.2",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -89,18 +92,6 @@
       "@type": "SoftwareApplication",
       "identifier": "testthat",
       "name": "testthat",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      }
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "roxygen2",
-      "name": "roxygen2",
-      "version": "6.0.1",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -381,7 +372,7 @@
   "contIntegration": "https://travis-ci.org/ropensci/taxize",
   "releaseNotes": "https://github.com/ropensci/taxize/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/taxize/blob/master/README.md",
-  "fileSize": "412.241KB",
+  "fileSize": "413.696KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
@@ -456,5 +447,8 @@
       "url": "https://github.com/ropensci/taxize",
       "description": "R package version 0.7.8"
     }
-  ]
+  ],
+  "applicationCategory": "Taxonomy",
+  "isPartOf": "https://ropensci.org",
+  "keywords": ["taxonomy", "biology", "nomenclature", "JSON", "API", "web", "api-client", "identifiers", "species", "names"]
 }
