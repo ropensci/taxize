@@ -86,25 +86,49 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
     } else {
       ancestor_query <- paste0("+AND+", ancestor, "[subtree]")
     }
-
-    args <- list(
-      db = 'taxonomy', 
-      term = paste0(name, "[Next+Level]", ancestor_query),
-      RetMax = max_return,
-      RetStart = start,
-      api_key = key
-    )
-    args$term <- gsub("\\+", " ", args$term)
-
-    # Search ncbi for children - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    cli <- crul::HttpClient$new(ncbi_base(), opts = list(...))
-    rr <- cli$get('entrez/eutils/esearch.fcgi', query = args)
-    rr$raise_for_status()
-    raw_results <- rr$parse("UTF-8")
-
-    # Parse results  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    results <- xml2::read_xml(raw_results)
-    children_uid <- xml2::xml_text(xml2::xml_find_all(results, "//eSearchResult/IdList/Id"))
+    
+    if (is.null(id)) {
+      args <- list(
+        db = 'taxonomy', 
+        term = paste0(name, "[Next+Level]", ancestor_query),
+        RetMax = max_return,
+        RetStart = start,
+        api_key = key
+      )
+      args$term <- gsub("\\+", " ", args$term)
+      
+      # Search ncbi for children - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      cli <- crul::HttpClient$new(ncbi_base(), opts = list(...))
+      rr <- cli$get('entrez/eutils/esearch.fcgi', query = args)
+      rr$raise_for_status()
+      raw_results <- rr$parse("UTF-8")
+      
+      # Parse results  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      results <- xml2::read_xml(raw_results)
+      children_uid <- xml2::xml_text(xml2::xml_find_all(results, "//eSearchResult/IdList/Id"))
+      
+    } else {
+      args <- list(
+        dbfrom = 'taxonomy',
+        db = 'taxonomy',
+        id = id,
+        term = paste0(name, "[Next+Level]"),
+        RetMax = max_return,
+        RetStart = start,
+        api_key = key
+      )
+      args$term <- gsub("\\+", " ", args$term)
+      
+      # Search ncbi for children - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      cli <- crul::HttpClient$new(ncbi_base(), opts = list(...))
+      rr <- cli$get('entrez/eutils/elink.fcgi', query = args)
+      rr$raise_for_status()
+      raw_results <- rr$parse("UTF-8")
+      
+      # Parse results  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      results <- xml2::read_xml(raw_results)
+      children_uid <- xml2::xml_text(xml2::xml_find_all(results, "//eLinkResult/LinkSet/LinkSetDb/Link/Id"))
+    }
     if (length(children_uid) == 0) {
       if (out_type == "summary") {
         output <- data.frame(
