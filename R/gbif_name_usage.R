@@ -22,7 +22,7 @@
 #' @param language (character) Language, default is english
 #' @param sourceId (numeric) Filters by the source identifier. Not used right now.
 #' @param shortname (character) A short name..need more info on this?
-#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' @param ... Curl options passed on to \code{\link[crul]{HttpClient}}
 #' @param limit Number of records to return
 #' @param start Record number to start at
 #' @references \url{http://www.gbif.org/developer/summary}
@@ -68,10 +68,11 @@ gbif_name_usage <- function(key=NULL, name=NULL, data='all', language=NULL, data
             url <- sprintf('http://api.gbif.org/v1/species/root/%s/%s', uuid, shortname)
           }
     }
-    tt <- GET(url, query = args, ...)
-    stop_for_status(tt)
-    stopifnot(tt$headers$`content-type` == 'application/json')
-    jsonlite::fromJSON(con_utf8(tt), FALSE)
+    cli <- crul::HttpClient$new(url = url, opts = list(...))
+    res <- cli$get(query = args)
+    res$raise_for_status()
+    stopifnot(res$response_headers$`content-type` == 'application/json')
+    jsonlite::fromJSON(res$parse("UTF-8"), FALSE)
   }
 
   # Get data
