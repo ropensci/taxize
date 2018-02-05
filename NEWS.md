@@ -1,10 +1,33 @@
-Development version
+taxize 0.9.2
 ===================
+
+### NEW FEATURES
+
+* `class2tree()` gets a major overhaul thanks to @gedankenstuecke and @trvinh (!!). The function now takes unnamed ranks into account when clustering, which fixes problem where trees were unresolved for many splits as the named taxonomy levels were shared between them. Now it makes full use of the NCBI Taxonomy string, including the unnamed ranks, leading to higher resolution trees that have less multifurcations (#611) (#634)
+* Added support throughout package for use of NCBI Entrez API keys - NCBI now strongly encourages their use and you get a higher rate limit when you use one. See `?taxize-authentication` for help. Importantly, note that API key names (both R options and environment variables) have changed. They are now the same for R options and env vars: TROPICOS_KEY, EOL_KEY, PLANTMINER_KEY, ENTREZ_KEY (#640) (#646)
+* New author Zebulun Arendsee (@arendsee)
+* New package dependencies: `crul` and `zoo`
+
+### MINOR IMPROVEMENTS
+
+* In `downstream()` we now pass on `limit` and `start` parameters to `gbif_downstream()`; we weren't doing that before; the two parameters control pagination (#638)
+*  `genbank2uid()` now returns the correct ID when there are multiple possibilities and invalid IDs no longer make whole batches fail (#642) thanks @zachary-foster
+* `children()` outputs made more consistent for certain cases when no results found for searches (#648) (#649) thanks @arendsee
+* Improve `downstream()` by passing `...` (additional parameters) down to `ncbi_children()` used internally. allows e.g., use of `ambiguous` parameter in `ncbi_children()` allows you to remove ambiguousl named nodes (#653) (#654) thanks @arendsee
+* swapped out use of `httr` for `crul` in EOL and Tropics functions - note that this won't affect you unless you're passing curl options. see package `crul` for help on curl options. Along with this change, the parameter `verbose` has changed to `messages` (for toggling printing of information messages)
+
+### DOCUMENTATION
+
+* Added additional text to the `CONTRIBUTING.md` file for how to contribute to the test suite (#635)
 
 ### BUG FIXES
 
-* `genbank2uid` now returns the correct ID when there are multiple possibilities
-and invalid IDs no longer make whole batches fail.
+* `genbank2uid` now returns the correct ID when there are multiple possibilities and invalid IDs no longer make whole batches fail.
+* Fix to `downstream()`: passing numeric taxon ids to the function while using `db="ncbi"` wasn't working (#641) thanks @arendsee
+* Fix to `children()`: passing numeric taxon ids to the function while using `db="worms"` wasn't working (#650) (#651) thanks @arendsee
+* `synonyms_df()` - that attemps to combine many outputs from the `synonyms()` function -  now removes NA/NULL/empy outputs before attempting the combination (#636)
+* Fix to `gnr_resolve()`: before if `preferred_data_sources` was used, you would get the preferred data but only a few columns of the response. We now return all fields; however, we only return the preferred data part when that parameter is used  (#656)
+* Fixes to `children()`. It was returning unexpected results for amgiguous taxonomic names (e.g., there's some insects that are returned when searching within Bacteria). It was also failing when one tried to get the children of a root taxon (e.g., the children of the NCBI id 131567). (#639) (#647) fixed via PR (#659) thanks @arendsee and @zachary-foster
 
 
 taxize 0.9.0
