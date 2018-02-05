@@ -4,7 +4,7 @@ taxize 0.9.2
 ### NEW FEATURES
 
 * `class2tree()` gets a major overhaul thanks to @gedankenstuecke and @trvinh (!!). The function now takes unnamed ranks into account when clustering, which fixes problem where trees were unresolved for many splits as the named taxonomy levels were shared between them. Now it makes full use of the NCBI Taxonomy string, including the unnamed ranks, leading to higher resolution trees that have less multifurcations (#611) (#634)
-* Added support throughout package for use of NCBI Entrez API keys - NCBI now strongly encourages their use and you get a higher rate limit when you use one. See `?taxize-authentication` for help. Importantly, note that API key names (both R options and environment variables) have changed. They are now the same for R options and env vars: TROPICOS_KEY, EOL_KEY, PLANTMINER_KEY, ENTREZ_KEY (#640) (#646)
+* Added support throughout package for use of NCBI Entrez API keys - NCBI now strongly encourages their use and you get a higher rate limit when you use one. See `?taxize-authentication` for help. Importantly, note that API key names (both R options and environment variables) have changed. They are now the same for R options and env vars: TROPICOS_KEY, EOL_KEY, PLANTMINER_KEY, ENTREZ_KEY. You no longer need an API key for Plantminer. (#640) (#646)
 * New author Zebulun Arendsee (@arendsee)
 * New package dependencies: `crul` and `zoo`
 
