@@ -24,7 +24,8 @@ species names.
 General functions in the package that don't hit a specific API don't have
 two words separated by an underscore, e.g., \code{classification}
 
-You need API keys for Encyclopedia of Life (EOL), and Tropicos.
+You need API keys for some data sources. See \code{\link{taxize-authentication}}
+for more information.
 }
 
 \section{Currently supported APIs}{

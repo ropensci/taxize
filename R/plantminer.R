@@ -4,14 +4,10 @@
 #' @param plants (character) Vector of plant species names. Required.
 #' @param from (character) One of tpl (for theplantlist.com data), or
 #'    flora (for Brazilian Flora Checklist). Required. Default: \code{tpl}
-#' @param key (character) Your api key for the plantminer.com site.  Go to
-#' 		http://www.plantminer.com/ to get your api key.  Two options for
-#' 		inputting your key.  1) You can input it manually within the function as
-#' 		the second argument, or 2) you can put the key in your .Rprofile file,
-#' 		which will then be loaded when you start R. See
-#' 		http://bit.ly/135eG0b for help on how to put api keys in your .Rprofile file.
-#' @param verbose (logical) Verbose or not. Default: \code{TRUE}
+#' @param messages (logical) informative messages or not. 
+#' Default: \code{TRUE}
 #' @return data.frame of results.
+#' @note you used to need an API key for Plantminer; it's no longer needed
 #' @examples \dontrun{
 #' # A single taxon
 #' plantminer("Ocotea pulchella")
@@ -25,16 +21,18 @@
 #' # toggle the from parameter here
 #' plantminer("Ocotea pulchella", from = "flora")
 #' }
-plantminer <- function(plants, from = "tpl", key = NULL, verbose = TRUE) {
-  from <- match.arg(from, c("tpl", "flora"))
-	key <- getkey(key, "pmApiKey")
+plantminer <- function(plants, from = "tpl", messages = TRUE, ...) {
+  if (from %in% c("tpl", "flora")) {
+    stop("'from' must be one of 'tpl' or 'flora'")
+  }
   i <- NULL
-  foreach(i = 1:length(plants), .combine = rbind) %do% {
-    mssg(verbose, paste(plants[i], collapse = " "))
-    sp <- GET(paste0(pmbase(), from), query = list(key = key, taxon = plants[i]))
-    stop_for_status(sp)
-    jsonlite::fromJSON(con_utf8(sp))
+  foreach(i = seq_along(plants), .combine = rbind) %do% {
+    mssg(messages, paste(plants[i], collapse = " "))
+    cli <- crul::HttpClient$new(url = pmbase(), opts = list(...))
+    sp <- cli$get(from, query = list(taxon = plants[i]))
+    sp$raise_for_status()
+    jsonlite::fromJSON(sp$parse("UTF-8"))
   }
 }
 
-pmbase <- function() "http://www.plantminer.com/"
+pmbase <- function() "http://www.plantminer.com"
