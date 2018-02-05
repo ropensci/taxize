@@ -5,7 +5,7 @@
 #' @param ask logical; should get_colid be run in interactive mode?
 #' If TRUE and more than one ID is found for the species, the user is asked for
 #' input. If FALSE NA is returned for multiple matches.
-#' @param verbose logical; If TRUE the actual taxon queried is printed on the
+#' @param messages logical; If TRUE the actual taxon queried is printed on the
 #'    console.
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, all rows are considered.
 #' Note that this function still only gives back a colid class object with one to many identifiers.
@@ -107,12 +107,12 @@
 #' bb <- get_colid("Quercus douglasii", config=progress())
 #' }
 
-get_colid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
+get_colid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
                       kingdom = NULL, phylum = NULL, class = NULL, order = NULL,
                       family = NULL, rank = NULL, ...){
 
   assert(ask, "logical")
-  assert(verbose, "logical")
+  assert(messages, "logical")
   assert(kingdom, "character")
   assert(phylum, "character")
   assert(class, "character")
@@ -120,9 +120,9 @@ get_colid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
   assert(family, "character")
   assert(rank, "character")
 
-  fun <- function(sciname, ask, verbose, rows, ...) {
+  fun <- function(sciname, ask, messages, rows, ...) {
     direct <- FALSE
-    mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
+    mssg(messages, "\nRetrieving data for taxon '", sciname, "'\n")
     df <- col_search(name = sciname, response = "full", ...)[[1]]
     df <- df[, names(df) %in% c("name","rank","id","name_status","kingdom","family","acc_name")]
     mm <- NROW(df) > 1
@@ -142,7 +142,7 @@ get_colid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
 
     # not found on col
     if (all(is.na(id))) {
-      mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
+      mssg(messages, "Not found. Consider checking the spelling or alternate classification")
       id <- NA_character_
       att <- "not found"
     }
@@ -191,7 +191,7 @@ get_colid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
           } else {
             id <- NA_character_
             att <- "not found"
-            mssg(verbose, "\nReturned 'NA'!\n\n")
+            mssg(messages, "\nReturned 'NA'!\n\n")
           }
         } else {
           if (length(id) != 1) {
@@ -209,7 +209,7 @@ get_colid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
     list(id = id, rank = rank_taken, att = att, multiple = mm, direct = direct)
   }
   sciname <- as.character(sciname)
-  out <- lapply(sciname, fun, ask = ask, verbose = verbose, rows = rows, ...)
+  out <- lapply(sciname, fun, ask = ask, messages = messages, rows = rows, ...)
   ids <- pluck(out, "id", "")
   atts <- pluck(out, "att", "")
   ids <- structure(ids, class = "colid", match = atts,
@@ -278,12 +278,12 @@ check_colid <- function(x){
 
 #' @export
 #' @rdname get_colid
-get_colid_ <- function(sciname, verbose = TRUE, rows = NA){
-  setNames(lapply(sciname, get_colid_help, verbose = verbose, rows = rows), sciname)
+get_colid_ <- function(sciname, messages = TRUE, rows = NA){
+  setNames(lapply(sciname, get_colid_help, messages = messages, rows = rows), sciname)
 }
 
-get_colid_help <- function(sciname, verbose, rows){
-  mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
+get_colid_help <- function(sciname, messages, rows){
+  mssg(messages, "\nRetrieving data for taxon '", sciname, "'\n")
   df <- col_search(name = sciname)[[1]]
   if (NROW(df) == 0) NULL else sub_rows(df, rows)
 }

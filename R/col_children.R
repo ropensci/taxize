@@ -68,9 +68,10 @@ search_col <- function(name, id, checklist, format, start, ...) {
   url <- make_url(checklist)
   args <- tc(list(name = name, id = id, format = format, response = "full",
                   start = start))
-  out <- GET(col_base(), query = argsnull(args), ...)
-  stop_for_status(out)
-  tt <- xml2::read_xml(con_utf8(out))
+  cli <- crul::HttpClient$new(url = col_base(), opts = list(...))
+  out <- cli$get(query = argsnull(args))
+  out$raise_for_status()
+  tt <- xml2::read_xml(out$parse("UTF-8"))
   search_col_child_df(tt)
 }
 search_col_safe <- plyr::failwith(NULL, search_col)

@@ -65,3 +65,22 @@ test_that("rows parameter, when used, works", {
 
   expect_is(children("Asdfafsfd", db = 'ncbi', rows = 1, verbose = FALSE), "children")
 })
+
+test_that("consistent results for no query match when using get_* fxns", {
+  itis_x <- children(get_tsn(23424234234, messages = FALSE))
+  itis_y <- children(23424234234, db = "itis", messages = FALSE)
+
+  col_x <- children(get_colid(23424234234, messages = FALSE))
+  col_y <- children('23424234234', db = "col", messages = FALSE)
+
+  ncbi_x <- children(get_uid(23424234234, messages = FALSE))
+  ncbi_y <- children('dragon', db = "ncbi", messages = FALSE)
+
+  worms_x <- children(get_wormsid(23424234234, messages = FALSE))
+  worms_y <- children(get_wormsid(23424234234, messages = FALSE))
+  
+  expect_named(itis_x, NA_character_)
+  expect_null(names(col_x))
+  expect_named(names(ncbi_x), NA_character_)
+  expect_named(worms_x, NA_character_)
+})

@@ -11,7 +11,7 @@
 \alias{get_colid_}
 \title{Get the Catalogue of Life ID from taxonomic names.}
 \usage{
-get_colid(sciname, ask = TRUE, verbose = TRUE, rows = NA,
+get_colid(sciname, ask = TRUE, messages = TRUE, rows = NA,
   kingdom = NULL, phylum = NULL, class = NULL, order = NULL,
   family = NULL, rank = NULL, ...)
 
@@ -27,7 +27,7 @@ as.colid(x, check = TRUE)
 
 \method{as.data.frame}{colid}(x, ...)
 
-get_colid_(sciname, verbose = TRUE, rows = NA)
+get_colid_(sciname, messages = TRUE, rows = NA)
 }
 \arguments{
 \item{sciname}{character; scientific name.}
@@ -36,7 +36,7 @@ get_colid_(sciname, verbose = TRUE, rows = NA)
 If TRUE and more than one ID is found for the species, the user is asked for
 input. If FALSE NA is returned for multiple matches.}
 
-\item{verbose}{logical; If TRUE the actual taxon queried is printed on the
+\item{messages}{logical; If TRUE the actual taxon queried is printed on the
 console.}
 
 \item{rows}{numeric; Any number from 1 to infinity. If the default NA, all rows are considered.

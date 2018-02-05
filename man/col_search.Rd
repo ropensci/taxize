@@ -28,7 +28,7 @@ year's checklist instead of the lastest as default (numeric).}
 
 \item{response}{(character) one of "terse" or "full"}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
 }
 \value{
 A list of data.frame's.
@@ -60,7 +60,8 @@ col_search(id = "36c623ad9e3da39c2e978fa3576ad415")
 col_search(id = "36c623ad9e3da39c2e978fa3576ad415", response = "full")
 col_search(id = "787ce23969f5188c2467126d9a545be1")
 col_search(id = "787ce23969f5188c2467126d9a545be1", response = "full")
-col_search(id = c("36c623ad9e3da39c2e978fa3576ad415", "787ce23969f5188c2467126d9a545be1"))
+col_search(id = c("36c623ad9e3da39c2e978fa3576ad415", 
+  "787ce23969f5188c2467126d9a545be1"))
 ## a synonym
 col_search(id = "f726bdaa5924cabf8581f99889de51fc")
 col_search(id = "f726bdaa5924cabf8581f99889de51fc", response = "full")

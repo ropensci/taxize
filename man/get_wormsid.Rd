@@ -13,7 +13,7 @@
 \title{Get Worms ID for a taxon name}
 \usage{
 get_wormsid(query, searchtype = "scientific", accepted = FALSE,
-  ask = TRUE, verbose = TRUE, rows = NA, ...)
+  ask = TRUE, messages = TRUE, rows = NA, ...)
 
 as.wormsid(x, check = TRUE)
 
@@ -29,7 +29,7 @@ as.wormsid(x, check = TRUE)
 
 \method{as.data.frame}{wormsid}(x, ...)
 
-get_wormsid_(query, verbose = TRUE, searchtype = "scientific",
+get_wormsid_(query, messages = TRUE, searchtype = "scientific",
   accepted = TRUE, rows = NA, ...)
 }
 \arguments{
@@ -47,7 +47,7 @@ If \code{TRUE} and more than one wormsid is found for the species, the
 user is asked for input. If \code{FALSE} NA is returned for
 multiple matches.}
 
-\item{verbose}{logical; should progress be printed?}
+\item{messages}{logical; should progress be printed?}
 
 \item{rows}{numeric; Any number from 1 to infinity. If the default NaN, all
 rows are considered. Note that this function still only gives back a wormsid

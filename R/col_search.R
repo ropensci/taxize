@@ -16,7 +16,7 @@
 #' @param checklist The year of the checklist to query, if you want a specific
 #' 		year's checklist instead of the lastest as default (numeric).
 #' @param response (character) one of "terse" or "full"
-#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' @param ... Curl options passed on to \code{\link[crul]{HttpClient}}
 #' @details You must provide one of name or id. The other parameters (format
 #' 		and start) are optional.
 #' @references \url{http://webservice.catalogueoflife.org/}
@@ -40,23 +40,27 @@
 #' col_search(id = "36c623ad9e3da39c2e978fa3576ad415", response = "full")
 #' col_search(id = "787ce23969f5188c2467126d9a545be1")
 #' col_search(id = "787ce23969f5188c2467126d9a545be1", response = "full")
-#' col_search(id = c("36c623ad9e3da39c2e978fa3576ad415", "787ce23969f5188c2467126d9a545be1"))
+#' col_search(id = c("36c623ad9e3da39c2e978fa3576ad415", 
+#'   "787ce23969f5188c2467126d9a545be1"))
 #' ## a synonym
 #' col_search(id = "f726bdaa5924cabf8581f99889de51fc")
 #' col_search(id = "f726bdaa5924cabf8581f99889de51fc", response = "full")
 #' }
 
-col_search <- function(name=NULL, id=NULL, start=NULL, checklist=NULL, response="terse", ...) {
+col_search <- function(name=NULL, id=NULL, start=NULL, checklist=NULL, 
+  response="terse", ...) {
+
   response <- match.arg(response, c("terse", "full"))
   func <- function(x, y, ...) {
     url <- make_url(checklist)
     args <- tc(list(name = x, id = y, start = start, response = response,
                     format = "json"))
-    temp <- GET(url, query = argsnull(args), ...)
-    if (temp$status_code >= 300) {
+    cli <- crul::HttpClient$new(url = url, opts = list(...))
+    out <- cli$get(query = argsnull(args))
+    if (out$status_code >= 300) {
       warning("COL taxon not found", call. = FALSE)
     } else {
-      tt <- jsonlite::fromJSON(con_utf8(temp), FALSE)
+      tt <- jsonlite::fromJSON(out$parse("UTF-8"), FALSE)
       switch(response,
              terse = parse_terse(tt),
              full = parse_full(tt))
@@ -64,9 +68,9 @@ col_search <- function(name=NULL, id=NULL, start=NULL, checklist=NULL, response=
   }
   safe_func <- plyr::failwith(NULL, func)
   if (is.null(id)) {
-    setNames(lapply(name, safe_func, y = NULL, ...), name)
+    stats::setNames(lapply(name, safe_func, y = NULL, ...), name)
   } else {
-    setNames(lapply(id, safe_func, x = NULL, ...), id)
+    stats::setNames(lapply(id, safe_func, x = NULL, ...), id)
   }
 }
 

@@ -14,7 +14,7 @@
 #' If \code{TRUE} and more than one wormsid is found for the species, the
 #' user is asked for input. If \code{FALSE} NA is returned for
 #' multiple matches.
-#' @param verbose logical; should progress be printed?
+#' @param messages logical; should progress be printed?
 #' @param rows numeric; Any number from 1 to infinity. If the default NaN, all
 #' rows are considered. Note that this function still only gives back a wormsid
 #' class object with one to many identifiers. See
@@ -87,16 +87,16 @@
 #' # get_wormsid_(c("asdfadfasd","Plat"), rows=1:5)
 #' }
 get_wormsid <- function(query, searchtype = "scientific", accepted = FALSE,
-                      ask = TRUE, verbose = TRUE, rows = NA, ...) {
+                      ask = TRUE, messages = TRUE, rows = NA, ...) {
 
   assert(searchtype, "character")
   assert(accepted, "logical")
   assert(ask, "logical")
-  assert(verbose, "logical")
+  assert(messages, "logical")
 
-  fun <- function(x, searchtype, ask, verbose, ...) {
+  fun <- function(x, searchtype, ask, messages, ...) {
     direct <- FALSE
-    mssg(verbose, "\nRetrieving data for taxon '", x, "'\n")
+    mssg(messages, "\nRetrieving data for taxon '", x, "'\n")
 
     if (!searchtype %in% c("scientific", "common")) {
       stop("'searchtype' must be one of 'scientific' or 'common'", call. = FALSE)
@@ -125,7 +125,7 @@ get_wormsid <- function(query, searchtype = "scientific", accepted = FALSE,
       # should return NA if spec not found
       if (nrow(wmdf) == 0) {
         mssg(
-          verbose,
+          messages,
           "Not found. Consider checking the spelling or alternate classification")
         wmid <- NA_character_
         att <- 'not found'
@@ -191,7 +191,7 @@ get_wormsid <- function(query, searchtype = "scientific", accepted = FALSE,
             att <- 'found'
           } else {
             wmid <- NA_character_
-            mssg(verbose, "\nReturned 'NA'!\n\n")
+            mssg(messages, "\nReturned 'NA'!\n\n")
             att <- 'not found'
           }
         } else {
@@ -217,7 +217,7 @@ get_wormsid <- function(query, searchtype = "scientific", accepted = FALSE,
       stringsAsFactors = FALSE)
   }
   query <- as.character(query)
-  outd <- ldply(query, fun, searchtype, ask, verbose, ...)
+  outd <- ldply(query, fun, searchtype, ask, messages, ...)
   out <- outd$wmid
   attr(out, 'match') <- outd$att
   attr(out, 'multiple_matches') <- outd$multiple
@@ -289,17 +289,17 @@ check_wormsid <- function(x){
 
 #' @export
 #' @rdname get_wormsid
-get_wormsid_ <- function(query, verbose = TRUE, searchtype = "scientific",
+get_wormsid_ <- function(query, messages = TRUE, searchtype = "scientific",
                        accepted = TRUE, rows = NA, ...) {
   stats::setNames(
-    lapply(query, get_wormsid_help, verbose = verbose,
+    lapply(query, get_wormsid_help, messages = messages,
            searchtype = searchtype, accepted = accepted, rows = rows, ...),
     query
   )
 }
 
-get_wormsid_help <- function(query, verbose, searchtype, accepted, rows, ...) {
-  mssg(verbose, "\nRetrieving data for taxon '", query, "'\n")
+get_wormsid_help <- function(query, messages, searchtype, accepted, rows, ...) {
+  mssg(messages, "\nRetrieving data for taxon '", query, "'\n")
   searchtype <- match.arg(searchtype, c("scientific", "common"))
   df <- switch(
     searchtype,
