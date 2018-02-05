@@ -142,8 +142,6 @@ downstream("Poa", db = 'col', downto="species", rows=1)
 downstream("Poa", db = 'ncbi', downto="species")
 
 # use curl options
-res <- downstream("Apis", db = 'col', downto = 'species', config=verbose())
-res <- downstream("Apis", db = 'itis', downto = 'species', config=verbose())
-res <- downstream("Ursus", db = 'gbif', downto = 'species', config=verbose())
+res <- downstream("Apis", db = 'col', downto = 'species', verbose = TRUE)
 }
 }
