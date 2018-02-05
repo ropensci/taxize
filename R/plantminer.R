@@ -6,6 +6,7 @@
 #'    flora (for Brazilian Flora Checklist). Required. Default: \code{tpl}
 #' @param messages (logical) informative messages or not. 
 #' Default: \code{TRUE}
+#' @param ... curl options passed on to \code{\link[crul]{HttpClient}}
 #' @return data.frame of results.
 #' @note you used to need an API key for Plantminer; it's no longer needed
 #' @examples \dontrun{
