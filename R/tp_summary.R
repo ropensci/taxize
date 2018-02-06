@@ -26,7 +26,8 @@ tp_summary <- function(id, key = NULL, ...) {
 }
 
 tp_GET <- function(url, query, raise = TRUE, ...) {
-  cli <- crul::HttpClient$new(url = url, opts = list(...))
+  cli <- crul::HttpClient$new(url = url, opts = list(...),
+    headers = list(`User-Agent` = taxize_ua(), `X-User-Agent` = taxize_ua()))
   res <- cli$get(query = query)
   if (!raise) return(res)
   res$raise_for_status()

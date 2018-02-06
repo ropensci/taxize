@@ -218,3 +218,13 @@ check_entrez_key <- function (x) {
     tmp
   }
 }
+
+taxize_ua <- function(x) {
+  versions <- c(
+    libcurl = curl::curl_version()$version, 
+    `r-curl` = as.character(utils::packageVersion("curl")),
+    crul = as.character(utils::packageVersion("crul")),
+    taxize = as.character(utils::packageVersion("taxize"))
+  )
+  paste0(names(versions), "/", versions, collapse = " ")
+}

@@ -82,12 +82,8 @@ See \code{\link{taxize-authentication}} for help on authentication
 \examples{
 \dontrun{
 # Plug in taxon IDs
-## col Ids have to be character, as they are alphanumeric IDs
 downstream("015be25f6b061ba517f495394b80f108", db = "col",
   downto = "species")
-## ITIS tsn ids can be numeric or character
-downstream("154395", db = "itis", downto = "species")
-downstream(154395, db = "itis", downto = "species")
 
 # Plug in taxon names
 downstream("Insecta", db = 'col', downto = 'order')
@@ -138,8 +134,6 @@ downstream(get_colid("Animalia"), downto="class", intermediate=TRUE)
 ## note how in the second function call you don't get the prompt
 downstream("Poa", db = 'col', downto="species")
 downstream("Poa", db = 'col', downto="species", rows=1)
-
-downstream("Poa", db = 'ncbi', downto="species")
 
 # use curl options
 res <- downstream("Apis", db = 'col', downto = 'species', verbose = TRUE)

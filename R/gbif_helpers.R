@@ -7,9 +7,11 @@ gbif_name_backbone <- function(name, rank = NULL, kingdom = NULL, phylum = NULL,
                   phylum = phylum, class = class, order = order, family = family,
                   genus = genus, strict = strict, verbose = TRUE, offset = start,
                   limit = limit))
-  temp <- GET(url, query = args, ...)
-  stop_for_status(temp)
-  tt <- jsonlite::fromJSON(con_utf8(temp), FALSE)
+  cli <- crul::HttpClient$new(url = url, 
+    headers = list(`User-Agent` = taxize_ua(), `X-User-Agent` = taxize_ua()))
+  temp <- cli$get(query = args, ...)
+  temp$raise_for_status()
+  tt <- jsonlite::fromJSON(temp$parse("UTF-8"), FALSE)
 
   if (all(names(tt) %in% c('confidence', 'synonym', 'matchType'))) {
     data.frame(NULL)
@@ -39,9 +41,11 @@ gbif_name_lookup <- function(query = NULL, rank = NULL, higherTaxonKey = NULL, s
   args <- tc(list(q = query, rank = rank, higherTaxonKey = higherTaxonKey,
                   status = status, nameType = nameType, datasetKey = datasetKey,
                   limit = limit, offset = start))
-  temp <- GET(url, query = args, ...)
-  stop_for_status(temp)
-  tt <- jsonlite::fromJSON(con_utf8(temp), FALSE)
+  cli <- crul::HttpClient$new(url = url, 
+    headers = list(`User-Agent` = taxize_ua(), `X-User-Agent` = taxize_ua()))
+  temp <- cli$get(query = args, ...)
+  temp$raise_for_status()
+  tt <- jsonlite::fromJSON(temp$parse("UTF-8"), FALSE)
   dd <- data.table::setDF(
     data.table::rbindlist(lapply(
       tt$results,

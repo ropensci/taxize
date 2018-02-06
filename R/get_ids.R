@@ -41,7 +41,6 @@
 #'
 #' ## Or you can specify which source you want via the db parameter
 #' get_ids(names="Chironomus riparius", db = 'ncbi')
-#'
 #' get_ids(names="Salvelinus fontinalis", db = 'nbn')
 #'
 #' get_ids(names=c("Chironomus riparius", "Pinus contorta"), db = 'ncbi')
@@ -49,7 +48,6 @@
 #' get_ids(names=c("Chironomus riparius", "Pinus contorta"), db = c('ncbi','itis','col'))
 #' get_ids(names="Pinus contorta", db = c('ncbi','itis','col','eol','tropicos'))
 #' get_ids(names="ava avvva", db = c('ncbi','itis','col','eol','tropicos'))
-#' get_ids(names="ava avvva", db = c('ncbi','itis','col','eol','tropicos'), verbose=FALSE)
 #'
 #' # Pass on to other functions
 #' out <- get_ids(names="Pinus contorta", db = c('ncbi','itis','col','eol','tropicos'))

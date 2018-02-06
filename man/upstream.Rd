@@ -76,6 +76,6 @@ upstream('Poa annua', db = 'col', upto = 'genus')
 upstream('Poa annua', db = 'col', upto = 'genus', rows=1)
 
 # use curl options
-res <- upstream('Poa annua', db = 'col', upto = 'genus', config=verbose())
+res <- upstream('Poa annua', db = 'col', upto = 'genus', verbose = TRUE)
 }
 }

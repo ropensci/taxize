@@ -5,7 +5,7 @@
 #' @param ask logical; should get_colid be run in interactive mode?
 #' If TRUE and more than one ID is found for the species, the user is asked for
 #' input. If FALSE NA is returned for multiple matches.
-#' @param verbose logical; If TRUE the actual taxon queried is printed on the console.
+#' @param messages logical; If TRUE the actual taxon queried is printed on the console.
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, all rows are considered.
 #' Note that this function still only gives back a gbifid class object with one to many identifiers.
 #' See \code{\link[taxize]{get_gbifid_}} to get back all, or a subset, of the raw data that you are
@@ -113,17 +113,15 @@
 #' get_gbifid_(c("Pinus", "Puma"), rows=1:5)
 #'
 #' # use curl options
-#' library("httr")
-#' get_gbifid("Quercus douglasii", config=verbose())
-#' bb <- get_gbifid("Quercus douglasii", config=progress())
+#' invisible(get_gbifid("Quercus douglasii", verbose = TRUE))
 #' }
 
-get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
+get_gbifid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
                        phylum = NULL, class = NULL, order = NULL,
                        family = NULL, rank = NULL, method = "backbone", ...) {
 
   assert(ask, "logical")
-  assert(verbose, "logical")
+  assert(messages, "logical")
   assert(phylum, "character")
   assert(class, "character")
   assert(order, "character")
@@ -131,9 +129,9 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
   assert(rank, "character")
   assert(method, "character")
 
-  fun <- function(sciname, ask, verbose, rows, ...) {
+  fun <- function(sciname, ask, messages, rows, ...) {
     direct <- FALSE
-    mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
+    mssg(messages, "\nRetrieving data for taxon '", sciname, "'\n")
     df <- switch(
       method,
       backbone = gbif_name_backbone(sciname, ...),
@@ -144,7 +142,7 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
     if (is.null(df)) df <- data.frame(NULL)
 
     if (nrow(df) == 0) {
-      mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
+      mssg(messages, "Not found. Consider checking the spelling or alternate classification")
       id <- NA_character_
       att <- "not found"
     } else {
@@ -155,7 +153,7 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
 
     # not found
     if (length(id) == 0) {
-      mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
+      mssg(messages, "Not found. Consider checking the spelling or alternate classification")
       id <- NA_character_
       att <- "not found"
     }
@@ -217,7 +215,7 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
             } else {
               id <- NA_character_
               att <- "not found"
-              mssg(verbose, "\nReturned 'NA'!\n\n")
+              mssg(messages, "\nReturned 'NA'!\n\n")
             }
           } else {
             if (length(id) != 1) {
@@ -235,7 +233,7 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
     }
     list(id = id, att = att, multiple = mm, direct = direct)
   }
-  out <- lapply(as.character(sciname), fun, ask, verbose, rows, ...)
+  out <- lapply(as.character(sciname), fun, ask, messages, rows, ...)
   ids <- structure(as.character(unlist(pluck(out, "id"))), class = "gbifid",
                    match = pluck(out, "att", ""),
                    multiple_matches = pluck(out, "multiple", logical(1)),
@@ -292,12 +290,12 @@ check_gbifid <- function(x){
 
 #' @export
 #' @rdname get_gbifid
-get_gbifid_ <- function(sciname, verbose = TRUE, rows = NA, method = "backbone"){
-  setNames(lapply(sciname, get_gbifd_help, verbose = verbose, rows = rows, method = method), sciname)
+get_gbifid_ <- function(sciname, messages = TRUE, rows = NA, method = "backbone"){
+  setNames(lapply(sciname, get_gbifd_help, messages = messages, rows = rows, method = method), sciname)
 }
 
-get_gbifd_help <- function(sciname, verbose, rows, method){
-  mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
+get_gbifd_help <- function(sciname, messages, rows, method){
+  mssg(messages, "\nRetrieving data for taxon '", sciname, "'\n")
   df <- switch(
     method,
     backbone = gbif_name_backbone(sciname),

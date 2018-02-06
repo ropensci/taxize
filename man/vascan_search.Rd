@@ -14,7 +14,7 @@ taxon identifier (e.g. 861)}
 
 \item{raw}{(logical) If TRUE, raw json or xml returned, if FALSE, parsed data returned.}
 
-\item{...}{(list) Further args passed on to \code{\link[httr]{GET}}}
+\item{...}{(list) Further args passed on to \code{\link[crul]{HttpClient}}}
 }
 \value{
 json, xml or a list.
@@ -48,8 +48,7 @@ splist <- names_list(rank='species', size=50)
 vascan_search(q = splist)
 
 # Curl options
-library("httr")
-vascan_search(q = "Helianthus annuus", config = verbose())
+invisible(vascan_search(q = "Helianthus annuus", verbose = TRUE))
 }
 }
 \references{

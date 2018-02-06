@@ -5,7 +5,7 @@
 #'    taxon identifier (e.g. 861)
 #' @param format (character) One of json (default) or xml.
 #' @param raw (logical) If TRUE, raw json or xml returned, if FALSE, parsed data returned.
-#' @param ... (list) Further args passed on to \code{\link[httr]{GET}}
+#' @param ... (list) Further args passed on to \code{\link[crul]{HttpClient}}
 #' @author Scott Chamberlain {myrmecocystus@@gmail.com}
 #' @return json, xml or a list.
 #' @references API docs http://data.canadensys.net/vascan/api
@@ -33,21 +33,29 @@
 #' vascan_search(q = splist)
 #'
 #' # Curl options
-#' library("httr")
-#' vascan_search(q = "Helianthus annuus", config = verbose())
+#' invisible(vascan_search(q = "Helianthus annuus", verbose = TRUE))
 #' }
 vascan_search <- function(q, format='json', raw=FALSE, ...) {
 
   url <- sprintf("http://data.canadensys.net/vascan/api/0.1/search.%s", format)
+  cli <- crul::HttpClient$new(url = url, 
+    headers = list(`User-Agent` = taxize_ua(), `X-User-Agent` = taxize_ua()))
+
   if (!length(q) > 1) {
-    tt <- GET(url, query = list(q = q), ...)
-    stop_for_status(tt)
-    out <- con_utf8(tt)
+    temp <- cli$get(query = list(q = q), ...)
+    temp$raise_for_status()
+    out <- temp$parse("UTF-8")
+    # tt <- GET(url, query = list(q = q), ...)
+    # stop_for_status(tt)
+    # out <- con_utf8(tt)
   } else {
     args <- paste(q, collapse = '\n')
-    tt <- POST(url, body = list(q = args), encode = 'form', ...)
-    stop_for_status(tt)
-    out <- con_utf8(tt)
+    temp <- cli$post(body = list(q = args), encode = "form", ...)
+    temp$raise_for_status()
+    out <- temp$parse("UTF-8")
+    # tt <- POST(url, body = list(q = args), encode = 'form', ...)
+    # stop_for_status(tt)
+    # out <- con_utf8(tt)
   }
   if (raw) {
     return( out )

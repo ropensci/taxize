@@ -12,7 +12,7 @@
 \alias{get_tpsid_}
 \title{Get the NameID codes from Tropicos for taxonomic names.}
 \usage{
-get_tpsid(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA,
+get_tpsid(sciname, ask = TRUE, messages = TRUE, key = NULL, rows = NA,
   family = NULL, rank = NULL, ...)
 
 as.tpsid(x, check = TRUE)
@@ -29,7 +29,7 @@ as.tpsid(x, check = TRUE)
 
 \method{as.data.frame}{tpsid}(x, ...)
 
-get_tpsid_(sciname, verbose = TRUE, key = NULL, rows = NA, ...)
+get_tpsid_(sciname, messages = TRUE, key = NULL, rows = NA, ...)
 }
 \arguments{
 \item{sciname}{(character) One or more scientific name's as a vector or list.}
@@ -38,7 +38,7 @@ get_tpsid_(sciname, verbose = TRUE, key = NULL, rows = NA, ...)
 If TRUE and more than one ID is found for the species, the user is asked for
 input. If FALSE NA is returned for multiple matches.}
 
-\item{verbose}{logical; If TRUE the actual taxon queried is printed on the console.}
+\item{messages}{logical; If TRUE the actual taxon queried is printed on the console.}
 
 \item{key}{Your API key; loads from .Rprofile.}
 
@@ -155,9 +155,7 @@ get_tpsid_("Poa annua", rows=1:2)
 get_tpsid_(c("asdfadfasd","Pinus contorta"), rows=1:5)
 
 # use curl options
-library("httr")
-get_tpsid("Quercus douglasii", config=verbose())
-bb <- get_tpsid("Quercus douglasii", config=progress())
+invisible(get_tpsid("Quercus douglasii", verbose = TRUE))
 }
 }
 \seealso{

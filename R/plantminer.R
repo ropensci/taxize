@@ -23,7 +23,7 @@
 #' plantminer("Ocotea pulchella", from = "flora")
 #' }
 plantminer <- function(plants, from = "tpl", messages = TRUE, ...) {
-  if (from %in% c("tpl", "flora")) {
+  if (!from %in% c("tpl", "flora")) {
     stop("'from' must be one of 'tpl' or 'flora'")
   }
   i <- NULL

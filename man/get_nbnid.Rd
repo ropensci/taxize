@@ -11,7 +11,7 @@
 \alias{get_nbnid_}
 \title{Get the UK National Biodiversity Network ID from taxonomic names.}
 \usage{
-get_nbnid(name, ask = TRUE, verbose = TRUE, rec_only = FALSE,
+get_nbnid(name, ask = TRUE, messages = TRUE, rec_only = FALSE,
   rank = NULL, rows = NA, ...)
 
 as.nbnid(x, check = TRUE)
@@ -26,7 +26,7 @@ as.nbnid(x, check = TRUE)
 
 \method{as.data.frame}{nbnid}(x, ...)
 
-get_nbnid_(name, verbose = TRUE, rec_only = FALSE, rank = NULL,
+get_nbnid_(name, messages = TRUE, rec_only = FALSE, rank = NULL,
   rows = NA, ...)
 }
 \arguments{
@@ -36,7 +36,7 @@ get_nbnid_(name, verbose = TRUE, rec_only = FALSE, rank = NULL,
 If TRUE and more than one ID is found for the species, the user is asked for
 input. If FALSE NA is returned for multiple matches.}
 
-\item{verbose}{logical; If TRUE the actual taxon queried is printed on the
+\item{messages}{logical; If TRUE the actual taxon queried is printed on the
 console.}
 
 \item{rec_only}{(logical) If \code{TRUE} ids of recommended names are
@@ -124,9 +124,7 @@ get_nbnid_("Poa annua", rows=1:2)
 get_nbnid_(c("asdfadfasd","Pinus contorta"), rows=1:5)
 
 # use curl options
-library("httr")
-get_nbnid("Quercus douglasii", config=verbose())
-bb <- get_nbnid("Quercus douglasii", config=progress())
+invisible(get_nbnid("Quercus douglasii", verbose = TRUE))
 }
 }
 \references{

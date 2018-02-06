@@ -26,7 +26,7 @@ the fields that are queryable.}
 \item{facets}{(list) Comma separated list of the fields to create facets
 on e.g. facets=basis_of_record.}
 
-\item{...}{Further args passed on to \code{\link[httr]{GET}}.}
+\item{...}{Further args passed on to \code{\link[crul]{HttpClient}}.}
 }
 \value{
 a list with slots for metadata (`meta`) with list of response
@@ -47,8 +47,7 @@ head(x$data)
 nbn_search(q = "blackbird", start = 4)
 
 # debug curl stuff
-library('httr')
-nbn_search(q = "blackbird", config = verbose())
+nbn_search(q = "blackbird", verbose = TRUE)
 }
 }
 \references{

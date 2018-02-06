@@ -12,7 +12,7 @@
 \alias{get_gbifid_}
 \title{Get the GBIF backbone taxon ID from taxonomic names.}
 \usage{
-get_gbifid(sciname, ask = TRUE, verbose = TRUE, rows = NA,
+get_gbifid(sciname, ask = TRUE, messages = TRUE, rows = NA,
   phylum = NULL, class = NULL, order = NULL, family = NULL,
   rank = NULL, method = "backbone", ...)
 
@@ -30,7 +30,7 @@ as.gbifid(x, check = FALSE)
 
 \method{as.data.frame}{gbifid}(x, ...)
 
-get_gbifid_(sciname, verbose = TRUE, rows = NA, method = "backbone")
+get_gbifid_(sciname, messages = TRUE, rows = NA, method = "backbone")
 }
 \arguments{
 \item{sciname}{character; scientific name.}
@@ -39,7 +39,7 @@ get_gbifid_(sciname, verbose = TRUE, rows = NA, method = "backbone")
 If TRUE and more than one ID is found for the species, the user is asked for
 input. If FALSE NA is returned for multiple matches.}
 
-\item{verbose}{logical; If TRUE the actual taxon queried is printed on the console.}
+\item{messages}{logical; If TRUE the actual taxon queried is printed on the console.}
 
 \item{rows}{numeric; Any number from 1 to infinity. If the default NA, all rows are considered.
 Note that this function still only gives back a gbifid class object with one to many identifiers.
@@ -171,9 +171,7 @@ get_gbifid_(c("Pinus", "Puma"), rows=5)
 get_gbifid_(c("Pinus", "Puma"), rows=1:5)
 
 # use curl options
-library("httr")
-get_gbifid("Quercus douglasii", config=verbose())
-bb <- get_gbifid("Quercus douglasii", config=progress())
+invisible(get_gbifid("Quercus douglasii", verbose = TRUE))
 }
 }
 \seealso{

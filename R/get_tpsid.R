@@ -5,7 +5,7 @@
 #' @param ask logical; should get_tpsid be run in interactive mode?
 #' If TRUE and more than one ID is found for the species, the user is asked for
 #' input. If FALSE NA is returned for multiple matches.
-#' @param verbose logical; If TRUE the actual taxon queried is printed on the console.
+#' @param messages logical; If TRUE the actual taxon queried is printed on the console.
 #' @param key Your API key; loads from .Rprofile.
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, all rows are considered.
 #' Note that this function still only gives back a tpsid class object with one to many identifiers.
@@ -104,28 +104,26 @@
 #' get_tpsid_(c("asdfadfasd","Pinus contorta"), rows=1:5)
 #'
 #' # use curl options
-#' library("httr")
-#' get_tpsid("Quercus douglasii", config=verbose())
-#' bb <- get_tpsid("Quercus douglasii", config=progress())
+#' invisible(get_tpsid("Quercus douglasii", verbose = TRUE))
 #' }
 
-get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA,
+get_tpsid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL, rows = NA,
                       family = NULL, rank = NULL, ...){
 
   assert(ask, "logical")
-  assert(verbose, "logical")
+  assert(messages, "logical")
   assert(family, "character")
   assert(rank, "character")
 
-  fun <- function(sciname, ask, verbose, rows, ...) {
+  fun <- function(sciname, ask, messages, rows, ...) {
     direct <- FALSE
-    mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
+    mssg(messages, "\nRetrieving data for taxon '", sciname, "'\n")
     tmp <- tp_search(name = sciname, key = key, ...)
     mm <- NROW(tmp) > 1
     # tmp <- sub_rows(tmp, rows)
 
     if (names(tmp)[[1]] == 'error' || is.na(tmp) || inherits(tmp, "character")) {
-      mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
+      mssg(messages, "Not found. Consider checking the spelling or alternate classification")
       id <- NA_character_
       att <- 'not found'
     } else {
@@ -138,7 +136,7 @@ get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
 
     # not found on tropicos
     if (length(id) == 0) {
-      mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
+      mssg(messages, "Not found. Consider checking the spelling or alternate classification")
       id <- NA_character_
       att <- 'not found'
     }
@@ -180,7 +178,7 @@ get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
               att <- 'found'
             } else {
               id <- NA_character_
-              mssg(verbose, "\nReturned 'NA'!\n\n")
+              mssg(messages, "\nReturned 'NA'!\n\n")
               att <- 'not found'
             }
           } else {
@@ -199,7 +197,7 @@ get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
     list(id = as.character(id), att = att, multiple = mm, direct = direct)
   }
   sciname <- as.character(sciname)
-  out <- lapply(sciname, fun, ask, verbose, rows, ...)
+  out <- lapply(sciname, fun, ask, messages, rows, ...)
   ids <- pluck(out, "id", "")
   atts <- pluck(out, "att", "")
   ids <- structure(ids, class = "tpsid", match = atts,
@@ -257,12 +255,12 @@ check_tpsid <- function(x){
 
 #' @export
 #' @rdname get_tpsid
-get_tpsid_ <- function(sciname, verbose = TRUE, key = NULL, rows = NA, ...){
-  setNames(lapply(sciname, get_tpsid_help, verbose = verbose, key=key, rows = rows, ...), sciname)
+get_tpsid_ <- function(sciname, messages = TRUE, key = NULL, rows = NA, ...){
+  setNames(lapply(sciname, get_tpsid_help, messages = messages, key=key, rows = rows, ...), sciname)
 }
 
-get_tpsid_help <- function(sciname, verbose, key, rows, ...){
-  mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
+get_tpsid_help <- function(sciname, messages, key, rows, ...){
+  mssg(messages, "\nRetrieving data for taxon '", sciname, "'\n")
   df <- tp_search(name=sciname, key=key, ...)
   if("error" %in% names(df)) NULL else sub_rows(df, rows)
 }

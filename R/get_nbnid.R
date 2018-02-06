@@ -5,7 +5,7 @@
 #' @param ask logical; should get_nbnid be run in interactive mode?
 #' If TRUE and more than one ID is found for the species, the user is asked for
 #' input. If FALSE NA is returned for multiple matches.
-#' @param verbose logical; If TRUE the actual taxon queried is printed on the
+#' @param messages logical; If TRUE the actual taxon queried is printed on the
 #' console.
 #' @param rec_only (logical) If \code{TRUE} ids of recommended names are
 #' returned (i.e. synonyms are removed). Defaults to \code{FALSE}. Remember,
@@ -79,22 +79,20 @@
 #' get_nbnid_(c("asdfadfasd","Pinus contorta"), rows=1:5)
 #'
 #' # use curl options
-#' library("httr")
-#' get_nbnid("Quercus douglasii", config=verbose())
-#' bb <- get_nbnid("Quercus douglasii", config=progress())
+#' invisible(get_nbnid("Quercus douglasii", verbose = TRUE))
 #' }
 
-get_nbnid <- function(name, ask = TRUE, verbose = TRUE, rec_only = FALSE,
+get_nbnid <- function(name, ask = TRUE, messages = TRUE, rec_only = FALSE,
                       rank = NULL, rows = NA, ...){
 
   assert(ask, "logical")
   assert(rec_only, "logical")
   assert(rank, "character")
-  assert(verbose, "logical")
+  assert(messages, "logical")
 
-  fun <- function(name, ask, verbose, rows) {
+  fun <- function(name, ask, messages, rows) {
     direct <- FALSE
-    mssg(verbose, "\nRetrieving data for taxon '", name, "'\n")
+    mssg(messages, "\nRetrieving data for taxon '", name, "'\n")
     df <- nbn_search(q = name, rows = 500, ...)$data
     if (is.null(df) || length(df) == 0) df <- data.frame(NULL)
     mm <- NROW(df) > 1
@@ -102,7 +100,7 @@ get_nbnid <- function(name, ask = TRUE, verbose = TRUE, rec_only = FALSE,
     rank_taken <- NA
     if (NROW(df) == 0) {
       mssg(
-        verbose,
+        messages,
         "Not found. Consider checking the spelling or alternate classification")
       id <- NA_character_
       att <- 'not found'
@@ -120,7 +118,7 @@ get_nbnid <- function(name, ask = TRUE, verbose = TRUE, rec_only = FALSE,
     # not found on NBN
     if (length(id) == 0) {
       mssg(
-        verbose,
+        messages,
         "Not found. Consider checking the spelling or alternate classification")
       id <- NA_character_
       att <- 'not found'
@@ -150,7 +148,7 @@ get_nbnid <- function(name, ask = TRUE, verbose = TRUE, rec_only = FALSE,
         } else {
           id <- NA_character_
           att <- 'not found'
-          mssg(verbose, "\nReturned 'NA'!\n\n")
+          mssg(messages, "\nReturned 'NA'!\n\n")
         }
       } else{
         if (length(id) != 1) {
@@ -167,7 +165,7 @@ get_nbnid <- function(name, ask = TRUE, verbose = TRUE, rec_only = FALSE,
     list(id = id, rank = rank_taken, att = att, multiple = mm, direct = direct)
   }
   name <- as.character(name)
-  out <- lapply(name, fun, ask = ask, verbose = verbose, rows = rows)
+  out <- lapply(name, fun, ask = ask, messages = messages, rows = rows)
   ids <- pluck(out, "id", "")
   atts <- pluck(out, "att", "")
   ids <- structure(ids, class = "nbnid", match = atts,
@@ -245,14 +243,14 @@ check_nbnid <- function(x){
 
 #' @export
 #' @rdname get_nbnid
-get_nbnid_ <- function(name, verbose = TRUE, rec_only = FALSE, rank = NULL,
+get_nbnid_ <- function(name, messages = TRUE, rec_only = FALSE, rank = NULL,
                        rows = NA, ...) {
-  stats::setNames(lapply(name, get_nbnid_help, verbose = verbose,
+  stats::setNames(lapply(name, get_nbnid_help, messages = messages,
                   rec_only = rec_only, rank = rank, rows = rows, ...), name)
 }
 
-get_nbnid_help <- function(name, verbose, rec_only, rank, rows, ...){
-  mssg(verbose, "\nRetrieving data for taxon '", name, "'\n")
+get_nbnid_help <- function(name, messages, rec_only, rank, rows, ...){
+  mssg(messages, "\nRetrieving data for taxon '", name, "'\n")
   df <- nbn_search(q = name, all = TRUE, ...)$data
   if (is.null(df)) df <- data.frame(NULL)
 
