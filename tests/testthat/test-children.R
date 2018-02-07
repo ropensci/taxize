@@ -67,6 +67,8 @@ test_that("rows parameter, when used, works", {
 })
 
 test_that("consistent results for no query match when using get_* fxns", {
+  skip_on_cran()
+
   itis_x <- children(get_tsn(23424234234, messages = FALSE))
   itis_y <- children(23424234234, db = "itis", messages = FALSE)
 
