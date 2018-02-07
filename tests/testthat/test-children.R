@@ -81,6 +81,6 @@ test_that("consistent results for no query match when using get_* fxns", {
   
   expect_named(itis_x, NA_character_)
   expect_null(names(col_x))
-  expect_named(names(ncbi_x), NA_character_)
+  expect_named(ncbi_x, NA_character_)
   expect_named(worms_x, NA_character_)
 })
