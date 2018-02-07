@@ -158,13 +158,15 @@ system.time( replicate(3, as.gbifid(c("2704179","2435099","3171445"), check=FALS
 If someone is not a taxonomic specialist on a particular taxon he likely does not know what children taxa are within a family, or within a genus. This task becomes especially unwieldy when there are a large number of taxa downstream. You can of course go to a website like [Wikispecies][wikispecies] or [Encyclopedia of Life][eol] to get downstream names. However, taxize provides an easy way to programatically search for downstream taxa, both for the [Catalogue of Life (CoL)][col] and the [Integrated Taxonomic Information System][itis]. Here is a short example using the CoL in which we want to find all the species within the genus *Apis* (honey bees).
 
 ```{r downstream1, eval=TRUE, cache=FALSE}
-downstream("Apis", downto = "Species", db = "col")
+apis_col_id <- "015be25f6b061ba517f495394b80f108" # id for Apis, fetched beforehand to save time here
+downstream(apis_col_id, downto = "species", db = "col")
 ```
 
 We can also request data from ITIS
 
 ```{r downstream2, eval=TRUE, cache=FALSE}
-downstream("Apis", downto = "Species", db = "itis")
+apis_itis_id <- 154395 # id for Apis, fetched beforehand to save time here
+downstream(apis_itis_id, downto = "species", db = "itis")
 ```
 
 ## Direct children
@@ -172,7 +174,8 @@ downstream("Apis", downto = "Species", db = "itis")
 You may sometimes only want the direct children. We got you covered on that front, with methods for ITIS, NCBI, and Catalogue of Life. For example, let's get direct children (species in this case) of the bee genus _Apis_ using COL data:
 
 ```{r}
-children(get_colid("Apis"))
+# using the id for Apis we defined above for COL
+children(apis_col_id, db = "col")
 ```
 
 The direct children (genera in this case) of _Pinaceae_ using NCBI data:

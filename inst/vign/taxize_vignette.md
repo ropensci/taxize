@@ -38,20 +38,15 @@ head(temp)
 ```
 
 ```
-#>   user_supplied_name   submitted_name         matched_name
-#> 1   Helianthos annus Helianthos annus     Helianthus annus
-#> 2   Helianthos annus Helianthos annus  Helianthus annus L.
-#> 3   Helianthos annus Helianthos annus     Helianthus annus
-#> 4   Helianthos annus Helianthos annus     Helianthus annus
-#> 5   Helianthos annus Helianthos annus Helianthus annuus L.
-#> 6   Helianthos annus Helianthos annus Helianthus annuus L.
-#>                      data_source_title score
-#> 1                                  EOL  0.75
-#> 2                                  EOL  0.75
-#> 3                        uBio NameBank  0.75
-#> 4 Open Tree of Life Reference Taxonomy  0.75
-#> 5                    Catalogue of Life  0.75
-#> 6                                 ITIS  0.75
+#> # A tibble: 6 x 5
+#>   user_supplied_name submitted_name   matched_name  data_source_tit… score
+#>   <chr>              <chr>            <chr>         <chr>            <dbl>
+#> 1 Helianthos annus   Helianthos annus Helianthus a… EOL              0.750
+#> 2 Helianthos annus   Helianthos annus Helianthus a… EOL              0.750
+#> 3 Helianthos annus   Helianthos annus Helianthus a… uBio NameBank    0.750
+#> 4 Helianthos annus   Helianthos annus Helianthus a… Open Tree of Li… 0.750
+#> 5 Helianthos annus   Helianthos annus Helianthus a… Catalogue of Li… 0.750
+#> 6 Helianthos annus   Helianthos annus Helianthus a… ITIS             0.750
 ```
 
 The correct spellings are *Helianthus annuus* and *Homo sapiens*. Another approach uses the Taxonomic Name Resolution Service via the Taxosaurus API developed by iPLant and the Phylotastic organization. In this example, we provide a list of species names, some of which are misspelled, and we'll call the API with the *tnrs* function.
@@ -134,6 +129,39 @@ classification(specieslist, db = 'itis')
 ```
 
 ```
+#>      tsn                        target
+#> 1 183327                Pinus contorta
+#> 2 183332 Pinus contorta ssp. bolanderi
+#> 3 822698  Pinus contorta ssp. contorta
+#> 4 183329 Pinus contorta ssp. latifolia
+#> 5 183330 Pinus contorta ssp. murrayana
+#> 6 529672 Pinus contorta var. bolanderi
+#> 7 183328  Pinus contorta var. contorta
+#> 8 529673 Pinus contorta var. latifolia
+#> 9 529674 Pinus contorta var. murrayana
+#>                                                        commonNames
+#> 1               scrub pine,shore pine,tamarack pine,lodgepole pine
+#> 2                                            Bolander's beach pine
+#> 3                                                               NA
+#> 4                         black pine,Rocky Mountain lodgepole pine
+#> 5                              tamarack pine,Sierra lodgepole pine
+#> 6                                              Bolander beach pine
+#> 7                  coast pine,lodgepole pine,beach pine,shore pine
+#> 8 tall lodgepole pine,lodgepole pine,Rocky Mountain lodgepole pine
+#> 9      Murray's lodgepole pine,Sierra lodgepole pine,tamarack pine
+#>      nameUsage
+#> 1     accepted
+#> 2 not accepted
+#> 3 not accepted
+#> 4 not accepted
+#> 5 not accepted
+#> 6     accepted
+#> 7     accepted
+#> 8     accepted
+#> 9     accepted
+```
+
+```
 #> $`Abies procera`
 #>               name          rank     id
 #> 1          Plantae       kingdom 202422
@@ -203,7 +231,7 @@ get_uid(sciname = "Pinus")
 #> 2 active    genus seed plants          Pinus              3337      
 #>   species subsp modificationdate
 #> 1               2015/09/16 00:00
-#> 2               2004/09/10 00:00
+#> 2               2018/01/31 00:00
 ```
 
 ```
@@ -229,13 +257,19 @@ get_tsn(searchterm = splist, searchtype = "scientific")
 ```
 
 ```
+#>      tsn                      target commonNames    nameUsage
+#> 1  19405               Quercus robur English oak     accepted
+#> 2 845209 Quercus robur f. fastigiata          NA not accepted
+```
+
+```
 #> [1] "506198" "18098"  "19405" 
 #> attr(,"match")
 #> [1] "found" "found" "found"
 #> attr(,"multiple_matches")
 #> [1] FALSE FALSE  TRUE
 #> attr(,"pattern_match")
-#> [1] FALSE FALSE  TRUE
+#> [1] FALSE FALSE FALSE
 #> attr(,"uri")
 #> [1] "http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=506198"
 #> [2] "http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=18098" 
@@ -271,8 +305,8 @@ get_nbnid(c("Zootoca vivipara","Pinus contorta"), rows = 1)
 #> attr(,"pattern_match")
 #> [1] FALSE FALSE
 #> attr(,"uri")
-#> [1] "https://data.nbn.org.uk/Taxa/NHMSYS0001706186"
-#> [2] "https://data.nbn.org.uk/Taxa/NBNSYS0000004786"
+#> [1] "https://species.nbnatlas.org/species/NHMSYS0001706186"
+#> [2] "https://species.nbnatlas.org/species/NBNSYS0000004786"
 ```
 
 Or you can select a range of rows
@@ -286,19 +320,15 @@ get_nbnid(c("Zootoca vivipara","Pinus contorta"), rows = 1:3)
 #>              nbnid                    scientificName       rank
 #> 1 NHMSYS0001706186                  Zootoca vivipara    species
 #> 2 NHMSYS0020784960 Zootoca vivipara subsp. pannonica subspecies
-#> 3 NHMSYS0000461615                 Bistorta vivipara    species
+#> 3 NHMSYS0020233881               Chaetozone vivipara    species
 #>   taxonomicStatus
 #> 1        accepted
 #> 2        accepted
-#> 3         synonym
-#>              nbnid                  scientificName       rank
-#> 1 NBNSYS0000004786                  Pinus contorta    species
-#> 2 NHMSYS0000494848  Pinus contorta subsp. contorta subspecies
-#> 3 NHMSYS0000494858 Pinus contorta subsp. murreyana subspecies
-#>   taxonomicStatus
-#> 1        accepted
-#> 2         synonym
-#> 3         synonym
+#> 3        accepted
+#>              nbnid                scientificName    rank taxonomicStatus
+#> 1 NBNSYS0000004786                Pinus contorta species        accepted
+#> 2 NHMSYS0000494858 Pinus contorta var. murrayana variety        accepted
+#> 3 NHMSYS0000494848  Pinus contorta var. contorta variety        accepted
 ```
 
 ```
@@ -312,8 +342,8 @@ get_nbnid(c("Zootoca vivipara","Pinus contorta"), rows = 1:3)
 #> attr(,"pattern_match")
 #> [1] FALSE FALSE
 #> attr(,"uri")
-#> [1] "https://data.nbn.org.uk/Taxa/NHMSYS0001706186"
-#> [2] "https://data.nbn.org.uk/Taxa/NBNSYS0000004786"
+#> [1] "https://species.nbnatlas.org/species/NHMSYS0001706186"
+#> [2] "https://species.nbnatlas.org/species/NBNSYS0000004786"
 ```
 
 In addition, in case you don't want to do interactive name selection in the case where there are a lot of names, you can get all data back with functions of the form, e.g., `get_tsn_()`, and likewise for other data sources. For example:
@@ -339,15 +369,15 @@ get_nbnid_("Poa annua", rows = 1:10)
 #> $`Poa annua`
 #>                guid    scientificName    rank taxonomicStatus
 #> 1  NBNSYS0000002544         Poa annua species        accepted
-#> 2  NBNSYS0000002739      Adonis annua species         synonym
-#> 3  NBNSYS0200001901      Bellis annua species        accepted
-#> 4  NHMSYS0000456951 Carrichtera annua species         synonym
-#> 5  NBNSYS0200003392  Triumfetta annua species        accepted
-#> 6  NBNSYS0000002918     Lunaria annua species        accepted
+#> 2  NBNSYS0200003392  Triumfetta annua species        accepted
+#> 3  NBNSYS0000002918     Lunaria annua species        accepted
+#> 4  NBNSYS0200001901      Bellis annua species        accepted
+#> 5  NBNSYS0000033325   Artemisia annua species        accepted
+#> 6  NHMSYS0000456951 Carrichtera annua species        accepted
 #> 7  NBNSYS0200002555       Lonas annua species        accepted
-#> 8  NBNSYS0000033325   Artemisia annua species        accepted
-#> 9  NHMSYS0000456951 Carrichtera annua species        accepted
-#> 10 NHMSYS0000461806     Poa imbecilla species         synonym
+#> 8  NBNSYS0200002917         Poa ampla species        accepted
+#> 9  NBNSYS0200002926  Poa schimperiana species        accepted
+#> 10 NBNSYS0200002923    Poa leptoclada species        accepted
 ```
 
 ## Coerce numerics/alphanumerics to taxon IDs
@@ -447,7 +477,7 @@ system.time( replicate(3, as.gbifid(c("2704179","2435099","3171445"), check=TRUE
 
 ```
 #>    user  system elapsed 
-#>   0.072   0.002   1.656
+#>   0.113   0.007   2.393
 ```
 
 ```r
@@ -456,7 +486,7 @@ system.time( replicate(3, as.gbifid(c("2704179","2435099","3171445"), check=FALS
 
 ```
 #>    user  system elapsed 
-#>   0.002   0.000   0.002
+#>   0.001   0.000   0.001
 ```
 
 ## What taxa are downstream of my taxon of interest?
@@ -465,116 +495,12 @@ If someone is not a taxonomic specialist on a particular taxon he likely does no
 
 
 ```r
-downstream("Apis", downto = "Species", db = "col")
+apis_col_id <- "015be25f6b061ba517f495394b80f108" # id for Apis, fetched beforehand to save time here
+downstream(apis_col_id, downto = "species", db = "col")
 ```
 
 ```
-#>                     name    rank                            colid
-#> 1                   Apis   genus 015be25f6b061ba517f495394b80f108
-#> 2      Actinomadura apis species 1182a102a18b40aa19385bf5f1f53367
-#> 3    Anisocentropus apis species 8891d18874dde14e44df52e931c44206
-#> 4     Apis andreniformis species 7a4a38c5095963949d6d6ec917d471de
-#> 5            Apis cerana species 39610a4ceff7e5244e334a3fbc5e47e5
-#> 6           Apis dorsata species e1d4cbf3872c6c310b7a1c17ddd00ebc
-#> 7            Apis florea species 92dca82a063fedd1da94b3f3972d7b22
-#> 8     Apis koschevnikovi species 4bbc06b9dfbde0b72c619810b564c6e6
-#> 9         Apis mellifera species 67cbbcf92cd60748759e58e802d98518
-#> 10      Apis nigrocincta species 213668a26ba6d2aad9575218f10d422f
-#> 11      Ascosphaera apis species 088549f2fb602367e84d5ffdb8c1d4fc
-#> 12          Candida apis species 3219a9635d3438e8b76a645cecf87287
-#> 13        Eristalis apis species 16d7c8023308d38f6bb831ed5fa82002
-#> 14           Hister apis species d2d7483acf488b5ed932f49b0aa51d19
-#> 15        Ifephylus apis species 9b4d00e009b58bbfc003b51bd3d0c6f0
-#> 16  Impatiens nidus-apis species 6aecf448e6aa0cb46387066db94426d1
-#> 17      Kirkaldykra apis species 70a68f13454abd937aabf56746f4a6ad
-#> 18          Mallota apis species 10c3c3921d2ea9f9425ef9fd41914520
-#> 19 Melanosella mors-apis species 4ac238f1597847dbc7998d97b8d45a0e
-#> 20         Microdon apis species 9be92242562eb923e711dc24b7bbab9a
-#> 21           Nosema apis species 5b2838dfd0ec15844fc6f659f7580322
-#> 22       Scutirodes apis species 164ab3ac910547bc945cdbb994be1ee5
-#> 23      Spiroplasma apis species 789f91571ce55de4df9821f2d05efab0
-#> 24   Trichomonascus apis species 17dc4d840323e2c5b87e67a952f6dff3
-#> 25       Pericystis apis species 088549f2fb602367e84d5ffdb8c1d4fc
-#> 26       Pericystis apis species 088549f2fb602367e84d5ffdb8c1d4fc
-#> 27       Torulopsis apis species 3219a9635d3438e8b76a645cecf87287
-#> 28       Torulopsis apis species 3219a9635d3438e8b76a645cecf87287
-#> 29         Apis aestuans species a517bc572c3c2697fe3bbfabc46a1493
-#> 30           Apis alpina species f2781627115e4212ddab5979cdd425d2
-#> 31         Apis bicornis species e67e82d00faae69da173bb31f9914056
-#> 32        Apis canescens species d6b8850db971d65d6079e3a22f35e10e
-#> 33         Apis clypeata species 706060924801130f6c3abf454087c100
-#> 34      Apis cunicularia species ebc3c5166ce2cabf419c4c6dc332cf3b
-#> 35          Apis etrusca species 6d27fd39a1d8b10050ba4e331987f3c9
-#> 36          Apis globosa species 254c8e847ca4ff128bba57fe94deb98d
-#> 37        Apis hispanica species e8d2057a3efeb2cfdaebe27ea8191cd5
-#> 38         Apis hypnorum species dfb743f54f50b9b9dbee378473542821
-#> 39      Apis ichneumonea species 13c35287e20ab9373fa445dbc44981ea
-#> 40        Apis lapidaria species f8da5667af3562ebc0f6a83e1ec408f0
-#> 41         Apis muscorum species 5bbfe59da5ce7fe59eb9ca3a7a45916c
-#> 42         Apis mystacea species fba8e4752a7fa5939a7eae293ba633ec
-#> 43         Apis obsoleta species da42bcb6cc0267903fb175f8a215aecb
-#> 44         Apis rostrata species e155a4277b66d1114182cafd875afbe3
-#> 45         Apis rostrata species e155a4277b66d1114182cafd875afbe3
-#> 46             Apis rufa species e67e82d00faae69da173bb31f9914056
-#> 47          Apis signata species 551f101ad3b9bc17b24575585b2500c1
-#> 48       Apis smaragdula species 4bc5c886b061e17e9aecb537a04c616d
-#> 49        Apis spinulosa species 56e7e9f854c9ed31ea6d0a06567607d0
-#> 50      Apis subterranea species 3d2adff364a87bf7dd30524aa8071807
-#>          name_status  kingdom              family              acc_name
-#> 1      accepted name Animalia              Apidae                  <NA>
-#> 2      accepted name Bacteria Thermomonosporaceae                  <NA>
-#> 3      accepted name Animalia     Calamoceratidae                  <NA>
-#> 4      accepted name Animalia              Apidae                  <NA>
-#> 5      accepted name Animalia              Apidae                  <NA>
-#> 6      accepted name Animalia              Apidae                  <NA>
-#> 7      accepted name Animalia              Apidae                  <NA>
-#> 8      accepted name Animalia              Apidae                  <NA>
-#> 9      accepted name Animalia              Apidae                  <NA>
-#> 10     accepted name Animalia              Apidae                  <NA>
-#> 11     accepted name    Fungi     Ascosphaeraceae                  <NA>
-#> 12     accepted name    Fungi        Not assigned                  <NA>
-#> 13     accepted name Animalia           Syrphidae                  <NA>
-#> 14     accepted name Animalia          Histeridae                  <NA>
-#> 15     accepted name Animalia             Miridae                  <NA>
-#> 16     accepted name  Plantae       Balsaminaceae                  <NA>
-#> 17     accepted name Animalia        Cicadellidae                  <NA>
-#> 18     accepted name Animalia           Syrphidae                  <NA>
-#> 19     accepted name    Fungi        Not assigned                  <NA>
-#> 20     accepted name Animalia           Syrphidae                  <NA>
-#> 21     accepted name Protozoa         Nosematidae                  <NA>
-#> 22     accepted name Animalia           Noctuidae                  <NA>
-#> 23     accepted name Bacteria   Spiroplasmataceae                  <NA>
-#> 24     accepted name    Fungi   Trichomonascaceae                  <NA>
-#> 25 ambiguous synonym     <NA>                <NA>      Ascosphaera apis
-#> 26 ambiguous synonym     <NA>                <NA>      Ascosphaera apis
-#> 27 ambiguous synonym     <NA>                <NA>          Candida apis
-#> 28 ambiguous synonym     <NA>                <NA>          Candida apis
-#> 29           synonym     <NA>                <NA>     Xylocopa aestuans
-#> 30           synonym     <NA>                <NA>        Bombus alpinus
-#> 31           synonym     <NA>                <NA>            Osmia rufa
-#> 32           synonym     <NA>                <NA>      Bembix canescens
-#> 33           synonym     <NA>                <NA>      Lestica clypeata
-#> 34           synonym     <NA>                <NA> Colletes cunicularius
-#> 35           synonym     <NA>                <NA>     Tachytes etruscus
-#> 36           synonym     <NA>                <NA>   Exomalopsis similis
-#> 37           synonym     <NA>                <NA> Tachytes freygessneri
-#> 38           synonym     <NA>                <NA>       Bombus hypnorum
-#> 39           synonym     <NA>                <NA>    Sphex ichneumoneus
-#> 40           synonym     <NA>                <NA>     Bombus lapidarius
-#> 41           synonym     <NA>                <NA>       Bombus muscorum
-#> 42           synonym     <NA>                <NA> Argogorytes mystaceus
-#> 43           synonym     <NA>                <NA>    Tachytes obsoletus
-#> 44           synonym     <NA>                <NA>       Bembix rostrata
-#> 45           synonym     <NA>                <NA>       Bembix rostrata
-#> 46           synonym     <NA>                <NA>            Osmia rufa
-#> 47           synonym     <NA>                <NA>       Stictia signata
-#> 48           synonym     <NA>                <NA>   Ceratina smaragdula
-#> 49           synonym     <NA>                <NA>   Hoplosmia spinulosa
-#> 50           synonym     <NA>                <NA>   Bombus subterraneus
-```
-
-```
-#> $Apis
+#> $`015be25f6b061ba517f495394b80f108`
 #>                       childtaxa_id     childtaxa_name childtaxa_rank
 #> 1 7a4a38c5095963949d6d6ec917d471de Apis andreniformis        species
 #> 2 39610a4ceff7e5244e334a3fbc5e47e5        Apis cerana        species
@@ -594,11 +520,12 @@ We can also request data from ITIS
 
 
 ```r
-downstream("Apis", downto = "Species", db = "itis")
+apis_itis_id <- 154395 # id for Apis, fetched beforehand to save time here
+downstream(apis_itis_id, downto = "species", db = "itis")
 ```
 
 ```
-#> $Apis
+#> $`154395`
 #>      tsn parentname parenttsn          taxonname rankid rankname
 #> 1 154396       Apis    154395     Apis mellifera    220  species
 #> 2 763550       Apis    154395 Apis andreniformis    220  species
@@ -620,112 +547,8 @@ You may sometimes only want the direct children. We got you covered on that fron
 
 
 ```r
-children(get_colid("Apis"))
-```
-
-```
-#>                     name    rank                            colid
-#> 1                   Apis   genus 015be25f6b061ba517f495394b80f108
-#> 2      Actinomadura apis species 1182a102a18b40aa19385bf5f1f53367
-#> 3    Anisocentropus apis species 8891d18874dde14e44df52e931c44206
-#> 4     Apis andreniformis species 7a4a38c5095963949d6d6ec917d471de
-#> 5            Apis cerana species 39610a4ceff7e5244e334a3fbc5e47e5
-#> 6           Apis dorsata species e1d4cbf3872c6c310b7a1c17ddd00ebc
-#> 7            Apis florea species 92dca82a063fedd1da94b3f3972d7b22
-#> 8     Apis koschevnikovi species 4bbc06b9dfbde0b72c619810b564c6e6
-#> 9         Apis mellifera species 67cbbcf92cd60748759e58e802d98518
-#> 10      Apis nigrocincta species 213668a26ba6d2aad9575218f10d422f
-#> 11      Ascosphaera apis species 088549f2fb602367e84d5ffdb8c1d4fc
-#> 12          Candida apis species 3219a9635d3438e8b76a645cecf87287
-#> 13        Eristalis apis species 16d7c8023308d38f6bb831ed5fa82002
-#> 14           Hister apis species d2d7483acf488b5ed932f49b0aa51d19
-#> 15        Ifephylus apis species 9b4d00e009b58bbfc003b51bd3d0c6f0
-#> 16  Impatiens nidus-apis species 6aecf448e6aa0cb46387066db94426d1
-#> 17      Kirkaldykra apis species 70a68f13454abd937aabf56746f4a6ad
-#> 18          Mallota apis species 10c3c3921d2ea9f9425ef9fd41914520
-#> 19 Melanosella mors-apis species 4ac238f1597847dbc7998d97b8d45a0e
-#> 20         Microdon apis species 9be92242562eb923e711dc24b7bbab9a
-#> 21           Nosema apis species 5b2838dfd0ec15844fc6f659f7580322
-#> 22       Scutirodes apis species 164ab3ac910547bc945cdbb994be1ee5
-#> 23      Spiroplasma apis species 789f91571ce55de4df9821f2d05efab0
-#> 24   Trichomonascus apis species 17dc4d840323e2c5b87e67a952f6dff3
-#> 25       Pericystis apis species 088549f2fb602367e84d5ffdb8c1d4fc
-#> 26       Pericystis apis species 088549f2fb602367e84d5ffdb8c1d4fc
-#> 27       Torulopsis apis species 3219a9635d3438e8b76a645cecf87287
-#> 28       Torulopsis apis species 3219a9635d3438e8b76a645cecf87287
-#> 29         Apis aestuans species a517bc572c3c2697fe3bbfabc46a1493
-#> 30           Apis alpina species f2781627115e4212ddab5979cdd425d2
-#> 31         Apis bicornis species e67e82d00faae69da173bb31f9914056
-#> 32        Apis canescens species d6b8850db971d65d6079e3a22f35e10e
-#> 33         Apis clypeata species 706060924801130f6c3abf454087c100
-#> 34      Apis cunicularia species ebc3c5166ce2cabf419c4c6dc332cf3b
-#> 35          Apis etrusca species 6d27fd39a1d8b10050ba4e331987f3c9
-#> 36          Apis globosa species 254c8e847ca4ff128bba57fe94deb98d
-#> 37        Apis hispanica species e8d2057a3efeb2cfdaebe27ea8191cd5
-#> 38         Apis hypnorum species dfb743f54f50b9b9dbee378473542821
-#> 39      Apis ichneumonea species 13c35287e20ab9373fa445dbc44981ea
-#> 40        Apis lapidaria species f8da5667af3562ebc0f6a83e1ec408f0
-#> 41         Apis muscorum species 5bbfe59da5ce7fe59eb9ca3a7a45916c
-#> 42         Apis mystacea species fba8e4752a7fa5939a7eae293ba633ec
-#> 43         Apis obsoleta species da42bcb6cc0267903fb175f8a215aecb
-#> 44         Apis rostrata species e155a4277b66d1114182cafd875afbe3
-#> 45         Apis rostrata species e155a4277b66d1114182cafd875afbe3
-#> 46             Apis rufa species e67e82d00faae69da173bb31f9914056
-#> 47          Apis signata species 551f101ad3b9bc17b24575585b2500c1
-#> 48       Apis smaragdula species 4bc5c886b061e17e9aecb537a04c616d
-#> 49        Apis spinulosa species 56e7e9f854c9ed31ea6d0a06567607d0
-#> 50      Apis subterranea species 3d2adff364a87bf7dd30524aa8071807
-#>          name_status  kingdom              family              acc_name
-#> 1      accepted name Animalia              Apidae                  <NA>
-#> 2      accepted name Bacteria Thermomonosporaceae                  <NA>
-#> 3      accepted name Animalia     Calamoceratidae                  <NA>
-#> 4      accepted name Animalia              Apidae                  <NA>
-#> 5      accepted name Animalia              Apidae                  <NA>
-#> 6      accepted name Animalia              Apidae                  <NA>
-#> 7      accepted name Animalia              Apidae                  <NA>
-#> 8      accepted name Animalia              Apidae                  <NA>
-#> 9      accepted name Animalia              Apidae                  <NA>
-#> 10     accepted name Animalia              Apidae                  <NA>
-#> 11     accepted name    Fungi     Ascosphaeraceae                  <NA>
-#> 12     accepted name    Fungi        Not assigned                  <NA>
-#> 13     accepted name Animalia           Syrphidae                  <NA>
-#> 14     accepted name Animalia          Histeridae                  <NA>
-#> 15     accepted name Animalia             Miridae                  <NA>
-#> 16     accepted name  Plantae       Balsaminaceae                  <NA>
-#> 17     accepted name Animalia        Cicadellidae                  <NA>
-#> 18     accepted name Animalia           Syrphidae                  <NA>
-#> 19     accepted name    Fungi        Not assigned                  <NA>
-#> 20     accepted name Animalia           Syrphidae                  <NA>
-#> 21     accepted name Protozoa         Nosematidae                  <NA>
-#> 22     accepted name Animalia           Noctuidae                  <NA>
-#> 23     accepted name Bacteria   Spiroplasmataceae                  <NA>
-#> 24     accepted name    Fungi   Trichomonascaceae                  <NA>
-#> 25 ambiguous synonym     <NA>                <NA>      Ascosphaera apis
-#> 26 ambiguous synonym     <NA>                <NA>      Ascosphaera apis
-#> 27 ambiguous synonym     <NA>                <NA>          Candida apis
-#> 28 ambiguous synonym     <NA>                <NA>          Candida apis
-#> 29           synonym     <NA>                <NA>     Xylocopa aestuans
-#> 30           synonym     <NA>                <NA>        Bombus alpinus
-#> 31           synonym     <NA>                <NA>            Osmia rufa
-#> 32           synonym     <NA>                <NA>      Bembix canescens
-#> 33           synonym     <NA>                <NA>      Lestica clypeata
-#> 34           synonym     <NA>                <NA> Colletes cunicularius
-#> 35           synonym     <NA>                <NA>     Tachytes etruscus
-#> 36           synonym     <NA>                <NA>   Exomalopsis similis
-#> 37           synonym     <NA>                <NA> Tachytes freygessneri
-#> 38           synonym     <NA>                <NA>       Bombus hypnorum
-#> 39           synonym     <NA>                <NA>    Sphex ichneumoneus
-#> 40           synonym     <NA>                <NA>     Bombus lapidarius
-#> 41           synonym     <NA>                <NA>       Bombus muscorum
-#> 42           synonym     <NA>                <NA> Argogorytes mystaceus
-#> 43           synonym     <NA>                <NA>    Tachytes obsoletus
-#> 44           synonym     <NA>                <NA>       Bembix rostrata
-#> 45           synonym     <NA>                <NA>       Bembix rostrata
-#> 46           synonym     <NA>                <NA>            Osmia rufa
-#> 47           synonym     <NA>                <NA>       Stictia signata
-#> 48           synonym     <NA>                <NA>   Ceratina smaragdula
-#> 49           synonym     <NA>                <NA>   Hoplosmia spinulosa
-#> 50           synonym     <NA>                <NA>   Bombus subterraneus
+# using the id for Apis we defined above for COL
+children(apis_col_id, db = "col")
 ```
 
 ```
@@ -783,6 +606,7 @@ genbank2uid(id = 'AJ748748')
 ```
 
 ```
+#> [[1]]
 #> [1] "282199"
 #> attr(,"class")
 #> [1] "uid"
@@ -793,7 +617,9 @@ genbank2uid(id = 'AJ748748')
 #> attr(,"pattern_match")
 #> [1] FALSE
 #> attr(,"uri")
-#> [1] "http://www.ncbi.nlm.nih.gov/taxonomy/282199"
+#> [1] "https://www.ncbi.nlm.nih.gov/taxonomy/282199"
+#> attr(,"name")
+#> [1] "Nereida ignava 16S rRNA gene, type strain 2SM4T"
 ```
 
 With gi numbers
@@ -804,6 +630,7 @@ genbank2uid(id = 62689767)
 ```
 
 ```
+#> [[1]]
 #> [1] "282199"
 #> attr(,"class")
 #> [1] "uid"
@@ -814,7 +641,9 @@ genbank2uid(id = 62689767)
 #> attr(,"pattern_match")
 #> [1] FALSE
 #> attr(,"uri")
-#> [1] "http://www.ncbi.nlm.nih.gov/taxonomy/282199"
+#> [1] "https://www.ncbi.nlm.nih.gov/taxonomy/282199"
+#> attr(,"name")
+#> [1] "Nereida ignava 16S rRNA gene, type strain 2SM4T"
 ```
 
 ## Matching species tables with different taxonomic resolution
