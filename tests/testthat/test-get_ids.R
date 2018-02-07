@@ -5,7 +5,7 @@ context("get_ids")
 test_that("get_ids returns the correct values and classses", {
   skip_on_cran()
 
-  tt <- get_ids(names="Chironomus riparius", db = 'ncbi', verbose=FALSE)
+  tt <- get_ids(names="Chironomus riparius", db = 'ncbi', messages=FALSE)
 
   expect_equal(tt[[1]][[1]], "315576")
 
