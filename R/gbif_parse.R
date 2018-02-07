@@ -7,7 +7,7 @@
 #' taxon names. Fields returned are the union of fields extracted from
 #' all species names in \code{scientificname}.
 #' @author John Baumgartner (johnbb@@student.unimelb.edu.au)
-#' @references \url{http://tools.gbif.org/nameparser/api.do}
+#' @references https://www.gbif.org/tools/name-parser/about
 #' @seealso \code{\link{gni_parse}}
 #' @examples \dontrun{
 #' gbif_parse(scientificname='x Agropogon littoralis')

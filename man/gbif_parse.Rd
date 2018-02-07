@@ -28,7 +28,7 @@ gbif_parse(c('Arrhenatherum elatius var. elatius',
 }
 }
 \references{
-\url{http://tools.gbif.org/nameparser/api.do}
+https://www.gbif.org/tools/name-parser/about
 }
 \seealso{
 \code{\link{gni_parse}}
