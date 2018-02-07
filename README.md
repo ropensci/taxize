@@ -233,7 +233,7 @@ lapply(out, head)
 #> 4            Metazoa      kingdom  33208
 #> 5          Eumetazoa      no rank   6072
 #> 6          Bilateria      no rank  33213
-#>
+#> 
 #> $`492549`
 #>                 name         rank     id
 #> 1 cellular organisms      no rank 131567
@@ -281,7 +281,7 @@ children("Salmo", db = 'ncbi')
 #> 26        33515                     Salmo carpio        species
 #> 27         8032                     Salmo trutta        species
 #> 28         8030                      Salmo salar        species
-#>
+#> 
 #> attr(,"class")
 #> [1] "children"
 #> attr(,"db")
@@ -304,7 +304,7 @@ downstream(as.tsn(154395), db = 'itis', downto = 'species', verbose = FALSE)
 #> 5 763553       Apis    154395        Apis florea    220  species
 #> 6 763554       Apis    154395 Apis koschevnikovi    220  species
 #> 7 763555       Apis    154395   Apis nigrocincta    220  species
-#>
+#> 
 #> attr(,"class")
 #> [1] "downstream"
 #> attr(,"db")
@@ -348,18 +348,8 @@ upstream("Pinus contorta", db = 'itis', upto = 'Genus', verbose=FALSE)
 #> 7     accepted
 #> 8     accepted
 #> 9     accepted
-#> $`Pinus contorta`
-#>      tsn parentname parenttsn   taxonname rankid rankname
-#> 1  18031   Pinaceae     18030       Abies    180    genus
-#> 2  18033   Pinaceae     18030       Picea    180    genus
-#> 3  18035   Pinaceae     18030       Pinus    180    genus
-#> 4 183396   Pinaceae     18030       Tsuga    180    genus
-#> 5 183405   Pinaceae     18030      Cedrus    180    genus
-#> 6 183409   Pinaceae     18030       Larix    180    genus
-#> 7 183418   Pinaceae     18030 Pseudotsuga    180    genus
-#> 8 822529   Pinaceae     18030  Keteleeria    180    genus
-#> 9 822530   Pinaceae     18030 Pseudolarix    180    genus
-#>
+#> Pinus contorta 
+#>             NA 
 #> attr(,"class")
 #> [1] "upstream"
 #> attr(,"db")
@@ -375,19 +365,8 @@ synonyms("Acer drummondii", db="itis")
 #> 1 183671    Acer drummondii          NA not accepted
 #> 2 183672 Rufacer drummondii          NA not accepted
 #> $`Acer drummondii`
-#>   sub_tsn                    acc_name acc_tsn
-#> 1  183671 Acer rubrum var. drummondii  526853
-#> 2  183671 Acer rubrum var. drummondii  526853
-#> 3  183671 Acer rubrum var. drummondii  526853
-#>                      acc_author                        syn_author
-#> 1 (Hook. & Arn. ex Nutt.) Sarg. (Hook. & Arn. ex Nutt.) E. Murray
-#> 2 (Hook. & Arn. ex Nutt.) Sarg.             Hook. & Arn. ex Nutt.
-#> 3 (Hook. & Arn. ex Nutt.) Sarg.     (Hook. & Arn. ex Nutt.) Small
-#>                      syn_name syn_tsn
-#> 1 Acer rubrum ssp. drummondii   28730
-#> 2             Acer drummondii  183671
-#> 3          Rufacer drummondii  183672
-#>
+#> [1] NA
+#> 
 #> attr(,"class")
 #> [1] "synonyms"
 #> attr(,"db")
@@ -400,8 +379,8 @@ synonyms("Acer drummondii", db="itis")
 ```r
 get_ids(names="Salvelinus fontinalis", db = c('itis', 'ncbi'), verbose=FALSE)
 #> $itis
-#> Salvelinus fontinalis
-#>              "162003"
+#> Salvelinus fontinalis 
+#>              "162003" 
 #> attr(,"match")
 #> [1] "found"
 #> attr(,"multiple_matches")
@@ -412,10 +391,10 @@ get_ids(names="Salvelinus fontinalis", db = c('itis', 'ncbi'), verbose=FALSE)
 #> [1] "http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=162003"
 #> attr(,"class")
 #> [1] "tsn"
-#>
+#> 
 #> $ncbi
-#> Salvelinus fontinalis
-#>                "8038"
+#> Salvelinus fontinalis 
+#>                "8038" 
 #> attr(,"class")
 #> [1] "uid"
 #> attr(,"match")
@@ -426,7 +405,7 @@ get_ids(names="Salvelinus fontinalis", db = c('itis', 'ncbi'), verbose=FALSE)
 #> [1] FALSE
 #> attr(,"uri")
 #> [1] "https://www.ncbi.nlm.nih.gov/taxonomy/8038"
-#>
+#> 
 #> attr(,"class")
 #> [1] "ids"
 ```
@@ -437,8 +416,8 @@ You can limit to certain rows when getting ids in any `get_*()` functions
 ```r
 get_ids(names="Poa annua", db = "gbif", rows=1)
 #> $gbif
-#> Poa annua
-#> "2704179"
+#> Poa annua 
+#> "2704179" 
 #> attr(,"class")
 #> [1] "gbifid"
 #> attr(,"match")
@@ -449,7 +428,7 @@ get_ids(names="Poa annua", db = "gbif", rows=1)
 #> [1] FALSE
 #> attr(,"uri")
 #> [1] "http://www.gbif.org/species/2704179"
-#>
+#> 
 #> attr(,"class")
 #> [1] "ids"
 ```
@@ -465,14 +444,14 @@ get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn', rows=1:3)
 #> 1 NBNSYS0000027573        Chironomus riparius species        accepted
 #> 2 NHMSYS0000864966 Damaeus (Damaeus) riparius species        accepted
 #> 3 NHMSYS0021059238      Rhizoclonium riparium species        accepted
-#>
+#> 
 #> $nbn$`Pinus contorta`
 #>               guid                scientificName    rank taxonomicStatus
 #> 1 NBNSYS0000004786                Pinus contorta species        accepted
 #> 2 NHMSYS0000494858 Pinus contorta var. murrayana variety        accepted
 #> 3 NHMSYS0000494848  Pinus contorta var. contorta variety        accepted
-#>
-#>
+#> 
+#> 
 #> attr(,"class")
 #> [1] "ids"
 ```
@@ -499,8 +478,7 @@ sci2comm('Helianthus annuus', db = 'itis')
 #> 6                                                         NA not accepted
 #> 7                                                         NA not accepted
 #> $`Helianthus annuus`
-#> [1] "common sunflower" "sunflower"        "wild sunflower"
-#> [4] "annual sunflower"
+#> [1] NA
 ```
 
 ## Scientific names from common names
@@ -509,10 +487,10 @@ sci2comm('Helianthus annuus', db = 'itis')
 ```r
 comm2sci("black bear", db = "itis")
 #> $`black bear`
-#> [1] "Chiropotes satanas"          "Ursus thibetanus"
-#> [3] "Ursus thibetanus"            "Ursus americanus luteolus"
-#> [5] "Ursus americanus"            "Ursus americanus"
-#> [7] "Ursus americanus americanus"
+#> [1] "Ursus thibetanus"            "Ursus thibetanus"           
+#> [3] "Chiropotes satanas"          "Ursus americanus luteolus"  
+#> [5] "Ursus americanus americanus" "Ursus americanus"           
+#> [7] "Ursus americanus"
 ```
 
 ## Lowest common rank among taxa
@@ -542,7 +520,7 @@ as.uid(315567)
 #> attr(,"pattern_match")
 #> [1] FALSE
 #> attr(,"uri")
-#> [1] "http://www.ncbi.nlm.nih.gov/taxonomy/315567"
+#> [1] "https://www.ncbi.nlm.nih.gov/taxonomy/315567"
 ```
 
 `list` to `uid`
@@ -550,7 +528,7 @@ as.uid(315567)
 
 ```r
 as.uid(list("315567", "3339", "9696"))
-#> [1] "315567" "3339"   "9696"
+#> [1] "315567" "3339"   "9696"  
 #> attr(,"class")
 #> [1] "uid"
 #> attr(,"match")
@@ -560,9 +538,9 @@ as.uid(list("315567", "3339", "9696"))
 #> attr(,"pattern_match")
 #> [1] FALSE FALSE FALSE
 #> attr(,"uri")
-#> [1] "http://www.ncbi.nlm.nih.gov/taxonomy/315567"
-#> [2] "http://www.ncbi.nlm.nih.gov/taxonomy/3339"
-#> [3] "http://www.ncbi.nlm.nih.gov/taxonomy/9696"
+#> [1] "https://www.ncbi.nlm.nih.gov/taxonomy/315567"
+#> [2] "https://www.ncbi.nlm.nih.gov/taxonomy/3339"  
+#> [3] "https://www.ncbi.nlm.nih.gov/taxonomy/9696"
 ```
 
 ## Coerce taxonomic id classes to a data.frame
@@ -575,10 +553,10 @@ out <- as.uid(c(315567, 3339, 9696))
 #> 1 315567   uid found            FALSE         FALSE
 #> 2   3339   uid found            FALSE         FALSE
 #> 3   9696   uid found            FALSE         FALSE
-#>                                           uri
-#> 1 http://www.ncbi.nlm.nih.gov/taxonomy/315567
-#> 2   http://www.ncbi.nlm.nih.gov/taxonomy/3339
-#> 3   http://www.ncbi.nlm.nih.gov/taxonomy/9696
+#>                                            uri
+#> 1 https://www.ncbi.nlm.nih.gov/taxonomy/315567
+#> 2   https://www.ncbi.nlm.nih.gov/taxonomy/3339
+#> 3   https://www.ncbi.nlm.nih.gov/taxonomy/9696
 ```
 
 ## Contributing
