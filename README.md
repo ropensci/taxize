@@ -487,10 +487,10 @@ sci2comm('Helianthus annuus', db = 'itis')
 ```r
 comm2sci("black bear", db = "itis")
 #> $`black bear`
-#> [1] "Ursus thibetanus"            "Ursus thibetanus"           
-#> [3] "Ursus americanus luteolus"   "Ursus americanus americanus"
-#> [5] "Ursus americanus"            "Ursus americanus"           
-#> [7] "Chiropotes satanas"
+#> [1] "Chiropotes satanas"          "Ursus americanus luteolus"  
+#> [3] "Ursus americanus"            "Ursus americanus"           
+#> [5] "Ursus americanus americanus" "Ursus thibetanus"           
+#> [7] "Ursus thibetanus"
 ```
 
 ## Lowest common rank among taxa
@@ -567,6 +567,8 @@ See our [CONTRIBUTING](.github/CONTRIBUTING.md) document.
 
 Alphebetical
 
+### Code Contributors
+
 + [Zebulun Arendsee](https://github.com/arendsee)
 + [Ignasi Bartomeus](https://github.com/ibartomeus)
 + [John Baumgartner](https://github.com/johnbaums)
@@ -591,6 +593,12 @@ Alphebetical
 + [Bastian Greshake Tzovaras](https://github.com/gedankenstuecke)
 + [Luis Villanueva](https://github.com/ljvillanueva)
 + [Jakub Wilk](https://github.com/jwilk)
+
+### All Contributors! (via GitHub Issues)
+
+Alphebetical
+
+[ahhurlbert](https://github.com/ahhurlbert) - [Alectoria](https://github.com/Alectoria) - [andzandz11](https://github.com/andzandz11) - [antagomir](https://github.com/antagomir) - [arendsee](https://github.com/arendsee) - [ashenkin](https://github.com/ashenkin) - [ashiklom](https://github.com/ashiklom) - [bomeara](https://github.com/bomeara) - [bw4sz](https://github.com/bw4sz) - [cboettig](https://github.com/cboettig) - [cdeterman](https://github.com/cdeterman) - [ChrKoenig](https://github.com/ChrKoenig) - [chuckrp](https://github.com/chuckrp) - [clarson2191](https://github.com/clarson2191) - [claudenozeres](https://github.com/claudenozeres) - [cmzambranat](https://github.com/cmzambranat) - [daattali](https://github.com/daattali) - [DanielGMead](https://github.com/DanielGMead) - [davharris](https://github.com/davharris) - [davidvilanova](https://github.com/davidvilanova) - [diogoprov](https://github.com/diogoprov) - [dlebauer](https://github.com/dlebauer) - [dlenz1](https://github.com/dlenz1) - [dschlaep](https://github.com/dschlaep) - [EDiLD](https://github.com/EDiLD) - [emhart](https://github.com/emhart) - [fdschneider](https://github.com/fdschneider) - [fgabriel1891](https://github.com/fgabriel1891) - [fmichonneau](https://github.com/fmichonneau) - [gedankenstuecke](https://github.com/gedankenstuecke) - [GISKid](https://github.com/GISKid) - [glaroc](https://github.com/glaroc) - [gustavobio](https://github.com/gustavobio) - [ibartomeus](https://github.com/ibartomeus) - [jangorecki](https://github.com/jangorecki) - [jarioksa](https://github.com/jarioksa) - [jebyrnes](https://github.com/jebyrnes) - [johnbaums](https://github.com/johnbaums) - [jonmcalder](https://github.com/jonmcalder) - [JoStaerk](https://github.com/JoStaerk) - [jsgosnell](https://github.com/jsgosnell) - [kamapu](https://github.com/kamapu) - [karthik](https://github.com/karthik) - [KevCaz](https://github.com/KevCaz) - [kgturner](https://github.com/kgturner) - [kmeverson](https://github.com/kmeverson) - [Koalha](https://github.com/Koalha) - [ljvillanueva](https://github.com/ljvillanueva) - [Markus2015](https://github.com/Markus2015) - [mcsiple](https://github.com/mcsiple) - [MikkoVihtakari](https://github.com/MikkoVihtakari) - [millerjef](https://github.com/millerjef) - [miriamgrace](https://github.com/miriamgrace) - [mpnelsen](https://github.com/mpnelsen) - [MUSEZOOLVERT](https://github.com/MUSEZOOLVERT) - [nate-d-olson](https://github.com/nate-d-olson) - [nmatzke](https://github.com/nmatzke) - [npch](https://github.com/npch) - [philippi](https://github.com/philippi) - [pmarchand1](https://github.com/pmarchand1) - [RodgerG](https://github.com/RodgerG) - [rossmounce](https://github.com/rossmounce) - [sariya](https://github.com/sariya) - [scelmendorf](https://github.com/scelmendorf) - [sckott](https://github.com/sckott) - [SimonGoring](https://github.com/SimonGoring) - [snsheth](https://github.com/snsheth) - [snubian](https://github.com/snubian) - [tdjames1](https://github.com/tdjames1) - [tmkurobe](https://github.com/tmkurobe) - [tpaulson1](https://github.com/tpaulson1) - [tpoisot](https://github.com/tpoisot) - [vijaybarve](https://github.com/vijaybarve) - [wcornwell](https://github.com/wcornwell) - [wpetry](https://github.com/wpetry) - [zachary-foster](https://github.com/zachary-foster)
 
 ## Road map
 
