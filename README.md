@@ -488,9 +488,9 @@ sci2comm('Helianthus annuus', db = 'itis')
 comm2sci("black bear", db = "itis")
 #> $`black bear`
 #> [1] "Ursus thibetanus"            "Ursus thibetanus"           
-#> [3] "Chiropotes satanas"          "Ursus americanus luteolus"  
-#> [5] "Ursus americanus americanus" "Ursus americanus"           
-#> [7] "Ursus americanus"
+#> [3] "Ursus americanus luteolus"   "Ursus americanus americanus"
+#> [5] "Ursus americanus"            "Ursus americanus"           
+#> [7] "Chiropotes satanas"
 ```
 
 ## Lowest common rank among taxa
@@ -567,6 +567,7 @@ See our [CONTRIBUTING](.github/CONTRIBUTING.md) document.
 
 Alphebetical
 
++ [Zebulun Arendsee](https://github.com/arendsee)
 + [Ignasi Bartomeus](https://github.com/ibartomeus)
 + [John Baumgartner](https://github.com/johnbaums)
 + [Carl Boettiger](https://github.com/cboettig)
@@ -574,6 +575,7 @@ Alphebetical
 + [Scott Chamberlain](https://github.com/sckott)
 + [Anirvan Chatterjee](https://github.com/anirvan)
 + [Zachary Foster](https://github.com/zachary-foster)
++ [Patrick Hausmann](https://github.com/patperu)
 + [Oliver Keyes](https://github.com/Ironholds)
 + [David LeBauer](https://github.com/dlebauer)
 + [Philippe Marchand](https://github.com/pmarchand1)
@@ -583,7 +585,10 @@ Alphebetical
 + [Jari Oksanen](https://github.com/jarioksa)
 + [Karthik Ram](https://github.com/karthik)
 + [raredd](https://github.com/raredd)
++ [Alexey Shiklomanov](https://github.com/ashiklom)
 + [Eduard Szöcs](https://github.com/EDiLD)
++ [Vinh Tran](https://github.com/trvinh)
++ [Bastian Greshake Tzovaras](https://github.com/gedankenstuecke)
 + [Luis Villanueva](https://github.com/ljvillanueva)
 + [Jakub Wilk](https://github.com/jwilk)
 
@@ -598,5 +603,7 @@ Check out our [milestones](https://github.com/ropensci/taxize/milestones) to see
 * Get citation information for `taxize` in R doing `citation(package = 'taxize')`
 * Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md).
 By participating in this project you agree to abide by its terms.
+
+[![rofooter](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
 
 [tut]: https://ropensci.org/tutorials/taxize.html

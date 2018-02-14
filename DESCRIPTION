@@ -21,7 +21,10 @@ Authors@R: c(
     person("Ignasi", "Bartomeus", role = "ctb"),
     person("John", "Baumgartner", role = "ctb"),
     person("James", "O'Donnell", role = "ctb"),
-    person("Jari", "Oksanen", role = "ctb")
+    person("Jari", "Oksanen", role = "ctb"),
+    person("Bastian Greshake", "Tzovaras", role = "ctb"),
+    person("Philippe", "Marchand", role = "ctb"),
+    person("Vinh", "Tran", role = "ctb")
   )
 LazyLoad: yes
 LazyData: yes
