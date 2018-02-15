@@ -339,7 +339,7 @@ classification.uid <- function(id, callopts = list(), return_id = TRUE, ...) {
         id = xml2::xml_text(
           xml2::xml_find_all(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/TaxId")),
         stringsAsFactors = FALSE)
-      parent_id <- xml2::xml_text(xml2::xml_find_all(ttp, "//TaxaSet/Taxon/ParentTaxId"))
+      parent_id <- xml2::xml_text(xml2::xml_find_all(ttp, "//TaxaSet/Taxon/ParentTaxId")) %||% ""
       if (NROW(out) == 0 && parent_id != "1") {  # Is not directly below root and no lineage info
         out <- NA
       } else {

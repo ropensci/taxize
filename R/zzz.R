@@ -227,3 +227,5 @@ taxize_ua <- function(x) {
   )
   paste0(names(versions), "/", versions, collapse = " ")
 }
+
+`%||%` <- function (x, y) if (is.null(x) || length(x) == 0) y else x
