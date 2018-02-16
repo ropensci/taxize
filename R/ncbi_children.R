@@ -68,6 +68,9 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
   if (is.null(name)) {
     if (class(id) != 'uid') attr(id, 'class') <- 'uid'
     id_taxonomy <- classification(id, db = 'ncbi')
+    id_taxonomy <- lapply(id_taxonomy, function(z) {
+      if (!(inherits(z, "data.frame"))) data.frame(NULL) else z
+    })
     name <- vapply(id_taxonomy,
                    function(x) ifelse(nrow(x) > 0, x$name[nrow(x)], as.character(NA)),
                    character(1))
