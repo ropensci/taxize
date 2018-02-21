@@ -18,22 +18,22 @@ context("classification")
 # skip_if <- function(x){
 #   if(!res) skip("API down")
 #
-#   expect_is(classification(c("Chironomus riparius", "aaa vva"), db = 'itis', verbose=FALSE), "classification")
+#   expect_is(classification(c("Chironomus riparius", "aaa vva"), db = 'itis', messages=FALSE), "classification")
 # }
 
-# eolids <- get_tsn(c("Chironomus riparius", "aaa vva"), verbose=FALSE)
-# colids <- get_colid(c("Chironomus riparius", "aaa vva"), verbose=FALSE)
-# tpsids <- get_tpsid(sciname=c("Helianthus excubitor", "aaa vva"), verbose=FALSE)
-# clas_eolids <- classification(eolids, verbose=FALSE)
+# eolids <- get_tsn(c("Chironomus riparius", "aaa vva"), messages=FALSE)
+# colids <- get_colid(c("Chironomus riparius", "aaa vva"), messages=FALSE)
+# tpsids <- get_tpsid(sciname=c("Helianthus excubitor", "aaa vva"), messages=FALSE)
+# clas_eolids <- classification(eolids, messages=FALSE)
 # clas_colids <- classification(colids)
-# clas_tpids <- classification(tpsids, verbose=FALSE)
+# clas_tpids <- classification(tpsids, messages=FALSE)
 
 # clas_eol <- classification(c("Helianthus petiolaris Nutt.", "aaa vva"), db = 'eol')
 # names(clas_eol) <- NULL
 
 # clas_col <- suppressMessages(classification(c("Puma concolor", "aaa vva"), db = 'col'))
 # names(clas_col) <- NULL
-# colids <- get_colid(c("Puma concolor", "aaa vva"), verbose=FALSE)
+# colids <- get_colid(c("Puma concolor", "aaa vva"), messages=FALSE)
 # clas_colids <- classification(colids)
 # names(clas_colids) <- NULL
 
@@ -44,11 +44,11 @@ test_that("classification returns the correct values and classes", {
   skip_on_cran()
 
   clas_ncbi <- classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi',
-                              verbose=FALSE)
+                              messages=FALSE)
   names(clas_ncbi) <- NULL
 
   clas_itis <- classification(c("Chironomus riparius", "aaa vva"), db = 'itis',
-                              verbose=FALSE)
+                              messages=FALSE)
   names(clas_itis) <- NULL
 
 	expect_that(clas_ncbi[[2]], equals(NA))
@@ -77,11 +77,11 @@ test_that("classification returns the correct values and classes", {
 # 	expect_that(clas_tp[[1]], is_a("data.frame"))
 # 	expect_that(length(clas_tp), equals(2))
 
-  uids <- get_uid(c("Chironomus riparius", "aaa vva"), verbose=FALSE)
-  tsns <- get_tsn(c("Chironomus riparius", "aaa vva"), verbose=FALSE)
-  clas_uids <- classification(uids, verbose=FALSE)
+  uids <- get_uid(c("Chironomus riparius", "aaa vva"), messages=FALSE)
+  tsns <- get_tsn(c("Chironomus riparius", "aaa vva"), messages=FALSE)
+  clas_uids <- classification(uids, messages=FALSE)
   names(clas_uids) <- NULL
-  clas_tsns <- classification(tsns, verbose=FALSE)
+  clas_tsns <- classification(tsns, messages=FALSE)
   names(clas_tsns) <- NULL
 
   expect_identical(clas_uids, clas_ncbi)
@@ -117,7 +117,7 @@ test_that("rbind and cbind work correctly", {
   skip_on_cran()
 
   out <- get_ids(names = c("Puma concolor","Accipiter striatus"),
-                 db = 'ncbi', verbose=FALSE)
+                 db = 'ncbi', messages=FALSE)
   cl <- classification(out)
 
   # rbind
@@ -137,15 +137,15 @@ nn <- apply(df, 1, function(x) paste(x["genus"], x["sp"], collapse = " "))
 test_that("works on a variety of names", {
   skip_on_cran()
 
-	expect_that(classification(nn[1], db = "ncbi", verbose=FALSE), is_a("classification"))
-	expect_that(classification(nn[2], db = "ncbi", verbose=FALSE), is_a("classification"))
+	expect_that(classification(nn[1], db = "ncbi", messages=FALSE), is_a("classification"))
+	expect_that(classification(nn[2], db = "ncbi", messages=FALSE), is_a("classification"))
 })
 
 test_that("queries with no results fail well", {
   skip_on_cran()
 
-  aa <- classification(x = "Saurauia", db = "itis", verbose = FALSE)
-  bb <- classification(get_tsn("Saurauia", verbose = FALSE), verbose = FALSE)
+  aa <- classification(x = "Saurauia", db = "itis", messages = FALSE)
+  bb <- classification(get_tsn("Saurauia", messages = FALSE), messages = FALSE)
 
   expect_true(is.na(unclass(aa)[[1]]))
   expect_identical(unname(aa), unname(bb))
@@ -154,13 +154,13 @@ test_that("queries with no results fail well", {
 test_that("all rank character strings are lower case (all letters)", {
   skip_on_cran()
 
-  aa <- classification(9606, db = 'ncbi', verbose = FALSE)
-  bb <- classification(129313, db = 'itis', verbose = FALSE)
-  #cc <- classification(57361017, db = 'eol', verbose = FALSE)
-  dd <- classification(2441176, db = 'gbif', verbose = FALSE)
-  #ee <- classification(25509881, db = 'tropicos', verbose = FALSE)
-  #ff <- classification("NBNSYS0000004786", db = 'nbn', verbose = FALSE)
-  gg <- classification("Chironomus riparius", db = 'col', verbose = FALSE)
+  aa <- classification(9606, db = 'ncbi', messages = FALSE)
+  bb <- classification(129313, db = 'itis', messages = FALSE)
+  #cc <- classification(57361017, db = 'eol', messages = FALSE)
+  dd <- classification(2441176, db = 'gbif', messages = FALSE)
+  #ee <- classification(25509881, db = 'tropicos', messages = FALSE)
+  #ff <- classification("NBNSYS0000004786", db = 'nbn', messages = FALSE)
+  gg <- classification("Chironomus riparius", db = 'col', messages = FALSE)
 
   expect_false(all(grepl("[A-Z]", aa[[1]]$rank)))
   expect_false(all(grepl("[A-Z]", bb[[1]]$rank)))
@@ -175,11 +175,11 @@ test_that("all rank character strings are lower case (all letters)", {
 test_that("rows parameter, when used, works", {
   skip_on_cran()
 
-  expect_is(classification("Asdfafsfd", db = 'ncbi', rows = 1, verbose = FALSE), "classification")
-  expect_is(classification("Asdfafsfd", db = 'itis', rows = 1, verbose = FALSE), "classification")
-  expect_is(classification("Asdfafsfd", db = 'gbif', rows = 1, verbose = FALSE), "classification")
-  expect_is(classification("Asdfafsfd", db = 'eol', rows = 1, verbose = FALSE), "classification")
-  expect_is(classification("Asdfafsfd", db = 'col', rows = 1, verbose = FALSE), "classification")
-  expect_is(classification("Asdfafsfd", db = 'tropicos', rows = 1, verbose = FALSE), "classification")
-  expect_is(classification("Asdfafsfd", db = 'nbn', rows = 1, verbose = FALSE), "classification")
+  expect_is(classification("Asdfafsfd", db = 'ncbi', rows = 1, messages = FALSE), "classification")
+  expect_is(classification("Asdfafsfd", db = 'itis', rows = 1, messages = FALSE), "classification")
+  expect_is(classification("Asdfafsfd", db = 'gbif', rows = 1, messages = FALSE), "classification")
+  expect_is(classification("Asdfafsfd", db = 'eol', rows = 1, messages = FALSE), "classification")
+  expect_is(classification("Asdfafsfd", db = 'col', rows = 1, messages = FALSE), "classification")
+  expect_is(classification("Asdfafsfd", db = 'tropicos', rows = 1, messages = FALSE), "classification")
+  expect_is(classification("Asdfafsfd", db = 'nbn', rows = 1, messages = FALSE), "classification")
 })

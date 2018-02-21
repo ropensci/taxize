@@ -80,7 +80,8 @@ genbank2uid <- function(id, batch_size = 100, key = NULL, ...) {
     # combine results into a data.frame and return
     result <- data.frame(id = taxon_ids, name = titles,
                          stringsAsFactors = FALSE)
-    Sys.sleep(0.34) # NCBI limits requests to three per second
+    # NCBI limits requests to three per second when no key
+    if (is.null(key) || !nzchar(key)) Sys.sleep(0.33)
     return(result)
   }
   # Run each batch and combine

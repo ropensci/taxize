@@ -179,10 +179,11 @@ ncbi_foo <- function(x, ...){
   tt <- res$parse("UTF-8")
   ttp <- xml2::read_xml(tt)
   # common name
-  out <- xml_text(xml_find_all(ttp,
-                               "//TaxaSet/Taxon/OtherNames/GenbankCommonName"))
+  out <- xml_text(
+    xml_find_all(ttp,
+      "//TaxaSet/Taxon/OtherNames/GenbankCommonName"))
   # NCBI limits requests to three per second
-  Sys.sleep(0.33)
+  if (is.null(key) || !nzchar(key)) Sys.sleep(0.33)
   return(out)
 }
 

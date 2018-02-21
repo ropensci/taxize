@@ -21,7 +21,7 @@ test_that("ncbi_get_taxon_summary behaves correctly when very large ID vector", 
   skip_on_cran()
 
   # short UID's are okay at larger quantities
-  ids <- rep(4751, 1200)
+  ids <- rep(4751, 1100)
   expect_is(ncbi_get_taxon_summary(id = ids), "data.frame")
 
   # but longer IDs add up of course

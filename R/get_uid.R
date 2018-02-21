@@ -175,8 +175,8 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
     xml_result <- xml2::read_xml(repeat_until_it_works(errors_to_catch,
      "esearch", query = list(db = "taxonomy", term = term, api_key = key), ...))
 
-    # NCBI limits requests to three per second
-    Sys.sleep(0.33)
+    # NCBI limits requests to three per second when no key 
+    if (is.null(key) || !nzchar(key)) Sys.sleep(0.33)
     uid <- xml2::xml_text(xml2::xml_find_all(xml_result, "//IdList/Id"))
     mm <- length(uid) > 1
 
