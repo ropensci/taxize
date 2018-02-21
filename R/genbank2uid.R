@@ -3,9 +3,13 @@
 #' @export
 #' @param id A GenBank accession alphanumeric string, or a gi numeric string.
 #' @param batch_size The number of queries to submit at a time.
-#' @param ... Curl args passed on to \code{\link[httr]{GET}}
+#' @param key (character) NCBI Entrez API key. optional. See Details.
+#' @param ... Curl args passed on to \code{\link[crul]{HttpClient}}
 #' @details See \url{http://www.ncbi.nlm.nih.gov/Sitemap/sequenceIDs.html} for
 #' help on why there are two identifiers, and the difference between them.
+#' 
+#' @section Authentication:
+#' See \code{\link{taxize-authentication}} for help on authentication
 #'
 #' @return one or more NCBI taxonomic IDs
 #' @examples \dontrun{
@@ -26,32 +30,33 @@
 #' genbank2uid(list('X78312',156446673))
 #'
 #' # curl options
-#' library('httr')
-#' genbank2uid(id = 156446673, config=verbose())
+#' res <- genbank2uid(id = 156446673, verbose = TRUE)
 #' }
-genbank2uid <- function(id, batch_size = 100, ...) {
+genbank2uid <- function(id, batch_size = 100, key = NULL, ...) {
   assert(batch_size, c("integer", "numeric"))
-  process_batch <- function(id, ...) {
+  process_batch <- function(id, key, ...) {
     #removes version number of accession ids
     id <- gsub(pattern = "\\.[0-9]+$", "", id)
     
+    key <- getkey(key, "ENTREZ_KEY")
+    
     # Make NCBI eutils query
-    query <- paste0(
-      ncbi_base(),
-      "/entrez/eutils/esummary.fcgi?db=nucleotide&id=",
-      paste(id, collapse = ",")
-    )
+    query <- tc(list(db = "nucleotide", id = paste(id, collapse = ","),
+      api_key = key))
     
     # Execute query
-    xml_result <- GET(query, ...)
-    stop_for_status(xml_result)
-    parsed_xml <- read_xml(con_utf8(xml_result))
+    cli <- crul::HttpClient$new(url = ncbi_base(), opts = list(...))
+    res <- cli$get("entrez/eutils/esummary.fcgi", query = query)
+    res$raise_for_status()
+    parsed_xml <- read_xml(res$parse('UTF-8'))
     
     # Extract taxon ID and sequences name
-    taxon_ids <- xml_text(xml_find_all(parsed_xml,
-                                       "//eSummaryResult//DocSum//Item[@Name='TaxId']"))
-    titles <- xml_text(xml_find_all(parsed_xml,
-                                    "//eSummaryResult//DocSum//Item[@Name='Title']"))
+    taxon_ids <- xml_text(
+      xml_find_all(parsed_xml,
+        "//eSummaryResult//DocSum//Item[@Name='TaxId']"))
+    titles <- xml_text(
+      xml_find_all(parsed_xml,
+        "//eSummaryResult//DocSum//Item[@Name='Title']"))
     
     # Add NAs for failed queries
     raw_errors <- xml_text(xml_find_all(parsed_xml, "//eSummaryResult//ERROR"))
@@ -81,7 +86,8 @@ genbank2uid <- function(id, batch_size = 100, ...) {
   # Run each batch and combine
   batches <- split(id, ceiling(seq_along(id) / batch_size))
   batch_results <- lapply(batches,
-                          function(x) map_unique(x, process_batch, ...))
+                          function(x) map_unique(x, process_batch, 
+                            key = key, ...))
   result <- do.call(rbind, batch_results)
   
   # Convert to list format

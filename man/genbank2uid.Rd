@@ -4,14 +4,16 @@
 \alias{genbank2uid}
 \title{Get NCBI taxonomy UID from GenBankID}
 \usage{
-genbank2uid(id, batch_size = 100, ...)
+genbank2uid(id, batch_size = 100, key = NULL, ...)
 }
 \arguments{
 \item{id}{A GenBank accession alphanumeric string, or a gi numeric string.}
 
 \item{batch_size}{The number of queries to submit at a time.}
 
-\item{...}{Curl args passed on to \code{\link[httr]{GET}}}
+\item{key}{(character) NCBI Entrez API key. optional. See Details.}
+
+\item{...}{Curl args passed on to \code{\link[crul]{HttpClient}}}
 }
 \value{
 one or more NCBI taxonomic IDs
@@ -23,6 +25,11 @@ Get NCBI taxonomy UID from GenBankID
 See \url{http://www.ncbi.nlm.nih.gov/Sitemap/sequenceIDs.html} for
 help on why there are two identifiers, and the difference between them.
 }
+\section{Authentication}{
+
+See \code{\link{taxize-authentication}} for help on authentication
+}
+
 \examples{
 \dontrun{
 # with accession numbers
@@ -42,7 +49,6 @@ genbank2uid(c('X78312','KM495596'))
 genbank2uid(list('X78312',156446673))
 
 # curl options
-library('httr')
-genbank2uid(id = 156446673, config=verbose())
+res <- genbank2uid(id = 156446673, verbose = TRUE)
 }
 }
