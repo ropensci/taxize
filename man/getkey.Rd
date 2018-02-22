@@ -27,11 +27,21 @@ Save your API keys with the following names:
  \item ENTREZ: R option or env var as 'ENTREZ_KEY'
 }
 
-See \code{\link{Startup}} for help on R options and environment 
-variables
+as R options in your \code{.Rprofile} file, or 
+
+as environment variaables in either your \code{.Renviron} file or 
+\code{.bash_profile} file, or \code{.zshrc} file (if you use oh-my-zsh) or 
+similar. See \code{\link{Startup}} for help on R options and environment 
+variables.
+
+Remember to restart your R session (and to start a new shell window/tab
+if you're using the shell) to take advantage of the new R options 
+or environment variables.
+
+We strongly recommend using environment variables over R options.
 
 Note that NCBI Entrez doesn't require that you use an API key, 
-but you should get higher rate limit with a key.
+but you should get higher rate limit with a key, so do get one.
 }
 \section{Tropicos}{
 
