@@ -3,7 +3,10 @@ context("iucn_summary")
 
 test_that("iucn_summary returns the correct value", {
   skip_on_cran()
-
+  if (is.na(getkey(NA, service = "iucn"))) {
+    skip("No IUCN api key so test not run.")
+  }
+  
   temp <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
   temp2 <- suppressWarnings(iucn_summary_id(c(22732, 12519)))
 
@@ -18,7 +21,10 @@ test_that("iucn_summary returns the correct value", {
 
 test_that("iucn_summary gives expected result for lots of names", {
   skip_on_cran()
-
+  if (is.na(getkey(NA, service = "iucn"))) {
+    skip("No IUCN api key so test not run.")
+  }
+  
   aa <- iucn_summary("Abies koreana")
   expect_equal(aa$`Abies koreana`$status, "EN")
 
@@ -46,7 +52,10 @@ test_that("iucn_summary gives expected result for lots of names", {
 
 test_that("iucn_summary_id with distr_detail produces correct output", {
   skip_on_cran()
-
+  if (is.na(getkey(NA, service = "iucn"))) {
+    skip("No IUCN api key so test not run.")
+  }
+  
   ii <- suppressWarnings(iucn_summary_id(22685566, distr_detail = TRUE))
   expect_equal(names(ii$`22685566`$distr), c("Native", "Introduced"))
   expect_equal(vapply(ii$`22685566`$distr, length, 0),
@@ -55,7 +64,10 @@ test_that("iucn_summary_id with distr_detail produces correct output", {
 
 test_that("iucn_summary and iucn_summary_id fail well", {
   skip_on_cran()
-
+  if (is.na(getkey(NA, service = "iucn"))) {
+    skip("No IUCN api key so test not run.")
+  }
+  
   expect_error(iucn_summary(""), "Not Found")
   #expect_equal(suppressWarnings(iucn_summary(""))[[1]]$status, NA)
   expect_warning(iucn_summary("Abies"), "not found")

@@ -105,9 +105,11 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
         db = 'taxonomy', 
         term = paste0(name, "[Next+Level]", ancestor_query),
         RetMax = max_return,
-        RetStart = start,
-        api_key = key
+        RetStart = start
       )
+      if (!is.null(key) && nzchar(key)) {
+        args <- c(args, list(api_key = key))
+      }
       args$term <- gsub("\\+", " ", args$term)
       
       # Search ncbi for children - - - - - - - - - - - - - - - - - - - - - - - 
@@ -127,9 +129,11 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
         id = id,
         term = paste0(name, "[Next+Level]"),
         RetMax = max_return,
-        RetStart = start,
-        api_key = key
+        RetStart = start
       )
+      if (!is.null(key) && nzchar(key)) {
+        args <- c(args, list(api_key = key))
+      }
       args$term <- gsub("\\+", " ", args$term)
       
       # Search ncbi for children - - - - - - - - - - - - - - - - - - - - - - - 

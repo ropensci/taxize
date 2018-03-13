@@ -41,8 +41,10 @@ genbank2uid <- function(id, batch_size = 100, key = NULL, ...) {
     key <- getkey(key, "ENTREZ_KEY")
     
     # Make NCBI eutils query
-    query <- tc(list(db = "nucleotide", id = paste(id, collapse = ","),
-      api_key = key))
+    query <- tc(list(db = "nucleotide", id = paste(id, collapse = ",")))
+    if (!is.null(key) && nzchar(key)) {
+      query <- c(query, list(api_key = key))
+    }
     
     # Execute query
     cli <- crul::HttpClient$new(url = ncbi_base(), opts = list(...))

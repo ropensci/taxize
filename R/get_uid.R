@@ -171,9 +171,17 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
       sprintf("[%s]", modifier))
     term <- sciname
     if (!is.null(rank_query)) term <- paste0(term, sprintf(" AND %s[Rank]", rank_query))
-    errors_to_catch <- c("Could not resolve host: eutils.ncbi.nlm.nih.gov")
-    xml_result <- xml2::read_xml(repeat_until_it_works(errors_to_catch,
-     "esearch", query = list(db = "taxonomy", term = term, api_key = key), ...))
+    try_again_errors <- c("Could not resolve host: eutils.ncbi.nlm.nih.gov")
+    query_args <- list(db = "taxonomy", 
+                       term = term)
+    if (!is.null(key) && nzchar(key)) {
+      query_args <- c(query_args, list(api_key = key))
+    }
+    raw_xml_result <- repeat_until_it_works(try_again_errors,
+                                            "esearch", 
+                                            query = query_args,
+                                            ...)
+    xml_result <- xml2::read_xml(raw_xml_result)
 
     # NCBI limits requests to three per second when no key 
     if (is.null(key) || !nzchar(key)) Sys.sleep(0.33)
@@ -195,9 +203,13 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
     # more than one found on ncbi -> user input
     if (length(uid) > 1) {
       ID <- paste(uid, collapse = ",")
-      errors_to_catch <- c("Could not resolve host: eutils.ncbi.nlm.nih.gov")
-      tt <- repeat_until_it_works(errors_to_catch, "esummary", 
-        list(db = "taxonomy", ID = ID, api_key = key), ...)
+      try_again_errors <- c("Could not resolve host: eutils.ncbi.nlm.nih.gov")
+      query_args <- list(db = "taxonomy", ID = ID)
+      if (!is.null(key) && nzchar(key)) {
+        query_args <- c(query_args, list(api_key = key))
+      }
+      tt <- repeat_until_it_works(try_again_errors, "esummary", 
+                                  query_args, ...)
       ttp <- xml2::read_xml(tt)
       df <- parse_ncbi(ttp)
       rownames(df) <- 1:nrow(df)
@@ -270,7 +282,7 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
 }
 
 repeat_until_it_works <- function(catch, path, query, max_tries = 3, wait_time = 10, 
-  messages = TRUE, key = NULL, ...) {
+  messages = TRUE, ...) {
 
   error_handler <- function(e) {
     if (e$message %in% catch) {
