@@ -19,9 +19,7 @@ File 'LICENSE':
 
 * I have run R CMD check on the 19 downstream dependencies
 (<https://github.com/ropensci/taxize/blob/master/revdep/README.md>).
-All revdep maintainers were notified of the release. There was one
-problem with a vignette build with the test suite for camtrapR - but is
-unrelated to this package.
+There was one problem with a vignette build with the test suite for camtrapR - but is unrelated to this package.
 
 ------
 
