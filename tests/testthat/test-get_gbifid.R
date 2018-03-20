@@ -40,18 +40,18 @@ test_that("get_gbifid phylum/class/order/family parameters work", {
   expect_equal(bb[[1]], "1927718")
 })
 
-test_that("get_gbifid rank parameter works", {
-  skip_on_cran()
+# test_that("get_gbifid rank parameter works", {
+#   skip_on_cran()
 
-  ## Rank example
-  rf1 <- get_gbifid(sciname = "bison bison", rank = "genus", rows = 1, messages = FALSE)
-  rf2 <- get_gbifid(sciname = "bison bison", rank = "species", rows = 1, messages = FALSE)
+#   ## Rank example
+#   rf1 <- get_gbifid(sciname = "Bison", rank = "genus", rows = 1, messages = FALSE)
+#   rf2 <- get_gbifid(sciname = "Bison bison", rank = "species", rows = 1, messages = FALSE)
 
-  expect_is(rf1, "gbifid")
-  expect_is(rf2, "gbifid")
-  expect_false(is.na(rf1[[1]]))
-  expect_equal(rf2[[1]], "2441176")
-})
+#   expect_is(rf1, "gbifid")
+#   expect_is(rf2, "gbifid")
+#   expect_false(is.na(rf1[[1]]))
+#   expect_equal(rf2[[1]], "2441176")
+# })
 
 test_that("works regardless of character or numeric GGBIF ID given back", {
   skip_on_cran()

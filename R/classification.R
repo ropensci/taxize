@@ -102,10 +102,10 @@
 #' ## in this case, we use get_*() fxns internally to first get taxon IDs
 #' classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi')
 #' classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi',
-#'   verbose=FALSE)
+#'   messages=FALSE)
 #' classification(c("Chironomus riparius", "aaa vva"), db = 'itis')
 #' classification(c("Chironomus riparius", "aaa vva"), db = 'itis',
-#'   verbose=FALSE)
+#'   messages=FALSE)
 #' classification(c("Chironomus riparius", "aaa vva"), db = 'eol')
 #' classification(c("Chironomus riparius", "aaa vva"), db = 'col')
 #' classification("Alopias vulpinus", db = 'nbn')
@@ -115,7 +115,7 @@
 #' classification('Pomatomus saltatrix', db = 'natserv')
 #' classification('Aquila chrysaetos', db = 'natserv')
 #' classification(c("Chironomus riparius", "aaa vva"), db = 'col',
-#'   verbose=FALSE)
+#'   messages=FALSE)
 #' classification(c("Chironomus riparius", "asdfasdfsfdfsd"), db = 'gbif')
 #' classification("Chironomus", db = 'tol')
 #' classification("Poa annua", db = 'tropicos')
@@ -126,7 +126,7 @@
 #' classification(get_uid(c("Chironomus riparius", "aaa vva")))
 #' classification(get_tsn(c("Chironomus riparius", "aaa vva")))
 #' classification(get_tsn(c("Chironomus riparius", "aaa vva"),
-#'   verbose = FALSE))
+#'   messages = FALSE))
 #' classification(get_eolid(c("Chironomus riparius", "aaa vva")))
 #' classification(get_colid(c("Chironomus riparius", "aaa vva")))
 #' classification(get_tpsid(c("Poa annua", "aaa vva")))
@@ -320,33 +320,35 @@ classification.tsn <- function(id, return_id = TRUE, ...) {
 #' @rdname classification
 classification.uid <- function(id, callopts = list(), return_id = TRUE, ...) {
   fun <- function(x, callopts){
+    key <- getkey(NULL, service="entrez")
     # return NA if NA is supplied
     if (is.na(x)) {
       out <- NA
     } else {
-      key <- getkey(NULL, service="entrez")
-      query <- list(db = "taxonomy", ID = x, api_key = key)
+      query <- list(db = "taxonomy", ID = x)
+      if (!is.null(key) && nzchar(key)) {
+        query <- c(query, list(api_key = key))
+      }
       cli <- crul::HttpClient$new(url = ncbi_base(), opts = callopts)
       res <- cli$get("entrez/eutils/efetch.fcgi", query = query)
       res$raise_for_status()
       tt <- res$parse("UTF-8")
       ttp <- xml2::read_xml(tt)
       out <- data.frame(
-        name = xml2::xml_text(
-          xml2::xml_find_all(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/ScientificName")),
-        rank = xml2::xml_text(
-          xml2::xml_find_all(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/Rank")),
-        id = xml2::xml_text(
-          xml2::xml_find_all(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/TaxId")),
+        name = xml_text_all(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/ScientificName"),
+        rank = xml_text_all(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/Rank"),
+        id = xml_text_all(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/TaxId"),
         stringsAsFactors = FALSE)
-      parent_id <- xml2::xml_text(xml2::xml_find_all(ttp, "//TaxaSet/Taxon/ParentTaxId"))
+      parent_id <- xml_text_all(ttp, "//TaxaSet/Taxon/ParentTaxId") %||% ""
       if (NROW(out) == 0 && parent_id != "1") {  # Is not directly below root and no lineage info
         out <- NA
       } else {
-        out <- rbind(out, data.frame(name = xml2::xml_text(xml2::xml_find_all(ttp, "//TaxaSet/Taxon/ScientificName")),
-                                     rank = xml2::xml_text(xml2::xml_find_all(ttp, "//TaxaSet/Taxon/Rank")),
-                                     id = xml2::xml_text(xml2::xml_find_all(ttp, "//TaxaSet/Taxon/TaxId")),
-                                     stringsAsFactors = FALSE))
+        out <- rbind(out, 
+          data.frame(
+            name = xml_text_all(ttp, "//TaxaSet/Taxon/ScientificName"),
+            rank = xml_text_all(ttp, "//TaxaSet/Taxon/Rank"),
+            id = xml_text_all(ttp, "//TaxaSet/Taxon/TaxId"),
+            stringsAsFactors = FALSE))
         # Optionally return tsn of lineage
         if (!return_id) out <- out[, c('name', 'rank')]
         out$rank <- tolower(out$rank)
@@ -354,7 +356,7 @@ classification.uid <- function(id, callopts = list(), return_id = TRUE, ...) {
       }
     }
     # NCBI limits requests to three per second
-    Sys.sleep(0.33)
+    if (is.null(key) || !nzchar(key)) Sys.sleep(0.34)
     return(out)
   }
   out <- lapply(id, fun, callopts = callopts)
