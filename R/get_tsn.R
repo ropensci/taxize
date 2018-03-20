@@ -134,6 +134,7 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE,
             tsn <- NA_character_
             att <- 'not found'
           }
+
         } else {
           direct <- FALSE
           tsn <- NA_character_

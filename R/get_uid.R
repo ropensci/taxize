@@ -212,6 +212,17 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
       targname <- df$scientificname
       rank <- df$rank
     }
+    # single record found
+    if (length(uid) == 1) {
+      baseurl <- paste0(ncbi_base(), "/entrez/eutils/esummary.fcgi?db=taxonomy")
+      url <- paste(baseurl, paste0("ID=", uid), sep = "&")
+      errors_to_catch <- c("Could not resolve host: eutils.ncbi.nlm.nih.gov")
+      tt <- repeat_until_it_works(catch = errors_to_catch, url = url, ...)
+      ttp <- xml2::read_xml(tt)
+      df <- parse_ncbi(ttp)
+      targname <- df$scientificname
+      rank <- df$rank
+    }
     # more than one found on ncbi -> user input
     if (length(uid) > 1) {
       ID <- paste(uid, collapse = ",")
