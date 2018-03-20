@@ -21,7 +21,7 @@
 #' 
 #' as R options in your \code{.Rprofile} file, or 
 #' 
-#' as environment variaables in either your \code{.Renviron} file or 
+#' as environment variables in either your \code{.Renviron} file or 
 #' \code{.bash_profile} file, or \code{.zshrc} file (if you use oh-my-zsh) or 
 #' similar. See \code{\link{Startup}} for help on R options and environment 
 #' variables.

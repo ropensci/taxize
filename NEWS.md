@@ -1,3 +1,22 @@
+taxize 0.9.3
+============
+
+### MINOR IMPROVEMENTS
+
+* package gains three new authors: Bastian Greshake Tzovaras, Philippe Marchand, and Vinh Tran
+* Don't enforce rate limiting via `Sys.sleep` for NCBI requests if the user has an API key (#667)
+* Fix to all functions that do NCBI requests to work whether or not a user has an NCBI API key (#668)
+* Increased documentation on authentication, see `?taxize-authentication`
+* Further conversion of `verbose` to `messages` across the package so that supressing calls to `message()` do not conflict with curl options passed in
+* Converted `genbank2uid()` and `ncbi_get_taxon_summary()` to use `crul` instead of `httr` for HTTP requests
+
+### BUG FIXES
+
+* Fix to `get_tolid()`: it was missing assignment of the `att` attribute internally, causing failures in some cases (#663) (#672)
+* Fix to `ncbi_children()` (and thus `children()` when requesting NCBI data) to not fail when there is an empty result from the internal call to `classification()` (#664) thanks @arendsee
+
+
+
 taxize 0.9.2
 ===================
 
