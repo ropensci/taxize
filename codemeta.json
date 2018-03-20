@@ -10,14 +10,14 @@
   "codeRepository": "https://github.com/ropensci/taxize",
   "issueTracker": "https://github.com/ropensci/taxize/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.9.2",
+  "version": "0.9.3",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.4.3",
+    "version": "3.4.4",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.4.3 Patched (2018-01-01 r74017)",
+  "runtimePlatform": "R version 3.4.4 Patched (2018-03-19 r74426)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -78,6 +78,21 @@
       "@type": "Person",
       "givenName": "Jari",
       "familyName": "Oksanen"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Bastian Greshake",
+      "familyName": "Tzovaras"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Philippe",
+      "familyName": "Marchand"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Vinh",
+      "familyName": "Tran"
     }
   ],
   "maintainer": {
@@ -372,7 +387,7 @@
   "contIntegration": "https://travis-ci.org/ropensci/taxize",
   "releaseNotes": "https://github.com/ropensci/taxize/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/taxize/blob/master/README.md",
-  "fileSize": "413.696KB",
+  "fileSize": "412.692KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
@@ -400,7 +415,7 @@
     },
     {
       "@type": "SoftwareSourceCode",
-      "datePublished": "2016",
+      "datePublished": "2018",
       "author": [
         {
           "@type": "Person",
@@ -410,7 +425,17 @@
         {
           "@type": "Person",
           "givenName": "Eduard",
-          "familyName": "Szocs"
+          "familyName": "Szoecs"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Zachary",
+          "familyName": "Foster"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Zebulun",
+          "familyName": "Arendsee"
         },
         {
           "@type": "Person",
@@ -434,18 +459,33 @@
         },
         {
           "@type": "Person",
-          "givenName": "Zachary",
-          "familyName": "Foster"
+          "givenName": "James",
+          "familyName": "O'Donnell"
         },
         {
           "@type": "Person",
-          "givenName": "James",
-          "familyName": "O'Donnell"
+          "givenName": "Jari",
+          "familyName": "Oksanen"
+        },
+        {
+          "@type": "Person",
+          "givenName": ["Bastian", "Greshake"],
+          "familyName": "Tzovaras"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Philippe",
+          "familyName": "Marchand"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Vinh",
+          "familyName": "Tran"
         }
       ],
       "name": "taxize: Taxonomic information from around the web",
       "url": "https://github.com/ropensci/taxize",
-      "description": "R package version 0.7.8"
+      "description": "R package version 0.9.3"
     }
   ],
   "applicationCategory": "Taxonomy",
