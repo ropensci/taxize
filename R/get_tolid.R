@@ -104,6 +104,7 @@ get_tolid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, ...) {
         if (length(matchtmp) == 1) {
           id <- as.character(matchtmp)
           direct <- TRUE
+          att <- "found"
         } else {
           tol_df <- sub_rows(tol_df, rows)
           if (NROW(tol_df) == 0) {
