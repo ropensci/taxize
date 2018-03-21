@@ -11,10 +11,13 @@
 #' @param limit Number of records to return
 #' @param start Record number to start at
 #' @param ... Further args passed on to \code{\link{gbif_name_usage}}
-#' @return Data.frame of taxonomic information downstream to family from e.g.,
+#' @return data.frame of taxonomic information downstream to family from e.g.,
 #' 		Order, Class, etc., or if \code{intermediated=TRUE}, list of length two,
 #'   	with target taxon rank names, and intermediate names.
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
+#' @details Sometimes records don't have a \code{canonicalName} entry which is 
+#' what we look for. In that case we grab the \code{scientificName} entry. 
+#' You can see the type of name colleceted in the column \code{name_type}
 #' @examples \dontrun{
 #' ## the plant class Bangiophyceae
 #' gbif_downstream(key = 198, downto="genus")
