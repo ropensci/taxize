@@ -351,8 +351,11 @@ make_uid <- function(x, check=TRUE) {
 check_uid <- function(x){
   key <- getkey(NULL, "ENTREZ_KEY")
   cli <- crul::HttpClient$new(url = ncbi_base())
-  res <- cli$get("entrez/eutils/esummary.fcgi", 
-    query = list(db = "taxonomy", id = x, api_key = key))
+  args <- list(db = "taxonomy", id = x)
+  if (!is.null(key) && nzchar(key)) {
+    args <- c(args, list(api_key = key))
+  }
+  res <- cli$get("entrez/eutils/esummary.fcgi", query = args)
   res$raise_for_status()
   tt <- xml2::read_xml(res$parse("UTF-8"))
   tryid <- xml2::xml_text(xml2::xml_find_all(tt, "//Id"))
