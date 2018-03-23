@@ -40,10 +40,7 @@ ncbi_get_taxon_summary <- function(id, key = NULL, ...) {
   }
   # Make eutils esummary query ------------------------------------------------
   key <- getkey(key, "ENTREZ_KEY")
-  query <- tc(list(db = "taxonomy", id = paste(id, collapse = "+")))
-  if (!is.null(key) && nzchar(key)) {
-    query <- c(query, list(api_key = key))
-  }
+  query <- tc(list(db = "taxonomy", id = paste(id, collapse = "+"), api_key = key))
   # Search ncbi taxonomy for uid ----------------------------------------------
   cli <- crul::HttpClient$new(url = ncbi_base(), opts = list(...))
   rr <- cli$get("entrez/eutils/esummary.fcgi", query = query)
@@ -59,6 +56,6 @@ ncbi_get_taxon_summary <- function(id, key = NULL, ...) {
   )
   output$rank[output$rank == ''] <- "no rank"
   # NCBI limits requests to three per second
-  if (is.null(key) || !nzchar(key)) Sys.sleep(0.33)
+  if (is.null(key)) Sys.sleep(0.33)
   return(output)
 }

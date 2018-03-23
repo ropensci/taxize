@@ -78,8 +78,10 @@ getkey <- function(x = NULL, service) {
     if (service == "ENTREZ_KEY") {
       if (is.null(key) || !nzchar(key)) {
         message("No ENTREZ API key provided\nSee https://ncbiinsights.ncbi.nlm.nih.gov/2017/11/02/new-api-keys-for-the-e-utilities/")
+        return(NULL)
+      } else {
+        return(key)
       }
-      return(key)
     }
 
     # if IUCN, stop if no key as a key is required

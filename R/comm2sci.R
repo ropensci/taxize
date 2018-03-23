@@ -133,7 +133,7 @@ c2s_itis_ <- function(x, by='search', simplify, ...){
 
 c2s_ncbi <- function(x, simplify, ...) {
   key <- getkey(NULL, "ENTREZ_KEY")
-  query <- list(db = "taxonomy", ID = x, api_key = key)
+  query <- tc(list(db = "taxonomy", ID = x, api_key = key))
   cli <- crul::HttpClient$new(url = ncbi_base(), opts = list(...))
   res <- cli$get("entrez/eutils/efetch.fcgi", query = query)
   res$raise_for_status()
@@ -142,7 +142,7 @@ c2s_ncbi <- function(x, simplify, ...) {
   # common name
   out <- xml_text(xml_find_all(ttp, "//TaxaSet/Taxon/ScientificName"))
   # NCBI limits requests to three per second
-  if (is.null(key) || !nzchar(key)) Sys.sleep(0.33)
+  if (is.null(key)) Sys.sleep(0.34)
   return(out)
 }
 
