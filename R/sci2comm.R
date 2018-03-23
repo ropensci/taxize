@@ -172,10 +172,7 @@ itis_foo <- function(x, simplify=TRUE, ...){
 
 ncbi_foo <- function(x, ...){
   key <- getkey(NULL, "ENTREZ_KEY")
-  query <- list(db = "taxonomy", ID = x)
-  if (!is.null(key) && nzchar(key)) {
-    query <- c(query, list(api_key = key))
-  }
+  query <- tc(list(db = "taxonomy", ID = x, api_key = key))
   cli <- crul::HttpClient$new(url = ncbi_base(), opts = list(...))
   res <- cli$get("entrez/eutils/efetch.fcgi", query = query)
   res$raise_for_status()
@@ -186,7 +183,7 @@ ncbi_foo <- function(x, ...){
     xml_find_all(ttp,
       "//TaxaSet/Taxon/OtherNames/GenbankCommonName"))
   # NCBI limits requests to three per second
-  if (is.null(key) || !nzchar(key)) Sys.sleep(0.33)
+  if (is.null(key)) Sys.sleep(0.33)
   return(out)
 }
 
