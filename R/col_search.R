@@ -61,9 +61,11 @@ col_search <- function(name=NULL, id=NULL, start=NULL, checklist=NULL,
       warning("COL taxon not found", call. = FALSE)
     } else {
       tt <- jsonlite::fromJSON(out$parse("UTF-8"), FALSE)
-      switch(response,
-             terse = parse_terse(tt),
-             full = parse_full(tt))
+      switch(
+        response,
+        terse = parse_terse(tt),
+        full = parse_full(tt)
+      )
     }
   }
   safe_func <- plyr::failwith(NULL, func)

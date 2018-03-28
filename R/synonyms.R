@@ -151,8 +151,10 @@ synonyms.default <- function(x, db = NULL, rows = NA, ...) {
 
 process_syn_ids <- function(input, db, fxn, ...){
   g <- tryCatch(as.numeric(as.character(input)), warning = function(e) e)
-  if (inherits(g,"numeric") || is.character(input) && grepl("N[HB]", input) ||
-      is.character(input) && grepl("[[:digit:]]", input)) {
+  if (
+    inherits(g,"numeric") || is.character(input) && grepl("N[HB]", input) ||
+      is.character(input) && grepl("[[:digit:]]", input)
+  ) {
     as_fxn <- switch(db,
                      itis = as.tsn,
                      tropicos = as.tpsid,
