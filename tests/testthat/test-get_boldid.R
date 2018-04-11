@@ -23,6 +23,15 @@ test_that("get_boldid accepts ask-argument", {
               is_true())
 })
 
+test_that("get_boldid works when there's no parent name", {
+  skip_on_cran()
+
+  x <- get_boldid("Chordata", verbose = FALSE)
+
+  expect_is(x, "boldid")
+  expect_equal(x[1], "18")
+})
+
 test_that("get_boldid fails as expected", {
   skip_on_cran()
 
