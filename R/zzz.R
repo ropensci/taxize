@@ -190,6 +190,12 @@ dt2df <- function(x) {
     data.table::rbindlist(x, use.names = TRUE, fill = TRUE, idcol = TRUE)))
 }
 
+dt2tibble <- function(x) {
+  tibble::as_tibble(data.table::setDF(
+    data.table::rbindlist(x, use.names = TRUE, fill = TRUE))
+  )
+}
+
 dbswap <- function(x) {
   switch(
     x,
@@ -211,8 +217,8 @@ dbswap <- function(x) {
 check_entrez_key <- function (x) {
   tmp <- if (is.null(x)) Sys.getenv("ENTREZ_KEY", "") else x
   if (tmp == "") {
-    getOption("entrez_key", 
-      warning("no API key found for Entrez, proceeding w/o key", 
+    getOption("entrez_key",
+      warning("no API key found for Entrez, proceeding w/o key",
         call. = FALSE))
   } else {
     tmp

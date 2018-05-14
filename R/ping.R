@@ -99,11 +99,23 @@ ncbi_ping <- function(what = "status", ...) {
 #' @export
 #' @rdname ping
 tropicos_ping <- function(what = "status", ...) {
-  res <- GET("http://services.tropicos.org/Name/25509881?apikey=f3e499d4-1519-42c9-afd1-685a16882f5a&format=json", ...)
-  switch(matchwhat(what),
-         status = match_status(res),
-         code = match_code(res, what),
-         content = grepl(25509881, jsonlite::fromJSON(con_utf8(res))$NameId))
+  res <- GET("http://services.tropicos.org/Name/25509881?apikey=f3e499d4-1519-42c9-afd1-685a16882f5a&format=xml", ...)
+  error = FALSE
+  if (grepl("exception occurred", con_utf8(res), ignore.case = TRUE)) error = TRUE
+  switch(
+    matchwhat(what),
+    status = if (error) TRUE else match_status(res),
+    code = if (error) TRUE else match_code(res, what),
+    content = {
+      if (error)
+        TRUE
+      else
+        grepl(
+          25509881,
+          xml2::as_list( xml2::read_xml(con_utf8(res)))$Name$NameId[[1]]
+        )
+    }
+  )
 }
 
 #' @export
