@@ -3,7 +3,7 @@ context("iucn_id")
 
 test_that("iucn_id returns the correct class", {
   skip_on_cran()
-  if (is.na(getkey(NA, service = "iucn"))) {
+  if (Sys.getenv('IUCN_REDLIST_KEY') == "") {
     skip("No IUCN api key so test not run.")
   }
 
@@ -22,10 +22,10 @@ test_that("iucn_id returns the correct class", {
 
 test_that("iucn_id fails well", {
   skip_on_cran()
-  if (is.na(getkey(NA, service = "iucn"))) {
+  if (Sys.getenv('IUCN_REDLIST_KEY') == "") {
     skip("No IUCN api key so test not run.")
   }
-  
+
   expect_error(iucn_id(), "argument \"sciname\" is missing")
   expect_equal(suppressWarnings(iucn_id("foo bar")), NA)
 })

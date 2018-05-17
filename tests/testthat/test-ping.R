@@ -13,7 +13,6 @@ test_that("trpicos_ping returns the correct value", {
   skip_on_cran()
 
   expect_true(tropicos_ping())
-  expect_false(tropicos_ping(503))
   expect_true(tropicos_ping("content"))
 })
 
