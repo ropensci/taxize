@@ -173,11 +173,7 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
     term <- sciname
     if (!is.null(rank_query)) term <- paste0(term, sprintf(" AND %s[Rank]", rank_query))
     try_again_errors <- c("Could not resolve host: eutils.ncbi.nlm.nih.gov")
-    query_args <- list(db = "taxonomy", 
-                       term = term)
-    if (!is.null(key) && nzchar(key)) {
-      query_args <- c(query_args, list(api_key = key))
-    }
+    query_args <- tc(list(db = "taxonomy", term = term, api_key = key))
     raw_xml_result <- repeat_until_it_works(try_again_errors,
                                             "esearch", 
                                             query = query_args,
@@ -185,7 +181,7 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
     xml_result <- xml2::read_xml(raw_xml_result)
 
     # NCBI limits requests to three per second when no key 
-    if (is.null(key) || !nzchar(key)) Sys.sleep(0.33)
+    if (is.null(key)) Sys.sleep(0.33)
     uid <- xml2::xml_text(xml2::xml_find_all(xml_result, "//IdList/Id"))
     mm <- length(uid) > 1
 
@@ -227,10 +223,7 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
     if (length(uid) > 1) {
       ID <- paste(uid, collapse = ",")
       try_again_errors <- c("Could not resolve host: eutils.ncbi.nlm.nih.gov")
-      query_args <- list(db = "taxonomy", ID = ID)
-      if (!is.null(key) && nzchar(key)) {
-        query_args <- c(query_args, list(api_key = key))
-      }
+      query_args <- tc(list(db = "taxonomy", ID = ID, api_key = key))
       tt <- repeat_until_it_works(try_again_errors, "esummary", 
                                   query_args, ...)
       ttp <- xml2::read_xml(tt)
@@ -390,8 +383,8 @@ make_uid <- function(x, check=TRUE) {
 check_uid <- function(x){
   key <- getkey(NULL, "ENTREZ_KEY")
   cli <- crul::HttpClient$new(url = ncbi_base())
-  res <- cli$get("entrez/eutils/esummary.fcgi", 
-    query = list(db = "taxonomy", id = x, api_key = key))
+  args <- tc(list(db = "taxonomy", id = x, api_key = key))
+  res <- cli$get("entrez/eutils/esummary.fcgi", query = args)
   res$raise_for_status()
   tt <- xml2::read_xml(res$parse("UTF-8"))
   tryid <- xml2::xml_text(xml2::xml_find_all(tt, "//Id"))

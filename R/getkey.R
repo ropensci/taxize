@@ -21,7 +21,7 @@
 #' 
 #' as R options in your \code{.Rprofile} file, or 
 #' 
-#' as environment variaables in either your \code{.Renviron} file or 
+#' as environment variables in either your \code{.Renviron} file or 
 #' \code{.bash_profile} file, or \code{.zshrc} file (if you use oh-my-zsh) or 
 #' similar. See \code{\link{Startup}} for help on R options and environment 
 #' variables.
@@ -78,8 +78,10 @@ getkey <- function(x = NULL, service) {
     if (service == "ENTREZ_KEY") {
       if (is.null(key) || !nzchar(key)) {
         message("No ENTREZ API key provided\nSee https://ncbiinsights.ncbi.nlm.nih.gov/2017/11/02/new-api-keys-for-the-e-utilities/")
+        return(NULL)
+      } else {
+        return(key)
       }
-      return(key)
     }
 
     # if IUCN, stop if no key as a key is required

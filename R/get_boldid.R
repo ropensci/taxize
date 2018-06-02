@@ -133,10 +133,19 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes = 'basic',
         boldid <- NA_character_
         att <- "not found"
       } else {
-        bold_df <- rename(bold_df, c('parentname' = 'parent', 'tax_rank' = 'rank',
-                                     'tax_division' = 'division'))
+        bold_df <- rename(bold_df, replace = c('parentname' = 'parent', 
+          'tax_rank' = 'rank', 'tax_division' = 'division'), 
+          warn_missing = FALSE
+        )
+        cols <- c("taxid","taxon","rank","division","parentid","parent")
+        to_add <- setdiff(cols, names(bold_df))
+        if (length(to_add) > 0) {
+          for (i in seq_along(to_add)) {
+            bold_df <- cbind(bold_df, setNames(list(NA_character_), to_add[i]))
+          }
+        }
 
-        bold_df <- bold_df[,c("taxid","taxon","rank","division","parentid","parent")]
+        bold_df <- bold_df[, c("taxid","taxon","rank","division","parentid","parent")]
 
         # should return NA if spec not found
         if (nrow(bold_df) == 0) {

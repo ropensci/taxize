@@ -25,12 +25,17 @@ intermediate taxonomic groups. Default: FALSE}
 \item{...}{Further args passed on to \code{\link{gbif_name_usage}}}
 }
 \value{
-Data.frame of taxonomic information downstream to family from e.g.,
+data.frame of taxonomic information downstream to family from e.g.,
 		Order, Class, etc., or if \code{intermediated=TRUE}, list of length two,
   	with target taxon rank names, and intermediate names.
 }
 \description{
 Retrieve all taxa names downstream in hierarchy for GBIF
+}
+\details{
+Sometimes records don't have a \code{canonicalName} entry which is 
+what we look for. In that case we grab the \code{scientificName} entry. 
+You can see the type of name colleceted in the column \code{name_type}
 }
 \examples{
 \dontrun{
@@ -52,6 +57,11 @@ gbif_downstream(key = 2433406, "species")
 # get tribes down from the family Apidae
 gbif_downstream(key = 7799978, downto="species")
 gbif_downstream(key = 7799978, downto="species", intermediate=TRUE)
+
+# names that don't have canonicalname entries for some results
+key <- get_gbifid("Myosotis")
+res <- gbif_downstream(key, downto = "species")
+res2 <- downstream(key, db = "gbif", downto = "species")
 }
 }
 \author{

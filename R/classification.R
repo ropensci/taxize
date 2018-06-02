@@ -325,10 +325,7 @@ classification.uid <- function(id, callopts = list(), return_id = TRUE, ...) {
     if (is.na(x)) {
       out <- NA
     } else {
-      query <- list(db = "taxonomy", ID = x)
-      if (!is.null(key) && nzchar(key)) {
-        query <- c(query, list(api_key = key))
-      }
+      query <- tc(list(db = "taxonomy", ID = x, api_key = key))
       cli <- crul::HttpClient$new(url = ncbi_base(), opts = callopts)
       res <- cli$get("entrez/eutils/efetch.fcgi", query = query)
       res$raise_for_status()
@@ -356,7 +353,7 @@ classification.uid <- function(id, callopts = list(), return_id = TRUE, ...) {
       }
     }
     # NCBI limits requests to three per second
-    if (is.null(key) || !nzchar(key)) Sys.sleep(0.34)
+    if (is.null(key)) Sys.sleep(0.34)
     return(out)
   }
   out <- lapply(id, fun, callopts = callopts)

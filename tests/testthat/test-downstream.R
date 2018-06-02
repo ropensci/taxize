@@ -34,7 +34,7 @@ test_that("downstream - taxonomic id input", {
 
   expect_is(aa, "downstream")
   expect_is(aa[[1]], "data.frame")
-  expect_is(aa[[1]]$canonicalname, "character")
+  expect_is(aa[[1]]$name_type, "character")
 })
 
 test_that("downstream - multiple data sources", {

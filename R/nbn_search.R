@@ -48,10 +48,6 @@ nbn_GET <- function(url, args, ...){
   tt <- cli$get(query = argsnull(args), ...)
   tt$raise_for_status()
   json <- jsonlite::fromJSON(tt$parse("UTF-8"))$searchResults
-  # res <- GET(url, query = argsnull(args), ...)
-  # stop_for_status(res)
-  # tt <- con_utf8(res)
-  # json <- jsonlite::fromJSON(tt)$searchResults
   list(meta = pop(json, "results"), data = json$results)
 }
 

@@ -41,11 +41,8 @@ genbank2uid <- function(id, batch_size = 100, key = NULL, ...) {
     key <- getkey(key, "ENTREZ_KEY")
     
     # Make NCBI eutils query
-    query <- tc(list(db = "nucleotide", id = paste(id, collapse = ",")))
-    if (!is.null(key) && nzchar(key)) {
-      query <- c(query, list(api_key = key))
-    }
-    
+    query <- tc(list(db = "nucleotide", id = paste(id, collapse = ","), api_key = key))
+
     # Execute query
     cli <- crul::HttpClient$new(url = ncbi_base(), opts = list(...))
     res <- cli$get("entrez/eutils/esummary.fcgi", query = query)
@@ -83,7 +80,7 @@ genbank2uid <- function(id, batch_size = 100, key = NULL, ...) {
     result <- data.frame(id = taxon_ids, name = titles,
                          stringsAsFactors = FALSE)
     # NCBI limits requests to three per second when no key
-    if (is.null(key) || !nzchar(key)) Sys.sleep(0.33)
+    if (is.null(key)) Sys.sleep(0.33)
     return(result)
   }
   # Run each batch and combine

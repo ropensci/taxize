@@ -101,15 +101,13 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
     }
     
     if (is.null(id)) {
-      args <- list(
+      args <- tc(list(
         db = 'taxonomy', 
         term = paste0(name, "[Next+Level]", ancestor_query),
         RetMax = max_return,
-        RetStart = start
-      )
-      if (!is.null(key) && nzchar(key)) {
-        args <- c(args, list(api_key = key))
-      }
+        RetStart = start,
+        api_key = key
+      ))
       args$term <- gsub("\\+", " ", args$term)
       
       # Search ncbi for children - - - - - - - - - - - - - - - - - - - - - - - 
@@ -123,17 +121,15 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
       children_uid <- xml_text_all(results, "//eSearchResult/IdList/Id")
       
     } else {
-      args <- list(
+      args <- tc(list(
         dbfrom = 'taxonomy',
         db = 'taxonomy',
         id = id,
         term = paste0(name, "[Next+Level]"),
         RetMax = max_return,
-        RetStart = start
-      )
-      if (!is.null(key) && nzchar(key)) {
-        args <- c(args, list(api_key = key))
-      }
+        RetStart = start,
+        api_key = key
+      ))
       args$term <- gsub("\\+", " ", args$term)
       
       # Search ncbi for children - - - - - - - - - - - - - - - - - - - - - - - 
@@ -174,7 +170,7 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
       rownames(output) <- NULL 
     }
     # NCBI limits requests to three per second
-    if (is.null(key) || !nzchar(key)) Sys.sleep(0.34)
+    if (is.null(key)) Sys.sleep(0.34)
     return(output)
   }
   # Combine the result of multiple searches -----------------------------------

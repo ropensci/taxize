@@ -59,7 +59,7 @@ test_that("fields parameter works correctly", {
   expect_is(tmp2, "data.frame")
   expect_is(tmp2$matched_name, "character")
   expect_true(any(grepl("Asteraceae", tmp2$matched_name)))
-  expect_true(identical(tmp1$matched_name, tmp2$matched_name))
+  expect_false(identical(tmp1$matched_name, tmp2$matched_name))
 
   expect_lt(NCOL(tmp2), NCOL(tmp1))
 })
