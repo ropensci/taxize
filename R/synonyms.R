@@ -189,17 +189,33 @@ synonyms.tsn <- function(id, ...) {
         accdf <- data.frame(sub_tsn = x[1], acc_tsn = x[1],
                             stringsAsFactors = FALSE)
       }
-      out <- do.call("rbind", lapply(x, ritis::synonym_names, ...))
-      if (NROW(out) == 0) {
-        out <- data.frame(syn_name = "nomatch", syn_tsn = x[1],
-                          stringsAsFactors = FALSE)
-      } else {
-        out <- stats::setNames(out, c('syn_author', 'syn_name', 'syn_tsn'))
-      }
-      if (as.character(out[1,1]) == 'nomatch') {
-        out <- data.frame(message = "no syns found", stringsAsFactors = FALSE)
-      }
-      cbind(accdf, out)
+
+      # out <- do.call("rbind", lapply(x, ritis::synonym_names, ...))
+      # if (NROW(out) == 0) {
+      #   out <- data.frame(syn_name = "nomatch", syn_tsn = x[1],
+      #                     stringsAsFactors = FALSE)
+      # } else {
+      #   out <- stats::setNames(out, c('syn_author', 'syn_name', 'syn_tsn'))
+      # }
+      # if (as.character(out[1,1]) == 'nomatch') {
+      #   out <- data.frame(message = "no syns found", stringsAsFactors = FALSE)
+      # }
+
+      res <- Map(function(z, w) {
+        tmp <- ritis::synonym_names(z)
+        if (NROW(tmp) == 0) {
+          tmp <- data.frame(syn_name = "nomatch", syn_tsn = x[1],
+                            stringsAsFactors = FALSE)
+        } else {
+          tmp <- stats::setNames(tmp, c('syn_author', 'syn_name', 'syn_tsn'))
+        }
+        if (as.character(tmp[1,1]) == 'nomatch') {
+          tmp <- data.frame(message = "no syns found", stringsAsFactors = FALSE)
+        }
+
+        cbind(w, tmp)
+      }, x, split(accdf, seq_len(NROW(accdf))))
+      do.call("rbind", unname(res))
     }
   }
   stats::setNames(lapply(id, fun), id)

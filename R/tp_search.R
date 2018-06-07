@@ -45,14 +45,14 @@ tp_search <- function(name=NULL, commonname=NULL, nameid=NULL, orderby=NULL,
                   commonname=commonname, orderby=orderby, sortorder=sortorder,
                   pagesize=pagesize, startrow=startrow, type=type, apikey=key))
   tt <- tp_GET(url, args, raise = FALSE, ...)
-  if (tt$status_code > 202) {
-    warning(tt$status_code, " - problem with request")
-    NA
-  } else {
-    out <- jsonlite::fromJSON(tt$parse("UTF-8"), FALSE)
-    tmp <- do.call(rbind.fill, lapply(out, data.frame, stringsAsFactors = FALSE))
-    setNames(tmp, tolower(names(tmp)))
-  }
+  # if (tt$status_code > 202) {
+  #   warning(tt$status_code, " - problem with request")
+  #   NA
+  # } else {
+  out <- jsonlite::fromJSON(tt, FALSE)
+  tmp <- do.call(rbind.fill, lapply(out, data.frame, stringsAsFactors = FALSE))
+  stats::setNames(tmp, tolower(names(tmp)))
+  # }
 }
 
 subsp_ranks <- c('sp', 'ssp', 'subsp', 'subspecies', 'var', 'varietas', 'fo', 'f', 'forma')
