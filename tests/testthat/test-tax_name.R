@@ -28,6 +28,14 @@ test_that("tax_name returns the correct class", {
   expect_that(nrow(tmp_ncbi2), equals(2))
 })
 
+test_that("tax_name works with ncbi and rows arg", {
+  aa <- tax_name('Bacillus', c("family", "order"), db="ncbi", rows=1)
+  expect_is(aa, "data.frame")
+  expect_equal(NCOL(aa), 4)
+  expect_equal(NROW(aa), 1)
+  expect_named(aa, c("db", "query", "family", "order"))
+})
+
 test_that("tax_name accepts ask-argument", {
   skip_on_cran()
 
