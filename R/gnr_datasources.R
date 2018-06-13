@@ -25,11 +25,13 @@
 #' gnr_datasources(FALSE)
 #' }
 gnr_datasources <- function(todf = TRUE) {
-  url <- "http://resolver.globalnames.org/data_sources.json"
+  url <- "https://resolver.globalnames.org/data_sources.json"
 	if (todf == FALSE) {
 		out <- jsonlite::fromJSON(url, FALSE)
 	} else {
-    out <- ldply(jsonlite::fromJSON(url, FALSE), function(x) data.frame(x["id"], x["title"], stringsAsFactors = FALSE))
+    out <- ldply(jsonlite::fromJSON(url, FALSE), function(x) 
+        data.frame(x["id"], x["title"], 
+            stringsAsFactors = FALSE))
 	}
   return(out)
 }

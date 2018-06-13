@@ -6,4 +6,4 @@ checknull <- function(x) {
   }
 }
 
-gni_base <- function() "http://gni.globalnames.org/"
+gni_base <- function() "https://gni.globalnames.org/"
