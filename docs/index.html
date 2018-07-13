@@ -216,7 +216,7 @@ Souce
 </tr>
 </tbody>
 </table>
-<p>**: There are none! We suggest using <code>TPL</code> and <code>TPLck</code> functions in the <a href="https://cran.r-project.org/package=Taxonstand">taxonstand package</a>. We provide two functions to get bullk data: <code>tpl_families</code> and <code>tpl_get</code>.</p>
+<p>**: There are none! We suggest using <code>TPL</code> and <code>TPLck</code> functions in the <a href="https://cran.r-project.org/package=Taxonstand">taxonstand package</a>. We provide two functions to get bulk data: <code>tpl_families</code> and <code>tpl_get</code>.</p>
 <p>***: There are none! The function scrapes the web directly.</p>
 <div id="may-be-in-taxize-in-the-future" class="section level3">
 <h3 class="hasAnchor">
@@ -249,7 +249,7 @@ devtools::<span class="kw">install_github</span>(<span class="st">"ropensci/taxi
 <div id="get-unique-taxonomic-identifier-from-ncbi" class="section level2">
 <h2 class="hasAnchor">
 <a href="#get-unique-taxonomic-identifier-from-ncbi" class="anchor"> </a>Get unique taxonomic identifier from NCBI</h2>
-<p>Alot of <code>taxize</code> revolves around taxonomic identifiers. Because, as you know, names can be a mess (misspelled, synonyms, etc.), it’s better to get an identifier that a particular data sources knows about, then we can move forth acquiring more fun taxonomic data.</p>
+<p>Alot of <code>taxize</code> revolves around taxonomic identifiers. Because, as you know, names can be a mess (misspelled, synonyms, etc.), it’s better to get an identifier that a particular data source knows about, then we can move forth acquiring more fun taxonomic data.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">uids &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_uid.html">get_uid</a></span>(<span class="kw">c</span>(<span class="st">"Chironomus riparius"</span>, <span class="st">"Chaetopteryx"</span>))</code></pre></div>
 </div>
 <div id="retrieve-classifications" class="section level2">
