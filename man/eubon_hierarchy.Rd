@@ -42,3 +42,4 @@ eubon_hierarchy(id = "urn:lsid:marinespecies.org:taxname:274350", 'worms')
 Other eubon-methods: \code{\link{eubon_capabilities}},
   \code{\link{eubon_children}}, \code{\link{eubon}}
 }
+\concept{eubon-methods}

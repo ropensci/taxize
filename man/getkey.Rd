@@ -19,6 +19,7 @@ Checks first to get key from your .Rprofile or .Renviron (or similar) file.
 See Details.
 }
 \details{
+Get help for getting and saving your keys via \code{\link{key_helpers}}.
 Save your API keys with the following names:
 \itemize{
  \item Tropicos: R option or env var as 'TROPICOS_KEY'
@@ -26,9 +27,7 @@ Save your API keys with the following names:
  \item IUCN: R option or env var as 'IUCN_REDLIST_KEY'
  \item ENTREZ: R option or env var as 'ENTREZ_KEY'
 }
-
-as R options in your \code{.Rprofile} file, or 
-
+ as R options in your \code{.Rprofile} file, or 
 as environment variables in either your \code{.Renviron} file or 
 \code{.bash_profile} file, or \code{.zshrc} file (if you use oh-my-zsh) or 
 similar. See \code{\link{Startup}} for help on R options and environment 
@@ -41,42 +40,9 @@ or environment variables.
 We strongly recommend using environment variables over R options.
 
 Note that NCBI Entrez doesn't require that you use an API key, 
-but you should get higher rate limit with a key, so do get one.
+but you should get higher rate limit with a key,
+from 3 to 10 requests per second, so do get one.
 }
-\section{Tropicos}{
-
-Get an API key at http://services.tropicos.org/help?requestkey
-}
-
-\section{EOL}{
-
-EOL requires an API key. You can pass in your EOL api
-key in the function call like
-\code{sci2comm('Helianthus annuus', key="<your eol api key>")}. You can
-also store your EOL API key in your .Rprofile file as
-\code{options(EOL_KEY = "<your eol api key>")}, or just for the current
-session by running \code{options(EOL_KEY = "<your eol api key>")} in
-the console.
-}
-
-\section{IUCN}{
-
-IUCN requires an API key. See \code{\link[rredlist]{rredlist-package}} 
-for help on authentiating with IUCN Redlist, and 
-http://apiv3.iucnredlist.org/api/v3/token for requesting a key
-}
-
-\section{NCBI Entrez}{
-
-From NCBI's docs: "E-utils users are allowed 3 requests/second without an 
-API key. Create an API key (in your account at 
-https://www.ncbi.nlm.nih.gov/account/) to increase your e-utils limit to 10 
-requests/second. Contact our help department (eutilities@ncbi.nlm.nih.gov) 
-if you need higher throughput. Only one API Key per user. Replacing or 
-deleting will inactivate the current key. Refer to documentation 
-(https://www.ncbi.nlm.nih.gov/books/NBK25497/) for more."
-}
-
 \examples{
 \dontrun{
 getkey(service="tropicos")

@@ -147,3 +147,4 @@ Other taxonomic-ids: \code{\link{get_boldid}},
   \code{\link{get_tpsid}}, \code{\link{get_tsn}},
   \code{\link{get_uid}}, \code{\link{get_wiki}}
 }
+\concept{taxonomic-ids}
