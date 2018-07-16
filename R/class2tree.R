@@ -330,7 +330,8 @@ taxonomy_table_creator <- function(nameList,rankList){
 
     ### subselect mTaxonDf to keep only 2 column rank id and rank name
     mTaxonDf <- mTaxonDf[,c("X1","X2")]
-    if(mTaxonDf$X2[1] != index2RankDf$rank[1]){
+    if(mTaxonDf$X2[1] != index2RankDf$rank[1] &&
+       !index2RankDf$rank[1] %in% mTaxonDf$X2){
       mTaxonDf <- rbind(data.frame("X1"=mTaxonDf$X1[1],
                                    "X2"=index2RankDf$rank[1]),
                                    mTaxonDf)

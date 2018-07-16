@@ -6,7 +6,7 @@ spnames <- c('Klattia flava', 'Trollius sibiricus', 'Arachis paraguariensis',
  'Pilea verrucosa','Tibouchina striphnocalyx','Lycium dasystemum',
  'Berkheya echinacea','Androcymbium villosum',
  'Helianthus annuus','Madia elegans','Lupinus albicaulis',
- 'Pinus lambertiana')
+ 'Pinus lambertiana', "Haloarcula amylolytica JCM 13557")
 
 dupnames <- c('Mus musculus', 'Escherichia coli',
               'Haloferax denitrificans','Mus musculus')
@@ -26,6 +26,8 @@ test_that("class2tree returns the correct value and class", {
   expect_is(tr$classification, "data.frame")
   expect_is(tr$distmat, "dist")
   expect_is(tr$names, "character")
+  
+  expect_equal(anyDuplicated(gsub("\\.\\d+$", "", names(tr$classification))), 0)
 })
 
 test_that("class2tree will abort when input contains duplicate taxa", {
