@@ -11,6 +11,8 @@ NULL
 #' @section `use_tropicos()`:
 #' Browse Tropicos API key request URL and
 #'  provides instruction on how to store the key.
+#'  @details After filling the form you will get the key shortly
+#'   but not immediately.
 #' @export
 #' @rdname key_helpers
 use_tropicos <- function(){
@@ -71,6 +73,8 @@ use_entrez <- function(){
 #'  provides instruction on how to store the key.
 #' @details This function only wraps \code{\link[rredlist]{rl_use_iucn}}
 #'  from the \code{rredlist} package.
+#'  After filling the form you will get the key shortly
+#'  but not immediately.
 #' @export
 #' @rdname key_helpers
 use_iucn <- function(){
