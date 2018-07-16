@@ -1,11 +1,11 @@
-
+#' Key helpers 
+#' 
 #' @importFrom utils browseURL
 #' @title Helpers to set up authentication for the different providers.
 #'
 #' @description Sets up authentication to diverse providers by providing the user a detailed prompt.
 #'
 #' @name key_helpers
-#' @aliases NULL
 NULL
 
 #' @section `use_tropicos()`:
