@@ -18,6 +18,6 @@ test_that("use_eol produces expected URL and message", {
 })
 
 test_that("use_entrez produces expected URL and message", {
-  expect_equal(use_eol(), "https://www.ncbi.nlm.nih.gov/account/")
-  expect_message(use_eol(), "Create your key")
+  expect_equal(use_entrez(), "https://www.ncbi.nlm.nih.gov/account/")
+  expect_message(use_entrez(), "Create your key")
 })
