@@ -33,7 +33,8 @@
 #' We strongly recommend using environment variables over R options.
 #' 
 #' Note that NCBI Entrez doesn't require that you use an API key, 
-#' but you should get higher rate limit with a key, so do get one.
+#' but you should get higher rate limit with a key,
+#' from 3 to 10 requests per second, so do get one. 
 #' 
 #' @examples \dontrun{
 #' getkey(service="tropicos")
