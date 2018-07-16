@@ -35,18 +35,51 @@ ncbi_get_taxon_summary <- function(id, key = NULL, ...) {
   if (is.null(id)) return(NULL)
   if (length(id) <= 1 && is.na(id)) return(NA)
   id <- as.character(id)
-  if (nchar(paste(id, collapse = "+")) > 8000L) {
-    message("You may want to split your ids up into chunks")
-  }
+  toolong <- nchar(paste(id, collapse = "+")) > 8000L
+  if (toolong) message(sub("\n", "", "Number of ids long; we're splitting up into 
+chunks for multiple HTTP requests"))
   # Make eutils esummary query ------------------------------------------------
   key <- getkey(key, "ENTREZ_KEY")
-  query <- tc(list(db = "taxonomy", id = paste(id, collapse = "+"), api_key = key))
-  # Search ncbi taxonomy for uid ----------------------------------------------
+  # split into chunks if needed
+  if (toolong) {
+    ids_list <- lapply(split(id, ceiling(seq_along(id) / 300)), paste, collapse = "+")
+  } else {
+    ids_list <- list(paste(id, collapse = "+"))
+  }
+
   cli <- crul::HttpClient$new(url = ncbi_base(), opts = list(...))
-  rr <- cli$get("entrez/eutils/esummary.fcgi", query = query)
-  rr$raise_for_status()
-  raw_results <- rr$parse("UTF-8")
+  out <- list()
+  for (i in seq_along(ids_list)) {
+    query <- tc(list(db = "taxonomy", id = ids_list[[i]], api_key = key))
+    # Search ncbi taxonomy for uid ----------------------------------------------
+    rr <- cli$get("entrez/eutils/esummary.fcgi", query = query)
+    if (!rr$success()) {
+      warning("query failed, proceeding to next if there is one")
+      out[[i]] <- paste0(rr$status_code, ": ", rr$status_http()$message)
+    } else {
+      out[[i]] <- parse_ncbi_gts(rr)
+    }
+    if (is.null(key)) Sys.sleep(0.33)
+  }
+
+  df <- dt2df(out)
+  df$.id <- NULL
+
+  # query <- tc(list(db = "taxonomy", id = w, api_key = key))
+  # # Search ncbi taxonomy for uid ----------------------------------------------
+  # cli <- crul::HttpClient$new(url = ncbi_base(), opts = list(...))
+  # rr <- cli$get("entrez/eutils/esummary.fcgi", query = query)
+  # rr$raise_for_status()
+  # raw_results <- rr$parse("UTF-8")
   # Parse results -------------------------------------------------------------
+  
+  # NCBI limits requests to three per second
+  # if (is.null(key)) Sys.sleep(0.33)
+  return(df)
+}
+
+parse_ncbi_gts <- function(x) {    
+  raw_results <- x$parse("UTF-8")
   results <- xml2::read_xml(raw_results)
   output <- data.frame(stringsAsFactors = FALSE,
     uid = xml_text_all(results, "/eSummaryResult//DocSum/Id"),
@@ -55,7 +88,5 @@ ncbi_get_taxon_summary <- function(id, key = NULL, ...) {
     rank = xml_text_all(results, "/eSummaryResult//DocSum/Item[@Name='Rank']")
   )
   output$rank[output$rank == ''] <- "no rank"
-  # NCBI limits requests to three per second
-  if (is.null(key)) Sys.sleep(0.33)
   return(output)
 }
