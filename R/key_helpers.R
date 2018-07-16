@@ -18,7 +18,7 @@ use_tropicos <- function(){
     utils::browseURL("http://services.tropicos.org/help?requestkey")
   }
   
-  message("After getting your key set it as TROPICOS_KEY in .Renviron.\n TROPICOS_KEY='youractualkeynotthisstring'\n For that, use usethis::edit_r_environ().")
+  message("After getting your key set it as TROPICOS_KEY in .Renviron.\n TROPICOS_KEY='youractualkeynotthisstring'\n For that, use usethis::edit_r_environ()")
   
   invisible("http://services.tropicos.org/help?requestkey")
 }
@@ -38,7 +38,7 @@ use_eol <- function(){
     utils::browseURL("http://eol.org/info/api_overview")
   }
   
-  message("Generate your key in your (brand-new) account's Preferences page. \nAfter generating your key set it as EOL_KEY in .Renviron.\n EOL_KEY='youractualkeynotthisstring'\n For that, use usethis::edit_r_environ().")
+  message("Generate your key in your (brand-new) account's Preferences page. \nAfter generating your key set it as EOL_KEY in .Renviron.\n EOL_KEY='youractualkeynotthisstring'\n For that, use usethis::edit_r_environ()")
   
   invisible("http://eol.org/info/api_overview")
 }
@@ -61,7 +61,7 @@ use_entrez <- function(){
     utils::browseURL("https://www.ncbi.nlm.nih.gov/account/")
   }
   
-  message("Create your key from your (brand-new) account's. \nAfter generating your key set it as ENTREZ_KEY in .Renviron.\n ENTREZ_KEY='youractualkeynotthisstring'\n For that, use usethis::edit_r_environ().")
+  message("Create your key from your (brand-new) account's. \nAfter generating your key set it as ENTREZ_KEY in .Renviron.\n ENTREZ_KEY='youractualkeynotthisstring'\n For that, use usethis::edit_r_environ()")
   
   invisible("https://www.ncbi.nlm.nih.gov/account/")
 }
@@ -69,14 +69,10 @@ use_entrez <- function(){
 #' @section `use_iucn()`:
 #' Browse IUCN Red List API key request URL and
 #'  provides instruction on how to store the key.
+#' @details This function only wraps \code{\link[rredlist]{rl_use_iucn}}
+#'  from the \code{rredlist} package.
 #' @export
 #' @rdname key_helpers
 use_iucn <- function(){
-  if(interactive()){
-    utils::browseURL("http://apiv3.iucnredlist.org/api/v3/token")
-  }
-  
-  message("After getting your key set it as IUCN_REDLIST_KEY in .Renviron.\n IUCN_REDLIST_KEY='youractualkeynotthisstring'\n For that, use usethis::edit_r_environ().")
-  
-  invisible("http://apiv3.iucnredlist.org/api/v3/token")
+  rredlist::rl_use_iucn()
 }

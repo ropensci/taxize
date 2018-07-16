@@ -18,6 +18,10 @@ use_iucn()
 \description{
 Sets up authentication to diverse providers by providing the user a detailed prompt.
 }
+\details{
+This function only wraps \code{\link[rredlist]{rl_use_iucn}}
+ from the \code{rredlist} package.
+}
 \section{`use_tropicos()`}{
 
 Browse Tropicos API key request URL and
