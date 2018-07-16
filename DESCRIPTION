@@ -76,7 +76,7 @@ Imports:
     zoo,
     bold (>= 0.3.5),
     data.table,
-    rredlist (>= 0.3.0),
+    rredlist (>= 0.4.1.9500),
     rotl (>= 3.0.0),
     ritis (>= 0.5.0),
     tibble (>= 1.2),
@@ -87,6 +87,8 @@ Suggests:
     testthat,
     knitr,
     vegan
+Remotes:
+    ropensci/rredlist
 RoxygenNote: 6.0.1.9000
 X-schema.org-applicationCategory: Taxonomy
 X-schema.org-keywords: taxonomy, biology, nomenclature, JSON, API, web, api-client, identifiers, species, names
