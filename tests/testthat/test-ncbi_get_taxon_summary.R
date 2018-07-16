@@ -26,7 +26,5 @@ test_that("ncbi_get_taxon_summary behaves correctly when very large ID vector", 
 
   # but longer IDs add up of course
   ids <- rep(1430660, 1100)
-  expect_error(suppressMessages(ncbi_get_taxon_summary(id = ids)), "Request-URI Too Long")
-  expect_message(tryCatch(ncbi_get_taxon_summary(id = ids), error = function(e) e),
-                 "You may want to split your ids")
+  expect_message(ncbi_get_taxon_summary(id = ids), "splitting up")
 })
