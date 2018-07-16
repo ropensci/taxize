@@ -147,5 +147,3 @@ Other nbn: \code{\link{nbn_classification}},
 \author{
 Scott Chamberlain, \email{myrmecocystus@gmail.com}
 }
-\concept{nbn}
-\concept{taxonomic-ids}

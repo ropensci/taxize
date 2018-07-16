@@ -86,4 +86,3 @@ Other eubon-methods: \code{\link{eubon_capabilities}},
   \code{\link{eubon_children}},
   \code{\link{eubon_hierarchy}}
 }
-\concept{eubon-methods}

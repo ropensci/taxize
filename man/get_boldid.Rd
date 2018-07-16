@@ -172,4 +172,3 @@ Other taxonomic-ids: \code{\link{get_colid}},
   \code{\link{get_tsn}}, \code{\link{get_uid}},
   \code{\link{get_wiki}}, \code{\link{get_wormsid}}
 }
-\concept{taxonomic-ids}

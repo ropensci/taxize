@@ -5,7 +5,7 @@ Description: Interacts with a suite of web 'APIs' for taxonomic tasks,
     species names, getting taxonomic hierarchies, fetching downstream and
     upstream taxonomic names, getting taxonomic synonyms, converting
     scientific to common names and vice versa, and more.
-Version: 0.9.3.9219
+Version: 0.9.3.9321
 License: MIT + file LICENSE
 URL: https://github.com/ropensci/taxize
 BugReports: https://github.com/ropensci/taxize/issues
@@ -51,12 +51,17 @@ Authors@R:
       person(given = "Vinh",
              family = "Tran",
              role = "ctb"),
+      person(given = "Maëlle",
+             family = "Salmon",
+             role = "ctb"),
       person(given = "rOpenSci",
              role = "fnd",
              comment = "https://ropensci.org/"))
 LazyLoad: yes
 LazyData: yes
 VignetteBuilder: knitr
+Encoding: UTF-8
+Language: en-US
 Depends:
     R(>= 3.2.1)
 Imports:
@@ -89,7 +94,7 @@ Suggests:
     vegan
 Remotes:
     ropensci/rredlist
-RoxygenNote: 6.0.1.9000
+RoxygenNote: 6.0.1
 X-schema.org-applicationCategory: Taxonomy
 X-schema.org-keywords: taxonomy, biology, nomenclature, JSON, API, web, api-client, identifiers, species, names
 X-schema.org-isPartOf: https://ropensci.org

@@ -41,4 +41,3 @@ Other nbn: \code{\link{get_nbnid}},
 \author{
 Scott Chamberlain, \email{myrmecocystus@gmail.com}
 }
-\concept{nbn}
