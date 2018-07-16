@@ -34,3 +34,4 @@ Other nbn: \code{\link{get_nbnid}},
   \code{\link{nbn_classification}},
   \code{\link{nbn_search}}
 }
+\concept{nbn}
