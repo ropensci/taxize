@@ -6,7 +6,8 @@ spnames <- c('Klattia flava', 'Trollius sibiricus', 'Arachis paraguariensis',
  'Pilea verrucosa','Tibouchina striphnocalyx','Lycium dasystemum',
  'Berkheya echinacea','Androcymbium villosum',
  'Helianthus annuus','Madia elegans','Lupinus albicaulis',
- 'Pinus lambertiana', "Haloarcula amylolytica JCM 13557")
+ 'Pinus lambertiana', "Haloarcula amylolytica JCM 13557",
+ "Halomonas sp. 'Soap Lake #6'")
 
 dupnames <- c('Mus musculus', 'Escherichia coli',
               'Haloferax denitrificans','Mus musculus')
