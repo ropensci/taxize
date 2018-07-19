@@ -55,7 +55,7 @@ Authors@R:
              family = "Salmon",
              role = "ctb"),
       person(given = "Gaopeng", 
-             familiy = "Li",
+             family = "Li",
              role = "ctb"),
       person(given = "rOpenSci",
              role = "fnd",
