@@ -64,17 +64,6 @@ chunks for multiple HTTP requests"))
 
   df <- dt2df(out)
   df$.id <- NULL
-
-  # query <- tc(list(db = "taxonomy", id = w, api_key = key))
-  # # Search ncbi taxonomy for uid ----------------------------------------------
-  # cli <- crul::HttpClient$new(url = ncbi_base(), opts = list(...))
-  # rr <- cli$get("entrez/eutils/esummary.fcgi", query = query)
-  # rr$raise_for_status()
-  # raw_results <- rr$parse("UTF-8")
-  # Parse results -------------------------------------------------------------
-  
-  # NCBI limits requests to three per second
-  # if (is.null(key)) Sys.sleep(0.33)
   return(df)
 }
 

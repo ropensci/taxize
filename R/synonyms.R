@@ -190,17 +190,6 @@ synonyms.tsn <- function(id, ...) {
                             stringsAsFactors = FALSE)
       }
 
-      # out <- do.call("rbind", lapply(x, ritis::synonym_names, ...))
-      # if (NROW(out) == 0) {
-      #   out <- data.frame(syn_name = "nomatch", syn_tsn = x[1],
-      #                     stringsAsFactors = FALSE)
-      # } else {
-      #   out <- stats::setNames(out, c('syn_author', 'syn_name', 'syn_tsn'))
-      # }
-      # if (as.character(out[1,1]) == 'nomatch') {
-      #   out <- data.frame(message = "no syns found", stringsAsFactors = FALSE)
-      # }
-
       res <- Map(function(z, w) {
         tmp <- ritis::synonym_names(z)
         if (NROW(tmp) == 0) {

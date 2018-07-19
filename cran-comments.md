@@ -1,7 +1,7 @@
 ## Test environments
 
-* local OS X install, R 3.4.4 patched
-* ubuntu 12.04 (on travis-ci), R 3.4.4
+* local OS X install, R 3.5.1 Patched
+* ubuntu 14.04 (on travis-ci), R 3.5.0
 * win-builder (devel and release)
 
 ## R CMD check results
@@ -23,7 +23,7 @@ There was one problem with a vignette build with the test suite for camtrapR - b
 
 ------
 
-This version is a few bug fixes and improvements.
+This version has a few new small helper functions, and quite a few bug fixes.
 
 Thanks!
 Scott Chamberlain

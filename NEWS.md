@@ -1,3 +1,30 @@
+taxize 0.9.4
+============
+
+### NEW FEATURES
+
+* new contributor: [Gaopeng Li](https://github.com/gpli)
+* gains new functions for helping the user get authentication keys/tokens: `use_entrez()`, `use_eol()`, `use_iucn()` (which uses internally `rredlist::rl_use_iucn()`), and `use_tropicos()` (#682) (#691) (#693) By @maelle
+ 
+### MINOR IMPROVEMENTS
+
+* remove commented out code
+* fix `tropicos_ping()`
+* xxx (#xxx)
+
+### BUG FIXES
+
+* fixed `downstream()` and `gbif_downstream()`: some of the results don't have a `canonicalName`, so now safely try to get that field  (#673)
+* fixed `as.uid()`, was erroring when passing in a taxon ID (#674) (#675) by @zachary-foster
+* fix in `get_boldid()` (and by extension `classification(..., db = "bold")`): was failing when no parent taxon found, just fill in with NA now (#680)
+* fix to `synonyms()`: was failing for some TSNs for `db="itis"` (#685)
+* fix to `tax_name()`: `rows` arg wasn't being passed on internally (#686)
+* fix to `gnr_resolve()` and `gnr_datasources()`: problems were caused by http scheme, switched to use https instead of http (#687)
+* fix to `class2tree()`: organisms with unique rank lower than non-unique ranks will give extra wrong rows (#689) (#690) thanks @gpli
+* fix in `ncbi_get_taxon_summary()`: changes in the NCBI API most likely lead to HTTP 414 (URI Too Long) errors. we now loop internally for the user. By extension this helps problems upsteam in `downstream()`/`ncbi_downstream()`/`ncbi_children()` (#698)
+* fix in `class2tree()`: was erroring when name strings contained pound signs (e.g., `#`) (#699) (#700) thanks @gpli
+
+
 taxize 0.9.3
 ============
 
