@@ -54,6 +54,9 @@ Authors@R:
       person(given = "Maëlle",
              family = "Salmon",
              role = "ctb"),
+      person(given = "Gaopeng", 
+             familiy = "Li",
+             role = "ctb"),
       person(given = "rOpenSci",
              role = "fnd",
              comment = "https://ropensci.org/"))
