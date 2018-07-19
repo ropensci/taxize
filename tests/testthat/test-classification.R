@@ -144,8 +144,8 @@ test_that("works on a variety of names", {
 test_that("queries with no results fail well", {
   skip_on_cran()
 
-  aa <- classification(x = "Saurauia", db = "itis", messages = FALSE)
-  bb <- classification(get_tsn("Saurauia", messages = FALSE), messages = FALSE)
+  aa <- classification(x = "foobar", db = "itis", messages = FALSE)
+  bb <- classification(get_tsn("foobar", messages = FALSE), messages = FALSE)
 
   expect_true(is.na(unclass(aa)[[1]]))
   expect_identical(unname(aa), unname(bb))
