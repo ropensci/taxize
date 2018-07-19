@@ -9,7 +9,6 @@ test_that("tp_search returns the correct class", {
   uuu <- suppressMessages(tp_search(name = 'stuff things'))
 
   if ("error" %in% names(ttt)) skip("error in tp_search call - skipping")
-  if ("error" %in% names(uuu)) skip("error in tp_search call - skipping")
 
 	expect_that(ttt, is_a("data.frame"))
 
