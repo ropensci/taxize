@@ -9,10 +9,10 @@ taxize 0.9.4
 ### MINOR IMPROVEMENTS
 
 * remove commented out code
-* fix `tropicos_ping()`
 
 ### BUG FIXES
 
+* fix `tropicos_ping()`
 * fixed `downstream()` and `gbif_downstream()`: some of the results don't have a `canonicalName`, so now safely try to get that field  (#673)
 * fixed `as.uid()`, was erroring when passing in a taxon ID (#674) (#675) by @zachary-foster
 * fix in `get_boldid()` (and by extension `classification(..., db = "bold")`): was failing when no parent taxon found, just fill in with NA now (#680)
