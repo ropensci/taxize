@@ -1,12 +1,3 @@
-# aptg
-
-Version: 0.1.0
-
-## In both
-
-*   R CMD check timed out
-    
-
 # camtrapR
 
 Version: 0.99.9
@@ -18,14 +9,14 @@ Version: 0.99.9
     Error in re-building vignettes:
       ...
     Loading required package: sp
-    rgdal: version: 1.2-18, (SVN revision 718)
+    rgdal: version: 1.3-3, (SVN revision 759)
      Geospatial Data Abstraction Library extensions to R successfully loaded
      Loaded GDAL runtime: GDAL 2.1.3, released 2017/20/01
      Path to GDAL shared files: /Users/sckott/github/ropensci/taxize/revdep/library.noindex/camtrapR/rgdal/gdal
      GDAL binary built with GEOS: FALSE 
      Loaded PROJ.4 runtime: Rel. 4.9.3, 15 August 2016, [PJ_VERSION: 493]
      Path to PROJ.4 shared files: /Users/sckott/github/ropensci/taxize/revdep/library.noindex/camtrapR/rgdal/proj
-     Linking to sp version: 1.2-7 
+     Linking to sp version: 1.3-1 
     Quitting from lines 50-54 (DataExtraction.Rmd) 
     Error: processing vignette 'DataExtraction.Rmd' failed with diagnostics:
     cannot find ExifTool
@@ -34,7 +25,7 @@ Version: 0.99.9
 
 # mapr
 
-Version: 0.3.4
+Version: 0.4.0
 
 ## In both
 
@@ -45,7 +36,7 @@ Version: 0.3.4
 
 # metacoder
 
-Version: 0.2.0
+Version: 0.2.1
 
 ## In both
 
@@ -58,50 +49,54 @@ Version: 0.2.0
 
 # myTAI
 
-Version: 0.6.0
+Version: 0.8.0
 
 ## In both
 
-*   checking installed package size ... NOTE
+*   checking dependencies in R code ... NOTE
     ```
-      installed size is  5.1Mb
-      sub-directories of 1Mb or more:
-        data   2.0Mb
-        doc    2.7Mb
+    Namespace in Imports field not imported from: ‘biomartr’
+      All declared Imports should be used.
     ```
 
-# RNeXML
+# originr
 
-Version: 2.0.8
+Version: 0.3.0
 
 ## In both
 
-*   checking package dependencies ... NOTE
+*   checking data for non-ASCII characters ... NOTE
     ```
-    Packages suggested but not available for checking: ‘rrdf’ ‘Sxslt’
+      Note: found 2 marked UTF-8 strings
     ```
 
 # taxa
 
-Version: 0.2.0
+Version: 0.2.1
 
 ## In both
 
 *   checking dependencies in R code ... NOTE
     ```
     Namespaces in Imports field not imported from:
-      ‘knitr’ ‘lazyeval’ ‘rlang’
+      ‘knitr’ ‘lazyeval’ ‘rlang’ ‘tidyr’
       All declared Imports should be used.
     ```
 
 # taxlist
 
-Version: 0.1.3
+Version: 0.1.5
 
 ## In both
 
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘grDevices’
+      All declared Imports should be used.
+    ```
+
 *   checking data for non-ASCII characters ... NOTE
     ```
-      Note: found 126 marked UTF-8 strings
+      Note: found 97 marked UTF-8 strings
     ```
 
