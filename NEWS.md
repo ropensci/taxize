@@ -10,7 +10,6 @@ taxize 0.9.4
 
 * remove commented out code
 * fix `tropicos_ping()`
-* xxx (#xxx)
 
 ### BUG FIXES
 
