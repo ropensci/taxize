@@ -3,6 +3,7 @@ taxize
 
 
 
+
 [![cran checks](https://cranchecks.info/badges/worst/taxize)](https://cranchecks.info/pkgs/taxize)
 [![Build Status](https://travis-ci.org/ropensci/taxize.svg?branch=master)](https://travis-ci.org/ropensci/taxize)
 [![Build status](https://ci.appveyor.com/api/projects/status/6mgc02mkd8j4sq3g/branch/master)](https://ci.appveyor.com/project/sckott/taxize-175/branch/master)
@@ -76,7 +77,7 @@ Note that a few data sources require SOAP web services, which are difficult to s
 <tr>
 	<td style="text-align:left;">IUCN Red List</td>
 	<td style="text-align:left;"><code>iucn</code></td>
-	<td style="text-align:left;"><a href="https://www.assembla.com/spaces/sis/wiki/Red_List_API?version=3">link</a></td>
+	<td style="text-align:left;"><a href="http://apiv3.iucnredlist.org/api/v3/docs">link</a></td>
 	<td style="text-align:left;"><a href="http://apiv3.iucnredlist.org/api/v3/token">link</a></td>
 </tr>
 <tr>
@@ -148,7 +149,7 @@ Note that a few data sources require SOAP web services, which are difficult to s
 <tr>
 	<td style="text-align:left;">Open Tree of Life (TOL)</td>
 	<td style="text-align:left;"><code>tol</code></td>
-	<td style="text-align:left;"><a href="https://opentreeoflife.org">link</a></td>
+	<td style="text-align:left;"><a href="https://github.com/OpenTreeOfLife/germinator/wiki/Open-Tree-of-Life-Web-APIs">link</a></td>
 	<td style="text-align:left;">none</td>
 </tr>
 <tr>
@@ -253,34 +254,35 @@ Get immediate children of _Salmo_. In this case, _Salmo_ is a genus, so this giv
 children("Salmo", db = 'ncbi')
 #> $Salmo
 #>    childtaxa_id                   childtaxa_name childtaxa_rank
-#> 1       1509524  Salmo marmoratus x Salmo trutta        species
-#> 2       1484545 Salmo cf. cenerinus BOLD:AAB3872        species
-#> 3       1483130               Salmo zrmanjaensis        species
-#> 4       1483129               Salmo visovacensis        species
-#> 5       1483128                Salmo rhodanensis        species
-#> 6       1483127                 Salmo pellegrini        species
-#> 7       1483126                     Salmo opimus        species
-#> 8       1483125                Salmo macedonicus        species
-#> 9       1483124                Salmo lourosensis        species
-#> 10      1483123                   Salmo labecula        species
-#> 11      1483122                  Salmo farioides        species
-#> 12      1483121                      Salmo chilo        species
-#> 13      1483120                     Salmo cettii        species
-#> 14      1483119                  Salmo cenerinus        species
-#> 15      1483118                   Salmo aphelios        species
-#> 16      1483117                    Salmo akairos        species
-#> 17      1201173               Salmo peristericus        species
-#> 18      1035833                   Salmo ischchan        species
-#> 19       700588                     Salmo labrax        species
-#> 20       237411              Salmo obtusirostris        species
-#> 21       235141              Salmo platycephalus        species
-#> 22       234793                    Salmo letnica        species
-#> 23        62065                  Salmo ohridanus        species
-#> 24        33518                 Salmo marmoratus        species
-#> 25        33516                    Salmo fibreni        species
-#> 26        33515                     Salmo carpio        species
-#> 27         8032                     Salmo trutta        species
-#> 28         8030                      Salmo salar        species
+#> 1       2126688              Salmo ciscaucasicus        species
+#> 2       1509524  Salmo marmoratus x Salmo trutta        species
+#> 3       1484545 Salmo cf. cenerinus BOLD:AAB3872        species
+#> 4       1483130               Salmo zrmanjaensis        species
+#> 5       1483129               Salmo visovacensis        species
+#> 6       1483128                Salmo rhodanensis        species
+#> 7       1483127                 Salmo pellegrini        species
+#> 8       1483126                     Salmo opimus        species
+#> 9       1483125                Salmo macedonicus        species
+#> 10      1483124                Salmo lourosensis        species
+#> 11      1483123                   Salmo labecula        species
+#> 12      1483122                  Salmo farioides        species
+#> 13      1483121                      Salmo chilo        species
+#> 14      1483120                     Salmo cettii        species
+#> 15      1483119                  Salmo cenerinus        species
+#> 16      1483118                   Salmo aphelios        species
+#> 17      1483117                    Salmo akairos        species
+#> 18      1201173               Salmo peristericus        species
+#> 19      1035833                   Salmo ischchan        species
+#> 20       700588                     Salmo labrax        species
+#> 21       237411              Salmo obtusirostris        species
+#> 22       235141              Salmo platycephalus        species
+#> 23       234793                    Salmo letnica        species
+#> 24        62065                  Salmo ohridanus        species
+#> 25        33518                 Salmo marmoratus        species
+#> 26        33516                    Salmo fibreni        species
+#> 27        33515                     Salmo carpio        species
+#> 28         8032                     Salmo trutta        species
+#> 29         8030                      Salmo salar        species
 #> 
 #> attr(,"class")
 #> [1] "children"
@@ -440,10 +442,10 @@ Furthermore, you can just back all ids if that's your jam with the `get_*_()` fu
 get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn', rows=1:3)
 #> $nbn
 #> $nbn$`Chironomus riparius`
-#>               guid             scientificName    rank taxonomicStatus
-#> 1 NBNSYS0000027573        Chironomus riparius species        accepted
-#> 2 NHMSYS0000864966 Damaeus (Damaeus) riparius species        accepted
-#> 3 NHMSYS0021059238      Rhizoclonium riparium species        accepted
+#>               guid      scientificName    rank taxonomicStatus
+#> 1 NBNSYS0000027573 Chironomus riparius species        accepted
+#> 2 NHMSYS0001718585  Hypnoidus riparius species        accepted
+#> 3 NBNSYS0000023345   Paederus riparius species        accepted
 #> 
 #> $nbn$`Pinus contorta`
 #>               guid                scientificName    rank taxonomicStatus
@@ -487,10 +489,10 @@ sci2comm('Helianthus annuus', db = 'itis')
 ```r
 comm2sci("black bear", db = "itis")
 #> $`black bear`
-#> [1] "Ursus thibetanus"            "Ursus thibetanus"           
-#> [3] "Ursus americanus luteolus"   "Ursus americanus americanus"
-#> [5] "Ursus americanus"            "Ursus americanus"           
-#> [7] "Chiropotes satanas"
+#> [1] "Ursus americanus luteolus"   "Ursus americanus"           
+#> [3] "Ursus americanus"            "Ursus americanus americanus"
+#> [5] "Chiropotes satanas"          "Ursus thibetanus"           
+#> [7] "Ursus thibetanus"
 ```
 
 ## Lowest common rank among taxa
