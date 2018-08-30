@@ -202,7 +202,7 @@ synonyms.tsn <- function(id, ...) {
           tmp <- data.frame(message = "no syns found", stringsAsFactors = FALSE)
         }
 
-        cbind(w, tmp)
+        cbind(w, tmp, row.names = NULL)
       }, x, split(accdf, seq_len(NROW(accdf))))
       do.call("rbind", unname(res))
     }
