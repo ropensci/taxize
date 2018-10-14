@@ -1,0 +1,82 @@
+<!--
+%\VignetteEngine{knitr::knitr}
+%\VignetteIndexEntry{Case study - resolving Species Plantarum names}
+%\VignetteEncoding{UTF-8}
+-->
+
+Case study - resolving Species Plantarum names
+==============================================
+
+*Species Plantarum* by Carl Linnaeus originally published in 1753, was the first work to consistently apply binominal names and was the starting point for the naming of plants. It provides useful reference point to see how taxonomic names have changed since their inception. So let's see if we can resolve these names and see if any of the names have changed. 
+
+Firstly, let's see how many of the names still exist in modern species catologues today. We can use ```resolve``` function to query the Global Name Resolver.
+
+```{r resolve, message = FALSE, warning = F, error = FALSE, cache = T}
+library("taxize")
+library("tidyverse")
+library("knitr")
+# load dataset of Species Plantarum names from the taxize package
+names <- species_plantarum_binomials
+# Species Plantarum names are split into Genus and Species qualifier so need to be pasted together
+# to allow the full binominal names to be sent to the global name resolver
+names <- names %>% 
+ mutate(species = paste(names$genus, names$epithet))
+
+resolved_names <- resolve(names$species)
+resolved_names <- resolved_names$gnr
+# count the distinct names resolved per dataset source
+resolved_names_sum <- resolved_names %>% 
+  select(submitted_name, data_source_title) %>% 
+  distinct() %>%
+  group_by(data_source_title) %>%
+  tally() %>% 
+  arrange(desc(n))
+
+kable(head(resolved_names_sum, 20))
+
+```
+
+The tabe above shows none of the data sources provides can resolve all of the names in the *Species Plantarum*. Lets see if between all the data sources we can resolve all the names.
+
+```{r combine_resolve, message = FALSE, warning = F, error = FALSE, cache = T}
+
+gnr_names <- select(resolved_names, submitted_name, score) %>%
+  distinct()
+
+merge_gnr_plantarum <- left_join(names, gnr_names, by = c("species" = "submitted_name")) %>%
+  group_by(score) %>% 
+  summarise("species count" = n()) %>% 
+  arrange(score)
+
+kable(merge_gnr_plantarum)
+
+```
+
+Even though no individual name data source can resolve all the names, taken together all names in *Species Plantarum* can be resolved using modern sources. Noting that some names score poorly in terms of fuzzy matching. The poor matching could indicate imperfect matches and perahps some matches are due to species identified after 1752 sharing similar names. There are lots of questions regarding the history of many of these original binominals and their journey into present day taxonomy.  
+
+For example, let's see how many of these names are still the 'accepted' names according to ITIS. Not all the data providers give an accepted. So lets use ITIS as the ```get_tsn_``` function returns a ```nameUsage``` variable which indicates if a name is still accepted or not.
+
+```{r accepted, message = FALSE, warning = F, error = FALSE, cache = T}
+
+# find resolved pecies Plantarum names returned from ITIS
+itis_resolved <- resolved_names$submitted_name[resolved_names$data_source_title == "ITIS"]
+# select random sub-selection to save time
+set.seed(42) 
+itis_sample <- itis_resolved[sample(rep(1:length(unique(itis_resolved))), 200)]
+# query ITIS
+its_names <- get_tsn_(itis_sample)
+its_names_bind <- bind_rows(its_names)
+# calculate percentage of nameUsage based on sub-select (to reflect overall accepted name percentage?)
+its_names_sum <- its_names_bind %>%
+  group_by(nameUsage) %>% 
+  summarise(n = n()) %>%
+  mutate(percentage = n / sum(n) * 100)
+
+kable(its_names_sum)
+
+```
+
+Of the thousands of *Species Plantarum* names found in the ITIS data source, a high percentage (of 200 randomly selected names) are still the 'accepted' name. This indicates Carl Linnaeus, as widely acknowledged, identified well-thought-out and pragmatic taxonomic concepts which have proved useful until the present day. Being the first to name and identify many plant species gives Linnaeus an advantage as subsequent taxonomist must either split or clump Linnaeus' definition into new species to become the new accepted name. 
+
+Further research may discover why some names appear not to be used today in some data sources and where they are used, why some are no longer the accepted name.
+
