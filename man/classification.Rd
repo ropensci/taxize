@@ -29,32 +29,38 @@ classification(...)
 
 \method{classification}{tsn}(id, return_id = TRUE, ...)
 
-\method{classification}{uid}(id, callopts = list(), return_id = TRUE, ...)
+\method{classification}{uid}(id, callopts = list(), return_id = TRUE,
+  ...)
 
-\method{classification}{eolid}(id, callopts = list(), return_id = TRUE, ...)
+\method{classification}{eolid}(id, callopts = list(), return_id = TRUE,
+  ...)
 
 \method{classification}{colid}(id, start = NULL, checklist = NULL,
   callopts = list(), return_id = TRUE, ...)
 
-\method{classification}{tpsid}(id, callopts = list(), return_id = TRUE, ...)
-
-\method{classification}{gbifid}(id, callopts = list(), return_id = TRUE,
+\method{classification}{tpsid}(id, callopts = list(), return_id = TRUE,
   ...)
 
-\method{classification}{nbnid}(id, callopts = list(), return_id = TRUE, ...)
+\method{classification}{gbifid}(id, callopts = list(),
+  return_id = TRUE, ...)
 
-\method{classification}{tolid}(id, callopts = list(), return_id = TRUE, ...)
-
-\method{classification}{wormsid}(id, callopts = list(), return_id = TRUE,
+\method{classification}{nbnid}(id, callopts = list(), return_id = TRUE,
   ...)
 
-\method{classification}{natservid}(id, callopts = list(), return_id = TRUE,
+\method{classification}{tolid}(id, callopts = list(), return_id = TRUE,
   ...)
 
-\method{classification}{boldid}(id, callopts = list(), return_id = TRUE,
-  ...)
+\method{classification}{wormsid}(id, callopts = list(),
+  return_id = TRUE, ...)
 
-\method{classification}{wiki}(id, callopts = list(), return_id = TRUE, ...)
+\method{classification}{natservid}(id, callopts = list(),
+  return_id = TRUE, ...)
+
+\method{classification}{boldid}(id, callopts = list(),
+  return_id = TRUE, ...)
+
+\method{classification}{wiki}(id, callopts = list(), return_id = TRUE,
+  ...)
 
 \method{classification}{ids}(id, ...)
 

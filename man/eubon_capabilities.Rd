@@ -24,3 +24,4 @@ eubon_capabilities()
 Other eubon-methods: \code{\link{eubon_children}},
   \code{\link{eubon_hierarchy}}, \code{\link{eubon}}
 }
+\concept{eubon-methods}

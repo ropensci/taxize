@@ -12,8 +12,8 @@
 \alias{get_eolid_}
 \title{Get the EOL ID from Encyclopedia of Life from taxonomic names.}
 \usage{
-get_eolid(sciname, ask = TRUE, messages = TRUE, key = NULL, rows = NA,
-  ...)
+get_eolid(sciname, ask = TRUE, messages = TRUE, key = NULL,
+  rows = NA, ...)
 
 as.eolid(x, check = TRUE)
 
@@ -155,3 +155,4 @@ Other taxonomic-ids: \code{\link{get_boldid}},
 \author{
 Scott Chamberlain, \email{myrmecocystus@gmail.com}
 }
+\concept{taxonomic-ids}

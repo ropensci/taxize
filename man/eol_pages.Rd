@@ -7,8 +7,8 @@
 eol_pages(taxonconceptID, iucn = FALSE, images = 0, videos = 0,
   sounds = 0, maps = 0, text = 0, subjects = "overview",
   licenses = "all", details = FALSE, common_names = FALSE,
-  synonyms = FALSE, references = FALSE, taxonomy = TRUE, vetted = 0,
-  cache_ttl = NULL, key = NULL, ...)
+  synonyms = FALSE, references = FALSE, taxonomy = TRUE,
+  vetted = 0, cache_ttl = NULL, key = NULL, ...)
 }
 \arguments{
 \item{taxonconceptID}{The taxonconceptID (numeric), which is also the page

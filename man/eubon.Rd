@@ -9,9 +9,9 @@ eubon(query, providers = "pesi", searchMode = "scientificNameExact",
   addSynonymy = FALSE, addParentTaxon = FALSE, timeout = 0,
   dedup = NULL, ...)
 
-eubon_search(query, providers = "pesi", searchMode = "scientificNameExact",
-  addSynonymy = FALSE, addParentTaxon = FALSE, timeout = 0,
-  dedup = NULL, ...)
+eubon_search(query, providers = "pesi",
+  searchMode = "scientificNameExact", addSynonymy = FALSE,
+  addParentTaxon = FALSE, timeout = 0, dedup = NULL, ...)
 }
 \arguments{
 \item{query}{(character) The scientific name to search for. For example:
@@ -86,3 +86,4 @@ Other eubon-methods: \code{\link{eubon_capabilities}},
   \code{\link{eubon_children}},
   \code{\link{eubon_hierarchy}}
 }
+\concept{eubon-methods}

@@ -12,8 +12,8 @@
 \alias{get_tpsid_}
 \title{Get the NameID codes from Tropicos for taxonomic names.}
 \usage{
-get_tpsid(sciname, ask = TRUE, messages = TRUE, key = NULL, rows = NA,
-  family = NULL, rank = NULL, ...)
+get_tpsid(sciname, ask = TRUE, messages = TRUE, key = NULL,
+  rows = NA, family = NULL, rank = NULL, ...)
 
 as.tpsid(x, check = TRUE)
 
@@ -172,3 +172,4 @@ Other taxonomic-ids: \code{\link{get_boldid}},
 \author{
 Scott Chamberlain, \email{myrmecocystus@gmail.com}
 }
+\concept{taxonomic-ids}

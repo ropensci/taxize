@@ -5,7 +5,8 @@
 \alias{iucn_summary_id}
 \title{Get a summary from the IUCN Red List}
 \usage{
-iucn_summary(x, parallel = FALSE, distr_detail = FALSE, key = NULL, ...)
+iucn_summary(x, parallel = FALSE, distr_detail = FALSE, key = NULL,
+  ...)
 
 iucn_summary_id(species_id, silent = TRUE, parallel = FALSE,
   distr_detail = FALSE, ...)

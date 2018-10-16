@@ -5,8 +5,8 @@
 \title{Use Catalogue of Life to get downstream taxa to a given taxonomic level.}
 \usage{
 col_downstream(name = NULL, id = NULL, downto, format = NULL,
-  start = NULL, checklist = NULL, verbose = TRUE, intermediate = FALSE,
-  ...)
+  start = NULL, checklist = NULL, verbose = TRUE,
+  intermediate = FALSE, ...)
 }
 \arguments{
 \item{name}{The string to search for. Only exact matches found the name given
