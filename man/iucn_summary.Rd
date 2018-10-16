@@ -96,9 +96,9 @@ ia <- iucn_summary_id(c(22732, 12519))
 # extract status
 iucn_status(ia)
 # extract other available information
-ia[['Lynx lynx']]$history
-ia[['Panthera uncia']]$distr
-ia[[2]]$trend
+ia$`22732`$history
+ia$`12519`$distr
+ia$`12519`$trend
 ## the outputs aren't quite identical, but we're working on it
 identical(
   iucn_summary_id(c(22732, 12519)),
