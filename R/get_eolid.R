@@ -98,11 +98,11 @@ get_eolid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
 
   assert(ask, "logical")
   assert(messages, "logical")
+
   fun <- function(sciname, ask, messages, rows, ...) {
     direct <- FALSE
     mssg(messages, "\nRetrieving data for taxon '", sciname, "'\n")
     tmp <- eol_search(terms = sciname, key = key, ...)
-
     ms <- "Not found. Consider checking the spelling or alternate classification"
     datasource <- NA_character_
     if (all(is.na(tmp))) {
@@ -152,6 +152,7 @@ get_eolid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
       mssg(messages, ms)
       id <- NA_character_
       page_id <- NA_character_
+			mm <- FALSE
       att <- 'not found'
     }
     # only one found on eol
