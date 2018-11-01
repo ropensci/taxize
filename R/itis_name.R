@@ -8,10 +8,6 @@
 #' }
 #' @export
 #' @rdname itis_name-deprecated
-itis_name <- function(query = NULL, get = NULL)
-{
-	# 	tsn <- get_tsn(query, searchtype="sciname")
-	# 	tt <- getfullhierarchyfromtsn(tsn)
-	# 	as.character(tt[tt$rankName == capwords(get, onlyfirst=T), "taxonName"])
-	.Deprecated("tax_name", "taxize", msg="This function is deprecated. This function has changed name to tax_name.")
+itis_name <- function(query = NULL, get = NULL) {
+  .Deprecated("tax_name", "taxize", msg="This function is deprecated. This function has changed name to tax_name.")
 }
