@@ -280,6 +280,10 @@ tol_fetch_fuzzy <- function(x) {
 }
 
 dtrbsetdf <- function(x) {
+  x <- lapply(x, function(a) {
+    a[sapply(a, is.null)] <- NA_character_
+    a
+  })
   (out <- data.table::setDF(
     data.table::rbindlist(x, use.names = TRUE, fill = TRUE)
   ))
