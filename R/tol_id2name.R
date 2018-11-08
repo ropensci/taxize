@@ -5,7 +5,12 @@ tol_id2name <- function(id, ...) {
     opts = list(...))
   res <- cli$post(path = "v3/taxonomy/taxon_info", encode = "json",
     body = list(ott_id = id))
-  res$raise_for_status()
+  if (res$status_code > 201) {
+    warning(res$status_code, ": ", res$status_http()$message, 
+      ", returning empty data.frame for ", id, 
+      call. = FALSE)
+    return(id2name_blanks$tol)
+  }
   tmp <- jsonlite::fromJSON(res$parse("UTF-8"))
   tmp[vapply(tmp, length, 1) == 0] <- NULL
   if ("tax_sources" %in% names(tmp)) {
@@ -18,5 +23,9 @@ tol_id2name <- function(id, ...) {
       tmp <- c(tmp, unlist(ids, FALSE))
     }
   }
+  tmp$unique_name <- NULL
+  tmp$is_suppressed <- NULL
+  names(tmp)[names(tmp) %in% "ott_id"] <- "id"
+  tmp <- tmp[c('id', 'name', 'rank', grep("tax_", names(tmp), value = TRUE))]
   data.frame(tmp, stringsAsFactors = FALSE)
 }

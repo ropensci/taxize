@@ -9,7 +9,7 @@ test_that("id2name: itis", {
   expect_equal(attr(aa, "db"), "tsn")
   expect_is(unclass(aa), "list")
   expect_is(aa[[1]], "data.frame")
-  expect_named(aa[[1]], c('tsn', 'name', 'parent_tsn', 'status'))
+  expect_named(aa[[1]], c('id', 'name', 'rank', 'status', 'parent_tsn'))
   expect_is(aa[[1]]$name, "character")
 })
 
@@ -32,5 +32,6 @@ test_that("missing/wrong data given returns result", {
   expect_error(id2name(db = "tol"), "argument \"x\" is missing")
   expect_error(id2name(5, db = "stuff"), "'db' must be one of")
   # requires HTTP request
-  expect_error(id2name(55555555, db = "tol"), "Bad Request")
+  expect_warning(id2name(55555555, db = "tol"), "Bad Request")
+  expect_equal(NROW(suppressWarnings(id2name(55555555, db = "tol"))[[1]]), 0)
 })
