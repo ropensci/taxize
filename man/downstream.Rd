@@ -7,6 +7,7 @@
 \alias{downstream.colid}
 \alias{downstream.gbifid}
 \alias{downstream.uid}
+\alias{downstream.wormsid}
 \alias{downstream.ids}
 \title{Retrieve the downstream taxa for a given taxon name or ID.}
 \usage{
@@ -25,6 +26,9 @@ downstream(...)
   intermediate = FALSE, limit = 100, start = NULL, ...)
 
 \method{downstream}{uid}(x, db = NULL, downto = NULL,
+  intermediate = FALSE, ...)
+
+\method{downstream}{wormsid}(x, db = NULL, downto = NULL,
   intermediate = FALSE, ...)
 
 \method{downstream}{ids}(x, db = NULL, downto = NULL,
@@ -84,12 +88,14 @@ See \code{\link{taxize-authentication}} for help on authentication
 # Plug in taxon IDs
 downstream("015be25f6b061ba517f495394b80f108", db = "col",
   downto = "species")
+downstream(125732, db = 'worms', downto = 'species')
 
 # Plug in taxon names
 downstream("Insecta", db = 'col', downto = 'order')
 downstream("Apis", db = 'col', downto = 'species')
 downstream("Apis", db = 'ncbi', downto = 'species')
 downstream("Apis", db = 'itis', downto = 'species')
+downstream("Gadus", db = 'worms', downto = 'species')
 downstream(c("Apis","Epeoloides"), db = 'itis', downto = 'species')
 downstream(c("Apis","Epeoloides"), db = 'col', downto = 'species')
 downstream("Ursus", db = 'gbif', downto = 'species')
