@@ -31,8 +31,10 @@ downstream(...)
   intermediate = FALSE, ...)
 }
 \arguments{
-\item{...}{Further args passed on to \code{itis_downstream},
-\code{col_downstream}, \code{gbif_downstream}, or \code{ncbi_downstream}}
+\item{...}{Further args passed on to \code{\link{itis_downstream}},
+\code{\link{col_downstream}}, \code{\link{gbif_downstream}}, or 
+\code{\link{ncbi_downstream}}. See those functions for what further 
+arguments they accept}
 
 \item{x}{Vector of taxa names (character) or IDs (character or numeric)
 to query.}

@@ -29,8 +29,10 @@
 #' taxonomic id of any of the acceptable classes: tsn, colid.
 #' @param limit Number of records to return
 #' @param start Record number to start at
-#' @param ... Further args passed on to \code{itis_downstream},
-#' \code{col_downstream}, \code{gbif_downstream}, or \code{ncbi_downstream}
+#' @param ... Further args passed on to \code{\link{itis_downstream}},
+#' \code{\link{col_downstream}}, \code{\link{gbif_downstream}}, or 
+#' \code{\link{ncbi_downstream}}. See those functions for what further 
+#' arguments they accept
 #'
 #' @return A named list of data.frames with the downstream names of every
 #' supplied taxa. You get an NA if there was no match in the database.
