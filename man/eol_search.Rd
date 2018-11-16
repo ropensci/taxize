@@ -65,5 +65,6 @@ See \code{\link{taxize-authentication}} for help on authentication
 eol_search(terms='Homo')
 eol_search(terms='Salix')
 eol_search(terms='Ursus americanus luteolus')
+eol_search('Pinus contorta')
 }
 }
