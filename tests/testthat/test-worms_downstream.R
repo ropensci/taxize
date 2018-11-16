@@ -37,14 +37,14 @@ test_that("worms_downstream fails well", {
                "'intermediate' should be of class 'logical'")
 })
 
-# FIXME - finish changing these tests
-# test_that("worms_downstream - start param", {
-#   skip_on_cran()
+test_that("worms_downstream - start param", {
+  skip_on_cran()
 
-#   aa <- worms_downstream(2978223, "species", start = 1)
-#   bb <- worms_downstream(2978223, "species", start = 3)
+  aa <- worms_downstream(125732, "species", start = 1)
+  bb <- worms_downstream(125732, "species", start = 3)
 
-#   expect_is(aa, "data.frame")
-#   expect_is(bb, "data.frame")
-#   expect_true(!all(aa$key %in% bb$key))
-# })
+  expect_is(aa, "data.frame")
+  expect_is(bb, "data.frame")
+  expect_true(aa$name[2] == "Gadus aeglefinus")
+  expect_true(bb$name[1] == "Gadus aeglefinus")
+})
