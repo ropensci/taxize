@@ -39,6 +39,7 @@
 #' eol_search(terms='Homo')
 #' eol_search(terms='Salix')
 #' eol_search(terms='Ursus americanus luteolus')
+#' eol_search('Pinus contorta')
 #' }
 
 eol_search <- function(terms, page=1, exact=NULL, filter_tid=NULL,
@@ -59,13 +60,16 @@ eol_search <- function(terms, page=1, exact=NULL, filter_tid=NULL,
   res$raise_for_status()
   tt <- res$parse("UTF-8")
   stopifnot(res$response_headers$`content-type`[1] == 'application/json; charset=utf-8')
-  res <- jsonlite::fromJSON(tt, FALSE, encoding = "utf-8")
-  if (res$totalResults == 0 | length(res$results) == 0) {
+  out <- jsonlite::fromJSON(tt, FALSE, encoding = "utf-8")
+  if (out$totalResults == 0 | length(out$results) == 0) {
     data.frame(pageid = NA, name = NA, stringsAsFactors = FALSE)
   } else {
     tmp <- do.call(
       "rbind.fill",
-      lapply(res$results, data.frame, stringsAsFactors = FALSE)
+      lapply(out$results, function(z) {
+        z$content <- unique(unlist(z$content))
+        data.frame(z, stringsAsFactors = FALSE)
+      })
     )
     stats::setNames(tmp, c("pageid", "name", "link", "content"))
   }
