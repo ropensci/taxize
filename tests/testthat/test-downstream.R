@@ -1,4 +1,3 @@
-# tests for downstream fxn in taxize
 context("downstream")
 
 test_that("downstream basic usage works", {

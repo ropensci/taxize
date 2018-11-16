@@ -7,6 +7,7 @@
 \alias{downstream.colid}
 \alias{downstream.gbifid}
 \alias{downstream.uid}
+\alias{downstream.wormsid}
 \alias{downstream.ids}
 \title{Retrieve the downstream taxa for a given taxon name or ID.}
 \usage{
@@ -27,23 +28,25 @@ downstream(...)
 \method{downstream}{uid}(x, db = NULL, downto = NULL,
   intermediate = FALSE, ...)
 
+\method{downstream}{wormsid}(x, db = NULL, downto = NULL,
+  intermediate = FALSE, ...)
+
 \method{downstream}{ids}(x, db = NULL, downto = NULL,
   intermediate = FALSE, ...)
 }
 \arguments{
-\item{...}{Further args passed on to \code{\link{itis_downstream}},
-\code{\link{col_downstream}}, \code{\link{gbif_downstream}}, or 
-\code{\link{ncbi_downstream}}. See those functions for what further 
-arguments they accept}
+\item{...}{Further args passed on to \code{itis_downstream},
+\code{col_downstream}, \code{gbif_downstream}, \code{ncbi_downstream},
+or \code{worms_downstream}}
 
 \item{x}{Vector of taxa names (character) or IDs (character or numeric)
 to query.}
 
 \item{db}{character; database to query. One or more of \code{itis},
-\code{col}, \code{gbif}, or \code{ncbi}. Note that each taxonomic data
-source has their own identifiers, so that if you provide the wrong \code{db}
-value for the identifier you could get a result, but it will likely be
-wrong (not what you were expecting).}
+\code{col}, \code{gbif}, \code{ncbi} or \code{worms}. Note that each taxonomic 
+data source has their own identifiers, so that if you provide the wrong 
+\code{db} value for the identifier you could get a result, but it will 
+likely be wrong (not what you were expecting).}
 
 \item{downto}{What taxonomic rank to go down to. One of: 'superkingdom',
 'kingdom', 'subkingdom','infrakingdom','phylum','division','subphylum',
@@ -72,9 +75,10 @@ supplied taxa. You get an NA if there was no match in the database.
 \description{
 This function uses a while loop to continually collect children taxa down
 to the taxonomic rank that you specify in the \code{downto} parameter. You
-can get data from ITIS (itis), Catalogue of Life (col), GBIF (gbif), or
-NCBI (ncbi). There is no method exposed by these four services for
-getting taxa at a specific taxonomic rank, so we do it ourselves here.
+can get data from ITIS (itis), Catalogue of Life (col), GBIF (gbif),
+NCBI (ncbi) or WORMS (worms). There is no method exposed by these four 
+services for getting taxa at a specific taxonomic rank, so we do it 
+ourselves here.
 }
 \section{Authentication}{
 
@@ -86,12 +90,14 @@ See \code{\link{taxize-authentication}} for help on authentication
 # Plug in taxon IDs
 downstream("015be25f6b061ba517f495394b80f108", db = "col",
   downto = "species")
+downstream(125732, db = 'worms', downto = 'species')
 
 # Plug in taxon names
 downstream("Insecta", db = 'col', downto = 'order')
 downstream("Apis", db = 'col', downto = 'species')
 downstream("Apis", db = 'ncbi', downto = 'species')
 downstream("Apis", db = 'itis', downto = 'species')
+downstream("Gadus", db = 'worms', downto = 'species')
 downstream(c("Apis","Epeoloides"), db = 'itis', downto = 'species')
 downstream(c("Apis","Epeoloides"), db = 'col', downto = 'species')
 downstream("Ursus", db = 'gbif', downto = 'species')
