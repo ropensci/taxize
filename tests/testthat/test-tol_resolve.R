@@ -8,7 +8,7 @@ test_that("tol_resolve basic usage works", {
 
   expect_is(tmp, "data.frame")
   expect_is(tmp$search_string, "character")
-  expect_is(tmp$number_matches, "character")
+  expect_type(tmp$number_matches, "integer")
   expect_equal(NROW(tmp), 4)
 
   # query gives back expected output
@@ -25,7 +25,7 @@ test_that("context_name works correctly", {
               context_name = "Animals")
   expect_is(aa, "data.frame")
   expect_is(aa$search_string, "character")
-  expect_is(aa$number_matches, "character")
+  expect_type(aa$number_matches, "integer")
 
   # errors when not in accepted set
   expect_error(
