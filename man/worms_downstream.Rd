@@ -7,17 +7,17 @@
 worms_downstream(id, downto, intermediate = FALSE, start = 1, ...)
 }
 \arguments{
-\item{id}{One or more AphiaID's}
+\item{id}{(integer) One or more AphiaID's}
 
-\item{downto}{The taxonomic level you want to go down to. See examples below.
-The taxonomic level IS case sensitive, and you do have to spell it
-correctly. See \code{data(rank_ref)} for spelling.}
+\item{downto}{(character) The taxonomic level you want to go down to. 
+See examples below. The taxonomic level IS case sensitive, and you do have 
+to spell it correctly. See \code{data(rank_ref)} for spelling.}
 
-\item{intermediate}{(logical) If TRUE, return a list of length two with
+\item{intermediate}{(logical) If \code{TRUE}, return a list of length two with
 target taxon rank names, with additional list of data.frame's of
-intermediate taxonomic groups. Default: FALSE}
+intermediate taxonomic groups. Default: \code{FALSE}}
 
-\item{start}{Record number to start at}
+\item{start}{(integer) Record number to start at}
 
 \item{...}{crul options passed on to \code{\link[crul]{HttpClient}}}
 }
@@ -34,6 +34,11 @@ Retrieve all taxa names downstream in hierarchy for WORMS
 ## the genus Gadus
 worms_downstream(id = 125732, downto="species")
 worms_downstream(id = 125732, downto="species", intermediate=TRUE)
+
+worms_downstream(id = 51, downto="class")
+worms_downstream(id = 51, downto="subclass", intermediate=TRUE)
+
+worms_downstream(id = 105, downto="subclass")
 }
 }
 \author{

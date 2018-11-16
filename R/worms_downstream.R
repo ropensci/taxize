@@ -1,14 +1,14 @@
 #' Retrieve all taxa names downstream in hierarchy for WORMS
 #'
 #' @export
-#' @param id One or more AphiaID's
-#' @param downto The taxonomic level you want to go down to. See examples below.
-#'    The taxonomic level IS case sensitive, and you do have to spell it
-#'    correctly. See \code{data(rank_ref)} for spelling.
-#' @param intermediate (logical) If TRUE, return a list of length two with
+#' @param id (integer) One or more AphiaID's
+#' @param downto (character) The taxonomic level you want to go down to. 
+#' See examples below. The taxonomic level IS case sensitive, and you do have 
+#' to spell it correctly. See \code{data(rank_ref)} for spelling.
+#' @param intermediate (logical) If \code{TRUE}, return a list of length two with
 #' target taxon rank names, with additional list of data.frame's of
-#' intermediate taxonomic groups. Default: FALSE
-#' @param start Record number to start at
+#' intermediate taxonomic groups. Default: \code{FALSE}
+#' @param start (integer) Record number to start at
 #' @param ... crul options passed on to \code{\link[crul]{HttpClient}}
 #' @return data.frame of taxonomic information downstream to family from e.g.,
 #'    Order, Class, etc., or if \code{intermediated=TRUE}, list of length two,
@@ -18,6 +18,11 @@
 #' ## the genus Gadus
 #' worms_downstream(id = 125732, downto="species")
 #' worms_downstream(id = 125732, downto="species", intermediate=TRUE)
+#' 
+#' worms_downstream(id = 51, downto="class")
+#' worms_downstream(id = 51, downto="subclass", intermediate=TRUE)
+#' 
+#' worms_downstream(id = 105, downto="subclass")
 #' }
 worms_downstream <- function(id, downto, intermediate = FALSE, start = 1, ...) {
 
@@ -62,7 +67,6 @@ worms_downstream <- function(id, downto, intermediate = FALSE, start = 1, ...) {
         stop_ <- "not"
       }
     }
-    # if (intermediate) intermed[[iter]] <- intermed[[iter]]
   } # end while loop
 
   tmp <- ldply(out)
