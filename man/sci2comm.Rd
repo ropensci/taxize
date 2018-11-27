@@ -11,7 +11,7 @@
 \usage{
 sci2comm(...)
 
-\method{sci2comm}{default}(scinames, db = "eol", simplify = TRUE, ...)
+\method{sci2comm}{default}(scinames, db = "ncbi", simplify = TRUE, ...)
 
 \method{sci2comm}{uid}(id, ...)
 
@@ -27,8 +27,8 @@ sci2comm(...)
 
 \item{scinames}{character; One or more scientific names or partial names.}
 
-\item{db}{character; Data source, one of \emph{"eol"} (default),
-\emph{"itis"} \emph{"ncbi"}, \emph{"worms"}, or \emph{"iucn"}. Note that
+\item{db}{character; Data source, one of \emph{"ncbi"} (default),
+\emph{"itis"} \emph{"eol"}, \emph{"worms"}, or \emph{"iucn"}. Note that
 each taxonomic data source has their own identifiers,  so that if you
 provide the wrong \code{db} value for the identifier you could get a
 result, but it will likely be wrong (not what you were expecting).}

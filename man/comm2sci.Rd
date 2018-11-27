@@ -4,14 +4,14 @@
 \alias{comm2sci}
 \title{Get scientific names from common names.}
 \usage{
-comm2sci(commnames, db = "eol", itisby = "search", simplify = TRUE,
+comm2sci(commnames, db = "ncbi", itisby = "search", simplify = TRUE,
   ...)
 }
 \arguments{
 \item{commnames}{One or more common names or partial names.}
 
-\item{db}{Data source, one of \emph{"eol"} (default), \emph{"itis"},
-\emph{"tropicos"}, \emph{"ncbi"}, or \emph{"worms"}.}
+\item{db}{Data source, one of \emph{"ncbi"} (default), \emph{"itis"},
+\emph{"tropicos"}, \emph{"eol"}, or \emph{"worms"}.}
 
 \item{itisby}{Search for common names across entire names (search, default),
 at beginning of names (begin), or at end of names (end).}
@@ -44,9 +44,10 @@ See \code{\link{taxize-authentication}} for help on authentication
 
 \examples{
 \dontrun{
-comm2sci(commnames='black bear')
+comm2sci(commnames='american black bear')
 comm2sci(commnames='black bear', simplify = FALSE)
 comm2sci(commnames='black bear', db='itis')
+comm2sci(commnames='american black bear', db='itis')
 comm2sci(commnames='annual blue grass', db='tropicos')
 comm2sci(commnames=c('annual blue grass','tree of heaven'), db='tropicos')
 comm2sci(commnames=c('black bear', 'roe deer'))
