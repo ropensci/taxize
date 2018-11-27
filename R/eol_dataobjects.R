@@ -5,6 +5,9 @@
 #' @param taxonomy (logical) Whether to return any taxonomy details from 
 #' different taxon hierarchy providers, in an array named 
 #' \code{taxonconcepts}
+#' @param language (character) provides the results in the specified language. 
+#' one of ms, de, en, es, fr, gl, it, nl, nb, oc, pt-BR, sv, tl, mk, sr, uk, ar, 
+#' zh-Hans, zh-Hant, ko
 #' @param usekey (logical) use your API key or not (\code{TRUE} or \code{FALSE})
 #' @param key (character) Your EOL API key; ; see \code{\link{taxize-authentication}} 
 #' for help on authentication
@@ -19,13 +22,17 @@
 #' # curl options
 #' eol_dataobjects(id = "21929584", verbose = TRUE)
 #' }
-eol_dataobjects <- function(id, taxonomy = TRUE, usekey = TRUE, key = NULL, ...) {
+eol_dataobjects <- function(id, taxonomy = TRUE, language = NULL, usekey = TRUE, 
+  key = NULL, ...) {
+
+  stop("this function does not work at the moment due to EOL API changes")
   if (usekey) key <- getkey(key, "EOL_KEY")
   cli <- crul::HttpClient$new(
     url = file.path(eol_url("data_objects"), paste0(id, ".json")),
     opts = list(...)
   )
-  res <- cli$get(query = argsnull(tc(list(key = key, taxonomy = as_l(taxonomy)))))
+  args <- argsnull(tc(list(key = key, taxonomy = as_l(taxonomy), language = language)))
+  res <- cli$get(query = args)
   res$raise_for_status()
   tt <- res$parse("UTF-8")
   tmp <- jsonlite::fromJSON(tt)

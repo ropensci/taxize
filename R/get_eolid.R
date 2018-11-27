@@ -67,7 +67,7 @@
 #' # same
 #' as.eolid(get_eolid(c("Chironomus riparius","Pinus contorta")))
 #' # numeric
-#' as.eolid(24954444)
+#' as.eolid(10247706)
 #' # numeric vector, length > 1
 #' as.eolid(c(24954444,51389511,57266265))
 #' # character
@@ -133,6 +133,8 @@ get_eolid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
                      'taxonrank' = 'rank'))
         df <- getsourceshortnames(df)
         df$source <- as.character(df$source)
+        # drop columns
+        df$canonicalform <- df$sourceidentifier <- NULL
         mm <- NROW(df) > 1
         df <- sub_rows(df, rows)
 
@@ -220,17 +222,25 @@ get_eolid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
   add_uri(ids, 'http://eol.org/pages/%s/overview', page_ids)
 }
 
-getsourceshortnames <- function(input){
+getsourceshortnames <- function(input) {
   lookup <- data.frame(
-    z = c('COL','ITIS','GBIF','NCBI','IUCN'),
-    b = c('Species 2000 & ITIS Catalogue of Life: April 2013',
-          'Integrated Taxonomic Information System (ITIS)',
-          'GBIF Nub Taxonomy',
-          'NCBI Taxonomy',
-          'IUCN Red List (Species Assessed for Global Conservation)'),
-    stringsAsFactors = FALSE)
+    z = c('COL','ITIS','GBIF','NCBI','IUCN','EOL','INAT','UKSL',
+      'USDA','NPSL','SPSL'),
+    b = c(
+      'Species 2000 & ITIS Catalogue of Life: April 2013',
+      'Integrated Taxonomic Information System (ITIS)',
+      'GBIF Nub Taxonomy',
+      'NCBI Taxonomy',
+      'IUCN Red List (Species Assessed for Global Conservation)',
+      'EOL Dynamic Hierarchy',
+      'iNaturalist',
+      'United Kingdom Species List',
+      'USDA Plants data',
+      'North Pacific Species List',
+      'South Pacific Species List'
+    ),
+  stringsAsFactors = FALSE)
   bb <- merge(input, lookup, by.x = "source", by.y = "b")[, -1]
-  # names(bb)[4] <- "source"
   taxize_sort_df(rename(bb, c('z' = 'source')), "name")
 }
 

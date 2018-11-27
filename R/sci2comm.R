@@ -2,8 +2,8 @@
 #'
 #' @export
 #' @param scinames character; One or more scientific names or partial names.
-#' @param db character; Data source, one of \emph{"eol"} (default),
-#' \emph{"itis"} \emph{"ncbi"}, \emph{"worms"}, or \emph{"iucn"}. Note that
+#' @param db character; Data source, one of \emph{"ncbi"} (default),
+#' \emph{"itis"} \emph{"eol"}, \emph{"worms"}, or \emph{"iucn"}. Note that
 #' each taxonomic data source has their own identifiers,  so that if you
 #' provide the wrong \code{db} value for the identifier you could get a
 #' result, but it will likely be wrong (not what you were expecting).
@@ -55,7 +55,7 @@ sci2comm <- function(...){
 #' @method sci2comm default
 #' @export
 #' @rdname sci2comm
-sci2comm.default <- function(scinames, db='eol', simplify=TRUE, ...) {
+sci2comm.default <- function(scinames, db='ncbi', simplify=TRUE, ...) {
   temp <- lapply(scinames, getsci, db = db, simplify = simplify, ...)
   stats::setNames(temp, scinames)
 }
@@ -112,7 +112,7 @@ eol2comm <- function(x, simplify, ...){
         eol_pages(taxonconceptID = x, common_names = TRUE, ...),
         error = function(e) e
       )
-      if (inherits(tmp, "error")) NULL else tmp$vernac
+      if (inherits(tmp, "error")) NULL else tmp$vernacular
     })
   )
   tt <- ldply(dfs[sapply(dfs, class) == "data.frame"])
