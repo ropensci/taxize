@@ -16,16 +16,14 @@
 #' 		this function only returns JSON for now.
 #' @return A list, optionally with a data.frame if \code{taxonomy=TRUE}
 #' @examples \dontrun{
-#' eol_dataobjects(id = "d72801627bf4adf1a38d9c5f10cc767f")
-#' eol_dataobjects(id = "21929584")
+#' eol_dataobjects(id = 7561533)
 #'
 #' # curl options
-#' eol_dataobjects(id = "21929584", verbose = TRUE)
+#' eol_dataobjects(id = 7561533, verbose = TRUE)
 #' }
 eol_dataobjects <- function(id, taxonomy = TRUE, language = NULL, usekey = TRUE, 
   key = NULL, ...) {
 
-  stop("this function does not work at the moment due to EOL API changes")
   if (usekey) key <- getkey(key, "EOL_KEY")
   cli <- crul::HttpClient$new(
     url = file.path(eol_url("data_objects"), paste0(id, ".json")),
@@ -37,10 +35,8 @@ eol_dataobjects <- function(id, taxonomy = TRUE, language = NULL, usekey = TRUE,
   tt <- res$parse("UTF-8")
   tmp <- jsonlite::fromJSON(tt)
   tmp <- nmslwr(tmp)
-  if (taxonomy) {
-    tmp$taxonconcepts <- nmslwr(tmp$taxonconcepts)
-    tmp$taxonconcepts$taxonrank <- tolower(tmp$taxonconcepts$taxonrank)
-  }
+  tmp$taxonconcepts <- nmslwr(tmp$taxonconcepts)
+  tmp$taxonconcepts$taxonrank <- tolower(tmp$taxonconcepts$taxonrank)
   return(tmp)
 }
 
