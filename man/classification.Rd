@@ -158,7 +158,7 @@ See \code{\link{getkey}}
 classification(9606, db = 'ncbi')
 classification(c(9606, 55062), db = 'ncbi')
 classification(129313, db = 'itis')
-classification(57361017, db = 'eol')
+classification(6985636, db = 'eol')
 classification(126436, db = 'worms')
 classification("ELEMENT_GLOBAL.2.134717", db = 'natserv')
 classification(c(2704179, 2441176), db = 'gbif')
@@ -184,6 +184,7 @@ classification(c("Pinus contorta", "Malus domestica"), db = "wiki")
 
 # Plug in taxon names
 ## in this case, we use get_*() fxns internally to first get taxon IDs
+classification("Oncorhynchus mykiss", db = "eol")
 classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi')
 classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi',
   messages=FALSE)

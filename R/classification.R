@@ -74,7 +74,7 @@
 #' classification(9606, db = 'ncbi')
 #' classification(c(9606, 55062), db = 'ncbi')
 #' classification(129313, db = 'itis')
-#' classification(57361017, db = 'eol')
+#' classification(6985636, db = 'eol')
 #' classification(126436, db = 'worms')
 #' classification("ELEMENT_GLOBAL.2.134717", db = 'natserv')
 #' classification(c(2704179, 2441176), db = 'gbif')
@@ -100,6 +100,7 @@
 #'
 #' # Plug in taxon names
 #' ## in this case, we use get_*() fxns internally to first get taxon IDs
+#' classification("Oncorhynchus mykiss", db = "eol")
 #' classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi')
 #' classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi',
 #'   messages=FALSE)
@@ -369,18 +370,20 @@ classification.eolid <- function(id, callopts = list(), return_id = TRUE, ...) {
     if (is.na(x)) {
       out <- NA
     } else {
-      url <- 
-      'http://eol.org/api/hierarchy_entries/1.0/'
       key <- getkey(NULL, "EOL_KEY")
-      urlget <- paste(url, x, '.json', sep = "")
       args <- tc(list(common_names = common_names, synonyms = synonyms))
-      tt <- GET(urlget, query = args, callopts)
-      stop_for_status(tt)
-      res <- jsonlite::fromJSON(con_utf8(tt), FALSE)
+      cli <- crul::HttpClient$new(url = 'https://eol.org', opts = callopts)
+      tt <- cli$get(file.path('api/hierarchy_entries/1.0', paste0(x, ".json")), query = args)
+      tt$raise_for_status()
+      res <- jsonlite::fromJSON(tt$parse("UTF-8"), FALSE)
       if (length(res$ancestors) == 0) {
         return(sprintf("No hierarchy information for %s", x))
       } else {
-        out <- do.call(rbind.fill, lapply(res$ancestors, data.frame, stringsAsFactors = FALSE))[,c('scientificName','taxonRank', 'taxonID')]
+        fff <- lapply(res$ancestors, function(z) {
+          z[sapply(z, is.null)] <- NA_character_
+          data.frame(z, stringsAsFactors = FALSE)
+        })
+        out <- do.call(rbind.fill, fff)[,c('scientificName','taxonRank', 'taxonID')]
         # add querried taxon
         tr <- res$taxonRank
         out <- rbind(out, c(res$scientificName, if ( is.null(tr) ) NA else tr, x))
