@@ -37,9 +37,6 @@
 #' unreviewed content will be returned (untrusted content will not be returned).
 #' The default is to return all content. (Default: \code{FALSE})
 #' @param cache_ttl The number of seconds you wish to have the response cached.
-#' @param language (character) provides the results in the specified language. 
-#' one of ms, de, en, es, fr, gl, it, nl, nb, oc, pt-BR, sv, tl, mk, sr, uk, 
-#' ar, zh-Hans, zh-Hant, ko
 #' @param key Your EOL API key; see \code{\link{taxize-authentication}} 
 #' for help on authentication
 #' @param ... Curl options passed on to \code{\link[crul]{HttpClient}}
