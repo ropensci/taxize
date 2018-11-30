@@ -94,8 +94,7 @@ Imports:
 Suggests:
     testthat,
     knitr,
-    vegan,
-    rmarkdown
+    vegan
 RoxygenNote: 6.0.1
 X-schema.org-applicationCategory: Taxonomy
 X-schema.org-keywords: taxonomy, biology, nomenclature, JSON, API, web, api-client, identifiers, species, names
