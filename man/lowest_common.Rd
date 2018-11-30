@@ -19,11 +19,14 @@ lowest_common(...)
 
 \method{lowest_common}{tsn}(x, class_list = NULL, low_rank = NULL, ...)
 
-\method{lowest_common}{gbifid}(x, class_list = NULL, low_rank = NULL, ...)
+\method{lowest_common}{gbifid}(x, class_list = NULL, low_rank = NULL,
+  ...)
 
-\method{lowest_common}{colid}(x, class_list = NULL, low_rank = NULL, ...)
+\method{lowest_common}{colid}(x, class_list = NULL, low_rank = NULL,
+  ...)
 
-\method{lowest_common}{tolid}(x, class_list = NULL, low_rank = NULL, ...)
+\method{lowest_common}{tolid}(x, class_list = NULL, low_rank = NULL,
+  ...)
 }
 \arguments{
 \item{...}{Other arguments passed to \code{\link[taxize]{get_tsn}},

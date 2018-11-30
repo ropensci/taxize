@@ -4,8 +4,8 @@
 \alias{bold_search}
 \title{Search Barcode of Life for taxonomic IDs}
 \usage{
-bold_search(name = NULL, id = NULL, fuzzy = FALSE, dataTypes = "basic",
-  includeTree = FALSE, response = FALSE, ...)
+bold_search(name = NULL, id = NULL, fuzzy = FALSE,
+  dataTypes = "basic", includeTree = FALSE, response = FALSE, ...)
 }
 \arguments{
 \item{name}{(character) One or more scientific names.}

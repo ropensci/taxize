@@ -4,9 +4,9 @@
 \alias{tp_search}
 \title{Search Tropicos by scientific name, common name, or Tropicos ID.}
 \usage{
-tp_search(name = NULL, commonname = NULL, nameid = NULL, orderby = NULL,
-  sortorder = NULL, pagesize = NULL, startrow = NULL, type = NULL,
-  key = NULL, ...)
+tp_search(name = NULL, commonname = NULL, nameid = NULL,
+  orderby = NULL, sortorder = NULL, pagesize = NULL,
+  startrow = NULL, type = NULL, key = NULL, ...)
 }
 \arguments{
 \item{name}{Your search string. For instance "poa annua". See Details.}

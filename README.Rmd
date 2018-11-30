@@ -319,6 +319,11 @@ out <- as.uid(c(315567, 3339, 9696))
 (res <- data.frame(out))
 ```
 
+## Screencast
+
+<a href="https://vimeo.com/92883063"><img src="tools/screencast.png" width="400"></a>
+
+
 ## Contributing
 
 See our [CONTRIBUTING](.github/CONTRIBUTING.md) document.

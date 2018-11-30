@@ -77,9 +77,9 @@
 #' # extract status
 #' iucn_status(ia)
 #' # extract other available information
-#' ia[['Lynx lynx']]$history
-#' ia[['Panthera uncia']]$distr
-#' ia[[2]]$trend
+#' ia$`22732`$history
+#' ia$`12519`$distr
+#' ia$`12519`$trend
 #' ## the outputs aren't quite identical, but we're working on it
 #' identical(
 #'   iucn_summary_id(c(22732, 12519)),
@@ -112,7 +112,10 @@ iucn_summary.character <- function(x, parallel = FALSE, distr_detail = FALSE,
     warning("taxa '", paste0(nas, collapse = ", ") ,
             "' not found!\n Returning NAs!")
     if (all(is.na(xid))) {
-      return(list(status = NA, history = NA, distr = NA, trend = NA))
+      tmp <- list(status = NA, history = NA, distr = NA, trend = NA)
+      tmp <- stats::setNames(replicate(length(x), tmp, simplify = FALSE), x)
+      class(tmp) <- "iucn_summary"
+      return(tmp)
     }
   }
   xid <- as.numeric(xid)

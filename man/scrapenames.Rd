@@ -6,8 +6,8 @@
 \usage{
 scrapenames(url = NULL, file = NULL, text = NULL, engine = NULL,
   unique = NULL, verbatim = NULL, detect_language = NULL,
-  all_data_sources = NULL, data_source_ids = NULL, return_content = FALSE,
-  ...)
+  all_data_sources = NULL, data_source_ids = NULL,
+  return_content = FALSE, ...)
 }
 \arguments{
 \item{url}{An encoded URL for a web page, PDF, Microsoft Office document, or

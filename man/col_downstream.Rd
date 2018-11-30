@@ -2,16 +2,16 @@
 % Please edit documentation in R/col_downstream.R
 \name{col_downstream}
 \alias{col_downstream}
-\title{Use Catalogue of Life to get downstream taxa to a given taxonomic level.}
+\title{Use Catalogue of Life to get downstream taxa to a given taxonomic level}
 \usage{
 col_downstream(name = NULL, id = NULL, downto, format = NULL,
-  start = NULL, checklist = NULL, verbose = TRUE, intermediate = FALSE,
-  ...)
+  start = NULL, checklist = NULL, verbose = TRUE,
+  intermediate = FALSE, extant_only = FALSE, ...)
 }
 \arguments{
 \item{name}{The string to search for. Only exact matches found the name given
- will be returned, unless one or wildcards are included in the search
-   string. An * (asterisk) character denotes a wildcard; a % (percentage)
+will be returned, unless one or wildcards are included in the search
+string. An * (asterisk) character denotes a wildcard; a % (percentage)
 character may also be used. The name must be at least 3 characters long,
 not counting wildcard characters.}
 
@@ -37,17 +37,27 @@ year's checklist instead of the lastest as default (numeric).}
 
 \item{verbose}{Print or suppress messages.}
 
-\item{intermediate}{(logical) If TRUE, return a list of length two with target
-taxon rank names, with additional list of data.frame's of intermediate
-taxonomic groups. Default: FALSE}
+\item{intermediate}{(logical) If \code{TRUE}, return a list of length two 
+with target taxon rank names, with additional list of data.frame's of 
+intermediate taxonomic groups. Default: \code{FALSE}}
+
+\item{extant_only}{(logical) keep extant taxa only? default: \code{FALSE}. 
+by default we give back all taxa. set to \code{TRUE} to get only 
+extant taxa}
 
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
-A list of data.frame's.
+A list of data.frame's, where each data.frame has columns:
+\itemize{
+ \item childtaxa_id: (character) COL identifier
+ \item childtaxa_name: (character) taxonomic name
+ \item childtaxa_rank: (character) rank name
+ \item childtaxa_extinct: (logical) extinct or not
+}
 }
 \description{
-Use Catalogue of Life to get downstream taxa to a given taxonomic level.
+Use Catalogue of Life to get downstream taxa to a given taxonomic level
 }
 \details{
 Provide only names instead of id's
@@ -71,5 +81,9 @@ col_downstream(name="Bryophyta", downto="family", checklist=2009)
 # By id
 col_downstream(id='576d098d770a39d09e2bcfa1c0896b26', downto="species",
   checklist=2012)
+
+# keep extant taxa only, prunes out extinct taxa
+col_downstream(name = "Insecta", downto = "order")
+col_downstream(name = "Insecta", downto = "order", extant_only = TRUE)
 }
 }

@@ -4,7 +4,8 @@
 \alias{tax_name}
 \title{Get taxonomic names for a given rank}
 \usage{
-tax_name(query, get, db = "itis", pref = "ncbi", messages = TRUE, ...)
+tax_name(query, get, db = "itis", pref = "ncbi", messages = TRUE,
+  ...)
 }
 \arguments{
 \item{query}{(character) Vector of taxonomic names to query. required.}

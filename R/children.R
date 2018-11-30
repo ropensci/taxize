@@ -260,7 +260,7 @@ children.uid <- function(x, db = NULL, ...) {
   out <- if (is.na(x)) {
     stats::setNames(list(ncbi_blank), x)
   } else {
-    ncbi_children(id = x, ...)
+    ncbi_children(id = x, ambiguous = TRUE, ...)
   }
   class(out) <- 'children'
   attr(out, 'db') <- 'ncbi'

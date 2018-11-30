@@ -12,8 +12,8 @@
 \alias{get_eolid_}
 \title{Get the EOL ID from Encyclopedia of Life from taxonomic names.}
 \usage{
-get_eolid(sciname, ask = TRUE, messages = TRUE, key = NULL, rows = NA,
-  ...)
+get_eolid(sciname, ask = TRUE, messages = TRUE, key = NULL,
+  rows = NA, ...)
 
 as.eolid(x, check = TRUE)
 
@@ -115,7 +115,7 @@ as.eolid(get_eolid("Chironomus riparius"))
 # same
 as.eolid(get_eolid(c("Chironomus riparius","Pinus contorta")))
 # numeric
-as.eolid(24954444)
+as.eolid(10247706)
 # numeric vector, length > 1
 as.eolid(c(24954444,51389511,57266265))
 # character
@@ -155,3 +155,4 @@ Other taxonomic-ids: \code{\link{get_boldid}},
 \author{
 Scott Chamberlain, \email{myrmecocystus@gmail.com}
 }
+\concept{taxonomic-ids}

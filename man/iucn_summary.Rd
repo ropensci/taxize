@@ -5,7 +5,8 @@
 \alias{iucn_summary_id}
 \title{Get a summary from the IUCN Red List}
 \usage{
-iucn_summary(x, parallel = FALSE, distr_detail = FALSE, key = NULL, ...)
+iucn_summary(x, parallel = FALSE, distr_detail = FALSE, key = NULL,
+  ...)
 
 iucn_summary_id(species_id, silent = TRUE, parallel = FALSE,
   distr_detail = FALSE, ...)
@@ -95,9 +96,9 @@ ia <- iucn_summary_id(c(22732, 12519))
 # extract status
 iucn_status(ia)
 # extract other available information
-ia[['Lynx lynx']]$history
-ia[['Panthera uncia']]$distr
-ia[[2]]$trend
+ia$`22732`$history
+ia$`12519`$distr
+ia$`12519`$trend
 ## the outputs aren't quite identical, but we're working on it
 identical(
   iucn_summary_id(c(22732, 12519)),

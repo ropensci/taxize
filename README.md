@@ -561,6 +561,10 @@ out <- as.uid(c(315567, 3339, 9696))
 #> 3   https://www.ncbi.nlm.nih.gov/taxonomy/9696
 ```
 
+## Screencast
+
+<a href="https://vimeo.com/92883063"><img src="tools/screencast.png" width="400"></a>
+
 ## Contributing
 
 See our [CONTRIBUTING](.github/CONTRIBUTING.md) document.

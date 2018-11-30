@@ -2,18 +2,19 @@
 #'
 #' This function uses a while loop to continually collect children taxa down
 #' to the taxonomic rank that you specify in the \code{downto} parameter. You
-#' can get data from ITIS (itis), Catalogue of Life (col), GBIF (gbif), or
-#' NCBI (ncbi). There is no method exposed by these four services for
-#' getting taxa at a specific taxonomic rank, so we do it ourselves here.
+#' can get data from ITIS (itis), Catalogue of Life (col), GBIF (gbif),
+#' NCBI (ncbi) or WORMS (worms). There is no method exposed by these four 
+#' services for getting taxa at a specific taxonomic rank, so we do it 
+#' ourselves here.
 #'
 #' @export
 #' @param x Vector of taxa names (character) or IDs (character or numeric)
 #' to query.
 #' @param db character; database to query. One or more of \code{itis},
-#' \code{col}, \code{gbif}, or \code{ncbi}. Note that each taxonomic data
-#' source has their own identifiers, so that if you provide the wrong \code{db}
-#' value for the identifier you could get a result, but it will likely be
-#' wrong (not what you were expecting).
+#' \code{col}, \code{gbif}, \code{ncbi} or \code{worms}. Note that each taxonomic 
+#' data source has their own identifiers, so that if you provide the wrong 
+#' \code{db} value for the identifier you could get a result, but it will 
+#' likely be wrong (not what you were expecting).
 #' @param downto What taxonomic rank to go down to. One of: 'superkingdom',
 #' 'kingdom', 'subkingdom','infrakingdom','phylum','division','subphylum',
 #' 'subdivision','infradivision', 'superclass','class','subclass','infraclass',
@@ -30,7 +31,8 @@
 #' @param limit Number of records to return
 #' @param start Record number to start at
 #' @param ... Further args passed on to \code{itis_downstream},
-#' \code{col_downstream}, \code{gbif_downstream}, or \code{ncbi_downstream}
+#' \code{col_downstream}, \code{gbif_downstream}, \code{ncbi_downstream},
+#' or \code{worms_downstream}
 #'
 #' @return A named list of data.frames with the downstream names of every
 #' supplied taxa. You get an NA if there was no match in the database.
@@ -42,12 +44,14 @@
 #' # Plug in taxon IDs
 #' downstream("015be25f6b061ba517f495394b80f108", db = "col",
 #'   downto = "species")
+#' downstream(125732, db = 'worms', downto = 'species')
 #'
 #' # Plug in taxon names
 #' downstream("Insecta", db = 'col', downto = 'order')
 #' downstream("Apis", db = 'col', downto = 'species')
 #' downstream("Apis", db = 'ncbi', downto = 'species')
 #' downstream("Apis", db = 'itis', downto = 'species')
+#' downstream("Gadus", db = 'worms', downto = 'species')
 #' downstream(c("Apis","Epeoloides"), db = 'itis', downto = 'species')
 #' downstream(c("Apis","Epeoloides"), db = 'col', downto = 'species')
 #' downstream("Ursus", db = 'gbif', downto = 'species')
@@ -128,6 +132,11 @@ downstream.default <- function(x, db = NULL, downto = NULL,
       stats::setNames(downstream(id, downto = tolower(downto),
                                  intermediate = intermediate, ...), x)
     },
+    worms = {
+      id <- process_stream_ids(x, db, get_wormsid, rows = rows, ...)
+      stats::setNames(downstream(id, downto = tolower(downto),
+                                 intermediate = intermediate, ...), x)
+    },
     stop("the provided db value was not recognised/is not supported",
          call. = FALSE)
   )
@@ -136,7 +145,8 @@ downstream.default <- function(x, db = NULL, downto = NULL,
 process_stream_ids <- function(input, db, fxn, ...){
   g <- tryCatch(as.numeric(as.character(input)), warning = function(e) e)
   if (is(g, "numeric") || is.character(input) && grepl("[[:digit:]]", input)) {
-    as_fxn <- switch(db, itis = as.tsn, col = as.colid, gbif = as.gbifid, ncbi = as.uid)
+    as_fxn <- switch(db, itis = as.tsn, col = as.colid, gbif = as.gbifid, 
+      ncbi = as.uid, worms = as.wormsid)
     as_fxn(input, check = FALSE)
   } else {
     eval(fxn)(input, ...)
@@ -211,6 +221,23 @@ downstream.uid <- function(x, db = NULL, downto = NULL,
   }
   out <- lapply(x, fun, downto = downto, intermediate = intermediate, ...)
   structure(out, class = 'downstream', db = 'ncbi')
+}
+
+#' @export
+#' @rdname downstream
+downstream.wormsid <- function(x, db = NULL, downto = NULL,
+                              intermediate = FALSE, ...) {
+  fun <- function(y, downto, intermediate, ...){
+    # return NA if NA is supplied
+    if (is.na(y)) {
+      NA
+    } else {
+      worms_downstream(id = y, downto = downto,
+                      intermediate = intermediate, ...)
+    }
+  }
+  out <- lapply(x, fun, downto = downto, intermediate = intermediate, ...)
+  structure(out, class = 'downstream', db = 'worms')
 }
 
 #' @export
