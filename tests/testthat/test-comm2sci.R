@@ -3,7 +3,7 @@ context("comm2sci")
 test_that("comm2sci returns the correct values and classes", {
   skip_on_cran()
 
-  tt <- suppressMessages(comm2sci(commnames='black bear'))
+  tt <- suppressMessages(comm2sci(commnames='american black bear'))
   uu <- suppressMessages(comm2sci(commnames='annual blue grass', db='tropicos'))
   zz <- suppressMessages(comm2sci(c('blue whale', 'dwarf surfclam'), db = "worms"))
 
@@ -11,7 +11,7 @@ test_that("comm2sci returns the correct values and classes", {
   temp2 <- suppressMessages(comm2sci(commnames='black bear', db='tropicos'))
   temp3 <- suppressMessages(comm2sci(commnames=c('black bear','roe deer'), db='eol'))
 
-  expect_equal(names(tt), 'black bear')
+  expect_equal(names(tt), 'american black bear')
   expect_equal(names(uu), 'annual blue grass')
   expect_equal(names(zz), c('blue whale', 'dwarf surfclam'))
 
@@ -32,7 +32,7 @@ test_that("comm2sci fails well", {
   expect_error(comm2sci(mtcars), "commnames must be of class character")
 
   expect_error(comm2sci("bear", db = "adsf"),
-               "'db' must be one of 'eol', 'itis', 'tropicos', 'ncbi', 'worms'")
+               "'db' must be one of 'ncbi', 'itis', 'tropicos', 'eol', 'worms'")
 
   expect_error(comm2sci("bear", simplify = "Asdf"),
                "simplify must be of class logical")
