@@ -7,20 +7,19 @@
 Case study - resolving Species Plantarum names
 ==============================================
 
-*Species Plantarum* by Carl Linnaeus originally published in 1753 and was the first work to consistently describe species using binominal names. It provides useful reference point to chart how the 5940 taxa described within have changed since their inception. So let's use the taxize package see if we can resolve these names and see if any of them have changed. 
+*Species Plantarum* by Carl Linnaeus originally published in 1753 and was the first work to consistently describe species using binominal names. It provides a reference point to chart how the usage of 5940 taxa described within have changed over time. So let's use the taxize package see if we can resolve these names and see their current status. 
 
 Firstly, let's see how many of the names still exist in modern species catologues today. We can use the `resolve` function to query the Global Name Resolver.
 
 ```{r resolve, message = FALSE, warning = F, error = FALSE, cache = T}
 library("taxize")
-
 library("knitr")
 # load dataset of Species Plantarum names from the taxize package
 names <- species_plantarum_binomials
 # Species Plantarum names are split into Genus and Species qualifier so need to be paste them
 # together to allow the full binominal names to be sent to the global name resolver
 names$species <- paste(names$genus, names$epithet)
-# use resolve function to send binominal names to resolver
+# use resolve function to send binominal names to resolver (this may take some time)
 resolved_names <- resolve(names$species)
 # select only the dataframe column from the list send back from gnr
 resolved_names <- resolved_names$gnr
@@ -63,7 +62,7 @@ itis_resolved <- resolved_names$submitted_name[resolved_names$data_source_title 
 # select random sub-selection to save time
 set.seed(42) 
 itis_sample <- itis_resolved[sample(rep(1:length(unique(itis_resolved))), 200)]
-# query ITIS
+# query ITIS (this may take some time)
 its_names <- get_tsn_(itis_sample)
 its_names_bind <- do.call("rbind",its_names)
 its_names_bind$n <- 1
