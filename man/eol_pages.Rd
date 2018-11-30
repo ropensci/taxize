@@ -73,10 +73,6 @@ The default is to return all content. (Default: \code{FALSE})}
 for help on authentication}
 
 \item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
-
-\item{language}{(character) provides the results in the specified language. 
-one of ms, de, en, es, fr, gl, it, nl, nb, oc, pt-BR, sv, tl, mk, sr, uk, 
-ar, zh-Hans, zh-Hant, ko}
 }
 \value{
 JSON list object, or data.frame.
