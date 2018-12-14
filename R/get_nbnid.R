@@ -90,7 +90,7 @@ get_nbnid <- function(name, ask = TRUE, messages = TRUE, rec_only = FALSE,
   assert(rank, "character")
   assert(messages, "logical")
 
-  fun <- function(name, ask, messages, rows) {
+  fun <- function(name, ask, messages, rows, ...) {
     direct <- FALSE
     mssg(messages, "\nRetrieving data for taxon '", name, "'\n")
     df <- nbn_search(q = name, rows = 500, ...)$data
@@ -165,7 +165,7 @@ get_nbnid <- function(name, ask = TRUE, messages = TRUE, rec_only = FALSE,
     list(id = id, rank = rank_taken, att = att, multiple = mm, direct = direct)
   }
   name <- as.character(name)
-  out <- lapply(name, fun, ask = ask, messages = messages, rows = rows)
+  out <- lapply(name, fun, ask = ask, messages = messages, rows = rows, ...)
   ids <- pluck(out, "id", "")
   atts <- pluck(out, "att", "")
   ids <- structure(ids, class = "nbnid", match = atts,
