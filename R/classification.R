@@ -5,16 +5,17 @@
 #' to query.
 #' @param db character; database to query. either \code{ncbi}, \code{itis},
 #' \code{eol}, \code{col}, \code{tropicos}, \code{gbif}, \code{nbn},
-#' \code{worms}, \code{natserv}, \code{bold}, or \code{wiki}. Note that each
-#' taxonomic data source has, their own identifiers, so that if you provide
-#' the wrong \code{db} value for the identifier you could get a result, but
-#' it will likely be wrong (not what you were expecting).
+#' \code{worms}, \code{natserv}, \code{bold}, \code{wiki}, or \code{pow}. 
+#' Note that each taxonomic data source has, their own identifiers, so that 
+#' if you provide the wrong \code{db} value for the identifier you could 
+#' get a result, but it will likely be wrong (not what you were expecting).
 #' @param id character; identifiers, returned by \code{\link{get_tsn}},
 #' \code{\link{get_uid}}, \code{\link{get_eolid}},
 #' \code{\link{get_colid}}, \code{\link{get_tpsid}},
 #' \code{\link{get_gbifid}}, \code{\link{get_tolid}},
 #' \code{\link{get_wormsid}}, \code{\link{get_natservid}},
-#' \code{\link{get_wormsid}}, \code{\link{get_wiki}}
+#' \code{\link{get_wormsid}}, \code{\link{get_wiki}}, 
+#' \code{\link{get_pow}}
 #' @param callopts Curl options passed on to \code{\link[httr]{GET}}
 #' @param ... For \code{classification}: other arguments passed to
 #' \code{\link{get_tsn}},
@@ -22,8 +23,8 @@
 #' \code{\link{get_colid}}, \code{\link{get_tpsid}},
 #' \code{\link{get_gbifid}}, \code{\link{get_wormsid}},
 #' \code{\link{get_natservid}}, \code{\link{get_wormsid}},
-#' \code{\link{get_wiki}}. For \code{rbind.classification} and
-#' \code{cbind.classification}: one or more objects of class
+#' \code{\link{get_wiki}}, \code{\link{get_pow}}. For \code{rbind.classification} 
+#' and \code{cbind.classification}: one or more objects of class
 #' \code{classification}
 #'
 #' @param start The first record to return. If omitted, the results are returned
@@ -55,7 +56,8 @@
 #'    \code{\link{get_eolid}}, \code{\link{get_colid}},
 #'    \code{\link{get_tpsid}}, \code{\link{get_gbifid}}
 #'    \code{\link{get_wormsid}}, \code{\link{get_natservid}},
-#'    \code{\link{get_boldid}}, \code{\link{get_wiki}}
+#'    \code{\link{get_boldid}}, \code{\link{get_wiki}}, 
+#'    \code{\link{get_pow}}
 #'
 #' @section Lots of results:
 #' It may happen sometimes that you get more results back from your query
@@ -76,6 +78,9 @@
 #' classification(129313, db = 'itis')
 #' classification(6985636, db = 'eol')
 #' classification(126436, db = 'worms')
+#' classification('Helianthus annuus', db = 'pow')
+#' classification('Helianthus', db = 'pow')
+#' classification('Asteraceae', db = 'pow')
 #' classification("ELEMENT_GLOBAL.2.134717", db = 'natserv')
 #' classification(c(2704179, 2441176), db = 'gbif')
 #' classification(25509881, db = 'tropicos')
@@ -259,6 +264,10 @@ classification.default <- function(x, db = NULL, callopts = list(),
     },
     wiki = {
       id <- process_ids(x, db, get_wiki, rows = rows, ...)
+      stats::setNames(classification(id, callopts = callopts, return_id = return_id, ...), x)
+    },
+    pow = {
+      id <- process_ids(x, db, get_pow, rows = rows, ...)
       stats::setNames(classification(id, callopts = callopts, return_id = return_id, ...), x)
     },
     stop("the provided db value was not recognised", call. = FALSE)
@@ -662,10 +671,33 @@ classification.wiki <- function(id, callopts = list(), return_id = TRUE, ...) {
     out[[i]] <-
       fun(id[i], attr(id, "wiki_site"), attr(id, "wiki_lang"))
   }
-  #out <- lapply(id, fun, callopts = callopts)
   names(out) <- id
   structure(out, class = 'classification', db = 'wiki',
             wiki_site = attr(id, "wiki_site"), wiki = attr(id, "wiki_lang"))
+}
+
+#' @export
+#' @rdname classification
+classification.pow <- function(id, callopts = list(), return_id = TRUE, ...) {
+  fun <- function(x, callopts) {
+    if (is.na(x)) {
+      out <- NA
+    } else {
+      out <- tryCatch(pow_lookup(x), error = function(e) e)
+      if (inherits(out, "error")) {
+        NA
+      } else {
+        if (is.null(out)) return(NA)
+        tmp <- out$meta$classification[,c('name', 'rank', 'fqId')]
+        df <- data.frame(name = tmp$name, rank = tolower(tmp$rank),
+          id = tmp$fqId, stringsAsFactors = FALSE)
+        return(df)
+      }
+    }
+  }
+  out <- lapply(id, fun, callopts = callopts)
+  names(out) <- id
+  structure(out, class = 'classification', db = 'pow')
 }
 
 # ---------
