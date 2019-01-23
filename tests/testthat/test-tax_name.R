@@ -29,6 +29,8 @@ test_that("tax_name returns the correct class", {
 })
 
 test_that("tax_name works with ncbi and rows arg", {
+  skip_on_cran()
+  
   aa <- tax_name('Bacillus', c("family", "order"), db="ncbi", rows=1)
   expect_is(aa, "data.frame")
   expect_equal(NCOL(aa), 4)
