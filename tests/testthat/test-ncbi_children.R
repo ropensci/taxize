@@ -1,8 +1,4 @@
-# tests for ncbi_get_taxon_summary
-
 context("ncbi_children")
-
-
 
 test_that("ncbi_children returns correct class and result", {
   skip_on_cran()

@@ -1,6 +1,4 @@
-# tests for tp_search fxn in taxize
 context("tp_search")
-
 
 test_that("tp_search returns the correct class", {
   skip_on_cran()

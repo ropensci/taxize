@@ -1,7 +1,6 @@
 # tests for gni_parse fxn in taxize
 context("gni_parse")
 
-
 test_that("gni_parse returns the correct value", {
   skip_on_cran()
 
