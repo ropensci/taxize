@@ -45,7 +45,7 @@ See \code{\link{taxize-authentication}} for help on authentication
 \examples{
 \dontrun{
 comm2sci(commnames='american black bear')
-comm2sci(commnames='black bear', simplify = FALSE)
+comm2sci(commnames='american black bear', simplify = FALSE)
 comm2sci(commnames='black bear', db='itis')
 comm2sci(commnames='american black bear', db='itis')
 comm2sci(commnames='annual blue grass', db='tropicos')
