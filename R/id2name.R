@@ -69,7 +69,7 @@ process_idn_ids <- function(input, db) {
 #' @rdname id2name
 id2name.tolid <- function(x, ...) {
   fun <- function(y) {
-    if (is.na(y)) NA_character_ else tol_id2name(y, ...)
+    if (is.na(y)) NA_character_ else tol_id2name(as.numeric(y))
   }
   out <- lapply(x, fun, ...)
   names(out) <- x
