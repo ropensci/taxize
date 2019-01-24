@@ -63,12 +63,15 @@ col_ping <- function(what = "status", ...) {
 #' @export
 #' @rdname ping
 eol_ping <- function(what = "status", ...) {
-  res <- GET('http://eol.org/api/ping', ...)
-  switch(matchwhat(what),
-         status = match_status(res),
-         code = match_code(res, what),
-         content = grepl("success", xml2::xml_text(xml2::read_xml(con_utf8(res))),
-                         ignore.case = TRUE))
+  res <- GET('https://eol.org/api/ping/1.0.json', ...)
+  switch(
+    matchwhat(what),
+    status = match_status(res),
+    code = match_code(res, what),
+    content = grepl("success", 
+      jsonlite::fromJSON(con_utf8(res))$response$message,
+      ignore.case = TRUE)
+  )
 }
 
 #' @export
