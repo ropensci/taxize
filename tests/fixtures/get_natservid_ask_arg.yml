@@ -1,7 +1,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://services.natureserve.org/idd/rest/ns/v1/globalSpecies/list/nameSearch?name=asdasf&NSAccessKeyId=eb13c82c-d517-4320-bc79-3b286755c777
+    uri: https://services.natureserve.org/idd/rest/ns/v1/globalSpecies/list/nameSearch?name=asdasf&NSAccessKeyId=<<natureserve_api_token>>
     body:
       encoding: ''
       string: ''
@@ -16,7 +16,7 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 24 Jan 2019 05:46:53 GMT
+      date: Sat, 26 Jan 2019 18:06:20 GMT
       server: Apache-Coyote/1.1
       content-type: text/xml
       transfer-encoding: chunked
@@ -27,5 +27,5 @@ http_interactions:
         http://services.natureserve.org/docs/schemas/biodiversityDataFlow/1/\" \r\n
         \   xmlns=\"http://services.natureserve.org/docs/schemas/biodiversityDataFlow/1\"
         \r\n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" \r\n    schemaVersion=\"1.1\">\r\n\t<conditions>\r\n\t\t<match>\r\n\t\t\t<searchTerm>asdasf</searchTerm>\r\n\t\t</match>\r\n\t</conditions>\r\n\t<speciesSearchResultList>\r\n</speciesSearchResultList>\r\n</speciesSearchReport>"
-  recorded_at: 2019-01-24 05:46:53 GMT
+  recorded_at: 2019-01-26 18:06:20 GMT
   recorded_with: vcr/0.2.2, webmockr/0.3.0

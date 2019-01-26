@@ -9,6 +9,7 @@ invisible(vcr::vcr_configure(
     "<<rredlist_api_token>>" = Sys.getenv('IUCN_REDLIST_KEY'),
     "<<entrez_api_token>>" = Sys.getenv('ENTREZ_KEY'),
     "<<eol_api_token>>" = Sys.getenv('EOL_KEY'),
-    "<<tropicos_api_token>>" = Sys.getenv('TROPICOS_KEY')
+    "<<tropicos_api_token>>" = Sys.getenv('TROPICOS_KEY'),
+    "<<natureserve_api_token>>" = Sys.getenv('NATURE_SERVE_KEY')
   )
 ))
