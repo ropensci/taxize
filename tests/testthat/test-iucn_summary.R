@@ -59,7 +59,6 @@ test_that("iucn_summary and iucn_summary_id fail well", {
   }
 
   vcr::use_cassette("iucn_summary_not_found_1", {
-    expect_error(iucn_summary(""), "Not Found")
     expect_warning(iucn_summary("Abies"), "not found")
   })
 

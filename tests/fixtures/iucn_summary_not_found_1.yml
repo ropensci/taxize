@@ -1,35 +1,6 @@
 http_interactions:
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/?token=<<rredlist_api_token>>
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '404'
-      message: Not Found
-      explanation: Nothing matches the given URI
-    headers:
-      status: HTTP/1.1 404 Not Found
-      server: nginx/1.1.19
-      date: Sat, 26 Jan 2019 21:14:07 GMT
-      content-type: application/json; charset=utf-8
-      content-length: '14'
-      connection: keep-alive
-      x-powered-by: Sails <sailsjs.org>
-      vary: Accept-Encoding
-    body:
-      encoding: UTF-8
-      string: '{"status":404}'
-  recorded_at: 2019-01-26 21:14:10 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
-- request:
-    method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/Abies?token=<<rredlist_api_token>>
     body:
       encoding: ''
@@ -46,7 +17,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.1.19
-      date: Sat, 26 Jan 2019 21:14:09 GMT
+      date: Sat, 26 Jan 2019 21:29:22 GMT
       content-type: application/json; charset=utf-8
       content-length: '28'
       connection: keep-alive
@@ -55,5 +26,5 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"name":"Abies","result":[]}'
-  recorded_at: 2019-01-26 21:14:10 GMT
+  recorded_at: 2019-01-26 21:29:23 GMT
   recorded_with: vcr/0.2.2, webmockr/0.3.0
