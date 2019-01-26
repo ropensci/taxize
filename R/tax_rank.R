@@ -10,6 +10,8 @@
 #' source has their own identifiers, so that if you provide the wrong
 #' \code{db} value for the identifier you may get a result, but it will
 #' likely be wrong (not what you were expecting).
+#' @param rows numeric; Any number from 1 to infinity. If the default NA, 
+#' all rows are considered. passed down to \code{get_*} functions.
 #' @param ... Additional arguments to \code{\link{classification}}
 #' @return A named list of character vectors with ranks (all lower-cased)
 #' @note While \code{\link[taxize]{tax_name}} returns the name of a specified
@@ -34,47 +36,55 @@
 #' tax_rank(c("Platanista gangetica", "Lichenopora neapolitana"),
 #'   db = "worms")
 #' }
-tax_rank <- function(x, db = NULL, ...) {
+tax_rank <- function(x, db = NULL, rows = NA, ...) {
   UseMethod("tax_rank")
 }
 
 #' @export
-tax_rank.default <- function(x, db = NULL, ...) {
+tax_rank.default <- function(x, db = NULL, rows = NA, ...) {
   stop("no 'tax_rank' method for ", class(x), call. = FALSE)
 }
 
 #' @export
-tax_rank.default <- function(x, db = NULL, ...) {
+tax_rank.default <- function(x, db = NULL, rows = NA, ...) {
   stats::setNames(tax_rank_(x, ...), x)
 }
 
 #' @export
-tax_rank.character <- function(x, db = NULL, ...) {
+tax_rank.character <- function(x, db = NULL, rows = NA, ...) {
   nstop(db)
   stopifnot(length(db) == 1)
   switch(
     db,
-    bold = stats::setNames(tax_rank_(process_ids(x, db, get_boldid), ...), x),
-    col = stats::setNames(tax_rank_(process_ids(x, db, get_colid), ...), x),
-    eol = stats::setNames(tax_rank_(process_ids(x, db, get_eolid), ...), x),
-    gbif = stats::setNames(tax_rank_(process_ids(x, db, get_gbifid), ...), x),
-    natserv = stats::setNames(tax_rank_(process_ids(x, db, get_natservid),
-                                         ...), x),
-    nbn = stats::setNames(tax_rank_(process_ids(x, db, get_nbnid), ...), x),
-    tol = stats::setNames(tax_rank_(process_ids(x, db, get_tolid), ...), x),
-    tropicos = stats::setNames(tax_rank_(process_ids(x, db, get_tpsid), ...),
-                               x),
-    itis = stats::setNames(tax_rank_(process_ids(x, db, get_tsn), ...), x),
-    ncbi = stats::setNames(tax_rank_(process_ids(x, db, get_uid), ...), x),
-    worms = stats::setNames(tax_rank_(process_ids(x, db, get_wormsid), ...),
-                            x),
+    bold = stats::setNames(tax_rank_(process_ids(x, db, get_boldid, 
+      rows = rows), ...), x),
+    col = stats::setNames(tax_rank_(process_ids(x, db, get_colid, 
+      rows = rows), ...), x),
+    eol = stats::setNames(tax_rank_(process_ids(x, db, get_eolid, 
+      rows = rows), ...), x),
+    gbif = stats::setNames(tax_rank_(process_ids(x, db, get_gbifid, 
+      rows = rows), ...), x),
+    natserv = stats::setNames(tax_rank_(process_ids(x, db, get_natservid, 
+      rows = rows), ...), x),
+    nbn = stats::setNames(tax_rank_(process_ids(x, db, get_nbnid, 
+      rows = rows), ...), x),
+    tol = stats::setNames(tax_rank_(process_ids(x, db, get_tolid, 
+      rows = rows), ...), x),
+    tropicos = stats::setNames(tax_rank_(process_ids(x, db, get_tpsid, 
+      rows = rows), ...), x),
+    itis = stats::setNames(tax_rank_(process_ids(x, db, get_tsn, 
+      rows = rows), ...), x),
+    ncbi = stats::setNames(tax_rank_(process_ids(x, db, get_uid, 
+      rows = rows), ...), x),
+    worms = stats::setNames(tax_rank_(process_ids(x, db, get_wormsid, 
+      rows = rows), ...), x),
     stop("the provided db value was not recognised", call. = FALSE)
   )
 }
 
 #' @export
-tax_rank.numeric <- function(x, db = NULL, ...) {
-  tax_rank(as.character(x), db, ...)
+tax_rank.numeric <- function(x, db = NULL, rows = NA, ...) {
+  tax_rank(as.character(x), db, rows, ...)
 }
 
 # ---------

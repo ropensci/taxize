@@ -114,6 +114,10 @@ get_tpsid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL, rows = N
   assert(messages, "logical")
   assert(family, "character")
   assert(rank, "character")
+  if (!is.na(rows)) {
+    assert(rows, c("numeric", "integer"))
+    stopifnot(rows > 0)
+  }
 
   fun <- function(sciname, ask, messages, rows, ...) {
     direct <- FALSE

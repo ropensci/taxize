@@ -1,13 +1,11 @@
-# tests for ncbi_get_taxon_summary
-
 context("ncbi_get_taxon_summary")
 
 test_that("ncbi_get_taxon_summary returns correct class and result", {
-  skip_on_cran()
-
-  tt <- ncbi_get_taxon_summary(c(4751))
-  tt2 <- ncbi_get_taxon_summary(NA)
-  tt3 <- ncbi_get_taxon_summary(id = NULL)
+  vcr::use_cassette("ncbi_get_taxon_summary", {
+    tt <- ncbi_get_taxon_summary(c(4751))
+    tt2 <- ncbi_get_taxon_summary(NA)
+    tt3 <- ncbi_get_taxon_summary(id = NULL)
+  })
 
   expect_is(tt, "data.frame")
   expect_equal(ncol(tt), 3)
@@ -22,9 +20,14 @@ test_that("ncbi_get_taxon_summary behaves correctly when very large ID vector", 
 
   # short UID's are okay at larger quantities
   ids <- rep(4751, 550)
-  expect_is(ncbi_get_taxon_summary(id = ids), "data.frame")
+  vcr::use_cassette("ncbi_get_taxon_summary_many_ids_short", {
+    x <- ncbi_get_taxon_summary(id = ids)
+  })
+  expect_is(x, "data.frame")
 
   # but longer IDs add up of course
   ids <- rep(1430660, 1100)
-  expect_message(ncbi_get_taxon_summary(id = ids), "splitting up")
+  vcr::use_cassette("ncbi_get_taxon_summary_many_ids_long", {
+    expect_message(ncbi_get_taxon_summary(id = ids), "splitting up")
+  })
 })

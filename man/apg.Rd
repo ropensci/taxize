@@ -11,7 +11,7 @@ apgOrders(...)
 apgFamilies(...)
 }
 \arguments{
-\item{...}{Curl args passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl args passed on to \code{\link[crul]{verb-GET}}}
 }
 \description{
 Generic names and their replacements from the Angiosperm Phylogeny
@@ -24,5 +24,5 @@ head(apgFamilies())
 }
 }
 \references{
-\url{http://www.mobot.org/MOBOT/research/APweb/}
+http://www.mobot.org/MOBOT/research/APweb/
 }

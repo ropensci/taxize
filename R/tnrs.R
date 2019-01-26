@@ -20,9 +20,9 @@
 #' @param sleep Number of seconds by which to pause between calls. Defaults to 0
 #' 		seconds. Use when doing many calls in a for loop ar lapply type call.
 #' @param splitby Number by which to split species list for querying the TNRS.
-#' @param verbose Verbosity or not (default \code{TRUE})
-#' @param ... Curl options to pass in \code{\link[httr]{GET}} or
-#' \code{\link[httr]{POST}}
+#' @param messages Verbosity or not (default \code{TRUE})
+#' @param ... Curl options to pass in \code{\link[crul]{verb-GET}} or
+#' \code{\link[crul]{verb-POST}}
 #'
 #' @return data.frame of results from TNRS plus the name submitted, with
 #' rows in order of user supplied names, though those with no matches are
@@ -63,27 +63,25 @@
 #' tnrs(mynames, source = "NCBI")
 #'
 #' # Pass on curl options
-#' library("httr")
 #' mynames <- c("Helianthus annuus", "Poa annua", "Mimulus bicolor")
-#' tnrs(query = mynames, source = "iPlant_TNRS", config = verbose())
+#' tnrs(query = mynames, source = "iPlant_TNRS", verbose = TRUE)
 #' }
 
 tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
-                 sleep = 0, splitby = 30, verbose = TRUE, ...) {
+                 sleep = 0, splitby = 30, messages = TRUE, ...) {
 
   getpost <- tolower(getpost)
   getpost <- match.arg(getpost, c('get', 'post'))
 
   mainfunc <- function(x, ...) {
-    url = "http://taxosaurus.org/submit"
-
+    cli <- crul::HttpClient$new(tnrs_url, opts = list(...))
     Sys.sleep(time = sleep) # set amount of sleep to pause by
 
     if (getpost == "get") {
       if (!any(is.na(x))) {
         query2 <- paste(str_replace_all(x, ' ', '+'), collapse = '%0A')
         args <- tc(list(query = query2, source = source, code = code))
-        out <- GET(url, query = args, ...)
+        out <- cli$get("submit", query = args)
         error_handle(out)
         retrieve <- out$url
       } else {
@@ -93,24 +91,24 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
       loc <- tempfile(fileext = ".txt")
       write.table(data.frame(x), file = loc, col.names = FALSE, row.names = FALSE)
       args <- tc(list(source = source, code = code))
-      body <- tc(list(file = upload_file(loc)))
-      out <- POST(url, query = args, body = body, config(followlocation = 0), ...)
+      body <- tc(list(file = crul::upload(loc)))
+      out <- cli$post("submit", query = args, body = body, followlocation = 0)
       error_handle(out)
-      tt <- con_utf8(out)
+      tt <- out$parse("UTF-8")
       message <- jsonlite::fromJSON(tt, FALSE)[["message"]]
       retrieve <- jsonlite::fromJSON(tt, FALSE)[["uri"]]
     }
 
-    mssg(verbose, sprintf("Calling %s", retrieve))
+    mssg(messages, sprintf("Calling %s", retrieve))
 
     iter <- 0
     output <- list()
     timeout <- "wait"
     while (timeout == "wait") {
       iter <- iter + 1
-      ss <- GET(retrieve)
+      ss <- crul::HttpClient$new(retrieve)$get()
       error_handle(ss, TRUE)
-      temp <- jsonlite::fromJSON(con_utf8(ss), FALSE)
+      temp <- jsonlite::fromJSON(ss$parse("UTF-8"), FALSE)
       if (grepl("is still being processed", temp["message"]) == TRUE) {
         timeout <- "wait"
       } else {
@@ -168,11 +166,12 @@ slice <- function(input, by = 2) {
   lapply(tt, function(x) x[!is.na(x)])
 }
 
-error_handle <- function(x, checkcontent=FALSE){
+error_handle <- function(x, checkcontent = FALSE) {
   tocheck <- x$status_code
   if (checkcontent) {
-    if ( "metadata" %in% names(jsonlite::fromJSON(con_utf8(x), FALSE)) ) {
-      codes <- sapply(jsonlite::fromJSON(con_utf8(x), FALSE)$metadata$sources, "[[", "status")
+    if ( "metadata" %in% names(jsonlite::fromJSON(x$parse("UTF-8"), FALSE)) ) {
+      codes <- sapply(jsonlite::fromJSON(x$parse("UTF-8"), 
+        FALSE)$metadata$sources, "[[", "status")
       codes <- as.numeric(str_extract(codes, "[0-9]+"))
       tocheck <- c(tocheck, codes)
     }

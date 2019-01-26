@@ -1,0 +1,218 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://api.gbif.org/v1/species/match?name=Chironomus%20riparius&strict=FALSE&verbose=TRUE&limit=500
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+      X-User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Sat, 26 Jan 2019 17:01:09 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT
+      server: Jetty(9.3.z-SNAPSHOT)
+      cache-control: public, max-age=3601
+      x-varnish: 47450392 42632989
+      age: '372'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      content-length: '1136'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"usageKey":1448237,"scientificName":"Chironomus riparius Meigen, 1804","canonicalName":"Chironomus
+        riparius","rank":"SPECIES","status":"ACCEPTED","confidence":98,"note":"Similarity:
+        name=110; authorship=0; classification=-2; rank=5; status=1; nextMatch=5","matchType":"EXACT","alternatives":[{"usageKey":1449850,"scientificName":"Chironomus
+        vicarius (Walker, 1850)","canonicalName":"Chironomus vicarius","rank":"SPECIES","status":"ACCEPTED","confidence":9,"note":"Similarity:
+        name=5; authorship=0; classification=-2; rank=5; status=1","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Diptera","family":"Chironomidae","genus":"Chironomus","species":"Chironomus
+        vicarius","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":811,"familyKey":3343,"genusKey":1448033,"speciesKey":1449850,"synonym":false,"class":"Insecta"}],"kingdom":"Animalia","phylum":"Arthropoda","order":"Diptera","family":"Chironomidae","genus":"Chironomus","species":"Chironomus
+        riparius","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":811,"familyKey":3343,"genusKey":1448033,"speciesKey":1448237,"synonym":false,"class":"Insecta"}'
+  recorded_at: 2019-01-26 17:07:24 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: https://api.gbif.org/v1/species/match?name=aaasdfadsfasdf&strict=FALSE&verbose=TRUE&limit=500
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+      X-User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Sat, 26 Jan 2019 17:07:22 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT
+      server: Jetty(9.3.z-SNAPSHOT)
+      cache-control: public, max-age=3601
+      x-varnish: 58524324 58524321
+      age: '0'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      content-length: '53'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"confidence":100,"matchType":"NONE","synonym":false}'
+  recorded_at: 2019-01-26 17:07:24 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: https://api.gbif.org/v1/species/match?name=Chironomus%20riparius&strict=FALSE&verbose=TRUE&limit=500
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+      X-User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Sat, 26 Jan 2019 17:01:09 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT
+      server: Jetty(9.3.z-SNAPSHOT)
+      cache-control: public, max-age=3601
+      x-varnish: 44795590 42632989
+      age: '373'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      content-length: '1136'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"usageKey":1448237,"scientificName":"Chironomus riparius Meigen, 1804","canonicalName":"Chironomus
+        riparius","rank":"SPECIES","status":"ACCEPTED","confidence":98,"note":"Similarity:
+        name=110; authorship=0; classification=-2; rank=5; status=1; nextMatch=5","matchType":"EXACT","alternatives":[{"usageKey":1449850,"scientificName":"Chironomus
+        vicarius (Walker, 1850)","canonicalName":"Chironomus vicarius","rank":"SPECIES","status":"ACCEPTED","confidence":9,"note":"Similarity:
+        name=5; authorship=0; classification=-2; rank=5; status=1","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Diptera","family":"Chironomidae","genus":"Chironomus","species":"Chironomus
+        vicarius","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":811,"familyKey":3343,"genusKey":1448033,"speciesKey":1449850,"synonym":false,"class":"Insecta"}],"kingdom":"Animalia","phylum":"Arthropoda","order":"Diptera","family":"Chironomidae","genus":"Chironomus","species":"Chironomus
+        riparius","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":811,"familyKey":3343,"genusKey":1448033,"speciesKey":1448237,"synonym":false,"class":"Insecta"}'
+  recorded_at: 2019-01-26 17:07:24 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: https://api.gbif.org/v1/species/match?name=Chironomus%20riparius&strict=FALSE&verbose=TRUE&limit=500
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+      X-User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Sat, 26 Jan 2019 17:01:09 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT
+      server: Jetty(9.3.z-SNAPSHOT)
+      cache-control: public, max-age=3601
+      x-varnish: 55280649 42632989
+      age: '374'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      content-length: '1136'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"usageKey":1448237,"scientificName":"Chironomus riparius Meigen, 1804","canonicalName":"Chironomus
+        riparius","rank":"SPECIES","status":"ACCEPTED","confidence":98,"note":"Similarity:
+        name=110; authorship=0; classification=-2; rank=5; status=1; nextMatch=5","matchType":"EXACT","alternatives":[{"usageKey":1449850,"scientificName":"Chironomus
+        vicarius (Walker, 1850)","canonicalName":"Chironomus vicarius","rank":"SPECIES","status":"ACCEPTED","confidence":9,"note":"Similarity:
+        name=5; authorship=0; classification=-2; rank=5; status=1","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Diptera","family":"Chironomidae","genus":"Chironomus","species":"Chironomus
+        vicarius","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":811,"familyKey":3343,"genusKey":1448033,"speciesKey":1449850,"synonym":false,"class":"Insecta"}],"kingdom":"Animalia","phylum":"Arthropoda","order":"Diptera","family":"Chironomidae","genus":"Chironomus","species":"Chironomus
+        riparius","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":811,"familyKey":3343,"genusKey":1448033,"speciesKey":1448237,"synonym":false,"class":"Insecta"}'
+  recorded_at: 2019-01-26 17:07:24 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: https://api.gbif.org/v1/species/match?name=Chaetopteryx&strict=FALSE&verbose=TRUE&limit=500
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+      X-User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Sat, 26 Jan 2019 17:07:24 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT
+      server: Jetty(9.3.z-SNAPSHOT)
+      cache-control: public, max-age=3601
+      x-varnish: 56067262 55280651
+      age: '0'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      content-length: '5881'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"usageKey":1442276,"scientificName":"Chaetopteryx Stephens, 1829","canonicalName":"Chaetopteryx","rank":"GENUS","status":"ACCEPTED","confidence":94,"note":"Similarity:
+        name=100; authorship=0; classification=-2; rank=0; status=1; nextMatch=5","matchType":"EXACT","alternatives":[{"usageKey":4722607,"acceptedUsageKey":4723980,"scientificName":"Chartopteryx
+        Westwood, 1841","canonicalName":"Chartopteryx","rank":"GENUS","status":"SYNONYM","confidence":73,"note":"Similarity:
+        name=75; authorship=0; classification=-2; rank=0; status=0","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Coleoptera","family":"Tenebrionidae","genus":"Cyphaleus","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1470,"familyKey":7857,"genusKey":4723980,"synonym":true,"class":"Insecta"},{"usageKey":3200772,"scientificName":"Chaetopteris
+        Kützing, 1843","canonicalName":"Chaetopteris","rank":"GENUS","status":"ACCEPTED","confidence":54,"note":"Similarity:
+        name=55; authorship=0; classification=-2; rank=0; status=1","matchType":"FUZZY","kingdom":"Chromista","phylum":"Ochrophyta","order":"Sphacelariales","family":"Sphacelariaceae","genus":"Chaetopteris","kingdomKey":4,"phylumKey":98,"classKey":7073593,"orderKey":592,"familyKey":8647,"genusKey":3200772,"synonym":false,"class":"Phaeophyceae"},{"usageKey":1441669,"scientificName":"Chaetopterna
+        Martynov, 1913","canonicalName":"Chaetopterna","rank":"GENUS","status":"ACCEPTED","confidence":54,"note":"Similarity:
+        name=55; authorship=0; classification=-2; rank=0; status=1","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Trichoptera","family":"Limnephilidae","genus":"Chaetopterna","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1003,"familyKey":4396,"genusKey":1441669,"synonym":false,"class":"Insecta"},{"usageKey":2321523,"scientificName":"Chaetopterus
+        Cuvier, 1830","canonicalName":"Chaetopterus","rank":"GENUS","status":"ACCEPTED","confidence":54,"note":"Similarity:
+        name=55; authorship=0; classification=-2; rank=0; status=1","matchType":"FUZZY","kingdom":"Animalia","phylum":"Annelida","order":"Spionida","family":"Chaetopteridae","genus":"Chaetopterus","kingdomKey":1,"phylumKey":42,"classKey":256,"orderKey":474,"familyKey":3592,"genusKey":2321523,"synonym":false,"class":"Polychaeta"},{"usageKey":1427425,"scientificName":"Chalcopteryx
+        Selys-Longchamps, 1853","canonicalName":"Chalcopteryx","rank":"GENUS","status":"ACCEPTED","confidence":54,"note":"Similarity:
+        name=55; authorship=0; classification=-2; rank=0; status=1","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Odonata","family":"Polythoridae","genus":"Chalcopteryx","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":789,"familyKey":9404,"genusKey":1427425,"synonym":false,"class":"Insecta"},{"usageKey":2290199,"scientificName":"Chtenopteryx
+        Appellöf, 1890","canonicalName":"Chtenopteryx","rank":"GENUS","status":"ACCEPTED","confidence":54,"note":"Similarity:
+        name=55; authorship=0; classification=-2; rank=0; status=1","matchType":"FUZZY","kingdom":"Animalia","phylum":"Mollusca","family":"Chtenopterygidae","genus":"Chtenopteryx","kingdomKey":1,"phylumKey":52,"classKey":136,"familyKey":3434,"genusKey":2290199,"synonym":false,"class":"Cephalopoda"},{"usageKey":4810798,"acceptedUsageKey":2321523,"scientificName":"Chaetopteros
+        McMurtrie, 1834","canonicalName":"Chaetopteros","rank":"GENUS","status":"SYNONYM","confidence":53,"note":"Similarity:
+        name=55; authorship=0; classification=-2; rank=0; status=0","matchType":"FUZZY","kingdom":"Animalia","phylum":"Annelida","order":"Spionida","family":"Chaetopteridae","genus":"Chaetopterus","kingdomKey":1,"phylumKey":42,"classKey":256,"orderKey":474,"familyKey":3592,"genusKey":2321523,"synonym":true,"class":"Polychaeta"},{"usageKey":2385280,"acceptedUsageKey":2374812,"scientificName":"Chaetopterus
+        Schlegel, 1844","canonicalName":"Chaetopterus","rank":"GENUS","status":"SYNONYM","confidence":53,"note":"Similarity:
+        name=55; authorship=0; classification=-2; rank=0; status=0","matchType":"FUZZY","kingdom":"Animalia","phylum":"Chordata","order":"Perciformes","family":"Lutjanidae","genus":"Pristipomoides","kingdomKey":1,"phylumKey":44,"classKey":204,"orderKey":587,"familyKey":8542,"genusKey":2374812,"synonym":true,"class":"Actinopterygii"},{"usageKey":8859284,"scientificName":"Chaetopterus
+        Sun & Qiu, 2014","canonicalName":"Chaetopterus","rank":"GENUS","status":"DOUBTFUL","confidence":48,"note":"Similarity:
+        name=55; authorship=0; classification=-2; rank=0; status=-5","matchType":"FUZZY","kingdom":"incertae
+        sedis","genus":"Chaetopterus","kingdomKey":0,"genusKey":8859284,"synonym":false},{"usageKey":3265143,"scientificName":"Charitopteryx
+        Cowley, 1934","canonicalName":"Charitopteryx","rank":"GENUS","status":"DOUBTFUL","confidence":48,"note":"Similarity:
+        name=55; authorship=0; classification=-2; rank=0; status=-5","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Odonata","family":"Heliocharitidae","genus":"Charitopteryx","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":789,"familyKey":3265142,"genusKey":3265143,"synonym":false,"class":"Insecta"},{"usageKey":4803878,"scientificName":"Cratopteryx
+        Martins-Neto & Vulcano, 1989","canonicalName":"Cratopteryx","rank":"GENUS","status":"ACCEPTED","confidence":0,"note":"Similarity:
+        name=-5; authorship=0; classification=-2; rank=0; status=1","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Neuroptera","family":"Myrmeleontidae","genus":"Cratopteryx","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1501,"familyKey":5471,"genusKey":4803878,"synonym":false,"class":"Insecta"}],"kingdom":"Animalia","phylum":"Arthropoda","order":"Trichoptera","family":"Limnephilidae","genus":"Chaetopteryx","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1003,"familyKey":4396,"genusKey":1442276,"synonym":false,"class":"Insecta"}'
+  recorded_at: 2019-01-26 17:07:24 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0

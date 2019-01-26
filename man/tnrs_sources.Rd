@@ -10,13 +10,14 @@ tnrs_sources(source = NULL, ...)
 \item{source}{The source to get information on, one of "iPlant_TNRS",
 "NCBI", or "MSW3".}
 
-\item{...}{Curl options to pass in \code{\link[httr]{GET}}}
+\item{...}{Curl options to pass in \code{\link[crul]{verb-GET}}}
 }
 \value{
 Sources for the TNRS API in a vector or list
 }
 \description{
-Get sources for the Phylotastic Taxonomic Name Resolution Service
+Get sources for the Phylotastic Taxonomic Name 
+Resolution Service
 }
 \examples{
 \dontrun{
@@ -25,5 +26,7 @@ tnrs_sources()
 
 # A specific source
 tnrs_sources(source="NCBI")
+tnrs_sources(source="MSW3")
+tnrs_sources(source="iPlant_TNRS")
 }
 }

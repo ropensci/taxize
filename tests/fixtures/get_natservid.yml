@@ -1,0 +1,184 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://services.natureserve.org/idd/rest/ns/v1/globalSpecies/list/nameSearch?name=Gadus%20morhua&NSAccessKeyId=eb13c82c-d517-4320-bc79-3b286755c777
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 24 Jan 2019 05:46:43 GMT
+      server: Apache-Coyote/1.1
+      content-type: text/xml
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n\r\n<speciesSearchReport
+        \r\n    xsi:schemaLocation=\"http://services.natureserve.org/docs/schemas/biodiversityDataFlow/1
+        http://services.natureserve.org/docs/schemas/biodiversityDataFlow/1/\" \r\n
+        \   xmlns=\"http://services.natureserve.org/docs/schemas/biodiversityDataFlow/1\"
+        \r\n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" \r\n    schemaVersion=\"1.1\">\r\n\t<conditions>\r\n\t\t<match>\r\n\t\t\t<searchTerm>Gadus
+        morhua</searchTerm>\r\n\t\t</match>\r\n\t</conditions>\r\n\t<speciesSearchResultList>\r\n
+        \   \t<speciesSearchResult uid=\"ELEMENT_GLOBAL.2.101905\">\r\n\t   <globalSpeciesUid>ELEMENT_GLOBAL.2.101905</globalSpeciesUid>\r\n\t
+        \  <natureServeExplorerURI>http://explorer.natureserve.org/servlet/NatureServe?searchSpeciesUid=ELEMENT_GLOBAL.2.101905</natureServeExplorerURI>\r\n\t
+        \  \t   <jurisdictionScientificName>Gadus morhua</jurisdictionScientificName>\r\n\t
+        \  <commonName language=\"en\">Atlantic Cod</commonName>\t   <taxonomicComments>DNA
+        data for western North Atlantic populations reveal weak population genetic
+        structuring that may reflect the recent age of populations rather than extensive
+        gene flow among populations (Pogson et al. 2001).</taxonomicComments>\t   \t</speciesSearchResult>\r\n
+        \ </speciesSearchResultList>\r\n</speciesSearchReport>"
+  recorded_at: 2019-01-24 05:46:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: https://services.natureserve.org/idd/rest/ns/v1/globalSpecies/list/nameSearch?name=howdy&NSAccessKeyId=eb13c82c-d517-4320-bc79-3b286755c777
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 24 Jan 2019 05:46:45 GMT
+      server: Apache-Coyote/1.1
+      content-type: text/xml
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n\r\n<speciesSearchReport
+        \r\n    xsi:schemaLocation=\"http://services.natureserve.org/docs/schemas/biodiversityDataFlow/1
+        http://services.natureserve.org/docs/schemas/biodiversityDataFlow/1/\" \r\n
+        \   xmlns=\"http://services.natureserve.org/docs/schemas/biodiversityDataFlow/1\"
+        \r\n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" \r\n    schemaVersion=\"1.1\">\r\n\t<conditions>\r\n\t\t<match>\r\n\t\t\t<searchTerm>howdy</searchTerm>\r\n\t\t</match>\r\n\t</conditions>\r\n\t<speciesSearchResultList>\r\n</speciesSearchResultList>\r\n</speciesSearchReport>"
+  recorded_at: 2019-01-24 05:46:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: https://services.natureserve.org/idd/rest/ns/v1/globalSpecies/list/nameSearch?name=Helianthus%20annuus&NSAccessKeyId=eb13c82c-d517-4320-bc79-3b286755c777
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 24 Jan 2019 05:46:48 GMT
+      server: Apache-Coyote/1.1
+      content-type: text/xml
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n\r\n<speciesSearchReport
+        \r\n    xsi:schemaLocation=\"http://services.natureserve.org/docs/schemas/biodiversityDataFlow/1
+        http://services.natureserve.org/docs/schemas/biodiversityDataFlow/1/\" \r\n
+        \   xmlns=\"http://services.natureserve.org/docs/schemas/biodiversityDataFlow/1\"
+        \r\n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" \r\n    schemaVersion=\"1.1\">\r\n\t<conditions>\r\n\t\t<match>\r\n\t\t\t<searchTerm>Helianthus
+        annuus</searchTerm>\r\n\t\t</match>\r\n\t</conditions>\r\n\t<speciesSearchResultList>\r\n
+        \   \t<speciesSearchResult uid=\"ELEMENT_GLOBAL.2.134717\">\r\n\t   <globalSpeciesUid>ELEMENT_GLOBAL.2.134717</globalSpeciesUid>\r\n\t
+        \  <natureServeExplorerURI>http://explorer.natureserve.org/servlet/NatureServe?searchSpeciesUid=ELEMENT_GLOBAL.2.134717</natureServeExplorerURI>\r\n\t
+        \  \t   <jurisdictionScientificName>Helianthus annuus</jurisdictionScientificName>\r\n\t
+        \  <commonName language=\"en\">Common Sunflower</commonName>\t   \t   \t</speciesSearchResult>\r\n
+        \ </speciesSearchResultList>\r\n</speciesSearchReport>"
+  recorded_at: 2019-01-24 05:46:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: https://services.natureserve.org/idd/rest/ns/v1/globalSpecies/list/nameSearch?name=Gadus%20morhua&NSAccessKeyId=eb13c82c-d517-4320-bc79-3b286755c777
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 24 Jan 2019 05:46:49 GMT
+      server: Apache-Coyote/1.1
+      content-type: text/xml
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n\r\n<speciesSearchReport
+        \r\n    xsi:schemaLocation=\"http://services.natureserve.org/docs/schemas/biodiversityDataFlow/1
+        http://services.natureserve.org/docs/schemas/biodiversityDataFlow/1/\" \r\n
+        \   xmlns=\"http://services.natureserve.org/docs/schemas/biodiversityDataFlow/1\"
+        \r\n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" \r\n    schemaVersion=\"1.1\">\r\n\t<conditions>\r\n\t\t<match>\r\n\t\t\t<searchTerm>Gadus
+        morhua</searchTerm>\r\n\t\t</match>\r\n\t</conditions>\r\n\t<speciesSearchResultList>\r\n
+        \   \t<speciesSearchResult uid=\"ELEMENT_GLOBAL.2.101905\">\r\n\t   <globalSpeciesUid>ELEMENT_GLOBAL.2.101905</globalSpeciesUid>\r\n\t
+        \  <natureServeExplorerURI>http://explorer.natureserve.org/servlet/NatureServe?searchSpeciesUid=ELEMENT_GLOBAL.2.101905</natureServeExplorerURI>\r\n\t
+        \  \t   <jurisdictionScientificName>Gadus morhua</jurisdictionScientificName>\r\n\t
+        \  <commonName language=\"en\">Atlantic Cod</commonName>\t   <taxonomicComments>DNA
+        data for western North Atlantic populations reveal weak population genetic
+        structuring that may reflect the recent age of populations rather than extensive
+        gene flow among populations (Pogson et al. 2001).</taxonomicComments>\t   \t</speciesSearchResult>\r\n
+        \ </speciesSearchResultList>\r\n</speciesSearchReport>"
+  recorded_at: 2019-01-24 05:46:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: https://services.natureserve.org/idd/rest/ns/v1/globalSpecies/list/nameSearch?name=Gadus%20morhua&NSAccessKeyId=eb13c82c-d517-4320-bc79-3b286755c777
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 24 Jan 2019 05:46:51 GMT
+      server: Apache-Coyote/1.1
+      content-type: text/xml
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n\r\n<speciesSearchReport
+        \r\n    xsi:schemaLocation=\"http://services.natureserve.org/docs/schemas/biodiversityDataFlow/1
+        http://services.natureserve.org/docs/schemas/biodiversityDataFlow/1/\" \r\n
+        \   xmlns=\"http://services.natureserve.org/docs/schemas/biodiversityDataFlow/1\"
+        \r\n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" \r\n    schemaVersion=\"1.1\">\r\n\t<conditions>\r\n\t\t<match>\r\n\t\t\t<searchTerm>Gadus
+        morhua</searchTerm>\r\n\t\t</match>\r\n\t</conditions>\r\n\t<speciesSearchResultList>\r\n
+        \   \t<speciesSearchResult uid=\"ELEMENT_GLOBAL.2.101905\">\r\n\t   <globalSpeciesUid>ELEMENT_GLOBAL.2.101905</globalSpeciesUid>\r\n\t
+        \  <natureServeExplorerURI>http://explorer.natureserve.org/servlet/NatureServe?searchSpeciesUid=ELEMENT_GLOBAL.2.101905</natureServeExplorerURI>\r\n\t
+        \  \t   <jurisdictionScientificName>Gadus morhua</jurisdictionScientificName>\r\n\t
+        \  <commonName language=\"en\">Atlantic Cod</commonName>\t   <taxonomicComments>DNA
+        data for western North Atlantic populations reveal weak population genetic
+        structuring that may reflect the recent age of populations rather than extensive
+        gene flow among populations (Pogson et al. 2001).</taxonomicComments>\t   \t</speciesSearchResult>\r\n
+        \ </speciesSearchResultList>\r\n</speciesSearchReport>"
+  recorded_at: 2019-01-24 05:46:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0

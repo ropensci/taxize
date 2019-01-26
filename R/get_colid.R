@@ -102,9 +102,7 @@
 #' get_colid(sciname="Andropadus nigriceps fusciceps", rows=1)
 #'
 #' # use curl options
-#' library("httr")
-#' get_colid("Quercus douglasii", config=verbose())
-#' bb <- get_colid("Quercus douglasii", config=progress())
+#' get_colid("Quercus douglasii", verbose = TRUE)
 #' }
 
 get_colid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
@@ -268,11 +266,14 @@ as.data.frame.colid <- function(x, ...){
              stringsAsFactors = FALSE)
 }
 
-make_colid <- function(x, check=TRUE) make_generic(x, 'http://www.catalogueoflife.org/col/details/species/id/%s', "colid", check)
+make_colid <- function(x, check=TRUE) {
+  make_generic(x, 
+    'http://www.catalogueoflife.org/col/details/species/id/%s', "colid", check)
+}
 
 check_colid <- function(x){
   url <- "http://www.catalogueoflife.org/col/details/species/id/"
-  res <- GET(paste0(url, x))
+  res <- tax_GET(paste0(url, x))$parse("UTF-8")
   !grepl("Species not found", res)
 }
 

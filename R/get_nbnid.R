@@ -237,8 +237,8 @@ make_nbnid <- function(x, check=TRUE) {
 
 check_nbnid <- function(x){
   url <- "https://species-ws.nbnatlas.org/species/"
-  res <- GET(paste0(url, x))
-  if ( res$status_code == 200 ) TRUE else FALSE
+  res <- tax_GET(paste0(url, x))
+  if (res$status_code == 200) TRUE else FALSE
 }
 
 #' @export

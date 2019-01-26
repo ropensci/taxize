@@ -69,20 +69,20 @@
 #' # numeric
 #' as.eolid(10247706)
 #' # numeric vector, length > 1
-#' as.eolid(c(24954444,51389511,57266265))
+#' as.eolid(c(6985636,12188704,10247706))
 #' # character
-#' as.eolid("24954444")
+#' as.eolid("6985636")
 #' # character vector, length > 1
-#' as.eolid(c("24954444","51389511","57266265"))
+#' as.eolid(c("6985636","12188704","10247706"))
 #' # list, either numeric or character
-#' as.eolid(list("24954444","51389511","57266265"))
+#' as.eolid(list("6985636","12188704","10247706"))
 #' ## dont check, much faster
-#' as.eolid("24954444", check=FALSE)
-#' as.eolid(24954444, check=FALSE)
-#' as.eolid(c("24954444","51389511","57266265"), check=FALSE)
-#' as.eolid(list("24954444","51389511","57266265"), check=FALSE)
+#' as.eolid("6985636", check=FALSE)
+#' as.eolid(6985636, check=FALSE)
+#' as.eolid(c("6985636","12188704","10247706"), check=FALSE)
+#' as.eolid(list("6985636","12188704","10247706"), check=FALSE)
 #'
-#' (out <- as.eolid(c(24954444,51389511,57266265)))
+#' (out <- as.eolid(c(6985636,12188704,10247706)))
 #' data.frame(out)
 #' as.eolid( data.frame(out) )
 #'
@@ -323,17 +323,17 @@ make_eolid <- function(x, check=TRUE) {
   tmp
 }
 
-check_eolid <- function(x){
-  url <- sprintf("http://eol.org/api/hierarchy_entries/1.0/%s.json", x)
-  tryid <- GET(url)
+check_eolid <- function(x) {
+  url <- sprintf("https://eol.org/api/hierarchy_entries/1.0/%s.json", x)
+  tryid <- tax_GET(url)
   if (tryid$status_code == 200) TRUE else FALSE
 }
 
-get_eol_pageid <- function(x){
-  url <- sprintf("http://eol.org/api/hierarchy_entries/1.0/%s.json", x)
-  tt <- GET(url)
+get_eol_pageid <- function(x) {
+  url <- sprintf("https://eol.org/api/hierarchy_entries/1.0/%s.json", x)
+  tt <- tax_GET(url)
   if (tt$status_code == 200) {
-    jsonlite::fromJSON(con_utf8(tt), FALSE)$taxonConceptID
+    jsonlite::fromJSON(tt$parse("UTF-8"), FALSE)$taxonConceptID
   } else {
     NA
   }

@@ -1,0 +1,268 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Panthera%20uncia?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:24 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '867'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"Panthera uncia","result":[{"taxonid":22732,"scientific_name":"Panthera
+        uncia","kingdom":"ANIMALIA","phylum":"CHORDATA","class":"MAMMALIA","order":"CARNIVORA","family":"FELIDAE","genus":"Panthera","main_common_name":"Snow
+        Leopard","authority":"(Schreber, 1775)","published_year":2017,"assessment_date":"2016-11-08","category":"VU","criteria":"C1","population_trend":"Decreasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"McCarthy,
+        T., Mallon, D., Jackson, R., Zahler, P. & McCarthy, K.","reviewer":"Böhm,
+        M., Breitenmoser, U., Breitenmoser-Würsten, C., Harris, R., Hunter, L., Lanz,
+        T., Nowell, K. & Rosen, T.","aoo_km2":null,"eoo_km2":"6786272","elevation_upper":5800,"elevation_lower":500,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":null,"amended_reason":null}]}'
+  recorded_at: 2019-01-24 22:50:28 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Lynx%20lynx?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:25 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '950'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"Lynx lynx","result":[{"taxonid":12519,"scientific_name":"Lynx
+        lynx","kingdom":"ANIMALIA","phylum":"CHORDATA","class":"MAMMALIA","order":"CARNIVORA","family":"FELIDAE","genus":"Lynx","main_common_name":"Eurasian
+        Lynx","authority":"(Linnaeus, 1758)","published_year":2015,"assessment_date":"2014-04-20","category":"LC","criteria":null,"population_trend":"Stable","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"Breitenmoser,
+        U., Breitenmoser-Würsten, C., Lanz, T., von Arx, M., Antonevich, A., Bao,
+        W. & Avgan, B.","reviewer":"Nowell, K., Hunter, L. & Mallon, D.","aoo_km2":null,"eoo_km2":"42765298","elevation_upper":5500,"elevation_lower":0,"depth_upper":null,"depth_lower":null,"errata_flag":true,"errata_reason":"An
+        errata version of the original assessment has been published to correct the
+        typo \"Mmountain Hares\" which should read \"Mountain Hares\".","amended_flag":null,"amended_reason":null}]}'
+  recorded_at: 2019-01-24 22:50:28 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/id/22732?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:25 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '858'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"22732","result":[{"taxonid":22732,"scientific_name":"Panthera
+        uncia","kingdom":"ANIMALIA","phylum":"CHORDATA","class":"MAMMALIA","order":"CARNIVORA","family":"FELIDAE","genus":"Panthera","main_common_name":"Snow
+        Leopard","authority":"(Schreber, 1775)","published_year":2017,"assessment_date":"2016-11-08","category":"VU","criteria":"C1","population_trend":"Decreasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"McCarthy,
+        T., Mallon, D., Jackson, R., Zahler, P. & McCarthy, K.","reviewer":"Böhm,
+        M., Breitenmoser, U., Breitenmoser-Würsten, C., Harris, R., Hunter, L., Lanz,
+        T., Nowell, K. & Rosen, T.","aoo_km2":null,"eoo_km2":"6786272","elevation_upper":5800,"elevation_lower":500,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":null,"amended_reason":null}]}'
+  recorded_at: 2019-01-24 22:50:28 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/22732?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:26 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '439'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"22732","result":[{"year":"2017","code":"VU","category":"Vulnerable"},{"year":"2008","code":"EN","category":"Endangered"},{"year":"2002","code":"EN","category":"Endangered"},{"year":"1996","code":"EN","category":"Endangered"},{"year":"1994","code":"E","category":"Endangered"},{"year":"1990","code":"E","category":"Endangered"},{"year":"1988","code":"E","category":"Endangered"},{"year":"1986","code":"E","category":"Endangered"}]}'
+  recorded_at: 2019-01-24 22:50:28 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/22732?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:26 GMT
+      content-type: application/json; charset=utf-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      etag: '"1918570075"'
+      vary: Accept-Encoding
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      string: '{"name":"22732","count":12,"result":[{"code":"AF","country":"Afghanistan","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"BT","country":"Bhutan","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"CN","country":"China","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"IN","country":"India","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"KG","country":"Kyrgyzstan","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"KZ","country":"Kazakhstan","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"MN","country":"Mongolia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"NP","country":"Nepal","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"PK","country":"Pakistan","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"RU","country":"Russian
+        Federation","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"TJ","country":"Tajikistan","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"UZ","country":"Uzbekistan","presence":"Extant","origin":"Native","distribution_code":"Native"}]}'
+  recorded_at: 2019-01-24 22:50:28 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/id/12519?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:27 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '946'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"12519","result":[{"taxonid":12519,"scientific_name":"Lynx
+        lynx","kingdom":"ANIMALIA","phylum":"CHORDATA","class":"MAMMALIA","order":"CARNIVORA","family":"FELIDAE","genus":"Lynx","main_common_name":"Eurasian
+        Lynx","authority":"(Linnaeus, 1758)","published_year":2015,"assessment_date":"2014-04-20","category":"LC","criteria":null,"population_trend":"Stable","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"Breitenmoser,
+        U., Breitenmoser-Würsten, C., Lanz, T., von Arx, M., Antonevich, A., Bao,
+        W. & Avgan, B.","reviewer":"Nowell, K., Hunter, L. & Mallon, D.","aoo_km2":null,"eoo_km2":"42765298","elevation_upper":5500,"elevation_lower":0,"depth_upper":null,"depth_lower":null,"errata_flag":true,"errata_reason":"An
+        errata version of the original assessment has been published to correct the
+        typo \"Mmountain Hares\" which should read \"Mountain Hares\".","amended_flag":null,"amended_reason":null}]}'
+  recorded_at: 2019-01-24 22:50:28 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/12519?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:27 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '263'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"12519","result":[{"year":"2015","code":"LC","category":"Least
+        Concern"},{"year":"2008","code":"LC","category":"Least Concern"},{"year":"2002","code":"NT","category":"Near
+        Threatened"},{"year":"1996","code":"LR/lc","category":"Lower Risk/least concern"}]}'
+  recorded_at: 2019-01-24 22:50:28 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/12519?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:28 GMT
+      content-type: application/json; charset=utf-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      etag: '"-1190637649"'
+      vary: Accept-Encoding
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      string: '{"name":"12519","count":45,"result":[{"code":"AF","country":"Afghanistan","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"AL","country":"Albania","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"AM","country":"Armenia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"AT","country":"Austria","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"AZ","country":"Azerbaijan","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"BA","country":"Bosnia
+        and Herzegovina","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"BG","country":"Bulgaria","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"BY","country":"Belarus","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"CH","country":"Switzerland","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"CN","country":"China","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"CZ","country":"Czech
+        Republic","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"DE","country":"Germany","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"EE","country":"Estonia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"FI","country":"Finland","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"FR","country":"France","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"GE","country":"Georgia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"HR","country":"Croatia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"HU","country":"Hungary","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"IN","country":"India","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"IQ","country":"Iraq","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"IR","country":"Iran,
+        Islamic Republic of","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"IT","country":"Italy","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"KG","country":"Kyrgyzstan","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"KP","country":"Korea,
+        Democratic People''s Republic of","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"KZ","country":"Kazakhstan","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LI","country":"Liechtenstein","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LT","country":"Lithuania","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LV","country":"Latvia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"MK","country":"Macedonia,
+        the former Yugoslav Republic of","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"MN","country":"Mongolia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"NO","country":"Norway","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"NP","country":"Nepal","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"PK","country":"Pakistan","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"PL","country":"Poland","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"RO","country":"Romania","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"RS","country":"Serbia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"RU","country":"Russian
+        Federation","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"SE","country":"Sweden","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"SI","country":"Slovenia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"SK","country":"Slovakia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"TJ","country":"Tajikistan","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"TM","country":"Turkmenistan","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"TR","country":"Turkey","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"UA","country":"Ukraine","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"UZ","country":"Uzbekistan","presence":"Extant","origin":"Native","distribution_code":"Native"}]}'
+  recorded_at: 2019-01-24 22:50:28 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0

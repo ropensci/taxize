@@ -1,0 +1,93 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://www.organismnames.com/lsidmetadata.htm?lsid=2343434434434
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '500'
+      message: Internal Server Error
+      explanation: Server got itself in trouble
+    headers:
+      status: HTTP/1.1 500 Internal Server Error
+      server: Apache-Coyote/1.1
+      content-type: text/html;charset=utf-8
+      content-length: '2803'
+      date: Thu, 24 Jan 2019 06:36:51 GMT
+      connection: close
+    body:
+      encoding: UTF-8
+      string: "<html><head><title>Apache Tomcat/7.0.32 - Error report</title><style><!--H1
+        {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;}
+        H2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;}
+        H3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;}
+        BODY {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;}
+        B {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;}
+        P {font-family:Tahoma,Arial,sans-serif;background:white;color:black;font-size:12px;}A
+        {color : black;}A.name {color : black;}HR {color : #525D76;}--></style> </head><body><h1>HTTP
+        Status 500 - Request processing failed; nested exception is java.lang.NumberFormatException:
+        For input string: &quot;2343434434434&quot;</h1><HR size=\"1\" noshade=\"noshade\"><p><b>type</b>
+        Exception report</p><p><b>message</b> <u>Request processing failed; nested
+        exception is java.lang.NumberFormatException: For input string: &quot;2343434434434&quot;</u></p><p><b>description</b>
+        <u>The server encountered an internal error that prevented it from fulfilling
+        this request.</u></p><p><b>exception</b> <pre>org.springframework.web.util.NestedServletException:
+        Request processing failed; nested exception is java.lang.NumberFormatException:
+        For input string: &quot;2343434434434&quot;\n\torg.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:583)\n\torg.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:501)\n\tjavax.servlet.http.HttpServlet.service(HttpServlet.java:621)\n\tjavax.servlet.http.HttpServlet.service(HttpServlet.java:722)\n</pre></p><p><b>root
+        cause</b> <pre>java.lang.NumberFormatException: For input string: &quot;2343434434434&quot;\n\tjava.lang.NumberFormatException.forInputString(NumberFormatException.java:65)\n\tjava.lang.Integer.parseInt(Integer.java:484)\n\tjava.lang.Integer.parseInt(Integer.java:514)\n\tweb.LSIDMetaDataController.handleRequest(Unknown
+        Source)\n\torg.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:48)\n\torg.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:875)\n\torg.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:807)\n\torg.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:571)\n\torg.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:501)\n\tjavax.servlet.http.HttpServlet.service(HttpServlet.java:621)\n\tjavax.servlet.http.HttpServlet.service(HttpServlet.java:722)\n</pre></p><p><b>note</b>
+        <u>The full stack trace of the root cause is available in the Apache Tomcat/7.0.32
+        logs.</u></p><HR size=\"1\" noshade=\"noshade\"><h3>Apache Tomcat/7.0.32</h3></body></html>"
+  recorded_at: 2019-01-24 06:36:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://www.organismnames.com/lsidmetadata.htm?lsid=asdfasfs
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '500'
+      message: Internal Server Error
+      explanation: Server got itself in trouble
+    headers:
+      status: HTTP/1.1 500 Internal Server Error
+      server: Apache-Coyote/1.1
+      content-type: text/html;charset=utf-8
+      content-length: '2783'
+      date: Thu, 24 Jan 2019 06:36:51 GMT
+      connection: close
+    body:
+      encoding: UTF-8
+      string: "<html><head><title>Apache Tomcat/7.0.32 - Error report</title><style><!--H1
+        {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;}
+        H2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;}
+        H3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;}
+        BODY {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;}
+        B {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;}
+        P {font-family:Tahoma,Arial,sans-serif;background:white;color:black;font-size:12px;}A
+        {color : black;}A.name {color : black;}HR {color : #525D76;}--></style> </head><body><h1>HTTP
+        Status 500 - Request processing failed; nested exception is java.lang.NumberFormatException:
+        For input string: &quot;asdfasfs&quot;</h1><HR size=\"1\" noshade=\"noshade\"><p><b>type</b>
+        Exception report</p><p><b>message</b> <u>Request processing failed; nested
+        exception is java.lang.NumberFormatException: For input string: &quot;asdfasfs&quot;</u></p><p><b>description</b>
+        <u>The server encountered an internal error that prevented it from fulfilling
+        this request.</u></p><p><b>exception</b> <pre>org.springframework.web.util.NestedServletException:
+        Request processing failed; nested exception is java.lang.NumberFormatException:
+        For input string: &quot;asdfasfs&quot;\n\torg.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:583)\n\torg.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:501)\n\tjavax.servlet.http.HttpServlet.service(HttpServlet.java:621)\n\tjavax.servlet.http.HttpServlet.service(HttpServlet.java:722)\n</pre></p><p><b>root
+        cause</b> <pre>java.lang.NumberFormatException: For input string: &quot;asdfasfs&quot;\n\tjava.lang.NumberFormatException.forInputString(NumberFormatException.java:65)\n\tjava.lang.Integer.parseInt(Integer.java:481)\n\tjava.lang.Integer.parseInt(Integer.java:514)\n\tweb.LSIDMetaDataController.handleRequest(Unknown
+        Source)\n\torg.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:48)\n\torg.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:875)\n\torg.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:807)\n\torg.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:571)\n\torg.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:501)\n\tjavax.servlet.http.HttpServlet.service(HttpServlet.java:621)\n\tjavax.servlet.http.HttpServlet.service(HttpServlet.java:722)\n</pre></p><p><b>note</b>
+        <u>The full stack trace of the root cause is available in the Apache Tomcat/7.0.32
+        logs.</u></p><HR size=\"1\" noshade=\"noshade\"><h3>Apache Tomcat/7.0.32</h3></body></html>"
+  recorded_at: 2019-01-24 06:36:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0

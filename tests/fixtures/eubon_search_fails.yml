@@ -1,0 +1,86 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://cybertaxonomy.eu/eu-bon/utis/1.2/search?query=Salmo&providers=asdfdf&searchMode=scientificNameExact&addSynonymy=false&addParentTaxon=false&timeout=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '400'
+      message: Bad Request
+      explanation: Bad request syntax or unsupported method
+    headers:
+      status: 'HTTP/1.1 400 invalid value for request parameter ''providers'' given:
+        [pesi, eunis, bgbm-cdm-server, worms, plazi, gbif]'
+      date: Thu, 24 Jan 2019 01:30:36 GMT
+      server: Jetty(8.1.16.v20140903)
+      content-type: text/html;charset=ISO-8859-1
+      cache-control: must-revalidate,no-cache,no-store
+      content-length: '1579'
+      connection: close
+    body:
+      encoding: UTF-8
+      string: "<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html;
+        charset=ISO-8859-1\"/>\n<title>Error 400 invalid value for request parameter
+        'providers' given: [pesi, eunis, bgbm-cdm-server, worms, plazi, gbif]</title>\n</head>\n<body><h2>HTTP
+        ERROR 400</h2>\n<p>Problem accessing /eu-bon/utis/1.2/search. Reason:\n<pre>
+        \   invalid value for request parameter 'providers' given: [pesi, eunis, bgbm-cdm-server,
+        worms, plazi, gbif]</pre></p><hr /><i><small>Powered by Jetty://</small></i><br/>
+        \                                               \n<br/>                                                \n<br/>
+        \                                               \n<br/>                                                \n<br/>
+        \                                               \n<br/>                                                \n<br/>
+        \                                               \n<br/>                                                \n<br/>
+        \                                               \n<br/>                                                \n<br/>
+        \                                               \n<br/>                                                \n<br/>
+        \                                               \n<br/>                                                \n<br/>
+        \                                               \n<br/>                                                \n<br/>
+        \                                               \n<br/>                                                \n<br/>
+        \                                               \n<br/>                                                \n\n</body>\n</html>\n"
+  recorded_at: 2019-01-24 01:30:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: https://cybertaxonomy.eu/eu-bon/utis/1.2/search?query=Salmo&providers=pesi&searchMode=adfdf&addSynonymy=false&addParentTaxon=false&timeout=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '400'
+      message: Bad Request
+      explanation: Bad request syntax or unsupported method
+    headers:
+      status: HTTP/1.1 400 Bad Request
+      date: Thu, 24 Jan 2019 01:30:38 GMT
+      server: Jetty(8.1.16.v20140903)
+      content-type: text/html;charset=ISO-8859-1
+      cache-control: must-revalidate,no-cache,no-store
+      content-length: '1391'
+      connection: close
+    body:
+      encoding: UTF-8
+      string: "<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html;
+        charset=ISO-8859-1\"/>\n<title>Error 400 Bad Request</title>\n</head>\n<body><h2>HTTP
+        ERROR 400</h2>\n<p>Problem accessing /eu-bon/utis/1.2/search. Reason:\n<pre>
+        \   Bad Request</pre></p><hr /><i><small>Powered by Jetty://</small></i><br/>
+        \                                               \n<br/>                                                \n<br/>
+        \                                               \n<br/>                                                \n<br/>
+        \                                               \n<br/>                                                \n<br/>
+        \                                               \n<br/>                                                \n<br/>
+        \                                               \n<br/>                                                \n<br/>
+        \                                               \n<br/>                                                \n<br/>
+        \                                               \n<br/>                                                \n<br/>
+        \                                               \n<br/>                                                \n<br/>
+        \                                               \n<br/>                                                \n<br/>
+        \                                               \n<br/>                                                \n\n</body>\n</html>\n"
+  recorded_at: 2019-01-24 01:30:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0

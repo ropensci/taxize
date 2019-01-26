@@ -1,9 +1,9 @@
 context("tp_synonyms")
 
 test_that("tp_synonyms returns the correct value", {
-  skip_on_cran()
-
-  dat <- suppressMessages(tp_synonyms(id = 25509881))
+  vcr::use_cassette("tp_synonyms", {
+    dat <- suppressMessages(tp_synonyms(id = 25509881))
+  })
 
   expect_match(names(dat)[[1]], "accepted")
 

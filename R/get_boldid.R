@@ -13,7 +13,7 @@
 #' input. If FALSE NA is returned for multiple matches.
 #' @param verbose logical; should progress be printed?
 #' @param x Input to \code{\link{as.boldid}}
-#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' @param ... Curl options passed on to \code{\link[crul]{verb-GET}}
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, all rows are
 #' considered. Note that this function still only gives back a boldid class object with one
 #' to many identifiers. See \code{\link[taxize]{get_boldid_}} to get back all, or a subset,

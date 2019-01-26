@@ -2,7 +2,7 @@
 #'
 #' @export
 #' @param x (character) A vector of common or scientific names
-#' @param verbose logical; should progress be printed?
+#' @param messages logical; should progress be printed?
 #' @param key (character) required. you IUCN Redlist API key. See
 #' \code{\link[rredlist]{rredlist-package}} for help on authenticating with
 #' IUCN Redlist
@@ -50,14 +50,14 @@
 #' data.frame(res)
 #' as.iucn(data.frame(res))
 #' }
-get_iucn <- function(x, verbose = TRUE, key = NULL, ...) {
+get_iucn <- function(x, messages = TRUE, key = NULL, ...) {
 
   assert(x, "character")
-  assert(verbose, "logical")
+  assert(messages, "logical")
 
-  fun <- function(x, verbose, key, ...) {
+  fun <- function(x, messages, key, ...) {
     direct <- FALSE
-    mssg(verbose, "\nRetrieving data for taxon '", x, "'\n")
+    mssg(messages, "\nRetrieving data for taxon '", x, "'\n")
     df <- rredlist::rl_search(x, key = key, ...)
 
     if (!inherits(df$result, "data.frame") || NROW(df$result) == 0) {
@@ -69,7 +69,7 @@ get_iucn <- function(x, verbose = TRUE, key = NULL, ...) {
 
       # should return NA if species not found
       if (NROW(df) == 0) {
-        mssg(verbose, tx_msg_not_found)
+        mssg(messages, tx_msg_not_found)
         id <- NA_character_
         att <- 'not found'
       }
@@ -95,12 +95,12 @@ get_iucn <- function(x, verbose = TRUE, key = NULL, ...) {
       att = att,
       stringsAsFactors = FALSE)
   }
-  outd <- ldply(x, fun, verbose = verbose, key = key, ...)
+  outd <- ldply(x, fun, messages = messages, key = key, ...)
   out <- outd$id
   attr(out, 'match') <- outd$att
   attr(out, 'name') <- outd$name
   if ( !all(is.na(out)) ) {
-    attr(out, 'uri') <- sprintf("http://www.iucnredlist.org/details/%s/0", out)
+    attr(out, 'uri') <- sprintf(iucn_base_url, out)
   }
   class(out) <- "iucn"
   return(out)
@@ -161,15 +161,17 @@ as.data.frame.iucn <- function(x, ...){
 }
 
 make_iucn <- function(x, check = TRUE, key = NULL) {
-  url <- 'http://www.iucnredlist.org/details/%s/0'
-  make_iucn_generic(x, uu = url, clz = "iucn", check, key)
+  make_iucn_generic(x, uu = iucn_base_url, clz = "iucn", check, key)
 }
 
 check_iucn <- function(x) {
-  tt <- httr::GET(sprintf("http://www.iucnredlist.org/details/%s/0", x))
+  cli <- crul::HttpClient$new(sprintf(iucn_base_url, x))
+  tt <- cli$get()
   tt$status_code == 200
 }
 
 check_iucn_getname <- function(x, key = NULL) {
   rredlist::rl_search(id = as.numeric(x), key = key)
 }
+
+iucn_base_url <- "https://www.iucnredlist.org/details/%s/0"

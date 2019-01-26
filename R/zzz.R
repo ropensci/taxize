@@ -1,5 +1,3 @@
-con_utf8 <- function(x) content(x, "text", encoding = "UTF-8")
-
 mssg <- function(v, ...) if (v) message(...)
 tc <- function(l) Filter(Negate(is.null), l)
 tcnull <- function(x) if (all(sapply(x, is.null))) NULL else x
@@ -178,16 +176,16 @@ pop <- function(x, nms) {
 
 assert <- function(x, y) {
   if (!is.null(x)) {
-    if (!class(x) %in% y) {
+    if (!inherits(x, y)) {
       stop(deparse(substitute(x)), " must be of class ",
            paste0(y, collapse = ", "), call. = FALSE)
     }
   }
 }
 
-dt2df <- function(x) {
+dt2df <- function(x, idcol = TRUE) {
   (data.table::setDF(
-    data.table::rbindlist(x, use.names = TRUE, fill = TRUE, idcol = TRUE)))
+    data.table::rbindlist(x, use.names = TRUE, fill = TRUE, idcol = idcol)))
 }
 
 dt2tibble <- function(x) {

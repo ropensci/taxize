@@ -7,7 +7,7 @@
 #' @param id (character) NCBI taxonomy uids to retrieve information for. 
 #' See Details.
 #' @param key (character) NCBI Entrez API key. optional. See Details.
-#' @param ... Curl options passed on to \code{\link[crul]{HttpClient}}
+#' @param ... Curl options passed on to \code{\link[crul]{verb-GET}}
 #' @return A \code{data.frame} with the following columns:
 #'   \describe{
 #'     \item{uid}{The uid queried for}

@@ -1,0 +1,102 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Branta%20canadensis?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:35:29 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '733'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"Branta canadensis","result":[{"taxonid":22679935,"scientific_name":"Branta
+        canadensis","kingdom":"ANIMALIA","phylum":"CHORDATA","class":"AVES","order":"ANSERIFORMES","family":"ANATIDAE","genus":"Branta","main_common_name":"Canada
+        Goose","authority":"(Linnaeus, 1758)","published_year":2018,"assessment_date":"2018-08-09","category":"LC","criteria":null,"population_trend":"Increasing","marine_system":false,"freshwater_system":true,"terrestrial_system":true,"assessor":"BirdLife
+        International","reviewer":"Wheatley, H.","aoo_km2":null,"eoo_km2":"12800000","elevation_upper":2000,"elevation_lower":null,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":null,"amended_reason":null}]}'
+  recorded_at: 2019-01-24 22:35:32 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Panthera%20uncia?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:35:31 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '867'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"Panthera uncia","result":[{"taxonid":22732,"scientific_name":"Panthera
+        uncia","kingdom":"ANIMALIA","phylum":"CHORDATA","class":"MAMMALIA","order":"CARNIVORA","family":"FELIDAE","genus":"Panthera","main_common_name":"Snow
+        Leopard","authority":"(Schreber, 1775)","published_year":2017,"assessment_date":"2016-11-08","category":"VU","criteria":"C1","population_trend":"Decreasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"McCarthy,
+        T., Mallon, D., Jackson, R., Zahler, P. & McCarthy, K.","reviewer":"Böhm,
+        M., Breitenmoser, U., Breitenmoser-Würsten, C., Harris, R., Hunter, L., Lanz,
+        T., Nowell, K. & Rosen, T.","aoo_km2":null,"eoo_km2":"6786272","elevation_upper":5800,"elevation_lower":500,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":null,"amended_reason":null}]}'
+  recorded_at: 2019-01-24 22:35:32 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Lynx%20lynx?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:35:32 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '950'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"Lynx lynx","result":[{"taxonid":12519,"scientific_name":"Lynx
+        lynx","kingdom":"ANIMALIA","phylum":"CHORDATA","class":"MAMMALIA","order":"CARNIVORA","family":"FELIDAE","genus":"Lynx","main_common_name":"Eurasian
+        Lynx","authority":"(Linnaeus, 1758)","published_year":2015,"assessment_date":"2014-04-20","category":"LC","criteria":null,"population_trend":"Stable","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"Breitenmoser,
+        U., Breitenmoser-Würsten, C., Lanz, T., von Arx, M., Antonevich, A., Bao,
+        W. & Avgan, B.","reviewer":"Nowell, K., Hunter, L. & Mallon, D.","aoo_km2":null,"eoo_km2":"42765298","elevation_upper":5500,"elevation_lower":0,"depth_upper":null,"depth_lower":null,"errata_flag":true,"errata_reason":"An
+        errata version of the original assessment has been published to correct the
+        typo \"Mmountain Hares\" which should read \"Mountain Hares\".","amended_flag":null,"amended_reason":null}]}'
+  recorded_at: 2019-01-24 22:35:32 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0

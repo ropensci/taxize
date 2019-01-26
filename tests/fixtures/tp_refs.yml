@@ -1,0 +1,633 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://services.tropicos.org/Name/25509881/References?apikey=<<tropicos_api_token>>&format=json
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+      X-User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      cache-control: private
+      content-length: '63401'
+      content-type: application/json; charset=utf-8
+      server: Microsoft-IIS/7.5
+      x-aspnet-version: 4.0.30319
+      x-powered-by: ASP.NET
+      date: Sat, 26 Jan 2019 00:05:18 GMT
+    body:
+      encoding: UTF-8
+      string: '[{"Reference":{"ReferenceId":61,"PublicationId":10843,"Collation":"1–848","AbbreviatedTitle":"Fl.
+        Pl. Jamaica","TitlePageYear":"1972","FullCitation":"Adams, C. D. 1972. Fl.
+        Pl. Jamaica 1–848. University of the West Indies, Mona. "},"AcceptedBy":true},{"Reference":{"ReferenceId":458,"PublicationId":14517,"Collation":"396
+        pp.","AbbreviatedTitle":"Fl. Tierra del Fuego","TitlePageYear":"1983","FullCitation":"Moore,
+        D. M. 1983. Fl. Tierra del Fuego 396 pp. A. Nelson; Missouri Botanical Garden,
+        Oswestry; St. Louis. "},"AcceptedBy":true},{"Reference":{"ReferenceId":513,"PublicationId":3143,"ArticleTitle":"Flora
+        de Chiapas","Collation":"4: i–v, 1–246","AbbreviatedTitle":"Listados Floríst.
+        México","TitlePageYear":"1986","FullCitation":"Breedlove, D.E. 1986. Flora
+        de Chiapas. Listados Floríst. México 4: i–v, 1–246. "},"AcceptedBy":true},{"Reference":{"ReferenceId":636,"PublicationId":8076,"Collation":"i–lxi,
+        1–1183","AbbreviatedTitle":"Man. Vasc. Fl. Carolinas","TitlePageYear":"1968","FullCitation":"Radford,
+        A. E., H. E. Ahles & C. R. Bell. 1968. Man. Vasc. Fl. Carolinas i–lxi, 1–1183.
+        University of North Carolina Press, Chapel Hill. "},"AcceptedBy":true},{"Reference":{"ReferenceId":637,"PublicationId":8069,"Collation":"i–vii,
+        1–1392","AbbreviatedTitle":"Fl. Great Plains","TitlePageYear":"1986","FullCitation":"Great
+        Plains Flora Association. 1986. Fl. Great Plains i–vii, 1–1392. University
+        Press of Kansas, Lawrence. "},"AcceptedBy":true},{"Reference":{"ReferenceId":866,"PublicationId":890,"ArticleTitle":"Enumeración
+        de las plantas de Honduras","Collation":"19(1): 1–118","AbbreviatedTitle":"Ceiba","TitlePageYear":"1975","FullCitation":"Molina
+        Rosito, A. 1975. Enumeración de las plantas de Honduras. Ceiba 19(1): 1–118.
+        "},"AcceptedBy":true},{"Reference":{"ReferenceId":1313,"PublicationId":896,"ArticleTitle":"A
+        catalogue of the ferns and flowering plants of Bolivia","Collation":"184:
+        1–223","AbbreviatedTitle":"Contr. Gray Herb.","TitlePageYear":"1958","FullCitation":"Foster,
+        R. C. 1958. A catalogue of the ferns and flowering plants of Bolivia. Contr.
+        Gray Herb. 184: 1–223. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1327,"PublicationId":7319,"Collation":"i–lxiv,
+        1–1632","AbbreviatedTitle":"Manual (ed. 8)","TitlePageYear":"1950","FullCitation":"Fernald,
+        M. 1950. Manual (ed. 8) i–lxiv, 1–1632. American Book Co., New York. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1460,"PublicationId":3744,"ArticleTitle":"Vascular
+        Cryptogams, Gymnosperms, and Monocotyledons","Collation":"1: 1–914","AbbreviatedTitle":"Vasc.
+        Pl. Pacif. N.W.","TitlePageYear":"1969","FullCitation":"Hitchcock, C. H.,
+        A. J. Cronquist, F. M. Ownbey & J. W. Thompson. 1969. Vascular Cryptogams,
+        Gymnosperms, and Monocotyledons. 1: 1–914. In C. L. Hitchcock Vasc. Pl. Pacif.
+        N.W. University of Washington Press, Seattle. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1476,"PublicationId":975,"ArticleTitle":"Ferns
+        to Birthworts","Collation":"1: 1–557","AbbreviatedTitle":"Ill. Fl. Pacific
+        States","TitlePageYear":"1923","FullCitation":"Abrams, L. 1923. Ferns to Birthworts.
+        1: 1–557. In L.R. Abrams (ed.) Ill. Fl. Pacific States. Stanford University
+        Press, Stanford. "},"AcceptedBy":true,"Annotation":""},{"Reference":{"ReferenceId":1479,"PublicationId":9742,"Collation":"i–xvi,
+        1–724","AbbreviatedTitle":"Anderson''s Fl. Alaska Adj. Parts Canada","TitlePageYear":"1974","FullCitation":"Welsh,
+        S. L. 1974. Anderson''s Fl. Alaska Adj. Parts Canada i–xvi, 1–724. Brigham
+        Young University Press, Provo. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1480,"PublicationId":7154,"Collation":"i–xxi,
+        1–1008","AbbreviatedTitle":"Fl. Alaska","TitlePageYear":"1968","FullCitation":"Hultén,
+        E. 1968. Fl. Alaska i–xxi, 1–1008. Stanford University Press, Stanford. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1482,"PublicationId":3900,"ArticleTitle":"Pteridophyta,
+        Gymnospermae, Monocotyledoneae","Collation":"2: 93–545","AbbreviatedTitle":"Fl.
+        Canada","TitlePageYear":"1978","YearPublished":"1979","FullCitation":"Scoggan,
+        H. J. 1978 [1979]. Pteridophyta, Gymnospermae, Monocotyledoneae. 2: 93–545.
+        In Fl. Canada. National Museums of Canada, Ottawa. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1483,"PublicationId":8072,"Collation":"i–xii,
+        1–687","AbbreviatedTitle":"Fl. Alberta (ed. 2)","TitlePageYear":"1983","FullCitation":"Moss,
+        E. H. 1983. Fl. Alberta (ed. 2) i–xii, 1–687. University of Toronto Press,
+        Toronto. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1493,"PublicationId":9634,"Collation":"i–xv,
+        1–1881","AbbreviatedTitle":"Man. Vasc. Pl. Texas","TitlePageYear":"1970","FullCitation":"Correll,
+        D. S. & M. C. Johnston. 1970. Man. Vasc. Pl. Texas i–xv, 1–1881. The University
+        of Texas at Dallas, Richardson. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1494,"PublicationId":2925,"ArticleTitle":"Gymnosperms
+        and Monocots","Collation":"i–xv, 1–488","AbbreviatedTitle":"Michigan Fl.","TitlePageYear":"1972","FullCitation":"Voss,
+        E. G. 1972. Gymnosperms and Monocots. i–xv, 1–488. In Michigan Fl. Cranbrook
+        Institute of Science, Bloomfield Hills, Michigan. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1495,"PublicationId":1579,"ArticleTitle":"The
+        Pteridophytoa, Gymnospermae and Monocotyledoneae","Collation":"1: 1–482","AbbreviatedTitle":"Ill.
+        Fl. N. U.S.","TitlePageYear":"1968","FullCitation":"Gleason, H. A. & A. J.
+        Cronquist. 1968. The Pteridophytoa, Gymnospermae and Monocotyledoneae. 1:
+        1–482. In H. A. Gleason Ill. Fl. N. U.S. New York Botanical Garden, New York.
+        "},"AcceptedBy":true},{"Reference":{"ReferenceId":1507,"PublicationId":8063,"Collation":"312
+        pp","AbbreviatedTitle":"Fl. Greenland (ed. 2)","TitlePageYear":"1968","FullCitation":"Böcher,
+        T. W., K. Holmen & K. Jacobsen. 1968. Fl. Greenland (ed. 2) 312 pp. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1515,"PublicationId":1259,"Collation":"i–xxii,
+        1–1554","AbbreviatedTitle":"Man. S.E. Fl.","TitlePageYear":"1933","FullCitation":"Small,
+        J. K. 1933. Man. S.E. Fl. i–xxii, 1–1554. Published by the Author, New York.
+        "},"AcceptedBy":true},{"Reference":{"ReferenceId":1592,"PublicationId":2241,"ArticleTitle":"Catálogo
+        de la Flora Vascular de Chile","Collation":"42: 1–157","AbbreviatedTitle":"Gayana,
+        Bot.","TitlePageYear":"1985","FullCitation":"Marticorena, C. & M. Quezada.
+        1985. Catálogo de la Flora Vascular de Chile. Gayana, Bot. 42: 1–157. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1710,"PublicationId":8070,"Collation":"1–712","AbbreviatedTitle":"Aquatic
+        Wetland Pl. S.E. U.S. Monocot.","TitlePageYear":"1979","FullCitation":"Godfrey,
+        R. K. & J. W. Wooten. 1979. Aquatic Wetland Pl. S.E. U.S. Monocot. 1–712.
+        The University of Georgia Press, Athens. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1717,"PublicationId":9739,"Collation":"1–1681","AbbreviatedTitle":"Cal.
+        Fl.","TitlePageYear":"1959","FullCitation":"Munz, P. A. & D. D. Keck. 1959.
+        Cal. Fl. 1–1681. University of California Press, Berkeley. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1719,"PublicationId":7874,"Collation":"1–1086","AbbreviatedTitle":"Fl.
+        S. Calif.","TitlePageYear":"1974","FullCitation":"Munz, P. A. 1974. Fl. S.
+        Calif. 1–1086. University of California Press, Berkeley. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1725,"PublicationId":3267,"ArticleTitle":"Vascular
+        Plants of the Intermountain West, U.S.A.","Collation":"6: 1–584","AbbreviatedTitle":"Intermount.
+        Fl.","TitlePageYear":"1977","FullCitation":"Cronquist, A. J., A. H. Holmgren,
+        N. H. Holmgren &  Reveal. 1977. Vascular Plants of the Intermountain West,
+        U.S.A. 6: 1–584. In A. J. Cronquist, A. H. Holmgren, N. H. Holmgren, J. L.
+        Reveal & P. K. Holmgren (eds.) Intermount. Fl. Hafner Pub. Co., New York.
+        "},"AcceptedBy":true},{"Reference":{"ReferenceId":2538,"PublicationId":1034,"ArticleTitle":"Noteworthy
+        grasses from Mexico V","Collation":"37(4): 317–407","AbbreviatedTitle":"Phytologia","TitlePageYear":"1977","FullCitation":"Beetle,
+        A.A. 1977. Noteworthy grasses from Mexico V. Phytologia 37(4): 317–407. "},"AcceptedBy":true},{"Reference":{"ReferenceId":4737,"PublicationId":626,"ArticleTitle":"Bamboos.
+        ~In~: J. R. Swallen, (ed.), Flora of Guatemala","Collation":"24(2): 38–331","AbbreviatedTitle":"Fieldiana,
+        Bot.","TitlePageYear":"1955","FullCitation":"McClure, F. A. 1955. Bamboos.
+        In: J. R. Swallen, (ed.), Flora of Guatemala. Fieldiana, Bot. 24(2): 38–331.
+        "},"AcceptedBy":true},{"Reference":{"ReferenceId":5421,"PublicationId":2142,"ArticleTitle":"Family
+        15. Gramineae. ~In:~ W. C. Burger, (ed.), Flora Costaricensis","Collation":"4:
+        1–608","AbbreviatedTitle":"Fieldiana, Bot., n.s.","TitlePageYear":"1980","FullCitation":"Pohl,
+        R. W. 1980. Family 15. Gramineae. In: W. C. Burger, (ed.), Flora Costaricensis.
+        Fieldiana, Bot., n.s. 4: 1–608. "},"AcceptedBy":true},{"Reference":{"ReferenceId":7728,"PublicationId":1340,"ArticleTitle":"Catalogue
+        of the flowering plants and gymnosperms of Peru","Collation":"45: i–xl, 1–1286","AbbreviatedTitle":"Monogr.
+        Syst. Bot. Missouri Bot. Gard.","TitlePageYear":"1993","FullCitation":"Brako,
+        L. & J. L. Zarucchi. (eds.) 1993. Catalogue of the flowering plants and gymnosperms
+        of Peru. Monogr. Syst. Bot. Missouri Bot. Gard. 45: i–xl, 1–1286. "},"AcceptedBy":true},{"Reference":{"ReferenceId":8200,"PublicationId":18569,"ArticleTitle":"Alismataceae
+        a Cyperaceae","Collation":"6: i–xvi, 1–543","AbbreviatedTitle":"Fl. Mesoamer.","TitlePageYear":"1994","FullCitation":"Davidse,
+        G., M. Sousa Sánchez & A.O. Chater. 1994. Alismataceae a Cyperaceae. 6: i–xvi,
+        1–543. In G. Davidse, M. Sousa Sánchez & A.O. Chater (eds.) Fl. Mesoamer.
+        Universidad Nacional Autónoma de México, México, D. F. "},"AcceptedBy":true},{"Reference":{"ReferenceId":8885,"PublicationId":2182,"ArticleTitle":"Gramineae
+        (Part 1)","Collation":"1–176","AbbreviatedTitle":"Fl. Trop. E. Africa","TitlePageYear":"1970","FullCitation":"Clayton,
+        W. D. 1970. Gramineae (Part 1). 1–176. In W. B. Turrill & R. M. Polhill (ed.)
+        Fl. Trop. E. Africa. A. A. Balkema, Rotterdam. "},"AcceptedBy":true},{"Reference":{"ReferenceId":9853,"PublicationId":4415,"ArticleTitle":"Gramineae","Collation":"14:
+        1–436","AbbreviatedTitle":"Fl. Novo-Galiciana","TitlePageYear":"1983","FullCitation":"McVaugh,
+        R. 1983. Gramineae. 14: 1–436. In R. McVaugh (ed.) Fl. Novo-Galiciana. The
+        University of Michigan, Ann Arbor. "},"AcceptedBy":true},{"Reference":{"ReferenceId":10010,"PublicationId":7616,"ArticleTitle":"Revisión
+        de las especies peruanas del género ~Poa~","Collation":"15: 1–65","AbbreviatedTitle":"Mem.
+        Mus. Hist. Nat. \"Javier Prado\"","TitlePageYear":"1965","FullCitation":"Tovar,
+        Ó. 1965. Revisión de las especies peruanas del género Poa. Mem. Mus. Hist.
+        Nat. \"Javier Prado\" 15: 1–65. "},"AcceptedBy":true},{"Reference":{"ReferenceId":10152,"PublicationId":5585,"ArticleTitle":"Gramineae","Collation":"2:
+        1–274","AbbreviatedTitle":"Arktic. Fl. SSSR","TitlePageYear":"1964","FullCitation":"Tolmatchev,
+        A. I. 1964. Gramineae. 2: 1–274. In A. I. Tolmatchew Arktic. Fl. SSSR. "},"AcceptedBy":true},{"Reference":{"ReferenceId":11223,"PublicationId":681,"ArticleTitle":"A
+        contribution to the taxonomy of ~Poa nipponica~ and related species (Poaceae)","Collation":"63:
+        334–343","AbbreviatedTitle":"J. Jap. Bot.","TitlePageYear":"1988","FullCitation":"Koba,
+        H. 1988. A contribution to the taxonomy of Poa nipponica and related species
+        (Poaceae). J. Jap. Bot. 63: 334–343. "},"AcceptedBy":true},{"Reference":{"ReferenceId":11232,"PublicationId":27,"ArticleTitle":"The
+        grasses of Baja California, Mexico","Collation":"12: 1–140","AbbreviatedTitle":"Mem.
+        San Diego Soc. Nat. Hist.","TitlePageYear":"1981","FullCitation":"Gould, F.
+        W. & R. Moran. 1981. The grasses of Baja California, Mexico. Mem. San Diego
+        Soc. Nat. Hist. 12: 1–140. "},"AcceptedBy":true},{"Reference":{"ReferenceId":11289,"PublicationId":2185,"ArticleTitle":"Gramineae","Collation":"8(3):
+        1–583","AbbreviatedTitle":"Fl. Patagónica","TitlePageYear":"1978","FullCitation":"Nicora,
+        E. G., M. E. D. Paula, A. M. Faggi, M. d. Mariano, A. M. M. A., L. R. Parodi,
+        C. A. Petetin, F. A. Roig & Z. R. Agrasar. 1978. Gramineae. 8(3): 1–583. In
+        M.N. Correa (ed.) Fl. Patagónica. Instituto Nacional de Tecnología Agropecuaria,
+        Buenos Aires. "},"AcceptedBy":true},{"Reference":{"ReferenceId":15758,"PublicationId":7936,"Collation":"1–1051","AbbreviatedTitle":"Man.
+        Grasses U.S. (ed. 2)","TitlePageYear":"1951","FullCitation":"Hitchcock, A.
+        S. 1951. Man. Grasses U.S. (ed. 2) 1–1051. U.S. Department of Agriculture,
+        Washington, D.C. "},"AcceptedBy":true},{"Reference":{"ReferenceId":16241,"PublicationId":605,"ArticleTitle":"The
+        grasses of Ecuador, Peru, and Bolivia","Collation":"24(8): 291–556","AbbreviatedTitle":"Contr.
+        U.S. Natl. Herb.","TitlePageYear":"1927","FullCitation":"Hitchcock, A. S.
+        1927. The grasses of Ecuador, Peru, and Bolivia. Contr. U.S. Natl. Herb. 24(8):
+        291–556. "},"AcceptedBy":true},{"Reference":{"ReferenceId":18294,"PublicationId":14602,"Collation":"1–76","AbbreviatedTitle":"Hatschbach''s
+        Paraná Grass.","TitlePageYear":"1988","FullCitation":"Renvoize, S. A. 1988.
+        Hatschbach''s Paraná Grass. 1–76. Royal Botanic Gardens, Kew. "},"AcceptedBy":true},{"Reference":{"ReferenceId":19689,"PublicationId":12384,"Collation":"[i–vii],
+        1–489","AbbreviatedTitle":"Gram. Urug.","TitlePageYear":"1970","FullCitation":"Rosengurtt,
+        B., B. R. A. Maffei & P. I. Artucio. 1970. Gram. Urug. [i–vii], 1–489. Universidad
+        de la República, Montevideo. "},"AcceptedBy":true},{"Reference":{"ReferenceId":19728,"PublicationId":14350,"Collation":"1–342","AbbreviatedTitle":"Fl.
+        Puerto Rico Adj. Islands","TitlePageYear":"1982","FullCitation":"Liogier,
+        H. & L. Martorell. 1982. Fl. Puerto Rico Adj. Islands 1–342. Editorial de
+        la Universidad de Puerto Rico, Río Piedras. "},"AcceptedBy":true},{"Reference":{"ReferenceId":19863,"PublicationId":2165,"ArticleTitle":"Gramíneas","Collation":"2:
+        1–551","AbbreviatedTitle":"Fl. Il. Entre Ríos","TitlePageYear":"1969","FullCitation":"Burkart,
+        A. E. 1969. Gramíneas. 2: 1–551. In A. E. Burkart (ed.) Fl. Il. Entre Ríos.
+        Instituto Nacional de Tecnología Agropecuaria, Buenos Aires. "},"AcceptedBy":true},{"Reference":{"ReferenceId":20405,"PublicationId":11604,"Collation":"1–439","AbbreviatedTitle":"Man.
+        Grasses W. Ind.","TitlePageYear":"1936","FullCitation":"Hitchcock, A. S. 1936.
+        Man. Grasses W. Ind. 1–439. United States Government Printing Office, Washington.
+        "},"AcceptedBy":true},{"Reference":{"ReferenceId":20504,"PublicationId":1963,"ArticleTitle":"~Leersia~.
+        ~In~: A. L. Cabrera (ed.), Gramíneas","Collation":"4(2): 39","AbbreviatedTitle":"Fl.
+        Prov. Buenos Aires","TitlePageYear":"1970","FullCitation":"Torres, M. A. 1970.
+        Leersia. In: A. L. Cabrera (ed.), Gramíneas. 4(2): 39. In A. L. Cabrera (ed.)
+        Fl. Prov. Buenos Aires. Instituto Nacional de Tecnología Agropecuaria, Buenos
+        Aires. "},"AcceptedBy":true},{"Reference":{"ReferenceId":20674,"PublicationId":2164,"ArticleTitle":"Gramíneas.
+        Gêneros: 1. ~Bambusa~ até 44. ~Chloris~","Collation":"1(GRAM): 1–435","AbbreviatedTitle":"Fl.
+        Il. Catarin.","TitlePageYear":"1981","FullCitation":"Smith, L.B., D. C. Wasshausen
+        & R.M. Klein. 1981. Gramíneas. Gêneros: 1. Bambusa até 44. Chloris. 1(GRAM):
+        1–435. In P. R. Reitz (ed.) Fl. Il. Catarin. Herbário \"Barbosa Rodrigues\",
+        Itajaí, Brasil. "},"AcceptedBy":true},{"Reference":{"ReferenceId":20903,"PublicationId":3258,"ArticleTitle":"The
+        vascular flora of the Falkland Islands","Collation":"60: 1–202, 1–6 pls.","AbbreviatedTitle":"Brit.
+        Antarc. Surv. Sci. Rep.","TitlePageYear":"1968","FullCitation":"Moore, D.
+        M. 1968. The vascular flora of the Falkland Islands. Brit. Antarc. Surv. Sci.
+        Rep. 60: 1–202, 1–6 pls. "},"AcceptedBy":true},{"Reference":{"ReferenceId":21037,"PublicationId":1101,"Collation":"i–767","AbbreviatedTitle":"Grass.
+        Burma, Ceylon, India & Pakistan","TitlePageYear":"1960","FullCitation":"Bor,
+        N. L. 1960. Grass. Burma, Ceylon, India & Pakistan i–767. Pergamon Press,
+        Oxford. "},"AcceptedBy":true},{"Reference":{"ReferenceId":24594,"PublicationId":12129,"ArticleTitle":"A
+        floristic analysis of the Gramineae of Brazil''s Distrito Federal and a list
+        of the species occurring in the area","Collation":"48: 73–80","AbbreviatedTitle":"Edinburgh
+        J. Bot.","TitlePageYear":"1991","FullCitation":"Filgueiras, T. S. 1991. A
+        floristic analysis of the Gramineae of Brazil''s Distrito Federal and a list
+        of the species occurring in the area. Edinburgh J. Bot. 48: 73–80. "},"AcceptedBy":true},{"Reference":{"ReferenceId":25887,"PublicationId":629,"ArticleTitle":"Gramineae
+        II. Stipaceae, Agrostideae, Pappophoreae, Chlorideae, Avenaceae, Festucaceae","Collation":"2(3A):
+        1–160,","AbbreviatedTitle":"Fl. Bras.","TitlePageYear":"1878","FullCitation":"Döll,
+        J. C. 1878. Gramineae II. Stipaceae, Agrostideae, Pappophoreae, Chlorideae,
+        Avenaceae, Festucaceae. 2(3A): 1–160,. In C. F. P. von Martius (ed.) Fl. Bras.
+        F. Fleischer, Monachii & Lipsiae. "},"AcceptedBy":true},{"Reference":{"ReferenceId":25927,"PublicationId":2166,"ArticleTitle":"Gramineae","Collation":"70\/30:
+        1–573,","AbbreviatedTitle":"Fl. Iranica","TitlePageYear":"1970","FullCitation":"Bor,
+        N. L. 1970. Gramineae. Fl. Iranica 70\/30: 1–573,. "},"AcceptedBy":true},{"Reference":{"ReferenceId":27392,"PublicationId":2328,"ArticleTitle":"Gramíneas
+        da Estação Ecologica de Aracuri, Esmeralda, Rio Grande do Sul, Brasil","Collation":"38:
+        21–42","AbbreviatedTitle":"Iheringia, Bot.","TitlePageYear":"1988","FullCitation":"Longhi-Wagner,
+        H. M. & I. I. Boldrini. 1988. Gramíneas da Estação Ecologica de Aracuri, Esmeralda,
+        Rio Grande do Sul, Brasil. Iheringia, Bot. 38: 21–42. "},"AcceptedBy":true},{"Reference":{"ReferenceId":27394,"PublicationId":3854,"ArticleTitle":"Gramineae.
+        Tribo Poeae, in Fl. Ilust. Rio Grande do Sul","Collation":"41: 1–191","AbbreviatedTitle":"Bol.
+        Inst. Bioci. Univ. Fed. Rio Grande do Sul","TitlePageYear":"1987","FullCitation":"Longhi-Wagner,
+        H. M. 1987. Gramineae. Tribo Poeae, in Fl. Ilust. Rio Grande do Sul. Bol.
+        Inst. Bioci. Univ. Fed. Rio Grande do Sul 41: 1–191. "},"AcceptedBy":true},{"Reference":{"ReferenceId":27423,"PublicationId":3087,"ArticleTitle":"Poa
+        studies 5. - The genus Poa (Gramineae) in Greece: Annotated check-list and
+        key to the species.","Collation":"15: 393–400","AbbreviatedTitle":"Willdenowia","TitlePageYear":"1986","FullCitation":"Scholz,
+        H. 1986. Poa studies 5. - The genus Poa (Gramineae) in Greece: Annotated check-list
+        and key to the species. Willdenowia 15: 393–400. "},"AcceptedBy":true},{"Reference":{"ReferenceId":31468,"PublicationId":963,"ArticleTitle":"~Poa~
+        in New Mexico, with a key to middle and southern Rocky Mountain species (Poaceae)","Collation":"45:
+        395–422","AbbreviatedTitle":"Great Basin Naturalist","TitlePageYear":"1985","FullCitation":"Soreng,
+        R. J. 1985. Poa in New Mexico, with a key to middle and southern Rocky Mountain
+        species (Poaceae). Great Basin Naturalist 45: 395–422. "},"AcceptedBy":true},{"Reference":{"ReferenceId":34024,"PublicationId":10097,"ArticleTitle":"Listado
+        básico de la Flora Salvadorensis. Monocotelydoneae: Iridaceae, Commelinaceae,
+        Gramineae, Cyperaceae","Collation":"1(6): 1–29","AbbreviatedTitle":"Cuscatlania","TitlePageYear":"1991","FullCitation":"Berendsohn,
+        W. G. & A. E. A. González. 1991. Listado básico de la Flora Salvadorensis.
+        Monocotelydoneae: Iridaceae, Commelinaceae, Gramineae, Cyperaceae. Cuscatlania
+        1(6): 1–29. "},"AcceptedBy":true},{"Reference":{"ReferenceId":36694,"PublicationId":1107,"ArticleTitle":"A
+        taxonomic study of the genus ~Poa~ L. in Australia","Collation":"4: 145–243","AbbreviatedTitle":"Contr.
+        New South Wales Natl. Herb.","TitlePageYear":"1970","FullCitation":"Vickery,
+        J. W. 1970. A taxonomic study of the genus Poa L. in Australia. Contr. New
+        South Wales Natl. Herb. 4: 145–243. "},"AcceptedBy":true},{"Reference":{"ReferenceId":36934,"PublicationId":717,"ArticleTitle":"Grasses
+        of Southern Africa","Collation":"58: i–ix,","AbbreviatedTitle":"Mem. Bot.
+        Surv. S. Africa","TitlePageYear":"1990","FullCitation":"Gibbs Russell, L.
+        W., M. Koekermoer, L. Smook, N. P. Barker, H. M. Anderson & M. J. Dallwitz.
+        1990. Grasses of Southern Africa. Mem. Bot. Surv. S. Africa 58: i–ix,. "},"AcceptedBy":true},{"Reference":{"ReferenceId":40417,"PublicationId":20165,"Collation":"i–910","AbbreviatedTitle":"Man.
+        Vasc. Pl. N.E. U.S. (ed. 2)","TitlePageYear":"1991","FullCitation":"Gleason,
+        H. A. & A. J. Cronquist. 1991. Man. Vasc. Pl. N.E. U.S. (ed. 2) i–910. New
+        York Botanical Garden, Bronx. "},"AcceptedBy":true},{"Reference":{"ReferenceId":40453,"PublicationId":18140,"Collation":"1–1400","AbbreviatedTitle":"The
+        Jepson Manual: Higher Plants of California","TitlePageYear":"1993","FullCitation":"Hickman,
+        J. C. 1993. The Jepson Manual: Higher Plants of California 1–1400. University
+        of California Press, Berkeley. "},"AcceptedBy":true},{"Reference":{"ReferenceId":42250,"PublicationId":1340,"ArticleTitle":"Catalogue
+        of the Vascular Plants of Ecuador","Collation":"75: i–viii, 1–1181","AbbreviatedTitle":"Monogr.
+        Syst. Bot. Missouri Bot. Gard.","TitlePageYear":"1999","FullCitation":"Jørgensen,
+        P. M. & S. León-Yánez. (eds.) 1999. Catalogue of the Vascular Plants of Ecuador.
+        Monogr. Syst. Bot. Missouri Bot. Gard. 75: i–viii, 1–1181. "},"AcceptedBy":true},{"Reference":{"ReferenceId":43109,"PublicationId":1340,"ArticleTitle":"Catálogo
+        de la familia Poaceae en la República Argentina","Collation":"47: 1–178","AbbreviatedTitle":"Monogr.
+        Syst. Bot. Missouri Bot. Gard.","TitlePageYear":"1994","FullCitation":"Zuloaga,
+        F. O., E. G. Nicora, Z. E. Rúgolo de Agrasar, O. Morrone, J. F. Pensiero &
+        A. M. Cialdella. 1994. Catálogo de la familia Poaceae en la República Argentina.
+        Monogr. Syst. Bot. Missouri Bot. Gard. 47: 1–178. "},"AcceptedBy":true},{"Reference":{"ReferenceId":44208,"PublicationId":18138,"Collation":"326
+        pp","AbbreviatedTitle":"Greenlands Flora","TitlePageYear":"1978","FullCitation":"Böcher,
+        T. W. 1978. Greenlands Flora 326 pp. "},"AcceptedBy":true},{"Reference":{"ReferenceId":46337,"PublicationId":100023941,"ArticleTitle":"~Poa~.","Collation":"48:
+        505–580","AbbreviatedTitle":"Catalogue of New World Grasses (Poaceae): IV.
+        Subfamily Pooideae, Contr. U.S. Natl. Herb.","TitlePageYear":"2003","FullCitation":"Soreng,
+        R. J., L. M. Giussani & M. A. Negritto. 2003. Poa. 48: 505–580. In R. J. Soreng,
+        P. M. Peterson, G. Davidse, E. J. Judziewicz, F. O. Zuloaga, T. S. Filgueiras
+        & O. Morrone (eds.) Catalogue of New World Grasses (Poaceae): IV. Subfamily
+        Pooideae, Contr. U.S. Natl. Herb. Smithsonian Institution, Washington, D.C.
+        "},"AcceptedBy":true},{"Reference":{"ReferenceId":47124,"PublicationId":10038,"ArticleTitle":"Seed
+        plants of the high Andes of Ecuador—A checklist","Collation":"34: 1–443","AbbreviatedTitle":"AAU
+        Rep.","TitlePageYear":"1994","FullCitation":"Jørgensen, P. M. & C. Ulloa Ulloa.
+        1994. Seed plants of the high Andes of Ecuador—A checklist. AAU Rep. 34: 1–443.
+        "},"AcceptedBy":true},{"Reference":{"ReferenceId":1000236,"PublicationId":2842,"ArticleTitle":"Las
+        Gramíneas (Poaceae) del Perú","Collation":"13: 1–480","AbbreviatedTitle":"Ruizia","TitlePageYear":"1993","FullCitation":"Tovar
+        Serpa, Ó. 1993. Las Gramíneas (Poaceae) del Perú. Ruizia 13: 1–480. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1000702,"PublicationId":2183,"ArticleTitle":"Poaceae","Collation":"143:
+        1–678","AbbreviatedTitle":"Fl. Pakistan","TitlePageYear":"1982","FullCitation":"Cope,
+        T. A. 1982. Poaceae. 143: 1–678. In E. Nasir & S. I. Ali Fl. Pakistan. Univ.
+        of Karachi, Karachi. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1000703,"PublicationId":3913,"ArticleTitle":"Grasses
+        of Malaya","Collation":"3: i–vi, 1–319, pl. 1–36","AbbreviatedTitle":"Revis.
+        Fl. Malaya","TitlePageYear":"1971","FullCitation":"Gilliland, H. B. 1971.
+        Grasses of Malaya. Revis. Fl. Malaya 3: i–vi, 1–319, pl. 1–36. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1000704,"PublicationId":2430,"ArticleTitle":"A
+        key to the grasses of the Arabian Peninsula. (Studies in the Flora of Arabia
+        XV)","Collation":"1: 1–82","AbbreviatedTitle":"Arab Gulf J. Sci. Res. Special
+        Publ.","TitlePageYear":"1985","FullCitation":"Cope, T. A. 1985. A key to the
+        grasses of the Arabian Peninsula. (Studies in the Flora of Arabia XV). Arab
+        Gulf J. Sci. Res. Special Publ. 1: 1–82. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1000705,"PublicationId":19198,"Collation":"1–186","AbbreviatedTitle":"Korean
+        Grass.","TitlePageYear":"1965","FullCitation":"Chung, I.C. 1965. Korean Grass.
+        1–186. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1000706,"PublicationId":3927,"ArticleTitle":"Gramineae","Collation":"9:
+        i–vi, 1–588","AbbreviatedTitle":"Fl. Iraq","TitlePageYear":"1968","FullCitation":"Bor,
+        N. L. 1968. Gramineae. 9: i–vi, 1–588. In C. C. Townsend, E. R. Guest & A.
+        Al-Rawi (eds.) Fl. Iraq. Republic of Iraq, Ministry of Agriculture, Baghdad.
+        "},"AcceptedBy":true},{"Reference":{"ReferenceId":1000707,"PublicationId":3350,"ArticleTitle":"Poa","Collation":"5:
+        159–1167","AbbreviatedTitle":"Fl. Eur.","TitlePageYear":"1980","FullCitation":"Edmondson,
+        J. R. 1980. Poa. 5: 159–1167. In T. G. Tutin, V. H. Heywood, N. A. Burges,
+        D. H. Valentine, S. M. Walters & D. A. Webb (eds.) Fl. Eur. Cambridge University
+        Press, Cambridge. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1000708,"PublicationId":19199,"ArticleTitle":"Grasses
+        of New South Wales","Collation":"3: 1–xi, 1–306","AbbreviatedTitle":"Univ.
+        New England Monogr.","TitlePageYear":"1982","FullCitation":"Wheeler, D. J.
+        B., S. W. L. Jacobs & B. E. Norton. 1982. Grasses of New South Wales. Univ.
+        New England Monogr. 3: 1–xi, 1–306. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1000709,"PublicationId":12917,"ArticleTitle":"Lycopodiaceae--Orchidaceae","Collation":"1:
+        1–466","AbbreviatedTitle":"Fl. S. Austral. (ed. 3)","TitlePageYear":"1978","FullCitation":"Jessop,
+        J. P. 1978. Lycopodiaceae--Orchidaceae. Fl. S. Austral. (ed. 3) 1: 1–466.
+        "},"AcceptedBy":true},{"Reference":{"ReferenceId":1000711,"PublicationId":19200,"Collation":"i–x,
+        1–300","AbbreviatedTitle":"Grass. Southeast Queensland","TitlePageYear":"1973","FullCitation":"TOTHILL,
+        J. C. & J. B. Hacker. 1973. Grass. Southeast Queensland i–x, 1–300. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1000712,"PublicationId":3275,"ArticleTitle":"202.
+        Gramineae","Collation":"3(2): 349–512","AbbreviatedTitle":"Fl. W. Trop. Afr.
+        (ed. 2)","TitlePageYear":"1972","FullCitation":"Clayton, W. D. 1972. 202.
+        Gramineae. 3(2): 349–512. In Fl. W. Trop. Afr. (ed. 2). Crown Agents for Oversea
+        Governments and Administrations, London. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1000713,"PublicationId":2191,"ArticleTitle":"Gramineae","Collation":"10(1):
+        1–152, i–v, 1 map","AbbreviatedTitle":"Fl. Zambes.","TitlePageYear":"1971","FullCitation":"Launert,
+        G. O. E. 1971. Gramineae. Fl. Zambes. 10(1): 1–152, i–v, 1 map. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1000714,"PublicationId":4504,"ArticleTitle":"Graminées
+        des pasturages et des cultures a Madagascar","Collation":"35: 1–440","AbbreviatedTitle":"Mém.
+        O.R.S.T.O.M.","TitlePageYear":"1969","FullCitation":"Bosser, J. 1969. Graminées
+        des pasturages et des cultures a Madagascar. Mém. O.R.S.T.O.M. 35: 1–440.
+        "},"AcceptedBy":true},{"Reference":{"ReferenceId":1000715,"PublicationId":19202,"ArticleTitle":"Grasses
+        of Ontario","Collation":"26: 1–566","AbbreviatedTitle":"Res. Branch, Agric.
+        Canada Monogr.","TitlePageYear":"1980","FullCitation":"Dore, W. G. & J. McNeill.
+        1980. Grasses of Ontario. Res. Branch, Agric. Canada Monogr. 26: 1–566. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1000717,"PublicationId":3267,"ArticleTitle":"Poaceae","Collation":"6:
+        175–464","AbbreviatedTitle":"Intermount. Fl.","TitlePageYear":"1977","FullCitation":"Holmgren,
+        A. H. & N. H. Holmgren. 1977. Poaceae. 6: 175–464. In A. J. Cronquist, A.
+        H. Holmgren, N. H. Holmgren, J. L. Reveal & P. K. Holmgren (eds.) Intermount.
+        Fl. Hafner Pub. Co., New York. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1000718,"PublicationId":17882,"ArticleTitle":"Tu
+        Smilacaceae..Cyperaceae..Poaceae..den Orchidaceae","Collation":"3(2): 603–1176,
+        + indices","AbbreviatedTitle":"Cayco Vietnam","TitlePageYear":"1993","FullCitation":"Ho,
+        P. H. 1993. Tu Smilacaceae..Cyperaceae..Poaceae..den Orchidaceae. Cayco Vietnam
+        3(2): 603–1176, + indices. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1000727,"PublicationId":15959,"Collation":"i–x,
+        1–570","AbbreviatedTitle":"Grass. Jap. Neighb. Reg.","TitlePageYear":"1987","FullCitation":"Koyama,
+        T. 1987. Grass. Jap. Neighb. Reg. i–x, 1–570. Kodansha, Tokyo. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1000815,"PublicationId":17423,"ArticleTitle":"138.
+        Poaceae Grass Family","Collation":"2: 1481–1604","AbbreviatedTitle":"Man.
+        Fl. Pl. Hawai''i","TitlePageYear":"1990","FullCitation":"O''Connor, P. J.
+        1990. 138. Poaceae Grass Family. 2: 1481–1604. In W. L. Wagner, D. R. Herbst
+        & S. H. Sohmer Man. Fl. Pl. Hawai''i. University of Hawaii Press; Bishop Museum
+        Press, Honolulu. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1001699,"PublicationId":11718,"ArticleTitle":"Poa
+        in G. W. Douglas, G. B. Straley, and D. Meidinger (eds.)","Collation":"129–138","AbbreviatedTitle":"Vasc.
+        Pl. Brit. Columbia","TitlePageYear":"1994","FullCitation":"Soreng, R. J. 1994.
+        Poa in G. W. Douglas, G. B. Straley, and D. Meidinger (eds.). 129–138. In
+        Vasc. Pl. Brit. Columbia. Research Branch, Ministry of Forests, Victoria.
+        "},"AcceptedBy":true},{"Reference":{"ReferenceId":1001918,"PublicationId":2614,"ArticleTitle":"~Poa~
+        L. in New Zealand","Collation":"24: 425–503","AbbreviatedTitle":"New Zealand
+        J. Bot.","TitlePageYear":"1986","FullCitation":"Edgar, E. 1986. Poa L. in
+        New Zealand. New Zealand J. Bot. 24: 425–503. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1001919,"PublicationId":16271,"Collation":"1–788","AbbreviatedTitle":"Zlaki
+        SSSR","TitlePageYear":"1976","FullCitation":"Tzvelev, N. N. 1976. Zlaki SSSR
+        1–788. Nauka Publishers, Leningrad Section, Leningrad. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1001996,"PublicationId":3563,"ArticleTitle":"A
+        revision of the genus ~Poa~ L. (Gramineae) in the Himalaya","Collation":"34:
+        169–249","AbbreviatedTitle":"Bull. Univ. Mus. Univ. Tokyo","TitlePageYear":"1991","FullCitation":"Rajbhandari,
+        K. R. 1991. A revision of the genus Poa L. (Gramineae) in the Himalaya. Bull.
+        Univ. Mus. Univ. Tokyo 34: 169–249. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1001997,"PublicationId":677,"ArticleTitle":"The
+        genus ~Poa~ Linn. in India. Part I","Collation":"50(4): 1–838","AbbreviatedTitle":"J.
+        Bombay Nat. Hist. Soc.","TitlePageYear":"1952","FullCitation":"Bor, N. L.
+        1952. The genus Poa Linn. in India. Part I. J. Bombay Nat. Hist. Soc. 50(4):
+        1–838. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1002421,"PublicationId":1340,"ArticleTitle":"Catálogo
+        de las plantas vasculares de la república Argentina","Collation":"74(1–2):
+        1–1331","AbbreviatedTitle":"Monogr. Syst. Bot. Missouri Bot. Gard.","TitlePageYear":"1997","FullCitation":"Zuloaga,
+        F. O. & O. Morrone. 1997. Catálogo de las plantas vasculares de la república
+        Argentina. Monogr. Syst. Bot. Missouri Bot. Gard. 74(1–2): 1–1331. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1003101,"PublicationId":18569,"ArticleTitle":"34.
+        ~Poa~ L","Collation":"6: 230–231","AbbreviatedTitle":"Fl. Mesoamer.","TitlePageYear":"1994","FullCitation":"Pohl,
+        R. W. & G. Davidse. 1994. 34. Poa L. 6: 230–231. In G. Davidse, M. Sousa Sánchez
+        & A.O. Chater (eds.) Fl. Mesoamer. Universidad Nacional Autónoma de México,
+        México, D. F. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1003306,"PublicationId":19836,"ArticleTitle":"Slaegten
+        ~Poa~ L. i Ecuador","Collation":"1–26,","AbbreviatedTitle":"Slægt. Poa","TitlePageYear":"1991","FullCitation":"Hjorth,
+        U. 1991. Slægt. Poa 1–26,. Unpublished MS thesis, Aarhus University, Århus.
+        "},"AcceptedBy":true,"Annotation":""},{"Reference":{"ReferenceId":1006819,"PublicationId":22230,"Collation":"i–xvii,
+        1–669","AbbreviatedTitle":"Fl. Yukon Terr.","TitlePageYear":"1996","FullCitation":"Cody,
+        W. J. 1996. Fl. Yukon Terr. i–xvii, 1–669. NRC Research Press, Ottawa. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1007278,"PublicationId":20795,"Collation":"1–644","AbbreviatedTitle":"Gram.
+        Bolivia","TitlePageYear":"1998","FullCitation":"Renvoize, S. A. 1998. Gram.
+        Bolivia 1–644. The Royal Botanic Gardens, Kew. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1009274,"PublicationId":22159,"Collation":"i–x,
+        1–806","AbbreviatedTitle":"Guide Vasc. Pl. Florida","TitlePageYear":"1998","FullCitation":"Wunderlin,
+        R. P. 1998. Guide Vasc. Pl. Florida i–x, 1–806. University Press of Florida,
+        Gainesville. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1010943,"PublicationId":2063,"ArticleTitle":"~Poa~
+        In: Davis, P. H. (ed.)","Collation":"9: 470–486","AbbreviatedTitle":"Fl. Turkey
+        & E. Aegean Isl.","TitlePageYear":"1985","FullCitation":"Edmondson, J. R.
+        1985. Poa In: Davis, P. H. (ed.). 9: 470–486. In P. H. Davis Fl. Turkey &
+        E. Aegean Isl. Edinburgh University Press, Edinburgh. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1010988,"PublicationId":7104,"ArticleTitle":"Poaceae
+        (Gramineae)","Collation":"7: i–xx, 1–420","AbbreviatedTitle":"Fl. Ethiopia","TitlePageYear":"1995","FullCitation":"Phillips,
+        S. M. 1995. Poaceae (Gramineae). Fl. Ethiopia 7: i–xx, 1–420. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1011063,"PublicationId":19213,"ArticleTitle":"Index
+        synonymique de la flore de France","Collation":"(ser. Patrimonine Sci.) 8:
+        i–xxxviii, 1–196 + pl.","AbbreviatedTitle":"Collection Patrimoines Naturels","TitlePageYear":"1993","FullCitation":"KERGUELEN,
+        M. 1993. Index synonymique de la flore de France. Collection Patrimoines Naturels
+        (ser. Patrimonine Sci.) 8: i–xxxviii, 1–196 + pl. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1011203,"PublicationId":549,"ArticleTitle":"~Poa~
+        L. (Gramineae) in Malesia","Collation":"38: 409–457","AbbreviatedTitle":"Blumea","TitlePageYear":"1994","FullCitation":"Veldkamp,
+        J. F. 1994. Poa L. (Gramineae) in Malesia. Blumea 38: 409–457. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1011206,"PublicationId":16303,"ArticleTitle":"Poaceae","AbbreviatedTitle":"Neo-Lineam.
+        Fl. Manshur.","TitlePageYear":"1979","FullCitation":"Kitagawa, M. 1979. Poaceae.
+        In Neo-Lineam. Fl. Manshur. J. Cramer, Vaduz. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1013502,"ArticleTitle":"The
+        grasses of the Karakorum and Kunlun Mountains","Collation":"1–168","AbbreviatedTitle":"","TitlePageYear":"1999","FullCitation":"Wu,
+        Y. H. & Q. J. Wang. 1999. The grasses of the Karakorum and Kunlun Mountains.
+        1–168. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1013663,"PublicationId":1233,"ArticleTitle":"Revisión
+        de las especies de ~Poa~ (Poaceae) del noroeste argentino","Collation":"28(1):
+        95–136","AbbreviatedTitle":"Kurtziana","TitlePageYear":"2000","FullCitation":"Negritto,
+        M. A. & A. M. Antón. 2000. Revisión de las especies de Poa (Poaceae) del noroeste
+        argentino. Kurtziana 28(1): 95–136. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1014273,"PublicationId":21986,"Collation":"1–129","AbbreviatedTitle":"Identific.
+        Esp. Veg. Chuquisaca","TitlePageYear":"1998","YearPublished":"2000","FullCitation":"Serrano,
+        M. & J. Terán. 1998 [2000]. Identific. Esp. Veg. Chuquisaca 1–129. PLAFOR,
+        Intercooperación, Fundación Ceibo, Sucre. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1015183,"PublicationId":18774,"ArticleTitle":"Poaceae","Collation":"10:
+        7–236 [and index]","AbbreviatedTitle":"Monocot. Mexic. Sinopsis Floríst.","TitlePageYear":"2000","FullCitation":"Espejo
+        Serna, M. A., A. R. López-Ferrari & J. Valdés-Reyna. 2000. Poaceae. Monocot.
+        Mexic. Sinopsis Floríst. 10: 7–236 [and index]. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1018088,"PublicationId":17177,"Collation":"305
+        pp., University of Missouri Press, Colombia.","AbbreviatedTitle":"Grass. Missouri","TitlePageYear":"1998","FullCitation":"Kucera,
+        C. L. 1998. Grass. Missouri 305 pp., University of Missouri Press, Colombia.
+        "},"AcceptedBy":true},{"Reference":{"ReferenceId":1018627,"PublicationId":22660,"ArticleTitle":"Poaceae","Collation":"1:
+        1–292","AbbreviatedTitle":"Fl. Fanerog. Estado São Paulo","TitlePageYear":"2001","FullCitation":"Longhi-Wagner,
+        H. M., V. Bittich, M. das G. L. Wanderley & G. J. Shepherd. 2001. Poaceae.
+        1: 1–292. In M. G. L. Wanderly, G. J. Shepherd & A. M. Giulietti (eds.) Fl.
+        Fanerog. Estado São Paulo. Editora Hucitec, São Paulo. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1018799,"PublicationId":22721,"Collation":"2:
+        1–86","AbbreviatedTitle":"Nóm. Pl. Recol. Valle Cochabamba","TitlePageYear":"1966","FullCitation":"Adolfo
+        María, H. 1966. Nóm. Pl. Recol. Valle Cochabamba 2: 1–86. Colegio La Salle,
+        Cochabamba. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1019049,"PublicationId":1340,"ArticleTitle":"Flora
+        de Nicaragua","Collation":"85: i–xlii,","AbbreviatedTitle":"Monogr. Syst.
+        Bot. Missouri Bot. Gard.","TitlePageYear":"2001","FullCitation":"Stevens,
+        W. D., C. Ulloa Ulloa, A. Pool & O. M. Montiel  Jarquín. 2001. Flora de Nicaragua.
+        Monogr. Syst. Bot. Missouri Bot. Gard. 85: i–xlii,. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1019700,"PublicationId":15848,"Collation":"5:
+        1–466","AbbreviatedTitle":"Gram. México","TitlePageYear":"1999","FullCitation":"Beetle,
+        A.A. 1999. Gram. México 5: 1–466. Secretaria de Agricultura y Recursos Hidraulícos:
+        COTECOCA, México. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1020076,"PublicationId":4005,"ArticleTitle":"The
+        Grasses of Bhutan","Collation":"3(2): i–vii + 457–883","AbbreviatedTitle":"Fl.
+        Bhutan","TitlePageYear":"2000","FullCitation":"Noltie, H. J. 2000. The Grasses
+        of Bhutan. Fl. Bhutan 3(2): i–vii + 457–883. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1020169,"PublicationId":561,"ArticleTitle":"Notes
+        on the Poaceae of the Robinson Crusoe (Juan Fernández) Islands, Chile","Collation":"54(3):
+        154–163","AbbreviatedTitle":"Brittonia","TitlePageYear":"2002","FullCitation":"Baeza,
+        C. M., T. F. Stuessy & C. Marticorena. 2002. Notes on the Poaceae of the Robinson
+        Crusoe (Juan Fernández) Islands, Chile. Brittonia 54(3): 154–163. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1021598,"PublicationId":23416,"ArticleTitle":"The
+        system and check-list of Siberian bluegrasses (~Poa~ L.)","Collation":"1(4):
+        5–19","AbbreviatedTitle":"Turczaninowia","TitlePageYear":"1998","FullCitation":"Olonova,
+        M. V. 1998. The system and check-list of Siberian bluegrasses (Poa L.). Turczaninowia
+        1(4): 5–19. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1021808,"PublicationId":2186,"ArticleTitle":"~Poa~","Collation":"9(2):
+        91–226","AbbreviatedTitle":"Fl. Reipubl. Popularis Sin.","TitlePageYear":"2003","FullCitation":"Liu,
+        L. 2003. Poa. Fl. Reipubl. Popularis Sin. 9(2): 91–226. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1021823,"PublicationId":4379,"ArticleTitle":"Poaceae,
+        IN. (N.N. Tzvelev vol. ed.) IN.","Collation":"1: 89–488","AbbreviatedTitle":"Sosud.
+        Rast. Sovetsk. Dal''nego Vostoka","TitlePageYear":"1985","FullCitation":"Probatova,
+        N. S. 1985. Poaceae, IN. (N.N. Tzvelev vol. ed.) IN. Sosud. Rast. Sovetsk.
+        Dal''nego Vostoka 1: 89–488. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1021848,"PublicationId":23499,"ArticleTitle":"~Poa~","Collation":"327–341","AbbreviatedTitle":"Taiwan
+        Grasses","TitlePageYear":"1974","FullCitation":"Hsu, C. C. 1974. Poa. 327–341.
+        In Taiwan Grasses. Taiwan Provincial Education Association, Taipei, Taiwan.
+        "},"AcceptedBy":true},{"Reference":{"ReferenceId":1021894,"PublicationId":2949,"ArticleTitle":"Systematische
+        revision und chorologische analyse der Monocotyledoneae des Karakorum (Zentralasian,
+        West-Tibet). Flora Karakorumensis: I. Angiospermae, Monocotyledoneae","Collation":"39:
+        i–?, 1–290","AbbreviatedTitle":"Stapfia","TitlePageYear":"1995","FullCitation":"Dickoré,
+        W. B. 1995. Systematische revision und chorologische analyse der Monocotyledoneae
+        des Karakorum (Zentralasian, West-Tibet). Flora Karakorumensis: I. Angiospermae,
+        Monocotyledoneae. Stapfia 39: i–?, 1–290. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1022280,"PublicationId":23958,"ArticleTitle":"Poaceae","Collation":"1–515","AbbreviatedTitle":"Zlaki
+        Ukrainy","TitlePageYear":"1977","FullCitation":"Prokudin, Y. N., A. G. Vovk,
+        O. A. Petrova, E. D. Ermolenko & Y. V. Vernichenko. 1977. Poaceae. Zlaki Ukrainy
+        1–515. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1024044,"PublicationId":19794,"ArticleTitle":"On-line
+        taxonomic novelties and updates, distributional additions and corrections,
+        and editorial changes since the four published volumes of the Catalogue of
+        New World Grasses (Poaceae) published in Contr. U.S. Natl. Herb. vols. 39,
+        41, 46, and 48","Collation":"http:\/\/www.tropicos.org\/Project\/CNWG:","AbbreviatedTitle":"Internet
+        Cat. New World Grasses","TitlePageYear":"2003 and onwards","FullCitation":"Soreng,
+        R. J., G. Davidse, P. M. Peterson, F. O. Zuloaga, E. J. Judziewicz, T. S.
+        Filgueiras & O. Morrone. 2003 and onwards. On-line taxonomic novelties and
+        updates, distributional additions and corrections, and editorial changes since
+        the four published volumes of the Catalogue of New World Grasses (Poaceae)
+        published in Contr. U.S. Natl. Herb. vols. 39, 41, 46, and 48. http:\/\/www.tropicos.org\/Project\/CNWG:.
+        In R. J. Soreng, G. Davidse, P. M. Peterson, F. O. Zuloaga, T. S. Filgueiras,
+        E. J. Judziewicz & O. Morrone (eds.) Internet Cat. New World Grasses. Missouri
+        Botanical Garden, St. Louis. "},"AcceptedBy":true,"Annotation":""},{"Reference":{"ReferenceId":1024098,"PublicationId":719,"ArticleTitle":"Páramos,
+        a checklist of plant diversity, geographical distribution, and botanical literature","Collation":"84:
+        viii–xv, 1–278","AbbreviatedTitle":"Mem. New York Bot. Gard.","TitlePageYear":"1999","FullCitation":"Luteyn,
+        J. L. 1999. Páramos, a checklist of plant diversity, geographical distribution,
+        and botanical literature. Mem. New York Bot. Gard. 84: viii–xv, 1–278. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1024102,"ArticleTitle":"~Poa~
+        of the World, 2004 onward","Collation":"ined","AbbreviatedTitle":"","TitlePageYear":"2004","FullCitation":"Soreng,
+        R. J. 2004. Poa of the World, 2004 onward. ined. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1024162,"PublicationId":12527,"ArticleTitle":"Graminées
+        du Cameroun","Collation":"92–1(2): 1–557","AbbreviatedTitle":"Wageningen Agric.
+        Univ. Pap.","TitlePageYear":"1992","FullCitation":"Zon, A. P. M. v. 1992.
+        Graminées du Cameroun. Wageningen Agric. Univ. Pap. 92–1(2): 1–557. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1025234,"PublicationId":18755,"ArticleTitle":"Gramineae","Collation":"6:
+        39–370, 598–599, 600–604, (index 646–669)","AbbreviatedTitle":"Fl. Xinjiang.","TitlePageYear":"1996","FullCitation":"Cui,
+        N. & D. Cui. 1996. Gramineae. Fl. Xinjiang. 6: 39–370, 598–599, 600–604, (index
+        646–669). "},"AcceptedBy":true},{"Reference":{"ReferenceId":1025289,"PublicationId":2190,"ArticleTitle":"Poa","Collation":"1:
+        135–189, 504 + index","AbbreviatedTitle":"Fl. Tadzhiksk. SSR","TitlePageYear":"1957","FullCitation":"Ovchinnikov,
+        P. N. & A. P. Chukavina. 1957. Poa. 1: 135–189, 504 + index. In Fl. Tadzhiksk.
+        SSR. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1025290,"PublicationId":4449,"ArticleTitle":"~Poa~","Collation":"1:
+        139–146","AbbreviatedTitle":"Fl. Turkmenii","TitlePageYear":"1932","FullCitation":"Roshevitz,
+        R. J. 1932. Poa. 1: 139–146. In B. A. A. Fedtschenko Fl. Turkmenii. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1025291,"PublicationId":2167,"ArticleTitle":"Poa","Collation":"1:
+        221–238","AbbreviatedTitle":"Fl. Kazakstana","TitlePageYear":"1956","FullCitation":"Gamayunova,
+        A. P. 1956. Poa. 1: 221–238. In Fl. Kazakstana. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1025292,"PublicationId":4269,"ArticleTitle":"~Poa~","Collation":"2:
+        120–137","AbbreviatedTitle":"Fl. Kirgizsk. SSR","TitlePageYear":"1952","FullCitation":"Nikitina,
+        E. V. & G. F. Protopopov. 1952. Poa. Fl. Kirgizsk. SSR 2: 120–137. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1025293,"PublicationId":1696,"ArticleTitle":"~Poa~","Collation":"1:
+        234–245","AbbreviatedTitle":"Fl. Uzbekistan","TitlePageYear":"1941","FullCitation":"Drobov,
+        V. P. 1941. Poa. 1: 234–245. In Fl. Uzbekistan. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1025294,"PublicationId":5586,"ArticleTitle":"Poaceae","Collation":"1:
+        117–368 + index","AbbreviatedTitle":"Fl. Evr. Casti SSSR","TitlePageYear":"1974","FullCitation":"Tzvelev,
+        N. N. 1974. Poaceae. 1: 117–368 + index. In A. A. Fedorov Fl. Evr. Casti SSSR.
+        Nauka, Leningrad. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1025295,"PublicationId":23957,"ArticleTitle":"Poaceae","Collation":"15–25","AbbreviatedTitle":"Consp.
+        Fl. Outer Mongolia (vasc. pl.)","TitlePageYear":"1996","FullCitation":"Gubanov,
+        I. A. 1996. Poaceae. Consp. Fl. Outer Mongolia (vasc. pl.) 15–25. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1025299,"PublicationId":7655,"ArticleTitle":"~Poa~","Collation":"5:
+        95–121","AbbreviatedTitle":"Fl. Xizang.","TitlePageYear":"1987","FullCitation":"Ling,
+        C. & L. Liu. 1987. Poa. Fl. Xizang. 5: 95–121. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1025300,"PublicationId":4448,"ArticleTitle":"~Poa~","Collation":"1:
+        127–138","AbbreviatedTitle":"Opred. Rast. Srednei Azii","TitlePageYear":"1968","FullCitation":"Kovalevskaja,
+        S. S. 1968. Poa. Opred. Rast. Srednei Azii 1: 127–138. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1025301,"PublicationId":4377,"ArticleTitle":"~Poa~","Collation":"5:
+        79–99","AbbreviatedTitle":"Fl. Intramongol. (ed. 2)","TitlePageYear":"1994","FullCitation":"Chen,
+        S. 1994. Poa. Fl. Intramongol. (ed. 2) 5: 79–99. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1025303,"PublicationId":9734,"ArticleTitle":"~Poa~","Collation":"1(1):
+        78–439, 435–439","AbbreviatedTitle":"Fl. Tsinling.","TitlePageYear":"1976","FullCitation":"Keng,
+        Y. L. & P. C. Kung. 1976. Poa. 1(1): 78–439, 435–439. In Fl. Tsinling. Academia
+        Scientiarum Sinicae, Beijing. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1025304,"PublicationId":4006,"ArticleTitle":"~Poa~","Collation":"1:
+        140–144","AbbreviatedTitle":"Enum. Fl. Pl. Nepal","TitlePageYear":"1978","FullCitation":"Melderis,
+        A. 1978. Poa. Enum. Fl. Pl. Nepal 1: 140–144. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1025327,"PublicationId":23968,"ArticleTitle":"~Poa~","Collation":"92–97","AbbreviatedTitle":"Ill.
+        Oprd. Rast. Kazakh.","TitlePageYear":"1969","FullCitation":"Filatova, N. S.
+        1969. Poa. 92–97. In N. S. Filatova Ill. Oprd. Rast. Kazakh. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1025398,"PublicationId":6985,"ArticleTitle":"~Poa~
+        IN: Additions to the Flora of Siberia","Collation":"14: 22–26","AbbreviatedTitle":"Fl.
+        Sibir.","TitlePageYear":"2003","FullCitation":"Doronkin, V. 2003. Poa IN:
+        Additions to the Flora of Siberia. Fl. Sibir. 14: 22–26. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1025399,"PublicationId":23974,"ArticleTitle":"~Poa~
+        IN:","Collation":"4: 156–177","AbbreviatedTitle":"Pl. Cent. Asia","TitlePageYear":"2001","FullCitation":"Tzvelev,
+        N. N. 2001. Poa IN:. Pl. Cent. Asia 4: 156–177. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1025582,"PublicationId":9389,"ArticleTitle":"~Poa~.
+        IN:","Collation":"2: 762–774","AbbreviatedTitle":"Mount. Fl. Greece","TitlePageYear":"1991","FullCitation":"Scholz,
+        H. 1991. Poa. IN:. Mount. Fl. Greece 2: 762–774. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1025615,"PublicationId":1114,"ArticleTitle":"~Poa~","Collation":"3:
+        76–101","AbbreviatedTitle":"Fl. Afrique N.","TitlePageYear":"1955","FullCitation":"Maire,
+        R. C. J. 1955. Poa. Fl. Afrique N. 3: 76–101. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1026312,"ArticleTitle":"AusGrass:
+        Grasses of Australia. CD-ROM, Version 1.0","Collation":"CD–ROM","AbbreviatedTitle":"","TitlePageYear":"2002","FullCitation":"Sharp,
+        D. & B. K. Simon. 2002. AusGrass: Grasses of Australia. CD-ROM, Version 1.0.
+        CD–ROM. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1029690,"PublicationId":11746,"ArticleTitle":"Flora
+        of China (Poaceae)","Collation":"22: 1–733","AbbreviatedTitle":"Fl. China","TitlePageYear":"2006","FullCitation":"Flora
+        of China Editorial Committee. 2006. Flora of China (Poaceae). 22: 1–733. In
+        C. Y. Wu, P. H. Raven & D. Y. Hong (eds.) Fl. China. Science Press & Missouri
+        Botanical Garden Press, Beijing & St. Louis. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1030331,"PublicationId":1068,"ArticleTitle":"~Poa
+        matri-occidentalis~ (Poaceae: Pooideae: Poeae: Poinae), a new species from
+        Mexico","Collation":"22(2): 905–914","AbbreviatedTitle":"Sida","TitlePageYear":"2006","FullCitation":"Peterson,
+        P. M., R. J. Soreng & Y. Herrera Arrieta. 2006. Poa matri-occidentalis (Poaceae:
+        Pooideae: Poeae: Poinae), a new species from Mexico. Sida 22(2): 905–914.
+        "},"AcceptedBy":true},{"Reference":{"ReferenceId":1031050,"PublicationId":2183,"AbbreviatedTitle":"Fl.
+        Pakistan","TitlePageYear":"1980-2005","FullCitation":"Nasir, E. &  S. I. Ali
+        (eds). 1980-2005. Fl. Pakistan Univ. of Karachi, Karachi. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1031596,"PublicationId":24985,"ArticleTitle":"~Poa~
+        de France Belgique et Suisse","Collation":"1–303","AbbreviatedTitle":"Poa
+        France Belgique Suisse","TitlePageYear":"2005","FullCitation":"Portal, R.
+        2005. Poa France Belgique Suisse 1–303. Privately pubished. "},"AcceptedBy":true,"Annotation":""},{"Reference":{"ReferenceId":1031911,"PublicationId":25081,"Collation":"1–599","AbbreviatedTitle":"Cat.
+        Pl. Vasc. Panamá","TitlePageYear":"2004","FullCitation":"Correa A., M.D.,
+        C. Galdames & M. Stapf. 2004. Cat. Pl. Vasc. Panamá 1–599. Smithsonian Tropical
+        Research Institute, Panamá. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1033110,"PublicationId":100021755,"Collation":"1–859","AbbreviatedTitle":"Nuevo
+        Cat. Fl. Vasc. Venez.","TitlePageYear":"2008","FullCitation":"Hokche, O.,
+        P. E. Berry & O. Huber. (eds.) 2008. Nuevo Cat. Fl. Vasc. Venez. 1–859. Fundación
+        Instituto Botánico de Venezuela, Caracas. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1033133,"ArticleTitle":"African
+        Flowering Plants Database - Base de Donnees des Plantes a Fleurs D''Afrique","AbbreviatedTitle":"","TitlePageYear":"2008","FullCitation":"AFPD.
+        2008. African Flowering Plants Database - Base de Donnees des Plantes a Fleurs
+        D''Afrique. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1033183,"PublicationId":25019,"ArticleTitle":"New
+        records of ~Poa~ (Poaceae) and ~Poa pfisteri~: a new species endemic to Chile","Collation":"2(2):
+        847–859","AbbreviatedTitle":"J. Bot. Res. Inst. Texas","TitlePageYear":"2008","FullCitation":"Soreng,
+        R. J. & P. M. Peterson. 2008. New records of Poa (Poaceae) and Poa pfisteri:
+        a new species endemic to Chile. J. Bot. Res. Inst. Texas 2(2): 847–859. "},"AcceptedBy":true,"Annotation":""},{"Reference":{"ReferenceId":1033249,"PublicationId":1340,"ArticleTitle":"Catálogo
+        de las plantas vasculares del Cono Sur","Collation":"107(1–3): i–xcvi, 1–3348","AbbreviatedTitle":"Monogr.
+        Syst. Bot. Missouri Bot. Gard.","TitlePageYear":"2008","FullCitation":"Zuloaga,
+        F. O., O. Morrone, M. J. Belgrano, C. Marticorena & E. Marchesi. (eds.) 2008.
+        Catálogo de las plantas vasculares del Cono Sur. Monogr. Syst. Bot. Missouri
+        Bot. Gard. 107(1–3): i–xcvi, 1–3348. "},"AcceptedBy":true},{"Reference":{"ReferenceId":1033332,"PublicationId":25511,"ArticleTitle":"Catálogo
+        taxonómico de especies de México","Collation":"1","AbbreviatedTitle":"Capital
+        Nat. México","TitlePageYear":"2009","FullCitation":"CONABIO. 2009. Catálogo
+        taxonómico de especies de México. 1. In Capital Nat. México. CONABIO, Mexico
+        City. "},"AcceptedBy":true},{"Reference":{"ReferenceId":100000886,"PublicationId":100024747,"ArticleTitle":"Catálogo
+        de las plantas vasculares de Bolivia","Collation":"127(1–2): i–viii, 1–1744","AbbreviatedTitle":"Cat.
+        Pl. Vasc. Bolivia, Monogr. Syst. Bot. Missouri Bot. Gard.","TitlePageYear":"2014","FullCitation":"Jørgensen,
+        P. M., M. H. Nee & S. G. Beck. (eds.) 2014. Cat. Pl. Vasc. Bolivia, Monogr.
+        Syst. Bot. Missouri Bot. Gard. 127(1–2): i–viii, 1–1744. Missouri Botanical
+        Garden Press, St. Louis. "},"AcceptedBy":true},{"Reference":{"ReferenceId":100002289,"PublicationId":100023700,"Collation":"http:\/\/floradobrasil.jbrj.gov.br\/2010","AbbreviatedTitle":"Lista
+        de espécies Flora do Brasil","TitlePageYear":"2010","FullCitation":"Forzza,
+        R. C. 2010. Lista de espécies Flora do Brasil http:\/\/floradobrasil.jbrj.gov.br\/2010.
+        Jardim Botânico do Rio de Janeiro, Rio de Janeiro. "},"AcceptedBy":true},{"Reference":{"ReferenceId":100003246,"PublicationId":3446,"ArticleTitle":"Estudio
+        monograficao de los generos ~Poa~ y ~Bellardiochloa~ en la Peninsula Iberica
+        e islas Baleares","Collation":"46: 1–365","AbbreviatedTitle":"Diss. Bot.","TitlePageYear":"1978","FullCitation":"Hernández
+        Cardona, Á. M. 1978. Estudio monograficao de los generos Poa y Bellardiochloa
+        en la Peninsula Iberica e islas Baleares. Diss. Bot. 46: 1–365. "},"AcceptedBy":true,"Annotation":""},{"Reference":{"ReferenceId":100007353,"PublicationId":10815,"ArticleTitle":"A
+        taxonomic study of the spikelet morphology of Korean ~Poa~ L. (Poaceae)","Collation":"38(4):
+        477–502","AbbreviatedTitle":"Korean J. Pl. Taxon.","TitlePageYear":"2008","FullCitation":"Jung,
+        S. Y. & G. Y. Chung. 2008. A taxonomic study of the spikelet morphology of
+        Korean Poa L. (Poaceae). Korean J. Pl. Taxon. 38(4): 477–502. "},"AcceptedBy":true,"Annotation":""},{"Reference":{"ReferenceId":100008595,"PublicationId":100023058,"ArticleTitle":"Listado
+        de las plantas vasculares del departamento de Antioquia","Collation":"2: 9–939","AbbreviatedTitle":"Fl.
+        Antioquia: Cat.","TitlePageYear":"2011","FullCitation":"Idárraga-Piedrahita,
+        A., R. D. C. Ortiz, R. Callejas Posada & M. Merello. (eds.) 2011. Fl. Antioquia:
+        Cat. 2: 9–939. Universidad de Antioquia, Medellín. "},"AcceptedBy":true},{"Reference":{"ReferenceId":100008963,"PublicationId":100022219,"ArticleTitle":"Poaceae","Collation":"93(3):
+        598–821","AbbreviatedTitle":"Man. Pl. Costa Rica","TitlePageYear":"2003","FullCitation":"Morales
+        Quirós, J. F. 2003. Poaceae. 93(3): 598–821. In B. E. Hammel, M. H. Grayum,
+        C. Herrera Mora & N. Zamora Villalobos (eds.) Man. Pl. Costa Rica. Missouri
+        Botanical Garden, St. Louis. "},"AcceptedBy":true,"Annotation":""},{"Reference":{"ReferenceId":100009492,"PublicationId":100022331,"ArticleTitle":"Revision
+        of ~Poa~ L. (Poaceae, Pooideae, Poeae, Poinae) in Mexico: new records, re-evaluation
+        of ~P. ruprechtii~, and two new species, ~P. palmeri~ and ~P. wendtii~","Collation":"15:
+        1–104","AbbreviatedTitle":"PhytoKeys","TitlePageYear":"2012","FullCitation":"Soreng,
+        R. J. & P. M. Peterson. 2012. Revision of Poa L. (Poaceae, Pooideae, Poeae,
+        Poinae) in Mexico: new records, re-evaluation of P. ruprechtii, and two new
+        species, P. palmeri and P. wendtii. PhytoKeys 15: 1–104. "},"AcceptedBy":true,"Annotation":""},{"Reference":{"ReferenceId":100010358,"PublicationId":100023447,"ArticleTitle":"Poaceae","Collation":"518–576","AbbreviatedTitle":"Consp.
+        Fl. Ross. Asiat.","TitlePageYear":"2012","FullCitation":"Nikiforova, O. D.,
+        S. V. Ovchinnikova, A. S. Lipin, N. V. Blasova & M. V. Olonova. 2012. Poaceae.
+        518–576. In K. S. Baikov (ed.) Consp. Fl. Ross. Asiat. Academia Scintiarum
+        Rossica, Divisio Sibirca, Novosibirsk. "},"AcceptedBy":true,"Annotation":""},{"Reference":{"ReferenceId":100011620,"PublicationId":2149,"ArticleTitle":"~Poa~
+        L.","Collation":"11: 258–273","AbbreviatedTitle":"Fl. Armen.","TitlePageYear":"2010","FullCitation":"Gabrieljan,
+        E. T. 2010. Poa L. Fl. Armen. 11: 258–273. "},"AcceptedBy":true,"Annotation":""},{"Reference":{"ReferenceId":100011760,"PublicationId":100023696,"ArticleTitle":"Poaceae","Collation":"690–756","AbbreviatedTitle":"Türkiye
+        Bitkileri Listesi","TitlePageYear":"2012","FullCitation":"Cabi, E. & M. Doğan.
+        2012. Poaceae. 690–756. In A. Güner, S. Aslan, T. Ekim, M. Vural & M. T. Babaç
+        (eds.) Türkiye Bitkileri Listesi. Nezahat Gökyiğit Botanik Bahçesi ve Flora
+        Araştırmaları Derneği Yayını, Istanbul. "},"AcceptedBy":true,"Annotation":""},{"Reference":{"ReferenceId":100011843,"PublicationId":2184,"ArticleTitle":"Alismataceae
+        to Orchidaceae","Collation":"4:","AbbreviatedTitle":"Fl. Palaest.","TitlePageYear":"1968","FullCitation":"Feinbrun,
+        N. 1968. Alismataceae to Orchidaceae. Fl. Palaest. 4:. "},"AcceptedBy":true,"Annotation":""},{"Reference":{"ReferenceId":100015049,"PublicationId":2161,"ArticleTitle":"Gramineae
+        VII, Pooideae, Agrosticeae, Meliceae, Phalarideae, Poeae, Stipeae","Collation":"38:
+        1–98","AbbreviatedTitle":"Fl. Paraguay","TitlePageYear":"2008","FullCitation":"Rúgolo
+        de Agrasar, Z. E., E. G. Nicora, A. M. Molina, J. M. Salles & A. Zanin. 2008.
+        Gramineae VII, Pooideae, Agrosticeae, Meliceae, Phalarideae, Poeae, Stipeae.
+        38: 1–98. In G. F. Bocquet & M. R. Crosby (eds.) Fl. Paraguay. Conservatoire
+        et Jardin Botaniques de la Ville de Genève & Missouri Botanical Garden, Geneva
+        & St. Louis. "},"AcceptedBy":true,"Annotation":""},{"Reference":{"ReferenceId":100018063,"PublicationId":1335,"ArticleTitle":"Flora
+        of Guaramacal (Venezuela): Monocotyledons","Collation":"100: i–xiii, 1–289","AbbreviatedTitle":"Smithsonian
+        Contr. Bot.","TitlePageYear":"2014","FullCitation":"Dorr, L. J. 2014. Flora
+        of Guaramacal (Venezuela): Monocotyledons. Smithsonian Contr. Bot. 100: i–xiii,
+        1–289. "},"AcceptedBy":true,"Annotation":""},{"Reference":{"ReferenceId":100018847,"ArticleTitle":"Catalogo
+        de las plantas vasculares de Bolivia (adiciones)","Collation":"","AbbreviatedTitle":"","TitlePageYear":"2015
+        en adelante","FullCitation":"Jørgensen, P. M., M. H. Nee & S. G. Beck. (eds.)
+        2015 en adelante. Catalogo de las plantas vasculares de Bolivia (adiciones).
+        "},"AcceptedBy":true},{"Reference":{"ReferenceId":100018911,"PublicationId":100024770,"ArticleTitle":"Taxonomic
+        revision of the genus ~Poa~ L. in Iran, new additions to Flora Iranica, and
+        a new identification key","Collation":"39(1): 105–127","AbbreviatedTitle":"Turk.
+        J. Bot.","TitlePageYear":"2015","FullCitation":"Kavousi, M. Kavousi, M. Assadi
+        & T. Nejadsattari. 2015. Taxonomic revision of the genus Poa L. in Iran, new
+        additions to Flora Iranica, and a new identification key. Turk. J. Bot. 39(1):
+        105–127. "},"AcceptedBy":true,"Annotation":""},{"Reference":{"ReferenceId":100019315,"PublicationId":100023317,"ArticleTitle":"The
+        grass family (Poaceae) in Coahuila, Mexico: Diversity and distribution","Collation":"93(1):
+        119–129","AbbreviatedTitle":"Bot. Sci.","TitlePageYear":"2015","FullCitation":"Valdés-Reyna,
+        J., J. L. Villaseñor Ríos, J. A. Encina-Dominguez & E. Ortiz. 2015. The grass
+        family (Poaceae) in Coahuila, Mexico: Diversity and distribution. Bot. Sci.
+        93(1): 119–129. "},"AcceptedBy":true,"Annotation":""},{"Reference":{"ReferenceId":100021504,"ArticleTitle":"Meiotic
+        chromosome pairing in amphihaploide ~Poa annua~ L.","Collation":"45: 131–138","AbbreviatedTitle":"","TitlePageYear":"1958","FullCitation":"Hovin,
+        A. W. 1958. Meiotic chromosome pairing in amphihaploide Poa annua L. 45: 131–138.
+        "},"AcceptedBy":true,"Annotation":""},{"Reference":{"ReferenceId":100021506,"PublicationId":2590,"ArticleTitle":"Origin
+        of ~Poa annua~","Collation":"169: 160","AbbreviatedTitle":"Nature (London)","TitlePageYear":"1952","FullCitation":"Tutin,
+        T. G. 1952. Origin of Poa annua. Nature (London) 169: 160. "},"AcceptedBy":true,"Annotation":""},{"Reference":{"ReferenceId":100023508,"PublicationId":100022331,"ArticleTitle":"An
+        updated checklist and key to the open-panicled species of ~Poa~ L. (Poaceae)
+        in Peru including three new species, ~Poa ramoniana~, ~Poa tayacajaensis~,
+        and ~Poa urubambensis~","Collation":"65: 57–90","AbbreviatedTitle":"PhytoKeys","TitlePageYear":"2016","FullCitation":"Sylvester,
+        S. P., R. J. Soreng, P. M. Peterson & M. D. P. V. Sylvester. 2016. An updated
+        checklist and key to the open-panicled species of Poa L. (Poaceae) in Peru
+        including three new species, Poa ramoniana, Poa tayacajaensis, and Poa urubambensis.
+        PhytoKeys 65: 57–90. "},"AcceptedBy":true,"Annotation":""},{"Reference":{"ReferenceId":100024974,"PublicationId":7686,"ArticleTitle":"Graminales,
+        Gramineae","Collation":"1(Text): 33–158","AbbreviatedTitle":"Nouv. Fl. Liban
+        & Syrie","TitlePageYear":"1966","FullCitation":"Mouterde, P. 1966. Graminales,
+        Gramineae. Nouv. Fl. Liban & Syrie 1(Text): 33–158. "},"Annotation":""},{"Reference":{"ReferenceId":100025047,"PublicationId":100026842,"Collation":"1–928","AbbreviatedTitle":"Nord.
+        Fl.","TitlePageYear":"2003","FullCitation":"Mossberg, B. & L. Stenberg. 2003.
+        Nord. Fl. 1–928. Wahlstrom & Widstrand, Tangen, Norway. "},"AcceptedBy":true,"Annotation":""},{"Reference":{"ReferenceId":100028382,"PublicationId":25613,"ArticleTitle":"A
+        first checklist to the vascular plants of La Amistad International Park (PILA),
+        Costa Rica-Panama","Collation":"322(1): 1–283","AbbreviatedTitle":"Phytotaxa","TitlePageYear":"2017","FullCitation":"Monro,
+        A. K., D. Santamaría-Aguilar, F. González Brenes, O. Chacón, D. Solano, A.
+        Rodríguez González, N. Zamora Villalobos, E. Fedele & M.D. Correa A. 2017.
+        A first checklist to the vascular plants of La Amistad International Park
+        (PILA), Costa Rica-Panama. Phytotaxa 322(1): 1–283. "},"AcceptedBy":true},{"Reference":{"ReferenceId":100029278,"PublicationId":100027781,"ArticleTitle":"Capitulo
+        XXI Familia Poaceae (R.Br.) Barnhart (Gramineae)","Collation":"2: 599–711","AbbreviatedTitle":"Bot.
+        Ecol. Monocot. Páramos Venezuela","TitlePageYear":"2010","FullCitation":"Briceño,
+        B. 2010. Capitulo XXI Familia Poaceae (R.Br.) Barnhart (Gramineae). 2: 599–711.
+        In G. N. Morillo, B. Briceño & J. F. Silva Bot. Ecol. Monocot. Páramos Venezuela.
+        Centro Editorial Litoramma C. A., Merida. "},"AcceptedBy":true,"Annotation":""},{"Reference":{"ReferenceId":100031436,"ArticleTitle":"Flora
+        del bosque nublado de Rio Guajalito","Collation":"","AbbreviatedTitle":"","TitlePageYear":"2010","FullCitation":"Jaramillo
+        Asanza, J. L. & E. Grijalva. 2010. Flora del bosque nublado de Rio Guajalito.
+        "},"AcceptedBy":true,"Annotation":""},{"Reference":{"ReferenceId":100032261,"PublicationId":7662,"ArticleTitle":"Riqueza
+        de especies, clasificación y listado de las gramíneas (Poaceae) de México
+        Species richness, classification and a checklist of the grasses (Poaceae)
+        of Mexico","Collation":"126: 1–115","AbbreviatedTitle":"Acta Bot. Mex.","TitlePageYear":"2018","YearPublished":"2019","FullCitation":"Sánchez-Ken,
+        J. G. 2018 [2019]. Riqueza de especies, clasificación y listado de las gramíneas
+        (Poaceae) de México Species richness, classification and a checklist of the
+        grasses (Poaceae) of Mexico. Acta Bot. Mex. 126: 1–115. "},"AcceptedBy":true}]'
+  recorded_at: 2019-01-26 00:05:19 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0

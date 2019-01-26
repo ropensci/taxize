@@ -1,0 +1,270 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://data.canadensys.net/vascan/api/0.1/search.json?q=Helianthus%20annuus
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+      X-User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.10.3 (Ubuntu)
+      date: Sat, 26 Jan 2019 00:10:14 GMT
+      content-type: application/json;charset=UTF-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      strict-transport-security: max-age=31536000
+    body:
+      encoding: UTF-8
+      string: '{"apiVersion":"0.1","lastUpdatedDate":"2018-06-21\n","results":[{"searchedTerm":"Helianthus
+        annuus","numMatches":1,"matches":[{"taxonID":3189,"scientificName":"Helianthus
+        annuus Linnaeus","scientificNameAuthorship":"Linnaeus","canonicalName":"Helianthus
+        annuus","taxonRank":"species","taxonomicAssertions":[{"acceptedNameUsage":"Helianthus
+        annuus Linnaeus","acceptedNameUsageID":3189,"nameAccordingTo":"FNA Editorial
+        Committee. 2006. Flora of North America north of Mexico. Volume 21: Magnoliophyta:
+        Asteridae, part 8: Asteraceae, part 3. Oxford University Press, New York.","nameAccordingToID":"http://www.efloras.org/volume_page.aspx?volume_id=1021&flora_id=1","taxonomicStatus":"accepted","parentNameUsageID":1235,"higherClassification":"Equisetopsida;Magnoliidae;Asteranae;Asterales;Asteraceae;Asteroideae;Heliantheae;Helianthus"}],"vernacularNames":[{"vernacularName":"common
+        sunflower","language":"en","source":"FNA Editorial Committee. 2006. Flora
+        of North America north of Mexico. Volume 21: Magnoliophyta: Asteridae, part
+        8: Asteraceae, part 3. Oxford University Press, New York.","preferredName":true},{"vernacularName":"tournesol","language":"fr","source":"Darbyshire
+        S.J., M. Favreau & M. Murray (revu et augmenté par). 2000. Noms populaires
+        et scientifiques des plantes nuisibles du Canada. Agriculture et Agroalimentaire
+        Canada. Publication 1397. 132 pp.","preferredName":true},{"vernacularName":"garden
+        sunflower","language":"en","source":"Robert W. Freckmann Herbarium (UWSP),
+        University of Wisconsin-Stevens Point, Wisc.","preferredName":false},{"vernacularName":"grand
+        soleil","language":"fr","source":"Louis-Marie, P. 1953. Flore-Manuel de la
+        province de Québec. 2ième éd. Institut agricole d''Oka. 323 pp.","preferredName":false},{"vernacularName":"hélianthe
+        annuel","language":"fr","source":"Marie-Victorin, Fr. 1995. Flore laurentienne.
+        3e éd. Mise à jour et annotée par L. Brouillet, S.G. Hay, I. Goulet, M. Blondeau,
+        J. Cayouette et J. Labrecque. Gaétan Morin éditeur. 1093 pp.","preferredName":false},{"vernacularName":"soleil","language":"fr","source":"Marie-Victorin,
+        Fr. 1995. Flore laurentienne. 3e éd. Mise à jour et annotée par L. Brouillet,
+        S.G. Hay, I. Goulet, M. Blondeau, J. Cayouette et J. Labrecque. Gaétan Morin
+        éditeur. 1093 pp.","preferredName":false}],"distribution":[{"locationID":"ISO
+        3166-2:CA-NT","locality":"NT","establishmentMeans":"","occurrenceStatus":"doubtful"},{"locationID":"ISO
+        3166-2:CA-BC","locality":"BC","establishmentMeans":"introduced","occurrenceStatus":"introduced"},{"locationID":"ISO
+        3166-2:CA-SK","locality":"SK","establishmentMeans":"introduced","occurrenceStatus":"introduced"},{"locationID":"ISO
+        3166-2:CA-MB","locality":"MB","establishmentMeans":"introduced","occurrenceStatus":"introduced"},{"locationID":"ISO
+        3166-2:CA-ON","locality":"ON","establishmentMeans":"introduced","occurrenceStatus":"introduced"},{"locationID":"","locality":"NL_N","establishmentMeans":"","occurrenceStatus":"excluded"},{"locationID":"ISO
+        3166-2:CA-QC","locality":"QC","establishmentMeans":"introduced","occurrenceStatus":"introduced"},{"locationID":"ISO
+        3166-2:CA-PE","locality":"PE","establishmentMeans":"","occurrenceStatus":"excluded"},{"locationID":"ISO
+        3166-2:CA-NS","locality":"NS","establishmentMeans":"introduced","occurrenceStatus":"introduced"},{"locationID":"ISO
+        3166-2:CA-NB","locality":"NB","establishmentMeans":"introduced","occurrenceStatus":"introduced"},{"locationID":"ISO
+        3166-2:CA-AB","locality":"AB","establishmentMeans":"introduced","occurrenceStatus":"introduced"},{"locationID":"ISO
+        3166-2:FR-PM","locality":"PM","establishmentMeans":"introduced","occurrenceStatus":"ephemeral"}]}]}]}'
+  recorded_at: 2019-01-26 00:10:15 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: post
+    uri: http://data.canadensys.net/vascan/api/0.1/search.json
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Content-Type: application/x-www-form-urlencoded
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+      X-User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.10.3 (Ubuntu)
+      date: Sat, 26 Jan 2019 00:10:14 GMT
+      content-type: application/json;charset=UTF-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      strict-transport-security: max-age=31536000
+    body:
+      encoding: UTF-8
+      string: '{"apiVersion":"0.1","lastUpdatedDate":"2018-06-21\n","results":[{"searchedTerm":"Helianthus
+        annuus","numMatches":1,"matches":[{"taxonID":3189,"scientificName":"Helianthus
+        annuus Linnaeus","scientificNameAuthorship":"Linnaeus","canonicalName":"Helianthus
+        annuus","taxonRank":"species","taxonomicAssertions":[{"acceptedNameUsage":"Helianthus
+        annuus Linnaeus","acceptedNameUsageID":3189,"nameAccordingTo":"FNA Editorial
+        Committee. 2006. Flora of North America north of Mexico. Volume 21: Magnoliophyta:
+        Asteridae, part 8: Asteraceae, part 3. Oxford University Press, New York.","nameAccordingToID":"http://www.efloras.org/volume_page.aspx?volume_id=1021&flora_id=1","taxonomicStatus":"accepted","parentNameUsageID":1235,"higherClassification":"Equisetopsida;Magnoliidae;Asteranae;Asterales;Asteraceae;Asteroideae;Heliantheae;Helianthus"}],"vernacularNames":[{"vernacularName":"common
+        sunflower","language":"en","source":"FNA Editorial Committee. 2006. Flora
+        of North America north of Mexico. Volume 21: Magnoliophyta: Asteridae, part
+        8: Asteraceae, part 3. Oxford University Press, New York.","preferredName":true},{"vernacularName":"tournesol","language":"fr","source":"Darbyshire
+        S.J., M. Favreau & M. Murray (revu et augmenté par). 2000. Noms populaires
+        et scientifiques des plantes nuisibles du Canada. Agriculture et Agroalimentaire
+        Canada. Publication 1397. 132 pp.","preferredName":true},{"vernacularName":"garden
+        sunflower","language":"en","source":"Robert W. Freckmann Herbarium (UWSP),
+        University of Wisconsin-Stevens Point, Wisc.","preferredName":false},{"vernacularName":"grand
+        soleil","language":"fr","source":"Louis-Marie, P. 1953. Flore-Manuel de la
+        province de Québec. 2ième éd. Institut agricole d''Oka. 323 pp.","preferredName":false},{"vernacularName":"hélianthe
+        annuel","language":"fr","source":"Marie-Victorin, Fr. 1995. Flore laurentienne.
+        3e éd. Mise à jour et annotée par L. Brouillet, S.G. Hay, I. Goulet, M. Blondeau,
+        J. Cayouette et J. Labrecque. Gaétan Morin éditeur. 1093 pp.","preferredName":false},{"vernacularName":"soleil","language":"fr","source":"Marie-Victorin,
+        Fr. 1995. Flore laurentienne. 3e éd. Mise à jour et annotée par L. Brouillet,
+        S.G. Hay, I. Goulet, M. Blondeau, J. Cayouette et J. Labrecque. Gaétan Morin
+        éditeur. 1093 pp.","preferredName":false}],"distribution":[{"locationID":"ISO
+        3166-2:CA-ON","locality":"ON","establishmentMeans":"introduced","occurrenceStatus":"introduced"},{"locationID":"ISO
+        3166-2:CA-PE","locality":"PE","establishmentMeans":"","occurrenceStatus":"excluded"},{"locationID":"ISO
+        3166-2:CA-MB","locality":"MB","establishmentMeans":"introduced","occurrenceStatus":"introduced"},{"locationID":"ISO
+        3166-2:FR-PM","locality":"PM","establishmentMeans":"introduced","occurrenceStatus":"ephemeral"},{"locationID":"ISO
+        3166-2:CA-SK","locality":"SK","establishmentMeans":"introduced","occurrenceStatus":"introduced"},{"locationID":"","locality":"NL_N","establishmentMeans":"","occurrenceStatus":"excluded"},{"locationID":"ISO
+        3166-2:CA-BC","locality":"BC","establishmentMeans":"introduced","occurrenceStatus":"introduced"},{"locationID":"ISO
+        3166-2:CA-AB","locality":"AB","establishmentMeans":"introduced","occurrenceStatus":"introduced"},{"locationID":"ISO
+        3166-2:CA-NS","locality":"NS","establishmentMeans":"introduced","occurrenceStatus":"introduced"},{"locationID":"ISO
+        3166-2:CA-QC","locality":"QC","establishmentMeans":"introduced","occurrenceStatus":"introduced"},{"locationID":"ISO
+        3166-2:CA-NB","locality":"NB","establishmentMeans":"introduced","occurrenceStatus":"introduced"},{"locationID":"ISO
+        3166-2:CA-NT","locality":"NT","establishmentMeans":"","occurrenceStatus":"doubtful"}]}]},{"searchedTerm":"Crataegus
+        dodgei","numMatches":1,"matches":[{"taxonID":8673,"scientificName":"Crataegus
+        dodgei Ashe","scientificNameAuthorship":"Ashe","canonicalName":"Crataegus
+        dodgei","taxonRank":"species","taxonomicAssertions":[{"acceptedNameUsage":"Crataegus
+        dodgei Ashe","acceptedNameUsageID":8673,"nameAccordingTo":"FNA Editorial Committee.
+        2014. Flora of North America north of Mexico. Volume 9: Magnoliophyta: Picramniaceae
+        to Rosaceae. Oxford University Press, New York.","nameAccordingToID":"http://www.efloras.org/volume_page.aspx?volume_id=1009&flora_id=1","taxonomicStatus":"accepted","parentNameUsageID":2408,"higherClassification":"Equisetopsida;Magnoliidae;Rosanae;Rosales;Rosaceae;Amygdaloideae;Maleae;Crataegus;Crataegus
+        sect. Coccineae;Crataegus ser. Rotundifoliae"}],"vernacularNames":[{"vernacularName":"aubépine
+        de Dodge","language":"fr","source":"McMurray, S. & A. Lehela. 1999. Ontario
+        Plant List - Digital Version 1.0. Ministry of Natural Resources & Queens Printer
+        for Ontario. [CD]","preferredName":true},{"vernacularName":"Dodge''s hawthorn","language":"en","source":"Newmaster,
+        S.G., A. Lehela, M.J. Oldham, P.W.C. Uhlig & S. McMurray. 1998. Ontario Plant
+        List. Ontario Forest Research Institute, Sault Ste. Marie, Ontario. Forest
+        Information Paper No. 123. 550 pp.","preferredName":true},{"vernacularName":"aubépine
+        jaunâtre","language":"fr","source":"Cuerrier, A. Proposition de nom français.
+        (pers. comm.)","preferredName":false},{"vernacularName":"yellowish Dodge''s
+        hawthorn","language":"en","source":"FNA Editorial Committee. in prep. Flora
+        of North America north of Mexico. Volume 17. Magnoliophyta: Tetrachondraceae
+        to Orobanchaceae. Oxford University Press, New York.","preferredName":false},{"vernacularName":"yellowish
+        hawthorn","language":"en","source":"Anions, M., Proposition de nom anglais
+        (pers. comm.)","preferredName":false}],"distribution":[{"locationID":"ISO
+        3166-2:CA-ON","locality":"ON","establishmentMeans":"native","occurrenceStatus":"native"},{"locationID":"ISO
+        3166-2:CA-QC","locality":"QC","establishmentMeans":"","occurrenceStatus":"doubtful"}]}]}]}'
+  recorded_at: 2019-01-26 00:10:15 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: post
+    uri: http://data.canadensys.net/vascan/api/0.1/search.json
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Content-Type: application/x-www-form-urlencoded
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+      X-User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.10.3 (Ubuntu)
+      date: Sat, 26 Jan 2019 00:10:15 GMT
+      content-type: application/json;charset=UTF-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      strict-transport-security: max-age=31536000
+    body:
+      encoding: UTF-8
+      string: '{"apiVersion":"0.1","lastUpdatedDate":"2018-06-21\n","results":[{"searchedTerm":"Melastoma
+        sieberi","numMatches":0},{"searchedTerm":"Juncus georgianus","numMatches":0},{"searchedTerm":"Ulmus
+        brandisiana","numMatches":0},{"searchedTerm":"Acantholimon muchamedshanovii","numMatches":0},{"searchedTerm":"Dracontium
+        peruvianum","numMatches":0},{"searchedTerm":"Leptotheca boliviana","numMatches":0},{"searchedTerm":"Vatica
+        mindanensis","numMatches":0},{"searchedTerm":"Opuntia xanthoglochia","numMatches":0},{"searchedTerm":"Rubus
+        oklahomus","numMatches":1,"matches":[{"taxonID":27423,"scientificName":"Rubus
+        oklahomus L.H. Bailey","scientificNameAuthorship":"L.H. Bailey","canonicalName":"Rubus
+        oklahomus","taxonRank":"species","taxonomicAssertions":[{"acceptedNameUsage":"Rubus
+        pensilvanicus Poiret","acceptedNameUsageID":8944,"nameAccordingTo":"FNA Editorial
+        Committee. 2014. Flora of North America north of Mexico. Volume 9: Magnoliophyta:
+        Picramniaceae to Rosaceae. Oxford University Press, New York.","nameAccordingToID":"http://www.efloras.org/volume_page.aspx?volume_id=1009&flora_id=1","taxonomicStatus":"synonym"}]}]},{"searchedTerm":"Schlotheimia
+        densifolia","numMatches":0},{"searchedTerm":"Anthemis wiemanniana","numMatches":0},{"searchedTerm":"Ethulia
+        divaricata","numMatches":0},{"searchedTerm":"Hieracium pseudoatratum","numMatches":0},{"searchedTerm":"Asystasia
+        hispida","numMatches":0},{"searchedTerm":"Rhododendron osakazuki","numMatches":0},{"searchedTerm":"Mimosa
+        bathyrrhena","numMatches":0},{"searchedTerm":"Freycinetia villalobosii","numMatches":0},{"searchedTerm":"Lachemilla
+        orbiculata","numMatches":0},{"searchedTerm":"Dasynema obtusum","numMatches":0},{"searchedTerm":"Euphorbia
+        rubella","numMatches":0},{"searchedTerm":"Lechenaultia tubiflora","numMatches":0},{"searchedTerm":"Stephanodaphne
+        perrieri","numMatches":0},{"searchedTerm":"Rubus althaeifolius","numMatches":0},{"searchedTerm":"Rhododendron
+        fleuryi","numMatches":0},{"searchedTerm":"Eriogonum glandulosum","numMatches":0},{"searchedTerm":"Lithocarpus
+        fordianus","numMatches":0},{"searchedTerm":"Psammisia pauciflora","numMatches":0},{"searchedTerm":"Citharexylum
+        decorum","numMatches":0},{"searchedTerm":"Tephrocactus heteromorphus","numMatches":0},{"searchedTerm":"Wendlandia
+        angustifolia","numMatches":0},{"searchedTerm":"Cyrtandra lancifolia","numMatches":0},{"searchedTerm":"Limonium
+        transwallisnum","numMatches":0},{"searchedTerm":"Swertia woodii","numMatches":0},{"searchedTerm":"Epidendrum
+        elegantissimum","numMatches":0},{"searchedTerm":"Webera saxensis","numMatches":0},{"searchedTerm":"Schwerinia
+        superba","numMatches":0},{"searchedTerm":"Anacampseros nebrownii","numMatches":0},{"searchedTerm":"Scapania
+        jensenii","numMatches":0},{"searchedTerm":"Asplenium bifrons","numMatches":0},{"searchedTerm":"Smilax
+        excelsa","numMatches":0},{"searchedTerm":"Isocaulon flavoviride","numMatches":0},{"searchedTerm":"Rondeletia
+        holdridgei","numMatches":0},{"searchedTerm":"Erysimum benthamii","numMatches":0},{"searchedTerm":"Bryum
+        dentatum","numMatches":0},{"searchedTerm":"Belmontia intermedia","numMatches":0},{"searchedTerm":"Adiantum
+        lingii","numMatches":0},{"searchedTerm":"Palicourea pensilis","numMatches":0},{"searchedTerm":"Hieracium
+        diarthrodes","numMatches":0},{"searchedTerm":"Verbesina lopez-mirandae","numMatches":0},{"searchedTerm":"Pterostylis
+        erecta","numMatches":0}]}'
+  recorded_at: 2019-01-26 00:10:15 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: post
+    uri: http://data.canadensys.net/vascan/api/0.1/search.json
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Content-Type: application/x-www-form-urlencoded
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+      X-User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.10.3 (Ubuntu)
+      date: Sat, 26 Jan 2019 00:10:15 GMT
+      content-type: application/json;charset=UTF-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      strict-transport-security: max-age=31536000
+    body:
+      encoding: UTF-8
+      string: '{"apiVersion":"0.1","lastUpdatedDate":"2018-06-21\n","results":[{"searchedTerm":"Melastoma
+        sieberi","numMatches":0},{"searchedTerm":"Juncus georgianus","numMatches":0},{"searchedTerm":"Ulmus
+        brandisiana","numMatches":0},{"searchedTerm":"Acantholimon muchamedshanovii","numMatches":0},{"searchedTerm":"Dracontium
+        peruvianum","numMatches":0},{"searchedTerm":"Leptotheca boliviana","numMatches":0},{"searchedTerm":"Vatica
+        mindanensis","numMatches":0},{"searchedTerm":"Opuntia xanthoglochia","numMatches":0},{"searchedTerm":"Rubus
+        oklahomus","numMatches":1,"matches":[{"taxonID":27423,"scientificName":"Rubus
+        oklahomus L.H. Bailey","scientificNameAuthorship":"L.H. Bailey","canonicalName":"Rubus
+        oklahomus","taxonRank":"species","taxonomicAssertions":[{"acceptedNameUsage":"Rubus
+        pensilvanicus Poiret","acceptedNameUsageID":8944,"nameAccordingTo":"FNA Editorial
+        Committee. 2014. Flora of North America north of Mexico. Volume 9: Magnoliophyta:
+        Picramniaceae to Rosaceae. Oxford University Press, New York.","nameAccordingToID":"http://www.efloras.org/volume_page.aspx?volume_id=1009&flora_id=1","taxonomicStatus":"synonym"}]}]},{"searchedTerm":"Schlotheimia
+        densifolia","numMatches":0},{"searchedTerm":"Anthemis wiemanniana","numMatches":0},{"searchedTerm":"Ethulia
+        divaricata","numMatches":0},{"searchedTerm":"Hieracium pseudoatratum","numMatches":0},{"searchedTerm":"Asystasia
+        hispida","numMatches":0},{"searchedTerm":"Rhododendron osakazuki","numMatches":0},{"searchedTerm":"Mimosa
+        bathyrrhena","numMatches":0},{"searchedTerm":"Freycinetia villalobosii","numMatches":0},{"searchedTerm":"Lachemilla
+        orbiculata","numMatches":0},{"searchedTerm":"Dasynema obtusum","numMatches":0},{"searchedTerm":"Euphorbia
+        rubella","numMatches":0},{"searchedTerm":"Lechenaultia tubiflora","numMatches":0},{"searchedTerm":"Stephanodaphne
+        perrieri","numMatches":0},{"searchedTerm":"Rubus althaeifolius","numMatches":0},{"searchedTerm":"Rhododendron
+        fleuryi","numMatches":0},{"searchedTerm":"Eriogonum glandulosum","numMatches":0},{"searchedTerm":"Lithocarpus
+        fordianus","numMatches":0},{"searchedTerm":"Psammisia pauciflora","numMatches":0},{"searchedTerm":"Citharexylum
+        decorum","numMatches":0},{"searchedTerm":"Tephrocactus heteromorphus","numMatches":0},{"searchedTerm":"Wendlandia
+        angustifolia","numMatches":0},{"searchedTerm":"Cyrtandra lancifolia","numMatches":0},{"searchedTerm":"Limonium
+        transwallisnum","numMatches":0},{"searchedTerm":"Swertia woodii","numMatches":0},{"searchedTerm":"Epidendrum
+        elegantissimum","numMatches":0},{"searchedTerm":"Webera saxensis","numMatches":0},{"searchedTerm":"Schwerinia
+        superba","numMatches":0},{"searchedTerm":"Anacampseros nebrownii","numMatches":0},{"searchedTerm":"Scapania
+        jensenii","numMatches":0},{"searchedTerm":"Asplenium bifrons","numMatches":0},{"searchedTerm":"Smilax
+        excelsa","numMatches":0},{"searchedTerm":"Isocaulon flavoviride","numMatches":0},{"searchedTerm":"Rondeletia
+        holdridgei","numMatches":0},{"searchedTerm":"Erysimum benthamii","numMatches":0},{"searchedTerm":"Bryum
+        dentatum","numMatches":0},{"searchedTerm":"Belmontia intermedia","numMatches":0},{"searchedTerm":"Adiantum
+        lingii","numMatches":0},{"searchedTerm":"Palicourea pensilis","numMatches":0},{"searchedTerm":"Hieracium
+        diarthrodes","numMatches":0},{"searchedTerm":"Verbesina lopez-mirandae","numMatches":0},{"searchedTerm":"Pterostylis
+        erecta","numMatches":0}]}'
+  recorded_at: 2019-01-26 00:10:15 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0

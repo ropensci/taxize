@@ -22,7 +22,7 @@
 #' returned object (and can be obtained using \code{attr(object,
 #' "original_response")}).
 #'
-#' @param ... Curl options passed on to \code{\link[httr]{POST}} within
+#' @param ... Curl options passed on to \code{httr::POST} within
 #' \code{\link[rotl]{tnrs_match_names}}
 #' @author Francois Michonneau \email{francois.michonneau@@gmail.com}
 #' Scott Chamberlain \email{myrmecocystus@@gmail.com}
@@ -45,6 +45,6 @@ tol_resolve <- function(names = NULL, context_name = NULL,
   do_approximate_matching = TRUE, ids = NULL, include_suppressed = FALSE, ...) {
 
   rotl::tnrs_match_names(names = names, context_name = context_name,
-                         do_approximate_matching = do_approximate_matching,
-                         ids = ids, include_suppressed = include_suppressed, ...)
+    do_approximate_matching = do_approximate_matching, ids = ids, 
+    include_suppressed = include_suppressed, ...)
 }

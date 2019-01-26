@@ -1,14 +1,11 @@
 context("iucn_getname")
 
+test_that("iucn_getname returns the correct value", {
+  vcr::use_cassette("iucn_getname", {
+    temp <- sm(iucn_getname(name = "Cyanistes caeruleus", verbose = FALSE))
+  })
 
-# test_that("iucn_getname returns the correct value", {
-#   skip_on_cran()
-
-#   temp <- iucn_getname(name = "Cyanistes caeruleus", verbose = FALSE)
-
-#   expect_equal(temp, "Parus caeruleus")
-
-# 	expect_is(temp, "character")
-
-#   expect_equal(length(temp), 1)
-# })
+  expect_equal(temp, "Cyanistes caeruleus")
+  expect_is(temp, "character")
+  expect_equal(length(temp), 1)
+})

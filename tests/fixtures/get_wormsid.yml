@@ -1,0 +1,147 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://www.marinespecies.org/rest/AphiaRecordsByName/Gadus%20morhua?like=true&marine_only=true&offset=1
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Sat, 26 Jan 2019 17:23:40 GMT
+      server: Apache/2.4.25 (Win32) PHP/5.6.29
+      x-powered-by: PHP/5.6.29
+      access-control-allow-origin: '*'
+      access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
+        Authorization
+      access-control-allow-methods: GET, POST, OPTIONS
+      content-length: '6040'
+      content-type: application/json;charset=utf-8
+    body:
+      encoding: UTF-8
+      string: '[{"AphiaID":126436,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=126436","scientificname":"Gadus
+        morhua","authority":"Linnaeus, 1758","status":"accepted","unacceptreason":null,"rank":"Species","valid_AphiaID":126436,"valid_name":"Gadus
+        morhua","valid_authority":"Linnaeus, 1758","kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2019). FishBase. Gadus morhua Linnaeus, 1758. Accessed
+        through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=126436
+        on 2019-01-26","lsid":"urn:lsid:marinespecies.org:taxname:126436","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"like","modified":"2008-01-15T17:27:08.177Z"},{"AphiaID":322689,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=322689","scientificname":"Gadus
+        morhua callarias","authority":"Linnaeus, 1758","status":"unaccepted","unacceptreason":null,"rank":"Subspecies","valid_AphiaID":126436,"valid_name":"Gadus
+        morhua","valid_authority":"Linnaeus, 1758","kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2019). FishBase. Gadus morhua callarias Linnaeus,
+        1758. Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=322689
+        on 2019-01-26","lsid":"urn:lsid:marinespecies.org:taxname:322689","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"like","modified":"2008-03-03T15:23:44.910Z"},{"AphiaID":322690,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=322690","scientificname":"Gadus
+        morhua kildinensis","authority":"Derjugin, 1920","status":"unaccepted","unacceptreason":null,"rank":"Subspecies","valid_AphiaID":126436,"valid_name":"Gadus
+        morhua","valid_authority":"Linnaeus, 1758","kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2019). FishBase. Gadus morhua kildinensis Derjugin,
+        1920. Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=322690
+        on 2019-01-26","lsid":"urn:lsid:marinespecies.org:taxname:322690","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"like","modified":"2008-03-03T15:23:44.910Z"},{"AphiaID":322691,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=322691","scientificname":"Gadus
+        morhua macrocephalus","authority":"Tilesius, 1810","status":"unaccepted","unacceptreason":null,"rank":"Subspecies","valid_AphiaID":254538,"valid_name":"Gadus
+        macrocephalus","valid_authority":"Tilesius, 1810","kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2019). FishBase. Gadus morhua macrocephalus Tilesius,
+        1810. Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=322691
+        on 2019-01-26","lsid":"urn:lsid:marinespecies.org:taxname:322691","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"like","modified":"2008-03-03T15:23:44.910Z"},{"AphiaID":322692,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=322692","scientificname":"Gadus
+        morhua marisalbi","authority":"Derjugin, 1920","status":"unaccepted","unacceptreason":null,"rank":"Subspecies","valid_AphiaID":254538,"valid_name":"Gadus
+        macrocephalus","valid_authority":"Tilesius, 1810","kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2019). FishBase. Gadus morhua marisalbi Derjugin,
+        1920. Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=322692
+        on 2019-01-26","lsid":"urn:lsid:marinespecies.org:taxname:322692","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"like","modified":"2008-03-03T15:23:44.910Z"},{"AphiaID":322693,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=322693","scientificname":"Gadus
+        morhua morhua","authority":"Linnaeus, 1758","status":"unaccepted","unacceptreason":null,"rank":"Subspecies","valid_AphiaID":126436,"valid_name":"Gadus
+        morhua","valid_authority":"Linnaeus, 1758","kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2019). FishBase. Gadus morhua morhua Linnaeus,
+        1758. Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=322693
+        on 2019-01-26","lsid":"urn:lsid:marinespecies.org:taxname:322693","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"like","modified":"2008-03-03T15:23:44.910Z"},{"AphiaID":322694,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=322694","scientificname":"Gadus
+        morhua ogac","authority":"Richardson, 1836","status":"unaccepted","unacceptreason":null,"rank":"Subspecies","valid_AphiaID":254538,"valid_name":"Gadus
+        macrocephalus","valid_authority":"Tilesius, 1810","kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2019). FishBase. Gadus morhua ogac Richardson,
+        1836. Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=322694
+        on 2019-01-26","lsid":"urn:lsid:marinespecies.org:taxname:322694","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"like","modified":"2008-03-03T15:23:44.910Z"}]'
+  recorded_at: 2019-01-26 17:23:45 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://www.marinespecies.org/rest/AphiaRecordsByName/Platanista%20gangetica?like=true&marine_only=true&offset=1
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Sat, 26 Jan 2019 17:23:43 GMT
+      server: Apache/2.4.25 (Win32) PHP/5.6.29
+      x-powered-by: PHP/5.6.29
+      access-control-allow-origin: '*'
+      access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
+        Authorization
+      access-control-allow-methods: GET, POST, OPTIONS
+      content-length: '2656'
+      content-type: application/json;charset=utf-8
+    body:
+      encoding: UTF-8
+      string: '[{"AphiaID":254967,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=254967","scientificname":"Platanista
+        gangetica","authority":"(Lebeck, 1801)","status":"accepted","unacceptreason":null,"rank":"Species","valid_AphiaID":254967,"valid_name":"Platanista
+        gangetica","valid_authority":"(Lebeck, 1801)","kingdom":"Animalia","phylum":"Chordata","class":"Mammalia","order":"Cetartiodactyla","family":"Platanistidae","genus":"Platanista","citation":"Perrin,
+        W.F. (2019). World Cetacea Database. Platanista gangetica (Lebeck, 1801).
+        Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=254967
+        on 2019-01-26","lsid":"urn:lsid:marinespecies.org:taxname:254967","isMarine":null,"isBrackish":null,"isFreshwater":1,"isTerrestrial":null,"isExtinct":null,"match_type":"like","modified":"2010-01-04T16:38:16.250Z"},{"AphiaID":383571,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=383571","scientificname":"Platanista
+        gangetica gangetica","authority":"Roxburgh, 1801","status":"accepted","unacceptreason":null,"rank":"Subspecies","valid_AphiaID":383571,"valid_name":"Platanista
+        gangetica gangetica","valid_authority":"Roxburgh, 1801","kingdom":"Animalia","phylum":"Chordata","class":"Mammalia","order":"Cetartiodactyla","family":"Platanistidae","genus":"Platanista","citation":"Perrin,
+        W.F. (2019). World Cetacea Database. Platanista gangetica gangetica Roxburgh,
+        1801. Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=383571
+        on 2019-01-26","lsid":"urn:lsid:marinespecies.org:taxname:383571","isMarine":null,"isBrackish":null,"isFreshwater":1,"isTerrestrial":null,"isExtinct":null,"match_type":"like","modified":"2009-03-04T10:50:54.900Z"},{"AphiaID":254969,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=254969","scientificname":"Platanista
+        gangetica minor","authority":"Owen, 1853","status":"accepted","unacceptreason":null,"rank":"Subspecies","valid_AphiaID":254969,"valid_name":"Platanista
+        gangetica minor","valid_authority":"Owen, 1853","kingdom":"Animalia","phylum":"Chordata","class":"Mammalia","order":"Cetartiodactyla","family":"Platanistidae","genus":"Platanista","citation":"Perrin,
+        W.F. (2019). World Cetacea Database. Platanista gangetica minor Owen, 1853.
+        Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=254969
+        on 2019-01-26","lsid":"urn:lsid:marinespecies.org:taxname:254969","isMarine":0,"isBrackish":null,"isFreshwater":1,"isTerrestrial":0,"isExtinct":null,"match_type":"like","modified":"2009-01-07T16:13:45.687Z"}]'
+  recorded_at: 2019-01-26 17:23:45 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://www.marinespecies.org/rest/AphiaRecordsByName/Lichenopora%20neapolitana?like=true&marine_only=true&offset=1
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Sat, 26 Jan 2019 17:23:45 GMT
+      server: Apache/2.4.25 (Win32) PHP/5.6.29
+      x-powered-by: PHP/5.6.29
+      access-control-allow-origin: '*'
+      access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
+        Authorization
+      access-control-allow-methods: GET, POST, OPTIONS
+      content-length: '778'
+      content-type: application/json;charset=utf-8
+    body:
+      encoding: UTF-8
+      string: '[{"AphiaID":933474,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=933474","scientificname":"Lichenopora
+        neapolitana","authority":"Waters, 1918","status":"nomen nudum","unacceptreason":null,"rank":"Species","valid_AphiaID":null,"valid_name":null,"valid_authority":null,"kingdom":"Animalia","phylum":"Bryozoa","class":"Stenolaemata","order":"Cyclostomatida","family":"Lichenoporidae","genus":"Lichenopora","citation":"WoRMS
+        (2019). Lichenopora neapolitana Waters, 1918. Accessed at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=933474
+        on 2019-01-26","lsid":"urn:lsid:marinespecies.org:taxname:933474","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"like","modified":"2017-01-09T20:02:52.330Z"}]'
+  recorded_at: 2019-01-26 17:23:45 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0

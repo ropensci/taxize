@@ -6,7 +6,9 @@
 #' signifying the service is up. If content, we do a simple, quick check to
 #' determine if returned content matches what's expected. If an HTTP status
 #' code, it must match an appropriate code. See \code{\link{status_codes}}.
-#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' @param key (character) NCBI Entrez API key. optional. See 
+#' \code{\link{get_uid}}
+#' @param ... Curl options passed on to \code{\link[crul]{verb-GET}}
 #' @return A logical, TRUE or FALSE
 #' @details For ITIS, see \code{\link[ritis]{description}}, which provides
 #' number of scientific and common names in a character string.
@@ -39,15 +41,14 @@
 #' vascan_ping("content")
 #'
 #' # curl options
-#' library("httr")
-#' vascan_ping(config=verbose())
-#' eol_ping(500, config=verbose())
+#' vascan_ping(verbose = TRUE)
+#' eol_ping(500, verbose = TRUE)
 #' }
 
 #' @export
 #' @rdname ping
 col_ping <- function(what = "status", ...) {
-  res <- GET('http://www.catalogueoflife.org/col/webservice?name=Apis', ...)
+  res <- pGET('http://www.catalogueoflife.org/col/webservice?name=Apis', ...)
   switch(
     matchwhat(what),
     status = match_status(res),
@@ -55,7 +56,7 @@ col_ping <- function(what = "status", ...) {
     content = {
       identical(
         "Apis",
-        xml_text(xml_find_first(xml_children(xml2::read_xml(con_utf8(res)))[[1]], "name")))
+        xml_text(xml_find_first(xml_children(xml2::read_xml(res$parse("UTF-8")))[[1]], "name")))
     }
   )
 }
@@ -63,13 +64,13 @@ col_ping <- function(what = "status", ...) {
 #' @export
 #' @rdname ping
 eol_ping <- function(what = "status", ...) {
-  res <- GET('https://eol.org/api/ping/1.0.json', ...)
+  res <- pGET('https://eol.org/api/ping/1.0.json', ...)
   switch(
     matchwhat(what),
     status = match_status(res),
     code = match_code(res, what),
     content = grepl("success", 
-      jsonlite::fromJSON(con_utf8(res))$response$message,
+      jsonlite::fromJSON(res$parse("UTF-8"))$response$message,
       ignore.case = TRUE)
   )
 }
@@ -77,34 +78,39 @@ eol_ping <- function(what = "status", ...) {
 #' @export
 #' @rdname ping
 itis_ping <- function(what = "status", ...) {
-  res <- GET("http://www.itis.gov/ITISWebService/services/ITISService/getDescription", ...)
+  res <- pGET("http://www.itis.gov/ITISWebService/services/ITISService/getDescription", ...)
   switch(matchwhat(what),
          status = match_status(res),
          code = match_code(res, what),
          content = {
-           tt <- xml_text(xml2::xml_children(xml2::read_xml(con_utf8(res)))[[1]])
+           tt <- xml_text(xml2::xml_children(xml2::read_xml(res$parse("UTF-8")))[[1]])
            grepl("this is the itis web service", tt, ignore.case = TRUE)
          })
 }
 
 #' @export
 #' @rdname ping
-ncbi_ping <- function(what = "status", ...) {
-  res <- GET(paste0(ncbi_base(), "/entrez/eutils/efetch.fcgi?db=taxonomy&ID=4232"), ...)
-  switch(matchwhat(what),
-         status = match_status(res),
-         code = match_code(res, what),
-         content = identical("4232",
-                             xml_text(xml_find_first(xml_children(read_xml(con_utf8(res)))[[1]], "TaxId")))
+ncbi_ping <- function(what = "status", key = NULL, ...) {
+  key <- getkey(key, "ENTREZ_KEY")
+  args <- tc(list(api_key = key))
+  res <- pGET(paste0(ncbi_base(), 
+    "/entrez/eutils/efetch.fcgi?db=taxonomy&ID=4232"), args = args, ...)
+  switch(
+    matchwhat(what),
+    status = match_status(res),
+    code = match_code(res, what),
+    content = identical("4232",
+      xml_text(xml_find_first(
+        xml_children(read_xml(res$parse("UTF-8")))[[1]], "TaxId")))
   )
 }
 
 #' @export
 #' @rdname ping
 tropicos_ping <- function(what = "status", ...) {
-  res <- GET("http://services.tropicos.org/Name/25509881?apikey=f3e499d4-1519-42c9-afd1-685a16882f5a&format=xml", ...)
+  res <- pGET("http://services.tropicos.org/Name/25509881?apikey=f3e499d4-1519-42c9-afd1-685a16882f5a&format=xml", ...)
   error = FALSE
-  if (grepl("exception occurred", con_utf8(res), ignore.case = TRUE)) error = TRUE
+  if (grepl("exception occurred", res$parse("UTF-8"), ignore.case = TRUE)) error = TRUE
   switch(
     matchwhat(what),
     status = if (error) TRUE else match_status(res),
@@ -115,7 +121,7 @@ tropicos_ping <- function(what = "status", ...) {
       else
         grepl(
           25509881,
-          xml2::as_list( xml2::read_xml(con_utf8(res)))$Name$NameId[[1]]
+          xml2::as_list( xml2::read_xml(res$parse("UTF-8")))$Name$NameId[[1]]
         )
     }
   )
@@ -124,13 +130,13 @@ tropicos_ping <- function(what = "status", ...) {
 #' @export
 #' @rdname ping
 nbn_ping <- function(what = "status", ...) {
-  res <- GET("https://species-ws.nbnatlas.org/species/NHMSYS0000502940", ...)
+  res <- pGET("https://species-ws.nbnatlas.org/species/NHMSYS0000502940", ...)
   switch(
     matchwhat(what),
     status = match_status(res),
     code = match_code(res, what),
     content = {
-      jsonlite::fromJSON(con_utf8(res))$taxonConcept$guid == 'NHMSYS0000502940'
+      jsonlite::fromJSON(res$parse("UTF-8"))$taxonConcept$guid == 'NHMSYS0000502940'
     }
   )
 }
@@ -138,22 +144,23 @@ nbn_ping <- function(what = "status", ...) {
 #' @export
 #' @rdname ping
 gbif_ping <- function(what = "status", ...) {
-  res <- GET("http://api.gbif.org/v1/species/1", ...)
+  res <- pGET("http://api.gbif.org/v1/species/1", ...)
   switch(matchwhat(what),
          status = match_status(res),
          code = match_code(res, what),
-         content = grepl("1", jsonlite::fromJSON(con_utf8(res))$key, ignore.case = TRUE))
+         content = grepl("1", jsonlite::fromJSON(res$parse("UTF-8"))$key, 
+          ignore.case = TRUE))
 }
 
 #' @export
 #' @rdname ping
 bold_ping <- function(what = "status", ...) {
-  res <- GET("http://v4.boldsystems.org/index.php/API_Tax/TaxonData?taxId=88899&dataTypes=basic&includeTree=FALSE", ...)
+  res <- pGET("http://v4.boldsystems.org/index.php/API_Tax/TaxonData?taxId=88899&dataTypes=basic&includeTree=FALSE", ...)
   switch(
     matchwhat(what),
     status = match_status(res),
     code = match_code(res, what),
-    content = grepl("88899", jsonlite::fromJSON(con_utf8(res))$taxid,
+    content = grepl("88899", jsonlite::fromJSON(res$parse("UTF-8"))$taxid,
                     ignore.case = TRUE)
   )
 }
@@ -161,13 +168,14 @@ bold_ping <- function(what = "status", ...) {
 #' @export
 #' @rdname ping
 ipni_ping <- function(what = "status", ...) {
-  res <- GET("http://www.ipni.org/ipni/advPlantNameSearch.do?find_genus=Brintonia&output_format=delimited-minimal", ...)
+  res <- pGET("http://www.ipni.org/ipni/advPlantNameSearch.do?find_genus=Brintonia&output_format=delimited-minimal", ...)
   switch(matchwhat(what),
          status = match_status(res),
          code = match_code(res, what),
          content = {
-           txt <- con_utf8(res)
-           dat <- read.delim(text = txt, sep = "%", stringsAsFactors = FALSE)
+           txt <- res$parse("UTF-8")
+           dat <- read.delim(text = txt, sep = "%", 
+            stringsAsFactors = FALSE)
            grepl("Asteraceae", dat$Family[1], ignore.case = TRUE)
         })
 }
@@ -175,22 +183,24 @@ ipni_ping <- function(what = "status", ...) {
 #' @export
 #' @rdname ping
 vascan_ping <- function(what = "status", ...) {
-  res <- GET("http://data.canadensys.net/vascan/api/0.1/search.json?q=Crataegus", ...)
+  res <- pGET("http://data.canadensys.net/vascan/api/0.1/search.json?q=Crataegus", ...)
   switch(matchwhat(what),
          status = match_status(res),
          code = match_code(res, what),
-         content = grepl("Crataegus", jsonlite::fromJSON(con_utf8(res))$results[[1]], ignore.case = TRUE)
+         content = grepl("Crataegus", jsonlite::fromJSON(res$parse("UTF-8"))$results[[1]], 
+          ignore.case = TRUE)
   )
 }
 
 #' @export
 #' @rdname ping
 fg_ping <- function(what = "status", ...) {
-  res <- GET("http://www.indexfungorum.org/ixfwebservice/fungus.asmx/NameFullByKey?NameLsid=urn:lsid:indexfungorum.org:names:17703", ...)
+  res <- pGET("http://www.indexfungorum.org/ixfwebservice/fungus.asmx/NameFullByKey?NameLsid=urn:lsid:indexfungorum.org:names:17703", ...)
   switch(matchwhat(what),
          status = match_status(res),
          code = match_code(res, what),
-         content = grepl("Gymnopus", xml_text(read_xml(con_utf8(res))), ignore.case = TRUE)
+         content = grepl("Gymnopus", xml_text(read_xml(res$parse("UTF-8"))), 
+          ignore.case = TRUE)
   )
 }
 
@@ -201,13 +211,18 @@ matchwhat <- function(x){
 }
 
 match_status <- function(x){
-  stopifnot(is(x, "response"))
+  stopifnot(inherits(x, "HttpResponse"))
   x$status_code == 200
 }
 
 match_code <- function(x, y){
-  stopifnot(is(x, "response"))
+  stopifnot(inherits(x, "HttpResponse"))
   x$status_code == y
+}
+
+pGET <- function(url, args = list(), ...) {
+  cli <- crul::HttpClient$new(url, opts = list(...))
+  cli$get(query = args)
 }
 
 #' uBio ping

@@ -1,10 +1,10 @@
 context("ncbi_children")
 
 test_that("ncbi_children returns correct class and result", {
-  skip_on_cran()
-
-  tt <- ncbi_children(id = 4751)
-  tt2 <- ncbi_children(id = 4751, out_type = 'uid')
+  vcr::use_cassette("ncbi_children", {
+    tt <- ncbi_children(id = 4751)
+    tt2 <- ncbi_children(id = 4751, out_type = 'uid')
+  })
 
   expect_is(tt, "list")
   expect_is(tt[[1]], "data.frame")

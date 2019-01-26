@@ -1,0 +1,512 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://services.tropicos.org/Name/25509881/Synonyms?apikey=<<tropicos_api_token>>&format=json
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+      X-User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      cache-control: private
+      content-length: '56196'
+      content-type: application/json; charset=utf-8
+      server: Microsoft-IIS/7.5
+      x-aspnet-version: 4.0.30319
+      x-powered-by: ASP.NET
+      date: Sat, 26 Jan 2019 00:08:34 GMT
+    body:
+      encoding: UTF-8
+      string: '[{"SynonymName":{"NameId":25503923,"ScientificName":"Aira pumila","ScientificNameWithAuthors":"Aira
+        pumila Pursh","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":15758,"PublicationId":7936,"AuthorString":"Hitchcock,
+        A. S.","Collation":"1–1051","AbbreviatedTitle":"Man. Grasses U.S. (ed. 2)","TitlePageYear":"1951"}},{"SynonymName":{"NameId":25503923,"ScientificName":"Aira
+        pumila","ScientificNameWithAuthors":"Aira pumila Pursh","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":46337,"PublicationId":100023941,"AuthorString":"Soreng,
+        R. J., L. M. Giussani & M. A. Negritto","ArticleTitle":"~Poa~.","Collation":"48:
+        505–580","AbbreviatedTitle":"Catalogue of New World Grasses (Poaceae): IV.
+        Subfamily Pooideae, Contr. U.S. Natl. Herb.","TitlePageYear":"2003"}},{"SynonymName":{"NameId":25503923,"ScientificName":"Aira
+        pumila","ScientificNameWithAuthors":"Aira pumila Pursh","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":6706,"PublicationId":626,"AuthorString":"Swallen,
+        J. R.","ArticleTitle":"Gramineae. ~In:~ P. C. Standley & J. A. Steyermark
+        (eds.), Flora of Guatemala---Part II","Collation":"24(2): i–ix, 1–390","AbbreviatedTitle":"Fieldiana,
+        Bot.","TitlePageYear":"1955"}},{"SynonymName":{"NameId":25503923,"ScientificName":"Aira
+        pumila","ScientificNameWithAuthors":"Aira pumila Pursh","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1015183,"PublicationId":18774,"AuthorString":"Espejo
+        Serna, M. A., A. R. López-Ferrari & J. Valdés-Reyna","ArticleTitle":"Poaceae","Collation":"10:
+        7–236 [and index]","AbbreviatedTitle":"Monocot. Mexic. Sinopsis Floríst.","TitlePageYear":"2000"}},{"SynonymName":{"NameId":25503923,"ScientificName":"Aira
+        pumila","ScientificNameWithAuthors":"Aira pumila Pursh","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1289,"PublicationId":1340,"AuthorString":"D''Arcy,
+        W. G.","ArticleTitle":"Flora of Panama. Checklist and Index. Part 1: The introduction
+        and checklist","Collation":"17: v–xxx, 1–328","AbbreviatedTitle":"Monogr.
+        Syst. Bot. Missouri Bot. Gard.","TitlePageYear":"1987"}},{"SynonymName":{"NameId":25503923,"ScientificName":"Aira
+        pumila","ScientificNameWithAuthors":"Aira pumila Pursh","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1024044,"PublicationId":19794,"AuthorString":"Soreng,
+        R. J., G. Davidse, P. M. Peterson, F. O. Zuloaga, E. J. Judziewicz, T. S.
+        Filgueiras & O. Morrone","ArticleTitle":"On-line taxonomic novelties and updates,
+        distributional additions and corrections, and editorial changes since the
+        four published volumes of the Catalogue of New World Grasses (Poaceae) published
+        in Contr. U.S. Natl. Herb. vols. 39, 41, 46, and 48","Collation":"http:\/\/www.tropicos.org\/Project\/CNWG:","AbbreviatedTitle":"Internet
+        Cat. New World Grasses","TitlePageYear":"2003 and onwards"}},{"SynonymName":{"NameId":25503923,"ScientificName":"Aira
+        pumila","ScientificNameWithAuthors":"Aira pumila Pursh","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":100011760,"PublicationId":100023696,"AuthorString":"Cabi,
+        E. & M. Doğan","ArticleTitle":"Poaceae","Collation":"690–756","AbbreviatedTitle":"Türkiye
+        Bitkileri Listesi","TitlePageYear":"2012"}},{"SynonymName":{"NameId":25503925,"ScientificName":"Aira
+        pumila","ScientificNameWithAuthors":"Aira pumila Vill. ex Trin.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1033332,"PublicationId":25511,"AuthorString":"CONABIO","ArticleTitle":"Catálogo
+        taxonómico de especies de México","Collation":"1","AbbreviatedTitle":"Capital
+        Nat. México","TitlePageYear":"2009"}},{"SynonymName":{"NameId":25513515,"ScientificName":"Catabrosa
+        pumila","ScientificNameWithAuthors":"Catabrosa pumila (Pursh) Roem. & Schult.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1033332,"PublicationId":25511,"AuthorString":"CONABIO","ArticleTitle":"Catálogo
+        taxonómico de especies de México","Collation":"1","AbbreviatedTitle":"Capital
+        Nat. México","TitlePageYear":"2009"}},{"SynonymName":{"NameId":25513515,"ScientificName":"Catabrosa
+        pumila","ScientificNameWithAuthors":"Catabrosa pumila (Pursh) Roem. & Schult.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1015183,"PublicationId":18774,"AuthorString":"Espejo
+        Serna, M. A., A. R. López-Ferrari & J. Valdés-Reyna","ArticleTitle":"Poaceae","Collation":"10:
+        7–236 [and index]","AbbreviatedTitle":"Monocot. Mexic. Sinopsis Floríst.","TitlePageYear":"2000"}},{"SynonymName":{"NameId":25513515,"ScientificName":"Catabrosa
+        pumila","ScientificNameWithAuthors":"Catabrosa pumila (Pursh) Roem. & Schult.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":15758,"PublicationId":7936,"AuthorString":"Hitchcock,
+        A. S.","Collation":"1–1051","AbbreviatedTitle":"Man. Grasses U.S. (ed. 2)","TitlePageYear":"1951"}},{"SynonymName":{"NameId":25513515,"ScientificName":"Catabrosa
+        pumila","ScientificNameWithAuthors":"Catabrosa pumila (Pursh) Roem. & Schult.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":46337,"PublicationId":100023941,"AuthorString":"Soreng,
+        R. J., L. M. Giussani & M. A. Negritto","ArticleTitle":"~Poa~.","Collation":"48:
+        505–580","AbbreviatedTitle":"Catalogue of New World Grasses (Poaceae): IV.
+        Subfamily Pooideae, Contr. U.S. Natl. Herb.","TitlePageYear":"2003"}},{"SynonymName":{"NameId":25513515,"ScientificName":"Catabrosa
+        pumila","ScientificNameWithAuthors":"Catabrosa pumila (Pursh) Roem. & Schult.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":100011760,"PublicationId":100023696,"AuthorString":"Cabi,
+        E. & M. Doğan","ArticleTitle":"Poaceae","Collation":"690–756","AbbreviatedTitle":"Türkiye
+        Bitkileri Listesi","TitlePageYear":"2012"}},{"SynonymName":{"NameId":25513515,"ScientificName":"Catabrosa
+        pumila","ScientificNameWithAuthors":"Catabrosa pumila (Pursh) Roem. & Schult.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1289,"PublicationId":1340,"AuthorString":"D''Arcy,
+        W. G.","ArticleTitle":"Flora of Panama. Checklist and Index. Part 1: The introduction
+        and checklist","Collation":"17: v–xxx, 1–328","AbbreviatedTitle":"Monogr.
+        Syst. Bot. Missouri Bot. Gard.","TitlePageYear":"1987"}},{"SynonymName":{"NameId":25513515,"ScientificName":"Catabrosa
+        pumila","ScientificNameWithAuthors":"Catabrosa pumila (Pursh) Roem. & Schult.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1024044,"PublicationId":19794,"AuthorString":"Soreng,
+        R. J., G. Davidse, P. M. Peterson, F. O. Zuloaga, E. J. Judziewicz, T. S.
+        Filgueiras & O. Morrone","ArticleTitle":"On-line taxonomic novelties and updates,
+        distributional additions and corrections, and editorial changes since the
+        four published volumes of the Catalogue of New World Grasses (Poaceae) published
+        in Contr. U.S. Natl. Herb. vols. 39, 41, 46, and 48","Collation":"http:\/\/www.tropicos.org\/Project\/CNWG:","AbbreviatedTitle":"Internet
+        Cat. New World Grasses","TitlePageYear":"2003 and onwards"}},{"SynonymName":{"NameId":25513642,"ScientificName":"Eragrostis
+        infirma","ScientificNameWithAuthors":"Eragrostis infirma (Kunth) Steud.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1289,"PublicationId":1340,"AuthorString":"D''Arcy,
+        W. G.","ArticleTitle":"Flora of Panama. Checklist and Index. Part 1: The introduction
+        and checklist","Collation":"17: v–xxx, 1–328","AbbreviatedTitle":"Monogr.
+        Syst. Bot. Missouri Bot. Gard.","TitlePageYear":"1987"}},{"SynonymName":{"NameId":25513642,"ScientificName":"Eragrostis
+        infirma","ScientificNameWithAuthors":"Eragrostis infirma (Kunth) Steud.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":15758,"PublicationId":7936,"AuthorString":"Hitchcock,
+        A. S.","Collation":"1–1051","AbbreviatedTitle":"Man. Grasses U.S. (ed. 2)","TitlePageYear":"1951"}},{"SynonymName":{"NameId":25513642,"ScientificName":"Eragrostis
+        infirma","ScientificNameWithAuthors":"Eragrostis infirma (Kunth) Steud.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1015183,"PublicationId":18774,"AuthorString":"Espejo
+        Serna, M. A., A. R. López-Ferrari & J. Valdés-Reyna","ArticleTitle":"Poaceae","Collation":"10:
+        7–236 [and index]","AbbreviatedTitle":"Monocot. Mexic. Sinopsis Floríst.","TitlePageYear":"2000"}},{"SynonymName":{"NameId":25513642,"ScientificName":"Eragrostis
+        infirma","ScientificNameWithAuthors":"Eragrostis infirma (Kunth) Steud.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":6706,"PublicationId":626,"AuthorString":"Swallen,
+        J. R.","ArticleTitle":"Gramineae. ~In:~ P. C. Standley & J. A. Steyermark
+        (eds.), Flora of Guatemala---Part II","Collation":"24(2): i–ix, 1–390","AbbreviatedTitle":"Fieldiana,
+        Bot.","TitlePageYear":"1955"}},{"SynonymName":{"NameId":25521823,"ScientificName":"Festuca
+        tenuiculmis","ScientificNameWithAuthors":"Festuca tenuiculmis Tovar","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":7728,"PublicationId":1340,"AuthorString":"Brako,
+        L. & J. L. Zarucchi","ArticleTitle":"Catalogue of the flowering plants and
+        gymnosperms of Peru","Collation":"45: i–xl, 1–1286","AbbreviatedTitle":"Monogr.
+        Syst. Bot. Missouri Bot. Gard.","TitlePageYear":"1993"}},{"SynonymName":{"NameId":25513728,"ScientificName":"Megastachya
+        infirma","ScientificNameWithAuthors":"Megastachya infirma (Kunth) Roem. &
+        Schult.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":15758,"PublicationId":7936,"AuthorString":"Hitchcock,
+        A. S.","Collation":"1–1051","AbbreviatedTitle":"Man. Grasses U.S. (ed. 2)","TitlePageYear":"1951"}},{"SynonymName":{"NameId":25513728,"ScientificName":"Megastachya
+        infirma","ScientificNameWithAuthors":"Megastachya infirma (Kunth) Roem. &
+        Schult.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1015183,"PublicationId":18774,"AuthorString":"Espejo
+        Serna, M. A., A. R. López-Ferrari & J. Valdés-Reyna","ArticleTitle":"Poaceae","Collation":"10:
+        7–236 [and index]","AbbreviatedTitle":"Monocot. Mexic. Sinopsis Floríst.","TitlePageYear":"2000"}},{"SynonymName":{"NameId":25513728,"ScientificName":"Megastachya
+        infirma","ScientificNameWithAuthors":"Megastachya infirma (Kunth) Roem. &
+        Schult.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1289,"PublicationId":1340,"AuthorString":"D''Arcy,
+        W. G.","ArticleTitle":"Flora of Panama. Checklist and Index. Part 1: The introduction
+        and checklist","Collation":"17: v–xxx, 1–328","AbbreviatedTitle":"Monogr.
+        Syst. Bot. Missouri Bot. Gard.","TitlePageYear":"1987"}},{"SynonymName":{"NameId":50231428,"ScientificName":"Ochlopoa
+        annua","ScientificNameWithAuthors":"Ochlopoa annua (L.) H. Scholz","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1024044,"PublicationId":19794,"AuthorString":"Soreng,
+        R. J., G. Davidse, P. M. Peterson, F. O. Zuloaga, E. J. Judziewicz, T. S.
+        Filgueiras & O. Morrone","ArticleTitle":"On-line taxonomic novelties and updates,
+        distributional additions and corrections, and editorial changes since the
+        four published volumes of the Catalogue of New World Grasses (Poaceae) published
+        in Contr. U.S. Natl. Herb. vols. 39, 41, 46, and 48","Collation":"http:\/\/www.tropicos.org\/Project\/CNWG:","AbbreviatedTitle":"Internet
+        Cat. New World Grasses","TitlePageYear":"2003 and onwards"}},{"SynonymName":{"NameId":50231428,"ScientificName":"Ochlopoa
+        annua","ScientificNameWithAuthors":"Ochlopoa annua (L.) H. Scholz","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":100009492,"PublicationId":100022331,"AuthorString":"Soreng,
+        R. J. & P. M. Peterson","ArticleTitle":"Revision of ~Poa~ L. (Poaceae, Pooideae,
+        Poeae, Poinae) in Mexico: new records, re-evaluation of ~P. ruprechtii~, and
+        two new species, ~P. palmeri~ and ~P. wendtii~","Collation":"15: 1–104","AbbreviatedTitle":"PhytoKeys","TitlePageYear":"2012"}},{"SynonymName":{"NameId":50231428,"ScientificName":"Ochlopoa
+        annua","ScientificNameWithAuthors":"Ochlopoa annua (L.) H. Scholz","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":100011760,"PublicationId":100023696,"AuthorString":"Cabi,
+        E. & M. Doğan","ArticleTitle":"Poaceae","Collation":"690–756","AbbreviatedTitle":"Türkiye
+        Bitkileri Listesi","TitlePageYear":"2012"}},{"SynonymName":{"NameId":50231428,"ScientificName":"Ochlopoa
+        annua","ScientificNameWithAuthors":"Ochlopoa annua (L.) H. Scholz","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":100023508,"PublicationId":100022331,"AuthorString":"Sylvester,
+        S. P., R. J. Soreng, P. M. Peterson & M. D. P. V. Sylvester","ArticleTitle":"An
+        updated checklist and key to the open-panicled species of ~Poa~ L. (Poaceae)
+        in Peru including three new species, ~Poa ramoniana~, ~Poa tayacajaensis~,
+        and ~Poa urubambensis~","Collation":"65: 57–90","AbbreviatedTitle":"PhytoKeys","TitlePageYear":"2016"}},{"SynonymName":{"NameId":50231428,"ScientificName":"Ochlopoa
+        annua","ScientificNameWithAuthors":"Ochlopoa annua (L.) H. Scholz","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":46337,"PublicationId":100023941,"AuthorString":"Soreng,
+        R. J., L. M. Giussani & M. A. Negritto","ArticleTitle":"~Poa~.","Collation":"48:
+        505–580","AbbreviatedTitle":"Catalogue of New World Grasses (Poaceae): IV.
+        Subfamily Pooideae, Contr. U.S. Natl. Herb.","TitlePageYear":"2003"}},{"SynonymName":{"NameId":25512823,"ScientificName":"Poa
+        aestivalis","ScientificNameWithAuthors":"Poa aestivalis J. Presl","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1033332,"PublicationId":25511,"AuthorString":"CONABIO","ArticleTitle":"Catálogo
+        taxonómico de especies de México","Collation":"1","AbbreviatedTitle":"Capital
+        Nat. México","TitlePageYear":"2009"}},{"SynonymName":{"NameId":25512823,"ScientificName":"Poa
+        aestivalis","ScientificNameWithAuthors":"Poa aestivalis J. Presl","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1289,"PublicationId":1340,"AuthorString":"D''Arcy,
+        W. G.","ArticleTitle":"Flora of Panama. Checklist and Index. Part 1: The introduction
+        and checklist","Collation":"17: v–xxx, 1–328","AbbreviatedTitle":"Monogr.
+        Syst. Bot. Missouri Bot. Gard.","TitlePageYear":"1987"}},{"SynonymName":{"NameId":25512823,"ScientificName":"Poa
+        aestivalis","ScientificNameWithAuthors":"Poa aestivalis J. Presl","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":16241,"PublicationId":605,"AuthorString":"Hitchcock,
+        A. S.","ArticleTitle":"The grasses of Ecuador, Peru, and Bolivia","Collation":"24(8):
+        291–556","AbbreviatedTitle":"Contr. U.S. Natl. Herb.","TitlePageYear":"1927"}},{"SynonymName":{"NameId":25512823,"ScientificName":"Poa
+        aestivalis","ScientificNameWithAuthors":"Poa aestivalis J. Presl","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1015183,"PublicationId":18774,"AuthorString":"Espejo
+        Serna, M. A., A. R. López-Ferrari & J. Valdés-Reyna","ArticleTitle":"Poaceae","Collation":"10:
+        7–236 [and index]","AbbreviatedTitle":"Monocot. Mexic. Sinopsis Floríst.","TitlePageYear":"2000"}},{"SynonymName":{"NameId":25512823,"ScientificName":"Poa
+        aestivalis","ScientificNameWithAuthors":"Poa aestivalis J. Presl","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":46337,"PublicationId":100023941,"AuthorString":"Soreng,
+        R. J., L. M. Giussani & M. A. Negritto","ArticleTitle":"~Poa~.","Collation":"48:
+        505–580","AbbreviatedTitle":"Catalogue of New World Grasses (Poaceae): IV.
+        Subfamily Pooideae, Contr. U.S. Natl. Herb.","TitlePageYear":"2003"}},{"SynonymName":{"NameId":25512823,"ScientificName":"Poa
+        aestivalis","ScientificNameWithAuthors":"Poa aestivalis J. Presl","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":10010,"PublicationId":7616,"AuthorString":"Tovar,
+        Ó.","ArticleTitle":"Revisión de las especies peruanas del género ~Poa~","Collation":"15:
+        1–65","AbbreviatedTitle":"Mem. Mus. Hist. Nat. \"Javier Prado\"","TitlePageYear":"1965"}},{"SynonymName":{"NameId":25512823,"ScientificName":"Poa
+        aestivalis","ScientificNameWithAuthors":"Poa aestivalis J. Presl","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":15758,"PublicationId":7936,"AuthorString":"Hitchcock,
+        A. S.","Collation":"1–1051","AbbreviatedTitle":"Man. Grasses U.S. (ed. 2)","TitlePageYear":"1951"}},{"SynonymName":{"NameId":25512823,"ScientificName":"Poa
+        aestivalis","ScientificNameWithAuthors":"Poa aestivalis J. Presl","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":7728,"PublicationId":1340,"AuthorString":"Brako,
+        L. & J. L. Zarucchi","ArticleTitle":"Catalogue of the flowering plants and
+        gymnosperms of Peru","Collation":"45: i–xl, 1–1286","AbbreviatedTitle":"Monogr.
+        Syst. Bot. Missouri Bot. Gard.","TitlePageYear":"1993"}},{"SynonymName":{"NameId":25512823,"ScientificName":"Poa
+        aestivalis","ScientificNameWithAuthors":"Poa aestivalis J. Presl","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":6706,"PublicationId":626,"AuthorString":"Swallen,
+        J. R.","ArticleTitle":"Gramineae. ~In:~ P. C. Standley & J. A. Steyermark
+        (eds.), Flora of Guatemala---Part II","Collation":"24(2): i–ix, 1–390","AbbreviatedTitle":"Fieldiana,
+        Bot.","TitlePageYear":"1955"}},{"SynonymName":{"NameId":25512823,"ScientificName":"Poa
+        aestivalis","ScientificNameWithAuthors":"Poa aestivalis J. Presl","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1024044,"PublicationId":19794,"AuthorString":"Soreng,
+        R. J., G. Davidse, P. M. Peterson, F. O. Zuloaga, E. J. Judziewicz, T. S.
+        Filgueiras & O. Morrone","ArticleTitle":"On-line taxonomic novelties and updates,
+        distributional additions and corrections, and editorial changes since the
+        four published volumes of the Catalogue of New World Grasses (Poaceae) published
+        in Contr. U.S. Natl. Herb. vols. 39, 41, 46, and 48","Collation":"http:\/\/www.tropicos.org\/Project\/CNWG:","AbbreviatedTitle":"Internet
+        Cat. New World Grasses","TitlePageYear":"2003 and onwards"}},{"SynonymName":{"NameId":25512823,"ScientificName":"Poa
+        aestivalis","ScientificNameWithAuthors":"Poa aestivalis J. Presl","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":100011760,"PublicationId":100023696,"AuthorString":"Cabi,
+        E. & M. Doğan","ArticleTitle":"Poaceae","Collation":"690–756","AbbreviatedTitle":"Türkiye
+        Bitkileri Listesi","TitlePageYear":"2012"}},{"SynonymName":{"NameId":25538791,"ScientificName":"Poa
+        algida","ScientificNameWithAuthors":"Poa algida (Sol.) Rupr.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1033332,"PublicationId":25511,"AuthorString":"CONABIO","ArticleTitle":"Catálogo
+        taxonómico de especies de México","Collation":"1","AbbreviatedTitle":"Capital
+        Nat. México","TitlePageYear":"2009"}},{"SynonymName":{"NameId":25512724,"ScientificName":"Poa
+        algida","ScientificNameWithAuthors":"Poa algida Trin.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":10010,"PublicationId":7616,"AuthorString":"Tovar,
+        Ó.","ArticleTitle":"Revisión de las especies peruanas del género ~Poa~","Collation":"15:
+        1–65","AbbreviatedTitle":"Mem. Mus. Hist. Nat. \"Javier Prado\"","TitlePageYear":"1965"}},{"SynonymName":{"NameId":25512724,"ScientificName":"Poa
+        algida","ScientificNameWithAuthors":"Poa algida Trin.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":46337,"PublicationId":100023941,"AuthorString":"Soreng,
+        R. J., L. M. Giussani & M. A. Negritto","ArticleTitle":"~Poa~.","Collation":"48:
+        505–580","AbbreviatedTitle":"Catalogue of New World Grasses (Poaceae): IV.
+        Subfamily Pooideae, Contr. U.S. Natl. Herb.","TitlePageYear":"2003"}},{"SynonymName":{"NameId":25512724,"ScientificName":"Poa
+        algida","ScientificNameWithAuthors":"Poa algida Trin.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":7728,"PublicationId":1340,"AuthorString":"Brako,
+        L. & J. L. Zarucchi","ArticleTitle":"Catalogue of the flowering plants and
+        gymnosperms of Peru","Collation":"45: i–xl, 1–1286","AbbreviatedTitle":"Monogr.
+        Syst. Bot. Missouri Bot. Gard.","TitlePageYear":"1993"}},{"SynonymName":{"NameId":25512724,"ScientificName":"Poa
+        algida","ScientificNameWithAuthors":"Poa algida Trin.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1000236,"PublicationId":2842,"AuthorString":"Tovar
+        Serpa, Ó.","ArticleTitle":"Las Gramíneas (Poaceae) del Perú","Collation":"13:
+        1–480","AbbreviatedTitle":"Ruizia","TitlePageYear":"1993"}},{"SynonymName":{"NameId":25512724,"ScientificName":"Poa
+        algida","ScientificNameWithAuthors":"Poa algida Trin.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":16241,"PublicationId":605,"AuthorString":"Hitchcock,
+        A. S.","ArticleTitle":"The grasses of Ecuador, Peru, and Bolivia","Collation":"24(8):
+        291–556","AbbreviatedTitle":"Contr. U.S. Natl. Herb.","TitlePageYear":"1927"}},{"SynonymName":{"NameId":25512724,"ScientificName":"Poa
+        algida","ScientificNameWithAuthors":"Poa algida Trin.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":719,"PublicationId":1054,"AuthorString":"Standley,
+        P. C.","ArticleTitle":"Gramineae en: J.F. Macbride, Flora of Peru.","Collation":"13(1\/1):
+        96–261","AbbreviatedTitle":"Publ. Field Mus. Nat. Hist., Bot. Ser.","TitlePageYear":"1936"}},{"SynonymName":{"NameId":25512724,"ScientificName":"Poa
+        algida","ScientificNameWithAuthors":"Poa algida Trin.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":100011760,"PublicationId":100023696,"AuthorString":"Cabi,
+        E. & M. Doğan","ArticleTitle":"Poaceae","Collation":"690–756","AbbreviatedTitle":"Türkiye
+        Bitkileri Listesi","TitlePageYear":"2012"}},{"SynonymName":{"NameId":25512724,"ScientificName":"Poa
+        algida","ScientificNameWithAuthors":"Poa algida Trin.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1024044,"PublicationId":19794,"AuthorString":"Soreng,
+        R. J., G. Davidse, P. M. Peterson, F. O. Zuloaga, E. J. Judziewicz, T. S.
+        Filgueiras & O. Morrone","ArticleTitle":"On-line taxonomic novelties and updates,
+        distributional additions and corrections, and editorial changes since the
+        four published volumes of the Catalogue of New World Grasses (Poaceae) published
+        in Contr. U.S. Natl. Herb. vols. 39, 41, 46, and 48","Collation":"http:\/\/www.tropicos.org\/Project\/CNWG:","AbbreviatedTitle":"Internet
+        Cat. New World Grasses","TitlePageYear":"2003 and onwards"}},{"SynonymName":{"NameId":25550983,"ScientificName":"Poa
+        annua fo. reptans","ScientificNameWithAuthors":"Poa annua fo. reptans (Hausskn.)
+        T. Koyama","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1024044,"PublicationId":19794,"AuthorString":"Soreng,
+        R. J., G. Davidse, P. M. Peterson, F. O. Zuloaga, E. J. Judziewicz, T. S.
+        Filgueiras & O. Morrone","ArticleTitle":"On-line taxonomic novelties and updates,
+        distributional additions and corrections, and editorial changes since the
+        four published volumes of the Catalogue of New World Grasses (Poaceae) published
+        in Contr. U.S. Natl. Herb. vols. 39, 41, 46, and 48","Collation":"http:\/\/www.tropicos.org\/Project\/CNWG:","AbbreviatedTitle":"Internet
+        Cat. New World Grasses","TitlePageYear":"2003 and onwards"}},{"SynonymName":{"NameId":25550983,"ScientificName":"Poa
+        annua fo. reptans","ScientificNameWithAuthors":"Poa annua fo. reptans (Hausskn.)
+        T. Koyama","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1029690,"PublicationId":11746,"AuthorString":"Flora
+        of China Editorial Committee","ArticleTitle":"Flora of China (Poaceae)","Collation":"22:
+        1–733","AbbreviatedTitle":"Fl. China","TitlePageYear":"2006"}},{"SynonymName":{"NameId":25550983,"ScientificName":"Poa
+        annua fo. reptans","ScientificNameWithAuthors":"Poa annua fo. reptans (Hausskn.)
+        T. Koyama","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1024102,"AuthorString":"Soreng,
+        R. J.","ArticleTitle":"~Poa~ of the World, 2004 onward","Collation":"ined","TitlePageYear":"2004"}},{"SynonymName":{"NameId":25550983,"ScientificName":"Poa
+        annua fo. reptans","ScientificNameWithAuthors":"Poa annua fo. reptans (Hausskn.)
+        T. Koyama","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":46337,"PublicationId":100023941,"AuthorString":"Soreng,
+        R. J., L. M. Giussani & M. A. Negritto","ArticleTitle":"~Poa~.","Collation":"48:
+        505–580","AbbreviatedTitle":"Catalogue of New World Grasses (Poaceae): IV.
+        Subfamily Pooideae, Contr. U.S. Natl. Herb.","TitlePageYear":"2003"}},{"SynonymName":{"NameId":25550983,"ScientificName":"Poa
+        annua fo. reptans","ScientificNameWithAuthors":"Poa annua fo. reptans (Hausskn.)
+        T. Koyama","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1033332,"PublicationId":25511,"AuthorString":"CONABIO","ArticleTitle":"Catálogo
+        taxonómico de especies de México","Collation":"1","AbbreviatedTitle":"Capital
+        Nat. México","TitlePageYear":"2009"}},{"SynonymName":{"NameId":25517736,"ScientificName":"Poa
+        annua var. annua","ScientificNameWithAuthors":"Poa annua var. annua ","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1033332,"PublicationId":25511,"AuthorString":"CONABIO","ArticleTitle":"Catálogo
+        taxonómico de especies de México","Collation":"1","AbbreviatedTitle":"Capital
+        Nat. México","TitlePageYear":"2009"}},{"SynonymName":{"NameId":25517736,"ScientificName":"Poa
+        annua var. annua","ScientificNameWithAuthors":"Poa annua var. annua ","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":46337,"PublicationId":100023941,"AuthorString":"Soreng,
+        R. J., L. M. Giussani & M. A. Negritto","ArticleTitle":"~Poa~.","Collation":"48:
+        505–580","AbbreviatedTitle":"Catalogue of New World Grasses (Poaceae): IV.
+        Subfamily Pooideae, Contr. U.S. Natl. Herb.","TitlePageYear":"2003"}},{"SynonymName":{"NameId":25517736,"ScientificName":"Poa
+        annua var. annua","ScientificNameWithAuthors":"Poa annua var. annua ","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1024044,"PublicationId":19794,"AuthorString":"Soreng,
+        R. J., G. Davidse, P. M. Peterson, F. O. Zuloaga, E. J. Judziewicz, T. S.
+        Filgueiras & O. Morrone","ArticleTitle":"On-line taxonomic novelties and updates,
+        distributional additions and corrections, and editorial changes since the
+        four published volumes of the Catalogue of New World Grasses (Poaceae) published
+        in Contr. U.S. Natl. Herb. vols. 39, 41, 46, and 48","Collation":"http:\/\/www.tropicos.org\/Project\/CNWG:","AbbreviatedTitle":"Internet
+        Cat. New World Grasses","TitlePageYear":"2003 and onwards"}},{"SynonymName":{"NameId":25538823,"ScientificName":"Poa
+        annua var. aquatica","ScientificNameWithAuthors":"Poa annua var. aquatica
+        Asch.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1024044,"PublicationId":19794,"AuthorString":"Soreng,
+        R. J., G. Davidse, P. M. Peterson, F. O. Zuloaga, E. J. Judziewicz, T. S.
+        Filgueiras & O. Morrone","ArticleTitle":"On-line taxonomic novelties and updates,
+        distributional additions and corrections, and editorial changes since the
+        four published volumes of the Catalogue of New World Grasses (Poaceae) published
+        in Contr. U.S. Natl. Herb. vols. 39, 41, 46, and 48","Collation":"http:\/\/www.tropicos.org\/Project\/CNWG:","AbbreviatedTitle":"Internet
+        Cat. New World Grasses","TitlePageYear":"2003 and onwards"}},{"SynonymName":{"NameId":25538823,"ScientificName":"Poa
+        annua var. aquatica","ScientificNameWithAuthors":"Poa annua var. aquatica
+        Asch.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":46337,"PublicationId":100023941,"AuthorString":"Soreng,
+        R. J., L. M. Giussani & M. A. Negritto","ArticleTitle":"~Poa~.","Collation":"48:
+        505–580","AbbreviatedTitle":"Catalogue of New World Grasses (Poaceae): IV.
+        Subfamily Pooideae, Contr. U.S. Natl. Herb.","TitlePageYear":"2003"}},{"SynonymName":{"NameId":25538823,"ScientificName":"Poa
+        annua var. aquatica","ScientificNameWithAuthors":"Poa annua var. aquatica
+        Asch.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":15758,"PublicationId":7936,"AuthorString":"Hitchcock,
+        A. S.","Collation":"1–1051","AbbreviatedTitle":"Man. Grasses U.S. (ed. 2)","TitlePageYear":"1951"}},{"SynonymName":{"NameId":25538823,"ScientificName":"Poa
+        annua var. aquatica","ScientificNameWithAuthors":"Poa annua var. aquatica
+        Asch.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1033332,"PublicationId":25511,"AuthorString":"CONABIO","ArticleTitle":"Catálogo
+        taxonómico de especies de México","Collation":"1","AbbreviatedTitle":"Capital
+        Nat. México","TitlePageYear":"2009"}},{"SynonymName":{"NameId":50119145,"ScientificName":"Poa
+        annua var. eriolepis","ScientificNameWithAuthors":"Poa annua var. eriolepis
+        E. Desv.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1033332,"PublicationId":25511,"AuthorString":"CONABIO","ArticleTitle":"Catálogo
+        taxonómico de especies de México","Collation":"1","AbbreviatedTitle":"Capital
+        Nat. México","TitlePageYear":"2009"}},{"SynonymName":{"NameId":50119145,"ScientificName":"Poa
+        annua var. eriolepis","ScientificNameWithAuthors":"Poa annua var. eriolepis
+        E. Desv.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":46337,"PublicationId":100023941,"AuthorString":"Soreng,
+        R. J., L. M. Giussani & M. A. Negritto","ArticleTitle":"~Poa~.","Collation":"48:
+        505–580","AbbreviatedTitle":"Catalogue of New World Grasses (Poaceae): IV.
+        Subfamily Pooideae, Contr. U.S. Natl. Herb.","TitlePageYear":"2003"}},{"SynonymName":{"NameId":50119145,"ScientificName":"Poa
+        annua var. eriolepis","ScientificNameWithAuthors":"Poa annua var. eriolepis
+        E. Desv.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1024044,"PublicationId":19794,"AuthorString":"Soreng,
+        R. J., G. Davidse, P. M. Peterson, F. O. Zuloaga, E. J. Judziewicz, T. S.
+        Filgueiras & O. Morrone","ArticleTitle":"On-line taxonomic novelties and updates,
+        distributional additions and corrections, and editorial changes since the
+        four published volumes of the Catalogue of New World Grasses (Poaceae) published
+        in Contr. U.S. Natl. Herb. vols. 39, 41, 46, and 48","Collation":"http:\/\/www.tropicos.org\/Project\/CNWG:","AbbreviatedTitle":"Internet
+        Cat. New World Grasses","TitlePageYear":"2003 and onwards"}},{"SynonymName":{"NameId":25512377,"ScientificName":"Poa
+        annua var. reptans","ScientificNameWithAuthors":"Poa annua var. reptans Hausskn.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1024044,"PublicationId":19794,"AuthorString":"Soreng,
+        R. J., G. Davidse, P. M. Peterson, F. O. Zuloaga, E. J. Judziewicz, T. S.
+        Filgueiras & O. Morrone","ArticleTitle":"On-line taxonomic novelties and updates,
+        distributional additions and corrections, and editorial changes since the
+        four published volumes of the Catalogue of New World Grasses (Poaceae) published
+        in Contr. U.S. Natl. Herb. vols. 39, 41, 46, and 48","Collation":"http:\/\/www.tropicos.org\/Project\/CNWG:","AbbreviatedTitle":"Internet
+        Cat. New World Grasses","TitlePageYear":"2003 and onwards"}},{"SynonymName":{"NameId":25512377,"ScientificName":"Poa
+        annua var. reptans","ScientificNameWithAuthors":"Poa annua var. reptans Hausskn.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1024102,"AuthorString":"Soreng,
+        R. J.","ArticleTitle":"~Poa~ of the World, 2004 onward","Collation":"ined","TitlePageYear":"2004"}},{"SynonymName":{"NameId":25512377,"ScientificName":"Poa
+        annua var. reptans","ScientificNameWithAuthors":"Poa annua var. reptans Hausskn.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1029690,"PublicationId":11746,"AuthorString":"Flora
+        of China Editorial Committee","ArticleTitle":"Flora of China (Poaceae)","Collation":"22:
+        1–733","AbbreviatedTitle":"Fl. China","TitlePageYear":"2006"}},{"SynonymName":{"NameId":25512377,"ScientificName":"Poa
+        annua var. reptans","ScientificNameWithAuthors":"Poa annua var. reptans Hausskn.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1033332,"PublicationId":25511,"AuthorString":"CONABIO","ArticleTitle":"Catálogo
+        taxonómico de especies de México","Collation":"1","AbbreviatedTitle":"Capital
+        Nat. México","TitlePageYear":"2009"}},{"SynonymName":{"NameId":25512377,"ScientificName":"Poa
+        annua var. reptans","ScientificNameWithAuthors":"Poa annua var. reptans Hausskn.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":46337,"PublicationId":100023941,"AuthorString":"Soreng,
+        R. J., L. M. Giussani & M. A. Negritto","ArticleTitle":"~Poa~.","Collation":"48:
+        505–580","AbbreviatedTitle":"Catalogue of New World Grasses (Poaceae): IV.
+        Subfamily Pooideae, Contr. U.S. Natl. Herb.","TitlePageYear":"2003"}},{"SynonymName":{"NameId":25514155,"ScientificName":"Poa
+        annua var. rigidiuscula","ScientificNameWithAuthors":"Poa annua var. rigidiuscula
+        L.H. Dewey","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":46337,"PublicationId":100023941,"AuthorString":"Soreng,
+        R. J., L. M. Giussani & M. A. Negritto","ArticleTitle":"~Poa~.","Collation":"48:
+        505–580","AbbreviatedTitle":"Catalogue of New World Grasses (Poaceae): IV.
+        Subfamily Pooideae, Contr. U.S. Natl. Herb.","TitlePageYear":"2003"}},{"SynonymName":{"NameId":25514155,"ScientificName":"Poa
+        annua var. rigidiuscula","ScientificNameWithAuthors":"Poa annua var. rigidiuscula
+        L.H. Dewey","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":15758,"PublicationId":7936,"AuthorString":"Hitchcock,
+        A. S.","Collation":"1–1051","AbbreviatedTitle":"Man. Grasses U.S. (ed. 2)","TitlePageYear":"1951"}},{"SynonymName":{"NameId":25514155,"ScientificName":"Poa
+        annua var. rigidiuscula","ScientificNameWithAuthors":"Poa annua var. rigidiuscula
+        L.H. Dewey","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1033332,"PublicationId":25511,"AuthorString":"CONABIO","ArticleTitle":"Catálogo
+        taxonómico de especies de México","Collation":"1","AbbreviatedTitle":"Capital
+        Nat. México","TitlePageYear":"2009"}},{"SynonymName":{"NameId":25514155,"ScientificName":"Poa
+        annua var. rigidiuscula","ScientificNameWithAuthors":"Poa annua var. rigidiuscula
+        L.H. Dewey","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1289,"PublicationId":1340,"AuthorString":"D''Arcy,
+        W. G.","ArticleTitle":"Flora of Panama. Checklist and Index. Part 1: The introduction
+        and checklist","Collation":"17: v–xxx, 1–328","AbbreviatedTitle":"Monogr.
+        Syst. Bot. Missouri Bot. Gard.","TitlePageYear":"1987"}},{"SynonymName":{"NameId":25514155,"ScientificName":"Poa
+        annua var. rigidiuscula","ScientificNameWithAuthors":"Poa annua var. rigidiuscula
+        L.H. Dewey","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1024044,"PublicationId":19794,"AuthorString":"Soreng,
+        R. J., G. Davidse, P. M. Peterson, F. O. Zuloaga, E. J. Judziewicz, T. S.
+        Filgueiras & O. Morrone","ArticleTitle":"On-line taxonomic novelties and updates,
+        distributional additions and corrections, and editorial changes since the
+        four published volumes of the Catalogue of New World Grasses (Poaceae) published
+        in Contr. U.S. Natl. Herb. vols. 39, 41, 46, and 48","Collation":"http:\/\/www.tropicos.org\/Project\/CNWG:","AbbreviatedTitle":"Internet
+        Cat. New World Grasses","TitlePageYear":"2003 and onwards"}},{"SynonymName":{"NameId":25555526,"ScientificName":"Poa
+        bipollicaris","ScientificNameWithAuthors":"Poa bipollicaris Hochst.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":100011760,"PublicationId":100023696,"AuthorString":"Cabi,
+        E. & M. Doğan","ArticleTitle":"Poaceae","Collation":"690–756","AbbreviatedTitle":"Türkiye
+        Bitkileri Listesi","TitlePageYear":"2012"}},{"SynonymName":{"NameId":25555526,"ScientificName":"Poa
+        bipollicaris","ScientificNameWithAuthors":"Poa bipollicaris Hochst.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":8885,"PublicationId":2182,"AuthorString":"Clayton,
+        W. D.","ArticleTitle":"Gramineae (Part 1)","Collation":"1–176","AbbreviatedTitle":"Fl.
+        Trop. E. Africa","TitlePageYear":"1970"}},{"SynonymName":{"NameId":25555526,"ScientificName":"Poa
+        bipollicaris","ScientificNameWithAuthors":"Poa bipollicaris Hochst.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1000713,"PublicationId":2191,"AuthorString":"Launert,
+        G. O. E.","ArticleTitle":"Gramineae","Collation":"10(1): 1–152, i–v, 1 map","AbbreviatedTitle":"Fl.
+        Zambes.","TitlePageYear":"1971"}},{"SynonymName":{"NameId":25555526,"ScientificName":"Poa
+        bipollicaris","ScientificNameWithAuthors":"Poa bipollicaris Hochst.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1010988,"PublicationId":7104,"AuthorString":"Phillips,
+        S. M.","ArticleTitle":"Poaceae (Gramineae)","Collation":"7: i–xx, 1–420","AbbreviatedTitle":"Fl.
+        Ethiopia","TitlePageYear":"1995"}},{"SynonymName":{"NameId":25515915,"ScientificName":"Poa
+        crassinervis","ScientificNameWithAuthors":"Poa crassinervis Honda","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1029690,"PublicationId":11746,"AuthorString":"Flora
+        of China Editorial Committee","ArticleTitle":"Flora of China (Poaceae)","Collation":"22:
+        1–733","AbbreviatedTitle":"Fl. China","TitlePageYear":"2006"}},{"SynonymName":{"NameId":25515915,"ScientificName":"Poa
+        crassinervis","ScientificNameWithAuthors":"Poa crassinervis Honda","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1024102,"AuthorString":"Soreng,
+        R. J.","ArticleTitle":"~Poa~ of the World, 2004 onward","Collation":"ined","TitlePageYear":"2004"}},{"SynonymName":{"NameId":25561445,"ScientificName":"Poa
+        hohenackeri","ScientificNameWithAuthors":"Poa hohenackeri Trin.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1001919,"PublicationId":16271,"AuthorString":"Tzvelev,
+        N. N.","Collation":"1–788","AbbreviatedTitle":"Zlaki SSSR","TitlePageYear":"1976"}},{"SynonymName":{"NameId":25561445,"ScientificName":"Poa
+        hohenackeri","ScientificNameWithAuthors":"Poa hohenackeri Trin.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":100011760,"PublicationId":100023696,"AuthorString":"Cabi,
+        E. & M. Doğan","ArticleTitle":"Poaceae","Collation":"690–756","AbbreviatedTitle":"Türkiye
+        Bitkileri Listesi","TitlePageYear":"2012"}},{"SynonymName":{"NameId":100391965,"ScientificName":"Poa
+        humilis","ScientificNameWithAuthors":"Poa humilis Lej.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":100011760,"PublicationId":100023696,"AuthorString":"Cabi,
+        E. & M. Doğan","ArticleTitle":"Poaceae","Collation":"690–756","AbbreviatedTitle":"Türkiye
+        Bitkileri Listesi","TitlePageYear":"2012"}},{"SynonymName":{"NameId":25514158,"ScientificName":"Poa
+        infirma","ScientificNameWithAuthors":"Poa infirma Kunth","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1289,"PublicationId":1340,"AuthorString":"D''Arcy,
+        W. G.","ArticleTitle":"Flora of Panama. Checklist and Index. Part 1: The introduction
+        and checklist","Collation":"17: v–xxx, 1–328","AbbreviatedTitle":"Monogr.
+        Syst. Bot. Missouri Bot. Gard.","TitlePageYear":"1987"}},{"SynonymName":{"NameId":25514158,"ScientificName":"Poa
+        infirma","ScientificNameWithAuthors":"Poa infirma Kunth","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1015183,"PublicationId":18774,"AuthorString":"Espejo
+        Serna, M. A., A. R. López-Ferrari & J. Valdés-Reyna","ArticleTitle":"Poaceae","Collation":"10:
+        7–236 [and index]","AbbreviatedTitle":"Monocot. Mexic. Sinopsis Floríst.","TitlePageYear":"2000"}},{"SynonymName":{"NameId":25514158,"ScientificName":"Poa
+        infirma","ScientificNameWithAuthors":"Poa infirma Kunth","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":6706,"PublicationId":626,"AuthorString":"Swallen,
+        J. R.","ArticleTitle":"Gramineae. ~In:~ P. C. Standley & J. A. Steyermark
+        (eds.), Flora of Guatemala---Part II","Collation":"24(2): i–ix, 1–390","AbbreviatedTitle":"Fieldiana,
+        Bot.","TitlePageYear":"1955"}},{"SynonymName":{"NameId":25514158,"ScientificName":"Poa
+        infirma","ScientificNameWithAuthors":"Poa infirma Kunth","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":16241,"PublicationId":605,"AuthorString":"Hitchcock,
+        A. S.","ArticleTitle":"The grasses of Ecuador, Peru, and Bolivia","Collation":"24(8):
+        291–556","AbbreviatedTitle":"Contr. U.S. Natl. Herb.","TitlePageYear":"1927"}},{"SynonymName":{"NameId":25514158,"ScientificName":"Poa
+        infirma","ScientificNameWithAuthors":"Poa infirma Kunth","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":15758,"PublicationId":7936,"AuthorString":"Hitchcock,
+        A. S.","Collation":"1–1051","AbbreviatedTitle":"Man. Grasses U.S. (ed. 2)","TitlePageYear":"1951"}},{"SynonymName":{"NameId":25512725,"ScientificName":"Poa
+        meyenii","ScientificNameWithAuthors":"Poa meyenii Nees & Meyen","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":7728,"PublicationId":1340,"AuthorString":"Brako,
+        L. & J. L. Zarucchi","ArticleTitle":"Catalogue of the flowering plants and
+        gymnosperms of Peru","Collation":"45: i–xl, 1–1286","AbbreviatedTitle":"Monogr.
+        Syst. Bot. Missouri Bot. Gard.","TitlePageYear":"1993"}},{"SynonymName":{"NameId":25512725,"ScientificName":"Poa
+        meyenii","ScientificNameWithAuthors":"Poa meyenii Nees & Meyen","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":10010,"PublicationId":7616,"AuthorString":"Tovar,
+        Ó.","ArticleTitle":"Revisión de las especies peruanas del género ~Poa~","Collation":"15:
+        1–65","AbbreviatedTitle":"Mem. Mus. Hist. Nat. \"Javier Prado\"","TitlePageYear":"1965"}},{"SynonymName":{"NameId":25512725,"ScientificName":"Poa
+        meyenii","ScientificNameWithAuthors":"Poa meyenii Nees & Meyen","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":719,"PublicationId":1054,"AuthorString":"Standley,
+        P. C.","ArticleTitle":"Gramineae en: J.F. Macbride, Flora of Peru.","Collation":"13(1\/1):
+        96–261","AbbreviatedTitle":"Publ. Field Mus. Nat. Hist., Bot. Ser.","TitlePageYear":"1936"}},{"SynonymName":{"NameId":25512725,"ScientificName":"Poa
+        meyenii","ScientificNameWithAuthors":"Poa meyenii Nees & Meyen","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":16241,"PublicationId":605,"AuthorString":"Hitchcock,
+        A. S.","ArticleTitle":"The grasses of Ecuador, Peru, and Bolivia","Collation":"24(8):
+        291–556","AbbreviatedTitle":"Contr. U.S. Natl. Herb.","TitlePageYear":"1927"}},{"SynonymName":{"NameId":25512725,"ScientificName":"Poa
+        meyenii","ScientificNameWithAuthors":"Poa meyenii Nees & Meyen","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1000236,"PublicationId":2842,"AuthorString":"Tovar
+        Serpa, Ó.","ArticleTitle":"Las Gramíneas (Poaceae) del Perú","Collation":"13:
+        1–480","AbbreviatedTitle":"Ruizia","TitlePageYear":"1993"}},{"SynonymName":{"NameId":25512725,"ScientificName":"Poa
+        meyenii","ScientificNameWithAuthors":"Poa meyenii Nees & Meyen","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":100011760,"PublicationId":100023696,"AuthorString":"Cabi,
+        E. & M. Doğan","ArticleTitle":"Poaceae","Collation":"690–756","AbbreviatedTitle":"Türkiye
+        Bitkileri Listesi","TitlePageYear":"2012"}},{"SynonymName":{"NameId":50200166,"ScientificName":"Poa
+        puberula","ScientificNameWithAuthors":"Poa puberula Steud.","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":100011760,"PublicationId":100023696,"AuthorString":"Cabi,
+        E. & M. Doğan","ArticleTitle":"Poaceae","Collation":"690–756","AbbreviatedTitle":"Türkiye
+        Bitkileri Listesi","TitlePageYear":"2012"}},{"SynonymName":{"NameId":25528166,"ScientificName":"Poa
+        royleana","ScientificNameWithAuthors":"Poa royleana Nees","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":100011760,"PublicationId":100023696,"AuthorString":"Cabi,
+        E. & M. Doğan","ArticleTitle":"Poaceae","Collation":"690–756","AbbreviatedTitle":"Türkiye
+        Bitkileri Listesi","TitlePageYear":"2012"}},{"SynonymName":{"NameId":25528166,"ScientificName":"Poa
+        royleana","ScientificNameWithAuthors":"Poa royleana Nees","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1031050,"PublicationId":2183,"AuthorString":"Nasir,
+        E. &  S. I. Ali (eds)","AbbreviatedTitle":"Fl. Pakistan","TitlePageYear":"1980-2005"}},{"SynonymName":{"NameId":25528166,"ScientificName":"Poa
+        royleana","ScientificNameWithAuthors":"Poa royleana Nees","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1001997,"PublicationId":677,"AuthorString":"Bor,
+        N. L.","ArticleTitle":"The genus ~Poa~ Linn. in India. Part I","Collation":"50(4):
+        1–838","AbbreviatedTitle":"J. Bombay Nat. Hist. Soc.","TitlePageYear":"1952"}},{"SynonymName":{"NameId":25528166,"ScientificName":"Poa
+        royleana","ScientificNameWithAuthors":"Poa royleana Nees","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1021894,"PublicationId":2949,"AuthorString":"Dickoré,
+        W. B.","ArticleTitle":"Systematische revision und chorologische analyse der
+        Monocotyledoneae des Karakorum (Zentralasian, West-Tibet). Flora Karakorumensis:
+        I. Angiospermae, Monocotyledoneae","Collation":"39: i–?, 1–290","AbbreviatedTitle":"Stapfia","TitlePageYear":"1995"}},{"SynonymName":{"NameId":25528166,"ScientificName":"Poa
+        royleana","ScientificNameWithAuthors":"Poa royleana Nees","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":21037,"PublicationId":1101,"AuthorString":"Bor,
+        N. L.","Collation":"i–767","AbbreviatedTitle":"Grass. Burma, Ceylon, India
+        & Pakistan","TitlePageYear":"1960"}},{"SynonymName":{"NameId":25528166,"ScientificName":"Poa
+        royleana","ScientificNameWithAuthors":"Poa royleana Nees","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1000702,"PublicationId":2183,"AuthorString":"Cope,
+        T. A.","ArticleTitle":"Poaceae","Collation":"143: 1–678","AbbreviatedTitle":"Fl.
+        Pakistan","TitlePageYear":"1982"}}]'
+  recorded_at: 2019-01-26 00:08:36 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0

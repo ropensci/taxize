@@ -1,13 +1,11 @@
-# tests for col_search fxn in taxize
 context("col_search")
 
-
 test_that("col_search returns the correct values, dimensions, and classes", {
-  skip_on_cran()
-
-  temp <- col_search(name = "Apis")
-  two <- col_search(name = c("Apis","Puma concolor"))
-  byid <- col_search(id = 11935941)
+  vcr::use_cassette("col_search", {
+    temp <- col_search(name = "Apis")
+    two <- col_search(name = c("Apis","Puma concolor"))
+    byid <- col_search(id = 11935941)
+  })
 
 	expect_equal(names(temp), "Apis")
 	expect_equal(temp[[1]]$name[1], "Apis")
@@ -30,6 +28,7 @@ test_that("col_search returns the correct values, dimensions, and classes", {
 	expect_that(two[[1]], is_a("data.frame"))
 })
 
+# don't do HTTP tests
 test_that("col_search is robust to user error", {
   expect_is(col_search(name = "asdfsdf")[[1]], "data.frame")
   expect_is(col_search(name = "")[[1]], "data.frame")

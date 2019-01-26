@@ -1,0 +1,109 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=nucleotide&id=62689767&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 24 Jan 2019 19:27:48 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '6'
+      ncbi-phid: 939B131039D6F9750000229C72FF3FA8.1.1.m_1
+      cache-control: private
+      l5d-success-class: '1.0'
+      ncbi-sid: E2E0C31884765DA0_697DSID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=E2E0C31884765DA0_697DSID; domain=.nih.gov; path=/; expires=Fri,
+        24 Jan 2020 19:27:48 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eSummaryResult
+        PUBLIC \"-//NLM//DTD esummary v1 20041029//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20041029/esummary-v1.dtd\">\n<eSummaryResult>\n<DocSum>\n\t<Id>62689767</Id>\n\t<Item
+        Name=\"Caption\" Type=\"String\">AJ748748</Item>\n\t<Item Name=\"Title\" Type=\"String\">Nereida
+        ignava 16S rRNA gene, type strain 2SM4T</Item>\n\t<Item Name=\"Extra\" Type=\"String\">gi|62689767|emb|AJ748748.1|[62689767]</Item>\n\t<Item
+        Name=\"Gi\" Type=\"Integer\">62689767</Item>\n\t<Item Name=\"CreateDate\"
+        Type=\"String\">2005/04/15</Item>\n\t<Item Name=\"UpdateDate\" Type=\"String\">2005/04/15</Item>\n\t<Item
+        Name=\"Flags\" Type=\"Integer\">0</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">282199</Item>\n\t<Item
+        Name=\"Length\" Type=\"Integer\">1455</Item>\n\t<Item Name=\"Status\" Type=\"String\">live</Item>\n\t<Item
+        Name=\"ReplacedBy\" Type=\"String\"></Item>\n\t<Item Name=\"Comment\" Type=\"String\"><![CDATA[
+        \ ]]></Item>\n\t<Item Name=\"AccessionVersion\" Type=\"String\">AJ748748.1</Item>\n</DocSum>\n\n</eSummaryResult>\n"
+  recorded_at: 2019-01-24 19:27:49 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=nucleotide&id=62689767%2C156446673&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 24 Jan 2019 19:27:48 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '5'
+      ncbi-phid: D0BD37B365326FC500001B74B7E976DE.1.1.m_1
+      cache-control: private
+      l5d-success-class: '1.0'
+      ncbi-sid: C4D7D0D13AE75AD8_1EBCSID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=C4D7D0D13AE75AD8_1EBCSID; domain=.nih.gov; path=/; expires=Fri,
+        24 Jan 2020 19:27:49 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eSummaryResult
+        PUBLIC \"-//NLM//DTD esummary v1 20041029//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20041029/esummary-v1.dtd\">\n<eSummaryResult>\n<DocSum>\n\t<Id>62689767</Id>\n\t<Item
+        Name=\"Caption\" Type=\"String\">AJ748748</Item>\n\t<Item Name=\"Title\" Type=\"String\">Nereida
+        ignava 16S rRNA gene, type strain 2SM4T</Item>\n\t<Item Name=\"Extra\" Type=\"String\">gi|62689767|emb|AJ748748.1|[62689767]</Item>\n\t<Item
+        Name=\"Gi\" Type=\"Integer\">62689767</Item>\n\t<Item Name=\"CreateDate\"
+        Type=\"String\">2005/04/15</Item>\n\t<Item Name=\"UpdateDate\" Type=\"String\">2005/04/15</Item>\n\t<Item
+        Name=\"Flags\" Type=\"Integer\">0</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">282199</Item>\n\t<Item
+        Name=\"Length\" Type=\"Integer\">1455</Item>\n\t<Item Name=\"Status\" Type=\"String\">live</Item>\n\t<Item
+        Name=\"ReplacedBy\" Type=\"String\"></Item>\n\t<Item Name=\"Comment\" Type=\"String\"><![CDATA[
+        \ ]]></Item>\n\t<Item Name=\"AccessionVersion\" Type=\"String\">AJ748748.1</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>156446673</Id>\n\t<Item
+        Name=\"Caption\" Type=\"String\">EF579752</Item>\n\t<Item Name=\"Title\" Type=\"String\">Cronartium
+        comandrae from Pinus contorta var. latifolia 28S ribosomal RNA gene, partial
+        sequence; intergenic spacer 1, complete sequence; and 5S ribosomal RNA gene,
+        partial sequence</Item>\n\t<Item Name=\"Extra\" Type=\"String\">gi|156446673|gb|EF579752.1|[156446673]</Item>\n\t<Item
+        Name=\"Gi\" Type=\"Integer\">156446673</Item>\n\t<Item Name=\"CreateDate\"
+        Type=\"String\">2007/11/01</Item>\n\t<Item Name=\"UpdateDate\" Type=\"String\">2010/05/14</Item>\n\t<Item
+        Name=\"Flags\" Type=\"Integer\">0</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">53958</Item>\n\t<Item
+        Name=\"Length\" Type=\"Integer\">1214</Item>\n\t<Item Name=\"Status\" Type=\"String\">live</Item>\n\t<Item
+        Name=\"ReplacedBy\" Type=\"String\"></Item>\n\t<Item Name=\"Comment\" Type=\"String\"><![CDATA[
+        \ ]]></Item>\n\t<Item Name=\"AccessionVersion\" Type=\"String\">EF579752.1</Item>\n</DocSum>\n\n</eSummaryResult>\n"
+  recorded_at: 2019-01-24 19:27:49 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0

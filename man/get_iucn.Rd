@@ -11,7 +11,7 @@
 \alias{as.data.frame.iucn}
 \title{Get a IUCN Redlist taxon}
 \usage{
-get_iucn(x, verbose = TRUE, key = NULL, ...)
+get_iucn(x, messages = TRUE, key = NULL, ...)
 
 as.iucn(x, check = TRUE, key = NULL)
 
@@ -30,7 +30,7 @@ as.iucn(x, check = TRUE, key = NULL)
 \arguments{
 \item{x}{(character) A vector of common or scientific names}
 
-\item{verbose}{logical; should progress be printed?}
+\item{messages}{logical; should progress be printed?}
 
 \item{key}{(character) required. you IUCN Redlist API key. See
 \code{\link[rredlist]{rredlist-package}} for help on authenticating with

@@ -76,6 +76,10 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE,
   assert(messages, "logical")
   assert(searchtype, "character")
   assert(accepted, "logical")
+  if (!is.na(rows)) {
+    assert(rows, c("numeric", "integer"))
+    stopifnot(rows > 0)
+  }
 
   fun <- function(x, searchtype, ask, messages, rows, ...) {
     direct <- FALSE

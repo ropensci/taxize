@@ -12,7 +12,7 @@
 #' for parent taxa as well as the specified taxon. Only used if \code{id} passed.
 #' @param response (logical) Note that response is the object that returns from the Curl call,
 #' useful for debugging, and getting detailed info on the API call.
-#' @param ... Further args passed on to \code{\link[httr]{GET}}, main purpose being curl debugging
+#' @param ... Further args passed on to \code{\link[crul]{verb-GET}}, main purpose being curl debugging
 #' @details You must provide one of name or id to this function. The other parameters are optional.
 #' Note that when passing in \code{name}, \code{fuzzy} can be used as well, while if \code{id}
 #' is passed, then \code{fuzzy} is ignored, and \code{dataTypes} \code{includeTree} can be used.

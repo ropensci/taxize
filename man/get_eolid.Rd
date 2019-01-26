@@ -117,20 +117,20 @@ as.eolid(get_eolid(c("Chironomus riparius","Pinus contorta")))
 # numeric
 as.eolid(10247706)
 # numeric vector, length > 1
-as.eolid(c(24954444,51389511,57266265))
+as.eolid(c(6985636,12188704,10247706))
 # character
-as.eolid("24954444")
+as.eolid("6985636")
 # character vector, length > 1
-as.eolid(c("24954444","51389511","57266265"))
+as.eolid(c("6985636","12188704","10247706"))
 # list, either numeric or character
-as.eolid(list("24954444","51389511","57266265"))
+as.eolid(list("6985636","12188704","10247706"))
 ## dont check, much faster
-as.eolid("24954444", check=FALSE)
-as.eolid(24954444, check=FALSE)
-as.eolid(c("24954444","51389511","57266265"), check=FALSE)
-as.eolid(list("24954444","51389511","57266265"), check=FALSE)
+as.eolid("6985636", check=FALSE)
+as.eolid(6985636, check=FALSE)
+as.eolid(c("6985636","12188704","10247706"), check=FALSE)
+as.eolid(list("6985636","12188704","10247706"), check=FALSE)
 
-(out <- as.eolid(c(24954444,51389511,57266265)))
+(out <- as.eolid(c(6985636,12188704,10247706)))
 data.frame(out)
 as.eolid( data.frame(out) )
 

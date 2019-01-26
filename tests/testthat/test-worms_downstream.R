@@ -1,22 +1,23 @@
 context("worms_downstream")
 
 test_that("worms_downstream works", {
-  skip_on_cran()
-
+  vcr::use_cassette("worms_downstream", {
     aa <- worms_downstream(id = 125732, downto = "species")
+  })
 
-    expect_is(aa, "data.frame")
-    expect_type(aa$id, "integer")
-    expect_is(aa$name, "character")
-    expect_is(aa$rank, "character")
+  expect_is(aa, "data.frame")
+  expect_type(aa$id, "integer")
+  expect_is(aa$name, "character")
+  expect_is(aa$rank, "character")
 
-    expect_equal(unique(aa$rank), "species")
+  expect_equal(unique(aa$rank), "species")
 })
 
 test_that("worms_downstream intermediate param works", {
-  skip_on_cran()
-
-  cc <- worms_downstream(id = 125732, downto = "species", intermediate = TRUE)
+  vcr::use_cassette("worms_downstream_intermediate_param", {
+    cc <- worms_downstream(id = 125732, downto = "species", 
+      intermediate = TRUE)
+  })
 
   expect_is(cc, "list")
   expect_is(cc$target, "data.frame")
@@ -38,10 +39,10 @@ test_that("worms_downstream fails well", {
 })
 
 test_that("worms_downstream - start param", {
-  skip_on_cran()
-
-  aa <- worms_downstream(125732, "species", start = 1)
-  bb <- worms_downstream(125732, "species", start = 3)
+  vcr::use_cassette("worms_downstream_start_param", {
+    aa <- worms_downstream(125732, "species", start = 1)
+    bb <- worms_downstream(125732, "species", start = 3)
+  })
 
   expect_is(aa, "data.frame")
   expect_is(bb, "data.frame")

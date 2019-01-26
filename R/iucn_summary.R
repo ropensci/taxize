@@ -106,7 +106,7 @@ iucn_summary.default <- function(x, parallel = FALSE, distr_detail = FALSE,
 #' @export
 iucn_summary.character <- function(x, parallel = FALSE, distr_detail = FALSE,
                                    key = NULL, ...) {
-  xid <- get_iucn(x)
+  xid <- get_iucn(x, ...)
   if (any(is.na(xid))) {
     nas <- x[is.na(xid)]
     warning("taxa '", paste0(nas, collapse = ", ") ,

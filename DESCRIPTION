@@ -5,7 +5,7 @@ Description: Interacts with a suite of web 'APIs' for taxonomic tasks,
     species names, getting taxonomic hierarchies, fetching downstream and
     upstream taxonomic names, getting taxonomic synonyms, converting
     scientific to common names and vice versa, and more.
-Version: 0.9.4.9914
+Version: 0.9.4.9991
 License: MIT + file LICENSE
 URL: https://github.com/ropensci/taxize (devel), 
     https://ropensci.github.io/taxize-book/ (user manual)
@@ -74,7 +74,6 @@ Imports:
     stats,
     utils,
     crul (>= 0.7.0),
-    httr (>= 1.4.0),
     xml2 (>= 1.2.0),
     jsonlite,
     reshape2,
@@ -95,7 +94,8 @@ Imports:
 Suggests:
     testthat,
     knitr,
-    vegan
+    vegan,
+    vcr
 RoxygenNote: 6.1.1
 X-schema.org-applicationCategory: Taxonomy
 X-schema.org-keywords: taxonomy, biology, nomenclature, JSON, API, web, api-client, identifiers, species, names

@@ -1,10 +1,11 @@
 #' @title TNRS sources
 #'
-#' @description Get sources for the Phylotastic Taxonomic Name Resolution Service
+#' @description Get sources for the Phylotastic Taxonomic Name 
+#' Resolution Service
 #'
 #' @param source The source to get information on, one of "iPlant_TNRS",
 #' "NCBI", or "MSW3".
-#' @param ... Curl options to pass in \code{\link[httr]{GET}}
+#' @param ... Curl options to pass in \code{\link[crul]{verb-GET}}
 #' @return Sources for the TNRS API in a vector or list
 #' @export
 #' @examples \dontrun{
@@ -13,22 +14,24 @@
 #'
 #' # A specific source
 #' tnrs_sources(source="NCBI")
+#' tnrs_sources(source="MSW3")
+#' tnrs_sources(source="iPlant_TNRS")
 #' }
 tnrs_sources <- function(source = NULL, ...) {
-  url = "http://taxosaurus.org/sources"
+  cli <- crul::HttpClient$new(tnrs_url, opts = list(...))
   if (!is.null(source)) {
-    url2 <- paste0(url, "/", source)
-    tt <- GET(url2, ...)
-    stop_for_status(tt)
-    res <- con_utf8(tt)
+    tt <- cli$get(file.path("sources", source))
+    tt$raise_for_status()
+    res <- tt$parse("UTF-8")
     tmp <- nmslwr(jsonlite::fromJSON(res))
     tmp$details <- nmslwr(tmp$details)
     tmp
   } else {
-    url2 <- paste0(url, "/list")
-    tt <- GET(url2, ...)
-    stop_for_status(tt)
-    res <- con_utf8(tt)
+    tt <- cli$get("sources/list")
+    tt$raise_for_status()
+    res <- tt$parse("UTF-8")
     jsonlite::fromJSON(res)$sources
   }
 }
+
+tnrs_url <- "http://taxosaurus.org"
