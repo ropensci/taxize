@@ -1,6 +1,8 @@
 context("iucn_getname")
 
 test_that("iucn_getname returns the correct value", {
+  skip_on_cran()
+      
   vcr::use_cassette("iucn_getname", {
     temp <- sm(iucn_getname(name = "Cyanistes caeruleus", verbose = FALSE))
   })
