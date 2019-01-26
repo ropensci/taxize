@@ -17,7 +17,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 404 Not Found
       server: nginx/1.1.19
-      date: Thu, 24 Jan 2019 22:50:51 GMT
+      date: Sat, 26 Jan 2019 21:14:07 GMT
       content-type: application/json; charset=utf-8
       content-length: '14'
       connection: keep-alive
@@ -26,7 +26,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"status":404}'
-  recorded_at: 2019-01-24 22:50:55 GMT
+  recorded_at: 2019-01-26 21:14:10 GMT
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
@@ -46,7 +46,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.1.19
-      date: Thu, 24 Jan 2019 22:50:54 GMT
+      date: Sat, 26 Jan 2019 21:14:09 GMT
       content-type: application/json; charset=utf-8
       content-length: '28'
       connection: keep-alive
@@ -55,5 +55,5 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"name":"Abies","result":[]}'
-  recorded_at: 2019-01-24 22:50:55 GMT
+  recorded_at: 2019-01-26 21:14:10 GMT
   recorded_with: vcr/0.2.2, webmockr/0.3.0
