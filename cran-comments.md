@@ -1,7 +1,7 @@
 ## Test environments
 
-* local OS X install, R 3.5.1 Patched
-* ubuntu 14.04 (on travis-ci), R 3.5.0
+* local OS X install, R 3.5.1 patched
+* ubuntu 14.04 (on travis-ci), R 3.5.1
 * win-builder (devel and release)
 
 ## R CMD check results
@@ -17,13 +17,13 @@ File 'LICENSE':
 
 ## Reverse dependencies
 
-* I have run R CMD check on the 19 downstream dependencies
+* I have run R CMD check on the 20 downstream dependencies
 (<https://github.com/ropensci/taxize/blob/master/revdep/README.md>).
 There was one problem with a vignette build with the test suite for camtrapR - but is unrelated to this package.
 
 ------
 
-This version has a few new small helper functions, and quite a few bug fixes.
+This version xxxx
 
 Thanks!
 Scott Chamberlain

@@ -1,6 +1,4 @@
-# tests for tp_synonyms fxn in taxize
 context("tp_synonyms")
-
 
 test_that("tp_synonyms returns the correct value", {
   skip_on_cran()

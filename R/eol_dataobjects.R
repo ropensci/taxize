@@ -35,11 +35,13 @@ eol_dataobjects <- function(id, taxonomy = TRUE, language = NULL, usekey = TRUE,
   tt <- res$parse("UTF-8")
   tmp <- jsonlite::fromJSON(tt)
   tmp <- nmslwr(tmp)
-  tmp$taxonconcepts <- nmslwr(tmp$taxonconcepts)
-  tmp$taxonconcepts$taxonrank <- tolower(tmp$taxonconcepts$taxonrank)
+  if ("taxonconcepts" %in% names(tmp)) {
+    tmp$taxonconcepts <- nmslwr(tmp$taxonconcepts)
+    tmp$taxonconcepts$taxonrank <- tolower(tmp$taxonconcepts$taxonrank)
+  }
   return(tmp)
 }
 
 nmslwr <- function(x) {
-  setNames(x, tolower(names(x)))
+  stats::setNames(x, tolower(names(x)))
 }

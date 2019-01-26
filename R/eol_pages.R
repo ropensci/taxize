@@ -89,7 +89,7 @@ eol_pages <- function(taxonconceptID, images_per_page=NULL, images_page=NULL,
   res <- jsonlite::fromJSON(tt, FALSE)
 
   # scinames <- lapply(res$taxonConcept$taxonConcepts, function(z) {
-  scinames <- lapply(res$taxonConcept[[2]]$taxonConcepts, function(z) {
+  scinames <- lapply(res$taxonConcept$taxonConcepts, function(z) {
     z[vapply(z, class, "") == "NULL"] <- NA_character_
     z
   })
@@ -111,7 +111,7 @@ eol_pages <- function(taxonconceptID, images_per_page=NULL, images_page=NULL,
 }
 
 parseeoldata <- function(x, y) {
-  xx <- y$taxonConcept[[2]][[x]]
+  xx <- y$taxonConcept[[x]]
   if (length(xx) == 0) {
     NULL
   } else {

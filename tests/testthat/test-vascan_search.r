@@ -1,6 +1,4 @@
-# tests for vascan_search fxn in taxize
 context("vascan_search")
-
 
 test_that("vascan_search returns the correct class", {
   skip_on_cran()

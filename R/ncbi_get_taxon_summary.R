@@ -17,7 +17,7 @@
 #'   }
 #' @author Zachary Foster \email{zacharyfoster1989@@Sgmail.com}
 #' @details If your input vector or list of NCBI IDs is longer than about 
-#' 8000 characters (use \code{nchar(paste(ids, collapse = "+"))}), split 
+#' 2500 characters (use \code{nchar(paste(ids, collapse = "+"))}), split 
 #' the list up into chunks since at about that number of characters you 
 #' will run into the HTTP 414 error "Request-URI Too Long".
 #' 
@@ -35,14 +35,14 @@ ncbi_get_taxon_summary <- function(id, key = NULL, ...) {
   if (is.null(id)) return(NULL)
   if (length(id) <= 1 && is.na(id)) return(NA)
   id <- as.character(id)
-  toolong <- nchar(paste(id, collapse = "+")) > 8000L
+  toolong <- nchar(paste(id, collapse = "+")) > 2500L
   if (toolong) message(sub("\n", "", "Number of ids long; we're splitting up into 
 chunks for multiple HTTP requests"))
   # Make eutils esummary query ------------------------------------------------
   key <- getkey(key, "ENTREZ_KEY")
   # split into chunks if needed
   if (toolong) {
-    ids_list <- lapply(split(id, ceiling(seq_along(id) / 300)), paste, collapse = "+")
+    ids_list <- lapply(split(id, ceiling(seq_along(id) / 250)), paste, collapse = "+")
   } else {
     ids_list <- list(paste(id, collapse = "+"))
   }
@@ -61,6 +61,8 @@ chunks for multiple HTTP requests"))
     }
     if (is.null(key)) Sys.sleep(0.33)
   }
+  # filter to only data.frame's
+  out <- Filter(is.data.frame, out)
 
   df <- dt2df(out)
   df$.id <- NULL

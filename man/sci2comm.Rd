@@ -54,6 +54,7 @@ See \code{\link{taxize-authentication}} for help on authentication
 
 \examples{
 \dontrun{
+sci2comm(scinames='Helianthus annuus')
 sci2comm(scinames='Helianthus annuus', db='eol')
 sci2comm(scinames='Helianthus annuus', db='itis')
 sci2comm(scinames=c('Helianthus annuus', 'Poa annua'))
