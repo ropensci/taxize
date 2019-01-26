@@ -25,7 +25,7 @@ test_that("get_gbifid method parameter works", {
       rows = 1:100)
     mod2 <- get_gbifid_("Z*", method = "lookup", messages = FALSE, 
       rows = 1:100)
-  })
+  }, preserve_exact_body_bytes = TRUE)
 
   expect_is(mod1, "list")
   expect_is(mod2, "list")
