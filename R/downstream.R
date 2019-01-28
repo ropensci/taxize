@@ -144,8 +144,12 @@ downstream.default <- function(x, db = NULL, downto = NULL,
 
 process_stream_ids <- function(input, db, fxn, ...){
   g <- tryCatch(as.numeric(as.character(input)), warning = function(e) e)
-  if (is(g, "numeric") || is.character(input) && grepl("[[:digit:]]", input)) {
-    as_fxn <- switch(db, itis = as.tsn, col = as.colid, gbif = as.gbifid, 
+  if (
+    inherits(g, "numeric") ||
+    is.character(input) &&
+    all(grepl("[[:digit:]]", input))
+  ) {
+    as_fxn <- switch(db, itis = as.tsn, col = as.colid, gbif = as.gbifid,
       ncbi = as.uid, worms = as.wormsid)
     as_fxn(input, check = FALSE)
   } else {
@@ -157,7 +161,7 @@ process_stream_ids <- function(input, db, fxn, ...){
 #' @rdname downstream
 downstream.tsn <- function(x, db = NULL, downto = NULL,
                            intermediate = FALSE, ...) {
-  fun <- function(y, downto, intermediate, ...){
+  fun <- function(y, downto, intermediate, ...) {
     # return NA if NA is supplied
     if (is.na(y)) {
       NA

@@ -47,13 +47,13 @@
 #' @family eubon-methods
 #' @examples \dontrun{
 #' eubon_search("Prionus")
-#' eubon_search("Salmo", 'pesi')
-#' eubon_search("Salmo", c('pesi', 'worms'))
-#' eubon_search("Salmo", 'worms', 'scientificNameLike')
-#' eubon_search("Salmo", 'worms', addSynonymy = TRUE)
-#' eubon_search("Salmo", 'worms', addParentTaxon = TRUE)
+#' eubon_search("Salmo", "pesi")
+#' eubon_search("Salmo", c("pesi", "worms"))
+#' eubon_search("Salmo", "worms", "scientificNameLike")
+#' eubon_search("Salmo", "worms", addSynonymy = TRUE)
+#' eubon_search("Salmo", "worms", addParentTaxon = TRUE)
 #' }
-eubon <- function(query, providers = 'pesi', searchMode = 'scientificNameExact',
+eubon <- function(query, providers = "pesi", searchMode = "scientificNameExact",
                   addSynonymy = FALSE, addParentTaxon = FALSE, timeout = 0,
                   dedup = NULL, ...) {
 
@@ -77,17 +77,19 @@ eubon_base <- function() "https://cybertaxonomy.eu/eu-bon/utis/1.2"
 
 eubon_error <- function(x) {
   if (grepl("json", x$response_headers$`content-type`)) {
-    cs <- jsonlite::fromJSON(x$parse("UTF-8"), FALSE)$query[[1]]$clientStatus[[1]]
+    cs <- jsonlite::fromJSON(
+      x$parse("UTF-8"), FALSE)$query[[1]]$clientStatus[[1]]
     if (x$status_code > 201 || cs$statusMessage != "ok") {
-      stop(cs$statusMessage, call. = FALSE)
+      stop(cs$statusMessage)
     }
   } else if (grepl("html", x$response_headers$`content-type`)) {
     if (x$status_code > 201) {
-      mssg <- xml2::xml_text(xml2::xml_find_first(xml2::read_html(x$parse("UTF-8")),
-                                                 "//title"))
-      stop(mssg, call. = FALSE)
+      mssg <- xml2::xml_text(
+        xml2::xml_find_first(
+          xml2::read_html(x$parse("UTF-8")), "//title"))
+      stop(mssg)
     }
   } else {
-    stop(x$status_http()$message, call. = FALSE)
+    stop(x$status_http()$message)
   }
 }

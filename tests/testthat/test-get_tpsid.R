@@ -2,9 +2,9 @@ context("get_tpsid")
 
 test_that("get_tpsid returns the correct value", {
   vcr::use_cassette("get_tpsid", {
-    a <- get_tpsid(sciname='Helianthus excubitor', verbose=FALSE)[[1]]
-    b <- get_tpsid(sciname='adsf asdf asdf', verbose=FALSE)[[1]]
-    d <- get_tpsid(c("Helianthus excubitor", "adsf asdf asdf"), verbose=FALSE)
+    a <- get_tpsid(sciname='Helianthus excubitor', messages=FALSE)[[1]]
+    b <- get_tpsid(sciname='adsf asdf asdf', messages=FALSE)[[1]]
+    d <- get_tpsid(c("Helianthus excubitor", "adsf asdf asdf"), messages=FALSE)
   })
   
   expect_equal(a, "50230899")
@@ -14,7 +14,7 @@ test_that("get_tpsid returns the correct value", {
 
 test_that("get_tpsid accepts ask-argument", {
   vcr::use_cassette("get_tpsid_ask_arg", {
-    a <- get_tpsid(sciname='adsf asdf asdf', ask=FALSE, verbose=FALSE)[[1]]
+    a <- get_tpsid(sciname='adsf asdf asdf', ask=FALSE, messages=FALSE)[[1]]
   })
 
   expect_true(is.na(a))

@@ -126,23 +126,26 @@ get_tpsid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
     mm <- NROW(tmp) > 1
     # tmp <- sub_rows(tmp, rows)
 
-    if (names(tmp)[[1]] == 'error' || is.na(tmp) || inherits(tmp, "character")) {
-      mssg(messages, "Not found. Consider checking the spelling or alternate classification")
+    if (all(names(tmp)[[1]] == "error") || 
+      all(is.na(tmp)) || 
+      inherits(tmp, "character")
+    ) { 
+      mssg(messages, m_not_found_sp_altclass)
       id <- NA_character_
-      att <- 'not found'
+      att <- "not found"
     } else {
-      df <- tmp[,c('nameid','scientificname','family','rankabbreviation',
+      df <- tmp[, c('nameid','scientificname','family','rankabbreviation',
                    'nomenclaturestatusname','author','displaydate')]
       names(df) <- c('tpsid','name','family','rank','status','author','date')
       id <- df$tpsid
-      att <- 'found'
+      att <- "found"
     }
 
     # not found on tropicos
     if (length(id) == 0) {
       mssg(messages, m_not_found_sp_altclass)
       id <- NA_character_
-      att <- 'not found'
+      att <- "not found"
     }
     # more than one found on tropicos -> user input
     if (length(id) > 1) {
@@ -179,11 +182,11 @@ get_tpsid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
               take <- as.numeric(take)
               message("Input accepted, took tpsid '", as.character(df$tpsid[take]), "'.\n")
               id <- as.character(df$tpsid[take])
-              att <- 'found'
+              att <- "found"
             } else {
               id <- NA_character_
               mssg(messages, "\nReturned 'NA'!\n\n")
-              att <- 'not found'
+              att <- "not found"
             }
           } else {
             if (length(id) != 1) {

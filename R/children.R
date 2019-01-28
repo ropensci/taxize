@@ -120,7 +120,7 @@ itis_blank <- data.frame(
   rankname   = character(0),
   taxonname  = character(0),
   tsn        = character(0),
-  stringsAsFactors=FALSE
+  stringsAsFactors = FALSE
 )
 worms_blank <- col_blank <- ncbi_blank <-
   data.frame(
@@ -133,13 +133,13 @@ worms_blank <- col_blank <- ncbi_blank <-
 set_output_types <- function(x, x_names, db){
   blank_fun <- switch(
     db,
-    itis  = function(x) if (nrow(x) == 0 || is.na(x)) itis_blank else x,
-    col   = function(x) {
-      if (inherits(x, "list")) x <- x[[1]]
-      if (nrow(x) == 0 || is.na(x)) col_blank else x
+    itis  = function(w) if (nrow(w) == 0 || all(is.na(w))) itis_blank else w,
+    col   = function(w) {
+      if (inherits(w, "list")) w <- w[[1]]
+      if (nrow(w) == 0 || all(is.na(w))) col_blank else w
     },
-    ncbi  = function(x) if (nrow(x) == 0 || is.na(x)) ncbi_blank else x,
-    worms = function(x) if (nrow(x) == 0 || is.na(x)) worms_blank else x
+    ncbi  = function(w) if (nrow(w) == 0 || all(is.na(w))) ncbi_blank else w,
+    worms = function(w) if (nrow(w) == 0 || all(is.na(w))) worms_blank else w
   )
 
   typed_results <- lapply(seq_along(x), function(i) blank_fun(x[[i]]))
