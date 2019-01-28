@@ -57,11 +57,11 @@
 #' bold_search(id=88899, includeTree=TRUE)
 #' }
 
-bold_search <- function(name = NULL, id = NULL, fuzzy = FALSE, dataTypes='basic',
-  includeTree=FALSE, response=FALSE, ...) {
+bold_search <- function(name = NULL, id = NULL, fuzzy = FALSE, 
+  dataTypes = 'basic', includeTree=FALSE, response=FALSE, ...) {
 
   stopifnot(!is.null(name) | !is.null(id))
-  type <- if (is.null(name)) "id" else 'name'
+  type <- if (is.null(name)) "id" else "name"
   tmp <- switch(type,
          name = bold_tax_name(name = name, fuzzy = fuzzy, response = response, ...),
          id = bold_tax_id(id = id, dataTypes = dataTypes, includeTree = includeTree,
