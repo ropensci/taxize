@@ -103,10 +103,9 @@ get_eolid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
     direct <- FALSE
     mssg(messages, "\nRetrieving data for taxon '", sciname, "'\n")
     tmp <- eol_search(terms = sciname, key = key, ...)
-    ms <- "Not found. Consider checking the spelling or alternate classification"
     datasource <- NA_character_
     if (all(is.na(tmp))) {
-      mssg(messages, ms)
+      mssg(messages, m_not_found_sp_altclass)
       id <- NA_character_
       page_id <- NA_character_
       att <- "not found"
@@ -116,7 +115,7 @@ get_eolid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
 
       if (length(pageids) == 0) {
         if (nrow(tmp) > 0)
-        mssg(messages, paste(ms, sprintf('\nDid find: %s',
+        mssg(messages, paste(m_not_found_sp_altclass, sprintf('\nDid find: %s',
                                         paste(tmp$name, collapse = "; "))))
         id <- NA_character_
       } else {
@@ -139,7 +138,7 @@ get_eolid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
         df <- sub_rows(df, rows)
 
         if (nrow(df) == 0) {
-          mssg(messages, ms)
+          mssg(messages, m_not_found_sp_altclass)
           id <- NA_character_
           page_id <- NA_character_
         } else{
@@ -151,7 +150,7 @@ get_eolid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
 
     # not found on eol
     if (length(id) == 0 || all(is.na(id))) {
-      mssg(messages, ms)
+      mssg(messages, m_not_found_sp_altclass)
       id <- NA_character_
       page_id <- NA_character_
 			mm <- FALSE
@@ -196,14 +195,11 @@ get_eolid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
         }
       } else {
         if (length(id) != 1) {
-          warning(
-            sprintf("More than one eolid found for taxon '%s'; refine query or set ask=TRUE",
-                    sciname),
-            call. = FALSE
-          )
+          warning(sprintf(m_more_than_one_found, "eolid", sciname),
+            call. = FALSE)
           id <- NA_character_
           page_id <- NA_character_
-          att <- 'NA due to ask=FALSE & > 1 result'
+          att <- m_na_ask_false
         }
       }
     }

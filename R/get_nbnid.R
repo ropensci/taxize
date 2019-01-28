@@ -99,9 +99,7 @@ get_nbnid <- function(name, ask = TRUE, messages = TRUE, rec_only = FALSE,
 
     rank_taken <- NA
     if (NROW(df) == 0) {
-      mssg(
-        messages,
-        "Not found. Consider checking the spelling or alternate classification")
+      mssg(messages, m_not_found_sp_altclass)
       id <- NA_character_
       att <- 'not found'
     } else {
@@ -117,9 +115,7 @@ get_nbnid <- function(name, ask = TRUE, messages = TRUE, rec_only = FALSE,
 
     # not found on NBN
     if (length(id) == 0) {
-      mssg(
-        messages,
-        "Not found. Consider checking the spelling or alternate classification")
+      mssg(messages, m_not_found_sp_altclass)
       id <- NA_character_
       att <- 'not found'
     }
@@ -152,13 +148,10 @@ get_nbnid <- function(name, ask = TRUE, messages = TRUE, rec_only = FALSE,
         }
       } else{
         if (length(id) != 1) {
-          warning(
-            sprintf("More than one NBN ID found for taxon '%s'; refine query or set ask=TRUE",
-                    name),
-            call. = FALSE
-          )
+          warning(sprintf(m_more_than_one_found, "NBN ID", name),
+            call. = FALSE)
           id <- NA_character_
-          att <- 'NA due to ask=FALSE & > 1 result'
+          att <- m_na_ask_false
         }
       }
     }

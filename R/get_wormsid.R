@@ -124,9 +124,7 @@ get_wormsid <- function(query, searchtype = "scientific", accepted = FALSE,
 
       # should return NA if spec not found
       if (nrow(wmdf) == 0) {
-        mssg(
-          messages,
-          "Not found. Consider checking the spelling or alternate classification")
+        mssg(messages, m_not_found_sp_altclass)
         wmid <- NA_character_
         att <- 'not found'
       }
@@ -156,7 +154,7 @@ get_wormsid <- function(query, searchtype = "scientific", accepted = FALSE,
         } else {
           direct <- FALSE
           wmid <- NA_character_
-          att <- 'NA due to ask=FALSE & no direct match found'
+          att <- m_na_ask_false_no_direct
           warning("> 1 result; no direct match found", call. = FALSE)
         }
 
@@ -196,13 +194,10 @@ get_wormsid <- function(query, searchtype = "scientific", accepted = FALSE,
           }
         } else {
           if (length(wmid) != 1) {
-            warning(
-              sprintf("More than one WORMS ID found for taxon '%s'; refine query or set ask=TRUE",
-                      x),
-              call. = FALSE
-            )
+            warning(sprintf(m_more_than_one_found, "Worms ID", x), 
+              call. = FALSE)
             wmid <- NA_character_
-            att <- 'NA due to ask=FALSE & > 1 result'
+            att <- m_na_ask_false
           }
         }
       }

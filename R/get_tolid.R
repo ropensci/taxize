@@ -86,7 +86,7 @@ get_tolid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, ...) {
 
       # should return NA if spec not found
       if (NROW(tol_df) == 0) {
-        mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
+        mssg(verbose, m_not_found_sp_altclass)
         id <- NA_character_
         att <- 'not found'
       }
@@ -145,13 +145,10 @@ get_tolid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, ...) {
             }
             else {
               if (length(id) != 1) {
-                warning(
-                  sprintf("More than one ToL ID found for taxon '%s'; refine query or set ask=TRUE",
-                          x),
-                  call. = FALSE
-                )
+                warning(sprintf(m_more_than_one_found, "ToL ID", x),
+                  call. = FALSE)
                 id <- NA_character_
-                att <- 'NA due to ask=FALSE & > 1 result'
+                att <- m_na_ask_false
               }
             }
           }

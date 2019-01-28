@@ -71,7 +71,7 @@ get_iucn <- function(x, messages = TRUE, key = NULL, ...) {
       if (NROW(df) == 0) {
         mssg(messages, tx_msg_not_found)
         id <- NA_character_
-        att <- 'not found'
+        att <- "not found"
       }
 
       # check for direct match
@@ -80,11 +80,11 @@ get_iucn <- function(x, messages = TRUE, key = NULL, ...) {
       if (!all(is.na(direct))) {
         id <- df$taxonid[!is.na(direct)]
         direct <- TRUE
-        att <- 'found'
+        att <- "found"
       } else {
         direct <- FALSE
         id <- df$taxonid
-        att <- 'found'
+        att <- "found"
       }
       # multiple matches not possible because no real search
     }

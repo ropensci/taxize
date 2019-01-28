@@ -108,7 +108,7 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE,
 
       # should return NA if spec not found
       if (nrow(tsn_df) == 0) {
-        mssg(messages, "Not found. Consider checking the spelling or alternate classification")
+        mssg(messages, m_not_found_sp_altclass)
         tsn <- NA_character_
         att <- 'not found'
       }
@@ -139,7 +139,7 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE,
         } else {
           direct <- FALSE
           tsn <- NA_character_
-          att <- 'NA due to ask=FALSE & no direct match found'
+          att <- m_na_ask_false_no_direct
           warning("> 1 result; no direct match found", call. = FALSE)
         }
       }
@@ -163,28 +163,24 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE,
           take <- scan(n = 1, quiet = TRUE, what = 'raw')
 
           if (length(take) == 0) {
-            take <- 'notake'
-            att <- 'nothing chosen'
+            take <- "notake"
+            att <- "nothing chosen"
           }
           if (take %in% seq_len(nrow(tsn_df))) {
             take <- as.numeric(take)
             message("Input accepted, took taxon '", as.character(tsn_df$target[take]), "'.\n")
             tsn <-  tsn_df$tsn[take]
-            att <- 'found'
+            att <- "found"
           } else {
             tsn <- NA_character_
             mssg(messages, "\nReturned 'NA'!\n\n")
-            att <- 'not found'
+            att <- "not found"
           }
         } else {
           if (length(tsn) != 1) {
-            warning(
-              sprintf("More than one tsn found for taxon '%s'; refine query or set ask=TRUE",
-                      x),
-              call. = FALSE
-            )
+            warning(sprintf(m_more_than_one_found, "tsn", x), call. = FALSE)
             tsn <- NA_character_
-            att <- 'NA due to ask=FALSE & > 1 result'
+            att <- m_na_ask_false
           }
         }
       }
