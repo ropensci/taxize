@@ -186,7 +186,8 @@ get_colid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
           }
           if (take %in% seq_len(nrow(df))) {
             take <- as.numeric(take)
-            message("Input accepted, took colid '", as.character(df$colid[take]), "'.\n")
+            message("Input accepted, took colid '", 
+              as.character(df$colid[take]), "'.\n")
             id <- as.character(df$colid[take])
             rank_taken <- as.character(df$rank[take])
             att <- "found"
@@ -197,7 +198,7 @@ get_colid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
           }
         } else {
           if (length(id) != 1) {
-            warning(sprintf(m_more_than_one_found,, "colid", sciname), 
+            warning(sprintf(m_more_than_one_found, "colid", sciname),
               call. = FALSE)
             id <- NA_character_
             att <- m_na_ask_false

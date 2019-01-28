@@ -53,7 +53,7 @@ test_that("get_boldid fails as expected", {
 
   # rows param
   expect_error(get_boldid("Achlya", rows = "foobar", verbose = FALSE),
-               "'rows' must be numeric or NA")
+               "rows must be of class numeric, integer")
   expect_error(get_boldid("Achlya", rows = 0, verbose = FALSE),
-               "'rows' value must be an integer 1 or greater")
+               "rows > 0 is not TRUE")
 })
