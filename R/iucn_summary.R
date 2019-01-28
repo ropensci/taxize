@@ -11,9 +11,10 @@
 #' @param distr_detail logical; If \code{TRUE}, the geographic distribution is
 #' returned as a list of vectors corresponding to the different range types:
 #' native, introduced, etc.
-#' @param key a Redlist API key, get one from \url{http://apiv3.iucnredlist.org/api/v3/token}
-#' Required for \code{iucn_summary} but not needed for \code{iucn_summary_id}. Defaults to
-#' \code{NULL} in case you have your key stored (see \code{Redlist Authentication} below).
+#' @param key a Redlist API key, get one from 
+#' \url{http://apiv3.iucnredlist.org/api/v3/token}. Required for 
+#' \code{iucn_summary}. Defaults to \code{NULL} in case you have your key 
+#' stored (see \code{Redlist Authentication} below).
 #' @param ... Currently not used.
 #'
 #' @return A list (for every species one entry) of lists with the following
@@ -73,18 +74,8 @@
 #'
 #'
 #' # If you pass in an IUCN ID, you don't need to pass in a Redlist API Key
-#' ia <- iucn_summary_id(c(22732, 12519))
 #' # extract status
-#' iucn_status(ia)
-#' # extract other available information
-#' ia$`22732`$history
-#' ia$`12519`$distr
-#' ia$`12519`$trend
-#' ## the outputs aren't quite identical, but we're working on it
-#' identical(
-#'   iucn_summary_id(c(22732, 12519)),
-#'   iucn_summary(as.iucn(c(22732, 12519)))
-#' )
+#' iucn_status(iac)
 #'
 #' # using parallel, e.g., with doMC package, register cores first
 #' # library(doMC)
@@ -130,16 +121,12 @@ iucn_summary.iucn <- function(x, parallel = FALSE, distr_detail = FALSE,
   structure(stats::setNames(res, x), class = "iucn_summary")
 }
 
-#' @param species_id an IUCN ID
+#' DEFUNCT
 #' @export
-#' @rdname iucn_summary
-iucn_summary_id <- function(species_id, silent = TRUE, parallel = FALSE,
-                            distr_detail = FALSE, ...) {
-  .Deprecated(msg = gsub("\\s\\s|\n", "", "this function will be deprecated in
-      the next version. use iucn_summary()"))
-  res <- get_iucn_summary(species_id, silent, parallel, distr_detail,
-                          by_id = TRUE, ...)
-  structure(stats::setNames(res, species_id), class = "iucn_summary")
+#' @keywords internal
+#' @rdname iucn_summary_id-defunct
+iucn_summary_id <- function(...) {
+  .Defunct(msg = "use iucn_summary()")
 }
 
 
