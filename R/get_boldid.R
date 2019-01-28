@@ -117,6 +117,10 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes = 'basic',
   assert(rank, "character")
   assert(division, "character")
   assert(parent, "character")
+  if (!is.na(rows)) {
+    assert(rows, c("numeric", "integer"))
+    stopifnot(rows > 0)
+  }
 
   fun <- function(x, ask, verbose, rows) {
     direct <- FALSE

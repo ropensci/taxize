@@ -52,6 +52,10 @@ get_wiki <- function(x, wiki_site = "species", wiki = "en", ask = TRUE,
   assert(wiki_site, "character")
   assert(wiki, "character")
   assert(verbose, "logical")
+  if (!is.na(rows)) {
+    assert(rows, c("numeric", "integer"))
+    stopifnot(rows > 0)
+  }
 
   fun <- function(x, wiki_site, wiki, ask, verbose, limit, rows, ...) {
     direct <- FALSE

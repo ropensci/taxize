@@ -281,8 +281,8 @@ process_ids <- function(input, db, fxn, ...){
   g <- tryCatch(as.numeric(as.character(input)), warning = function(e) e)
   if (
     inherits(g, "numeric") ||
-    is.character(input) && grepl("N[HB]", input) ||
-    is.character(input) && grepl("ELEMENT_GLOBAL", input)
+    is.character(input) && all(grepl("N[HB]", input)) ||
+    is.character(input) && all(grepl("ELEMENT_GLOBAL", input))
   ) {
     as_fxn <- switch(db,
            itis = as.tsn,

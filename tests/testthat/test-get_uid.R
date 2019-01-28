@@ -91,7 +91,7 @@ test_that("get_uid fails as expected", {
 
   # rows param
   expect_error(get_uid("Achlya", rows = "foobar", messages = FALSE),
-               "'rows' must be numeric or NA")
+               "rows must be of class numeric, integer")
   expect_error(get_uid("Achlya", rows = 0, messages = FALSE),
-               "'rows' value must be an integer 1 or greater")
+               "rows > 0 is not TRUE")
 })

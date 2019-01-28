@@ -107,8 +107,8 @@
 #' invisible(get_tpsid("Quercus douglasii", verbose = TRUE))
 #' }
 
-get_tpsid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL, rows = NA,
-                      family = NULL, rank = NULL, ...){
+get_tpsid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL, 
+  rows = NA, family = NULL, rank = NULL, ...) {
 
   assert(ask, "logical")
   assert(messages, "logical")

@@ -93,6 +93,10 @@ get_wormsid <- function(query, searchtype = "scientific", accepted = FALSE,
   assert(accepted, "logical")
   assert(ask, "logical")
   assert(messages, "logical")
+  if (!is.na(rows)) {
+    assert(rows, c("numeric", "integer"))
+    stopifnot(rows > 0)
+  }
 
   fun <- function(x, searchtype, ask, messages, ...) {
     direct <- FALSE

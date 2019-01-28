@@ -161,6 +161,10 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
   assert(rank_query, "character")
   assert(division_filter, "character")
   assert(rank_filter, "character")
+  if (!is.na(rows)) {
+    assert(rows, c("numeric", "integer"))
+    stopifnot(rows > 0)
+  }
   key <- getkey(key, service = "entrez")
 
   fun <- function(sciname, ask, messages, rows, ...) {

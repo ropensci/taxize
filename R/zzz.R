@@ -43,13 +43,13 @@ add_uri <- function(ids, url, z = NULL){
   ids
 }
 
-check_rows <- function(x){
-  if (!is.numeric(x) && !any(is.na(x))) {
+check_rows <- function(z) {
+  if (!is.numeric(z) && !any(is.na(z))) {
     stop("'rows' must be numeric or NA", call. = FALSE)
   }
-  if (is.numeric(x)) {
-    if (length(x) == 1) {
-      if (x < 1) {
+  if (is.numeric(z)) {
+    if (length(z) == 1) {
+      if (z < 1) {
         stop("'rows' value must be an integer 1 or greater",
              call. = FALSE)
       }

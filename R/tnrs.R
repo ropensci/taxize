@@ -89,7 +89,8 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
       }
     } else {
       loc <- tempfile(fileext = ".txt")
-      write.table(data.frame(x), file = loc, col.names = FALSE, row.names = FALSE)
+      write.table(data.frame(x), file = loc, col.names = FALSE, 
+        row.names = FALSE)
       args <- tc(list(source = source, code = code))
       body <- tc(list(file = crul::upload(loc)))
       out <- cli$post("submit", query = args, body = body, followlocation = 0)
@@ -109,7 +110,7 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
       ss <- crul::HttpClient$new(retrieve)$get()
       error_handle(ss, TRUE)
       temp <- jsonlite::fromJSON(ss$parse("UTF-8"), FALSE)
-      if (grepl("is still being processed", temp["message"]) == TRUE) {
+      if (grepl("is still being processed", temp["message"])) {
         timeout <- "wait"
       } else {
         output[[iter]] <- temp
@@ -124,17 +125,19 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
     df2 <- colwise(f)(df)
 
     # replace quotes
-    data.frame(apply(df2, c(1,2), function(x){
+    data.frame(apply(df2, c(1, 2), function(x) {
       if (grepl('\"', x)) gsub('\"', "", x) else x
     }), stringsAsFactors = FALSE)
   }
 
-  if (length(query) < 1 || is.na(query)) stop("Please supply at least one name", call. = FALSE)
+  if (length(query) < 1 || all(is.na(query)))
+    stop("Please supply at least one name", call. = FALSE)
 
-  if (getpost == "get" && length(query) > 75 |
-      length(query) > 30 && getpost == "post") {
+  if (
+    getpost == "get" && length(query) > 75 ||
+    length(query) > 30 && getpost == "post"
+  ) {
     species_split <- slice(query, by = splitby)
-
     out <- lapply(species_split, function(x) mainfunc(x, ...))
     tmp <- data.frame(rbindlist(out), stringsAsFactors = FALSE)
   } else {
@@ -151,10 +154,12 @@ parseres <- function(w){
   matches <- w$matches
   foome <- function(z) {
     z[sapply(z, length) == 0] <- "none"
-    data.frame(z)
+    data.frame(z, stringsAsFactors = FALSE)
   }
-  matches2 <- data.frame(rbindlist(lapply(matches, foome)))
-  df <- data.frame(submittedName = w$submittedName, matches2)
+  matches2 <- data.frame(rbindlist(lapply(matches, foome)), 
+    stringsAsFactors = FALSE)
+  df <- data.frame(submittedName = w$submittedName, matches2, 
+    stringsAsFactors = FALSE)
   df$score <- round(as.numeric(as.character(df$score)), 2)
   df
 }
@@ -179,15 +184,15 @@ error_handle <- function(x, checkcontent = FALSE) {
   if (any(tocheck >= 400)) {
     it <- tocheck[ tocheck >= 400 ]
     mssg <- switch(as.character(it),
-                   '400' = "Bad Request. The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modifications.",
-                   '401' = 'Unauthorized',
-                   '403' = 'Forbidden',
-                   '404' = 'Not Found',
-                   '500' = 'Internal Server Error. The server encountered an unexpected condition which prevented it from fulfilling the request.',
-                   '501' = 'Not Implemented',
-                   '502' = 'Bad Gateway',
-                   '503' = 'Service Unavailable',
-                   '504' = 'Gateway Timeout'
+      "400" = "Bad Request. The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modifications.",
+      "401" = "Unauthorized",
+      "403" = "Forbidden",
+      "404" = "Not Found",
+      "500" = "Internal Server Error. The server encountered an unexpected condition which prevented it from fulfilling the request.",
+      "501" = "Not Implemented",
+      "502" = "Bad Gateway",
+      "503" = "Service Unavailable",
+      "504" = "Gateway Timeout"
     )
     stop(sprintf("HTTP status %s - %s", it, mssg), call. = FALSE)
   }

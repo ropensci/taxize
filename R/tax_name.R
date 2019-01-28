@@ -53,7 +53,7 @@ tax_name <- function(query, get, db = "itis", pref = 'ncbi', messages = TRUE,
 
   if (missing(get)) stop("you must supply a 'get' value", call. = FALSE)
   db <- match.arg(db, c('itis', 'ncbi', 'both'))
-  if (db == 'both' & !pref %in% c('ncbi', 'itis')) {
+  if (db == 'both' && !pref %in% c('ncbi', 'itis')) {
     stop("if db=both, pref must be either 'itis' or 'ncbi'!\n", call. = FALSE)
   }
 
@@ -76,7 +76,7 @@ tax_name <- function(query, get, db = "itis", pref = 'ncbi', messages = TRUE,
 
 do_ncbi <- function(query, get, messages, both=FALSE, rows = NA, ...) {
   uid <- get_uid(query, messages = messages, rows = rows, ...)
-  if (is.na(uid)) {
+  if (all(is.na(uid))) {
     if (messages) message("No UID found for species '", query, "'!\n")
     if (both) {
       c(query, rep(NA, length(get))) 
@@ -104,7 +104,7 @@ do_ncbi <- function(query, get, messages, both=FALSE, rows = NA, ...) {
 do_itis <- function(query, get, messages, both = FALSE, rows = NA, ...){
   tsn <- get_tsn(query, searchtype = "scientific", messages = messages,
                  rows = rows, ...)
-  if (is.na(tsn)) {
+  if (all(is.na(tsn))) {
     if (messages) message("No TSN found for species '", query, "'!\n")
     if (both) {
       c(query, rep(NA, length(get))) 

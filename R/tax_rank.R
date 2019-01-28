@@ -56,27 +56,27 @@ tax_rank.character <- function(x, db = NULL, rows = NA, ...) {
   stopifnot(length(db) == 1)
   switch(
     db,
-    bold = stats::setNames(tax_rank_(process_ids(x, db, get_boldid, 
+    bold = stats::setNames(tax_rank_(process_ids(x, db, get_boldid,
       rows = rows), ...), x),
-    col = stats::setNames(tax_rank_(process_ids(x, db, get_colid, 
+    col = stats::setNames(tax_rank_(process_ids(x, db, get_colid,
       rows = rows), ...), x),
-    eol = stats::setNames(tax_rank_(process_ids(x, db, get_eolid, 
+    eol = stats::setNames(tax_rank_(process_ids(x, db, get_eolid,
       rows = rows), ...), x),
-    gbif = stats::setNames(tax_rank_(process_ids(x, db, get_gbifid, 
+    gbif = stats::setNames(tax_rank_(process_ids(x, db, get_gbifid,
       rows = rows), ...), x),
-    natserv = stats::setNames(tax_rank_(process_ids(x, db, get_natservid, 
+    natserv = stats::setNames(tax_rank_(process_ids(x, db, get_natservid,
       rows = rows), ...), x),
-    nbn = stats::setNames(tax_rank_(process_ids(x, db, get_nbnid, 
+    nbn = stats::setNames(tax_rank_(process_ids(x, db, get_nbnid,
       rows = rows), ...), x),
-    tol = stats::setNames(tax_rank_(process_ids(x, db, get_tolid, 
+    tol = stats::setNames(tax_rank_(process_ids(x, db, get_tolid,
       rows = rows), ...), x),
-    tropicos = stats::setNames(tax_rank_(process_ids(x, db, get_tpsid, 
+    tropicos = stats::setNames(tax_rank_(process_ids(x, db, get_tpsid,
       rows = rows), ...), x),
-    itis = stats::setNames(tax_rank_(process_ids(x, db, get_tsn, 
+    itis = stats::setNames(tax_rank_(process_ids(x, db, get_tsn,
       rows = rows), ...), x),
-    ncbi = stats::setNames(tax_rank_(process_ids(x, db, get_uid, 
+    ncbi = stats::setNames(tax_rank_(process_ids(x, db, get_uid,
       rows = rows), ...), x),
-    worms = stats::setNames(tax_rank_(process_ids(x, db, get_wormsid, 
+    worms = stats::setNames(tax_rank_(process_ids(x, db, get_wormsid,
       rows = rows), ...), x),
     stop("the provided db value was not recognised", call. = FALSE)
   )
@@ -91,12 +91,12 @@ tax_rank.numeric <- function(x, db = NULL, rows = NA, ...) {
 tax_rank_ <- function(id, ...) {
   fun <- function(x, clz, ...) {
     res <- classification(x, db = clz, ...)
-    if (is.na(res)) {
+    if (all(is.na(res))) {
       NA_character_
     } else {
       if (NROW(res[[1]]) > 0) {
         tt <- res[[1]]
-        out <- tt[nrow(tt), 'rank'][[1]]
+        out <- tt[nrow(tt), "rank"][[1]]
         if (length(out) == 0) NA_character_ else tolower(out)
       } else {
         NA_character_

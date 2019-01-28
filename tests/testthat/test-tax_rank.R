@@ -2,12 +2,12 @@ context("tax_rank")
 
 test_that("tax_rank returns the correct class", {
   vcr::use_cassette("tax_rank", {
-    A <- suppressMessages(tax_rank(c("Helianthus annuus", "Baetis"), db = "ncbi",
-                                   messages=FALSE))
-    B <- suppressMessages(sw(tax_rank("Helianthus", db = "itis", messages=FALSE, 
-      rows = 1)))
-    C <- suppressMessages(tax_rank(c("Helianthus annuus", "xxxxxx"), db = "ncbi",
-                                   messages=FALSE))
+    A <- suppressMessages(tax_rank(c("Helianthus annuus", "Baetis"),
+      db = "ncbi", messages = FALSE))
+    B <- suppressMessages(sw(tax_rank("Helianthus", db = "itis",
+      messages = FALSE, rows = 1)))
+    C <- suppressMessages(tax_rank(c("Helianthus annuus", "xxxxxx"),
+      db = "ncbi", messages = FALSE))
   })
 
   expect_is(A, "list")
