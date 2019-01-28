@@ -4,12 +4,16 @@ test_that("get_wormsid returns the correct value", {
   vcr::use_cassette("get_wormsid", {
     x <- sw(get_wormsid("Gadus morhua", rows = 1, messages = FALSE))
     z <- sw(get_wormsid(c("Platanista gangetica", "Lichenopora neapolitana"),
-                   messages = FALSE))
+      rows = 1, messages = FALSE))
   })
 
   expect_is(x, "wormsid")
   expect_is(x[1], "character")
   expect_is(z, "wormsid")
+  expect_equal(length(z), 2)
+  expect_equal(sort(attr(z, "multiple_matches")), c(FALSE, TRUE))
+  expect_false(all(attr(z, "pattern_match")))
+  expect_match(attr(z, "uri"), "marinespecies.org")
 })
 
 test_that("get_wormsid accepts ask-argument", {
