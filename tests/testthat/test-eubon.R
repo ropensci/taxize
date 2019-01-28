@@ -32,7 +32,7 @@ vcr::use_cassette("eubon_search_fails", {
     expect_error(eubon_search("Salmo", searchMode = "adfdf"),
                  "Error 400 Bad Request")
   })
-})
+}, preserve_exact_body_bytes = TRUE)
 
 test_that("eubon and eubon_search are aliases of each other", {
   skip_on_cran()

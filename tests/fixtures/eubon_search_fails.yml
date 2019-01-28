@@ -17,31 +17,16 @@ http_interactions:
     headers:
       status: 'HTTP/1.1 400 invalid value for request parameter ''providers'' given:
         [pesi, eunis, bgbm-cdm-server, worms, plazi, gbif]'
-      date: Thu, 24 Jan 2019 01:30:36 GMT
+      date: Mon, 28 Jan 2019 23:17:16 GMT
       server: Jetty(8.1.16.v20140903)
       content-type: text/html;charset=ISO-8859-1
       cache-control: must-revalidate,no-cache,no-store
       content-length: '1579'
       connection: close
     body:
-      encoding: UTF-8
-      string: "<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html;
-        charset=ISO-8859-1\"/>\n<title>Error 400 invalid value for request parameter
-        'providers' given: [pesi, eunis, bgbm-cdm-server, worms, plazi, gbif]</title>\n</head>\n<body><h2>HTTP
-        ERROR 400</h2>\n<p>Problem accessing /eu-bon/utis/1.2/search. Reason:\n<pre>
-        \   invalid value for request parameter 'providers' given: [pesi, eunis, bgbm-cdm-server,
-        worms, plazi, gbif]</pre></p><hr /><i><small>Powered by Jetty://</small></i><br/>
-        \                                               \n<br/>                                                \n<br/>
-        \                                               \n<br/>                                                \n<br/>
-        \                                               \n<br/>                                                \n<br/>
-        \                                               \n<br/>                                                \n<br/>
-        \                                               \n<br/>                                                \n<br/>
-        \                                               \n<br/>                                                \n<br/>
-        \                                               \n<br/>                                                \n<br/>
-        \                                               \n<br/>                                                \n<br/>
-        \                                               \n<br/>                                                \n<br/>
-        \                                               \n<br/>                                                \n\n</body>\n</html>\n"
-  recorded_at: 2019-01-24 01:30:38 GMT
+      encoding: ASCII-8BIT
+      string: PGh0bWw+CjxoZWFkPgo8bWV0YSBodHRwLWVxdWl2PSJDb250ZW50LVR5cGUiIGNvbnRlbnQ9InRleHQvaHRtbDsgY2hhcnNldD1JU08tODg1OS0xIi8+Cjx0aXRsZT5FcnJvciA0MDAgaW52YWxpZCB2YWx1ZSBmb3IgcmVxdWVzdCBwYXJhbWV0ZXIgJ3Byb3ZpZGVycycgZ2l2ZW46IFtwZXNpLCBldW5pcywgYmdibS1jZG0tc2VydmVyLCB3b3JtcywgcGxhemksIGdiaWZdPC90aXRsZT4KPC9oZWFkPgo8Ym9keT48aDI+SFRUUCBFUlJPUiA0MDA8L2gyPgo8cD5Qcm9ibGVtIGFjY2Vzc2luZyAvZXUtYm9uL3V0aXMvMS4yL3NlYXJjaC4gUmVhc29uOgo8cHJlPiAgICBpbnZhbGlkIHZhbHVlIGZvciByZXF1ZXN0IHBhcmFtZXRlciAncHJvdmlkZXJzJyBnaXZlbjogW3Blc2ksIGV1bmlzLCBiZ2JtLWNkbS1zZXJ2ZXIsIHdvcm1zLCBwbGF6aSwgZ2JpZl08L3ByZT48L3A+PGhyIC8+PGk+PHNtYWxsPlBvd2VyZWQgYnkgSmV0dHk6Ly88L3NtYWxsPjwvaT48YnIvPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAo8YnIvPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAo8YnIvPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAo8YnIvPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAo8YnIvPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAo8YnIvPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAo8YnIvPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAo8YnIvPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAo8YnIvPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAo8YnIvPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAo8YnIvPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAo8YnIvPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAo8YnIvPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAo8YnIvPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAo8YnIvPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAo8YnIvPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAo8YnIvPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAo8YnIvPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAo8YnIvPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAo8YnIvPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAoKPC9ib2R5Pgo8L2h0bWw+Cg==
+  recorded_at: 2019-01-28 23:17:17 GMT
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
@@ -60,27 +45,14 @@ http_interactions:
       explanation: Bad request syntax or unsupported method
     headers:
       status: HTTP/1.1 400 Bad Request
-      date: Thu, 24 Jan 2019 01:30:38 GMT
+      date: Mon, 28 Jan 2019 23:17:17 GMT
       server: Jetty(8.1.16.v20140903)
       content-type: text/html;charset=ISO-8859-1
       cache-control: must-revalidate,no-cache,no-store
       content-length: '1391'
       connection: close
     body:
-      encoding: UTF-8
-      string: "<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html;
-        charset=ISO-8859-1\"/>\n<title>Error 400 Bad Request</title>\n</head>\n<body><h2>HTTP
-        ERROR 400</h2>\n<p>Problem accessing /eu-bon/utis/1.2/search. Reason:\n<pre>
-        \   Bad Request</pre></p><hr /><i><small>Powered by Jetty://</small></i><br/>
-        \                                               \n<br/>                                                \n<br/>
-        \                                               \n<br/>                                                \n<br/>
-        \                                               \n<br/>                                                \n<br/>
-        \                                               \n<br/>                                                \n<br/>
-        \                                               \n<br/>                                                \n<br/>
-        \                                               \n<br/>                                                \n<br/>
-        \                                               \n<br/>                                                \n<br/>
-        \                                               \n<br/>                                                \n<br/>
-        \                                               \n<br/>                                                \n<br/>
-        \                                               \n<br/>                                                \n\n</body>\n</html>\n"
-  recorded_at: 2019-01-24 01:30:38 GMT
+      encoding: ASCII-8BIT
+      string: PGh0bWw+CjxoZWFkPgo8bWV0YSBodHRwLWVxdWl2PSJDb250ZW50LVR5cGUiIGNvbnRlbnQ9InRleHQvaHRtbDsgY2hhcnNldD1JU08tODg1OS0xIi8+Cjx0aXRsZT5FcnJvciA0MDAgQmFkIFJlcXVlc3Q8L3RpdGxlPgo8L2hlYWQ+Cjxib2R5PjxoMj5IVFRQIEVSUk9SIDQwMDwvaDI+CjxwPlByb2JsZW0gYWNjZXNzaW5nIC9ldS1ib24vdXRpcy8xLjIvc2VhcmNoLiBSZWFzb246CjxwcmU+ICAgIEJhZCBSZXF1ZXN0PC9wcmU+PC9wPjxociAvPjxpPjxzbWFsbD5Qb3dlcmVkIGJ5IEpldHR5Oi8vPC9zbWFsbD48L2k+PGJyLz4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKPGJyLz4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKPGJyLz4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKPGJyLz4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKPGJyLz4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKPGJyLz4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKPGJyLz4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKPGJyLz4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKPGJyLz4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKPGJyLz4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKPGJyLz4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKPGJyLz4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKPGJyLz4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKPGJyLz4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKPGJyLz4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKPGJyLz4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKPGJyLz4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKPGJyLz4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKPGJyLz4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKPGJyLz4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKCjwvYm9keT4KPC9odG1sPgo=
+  recorded_at: 2019-01-28 23:17:17 GMT
   recorded_with: vcr/0.2.2, webmockr/0.3.0
