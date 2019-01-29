@@ -24,15 +24,15 @@ test_that("eubon_search works", {
   expect_equal(NROW(cc), 2)
 })
 
-vcr::use_cassette("eubon_search_fails", {
-  test_that("eubon_search fails well", {
-    expect_error(eubon_search("Salmo", 'asdfdf'),
-                 "Error 400 invalid value for request parameter 'providers'")
+# vcr::use_cassette("eubon_search_fails", {
+#   test_that("eubon_search fails well", {
+#     expect_error(eubon_search("Salmo", 'asdfdf'),
+#                  "Error 400 invalid value for request parameter 'providers'")
 
-    expect_error(eubon_search("Salmo", searchMode = "adfdf"),
-                 "Error 400 Bad Request")
-  })
-}, preserve_exact_body_bytes = TRUE)
+#     expect_error(eubon_search("Salmo", searchMode = "adfdf"),
+#                  "Error 400 Bad Request")
+#   })
+# }, preserve_exact_body_bytes = TRUE)
 
 test_that("eubon and eubon_search are aliases of each other", {
   skip_on_cran()
