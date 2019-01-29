@@ -131,7 +131,7 @@ Note that a few data sources require SOAP web services, which are difficult to s
 <tr>
 	<td style="text-align:left;">Index Fungorum</td>
 	<td style="text-align:left;"><code>fg</code></td>
-	<td style="text-align:left;"><p>http://www.indexfungorum.org/ixfwebservice/fungus.asmx</p></td>
+	<td style="text-align:left;"><a href="http://www.indexfungorum.org/ixfwebservice/fungus.asmx">link</a></td>
 	<td style="text-align:left;">none</td>
 </tr>
 <tr>
@@ -254,35 +254,37 @@ Get immediate children of _Salmo_. In this case, _Salmo_ is a genus, so this giv
 children("Salmo", db = 'ncbi')
 #> $Salmo
 #>    childtaxa_id                   childtaxa_name childtaxa_rank
-#> 1       2126688              Salmo ciscaucasicus        species
-#> 2       1509524  Salmo marmoratus x Salmo trutta        species
-#> 3       1484545 Salmo cf. cenerinus BOLD:AAB3872        species
-#> 4       1483130               Salmo zrmanjaensis        species
-#> 5       1483129               Salmo visovacensis        species
-#> 6       1483128                Salmo rhodanensis        species
-#> 7       1483127                 Salmo pellegrini        species
-#> 8       1483126                     Salmo opimus        species
-#> 9       1483125                Salmo macedonicus        species
-#> 10      1483124                Salmo lourosensis        species
-#> 11      1483123                   Salmo labecula        species
-#> 12      1483122                  Salmo farioides        species
-#> 13      1483121                      Salmo chilo        species
-#> 14      1483120                     Salmo cettii        species
-#> 15      1483119                  Salmo cenerinus        species
-#> 16      1483118                   Salmo aphelios        species
-#> 17      1483117                    Salmo akairos        species
-#> 18      1201173               Salmo peristericus        species
-#> 19      1035833                   Salmo ischchan        species
-#> 20       700588                     Salmo labrax        species
-#> 21       237411              Salmo obtusirostris        species
-#> 22       235141              Salmo platycephalus        species
-#> 23       234793                    Salmo letnica        species
-#> 24        62065                  Salmo ohridanus        species
-#> 25        33518                 Salmo marmoratus        species
-#> 26        33516                    Salmo fibreni        species
-#> 27        33515                     Salmo carpio        species
-#> 28         8032                     Salmo trutta        species
-#> 29         8030                      Salmo salar        species
+#> 1       2304090                  Salmo abanticus        species
+#> 2       2126688              Salmo ciscaucasicus        species
+#> 3       1509524  Salmo marmoratus x Salmo trutta        species
+#> 4       1484545 Salmo cf. cenerinus BOLD:AAB3872        species
+#> 5       1483130               Salmo zrmanjaensis        species
+#> 6       1483129               Salmo visovacensis        species
+#> 7       1483128                Salmo rhodanensis        species
+#> 8       1483127                 Salmo pellegrini        species
+#> 9       1483126                     Salmo opimus        species
+#> 10      1483125                Salmo macedonicus        species
+#> 11      1483124                Salmo lourosensis        species
+#> 12      1483123                   Salmo labecula        species
+#> 13      1483122                  Salmo farioides        species
+#> 14      1483121                      Salmo chilo        species
+#> 15      1483120                     Salmo cettii        species
+#> 16      1483119                  Salmo cenerinus        species
+#> 17      1483118                   Salmo aphelios        species
+#> 18      1483117                    Salmo akairos        species
+#> 19      1201173               Salmo peristericus        species
+#> 20      1035833                   Salmo ischchan        species
+#> 21       700588                     Salmo labrax        species
+#> 22       602068                    Salmo caspius     subspecies
+#> 23       237411              Salmo obtusirostris        species
+#> 24       235141              Salmo platycephalus        species
+#> 25       234793                    Salmo letnica        species
+#> 26        62065                  Salmo ohridanus        species
+#> 27        33518                 Salmo marmoratus        species
+#> 28        33516                    Salmo fibreni        species
+#> 29        33515                     Salmo carpio        species
+#> 30         8032                     Salmo trutta        species
+#> 31         8030                      Salmo salar        species
 #> 
 #> attr(,"class")
 #> [1] "children"
@@ -565,6 +567,7 @@ out <- as.uid(c(315567, 3339, 9696))
 
 <a href="https://vimeo.com/92883063"><img src="tools/screencast.png" width="400"></a>
 
+
 ## Contributing
 
 See our [CONTRIBUTING](.github/CONTRIBUTING.md) document.
@@ -606,7 +609,7 @@ Collected via GitHub Issues - this list honors all contributions, whether code o
 
 Alphebetical
 
-[afkoeppel](https://github.com/afkoeppel) - [ahhurlbert](https://github.com/ahhurlbert) - [albnd](https://github.com/albnd) - [Alectoria](https://github.com/Alectoria) - [andzandz11](https://github.com/andzandz11) - [antagomir](https://github.com/antagomir) - [arendsee](https://github.com/arendsee) - [ashenkin](https://github.com/ashenkin) - [ashiklom](https://github.com/ashiklom) - [bomeara](https://github.com/bomeara) - [bw4sz](https://github.com/bw4sz) - [cboettig](https://github.com/cboettig) - [cdeterman](https://github.com/cdeterman) - [ChrKoenig](https://github.com/ChrKoenig) - [chuckrp](https://github.com/chuckrp) - [clarson2191](https://github.com/clarson2191) - [claudenozeres](https://github.com/claudenozeres) - [cmzambranat](https://github.com/cmzambranat) - [daattali](https://github.com/daattali) - [DanielGMead](https://github.com/DanielGMead) - [davharris](https://github.com/davharris) - [davidvilanova](https://github.com/davidvilanova) - [diogoprov](https://github.com/diogoprov) - [dlebauer](https://github.com/dlebauer) - [dlenz1](https://github.com/dlenz1) - [dschlaep](https://github.com/dschlaep) - [EDiLD](https://github.com/EDiLD) - [emhart](https://github.com/emhart) - [fdschneider](https://github.com/fdschneider) - [fgabriel1891](https://github.com/fgabriel1891) - [fmichonneau](https://github.com/fmichonneau) - [gedankenstuecke](https://github.com/gedankenstuecke) - [gimoya](https://github.com/gimoya) - [GISKid](https://github.com/GISKid) - [git-og](https://github.com/git-og) - [glaroc](https://github.com/glaroc) - [gustavobio](https://github.com/gustavobio) - [ibartomeus](https://github.com/ibartomeus) - [jangorecki](https://github.com/jangorecki) - [jarioksa](https://github.com/jarioksa) - [jebyrnes](https://github.com/jebyrnes) - [johnbaums](https://github.com/johnbaums) - [jonmcalder](https://github.com/jonmcalder) - [JoStaerk](https://github.com/JoStaerk) - [jsgosnell](https://github.com/jsgosnell) - [kamapu](https://github.com/kamapu) - [karthik](https://github.com/karthik) - [katrinleinweber](https://github.com/katrinleinweber) - [KevCaz](https://github.com/KevCaz) - [kgturner](https://github.com/kgturner) - [kmeverson](https://github.com/kmeverson) - [Koalha](https://github.com/Koalha) - [ljvillanueva](https://github.com/ljvillanueva) - [Markus2015](https://github.com/Markus2015) - [mcsiple](https://github.com/mcsiple) - [MikkoVihtakari](https://github.com/MikkoVihtakari) - [millerjef](https://github.com/millerjef) - [miriamgrace](https://github.com/miriamgrace) - [mpnelsen](https://github.com/mpnelsen) - [MUSEZOOLVERT](https://github.com/MUSEZOOLVERT) - [nate-d-olson](https://github.com/nate-d-olson) - [nmatzke](https://github.com/nmatzke) - [npch](https://github.com/npch) - [paternogbc](https://github.com/paternogbc) - [philippi](https://github.com/philippi) - [pmarchand1](https://github.com/pmarchand1) - [pssguy](https://github.com/pssguy) - [RodgerG](https://github.com/RodgerG) - [rossmounce](https://github.com/rossmounce) - [sariya](https://github.com/sariya) - [scelmendorf](https://github.com/scelmendorf) - [sckott](https://github.com/sckott) - [SimonGoring](https://github.com/SimonGoring) - [snsheth](https://github.com/snsheth) - [snubian](https://github.com/snubian) - [Squiercg](https://github.com/Squiercg) - [tdjames1](https://github.com/tdjames1) - [tmkurobe](https://github.com/tmkurobe) - [tpaulson1](https://github.com/tpaulson1) - [tpoisot](https://github.com/tpoisot) - [vijaybarve](https://github.com/vijaybarve) - [wcornwell](https://github.com/wcornwell) - [willpearse](https://github.com/willpearse) - [wpetry](https://github.com/wpetry) - [zachary-foster](https://github.com/zachary-foster)
+[afkoeppel](https://github.com/afkoeppel) - [ahhurlbert](https://github.com/ahhurlbert) - [albnd](https://github.com/albnd) - [Alectoria](https://github.com/Alectoria) - [andzandz11](https://github.com/andzandz11) - [antagomir](https://github.com/antagomir) - [arendsee](https://github.com/arendsee) - [ArielGreiner](https://github.com/ArielGreiner) - [arw36](https://github.com/arw36) - [ashenkin](https://github.com/ashenkin) - [ashiklom](https://github.com/ashiklom) - [benjaminschwetz](https://github.com/benjaminschwetz) - [benmarwick](https://github.com/benmarwick) - [bomeara](https://github.com/bomeara) - [bw4sz](https://github.com/bw4sz) - [cboettig](https://github.com/cboettig) - [cdeterman](https://github.com/cdeterman) - [ChrKoenig](https://github.com/ChrKoenig) - [chuckrp](https://github.com/chuckrp) - [clarson2191](https://github.com/clarson2191) - [claudenozeres](https://github.com/claudenozeres) - [cmzambranat](https://github.com/cmzambranat) - [cparsania](https://github.com/cparsania) - [daattali](https://github.com/daattali) - [DanielGMead](https://github.com/DanielGMead) - [DarrenObbard](https://github.com/DarrenObbard) - [davharris](https://github.com/davharris) - [davidvilanova](https://github.com/davidvilanova) - [diogoprov](https://github.com/diogoprov) - [dlebauer](https://github.com/dlebauer) - [dlenz1](https://github.com/dlenz1) - [dschlaep](https://github.com/dschlaep) - [EDiLD](https://github.com/EDiLD) - [edwbaker](https://github.com/edwbaker) - [emhart](https://github.com/emhart) - [eregenyi](https://github.com/eregenyi) - [fdschneider](https://github.com/fdschneider) - [fgabriel1891](https://github.com/fgabriel1891) - [fischhoff](https://github.com/fischhoff) - [fmichonneau](https://github.com/fmichonneau) - [fozy81](https://github.com/fozy81) - [gedankenstuecke](https://github.com/gedankenstuecke) - [GISKid](https://github.com/GISKid) - [git-og](https://github.com/git-og) - [glaroc](https://github.com/glaroc) - [gpli](https://github.com/gpli) - [gustavobio](https://github.com/gustavobio) - [hlapp](https://github.com/hlapp) - [ibartomeus](https://github.com/ibartomeus) - [Ironholds](https://github.com/Ironholds) - [jangorecki](https://github.com/jangorecki) - [jarioksa](https://github.com/jarioksa) - [jebyrnes](https://github.com/jebyrnes) - [jimmyodonnell](https://github.com/jimmyodonnell) - [johnbaums](https://github.com/johnbaums) - [jonmcalder](https://github.com/jonmcalder) - [josephwb](https://github.com/josephwb) - [jsgosnell](https://github.com/jsgosnell) - [jwilk](https://github.com/jwilk) - [kamapu](https://github.com/kamapu) - [karthik](https://github.com/karthik) - [katrinleinweber](https://github.com/katrinleinweber) - [KevCaz](https://github.com/KevCaz) - [kgturner](https://github.com/kgturner) - [kmeverson](https://github.com/kmeverson) - [Koalha](https://github.com/Koalha) - [ljvillanueva](https://github.com/ljvillanueva) - [maelle](https://github.com/maelle) - [Markus2015](https://github.com/Markus2015) - [mcsiple](https://github.com/mcsiple) - [MikkoVihtakari](https://github.com/MikkoVihtakari) - [millerjef](https://github.com/millerjef) - [miriamgrace](https://github.com/miriamgrace) - [MK212](https://github.com/MK212) - [mpnelsen](https://github.com/mpnelsen) - [MUSEZOOLVERT](https://github.com/MUSEZOOLVERT) - [nate-d-olson](https://github.com/nate-d-olson) - [nmatzke](https://github.com/nmatzke) - [npch](https://github.com/npch) - [paternogbc](https://github.com/paternogbc) - [patperu](https://github.com/patperu) - [pederengelstad](https://github.com/pederengelstad) - [philippi](https://github.com/philippi) - [pmarchand1](https://github.com/pmarchand1) - [PrincessPi314](https://github.com/PrincessPi314) - [pssguy](https://github.com/pssguy) - [raredd](https://github.com/raredd) - [rec3141](https://github.com/rec3141) - [Rekyt](https://github.com/Rekyt) - [RodgerG](https://github.com/RodgerG) - [rossmounce](https://github.com/rossmounce) - [sariya](https://github.com/sariya) - [scelmendorf](https://github.com/scelmendorf) - [sckott](https://github.com/sckott) - [SimonGoring](https://github.com/SimonGoring) - [snsheth](https://github.com/snsheth) - [snubian](https://github.com/snubian) - [Squiercg](https://github.com/Squiercg) - [taddallas](https://github.com/taddallas) - [tdjames1](https://github.com/tdjames1) - [tmkurobe](https://github.com/tmkurobe) - [toczydlowski](https://github.com/toczydlowski) - [tpaulson1](https://github.com/tpaulson1) - [tpoisot](https://github.com/tpoisot) - [vijaybarve](https://github.com/vijaybarve) - [wcornwell](https://github.com/wcornwell) - [willpearse](https://github.com/willpearse) - [wpetry](https://github.com/wpetry) - [yhg926](https://github.com/yhg926) - [zachary-foster](https://github.com/zachary-foster)
 
 ## Road map
 
