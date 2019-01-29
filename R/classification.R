@@ -555,10 +555,11 @@ classification.nbnid <- function(id, callopts = list(),
 classification.tolid <- function(id, callopts = list(), 
   return_id = TRUE, ...) {
 
-  fun <- function(x, callopts){
+  fun <- function(x, callopts) {
     if (is.na(x)) {
       out <- NA
     } else {
+      x <- as.numeric(x)
       out <- tryCatch(rotl::taxonomy_taxon_info(x, 
         include_lineage = TRUE), error = function(e) e)
       if (inherits(out, "error")) {

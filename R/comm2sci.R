@@ -31,7 +31,6 @@
 #' comm2sci(commnames='american black bear', db='itis')
 #' comm2sci(commnames='annual blue grass', db='tropicos')
 #' comm2sci(commnames=c('annual blue grass','tree of heaven'), db='tropicos')
-#' comm2sci(commnames=c('black bear', 'roe deer'))
 #' comm2sci('blue whale', db = "worms")
 #' comm2sci(c('blue whale', 'dwarf surfclam'), db = "worms")
 #'
