@@ -1,6 +1,7 @@
 context("ncbi_get_taxon_summary")
 
 test_that("ncbi_get_taxon_summary returns correct class and result", {
+  skip_on_cran() # uses secrets
   vcr::use_cassette("ncbi_get_taxon_summary", {
     tt <- ncbi_get_taxon_summary(c(4751))
     tt2 <- ncbi_get_taxon_summary(NA)
@@ -16,7 +17,7 @@ test_that("ncbi_get_taxon_summary returns correct class and result", {
 
 
 test_that("ncbi_get_taxon_summary behaves correctly when very large ID vector", {
-  skip_on_cran()
+  skip_on_cran() # uses secrets
 
   # short UID's are okay at larger quantities
   ids <- rep(4751, 550)
