@@ -395,7 +395,7 @@
       "@type": "SoftwareApplication",
       "identifier": "natserv",
       "name": "natserv",
-      "version": ">= 0.1.4",
+      "version": ">= 0.3.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -421,7 +421,7 @@
   "contIntegration": "https://travis-ci.org/ropensci/taxize",
   "releaseNotes": "https://github.com/ropensci/taxize/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/taxize/blob/master/README.md",
-  "fileSize": "1191.169KB",
+  "fileSize": "1192.688KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
@@ -449,7 +449,7 @@
     },
     {
       "@type": "SoftwareSourceCode",
-      "datePublished": "2018",
+      "datePublished": "2019",
       "author": [
         {
           "@type": "Person",

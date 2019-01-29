@@ -1,32 +1,38 @@
 taxize 0.9.5
 ============
 
+### DEFUNCT
+
+* `iucn_summary_id()` is defunct, use `iucn_summary()` instead
+
 ### NEW FEATURES
 
-* xxx (#xxx)
-* xxx (#xxx)
-* xxx (#xxx)
-* xxx (#xxx)
-* xxx (#xxx)
-* xxx (#xxx)
+* `col_downstream()` gains parameter `extant_only` (logical) to optionally keep extant taxa only (#714) thanks @ArielGreiner for the inquiry
+* `downstream()` gains another `db` options: Worms. You can now set `db="worms"` to use Worms to get taxa downstream from a target taxon. In addition, `taxize` gains new function `worms_downstream()`, which is used under the hood in `downstream(..., db="worms")` (#713) (#715)
+* gains new function `id2name()` with `db` options for tol, itis, ncbi, worms, gbif, col, and bold. the function converts taxonomid IDs to names. It's sort of the inverse of the `get_*()` family of functions. (#712) (#716)
+* `tax_rank()` gains new parameter `rows` so that one can pass `rows` down to `get_*()` functions
 
 ### MINOR IMPROVEMENTS
 
-* xxx (#xxx)
-* xxx (#xxx)
-* xxx (#xxx)
-* xxx (#xxx)
-* xxx (#xxx)
-* xxx (#xxx)
+* `synonyms()` warning from an internal `cbind()` call now fixed (#704) (#705) thanks @vijaybarve
+* namespace `taxize` function calls thrown when notifying users about API keys (e.g., `taxize::use_tropicos()`) to make it very clear where the functions live (to avoid confusion with `usethis`) (#724) (#725) thanks @maelle
+* changed `iucn_summary()` to output the same structure when no match is found as when a match is found so that when output is passed to `iucn_status()` behavior is the same (#708) thanks @Rekyt
+* skip `tax_name()` tests on CRAN (#728)
+* `httr` replaced by `crul` throughout (#590)
+* most unit tests that make HTTP requests now cached with `vcr`, making tests much faster and not prone to errors to remote services being down (#729)
+* EOL: The EOL API underwent major changes, and we've attempted to get things in working order. `eol_dataobjects()` gains new parameter `language`. `eol_pages()` loses `iucn`, `images`, `videos`, `sounds`, `maps`, and `text` parameters, and gains `images_per_page`, `videos_per_page`, `sounds_per_page`, `maps_per_page`, `texts_per_page`, and `texts_page`. Please do let us know if you find any problems with any EOL functions (#717) (#718)
+* As part of EOL changes, the default `db` value for `comm2sci()` and `sci2comm()` is now `ncbi` instead of `eol`
+* EUBON base URL now https instead of http
+* A number of `get_*()` functions changed parameter `verbose` to `messages` to not conflict with `verbose` passed down to `crul::HttpClient`
+* ping functions: `ncbi_ping()` reworked to allow use of your api key as a parameter or pulled from your environemnt; `eol_ping()` using https instead of http, and parsing JSON instead of XML.
 
 ### BUG FIXES
 
-* xxx (#xxx)
-* xxx (#xxx)
-* xxx (#xxx)
-* xxx (#xxx)
-* xxx (#xxx)
-* xxx (#xxx)
+* `get_eolid()` was erroring when no results found for a query due to not assigning an internal variable (#701) (#709) thanks for the fix @taddallas
+* `get_tolid()` was erroring when values were `NULL` - now replacing all `NULLL` with `NA_character_` to make `data.table::rbindlist()` happy (#710) (#711) thanks @gpli for the fix
+* add additional rows to the `rank_ref` data.frame of taxonomic ranks: species subgroup, forma, varietas, clade, megacohort, supercohort, cohort, subcohort, infracohort. when there's no matched rank errors can result in many of the downstream functions. The data.frame now has 43 rows. (#720) (#727)
+* fix to `downstream()` and `ncbi_get_taxon_summary()`: change in `ncbi_get_taxon_summary` to break up queries into smaller chunks to avoid HTTP 414 errors ("URI too long") (#727) (#730) thanks for reporting @fischhoff and  @benjaminschwetz 
+* a number of fixes internally (not user facing) to comply with upcoming R-devel changes for checking length greater than 1 in logical statements (#731)
 
 
 taxize 0.9.4

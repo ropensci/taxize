@@ -84,7 +84,7 @@ NULL
 
 #' Lookup-table for IDs of taxonomic ranks
 #'
-#' data.frame of 42 rows, with 2 columns:
+#' data.frame of 43 rows, with 2 columns:
 #' \itemize{
 #'  \item rankid - a numeric rank id, consecutive
 #'  \item ranks - a comma separated vector of names that are considered
