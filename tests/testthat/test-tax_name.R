@@ -1,6 +1,7 @@
 context("tax_name")
 
 test_that("tax_name: ncbi", {
+  skip_on_cran() # uses secrets
   vcr::use_cassette("tax_name_ncbi", {
     tmp_ncbi  <- tax_name(query = "Baetis", get = c("family", "order"),
                           db = "ncbi", verbose=FALSE)
@@ -16,6 +17,7 @@ test_that("tax_name: ncbi", {
 })
 
 test_that("tax_name: NA's", {
+  skip_on_cran() # uses secrets
   vcr::use_cassette("tax_name_na", {
     tmp_na2 <- tax_name(query=c("Helianthus annuus", 'xxxx'),
                         get=c("family", "order"), db="ncbi", verbose=FALSE)
@@ -44,6 +46,7 @@ test_that("tax_name: itis", {
 })
 
 test_that("tax_name: rows arg", {
+  skip_on_cran() # uses secrets
   vcr::use_cassette("tax_name_rows_Arg", {
     aa <- tax_name('Bacillus', c("family", "order"), db="ncbi", rows=1)
   })
@@ -55,6 +58,7 @@ test_that("tax_name: rows arg", {
 })
 
 test_that("tax_name accepts ask-argument", {
+  skip_on_cran() # uses secrets
   vcr::use_cassette("tax_name_arg_arg", {
     x <- sw(tax_name(query = "Dugesia", get = "family", db = "ncbi",
                              ask = FALSE, verbose = FALSE))$family
@@ -64,6 +68,7 @@ test_that("tax_name accepts ask-argument", {
 })
 
 test_that("taxon with no data returned from classification() works", {
+  skip_on_cran() # uses secrets
   vcr::use_cassette("tax_name_no_data", {
     aa <- sw(tax_name("foo bar", get = "species",
       rows = 1, messages = FALSE))

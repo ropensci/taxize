@@ -1,6 +1,7 @@
 context("tax_rank")
 
 test_that("tax_rank returns the correct class", {
+  skip_on_cran() # uses secrets
   vcr::use_cassette("tax_rank", {
     A <- suppressMessages(tax_rank(c("Helianthus annuus", "Baetis"),
       db = "ncbi", messages = FALSE))

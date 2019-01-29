@@ -1,6 +1,7 @@
 context("get_uid")
 
 test_that("get_uid returns the correct value", {
+  skip_on_cran() # uses secrets
   vcr::use_cassette("get_uid", {
     x <- get_uid(c("Chironomus riparius", "aaa"), messages = FALSE)
     z <- get_uid(c("Chironomus riparius", "Chaetopteryx"),
@@ -11,6 +12,7 @@ test_that("get_uid returns the correct value", {
 })
 
 test_that("get_uid accepts ask-argument", {
+  skip_on_cran() # uses secrets
   vcr::use_cassette("get_uid_ask_arg", {
     x <- sw(get_uid("Dugesia", ask = FALSE, messages = FALSE))
   })
@@ -18,6 +20,7 @@ test_that("get_uid accepts ask-argument", {
 })
 
 test_that("get_uid query modifiers work", {
+  skip_on_cran() # uses secrets
   vcr::use_cassette("get_uid_name_modifiers", {
     mod1 <- get_uid(sciname = "Aratinga", messages = FALSE)
     mod2 <- get_uid(sciname = "Aratinga", modifier = "Organism",
@@ -41,6 +44,7 @@ test_that("get_uid query modifiers work", {
 })
 
 test_that("get_uid filtering works", {
+  skip_on_cran() # uses secrets
   vcr::use_cassette("get_uid_filtering_division", {
     df1 <- get_uid(sciname = "Echinacea", division_filter = "eudicots",
       messages = FALSE)

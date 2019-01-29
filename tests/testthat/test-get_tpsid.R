@@ -1,6 +1,7 @@
 context("get_tpsid")
 
 test_that("get_tpsid returns the correct value", {
+  skip_on_cran() # uses secrets
   vcr::use_cassette("get_tpsid", {
     a <- get_tpsid(sciname='Helianthus excubitor', messages=FALSE)[[1]]
     b <- get_tpsid(sciname='adsf asdf asdf', messages=FALSE)[[1]]
@@ -13,6 +14,7 @@ test_that("get_tpsid returns the correct value", {
 })
 
 test_that("get_tpsid accepts ask-argument", {
+  skip_on_cran() # uses secrets
   vcr::use_cassette("get_tpsid_ask_arg", {
     a <- get_tpsid(sciname='adsf asdf asdf', ask=FALSE, messages=FALSE)[[1]]
   })
@@ -21,6 +23,7 @@ test_that("get_tpsid accepts ask-argument", {
 })
 
 test_that("get_tpsid behaves correctly on dot inputs", {
+  skip_on_cran() # uses secrets
   vcr::use_cassette("get_tpsid_warnings_dots", {
     expect_that(get_tpsid('Pinus contorta var. yukonensis'),
                 gives_warning("detected, being URL encoded"))
@@ -29,6 +32,7 @@ test_that("get_tpsid behaves correctly on dot inputs", {
 })
 
 test_that("get_tpsid behaves correctly on subspecific inputs", {
+  skip_on_cran() # uses secrets
   vcr::use_cassette("get_tpsid_warnings_subspecific", {
     expect_that(get_tpsid('Poa annua var annua'),
                 gives_warning("Tropicos doesn't like"))
@@ -65,5 +69,3 @@ test_that("get_tpsid fails as expected", {
   expect_error(get_tpsid("Poa annua", rows = 0, verbose = FALSE),
                "rows > 0 is not TRUE")
 })
-
-

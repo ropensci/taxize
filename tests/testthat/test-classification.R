@@ -41,6 +41,7 @@ context("classification")
 # names(clas_tp) <- NULL
 
 test_that("classification returns the correct values and classes", {
+  skip_on_cran() # uses secrets
   vcr::use_cassette("classification", {
     clas_ncbi <- classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi',
                                 messages = FALSE)
@@ -95,6 +96,7 @@ test_that("classification returns the correct values and classes", {
 })
 
 test_that("passing in an id works", {
+  skip_on_cran() # uses secrets
   vcr::use_cassette("classification_passing_id", {
     fromid_ncbi <- classification(9606, db = 'ncbi')
     fromid_itis <- classification(129313, db = 'itis')
@@ -116,8 +118,9 @@ test_that("passing in an id works", {
 })
 
 test_that("rbind and cbind work correctly", {
+  skip_on_cran() # uses secrets
   vcr::use_cassette("classification_cbind_rbind", {
-    out <- get_ids(names = c("Puma concolor","Accipiter striatus"),
+    out <- get_ids(names = c("Puma concolor", "Accipiter striatus"),
                    db = 'ncbi', messages = FALSE)
     cl <- classification(out)
   })
@@ -157,6 +160,7 @@ test_that("queries with no results fail well", {
 })
 
 test_that("all rank character strings are lower case (all letters)", {
+  skip_on_cran() # uses secrets
   vcr::use_cassette("classification_rank_is_lowercase", {
     aa <- classification(9606, db = 'ncbi', messages = FALSE)
     bb <- classification(129313, db = 'itis', messages = FALSE)
@@ -178,6 +182,7 @@ test_that("all rank character strings are lower case (all letters)", {
 
 
 test_that("rows parameter, when used, works", {
+  skip_on_cran() # uses secrets
   vcr::use_cassette("classification_rows_param", {
     a <- classification("Asdfafsfd", db = 'ncbi', rows = 1, messages = FALSE)
     b <- classification("Asdfafsfd", db = 'itis', rows = 1, messages = FALSE)

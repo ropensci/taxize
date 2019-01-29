@@ -1,6 +1,7 @@
 context("sci2comm")
 
 test_that("sci2comm returns the correct value", {
+  skip_on_cran() # uses secrets
   vcr::use_cassette("sci2comm", {
     tt <- sci2comm(scinames = 'Helianthus annuus', db = 'ncbi', verbose = FALSE)
     uu <- sw(sci2comm(scinames = 'Helianthus annuus', db = 'itis', rows = 1,

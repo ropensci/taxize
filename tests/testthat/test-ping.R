@@ -1,6 +1,7 @@
 context("ping")
 
 vcr::use_cassette("ncbi_ping", {
+  skip_on_cran() # uses secrets
   test_that("ncbi_ping returns the correct value", {
     expect_true(ncbi_ping())
     Sys.sleep(1)
@@ -11,6 +12,7 @@ vcr::use_cassette("ncbi_ping", {
 })
 
 vcr::use_cassette("trpicos_ping", {
+  skip_on_cran() # uses secrets
   test_that("trpicos_ping returns the correct value", {
     expect_true(tropicos_ping())
     expect_true(tropicos_ping("content"))

@@ -9,7 +9,9 @@ spnames <- c("Klattia flava", "Trollius sibiricus", "Arachis paraguariensis",
  "Halomonas sp. 'Soap Lake #6'")
 dupnames <- c("Mus musculus", "Escherichia coli",
               "Haloferax denitrificans", "Mus musculus")
+
 test_that("class2tree returns the correct value and class", {
+  skip_on_cran() # uses secrets
   vcr::use_cassette("class2tree_classification_call", {
     out <- classification(spnames, db = "ncbi", verbose = FALSE)
   })
@@ -30,6 +32,7 @@ test_that("class2tree returns the correct value and class", {
 })
 
 test_that("class2tree will abort when input contains duplicate taxa", {
+  skip_on_cran() # uses secrets
   vcr::use_cassette("class2tree_classification_dup_call", {
     out <- classification(dupnames, db = "ncbi", verbose = FALSE)
   })

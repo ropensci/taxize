@@ -1,6 +1,7 @@
 context("genbank2uid")
 
 test_that("genbank2uid - with accession numbers", {
+  skip_on_cran() # uses secrets
   vcr::use_cassette("genbank2uid", {
     aa <- genbank2uid(id = 'AJ748748')
     bb <- genbank2uid(c('X78312','KM495596'))
@@ -26,6 +27,7 @@ test_that("genbank2uid - with accession numbers", {
 })
 
 test_that("genbank2uid - with gi numbers", {
+  skip_on_cran() # uses secrets
   vcr::use_cassette("genbank2uid_gi_numbers", {
     aa <- genbank2uid(id = 62689767)
     bb <- genbank2uid(c(62689767,156446673))
@@ -66,6 +68,7 @@ test_that("genbank2uid - with gi numbers", {
 # })
 
 test_that("genbank2uid - fails well", {
+  skip_on_cran() # uses secrets
   vcr::use_cassette("genbank2uid_fails", {
     # one Id not found
     expect_warning(genbank2uid(id = "gwa2_scaffold_1731_16S_1"),

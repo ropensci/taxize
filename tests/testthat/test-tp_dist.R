@@ -1,6 +1,7 @@
 context("tp_dist")
 
 test_that("tp_dist returns the correct class", {
+  skip_on_cran() # uses secrets
   vcr::use_cassette("tp_dist", {
     tt <- suppressMessages(tp_dist(id = 25509881))
   })

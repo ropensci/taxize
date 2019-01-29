@@ -1,6 +1,7 @@
 context("tp_summary")
 
 test_that("tp_summary returns the correct value", {
+  skip_on_cran() # uses secrets
   vcr::use_cassette("tp_summary", {
     dat <- suppressMessages(tp_summary(id = 25509881))
   })

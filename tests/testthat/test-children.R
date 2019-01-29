@@ -1,6 +1,7 @@
 context("children")
 
 test_that("children returns the correct values and classes", {
+  skip_on_cran() # uses secrets
   vcr::use_cassette("children_with_name", {
     ch_ncbi <- children("Salmo", db = "ncbi")
   })
@@ -13,6 +14,7 @@ test_that("children returns the correct values and classes", {
 })
 
 test_that("passing in an id works", {
+  skip_on_cran() # uses secrets
   vcr::use_cassette("children_with_id", {
     ch_ncbi <- children(8028, db = "ncbi")
     ch_worms <- sw(children(254966, db='worms'))
@@ -32,6 +34,7 @@ test_that("passing in an id works", {
 })
 
 test_that("queries with no results fail well", {
+  skip_on_cran() # uses secrets
   vcr::use_cassette("children_no_results", {
     aa <- children(x = "Saurauia", db = "itis", verbose = FALSE)
   })
@@ -63,6 +66,7 @@ test_that("itis types are correct", {
 })
 
 test_that("rows parameter, when used, works", {
+  skip_on_cran() # uses secrets
   vcr::use_cassette("children_rows_param", {
     x <- children("Asdfafsfd", db = "ncbi", rows = 1, messages = FALSE)
   })
@@ -71,17 +75,29 @@ test_that("rows parameter, when used, works", {
 })
 
 test_that("expected results for no query match when using get_* fxns", {
+  skip_on_cran() # uses secrets
+  vcr::use_cassette("children_no_results_structure_ncbi_x", {
+    ncbi_x <- children(get_uid(23424234234, messages = FALSE))
+  })
+
+  vcr::use_cassette("children_no_results_structure_ncbi_y", {
+    ncbi_y <- children('dragon', db = "ncbi", messages = FALSE)
+  })
+
+  expect_named(ncbi_x, NA_character_)
+  expect_named(ncbi_y, "dragon")
+})
+
+test_that("expected results for no query match when using get_* fxns", {
   vcr::use_cassette("children_no_results_structure_x", {
     itis_x <- children(get_tsn(23424234234, messages = FALSE))
     col_x <- children(get_colid(23424234234, messages = FALSE))
-    ncbi_x <- children(get_uid(23424234234, messages = FALSE))
     worms_x <- children(get_wormsid(23424234234, messages = FALSE))
   })
 
   vcr::use_cassette("children_no_results_structure_y", {
     itis_y <- children(23424234234, db = "itis", messages = FALSE)
     col_y <- children('23424234234', db = "col", messages = FALSE)
-    ncbi_y <- children('dragon', db = "ncbi", messages = FALSE)
     worms_y <- children(get_wormsid(23424234234, messages = FALSE))
   })
   
@@ -90,9 +106,6 @@ test_that("expected results for no query match when using get_* fxns", {
 
   expect_named(col_x, NULL)
   expect_named(col_y, "23424234234")
-
-  expect_named(ncbi_x, NA_character_)
-  expect_named(ncbi_y, "dragon")
 
   expect_named(worms_x, NA_character_)
   expect_named(worms_y, NA_character_)

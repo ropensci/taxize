@@ -1,6 +1,7 @@
 context("tp_search")
 
 test_that("tp_search returns the correct class", {
+  skip_on_cran() # uses secrets
   vcr::use_cassette("tp_search", {
     ttt <- suppressMessages(tp_search(name = 'Poa annua'))
     uuu <- suppressMessages(tp_search(name = 'stuff things'))
@@ -16,6 +17,7 @@ test_that("tp_search returns the correct class", {
 })
 
 test_that("tp_search behaves correctly on dot inputs", {
+  skip_on_cran() # uses secrets
   vcr::use_cassette("tp_search_warnings_dots", {
     expect_that(tp_search('Poa annua .annua'),
                 gives_warning("detected, being URL encoded"))
@@ -24,6 +26,7 @@ test_that("tp_search behaves correctly on dot inputs", {
 })
 
 test_that("tp_search behaves correctly on subspecific inputs", {
+  skip_on_cran() # uses secrets
   vcr::use_cassette("tp_search_warnings_subspecific", {
     expect_that(tp_search('Poa annua var annua'),
                 gives_warning("Tropicos doesn't like"))

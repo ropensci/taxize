@@ -1,6 +1,7 @@
 context("tp_synonyms")
 
 test_that("tp_synonyms returns the correct value", {
+  skip_on_cran() # uses secrets
   vcr::use_cassette("tp_synonyms", {
     dat <- suppressMessages(tp_synonyms(id = 25509881))
   })
