@@ -105,13 +105,13 @@ has a sister method with and trailing underscore, e.g., `get_tsn()` and `get_tsn
 get_tsn_(searchterm = "Quercus b")
 #> $`Quercus b`
 #> # A tibble: 5 x 4
-#>   tsn    scientificName         commonNames                      nameUsage
-#>   <chr>  <chr>                  <chr>                            <chr>    
-#> 1 19300  Quercus bicolor        swamp white oak,chêne bicolore   accepted 
-#> 2 195166 Quercus boyntonii      Boynton's sand post oak,Boynton… accepted 
-#> 3 195168 Quercus buckleyi       Texas oak,Buckley's oak          accepted 
-#> 4 506533 Quercus brantii        Brant's oak                      accepted 
-#> 5 507263 Quercus berberidifolia scrub oak                        accepted
+#>   tsn    scientificName        commonNames                        nameUsage
+#>   <chr>  <chr>                 <chr>                              <chr>    
+#> 1 19300  Quercus bicolor       swamp white oak,chêne bicolore     accepted 
+#> 2 195166 Quercus boyntonii     Boynton's sand post oak,Boynton's… accepted 
+#> 3 195168 Quercus buckleyi      Texas oak,Buckley's oak            accepted 
+#> 4 506533 Quercus brantii       Brant's oak                        accepted 
+#> 5 507263 Quercus berberidifol… scrub oak                          accepted
 ```
 
 The result is a single data.frame for each taxon queried, which can be
@@ -226,22 +226,24 @@ in a programmatic workflow straight away.
 ```r
 spp <- names_list(rank = "species", size = 10)
 gnr_resolve(names = spp, preferred_data_sources = 11)
-#> # A tibble: 13 x 5
-#>    user_supplied_na… submitted_name  matched_name   data_source_tit… score
-#>  * <chr>             <chr>           <chr>          <chr>            <dbl>
-#>  1 Limonium tamarin… Limonium tamar… Limonium tama… GBIF Backbone T… 0.988
-#>  2 Rhaponticum anna… Rhaponticum an… Rhaponticum a… GBIF Backbone T… 0.988
-#>  3 Chionanthus axil… Chionanthus ax… Chionanthus a… GBIF Backbone T… 0.988
-#>  4 Chionanthus axil… Chionanthus ax… Chionanthus a… GBIF Backbone T… 0.988
-#>  5 Chionanthus axil… Chionanthus ax… Chionanthus a… GBIF Backbone T… 0.988
-#>  6 Saintpaulia watk… Saintpaulia wa… Saintpaulia w… GBIF Backbone T… 0.988
-#>  7 Zygophyllum kara… Zygophyllum ka… Zygophyllum k… GBIF Backbone T… 0.988
-#>  8 Sium brevifolium  Sium brevifoli… Sium brevifol… GBIF Backbone T… 0.988
-#>  9 Neolitsea pinnin… Neolitsea pinn… Neolitsea pin… GBIF Backbone T… 0.988
-#> 10 Ligusticum falca… Ligusticum fal… Ligusticum fa… GBIF Backbone T… 0.988
-#> 11 Centaurea gracil… Centaurea grac… Centaurea gra… GBIF Backbone T… 0.988
-#> 12 Centaurea gracil… Centaurea grac… Centaurea gra… GBIF Backbone T… 0.988
-#> 13 Hieracium hemich… Hieracium hemi… Hieracium hem… GBIF Backbone T… 0.988
+#> # A tibble: 15 x 5
+#>    user_supplied_na… submitted_name  matched_name    data_source_tit… score
+#>  * <chr>             <chr>           <chr>           <chr>            <dbl>
+#>  1 Calligonum tenue  Calligonum ten… Calligonum ten… GBIF Backbone T… 0.988
+#>  2 Eriogonum luteol… Eriogonum lute… Eriogonum lute… GBIF Backbone T… 0.988
+#>  3 Eriogonum luteol… Eriogonum lute… Eriogonum lute… GBIF Backbone T… 0.988
+#>  4 Hieracium antenn… Hieracium ante… Hieracium ante… GBIF Backbone T… 0.988
+#>  5 Hieracium antenn… Hieracium ante… Hieracium ante… GBIF Backbone T… 0.988
+#>  6 Mikania pacei     Mikania pacei   Mikania pacei … GBIF Backbone T… 0.988
+#>  7 Radiovittaria ga… Radiovittaria … Radiovittaria … GBIF Backbone T… 0.988
+#>  8 Alchemilla giewo… Alchemilla gie… Alchemilla gie… GBIF Backbone T… 0.988
+#>  9 Alchemilla giewo… Alchemilla gie… Alchemilla gie… GBIF Backbone T… 0.988
+#> 10 Tristaniopsis li… Tristaniopsis … Tristaniopsis … GBIF Backbone T… 0.988
+#> 11 Lotus borbasii    Lotus borbasii  Lotus borbasii… GBIF Backbone T… 0.988
+#> 12 Persoonia pruino… Persoonia prui… Persoonia prui… GBIF Backbone T… 0.988
+#> 13 Persoonia pruino… Persoonia prui… Persoonia prui… GBIF Backbone T… 0.988
+#> 14 Persoonia pruino… Persoonia prui… Persoonia prui… GBIF Backbone T… 0.988
+#> 15 Persoonia pruino… Persoonia prui… Persoonia prui… GBIF Backbone T… 0.988
 ```
 
 ## Other functions
