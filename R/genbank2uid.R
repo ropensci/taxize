@@ -9,7 +9,8 @@
 #' help on why there are two identifiers, and the difference between them.
 #' 
 #' @section Authentication:
-#' See \code{\link{taxize-authentication}} for help on authentication
+#' See \code{\link{taxize-authentication}} for help on authentication. We
+#' recommend getting an API key.
 #'
 #' @return one or more NCBI taxonomic IDs
 #' @examples \dontrun{

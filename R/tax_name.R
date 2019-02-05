@@ -5,8 +5,9 @@
 #' @param get (character) The ranks of the taxonomic name to get, see
 #' \code{\link{rank_ref}}. required.
 #' @param db (character) The database to search from: 'itis', 'ncbi' or 'both'.
-#'  If 'both' both NCBI and ITIS will be queried. Result will be the union of
-#'  both.
+#' If 'both' both NCBI and ITIS will be queried. Result will be the union of
+#' both. If using ncbi, we recommend getting an API key; see 
+#' \code{\link{taxize-authentication}}
 #' @param pref (character) If db = 'both', sets the preference for the union.
 #' Either 'ncbi' (default) or 'itis'. Currently not implemented.
 #' @param messages (logical) If \code{TRUE} the actual taxon queried is printed

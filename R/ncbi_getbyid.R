@@ -7,7 +7,8 @@
 #' @rdname ncbi_getbyid-defunct
 #' @keywords internal
 ncbi_getbyid <- function(...) {
-  .Defunct("ncbi_byid", "traits", msg = "This function is defunct. See traits::ncbi_byid()")
+  .Defunct("ncbi_byid", "traits",
+    msg = "This function is defunct. See traits::ncbi_byid()")
 }
 
 #' Retrieve gene sequences from NCBI by accession number.

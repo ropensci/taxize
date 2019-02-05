@@ -31,7 +31,9 @@ sci2comm(...)
 \emph{"itis"} \emph{"eol"}, \emph{"worms"}, or \emph{"iucn"}. Note that
 each taxonomic data source has their own identifiers,  so that if you
 provide the wrong \code{db} value for the identifier you could get a
-result, but it will likely be wrong (not what you were expecting).}
+result, but it will likely be wrong (not what you were expecting). 
+If using ncbi, eol or iucn we recommend getting an API key; 
+see \code{\link{taxize-authentication}}}
 
 \item{simplify}{(logical) If TRUE, simplify output to a vector of names.
 If FALSE, return variable formats from different sources, usually a

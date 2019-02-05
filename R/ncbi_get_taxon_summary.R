@@ -22,7 +22,8 @@
 #' will run into the HTTP 414 error "Request-URI Too Long".
 #' 
 #' @section Authentication:
-#' See \code{\link{taxize-authentication}} for help on authentication
+#' See \code{\link{taxize-authentication}} for help on authentication. 
+#' We strongly recommend getting an API key
 #' 
 #' @examples \dontrun{
 #' ncbi_get_taxon_summary(c(1430660, 4751))

@@ -3,7 +3,8 @@
 #' @export
 #' @param commnames One or more common names or partial names.
 #' @param db Data source, one of \emph{"ncbi"} (default), \emph{"itis"},
-#' \emph{"tropicos"}, \emph{"eol"}, or \emph{"worms"}.
+#' \emph{"tropicos"}, \emph{"eol"}, or \emph{"worms"}. If using ncbi, we
+#' recommend getting an API key; see \code{\link{taxize-authentication}}
 #' @param itisby Search for common names across entire names (search, default),
 #' at beginning of names (begin), or at end of names (end).
 #' @param simplify (logical) If \code{TRUE}, simplify output to a vector
@@ -19,10 +20,10 @@
 #' \code{\link[taxize]{get_tsn}} to get ids first, then pass in to this fxn.
 #'
 #' For the other data sources, you can only pass in common names directly.
-#' 
+#'
 #' @section Authentication:
 #' See \code{\link{taxize-authentication}} for help on authentication
-#' 
+#'
 #' @author Scott Chamberlain
 #' @examples \dontrun{
 #' comm2sci(commnames='american black bear')

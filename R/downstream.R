@@ -14,7 +14,8 @@
 #' \code{col}, \code{gbif}, \code{ncbi} or \code{worms}. Note that each taxonomic 
 #' data source has their own identifiers, so that if you provide the wrong 
 #' \code{db} value for the identifier you could get a result, but it will 
-#' likely be wrong (not what you were expecting).
+#' likely be wrong (not what you were expecting). If using ncbi, we recommend
+#' getting an API key; see \code{\link{taxize-authentication}}
 #' @param downto What taxonomic rank to go down to. One of: 'superkingdom',
 #' 'kingdom', 'subkingdom','infrakingdom','phylum','division','subphylum',
 #' 'subdivision','infradivision', 'superclass','class','subclass','infraclass',

@@ -44,7 +44,8 @@
 #' @author Zachary Foster \email{zacharyfoster1989@@gmail.com}
 #' 
 #' @section Authentication:
-#' See \code{\link{taxize-authentication}} for help on authentication
+#' See \code{\link{taxize-authentication}} for help on authentication. 
+#' We strongly recommend getting an API key
 #'
 #' @examples
 #' \dontrun{

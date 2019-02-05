@@ -42,7 +42,8 @@ input. If FALSE NA is returned for multiple matches.}
 on the console.}
 
 \item{key}{API key. passed on to \code{\link{eol_search}} and
-\code{\link{eol_pages}} internally}
+\code{\link{eol_pages}} internally. We recommend getting an API key; 
+see \code{\link{taxize-authentication}}}
 
 \item{rows}{numeric; Any number from 1 to infinity. If the default NA, all
 rows are considered. Note that this function still only gives back a eolid

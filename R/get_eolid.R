@@ -11,7 +11,8 @@
 #' If TRUE and more than one ID is found for the species, the user is asked for
 #' input. If FALSE NA is returned for multiple matches.
 #' @param key API key. passed on to \code{\link{eol_search}} and
-#' \code{\link{eol_pages}} internally
+#' \code{\link{eol_pages}} internally. We recommend getting an API key; 
+#' see \code{\link{taxize-authentication}}
 #' @param ... Further args passed on to \code{\link{eol_search}}
 #' @param messages logical; If \code{TRUE} the actual taxon queried is printed
 #' on the console.

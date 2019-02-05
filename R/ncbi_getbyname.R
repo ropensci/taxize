@@ -7,7 +7,8 @@
 #' @rdname ncbi_getbyname-defunct
 #' @keywords internal
 ncbi_getbyname <- function(...) {
-  .Defunct("ncbi_byname", "traits", msg = "This function is defunct. See traits::ncbi_byname()")
+  .Defunct("ncbi_byname", "traits",
+    msg = "This function is defunct. See traits::ncbi_byname()")
 }
 
 #' Retrieve gene sequences from NCBI by accession number.
@@ -18,5 +19,6 @@ ncbi_getbyname <- function(...) {
 #' @keywords internal
 #' @rdname get_seqs-defunct
 get_seqs <- function(...) {
-  .Defunct("ncbi_getbyname", "taxize", "Function name changed. See ncbi_getbyname")
+  .Defunct("ncbi_getbyname", "taxize",
+    "Function name changed. See ncbi_getbyname")
 }

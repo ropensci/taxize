@@ -8,7 +8,9 @@
 #' \code{worms}, \code{natserv}, \code{bold}, or \code{wiki}. Note that each
 #' taxonomic data source has, their own identifiers, so that if you provide
 #' the wrong \code{db} value for the identifier you could get a result, but
-#' it will likely be wrong (not what you were expecting).
+#' it will likely be wrong (not what you were expecting). If using ncbi, eol,
+#' and/or tropicos, we recommend getting an API key; see 
+#' \code{\link{taxize-authentication}}
 #' @param id character; identifiers, returned by \code{\link{get_tsn}},
 #' \code{\link{get_uid}}, \code{\link{get_eolid}},
 #' \code{\link{get_colid}}, \code{\link{get_tpsid}},
@@ -67,7 +69,7 @@
 #' we can do.
 #' 
 #' @section Authentication:
-#' See \code{\link{getkey}}
+#' See \code{\link{taxize-authentication}}
 #'
 #' @examples \dontrun{
 #' # Plug in taxon IDs

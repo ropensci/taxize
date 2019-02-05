@@ -11,7 +11,8 @@ comm2sci(commnames, db = "ncbi", itisby = "search", simplify = TRUE,
 \item{commnames}{One or more common names or partial names.}
 
 \item{db}{Data source, one of \emph{"ncbi"} (default), \emph{"itis"},
-\emph{"tropicos"}, \emph{"eol"}, or \emph{"worms"}.}
+\emph{"tropicos"}, \emph{"eol"}, or \emph{"worms"}. If using ncbi, we
+recommend getting an API key; see \code{\link{taxize-authentication}}}
 
 \item{itisby}{Search for common names across entire names (search, default),
 at beginning of names (begin), or at end of names (end).}

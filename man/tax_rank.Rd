@@ -16,7 +16,8 @@ IDs (character or numeric) to query. Or objects returned from
 \code{worms}, \code{natserv}, \code{bold}. Note that each taxonomic data
 source has their own identifiers, so that if you provide the wrong
 \code{db} value for the identifier you may get a result, but it will
-likely be wrong (not what you were expecting).}
+likely be wrong (not what you were expecting). If using ncbi or eol we
+recommend getting an API key; see \code{\link{taxize-authentication}}}
 
 \item{rows}{numeric; Any number from 1 to infinity. If the default NA, 
 all rows are considered. passed down to \code{get_*} functions.}
