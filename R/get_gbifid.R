@@ -162,7 +162,6 @@ get_gbifid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
       att <- "not found"
     }
 
-    # more than one found -> user input
     if (length(id) > 1) {
       # check for exact match
       matchtmp <- df[as.character(df$canonicalname) %in% sciname, "gbifid"]
@@ -191,6 +190,7 @@ get_gbifid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
           }
         }
 
+        # more than one found -> user input
         if (length(id) > 1) {
           if (ask) {
             # limit to subset of columns for ease of use

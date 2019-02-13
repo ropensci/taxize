@@ -126,7 +126,8 @@ get_colid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
     direct <- FALSE
     mssg(messages, "\nRetrieving data for taxon '", sciname, "'\n")
     df <- col_search(name = sciname, response = "full", ...)[[1]]
-    df <- df[, names(df) %in% c("name","rank","id","name_status","kingdom","family","acc_name")]
+    df <- df[, names(df) %in% c("name","rank","id","name_status",
+      "kingdom","family","acc_name")]
     mm <- NROW(df) > 1
 
     rank_taken <- NA
@@ -168,6 +169,15 @@ get_colid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
         rank_taken <- as.character(df$rank)
         direct <- TRUE
         att <- "found"
+      }
+
+      if (length(id) > 1) {
+        matchtmp <- df[tolower(df$name) %in% tolower(sciname), "colid"]
+        if (length(matchtmp) == 1) {
+          id <- matchtmp
+          direct <- TRUE
+          att <- "found"
+        }
       }
 
       if (length(id) > 1) {

@@ -71,7 +71,7 @@ get_tolid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, ...) {
 
   assert(ask, "logical")
   assert(verbose, "logical")
-  if (!is.na(rows)) {
+  if (!all(is.na(rows))) {
     assert(rows, c("numeric", "integer"))
     stopifnot(rows > 0)
   }
@@ -81,7 +81,11 @@ get_tolid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, ...) {
 
     tol_df <- tryCatch(tol_resolve(x, ...), error = function(e) e)
 
-    if (!inherits(tol_df, "data.frame") || NROW(tol_df) == 0 || inherits(tol_df, "error")) {
+    if (
+      !inherits(tol_df, "data.frame") ||
+      NROW(tol_df) == 0 ||
+      inherits(tol_df, "error")
+    ) {
       id <- NA_character_
       att <- "not found"
     } else {
@@ -104,7 +108,7 @@ get_tolid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, ...) {
       # more than one found -> user input
       if (NROW(tol_df) > 1) {
         # check for exact match
-        matchtmp <- tol_df[tol_df$unique_name %in% x, "ott_id"]
+        matchtmp <- tol_df[tolower(tol_df$unique_name) %in% tolower(x), "ott_id"]
         if (length(matchtmp) == 1) {
           id <- as.character(matchtmp)
           direct <- TRUE
@@ -277,6 +281,11 @@ tol_fetch_fuzzy <- function(x) {
   }))
   df <- move_col_begin(df, "matched_name")
   df <- move_col_begin(df, "unique_name")
+  df$tax_sources <- NULL
+  df$synonyms <- NULL
+  df$is_suppressed <- NULL
+  df$search_string <- NULL
+  df$name <- NULL
   df
 }
 

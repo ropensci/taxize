@@ -112,11 +112,13 @@ get_boldid(searchterm="Osmi", fuzzy=TRUE, rows = 1:10)
 get_boldid(searchterm=c("Osmi","Aga"), fuzzy=TRUE, rows = 1)
 get_boldid(searchterm=c("Osmi","Aga"), fuzzy=TRUE, rows = 1:3)
 
+# found
+get_boldid('Epicordulia princeps')
+get_boldid('Arigomphus furcifer')
+
 # When not found
 get_boldid("howdy")
 get_boldid(c("Chironomus riparius", "howdy"))
-get_boldid('Epicordulia princeps')
-get_boldid('Arigomphus furcifer')
 get_boldid("Cordulegaster erronea")
 get_boldid("Nasiaeshna pentacantha")
 

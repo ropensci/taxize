@@ -228,6 +228,17 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
       }
 
       if (length(uid) > 1) {
+        # check for exact match
+        matchtmp <- df[
+          tolower(
+            as.character(df$scientificname)) %in% tolower(sciname), "uid"]
+        if (length(matchtmp) == 1) {
+          uid <- as.character(matchtmp)
+          direct <- TRUE
+        }
+      }
+
+      if (length(uid) > 1) {
         if (!ask) {
           if (length(uid) == 1) {
             att <- "found"

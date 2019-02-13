@@ -80,7 +80,7 @@ get_wiki <- function(x, wiki_site = "species", wiki = "en", ask = TRUE,
       if (NROW(df) == 0) {
         mssg(verbose, tx_msg_not_found)
         id <- NA_character_
-        att <- 'not found'
+        att <- "not found"
       }
 
       df$title <- gsub("\\s", "_", df$title)
@@ -88,25 +88,17 @@ get_wiki <- function(x, wiki_site = "species", wiki = "en", ask = TRUE,
       # take the one wiki from data.frame
       if (NROW(df) == 1) {
         id <- df$title
-        att <- 'found'
+        att <- "found"
       }
 
       # check for direct match
       if (NROW(df) > 1) {
         df <- data.frame(df, stringsAsFactors = FALSE)
-
-        direct <- match(tolower(df$title), gsub("\\s", "_", tolower(x)))
-
-        if (length(direct) == 1) {
-          if (!all(is.na(direct))) {
-            id <- df$title[!is.na(direct)]
-            direct <- TRUE
-            att <- 'found'
-          } else {
-            direct <- FALSE
-            id <- NA_character_
-            att <- 'not found'
-          }
+        matchtmp <- df[tolower(df$title) %in% tolower(x), "title"]
+        if (length(matchtmp) == 1) {
+          id <- matchtmp
+          direct <- TRUE
+          att <- "found"
         } else {
           direct <- FALSE
           id <- NA_character_
@@ -141,15 +133,15 @@ get_wiki <- function(x, wiki_site = "species", wiki = "en", ask = TRUE,
             message("Input accepted, took taxon '",
                     as.character(df$title[take]), "'.\n")
             id <-  df$title[take]
-            att <- 'found'
+            att <- "found"
           } else {
             id <- NA_character_
             mssg(verbose, "\nReturned 'NA'!\n\n")
-            att <- 'not found'
+            att <- "not found"
           }
         } else {
           if (length(id) != 1) {
-            warning(sprintf(m_more_than_one_found, "Wiki ID", x), 
+            warning(sprintf(m_more_than_one_found, "Wiki ID", x),
               call. = FALSE)
             id <- NA_character_
             att <- m_na_ask_false

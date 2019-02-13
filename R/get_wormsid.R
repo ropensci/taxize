@@ -117,7 +117,7 @@ get_wormsid <- function(query, searchtype = "scientific", accepted = FALSE,
       att <- "not found"
     } else {
       wmdf <- suppressWarnings(data.frame(wmdf))
-      wmdf <- wmdf[, c("AphiaID","scientificname","authority","status")]
+      wmdf <- wmdf[, c("AphiaID", "scientificname", "authority", "status")]
       names(wmdf)[1] <- "id"
 
       if (accepted) {
@@ -141,27 +141,13 @@ get_wormsid <- function(query, searchtype = "scientific", accepted = FALSE,
 
       # check for direct match
       if (nrow(wmdf) > 1) {
-
         names(wmdf)[grep("scientificname", names(wmdf))] <- "target"
-        direct <- match(tolower(wmdf$target), tolower(x))
-
-        if (length(direct) == 1) {
-          if (!all(is.na(direct))) {
-            wmid <- wmdf$id[!is.na(direct)]
-            direct <- TRUE
-            att <- 'found'
-          } else {
-            direct <- FALSE
-            wmid <- NA_character_
-            att <- 'not found'
-          }
-        } else {
-          direct <- FALSE
-          wmid <- NA_character_
-          att <- m_na_ask_false_no_direct
-          warning("> 1 result; no direct match found", call. = FALSE)
+        matchtmp <- wmdf[tolower(wmdf$target) %in% tolower(x), "id"]
+        if (length(matchtmp) == 1) {
+          wmid <- matchtmp
+          direct <- TRUE
+          att <- 'found'
         }
-
       }
 
       # multiple matches

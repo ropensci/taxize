@@ -95,10 +95,12 @@
 #' }
 
 get_eolid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
-                      rows = NA, ...){
+                      rows = NA, rank = NULL, data_source = NULL, ...) {
 
   assert(ask, "logical")
   assert(messages, "logical")
+  assert(rank, "character")
+  assert(data_source, "character")
   if (!is.na(rows)) {
     assert(rows, c("numeric", "integer"))
     stopifnot(rows > 0)
@@ -169,6 +171,26 @@ get_eolid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
       direct <- TRUE
       att <- 'found'
     }
+
+    # filter by rank, if given
+    if (!is.null(rank) || !is.null(data_source)) {
+      df <- filt(df, "rank", rank)
+      df <- filt(df, "source", data_source)
+      id <- df$eolid
+      page_id <- df$pageid
+      datasource <- df$source
+      att <- "found"
+    }
+    
+    if (length(id) > 1) {
+      matchtmp <- df[tolower(df$name) %in% tolower(sciname), "eolid"]
+      if (length(matchtmp) == 1) {
+        id <- matchtmp
+        direct <- TRUE
+        att <- "found"
+      }
+    }
+
     # more than one found on eol -> user input
     if (length(id) > 1) {
       if (ask) {

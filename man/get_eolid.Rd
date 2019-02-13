@@ -13,7 +13,7 @@
 \title{Get the EOL ID from Encyclopedia of Life from taxonomic names.}
 \usage{
 get_eolid(sciname, ask = TRUE, messages = TRUE, key = NULL,
-  rows = NA, ...)
+  rows = NA, rank = NULL, data_source = NULL, ...)
 
 as.eolid(x, check = TRUE)
 

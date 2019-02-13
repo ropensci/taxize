@@ -107,7 +107,7 @@
 #' invisible(get_tpsid("Quercus douglasii", verbose = TRUE))
 #' }
 
-get_tpsid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL, 
+get_tpsid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
   rows = NA, family = NULL, rank = NULL, ...) {
 
   assert(ask, "logical")
@@ -124,12 +124,12 @@ get_tpsid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
     mssg(messages, "\nRetrieving data for taxon '", sciname, "'\n")
     tmp <- tp_search(name = sciname, key = key, ...)
     mm <- NROW(tmp) > 1
-    # tmp <- sub_rows(tmp, rows)
 
-    if (all(names(tmp)[[1]] == "error") || 
-      all(is.na(tmp)) || 
+    if (
+      all(names(tmp)[[1]] == "error") ||
+      all(is.na(tmp)) ||
       inherits(tmp, "character")
-    ) { 
+    ) {
       mssg(messages, m_not_found_sp_altclass)
       id <- NA_character_
       att <- "not found"
@@ -161,6 +161,16 @@ get_tpsid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
           rank_taken <- as.character(df$rank)
           direct <- TRUE
           att <- "found"
+        }
+
+        # more than one, try for direct match
+        if (length(id) > 1) {
+          matchtmp <- df[tolower(df$name) %in% tolower(sciname), "tpsid"]
+          if (length(matchtmp) == 1) {
+            id <- matchtmp
+            direct <- TRUE
+            att <- "found"
+          }
         }
 
         if (length(id) > 1) {

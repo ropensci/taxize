@@ -123,6 +123,17 @@ get_nbnid <- function(name, ask = TRUE, messages = TRUE, rec_only = FALSE,
       id <- NA_character_
       att <- 'not found'
     }
+    # more than one, try for direct match
+    if (length(id) > 1) {
+      matchtmp <- df[tolower(df$scientificName) %in% tolower(name),]
+      if (NROW(matchtmp) == 1) {
+        id <- matchtmp$nbnid
+        rank_taken <- as.character(matchtmp$rank)
+        direct <- TRUE
+        att <- "found"
+      }
+    }
+
     # more than one found -> user input
     if (length(id) > 1) {
       if (ask) {
