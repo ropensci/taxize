@@ -2,8 +2,9 @@
 #'
 #' @export
 #' @param commnames One or more common names or partial names.
-#' @param db Data source, one of \emph{"eol"} (default), \emph{"itis"},
-#' \emph{"tropicos"}, \emph{"ncbi"}, or \emph{"worms"}.
+#' @param db Data source, one of \emph{"ncbi"} (default), \emph{"itis"},
+#' \emph{"tropicos"}, \emph{"eol"}, or \emph{"worms"}. If using ncbi, we
+#' recommend getting an API key; see \code{\link{taxize-authentication}}
 #' @param itisby Search for common names across entire names (search, default),
 #' at beginning of names (begin), or at end of names (end).
 #' @param simplify (logical) If \code{TRUE}, simplify output to a vector
@@ -19,18 +20,18 @@
 #' \code{\link[taxize]{get_tsn}} to get ids first, then pass in to this fxn.
 #'
 #' For the other data sources, you can only pass in common names directly.
-#' 
+#'
 #' @section Authentication:
 #' See \code{\link{taxize-authentication}} for help on authentication
-#' 
+#'
 #' @author Scott Chamberlain
 #' @examples \dontrun{
-#' comm2sci(commnames='black bear')
-#' comm2sci(commnames='black bear', simplify = FALSE)
+#' comm2sci(commnames='american black bear')
+#' comm2sci(commnames='american black bear', simplify = FALSE)
 #' comm2sci(commnames='black bear', db='itis')
+#' comm2sci(commnames='american black bear', db='itis')
 #' comm2sci(commnames='annual blue grass', db='tropicos')
 #' comm2sci(commnames=c('annual blue grass','tree of heaven'), db='tropicos')
-#' comm2sci(commnames=c('black bear', 'roe deer'))
 #' comm2sci('blue whale', db = "worms")
 #' comm2sci(c('blue whale', 'dwarf surfclam'), db = "worms")
 #'
@@ -47,13 +48,13 @@
 #'   searchtype = "common")
 #' comm2sci(x)
 #' }
-comm2sci <- function(commnames, db='eol', itisby='search',
+comm2sci <- function(commnames, db='ncbi', itisby='search',
                      simplify=TRUE, ...) {
   UseMethod("comm2sci")
 }
 
 #' @export
-comm2sci.default <- function(commnames, db='eol', itisby='search',
+comm2sci.default <- function(commnames, db='ncbi', itisby='search',
                              simplify=TRUE, ...) {
   assert(commnames, "character")
   assert(simplify, "logical")
@@ -73,20 +74,20 @@ sci_from_comm <- function(nn, db, simplify, itisby, ...) {
       c2s_ncbi(ids, ...)
     },
     worms = c2s_worms(nn, simplify, ...),
-    stop("'db' must be one of 'eol', 'itis', 'tropicos', 'ncbi', 'worms'",
+    stop("'db' must be one of 'ncbi', 'itis', 'tropicos', 'eol', 'worms'",
          call. = FALSE)
   )
 }
 
 #' @export
-comm2sci.tsn <- function(commnames, db='eol', itisby='search',
+comm2sci.tsn <- function(commnames, db='ncbi', itisby='search',
                          simplify=TRUE, ...) {
   temp <- lapply(commnames, c2s_itis_, simplify = simplify, ...)
   stats::setNames(temp, commnames)
 }
 
 #' @export
-comm2sci.uid <- function(commnames, db='eol', itisby='search',
+comm2sci.uid <- function(commnames, db='ncbi', itisby='search',
                          simplify=TRUE, ...) {
   temp <- lapply(commnames, c2s_ncbi, simplify = simplify, ...)
   stats::setNames(temp, commnames)

@@ -3,8 +3,8 @@
 #' Generic names and their replacements from the Angiosperm Phylogeny
 #' Group III system of flowering plant classification.
 #'
-#' @param ... Curl args passed on to \code{\link[httr]{GET}}
-#' @references \url{http://www.mobot.org/MOBOT/research/APweb/}
+#' @param ... Curl args passed on to \code{\link[crul]{verb-GET}}
+#' @references http://www.mobot.org/MOBOT/research/APweb/
 #' @name apg
 #' @examples \dontrun{
 #' head(apgOrders())
@@ -90,9 +90,10 @@ apgFamilies <- function(...) {
 }
 
 apg_GET <- function(x, ...) {
-  res <- GET(paste0(apg_base(), sprintf("top/synonymy%s.html", x)), ...)
-  stop_for_status(res)
-  con_utf8(res)
+  cli <- crul::HttpClient$new(apg_base(), opts = list(...))
+  res <- cli$get(sprintf("MOBOT/research/APweb/top/synonymy%s.html", x))
+  res$raise_for_status()
+  res$parse("UTF-8")
 }
 
-apg_base <- function() "http://www.mobot.org/MOBOT/research/APweb/"
+apg_base <- function() "http://www.mobot.org"

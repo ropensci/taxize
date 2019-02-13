@@ -1,32 +1,26 @@
 # tests for get_boldid fxn in taxize
 context("get_boldid")
 
-test_that("get_boldid returns the correct value", {
-  skip_on_cran()
-
-  expect_equal(get_boldid(searchterm = 'Helianthus', verbose = FALSE)[[1]], '125295')
-  expect_that(is.na(get_boldid(searchterm='adsf asdf asdf', verbose=FALSE)[[1]]),
-              is_true())
-})
-
-test_that("get_boldid returns the correct class", {
-  skip_on_cran()
-
-  expect_that(get_boldid(c("Helianthus excubitor", "adsf asdf asdf"), verbose=FALSE),
-              is_a("boldid"))
+vcr::use_cassette("get_boldid", {
+  test_that("get_boldid returns the correct value", {
+    expect_equal(get_boldid(searchterm = 'Helianthus', verbose = FALSE)[[1]], '125295')
+    expect_true(is.na(get_boldid(searchterm='adsf asdf asdf', verbose=FALSE)[[1]]))
+    expect_is(get_boldid(c("Helianthus excubitor", "adsf asdf asdf"), verbose=FALSE), 
+      "boldid")
+  })
 })
 
 test_that("get_boldid accepts ask-argument", {
-  skip_on_cran()
-
-  expect_that(is.na(get_boldid('adsf asdf asdf', ask=FALSE, verbose=FALSE)[[1]]),
-              is_true())
+  vcr::use_cassette("get_boldid_ask_false", {
+    expect_true(is.na(
+      get_boldid('adsf asdf asdf', ask=FALSE, verbose=FALSE)[[1]]))
+  })
 })
 
 test_that("get_boldid works when there's no parent name", {
-  skip_on_cran()
-
-  x <- get_boldid("Chordata", verbose = FALSE)
+  vcr::use_cassette("get_boldid_no_parent_name", {
+    x <- get_boldid("Chordata", verbose = FALSE)
+  })
 
   expect_is(x, "boldid")
   expect_equal(x[1], "18")
@@ -59,7 +53,7 @@ test_that("get_boldid fails as expected", {
 
   # rows param
   expect_error(get_boldid("Achlya", rows = "foobar", verbose = FALSE),
-               "'rows' must be numeric or NA")
+               "rows must be of class numeric, integer")
   expect_error(get_boldid("Achlya", rows = 0, verbose = FALSE),
-               "'rows' value must be an integer 1 or greater")
+               "rows > 0 is not TRUE")
 })

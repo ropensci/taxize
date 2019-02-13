@@ -1,4 +1,3 @@
-library("revdepcheck")
-
-res <- revdep_check(num_workers = 4)
-# revdep_email()
+revdepcheck::revdep_reset()
+revdepcheck::revdep_check(num_workers = 2)
+# revdepcheck::revdep_email_draft()

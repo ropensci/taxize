@@ -3,12 +3,9 @@ sudo: false
 cache: packages
 dist: trusty
 
-r_github_packages:
-  - jimhester/covr
-  - ropensci/taxa
-
 r_binary_packages:
   - vegan
+  - covr
 
 matrix:
   include:
@@ -19,6 +16,7 @@ matrix:
       env: R_CODECOV=true
     - os: linux
       r: devel
+      env: _R_CHECK_LENGTH_1_LOGIC2_=TRUE
 
 after_success:
   - if [[ "${R_CODECOV}" ]]; then R -e 'covr::codecov()'; fi

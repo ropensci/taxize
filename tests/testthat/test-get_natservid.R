@@ -1,22 +1,22 @@
 context("get_natservid")
 
 test_that("get_natservid returns the correct value", {
-  skip_on_cran()
-
-  expect_true(is.na(get_natservid(c('Gadus morhua', "howdy"), verbose=FALSE)[2]))
-})
-
-test_that("get_natservid returns the correct class", {
-  skip_on_cran()
-
-  expect_is(get_natservid(c("Helianthus annuus", 'Gadus morhua'), verbose=FALSE),
-            "natservid")
+  vcr::use_cassette("get_natservid", {
+    x <- get_natservid(c('Gadus morhua', "howdy"), verbose=FALSE)[2]
+    w <- get_natservid(c("Helianthus annuus", 'Gadus morhua'), 
+        verbose=FALSE)
+  })
+    
+  expect_true(is.na(x))
+  expect_is(w, "natservid")
 })
 
 test_that("get_natservid accepts ask-argument", {
-  skip_on_cran()
+  vcr::use_cassette("get_natservid_ask_arg", {
+    x <- get_natservid('asdasf', ask = FALSE, verbose=FALSE)
+  })
 
-  expect_true(is.na(get_natservid('asdasf', ask = FALSE, verbose=FALSE)))
+  expect_true(is.na(x))
 })
 
 test_that("get_natservid fails well", {
@@ -34,7 +34,7 @@ test_that("get_natservid fails well", {
 
   # rows param
   expect_error(get_natservid('Ruby*', 'common', rows = "foobar", verbose = FALSE),
-               "'rows' must be numeric or NA")
+               "rows must be of class numeric, integer")
   expect_error(get_natservid('Ruby*', 'common', rows = 0, verbose = FALSE),
-               "'rows' value must be an integer 1 or greater")
+               "rows > 0 is not TRUE")
 })

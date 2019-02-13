@@ -1,6 +1,7 @@
 # tests for get_eolid fxn in taxize
 context("get_eolid")
 
+# FIXME: uncomment these once EOL is sorted out
 test_that("get_eolid returns the correct value", {
   skip_on_cran()
 
@@ -36,8 +37,7 @@ test_that("get_eolid fails as expected", {
   Sys.sleep(1)
   # rows param
   expect_error(get_eolid("Poa annua", rows = "foobar", verbose = FALSE),
-               "'rows' must be numeric or NA")
+               "rows must be of class numeric, integer")
   expect_error(get_eolid("Poa annua", rows = 0, verbose = FALSE),
-               "'rows' value must be an integer 1 or greater")
+               "rows > 0 is not TRUE")
 })
-

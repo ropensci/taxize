@@ -1,0 +1,31 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://services.natureserve.org/idd/rest/ns/v1/globalSpecies/list/nameSearch?name=asdasf&NSAccessKeyId=<<natureserve_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Sat, 26 Jan 2019 18:06:20 GMT
+      server: Apache-Coyote/1.1
+      content-type: text/xml
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n\r\n<speciesSearchReport
+        \r\n    xsi:schemaLocation=\"http://services.natureserve.org/docs/schemas/biodiversityDataFlow/1
+        http://services.natureserve.org/docs/schemas/biodiversityDataFlow/1/\" \r\n
+        \   xmlns=\"http://services.natureserve.org/docs/schemas/biodiversityDataFlow/1\"
+        \r\n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" \r\n    schemaVersion=\"1.1\">\r\n\t<conditions>\r\n\t\t<match>\r\n\t\t\t<searchTerm>asdasf</searchTerm>\r\n\t\t</match>\r\n\t</conditions>\r\n\t<speciesSearchResultList>\r\n</speciesSearchResultList>\r\n</speciesSearchReport>"
+  recorded_at: 2019-01-26 18:06:20 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0

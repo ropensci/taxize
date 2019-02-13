@@ -1,11 +1,11 @@
 context("plantminer")
 
 test_that("plantminer returns the correct value", {
-  skip_on_cran()
-
-  plants <- c("Myrcia lingua", "Myrcia bella", "Ocotea pulchella",
-              "Miconia", "Coffea arabica var. amarella", "Bleh")
-  df <- plantminer(plants, messages = FALSE)
+  vcr::use_cassette("plantminer", {
+    plants <- c("Myrcia lingua", "Myrcia bella", "Ocotea pulchella",
+                "Miconia", "Coffea arabica var. amarella", "Bleh")
+    df <- plantminer(plants, messages = FALSE)
+  })
 
 	expect_is(df, "data.frame")
 	expect_is(df$id, "character")
@@ -14,8 +14,9 @@ test_that("plantminer returns the correct value", {
 })
 
 test_that("plantminer fails well", {
-  skip_on_cran()
-
   expect_error(plantminer(), "argument \"plants\" is missing")
-  expect_equal(plantminer("foo bar", messages=FALSE)$note, "not found")
+  
+  vcr::use_cassette("plantminer_not_found", {
+    expect_equal(plantminer("foo bar", messages=FALSE)$note, "not found")
+  })
 })

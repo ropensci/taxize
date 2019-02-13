@@ -88,13 +88,12 @@ class2tree <- function(input, varstep = TRUE, check = TRUE, ...) {
     tdf[,i][duplicated(tdf[,i])] <- NA
   }
 
-
   # check for incorrect dimensions error
   if (is(taxdis, 'simpleError'))
     stop("Try check=FALSE, but see docs for taxa2dist function in the vegan package for details.")
   out <- as.phylo.hclust(hclust(taxdis, ...))
-  res <- list(phylo = out, classification = as.data.frame(t(tdf)), distmat = taxdis,
-              names = names(input))
+  res <- list(phylo = out, classification = as.data.frame(t(tdf)), 
+    distmat = taxdis, names = names(input))
   class(res) <- 'classtree'
   return( res )
 }
@@ -204,7 +203,7 @@ get_name <- function(x){
   joinedDf <- within(joinedDf,
                      rankDf[rankDf=='no rank'] <-
                      paste0("norank_",idDf[rankDf=='no rank']))
-  joinedDf$name <- paste0(joinedDf$nameDf,"#",joinedDf$rankDf)
+  joinedDf$name <- paste0(joinedDf$nameDf,"##",joinedDf$rankDf)
 
   df <- data.frame(t(data.frame(rev(joinedDf$name))), stringsAsFactors = FALSE)
   outDf <- data.frame(tip = x[nrow(x), "name"], df, stringsAsFactors = FALSE)
@@ -312,7 +311,7 @@ taxonomy_table_creator <- function(nameList,rankList){
     ### get list of all IDs for this taxon
     taxonDf <- data.frame(nameList[i,])
     taxonName <- unlist(strsplit(as.character(nameList[i,]$tip),
-                                "#",
+                                "##",
                                 fixed = TRUE))
 
     ### convert into long format
@@ -321,7 +320,7 @@ taxonomy_table_creator <- function(nameList,rankList){
     ### get rank names and corresponding IDs
     splitCol <- data.frame(do.call('rbind',
                                    strsplit(as.character(mTaxonDf$value),
-                                   '#',
+                                   "##",
                                    fixed=TRUE)))
     mTaxonDf <- cbind(mTaxonDf,splitCol)
 
@@ -330,7 +329,8 @@ taxonomy_table_creator <- function(nameList,rankList){
 
     ### subselect mTaxonDf to keep only 2 column rank id and rank name
     mTaxonDf <- mTaxonDf[,c("X1","X2")]
-    if(mTaxonDf$X2[1] != index2RankDf$rank[1]){
+    if(mTaxonDf$X2[1] != index2RankDf$rank[1] &&
+       !index2RankDf$rank[1] %in% mTaxonDf$X2){
       mTaxonDf <- rbind(data.frame("X1"=mTaxonDf$X1[1],
                                    "X2"=index2RankDf$rank[1]),
                                    mTaxonDf)

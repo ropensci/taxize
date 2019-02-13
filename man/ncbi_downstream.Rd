@@ -38,7 +38,8 @@ programatically. So, no rank things will sometimes be missing.
 
 \section{Authentication}{
 
-See \code{\link{taxize-authentication}} for help on authentication
+See \code{\link{taxize-authentication}} for help on authentication. 
+We strongly recommend getting an API key
 }
 
 \examples{

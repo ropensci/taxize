@@ -1,0 +1,171 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://api.gbif.org/v1/species/1
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 25 Jan 2019 22:36:06 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT
+      server: Jetty(9.3.z-SNAPSHOT)
+      cache-control: public, max-age=3601
+      x-varnish: 743375810 741900828
+      age: '1293'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      content-length: '573'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"key":1,"nubKey":1,"nameKey":18528683,"taxonID":"gbif:1","sourceTaxonKey":144299179,"kingdom":"Animalia","kingdomKey":1,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","scientificName":"Animalia","canonicalName":"Animalia","authorship":"","nameType":"SCIENTIFIC","rank":"KINGDOM","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":2226311,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:39:53.354+0000","issues":[],"synonym":false}'
+  recorded_at: 2019-01-25 22:57:41 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://api.gbif.org/v1/species/1
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 25 Jan 2019 22:36:06 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT
+      server: Jetty(9.3.z-SNAPSHOT)
+      cache-control: public, max-age=3601
+      x-varnish: 741574453 741900828
+      age: '1293'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      content-length: '573'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"key":1,"nubKey":1,"nameKey":18528683,"taxonID":"gbif:1","sourceTaxonKey":144299179,"kingdom":"Animalia","kingdomKey":1,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","scientificName":"Animalia","canonicalName":"Animalia","authorship":"","nameType":"SCIENTIFIC","rank":"KINGDOM","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":2226311,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:39:53.354+0000","issues":[],"synonym":false}'
+  recorded_at: 2019-01-25 22:57:41 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://api.gbif.org/v1/species/1
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 25 Jan 2019 22:36:06 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT
+      server: Jetty(9.3.z-SNAPSHOT)
+      cache-control: public, max-age=3601
+      x-varnish: 748158993 741900828
+      age: '1294'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      content-length: '573'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"key":1,"nubKey":1,"nameKey":18528683,"taxonID":"gbif:1","sourceTaxonKey":144299179,"kingdom":"Animalia","kingdomKey":1,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","scientificName":"Animalia","canonicalName":"Animalia","authorship":"","nameType":"SCIENTIFIC","rank":"KINGDOM","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":2226311,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:39:53.354+0000","issues":[],"synonym":false}'
+  recorded_at: 2019-01-25 22:57:41 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://api.gbif.org/v1/species/1
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 25 Jan 2019 22:36:06 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT
+      server: Jetty(9.3.z-SNAPSHOT)
+      cache-control: public, max-age=3601
+      x-varnish: 744097313 741900828
+      age: '1294'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      content-length: '573'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"key":1,"nubKey":1,"nameKey":18528683,"taxonID":"gbif:1","sourceTaxonKey":144299179,"kingdom":"Animalia","kingdomKey":1,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","scientificName":"Animalia","canonicalName":"Animalia","authorship":"","nameType":"SCIENTIFIC","rank":"KINGDOM","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":2226311,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:39:53.354+0000","issues":[],"synonym":false}'
+  recorded_at: 2019-01-25 22:57:41 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://api.gbif.org/v1/species/1
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 25 Jan 2019 22:36:06 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT
+      server: Jetty(9.3.z-SNAPSHOT)
+      cache-control: public, max-age=3601
+      x-varnish: 743015670 741900828
+      age: '1294'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      content-length: '573'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"key":1,"nubKey":1,"nameKey":18528683,"taxonID":"gbif:1","sourceTaxonKey":144299179,"kingdom":"Animalia","kingdomKey":1,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","scientificName":"Animalia","canonicalName":"Animalia","authorship":"","nameType":"SCIENTIFIC","rank":"KINGDOM","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":2226311,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:39:53.354+0000","issues":[],"synonym":false}'
+  recorded_at: 2019-01-25 22:57:41 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0

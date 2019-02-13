@@ -1,0 +1,1953 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://www.catalogueoflife.org/col/webservice?name=Animalia&response=full
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.12.1
+      date: Thu, 24 Jan 2019 01:18:28 GMT
+      content-type: application/xml
+      transfer-encoding: chunked
+      connection: keep-alive
+      x-powered-by: PHP/5.5.9-1ubuntu4.26
+      expires: Thu, 19 Nov 1981 08:52:00 GMT
+      cache-control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      pragma: no-cache
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <results id="" name="Animalia" total_number_of_results="2" number_of_results_returned="2" start="0" error_message="" version="1.9 rev 2126ab0" rank="">
+          <result>
+            <id>5ede24b0534ebd5e1f552d5b9f874a6a</id>
+            <name>Animalia</name>
+            <rank>Kingdom</rank>
+            <name_status>accepted name</name_status>
+            <name_html>Animalia</name_html>
+            <url>http://www.catalogueoflife.org/col/browse/tree/id/5ede24b0534ebd5e1f552d5b9f874a6a</url>
+            <is_extinct>false</is_extinct>
+            <classification/>
+            <child_taxa>
+              <taxon>
+                <id>29cf5a3a0cad337a0216edca32bab745</id>
+                <name>Acanthocephala</name>
+                <rank>Phylum</rank>
+                <name_html>Acanthocephala</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/29cf5a3a0cad337a0216edca32bab745</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>fcdf92d44b508e2ee14838083684b7b7</id>
+                <name>Annelida</name>
+                <rank>Phylum</rank>
+                <name_html>Annelida</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/fcdf92d44b508e2ee14838083684b7b7</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>89ac18bfcf1654a9662a600ba06bb494</id>
+                <name>Arthropoda</name>
+                <rank>Phylum</rank>
+                <name_html>Arthropoda</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/89ac18bfcf1654a9662a600ba06bb494</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>5c062fb4291afc8a64753480c6c93e82</id>
+                <name>Brachiopoda</name>
+                <rank>Phylum</rank>
+                <name_html>Brachiopoda</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/5c062fb4291afc8a64753480c6c93e82</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>7b1e35876b52066a5d55f00fd69108d9</id>
+                <name>Bryozoa</name>
+                <rank>Phylum</rank>
+                <name_html>Bryozoa</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/7b1e35876b52066a5d55f00fd69108d9</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>e2bf5efe2da14788e417d12bb568eff0</id>
+                <name>Cephalorhyncha</name>
+                <rank>Phylum</rank>
+                <name_html>Cephalorhyncha</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/e2bf5efe2da14788e417d12bb568eff0</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>ce21b81341da9972f0da2f710bbe8d87</id>
+                <name>Chaetognatha</name>
+                <rank>Phylum</rank>
+                <name_html>Chaetognatha</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/ce21b81341da9972f0da2f710bbe8d87</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>4313bc7637e1fc1feb316a4dea2b668b</id>
+                <name>Chordata</name>
+                <rank>Phylum</rank>
+                <name_html>Chordata</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/4313bc7637e1fc1feb316a4dea2b668b</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>8c2be99ba793b29d8d0baaf9f92dd8a1</id>
+                <name>Cnidaria</name>
+                <rank>Phylum</rank>
+                <name_html>Cnidaria</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/8c2be99ba793b29d8d0baaf9f92dd8a1</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>1062a42f4b5f41785003a240405e4b70</id>
+                <name>Ctenophora</name>
+                <rank>Phylum</rank>
+                <name_html>Ctenophora</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/1062a42f4b5f41785003a240405e4b70</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>0c9f8a0112b8d2766df921bf5fa4fa8a</id>
+                <name>Cycliophora</name>
+                <rank>Phylum</rank>
+                <name_html>Cycliophora</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/0c9f8a0112b8d2766df921bf5fa4fa8a</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>a80c8da0d5a747beefac3e3190cd3818</id>
+                <name>Dicyemida</name>
+                <rank>Phylum</rank>
+                <name_html>Dicyemida</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/a80c8da0d5a747beefac3e3190cd3818</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>5cee9aa56584709495f3e5e356e9bc61</id>
+                <name>Echinodermata</name>
+                <rank>Phylum</rank>
+                <name_html>Echinodermata</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/5cee9aa56584709495f3e5e356e9bc61</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>fa5617309ce7b9c2f9f216c9d2c58992</id>
+                <name>Entoprocta</name>
+                <rank>Phylum</rank>
+                <name_html>Entoprocta</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/fa5617309ce7b9c2f9f216c9d2c58992</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>d4d8c9a5bf97b23eb54617c1aec95142</id>
+                <name>Gastrotricha</name>
+                <rank>Phylum</rank>
+                <name_html>Gastrotricha</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/d4d8c9a5bf97b23eb54617c1aec95142</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>f86ac033065c4c083e39fb249db1650c</id>
+                <name>Gnathostomulida</name>
+                <rank>Phylum</rank>
+                <name_html>Gnathostomulida</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/f86ac033065c4c083e39fb249db1650c</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>7a08c8c531c3702b7e36d08a8a99b752</id>
+                <name>Hemichordata</name>
+                <rank>Phylum</rank>
+                <name_html>Hemichordata</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/7a08c8c531c3702b7e36d08a8a99b752</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>fbff4b952928e16d62d6583716adf0ef</id>
+                <name>Micrognathozoa</name>
+                <rank>Phylum</rank>
+                <name_html>Micrognathozoa</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/fbff4b952928e16d62d6583716adf0ef</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>70a72224d52b24f5ee0b1d09387d1703</id>
+                <name>Mollusca</name>
+                <rank>Phylum</rank>
+                <name_html>Mollusca</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/70a72224d52b24f5ee0b1d09387d1703</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>cdd8c5b8e3b440ede49f98909464c68f</id>
+                <name>Myxozoa</name>
+                <rank>Phylum</rank>
+                <name_html>Myxozoa</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/cdd8c5b8e3b440ede49f98909464c68f</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>562405d59c95f93423494a00939ae2ff</id>
+                <name>Nematoda</name>
+                <rank>Phylum</rank>
+                <name_html>Nematoda</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/562405d59c95f93423494a00939ae2ff</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>01fd7a9b3375bbc8061db7b28f2009e1</id>
+                <name>Nematomorpha</name>
+                <rank>Phylum</rank>
+                <name_html>Nematomorpha</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/01fd7a9b3375bbc8061db7b28f2009e1</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>73a7108915b4076f322e2f4d126845b6</id>
+                <name>Nemertea</name>
+                <rank>Phylum</rank>
+                <name_html>Nemertea</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/73a7108915b4076f322e2f4d126845b6</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>f920d91e27bc1e1542d58913f1000280</id>
+                <name>Onychophora</name>
+                <rank>Phylum</rank>
+                <name_html>Onychophora</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/f920d91e27bc1e1542d58913f1000280</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>a3f0b7a0a0cf02fe07f492d8e360168c</id>
+                <name>Orthonectida</name>
+                <rank>Phylum</rank>
+                <name_html>Orthonectida</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/a3f0b7a0a0cf02fe07f492d8e360168c</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>823f03d8521f6d0d57aa95019b88870b</id>
+                <name>Phoronida</name>
+                <rank>Phylum</rank>
+                <name_html>Phoronida</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/823f03d8521f6d0d57aa95019b88870b</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>5b00629c35b9f783ba3753e467c7b3fc</id>
+                <name>Placozoa</name>
+                <rank>Phylum</rank>
+                <name_html>Placozoa</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/5b00629c35b9f783ba3753e467c7b3fc</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>7253b0d111fd5eb0c6a9856e0d8d1cad</id>
+                <name>Platyhelminthes</name>
+                <rank>Phylum</rank>
+                <name_html>Platyhelminthes</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/7253b0d111fd5eb0c6a9856e0d8d1cad</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>f2c55cc181b4a6afed0dee552086196d</id>
+                <name>Porifera</name>
+                <rank>Phylum</rank>
+                <name_html>Porifera</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/f2c55cc181b4a6afed0dee552086196d</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>4cb8cef206b1da8ae99d2ee871c3f185</id>
+                <name>Rotifera</name>
+                <rank>Phylum</rank>
+                <name_html>Rotifera</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/4cb8cef206b1da8ae99d2ee871c3f185</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>5ded8ae72fd6241b13f3cd27bf18d477</id>
+                <name>Sipuncula</name>
+                <rank>Phylum</rank>
+                <name_html>Sipuncula</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/5ded8ae72fd6241b13f3cd27bf18d477</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>62a2db383aabb83aa76470096073f7a3</id>
+                <name>Tardigrada</name>
+                <rank>Phylum</rank>
+                <name_html>Tardigrada</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/62a2db383aabb83aa76470096073f7a3</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>d4617cdffad896e2f51837fd5607e8c7</id>
+                <name>Xenacoelomorpha</name>
+                <rank>Phylum</rank>
+                <name_html>Xenacoelomorpha</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/d4617cdffad896e2f51837fd5607e8c7</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+            </child_taxa>
+          </result>
+          <result>
+            <id>08a1087d6a9d09e4ee6f4ff5c28efc65</id>
+            <name>Australimoosella et-animalia</name>
+            <rank>Species</rank>
+            <name_status>accepted name</name_status>
+            <genus>Australimoosella</genus>
+            <subgenus></subgenus>
+            <species>et-animalia</species>
+            <infraspecies_marker></infraspecies_marker>
+            <infraspecies></infraspecies>
+            <author><![CDATA[Hu & Tao, 2008]]></author>
+            <record_scrutiny_date>
+              <scrutiny>25-Apr-2016</scrutiny>
+            </record_scrutiny_date>
+            <online_resource><![CDATA[http://www.marinespecies.org/ostracoda/aphia.php?p=taxdetails&id=874383]]></online_resource>
+            <is_extinct>false</is_extinct>
+            <source_database>WoRMS Ostracoda: World Ostracoda Database</source_database>
+            <source_database_url>http://www.marinespecies.org/ostracoda</source_database_url>
+            <bibliographic_citation><![CDATA[Brand (2019). WoRMS Ostracoda: World Ostracoda Database (version 2018-04-01). In: Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds. (2019). Species 2000 & ITIS Catalogue of Life, 24th December 2018. Digital resource at www.catalogueoflife.org/col. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-8858.]]></bibliographic_citation>
+            <name_html><![CDATA[<i>Australimoosella et-animalia</i> Hu & Tao, 2008]]></name_html>
+            <url>http://www.catalogueoflife.org/col/details/species/id/08a1087d6a9d09e4ee6f4ff5c28efc65</url>
+            <distribution></distribution>
+            <references>
+              <reference>
+                <author>Hu, C.-H.; H-Tao, J.</author>
+                <year>2008</year>
+                <title>Studies on the ostracod fauna of Taiwan and its adjacent seas</title>
+                <source>National Taiwan Museum Special Publication Series. 13 (part 1), 1-655 [In Chinese]</source>
+              </reference>
+            </references>
+            <classification>
+              <taxon>
+                <id>5ede24b0534ebd5e1f552d5b9f874a6a</id>
+                <name>Animalia</name>
+                <rank>Kingdom</rank>
+                <name_html>Animalia</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/5ede24b0534ebd5e1f552d5b9f874a6a</url>
+              </taxon>
+              <taxon>
+                <id>89ac18bfcf1654a9662a600ba06bb494</id>
+                <name>Arthropoda</name>
+                <rank>Phylum</rank>
+                <name_html>Arthropoda</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/89ac18bfcf1654a9662a600ba06bb494</url>
+              </taxon>
+              <taxon>
+                <id>7b5ecb0b1a8ca650f6c9658e891f54da</id>
+                <name>Ostracoda</name>
+                <rank>Class</rank>
+                <name_html>Ostracoda</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/7b5ecb0b1a8ca650f6c9658e891f54da</url>
+              </taxon>
+              <taxon>
+                <id>8f7632ebbc5043382f65a9ffad5fde87</id>
+                <name>Podocopida</name>
+                <rank>Order</rank>
+                <name_html>Podocopida</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/8f7632ebbc5043382f65a9ffad5fde87</url>
+              </taxon>
+              <taxon>
+                <id>f359e44ff9cf85ee47312e7d9716d31e</id>
+                <name>Cytheroidea</name>
+                <rank>Superfamily</rank>
+                <name_html>Cytheroidea</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/f359e44ff9cf85ee47312e7d9716d31e</url>
+              </taxon>
+              <taxon>
+                <id>9ed20cd129a76de64fd149d83bca97e1</id>
+                <name>Trachyleberididae</name>
+                <rank>Family</rank>
+                <name_html>Trachyleberididae</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/9ed20cd129a76de64fd149d83bca97e1</url>
+              </taxon>
+              <taxon>
+                <id>5c4e15e3ef2b5f0efe156901c6dd59f0</id>
+                <name>Australimoosella</name>
+                <rank>Genus</rank>
+                <name_html><i>Australimoosella</i></name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/5c4e15e3ef2b5f0efe156901c6dd59f0</url>
+              </taxon>
+            </classification>
+            <child_taxa/>
+            <synonyms/>
+            <common_names/>
+          </result>
+        </results>
+  recorded_at: 2019-01-24 01:18:31 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://www.catalogueoflife.org/col/webservice?name=Plantae&response=full
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.12.1
+      date: Thu, 24 Jan 2019 01:18:29 GMT
+      content-type: application/xml
+      transfer-encoding: chunked
+      connection: keep-alive
+      x-powered-by: PHP/5.5.9-1ubuntu4.26
+      expires: Thu, 19 Nov 1981 08:52:00 GMT
+      cache-control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      pragma: no-cache
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <results id="" name="Plantae" total_number_of_results="2" number_of_results_returned="2" start="0" error_message="" version="1.9 rev 2126ab0" rank="">
+          <result>
+            <id>208cf441fe2e1662376a9ce9e80782e1</id>
+            <name>Plantae</name>
+            <rank>Kingdom</rank>
+            <name_status>accepted name</name_status>
+            <name_html>Plantae</name_html>
+            <url>http://www.catalogueoflife.org/col/browse/tree/id/208cf441fe2e1662376a9ce9e80782e1</url>
+            <is_extinct>false</is_extinct>
+            <classification/>
+            <child_taxa>
+              <taxon>
+                <id>3ae23a6ffe49d1f7fe2968afb6c2ea81</id>
+                <name>Anthocerotophyta</name>
+                <rank>Phylum</rank>
+                <name_html>Anthocerotophyta</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/3ae23a6ffe49d1f7fe2968afb6c2ea81</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>9b7799c90f8fb358bac8f4c137016db1</id>
+                <name>Bryophyta</name>
+                <rank>Phylum</rank>
+                <name_html>Bryophyta</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/9b7799c90f8fb358bac8f4c137016db1</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>4ae2b93f0a300ceca9d6f764b254384c</id>
+                <name>Charophyta</name>
+                <rank>Phylum</rank>
+                <name_html>Charophyta</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/4ae2b93f0a300ceca9d6f764b254384c</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>36815f6707e6bf71cea53140ab004f06</id>
+                <name>Chlorophyta</name>
+                <rank>Phylum</rank>
+                <name_html>Chlorophyta</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/36815f6707e6bf71cea53140ab004f06</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>66b028a67ee4a287b186d5edefdb66b1</id>
+                <name>Glaucophyta</name>
+                <rank>Phylum</rank>
+                <name_html>Glaucophyta</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/66b028a67ee4a287b186d5edefdb66b1</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>d4389a37663cdc9bfc82c2e5d10fa653</id>
+                <name>Marchantiophyta</name>
+                <rank>Phylum</rank>
+                <name_html>Marchantiophyta</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/d4389a37663cdc9bfc82c2e5d10fa653</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>e75c713bcb7c473dfafe52b25b15a8d6</id>
+                <name>Rhodophyta</name>
+                <rank>Phylum</rank>
+                <name_html>Rhodophyta</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/e75c713bcb7c473dfafe52b25b15a8d6</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>73328ba4e1446e1ee3602956b66eb127</id>
+                <name>Tracheophyta</name>
+                <rank>Phylum</rank>
+                <name_html>Tracheophyta</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/73328ba4e1446e1ee3602956b66eb127</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+            </child_taxa>
+          </result>
+          <result>
+            <id>485ae7ff493e48c21d814fc0258136b1</id>
+            <name>Primula plantae</name>
+            <rank>Species</rank>
+            <name_status>synonym</name_status>
+            <genus>Primula</genus>
+            <subgenus></subgenus>
+            <species>plantae</species>
+            <infraspecies_marker></infraspecies_marker>
+            <infraspecies></infraspecies>
+            <author>Brügger</author>
+            <record_scrutiny_date></record_scrutiny_date>
+            <online_resource></online_resource>
+            <source_database>World Plants: Synonymic Checklists of the Vascular Plants of the World</source_database>
+            <source_database_url>http://worldplants.webarchiv.kit.edu/</source_database_url>
+            <bibliographic_citation><![CDATA[Hassler M. (2019). World Plants: Synonymic Checklists of the Vascular Plants of the World (version Apr 2018). In: Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds. (2019). Species 2000 & ITIS Catalogue of Life, 24th December 2018. Digital resource at www.catalogueoflife.org/col. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-8858.]]></bibliographic_citation>
+            <name_html><i>Primula plantae</i> Brügger</name_html>
+            <url>http://www.catalogueoflife.org/col/details/species/id/e8b702a18bb3c55b6974a68270779b51/synonym/485ae7ff493e48c21d814fc0258136b1</url>
+            <distribution></distribution>
+            <references>
+              <reference>
+                <author>Brügger</author>
+                <year>1880</year>
+                <title></title>
+                <source>In: Jahresb. Naturf. Ges. Graub. II. 23-24: 100</source>
+              </reference>
+            </references>
+            <accepted_name>
+              <id>e8b702a18bb3c55b6974a68270779b51</id>
+              <name>Primula daonensis</name>
+              <rank>Species</rank>
+              <name_status>accepted name</name_status>
+              <genus>Primula</genus>
+              <subgenus></subgenus>
+              <species>daonensis</species>
+              <infraspecies_marker></infraspecies_marker>
+              <infraspecies></infraspecies>
+              <author>(Leybold) Leybold</author>
+              <record_scrutiny_date>
+                <scrutiny>May-2018</scrutiny>
+              </record_scrutiny_date>
+              <online_resource></online_resource>
+              <is_extinct>false</is_extinct>
+              <source_database>World Plants: Synonymic Checklists of the Vascular Plants of the World</source_database>
+              <source_database_url>http://worldplants.webarchiv.kit.edu/</source_database_url>
+              <bibliographic_citation><![CDATA[Hassler M. (2019). World Plants: Synonymic Checklists of the Vascular Plants of the World (version Apr 2018). In: Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds. (2019). Species 2000 & ITIS Catalogue of Life, 24th December 2018. Digital resource at www.catalogueoflife.org/col. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-8858.]]></bibliographic_citation>
+              <name_html><i>Primula daonensis</i> (Leybold) Leybold</name_html>
+              <url>http://www.catalogueoflife.org/col/details/species/id/e8b702a18bb3c55b6974a68270779b51</url>
+              <distribution>Austria, E-Switzerland, N-Italy (E-Alps) 111408 0</distribution>
+              <references>
+                <reference>
+                  <author>Leybold</author>
+                  <year>1855</year>
+                  <title></title>
+                  <source>In: Flora (Regensburg) 38: 345</source>
+                </reference>
+              </references>
+              <classification>
+                <taxon>
+                  <id>208cf441fe2e1662376a9ce9e80782e1</id>
+                  <name>Plantae</name>
+                  <rank>Kingdom</rank>
+                  <name_html>Plantae</name_html>
+                  <url>http://www.catalogueoflife.org/col/browse/tree/id/208cf441fe2e1662376a9ce9e80782e1</url>
+                </taxon>
+                <taxon>
+                  <id>73328ba4e1446e1ee3602956b66eb127</id>
+                  <name>Tracheophyta</name>
+                  <rank>Phylum</rank>
+                  <name_html>Tracheophyta</name_html>
+                  <url>http://www.catalogueoflife.org/col/browse/tree/id/73328ba4e1446e1ee3602956b66eb127</url>
+                </taxon>
+                <taxon>
+                  <id>53497bb664b89c28e60f020f7f21f882</id>
+                  <name>Magnoliopsida</name>
+                  <rank>Class</rank>
+                  <name_html>Magnoliopsida</name_html>
+                  <url>http://www.catalogueoflife.org/col/browse/tree/id/53497bb664b89c28e60f020f7f21f882</url>
+                </taxon>
+                <taxon>
+                  <id>1cf1fd90d9326849ef78426e68358674</id>
+                  <name>Ericales</name>
+                  <rank>Order</rank>
+                  <name_html>Ericales</name_html>
+                  <url>http://www.catalogueoflife.org/col/browse/tree/id/1cf1fd90d9326849ef78426e68358674</url>
+                </taxon>
+                <taxon>
+                  <id>2f2a5e0b20218a28b876143b0233b8eb</id>
+                  <name>Primulaceae</name>
+                  <rank>Family</rank>
+                  <name_html>Primulaceae</name_html>
+                  <url>http://www.catalogueoflife.org/col/browse/tree/id/2f2a5e0b20218a28b876143b0233b8eb</url>
+                </taxon>
+                <taxon>
+                  <id>da8226a1dc3064e1b5d6c665b69d9019</id>
+                  <name>Primula</name>
+                  <rank>Genus</rank>
+                  <name_html><i>Primula</i></name_html>
+                  <url>http://www.catalogueoflife.org/col/browse/tree/id/da8226a1dc3064e1b5d6c665b69d9019</url>
+                </taxon>
+              </classification>
+              <child_taxa/>
+              <synonyms>
+                <synonym>
+                  <id>117b6eb7eca2d8bca8720338e055e8f5</id>
+                  <name>Auricula-ursi daonensis</name>
+                  <rank>Species</rank>
+                  <name_status>synonym</name_status>
+                  <genus>Auricula-ursi</genus>
+                  <subgenus></subgenus>
+                  <species>daonensis</species>
+                  <infraspecies_marker></infraspecies_marker>
+                  <infraspecies></infraspecies>
+                  <author>(Leyb.) J. Sojak</author>
+                  <record_scrutiny_date></record_scrutiny_date>
+                  <online_resource></online_resource>
+                  <is_extinct>0</is_extinct>
+                  <name_html><i>Auricula-ursi daonensis</i> (Leyb.) J. Sojak</name_html>
+                  <url>http://www.catalogueoflife.org/col/details/species/id/e8b702a18bb3c55b6974a68270779b51/synonym/117b6eb7eca2d8bca8720338e055e8f5</url>
+                  <references>
+                    <reference>
+                      <author>J. Sojak</author>
+                      <year>1980</year>
+                      <title></title>
+                      <source>In: Cas. Nar. Muz. (Prague), 148(3-4): 209 1979</source>
+                    </reference>
+                  </references>
+                </synonym>
+                <synonym>
+                  <id>909cae5c74559af06c19222119f80c70</id>
+                  <name>Primula cadinensis</name>
+                  <rank>Species</rank>
+                  <name_status>synonym</name_status>
+                  <genus>Primula</genus>
+                  <subgenus></subgenus>
+                  <species>cadinensis</species>
+                  <infraspecies_marker></infraspecies_marker>
+                  <infraspecies></infraspecies>
+                  <author>Porta</author>
+                  <record_scrutiny_date></record_scrutiny_date>
+                  <online_resource></online_resource>
+                  <is_extinct>0</is_extinct>
+                  <name_html><i>Primula cadinensis</i> Porta</name_html>
+                  <url>http://www.catalogueoflife.org/col/details/species/id/e8b702a18bb3c55b6974a68270779b51/synonym/909cae5c74559af06c19222119f80c70</url>
+                  <references>
+                    <reference>
+                      <author>Porta</author>
+                      <year>1890</year>
+                      <title></title>
+                      <source>In: Kolb. Europ. Alpenpflanz. 234</source>
+                    </reference>
+                  </references>
+                </synonym>
+                <synonym>
+                  <id>2ecc14ffddd83dff93e4c17a32f20da5</id>
+                  <name>Primula coronata</name>
+                  <rank>Species</rank>
+                  <name_status>synonym</name_status>
+                  <genus>Primula</genus>
+                  <subgenus></subgenus>
+                  <species>coronata</species>
+                  <infraspecies_marker></infraspecies_marker>
+                  <infraspecies></infraspecies>
+                  <author>Porta</author>
+                  <record_scrutiny_date></record_scrutiny_date>
+                  <online_resource></online_resource>
+                  <is_extinct>0</is_extinct>
+                  <name_html><i>Primula coronata</i> Porta</name_html>
+                  <url>http://www.catalogueoflife.org/col/details/species/id/e8b702a18bb3c55b6974a68270779b51/synonym/2ecc14ffddd83dff93e4c17a32f20da5</url>
+                  <references>
+                    <reference>
+                      <author>Porta</author>
+                      <year>1890</year>
+                      <title></title>
+                      <source>In: Kolb, Europ. Alpenpflanz. 237</source>
+                    </reference>
+                  </references>
+                </synonym>
+                <synonym>
+                  <id>d5c717d0222a42e56b01697320528d89</id>
+                  <name>Primula daonensis</name>
+                  <rank>Species</rank>
+                  <name_status>ambiguous synonym</name_status>
+                  <genus>Primula</genus>
+                  <subgenus></subgenus>
+                  <species>daonensis</species>
+                  <infraspecies_marker></infraspecies_marker>
+                  <infraspecies></infraspecies>
+                  <author>Leyb.</author>
+                  <record_scrutiny_date></record_scrutiny_date>
+                  <online_resource></online_resource>
+                  <is_extinct>0</is_extinct>
+                  <name_html><i>Primula daonensis</i> Leyb.</name_html>
+                  <url>http://www.catalogueoflife.org/col/details/species/id/e8b702a18bb3c55b6974a68270779b51/synonym/d5c717d0222a42e56b01697320528d89</url>
+                  <references>
+                    <reference>
+                      <author>Leyb.</author>
+                      <year>1854</year>
+                      <title></title>
+                      <source>In: Österr. Bot. Wiochenbl. 4: 10</source>
+                    </reference>
+                  </references>
+                </synonym>
+                <synonym>
+                  <id>8ec77b852af2725f18508079e064dcba</id>
+                  <name>Primula hirsuta</name>
+                  <rank>Species</rank>
+                  <name_status>synonym</name_status>
+                  <genus>Primula</genus>
+                  <subgenus></subgenus>
+                  <species>hirsuta</species>
+                  <infraspecies_marker></infraspecies_marker>
+                  <infraspecies></infraspecies>
+                  <author>Rchb. ex Nym.</author>
+                  <record_scrutiny_date></record_scrutiny_date>
+                  <online_resource></online_resource>
+                  <is_extinct>0</is_extinct>
+                  <name_html><i>Primula hirsuta</i> Rchb. ex Nym.</name_html>
+                  <url>http://www.catalogueoflife.org/col/details/species/id/e8b702a18bb3c55b6974a68270779b51/synonym/8ec77b852af2725f18508079e064dcba</url>
+                  <references>
+                    <reference>
+                      <author>Nym.</author>
+                      <year>1881</year>
+                      <title></title>
+                      <source>In: Consp. 604</source>
+                    </reference>
+                  </references>
+                </synonym>
+                <synonym>
+                  <id>d3b8c0640e2d021b30ae5e3cf6d50eda</id>
+                  <name>Primula oenensis</name>
+                  <rank>Species</rank>
+                  <name_status>synonym</name_status>
+                  <genus>Primula</genus>
+                  <subgenus></subgenus>
+                  <species>oenensis</species>
+                  <infraspecies_marker></infraspecies_marker>
+                  <infraspecies></infraspecies>
+                  <author>Gremli</author>
+                  <record_scrutiny_date></record_scrutiny_date>
+                  <online_resource></online_resource>
+                  <is_extinct>0</is_extinct>
+                  <name_html><i>Primula oenensis</i> Gremli</name_html>
+                  <url>http://www.catalogueoflife.org/col/details/species/id/e8b702a18bb3c55b6974a68270779b51/synonym/d3b8c0640e2d021b30ae5e3cf6d50eda</url>
+                  <references>
+                    <reference>
+                      <author>Gremli</author>
+                      <year>1867</year>
+                      <title></title>
+                      <source>In: Excursionsfl. Schweiz: 284</source>
+                    </reference>
+                  </references>
+                </synonym>
+                <synonym>
+                  <id>485ae7ff493e48c21d814fc0258136b1</id>
+                  <name>Primula plantae</name>
+                  <rank>Species</rank>
+                  <name_status>synonym</name_status>
+                  <genus>Primula</genus>
+                  <subgenus></subgenus>
+                  <species>plantae</species>
+                  <infraspecies_marker></infraspecies_marker>
+                  <infraspecies></infraspecies>
+                  <author>Brügger</author>
+                  <record_scrutiny_date></record_scrutiny_date>
+                  <online_resource></online_resource>
+                  <is_extinct>0</is_extinct>
+                  <name_html><i>Primula plantae</i> Brügger</name_html>
+                  <url>http://www.catalogueoflife.org/col/details/species/id/e8b702a18bb3c55b6974a68270779b51/synonym/485ae7ff493e48c21d814fc0258136b1</url>
+                  <references>
+                    <reference>
+                      <author>Brügger</author>
+                      <year>1880</year>
+                      <title></title>
+                      <source>In: Jahresb. Naturf. Ges. Graub. II. 23-24: 100</source>
+                    </reference>
+                  </references>
+                </synonym>
+                <synonym>
+                  <id>778c78da7d68d2d3128ad89b19dab356</id>
+                  <name>Primula stelviana</name>
+                  <rank>Species</rank>
+                  <name_status>synonym</name_status>
+                  <genus>Primula</genus>
+                  <subgenus></subgenus>
+                  <species>stelviana</species>
+                  <infraspecies_marker></infraspecies_marker>
+                  <infraspecies></infraspecies>
+                  <author>Vulp.</author>
+                  <record_scrutiny_date></record_scrutiny_date>
+                  <online_resource></online_resource>
+                  <is_extinct>0</is_extinct>
+                  <name_html><i>Primula stelviana</i> Vulp.</name_html>
+                  <url>http://www.catalogueoflife.org/col/details/species/id/e8b702a18bb3c55b6974a68270779b51/synonym/778c78da7d68d2d3128ad89b19dab356</url>
+                  <references>
+                    <reference>
+                      <author>Vulp.</author>
+                      <year>1858</year>
+                      <title></title>
+                      <source>In: Flora, 41: 549</source>
+                    </reference>
+                  </references>
+                </synonym>
+                <synonym>
+                  <id>9dffc33613b3eda8b024fad10a64a069</id>
+                  <name>Primula villosa daonensis</name>
+                  <rank>Infraspecies</rank>
+                  <name_status>synonym</name_status>
+                  <genus>Primula</genus>
+                  <subgenus></subgenus>
+                  <species>villosa</species>
+                  <infraspecies_marker>var.</infraspecies_marker>
+                  <infraspecies>daonensis</infraspecies>
+                  <author>Leybold</author>
+                  <record_scrutiny_date></record_scrutiny_date>
+                  <online_resource></online_resource>
+                  <is_extinct>0</is_extinct>
+                  <name_html><i>Primula villosa daonensis</i> Leybold</name_html>
+                  <url>http://www.catalogueoflife.org/col/details/species/id/e8b702a18bb3c55b6974a68270779b51/synonym/9dffc33613b3eda8b024fad10a64a069</url>
+                  <references>
+                    <reference>
+                      <author>Leybold</author>
+                      <year>1854</year>
+                      <title></title>
+                      <source>In: Österr. Bot. Wochenbl. 4: 10</source>
+                    </reference>
+                  </references>
+                </synonym>
+              </synonyms>
+              <common_names>
+                <common_name>
+                  <name>Innprimel</name>
+                  <language></language>
+                  <country></country>
+                  <references/>
+                </common_name>
+              </common_names>
+            </accepted_name>
+          </result>
+        </results>
+  recorded_at: 2019-01-24 01:18:31 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://www.catalogueoflife.org/col/webservice?name=Accipiter%20striatus&response=full
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.12.1
+      date: Thu, 24 Jan 2019 01:18:30 GMT
+      content-type: application/xml
+      transfer-encoding: chunked
+      connection: keep-alive
+      x-powered-by: PHP/5.5.9-1ubuntu4.26
+      expires: Thu, 19 Nov 1981 08:52:00 GMT
+      cache-control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      pragma: no-cache
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <results id="" name="Accipiter striatus" total_number_of_results="9" number_of_results_returned="9" start="0" error_message="" version="1.9 rev 2126ab0" rank="">
+          <result>
+            <id>d349b58e7b60be92c17e5d10fedac0c1</id>
+            <name>Accipiter striatus</name>
+            <rank>Species</rank>
+            <name_status>accepted name</name_status>
+            <genus>Accipiter</genus>
+            <subgenus></subgenus>
+            <species>striatus</species>
+            <infraspecies_marker></infraspecies_marker>
+            <infraspecies></infraspecies>
+            <author>Vieillot, 1808</author>
+            <record_scrutiny_date>
+              <scrutiny>22-Sep-2011</scrutiny>
+            </record_scrutiny_date>
+            <online_resource><![CDATA[http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=175304]]></online_resource>
+            <is_extinct>false</is_extinct>
+            <source_database>ITIS Global: The Integrated Taxonomic Information System</source_database>
+            <source_database_url>http://www.itis.gov;
+        http://www.cbif.gc.ca/acp/eng/itis/search (Canada)</source_database_url>
+            <bibliographic_citation><![CDATA[Tom Orrell (custodian), Dave Nicolson (ed). (2019). ITIS Global: The Integrated Taxonomic Information System (version Jun 2017). In: Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds. (2019). Species 2000 & ITIS Catalogue of Life, 24th December 2018. Digital resource at www.catalogueoflife.org/col. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-8858.]]></bibliographic_citation>
+            <name_html><i>Accipiter striatus</i> Vieillot, 1808</name_html>
+            <url>http://www.catalogueoflife.org/col/details/species/id/d349b58e7b60be92c17e5d10fedac0c1</url>
+            <distribution>Caribbean 133 0; North America 132 0</distribution>
+            <references>
+              <reference>
+                <author>Gill, Frank, and Minturn Wright</author>
+                <year>2006</year>
+                <title></title>
+                <source>Birds of the World: Recommended English Names</source>
+              </reference>
+              <reference>
+                <author>Banks, R. C., R. W. McDiarmid, and A. L. Gardner</author>
+                <year>1987</year>
+                <title>Checklist of Vertebrates of the United States, the U.S. Territories, and Canada</title>
+                <source>Resource Publication, no. 166</source>
+              </reference>
+              <reference>
+                <author>Banks, R. C., R. W. McDiarmid, A. L. Gardner, and W. C. Starnes</author>
+                <year>2003</year>
+                <title></title>
+                <source>Checklist of Vertebrates of the United States, the U.S. Territories, and Canada</source>
+              </reference>
+              <reference>
+                <author></author>
+                <year>1996</year>
+                <title></title>
+                <source>NODC Taxonomic Code</source>
+              </reference>
+              <reference>
+                <author></author>
+                <year>2011</year>
+                <title></title>
+                <source>IOC World Bird List, Master List v2.9</source>
+              </reference>
+              <reference>
+                <author></author>
+                <year>2011</year>
+                <title></title>
+                <source>AOU Check-List (08-2011)</source>
+              </reference>
+              <reference>
+                <author></author>
+                <year>2011</year>
+                <title></title>
+                <source>Zoonomen - Zoological Nomenclature Resource, 2011.02.25</source>
+              </reference>
+            </references>
+            <classification>
+              <taxon>
+                <id>5ede24b0534ebd5e1f552d5b9f874a6a</id>
+                <name>Animalia</name>
+                <rank>Kingdom</rank>
+                <name_html>Animalia</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/5ede24b0534ebd5e1f552d5b9f874a6a</url>
+              </taxon>
+              <taxon>
+                <id>4313bc7637e1fc1feb316a4dea2b668b</id>
+                <name>Chordata</name>
+                <rank>Phylum</rank>
+                <name_html>Chordata</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/4313bc7637e1fc1feb316a4dea2b668b</url>
+              </taxon>
+              <taxon>
+                <id>67847d320573ff18b0384e22afe97ed8</id>
+                <name>Aves</name>
+                <rank>Class</rank>
+                <name_html>Aves</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/67847d320573ff18b0384e22afe97ed8</url>
+              </taxon>
+              <taxon>
+                <id>b555241e73b541bdb5e4e976284b8ae9</id>
+                <name>Accipitriformes</name>
+                <rank>Order</rank>
+                <name_html>Accipitriformes</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/b555241e73b541bdb5e4e976284b8ae9</url>
+              </taxon>
+              <taxon>
+                <id>4edf7906db38144f0d48754d283de50a</id>
+                <name>Accipitridae</name>
+                <rank>Family</rank>
+                <name_html>Accipitridae</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/4edf7906db38144f0d48754d283de50a</url>
+              </taxon>
+              <taxon>
+                <id>8e6a94988edec781d3c32051cc69f4d9</id>
+                <name>Accipiter</name>
+                <rank>Genus</rank>
+                <name_html><i>Accipiter</i></name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/8e6a94988edec781d3c32051cc69f4d9</url>
+              </taxon>
+            </classification>
+            <child_taxa>
+              <taxon>
+                <id>064545deafb882a33f97782758e5af32</id>
+                <name>Accipiter striatus fringilloides</name>
+                <rank>Infraspecies</rank>
+                <name_html><i>Accipiter striatus fringilloides</i> Vigors, 1827</name_html>
+                <url>http://www.catalogueoflife.org/col/details/species/id/064545deafb882a33f97782758e5af32</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>5306dab3abc740ae2a43a24091ede79a</id>
+                <name>Accipiter striatus madrensis</name>
+                <rank>Infraspecies</rank>
+                <name_html><i>Accipiter striatus madrensis</i> Storer, 1952</name_html>
+                <url>http://www.catalogueoflife.org/col/details/species/id/5306dab3abc740ae2a43a24091ede79a</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>2a3778b4580b5f241546975160251edf</id>
+                <name>Accipiter striatus perobscurus</name>
+                <rank>Infraspecies</rank>
+                <name_html><i>Accipiter striatus perobscurus</i> Snyder, 1938</name_html>
+                <url>http://www.catalogueoflife.org/col/details/species/id/2a3778b4580b5f241546975160251edf</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>36d984f35739da9c381717b0bd5474c6</id>
+                <name>Accipiter striatus striatus</name>
+                <rank>Infraspecies</rank>
+                <name_html><i>Accipiter striatus striatus</i> Vieillot, 1808</name_html>
+                <url>http://www.catalogueoflife.org/col/details/species/id/36d984f35739da9c381717b0bd5474c6</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>7f98522fe8c7d540a265765cdd2148c1</id>
+                <name>Accipiter striatus suttoni</name>
+                <rank>Infraspecies</rank>
+                <name_html><i>Accipiter striatus suttoni</i> van Rossem, 1939</name_html>
+                <url>http://www.catalogueoflife.org/col/details/species/id/7f98522fe8c7d540a265765cdd2148c1</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>a3c318a8da184f36dd39dabb2dfc08c4</id>
+                <name>Accipiter striatus velox</name>
+                <rank>Infraspecies</rank>
+                <name_html><i>Accipiter striatus velox</i> (A. Wilson, 1812)</name_html>
+                <url>http://www.catalogueoflife.org/col/details/species/id/a3c318a8da184f36dd39dabb2dfc08c4</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>5caf3ae655b4006d31d75c2bcdbb12c5</id>
+                <name>Accipiter striatus venator</name>
+                <rank>Infraspecies</rank>
+                <name_html><i>Accipiter striatus venator</i> Wetmore, 1914</name_html>
+                <url>http://www.catalogueoflife.org/col/details/species/id/5caf3ae655b4006d31d75c2bcdbb12c5</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+            </child_taxa>
+            <synonyms/>
+            <common_names>
+              <common_name>
+                <name>Sharp-shinned Hawk</name>
+                <language>English</language>
+                <country></country>
+                <references>
+                  <reference>
+                    <author>Gill, Frank, and Minturn Wright</author>
+                    <year>2006</year>
+                    <title></title>
+                    <source>Birds of the World: Recommended English Names</source>
+                  </reference>
+                  <reference>
+                    <author></author>
+                    <year>2005</year>
+                    <title></title>
+                    <source>website, AOU Check-List (07-2005)</source>
+                  </reference>
+                  <reference>
+                    <author></author>
+                    <year>2003</year>
+                    <title></title>
+                    <source>database, http://www.menv.gouv.qc.ca/biodiversite/centre.htm</source>
+                  </reference>
+                  <reference>
+                    <author></author>
+                    <year>2011</year>
+                    <title></title>
+                    <source>IOC World Bird List, Master List v2.9</source>
+                  </reference>
+                  <reference>
+                    <author></author>
+                    <year>2011</year>
+                    <title></title>
+                    <source>AOU Check-List (08-2011)</source>
+                  </reference>
+                </references>
+              </common_name>
+              <common_name>
+                <name>Épervier brun</name>
+                <language>French</language>
+                <country></country>
+                <references>
+                  <reference>
+                    <author></author>
+                    <year>2003</year>
+                    <title></title>
+                    <source>database, http://www.menv.gouv.qc.ca/biodiversite/centre.htm</source>
+                  </reference>
+                  <reference>
+                    <author></author>
+                    <year>2011</year>
+                    <title></title>
+                    <source>AOU Check-List (08-2011)</source>
+                  </reference>
+                </references>
+              </common_name>
+              <common_name>
+                <name>Gavilán pecho rufo</name>
+                <language>Spanish</language>
+                <country></country>
+                <references>
+                  <reference>
+                    <author></author>
+                    <year>2001</year>
+                    <title></title>
+                    <source>database, Comisión Nacional para el Conocimiento y Uso de la Biodiversidad</source>
+                  </reference>
+                </references>
+              </common_name>
+            </common_names>
+          </result>
+          <result>
+            <id>6bdae6292947985db81f834f333dc435</id>
+            <name>Accipiter striatus</name>
+            <rank>Species</rank>
+            <name_status>accepted name</name_status>
+            <genus>Accipiter</genus>
+            <subgenus></subgenus>
+            <species>striatus</species>
+            <infraspecies_marker></infraspecies_marker>
+            <infraspecies></infraspecies>
+            <author>Vieillot, 1897</author>
+            <record_scrutiny_date>
+              <scrutiny>Jan-2017</scrutiny>
+            </record_scrutiny_date>
+            <online_resource>https://paleobiodb.org/classic/basicTaxonInfo?taxon_no=129155</online_resource>
+            <is_extinct>true</is_extinct>
+            <source_database>PaleoBioDB: The Paleobiology Database</source_database>
+            <source_database_url>https://paleobiodb.org</source_database_url>
+            <bibliographic_citation><![CDATA[Paleobiology Database contributors (2019). PaleoBioDB: The Paleobiology Database (version Feb 2018). In: Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds. (2019). Species 2000 & ITIS Catalogue of Life, 24th December 2018. Digital resource at www.catalogueoflife.org/col. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-8858.]]></bibliographic_citation>
+            <name_html><i>Accipiter striatus</i> Vieillot, 1897</name_html>
+            <url>http://www.catalogueoflife.org/col/details/species/id/6bdae6292947985db81f834f333dc435</url>
+            <distribution>US (Alabama, Florida, Utah, Virginia, Wyoming) 154611 0</distribution>
+            <references/>
+            <classification>
+              <taxon>
+                <id>5ede24b0534ebd5e1f552d5b9f874a6a</id>
+                <name>Animalia</name>
+                <rank>Kingdom</rank>
+                <name_html>Animalia</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/5ede24b0534ebd5e1f552d5b9f874a6a</url>
+              </taxon>
+              <taxon>
+                <id>4313bc7637e1fc1feb316a4dea2b668b</id>
+                <name>Chordata</name>
+                <rank>Phylum</rank>
+                <name_html>Chordata</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/4313bc7637e1fc1feb316a4dea2b668b</url>
+              </taxon>
+              <taxon>
+                <id>67847d320573ff18b0384e22afe97ed8</id>
+                <name>Aves</name>
+                <rank>Class</rank>
+                <name_html>Aves</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/67847d320573ff18b0384e22afe97ed8</url>
+              </taxon>
+              <taxon>
+                <id>b555241e73b541bdb5e4e976284b8ae9</id>
+                <name>Accipitriformes</name>
+                <rank>Order</rank>
+                <name_html>Accipitriformes</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/b555241e73b541bdb5e4e976284b8ae9</url>
+              </taxon>
+              <taxon>
+                <id>4edf7906db38144f0d48754d283de50a</id>
+                <name>Accipitridae</name>
+                <rank>Family</rank>
+                <name_html>Accipitridae</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/4edf7906db38144f0d48754d283de50a</url>
+              </taxon>
+              <taxon>
+                <id>8e6a94988edec781d3c32051cc69f4d9</id>
+                <name>Accipiter</name>
+                <rank>Genus</rank>
+                <name_html><i>Accipiter</i></name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/8e6a94988edec781d3c32051cc69f4d9</url>
+              </taxon>
+            </classification>
+            <child_taxa/>
+            <synonyms/>
+            <common_names/>
+          </result>
+          <result>
+            <id>064545deafb882a33f97782758e5af32</id>
+            <name>Accipiter striatus fringilloides</name>
+            <rank>Infraspecies</rank>
+            <name_status>accepted name</name_status>
+            <genus>Accipiter</genus>
+            <subgenus></subgenus>
+            <species>striatus</species>
+            <infraspecies_marker></infraspecies_marker>
+            <infraspecies>fringilloides</infraspecies>
+            <author>Vigors, 1827</author>
+            <record_scrutiny_date>
+              <scrutiny>22-Sep-2011</scrutiny>
+            </record_scrutiny_date>
+            <online_resource><![CDATA[http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=824332]]></online_resource>
+            <is_extinct>false</is_extinct>
+            <source_database>ITIS Global: The Integrated Taxonomic Information System</source_database>
+            <source_database_url>http://www.itis.gov;
+        http://www.cbif.gc.ca/acp/eng/itis/search (Canada)</source_database_url>
+            <bibliographic_citation><![CDATA[Tom Orrell (custodian), Dave Nicolson (ed). (2019). ITIS Global: The Integrated Taxonomic Information System (version Jun 2017). In: Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds. (2019). Species 2000 & ITIS Catalogue of Life, 24th December 2018. Digital resource at www.catalogueoflife.org/col. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-8858.]]></bibliographic_citation>
+            <name_html><i>Accipiter striatus fringilloides</i> Vigors, 1827</name_html>
+            <url>http://www.catalogueoflife.org/col/browse/tree/id/064545deafb882a33f97782758e5af32</url>
+            <distribution></distribution>
+            <references>
+              <reference>
+                <author></author>
+                <year>2011</year>
+                <title></title>
+                <source>Zoonomen - Zoological Nomenclature Resource, 2011.02.25</source>
+              </reference>
+            </references>
+            <classification>
+              <taxon>
+                <id>5ede24b0534ebd5e1f552d5b9f874a6a</id>
+                <name>Animalia</name>
+                <rank>Kingdom</rank>
+                <name_html>Animalia</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/5ede24b0534ebd5e1f552d5b9f874a6a</url>
+              </taxon>
+              <taxon>
+                <id>4313bc7637e1fc1feb316a4dea2b668b</id>
+                <name>Chordata</name>
+                <rank>Phylum</rank>
+                <name_html>Chordata</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/4313bc7637e1fc1feb316a4dea2b668b</url>
+              </taxon>
+              <taxon>
+                <id>67847d320573ff18b0384e22afe97ed8</id>
+                <name>Aves</name>
+                <rank>Class</rank>
+                <name_html>Aves</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/67847d320573ff18b0384e22afe97ed8</url>
+              </taxon>
+              <taxon>
+                <id>b555241e73b541bdb5e4e976284b8ae9</id>
+                <name>Accipitriformes</name>
+                <rank>Order</rank>
+                <name_html>Accipitriformes</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/b555241e73b541bdb5e4e976284b8ae9</url>
+              </taxon>
+              <taxon>
+                <id>4edf7906db38144f0d48754d283de50a</id>
+                <name>Accipitridae</name>
+                <rank>Family</rank>
+                <name_html>Accipitridae</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/4edf7906db38144f0d48754d283de50a</url>
+              </taxon>
+              <taxon>
+                <id>8e6a94988edec781d3c32051cc69f4d9</id>
+                <name>Accipiter</name>
+                <rank>Genus</rank>
+                <name_html><i>Accipiter</i></name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/8e6a94988edec781d3c32051cc69f4d9</url>
+              </taxon>
+              <taxon>
+                <id>d349b58e7b60be92c17e5d10fedac0c1</id>
+                <name>striatus</name>
+                <rank>Species</rank>
+                <name_html><i>Accipiter striatus fringilloides</i> Vigors, 1827</name_html>
+                <url>http://www.catalogueoflife.org/col/details/species/id/d349b58e7b60be92c17e5d10fedac0c1</url>
+              </taxon>
+            </classification>
+            <child_taxa/>
+            <synonyms/>
+            <common_names/>
+          </result>
+          <result>
+            <id>5306dab3abc740ae2a43a24091ede79a</id>
+            <name>Accipiter striatus madrensis</name>
+            <rank>Infraspecies</rank>
+            <name_status>accepted name</name_status>
+            <genus>Accipiter</genus>
+            <subgenus></subgenus>
+            <species>striatus</species>
+            <infraspecies_marker></infraspecies_marker>
+            <infraspecies>madrensis</infraspecies>
+            <author>Storer, 1952</author>
+            <record_scrutiny_date>
+              <scrutiny>22-Sep-2011</scrutiny>
+            </record_scrutiny_date>
+            <online_resource><![CDATA[http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=824333]]></online_resource>
+            <is_extinct>false</is_extinct>
+            <source_database>ITIS Global: The Integrated Taxonomic Information System</source_database>
+            <source_database_url>http://www.itis.gov;
+        http://www.cbif.gc.ca/acp/eng/itis/search (Canada)</source_database_url>
+            <bibliographic_citation><![CDATA[Tom Orrell (custodian), Dave Nicolson (ed). (2019). ITIS Global: The Integrated Taxonomic Information System (version Jun 2017). In: Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds. (2019). Species 2000 & ITIS Catalogue of Life, 24th December 2018. Digital resource at www.catalogueoflife.org/col. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-8858.]]></bibliographic_citation>
+            <name_html><i>Accipiter striatus madrensis</i> Storer, 1952</name_html>
+            <url>http://www.catalogueoflife.org/col/browse/tree/id/5306dab3abc740ae2a43a24091ede79a</url>
+            <distribution></distribution>
+            <references>
+              <reference>
+                <author></author>
+                <year>2011</year>
+                <title></title>
+                <source>Zoonomen - Zoological Nomenclature Resource, 2011.02.25</source>
+              </reference>
+            </references>
+            <classification>
+              <taxon>
+                <id>5ede24b0534ebd5e1f552d5b9f874a6a</id>
+                <name>Animalia</name>
+                <rank>Kingdom</rank>
+                <name_html>Animalia</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/5ede24b0534ebd5e1f552d5b9f874a6a</url>
+              </taxon>
+              <taxon>
+                <id>4313bc7637e1fc1feb316a4dea2b668b</id>
+                <name>Chordata</name>
+                <rank>Phylum</rank>
+                <name_html>Chordata</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/4313bc7637e1fc1feb316a4dea2b668b</url>
+              </taxon>
+              <taxon>
+                <id>67847d320573ff18b0384e22afe97ed8</id>
+                <name>Aves</name>
+                <rank>Class</rank>
+                <name_html>Aves</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/67847d320573ff18b0384e22afe97ed8</url>
+              </taxon>
+              <taxon>
+                <id>b555241e73b541bdb5e4e976284b8ae9</id>
+                <name>Accipitriformes</name>
+                <rank>Order</rank>
+                <name_html>Accipitriformes</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/b555241e73b541bdb5e4e976284b8ae9</url>
+              </taxon>
+              <taxon>
+                <id>4edf7906db38144f0d48754d283de50a</id>
+                <name>Accipitridae</name>
+                <rank>Family</rank>
+                <name_html>Accipitridae</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/4edf7906db38144f0d48754d283de50a</url>
+              </taxon>
+              <taxon>
+                <id>8e6a94988edec781d3c32051cc69f4d9</id>
+                <name>Accipiter</name>
+                <rank>Genus</rank>
+                <name_html><i>Accipiter</i></name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/8e6a94988edec781d3c32051cc69f4d9</url>
+              </taxon>
+              <taxon>
+                <id>d349b58e7b60be92c17e5d10fedac0c1</id>
+                <name>striatus</name>
+                <rank>Species</rank>
+                <name_html><i>Accipiter striatus madrensis</i> Storer, 1952</name_html>
+                <url>http://www.catalogueoflife.org/col/details/species/id/d349b58e7b60be92c17e5d10fedac0c1</url>
+              </taxon>
+            </classification>
+            <child_taxa/>
+            <synonyms/>
+            <common_names/>
+          </result>
+          <result>
+            <id>2a3778b4580b5f241546975160251edf</id>
+            <name>Accipiter striatus perobscurus</name>
+            <rank>Infraspecies</rank>
+            <name_status>accepted name</name_status>
+            <genus>Accipiter</genus>
+            <subgenus></subgenus>
+            <species>striatus</species>
+            <infraspecies_marker></infraspecies_marker>
+            <infraspecies>perobscurus</infraspecies>
+            <author>Snyder, 1938</author>
+            <record_scrutiny_date>
+              <scrutiny>22-Sep-2011</scrutiny>
+            </record_scrutiny_date>
+            <online_resource><![CDATA[http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=175307]]></online_resource>
+            <is_extinct>false</is_extinct>
+            <source_database>ITIS Global: The Integrated Taxonomic Information System</source_database>
+            <source_database_url>http://www.itis.gov;
+        http://www.cbif.gc.ca/acp/eng/itis/search (Canada)</source_database_url>
+            <bibliographic_citation><![CDATA[Tom Orrell (custodian), Dave Nicolson (ed). (2019). ITIS Global: The Integrated Taxonomic Information System (version Jun 2017). In: Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds. (2019). Species 2000 & ITIS Catalogue of Life, 24th December 2018. Digital resource at www.catalogueoflife.org/col. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-8858.]]></bibliographic_citation>
+            <name_html><i>Accipiter striatus perobscurus</i> Snyder, 1938</name_html>
+            <url>http://www.catalogueoflife.org/col/browse/tree/id/2a3778b4580b5f241546975160251edf</url>
+            <distribution></distribution>
+            <references>
+              <reference>
+                <author></author>
+                <year>1996</year>
+                <title></title>
+                <source>NODC Taxonomic Code</source>
+              </reference>
+              <reference>
+                <author></author>
+                <year>2011</year>
+                <title></title>
+                <source>Zoonomen - Zoological Nomenclature Resource, 2011.02.25</source>
+              </reference>
+            </references>
+            <classification>
+              <taxon>
+                <id>5ede24b0534ebd5e1f552d5b9f874a6a</id>
+                <name>Animalia</name>
+                <rank>Kingdom</rank>
+                <name_html>Animalia</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/5ede24b0534ebd5e1f552d5b9f874a6a</url>
+              </taxon>
+              <taxon>
+                <id>4313bc7637e1fc1feb316a4dea2b668b</id>
+                <name>Chordata</name>
+                <rank>Phylum</rank>
+                <name_html>Chordata</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/4313bc7637e1fc1feb316a4dea2b668b</url>
+              </taxon>
+              <taxon>
+                <id>67847d320573ff18b0384e22afe97ed8</id>
+                <name>Aves</name>
+                <rank>Class</rank>
+                <name_html>Aves</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/67847d320573ff18b0384e22afe97ed8</url>
+              </taxon>
+              <taxon>
+                <id>b555241e73b541bdb5e4e976284b8ae9</id>
+                <name>Accipitriformes</name>
+                <rank>Order</rank>
+                <name_html>Accipitriformes</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/b555241e73b541bdb5e4e976284b8ae9</url>
+              </taxon>
+              <taxon>
+                <id>4edf7906db38144f0d48754d283de50a</id>
+                <name>Accipitridae</name>
+                <rank>Family</rank>
+                <name_html>Accipitridae</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/4edf7906db38144f0d48754d283de50a</url>
+              </taxon>
+              <taxon>
+                <id>8e6a94988edec781d3c32051cc69f4d9</id>
+                <name>Accipiter</name>
+                <rank>Genus</rank>
+                <name_html><i>Accipiter</i></name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/8e6a94988edec781d3c32051cc69f4d9</url>
+              </taxon>
+              <taxon>
+                <id>d349b58e7b60be92c17e5d10fedac0c1</id>
+                <name>striatus</name>
+                <rank>Species</rank>
+                <name_html><i>Accipiter striatus perobscurus</i> Snyder, 1938</name_html>
+                <url>http://www.catalogueoflife.org/col/details/species/id/d349b58e7b60be92c17e5d10fedac0c1</url>
+              </taxon>
+            </classification>
+            <child_taxa/>
+            <synonyms/>
+            <common_names/>
+          </result>
+          <result>
+            <id>36d984f35739da9c381717b0bd5474c6</id>
+            <name>Accipiter striatus striatus</name>
+            <rank>Infraspecies</rank>
+            <name_status>accepted name</name_status>
+            <genus>Accipiter</genus>
+            <subgenus></subgenus>
+            <species>striatus</species>
+            <infraspecies_marker></infraspecies_marker>
+            <infraspecies>striatus</infraspecies>
+            <author>Vieillot, 1808</author>
+            <record_scrutiny_date>
+              <scrutiny>22-Sep-2011</scrutiny>
+            </record_scrutiny_date>
+            <online_resource><![CDATA[http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=175308]]></online_resource>
+            <is_extinct>false</is_extinct>
+            <source_database>ITIS Global: The Integrated Taxonomic Information System</source_database>
+            <source_database_url>http://www.itis.gov;
+        http://www.cbif.gc.ca/acp/eng/itis/search (Canada)</source_database_url>
+            <bibliographic_citation><![CDATA[Tom Orrell (custodian), Dave Nicolson (ed). (2019). ITIS Global: The Integrated Taxonomic Information System (version Jun 2017). In: Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds. (2019). Species 2000 & ITIS Catalogue of Life, 24th December 2018. Digital resource at www.catalogueoflife.org/col. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-8858.]]></bibliographic_citation>
+            <name_html><i>Accipiter striatus striatus</i> Vieillot, 1808</name_html>
+            <url>http://www.catalogueoflife.org/col/browse/tree/id/36d984f35739da9c381717b0bd5474c6</url>
+            <distribution></distribution>
+            <references>
+              <reference>
+                <author></author>
+                <year>1996</year>
+                <title></title>
+                <source>NODC Taxonomic Code</source>
+              </reference>
+              <reference>
+                <author></author>
+                <year>2011</year>
+                <title></title>
+                <source>Zoonomen - Zoological Nomenclature Resource, 2011.02.25</source>
+              </reference>
+            </references>
+            <classification>
+              <taxon>
+                <id>5ede24b0534ebd5e1f552d5b9f874a6a</id>
+                <name>Animalia</name>
+                <rank>Kingdom</rank>
+                <name_html>Animalia</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/5ede24b0534ebd5e1f552d5b9f874a6a</url>
+              </taxon>
+              <taxon>
+                <id>4313bc7637e1fc1feb316a4dea2b668b</id>
+                <name>Chordata</name>
+                <rank>Phylum</rank>
+                <name_html>Chordata</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/4313bc7637e1fc1feb316a4dea2b668b</url>
+              </taxon>
+              <taxon>
+                <id>67847d320573ff18b0384e22afe97ed8</id>
+                <name>Aves</name>
+                <rank>Class</rank>
+                <name_html>Aves</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/67847d320573ff18b0384e22afe97ed8</url>
+              </taxon>
+              <taxon>
+                <id>b555241e73b541bdb5e4e976284b8ae9</id>
+                <name>Accipitriformes</name>
+                <rank>Order</rank>
+                <name_html>Accipitriformes</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/b555241e73b541bdb5e4e976284b8ae9</url>
+              </taxon>
+              <taxon>
+                <id>4edf7906db38144f0d48754d283de50a</id>
+                <name>Accipitridae</name>
+                <rank>Family</rank>
+                <name_html>Accipitridae</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/4edf7906db38144f0d48754d283de50a</url>
+              </taxon>
+              <taxon>
+                <id>8e6a94988edec781d3c32051cc69f4d9</id>
+                <name>Accipiter</name>
+                <rank>Genus</rank>
+                <name_html><i>Accipiter</i></name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/8e6a94988edec781d3c32051cc69f4d9</url>
+              </taxon>
+              <taxon>
+                <id>d349b58e7b60be92c17e5d10fedac0c1</id>
+                <name>striatus</name>
+                <rank>Species</rank>
+                <name_html><i>Accipiter striatus striatus</i> Vieillot, 1808</name_html>
+                <url>http://www.catalogueoflife.org/col/details/species/id/d349b58e7b60be92c17e5d10fedac0c1</url>
+              </taxon>
+            </classification>
+            <child_taxa/>
+            <synonyms/>
+            <common_names/>
+          </result>
+          <result>
+            <id>7f98522fe8c7d540a265765cdd2148c1</id>
+            <name>Accipiter striatus suttoni</name>
+            <rank>Infraspecies</rank>
+            <name_status>accepted name</name_status>
+            <genus>Accipiter</genus>
+            <subgenus></subgenus>
+            <species>striatus</species>
+            <infraspecies_marker></infraspecies_marker>
+            <infraspecies>suttoni</infraspecies>
+            <author>van Rossem, 1939</author>
+            <record_scrutiny_date>
+              <scrutiny>22-Sep-2011</scrutiny>
+            </record_scrutiny_date>
+            <online_resource><![CDATA[http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=175306]]></online_resource>
+            <is_extinct>false</is_extinct>
+            <source_database>ITIS Global: The Integrated Taxonomic Information System</source_database>
+            <source_database_url>http://www.itis.gov;
+        http://www.cbif.gc.ca/acp/eng/itis/search (Canada)</source_database_url>
+            <bibliographic_citation><![CDATA[Tom Orrell (custodian), Dave Nicolson (ed). (2019). ITIS Global: The Integrated Taxonomic Information System (version Jun 2017). In: Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds. (2019). Species 2000 & ITIS Catalogue of Life, 24th December 2018. Digital resource at www.catalogueoflife.org/col. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-8858.]]></bibliographic_citation>
+            <name_html><i>Accipiter striatus suttoni</i> van Rossem, 1939</name_html>
+            <url>http://www.catalogueoflife.org/col/browse/tree/id/7f98522fe8c7d540a265765cdd2148c1</url>
+            <distribution></distribution>
+            <references>
+              <reference>
+                <author></author>
+                <year>1996</year>
+                <title></title>
+                <source>NODC Taxonomic Code</source>
+              </reference>
+              <reference>
+                <author></author>
+                <year>2011</year>
+                <title></title>
+                <source>Zoonomen - Zoological Nomenclature Resource, 2011.02.25</source>
+              </reference>
+            </references>
+            <classification>
+              <taxon>
+                <id>5ede24b0534ebd5e1f552d5b9f874a6a</id>
+                <name>Animalia</name>
+                <rank>Kingdom</rank>
+                <name_html>Animalia</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/5ede24b0534ebd5e1f552d5b9f874a6a</url>
+              </taxon>
+              <taxon>
+                <id>4313bc7637e1fc1feb316a4dea2b668b</id>
+                <name>Chordata</name>
+                <rank>Phylum</rank>
+                <name_html>Chordata</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/4313bc7637e1fc1feb316a4dea2b668b</url>
+              </taxon>
+              <taxon>
+                <id>67847d320573ff18b0384e22afe97ed8</id>
+                <name>Aves</name>
+                <rank>Class</rank>
+                <name_html>Aves</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/67847d320573ff18b0384e22afe97ed8</url>
+              </taxon>
+              <taxon>
+                <id>b555241e73b541bdb5e4e976284b8ae9</id>
+                <name>Accipitriformes</name>
+                <rank>Order</rank>
+                <name_html>Accipitriformes</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/b555241e73b541bdb5e4e976284b8ae9</url>
+              </taxon>
+              <taxon>
+                <id>4edf7906db38144f0d48754d283de50a</id>
+                <name>Accipitridae</name>
+                <rank>Family</rank>
+                <name_html>Accipitridae</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/4edf7906db38144f0d48754d283de50a</url>
+              </taxon>
+              <taxon>
+                <id>8e6a94988edec781d3c32051cc69f4d9</id>
+                <name>Accipiter</name>
+                <rank>Genus</rank>
+                <name_html><i>Accipiter</i></name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/8e6a94988edec781d3c32051cc69f4d9</url>
+              </taxon>
+              <taxon>
+                <id>d349b58e7b60be92c17e5d10fedac0c1</id>
+                <name>striatus</name>
+                <rank>Species</rank>
+                <name_html><i>Accipiter striatus suttoni</i> van Rossem, 1939</name_html>
+                <url>http://www.catalogueoflife.org/col/details/species/id/d349b58e7b60be92c17e5d10fedac0c1</url>
+              </taxon>
+            </classification>
+            <child_taxa/>
+            <synonyms/>
+            <common_names/>
+          </result>
+          <result>
+            <id>a3c318a8da184f36dd39dabb2dfc08c4</id>
+            <name>Accipiter striatus velox</name>
+            <rank>Infraspecies</rank>
+            <name_status>accepted name</name_status>
+            <genus>Accipiter</genus>
+            <subgenus></subgenus>
+            <species>striatus</species>
+            <infraspecies_marker></infraspecies_marker>
+            <infraspecies>velox</infraspecies>
+            <author>(A. Wilson, 1812)</author>
+            <record_scrutiny_date>
+              <scrutiny>22-Sep-2011</scrutiny>
+            </record_scrutiny_date>
+            <online_resource><![CDATA[http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=175305]]></online_resource>
+            <is_extinct>false</is_extinct>
+            <source_database>ITIS Global: The Integrated Taxonomic Information System</source_database>
+            <source_database_url>http://www.itis.gov;
+        http://www.cbif.gc.ca/acp/eng/itis/search (Canada)</source_database_url>
+            <bibliographic_citation><![CDATA[Tom Orrell (custodian), Dave Nicolson (ed). (2019). ITIS Global: The Integrated Taxonomic Information System (version Jun 2017). In: Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds. (2019). Species 2000 & ITIS Catalogue of Life, 24th December 2018. Digital resource at www.catalogueoflife.org/col. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-8858.]]></bibliographic_citation>
+            <name_html><i>Accipiter striatus velox</i> (A. Wilson, 1812)</name_html>
+            <url>http://www.catalogueoflife.org/col/browse/tree/id/a3c318a8da184f36dd39dabb2dfc08c4</url>
+            <distribution></distribution>
+            <references>
+              <reference>
+                <author></author>
+                <year>1996</year>
+                <title></title>
+                <source>NODC Taxonomic Code</source>
+              </reference>
+              <reference>
+                <author></author>
+                <year>2011</year>
+                <title></title>
+                <source>Zoonomen - Zoological Nomenclature Resource, 2011.02.25</source>
+              </reference>
+            </references>
+            <classification>
+              <taxon>
+                <id>5ede24b0534ebd5e1f552d5b9f874a6a</id>
+                <name>Animalia</name>
+                <rank>Kingdom</rank>
+                <name_html>Animalia</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/5ede24b0534ebd5e1f552d5b9f874a6a</url>
+              </taxon>
+              <taxon>
+                <id>4313bc7637e1fc1feb316a4dea2b668b</id>
+                <name>Chordata</name>
+                <rank>Phylum</rank>
+                <name_html>Chordata</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/4313bc7637e1fc1feb316a4dea2b668b</url>
+              </taxon>
+              <taxon>
+                <id>67847d320573ff18b0384e22afe97ed8</id>
+                <name>Aves</name>
+                <rank>Class</rank>
+                <name_html>Aves</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/67847d320573ff18b0384e22afe97ed8</url>
+              </taxon>
+              <taxon>
+                <id>b555241e73b541bdb5e4e976284b8ae9</id>
+                <name>Accipitriformes</name>
+                <rank>Order</rank>
+                <name_html>Accipitriformes</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/b555241e73b541bdb5e4e976284b8ae9</url>
+              </taxon>
+              <taxon>
+                <id>4edf7906db38144f0d48754d283de50a</id>
+                <name>Accipitridae</name>
+                <rank>Family</rank>
+                <name_html>Accipitridae</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/4edf7906db38144f0d48754d283de50a</url>
+              </taxon>
+              <taxon>
+                <id>8e6a94988edec781d3c32051cc69f4d9</id>
+                <name>Accipiter</name>
+                <rank>Genus</rank>
+                <name_html><i>Accipiter</i></name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/8e6a94988edec781d3c32051cc69f4d9</url>
+              </taxon>
+              <taxon>
+                <id>d349b58e7b60be92c17e5d10fedac0c1</id>
+                <name>striatus</name>
+                <rank>Species</rank>
+                <name_html><i>Accipiter striatus velox</i> (A. Wilson, 1812)</name_html>
+                <url>http://www.catalogueoflife.org/col/details/species/id/d349b58e7b60be92c17e5d10fedac0c1</url>
+              </taxon>
+            </classification>
+            <child_taxa/>
+            <synonyms/>
+            <common_names/>
+          </result>
+          <result>
+            <id>5caf3ae655b4006d31d75c2bcdbb12c5</id>
+            <name>Accipiter striatus venator</name>
+            <rank>Infraspecies</rank>
+            <name_status>accepted name</name_status>
+            <genus>Accipiter</genus>
+            <subgenus></subgenus>
+            <species>striatus</species>
+            <infraspecies_marker></infraspecies_marker>
+            <infraspecies>venator</infraspecies>
+            <author>Wetmore, 1914</author>
+            <record_scrutiny_date>
+              <scrutiny>22-Sep-2011</scrutiny>
+            </record_scrutiny_date>
+            <online_resource><![CDATA[http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=824334]]></online_resource>
+            <is_extinct>false</is_extinct>
+            <source_database>ITIS Global: The Integrated Taxonomic Information System</source_database>
+            <source_database_url>http://www.itis.gov;
+        http://www.cbif.gc.ca/acp/eng/itis/search (Canada)</source_database_url>
+            <bibliographic_citation><![CDATA[Tom Orrell (custodian), Dave Nicolson (ed). (2019). ITIS Global: The Integrated Taxonomic Information System (version Jun 2017). In: Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds. (2019). Species 2000 & ITIS Catalogue of Life, 24th December 2018. Digital resource at www.catalogueoflife.org/col. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-8858.]]></bibliographic_citation>
+            <name_html><i>Accipiter striatus venator</i> Wetmore, 1914</name_html>
+            <url>http://www.catalogueoflife.org/col/browse/tree/id/5caf3ae655b4006d31d75c2bcdbb12c5</url>
+            <distribution></distribution>
+            <references>
+              <reference>
+                <author></author>
+                <year>2011</year>
+                <title></title>
+                <source>Zoonomen - Zoological Nomenclature Resource, 2011.02.25</source>
+              </reference>
+            </references>
+            <classification>
+              <taxon>
+                <id>5ede24b0534ebd5e1f552d5b9f874a6a</id>
+                <name>Animalia</name>
+                <rank>Kingdom</rank>
+                <name_html>Animalia</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/5ede24b0534ebd5e1f552d5b9f874a6a</url>
+              </taxon>
+              <taxon>
+                <id>4313bc7637e1fc1feb316a4dea2b668b</id>
+                <name>Chordata</name>
+                <rank>Phylum</rank>
+                <name_html>Chordata</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/4313bc7637e1fc1feb316a4dea2b668b</url>
+              </taxon>
+              <taxon>
+                <id>67847d320573ff18b0384e22afe97ed8</id>
+                <name>Aves</name>
+                <rank>Class</rank>
+                <name_html>Aves</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/67847d320573ff18b0384e22afe97ed8</url>
+              </taxon>
+              <taxon>
+                <id>b555241e73b541bdb5e4e976284b8ae9</id>
+                <name>Accipitriformes</name>
+                <rank>Order</rank>
+                <name_html>Accipitriformes</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/b555241e73b541bdb5e4e976284b8ae9</url>
+              </taxon>
+              <taxon>
+                <id>4edf7906db38144f0d48754d283de50a</id>
+                <name>Accipitridae</name>
+                <rank>Family</rank>
+                <name_html>Accipitridae</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/4edf7906db38144f0d48754d283de50a</url>
+              </taxon>
+              <taxon>
+                <id>8e6a94988edec781d3c32051cc69f4d9</id>
+                <name>Accipiter</name>
+                <rank>Genus</rank>
+                <name_html><i>Accipiter</i></name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/8e6a94988edec781d3c32051cc69f4d9</url>
+              </taxon>
+              <taxon>
+                <id>d349b58e7b60be92c17e5d10fedac0c1</id>
+                <name>striatus</name>
+                <rank>Species</rank>
+                <name_html><i>Accipiter striatus venator</i> Wetmore, 1914</name_html>
+                <url>http://www.catalogueoflife.org/col/details/species/id/d349b58e7b60be92c17e5d10fedac0c1</url>
+              </taxon>
+            </classification>
+            <child_taxa/>
+            <synonyms/>
+            <common_names/>
+          </result>
+        </results>
+  recorded_at: 2019-01-24 01:18:31 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://www.catalogueoflife.org/col/webservice?id=2346405&response=full
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.12.1
+      date: Thu, 24 Jan 2019 01:18:30 GMT
+      content-type: application/xml
+      content-length: '205'
+      connection: keep-alive
+      x-powered-by: PHP/5.5.9-1ubuntu4.26
+      expires: Thu, 19 Nov 1981 08:52:00 GMT
+      cache-control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      pragma: no-cache
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <results id="2346405" name="" total_number_of_results="0" number_of_results_returned="0" start="0" error_message="No names found" version="1.9 rev 2126ab0" rank=""/>
+  recorded_at: 2019-01-24 01:18:31 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://www.catalogueoflife.org/col/webservice?id=2344165&response=full
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.12.1
+      date: Thu, 24 Jan 2019 01:18:31 GMT
+      content-type: application/xml
+      content-length: '205'
+      connection: keep-alive
+      x-powered-by: PHP/5.5.9-1ubuntu4.26
+      expires: Thu, 19 Nov 1981 08:52:00 GMT
+      cache-control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      pragma: no-cache
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <results id="2344165" name="" total_number_of_results="0" number_of_results_returned="0" start="0" error_message="No names found" version="1.9 rev 2126ab0" rank=""/>
+  recorded_at: 2019-01-24 01:18:31 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://www.catalogueoflife.org/col/webservice?id=2346405&response=full
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      cache-control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      connection: keep-alive
+      content-length: '205'
+      content-type: application/xml
+      date: Thu, 24 Jan 2019 01:18:31 GMT
+      expires: Thu, 19 Nov 1981 08:52:00 GMT
+      pragma: no-cache
+      server: nginx/1.12.1
+      set-cookie:
+      - aci_language=en; expires=Thu, 07-Feb-2019 01:18:31 GMT; Max-Age=1209600; path=/
+      - PHPSESSID=24hj5ls1em1bn5qr3tv7c6vrm5; path=/
+      status: HTTP/1.1 200 OK
+      x-powered-by: PHP/5.5.9-1ubuntu4.26
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <results id="2346405" name="" total_number_of_results="0" number_of_results_returned="0" start="0" error_message="No names found" version="1.9 rev 2126ab0" rank=""/>
+  recorded_at: 2019-01-24 01:18:31 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://www.catalogueoflife.org/col/webservice?id=2346405&response=full
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.12.1
+      date: Thu, 24 Jan 2019 01:18:31 GMT
+      content-type: application/xml
+      content-length: '205'
+      connection: keep-alive
+      x-powered-by: PHP/5.5.9-1ubuntu4.26
+      expires: Thu, 19 Nov 1981 08:52:00 GMT
+      cache-control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      pragma: no-cache
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <results id="2346405" name="" total_number_of_results="0" number_of_results_returned="0" start="0" error_message="No names found" version="1.9 rev 2126ab0" rank=""/>
+  recorded_at: 2019-01-24 01:18:31 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0

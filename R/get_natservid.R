@@ -96,6 +96,10 @@ get_natservid <- function(query, searchtype = "scientific", ask = TRUE,
   assert(searchtype, "character")
   assert(ask, "logical")
   assert(verbose, "logical")
+  if (!is.na(rows)) {
+    assert(rows, c("numeric", "integer"))
+    stopifnot(rows > 0)
+  }
 
   fun <- function(x, searchtype, ask, verbose, key, rows, ...) {
     direct <- FALSE
@@ -117,9 +121,7 @@ get_natservid <- function(query, searchtype = "scientific", ask = TRUE,
 
       # should return NA if spec not found
       if (nrow(nsdf) == 0) {
-        mssg(
-          verbose,
-          "Not found. Consider checking the spelling or alternate classification")
+        mssg(verbose, m_not_found_sp_altclass)
         nsid <- NA_character_
         att <- 'not found'
       }
@@ -149,7 +151,7 @@ get_natservid <- function(query, searchtype = "scientific", ask = TRUE,
         } else {
           direct <- FALSE
           nsid <- NA_character_
-          att <- 'NA due to ask=FALSE & no direct match found'
+          att <- m_na_ask_false_no_direct
           warning("> 1 result; no direct match found", call. = FALSE)
         }
       }
@@ -189,13 +191,10 @@ get_natservid <- function(query, searchtype = "scientific", ask = TRUE,
           }
         } else {
           if (length(nsid) != 1) {
-            warning(
-              sprintf("More than one NatureServe ID found for taxon '%s'; refine query or set ask=TRUE",
-                      x),
-              call. = FALSE
-            )
+            warning(sprintf(m_more_than_one_found, "NatureServe ID", x),
+              call. = FALSE)
             nsid <- NA_character_
-            att <- 'NA due to ask=FALSE & > 1 result'
+            att <- m_na_ask_false
           }
         }
       }
@@ -267,7 +266,7 @@ as.data.frame.natservid <- function(x, ...){
 make_natserv <- function(x, check=TRUE) make_generic(x, ns_base_uri(), "natservid", check)
 
 check_natservid <- function(x){
-  tt <- httr::content(httr::GET(sprintf(ns_base_uri(), x)), "text")
+  tt <- crul::HttpClient$new(sprintf(ns_base_uri(), x))$get()$parse("UTF-8")
   !grepl("No records matched", tt)
 }
 

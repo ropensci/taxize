@@ -63,7 +63,8 @@ See \code{\link{taxize-authentication}} for help on authentication
 \examples{
 \dontrun{
 eol_search(terms='Homo')
-eol_search(terms='Salix')
-eol_search(terms='Ursus americanus luteolus')
+eol_search(terms='Salix', verbose = TRUE)
+eol_search(terms='Ursus americanus')
+eol_search('Pinus contorta')
 }
 }

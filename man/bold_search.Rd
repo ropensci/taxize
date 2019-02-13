@@ -4,8 +4,8 @@
 \alias{bold_search}
 \title{Search Barcode of Life for taxonomic IDs}
 \usage{
-bold_search(name = NULL, id = NULL, fuzzy = FALSE, dataTypes = "basic",
-  includeTree = FALSE, response = FALSE, ...)
+bold_search(name = NULL, id = NULL, fuzzy = FALSE,
+  dataTypes = "basic", includeTree = FALSE, response = FALSE, ...)
 }
 \arguments{
 \item{name}{(character) One or more scientific names.}
@@ -25,7 +25,7 @@ for parent taxa as well as the specified taxon. Only used if \code{id} passed.}
 \item{response}{(logical) Note that response is the object that returns from the Curl call,
 useful for debugging, and getting detailed info on the API call.}
 
-\item{...}{Further args passed on to \code{\link[httr]{GET}}, main purpose being curl debugging}
+\item{...}{Further args passed on to \code{\link[crul]{verb-GET}}, main purpose being curl debugging}
 }
 \value{
 A list of data.frame's.

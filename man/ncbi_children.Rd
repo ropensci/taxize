@@ -61,7 +61,8 @@ two taxa with the same name and the same specified ancestor.
 }
 \section{Authentication}{
 
-See \code{\link{taxize-authentication}} for help on authentication
+See \code{\link{taxize-authentication}} for help on authentication. 
+We strongly recommend getting an API key
 }
 
 \examples{

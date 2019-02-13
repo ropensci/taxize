@@ -4,7 +4,8 @@
 \alias{eol_dataobjects}
 \title{Given the identifier for a data object, return all metadata about the object}
 \usage{
-eol_dataobjects(id, taxonomy = TRUE, usekey = TRUE, key = NULL, ...)
+eol_dataobjects(id, taxonomy = TRUE, language = NULL, usekey = TRUE,
+  key = NULL, ...)
 }
 \arguments{
 \item{id}{(character) The EOL data object identifier}
@@ -12,6 +13,10 @@ eol_dataobjects(id, taxonomy = TRUE, usekey = TRUE, key = NULL, ...)
 \item{taxonomy}{(logical) Whether to return any taxonomy details from 
 different taxon hierarchy providers, in an array named 
 \code{taxonconcepts}}
+
+\item{language}{(character) provides the results in the specified language. 
+one of ms, de, en, es, fr, gl, it, nl, nb, oc, pt-BR, sv, tl, mk, sr, uk, ar, 
+zh-Hans, zh-Hant, ko}
 
 \item{usekey}{(logical) use your API key or not (\code{TRUE} or \code{FALSE})}
 
@@ -32,10 +37,9 @@ It's possible to return JSON or XML with the EOL API. However,
 }
 \examples{
 \dontrun{
-eol_dataobjects(id = "d72801627bf4adf1a38d9c5f10cc767f")
-eol_dataobjects(id = "21929584")
+eol_dataobjects(id = 7561533)
 
 # curl options
-eol_dataobjects(id = "21929584", verbose = TRUE)
+eol_dataobjects(id = 7561533, verbose = TRUE)
 }
 }

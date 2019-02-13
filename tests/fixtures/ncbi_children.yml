@@ -1,0 +1,452 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=4751&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 24 Jan 2019 22:53:58 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '8'
+      ncbi-phid: 939B131039D6F975000026C83AEB3CD2.1.1.m_3
+      cache-control: private
+      l5d-success-class: '1.0'
+      ncbi-sid: E36ECAE26E0E4CA4_2398SID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=E36ECAE26E0E4CA4_2398SID; domain=.nih.gov; path=/; expires=Fri,
+        24 Jan 2020 22:53:58 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version="1.0" ?>
+        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
+        <TaxaSet><Taxon>
+            <TaxId>4751</TaxId>
+            <ScientificName>Fungi</ScientificName>
+            <OtherNames>
+                <GenbankCommonName>fungi</GenbankCommonName>
+                <BlastName>fungi</BlastName>
+            </OtherNames>
+            <ParentTaxId>33154</ParentTaxId>
+            <Rank>kingdom</Rank>
+            <Division>Plants and Fungi</Division>
+            <GeneticCode>
+                <GCId>1</GCId>
+                <GCName>Standard</GCName>
+            </GeneticCode>
+            <MitoGeneticCode>
+                <MGCId>4</MGCId>
+                <MGCName>Mold Mitochondrial; Protozoan Mitochondrial; Coelenterate Mitochondrial; Mycoplasma; Spiroplasma</MGCName>
+            </MitoGeneticCode>
+            <Lineage>cellular organisms; Eukaryota; Opisthokonta</Lineage>
+            <LineageEx>
+                <Taxon>
+                    <TaxId>131567</TaxId>
+                    <ScientificName>cellular organisms</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2759</TaxId>
+                    <ScientificName>Eukaryota</ScientificName>
+                    <Rank>superkingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33154</TaxId>
+                    <ScientificName>Opisthokonta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+            </LineageEx>
+            <CreateDate>1995/02/27 09:24:00</CreateDate>
+            <UpdateDate>2017/06/14 10:56:24</UpdateDate>
+            <PubDate>1993/04/20 01:00:00</PubDate>
+        </Taxon>
+
+        </TaxaSet>
+  recorded_at: 2019-01-24 22:54:25 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=taxonomy&db=taxonomy&id=4751&term=Fungi%5BNext%20Level%5D&RetMax=1000&RetStart=0&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 24 Jan 2019 22:54:10 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '9'
+      ncbi-phid: 322CDAEFF3EFD7B5000021CCF3C50CF0.1.1.m_1
+      cache-control: private
+      l5d-success-class: '1.0'
+      ncbi-sid: 8179F45EE93404EE_5E3ESID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=8179F45EE93404EE_5E3ESID; domain=.nih.gov; path=/; expires=Fri,
+        24 Jan 2020 22:54:05 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eLinkResult
+        PUBLIC \"-//NLM//DTD elink 20101123//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20101123/elink.dtd\">\n<eLinkResult>\n<LinkSet>\n\t<DbFrom>taxonomy</DbFrom>\n\t<IdList>\n\t\t<Id>4751</Id>\n\t</IdList>\n\t<LinkSetDb>\n\t\t<DbTo>taxonomy</DbTo>\n\t\t<LinkName>taxonomy_taxonomy_child</LinkName>\n\t\t<Link>\n\t\t\t<Id>584652</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>451864</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>112252</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>89443</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>57731</Id>\n\t\t</Link>\n\t</LinkSetDb>\n</LinkSet>\n</eLinkResult>\n"
+  recorded_at: 2019-01-24 22:54:25 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&id=584652%2B451864%2B112252%2B89443%2B57731&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 24 Jan 2019 22:54:10 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '8'
+      ncbi-phid: 322CDAEFF3EFD7B500001ACCF8028CC2.1.1.m_1
+      cache-control: private
+      l5d-success-class: '1.0'
+      ncbi-sid: 4D379228013CC702_EC34SID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=4D379228013CC702_EC34SID; domain=.nih.gov; path=/; expires=Fri,
+        24 Jan 2020 22:54:11 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eSummaryResult
+        PUBLIC \"-//NLM//DTD esummary v1 20041029//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20041029/esummary-v1.dtd\">\n<eSummaryResult>\n<DocSum>\n\t<Id>584652</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">fungi</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Mixed fungal DNA libraries</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">584652</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Species\" Type=\"String\"></Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2008/12/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>451864</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">subkingdom</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">fungi</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Dikarya</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">451864</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\"></Item>\n\t<Item Name=\"Species\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2007/06/26 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>112252</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">fungi</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Fungi incertae sedis</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">112252</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\"></Item>\n\t<Item Name=\"Species\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2018/10/29 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>89443</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">fungi</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">unclassified Fungi</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">89443</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\"></Item>\n\t<Item Name=\"Species\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2002/05/08 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>57731</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">fungi</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">environmental samples</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">57731</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Species\" Type=\"String\"></Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2018/10/18 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
+  recorded_at: 2019-01-24 22:54:25 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=4751&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 24 Jan 2019 22:54:11 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '7'
+      ncbi-phid: 939B131039D6F975000025C8448A7BBA.1.1.m_3
+      cache-control: private
+      l5d-success-class: '1.0'
+      ncbi-sid: 27702039535D2996_9E80SID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=27702039535D2996_9E80SID; domain=.nih.gov; path=/; expires=Fri,
+        24 Jan 2020 22:54:11 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version="1.0" ?>
+        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
+        <TaxaSet><Taxon>
+            <TaxId>4751</TaxId>
+            <ScientificName>Fungi</ScientificName>
+            <OtherNames>
+                <GenbankCommonName>fungi</GenbankCommonName>
+                <BlastName>fungi</BlastName>
+            </OtherNames>
+            <ParentTaxId>33154</ParentTaxId>
+            <Rank>kingdom</Rank>
+            <Division>Plants and Fungi</Division>
+            <GeneticCode>
+                <GCId>1</GCId>
+                <GCName>Standard</GCName>
+            </GeneticCode>
+            <MitoGeneticCode>
+                <MGCId>4</MGCId>
+                <MGCName>Mold Mitochondrial; Protozoan Mitochondrial; Coelenterate Mitochondrial; Mycoplasma; Spiroplasma</MGCName>
+            </MitoGeneticCode>
+            <Lineage>cellular organisms; Eukaryota; Opisthokonta</Lineage>
+            <LineageEx>
+                <Taxon>
+                    <TaxId>131567</TaxId>
+                    <ScientificName>cellular organisms</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2759</TaxId>
+                    <ScientificName>Eukaryota</ScientificName>
+                    <Rank>superkingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33154</TaxId>
+                    <ScientificName>Opisthokonta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+            </LineageEx>
+            <CreateDate>1995/02/27 09:24:00</CreateDate>
+            <UpdateDate>2017/06/14 10:56:24</UpdateDate>
+            <PubDate>1993/04/20 01:00:00</PubDate>
+        </Taxon>
+
+        </TaxaSet>
+  recorded_at: 2019-01-24 22:54:25 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=4751&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 24 Jan 2019 22:54:11 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '6'
+      ncbi-phid: 939B131039D6F975000025C844A8084B.1.1.m_3
+      cache-control: private
+      l5d-success-class: '1.0'
+      ncbi-sid: 27702039535D2996_9E80SID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=27702039535D2996_9E80SID; domain=.nih.gov; path=/; expires=Fri,
+        24 Jan 2020 22:54:11 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version="1.0" ?>
+        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
+        <TaxaSet><Taxon>
+            <TaxId>4751</TaxId>
+            <ScientificName>Fungi</ScientificName>
+            <OtherNames>
+                <GenbankCommonName>fungi</GenbankCommonName>
+                <BlastName>fungi</BlastName>
+            </OtherNames>
+            <ParentTaxId>33154</ParentTaxId>
+            <Rank>kingdom</Rank>
+            <Division>Plants and Fungi</Division>
+            <GeneticCode>
+                <GCId>1</GCId>
+                <GCName>Standard</GCName>
+            </GeneticCode>
+            <MitoGeneticCode>
+                <MGCId>4</MGCId>
+                <MGCName>Mold Mitochondrial; Protozoan Mitochondrial; Coelenterate Mitochondrial; Mycoplasma; Spiroplasma</MGCName>
+            </MitoGeneticCode>
+            <Lineage>cellular organisms; Eukaryota; Opisthokonta</Lineage>
+            <LineageEx>
+                <Taxon>
+                    <TaxId>131567</TaxId>
+                    <ScientificName>cellular organisms</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2759</TaxId>
+                    <ScientificName>Eukaryota</ScientificName>
+                    <Rank>superkingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33154</TaxId>
+                    <ScientificName>Opisthokonta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+            </LineageEx>
+            <CreateDate>1995/02/27 09:24:00</CreateDate>
+            <UpdateDate>2017/06/14 10:56:24</UpdateDate>
+            <PubDate>1993/04/20 01:00:00</PubDate>
+        </Taxon>
+
+        </TaxaSet>
+  recorded_at: 2019-01-24 22:54:25 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=taxonomy&db=taxonomy&id=4751&term=Fungi%5BNext%20Level%5D&RetMax=1000&RetStart=0&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 24 Jan 2019 22:54:18 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '5'
+      ncbi-phid: 322CDAEFF3EFD7B5000013CCF87DD635.1.1.m_1
+      cache-control: private
+      l5d-success-class: '1.0'
+      ncbi-sid: D60EF65ADAAF3A7F_B109SID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=D60EF65ADAAF3A7F_B109SID; domain=.nih.gov; path=/; expires=Fri,
+        24 Jan 2020 22:54:12 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eLinkResult
+        PUBLIC \"-//NLM//DTD elink 20101123//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20101123/elink.dtd\">\n<eLinkResult>\n<LinkSet>\n\t<DbFrom>taxonomy</DbFrom>\n\t<IdList>\n\t\t<Id>4751</Id>\n\t</IdList>\n\t<LinkSetDb>\n\t\t<DbTo>taxonomy</DbTo>\n\t\t<LinkName>taxonomy_taxonomy_child</LinkName>\n\t\t<Link>\n\t\t\t<Id>584652</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>451864</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>112252</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>89443</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>57731</Id>\n\t\t</Link>\n\t</LinkSetDb>\n</LinkSet>\n</eLinkResult>\n"
+  recorded_at: 2019-01-24 22:54:25 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=taxonomy&db=taxonomy&id=4751&term=Fungi%5BNext%20Level%5D&RetMax=1000&RetStart=0&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 24 Jan 2019 22:54:24 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '9'
+      ncbi-phid: 939B131039D6F975000022C84A0EB988.1.1.m_1
+      cache-control: private
+      l5d-success-class: '1.0'
+      ncbi-sid: D60EF65ADAAF3A7F_B109SID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=D60EF65ADAAF3A7F_B109SID; domain=.nih.gov; path=/; expires=Fri,
+        24 Jan 2020 22:54:18 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eLinkResult
+        PUBLIC \"-//NLM//DTD elink 20101123//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20101123/elink.dtd\">\n<eLinkResult>\n<LinkSet>\n\t<DbFrom>taxonomy</DbFrom>\n\t<IdList>\n\t\t<Id>4751</Id>\n\t</IdList>\n\t<LinkSetDb>\n\t\t<DbTo>taxonomy</DbTo>\n\t\t<LinkName>taxonomy_taxonomy_child</LinkName>\n\t\t<Link>\n\t\t\t<Id>584652</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>451864</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>112252</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>89443</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>57731</Id>\n\t\t</Link>\n\t</LinkSetDb>\n</LinkSet>\n</eLinkResult>\n"
+  recorded_at: 2019-01-24 22:54:25 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0

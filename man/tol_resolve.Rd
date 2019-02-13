@@ -5,8 +5,8 @@
 \title{Resolve names using Open Tree of Life (OTL) resolver}
 \usage{
 tol_resolve(names = NULL, context_name = NULL,
-  do_approximate_matching = TRUE, ids = NULL, include_suppressed = FALSE,
-  ...)
+  do_approximate_matching = TRUE, ids = NULL,
+  include_suppressed = FALSE, ...)
 }
 \arguments{
 \item{names}{(character vector) taxon names to be queried}
@@ -29,7 +29,7 @@ incertae sedis buckets and other non-OTUs, are suppressed from TNRS
 results. If this parameter is true, these quasi-taxa are allowed as
 possible TNRS results. Default: \code{FALSE}}
 
-\item{...}{Curl options passed on to \code{\link[httr]{POST}} within
+\item{...}{Curl options passed on to \code{httr::POST} within
 \code{\link[rotl]{tnrs_match_names}}}
 }
 \value{

@@ -1,0 +1,34 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://www.itis.gov/ITISWebService/services/ITISService/getDescription
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      connection: close
+      Content-Type: application/xml;charset=UTF-8
+      date: Thu, 24 Jan 2019 17:24:56 GMT
+      strict-transport-security:
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      x-application: itis_webservices
+      x-node-name: not shown
+      x-upstream-member: not shown
+    body:
+      encoding: UTF-8
+      string: <ns:getDescriptionResponse xmlns:ns="http://itis_service.itis.usgs.gov"><ns:return
+        xmlns:ax21="http://data.itis_service.itis.usgs.gov/xsd" xmlns:ax23="http://metadata.itis_service.itis.usgs.gov/xsd"
+        xmlns:ax26="http://itis_service.itis.usgs.gov/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:type="ax26:SvcDescription"><ax26:description>This is the ITIS Web Service,
+        providing access to the data behind www.itis.gov. The database contains 797,315
+        scientific names (581,433 of them valid/accepted) and 130,251 common names.</ax26:description></ns:return></ns:getDescriptionResponse>
+  recorded_at: 2019-01-24 17:24:56 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0

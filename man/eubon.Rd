@@ -9,9 +9,9 @@ eubon(query, providers = "pesi", searchMode = "scientificNameExact",
   addSynonymy = FALSE, addParentTaxon = FALSE, timeout = 0,
   dedup = NULL, ...)
 
-eubon_search(query, providers = "pesi", searchMode = "scientificNameExact",
-  addSynonymy = FALSE, addParentTaxon = FALSE, timeout = 0,
-  dedup = NULL, ...)
+eubon_search(query, providers = "pesi",
+  searchMode = "scientificNameExact", addSynonymy = FALSE,
+  addParentTaxon = FALSE, timeout = 0, dedup = NULL, ...)
 }
 \arguments{
 \item{query}{(character) The scientific name to search for. For example:
@@ -58,7 +58,7 @@ specific properties of the taxon:
  'name' strategy is not recommended.
 }}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options passed on to \code{\link[crul]{verb-GET}}}
 }
 \description{
 EUBON taxonomy search
@@ -71,11 +71,11 @@ implement paging here when it is available in the EU BON API.
 \examples{
 \dontrun{
 eubon_search("Prionus")
-eubon_search("Salmo", 'pesi')
-eubon_search("Salmo", c('pesi', 'worms'))
-eubon_search("Salmo", 'worms', 'scientificNameLike')
-eubon_search("Salmo", 'worms', addSynonymy = TRUE)
-eubon_search("Salmo", 'worms', addParentTaxon = TRUE)
+eubon_search("Salmo", "pesi")
+eubon_search("Salmo", c("pesi", "worms"))
+eubon_search("Salmo", "worms", "scientificNameLike")
+eubon_search("Salmo", "worms", addSynonymy = TRUE)
+eubon_search("Salmo", "worms", addParentTaxon = TRUE)
 }
 }
 \references{
@@ -86,3 +86,4 @@ Other eubon-methods: \code{\link{eubon_capabilities}},
   \code{\link{eubon_children}},
   \code{\link{eubon_hierarchy}}
 }
+\concept{eubon-methods}

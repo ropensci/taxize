@@ -39,7 +39,7 @@
 #'  'name' strategy is not recommended.
 #' }
 #'
-#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' @param ... Curl options passed on to \code{\link[crul]{verb-GET}}
 #' @references \url{http://cybertaxonomy.eu/eu-bon/utis/1.2/doc.html}
 #' @details Note that paging is not yet implemented, so you only get the first
 #' chunk of up to 50 results for methods that require paging. We will
@@ -47,22 +47,24 @@
 #' @family eubon-methods
 #' @examples \dontrun{
 #' eubon_search("Prionus")
-#' eubon_search("Salmo", 'pesi')
-#' eubon_search("Salmo", c('pesi', 'worms'))
-#' eubon_search("Salmo", 'worms', 'scientificNameLike')
-#' eubon_search("Salmo", 'worms', addSynonymy = TRUE)
-#' eubon_search("Salmo", 'worms', addParentTaxon = TRUE)
+#' eubon_search("Salmo", "pesi")
+#' eubon_search("Salmo", c("pesi", "worms"))
+#' eubon_search("Salmo", "worms", "scientificNameLike")
+#' eubon_search("Salmo", "worms", addSynonymy = TRUE)
+#' eubon_search("Salmo", "worms", addParentTaxon = TRUE)
 #' }
-eubon <- function(query, providers = 'pesi', searchMode = 'scientificNameExact',
+eubon <- function(query, providers = "pesi", searchMode = "scientificNameExact",
                   addSynonymy = FALSE, addParentTaxon = FALSE, timeout = 0,
                   dedup = NULL, ...) {
 
   args <- tc(list(query = query, providers = paste0(providers, collapse = ","),
                   searchMode = searchMode, addSynonymy = as_l(addSynonymy),
                   addParentTaxon = as_l(addParentTaxon), timeout = timeout))
-  res <- httr::GET(file.path(eubon_base(), "search"), query = args, ...)
+  cli <- crul::HttpClient$new(file.path(eubon_base(), "search"), 
+    opts = list(...))
+  res <- cli$get(query = args)
   eubon_error(res)
-  tmp <- jsonlite::fromJSON(con_utf8(res), TRUE, flatten = TRUE)
+  tmp <- jsonlite::fromJSON(res$parse("UTF-8"), TRUE, flatten = TRUE)
   tmp$query$response[[1]]
 }
 
@@ -71,21 +73,23 @@ eubon <- function(query, providers = 'pesi', searchMode = 'scientificNameExact',
 eubon_search <- eubon
 
 # helpers
-eubon_base <- function() "http://cybertaxonomy.eu/eu-bon/utis/1.2"
+eubon_base <- function() "https://cybertaxonomy.eu/eu-bon/utis/1.2"
 
 eubon_error <- function(x) {
-  if (grepl("json", x$headers$`content-type`)) {
-    cs <- jsonlite::fromJSON(con_utf8(x), FALSE)$query[[1]]$clientStatus[[1]]
+  if (grepl("json", x$response_headers$`content-type`)) {
+    cs <- jsonlite::fromJSON(
+      x$parse("UTF-8"), FALSE)$query[[1]]$clientStatus[[1]]
     if (x$status_code > 201 || cs$statusMessage != "ok") {
-      stop(cs$statusMessage, call. = FALSE)
+      stop(cs$statusMessage)
     }
-  } else if (grepl("html", x$headers$`content-type`)) {
+  } else if (grepl("html", x$response_headers$`content-type`)) {
     if (x$status_code > 201) {
-      mssg <- xml2::xml_text(xml2::xml_find_first(xml2::read_html(con_utf8(x)),
-                                                 "//title"))
-      stop(mssg, call. = FALSE)
+      mssg <- xml2::xml_text(
+        xml2::xml_find_first(
+          xml2::read_html(x$parse("UTF-8")), "//title"))
+      stop(mssg)
     }
   } else {
-    stop(httr::http_status(x)$message, call. = FALSE)
+    stop(x$status_http()$message)
   }
 }

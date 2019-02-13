@@ -1,0 +1,59 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=Helianthus%20annuus
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 25 Jan 2019 23:25:46 GMT
+      server: Apache/2.2.15 (Red Hat)
+      x-powered-by: PHP/5.3.15
+      content-length: '332'
+      connection: close
+      content-type: text/html; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: '{"top_matched_names":[{"taxid":421377,"taxon":"Helianthus annuus","tax_rank":"species","tax_division":"Plants","parentid":125295,"parentname":"Helianthus","taxonrep":"Helianthus
+        annuus","representitive_image":{"image":"SDH\/CCDB-24909-G11_h220203+1421189988.jpg","apectratio":0.688},"specimenrecords":"43"}],"total_matched_names":1}'
+  recorded_at: 2019-01-25 23:25:47 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://v4.boldsystems.org/index.php/API_Tax/TaxonData?taxId=421377&dataTypes=basic&includeTree=true
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 25 Jan 2019 23:25:47 GMT
+      server: Apache/2.2.15 (Red Hat)
+      x-powered-by: PHP/5.3.15
+      content-length: '1089'
+      connection: close
+      content-type: text/html; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: '{"421377":{"taxid":421377,"taxon":"Helianthus annuus","tax_rank":"species","tax_division":"Plants","parentid":125295,"parentname":"Helianthus","taxonrep":"Helianthus
+        annuus"},"125295":{"taxid":125295,"taxon":"Helianthus","tax_rank":"genus","tax_division":"Plants","parentid":151101,"parentname":"Asteroideae","taxonrep":"Helianthus"},"151101":{"taxid":151101,"taxon":"Asteroideae","tax_rank":"subfamily","tax_division":"Plants","parentid":100962,"parentname":"Asteraceae","taxonrep":"Asteroideae"},"100962":{"taxid":100962,"taxon":"Asteraceae","tax_rank":"family","tax_division":"Plants","parentid":35476,"parentname":"Asterales","taxonrep":"Asteraceae"},"35476":{"taxid":35476,"taxon":"Asterales","tax_rank":"order","tax_division":"Plants","parentid":41,"parentname":"Magnoliopsida","taxonrep":"Asterales"},"41":{"taxid":41,"taxon":"Magnoliopsida","tax_rank":"class","tax_division":"Plants","parentid":12,"parentname":"Magnoliophyta","taxonrep":"Magnoliopsida"},"12":{"taxid":12,"taxon":"Magnoliophyta","tax_rank":"phylum","tax_division":"Plants","parentid":1,"taxonrep":"Magnoliophyta"}}'
+  recorded_at: 2019-01-25 23:25:47 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0

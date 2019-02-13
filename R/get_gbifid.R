@@ -128,6 +128,10 @@ get_gbifid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
   assert(family, "character")
   assert(rank, "character")
   assert(method, "character")
+  if (!is.na(rows)) {
+    assert(rows, c("numeric", "integer"))
+    stopifnot(rows > 0)
+  }
 
   fun <- function(sciname, ask, messages, rows, ...) {
     direct <- FALSE
@@ -142,7 +146,7 @@ get_gbifid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
     if (is.null(df)) df <- data.frame(NULL)
 
     if (nrow(df) == 0) {
-      mssg(messages, "Not found. Consider checking the spelling or alternate classification")
+      mssg(messages, m_not_found_sp_altclass)
       id <- NA_character_
       att <- "not found"
     } else {
@@ -153,12 +157,11 @@ get_gbifid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
 
     # not found
     if (length(id) == 0) {
-      mssg(messages, "Not found. Consider checking the spelling or alternate classification")
+      mssg(messages, m_not_found_sp_altclass)
       id <- NA_character_
       att <- "not found"
     }
 
-    # more than one found -> user input
     if (length(id) > 1) {
       # check for exact match
       matchtmp <- df[as.character(df$canonicalname) %in% sciname, "gbifid"]
@@ -187,6 +190,7 @@ get_gbifid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
           }
         }
 
+        # more than one found -> user input
         if (length(id) > 1) {
           if (ask) {
             # limit to subset of columns for ease of use
@@ -219,13 +223,10 @@ get_gbifid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
             }
           } else {
             if (length(id) != 1) {
-              warning(
-                sprintf("More than one GBIF ID found for taxon '%s'; refine query or set ask=TRUE",
-                        sciname),
-                call. = FALSE
-              )
+              warning(sprintf(m_more_than_one_found, "gbifid", sciname), 
+                call. = FALSE)
               id <- NA_character_
-              att <- 'NA due to ask=FALSE & > 1 result'
+              att <- m_na_ask_false
             }
           }
         }

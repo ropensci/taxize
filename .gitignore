@@ -14,7 +14,9 @@ inst/doc/.texpadtmp/taxize_ms.out
 inst/doc/.texpadtmp/taxize_ms.synctex.gz
 .httr-oauth
 inst/vign/taxize_vignette_cache
+vignettes/taxize_case_study_cache/
 tests/testthat/Rplots.pdf
 revdep/checks.noindex
 revdep/data.sqlite
 revdep/library.noindex
+inst/doc

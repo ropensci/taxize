@@ -45,7 +45,8 @@ query.}
 \code{col}, \code{nbn}, or \code{worms}. Note that each taxonomic data
 source has their own identifiers, so that if you provide the wrong
 \code{db} value for the identifier you could get a result, but it will
-likely be wrong (not what you were expecting).}
+likely be wrong (not what you were expecting). If using tropicos, we 
+recommend getting an API key; see \code{\link{taxize-authentication}}}
 
 \item{rows}{(numeric) Any number from 1 to infinity. If the default NA, all
 rows are considered. Note that this parameter is ignored if you pass in a
@@ -123,9 +124,9 @@ synonyms("Amblyomma rotundatum", db='col', rows=2)
 synonyms("Amblyomma rotundatum", db='col', rows=2:3)
 
 # Use curl options
-synonyms("Poa annua", db='tropicos', rows=1, config=verbose())
-synonyms("Poa annua", db='itis', rows=1, config=verbose())
-synonyms("Poa annua", db='col', rows=1, config=verbose())
+synonyms("Poa annua", db='tropicos', rows=1, verbose = TRUE)
+synonyms("Poa annua", db='itis', rows=1, verbose = TRUE)
+synonyms("Poa annua", db='col', rows=1, verbose = TRUE)
 
 
 # combine many outputs together

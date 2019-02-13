@@ -7,7 +7,7 @@
 eubon_capabilities(...)
 }
 \arguments{
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options passed on to \code{\link[crul]{verb-GET}}}
 }
 \description{
 EUBON capabilities
@@ -24,3 +24,4 @@ eubon_capabilities()
 Other eubon-methods: \code{\link{eubon_children}},
   \code{\link{eubon_hierarchy}}, \code{\link{eubon}}
 }
+\concept{eubon-methods}

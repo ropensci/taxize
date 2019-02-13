@@ -1,9 +1,10 @@
 context("children")
 
 test_that("children returns the correct values and classes", {
-  skip_on_cran()
-
-  ch_ncbi <- children("Salmo", db = 'ncbi')
+  skip_on_cran() # uses secrets
+  vcr::use_cassette("children_with_name", {
+    ch_ncbi <- children("Salmo", db = "ncbi")
+  })
 
   expect_is(ch_ncbi, "children")
   expect_equal(attr(ch_ncbi, "db"), "ncbi")
@@ -13,10 +14,11 @@ test_that("children returns the correct values and classes", {
 })
 
 test_that("passing in an id works", {
-  skip_on_cran()
-
-  ch_ncbi <- children(8028, db = 'ncbi')
-  ch_worms <- sw(children(254966, db='worms'))
+  skip_on_cran() # uses secrets
+  vcr::use_cassette("children_with_id", {
+    ch_ncbi <- children(8028, db = "ncbi")
+    ch_worms <- sw(children(254966, db='worms'))
+  })
 
   expect_is(ch_worms, "children")
   expect_equal(attr(ch_worms, "db"), "worms")
@@ -32,15 +34,14 @@ test_that("passing in an id works", {
 })
 
 test_that("queries with no results fail well", {
-  skip_on_cran()
-
-  aa <- children(x = "Saurauia", db = "itis", verbose = FALSE)
+  skip_on_cran() # uses secrets
+  vcr::use_cassette("children_no_results", {
+    aa <- children(x = "Saurauia", db = "itis", verbose = FALSE)
+  })
   expect_equal(NROW(aa[[1]]), 0)
 })
 
 test_that("itis types are correct", {
-  skip_on_cran()
-
   itis_expected_col_types <- c(
       parentname = 'character',
       parenttsn  = 'character',
@@ -48,41 +49,64 @@ test_that("itis types are correct", {
       taxonname  = 'character',
       tsn        = 'character'
     )
+  
+  vcr::use_cassette("children_itis_types", {
+    x <- children(1234123434, "itis")
+    z <- children(161994, "itis")
+  })
+
   # for no result
   expect_equal(
-    sapply(children(1234123434, 'itis')[['1234123434']], class), 
-    itis_expected_col_types 
+    sapply(x[['1234123434']], class), itis_expected_col_types 
   )
   # for good result
   expect_equal(
-    sapply(children(161994, 'itis')[['161994']], class), 
-    itis_expected_col_types 
+    sapply(z[['161994']], class), itis_expected_col_types 
   )
 })
 
 test_that("rows parameter, when used, works", {
-  skip_on_cran()
+  skip_on_cran() # uses secrets
+  vcr::use_cassette("children_rows_param", {
+    x <- children("Asdfafsfd", db = "ncbi", rows = 1, messages = FALSE)
+  })
 
-  expect_is(children("Asdfafsfd", db = 'ncbi', rows = 1, verbose = FALSE), "children")
+  expect_is(x, "children")
 })
 
-test_that("consistent results for no query match when using get_* fxns", {
-  skip_on_cran()
+test_that("expected results for no query match when using get_* fxns", {
+  skip_on_cran() # uses secrets
+  vcr::use_cassette("children_no_results_structure_ncbi_x", {
+    ncbi_x <- children(get_uid(23424234234, messages = FALSE))
+  })
 
-  itis_x <- children(get_tsn(23424234234, messages = FALSE))
-  itis_y <- children(23424234234, db = "itis", messages = FALSE)
+  vcr::use_cassette("children_no_results_structure_ncbi_y", {
+    ncbi_y <- children('dragon', db = "ncbi", messages = FALSE)
+  })
 
-  col_x <- children(get_colid(23424234234, messages = FALSE))
-  col_y <- children('23424234234', db = "col", messages = FALSE)
+  expect_named(ncbi_x, NA_character_)
+  expect_named(ncbi_y, "dragon")
+})
 
-  ncbi_x <- children(get_uid(23424234234, messages = FALSE))
-  ncbi_y <- children('dragon', db = "ncbi", messages = FALSE)
+test_that("expected results for no query match when using get_* fxns", {
+  vcr::use_cassette("children_no_results_structure_x", {
+    itis_x <- children(get_tsn(23424234234, messages = FALSE))
+    col_x <- children(get_colid(23424234234, messages = FALSE))
+    worms_x <- children(get_wormsid(23424234234, messages = FALSE))
+  })
 
-  worms_x <- children(get_wormsid(23424234234, messages = FALSE))
-  worms_y <- children(get_wormsid(23424234234, messages = FALSE))
+  vcr::use_cassette("children_no_results_structure_y", {
+    itis_y <- children(23424234234, db = "itis", messages = FALSE)
+    col_y <- children('23424234234', db = "col", messages = FALSE)
+    worms_y <- children(get_wormsid(23424234234, messages = FALSE))
+  })
   
   expect_named(itis_x, NA_character_)
-  expect_null(names(col_x))
-  expect_named(ncbi_x, NA_character_)
+  expect_named(itis_y, '23424234234')
+
+  expect_named(col_x, NULL)
+  expect_named(col_y, "23424234234")
+
   expect_named(worms_x, NA_character_)
+  expect_named(worms_y, NA_character_)
 })

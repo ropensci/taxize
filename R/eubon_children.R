@@ -15,7 +15,7 @@
 #' from any of the providers. If the timeout is exceeded the service will just
 #' return the responses that have been received so far. The default timeout is
 #' 0 ms (wait for ever)
-#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' @param ... Curl options passed on to \code{\link[crul]{verb-GET}}
 #' @references \url{http://cybertaxonomy.eu/eu-bon/utis/1.2/doc.html}
 #' @return a data.frame or an empty list if no results found
 #' @family eubon-methods
@@ -27,9 +27,10 @@
 eubon_children <- function(id, providers = NULL, timeout = 0, ...) {
   args <- tc(list(providers = paste0(providers, collapse = ","),
                   timeout = timeout))
-  res <- httr::GET(file.path(eubon_base(), "classification", id, "children"),
-                   query = args, ...)
+  url <- file.path(eubon_base(), "classification", id, "children")
+  cli <- crul::HttpClient$new(url, opts = list(...))
+  res <- cli$get(query = args)
   eubon_error(res)
-  tmp <- jsonlite::fromJSON(con_utf8(res), TRUE, flatten = TRUE)
+  tmp <- jsonlite::fromJSON(res$parse("UTF-8"), TRUE, flatten = TRUE)
   tmp$query$response[[1]]
 }

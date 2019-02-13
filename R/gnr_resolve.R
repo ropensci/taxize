@@ -126,7 +126,7 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
   fields <- match.arg(fields, c("minimal", "all"))
   http <- match.arg(http, c("get", "post"))
   num <- NULL
-  url <- "http://resolver.globalnames.org/name_resolvers.json"
+  url <- "https://resolver.globalnames.org/name_resolvers.json"
   # clean out zero length strings
   names <- Filter(function(x) nzchar(x) && !is.na(x) && is.character(x), names)
   # store original names supplied by user

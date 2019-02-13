@@ -12,7 +12,7 @@
 #' for parent taxa as well as the specified taxon. Only used if \code{id} passed.
 #' @param response (logical) Note that response is the object that returns from the Curl call,
 #' useful for debugging, and getting detailed info on the API call.
-#' @param ... Further args passed on to \code{\link[httr]{GET}}, main purpose being curl debugging
+#' @param ... Further args passed on to \code{\link[crul]{verb-GET}}, main purpose being curl debugging
 #' @details You must provide one of name or id to this function. The other parameters are optional.
 #' Note that when passing in \code{name}, \code{fuzzy} can be used as well, while if \code{id}
 #' is passed, then \code{fuzzy} is ignored, and \code{dataTypes} \code{includeTree} can be used.
@@ -57,32 +57,15 @@
 #' bold_search(id=88899, includeTree=TRUE)
 #' }
 
-bold_search <- function(name = NULL, id = NULL, fuzzy = FALSE, dataTypes='basic',
-  includeTree=FALSE, response=FALSE, ...) {
+bold_search <- function(name = NULL, id = NULL, fuzzy = FALSE, 
+  dataTypes = 'basic', includeTree=FALSE, response=FALSE, ...) {
 
   stopifnot(!is.null(name) | !is.null(id))
-  type <- if (is.null(name)) "id" else 'name'
+  type <- if (is.null(name)) "id" else "name"
   tmp <- switch(type,
          name = bold_tax_name(name = name, fuzzy = fuzzy, response = response, ...),
          id = bold_tax_id(id = id, dataTypes = dataTypes, includeTree = includeTree,
                           response = response, ...)
   )
   return(tmp)
-}
-
-parsecoldata <- function(x){
-  vals <- x[c('id','name','rank','name_status','source_database')]
-  vals[sapply(vals, is.null)] <- NA
-  names(vals) <- c('id','name','rank','name_status','source_database')
-  bb <- data.frame(vals, stringsAsFactors = FALSE)
-  names(bb)[4:5] <- c('status', 'source')
-  acc <- x$accepted_name
-  if (is.null(acc)) {
-    accdf <- data.frame(acc_id = NA, acc_name = NA, acc_rank = NA,
-                        acc_status = NA, acc_source = NA, stringsAsFactors = FALSE)
-  } else {
-    accdf <- data.frame(acc[c('id','name','rank','name_status','source_database')], stringsAsFactors = FALSE)
-    names(accdf) <- c('acc_id','acc_name','acc_rank','acc_status','acc_source')
-  }
-  cbind(bb, accdf)
 }

@@ -1,0 +1,998 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Abies%20koreana?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:29 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '762'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"Abies koreana","result":[{"taxonid":31244,"scientific_name":"Abies
+        koreana","kingdom":"PLANTAE","phylum":"TRACHEOPHYTA","class":"PINOPSIDA","order":"PINALES","family":"PINACEAE","genus":"Abies","main_common_name":"Korean
+        Fir","authority":"E.H.Wilson","published_year":2011,"assessment_date":"2010-09-07","category":"EN","criteria":"B2ab(ii,iii,v)","population_trend":"Decreasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"Kim,
+        Y.-S., Chang, C.-S., Kim, C.-S. & Gardner, M.","reviewer":"Thomas, P. & Farjon,
+        A.","aoo_km2":"12","eoo_km2":null,"elevation_upper":1900,"elevation_lower":1000,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":null,"amended_reason":null}]}'
+  recorded_at: 2019-01-24 22:50:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/id/31244?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:30 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '754'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"31244","result":[{"taxonid":31244,"scientific_name":"Abies
+        koreana","kingdom":"PLANTAE","phylum":"TRACHEOPHYTA","class":"PINOPSIDA","order":"PINALES","family":"PINACEAE","genus":"Abies","main_common_name":"Korean
+        Fir","authority":"E.H.Wilson","published_year":2011,"assessment_date":"2010-09-07","category":"EN","criteria":"B2ab(ii,iii,v)","population_trend":"Decreasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"Kim,
+        Y.-S., Chang, C.-S., Kim, C.-S. & Gardner, M.","reviewer":"Thomas, P. & Farjon,
+        A.","aoo_km2":"12","eoo_km2":null,"elevation_upper":1900,"elevation_lower":1000,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":null,"amended_reason":null}]}'
+  recorded_at: 2019-01-24 22:50:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/31244?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:30 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '195'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"31244","result":[{"year":"2011","code":"EN","category":"Endangered"},{"year":"1998","code":"LR/nt","category":"Lower
+        Risk/near threatened"},{"year":"1998","code":"R","category":"Rare"}]}'
+  recorded_at: 2019-01-24 22:50:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/31244?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:31 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '149'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"31244","count":1,"result":[{"code":"KR","country":"Korea,
+        Republic of","presence":"Extant","origin":"Native","distribution_code":"Native"}]}'
+  recorded_at: 2019-01-24 22:50:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Xylopia%20collina?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:32 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '935'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"Xylopia collina","result":[{"taxonid":158354,"scientific_name":"Xylopia
+        collina","kingdom":"PLANTAE","phylum":"TRACHEOPHYTA","class":"MAGNOLIOPSIDA","order":"MAGNOLIALES","family":"ANNONACEAE","genus":"Xylopia","main_common_name":null,"authority":"Diels","published_year":2009,"assessment_date":"2006-03-02","category":"EN","criteria":"B1ab(iii)","population_trend":"Decreasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"Eastern
+        Arc Mountains & Coastal Forests CEPF Plant Assessment Project","reviewer":"Beentje,
+        H., Gereau, R., Kabuye, C., Kalema, J., Luke, Q., Lyaruu, H., Maunder, M.,
+        Mwachala, G., Ndangalasi, H., Njau, F. & Schatz, G.  (East African Plants
+        Red List Authority)","aoo_km2":"120","eoo_km2":"4999","elevation_upper":860,"elevation_lower":200,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":null,"amended_reason":null}]}'
+  recorded_at: 2019-01-24 22:50:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/id/158354?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:32 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '926'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"158354","result":[{"taxonid":158354,"scientific_name":"Xylopia
+        collina","kingdom":"PLANTAE","phylum":"TRACHEOPHYTA","class":"MAGNOLIOPSIDA","order":"MAGNOLIALES","family":"ANNONACEAE","genus":"Xylopia","main_common_name":null,"authority":"Diels","published_year":2009,"assessment_date":"2006-03-02","category":"EN","criteria":"B1ab(iii)","population_trend":"Decreasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"Eastern
+        Arc Mountains & Coastal Forests CEPF Plant Assessment Project","reviewer":"Beentje,
+        H., Gereau, R., Kabuye, C., Kalema, J., Luke, Q., Lyaruu, H., Maunder, M.,
+        Mwachala, G., Ndangalasi, H., Njau, F. & Schatz, G.  (East African Plants
+        Red List Authority)","aoo_km2":"120","eoo_km2":"4999","elevation_upper":860,"elevation_lower":200,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":null,"amended_reason":null}]}'
+  recorded_at: 2019-01-24 22:50:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/158354?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:33 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '80'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"158354","result":[{"year":"2009","code":"EN","category":"Endangered"}]}'
+  recorded_at: 2019-01-24 22:50:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/158354?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:33 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '264'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"158354","count":2,"result":[{"code":"MZ","country":"Mozambique","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"TZ","country":"Tanzania,
+        United Republic of","presence":"Extant","origin":"Native","distribution_code":"Native"}]}'
+  recorded_at: 2019-01-24 22:50:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Brugmansia%20versicolor?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:34 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '703'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"Brugmansia versicolor","result":[{"taxonid":38125,"scientific_name":"Brugmansia
+        versicolor","kingdom":"PLANTAE","phylum":"TRACHEOPHYTA","class":"MAGNOLIOPSIDA","order":"SOLANALES","family":"SOLANACEAE","genus":"Brugmansia","main_common_name":null,"authority":"Lagerh.","published_year":2014,"assessment_date":"2014-03-25","category":"EW","criteria":null,"population_trend":null,"marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"Hay,
+        A.","reviewer":"Scott, J.A.","aoo_km2":null,"eoo_km2":null,"elevation_upper":750,"elevation_lower":100,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":null,"amended_reason":null}]}'
+  recorded_at: 2019-01-24 22:50:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/id/38125?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:35 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '687'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"38125","result":[{"taxonid":38125,"scientific_name":"Brugmansia
+        versicolor","kingdom":"PLANTAE","phylum":"TRACHEOPHYTA","class":"MAGNOLIOPSIDA","order":"SOLANALES","family":"SOLANACEAE","genus":"Brugmansia","main_common_name":null,"authority":"Lagerh.","published_year":2014,"assessment_date":"2014-03-25","category":"EW","criteria":null,"population_trend":null,"marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"Hay,
+        A.","reviewer":"Scott, J.A.","aoo_km2":null,"eoo_km2":null,"elevation_upper":750,"elevation_lower":100,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":null,"amended_reason":null}]}'
+  recorded_at: 2019-01-24 22:50:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/38125?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:35 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '197'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"38125","result":[{"year":"2014","code":"EW","category":"Extinct
+        in the Wild"},{"year":"2004","code":"NT","category":"Near Threatened"},{"year":"1998","code":"VU","category":"Vulnerable"}]}'
+  recorded_at: 2019-01-24 22:50:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/38125?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:36 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '161'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"38125","count":1,"result":[{"code":"EC","country":"Ecuador","presence":"Extinct
+        Post-1500","origin":"Native","distribution_code":"Regionally Extinct"}]}'
+  recorded_at: 2019-01-24 22:50:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Achatinella%20buddii?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:37 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '714'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"Achatinella buddii","result":[{"taxonid":170,"scientific_name":"Achatinella
+        buddii","kingdom":"ANIMALIA","phylum":"MOLLUSCA","class":"GASTROPODA","order":"STYLOMMATOPHORA","family":"ACHATINELLIDAE","genus":"Achatinella","main_common_name":null,"authority":"Newcomb,
+        1853","published_year":1996,"assessment_date":"1996-08-01","category":"EX","criteria":null,"population_trend":null,"marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"Mollusc
+        Specialist Group","reviewer":"","aoo_km2":null,"eoo_km2":null,"elevation_upper":null,"elevation_lower":null,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":null,"amended_reason":null}]}'
+  recorded_at: 2019-01-24 22:50:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/id/170?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:38 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '699'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"170","result":[{"taxonid":170,"scientific_name":"Achatinella
+        buddii","kingdom":"ANIMALIA","phylum":"MOLLUSCA","class":"GASTROPODA","order":"STYLOMMATOPHORA","family":"ACHATINELLIDAE","genus":"Achatinella","main_common_name":null,"authority":"Newcomb,
+        1853","published_year":1996,"assessment_date":"1996-08-01","category":"EX","criteria":null,"population_trend":null,"marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"Mollusc
+        Specialist Group","reviewer":"","aoo_km2":null,"eoo_km2":null,"elevation_upper":null,"elevation_lower":null,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":null,"amended_reason":null}]}'
+  recorded_at: 2019-01-24 22:50:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/170?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:38 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '223'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"170","result":[{"year":"1996","code":"EX","category":"Extinct"},{"year":"1994","code":"Ex","category":"Extinct"},{"year":"1990","code":"Ex","category":"Extinct"},{"year":"1983","code":"E","category":"Endangered"}]}'
+  recorded_at: 2019-01-24 22:50:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/170?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:39 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '165'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"170","count":1,"result":[{"code":"US","country":"United States","presence":"Extinct
+        Post-1500","origin":"Native","distribution_code":"Regionally Extinct"}]}'
+  recorded_at: 2019-01-24 22:50:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Annona%20hystricoides?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:40 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '816'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"Annona hystricoides","result":[{"taxonid":42818,"scientific_name":"Annona
+        hystricoides","kingdom":"PLANTAE","phylum":"TRACHEOPHYTA","class":"MAGNOLIOPSIDA","order":"MAGNOLIALES","family":"ANNONACEAE","genus":"Annona","main_common_name":null,"authority":"A.H.Gentry","published_year":2003,"assessment_date":"2003-04-30","category":"CR","criteria":"A4c;
+        B1ab(iii)","population_trend":null,"marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"Muriel,
+        P. & Pitman, N.","reviewer":"Valencia, R., Pitman, N., Léon-Yánez, S. & Jørgensen,
+        P.M. (Ecuador Plants Red List Authority)","aoo_km2":null,"eoo_km2":null,"elevation_upper":null,"elevation_lower":null,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":null,"amended_reason":null}]}'
+  recorded_at: 2019-01-24 22:50:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/id/42818?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:41 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '802'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"42818","result":[{"taxonid":42818,"scientific_name":"Annona
+        hystricoides","kingdom":"PLANTAE","phylum":"TRACHEOPHYTA","class":"MAGNOLIOPSIDA","order":"MAGNOLIALES","family":"ANNONACEAE","genus":"Annona","main_common_name":null,"authority":"A.H.Gentry","published_year":2003,"assessment_date":"2003-04-30","category":"CR","criteria":"A4c;
+        B1ab(iii)","population_trend":null,"marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"Muriel,
+        P. & Pitman, N.","reviewer":"Valencia, R., Pitman, N., Léon-Yánez, S. & Jørgensen,
+        P.M. (Ecuador Plants Red List Authority)","aoo_km2":null,"eoo_km2":null,"elevation_upper":null,"elevation_lower":null,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":null,"amended_reason":null}]}'
+  recorded_at: 2019-01-24 22:50:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/42818?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:41 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '90'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"42818","result":[{"year":"2003","code":"CR","category":"Critically
+        Endangered"}]}'
+  recorded_at: 2019-01-24 22:50:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/42818?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:42 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '138'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"42818","count":1,"result":[{"code":"EC","country":"Ecuador","presence":"Extant","origin":"Native","distribution_code":"Native"}]}'
+  recorded_at: 2019-01-24 22:50:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Chamaecrista%20onusta?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:43 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '739'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"Chamaecrista onusta","result":[{"taxonid":19891952,"scientific_name":"Chamaecrista
+        onusta","kingdom":"PLANTAE","phylum":"TRACHEOPHYTA","class":"MAGNOLIOPSIDA","order":"FABALES","family":"FABACEAE","genus":"Chamaecrista","main_common_name":null,"authority":"H.S.Irwin
+        & Barneby","published_year":2012,"assessment_date":"2010-04-14","category":"VU","criteria":"B1ab(i,ii,iii)","population_trend":"Decreasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"Groom,
+        A.","reviewer":"Hilton-Taylor, C.","aoo_km2":null,"eoo_km2":"7380","elevation_upper":40,"elevation_lower":1,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":null,"amended_reason":null}]}'
+  recorded_at: 2019-01-24 22:50:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/id/19891952?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:44 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '728'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"19891952","result":[{"taxonid":19891952,"scientific_name":"Chamaecrista
+        onusta","kingdom":"PLANTAE","phylum":"TRACHEOPHYTA","class":"MAGNOLIOPSIDA","order":"FABALES","family":"FABACEAE","genus":"Chamaecrista","main_common_name":null,"authority":"H.S.Irwin
+        & Barneby","published_year":2012,"assessment_date":"2010-04-14","category":"VU","criteria":"B1ab(i,ii,iii)","population_trend":"Decreasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"Groom,
+        A.","reviewer":"Hilton-Taylor, C.","aoo_km2":null,"eoo_km2":"7380","elevation_upper":40,"elevation_lower":1,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":null,"amended_reason":null}]}'
+  recorded_at: 2019-01-24 22:50:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/19891952?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:44 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '82'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"19891952","result":[{"year":"2012","code":"VU","category":"Vulnerable"}]}'
+  recorded_at: 2019-01-24 22:50:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/19891952?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:45 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '140'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"19891952","count":1,"result":[{"code":"BR","country":"Brazil","presence":"Extant","origin":"Native","distribution_code":"Native"}]}'
+  recorded_at: 2019-01-24 22:50:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Cyornis%20lemprieri?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:46 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '758'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"Cyornis lemprieri","result":[{"taxonid":22709548,"scientific_name":"Cyornis
+        lemprieri","kingdom":"ANIMALIA","phylum":"CHORDATA","class":"AVES","order":"PASSERIFORMES","family":"MUSCICAPIDAE","genus":"Cyornis","main_common_name":"Palawan
+        Blue-flycatcher","authority":"(Sharpe, 1884)","published_year":2016,"assessment_date":"2016-10-01","category":"NT","criteria":null,"population_trend":"Decreasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"BirdLife
+        International","reviewer":"Butchart, S. & Symes, A.","aoo_km2":null,"eoo_km2":"50900","elevation_upper":null,"elevation_lower":null,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":null,"amended_reason":null}]}'
+  recorded_at: 2019-01-24 22:50:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/id/22709548?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:46 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '749'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"22709548","result":[{"taxonid":22709548,"scientific_name":"Cyornis
+        lemprieri","kingdom":"ANIMALIA","phylum":"CHORDATA","class":"AVES","order":"PASSERIFORMES","family":"MUSCICAPIDAE","genus":"Cyornis","main_common_name":"Palawan
+        Blue-flycatcher","authority":"(Sharpe, 1884)","published_year":2016,"assessment_date":"2016-10-01","category":"NT","criteria":null,"population_trend":"Decreasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"BirdLife
+        International","reviewer":"Butchart, S. & Symes, A.","aoo_km2":null,"eoo_km2":"50900","elevation_upper":null,"elevation_lower":null,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":null,"amended_reason":null}]}'
+  recorded_at: 2019-01-24 22:50:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/22709548?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:47 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '524'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"22709548","result":[{"year":"2016","code":"NT","category":"Near
+        Threatened"},{"year":"2013","code":"NT","category":"Near Threatened"},{"year":"2012","code":"NT","category":"Near
+        Threatened"},{"year":"2008","code":"NT","category":"Near Threatened"},{"year":"2004","code":"NT","category":"Near
+        Threatened"},{"year":"2000","code":"LR/nt","category":"Lower Risk/near threatened"},{"year":"1994","code":"LR/lc","category":"Lower
+        Risk/least concern"},{"year":"1988","code":"LR/lc","category":"Lower Risk/least
+        concern"}]}'
+  recorded_at: 2019-01-24 22:50:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/22709548?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:47 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '145'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"22709548","count":1,"result":[{"code":"PH","country":"Philippines","presence":"Extant","origin":"Native","distribution_code":"Native"}]}'
+  recorded_at: 2019-01-24 22:50:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Frailea%20pumila?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:48 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '803'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"Frailea pumila","result":[{"taxonid":152195,"scientific_name":"Frailea
+        pumila","kingdom":"PLANTAE","phylum":"TRACHEOPHYTA","class":"MAGNOLIOPSIDA","order":"CARYOPHYLLALES","family":"CACTACEAE","genus":"Frailea","main_common_name":null,"authority":"(Lem.)
+        Britton &amp; Rose","published_year":2017,"assessment_date":"2010-06-04","category":"LC","criteria":null,"population_trend":"Stable","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"Larocca,
+        J., Machado, M. & Duarte, W.","reviewer":"Goettsch, B.K. & Superina, M.","aoo_km2":null,"eoo_km2":null,"elevation_upper":300,"elevation_lower":100,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":true,"amended_reason":"The
+        species distribution map has been added."}]}'
+  recorded_at: 2019-01-24 22:50:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/id/152195?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:49 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '795'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"152195","result":[{"taxonid":152195,"scientific_name":"Frailea
+        pumila","kingdom":"PLANTAE","phylum":"TRACHEOPHYTA","class":"MAGNOLIOPSIDA","order":"CARYOPHYLLALES","family":"CACTACEAE","genus":"Frailea","main_common_name":null,"authority":"(Lem.)
+        Britton &amp; Rose","published_year":2017,"assessment_date":"2010-06-04","category":"LC","criteria":null,"population_trend":"Stable","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"Larocca,
+        J., Machado, M. & Duarte, W.","reviewer":"Goettsch, B.K. & Superina, M.","aoo_km2":null,"eoo_km2":null,"elevation_upper":300,"elevation_lower":100,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":true,"amended_reason":"The
+        species distribution map has been added."}]}'
+  recorded_at: 2019-01-24 22:50:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/152195?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:50 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '83'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"152195","result":[{"year":"2013","code":"LC","category":"Least
+        Concern"}]}'
+  recorded_at: 2019-01-24 22:50:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/152195?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 22:50:51 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '444'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"152195","count":4,"result":[{"code":"AR","country":"Argentina","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"BR","country":"Brazil","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"PY","country":"Paraguay","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"UY","country":"Uruguay","presence":"Extant","origin":"Native","distribution_code":"Native"}]}'
+  recorded_at: 2019-01-24 22:50:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0

@@ -12,7 +12,7 @@ tpl_get(x, family = NULL, ...)
 \item{family}{If you want just one, or >1 family, but not all, list
 them in a vector.}
 
-\item{...}{(list) Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{(list) Curl options passed on to \code{\link[crul]{verb-GET}}}
 }
 \value{
 Returns nothing to console, except a message and progress bar.

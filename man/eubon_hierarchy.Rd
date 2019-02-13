@@ -24,7 +24,7 @@ from any of the providers. If the timeout is exceeded the service will just
 return the responses that have been received so far. The default timeout is
 0 ms (wait for ever)}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options passed on to \code{\link[crul]{verb-GET}}}
 }
 \description{
 EUBON hierarchy
@@ -42,3 +42,4 @@ eubon_hierarchy(id = "urn:lsid:marinespecies.org:taxname:274350", 'worms')
 Other eubon-methods: \code{\link{eubon_capabilities}},
   \code{\link{eubon_children}}, \code{\link{eubon}}
 }
+\concept{eubon-methods}

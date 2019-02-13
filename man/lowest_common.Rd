@@ -19,11 +19,14 @@ lowest_common(...)
 
 \method{lowest_common}{tsn}(x, class_list = NULL, low_rank = NULL, ...)
 
-\method{lowest_common}{gbifid}(x, class_list = NULL, low_rank = NULL, ...)
+\method{lowest_common}{gbifid}(x, class_list = NULL, low_rank = NULL,
+  ...)
 
-\method{lowest_common}{colid}(x, class_list = NULL, low_rank = NULL, ...)
+\method{lowest_common}{colid}(x, class_list = NULL, low_rank = NULL,
+  ...)
 
-\method{lowest_common}{tolid}(x, class_list = NULL, low_rank = NULL, ...)
+\method{lowest_common}{tolid}(x, class_list = NULL, low_rank = NULL,
+  ...)
 }
 \arguments{
 \item{...}{Other arguments passed to \code{\link[taxize]{get_tsn}},
@@ -34,7 +37,8 @@ lowest_common(...)
 query.}
 
 \item{db}{character; database to query. either \code{ncbi}, \code{itis},
-\code{gbif}, \code{col}, or \code{tol}}
+\code{gbif}, \code{col}, or \code{tol}. If using ncbi, we recommend
+getting an API key; see \code{\link{taxize-authentication}}}
 
 \item{rows}{(numeric) Any number from 1 to infinity. If the default NA,
 all rows are considered. Note that this parameter is ignored if you pass in

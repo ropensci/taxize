@@ -1,4 +1,3 @@
-# tests for eol_ping fxn in taxize
 context("eol_ping")
 
 test_that("eol_ping returns the correct value", {

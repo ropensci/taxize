@@ -5,8 +5,9 @@
 #' @param get (character) The ranks of the taxonomic name to get, see
 #' \code{\link{rank_ref}}. required.
 #' @param db (character) The database to search from: 'itis', 'ncbi' or 'both'.
-#'  If 'both' both NCBI and ITIS will be queried. Result will be the union of
-#'  both.
+#' If 'both' both NCBI and ITIS will be queried. Result will be the union of
+#' both. If using ncbi, we recommend getting an API key; see 
+#' \code{\link{taxize-authentication}}
 #' @param pref (character) If db = 'both', sets the preference for the union.
 #' Either 'ncbi' (default) or 'itis'. Currently not implemented.
 #' @param messages (logical) If \code{TRUE} the actual taxon queried is printed
@@ -53,7 +54,7 @@ tax_name <- function(query, get, db = "itis", pref = 'ncbi', messages = TRUE,
 
   if (missing(get)) stop("you must supply a 'get' value", call. = FALSE)
   db <- match.arg(db, c('itis', 'ncbi', 'both'))
-  if (db == 'both' & !pref %in% c('ncbi', 'itis')) {
+  if (db == 'both' && !pref %in% c('ncbi', 'itis')) {
     stop("if db=both, pref must be either 'itis' or 'ncbi'!\n", call. = FALSE)
   }
 
@@ -75,8 +76,8 @@ tax_name <- function(query, get, db = "itis", pref = 'ncbi', messages = TRUE,
 }
 
 do_ncbi <- function(query, get, messages, both=FALSE, rows = NA, ...) {
-  uid <- get_uid(query, messages = messages, ...)
-  if (is.na(uid)) {
+  uid <- get_uid(query, messages = messages, rows = rows, ...)
+  if (all(is.na(uid))) {
     if (messages) message("No UID found for species '", query, "'!\n")
     if (both) {
       c(query, rep(NA, length(get))) 
@@ -104,7 +105,7 @@ do_ncbi <- function(query, get, messages, both=FALSE, rows = NA, ...) {
 do_itis <- function(query, get, messages, both = FALSE, rows = NA, ...){
   tsn <- get_tsn(query, searchtype = "scientific", messages = messages,
                  rows = rows, ...)
-  if (is.na(tsn)) {
+  if (all(is.na(tsn))) {
     if (messages) message("No TSN found for species '", query, "'!\n")
     if (both) {
       c(query, rep(NA, length(get))) 

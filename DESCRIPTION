@@ -5,30 +5,67 @@ Description: Interacts with a suite of web 'APIs' for taxonomic tasks,
     species names, getting taxonomic hierarchies, fetching downstream and
     upstream taxonomic names, getting taxonomic synonyms, converting
     scientific to common names and vice versa, and more.
-Version: 0.9.3.9213
+Version: 0.9.5.9100
 License: MIT + file LICENSE
-URL: https://github.com/ropensci/taxize
+URL: https://github.com/ropensci/taxize (devel), 
+    https://ropensci.github.io/taxize-book/ (user manual)
 BugReports: https://github.com/ropensci/taxize/issues
-Authors@R: c(
-    person("Scott", "Chamberlain", role = c("aut", "cre"), 
-        email = "myrmecocystus@gmail.com", 
-        comment = c(ORCID = "0000-0003-1444-9135")),
-    person("Eduard", "Szoecs", role = "aut"),
-    person("Zachary", "Foster", role = "aut"),
-    person("Zebulun", "Arendsee", role = "aut"),
-    person("Carl", "Boettiger", role = "ctb"),
-    person("Karthik", "Ram", role = "ctb"),
-    person("Ignasi", "Bartomeus", role = "ctb"),
-    person("John", "Baumgartner", role = "ctb"),
-    person("James", "O'Donnell", role = "ctb"),
-    person("Jari", "Oksanen", role = "ctb"),
-    person("Bastian Greshake", "Tzovaras", role = "ctb"),
-    person("Philippe", "Marchand", role = "ctb"),
-    person("Vinh", "Tran", role = "ctb")
-  )
+Authors@R:
+    c(person(given = "Scott",
+             family = "Chamberlain",
+             role = c("aut", "cre"),
+             email = "myrmecocystus@gmail.com",
+             comment = c(ORCID = "0000-0003-1444-9135")),
+      person(given = "Eduard",
+             family = "Szoecs",
+             role = "aut"),
+      person(given = "Zachary",
+             family = "Foster",
+             role = "aut"),
+      person(given = "Zebulun",
+             family = "Arendsee",
+             role = "aut"),
+      person(given = "Carl",
+             family = "Boettiger",
+             role = "ctb"),
+      person(given = "Karthik",
+             family = "Ram",
+             role = "ctb"),
+      person(given = "Ignasi",
+             family = "Bartomeus",
+             role = "ctb"),
+      person(given = "John",
+             family = "Baumgartner",
+             role = "ctb"),
+      person(given = "James",
+             family = "O'Donnell",
+             role = "ctb"),
+      person(given = "Jari",
+             family = "Oksanen",
+             role = "ctb"),
+      person(given = "Bastian Greshake",
+             family = "Tzovaras",
+             role = "ctb"),
+      person(given = "Philippe",
+             family = "Marchand",
+             role = "ctb"),
+      person(given = "Vinh",
+             family = "Tran",
+             role = "ctb"),
+      person(given = "Maëlle",
+             family = "Salmon",
+             role = "ctb"),
+      person(given = "Gaopeng", 
+             family = "Li",
+             role = "ctb"),
+      person(given = "rOpenSci",
+             role = "fnd",
+             comment = "https://ropensci.org/"))
 LazyLoad: yes
 LazyData: yes
 VignetteBuilder: knitr
+Encoding: UTF-8
+Language: en-US
 Depends:
     R(>= 3.2.1)
 Imports:
@@ -36,9 +73,8 @@ Imports:
     methods,
     stats,
     utils,
-    crul (>= 0.4.0),
-    httr (>= 1.2.1),
-    xml2 (>= 1.0.0),
+    crul (>= 0.7.0),
+    xml2 (>= 1.2.0),
     jsonlite,
     reshape2,
     stringr,
@@ -46,22 +82,27 @@ Imports:
     foreach,
     ape,
     zoo,
-    bold (>= 0.3.5),
+    bold (>= 0.8.6),
     data.table,
-    rredlist (>= 0.3.0),
+    rredlist (>= 0.5.0),
     rotl (>= 3.0.0),
-    ritis (>= 0.5.0),
+    ritis (>= 0.7.6),
     tibble (>= 1.2),
-    worrms (>= 0.1.0),
-    natserv (>= 0.1.4),
-    wikitaxa (>= 0.1.4),
-    taxa (>= 0.1.0.9113)
+    worrms (>= 0.3.2),
+    natserv (>= 0.3.0),
+    wikitaxa (>= 0.3.0)
+    taxa (>= 0.3.2)
 Suggests:
     testthat,
     knitr,
     vegan
 Remotes: ropensci/taxa@taxize-compat-changes
-RoxygenNote: 6.0.1
+Suggests:
+    testthat,
+    knitr,
+    vegan,
+    vcr
+RoxygenNote: 6.1.1
 X-schema.org-applicationCategory: Taxonomy
 X-schema.org-keywords: taxonomy, biology, nomenclature, JSON, API, web, api-client, identifiers, species, names
 X-schema.org-isPartOf: https://ropensci.org

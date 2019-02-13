@@ -65,7 +65,7 @@ below.}
 \item{parent}{(character) A parent name (i.e., the parent of the target search
 taxon). Optional. See \code{Filtering} below.}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options passed on to \code{\link[crul]{verb-GET}}}
 
 \item{x}{Input to \code{\link{as.boldid}}}
 
@@ -112,11 +112,13 @@ get_boldid(searchterm="Osmi", fuzzy=TRUE, rows = 1:10)
 get_boldid(searchterm=c("Osmi","Aga"), fuzzy=TRUE, rows = 1)
 get_boldid(searchterm=c("Osmi","Aga"), fuzzy=TRUE, rows = 1:3)
 
+# found
+get_boldid('Epicordulia princeps')
+get_boldid('Arigomphus furcifer')
+
 # When not found
 get_boldid("howdy")
 get_boldid(c("Chironomus riparius", "howdy"))
-get_boldid('Epicordulia princeps')
-get_boldid('Arigomphus furcifer')
 get_boldid("Cordulegaster erronea")
 get_boldid("Nasiaeshna pentacantha")
 
@@ -172,3 +174,4 @@ Other taxonomic-ids: \code{\link{get_colid}},
   \code{\link{get_tsn}}, \code{\link{get_uid}},
   \code{\link{get_wiki}}, \code{\link{get_wormsid}}
 }
+\concept{taxonomic-ids}

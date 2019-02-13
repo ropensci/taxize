@@ -4,7 +4,8 @@
 #' @param x Vector of taxa names (character) or id (character or numeric) to
 #' query.
 #' @param db character; database to query. either \code{ncbi}, \code{itis},
-#' \code{gbif}, \code{col}, or \code{tol}
+#' \code{gbif}, \code{col}, or \code{tol}. If using ncbi, we recommend
+#' getting an API key; see \code{\link{taxize-authentication}}
 #' @param rows (numeric) Any number from 1 to infinity. If the default NA,
 #' all rows are considered. Note that this parameter is ignored if you pass in
 #' a taxonomic id of any of the acceptable classes: tsn, colid, gbifid, tolid.

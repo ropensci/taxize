@@ -1,0 +1,260 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://www.indexfungorum.org/ixfwebservice/fungus.asmx/NameSearch?SearchText=Gymnopus&AnywhereInText=true&MaxNumber=2
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx
+      date: Thu, 24 Jan 2019 01:37:25 GMT
+      content-type: text/xml; charset=utf-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      keep-alive: timeout=20
+      vary: Accept-Encoding
+      cache-control: private, max-age=0
+      x-aspnet-version: 2.0.50727
+      x-powered-by: ASP.NET
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<NewDataSet>\r\n  <IndexFungorum>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS>Agaricus familia Gymnopus</NAME_x0020_OF_x0020_FUNGUS>\r\n
+        \   <AUTHORS>Pers.</AUTHORS>\r\n    <INFRASPECIFIC_x0020_RANK>infragen.</INFRASPECIFIC_x0020_RANK>\r\n
+        \   <INFRASPECIFIC_x0020_EPITHET>Gymnopus</INFRASPECIFIC_x0020_EPITHET>\r\n
+        \   <PAGE>[xii]</PAGE>\r\n    <YEAR_x0020_OF_x0020_PUBLICATION>1800</YEAR_x0020_OF_x0020_PUBLICATION>\r\n
+        \   <EDITORIAL_x0020_COMMENT>Published as 'familia octava'</EDITORIAL_x0020_COMMENT>\r\n
+        \   <NOMENCLATURAL_x0020_COMMENT>Nom. inval., Art. 37.6 (Melbourne)</NOMENCLATURAL_x0020_COMMENT>\r\n
+        \   <CORRECTION>http://gallica.bnf.fr/ark:/12148/bpt6k979062/f11.image.r=(text:Persoon)%20AND%20(categories:DroitsSpec.langEN</CORRECTION>\r\n
+        \   <LITERATURE_x0020_LINK>10765</LITERATURE_x0020_LINK>\r\n    <STS_x0020_FLAG>g</STS_x0020_FLAG>\r\n
+        \   <RECORD_x0020_NUMBER>700005</RECORD_x0020_NUMBER>\r\n    <BASIONYM_x0020_RECORD_x0020_NUMBER>700005</BASIONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <PROTONYM_x0020_RECORD_x0020_NUMBER>700005</PROTONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17030</NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME>Gymnopus</CURRENT_x0020_NAME>\r\n    <CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>17703</CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17703</CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <UpdatedBy>sa</UpdatedBy>\r\n    <AddedBy>CABI_UK\\KIRK</AddedBy>\r\n
+        \   <UpdatedDate>2015-11-12T09:56:59.1+00:00</UpdatedDate>\r\n    <AddedDate>2007-01-08T09:05:00+00:00</AddedDate>\r\n
+        \   <UUID>994ed421-782f-4686-94aa-85d0f73c1d36</UUID>\r\n  </IndexFungorum>\r\n
+        \ <IndexFungorum>\r\n    <NAME_x0020_OF_x0020_FUNGUS>Agaricus sect. Gymnopus</NAME_x0020_OF_x0020_FUNGUS>\r\n
+        \   <AUTHORS>Pers.</AUTHORS>\r\n    <INFRASPECIFIC_x0020_RANK>sect.</INFRASPECIFIC_x0020_RANK>\r\n
+        \   <INFRASPECIFIC_x0020_EPITHET>Gymnopus</INFRASPECIFIC_x0020_EPITHET>\r\n
+        \   <TYPIFICATION_x0020_DETAILS>144144$Agaricus purus Pers. 1794</TYPIFICATION_x0020_DETAILS>\r\n
+        \   <VOLUME>2</VOLUME>\r\n    <PAGE>302</PAGE>\r\n    <YEAR_x0020_OF_x0020_PUBLICATION>1801</YEAR_x0020_OF_x0020_PUBLICATION>\r\n
+        \   <EDITORIAL_x0020_COMMENT>Published as 'sectio tertia'</EDITORIAL_x0020_COMMENT>\r\n
+        \   <CORRECTION>$Nhttp://www.librifungorum.org/Image.asp?ItemID=82&amp;ImageFileName=0302b.jpg</CORRECTION>\r\n
+        \   <LITERATURE_x0020_LINK>760</LITERATURE_x0020_LINK>\r\n    <STS_x0020_FLAG>g</STS_x0020_FLAG>\r\n
+        \   <RECORD_x0020_NUMBER>700943</RECORD_x0020_NUMBER>\r\n    <BASIONYM_x0020_RECORD_x0020_NUMBER>700943</BASIONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <PROTONYM_x0020_RECORD_x0020_NUMBER>700943</PROTONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17030</NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME>Gymnopus</CURRENT_x0020_NAME>\r\n    <CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>17703</CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17703</CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <UpdatedBy>sa</UpdatedBy>\r\n    <AddedBy>CABI_UK\\KIRK</AddedBy>\r\n
+        \   <UpdatedDate>2018-10-13T16:57:31.41+01:00</UpdatedDate>\r\n    <AddedDate>2008-09-25T14:06:00+01:00</AddedDate>\r\n
+        \   <UUID>c8f5f616-88cb-4d99-8a22-9e74e77fc7b2</UUID>\r\n  </IndexFungorum>\r\n</NewDataSet>"
+  recorded_at: 2019-01-24 01:38:04 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://www.indexfungorum.org/ixfwebservice/fungus.asmx/NameSearch?SearchText=Gymnopus&AnywhereInText=true&MaxNumber=10
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx
+      date: Thu, 24 Jan 2019 01:37:30 GMT
+      content-type: text/xml; charset=utf-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      keep-alive: timeout=20
+      vary: Accept-Encoding
+      cache-control: private, max-age=0
+      x-aspnet-version: 2.0.50727
+      x-powered-by: ASP.NET
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<NewDataSet>\r\n  <IndexFungorum>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS>Agaricus familia Gymnopus</NAME_x0020_OF_x0020_FUNGUS>\r\n
+        \   <AUTHORS>Pers.</AUTHORS>\r\n    <INFRASPECIFIC_x0020_RANK>infragen.</INFRASPECIFIC_x0020_RANK>\r\n
+        \   <INFRASPECIFIC_x0020_EPITHET>Gymnopus</INFRASPECIFIC_x0020_EPITHET>\r\n
+        \   <PAGE>[xii]</PAGE>\r\n    <YEAR_x0020_OF_x0020_PUBLICATION>1800</YEAR_x0020_OF_x0020_PUBLICATION>\r\n
+        \   <EDITORIAL_x0020_COMMENT>Published as 'familia octava'</EDITORIAL_x0020_COMMENT>\r\n
+        \   <NOMENCLATURAL_x0020_COMMENT>Nom. inval., Art. 37.6 (Melbourne)</NOMENCLATURAL_x0020_COMMENT>\r\n
+        \   <CORRECTION>http://gallica.bnf.fr/ark:/12148/bpt6k979062/f11.image.r=(text:Persoon)%20AND%20(categories:DroitsSpec.langEN</CORRECTION>\r\n
+        \   <LITERATURE_x0020_LINK>10765</LITERATURE_x0020_LINK>\r\n    <STS_x0020_FLAG>g</STS_x0020_FLAG>\r\n
+        \   <RECORD_x0020_NUMBER>700005</RECORD_x0020_NUMBER>\r\n    <BASIONYM_x0020_RECORD_x0020_NUMBER>700005</BASIONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <PROTONYM_x0020_RECORD_x0020_NUMBER>700005</PROTONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17030</NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME>Gymnopus</CURRENT_x0020_NAME>\r\n    <CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>17703</CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17703</CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <UpdatedBy>sa</UpdatedBy>\r\n    <AddedBy>CABI_UK\\KIRK</AddedBy>\r\n
+        \   <UpdatedDate>2015-11-12T09:56:59.1+00:00</UpdatedDate>\r\n    <AddedDate>2007-01-08T09:05:00+00:00</AddedDate>\r\n
+        \   <UUID>994ed421-782f-4686-94aa-85d0f73c1d36</UUID>\r\n  </IndexFungorum>\r\n
+        \ <IndexFungorum>\r\n    <NAME_x0020_OF_x0020_FUNGUS>Agaricus sect. Gymnopus</NAME_x0020_OF_x0020_FUNGUS>\r\n
+        \   <AUTHORS>Pers.</AUTHORS>\r\n    <INFRASPECIFIC_x0020_RANK>sect.</INFRASPECIFIC_x0020_RANK>\r\n
+        \   <INFRASPECIFIC_x0020_EPITHET>Gymnopus</INFRASPECIFIC_x0020_EPITHET>\r\n
+        \   <TYPIFICATION_x0020_DETAILS>144144$Agaricus purus Pers. 1794</TYPIFICATION_x0020_DETAILS>\r\n
+        \   <VOLUME>2</VOLUME>\r\n    <PAGE>302</PAGE>\r\n    <YEAR_x0020_OF_x0020_PUBLICATION>1801</YEAR_x0020_OF_x0020_PUBLICATION>\r\n
+        \   <EDITORIAL_x0020_COMMENT>Published as 'sectio tertia'</EDITORIAL_x0020_COMMENT>\r\n
+        \   <CORRECTION>$Nhttp://www.librifungorum.org/Image.asp?ItemID=82&amp;ImageFileName=0302b.jpg</CORRECTION>\r\n
+        \   <LITERATURE_x0020_LINK>760</LITERATURE_x0020_LINK>\r\n    <STS_x0020_FLAG>g</STS_x0020_FLAG>\r\n
+        \   <RECORD_x0020_NUMBER>700943</RECORD_x0020_NUMBER>\r\n    <BASIONYM_x0020_RECORD_x0020_NUMBER>700943</BASIONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <PROTONYM_x0020_RECORD_x0020_NUMBER>700943</PROTONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17030</NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME>Gymnopus</CURRENT_x0020_NAME>\r\n    <CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>17703</CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17703</CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <UpdatedBy>sa</UpdatedBy>\r\n    <AddedBy>CABI_UK\\KIRK</AddedBy>\r\n
+        \   <UpdatedDate>2018-10-13T16:57:31.41+01:00</UpdatedDate>\r\n    <AddedDate>2008-09-25T14:06:00+01:00</AddedDate>\r\n
+        \   <UUID>c8f5f616-88cb-4d99-8a22-9e74e77fc7b2</UUID>\r\n  </IndexFungorum>\r\n
+        \ <IndexFungorum>\r\n    <NAME_x0020_OF_x0020_FUNGUS>Amanita gymnopus</NAME_x0020_OF_x0020_FUNGUS>\r\n
+        \   <AUTHORS>Corner &amp; Bas</AUTHORS>\r\n    <PUBLISHED_x0020_LIST_x0020_REFERENCE>Index
+        of Fungi 3: 209</PUBLISHED_x0020_LIST_x0020_REFERENCE>\r\n    <SPECIFIC_x0020_EPITHET>gymnopus</SPECIFIC_x0020_EPITHET>\r\n
+        \   <INFRASPECIFIC_x0020_RANK>sp.</INFRASPECIFIC_x0020_RANK>\r\n    <VOLUME>2</VOLUME>\r\n
+        \   <PART>3</PART>\r\n    <PAGE>259</PAGE>\r\n    <YEAR_x0020_OF_x0020_PUBLICATION>1962</YEAR_x0020_OF_x0020_PUBLICATION>\r\n
+        \   <LOCATION>Malaya</LOCATION>\r\n    <CORRECTION>$Ihttp://www.librifungorum.org/Image.asp?ItemID=41&amp;ImageFileName=IXF3-209.jpg</CORRECTION>\r\n
+        \   <LITERATURE_x0020_LINK>18</LITERATURE_x0020_LINK>\r\n    <RECORD_x0020_NUMBER>326097</RECORD_x0020_NUMBER>\r\n
+        \   <BASIONYM_x0020_RECORD_x0020_NUMBER>326097</BASIONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <PROTONYM_x0020_RECORD_x0020_NUMBER>326097</PROTONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17045</NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME>Amanita gymnopus</CURRENT_x0020_NAME>\r\n    <CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>326097</CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17045</CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <GSD_x0020_FLAG>GSD25</GSD_x0020_FLAG>\r\n    <TAXONOMIC_x0020_REFEREE>Kew
+        Mycology (2015)</TAXONOMIC_x0020_REFEREE>\r\n    <SQLTimeStamp>AAAAAAhkq4M=</SQLTimeStamp>\r\n
+        \   <UpdatedBy>sa</UpdatedBy>\r\n    <AddedBy>EGHAM_SQL\\KIRK</AddedBy>\r\n
+        \   <UpdatedDate>2017-08-09T12:58:00.783+01:00</UpdatedDate>\r\n    <AddedDate>2004-05-18T08:24:00+01:00</AddedDate>\r\n
+        \   <UUID>7ffc3659-6997-4284-9d39-18489c5c962d</UUID>\r\n  </IndexFungorum>\r\n
+        \ <IndexFungorum>\r\n    <NAME_x0020_OF_x0020_FUNGUS>Collybia subgen. Gymnopus</NAME_x0020_OF_x0020_FUNGUS>\r\n
+        \   <AUTHORS>(Pers.) Krieglst.</AUTHORS>\r\n    <INFRASPECIFIC_x0020_RANK>subgen.</INFRASPECIFIC_x0020_RANK>\r\n
+        \   <INFRASPECIFIC_x0020_EPITHET>Gymnopus</INFRASPECIFIC_x0020_EPITHET>\r\n
+        \   <VOLUME>13</VOLUME>\r\n    <PAGE>34</PAGE>\r\n    <YEAR_x0020_OF_x0020_PUBLICATION>2000</YEAR_x0020_OF_x0020_PUBLICATION>\r\n
+        \   <EDITORIAL_x0020_COMMENT>Bibliographic error in basionym reference ['303'],
+        page should be '302'. Basionym cited as '&lt;i&gt;Agaricus&lt;/i&gt; (&lt;i&gt;Gymnopus&lt;/i&gt;)'</EDITORIAL_x0020_COMMENT>\r\n
+        \   <PUBLISHING_x0020_AUTHORS>Krieglsteiner, Ahnert, Endt, Enderle &amp; Ostrow</PUBLISHING_x0020_AUTHORS>\r\n
+        \   <LITERATURE_x0020_LINK>55</LITERATURE_x0020_LINK>\r\n    <BSM_x0020_LINK>113606</BSM_x0020_LINK>\r\n
+        \   <STS_x0020_FLAG>g</STS_x0020_FLAG>\r\n    <RECORD_x0020_NUMBER>700560</RECORD_x0020_NUMBER>\r\n
+        \   <BASIONYM_x0020_RECORD_x0020_NUMBER>700943</BASIONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <PROTONYM_x0020_RECORD_x0020_NUMBER>700943</PROTONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <IXF_x0020_RECORD_x0020_NUMBER>145382</IXF_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17339</NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <UpdatedBy>IUSR_KPPIND01</UpdatedBy>\r\n    <AddedBy>CABI_UK\\KIRK</AddedBy>\r\n
+        \   <UpdatedDate>2015-06-21T08:19:02.11+01:00</UpdatedDate>\r\n    <AddedDate>2007-06-12T13:30:00+01:00</AddedDate>\r\n
+        \   <UUID>4df4a8fe-32f2-4fba-8645-95f52386d3cc</UUID>\r\n  </IndexFungorum>\r\n
+        \ <IndexFungorum>\r\n    <NAME_x0020_OF_x0020_FUNGUS>Cortinarius gymnopus</NAME_x0020_OF_x0020_FUNGUS>\r\n
+        \   <AUTHORS>Rob. Henry</AUTHORS>\r\n    <PUBLISHED_x0020_LIST_x0020_REFERENCE>Index
+        of Fungi 5: 235</PUBLISHED_x0020_LIST_x0020_REFERENCE>\r\n    <SPECIFIC_x0020_EPITHET>gymnopus</SPECIFIC_x0020_EPITHET>\r\n
+        \   <INFRASPECIFIC_x0020_RANK>sp.</INFRASPECIFIC_x0020_RANK>\r\n    <VOLUME>99</VOLUME>\r\n
+        \   <PART>1</PART>\r\n    <PAGE>72</PAGE>\r\n    <YEAR_x0020_OF_x0020_PUBLICATION>1983</YEAR_x0020_OF_x0020_PUBLICATION>\r\n
+        \   <HOST>in coniferous forest</HOST>\r\n    <LOCATION>?France</LOCATION>\r\n
+        \   <EDITORIAL_x0020_COMMENT>Published as '&lt;i&gt;C.&lt;/i&gt; (&lt;i&gt;Hydrocybe&lt;/i&gt;)'</EDITORIAL_x0020_COMMENT>\r\n
+        \   <LITERATURE_x0020_LINK>2917</LITERATURE_x0020_LINK>\r\n    <RECORD_x0020_NUMBER>109323</RECORD_x0020_NUMBER>\r\n
+        \   <BASIONYM_x0020_RECORD_x0020_NUMBER>109323</BASIONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <PROTONYM_x0020_RECORD_x0020_NUMBER>109323</PROTONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17391</NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME>Cortinarius gymnopus</CURRENT_x0020_NAME>\r\n    <CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>109323</CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17391</CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <GSD_x0020_FLAG>GSD25</GSD_x0020_FLAG>\r\n    <TAXONOMIC_x0020_REFEREE>Kew
+        Mycology (2015)</TAXONOMIC_x0020_REFEREE>\r\n    <SQLTimeStamp>AAAAAAheHrE=</SQLTimeStamp>\r\n
+        \   <UpdatedBy>sa</UpdatedBy>\r\n    <AddedBy>EGHAM_SQL\\Administrator</AddedBy>\r\n
+        \   <UpdatedDate>2018-07-03T10:13:53.697+01:00</UpdatedDate>\r\n    <AddedDate>2001-09-06T09:33:00+01:00</AddedDate>\r\n
+        \   <UUID>f410ac03-2f97-44f4-a00d-57ef666175e8</UUID>\r\n  </IndexFungorum>\r\n
+        \ <IndexFungorum>\r\n    <NAME_x0020_OF_x0020_FUNGUS>Gymnopus</NAME_x0020_OF_x0020_FUNGUS>\r\n
+        \   <AUTHORS>(Pers.) Gray</AUTHORS>\r\n    <INFRASPECIFIC_x0020_RANK>gen.</INFRASPECIFIC_x0020_RANK>\r\n
+        \   <TYPIFICATION_x0020_DETAILS>486466$Gymnopus purus (Pers.) Gray 1821</TYPIFICATION_x0020_DETAILS>\r\n
+        \   <VOLUME>1</VOLUME>\r\n    <PAGE>627</PAGE>\r\n    <YEAR_x0020_OF_x0020_PUBLICATION>1821</YEAR_x0020_OF_x0020_PUBLICATION>\r\n
+        \   <EDITORIAL_x0020_COMMENT>Rejected against &lt;i&gt;Collybia&lt;/i&gt;
+        (Fr.) Staude 1857</EDITORIAL_x0020_COMMENT>\r\n    <NOMENCLATURAL_x0020_COMMENT>Nom.
+        rejic., see Arts 14.6, Ex. 5 and 14.7</NOMENCLATURAL_x0020_COMMENT>\r\n    <CORRECTION>http://biodiversitylibrary.org/page/30087306</CORRECTION>\r\n
+        \   <LITERATURE_x0020_LINK>1287</LITERATURE_x0020_LINK>\r\n    <STS_x0020_FLAG>g</STS_x0020_FLAG>\r\n
+        \   <RECORD_x0020_NUMBER>17703</RECORD_x0020_NUMBER>\r\n    <BASIONYM_x0020_RECORD_x0020_NUMBER>700943</BASIONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <PROTONYM_x0020_RECORD_x0020_NUMBER>700943</PROTONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17703</NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME>Gymnopus</CURRENT_x0020_NAME>\r\n    <CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>17703</CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17703</CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <UpdatedBy>sa</UpdatedBy>\r\n    <AddedBy>CABI_UK\\KIRK</AddedBy>\r\n
+        \   <UpdatedDate>2018-10-13T16:58:06.257+01:00</UpdatedDate>\r\n    <AddedDate>2006-11-20T14:45:00+00:00</AddedDate>\r\n
+        \   <UUID>b09b05ac-8031-11d5-bebb-00508bca8de8</UUID>\r\n  </IndexFungorum>\r\n
+        \ <IndexFungorum>\r\n    <NAME_x0020_OF_x0020_FUNGUS>Gymnopus</NAME_x0020_OF_x0020_FUNGUS>\r\n
+        \   <AUTHORS>(Quél.) Quél. ex Moug. &amp; Ferry</AUTHORS>\r\n    <INFRASPECIFIC_x0020_RANK>gen.</INFRASPECIFIC_x0020_RANK>\r\n
+        \   <PAGE>476 [108 repr.]</PAGE>\r\n    <YEAR_x0020_OF_x0020_PUBLICATION>1887</YEAR_x0020_OF_x0020_PUBLICATION>\r\n
+        \   <EDITORIAL_x0020_COMMENT>17703 $Gymnopus (Pers.) Roussel 1803</EDITORIAL_x0020_COMMENT>\r\n
+        \   <NOMENCLATURAL_x0020_COMMENT>Nom. illegit., Art. 53.1</NOMENCLATURAL_x0020_COMMENT>\r\n
+        \   <PUBLISHING_x0020_AUTHORS>Louis</PUBLISHING_x0020_AUTHORS>\r\n    <LITERATURE_x0020_LINK>6574</LITERATURE_x0020_LINK>\r\n
+        \   <STS_x0020_FLAG>g</STS_x0020_FLAG>\r\n    <RECORD_x0020_NUMBER>17704</RECORD_x0020_NUMBER>\r\n
+        \   <BASIONYM_x0020_RECORD_x0020_NUMBER>700497</BASIONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <PROTONYM_x0020_RECORD_x0020_NUMBER>700497</PROTONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17704</NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME>Suillus</CURRENT_x0020_NAME>\r\n    <CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>18623</CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>18623</CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <UpdatedBy>sa</UpdatedBy>\r\n    <AddedBy>CABI_UK\\KIRK</AddedBy>\r\n
+        \   <UpdatedDate>2015-11-12T09:56:42.037+00:00</UpdatedDate>\r\n    <AddedDate>2006-11-20T14:45:00+00:00</AddedDate>\r\n
+        \   <UUID>cca81aeb-b298-4d04-a96c-7b73acb0d2b8</UUID>\r\n  </IndexFungorum>\r\n
+        \ <IndexFungorum>\r\n    <NAME_x0020_OF_x0020_FUNGUS>Gymnopus acervatus</NAME_x0020_OF_x0020_FUNGUS>\r\n
+        \   <AUTHORS>(Fr.) Murrill</AUTHORS>\r\n    <SPECIFIC_x0020_EPITHET>acervatus</SPECIFIC_x0020_EPITHET>\r\n
+        \   <INFRASPECIFIC_x0020_RANK>sp.</INFRASPECIFIC_x0020_RANK>\r\n    <VOLUME>9</VOLUME>\r\n
+        \   <PART>5</PART>\r\n    <PAGE>362</PAGE>\r\n    <YEAR_x0020_OF_x0020_PUBLICATION>1916</YEAR_x0020_OF_x0020_PUBLICATION>\r\n
+        \   <CORRECTION>http://biodiversitylibrary.org/page/752051</CORRECTION>\r\n
+        \   <SANCTIONING_x0020_AUTHOR>Fr.</SANCTIONING_x0020_AUTHOR>\r\n    <LITERATURE_x0020_LINK>749</LITERATURE_x0020_LINK>\r\n
+        \   <RECORD_x0020_NUMBER>438401</RECORD_x0020_NUMBER>\r\n    <BASIONYM_x0020_RECORD_x0020_NUMBER>455640</BASIONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <PROTONYM_x0020_RECORD_x0020_NUMBER>455640</PROTONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17703</NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME>Connopus acervatus</CURRENT_x0020_NAME>\r\n    <CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>560151</CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>516031</CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <GSD_x0020_FLAG>GSD25</GSD_x0020_FLAG>\r\n    <SQLTimeStamp>AAAAAAhe0aM=</SQLTimeStamp>\r\n
+        \   <UpdatedBy>IUSR_KPPIND01</UpdatedBy>\r\n    <AddedBy>CABI_UK\\kirk</AddedBy>\r\n
+        \   <UpdatedDate>2015-06-21T08:19:02.11+01:00</UpdatedDate>\r\n    <AddedDate>2002-09-09T09:58:00+01:00</AddedDate>\r\n
+        \   <UUID>15178bfd-034e-4d68-a659-a3053bf6e712</UUID>\r\n  </IndexFungorum>\r\n
+        \ <IndexFungorum>\r\n    <NAME_x0020_OF_x0020_FUNGUS>Gymnopus agricola</NAME_x0020_OF_x0020_FUNGUS>\r\n
+        \   <AUTHORS>Murrill</AUTHORS>\r\n    <PUBLISHED_x0020_LIST_x0020_REFERENCE>Saccardo's
+        Syll. fung. XXIII: 75</PUBLISHED_x0020_LIST_x0020_REFERENCE>\r\n    <SPECIFIC_x0020_EPITHET>agricola</SPECIFIC_x0020_EPITHET>\r\n
+        \   <INFRASPECIFIC_x0020_RANK>sp.</INFRASPECIFIC_x0020_RANK>\r\n    <VOLUME>9</VOLUME>\r\n
+        \   <PART>5</PART>\r\n    <PAGE>360</PAGE>\r\n    <YEAR_x0020_OF_x0020_PUBLICATION>1916</YEAR_x0020_OF_x0020_PUBLICATION>\r\n
+        \   <LOCATION>New York</LOCATION>\r\n    <CORRECTION>http://biodiversitylibrary.org/page/752049</CORRECTION>\r\n
+        \   <LITERATURE_x0020_LINK>749</LITERATURE_x0020_LINK>\r\n    <RECORD_x0020_NUMBER>226782</RECORD_x0020_NUMBER>\r\n
+        \   <BASIONYM_x0020_RECORD_x0020_NUMBER>226782</BASIONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <PROTONYM_x0020_RECORD_x0020_NUMBER>226782</PROTONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17703</NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME>Gymnopus agricola</CURRENT_x0020_NAME>\r\n    <CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>226782</CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17703</CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <GSD_x0020_FLAG>GSD25</GSD_x0020_FLAG>\r\n    <TAXONOMIC_x0020_REFEREE>Kew
+        Mycology (2015)</TAXONOMIC_x0020_REFEREE>\r\n    <SQLTimeStamp>AAAAAAhe0aQ=</SQLTimeStamp>\r\n
+        \   <UpdatedBy>sa</UpdatedBy>\r\n    <AddedBy>EGHAM_SQL\\Administrator</AddedBy>\r\n
+        \   <UpdatedDate>2017-11-13T10:27:27.487+00:00</UpdatedDate>\r\n    <AddedDate>2001-09-10T14:06:00+01:00</AddedDate>\r\n
+        \   <UUID>71daddd7-0754-47bd-a99e-43a3551b7e6d</UUID>\r\n  </IndexFungorum>\r\n
+        \ <IndexFungorum>\r\n    <NAME_x0020_OF_x0020_FUNGUS>Gymnopus albidulus</NAME_x0020_OF_x0020_FUNGUS>\r\n
+        \   <AUTHORS>(Pat.) Murrill</AUTHORS>\r\n    <SPECIFIC_x0020_EPITHET>albidulus</SPECIFIC_x0020_EPITHET>\r\n
+        \   <INFRASPECIFIC_x0020_RANK>sp.</INFRASPECIFIC_x0020_RANK>\r\n    <VOLUME>9</VOLUME>\r\n
+        \   <PART>5</PART>\r\n    <PAGE>370</PAGE>\r\n    <YEAR_x0020_OF_x0020_PUBLICATION>1916</YEAR_x0020_OF_x0020_PUBLICATION>\r\n
+        \   <CORRECTION>http://biodiversitylibrary.org/page/752059</CORRECTION>\r\n
+        \   <LITERATURE_x0020_LINK>749</LITERATURE_x0020_LINK>\r\n    <RECORD_x0020_NUMBER>502471</RECORD_x0020_NUMBER>\r\n
+        \   <BASIONYM_x0020_RECORD_x0020_NUMBER>155339</BASIONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <PROTONYM_x0020_RECORD_x0020_NUMBER>155339</PROTONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17703</NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME>Fayodia albidula</CURRENT_x0020_NAME>\r\n    <CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>108882</CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17580</CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <GSD_x0020_FLAG>GSD25</GSD_x0020_FLAG>\r\n    <UpdatedBy>sa</UpdatedBy>\r\n
+        \   <AddedBy>CABI_UK\\KIRK</AddedBy>\r\n    <UpdatedDate>2015-11-12T11:56:27.19+00:00</UpdatedDate>\r\n
+        \   <AddedDate>2007-10-01T12:35:00+01:00</AddedDate>\r\n    <UUID>1980b4f3-76bf-4cb1-9dd1-b454500077f1</UUID>\r\n
+        \ </IndexFungorum>\r\n</NewDataSet>"
+  recorded_at: 2019-01-24 01:38:04 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0

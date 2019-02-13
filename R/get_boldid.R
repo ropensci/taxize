@@ -13,7 +13,7 @@
 #' input. If FALSE NA is returned for multiple matches.
 #' @param verbose logical; should progress be printed?
 #' @param x Input to \code{\link{as.boldid}}
-#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' @param ... Curl options passed on to \code{\link[crul]{verb-GET}}
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, all rows are
 #' considered. Note that this function still only gives back a boldid class object with one
 #' to many identifiers. See \code{\link[taxize]{get_boldid_}} to get back all, or a subset,
@@ -54,12 +54,14 @@
 #' get_boldid(searchterm="Osmi", fuzzy=TRUE, rows = 1:10)
 #' get_boldid(searchterm=c("Osmi","Aga"), fuzzy=TRUE, rows = 1)
 #' get_boldid(searchterm=c("Osmi","Aga"), fuzzy=TRUE, rows = 1:3)
+#' 
+#' # found
+#' get_boldid('Epicordulia princeps')
+#' get_boldid('Arigomphus furcifer')
 #'
 #' # When not found
 #' get_boldid("howdy")
 #' get_boldid(c("Chironomus riparius", "howdy"))
-#' get_boldid('Epicordulia princeps')
-#' get_boldid('Arigomphus furcifer')
 #' get_boldid("Cordulegaster erronea")
 #' get_boldid("Nasiaeshna pentacantha")
 #'
@@ -117,12 +119,17 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes = 'basic',
   assert(rank, "character")
   assert(division, "character")
   assert(parent, "character")
+  if (!is.na(rows)) {
+    assert(rows, c("numeric", "integer"))
+    stopifnot(rows > 0)
+  }
 
   fun <- function(x, ask, verbose, rows) {
     direct <- FALSE
     mssg(verbose, "\nRetrieving data for taxon '", x, "'\n")
     bold_df <- bold_search(name = x, fuzzy = fuzzy,
-                           dataTypes = dataTypes, includeTree = includeTree, ...)
+                           dataTypes = dataTypes,
+                           includeTree = includeTree, ...)
     mm <- NROW(bold_df) > 1
 
     if (!class(bold_df) == "data.frame") {
@@ -149,7 +156,7 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes = 'basic',
 
         # should return NA if spec not found
         if (nrow(bold_df) == 0) {
-          mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
+          mssg(verbose, m_not_found_sp_altclass)
           boldid <- NA_character_
           att <- 'not found'
         }
@@ -215,24 +222,20 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes = 'basic',
                 take <- as.numeric(take)
                 message("Input accepted, took taxon '", as.character(bold_df$target[take]), "'.\n")
                 boldid <-  bold_df$taxid[take]
-                att <- 'found'
+                att <- "found"
               } else {
                 boldid <- NA_character_
                 mssg(verbose, "\nReturned 'NA'!\n\n")
-                att <- 'not found'
+                att <- "not found"
               }
             }
           } else {
             if (length(boldid) == 1) {
               att <- "found"
             } else {
-              warning(
-                sprintf("More than one boldid found for taxon '%s'; refine query or set ask=TRUE",
-                        x),
-                call. = FALSE
-              )
+              warning(sprintf(m_more_than_one_found, "boldid", x), call. = FALSE)
               boldid <- NA_character_
-              att <- 'NA due to ask=FALSE & > 1 result'
+              att <- m_na_ask_false
             }
           }
         }

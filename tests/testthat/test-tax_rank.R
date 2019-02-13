@@ -1,13 +1,15 @@
 context("tax_rank")
 
 test_that("tax_rank returns the correct class", {
-  skip_on_cran()
-
-  A <- suppressMessages(tax_rank(c("Helianthus annuus", "Baetis"), db = "ncbi",
-                                 verbose=FALSE))
-  B <- suppressMessages(sw(tax_rank("Helianthus", db = "itis", verbose=FALSE)))
-  C <- suppressMessages(tax_rank(c("Helianthus annuus", "xxxxxx"), db = "ncbi",
-                                 verbose=FALSE))
+  skip_on_cran() # uses secrets
+  vcr::use_cassette("tax_rank", {
+    A <- suppressMessages(tax_rank(c("Helianthus annuus", "Baetis"),
+      db = "ncbi", messages = FALSE))
+    B <- suppressMessages(sw(tax_rank("Helianthus", db = "itis",
+      messages = FALSE, rows = 1)))
+    C <- suppressMessages(tax_rank(c("Helianthus annuus", "xxxxxx"),
+      db = "ncbi", messages = FALSE))
+  })
 
   expect_is(A, "list")
   expect_is(B, "list")
@@ -22,7 +24,9 @@ test_that("tax_rank returns the correct class", {
 })
 
 test_that("works with get_*() input", {
-  aa <- suppressMessages(tax_rank(get_boldid("Helianthus annuus")))
+  vcr::use_cassette("tax_rank_get_star_input", {
+    aa <- suppressMessages(tax_rank(get_boldid("Helianthus annuus")))
+  })
 
   expect_is(aa, "list")
   expect_equal(names(aa), "421377")

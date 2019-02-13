@@ -94,10 +94,3 @@ itis_downstream <- function(tsns, downto, intermediate = FALSE, ...) {
     stats::setNames(tmp, tolower(names(tmp)))
   }
 }
-
-which_rank <- function(x) {
-  which(sapply(rank_ref$ranks, function(z) {
-    any(unlist(strsplit(z, split = ",")) == x)
-  }, USE.NAMES = FALSE)
-  )
-}

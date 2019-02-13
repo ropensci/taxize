@@ -56,12 +56,11 @@
 #' @importFrom graphics plot
 #' @importFrom methods as is
 #' @importFrom stats as.dist hclust na.omit setNames aggregate complete.cases
+#' @importFrom crul HttpClient upload
 #' @importFrom zoo na.locf
 #' @importFrom utils URLencode citation download.file read.delim write.table tail
 #' @importFrom ape read.tree as.phylo.hclust plot.phylo
 #' @importFrom jsonlite fromJSON toJSON
-#' @importFrom httr GET POST content stop_for_status upload_file warn_for_status
-#' add_headers timeout config
 #' @importFrom data.table rbindlist setDF transpose
 #' @importFrom foreach foreach %do%
 #' @importFrom stringr str_extract str_split str_replace str_replace_all
@@ -85,7 +84,7 @@ NULL
 
 #' Lookup-table for IDs of taxonomic ranks
 #'
-#' data.frame of 36 rows, with 2 columns:
+#' data.frame of 43 rows, with 2 columns:
 #' \itemize{
 #'  \item rankid - a numeric rank id, consecutive
 #'  \item ranks - a comma separated vector of names that are considered
@@ -98,7 +97,7 @@ NULL
 #' Please let us know if there is a rank that occurs from one of the data
 #' sources \pkg{taxize} that we don't have in \code{rank_ref} dataset.
 #'
-#' Also let us know if you disagree with the ordering of ranks.
+#' Let us know if you disagree with the ordering of ranks.
 #'
 #' @name rank_ref
 #' @docType data
@@ -226,8 +225,46 @@ NULL
 #'  \code{phylomatic} in the package \pkg{brranching}
 #'  \item \code{\link{phylomatic_format}}: This function is defunct. See
 #'  \code{phylomatic_names} in the package \pkg{brranching}
+#'  \item \code{\link{iucn_summary_id}}: This function is defunct. Use 
+#'  \code{\link{iucn_summary}}
 #' }
 #'
 #' @name taxize-defunct
 #' @aliases defunct
+NULL
+
+#' Species names from Species Plantarum
+#'
+#' These names have been compiled from
+#' \href{https://en.wikipedia.org/wiki/Species_Plantarum}{\emph{Species Plantarum}} by
+#' \href{https://en.wikipedia.org/wiki/Carl_Linnaeus}{Carl Linnaeus} originally
+#' published in 1753. It is the first work to consistently apply
+#' \href{https://en.wikipedia.org/wiki/Binomial_nomenclature}{binomial names}
+#' and was the starting point for the naming of plants. The book lists every
+#' species of plant known at the time, classified into
+#' \href{https://en.wikipedia.org/wiki/Genus}{genera}. The dataset provides a
+#' useful reference point to see how taxonomic names have changed since their
+#' inception. The names were transcribed by Robert W. Kiger.
+#'
+#' @format A data frame with 5940 rows and 3 variables: \describe{
+#'   \item{genus}{First part of the binomial species name for each species
+#'   within the \href{https://en.wikipedia.org/wiki/Genus}{genus}}
+#'   \item{epithet}{specific epithet or second part of the binomial species name
+#'   for each \href{https://en.wikipedia.org/wiki/Species}{species}}
+#'   \item{page_number}{The following abbreviations sometimes are used in the
+#'   page_number field.  \itemize{\item{"add."} {refers to addenda that appear
+#'   on the unnumbered last page of the index in volume
+#'   two.}\item{"err."}{refers to the unnumbered page of errata that appears
+#'   following the index in volume two.}\item{"canc."}{following a page number
+#'   indicates that the binomial appeared on the cancelled version of that page
+#'   and does not appear on its replacement (as in the 1957–1959 facsimile
+#'   edition).}}}}
+#' @source \href{http://fmhibd.library.cmu.edu/HIBD-DB/Species/home.php}{Hunt
+#'   Institute for Botanical Documentation}
+#' @name species_plantarum_binomials
+#' @references Linnaeus, C. 1753. Species Plantarum. 2 vols. Salvius, Stockholm.
+#'   [Facsimile edition, 1957–1959, Ray Society, London.]
+#' @author Carl Linnaeus
+#' @docType data
+#' @keywords data
 NULL

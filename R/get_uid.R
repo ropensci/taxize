@@ -161,17 +161,22 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
   assert(rank_query, "character")
   assert(division_filter, "character")
   assert(rank_filter, "character")
-  key <- getkey(key, service="entrez")
+  if (!is.na(rows)) {
+    assert(rows, c("numeric", "integer"))
+    stopifnot(rows > 0)
+  }
+  key <- getkey(key, service = "entrez")
 
   fun <- function(sciname, ask, messages, rows, ...) {
     direct <- FALSE
     mssg(messages, "\nRetrieving data for taxon '", sciname, "'\n")
     rank <- targname <- NA_character_
     sciname <- gsub(" ", "+", sciname)
-    if (!is.null(modifier)) sciname <- paste0(sciname, 
-      sprintf("[%s]", modifier))
+    if (!is.null(modifier)) 
+      sciname <- paste0(sciname, sprintf("[%s]", modifier))
     term <- sciname
-    if (!is.null(rank_query)) term <- paste0(term, sprintf(" AND %s[Rank]", rank_query))
+    if (!is.null(rank_query)) 
+      term <- paste0(term, sprintf(" AND %s[Rank]", rank_query))
     try_again_errors <- c("Could not resolve host: eutils.ncbi.nlm.nih.gov")
     query_args <- tc(list(db = "taxonomy", term = term, api_key = key))
     raw_xml_result <- repeat_until_it_works(try_again_errors,
@@ -192,8 +197,8 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
     }
 
     # not found on ncbi
-    if (length(uid) == 0 || is.na(uid)) {
-      mssg(messages, "Not found. Consider checking the spelling or alternate classification")
+    if (length(uid) == 0 || all(is.na(uid))) {
+      mssg(messages, m_not_found_sp_altclass)
       uid <- NA_character_
       att <- 'NA due to not found'
     }
@@ -246,17 +251,27 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
       }
 
       if (length(uid) > 1) {
+        # check for exact match
+        matchtmp <- df[
+          tolower(
+            as.character(df$scientificname)) %in% tolower(sciname), "uid"]
+        if (length(matchtmp) == 1) {
+          uid <- as.character(matchtmp)
+          direct <- TRUE
+        }
+      }
+
+      if (length(uid) > 1) {
         if (!ask) {
           if (length(uid) == 1) {
             att <- "found"
           } else {
             warning(
-              sprintf("More than one UID found for taxon '%s'; refine query or set ask=TRUE",
-                      sciname),
+              sprintf(m_more_than_one_found, "UID", sciname),
               call. = FALSE
             )
             uid <- NA_character_
-            att <- 'NA due to ask=FALSE & > 1 result'
+            att <- m_na_ask_false
           }
         } else {
           # prompt
@@ -268,8 +283,8 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
           take <- scan(n = 1, quiet = TRUE, what = 'raw')
 
           if (length(take) == 0) {
-            take <- 'notake'
-            att <- 'nothing chosen'
+            take <- "notake"
+            att <- "nothing chosen"
           }
           if (take %in% seq_len(nrow(df))) {
             take <- as.numeric(take)
@@ -280,7 +295,7 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
             att <- 'found'
           } else {
             uid <- NA_character_
-            att <- 'NA due to user input out of range'
+            att <- "NA due to user input out of range"
             mssg(messages, "\nReturned 'NA'!\n\n")
           }
         }
@@ -313,8 +328,8 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
   # add_uri(out, 'https://www.ncbi.nlm.nih.gov/taxonomy/%s')
 }
 
-repeat_until_it_works <- function(catch, path, query, max_tries = 3, wait_time = 10, 
-  messages = TRUE, ...) {
+repeat_until_it_works <- function(catch, path, query, max_tries = 3, 
+  wait_time = 10, messages = TRUE, ...) {
 
   error_handler <- function(e) {
     if (e$message %in% catch) {
@@ -326,7 +341,7 @@ repeat_until_it_works <- function(catch, path, query, max_tries = 3, wait_time =
   }
   for (count in 1:max_tries) {
     cli <- crul::HttpClient$new(url = ncbi_base(), opts = list(...))
-    res <- cli$get(sprintf("entrez/eutils/%s.fcgi", path), 
+    res <- cli$get(sprintf("entrez/eutils/%s.fcgi", path),
       query = tc(query))
     output <- tryCatch(res$parse("UTF-8"), error = error_handler)
     if (!is.na(output)) return(output)

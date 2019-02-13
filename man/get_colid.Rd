@@ -154,9 +154,7 @@ get_colid_(c("asdfadfasd","Pinus contorta"))
 get_colid(sciname="Andropadus nigriceps fusciceps", rows=1)
 
 # use curl options
-library("httr")
-get_colid("Quercus douglasii", config=verbose())
-bb <- get_colid("Quercus douglasii", config=progress())
+get_colid("Quercus douglasii", verbose = TRUE)
 }
 }
 \seealso{
@@ -173,3 +171,4 @@ Other taxonomic-ids: \code{\link{get_boldid}},
 \author{
 Scott Chamberlain, \email{myrmecocystus@gmail.com}
 }
+\concept{taxonomic-ids}

@@ -1,14 +1,18 @@
 #' Search for pages in EOL database using a taxonconceptID.
 #'
 #' @export
-#' @param taxonconceptID The taxonconceptID (numeric), which is also the page
-#' 		number.
-#' @param iucn Include the IUCN Red List status object (Default: \code{FALSE})
-#' @param images Limits the number of returned image objects (values 0 - 75)
-#' @param videos Limits the number of returned video objects (values 0 - 75)
-#' @param sounds Limits the number of returned sound objects (values 0 - 75)
-#' @param maps Limits the number of returned map objects (values 0 - 75)
-#' @param text Limits the number of returned text objects (values 0 - 75)
+#' @param taxonconceptID (numeric) a taxonconceptID, which is also the page
+#' number
+#' @param images_per_page (integer) number of returned image objects (0-75)
+#' @param images_page (integer) images page
+#' @param videos_per_page (integer) number of returned video objects (0-75)
+#' @param videos_page (integer) videos page
+#' @param sounds_per_page (integer) number of returned sound objects (0-75)
+#' @param sounds_page (integer) sounds page
+#' @param maps_per_page (integer) number of returned map objects (0-75)
+#' @param maps_page (integer) maps page
+#' @param texts_per_page (integer) number of returned text objects (0-75)
+#' @param texts_page (integer) texts page
 #' @param subjects 'overview' (default) to return the overview text
 #' (if exists), a pipe | delimited list of subject names from the list of EOL
 #' accepted subjects (e.g. TaxonBiology, FossilHistory), or 'all' to get text
@@ -41,26 +45,38 @@
 #' @return JSON list object, or data.frame.
 #' @examples \dontrun{
 #' (pageid <- eol_search('Pomatomus')$pageid[1])
-#' eol_pages(taxonconceptID=pageid)$scinames
+#' x <- eol_pages(taxonconceptID = pageid)
+#' x
+#' x$scinames
+#' 
+#' z <- eol_pages(taxonconceptID = pageid, synonyms = TRUE)
+#' z$synonyms
+#' 
+#' z <- eol_pages(taxonconceptID = pageid, common_names = TRUE)
+#' z$vernacular
 #' }
 
-eol_pages <- function(taxonconceptID, iucn=FALSE, images=0, videos=0, sounds=0,
-  maps=0, text=0, subjects='overview', licenses='all', details=FALSE,
+eol_pages <- function(taxonconceptID, images_per_page=NULL, images_page=NULL, 
+  videos_per_page=NULL, videos_page=NULL, sounds_per_page=NULL, sounds_page=NULL,
+  maps_per_page=NULL, maps_page=NULL, texts_per_page=NULL, texts_page=NULL, 
+  subjects='overview', licenses='all', details=FALSE,
   common_names=FALSE, synonyms=FALSE, references=FALSE, taxonomy=TRUE, vetted=0,
   cache_ttl=NULL, key = NULL, ...) {
 
-  iucn <- tolower(iucn)
   details <- tolower(details)
   common_names <- tolower(common_names)
   synonyms <- tolower(synonyms)
   references <- tolower(references)
 
 	key <- getkey(key, "EOL_KEY")
-	args <- tc(list(iucn=iucn,images=images,videos=videos,sounds=sounds,
-	                maps=maps,text=text,subjects=subjects,licenses=licenses,
-	                details=details,common_names=common_names,synonyms=synonyms,
-	                references=references,taxonomy=taxonomy,
-	                vetted=vetted,cache_ttl=cache_ttl, key=key))
+	args <- tc(list(images_per_page=images_per_page, images_page=images_page,
+    videos_per_page=videos_per_page, videos_page=videos_page,
+    sounds_per_page=sounds_per_page, sounds_page=sounds_page,
+    maps_per_page=maps_per_page, maps_page=maps_page,
+    texts_per_page=texts_per_page, texts_page=texts_page,
+    subjects=subjects, licenses=licenses, details=details,
+    common_names=common_names, synonyms=synonyms, references=references, 
+    taxonomy=taxonomy, vetted=vetted, cache_ttl=cache_ttl, key=key))
   cli <- crul::HttpClient$new(
     url = file.path(eol_url("pages"), paste0(taxonconceptID, ".json")),
     opts = list(...)
@@ -68,40 +84,44 @@ eol_pages <- function(taxonconceptID, iucn=FALSE, images=0, videos=0, sounds=0,
   res <- cli$get(query = argsnull(args))
   res$raise_for_status()
   tt <- res$parse("UTF-8")
-  # tt <- GET(file.path(eol_url("pages"), paste0(taxonconceptID, ".json")),
-  #           query=argsnull(args), ...)
-  # stop_for_status(tt)
   stopifnot(res$response_headers$`content-type` == 
     "application/json; charset=utf-8")
   res <- jsonlite::fromJSON(tt, FALSE)
 
-  scinames <- do.call(rbind.fill, lapply(res$taxonConcepts, data.frame,
-                                         stringsAsFactors=FALSE))
+  # scinames <- lapply(res$taxonConcept$taxonConcepts, function(z) {
+  scinames <- lapply(res$taxonConcept$taxonConcepts, function(z) {
+    z[vapply(z, class, "") == "NULL"] <- NA_character_
+    z
+  })
+  scinames <- dt2tibble(scinames)
   if (!is.null(scinames)) {
     names(scinames) <- tolower(names(scinames))
-    scinames$taxonrank <- tolower(scinames$taxonrank)
+    if ("taxonrank" %in% names(scinames)) {
+      scinames$taxonrank <- tolower(scinames$taxonrank)
+    }
+    scinames$name <- NULL
   }
   syns <- parseeoldata('synonyms', res)
-  names(syns) <- tolower(names(syns))
   vernac <- parseeoldata('vernacularNames', res)
-  names(vernac) <- tolower(names(vernac))
   refs <- parseeoldata('references', res)
-  names(refs) <- "references"
+  # names(refs) <- "references"
   dataobj <- parseeoldata('dataObjects', res)
-  names(dataobj) <- tolower(names(dataobj))
-  list(scinames=scinames, syns=syns, vernac=vernac, refs=refs, dataobj=dataobj)
+  list(scinames=scinames, synonyms=syns, vernacular=vernac, refs=refs, 
+    data_objects=dataobj)
 }
 
-parseeoldata <- function(x, y){
-  xx <- y[[x]]
+parseeoldata <- function(x, y) {
+  xx <- y$taxonConcept[[x]]
   if (length(xx) == 0) {
-    "no data"
+    NULL
   } else {
     tmp <- lapply(xx, data.frame)
     if (length(tmp) == 1) {
-      tmp[[1]]
+      tmp2 <- tmp[[1]]
     } else {
-      ldply(tmp)
+      tmp2 <- ldply(tmp)
     }
+    names(tmp2) <- tolower(names(tmp2))
+    tmp2
   }
 }

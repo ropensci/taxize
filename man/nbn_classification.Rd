@@ -10,7 +10,7 @@ nbn_classification(id, ...)
 \arguments{
 \item{id}{(character) An NBN identifier.}
 
-\item{...}{Further args passed on to \code{\link[httr]{GET}}.}
+\item{...}{Further args passed on to \code{\link[crul]{verb-GET}}}
 }
 \value{
 A data.frame
@@ -27,8 +27,7 @@ nbn_classification(id="NHMSYS0000376773")
 id <- get_nbnid("Zootoca vivipara", rec_only = TRUE, rank = "Species")
 nbn_classification(id)
 
-library('httr')
-nbn_classification(id="NHMSYS0000502940", config=verbose())
+nbn_classification(id="NHMSYS0000502940", verbose = TRUE)
 }
 }
 \references{
@@ -41,3 +40,4 @@ Other nbn: \code{\link{get_nbnid}},
 \author{
 Scott Chamberlain, \email{myrmecocystus@gmail.com}
 }
+\concept{nbn}

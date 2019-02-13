@@ -12,7 +12,7 @@ See Details.}
 
 \item{key}{(character) NCBI Entrez API key. optional. See Details.}
 
-\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
+\item{...}{Curl options passed on to \code{\link[crul]{verb-GET}}}
 }
 \value{
 A \code{data.frame} with the following columns:
@@ -29,13 +29,14 @@ databases for a set of taxonomy UIDs using eutils esummary.
 }
 \details{
 If your input vector or list of NCBI IDs is longer than about 
-8000 characters (use \code{nchar(paste(ids, collapse = "+"))}), split 
+2500 characters (use \code{nchar(paste(ids, collapse = "+"))}), split 
 the list up into chunks since at about that number of characters you 
 will run into the HTTP 414 error "Request-URI Too Long".
 }
 \section{Authentication}{
 
-See \code{\link{taxize-authentication}} for help on authentication
+See \code{\link{taxize-authentication}} for help on authentication. 
+We strongly recommend getting an API key
 }
 
 \examples{

@@ -1,11 +1,10 @@
-# tests for tp_synonyms fxn in taxize
 context("tp_synonyms")
 
-
 test_that("tp_synonyms returns the correct value", {
-  skip_on_cran()
-
-  dat <- suppressMessages(tp_synonyms(id = 25509881))
+  skip_on_cran() # uses secrets
+  vcr::use_cassette("tp_synonyms", {
+    dat <- suppressMessages(tp_synonyms(id = 25509881))
+  })
 
   expect_match(names(dat)[[1]], "accepted")
 

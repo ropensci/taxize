@@ -5,12 +5,12 @@
 \title{Search Catalogue of Life for for direct children of a particular taxon.}
 \usage{
 col_children(name = NULL, id = NULL, format = NULL, start = NULL,
-  checklist = NULL, ...)
+  checklist = NULL, extant_only = FALSE, ...)
 }
 \arguments{
 \item{name}{The string to search for. Only exact matches found the name given
-     will be returned, unless one or wildcards are included in the search
-   string. An * (asterisk) character denotes a wildcard; a % (percentage)
+will be returned, unless one or wildcards are included in the search
+string. An * (asterisk) character denotes a wildcard; a % (percentage)
 character may also be used. The name must be at least 3 characters long,
 not counting wildcard characters.}
 
@@ -18,8 +18,8 @@ not counting wildcard characters.}
 names of species or infraspecific taxa)}
 
 \item{format}{format of the results returned. Valid values are format=xml and
-     format=php; if the format parameter is omitted, the results are returned
-   in the default XML format. If format=php then results are returned as a
+format=php; if the format parameter is omitted, the results are returned
+in the default XML format. If format=php then results are returned as a
 PHP array in serialized string format, which can be converted back to an
 array in PHP using the unserialize command}
 
@@ -32,10 +32,20 @@ single query is 500 for terse queries and 50 for full queries).}
 \item{checklist}{The year of the checklist to query, if you want a specific
 year's checklist instead of the lastest as default (numeric).}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{extant_only}{(logical) keep extant taxa only? default: \code{FALSE}. 
+by default we give back all taxa. set to \code{TRUE} to get only 
+extant taxa}
+
+\item{...}{Curl options passed on to \code{\link[crul]{verb-GET}}}
 }
 \value{
-A list of data.frame's.
+A list of data.frame's, where each data.frame has columns:
+\itemize{
+ \item childtaxa_id: (character) COL identifier
+ \item childtaxa_name: (character) taxonomic name
+ \item childtaxa_rank: (character) rank name
+ \item childtaxa_extinct: (logical) extinct or not
+}
 }
 \description{
 Search Catalogue of Life for for direct children of a particular taxon.
@@ -70,5 +80,9 @@ ids <- c('abe977b1d27007a76dd12a5c93a637bf',
 out <- col_children(id = ids, checklist=2012)
 library("plyr")
 ldply(out) # combine to one data.frame
+
+# keep extant taxa only, prunes out extinct taxa
+col_children(name = "Insecta")
+col_children(name = "Insecta", extant_only = TRUE)
 }
 }

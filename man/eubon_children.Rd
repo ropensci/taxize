@@ -24,7 +24,7 @@ from any of the providers. If the timeout is exceeded the service will just
 return the responses that have been received so far. The default timeout is
 0 ms (wait for ever)}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options passed on to \code{\link[crul]{verb-GET}}}
 }
 \value{
 a data.frame or an empty list if no results found
@@ -46,3 +46,4 @@ head(x)
 Other eubon-methods: \code{\link{eubon_capabilities}},
   \code{\link{eubon_hierarchy}}, \code{\link{eubon}}
 }
+\concept{eubon-methods}

@@ -4,7 +4,7 @@
 #' @param x Directory to write csv files to.
 #' @param family If you want just one, or >1 family, but not all, list
 #' them in a vector.
-#' @param ... (list) Curl options passed on to \code{\link[httr]{GET}}
+#' @param ... (list) Curl options passed on to \code{\link[crul]{verb-GET}}
 #' @details Throws a warning if you already have a directory of the one
 #' provided, but still works. Writes to your home directory, change x
 #' as needed.
@@ -34,8 +34,11 @@
 #' }
 
 tpl_get <- function(x, family = NULL, ...) {
-  temp <- httr::GET('http://www.theplantlist.org/1.1/browse/-/', ...)
-  temp <- xml2::read_html(con_utf8(temp), encoding = "UTF-8")
+  cli <- crul::HttpClient$new('http://www.theplantlist.org/1.1/browse/-/',
+    opts = list(...))
+  temp <- cli$get()
+  temp$raise_for_status()
+  temp <- xml2::read_html(temp$parse("UTF-8"), encoding = "UTF-8")
   families <- xml2::xml_text(
     xml2::xml_find_all(temp, "//ul[@id='nametree']//a"))
   csvlinks <- sprintf(
@@ -66,6 +69,5 @@ tpl_get <- function(x, family = NULL, ...) {
 }
 
 getcsv <- function(z, x) {
-  #download.file(z, destfile = file.path(x, basename(z)), quiet = TRUE)
-  invisible(GET(z, httr::write_disk(path = file.path(x, basename(z)), overwrite = TRUE)))
+  invisible(crul::HttpClient$new(z)$get(disk = file.path(x, basename(z))))
 }

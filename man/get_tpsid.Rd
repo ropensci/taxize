@@ -12,8 +12,8 @@
 \alias{get_tpsid_}
 \title{Get the NameID codes from Tropicos for taxonomic names.}
 \usage{
-get_tpsid(sciname, ask = TRUE, messages = TRUE, key = NULL, rows = NA,
-  family = NULL, rank = NULL, ...)
+get_tpsid(sciname, ask = TRUE, messages = TRUE, key = NULL,
+  rows = NA, family = NULL, rank = NULL, ...)
 
 as.tpsid(x, check = TRUE)
 
@@ -40,7 +40,7 @@ input. If FALSE NA is returned for multiple matches.}
 
 \item{messages}{logical; If TRUE the actual taxon queried is printed on the console.}
 
-\item{key}{Your API key; loads from .Rprofile.}
+\item{key}{Your API key; see \code{\link{taxize-authentication}}}
 
 \item{rows}{numeric; Any number from 1 to infinity. If the default NA, all rows are considered.
 Note that this function still only gives back a tpsid class object with one to many identifiers.
@@ -172,3 +172,4 @@ Other taxonomic-ids: \code{\link{get_boldid}},
 \author{
 Scott Chamberlain, \email{myrmecocystus@gmail.com}
 }
+\concept{taxonomic-ids}

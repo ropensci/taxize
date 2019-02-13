@@ -1,0 +1,1296 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Mus%2Bmusculus&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Sat, 26 Jan 2019 20:02:40 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '6'
+      ncbi-phid: 322CDAEFF3EFD7B5000020B4B5BFDC39.1.1.m_1
+      cache-control: private
+      l5d-success-class: '1.0'
+      ncbi-sid: E131693E2872222F_1F2ASID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=E131693E2872222F_1F2ASID; domain=.nih.gov; path=/; expires=Sun,
+        26 Jan 2020 20:02:41 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
+        <Id>10090</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Mus+musculus[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Mus+musculus[All Names]</QueryTranslation></eSearchResult>
+  recorded_at: 2019-01-26 20:02:45 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Escherichia%2Bcoli&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Sat, 26 Jan 2019 20:02:41 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '5'
+      ncbi-phid: D0BD37B365326FC50000208538506308.1.1.m_1
+      cache-control: private
+      l5d-success-class: '1.0'
+      ncbi-sid: 5566585B8C32CE74_5BD6SID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=5566585B8C32CE74_5BD6SID; domain=.nih.gov; path=/; expires=Sun,
+        26 Jan 2020 20:02:41 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
+        <Id>562</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Escherichia+coli[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Escherichia+coli[All Names]</QueryTranslation></eSearchResult>
+  recorded_at: 2019-01-26 20:02:45 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Haloferax%2Bdenitrificans&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Sat, 26 Jan 2019 20:02:41 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '4'
+      ncbi-phid: 322CDAEFF3EFD7B5000025B4B602FDB9.1.1.m_1
+      cache-control: private
+      l5d-success-class: '1.0'
+      ncbi-sid: 4552AAA55FF03655_13E0SID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=4552AAA55FF03655_13E0SID; domain=.nih.gov; path=/; expires=Sun,
+        26 Jan 2020 20:02:42 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
+        <Id>35745</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Haloferax+denitrificans[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Haloferax+denitrificans[All Names]</QueryTranslation></eSearchResult>
+  recorded_at: 2019-01-26 20:02:45 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Mus%2Bmusculus&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Sat, 26 Jan 2019 20:02:42 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '3'
+      ncbi-phid: 322CDAEFF3EFD7B5000021B4B6230DF1.1.1.m_1
+      cache-control: private
+      l5d-success-class: '1.0'
+      ncbi-sid: 544E0A968157175B_1F21SID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=544E0A968157175B_1F21SID; domain=.nih.gov; path=/; expires=Sun,
+        26 Jan 2020 20:02:42 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
+        <Id>10090</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Mus+musculus[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Mus+musculus[All Names]</QueryTranslation></eSearchResult>
+  recorded_at: 2019-01-26 20:02:45 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Mus%2Bmusculus&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Sat, 26 Jan 2019 20:02:41 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '3'
+      ncbi-phid: 322CDAEFF3EFD7B5000023B4B63984DA.1.1.m_1
+      cache-control: private
+      l5d-success-class: '1.0'
+      ncbi-sid: 544E0A968157175B_1F21SID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=544E0A968157175B_1F21SID; domain=.nih.gov; path=/; expires=Sun,
+        26 Jan 2020 20:02:42 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
+        <Id>10090</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Mus+musculus[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Mus+musculus[All Names]</QueryTranslation></eSearchResult>
+  recorded_at: 2019-01-26 20:02:45 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=10090&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Sat, 26 Jan 2019 20:02:42 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '5'
+      ncbi-phid: 322CDAEFF3EFD7B5000026B4B6887014.1.1.m_3
+      cache-control: private
+      l5d-success-class: '1.0'
+      ncbi-sid: D9EB4559EC88F80E_528CSID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=D9EB4559EC88F80E_528CSID; domain=.nih.gov; path=/; expires=Sun,
+        26 Jan 2020 20:02:43 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version="1.0" ?>
+        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
+        <TaxaSet><Taxon>
+            <TaxId>10090</TaxId>
+            <ScientificName>Mus musculus</ScientificName>
+            <OtherNames>
+                <GenbankCommonName>house mouse</GenbankCommonName>
+                <CommonName>mouse</CommonName>
+                <Includes>LK3 transgenic mice</Includes>
+                <Includes>Mus sp. 129SV</Includes>
+                <Includes>nude mice</Includes>
+                <Includes>transgenic mice</Includes>
+                <Name>
+                    <ClassCDE>authority</ClassCDE>
+                    <DispName>Mus musculus Linnaeus, 1758</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>mice C57BL/6xCBA/CaJ hybrid</DispName>
+                </Name>
+            </OtherNames>
+            <ParentTaxId>862507</ParentTaxId>
+            <Rank>species</Rank>
+            <Division>Rodents</Division>
+            <GeneticCode>
+                <GCId>1</GCId>
+                <GCName>Standard</GCName>
+            </GeneticCode>
+            <MitoGeneticCode>
+                <MGCId>2</MGCId>
+                <MGCName>Vertebrate Mitochondrial</MGCName>
+            </MitoGeneticCode>
+            <Lineage>cellular organisms; Eukaryota; Opisthokonta; Metazoa; Eumetazoa; Bilateria; Deuterostomia; Chordata; Craniata; Vertebrata; Gnathostomata; Teleostomi; Euteleostomi; Sarcopterygii; Dipnotetrapodomorpha; Tetrapoda; Amniota; Mammalia; Theria; Eutheria; Boreoeutheria; Euarchontoglires; Glires; Rodentia; Myomorpha; Muroidea; Muridae; Murinae; Mus; Mus</Lineage>
+            <LineageEx>
+                <Taxon>
+                    <TaxId>131567</TaxId>
+                    <ScientificName>cellular organisms</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2759</TaxId>
+                    <ScientificName>Eukaryota</ScientificName>
+                    <Rank>superkingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33154</TaxId>
+                    <ScientificName>Opisthokonta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33208</TaxId>
+                    <ScientificName>Metazoa</ScientificName>
+                    <Rank>kingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6072</TaxId>
+                    <ScientificName>Eumetazoa</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33213</TaxId>
+                    <ScientificName>Bilateria</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33511</TaxId>
+                    <ScientificName>Deuterostomia</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7711</TaxId>
+                    <ScientificName>Chordata</ScientificName>
+                    <Rank>phylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>89593</TaxId>
+                    <ScientificName>Craniata</ScientificName>
+                    <Rank>subphylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7742</TaxId>
+                    <ScientificName>Vertebrata</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7776</TaxId>
+                    <ScientificName>Gnathostomata</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>117570</TaxId>
+                    <ScientificName>Teleostomi</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>117571</TaxId>
+                    <ScientificName>Euteleostomi</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>8287</TaxId>
+                    <ScientificName>Sarcopterygii</ScientificName>
+                    <Rank>superclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1338369</TaxId>
+                    <ScientificName>Dipnotetrapodomorpha</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>32523</TaxId>
+                    <ScientificName>Tetrapoda</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>32524</TaxId>
+                    <ScientificName>Amniota</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>40674</TaxId>
+                    <ScientificName>Mammalia</ScientificName>
+                    <Rank>class</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>32525</TaxId>
+                    <ScientificName>Theria</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>9347</TaxId>
+                    <ScientificName>Eutheria</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1437010</TaxId>
+                    <ScientificName>Boreoeutheria</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>314146</TaxId>
+                    <ScientificName>Euarchontoglires</ScientificName>
+                    <Rank>superorder</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>314147</TaxId>
+                    <ScientificName>Glires</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>9989</TaxId>
+                    <ScientificName>Rodentia</ScientificName>
+                    <Rank>order</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1963758</TaxId>
+                    <ScientificName>Myomorpha</ScientificName>
+                    <Rank>suborder</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>337687</TaxId>
+                    <ScientificName>Muroidea</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>10066</TaxId>
+                    <ScientificName>Muridae</ScientificName>
+                    <Rank>family</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>39107</TaxId>
+                    <ScientificName>Murinae</ScientificName>
+                    <Rank>subfamily</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>10088</TaxId>
+                    <ScientificName>Mus</ScientificName>
+                    <Rank>genus</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>862507</TaxId>
+                    <ScientificName>Mus</ScientificName>
+                    <Rank>subgenus</Rank>
+                </Taxon>
+            </LineageEx>
+            <CreateDate>1995/02/27 09:24:00</CreateDate>
+            <UpdateDate>2018/11/23 13:57:51</UpdateDate>
+            <PubDate>1992/09/16 01:00:00</PubDate>
+        </Taxon>
+
+        </TaxaSet>
+  recorded_at: 2019-01-26 20:02:45 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=562&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Sat, 26 Jan 2019 20:02:43 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '7'
+      ncbi-phid: 939B131039D6F97500001FAF9EDE1B5C.1.1.m_3
+      cache-control: private
+      l5d-success-class: '1.0'
+      ncbi-sid: 1EC591C077E1A7E8_7DD7SID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=1EC591C077E1A7E8_7DD7SID; domain=.nih.gov; path=/; expires=Sun,
+        26 Jan 2020 20:02:43 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version="1.0" ?>
+        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
+        <TaxaSet><Taxon>
+            <TaxId>562</TaxId>
+            <ScientificName>Escherichia coli</ScientificName>
+            <OtherNames>
+                <Synonym>Bacillus coli</Synonym>
+                <Synonym>Bacterium coli</Synonym>
+                <Synonym>Bacterium coli commune</Synonym>
+                <Synonym>Enterococcus coli</Synonym>
+                <CommonName>E. coli</CommonName>
+                <Includes>Escherichia sp. 3_2_53FAA</Includes>
+                <Includes>Escherichia sp. MAR</Includes>
+                <Includes>bacterium 10a</Includes>
+                <Includes>bacterium E3</Includes>
+                <EquivalentName>Escherichia/Shigella coli</EquivalentName>
+                <Name>
+                    <ClassCDE>authority</ClassCDE>
+                    <DispName>&quot;Bacillus coli&quot; Migula 1895</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>authority</ClassCDE>
+                    <DispName>&quot;Bacterium coli commune&quot; Escherich 1885</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>authority</ClassCDE>
+                    <DispName>&quot;Bacterium coli&quot; (Migula 1895) Lehmann and Neumann 1896</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>authority</ClassCDE>
+                    <DispName>Escherichia coli (Migula 1895) Castellani and Chalmers 1919</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>ATCC 11775</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>ATCC:11775</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>BCCM/LMG:2092</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>CCUG 24</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>CCUG 29300</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>CCUG:24</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>CCUG:29300</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>CIP 54.8</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>CIP:54.8</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>DSM 30083</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>DSM:30083</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>JCM 1649</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>JCM:1649</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>LMG 2092</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>LMG:2092</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>NBRC 102203</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>NBRC:102203</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>NCCB 54008</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>NCCB:54008</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>NCTC 9001</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>NCTC:9001</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Escherchia coli</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Eschericia coli</DispName>
+                </Name>
+            </OtherNames>
+            <ParentTaxId>561</ParentTaxId>
+            <Rank>species</Rank>
+            <Division>Bacteria</Division>
+            <GeneticCode>
+                <GCId>11</GCId>
+                <GCName>Bacterial, Archaeal and Plant Plastid</GCName>
+            </GeneticCode>
+            <MitoGeneticCode>
+                <MGCId>0</MGCId>
+                <MGCName>Unspecified</MGCName>
+            </MitoGeneticCode>
+            <Lineage>cellular organisms; Bacteria; Proteobacteria; Gammaproteobacteria; Enterobacterales; Enterobacteriaceae; Escherichia</Lineage>
+            <LineageEx>
+                <Taxon>
+                    <TaxId>131567</TaxId>
+                    <ScientificName>cellular organisms</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2</TaxId>
+                    <ScientificName>Bacteria</ScientificName>
+                    <Rank>superkingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1224</TaxId>
+                    <ScientificName>Proteobacteria</ScientificName>
+                    <Rank>phylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1236</TaxId>
+                    <ScientificName>Gammaproteobacteria</ScientificName>
+                    <Rank>class</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>91347</TaxId>
+                    <ScientificName>Enterobacterales</ScientificName>
+                    <Rank>order</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>543</TaxId>
+                    <ScientificName>Enterobacteriaceae</ScientificName>
+                    <Rank>family</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>561</TaxId>
+                    <ScientificName>Escherichia</ScientificName>
+                    <Rank>genus</Rank>
+                </Taxon>
+            </LineageEx>
+            <CreateDate>1995/02/27 09:24:00</CreateDate>
+            <UpdateDate>2018/11/23 18:09:57</UpdateDate>
+            <PubDate>1993/06/11 01:00:00</PubDate>
+        </Taxon>
+
+        </TaxaSet>
+  recorded_at: 2019-01-26 20:02:45 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=35745&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Sat, 26 Jan 2019 20:02:44 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '6'
+      ncbi-phid: D0BD37B365326FC50000248539C2D283.1.1.m_3
+      cache-control: private
+      l5d-success-class: '1.0'
+      ncbi-sid: 152C13B20EBFC83F_15A3SID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=152C13B20EBFC83F_15A3SID; domain=.nih.gov; path=/; expires=Sun,
+        26 Jan 2020 20:02:44 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      connection: close
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version="1.0" ?>
+        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
+        <TaxaSet><Taxon>
+            <TaxId>35745</TaxId>
+            <ScientificName>Haloferax denitrificans</ScientificName>
+            <OtherNames>
+                <Synonym>Halobacterium denitrificans</Synonym>
+                <Name>
+                    <ClassCDE>authority</ClassCDE>
+                    <DispName>Halobacterium denitrificans Tomlinson et al. 1986</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>authority</ClassCDE>
+                    <DispName>Haloferax denitrificans (Tomlinson et al. 1986) Tindall et al. 1989</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>ATCC 35960</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>ATCC:35960</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>DSM 4425</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>DSM:4425</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>JCM 8864</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>JCM:8864</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>VKM B-1754</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>VKM:B:1754</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>personal::S1</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>strain S1</DispName>
+                </Name>
+            </OtherNames>
+            <ParentTaxId>2251</ParentTaxId>
+            <Rank>species</Rank>
+            <Division>Bacteria</Division>
+            <GeneticCode>
+                <GCId>11</GCId>
+                <GCName>Bacterial, Archaeal and Plant Plastid</GCName>
+            </GeneticCode>
+            <MitoGeneticCode>
+                <MGCId>0</MGCId>
+                <MGCName>Unspecified</MGCName>
+            </MitoGeneticCode>
+            <Lineage>cellular organisms; Archaea; Euryarchaeota; Stenosarchaea group; Halobacteria; Haloferacales; Haloferacaceae; Haloferax</Lineage>
+            <LineageEx>
+                <Taxon>
+                    <TaxId>131567</TaxId>
+                    <ScientificName>cellular organisms</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2157</TaxId>
+                    <ScientificName>Archaea</ScientificName>
+                    <Rank>superkingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>28890</TaxId>
+                    <ScientificName>Euryarchaeota</ScientificName>
+                    <Rank>phylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2290931</TaxId>
+                    <ScientificName>Stenosarchaea group</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>183963</TaxId>
+                    <ScientificName>Halobacteria</ScientificName>
+                    <Rank>class</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1644055</TaxId>
+                    <ScientificName>Haloferacales</ScientificName>
+                    <Rank>order</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1644056</TaxId>
+                    <ScientificName>Haloferacaceae</ScientificName>
+                    <Rank>family</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2251</TaxId>
+                    <ScientificName>Haloferax</ScientificName>
+                    <Rank>genus</Rank>
+                </Taxon>
+            </LineageEx>
+            <CreateDate>1995/02/27 09:24:00</CreateDate>
+            <UpdateDate>2018/10/29 19:37:58</UpdateDate>
+            <PubDate>1994/08/30 01:00:00</PubDate>
+        </Taxon>
+
+        </TaxaSet>
+  recorded_at: 2019-01-26 20:02:45 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=10090&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Sat, 26 Jan 2019 20:02:44 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '8'
+      ncbi-phid: 939B131039D6F97500001FAF9FFCC99C.1.1.m_3
+      cache-control: private
+      l5d-success-class: '1.0'
+      ncbi-sid: 6E8286D1C733A132_C475SID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=6E8286D1C733A132_C475SID; domain=.nih.gov; path=/; expires=Sun,
+        26 Jan 2020 20:02:45 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version="1.0" ?>
+        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
+        <TaxaSet><Taxon>
+            <TaxId>10090</TaxId>
+            <ScientificName>Mus musculus</ScientificName>
+            <OtherNames>
+                <GenbankCommonName>house mouse</GenbankCommonName>
+                <CommonName>mouse</CommonName>
+                <Includes>LK3 transgenic mice</Includes>
+                <Includes>Mus sp. 129SV</Includes>
+                <Includes>nude mice</Includes>
+                <Includes>transgenic mice</Includes>
+                <Name>
+                    <ClassCDE>authority</ClassCDE>
+                    <DispName>Mus musculus Linnaeus, 1758</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>mice C57BL/6xCBA/CaJ hybrid</DispName>
+                </Name>
+            </OtherNames>
+            <ParentTaxId>862507</ParentTaxId>
+            <Rank>species</Rank>
+            <Division>Rodents</Division>
+            <GeneticCode>
+                <GCId>1</GCId>
+                <GCName>Standard</GCName>
+            </GeneticCode>
+            <MitoGeneticCode>
+                <MGCId>2</MGCId>
+                <MGCName>Vertebrate Mitochondrial</MGCName>
+            </MitoGeneticCode>
+            <Lineage>cellular organisms; Eukaryota; Opisthokonta; Metazoa; Eumetazoa; Bilateria; Deuterostomia; Chordata; Craniata; Vertebrata; Gnathostomata; Teleostomi; Euteleostomi; Sarcopterygii; Dipnotetrapodomorpha; Tetrapoda; Amniota; Mammalia; Theria; Eutheria; Boreoeutheria; Euarchontoglires; Glires; Rodentia; Myomorpha; Muroidea; Muridae; Murinae; Mus; Mus</Lineage>
+            <LineageEx>
+                <Taxon>
+                    <TaxId>131567</TaxId>
+                    <ScientificName>cellular organisms</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2759</TaxId>
+                    <ScientificName>Eukaryota</ScientificName>
+                    <Rank>superkingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33154</TaxId>
+                    <ScientificName>Opisthokonta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33208</TaxId>
+                    <ScientificName>Metazoa</ScientificName>
+                    <Rank>kingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6072</TaxId>
+                    <ScientificName>Eumetazoa</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33213</TaxId>
+                    <ScientificName>Bilateria</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33511</TaxId>
+                    <ScientificName>Deuterostomia</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7711</TaxId>
+                    <ScientificName>Chordata</ScientificName>
+                    <Rank>phylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>89593</TaxId>
+                    <ScientificName>Craniata</ScientificName>
+                    <Rank>subphylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7742</TaxId>
+                    <ScientificName>Vertebrata</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7776</TaxId>
+                    <ScientificName>Gnathostomata</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>117570</TaxId>
+                    <ScientificName>Teleostomi</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>117571</TaxId>
+                    <ScientificName>Euteleostomi</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>8287</TaxId>
+                    <ScientificName>Sarcopterygii</ScientificName>
+                    <Rank>superclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1338369</TaxId>
+                    <ScientificName>Dipnotetrapodomorpha</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>32523</TaxId>
+                    <ScientificName>Tetrapoda</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>32524</TaxId>
+                    <ScientificName>Amniota</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>40674</TaxId>
+                    <ScientificName>Mammalia</ScientificName>
+                    <Rank>class</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>32525</TaxId>
+                    <ScientificName>Theria</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>9347</TaxId>
+                    <ScientificName>Eutheria</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1437010</TaxId>
+                    <ScientificName>Boreoeutheria</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>314146</TaxId>
+                    <ScientificName>Euarchontoglires</ScientificName>
+                    <Rank>superorder</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>314147</TaxId>
+                    <ScientificName>Glires</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>9989</TaxId>
+                    <ScientificName>Rodentia</ScientificName>
+                    <Rank>order</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1963758</TaxId>
+                    <ScientificName>Myomorpha</ScientificName>
+                    <Rank>suborder</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>337687</TaxId>
+                    <ScientificName>Muroidea</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>10066</TaxId>
+                    <ScientificName>Muridae</ScientificName>
+                    <Rank>family</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>39107</TaxId>
+                    <ScientificName>Murinae</ScientificName>
+                    <Rank>subfamily</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>10088</TaxId>
+                    <ScientificName>Mus</ScientificName>
+                    <Rank>genus</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>862507</TaxId>
+                    <ScientificName>Mus</ScientificName>
+                    <Rank>subgenus</Rank>
+                </Taxon>
+            </LineageEx>
+            <CreateDate>1995/02/27 09:24:00</CreateDate>
+            <UpdateDate>2018/11/23 13:57:51</UpdateDate>
+            <PubDate>1992/09/16 01:00:00</PubDate>
+        </Taxon>
+
+        </TaxaSet>
+  recorded_at: 2019-01-26 20:02:45 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=10090&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Sat, 26 Jan 2019 20:02:44 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '7'
+      ncbi-phid: 322CDAEFF3EFD7B5000013B4B7AF4469.1.1.m_3
+      cache-control: private
+      l5d-success-class: '1.0'
+      ncbi-sid: 6E8286D1C733A132_C475SID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=6E8286D1C733A132_C475SID; domain=.nih.gov; path=/; expires=Sun,
+        26 Jan 2020 20:02:45 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version="1.0" ?>
+        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
+        <TaxaSet><Taxon>
+            <TaxId>10090</TaxId>
+            <ScientificName>Mus musculus</ScientificName>
+            <OtherNames>
+                <GenbankCommonName>house mouse</GenbankCommonName>
+                <CommonName>mouse</CommonName>
+                <Includes>LK3 transgenic mice</Includes>
+                <Includes>Mus sp. 129SV</Includes>
+                <Includes>nude mice</Includes>
+                <Includes>transgenic mice</Includes>
+                <Name>
+                    <ClassCDE>authority</ClassCDE>
+                    <DispName>Mus musculus Linnaeus, 1758</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>mice C57BL/6xCBA/CaJ hybrid</DispName>
+                </Name>
+            </OtherNames>
+            <ParentTaxId>862507</ParentTaxId>
+            <Rank>species</Rank>
+            <Division>Rodents</Division>
+            <GeneticCode>
+                <GCId>1</GCId>
+                <GCName>Standard</GCName>
+            </GeneticCode>
+            <MitoGeneticCode>
+                <MGCId>2</MGCId>
+                <MGCName>Vertebrate Mitochondrial</MGCName>
+            </MitoGeneticCode>
+            <Lineage>cellular organisms; Eukaryota; Opisthokonta; Metazoa; Eumetazoa; Bilateria; Deuterostomia; Chordata; Craniata; Vertebrata; Gnathostomata; Teleostomi; Euteleostomi; Sarcopterygii; Dipnotetrapodomorpha; Tetrapoda; Amniota; Mammalia; Theria; Eutheria; Boreoeutheria; Euarchontoglires; Glires; Rodentia; Myomorpha; Muroidea; Muridae; Murinae; Mus; Mus</Lineage>
+            <LineageEx>
+                <Taxon>
+                    <TaxId>131567</TaxId>
+                    <ScientificName>cellular organisms</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2759</TaxId>
+                    <ScientificName>Eukaryota</ScientificName>
+                    <Rank>superkingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33154</TaxId>
+                    <ScientificName>Opisthokonta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33208</TaxId>
+                    <ScientificName>Metazoa</ScientificName>
+                    <Rank>kingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6072</TaxId>
+                    <ScientificName>Eumetazoa</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33213</TaxId>
+                    <ScientificName>Bilateria</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33511</TaxId>
+                    <ScientificName>Deuterostomia</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7711</TaxId>
+                    <ScientificName>Chordata</ScientificName>
+                    <Rank>phylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>89593</TaxId>
+                    <ScientificName>Craniata</ScientificName>
+                    <Rank>subphylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7742</TaxId>
+                    <ScientificName>Vertebrata</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7776</TaxId>
+                    <ScientificName>Gnathostomata</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>117570</TaxId>
+                    <ScientificName>Teleostomi</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>117571</TaxId>
+                    <ScientificName>Euteleostomi</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>8287</TaxId>
+                    <ScientificName>Sarcopterygii</ScientificName>
+                    <Rank>superclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1338369</TaxId>
+                    <ScientificName>Dipnotetrapodomorpha</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>32523</TaxId>
+                    <ScientificName>Tetrapoda</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>32524</TaxId>
+                    <ScientificName>Amniota</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>40674</TaxId>
+                    <ScientificName>Mammalia</ScientificName>
+                    <Rank>class</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>32525</TaxId>
+                    <ScientificName>Theria</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>9347</TaxId>
+                    <ScientificName>Eutheria</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1437010</TaxId>
+                    <ScientificName>Boreoeutheria</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>314146</TaxId>
+                    <ScientificName>Euarchontoglires</ScientificName>
+                    <Rank>superorder</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>314147</TaxId>
+                    <ScientificName>Glires</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>9989</TaxId>
+                    <ScientificName>Rodentia</ScientificName>
+                    <Rank>order</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1963758</TaxId>
+                    <ScientificName>Myomorpha</ScientificName>
+                    <Rank>suborder</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>337687</TaxId>
+                    <ScientificName>Muroidea</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>10066</TaxId>
+                    <ScientificName>Muridae</ScientificName>
+                    <Rank>family</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>39107</TaxId>
+                    <ScientificName>Murinae</ScientificName>
+                    <Rank>subfamily</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>10088</TaxId>
+                    <ScientificName>Mus</ScientificName>
+                    <Rank>genus</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>862507</TaxId>
+                    <ScientificName>Mus</ScientificName>
+                    <Rank>subgenus</Rank>
+                </Taxon>
+            </LineageEx>
+            <CreateDate>1995/02/27 09:24:00</CreateDate>
+            <UpdateDate>2018/11/23 13:57:51</UpdateDate>
+            <PubDate>1992/09/16 01:00:00</PubDate>
+        </Taxon>
+
+        </TaxaSet>
+  recorded_at: 2019-01-26 20:02:45 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0

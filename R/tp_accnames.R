@@ -4,7 +4,7 @@
 #' @param id the taxon identifier code
 #' @param key Your Tropicos API key; See \code{\link{taxize-authentication}} 
 #' for help on authentication
-#' @param ... Curl options passed on to \code{\link[crul]{HttpClient}}
+#' @param ... Curl options passed on to \code{\link[crul]{verb-GET}}
 #' @return List or dataframe.
 #' @examples \dontrun{
 #' tp_accnames(id = 25503923)

@@ -4,7 +4,8 @@
 \alias{tax_name}
 \title{Get taxonomic names for a given rank}
 \usage{
-tax_name(query, get, db = "itis", pref = "ncbi", messages = TRUE, ...)
+tax_name(query, get, db = "itis", pref = "ncbi", messages = TRUE,
+  ...)
 }
 \arguments{
 \item{query}{(character) Vector of taxonomic names to query. required.}
@@ -14,7 +15,8 @@ tax_name(query, get, db = "itis", pref = "ncbi", messages = TRUE, ...)
 
 \item{db}{(character) The database to search from: 'itis', 'ncbi' or 'both'.
 If 'both' both NCBI and ITIS will be queried. Result will be the union of
-both.}
+both. If using ncbi, we recommend getting an API key; see 
+\code{\link{taxize-authentication}}}
 
 \item{pref}{(character) If db = 'both', sets the preference for the union.
 Either 'ncbi' (default) or 'itis'. Currently not implemented.}

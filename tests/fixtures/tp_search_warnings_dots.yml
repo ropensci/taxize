@@ -1,0 +1,67 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://services.tropicos.org/Name/Search?format=json&name=Poa%20annua%20%252Eannua&apikey=<<tropicos_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+      X-User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      cache-control: private
+      content-length: '33'
+      content-type: application/json; charset=utf-8
+      server: Microsoft-IIS/7.5
+      x-aspnet-version: 4.0.30319
+      x-powered-by: ASP.NET
+      date: Sat, 26 Jan 2019 00:06:58 GMT
+    body:
+      encoding: UTF-8
+      string: '[{"Error":"No names were found"}]'
+  recorded_at: 2019-01-26 00:07:00 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://services.tropicos.org/Name/Search?format=json&name=Poa%20annua%20annua&apikey=<<tropicos_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+      X-User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      cache-control: private
+      content-length: '785'
+      content-type: application/json; charset=utf-8
+      server: Microsoft-IIS/7.5
+      x-aspnet-version: 4.0.30319
+      x-powered-by: ASP.NET
+      date: Sat, 26 Jan 2019 00:06:59 GMT
+    body:
+      encoding: UTF-8
+      string: '[{"NameId":25517736,"ScientificName":"Poa annua var. annua","ScientificNameWithAuthors":"Poa
+        annua var. annua ","Family":"Poaceae","RankAbbreviation":"var.","NomenclatureStatusName":"No
+        opinion","Author":"","DisplayReference":" ","DisplayDate":"","TotalRows":3},{"NameId":25537474,"ScientificName":"Poa
+        annua fo. annua","ScientificNameWithAuthors":"Poa annua fo. annua ","Family":"Poaceae","RankAbbreviation":"fo.","NomenclatureStatusName":"No
+        opinion","Author":"","DisplayReference":"","DisplayDate":"","TotalRows":3},{"NameId":25538408,"ScientificName":"Poa
+        annua subsp. annua","ScientificNameWithAuthors":"Poa annua subsp. annua ","Family":"Poaceae","RankAbbreviation":"subsp.","NomenclatureStatusName":"No
+        opinion","Author":"","DisplayReference":"","DisplayDate":"","TotalRows":3}]'
+  recorded_at: 2019-01-26 00:07:00 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
