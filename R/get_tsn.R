@@ -33,7 +33,9 @@
 #' get_tsn(c("Chironomus riparius","Quercus douglasii"))
 #' splist <- c("annona cherimola", 'annona muricata', "quercus robur",
 #' 		"shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")
-#' get_tsn(splist, verbose=FALSE)
+#' get_tsn(splist, messages=FALSE)
+#' splist <- names_list("species")
+#' get_tsn(splist, messages=FALSE)
 #'
 #' # specify rows to limit choices available
 #' get_tsn('Arni')
@@ -128,9 +130,10 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE,
       if (NROW(tsn_df) > 1) {
         tsn_df <- data.frame(tsn_df, stringsAsFactors = FALSE)
         names(tsn_df)[grep(searchtype, names(tsn_df))] <- "target"
-        matchtmp <- tsn_df[tolower(tsn_df$target) %in% tolower(x), "tsn"]
-        if (length(matchtmp) == 1) {
-          tsn <- matchtmp
+        matchtmp <- tsn_df[tolower(tsn_df$target) %in% tolower(x), ]
+        if (NROW(matchtmp) == 1) {
+          tsn <- matchtmp$tsn
+          targname <- matchtmp$target
           direct <- TRUE
           att <- "found"
         } else {
@@ -195,9 +198,10 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE,
     )
   }
   searchterm <- as.character(searchterm)
-  outd <- lapply(searchterm, fun, searchtype, ask, verbose, ...)
+  outd <- lapply(searchterm, fun, searchtype, ask, messages, rows, ...)
   res <- taxa::taxa(.list = lapply(outd, function(z) {
-    url <- paste0('http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=%s', z$tsn)
+    if (is.na(z$name)) return(taxa::taxon(NULL))
+    url <- sprintf(tsn_url_template, z$tsn)
     rk <- if (!is.na(z$tsn)) tolower(ritis::rank_name(z$tsn)$rankname) else ""
     out <- taxa::taxon(
       taxa::taxon_name(z$name %||% "", taxa::database_list$itis),

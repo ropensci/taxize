@@ -90,18 +90,14 @@ Imports:
     tibble (>= 1.2),
     worrms (>= 0.3.2),
     natserv (>= 0.3.0),
-    wikitaxa (>= 0.3.0)
+    wikitaxa (>= 0.3.0),
     taxa (>= 0.3.2)
-Suggests:
-    testthat,
-    knitr,
-    vegan
-Remotes: ropensci/taxa@taxize-compat-changes
 Suggests:
     testthat,
     knitr,
     vegan,
     vcr
+Remotes: ropensci/taxa@taxize-compat-changes
 RoxygenNote: 6.1.1
 X-schema.org-applicationCategory: Taxonomy
 X-schema.org-keywords: taxonomy, biology, nomenclature, JSON, API, web, api-client, identifiers, species, names
