@@ -27,10 +27,51 @@ collapse <- function(x, fxn, class, match=TRUE, ...) {
 
 evalfxn <- function(x) eval(parse(text = paste0("check", "_", x)))
 
-toid <- function(x, url, class, ...) {
+toid <- function(x, url, class, tmp, ...) {
   uri <- sprintf(url, x)
-  structure(x, class = class, match = "found", multiple_matches = FALSE,
-            pattern_match = FALSE, uri = uri, ...)
+  taxa_output(x, uri, class, attr(tmp, "name"), attr(tmp, "rank"))
+}
+
+taxa_output <- function(x, uri, class, name, rank) {
+  db <- taxa::database_list[[fetch_db_entry(class)]]
+  out <- taxa::taxon(
+    taxa::taxon_name(name %||% "", db),
+    taxa::taxon_rank(rank, db),
+    taxa::taxon_id(x %||% "", uri, db)
+  )
+  out$attributes <- list(
+    match = "found",
+    multiple_matches = FALSE,
+    pattern_match = FALSE
+  )
+  res <- taxa::taxa(out)
+  structure(res, class = c(class(res), class))
+}
+
+taxa_null <- function(clz) {
+  out <- taxa::taxon(NULL)
+  out$attributes <- list(
+    match = "not found",
+    multiple_matches = FALSE,
+    pattern_match = FALSE
+  )
+  res <- taxa::taxa(out)
+  structure(res, class = c(class(res), clz))
+}
+
+fetch_db_entry <- function(x) {
+  switch(
+    x,
+    uid = "ncbi",
+    gbifid = "gbif",
+    boldid = "bold",
+    colid = "col",
+    eolid = "eol",
+    nbnid = "nbn",
+    tpsid = "tps",
+    tsn = "itis",
+    stop("no matching taxa::database_list entry found")
+  )
 }
 
 add_uri <- function(ids, url, z = NULL){

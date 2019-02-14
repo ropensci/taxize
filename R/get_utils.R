@@ -1,15 +1,13 @@
 make_generic <- function(x, uu, clz, check = TRUE) {
   if (check) {
-    if ( evalfxn(clz)(x) ) {
-      toid(x, uu, clz)
+    tmp <- evalfxn(clz)(x)
+    if (tmp) {
+      toid(x, uu, clz, tmp)
     } else {
-      structure(
-        NA, class = clz, match = "not found",
-        multiple_matches = FALSE, pattern_match = FALSE, uri = NA
-      )
+      taxa_null(clz)
     }
   } else {
-    toid(x, uu, clz)
+    toid(x, uu, clz, NULL)
   }
 }
 

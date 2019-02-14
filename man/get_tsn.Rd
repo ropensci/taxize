@@ -77,6 +77,22 @@ Retrieve the taxonomic serial numbers (TSN) of a taxon from ITIS.
 }
 \examples{
 \dontrun{
+# the new way
+x <- get_tsn("Quercus douglasii")
+x[[1]]
+x[[1]]$name
+x[[1]]$attributes
+x[[1]]$is_empty()
+
+splist <- c("annona cherimola", 'annona muricata', "quercus robur",
+   "shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")
+res <- get_tsn(splist, messages=FALSE)
+lapply(res, function(w) w$name)
+vapply(res, function(w) w$name$name, "")
+vapply(res, function(w) w$attributes$pattern_match, logical(1))
+
+
+# old way
 get_tsn("Quercus douglasii")
 get_tsn("Chironomus riparius")
 get_tsn(c("Chironomus riparius","Quercus douglasii"))

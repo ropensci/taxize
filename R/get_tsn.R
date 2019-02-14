@@ -28,6 +28,22 @@
 #' @seealso \code{\link[taxize]{classification}}
 #'
 #' @examples \dontrun{
+#' # the new way
+#' x <- get_tsn("Quercus douglasii")
+#' x[[1]]
+#' x[[1]]$name
+#' x[[1]]$attributes
+#' x[[1]]$is_empty()
+#' 
+#' splist <- c("annona cherimola", 'annona muricata', "quercus robur",
+#'    "shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")
+#' res <- get_tsn(splist, messages=FALSE)
+#' lapply(res, function(w) w$name)
+#' vapply(res, function(w) w$name$name, "")
+#' vapply(res, function(w) w$attributes$pattern_match, logical(1))
+#' 
+#' 
+#' # old way
 #' get_tsn("Quercus douglasii")
 #' get_tsn("Chironomus riparius")
 #' get_tsn(c("Chironomus riparius","Quercus douglasii"))
@@ -223,27 +239,27 @@ tsn_url_template <-
 
 #' @export
 #' @rdname get_tsn
-as.tsn <- function(x, check=TRUE) UseMethod("as.tsn")
+as.tsn <- function(x, check = TRUE) UseMethod("as.tsn")
 
 #' @export
 #' @rdname get_tsn
-as.tsn.tsn <- function(x, check=TRUE) x
+as.tsn.tsn <- function(x, check = TRUE) x
 
 #' @export
 #' @rdname get_tsn
-as.tsn.character <- function(x, check=TRUE) if (length(x) == 1) make_tsn(x, check) else collapse(x, make_tsn, "tsn", check = check)
+as.tsn.character <- function(x, check = TRUE) if (length(x) == 1) make_tsn(x, check) else collapse(x, make_tsn, "tsn", check = check)
 
 #' @export
 #' @rdname get_tsn
-as.tsn.list <- function(x, check=TRUE) if (length(x) == 1) make_tsn(x, check) else collapse(x, make_tsn, "tsn", check = check)
+as.tsn.list <- function(x, check = TRUE) if (length(x) == 1) make_tsn(x, check) else collapse(x, make_tsn, "tsn", check = check)
 
 #' @export
 #' @rdname get_tsn
-as.tsn.numeric <- function(x, check=TRUE) as.tsn(as.character(x), check)
+as.tsn.numeric <- function(x, check = TRUE) as.tsn(as.character(x), check)
 
 #' @export
 #' @rdname get_tsn
-as.tsn.data.frame <- function(x, check=TRUE) {
+as.tsn.data.frame <- function(x, check = TRUE) {
   structure(x$ids, class = "tsn", match = x$match,
             multiple_matches = x$multiple_matches,
             pattern_match = x$pattern_match, uri = x$uri)
@@ -261,13 +277,16 @@ as.data.frame.tsn <- function(x, ...){
              stringsAsFactors = FALSE)
 }
 
-make_tsn <- function(x, check=TRUE) {
+make_tsn <- function(x, check = TRUE) {
   make_generic(x, tsn_url_template, "tsn", check)
 }
 
 check_tsn <- function(x){
   tt <- suppressMessages(itis_getrecord(x))
-  identical(tt$acceptedNameList$tsn, as.character(x))
+  valid <- identical(tt$acceptedNameList$tsn, as.character(x))
+  structure(valid,
+    name = tt$scientificName$combinedName,
+    rank = tolower(gsub("^\\s+|\\s+$", "", tt$taxRank$rankName)))
 }
 
 #' @export
