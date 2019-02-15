@@ -112,6 +112,13 @@ get_gbifid(sciname='Poa annua')
 get_gbifid(sciname='Pinus contorta')
 get_gbifid(sciname='Puma concolor')
 
+#lots of queries
+spp <- names_list("species", 10)
+res <- get_gbifid(spp, messages = FALSE)
+res
+xx <- taxon_last()
+xx
+
 # multiple names
 get_gbifid(c("Poa annua", "Pinus contorta"))
 

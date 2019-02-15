@@ -68,6 +68,9 @@
 #' @importFrom reshape2 melt dcast
 #' @importFrom xml2 xml_text xml_find_first xml_find_all xml_children read_xml
 #' xml_name xml_ns as_list
+#' @importFrom R6 R6Class
+#' @importFrom crayon style
+#' @importFrom cli symbol cat_line rule
 #' @name taxize-package
 #' @aliases taxize
 #' @docType package

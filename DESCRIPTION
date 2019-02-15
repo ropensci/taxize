@@ -90,7 +90,10 @@ Imports:
     tibble (>= 1.2),
     worrms (>= 0.3.2),
     natserv (>= 0.3.0),
-    wikitaxa (>= 0.3.0)
+    wikitaxa (>= 0.3.0),
+    R6,
+    crayon,
+    cli
 Suggests:
     testthat,
     knitr,
