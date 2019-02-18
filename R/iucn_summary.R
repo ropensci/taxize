@@ -14,7 +14,7 @@
 #' \url{http://apiv3.iucnredlist.org/api/v3/token}. Required for 
 #' \code{iucn_summary}. Defaults to \code{NULL} in case you have your key 
 #' stored (see \code{Redlist Authentication} below).
-#' @param ... Currently not used.
+#' @param ... curl options passed on to [crul::verb-GET]
 #'
 #' @return A list (for every species one entry) of lists with the following
 #' items:
@@ -96,7 +96,7 @@ iucn_summary.default <- function(x, parallel = FALSE, distr_detail = FALSE,
 #' @export
 iucn_summary.character <- function(x, parallel = FALSE, distr_detail = FALSE,
                                    key = NULL, ...) {
-  xid <- get_iucn(x, ...)
+  xid <- get_iucn(x, key = key, ...)
   if (any(is.na(xid))) {
     nas <- x[is.na(xid)]
     warning("taxa '", paste0(nas, collapse = ", ") ,
@@ -130,8 +130,8 @@ iucn_summary_id <- function(...) {
 
 
 ## helpers --------
-try_red <- function(fun, x) {
-  tryCatch(fun(id = x), error = function(e) e)
+try_red <- function(fun, x, key, ...) {
+  tryCatch(fun(id = x, key = key, ...), error = function(e) e)
 }
 
 null_res <- list(status = NA, history = NA, distr = NA, trend = NA)
@@ -139,10 +139,10 @@ null_res <- list(status = NA, history = NA, distr = NA, trend = NA)
 get_iucn_summary2 <- function(query, parallel, distr_detail, key = NULL, ...) {
   fun <- function(z) {
     if (is.na(z)) return(null_res)
-    res <- try_red(rredlist::rl_search, z)
+    res <- try_red(rredlist::rl_search, z, key, ...)
     if (!inherits(res, "error")) {
       # history
-      history <- try_red(rredlist::rl_history, z)
+      history <- try_red(rredlist::rl_history, z, key, ...)
       if (NROW(history$result) == 0 || inherits(history, "error")) {
         history <- NA
       } else {
@@ -150,7 +150,7 @@ get_iucn_summary2 <- function(query, parallel, distr_detail, key = NULL, ...) {
       }
 
       # distribution
-      distr <- try_red(rredlist::rl_occ_country, z)
+      distr <- try_red(rredlist::rl_occ_country, z, key, ...)
       if (NROW(distr$result) == 0 || inherits(distr, "error")) {
         distr <- NA
       } else {

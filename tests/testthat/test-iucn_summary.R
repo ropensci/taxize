@@ -1,7 +1,6 @@
-context("iucn_summary")
-
+context("iucn_summary: basic usage")
 test_that("iucn_summary returns the correct value", {
-  if (Sys.getenv('IUCN_REDLIST_KEY') == "") {
+  if (Sys.getenv("IUCN_REDLIST_KEY") == "") {
     skip("No IUCN api key so test not run.")
   }
 
@@ -14,8 +13,9 @@ test_that("iucn_summary returns the correct value", {
   expect_equal(length(iucn_status(temp)), 2)
 })
 
+context("iucn_summary: gives expected result for lots of names")
 test_that("iucn_summary gives expected result for lots of names", {
-  if (Sys.getenv('IUCN_REDLIST_KEY') == "") {
+  if (Sys.getenv("IUCN_REDLIST_KEY") == "") {
     skip("No IUCN api key so test not run.")
   }
 
@@ -29,7 +29,7 @@ test_that("iucn_summary gives expected result for lots of names", {
     gg <- iucn_summary("Cyornis lemprieri")
     hh <- iucn_summary("Frailea pumila")
   })
-  
+
   expect_equal(aa$`Abies koreana`$status, "EN")
   expect_equal(bb$`Xylopia collina`$status, "EN")
   expect_equal(cc$`Brugmansia versicolor`$status, "EW")
@@ -38,4 +38,13 @@ test_that("iucn_summary gives expected result for lots of names", {
   expect_equal(ff$`Chamaecrista onusta`$status, "VU")
   expect_equal(gg$`Cyornis lemprieri`$status, "NT")
   expect_equal(hh$`Frailea pumila`$status, "LC")
+})
+
+context("iucn_summary: curl options work")
+test_that("iucn_summary curl options work", {
+  skip_on_cran()
+  if (Sys.getenv("IUCN_REDLIST_KEY") == "") {
+    skip("No IUCN api key so test not run.")
+  }
+  expect_error(iucn_summary("Abies koreana", timeout_ms = 1))
 })
