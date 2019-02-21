@@ -11,8 +11,8 @@
 \alias{get_pow_}
 \title{Get Kew's Plants of the World code for a taxon}
 \usage{
-get_pow(x, accepted = FALSE, ask = TRUE, verbose = TRUE, rows = NA,
-  rank = NULL, family_filter = NULL, rank_filter = NULL, ...)
+get_pow(x, accepted = FALSE, ask = TRUE, messages = TRUE,
+  rows = NA, family_filter = NULL, rank_filter = NULL, ...)
 
 as.pow(x, check = TRUE)
 
@@ -26,7 +26,7 @@ as.pow(x, check = TRUE)
 
 \method{as.data.frame}{pow}(x, ...)
 
-get_pow_(x, verbose = TRUE, rows = NA, ...)
+get_pow_(x, messages = TRUE, rows = NA, ...)
 }
 \arguments{
 \item{x}{character; A vector of common or scientific names}
@@ -39,7 +39,7 @@ accepted and unaccepted names.}
 If TRUE and more than one pow is found for teh species, the user is 
 asked for input. If FALSE NA is returned for multiple matches.}
 
-\item{verbose}{logical; should progress be printed?}
+\item{messages}{logical; should progress be printed?}
 
 \item{rows}{numeric; Any number from 1 to infinity. If the default NA, 
 all rows are considered. Note that this function still only gives back 
