@@ -6,21 +6,20 @@
 \title{Retrieve taxonomic identifiers for a given taxon name.}
 \usage{
 get_ids(names, db = c("itis", "ncbi", "eol", "col", "tropicos", "gbif",
-  "nbn"), ...)
+  "nbn", "pow"), ...)
 
-get_ids_(names, db = c("itis", "ncbi", "eol", "col", "tropicos", "gbif",
-  "nbn"), rows = NA, ...)
+get_ids_(names, db = get_ids_dbs, rows = NA, ...)
 }
 \arguments{
 \item{names}{character; Taxonomic name to query.}
 
 \item{db}{character; database to query. One or  more of \code{ncbi},
-\code{itis}, \code{eol}, \code{col}, \code{tropicos}, \code{gbif}, or
-\code{nbn}. By default db is set to search all data sources. Note that each
-taxonomic data source has their own identifiers, so that if you vide the
-wrong \code{db} value for the identifier you could get a result, it will
-likely be wrong (not what you were expecting). If using ncbi, eol, and/or
-tropicos we recommend getting API keys; see
+\code{itis}, \code{eol}, \code{col}, \code{tropicos}, \code{gbif},
+\code{nbn}, or \code{pow}. By default db is set to search all data sources.
+Note that each taxonomic data source has their own identifiers, so that if
+you give the wrong \code{db} value for the identifier you could get a result,
+it will likely be wrong (not what you were expecting). If using ncbi, eol,
+and/or tropicos we recommend getting API keys; see
 \code{\link{taxize-authentication}}}
 
 \item{...}{Other arguments passed to \code{\link[taxize]{get_tsn}},
@@ -98,8 +97,9 @@ Other taxonomic-ids: \code{\link{get_boldid}},
   \code{\link{get_colid}}, \code{\link{get_eolid}},
   \code{\link{get_gbifid}}, \code{\link{get_iucn}},
   \code{\link{get_natservid}}, \code{\link{get_nbnid}},
-  \code{\link{get_tolid}}, \code{\link{get_tpsid}},
-  \code{\link{get_tsn}}, \code{\link{get_uid}},
-  \code{\link{get_wiki}}, \code{\link{get_wormsid}}
+  \code{\link{get_pow}}, \code{\link{get_tolid}},
+  \code{\link{get_tpsid}}, \code{\link{get_tsn}},
+  \code{\link{get_uid}}, \code{\link{get_wiki}},
+  \code{\link{get_wormsid}}
 }
 \concept{taxonomic-ids}

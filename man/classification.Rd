@@ -15,6 +15,7 @@
 \alias{classification.natservid}
 \alias{classification.boldid}
 \alias{classification.wiki}
+\alias{classification.pow}
 \alias{classification.ids}
 \alias{cbind.classification}
 \alias{rbind.classification}
@@ -62,6 +63,9 @@ classification(...)
 \method{classification}{wiki}(id, callopts = list(), return_id = TRUE,
   ...)
 
+\method{classification}{pow}(id, callopts = list(), return_id = TRUE,
+  ...)
+
 \method{classification}{ids}(id, ...)
 
 \method{cbind}{classification}(...)
@@ -79,8 +83,8 @@ classification(...)
 \code{\link{get_colid}}, \code{\link{get_tpsid}},
 \code{\link{get_gbifid}}, \code{\link{get_wormsid}},
 \code{\link{get_natservid}}, \code{\link{get_wormsid}},
-\code{\link{get_wiki}}. For \code{rbind.classification} and
-\code{cbind.classification}: one or more objects of class
+\code{\link{get_wiki}}, \code{\link{get_pow}}. For \code{rbind.classification}
+and \code{cbind.classification}: one or more objects of class
 \code{classification}}
 
 \item{x}{Vector of taxa names (character) or IDs (character or numeric)
@@ -88,11 +92,11 @@ to query.}
 
 \item{db}{character; database to query. either \code{ncbi}, \code{itis},
 \code{eol}, \code{col}, \code{tropicos}, \code{gbif}, \code{nbn},
-\code{worms}, \code{natserv}, \code{bold}, or \code{wiki}. Note that each
+\code{worms}, \code{natserv}, \code{bold}, \code{wiki}, or \code{pow}. Note that each
 taxonomic data source has, their own identifiers, so that if you provide
 the wrong \code{db} value for the identifier you could get a result, but
 it will likely be wrong (not what you were expecting). If using ncbi, eol,
-and/or tropicos, we recommend getting an API key; see 
+and/or tropicos, we recommend getting an API key; see
 \code{\link{taxize-authentication}}}
 
 \item{callopts}{Curl options passed on to \code{\link[crul]{verb-GET}}}
@@ -111,12 +115,13 @@ in a taxonomic id instead of a name of class character.}
 \code{\link{get_colid}}, \code{\link{get_tpsid}},
 \code{\link{get_gbifid}}, \code{\link{get_tolid}},
 \code{\link{get_wormsid}}, \code{\link{get_natservid}},
-\code{\link{get_wormsid}}, \code{\link{get_wiki}}}
+\code{\link{get_wormsid}}, \code{\link{get_wiki}},
+\code{\link{get_pow}}}
 
-\item{start}{The first record to return. If omitted, the results are 
-returned from the first record (start=0). This is useful if the total 
-number of results is larger than the maximum number of results returned by 
-a single Web service query (currently the maximum number of results returned 
+\item{start}{The first record to return. If omitted, the results are
+returned from the first record (start=0). This is useful if the total
+number of results is larger than the maximum number of results returned by
+a single Web service query (currently the maximum number of results returned
 by a single query is 500 for terse queries and 50 for full queries).}
 
 \item{checklist}{character; The year of the checklist to query, if you want
@@ -162,6 +167,9 @@ classification(c(9606, 55062), db = 'ncbi')
 classification(129313, db = 'itis')
 classification(6985636, db = 'eol')
 classification(126436, db = 'worms')
+classification('Helianthus annuus', db = 'pow')
+classification('Helianthus', db = 'pow')
+classification('Asteraceae', db = 'pow')
 classification("ELEMENT_GLOBAL.2.134717", db = 'natserv')
 classification(c(2704179, 2441176), db = 'gbif')
 classification(25509881, db = 'tropicos')
@@ -178,7 +186,7 @@ classification("Malus domestica", db = "wiki")
 classification("Pinus contorta", db = "wiki")
 classification("Pinus contorta", db = "wiki", wiki_site = "commons")
 classification("Pinus contorta", db = "wiki", wiki_site = "pedia")
-classification("Pinus contorta", db = "wiki", wiki_site = "pedia", 
+classification("Pinus contorta", db = "wiki", wiki_site = "pedia",
   wiki = "fr")
 
 classification(get_wiki("Malus domestica", "commons"))
@@ -295,5 +303,6 @@ classification('Poa annua', db = 'tropicos', rows=6)
    \code{\link{get_eolid}}, \code{\link{get_colid}},
    \code{\link{get_tpsid}}, \code{\link{get_gbifid}}
    \code{\link{get_wormsid}}, \code{\link{get_natservid}},
-   \code{\link{get_boldid}}, \code{\link{get_wiki}}
+   \code{\link{get_boldid}}, \code{\link{get_wiki}},
+   \code{\link{get_pow}}
 }

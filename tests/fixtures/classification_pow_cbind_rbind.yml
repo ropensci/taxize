@@ -1,0 +1,172 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://www.plantsoftheworldonline.org/api/2/search?q=Brillantaisia%20vogeliana&perPage=100&cursor=%2A
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
+      X-User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 21 Feb 2019 01:30:18 GMT
+      server: Apache/2.4.38 (Unix)
+      etag: '"05ec8a329c9488c3dacb928f9593924f6-gzip"'
+      content-type: application/json;charset=UTF-8
+      vary: Accept-Encoding
+      content-encoding: gzip
+      cache-control: max-age=0, must-revalidate, proxy-revalidate
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalResults":1,"page":0,"totalPages":1,"perPage":100,"cursor":"AoMIQVhEhT8FNjAwQWNhbnRoYWNlYWVCcmlsbGFudGFpc2lhdm9nZWxpYW5hLFRheG9uXzcwOTU4NA==","results":[{"accepted":true,"author":"(Nees)
+        Benth.","kingdom":"Plantae","family":"Acanthaceae","name":"Brillantaisia vogeliana","rank":"Species","url":"/taxon/urn:lsid:ipni.org:names:46689-1","fqId":"urn:lsid:ipni.org:names:46689-1","images":[{"thumbnail":"http://d2seqvvyy3b8p2.cloudfront.net/1a408536d526a9295b64ae7649ad8617.jpg","fullsize":"http://d2seqvvyy3b8p2.cloudfront.net/40dc91933316b4d5d9aa5826508a124c.jpg","caption":"A
+        specimen from Kew''s Herbarium"}]}]}'
+  recorded_at: 2019-02-21 01:30:20 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4
+- request:
+    method: get
+    uri: http://www.plantsoftheworldonline.org/api/2/search?q=Aphelandra%20aurantiaca&perPage=100&cursor=%2A
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
+      X-User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 21 Feb 2019 01:30:19 GMT
+      server: Apache/2.4.38 (Unix)
+      etag: '"099df3affe8816c93c6debeda483efe16-gzip"'
+      content-type: application/json;charset=UTF-8
+      vary: Accept-Encoding
+      content-encoding: gzip
+      cache-control: max-age=0, must-revalidate, proxy-revalidate
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalResults":1,"page":0,"totalPages":1,"perPage":100,"cursor":"AoMIQVhEhT8DNjAwQWNhbnRoYWNlYWVBcGhlbGFuZHJhYXVyYW50aWFjYSxUYXhvbl82NzY5MDg=","results":[{"accepted":true,"author":"(Scheidw.)
+        Lindl.","kingdom":"Plantae","family":"Acanthaceae","name":"Aphelandra aurantiaca","rank":"Species","url":"/taxon/urn:lsid:ipni.org:names:1053173-2","fqId":"urn:lsid:ipni.org:names:1053173-2","images":[{"thumbnail":"http://d2seqvvyy3b8p2.cloudfront.net/5e389bc0c1ec911cc6481563ee6ead20.jpg","fullsize":"http://d2seqvvyy3b8p2.cloudfront.net/27406e9812b6da195844119de08b360e.jpg","caption":"A
+        specimen from Kew''s Herbarium"}]}]}'
+  recorded_at: 2019-02-21 01:30:20 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4
+- request:
+    method: get
+    uri: http://www.plantsoftheworldonline.org/api/2/taxon/urn:lsid:ipni.org:names:46689-1
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
+      X-User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 21 Feb 2019 01:30:19 GMT
+      server: Apache/2.4.38 (Unix)
+      content-disposition: inline;filename=f.txt
+      etag: '"0adb3bd02d124fa05e1ab9b8f7ca36564-gzip"'
+      content-type: application/json;charset=UTF-8
+      vary: Accept-Encoding
+      content-encoding: gzip
+      cache-control: max-age=0, must-revalidate, proxy-revalidate
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: '{"modified":"2019-02-12T00:00:00.000Z","bibliographicCitation":"IPNI
+        2019. Published on the Internet http://www.ipni.org; WCSP 2019. WCSP. Facilitated
+        by the Royal Botanic Gardens, Kew. Published on the Internet; http://apps.kew.org/wcsp/
+        Retrieved 2011 onwards","genus":"Brillantaisia","taxonomicStatus":"Accepted","kingdom":"Plantae","phylum":"Magnoliophyta","family":"Acanthaceae","nomenclaturalCode":"Botanical","source":"kew.org:az:reference:683397","namePublishedInYear":1849,"taxonRemarks":"W.
+        Trop. Africa to SW. Kenya","nomenclaturalStatus":"Available","synonym":false,"plantae":true,"fungi":false,"fqId":"urn:lsid:ipni.org:names:46689-1","name":"Brillantaisia
+        vogeliana","authors":"(Nees) Benth.","species":"vogeliana","rank":"SPECIES","reference":"W.J.Hooker,
+        Niger Fl.: 477 (1849)","classification":[{"fqId":"urn:lsid:ipni.org:names:30000618-2","name":"Acanthaceae","author":"Juss.","rank":"FAMILY","taxonomicStatus":"Accepted"},{"fqId":"urn:lsid:ipni.org:names:432-1","name":"Brillantaisia","author":"P.Beauv.","rank":"GENUS","taxonomicStatus":"Accepted"},{"fqId":"urn:lsid:ipni.org:names:46689-1","name":"Brillantaisia
+        vogeliana","author":"(Nees) Benth.","rank":"SPECIES","taxonomicStatus":"Accepted"}],"basionym":{"fqId":"urn:lsid:ipni.org:names:52188-1","name":"Leucorhaphis
+        vogeliana","author":"Nees","rank":"SPECIES","taxonomicStatus":"Homotypic_Synonym"},"synonyms":[{"fqId":"urn:lsid:ipni.org:names:46677-1","name":"Brillantaisia
+        preussii","author":"Lindau","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:52188-1","name":"Leucorhaphis
+        vogeliana","author":"Nees","rank":"SPECIES","taxonomicStatus":"Homotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:46682-1","name":"Brillantaisia
+        soyauxii","author":"Lindau","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:46670-1","name":"Brillantaisia
+        molleri","author":"Lindau","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:46681-1","name":"Brillantaisia
+        schumanniana","author":"Lindau","rank":"SPECIES","taxonomicStatus":"Synonym"}]}'
+  recorded_at: 2019-02-21 01:30:20 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4
+- request:
+    method: get
+    uri: http://www.plantsoftheworldonline.org/api/2/taxon/urn:lsid:ipni.org:names:1053173-2
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
+      X-User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 21 Feb 2019 01:30:19 GMT
+      server: Apache/2.4.38 (Unix)
+      content-disposition: inline;filename=f.txt
+      etag: '"029338b0d284e20472ef803c6fa964332-gzip"'
+      content-type: application/json;charset=UTF-8
+      vary: Accept-Encoding
+      content-encoding: gzip
+      cache-control: max-age=0, must-revalidate, proxy-revalidate
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: '{"modified":"2019-02-12T00:00:00.000Z","bibliographicCitation":"IPNI
+        2019. Published on the Internet http://www.ipni.org; WCSP 2019. WCSP. Facilitated
+        by the Royal Botanic Gardens, Kew. Published on the Internet; http://apps.kew.org/wcsp/
+        Retrieved 2011 onwards","genus":"Aphelandra","taxonomicStatus":"Accepted","kingdom":"Plantae","phylum":"Magnoliophyta","family":"Acanthaceae","nomenclaturalCode":"Botanical","source":"kew.org:az:reference:643454","namePublishedInYear":1845,"taxonRemarks":"C.
+        Mexico to S. Trop. America","nomenclaturalStatus":"Available","childNameUsages":[{"fqId":"urn:lsid:ipni.org:names:16134-2","name":"Aphelandra
+        aurantiaca var. nitens","author":"(Hook.) Wassh.","rank":"VARIETY","taxonomicStatus":"Accepted"}],"synonym":false,"plantae":true,"fungi":false,"fqId":"urn:lsid:ipni.org:names:1053173-2","name":"Aphelandra
+        aurantiaca","authors":"(Scheidw.) Lindl.","species":"aurantiaca","rank":"SPECIES","reference":"Edwards''s
+        Bot. Reg. 31: t. 12 (1845)","classification":[{"fqId":"urn:lsid:ipni.org:names:30000618-2","name":"Acanthaceae","author":"Juss.","rank":"FAMILY","taxonomicStatus":"Accepted"},{"fqId":"urn:lsid:ipni.org:names:30000831-2","name":"Aphelandra","author":"R.Br.","rank":"GENUS","taxonomicStatus":"Accepted"},{"fqId":"urn:lsid:ipni.org:names:1053173-2","name":"Aphelandra
+        aurantiaca","author":"(Scheidw.) Lindl.","rank":"SPECIES","taxonomicStatus":"Accepted"}],"basionym":{"fqId":"urn:lsid:ipni.org:names:49561-1","name":"Hemisandra
+        aurantiaca","author":"Scheidw.","rank":"SPECIES","taxonomicStatus":"Homotypic_Synonym"},"synonyms":[{"fqId":"urn:lsid:ipni.org:names:54476-1","name":"Ruellia
+        quadrangularis","author":"Vell.","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:49382-1","name":"Harrachia
+        repanda","author":"Mart. ex Nees","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:16273-2","name":"Aphelandra
+        phalacra","author":"Leonard","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:45596-1","name":"Aphelandra
+        repanda","author":"Nees","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:301270-2","name":"Aphelandra
+        acutifolia","author":"Tafalla ex Nees","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:16302-2","name":"Aphelandra
+        simplex","author":"Lindau","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:45406-1","name":"Aphelandra
+        bullata","author":"H.Wendl.","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:45608-1","name":"Aphelandra
+        sciophila","author":"Mart. ex Nees","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:49561-1","name":"Hemisandra
+        aurantiaca","author":"Scheidw.","rank":"SPECIES","taxonomicStatus":"Homotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:16235-2","name":"Aphelandra
+        lonchochlamys","author":"Leonard","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:16256-2","name":"Aphelandra
+        nana","author":"Leonard","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:16230-2","name":"Aphelandra
+        leiophylla","author":"Leonard","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:16264-2","name":"Aphelandra
+        paraensis","author":"Lindau","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:45600-1","name":"Aphelandra
+        roezlei","author":"(Van Houtte) Carrière","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:45456-1","name":"Aphelandra
+        fascinator","author":"Linden & André","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:16195-2","name":"Aphelandra
+        glischrochlamys","author":"Leonard","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:16133-2","name":"Aphelandra
+        aurantiaca var. roezlii","author":"Van Houtte","rank":"VARIETY","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:16135-2","name":"Aphelandra
+        aurantiaca var. stenophylla","author":"Standl.","rank":"VARIETY","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:16322-2","name":"Aphelandra
+        uribei","author":"Leonard","rank":"SPECIES","taxonomicStatus":"Synonym"}]}'
+  recorded_at: 2019-02-21 01:30:20 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4

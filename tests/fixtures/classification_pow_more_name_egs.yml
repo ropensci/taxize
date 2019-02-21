@@ -1,0 +1,149 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://www.plantsoftheworldonline.org/api/2/search?q=Mimosa%20weberbaueri&perPage=100&cursor=%2A
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
+      X-User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 21 Feb 2019 01:32:19 GMT
+      server: Apache/2.4.38 (Unix)
+      etag: '"0db22c9ec7bc4aa10e8d1a833a8810719-gzip"'
+      content-type: application/json;charset=UTF-8
+      vary: Accept-Encoding
+      content-encoding: gzip
+      cache-control: max-age=0, must-revalidate, proxy-revalidate
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalResults":1,"page":0,"totalPages":1,"perPage":100,"cursor":"AoMIQVhEhTw2MDBGYWJhY2VhZU1pbW9zYXdlYmVyYmF1ZXJpLFRheG9uXzQ4Mjg2NQ==","results":[{"accepted":true,"author":"Harms","kingdom":"Plantae","family":"Fabaceae","name":"Mimosa
+        weberbaueri","rank":"Species","url":"/taxon/urn:lsid:ipni.org:names:162065-2","fqId":"urn:lsid:ipni.org:names:162065-2"}]}'
+  recorded_at: 2019-02-21 01:32:20 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4
+- request:
+    method: get
+    uri: http://www.plantsoftheworldonline.org/api/2/taxon/urn:lsid:ipni.org:names:162065-2
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
+      X-User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 21 Feb 2019 01:32:20 GMT
+      server: Apache/2.4.38 (Unix)
+      content-disposition: inline;filename=f.txt
+      etag: '"0b2eb13e5786f944771a968fc15029456-gzip"'
+      content-type: application/json;charset=UTF-8
+      vary: Accept-Encoding
+      content-encoding: gzip
+      cache-control: max-age=0, must-revalidate, proxy-revalidate
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: '{"modified":"2019-02-12T00:00:00.000Z","bibliographicCitation":"IPNI
+        2019. Published on the Internet http://www.ipni.org; WCSP 2019. WCSP. Facilitated
+        by the Royal Botanic Gardens, Kew. Published on the Internet; http://apps.kew.org/wcsp/
+        Retrieved 2011 onwards","genus":"Mimosa","taxonomicStatus":"Accepted","kingdom":"Plantae","phylum":"Magnoliophyta","family":"Fabaceae","nomenclaturalCode":"Botanical","source":"kew.org:az:reference:374249","namePublishedInYear":1908,"taxonRemarks":"Peru","nomenclaturalStatus":"Available","synonym":false,"plantae":true,"fungi":false,"fqId":"urn:lsid:ipni.org:names:162065-2","name":"Mimosa
+        weberbaueri","authors":"Harms","species":"weberbaueri","rank":"SPECIES","reference":"Bot.
+        Jahrb. Syst. 42: 90 (1908)","classification":[{"fqId":"urn:lsid:ipni.org:names:30000147-2","name":"Fabaceae","author":"Lindl.","rank":"FAMILY","taxonomicStatus":"Accepted"},{"fqId":"urn:lsid:ipni.org:names:30001613-2","name":"Mimosa","author":"L.","rank":"GENUS","taxonomicStatus":"Accepted"},{"fqId":"urn:lsid:ipni.org:names:162065-2","name":"Mimosa
+        weberbaueri","author":"Harms","rank":"SPECIES","taxonomicStatus":"Accepted"}],"synonyms":[{"fqId":"urn:lsid:ipni.org:names:161626-2","name":"Mimosa
+        dichoneuta","author":"J.F.Macbr.","rank":"SPECIES","taxonomicStatus":"Synonym"}]}'
+  recorded_at: 2019-02-21 01:32:21 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4
+- request:
+    method: get
+    uri: http://www.plantsoftheworldonline.org/api/2/search?q=Cyperus%20zollingeri&perPage=100&cursor=%2A
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
+      X-User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 21 Feb 2019 01:32:20 GMT
+      server: Apache/2.4.38 (Unix)
+      etag: '"09f0dddb52518ef8ec0928d8ba3f752fc-gzip"'
+      content-type: application/json;charset=UTF-8
+      vary: Accept-Encoding
+      content-encoding: gzip
+      cache-control: max-age=0, must-revalidate, proxy-revalidate
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalResults":1,"page":0,"totalPages":1,"perPage":100,"cursor":"AoMIQVhEhT42MDBDeXBlcmFjZWFlQ3lwZXJ1c3pvbGxpbmdlcmksVGF4b25fMjE5MTUy","results":[{"accepted":true,"author":"Steud.","kingdom":"Plantae","family":"Cyperaceae","name":"Cyperus
+        zollingeri","rank":"Species","url":"/taxon/urn:lsid:ipni.org:names:306363-1","fqId":"urn:lsid:ipni.org:names:306363-1","images":[{"thumbnail":"https://storage.googleapis.com/powop-assets/PPA/2101_2125/h2113a_thumbnail.jpg","fullsize":"https://storage.googleapis.com/powop-assets/PPA/2101_2125/h2113a_fullsize.jpg","caption":"Cyperus
+        zollingeri Steud."},{"thumbnail":"https://storage.googleapis.com/powop-assets/PPA/2101_2125/h2113b_thumbnail.jpg","fullsize":"https://storage.googleapis.com/powop-assets/PPA/2101_2125/h2113b_fullsize.jpg","caption":"Cyperus
+        zollingeri Steud."},{"thumbnail":"https://storage.googleapis.com/powop-assets/PPA/2101_2125/h2113c_thumbnail.jpg","fullsize":"https://storage.googleapis.com/powop-assets/PPA/2101_2125/h2113c_fullsize.jpg","caption":"Cyperus
+        zollingeri Steud."}]}]}'
+  recorded_at: 2019-02-21 01:32:21 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4
+- request:
+    method: get
+    uri: http://www.plantsoftheworldonline.org/api/2/taxon/urn:lsid:ipni.org:names:306363-1
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
+      X-User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 21 Feb 2019 01:32:20 GMT
+      server: Apache/2.4.38 (Unix)
+      content-disposition: inline;filename=f.txt
+      etag: '"0256fbd2e0bddde6fa59f811cae5e1870-gzip"'
+      content-type: application/json;charset=UTF-8
+      vary: Accept-Encoding
+      content-encoding: gzip
+      cache-control: max-age=0, must-revalidate, proxy-revalidate
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: '{"modified":"2015-04-29T17:13:51.000Z","bibliographicCitation":"IPNI
+        2019. Published on the Internet http://www.ipni.org; WCSP 2019. WCSP. Facilitated
+        by the Royal Botanic Gardens, Kew. Published on the Internet; http://apps.kew.org/wcsp/
+        Retrieved 2011 onwards","genus":"Cyperus","taxonomicStatus":"Accepted","kingdom":"Plantae","phylum":"Magnoliophyta","family":"Cyperaceae","nomenclaturalCode":"Botanical","source":"http://apps.kew.org/wcsp/namedetail.do?name_id=239075","namePublishedInYear":1854,"taxonRemarks":"Trop.
+        & S. Africa to W. Pacific","nomenclaturalStatus":"Available","synonym":false,"plantae":true,"fungi":false,"fqId":"urn:lsid:ipni.org:names:306363-1","name":"Cyperus
+        zollingeri","authors":"Steud.","species":"zollingeri","rank":"SPECIES","reference":"Syn.
+        Pl. Glumac. 2: 17 (1854)","classification":[{"fqId":"urn:lsid:ipni.org:names:30000197-2","name":"Cyperaceae","author":"Juss.","rank":"FAMILY","taxonomicStatus":"Accepted"},{"fqId":"urn:lsid:ipni.org:names:330001-2","name":"Cyperus","author":"L.","rank":"GENUS","taxonomicStatus":"Accepted"},{"fqId":"urn:lsid:ipni.org:names:306363-1","name":"Cyperus
+        zollingeri","author":"Steud.","rank":"SPECIES","taxonomicStatus":"Accepted"}],"synonyms":[{"fqId":"urn:lsid:ipni.org:names:305728-1","name":"Cyperus
+        ramosii","author":"Kük.","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:305814-1","name":"Cyperus
+        rubroviridis","author":"Cherm.","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:305059-1","name":"Cyperus
+        lucidulus","author":"C.B.Clarke","rank":"SPECIES","taxonomicStatus":"Synonym"}]}'
+  recorded_at: 2019-02-21 01:32:21 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4
