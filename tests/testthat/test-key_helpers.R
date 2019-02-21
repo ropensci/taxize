@@ -13,7 +13,7 @@ test_that("use_tropicos produces expected URL and message", {
 
 
 test_that("use_eol produces expected URL and message", {
-  expect_equal(use_eol(), "http://eol.org/info/api_overview")
+  expect_equal(use_eol(), "https://eol.org/users/sign_up")
   expect_message(use_eol(), "Generate your key")
 })
 

@@ -1,5 +1,5 @@
 use_fxns_urls <- list(
-  tropics = "http://services.tropicos.org/help?requestkey",
+  tropicos = "http://services.tropicos.org/help?requestkey",
   eol = "https://eol.org/users/sign_up",
   entrez = "https://www.ncbi.nlm.nih.gov/account/"
 )
