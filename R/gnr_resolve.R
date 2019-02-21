@@ -1,4 +1,6 @@
-#' Resolve names using Global Names Resolver.
+#' Resolve names using Global Names Resolver
+#' 
+#' See section \strong{Date age} for a note about data age
 #'
 #' @export
 #' @param names character; taxonomic names to be resolved. Doesn't work for
@@ -75,6 +77,12 @@
 #' }
 #' Note that names (i.e. rows) are dropped that are NA, are zero length
 #' strings, are not character vectors, or are not found by the API.
+#' 
+#' @section Date age:
+#' IMPORTANT: Datasets used in the Global Names Resolver vary in how recently
+#' they've been updated. See the \code{updated_at} field in the 
+#' output of \code{\link{gnr_datasources}} for dates when each dataset 
+#' was last updated.
 #' 
 #' @section preferred_data_sources:
 #' If \code{preferred_data_sources} is used, only the preferred data 
