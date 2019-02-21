@@ -2,7 +2,6 @@
 % Please edit documentation in R/getkey.R
 \name{getkey}
 \alias{getkey}
-\alias{taxize-authentication}
 \title{Function to get API key.}
 \usage{
 getkey(x = NULL, service)
@@ -15,6 +14,7 @@ default guest key (for Tropicos and EOL; there's no guest
 key for NCBI or IUCN, for which you have to get your own)}
 }
 \description{
+<<<<<<< HEAD
 Checks first to get key from your .Rprofile or .Renviron (or similar) file.
 See Details.
 }
@@ -42,6 +42,9 @@ We strongly recommend using environment variables over R options.
 Note that NCBI Entrez doesn't require that you use an API key,
 but you should get higher rate limit with a key,
 from 3 to 10 requests per second, so do get one.
+=======
+Checks first to get key from your .Rprofile or .Renviron (or similar) file
+>>>>>>> master
 }
 \examples{
 \dontrun{

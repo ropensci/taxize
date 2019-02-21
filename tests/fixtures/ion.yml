@@ -1,0 +1,135 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://www.organismnames.com/lsidmetadata.htm?lsid=155166
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: Apache-Coyote/1.1
+      content-type: application/rdf+xml;charset=utf-8
+      content-language: en-US
+      content-length: '859'
+      date: Thu, 24 Jan 2019 06:36:51 GMT
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="utf-8" ?> <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/"
+        xmlns:dcterms="http://purl.org/dc/terms/" xmlns:tdwg_pc="http://rs.tdwg.org/ontology/voc/PublicationCitation#"
+        xmlns:tdwg_co="http://rs.tdwg.org/ontology/voc/Common#" xmlns:tdwg_tn="http://rs.tdwg.org/ontology/voc/TaxonName#"
+        xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><tdwg_tn:TaxonName
+        rdf:about="155166"><dc:identifier>155166</dc:identifier><dc:creator rdf:resource="http://www.organismnames.com"/><dc:Title>Pliopithecidae</dc:Title><tdwg_tn:nameComplete>Pliopithecidae</tdwg_tn:nameComplete><tdwg_tn:nomenclaturalCode
+        rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonName#ICZN"/><rdfs:seeAlso
+        rdf:resource="http://www.organismnames.com/namedetails.htm?lsid=155166"/></tdwg_tn:TaxonName></rdf:RDF>
+  recorded_at: 2019-01-24 06:36:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://www.organismnames.com/lsidmetadata.htm?lsid=298678
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: Apache-Coyote/1.1
+      content-type: application/rdf+xml;charset=utf-8
+      content-language: en-US
+      content-length: '851'
+      date: Thu, 24 Jan 2019 06:36:51 GMT
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="utf-8" ?> <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/"
+        xmlns:dcterms="http://purl.org/dc/terms/" xmlns:tdwg_pc="http://rs.tdwg.org/ontology/voc/PublicationCitation#"
+        xmlns:tdwg_co="http://rs.tdwg.org/ontology/voc/Common#" xmlns:tdwg_tn="http://rs.tdwg.org/ontology/voc/TaxonName#"
+        xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><tdwg_tn:TaxonName
+        rdf:about="298678"><dc:identifier>298678</dc:identifier><dc:creator rdf:resource="http://www.organismnames.com"/><dc:Title>Absarokius</dc:Title><tdwg_tn:nameComplete>Absarokius</tdwg_tn:nameComplete><tdwg_tn:nomenclaturalCode
+        rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonName#ICZN"/><rdfs:seeAlso
+        rdf:resource="http://www.organismnames.com/namedetails.htm?lsid=298678"/></tdwg_tn:TaxonName></rdf:RDF>
+  recorded_at: 2019-01-24 06:36:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://www.organismnames.com/lsidmetadata.htm?lsid=4796748
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: Apache-Coyote/1.1
+      content-type: application/rdf+xml;charset=utf-8
+      content-language: en-US
+      content-length: '866'
+      date: Thu, 24 Jan 2019 06:36:51 GMT
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="utf-8" ?> <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/"
+        xmlns:dcterms="http://purl.org/dc/terms/" xmlns:tdwg_pc="http://rs.tdwg.org/ontology/voc/PublicationCitation#"
+        xmlns:tdwg_co="http://rs.tdwg.org/ontology/voc/Common#" xmlns:tdwg_tn="http://rs.tdwg.org/ontology/voc/TaxonName#"
+        xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><tdwg_tn:TaxonName
+        rdf:about="4796748"><dc:identifier>4796748</dc:identifier><dc:creator rdf:resource="http://www.organismnames.com"/><dc:Title>Ursus
+        americanus</dc:Title><tdwg_tn:nameComplete>Ursus americanus</tdwg_tn:nameComplete><tdwg_tn:nomenclaturalCode
+        rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonName#ICZN"/><rdfs:seeAlso
+        rdf:resource="http://www.organismnames.com/namedetails.htm?lsid=4796748"/></tdwg_tn:TaxonName></rdf:RDF>
+  recorded_at: 2019-01-24 06:36:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://www.organismnames.com/lsidmetadata.htm?lsid=1280626
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: Apache-Coyote/1.1
+      content-type: application/rdf+xml;charset=utf-8
+      content-language: en-US
+      content-length: '860'
+      date: Thu, 24 Jan 2019 06:36:51 GMT
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="utf-8" ?> <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/"
+        xmlns:dcterms="http://purl.org/dc/terms/" xmlns:tdwg_pc="http://rs.tdwg.org/ontology/voc/PublicationCitation#"
+        xmlns:tdwg_co="http://rs.tdwg.org/ontology/voc/Common#" xmlns:tdwg_tn="http://rs.tdwg.org/ontology/voc/TaxonName#"
+        xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><tdwg_tn:TaxonName
+        rdf:about="1280626"><dc:identifier>1280626</dc:identifier><dc:creator rdf:resource="http://www.organismnames.com"/><dc:Title>Puma
+        concolor</dc:Title><tdwg_tn:nameComplete>Puma concolor</tdwg_tn:nameComplete><tdwg_tn:nomenclaturalCode
+        rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonName#ICZN"/><rdfs:seeAlso
+        rdf:resource="http://www.organismnames.com/namedetails.htm?lsid=1280626"/></tdwg_tn:TaxonName></rdf:RDF>
+  recorded_at: 2019-01-24 06:36:51 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0

@@ -11,7 +11,8 @@ comm2sci(commnames, db = "ncbi", itisby = "search", simplify = TRUE,
 \item{commnames}{One or more common names or partial names.}
 
 \item{db}{Data source, one of \emph{"ncbi"} (default), \emph{"itis"},
-\emph{"tropicos"}, \emph{"eol"}, or \emph{"worms"}.}
+\emph{"tropicos"}, \emph{"eol"}, or \emph{"worms"}. If using ncbi, we
+recommend getting an API key; see \code{\link{taxize-authentication}}}
 
 \item{itisby}{Search for common names across entire names (search, default),
 at beginning of names (begin), or at end of names (end).}
@@ -45,12 +46,11 @@ See \code{\link{taxize-authentication}} for help on authentication
 \examples{
 \dontrun{
 comm2sci(commnames='american black bear')
-comm2sci(commnames='black bear', simplify = FALSE)
+comm2sci(commnames='american black bear', simplify = FALSE)
 comm2sci(commnames='black bear', db='itis')
 comm2sci(commnames='american black bear', db='itis')
 comm2sci(commnames='annual blue grass', db='tropicos')
 comm2sci(commnames=c('annual blue grass','tree of heaven'), db='tropicos')
-comm2sci(commnames=c('black bear', 'roe deer'))
 comm2sci('blue whale', db = "worms")
 comm2sci(c('blue whale', 'dwarf surfclam'), db = "worms")
 

@@ -9,7 +9,7 @@ gbif_parse(scientificname, ...)
 \arguments{
 \item{scientificname}{(character) scientific names}
 
-\item{...}{Further args passed on to \code{\link[httr]{POST}}}
+\item{...}{Further args passed on to \code{\link[crul]{verb-POST}}}
 }
 \value{
 A \code{data.frame} containing fields extracted from parsed

@@ -1,11 +1,9 @@
-# tests for synonyms fxn in taxize
 context("synonyms")
 
-
 test_that("synonyms returns the correct value", {
-  skip_on_cran()
-
-  tt <- sw(synonyms("Poa annua", db = "itis", rows = 1, verbose = FALSE))
+  vcr::use_cassette("synonyms_itis", {
+    tt <- sw(synonyms("Poa annua", db = "itis", rows = 1, verbose = FALSE))
+  })
 
 	expect_match(names(tt), "Poa annua")
 	expect_match(tt[[1]][1, "syn_name"], "Poa annua var. aquatica")
@@ -18,9 +16,9 @@ test_that("synonyms returns the correct value", {
 })
 
 test_that("synonyms works with worms data", {
-  skip_on_cran()
-
-  tt <- synonyms('Pomatomus saltatrix', db = "worms", verbose = FALSE)
+  vcr::use_cassette("synonyms_worms", {
+    tt <- synonyms('Pomatomus saltatrix', db = "worms", verbose = FALSE)
+  })
 
   expect_match(names(tt), 'Pomatomus saltatrix')
   expect_match(tt$`Pomatomus saltatrix`$valid_name[1], 'Pomatomus saltatrix')

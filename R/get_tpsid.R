@@ -6,7 +6,7 @@
 #' If TRUE and more than one ID is found for the species, the user is asked for
 #' input. If FALSE NA is returned for multiple matches.
 #' @param messages logical; If TRUE the actual taxon queried is printed on the console.
-#' @param key Your API key; loads from .Rprofile.
+#' @param key Your API key; see \code{\link{taxize-authentication}}
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, all rows are considered.
 #' Note that this function still only gives back a tpsid class object with one to many identifiers.
 #' See \code{\link[taxize]{get_tpsid_}} to get back all, or a subset, of the raw data that you are
@@ -107,38 +107,45 @@
 #' invisible(get_tpsid("Quercus douglasii", verbose = TRUE))
 #' }
 
-get_tpsid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL, rows = NA,
-                      family = NULL, rank = NULL, ...){
+get_tpsid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
+  rows = NA, family = NULL, rank = NULL, ...) {
 
   assert(ask, "logical")
   assert(messages, "logical")
   assert(family, "character")
   assert(rank, "character")
+  if (!is.na(rows)) {
+    assert(rows, c("numeric", "integer"))
+    stopifnot(rows > 0)
+  }
 
   fun <- function(sciname, ask, messages, rows, ...) {
     direct <- FALSE
     mssg(messages, "\nRetrieving data for taxon '", sciname, "'\n")
     tmp <- tp_search(name = sciname, key = key, ...)
     mm <- NROW(tmp) > 1
-    # tmp <- sub_rows(tmp, rows)
 
-    if (names(tmp)[[1]] == 'error' || is.na(tmp) || inherits(tmp, "character")) {
-      mssg(messages, "Not found. Consider checking the spelling or alternate classification")
+    if (
+      all(names(tmp)[[1]] == "error") ||
+      all(is.na(tmp)) ||
+      inherits(tmp, "character")
+    ) {
+      mssg(messages, m_not_found_sp_altclass)
       id <- NA_character_
-      att <- 'not found'
+      att <- "not found"
     } else {
-      df <- tmp[,c('nameid','scientificname','family','rankabbreviation',
+      df <- tmp[, c('nameid','scientificname','family','rankabbreviation',
                    'nomenclaturestatusname','author','displaydate')]
       names(df) <- c('tpsid','name','family','rank','status','author','date')
       id <- df$tpsid
-      att <- 'found'
+      att <- "found"
     }
 
     # not found on tropicos
     if (length(id) == 0) {
-      mssg(messages, "Not found. Consider checking the spelling or alternate classification")
+      mssg(messages, m_not_found_sp_altclass)
       id <- NA_character_
-      att <- 'not found'
+      att <- "not found"
     }
     # more than one found on tropicos -> user input
     if (length(id) > 1) {
@@ -154,6 +161,16 @@ get_tpsid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL, rows = N
           rank_taken <- as.character(df$rank)
           direct <- TRUE
           att <- "found"
+        }
+
+        # more than one, try for direct match
+        if (length(id) > 1) {
+          matchtmp <- df[tolower(df$name) %in% tolower(sciname), "tpsid"]
+          if (length(matchtmp) == 1) {
+            id <- matchtmp
+            direct <- TRUE
+            att <- "found"
+          }
         }
 
         if (length(id) > 1) {
@@ -175,21 +192,18 @@ get_tpsid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL, rows = N
               take <- as.numeric(take)
               message("Input accepted, took tpsid '", as.character(df$tpsid[take]), "'.\n")
               id <- as.character(df$tpsid[take])
-              att <- 'found'
+              att <- "found"
             } else {
               id <- NA_character_
               mssg(messages, "\nReturned 'NA'!\n\n")
-              att <- 'not found'
+              att <- "not found"
             }
           } else {
             if (length(id) != 1) {
-              warning(
-                sprintf("More than one tpsid found for taxon '%s'; refine query or set ask=TRUE",
-                        sciname),
-                call. = FALSE
-              )
+              warning(sprintf(m_more_than_one_found, "tpsid", sciname),
+                call. = FALSE)
               id <- NA_character_
-              att <- 'NA due to ask=FALSE & > 1 result'
+              att <- m_na_ask_false
             }
           }
         }

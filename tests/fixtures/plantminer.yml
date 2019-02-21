@@ -1,0 +1,179 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://www.plantminer.com/tpl?taxon=Myrcia%20lingua
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.10.1 (Ubuntu)
+      date: Fri, 25 Jan 2019 23:00:43 GMT
+      content-type: application/json
+      content-length: '340'
+      connection: keep-alive
+      access-control-allow-origin: '*'
+    body:
+      encoding: UTF-8
+      string: '[{"id":"kew-131274","family":"Myrtaceae","genus":"Myrcia","species":"guianensis","infraspecific.rank":"","infraspecific.epithet":"","authorship":"(Aubl.)
+        DC.","taxonomic.status.in.tpl":"Accepted","confidence.level":"H","source":"WCSP","accepted.id":"","name":"Myrcia
+        guianensis","note":"replaced synonym","original.search":"Myrcia lingua"}]'
+  recorded_at: 2019-01-25 23:00:44 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://www.plantminer.com/tpl?taxon=Myrcia%20bella
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.10.1 (Ubuntu)
+      date: Fri, 25 Jan 2019 23:00:43 GMT
+      content-type: application/json
+      content-length: '310'
+      connection: keep-alive
+      access-control-allow-origin: '*'
+    body:
+      encoding: UTF-8
+      string: '[{"id":"kew-131057","family":"Myrtaceae","genus":"Myrcia","species":"bella","infraspecific.rank":"","infraspecific.epithet":"","authorship":"Cambess.","taxonomic.status.in.tpl":"Accepted","confidence.level":"H","source":"WCSP","accepted.id":"","name":"Myrcia
+        bella","note":"","original.search":"Myrcia bella"}]'
+  recorded_at: 2019-01-25 23:00:44 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://www.plantminer.com/tpl?taxon=Ocotea%20pulchella
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.10.1 (Ubuntu)
+      date: Fri, 25 Jan 2019 23:00:44 GMT
+      content-type: application/json
+      content-length: '345'
+      connection: keep-alive
+      access-control-allow-origin: '*'
+    body:
+      encoding: UTF-8
+      string: '[{"id":"kew-2872482","family":"Lauraceae","genus":"Ocotea","species":"pulchella","infraspecific.rank":"","infraspecific.epithet":"","authorship":"(Nees
+        & Mart.) Mez","taxonomic.status.in.tpl":"Accepted","confidence.level":"M","source":"WCSP
+        (in review)","accepted.id":"","name":"Ocotea pulchella","note":"","original.search":"Ocotea
+        pulchella"}]'
+  recorded_at: 2019-01-25 23:00:44 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://www.plantminer.com/tpl?taxon=Miconia
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.10.1 (Ubuntu)
+      date: Fri, 25 Jan 2019 23:00:44 GMT
+      content-type: application/json
+      content-length: '277'
+      connection: keep-alive
+      access-control-allow-origin: '*'
+    body:
+      encoding: UTF-8
+      string: '[{"id":"","family":"Melastomataceae","genus":"Miconia","species":"","infraspecific.rank":"","infraspecific.epithet":"","authorship":"","taxonomic.status.in.tpl":"","confidence.level":"","source":"","accepted.id":"","name":"","note":"not
+        full name","original.search":"Miconia"}]'
+  recorded_at: 2019-01-25 23:00:44 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://www.plantminer.com/tpl?taxon=Coffea%20arabica%20var.%20amarella
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.10.1 (Ubuntu)
+      date: Fri, 25 Jan 2019 23:00:44 GMT
+      content-type: application/json
+      content-length: '339'
+      connection: keep-alive
+      access-control-allow-origin: '*'
+    body:
+      encoding: UTF-8
+      string: '[{"id":"kew-45400","family":"Rubiaceae","genus":"Coffea","species":"arabica","infraspecific.rank":"","infraspecific.epithet":"","authorship":"L.","taxonomic.status.in.tpl":"Accepted","confidence.level":"H","source":"WCSP","accepted.id":"","name":"Coffea
+        arabica","note":"replaced synonym","original.search":"Coffea arabica var.
+        amarella"}]'
+  recorded_at: 2019-01-25 23:00:44 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://www.plantminer.com/tpl?taxon=Bleh
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.10.1 (Ubuntu)
+      date: Fri, 25 Jan 2019 23:00:44 GMT
+      content-type: application/json
+      content-length: '252'
+      connection: keep-alive
+      access-control-allow-origin: '*'
+    body:
+      encoding: UTF-8
+      string: '[{"id":"","family":"","genus":"","species":"","infraspecific.rank":"","infraspecific.epithet":"","authorship":"","taxonomic.status.in.tpl":"","confidence.level":"","source":"","accepted.id":"","name":"","note":"not
+        full name","original.search":"Bleh"}]'
+  recorded_at: 2019-01-25 23:00:44 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0

@@ -42,7 +42,7 @@ data source ids to resolve found names against. See list of Data Sources
 \item{return_content}{(logical) return OCR'ed text. returns text
 string in \code{x$meta$content} slot. Default: \code{FALSE}}
 
-\item{...}{Further args passed to \code{\link[httr]{GET}}}
+\item{...}{Further args passed to \code{\link[crul]{verb-GET}}}
 }
 \value{
 A list of length two, first is metadata, second is the data as a
@@ -93,10 +93,6 @@ scrapenames(text='A spider named Pardosa moesta Banks, 1892')
 # return OCR content
 scrapenames(url='http://www.mapress.com/zootaxa/2012/f/z03372p265f.pdf',
   return_content = TRUE)
-
-# use curl options
-library("httr")
-scrapenames(text='A spider named Pardosa moesta Banks, 1892')
 }
 }
 \author{

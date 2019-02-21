@@ -5,7 +5,7 @@
 \title{Phylotastic Taxonomic Name Resolution Service.}
 \usage{
 tnrs(query = NA, source = NULL, code = NULL, getpost = "POST",
-  sleep = 0, splitby = 30, verbose = TRUE, ...)
+  sleep = 0, splitby = 30, messages = TRUE, ...)
 }
 \arguments{
 \item{query}{Vector of quoted taxonomic names to search (character).}
@@ -29,10 +29,10 @@ seconds. Use when doing many calls in a for loop ar lapply type call.}
 
 \item{splitby}{Number by which to split species list for querying the TNRS.}
 
-\item{verbose}{Verbosity or not (default \code{TRUE})}
+\item{messages}{Verbosity or not (default \code{TRUE})}
 
-\item{...}{Curl options to pass in \code{\link[httr]{GET}} or
-\code{\link[httr]{POST}}}
+\item{...}{Curl options to pass in \code{\link[crul]{verb-GET}} or
+\code{\link[crul]{verb-POST}}}
 }
 \value{
 data.frame of results from TNRS plus the name submitted, with
@@ -81,9 +81,8 @@ mynames <- c("Panthera tigris", "Eutamias minimus", "Magnifera indica",
 tnrs(mynames, source = "NCBI")
 
 # Pass on curl options
-library("httr")
 mynames <- c("Helianthus annuus", "Poa annua", "Mimulus bicolor")
-tnrs(query = mynames, source = "iPlant_TNRS", config = verbose())
+tnrs(query = mynames, source = "iPlant_TNRS", verbose = TRUE)
 }
 }
 \references{

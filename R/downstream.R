@@ -14,7 +14,8 @@
 #' \code{col}, \code{gbif}, \code{ncbi} or \code{worms}. Note that each taxonomic 
 #' data source has their own identifiers, so that if you provide the wrong 
 #' \code{db} value for the identifier you could get a result, but it will 
-#' likely be wrong (not what you were expecting).
+#' likely be wrong (not what you were expecting). If using ncbi, we recommend
+#' getting an API key; see \code{\link{taxize-authentication}}
 #' @param downto What taxonomic rank to go down to. One of: 'superkingdom',
 #' 'kingdom', 'subkingdom','infrakingdom','phylum','division','subphylum',
 #' 'subdivision','infradivision', 'superclass','class','subclass','infraclass',
@@ -144,8 +145,12 @@ downstream.default <- function(x, db = NULL, downto = NULL,
 
 process_stream_ids <- function(input, db, fxn, ...){
   g <- tryCatch(as.numeric(as.character(input)), warning = function(e) e)
-  if (is(g, "numeric") || is.character(input) && grepl("[[:digit:]]", input)) {
-    as_fxn <- switch(db, itis = as.tsn, col = as.colid, gbif = as.gbifid, 
+  if (
+    inherits(g, "numeric") ||
+    is.character(input) &&
+    all(grepl("[[:digit:]]", input))
+  ) {
+    as_fxn <- switch(db, itis = as.tsn, col = as.colid, gbif = as.gbifid,
       ncbi = as.uid, worms = as.wormsid)
     as_fxn(input, check = FALSE)
   } else {
@@ -157,7 +162,7 @@ process_stream_ids <- function(input, db, fxn, ...){
 #' @rdname downstream
 downstream.tsn <- function(x, db = NULL, downto = NULL,
                            intermediate = FALSE, ...) {
-  fun <- function(y, downto, intermediate, ...){
+  fun <- function(y, downto, intermediate, ...) {
     # return NA if NA is supplied
     if (is.na(y)) {
       NA

@@ -1,5 +1,7 @@
 context("tol_resolve")
 
+## FIXME: use vcr once body request matching in vcr fixed
+
 test_that("tol_resolve basic usage works", {
   skip_on_cran()
 

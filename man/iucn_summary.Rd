@@ -2,14 +2,10 @@
 % Please edit documentation in R/iucn_summary.R
 \name{iucn_summary}
 \alias{iucn_summary}
-\alias{iucn_summary_id}
 \title{Get a summary from the IUCN Red List}
 \usage{
 iucn_summary(x, parallel = FALSE, distr_detail = FALSE, key = NULL,
   ...)
-
-iucn_summary_id(species_id, silent = TRUE, parallel = FALSE,
-  distr_detail = FALSE, ...)
 }
 \arguments{
 \item{x}{character; Scientific name. Should be cleaned and in the
@@ -22,15 +18,12 @@ register a parallel backend if \code{TRUE}. See e.g., doMC, doSNOW, etc.}
 returned as a list of vectors corresponding to the different range types:
 native, introduced, etc.}
 
-\item{key}{a Redlist API key, get one from \url{http://apiv3.iucnredlist.org/api/v3/token}
-Required for \code{iucn_summary} but not needed for \code{iucn_summary_id}. Defaults to
-\code{NULL} in case you have your key stored (see \code{Redlist Authentication} below).}
+\item{key}{a Redlist API key, get one from 
+\url{http://apiv3.iucnredlist.org/api/v3/token}. Required for 
+\code{iucn_summary}. Defaults to \code{NULL} in case you have your key 
+stored (see \code{Redlist Authentication} below).}
 
-\item{...}{Currently not used.}
-
-\item{species_id}{an IUCN ID}
-
-\item{silent}{logical; Make errors silent or not (when species not found).}
+\item{...}{curl options passed on to [crul::verb-GET]}
 }
 \value{
 A list (for every species one entry) of lists with the following
@@ -92,18 +85,8 @@ iac[[1]]$distr
 
 
 # If you pass in an IUCN ID, you don't need to pass in a Redlist API Key
-ia <- iucn_summary_id(c(22732, 12519))
 # extract status
-iucn_status(ia)
-# extract other available information
-ia$`22732`$history
-ia$`12519`$distr
-ia$`12519`$trend
-## the outputs aren't quite identical, but we're working on it
-identical(
-  iucn_summary_id(c(22732, 12519)),
-  iucn_summary(as.iucn(c(22732, 12519)))
-)
+iucn_status(iac)
 
 # using parallel, e.g., with doMC package, register cores first
 # library(doMC)

@@ -40,7 +40,7 @@ input. If FALSE NA is returned for multiple matches.}
 
 \item{messages}{logical; If TRUE the actual taxon queried is printed on the console.}
 
-\item{key}{Your API key; loads from .Rprofile.}
+\item{key}{Your API key; see \code{\link{taxize-authentication}}}
 
 \item{rows}{numeric; Any number from 1 to infinity. If the default NA, all rows are considered.
 Note that this function still only gives back a tpsid class object with one to many identifiers.

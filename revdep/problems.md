@@ -1,35 +1,3 @@
-# aptg
-
-Version: 0.1.0
-
-## In both
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    ...
-      ...
-    Accept-Encoding: gzip, deflate
-    Accept: application/json, text/xml, application/xml, */*
-    
-    < HTTP/1.1 200 OK
-    < Date: Fri, 16 Nov 2018 23:23:47 GMT
-    < Content-Type: application/json; charset=utf-8
-    < Transfer-Encoding: chunked
-    < Connection: keep-alive
-    < X-Frame-Options: SAMEORIGIN
-    < X-XSS-Protection: 1; mode=block
-    < X-Content-Type-Options: nosniff
-    < ETag: W/"cdcbe98d7c1588a4613a7d8434016bf0"
-    < Cache-Control: max-age=0, private, must-revalidate
-    < X-Request-Id: 77bc2591-17c7-45be-b9b1-99817517abd2
-    < X-Runtime: 0.023677
-    < Age: 0
-    < X-Cache: MISS
-    < X-Cache-Hits: 0
-    < Accept-Ranges: bytes
-    < 
-    ```
-
 # camtrapR
 
 Version: 1.0
@@ -68,7 +36,7 @@ Version: 0.4.0
 
 # metacoder
 
-Version: 0.3.0
+Version: 0.3.1
 
 ## In both
 
@@ -104,7 +72,7 @@ Version: 0.3.0
 
 # taxa
 
-Version: 0.3.1
+Version: 0.3.2
 
 ## In both
 
@@ -117,7 +85,7 @@ Version: 0.3.1
 
 # taxlist
 
-Version: 0.1.5
+Version: 0.1.6
 
 ## In both
 

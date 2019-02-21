@@ -29,7 +29,7 @@ incertae sedis buckets and other non-OTUs, are suppressed from TNRS
 results. If this parameter is true, these quasi-taxa are allowed as
 possible TNRS results. Default: \code{FALSE}}
 
-\item{...}{Curl options passed on to \code{\link[httr]{POST}} within
+\item{...}{Curl options passed on to \code{httr::POST} within
 \code{\link[rotl]{tnrs_match_names}}}
 }
 \value{

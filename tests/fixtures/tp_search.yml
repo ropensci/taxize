@@ -1,0 +1,244 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://services.tropicos.org/Name/Search?format=json&name=Poa%20annua&apikey=<<tropicos_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+      X-User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      cache-control: private
+      content-length: '18658'
+      content-type: application/json; charset=utf-8
+      server: Microsoft-IIS/7.5
+      x-aspnet-version: 4.0.30319
+      x-powered-by: ASP.NET
+      date: Sat, 26 Jan 2019 00:06:55 GMT
+    body:
+      encoding: UTF-8
+      string: '[{"NameId":25509881,"ScientificName":"Poa annua","ScientificNameWithAuthors":"Poa
+        annua L.","Family":"Poaceae","RankAbbreviation":"sp.","NomenclatureStatusID":1,"NomenclatureStatusName":"Legitimate","Symbol":"!","Author":"L.","DisplayReference":"Sp.
+        Pl. 1: 68","DisplayDate":"1753","TotalRows":57},{"NameId":25512377,"ScientificName":"Poa
+        annua var. reptans","ScientificNameWithAuthors":"Poa annua var. reptans Hausskn.","Family":"Poaceae","RankAbbreviation":"var.","NomenclatureStatusName":"No
+        opinion","Author":"Hausskn.","DisplayReference":"Mitth. Thüring. Bot. Vereins
+        9: 7","DisplayDate":"1891","TotalRows":57},{"NameId":25514155,"ScientificName":"Poa
+        annua var. rigidiuscula","ScientificNameWithAuthors":"Poa annua var. rigidiuscula
+        L.H. Dewey","Family":"Poaceae","RankAbbreviation":"var.","NomenclatureStatusName":"No
+        opinion","Author":"L.H. Dewey","DisplayReference":"Contr. U.S. Natl. Herb.
+        3(4): 262","DisplayDate":"1895","TotalRows":57},{"NameId":25516124,"ScientificName":"Poa
+        annua subsp. pratense","ScientificNameWithAuthors":"Poa annua subsp. pratense
+        ","Family":"Poaceae","RankAbbreviation":"subsp.","NomenclatureStatusName":"No
+        opinion","Author":"","DisplayReference":"","DisplayDate":"","TotalRows":57},{"NameId":25517736,"ScientificName":"Poa
+        annua var. annua","ScientificNameWithAuthors":"Poa annua var. annua ","Family":"Poaceae","RankAbbreviation":"var.","NomenclatureStatusName":"No
+        opinion","Author":"","DisplayReference":" ","DisplayDate":"","TotalRows":57},{"NameId":25537474,"ScientificName":"Poa
+        annua fo. annua","ScientificNameWithAuthors":"Poa annua fo. annua ","Family":"Poaceae","RankAbbreviation":"fo.","NomenclatureStatusName":"No
+        opinion","Author":"","DisplayReference":"","DisplayDate":"","TotalRows":57},{"NameId":25538408,"ScientificName":"Poa
+        annua subsp. annua","ScientificNameWithAuthors":"Poa annua subsp. annua ","Family":"Poaceae","RankAbbreviation":"subsp.","NomenclatureStatusName":"No
+        opinion","Author":"","DisplayReference":"","DisplayDate":"","TotalRows":57},{"NameId":25538823,"ScientificName":"Poa
+        annua var. aquatica","ScientificNameWithAuthors":"Poa annua var. aquatica
+        Asch.","Family":"Poaceae","RankAbbreviation":"var.","NomenclatureStatusName":"No
+        opinion","Author":"Asch.","DisplayReference":"Fl. Brandenburg 1: 844","DisplayDate":"1864","TotalRows":57},{"NameId":25538851,"ScientificName":"Poa
+        annua var. stricta","ScientificNameWithAuthors":"Poa annua var. stricta Vasey
+        ex Scribn.","Family":"Poaceae","RankAbbreviation":"var.","NomenclatureStatusName":"No
+        opinion","Author":"Vasey ex Scribn.","DisplayReference":"Bull. Torrey Bot.
+        Club 10(1): 31","DisplayDate":"1883","TotalRows":57},{"NameId":25540127,"ScientificName":"Poa
+        annua var. typica","ScientificNameWithAuthors":"Poa annua var. typica Beck","Family":"Poaceae","RankAbbreviation":"var.","NomenclatureStatusID":3,"NomenclatureStatusName":"Invalid","Symbol":"**","Author":"Beck","DisplayReference":"Prodr.
+        Fl. Corse 1: 132","DisplayDate":"1910","TotalRows":57},{"NameId":25543952,"ScientificName":"Poa
+        annua subsp. pilantha","ScientificNameWithAuthors":"Poa annua subsp. pilantha
+        (Ronniger) H. Scholz","Family":"Poaceae","RankAbbreviation":"subsp.","NomenclatureStatusName":"No
+        opinion","Author":"(Ronniger) H. Scholz","DisplayReference":"Ber. Deutsch.
+        Bot. Ges. 81: 17","DisplayDate":"1968","TotalRows":57},{"NameId":25547854,"ScientificName":"Poa
+        annua var. exilis","ScientificNameWithAuthors":"Poa annua var. exilis Tomm.
+        ex Freyn","Family":"Poaceae","RankAbbreviation":"var.","NomenclatureStatusName":"No
+        opinion","Author":"Tomm. ex Freyn","DisplayReference":"Verh. K.K. Zool.-Bot.
+        Ges. Wien 27: 469","DisplayDate":"1878","TotalRows":57},{"NameId":25549585,"ScientificName":"Poa
+        annua var. pygmaea","ScientificNameWithAuthors":"Poa annua var. pygmaea Schur","Family":"Poaceae","RankAbbreviation":"var.","NomenclatureStatusID":3,"NomenclatureStatusName":"Invalid","Symbol":"**","Author":"Schur","DisplayReference":"Enum.
+        Pl. Transsilv. 767","DisplayDate":"1866","TotalRows":57},{"NameId":25550450,"ScientificName":"Poa
+        annua var. sikkimensis","ScientificNameWithAuthors":"Poa annua var. sikkimensis
+        Stapf","Family":"Poaceae","RankAbbreviation":"var.","NomenclatureStatusName":"No
+        opinion","Author":"Stapf","DisplayReference":"Fl. Brit. India 7(22): 346","DisplayDate":"1897
+        [1896]","TotalRows":57},{"NameId":25550451,"ScientificName":"Poa annua var.
+        nepalensis","ScientificNameWithAuthors":"Poa annua var. nepalensis Wall. ex
+        Griseb.","Family":"Poaceae","RankAbbreviation":"var.","NomenclatureStatusName":"No
+        opinion","Author":"Wall. ex Griseb.","DisplayReference":"Nachr. Ges. Wiss.
+        Göttingen, Math.-Phys. Kl. 75","DisplayDate":"1868","TotalRows":57},{"NameId":25550455,"ScientificName":"Poa
+        annua var. maroccana","ScientificNameWithAuthors":"Poa annua var. maroccana
+        Litard.","Family":"Poaceae","RankAbbreviation":"var.","NomenclatureStatusName":"No
+        opinion","Author":"Litard.","DisplayReference":"Rev. Cytol. Biol. Vég. 4:
+        83","DisplayDate":"1940","TotalRows":57},{"NameId":25550983,"ScientificName":"Poa
+        annua fo. reptans","ScientificNameWithAuthors":"Poa annua fo. reptans (Hausskn.)
+        T. Koyama","Family":"Poaceae","RankAbbreviation":"fo.","NomenclatureStatusName":"No
+        opinion","Author":"(Hausskn.) T. Koyama","DisplayReference":"Grass. Jap. Neighb.
+        Reg. 523","DisplayDate":"1987","TotalRows":57},{"NameId":25552610,"ScientificName":"Poa
+        annua var. hypsophila","ScientificNameWithAuthors":"Poa annua var. hypsophila
+        Pilg.","Family":"Poaceae","RankAbbreviation":"var.","NomenclatureStatusName":"No
+        opinion","Author":"Pilg.","DisplayReference":"Notizbl. Bot. Gart. Berlin-Dahlem
+        9(90): 1126","DisplayDate":"1927","TotalRows":57},{"NameId":25556963,"ScientificName":"Poa
+        annua var. pilantha","ScientificNameWithAuthors":"Poa annua var. pilantha
+        Ronniger","Family":"Poaceae","RankAbbreviation":"var.","NomenclatureStatusName":"No
+        opinion","Author":"Ronniger","DisplayReference":"Verh. Zool.-Bot. Ges. Wien
+        88–89: 97","DisplayDate":"1941","TotalRows":57},{"NameId":25557595,"ScientificName":"Poa
+        ser. Annuae","ScientificNameWithAuthors":"Poa ser. Annuae (Fr. ex Andersson)
+        Roshev.","Family":"Poaceae","RankAbbreviation":"ser.","NomenclatureStatusName":"No
+        opinion","Author":"(Fr. ex Andersson) Roshev.","DisplayReference":"Fl. URSS
+        2: 378","DisplayDate":"1934","TotalRows":57},{"NameId":25558635,"ScientificName":"Poa
+        annua var. tommasinii","ScientificNameWithAuthors":"Poa annua var. tommasinii
+        Asch. & Graebn.","Family":"Poaceae","RankAbbreviation":"var.","NomenclatureStatusID":2,"NomenclatureStatusName":"Illegitimate","Symbol":"*","Author":"Asch.
+        & Graebn.","DisplayReference":"Syn. Mitteleur. Fl. 2: 390","DisplayDate":"1900","TotalRows":57},{"NameId":50062684,"ScientificName":"Poa
+        [ unranked ] Annuae","ScientificNameWithAuthors":"Poa [ unranked ] Annuae
+        Fr. ex Andersson","Family":"Poaceae","RankAbbreviation":"[ unranked ]","NomenclatureStatusID":1,"NomenclatureStatusName":"Legitimate","Symbol":"!","Author":"Fr.
+        ex Andersson","DisplayReference":"Pl. Scand. Gram. 47","DisplayDate":"1852","TotalRows":57},{"NameId":50062691,"ScientificName":"Poa
+        [ unranked ] Annuae","ScientificNameWithAuthors":"Poa [ unranked ] Annuae
+        Döll","Family":"Poaceae","RankAbbreviation":"[ unranked ]","NomenclatureStatusID":2,"NomenclatureStatusName":"Illegitimate","Symbol":"*","Author":"Döll","DisplayReference":"Fl.
+        Baden 1: 172","DisplayDate":"1855","TotalRows":57},{"NameId":50062695,"ScientificName":"Poa
+        sect. Annuae","ScientificNameWithAuthors":"Poa sect. Annuae (Fr. ex Andersson)
+        Lindm.","Family":"Poaceae","RankAbbreviation":"sect.","NomenclatureStatusID":3,"NomenclatureStatusName":"Invalid","Symbol":"**","Author":"(Fr.
+        ex Andersson) Lindm.","DisplayReference":"Skand. Fl. 213","DisplayDate":"1926","TotalRows":57},{"NameId":50063800,"ScientificName":"Poa
+        annua subsp. exilis","ScientificNameWithAuthors":"Poa annua subsp. exilis
+        (Tomm. ex Freyn) Asch. & Graebn.","Family":"Poaceae","RankAbbreviation":"subsp.","NomenclatureStatusName":"No
+        opinion","Author":"(Tomm. ex Freyn) Asch. & Graebn.","DisplayReference":"Syn.
+        Mitteleur. Fl. 2: 389","DisplayDate":"1900","TotalRows":57},{"NameId":50063801,"ScientificName":"Poa
+        annua subsp. supina","ScientificNameWithAuthors":"Poa annua subsp. supina
+        (Schrad.) Husn.","Family":"Poaceae","RankAbbreviation":"subsp.","NomenclatureStatusID":2,"NomenclatureStatusName":"Illegitimate","Symbol":"*","Author":"(Schrad.)
+        Husn.","DisplayReference":"Graminées 51","DisplayDate":"1896","TotalRows":57},{"NameId":50077909,"ScientificName":"Poa
+        annua subsp. varia","ScientificNameWithAuthors":"Poa annua subsp. varia Arcang.","Family":"Poaceae","RankAbbreviation":"subsp.","NomenclatureStatusID":3,"NomenclatureStatusName":"Invalid","Symbol":"**","Author":"Arcang.","DisplayReference":"Comp.
+        Fl. Ital. 786","DisplayDate":"1882","TotalRows":57},{"NameId":50077910,"ScientificName":"Poa
+        annua unranked varia","ScientificNameWithAuthors":"Poa annua unranked varia
+        Gaudin","Family":"Poaceae","RankAbbreviation":"[unranked]","NomenclatureStatusName":"No
+        opinion","Author":"Gaudin","DisplayReference":"Agrost. Helv. 1: 189","DisplayDate":"1811","TotalRows":57},{"NameId":50119145,"ScientificName":"Poa
+        annua var. eriolepis","ScientificNameWithAuthors":"Poa annua var. eriolepis
+        E. Desv.","Family":"Poaceae","RankAbbreviation":"var.","NomenclatureStatusName":"No
+        opinion","Author":"E. Desv.","DisplayReference":"Fl. Chil. 6: 405","DisplayDate":"1854","TotalRows":57},{"NameId":50133141,"ScientificName":"Poa
+        annua subsp. varia","ScientificNameWithAuthors":"Poa annua subsp. varia (Gaudin)
+        Gaudin","Family":"Poaceae","RankAbbreviation":"subsp.","NomenclatureStatusID":1,"NomenclatureStatusName":"Legitimate","Symbol":"!","Author":"(Gaudin)
+        Gaudin","DisplayReference":"Fl. Helv. 1: 243","DisplayDate":"1828","TotalRows":57},{"NameId":50154055,"ScientificName":"Poa
+        annua var. supina","ScientificNameWithAuthors":"Poa annua var. supina (Schrad.)
+        Link","Family":"Poaceae","RankAbbreviation":"var.","NomenclatureStatusName":"No
+        opinion","Author":"(Schrad.) Link","DisplayReference":"Hort. Berol. 1: 181","DisplayDate":"1827","TotalRows":57},{"NameId":50155725,"ScientificName":"Poa
+        annua var. raniglumis","ScientificNameWithAuthors":"Poa annua var. raniglumis
+        S.E. Fröhner","Family":"Poaceae","RankAbbreviation":"var.","NomenclatureStatusName":"No
+        opinion","Author":"S.E. Fröhner","DisplayReference":"Wiss. Z. Martin-Luther-Univ.
+        Halle-Wittenberg, Math.-Naturwiss. Reihe 12: 670","DisplayDate":"1963","TotalRows":57},{"NameId":50157106,"ScientificName":"Poa
+        annua proles supina","ScientificNameWithAuthors":"Poa annua proles supina
+        (Schrad.) Asch. & Graebn.","Family":"Poaceae","RankAbbreviation":"proles","NomenclatureStatusName":"No
+        opinion","Author":"(Schrad.) Asch. & Graebn.","DisplayReference":"Syn. Mitteleur.
+        Fl. 2: 389","DisplayDate":"1900","TotalRows":57},{"NameId":50157109,"ScientificName":"Poa
+        annua var. racemosa","ScientificNameWithAuthors":"Poa annua var. racemosa
+        (Schur) Asch. & Graebn.","Family":"Poaceae","RankAbbreviation":"var.","NomenclatureStatusName":"No
+        opinion","Author":"(Schur) Asch. & Graebn.","DisplayReference":"Syn. Mitteleur.
+        Fl. 2: 389","DisplayDate":"1900","TotalRows":57},{"NameId":50157110,"ScientificName":"Poa
+        annua var. rigidula","ScientificNameWithAuthors":"Poa annua var. rigidula
+        (Schur) Asch. & Graebn.","Family":"Poaceae","RankAbbreviation":"var.","NomenclatureStatusName":"No
+        opinion","Author":"(Schur) Asch. & Graebn.","DisplayReference":"Syn. Mitteleur.
+        Fl. 2: 389","DisplayDate":"1900","TotalRows":57},{"NameId":50157407,"ScientificName":"Poa
+        annua var. triflora","ScientificNameWithAuthors":"Poa annua var. triflora
+        Schur","Family":"Poaceae","RankAbbreviation":"var.","NomenclatureStatusName":"No
+        opinion","Author":"Schur","DisplayReference":"Enum. Pl. Transsilv. 767","DisplayDate":"1866","TotalRows":57},{"NameId":50158097,"ScientificName":"Poa
+        annua subvar. minima","ScientificNameWithAuthors":"Poa annua subvar. minima
+        (Schur) Asch. & Graebn.","Family":"Poaceae","RankAbbreviation":"subvar.","NomenclatureStatusName":"No
+        opinion","Author":"(Schur) Asch. & Graebn.","DisplayReference":"Syn. Mitteleur.
+        Fl. 2: 389","DisplayDate":"1900","TotalRows":57},{"NameId":50158098,"ScientificName":"Poa
+        annua var. minima","ScientificNameWithAuthors":"Poa annua var. minima Schur","Family":"Poaceae","RankAbbreviation":"var.","NomenclatureStatusName":"No
+        opinion","Author":"Schur","DisplayReference":"Enum. Pl. Transsilv. 767","DisplayDate":"1866","TotalRows":57},{"NameId":50182047,"ScientificName":"Poa
+        annua var. supina","ScientificNameWithAuthors":"Poa annua var. supina (Schrad.)
+        Spenn.","Family":"Poaceae","RankAbbreviation":"var.","NomenclatureStatusID":1,"NomenclatureStatusName":"Legitimate","Symbol":"!","Author":"(Schrad.)
+        Spenn.","DisplayReference":"Fl. Friburg. 1: 127","DisplayDate":"1825","TotalRows":57},{"NameId":50240461,"ScientificName":"Poa
+        annua fo. maxima","ScientificNameWithAuthors":"Poa annua fo. maxima Hack.
+        ex Honda","Family":"Poaceae","RankAbbreviation":"fo.","NomenclatureStatusName":"No
+        opinion","Author":"Hack. ex Honda","DisplayReference":"J. Fac. Sci. Univ.
+        Tokyo, Sect. 3, Bot. 3(1): 77","DisplayDate":"1930","TotalRows":57},{"NameId":50243156,"ScientificName":"Poa
+        annua fo. macarrima","ScientificNameWithAuthors":"Poa annua fo. macarrima
+        Nakai","Family":"Poaceae","RankAbbreviation":"fo.","NomenclatureStatusID":3,"NomenclatureStatusName":"Invalid","Symbol":"**","Author":"Nakai","DisplayReference":"Bot.
+        Mag. (Tokyo) Special Issue 30: 227","DisplayDate":"1916","TotalRows":57},{"NameId":50267768,"ScientificName":"Poa
+        annua fo. remotiflora","ScientificNameWithAuthors":"Poa annua fo. remotiflora
+        Hack.","Family":"Poaceae","RankAbbreviation":"fo.","NomenclatureStatusName":"No
+        opinion","Author":"Hack.","DisplayReference":"Fl. Algérie 2: 206","DisplayDate":"1895","TotalRows":57},{"NameId":50267769,"ScientificName":"Poa
+        annua var. viridis","ScientificNameWithAuthors":"Poa annua var. viridis Lej.","Family":"Poaceae","RankAbbreviation":"var.","NomenclatureStatusName":"No
+        opinion","Author":"Lej.","DisplayReference":"Comp. Fl. Belg. 1: 80","DisplayDate":"1828","TotalRows":57},{"NameId":50267770,"ScientificName":"Poa
+        annua fo. viridis","ScientificNameWithAuthors":"Poa annua fo. viridis (Lej.)
+        Maire","Family":"Poaceae","RankAbbreviation":"fo.","NomenclatureStatusName":"No
+        opinion","Author":"(Lej.) Maire","DisplayReference":"Fl. Afrique N. 3: 82","DisplayDate":"1855","TotalRows":57},{"NameId":50267771,"ScientificName":"Poa
+        annua fo. lanuginosa","ScientificNameWithAuthors":"Poa annua fo. lanuginosa
+        Sennen","Family":"Poaceae","RankAbbreviation":"fo.","NomenclatureStatusName":"No
+        opinion","Author":"Sennen","DisplayReference":"Bol. Soc. Iber. Ci. Nat. no.
+        8980","DisplayDate":"1926 [?]","TotalRows":57},{"NameId":50267772,"ScientificName":"Poa
+        annua fo. ovalis","ScientificNameWithAuthors":"Poa annua fo. ovalis (Tineo)
+        Trab.","Family":"Poaceae","RankAbbreviation":"fo.","NomenclatureStatusName":"No
+        opinion","Author":"(Tineo) Trab.","DisplayReference":"Fl. Algérie 2: 206","DisplayDate":"1895","TotalRows":57},{"NameId":50267774,"ScientificName":"Poa
+        annua var. picta","ScientificNameWithAuthors":"Poa annua var. picta Beck","Family":"Poaceae","RankAbbreviation":"var.","NomenclatureStatusName":"No
+        opinion","Author":"Beck","DisplayReference":"Fl. Nieder-Österreich 1: 84","DisplayDate":"1890","TotalRows":57},{"NameId":50267776,"ScientificName":"Poa
+        annua fo. picta","ScientificNameWithAuthors":"Poa annua fo. picta (Beck) Maire","Family":"Poaceae","RankAbbreviation":"fo.","NomenclatureStatusName":"No
+        opinion","Author":"(Beck) Maire","DisplayReference":"Fl. Afrique N. 3: 82","DisplayDate":"1955","TotalRows":57},{"NameId":50267778,"ScientificName":"Poa
+        annua var. rivulorum","ScientificNameWithAuthors":"Poa annua var. rivulorum
+        (Maire & Trab.) Litard. & Maire","Family":"Poaceae","RankAbbreviation":"var.","NomenclatureStatusName":"No
+        opinion","Author":"(Maire & Trab.) Litard. & Maire","DisplayReference":"Arch.
+        Bot. (Paris) 4(5): 193","DisplayDate":"1931","TotalRows":57},{"NameId":50267779,"ScientificName":"Poa
+        annua fo. macranthera","ScientificNameWithAuthors":"Poa annua fo. macranthera
+        Litard. & Maire","Family":"Poaceae","RankAbbreviation":"fo.","NomenclatureStatusName":"No
+        opinion","Author":"Litard. & Maire","DisplayReference":"Arch. Bot. (Paris)
+        4(5): 193","DisplayDate":"1931","TotalRows":57},{"NameId":50278321,"ScientificName":"Poa
+        annua var. pauciflora","ScientificNameWithAuthors":"Poa annua var. pauciflora
+        Fiek","Family":"Poaceae","RankAbbreviation":"var.","NomenclatureStatusName":"No
+        opinion","Author":"Fiek","DisplayReference":"Jahresber. Schles. Ges. Vaterl.
+        Cult. 2: 98","DisplayDate":"1892","TotalRows":57},{"NameId":50315599,"ScientificName":"Poa
+        annua subsp. notabilis","ScientificNameWithAuthors":"Poa annua subsp. notabilis
+        Chrtek & V. Jirásek","Family":"Poaceae","RankAbbreviation":"subsp.","NomenclatureStatusName":"No
+        opinion","Author":"Chrtek & V. Jirásek","DisplayReference":"Biologia (Bratislava)
+        19: 494","DisplayDate":"1964","TotalRows":57},{"NameId":50315610,"ScientificName":"Poa
+        annua subsp. raniglunis","ScientificNameWithAuthors":"Poa annua subsp. raniglunis
+        (S.E. Fröhner) Chrtek","Family":"Poaceae","RankAbbreviation":"subsp.","NomenclatureStatusName":"No
+        opinion","Author":"(S.E. Fröhner) Chrtek","DisplayReference":"Čas. Nár. Muz.
+        Praze, Řada Prír. 165(14): 128","DisplayDate":"1996","TotalRows":57},{"NameId":50315616,"ScientificName":"Poa
+        annua fo. purpurea","ScientificNameWithAuthors":"Poa annua fo. purpurea Mike
+        L.Grant","Family":"Poaceae","RankAbbreviation":"fo.","NomenclatureStatusName":"No
+        opinion","Author":"Mike L.Grant","DisplayReference":"Watsonia 24(4): 525","DisplayDate":"2003","TotalRows":57},{"NameId":100386563,"ScientificName":"Poa
+        annua var. arenosa","ScientificNameWithAuthors":"Poa annua var. arenosa Schur","Family":"Poaceae","RankAbbreviation":"var.","NomenclatureStatusID":3,"NomenclatureStatusName":"Invalid","Symbol":"**","Author":"Schur","DisplayReference":"Enum.
+        Pl. Transsilv. 767","DisplayDate":"1866","TotalRows":57},{"NameId":100386564,"ScientificName":"Poa
+        annua var. alpigena","ScientificNameWithAuthors":"Poa annua var. alpigena
+        ","Family":"Poaceae","RankAbbreviation":"var.","NomenclatureStatusName":"No
+        opinion","Author":"","DisplayReference":" ","DisplayDate":"","TotalRows":57},{"NameId":100448150,"ScientificName":"Poa
+        annua var. alpigena","ScientificNameWithAuthors":"Poa annua var. alpigena
+        Schur","Family":"Poaceae","RankAbbreviation":"var.","NomenclatureStatusID":3,"NomenclatureStatusName":"Invalid","Symbol":"**","Author":"Schur","DisplayReference":"Enum.
+        Pl. Transsilv. 767","DisplayDate":"1866","TotalRows":57}]'
+  recorded_at: 2019-01-26 00:06:57 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://services.tropicos.org/Name/Search?format=json&name=stuff%20things&apikey=<<tropicos_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+      X-User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      cache-control: private
+      content-length: '33'
+      content-type: application/json; charset=utf-8
+      server: Microsoft-IIS/7.5
+      x-aspnet-version: 4.0.30319
+      x-powered-by: ASP.NET
+      date: Sat, 26 Jan 2019 00:06:56 GMT
+    body:
+      encoding: UTF-8
+      string: '[{"Error":"No names were found"}]'
+  recorded_at: 2019-01-26 00:06:57 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0

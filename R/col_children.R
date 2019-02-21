@@ -23,7 +23,7 @@
 #' @param extant_only (logical) keep extant taxa only? default: \code{FALSE}. 
 #' by default we give back all taxa. set to \code{TRUE} to get only 
 #' extant taxa
-#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' @param ... Curl options passed on to \code{\link[crul]{verb-GET}}
 #' @details You must provide one of name or id. The other parameters (format
 #' 		and start) are optional.
 #' @return A list of data.frame's, where each data.frame has columns:

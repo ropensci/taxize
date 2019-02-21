@@ -1,6 +1,3 @@
-environment:
-  R_CHECK_ARGS: --no-build-vignettes --no-manual
-
 init:
   ps: |
         $ErrorActionPreference = "Stop"
@@ -19,6 +16,18 @@ test_script:
 
 on_failure:
   - travis-tool.sh dump_logs
+
+environment:
+  global:
+    R_CHECK_ARGS: "--no-build-vignettes --no-manual --as-cran"
+  matrix:
+    - R_VERSION: release
+      R_ARCH: x64
+      USE_RTOOLS: true
+    - R_VERSION: devel
+      R_ARCH: x64
+      _R_CHECK_LENGTH_1_LOGIC2_: FALSE
+      USE_RTOOLS: true
 
 notifications:
   - provider: Slack
@@ -44,13 +53,3 @@ artifacts:
 
   - path: '\*_*.zip'
     name: zip
-
-deploy:
-- provider: S3
-  access_key_id: AKIAI6F2ZOASYNIRGW6A
-  secret_access_key:
-    secure: tghGGvPU9AQKRPhkQTuaGsAGmNrfRtT1VuAo5OOOMdZnEctxSn1A/Snp2yEwjZ85
-  region: us-west-2
-  bucket: ropensci-windows
-  artifact: zip
-  set_public: true

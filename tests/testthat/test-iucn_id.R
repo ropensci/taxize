@@ -1,15 +1,15 @@
 context("iucn_id")
 
-
 test_that("iucn_id returns the correct class", {
-  skip_on_cran()
   if (Sys.getenv('IUCN_REDLIST_KEY') == "") {
     skip("No IUCN api key so test not run.")
   }
 
-  aa <- iucn_id("Branta canadensis")
-  bb <- iucn_id("Panthera uncia")
-  cc <- iucn_id("Lynx lynx")
+  vcr::use_cassette("iucn_id", {
+    aa <- iucn_id("Branta canadensis")
+    bb <- iucn_id("Panthera uncia")
+    cc <- iucn_id("Lynx lynx")
+  })
 
   expect_is(aa, "integer")
   expect_is(bb, "integer")

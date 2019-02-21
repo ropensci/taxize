@@ -12,7 +12,7 @@ tp_summary(id, key = NULL, ...)
 \item{key}{Your Tropicos API key; See \code{\link{taxize-authentication}}
 for help on authentication}
 
-\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
+\item{...}{Curl options passed on to \code{\link[crul]{verb-GET}}}
 }
 \value{
 A data.frame.

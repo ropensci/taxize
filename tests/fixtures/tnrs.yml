@@ -1,0 +1,77 @@
+http_interactions:
+- request:
+    method: post
+    uri: http://taxosaurus.org/submit?source=iPlant_TNRS
+    body:
+      encoding: ''
+      string: file=list(path = "/private/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T/Rtmp3ohU6r/file8fa03a9cd79a.txt",
+        type = "text/plain")
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '302'
+      message: Found
+      explanation: Object moved temporarily -- see URI list
+    headers:
+      status: HTTP/1.1 302 Found
+      date: Fri, 25 Jan 2019 23:46:28 GMT
+      server: Apache/2.2.3 (CentOS)
+      content-length: '334'
+      x-powered-by: Perl Dancer 1.3111
+      location: http://taxosaurus.org/retrieve/565a0f13cb47d61dbf82ec87376287e8
+      connection: close
+      content-type: text/json; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: '{"submit date":"Fri Jan 25 16:46:28 2019","version":"2.2.2","status":"found","token":"565a0f13cb47d61dbf82ec87376287e8","message":"Your
+        request is being processed. You can retrieve the results at http://taxosaurus.org/retrieve/565a0f13cb47d61dbf82ec87376287e8.","uri":"http://taxosaurus.org/retrieve/565a0f13cb47d61dbf82ec87376287e8"}'
+  recorded_at: 2019-01-25 23:46:30 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://taxosaurus.org/retrieve/565a0f13cb47d61dbf82ec87376287e8
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 25 Jan 2019 23:46:29 GMT
+      server: Apache/2.2.3 (CentOS)
+      content-length: '1845'
+      x-powered-by: Perl Dancer 1.3111
+      connection: close
+      content-type: text/json; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: '{"status":"OK","names":[{"matchCount":1,"matches":[{"acceptedName":"Mimulus
+        bicolor","sourceId":"iPlant_TNRS","score":"1","matchedName":"Mimulus bicolor","annotations":{"Authority":"Hartw.
+        ex Benth."},"uri":"http://www.tropicos.org/Name/29201077"}],"submittedName":"Mimulus
+        bicolor"},{"matchCount":1,"matches":[{"acceptedName":"Poa annua","sourceId":"iPlant_TNRS","score":"1","matchedName":"Poa
+        annua","annotations":{"Authority":"L."},"uri":"http://www.tropicos.org/Name/25509881"}],"submittedName":"Poa
+        annua"},{"matchCount":1,"matches":[{"acceptedName":"Helianthus annuus","sourceId":"iPlant_TNRS","score":"1","matchedName":"Helianthus
+        annuus","annotations":{"Authority":"L."},"uri":"http://www.tropicos.org/Name/2700851"}],"submittedName":"Helianthus
+        annuus"}],"metadata":{"spellcheckers":[{"name":"NCBI","description":"NCBI
+        Spell Checker","annotations":{},"uri":"http://www.ncbi.nlm.nih.gov/","sourceId":1,"publication":"http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2578899/","call":"python2.6
+        tnrs_spellchecker/ncbi_spell.py","rank":1}],"sources":[{"status":"200: OK","name":"iPlant
+        Collaborative TNRS v3.1","description":"The iPlant Collaborative TNRS provides
+        parsing and fuzzy matching for plant taxa.","uri":"http://tnrs.iplantcollaborative.org/","annotations":{"Authority":"Author
+        attributed to the accepted name (where applicable)."},"sourceId":"iPlant_TNRS","publication":"Boyle,
+        B. et.al. The taxonomic name resolution service: an online tool for automated
+        standardization of plant names. BMC Bioinformatics. 2013, 14:16. doi:10.1186/1471-2105-14-16.
+        If you use TNRS results in a publication, please also cite The Taxonomic Name
+        Resolution Service; http://tnrs.iplantcollaborative.org; version 3.1.","rank":2,"code":"ICN"}],"sub_date":"Fri
+        Jan 25 16:46:28 2019","resolver_version":"1.2.0","jobId":"565a0f13cb47d61dbf82ec87376287e8"}}'
+  recorded_at: 2019-01-25 23:46:30 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0

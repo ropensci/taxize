@@ -1,0 +1,65 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://services.tropicos.org/Name/25503923/AcceptedNames?apikey=<<tropicos_api_token>>&format=json
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+      X-User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      cache-control: private
+      content-length: '3987'
+      content-type: application/json; charset=utf-8
+      server: Microsoft-IIS/7.5
+      x-aspnet-version: 4.0.30319
+      x-powered-by: ASP.NET
+      date: Sat, 26 Jan 2019 00:04:12 GMT
+    body:
+      encoding: UTF-8
+      string: '[{"SynonymName":{"NameId":25503923,"ScientificName":"Aira pumila","ScientificNameWithAuthors":"Aira
+        pumila Pursh","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1289,"PublicationId":1340,"AuthorString":"D''Arcy,
+        W. G.","ArticleTitle":"Flora of Panama. Checklist and Index. Part 1: The introduction
+        and checklist","Collation":"17: v–xxx, 1–328","AbbreviatedTitle":"Monogr.
+        Syst. Bot. Missouri Bot. Gard.","TitlePageYear":"1987"}},{"SynonymName":{"NameId":25503923,"ScientificName":"Aira
+        pumila","ScientificNameWithAuthors":"Aira pumila Pursh","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":6706,"PublicationId":626,"AuthorString":"Swallen,
+        J. R.","ArticleTitle":"Gramineae. ~In:~ P. C. Standley & J. A. Steyermark
+        (eds.), Flora of Guatemala---Part II","Collation":"24(2): i–ix, 1–390","AbbreviatedTitle":"Fieldiana,
+        Bot.","TitlePageYear":"1955"}},{"SynonymName":{"NameId":25503923,"ScientificName":"Aira
+        pumila","ScientificNameWithAuthors":"Aira pumila Pursh","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":15758,"PublicationId":7936,"AuthorString":"Hitchcock,
+        A. S.","Collation":"1–1051","AbbreviatedTitle":"Man. Grasses U.S. (ed. 2)","TitlePageYear":"1951"}},{"SynonymName":{"NameId":25503923,"ScientificName":"Aira
+        pumila","ScientificNameWithAuthors":"Aira pumila Pursh","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":46337,"PublicationId":100023941,"AuthorString":"Soreng,
+        R. J., L. M. Giussani & M. A. Negritto","ArticleTitle":"~Poa~.","Collation":"48:
+        505–580","AbbreviatedTitle":"Catalogue of New World Grasses (Poaceae): IV.
+        Subfamily Pooideae, Contr. U.S. Natl. Herb.","TitlePageYear":"2003"}},{"SynonymName":{"NameId":25503923,"ScientificName":"Aira
+        pumila","ScientificNameWithAuthors":"Aira pumila Pursh","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1015183,"PublicationId":18774,"AuthorString":"Espejo
+        Serna, M. A., A. R. López-Ferrari & J. Valdés-Reyna","ArticleTitle":"Poaceae","Collation":"10:
+        7–236 [and index]","AbbreviatedTitle":"Monocot. Mexic. Sinopsis Floríst.","TitlePageYear":"2000"}},{"SynonymName":{"NameId":25503923,"ScientificName":"Aira
+        pumila","ScientificNameWithAuthors":"Aira pumila Pursh","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":1024044,"PublicationId":19794,"AuthorString":"Soreng,
+        R. J., G. Davidse, P. M. Peterson, F. O. Zuloaga, E. J. Judziewicz, T. S.
+        Filgueiras & O. Morrone","ArticleTitle":"On-line taxonomic novelties and updates,
+        distributional additions and corrections, and editorial changes since the
+        four published volumes of the Catalogue of New World Grasses (Poaceae) published
+        in Contr. U.S. Natl. Herb. vols. 39, 41, 46, and 48","Collation":"http:\/\/www.tropicos.org\/Project\/CNWG:","AbbreviatedTitle":"Internet
+        Cat. New World Grasses","TitlePageYear":"2003 and onwards"}},{"SynonymName":{"NameId":25503923,"ScientificName":"Aira
+        pumila","ScientificNameWithAuthors":"Aira pumila Pursh","Family":"Poaceae"},"AcceptedName":{"NameId":25509881,"ScientificName":"Poa
+        annua","ScientificNameWithAuthors":"Poa annua L.","Family":"Poaceae"},"Reference":{"ReferenceId":100011760,"PublicationId":100023696,"AuthorString":"Cabi,
+        E. & M. Doğan","ArticleTitle":"Poaceae","Collation":"690–756","AbbreviatedTitle":"Türkiye
+        Bitkileri Listesi","TitlePageYear":"2012"}}]'
+  recorded_at: 2019-01-26 00:04:13 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0

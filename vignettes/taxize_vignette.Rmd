@@ -39,14 +39,14 @@ head(temp)
 
 ```
 #> # A tibble: 6 x 5
-#>   user_supplied_name submitted_name   matched_name  data_source_tit… score
-#>   <chr>              <chr>            <chr>         <chr>            <dbl>
-#> 1 Helianthos annus   Helianthos annus Helianthus a… EOL              0.750
-#> 2 Helianthos annus   Helianthos annus Helianthus a… EOL              0.750
-#> 3 Helianthos annus   Helianthos annus Helianthus a… uBio NameBank    0.750
-#> 4 Helianthos annus   Helianthos annus Helianthus a… Open Tree of Li… 0.750
-#> 5 Helianthos annus   Helianthos annus Helianthus a… Catalogue of Li… 0.750
-#> 6 Helianthos annus   Helianthos annus Helianthus a… ITIS             0.750
+#>   user_supplied_na… submitted_name  matched_name     data_source_tit… score
+#>   <chr>             <chr>           <chr>            <chr>            <dbl>
+#> 1 Helianthos annus  Helianthos ann… Helianthus annus EOL               0.75
+#> 2 Helianthos annus  Helianthos ann… Helianthus annu… EOL               0.75
+#> 3 Helianthos annus  Helianthos ann… Helianthus annus uBio NameBank     0.75
+#> 4 Helianthos annus  Helianthos ann… Helianthus annu… Catalogue of Li…  0.75
+#> 5 Helianthos annus  Helianthos ann… Helianthus annu… ITIS              0.75
+#> 6 Helianthos annus  Helianthos ann… Helianthus annu… NCBI              0.75
 ```
 
 The correct spellings are *Helianthus annuus* and *Homo sapiens*. Another approach uses the Taxonomic Name Resolution Service via the Taxosaurus API developed by iPLant and the Phylotastic organization. In this example, we provide a list of species names, some of which are misspelled, and we'll call the API with the *tnrs* function.
@@ -230,8 +230,8 @@ get_uid(sciname = "Pinus")
 #> 1 active subgenus seed plants          Pinus hard pines 139271      
 #> 2 active    genus seed plants          Pinus              3337      
 #>   species subsp modificationdate
-#> 1               2015/09/16 00:00
-#> 2               2018/01/31 00:00
+#> 1               2017/06/14 00:00
+#> 2               2016/03/25 00:00
 ```
 
 ```
@@ -320,7 +320,7 @@ get_nbnid(c("Zootoca vivipara","Pinus contorta"), rows = 1:3)
 #>              nbnid                    scientificName       rank
 #> 1 NHMSYS0001706186                  Zootoca vivipara    species
 #> 2 NHMSYS0020784960 Zootoca vivipara subsp. pannonica subspecies
-#> 3 NHMSYS0020233881               Chaetozone vivipara    species
+#> 3 NHMSYS0000067192               Spirillina vivipara    species
 #>   taxonomicStatus
 #> 1        accepted
 #> 2        accepted
@@ -367,17 +367,17 @@ get_nbnid_("Poa annua", rows = 1:10)
 
 ```
 #> $`Poa annua`
-#>                guid    scientificName    rank taxonomicStatus
-#> 1  NBNSYS0000002544         Poa annua species        accepted
-#> 2  NBNSYS0200003392  Triumfetta annua species        accepted
-#> 3  NBNSYS0000002918     Lunaria annua species        accepted
-#> 4  NBNSYS0200001901      Bellis annua species        accepted
-#> 5  NBNSYS0000033325   Artemisia annua species        accepted
-#> 6  NHMSYS0000456951 Carrichtera annua species        accepted
-#> 7  NBNSYS0200002555       Lonas annua species        accepted
-#> 8  NBNSYS0200002917         Poa ampla species        accepted
-#> 9  NBNSYS0200002926  Poa schimperiana species        accepted
-#> 10 NBNSYS0200002923    Poa leptoclada species        accepted
+#>                guid     scientificName    rank taxonomicStatus
+#> 1  NBNSYS0000002544          Poa annua species        accepted
+#> 2  NBNSYS0200001901       Bellis annua species        accepted
+#> 3  NBNSYS0200003392   Triumfetta annua species        accepted
+#> 4  NHMSYS0000456951  Carrichtera annua species        accepted
+#> 5  NBNSYS0200002555        Lonas annua species        accepted
+#> 6  NHMSYS0000461807 Poa labillardierei species        accepted
+#> 7  NBNSYS0200002925      Poa poiformis species        accepted
+#> 8  NBNSYS0200002917          Poa ampla species        accepted
+#> 9  NHMSYS0000461806      Poa imbecilla species        accepted
+#> 10 NHMSYS0000461808      Poa ligularis species        accepted
 ```
 
 ## Coerce numerics/alphanumerics to taxon IDs
@@ -477,7 +477,7 @@ system.time( replicate(3, as.gbifid(c("2704179","2435099","3171445"), check=TRUE
 
 ```
 #>    user  system elapsed 
-#>   0.113   0.007   2.393
+#>   0.080   0.004   2.693
 ```
 
 ```r
@@ -486,7 +486,7 @@ system.time( replicate(3, as.gbifid(c("2704179","2435099","3171445"), check=FALS
 
 ```
 #>    user  system elapsed 
-#>   0.001   0.000   0.001
+#>   0.002   0.000   0.002
 ```
 
 ## What taxa are downstream of my taxon of interest?
@@ -509,6 +509,14 @@ downstream(apis_col_id, downto = "species", db = "col")
 #> 5 4bbc06b9dfbde0b72c619810b564c6e6 Apis koschevnikovi        species
 #> 6 67cbbcf92cd60748759e58e802d98518     Apis mellifera        species
 #> 7 213668a26ba6d2aad9575218f10d422f   Apis nigrocincta        species
+#>   childtaxa_extinct
+#> 1             FALSE
+#> 2             FALSE
+#> 3             FALSE
+#> 4             FALSE
+#> 5             FALSE
+#> 6             FALSE
+#> 7             FALSE
 #> 
 #> attr(,"class")
 #> [1] "downstream"
@@ -561,6 +569,14 @@ children(apis_col_id, db = "col")
 #> 5 4bbc06b9dfbde0b72c619810b564c6e6 Apis koschevnikovi        species
 #> 6 67cbbcf92cd60748759e58e802d98518     Apis mellifera        species
 #> 7 213668a26ba6d2aad9575218f10d422f   Apis nigrocincta        species
+#>   childtaxa_extinct
+#> 1             FALSE
+#> 2             FALSE
+#> 3             FALSE
+#> 4             FALSE
+#> 5             FALSE
+#> 6             FALSE
+#> 7             FALSE
 #> 
 #> attr(,"class")
 #> [1] "children"

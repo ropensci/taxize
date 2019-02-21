@@ -10,14 +10,14 @@
   "codeRepository": "https://github.com/ropensci/taxize",
   "issueTracker": "https://github.com/ropensci/taxize/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.5.1",
+    "version": "3.5.2",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.5.1 Patched (2018-07-18 r74978)",
+  "runtimePlatform": "R version 3.5.2 Patched (2018-12-31 r75943)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -150,6 +150,18 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=vegan"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "vcr",
+      "name": "vcr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=vcr"
     }
   ],
   "softwareRequirements": [
@@ -183,7 +195,7 @@
       "@type": "SoftwareApplication",
       "identifier": "crul",
       "name": "crul",
-      "version": ">= 0.4.0",
+      "version": ">= 0.7.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -194,22 +206,9 @@
     },
     {
       "@type": "SoftwareApplication",
-      "identifier": "httr",
-      "name": "httr",
-      "version": ">= 1.2.1",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=httr"
-    },
-    {
-      "@type": "SoftwareApplication",
       "identifier": "xml2",
       "name": "xml2",
-      "version": ">= 1.0.0",
+      "version": ">= 1.2.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -306,7 +305,7 @@
       "@type": "SoftwareApplication",
       "identifier": "bold",
       "name": "bold",
-      "version": ">= 0.3.5",
+      "version": ">= 0.8.6",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -357,7 +356,7 @@
       "@type": "SoftwareApplication",
       "identifier": "ritis",
       "name": "ritis",
-      "version": ">= 0.5.0",
+      "version": ">= 0.7.6",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -383,7 +382,7 @@
       "@type": "SoftwareApplication",
       "identifier": "worrms",
       "name": "worrms",
-      "version": ">= 0.1.0",
+      "version": ">= 0.3.2",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -396,7 +395,7 @@
       "@type": "SoftwareApplication",
       "identifier": "natserv",
       "name": "natserv",
-      "version": ">= 0.1.4",
+      "version": ">= 0.3.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -409,7 +408,7 @@
       "@type": "SoftwareApplication",
       "identifier": "wikitaxa",
       "name": "wikitaxa",
-      "version": ">= 0.1.4",
+      "version": ">= 0.3.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -422,7 +421,7 @@
   "contIntegration": "https://travis-ci.org/ropensci/taxize",
   "releaseNotes": "https://github.com/ropensci/taxize/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/taxize/blob/master/README.md",
-  "fileSize": "415.633KB",
+  "fileSize": "1192.687KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
@@ -450,7 +449,7 @@
     },
     {
       "@type": "SoftwareSourceCode",
-      "datePublished": "2018",
+      "datePublished": "2019",
       "author": [
         {
           "@type": "Person",
@@ -516,11 +515,21 @@
           "@type": "Person",
           "givenName": "Vinh",
           "familyName": "Tran"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Maëlle",
+          "familyName": "Salmon"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Gaopeng",
+          "familyName": "Li"
         }
       ],
       "name": "taxize: Taxonomic information from around the web",
       "url": "https://github.com/ropensci/taxize",
-      "description": "R package version 0.9.3"
+      "description": "R package version 0.9.5"
     }
   ],
   "applicationCategory": "Taxonomy",
@@ -531,5 +540,6 @@
       "@type": "Organization",
       "name": "rOpenSci"
     }
-  ]
+  ],
+  "relatedLink": "https://ropensci.github.io/taxize-book/"
 }

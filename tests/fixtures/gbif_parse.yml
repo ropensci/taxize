@@ -1,0 +1,38 @@
+http_interactions:
+- request:
+    method: post
+    uri: https://api.gbif.org/v1/parser/name
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      Content-Type: application/json
+  response:
+    status:
+      status_code: '201'
+      message: Created
+      explanation: Document created, URL follows
+    headers:
+      status: HTTP/1.1 201 Created
+      date: Thu, 24 Jan 2019 01:46:16 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT
+      server: Jetty(9.3.z-SNAPSHOT)
+      x-api-url: /v1/parser/name
+      cache-control: public, max-age=3601
+      x-varnish: '787153082'
+      age: '0'
+      via: 1.1 varnish (Varnish/5.2)
+      transfer-encoding: chunked
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '[{"scientificName":"x Agropogon littoralis L.","type":"SCIENTIFIC","genusOrAbove":"Agropogon","specificEpithet":"littoralis","notho":"GENERIC","authorship":"L.","parsed":true,"parsedPartially":false,"canonicalName":"Agropogon
+        littoralis","canonicalNameWithMarker":"×Agropogon littoralis","canonicalNameComplete":"×Agropogon
+        littoralis L.","rankMarker":"sp."}]'
+  recorded_at: 2019-01-24 01:46:16 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0

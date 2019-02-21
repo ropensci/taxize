@@ -1,0 +1,1506 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://gni.globalnames.org/name_strings.json?search_term=Cyanistes%20caeruleus
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      accept-ranges: bytes
+      age: '0'
+      cache-control: private, max-age=0, must-revalidate
+      connection: keep-alive
+      content-length: '4403'
+      content-type: application/json; charset=utf-8
+      date: Thu, 24 Jan 2019 19:09:42 GMT
+      etag: '"e8737c4934d9935c8ebed36139563872"'
+      server: nginx/1.8.1
+      set-cookie: ''
+      status:
+      - HTTP/1.1 200 OK
+      - 200 OK
+      via: 1.1 varnish
+      x-runtime: '53'
+      x-varnish: '398668967'
+    body:
+      encoding: UTF-8
+      string: '{"name_strings":[{"uuid_hex":"88e91191-2617-571d-94ef-bf3fafd32c1e","name":"Cyanistes
+        caeruleus","id":4490974,"lsid":"urn:lsid:globalnames.org:index:88e91191-2617-571d-94ef-bf3fafd32c1e","resource_uri":"http://gni.globalnames.org/name_strings/4490974.xml"},{"uuid_hex":"0a30d388-97d7-5eae-bdf5-0ac3499ecb97","name":"Cyanistes
+        caeruleus (Linnaeus) 1758","id":2017480,"lsid":"urn:lsid:globalnames.org:index:0a30d388-97d7-5eae-bdf5-0ac3499ecb97","resource_uri":"http://gni.globalnames.org/name_strings/2017480.xml"},{"uuid_hex":"7c7c2a0e-2498-5945-95eb-6958d17bdf82","name":"Cyanistes
+        caeruleus (Linnaeus, 1758)","id":1571500,"lsid":"urn:lsid:globalnames.org:index:7c7c2a0e-2498-5945-95eb-6958d17bdf82","resource_uri":"http://gni.globalnames.org/name_strings/1571500.xml"},{"uuid_hex":"40396f30-ff22-5bf7-9268-a79e6a9b997c","name":"Cyanistes
+        caeruleus caeruleus","id":10247635,"lsid":"urn:lsid:globalnames.org:index:40396f30-ff22-5bf7-9268-a79e6a9b997c","resource_uri":"http://gni.globalnames.org/name_strings/10247635.xml"},{"uuid_hex":"dad606c4-619f-57db-b8b7-97bb988ec194","name":"Cyanistes
+        caeruleus degener","id":21997840,"lsid":"urn:lsid:globalnames.org:index:dad606c4-619f-57db-b8b7-97bb988ec194","resource_uri":"http://gni.globalnames.org/name_strings/21997840.xml"},{"uuid_hex":"acc97424-1f87-50b7-9264-51b90f283f76","name":"Cyanistes
+        caeruleus obscurus","id":10247802,"lsid":"urn:lsid:globalnames.org:index:acc97424-1f87-50b7-9264-51b90f283f76","resource_uri":"http://gni.globalnames.org/name_strings/10247802.xml"},{"uuid_hex":"7787ca35-a28a-563d-8e16-acfbd42b62d5","name":"Cyanistes
+        caeruleus ogilastrae","id":21786522,"lsid":"urn:lsid:globalnames.org:index:7787ca35-a28a-563d-8e16-acfbd42b62d5","resource_uri":"http://gni.globalnames.org/name_strings/21786522.xml"},{"uuid_hex":"c000516f-6114-50c7-b85d-f9a97b2904c7","name":"Cyanistes
+        caeruleus ombriosus","id":21997841,"lsid":"urn:lsid:globalnames.org:index:c000516f-6114-50c7-b85d-f9a97b2904c7","resource_uri":"http://gni.globalnames.org/name_strings/21997841.xml"},{"uuid_hex":"4cfff672-b3d8-5129-906a-9dd31cf5c54e","name":"Cyanistes
+        caeruleus orientalis Sarudny \u0026 Loudon 1905","id":18659752,"lsid":"urn:lsid:globalnames.org:index:4cfff672-b3d8-5129-906a-9dd31cf5c54e","resource_uri":"http://gni.globalnames.org/name_strings/18659752.xml"},{"uuid_hex":"0e334f10-74b0-5a5a-b5a0-2396e42674fe","name":"Cyanistes
+        caeruleus palmensis","id":21997842,"lsid":"urn:lsid:globalnames.org:index:0e334f10-74b0-5a5a-b5a0-2396e42674fe","resource_uri":"http://gni.globalnames.org/name_strings/21997842.xml"},{"uuid_hex":"38339df1-122b-5bc2-8796-e06e2267b554","name":"Cyanistes
+        caeruleus ssp.","id":10247804,"lsid":"urn:lsid:globalnames.org:index:38339df1-122b-5bc2-8796-e06e2267b554","resource_uri":"http://gni.globalnames.org/name_strings/10247804.xml"},{"uuid_hex":"42addb96-e8b6-5b0e-ad89-544ffa355306","name":"Cyanistes
+        caeruleus teneriffae","id":21997843,"lsid":"urn:lsid:globalnames.org:index:42addb96-e8b6-5b0e-ad89-544ffa355306","resource_uri":"http://gni.globalnames.org/name_strings/21997843.xml"},{"uuid_hex":"3d0439bd-179b-5422-acd3-4ac109404e4d","name":"Cyanistes
+        caeruleus teneriffae (Lesson, 1831)","id":22378981,"lsid":"urn:lsid:globalnames.org:index:3d0439bd-179b-5422-acd3-4ac109404e4d","resource_uri":"http://gni.globalnames.org/name_strings/22378981.xml"},{"uuid_hex":"129fd7fb-d897-5eae-bd8a-fd605f06830a","name":"Cyanistes
+        caeruleus ultramarinus","id":10247803,"lsid":"urn:lsid:globalnames.org:index:129fd7fb-d897-5eae-bd8a-fd605f06830a","resource_uri":"http://gni.globalnames.org/name_strings/10247803.xml"},{"uuid_hex":"249374ab-7f2c-5e66-9e60-781cc27de4bc","name":"Parus
+        (Cyanistes) caeruleus","id":5860551,"lsid":"urn:lsid:globalnames.org:index:249374ab-7f2c-5e66-9e60-781cc27de4bc","resource_uri":"http://gni.globalnames.org/name_strings/5860551.xml"},{"uuid_hex":"62002dc2-8917-51f4-9fc2-6917872e8431","name":"Parus
+        (Cyanistes) caeruleus degener","id":5860552,"lsid":"urn:lsid:globalnames.org:index:62002dc2-8917-51f4-9fc2-6917872e8431","resource_uri":"http://gni.globalnames.org/name_strings/5860552.xml"},{"uuid_hex":"a1bd75a9-c851-5555-9f9d-daefe89a4462","name":"Parus
+        (Cyanistes) caeruleus ultramarinus","id":5860553,"lsid":"urn:lsid:globalnames.org:index:a1bd75a9-c851-5555-9f9d-daefe89a4462","resource_uri":"http://gni.globalnames.org/name_strings/5860553.xml"}],"name_strings_total":17,"page_number":1,"per_page":30}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://gni.globalnames.org/parsers.json?names=Cyanistes%20caeruleus%7CCyanistes%20caeruleus%20%28Linnaeus%29%201758%7CCyanistes%20caeruleus%20%28Linnaeus%2C%201758%29%7CCyanistes%20caeruleus%20caeruleus%7CCyanistes%20caeruleus%20degener%7CCyanistes%20caeruleus%20obscurus%7CCyanistes%20caeruleus%20ogilastrae%7CCyanistes%20caeruleus%20ombriosus%7CCyanistes%20caeruleus%20orientalis%20Sarudny%20%26%20Loudon%201905%7CCyanistes%20caeruleus%20palmensis%7CCyanistes%20caeruleus%20ssp.%7CCyanistes%20caeruleus%20teneriffae%7CCyanistes%20caeruleus%20teneriffae%20%28Lesson%2C%201831%29%7CCyanistes%20caeruleus%20ultramarinus%7CParus%20%28Cyanistes%29%20caeruleus%7CParus%20%28Cyanistes%29%20caeruleus%20degener%7CParus%20%28Cyanistes%29%20caeruleus%20ultramarinus
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.8.1
+      status: 200 OK
+      cache-control: private, max-age=0, must-revalidate
+      x-runtime: '646'
+      etag: '"f7147d0694f341c39b146a1dcc7630e2"'
+      set-cookie: ''
+      content-length: '7801'
+      accept-ranges: bytes
+      date: Thu, 24 Jan 2019 19:09:44 GMT
+      x-varnish: '398668970'
+      age: '0'
+      via: 1.1 varnish
+      connection: keep-alive
+      Content-Type: application/json; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: |-
+        [{"scientificName":{"parsed":true,"parser_version":"3.1.4","verbatim":"Cyanistes caeruleus","normalized":"Cyanistes caeruleus","canonical":"Cyanistes caeruleus","hybrid":false,"details":[{"genus":{"string":"Cyanistes"},"species":{"string":"caeruleus"}}],"parser_run":1,"positions":{"0":["genus",9],"10":["species",19]}}}
+        ,
+        {"scientificName":{"parsed":true,"parser_version":"3.1.4","verbatim":"Cyanistes caeruleus (Linnaeus) 1758","normalized":"Cyanistes caeruleus (Linnaeus 1758)","canonical":"Cyanistes caeruleus","hybrid":false,"details":[{"genus":{"string":"Cyanistes"},"species":{"string":"caeruleus","authorship":"(Linnaeus) 1758","basionymAuthorTeam":{"author_team":"(Linnaeus) 1758","author":["Linnaeus"],"year":"1758"}}}],"parser_run":1,"positions":{"0":["genus",9],"10":["species",19],"21":["author_word",29],"31":["year",35]}}}
+        ,
+        {"scientificName":{"parsed":true,"parser_version":"3.1.4","verbatim":"Cyanistes caeruleus (Linnaeus, 1758)","normalized":"Cyanistes caeruleus (Linnaeus 1758)","canonical":"Cyanistes caeruleus","hybrid":false,"details":[{"genus":{"string":"Cyanistes"},"species":{"string":"caeruleus","authorship":"(Linnaeus, 1758)","basionymAuthorTeam":{"authorTeam":"Linnaeus","author":["Linnaeus"],"year":"1758"}}}],"parser_run":1,"positions":{"0":["genus",9],"10":["species",19],"21":["author_word",29],"31":["year",35]}}}
+        ,
+        {"scientificName":{"parsed":true,"parser_version":"3.1.4","verbatim":"Cyanistes caeruleus caeruleus","normalized":"Cyanistes caeruleus caeruleus","canonical":"Cyanistes caeruleus caeruleus","hybrid":false,"details":[{"genus":{"string":"Cyanistes"},"species":{"string":"caeruleus"},"infraspecies":[{"string":"caeruleus","rank":"n/a"}]}],"parser_run":1,"positions":{"0":["genus",9],"10":["species",19],"20":["infraspecies",29]}}}
+        ,
+        {"scientificName":{"parsed":true,"parser_version":"3.1.4","verbatim":"Cyanistes caeruleus degener","normalized":"Cyanistes caeruleus degener","canonical":"Cyanistes caeruleus degener","hybrid":false,"details":[{"genus":{"string":"Cyanistes"},"species":{"string":"caeruleus"},"infraspecies":[{"string":"degener","rank":"n/a"}]}],"parser_run":1,"positions":{"0":["genus",9],"10":["species",19],"20":["infraspecies",27]}}}
+        ,
+        {"scientificName":{"parsed":true,"parser_version":"3.1.4","verbatim":"Cyanistes caeruleus obscurus","normalized":"Cyanistes caeruleus obscurus","canonical":"Cyanistes caeruleus obscurus","hybrid":false,"details":[{"genus":{"string":"Cyanistes"},"species":{"string":"caeruleus"},"infraspecies":[{"string":"obscurus","rank":"n/a"}]}],"parser_run":1,"positions":{"0":["genus",9],"10":["species",19],"20":["infraspecies",28]}}}
+        ,
+        {"scientificName":{"parsed":true,"parser_version":"3.1.4","verbatim":"Cyanistes caeruleus ogilastrae","normalized":"Cyanistes caeruleus ogilastrae","canonical":"Cyanistes caeruleus ogilastrae","hybrid":false,"details":[{"genus":{"string":"Cyanistes"},"species":{"string":"caeruleus"},"infraspecies":[{"string":"ogilastrae","rank":"n/a"}]}],"parser_run":1,"positions":{"0":["genus",9],"10":["species",19],"20":["infraspecies",30]}}}
+        ,
+        {"scientificName":{"parsed":true,"parser_version":"3.1.4","verbatim":"Cyanistes caeruleus ombriosus","normalized":"Cyanistes caeruleus ombriosus","canonical":"Cyanistes caeruleus ombriosus","hybrid":false,"details":[{"genus":{"string":"Cyanistes"},"species":{"string":"caeruleus"},"infraspecies":[{"string":"ombriosus","rank":"n/a"}]}],"parser_run":1,"positions":{"0":["genus",9],"10":["species",19],"20":["infraspecies",29]}}}
+        ,
+        {"scientificName":{"parsed":true,"parser_version":"3.1.4","verbatim":"Cyanistes caeruleus orientalis Sarudny & Loudon 1905","normalized":"Cyanistes caeruleus orientalis Sarudny & Loudon 1905","canonical":"Cyanistes caeruleus orientalis","hybrid":false,"details":[{"genus":{"string":"Cyanistes"},"species":{"string":"caeruleus"},"infraspecies":[{"string":"orientalis","rank":"n/a","authorship":"Sarudny & Loudon 1905","basionymAuthorTeam":{"authorTeam":"Sarudny & Loudon","author":["Sarudny","Loudon"],"year":"1905"}}]}],"parser_run":1,"positions":{"0":["genus",9],"10":["species",19],"20":["infraspecies",30],"31":["author_word",38],"41":["author_word",47],"48":["year",52]}}}
+        ,
+        {"scientificName":{"parsed":true,"parser_version":"3.1.4","verbatim":"Cyanistes caeruleus palmensis","normalized":"Cyanistes caeruleus palmensis","canonical":"Cyanistes caeruleus palmensis","hybrid":false,"details":[{"genus":{"string":"Cyanistes"},"species":{"string":"caeruleus"},"infraspecies":[{"string":"palmensis","rank":"n/a"}]}],"parser_run":1,"positions":{"0":["genus",9],"10":["species",19],"20":["infraspecies",29]}}}
+        ,
+        {"scientificName":{"parsed":true,"parser_version":"3.1.4","verbatim":"Cyanistes caeruleus ssp.","normalized":"Cyanistes caeruleus","canonical":"Cyanistes caeruleus","hybrid":false,"details":[{"genus":{"string":"Cyanistes"},"species":{"string":"caeruleus"}}],"parser_run":1,"positions":{"0":["genus",9],"10":["species",19]}}}
+        ,
+        {"scientificName":{"parsed":true,"parser_version":"3.1.4","verbatim":"Cyanistes caeruleus teneriffae","normalized":"Cyanistes caeruleus teneriffae","canonical":"Cyanistes caeruleus teneriffae","hybrid":false,"details":[{"genus":{"string":"Cyanistes"},"species":{"string":"caeruleus"},"infraspecies":[{"string":"teneriffae","rank":"n/a"}]}],"parser_run":1,"positions":{"0":["genus",9],"10":["species",19],"20":["infraspecies",30]}}}
+        ,
+        {"scientificName":{"parsed":true,"parser_version":"3.1.4","verbatim":"Cyanistes caeruleus teneriffae (Lesson, 1831)","normalized":"Cyanistes caeruleus teneriffae (Lesson 1831)","canonical":"Cyanistes caeruleus teneriffae","hybrid":false,"details":[{"genus":{"string":"Cyanistes"},"species":{"string":"caeruleus"},"infraspecies":[{"string":"teneriffae","rank":"n/a","authorship":"(Lesson, 1831)","basionymAuthorTeam":{"authorTeam":"Lesson","author":["Lesson"],"year":"1831"}}]}],"parser_run":1,"positions":{"0":["genus",9],"10":["species",19],"20":["infraspecies",30],"32":["author_word",38],"40":["year",44]}}}
+        ,
+        {"scientificName":{"parsed":true,"parser_version":"3.1.4","verbatim":"Cyanistes caeruleus ultramarinus","normalized":"Cyanistes caeruleus ultramarinus","canonical":"Cyanistes caeruleus ultramarinus","hybrid":false,"details":[{"genus":{"string":"Cyanistes"},"species":{"string":"caeruleus"},"infraspecies":[{"string":"ultramarinus","rank":"n/a"}]}],"parser_run":1,"positions":{"0":["genus",9],"10":["species",19],"20":["infraspecies",32]}}}
+        ,
+        {"scientificName":{"parsed":true,"parser_version":"3.1.4","verbatim":"Parus (Cyanistes) caeruleus","normalized":"Parus (Cyanistes) caeruleus","canonical":"Parus caeruleus","hybrid":false,"details":[{"genus":{"string":"Parus"},"infragenus":{"string":"Cyanistes"},"species":{"string":"caeruleus"}}],"parser_run":1,"positions":{"0":["genus",5],"7":["infragenus",16],"18":["species",27]}}}
+        ,
+        {"scientificName":{"parsed":true,"parser_version":"3.1.4","verbatim":"Parus (Cyanistes) caeruleus degener","normalized":"Parus (Cyanistes) caeruleus degener","canonical":"Parus caeruleus degener","hybrid":false,"details":[{"genus":{"string":"Parus"},"infragenus":{"string":"Cyanistes"},"species":{"string":"caeruleus"},"infraspecies":[{"string":"degener","rank":"n/a"}]}],"parser_run":1,"positions":{"0":["genus",5],"7":["infragenus",16],"18":["species",27],"28":["infraspecies",35]}}}
+        ,
+        {"scientificName":{"parsed":true,"parser_version":"3.1.4","verbatim":"Parus (Cyanistes) caeruleus ultramarinus","normalized":"Parus (Cyanistes) caeruleus ultramarinus","canonical":"Parus caeruleus ultramarinus","hybrid":false,"details":[{"genus":{"string":"Parus"},"infragenus":{"string":"Cyanistes"},"species":{"string":"caeruleus"},"infraspecies":[{"string":"ultramarinus","rank":"n/a"}]}],"parser_run":1,"positions":{"0":["genus",5],"7":["infragenus",16],"18":["species",27],"28":["infraspecies",40]}}}
+        ]
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:09:46 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '880'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"Cyanistes caeruleus","result":[{"taxonid":103761667,"scientific_name":"Cyanistes
+        caeruleus","kingdom":"ANIMALIA","phylum":"CHORDATA","class":"AVES","order":"PASSERIFORMES","family":"PARIDAE","genus":"Cyanistes","main_common_name":"Eurasian
+        Blue Tit","authority":"(Linnaeus, 1758)","published_year":2017,"assessment_date":"2016-10-01","category":"LC","criteria":null,"population_trend":"Increasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"BirdLife
+        International","reviewer":"Butchart, S. & Symes, A.","aoo_km2":null,"eoo_km2":"16600000","elevation_upper":3500,"elevation_lower":null,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":true,"amended_reason":"Map
+        updated: Added gaps in S &amp; SE Spain (where very scarce). EOO updated.
+        Edited Habitats and Ecology Information text."}]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:09:46 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '880'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      set-cookie: sails.sid=s%3An_KuHHfRmzFiI55AdFeETSv1.BhaGnVuxrVHBTSk76jybkcrJXbLx7fXd%2F0B6f%2BaIeEY;
+        Path=/; HttpOnly
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"Cyanistes caeruleus","result":[{"taxonid":103761667,"scientific_name":"Cyanistes
+        caeruleus","kingdom":"ANIMALIA","phylum":"CHORDATA","class":"AVES","order":"PASSERIFORMES","family":"PARIDAE","genus":"Cyanistes","main_common_name":"Eurasian
+        Blue Tit","authority":"(Linnaeus, 1758)","published_year":2017,"assessment_date":"2016-10-01","category":"LC","criteria":null,"population_trend":"Increasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"BirdLife
+        International","reviewer":"Butchart, S. & Symes, A.","aoo_km2":null,"eoo_km2":"16600000","elevation_upper":3500,"elevation_lower":null,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":true,"amended_reason":"Map
+        updated: Added gaps in S &amp; SE Spain (where very scarce). EOO updated.
+        Edited Habitats and Ecology Information text."}]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:09:47 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '880'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"Cyanistes caeruleus","result":[{"taxonid":103761667,"scientific_name":"Cyanistes
+        caeruleus","kingdom":"ANIMALIA","phylum":"CHORDATA","class":"AVES","order":"PASSERIFORMES","family":"PARIDAE","genus":"Cyanistes","main_common_name":"Eurasian
+        Blue Tit","authority":"(Linnaeus, 1758)","published_year":2017,"assessment_date":"2016-10-01","category":"LC","criteria":null,"population_trend":"Increasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"BirdLife
+        International","reviewer":"Butchart, S. & Symes, A.","aoo_km2":null,"eoo_km2":"16600000","elevation_upper":3500,"elevation_lower":null,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":true,"amended_reason":"Map
+        updated: Added gaps in S &amp; SE Spain (where very scarce). EOO updated.
+        Edited Habitats and Ecology Information text."}]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:09:47 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '880'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      set-cookie: sails.sid=s%3AcNpM5HSjks3GhkaohTq4oRCp.KYNNpORm4GBHOYo6IoOsC5YdShCgageiPwETKmsdkYw;
+        Path=/; HttpOnly
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"Cyanistes caeruleus","result":[{"taxonid":103761667,"scientific_name":"Cyanistes
+        caeruleus","kingdom":"ANIMALIA","phylum":"CHORDATA","class":"AVES","order":"PASSERIFORMES","family":"PARIDAE","genus":"Cyanistes","main_common_name":"Eurasian
+        Blue Tit","authority":"(Linnaeus, 1758)","published_year":2017,"assessment_date":"2016-10-01","category":"LC","criteria":null,"population_trend":"Increasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"BirdLife
+        International","reviewer":"Butchart, S. & Symes, A.","aoo_km2":null,"eoo_km2":"16600000","elevation_upper":3500,"elevation_lower":null,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":true,"amended_reason":"Map
+        updated: Added gaps in S &amp; SE Spain (where very scarce). EOO updated.
+        Edited Habitats and Ecology Information text."}]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:09:48 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '880'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"Cyanistes caeruleus","result":[{"taxonid":103761667,"scientific_name":"Cyanistes
+        caeruleus","kingdom":"ANIMALIA","phylum":"CHORDATA","class":"AVES","order":"PASSERIFORMES","family":"PARIDAE","genus":"Cyanistes","main_common_name":"Eurasian
+        Blue Tit","authority":"(Linnaeus, 1758)","published_year":2017,"assessment_date":"2016-10-01","category":"LC","criteria":null,"population_trend":"Increasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"BirdLife
+        International","reviewer":"Butchart, S. & Symes, A.","aoo_km2":null,"eoo_km2":"16600000","elevation_upper":3500,"elevation_lower":null,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":true,"amended_reason":"Map
+        updated: Added gaps in S &amp; SE Spain (where very scarce). EOO updated.
+        Edited Habitats and Ecology Information text."}]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus%20caeruleus?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:09:51 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '52'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"Cyanistes caeruleus caeruleus","result":[]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus%20degener?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:09:54 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '50'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"Cyanistes caeruleus degener","result":[]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus%20obscurus?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:09:57 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '51'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"Cyanistes caeruleus obscurus","result":[]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus%20ogilastrae?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:10:00 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '53'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"Cyanistes caeruleus ogilastrae","result":[]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus%20ombriosus?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:10:03 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '52'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"Cyanistes caeruleus ombriosus","result":[]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus%20orientalis?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:10:06 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '53'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"Cyanistes caeruleus orientalis","result":[]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus%20palmensis?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:10:09 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '52'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"Cyanistes caeruleus palmensis","result":[]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:10:10 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '880'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      set-cookie: sails.sid=s%3ARNWNgcmZyd8vb0CRl8h3CIAU.THSCAdA0oGAxL3P%2Fug%2FXjIxkkB4YJNFowp960hu6y04;
+        Path=/; HttpOnly
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"Cyanistes caeruleus","result":[{"taxonid":103761667,"scientific_name":"Cyanistes
+        caeruleus","kingdom":"ANIMALIA","phylum":"CHORDATA","class":"AVES","order":"PASSERIFORMES","family":"PARIDAE","genus":"Cyanistes","main_common_name":"Eurasian
+        Blue Tit","authority":"(Linnaeus, 1758)","published_year":2017,"assessment_date":"2016-10-01","category":"LC","criteria":null,"population_trend":"Increasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"BirdLife
+        International","reviewer":"Butchart, S. & Symes, A.","aoo_km2":null,"eoo_km2":"16600000","elevation_upper":3500,"elevation_lower":null,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":true,"amended_reason":"Map
+        updated: Added gaps in S &amp; SE Spain (where very scarce). EOO updated.
+        Edited Habitats and Ecology Information text."}]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:10:11 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '880'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"Cyanistes caeruleus","result":[{"taxonid":103761667,"scientific_name":"Cyanistes
+        caeruleus","kingdom":"ANIMALIA","phylum":"CHORDATA","class":"AVES","order":"PASSERIFORMES","family":"PARIDAE","genus":"Cyanistes","main_common_name":"Eurasian
+        Blue Tit","authority":"(Linnaeus, 1758)","published_year":2017,"assessment_date":"2016-10-01","category":"LC","criteria":null,"population_trend":"Increasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"BirdLife
+        International","reviewer":"Butchart, S. & Symes, A.","aoo_km2":null,"eoo_km2":"16600000","elevation_upper":3500,"elevation_lower":null,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":true,"amended_reason":"Map
+        updated: Added gaps in S &amp; SE Spain (where very scarce). EOO updated.
+        Edited Habitats and Ecology Information text."}]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus%20teneriffae?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:10:14 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '53'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"Cyanistes caeruleus teneriffae","result":[]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus%20teneriffae?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:10:16 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '53'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      set-cookie: sails.sid=s%3A_aqRSdnqVSd9y8fUH1DjkBdI.9FShBaLvag0aupo7hmnsFFXV5JiDK0lcuDl3oV4H3tY;
+        Path=/; HttpOnly
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"Cyanistes caeruleus teneriffae","result":[]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus%20teneriffae?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:10:17 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '53'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"Cyanistes caeruleus teneriffae","result":[]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus%20ultramarinus?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:10:20 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '55'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"Cyanistes caeruleus ultramarinus","result":[]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Parus%20caeruleus?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:10:23 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '41'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"value":"0","species":"Parus caeruleus"}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Parus%20caeruleus%20degener?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:10:26 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '46'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"Parus caeruleus degener","result":[]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Parus%20caeruleus%20ultramarinus?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:10:29 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '51'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"Parus caeruleus ultramarinus","result":[]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/id/103761667?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:10:29 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '870'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"103761667","result":[{"taxonid":103761667,"scientific_name":"Cyanistes
+        caeruleus","kingdom":"ANIMALIA","phylum":"CHORDATA","class":"AVES","order":"PASSERIFORMES","family":"PARIDAE","genus":"Cyanistes","main_common_name":"Eurasian
+        Blue Tit","authority":"(Linnaeus, 1758)","published_year":2017,"assessment_date":"2016-10-01","category":"LC","criteria":null,"population_trend":"Increasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"BirdLife
+        International","reviewer":"Butchart, S. & Symes, A.","aoo_km2":null,"eoo_km2":"16600000","elevation_upper":3500,"elevation_lower":null,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":true,"amended_reason":"Map
+        updated: Added gaps in S &amp; SE Spain (where very scarce). EOO updated.
+        Edited Habitats and Ecology Information text."}]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/103761667?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:10:30 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '141'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"103761667","result":[{"year":"2017","code":"LC","category":"Least
+        Concern"},{"year":"2016","code":"LC","category":"Least Concern"}]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/103761667?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:10:31 GMT
+      content-type: application/json; charset=utf-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      etag: '"-180946319"'
+      vary: Accept-Encoding
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      string: '{"name":"103761667","count":51,"result":[{"code":"AD","country":"Andorra","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"AL","country":"Albania","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"AM","country":"Armenia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"AT","country":"Austria","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"AZ","country":"Azerbaijan","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"BA","country":"Bosnia
+        and Herzegovina","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"BE","country":"Belgium","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"BG","country":"Bulgaria","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"BY","country":"Belarus","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"CH","country":"Switzerland","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"CZ","country":"Czech
+        Republic","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"DE","country":"Germany","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"DK","country":"Denmark","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"EE","country":"Estonia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"ES","country":"Spain","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"FI","country":"Finland","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"FR","country":"France","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"GB","country":"United
+        Kingdom","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"GE","country":"Georgia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"GI","country":"Gibraltar","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"GR","country":"Greece","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"HR","country":"Croatia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"HU","country":"Hungary","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"IE","country":"Ireland","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"IQ","country":"Iraq","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"IR","country":"Iran,
+        Islamic Republic of","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"IT","country":"Italy","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"JO","country":"Jordan","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"KZ","country":"Kazakhstan","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LB","country":"Lebanon","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LI","country":"Liechtenstein","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LT","country":"Lithuania","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LU","country":"Luxembourg","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LV","country":"Latvia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"MD","country":"Moldova","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"ME","country":"Montenegro","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"MK","country":"Macedonia,
+        the former Yugoslav Republic of","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"MT","country":"Malta","presence":"Extant","origin":"Vagrant","distribution_code":"Vagrant"},{"code":"NL","country":"Netherlands","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"NO","country":"Norway","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"PL","country":"Poland","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"PT","country":"Portugal","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"RO","country":"Romania","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"RS","country":"Serbia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"RU","country":"Russian
+        Federation","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"SE","country":"Sweden","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"SI","country":"Slovenia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"SK","country":"Slovakia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"SY","country":"Syrian
+        Arab Republic","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"TR","country":"Turkey","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"UA","country":"Ukraine","presence":"Extant","origin":"Native","distribution_code":"Native"}]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/id/103761667?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:10:31 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '870'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      set-cookie: sails.sid=s%3Au6ytJdCMnv1O8rkXIo-Kj7Ok.fjAN%2Bco5rwQfUsHoZFurYaeVAFuCtz6D9xPzRXDrP7Q;
+        Path=/; HttpOnly
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"103761667","result":[{"taxonid":103761667,"scientific_name":"Cyanistes
+        caeruleus","kingdom":"ANIMALIA","phylum":"CHORDATA","class":"AVES","order":"PASSERIFORMES","family":"PARIDAE","genus":"Cyanistes","main_common_name":"Eurasian
+        Blue Tit","authority":"(Linnaeus, 1758)","published_year":2017,"assessment_date":"2016-10-01","category":"LC","criteria":null,"population_trend":"Increasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"BirdLife
+        International","reviewer":"Butchart, S. & Symes, A.","aoo_km2":null,"eoo_km2":"16600000","elevation_upper":3500,"elevation_lower":null,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":true,"amended_reason":"Map
+        updated: Added gaps in S &amp; SE Spain (where very scarce). EOO updated.
+        Edited Habitats and Ecology Information text."}]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/id/103761667?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:10:31 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '870'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"103761667","result":[{"taxonid":103761667,"scientific_name":"Cyanistes
+        caeruleus","kingdom":"ANIMALIA","phylum":"CHORDATA","class":"AVES","order":"PASSERIFORMES","family":"PARIDAE","genus":"Cyanistes","main_common_name":"Eurasian
+        Blue Tit","authority":"(Linnaeus, 1758)","published_year":2017,"assessment_date":"2016-10-01","category":"LC","criteria":null,"population_trend":"Increasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"BirdLife
+        International","reviewer":"Butchart, S. & Symes, A.","aoo_km2":null,"eoo_km2":"16600000","elevation_upper":3500,"elevation_lower":null,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":true,"amended_reason":"Map
+        updated: Added gaps in S &amp; SE Spain (where very scarce). EOO updated.
+        Edited Habitats and Ecology Information text."}]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/103761667?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:10:32 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '141'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      set-cookie: sails.sid=s%3A7oP1bWVBi86lo4JrAKAQTj1z.BCYbZUpydlQyP5COUUikXPbfU0n%2B4RWYne%2BETnyShek;
+        Path=/; HttpOnly
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"103761667","result":[{"year":"2017","code":"LC","category":"Least
+        Concern"},{"year":"2016","code":"LC","category":"Least Concern"}]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/103761667?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:10:32 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '141'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"103761667","result":[{"year":"2017","code":"LC","category":"Least
+        Concern"},{"year":"2016","code":"LC","category":"Least Concern"}]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/103761667?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:10:33 GMT
+      content-type: application/json; charset=utf-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      etag: '"-180946319"'
+      set-cookie: sails.sid=s%3An5eC9NHS8uEs-BxySULzXs2y.xacYD6eGvFUkil6iYdg%2FNeen26XuTRPHrenw%2FdL%2FK4s;
+        Path=/; HttpOnly
+      vary: Accept-Encoding
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      string: '{"name":"103761667","count":51,"result":[{"code":"AD","country":"Andorra","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"AL","country":"Albania","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"AM","country":"Armenia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"AT","country":"Austria","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"AZ","country":"Azerbaijan","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"BA","country":"Bosnia
+        and Herzegovina","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"BE","country":"Belgium","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"BG","country":"Bulgaria","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"BY","country":"Belarus","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"CH","country":"Switzerland","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"CZ","country":"Czech
+        Republic","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"DE","country":"Germany","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"DK","country":"Denmark","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"EE","country":"Estonia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"ES","country":"Spain","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"FI","country":"Finland","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"FR","country":"France","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"GB","country":"United
+        Kingdom","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"GE","country":"Georgia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"GI","country":"Gibraltar","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"GR","country":"Greece","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"HR","country":"Croatia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"HU","country":"Hungary","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"IE","country":"Ireland","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"IQ","country":"Iraq","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"IR","country":"Iran,
+        Islamic Republic of","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"IT","country":"Italy","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"JO","country":"Jordan","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"KZ","country":"Kazakhstan","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LB","country":"Lebanon","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LI","country":"Liechtenstein","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LT","country":"Lithuania","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LU","country":"Luxembourg","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LV","country":"Latvia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"MD","country":"Moldova","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"ME","country":"Montenegro","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"MK","country":"Macedonia,
+        the former Yugoslav Republic of","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"MT","country":"Malta","presence":"Extant","origin":"Vagrant","distribution_code":"Vagrant"},{"code":"NL","country":"Netherlands","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"NO","country":"Norway","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"PL","country":"Poland","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"PT","country":"Portugal","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"RO","country":"Romania","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"RS","country":"Serbia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"RU","country":"Russian
+        Federation","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"SE","country":"Sweden","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"SI","country":"Slovenia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"SK","country":"Slovakia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"SY","country":"Syrian
+        Arab Republic","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"TR","country":"Turkey","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"UA","country":"Ukraine","presence":"Extant","origin":"Native","distribution_code":"Native"}]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/103761667?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:10:33 GMT
+      content-type: application/json; charset=utf-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      etag: '"-180946319"'
+      vary: Accept-Encoding
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      string: '{"name":"103761667","count":51,"result":[{"code":"AD","country":"Andorra","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"AL","country":"Albania","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"AM","country":"Armenia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"AT","country":"Austria","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"AZ","country":"Azerbaijan","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"BA","country":"Bosnia
+        and Herzegovina","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"BE","country":"Belgium","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"BG","country":"Bulgaria","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"BY","country":"Belarus","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"CH","country":"Switzerland","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"CZ","country":"Czech
+        Republic","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"DE","country":"Germany","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"DK","country":"Denmark","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"EE","country":"Estonia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"ES","country":"Spain","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"FI","country":"Finland","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"FR","country":"France","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"GB","country":"United
+        Kingdom","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"GE","country":"Georgia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"GI","country":"Gibraltar","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"GR","country":"Greece","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"HR","country":"Croatia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"HU","country":"Hungary","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"IE","country":"Ireland","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"IQ","country":"Iraq","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"IR","country":"Iran,
+        Islamic Republic of","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"IT","country":"Italy","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"JO","country":"Jordan","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"KZ","country":"Kazakhstan","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LB","country":"Lebanon","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LI","country":"Liechtenstein","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LT","country":"Lithuania","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LU","country":"Luxembourg","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LV","country":"Latvia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"MD","country":"Moldova","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"ME","country":"Montenegro","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"MK","country":"Macedonia,
+        the former Yugoslav Republic of","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"MT","country":"Malta","presence":"Extant","origin":"Vagrant","distribution_code":"Vagrant"},{"code":"NL","country":"Netherlands","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"NO","country":"Norway","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"PL","country":"Poland","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"PT","country":"Portugal","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"RO","country":"Romania","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"RS","country":"Serbia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"RU","country":"Russian
+        Federation","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"SE","country":"Sweden","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"SI","country":"Slovenia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"SK","country":"Slovakia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"SY","country":"Syrian
+        Arab Republic","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"TR","country":"Turkey","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"UA","country":"Ukraine","presence":"Extant","origin":"Native","distribution_code":"Native"}]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/id/103761667?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:10:34 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '870'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      set-cookie: sails.sid=s%3Axv6a3btsaSRF3ChYPg7J5eco.RPc3dEnJGK%2Bsi0gk8FuLbZ8kityYu7%2BU2umb%2FQx%2BDkQ;
+        Path=/; HttpOnly
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"103761667","result":[{"taxonid":103761667,"scientific_name":"Cyanistes
+        caeruleus","kingdom":"ANIMALIA","phylum":"CHORDATA","class":"AVES","order":"PASSERIFORMES","family":"PARIDAE","genus":"Cyanistes","main_common_name":"Eurasian
+        Blue Tit","authority":"(Linnaeus, 1758)","published_year":2017,"assessment_date":"2016-10-01","category":"LC","criteria":null,"population_trend":"Increasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"BirdLife
+        International","reviewer":"Butchart, S. & Symes, A.","aoo_km2":null,"eoo_km2":"16600000","elevation_upper":3500,"elevation_lower":null,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":true,"amended_reason":"Map
+        updated: Added gaps in S &amp; SE Spain (where very scarce). EOO updated.
+        Edited Habitats and Ecology Information text."}]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/id/103761667?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:10:34 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '870'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"103761667","result":[{"taxonid":103761667,"scientific_name":"Cyanistes
+        caeruleus","kingdom":"ANIMALIA","phylum":"CHORDATA","class":"AVES","order":"PASSERIFORMES","family":"PARIDAE","genus":"Cyanistes","main_common_name":"Eurasian
+        Blue Tit","authority":"(Linnaeus, 1758)","published_year":2017,"assessment_date":"2016-10-01","category":"LC","criteria":null,"population_trend":"Increasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"BirdLife
+        International","reviewer":"Butchart, S. & Symes, A.","aoo_km2":null,"eoo_km2":"16600000","elevation_upper":3500,"elevation_lower":null,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":true,"amended_reason":"Map
+        updated: Added gaps in S &amp; SE Spain (where very scarce). EOO updated.
+        Edited Habitats and Ecology Information text."}]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/103761667?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:10:34 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '141'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      set-cookie: sails.sid=s%3Atz2pPYslgME7ZtFsYBGD8T_y.1T%2F62FJH7PMgr3VaoKsRZzV16Fy5Pv4bQXdhTf%2BsJcM;
+        Path=/; HttpOnly
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"103761667","result":[{"year":"2017","code":"LC","category":"Least
+        Concern"},{"year":"2016","code":"LC","category":"Least Concern"}]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/103761667?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:10:35 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '141'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"103761667","result":[{"year":"2017","code":"LC","category":"Least
+        Concern"},{"year":"2016","code":"LC","category":"Least Concern"}]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/103761667?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:10:35 GMT
+      content-type: application/json; charset=utf-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      etag: '"-180946319"'
+      set-cookie: sails.sid=s%3AOxIu0221lvGKaSlmTsRQzclp.B2wmiJ75YG3Yb28nHWVd5V%2Fu%2BTJzJ8Ni%2BPBI0u7AD1Y;
+        Path=/; HttpOnly
+      vary: Accept-Encoding
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      string: '{"name":"103761667","count":51,"result":[{"code":"AD","country":"Andorra","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"AL","country":"Albania","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"AM","country":"Armenia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"AT","country":"Austria","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"AZ","country":"Azerbaijan","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"BA","country":"Bosnia
+        and Herzegovina","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"BE","country":"Belgium","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"BG","country":"Bulgaria","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"BY","country":"Belarus","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"CH","country":"Switzerland","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"CZ","country":"Czech
+        Republic","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"DE","country":"Germany","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"DK","country":"Denmark","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"EE","country":"Estonia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"ES","country":"Spain","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"FI","country":"Finland","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"FR","country":"France","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"GB","country":"United
+        Kingdom","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"GE","country":"Georgia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"GI","country":"Gibraltar","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"GR","country":"Greece","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"HR","country":"Croatia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"HU","country":"Hungary","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"IE","country":"Ireland","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"IQ","country":"Iraq","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"IR","country":"Iran,
+        Islamic Republic of","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"IT","country":"Italy","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"JO","country":"Jordan","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"KZ","country":"Kazakhstan","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LB","country":"Lebanon","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LI","country":"Liechtenstein","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LT","country":"Lithuania","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LU","country":"Luxembourg","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LV","country":"Latvia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"MD","country":"Moldova","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"ME","country":"Montenegro","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"MK","country":"Macedonia,
+        the former Yugoslav Republic of","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"MT","country":"Malta","presence":"Extant","origin":"Vagrant","distribution_code":"Vagrant"},{"code":"NL","country":"Netherlands","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"NO","country":"Norway","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"PL","country":"Poland","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"PT","country":"Portugal","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"RO","country":"Romania","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"RS","country":"Serbia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"RU","country":"Russian
+        Federation","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"SE","country":"Sweden","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"SI","country":"Slovenia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"SK","country":"Slovakia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"SY","country":"Syrian
+        Arab Republic","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"TR","country":"Turkey","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"UA","country":"Ukraine","presence":"Extant","origin":"Native","distribution_code":"Native"}]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/103761667?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:10:35 GMT
+      content-type: application/json; charset=utf-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      etag: '"-180946319"'
+      vary: Accept-Encoding
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      string: '{"name":"103761667","count":51,"result":[{"code":"AD","country":"Andorra","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"AL","country":"Albania","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"AM","country":"Armenia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"AT","country":"Austria","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"AZ","country":"Azerbaijan","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"BA","country":"Bosnia
+        and Herzegovina","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"BE","country":"Belgium","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"BG","country":"Bulgaria","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"BY","country":"Belarus","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"CH","country":"Switzerland","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"CZ","country":"Czech
+        Republic","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"DE","country":"Germany","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"DK","country":"Denmark","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"EE","country":"Estonia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"ES","country":"Spain","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"FI","country":"Finland","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"FR","country":"France","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"GB","country":"United
+        Kingdom","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"GE","country":"Georgia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"GI","country":"Gibraltar","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"GR","country":"Greece","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"HR","country":"Croatia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"HU","country":"Hungary","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"IE","country":"Ireland","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"IQ","country":"Iraq","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"IR","country":"Iran,
+        Islamic Republic of","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"IT","country":"Italy","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"JO","country":"Jordan","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"KZ","country":"Kazakhstan","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LB","country":"Lebanon","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LI","country":"Liechtenstein","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LT","country":"Lithuania","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LU","country":"Luxembourg","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LV","country":"Latvia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"MD","country":"Moldova","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"ME","country":"Montenegro","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"MK","country":"Macedonia,
+        the former Yugoslav Republic of","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"MT","country":"Malta","presence":"Extant","origin":"Vagrant","distribution_code":"Vagrant"},{"code":"NL","country":"Netherlands","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"NO","country":"Norway","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"PL","country":"Poland","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"PT","country":"Portugal","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"RO","country":"Romania","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"RS","country":"Serbia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"RU","country":"Russian
+        Federation","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"SE","country":"Sweden","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"SI","country":"Slovenia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"SK","country":"Slovakia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"SY","country":"Syrian
+        Arab Republic","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"TR","country":"Turkey","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"UA","country":"Ukraine","presence":"Extant","origin":"Native","distribution_code":"Native"}]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/id/103761667?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:10:36 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '870'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      set-cookie: sails.sid=s%3Av3_7fVmaxdrfh_fNApxQEB3Y.%2BgJ1KX9pHeohnvOuMOguMiZ%2Fx6gor6Uwkr%2BiIPEfiAE;
+        Path=/; HttpOnly
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"103761667","result":[{"taxonid":103761667,"scientific_name":"Cyanistes
+        caeruleus","kingdom":"ANIMALIA","phylum":"CHORDATA","class":"AVES","order":"PASSERIFORMES","family":"PARIDAE","genus":"Cyanistes","main_common_name":"Eurasian
+        Blue Tit","authority":"(Linnaeus, 1758)","published_year":2017,"assessment_date":"2016-10-01","category":"LC","criteria":null,"population_trend":"Increasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"BirdLife
+        International","reviewer":"Butchart, S. & Symes, A.","aoo_km2":null,"eoo_km2":"16600000","elevation_upper":3500,"elevation_lower":null,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":true,"amended_reason":"Map
+        updated: Added gaps in S &amp; SE Spain (where very scarce). EOO updated.
+        Edited Habitats and Ecology Information text."}]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/id/103761667?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:10:36 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '870'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"103761667","result":[{"taxonid":103761667,"scientific_name":"Cyanistes
+        caeruleus","kingdom":"ANIMALIA","phylum":"CHORDATA","class":"AVES","order":"PASSERIFORMES","family":"PARIDAE","genus":"Cyanistes","main_common_name":"Eurasian
+        Blue Tit","authority":"(Linnaeus, 1758)","published_year":2017,"assessment_date":"2016-10-01","category":"LC","criteria":null,"population_trend":"Increasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"BirdLife
+        International","reviewer":"Butchart, S. & Symes, A.","aoo_km2":null,"eoo_km2":"16600000","elevation_upper":3500,"elevation_lower":null,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":true,"amended_reason":"Map
+        updated: Added gaps in S &amp; SE Spain (where very scarce). EOO updated.
+        Edited Habitats and Ecology Information text."}]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/103761667?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:10:37 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '141'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      set-cookie: sails.sid=s%3AgtnMb2HVZVa_4xe_BLyeesNE.DcZpB2r5wWTx3hO8Zp0AymcfwirvIw1A6MB0D3TO0zM;
+        Path=/; HttpOnly
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"103761667","result":[{"year":"2017","code":"LC","category":"Least
+        Concern"},{"year":"2016","code":"LC","category":"Least Concern"}]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/103761667?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:10:37 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '141'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"103761667","result":[{"year":"2017","code":"LC","category":"Least
+        Concern"},{"year":"2016","code":"LC","category":"Least Concern"}]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/103761667?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:10:37 GMT
+      content-type: application/json; charset=utf-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      etag: '"-180946319"'
+      set-cookie: sails.sid=s%3A_dJjfl2pAWpvFc6KhSTEZLVZ.WnhoPCfMba9w4ZzWOnEUQPMmfSk4IlOEqRM2xoq98Y0;
+        Path=/; HttpOnly
+      vary: Accept-Encoding
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      string: '{"name":"103761667","count":51,"result":[{"code":"AD","country":"Andorra","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"AL","country":"Albania","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"AM","country":"Armenia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"AT","country":"Austria","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"AZ","country":"Azerbaijan","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"BA","country":"Bosnia
+        and Herzegovina","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"BE","country":"Belgium","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"BG","country":"Bulgaria","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"BY","country":"Belarus","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"CH","country":"Switzerland","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"CZ","country":"Czech
+        Republic","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"DE","country":"Germany","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"DK","country":"Denmark","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"EE","country":"Estonia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"ES","country":"Spain","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"FI","country":"Finland","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"FR","country":"France","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"GB","country":"United
+        Kingdom","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"GE","country":"Georgia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"GI","country":"Gibraltar","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"GR","country":"Greece","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"HR","country":"Croatia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"HU","country":"Hungary","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"IE","country":"Ireland","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"IQ","country":"Iraq","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"IR","country":"Iran,
+        Islamic Republic of","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"IT","country":"Italy","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"JO","country":"Jordan","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"KZ","country":"Kazakhstan","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LB","country":"Lebanon","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LI","country":"Liechtenstein","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LT","country":"Lithuania","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LU","country":"Luxembourg","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LV","country":"Latvia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"MD","country":"Moldova","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"ME","country":"Montenegro","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"MK","country":"Macedonia,
+        the former Yugoslav Republic of","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"MT","country":"Malta","presence":"Extant","origin":"Vagrant","distribution_code":"Vagrant"},{"code":"NL","country":"Netherlands","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"NO","country":"Norway","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"PL","country":"Poland","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"PT","country":"Portugal","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"RO","country":"Romania","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"RS","country":"Serbia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"RU","country":"Russian
+        Federation","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"SE","country":"Sweden","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"SI","country":"Slovenia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"SK","country":"Slovakia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"SY","country":"Syrian
+        Arab Republic","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"TR","country":"Turkey","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"UA","country":"Ukraine","presence":"Extant","origin":"Native","distribution_code":"Native"}]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/103761667?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 24 Jan 2019 19:10:38 GMT
+      content-type: application/json; charset=utf-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      etag: '"-180946319"'
+      vary: Accept-Encoding
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      string: '{"name":"103761667","count":51,"result":[{"code":"AD","country":"Andorra","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"AL","country":"Albania","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"AM","country":"Armenia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"AT","country":"Austria","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"AZ","country":"Azerbaijan","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"BA","country":"Bosnia
+        and Herzegovina","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"BE","country":"Belgium","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"BG","country":"Bulgaria","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"BY","country":"Belarus","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"CH","country":"Switzerland","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"CZ","country":"Czech
+        Republic","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"DE","country":"Germany","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"DK","country":"Denmark","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"EE","country":"Estonia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"ES","country":"Spain","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"FI","country":"Finland","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"FR","country":"France","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"GB","country":"United
+        Kingdom","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"GE","country":"Georgia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"GI","country":"Gibraltar","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"GR","country":"Greece","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"HR","country":"Croatia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"HU","country":"Hungary","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"IE","country":"Ireland","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"IQ","country":"Iraq","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"IR","country":"Iran,
+        Islamic Republic of","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"IT","country":"Italy","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"JO","country":"Jordan","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"KZ","country":"Kazakhstan","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LB","country":"Lebanon","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LI","country":"Liechtenstein","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LT","country":"Lithuania","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LU","country":"Luxembourg","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"LV","country":"Latvia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"MD","country":"Moldova","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"ME","country":"Montenegro","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"MK","country":"Macedonia,
+        the former Yugoslav Republic of","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"MT","country":"Malta","presence":"Extant","origin":"Vagrant","distribution_code":"Vagrant"},{"code":"NL","country":"Netherlands","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"NO","country":"Norway","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"PL","country":"Poland","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"PT","country":"Portugal","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"RO","country":"Romania","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"RS","country":"Serbia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"RU","country":"Russian
+        Federation","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"SE","country":"Sweden","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"SI","country":"Slovenia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"SK","country":"Slovakia","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"SY","country":"Syrian
+        Arab Republic","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"TR","country":"Turkey","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"UA","country":"Ukraine","presence":"Extant","origin":"Native","distribution_code":"Native"}]}'
+  recorded_at: 2019-01-24 19:10:38 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0

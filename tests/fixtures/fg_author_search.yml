@@ -1,0 +1,62 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://www.indexfungorum.org/ixfwebservice/fungus.asmx/AuthorSearch?SearchText=Fayod&AnywhereInText=true&MaxNumber=2
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx
+      date: Thu, 24 Jan 2019 01:37:40 GMT
+      content-type: text/xml; charset=utf-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      keep-alive: timeout=20
+      vary: Accept-Encoding
+      cache-control: private, max-age=0
+      x-aspnet-version: 2.0.50727
+      x-powered-by: ASP.NET
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<NewDataSet>\r\n  <IndexFungorum>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS>Acanthocystis</NAME_x0020_OF_x0020_FUNGUS>\r\n
+        \   <AUTHORS>(Fayod) Kühner</AUTHORS>\r\n    <INFRASPECIFIC_x0020_RANK>gen.</INFRASPECIFIC_x0020_RANK>\r\n
+        \   <VOLUME>17</VOLUME>\r\n    <PART>1-4</PART>\r\n    <PAGE>111</PAGE>\r\n
+        \   <YEAR_x0020_OF_x0020_PUBLICATION>1926</YEAR_x0020_OF_x0020_PUBLICATION>\r\n
+        \   <LITERATURE_x0020_LINK>2661</LITERATURE_x0020_LINK>\r\n    <STS_x0020_FLAG>g</STS_x0020_FLAG>\r\n
+        \   <RECORD_x0020_NUMBER>17003</RECORD_x0020_NUMBER>\r\n    <BASIONYM_x0020_RECORD_x0020_NUMBER>700403</BASIONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <PROTONYM_x0020_RECORD_x0020_NUMBER>700403</PROTONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17003</NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME>Hohenbuehelia</CURRENT_x0020_NAME>\r\n    <CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>17768</CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17768</CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <UpdatedBy>sa</UpdatedBy>\r\n    <AddedBy>CABI_UK\\KIRK</AddedBy>\r\n
+        \   <UpdatedDate>2016-04-26T10:10:13.27+01:00</UpdatedDate>\r\n    <AddedDate>2006-11-20T14:07:00+00:00</AddedDate>\r\n
+        \   <UUID>31ffd3ff-bf69-493d-88aa-0a838821bf8a</UUID>\r\n  </IndexFungorum>\r\n
+        \ <IndexFungorum>\r\n    <NAME_x0020_OF_x0020_FUNGUS>Agaricus africanus</NAME_x0020_OF_x0020_FUNGUS>\r\n
+        \   <AUTHORS>(Fayod) Sacc.</AUTHORS>\r\n    <PUBLISHED_x0020_LIST_x0020_REFERENCE>Saccardo's
+        Syll. fung. XI: 69; XII: 903</PUBLISHED_x0020_LIST_x0020_REFERENCE>\r\n    <SPECIFIC_x0020_EPITHET>africanus</SPECIFIC_x0020_EPITHET>\r\n
+        \   <INFRASPECIFIC_x0020_RANK>sp.</INFRASPECIFIC_x0020_RANK>\r\n    <VOLUME>11</VOLUME>\r\n
+        \   <PAGE>69</PAGE>\r\n    <YEAR_x0020_OF_x0020_PUBLICATION>1895</YEAR_x0020_OF_x0020_PUBLICATION>\r\n
+        \   <CORRECTION>$Nhttp://www.librifungorum.org/Image.asp?ItemID=71&amp;ImageFileName=SyllogeFungorum11-69.jpg</CORRECTION>\r\n
+        \   <LITERATURE_x0020_LINK>326</LITERATURE_x0020_LINK>\r\n    <RECORD_x0020_NUMBER>167326</RECORD_x0020_NUMBER>\r\n
+        \   <BASIONYM_x0020_RECORD_x0020_NUMBER>152228</BASIONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <PROTONYM_x0020_RECORD_x0020_NUMBER>152228</PROTONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17030</NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17030</CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <SQLTimeStamp>AAAAAAhdANc=</SQLTimeStamp>\r\n    <UpdatedBy>IUSR_KPPIND01</UpdatedBy>\r\n
+        \   <AddedBy>EGHAM_SQL\\kirk</AddedBy>\r\n    <UpdatedDate>2015-06-21T08:19:02.11+01:00</UpdatedDate>\r\n
+        \   <AddedDate>2004-09-27T08:33:00+01:00</AddedDate>\r\n    <UUID>ae56a85a-416c-4de3-86cb-4bbc0c3beac3</UUID>\r\n
+        \ </IndexFungorum>\r\n</NewDataSet>"
+  recorded_at: 2019-01-24 01:38:14 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0

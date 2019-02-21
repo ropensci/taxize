@@ -1,0 +1,752 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://www.catalogueoflife.org/col/webservice?id=015be25f6b061ba517f495394b80f108&response=full
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.12.1
+      date: Sat, 26 Jan 2019 17:38:07 GMT
+      content-type: application/xml
+      content-length: '4816'
+      connection: keep-alive
+      x-powered-by: PHP/5.5.9-1ubuntu4.26
+      expires: Thu, 19 Nov 1981 08:52:00 GMT
+      cache-control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      pragma: no-cache
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <results id="015be25f6b061ba517f495394b80f108" name="" total_number_of_results="1" number_of_results_returned="1" start="0" error_message="" version="1.9 rev 2126ab0" rank="">
+          <result>
+            <id>015be25f6b061ba517f495394b80f108</id>
+            <name>Apis</name>
+            <rank>Genus</rank>
+            <name_status>accepted name</name_status>
+            <name_html><i>Apis</i></name_html>
+            <url>http://www.catalogueoflife.org/col/browse/tree/id/015be25f6b061ba517f495394b80f108</url>
+            <is_extinct>false</is_extinct>
+            <classification>
+              <taxon>
+                <id>5ede24b0534ebd5e1f552d5b9f874a6a</id>
+                <name>Animalia</name>
+                <rank>Kingdom</rank>
+                <name_html>Animalia</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/5ede24b0534ebd5e1f552d5b9f874a6a</url>
+              </taxon>
+              <taxon>
+                <id>89ac18bfcf1654a9662a600ba06bb494</id>
+                <name>Arthropoda</name>
+                <rank>Phylum</rank>
+                <name_html>Arthropoda</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/89ac18bfcf1654a9662a600ba06bb494</url>
+              </taxon>
+              <taxon>
+                <id>ae304a1e0beadcfec04932589049bb5a</id>
+                <name>Insecta</name>
+                <rank>Class</rank>
+                <name_html>Insecta</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/ae304a1e0beadcfec04932589049bb5a</url>
+              </taxon>
+              <taxon>
+                <id>7add6b9938fb0a3bc00493c3e4047f98</id>
+                <name>Hymenoptera</name>
+                <rank>Order</rank>
+                <name_html>Hymenoptera</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/7add6b9938fb0a3bc00493c3e4047f98</url>
+              </taxon>
+              <taxon>
+                <id>c5ce807e3f98149e143e2234b795e8f5</id>
+                <name>Apoidea</name>
+                <rank>Superfamily</rank>
+                <name_html>Apoidea</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/c5ce807e3f98149e143e2234b795e8f5</url>
+              </taxon>
+              <taxon>
+                <id>eedef362dadba1e330f18348289a5eba</id>
+                <name>Apidae</name>
+                <rank>Family</rank>
+                <name_html>Apidae</name_html>
+                <url>http://www.catalogueoflife.org/col/browse/tree/id/eedef362dadba1e330f18348289a5eba</url>
+              </taxon>
+            </classification>
+            <child_taxa>
+              <taxon>
+                <id>7a4a38c5095963949d6d6ec917d471de</id>
+                <name>Apis andreniformis</name>
+                <rank>Species</rank>
+                <name_html><i>Apis andreniformis</i> Smith, 1858</name_html>
+                <url>http://www.catalogueoflife.org/col/details/species/id/7a4a38c5095963949d6d6ec917d471de</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>39610a4ceff7e5244e334a3fbc5e47e5</id>
+                <name>Apis cerana</name>
+                <rank>Species</rank>
+                <name_html><i>Apis cerana</i> Fabricius, 1793</name_html>
+                <url>http://www.catalogueoflife.org/col/details/species/id/39610a4ceff7e5244e334a3fbc5e47e5</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>e1d4cbf3872c6c310b7a1c17ddd00ebc</id>
+                <name>Apis dorsata</name>
+                <rank>Species</rank>
+                <name_html><i>Apis dorsata</i> Fabricius, 1793</name_html>
+                <url>http://www.catalogueoflife.org/col/details/species/id/e1d4cbf3872c6c310b7a1c17ddd00ebc</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>92dca82a063fedd1da94b3f3972d7b22</id>
+                <name>Apis florea</name>
+                <rank>Species</rank>
+                <name_html><i>Apis florea</i> Fabricius, 1787</name_html>
+                <url>http://www.catalogueoflife.org/col/details/species/id/92dca82a063fedd1da94b3f3972d7b22</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>4bbc06b9dfbde0b72c619810b564c6e6</id>
+                <name>Apis koschevnikovi</name>
+                <rank>Species</rank>
+                <name_html><i>Apis koschevnikovi</i> Enderlein, 1906</name_html>
+                <url>http://www.catalogueoflife.org/col/details/species/id/4bbc06b9dfbde0b72c619810b564c6e6</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>67cbbcf92cd60748759e58e802d98518</id>
+                <name>Apis mellifera</name>
+                <rank>Species</rank>
+                <name_html><i>Apis mellifera</i> Linnaeus, 1758</name_html>
+                <url>http://www.catalogueoflife.org/col/details/species/id/67cbbcf92cd60748759e58e802d98518</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+              <taxon>
+                <id>213668a26ba6d2aad9575218f10d422f</id>
+                <name>Apis nigrocincta</name>
+                <rank>Species</rank>
+                <name_html><i>Apis nigrocincta</i> Smith, 1861</name_html>
+                <url>http://www.catalogueoflife.org/col/details/species/id/213668a26ba6d2aad9575218f10d422f</url>
+                <is_extinct>false</is_extinct>
+              </taxon>
+            </child_taxa>
+          </result>
+        </results>
+  recorded_at: 2019-01-26 17:38:16 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: https://api.gbif.org/v1/species/match?name=Ursus&strict=FALSE&verbose=TRUE&limit=500
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+      X-User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Sat, 26 Jan 2019 17:08:57 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT
+      server: Jetty(9.3.z-SNAPSHOT)
+      cache-control: public, max-age=3601
+      x-varnish: 67076767 42764035
+      age: '1753'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      content-length: '1956'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"usageKey":2433406,"scientificName":"Ursus Linnaeus, 1758","canonicalName":"Ursus","rank":"GENUS","status":"ACCEPTED","confidence":94,"note":"Similarity:
+        name=100; authorship=0; classification=-2; rank=0; status=1; nextMatch=5","matchType":"EXACT","alternatives":[{"usageKey":5429022,"acceptedUsageKey":2441017,"scientificName":"Urus
+        Bojanus, 1827","canonicalName":"Urus","rank":"GENUS","status":"SYNONYM","confidence":73,"note":"Similarity:
+        name=75; authorship=0; classification=-2; rank=0; status=0","matchType":"FUZZY","kingdom":"Animalia","phylum":"Chordata","order":"Artiodactyla","family":"Bovidae","genus":"Bos","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":731,"familyKey":9614,"genusKey":2441017,"synonym":true,"class":"Mammalia"},{"usageKey":8433205,"acceptedUsageKey":2441175,"scientificName":"Urus
+        Bojanus, 1827","canonicalName":"Urus","rank":"GENUS","status":"SYNONYM","confidence":73,"note":"Similarity:
+        name=75; authorship=0; classification=-2; rank=0; status=0","matchType":"FUZZY","kingdom":"Animalia","phylum":"Chordata","order":"Artiodactyla","family":"Bovidae","genus":"Bison","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":731,"familyKey":9614,"genusKey":2441175,"synonym":true,"class":"Mammalia"},{"usageKey":8162648,"acceptedUsageKey":2441175,"scientificName":"Urus
+        Swainson, 1835","canonicalName":"Urus","rank":"GENUS","status":"SYNONYM","confidence":73,"note":"Similarity:
+        name=75; authorship=0; classification=-2; rank=0; status=0","matchType":"FUZZY","kingdom":"Animalia","phylum":"Chordata","order":"Artiodactyla","family":"Bovidae","genus":"Bison","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":731,"familyKey":9614,"genusKey":2441175,"synonym":true,"class":"Mammalia"}],"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"synonym":false,"class":"Mammalia"}'
+  recorded_at: 2019-01-26 17:38:16 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://api.gbif.org/v1/species/2433406?limit=20
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Sat, 26 Jan 2019 17:08:58 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT
+      server: Jetty(9.3.z-SNAPSHOT)
+      cache-control: public, max-age=3601
+      x-varnish: 60654658 58065952
+      age: '1754'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      content-length: '1075'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"key":2433406,"nubKey":2433406,"nameKey":11658347,"taxonID":"gbif:2433406","sourceTaxonKey":144316162,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":9681,"parent":"Ursidae","scientificName":"Ursus
+        Linnaeus, 1758","canonicalName":"Ursus","authorship":"Linnaeus, 1758","nameType":"SCIENTIFIC","rank":"GENUS","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","publishedIn":"Linnæus,
+        Carolus. 1758. Systema naturae per regna tria naturae, secundum classes, ordines,
+        genera, species, cum characteribus, differentiis, synonymis, locis. Laurentii
+        Salvii, Holmiae. Vol. Tomus I, Editio decima, reformata: i-ii, 1-824.","numDescendants":150,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.556+0000","issues":[],"synonym":false,"class":"Mammalia"}'
+  recorded_at: 2019-01-26 17:38:16 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://api.gbif.org/v1/species/2433406/children?limit=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Sat, 26 Jan 2019 17:08:58 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT
+      server: Jetty(9.3.z-SNAPSHOT)
+      cache-control: public, max-age=3601
+      x-varnish: 59540721 16747830
+      age: '1756'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      content-length: '101754'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"offset":0,"limit":100,"endOfRecords":false,"results":[{"key":9717328,"nameKey":18424526,"taxonID":"gbif:9717328","sourceTaxonKey":144031871,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Euarctos
+        optimus","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9717328,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c33ce2f2-c3cc-43a5-a380-fe4526d63650","parentKey":2433406,"parent":"Ursus","scientificName":"Euarctos
+        optimus Shultz, 1938","canonicalName":"Euarctos optimus","authorship":"Shultz,
+        1938","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.566+0000","issues":["NAME_PARENT_MISMATCH"],"synonym":false,"class":"Mammalia"},{"key":8522357,"nameKey":7294291,"taxonID":"gbif:8522357","sourceTaxonKey":135555982,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Myrmarctos
+        eversmanni","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":8522357,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Myrmarctos
+        eversmanni Gray, 1864","canonicalName":"Myrmarctos eversmanni","authorship":"Gray,
+        1864","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Gray,
+        John E. 1864. A revision of the genera and species of ursine animals (Ursidae),
+        founded on the collection of the British Museum. Proceedings of the Zoological
+        Society of London 1864: 677-709.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.913+0000","issues":["NAME_PARENT_MISMATCH"],"synonym":false,"class":"Mammalia"},{"key":8596560,"nameKey":11147163,"taxonID":"gbif:8596560","sourceTaxonKey":121516036,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Thalassarctos
+        eogroenlandicus","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":8596560,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c33ce2f2-c3cc-43a5-a380-fe4526d63650","parentKey":2433406,"parent":"Ursus","scientificName":"Thalassarctos
+        eogroenlandicus Knotterus-Meyer, 1908","canonicalName":"Thalassarctos eogroenlandicus","authorship":"Knotterus-Meyer,
+        1908","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.558+0000","issues":["NAME_PARENT_MISMATCH"],"synonym":false,"class":"Mammalia"},{"key":8551981,"nameKey":11147169,"taxonID":"gbif:8551981","sourceTaxonKey":121516045,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Thalassarctos
+        jenaensis","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":8551981,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c33ce2f2-c3cc-43a5-a380-fe4526d63650","parentKey":2433406,"parent":"Ursus","scientificName":"Thalassarctos
+        jenaensis Knotterus-Meyer, 1908","canonicalName":"Thalassarctos jenaensis","authorship":"Knotterus-Meyer,
+        1908","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.560+0000","issues":["NAME_PARENT_MISMATCH"],"synonym":false,"class":"Mammalia"},{"key":8601127,"nameKey":11147178,"taxonID":"gbif:8601127","sourceTaxonKey":121516041,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Thalassarctos
+        labradorensis","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":8601127,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c33ce2f2-c3cc-43a5-a380-fe4526d63650","parentKey":2433406,"parent":"Ursus","scientificName":"Thalassarctos
+        labradorensis Knotterus-Meyer, 1908","canonicalName":"Thalassarctos labradorensis","authorship":"Knotterus-Meyer,
+        1908","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.559+0000","issues":["NAME_PARENT_MISMATCH"],"synonym":false,"class":"Mammalia"},{"key":8647535,"nameKey":11147184,"taxonID":"gbif:8647535","sourceTaxonKey":121516048,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Thalassarctos
+        spitzbergensis","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":8647535,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c33ce2f2-c3cc-43a5-a380-fe4526d63650","parentKey":2433406,"parent":"Ursus","scientificName":"Thalassarctos
+        spitzbergensis Knotterus-Meyer, 1908","canonicalName":"Thalassarctos spitzbergensis","authorship":"Knotterus-Meyer,
+        1908","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.564+0000","issues":["NAME_PARENT_MISMATCH"],"synonym":false,"class":"Mammalia"},{"key":9360124,"nameKey":16264948,"taxonID":"gbif:9360124","sourceTaxonKey":135557704,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        absarokus","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9360124,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        absarokus Merriam, 1914","canonicalName":"Ursus absarokus","authorship":"Merriam,
+        1914","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1914. Descriptions of thirty apparently new grizzly and brown bears
+        from North America. Proceedings of the Biological Society of Washington 27:
+        173-196.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.922+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":4970091,"nubKey":4970091,"nameKey":11658364,"taxonID":"gbif:4970091","sourceTaxonKey":121516066,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        abstrusus","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":4970091,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c33ce2f2-c3cc-43a5-a380-fe4526d63650","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        abstrusus Bjork, 1970","canonicalName":"Ursus abstrusus","authorship":"Bjork,
+        1970","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.568+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9480485,"nameKey":16264996,"taxonID":"gbif:9480485","sourceTaxonKey":135557752,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        alexandrae","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9480485,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        alexandrae Merriam, 1914","canonicalName":"Ursus alexandrae","authorship":"Merriam,
+        1914","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1914. Descriptions of thirty apparently new grizzly and brown bears
+        from North America. Proceedings of the Biological Society of Washington 27:
+        173-196.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.633+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9491295,"nameKey":16264962,"taxonID":"gbif:9491295","sourceTaxonKey":135557718,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        alpinus","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9491295,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        alpinus Fischer von Waldheim, 1814","canonicalName":"Ursus alpinus","authorship":"Fischer
+        von Waldheim, 1814","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Fischer
+        von Waldheim, Gotthelf. 1814. Zoognosia tabulis synopticis illustrata : in
+        usum praelectionum Academiae imperialis medico-chirugicae mosquensis. Typis
+        Nicolai S. Vsevolozsky, Mosquae. Vol. 3, 3rd Edition: i-xxiv + 1-732.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.602+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":2433407,"nubKey":2433407,"nameKey":11658398,"taxonID":"gbif:2433407","sourceTaxonKey":132083003,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        americanus","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":2433407,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        americanus Pallas, 1780","canonicalName":"Ursus americanus","authorship":"Pallas,
+        1780","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","publishedIn":"Pallas,
+        Peter S. 1780. Spicilegia zoologica. J. Pauli, Berolini.: fasc. 14: 1-94.","numDescendants":16,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.842+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9619443,"nameKey":16264922,"taxonID":"gbif:9619443","sourceTaxonKey":135557677,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        andersoni","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9619443,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        andersoni Merriam, 1918","canonicalName":"Ursus andersoni","authorship":"Merriam,
+        1918","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1918. Review of the grizzly and big brown bears of North America
+        (genus Ursus). North American Fauna 41: 1-136.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.603+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9345287,"nameKey":16264971,"taxonID":"gbif:9345287","sourceTaxonKey":135557727,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        apache","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9345287,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        apache Merriam, 1916","canonicalName":"Ursus apache","authorship":"Merriam,
+        1916","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1916. Nineteen apparently new grizzly and brown bears from western
+        America. Proceedings of the Biological Society of Washington 29: 133-154.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.947+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":2433433,"nubKey":2433433,"nameKey":11658583,"taxonID":"gbif:2433433","sourceTaxonKey":132083021,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        arctos","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":2433433,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        arctos Linnaeus, 1758","canonicalName":"Ursus arctos","authorship":"Linnaeus,
+        1758","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","publishedIn":"Syst.
+        Nat., 10th ed. vol.1 p.47","numDescendants":19,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.779+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9362310,"nameKey":16264968,"taxonID":"gbif:9362310","sourceTaxonKey":135557724,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        arizonae","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9362310,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        arizonae Merriam, 1916","canonicalName":"Ursus arizonae","authorship":"Merriam,
+        1916","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1916. Nineteen apparently new grizzly and brown bears from western
+        America. Proceedings of the Biological Society of Washington 29: 133-154.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.609+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":8684820,"nameKey":11658759,"taxonID":"gbif:8684820","sourceTaxonKey":121516058,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        arvernensis","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":8684820,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c33ce2f2-c3cc-43a5-a380-fe4526d63650","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        arvernensis Croizet & Jobert, 1828","canonicalName":"Ursus arvernensis","authorship":"Croizet
+        & Jobert, 1828","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.562+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9537273,"nameKey":16264933,"taxonID":"gbif:9537273","sourceTaxonKey":135557689,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        atnarko","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9537273,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        atnarko Merriam, 1918","canonicalName":"Ursus atnarko","authorship":"Merriam,
+        1918","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1918. Review of the grizzly and big brown bears of North America
+        (genus Ursus). North American Fauna 41: 1-136.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.617+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9247517,"nameKey":16264975,"taxonID":"gbif:9247517","sourceTaxonKey":135557731,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        bairdi","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9247517,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        bairdi Merriam, 1914","canonicalName":"Ursus bairdi","authorship":"Merriam,
+        1914","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1914. Descriptions of thirty apparently new grizzly and brown bears
+        from North America. Proceedings of the Biological Society of Washington 27:
+        173-196.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.590+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9074064,"nameKey":13339589,"taxonID":"gbif:9074064","sourceTaxonKey":128523120,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        brasiliensis","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9074064,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        brasiliensis Thunberg, 1820","canonicalName":"Ursus brasiliensis","authorship":"Thunberg,
+        1820","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Thunberg,
+        C. P. 1820. Ursus brasiliensis nova quaed am species, descripta et delineata.
+        Mémoires de l''Académie Impériale des Sciences de St. Pétersbourg 7: 400–402.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.934+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9506531,"nameKey":16264956,"taxonID":"gbif:9506531","sourceTaxonKey":135557712,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        caurinus","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9506531,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        caurinus Merriam, 1914","canonicalName":"Ursus caurinus","authorship":"Merriam,
+        1914","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1914. Descriptions of thirty apparently new grizzly and brown bears
+        from North America. Proceedings of the Biological Society of Washington 27:
+        173-196.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.651+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9583635,"nameKey":16264969,"taxonID":"gbif:9583635","sourceTaxonKey":135557725,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        chelan","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9583635,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        chelan Merriam, 1916","canonicalName":"Ursus chelan","authorship":"Merriam,
+        1916","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1916. Nineteen apparently new grizzly and brown bears from western
+        America. Proceedings of the Biological Society of Washington 29: 133-154.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.608+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9398239,"nameKey":16264936,"taxonID":"gbif:9398239","sourceTaxonKey":135557692,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        chelidonias","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9398239,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        chelidonias Merriam, 1918","canonicalName":"Ursus chelidonias","authorship":"Merriam,
+        1918","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1918. Review of the grizzly and big brown bears of North America
+        (genus Ursus). North American Fauna 41: 1-136.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.916+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9508782,"nameKey":16264953,"taxonID":"gbif:9508782","sourceTaxonKey":135557709,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        colusus","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9508782,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        colusus Merriam, 1914","canonicalName":"Ursus colusus","authorship":"Merriam,
+        1914","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1914. Descriptions of thirty apparently new grizzly and brown bears
+        from North America. Proceedings of the Biological Society of Washington 27:
+        173-196.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.924+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9637391,"nameKey":16264921,"taxonID":"gbif:9637391","sourceTaxonKey":135557676,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        crassodon","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9637391,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        crassodon Merriam, 1918","canonicalName":"Ursus crassodon","authorship":"Merriam,
+        1918","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1918. Review of the grizzly and big brown bears of North America
+        (genus Ursus). North American Fauna 41: 1-136.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.595+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9343195,"nameKey":16264920,"taxonID":"gbif:9343195","sourceTaxonKey":135557675,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        crassus","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9343195,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        crassus Merriam, 1918","canonicalName":"Ursus crassus","authorship":"Merriam,
+        1918","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1918. Review of the grizzly and big brown bears of North America
+        (genus Ursus). North American Fauna 41: 1-136.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.598+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9326184,"nameKey":16264991,"taxonID":"gbif:9326184","sourceTaxonKey":135557747,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        cressonus","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9326184,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        cressonus Merriam, 1916","canonicalName":"Ursus cressonus","authorship":"Merriam,
+        1916","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1916. Nineteen apparently new grizzly and brown bears from western
+        America. Proceedings of the Biological Society of Washington 29: 133-154.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.615+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":8882512,"nameKey":13339591,"taxonID":"gbif:8882512","sourceTaxonKey":128523124,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        dalli","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":8882512,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        dalli Merriam, 1896","canonicalName":"Ursus dalli","authorship":"Merriam,
+        1896","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1896. Preliminary synopsis of American Bears. Proceedings of the
+        Biological Society of Washington 10: 65–83.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.743+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":7541326,"nameKey":11658774,"taxonID":"gbif:7541326","sourceTaxonKey":134661514,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        deningeri","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":7541326,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"0e61f8fe-7d25-4f81-ada7-d970bbb2c6d6","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        deningeri Richenau, 1904","canonicalName":"Ursus deningeri","authorship":"Richenau,
+        1904","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.909+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":8533560,"nameKey":11658780,"taxonID":"gbif:8533560","sourceTaxonKey":121516062,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        dentrificius","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":8533560,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c33ce2f2-c3cc-43a5-a380-fe4526d63650","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        dentrificius Meyer, 1839","canonicalName":"Ursus dentrificius","authorship":"Meyer,
+        1839","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.563+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9421917,"nameKey":16264934,"taxonID":"gbif:9421917","sourceTaxonKey":135557690,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        dusorgus","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9421917,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        dusorgus Merriam, 1918","canonicalName":"Ursus dusorgus","authorship":"Merriam,
+        1918","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1918. Review of the grizzly and big brown bears of North America
+        (genus Ursus). North American Fauna 41: 1-136.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.619+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9235273,"nameKey":16264997,"taxonID":"gbif:9235273","sourceTaxonKey":135557753,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        eltonclarki","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9235273,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        eltonclarki Merriam, 1914","canonicalName":"Ursus eltonclarki","authorship":"Merriam,
+        1914","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1914. Descriptions of thirty apparently new grizzly and brown bears
+        from North America. Proceedings of the Biological Society of Washington 27:
+        173-196.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.635+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9768660,"nameKey":17721520,"taxonID":"gbif:9768660","sourceTaxonKey":141417286,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        etruscus","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9768660,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c33ce2f2-c3cc-43a5-a380-fe4526d63650","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        etruscus Cuvier, 1823","canonicalName":"Ursus etruscus","authorship":"Cuvier,
+        1823","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.570+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9467372,"nameKey":16264966,"taxonID":"gbif:9467372","sourceTaxonKey":135557722,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        eulophus","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9467372,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        eulophus Merriam, 1904","canonicalName":"Ursus eulophus","authorship":"Merriam,
+        1904","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1904. Four new bears from North America. Proceedings of the Biological
+        Society of Washington 17: 153-156.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.588+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9441570,"nameKey":16264990,"taxonID":"gbif:9441570","sourceTaxonKey":135557746,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        eximius","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9441570,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        eximius Merriam, 1916","canonicalName":"Ursus eximius","authorship":"Merriam,
+        1916","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1916. Nineteen apparently new grizzly and brown bears from western
+        America. Proceedings of the Biological Society of Washington 29: 133-154.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.616+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":8489214,"nameKey":11658791,"taxonID":"gbif:8489214","sourceTaxonKey":128523122,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        floridanus","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":8489214,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        floridanus Merriam, 1896","canonicalName":"Ursus floridanus","authorship":"Merriam,
+        1896","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1896. Preliminary synopsis of American Bears. Proceedings of the
+        Biological Society of Washington 10: 65–83.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.941+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9031634,"nameKey":13339590,"taxonID":"gbif:9031634","sourceTaxonKey":128523121,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        gedrosianus","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9031634,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        gedrosianus Blanford, 1877","canonicalName":"Ursus gedrosianus","authorship":"Blanford,
+        1877","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Blanford,
+        W. T. 1877. Notes on two species of asiatic bears, the \"Mamh\" of Belúchistán
+        and Ursus pruinosus, Blyth, of Tibet, and on an apparently undescribed fox
+        from Belúchistán. Journal of the Asiatic Society of Bengal 46: 315–322.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.655+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9450015,"nameKey":16264952,"taxonID":"gbif:9450015","sourceTaxonKey":135557708,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        henshawi","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9450015,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        henshawi Merriam, 1914","canonicalName":"Ursus henshawi","authorship":"Merriam,
+        1914","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1914. Descriptions of thirty apparently new grizzly and brown bears
+        from North America. Proceedings of the Biological Society of Washington 27:
+        173-196.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.938+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9561768,"nameKey":16264935,"taxonID":"gbif:9561768","sourceTaxonKey":135557691,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        holzworthi","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9561768,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        holzworthi Merriam, 1929","canonicalName":"Ursus holzworthi","authorship":"Merriam,
+        1929","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1929. Ursus holzworthi, a new grizzly from the Talkeetna Mountains,
+        Arizona. Proceedings of the Biological Society of Washington 42: 173-174.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.918+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9324308,"nameKey":16264989,"taxonID":"gbif:9324308","sourceTaxonKey":135557745,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        hoots","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9324308,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        hoots Merriam, 1916","canonicalName":"Ursus hoots","authorship":"Merriam,
+        1916","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1916. Nineteen apparently new grizzly and brown bears from western
+        America. Proceedings of the Biological Society of Washington 29: 133-154.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.919+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9495753,"nameKey":16264963,"taxonID":"gbif:9495753","sourceTaxonKey":135557719,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        hylodromus","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9495753,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        hylodromus Elliot, 1904","canonicalName":"Ursus hylodromus","authorship":"Elliot,
+        1904","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Elliot,
+        Daniel G. 1904. Descriptions of twenty-seven apparently new species and subspecies
+        of mammals. All but six collected by Edmund Heller. Field Columbian Museum
+        Zoological Series 3(14): 239-261.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.587+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9463013,"nameKey":16264925,"taxonID":"gbif:9463013","sourceTaxonKey":135557681,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        idahoensis","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9463013,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        idahoensis Merriam, 1918","canonicalName":"Ursus idahoensis","authorship":"Merriam,
+        1918","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1918. Review of the grizzly and big brown bears of North America
+        (genus Ursus). North American Fauna 41: 1-136.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.648+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9301112,"nameKey":16264947,"taxonID":"gbif:9301112","sourceTaxonKey":135557703,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        imperator","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9301112,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        imperator Merriam, 1914","canonicalName":"Ursus imperator","authorship":"Merriam,
+        1914","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1914. Descriptions of thirty apparently new grizzly and brown bears
+        from North America. Proceedings of the Biological Society of Washington 27:
+        173-196.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.923+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9261917,"nameKey":16264961,"taxonID":"gbif:9261917","sourceTaxonKey":135557717,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        inniutus","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9261917,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        inniutus Merriam, 1914","canonicalName":"Ursus inniutus","authorship":"Merriam,
+        1914","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1914. Descriptions of thirty apparently new grizzly and brown bears
+        from North America. Proceedings of the Biological Society of Washington 27:
+        173-196.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.645+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9351727,"nameKey":16264960,"taxonID":"gbif:9351727","sourceTaxonKey":135557716,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        internationalis","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9351727,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        internationalis Merriam, 1914","canonicalName":"Ursus internationalis","authorship":"Merriam,
+        1914","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1914. Descriptions of thirty apparently new grizzly and brown bears
+        from North America. Proceedings of the Biological Society of Washington 27:
+        173-196.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.939+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9544056,"nameKey":16264924,"taxonID":"gbif:9544056","sourceTaxonKey":135557680,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        isabellinus","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9544056,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        isabellinus Horsfield, 1826","canonicalName":"Ursus isabellinus","authorship":"Horsfield,
+        1826","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Horsfield,
+        Thomas. 1826. Notice of a species of Ursus from Nepaul. Transactions of the
+        Linnean Society of London 15: 332-334.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.594+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9555041,"nameKey":16264967,"taxonID":"gbif:9555041","sourceTaxonKey":135557723,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        kenaiensis","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9555041,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        kenaiensis Merriam, 1904","canonicalName":"Ursus kenaiensis","authorship":"Merriam,
+        1904","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1904. Four new bears from North America. Proceedings of the Biological
+        Society of Washington 17: 153-156.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.927+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9377157,"nameKey":16264973,"taxonID":"gbif:9377157","sourceTaxonKey":135557729,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        kennerleyi","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9377157,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        kennerleyi Merriam, 1914","canonicalName":"Ursus kennerleyi","authorship":"Merriam,
+        1914","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1914. Descriptions of thirty apparently new grizzly and brown bears
+        from North America. Proceedings of the Biological Society of Washington 27:
+        173-196.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.652+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9478210,"nameKey":16264976,"taxonID":"gbif:9478210","sourceTaxonKey":135557732,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        kidderi","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9478210,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        kidderi Merriam, 1902","canonicalName":"Ursus kidderi","authorship":"Merriam,
+        1902","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1902. Two new bears from the Alaska Peninsula. Proceedings of the
+        Biological Society of Washington 15: 77-79.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.647+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9315625,"nameKey":16264942,"taxonID":"gbif:9315625","sourceTaxonKey":135557698,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        klamathensis","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9315625,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        klamathensis Merriam, 1914","canonicalName":"Ursus klamathensis","authorship":"Merriam,
+        1914","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1914. Descriptions of thirty apparently new grizzly and brown bears
+        from North America. Proceedings of the Biological Society of Washington 27:
+        173-196.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.654+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9417544,"nameKey":16264995,"taxonID":"gbif:9417544","sourceTaxonKey":135557751,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        kluane","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9417544,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        kluane Merriam, 1916","canonicalName":"Ursus kluane","authorship":"Merriam,
+        1916","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1916. Nineteen apparently new grizzly and brown bears from western
+        America. Proceedings of the Biological Society of Washington 29: 133-154.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.612+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9497948,"nameKey":16264994,"taxonID":"gbif:9497948","sourceTaxonKey":135557750,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        kwakiuti","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9497948,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        kwakiuti Merriam, 1916","canonicalName":"Ursus kwakiuti","authorship":"Merriam,
+        1916","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1916. Nineteen apparently new grizzly and brown bears from western
+        America. Proceedings of the Biological Society of Washington 29: 133-154.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.920+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9186994,"nameKey":12989508,"taxonID":"gbif:9186994","sourceTaxonKey":126948213,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        lasiotus","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9186994,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"6cfd67d6-4f9b-400b-8549-1933ac27936f","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        lasiotus Gray, 1867","canonicalName":"Ursus lasiotus","authorship":"Gray,
+        1867","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.580+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9253779,"nameKey":16264928,"taxonID":"gbif:9253779","sourceTaxonKey":135557684,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        macfarlani","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9253779,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        macfarlani Merriam, 1918","canonicalName":"Ursus macfarlani","authorship":"Merriam,
+        1918","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1918. Review of the grizzly and big brown bears of North America
+        (genus Ursus). North American Fauna 41: 1-136.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.637+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9368719,"nameKey":16264940,"taxonID":"gbif:9368719","sourceTaxonKey":135557696,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        macrodon","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9368719,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        macrodon Merriam, 1918","canonicalName":"Ursus macrodon","authorship":"Merriam,
+        1918","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1918. Review of the grizzly and big brown bears of North America
+        (genus Ursus). North American Fauna 41: 1-136.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.626+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9317813,"nameKey":16264951,"taxonID":"gbif:9317813","sourceTaxonKey":135557707,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        magister","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9317813,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        magister Merriam, 1914","canonicalName":"Ursus magister","authorship":"Merriam,
+        1914","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1914. Descriptions of thirty apparently new grizzly and brown bears
+        from North America. Proceedings of the Biological Society of Washington 27:
+        173-196.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.932+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":8584821,"nameKey":11658853,"taxonID":"gbif:8584821","sourceTaxonKey":128523119,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        marinus","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":8584821,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        marinus Pallas, 1776","canonicalName":"Ursus marinus","authorship":"Pallas,
+        1776","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Pallas,
+        Peter S. 1776. Reise durch verschiedene Provinzen des Rußischen Reichs. Dritter
+        Theil vom Jahr 1772, und 1773. Reise aus Sibirien zurück an die Wolga im 1773sten
+        Jahr. Kayserliche Academie der Wissenschaften, St. Petersburg. Vol. 3 (2):
+        455-760; ; pls. i-viii; A-Z; Aa-Nn.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.656+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":7778867,"nameKey":11658866,"taxonID":"gbif:7778867","sourceTaxonKey":100092117,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        maritimus","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":7778867,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"80b4b440-eaca-4860-aadf-d0dfdd3e856e","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        maritimus Linnaeus, 1758","canonicalName":"Ursus maritimus","authorship":"Linnaeus,
+        1758","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"Possible
+        variant of Ursus maritimus Phipps, 1774","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.882+0000","issues":["ORTHOGRAPHIC_VARIANT"],"synonym":false,"class":"Mammalia"},{"key":2433451,"nubKey":2433451,"nameKey":11658870,"taxonID":"gbif:2433451","sourceTaxonKey":132083040,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        maritimus","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":2433451,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":2433406,"parent":"Ursus","basionymKey":4409348,"basionym":"Thalarctos
+        maritimus Phipps, 1774","scientificName":"Ursus maritimus Phipps, 1774","canonicalName":"Ursus
+        maritimus","authorship":"Phipps, 1774","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","publishedIn":"Phipps,
+        Constantine J. 1774. A voyage towards the North Pole: undertaken by His Majesty''s
+        command. J. Nourse, London.","numDescendants":1,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.829+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9396340,"nameKey":16264983,"taxonID":"gbif:9396340","sourceTaxonKey":135557739,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        mendocinensis","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9396340,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        mendocinensis Merriam, 1916","canonicalName":"Ursus mendocinensis","authorship":"Merriam,
+        1916","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1916. Nineteen apparently new grizzly and brown bears from western
+        America. Proceedings of the Biological Society of Washington 29: 133-154.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.629+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9127254,"nameKey":13339592,"taxonID":"gbif:9127254","sourceTaxonKey":128523126,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        middendorffi","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9127254,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        middendorffi Merriam, 1896","canonicalName":"Ursus middendorffi","authorship":"Merriam,
+        1896","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1896. Preliminary synopsis of American Bears. Proceedings of the
+        Biological Society of Washington 10: 65–83.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.944+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9590422,"nameKey":16264982,"taxonID":"gbif:9590422","sourceTaxonKey":135557738,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        mirabilis","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9590422,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        mirabilis Merriam, 1916","canonicalName":"Ursus mirabilis","authorship":"Merriam,
+        1916","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1916. Nineteen apparently new grizzly and brown bears from western
+        America. Proceedings of the Biological Society of Washington 29: 133-154.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.628+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9489083,"nameKey":16264937,"taxonID":"gbif:9489083","sourceTaxonKey":135557693,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        mirus","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9489083,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        mirus Merriam, 1918","canonicalName":"Ursus mirus","authorship":"Merriam,
+        1918","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1918. Review of the grizzly and big brown bears of North America
+        (genus Ursus). North American Fauna 41: 1-136.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.640+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9031155,"nameKey":12989512,"taxonID":"gbif:9031155","sourceTaxonKey":126948222,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        nasutus","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9031155,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"6cfd67d6-4f9b-400b-8549-1933ac27936f","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        nasutus Sclater, 1868","canonicalName":"Ursus nasutus","authorship":"Sclater,
+        1868","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.581+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9434902,"nameKey":16264974,"taxonID":"gbif:9434902","sourceTaxonKey":135557730,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        navaho","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9434902,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        navaho Merriam, 1914","canonicalName":"Ursus navaho","authorship":"Merriam,
+        1914","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1914. Descriptions of thirty apparently new grizzly and brown bears
+        from North America. Proceedings of the Biological Society of Washington 27:
+        173-196.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.591+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9387609,"nameKey":16264949,"taxonID":"gbif:9387609","sourceTaxonKey":135557705,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        nelsoni","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9387609,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        nelsoni Merriam, 1914","canonicalName":"Ursus nelsoni","authorship":"Merriam,
+        1914","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1914. Descriptions of thirty apparently new grizzly and brown bears
+        from North America. Proceedings of the Biological Society of Washington 27:
+        173-196.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.585+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9415320,"nameKey":16264957,"taxonID":"gbif:9415320","sourceTaxonKey":135557713,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        nortoni","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9415320,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        nortoni Merriam, 1914","canonicalName":"Ursus nortoni","authorship":"Merriam,
+        1914","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1914. Descriptions of thirty apparently new grizzly and brown bears
+        from North America. Proceedings of the Biological Society of Washington 27:
+        173-196.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.931+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":8740741,"nameKey":13339587,"taxonID":"gbif:8740741","sourceTaxonKey":128523118,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        novaehollandiae","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":8740741,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        novaehollandiae Bechstein, 1800","canonicalName":"Ursus novaehollandiae","authorship":"Bechstein,
+        1800","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Bechstein,
+        Johann M. 1800. Thomas Pennant''s allgemeine Uebersicht der vierfüssigen Thiere.
+        Industrie-Comptoir''s, Weimar. Vol. 2: i-xi, 323-768.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.659+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9370591,"nameKey":16264981,"taxonID":"gbif:9370591","sourceTaxonKey":135557737,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        nuchek","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9370591,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        nuchek Merriam, 1916","canonicalName":"Ursus nuchek","authorship":"Merriam,
+        1916","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1916. Nineteen apparently new grizzly and brown bears from western
+        America. Proceedings of the Biological Society of Washington 29: 133-154.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.627+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9443437,"nameKey":16264980,"taxonID":"gbif:9443437","sourceTaxonKey":135557736,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        ophrus","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9443437,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        ophrus Merriam, 1916","canonicalName":"Ursus ophrus","authorship":"Merriam,
+        1916","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1916. Nineteen apparently new grizzly and brown bears from western
+        America. Proceedings of the Biological Society of Washington 29: 133-154.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.623+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9469655,"nameKey":16264938,"taxonID":"gbif:9469655","sourceTaxonKey":135557694,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        orgildoies","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9469655,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        orgildoies Merriam, 1918","canonicalName":"Ursus orgildoies","authorship":"Merriam,
+        1918","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1918. Review of the grizzly and big brown bears of North America
+        (genus Ursus). North American Fauna 41: 1-136.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.926+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9389796,"nameKey":16264998,"taxonID":"gbif:9389796","sourceTaxonKey":135557754,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        orgilos","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9389796,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        orgilos Merriam, 1914","canonicalName":"Ursus orgilos","authorship":"Merriam,
+        1914","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1914. Descriptions of thirty apparently new grizzly and brown bears
+        from North America. Proceedings of the Biological Society of Washington 27:
+        173-196.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.641+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9245374,"nameKey":16264931,"taxonID":"gbif:9245374","sourceTaxonKey":135557687,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        oribasus","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9245374,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        oribasus Merriam, 1918","canonicalName":"Ursus oribasus","authorship":"Merriam,
+        1918","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1918. Review of the grizzly and big brown bears of North America
+        (genus Ursus). North American Fauna 41: 1-136.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.643+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9563685,"nameKey":16264987,"taxonID":"gbif:9563685","sourceTaxonKey":135557743,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        pallasi","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9563685,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        pallasi Merriam, 1916","canonicalName":"Ursus pallasi","authorship":"Merriam,
+        1916","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1916. Nineteen apparently new grizzly and brown bears from western
+        America. Proceedings of the Biological Society of Washington 29: 133-154.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.606+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9592363,"nameKey":16264930,"taxonID":"gbif:9592363","sourceTaxonKey":135557686,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        pellyensis","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9592363,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        pellyensis Merriam, 1918","canonicalName":"Ursus pellyensis","authorship":"Merriam,
+        1918","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1918. Review of the grizzly and big brown bears of North America
+        (genus Ursus). North American Fauna 41: 1-136.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.593+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9305278,"nameKey":16264932,"taxonID":"gbif:9305278","sourceTaxonKey":135557688,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        perturans","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9305278,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        perturans Merriam, 1918","canonicalName":"Ursus perturans","authorship":"Merriam,
+        1918","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1918. Review of the grizzly and big brown bears of North America
+        (genus Ursus). North American Fauna 41: 1-136.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.644+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9264069,"nameKey":16264955,"taxonID":"gbif:9264069","sourceTaxonKey":135557711,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        pervagor","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9264069,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        pervagor Merriam, 1914","canonicalName":"Ursus pervagor","authorship":"Merriam,
+        1914","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1914. Descriptions of thirty apparently new grizzly and brown bears
+        from North America. Proceedings of the Biological Society of Washington 27:
+        173-196.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.649+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9424190,"nameKey":16264923,"taxonID":"gbif:9424190","sourceTaxonKey":135557678,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        piscator","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9424190,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        piscator Pucheran, 1855","canonicalName":"Ursus piscator","authorship":"Pucheran,
+        1855","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Pucheran,
+        Jacques. 1855. Notes mammalogiques. Revue et Magasin de Zoologie, Série 2
+        7: 392-394.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.613+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9280569,"nameKey":16264939,"taxonID":"gbif:9280569","sourceTaxonKey":135557695,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        planiceps","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9280569,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        planiceps Merriam, 1918","canonicalName":"Ursus planiceps","authorship":"Merriam,
+        1918","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1918. Review of the grizzly and big brown bears of North America
+        (genus Ursus). North American Fauna 41: 1-136.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.624+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9170552,"nameKey":13339595,"taxonID":"gbif:9170552","sourceTaxonKey":128523127,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        praemalayanus","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9170552,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        praemalayanus von Koenigswald, 1935","canonicalName":"Ursus praemalayanus","authorship":"von
+        Koenigswald, 1935","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"von
+        Koenigswald, G. H. R. 1935. Eine fossile Saugetierfauna mit Simia aus Sϋdchina.
+        Proceedings of the Royal Academy of Sciences at Amsterdam 38: 872-879.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.942+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9417985,"nameKey":16710712,"taxonID":"gbif:9417985","sourceTaxonKey":137374371,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        priscus","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9417985,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c33ce2f2-c3cc-43a5-a380-fe4526d63650","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        priscus Goldfuss, 1818","canonicalName":"Ursus priscus","authorship":"Goldfuss,
+        1818","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.567+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":8547600,"nameKey":12989560,"taxonID":"gbif:8547600","sourceTaxonKey":126948303,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        procerus","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":8547600,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"6cfd67d6-4f9b-400b-8549-1933ac27936f","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        procerus Miller","canonicalName":"Ursus procerus","authorship":"Miller","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.577+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":8679958,"nameKey":11658939,"taxonID":"gbif:8679958","sourceTaxonKey":135557679,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        pruinosus","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":8679958,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        pruinosus Blyth, 1854","canonicalName":"Ursus pruinosus","authorship":"Blyth,
+        1854","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Blyth,
+        Edward. 1854. Report of zoological curator for September meeting. Journal
+        of the Asiatic Society of Bengal 22: 589-594.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.599+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9617116,"nameKey":16264926,"taxonID":"gbif:9617116","sourceTaxonKey":135557682,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        pulchellus","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9617116,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        pulchellus Merriam, 1918","canonicalName":"Ursus pulchellus","authorship":"Merriam,
+        1918","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1918. Review of the grizzly and big brown bears of North America
+        (genus Ursus). North American Fauna 41: 1-136.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.632+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9517345,"nameKey":16264929,"taxonID":"gbif:9517345","sourceTaxonKey":135557685,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        rogersi","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9517345,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        rogersi Merriam, 1918","canonicalName":"Ursus rogersi","authorship":"Merriam,
+        1918","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1918. Review of the grizzly and big brown bears of North America
+        (genus Ursus). North American Fauna 41: 1-136.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.596+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9552738,"nameKey":16264927,"taxonID":"gbif:9552738","sourceTaxonKey":135557683,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        rungiusi","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9552738,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        rungiusi Merriam, 1918","canonicalName":"Ursus rungiusi","authorship":"Merriam,
+        1918","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1918. Review of the grizzly and big brown bears of North America
+        (genus Ursus). North American Fauna 41: 1-136.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.631+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9237362,"nameKey":16264959,"taxonID":"gbif:9237362","sourceTaxonKey":135557715,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        russelli","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9237362,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        russelli Merriam, 1914","canonicalName":"Ursus russelli","authorship":"Merriam,
+        1914","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1914. Descriptions of thirty apparently new grizzly and brown bears
+        from North America. Proceedings of the Biological Society of Washington 27:
+        173-196.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.639+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9278442,"nameKey":16264986,"taxonID":"gbif:9278442","sourceTaxonKey":135557742,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        selkirki","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9278442,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        selkirki Merriam, 1916","canonicalName":"Ursus selkirki","authorship":"Merriam,
+        1916","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1916. Nineteen apparently new grizzly and brown bears from western
+        America. Proceedings of the Biological Society of Washington 29: 133-154.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.605+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9599208,"nameKey":16264970,"taxonID":"gbif:9599208","sourceTaxonKey":135557726,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        sheldoni","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9599208,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        sheldoni Merriam, 1910","canonicalName":"Ursus sheldoni","authorship":"Merriam,
+        1910","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1910. Ursus sheldoni, a new bear from Montague Island, Alaska.
+        Proceedings of the Biological Society of Washington 23: 127-130.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.945+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9570390,"nameKey":16264978,"taxonID":"gbif:9570390","sourceTaxonKey":135557734,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        shirasi","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9570390,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        shirasi Merriam, 1914","canonicalName":"Ursus shirasi","authorship":"Merriam,
+        1914","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1914. Descriptions of thirty apparently new grizzly and brown bears
+        from North America. Proceedings of the Biological Society of Washington 27:
+        173-196.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.746+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9334808,"nameKey":16264944,"taxonID":"gbif:9334808","sourceTaxonKey":135557700,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        shoshone","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9334808,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        shoshone Merriam, 1914","canonicalName":"Ursus shoshone","authorship":"Merriam,
+        1914","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1914. Descriptions of thirty apparently new grizzly and brown bears
+        from North America. Proceedings of the Biological Society of Washington 27:
+        173-196.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.930+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9015264,"nameKey":13339593,"taxonID":"gbif:9015264","sourceTaxonKey":128523125,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        sitkensis","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9015264,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        sitkensis Merriam, 1896","canonicalName":"Ursus sitkensis","authorship":"Merriam,
+        1896","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1896. Preliminary synopsis of American Bears. Proceedings of the
+        Biological Society of Washington 10: 65–83.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.658+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9750180,"nameKey":18535716,"taxonID":"gbif:9750180","sourceTaxonKey":128348127,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        spec","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9750180,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        spec Linnaeus, 1758","canonicalName":"Ursus spec","authorship":"Linnæus, 1758","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Linnæus,
+        Carolus. 1758. Systema naturae per regna tria naturae, secundum classes, ordines,
+        genera, species, cum characteribus, differentiis, synonymis, locis. Laurentii
+        Salvii, Holmiae. Vol. Tomus I, Editio decima, reformata: i-ii, 1-824.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.912+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":4833659,"nubKey":4833659,"nameKey":11658962,"taxonID":"gbif:4833659","sourceTaxonKey":134661513,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        spelaeus","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":4833659,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"0e61f8fe-7d25-4f81-ada7-d970bbb2c6d6","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        spelaeus Rosenmüller, 1794","canonicalName":"Ursus spelaeus","authorship":"Rosenmüller,
+        1794","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.910+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9610322,"nameKey":16264958,"taxonID":"gbif:9610322","sourceTaxonKey":135557714,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        stikeenensis","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9610322,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        stikeenensis Merriam, 1914","canonicalName":"Ursus stikeenensis","authorship":"Merriam,
+        1914","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1914. Descriptions of thirty apparently new grizzly and brown bears
+        from North America. Proceedings of the Biological Society of Washington 27:
+        173-196.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.915+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9404720,"nameKey":16264945,"taxonID":"gbif:9404720","sourceTaxonKey":135557701,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        tahitanicus","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9404720,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        tahitanicus Merriam, 1914","canonicalName":"Ursus tahitanicus","authorship":"Merriam,
+        1914","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1914. Descriptions of thirty apparently new grizzly and brown bears
+        from North America. Proceedings of the Biological Society of Washington 27:
+        173-196.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.928+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9335699,"nameKey":16711098,"taxonID":"gbif:9335699","sourceTaxonKey":132082995,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        thibetanus","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9335699,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        thibetanus G","canonicalName":"Ursus thibetanus","authorship":"G","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","publishedIn":"Rech.
+        Oss. Foss., Nouv. ed. vol.4 p.325","numDescendants":8,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.749+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9601507,"nameKey":16264946,"taxonID":"gbif:9601507","sourceTaxonKey":135557702,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        toklat","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9601507,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        toklat Merriam, 1914","canonicalName":"Ursus toklat","authorship":"Merriam,
+        1914","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1914. Descriptions of thirty apparently new grizzly and brown bears
+        from North America. Proceedings of the Biological Society of Washington 27:
+        173-196.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.636+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":8853386,"nameKey":13370384,"taxonID":"gbif:8853386","kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        torquatus","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":8853386,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"6cfd67d6-4f9b-400b-8549-1933ac27936f","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        torquatus","canonicalName":"Ursus torquatus","authorship":"","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"IMPLICIT_NAME","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":3,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.571+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9255557,"nameKey":16264985,"taxonID":"gbif:9255557","sourceTaxonKey":135557741,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        townsendi","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9255557,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        townsendi Merriam, 1916","canonicalName":"Ursus townsendi","authorship":"Merriam,
+        1916","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1916. Nineteen apparently new grizzly and brown bears from western
+        America. Proceedings of the Biological Society of Washington 29: 133-154.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.620+0000","issues":[],"synonym":false,"class":"Mammalia"},{"key":9588164,"nameKey":16264972,"taxonID":"gbif:9588164","sourceTaxonKey":135557728,"kingdom":"Animalia","phylum":"Chordata","order":"Carnivora","family":"Ursidae","genus":"Ursus","species":"Ursus
+        utahensis","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":732,"familyKey":9681,"genusKey":2433406,"speciesKey":9588164,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":2433406,"parent":"Ursus","scientificName":"Ursus
+        utahensis Merriam, 1914","canonicalName":"Ursus utahensis","authorship":"Merriam,
+        1914","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Merriam,
+        Clinton H. 1914. Descriptions of thirty apparently new grizzly and brown bears
+        from North America. Proceedings of the Biological Society of Washington 27:
+        173-196.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:53.660+0000","issues":[],"synonym":false,"class":"Mammalia"}]}'
+  recorded_at: 2019-01-26 17:38:16 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0

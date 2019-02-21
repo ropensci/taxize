@@ -1,27 +1,22 @@
-# tests for get_colid fxn in taxize
 context("get_colid")
 
-test_that("get_colid returns the correct value", {
-  skip_on_cran()
+test_that("get_colid: not found", {
+  vcr::use_cassette("get_colid", {
+    z <- get_colid(sciname='adsf asdf asdf', verbose=FALSE)[[1]]
+    w <- get_colid(c("Helianthus excubitor", "adsf asdf asdf"), 
+      verbose=FALSE)
+  })
 
-  expect_that(is.na(get_colid(sciname='adsf asdf asdf', verbose=FALSE)[[1]]),
-              is_true())
-})
-
-test_that("get_colid returns the correct class", {
-  skip_on_cran()
-
-  expect_that(get_colid(c("Helianthus excubitor", "adsf asdf asdf"), verbose=FALSE),
-              is_a("colid"))
+  expect_true(is.na(z))
+  expect_is(w, "colid")
 })
 
 test_that("get_colid accepts ask-argument", {
-  skip_on_cran()
-
-  expect_that(is.na(get_colid(sciname='adsf asdf asdf', ask=FALSE, verbose=FALSE)[[1]]),
-              is_true())
+  vcr::use_cassette("get_colid_ask_arg", {
+    z <- get_colid(sciname='adsf asdf asdf', ask=FALSE, verbose=FALSE)[[1]]
+    expect_true(is.na(z))
+  })
 })
-
 
 test_that("get_colid fails as expected", {
   skip_on_cran()
@@ -50,7 +45,7 @@ test_that("get_colid fails as expected", {
 
   # rows param
   expect_error(get_colid("Satyrium", rows = "foobar", verbose = FALSE),
-               "'rows' must be numeric or NA")
+               "rows must be of class numeric, integer")
   expect_error(get_colid("Satyrium", rows = 0, verbose = FALSE),
-               "'rows' value must be an integer 1 or greater")
+               "rows > 0 is not TRUE")
 })

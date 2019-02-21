@@ -1,0 +1,1001 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=4232?api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 25 Jan 2019 22:55:42 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '1'
+      ncbi-phid: 939B131039D6F975000023F17350F2A5.1.1.m_5
+      cache-control: private
+      l5d-success-class: '1.0'
+      ncbi-sid: CACAA4AE7927431D_5C88SID
+      content-encoding: gzip
+      x-ratelimit-limit: '3'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=CACAA4AE7927431D_5C88SID; domain=.nih.gov; path=/; expires=Sat,
+        25 Jan 2020 22:55:43 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version="1.0" ?>
+        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
+        <TaxaSet><Taxon>
+            <TaxId>4232</TaxId>
+            <ScientificName>Helianthus annuus</ScientificName>
+            <OtherNames>
+                <GenbankCommonName>common sunflower</GenbankCommonName>
+                <Name>
+                    <ClassCDE>authority</ClassCDE>
+                    <DispName>Helianthus annuus L.</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Helianthus annua</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Helianthus annus</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Helianthus annuus8</DispName>
+                </Name>
+            </OtherNames>
+            <ParentTaxId>4231</ParentTaxId>
+            <Rank>species</Rank>
+            <Division>Plants and Fungi</Division>
+            <GeneticCode>
+                <GCId>1</GCId>
+                <GCName>Standard</GCName>
+            </GeneticCode>
+            <MitoGeneticCode>
+                <MGCId>1</MGCId>
+                <MGCName>Standard</MGCName>
+            </MitoGeneticCode>
+            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliophyta; Mesangiospermae; eudicotyledons; Gunneridae; Pentapetalae; asterids; campanulids; Asterales; Asteraceae; Asteroideae; Heliantheae alliance; Heliantheae; Helianthus</Lineage>
+            <LineageEx>
+                <Taxon>
+                    <TaxId>131567</TaxId>
+                    <ScientificName>cellular organisms</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2759</TaxId>
+                    <ScientificName>Eukaryota</ScientificName>
+                    <Rank>superkingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33090</TaxId>
+                    <ScientificName>Viridiplantae</ScientificName>
+                    <Rank>kingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>35493</TaxId>
+                    <ScientificName>Streptophyta</ScientificName>
+                    <Rank>phylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>131221</TaxId>
+                    <ScientificName>Streptophytina</ScientificName>
+                    <Rank>subphylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>3193</TaxId>
+                    <ScientificName>Embryophyta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>58023</TaxId>
+                    <ScientificName>Tracheophyta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>78536</TaxId>
+                    <ScientificName>Euphyllophyta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>58024</TaxId>
+                    <ScientificName>Spermatophyta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>3398</TaxId>
+                    <ScientificName>Magnoliophyta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1437183</TaxId>
+                    <ScientificName>Mesangiospermae</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>71240</TaxId>
+                    <ScientificName>eudicotyledons</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>91827</TaxId>
+                    <ScientificName>Gunneridae</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1437201</TaxId>
+                    <ScientificName>Pentapetalae</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>71274</TaxId>
+                    <ScientificName>asterids</ScientificName>
+                    <Rank>subclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>91882</TaxId>
+                    <ScientificName>campanulids</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>4209</TaxId>
+                    <ScientificName>Asterales</ScientificName>
+                    <Rank>order</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>4210</TaxId>
+                    <ScientificName>Asteraceae</ScientificName>
+                    <Rank>family</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>102804</TaxId>
+                    <ScientificName>Asteroideae</ScientificName>
+                    <Rank>subfamily</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>911341</TaxId>
+                    <ScientificName>Heliantheae alliance</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>102814</TaxId>
+                    <ScientificName>Heliantheae</ScientificName>
+                    <Rank>tribe</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>4231</TaxId>
+                    <ScientificName>Helianthus</ScientificName>
+                    <Rank>genus</Rank>
+                </Taxon>
+            </LineageEx>
+            <Properties>
+                <Property>
+                    <PropName>pgcode</PropName>
+                    <PropValueInt>11</PropValueInt>
+                </Property>
+            </Properties>
+            <CreateDate>1995/02/27 09:24:00</CreateDate>
+            <UpdateDate>2018/11/23 13:57:51</UpdateDate>
+            <PubDate>1993/08/03 01:00:00</PubDate>
+        </Taxon>
+
+        </TaxaSet>
+  recorded_at: 2019-01-25 22:55:46 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=4232?api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 25 Jan 2019 22:55:44 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '2'
+      ncbi-phid: 322CDAEFF3EFD7B5000026F66E1A0A2E.1.1.m_5
+      cache-control: private
+      l5d-success-class: '1.0'
+      ncbi-sid: 44A845AC8F67F438_274FSID
+      content-encoding: gzip
+      x-ratelimit-limit: '3'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=44A845AC8F67F438_274FSID; domain=.nih.gov; path=/; expires=Sat,
+        25 Jan 2020 22:55:44 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version="1.0" ?>
+        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
+        <TaxaSet><Taxon>
+            <TaxId>4232</TaxId>
+            <ScientificName>Helianthus annuus</ScientificName>
+            <OtherNames>
+                <GenbankCommonName>common sunflower</GenbankCommonName>
+                <Name>
+                    <ClassCDE>authority</ClassCDE>
+                    <DispName>Helianthus annuus L.</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Helianthus annua</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Helianthus annus</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Helianthus annuus8</DispName>
+                </Name>
+            </OtherNames>
+            <ParentTaxId>4231</ParentTaxId>
+            <Rank>species</Rank>
+            <Division>Plants and Fungi</Division>
+            <GeneticCode>
+                <GCId>1</GCId>
+                <GCName>Standard</GCName>
+            </GeneticCode>
+            <MitoGeneticCode>
+                <MGCId>1</MGCId>
+                <MGCName>Standard</MGCName>
+            </MitoGeneticCode>
+            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliophyta; Mesangiospermae; eudicotyledons; Gunneridae; Pentapetalae; asterids; campanulids; Asterales; Asteraceae; Asteroideae; Heliantheae alliance; Heliantheae; Helianthus</Lineage>
+            <LineageEx>
+                <Taxon>
+                    <TaxId>131567</TaxId>
+                    <ScientificName>cellular organisms</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2759</TaxId>
+                    <ScientificName>Eukaryota</ScientificName>
+                    <Rank>superkingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33090</TaxId>
+                    <ScientificName>Viridiplantae</ScientificName>
+                    <Rank>kingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>35493</TaxId>
+                    <ScientificName>Streptophyta</ScientificName>
+                    <Rank>phylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>131221</TaxId>
+                    <ScientificName>Streptophytina</ScientificName>
+                    <Rank>subphylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>3193</TaxId>
+                    <ScientificName>Embryophyta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>58023</TaxId>
+                    <ScientificName>Tracheophyta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>78536</TaxId>
+                    <ScientificName>Euphyllophyta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>58024</TaxId>
+                    <ScientificName>Spermatophyta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>3398</TaxId>
+                    <ScientificName>Magnoliophyta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1437183</TaxId>
+                    <ScientificName>Mesangiospermae</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>71240</TaxId>
+                    <ScientificName>eudicotyledons</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>91827</TaxId>
+                    <ScientificName>Gunneridae</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1437201</TaxId>
+                    <ScientificName>Pentapetalae</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>71274</TaxId>
+                    <ScientificName>asterids</ScientificName>
+                    <Rank>subclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>91882</TaxId>
+                    <ScientificName>campanulids</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>4209</TaxId>
+                    <ScientificName>Asterales</ScientificName>
+                    <Rank>order</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>4210</TaxId>
+                    <ScientificName>Asteraceae</ScientificName>
+                    <Rank>family</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>102804</TaxId>
+                    <ScientificName>Asteroideae</ScientificName>
+                    <Rank>subfamily</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>911341</TaxId>
+                    <ScientificName>Heliantheae alliance</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>102814</TaxId>
+                    <ScientificName>Heliantheae</ScientificName>
+                    <Rank>tribe</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>4231</TaxId>
+                    <ScientificName>Helianthus</ScientificName>
+                    <Rank>genus</Rank>
+                </Taxon>
+            </LineageEx>
+            <Properties>
+                <Property>
+                    <PropName>pgcode</PropName>
+                    <PropValueInt>11</PropValueInt>
+                </Property>
+            </Properties>
+            <CreateDate>1995/02/27 09:24:00</CreateDate>
+            <UpdateDate>2018/11/23 13:57:51</UpdateDate>
+            <PubDate>1993/08/03 01:00:00</PubDate>
+        </Taxon>
+
+        </TaxaSet>
+  recorded_at: 2019-01-25 22:55:46 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=4232?api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 25 Jan 2019 22:55:44 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '1'
+      ncbi-phid: D0BD37B365326FC5000025C73496C579.1.1.m_5
+      cache-control: private
+      l5d-success-class: '1.0'
+      ncbi-sid: 44A845AC8F67F438_274FSID
+      content-encoding: gzip
+      x-ratelimit-limit: '3'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=44A845AC8F67F438_274FSID; domain=.nih.gov; path=/; expires=Sat,
+        25 Jan 2020 22:55:45 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version="1.0" ?>
+        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
+        <TaxaSet><Taxon>
+            <TaxId>4232</TaxId>
+            <ScientificName>Helianthus annuus</ScientificName>
+            <OtherNames>
+                <GenbankCommonName>common sunflower</GenbankCommonName>
+                <Name>
+                    <ClassCDE>authority</ClassCDE>
+                    <DispName>Helianthus annuus L.</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Helianthus annua</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Helianthus annus</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Helianthus annuus8</DispName>
+                </Name>
+            </OtherNames>
+            <ParentTaxId>4231</ParentTaxId>
+            <Rank>species</Rank>
+            <Division>Plants and Fungi</Division>
+            <GeneticCode>
+                <GCId>1</GCId>
+                <GCName>Standard</GCName>
+            </GeneticCode>
+            <MitoGeneticCode>
+                <MGCId>1</MGCId>
+                <MGCName>Standard</MGCName>
+            </MitoGeneticCode>
+            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliophyta; Mesangiospermae; eudicotyledons; Gunneridae; Pentapetalae; asterids; campanulids; Asterales; Asteraceae; Asteroideae; Heliantheae alliance; Heliantheae; Helianthus</Lineage>
+            <LineageEx>
+                <Taxon>
+                    <TaxId>131567</TaxId>
+                    <ScientificName>cellular organisms</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2759</TaxId>
+                    <ScientificName>Eukaryota</ScientificName>
+                    <Rank>superkingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33090</TaxId>
+                    <ScientificName>Viridiplantae</ScientificName>
+                    <Rank>kingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>35493</TaxId>
+                    <ScientificName>Streptophyta</ScientificName>
+                    <Rank>phylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>131221</TaxId>
+                    <ScientificName>Streptophytina</ScientificName>
+                    <Rank>subphylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>3193</TaxId>
+                    <ScientificName>Embryophyta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>58023</TaxId>
+                    <ScientificName>Tracheophyta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>78536</TaxId>
+                    <ScientificName>Euphyllophyta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>58024</TaxId>
+                    <ScientificName>Spermatophyta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>3398</TaxId>
+                    <ScientificName>Magnoliophyta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1437183</TaxId>
+                    <ScientificName>Mesangiospermae</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>71240</TaxId>
+                    <ScientificName>eudicotyledons</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>91827</TaxId>
+                    <ScientificName>Gunneridae</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1437201</TaxId>
+                    <ScientificName>Pentapetalae</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>71274</TaxId>
+                    <ScientificName>asterids</ScientificName>
+                    <Rank>subclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>91882</TaxId>
+                    <ScientificName>campanulids</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>4209</TaxId>
+                    <ScientificName>Asterales</ScientificName>
+                    <Rank>order</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>4210</TaxId>
+                    <ScientificName>Asteraceae</ScientificName>
+                    <Rank>family</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>102804</TaxId>
+                    <ScientificName>Asteroideae</ScientificName>
+                    <Rank>subfamily</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>911341</TaxId>
+                    <ScientificName>Heliantheae alliance</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>102814</TaxId>
+                    <ScientificName>Heliantheae</ScientificName>
+                    <Rank>tribe</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>4231</TaxId>
+                    <ScientificName>Helianthus</ScientificName>
+                    <Rank>genus</Rank>
+                </Taxon>
+            </LineageEx>
+            <Properties>
+                <Property>
+                    <PropName>pgcode</PropName>
+                    <PropValueInt>11</PropValueInt>
+                </Property>
+            </Properties>
+            <CreateDate>1995/02/27 09:24:00</CreateDate>
+            <UpdateDate>2018/11/23 13:57:51</UpdateDate>
+            <PubDate>1993/08/03 01:00:00</PubDate>
+        </Taxon>
+
+        </TaxaSet>
+  recorded_at: 2019-01-25 22:55:46 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=4232?api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 25 Jan 2019 22:55:46 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '2'
+      ncbi-phid: 322CDAEFF3EFD7B5000026F66F0EBBE6.1.1.m_5
+      cache-control: private
+      l5d-success-class: '1.0'
+      ncbi-sid: C15F91321281FB98_A3AASID
+      content-encoding: gzip
+      x-ratelimit-limit: '3'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=C15F91321281FB98_A3AASID; domain=.nih.gov; path=/; expires=Sat,
+        25 Jan 2020 22:55:46 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version="1.0" ?>
+        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
+        <TaxaSet><Taxon>
+            <TaxId>4232</TaxId>
+            <ScientificName>Helianthus annuus</ScientificName>
+            <OtherNames>
+                <GenbankCommonName>common sunflower</GenbankCommonName>
+                <Name>
+                    <ClassCDE>authority</ClassCDE>
+                    <DispName>Helianthus annuus L.</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Helianthus annua</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Helianthus annus</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Helianthus annuus8</DispName>
+                </Name>
+            </OtherNames>
+            <ParentTaxId>4231</ParentTaxId>
+            <Rank>species</Rank>
+            <Division>Plants and Fungi</Division>
+            <GeneticCode>
+                <GCId>1</GCId>
+                <GCName>Standard</GCName>
+            </GeneticCode>
+            <MitoGeneticCode>
+                <MGCId>1</MGCId>
+                <MGCName>Standard</MGCName>
+            </MitoGeneticCode>
+            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliophyta; Mesangiospermae; eudicotyledons; Gunneridae; Pentapetalae; asterids; campanulids; Asterales; Asteraceae; Asteroideae; Heliantheae alliance; Heliantheae; Helianthus</Lineage>
+            <LineageEx>
+                <Taxon>
+                    <TaxId>131567</TaxId>
+                    <ScientificName>cellular organisms</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2759</TaxId>
+                    <ScientificName>Eukaryota</ScientificName>
+                    <Rank>superkingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33090</TaxId>
+                    <ScientificName>Viridiplantae</ScientificName>
+                    <Rank>kingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>35493</TaxId>
+                    <ScientificName>Streptophyta</ScientificName>
+                    <Rank>phylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>131221</TaxId>
+                    <ScientificName>Streptophytina</ScientificName>
+                    <Rank>subphylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>3193</TaxId>
+                    <ScientificName>Embryophyta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>58023</TaxId>
+                    <ScientificName>Tracheophyta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>78536</TaxId>
+                    <ScientificName>Euphyllophyta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>58024</TaxId>
+                    <ScientificName>Spermatophyta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>3398</TaxId>
+                    <ScientificName>Magnoliophyta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1437183</TaxId>
+                    <ScientificName>Mesangiospermae</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>71240</TaxId>
+                    <ScientificName>eudicotyledons</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>91827</TaxId>
+                    <ScientificName>Gunneridae</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1437201</TaxId>
+                    <ScientificName>Pentapetalae</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>71274</TaxId>
+                    <ScientificName>asterids</ScientificName>
+                    <Rank>subclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>91882</TaxId>
+                    <ScientificName>campanulids</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>4209</TaxId>
+                    <ScientificName>Asterales</ScientificName>
+                    <Rank>order</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>4210</TaxId>
+                    <ScientificName>Asteraceae</ScientificName>
+                    <Rank>family</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>102804</TaxId>
+                    <ScientificName>Asteroideae</ScientificName>
+                    <Rank>subfamily</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>911341</TaxId>
+                    <ScientificName>Heliantheae alliance</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>102814</TaxId>
+                    <ScientificName>Heliantheae</ScientificName>
+                    <Rank>tribe</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>4231</TaxId>
+                    <ScientificName>Helianthus</ScientificName>
+                    <Rank>genus</Rank>
+                </Taxon>
+            </LineageEx>
+            <Properties>
+                <Property>
+                    <PropName>pgcode</PropName>
+                    <PropValueInt>11</PropValueInt>
+                </Property>
+            </Properties>
+            <CreateDate>1995/02/27 09:24:00</CreateDate>
+            <UpdateDate>2018/11/23 13:57:51</UpdateDate>
+            <PubDate>1993/08/03 01:00:00</PubDate>
+        </Taxon>
+
+        </TaxaSet>
+  recorded_at: 2019-01-25 22:55:46 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=4232?api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 25 Jan 2019 22:55:46 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '1'
+      ncbi-phid: 939B131039D6F975000025F17696F7FE.1.1.m_3
+      cache-control: private
+      l5d-success-class: '1.0'
+      ncbi-sid: C15F91321281FB98_A3AASID
+      content-encoding: gzip
+      x-ratelimit-limit: '3'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=C15F91321281FB98_A3AASID; domain=.nih.gov; path=/; expires=Sat,
+        25 Jan 2020 22:55:46 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version="1.0" ?>
+        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
+        <TaxaSet><Taxon>
+            <TaxId>4232</TaxId>
+            <ScientificName>Helianthus annuus</ScientificName>
+            <OtherNames>
+                <GenbankCommonName>common sunflower</GenbankCommonName>
+                <Name>
+                    <ClassCDE>authority</ClassCDE>
+                    <DispName>Helianthus annuus L.</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Helianthus annua</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Helianthus annus</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Helianthus annuus8</DispName>
+                </Name>
+            </OtherNames>
+            <ParentTaxId>4231</ParentTaxId>
+            <Rank>species</Rank>
+            <Division>Plants and Fungi</Division>
+            <GeneticCode>
+                <GCId>1</GCId>
+                <GCName>Standard</GCName>
+            </GeneticCode>
+            <MitoGeneticCode>
+                <MGCId>1</MGCId>
+                <MGCName>Standard</MGCName>
+            </MitoGeneticCode>
+            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliophyta; Mesangiospermae; eudicotyledons; Gunneridae; Pentapetalae; asterids; campanulids; Asterales; Asteraceae; Asteroideae; Heliantheae alliance; Heliantheae; Helianthus</Lineage>
+            <LineageEx>
+                <Taxon>
+                    <TaxId>131567</TaxId>
+                    <ScientificName>cellular organisms</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2759</TaxId>
+                    <ScientificName>Eukaryota</ScientificName>
+                    <Rank>superkingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33090</TaxId>
+                    <ScientificName>Viridiplantae</ScientificName>
+                    <Rank>kingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>35493</TaxId>
+                    <ScientificName>Streptophyta</ScientificName>
+                    <Rank>phylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>131221</TaxId>
+                    <ScientificName>Streptophytina</ScientificName>
+                    <Rank>subphylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>3193</TaxId>
+                    <ScientificName>Embryophyta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>58023</TaxId>
+                    <ScientificName>Tracheophyta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>78536</TaxId>
+                    <ScientificName>Euphyllophyta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>58024</TaxId>
+                    <ScientificName>Spermatophyta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>3398</TaxId>
+                    <ScientificName>Magnoliophyta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1437183</TaxId>
+                    <ScientificName>Mesangiospermae</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>71240</TaxId>
+                    <ScientificName>eudicotyledons</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>91827</TaxId>
+                    <ScientificName>Gunneridae</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1437201</TaxId>
+                    <ScientificName>Pentapetalae</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>71274</TaxId>
+                    <ScientificName>asterids</ScientificName>
+                    <Rank>subclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>91882</TaxId>
+                    <ScientificName>campanulids</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>4209</TaxId>
+                    <ScientificName>Asterales</ScientificName>
+                    <Rank>order</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>4210</TaxId>
+                    <ScientificName>Asteraceae</ScientificName>
+                    <Rank>family</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>102804</TaxId>
+                    <ScientificName>Asteroideae</ScientificName>
+                    <Rank>subfamily</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>911341</TaxId>
+                    <ScientificName>Heliantheae alliance</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>102814</TaxId>
+                    <ScientificName>Heliantheae</ScientificName>
+                    <Rank>tribe</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>4231</TaxId>
+                    <ScientificName>Helianthus</ScientificName>
+                    <Rank>genus</Rank>
+                </Taxon>
+            </LineageEx>
+            <Properties>
+                <Property>
+                    <PropName>pgcode</PropName>
+                    <PropValueInt>11</PropValueInt>
+                </Property>
+            </Properties>
+            <CreateDate>1995/02/27 09:24:00</CreateDate>
+            <UpdateDate>2018/11/23 13:57:51</UpdateDate>
+            <PubDate>1993/08/03 01:00:00</PubDate>
+        </Taxon>
+
+        </TaxaSet>
+  recorded_at: 2019-01-25 22:55:46 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0

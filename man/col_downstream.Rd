@@ -45,7 +45,7 @@ intermediate taxonomic groups. Default: \code{FALSE}}
 by default we give back all taxa. set to \code{TRUE} to get only 
 extant taxa}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options passed on to \code{\link[crul]{verb-GET}}}
 }
 \value{
 A list of data.frame's, where each data.frame has columns:

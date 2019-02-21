@@ -11,7 +11,8 @@
 #' If TRUE and more than one ID is found for the species, the user is asked for
 #' input. If FALSE NA is returned for multiple matches.
 #' @param key API key. passed on to \code{\link{eol_search}} and
-#' \code{\link{eol_pages}} internally
+#' \code{\link{eol_pages}} internally. We recommend getting an API key; 
+#' see \code{\link{taxize-authentication}}
 #' @param ... Further args passed on to \code{\link{eol_search}}
 #' @param messages logical; If \code{TRUE} the actual taxon queried is printed
 #' on the console.
@@ -69,20 +70,20 @@
 #' # numeric
 #' as.eolid(10247706)
 #' # numeric vector, length > 1
-#' as.eolid(c(24954444,51389511,57266265))
+#' as.eolid(c(6985636,12188704,10247706))
 #' # character
-#' as.eolid("24954444")
+#' as.eolid("6985636")
 #' # character vector, length > 1
-#' as.eolid(c("24954444","51389511","57266265"))
+#' as.eolid(c("6985636","12188704","10247706"))
 #' # list, either numeric or character
-#' as.eolid(list("24954444","51389511","57266265"))
+#' as.eolid(list("6985636","12188704","10247706"))
 #' ## dont check, much faster
-#' as.eolid("24954444", check=FALSE)
-#' as.eolid(24954444, check=FALSE)
-#' as.eolid(c("24954444","51389511","57266265"), check=FALSE)
-#' as.eolid(list("24954444","51389511","57266265"), check=FALSE)
+#' as.eolid("6985636", check=FALSE)
+#' as.eolid(6985636, check=FALSE)
+#' as.eolid(c("6985636","12188704","10247706"), check=FALSE)
+#' as.eolid(list("6985636","12188704","10247706"), check=FALSE)
 #'
-#' (out <- as.eolid(c(24954444,51389511,57266265)))
+#' (out <- as.eolid(c(6985636,12188704,10247706)))
 #' data.frame(out)
 #' as.eolid( data.frame(out) )
 #'
@@ -94,19 +95,24 @@
 #' }
 
 get_eolid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
-                      rows = NA, ...){
+                      rows = NA, rank = NULL, data_source = NULL, ...) {
 
   assert(ask, "logical")
   assert(messages, "logical")
+  assert(rank, "character")
+  assert(data_source, "character")
+  if (!is.na(rows)) {
+    assert(rows, c("numeric", "integer"))
+    stopifnot(rows > 0)
+  }
 
   fun <- function(sciname, ask, messages, rows, ...) {
     direct <- FALSE
     mssg(messages, "\nRetrieving data for taxon '", sciname, "'\n")
     tmp <- eol_search(terms = sciname, key = key, ...)
-    ms <- "Not found. Consider checking the spelling or alternate classification"
     datasource <- NA_character_
     if (all(is.na(tmp))) {
-      mssg(messages, ms)
+      mssg(messages, m_not_found_sp_altclass)
       id <- NA_character_
       page_id <- NA_character_
       att <- "not found"
@@ -116,7 +122,7 @@ get_eolid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
 
       if (length(pageids) == 0) {
         if (nrow(tmp) > 0)
-        mssg(messages, paste(ms, sprintf('\nDid find: %s',
+        mssg(messages, paste(m_not_found_sp_altclass, sprintf('\nDid find: %s',
                                         paste(tmp$name, collapse = "; "))))
         id <- NA_character_
       } else {
@@ -139,7 +145,7 @@ get_eolid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
         df <- sub_rows(df, rows)
 
         if (nrow(df) == 0) {
-          mssg(messages, ms)
+          mssg(messages, m_not_found_sp_altclass)
           id <- NA_character_
           page_id <- NA_character_
         } else{
@@ -151,7 +157,7 @@ get_eolid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
 
     # not found on eol
     if (length(id) == 0 || all(is.na(id))) {
-      mssg(messages, ms)
+      mssg(messages, m_not_found_sp_altclass)
       id <- NA_character_
       page_id <- NA_character_
 			mm <- FALSE
@@ -165,6 +171,26 @@ get_eolid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
       direct <- TRUE
       att <- 'found'
     }
+
+    # filter by rank, if given
+    if (!is.null(rank) || !is.null(data_source)) {
+      df <- filt(df, "rank", rank)
+      df <- filt(df, "source", data_source)
+      id <- df$eolid
+      page_id <- df$pageid
+      datasource <- df$source
+      att <- "found"
+    }
+    
+    if (length(id) > 1) {
+      matchtmp <- df[tolower(df$name) %in% tolower(sciname), "eolid"]
+      if (length(matchtmp) == 1) {
+        id <- matchtmp
+        direct <- TRUE
+        att <- "found"
+      }
+    }
+
     # more than one found on eol -> user input
     if (length(id) > 1) {
       if (ask) {
@@ -196,14 +222,11 @@ get_eolid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
         }
       } else {
         if (length(id) != 1) {
-          warning(
-            sprintf("More than one eolid found for taxon '%s'; refine query or set ask=TRUE",
-                    sciname),
-            call. = FALSE
-          )
+          warning(sprintf(m_more_than_one_found, "eolid", sciname),
+            call. = FALSE)
           id <- NA_character_
           page_id <- NA_character_
-          att <- 'NA due to ask=FALSE & > 1 result'
+          att <- m_na_ask_false
         }
       }
     }
@@ -323,17 +346,17 @@ make_eolid <- function(x, check=TRUE) {
   tmp
 }
 
-check_eolid <- function(x){
-  url <- sprintf("http://eol.org/api/hierarchy_entries/1.0/%s.json", x)
-  tryid <- GET(url)
+check_eolid <- function(x) {
+  url <- sprintf("https://eol.org/api/hierarchy_entries/1.0/%s.json", x)
+  tryid <- tax_GET(url)
   if (tryid$status_code == 200) TRUE else FALSE
 }
 
-get_eol_pageid <- function(x){
-  url <- sprintf("http://eol.org/api/hierarchy_entries/1.0/%s.json", x)
-  tt <- GET(url)
+get_eol_pageid <- function(x) {
+  url <- sprintf("https://eol.org/api/hierarchy_entries/1.0/%s.json", x)
+  tt <- tax_GET(url)
   if (tt$status_code == 200) {
-    jsonlite::fromJSON(con_utf8(tt), FALSE)$taxonConceptID
+    jsonlite::fromJSON(tt$parse("UTF-8"), FALSE)$taxonConceptID
   } else {
     NA
   }

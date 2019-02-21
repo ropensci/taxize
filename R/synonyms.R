@@ -7,7 +7,8 @@
 #' \code{col}, \code{nbn}, or \code{worms}. Note that each taxonomic data
 #' source has their own identifiers, so that if you provide the wrong
 #' \code{db} value for the identifier you could get a result, but it will
-#' likely be wrong (not what you were expecting).
+#' likely be wrong (not what you were expecting). If using tropicos, we 
+#' recommend getting an API key; see \code{\link{taxize-authentication}}
 #' @param id character; identifiers, returned by \code{\link[taxize]{get_tsn}},
 #' \code{\link[taxize]{get_tpsid}}, \code{\link[taxize]{get_nbnid}},
 #' \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_wormsid}}
@@ -82,9 +83,9 @@
 #' synonyms("Amblyomma rotundatum", db='col', rows=2:3)
 #'
 #' # Use curl options
-#' synonyms("Poa annua", db='tropicos', rows=1, config=verbose())
-#' synonyms("Poa annua", db='itis', rows=1, config=verbose())
-#' synonyms("Poa annua", db='col', rows=1, config=verbose())
+#' synonyms("Poa annua", db='tropicos', rows=1, verbose = TRUE)
+#' synonyms("Poa annua", db='itis', rows=1, verbose = TRUE)
+#' synonyms("Poa annua", db='col', rows=1, verbose = TRUE)
 #'
 #'
 #' # combine many outputs together
@@ -236,9 +237,10 @@ synonyms.colid <- function(id, ...) {
 col_synonyms <- function(x, ...) {
   base <- "http://www.catalogueoflife.org/col/webservice"
   args <- list(id = x[1], response = "full", format = "json")
-  res <- httr::GET(base, query = args, ...)
-  httr::stop_for_status(res)
-  out <- jsonlite::fromJSON(con_utf8(res), FALSE)
+  cli <- crul::HttpClient$new(base)
+  res <- cli$get(query = args)
+  res$raise_for_status()
+  out <- jsonlite::fromJSON(res$parse("UTF-8"), FALSE)
   tmp <- out$results[[1]]
   if ("synonyms" %in% names(tmp)) {
     df <- taxize_ldfast(lapply(tmp$synonyms, function(w) {

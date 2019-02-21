@@ -21,7 +21,7 @@ eol_ping(what = "status", ...)
 
 itis_ping(what = "status", ...)
 
-ncbi_ping(what = "status", ...)
+ncbi_ping(what = "status", key = NULL, ...)
 
 tropicos_ping(what = "status", ...)
 
@@ -44,7 +44,10 @@ signifying the service is up. If content, we do a simple, quick check to
 determine if returned content matches what's expected. If an HTTP status
 code, it must match an appropriate code. See \code{\link{status_codes}}.}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options passed on to \code{\link[crul]{verb-GET}}}
+
+\item{key}{(character) NCBI Entrez API key. optional. See 
+\code{\link{get_uid}}}
 }
 \value{
 A logical, TRUE or FALSE
@@ -86,8 +89,7 @@ vascan_ping(200)
 vascan_ping("content")
 
 # curl options
-library("httr")
-vascan_ping(config=verbose())
-eol_ping(500, config=verbose())
+vascan_ping(verbose = TRUE)
+eol_ping(500, verbose = TRUE)
 }
 }

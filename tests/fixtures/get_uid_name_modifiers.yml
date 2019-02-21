@@ -1,0 +1,189 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Aratinga&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Sat, 26 Jan 2019 20:12:32 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '6'
+      ncbi-phid: 939B131039D6F975000025B10D071AB9.1.1.m_1
+      cache-control: private
+      l5d-success-class: '1.0'
+      ncbi-sid: 7B1E88F16E0D1759_CF3BSID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=7B1E88F16E0D1759_CF3BSID; domain=.nih.gov; path=/; expires=Sun,
+        26 Jan 2020 20:12:32 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
+        <Id>12945</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Aratinga[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Aratinga[All Names]</QueryTranslation></eSearchResult>
+  recorded_at: 2019-01-26 20:12:34 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Aratinga%5BOrganism%5D&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Sat, 26 Jan 2019 20:12:32 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '6'
+      ncbi-phid: 939B131039D6F97500001FB10D3C1523.1.1.m_1
+      cache-control: private
+      l5d-success-class: '1.0'
+      ncbi-sid: 23895C6A394DCF6F_6920SID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=23895C6A394DCF6F_6920SID; domain=.nih.gov; path=/; expires=Sun,
+        26 Jan 2020 20:12:33 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>7</Count><RetMax>7</RetMax><RetStart>0</RetStart><IdList>
+        <Id>1230190</Id>
+        <Id>867384</Id>
+        <Id>231027</Id>
+        <Id>190661</Id>
+        <Id>176015</Id>
+        <Id>51908</Id>
+        <Id>12945</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Aratinga[Organism]</Term>    <Field>Organism</Field>    <Count>7</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Aratinga[Organism]</QueryTranslation></eSearchResult>
+  recorded_at: 2019-01-26 20:12:34 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&ID=1230190%2C867384%2C231027%2C190661%2C176015%2C51908%2C12945&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Sat, 26 Jan 2019 20:12:33 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '7'
+      ncbi-phid: 322CDAEFF3EFD7B5000026B622A8740F.1.1.m_1
+      cache-control: private
+      l5d-success-class: '1.0'
+      ncbi-sid: 9919857D50A2FFEA_7F16SID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=9919857D50A2FFEA_7F16SID; domain=.nih.gov; path=/; expires=Sun,
+        26 Jan 2020 20:12:34 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eSummaryResult
+        PUBLIC \"-//NLM//DTD esummary v1 20041029//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20041029/esummary-v1.dtd\">\n<eSummaryResult>\n<DocSum>\n\t<Id>1230190</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">birds</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Aratinga maculata</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">sulphur-breasted
+        parakeet</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">1230190</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Aratinga</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">maculata</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2017/06/14 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>867384</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">birds</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Aratinga auricapillus</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\">Golden-capped parakeet</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">867384</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Aratinga</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">auricapillus</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2018/11/26
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>231027</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">birds</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Aratinga jandaya</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">Jandaya
+        parakeet</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">231027</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Aratinga</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">jandaya</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2017/06/14 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>190661</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">birds</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Aratinga weddellii</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">190661</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Aratinga</Item>\n\t<Item Name=\"Species\" Type=\"String\">weddellii</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2015/07/24 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>176015</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">birds</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Aratinga solstitialis</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\">sun parakeet</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">176015</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Aratinga</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">solstitialis</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2018/10/31
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>51908</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">birds</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Aratinga nenday</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">Nanday
+        parakeet</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">51908</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Aratinga</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">nenday</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2018/10/29 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>12945</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">genus</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">birds</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Aratinga</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">12945</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\"></Item>\n\t<Item Name=\"Species\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2002/05/08 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
+  recorded_at: 2019-01-26 20:12:34 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0

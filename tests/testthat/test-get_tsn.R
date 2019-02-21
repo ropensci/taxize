@@ -1,26 +1,21 @@
-# tests for get_tsn fxn in taxize
 context("get_tsn")
 
 test_that("get_tsn returns the correct value", {
-  skip_on_cran()
+  vcr::use_cassette("get_tsn", {
+    x <- get_tsn("asdfasdf", verbose=FALSE)[[1]]
+    z <- get_tsn("Chironomus riparius", verbose=FALSE)
+  })
 
-	expect_that(is.na(get_tsn("asdfasdf", verbose=FALSE)[[1]]), is_true())
-})
-
-test_that("get_tsn returns the correct class", {
-  skip_on_cran()
-
-	expect_is(get_tsn("Chironomus riparius", verbose=FALSE), "tsn")
+	expect_true(is.na(x))
+	expect_is(z, "tsn")
 })
 
 test_that("get_tsn accepts ask and verbose arguments", {
-  skip_on_cran()
-
-  expect_message(suppressWarnings(get_tsn('Dugesia', verbose=TRUE, ask = FALSE)))
-  #expect_message(get_tsn('Dugesia', verbose=FALSE), NA)
-
-  expect_that(all(is.na(suppressWarnings(get_tsn('black bear', searchtype="common",
-                                ask=FALSE, verbose=FALSE)))), is_true())
+  vcr::use_cassette("get_tsn_ask_verbose_args", {
+    expect_message(sw(get_tsn('Dugesia', messages=TRUE, ask = FALSE)))
+    expect_true(all(is.na(sw(get_tsn('black bear', searchtype="common",
+      ask=FALSE, verbose=FALSE)))))
+  })
 })
 
 test_that("get_tsn fails as expected", {
@@ -46,7 +41,7 @@ test_that("get_tsn fails as expected", {
 
   # rows param
   expect_error(get_tsn("Achlya", rows = "foobar", verbose = FALSE),
-               "'rows' must be numeric or NA")
+               "rows must be of class numeric, integer")
   expect_error(get_tsn("Achlya", rows = 0, verbose = FALSE),
-               "'rows' value must be an integer 1 or greater")
+               "rows > 0 is not TRUE")
 })

@@ -21,47 +21,53 @@ ipni_search(family = NULL, infrafamily = NULL, genus = NULL,
 
 \item{infragenus}{Infrageneric name to search on (Optional)}
 
-\item{species}{Species name to search on (Optional) - Note, this is the epithet, not the full
-genus - epithet name combination.}
+\item{species}{Species name to search on (Optional) - Note, this is the 
+epithet, not the full genus - epithet name combination.}
 
 \item{infraspecies}{Infraspecies name to search on (Optional)}
 
-\item{publicationtitle}{Publication name or abbreviation to search on. Again, replace any
-spaces with a '+' (e.g. 'J.+Bot.') (Optional)}
+\item{publicationtitle}{Publication name or abbreviation to search on. 
+Again, replace any spaces with a '+' (e.g. 'J.+Bot.') (Optional)}
 
-\item{authorabbrev}{Author standard form to search on (publishing author, basionym author
-or both - see below) (Optional)}
+\item{authorabbrev}{Author standard form to search on (publishing author, 
+basionym author or both - see below) (Optional)}
 
-\item{includepublicationauthors}{TRUE (default) to include the taxon author in the search
-or FALSE to exclude it}
+\item{includepublicationauthors}{TRUE (default) to include the taxon author 
+in the search or FALSE to exclude it}
 
-\item{includebasionymauthors}{TRUE (default) to include the basionum author in the search
-or FALSE to exclude it}
+\item{includebasionymauthors}{TRUE (default) to include the basionum author 
+in the search or FALSE to exclude it}
 
-\item{geounit}{Country name or other geographical unit to search on (see the help pages
-for more information and warnings about the use of this option) (Optional)}
+\item{geounit}{Country name or other geographical unit to search on (see 
+the help pages for more information and warnings about the use of this 
+option) (Optional)}
 
-\item{addedsince}{Date to search on in the format 'yyyy-mm-dd', e.g. 2005-08-01 for all
-records added since the first of August, 2005. (see the help pages for more information and
-warnings about the use of this option) (Optional. If supplied must be in format YYYY-MM-DD and
-must be greater than or equal to 1984-01-01.)}
+\item{addedsince}{Date to search on in the format 'yyyy-mm-dd', e.g. 
+2005-08-01 for all records added since the first of August, 2005. (see the 
+help pages for more information and warnings about the use of this option) 
+(Optional. If supplied must be in format YYYY-MM-DD and must be greater 
+than or equal to 1984-01-01.)}
 
-\item{modifiedsince}{Date to search on in the format 'yyyy-mm-dd', e.g. 2005-08-01 for
-all records edited since the first of August, 2005. (See the help pages for more information
-about the use of this option)  (Optional. If supplied must be in format YYYY-MM-DD and must
-be greater than or equal to 1993-01-01.)}
+\item{modifiedsince}{Date to search on in the format 'yyyy-mm-dd', e.g. 
+2005-08-01 for all records edited since the first of August, 2005. (See 
+the help pages for more information about the use of this option)  
+(Optional. If supplied must be in format YYYY-MM-DD and must be greater 
+than or equal to 1993-01-01.)}
 
-\item{isapnirecord}{FALSE (default) to exclude records from the Australian Plant Name Index}
+\item{isapnirecord}{FALSE (default) to exclude records from the Australian 
+Plant Name Index}
 
-\item{isgcirecord}{FALSE (default) to exclude records from the Gray Cards Index}
+\item{isgcirecord}{FALSE (default) to exclude records from the Gray Cards 
+Index}
 
 \item{isikrecord}{FALSE (default) to exclude records from the Index Kewensis}
 
-\item{ranktoreturn}{One of a few options to choose the ranks returned. See details.}
+\item{ranktoreturn}{One of a few options to choose the ranks returned. See 
+details.}
 
 \item{output}{One of minimal (default), classic, short, or extended}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}
+\item{...}{Curl options passed on to \code{\link[crul]{verb-GET}}
 (Optional). Default: returns all ranks.}
 }
 \value{
@@ -69,8 +75,8 @@ A data frame
 }
 \description{
 Note: This data source is also provided in the Global Names Index (GNI)
-(http://gni.globalnames.org/data_sources). The interface to the data is different among the two
-services though.
+(http://gni.globalnames.org/data_sources). The interface to the data is 
+different among the two services though.
 }
 \details{
 \code{rankToReturn} options:
@@ -87,7 +93,8 @@ services though.
 }
 \examples{
 \dontrun{
-ipni_search(genus='Brintonia', isapnirecord=TRUE, isgcirecord=TRUE, isikrecord=TRUE)
+ipni_search(genus='Brintonia', isapnirecord=TRUE, isgcirecord=TRUE, 
+  isikrecord=TRUE)
 head(ipni_search(genus='Ceanothus'))
 head(ipni_search(genus='Pinus', species='contorta'))
 

@@ -1,29 +1,31 @@
 context("get_gbifid")
 
 test_that("get_gbifid returns the correct value", {
-  skip_on_cran()
+  vcr::use_cassette("get_gbifid", {
+    z <- get_gbifid(c("Chironomus riparius", "aaasdfadsfasdf"), 
+      messages = FALSE)[2]
+    w <- get_gbifid(c("Chironomus riparius", "Chaetopteryx"), 
+      messages = FALSE)
+  })
 
-  expect_true(is.na(get_gbifid(c("Chironomus riparius", "aaasdfadsfasdf"), messages = FALSE)[2]))
-})
-
-test_that("get_gbifid returns the correct class", {
-  skip_on_cran()
-
-  expect_is(get_gbifid(c("Chironomus riparius", "Chaetopteryx"), messages = FALSE), "gbifid")
+  expect_true(is.na(z))
+  expect_is(w, "gbifid")
 })
 
 test_that("get_gbifid accepts ask-argument", {
-  skip_on_cran()
-
-  expect_true(is.na(sw(get_gbifid('Dugesia', ask = FALSE, messages = FALSE))))
+  vcr::use_cassette("get_gbifid_ask_arg", {
+    a <- sw(get_gbifid('Dugesia', ask = FALSE, messages = FALSE))
+  })
+  expect_true(is.na(a))
 })
 
 test_that("get_gbifid method parameter works", {
-  skip_on_cran()
-
-  ### w/ method = backbone
-  mod1 <- get_gbifid_(sciname = "Z*", method = "backbone", messages = FALSE, rows = 1:100)
-  mod2 <- get_gbifid_("Z*", method = "lookup", messages = FALSE, rows = 1:100)
+  vcr::use_cassette("get_gbifid_method_param", {
+    mod1 <- get_gbifid_(sciname = "Z*", method = "backbone", messages = FALSE, 
+      rows = 1:100)
+    mod2 <- get_gbifid_("Z*", method = "lookup", messages = FALSE, 
+      rows = 1:100)
+  }, preserve_exact_body_bytes = TRUE)
 
   expect_is(mod1, "list")
   expect_is(mod2, "list")
@@ -31,8 +33,12 @@ test_that("get_gbifid method parameter works", {
 })
 
 test_that("get_gbifid phylum/class/order/family parameters work", {
-  aa <- get_gbifid("Satyrium", phylum = "Tracheophyta", rows = 1, messages = FALSE)
-  bb <- get_gbifid("Satyrium", phylum = "Arthropoda", rows = 1, messages = FALSE)
+  vcr::use_cassette("get_gbifid_phylum_param", {
+    aa <- get_gbifid("Satyrium", phylum = "Tracheophyta", rows = 1, 
+      messages = FALSE)
+    bb <- get_gbifid("Satyrium", phylum = "Arthropoda", rows = 1, 
+      messages = FALSE)
+  })
 
   expect_is(aa, "gbifid")
   expect_is(bb, "gbifid")
@@ -54,13 +60,14 @@ test_that("get_gbifid phylum/class/order/family parameters work", {
 # })
 
 test_that("works regardless of character or numeric GGBIF ID given back", {
-  skip_on_cran()
-
-  aa <- get_gbifid("Chironomus riparius", messages = FALSE)
+  vcr::use_cassette("get_gbifid_class_doesnt_matter", {
+    aa <- get_gbifid("Chironomus riparius", messages = FALSE)
+    bb <- get_gbifid("Pinus contorta", messages = FALSE, rows = 1)
+  })
+  
   expect_is(aa, "gbifid")
   expect_is(aa[[1]], "character")
 
-  bb <- get_gbifid("Pinus contorta", messages = FALSE, rows = 1)
   expect_is(bb, "gbifid")
   expect_is(bb[[1]], "character")
 })
@@ -92,8 +99,8 @@ test_that("get_gbifid fails as expected", {
 
   # rows param
   expect_error(get_gbifid("Satyrium", rows = "foobar", messages = FALSE),
-               "'rows' must be numeric or NA")
+               "rows must be of class numeric, integer")
   expect_error(get_gbifid("Satyrium", rows = 0, messages = FALSE),
-               "'rows' value must be an integer 1 or greater")
+               "rows > 0 is not TRUE")
 })
 

@@ -5,16 +5,16 @@
 #' @export
 #' @param x character; Scientific name. Should be cleaned and in the
 #' format \emph{<Genus> <Species>}.
-#' @param silent logical; Make errors silent or not (when species not found).
 #' @param parallel logical; Search in parallel to speed up search. You have to
 #' register a parallel backend if \code{TRUE}. See e.g., doMC, doSNOW, etc.
 #' @param distr_detail logical; If \code{TRUE}, the geographic distribution is
 #' returned as a list of vectors corresponding to the different range types:
 #' native, introduced, etc.
-#' @param key a Redlist API key, get one from \url{http://apiv3.iucnredlist.org/api/v3/token}
-#' Required for \code{iucn_summary} but not needed for \code{iucn_summary_id}. Defaults to
-#' \code{NULL} in case you have your key stored (see \code{Redlist Authentication} below).
-#' @param ... Currently not used.
+#' @param key a Redlist API key, get one from 
+#' \url{http://apiv3.iucnredlist.org/api/v3/token}. Required for 
+#' \code{iucn_summary}. Defaults to \code{NULL} in case you have your key 
+#' stored (see \code{Redlist Authentication} below).
+#' @param ... curl options passed on to [crul::verb-GET]
 #'
 #' @return A list (for every species one entry) of lists with the following
 #' items:
@@ -73,18 +73,8 @@
 #'
 #'
 #' # If you pass in an IUCN ID, you don't need to pass in a Redlist API Key
-#' ia <- iucn_summary_id(c(22732, 12519))
 #' # extract status
-#' iucn_status(ia)
-#' # extract other available information
-#' ia$`22732`$history
-#' ia$`12519`$distr
-#' ia$`12519`$trend
-#' ## the outputs aren't quite identical, but we're working on it
-#' identical(
-#'   iucn_summary_id(c(22732, 12519)),
-#'   iucn_summary(as.iucn(c(22732, 12519)))
-#' )
+#' iucn_status(iac)
 #'
 #' # using parallel, e.g., with doMC package, register cores first
 #' # library(doMC)
@@ -106,7 +96,7 @@ iucn_summary.default <- function(x, parallel = FALSE, distr_detail = FALSE,
 #' @export
 iucn_summary.character <- function(x, parallel = FALSE, distr_detail = FALSE,
                                    key = NULL, ...) {
-  xid <- get_iucn(x)
+  xid <- get_iucn(x, key = key, ...)
   if (any(is.na(xid))) {
     nas <- x[is.na(xid)]
     warning("taxa '", paste0(nas, collapse = ", ") ,
@@ -130,113 +120,18 @@ iucn_summary.iucn <- function(x, parallel = FALSE, distr_detail = FALSE,
   structure(stats::setNames(res, x), class = "iucn_summary")
 }
 
-#' @param species_id an IUCN ID
+#' DEFUNCT
 #' @export
-#' @rdname iucn_summary
-iucn_summary_id <- function(species_id, silent = TRUE, parallel = FALSE,
-                            distr_detail = FALSE, ...) {
-  .Deprecated(msg = gsub("\\s\\s|\n", "", "this function will be deprecated in
-      the next version. use iucn_summary()"))
-  res <- get_iucn_summary(species_id, silent, parallel, distr_detail,
-                          by_id = TRUE, ...)
-  structure(stats::setNames(res, species_id), class = "iucn_summary")
+#' @keywords internal
+#' @rdname iucn_summary_id-defunct
+iucn_summary_id <- function(...) {
+  .Defunct(msg = "use iucn_summary()")
 }
 
 
 ## helpers --------
-get_iucn_summary <- function(query, silent, parallel, distr_detail, by_id, key = NULL, ...) {
-
-  fun <- function(query) {
-
-    if (!by_id) {
-      #to deal with subspecies
-      sciname_q <- strsplit(query, " ")
-      spec <- tolower(paste(sciname_q[[1]][1], sciname_q[[1]][2]))
-      res <- tryCatch(rredlist::rl_search(spec, key = key), error = function(e) e)
-      if (inherits(res, "error")) {
-        stop(res$message, " - see ?iucn_summary and http://apiv3.iucnredlist.org/api/v3/token", call. = FALSE)
-      }
-      if (!inherits(res, "try-error") && NROW(res$result) > 0) {
-        df <- unique(res$result)
-        #check if there are several matches
-        scinamelist <- df$scientific_name
-        species_id <- df$taxonid[which(tolower(scinamelist) == tolower(query))]
-      }
-    } else {
-      species_id <- query
-    }
-    if (!exists('species_id')) {
-      warning("Species '", query , "' not found!\n Returning NA!")
-      out <- list(status = NA,
-                  history = NA,
-                  distr = NA,
-                  trend = NA)
-    } else {
-      url <- paste("http://api.iucnredlist.org/details/", species_id, "/0", sep = "")
-      e <- try(h <- xml2::read_html(url), silent = silent)
-      if (!inherits(e, "try-error")) {
-        # scientific name
-        if (by_id) {
-          sciname <- xml2::xml_text(xml2::xml_find_all(h, '//h1[@id = "scientific_name"]'))
-        }
-
-        # status
-        status <- xml2::xml_text(xml2::xml_find_all(h, '//div[@id ="red_list_category_code"]'))
-        # history
-        history <- data.frame(year = xml2::xml_text(xml2::xml_find_all(h, '//div[@class="year"]')),
-                              category = xml2::xml_text(xml2::xml_find_all(h, '//div[@class="category"]')))
-        if (nrow(history) == 0) history <- NA
-        # distribution
-        distr <- xml2::xml_text(xml2::xml_find_all(h, '//ul[@class="countries"]'))
-        if (length(distr) == 0) {
-          distr <- NA
-        } else {
-          distr <- sub("^\n", "", distr)  # remove leading newline
-          distr <- strsplit(distr, "\n")
-          if (distr_detail) {
-            names(distr) <- xml2::xml_text(xml2::xml_find_all(h, '//ul[@class="country_distribution"]//div[@class="distribution_type"]'))
-          } else {
-            distr <- unlist(distr)
-          }
-        }
-
-        # trend
-        trend <- xml2::xml_text(xml2::xml_find_all(h, '//div[@id="population_trend"]'))
-        if (length(trend) == 0) trend <- NA
-
-        out <- list(status = status,
-                    history = history,
-                    distr = distr,
-                    trend = trend)
-        if (by_id) out$sciname <- sciname
-      } else {
-        warning("Species '", query , "' not found!\n Returning NA!", call. = FALSE)
-        out <- list(status = NA,
-                    history = NA,
-                    distr = NA,
-                    trend = NA)
-      }
-    }
-    return(out)
-  }
-
-  if (parallel) {
-    out <- llply(query, fun, .parallel = TRUE)
-  } else {
-    out <- lapply(query, fun)
-  }
-
-  if (by_id) {
-    names(out) <- llply(out, `[[`, "sciname")
-    out <- llply(out, function(x) {x$sciname <- NULL; x})
-  } else {
-    names(out) <- query
-  }
-  return(out)
-}
-
-try_red <- function(fun, x) {
-  tryCatch(fun(id = x), error = function(e) e)
+try_red <- function(fun, x, key, ...) {
+  tryCatch(fun(id = x, key = key, ...), error = function(e) e)
 }
 
 null_res <- list(status = NA, history = NA, distr = NA, trend = NA)
@@ -244,10 +139,10 @@ null_res <- list(status = NA, history = NA, distr = NA, trend = NA)
 get_iucn_summary2 <- function(query, parallel, distr_detail, key = NULL, ...) {
   fun <- function(z) {
     if (is.na(z)) return(null_res)
-    res <- try_red(rredlist::rl_search, z)
+    res <- try_red(rredlist::rl_search, z, key, ...)
     if (!inherits(res, "error")) {
       # history
-      history <- try_red(rredlist::rl_history, z)
+      history <- try_red(rredlist::rl_history, z, key, ...)
       if (NROW(history$result) == 0 || inherits(history, "error")) {
         history <- NA
       } else {
@@ -255,7 +150,7 @@ get_iucn_summary2 <- function(query, parallel, distr_detail, key = NULL, ...) {
       }
 
       # distribution
-      distr <- try_red(rredlist::rl_occ_country, z)
+      distr <- try_red(rredlist::rl_occ_country, z, key, ...)
       if (NROW(distr$result) == 0 || inherits(distr, "error")) {
         distr <- NA
       } else {

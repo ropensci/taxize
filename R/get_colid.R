@@ -102,9 +102,7 @@
 #' get_colid(sciname="Andropadus nigriceps fusciceps", rows=1)
 #'
 #' # use curl options
-#' library("httr")
-#' get_colid("Quercus douglasii", config=verbose())
-#' bb <- get_colid("Quercus douglasii", config=progress())
+#' get_colid("Quercus douglasii", verbose = TRUE)
 #' }
 
 get_colid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
@@ -119,12 +117,17 @@ get_colid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
   assert(order, "character")
   assert(family, "character")
   assert(rank, "character")
+  if (!is.na(rows)) {
+    assert(rows, c("numeric", "integer"))
+    stopifnot(rows > 0)
+  }
 
   fun <- function(sciname, ask, messages, rows, ...) {
     direct <- FALSE
     mssg(messages, "\nRetrieving data for taxon '", sciname, "'\n")
     df <- col_search(name = sciname, response = "full", ...)[[1]]
-    df <- df[, names(df) %in% c("name","rank","id","name_status","kingdom","family","acc_name")]
+    df <- df[, names(df) %in% c("name","rank","id","name_status",
+      "kingdom","family","acc_name")]
     mm <- NROW(df) > 1
 
     rank_taken <- NA
@@ -142,7 +145,7 @@ get_colid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
 
     # not found on col
     if (all(is.na(id))) {
-      mssg(messages, "Not found. Consider checking the spelling or alternate classification")
+      mssg(messages, m_not_found_sp_altclass)
       id <- NA_character_
       att <- "not found"
     }
@@ -169,6 +172,15 @@ get_colid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
       }
 
       if (length(id) > 1) {
+        matchtmp <- df[tolower(df$name) %in% tolower(sciname), "colid"]
+        if (length(matchtmp) == 1) {
+          id <- matchtmp
+          direct <- TRUE
+          att <- "found"
+        }
+      }
+
+      if (length(id) > 1) {
         if (ask) {
           # prompt
           rownames(df) <- 1:nrow(df)
@@ -184,7 +196,8 @@ get_colid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
           }
           if (take %in% seq_len(nrow(df))) {
             take <- as.numeric(take)
-            message("Input accepted, took colid '", as.character(df$colid[take]), "'.\n")
+            message("Input accepted, took colid '", 
+              as.character(df$colid[take]), "'.\n")
             id <- as.character(df$colid[take])
             rank_taken <- as.character(df$rank[take])
             att <- "found"
@@ -195,13 +208,10 @@ get_colid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
           }
         } else {
           if (length(id) != 1) {
-            warning(
-              sprintf("More than one id found for taxon '%s'; refine query or set ask=TRUE",
-                      sciname),
-              call. = FALSE
-            )
+            warning(sprintf(m_more_than_one_found, "colid", sciname),
+              call. = FALSE)
             id <- NA_character_
-            att <- 'NA due to ask=FALSE & > 1 result'
+            att <- m_na_ask_false
           }
         }
       }
@@ -268,11 +278,14 @@ as.data.frame.colid <- function(x, ...){
              stringsAsFactors = FALSE)
 }
 
-make_colid <- function(x, check=TRUE) make_generic(x, 'http://www.catalogueoflife.org/col/details/species/id/%s', "colid", check)
+make_colid <- function(x, check=TRUE) {
+  make_generic(x, 
+    'http://www.catalogueoflife.org/col/details/species/id/%s', "colid", check)
+}
 
 check_colid <- function(x){
   url <- "http://www.catalogueoflife.org/col/details/species/id/"
-  res <- GET(paste0(url, x))
+  res <- tax_GET(paste0(url, x))$parse("UTF-8")
   !grepl("Species not found", res)
 }
 

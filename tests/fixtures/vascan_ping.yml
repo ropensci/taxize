@@ -1,0 +1,171 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://data.canadensys.net/vascan/api/0.1/search.json?q=Crataegus
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.10.3 (Ubuntu)
+      date: Fri, 25 Jan 2019 22:57:42 GMT
+      content-type: application/json;charset=UTF-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      strict-transport-security: max-age=31536000
+    body:
+      encoding: UTF-8
+      string: '{"apiVersion":"0.1","lastUpdatedDate":"2018-06-21\n","results":[{"searchedTerm":"Crataegus","numMatches":1,"matches":[{"taxonID":1047,"scientificName":"Crataegus
+        Linnaeus","scientificNameAuthorship":"Linnaeus","canonicalName":"Crataegus","taxonRank":"genus","taxonomicAssertions":[{"acceptedNameUsage":"Crataegus
+        Linnaeus","acceptedNameUsageID":1047,"nameAccordingTo":"FNA Editorial Committee.
+        2014. Flora of North America north of Mexico. Volume 9: Magnoliophyta: Picramniaceae
+        to Rosaceae. Oxford University Press, New York.","nameAccordingToID":"http://www.efloras.org/volume_page.aspx?volume_id=1009&flora_id=1","taxonomicStatus":"accepted","parentNameUsageID":416,"higherClassification":"Equisetopsida;Magnoliidae;Rosanae;Rosales;Rosaceae;Amygdaloideae;Maleae"}],"vernacularNames":[{"vernacularName":"hawthorn","language":"en","source":"Farrar,
+        J.L. 1996. Les Arbres du Canada. Fides et Service canadien des forêts. 502
+        pp.","preferredName":true}]}]}]}'
+  recorded_at: 2019-01-25 22:57:43 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://data.canadensys.net/vascan/api/0.1/search.json?q=Crataegus
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.10.3 (Ubuntu)
+      date: Fri, 25 Jan 2019 22:57:42 GMT
+      content-type: application/json;charset=UTF-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      strict-transport-security: max-age=31536000
+    body:
+      encoding: UTF-8
+      string: '{"apiVersion":"0.1","lastUpdatedDate":"2018-06-21\n","results":[{"searchedTerm":"Crataegus","numMatches":1,"matches":[{"taxonID":1047,"scientificName":"Crataegus
+        Linnaeus","scientificNameAuthorship":"Linnaeus","canonicalName":"Crataegus","taxonRank":"genus","taxonomicAssertions":[{"acceptedNameUsage":"Crataegus
+        Linnaeus","acceptedNameUsageID":1047,"nameAccordingTo":"FNA Editorial Committee.
+        2014. Flora of North America north of Mexico. Volume 9: Magnoliophyta: Picramniaceae
+        to Rosaceae. Oxford University Press, New York.","nameAccordingToID":"http://www.efloras.org/volume_page.aspx?volume_id=1009&flora_id=1","taxonomicStatus":"accepted","parentNameUsageID":416,"higherClassification":"Equisetopsida;Magnoliidae;Rosanae;Rosales;Rosaceae;Amygdaloideae;Maleae"}],"vernacularNames":[{"vernacularName":"hawthorn","language":"en","source":"Farrar,
+        J.L. 1996. Les Arbres du Canada. Fides et Service canadien des forêts. 502
+        pp.","preferredName":true}]}]}]}'
+  recorded_at: 2019-01-25 22:57:43 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://data.canadensys.net/vascan/api/0.1/search.json?q=Crataegus
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.10.3 (Ubuntu)
+      date: Fri, 25 Jan 2019 22:57:43 GMT
+      content-type: application/json;charset=UTF-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      strict-transport-security: max-age=31536000
+    body:
+      encoding: UTF-8
+      string: '{"apiVersion":"0.1","lastUpdatedDate":"2018-06-21\n","results":[{"searchedTerm":"Crataegus","numMatches":1,"matches":[{"taxonID":1047,"scientificName":"Crataegus
+        Linnaeus","scientificNameAuthorship":"Linnaeus","canonicalName":"Crataegus","taxonRank":"genus","taxonomicAssertions":[{"acceptedNameUsage":"Crataegus
+        Linnaeus","acceptedNameUsageID":1047,"nameAccordingTo":"FNA Editorial Committee.
+        2014. Flora of North America north of Mexico. Volume 9: Magnoliophyta: Picramniaceae
+        to Rosaceae. Oxford University Press, New York.","nameAccordingToID":"http://www.efloras.org/volume_page.aspx?volume_id=1009&flora_id=1","taxonomicStatus":"accepted","parentNameUsageID":416,"higherClassification":"Equisetopsida;Magnoliidae;Rosanae;Rosales;Rosaceae;Amygdaloideae;Maleae"}],"vernacularNames":[{"vernacularName":"hawthorn","language":"en","source":"Farrar,
+        J.L. 1996. Les Arbres du Canada. Fides et Service canadien des forêts. 502
+        pp.","preferredName":true}]}]}]}'
+  recorded_at: 2019-01-25 22:57:43 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://data.canadensys.net/vascan/api/0.1/search.json?q=Crataegus
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.10.3 (Ubuntu)
+      date: Fri, 25 Jan 2019 22:57:43 GMT
+      content-type: application/json;charset=UTF-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      strict-transport-security: max-age=31536000
+    body:
+      encoding: UTF-8
+      string: '{"apiVersion":"0.1","lastUpdatedDate":"2018-06-21\n","results":[{"searchedTerm":"Crataegus","numMatches":1,"matches":[{"taxonID":1047,"scientificName":"Crataegus
+        Linnaeus","scientificNameAuthorship":"Linnaeus","canonicalName":"Crataegus","taxonRank":"genus","taxonomicAssertions":[{"acceptedNameUsage":"Crataegus
+        Linnaeus","acceptedNameUsageID":1047,"nameAccordingTo":"FNA Editorial Committee.
+        2014. Flora of North America north of Mexico. Volume 9: Magnoliophyta: Picramniaceae
+        to Rosaceae. Oxford University Press, New York.","nameAccordingToID":"http://www.efloras.org/volume_page.aspx?volume_id=1009&flora_id=1","taxonomicStatus":"accepted","parentNameUsageID":416,"higherClassification":"Equisetopsida;Magnoliidae;Rosanae;Rosales;Rosaceae;Amygdaloideae;Maleae"}],"vernacularNames":[{"vernacularName":"hawthorn","language":"en","source":"Farrar,
+        J.L. 1996. Les Arbres du Canada. Fides et Service canadien des forêts. 502
+        pp.","preferredName":true}]}]}]}'
+  recorded_at: 2019-01-25 22:57:43 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://data.canadensys.net/vascan/api/0.1/search.json?q=Crataegus
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.10.3 (Ubuntu)
+      date: Fri, 25 Jan 2019 22:57:43 GMT
+      content-type: application/json;charset=UTF-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      strict-transport-security: max-age=31536000
+    body:
+      encoding: UTF-8
+      string: '{"apiVersion":"0.1","lastUpdatedDate":"2018-06-21\n","results":[{"searchedTerm":"Crataegus","numMatches":1,"matches":[{"taxonID":1047,"scientificName":"Crataegus
+        Linnaeus","scientificNameAuthorship":"Linnaeus","canonicalName":"Crataegus","taxonRank":"genus","taxonomicAssertions":[{"acceptedNameUsage":"Crataegus
+        Linnaeus","acceptedNameUsageID":1047,"nameAccordingTo":"FNA Editorial Committee.
+        2014. Flora of North America north of Mexico. Volume 9: Magnoliophyta: Picramniaceae
+        to Rosaceae. Oxford University Press, New York.","nameAccordingToID":"http://www.efloras.org/volume_page.aspx?volume_id=1009&flora_id=1","taxonomicStatus":"accepted","parentNameUsageID":416,"higherClassification":"Equisetopsida;Magnoliidae;Rosanae;Rosales;Rosaceae;Amygdaloideae;Maleae"}],"vernacularNames":[{"vernacularName":"hawthorn","language":"en","source":"Farrar,
+        J.L. 1996. Les Arbres du Canada. Fides et Service canadien des forêts. 502
+        pp.","preferredName":true}]}]}]}'
+  recorded_at: 2019-01-25 22:57:43 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0

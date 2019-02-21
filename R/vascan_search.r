@@ -4,14 +4,15 @@
 #' @param q (character) Can be a scientific name, a vernacular name or a VASCAN
 #'    taxon identifier (e.g. 861)
 #' @param format (character) One of json (default) or xml.
-#' @param raw (logical) If TRUE, raw json or xml returned, if FALSE, parsed data returned.
-#' @param ... (list) Further args passed on to \code{\link[crul]{HttpClient}}
+#' @param raw (logical) If TRUE, raw json or xml returned, if FALSE, parsed 
+#' data returned.
+#' @param ... (list) Further args passed on to \code{\link[crul]{verb-GET}}
 #' @author Scott Chamberlain {myrmecocystus@@gmail.com}
 #' @return json, xml or a list.
 #' @references API docs http://data.canadensys.net/vascan/api
 #' @keywords names taxonomy
-#' @details Note that we lowercase all outputs in data.frame's, but when a list is
-#' given back, we don't touch the list names.
+#' @details Note that we lowercase all outputs in data.frame's, but when a 
+#' list is given back, we don't touch the list names.
 #' @examples \dontrun{
 #' vascan_search(q = "Helianthus annuus")
 #' vascan_search(q = "Helianthus annuus", raw=TRUE)
@@ -36,7 +37,6 @@
 #' invisible(vascan_search(q = "Helianthus annuus", verbose = TRUE))
 #' }
 vascan_search <- function(q, format='json', raw=FALSE, ...) {
-
   url <- sprintf("http://data.canadensys.net/vascan/api/0.1/search.%s", format)
   cli <- crul::HttpClient$new(url = url, 
     headers = list(`User-Agent` = taxize_ua(), `X-User-Agent` = taxize_ua()))
@@ -45,17 +45,11 @@ vascan_search <- function(q, format='json', raw=FALSE, ...) {
     temp <- cli$get(query = list(q = q), ...)
     temp$raise_for_status()
     out <- temp$parse("UTF-8")
-    # tt <- GET(url, query = list(q = q), ...)
-    # stop_for_status(tt)
-    # out <- con_utf8(tt)
   } else {
     args <- paste(q, collapse = '\n')
     temp <- cli$post(body = list(q = args), encode = "form", ...)
     temp$raise_for_status()
     out <- temp$parse("UTF-8")
-    # tt <- POST(url, body = list(q = args), encode = 'form', ...)
-    # stop_for_status(tt)
-    # out <- con_utf8(tt)
   }
   if (raw) {
     return( out )
@@ -68,15 +62,18 @@ vascan_search <- function(q, format='json', raw=FALSE, ...) {
 
 vascan_parse <- function(x){
   parsed <- lapply(x$matches, function(y) {
-    taxass <- nmslwr(data.frame(y$taxonomicAssertions, stringsAsFactors = FALSE))
+    taxass <- nmslwr(data.frame(y$taxonomicAssertions, 
+      stringsAsFactors = FALSE))
     dist <- nmslwr(data.frame(rbindlist(y$distribution)))
     vern <- nmslwr(data.frame(rbindlist(y$vernacularNames)))
-    list(taxonomicassertions = taxass, distribution = dist, vernacularnames = vern)
+    list(taxonomicassertions = taxass, distribution = dist, 
+      vernacularnames = vern)
   })
   if (length(parsed) == 0) {
     nmslwr(data.frame(searchedterm = x$searchedTerm, nummatches = x$numMatches,
                       matches = NA, stringsAsFactors = FALSE))
   } else {
-    list(searchedterm = x$searchedTerm, nummatches = x$numMatches, matches = parsed)
+    list(searchedterm = x$searchedTerm, nummatches = x$numMatches, 
+      matches = parsed)
   }
 }

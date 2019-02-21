@@ -29,7 +29,7 @@
 #' \url{http://resolver.globalnames.org/data_sources}.
 #' @param return_content (logical) return OCR'ed text. returns text
 #' string in \code{x$meta$content} slot. Default: \code{FALSE}
-#' @param ... Further args passed to \code{\link[httr]{GET}}
+#' @param ... Further args passed to \code{\link[crul]{verb-GET}}
 #' @author Scott Chamberlain {myrmecocystus@@gmail.com}
 #' @return A list of length two, first is metadata, second is the data as a
 #' data.frame.
@@ -68,12 +68,7 @@
 #' # return OCR content
 #' scrapenames(url='http://www.mapress.com/zootaxa/2012/f/z03372p265f.pdf',
 #'   return_content = TRUE)
-#'
-#' # use curl options
-#' library("httr")
-#' scrapenames(text='A spider named Pardosa moesta Banks, 1892')
 #' }
-
 scrapenames <- function(url = NULL, file = NULL, text = NULL, engine = NULL,
   unique = NULL, verbatim = NULL, detect_language = NULL,
   all_data_sources = NULL, data_source_ids = NULL,
@@ -92,33 +87,33 @@ scrapenames <- function(url = NULL, file = NULL, text = NULL, engine = NULL,
                   all_data_sources = all_data_sources,
                   data_source_ids = data_source_ids,
                   return_content = as_l(return_content)))
+  cli <- crul::HttpClient$new(base, opts = list(...))
   if (names(method) == 'url') {
-    tt <- GET(base, query = args, ...)
-    warn_for_status(tt)
-    out <- jsonlite::fromJSON(con_utf8(tt))
+    tt <- cli$get(query = args)
+    # tt <- GET(base, query = args, ...)
+    tt$raise_for_status()
+    out <- jsonlite::fromJSON(tt$parse("UTF-8"))
     token_url <- out$token_url
   } else {
     if (names(method) == "text") {
-      tt <- POST(base, body = list(text = text), encode = "form",
-                 dontfollow(), ...)
+      tt <- cli$post(body = list(text = text), encode = "form",
+                 followlocation = 0)
     } else {
-      tt <- POST(base, query = argsnull(args), encode = "multipart",
-                 body = list(file = upload_file(file)), dontfollow(), ...)
+      tt <- cli$post(query = argsnull(args), encode = "multipart",
+                 body = list(file = crul::upload(file)), 
+                 followlocation = 0)
     }
-    if (tt$status_code != 303) warn_for_status(tt)
-    token_url <- tt$headers$location
+    if (tt$status_code != 303) tt$raise_for_status()
+    token_url <- tt$response_headers$location
   }
 
   st <- 303
   while (st == 303) {
-    dat <- GET(token_url)
-    warn_for_status(dat)
-    tmp <- con_utf8(dat)
-    datout <- jsonlite::fromJSON(tmp)
+    dat <- crul::HttpClient$new(token_url)$get()
+    dat$raise_for_status()
+    datout <- jsonlite::fromJSON(dat$parse("UTF-8"))
     st <- datout$status
   }
   meta <- datout[!names(datout) %in% c("names")]
   list(meta = meta, data = nmslwr(datout$names))
 }
-
-dontfollow <- function() config(followlocation = 0)

@@ -88,13 +88,12 @@ class2tree <- function(input, varstep = TRUE, check = TRUE, ...) {
     tdf[,i][duplicated(tdf[,i])] <- NA
   }
 
-
   # check for incorrect dimensions error
   if (is(taxdis, 'simpleError'))
     stop("Try check=FALSE, but see docs for taxa2dist function in the vegan package for details.")
   out <- as.phylo.hclust(hclust(taxdis, ...))
-  res <- list(phylo = out, classification = as.data.frame(t(tdf)), distmat = taxdis,
-              names = names(input))
+  res <- list(phylo = out, classification = as.data.frame(t(tdf)), 
+    distmat = taxdis, names = names(input))
   class(res) <- 'classtree'
   return( res )
 }

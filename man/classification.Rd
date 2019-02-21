@@ -92,12 +92,21 @@ to query.}
 
 \item{db}{character; database to query. either \code{ncbi}, \code{itis},
 \code{eol}, \code{col}, \code{tropicos}, \code{gbif}, \code{nbn},
+<<<<<<< HEAD
 \code{worms}, \code{natserv}, \code{bold}, \code{wiki}, or \code{pow}. 
 Note that each taxonomic data source has, their own identifiers, so that 
 if you provide the wrong \code{db} value for the identifier you could 
 get a result, but it will likely be wrong (not what you were expecting).}
+=======
+\code{worms}, \code{natserv}, \code{bold}, or \code{wiki}. Note that each
+taxonomic data source has, their own identifiers, so that if you provide
+the wrong \code{db} value for the identifier you could get a result, but
+it will likely be wrong (not what you were expecting). If using ncbi, eol,
+and/or tropicos, we recommend getting an API key; see 
+\code{\link{taxize-authentication}}}
+>>>>>>> master
 
-\item{callopts}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{callopts}{Curl options passed on to \code{\link[crul]{verb-GET}}}
 
 \item{return_id}{(logical) If \code{TRUE} (default), return the taxon id
 as well as the name and rank of taxa in the lineage returned.
@@ -116,11 +125,11 @@ in a taxonomic id instead of a name of class character.}
 \code{\link{get_wormsid}}, \code{\link{get_wiki}}, 
 \code{\link{get_pow}}}
 
-\item{start}{The first record to return. If omitted, the results are returned
-from the first record (start=0). This is useful if the total number of
-results is larger than the maximum number of results returned by a single
-Web service query (currently the maximum number of results returned by a
-single query is 500 for terse queries and 50 for full queries).}
+\item{start}{The first record to return. If omitted, the results are 
+returned from the first record (start=0). This is useful if the total 
+number of results is larger than the maximum number of results returned by 
+a single Web service query (currently the maximum number of results returned 
+by a single query is 500 for terse queries and 50 for full queries).}
 
 \item{checklist}{character; The year of the checklist to query, if you want
 a specific year's checklist instead of the lastest as default (numeric).}
@@ -154,7 +163,7 @@ we can do.
 
 \section{Authentication}{
 
-See \code{\link{getkey}}
+See \code{\link{taxize-authentication}}
 }
 
 \examples{
@@ -184,7 +193,8 @@ classification("Malus domestica", db = "wiki")
 classification("Pinus contorta", db = "wiki")
 classification("Pinus contorta", db = "wiki", wiki_site = "commons")
 classification("Pinus contorta", db = "wiki", wiki_site = "pedia")
-classification("Pinus contorta", db = "wiki", wiki_site = "pedia", wiki = "fr")
+classification("Pinus contorta", db = "wiki", wiki_site = "pedia", 
+  wiki = "fr")
 
 classification(get_wiki("Malus domestica", "commons"))
 classification(get_wiki("Malus domestica", "species"))
@@ -252,8 +262,8 @@ cbind( classification(out, return_id=FALSE) )
 rbind(cl_col)
 cbind(cl_col)
 
-(cl_uid <- classification(get_uid(c("Puma concolor","Accipiter striatus")),
-  return_id=FALSE))
+(cl_uid <- classification(get_uid(c("Puma concolor",
+  "Accipiter striatus")), return_id=FALSE))
 rbind(cl_uid)
 cbind(cl_uid)
 ## cbind works a bit odd when there are lots of ranks without names

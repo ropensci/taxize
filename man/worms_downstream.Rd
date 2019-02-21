@@ -13,13 +13,13 @@ worms_downstream(id, downto, intermediate = FALSE, start = 1, ...)
 See examples below. The taxonomic level IS case sensitive, and you do have 
 to spell it correctly. See \code{data(rank_ref)} for spelling.}
 
-\item{intermediate}{(logical) If \code{TRUE}, return a list of length two with
-target taxon rank names, with additional list of data.frame's of
+\item{intermediate}{(logical) If \code{TRUE}, return a list of length two 
+with target taxon rank names, with additional list of data.frame's of
 intermediate taxonomic groups. Default: \code{FALSE}}
 
 \item{start}{(integer) Record number to start at}
 
-\item{...}{crul options passed on to \code{\link[crul]{HttpClient}}}
+\item{...}{crul options passed on to \code{\link[crul]{verb-GET}}}
 }
 \value{
 data.frame of taxonomic information downstream to family from e.g.,

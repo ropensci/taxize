@@ -58,7 +58,7 @@ specific properties of the taxon:
  'name' strategy is not recommended.
 }}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options passed on to \code{\link[crul]{verb-GET}}}
 }
 \description{
 EUBON taxonomy search
@@ -71,11 +71,11 @@ implement paging here when it is available in the EU BON API.
 \examples{
 \dontrun{
 eubon_search("Prionus")
-eubon_search("Salmo", 'pesi')
-eubon_search("Salmo", c('pesi', 'worms'))
-eubon_search("Salmo", 'worms', 'scientificNameLike')
-eubon_search("Salmo", 'worms', addSynonymy = TRUE)
-eubon_search("Salmo", 'worms', addParentTaxon = TRUE)
+eubon_search("Salmo", "pesi")
+eubon_search("Salmo", c("pesi", "worms"))
+eubon_search("Salmo", "worms", "scientificNameLike")
+eubon_search("Salmo", "worms", addSynonymy = TRUE)
+eubon_search("Salmo", "worms", addParentTaxon = TRUE)
 }
 }
 \references{

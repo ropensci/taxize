@@ -1,0 +1,491 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://api.gbif.org/v1/species/198?limit=20
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 24 Jan 2019 01:20:31 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT
+      server: Jetty(9.3.z-SNAPSHOT)
+      x-api-url: /v1/species/198?limit=20
+      cache-control: public, max-age=3601
+      x-varnish: 778732012 773718227
+      age: '1209'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      content-length: '696'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"key":198,"nubKey":198,"nameKey":1334961,"taxonID":"gbif:198","sourceTaxonKey":145904939,"kingdom":"Plantae","phylum":"Rhodophyta","kingdomKey":6,"phylumKey":106,"classKey":198,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ea21580-4f06-469d-995b-3f713fdcc37c","parentKey":106,"parent":"Rhodophyta","scientificName":"Bangiophyceae","canonicalName":"Bangiophyceae","authorship":"","nameType":"SCIENTIFIC","rank":"CLASS","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":131,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T14:38:02.984+0000","issues":[],"synonym":false,"class":"Bangiophyceae"}'
+  recorded_at: 2019-01-24 01:40:45 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://api.gbif.org/v1/species/198/children?limit=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 24 Jan 2019 01:20:31 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT
+      server: Jetty(9.3.z-SNAPSHOT)
+      x-api-url: /v1/species/198/children?limit=100
+      cache-control: public, max-age=3601
+      x-varnish: 789512350 757728227
+      age: '1209'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      content-length: '1527'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"offset":0,"limit":100,"endOfRecords":true,"results":[{"key":1389,"nubKey":1389,"nameKey":1334866,"taxonID":"gbif:1389","sourceTaxonKey":145904940,"kingdom":"Plantae","phylum":"Rhodophyta","order":"Bangiales","kingdomKey":6,"phylumKey":106,"classKey":198,"orderKey":1389,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ea21580-4f06-469d-995b-3f713fdcc37c","parentKey":198,"parent":"Bangiophyceae","scientificName":"Bangiales","canonicalName":"Bangiales","authorship":"","nameType":"SCIENTIFIC","rank":"ORDER","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":123,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T14:38:02.986+0000","issues":[],"synonym":false,"class":"Bangiophyceae"},{"key":671,"nubKey":671,"nameKey":4798419,"taxonID":"gbif:671","sourceTaxonKey":117199473,"kingdom":"Plantae","phylum":"Rhodophyta","order":"Goniotrichales","kingdomKey":6,"phylumKey":106,"classKey":198,"orderKey":671,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ea21580-4f06-469d-995b-3f713fdcc37c","parentKey":198,"parent":"Bangiophyceae","scientificName":"Goniotrichales","canonicalName":"Goniotrichales","authorship":"","nameType":"SCIENTIFIC","rank":"ORDER","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":6,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T14:38:03.322+0000","issues":[],"synonym":false,"class":"Bangiophyceae"}]}'
+  recorded_at: 2019-01-24 01:40:45 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://api.gbif.org/v1/species/1389?limit=20
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 24 Jan 2019 01:20:31 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT
+      server: Jetty(9.3.z-SNAPSHOT)
+      x-api-url: /v1/species/1389?limit=20
+      cache-control: public, max-age=3601
+      x-varnish: 780206417 757728229
+      age: '1209'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      content-length: '730'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"key":1389,"nubKey":1389,"nameKey":1334866,"taxonID":"gbif:1389","sourceTaxonKey":145904940,"kingdom":"Plantae","phylum":"Rhodophyta","order":"Bangiales","kingdomKey":6,"phylumKey":106,"classKey":198,"orderKey":1389,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ea21580-4f06-469d-995b-3f713fdcc37c","parentKey":198,"parent":"Bangiophyceae","scientificName":"Bangiales","canonicalName":"Bangiales","authorship":"","nameType":"SCIENTIFIC","rank":"ORDER","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":123,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T14:38:02.986+0000","issues":[],"synonym":false,"class":"Bangiophyceae"}'
+  recorded_at: 2019-01-24 01:40:45 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://api.gbif.org/v1/species/671?limit=20
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 24 Jan 2019 01:20:31 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT
+      server: Jetty(9.3.z-SNAPSHOT)
+      x-api-url: /v1/species/671?limit=20
+      cache-control: public, max-age=3601
+      x-varnish: 777158920 773718229
+      age: '1209'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      content-length: '739'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"key":671,"nubKey":671,"nameKey":4798419,"taxonID":"gbif:671","sourceTaxonKey":117199473,"kingdom":"Plantae","phylum":"Rhodophyta","order":"Goniotrichales","kingdomKey":6,"phylumKey":106,"classKey":198,"orderKey":671,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ea21580-4f06-469d-995b-3f713fdcc37c","parentKey":198,"parent":"Bangiophyceae","scientificName":"Goniotrichales","canonicalName":"Goniotrichales","authorship":"","nameType":"SCIENTIFIC","rank":"ORDER","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":6,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T14:38:03.322+0000","issues":[],"synonym":false,"class":"Bangiophyceae"}'
+  recorded_at: 2019-01-24 01:40:45 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://api.gbif.org/v1/species/1389/children?limit=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 24 Jan 2019 01:20:32 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT
+      server: Jetty(9.3.z-SNAPSHOT)
+      x-api-url: /v1/species/1389/children?limit=100
+      cache-control: public, max-age=3601
+      x-varnish: 780206420 775094430
+      age: '1210'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      content-length: '1598'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"offset":0,"limit":100,"endOfRecords":true,"results":[{"key":8962,"nubKey":8962,"nameKey":1334843,"taxonID":"gbif:8962","sourceTaxonKey":145904943,"kingdom":"Plantae","phylum":"Rhodophyta","order":"Bangiales","family":"Bangiaceae","kingdomKey":6,"phylumKey":106,"classKey":198,"orderKey":1389,"familyKey":8962,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ea21580-4f06-469d-995b-3f713fdcc37c","parentKey":1389,"parent":"Bangiales","scientificName":"Bangiaceae","canonicalName":"Bangiaceae","authorship":"","nameType":"SCIENTIFIC","rank":"FAMILY","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":120,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T14:38:02.995+0000","issues":[],"synonym":false,"class":"Bangiophyceae"},{"key":7655163,"nameKey":4830809,"taxonID":"gbif:7655163","sourceTaxonKey":145904941,"kingdom":"Plantae","phylum":"Rhodophyta","order":"Bangiales","family":"Granufilaceae","kingdomKey":6,"phylumKey":106,"classKey":198,"orderKey":1389,"familyKey":7655163,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ea21580-4f06-469d-995b-3f713fdcc37c","parentKey":1389,"parent":"Bangiales","scientificName":"Granufilaceae","canonicalName":"Granufilaceae","authorship":"","nameType":"SCIENTIFIC","rank":"FAMILY","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":1,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T14:38:02.988+0000","issues":[],"synonym":false,"class":"Bangiophyceae"}]}'
+  recorded_at: 2019-01-24 01:40:45 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://api.gbif.org/v1/species/671/children?limit=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 24 Jan 2019 01:20:32 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT
+      server: Jetty(9.3.z-SNAPSHOT)
+      x-api-url: /v1/species/671/children?limit=100
+      cache-control: public, max-age=3601
+      x-varnish: 778338742 757728231
+      age: '1210'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      content-length: '859'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"offset":0,"limit":100,"endOfRecords":true,"results":[{"key":5428592,"nubKey":5428592,"nameKey":4798413,"taxonID":"gbif:5428592","sourceTaxonKey":117199474,"kingdom":"Plantae","phylum":"Rhodophyta","order":"Goniotrichales","family":"Goniotrichaceae","kingdomKey":6,"phylumKey":106,"classKey":198,"orderKey":671,"familyKey":5428592,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ea21580-4f06-469d-995b-3f713fdcc37c","parentKey":671,"parent":"Goniotrichales","scientificName":"Goniotrichaceae","canonicalName":"Goniotrichaceae","authorship":"","nameType":"SCIENTIFIC","rank":"FAMILY","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":5,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T14:38:03.323+0000","issues":[],"synonym":false,"class":"Bangiophyceae"}]}'
+  recorded_at: 2019-01-24 01:40:45 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://api.gbif.org/v1/species/8962?limit=20
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 24 Jan 2019 01:20:32 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT
+      server: Jetty(9.3.z-SNAPSHOT)
+      x-api-url: /v1/species/8962?limit=20
+      cache-control: public, max-age=3601
+      x-varnish: 778338745 773718237
+      age: '1210'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      content-length: '769'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"key":8962,"nubKey":8962,"nameKey":1334843,"taxonID":"gbif:8962","sourceTaxonKey":145904943,"kingdom":"Plantae","phylum":"Rhodophyta","order":"Bangiales","family":"Bangiaceae","kingdomKey":6,"phylumKey":106,"classKey":198,"orderKey":1389,"familyKey":8962,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ea21580-4f06-469d-995b-3f713fdcc37c","parentKey":1389,"parent":"Bangiales","scientificName":"Bangiaceae","canonicalName":"Bangiaceae","authorship":"","nameType":"SCIENTIFIC","rank":"FAMILY","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":120,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T14:38:02.995+0000","issues":[],"synonym":false,"class":"Bangiophyceae"}'
+  recorded_at: 2019-01-24 01:40:45 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://api.gbif.org/v1/species/7655163?limit=20
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 24 Jan 2019 01:20:32 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT
+      server: Jetty(9.3.z-SNAPSHOT)
+      x-api-url: /v1/species/7655163?limit=20
+      cache-control: public, max-age=3601
+      x-varnish: 780141174 773718239
+      age: '1211'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      content-length: '771'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"key":7655163,"nameKey":4830809,"taxonID":"gbif:7655163","sourceTaxonKey":145904941,"kingdom":"Plantae","phylum":"Rhodophyta","order":"Bangiales","family":"Granufilaceae","kingdomKey":6,"phylumKey":106,"classKey":198,"orderKey":1389,"familyKey":7655163,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ea21580-4f06-469d-995b-3f713fdcc37c","parentKey":1389,"parent":"Bangiales","scientificName":"Granufilaceae","canonicalName":"Granufilaceae","authorship":"","nameType":"SCIENTIFIC","rank":"FAMILY","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":1,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T14:38:02.988+0000","issues":[],"synonym":false,"class":"Bangiophyceae"}'
+  recorded_at: 2019-01-24 01:40:45 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://api.gbif.org/v1/species/5428592?limit=20
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 24 Jan 2019 01:20:32 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT
+      server: Jetty(9.3.z-SNAPSHOT)
+      x-api-url: /v1/species/5428592?limit=20
+      cache-control: public, max-age=3601
+      x-varnish: 787251383 732924111
+      age: '1211'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      content-length: '802'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"key":5428592,"nubKey":5428592,"nameKey":4798413,"taxonID":"gbif:5428592","sourceTaxonKey":117199474,"kingdom":"Plantae","phylum":"Rhodophyta","order":"Goniotrichales","family":"Goniotrichaceae","kingdomKey":6,"phylumKey":106,"classKey":198,"orderKey":671,"familyKey":5428592,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ea21580-4f06-469d-995b-3f713fdcc37c","parentKey":671,"parent":"Goniotrichales","scientificName":"Goniotrichaceae","canonicalName":"Goniotrichaceae","authorship":"","nameType":"SCIENTIFIC","rank":"FAMILY","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":5,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T14:38:03.323+0000","issues":[],"synonym":false,"class":"Bangiophyceae"}'
+  recorded_at: 2019-01-24 01:40:45 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://api.gbif.org/v1/species/8962/children?limit=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 24 Jan 2019 01:20:32 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT
+      server: Jetty(9.3.z-SNAPSHOT)
+      x-api-url: /v1/species/8962/children?limit=100
+      cache-control: public, max-age=3601
+      x-varnish: 780141181 732924113
+      age: '1211'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      content-length: '18924'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"offset":0,"limit":100,"endOfRecords":true,"results":[{"key":2651958,"nubKey":2651958,"nameKey":443717,"taxonID":"gbif:2651958","sourceTaxonKey":145904960,"kingdom":"Plantae","phylum":"Rhodophyta","order":"Bangiales","family":"Bangiaceae","genus":"Allogonium","kingdomKey":6,"phylumKey":106,"classKey":198,"orderKey":1389,"familyKey":8962,"genusKey":2651958,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":8962,"parent":"Bangiaceae","scientificName":"Allogonium
+        Kützing, 1843","canonicalName":"Allogonium","authorship":"Kützing, 1843","nameType":"SCIENTIFIC","rank":"GENUS","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Phycol.
+        Gener., p","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T14:38:03.027+0000","issues":["NO_SPECIES"],"synonym":false,"class":"Bangiophyceae"},{"key":2653776,"nubKey":2653776,"nameKey":1334221,"taxonID":"gbif:2653776","sourceTaxonKey":145904959,"kingdom":"Plantae","phylum":"Rhodophyta","order":"Bangiales","family":"Bangiaceae","genus":"Bangia","kingdomKey":6,"phylumKey":106,"classKey":198,"orderKey":1389,"familyKey":8962,"genusKey":2653776,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":8962,"parent":"Bangiaceae","scientificName":"Bangia
+        Lyngb.","canonicalName":"Bangia","authorship":"Lyngb.","nameType":"SCIENTIFIC","rank":"GENUS","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":8,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T14:38:03.036+0000","issues":[],"synonym":false,"class":"Bangiophyceae"},{"key":4907128,"nubKey":4907128,"nameKey":1334954,"taxonID":"gbif:4907128","sourceTaxonKey":145904958,"kingdom":"Plantae","phylum":"Rhodophyta","order":"Bangiales","family":"Bangiaceae","genus":"Bangiomorpha","kingdomKey":6,"phylumKey":106,"classKey":198,"orderKey":1389,"familyKey":8962,"genusKey":4907128,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":8962,"parent":"Bangiaceae","scientificName":"Bangiomorpha
+        N.J.Butterfield, 2000","canonicalName":"Bangiomorpha","authorship":"N.J.Butterfield,
+        2000","nameType":"SCIENTIFIC","rank":"GENUS","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Butterfield,
+        N.J. (2000). Bangiomorpha pubescens n. gen., n. sp.: implications for the
+        evolution of sex, multicellularity, and the Mesoproterozoic/Neoproterozoic
+        radiation of eukaryotes. <em>Paleobiology.</em> 26: 386-404.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T14:38:03.101+0000","issues":["NO_SPECIES"],"synonym":false,"class":"Bangiophyceae"},{"key":6102075,"nubKey":6102075,"nameKey":17459589,"taxonID":"gbif:6102075","sourceTaxonKey":145904957,"kingdom":"Plantae","phylum":"Rhodophyta","order":"Bangiales","family":"Bangiaceae","genus":"Boreophyllum","kingdomKey":6,"phylumKey":106,"classKey":198,"orderKey":1389,"familyKey":8962,"genusKey":6102075,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":8962,"parent":"Bangiaceae","scientificName":"Boreophyllum
+        S.C.Lindstrom, N.Kikuchi, M.Miyata & Neefus, 2011","canonicalName":"Boreophyllum","authorship":"S.C.Lindstrom,
+        N.Kikuchi, M.Miyata & Neefus, 2011","nameType":"SCIENTIFIC","rank":"GENUS","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","publishedIn":"Sutherland,
+        J.E., Lindstrom, S.C., Nelson, W.A., Brodie, J., Lynch, M.D., Hwang, M.S.,
+        Choi, H.-G., Miyata, M., Kikuchi, N., Oliveira, M.C., Farr, T., Neefus, C.,
+        Mols-Mortensen, A. Milstein, D. & Müller, K.M. (2011). A new look at an ancient
+        order: generic revision of the Bangiales (Rhodophyta). Journal of Phycology
+        47(5): 1131-1151.","numDescendants":1,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T14:38:03.157+0000","issues":[],"synonym":false,"class":"Bangiophyceae"},{"key":8203169,"nameKey":2639626,"taxonID":"gbif:8203169","sourceTaxonKey":145904956,"kingdom":"Plantae","phylum":"Rhodophyta","order":"Bangiales","family":"Bangiaceae","genus":"Clymene","kingdomKey":6,"phylumKey":106,"classKey":198,"orderKey":1389,"familyKey":8962,"genusKey":8203169,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":8962,"parent":"Bangiaceae","scientificName":"Clymene
+        W.A.Nelson, 2011","canonicalName":"Clymene","authorship":"W.A.Nelson, 2011","nameType":"SCIENTIFIC","rank":"GENUS","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Sutherland,
+        J.E., Lindstrom, S.C., Nelson, W.A., Brodie, J., Lynch, M.D., Hwang, M.S.,
+        Choi, H.-G., Miyata, M., Kikuchi, N., Oliveira, M.C., Farr, T., Neefus, C.,
+        Mols-Mortensen, A. Milstein, D. & Müller, K.M. (2011). A new look at an ancient
+        order: generic revision of the Bangiales (Rhodophyta). Journal of Phycology
+        47(5): 1131-1151.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T14:38:03.317+0000","issues":["NO_SPECIES"],"synonym":false,"class":"Bangiophyceae"},{"key":7952618,"nameKey":3555927,"taxonID":"gbif:7952618","sourceTaxonKey":145904955,"kingdom":"Plantae","phylum":"Rhodophyta","order":"Bangiales","family":"Bangiaceae","genus":"Dione","kingdomKey":6,"phylumKey":106,"classKey":198,"orderKey":1389,"familyKey":8962,"genusKey":7952618,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":8962,"parent":"Bangiaceae","scientificName":"Dione
+        W.A.Nelson, 2005","canonicalName":"Dione","authorship":"W.A.Nelson, 2005","nameType":"SCIENTIFIC","rank":"GENUS","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T14:38:03.318+0000","issues":["NO_SPECIES"],"synonym":false,"class":"Bangiophyceae"},{"key":6784971,"nubKey":6784971,"nameKey":4551049,"taxonID":"gbif:6784971","sourceTaxonKey":145904954,"kingdom":"Plantae","phylum":"Rhodophyta","order":"Bangiales","family":"Bangiaceae","genus":"Fuscifolium","kingdomKey":6,"phylumKey":106,"classKey":198,"orderKey":1389,"familyKey":8962,"genusKey":6784971,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":8962,"parent":"Bangiaceae","scientificName":"Fuscifolium
+        S.C.Lindstrom, 2011","canonicalName":"Fuscifolium","authorship":"S.C.Lindstrom,
+        2011","nameType":"SCIENTIFIC","rank":"GENUS","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Sutherland,
+        J.E., Lindstrom, S.C., Nelson, W.A., Brodie, J., Lynch, M.D., Hwang, M.S.,
+        Choi, H.-G., Miyata, M., Kikuchi, N., Oliveira, M.C., Farr, T., Neefus, C.,
+        Mols-Mortensen, A. Milstein, D. & Müller, K.M. (2011). A new look at an ancient
+        order: generic revision of the Bangiales (Rhodophyta). Journal of Phycology
+        47(5): 1131-1151.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T14:38:03.032+0000","issues":["NO_SPECIES"],"synonym":false,"class":"Bangiophyceae"},{"key":6784972,"nubKey":6784972,"nameKey":6560454,"taxonID":"gbif:6784972","sourceTaxonKey":145904953,"kingdom":"Plantae","phylum":"Rhodophyta","order":"Bangiales","family":"Bangiaceae","genus":"Lysithea","kingdomKey":6,"phylumKey":106,"classKey":198,"orderKey":1389,"familyKey":8962,"genusKey":6784972,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":8962,"parent":"Bangiaceae","scientificName":"Lysithea
+        W.A.Nelson, 2011","canonicalName":"Lysithea","authorship":"W.A.Nelson, 2011","nameType":"SCIENTIFIC","rank":"GENUS","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Sutherland,
+        J.E., Lindstrom, S.C., Nelson, W.A., Brodie, J., Lynch, M.D., Hwang, M.S.,
+        Choi, H.-G., Miyata, M., Kikuchi, N., Oliveira, M.C., Farr, T., Neefus, C.,
+        Mols-Mortensen, A. Milstein, D. & Müller, K.M. (2011). A new look at an ancient
+        order: generic revision of the Bangiales (Rhodophyta). Journal of Phycology
+        47(5): 1131-1151.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T14:38:03.034+0000","issues":["NO_SPECIES"],"synonym":false,"class":"Bangiophyceae"},{"key":4376334,"nubKey":4376334,"nameKey":7079488,"taxonID":"gbif:4376334","sourceTaxonKey":145904952,"kingdom":"Plantae","phylum":"Rhodophyta","order":"Bangiales","family":"Bangiaceae","genus":"Minerva","kingdomKey":6,"phylumKey":106,"classKey":198,"orderKey":1389,"familyKey":8962,"genusKey":4376334,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":8962,"parent":"Bangiaceae","scientificName":"Minerva
+        W.A.Nelson, 2005","canonicalName":"Minerva","authorship":"W.A.Nelson, 2005","nameType":"SCIENTIFIC","rank":"GENUS","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T14:38:03.315+0000","issues":["NO_SPECIES"],"synonym":false,"class":"Bangiophyceae"},{"key":7594316,"nameKey":7106026,"taxonID":"gbif:7594316","sourceTaxonKey":145904951,"kingdom":"Plantae","phylum":"Rhodophyta","order":"Bangiales","family":"Bangiaceae","genus":"Miuraea","kingdomKey":6,"phylumKey":106,"classKey":198,"orderKey":1389,"familyKey":8962,"genusKey":7594316,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":8962,"parent":"Bangiaceae","scientificName":"Miuraea
+        N.Kikuchi, S.Arai, G.Yoshida, J.A.Shin & M.Miyata, 2011","canonicalName":"Miuraea","authorship":"N.Kikuchi,
+        S.Arai, G.Yoshida, J.A.Shin & M.Miyata, 2011","nameType":"SCIENTIFIC","rank":"GENUS","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Sutherland,
+        J.E., Lindstrom, S.C., Nelson, W.A., Brodie, J., Lynch, M.D., Hwang, M.S.,
+        Choi, H.-G., Miyata, M., Kikuchi, N., Oliveira, M.C., Farr, T., Neefus, C.,
+        Mols-Mortensen, A. Milstein, D. & Müller, K.M. (2011). A new look at an ancient
+        order: generic revision of the Bangiales (Rhodophyta). Journal of Phycology
+        47(5): 1131-1151.","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T14:38:03.030+0000","issues":["NO_SPECIES"],"synonym":false,"class":"Bangiophyceae"},{"key":4922773,"nubKey":4922773,"nameKey":17459430,"taxonID":"gbif:4922773","sourceTaxonKey":108629592,"kingdom":"Plantae","phylum":"Rhodophyta","order":"Bangiales","family":"Bangiaceae","genus":"Palaeoconchocelis","kingdomKey":6,"phylumKey":106,"classKey":198,"orderKey":1389,"familyKey":8962,"genusKey":4922773,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"0938172b-2086-439c-a1dd-c21cb0109ed5","parentKey":8962,"parent":"Bangiaceae","scientificName":"Palaeoconchocelis
+        S.Campbell, J.Kazmierczak & S.Golubic, 1979","canonicalName":"Palaeoconchocelis","authorship":"S.Campbell,
+        J.Kazmierczak & S.Golubic, 1979","nameType":"SCIENTIFIC","rank":"GENUS","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Acta
+        Palaeontologica Polonica 24: -. [405-408]","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T14:38:03.002+0000","issues":["NO_SPECIES"],"synonym":false,"class":"Bangiophyceae"},{"key":2653483,"nubKey":2653483,"nameKey":9116490,"taxonID":"gbif:2653483","sourceTaxonKey":145904950,"kingdom":"Plantae","phylum":"Rhodophyta","order":"Bangiales","family":"Bangiaceae","genus":"Porphyra","kingdomKey":6,"phylumKey":106,"classKey":198,"orderKey":1389,"familyKey":8962,"genusKey":2653483,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":8962,"parent":"Bangiaceae","scientificName":"Porphyra
+        C.Agardh, 1824","canonicalName":"Porphyra","authorship":"C.Agardh, 1824","nameType":"SCIENTIFIC","rank":"GENUS","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":72,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T14:38:03.161+0000","issues":[],"synonym":false,"class":"Bangiophyceae"},{"key":4376337,"nubKey":4376337,"nameKey":9327538,"taxonID":"gbif:4376337","sourceTaxonKey":145904949,"kingdom":"Plantae","phylum":"Rhodophyta","order":"Bangiales","family":"Bangiaceae","genus":"Pseudobangia","kingdomKey":6,"phylumKey":106,"classKey":198,"orderKey":1389,"familyKey":8962,"genusKey":4376337,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":8962,"parent":"Bangiaceae","scientificName":"Pseudobangia
+        K.M.Müller & R.G.Sheath, 2005","canonicalName":"Pseudobangia","authorship":"K.M.Müller
+        & R.G.Sheath, 2005","nameType":"SCIENTIFIC","rank":"GENUS","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T14:38:03.099+0000","issues":["NO_SPECIES"],"synonym":false,"class":"Bangiophyceae"},{"key":4908866,"nubKey":4908866,"nameKey":9584658,"taxonID":"gbif:4908866","sourceTaxonKey":145904948,"kingdom":"Plantae","phylum":"Rhodophyta","order":"Bangiales","family":"Bangiaceae","genus":"Pyropia","kingdomKey":6,"phylumKey":106,"classKey":198,"orderKey":1389,"familyKey":8962,"genusKey":4908866,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":8962,"parent":"Bangiaceae","scientificName":"Pyropia
+        J.Agardh, 1899","canonicalName":"Pyropia","authorship":"J.Agardh, 1899","nameType":"SCIENTIFIC","rank":"GENUS","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","publishedIn":"Sutherland,
+        J.E., Lindstrom, S.C., Nelson, W.A., Brodie, J., Lynch, M.D., Hwang, M.S.,
+        Choi, H.-G., Miyata, M., Kikuchi, N., Oliveira, M.C., Farr, T., Neefus, C.,
+        Mols-Mortensen, A. Milstein, D. & Müller, K.M. (2011). A new look at an ancient
+        order: generic revision of the Bangiales (Rhodophyta). Journal of Phycology
+        47(5): 1131-1151.","numDescendants":17,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T14:38:03.103+0000","issues":[],"synonym":false,"class":"Bangiophyceae"},{"key":4907552,"nubKey":4907552,"nameKey":10528204,"taxonID":"gbif:4907552","sourceTaxonKey":145904947,"kingdom":"Plantae","phylum":"Rhodophyta","order":"Bangiales","family":"Bangiaceae","genus":"Spermogonia","kingdomKey":6,"phylumKey":106,"classKey":198,"orderKey":1389,"familyKey":8962,"genusKey":4907552,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":8962,"parent":"Bangiaceae","scientificName":"Spermogonia
+        Bonnemaison, 1822","canonicalName":"Spermogonia","authorship":"Bonnemaison,
+        1822","nameType":"SCIENTIFIC","rank":"GENUS","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T14:38:03.314+0000","issues":["NO_SPECIES"],"synonym":false,"class":"Bangiophyceae"},{"key":8274639,"nameKey":17622018,"taxonID":"gbif:8274639","kingdom":"Plantae","phylum":"Rhodophyta","order":"Bangiales","family":"Bangiaceae","genus":"Themis","kingdomKey":6,"phylumKey":106,"classKey":198,"orderKey":1389,"familyKey":8962,"genusKey":8274639,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":8962,"parent":"Bangiaceae","scientificName":"Themis
+        N.Sánchez & A.Vergés","canonicalName":"Themis","authorship":"N.Sánchez & A.Vergés","nameType":"SCIENTIFIC","rank":"GENUS","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T14:38:03.098+0000","issues":["NO_SPECIES"],"synonym":false,"class":"Bangiophyceae"},{"key":2653758,"nubKey":2653758,"nameKey":11851859,"taxonID":"gbif:2653758","sourceTaxonKey":145904945,"kingdom":"Plantae","phylum":"Rhodophyta","order":"Bangiales","family":"Bangiaceae","genus":"Wildemania","kingdomKey":6,"phylumKey":106,"classKey":198,"orderKey":1389,"familyKey":8962,"genusKey":2653758,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":8962,"parent":"Bangiaceae","scientificName":"Wildemania
+        De Toni, 1890","canonicalName":"Wildemania","authorship":"De Toni, 1890","nameType":"SCIENTIFIC","rank":"GENUS","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":2,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T14:38:03.008+0000","issues":[],"synonym":false,"class":"Bangiophyceae"},{"key":9738674,"nameKey":18520448,"taxonID":"gbif:9738674","sourceTaxonKey":119329028,"kingdom":"Plantae","phylum":"Rhodophyta","order":"Bangiales","family":"Bangiaceae","genus":"Wildemania","kingdomKey":6,"phylumKey":106,"classKey":198,"orderKey":1389,"familyKey":8962,"genusKey":9738674,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"a6c6cead-b5ce-4a4e-8cf5-1542ba708dec","parentKey":8962,"parent":"Bangiaceae","scientificName":"Wildemania,
+        2011","canonicalName":"Wildemania","authorship":", 2011","nameType":"SCIENTIFIC","rank":"GENUS","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","numDescendants":1,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T14:38:03.004+0000","issues":[],"synonym":false,"class":"Bangiophyceae"},{"key":2653756,"nubKey":2653756,"nameKey":11951725,"taxonID":"gbif:2653756","sourceTaxonKey":145904944,"kingdom":"Plantae","phylum":"Rhodophyta","order":"Bangiales","family":"Bangiaceae","genus":"Zachariasia","kingdomKey":6,"phylumKey":106,"classKey":198,"orderKey":1389,"familyKey":8962,"genusKey":2653756,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":8962,"parent":"Bangiaceae","scientificName":"Zachariasia
+        Lemmermann, 1895","canonicalName":"Zachariasia","authorship":"Lemmermann,
+        1895","nameType":"SCIENTIFIC","rank":"GENUS","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Vorarb.
+        Fl. Plöner Seengeb., p","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T14:38:03.311+0000","issues":["NO_SPECIES"],"synonym":false,"class":"Bangiophyceae"}]}'
+  recorded_at: 2019-01-24 01:40:45 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://api.gbif.org/v1/species/7655163/children?limit=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 24 Jan 2019 01:20:33 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT
+      server: Jetty(9.3.z-SNAPSHOT)
+      x-api-url: /v1/species/7655163/children?limit=100
+      cache-control: public, max-age=3601
+      x-varnish: 774047019 732924117
+      age: '1211'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      content-length: '909'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"offset":0,"limit":100,"endOfRecords":true,"results":[{"key":7632635,"nameKey":4830812,"taxonID":"gbif:7632635","sourceTaxonKey":145904942,"kingdom":"Plantae","phylum":"Rhodophyta","order":"Bangiales","family":"Granufilaceae","genus":"Granufilum","kingdomKey":6,"phylumKey":106,"classKey":198,"orderKey":1389,"familyKey":7655163,"genusKey":7632635,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":7655163,"parent":"Granufilaceae","scientificName":"Granufilum
+        X.F.Zhao, 1995","canonicalName":"Granufilum","authorship":"X.F.Zhao, 1995","nameType":"SCIENTIFIC","rank":"GENUS","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T14:38:02.990+0000","issues":["NO_SPECIES"],"synonym":false,"class":"Bangiophyceae"}]}'
+  recorded_at: 2019-01-24 01:40:45 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0
+- request:
+    method: get
+    uri: http://api.gbif.org/v1/species/5428592/children?limit=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 24 Jan 2019 01:20:33 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT
+      server: Jetty(9.3.z-SNAPSHOT)
+      x-api-url: /v1/species/5428592/children?limit=100
+      cache-control: public, max-age=3601
+      x-varnish: 769688900 732924121
+      age: '1212'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      content-length: '4408'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"offset":0,"limit":100,"endOfRecords":true,"results":[{"key":2665908,"nubKey":2665908,"nameKey":2447269,"taxonID":"gbif:2665908","sourceTaxonKey":145903621,"kingdom":"Plantae","phylum":"Rhodophyta","order":"Goniotrichales","family":"Goniotrichaceae","genus":"Chroodactylon","kingdomKey":6,"phylumKey":106,"classKey":198,"orderKey":671,"familyKey":5428592,"genusKey":2665908,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"4dd32523-a3a3-43b7-84df-4cda02f15cf7","parentKey":5428592,"parent":"Goniotrichaceae","scientificName":"Chroodactylon","canonicalName":"Chroodactylon","authorship":"","nameType":"SCIENTIFIC","rank":"GENUS","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T14:38:03.330+0000","issues":["NO_SPECIES"],"synonym":false,"class":"Bangiophyceae"},{"key":4897801,"nubKey":4897801,"nameKey":17459427,"taxonID":"gbif:4897801","sourceTaxonKey":108629907,"kingdom":"Plantae","phylum":"Rhodophyta","order":"Goniotrichales","family":"Goniotrichaceae","genus":"Diconia","kingdomKey":6,"phylumKey":106,"classKey":198,"orderKey":671,"familyKey":5428592,"genusKey":4897801,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"0938172b-2086-439c-a1dd-c21cb0109ed5","parentKey":5428592,"parent":"Goniotrichaceae","scientificName":"Diconia
+        W.H.Harvey, 1849","canonicalName":"Diconia","authorship":"W.H.Harvey, 1849","nameType":"SCIENTIFIC","rank":"GENUS","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T14:38:03.329+0000","issues":["NO_SPECIES"],"synonym":false,"class":"Bangiophyceae"},{"key":7864726,"nameKey":10860271,"taxonID":"gbif:7864726","sourceTaxonKey":145903612,"kingdom":"Plantae","phylum":"Rhodophyta","order":"Goniotrichales","family":"Goniotrichaceae","genus":"Stylonema","kingdomKey":6,"phylumKey":106,"classKey":198,"orderKey":671,"familyKey":5428592,"genusKey":7864726,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"4dd32523-a3a3-43b7-84df-4cda02f15cf7","parentKey":5428592,"parent":"Goniotrichaceae","scientificName":"Stylonema","canonicalName":"Stylonema","authorship":"","nameType":"SCIENTIFIC","rank":"GENUS","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T14:38:03.332+0000","issues":["NO_SPECIES"],"synonym":false,"class":"Bangiophyceae"},{"key":9140264,"nameKey":12850686,"taxonID":"gbif:9140264","sourceTaxonKey":126646252,"kingdom":"Plantae","phylum":"Rhodophyta","order":"Goniotrichales","family":"Goniotrichaceae","species":"Asterocytis
+        wolleana","kingdomKey":6,"phylumKey":106,"classKey":198,"orderKey":671,"familyKey":5428592,"speciesKey":9140264,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"6cfd67d6-4f9b-400b-8549-1933ac27936f","parentKey":5428592,"parent":"Goniotrichaceae","scientificName":"Asterocytis
+        wolleana (Hariot) Kawaguchi & Masuda","canonicalName":"Asterocytis wolleana","authorship":"Kawaguchi
+        & Masuda (Hariot)","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T14:38:03.325+0000","issues":[],"synonym":false,"class":"Bangiophyceae"},{"key":9048790,"nameKey":17459426,"taxonID":"gbif:9048790","sourceTaxonKey":126212595,"kingdom":"Plantae","phylum":"Rhodophyta","order":"Goniotrichales","family":"Goniotrichaceae","species":"Goniotrichum
+        humphreyi","kingdomKey":6,"phylumKey":106,"classKey":198,"orderKey":671,"familyKey":5428592,"speciesKey":9048790,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"6cfd67d6-4f9b-400b-8549-1933ac27936f","parentKey":5428592,"parent":"Goniotrichaceae","scientificName":"Goniotrichum
+        humphreyi Collins","canonicalName":"Goniotrichum humphreyi","authorship":"Collins","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T14:38:03.327+0000","issues":[],"synonym":false,"class":"Bangiophyceae"}]}'
+  recorded_at: 2019-01-24 01:40:45 GMT
+  recorded_with: vcr/0.2.2, webmockr/0.3.0

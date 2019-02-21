@@ -71,13 +71,21 @@ get_tolid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, ...) {
 
   assert(ask, "logical")
   assert(verbose, "logical")
+  if (!all(is.na(rows))) {
+    assert(rows, c("numeric", "integer"))
+    stopifnot(rows > 0)
+  }
 
   fun <- function(x, ask, verbose, rows, ...) {
     mssg(verbose, "\nRetrieving data for taxon '", x, "'\n")
 
     tol_df <- tryCatch(tol_resolve(x, ...), error = function(e) e)
 
-    if (!inherits(tol_df, "data.frame") || NROW(tol_df) == 0 || inherits(tol_df, "error")) {
+    if (
+      !inherits(tol_df, "data.frame") ||
+      NROW(tol_df) == 0 ||
+      inherits(tol_df, "error")
+    ) {
       id <- NA_character_
       att <- "not found"
     } else {
@@ -86,7 +94,7 @@ get_tolid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, ...) {
 
       # should return NA if spec not found
       if (NROW(tol_df) == 0) {
-        mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
+        mssg(verbose, m_not_found_sp_altclass)
         id <- NA_character_
         att <- 'not found'
       }
@@ -100,7 +108,7 @@ get_tolid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, ...) {
       # more than one found -> user input
       if (NROW(tol_df) > 1) {
         # check for exact match
-        matchtmp <- tol_df[tol_df$unique_name %in% x, "ott_id"]
+        matchtmp <- tol_df[tolower(tol_df$unique_name) %in% tolower(x), "ott_id"]
         if (length(matchtmp) == 1) {
           id <- as.character(matchtmp)
           direct <- TRUE
@@ -145,13 +153,10 @@ get_tolid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, ...) {
             }
             else {
               if (length(id) != 1) {
-                warning(
-                  sprintf("More than one ToL ID found for taxon '%s'; refine query or set ask=TRUE",
-                          x),
-                  call. = FALSE
-                )
+                warning(sprintf(m_more_than_one_found, "ToL ID", x),
+                  call. = FALSE)
                 id <- NA_character_
-                att <- 'NA due to ask=FALSE & > 1 result'
+                att <- m_na_ask_false
               }
             }
           }
@@ -276,6 +281,11 @@ tol_fetch_fuzzy <- function(x) {
   }))
   df <- move_col_begin(df, "matched_name")
   df <- move_col_begin(df, "unique_name")
+  df$tax_sources <- NULL
+  df$synonyms <- NULL
+  df$is_suppressed <- NULL
+  df$search_string <- NULL
+  df$name <- NULL
   df
 }
 

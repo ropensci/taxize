@@ -2,16 +2,16 @@
 #'
 #' @export
 #' @param searchtsn One or more TSN for a taxon (numeric/integer)
-#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' @param ... Curl options passed on to \code{\link[crul]{verb-GET}}
 #'
 #' @return data.frame with with row number equal to input vector length, and
 #' with three columns:
 #' \itemize{
 #'  \item submittedtsn (numeric) - The submitted TSN
-#'  \item acceptedname (character) - The accepted name - if the submitted TSN is the
-#'  accepted TSN, then this is \code{NA_character_} because ITIS does not return a
-#'  name along with the TSN if it's an accepted name. We could make an extra HTTP
-#'  request to ITIS, but that means additional time.
+#'  \item acceptedname (character) - The accepted name - if the submitted TSN 
+#'  is the accepted TSN, then this is \code{NA_character_} because ITIS does 
+#'  not return a name along with the TSN if it's an accepted name. We could 
+#'  make an extra HTTP request to ITIS, but that means additional time.
 #'  \item acceptedtsn (numeric) - The accepted TSN
 #'  \item author (character) - taxonomic authority
 #' }
@@ -40,7 +40,7 @@
 #' itis_acceptname(searchtsn = ids)
 #' }
 itis_acceptname <- function(searchtsn, ...) {
-  (dddd <- data.table::setDF(data.table::rbindlist(lapply(searchtsn, function(z) {
+  dt2df(lapply(searchtsn, function(z) {
     tmp <- ritis::accepted_names(z)
     if (NROW(tmp) == 0) {
       data.frame(submittedtsn = z, acceptedname = NA, acceptedtsn = z,
@@ -52,5 +52,5 @@ itis_acceptname <- function(searchtsn, ...) {
         stringsAsFactors = FALSE
       )
     }
-  }), fill = TRUE, use.names = TRUE)))
+  }), idcol = FALSE)
 }

@@ -3,7 +3,8 @@
 #' @export
 #' @param commnames One or more common names or partial names.
 #' @param db Data source, one of \emph{"ncbi"} (default), \emph{"itis"},
-#' \emph{"tropicos"}, \emph{"eol"}, or \emph{"worms"}.
+#' \emph{"tropicos"}, \emph{"eol"}, or \emph{"worms"}. If using ncbi, we
+#' recommend getting an API key; see \code{\link{taxize-authentication}}
 #' @param itisby Search for common names across entire names (search, default),
 #' at beginning of names (begin), or at end of names (end).
 #' @param simplify (logical) If \code{TRUE}, simplify output to a vector
@@ -19,19 +20,18 @@
 #' \code{\link[taxize]{get_tsn}} to get ids first, then pass in to this fxn.
 #'
 #' For the other data sources, you can only pass in common names directly.
-#' 
+#'
 #' @section Authentication:
 #' See \code{\link{taxize-authentication}} for help on authentication
-#' 
+#'
 #' @author Scott Chamberlain
 #' @examples \dontrun{
 #' comm2sci(commnames='american black bear')
-#' comm2sci(commnames='black bear', simplify = FALSE)
+#' comm2sci(commnames='american black bear', simplify = FALSE)
 #' comm2sci(commnames='black bear', db='itis')
 #' comm2sci(commnames='american black bear', db='itis')
 #' comm2sci(commnames='annual blue grass', db='tropicos')
 #' comm2sci(commnames=c('annual blue grass','tree of heaven'), db='tropicos')
-#' comm2sci(commnames=c('black bear', 'roe deer'))
 #' comm2sci('blue whale', db = "worms")
 #' comm2sci(c('blue whale', 'dwarf surfclam'), db = "worms")
 #'
