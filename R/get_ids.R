@@ -1,3 +1,7 @@
+get_ids_dbs <- c(
+  "itis", "ncbi", "eol", "col", "tropicos", "gbif", "nbn", "pow"
+)
+
 #' Retrieve taxonomic identifiers for a given taxon name.
 #'
 #' This is a convenience function to get identifiers across all data sources.
@@ -7,12 +11,12 @@
 #' @export
 #' @param names character; Taxonomic name to query.
 #' @param db character; database to query. One or  more of \code{ncbi},
-#' \code{itis}, \code{eol}, \code{col}, \code{tropicos}, \code{gbif}, or
-#' \code{nbn}. By default db is set to search all data sources. Note that each
-#' taxonomic data source has their own identifiers, so that if you vide the
-#' wrong \code{db} value for the identifier you could get a result, it will
-#' likely be wrong (not what you were expecting). If using ncbi, eol, and/or
-#' tropicos we recommend getting API keys; see
+#' \code{itis}, \code{eol}, \code{col}, \code{tropicos}, \code{gbif},
+#' \code{nbn}, or \code{pow}. By default db is set to search all data sources.
+#' Note that each taxonomic data source has their own identifiers, so that if
+#' you give the wrong \code{db} value for the identifier you could get a result,
+#' it will likely be wrong (not what you were expecting). If using ncbi, eol,
+#' and/or tropicos we recommend getting API keys; see
 #' \code{\link{taxize-authentication}}
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, all
 #' rows are returned. When used in \code{get_ids} this function still only
@@ -73,15 +77,12 @@
 #' }
 
 get_ids <- function(names,
-  db = c("itis", "ncbi", "eol", "col", "tropicos", "gbif", "nbn"), ...) {
+  db = c("itis", "ncbi", "eol", "col", "tropicos", "gbif", "nbn",
+    "pow"), ...) {
   if (is.null(db)) {
     stop("Must specify on or more values for db!")
   }
-
-  db <- match.arg(db,
-    choices = c("itis", "ncbi", "eol", "col", "tropicos", "gbif", "nbn"),
-    several.ok = TRUE)
-
+  db <- match.arg(db, choices = get_ids_dbs, several.ok = TRUE)
   foo <- function(x, names, ...){
     ids <- switch(x,
                   itis = get_tsn(names, ...),
@@ -90,7 +91,8 @@ get_ids <- function(names,
                   col = get_colid(names, ...),
                   tropicos = get_tpsid(names, ...),
                   gbif = get_gbifid(names, ...),
-                  nbn = get_nbnid(names, ...))
+                  nbn = get_nbnid(names, ...),
+                  pow = get_pow(names, ...))
     names(ids) <- names
     return( ids )
   }
@@ -103,14 +105,9 @@ get_ids <- function(names,
 
 #' @export
 #' @rdname get_ids
-get_ids_ <- function(names,
-  db = c("itis", "ncbi", "eol", "col", "tropicos", "gbif", "nbn"),
-  rows = NA, ...) {
-
+get_ids_ <- function(names, db = get_ids_dbs, rows = NA, ...) {
   if (is.null(db)) stop("Must specify on or more values for db!")
-  db <- match.arg(db,
-    choices = c("itis", "ncbi", "eol", "col", "tropicos", "gbif", "nbn"),
-    several.ok = TRUE)
+  db <- match.arg(db, choices = get_ids_dbs, several.ok = TRUE)
   foo <- function(x, names, rows, ...){
     ids <- switch(x,
                   itis = get_tsn_(names, rows = rows, ...),
@@ -120,7 +117,7 @@ get_ids_ <- function(names,
                   tropicos = get_tpsid_(names, rows = rows, ...),
                   gbif = get_gbifid_(names, rows = rows, ...),
                   nbn = get_nbnid_(names, rows = rows, ...))
-    setNames(ids, names)
+    stats::setNames(ids, names)
   }
   structure(stats::setNames(
     lapply(db, function(x) foo(x, names = names, rows = rows, ...)), db),

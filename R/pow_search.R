@@ -35,6 +35,10 @@
 #' asc$data$name
 #' }
 pow_search <- function(q, limit = 100, cursor = "*", sort = NULL, ...) {
+  assert(q, "character")
+  assert(limit, c("integer", "numeric"))
+  assert(cursor, "character")
+  assert(sort, "character")
   args <- tc(list(q = q, perPage = limit, cursor = cursor, sort = sort))
   pow_GET(file.path(pow_base(), "api/2", "search"), args, ...)
 }
@@ -55,6 +59,7 @@ pow_search <- function(q, limit = 100, cursor = "*", sort = NULL, ...) {
 #'   include = c("distribution", "descriptions"))
 #' }
 pow_lookup <- function(id, include = NULL, ...) {
+  assert(include, "character")
   if (!is.null(include)) {
     if (!include %in% pow_include_fields) {
       stop("'include' must be one of ", paste0(pow_include_fields, collapse=","))

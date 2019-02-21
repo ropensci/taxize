@@ -8,7 +8,7 @@
 #' @param ask logical; should \code{get_pow} be run in interactive mode?
 #' If TRUE and more than one pow is found for teh species, the user is 
 #' asked for input. If FALSE NA is returned for multiple matches.
-#' @param verbose logical; should progress be printed?
+#' @param messages logical; should progress be printed?
 #' @param ... Curl options passed on to \code{\link[crul]{HttpClient}}
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, 
 #' all rows are considered. Note that this function still only gives back 
@@ -84,18 +84,22 @@
 #' get_pow_(c("Pinus", "Abies"), rows = 1:3)
 #' }
 
-get_pow <- function(x, accepted = FALSE, ask = TRUE, verbose = TRUE, rows = NA, 
-  rank = NULL, family_filter = NULL, rank_filter = NULL, ...) {
+get_pow <- function(x, accepted = FALSE, ask = TRUE, messages = TRUE,
+  rows = NA, family_filter = NULL, rank_filter = NULL, ...) {
 
   assert(accepted, "logical")
   assert(ask, "logical")
-  assert(verbose, "logical")
+  assert(messages, "logical")
   assert(family_filter, "character")
   assert(rank_filter, "character")
+  if (!is.na(rows)) {
+    assert(rows, c("numeric", "integer"))
+    stopifnot(rows > 0)
+  }
 
-  fun <- function(x, ask, verbose, rows) {
+  fun <- function(x, ask, messages, rows) {
     direct <- FALSE
-    mssg(verbose, "\nRetrieving data for taxon '", x, "'\n")
+    mssg(messages, "\nRetrieving data for taxon '", x, "'\n")
     pow_df <- pow_search(q = x, ...)$data
     mm <- NROW(pow_df) > 1
 
@@ -107,7 +111,7 @@ get_pow <- function(x, accepted = FALSE, ask = TRUE, verbose = TRUE, rows = NA,
 
       # should return NA if spec not found
       if (nrow(pow_df) == 0) {
-        mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
+        mssg(messages, "Not found. Consider checking the spelling or alternate classification")
         pow <- NA_character_
         att <- 'not found'
       }
@@ -180,7 +184,7 @@ get_pow <- function(x, accepted = FALSE, ask = TRUE, verbose = TRUE, rows = NA,
               att <- 'found'
             } else {
               pow <- NA_character_
-              mssg(verbose, "\nReturned 'NA'!\n\n")
+              mssg(messages, "\nReturned 'NA'!\n\n")
               att <- 'not found'
             }
           }
@@ -207,7 +211,7 @@ get_pow <- function(x, accepted = FALSE, ask = TRUE, verbose = TRUE, rows = NA,
       stringsAsFactors = FALSE)
   }
   x <- as.character(x)
-  outd <- ldply(x, fun, ask, verbose, rows)
+  outd <- ldply(x, fun, ask, messages, rows)
   out <- structure(outd$pow, class = "pow",
                    match = outd$att,
                    multiple_matches = outd$multiple,
@@ -260,12 +264,12 @@ check_pow <- function(x){
 
 #' @export
 #' @rdname get_pow
-get_pow_ <- function(x, verbose = TRUE, rows = NA, ...){
-  stats::setNames(lapply(x, get_pow_help, verbose = verbose, rows = rows, ...), x)
+get_pow_ <- function(x, messages = TRUE, rows = NA, ...){
+  stats::setNames(lapply(x, get_pow_help, messages = messages, rows = rows, ...), x)
 }
 
-get_pow_help <- function(x, verbose, rows, ...){
-  mssg(verbose, "\nRetrieving data for taxon '", x, "'\n")
+get_pow_help <- function(x, messages, rows, ...){
+  mssg(messages, "\nRetrieving data for taxon '", x, "'\n")
   df <- pow_search(q = x, ...)$data
   if (NROW(df) == 0) NULL else sub_rows(df, rows)
 }

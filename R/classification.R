@@ -291,9 +291,10 @@ classification.default <- function(x, db = NULL, callopts = list(),
 process_ids <- function(input, db, fxn, ...){
   g <- tryCatch(as.numeric(as.character(input)), warning = function(e) e)
   if (
-    inherits(g, "numeric") ||
-    is.character(input) && all(grepl("N[HB]", input)) ||
-    is.character(input) && all(grepl("ELEMENT_GLOBAL", input))
+    inherits(g, "numeric") || # all others
+    is.character(input) && all(grepl("N[HB]", input)) || # NBN
+    is.character(input) && all(grepl("ELEMENT_GLOBAL", input)) || # Natserv
+    is.character(input) && all(grepl("urn:lsid", input)) # POW
   ) {
     as_fxn <- switch(db,
            itis = as.tsn,
@@ -307,7 +308,8 @@ process_ids <- function(input, db, fxn, ...){
            worms = as.wormsid,
            natserv = as.natservid,
            bold = as.boldid,
-           wiki = as.wiki)
+           wiki = as.wiki,
+           pow = as.pow)
     as_fxn(input, check = FALSE)
   } else {
     eval(fxn)(input, ...)
