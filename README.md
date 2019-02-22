@@ -170,6 +170,12 @@ Note that a few data sources require SOAP web services, which are difficult to s
 	<td style="text-align:left;"><a href="https://www.mediawiki.org/wiki/API:Main_page">link</a></td>
 	<td style="text-align:left;">none</td>
 </tr>
+<tr>
+	<td style="text-align:left;">Kew's Plants of the World</td>
+	<td style="text-align:left;"><code>pow</code></td>
+	<td style="text-align:left;">none</td>
+	<td style="text-align:left;">none</td>
+</tr>
 </tbody>
 </table>
 
@@ -200,8 +206,8 @@ Windows users install [Rtools](https://cran.r-project.org/bin/windows/Rtools/) f
 
 
 ```r
-install.packages("devtools")
-devtools::install_github("ropensci/taxize")
+install.packages("remotes")
+remotes::install_github("ropensci/taxize")
 ```
 
 
@@ -322,38 +328,18 @@ Get all genera up from the species _Pinus contorta_ (this includes the genus of 
 
 ```r
 upstream("Pinus contorta", db = 'itis', upto = 'Genus', verbose=FALSE)
-#>      tsn                        target
-#> 1 183327                Pinus contorta
-#> 2 183332 Pinus contorta ssp. bolanderi
-#> 3 822698  Pinus contorta ssp. contorta
-#> 4 183329 Pinus contorta ssp. latifolia
-#> 5 183330 Pinus contorta ssp. murrayana
-#> 6 529672 Pinus contorta var. bolanderi
-#> 7 183328  Pinus contorta var. contorta
-#> 8 529673 Pinus contorta var. latifolia
-#> 9 529674 Pinus contorta var. murrayana
-#>                                                        commonNames
-#> 1               scrub pine,shore pine,tamarack pine,lodgepole pine
-#> 2                                            Bolander's beach pine
-#> 3                                                               NA
-#> 4                         black pine,Rocky Mountain lodgepole pine
-#> 5                              tamarack pine,Sierra lodgepole pine
-#> 6                                              Bolander beach pine
-#> 7                  coast pine,lodgepole pine,beach pine,shore pine
-#> 8 tall lodgepole pine,lodgepole pine,Rocky Mountain lodgepole pine
-#> 9      Murray's lodgepole pine,Sierra lodgepole pine,tamarack pine
-#>      nameUsage
-#> 1     accepted
-#> 2 not accepted
-#> 3 not accepted
-#> 4 not accepted
-#> 5 not accepted
-#> 6     accepted
-#> 7     accepted
-#> 8     accepted
-#> 9     accepted
-#> Pinus contorta 
-#>             NA 
+#> $`Pinus contorta`
+#>      tsn parentname parenttsn   taxonname rankid rankname
+#> 1  18031   Pinaceae     18030       Abies    180    genus
+#> 2  18033   Pinaceae     18030       Picea    180    genus
+#> 3  18035   Pinaceae     18030       Pinus    180    genus
+#> 4 183396   Pinaceae     18030       Tsuga    180    genus
+#> 5 183405   Pinaceae     18030      Cedrus    180    genus
+#> 6 183409   Pinaceae     18030       Larix    180    genus
+#> 7 183418   Pinaceae     18030 Pseudotsuga    180    genus
+#> 8 822529   Pinaceae     18030  Keteleeria    180    genus
+#> 9 822530   Pinaceae     18030 Pseudolarix    180    genus
+#> 
 #> attr(,"class")
 #> [1] "upstream"
 #> attr(,"db")
@@ -365,11 +351,19 @@ upstream("Pinus contorta", db = 'itis', upto = 'Genus', verbose=FALSE)
 
 ```r
 synonyms("Acer drummondii", db="itis")
-#>      tsn             target commonNames    nameUsage
-#> 1 183671    Acer drummondii          NA not accepted
-#> 2 183672 Rufacer drummondii          NA not accepted
 #> $`Acer drummondii`
-#> [1] NA
+#>   sub_tsn                    acc_name acc_tsn
+#> 1  183671 Acer rubrum var. drummondii  526853
+#> 2  183671 Acer rubrum var. drummondii  526853
+#> 3  183671 Acer rubrum var. drummondii  526853
+#>                      acc_author                        syn_author
+#> 1 (Hook. & Arn. ex Nutt.) Sarg. (Hook. & Arn. ex Nutt.) E. Murray
+#> 2 (Hook. & Arn. ex Nutt.) Sarg.             Hook. & Arn. ex Nutt.
+#> 3 (Hook. & Arn. ex Nutt.) Sarg.     (Hook. & Arn. ex Nutt.) Small
+#>                      syn_name syn_tsn
+#> 1 Acer rubrum ssp. drummondii   28730
+#> 2             Acer drummondii  183671
+#> 3          Rufacer drummondii  183672
 #> 
 #> attr(,"class")
 #> [1] "synonyms"
@@ -392,7 +386,7 @@ get_ids(names="Salvelinus fontinalis", db = c('itis', 'ncbi'), verbose=FALSE)
 #> attr(,"pattern_match")
 #> [1] FALSE
 #> attr(,"uri")
-#> [1] "http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=162003"
+#> [1] "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=162003"
 #> attr(,"class")
 #> [1] "tsn"
 #> 
@@ -465,24 +459,9 @@ get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn', rows=1:3)
 
 ```r
 sci2comm('Helianthus annuus', db = 'itis')
-#>      tsn                              target
-#> 1  36616                   Helianthus annuus
-#> 2 525928      Helianthus annuus ssp. jaegeri
-#> 3 525929 Helianthus annuus ssp. lenticularis
-#> 4 525930      Helianthus annuus ssp. texanus
-#> 5 536095 Helianthus annuus var. lenticularis
-#> 6 536096  Helianthus annuus var. macrocarpus
-#> 7 536097      Helianthus annuus var. texanus
-#>                                                  commonNames    nameUsage
-#> 1 annual sunflower,sunflower,wild sunflower,common sunflower     accepted
-#> 2                                                         NA not accepted
-#> 3                                                         NA not accepted
-#> 4                                                         NA not accepted
-#> 5                                                         NA not accepted
-#> 6                                                         NA not accepted
-#> 7                                                         NA not accepted
 #> $`Helianthus annuus`
-#> [1] NA
+#> [1] "common sunflower" "sunflower"        "wild sunflower"  
+#> [4] "annual sunflower"
 ```
 
 ## Scientific names from common names
