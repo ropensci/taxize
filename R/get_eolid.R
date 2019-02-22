@@ -237,10 +237,10 @@ get_eolid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
   out <- lapply(sciname, fun, ask = ask, messages = messages, rows = rows, ...)
   ids <- unname(sapply(out, "[[", "id"))
   sources <- pluck(out, "source", "")
-  ids <- structure(ids, class = "eolid", provider = sources,
-                   match = pluck(out, "att", ""),
-                   multiple_matches = pluck(out, "multiple", logical(1)),
-                   pattern_match = pluck(out, "direct", logical(1)))
+  ids <- structure(ids, class = "eolid", pageid = pluck(out, "page_id", ""),
+    provider = sources, match = pluck(out, "att", ""),
+    multiple_matches = pluck(out, "multiple", logical(1)),
+    pattern_match = pluck(out, "direct", logical(1)))
   page_ids <- unlist(pluck(out, 'page_id'))
   add_uri(ids, 'http://eol.org/pages/%s/overview', page_ids)
 }
