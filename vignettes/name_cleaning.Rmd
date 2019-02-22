@@ -87,7 +87,7 @@ get_tsn(searchterm = 'Quercus b', rows = 3)
 #> attr(,"pattern_match")
 #> [1] FALSE
 #> attr(,"uri")
-#> [1] "http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=19303"
+#> [1] "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=19303"
 #> attr(,"class")
 #> [1] "tsn"
 ```
@@ -162,7 +162,7 @@ as.tsn(get_tsn("Quercus douglasii"))
 #> attr(,"pattern_match")
 #> [1] FALSE
 #> attr(,"uri")
-#> [1] "http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=19322"
+#> [1] "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=19322"
 #> attr(,"class")
 #> [1] "tsn"
 ```
@@ -182,9 +182,9 @@ as.tsn(c(19322, 129313, 506198))
 #> attr(,"pattern_match")
 #> [1] FALSE FALSE FALSE
 #> attr(,"uri")
-#> [1] "http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=19322" 
-#> [2] "http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=129313"
-#> [3] "http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=506198"
+#> [1] "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=19322" 
+#> [2] "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=129313"
+#> [3] "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=506198"
 ```
 
 And you can do the same for character, or list inputs - depending on the data source.
@@ -206,9 +206,9 @@ as.tsn(c("19322","129313","506198"), check = FALSE)
 #> attr(,"pattern_match")
 #> [1] FALSE FALSE FALSE
 #> attr(,"uri")
-#> [1] "http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=19322" 
-#> [2] "http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=129313"
-#> [3] "http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=506198"
+#> [1] "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=19322" 
+#> [2] "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=129313"
+#> [3] "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=506198"
 ```
 
 With the output of `as.*()` methods, you can then proceed with other `taxize` functions.
@@ -226,24 +226,20 @@ in a programmatic workflow straight away.
 ```r
 spp <- names_list(rank = "species", size = 10)
 gnr_resolve(names = spp, preferred_data_sources = 11)
-#> # A tibble: 15 x 5
+#> # A tibble: 22 x 5
 #>    user_supplied_na… submitted_name  matched_name    data_source_tit… score
 #>  * <chr>             <chr>           <chr>           <chr>            <dbl>
-#>  1 Calligonum tenue  Calligonum ten… Calligonum ten… GBIF Backbone T… 0.988
-#>  2 Eriogonum luteol… Eriogonum lute… Eriogonum lute… GBIF Backbone T… 0.988
-#>  3 Eriogonum luteol… Eriogonum lute… Eriogonum lute… GBIF Backbone T… 0.988
-#>  4 Hieracium antenn… Hieracium ante… Hieracium ante… GBIF Backbone T… 0.988
-#>  5 Hieracium antenn… Hieracium ante… Hieracium ante… GBIF Backbone T… 0.988
-#>  6 Mikania pacei     Mikania pacei   Mikania pacei … GBIF Backbone T… 0.988
-#>  7 Radiovittaria ga… Radiovittaria … Radiovittaria … GBIF Backbone T… 0.988
-#>  8 Alchemilla giewo… Alchemilla gie… Alchemilla gie… GBIF Backbone T… 0.988
-#>  9 Alchemilla giewo… Alchemilla gie… Alchemilla gie… GBIF Backbone T… 0.988
-#> 10 Tristaniopsis li… Tristaniopsis … Tristaniopsis … GBIF Backbone T… 0.988
-#> 11 Lotus borbasii    Lotus borbasii  Lotus borbasii… GBIF Backbone T… 0.988
-#> 12 Persoonia pruino… Persoonia prui… Persoonia prui… GBIF Backbone T… 0.988
-#> 13 Persoonia pruino… Persoonia prui… Persoonia prui… GBIF Backbone T… 0.988
-#> 14 Persoonia pruino… Persoonia prui… Persoonia prui… GBIF Backbone T… 0.988
-#> 15 Persoonia pruino… Persoonia prui… Persoonia prui… GBIF Backbone T… 0.988
+#>  1 Acetosella crispa Acetosella cri… Acetosella cri… GBIF Backbone T… 0.988
+#>  2 Meteoridium tenu… Meteoridium te… Meteoridium te… GBIF Backbone T… 0.988
+#>  3 Piper attenuatum  Piper attenuat… Piper attenuat… GBIF Backbone T… 0.988
+#>  4 Piper attenuatum  Piper attenuat… Piper attenuat… GBIF Backbone T… 0.988
+#>  5 Piper attenuatum  Piper attenuat… Piper attenuat… GBIF Backbone T… 0.988
+#>  6 Piper attenuatum  Piper attenuat… Piper attenuat… GBIF Backbone T… 0.988
+#>  7 Piper attenuatum  Piper attenuat… Piper attenuat… GBIF Backbone T… 0.988
+#>  8 Piper attenuatum  Piper attenuat… Piper attenuat… GBIF Backbone T… 0.988
+#>  9 Pyrethrum corymb… Pyrethrum cory… Pyrethrum cory… GBIF Backbone T… 0.988
+#> 10 Pyrethrum corymb… Pyrethrum cory… Pyrethrum cory… GBIF Backbone T… 0.988
+#> # … with 12 more rows
 ```
 
 ## Other functions
