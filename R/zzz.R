@@ -86,17 +86,19 @@ sub_vector <- function(x, rows){
   if ( any(is.na(rows)) ) x else x[rows]
 }
 
-nstop <- function(x, arg='db') if (is.null(x)) stop(sprintf("Must specify %s!", arg), call. = FALSE)
+nstop <- function(x, arg='db') {
+  if (is.null(x)) stop(sprintf("Must specify %s!", arg), call. = FALSE)
+}
 
 colClasses <- function(d, colClasses) {
   colClasses <- rep(colClasses, len=length(d))
   d[] <- lapply(seq_along(d), function(i) switch(colClasses[i],
-                                                 numeric=as.numeric(d[[i]]),
-                                                 character=as.character(d[[i]]),
-                                                 Date=as.Date(d[[i]], origin='1970-01-01'),
-                                                 POSIXct=as.POSIXct(d[[i]], origin='1970-01-01'),
-                                                 factor=as.factor(d[[i]]),
-                                                 as(d[[i]], colClasses[i]) ))
+    numeric=as.numeric(d[[i]]),
+    character=as.character(d[[i]]),
+    Date=as.Date(d[[i]], origin='1970-01-01'),
+    POSIXct=as.POSIXct(d[[i]], origin='1970-01-01'),
+    factor=as.factor(d[[i]]),
+    as(d[[i]], colClasses[i]) ))
   d
 }
 
@@ -104,13 +106,12 @@ strtrim <- function(str) {
   gsub("^\\s+|\\s+$", "", str)
 }
 
-# function to help filter get_*() functions for a rank name or rank itself --------------
+# function to help filter get_*() functions for a rank name or rank itself ----
 filt <- function(df, rank, z) {
   if (NROW(df) == 0) {
     df
   } else {
     if (!is.null(z)) {
-      #mtch <- grep(tolower(z), tolower(df[,rank]))
       mtch <- grep(sprintf("%s", tolower(z)), tolower(df[,rank]))
       if (length(mtch) != 0) {
         df[mtch, ]

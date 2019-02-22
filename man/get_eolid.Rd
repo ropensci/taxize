@@ -51,6 +51,14 @@ class object with one to many identifiers. See
 \code{\link[taxize]{get_eolid_}} to get back all, or a subset, of the raw
 data that you are presented during the ask process.}
 
+\item{rank}{(character) A taxonomic rank name. See \code{\link{rank_ref}}
+for possible options. Though note that some data sources use atypical ranks,
+so inspect the data itself for options. Optional. See \code{Filtering} below.}
+
+\item{data_source}{(character) A data source inside of EOL. These are 
+longish names like e.g., "Barcode of Life Data Systems" or
+"USDA PLANTS images". Optional. See \code{Filtering} below.}
+
 \item{...}{Further args passed on to \code{\link{eol_search}}}
 
 \item{x}{Input to \code{\link{as.eolid}}}
@@ -93,6 +101,16 @@ page id.
 See \code{\link{taxize-authentication}} for help on authentication
 }
 
+\section{Filtering}{
+
+The parameters \code{rank} and \code{data_source} are not used in the
+search to the data provider, but are used in filtering the data down to a
+subset that is closer to the target you want.  For all these parameters,
+you can use regex strings since we use \code{\link{grep}} internally to
+match. Filtering narrows down to the set that matches your query, and
+removes the rest.
+}
+
 \examples{
 \dontrun{
 get_eolid(sciname='Pinus contorta')
@@ -109,6 +127,12 @@ get_eolid('Poa annua', rows=1:2)
 # When not found
 get_eolid(sciname="uaudnadndj")
 get_eolid(c("Chironomus riparius", "uaudnadndj"))
+
+# filter results to a rank or data source, or both
+get_eolid("Satyrium")
+get_eolid("Satyrium", rank = "genus")
+get_eolid("Satyrium", data_source = "INAT")
+get_eolid("Satyrium", rank = "genus", data_source = "North Pacific")
 
 # Convert a eolid without class information to a eolid class
 # already a eolid, returns the same
