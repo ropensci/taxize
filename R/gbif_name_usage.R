@@ -68,7 +68,7 @@ gbif_name_usage <- function(key=NULL, name=NULL, data='all', language=NULL, data
             url <- sprintf('http://api.gbif.org/v1/species/root/%s/%s', uuid, shortname)
           }
     }
-    cli <- crul::HttpClient$new(url = url, opts = list(...))
+    cli <- crul::HttpClient$new(url = url, headers = tx_ual, opts = list(...))
     res <- cli$get(query = args)
     res$raise_for_status()
     stopifnot(res$response_headers$`content-type` == 'application/json')

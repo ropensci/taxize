@@ -92,10 +92,8 @@ ipni_search <- function(family=NULL, infrafamily=NULL, genus=NULL,
           find_isAPNIRecord=l2(isapnirecord), 
           find_isGCIRecord=l2(isgcirecord),
           find_isIKRecord=l2(isikrecord), rankToReturn=ranktoreturn))
-  cli <- crul::HttpClient$new(url, opts = list(...))
+  cli <- crul::HttpClient$new(url, headers = tx_ual, opts = list(...))
   tt <- cli$get(query = args)
-  # tt$raise_for_status()
-  # tt <- GET(url, query = args, ...)
   if (
     tt$status_code > 200 || 
     tt$response_headers$`content-type` != "text/plain;charset=UTF-8"

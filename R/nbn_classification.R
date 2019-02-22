@@ -23,7 +23,7 @@ nbn_classification <- function(id, ...) {
 }
 
 nbn_GET_2 <- function(url, ...) {
-  cli <- crul::HttpClient$new(url, opts = list(...))
+  cli <- crul::HttpClient$new(url, headers = tx_ual, opts = list(...))
   res <- cli$get()
   res$raise_for_status()
   nmslwr(jsonlite::fromJSON(res$parse("UTF-8"), TRUE))

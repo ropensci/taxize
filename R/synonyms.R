@@ -237,7 +237,7 @@ synonyms.colid <- function(id, ...) {
 col_synonyms <- function(x, ...) {
   base <- "http://www.catalogueoflife.org/col/webservice"
   args <- list(id = x[1], response = "full", format = "json")
-  cli <- crul::HttpClient$new(base)
+  cli <- crul::HttpClient$new(base, headers = tx_ual)
   res <- cli$get(query = args)
   res$raise_for_status()
   out <- jsonlite::fromJSON(res$parse("UTF-8"), FALSE)

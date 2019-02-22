@@ -48,7 +48,7 @@ chunks for multiple HTTP requests"))
     ids_list <- list(paste(id, collapse = "+"))
   }
 
-  cli <- crul::HttpClient$new(url = ncbi_base(), opts = list(...))
+  cli <- crul::HttpClient$new(url = ncbi_base(), headers = tx_ual, opts = list(...))
   out <- list()
   for (i in seq_along(ids_list)) {
     query <- tc(list(db = "taxonomy", id = ids_list[[i]], api_key = key))

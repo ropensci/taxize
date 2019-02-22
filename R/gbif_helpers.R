@@ -8,8 +8,7 @@ gbif_name_backbone <- function(name, rank = NULL, kingdom = NULL, phylum = NULL,
                   phylum = phylum, class = class, order = order, family = family,
                   genus = genus, strict = strict, verbose = TRUE, offset = start,
                   limit = limit))
-  cli <- crul::HttpClient$new(url = url, 
-    headers = list(`User-Agent` = taxize_ua(), `X-User-Agent` = taxize_ua()))
+  cli <- crul::HttpClient$new(url = url, headers = tx_ual)
   temp <- cli$get(query = args, ...)
   temp$raise_for_status()
   tt <- jsonlite::fromJSON(temp$parse("UTF-8"), FALSE)
@@ -46,8 +45,7 @@ gbif_name_lookup <- function(query = NULL, rank = NULL,
   args <- tc(list(q = query, rank = rank, higherTaxonKey = higherTaxonKey,
                   status = status, nameType = nameType, datasetKey = datasetKey,
                   limit = limit, offset = start))
-  cli <- crul::HttpClient$new(url = url, 
-    headers = list(`User-Agent` = taxize_ua(), `X-User-Agent` = taxize_ua()))
+  cli <- crul::HttpClient$new(url = url, headers = tx_ual)
   temp <- cli$get(query = args, ...)
   temp$raise_for_status()
   tt <- jsonlite::fromJSON(temp$parse("UTF-8"), FALSE)

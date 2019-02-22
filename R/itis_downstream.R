@@ -44,7 +44,7 @@ itis_downstream <- function(tsns, downto, intermediate = FALSE, ...) {
 	stop_ <- "not"
 	notout <- data.frame(rankname = "")
 	out <- list()
-  if (intermediate) intermed <- list()
+	if (intermediate) intermed <- list()
 	iter <- 0
 	while (stop_ == "not") {
 		iter <- iter + 1

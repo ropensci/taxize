@@ -87,10 +87,9 @@ scrapenames <- function(url = NULL, file = NULL, text = NULL, engine = NULL,
                   all_data_sources = all_data_sources,
                   data_source_ids = data_source_ids,
                   return_content = as_l(return_content)))
-  cli <- crul::HttpClient$new(base, opts = list(...))
+  cli <- crul::HttpClient$new(base, headers = tx_ual, opts = list(...))
   if (names(method) == 'url') {
     tt <- cli$get(query = args)
-    # tt <- GET(base, query = args, ...)
     tt$raise_for_status()
     out <- jsonlite::fromJSON(tt$parse("UTF-8"))
     token_url <- out$token_url
@@ -109,7 +108,7 @@ scrapenames <- function(url = NULL, file = NULL, text = NULL, engine = NULL,
 
   st <- 303
   while (st == 303) {
-    dat <- crul::HttpClient$new(token_url)$get()
+    dat <- crul::HttpClient$new(token_url, headers = tx_ual)$get()
     dat$raise_for_status()
     datout <- jsonlite::fromJSON(dat$parse("UTF-8"))
     st <- datout$status

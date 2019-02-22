@@ -176,7 +176,8 @@ itis_foo <- function(x, simplify=TRUE, ...){
 ncbi_foo <- function(x, ...){
   key <- getkey(NULL, "ENTREZ_KEY")
   query <- tc(list(db = "taxonomy", ID = x, api_key = key))
-  cli <- crul::HttpClient$new(url = ncbi_base(), opts = list(...))
+  cli <- crul::HttpClient$new(url = ncbi_base(), headers = tx_ual,
+    opts = list(...))
   res <- cli$get("entrez/eutils/efetch.fcgi", query = query)
   res$raise_for_status()
   tt <- res$parse("UTF-8")

@@ -165,7 +165,7 @@ make_iucn <- function(x, check = TRUE, key = NULL) {
 }
 
 check_iucn <- function(x) {
-  cli <- crul::HttpClient$new(sprintf(iucn_base_url, x))
+  cli <- crul::HttpClient$new(sprintf(iucn_base_url, x), headers = tx_ual)
   tt <- cli$get()
   tt$status_code == 200
 }

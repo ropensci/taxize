@@ -43,8 +43,7 @@ nbn_search <- function(q, fq = NULL, order = NULL, sort = NULL, start = 0,
 }
 
 nbn_GET <- function(url, args, ...){
-  cli <- crul::HttpClient$new(url = url, 
-    headers = list(`User-Agent` = taxize_ua(), `X-User-Agent` = taxize_ua()))
+  cli <- crul::HttpClient$new(url = url, headers = tx_ual,)
   tt <- cli$get(query = argsnull(args), ...)
   tt$raise_for_status()
   json <- jsonlite::fromJSON(tt$parse("UTF-8"))$searchResults

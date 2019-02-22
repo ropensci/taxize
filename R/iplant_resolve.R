@@ -17,7 +17,7 @@ iplant_resolve <- function(query, retrieve='all', ...){
   url <- "http://tnrs.iplantc.org/tnrsm-svc/matchNames"
   query <- paste(query, collapse = ",")
   args <- tc(list(names = query, retrieve = retrieve))
-  cli <- crul::HttpClient$new(url, opts = list(...))
+  cli <- crul::HttpClient$new(url, headers = tx_ual, opts = list(...))
   out <- cli$get(query = argsnull(args))
   out$raise_for_status()
   res <- jsonlite::fromJSON(out$parse("UTF-8"), FALSE)$items

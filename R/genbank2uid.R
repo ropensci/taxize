@@ -45,7 +45,8 @@ genbank2uid <- function(id, batch_size = 100, key = NULL, ...) {
     query <- tc(list(db = "nucleotide", id = paste(id, collapse = ","), api_key = key))
 
     # Execute query
-    cli <- crul::HttpClient$new(url = ncbi_base(), opts = list(...))
+    cli <- crul::HttpClient$new(url = ncbi_base(), headers = tx_ual,
+      opts = list(...))
     res <- cli$get("entrez/eutils/esummary.fcgi", query = query)
     res$raise_for_status()
     parsed_xml <- read_xml(res$parse('UTF-8'))

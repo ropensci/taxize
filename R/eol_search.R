@@ -54,6 +54,7 @@ eol_search <- function(terms, page=1, exact=NULL, filter_tid=NULL,
                   cache_ttl = cache_ttl, key = key))
   cli <- crul::HttpClient$new(
     url = paste0(eol_url("search"), ".json"),
+    headers = tx_ual,
     opts = list(...)
   )
   res <- cli$get(query = argsnull(args))

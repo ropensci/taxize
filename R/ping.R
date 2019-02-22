@@ -221,7 +221,7 @@ match_code <- function(x, y){
 }
 
 pGET <- function(url, args = list(), ...) {
-  cli <- crul::HttpClient$new(url, opts = list(...))
+  cli <- crul::HttpClient$new(url, headers = tx_ual, opts = list(...))
   cli$get(query = args)
 }
 

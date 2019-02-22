@@ -12,7 +12,7 @@ taxon identifier (e.g. 861)}
 
 \item{format}{(character) One of json (default) or xml.}
 
-\item{raw}{(logical) If TRUE, raw json or xml returned, if FALSE, parsed 
+\item{raw}{(logical) If TRUE, raw json or xml returned, if FALSE, parsed
 data returned.}
 
 \item{...}{(list) Further args passed on to \code{\link[crul]{verb-GET}}}
@@ -24,7 +24,7 @@ json, xml or a list.
 Search the CANADENSYS Vascan API.
 }
 \details{
-Note that we lowercase all outputs in data.frame's, but when a 
+Note that we lowercase all outputs in data.frame's, but when a
 list is given back, we don't touch the list names.
 }
 \examples{

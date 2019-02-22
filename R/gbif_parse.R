@@ -17,7 +17,8 @@
 #' }
 gbif_parse <- function(scientificname, ...) {
   cli <- crul::HttpClient$new("https://api.gbif.org", 
-    headers = list('Content-Type' = "application/json"), opts = list(...))
+    headers = c(list('Content-Type' = "application/json"), tx_ual),
+    opts = list(...))
   tt <- cli$post("v1/parser/name", body = jsonlite::toJSON(scientificname))
   tt$raise_for_status()
   stopifnot(tt$response_headers$`content-type` == 'application/json')

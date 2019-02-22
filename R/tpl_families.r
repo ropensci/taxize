@@ -16,7 +16,7 @@
 #' }
 tpl_families <- function(...) {
   cli <- crul::HttpClient$new('http://www.theplantlist.org/1.1/browse/-/',
-    opts = list(...))
+    headers = tx_ual, opts = list(...))
   temp <- cli$get()
   temp$raise_for_status()
   temp <- xml2::read_html(temp$parse("UTF-8"), encoding = "UTF-8")

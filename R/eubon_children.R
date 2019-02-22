@@ -28,7 +28,7 @@ eubon_children <- function(id, providers = NULL, timeout = 0, ...) {
   args <- tc(list(providers = paste0(providers, collapse = ","),
                   timeout = timeout))
   url <- file.path(eubon_base(), "classification", id, "children")
-  cli <- crul::HttpClient$new(url, opts = list(...))
+  cli <- crul::HttpClient$new(url, headers = tx_ual, opts = list(...))
   res <- cli$get(query = args)
   eubon_error(res)
   tmp <- jsonlite::fromJSON(res$parse("UTF-8"), TRUE, flatten = TRUE)

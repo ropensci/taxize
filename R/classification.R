@@ -603,11 +603,11 @@ classification.tolid <- function(id, callopts = list(),
 classification.wormsid <- function(id, callopts = list(),
   return_id = TRUE, ...) {
 
-  fun <- function(x, callopts){
+  fun <- function(x, ...){
     if (is.na(x)) {
       out <- NA
     } else {
-      out <- tryCatch(worrms::wm_classification(as.numeric(x)),
+      out <- tryCatch(worrms::wm_classification(as.numeric(x), ...),
         error = function(e) e)
       if (inherits(out, "error")) {
         NA
@@ -620,7 +620,7 @@ classification.wormsid <- function(id, callopts = list(),
       }
     }
   }
-  out <- lapply(id, fun, callopts = callopts)
+  out <- lapply(id, fun, ...)
   names(out) <- id
   structure(out, class = 'classification', db = 'worms')
 }

@@ -74,7 +74,7 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
   getpost <- match.arg(getpost, c('get', 'post'))
 
   mainfunc <- function(x, ...) {
-    cli <- crul::HttpClient$new(tnrs_url, opts = list(...))
+    cli <- crul::HttpClient$new(tnrs_url, headers = tx_ual, opts = list(...))
     Sys.sleep(time = sleep) # set amount of sleep to pause by
 
     if (getpost == "get") {
@@ -107,7 +107,7 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
     timeout <- "wait"
     while (timeout == "wait") {
       iter <- iter + 1
-      ss <- crul::HttpClient$new(retrieve)$get()
+      ss <- crul::HttpClient$new(retrieve, headers = tx_ual)$get()
       error_handle(ss, TRUE)
       temp <- jsonlite::fromJSON(ss$parse("UTF-8"), FALSE)
       if (grepl("is still being processed", temp["message"])) {

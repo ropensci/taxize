@@ -55,7 +55,7 @@ col_search <- function(name=NULL, id=NULL, start=NULL, checklist=NULL,
     url <- make_url(checklist)
     args <- tc(list(name = x, id = y, start = start, response = response,
                     format = "json"))
-    cli <- crul::HttpClient$new(url = url, opts = list(...))
+    cli <- crul::HttpClient$new(url = url, headers = tx_ual, opts = list(...))
     out <- cli$get(query = argsnull(args))
     if (out$status_code >= 300) {
       warning("COL taxon not found", call. = FALSE)

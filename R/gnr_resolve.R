@@ -156,7 +156,8 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
             with_canonical_ranks = cv(with_canonical_ranks)))
   args <- argsnull(args)
 
-  cli <- crul::HttpClient$new(url = url, opts = list(...))
+  cli <- crul::HttpClient$new(url = url,
+    headers = tx_ual, opts = list(...))
   if (http == 'get') {
     tmp <- cli$get(query = args)
     tmp$raise_for_status()

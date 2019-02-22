@@ -12,7 +12,7 @@
 #' ion(1280626) # puma concolor
 #' }
 ion <- function(x, ...) {
-  cli <- crul::HttpClient$new(ion_base(), opts = list(...))
+  cli <- crul::HttpClient$new(ion_base(), headers = tx_ual, opts = list(...))
   res <- cli$get(query = list(lsid = x))
   res$raise_for_status()
   xml <- xml2::read_xml(res$parse("UTF-8"))

@@ -29,7 +29,8 @@ plantminer <- function(plants, from = "tpl", messages = TRUE, ...) {
   i <- NULL
   foreach(i = seq_along(plants), .combine = rbind) %do% {
     mssg(messages, paste(plants[i], collapse = " "))
-    cli <- crul::HttpClient$new(url = pmbase(), opts = list(...))
+    cli <- crul::HttpClient$new(url = pmbase(), headers = tx_ual,
+      opts = list(...))
     sp <- cli$get(from, query = list(taxon = plants[i]))
     sp$raise_for_status()
     jsonlite::fromJSON(sp$parse("UTF-8"))

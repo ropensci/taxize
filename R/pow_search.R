@@ -74,8 +74,8 @@ pow_include_fields <- c("distribution", "descriptions")
 
 pow_GET <- function(url, args, ...){
   cli <- crul::HttpClient$new(url = url, 
-    headers = list(`User-Agent` = taxize_ua(), `X-User-Agent` = taxize_ua()))
-  tt <- cli$get(query = argsnull(args), ...)
+    headers = tx_ual, opts = list(...))
+  tt <- cli$get(query = argsnull(args))
   tt$raise_for_status()
   json <- jsonlite::fromJSON(tt$parse("UTF-8"))
   list(meta = pop(json, "results"), data = json$results)

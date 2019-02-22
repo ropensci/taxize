@@ -18,7 +18,7 @@
 #' tnrs_sources(source="iPlant_TNRS")
 #' }
 tnrs_sources <- function(source = NULL, ...) {
-  cli <- crul::HttpClient$new(tnrs_url, opts = list(...))
+  cli <- crul::HttpClient$new(tnrs_url, headers = tx_ual, opts = list(...))
   if (!is.null(source)) {
     tt <- cli$get(file.path("sources", source))
     tt$raise_for_status()

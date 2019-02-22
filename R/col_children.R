@@ -80,7 +80,8 @@ col_children <- function(name = NULL, id = NULL, format = NULL, start = NULL,
 search_col <- function(name, id, checklist, format, start, extant_only, ...) {
   args <- tc(list(name = name, id = id, format = format, response = "full",
                   start = start))
-  cli <- crul::HttpClient$new(url = col_base(), opts = list(...))
+  cli <- crul::HttpClient$new(url = col_base(), headers = tx_ual,
+    opts = list(...))
   out <- cli$get(query = argsnull(args))
   out$raise_for_status()
   tt <- xml2::read_xml(out$parse("UTF-8"))

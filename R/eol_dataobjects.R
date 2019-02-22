@@ -27,6 +27,7 @@ eol_dataobjects <- function(id, taxonomy = TRUE, language = NULL, usekey = TRUE,
   if (usekey) key <- getkey(key, "EOL_KEY")
   cli <- crul::HttpClient$new(
     url = file.path(eol_url("data_objects"), paste0(id, ".json")),
+    headers = tx_ual,
     opts = list(...)
   )
   args <- argsnull(tc(list(key = key, taxonomy = as_l(taxonomy), language = language)))

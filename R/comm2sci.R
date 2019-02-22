@@ -135,7 +135,8 @@ c2s_itis_ <- function(x, by='search', simplify, ...){
 c2s_ncbi <- function(x, simplify, ...) {
   key <- getkey(NULL, "ENTREZ_KEY")
   query <- tc(list(db = "taxonomy", ID = x, api_key = key))
-  cli <- crul::HttpClient$new(url = ncbi_base(), opts = list(...))
+  cli <- crul::HttpClient$new(url = ncbi_base(),
+    headers = tx_ual, opts = list(...))
   res <- cli$get("entrez/eutils/efetch.fcgi", query = query)
   res$raise_for_status()
   tt <- res$parse("UTF-8")

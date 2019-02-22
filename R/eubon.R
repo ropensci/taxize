@@ -61,7 +61,7 @@ eubon <- function(query, providers = "pesi", searchMode = "scientificNameExact",
                   searchMode = searchMode, addSynonymy = as_l(addSynonymy),
                   addParentTaxon = as_l(addParentTaxon), timeout = timeout))
   cli <- crul::HttpClient$new(file.path(eubon_base(), "search"), 
-    opts = list(...))
+    headers = tx_ual, opts = list(...))
   res <- cli$get(query = args)
   eubon_error(res)
   tmp <- jsonlite::fromJSON(res$parse("UTF-8"), TRUE, flatten = TRUE)

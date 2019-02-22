@@ -9,7 +9,7 @@
 #' }
 eubon_capabilities <- function(...) {
   res <- crul::HttpClient$new(file.path(eubon_base(), "capabilities"),
-    opts = list(...))$get()
+    headers = tx_ual, opts = list(...))$get()
   res$raise_for_status()
   tibble::as_tibble(
     jsonlite::fromJSON(res$parse("UTF-8"), TRUE, flatten = TRUE)

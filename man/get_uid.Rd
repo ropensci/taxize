@@ -39,7 +39,7 @@ get_uid_(sciname, messages = TRUE, rows = NA, key = NULL, ...)
 more than one TSN is found for the species, the user is asked for input. If
 FALSE NA is returned for multiple matches.}
 
-\item{messages}{logical; If `TRUE` (default) the actual taxon queried is 
+\item{messages}{logical; If `TRUE` (default) the actual taxon queried is
 printed on the console.}
 
 \item{rows}{numeric; Any number from 1 to infinity. If the default NA, all
@@ -121,7 +121,7 @@ Retrieve the Unique Identifier (UID) of a taxon from NCBI taxonomy browser.
 
 See \code{\link{taxize-authentication}} for help on authentication
 
-Note that even though you can't pass in your key to `as.uid` functions, 
+Note that even though you can't pass in your key to `as.uid` functions,
 we still use your Entrez API key if you have it saved as an R option
 or environment variable.
 }

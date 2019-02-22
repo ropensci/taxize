@@ -90,7 +90,8 @@ apgFamilies <- function(...) {
 }
 
 apg_GET <- function(x, ...) {
-  cli <- crul::HttpClient$new(apg_base(), opts = list(...))
+  cli <- crul::HttpClient$new(apg_base(),
+    headers = tx_ual, opts = list(...))
   res <- cli$get(sprintf("MOBOT/research/APweb/top/synonymy%s.html", x))
   res$raise_for_status()
   res$parse("UTF-8")

@@ -238,3 +238,12 @@ taxize_ua <- function(x) {
 xml_text_all <- function(x, xpath) {
   xml2::xml_text(xml2::xml_find_all(x, xpath))
 }
+
+tx_ua <- function() {
+  versions <- c(paste0("r-curl/", utils::packageVersion("curl")),
+    paste0("crul/", utils::packageVersion("crul")),
+    sprintf("rOpenSci(taxize/%s)", utils::packageVersion("taxize")))
+  paste0(versions, collapse = " ")
+}
+
+tx_ual <- list(`User-Agent` = tx_ua(), `X-USER-AGENT` = tx_ua())

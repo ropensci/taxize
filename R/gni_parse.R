@@ -19,7 +19,7 @@
 gni_parse <- function(names, ...) {
   names <- paste0(names, collapse = "|")
   cli <- crul::HttpClient$new(paste0(gni_base(), "parsers.json"), 
-    opts = list(...))
+    headers = tx_ual, opts = list(...))
   tt <- cli$get(query = list(names = names))
   tt$raise_for_status()
   out <- jsonlite::fromJSON(tt$parse("UTF-8"), FALSE)

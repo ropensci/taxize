@@ -79,6 +79,7 @@ eol_pages <- function(taxonconceptID, images_per_page=NULL, images_page=NULL,
     taxonomy=taxonomy, vetted=vetted, cache_ttl=cache_ttl, key=key))
   cli <- crul::HttpClient$new(
     url = file.path(eol_url("pages"), paste0(taxonconceptID, ".json")),
+    headers = tx_ual,
     opts = list(...)
   )
   res <- cli$get(query = argsnull(args))

@@ -100,7 +100,7 @@ fung_base <- function() "http://www.indexfungorum.org/ixfwebservice/fungus.asmx"
 
 fung_GET <- function(path, args, ...) {
   cli <- crul::HttpClient$new(file.path(fung_base(), path), 
-    opts = list(...))
+    headers = tx_ual, opts = list(...))
   tt <- cli$get(query = args)
   tt$raise_for_status()
   tt$parse("UTF-8")

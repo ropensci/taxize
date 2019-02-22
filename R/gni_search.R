@@ -54,7 +54,7 @@ gni_search <- function(search_term = NULL, per_page = NULL, page = NULL,
 	query <- tc(list(search_term = search_term, per_page = per_page, 
         page = page))
   cli <- crul::HttpClient$new(paste0(gni_base(), "name_strings.json"), 
-    opts = list(...))
+    headers = tx_ual, opts = list(...))
   tt <- cli$get(query = argsnull(query))
   tt$raise_for_status()
 	out <- jsonlite::fromJSON(tt$parse("UTF-8"), FALSE)
