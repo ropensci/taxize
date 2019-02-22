@@ -96,10 +96,7 @@ get_natservid <- function(query, searchtype = "scientific", ask = TRUE,
   assert(searchtype, "character")
   assert(ask, "logical")
   assert(verbose, "logical")
-  if (!is.na(rows)) {
-    assert(rows, c("numeric", "integer"))
-    stopifnot(rows > 0)
-  }
+  assert_rows(rows)
 
   fun <- function(x, searchtype, ask, verbose, key, rows, ...) {
     direct <- FALSE

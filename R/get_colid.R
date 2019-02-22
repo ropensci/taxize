@@ -117,10 +117,7 @@ get_colid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
   assert(order, "character")
   assert(family, "character")
   assert(rank, "character")
-  if (!is.na(rows)) {
-    assert(rows, c("numeric", "integer"))
-    stopifnot(rows > 0)
-  }
+  assert_rows(rows)
 
   fun <- function(sciname, ask, messages, rows, ...) {
     direct <- FALSE

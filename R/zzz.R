@@ -43,6 +43,13 @@ add_uri <- function(ids, url, z = NULL){
   ids
 }
 
+assert_rows <- function(rows) {
+  if (!all(is.na(rows))) {
+    assert(rows, c("numeric", "integer"))
+    stopifnot(all(rows > 0))
+  }
+}
+
 check_rows <- function(z) {
   if (!is.numeric(z) && !any(is.na(z))) {
     stop("'rows' must be numeric or NA", call. = FALSE)

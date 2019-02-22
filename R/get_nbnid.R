@@ -89,10 +89,7 @@ get_nbnid <- function(name, ask = TRUE, messages = TRUE, rec_only = FALSE,
   assert(rec_only, "logical")
   assert(rank, "character")
   assert(messages, "logical")
-  if (!is.na(rows)) {
-    assert(rows, c("numeric", "integer"))
-    stopifnot(rows > 0)
-  }
+  assert_rows(rows)
 
   fun <- function(name, ask, messages, rows, ...) {
     direct <- FALSE

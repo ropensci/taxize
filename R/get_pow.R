@@ -92,10 +92,7 @@ get_pow <- function(x, accepted = FALSE, ask = TRUE, messages = TRUE,
   assert(messages, "logical")
   assert(family_filter, "character")
   assert(rank_filter, "character")
-  if (!is.na(rows)) {
-    assert(rows, c("numeric", "integer"))
-    stopifnot(rows > 0)
-  }
+  assert_rows(rows)
 
   fun <- function(x, ask, messages, rows) {
     direct <- FALSE

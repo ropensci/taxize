@@ -101,10 +101,7 @@ get_eolid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
   assert(messages, "logical")
   assert(rank, "character")
   assert(data_source, "character")
-  if (!is.na(rows)) {
-    assert(rows, c("numeric", "integer"))
-    stopifnot(rows > 0)
-  }
+  assert_rows(rows)
 
   fun <- function(sciname, ask, messages, rows, ...) {
     direct <- FALSE
