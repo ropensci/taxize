@@ -36,5 +36,5 @@ test_that("get_natservid fails well", {
   expect_error(get_natservid('Ruby*', 'common', rows = "foobar", verbose = FALSE),
                "rows must be of class numeric, integer")
   expect_error(get_natservid('Ruby*', 'common', rows = 0, verbose = FALSE),
-               "rows > 0 is not TRUE")
+               "all\\(rows > 0\\) is not TRUE")
 })

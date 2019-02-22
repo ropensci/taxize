@@ -101,6 +101,6 @@ test_that("get_gbifid fails as expected", {
   expect_error(get_gbifid("Satyrium", rows = "foobar", messages = FALSE),
                "rows must be of class numeric, integer")
   expect_error(get_gbifid("Satyrium", rows = 0, messages = FALSE),
-               "rows > 0 is not TRUE")
+               "all\\(rows > 0\\) is not TRUE")
 })
 

@@ -43,5 +43,5 @@ test_that("get_tsn fails as expected", {
   expect_error(get_tsn("Achlya", rows = "foobar", verbose = FALSE),
                "rows must be of class numeric, integer")
   expect_error(get_tsn("Achlya", rows = 0, verbose = FALSE),
-               "rows > 0 is not TRUE")
+               "all\\(rows > 0\\) is not TRUE")
 })
