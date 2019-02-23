@@ -1,3 +1,43 @@
+# BIOMASS
+
+Version: 2.0
+
+## Newly broken
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+        |                                                                            
+        |======================================================================| 100%
+      
+        |                                                                            
+        |                                                                      |   0%
+        |                                                                            
+        |======================================================================| 100%
+      ══ testthat results  ═══════════════════════════════════════════════════════════
+      OK: 503 SKIPPED: 0 FAILED: 3
+      1. Failure: CorrectTaxo (@test_00_correctTaxo.R#49) 
+      2. Failure: CorrectTaxo (@test_00_correctTaxo.R#52) 
+      3. Failure: CorrectTaxo (@test_00_correctTaxo.R#53) 
+      
+      Error: testthat unit tests failed
+      Execution halted
+    ```
+
+## In both
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    Quitting from lines 54-57 (BIOMASS.Rmd) 
+    Error: processing vignette 'BIOMASS.Rmd' failed with diagnostics:
+    Item 2 has 5 columns, inconsistent with item 1 which has 8 columns. If instead you need to fill missing columns, use set argument 'fill' to TRUE.
+    Execution halted
+    ```
+
 # camtrapR
 
 Version: 1.0
@@ -9,7 +49,7 @@ Version: 1.0
     Error in re-building vignettes:
       ...
     Loading required package: sp
-    rgdal: version: 1.3-6, (SVN revision 773)
+    rgdal: version: 1.3-9, (SVN revision 794)
      Geospatial Data Abstraction Library extensions to R successfully loaded
      Loaded GDAL runtime: GDAL 2.1.3, released 2017/20/01
      Path to GDAL shared files: /Users/sckott/github/ropensci/taxize/revdep/library.noindex/camtrapR/rgdal/gdal
@@ -49,9 +89,17 @@ Version: 0.3.1
 
 # myTAI
 
-Version: 0.8.0
+Version: 0.9.0
 
 ## In both
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  5.0Mb
+      sub-directories of 1Mb or more:
+        data   2.0Mb
+        doc    2.4Mb
+    ```
 
 *   checking dependencies in R code ... NOTE
     ```
