@@ -199,10 +199,12 @@ get_eolid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
     }
     
     if (length(id) > 1) {
-      matchtmp <- df[tolower(df$name) %in% tolower(sciname), "eolid"]
-      if (length(matchtmp) == 1) {
-        id <- matchtmp
+      matchtmp <- df[tolower(df$name) %in% tolower(sciname), ]
+      if (NROW(matchtmp) == 1) {
+        id <- matchtmp$eolid
         direct <- TRUE
+        page_id <- matchtmp$pageid
+        datasource <- matchtmp$source
         att <- "found"
       }
     }
