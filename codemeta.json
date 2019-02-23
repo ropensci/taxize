@@ -421,7 +421,7 @@
   "contIntegration": "https://travis-ci.org/ropensci/taxize",
   "releaseNotes": "https://github.com/ropensci/taxize/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/taxize/blob/master/README.md",
-  "fileSize": "1287.425KB",
+  "fileSize": "1287.419KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
