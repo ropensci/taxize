@@ -15,7 +15,7 @@
   two.}\item{"err."}{refers to the unnumbered page of errata that appears
   following the index in volume two.}\item{"canc."}{following a page number
   indicates that the binomial appeared on the cancelled version of that page
-  and does not appear on its replacement (as in the 1957–1959 facsimile
+  and does not appear on its replacement (as in the 1957-1959 facsimile
   edition).}}}}}
 \source{
 \href{http://fmhibd.library.cmu.edu/HIBD-DB/Species/home.php}{Hunt
@@ -35,7 +35,7 @@ inception. The names were transcribed by Robert W. Kiger.
 }
 \references{
 Linnaeus, C. 1753. Species Plantarum. 2 vols. Salvius, Stockholm.
-  [Facsimile edition, 1957–1959, Ray Society, London.]
+  [Facsimile edition, 1957-1959, Ray Society, London.]
 }
 \author{
 Carl Linnaeus
