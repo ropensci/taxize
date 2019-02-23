@@ -34,7 +34,6 @@ year's checklist instead of the lastest as default (numeric).}
 col_search wrapper to iterate to get more than default results
 }
 \examples{
-res <- col_search_paginate(name = "Poa", response = "full")
-res
+# col_search_paginate(name = "Poa", response = "full")
 }
 \keyword{internal}

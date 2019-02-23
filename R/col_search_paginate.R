@@ -3,8 +3,7 @@
 #' @keywords internal
 #' @inheritParams col_search
 #' @examples
-#' res <- col_search_paginate(name = "Poa", response = "full")
-#' res
+#' # col_search_paginate(name = "Poa", response = "full")
 col_search_paginate <- function(name = NULL, id = NULL, start = NULL,
   checklist = NULL, response = "terse", ...) {
 

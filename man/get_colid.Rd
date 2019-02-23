@@ -61,8 +61,12 @@ below.}
 
 \item{rank}{(character) A taxonomic rank name. See \code{\link{rank_ref}}
 for possible options. Though note that some data sources use atypical ranks,
-so inspect the
-data itself for options. Optional. See \code{Filtering} below.}
+so inspect the data itself for options. Optional.
+See \code{Filtering} below.}
+
+\item{status}{(character) A name status, e.g., "accepted name",
+"misapplied name", "synonym", "ambiguous synonym", "common name", and more.
+Optional. See \code{Filtering} below.}
 
 \item{...}{Ignored}
 
@@ -97,11 +101,12 @@ data.
 \section{Filtering}{
 
 The parameters \code{kingdom}, \code{phylum}, \code{class}, \code{order},
-\code{family}, and \code{rank} are not used in the search to the data
-provider, but are used in filtering the data down to a subset that is
-closer to the target you want. For all these parameters, you can use regex
-strings since we use \code{\link{grep}} internally to match. Filtering
-narrows down to the set that matches your query, and removes the rest.
+\code{family}, \code{rank}, and \code{status} are not used in the search
+to the data provider, but are used in filtering the data down to a subset
+that is closer to the target you want. For all these parameters, you
+can use regex strings since we use \code{\link{grep}} internally to
+match. Filtering narrows down to the set that matches your query,
+and removes the rest.
 }
 
 \examples{
