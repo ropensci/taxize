@@ -10,7 +10,7 @@
   "codeRepository": "https://github.com/ropensci/taxize",
   "issueTracker": "https://github.com/ropensci/taxize/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.9.5",
+  "version": "0.9.6",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -421,7 +421,7 @@
   "contIntegration": "https://travis-ci.org/ropensci/taxize",
   "releaseNotes": "https://github.com/ropensci/taxize/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/taxize/blob/master/README.md",
-  "fileSize": "1192.687KB",
+  "fileSize": "1287.425KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
