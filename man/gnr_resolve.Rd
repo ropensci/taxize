@@ -99,9 +99,9 @@ Note that names (i.e. rows) are dropped that are NA, are zero length
 strings, are not character vectors, or are not found by the API.
 }
 \description{
-See section \strong{Date age} for a note about data age
+See section \strong{Age of datasets in the Global Names Resolver}
 }
-\section{Date age}{
+\section{Age of datasets in the Global Names Resolver}{
 
 IMPORTANT: Datasets used in the Global Names Resolver vary in how recently
 they've been updated. See the \code{updated_at} field in the 
