@@ -13,7 +13,7 @@
 \usage{
 get_colid(sciname, ask = TRUE, messages = TRUE, rows = NA,
   kingdom = NULL, phylum = NULL, class = NULL, order = NULL,
-  family = NULL, rank = NULL, ...)
+  family = NULL, rank = NULL, status = NULL, ...)
 
 as.colid(x, check = TRUE)
 

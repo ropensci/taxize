@@ -123,8 +123,8 @@
 #' }
 
 get_colid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
-                      kingdom = NULL, phylum = NULL, class = NULL, order = NULL,
-                      family = NULL, rank = NULL, ...){
+  kingdom = NULL, phylum = NULL, class = NULL, order = NULL,
+  family = NULL, rank = NULL, status = NULL, ...) {
 
   assert(ask, "logical")
   assert(messages, "logical")
@@ -134,6 +134,7 @@ get_colid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
   assert(order, "character")
   assert(family, "character")
   assert(rank, "character")
+  assert(status, "character")
   assert_rows(rows)
 
   fun <- function(sciname, ask, messages, rows, ...) {
@@ -169,13 +170,15 @@ get_colid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
       rownames(df) <- NULL
 
       if (!is.null(kingdom) || !is.null(phylum) || !is.null(class) ||
-          !is.null(order) || !is.null(family) || !is.null(rank)) {
+          !is.null(order) || !is.null(family) || !is.null(rank) ||
+          !is.null(status)) {
         df <- filt(df, "kingdom", kingdom)
         df <- filt(df, "phylum", phylum)
         df <- filt(df, "class", class)
         df <- filt(df, "order", order)
         df <- filt(df, "family", family)
         df <- filt(df, "rank", rank)
+        df <- filt(df, "name_status", status)
       }
 
       df <- sub_rows(df, rows)
