@@ -56,7 +56,7 @@
 #' @importFrom graphics plot
 #' @importFrom methods as is
 #' @importFrom stats as.dist hclust na.omit setNames aggregate complete.cases
-#' @importFrom crul HttpClient upload
+#' @importFrom crul HttpClient HttpRequest AsyncVaried upload
 #' @importFrom zoo na.locf
 #' @importFrom utils URLencode citation download.file read.delim write.table tail
 #' @importFrom ape read.tree as.phylo.hclust plot.phylo

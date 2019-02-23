@@ -31,7 +31,17 @@ year's checklist instead of the lastest as default (numeric).}
 \item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
 }
 \value{
-A list of data.frame's.
+A list of data.frame's, each data.frame has the attributes:
+\itemize{
+ \item id: 
+ \item name: 
+ \item total_number_of_results: 
+ \item number_of_results_returned: 
+ \item start: 
+ \item error_message: 
+ \item version: 
+ \item rank: 
+}
 }
 \description{
 Search Catalogue of Life for taxonomic IDs
@@ -60,7 +70,7 @@ col_search(id = "36c623ad9e3da39c2e978fa3576ad415")
 col_search(id = "36c623ad9e3da39c2e978fa3576ad415", response = "full")
 col_search(id = "787ce23969f5188c2467126d9a545be1")
 col_search(id = "787ce23969f5188c2467126d9a545be1", response = "full")
-col_search(id = c("36c623ad9e3da39c2e978fa3576ad415", 
+col_search(id = c("36c623ad9e3da39c2e978fa3576ad415",
   "787ce23969f5188c2467126d9a545be1"))
 ## a synonym
 col_search(id = "f726bdaa5924cabf8581f99889de51fc")

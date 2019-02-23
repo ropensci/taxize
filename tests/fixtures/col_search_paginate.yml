@@ -8,8 +8,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.7.0 rOpenSci(taxize/0.9.5.9429)
-      X-USER-AGENT: r-curl/3.3 crul/0.7.0 rOpenSci(taxize/0.9.5.9429)
+      User-Agent: r-curl/3.3 crul/0.7.0 rOpenSci(taxize/0.9.5.9911)
+      X-USER-AGENT: r-curl/3.3 crul/0.7.0 rOpenSci(taxize/0.9.5.9911)
   response:
     status:
       status_code: '200'
@@ -18,9 +18,9 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0
-      date: Sat, 23 Feb 2019 01:20:57 GMT
+      date: Sat, 23 Feb 2019 01:32:34 GMT
       content-type: application/json
-      content-length: '8106'
+      content-length: '8112'
       connection: keep-alive
       expires: Thu, 19 Nov 1981 08:52:00 GMT
       cache-control: no-store, no-cache, must-revalidate
@@ -717,16 +717,7 @@ http_interactions:
         P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J.,
         Penev L., eds.). Digital resource at www.catalogueoflife.org\/col. Species
         2000: Naturalis, Leiden, the Netherlands. ISSN 2405-8858.","name_html":"<i>Impatiens
-        nidus-apis<\/i> Eb. Fisch. & Raheliv.","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/4622127373758ba08b1ae68187729625"},{"id":"70a68f13454abd937aabf56746f4a6ad","name":"Kirkaldykra
-        apis","rank":"Species","name_status":"accepted name","record_scrutiny_date":[],"online_resource":"http:\/\/dmitriev.speciesfile.org\/taxahelp.asp?hc=19407&amp;key=Erythroneura&amp;lng=En","is_extinct":"false","source_database":"3i
-        Auchenorrhyncha: World Auchenorrhyncha Database","source_database_url":"http:\/\/dmitriev.speciesfile.org\/3i.asp","bibliographic_citation":"Dmitriev
-        D., Sanborn A. & Takiya D. (2019). 3i Auchenorrhyncha: World Auchenorrhyncha
-        Database (version Nov 2017). In: Species 2000 & ITIS Catalogue of Life, 20th
-        February 2019 (Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk
-        P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J.,
-        Penev L., eds.). Digital resource at www.catalogueoflife.org\/col. Species
-        2000: Naturalis, Leiden, the Netherlands. ISSN 2405-8858.","name_html":"<i>Kirkaldykra
-        apis<\/i> (Dworakowska, 1969)","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/70a68f13454abd937aabf56746f4a6ad"},{"id":"59beb11628785741443aeea85387bbbe","name":"Kirkaldykra
+        nidus-apis<\/i> Eb. Fisch. & Raheliv.","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/4622127373758ba08b1ae68187729625"},{"id":"59beb11628785741443aeea85387bbbe","name":"Kirkaldykra
         apis","rank":"Species","name_status":"synonym","online_resource":"","source_database":"3i
         Auchenorrhyncha: World Auchenorrhyncha Database","source_database_url":"http:\/\/dmitriev.speciesfile.org\/3i.asp","bibliographic_citation":"Dmitriev
         D., Sanborn A. & Takiya D. (2019). 3i Auchenorrhyncha: World Auchenorrhyncha
@@ -744,7 +735,16 @@ http_interactions:
         P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J.,
         Penev L., eds.). Digital resource at www.catalogueoflife.org\/col. Species
         2000: Naturalis, Leiden, the Netherlands. ISSN 2405-8858.","name_html":"<i>Kirkaldykra
-        apis<\/i> (Dworakowska, 1969)","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/70a68f13454abd937aabf56746f4a6ad"}},{"id":"edd81c538da7175c83458bd4434deb12","name":"Kloeckera
+        apis<\/i> (Dworakowska, 1969)","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/70a68f13454abd937aabf56746f4a6ad"}},{"id":"70a68f13454abd937aabf56746f4a6ad","name":"Kirkaldykra
+        apis","rank":"Species","name_status":"accepted name","record_scrutiny_date":[],"online_resource":"http:\/\/dmitriev.speciesfile.org\/taxahelp.asp?hc=19407&amp;key=Erythroneura&amp;lng=En","is_extinct":"false","source_database":"3i
+        Auchenorrhyncha: World Auchenorrhyncha Database","source_database_url":"http:\/\/dmitriev.speciesfile.org\/3i.asp","bibliographic_citation":"Dmitriev
+        D., Sanborn A. & Takiya D. (2019). 3i Auchenorrhyncha: World Auchenorrhyncha
+        Database (version Nov 2017). In: Species 2000 & ITIS Catalogue of Life, 20th
+        February 2019 (Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk
+        P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J.,
+        Penev L., eds.). Digital resource at www.catalogueoflife.org\/col. Species
+        2000: Naturalis, Leiden, the Netherlands. ISSN 2405-8858.","name_html":"<i>Kirkaldykra
+        apis<\/i> (Dworakowska, 1969)","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/70a68f13454abd937aabf56746f4a6ad"},{"id":"edd81c538da7175c83458bd4434deb12","name":"Kloeckera
         apiculata apis","rank":"Infraspecies","name_status":"synonym","online_resource":"","source_database":"Saccharomycetes","source_database_url":"http:\/\/www.speciesfungorum.org","bibliographic_citation":"Offord
         L.C. & Kirk P.M. (2019). Saccharomycetes (version Oct 2017). In: Species 2000
         & ITIS Catalogue of Life, 20th February 2019 (Roskov Y., Ower G., Orrell T.,
@@ -1090,7 +1090,7 @@ http_interactions:
         resource at www.catalogueoflife.org\/col. Species 2000: Naturalis, Leiden,
         the Netherlands. ISSN 2405-8858.","name_html":"<i>Hister apis<\/i> Marseul,
         1870","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/d2d7483acf488b5ed932f49b0aa51d19"}}]}'
-  recorded_at: 2019-02-23 01:21:00 GMT
+  recorded_at: 2019-02-23 01:32:37 GMT
   recorded_with: vcr/0.2.6, webmockr/0.3.4
 - request:
     method: get
@@ -1101,8 +1101,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.7.0 rOpenSci(taxize/0.9.5.9429)
-      X-USER-AGENT: r-curl/3.3 crul/0.7.0 rOpenSci(taxize/0.9.5.9429)
+      User-Agent: r-curl/3.3 crul/0.7.0 rOpenSci(taxize/0.9.5.9911)
+      X-USER-AGENT: r-curl/3.3 crul/0.7.0 rOpenSci(taxize/0.9.5.9911)
   response:
     status:
       status_code: '200'
@@ -1112,15 +1112,15 @@ http_interactions:
       cache-control: no-store, no-cache, must-revalidate
       connection: keep-alive
       content-encoding: gzip
-      content-length: '8113'
+      content-length: '8112'
       content-type: application/json
-      date: Sat, 23 Feb 2019 01:20:58 GMT
+      date: Sat, 23 Feb 2019 01:32:35 GMT
       expires: Thu, 19 Nov 1981 08:52:00 GMT
       pragma: no-cache
       server: nginx/1.14.0
       set-cookie:
-      - aci_language=en; expires=Sat, 09-Mar-2019 01:20:57 GMT; Max-Age=1209600; path=/
-      - PHPSESSID=0a22oi15s9dno2se91dbvpaipb; path=/
+      - aci_language=en; expires=Sat, 09-Mar-2019 01:32:35 GMT; Max-Age=1209600; path=/
+      - PHPSESSID=t72rcsda9n0e344lhl1jt6fds4; path=/
       status: HTTP/1.1 200 OK
       vary: Accept-Encoding
     body:
@@ -1879,23 +1879,7 @@ http_interactions:
         R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds.). Digital
         resource at www.catalogueoflife.org\/col. Species 2000: Naturalis, Leiden,
         the Netherlands. ISSN 2405-8858.","name_html":"<i>Mallota apis<\/i> Thompson,
-        2002","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/10c3c3921d2ea9f9425ef9fd41914520"},{"id":"428ab13d6bac7b127d4835b76c660714","name":"Melania
-        apis","rank":"Species","name_status":"synonym","online_resource":"","source_database":"WoRMS
-        Mollusca: MolluscaBase","source_database_url":"http:\/\/www.molluscabase.org","bibliographic_citation":"MolluscaBase.
-        (2019). WoRMS Mollusca: MolluscaBase (version 2019-01-06). In: Species 2000
-        & ITIS Catalogue of Life, 20th February 2019 (Roskov Y., Ower G., Orrell T.,
-        Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken
-        E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org\/col.
-        Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-8858.","name_html":"<i>Melania
-        apis<\/i> I. Lea & H.C Lea, 1851","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/abd0d958d996036db8f9917cfd4cdc5a\/synonym\/428ab13d6bac7b127d4835b76c660714","accepted_name":{"id":"abd0d958d996036db8f9917cfd4cdc5a","name":"Pachychilus
-        apis","rank":"Species","name_status":"accepted name","record_scrutiny_date":[],"online_resource":"http:\/\/www.molluscabase.org\/aphia.php?p=taxdetails&id=1059080","is_extinct":"false","source_database":"WoRMS
-        Mollusca: MolluscaBase","source_database_url":"http:\/\/www.molluscabase.org","bibliographic_citation":"MolluscaBase.
-        (2019). WoRMS Mollusca: MolluscaBase (version 2019-01-06). In: Species 2000
-        & ITIS Catalogue of Life, 20th February 2019 (Roskov Y., Ower G., Orrell T.,
-        Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken
-        E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org\/col.
-        Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-8858.","name_html":"<i>Pachychilus
-        apis<\/i> (I. Lea & H.C. Lea, 1851)","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/abd0d958d996036db8f9917cfd4cdc5a"}},{"id":"83038e3863ecae98601a6fd37746d521","name":"Melania
+        2002","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/10c3c3921d2ea9f9425ef9fd41914520"},{"id":"83038e3863ecae98601a6fd37746d521","name":"Melania
         apis","rank":"Species","name_status":"synonym","online_resource":"","source_database":"WoRMS
         Mollusca: MolluscaBase","source_database_url":"http:\/\/www.molluscabase.org","bibliographic_citation":"MolluscaBase.
         (2019). WoRMS Mollusca: MolluscaBase (version 2019-01-06). In: Species 2000
@@ -1904,6 +1888,22 @@ http_interactions:
         E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org\/col.
         Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-8858.","name_html":"<i>Melania
         apis<\/i> Reeve, 1860","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/abd0d958d996036db8f9917cfd4cdc5a\/synonym\/83038e3863ecae98601a6fd37746d521","accepted_name":{"id":"abd0d958d996036db8f9917cfd4cdc5a","name":"Pachychilus
+        apis","rank":"Species","name_status":"accepted name","record_scrutiny_date":[],"online_resource":"http:\/\/www.molluscabase.org\/aphia.php?p=taxdetails&id=1059080","is_extinct":"false","source_database":"WoRMS
+        Mollusca: MolluscaBase","source_database_url":"http:\/\/www.molluscabase.org","bibliographic_citation":"MolluscaBase.
+        (2019). WoRMS Mollusca: MolluscaBase (version 2019-01-06). In: Species 2000
+        & ITIS Catalogue of Life, 20th February 2019 (Roskov Y., Ower G., Orrell T.,
+        Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken
+        E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org\/col.
+        Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-8858.","name_html":"<i>Pachychilus
+        apis<\/i> (I. Lea & H.C. Lea, 1851)","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/abd0d958d996036db8f9917cfd4cdc5a"}},{"id":"428ab13d6bac7b127d4835b76c660714","name":"Melania
+        apis","rank":"Species","name_status":"synonym","online_resource":"","source_database":"WoRMS
+        Mollusca: MolluscaBase","source_database_url":"http:\/\/www.molluscabase.org","bibliographic_citation":"MolluscaBase.
+        (2019). WoRMS Mollusca: MolluscaBase (version 2019-01-06). In: Species 2000
+        & ITIS Catalogue of Life, 20th February 2019 (Roskov Y., Ower G., Orrell T.,
+        Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken
+        E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org\/col.
+        Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-8858.","name_html":"<i>Melania
+        apis<\/i> I. Lea & H.C Lea, 1851","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/abd0d958d996036db8f9917cfd4cdc5a\/synonym\/428ab13d6bac7b127d4835b76c660714","accepted_name":{"id":"abd0d958d996036db8f9917cfd4cdc5a","name":"Pachychilus
         apis","rank":"Species","name_status":"accepted name","record_scrutiny_date":[],"online_resource":"http:\/\/www.molluscabase.org\/aphia.php?p=taxdetails&id=1059080","is_extinct":"false","source_database":"WoRMS
         Mollusca: MolluscaBase","source_database_url":"http:\/\/www.molluscabase.org","bibliographic_citation":"MolluscaBase.
         (2019). WoRMS Mollusca: MolluscaBase (version 2019-01-06). In: Species 2000
@@ -2186,7 +2186,7 @@ http_interactions:
         resource at www.catalogueoflife.org\/col. Species 2000: Naturalis, Leiden,
         the Netherlands. ISSN 2405-8858.","name_html":"<i>Hister apis<\/i> Marseul,
         1870","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/d2d7483acf488b5ed932f49b0aa51d19"}}]}'
-  recorded_at: 2019-02-23 01:21:00 GMT
+  recorded_at: 2019-02-23 01:32:37 GMT
   recorded_with: vcr/0.2.6, webmockr/0.3.4
 - request:
     method: get
@@ -2197,8 +2197,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.7.0 rOpenSci(taxize/0.9.5.9429)
-      X-USER-AGENT: r-curl/3.3 crul/0.7.0 rOpenSci(taxize/0.9.5.9429)
+      User-Agent: r-curl/3.3 crul/0.7.0 rOpenSci(taxize/0.9.5.9911)
+      X-USER-AGENT: r-curl/3.3 crul/0.7.0 rOpenSci(taxize/0.9.5.9911)
   response:
     status:
       status_code: '200'
@@ -2207,7 +2207,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0
-      date: Sat, 23 Feb 2019 01:20:59 GMT
+      date: Sat, 23 Feb 2019 01:32:36 GMT
       content-type: application/json
       content-length: '8114'
       connection: keep-alive
@@ -3279,7 +3279,7 @@ http_interactions:
         resource at www.catalogueoflife.org\/col. Species 2000: Naturalis, Leiden,
         the Netherlands. ISSN 2405-8858.","name_html":"<i>Hister apis<\/i> Marseul,
         1870","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/d2d7483acf488b5ed932f49b0aa51d19"}}]}'
-  recorded_at: 2019-02-23 01:21:00 GMT
+  recorded_at: 2019-02-23 01:32:37 GMT
   recorded_with: vcr/0.2.6, webmockr/0.3.4
 - request:
     method: get
@@ -3290,8 +3290,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.7.0 rOpenSci(taxize/0.9.5.9429)
-      X-USER-AGENT: r-curl/3.3 crul/0.7.0 rOpenSci(taxize/0.9.5.9429)
+      User-Agent: r-curl/3.3 crul/0.7.0 rOpenSci(taxize/0.9.5.9911)
+      X-USER-AGENT: r-curl/3.3 crul/0.7.0 rOpenSci(taxize/0.9.5.9911)
   response:
     status:
       status_code: '200'
@@ -3300,7 +3300,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0
-      date: Sat, 23 Feb 2019 01:20:59 GMT
+      date: Sat, 23 Feb 2019 01:32:37 GMT
       content-type: application/json
       content-length: '2871'
       connection: keep-alive
@@ -3883,7 +3883,7 @@ http_interactions:
         resource at www.catalogueoflife.org\/col. Species 2000: Naturalis, Leiden,
         the Netherlands. ISSN 2405-8858.","name_html":"<i>Puma concolor couguar<\/i>
         (Kerr, 1792)","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/c3c5b4e039134a8423b3a101c295a4d4"}}]}'
-  recorded_at: 2019-02-23 01:21:00 GMT
+  recorded_at: 2019-02-23 01:32:37 GMT
   recorded_with: vcr/0.2.6, webmockr/0.3.4
 - request:
     method: get
@@ -3894,8 +3894,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.7.0 rOpenSci(taxize/0.9.5.9429)
-      X-USER-AGENT: r-curl/3.3 crul/0.7.0 rOpenSci(taxize/0.9.5.9429)
+      User-Agent: r-curl/3.3 crul/0.7.0 rOpenSci(taxize/0.9.5.9911)
+      X-USER-AGENT: r-curl/3.3 crul/0.7.0 rOpenSci(taxize/0.9.5.9911)
   response:
     status:
       status_code: '200'
@@ -3904,7 +3904,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0
-      date: Sat, 23 Feb 2019 01:21:00 GMT
+      date: Sat, 23 Feb 2019 01:32:37 GMT
       content-type: application/json
       content-length: '643'
       connection: keep-alive
@@ -3926,5 +3926,5 @@ http_interactions:
         J., Penev L., eds.). Digital resource at www.catalogueoflife.org\/col. Species
         2000: Naturalis, Leiden, the Netherlands. ISSN 2405-8858.","name_html":"<i>Bertrana
         poa<\/i> Levi, 1994","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/36c623ad9e3da39c2e978fa3576ad415"}]}'
-  recorded_at: 2019-02-23 01:21:00 GMT
+  recorded_at: 2019-02-23 01:32:37 GMT
   recorded_with: vcr/0.2.6, webmockr/0.3.4

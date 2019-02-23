@@ -9,7 +9,7 @@
 \alias{as.colid.data.frame}
 \alias{as.data.frame.colid}
 \alias{get_colid_}
-\title{Get the Catalogue of Life ID from taxonomic names.}
+\title{Get the Catalogue of Life ID from taxonomic names}
 \usage{
 get_colid(sciname, ask = TRUE, messages = TRUE, rows = NA,
   kingdom = NULL, phylum = NULL, class = NULL, order = NULL,
@@ -39,33 +39,37 @@ input. If FALSE NA is returned for multiple matches.}
 \item{messages}{logical; If TRUE the actual taxon queried is printed on the
 console.}
 
-\item{rows}{numeric; Any number from 1 to infinity. If the default NA, all rows are considered.
-Note that this function still only gives back a colid class object with one to many identifiers.
-See \code{\link[taxize]{get_colid_}} to get back all, or a subset, of the raw data that you are
-presented during the ask process.}
+\item{rows}{numeric; Any number from 1 to infinity. If the default NA, all
+rows are considered. Note that this function still only gives back a colid
+class object with one to many identifiers. See
+\code{\link[taxize]{get_colid_}} to get back all, or a subset, of the raw
+data that you are presented during the ask process.}
 
 \item{kingdom}{(character) A kingdom name. Optional. See \code{Filtering}
 below.}
 
-\item{phylum}{(character) A phylum (aka division) name. Optional. See \code{Filtering}
-below.}
+\item{phylum}{(character) A phylum (aka division) name. Optional.
+See \code{Filtering} below.}
 
 \item{class}{(character) A class name. Optional. See \code{Filtering} below.}
 
-\item{order}{(character) An order name. Optional. See \code{Filtering} below.}
+\item{order}{(character) An order name. Optional. See \code{Filtering}
+below.}
 
-\item{family}{(character) A family name. Optional. See \code{Filtering} below.}
+\item{family}{(character) A family name. Optional. See \code{Filtering}
+below.}
 
-\item{rank}{(character) A taxonomic rank name. See \code{\link{rank_ref}} for possible
-options. Though note that some data sources use atypical ranks, so inspect the
+\item{rank}{(character) A taxonomic rank name. See \code{\link{rank_ref}}
+for possible options. Though note that some data sources use atypical ranks,
+so inspect the
 data itself for options. Optional. See \code{Filtering} below.}
 
 \item{...}{Ignored}
 
 \item{x}{Input to as.colid}
 
-\item{check}{logical; Check if ID matches any existing on the DB, only used in
-\code{\link{as.colid}}}
+\item{check}{logical; Check if ID matches any existing on the DB, only used
+in \code{\link{as.colid}}}
 }
 \value{
 A vector of taxonomic identifiers as an S3 class.
@@ -79,15 +83,25 @@ See \code{\link{get_id_details}} for further details including
 attributes and exceptions
 }
 \description{
-Get the Catalogue of Life ID from taxonomic names.
+Get the Catalogue of Life ID from taxonomic names
 }
+\section{Number of results}{
+
+We didn't used to, but as of \pkg{taxize} version \code{v0.9.6} we paginate
+through results for any queries so that you get all results. For example,
+COL allows only 50 records per request for full responses that we request,
+so if a query results in 100 records, we make two requests to get all the
+data.
+}
+
 \section{Filtering}{
 
-The parameters \code{kingdom}, \code{phylum}, \code{class}, \code{order}, \code{family},
-and \code{rank} are not used in the search to the data provider, but are used in filtering
-the data down to a subset that is closer to the target you want. For all these parameters,
-you can use regex strings since we use \code{\link{grep}} internally to match.
-Filtering narrows down to the set that matches your query, and removes the rest.
+The parameters \code{kingdom}, \code{phylum}, \code{class}, \code{order},
+\code{family}, and \code{rank} are not used in the search to the data
+provider, but are used in filtering the data down to a subset that is
+closer to the target you want. For all these parameters, you can use regex
+strings since we use \code{\link{grep}} internally to match. Filtering
+narrows down to the set that matches your query, and removes the rest.
 }
 
 \examples{
@@ -95,7 +109,7 @@ Filtering narrows down to the set that matches your query, and removes the rest.
 get_colid(sciname='Poa annua')
 get_colid(sciname='Pinus contorta')
 get_colid(sciname='Puma concolor')
-# get_colid(sciname="Abudefduf saxatilis")
+get_colid(sciname="Abudefduf saxatilis")
 
 get_colid(c("Poa annua", "Pinus contorta"))
 
@@ -131,17 +145,22 @@ as.colid(get_colid("Chironomus riparius")) # already a uid, returns the same
 as.colid(get_colid(c("Chironomus riparius","Pinus contorta"))) # same
 as.colid("714831352ad94741e4321eccdeb29f58") # character
 # character vector, length > 1
-as.colid(c("714831352ad94741e4321eccdeb29f58", "3b35900f74ff6e4b073ddb95c32b1f8d"))
+as.colid(c("714831352ad94741e4321eccdeb29f58",
+  "3b35900f74ff6e4b073ddb95c32b1f8d"))
 # list, either numeric or character
-as.colid(list("714831352ad94741e4321eccdeb29f58", "3b35900f74ff6e4b073ddb95c32b1f8d"))
+as.colid(list("714831352ad94741e4321eccdeb29f58",
+  "3b35900f74ff6e4b073ddb95c32b1f8d"))
 ## dont check, much faster
 as.colid("714831352ad94741e4321eccdeb29f58", check=FALSE)
-as.colid(c("714831352ad94741e4321eccdeb29f58", "3b35900f74ff6e4b073ddb95c32b1f8d"),
+as.colid(c("714831352ad94741e4321eccdeb29f58",
+ "3b35900f74ff6e4b073ddb95c32b1f8d"),
  check=FALSE)
-as.colid(list("714831352ad94741e4321eccdeb29f58", "3b35900f74ff6e4b073ddb95c32b1f8d"),
+as.colid(list("714831352ad94741e4321eccdeb29f58",
+ "3b35900f74ff6e4b073ddb95c32b1f8d"),
  check=FALSE)
 
-(out <- as.colid(c("714831352ad94741e4321eccdeb29f58", "3b35900f74ff6e4b073ddb95c32b1f8d")))
+(out <- as.colid(c("714831352ad94741e4321eccdeb29f58",
+ "3b35900f74ff6e4b073ddb95c32b1f8d")))
 data.frame(out)
 as.colid( data.frame(out) )
 
