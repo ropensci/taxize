@@ -9,38 +9,38 @@ The following functions are now defunct (no longer available):
 }
 \details{
 \itemize{
- \item \code{\link{col_classification}}: See \code{\link{classification}}
- \item \code{\link{eol_hierarchy}}: See \code{\link{classification}}
- \item \code{\link{tp_classification}}: See \code{\link{classification}}
- \item \code{\link{tpl_search}}: Use the \pkg{Taxonstand} functions
- \code{TPL} or \code{TPLck} directly.
- \item \code{\link{get_seqs}}: This function changed name to \code{\link{ncbi_getbyname}}.
- \item \code{\link{get_genes}}: This function changed name to \code{\link{ncbi_getbyid}}.
- \item \code{\link{get_genes_avail}}: This function changed name to \code{\link{ncbi_search}}.
- \item \code{\link{ncbi_getbyname}}: See \code{ncbi_byname} in the \pkg{traits} package.
- \item \code{\link{ncbi_getbyid}}: See \code{ncbi_byid} in the \pkg{traits} package.
- \item \code{\link{ncbi_search}}: See \code{ncbi_searcher} in the \pkg{traits} package.
- \item \code{\link{eol_invasive}}: See \code{eol} in the \pkg{originr} package.
- \item \code{\link{gisd_isinvasive}}: See \code{gisd} in the \pkg{originr} package.
- \item \code{\link{ubio_classification}}:  The uBio web services was down for quite a while, is
- now (as of 2016-05-09) back up, but we don't trust that it will stay up and available.
- \item \code{\link{ubio_classification_search}}: The uBio web services was down for quite
- a while, is now (as of 2016-05-09) back up, but we don't trust that it will stay up
- and available.
- \item \code{\link{ubio_id}}: The uBio web services was down for quite a while, is
- now (as of 2016-05-09) back up, but we don't trust that it will stay up and available.
- \item \code{\link{ubio_ping}}:  The uBio web services was down for quite a while, is
- now (as of 2016-05-09) back up, but we don't trust that it will stay up and available.
- \item \code{\link{ubio_search}}:  The uBio web services was down for quite a while, is
- now (as of 2016-05-09) back up, but we don't trust that it will stay up and available.
- \item \code{\link{ubio_synonyms}}:  The uBio web services was down for quite a while, is
- now (as of 2016-05-09) back up, but we don't trust that it will stay up and available.
- \item \code{\link{get_ubioid}}: The uBio web services are apparently down indefinitely.
- \item \code{\link{phylomatic_tree}}: This function is defunct. See
- \code{phylomatic} in the package \pkg{brranching}
- \item \code{\link{phylomatic_format}}: This function is defunct. See
- \code{phylomatic_names} in the package \pkg{brranching}
- \item \code{\link{iucn_summary_id}}: This function is defunct. Use 
- \code{\link{iucn_summary}}
+\item \code{\link{col_classification}}: See \code{\link{classification}}
+\item \code{\link{eol_hierarchy}}: See \code{\link{classification}}
+\item \code{\link{tp_classification}}: See \code{\link{classification}}
+\item \code{\link{tpl_search}}: Use the \pkg{Taxonstand} functions
+\code{TPL} or \code{TPLck} directly.
+\item \code{\link{get_seqs}}: This function changed name to \code{\link{ncbi_getbyname}}.
+\item \code{\link{get_genes}}: This function changed name to \code{\link{ncbi_getbyid}}.
+\item \code{\link{get_genes_avail}}: This function changed name to \code{\link{ncbi_search}}.
+\item \code{\link{ncbi_getbyname}}: See \code{ncbi_byname} in the \pkg{traits} package.
+\item \code{\link{ncbi_getbyid}}: See \code{ncbi_byid} in the \pkg{traits} package.
+\item \code{\link{ncbi_search}}: See \code{ncbi_searcher} in the \pkg{traits} package.
+\item \code{\link{eol_invasive}}: See \code{eol} in the \pkg{originr} package.
+\item \code{\link{gisd_isinvasive}}: See \code{gisd} in the \pkg{originr} package.
+\item \code{\link{ubio_classification}}:  The uBio web services was down for quite a while, is
+now (as of 2016-05-09) back up, but we don't trust that it will stay up and available.
+\item \code{\link{ubio_classification_search}}: The uBio web services was down for quite
+a while, is now (as of 2016-05-09) back up, but we don't trust that it will stay up
+and available.
+\item \code{\link{ubio_id}}: The uBio web services was down for quite a while, is
+now (as of 2016-05-09) back up, but we don't trust that it will stay up and available.
+\item \code{\link{ubio_ping}}:  The uBio web services was down for quite a while, is
+now (as of 2016-05-09) back up, but we don't trust that it will stay up and available.
+\item \code{\link{ubio_search}}:  The uBio web services was down for quite a while, is
+now (as of 2016-05-09) back up, but we don't trust that it will stay up and available.
+\item \code{\link{ubio_synonyms}}:  The uBio web services was down for quite a while, is
+now (as of 2016-05-09) back up, but we don't trust that it will stay up and available.
+\item \code{\link{get_ubioid}}: The uBio web services are apparently down indefinitely.
+\item \code{\link{phylomatic_tree}}: This function is defunct. See
+\code{phylomatic} in the package \pkg{brranching}
+\item \code{\link{phylomatic_format}}: This function is defunct. See
+\code{phylomatic_names} in the package \pkg{brranching}
+\item \code{\link{iucn_summary_id}}: This function is defunct. Use
+\code{\link{iucn_summary}}
 }
 }

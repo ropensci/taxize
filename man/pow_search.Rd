@@ -13,13 +13,13 @@ pow_search(q, limit = 100, cursor = "*", sort = NULL, ...)
 
 \item{cursor}{(character) cursor string}
 
-\item{sort}{(character) The field to sort by and sort order separted with 
+\item{sort}{(character) The field to sort by and sort order separted with
 underscore, e.g., \code{sort="name_desc"}}
 
 \item{...}{Further args passed on to \code{\link[crul]{HttpClient}}.}
 }
 \value{
-a list with slots for metadata (`meta`) with list of response
+a list with slots for metadata (\code{meta}) with list of response
 attributes, and data (`data``) with a data.frame of results
 }
 \description{
@@ -50,7 +50,7 @@ asc$data$name
 }
 }
 \references{
-<http://powo.science.kew.org/>
+\url{http://powo.science.kew.org/}
 }
 \seealso{
 Other pow: \code{\link{get_pow}}, \code{\link{pow_lookup}}

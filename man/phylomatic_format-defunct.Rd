@@ -3,7 +3,7 @@
 \name{phylomatic_format}
 \alias{phylomatic_format}
 \title{Get family names to make Phylomatic input object, and output input string
-   to Phylomatic for use in the function phylomatic_tree.}
+to Phylomatic for use in the function phylomatic_tree.}
 \usage{
 phylomatic_format(...)
 }

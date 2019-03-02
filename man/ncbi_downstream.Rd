@@ -21,8 +21,8 @@ intermediate taxonomic groups. Default: \code{FALSE}}
 }
 \value{
 Data.frame of taxonomic information downstream to family from e.g.,
-		Order, Class, etc., or if \code{intermediate=TRUE}, list of length two,
-  	with target taxon rank names, and intermediate names.
+Order, Class, etc., or if \code{intermediate=TRUE}, list of length two,
+with target taxon rank names, and intermediate names.
 }
 \description{
 Retrieve all taxa names downstream in hierarchy for NCBI
@@ -38,7 +38,7 @@ programatically. So, no rank things will sometimes be missing.
 
 \section{Authentication}{
 
-See \code{\link{taxize-authentication}} for help on authentication. 
+See \code{\link{taxize-authentication}} for help on authentication.
 We strongly recommend getting an API key
 }
 

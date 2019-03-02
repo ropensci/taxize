@@ -27,7 +27,7 @@ nbn_synonyms(id = 'NHMSYS0000502940')
 }
 }
 \references{
-<https://api.nbnatlas.org/>
+\url{https://api.nbnatlas.org/}
 }
 \seealso{
 Other nbn: \code{\link{get_nbnid}},

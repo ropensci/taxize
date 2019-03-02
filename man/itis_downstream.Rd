@@ -22,8 +22,8 @@ taxonomic groups. Default: FALSE}
 }
 \value{
 Data.frame of taxonomic information downstream to family from e.g.,
-		Order, Class, etc., or if \code{intermediated=TRUE}, list of length two,
-  	with target taxon rank names, and intermediate names.
+Order, Class, etc., or if \code{intermediated=TRUE}, list of length two,
+with target taxon rank names, and intermediate names.
 }
 \description{
 Retrieve all taxa names or TSNs downstream in hierarchy from given TSN.

@@ -6,10 +6,10 @@
 \title{MOBOT family names}
 \format{A data frame with 1597 rows and 4 variables:
 \describe{
-  \item{original}{original data record from APG website}
-  \item{this}{Order name}
-  \item{that}{Replacement order name}
-  \item{order}{Order name}
+\item{original}{original data record from APG website}
+\item{this}{Order name}
+\item{that}{Replacement order name}
+\item{order}{Order name}
 }}
 \source{
 \url{http://www.mobot.org/MOBOT/research/APweb/}

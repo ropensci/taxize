@@ -11,14 +11,14 @@ tpl_families(...)
 }
 \value{
 Returns a \code{data.frame} including the names of all families
-indexed by The Plant List, and the major groups into which they fall 
+indexed by The Plant List, and the major groups into which they fall
 (i.e. Angiosperms, Gymnosperms, Bryophytes and Pteridophytes).
 }
 \description{
 Get The Plant List families.
 }
 \details{
-Requires an internet connection in order to connect to 
+Requires an internet connection in order to connect to
 www.theplantlist.org.
 }
 \examples{

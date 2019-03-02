@@ -66,34 +66,34 @@ vector of taxa unknown to the Global Names Index. Access like
 
 Columns of the output data.frame:
 \itemize{
- \item user_supplied_name (character) - the name you passed in to the
- \code{names} parameter, unchanged.
- \item submitted_name (character) - the actual name submitted to the GNR
- service
- \item data_source_id (integer/numeric) - data source ID
- \item data_source_title (character) - data source name
- \item gni_uuid (character) - Global Names Index UUID (aka identifier)
- \item matched_name (character) - the matched name in the GNR service
- \item matched_name2 (character) - returned if \code{canonical=TRUE}, in
- which case \emph{matched_name} is not returned
- \item classification_path (character) - names of the taxonomic
- classification tree, with names separated by pipes (\code{|})
- \item classification_path_ranks (character) - ranks of the taxonomic
- classification tree, with names separated by pipes (\code{|})
- \item classification_path_ids (character) - identifiers of the taxonomic
- classification tree, with names separated by pipes (\code{|})
- \item taxon_id (character) - taxon identifier
- \item edit_distance (integer/numeric) - edit distance
- \item imported_at (character) - date imported
- \item match_type (integer/numeric) - match type
- \item match_value (character) - description of match type
- \item prescore (character) - pre score
- \item score (numeric) - score
- \item local_id (character) - local identifier
- \item url (character) - URL for taxon
- \item global_id (character) - global identifier
- \item current_taxon_id (character) - current taxon id
- \item current_name_string (character) - current name string
+\item user_supplied_name (character) - the name you passed in to the
+\code{names} parameter, unchanged.
+\item submitted_name (character) - the actual name submitted to the GNR
+service
+\item data_source_id (integer/numeric) - data source ID
+\item data_source_title (character) - data source name
+\item gni_uuid (character) - Global Names Index UUID (aka identifier)
+\item matched_name (character) - the matched name in the GNR service
+\item matched_name2 (character) - returned if \code{canonical=TRUE}, in
+which case \emph{matched_name} is not returned
+\item classification_path (character) - names of the taxonomic
+classification tree, with names separated by pipes (\code{|})
+\item classification_path_ranks (character) - ranks of the taxonomic
+classification tree, with names separated by pipes (\code{|})
+\item classification_path_ids (character) - identifiers of the taxonomic
+classification tree, with names separated by pipes (\code{|})
+\item taxon_id (character) - taxon identifier
+\item edit_distance (integer/numeric) - edit distance
+\item imported_at (character) - date imported
+\item match_type (integer/numeric) - match type
+\item match_value (character) - description of match type
+\item prescore (character) - pre score
+\item score (numeric) - score
+\item local_id (character) - local identifier
+\item url (character) - URL for taxon
+\item global_id (character) - global identifier
+\item current_taxon_id (character) - current taxon id
+\item current_name_string (character) - current name string
 }
 Note that names (i.e. rows) are dropped that are NA, are zero length
 strings, are not character vectors, or are not found by the API.
@@ -104,14 +104,14 @@ See section \strong{Age of datasets in the Global Names Resolver}
 \section{Age of datasets in the Global Names Resolver}{
 
 IMPORTANT: Datasets used in the Global Names Resolver vary in how recently
-they've been updated. See the \code{updated_at} field in the 
-output of \code{\link{gnr_datasources}} for dates when each dataset 
+they've been updated. See the \code{updated_at} field in the
+output of \code{\link{gnr_datasources}} for dates when each dataset
 was last updated.
 }
 
 \section{preferred_data_sources}{
 
-If \code{preferred_data_sources} is used, only the preferred data 
+If \code{preferred_data_sources} is used, only the preferred data
 is returned - if it has any results.
 }
 

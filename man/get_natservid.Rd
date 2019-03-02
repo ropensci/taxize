@@ -82,10 +82,10 @@ Get an API key from NatureServe at
 You can pass your token in as an argument or store it one of two places:
 
 \itemize{
-  \item your .Rprofile file with an entry like
-  \code{options(NatureServeKey = "your-natureserve-key")}
-  \item your .Renviron file with an entry like
-  \code{NATURE_SERVE_KEY=your-natureserve-key}
+\item your .Rprofile file with an entry like
+\code{options(NatureServeKey = "your-natureserve-key")}
+\item your .Renviron file with an entry like
+\code{NATURE_SERVE_KEY=your-natureserve-key}
 }
 
 See \code{\link{Startup}} for information on how to create/find your

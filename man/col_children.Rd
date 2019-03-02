@@ -32,8 +32,8 @@ single query is 500 for terse queries and 50 for full queries).}
 \item{checklist}{The year of the checklist to query, if you want a specific
 year's checklist instead of the lastest as default (numeric).}
 
-\item{extant_only}{(logical) keep extant taxa only? default: \code{FALSE}. 
-by default we give back all taxa. set to \code{TRUE} to get only 
+\item{extant_only}{(logical) keep extant taxa only? default: \code{FALSE}.
+by default we give back all taxa. set to \code{TRUE} to get only
 extant taxa}
 
 \item{...}{Curl options passed on to \code{\link[crul]{verb-GET}}}
@@ -41,10 +41,10 @@ extant taxa}
 \value{
 A list of data.frame's, where each data.frame has columns:
 \itemize{
- \item childtaxa_id: (character) COL identifier
- \item childtaxa_name: (character) taxonomic name
- \item childtaxa_rank: (character) rank name
- \item childtaxa_extinct: (logical) extinct or not
+\item childtaxa_id: (character) COL identifier
+\item childtaxa_name: (character) taxonomic name
+\item childtaxa_rank: (character) rank name
+\item childtaxa_extinct: (logical) extinct or not
 }
 }
 \description{
@@ -52,7 +52,7 @@ Search Catalogue of Life for for direct children of a particular taxon.
 }
 \details{
 You must provide one of name or id. The other parameters (format
-		and start) are optional.
+and start) are optional.
 }
 \examples{
 \dontrun{

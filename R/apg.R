@@ -3,8 +3,8 @@
 #' Generic names and their replacements from the Angiosperm Phylogeny
 #' Group III system of flowering plant classification.
 #'
-#' @param ... Curl args passed on to \code{\link[crul]{verb-GET}}
-#' @references http://www.mobot.org/MOBOT/research/APweb/
+#' @param ... Curl args passed on to [`crul::verb-GET`]
+#' @references <http://www.mobot.org/MOBOT/research/APweb/>
 #' @name apg
 #' @examples \dontrun{
 #' head(apgOrders())

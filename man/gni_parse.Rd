@@ -12,7 +12,7 @@ gni_parse(names, ...)
 \item{...}{Curl options passed on to \code{\link[crul]{verb-GET}}}
 }
 \value{
-A data.frame with results, the submitted names, and the 
+A data.frame with results, the submitted names, and the
 parsed names with additional information.
 }
 \description{

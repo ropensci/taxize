@@ -77,29 +77,24 @@ classification(...)
 \method{rbind}{classification_ids}(...)
 }
 \arguments{
-\item{...}{For \code{classification}: other arguments passed to
-\code{\link{get_tsn}},
-\code{\link{get_uid}}, \code{\link{get_eolid}},
-\code{\link{get_colid}}, \code{\link{get_tpsid}},
-\code{\link{get_gbifid}}, \code{\link{get_wormsid}},
-\code{\link{get_natservid}}, \code{\link{get_wormsid}},
-\code{\link{get_wiki}}, \code{\link{get_pow}}. For \code{rbind.classification}
-and \code{cbind.classification}: one or more objects of class
-\code{classification}}
+\item{...}{For \code{classification}: other arguments passed to \code{\link[=get_tsn]{get_tsn()}},
+\code{\link[=get_uid]{get_uid()}}, \code{\link[=get_eolid]{get_eolid()}}, \code{\link[=get_colid]{get_colid()}}, \code{\link[=get_tpsid]{get_tpsid()}}, \code{\link[=get_gbifid]{get_gbifid()}},
+\code{\link[=get_wormsid]{get_wormsid()}}, \code{\link[=get_natservid]{get_natservid()}}, \code{\link[=get_wormsid]{get_wormsid()}}, \code{\link[=get_wiki]{get_wiki()}},
+\code{\link[=get_pow]{get_pow()}}. For \code{rbind.classification} and \code{cbind.classification}: one or
+more objects of class \code{classification}}
 
 \item{x}{Vector of taxa names (character) or IDs (character or numeric)
 to query.}
 
-\item{db}{character; database to query. either \code{ncbi}, \code{itis},
-\code{eol}, \code{col}, \code{tropicos}, \code{gbif}, \code{nbn},
-\code{worms}, \code{natserv}, \code{bold}, \code{wiki}, or \code{pow}. Note that each
-taxonomic data source has, their own identifiers, so that if you provide
-the wrong \code{db} value for the identifier you could get a result, but
-it will likely be wrong (not what you were expecting). If using ncbi, eol,
-and/or tropicos, we recommend getting an API key; see
-\code{\link{taxize-authentication}}}
+\item{db}{character; database to query. either \code{ncbi}, \code{itis}, \code{eol}, \code{col},
+\code{tropicos}, \code{gbif}, \code{nbn}, \code{worms}, \code{natserv}, \code{bold}, \code{wiki}, or \code{pow}.
+Note that each taxonomic data source has, their own identifiers, so that
+if you provide the wrong \code{db} value for the identifier you could get a
+result, but it will likely be wrong (not what you were expecting). If using
+ncbi, eol, and/or tropicos, we recommend getting an API key; see
+\link{taxize-authentication}}
 
-\item{callopts}{Curl options passed on to \code{\link[crul]{verb-GET}}}
+\item{callopts}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 
 \item{return_id}{(logical) If \code{TRUE} (default), return the taxon id
 as well as the name and rank of taxa in the lineage returned.
@@ -110,13 +105,10 @@ classification data.}
 all rows are considered. Note that this parameter is ignored if you pass
 in a taxonomic id instead of a name of class character.}
 
-\item{id}{character; identifiers, returned by \code{\link{get_tsn}},
-\code{\link{get_uid}}, \code{\link{get_eolid}},
-\code{\link{get_colid}}, \code{\link{get_tpsid}},
-\code{\link{get_gbifid}}, \code{\link{get_tolid}},
-\code{\link{get_wormsid}}, \code{\link{get_natservid}},
-\code{\link{get_wormsid}}, \code{\link{get_wiki}},
-\code{\link{get_pow}}}
+\item{id}{character; identifiers, returned by \code{\link[=get_tsn]{get_tsn()}}, \code{\link[=get_uid]{get_uid()}},
+\code{\link[=get_eolid]{get_eolid()}}, \code{\link[=get_colid]{get_colid()}}, \code{\link[=get_tpsid]{get_tpsid()}}, \code{\link[=get_gbifid]{get_gbifid()}}, \code{\link[=get_tolid]{get_tolid()}},
+\code{\link[=get_wormsid]{get_wormsid()}}, \code{\link[=get_natservid]{get_natservid()}}, \code{\link[=get_wormsid]{get_wormsid()}}, \code{\link[=get_wiki]{get_wiki()}},
+\code{\link[=get_pow]{get_pow()}}}
 
 \item{start}{The first record to return. If omitted, the results are
 returned from the first record (start=0). This is useful if the total
@@ -129,7 +121,7 @@ a specific year's checklist instead of the lastest as default (numeric).}
 }
 \value{
 A named list of data.frames with the taxonomic classification of
-   every supplied taxa.
+every supplied taxa.
 }
 \description{
 Retrieve the taxonomic hierarchy for a given taxon ID.
@@ -156,7 +148,7 @@ we can do.
 
 \section{Authentication}{
 
-See \code{\link{taxize-authentication}}
+See \link{taxize-authentication}
 }
 
 \examples{
@@ -299,10 +291,7 @@ classification('Poa annua', db = 'tropicos', rows=6)
 }
 }
 \seealso{
-\code{\link{get_tsn}}, \code{\link{get_uid}},
-   \code{\link{get_eolid}}, \code{\link{get_colid}},
-   \code{\link{get_tpsid}}, \code{\link{get_gbifid}}
-   \code{\link{get_wormsid}}, \code{\link{get_natservid}},
-   \code{\link{get_boldid}}, \code{\link{get_wiki}},
-   \code{\link{get_pow}}
+\code{\link[=get_tsn]{get_tsn()}}, \code{\link[=get_uid]{get_uid()}}, \code{\link[=get_eolid]{get_eolid()}}, \code{\link[=get_colid]{get_colid()}},
+\code{\link[=get_tpsid]{get_tpsid()}}, \code{\link[=get_gbifid]{get_gbifid()}}, \code{\link[=get_wormsid]{get_wormsid()}}, \code{\link[=get_natservid]{get_natservid()}},
+\code{\link[=get_boldid]{get_boldid()}}, \code{\link[=get_wiki]{get_wiki()}}, \code{\link[=get_pow]{get_pow()}}
 }

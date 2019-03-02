@@ -46,14 +46,14 @@ A vector of taxonomic identifiers as an S3 class.
 
 Comes with the following attributes:
 \itemize{
- \item \emph{match} (character) - the reason for NA, either 'not found',
- 'found' or if \code{ask = FALSE} then 'NA due to ask=FALSE')
- \item \emph{name} (character) - the taxonomic name, which is needed in
- \code{\link{synonyms}} and \code{\link{sci2comm}} methods since they
- internally use \pkg{rredlist} functions which require the taxonomic name,
- and not the taxonomic identifier
- \item \emph{uri} (character) - The URI where more information can be
- read on the taxon - includes the taxonomic identifier in the URL somewhere
+\item \emph{match} (character) - the reason for NA, either 'not found',
+'found' or if \code{ask = FALSE} then 'NA due to ask=FALSE')
+\item \emph{name} (character) - the taxonomic name, which is needed in
+\code{\link{synonyms}} and \code{\link{sci2comm}} methods since they
+internally use \pkg{rredlist} functions which require the taxonomic name,
+and not the taxonomic identifier
+\item \emph{uri} (character) - The URI where more information can be
+read on the taxon - includes the taxonomic identifier in the URL somewhere
 }
 
 \emph{multiple_matches} and \emph{pattern_match} do not apply here as in

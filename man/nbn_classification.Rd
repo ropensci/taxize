@@ -31,7 +31,7 @@ nbn_classification(id="NHMSYS0000502940", verbose = TRUE)
 }
 }
 \references{
-<https://api.nbnatlas.org/>
+\url{https://api.nbnatlas.org/}
 }
 \seealso{
 Other nbn: \code{\link{get_nbnid}},

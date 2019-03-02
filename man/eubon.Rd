@@ -19,13 +19,13 @@ eubon_search(query, providers = "pesi",
 so wildcard characters are not supported}
 
 \item{providers}{(character) A list of provider id strings concatenated by
-comma characters. The default : "pesi,bgbm-cdm-server[col]" will be used if
+comma characters. The default : "pesi,bgbm-cdm-server\link{col}" will be used if
 this parameter is not set. A list of all available provider ids can be
 obtained from the '/capabilities' service end point. Providers can be
 nested, that is a parent provider can have sub providers. If the id of the
 parent provider is supplied all subproviders will be queried. The query
 can also be restricted to one or more subproviders by using the following
-syntax: parent-id[sub-id-1,sub-id2,...]}
+syntax: parent-id\link{sub-id-1,sub-id2,...}}
 
 \item{searchMode}{(character) Specifies the searchMode. Possible search
 modes are: scientificNameExact, scientificNameLike (begins with),
@@ -51,11 +51,11 @@ return the responses that have been received so far. The default timeout is
 a deduplication strategy. The deduplication is done by comparing
 specific properties of the taxon:
 \itemize{
- \item id: compares 'taxon.identifier'
- \item id_name: compares 'taxon.identifier' AND
- 'taxon.taxonName.scientificName'
- \item name: compares 'taxon.taxonName.scientificName' Using the pure
- 'name' strategy is not recommended.
+\item id: compares 'taxon.identifier'
+\item id_name: compares 'taxon.identifier' AND
+'taxon.taxonName.scientificName'
+\item name: compares 'taxon.taxonName.scientificName' Using the pure
+'name' strategy is not recommended.
 }}
 
 \item{...}{Curl options passed on to \code{\link[crul]{verb-GET}}}

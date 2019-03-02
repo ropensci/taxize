@@ -39,7 +39,7 @@ get_uid_(sciname, messages = TRUE, rows = NA, key = NULL, ...)
 more than one TSN is found for the species, the user is asked for input. If
 FALSE NA is returned for multiple matches.}
 
-\item{messages}{logical; If `TRUE` (default) the actual taxon queried is
+\item{messages}{logical; If \code{TRUE} (default) the actual taxon queried is
 printed on the console.}
 
 \item{rows}{numeric; Any number from 1 to infinity. If the default NA, all
@@ -92,36 +92,36 @@ Retrieve the Unique Identifier (UID) of a taxon from NCBI taxonomy browser.
 }
 \section{Querying}{
  The parameter \code{rank_query} is used in the search sent
-  to NCBI, whereas \code{rank_filter} filters data after it comes back. The
-  parameter \code{modifier} adds modifiers to the name. For example,
-  \code{modifier="Organism"} adds that to the name, giving e.g.,
-  \code{Helianthus[Organism]}.
+to NCBI, whereas \code{rank_filter} filters data after it comes back. The
+parameter \code{modifier} adds modifiers to the name. For example,
+\code{modifier="Organism"} adds that to the name, giving e.g.,
+\code{Helianthus[Organism]}.
 }
 
 \section{Filtering}{
  The parameters \code{division_filter} and
-  \code{rank_filter} are not used in the search to the data provider, but are
-  used in filtering the data down to a subset that is closer to the target
-  you want. For all these parameters, you can use regex strings since we use
-  \code{\link{grep}} internally to match. Filtering narrows down to the set
-  that matches your query, and removes the rest.
+\code{rank_filter} are not used in the search to the data provider, but are
+used in filtering the data down to a subset that is closer to the target
+you want. For all these parameters, you can use regex strings since we use
+\code{\link{grep}} internally to match. Filtering narrows down to the set
+that matches your query, and removes the rest.
 }
 
 \section{Beware}{
  NCBI does funny things sometimes. E.g., if you search on
-  Fringella morel, a slight misspelling of the genus name, and a non-existent
-  epithet, NCBI gives back a morel fungal species. In addition, NCBI doesn't
-  really do fuzzy searching very well, so if there is a slight mis-spelling
-  in your names, you likely won't get what you are expecting. The lesson:
-  clean your names before using this function. Other data sources are better
-  about fuzzy matching.
+Fringella morel, a slight misspelling of the genus name, and a non-existent
+epithet, NCBI gives back a morel fungal species. In addition, NCBI doesn't
+really do fuzzy searching very well, so if there is a slight mis-spelling
+in your names, you likely won't get what you are expecting. The lesson:
+clean your names before using this function. Other data sources are better
+about fuzzy matching.
 }
 
 \section{Authentication}{
 
 See \code{\link{taxize-authentication}} for help on authentication
 
-Note that even though you can't pass in your key to `as.uid` functions,
+Note that even though you can't pass in your key to \code{as.uid} functions,
 we still use your Entrez API key if you have it saved as an R option
 or environment variable.
 }

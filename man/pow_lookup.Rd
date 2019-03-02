@@ -9,7 +9,7 @@ pow_lookup(id, include = NULL, ...)
 \arguments{
 \item{id}{(character) taxon id. required}
 
-\item{include}{(character) vector of additional fields to include in 
+\item{include}{(character) vector of additional fields to include in
 results. options include 'distribution' and 'descriptions'. optional}
 
 \item{...}{Further args passed on to \code{\link[crul]{HttpClient}}.}
