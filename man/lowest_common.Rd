@@ -53,9 +53,9 @@ NCBI has a method for this function but rows doesn't work.}
 \value{
 NA when no match, or a data.frame with columns
 \itemize{
- \item name
- \item rank
- \item id
+\item name
+\item rank
+\item id
 }
 }
 \description{

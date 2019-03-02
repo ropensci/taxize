@@ -15,13 +15,13 @@ itis_acceptname(searchtsn, ...)
 data.frame with with row number equal to input vector length, and
 with three columns:
 \itemize{
- \item submittedtsn (numeric) - The submitted TSN
- \item acceptedname (character) - The accepted name - if the submitted TSN 
- is the accepted TSN, then this is \code{NA_character_} because ITIS does 
- not return a name along with the TSN if it's an accepted name. We could 
- make an extra HTTP request to ITIS, but that means additional time.
- \item acceptedtsn (numeric) - The accepted TSN
- \item author (character) - taxonomic authority
+\item submittedtsn (numeric) - The submitted TSN
+\item acceptedname (character) - The accepted name - if the submitted TSN
+is the accepted TSN, then this is \code{NA_character_} because ITIS does
+not return a name along with the TSN if it's an accepted name. We could
+make an extra HTTP request to ITIS, but that means additional time.
+\item acceptedtsn (numeric) - The accepted TSN
+\item author (character) - taxonomic authority
 }
 }
 \description{

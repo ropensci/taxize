@@ -25,9 +25,9 @@ children(...)
 \method{children}{uid}(x, db = NULL, ...)
 }
 \arguments{
-\item{...}{Further args passed on to \code{\link{col_children}},
-\code{\link[ritis]{hierarchy_down}}, \code{\link{ncbi_children}},
-or \code{\link[worrms]{wm_children}}
+\item{...}{Further args passed on to \code{\link[=col_children]{col_children()}},
+\code{\link[ritis:hierarchy_down]{ritis::hierarchy_down()}}, \code{\link[=ncbi_children]{ncbi_children()}},
+or \code{\link[worrms:wm_children]{worrms::wm_children()}}
 See those functions for what parameters can be passed on.}
 
 \item{x}{Vector of taxa names (character) or IDs (character or numeric)
@@ -38,7 +38,7 @@ to query.}
 source has their own identifiers, so that if you provide the wrong
 \code{db} value for the identifier you could get a result, but it will
 likely be wrong (not what you were expecting). If using ncbi, we recommend
-getting an API key; see \code{\link{taxize-authentication}}}
+getting an API key; see \link{taxize-authentication}}
 
 \item{rows}{(numeric) Any number from 1 to infinity. If the default NA, all
 rows are considered. Note that this parameter is ignored if you pass in a

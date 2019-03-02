@@ -9,8 +9,8 @@ col_search_paginate(name = NULL, id = NULL, start = NULL,
 }
 \arguments{
 \item{name}{The string to search for. Only exact matches found the name given
-   will be returned, unless one or wildcards are included in the search
-   string. An * (asterisk) character denotes a wildcard; a % (percentage)
+will be returned, unless one or wildcards are included in the search
+string. An * (asterisk) character denotes a wildcard; a % (percentage)
 character may also be used. The name must be at least 3 characters long,
 not counting wildcard characters.}
 

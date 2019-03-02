@@ -31,19 +31,19 @@ get_pow_(x, messages = TRUE, rows = NA, ...)
 \arguments{
 \item{x}{character; A vector of common or scientific names}
 
-\item{accepted}{logical; If TRUE, removes names that are not accepted 
-valid names by ITIS. Set to \code{FALSE} (default) to give back both 
+\item{accepted}{logical; If TRUE, removes names that are not accepted
+valid names by ITIS. Set to \code{FALSE} (default) to give back both
 accepted and unaccepted names.}
 
 \item{ask}{logical; should \code{get_pow} be run in interactive mode?
-If TRUE and more than one pow is found for teh species, the user is 
+If TRUE and more than one pow is found for teh species, the user is
 asked for input. If FALSE NA is returned for multiple matches.}
 
 \item{messages}{logical; should progress be printed?}
 
-\item{rows}{numeric; Any number from 1 to infinity. If the default NA, 
-all rows are considered. Note that this function still only gives back 
-a pow class object with one to many identifiers. See 
+\item{rows}{numeric; Any number from 1 to infinity. If the default NA,
+all rows are considered. Note that this function still only gives back
+a pow class object with one to many identifiers. See
 \code{\link[taxize]{get_pow_}} to get back all, or a subset,
 of the raw data that you are presented during the ask process.}
 
@@ -57,7 +57,7 @@ itself for options. Optional. See \code{Filtering} below.}
 
 \item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
 
-\item{check}{logical; Check if ID matches any existing on the DB, only 
+\item{check}{logical; Check if ID matches any existing on the DB, only
 used in \code{\link{as.pow}}}
 }
 \value{

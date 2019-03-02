@@ -6,9 +6,9 @@
 \title{Lookup-table for family, genus, and species names for ThePlantList}
 \format{A data frame with 10,000 rows and 3 variables:
 \describe{
-  \item{family}{family name}
-  \item{genus}{genus name}
-  \item{species}{specific epithet name}
+\item{family}{family name}
+\item{genus}{genus name}
+\item{species}{specific epithet name}
 }}
 \source{
 http://www.theplantlist.org

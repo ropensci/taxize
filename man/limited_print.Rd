@@ -8,18 +8,18 @@ limited_print(chars, prefix = "", max_chars = getOption("width") -
   nchar(prefix) - 5, type = "message")
 }
 \arguments{
-\item{chars}{(`character`) What to print.}
+\item{chars}{(\code{character}) What to print.}
 
-\item{prefix}{(`character` of length 1) What to print before
-`chars`, on the same line.}
+\item{prefix}{(\code{character} of length 1) What to print before
+\code{chars}, on the same line.}
 
-\item{max_chars}{(`numeric` of length 1) The maximum number of
+\item{max_chars}{(\code{numeric} of length 1) The maximum number of
 characters to print.}
 
-\item{type}{(`"error"`, `"warning"`, `"message"`, `"cat"`, `"print"`, `"silent"``)}
+\item{type}{(\code{"error"}, \code{"warning"}, \code{"message"}, \code{"cat"}, \code{"print"}, `"silent"``)}
 }
 \value{
-`NULL`
+\code{NULL}
 }
 \description{
 Prints the start and end values for a character vector. The number of values

@@ -26,7 +26,7 @@ tp_search(name = NULL, commonname = NULL, nameid = NULL,
 \item{type}{Type of search, "wildcard" (default) will add a wildcard to the end
 of your search string. "exact" will use your search string exactly.}
 
-\item{key}{Your Tropicos API key; See \code{\link{taxize-authentication}} 
+\item{key}{Your Tropicos API key; See \code{\link{taxize-authentication}}
 for help on authentication}
 
 \item{...}{Further args passed on to \code{\link[crul]{HttpClient}}}

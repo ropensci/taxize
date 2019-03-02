@@ -18,12 +18,12 @@ register a parallel backend if \code{TRUE}. See e.g., doMC, doSNOW, etc.}
 returned as a list of vectors corresponding to the different range types:
 native, introduced, etc.}
 
-\item{key}{a Redlist API key, get one from 
-\url{http://apiv3.iucnredlist.org/api/v3/token}. Required for 
-\code{iucn_summary}. Defaults to \code{NULL} in case you have your key 
+\item{key}{a Redlist API key, get one from
+\url{http://apiv3.iucnredlist.org/api/v3/token}. Required for
+\code{iucn_summary}. Defaults to \code{NULL} in case you have your key
 stored (see \code{Redlist Authentication} below).}
 
-\item{...}{curl options passed on to [crul::verb-GET]}
+\item{...}{curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
 A list (for every species one entry) of lists with the following

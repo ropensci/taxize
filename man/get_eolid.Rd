@@ -42,7 +42,7 @@ input. If FALSE NA is returned for multiple matches.}
 on the console.}
 
 \item{key}{API key. passed on to \code{\link{eol_search}} and
-\code{\link{eol_pages}} internally. We recommend getting an API key; 
+\code{\link{eol_pages}} internally. We recommend getting an API key;
 see \code{\link{taxize-authentication}}}
 
 \item{rows}{numeric; Any number from 1 to infinity. If the default NA, all
@@ -55,7 +55,7 @@ data that you are presented during the ask process.}
 for possible options. Though note that some data sources use atypical ranks,
 so inspect the data itself for options. Optional. See \code{Filtering} below.}
 
-\item{data_source}{(character) A data source inside of EOL. These are 
+\item{data_source}{(character) A data source inside of EOL. These are
 longish names like e.g., "Barcode of Life Data Systems" or
 "USDA PLANTS images". Optional. See \code{Filtering} below.}
 
@@ -87,7 +87,7 @@ to find pages that deal with the species of interest, then use
 EOL is a bit odd in that they have page IDs for each taxon, but
 then within that, they have taxon ids for various taxa within that page
 (e.g., GBIF and NCBI each have a taxon they refer to within the
-page [i.e., taxon]). And we need the taxon ids from a particular data
+page \link{i.e., taxon}). And we need the taxon ids from a particular data
 provider (e.g, NCBI) to do other things, like get a higher classification
 tree. However, humans want the page id, not the taxon id. So, the
 id returned from this function is the taxon id, not the page id. You can

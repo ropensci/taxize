@@ -3,31 +3,23 @@
 #' @export
 #' @param x Vector of taxa names (character) or IDs (character or numeric)
 #' to query.
-#' @param db character; database to query. either \code{ncbi}, \code{itis},
-#' \code{eol}, \code{col}, \code{tropicos}, \code{gbif}, \code{nbn},
-#' \code{worms}, \code{natserv}, \code{bold}, \code{wiki}, or \code{pow}. Note that each
-#' taxonomic data source has, their own identifiers, so that if you provide
-#' the wrong \code{db} value for the identifier you could get a result, but
-#' it will likely be wrong (not what you were expecting). If using ncbi, eol,
-#' and/or tropicos, we recommend getting an API key; see
-#' \code{\link{taxize-authentication}}
-#' @param id character; identifiers, returned by \code{\link{get_tsn}},
-#' \code{\link{get_uid}}, \code{\link{get_eolid}},
-#' \code{\link{get_colid}}, \code{\link{get_tpsid}},
-#' \code{\link{get_gbifid}}, \code{\link{get_tolid}},
-#' \code{\link{get_wormsid}}, \code{\link{get_natservid}},
-#' \code{\link{get_wormsid}}, \code{\link{get_wiki}},
-#' \code{\link{get_pow}}
-#' @param callopts Curl options passed on to \code{\link[crul]{verb-GET}}
-#' @param ... For \code{classification}: other arguments passed to
-#' \code{\link{get_tsn}},
-#' \code{\link{get_uid}}, \code{\link{get_eolid}},
-#' \code{\link{get_colid}}, \code{\link{get_tpsid}},
-#' \code{\link{get_gbifid}}, \code{\link{get_wormsid}},
-#' \code{\link{get_natservid}}, \code{\link{get_wormsid}},
-#' \code{\link{get_wiki}}, \code{\link{get_pow}}. For \code{rbind.classification}
-#' and \code{cbind.classification}: one or more objects of class
-#' \code{classification}
+#' @param db character; database to query. either `ncbi`, `itis`, `eol`, `col`,
+#' `tropicos`, `gbif`, `nbn`, `worms`, `natserv`, `bold`, `wiki`, or `pow`.
+#' Note that each taxonomic data source has, their own identifiers, so that
+#' if you provide the wrong `db` value for the identifier you could get a
+#' result, but it will likely be wrong (not what you were expecting). If using
+#' ncbi, eol, and/or tropicos, we recommend getting an API key; see
+#' [taxize-authentication]
+#' @param id character; identifiers, returned by [get_tsn()], [get_uid()],
+#' [get_eolid()], [get_colid()], [get_tpsid()], [get_gbifid()], [get_tolid()],
+#' [get_wormsid()], [get_natservid()], [get_wormsid()], [get_wiki()],
+#' [get_pow()]
+#' @param callopts Curl options passed on to [crul::verb-GET]
+#' @param ... For `classification`: other arguments passed to [get_tsn()],
+#' [get_uid()], [get_eolid()], [get_colid()], [get_tpsid()], [get_gbifid()],
+#' [get_wormsid()], [get_natservid()], [get_wormsid()], [get_wiki()],
+#' [get_pow()]. For `rbind.classification` and `cbind.classification`: one or
+#' more objects of class `classification`
 #'
 #' @param start The first record to return. If omitted, the results are
 #' returned from the first record (start=0). This is useful if the total
@@ -36,7 +28,7 @@
 #' by a single query is 500 for terse queries and 50 for full queries).
 #' @param checklist character; The year of the checklist to query, if you want
 #' a specific year's checklist instead of the lastest as default (numeric).
-#' @param return_id (logical) If \code{TRUE} (default), return the taxon id
+#' @param return_id (logical) If `TRUE` (default), return the taxon id
 #' as well as the name and rank of taxa in the lineage returned.
 #' Ignored for natserv as they don't return IDs in their taxonomic
 #' classification data.
@@ -46,7 +38,7 @@
 #'
 #' @return A named list of data.frames with the taxonomic classification of
 #'    every supplied taxa.
-#' @details If IDs are supplied directly (not from the \code{get_*} functions)
+#' @details If IDs are supplied directly (not from the `get_*` functions)
 #' you must specify the type of ID. There is a timeout of 1/3 seconds between
 #' queries to NCBI.
 #'
@@ -54,12 +46,9 @@
 #' classification. But you can attach it yourself quite easily of course.
 #' This behavior is different from the other data sources.
 #'
-#' @seealso \code{\link{get_tsn}}, \code{\link{get_uid}},
-#'    \code{\link{get_eolid}}, \code{\link{get_colid}},
-#'    \code{\link{get_tpsid}}, \code{\link{get_gbifid}}
-#'    \code{\link{get_wormsid}}, \code{\link{get_natservid}},
-#'    \code{\link{get_boldid}}, \code{\link{get_wiki}},
-#'    \code{\link{get_pow}}
+#' @seealso [get_tsn()], [get_uid()], [get_eolid()], [get_colid()],
+#'    [get_tpsid()], [get_gbifid()], [get_wormsid()], [get_natservid()],
+#'    [get_boldid()], [get_wiki()], [get_pow()]
 #'
 #' @section Lots of results:
 #' It may happen sometimes that you get more results back from your query
@@ -71,7 +60,7 @@
 #' we can do.
 #'
 #' @section Authentication:
-#' See \code{\link{taxize-authentication}}
+#' See [taxize-authentication]
 #'
 #' @examples \dontrun{
 #' # Plug in taxon IDs

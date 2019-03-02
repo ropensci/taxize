@@ -11,7 +11,7 @@ tnrs(query = NA, source = NULL, code = NULL, getpost = "POST",
 \item{query}{Vector of quoted taxonomic names to search (character).}
 
 \item{source}{Specify the source you want to match names against. Defaults
-  to just retrieve data from all sources. Options: NCBI, iPlant_TNRS,
+to just retrieve data from all sources. Options: NCBI, iPlant_TNRS,
 or MSW3. Only available when using getpost="POST".}
 
 \item{code}{Nomenclatural code. One of: ICZN (zoological), ICN (algae, fungi,
@@ -21,8 +21,8 @@ ICTV (viruses). Only available when using getpost="POST".}
 \item{getpost}{Use GET or POST method to send the query. If you have more
 than say 50 species or so in your query, you should probably use POST.
 IMPORTANT!!!!! ->
-    POST is the only option for this parameter if you want to
-    use source or code parameters.}
+POST is the only option for this parameter if you want to
+use source or code parameters.}
 
 \item{sleep}{Number of seconds by which to pause between calls. Defaults to 0
 seconds. Use when doing many calls in a for loop ar lapply type call.}

@@ -16,7 +16,7 @@ tnrs_sources(source = NULL, ...)
 Sources for the TNRS API in a vector or list
 }
 \description{
-Get sources for the Phylotastic Taxonomic Name 
+Get sources for the Phylotastic Taxonomic Name
 Resolution Service
 }
 \examples{

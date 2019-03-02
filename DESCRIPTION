@@ -97,6 +97,7 @@ Suggests:
     vegan,
     vcr
 RoxygenNote: 6.1.1
+Roxygen: list(markdown = TRUE)
 X-schema.org-applicationCategory: Taxonomy
 X-schema.org-keywords: taxonomy, biology, nomenclature, JSON, API, web, api-client, identifiers, species, names
 X-schema.org-isPartOf: https://ropensci.org

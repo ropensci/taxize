@@ -19,7 +19,7 @@ source has their own identifiers, so that if you provide the wrong
 likely be wrong (not what you were expecting). If using ncbi or eol we
 recommend getting an API key; see \code{\link{taxize-authentication}}}
 
-\item{rows}{numeric; Any number from 1 to infinity. If the default NA, 
+\item{rows}{numeric; Any number from 1 to infinity. If the default NA,
 all rows are considered. passed down to \code{get_*} functions.}
 
 \item{...}{Additional arguments to \code{\link{classification}}}

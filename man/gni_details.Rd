@@ -10,7 +10,7 @@ gni_details(id, all_records = 1, ...)
 \item{id}{Name id. Required.}
 
 \item{all_records}{If all_records is 1, GNI returns all records from all
-repositories for the name string (takes 0, or 1 [default]).}
+repositories for the name string (takes 0, or 1 \link{default}).}
 
 \item{...}{Curl options passed on to \code{\link[crul]{verb-GET}}}
 }

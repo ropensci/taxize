@@ -11,13 +11,13 @@ eubon_children(id, providers = NULL, timeout = 0, ...)
 other identifier used by the checklist provider)}
 
 \item{providers}{(character) A list of provider id strings concatenated by
-comma characters. The default : "pesi,bgbm-cdm-server[col]" will be used if
+comma characters. The default : "pesi,bgbm-cdm-server\link{col}" will be used if
 this parameter is not set. A list of all available provider ids can be
 obtained from the '/capabilities' service end point. Providers can be
 nested, that is a parent provider can have sub providers. If the id of the
 parent provider is supplied all subproviders will be queried. The query
 can also be restricted to one or more subproviders by using the following
-syntax: parent-id[sub-id-1,sub-id2,...]}
+syntax: parent-id\link{sub-id-1,sub-id2,...}}
 
 \item{timeout}{(numeric) The maximum of milliseconds to wait for responses
 from any of the providers. If the timeout is exceeded the service will just

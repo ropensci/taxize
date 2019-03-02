@@ -12,7 +12,7 @@ plantminer(plants, from = "tpl", messages = TRUE, ...)
 \item{from}{(character) One of tpl (for theplantlist.com data), or
 flora (for Brazilian Flora Checklist). Required. Default: \code{tpl}}
 
-\item{messages}{(logical) informative messages or not. 
+\item{messages}{(logical) informative messages or not.
 Default: \code{TRUE}}
 
 \item{...}{curl options passed on to \code{\link[crul]{HttpClient}}}

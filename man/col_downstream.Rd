@@ -37,12 +37,12 @@ year's checklist instead of the lastest as default (numeric).}
 
 \item{verbose}{Print or suppress messages.}
 
-\item{intermediate}{(logical) If \code{TRUE}, return a list of length two 
-with target taxon rank names, with additional list of data.frame's of 
+\item{intermediate}{(logical) If \code{TRUE}, return a list of length two
+with target taxon rank names, with additional list of data.frame's of
 intermediate taxonomic groups. Default: \code{FALSE}}
 
-\item{extant_only}{(logical) keep extant taxa only? default: \code{FALSE}. 
-by default we give back all taxa. set to \code{TRUE} to get only 
+\item{extant_only}{(logical) keep extant taxa only? default: \code{FALSE}.
+by default we give back all taxa. set to \code{TRUE} to get only
 extant taxa}
 
 \item{...}{Curl options passed on to \code{\link[crul]{verb-GET}}}
@@ -50,10 +50,10 @@ extant taxa}
 \value{
 A list of data.frame's, where each data.frame has columns:
 \itemize{
- \item childtaxa_id: (character) COL identifier
- \item childtaxa_name: (character) taxonomic name
- \item childtaxa_rank: (character) rank name
- \item childtaxa_extinct: (logical) extinct or not
+\item childtaxa_id: (character) COL identifier
+\item childtaxa_name: (character) taxonomic name
+\item childtaxa_rank: (character) rank name
+\item childtaxa_extinct: (logical) extinct or not
 }
 }
 \description{

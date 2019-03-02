@@ -10,17 +10,17 @@ eol_dataobjects(id, taxonomy = TRUE, language = NULL, usekey = TRUE,
 \arguments{
 \item{id}{(character) The EOL data object identifier}
 
-\item{taxonomy}{(logical) Whether to return any taxonomy details from 
-different taxon hierarchy providers, in an array named 
+\item{taxonomy}{(logical) Whether to return any taxonomy details from
+different taxon hierarchy providers, in an array named
 \code{taxonconcepts}}
 
-\item{language}{(character) provides the results in the specified language. 
-one of ms, de, en, es, fr, gl, it, nl, nb, oc, pt-BR, sv, tl, mk, sr, uk, ar, 
+\item{language}{(character) provides the results in the specified language.
+one of ms, de, en, es, fr, gl, it, nl, nb, oc, pt-BR, sv, tl, mk, sr, uk, ar,
 zh-Hans, zh-Hant, ko}
 
 \item{usekey}{(logical) use your API key or not (\code{TRUE} or \code{FALSE})}
 
-\item{key}{(character) Your EOL API key; ; see \code{\link{taxize-authentication}} 
+\item{key}{(character) Your EOL API key; ; see \code{\link{taxize-authentication}}
 for help on authentication}
 
 \item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
@@ -33,7 +33,7 @@ Given the identifier for a data object, return all metadata about the object
 }
 \details{
 It's possible to return JSON or XML with the EOL API. However,
-		this function only returns JSON for now.
+this function only returns JSON for now.
 }
 \examples{
 \dontrun{

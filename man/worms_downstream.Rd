@@ -9,11 +9,11 @@ worms_downstream(id, downto, intermediate = FALSE, start = 1, ...)
 \arguments{
 \item{id}{(integer) One or more AphiaID's}
 
-\item{downto}{(character) The taxonomic level you want to go down to. 
-See examples below. The taxonomic level IS case sensitive, and you do have 
+\item{downto}{(character) The taxonomic level you want to go down to.
+See examples below. The taxonomic level IS case sensitive, and you do have
 to spell it correctly. See \code{data(rank_ref)} for spelling.}
 
-\item{intermediate}{(logical) If \code{TRUE}, return a list of length two 
+\item{intermediate}{(logical) If \code{TRUE}, return a list of length two
 with target taxon rank names, with additional list of data.frame's of
 intermediate taxonomic groups. Default: \code{FALSE}}
 
@@ -23,8 +23,8 @@ intermediate taxonomic groups. Default: \code{FALSE}}
 }
 \value{
 data.frame of taxonomic information downstream to family from e.g.,
-   Order, Class, etc., or if \code{intermediated=TRUE}, list of length two,
-   with target taxon rank names, and intermediate names.
+Order, Class, etc., or if \code{intermediated=TRUE}, list of length two,
+with target taxon rank names, and intermediate names.
 }
 \description{
 Retrieve all taxa names downstream in hierarchy for WORMS
