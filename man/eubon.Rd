@@ -19,13 +19,13 @@ eubon_search(query, providers = "pesi",
 so wildcard characters are not supported}
 
 \item{providers}{(character) A list of provider id strings concatenated by
-comma characters. The default : "pesi,bgbm-cdm-server\link{col}" will be used if
-this parameter is not set. A list of all available provider ids can be
-obtained from the '/capabilities' service end point. Providers can be
+comma characters. The default : "pesi,bgbm-cdm-server[col]" will be
+used if this parameter is not set. A list of all available provider ids
+can be obtained from the '/capabilities' service end point. Providers can be
 nested, that is a parent provider can have sub providers. If the id of the
 parent provider is supplied all subproviders will be queried. The query
 can also be restricted to one or more subproviders by using the following
-syntax: parent-id\link{sub-id-1,sub-id2,...}}
+syntax: parent-id[sub-id-1,sub-id2,...]}
 
 \item{searchMode}{(character) Specifies the searchMode. Possible search
 modes are: scientificNameExact, scientificNameLike (begins with),
@@ -58,7 +58,7 @@ specific properties of the taxon:
 'name' strategy is not recommended.
 }}
 
-\item{...}{Curl options passed on to \code{\link[crul]{verb-GET}}}
+\item{...}{Curl options passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}}
 }
 \description{
 EUBON taxonomy search
