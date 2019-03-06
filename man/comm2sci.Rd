@@ -33,8 +33,8 @@ Get scientific names from common names.
 }
 \details{
 For data sources ITIS and NCBI you can pass in common names
-directly, and use \code{\link[taxize]{get_uid}} or
-\code{\link[taxize]{get_tsn}} to get ids first, then pass in to this fxn.
+directly, and use \code{\link[=get_uid]{get_uid()}} or \code{\link[=get_tsn]{get_tsn()}} to get ids first, then pass in
+to this fxn.
 
 For the other data sources, you can only pass in common names directly.
 }
@@ -69,7 +69,7 @@ comm2sci(x)
 }
 }
 \seealso{
-\code{\link[taxize]{sci2comm}}
+\code{\link[=sci2comm]{sci2comm()}}
 }
 \author{
 Scott Chamberlain

@@ -16,21 +16,20 @@
 #' @param checklist The year of the checklist to query, if you want a specific
 #' 		year's checklist instead of the lastest as default (numeric).
 #' @param response (character) one of "terse" or "full"
-#' @param ... Curl options passed on to \code{\link[crul]{HttpClient}}
+#' @param ... Curl options passed on to [`crul::HttpClient`]
 #' @details You must provide one of name or id. The other parameters (format
 #' 		and start) are optional.
-#' @references \url{http://webservice.catalogueoflife.org/}
+#' @references <http://webservice.catalogueoflife.org/>
 #' @return A list of data.frame's, each data.frame has the attributes:
-#' \itemize{
-#'  \item id: 
-#'  \item name: 
-#'  \item total_number_of_results: 
-#'  \item number_of_results_returned: 
-#'  \item start: 
-#'  \item error_message: 
-#'  \item version: 
-#'  \item rank: 
-#' }
+#' * id:
+#' * name:
+#' * total_number_of_results:
+#' * number_of_results_returned:
+#' * start:
+#' * error_message:
+#' * version:
+#' * rank:
+#'
 #' @examples \dontrun{
 #' # A basic example
 #' col_search(name="Apis")

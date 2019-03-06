@@ -33,10 +33,10 @@ single query is 500 for terse queries and 50 for full queries).}
 year's checklist instead of the lastest as default (numeric).}
 
 \item{extant_only}{(logical) keep extant taxa only? default: \code{FALSE}.
-by default we give back all taxa. set to \code{TRUE} to get only
+by default we give back all taxa. set to `TRUE`` to get only
 extant taxa}
 
-\item{...}{Curl options passed on to \code{\link[crul]{verb-GET}}}
+\item{...}{Curl options passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}`}
 }
 \value{
 A list of data.frame's, where each data.frame has columns:
