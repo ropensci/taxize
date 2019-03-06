@@ -28,7 +28,7 @@ year's checklist instead of the lastest as default (numeric).}
 
 \item{response}{(character) one of "terse" or "full"}
 
-\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
+\item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient}}}
 }
 \value{
 A list of data.frame's, each data.frame has the attributes:
