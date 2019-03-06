@@ -4,16 +4,16 @@
 #'
 #' @name fungorum
 #' @param q (character) Query term
-#' @param anywhere (logical) Default: \code{TRUE}
+#' @param anywhere (logical) Default: `TRUE`
 #' @param limit (integer) Number of results to return. max limit
 #' value appears to be 6000, not positive about that though
 #' @param key (character) A IndexFungorum taxon key
 #' @param lsid (character) an LSID, e.,g. "urn:lsid:indexfungorum.org:names:81085"
 #' @param date (character) Date, of the form YYYMMDD
-#' @param ... Curl options passed on to \code{\link[crul]{verb-GET}}
-#' @references \url{http://www.indexfungorum.org/}, API docs:
-#' \url{http://www.indexfungorum.org/ixfwebservice/fungus.asmx}
-#' @return A \code{data.frame}, or \code{NULL} if no results
+#' @param ... Curl options passed on to [`crul::verb-GET`]
+#' @references <http://www.indexfungorum.org/>, API docs:
+#' <http://www.indexfungorum.org/ixfwebservice/fungus.asmx>
+#' @return A `data.frame`, or `NULL` if no results
 #' @examples \dontrun{
 #' # NameSearch
 #' fg_name_search(q = "Gymnopus", limit = 2, verbose = TRUE)
@@ -99,7 +99,7 @@ fg_deprecated_names <- function(date, ...) {
 fung_base <- function() "http://www.indexfungorum.org/ixfwebservice/fungus.asmx"
 
 fung_GET <- function(path, args, ...) {
-  cli <- crul::HttpClient$new(file.path(fung_base(), path), 
+  cli <- crul::HttpClient$new(file.path(fung_base(), path),
     headers = tx_ual, opts = list(...))
   tt <- cli$get(query = args)
   tt$raise_for_status()
