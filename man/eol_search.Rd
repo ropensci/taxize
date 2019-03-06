@@ -30,18 +30,17 @@ to filter search results}
 
 \item{cache_ttl}{The number of seconds you wish to have the response cached.}
 
-\item{key}{Your EOL API key. See \code{\link{taxize-authentication}} for
+\item{key}{Your EOL API key. See \code{\link{taxize-authentication}}` for
 help on authentication}
 
-\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
+\item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient}}}
 }
 \value{
 A data frame with four columns:
 \itemize{
 \item pageid: pageid, this is the same as the eolid you can get from
 \code{\link{get_eolid}}
-\item name: taxonomic name, may or may not contain the taxonomic
-authority
+\item name: taxonomic name, may or may not contain the taxonomic authority
 \item link: URL for the taxon in question
 \item content: a string of semi-colon separated names. it's not clear
 to us what these represent exactly, but figured why not give it to users
