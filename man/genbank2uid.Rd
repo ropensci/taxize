@@ -13,7 +13,7 @@ genbank2uid(id, batch_size = 100, key = NULL, ...)
 
 \item{key}{(character) NCBI Entrez API key. optional. See Details.}
 
-\item{...}{Curl args passed on to \code{\link[crul]{HttpClient}}}
+\item{...}{Curl args passed on to \code{\link[crul:HttpClient]{crul::HttpClient}}}
 }
 \value{
 one or more NCBI taxonomic IDs
