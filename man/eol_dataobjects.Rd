@@ -23,7 +23,7 @@ zh-Hans, zh-Hant, ko}
 \item{key}{(character) Your EOL API key; ; see \code{\link{taxize-authentication}}
 for help on authentication}
 
-\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
+\item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient}}}
 }
 \value{
 A list, optionally with a data.frame if \code{taxonomy=TRUE}

@@ -72,7 +72,7 @@ The default is to return all content. (Default: \code{FALSE})}
 \item{key}{Your EOL API key; see \code{\link{taxize-authentication}}
 for help on authentication}
 
-\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
+\item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient}}}
 }
 \value{
 JSON list object, or data.frame.
