@@ -2,8 +2,8 @@
 #'
 #' @export
 #' @param x An LSID number. Required.
-#' @param ... Curl options passed on to \code{\link[crul]{verb-GET}}
-#' @references http://www.organismnames.com
+#' @param ... Curl options passed on to [`crul::verb-GET`]
+#' @references <http://www.organismnames.com>
 #' @return A data.frame
 #' @examples \dontrun{
 #' ion(155166)

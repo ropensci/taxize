@@ -67,7 +67,7 @@ details.}
 
 \item{output}{One of minimal (default), classic, short, or extended}
 
-\item{...}{Curl options passed on to \code{\link[crul]{verb-GET}}
+\item{...}{Curl options passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}
 (Optional). Default: returns all ranks.}
 }
 \value{
@@ -75,13 +75,12 @@ A data frame
 }
 \description{
 Note: This data source is also provided in the Global Names Index (GNI)
-(http://gni.globalnames.org/data_sources). The interface to the data is
+(\url{http://gni.globalnames.org/data_sources}). The interface to the data is
 different among the two services though.
 }
 \details{
 \code{rankToReturn} options:
 \itemize{
-\item
 \item "all" - all records
 \item "fam" - family records
 \item "infrafam" - infrafamilial records
@@ -93,7 +92,7 @@ different among the two services though.
 }
 \examples{
 \dontrun{
-ipni_search(genus='Brintonia', isapnirecord=TRUE, isgcirecord=TRUE, 
+ipni_search(genus='Brintonia', isapnirecord=TRUE, isgcirecord=TRUE,
   isikrecord=TRUE)
 head(ipni_search(genus='Ceanothus'))
 head(ipni_search(genus='Pinus', species='contorta'))
