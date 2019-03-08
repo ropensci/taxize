@@ -39,7 +39,7 @@ get_boldid_(searchterm, verbose = TRUE, fuzzy = FALSE,
 \item{fuzzy}{(logical) Whether to use fuzzy search or not (default: FALSE).}
 
 \item{dataTypes}{(character) Specifies the datatypes that will be returned.
-See \code{\link{bold_search}} for options.}
+See \code{\link[=bold_search]{bold_search()}} for options.}
 
 \item{includeTree}{(logical) If TRUE (default: FALSE), returns a list
 containing information for parent taxa as well as the specified taxon.}
@@ -52,10 +52,10 @@ input. If FALSE NA is returned for multiple matches.}
 
 \item{rows}{numeric; Any number from 1 to infinity. If the default NA, all rows are
 considered. Note that this function still only gives back a boldid class object with one
-to many identifiers. See \code{\link[taxize]{get_boldid_}} to get back all, or a subset,
+to many identifiers. See \code{\link[=get_boldid_]{get_boldid_()}} to get back all, or a subset,
 of the raw data that you are presented during the ask process.}
 
-\item{rank}{(character) A taxonomic rank name. See \code{\link{rank_ref}} for possible
+\item{rank}{(character) A taxonomic rank name. See \code{\link[=rank_ref]{rank_ref()}} for possible
 options. Though note that some data sources use atypical ranks, so inspect the
 data itself for options. Optional. See \code{Filtering} below.}
 
@@ -65,12 +65,12 @@ below.}
 \item{parent}{(character) A parent name (i.e., the parent of the target search
 taxon). Optional. See \code{Filtering} below.}
 
-\item{...}{Curl options passed on to \code{\link[crul]{verb-GET}}}
+\item{...}{Curl options passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}}
 
-\item{x}{Input to \code{\link{as.boldid}}}
+\item{x}{Input to \code{\link[=as.boldid]{as.boldid()}}}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only used in
-\code{\link{as.boldid}}}
+\code{\link[=as.boldid]{as.boldid()}}}
 }
 \value{
 A vector of taxonomic identifiers as an S3 class.
@@ -88,11 +88,11 @@ Get the BOLD (Barcode of Life) code for a search term.
 }
 \section{Filtering}{
 
-The parameters \code{division}, \code{parent}, and \code{rank} are not
-used in the search to the data provider, but are used in filtering the data down to a
-subset that is closer to the target you want.  For all these parameters,
-you can use regex strings since we use \code{\link{grep}} internally to match.
-Filtering narrows down to the set that matches your query, and removes the rest.
+The parameters \code{division}, \code{parent}, and \code{rank} are not used in the search to
+the data provider, but are used in filtering the data down to a subset that
+is closer to the target you want.  For all these parameters, you can use
+regex strings since we use \code{\link[=grep]{grep()}} internally to match. Filtering narrows
+down to the set that matches your query, and removes the rest.
 }
 
 \examples{
@@ -164,7 +164,7 @@ get_boldid_(c("Osmi","Aga"), fuzzy=TRUE, rows = 1:3)
 }
 }
 \seealso{
-\code{\link[taxize]{classification}}
+\code{\link[=classification]{classification()}}
 
 Other taxonomic-ids: \code{\link{get_colid}},
   \code{\link{get_eolid}}, \code{\link{get_gbifid}},

@@ -41,17 +41,17 @@ input. If FALSE NA is returned for multiple matches.}
 \item{messages}{logical; If \code{TRUE} the actual taxon queried is printed
 on the console.}
 
-\item{key}{API key. passed on to \code{\link{eol_search}} and
-\code{\link{eol_pages}} internally. We recommend getting an API key;
+\item{key}{API key. passed on to \code{\link[=eol_search]{eol_search()}} and
+\code{[eol_pages()}] internally. We recommend getting an API key;
 see \code{\link{taxize-authentication}}}
 
 \item{rows}{numeric; Any number from 1 to infinity. If the default NA, all
 rows are considered. Note that this function still only gives back a eolid
 class object with one to many identifiers. See
-\code{\link[taxize]{get_eolid_}} to get back all, or a subset, of the raw
+\code{\link[=get_eolid_]{get_eolid_()}} to get back all, or a subset, of the raw
 data that you are presented during the ask process.}
 
-\item{rank}{(character) A taxonomic rank name. See \code{\link{rank_ref}}
+\item{rank}{(character) A taxonomic rank name. See \code{\link[=rank_ref]{rank_ref()}}
 for possible options. Though note that some data sources use atypical ranks,
 so inspect the data itself for options. Optional. See \code{Filtering} below.}
 
@@ -59,12 +59,12 @@ so inspect the data itself for options. Optional. See \code{Filtering} below.}
 longish names like e.g., "Barcode of Life Data Systems" or
 "USDA PLANTS images". Optional. See \code{Filtering} below.}
 
-\item{...}{Further args passed on to \code{\link{eol_search}}}
+\item{...}{Further args passed on to \code{\link[=eol_search]{eol_search()}}}
 
-\item{x}{Input to \code{\link{as.eolid}}}
+\item{x}{Input to \code{\link[=as.eolid]{as.eolid()}}}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only
-used in \code{\link{as.eolid}}}
+used in \code{\link[=as.eolid]{as.eolid()}}}
 }
 \value{
 A vector of taxonomic identifiers as an S3 class.
@@ -79,9 +79,9 @@ attributes and exceptions
 }
 \description{
 Note that EOL doesn't expose an API endpoint for directly querying for EOL
-taxon ID's, so we first use the function \code{\link[taxize]{eol_search}}
+taxon ID's, so we first use the function \code{\link[=eol_search]{eol_search()}}
 to find pages that deal with the species of interest, then use
-\code{\link[taxize]{eol_pages}} to find the actual taxon IDs.
+\code{\link[=eol_pages]{eol_pages()}} to find the actual taxon IDs.
 }
 \details{
 EOL is a bit odd in that they have page IDs for each taxon, but
@@ -91,8 +91,8 @@ page \link{i.e., taxon}). And we need the taxon ids from a particular data
 provider (e.g, NCBI) to do other things, like get a higher classification
 tree. However, humans want the page id, not the taxon id. So, the
 id returned from this function is the taxon id, not the page id. You can
-get the page id for a taxon by using \code{\link{eol_search}} and
-\code{\link{eol_pages}}, and the URI returned in the attributes for a
+get the page id for a taxon by using \code{\link[=eol_search]{eol_search()}} and
+\code{[eol_pages()}], and the URI returned in the attributes for a
 taxon will lead you to the taxon page, and the ID in the URL is the
 page id.
 }
@@ -106,7 +106,7 @@ See \code{\link{taxize-authentication}} for help on authentication
 The parameters \code{rank} and \code{data_source} are not used in the
 search to the data provider, but are used in filtering the data down to a
 subset that is closer to the target you want.  For all these parameters,
-you can use regex strings since we use \code{\link{grep}} internally to
+you can use regex strings since we use \code{\link[=grep]{grep()}} internally to
 match. Filtering narrows down to the set that matches your query, and
 removes the rest.
 }
@@ -167,7 +167,7 @@ get_eolid_(c("asdfadfasd", "Pinus contorta"))
 }
 }
 \seealso{
-\code{\link[taxize]{classification}}
+\code{\link[=classification]{classification()}}
 
 Other taxonomic-ids: \code{\link{get_boldid}},
   \code{\link{get_colid}}, \code{\link{get_gbifid}},
