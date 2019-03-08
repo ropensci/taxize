@@ -12,7 +12,7 @@ itis_terms(query, what = "both", ...)
 \item{what}{One of both (search common and scientific names), common
 (search just common names), or scientific (search just scientific names)}
 
-\item{...}{Further arguments passed on to \code{\link[ritis]{terms}}}
+\item{...}{Further arguments passed on to \code{\link[ritis:terms]{ritis::terms()}}}
 }
 \description{
 Get ITIS terms, i.e., tsn's, authors, common names, and scientific names.
