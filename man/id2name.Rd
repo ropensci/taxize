@@ -33,9 +33,8 @@ id2name(x, db = NULL, ...)
 \arguments{
 \item{x}{vector of taxonomic IDs (character or numeric)}
 
-\item{db}{(character) database to query. One or more of \code{tol},
-\code{itis}, \code{ncbi}, \code{worms}, \code{gbif}, \code{col}, or
-\code{bold}. Note that each
+\item{db}{(character) database to query. One or more of \code{tol}, \code{itis},
+\code{ncbi}, \code{worms}, \code{gbif}, \code{col}, or \code{bold}. Note that each
 taxonomic data source has their own  identifiers, so that if you provide
 the wrong \code{db} value for the identifier you could get a result,
 but it will likely be wrong (not what you were expecting). If using ncbi
