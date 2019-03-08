@@ -3,7 +3,7 @@
 #' Checks first to get key from your .Rprofile or .Renviron (or similar) file
 #'
 #' @export
-#' @param x (character) An API key, defaults to \code{NULL}
+#' @param x (character) An API key, defaults to `NULL`
 #' @param service (character) The API data provider, used to match to
 #' default guest key (for Tropicos and EOL; there's no guest
 #' key for NCBI or IUCN, for which you have to get your own)
