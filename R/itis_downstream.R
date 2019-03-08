@@ -4,14 +4,14 @@
 #' @param tsns A taxonomic serial number.
 #' @param downto The taxonomic level you want to go down to. See examples below.
 #' 		The taxonomic level IS case sensitive, and you do have to spell it
-#' 		correctly. See \code{data(rank_ref)} for spelling.
+#' 		correctly. See `data(rank_ref)` for spelling.
 #' @param intermediate (logical) If TRUE, return a list of length two with target
 #'    taxon rank names, with additional list of data.frame's of intermediate
 #'    taxonomic groups. Default: FALSE
-#' @param ... Further args passed on to \code{\link[ritis]{rank_name}} and
-#'    \code{\link[ritis]{hierarchy_down}}
+#' @param ... Further args passed on to [`ritis::rank_name()`] and
+#' [`ritis::hierarchy_down()`]
 #' @return Data.frame of taxonomic information downstream to family from e.g.,
-#' 		Order, Class, etc., or if \code{intermediated=TRUE}, list of length two,
+#' 		Order, Class, etc., or if `intermediated=TRUE`, list of length two,
 #'   	with target taxon rank names, and intermediate names.
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @examples \dontrun{

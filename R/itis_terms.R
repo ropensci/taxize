@@ -4,7 +4,7 @@
 #' @param query One or more common or scientific names, or partial names
 #' @param what One of both (search common and scientific names), common
 #' (search just common names), or scientific (search just scientific names)
-#' @param ... Further arguments passed on to \code{\link[ritis]{terms}}
+#' @param ... Further arguments passed on to [`ritis::terms()`]
 #' @examples \dontrun{
 #' # Get terms searching both common and scientific names
 #' itis_terms(query='bear')

@@ -9,11 +9,11 @@ itis_taxrank(query = NULL, ...)
 \arguments{
 \item{query}{TSN for a taxonomic group (numeric). If query is left as default
 (NULL), you get all possible rank names, and their TSN's (using function
-\code{\link[ritis]{rank_names}}. There is slightly different terminology for
+\code{\link[ritis:rank_names]{ritis::rank_names()}}. There is slightly different terminology for
 Monera vs. Plantae vs. Fungi vs. Animalia vs. Chromista, so there are
 separate terminologies for each group.}
 
-\item{...}{Further arguments passed on to \code{\link[ritis]{rank_name}}}
+\item{...}{Further arguments passed on to \code{\link[ritis:rank_name]{ritis::rank_name()}}}
 }
 \value{
 Taxonomic rank names or data.frame of all ranks.

@@ -12,15 +12,15 @@ itis_hierarchy(tsn, what = "full", ...)
 \item{what}{One of full (full hierarchy), up (immediate upstream), or down
 (immediate downstream)}
 
-\item{...}{Further arguments passed on to \code{\link[ritis]{hierarchy_full}},
-\code{\link[ritis]{hierarchy_up}}, or \code{\link[ritis]{hierarchy_down}}}
+\item{...}{Further arguments passed on to \code{\link[ritis:hierarchy_full]{ritis::hierarchy_full()}}
+\code{\link[ritis:hierarchy_up]{ritis::hierarchy_up()}} or \code{\link[ritis:hierarchy_down]{ritis::hierarchy_down()}}}
 }
 \description{
 Get hierarchies from TSN values, full, upstream only, or
 immediate downstream only
 }
 \details{
-Note that \code{\link{itis_downstream}} gets taxa downstream to a
+Note that \code{\link[=itis_downstream]{itis_downstream()}} gets taxa downstream to a
 particular rank, while this function only gets immediate names downstream.
 }
 \examples{
@@ -39,5 +39,5 @@ itis_hierarchy(tsn=c(180543,41074,36616))
 }
 }
 \seealso{
-\code{\link{itis_downstream}}
+\code{\link[=itis_downstream]{itis_downstream()}}
 }
