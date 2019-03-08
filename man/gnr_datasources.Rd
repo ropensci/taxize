@@ -7,7 +7,7 @@
 gnr_datasources(..., todf)
 }
 \arguments{
-\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
+\item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient}}}
 
 \item{todf}{defunct, always get a data.frame back now}
 }
@@ -32,10 +32,10 @@ out[agrep("zoo", out$title, ignore.case = TRUE), ]
 }
 }
 \references{
-https://resolver.globalnames.org/data_sources
+\url{https://resolver.globalnames.org/data_sources}
 }
 \seealso{
-\code{\link[taxize]{gnr_resolve}}, \code{\link[taxize]{gni_search}}
+\code{\link[=gnr_resolve]{gnr_resolve()}}, \code{\link[=gni_search]{gni_search()}}
 }
 \keyword{names}
 \keyword{resolve}

@@ -1,97 +1,96 @@
 #' Resolve names using Global Names Resolver
-#' 
-#' See section \strong{Age of datasets in the Global Names Resolver}
+#'
+#' See section **Age of datasets in the Global Names Resolver**
 #'
 #' @export
 #' @param names character; taxonomic names to be resolved. Doesn't work for
 #' vernacular/common names.
 #' @param data_source_ids character; IDs to specify what data source
-#'     is searched. See \code{\link[taxize]{gnr_datasources}}.
+#'     is searched. See [`gnr_datasources()`].
 #' @param resolve_once logical; Find the first available match instead of
 #'    matches across all data sources with all possible renderings of a name.
-#'    When \code{TRUE}, response is rapid but incomplete.
+#'    When `TRUE`, response is rapid but incomplete.
 #' @param with_context logical; Reduce the likelihood of matches to taxonomic
-#'    homonyms. When \code{TRUE} a common taxonomic context is calculated for
+#'    homonyms. When `TRUE` a common taxonomic context is calculated for
 #'    all supplied names from matches in data sources that have classification
 #'    tree paths. Names out of determined context are penalized during score
 #'    calculation.
-#' @param canonical logical; If \code{FALSE} (default), gives back names with
-#'    taxonomic authorities. If \code{TRUE}, returns canocial names
+#' @param canonical logical; If `FALSE` (default), gives back names with
+#'    taxonomic authorities. If `TRUE`, returns canocial names
 #'    (without tax. authorities and abbreviations).
 #' @param highestscore logical; Return those names with the highest score for
 #'    each searched name? Defunct
-#' @param best_match_only (logical) If \code{TRUE}, best match only returned.
-#' Default: \code{FALSE}
+#' @param best_match_only (logical) If `TRUE`, best match only returned.
+#' Default: `FALSE`
 #' @param preferred_data_sources (character) A vector of one or more data
 #' source IDs.
 #' @param with_canonical_ranks (logical) Returns names with infraspecific
-#' ranks, if present. If \code{TRUE}, we force \code{canonical=TRUE}, otherwise
-#' this parameter would have no effect. Default: \code{FALSE}
+#' ranks, if present. If `TRUE`, we force `canonical=TRUE`, otherwise
+#' this parameter would have no effect. Default: `FALSE`
 #' @param http The HTTP method to use, one of "get" or "post". Default: "get".
-#' Use \code{http="post"} with large queries. Queries with > 300 records
+#' Use `http="post"` with large queries. Queries with > 300 records
 #' use "post" automatically because "get" would fail
-#' @param ... Curl options passed on to \code{\link[crul]{HttpClient}}
+#' @param ... Curl options passed on to [`crul::HttpClient`]
 #' @param cap_first (logical) For each name, fix so that the first name part is
 #' capitalized, while others are not. This web service is sensitive to
 #' capitalization, so you'll get different results depending on capitalization.
 #' First name capitalized is likely what you'll want and is the default.
-#' If \code{FALSE}, names are not modified. Default: \code{TRUE}
+#' If `FALSE`, names are not modified. Default: `TRUE`
 #' @param fields (character) One of minimal (default) or all. Minimal gives
 #' back just four fields, whereas all gives all fields back.
 #'
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
-#' @return A data.frame with one attribute \code{not_known}: a character
+#' @return A data.frame with one attribute `not_known`: a character
 #' vector of taxa unknown to the Global Names Index. Access like
-#' \code{attr(output, "not_known")}, or \code{attributes(output)$not_known}.
-#' 
+#' `attr(output, "not_known")`, or `attributes(output)$not_known`.
+#'
 #' Columns of the output data.frame:
-#' \itemize{
-#'  \item user_supplied_name (character) - the name you passed in to the
-#'  \code{names} parameter, unchanged.
-#'  \item submitted_name (character) - the actual name submitted to the GNR
+#' * user_supplied_name (character) - the name you passed in to the
+#'  `names` parameter, unchanged.
+#' * submitted_name (character) - the actual name submitted to the GNR
 #'  service
-#'  \item data_source_id (integer/numeric) - data source ID
-#'  \item data_source_title (character) - data source name
-#'  \item gni_uuid (character) - Global Names Index UUID (aka identifier)
-#'  \item matched_name (character) - the matched name in the GNR service
-#'  \item matched_name2 (character) - returned if \code{canonical=TRUE}, in
-#'  which case \emph{matched_name} is not returned
-#'  \item classification_path (character) - names of the taxonomic
-#'  classification tree, with names separated by pipes (\code{|})
-#'  \item classification_path_ranks (character) - ranks of the taxonomic
-#'  classification tree, with names separated by pipes (\code{|})
-#'  \item classification_path_ids (character) - identifiers of the taxonomic
-#'  classification tree, with names separated by pipes (\code{|})
-#'  \item taxon_id (character) - taxon identifier
-#'  \item edit_distance (integer/numeric) - edit distance
-#'  \item imported_at (character) - date imported
-#'  \item match_type (integer/numeric) - match type
-#'  \item match_value (character) - description of match type
-#'  \item prescore (character) - pre score
-#'  \item score (numeric) - score
-#'  \item local_id (character) - local identifier
-#'  \item url (character) - URL for taxon
-#'  \item global_id (character) - global identifier
-#'  \item current_taxon_id (character) - current taxon id
-#'  \item current_name_string (character) - current name string
-#' }
+#' * data_source_id (integer/numeric) - data source ID
+#' * data_source_title (character) - data source name
+#' * gni_uuid (character) - Global Names Index UUID (aka identifier)
+#' * matched_name (character) - the matched name in the GNR service
+#' * matched_name2 (character) - returned if `canonical=TRUE`, in
+#'  which case **matched_name** is not returned
+#' * classification_path (character) - names of the taxonomic
+#'  classification tree, with names separated by pipes (`|`)
+#' * classification_path_ranks (character) - ranks of the taxonomic
+#'  classification tree, with names separated by pipes (`|`)
+#' * classification_path_ids (character) - identifiers of the taxonomic
+#'  classification tree, with names separated by pipes (`|`)
+#' * taxon_id (character) - taxon identifier
+#' * edit_distance (integer/numeric) - edit distance
+#' * imported_at (character) - date imported
+#' * match_type (integer/numeric) - match type
+#' * match_value (character) - description of match type
+#' * prescore (character) - pre score
+#' * score (numeric) - score
+#' * local_id (character) - local identifier
+#' * url (character) - URL for taxon
+#' * global_id (character) - global identifier
+#' * current_taxon_id (character) - current taxon id
+#' * current_name_string (character) - current name string
+#'
 #' Note that names (i.e. rows) are dropped that are NA, are zero length
 #' strings, are not character vectors, or are not found by the API.
-#' 
+#'
 #' @section Age of datasets in the Global Names Resolver:
 #' IMPORTANT: Datasets used in the Global Names Resolver vary in how recently
-#' they've been updated. See the \code{updated_at} field in the 
-#' output of \code{\link{gnr_datasources}} for dates when each dataset 
+#' they've been updated. See the `updated_at` field in the
+#' output of [`gnr_datasources()`] for dates when each dataset
 #' was last updated.
-#' 
+#'
 #' @section preferred_data_sources:
-#' If \code{preferred_data_sources} is used, only the preferred data 
+#' If `preferred_data_sources` is used, only the preferred data
 #' is returned - if it has any results.
-#' 
-#' @seealso \code{\link[taxize]{gnr_datasources}} \code{\link{tnrs}}
+#'
+#' @seealso [`gnr_datasources()`] [`tnrs`]
 #' @keywords resolve names taxonomy
-#' @references \url{http://gnrd.globalnames.org/api}
-#' \url{http://gnrd.globalnames.org/}
+#' @references <http://gnrd.globalnames.org/api>
+#' <http://gnrd.globalnames.org/>
 #' @examples \dontrun{
 #' gnr_resolve(names = c("Helianthus annuus", "Homo sapiens"))
 #' gnr_resolve(names = c("Asteraceae", "Plantae"))
