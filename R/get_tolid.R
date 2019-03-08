@@ -6,24 +6,23 @@
 #' @export
 #' @inheritParams tol_resolve
 #' @param sciname character; scientific name.
-#' @param ask logical; should \code{get_tolid} be run in interactive mode?
-#' If \code{TRUE} and more than one TOL is found for the species, the user is
-#' asked for input. If \code{FALSE} NA is returned for multiple matches.
+#' @param ask logical; should `get_tolid` be run in interactive mode?
+#' If `TRUE` and more than one TOL is found for the species, the user is
+#' asked for input. If `FALSE` NA is returned for multiple matches.
 #' @param verbose logical; should progress be printed?
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, all
 #' rows are considered. Note that this function still only gives back a tol
-#' class object with one to many identifiers. See \code{\link[taxize]{get_tolid_}}
+#' class object with one to many identifiers. See [`get_tolid_()`]
 #' to get back all, or a subset, of the raw data that you are presented during
 #' the ask process.
-#' @param x Input to \code{as.tolid}
+#' @param x Input to `as.tolid`
 #' @param ... Ignored
 #' @param check logical; Check if ID matches any existing on the DB, only
-#' used in
-#' \code{\link{as.tolid}}
+#' used in [`as.tolid()`]
 #' @template getreturn
 #'
 #' @family taxonomic-ids
-#' @seealso \code{\link[taxize]{classification}}
+#' @seealso [`classification()`]
 #'
 #' @examples \dontrun{
 #' get_tolid(sciname = "Quercus douglasii")

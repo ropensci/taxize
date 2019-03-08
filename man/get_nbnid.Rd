@@ -49,15 +49,15 @@ taxa with the matching rank.}
 \item{rows}{numeric; Any number from 1 to infinity. If the default NA, all
 rows are considered. Note that this function still only gives back a nbnid
 class object with one to many identifiers. See
-\code{\link[taxize]{get_nbnid_}} to get back all, or a subset, of the raw
+\code{\link[=get_nbnid_]{get_nbnid_()}} to get back all, or a subset, of the raw
 data that you are presented during the ask process.}
 
 \item{...}{Further args passed on to \code{nbn_search}}
 
-\item{x}{Input to \code{\link{as.nbnid}}}
+\item{x}{Input to \code{\link[=as.nbnid]{as.nbnid()}}}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only
-used in \code{\link{as.nbnid}}}
+used in \code{\link[=as.nbnid]{as.nbnid()}}}
 }
 \value{
 A vector of taxonomic identifiers as an S3 class.
@@ -131,7 +131,7 @@ invisible(get_nbnid("Quercus douglasii", verbose = TRUE))
 \url{https://api.nbnatlas.org/}
 }
 \seealso{
-\code{\link[taxize]{classification}}
+\code{\link[=classification]{classification()}}
 
 Other taxonomic-ids: \code{\link{get_boldid}},
   \code{\link{get_colid}}, \code{\link{get_eolid}},

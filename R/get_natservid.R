@@ -6,39 +6,37 @@
 #' This doesn't affect the query to NatureServe - but rather affects what
 #' column of data is targeted in name filtering post data request.
 #' @param ask logical; should get_natservid be run in interactive mode?
-#' If \code{TRUE} and more than one wormsid is found for the species, the
-#' user is asked for input. If \code{FALSE} NA is returned for
+#' If `TRUE` and more than one wormsid is found for the species, the
+#' user is asked for input. If `FALSE` NA is returned for
 #' multiple matches.
 #' @param verbose logical; should progress be printed?
 #' @param rows numeric; Any number from 1 to infinity. If the default NaN, all
 #' rows are considered. Note that this function still only gives back a
 #' natservid class object with one to many identifiers. See
-#' \code{\link[taxize]{get_natservid_}} to get back all, or a subset, of the raw
+#' [`get_natservid_()`] to get back all, or a subset, of the raw
 #' data that you are presented during the ask process.
 #' @param key (character) your NatureServe API key. Required. See
-#' \strong{Authentication} below for more.
+#' **Authentication** below for more.
 #' @param x Input to as.natservid
 #' @param ... Ignored
 #' @param check logical; Check if ID matches any existing on the DB, only
-#' used in \code{\link{as.natservid}}
+#' used in [`as.natservid()`]
 #' @template getreturn
 #'
 #' @family taxonomic-ids
-#' @seealso \code{\link[taxize]{classification}}
+#' @seealso [`classification()`]
 #'
 #' @section Authentication:
 #' Get an API key from NatureServe at
-#' \url{https://services.natureserve.org/developer/index.jsp}.
+#' <https://services.natureserve.org/developer/index.jsp>.
 #' You can pass your token in as an argument or store it one of two places:
+
+#' * your .Rprofile file with an entry like
+#' `options(NatureServeKey = "your-natureserve-key")`
+#' * your .Renviron file with an entry like
+#' `NATURE_SERVE_KEY=your-natureserve-key`
 #'
-#' \itemize{
-#'   \item your .Rprofile file with an entry like
-#'   \code{options(NatureServeKey = "your-natureserve-key")}
-#'   \item your .Renviron file with an entry like
-#'   \code{NATURE_SERVE_KEY=your-natureserve-key}
-#' }
-#'
-#' See \code{\link{Startup}} for information on how to create/find your
+#' See [`Startup()`] for information on how to create/find your
 #' .Rprofile and .Renviron files
 #'
 #' @examples \dontrun{

@@ -48,7 +48,7 @@ multiple matches.}
 \item{rows}{numeric; Any number from 1 to infinity. If the default NaN, all
 rows are considered. Note that this function still only gives back a
 natservid class object with one to many identifiers. See
-\code{\link[taxize]{get_natservid_}} to get back all, or a subset, of the raw
+\code{\link[=get_natservid_]{get_natservid_()}} to get back all, or a subset, of the raw
 data that you are presented during the ask process.}
 
 \item{key}{(character) your NatureServe API key. Required. See
@@ -59,7 +59,7 @@ data that you are presented during the ask process.}
 \item{x}{Input to as.natservid}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only
-used in \code{\link{as.natservid}}}
+used in \code{\link[=as.natservid]{as.natservid()}}}
 }
 \value{
 A vector of taxonomic identifiers as an S3 class.
@@ -80,7 +80,6 @@ Get NatureServe taxonomic ID for a taxon name
 Get an API key from NatureServe at
 \url{https://services.natureserve.org/developer/index.jsp}.
 You can pass your token in as an argument or store it one of two places:
-
 \itemize{
 \item your .Rprofile file with an entry like
 \code{options(NatureServeKey = "your-natureserve-key")}
@@ -88,7 +87,7 @@ You can pass your token in as an argument or store it one of two places:
 \code{NATURE_SERVE_KEY=your-natureserve-key}
 }
 
-See \code{\link{Startup}} for information on how to create/find your
+See \code{\link[=Startup]{Startup()}} for information on how to create/find your
 .Rprofile and .Renviron files
 }
 
@@ -143,7 +142,7 @@ get_natservid_("Ruby*", rows=1:3)
 }
 }
 \seealso{
-\code{\link[taxize]{classification}}
+\code{\link[=classification]{classification()}}
 
 Other taxonomic-ids: \code{\link{get_boldid}},
   \code{\link{get_colid}}, \code{\link{get_eolid}},
