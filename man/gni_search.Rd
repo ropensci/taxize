@@ -11,9 +11,11 @@ gni_search(search_term = NULL, per_page = NULL, page = NULL,
 \item{search_term}{Name pattern you want to search for. WARNING: Does
 not work for vernacular/common names. Search term may include following
 options (Note: can, uni, gen, sp, ssp, au, yr work only for parsed names
-
 \itemize{
-\item *    wild card - Search by part of a word (E.g.: planta*)
+\item 
+\itemize{
+\item wild card - Search by part of a word (E.g.: planta*)
+}
 \item exact exact match    - Search for exact match of a literal string
 (E.g.: exact:Parus major)
 \item ns name string- Search for literal string from its beginning (other
@@ -35,10 +37,10 @@ than 1000 will be decreased to 1000) (default is 30).}
 
 \item{justtotal}{Return only the total results found.}
 
-\item{parse_names}{If \code{TRUE}, use \code{\link{gni_parse}} to parse
+\item{parse_names}{If \code{TRUE}, use \code{\link[=gni_parse]{gni_parse()}} to parse
 names. Default: \code{FALSE}}
 
-\item{...}{Curl options passed on to \code{\link[crul]{verb-GET}}}
+\item{...}{Curl options passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}}
 }
 \value{
 data.frame of results.
@@ -68,10 +70,10 @@ gni_search(search_term = "ani*", verbose = TRUE)
 \url{https://github.com/dimus/gni/wiki/api}
 }
 \seealso{
-\code{\link{gnr_datasources}}, \code{\link{gni_search}}
+\code{\link[=gnr_datasources]{gnr_datasources()}}, \code{\link[=gni_search]{gni_search()}}
 }
 \author{
-Scott Chamberlain {myrmecocystus@gmail.com}
+Scott Chamberlain \email{myrmecocystus@gmail.com}
 }
 \keyword{globalnamesindex}
 \keyword{names}
