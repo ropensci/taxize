@@ -44,21 +44,21 @@ input. If FALSE NA is returned for multiple matches.}
 
 \item{rows}{numeric; Any number from 1 to infinity. If the default NA, all rows are considered.
 Note that this function still only gives back a tpsid class object with one to many identifiers.
-See \code{\link[taxize]{get_tpsid_}} to get back all, or a subset, of the raw data that you are
+See \code{\link[=get_tpsid_]{get_tpsid_()}} to get back all, or a subset, of the raw data that you are
 presented during the ask process.}
 
 \item{family}{(character) A family name. Optional. See \code{Filtering} below.}
 
-\item{rank}{(character) A taxonomic rank name. See \code{\link{rank_ref}} for possible
+\item{rank}{(character) A taxonomic rank name. See \code{\link[=rank_ref]{rank_ref()}} for possible
 options. Though note that some data sources use atypical ranks, so inspect the
 data itself for options. Optional. See \code{Filtering} below.}
 
-\item{...}{Other arguments passed to \code{\link[taxize]{tp_search}}.}
+\item{...}{Other arguments passed to \code{\link[=tp_search]{tp_search()}}.}
 
-\item{x}{Input to \code{\link{as.tpsid}}}
+\item{x}{Input to \code{\link[=as.tpsid]{as.tpsid()}}}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only used in
-\code{\link{as.tpsid}}}
+\code{\link[=as.tpsid]{as.tpsid()}}}
 }
 \value{
 A vector of taxonomic identifiers as an S3 class.
@@ -76,10 +76,10 @@ Get the NameID codes from Tropicos for taxonomic names.
 }
 \section{Filtering}{
 
-The parameters \code{family} and \code{rank} are not used in the search to the data
+The parameters \code{family} an\code{rank}nk are not used in the search to the data
 provider, but are used in filtering the data down to a subset that is closer to the
 target you want.  For all these parameters,
-you can use regex strings since we use \code{\link{grep}} internally to match.
+you can use regex strings since we use \code{\link[=grep]{grep()}} internally to match.
 Filtering narrows down to the set that matches your query, and removes the rest.
 }
 
@@ -159,7 +159,7 @@ invisible(get_tpsid("Quercus douglasii", verbose = TRUE))
 }
 }
 \seealso{
-\code{\link[taxize]{classification}}
+\code{\link[=classification]{classification()}}
 
 Other taxonomic-ids: \code{\link{get_boldid}},
   \code{\link{get_colid}}, \code{\link{get_eolid}},

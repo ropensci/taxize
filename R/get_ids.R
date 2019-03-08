@@ -5,38 +5,36 @@ get_ids_dbs <- c(
 #' Retrieve taxonomic identifiers for a given taxon name.
 #'
 #' This is a convenience function to get identifiers across all data sources.
-#' You can use other \code{get_*} functions to get identifiers from specific
+#' You can use other `get_*` functions to get identifiers from specific
 #' sources if you like.
 #'
 #' @export
 #' @param names character; Taxonomic name to query.
-#' @param db character; database to query. One or  more of \code{ncbi},
-#' \code{itis}, \code{eol}, \code{col}, \code{tropicos}, \code{gbif},
-#' \code{nbn}, or \code{pow}. By default db is set to search all data sources.
-#' Note that each taxonomic data source has their own identifiers, so that if
-#' you give the wrong \code{db} value for the identifier you could get a result,
-#' it will likely be wrong (not what you were expecting). If using ncbi, eol,
-#' and/or tropicos we recommend getting API keys; see
-#' \code{\link{taxize-authentication}}
+#' @param db character; database to query. One or more of `ncbi`, `itis`, `eol`,
+#' `col`, `tropicos`, `gbif`, `nbn`, or `pow`. By default db is set to search
+#' all data sources. Note that each taxonomic data source has their own
+#' identifiers, so that if you give the wrong `db` value for the identifier you
+#' could get a result, it will likely be wrong (not what you were expecting).
+#' If using ncbi, eol, and/or tropicos we recommend getting API keys;
+#' see [`taxize-authentication`]
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, all
-#' rows are returned. When used in \code{get_ids} this function still only
+#' rows are returned. When used in `get_ids` this function still only
 #' gives back a ids class object with one to many identifiers. See
-#' \code{get_ids_} to get back all, or a subset, of the raw data that you
+#' `get_ids_` to get back all, or a subset, of the raw data that you
 #' are presented during the ask process.
-#' @param ... Other arguments passed to \code{\link[taxize]{get_tsn}},
-#' \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_eolid}},
-#' \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_tpsid}},
-#' \code{\link[taxize]{get_gbifid}},  \code{\link[taxize]{get_nbnid}}.
+#' @param ... Other arguments passed to [`get_tsn()`], [`get_uid()`],
+#' [`get_eolid()`], [`get_colid()`], [`get_tpsid()`], [`get_gbifid()`],
+#' [`get_nbnid()`].
 #' @return A vector of taxonomic identifiers, each retaining their respective
 #' S3 classes so that each element can be passed on to another function
 #' (see e.g.'s).
 #' @note There is a timeout of 1/3 seconds between queries to NCBI.
 #'
 #' @family taxonomic-ids
-#' @seealso \code{\link[taxize]{classification}}
+#' @seealso [`classification()`]
 #'
 #' @section Authentication:
-#' See \code{\link{taxize-authentication}} for help on authentication
+#' See [`taxize-authentication`] for help on authentication
 #'
 #' @examples \dontrun{
 #' # Plug in taxon names directly

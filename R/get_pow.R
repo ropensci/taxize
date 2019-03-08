@@ -3,39 +3,39 @@
 #' @export
 #' @param x character; A vector of common or scientific names
 #' @param accepted logical; If TRUE, removes names that are not accepted 
-#' valid names by ITIS. Set to \code{FALSE} (default) to give back both 
+#' valid names by ITIS. Set to `FALSE` (default) to give back both 
 #' accepted and unaccepted names.
-#' @param ask logical; should \code{get_pow} be run in interactive mode?
+#' @param ask logical; should `get_pow` be run in interactive mode?
 #' If TRUE and more than one pow is found for teh species, the user is 
 #' asked for input. If FALSE NA is returned for multiple matches.
 #' @param messages logical; should progress be printed?
-#' @param ... Curl options passed on to \code{\link[crul]{HttpClient}}
+#' @param ... Curl options passed on to [`crul::HttpClient`]
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, 
 #' all rows are considered. Note that this function still only gives back 
 #' a pow class object with one to many identifiers. See 
-#' \code{\link[taxize]{get_pow_}} to get back all, or a subset,
+#' [`get_pow_()`] to get back all, or a subset,
 #' of the raw data that you are presented during the ask process.
 #' @param family_filter (character) A division (aka phylum) name to filter
-#' data after retrieved from NCBI. Optional. See \code{Filtering} below.
+#' data after retrieved from NCBI. Optional. See `Filtering` below.
 #' @param rank_filter (character) A taxonomic rank name to filter data after
-#' retrieved from NCBI. See \code{\link{rank_ref}} for possible options.
+#' retrieved from NCBI. See [`rank_ref()`] for possible options.
 #' Though note that some data sources use atypical ranks, so inspect the data
-#' itself for options. Optional. See \code{Filtering} below.
+#' itself for options. Optional. See `Filtering` below.
 #' @param check logical; Check if ID matches any existing on the DB, only 
-#' used in \code{\link{as.pow}}
+#' used in [`as.pow()`]
 #' @template getreturn
 #' 
 #' @family pow
 #' 
 #' @section Filtering:
-#' The parameters \code{family_filter} and \code{rank_filter} are not
+#' The parameters `family_filter` an`rank_filter`er are not
 #' used in the search to the data provider, but are used in filtering the data down to a
 #' subset that is closer to the target you want.  For these two parameters,
-#' you can use regex strings since we use \code{\link{grep}} internally to match.
+#' you can use regex strings since we use [`grep()`] internally to match.
 #' Filtering narrows down to the set that matches your query, and removes the rest.
 #'
 #' @family taxonomic-ids
-#' @seealso \code{\link[taxize]{classification}}
+#' @seealso [`classification()`]
 #'
 #' @examples \dontrun{
 #' get_pow(x = "Helianthus")

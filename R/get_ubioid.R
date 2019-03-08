@@ -12,30 +12,30 @@
 #' @param verbose logical; should progress be printed?
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, all rows are considered.
 #' Note that this function still only gives back a ubioid class object with one to many identifiers.
-#' See \code{\link[taxize]{get_ubioid_}} to get back all, or a subset, of the raw data that you are
+#' See [`get_ubioid_()`] to get back all, or a subset, of the raw data that you are
 #' presented during the ask process.
-#' @param family (character) A family name. Optional. See \code{Filtering} below.
-#' @param rank (character) A taxonomic rank name. See \code{\link{rank_ref}} for possible
+#' @param family (character) A family name. Optional. See `Filtering` below.
+#' @param rank (character) A taxonomic rank name. See [`rank_ref()`] for possible
 #' options. Though note that some data sources use atypical ranks, so inspect the
-#' data itself for options. Optional. See \code{Filtering} below.
-#' @param x Input to \code{\link{as.ubioid}}
+#' data itself for options. Optional. See `Filtering` below.
+#' @param x Input to [`as.ubioid()`]
 #' @param ... Ignored
 #' @param check logical; Check if ID matches any existing on the DB, only used in
-#' \code{\link{as.ubioid}}
+#' [`as.ubioid()`]
 #'
 #' @return A vector of uBio ids. If a taxon is not found NA is given. If more than one uBio
 #'    id is found the function asks for user input (if ask = TRUE), otherwise returns NA.
-#'    Comes with an attribute \emph{match} to investigate the reason for NA (either 'not found',
+#'    Comes with an attribute *match* to investigate the reason for NA (either 'not found',
 #'    'found' or if ask = FALSE 'NA due to ask=FALSE')
 #'
 #' @section Filtering:
-#' The parameters \code{family} and \code{rank} are not used in the search to the data
+#' The parameters `family` an`rank`nk are not used in the search to the data
 #' provider, but are used in filtering the data down to a subset that is closer to the
 #' target you want.  For all these parameters,
-#' you can use regex strings since we use \code{\link{grep}} internally to match.
+#' you can use regex strings since we use [`grep()`] internally to match.
 #' Filtering narrows down to the set that matches your query, and removes the rest.
 #'
-#' @seealso \code{\link[taxize]{get_uid}}, \code{\link[taxize]{ubio_search}}
+#' @seealso [`get_uid()`],[`ubio_search()`]
 get_ubioid <- function(searchterm, searchtype = "scientific", ask = TRUE, verbose = TRUE,
                        rows = NA, family = NULL, rank = NULL, ...) {
   .Defunct(msg = "the uBio API is down, for good as far as we know")

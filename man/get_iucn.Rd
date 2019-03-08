@@ -33,13 +33,13 @@ as.iucn(x, check = TRUE, key = NULL)
 \item{messages}{logical; should progress be printed?}
 
 \item{key}{(character) required. you IUCN Redlist API key. See
-\code{\link[rredlist]{rredlist-package}} for help on authenticating with
+\code{\link[rredlist:rredlist-package]{rredlist::rredlist-package}} for help on authenticating with
 IUCN Redlist}
 
 \item{...}{Ignored}
 
 \item{check}{(logical) Check if ID matches any existing on the DB, only
-used in \code{\link{as.iucn}}}
+used in \code{\link[=as.iucn]{as.iucn()}}}
 }
 \value{
 A vector of taxonomic identifiers as an S3 class.
@@ -49,16 +49,16 @@ Comes with the following attributes:
 \item \emph{match} (character) - the reason for NA, either 'not found',
 'found' or if \code{ask = FALSE} then 'NA due to ask=FALSE')
 \item \emph{name} (character) - the taxonomic name, which is needed in
-\code{\link{synonyms}} and \code{\link{sci2comm}} methods since they
+\code{\link[=synonyms]{synonyms()}} and \code{\link[=sci2comm]{sci2comm()}} methods since they
 internally use \pkg{rredlist} functions which require the taxonomic name,
 and not the taxonomic identifier
-\item \emph{uri} (character) - The URI where more information can be
+\item \emph{ri} (character) - The URI where more information can be
 read on the taxon - includes the taxonomic identifier in the URL somewhere
 }
 
-\emph{multiple_matches} and \emph{pattern_match} do not apply here as in
-other \code{get_*} methods since there is no IUCN Redlist search,
-so you either get a match or you do not get a match.
+\emph{multiple_matches} and \emph{pattern_match} do not apply here as in other \code{get_*}
+methods since there is no IUCN Redlist search, so you either get a match or
+you do not get a match.
 }
 \description{
 Get a IUCN Redlist taxon
@@ -69,7 +69,7 @@ search for IUCN, that is, where you search for a string, and get back
 a bunch of results due to fuzzy matching. If that exists in the future
 we'll add an underscore method here.
 
-IUCN ids only work with \code{\link{synonyms}} and \code{\link{sci2comm}}
+IUCN ids only work with \code{\link[=synonyms]{synonyms()}} and \code{\link[=sci2comm]{sci2comm()}}
 methods.
 }
 \examples{

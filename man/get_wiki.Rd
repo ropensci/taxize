@@ -55,14 +55,14 @@ asked for input. If \code{FALSE} NA is returned for multiple matches.}
 
 \item{rows}{numeric; Any number from 1 to infinity. If the default NA, all
 rows are considered. Note that this function still only gives back a wiki
-class object with one to many identifiers. See
-\code{\link[taxize]{get_wiki_}} to get back all, or a subset, of the
-raw data that you are presented during the ask process.}
+class object with one to many identifiers. See \code{\link[=get_wiki_]{get_wiki_()}} to get back
+all, or a subset, of the raw data that you are presented during the ask
+process.}
 
 \item{...}{Ignored}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only
-used in \code{\link{as.wiki}}}
+used in \code{\link[=as.wiki]{as.wiki()}}}
 }
 \value{
 A vector of taxonomic identifiers as an S3 class.
@@ -79,8 +79,8 @@ attributes and exceptions
 Get the page name for a Wiki taxon
 }
 \details{
-For \code{type = pedia}, we use the english language site by
-default. Set the \code{language} parameter for a different language site.
+For \code{wiki_site = "pedia" }, we use the english language site by
+default. Set the \code{wiki} parameter for a different language site.
 }
 \examples{
 \dontrun{
@@ -102,7 +102,7 @@ as.wiki("Malus_domestica", wiki_site = "pedia", wiki = "da")
 }
 }
 \seealso{
-\code{\link[taxize]{classification}}
+\code{\link[=classification]{classification()}}
 
 Other taxonomic-ids: \code{\link{get_boldid}},
   \code{\link{get_colid}}, \code{\link{get_eolid}},

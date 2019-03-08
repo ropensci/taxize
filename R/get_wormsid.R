@@ -8,26 +8,26 @@
 #' @param searchtype character; One of 'scientific' or 'common', or any unique
 #' abbreviation
 #' @param accepted logical; If TRUE, removes names that are not accepted valid
-#' names by WORMS. Set to \code{FALSE} (default) to give back both accepted
+#' names by WORMS. Set to `FALSE` (default) to give back both accepted
 #' and unaccepted names.
 #' @param ask logical; should get_wormsid be run in interactive mode?
-#' If \code{TRUE} and more than one wormsid is found for the species, the
-#' user is asked for input. If \code{FALSE} NA is returned for
+#' If `TRUE` and more than one wormsid is found for the species, the
+#' user is asked for input. If `FALSE` NA is returned for
 #' multiple matches.
 #' @param messages logical; should progress be printed?
 #' @param rows numeric; Any number from 1 to infinity. If the default NaN, all
 #' rows are considered. Note that this function still only gives back a wormsid
-#' class object with one to many identifiers. See
-#' \code{\link[taxize]{get_wormsid_}} to get back all, or a subset, of the raw
-#' data that you are presented during the ask process.
+#' class object with one to many identifiers. See [`get_wormsid_()`] to get back
+#' all, or a subset, of the raw data that you are presented during the ask
+#' process.
 #' @param x Input to as.wormsid
 #' @param ... Ignored
 #' @param check logical; Check if ID matches any existing on the DB, only
-#' used in \code{\link{as.wormsid}}
+#' used in [`as.wormsid()`]
 #' @template getreturn
 #'
 #' @family taxonomic-ids
-#' @seealso \code{\link[taxize]{classification}}
+#' @seealso [`classification()`]
 #'
 #' @examples \dontrun{
 #' (x <- get_wormsid('Platanista gangetica'))

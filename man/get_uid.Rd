@@ -44,9 +44,9 @@ printed on the console.}
 
 \item{rows}{numeric; Any number from 1 to infinity. If the default NA, all
 rows are considered. Note that this function still only gives back a uid
-class object with one to many identifiers. See
-\code{\link[taxize]{get_uid_}} to get back all, or a subset, of the raw
-data that you are presented during the ask process.}
+class object with one to many identifiers. See \code{\link[=get_uid_]{get_uid_()}} to get back
+all, or a subset, of the raw data that you are presented during the ask
+process.}
 
 \item{modifier}{(character) A modifier to the \code{sciname} given. Options
 include: Organism, Scientific Name, Common Name, All Names, Division,
@@ -55,7 +55,7 @@ Subtree, Synonym, Text Word. These are not checked, so make sure they are
 entered correctly, as is.}
 
 \item{rank_query}{(character) A taxonomic rank name to modify the query sent
-to NCBI. See \code{\link{rank_ref}} for possible options. Though note that
+to NCBI. See \code{\link[=rank_ref]{rank_ref()}} for possible options. Though note that
 some data sources use atypical ranks, so inspect the data itself for
 options. Optional. See \code{Querying} below.}
 
@@ -63,7 +63,7 @@ options. Optional. See \code{Querying} below.}
 data after retrieved from NCBI. Optional. See \code{Filtering} below.}
 
 \item{rank_filter}{(character) A taxonomic rank name to filter data after
-retrieved from NCBI. See \code{\link{rank_ref}} for possible options.
+retrieved from NCBI. See \code{\link[=rank_ref]{rank_ref()}} for possible options.
 Though note that some data sources use atypical ranks, so inspect the data
 itself for options. Optional. See \code{Filtering} below.}
 
@@ -71,10 +71,10 @@ itself for options. Optional. See \code{Filtering} below.}
 
 \item{...}{Ignored}
 
-\item{x}{Input to \code{\link{as.uid}}}
+\item{x}{Input to \code{\link[=as.uid]{as.uid()}}}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only used
-in \code{\link{as.uid}}}
+in \code{\link[=as.uid]{as.uid()}}}
 }
 \value{
 A vector of taxonomic identifiers as an S3 class.
@@ -103,7 +103,7 @@ parameter \code{modifier} adds modifiers to the name. For example,
 \code{rank_filter} are not used in the search to the data provider, but are
 used in filtering the data down to a subset that is closer to the target
 you want. For all these parameters, you can use regex strings since we use
-\code{\link{grep}} internally to match. Filtering narrows down to the set
+\code{\link[=grep]{grep()}} internally to match. Filtering narrows down to the set
 that matches your query, and removes the rest.
 }
 
@@ -209,7 +209,7 @@ get_uid("Quercus douglasii", verbose = TRUE)
 }
 }
 \seealso{
-\code{\link[taxize]{classification}}
+\code{\link[=classification]{classification()}}
 
 Other taxonomic-ids: \code{\link{get_boldid}},
   \code{\link{get_colid}}, \code{\link{get_eolid}},

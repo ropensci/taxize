@@ -87,7 +87,7 @@ to find pages that deal with the species of interest, then use
 EOL is a bit odd in that they have page IDs for each taxon, but
 then within that, they have taxon ids for various taxa within that page
 (e.g., GBIF and NCBI each have a taxon they refer to within the
-page \link{i.e., taxon}). And we need the taxon ids from a particular data
+page [i.e., taxon]). And we need the taxon ids from a particular data
 provider (e.g, NCBI) to do other things, like get a higher classification
 tree. However, humans want the page id, not the taxon id. So, the
 id returned from this function is the taxon id, not the page id. You can
