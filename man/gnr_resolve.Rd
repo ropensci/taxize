@@ -15,7 +15,7 @@ gnr_resolve(names, data_source_ids = NULL, resolve_once = FALSE,
 vernacular/common names.}
 
 \item{data_source_ids}{character; IDs to specify what data source
-is searched. See \code{\link[taxize]{gnr_datasources}}.}
+is searched. See \code{\link[=gnr_datasources]{gnr_datasources()}}.}
 
 \item{resolve_once}{logical; Find the first available match instead of
 matches across all data sources with all possible renderings of a name.
@@ -57,7 +57,7 @@ If \code{FALSE}, names are not modified. Default: \code{TRUE}}
 \item{fields}{(character) One of minimal (default) or all. Minimal gives
 back just four fields, whereas all gives all fields back.}
 
-\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
+\item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient}}}
 }
 \value{
 A data.frame with one attribute \code{not_known}: a character
@@ -75,7 +75,7 @@ service
 \item gni_uuid (character) - Global Names Index UUID (aka identifier)
 \item matched_name (character) - the matched name in the GNR service
 \item matched_name2 (character) - returned if \code{canonical=TRUE}, in
-which case \emph{matched_name} is not returned
+which case \strong{matched_name} is not returned
 \item classification_path (character) - names of the taxonomic
 classification tree, with names separated by pipes (\code{|})
 \item classification_path_ranks (character) - ranks of the taxonomic
@@ -95,6 +95,7 @@ classification tree, with names separated by pipes (\code{|})
 \item current_taxon_id (character) - current taxon id
 \item current_name_string (character) - current name string
 }
+
 Note that names (i.e. rows) are dropped that are NA, are zero length
 strings, are not character vectors, or are not found by the API.
 }
@@ -105,7 +106,7 @@ See section \strong{Age of datasets in the Global Names Resolver}
 
 IMPORTANT: Datasets used in the Global Names Resolver vary in how recently
 they've been updated. See the \code{updated_at} field in the
-output of \code{\link{gnr_datasources}} for dates when each dataset
+output of \code{\link[=gnr_datasources]{gnr_datasources()}} for dates when each dataset
 was last updated.
 }
 
@@ -154,7 +155,7 @@ gnr_resolve("Scorzonera hispanica L. subsp. asphodeloides Wallr.",
 \url{http://gnrd.globalnames.org/}
 }
 \seealso{
-\code{\link[taxize]{gnr_datasources}} \code{\link{tnrs}}
+\code{\link[=gnr_datasources]{gnr_datasources()}} \code{\link{tnrs}}
 }
 \author{
 Scott Chamberlain \email{myrmecocystus@gmail.com}
