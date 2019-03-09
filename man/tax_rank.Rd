@@ -8,21 +8,20 @@ tax_rank(x, db = NULL, rows = NA, ...)
 }
 \arguments{
 \item{x}{(character) Vector of one or more taxon names (character) or
-IDs (character or numeric) to query. Or objects returned from
-\code{get_*()} functions like \code{\link{get_tsn}}}
+IDs (character or numeric) to query. Or objects returned from \code{get_*()}
+functions like \code{\link[=get_tsn]{get_tsn()}}}
 
-\item{db}{(character) database to query. either \code{ncbi}, \code{itis},
-\code{eol}, \code{col}, \code{tropicos}, \code{gbif}, \code{nbn},
-\code{worms}, \code{natserv}, \code{bold}. Note that each taxonomic data
-source has their own identifiers, so that if you provide the wrong
-\code{db} value for the identifier you may get a result, but it will
+\item{db}{(character) database to query. either \code{ncbi}, \code{itis}, \code{eol}, \code{col},
+\code{tropicos}, \code{gbif},\code{nbn}, \code{worms}, \code{natserv}, \code{bold}. Note that each
+taxonomic data source has their own identifiers, so that if you provide the
+wrong \code{db} value for the identifier you may get a result, but it will
 likely be wrong (not what you were expecting). If using ncbi or eol we
 recommend getting an API key; see \code{\link{taxize-authentication}}}
 
 \item{rows}{numeric; Any number from 1 to infinity. If the default NA,
-all rows are considered. passed down to \code{get_*} functions.}
+all rows are considered. passed down to \code{get_*()} functions.}
 
-\item{...}{Additional arguments to \code{\link{classification}}}
+\item{...}{Additional arguments to \code{\link[=classification]{classification()}}}
 }
 \value{
 A named list of character vectors with ranks (all lower-cased)
@@ -31,8 +30,8 @@ A named list of character vectors with ranks (all lower-cased)
 Get rank for a given taxonomic name.
 }
 \note{
-While \code{\link[taxize]{tax_name}} returns the name of a specified
-rank, \code{\link[taxize]{tax_rank}} returns the actual rank of the taxon.
+While \code{\link[=tax_name]{tax_name()}} returns the name of a specified
+rank, \code{\link[=tax_rank]{tax_rank()}} returns the actual rank of the taxon.
 }
 \examples{
 \dontrun{
@@ -56,5 +55,5 @@ tax_rank(c("Platanista gangetica", "Lichenopora neapolitana"),
 }
 }
 \seealso{
-\code{\link[taxize]{classification}}, \code{\link[taxize]{tax_name}}
+\code{\link[=classification]{classification()}},\code{\link[=tax_name]{tax_name()}}
 }

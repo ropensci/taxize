@@ -9,7 +9,7 @@ nbn_synonyms(id, ...)
 \arguments{
 \item{id}{the taxon identifier code}
 
-\item{...}{Further args passed on to \code{\link[crul]{verb-GET}}}
+\item{...}{Further args passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}}
 }
 \value{
 A data.frame

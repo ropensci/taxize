@@ -4,26 +4,26 @@
 #' @param x Community data matrix. Taxa in columns, samples in rows.
 #' @param rank character; Taxonomic rank to aggregate by.
 #' @param db character; taxonomic API to use, 'ncbi, 'itis' or both, see
-#' \code{\link[taxize]{tax_name}}. Note that each taxonomic data source has
-#' their own identifiers, so that if you provide the wrong \code{db} value
+#' [`tax_name()`]. Note that each taxonomic data source has
+#' their own identifiers, so that if you provide the wrong `db` value
 #' for the identifier you could get a result, but it will likely be wrong (not
 #' what you were expecting). If using ncbi we recommend getting an API key;
-#' see \code{\link{taxize-authentication}}
+#' see [`taxize-authentication`]
 #' @param verbose (logical) If FALSE (Default) suppress messages
-#' @param ... Other arguments passed to \code{\link[taxize]{get_tsn}} or \code{\link[taxize]{get_uid}}.
+#' @param ... Other arguments passed to [`get_tsn()`] or [`get_uid()`]
 #'
-#' @details \code{tax_agg} aggregates (sum) taxa to a specific taxonomic level.
+#' @details `tax_agg` aggregates (sum) taxa to a specific taxonomic level.
 #' If a taxon is not found in the database (ITIS or NCBI) or the supplied taxon
 #' is on higher taxonomic level this taxon is not aggregated.
 #'
 #'
-#' @return A list of class \code{tax_agg} with the following items:
-#' \item{x}{Community data matrix with aggregated data.}
-#' \item{by}{A lookup-table showing which taxa were aggregated.}
-#' \item{n_pre}{Number of taxa before aggregation.}
-#' \item{rank}{Rank at which taxa have been aggregated.}
+#' @return A list of class `tax_agg` with the following items:
+#' * `x` Community data matrix with aggregated data.
+#' * `by` A lookup-table showing which taxa were aggregated.
+#' * `n_pre` Number of taxa before aggregation.
+#' * `rank` Rank at which taxa have been aggregated.
 #'
-#' @seealso \code{\link[taxize]{tax_name}}
+#' @seealso [`tax_name`]
 #' @examples \dontrun{
 #' if (requireNamespace("vegan", quietly = TRUE)) {
 #'   # use dune dataset

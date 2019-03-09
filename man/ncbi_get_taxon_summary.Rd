@@ -12,15 +12,14 @@ See Details.}
 
 \item{key}{(character) NCBI Entrez API key. optional. See Details.}
 
-\item{...}{Curl options passed on to \code{\link[crul]{verb-GET}}}
+\item{...}{Curl options passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}}
 }
 \value{
 A \code{data.frame} with the following columns:
-\describe{
-\item{uid}{The uid queried for}
-\item{name}{The name of the taxon; a binomial name if the taxon
-is of rank species}
-\item{rank}{The taxonomic rank (e.g. 'Genus')}
+\itemize{
+\item \code{uid} The uid queried for
+\item \code{name} The name of the taxon; a binomial name if the taxon is of rank species
+\item \code{rank} The taxonomic rank (e.g. 'Genus')
 }
 }
 \description{

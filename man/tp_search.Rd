@@ -29,7 +29,7 @@ of your search string. "exact" will use your search string exactly.}
 \item{key}{Your Tropicos API key; See \code{\link{taxize-authentication}}
 for help on authentication}
 
-\item{...}{Further args passed on to \code{\link[crul]{HttpClient}}}
+\item{...}{Further args passed on to \code{\link[crul:HttpClient]{crul::HttpClient}}}
 }
 \value{
 List or dataframe.

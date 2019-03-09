@@ -3,29 +3,29 @@
 #' @export
 #' @param query (character) Vector of taxonomic names to query. required.
 #' @param get (character) The ranks of the taxonomic name to get, see
-#' \code{\link{rank_ref}}. required.
+#' [`rank_ref()`]. required.
 #' @param db (character) The database to search from: 'itis', 'ncbi' or 'both'.
 #' If 'both' both NCBI and ITIS will be queried. Result will be the union of
 #' both. If using ncbi, we recommend getting an API key; see 
-#' \code{\link{taxize-authentication}}
+#' [`taxize-authentication`]
 #' @param pref (character) If db = 'both', sets the preference for the union.
 #' Either 'ncbi' (default) or 'itis'. Currently not implemented.
-#' @param messages (logical) If \code{TRUE} the actual taxon queried is printed
+#' @param messages (logical) If `TRUE` the actual taxon queried is printed
 #' on the console.
-#' @param ... Other arguments passed to \code{\link{get_tsn}} or
-#' \code{\link{get_uid}}.
+#' @param ... Other arguments passed to [`get_tsn()`] or
+#' [`get_uid()`].
 #'
 #' @return A data.frame with one column for every queried rank, in addition to
 #' a column for db and queried term.
 #'
-#' @note While \code{\link{tax_rank}} returns the actual rank of a
-#' taxon, \code{\link{tax_name}} searches and returns any specified rank
+#' @note While [`tax_rank()`] returns the actual rank of a
+#' taxon, [`tax_name()`] searches and returns any specified rank
 #' higher in taxonomy.
 #' 
 #' @section Authentication:
-#' See \code{\link{taxize-authentication}} for help on authentication
+#' See [`taxize-authentication`] for help on authentication
 #'
-#' @seealso \code{\link{classification}}
+#' @seealso [`classification()`]
 #'
 #' @examples \dontrun{
 #' # A case where itis and ncbi use the same names

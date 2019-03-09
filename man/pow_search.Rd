@@ -16,7 +16,7 @@ pow_search(q, limit = 100, cursor = "*", sort = NULL, ...)
 \item{sort}{(character) The field to sort by and sort order separted with
 underscore, e.g., \code{sort="name_desc"}}
 
-\item{...}{Further args passed on to \code{\link[crul]{HttpClient}}.}
+\item{...}{Further args passed on to \code{\link[crul:HttpClient]{crul::HttpClient}}.}
 }
 \value{
 a list with slots for metadata (\code{meta}) with list of response

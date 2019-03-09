@@ -1,7 +1,7 @@
 #' @title Retrieve the upstream taxa for a given taxon name or ID.
 #'
 #' @description This function uses a while loop to continually collect taxa up to the
-#' taxonomic rank that you specify in the \code{upto} parameter. You can get data
+#' taxonomic rank that you specify in the `upto` parameter. You can get data
 #' from ITIS (itis) or Catalogue of Life (col). There is no method exposed by itis
 #' or col for getting taxa at a specific taxonomic rank, so we do it ourselves inside
 #' the function.
@@ -9,11 +9,10 @@
 #' @export
 #' @param x Vector of taxa names (character) or IDs (character or numeric) to
 #' query.
-#' @param db character; database to query. One or both of \code{itis},
-#' \code{col}. Note that each taxonomic data source has their own identifiers,
-#' so that if you provide the wrong \code{db} value for the identifier you
-#' could get a result, but it will likely be wrong (not what you were
-#' expecting).
+#' @param db character; database to query. One or both of `itis`, `col`. Note
+#' that each taxonomic data source has their own identifiers, so that if you
+#' provide the wrong `db` value for the identifier you could get a result, but
+#' it will likely be wrong (not what you were expecting).
 #' @param upto What taxonomic rank to go down to. One of: 'superkingdom',
 #' 'kingdom', 'subkingdom','infrakingdom','phylum','division','subphylum',
 #' 'subdivision','infradivision', 'superclass','class','subclass','infraclass',
@@ -24,8 +23,8 @@
 #' @param rows (numeric) Any number from 1 to infinity. If the default NA, all
 #' rows are considered. Note that this parameter is ignored if you pass in a
 #' taxonomic id of any of the acceptable classes: tsn, colid.
-#' @param ... Further args passed on to \code{\link{itis_downstream}} or
-#' \code{\link{col_downstream}}
+#' @param ... Further args passed on to [`itis_downstream()`] or
+#' [`col_downstream()`]
 #'
 #' @return A named list of data.frames with the upstream names of every
 #' supplied taxa. You get an NA if there was no match in the database.

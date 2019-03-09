@@ -22,13 +22,13 @@ sci2comm(...)
 \method{sci2comm}{iucn}(id, simplify = TRUE, ...)
 }
 \arguments{
-\item{...}{Further arguments passed on to functions
-\code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_tsn}}.}
+\item{...}{Further arguments passed on to functions \code{\link[=get_uid]{get_uid()}},
+\code{\link[=get_tsn]{get_tsn()}}.}
 
 \item{scinames}{character; One or more scientific names or partial names.}
 
-\item{db}{character; Data source, one of \emph{"ncbi"} (default),
-\emph{"itis"} \emph{"eol"}, \emph{"worms"}, or \emph{"iucn"}. Note that
+\item{db}{character; Data source, one of \code{"ncbi"} (default),
+\code{"itis"} \code{"eol"}, \code{"worms"}, or \code{"iucn"}. Note that
 each taxonomic data source has their own identifiers,  so that if you
 provide the wrong \code{db} value for the identifier you could get a
 result, but it will likely be wrong (not what you were expecting).
@@ -40,8 +40,8 @@ If FALSE, return variable formats from different sources, usually a
 data.frame. Only applies to eol and itis. Specify \code{FALSE} to obtain
 the language of each vernacular in the output for eol and itis.}
 
-\item{id}{character; identifiers, as returned by
-\code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_uid}}.}
+\item{id}{character; identifiers, as returned by \code{\link[=get_tsn]{get_tsn()}},
+\code{\link[=get_uid]{get_uid()}}.}
 }
 \value{
 List of character vectors, named by input taxon name, or taxon ID
@@ -80,7 +80,7 @@ sci2comm('Helianthus annuus', db="ncbi", verbose = TRUE)
 }
 }
 \seealso{
-\code{\link[taxize]{comm2sci}}
+\code{\link[=comm2sci]{comm2sci()}}
 }
 \author{
 Scott Chamberlain (myrmecocystus@gmail.com)

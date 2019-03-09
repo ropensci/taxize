@@ -12,7 +12,7 @@
 #' @param order (character) Supports "asc" or "desc"
 #' @param facets (list) Comma separated list of the fields to create facets
 #' on e.g. facets=basis_of_record.
-#' @param ... Further args passed on to \code{\link[crul]{HttpClient}}.
+#' @param ... Further args passed on to [`crul::HttpClient`].
 #' @family nbn
 #' @return a list with slots for metadata (`meta`) with list of response
 #' attributes, and data (`data``) with a data.frame of results

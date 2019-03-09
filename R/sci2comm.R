@@ -2,28 +2,28 @@
 #'
 #' @export
 #' @param scinames character; One or more scientific names or partial names.
-#' @param db character; Data source, one of \emph{"ncbi"} (default),
-#' \emph{"itis"} \emph{"eol"}, \emph{"worms"}, or \emph{"iucn"}. Note that
+#' @param db character; Data source, one of `"ncbi"` (default),
+#' `"itis"` `"eol"`, `"worms"`, or `"iucn"`. Note that
 #' each taxonomic data source has their own identifiers,  so that if you
-#' provide the wrong \code{db} value for the identifier you could get a
+#' provide the wrong `db` value for the identifier you could get a
 #' result, but it will likely be wrong (not what you were expecting). 
 #' If using ncbi, eol or iucn we recommend getting an API key; 
-#' see \code{\link{taxize-authentication}}
+#' see [`taxize-authentication`]
 #' @param simplify (logical) If TRUE, simplify output to a vector of names.
 #' If FALSE, return variable formats from different sources, usually a
-#' data.frame. Only applies to eol and itis. Specify \code{FALSE} to obtain
+#' data.frame. Only applies to eol and itis. Specify `FALSE` to obtain
 #' the language of each vernacular in the output for eol and itis.
-#' @param ... Further arguments passed on to functions
-#' \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_tsn}}.
-#' @param id character; identifiers, as returned by
-#' \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_uid}}.
+#' @param ... Further arguments passed on to functions [`get_uid()`],
+#' [`get_tsn()`].
+#' @param id character; identifiers, as returned by [`get_tsn()`],
+#' [`get_uid()`].
 #'
 #' @section Authentication:
-#' See \code{\link{taxize-authentication}} for help on authentication
+#' See [`taxize-authentication`] for help on authentication
 #' 
 #' @return List of character vectors, named by input taxon name, or taxon ID
 #'
-#' @seealso \code{\link[taxize]{comm2sci}}
+#' @seealso [`comm2sci()`]
 #'
 #' @author Scott Chamberlain (myrmecocystus@@gmail.com)
 #'

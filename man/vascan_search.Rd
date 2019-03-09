@@ -15,7 +15,7 @@ taxon identifier (e.g. 861)}
 \item{raw}{(logical) If TRUE, raw json or xml returned, if FALSE, parsed
 data returned.}
 
-\item{...}{(list) Further args passed on to \code{\link[crul]{verb-GET}}}
+\item{...}{(list) Further args passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}}
 }
 \value{
 json, xml or a list.
@@ -53,7 +53,7 @@ invisible(vascan_search(q = "Helianthus annuus", verbose = TRUE))
 }
 }
 \references{
-API docs http://data.canadensys.net/vascan/api
+API docs \url{http://data.canadensys.net/vascan/api}
 }
 \author{
 Scott Chamberlain {myrmecocystus@gmail.com}

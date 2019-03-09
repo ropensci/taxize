@@ -1,7 +1,7 @@
 #' @title Resolve names using Global Names Recognition and Discovery.
 #'
 #' @description Uses the Global Names Recognition and Discovery service, see
-#' \url{http://gnrd.globalnames.org/}.
+#' <http://gnrd.globalnames.org/>.
 #'
 #' Note: this function sometimes gives data back and sometimes not. The API
 #' that this function is extremely buggy.
@@ -15,22 +15,22 @@
 #' examples
 #' @param engine (optional) (integer) Default: 0. Either 1 for TaxonFinder,
 #' 2 for NetiNeti, or 0 for both. If absent, both engines are used.
-#' @param unique (optional) (logical) If \code{TRUE} (default), response has
+#' @param unique (optional) (logical) If `TRUE` (default), response has
 #' unique names without offsets.
-#' @param verbatim (optional) Type: boolean, If \code{TRUE} (default to
-#' \code{FALSE}), response excludes verbatim strings.
-#' @param detect_language (optional) Type: boolean, When \code{TRUE} (default),
+#' @param verbatim (optional) Type: boolean, If `TRUE` (default to
+#' `FALSE`), response excludes verbatim strings.
+#' @param detect_language (optional) Type: boolean, When `TRUE` (default),
 #' NetiNeti is not used if the language of incoming text is determined not to
-#' be English. When \code{FALSE}, NetiNeti will be used if requested.
+#' be English. When `FALSE`, NetiNeti will be used if requested.
 #' @param all_data_sources (optional) Type: boolean. Resolve found names
 #' against all available Data Sources.
 #' @param data_source_ids (optional) Type: string. Pipe separated list of
 #' data source ids to resolve found names against. See list of Data Sources
-#' \url{http://resolver.globalnames.org/data_sources}.
+#' <http://resolver.globalnames.org/data_sources>.
 #' @param return_content (logical) return OCR'ed text. returns text
-#' string in \code{x$meta$content} slot. Default: \code{FALSE}
-#' @param ... Further args passed to \code{\link[crul]{verb-GET}}
-#' @author Scott Chamberlain {myrmecocystus@@gmail.com}
+#' string in `x$meta$content` slot. Default: `FALSE`
+#' @param ... Further args passed to [`crul::verb-GET`]
+#' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @return A list of length two, first is metadata, second is the data as a
 #' data.frame.
 #' @details One of url, file, or text must be specified - and only one of them.
@@ -104,7 +104,7 @@ scrapenames <- function(url = NULL, file = NULL, text = NULL, engine = NULL,
     }
     if (tt$status_code != 303) tt$raise_for_status()
     token_url <- tt$response_headers$location
-  }
+    }
 
   st <- 303
   while (st == 303) {

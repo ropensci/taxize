@@ -20,9 +20,8 @@
 #' @param sleep Number of seconds by which to pause between calls. Defaults to 0
 #' 		seconds. Use when doing many calls in a for loop ar lapply type call.
 #' @param splitby Number by which to split species list for querying the TNRS.
-#' @param messages Verbosity or not (default \code{TRUE})
-#' @param ... Curl options to pass in \code{\link[crul]{verb-GET}} or
-#' \code{\link[crul]{verb-POST}}
+#' @param messages Verbosity or not (default `TRUE`)
+#' @param ... Curl options to pass in [`crul::verb-GET`] or [`crul::verb-POST`]
 #'
 #' @return data.frame of results from TNRS plus the name submitted, with
 #' rows in order of user supplied names, though those with no matches are
@@ -33,15 +32,15 @@
 #' TNRS doesn't provide any advice about the occurrence of homonyms when
 #' queries have no indication of a taxonomic name's authority. So if there
 #' is any chance of a homonym, you probably want to send the authority as
-#' well, or use \code{\link{gnr_resolve}}. For example,
-#' \code{tnrs(query="Jussiaea linearis", source="iPlant_TNRS")} gives result of
-#' \emph{Jussiaea linearis (Willd.) Oliv. ex Kuntze}, but there is a
+#' well, or use [`gnr_resolve()`]. For example,
+#' `tnrs(query="Jussiaea linearis", source="iPlant_TNRS")` gives result of
+#' *Jussiaea linearis (Willd.) Oliv. ex Kuntze*, but there is a
 #' homonym. If you do
-#' \code{tnrs(query="Jussiaea linearis Hochst.", source="iPlant_TNRS")} you
+#' `tnrs(query="Jussiaea linearis Hochst.", source="iPlant_TNRS")` you
 #' get a direct match for that name. So, beware that there's no indication
 #' of homonyms.
-#' @references \url{http://taxosaurus.org/}
-#' @seealso \code{\link{gnr_resolve}}
+#' @references <http://taxosaurus.org/>
+#' @seealso [`gnr_resolve()`]
 #' @examples \dontrun{
 #' mynames <- c("Helianthus annuus", "Poa annua", "Mimulus bicolor")
 #' tnrs(query = mynames, source = "iPlant_TNRS")

@@ -6,17 +6,19 @@
 \title{Lookup-table for family, genus, and species names for ThePlantList}
 \format{A data frame with 10,000 rows and 3 variables:
 \describe{
-\item{family}{family name}
-\item{genus}{genus name}
-\item{species}{specific epithet name}
+\itemize{
+\item \code{family} family name
+\item \code{genus} genus name
+\item \code{species} specific epithet name
+}
 }}
 \source{
-http://www.theplantlist.org
+\url{http://www.theplantlist.org}
 }
 \description{
 These names are from http://www.theplantlist.org, and are from
 version 1.1 of their data. This data is used in the function
-\code{\link{names_list}}. This is a randomly selected subset of the ~350K
+\code{\link[=names_list]{names_list()}}. This is a randomly selected subset of the ~350K
 accepted species names in Theplantlist.
 }
 \keyword{data}

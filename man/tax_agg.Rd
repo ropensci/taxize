@@ -15,7 +15,7 @@ tax_agg(x, rank, db = "ncbi", verbose = FALSE, ...)
 \item{rank}{character; Taxonomic rank to aggregate by.}
 
 \item{db}{character; taxonomic API to use, 'ncbi, 'itis' or both, see
-\code{\link[taxize]{tax_name}}. Note that each taxonomic data source has
+\code{\link[=tax_name]{tax_name()}}. Note that each taxonomic data source has
 their own identifiers, so that if you provide the wrong \code{db} value
 for the identifier you could get a result, but it will likely be wrong (not
 what you were expecting). If using ncbi we recommend getting an API key;
@@ -23,14 +23,16 @@ see \code{\link{taxize-authentication}}}
 
 \item{verbose}{(logical) If FALSE (Default) suppress messages}
 
-\item{...}{Other arguments passed to \code{\link[taxize]{get_tsn}} or \code{\link[taxize]{get_uid}}.}
+\item{...}{Other arguments passed to \code{\link[=get_tsn]{get_tsn()}} or \code{\link[=get_uid]{get_uid()}}}
 }
 \value{
 A list of class \code{tax_agg} with the following items:
-\item{x}{Community data matrix with aggregated data.}
-\item{by}{A lookup-table showing which taxa were aggregated.}
-\item{n_pre}{Number of taxa before aggregation.}
-\item{rank}{Rank at which taxa have been aggregated.}
+\itemize{
+\item \code{x} Community data matrix with aggregated data.
+\item \code{by} A lookup-table showing which taxa were aggregated.
+\item \code{n_pre} Number of taxa before aggregation.
+\item \code{rank} Rank at which taxa have been aggregated.
+}
 }
 \description{
 Aggregate species data to given taxonomic rank
@@ -82,5 +84,5 @@ tax_agg(mat, rank = 'family', db='itis')
 }
 }
 \seealso{
-\code{\link[taxize]{tax_name}}
+\code{\link{tax_name}}
 }

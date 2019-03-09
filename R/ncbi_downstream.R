@@ -4,13 +4,13 @@
 #' @param id (numeric/integer) An NCBI taxonomic identifier
 #' @param downto The taxonomic level you want to go down to. See examples below.
 #' 		The taxonomic level IS case sensitive, and you do have to spell it
-#' 		correctly. See \code{data(rank_ref)} for spelling.
-#' @param intermediate (logical) If \code{TRUE}, return a list of length two
+#' 		correctly. See `data(rank_ref)` for spelling.
+#' @param intermediate (logical) If `TRUE`, return a list of length two
 #' with target taxon rank names, with additional list of data.frame's of
-#' intermediate taxonomic groups. Default: \code{FALSE}
-#' @param ... Further args passed on to \code{\link{ncbi_children}}
+#' intermediate taxonomic groups. Default: `FALSE`
+#' @param ... Further args passed on to [`ncbi_children()`]
 #' @return Data.frame of taxonomic information downstream to family from e.g.,
-#' 		Order, Class, etc., or if \code{intermediate=TRUE}, list of length two,
+#' 		Order, Class, etc., or if `intermediate=TRUE`, list of length two,
 #'   	with target taxon rank names, and intermediate names.
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @section No Rank:
@@ -21,7 +21,7 @@
 #' programatically. So, no rank things will sometimes be missing.
 #' 
 #' @section Authentication:
-#' See \code{\link{taxize-authentication}} for help on authentication. 
+#' See [`taxize-authentication()`] for help on authentication. 
 #' We strongly recommend getting an API key
 #' 
 #' @examples \dontrun{
