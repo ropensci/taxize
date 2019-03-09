@@ -7,22 +7,19 @@
 #' @param id (character) NCBI taxonomy uids to retrieve information for. 
 #' See Details.
 #' @param key (character) NCBI Entrez API key. optional. See Details.
-#' @param ... Curl options passed on to \code{\link[crul]{verb-GET}}
-#' @return A \code{data.frame} with the following columns:
-#'   \describe{
-#'     \item{uid}{The uid queried for}
-#'     \item{name}{The name of the taxon; a binomial name if the taxon 
-#'     is of rank species}
-#'     \item{rank}{The taxonomic rank (e.g. 'Genus')}
-#'   }
+#' @param ... Curl options passed on to [`crul::verb-GET`]
+#' @return A `data.frame` with the following columns:
+#' * `uid` The uid queried for
+#' * `name` The name of the taxon; a binomial name if the taxon is of rank species
+#' * `rank` The taxonomic rank (e.g. 'Genus')
 #' @author Zachary Foster \email{zacharyfoster1989@@Sgmail.com}
 #' @details If your input vector or list of NCBI IDs is longer than about 
-#' 2500 characters (use \code{nchar(paste(ids, collapse = "+"))}), split 
+#' 2500 characters (use `nchar(paste(ids, collapse = "+"))`), split 
 #' the list up into chunks since at about that number of characters you 
 #' will run into the HTTP 414 error "Request-URI Too Long".
 #' 
 #' @section Authentication:
-#' See \code{\link{taxize-authentication}} for help on authentication. 
+#' See [`taxize-authentication`] for help on authentication. 
 #' We strongly recommend getting an API key
 #' 
 #' @examples \dontrun{

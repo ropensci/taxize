@@ -6,10 +6,10 @@
 #' @param format (character) One of json (default) or xml.
 #' @param raw (logical) If TRUE, raw json or xml returned, if FALSE, parsed
 #' data returned.
-#' @param ... (list) Further args passed on to \code{\link[crul]{verb-GET}}
+#' @param ... (list) Further args passed on to [`crul::verb-GET`]
 #' @author Scott Chamberlain {myrmecocystus@@gmail.com}
 #' @return json, xml or a list.
-#' @references API docs http://data.canadensys.net/vascan/api
+#' @references API docs <http://data.canadensys.net/vascan/api>
 #' @keywords names taxonomy
 #' @details Note that we lowercase all outputs in data.frame's, but when a
 #' list is given back, we don't touch the list names.

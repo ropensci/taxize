@@ -3,32 +3,29 @@
 #' @export
 #' @param x Vector of taxa names (character) or id (character or numeric) to
 #' query.
-#' @param db character; database to query. either \code{ncbi}, \code{itis},
-#' \code{gbif}, \code{col}, or \code{tol}. If using ncbi, we recommend
-#' getting an API key; see \code{\link{taxize-authentication}}
+#' @param db character; database to query. either `ncbi`, `itis`, `gbif`, `col`,
+#' `tol`. If using ncbi, we recommend getting an API key;
+#' see [`taxize-authentication`]
 #' @param rows (numeric) Any number from 1 to infinity. If the default NA,
 #' all rows are considered. Note that this parameter is ignored if you pass in
 #' a taxonomic id of any of the acceptable classes: tsn, colid, gbifid, tolid.
 #' NCBI has a method for this function but rows doesn't work.
 #' @param class_list (list) A list of classifications, as returned from
-#' \code{\link[taxize]{classification}}
+#' [`classification()`]
 #' @param low_rank (character) taxonomic rank to return, of length 1
-#' @param ... Other arguments passed to \code{\link[taxize]{get_tsn}},
-#' \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_colid}},
-#' \code{\link[taxize]{get_gbifid}}, \code{\link[taxize]{get_tolid}}
+#' @param ... Other arguments passed to [`get_tsn()`], [`get_uid()`],
+#' [`get_colid()`], [`get_gbifid()`], [`get_tolid()`]
 #'
 #' @return NA when no match, or a data.frame with columns
-#' \itemize{
-#'  \item name
-#'  \item rank
-#'  \item id
-#' }
+#' * name
+#' * rank
+#' * id
 #' 
 #' @section Authentication:
-#' See \code{\link{taxize-authentication}} for help on authentication
+#' See [`taxize-authentication`] for help on authentication
 #' 
 #' @author Jimmy O'Donnell \email{jodonnellbio@@gmail.com}
-#' Scott Chamberlain \email{myrmecocystus@gmail.com}
+#' Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @examples \dontrun{
 #' id <- c("9031", "9823", "9606", "9470")
 #' id_class <- classification(id, db = 'ncbi')

@@ -16,8 +16,8 @@ identifiers, so that if you provide the wrong \code{db} value for the
 identifier you could get a result, but it will likely be wrong (not
 what you were expecting).}
 
-\item{...}{Curl options passed on to \code{\link[crul]{verb-GET}} or
-\code{\link[crul]{verb-POST}}. In addition, further named args passed
+\item{...}{Curl options passed on to \code{\link[crul:verb-GET]{crul::verb-GET}} or
+\code{\link[crul:verb-POST]{crul::verb-POST}}. In addition, further named args passed
 on to  each respective function. See examples}
 }
 \value{

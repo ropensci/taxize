@@ -12,7 +12,7 @@ tpl_get(x, family = NULL, ...)
 \item{family}{If you want just one, or >1 family, but not all, list
 them in a vector.}
 
-\item{...}{(list) Curl options passed on to \code{\link[crul]{verb-GET}}}
+\item{...}{(list) Curl options passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}}
 }
 \value{
 Returns nothing to console, except a message and progress bar.
@@ -48,11 +48,11 @@ tpl_get(dir2, family = "Echinodiaceae")
 }
 }
 \references{
-The Plant List http://www.theplantlist.org
+The Plant List \url{http://www.theplantlist.org}
 }
 \seealso{
-\code{\link{tpl_families}}
+\code{\link[=tpl_families]{tpl_families()}}
 }
 \author{
-John Baumgartner (johnbb@student.unimelb.edu.au)
+John Baumgartner \email{johnbb@student.unimelb.edu.au}
 }

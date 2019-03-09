@@ -3,10 +3,9 @@
 #' @export
 #' @param plants (character) Vector of plant species names. Required.
 #' @param from (character) One of tpl (for theplantlist.com data), or
-#'    flora (for Brazilian Flora Checklist). Required. Default: \code{tpl}
-#' @param messages (logical) informative messages or not. 
-#' Default: \code{TRUE}
-#' @param ... curl options passed on to \code{\link[crul]{HttpClient}}
+#'    flora (for Brazilian Flora Checklist). Required. Default: `tpl`
+#' @param messages (logical) informative messages or not. Default: `TRUE`
+#' @param ... curl options passed on to [`crul::HttpClient`]
 #' @return data.frame of results.
 #' @note you used to need an API key for Plantminer; it's no longer needed
 #' @examples \dontrun{

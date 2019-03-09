@@ -13,5 +13,5 @@ Get HTTP status codes
 status_codes()
 }
 \seealso{
-\code{\link{ping}}
+\code{\link[=ping]{ping()}}
 }

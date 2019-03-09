@@ -2,11 +2,11 @@
 #'
 #' @export
 #' @param id the taxon identifier code
-#' @param key Your Tropicos API key; See \code{\link{taxize-authentication}} 
+#' @param key Your Tropicos API key; See [`taxize-authentication`] 
 #' for help on authentication
-#' @param ... Curl options passed on to \code{\link[crul]{HttpClient}}
+#' @param ... Curl options passed on to [`crul::HttpClient`]
 #' @return List of two data.frame's, one named "location", and one "reference".
-#' @references \url{http://services.tropicos.org/help?method=GetNameDistributionsXml}
+#' @references <http://services.tropicos.org/help?method=GetNameDistributionsXml>
 #'
 #' @examples \dontrun{
 #' # Query using a taxon name Id

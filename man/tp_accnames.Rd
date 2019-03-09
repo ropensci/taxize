@@ -12,7 +12,7 @@ tp_accnames(id, key = NULL, ...)
 \item{key}{Your Tropicos API key; See \code{\link{taxize-authentication}}
 for help on authentication}
 
-\item{...}{Curl options passed on to \code{\link[crul]{verb-GET}}}
+\item{...}{Curl options passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}}
 }
 \value{
 List or dataframe.

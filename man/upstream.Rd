@@ -19,17 +19,16 @@ upstream(...)
 \method{upstream}{ids}(x, db = NULL, upto = NULL, ...)
 }
 \arguments{
-\item{...}{Further args passed on to \code{\link{itis_downstream}} or
-\code{\link{col_downstream}}}
+\item{...}{Further args passed on to \code{\link[=itis_downstream]{itis_downstream()}} or
+\code{\link[=col_downstream]{col_downstream()}}}
 
 \item{x}{Vector of taxa names (character) or IDs (character or numeric) to
 query.}
 
-\item{db}{character; database to query. One or both of \code{itis},
-\code{col}. Note that each taxonomic data source has their own identifiers,
-so that if you provide the wrong \code{db} value for the identifier you
-could get a result, but it will likely be wrong (not what you were
-expecting).}
+\item{db}{character; database to query. One or both of \code{itis}, \code{col}. Note
+that each taxonomic data source has their own identifiers, so that if you
+provide the wrong \code{db} value for the identifier you could get a result, but
+it will likely be wrong (not what you were expecting).}
 
 \item{upto}{What taxonomic rank to go down to. One of: 'superkingdom',
 'kingdom', 'subkingdom','infrakingdom','phylum','division','subphylum',

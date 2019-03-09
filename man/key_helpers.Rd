@@ -51,7 +51,7 @@ but you should get higher rate limit with a key, so do get one.
 \section{\code{use_iucn()}}{
 
 Browse IUCN Red List API key request URL and provides instruction on how
-to store the key. This function wraps \code{\link[rredlist]{rl_use_iucn}}
+to store the key. This function wraps \code{\link[rredlist:rl_use_iucn]{rredlist::rl_use_iucn()}}
 from the \code{rredlist} package. After filling the form you will get
 the key soon, but not immediately.
 }

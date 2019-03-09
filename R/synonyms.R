@@ -3,36 +3,33 @@
 #'
 #' @param x Vector of taxa names (character) or IDs (character or numeric) to
 #' query.
-#' @param db character; database to query. either \code{itis}, \code{tropicos},
-#' \code{col}, \code{nbn}, or \code{worms}. Note that each taxonomic data
-#' source has their own identifiers, so that if you provide the wrong
-#' \code{db} value for the identifier you could get a result, but it will
-#' likely be wrong (not what you were expecting). If using tropicos, we 
-#' recommend getting an API key; see \code{\link{taxize-authentication}}
-#' @param id character; identifiers, returned by \code{\link[taxize]{get_tsn}},
-#' \code{\link[taxize]{get_tpsid}}, \code{\link[taxize]{get_nbnid}},
-#' \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_wormsid}}
+#' @param db character; database to query. either `itis`, `tropicos`, `col`,
+#' `nbn`, `worms`. Note that each taxonomic data source has their own
+#' identifiers, so that if you provide the wrong `db` value for the identifier
+#' you could get a result, but it will likely be wrong (not what you were
+#' expecting). If using tropicos, we  recommend getting an API key;
+#' see [`taxize-authentication`]
+#' @param id character; identifiers, returned by [`get_tsn()`], [`get_tpsid()`],
+#' [`get_nbnid()`], [`get_colid()`] `get_wormsid()`]
 #' @param rows (numeric) Any number from 1 to infinity. If the default NA, all
 #' rows are considered. Note that this parameter is ignored if you pass in a
 #' taxonomic id of any of the acceptable classes: tsn, tpsid, nbnid, ids.
-#' @param ... Other passed arguments to internal functions \code{get_*()} and
+#' @param ... Other passed arguments to internal functions `get_*()` and
 #' functions to gather synonyms.
 #'
 #' @return A named list of data.frames with the synonyms of every supplied taxa.
-#' @details If IDs are supplied directly (not from the \code{get_*} functions)
+#' @details If IDs are supplied directly (not from the `get_*()` functions)
 #' you must specify the type of ID.
 #'
-#' For \code{db = "itis"} you can pass in a parameter \code{accepted} to
-#' toggle whether only accepted names are used \code{accepted = TRUE}, or if
-#' all are used \code{accepted = FALSE}. The default is \code{accepted = FALSE}
+#' For `db = "itis"` you can pass in a parameter `accepted` to
+#' toggle whether only accepted names are used `accepted = TRUE`, or if
+#' all are used `accepted = FALSE`. The default is `accepted = FALSE`
 #'
-#' Note that IUCN requires an API key. See
-#' \code{\link[rredlist]{rredlist-package}} for help on authentiating with
-#' IUCN Redlist
+#' Note that IUCN requires an API key. See [`rredlist::rredlist-package`]
+#' for help on authentiating with IUCN Redlist
 #'
-#' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_tpsid}},
-#' \code{\link[taxize]{get_nbnid}}, \code{\link[taxize]{get_colid}},
-#' \code{\link[taxize]{get_wormsid}}, \code{\link[taxize]{get_iucn}}
+#' @seealso [`get_tsn()`] `get_tpsid()`], [`get_nbnid()`] `get_colid()`],
+#' [`get_wormsid()`] `get_iucn()`]
 #'
 #' @export
 #' @examples \dontrun{

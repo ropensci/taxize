@@ -1,14 +1,14 @@
 #' Get The Plant List families.
 #'
 #' @export
-#' @param ... (list) Curl options passed on to \code{\link[crul]{verb-GET}}
+#' @param ... (list) Curl options passed on to [`crul::verb-GET`]
 #' @details Requires an internet connection in order to connect to 
-#' www.theplantlist.org.
-#' @return Returns a \code{data.frame} including the names of all families
+#' <www.theplantlist.org>.
+#' @return Returns a `data.frame` including the names of all families
 #' indexed by The Plant List, and the major groups into which they fall 
 #' (i.e. Angiosperms, Gymnosperms, Bryophytes and Pteridophytes).
 #' @author John Baumgartner (johnbb@@student.unimelb.edu.au)
-#' @seealso \code{\link{tpl_get}}
+#' @seealso [`tpl_get()`]
 #' @examples \dontrun{
 #' # Get a data.frame of plant families, with the group name 
 #' # (Angiosperms, etc.)

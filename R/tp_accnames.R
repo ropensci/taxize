@@ -2,9 +2,9 @@
 #'
 #' @export
 #' @param id the taxon identifier code
-#' @param key Your Tropicos API key; See \code{\link{taxize-authentication}} 
+#' @param key Your Tropicos API key; See [`taxize-authentication`] 
 #' for help on authentication
-#' @param ... Curl options passed on to \code{\link[crul]{verb-GET}}
+#' @param ... Curl options passed on to [`crul::verb-GET`]
 #' @return List or dataframe.
 #' @examples \dontrun{
 #' tp_accnames(id = 25503923)

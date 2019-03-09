@@ -5,8 +5,8 @@
 #' @param limit (integer) Number of records to return. default: 100
 #' @param cursor (character) cursor string
 #' @param sort (character) The field to sort by and sort order separted with 
-#' underscore, e.g., \code{sort="name_desc"}
-#' @param ... Further args passed on to \code{\link[crul]{HttpClient}}.
+#' underscore, e.g., `sort="name_desc"`
+#' @param ... Further args passed on to [`crul::HttpClient`].
 #' @return a list with slots for metadata (`meta`) with list of response
 #' attributes, and data (`data``) with a data.frame of results
 #' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
@@ -49,7 +49,7 @@ pow_search <- function(q, limit = 100, cursor = "*", sort = NULL, ...) {
 #' @param id (character) taxon id. required
 #' @param include (character) vector of additional fields to include in 
 #' results. options include 'distribution' and 'descriptions'. optional
-#' @param ... Further args passed on to \code{\link[crul]{HttpClient}}.
+#' @param ... Further args passed on to [`crul::HttpClient`].
 #' @family pow
 #' @examples \dontrun{
 #' pow_lookup(id = 'urn:lsid:ipni.org:names:320035-2')
@@ -74,7 +74,7 @@ pow_include_fields <- c("distribution", "descriptions")
 
 pow_GET <- function(url, args, ...){
   cli <- crul::HttpClient$new(url = url, 
-    headers = tx_ual, opts = list(...))
+                              headers = tx_ual, opts = list(...))
   tt <- cli$get(query = argsnull(args))
   tt$raise_for_status()
   json <- jsonlite::fromJSON(tt$parse("UTF-8"))

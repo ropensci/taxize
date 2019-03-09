@@ -18,12 +18,11 @@ indicates that the binomial appeared on the cancelled version of that page
 and does not appear on its replacement (as in the 1957-1959 facsimile
 edition).}}}}}
 \source{
-\href{http://fmhibd.library.cmu.edu/HIBD-DB/Species/home.php}{Hunt
-Institute for Botanical Documentation}
+\href{http://fmhibd.library.cmu.edu/HIBD-DB/Species/home.php}{Hunt Institute for Botanical Documentation}
 }
 \description{
 These names have been compiled from
-\href{https://en.wikipedia.org/wiki/Species_Plantarum}{\emph{Species Plantarum}} by
+\href{https://en.wikipedia.org/wiki/Species_Plantarum}{Species Plantarum} by
 \href{https://en.wikipedia.org/wiki/Carl_Linnaeus}{Carl Linnaeus} originally
 published in 1753. It is the first work to consistently apply
 \href{https://en.wikipedia.org/wiki/Binomial_nomenclature}{binomial names}
@@ -35,7 +34,7 @@ inception. The names were transcribed by Robert W. Kiger.
 }
 \references{
 Linnaeus, C. 1753. Species Plantarum. 2 vols. Salvius, Stockholm.
-\link{Facsimile edition, 1957-1959, Ray Society, London.}
+[Facsimile edition, 1957-1959, Ray Society, London.]
 }
 \author{
 Carl Linnaeus

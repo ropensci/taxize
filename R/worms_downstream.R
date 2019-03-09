@@ -4,14 +4,14 @@
 #' @param id (integer) One or more AphiaID's
 #' @param downto (character) The taxonomic level you want to go down to. 
 #' See examples below. The taxonomic level IS case sensitive, and you do have 
-#' to spell it correctly. See \code{data(rank_ref)} for spelling.
-#' @param intermediate (logical) If \code{TRUE}, return a list of length two 
+#' to spell it correctly. See `data(rank_ref)` for spelling.
+#' @param intermediate (logical) If `TRUE`, return a list of length two 
 #' with target taxon rank names, with additional list of data.frame's of
-#' intermediate taxonomic groups. Default: \code{FALSE}
+#' intermediate taxonomic groups. Default: `FALSE`
 #' @param start (integer) Record number to start at
-#' @param ... crul options passed on to \code{\link[crul]{verb-GET}}
+#' @param ... crul options passed on to [`crul::verb-GET`]
 #' @return data.frame of taxonomic information downstream to family from e.g.,
-#'    Order, Class, etc., or if \code{intermediated=TRUE}, list of length two,
+#'    Order, Class, etc., or if `intermediated=TRUE`, list of length two,
 #'    with target taxon rank names, and intermediate names.
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @examples \dontrun{

@@ -25,23 +25,21 @@ to return.}
 for. This is useful if there could be more than one taxon with the same
 name. Has no effect if \code{id} is used.}
 
-\item{out_type}{(character) Currently either \code{"summary"} or
-\code{"uid"}:
-
-\describe{
-\item{summary}{The output is a list of \code{data.frame} with children
-uid, name, and rank.}
-\item{uid}{A list of character vectors of children uids}
+\item{out_type}{(character) Currently either \code{"summary"} or \code{"uid"}:
+\itemize{
+\item \code{summary} The output is a list of \code{data.frame} with children uid, name,
+and rank.
+\item \code{uid} A list of character vectors of children uids
 }}
 
 \item{ambiguous}{\code{logical; length 1} If \code{FALSE}, children taxa
 with words like "unclassified", "unknown", "uncultured", or "sp." are
 removed from the output. NOTE: This option only applies when
-\code{out_type = "summary"}.}
+\code{out_type= "summary"}.}
 
 \item{key}{(character) NCBI Entrez API key. optional. See Details.}
 
-\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
+\item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient}}}
 }
 \value{
 The output type depends on the value of the \code{out_type}
@@ -61,7 +59,7 @@ two taxa with the same name and the same specified ancestor.
 }
 \section{Authentication}{
 
-See \code{\link{taxize-authentication}} for help on authentication.
+See \code{\link[=taxize-authentication]{taxize-authentication()}} for help on authentication.
 We strongly recommend getting an API key
 }
 
@@ -78,8 +76,7 @@ ncbi_children(name="Satyrium", ancestor="Eumaeini", verbose = TRUE)
 }
 }
 \seealso{
-\code{\link{ncbi_get_taxon_summary}},
-\code{\link[taxize]{children}}
+\code{\link[=ncbi_get_taxon_summary]{ncbi_get_taxon_summary()}}, \code{\link[=children]{children()}}
 }
 \author{
 Zachary Foster \email{zacharyfoster1989@gmail.com}

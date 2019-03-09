@@ -7,7 +7,7 @@
 tpl_families(...)
 }
 \arguments{
-\item{...}{(list) Curl options passed on to \code{\link[crul]{verb-GET}}}
+\item{...}{(list) Curl options passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}}
 }
 \value{
 Returns a \code{data.frame} including the names of all families
@@ -19,7 +19,7 @@ Get The Plant List families.
 }
 \details{
 Requires an internet connection in order to connect to
-www.theplantlist.org.
+<www.theplantlist.org>.
 }
 \examples{
 \dontrun{
@@ -29,7 +29,7 @@ head(tpl_families())
 }
 }
 \seealso{
-\code{\link{tpl_get}}
+\code{\link[=tpl_get]{tpl_get()}}
 }
 \author{
 John Baumgartner (johnbb@student.unimelb.edu.au)
