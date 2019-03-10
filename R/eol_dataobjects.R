@@ -3,8 +3,7 @@
 #' @export
 #' @param id (character) The EOL data object identifier
 #' @param taxonomy (logical) Whether to return any taxonomy details from
-#' different taxon hierarchy providers, in an array named
-#' \code{taxonconcepts}
+#' different taxon hierarchy providers, in an array named `taxonconcepts`
 #' @param language (character) provides the results in the specified language.
 #' one of ms, de, en, es, fr, gl, it, nl, nb, oc, pt-BR, sv, tl, mk, sr, uk, ar,
 #' zh-Hans, zh-Hant, ko

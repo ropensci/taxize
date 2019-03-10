@@ -17,9 +17,9 @@ recommend getting an API key; see \code{\link{taxize-authentication}}}
 \item{itisby}{Search for common names across entire names (search, default),
 at beginning of names (begin), or at end of names (end).}
 
-\item{simplify}{(logical) If \code{TRUE}, simplify output to a vector
-of names. If \code{FALSE}, return variable formats from different sources,
-usually a data.frame.}
+\item{simplify}{(logical) If \code{TRUE}, simplify output to a vector of names.
+If \code{FALSE}, return variable formats from different sources, usually a
+data.frame.}
 
 \item{...}{Further arguments passed on to internal methods.}
 }

@@ -1,7 +1,7 @@
 #' Retrieve the downstream taxa for a given taxon name or ID.
 #'
 #' This function uses a while loop to continually collect children taxa down
-#' to the taxonomic rank that you specify in the \code{downto} parameter. You
+#' to the taxonomic rank that you specify in the `downto` parameter. You
 #' can get data from ITIS (itis), Catalogue of Life (col), GBIF (gbif),
 #' NCBI (ncbi) or WORMS (worms). There is no method exposed by these four 
 #' services for getting taxa at a specific taxonomic rank, so we do it 
@@ -10,12 +10,12 @@
 #' @export
 #' @param x Vector of taxa names (character) or IDs (character or numeric)
 #' to query.
-#' @param db character; database to query. One or more of \code{itis},
-#' \code{col}, \code{gbif}, \code{ncbi} or \code{worms}. Note that each taxonomic 
-#' data source has their own identifiers, so that if you provide the wrong 
-#' \code{db} value for the identifier you could get a result, but it will 
-#' likely be wrong (not what you were expecting). If using ncbi, we recommend
-#' getting an API key; see \code{\link{taxize-authentication}}
+#' @param db character; database to query. One or more of `itis`, `col`, `gbif`,
+#' `ncbi` or `worms`. Note that each taxonomic  data source has their own
+#' identifiers, so that if you provide the wrong `db` value for the identifier
+#' you could get a result, but it will likely be wrong (not what you were
+#' expecting). If using ncbi, we recommend getting an API key; see
+#' [`taxize-authentication`]
 #' @param downto What taxonomic rank to go down to. One of: 'superkingdom',
 #' 'kingdom', 'subkingdom','infrakingdom','phylum','division','subphylum',
 #' 'subdivision','infradivision', 'superclass','class','subclass','infraclass',
@@ -23,23 +23,23 @@
 #' 'subfamily','tribe','subtribe','genus','subgenus','section','subsection',
 #' 'species group','species','subspecies','variety','form','subvariety','race',
 #' 'stirp', 'morph','aberration','subform', 'unspecified', 'no rank'
-#' @param intermediate (logical) If \code{TRUE}, return a list of length two
+#' @param intermediate (logical) If `TRUE`, return a list of length two
 #' with target taxon rank names, with additional list of data.frame's of
-#' intermediate taxonomic groups. Default: \code{FALSE}
+#' intermediate taxonomic groups. Default: `FALSE`
 #' @param rows (numeric) Any number from 1 to infinity. If the default NA, all
 #' rows are considered. Note that this parameter is ignored if you pass in a
 #' taxonomic id of any of the acceptable classes: tsn, colid.
 #' @param limit Number of records to return
 #' @param start Record number to start at
-#' @param ... Further args passed on to \code{itis_downstream},
-#' \code{col_downstream}, \code{gbif_downstream}, \code{ncbi_downstream},
-#' or \code{worms_downstream}
+#' @param ... Further args passed on to [`itis_downstream()`],
+#' [`col_downstream()`], [`gbif_downstream()`], [`ncbi_downstream()`],
+#' or [`worms_downstream()`]
 #'
 #' @return A named list of data.frames with the downstream names of every
 #' supplied taxa. You get an NA if there was no match in the database.
 #' 
 #' @section Authentication:
-#' See \code{\link{taxize-authentication}} for help on authentication
+#' See [`taxize-authentication`] for help on authentication
 #'
 #' @examples \dontrun{
 #' # Plug in taxon IDs

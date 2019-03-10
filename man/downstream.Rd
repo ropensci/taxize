@@ -35,19 +35,19 @@ downstream(...)
   intermediate = FALSE, ...)
 }
 \arguments{
-\item{...}{Further args passed on to \code{itis_downstream},
-\code{col_downstream}, \code{gbif_downstream}, \code{ncbi_downstream},
-or \code{worms_downstream}}
+\item{...}{Further args passed on to \code{\link[=itis_downstream]{itis_downstream()}},
+\code{\link[=col_downstream]{col_downstream()}}, \code{\link[=gbif_downstream]{gbif_downstream()}}, \code{\link[=ncbi_downstream]{ncbi_downstream()}},
+or \code{\link[=worms_downstream]{worms_downstream()}}}
 
 \item{x}{Vector of taxa names (character) or IDs (character or numeric)
 to query.}
 
-\item{db}{character; database to query. One or more of \code{itis},
-\code{col}, \code{gbif}, \code{ncbi} or \code{worms}. Note that each taxonomic
-data source has their own identifiers, so that if you provide the wrong
-\code{db} value for the identifier you could get a result, but it will
-likely be wrong (not what you were expecting). If using ncbi, we recommend
-getting an API key; see \code{\link{taxize-authentication}}}
+\item{db}{character; database to query. One or more of \code{itis}, \code{col}, \code{gbif},
+\code{ncbi} or \code{worms}. Note that each taxonomic  data source has their own
+identifiers, so that if you provide the wrong \code{db} value for the identifier
+you could get a result, but it will likely be wrong (not what you were
+expecting). If using ncbi, we recommend getting an API key; see
+\code{\link{taxize-authentication}}}
 
 \item{downto}{What taxonomic rank to go down to. One of: 'superkingdom',
 'kingdom', 'subkingdom','infrakingdom','phylum','division','subphylum',

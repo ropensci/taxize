@@ -2,17 +2,17 @@
 #'
 #' @export
 #' @param commnames One or more common names or partial names.
-#' @param db Data source, one of \emph{"ncbi"} (default), \emph{"itis"},
-#' \emph{"tropicos"}, \emph{"eol"}, or \emph{"worms"}. If using ncbi, we
+#' @param db Data source, one of *"ncbi"* (default), *"itis"*,
+#' *"tropicos"*, *"eol"*, or *"worms"*. If using ncbi, we
 #' recommend getting an API key; see [`taxize-authentication`]
 #' @param itisby Search for common names across entire names (search, default),
 #' at beginning of names (begin), or at end of names (end).
-#' @param simplify (logical) If \code{TRUE}, simplify output to a vector
-#' of names. If \code{FALSE}, return variable formats from different sources,
-#' usually a data.frame.
+#' @param simplify (logical) If `TRUE`, simplify output to a vector of names.
+#' If `FALSE`, return variable formats from different sources, usually a
+#' data.frame.
 #' @param ... Further arguments passed on to internal methods.
-#' @return If \code{simplify=TRUE}, a list of scientific names, with list
-#' labeled by your input names. If \code{simplify=FALSE}, a data.frame with
+#' @return If `simplify=TRUE`, a list of scientific names, with list
+#' labeled by your input names. If `simplify=FALSE`, a data.frame with
 #' columns that vary by data source
 #' @seealso [`sci2comm()`]
 #' @details For data sources ITIS and NCBI you can pass in common names
