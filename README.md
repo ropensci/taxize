@@ -565,6 +565,7 @@ Alphebetical
 + [Scott Chamberlain](https://github.com/sckott)
 + [Anirvan Chatterjee](https://github.com/anirvan)
 + [Zachary Foster](https://github.com/zachary-foster)
++ [Matthias Grenié](https://github.com/Rekyt)
 + [Patrick Hausmann](https://github.com/patperu)
 + [Oliver Keyes](https://github.com/Ironholds)
 + [David LeBauer](https://github.com/dlebauer)
