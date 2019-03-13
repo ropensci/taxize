@@ -7,20 +7,20 @@
 #' input. If FALSE NA is returned for multiple matches.
 #' @param messages logical; If TRUE the actual taxon queried is printed on the
 #' console.
-#' @param rec_only (logical) If \code{TRUE} ids of recommended names are
-#' returned (i.e. synonyms are removed). Defaults to \code{FALSE}. Remember,
+#' @param rec_only (logical) If `TRUE` ids of recommended names are
+#' returned (i.e. synonyms are removed). Defaults to `FALSE`. Remember,
 #' the id of a synonym is a taxa with 'recommended' name status.
 #' @param rank (character) If given, we attempt to limit the results to those
 #' taxa with the matching rank.
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, all
 #' rows are considered. Note that this function still only gives back a nbnid
 #' class object with one to many identifiers. See
-#' \code{\link[taxize]{get_nbnid_}} to get back all, or a subset, of the raw
+#' [`get_nbnid_()`] to get back all, or a subset, of the raw
 #' data that you are presented during the ask process.
-#' @param ... Further args passed on to \code{nbn_search}
-#' @param x Input to \code{\link{as.nbnid}}
+#' @param ... Further args passed on to `nbn_search`
+#' @param x Input to [`as.nbnid()`]
 #' @param check logical; Check if ID matches any existing on the DB, only
-#' used in \code{\link{as.nbnid}}
+#' used in [`as.nbnid()`]
 #' @template getreturn
 #'
 #' @references <https://api.nbnatlas.org/>
@@ -29,7 +29,7 @@
 #' metadata
 #' @family taxonomic-ids
 #' @family nbn
-#' @seealso \code{\link[taxize]{classification}}
+#' @seealso [`classification()`]
 #'
 #' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
 #'
@@ -89,10 +89,7 @@ get_nbnid <- function(name, ask = TRUE, messages = TRUE, rec_only = FALSE,
   assert(rec_only, "logical")
   assert(rank, "character")
   assert(messages, "logical")
-  if (!is.na(rows)) {
-    assert(rows, c("numeric", "integer"))
-    stopifnot(rows > 0)
-  }
+  assert_rows(rows)
 
   fun <- function(name, ask, messages, rows, ...) {
     direct <- FALSE

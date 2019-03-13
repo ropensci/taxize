@@ -5,7 +5,7 @@
 #'
 #' @param source The source to get information on, one of "iPlant_TNRS",
 #' "NCBI", or "MSW3".
-#' @param ... Curl options to pass in \code{\link[crul]{verb-GET}}
+#' @param ... Curl options to pass in [`crul::verb-GET`]
 #' @return Sources for the TNRS API in a vector or list
 #' @export
 #' @examples \dontrun{
@@ -18,7 +18,7 @@
 #' tnrs_sources(source="iPlant_TNRS")
 #' }
 tnrs_sources <- function(source = NULL, ...) {
-  cli <- crul::HttpClient$new(tnrs_url, opts = list(...))
+  cli <- crul::HttpClient$new(tnrs_url, headers = tx_ual, opts = list(...))
   if (!is.null(source)) {
     tt <- cli$get(file.path("sources", source))
     tt$raise_for_status()

@@ -3,33 +3,33 @@
 \docType{data}
 \name{taxon_state}
 \alias{taxon_state}
-\title{Keep track of queries in `get_*` functions}
+\title{Keep track of queries in \code{get_*} functions}
 \description{
-This object lives inside each `get_*` function call, maintaining
+This object lives inside each \code{get_*} function call, maintaining
 results as they are accumulated.
 }
 \details{
-**Methods**
-  \describe{
-    \item{`add(query, result)`}{
-      add a query with it's result
-    }
-    \item{`get(query)`}{
-      get a result by query
-    }
-    \item{`remove(query)`}{
-      remove a query
-    }
-    \item{`purge()`}{
-      remove all records
-    }
-    \item{`count` (active binding)}{
-      count number of records
-    }
-    \item{`exit` (active binding)}{
-      record date/time function exited
-    }
-  }
+\strong{Methods}
+\describe{
+\item{\code{add(query, result)}}{
+add a query with it's result
+}
+\item{\code{get(query)}}{
+get a result by query
+}
+\item{\code{remove(query)}}{
+remove a query
+}
+\item{\code{purge()}}{
+remove all records
+}
+\item{\code{count} (active binding)}{
+count number of records
+}
+\item{\code{exit} (active binding)}{
+record date/time function exited
+}
+}
 }
 \examples{
 ts <- taxon_state$new()

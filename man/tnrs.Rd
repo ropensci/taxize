@@ -11,7 +11,7 @@ tnrs(query = NA, source = NULL, code = NULL, getpost = "POST",
 \item{query}{Vector of quoted taxonomic names to search (character).}
 
 \item{source}{Specify the source you want to match names against. Defaults
-  to just retrieve data from all sources. Options: NCBI, iPlant_TNRS,
+to just retrieve data from all sources. Options: NCBI, iPlant_TNRS,
 or MSW3. Only available when using getpost="POST".}
 
 \item{code}{Nomenclatural code. One of: ICZN (zoological), ICN (algae, fungi,
@@ -21,8 +21,8 @@ ICTV (viruses). Only available when using getpost="POST".}
 \item{getpost}{Use GET or POST method to send the query. If you have more
 than say 50 species or so in your query, you should probably use POST.
 IMPORTANT!!!!! ->
-    POST is the only option for this parameter if you want to
-    use source or code parameters.}
+POST is the only option for this parameter if you want to
+use source or code parameters.}
 
 \item{sleep}{Number of seconds by which to pause between calls. Defaults to 0
 seconds. Use when doing many calls in a for loop ar lapply type call.}
@@ -31,8 +31,7 @@ seconds. Use when doing many calls in a for loop ar lapply type call.}
 
 \item{messages}{Verbosity or not (default \code{TRUE})}
 
-\item{...}{Curl options to pass in \code{\link[crul]{verb-GET}} or
-\code{\link[crul]{verb-POST}}}
+\item{...}{Curl options to pass in \code{\link[crul:verb-GET]{crul::verb-GET}} or \code{\link[crul:verb-POST]{crul::verb-POST}}}
 }
 \value{
 data.frame of results from TNRS plus the name submitted, with
@@ -51,7 +50,7 @@ returned, so you will not get anything back for non-matches.
 TNRS doesn't provide any advice about the occurrence of homonyms when
 queries have no indication of a taxonomic name's authority. So if there
 is any chance of a homonym, you probably want to send the authority as
-well, or use \code{\link{gnr_resolve}}. For example,
+well, or use \code{\link[=gnr_resolve]{gnr_resolve()}}. For example,
 \code{tnrs(query="Jussiaea linearis", source="iPlant_TNRS")} gives result of
 \emph{Jussiaea linearis (Willd.) Oliv. ex Kuntze}, but there is a
 homonym. If you do
@@ -89,5 +88,5 @@ tnrs(query = mynames, source = "iPlant_TNRS", verbose = TRUE)
 \url{http://taxosaurus.org/}
 }
 \seealso{
-\code{\link{gnr_resolve}}
+\code{\link[=gnr_resolve]{gnr_resolve()}}
 }

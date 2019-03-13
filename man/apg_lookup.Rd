@@ -18,9 +18,9 @@ A APGIII family or order name, or the original name if no match.
 Lookup in the APGIII taxonomy and replace family names
 }
 \details{
-Internally in this function, we use the datasets \code{\link{apg_families}}
-and \code{\link{apg_orders}} - see their descriptions for the data in them.
-The functions \code{\link{apgOrders}} \code{\link{apgFamilies}} are for scraping
+Internally in this function, we use the datasets \link{apg_families}
+and \link{apg_orders} - see their descriptions for the data in them.
+The functions \code{\link[=apgOrders]{apgOrders()}} \code{\link[=apgFamilies]{apgFamilies()}} are for scraping
 current content from the \url{http://www.mobot.org/MOBOT/research/APweb/} website.
 
 BEWARE: The datasets used in this function are (I think) from Version 12 of the data

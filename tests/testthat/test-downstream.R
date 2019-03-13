@@ -55,7 +55,7 @@ test_that("downstream - multiple data sources", {
 
 test_that("downstream - Use the rows parameter", {
   vcr::use_cassette("downstream_rows_param", {
-    aa <- downstream("Carya", db = 'col', downto = "Species", 
+    aa <- downstream("Hereroa", db = 'col', downto = "species", 
       rows = 1, messages = FALSE)
   })
 

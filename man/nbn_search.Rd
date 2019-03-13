@@ -12,7 +12,7 @@ nbn_search(q, fq = NULL, order = NULL, sort = NULL, start = 0,
 
 \item{fq}{(character) Filters to be applied to the original query. These
 are additional params of the form fq=INDEXEDFIELD:VALUE e.g.
-fq=rank:kingdom. See <https://species-ws.nbnatlas.org/indexFields> for all
+fq=rank:kingdom. See \url{https://species-ws.nbnatlas.org/indexFields} for all
 the fields that are queryable.}
 
 \item{order}{(character) Supports "asc" or "desc"}
@@ -26,10 +26,10 @@ the fields that are queryable.}
 \item{facets}{(list) Comma separated list of the fields to create facets
 on e.g. facets=basis_of_record.}
 
-\item{...}{Further args passed on to \code{\link[crul]{HttpClient}}.}
+\item{...}{Further args passed on to \code{\link[crul:HttpClient]{crul::HttpClient}}.}
 }
 \value{
-a list with slots for metadata (`meta`) with list of response
+a list with slots for metadata (\code{meta}) with list of response
 attributes, and data (`data``) with a data.frame of results
 }
 \description{
@@ -51,7 +51,7 @@ nbn_search(q = "blackbird", verbose = TRUE)
 }
 }
 \references{
-<https://api.nbnatlas.org/>
+\url{https://api.nbnatlas.org/}
 }
 \seealso{
 Other nbn: \code{\link{get_nbnid}},

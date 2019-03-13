@@ -17,13 +17,13 @@ correctly. See \code{data(rank_ref)} for spelling.}
 taxon rank names, with additional list of data.frame's of intermediate
 taxonomic groups. Default: FALSE}
 
-\item{...}{Further args passed on to \code{\link[ritis]{rank_name}} and
-\code{\link[ritis]{hierarchy_down}}}
+\item{...}{Further args passed on to \code{\link[ritis:rank_name]{ritis::rank_name()}} and
+\code{\link[ritis:hierarchy_down]{ritis::hierarchy_down()}}}
 }
 \value{
 Data.frame of taxonomic information downstream to family from e.g.,
-		Order, Class, etc., or if \code{intermediated=TRUE}, list of length two,
-  	with target taxon rank names, and intermediate names.
+Order, Class, etc., or if \code{intermediated=TRUE}, list of length two,
+with target taxon rank names, and intermediate names.
 }
 \description{
 Retrieve all taxa names or TSNs downstream in hierarchy from given TSN.

@@ -7,7 +7,7 @@
 taxon_last()
 }
 \value{
-an object of class `taxon_state`, the last one used, else `NULL`
+an object of class \code{taxon_state}, the last one used, else \code{NULL}
 if none found
 }
 \description{

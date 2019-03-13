@@ -8,24 +8,26 @@ gni_search(search_term = NULL, per_page = NULL, page = NULL,
   justtotal = FALSE, parse_names = FALSE, ...)
 }
 \arguments{
-\item{search_term}{Name pattern you want to search for. WARNING: Does 
-not work for vernacular/common names. Search term may include following 
+\item{search_term}{Name pattern you want to search for. WARNING: Does
+not work for vernacular/common names. Search term may include following
 options (Note: can, uni, gen, sp, ssp, au, yr work only for parsed names
-
 \itemize{
-    \item *    wild card - Search by part of a word (E.g.: planta*)
-    \item exact exact match    - Search for exact match of a literal string 
- (E.g.: exact:Parus major)
-    \item ns name string- Search for literal string from its beginning (other 
- modifiers will be ignored) (E.g.: ns:parus maj*)
-    \item can canonical form- Search name without authors (other modifiers will 
- be ignored)    (E.g.: can:parus major)
-    \item uni uninomial- Search for higher taxa    (E.g.: uni:parus)
-    \item gen genus - Search by genus epithet of species name (E.g.: gen:parus)
-    \item sp species - Search by species epithet (E.g.: sp:major)
-    \item ssp subspecies - Search by infraspecies epithet (E.g.: ssp:major)
-    \item au author - Search by author word    (E.g.: au:Shipunov)
-    \item yr year - Search by year (E.g.: yr:2005)
+\item 
+\itemize{
+\item wild card - Search by part of a word (E.g.: planta*)
+}
+\item exact exact match    - Search for exact match of a literal string
+(E.g.: exact:Parus major)
+\item ns name string- Search for literal string from its beginning (other
+modifiers will be ignored) (E.g.: ns:parus maj*)
+\item can canonical form- Search name without authors (other modifiers will
+be ignored)    (E.g.: can:parus major)
+\item uni uninomial- Search for higher taxa    (E.g.: uni:parus)
+\item gen genus - Search by genus epithet of species name (E.g.: gen:parus)
+\item sp species - Search by species epithet (E.g.: sp:major)
+\item ssp subspecies - Search by infraspecies epithet (E.g.: ssp:major)
+\item au author - Search by author word    (E.g.: au:Shipunov)
+\item yr year - Search by year (E.g.: yr:2005)
 }}
 
 \item{per_page}{Number of items per one page (numbers larger
@@ -35,10 +37,10 @@ than 1000 will be decreased to 1000) (default is 30).}
 
 \item{justtotal}{Return only the total results found.}
 
-\item{parse_names}{If \code{TRUE}, use \code{\link{gni_parse}} to parse 
+\item{parse_names}{If \code{TRUE}, use \code{\link[=gni_parse]{gni_parse()}} to parse
 names. Default: \code{FALSE}}
 
-\item{...}{Curl options passed on to \code{\link[crul]{verb-GET}}}
+\item{...}{Curl options passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}}
 }
 \value{
 data.frame of results.
@@ -47,7 +49,7 @@ data.frame of results.
 Uses the Global Names Index, see http://gni.globalnames.org
 }
 \details{
-Note that you can use fuzzy searching, e.g., by attaching an 
+Note that you can use fuzzy searching, e.g., by attaching an
 asterisk to the end of a search term. See the first two examples below
 }
 \examples{
@@ -64,14 +66,14 @@ gni_search(search_term = "ani*", verbose = TRUE)
 }
 }
 \references{
-\url{http://gni.globalnames.org/}, 
+\url{http://gni.globalnames.org/},
 \url{https://github.com/dimus/gni/wiki/api}
 }
 \seealso{
-\code{\link{gnr_datasources}}, \code{\link{gni_search}}
+\code{\link[=gnr_datasources]{gnr_datasources()}}, \code{\link[=gni_search]{gni_search()}}
 }
 \author{
-Scott Chamberlain {myrmecocystus@gmail.com}
+Scott Chamberlain \email{myrmecocystus@gmail.com}
 }
 \keyword{globalnamesindex}
 \keyword{names}

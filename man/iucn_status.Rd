@@ -7,7 +7,7 @@
 iucn_status(x, ...)
 }
 \arguments{
-\item{x}{an \code{iucn}-object as returned by \code{iucn_summary}}
+\item{x}{an \code{iucn}-object as returned b\code{iucn_summary}ry}
 
 \item{...}{Currently not used}
 }
@@ -23,5 +23,5 @@ ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
 iucn_status(ia)}
 }
 \seealso{
-\code{\link[taxize]{iucn_summary}}
+\code{\link[=iucn_summary]{iucn_summary()}}
 }

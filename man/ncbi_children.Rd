@@ -9,59 +9,57 @@ ncbi_children(name = NULL, id = NULL, start = 0, max_return = 1000,
   key = NULL, ...)
 }
 \arguments{
-\item{name}{(\code{character}) The string to search for. Only exact matches 
+\item{name}{(\code{character}) The string to search for. Only exact matches
 found the name given will be returned. Not compatible with \code{id}.}
 
-\item{id}{(\code{character}) The uid to search for. Not compatible with 
+\item{id}{(\code{character}) The uid to search for. Not compatible with
 \code{name}.}
 
-\item{start}{The first record to return. If omitted, the results are 
+\item{start}{The first record to return. If omitted, the results are
 returned from the first record (start=0).}
 
 \item{max_return}{(\code{numeric; length=1}) The maximum number of children
 to return.}
 
-\item{ancestor}{(\code{character}) The ancestor of the taxon being searched 
-for. This is useful if there could be more than one taxon with the same 
+\item{ancestor}{(\code{character}) The ancestor of the taxon being searched
+for. This is useful if there could be more than one taxon with the same
 name. Has no effect if \code{id} is used.}
 
-\item{out_type}{(character) Currently either \code{"summary"} or 
-\code{"uid"}:
+\item{out_type}{(character) Currently either \code{"summary"} or \code{"uid"}:
+\itemize{
+\item \code{summary} The output is a list of \code{data.frame} with children uid, name,
+and rank.
+\item \code{uid} A list of character vectors of children uids
+}}
 
-  \describe{
-    \item{summary}{The output is a list of \code{data.frame} with children 
-    uid, name, and rank.}
-    \item{uid}{A list of character vectors of children uids}
-  }}
-
-\item{ambiguous}{\code{logical; length 1} If \code{FALSE}, children taxa 
-with words like "unclassified", "unknown", "uncultured", or "sp." are 
-removed from the output. NOTE: This option only applies when 
-\code{out_type = "summary"}.}
+\item{ambiguous}{\code{logical; length 1} If \code{FALSE}, children taxa
+with words like "unclassified", "unknown", "uncultured", or "sp." are
+removed from the output. NOTE: This option only applies when
+\code{out_type= "summary"}.}
 
 \item{key}{(character) NCBI Entrez API key. optional. See Details.}
 
-\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
+\item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient}}}
 }
 \value{
-The output type depends on the value of the \code{out_type} 
-parameter. Taxa that cannot be found will result in \code{NA}s and a lack 
+The output type depends on the value of the \code{out_type}
+parameter. Taxa that cannot be found will result in \code{NA}s and a lack
 of children results in an empty data structure.
 }
 \description{
 Search the NCBI Taxonomy database for uids of children of taxa.
 Taxa can be referenced by name or uid. Referencing by name is faster
 
-In a few cases, different taxa have the same name (e.g. Satyrium; see 
-examples). If one of these are searched for then the children of both taxa 
-will be returned. This can be avoided by using a uid instead of the name or 
-specifying an ancestor. If an ancestor is provided, only children of both 
-the taxon and its ancestor are returned. This will only fail if there are 
+In a few cases, different taxa have the same name (e.g. Satyrium; see
+examples). If one of these are searched for then the children of both taxa
+will be returned. This can be avoided by using a uid instead of the name or
+specifying an ancestor. If an ancestor is provided, only children of both
+the taxon and its ancestor are returned. This will only fail if there are
 two taxa with the same name and the same specified ancestor.
 }
 \section{Authentication}{
 
-See \code{\link{taxize-authentication}} for help on authentication. 
+See \code{\link[=taxize-authentication]{taxize-authentication()}} for help on authentication.
 We strongly recommend getting an API key
 }
 
@@ -78,8 +76,7 @@ ncbi_children(name="Satyrium", ancestor="Eumaeini", verbose = TRUE)
 }
 }
 \seealso{
-\code{\link{ncbi_get_taxon_summary}}, 
-\code{\link[taxize]{children}}
+\code{\link[=ncbi_get_taxon_summary]{ncbi_get_taxon_summary()}}, \code{\link[=children]{children()}}
 }
 \author{
 Zachary Foster \email{zacharyfoster1989@gmail.com}

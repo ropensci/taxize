@@ -2,9 +2,9 @@
 #'
 #' @export
 #' @param id the taxon identifier code
-#' @param key Your Tropicos API key; See \code{\link{taxize-authentication}}
+#' @param key Your Tropicos API key; See [`taxize-authentication`]
 #' for help on authentication
-#' @param ... Curl options passed on to \code{\link[crul]{verb-GET}}
+#' @param ... Curl options passed on to [`crul::verb-GET`]
 #' @return A data.frame.
 #' @examples \dontrun{
 #' tp_summary(id = 25509881)
@@ -26,8 +26,7 @@ tp_summary <- function(id, key = NULL, ...) {
 }
 
 tp_GET <- function(url, query, ...) {
-  cli <- crul::HttpClient$new(url = url, opts = list(...),
-    headers = list(`User-Agent` = taxize_ua(), `X-User-Agent` = taxize_ua()))
+  cli <- crul::HttpClient$new(url = url, headers = tx_ual, opts = list(...))
   res <- cli$get(query = query)
   res$raise_for_status()
   if (grepl("exception occurred", res$parse("UTF-8"), ignore.case = TRUE)) {

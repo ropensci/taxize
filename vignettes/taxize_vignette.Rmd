@@ -91,9 +91,9 @@ attr(,"multiple_matches")
 attr(,"pattern_match")
 [1] FALSE FALSE FALSE
 attr(,"uri")
-[1] "http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=525928"
-[2] "http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=525929"
-[3] "http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=525930"
+[1] "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=525928"
+[2] "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=525929"
+[3] "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=525930"
 attr(,"class")
 [1] "tsn"
 ```
@@ -126,39 +126,6 @@ A number of data sources in taxize provide the capability to retrieve higher tax
 ```r
 specieslist <- c("Abies procera","Pinus contorta")
 classification(specieslist, db = 'itis')
-```
-
-```
-#>      tsn                        target
-#> 1 183327                Pinus contorta
-#> 2 183332 Pinus contorta ssp. bolanderi
-#> 3 822698  Pinus contorta ssp. contorta
-#> 4 183329 Pinus contorta ssp. latifolia
-#> 5 183330 Pinus contorta ssp. murrayana
-#> 6 529672 Pinus contorta var. bolanderi
-#> 7 183328  Pinus contorta var. contorta
-#> 8 529673 Pinus contorta var. latifolia
-#> 9 529674 Pinus contorta var. murrayana
-#>                                                        commonNames
-#> 1               scrub pine,shore pine,tamarack pine,lodgepole pine
-#> 2                                            Bolander's beach pine
-#> 3                                                               NA
-#> 4                         black pine,Rocky Mountain lodgepole pine
-#> 5                              tamarack pine,Sierra lodgepole pine
-#> 6                                              Bolander beach pine
-#> 7                  coast pine,lodgepole pine,beach pine,shore pine
-#> 8 tall lodgepole pine,lodgepole pine,Rocky Mountain lodgepole pine
-#> 9      Murray's lodgepole pine,Sierra lodgepole pine,tamarack pine
-#>      nameUsage
-#> 1     accepted
-#> 2 not accepted
-#> 3 not accepted
-#> 4 not accepted
-#> 5 not accepted
-#> 6     accepted
-#> 7     accepted
-#> 8     accepted
-#> 9     accepted
 ```
 
 ```
@@ -257,23 +224,17 @@ get_tsn(searchterm = splist, searchtype = "scientific")
 ```
 
 ```
-#>      tsn                      target commonNames    nameUsage
-#> 1  19405               Quercus robur English oak     accepted
-#> 2 845209 Quercus robur f. fastigiata          NA not accepted
-```
-
-```
 #> [1] "506198" "18098"  "19405" 
 #> attr(,"match")
 #> [1] "found" "found" "found"
 #> attr(,"multiple_matches")
 #> [1] FALSE FALSE  TRUE
 #> attr(,"pattern_match")
-#> [1] FALSE FALSE FALSE
+#> [1] FALSE FALSE  TRUE
 #> attr(,"uri")
-#> [1] "http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=506198"
-#> [2] "http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=18098" 
-#> [3] "http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=19405" 
+#> [1] "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=506198"
+#> [2] "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=18098" 
+#> [3] "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=19405" 
 #> attr(,"class")
 #> [1] "tsn"
 ```
@@ -317,21 +278,6 @@ get_nbnid(c("Zootoca vivipara","Pinus contorta"), rows = 1:3)
 ```
 
 ```
-#>              nbnid                    scientificName       rank
-#> 1 NHMSYS0001706186                  Zootoca vivipara    species
-#> 2 NHMSYS0020784960 Zootoca vivipara subsp. pannonica subspecies
-#> 3 NHMSYS0000067192               Spirillina vivipara    species
-#>   taxonomicStatus
-#> 1        accepted
-#> 2        accepted
-#> 3        accepted
-#>              nbnid                scientificName    rank taxonomicStatus
-#> 1 NBNSYS0000004786                Pinus contorta species        accepted
-#> 2 NHMSYS0000494858 Pinus contorta var. murrayana variety        accepted
-#> 3 NHMSYS0000494848  Pinus contorta var. contorta variety        accepted
-```
-
-```
 #> [1] "NHMSYS0001706186" "NBNSYS0000004786"
 #> attr(,"class")
 #> [1] "nbnid"
@@ -340,7 +286,7 @@ get_nbnid(c("Zootoca vivipara","Pinus contorta"), rows = 1:3)
 #> attr(,"multiple_matches")
 #> [1] TRUE TRUE
 #> attr(,"pattern_match")
-#> [1] FALSE FALSE
+#> [1] TRUE TRUE
 #> attr(,"uri")
 #> [1] "https://species.nbnatlas.org/species/NHMSYS0001706186"
 #> [2] "https://species.nbnatlas.org/species/NBNSYS0000004786"
@@ -477,7 +423,7 @@ system.time( replicate(3, as.gbifid(c("2704179","2435099","3171445"), check=TRUE
 
 ```
 #>    user  system elapsed 
-#>   0.080   0.004   2.693
+#>   0.078   0.002   1.943
 ```
 
 ```r

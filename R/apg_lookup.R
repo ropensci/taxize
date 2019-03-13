@@ -4,13 +4,13 @@
 #' @param taxa (character) Taxonomic name to lookup a synonym for in APGIII taxonomy.
 #' @param rank (character) Taxonomic rank to lookup a synonym for. One of family or order.
 #' @return A APGIII family or order name, or the original name if no match.
-#' @details Internally in this function, we use the datasets \code{\link{apg_families}}
-#' and \code{\link{apg_orders}} - see their descriptions for the data in them.
-#' The functions \code{\link{apgOrders}} \code{\link{apgFamilies}} are for scraping
-#' current content from the \url{http://www.mobot.org/MOBOT/research/APweb/} website.
+#' @details Internally in this function, we use the datasets [apg_families]
+#' and [apg_orders] - see their descriptions for the data in them.
+#' The functions [apgOrders()] [apgFamilies()] are for scraping
+#' current content from the <http://www.mobot.org/MOBOT/research/APweb/> website.
 #'
 #' BEWARE: The datasets used in this function are (I think) from Version 12 of the data
-#' on \url{http://www.mobot.org/MOBOT/research/APweb/} - I'll update data asap.
+#' on <http://www.mobot.org/MOBOT/research/APweb/> - I'll update data asap.
 #' @examples
 #' # New name found
 #' apg_lookup(taxa = "Hyacinthaceae", rank = "family")

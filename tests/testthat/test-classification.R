@@ -137,7 +137,7 @@ test_that("rbind and cbind work correctly", {
 })
 
 df <- theplantlist[sample(1:nrow(theplantlist), 50), ]
-nn <- apply(df, 1, function(x) paste(x["genus"], x["sp"], collapse = " "))
+nn <- apply(df, 1, function(x) paste(x["genus"], x["species"], collapse = " "))
 
 test_that("works on a variety of names", {
   skip_on_cran()

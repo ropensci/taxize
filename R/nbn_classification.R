@@ -3,7 +3,7 @@
 #'
 #' @export
 #' @param id (character) An NBN identifier.
-#' @param ... Further args passed on to \code{\link[crul]{verb-GET}}
+#' @param ... Further args passed on to [`crul::verb-GET`]
 #' @return A data.frame
 #' @family nbn
 #' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
@@ -23,7 +23,7 @@ nbn_classification <- function(id, ...) {
 }
 
 nbn_GET_2 <- function(url, ...) {
-  cli <- crul::HttpClient$new(url, opts = list(...))
+  cli <- crul::HttpClient$new(url, headers = tx_ual, opts = list(...))
   res <- cli$get()
   res$raise_for_status()
   nmslwr(jsonlite::fromJSON(res$parse("UTF-8"), TRUE))

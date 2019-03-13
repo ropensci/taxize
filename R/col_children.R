@@ -20,19 +20,18 @@
 #' single query is 500 for terse queries and 50 for full queries).
 #' @param checklist The year of the checklist to query, if you want a specific
 #' year's checklist instead of the lastest as default (numeric).
-#' @param extant_only (logical) keep extant taxa only? default: \code{FALSE}. 
-#' by default we give back all taxa. set to \code{TRUE} to get only 
+#' @param extant_only (logical) keep extant taxa only? default: `FALSE`.
+#' by default we give back all taxa. set to `TRUE`` to get only
 #' extant taxa
-#' @param ... Curl options passed on to \code{\link[crul]{verb-GET}}
+#' @param ... Curl options passed on to [`crul::verb-GET`]`
 #' @details You must provide one of name or id. The other parameters (format
 #' 		and start) are optional.
 #' @return A list of data.frame's, where each data.frame has columns:
-#' \itemize{
-#'  \item childtaxa_id: (character) COL identifier
-#'  \item childtaxa_name: (character) taxonomic name
-#'  \item childtaxa_rank: (character) rank name
-#'  \item childtaxa_extinct: (logical) extinct or not
-#' }
+#' * childtaxa_id: (character) COL identifier
+#' * childtaxa_name: (character) taxonomic name
+#' * childtaxa_rank: (character) rank name
+#' * childtaxa_extinct: (logical) extinct or not
+#'
 #' @examples \dontrun{
 #' # A basic example
 #' col_children(name="Apis")
@@ -58,7 +57,7 @@
 #' out <- col_children(id = ids, checklist=2012)
 #' library("plyr")
 #' ldply(out) # combine to one data.frame
-#' 
+#'
 #' # keep extant taxa only, prunes out extinct taxa
 #' col_children(name = "Insecta")
 #' col_children(name = "Insecta", extant_only = TRUE)
@@ -80,7 +79,8 @@ col_children <- function(name = NULL, id = NULL, format = NULL, start = NULL,
 search_col <- function(name, id, checklist, format, start, extant_only, ...) {
   args <- tc(list(name = name, id = id, format = format, response = "full",
                   start = start))
-  cli <- crul::HttpClient$new(url = col_base(), opts = list(...))
+  cli <- crul::HttpClient$new(url = col_base(), headers = tx_ual,
+    opts = list(...))
   out <- cli$get(query = argsnull(args))
   out$raise_for_status()
   tt <- xml2::read_xml(out$parse("UTF-8"))

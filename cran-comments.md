@@ -19,11 +19,11 @@ File 'LICENSE':
 
 * I have run R CMD check on the 21 downstream dependencies
 (<https://github.com/ropensci/taxize/blob/master/revdep/README.md>).
-There was one problem with a vignette build with the test suite for camtrapR - but is unrelated to this package.
+There was problem with a vignette build for camtrapR - but is unrelated to this package; and there was a problem with tests in BIOMASS, but I checked and even though taxize is in Suggests in their package, they dont use taxize anywhere in the package, and so any errors are unrelated to this package.
 
 ------
 
-This version gains a few new functions, some new parameters, make a function defunct, and fixes many bugs.
+This version includes a set of new functions for a new data source, now passes user agent strings in all HTTP requests, and makes many bug fixes and small improvements.
 
 Thanks!
 Scott Chamberlain

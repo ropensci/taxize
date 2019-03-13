@@ -42,7 +42,7 @@ data source ids to resolve found names against. See list of Data Sources
 \item{return_content}{(logical) return OCR'ed text. returns text
 string in \code{x$meta$content} slot. Default: \code{FALSE}}
 
-\item{...}{Further args passed to \code{\link[crul]{verb-GET}}}
+\item{...}{Further args passed to \code{\link[crul:verb-GET]{crul::verb-GET}}}
 }
 \value{
 A list of length two, first is metadata, second is the data as a
@@ -96,5 +96,5 @@ scrapenames(url='http://www.mapress.com/zootaxa/2012/f/z03372p265f.pdf',
 }
 }
 \author{
-Scott Chamberlain {myrmecocystus@gmail.com}
+Scott Chamberlain \email{myrmecocystus@gmail.com}
 }

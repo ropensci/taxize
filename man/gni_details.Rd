@@ -12,7 +12,7 @@ gni_details(id, all_records = 1, ...)
 \item{all_records}{If all_records is 1, GNI returns all records from all
 repositories for the name string (takes 0, or 1 [default]).}
 
-\item{...}{Curl options passed on to \code{\link[crul]{verb-GET}}}
+\item{...}{Curl options passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}}
 }
 \value{
 Data.frame of results.
@@ -31,7 +31,7 @@ gni_details(id = 17802847, verbose = TRUE)
 }
 }
 \seealso{
-\code{\link{gnr_datasources}}, \code{\link{gni_search}}.
+\code{\link[=gnr_datasources]{gnr_datasources()}}, \code{\link[=gni_search]{gni_search()}}.
 }
 \author{
 Scott Chamberlain {myrmecocystus@gmail.com}

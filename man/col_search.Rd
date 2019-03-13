@@ -9,8 +9,8 @@ col_search(name = NULL, id = NULL, start = NULL, checklist = NULL,
 }
 \arguments{
 \item{name}{The string to search for. Only exact matches found the name given
-   will be returned, unless one or wildcards are included in the search
-   string. An * (asterisk) character denotes a wildcard; a % (percentage)
+will be returned, unless one or wildcards are included in the search
+string. An * (asterisk) character denotes a wildcard; a % (percentage)
 character may also be used. The name must be at least 3 characters long,
 not counting wildcard characters.}
 
@@ -28,17 +28,27 @@ year's checklist instead of the lastest as default (numeric).}
 
 \item{response}{(character) one of "terse" or "full"}
 
-\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
+\item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient}}}
 }
 \value{
-A list of data.frame's.
+A list of data.frame's, each data.frame has the attributes:
+\itemize{
+\item id:
+\item name:
+\item total_number_of_results:
+\item number_of_results_returned:
+\item start:
+\item error_message:
+\item version:
+\item rank:
+}
 }
 \description{
 Search Catalogue of Life for taxonomic IDs
 }
 \details{
 You must provide one of name or id. The other parameters (format
-		and start) are optional.
+and start) are optional.
 }
 \examples{
 \dontrun{
@@ -60,7 +70,7 @@ col_search(id = "36c623ad9e3da39c2e978fa3576ad415")
 col_search(id = "36c623ad9e3da39c2e978fa3576ad415", response = "full")
 col_search(id = "787ce23969f5188c2467126d9a545be1")
 col_search(id = "787ce23969f5188c2467126d9a545be1", response = "full")
-col_search(id = c("36c623ad9e3da39c2e978fa3576ad415", 
+col_search(id = c("36c623ad9e3da39c2e978fa3576ad415",
   "787ce23969f5188c2467126d9a545be1"))
 ## a synonym
 col_search(id = "f726bdaa5924cabf8581f99889de51fc")

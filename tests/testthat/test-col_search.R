@@ -4,7 +4,7 @@ test_that("col_search returns the correct values, dimensions, and classes", {
   vcr::use_cassette("col_search", {
     temp <- col_search(name = "Apis")
     two <- col_search(name = c("Apis","Puma concolor"))
-    byid <- col_search(id = 11935941)
+    byid <- col_search(id = "36c623ad9e3da39c2e978fa3576ad415")
   })
 
 	expect_equal(names(temp), "Apis")
@@ -19,7 +19,8 @@ test_that("col_search returns the correct values, dimensions, and classes", {
   expect_that(length(two), equals(2))
   expect_equal(NCOL(two[[1]]), 10)
   expect_equal(NCOL(do.call(rbind, lapply(two, data.frame))), 10)
-  expect_that(dim(byid[[1]]), equals(c(0,0)))
+  expect_is(byid, "list")
+  expect_is(byid[[1]], "data.frame")
 
 	expect_that(temp, is_a("list"))
 	expect_that(temp[[1]], is_a("data.frame"))

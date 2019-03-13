@@ -2,27 +2,27 @@
 #'
 #' @export
 #' @param commnames One or more common names or partial names.
-#' @param db Data source, one of \emph{"ncbi"} (default), \emph{"itis"},
-#' \emph{"tropicos"}, \emph{"eol"}, or \emph{"worms"}. If using ncbi, we
-#' recommend getting an API key; see \code{\link{taxize-authentication}}
+#' @param db Data source, one of *"ncbi"* (default), *"itis"*,
+#' *"tropicos"*, *"eol"*, or *"worms"*. If using ncbi, we
+#' recommend getting an API key; see [`taxize-authentication`]
 #' @param itisby Search for common names across entire names (search, default),
 #' at beginning of names (begin), or at end of names (end).
-#' @param simplify (logical) If \code{TRUE}, simplify output to a vector
-#' of names. If \code{FALSE}, return variable formats from different sources,
-#' usually a data.frame.
+#' @param simplify (logical) If `TRUE`, simplify output to a vector of names.
+#' If `FALSE`, return variable formats from different sources, usually a
+#' data.frame.
 #' @param ... Further arguments passed on to internal methods.
-#' @return If \code{simplify=TRUE}, a list of scientific names, with list
-#' labeled by your input names. If \code{simplify=FALSE}, a data.frame with
+#' @return If `simplify=TRUE`, a list of scientific names, with list
+#' labeled by your input names. If `simplify=FALSE`, a data.frame with
 #' columns that vary by data source
-#' @seealso \code{\link[taxize]{sci2comm}}
+#' @seealso [`sci2comm()`]
 #' @details For data sources ITIS and NCBI you can pass in common names
-#' directly, and use \code{\link[taxize]{get_uid}} or
-#' \code{\link[taxize]{get_tsn}} to get ids first, then pass in to this fxn.
+#' directly, and use [`get_uid()`] or [`get_tsn()`] to get ids first, then pass in
+#' to this fxn.
 #'
 #' For the other data sources, you can only pass in common names directly.
 #'
 #' @section Authentication:
-#' See \code{\link{taxize-authentication}} for help on authentication
+#' See [`taxize-authentication`] for help on authentication
 #'
 #' @author Scott Chamberlain
 #' @examples \dontrun{
@@ -135,7 +135,8 @@ c2s_itis_ <- function(x, by='search', simplify, ...){
 c2s_ncbi <- function(x, simplify, ...) {
   key <- getkey(NULL, "ENTREZ_KEY")
   query <- tc(list(db = "taxonomy", ID = x, api_key = key))
-  cli <- crul::HttpClient$new(url = ncbi_base(), opts = list(...))
+  cli <- crul::HttpClient$new(url = ncbi_base(),
+    headers = tx_ual, opts = list(...))
   res <- cli$get("entrez/eutils/efetch.fcgi", query = query)
   res$raise_for_status()
   tt <- res$parse("UTF-8")
