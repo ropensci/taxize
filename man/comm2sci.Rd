@@ -17,9 +17,9 @@ recommend getting an API key; see \code{\link{taxize-authentication}}}
 \item{itisby}{Search for common names across entire names (search, default),
 at beginning of names (begin), or at end of names (end).}
 
-\item{simplify}{(logical) If \code{TRUE}, simplify output to a vector
-of names. If \code{FALSE}, return variable formats from different sources,
-usually a data.frame.}
+\item{simplify}{(logical) If \code{TRUE}, simplify output to a vector of names.
+If \code{FALSE}, return variable formats from different sources, usually a
+data.frame.}
 
 \item{...}{Further arguments passed on to internal methods.}
 }
@@ -33,8 +33,8 @@ Get scientific names from common names.
 }
 \details{
 For data sources ITIS and NCBI you can pass in common names
-directly, and use \code{\link[taxize]{get_uid}} or
-\code{\link[taxize]{get_tsn}} to get ids first, then pass in to this fxn.
+directly, and use \code{\link[=get_uid]{get_uid()}} or \code{\link[=get_tsn]{get_tsn()}} to get ids first, then pass in
+to this fxn.
 
 For the other data sources, you can only pass in common names directly.
 }
@@ -69,7 +69,7 @@ comm2sci(x)
 }
 }
 \seealso{
-\code{\link[taxize]{sci2comm}}
+\code{\link[=sci2comm]{sci2comm()}}
 }
 \author{
 Scott Chamberlain

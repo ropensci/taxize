@@ -41,7 +41,7 @@ asked for input. If \code{FALSE} NA is returned for multiple matches.}
 
 \item{rows}{numeric; Any number from 1 to infinity. If the default NA, all
 rows are considered. Note that this function still only gives back a tol
-class object with one to many identifiers. See \code{\link[taxize]{get_tolid_}}
+class object with one to many identifiers. See \code{\link[=get_tolid_]{get_tolid_()}}
 to get back all, or a subset, of the raw data that you are presented during
 the ask process.}
 
@@ -50,8 +50,7 @@ the ask process.}
 \item{x}{Input to \code{as.tolid}}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only
-used in
-\code{\link{as.tolid}}}
+used in \code{\link[=as.tolid]{as.tolid()}}}
 }
 \value{
 A vector of taxonomic identifiers as an S3 class.
@@ -112,14 +111,15 @@ get_tolid_(c("asdfadfasd","Pinus contorta"))
 }
 }
 \seealso{
-\code{\link[taxize]{classification}}
+\code{\link[=classification]{classification()}}
 
 Other taxonomic-ids: \code{\link{get_boldid}},
   \code{\link{get_colid}}, \code{\link{get_eolid}},
   \code{\link{get_gbifid}}, \code{\link{get_ids}},
   \code{\link{get_iucn}}, \code{\link{get_natservid}},
-  \code{\link{get_nbnid}}, \code{\link{get_tpsid}},
-  \code{\link{get_tsn}}, \code{\link{get_uid}},
-  \code{\link{get_wiki}}, \code{\link{get_wormsid}}
+  \code{\link{get_nbnid}}, \code{\link{get_pow}},
+  \code{\link{get_tpsid}}, \code{\link{get_tsn}},
+  \code{\link{get_uid}}, \code{\link{get_wiki}},
+  \code{\link{get_wormsid}}
 }
 \concept{taxonomic-ids}

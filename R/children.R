@@ -1,26 +1,26 @@
 #' Retrieve immediate children taxa for a given taxon name or ID.
 #'
-#' This function is different from \code{\link{downstream}} in that it only
-#' collects immediate taxonomic children, while \code{\link{downstream}}
+#' This function is different from [`downstream`] in that it only
+#' collects immediate taxonomic children, while [`downstream`]
 #' collects taxonomic names down to a specified taxonomic rank, e.g.,
 #' getting all species in a family.
 #'
 #' @export
 #' @param x Vector of taxa names (character) or IDs (character or numeric)
 #' to query.
-#' @param db character; database to query. One or more of \code{itis},
-#' \code{col}, \code{ncbi}, or \code{worms}. Note that each taxonomic data
+#' @param db character; database to query. One or more of `itis`,
+#' `col`, `ncbi`, or `worms`. Note that each taxonomic data
 #' source has their own identifiers, so that if you provide the wrong
-#' \code{db} value for the identifier you could get a result, but it will
+#' `db` value for the identifier you could get a result, but it will
 #' likely be wrong (not what you were expecting). If using ncbi, we recommend
-#' getting an API key; see \code{\link{taxize-authentication}}
+#' getting an API key; see [taxize-authentication]
 #' @param rows (numeric) Any number from 1 to infinity. If the default NA, all
 #' rows are considered. Note that this parameter is ignored if you pass in a
 #' taxonomic id of any of the acceptable classes: tsn, colid. NCBI has a
 #' method for this function but rows doesn't work.
-#' @param ... Further args passed on to \code{\link{col_children}},
-#' \code{\link[ritis]{hierarchy_down}}, \code{\link{ncbi_children}},
-#' or \code{\link[worrms]{wm_children}}
+#' @param ... Further args passed on to [col_children()],
+#' [ritis::hierarchy_down()], [ncbi_children()],
+#' or [worrms::wm_children()]
 #' See those functions for what parameters can be passed on.
 #'
 #' @return A named list of data.frames with the children names of every

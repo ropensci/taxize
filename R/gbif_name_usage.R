@@ -1,7 +1,7 @@
 #' Lookup details for specific names in all taxonomies in GBIF.
 #'
 #'
-#' This is a taxize version of the same function in the \code{rgbif} package so as to not have to
+#' This is a taxize version of the same function in the `rgbif` package so as to not have to
 #' import rgbif and thus require GDAL binary installation.
 #'
 #' @export
@@ -22,10 +22,10 @@
 #' @param language (character) Language, default is english
 #' @param sourceId (numeric) Filters by the source identifier. Not used right now.
 #' @param shortname (character) A short name..need more info on this?
-#' @param ... Curl options passed on to \code{\link[crul]{HttpClient}}
+#' @param ... Curl options passed on to [`crul::HttpClient`]
 #' @param limit Number of records to return
 #' @param start Record number to start at
-#' @references \url{http://www.gbif.org/developer/summary}
+#' @references <http://www.gbif.org/developer/summary>
 #' @return A list of length two. The first element is metadata. The second is
 #' either a data.frame (verbose=FALSE, default) or a list (verbose=TRUE)
 
@@ -68,7 +68,7 @@ gbif_name_usage <- function(key=NULL, name=NULL, data='all', language=NULL, data
             url <- sprintf('http://api.gbif.org/v1/species/root/%s/%s', uuid, shortname)
           }
     }
-    cli <- crul::HttpClient$new(url = url, opts = list(...))
+    cli <- crul::HttpClient$new(url = url, headers = tx_ual, opts = list(...))
     res <- cli$get(query = args)
     res$raise_for_status()
     stopifnot(res$response_headers$`content-type` == 'application/json')

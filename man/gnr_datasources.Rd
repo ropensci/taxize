@@ -2,19 +2,20 @@
 % Please edit documentation in R/gnr_datasources.R
 \name{gnr_datasources}
 \alias{gnr_datasources}
-\title{Get data sources for the Global Names Resolver.}
+\title{Global Names Resolver Data Sources}
 \usage{
-gnr_datasources(todf = TRUE)
+gnr_datasources(..., todf)
 }
 \arguments{
-\item{todf}{logical; Should a data.frame be returned?}
+\item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient}}}
+
+\item{todf}{defunct, always get a data.frame back now}
 }
 \value{
-json or a data.frame
+data.frame/tibble
 }
 \description{
-Retrieve data sources used in Global Names Index, see
-\url{http://gni.globalnames.org/} for information.
+Retrieve data sources used in the Global Names Resolver
 }
 \examples{
 \dontrun{
@@ -28,16 +29,13 @@ out[out$title == "EOL", "id"]
 # Fuzzy search for sources with the word zoo
 out <- gnr_datasources()
 out[agrep("zoo", out$title, ignore.case = TRUE), ]
-
-# Output as a list
-gnr_datasources(FALSE)
 }
+}
+\references{
+\url{https://resolver.globalnames.org/data_sources}
 }
 \seealso{
-\code{\link[taxize]{gnr_resolve}}
-}
-\author{
-Scott Chamberlain {myrmecocystus@gmail.com}
+\code{\link[=gnr_resolve]{gnr_resolve()}}, \code{\link[=gni_search]{gni_search()}}
 }
 \keyword{names}
 \keyword{resolve}

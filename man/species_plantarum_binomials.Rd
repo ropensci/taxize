@@ -5,25 +5,24 @@
 \alias{species_plantarum_binomials}
 \title{Species names from Species Plantarum}
 \format{A data frame with 5940 rows and 3 variables: \describe{
-  \item{genus}{First part of the binomial species name for each species
-  within the \href{https://en.wikipedia.org/wiki/Genus}{genus}}
-  \item{epithet}{specific epithet or second part of the binomial species name
-  for each \href{https://en.wikipedia.org/wiki/Species}{species}}
-  \item{page_number}{The following abbreviations sometimes are used in the
-  page_number field.  \itemize{\item{"add."} {refers to addenda that appear
-  on the unnumbered last page of the index in volume
-  two.}\item{"err."}{refers to the unnumbered page of errata that appears
-  following the index in volume two.}\item{"canc."}{following a page number
-  indicates that the binomial appeared on the cancelled version of that page
-  and does not appear on its replacement (as in the 1957–1959 facsimile
-  edition).}}}}}
+\item{genus}{First part of the binomial species name for each species
+within the \href{https://en.wikipedia.org/wiki/Genus}{genus}}
+\item{epithet}{specific epithet or second part of the binomial species name
+for each \href{https://en.wikipedia.org/wiki/Species}{species}}
+\item{page_number}{The following abbreviations sometimes are used in the
+page_number field.  \itemize{\item{"add."} {refers to addenda that appear
+on the unnumbered last page of the index in volume
+two.}\item{"err."}{refers to the unnumbered page of errata that appears
+following the index in volume two.}\item{"canc."}{following a page number
+indicates that the binomial appeared on the cancelled version of that page
+and does not appear on its replacement (as in the 1957-1959 facsimile
+edition).}}}}}
 \source{
-\href{http://fmhibd.library.cmu.edu/HIBD-DB/Species/home.php}{Hunt
-  Institute for Botanical Documentation}
+\href{http://fmhibd.library.cmu.edu/HIBD-DB/Species/home.php}{Hunt Institute for Botanical Documentation}
 }
 \description{
 These names have been compiled from
-\href{https://en.wikipedia.org/wiki/Species_Plantarum}{\emph{Species Plantarum}} by
+\href{https://en.wikipedia.org/wiki/Species_Plantarum}{Species Plantarum} by
 \href{https://en.wikipedia.org/wiki/Carl_Linnaeus}{Carl Linnaeus} originally
 published in 1753. It is the first work to consistently apply
 \href{https://en.wikipedia.org/wiki/Binomial_nomenclature}{binomial names}
@@ -35,7 +34,7 @@ inception. The names were transcribed by Robert W. Kiger.
 }
 \references{
 Linnaeus, C. 1753. Species Plantarum. 2 vols. Salvius, Stockholm.
-  [Facsimile edition, 1957–1959, Ray Society, London.]
+[Facsimile edition, 1957-1959, Ray Society, London.]
 }
 \author{
 Carl Linnaeus

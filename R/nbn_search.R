@@ -12,7 +12,7 @@
 #' @param order (character) Supports "asc" or "desc"
 #' @param facets (list) Comma separated list of the fields to create facets
 #' on e.g. facets=basis_of_record.
-#' @param ... Further args passed on to \code{\link[crul]{HttpClient}}.
+#' @param ... Further args passed on to [`crul::HttpClient`].
 #' @family nbn
 #' @return a list with slots for metadata (`meta`) with list of response
 #' attributes, and data (`data``) with a data.frame of results
@@ -43,8 +43,7 @@ nbn_search <- function(q, fq = NULL, order = NULL, sort = NULL, start = 0,
 }
 
 nbn_GET <- function(url, args, ...){
-  cli <- crul::HttpClient$new(url = url, 
-    headers = list(`User-Agent` = taxize_ua(), `X-User-Agent` = taxize_ua()))
+  cli <- crul::HttpClient$new(url = url, headers = tx_ual,)
   tt <- cli$get(query = argsnull(args), ...)
   tt$raise_for_status()
   json <- jsonlite::fromJSON(tt$parse("UTF-8"))$searchResults

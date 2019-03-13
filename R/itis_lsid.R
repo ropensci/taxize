@@ -3,8 +3,8 @@
 #' @export
 #' @param lsid One or more lsid's
 #' @param what What to retrieve. One of tsn, record, or fullrecord
-#' @param ... Further arguments passed on to \code{\link[ritis]{lsid2tsn}},
-#'    \code{\link[ritis]{record}}, or \code{\link[ritis]{full_record}}
+#' @param ... Further arguments passed on to [`ritis::lsid2tsn()`],
+#' [`ritis::record()`], or [`ritis::full_record()`]
 #' @examples \dontrun{
 #' # Get TSN
 #' itis_lsid("urn:lsid:itis.gov:itis_tsn:180543")

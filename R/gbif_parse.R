@@ -2,13 +2,13 @@
 #'
 #' @export
 #' @param scientificname (character) scientific names
-#' @param ... Further args passed on to \code{\link[crul]{verb-POST}}
-#' @return A \code{data.frame} containing fields extracted from parsed
+#' @param ... Further args passed on to [`crul::verb-POST`]
+#' @return A `data.frame` containing fields extracted from parsed
 #' taxon names. Fields returned are the union of fields extracted from
-#' all species names in \code{scientificname}.
-#' @author John Baumgartner (johnbb@@student.unimelb.edu.au)
+#' all species names in `scientificname`.
+#' @author John Baumgartner \email{johnbb@@student.unimelb.edu.au}
 #' @references https://www.gbif.org/tools/name-parser/about
-#' @seealso \code{\link{gni_parse}}
+#' @seealso [`gni_parse()`]
 #' @examples \dontrun{
 #' gbif_parse(scientificname='x Agropogon littoralis')
 #' gbif_parse(c('Arrhenatherum elatius var. elatius',
@@ -17,7 +17,8 @@
 #' }
 gbif_parse <- function(scientificname, ...) {
   cli <- crul::HttpClient$new("https://api.gbif.org", 
-    headers = list('Content-Type' = "application/json"), opts = list(...))
+    headers = c(list('Content-Type' = "application/json"), tx_ual),
+    opts = list(...))
   tt <- cli$post("v1/parser/name", body = jsonlite::toJSON(scientificname))
   tt$raise_for_status()
   stopifnot(tt$response_headers$`content-type` == 'application/json')

@@ -5,11 +5,11 @@
 #' @export
 #' @param id Name id. Required.
 #' @param all_records If all_records is 1, GNI returns all records from all
-#' 		repositories for the name string (takes 0, or 1 [default]).
-#' @param ... Curl options passed on to \code{\link[crul]{verb-GET}}
+#' 		repositories for the name string (takes 0, or 1 \[default\]).
+#' @param ... Curl options passed on to [`crul::verb-GET`]
 #' @author Scott Chamberlain {myrmecocystus@@gmail.com}
 #' @return Data.frame of results.
-#' @seealso \code{\link{gnr_datasources}}, \code{\link{gni_search}}.
+#' @seealso [`gnr_datasources()`], [`gni_search()`].
 #' @keywords globalnamesindex names taxonomy
 #' @examples \dontrun{
 #' gni_details(id = 17802847)
@@ -26,22 +26,22 @@ gni_details <- function(id, all_records = 1, ...) {
 
 	url2 <- paste0(gni_base(), "name_strings/", id, ".json")
 	query <- tc(list(all_records = all_records))
-	cli <- crul::HttpClient$new(url2, opts = list(...))
+	cli <- crul::HttpClient$new(url2, headers = tx_ual, opts = list(...))
 	tt <- cli$get(query = argsnull(query))
 	tt$raise_for_status()
   out <- jsonlite::fromJSON(tt$parse("UTF-8"), FALSE)
 	outdf <-
-		ldply(out$data, function(x) 
+		ldply(out$data, function(x)
 			data.frame(t(c(checknull(x$records[[1]]$created_at),
-				checknull(x$records[[1]]$updated_at), 
+				checknull(x$records[[1]]$updated_at),
 				checknull(x$records[[1]]$global_id),
-				checknull(x$records[[1]]$url), 
+				checknull(x$records[[1]]$url),
 				checknull(x$records[[1]]$kingdom_id),
-				checknull(x$records[[1]]$original_name_string), 
+				checknull(x$records[[1]]$original_name_string),
 				checknull(x$records[[1]]$id),
-				checknull(x$records[[1]]$name_rank_id), 
+				checknull(x$records[[1]]$name_rank_id),
 				checknull(x$records[[1]]$name_index_id),
-				checknull(x$records[[1]]$record_hash), 
+				checknull(x$records[[1]]$record_hash),
 				checknull(x$records[[1]]$local_id),
 				checknull(x$records[[1]]$nomenclatural_code_id) ))))
 	stats::setNames(outdf, c(

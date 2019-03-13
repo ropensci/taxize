@@ -2,7 +2,7 @@
 # tol_id2name(id = 515698)
 tol_id2name <- function(id, ...) {
   cli <- crul::HttpClient$new("https://api.opentreeoflife.org", 
-    opts = list(...))
+    headers = tx_ual, opts = list(...))
   res <- cli$post(path = "v3/taxonomy/taxon_info", encode = "json",
     body = list(ott_id = id))
   if (res$status_code > 201) {

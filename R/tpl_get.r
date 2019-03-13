@@ -4,15 +4,15 @@
 #' @param x Directory to write csv files to.
 #' @param family If you want just one, or >1 family, but not all, list
 #' them in a vector.
-#' @param ... (list) Curl options passed on to \code{\link[crul]{verb-GET}}
+#' @param ... (list) Curl options passed on to [`crul::verb-GET`]
 #' @details Throws a warning if you already have a directory of the one
 #' provided, but still works. Writes to your home directory, change x
 #' as needed.
 #' @return Returns nothing to console, except a message and progress bar.
 #' Writes csv files to x.
-#' @author John Baumgartner (johnbb@@student.unimelb.edu.au)
-#' @seealso \code{\link{tpl_families}}
-#' @references The Plant List http://www.theplantlist.org
+#' @author John Baumgartner \email{johnbb@@student.unimelb.edu.au}
+#' @seealso [`tpl_families()`]
+#' @references The Plant List <http://www.theplantlist.org>
 #' @examples \dontrun{
 #' # Get a few families
 #' dir <- file.path(tempdir(), "abc")
@@ -35,7 +35,7 @@
 
 tpl_get <- function(x, family = NULL, ...) {
   cli <- crul::HttpClient$new('http://www.theplantlist.org/1.1/browse/-/',
-    opts = list(...))
+    headers = tx_ual, opts = list(...))
   temp <- cli$get()
   temp$raise_for_status()
   temp <- xml2::read_html(temp$parse("UTF-8"), encoding = "UTF-8")

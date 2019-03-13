@@ -4,7 +4,7 @@
 #' @param values (character) One or more TSN's (taxonomic serial number) or lsid's for a
 #' taxonomic group
 #' @param by (character) By "tsn" (default) or "lsid"
-#' @param ... Further arguments passed on to \code{\link[ritis]{full_record}}
+#' @param ... Further arguments passed on to [`ritis::full_record`]
 #' @details You can only enter values in tsn parameter or lsid, not both.
 #' @examples \dontrun{
 #' # by TSN

@@ -10,16 +10,16 @@
 #' @param startrow Your search string. For instance "1"
 #' @param type Type of search, "wildcard" (default) will add a wildcard to the end
 #'    of your search string. "exact" will use your search string exactly.
-#' @param key Your Tropicos API key; See \code{\link{taxize-authentication}} 
+#' @param key Your Tropicos API key; See [`taxize-authentication`] 
 #' for help on authentication
-#' @param ... Further args passed on to \code{\link[crul]{HttpClient}}
+#' @param ... Further args passed on to [`crul::HttpClient`]
 #' @return List or dataframe.
-#' @references \url{http://services.tropicos.org/help?method=SearchNameXml}
-#' @details More details on the \code{name} parameter: Tropicos will fail
-#' if you include a period (\code{.}) in your name string, e.g., \code{var.},
+#' @references <http://services.tropicos.org/help?method=SearchNameXml>
+#' @details More details on the `name` parameter: Tropicos will fail
+#' if you include a period (`.`) in your name string, e.g., `var.`,
 #' so we replace periods before the request is made to the Tropicos web service.
 #' In addition, Tropicos for some reason doesn't want to see sub-specific rank
-#' names like \code{var}/\code{subsp}, so remove those from your query.
+#' names like `var`/`subsp`, so remove those from your query.
 #' @examples \dontrun{
 #' tp_search(name = 'Poa annua')
 #' tp_search(name = 'Poa annua subsp. annua')

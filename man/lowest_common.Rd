@@ -29,16 +29,15 @@ lowest_common(...)
   ...)
 }
 \arguments{
-\item{...}{Other arguments passed to \code{\link[taxize]{get_tsn}},
-\code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_colid}},
-\code{\link[taxize]{get_gbifid}}, \code{\link[taxize]{get_tolid}}}
+\item{...}{Other arguments passed to \code{\link[=get_tsn]{get_tsn()}}, \code{\link[=get_uid]{get_uid()}},
+\code{\link[=get_colid]{get_colid()}}, \code{\link[=get_gbifid]{get_gbifid()}}, \code{\link[=get_tolid]{get_tolid()}}}
 
 \item{x}{Vector of taxa names (character) or id (character or numeric) to
 query.}
 
-\item{db}{character; database to query. either \code{ncbi}, \code{itis},
-\code{gbif}, \code{col}, or \code{tol}. If using ncbi, we recommend
-getting an API key; see \code{\link{taxize-authentication}}}
+\item{db}{character; database to query. either \code{ncbi}, \code{itis}, \code{gbif}, \code{col},
+\code{tol}. If using ncbi, we recommend getting an API key;
+see \code{\link{taxize-authentication}}}
 
 \item{rows}{(numeric) Any number from 1 to infinity. If the default NA,
 all rows are considered. Note that this parameter is ignored if you pass in
@@ -46,16 +45,16 @@ a taxonomic id of any of the acceptable classes: tsn, colid, gbifid, tolid.
 NCBI has a method for this function but rows doesn't work.}
 
 \item{class_list}{(list) A list of classifications, as returned from
-\code{\link[taxize]{classification}}}
+\code{\link[=classification]{classification()}}}
 
 \item{low_rank}{(character) taxonomic rank to return, of length 1}
 }
 \value{
 NA when no match, or a data.frame with columns
 \itemize{
- \item name
- \item rank
- \item id
+\item name
+\item rank
+\item id
 }
 }
 \description{

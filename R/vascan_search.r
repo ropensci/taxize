@@ -4,14 +4,14 @@
 #' @param q (character) Can be a scientific name, a vernacular name or a VASCAN
 #'    taxon identifier (e.g. 861)
 #' @param format (character) One of json (default) or xml.
-#' @param raw (logical) If TRUE, raw json or xml returned, if FALSE, parsed 
+#' @param raw (logical) If TRUE, raw json or xml returned, if FALSE, parsed
 #' data returned.
-#' @param ... (list) Further args passed on to \code{\link[crul]{verb-GET}}
+#' @param ... (list) Further args passed on to [`crul::verb-GET`]
 #' @author Scott Chamberlain {myrmecocystus@@gmail.com}
 #' @return json, xml or a list.
-#' @references API docs http://data.canadensys.net/vascan/api
+#' @references API docs <http://data.canadensys.net/vascan/api>
 #' @keywords names taxonomy
-#' @details Note that we lowercase all outputs in data.frame's, but when a 
+#' @details Note that we lowercase all outputs in data.frame's, but when a
 #' list is given back, we don't touch the list names.
 #' @examples \dontrun{
 #' vascan_search(q = "Helianthus annuus")
@@ -37,12 +37,13 @@
 #' invisible(vascan_search(q = "Helianthus annuus", verbose = TRUE))
 #' }
 vascan_search <- function(q, format='json', raw=FALSE, ...) {
-  url <- sprintf("http://data.canadensys.net/vascan/api/0.1/search.%s", format)
-  cli <- crul::HttpClient$new(url = url, 
-    headers = list(`User-Agent` = taxize_ua(), `X-User-Agent` = taxize_ua()))
+  url <- sprintf("http://data.canadensys.net/vascan/api/0.1/search.%s",
+    format)
+  cli <- crul::HttpClient$new(url = url, headers = tx_ual,
+    opts = list(...))
 
   if (!length(q) > 1) {
-    temp <- cli$get(query = list(q = q), ...)
+    temp <- cli$get(query = list(q = q))
     temp$raise_for_status()
     out <- temp$parse("UTF-8")
   } else {
@@ -62,18 +63,18 @@ vascan_search <- function(q, format='json', raw=FALSE, ...) {
 
 vascan_parse <- function(x){
   parsed <- lapply(x$matches, function(y) {
-    taxass <- nmslwr(data.frame(y$taxonomicAssertions, 
+    taxass <- nmslwr(data.frame(y$taxonomicAssertions,
       stringsAsFactors = FALSE))
     dist <- nmslwr(data.frame(rbindlist(y$distribution)))
     vern <- nmslwr(data.frame(rbindlist(y$vernacularNames)))
-    list(taxonomicassertions = taxass, distribution = dist, 
+    list(taxonomicassertions = taxass, distribution = dist,
       vernacularnames = vern)
   })
   if (length(parsed) == 0) {
     nmslwr(data.frame(searchedterm = x$searchedTerm, nummatches = x$numMatches,
                       matches = NA, stringsAsFactors = FALSE))
   } else {
-    list(searchedterm = x$searchedTerm, nummatches = x$numMatches, 
+    list(searchedterm = x$searchedTerm, nummatches = x$numMatches,
       matches = parsed)
   }
 }

@@ -1,0 +1,107 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://www.plantsoftheworldonline.org/api/2/search?q=Quercus%20douglasii&perPage=100&cursor=%2A
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
+      X-User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 21 Feb 2019 01:30:17 GMT
+      server: Apache/2.4.38 (Unix)
+      etag: '"0ddac04e2b091b066ed661e3141568392-gzip"'
+      content-type: application/json;charset=UTF-8
+      vary: Accept-Encoding
+      content-encoding: gzip
+      cache-control: max-age=0, must-revalidate, proxy-revalidate
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalResults":1,"page":0,"totalPages":1,"perPage":100,"cursor":"AoMIQVhEhTs2MDBGYWdhY2VhZVF1ZXJjdXNkb3VnbGFzaWksVGF4b25fMTU5NDUw","results":[{"accepted":true,"author":"Hook.
+        & Arn.","kingdom":"Plantae","family":"Fagaceae","name":"Quercus douglasii","rank":"Species","url":"/taxon/urn:lsid:ipni.org:names:296074-1","fqId":"urn:lsid:ipni.org:names:296074-1","images":[{"thumbnail":"http://d2seqvvyy3b8p2.cloudfront.net/fe4669c30e8b782c0d337267b401635b.jpg","fullsize":"http://d2seqvvyy3b8p2.cloudfront.net/f9f081d294d20153f4aad15916759a4f.jpg","caption":"A
+        specimen from Kew''s Herbarium"},{"thumbnail":"http://d2seqvvyy3b8p2.cloudfront.net/1d3d5ec04b4d72a0901b83a6c59e52c3.jpg","fullsize":"http://d2seqvvyy3b8p2.cloudfront.net/36ae36c5cbe55c18384ce554453fbc6b.jpg","caption":"A
+        specimen from Kew''s Herbarium"}]}]}'
+  recorded_at: 2019-02-21 01:30:17 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4
+- request:
+    method: get
+    uri: http://www.plantsoftheworldonline.org/api/2/search?q=aaa%20vva&perPage=100&cursor=%2A
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
+      X-User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 21 Feb 2019 01:30:17 GMT
+      server: Apache/2.4.38 (Unix)
+      etag: '"087a75e35cca4694f5c2a4abfb14b9d9f-gzip"'
+      content-type: application/json;charset=UTF-8
+      vary: Accept-Encoding
+      content-encoding: gzip
+      cache-control: max-age=0, must-revalidate, proxy-revalidate
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalResults":0,"page":0,"totalPages":0,"perPage":100,"cursor":"*"}'
+  recorded_at: 2019-02-21 01:30:17 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4
+- request:
+    method: get
+    uri: http://www.plantsoftheworldonline.org/api/2/taxon/urn:lsid:ipni.org:names:296074-1
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
+      X-User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 21 Feb 2019 01:30:17 GMT
+      server: Apache/2.4.38 (Unix)
+      content-disposition: inline;filename=f.txt
+      etag: '"0631d596e5d094599ea70caefbdcb65d4-gzip"'
+      content-type: application/json;charset=UTF-8
+      vary: Accept-Encoding
+      content-encoding: gzip
+      cache-control: max-age=0, must-revalidate, proxy-revalidate
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: '{"modified":"2016-07-29T13:41:38.000Z","bibliographicCitation":"IPNI
+        2019. Published on the Internet http://www.ipni.org; WCSP 2019. WCSP. Facilitated
+        by the Royal Botanic Gardens, Kew. Published on the Internet; http://apps.kew.org/wcsp/
+        Retrieved 2011 onwards","genus":"Quercus","taxonomicStatus":"Accepted","kingdom":"Plantae","phylum":"Magnoliophyta","family":"Fagaceae","nomenclaturalCode":"Botanical","source":"http://apps.kew.org/wcsp/namedetail.do?name_id=172538","namePublishedInYear":1840,"taxonRemarks":"California","nomenclaturalStatus":"Available","synonym":false,"plantae":true,"fungi":false,"fqId":"urn:lsid:ipni.org:names:296074-1","name":"Quercus
+        douglasii","authors":"Hook. & Arn.","species":"douglasii","rank":"SPECIES","reference":"Bot.
+        Beechey Voy.: 391 (1840)","classification":[{"fqId":"urn:lsid:ipni.org:names:30000116-2","name":"Fagaceae","author":"Dumort.","rank":"FAMILY","taxonomicStatus":"Accepted"},{"fqId":"urn:lsid:ipni.org:names:325819-2","name":"Quercus","author":"L.","rank":"GENUS","taxonomicStatus":"Accepted"},{"fqId":"urn:lsid:ipni.org:names:296074-1","name":"Quercus
+        douglasii","author":"Hook. & Arn.","rank":"SPECIES","taxonomicStatus":"Accepted"}],"synonyms":[{"fqId":"urn:lsid:ipni.org:names:216142-2","name":"Quercus
+        oblongifolia var. brevilobata","author":"Torr.","rank":"VARIETY","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:216297-2","name":"Quercus
+        ransomii","author":"Kellogg","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:296174-1","name":"Quercus
+        gambelii","author":"Liebm.","rank":"SPECIES","taxonomicStatus":"Synonym"}]}'
+  recorded_at: 2019-02-21 01:30:17 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4

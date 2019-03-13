@@ -25,7 +25,7 @@ for parent taxa as well as the specified taxon. Only used if \code{id} passed.}
 \item{response}{(logical) Note that response is the object that returns from the Curl call,
 useful for debugging, and getting detailed info on the API call.}
 
-\item{...}{Further args passed on to \code{\link[crul]{verb-GET}}, main purpose being curl debugging}
+\item{...}{Further args passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}, main purpose being curl debugging}
 }
 \value{
 A list of data.frame's.
@@ -39,19 +39,18 @@ Note that when passing in \code{name}, \code{fuzzy} can be used as well, while i
 is passed, then \code{fuzzy} is ignored, and \code{dataTypes} \code{includeTree} can be used.
 
 Options for \code{dataTypes} parameter:
-
 \itemize{
- \item all returns all data
- \item basic returns basic taxon information
- \item images returns specimen image. Includes copyright information, image URL, image metadata.
- \item stats Returns specimen and sequence statistics. Includes public species count, public BIN
- count, public marker counts, public record count, specimen count, sequenced specimen count,
- barcode specimen count, species count, barcode species count.
- \item geo Returns collection site information. Includes country, collection site map.
- \item sequencinglabs Returns sequencing labs. Includes lab name, record count.
- \item depository Returns specimen depositories. Includes depository name, record count.
- \item thirdparty Returns information from third parties. Includes wikipedia summary, wikipedia
- URL, GBIF map.
+\item all returns all data
+\item basic returns basic taxon information
+\item images returns specimen image. Includes copyright information, image URL, image metadata.
+\item stats Returns specimen and sequence statistics. Includes public species count, public BIN
+count, public marker counts, public record count, specimen count, sequenced specimen count,
+barcode specimen count, species count, barcode species count.
+\item geo Returns collection site information. Includes country, collection site map.
+\item sequencinglabs Returns sequencing labs. Includes lab name, record count.
+\item depository Returns specimen depositories. Includes depository name, record count.
+\item thirdparty Returns information from third parties. Includes wikipedia summary, wikipedia
+URL, GBIF map.
 }
 }
 \examples{

@@ -9,10 +9,10 @@ tp_synonyms(id, key = NULL, ...)
 \arguments{
 \item{id}{the taxon identifier code}
 
-\item{key}{Your Tropicos API key; See \code{\link{taxize-authentication}} 
+\item{key}{Your Tropicos API key; See \code{\link{taxize-authentication}}
 for help on authentication}
 
-\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
+\item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient}}}
 }
 \value{
 List or dataframe.

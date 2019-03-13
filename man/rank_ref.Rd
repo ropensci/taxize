@@ -7,9 +7,9 @@
 \description{
 data.frame of 43 rows, with 2 columns:
 \itemize{
- \item rankid - a numeric rank id, consecutive
- \item ranks - a comma separated vector of names that are considered
- equal to one another within the row
+\item rankid - a numeric rank id, consecutive
+\item ranks - a comma separated vector of names that are considered
+equal to one another within the row
 }
 }
 \details{

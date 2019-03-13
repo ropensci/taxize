@@ -16,11 +16,20 @@
 #' @param checklist The year of the checklist to query, if you want a specific
 #' 		year's checklist instead of the lastest as default (numeric).
 #' @param response (character) one of "terse" or "full"
-#' @param ... Curl options passed on to \code{\link[crul]{HttpClient}}
+#' @param ... Curl options passed on to [`crul::HttpClient`]
 #' @details You must provide one of name or id. The other parameters (format
 #' 		and start) are optional.
-#' @references \url{http://webservice.catalogueoflife.org/}
-#' @return A list of data.frame's.
+#' @references <http://webservice.catalogueoflife.org/>
+#' @return A list of data.frame's, each data.frame has the attributes:
+#' * id:
+#' * name:
+#' * total_number_of_results:
+#' * number_of_results_returned:
+#' * start:
+#' * error_message:
+#' * version:
+#' * rank:
+#'
 #' @examples \dontrun{
 #' # A basic example
 #' col_search(name="Apis")
@@ -40,22 +49,22 @@
 #' col_search(id = "36c623ad9e3da39c2e978fa3576ad415", response = "full")
 #' col_search(id = "787ce23969f5188c2467126d9a545be1")
 #' col_search(id = "787ce23969f5188c2467126d9a545be1", response = "full")
-#' col_search(id = c("36c623ad9e3da39c2e978fa3576ad415", 
+#' col_search(id = c("36c623ad9e3da39c2e978fa3576ad415",
 #'   "787ce23969f5188c2467126d9a545be1"))
 #' ## a synonym
 #' col_search(id = "f726bdaa5924cabf8581f99889de51fc")
 #' col_search(id = "f726bdaa5924cabf8581f99889de51fc", response = "full")
 #' }
 
-col_search <- function(name=NULL, id=NULL, start=NULL, checklist=NULL, 
-  response="terse", ...) {
+col_search <- function(name = NULL, id = NULL, start = NULL, checklist = NULL,
+  response = "terse", ...) {
 
   response <- match.arg(response, c("terse", "full"))
   func <- function(x, y, ...) {
     url <- make_url(checklist)
     args <- tc(list(name = x, id = y, start = start, response = response,
                     format = "json"))
-    cli <- crul::HttpClient$new(url = url, opts = list(...))
+    cli <- crul::HttpClient$new(url = url, headers = tx_ual, opts = list(...))
     out <- cli$get(query = argsnull(args))
     if (out$status_code >= 300) {
       warning("COL taxon not found", call. = FALSE)
@@ -63,8 +72,8 @@ col_search <- function(name=NULL, id=NULL, start=NULL, checklist=NULL,
       tt <- jsonlite::fromJSON(out$parse("UTF-8"), FALSE)
       switch(
         response,
-        terse = parse_terse(tt),
-        full = parse_full(tt)
+        terse = col_meta(parse_terse(tt), tt),
+        full = col_meta(parse_full(tt), tt)
       )
     }
   }
@@ -87,6 +96,11 @@ make_url <- function(checklist) {
 
 col_base <- function() "http://www.catalogueoflife.org/col/webservice"
 
+col_meta <- function(y, x) {
+  x$results <- NULL
+  do.call(structure, c(list(.Data = y %||% data.frame(NULL)), x))
+}
+
 parse_terse <- function(x) {
   nodes <- x$results
   ldply(nodes, parsecoldata)
@@ -101,9 +115,11 @@ parsecoldata <- function(x){
   bb$rank <- tolower(bb$rank)
   acc <- x$accepted_name
   if (is.null(acc)) {
-    accdf <- data.frame(acc_id=NA, acc_name=NA, acc_rank=NA, acc_status=NA, acc_source=NA, stringsAsFactors = FALSE)
+    accdf <- data.frame(acc_id=NA, acc_name=NA, acc_rank=NA,
+      acc_status=NA, acc_source=NA, stringsAsFactors = FALSE)
   } else {
-    accdf <- data.frame(acc[c('id','name','rank','name_status','source_database')], stringsAsFactors=FALSE)
+    accdf <- data.frame(acc[c('id','name','rank','name_status','source_database')],
+      stringsAsFactors=FALSE)
     names(accdf) <- c('acc_id','acc_name','acc_rank','acc_status','acc_source')
     accdf$acc_rank <- tolower(accdf$acc_rank)
   }
@@ -114,71 +130,72 @@ parse_full <- function(x) {
   tmp <- Filter(length, x$results)
   taxize_ldfast(
     lapply(tmp, function(z) {
-      switch(z$name_status,
-             `accepted name` = {
-               if (length(z$classification) == 0) {
-                 h <- parse_one(z)
-                 rank <- z$rank
-                 id <- z$id
-               } else {
-                 h <- parse_one(z)
-                 h_vals <- pluck(z$classification, "name", "")
-                 h_nms <- pluck(z$classification, "rank", "")
-                 class <- setNames(rbind.data.frame(h_vals), tolower(h_nms))
-                 h <- cbind(h, class)
-                 rank <- z$rank
-                 id <- z$id
-               }
-             },
-             `provisionally accepted name` = {
-               if (length(z$classification) == 0) {
-                 h <- parse_one(z)
-                 rank <- z$rank
-                 id <- z$id
-               } else {
-                 h <- parse_one(z)
-                 h_vals <- pluck(z$classification, "name", "")
-                 h_nms <- pluck(z$classification, "rank", "")
-                 class <- setNames(rbind.data.frame(h_vals), tolower(h_nms))
-                 h <- cbind(h, class)
-                 rank <- z$rank
-                 id <- z$id
-               }
-             },
-             `common name` = {
-               h_vals <- pluck(z$accepted_name$classification, "name", "")
-               h_nms <- pluck(z$accepted_name$classification, "rank", "")
-               h <- setNames(rbind.data.frame(h_vals), tolower(h_nms))
-               rank <- z$accepted_name$rank
-               id <- z$accepted_name$id
-             },
-             `synonym` = {
-               h <- parse_one(z)
-               name <- z$accepted_name$name
-               rank <- z$accepted_name$rank
-               id <- z$accepted_name$id
-               name_status <- z$accepted_name$name_status
-               h <- cbind(h, setNames(data.frame(id, name, rank, name_status, stringsAsFactors = FALSE),
-                                      c('acc_id','acc_name','acc_rank','acc_status')))
-             },
-             `ambiguous synonym` = {
-               h <- parse_one(z)
-               name <- z$accepted_name$name
-               rank <- z$accepted_name$rank
-               id <- z$accepted_name$id
-               name_status <- z$accepted_name$name_status
-               h <- cbind(h, setNames(data.frame(id, name, rank, name_status, stringsAsFactors = FALSE),
-                                      c('acc_id','acc_name','acc_rank','acc_status')))
-             },
-             `misapplied name` = {
-               h <- parse_one(z)
-               name <- z$accepted_name$name
-               rank <- z$accepted_name$rank
-               id <- z$accepted_name$id
-               name_status <- z$accepted_name$name_status
-               h <- cbind(h, setNames(data.frame(id, name, rank, name_status, stringsAsFactors = FALSE),
-                                      c('acc_id','acc_name','acc_rank','acc_status')))
-             }
+      switch(
+        z$name_status,
+        `accepted name` = {
+         if (length(z$classification) == 0) {
+           h <- parse_one(z)
+           rank <- z$rank
+           id <- z$id
+         } else {
+           h <- parse_one(z)
+           h_vals <- pluck(z$classification, "name", "")
+           h_nms <- pluck(z$classification, "rank", "")
+           class <- setNames(rbind.data.frame(h_vals), tolower(h_nms))
+           h <- cbind(h, class)
+           rank <- z$rank
+           id <- z$id
+         }
+        },
+        `provisionally accepted name` = {
+         if (length(z$classification) == 0) {
+           h <- parse_one(z)
+           rank <- z$rank
+           id <- z$id
+         } else {
+           h <- parse_one(z)
+           h_vals <- pluck(z$classification, "name", "")
+           h_nms <- pluck(z$classification, "rank", "")
+           class <- setNames(rbind.data.frame(h_vals), tolower(h_nms))
+           h <- cbind(h, class)
+           rank <- z$rank
+           id <- z$id
+         }
+        },
+        `common name` = {
+         h_vals <- pluck(z$accepted_name$classification, "name", "")
+         h_nms <- pluck(z$accepted_name$classification, "rank", "")
+         h <- setNames(rbind.data.frame(h_vals), tolower(h_nms))
+         rank <- z$accepted_name$rank
+         id <- z$accepted_name$id
+        },
+        `synonym` = {
+         h <- parse_one(z)
+         name <- z$accepted_name$name
+         rank <- z$accepted_name$rank
+         id <- z$accepted_name$id
+         name_status <- z$accepted_name$name_status
+         h <- cbind(h, setNames(data.frame(id, name, rank, name_status, stringsAsFactors = FALSE),
+                                c('acc_id','acc_name','acc_rank','acc_status')))
+        },
+        `ambiguous synonym` = {
+         h <- parse_one(z)
+         name <- z$accepted_name$name
+         rank <- z$accepted_name$rank
+         id <- z$accepted_name$id
+         name_status <- z$accepted_name$name_status
+         h <- cbind(h, setNames(data.frame(id, name, rank, name_status, stringsAsFactors = FALSE),
+                                c('acc_id','acc_name','acc_rank','acc_status')))
+        },
+        `misapplied name` = {
+         h <- parse_one(z)
+         name <- z$accepted_name$name
+         rank <- z$accepted_name$rank
+         id <- z$accepted_name$id
+         name_status <- z$accepted_name$name_status
+         h <- cbind(h, setNames(data.frame(id, name, rank, name_status, stringsAsFactors = FALSE),
+                                c('acc_id','acc_name','acc_rank','acc_status')))
+        }
       )
       target <- setNames(rbind.data.frame(
         c(z$name,
@@ -197,13 +214,14 @@ parse_full <- function(x) {
 parse_one <- function(z) {
   scrut <- z$record_scrutiny_date
   scrutie <- if (is.null(scrut[[1]]) || scrut[[1]] == FALSE) FALSE else TRUE
-  if (scrutie) scrut <- data.frame(record_scrutiny_date = scrut$scrutiny, stringsAsFactors = FALSE)
+  if (scrutie) scrut <- data.frame(record_scrutiny_date = scrut$scrutiny,
+    stringsAsFactors = FALSE)
   refs <- z$references
   refsie <- if (is.null(refs) || length(refs) == 0) FALSE else TRUE
   if (refsie) refs <- data.frame(tc(refs[[1]]), stringsAsFactors = FALSE)
   lst <- pop(z, c("distribution", "classification", "synonyms", "common_names",
-                  "record_scrutiny_date", "references", "accepted_name", "child_taxa",
-                  "name_html"))
+    "record_scrutiny_date", "references", "accepted_name", "child_taxa",
+    "name_html"))
   df <- data.frame(lst, stringsAsFactors = FALSE)
   if (is(scrut, "data.frame")) df <- cbind(df, scrut)
   if (is(refs, "data.frame")) df <- cbind(df, refs)

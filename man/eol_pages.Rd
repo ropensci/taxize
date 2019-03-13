@@ -69,10 +69,10 @@ The default is to return all content. (Default: \code{FALSE})}
 
 \item{cache_ttl}{The number of seconds you wish to have the response cached.}
 
-\item{key}{Your EOL API key; see \code{\link{taxize-authentication}} 
+\item{key}{Your EOL API key; see \code{\link{taxize-authentication}}
 for help on authentication}
 
-\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
+\item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient}}}
 }
 \value{
 JSON list object, or data.frame.
@@ -82,7 +82,7 @@ Search for pages in EOL database using a taxonconceptID.
 }
 \details{
 It's possible to return JSON or XML with the EOL API. However,
-		this function only returns JSON for now.
+this function only returns JSON for now.
 }
 \examples{
 \dontrun{

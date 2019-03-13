@@ -4,20 +4,20 @@
 #' @param key A taxonomic serial number.
 #' @param downto The taxonomic level you want to go down to. See examples below.
 #' 		The taxonomic level IS case sensitive, and you do have to spell it
-#' 		correctly. See \code{data(rank_ref)} for spelling.
+#' 		correctly. See `data(rank_ref)` for spelling.
 #' @param intermediate (logical) If TRUE, return a list of length two with
 #' target taxon rank names, with additional list of data.frame's of
 #' intermediate taxonomic groups. Default: FALSE
 #' @param limit Number of records to return
 #' @param start Record number to start at
-#' @param ... Further args passed on to \code{\link{gbif_name_usage}}
+#' @param ... Further args passed on to [`gbif_name_usage`]
 #' @return data.frame of taxonomic information downstream to family from e.g.,
-#' 		Order, Class, etc., or if \code{intermediated=TRUE}, list of length two,
+#' 		Order, Class, etc., or if `intermediated=TRUE`, list of length two,
 #'   	with target taxon rank names, and intermediate names.
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
-#' @details Sometimes records don't have a \code{canonicalName} entry which is 
-#' what we look for. In that case we grab the \code{scientificName} entry. 
-#' You can see the type of name colleceted in the column \code{name_type}
+#' @details Sometimes records don't have a `canonicalName` entry which is 
+#' what we look for. In that case we grab the `scientificName` entry. 
+#' You can see the type of name colleceted in the column `name_type`
 #' @examples \dontrun{
 #' ## the plant class Bangiophyceae
 #' gbif_downstream(key = 198, downto="genus")

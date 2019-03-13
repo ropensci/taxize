@@ -18,20 +18,22 @@ register a parallel backend if \code{TRUE}. See e.g., doMC, doSNOW, etc.}
 returned as a list of vectors corresponding to the different range types:
 native, introduced, etc.}
 
-\item{key}{a Redlist API key, get one from 
-\url{http://apiv3.iucnredlist.org/api/v3/token}. Required for 
-\code{iucn_summary}. Defaults to \code{NULL} in case you have your key 
+\item{key}{a Redlist API key, get one from
+\url{http://apiv3.iucnredlist.org/api/v3/token}. Required for
+\code{iucn_summary}. Defaults to \code{NULL} in case you have your key
 stored (see \code{Redlist Authentication} below).}
 
-\item{...}{Currently not used.}
+\item{...}{curl options passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}}
 }
 \value{
 A list (for every species one entry) of lists with the following
 items:
-\item{status}{Red List Category.}
-\item{history}{History of status, if available.}
-\item{distr}{Geographic distribution, if available.}
-\item{trend}{Trend of population size, if available.}
+\itemize{
+\item \code{status} Red List Category.
+\item \code{history} History of status, if available.
+\item \code{distr} Geographic distribution, if available.
+\item \code{trend} Trend of population size, if available.
+}
 }
 \description{
 Get a summary from the IUCN Red List (\url{http://www.iucnredlist.org/}).
@@ -47,24 +49,24 @@ the data you get back is correct.
 passed in that's not \code{character} or \code{iucn} class - a
 \code{iucn_summary.character} method for when you pass in taxon names -
 and a \code{iucn_summary.iucn} method so you can pass in iucn class objects
-as output from \code{\link{get_iucn}} or \code{\link{as.iucn}}. If you
+as output from \code{\link[=get_iucn]{get_iucn()}} or \code{\link[=as.iucn]{as.iucn()}}. If you
 already have IUCN IDs, coerce them to \code{iucn} class via
 \code{as.iucn(..., check = FALSE)}
 }
 \note{
 Not all entries (history, distr, trend) are available for every species
 and NA is returned.
-\code{\link[taxize]{iucn_status}} is an extractor function to easily extract
+\code{\link[=iucn_status]{iucn_status()}} is an extractor function to easily extract
 status into a vector.
 }
 \section{Redlist Authentication}{
 
 \code{iucn_summary} uses the new Redlist API for searching for a IUCN ID, so we
-use the \code{\link[rredlist]{rl_search}} function internally. This function
+use the \code{\link[=rl_search]{rl_search()}} function internally. This function
 requires an API key. Get the key at \url{http://apiv3.iucnredlist.org/api/v3/token},
 and pass it to the \code{key} parameter, or store in your \code{.Renviron} file like
 \code{IUCN_REDLIST_KEY=yourkey} or in your \code{.Rprofile} file like
-\code{options(iucn_redlist_key="yourkey"}. We strongly encourage you to not pass
+\code{options(iucn_redlist_key="yourkey")}. We strongly encourage you to not pass
 the key in the function call but rather store it in one of those two files.
 This key will also set you up to use the \pkg{rredlist} package.
 }
@@ -96,7 +98,7 @@ iucn_status(iac)
 }
 }
 \seealso{
-\code{\link[taxize]{iucn_status}}
+\code{\link[=iucn_status]{iucn_status()}}
 }
 \author{
 Eduard Szoecs, \email{eduardszoecs@gmail.com}

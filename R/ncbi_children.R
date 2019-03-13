@@ -11,40 +11,35 @@
 #' two taxa with the same name and the same specified ancestor.
 #'
 #' @export
-#' @param name (\code{character}) The string to search for. Only exact matches 
-#' found the name given will be returned. Not compatible with \code{id}.
-#' @param id (\code{character}) The uid to search for. Not compatible with 
-#' \code{name}.
+#' @param name (`character`) The string to search for. Only exact matches 
+#' found the name given will be returned. Not compatible with `id`.
+#' @param id (`character`) The uid to search for. Not compatible with 
+#' `name`.
 #' @param start The first record to return. If omitted, the results are 
 #' returned from the first record (start=0).
-#' @param max_return (\code{numeric; length=1}) The maximum number of children
+#' @param max_return (`numeric; length=1`) The maximum number of children
 #' to return.
-#' @param ancestor (\code{character}) The ancestor of the taxon being searched 
+#' @param ancestor (`character`) The ancestor of the taxon being searched 
 #' for. This is useful if there could be more than one taxon with the same 
-#' name. Has no effect if \code{id} is used.
-#' @param out_type (character) Currently either \code{"summary"} or 
-#' \code{"uid"}:
-#' 
-#'   \describe{
-#'     \item{summary}{The output is a list of \code{data.frame} with children 
-#'     uid, name, and rank.}
-#'     \item{uid}{A list of character vectors of children uids}
-#'   }
-#' @param ambiguous \code{logical; length 1} If \code{FALSE}, children taxa 
+#' name. Has no effect if `id` is used.
+#' @param out_type (character) Currently either `"summary"` or `"uid"`:
+#' * `summary` The output is a list of `data.frame` with children uid, name,
+#' and rank.
+#' * `uid` A list of character vectors of children uids
+#' @param ambiguous `logical; length 1` If `FALSE`, children taxa 
 #' with words like "unclassified", "unknown", "uncultured", or "sp." are 
 #' removed from the output. NOTE: This option only applies when 
-#' \code{out_type = "summary"}.
+#' `out_type= "summary"`.
 #' @param key (character) NCBI Entrez API key. optional. See Details.
-#' @param ... Curl options passed on to \code{\link[crul]{HttpClient}}
-#' @return The output type depends on the value of the \code{out_type} 
-#' parameter. Taxa that cannot be found will result in \code{NA}s and a lack 
+#' @param ... Curl options passed on to [`crul::HttpClient`]
+#' @return The output type depends on the value of the `out_type` 
+#' parameter. Taxa that cannot be found will result in `NA`s and a lack 
 #' of children results in an empty data structure.
-#' @seealso \code{\link{ncbi_get_taxon_summary}}, 
-#' \code{\link[taxize]{children}}
+#' @seealso [`ncbi_get_taxon_summary()`], [`children()`]
 #' @author Zachary Foster \email{zacharyfoster1989@@gmail.com}
 #' 
 #' @section Authentication:
-#' See \code{\link{taxize-authentication}} for help on authentication. 
+#' See [`taxize-authentication()`] for help on authentication. 
 #' We strongly recommend getting an API key
 #'
 #' @examples
@@ -112,7 +107,7 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
       args$term <- gsub("\\+", " ", args$term)
       
       # Search ncbi for children - - - - - - - - - - - - - - - - - - - - - - - 
-      cli <- crul::HttpClient$new(ncbi_base(), opts = list(...))
+      cli <- crul::HttpClient$new(ncbi_base(), headers = tx_ual, opts = list(...))
       rr <- cli$get('entrez/eutils/esearch.fcgi', query = args)
       rr$raise_for_status()
       raw_results <- rr$parse("UTF-8")
@@ -134,7 +129,7 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
       args$term <- gsub("\\+", " ", args$term)
       
       # Search ncbi for children - - - - - - - - - - - - - - - - - - - - - - - 
-      cli <- crul::HttpClient$new(ncbi_base(), opts = list(...))
+      cli <- crul::HttpClient$new(ncbi_base(), headers = tx_ual, opts = list(...))
       rr <- cli$get('entrez/eutils/elink.fcgi', query = args)
       rr$raise_for_status()
       raw_results <- rr$parse("UTF-8")

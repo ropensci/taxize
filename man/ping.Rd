@@ -42,12 +42,11 @@ fg_ping(what = "status", ...)
 code. If status, we just check that the HTTP status code is 200, or similar
 signifying the service is up. If content, we do a simple, quick check to
 determine if returned content matches what's expected. If an HTTP status
-code, it must match an appropriate code. See \code{\link{status_codes}}.}
+code, it must match an appropriate code. See \code{\link[=status_codes]{status_codes()}}.}
 
-\item{...}{Curl options passed on to \code{\link[crul]{verb-GET}}}
+\item{...}{Curl options passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}}
 
-\item{key}{(character) NCBI Entrez API key. optional. See 
-\code{\link{get_uid}}}
+\item{key}{(character) NCBI Entrez API key. optional. See \code{\link[=get_uid]{get_uid()}}}
 }
 \value{
 A logical, TRUE or FALSE
@@ -56,8 +55,8 @@ A logical, TRUE or FALSE
 Ping an API used in taxize to see if it's working.
 }
 \details{
-For ITIS, see \code{\link[ritis]{description}}, which provides
-number of scientific and common names in a character string.
+For ITIS, see \code{\link[ritis:description]{ritis::description}}, which provides number of
+scientific and common names in a character string.
 }
 \examples{
 \dontrun{

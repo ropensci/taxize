@@ -2,8 +2,8 @@
 #'
 #' @export
 #' @param x An LSID number. Required.
-#' @param ... Curl options passed on to \code{\link[crul]{verb-GET}}
-#' @references http://www.organismnames.com
+#' @param ... Curl options passed on to [`crul::verb-GET`]
+#' @references <http://www.organismnames.com>
 #' @return A data.frame
 #' @examples \dontrun{
 #' ion(155166)
@@ -12,7 +12,7 @@
 #' ion(1280626) # puma concolor
 #' }
 ion <- function(x, ...) {
-  cli <- crul::HttpClient$new(ion_base(), opts = list(...))
+  cli <- crul::HttpClient$new(ion_base(), headers = tx_ual, opts = list(...))
   res <- cli$get(query = list(lsid = x))
   res$raise_for_status()
   xml <- xml2::read_xml(res$parse("UTF-8"))

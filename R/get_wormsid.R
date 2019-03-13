@@ -8,26 +8,26 @@
 #' @param searchtype character; One of 'scientific' or 'common', or any unique
 #' abbreviation
 #' @param accepted logical; If TRUE, removes names that are not accepted valid
-#' names by WORMS. Set to \code{FALSE} (default) to give back both accepted
+#' names by WORMS. Set to `FALSE` (default) to give back both accepted
 #' and unaccepted names.
 #' @param ask logical; should get_wormsid be run in interactive mode?
-#' If \code{TRUE} and more than one wormsid is found for the species, the
-#' user is asked for input. If \code{FALSE} NA is returned for
+#' If `TRUE` and more than one wormsid is found for the species, the
+#' user is asked for input. If `FALSE` NA is returned for
 #' multiple matches.
 #' @param messages logical; should progress be printed?
 #' @param rows numeric; Any number from 1 to infinity. If the default NaN, all
 #' rows are considered. Note that this function still only gives back a wormsid
-#' class object with one to many identifiers. See
-#' \code{\link[taxize]{get_wormsid_}} to get back all, or a subset, of the raw
-#' data that you are presented during the ask process.
+#' class object with one to many identifiers. See [`get_wormsid_()`] to get back
+#' all, or a subset, of the raw data that you are presented during the ask
+#' process.
 #' @param x Input to as.wormsid
 #' @param ... Ignored
 #' @param check logical; Check if ID matches any existing on the DB, only
-#' used in \code{\link{as.wormsid}}
+#' used in [`as.wormsid()`]
 #' @template getreturn
 #'
 #' @family taxonomic-ids
-#' @seealso \code{\link[taxize]{classification}}
+#' @seealso [`classification()`]
 #'
 #' @examples \dontrun{
 #' (x <- get_wormsid('Platanista gangetica'))
@@ -93,10 +93,7 @@ get_wormsid <- function(query, searchtype = "scientific", accepted = FALSE,
   assert(accepted, "logical")
   assert(ask, "logical")
   assert(messages, "logical")
-  if (!is.na(rows)) {
-    assert(rows, c("numeric", "integer"))
-    stopifnot(rows > 0)
-  }
+  assert_rows(rows)
 
   fun <- function(x, searchtype, ask, messages, ...) {
     direct <- FALSE
@@ -130,13 +127,13 @@ get_wormsid <- function(query, searchtype = "scientific", accepted = FALSE,
       if (nrow(wmdf) == 0) {
         mssg(messages, m_not_found_sp_altclass)
         wmid <- NA_character_
-        att <- 'not found'
+        att <- "not found"
       }
 
       # take the one wmid from data.frame
       if (nrow(wmdf) == 1) {
         wmid <- wmdf$id
-        att <- 'found'
+        att <- "found"
       }
 
       # check for direct match
@@ -146,7 +143,10 @@ get_wormsid <- function(query, searchtype = "scientific", accepted = FALSE,
         if (length(matchtmp) == 1) {
           wmid <- matchtmp
           direct <- TRUE
-          att <- 'found'
+          att <- "found"
+        } else {
+          wmid <- NA_character_
+          att <- "not found"
         }
       }
 
@@ -176,11 +176,11 @@ get_wormsid <- function(query, searchtype = "scientific", accepted = FALSE,
             take <- as.numeric(take)
             message("Input accepted, took taxon '", as.character(wmdf$target[take]), "'.\n")
             wmid <-  wmdf$id[take]
-            att <- 'found'
+            att <- "found"
           } else {
             wmid <- NA_character_
             mssg(messages, "\nReturned 'NA'!\n\n")
-            att <- 'not found'
+            att <- "not found"
           }
         } else {
           if (length(wmid) != 1) {

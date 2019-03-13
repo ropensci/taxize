@@ -1,5 +1,5 @@
 use_fxns_urls <- list(
-  tropics = "http://services.tropicos.org/help?requestkey",
+  tropicos = "http://services.tropicos.org/help?requestkey",
   eol = "https://eol.org/users/sign_up",
   entrez = "https://www.ncbi.nlm.nih.gov/account/"
 )
@@ -13,7 +13,7 @@ use_fxns_urls <- list(
 #' the user a detailed prompt.
 #'
 #' @name key_helpers
-#' @seealso \code{\link{taxize-authentication}}
+#' @seealso [`taxize-authentication`]
 NULL
 
 #' @section `use_tropicos()`:
@@ -83,8 +83,8 @@ use_entrez <- function() {
 
 #' @section `use_iucn()`:
 #' Browse IUCN Red List API key request URL and provides instruction on how
-#' to store the key. This function wraps \code{\link[rredlist]{rl_use_iucn}}
-#' from the \code{rredlist} package. After filling the form you will get
+#' to store the key. This function wraps [`rredlist::rl_use_iucn()`]
+#' from the `rredlist` package. After filling the form you will get
 #' the key soon, but not immediately.
 #' @export
 #' @rdname key_helpers

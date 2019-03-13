@@ -84,6 +84,13 @@ add_uri <- function(ids, url, z = NULL){
   ids
 }
 
+assert_rows <- function(rows) {
+  if (!all(is.na(rows))) {
+    assert(rows, c("numeric", "integer"))
+    stopifnot(all(rows > 0))
+  }
+}
+
 check_rows <- function(z) {
   if (!is.numeric(z) && !any(is.na(z))) {
     stop("'rows' must be numeric or NA", call. = FALSE)
@@ -120,17 +127,19 @@ sub_vector <- function(x, rows){
   if ( any(is.na(rows)) ) x else x[rows]
 }
 
-nstop <- function(x, arg='db') if (is.null(x)) stop(sprintf("Must specify %s!", arg), call. = FALSE)
+nstop <- function(x, arg='db') {
+  if (is.null(x)) stop(sprintf("Must specify %s!", arg), call. = FALSE)
+}
 
 colClasses <- function(d, colClasses) {
   colClasses <- rep(colClasses, len=length(d))
   d[] <- lapply(seq_along(d), function(i) switch(colClasses[i],
-                                                 numeric=as.numeric(d[[i]]),
-                                                 character=as.character(d[[i]]),
-                                                 Date=as.Date(d[[i]], origin='1970-01-01'),
-                                                 POSIXct=as.POSIXct(d[[i]], origin='1970-01-01'),
-                                                 factor=as.factor(d[[i]]),
-                                                 as(d[[i]], colClasses[i]) ))
+    numeric=as.numeric(d[[i]]),
+    character=as.character(d[[i]]),
+    Date=as.Date(d[[i]], origin='1970-01-01'),
+    POSIXct=as.POSIXct(d[[i]], origin='1970-01-01'),
+    factor=as.factor(d[[i]]),
+    as(d[[i]], colClasses[i]) ))
   d
 }
 
@@ -138,13 +147,12 @@ strtrim <- function(str) {
   gsub("^\\s+|\\s+$", "", str)
 }
 
-# function to help filter get_*() functions for a rank name or rank itself --------------
+# function to help filter get_*() functions for a rank name or rank itself ----
 filt <- function(df, rank, z) {
   if (NROW(df) == 0) {
     df
   } else {
     if (!is.null(z)) {
-      #mtch <- grep(tolower(z), tolower(df[,rank]))
       mtch <- grep(sprintf("%s", tolower(z)), tolower(df[,rank]))
       if (length(mtch) != 0) {
         df[mtch, ]
@@ -279,3 +287,12 @@ xml_text_all <- function(x, xpath) {
 }
 
 `%||%` <- function(x, y) if (is.null(x) || length(x) == 0 || is.na(x)) y else x
+
+tx_ua <- function() {
+  versions <- c(paste0("r-curl/", utils::packageVersion("curl")),
+    paste0("crul/", utils::packageVersion("crul")),
+    sprintf("rOpenSci(taxize/%s)", utils::packageVersion("taxize")))
+  paste0(versions, collapse = " ")
+}
+
+tx_ual <- list(`User-Agent` = tx_ua(), `X-USER-AGENT` = tx_ua())

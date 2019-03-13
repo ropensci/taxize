@@ -49,15 +49,15 @@ taxa with the matching rank.}
 \item{rows}{numeric; Any number from 1 to infinity. If the default NA, all
 rows are considered. Note that this function still only gives back a nbnid
 class object with one to many identifiers. See
-\code{\link[taxize]{get_nbnid_}} to get back all, or a subset, of the raw
+\code{\link[=get_nbnid_]{get_nbnid_()}} to get back all, or a subset, of the raw
 data that you are presented during the ask process.}
 
 \item{...}{Further args passed on to \code{nbn_search}}
 
-\item{x}{Input to \code{\link{as.nbnid}}}
+\item{x}{Input to \code{\link[=as.nbnid]{as.nbnid()}}}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only
-used in \code{\link{as.nbnid}}}
+used in \code{\link[=as.nbnid]{as.nbnid()}}}
 }
 \value{
 A vector of taxonomic identifiers as an S3 class.
@@ -128,18 +128,19 @@ invisible(get_nbnid("Quercus douglasii", verbose = TRUE))
 }
 }
 \references{
-<https://api.nbnatlas.org/>
+\url{https://api.nbnatlas.org/}
 }
 \seealso{
-\code{\link[taxize]{classification}}
+\code{\link[=classification]{classification()}}
 
 Other taxonomic-ids: \code{\link{get_boldid}},
   \code{\link{get_colid}}, \code{\link{get_eolid}},
   \code{\link{get_gbifid}}, \code{\link{get_ids}},
   \code{\link{get_iucn}}, \code{\link{get_natservid}},
-  \code{\link{get_tolid}}, \code{\link{get_tpsid}},
-  \code{\link{get_tsn}}, \code{\link{get_uid}},
-  \code{\link{get_wiki}}, \code{\link{get_wormsid}}
+  \code{\link{get_pow}}, \code{\link{get_tolid}},
+  \code{\link{get_tpsid}}, \code{\link{get_tsn}},
+  \code{\link{get_uid}}, \code{\link{get_wiki}},
+  \code{\link{get_wormsid}}
 
 Other nbn: \code{\link{nbn_classification}},
   \code{\link{nbn_search}}, \code{\link{nbn_synonyms}}

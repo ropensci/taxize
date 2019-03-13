@@ -51,3 +51,16 @@ test_that("get_wormsid fails well", {
   expect_error(get_wormsid("clam", ask = 4),
                "ask must be of class logical")
 })
+
+test_that("get_wormsid exact match with more than 1 exact match found", {
+  vcr::use_cassette("get_wormsid_multiple_exact_matches_found", {
+    x <- get_wormsid("Gadus", messages = FALSE, rows = 1:2)
+    1
+  })
+
+  expect_is(x, "wormsid")
+  expect_is(x[1], "character")
+  expect_equal(length(x), 1)
+  expect_true(attr(x, "multiple_matches"))
+  expect_false(attr(x, "pattern_match"))
+})

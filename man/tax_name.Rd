@@ -11,11 +11,11 @@ tax_name(query, get, db = "itis", pref = "ncbi", messages = TRUE,
 \item{query}{(character) Vector of taxonomic names to query. required.}
 
 \item{get}{(character) The ranks of the taxonomic name to get, see
-\code{\link{rank_ref}}. required.}
+\code{\link[=rank_ref]{rank_ref()}}. required.}
 
 \item{db}{(character) The database to search from: 'itis', 'ncbi' or 'both'.
 If 'both' both NCBI and ITIS will be queried. Result will be the union of
-both. If using ncbi, we recommend getting an API key; see 
+both. If using ncbi, we recommend getting an API key; see
 \code{\link{taxize-authentication}}}
 
 \item{pref}{(character) If db = 'both', sets the preference for the union.
@@ -24,8 +24,8 @@ Either 'ncbi' (default) or 'itis'. Currently not implemented.}
 \item{messages}{(logical) If \code{TRUE} the actual taxon queried is printed
 on the console.}
 
-\item{...}{Other arguments passed to \code{\link{get_tsn}} or
-\code{\link{get_uid}}.}
+\item{...}{Other arguments passed to \code{\link[=get_tsn]{get_tsn()}} or
+\code{\link[=get_uid]{get_uid()}}.}
 }
 \value{
 A data.frame with one column for every queried rank, in addition to
@@ -35,8 +35,8 @@ a column for db and queried term.
 Get taxonomic names for a given rank
 }
 \note{
-While \code{\link{tax_rank}} returns the actual rank of a
-taxon, \code{\link{tax_name}} searches and returns any specified rank
+While \code{\link[=tax_rank]{tax_rank()}} returns the actual rank of a
+taxon, \code{\link[=tax_name]{tax_name()}} searches and returns any specified rank
 higher in taxonomy.
 }
 \section{Authentication}{
@@ -68,5 +68,5 @@ tax_name(query=c("Helianthus annuus", 'Baetis rhodani'), get=c("genus",
 }
 }
 \seealso{
-\code{\link{classification}}
+\code{\link[=classification]{classification()}}
 }

@@ -51,16 +51,16 @@ multiple matches.}
 
 \item{rows}{numeric; Any number from 1 to infinity. If the default NaN, all
 rows are considered. Note that this function still only gives back a wormsid
-class object with one to many identifiers. See
-\code{\link[taxize]{get_wormsid_}} to get back all, or a subset, of the raw
-data that you are presented during the ask process.}
+class object with one to many identifiers. See \code{\link[=get_wormsid_]{get_wormsid_()}} to get back
+all, or a subset, of the raw data that you are presented during the ask
+process.}
 
 \item{...}{Ignored}
 
 \item{x}{Input to as.wormsid}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only
-used in \code{\link{as.wormsid}}}
+used in \code{\link[=as.wormsid]{as.wormsid()}}}
 }
 \value{
 A vector of taxonomic identifiers as an S3 class.
@@ -137,14 +137,15 @@ get_wormsid_("Plat", rows=1:75)
 }
 }
 \seealso{
-\code{\link[taxize]{classification}}
+\code{\link[=classification]{classification()}}
 
 Other taxonomic-ids: \code{\link{get_boldid}},
   \code{\link{get_colid}}, \code{\link{get_eolid}},
   \code{\link{get_gbifid}}, \code{\link{get_ids}},
   \code{\link{get_iucn}}, \code{\link{get_natservid}},
-  \code{\link{get_nbnid}}, \code{\link{get_tolid}},
-  \code{\link{get_tpsid}}, \code{\link{get_tsn}},
-  \code{\link{get_uid}}, \code{\link{get_wiki}}
+  \code{\link{get_nbnid}}, \code{\link{get_pow}},
+  \code{\link{get_tolid}}, \code{\link{get_tpsid}},
+  \code{\link{get_tsn}}, \code{\link{get_uid}},
+  \code{\link{get_wiki}}
 }
 \concept{taxonomic-ids}

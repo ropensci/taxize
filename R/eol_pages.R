@@ -22,24 +22,24 @@
 #' get objects under any license. Licenses abbreviated cc- are all Creative
 #' Commons licenses. Visit their site for more information on the various
 #' licenses they offer.
-#' @param details Include all metadata for data objects. (Default: \code{FALSE})
+#' @param details Include all metadata for data objects. (Default: `FALSE`)
 #' @param common_names Return all common names for the page's taxon
-#' (Default: \code{FALSE})
+#' (Default: `FALSE`)
 #' @param synonyms Return all synonyms for the page's taxon
-#' (Default: \code{FALSE})
+#' (Default: `FALSE`)
 #' @param references Return all references for the page's taxon
-#' (Default: \code{FALSE})
+#' (Default: `FALSE`)
 #' @param taxonomy (logical) Whether to return any taxonomy details from
-#' different taxon hierarchy providers, in an array named \code{taxonconcepts}
-#' (Default: \code{TRUE})
+#' different taxon hierarchy providers, in an array named `taxonconcepts`
+#' (Default: `TRUE`)
 #' @param vetted If 'vetted' is given a value of '1', then only trusted
 #' content will be returned. If 'vetted' is '2', then only trusted and
 #' unreviewed content will be returned (untrusted content will not be returned).
-#' The default is to return all content. (Default: \code{FALSE})
+#' The default is to return all content. (Default: `FALSE`)
 #' @param cache_ttl The number of seconds you wish to have the response cached.
-#' @param key Your EOL API key; see \code{\link{taxize-authentication}} 
+#' @param key Your EOL API key; see [`taxize-authentication`]
 #' for help on authentication
-#' @param ... Curl options passed on to \code{\link[crul]{HttpClient}}
+#' @param ... Curl options passed on to [`crul::HttpClient`]
 #' @details It's possible to return JSON or XML with the EOL API. However,
 #' 		this function only returns JSON for now.
 #' @return JSON list object, or data.frame.
@@ -48,17 +48,17 @@
 #' x <- eol_pages(taxonconceptID = pageid)
 #' x
 #' x$scinames
-#' 
+#'
 #' z <- eol_pages(taxonconceptID = pageid, synonyms = TRUE)
 #' z$synonyms
-#' 
+#'
 #' z <- eol_pages(taxonconceptID = pageid, common_names = TRUE)
 #' z$vernacular
 #' }
 
-eol_pages <- function(taxonconceptID, images_per_page=NULL, images_page=NULL, 
+eol_pages <- function(taxonconceptID, images_per_page=NULL, images_page=NULL,
   videos_per_page=NULL, videos_page=NULL, sounds_per_page=NULL, sounds_page=NULL,
-  maps_per_page=NULL, maps_page=NULL, texts_per_page=NULL, texts_page=NULL, 
+  maps_per_page=NULL, maps_page=NULL, texts_per_page=NULL, texts_page=NULL,
   subjects='overview', licenses='all', details=FALSE,
   common_names=FALSE, synonyms=FALSE, references=FALSE, taxonomy=TRUE, vetted=0,
   cache_ttl=NULL, key = NULL, ...) {
@@ -75,16 +75,17 @@ eol_pages <- function(taxonconceptID, images_per_page=NULL, images_page=NULL,
     maps_per_page=maps_per_page, maps_page=maps_page,
     texts_per_page=texts_per_page, texts_page=texts_page,
     subjects=subjects, licenses=licenses, details=details,
-    common_names=common_names, synonyms=synonyms, references=references, 
+    common_names=common_names, synonyms=synonyms, references=references,
     taxonomy=taxonomy, vetted=vetted, cache_ttl=cache_ttl, key=key))
   cli <- crul::HttpClient$new(
     url = file.path(eol_url("pages"), paste0(taxonconceptID, ".json")),
+    headers = tx_ual,
     opts = list(...)
   )
   res <- cli$get(query = argsnull(args))
   res$raise_for_status()
   tt <- res$parse("UTF-8")
-  stopifnot(res$response_headers$`content-type` == 
+  stopifnot(res$response_headers$`content-type` ==
     "application/json; charset=utf-8")
   res <- jsonlite::fromJSON(tt, FALSE)
 
@@ -106,7 +107,7 @@ eol_pages <- function(taxonconceptID, images_per_page=NULL, images_page=NULL,
   refs <- parseeoldata('references', res)
   # names(refs) <- "references"
   dataobj <- parseeoldata('dataObjects', res)
-  list(scinames=scinames, synonyms=syns, vernacular=vernac, refs=refs, 
+  list(scinames=scinames, synonyms=syns, vernacular=vernac, refs=refs,
     data_objects=dataobj)
 }
 

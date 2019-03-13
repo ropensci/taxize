@@ -1,3 +1,28 @@
+taxize 0.9.6
+============
+
+### NEW FEATURES
+
+* gains new functions for Kew's Plants of the World: `get_pow()`, `get_pow_()`, `as.pow()`, `classification.pow()`, `pow_search()`, and `pow_lookup()` (#598) (#739)
+* we now pass a user agent string in all HTTP requests to the various data sources so they know its coming from `taxize`. the string will look something like `r-curl/3.3 crul/0.7.0 rOpenSci(taxize/0.9.6)`, including the versions of the `curl` R pkg, the `crul` package, and the `taxize` package (#662)
+* change to `get_colid` functionality: we weren't paginating for the user when there were more than 50 results for a query; we now paginate for the user using async HTTP requests; this means that some requests will take longer than they did before if they have more than 50 results; this is a good change given that you get all the results for your query now (#743)
+* change across most `get_*` functions: in some of the `get_*` functions we tried for a direct match (e.g., `"Poa" == "Poa"`) and if one was found, then we were done and returned that record. however, we didn't deploy the same logic across all `get_*` functions. Now all `get_*` functions check for a direct match. Of course if there is a direct match with more than 1 result, you still get the prompt asking you which name you want. (#631) (#734)
+
+### MINOR IMPROVEMENTS
+
+* Make separate `taxize-authentication` manual file covering authentication information across the package (#681)
+* new case study vignette added (#544) (#721) thanks @fozy81
+* add note to `gnr_resolve()` docs about age of datasets used in the Global Names Resolver, and how to access age of datasets (#737)
+* `get_eolid()` fixes: gains new attribute `pageid`; `uri`'s given are updated to EOL's new URL format; `rank` and `datasource` parameters were not documented, now are; we no longer use short names for data sources within EOL, but instead use their full names  (#702) (#742)
+* `col_search()` now returns attributes on the output data.frame's with number of results found and returned, and other metadata about the search 
+* `gnr_datasources()` loses the `todf` parameter; now always returns a data.frame and the data.frame has all the columns, whereas the default call returned a limited set of columns in previous versions
+
+### BUG FIXES
+
+* fix bug in `get_wormsid()`, was failing when there was a direct match found with more than 1 result (#740)
+* fix across all `get_*` functions: linting of the input to the `rows` parmeter was failing with a vector of values in some cases (#741)
+* fix to `iucn_summary()`; we weren't passing on the API key internally correctly (#735) thanks @PrincessPi314 for the report
+
 taxize 0.9.5
 ============
 

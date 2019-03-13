@@ -1,16 +1,15 @@
 #' Taxonomic IDs to taxonomic names
-#' 
+#'
 #' @export
 #' @param x vector of taxonomic IDs (character or numeric)
-#' @param db (character) database to query. One or more of \code{tol},
-#' \code{itis}, \code{ncbi}, \code{worms}, \code{gbif}, \code{col}, or 
-#' \code{bold}. Note that each 
-#' taxonomic data source has their own  identifiers, so that if you provide 
-#' the wrong \code{db} value for the identifier you could get a result, 
+#' @param db (character) database to query. One or more of `tol`, `itis`,
+#' `ncbi`, `worms`, `gbif`, `col`, or `bold`. Note that each
+#' taxonomic data source has their own  identifiers, so that if you provide
+#' the wrong `db` value for the identifier you could get a result,
 #' but it will likely be wrong (not what you were expecting). If using ncbi
-#' we recommend getting API keys; see \code{\link{taxize-authentication}}
-#' @param ... Further args passed on to \code{tol_id2name} or
-#' \code{\link{itis_getrecord}}, or other internal functions.
+#' we recommend getting API keys; see [`taxize-authentication`]
+#' @param ... Further args passed on to `tol_id2name` or
+#' [`itis_getrecord`], or other internal functions.
 #' See those functions for what parameters can be passed on.
 #'
 #' @return A named list of data.frames, named by the input taxonomic ids
@@ -18,28 +17,28 @@
 #' @examples \dontrun{
 #' # ITIS
 #' id2name(19322, db = "itis")
-#' 
+#'
 #' # TOL
 #' id2name(515698, db = "tol")
 #' # get NCBI ID and pass to classification()
 #' x <- id2name(515698, db = "tol")
 #' classification(as.uid(x[[1]]$tax_sources_ncbi))
-#' 
+#'
 #' # NCBI
 #' id2name(315567, db = "ncbi")
 #' id2name(3339, db = "ncbi")
 #' id2name(9696, db = "ncbi")
 #' id2name(c(9695, 9696), db = "ncbi")
-#' 
+#'
 #' # WORMS
 #' id2name(105706, db = "worms")
-#' 
+#'
 #' # GBIF
 #' id2name(2441176, db = "gbif")
-#' 
+#'
 #' # COL
 #' id2name("36c623ad9e3da39c2e978fa3576ad415", db = "col")
-#' 
+#'
 #' # BOLD
 #' id2name(88899, db = "bold")
 #' }
@@ -59,8 +58,8 @@ id2name.default <- function(x, db = NULL, ...) {
 id2name_sources <- c('tol', 'itis', 'ncbi', 'worms', 'gbif', 'col', 'bold')
 
 process_idn_ids <- function(input, db) {
-  as_fxn <- switch(db, tol = as.tolid, itis = as.tsn, ncbi = as.uid, 
-    worms = as.wormsid, gbif = as.gbifid, col = as.colid, 
+  as_fxn <- switch(db, tol = as.tolid, itis = as.tsn, ncbi = as.uid,
+    worms = as.wormsid, gbif = as.gbifid, col = as.colid,
     bold = as.boldid)
   as_fxn(input, check = FALSE)
 }
@@ -84,7 +83,7 @@ id2name.tolid <- function(x, ...) {
 itis_id2name <- function(x, ...) {
   z <- itis_getrecord(x, ...)
   if (NROW(z) == 0) return(id2name_blanks$itis)
-  data.frame(id = x, name = z$scientificName$combinedName, 
+  data.frame(id = x, name = z$scientificName$combinedName,
     rank = strtrim(z$taxRank$rankName),
     status = z$coreMetadata$taxonUsageRating,
     parent_tsn = z$parentTSN$parentTsn,
@@ -108,7 +107,8 @@ id2name.tsn <- function(x, ...) {
 # NCBI
 ncbi_id2name <- function(x, ...) {
   key <- getkey(NULL, "ENTREZ_KEY")
-  cli <- crul::HttpClient$new(url = ncbi_base(), opts = list(...))
+  cli <- crul::HttpClient$new(url = ncbi_base(), headers = tx_ual,
+    opts = list(...))
   args <- tc(list(db = "taxonomy", id = x, api_key = key))
   res <- cli$get("entrez/eutils/esummary.fcgi", query = args)
   res$raise_for_status()
@@ -143,7 +143,7 @@ worms_id2name <- function(x, ...) {
   res <- worrms::wm_record_(id = as.numeric(x), ...)
   if (length(res) == 0) return(id2name_blanks$ncbi)
   res <- res[[1]]
-  data.frame(id = x, name = res$scientificname, 
+  data.frame(id = x, name = res$scientificname,
     rank = res$rank, status = res$status,
     stringsAsFactors = FALSE)
 }
@@ -166,7 +166,7 @@ id2name.wormsid <- function(x, ...) {
 gbif_id2name <- function(x, ...) {
   z <- tryCatch(gbif_name_usage(x, ...), error = function(e) e)
   if (inherits(z, "error") || length(z) == 0) return(id2name_blanks$ncbi)
-  data.frame(id = x, name = z$canonicalName, 
+  data.frame(id = x, name = z$canonicalName,
     rank = tolower(z$rank), status = tolower(z$taxonomicStatus),
     stringsAsFactors = FALSE)
 }
@@ -189,7 +189,7 @@ id2name.gbifid <- function(x, ...) {
 col_id2name <- function(x, ...) {
   z <- col_search(id = x, ...)
   if (NROW(z[[1]]) == 0) return(id2name_blanks$ncbi)
-  data.frame(id = x, name = z[[1]]$name, 
+  data.frame(id = x, name = z[[1]]$name,
     rank = tolower(z[[1]]$rank), status = tolower(z[[1]]$status),
     stringsAsFactors = FALSE)
 }
@@ -212,7 +212,7 @@ id2name.colid <- function(x, ...) {
 bold_id2name <- function(x, ...) {
   z <- bold_search(id = x, ...)
   if ("noresults" %in% names(z)) return(id2name_blanks$bold)
-  data.frame(id = x, name = z$taxon, 
+  data.frame(id = x, name = z$taxon,
     rank = tolower(z$tax_rank),
     stringsAsFactors = FALSE)
 }
