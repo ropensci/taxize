@@ -64,7 +64,6 @@ class2tree <- function(input, varstep = TRUE, check = TRUE, ...) {
   if (length(unique(names(input))) < length(names(input)))
     stop("Input list of classifications contains duplicates")
 
-  dat <- rbind.fill(lapply(input, class2tree_helper))
   # Get rank and ID list
   rankList <- rbind.fill(lapply(input, get_rank))
   nameList <- rbind.fill(lapply(input, get_name))
@@ -96,13 +95,6 @@ class2tree <- function(input, varstep = TRUE, check = TRUE, ...) {
     distmat = taxdis, names = names(input))
   class(res) <- 'classtree'
   return( res )
-}
-
-class2tree_helper <- function(x){
-  df <- x[-nrow(x), 'name']
-  names(df) <- x[-nrow(x), 'rank']
-  df <- data.frame(t(data.frame(df)), stringsAsFactors = FALSE)
-  data.frame(tip = x[nrow(x), "name"], df, stringsAsFactors = FALSE)
 }
 
 #' @method plot classtree
