@@ -90,7 +90,18 @@ class2tree <- function(input, varstep = TRUE, check = TRUE, ...) {
   # check for incorrect dimensions error
   if (is(taxdis, 'simpleError'))
     stop("Try check=FALSE, but see docs for taxa2dist function in the vegan package for details.")
+  
   out <- as.phylo.hclust(hclust(taxdis, ...))
+  # Add node labels
+  node_ids <- sort(unique(out$edge[,1]))
+  node_labels <- sapply(phangorn::Descendants(out, node_ids), function(x) {
+    sub_df <- df[out$tip.label[x],]
+    unique(sub_df[,which(sapply(1:ncol(sub_df), function(i) {
+      length(unique(sub_df[,i]))==1
+    }))[1]])
+  })
+  out$node.label <- node_labels
+  
   res <- list(phylo = out, classification = as.data.frame(t(tdf)), 
     distmat = taxdis, names = names(input))
   class(res) <- 'classtree'
