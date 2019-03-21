@@ -92,6 +92,7 @@ class2tree <- function(input, varstep = TRUE, check = TRUE, ...) {
     stop("Try check=FALSE, but see docs for taxa2dist function in the vegan package for details.")
   
   out <- as.phylo.hclust(hclust(taxdis, ...))
+  out <- ape::di2multi(out)
   # Add node labels
   node_ids <- sort(unique(out$edge[,1]))
   node_labels <- sapply(phangorn::Descendants(out, node_ids), function(x) {
