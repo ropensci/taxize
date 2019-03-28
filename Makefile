@@ -1,3 +1,5 @@
+RSCRIPT = Rscript --no-init-file
+
 all: move rmd2md
 
 vignettes:
@@ -17,3 +19,14 @@ rmd2md:
 		mv name_cleaning.md name_cleaning.Rmd;\
 		mv taxize_case_study.md taxize_case_study.Rmd
 
+install: doc build
+	R CMD INSTALL . && rm *.tar.gz
+
+build:
+	R CMD build .
+
+doc:
+	${RSCRIPT} -e "devtools::document()"
+
+eg:
+	${RSCRIPT} -e "devtools::run_examples()"

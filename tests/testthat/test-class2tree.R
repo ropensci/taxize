@@ -27,6 +27,8 @@ test_that("class2tree returns the correct value and class", {
   expect_is(tr$classification, "data.frame")
   expect_is(tr$distmat, "dist")
   expect_is(tr$names, "character")
+  expect_is(tr$phylo$node.label, "character")
+  expect_equal(length(tr$phylo$node.label), tr$phylo$Nnode)
   expect_equal(
     anyDuplicated(gsub("\\.\\d+$", "", names(tr$classification))), 0)
 })
