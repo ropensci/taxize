@@ -67,8 +67,12 @@ children("161994", db = "itis")
 # Plug in taxon names
 children("Salmo", db = 'col')
 children("Salmo", db = 'itis')
-children("Salmo", db = 'ncbi')
 children("Salmo", db = 'worms')
+
+# three different approaches with same data source and inputs
+children("Salmo", db = 'ncbi')
+children(get_uid("Salmo"), db = 'ncbi')
+children(8028, db = 'ncbi')
 
 # Plug in IDs
 (id <- get_colid("Apis"))

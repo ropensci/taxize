@@ -66,7 +66,7 @@ sci2comm.default <- function(scinames, db='ncbi', simplify=TRUE, ...) {
 #' @export
 #' @rdname sci2comm
 sci2comm.uid <- function(id, ...) {
-  out <- lapply(id, function(x) ncbi_foo(x, ...))
+  out <- lapply(pluck_taxon_part(id, "id"), function(x) ncbi_foo(x, ...))
   names(out) <- id
   return(out)
 }
@@ -175,7 +175,7 @@ itis_foo <- function(x, simplify=TRUE, ...){
 
 ncbi_foo <- function(x, ...){
   key <- getkey(NULL, "ENTREZ_KEY")
-  query <- tc(list(db = "taxonomy", ID = x, api_key = key))
+  query <- tc(list(db = "taxonomy", ID = x$ids[[1]]$id, api_key = key))
   cli <- crul::HttpClient$new(url = ncbi_base(), headers = tx_ual,
     opts = list(...))
   res <- cli$get("entrez/eutils/efetch.fcgi", query = query)

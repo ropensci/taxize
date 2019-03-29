@@ -10,19 +10,38 @@ pluck <- function(x, name, type) {
   }
 }
 
-collapse <- function(x, fxn, class, match=TRUE, ...) {
+switch_taxa_db <- function(x) taxa::database_list[[fetch_db_entry(x)]]
+switch_url <- function(x) {
+  switch(fetch_db_entry(x), 
+    ncbi = "https://www.ncbi.nlm.nih.gov/taxonomy/",
+    gbif = "http://www.gbif.org/species/",
+    bold = "http://boldsystems.org/index.php/Taxbrowser_Taxonpage?taxid=",
+    col = "http://www.catalogueoflife.org/col/details/species/id/",
+    eol = "https://eol.org/pages/",
+    nbn = "https://species.nbnatlas.org/species/",
+    tps = "http://tropicos.org/Name/",
+    itis = "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value="
+  )
+}
+
+collapse <- function(x, fxn, class, ...) {
+  db <- switch_taxa_db(class)
   tmp <- lapply(x, fxn, ...)
-  if (match) {
-    structure(sapply(tmp, unclass), class = class,
-              name = unlist(sapply(tmp, attr, which = "name")),
-              match = sapply(tmp, attr, which = "match"),
-              multiple_matches = sapply(tmp, attr, which = "multiple_matches"),
-              pattern_match = sapply(tmp, attr, which = "pattern_match"),
-              uri = tcnull(sapply(tmp, attr, which = "uri")))
-  } else {
-    structure(sapply(tmp, unclass), class = class,
-              uri = tcnull(sapply(tmp, attr, which = "uri")))
-  }
+  res <- taxa::taxa(.list = lapply(tmp, function(z) {
+    url <- paste0(switch_url(class), z$ids[[1]]$id)
+    out <- taxa::taxon(
+      taxa::taxon_name(z$names[[1]]$name %||% character(0), db),
+      taxa::taxon_rank(z$ranks[[1]]$name %||% character(0), db),
+      taxa::taxon_id(z$ids[[1]]$id %||% character(0), db, url)
+    )
+    out$attributes <- list(
+      match = z[[1]]$attributes$match,
+      multiple_matches = z[[1]]$attributes$multiple,
+      pattern_match = z[[1]]$attributes$pattern_match
+    )
+    out
+  }))
+  structure(res, class = c(class, class(res)))
 }
 
 evalfxn <- function(x) eval(parse(text = paste0("check", "_", x)))
@@ -35,9 +54,9 @@ toid <- function(x, url, class, tmp, ...) {
 taxa_output <- function(x, uri, class, name, rank) {
   db <- taxa::database_list[[fetch_db_entry(class)]]
   out <- taxa::taxon(
-    taxa::taxon_name(name %||% "", db),
+    taxa::taxon_name(name, db),
     taxa::taxon_rank(rank, db),
-    taxa::taxon_id(x %||% "", uri, db)
+    taxa::taxon_id(x, uri, db)
   )
   out$attributes <- list(
     match = "found",
@@ -45,7 +64,7 @@ taxa_output <- function(x, uri, class, name, rank) {
     pattern_match = FALSE
   )
   res <- taxa::taxa(out)
-  structure(res, class = c(class(res), class))
+  structure(res, class = c(class, class(res)))
 }
 
 taxa_null <- function(clz) {
@@ -56,7 +75,7 @@ taxa_null <- function(clz) {
     pattern_match = FALSE
   )
   res <- taxa::taxa(out)
-  structure(res, class = c(class(res), clz))
+  structure(res, class = c(clz, class(res)))
 }
 
 fetch_db_entry <- function(x) {
@@ -244,6 +263,7 @@ dt2tibble <- function(x) {
 }
 
 dbswap <- function(x) {
+  x <- x[!x %in% c("Taxa", "R6")]
   switch(
     x,
     boldid = "bold",

@@ -128,6 +128,15 @@ or environment variable.
 
 \examples{
 \dontrun{
+# the new way
+x <- get_uid("Quercus douglasii")
+x
+x[[1]]
+x[[1]]$name
+x[[1]]$attributes
+x[[1]]$is_empty()
+if (interactive()) x[[1]]$browse()
+
 get_uid(c("Chironomus riparius", "Chaetopteryx"))
 get_uid(c("Chironomus riparius", "aaa vva"))
 
@@ -177,7 +186,7 @@ get_uid('Dugesia', ask = FALSE) # returns NA for multiple matches
 
 # Go to a website with more info on the taxon
 res <- get_uid("Chironomus riparius")
-browseURL(attr(res, "uri"))
+if (interactive()) res[[1]]$browse()
 
 # Convert a uid without class information to a uid class
 as.uid(get_uid("Chironomus riparius")) # already a uid, returns the same

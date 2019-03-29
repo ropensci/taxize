@@ -206,8 +206,8 @@ downstream.gbifid <- function(x, db = NULL, downto = NULL,
                       start = start, ...)
     }
   }
-  out <- lapply(x, fun, downto = downto, intermediate = intermediate,
-    limit = limit, start = start, ...)
+  out <- lapply(pluck_taxon_part(x, "id"), fun, downto = downto, 
+    intermediate = intermediate, limit = limit, start = start, ...)
   structure(out, class = 'downstream', db = 'gbif')
 }
 
@@ -224,7 +224,8 @@ downstream.uid <- function(x, db = NULL, downto = NULL,
                       intermediate = intermediate, ...)
     }
   }
-  out <- lapply(x, fun, downto = downto, intermediate = intermediate, ...)
+  out <- lapply(pluck_taxon_part(x, "id"), fun, downto = downto, 
+    intermediate = intermediate, ...)
   structure(out, class = 'downstream', db = 'ncbi')
 }
 

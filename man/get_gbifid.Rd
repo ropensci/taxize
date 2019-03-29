@@ -108,6 +108,15 @@ Filtering narrows down to the set that matches your query, and removes the rest.
 
 \examples{
 \dontrun{
+# the new way
+x <- get_gbifid("Puma concolor")
+x
+x[[1]]
+x[[1]]$name
+x[[1]]$rank
+x[[1]]$attributes
+x[[1]]$is_empty()
+if (interactive()) x[[1]]$browse()
 get_gbifid(sciname='Poa annua')
 get_gbifid(sciname='Pinus contorta')
 get_gbifid(sciname='Puma concolor')
@@ -145,7 +154,7 @@ get_gbifid("Satyrium", phylum = "arthropoda")
 get_gbifid("A*", method = "lookup", order = "*tera")
 get_gbifid("A*", method = "lookup", order = "*ales")
 
-# Convert a uid without class information to a uid class
+# Convert a gbifid without class information to a gbifid class
 as.gbifid(get_gbifid("Poa annua")) # already a uid, returns the same
 as.gbifid(get_gbifid(c("Poa annua","Puma concolor"))) # same
 as.gbifid(2704179) # numeric
@@ -156,13 +165,12 @@ as.gbifid(list("2704179","2435099","3171445")) # list, either numeric or charact
 ## dont check, much faster
 as.gbifid("2704179", check=FALSE)
 as.gbifid(2704179, check=FALSE)
-as.gbifid(2704179, check=FALSE)
 as.gbifid(c("2704179","2435099","3171445"), check=FALSE)
 as.gbifid(list("2704179","2435099","3171445"), check=FALSE)
 
 (out <- as.gbifid(c(2704179,2435099,3171445)))
 data.frame(out)
-as.uid( data.frame(out) )
+as.gbifid( data.frame(out) )
 
 # Get all data back
 get_gbifid_("Puma concolor")

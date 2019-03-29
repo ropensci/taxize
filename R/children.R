@@ -37,8 +37,12 @@
 #' # Plug in taxon names
 #' children("Salmo", db = 'col')
 #' children("Salmo", db = 'itis')
-#' children("Salmo", db = 'ncbi')
 #' children("Salmo", db = 'worms')
+#' 
+#' # three different approaches with same data source and inputs
+#' children("Salmo", db = 'ncbi')
+#' children(get_uid("Salmo"), db = 'ncbi')
+#' children(8028, db = 'ncbi')
 #'
 #' # Plug in IDs
 #' (id <- get_colid("Apis"))
@@ -94,8 +98,7 @@ children.default <- function(x, db = NULL, rows = NA, ...) {
 
     ncbi = {
       if (all(grepl("^[[:digit:]]*$", x))) {
-        id <- x
-        class(id) <- "uid"
+        id <- as.uid(x, check = FALSE)
         stats::setNames(children(id, ...), x)
       } else {
         out <- ncbi_children(name = x, ...)
@@ -258,10 +261,10 @@ children.ids <- function(x, db = NULL, ...) {
 #' @export
 #' @rdname children
 children.uid <- function(x, db = NULL, ...) {
-  out <- if (is.na(x)) {
+  out <- if (suppressWarnings(all(is.na(x)))) {
     stats::setNames(list(ncbi_blank), x)
   } else {
-    ncbi_children(id = x, ambiguous = TRUE, ...)
+    ncbi_children(id = pluck_taxon_part(x, "id"), ambiguous = TRUE, ...)
   }
   class(out) <- 'children'
   attr(out, 'db') <- 'ncbi'

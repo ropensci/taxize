@@ -103,5 +103,5 @@ tax_rank_ <- function(id, ...) {
       }
     }
   }
-  lapply(id, fun, clz = dbswap(class(id)), ...)
+  lapply(pluck_taxon_part(id, "id"), fun, clz = dbswap(class(id)), ...)
 }

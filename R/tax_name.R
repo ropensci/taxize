@@ -77,7 +77,7 @@ tax_name <- function(query, get, db = "itis", pref = 'ncbi', messages = TRUE,
 
 do_ncbi <- function(query, get, messages, both=FALSE, rows = NA, ...) {
   uid <- get_uid(query, messages = messages, rows = rows, ...)
-  if (all(is.na(uid))) {
+  if (length(uid$taxa) == 0) {
     if (messages) message("No UID found for species '", query, "'!\n")
     if (both) {
       c(query, rep(NA, length(get))) 

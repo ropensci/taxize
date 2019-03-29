@@ -373,8 +373,8 @@ classification.uid <- function(id, callopts = list(), return_id = TRUE, ...) {
     if (is.null(key)) Sys.sleep(0.34)
     return(out)
   }
-  out <- lapply(id, fun, callopts = callopts)
-  names(out) <- id
+  ids <- pluck_taxon_part(id, "id")
+  out <- stats::setNames(lapply(ids, fun, callopts = callopts), ids)
   structure(out, class = 'classification', db = 'ncbi')
 }
 
@@ -519,8 +519,8 @@ classification.gbifid <- function(id, callopts = list(),
       }
     }
   }
-  out <- lapply(id, fun, callopts = callopts)
-  names(out) <- id
+  ids <- pluck_taxon_part(id, "id")
+  out <- stats::setNames(lapply(ids, fun, callopts = callopts), ids)
   structure(out, class = 'classification', db = 'gbif')
 }
 

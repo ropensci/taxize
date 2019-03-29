@@ -70,6 +70,15 @@
 #' @author Eduard Szoecs, \email{eduardszoecs@@gmail.com}
 #'
 #' @examples \dontrun{
+#' # the new way
+#' x <- get_uid("Quercus douglasii")
+#' x
+#' x[[1]]
+#' x[[1]]$name
+#' x[[1]]$attributes
+#' x[[1]]$is_empty()
+#' if (interactive()) x[[1]]$browse()
+#' 
 #' get_uid(c("Chironomus riparius", "Chaetopteryx"))
 #' get_uid(c("Chironomus riparius", "aaa vva"))
 #'
@@ -119,7 +128,7 @@
 #'
 #' # Go to a website with more info on the taxon
 #' res <- get_uid("Chironomus riparius")
-#' browseURL(attr(res, "uri"))
+#' if (interactive()) res[[1]]$browse()
 #'
 #' # Convert a uid without class information to a uid class
 #' as.uid(get_uid("Chironomus riparius")) # already a uid, returns the same
@@ -199,32 +208,21 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
       uid <- NA_character_
       att <- 'NA due to not found'
     }
+
     # single record found
-    if (length(uid) == 1) {
-      baseurl <- paste0(ncbi_base(), "/entrez/eutils/esummary.fcgi?db=taxonomy")
-      url <- paste(baseurl, paste0("ID=", uid), sep = "&")
-      errors_to_catch <- c("Could not resolve host: eutils.ncbi.nlm.nih.gov")
-      tt <- repeat_until_it_works(catch = errors_to_catch, url = url, ...)
+    if (length(uid) == 1 && !all(is.na(uid))) {
+      query_args <- tc(list(db = "taxonomy", ID = uid, api_key = key))
+      tt <- repeat_until_it_works(catch = try_again_errors, "esummary", query_args, 
+        ...)
       ttp <- xml2::read_xml(tt)
       df <- parse_ncbi(ttp)
       targname <- df$scientificname
       rank <- df$rank
     }
-    # single record found
-    if (length(uid) == 1) {
-      baseurl <- paste0(ncbi_base(), "/entrez/eutils/esummary.fcgi?db=taxonomy")
-      url <- paste(baseurl, paste0("ID=", uid), sep = "&")
-      errors_to_catch <- c("Could not resolve host: eutils.ncbi.nlm.nih.gov")
-      tt <- repeat_until_it_works(catch = errors_to_catch, url = url, ...)
-      ttp <- xml2::read_xml(tt)
-      df <- parse_ncbi(ttp)
-      targname <- df$scientificname
-      rank <- df$rank
-    }
+
     # more than one found on ncbi -> user input
     if (length(uid) > 1) {
       ID <- paste(uid, collapse = ",")
-      try_again_errors <- c("Could not resolve host: eutils.ncbi.nlm.nih.gov")
       query_args <- tc(list(db = "taxonomy", ID = ID, api_key = key))
       tt <- repeat_until_it_works(try_again_errors, "esummary",
                                   query_args, ...)
@@ -242,9 +240,12 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
       if (length(uid) == 1) {
         direct <- TRUE
         att <- "found"
+        rank <- df$rank
+        targname <- df$scientificname
       }
       if (length(uid) == 0) {
         uid <- NA_character_
+        targname <- NA_character_
       }
 
       if (length(uid) > 1) {
@@ -289,9 +290,11 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
                     as.character(df$uid[take]), "'.\n")
             uid <- as.character(df$uid[take])
             rank <- df$rank[take]
+            targname <- df$scientificname[take]
             att <- 'found'
           } else {
             uid <- NA_character_
+            targname <- NA_character_
             att <- "NA due to user input out of range"
             mssg(messages, "\nReturned 'NA'!\n\n")
           }
@@ -302,14 +305,18 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
                 direct = direct, name = targname, rank = rank))
   }
   sciname <- as.character(sciname)
-  outd <- lapply(sciname, fun, ask, verbose, rows, ...)
+  outd <- lapply(sciname, fun, ask, messages, rows, ...)
   res <- taxa::taxa(.list = lapply(outd, function(z) {
-    url <- paste0('https://www.ncbi.nlm.nih.gov/taxonomy/', z$uid)
-    out <- taxa::taxon(
-      taxa::taxon_name(z$name %||% "", taxa::database_list$ncbi),
-      taxa::taxon_rank(z$rank, taxa::database_list$ncbi),
-      taxa::taxon_id(z$uid %||% "", url, taxa::database_list$ncbi)
-    )
+    if (is.na(z$uid)) {
+      out <- taxa::taxon(NULL)
+    } else {
+      url <- paste0('https://www.ncbi.nlm.nih.gov/taxonomy/', z$uid)
+      out <- taxa::taxon(
+        taxa::taxon_name(z$name %||% "", taxa::database_list$ncbi),
+        taxa::taxon_rank(z$rank, taxa::database_list$ncbi),
+        taxa::taxon_id(z$uid %||% "", taxa::database_list$ncbi, url)
+      )
+    }
     out$attributes <- list(
       match = z$att,
       multiple_matches = z$multiple,
@@ -318,14 +325,9 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
     out
   }))
   structure(res, class = c(class(res), "uid"))
-  # out <- structure(outd$uid, class = "uid",
-  #                  match = outd$att,
-  #                  multiple_matches = outd$multiple,
-  #                  pattern_match = outd$direct)
-  # add_uri(out, 'https://www.ncbi.nlm.nih.gov/taxonomy/%s')
 }
 
-repeat_until_it_works <- function(catch, path, query, max_tries = 3,
+repeat_until_it_works <- function(catch, path, query = list(), max_tries = 3,
   wait_time = 10, messages = TRUE, ...) {
 
   error_handler <- function(e) {
@@ -370,23 +372,11 @@ as.uid.numeric <- function(x, check=TRUE) as.uid(as.character(x), check)
 
 #' @export
 #' @rdname get_uid
-as.uid.data.frame <- function(x, check=TRUE) {
-  structure(x$ids, class="uid", match=x$match,
-            multiple_matches = x$multiple_matches,
-            pattern_match = x$pattern_match, uri=x$uri)
-}
+as.uid.data.frame <- as_class_data_frame("uid")
 
 #' @export
 #' @rdname get_uid
-as.data.frame.uid <- function(x, ...){
-  data.frame(ids = as.character(unclass(x)),
-             class = "uid",
-             match = attr(x, "match"),
-             multiple_matches = attr(x, "multiple_matches"),
-             pattern_match = attr(x, "pattern_match"),
-             uri = attr(x, "uri"),
-             stringsAsFactors = FALSE)
-}
+as.data.frame.uid <- as_data_frame_general
 
 make_uid <- function(x, check=TRUE) {
   make_generic(x, 'https://www.ncbi.nlm.nih.gov/taxonomy/%s',
@@ -401,7 +391,10 @@ check_uid <- function(x){
   res$raise_for_status()
   tt <- xml2::read_xml(res$parse("UTF-8"))
   tryid <- xml2::xml_text(xml2::xml_find_all(tt, "//Id"))
-  identical(as.character(x), tryid)
+  tryname <- xml2::xml_text(xml2::xml_find_all(tt, "//Item[@Name=\"ScientificName\"]"))
+  tryrank <- xml2::xml_text(xml2::xml_find_all(tt, "//Item[@Name=\"Rank\"]"))
+  valid <- identical(as.character(x), tryid)
+  structure(valid, name = tryname, rank = tryrank)
 }
 
 

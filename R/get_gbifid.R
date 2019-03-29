@@ -50,6 +50,16 @@
 #' Filtering narrows down to the set that matches your query, and removes the rest.
 #'
 #' @examples \dontrun{
+#' # the new way
+#' x <- get_gbifid("Puma concolor")
+#' x
+#' x[[1]]
+#' x[[1]]$name
+#' x[[1]]$rank
+#' x[[1]]$attributes
+#' x[[1]]$is_empty()
+#' if (interactive()) x[[1]]$browse()
+#
 #' get_gbifid(sciname='Poa annua')
 #' get_gbifid(sciname='Pinus contorta')
 #' get_gbifid(sciname='Puma concolor')
@@ -87,7 +97,7 @@
 #' get_gbifid("A*", method = "lookup", order = "*tera")
 #' get_gbifid("A*", method = "lookup", order = "*ales")
 #'
-#' # Convert a uid without class information to a uid class
+#' # Convert a gbifid without class information to a gbifid class
 #' as.gbifid(get_gbifid("Poa annua")) # already a uid, returns the same
 #' as.gbifid(get_gbifid(c("Poa annua","Puma concolor"))) # same
 #' as.gbifid(2704179) # numeric
@@ -98,13 +108,12 @@
 #' ## dont check, much faster
 #' as.gbifid("2704179", check=FALSE)
 #' as.gbifid(2704179, check=FALSE)
-#' as.gbifid(2704179, check=FALSE)
 #' as.gbifid(c("2704179","2435099","3171445"), check=FALSE)
 #' as.gbifid(list("2704179","2435099","3171445"), check=FALSE)
 #'
 #' (out <- as.gbifid(c(2704179,2435099,3171445)))
 #' data.frame(out)
-#' as.uid( data.frame(out) )
+#' as.gbifid( data.frame(out) )
 #'
 #' # Get all data back
 #' get_gbifid_("Puma concolor")
@@ -140,15 +149,19 @@ get_gbifid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
     )
     mm <- NROW(df) > 1
 
-    if (is.null(df)) df <- data.frame(NULL)
+    if (is.null(df) || NROW(df) == 0) df <- data.frame(NULL)
 
     if (nrow(df) == 0) {
       mssg(messages, m_not_found_sp_altclass)
       id <- NA_character_
+      rank_taken <- NA_character_
+      name <- NA_character_
       att <- "not found"
     } else {
       names(df)[1] <- 'gbifid'
       id <- df$gbifid
+      name <- df$canonicalname
+      rank_taken <- df$rank
       att <- "found"
     }
 
@@ -156,14 +169,18 @@ get_gbifid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
     if (length(id) == 0) {
       mssg(messages, m_not_found_sp_altclass)
       id <- NA_character_
+      name <- NA_character_
+      rank_taken <- NA_character_
       att <- "not found"
     }
 
     if (length(id) > 1) {
       # check for exact match
-      matchtmp <- df[as.character(df$canonicalname) %in% sciname, "gbifid"]
+      matchtmp <- df[as.character(df$canonicalname) %in% sciname, ]
       if (length(matchtmp) == 1) {
-        id <- as.character(matchtmp)
+        id <- as.character(matchtmp$gbifid)
+        name <- matchtmp$canonicalname
+        rank_taken <- matchtmp$rank
         direct <- TRUE
       } else {
         if (!is.null(phylum) || !is.null(class) || !is.null(order) ||
@@ -178,12 +195,15 @@ get_gbifid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
         df <- sub_rows(df, rows)
         if (NROW(df) == 0) {
           id <- NA_character_
+          name <- NA_character_
+          rank_taken <- NA_character_
           att <- "not found"
         } else {
           id <- df$gbifid
           if (length(id) == 1) {
             rank_taken <- as.character(df$rank)
             att <- "found"
+            name <- df$canonicalname
           }
         }
 
@@ -212,10 +232,14 @@ get_gbifid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
               message("Input accepted, took gbifid '",
                       as.character(df$gbifid[take]), "'.\n")
               id <- as.character(df$gbifid[take])
+              name <- df$scientificname[take] %||% df$canonicalname[take]
+              rank_taken <- df$rank[take]
               att <- "found"
             } else {
               id <- NA_character_
               att <- "not found"
+              name <- NA_character_
+              rank_taken <- NA_character_
               mssg(messages, "\nReturned 'NA'!\n\n")
             }
           } else {
@@ -223,20 +247,37 @@ get_gbifid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
               warning(sprintf(m_more_than_one_found, "gbifid", sciname),
                 call. = FALSE)
               id <- NA_character_
+              name <- NA_character_
+              rank_taken <- NA_character_
               att <- m_na_ask_false
             }
           }
         }
       }
     }
-    list(id = id, att = att, multiple = mm, direct = direct)
+    list(id = id, name = name, rank = rank_taken, att = att, multiple = mm,
+      direct = direct)
   }
-  out <- lapply(as.character(sciname), fun, ask, messages, rows, ...)
-  ids <- structure(as.character(unlist(pluck(out, "id"))), class = "gbifid",
-                   match = pluck(out, "att", ""),
-                   multiple_matches = pluck(out, "multiple", logical(1)),
-                   pattern_match = pluck(out, "direct", logical(1)))
-  add_uri(ids, 'http://www.gbif.org/species/%s')
+  outd <- lapply(as.character(sciname), fun, ask, messages, rows, ...)
+  res <- taxa::taxa(.list = lapply(outd, function(z) {
+    if (is.na(z$id)) {
+      out <- taxa::taxon(NULL)
+    } else {
+      url <- paste0('http://www.gbif.org/species/', z$id)
+      out <- taxa::taxon(
+        taxa::taxon_name(z$name %||% "", taxa::database_list$gbif),
+        taxa::taxon_rank(z$rank, taxa::database_list$gbif),
+        taxa::taxon_id(z$id %||% "", taxa::database_list$gbif, url)
+      )
+    }
+    out$attributes <- list(
+      match = z$att,
+      multiple_matches = z$multiple,
+      pattern_match = z$direct
+    )
+    out
+  }))
+  structure(res, class = c("gbifid", class(res)))
 }
 
 #' @export
@@ -261,29 +302,20 @@ as.gbifid.numeric <- function(x, check=TRUE) as.gbifid(as.character(x), check)
 
 #' @export
 #' @rdname get_gbifid
-as.gbifid.data.frame <- function(x, check = TRUE) {
-  structure(x$ids, class = "gbifid", match = x$match,
-            multiple_matches = x$multiple_matches,
-            pattern_match = x$pattern_match, uri = x$uri)
-}
+as.gbifid.data.frame <- as_class_data_frame("gbifid")
 
 #' @export
 #' @rdname get_gbifid
-as.data.frame.gbifid <- function(x, ...){
-  data.frame(ids = as.character(unclass(x)),
-             class = "gbifid",
-             match = attr(x, "match"),
-             multiple_matches = attr(x, "multiple_matches"),
-             pattern_match = attr(x, "pattern_match"),
-             uri = attr(x, "uri"),
-             stringsAsFactors = FALSE)
-}
+as.data.frame.gbifid <- as_data_frame_general
 
-make_gbifid <- function(x, check=TRUE) make_generic(x, 'http://www.gbif.org/species/%s', "gbifid", check)
+make_gbifid <- function(x, check=TRUE) make_generic(x, 'https://www.gbif.org/species/%s', "gbifid", check)
 
 check_gbifid <- function(x){
   tryid <- tryCatch(gbif_name_usage(key = x), error = function(e) e)
-  if ( "error" %in% class(tryid) && is.null(tryid$key) ) FALSE else TRUE
+  valid <- !inherits(tryid, "error") && !is.null(tryid$key)
+  name <- tryid$canonicalName
+  rank <- tolower(tryid$rank)
+  structure(valid, name = name, rank = rank)
 }
 
 #' @export
