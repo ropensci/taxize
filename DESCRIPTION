@@ -94,12 +94,12 @@ Imports:
     tibble (>= 1.2),
     worrms (>= 0.3.2),
     natserv (>= 0.3.0),
-    wikitaxa (>= 0.3.0),
-    phangorn
+    wikitaxa (>= 0.3.0)
 Suggests:
     testthat,
     knitr,
     vegan,
+    phangorn,
     vcr
 Remotes: ropensci/taxa@taxize-compat-changes
 RoxygenNote: 6.1.1

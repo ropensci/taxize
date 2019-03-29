@@ -6,6 +6,7 @@ dist: trusty
 r_binary_packages:
   - vegan
   - covr
+  - phangorn
 
 matrix:
   include:

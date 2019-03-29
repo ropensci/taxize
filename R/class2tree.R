@@ -95,6 +95,9 @@ class2tree <- function(input, varstep = TRUE, check = TRUE, ...) {
   out <- ape::di2multi(out)
   # Add node labels
   node_ids <- sort(unique(out$edge[,1]))
+  if (!requireNamespace("phangorn", quietly = TRUE)) {
+    stop("please install package 'phangorn'")
+  } 
   node_labels <- sapply(phangorn::Descendants(out, node_ids), function(x) {
     sub_df <- df[out$tip.label[x],]
     unique(sub_df[,which(sapply(1:ncol(sub_df), function(i) {
