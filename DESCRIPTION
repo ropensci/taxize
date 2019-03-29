@@ -76,7 +76,6 @@ Imports:
     methods,
     stats,
     utils,
-    taxa,
     crul (>= 0.7.0),
     xml2 (>= 1.2.0),
     jsonlite,
@@ -96,6 +95,7 @@ Imports:
     natserv (>= 0.3.0),
     wikitaxa (>= 0.3.0)
 Suggests:
+    taxa,
     testthat,
     knitr,
     vegan,
