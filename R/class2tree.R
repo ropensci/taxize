@@ -64,7 +64,6 @@ class2tree <- function(input, varstep = TRUE, check = TRUE, ...) {
   if (length(unique(names(input))) < length(names(input)))
     stop("Input list of classifications contains duplicates")
 
-  dat <- rbind.fill(lapply(input, class2tree_helper))
   # Get rank and ID list
   rankList <- rbind.fill(lapply(input, get_rank))
   nameList <- rbind.fill(lapply(input, get_name))
@@ -91,18 +90,23 @@ class2tree <- function(input, varstep = TRUE, check = TRUE, ...) {
   # check for incorrect dimensions error
   if (is(taxdis, 'simpleError'))
     stop("Try check=FALSE, but see docs for taxa2dist function in the vegan package for details.")
+  
   out <- as.phylo.hclust(hclust(taxdis, ...))
+  out <- ape::di2multi(out)
+  # Add node labels
+  node_ids <- sort(unique(out$edge[,1]))
+  node_labels <- sapply(phangorn::Descendants(out, node_ids), function(x) {
+    sub_df <- df[out$tip.label[x],]
+    unique(sub_df[,which(sapply(1:ncol(sub_df), function(i) {
+      length(unique(sub_df[,i]))==1
+    }))[1]])
+  })
+  out$node.label <- node_labels
+  
   res <- list(phylo = out, classification = as.data.frame(t(tdf)), 
     distmat = taxdis, names = names(input))
   class(res) <- 'classtree'
   return( res )
-}
-
-class2tree_helper <- function(x){
-  df <- x[-nrow(x), 'name']
-  names(df) <- x[-nrow(x), 'rank']
-  df <- data.frame(t(data.frame(df)), stringsAsFactors = FALSE)
-  data.frame(tip = x[nrow(x), "name"], df, stringsAsFactors = FALSE)
 }
 
 #' @method plot classtree
