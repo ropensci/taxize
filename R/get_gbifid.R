@@ -1,7 +1,8 @@
 #' Get the GBIF backbone taxon ID from taxonomic names.
 #'
 #' @export
-#' @param sciname character; scientific name.
+#' @param sciname (character) one or more scientific names. Or, a [taxon_state()]
+#' object
 #' @param ask logical; should get_colid be run in interactive mode?
 #' If TRUE and more than one ID is found for the species, the user is asked for
 #' input. If FALSE NA is returned for multiple matches.
@@ -56,7 +57,7 @@
 #' 
 #' #lots of queries
 #' spp <- names_list("species", 10)
-#' res <- get_gbifid(spp, messages = FALSE)
+#' res <- get_gbifid(spp)
 #' res
 #' xx <- taxon_last()
 #' xx
@@ -125,8 +126,10 @@
 
 get_gbifid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
                        phylum = NULL, class = NULL, order = NULL,
-                       family = NULL, rank = NULL, method = "backbone", ...) {
+                       family = NULL, rank = NULL, method = "backbone", 
+                       state = NULL, ...) {
 
+  assert(sciname, c("character", "taxon_state"))
   assert(ask, "logical")
   assert(messages, "logical")
   assert(phylum, "character")
@@ -137,13 +140,26 @@ get_gbifid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
   assert(method, "character")
   assert_rows(rows)
 
-  # hold state
-  tstate <- taxon_state$new(class = "gbifid")
+  # FIXME: try to simplify the below state/prog stuff
+  # hold state (use old state or assign new one)
+  if (inherits(sciname, "character")) {
+    tstate <- taxon_state$new(class = "gbifid", names = sciname)
+    items <- sciname
+  } else {
+    tstate <- sciname
+    sciname <- tstate$taxa_remaining()
+    items <- c(sciname, tstate$taxa_completed())
+  }
+
   # progress
-  prog <- progressor$new(items = sciname)
+  prog <- progressor$new(items = items, suppress = !messages)
+  ## add already completed taxa
+  done <- tstate$get()
+  for (i in seq_along(done)) prog$completed(names(done)[i], done[[i]]$att)
+  ## start prompt
   prog$prog_start()
 
-  out <- list()
+  # out <- list()
   for (i in seq_along(sciname)) {
     direct <- FALSE
     mssg(messages, "\nRetrieving data for taxon '", sciname[i], "'\n")
@@ -247,16 +263,16 @@ get_gbifid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
     prog$completed(sciname[i], att)
     prog$prog(att)
     tstate$add(sciname[i], res)
-    out[[i]] <- res
+    # out[[i]] <- res
   }
-  # out <- lapply(as.character(sciname), fun, ask, messages, rows, ...)
+  out <- tstate$get()
   ids <- structure(as.character(unlist(pluck(out, "id"))), class = "gbifid",
-                   match = pluck(out, "att", ""),
-                   multiple_matches = pluck(out, "multiple", logical(1)),
-                   pattern_match = pluck(out, "direct", logical(1)))
+                   match = pluck_un(out, "att", ""),
+                   multiple_matches = pluck_un(out, "multiple", logical(1)),
+                   pattern_match = pluck_un(out, "direct", logical(1)))
   on.exit(prog$prog_summary(), add = TRUE)
   on.exit(tstate$exit, add = TRUE)
-  add_uri(ids, 'http://www.gbif.org/species/%s')
+  add_uri(ids, 'https://www.gbif.org/species/%s')
 }
 
 #' @export

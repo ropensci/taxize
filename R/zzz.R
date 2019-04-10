@@ -10,6 +10,9 @@ pluck <- function(x, name, type) {
   }
 }
 
+# pluck with unname
+pluck_un <- function(x, name, type) unname(pluck(x, name, type))
+
 collapse <- function(x, fxn, class, match=TRUE, ...) {
   tmp <- lapply(x, fxn, ...)
   if (match) {

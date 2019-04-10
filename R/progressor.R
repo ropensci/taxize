@@ -1,4 +1,4 @@
-#' progressor
+#' methods for preparing/printing info for prompts for `get_*` functions 
 #'
 #' @keywords internal
 #' @examples
@@ -14,16 +14,22 @@
 #' x$prog_not_found()
 #'
 #' x$prog_summary()
+#' 
+#' # suppress cli::cat_line
+#' x <- progressor$new(items = nms, suppress = TRUE)
+#' x$prog_summary()
 progressor <- R6::R6Class(
-  "taxon_state",
+  "progressor",
   public = list(
     total = 0,
     found = list(),
     not_found = list(),
     done = list(),
+    suppress = FALSE,
 
-    initialize = function(items) {
+    initialize = function(items, suppress = FALSE) {
       if (!missing(items)) self$total <- length(items)
+      self$suppress <- suppress
     },
     completed = function(name, att) {
       switch(att,
@@ -35,11 +41,18 @@ progressor <- R6::R6Class(
     completed_not_found = function(name)
       self$not_found <- c(self$not_found, name),
     prog_start = function() {
-      cli::cat_line(
+      private$sm(cli::cat_line(
         cli::rule(
           left = sprintf(" %s queries ", self$total),
           line = 2, line_col = "blue", width = 30)
-      )
+      ))
+      len <- length(self$found) + length(self$not_found)
+      if (len > 0) {
+        private$sm(cli::cat_line(cli::rule(
+          left = sprintf(" %s completed ", len),
+          line = 2, line_col = "lightblue", width = 25)
+        ))
+      }
     },
     prog = function(att) {
       switch(att,
@@ -48,31 +61,31 @@ progressor <- R6::R6Class(
     },
     prog_found = function() {
       name <- private$last(self$found)
-      cli::cat_line(
+      private$sm(cli::cat_line(
         paste(crayon::style(
           paste(private$sym$tick,  " Found: "), "green"), name)
-      )
+      ))
     },
     prog_not_found = function() {
       name <- private$last(self$not_found)
-      cli::cat_line(
+      private$sm(cli::cat_line(
         paste(crayon::style(
           paste(private$sym$cross,  " Not Found: "), "red"), name)
-      )
+      ))
     },
     prog_summary = function() {
-      cli::cat_line(
+      private$sm(cli::cat_line(
         cli::rule(left = " Results ", line = 2, line_col = "grey", width = 30),
         "\n"
-      )
-      cli::cat_line(
+      ))
+      private$sm(cli::cat_line(
         paste(private$sym$bullet, "Total:",
           crayon::style(self$total, "green"), "\n"),
         paste(private$sym$bullet, "Found:",
           crayon::style(length(self$found), "green"), "\n"),
         paste(private$sym$bullet, "Not Found:",
           crayon::style(length(self$not_found), "green"))
-      )
+      ))
     }
   ),
 
@@ -87,6 +100,7 @@ progressor <- R6::R6Class(
       tick = cli::symbol$tick,
       cross = cli::symbol$cross
     ),
-    last = function(x) x[length(x)]
+    last = function(x) x[length(x)],
+    sm = function(x) if (!self$suppress) x
   )
 )

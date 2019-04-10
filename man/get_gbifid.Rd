@@ -14,7 +14,7 @@
 \usage{
 get_gbifid(sciname, ask = TRUE, messages = TRUE, rows = NA,
   phylum = NULL, class = NULL, order = NULL, family = NULL,
-  rank = NULL, method = "backbone", ...)
+  rank = NULL, method = "backbone", state = NULL, ...)
 
 as.gbifid(x, check = FALSE)
 
@@ -33,7 +33,8 @@ as.gbifid(x, check = FALSE)
 get_gbifid_(sciname, messages = TRUE, rows = NA, method = "backbone")
 }
 \arguments{
-\item{sciname}{character; scientific name.}
+\item{sciname}{(character) one or more scientific names. Or, a \code{\link[=taxon_state]{taxon_state()}}
+object}
 
 \item{ask}{logical; should get_colid be run in interactive mode?
 If TRUE and more than one ID is found for the species, the user is asked for
@@ -114,7 +115,7 @@ get_gbifid(sciname='Puma concolor')
 
 #lots of queries
 spp <- names_list("species", 10)
-res <- get_gbifid(spp, messages = FALSE)
+res <- get_gbifid(spp)
 res
 xx <- taxon_last()
 xx

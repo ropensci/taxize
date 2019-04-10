@@ -1,8 +1,9 @@
 taxon_state_env <- new.env()
 
-#' Get the last taxon state object
+#' Get the last taxon state object from a `get_*` function call
+#' 
 #' @export
-#' @keywords internal
+#' @rdname taxon_state
 #' @return an object of class `taxon_state`, the last one used, else `NULL`
 #' if none found
 taxon_last <- function() taxon_state_env$last
@@ -36,6 +37,9 @@ taxon_last <- function() taxon_state_env$last
 #'     }
 #'     \item{`exit` (active binding)}{
 #'       record date/time function exited
+#'     }
+#'     \item{`remaining_taxa`}{
+#'       get remaining taxa
 #'     }
 #'   }
 #' @examples
@@ -87,12 +91,25 @@ taxon_state <- R6::R6Class(
     initialized = NULL,
     finalized = NULL,
     class = NULL,
+    names = NULL,
+
+    initialize = function(class, names) {
+      taxon_state_env$last <- self
+      self$initialized <- Sys.time()
+      if (!missing(class)) self$class <- class
+      if (!missing(names)) self$names <- names
+    },
+
     print = function(x, ...) {
       cat("<taxon state> ", sep = "\n")
       cat(paste0(" class: ", self$class %||% "none"), sep = "\n")
-      cat(paste0(" elapsed (sec): ",
-        round(self$finalized - self$initialized, 2) %||% ""),
-        sep = "\n")
+      if (!is.null(self$finalized)) {
+        cat(paste0(" elapsed (sec): ",
+          round(self$finalized - self$initialized, 2) %||% ""),
+          sep = "\n")
+      } else {
+        cat(" elapsed (sec): 0", sep = "\n")
+      }
       cat(paste0(" count: ", self$count %||% 0), sep = "\n")
       if (length(private$pool) > 0) {
         for (i in seq_along(private$pool)) {
@@ -105,17 +122,20 @@ taxon_state <- R6::R6Class(
       }
       invisible(self)
     },
-    initialize = function(class) {
-      taxon_state_env$last <- self
-      self$initialized <- Sys.time()
-      if (!missing(class)) self$class <- class
-    },
+    
     add = function(query, result) private$pool[[query]] <- result,
     get = function(query = NULL) {
       if (is.null(query)) private$pool else private$pool[[query]]
     },
     remove = function(query) private$pool[[query]] <- NULL,
-    purge = function() private$pool <- NULL
+    purge = function() private$pool <- NULL,
+    taxa_remaining = function() {
+      done <- names(self$get())
+      sort(self$names)[!sort(self$names) %in% sort(done)]
+    },
+    taxa_completed = function() {
+      sort(names(self$get()))
+    }
   ),
   active = list(
     count = function() length(private$pool),
