@@ -159,7 +159,6 @@ get_gbifid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
   ## start prompt
   prog$prog_start()
 
-  # out <- list()
   for (i in seq_along(sciname)) {
     direct <- FALSE
     mssg(messages, "\nRetrieving data for taxon '", sciname[i], "'\n")
@@ -263,7 +262,6 @@ get_gbifid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
     prog$completed(sciname[i], att)
     prog$prog(att)
     tstate$add(sciname[i], res)
-    # out[[i]] <- res
   }
   out <- tstate$get()
   ids <- structure(as.character(unlist(pluck(out, "id"))), class = "gbifid",
