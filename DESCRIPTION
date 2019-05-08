@@ -8,7 +8,7 @@ Description: Interacts with a suite of web 'APIs' for taxonomic tasks,
 Version: 0.9.7
 License: MIT + file LICENSE
 URL: https://github.com/ropensci/taxize (devel),
-    https://ropensci.github.io/taxize-book/ (user manual)
+    https://ropenscilabs.github.io/taxize-book/ (user manual)
 BugReports: https://github.com/ropensci/taxize/issues
 Authors@R:
     c(person(given = "Scott",
