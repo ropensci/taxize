@@ -12,7 +12,7 @@
 
 * I have run R CMD check on the 22 downstream dependencies
 (<https://github.com/ropensci/taxize/blob/master/revdep/README.md>).
-There was problem with a vignette build for camtrapR - but is unrelated to this package; and there was a problem with tests in BIOMASS, but I checked and even though taxize is in Suggests in their package, they dont use taxize anywhere in the package, and so any errors are unrelated to this package.
+There was a problem with one package, BIOMASS, unrelated to taxize.
 
 ------
 
