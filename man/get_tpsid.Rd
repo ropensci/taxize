@@ -32,7 +32,8 @@ as.tpsid(x, check = TRUE)
 get_tpsid_(sciname, messages = TRUE, key = NULL, rows = NA, ...)
 }
 \arguments{
-\item{sciname}{(character) One or more scientific name's as a vector or list.}
+\item{sciname}{(character) One or more scientific name's as a vector or list. Or,
+a \code{\link[=taxon_state]{taxon_state()}} object}
 
 \item{ask}{logical; should get_tpsid be run in interactive mode?
 If TRUE and more than one ID is found for the species, the user is asked for
@@ -91,10 +92,10 @@ get_tpsid(sciname='Pinus contorta')
 get_tpsid(c("Poa annua", "Pinus contorta"))
 
 # specify rows to limit choices available
-get_tpsid('Poa annua')
-get_tpsid('Poa annua', rows=1)
-get_tpsid('Poa annua', rows=25)
-get_tpsid('Poa annua', rows=1:2)
+get_tpsid('Poa ann')
+get_tpsid('Poa ann', rows=1)
+get_tpsid('Poa ann', rows=25)
+get_tpsid('Poa ann', rows=1:2)
 
 # When not found, NA given (howdy is not a species name, and Chrinomus is a fly)
 get_tpsid("howdy")
@@ -155,7 +156,7 @@ get_tpsid_("Poa annua", rows=1:2)
 get_tpsid_(c("asdfadfasd","Pinus contorta"), rows=1:5)
 
 # use curl options
-invisible(get_tpsid("Quercus douglasii", verbose = TRUE))
+invisible(get_tpsid("Quercus douglasii", messages = TRUE))
 }
 }
 \seealso{

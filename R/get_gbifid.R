@@ -127,7 +127,7 @@
 get_gbifid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
                        phylum = NULL, class = NULL, order = NULL,
                        family = NULL, rank = NULL, method = "backbone", 
-                       state = NULL, ...) {
+                       ...) {
 
   assert(sciname, c("character", "taxon_state"))
   assert(ask, "logical")
@@ -140,8 +140,6 @@ get_gbifid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
   assert(method, "character")
   assert_rows(rows)
 
-  # FIXME: try to simplify the below state/prog stuff
-  # hold state (use old state or assign new one)
   if (inherits(sciname, "character")) {
     tstate <- taxon_state$new(class = "gbifid", names = sciname)
     items <- sciname
@@ -151,12 +149,9 @@ get_gbifid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
     items <- c(sciname, tstate$taxa_completed())
   }
 
-  # progress
   prog <- progressor$new(items = items, suppress = !messages)
-  ## add already completed taxa
   done <- tstate$get()
   for (i in seq_along(done)) prog$completed(names(done)[i], done[[i]]$att)
-  ## start prompt
   prog$prog_start()
 
   for (i in seq_along(sciname)) {
@@ -270,7 +265,7 @@ get_gbifid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
                    pattern_match = pluck_un(out, "direct", logical(1)))
   on.exit(prog$prog_summary(), add = TRUE)
   on.exit(tstate$exit, add = TRUE)
-  add_uri(ids, 'https://www.gbif.org/species/%s')
+  add_uri(ids, get_url_templates$gbif)
 }
 
 #' @export

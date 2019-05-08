@@ -12,7 +12,7 @@
 \alias{get_tolid_}
 \title{Get the OTT id for a search term}
 \usage{
-get_tolid(sciname, ask = TRUE, verbose = TRUE, rows = NA, ...)
+get_tolid(sciname, ask = TRUE, messages = TRUE, rows = NA, ...)
 
 as.tolid(x, check = TRUE)
 
@@ -28,16 +28,16 @@ as.tolid(x, check = TRUE)
 
 \method{as.data.frame}{tolid}(x, ...)
 
-get_tolid_(sciname, verbose = TRUE, rows = NA)
+get_tolid_(sciname, messages = TRUE, rows = NA)
 }
 \arguments{
-\item{sciname}{character; scientific name.}
+\item{sciname}{character; scientific name. Or, a \code{\link[=taxon_state]{taxon_state()}} object}
 
 \item{ask}{logical; should \code{get_tolid} be run in interactive mode?
 If \code{TRUE} and more than one TOL is found for the species, the user is
 asked for input. If \code{FALSE} NA is returned for multiple matches.}
 
-\item{verbose}{logical; should progress be printed?}
+\item{messages}{logical; should progress be printed?}
 
 \item{rows}{numeric; Any number from 1 to infinity. If the default NA, all
 rows are considered. Note that this function still only gives back a tol
@@ -74,7 +74,7 @@ get_tolid(sciname = "Chironomus riparius")
 get_tolid(c("Chironomus riparius","Quercus douglasii"))
 splist <- c("annona cherimola", 'annona muricata', "quercus robur",
 		"shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")
-get_tolid(splist, verbose=FALSE)
+get_tolid(splist, messages=FALSE)
 
 # specify rows to limit choices available
 get_tolid('Arni')

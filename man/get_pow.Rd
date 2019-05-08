@@ -29,7 +29,8 @@ as.pow(x, check = TRUE)
 get_pow_(x, messages = TRUE, rows = NA, ...)
 }
 \arguments{
-\item{x}{character; A vector of common or scientific names}
+\item{x}{character; A vector of common or scientific names. Or, a
+\code{\link[=taxon_state]{taxon_state()}} object}
 
 \item{accepted}{logical; If TRUE, removes names that are not accepted
 valid names by ITIS. Set to \code{FALSE} (default) to give back both

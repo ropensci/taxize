@@ -6,7 +6,8 @@
 #' [`eol_pages()`] to find the actual taxon IDs.
 #'
 #' @export
-#' @param sciname character; scientific name.
+#' @param sciname character; scientific name. Or, a [taxon_state()]
+#' object
 #' @param ask logical; should get_eolid be run in interactive mode?
 #' If TRUE and more than one ID is found for the species, the user is asked for
 #' input. If FALSE NA is returned for multiple matches.
@@ -117,16 +118,31 @@
 get_eolid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
   rows = NA, rank = NULL, data_source = NULL, ...) {
 
+  assert(sciname, c("character", "taxon_state"))
   assert(ask, "logical")
   assert(messages, "logical")
   assert(rank, "character")
   assert(data_source, "character")
   assert_rows(rows)
 
-  fun <- function(sciname, ask, messages, rows, ...) {
+  if (inherits(sciname, "character")) {
+    tstate <- taxon_state$new(class = "eolid", names = sciname)
+    items <- sciname
+  } else {
+    tstate <- sciname
+    sciname <- tstate$taxa_remaining()
+    items <- c(sciname, tstate$taxa_completed())
+  }
+
+  prog <- progressor$new(items = items, suppress = !messages)
+  done <- tstate$get()
+  for (i in seq_along(done)) prog$completed(names(done)[i], done[[i]]$att)
+  prog$prog_start()
+
+  for (i in seq_along(sciname)) {
     direct <- FALSE
-    mssg(messages, "\nRetrieving data for taxon '", sciname, "'\n")
-    tmp <- eol_search(terms = sciname, key = key, ...)
+    mssg(messages, "\nRetrieving data for taxon '", sciname[i], "'\n")
+    tmp <- eol_search(terms = sciname[i], key = key, ...)
     datasource <- NA_character_
     if (all(is.na(tmp))) {
       mssg(messages, m_not_found_sp_altclass)
@@ -135,7 +151,7 @@ get_eolid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
       att <- "not found"
       mm <- FALSE
     } else {
-      pageids <- tmp[grep(tolower(sciname), tolower(tmp$name)), "pageid"]
+      pageids <- tmp[grep(tolower(sciname[i]), tolower(tmp$name)), "pageid"]
 
       if (length(pageids) == 0) {
         if (nrow(tmp) > 0)
@@ -199,7 +215,7 @@ get_eolid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
     }
 
     if (length(id) > 1) {
-      matchtmp <- df[tolower(df$name) %in% tolower(sciname), ]
+      matchtmp <- df[tolower(df$name) %in% tolower(sciname[i]), ]
       if (NROW(matchtmp) == 1) {
         id <- matchtmp$eolid
         direct <- TRUE
@@ -215,7 +231,7 @@ get_eolid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
         rownames(df) <- 1:nrow(df)
         # prompt
         message("\n\n")
-        message("\nMore than one eolid found for taxon '", sciname, "'!\n
+        message("\nMore than one eolid found for taxon '", sciname[i], "'!\n
             Enter rownumber of taxon (other inputs will return 'NA'):\n")
         print(df)
         take <- scan(n = 1, quiet = TRUE, what = "raw")
@@ -240,7 +256,7 @@ get_eolid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
         }
       } else {
         if (length(id) != 1) {
-          warning(sprintf(m_more_than_one_found, "eolid", sciname),
+          warning(sprintf(m_more_than_one_found, "eolid", sciname[i]),
             call. = FALSE)
           id <- NA_character_
           page_id <- NA_character_
@@ -248,19 +264,25 @@ get_eolid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
         }
       }
     }
-    list(id = as.character(id), page_id = page_id, source = datasource,
-         att = att, multiple = mm, direct = direct)
+    res <- list(id = as.character(id), page_id = page_id, source = datasource, 
+      att = att, multiple = mm, direct = direct)
+    prog$completed(sciname[i], att)
+    prog$prog(att)
+    tstate$add(sciname[i], res)
   }
-  sciname <- as.character(sciname)
-  out <- lapply(sciname, fun, ask = ask, messages = messages, rows = rows, ...)
-  ids <- unname(sapply(out, "[[", "id"))
-  sources <- pluck(out, "source", "")
-  ids <- structure(ids, class = "eolid", pageid = pluck(out, "page_id", ""),
-    provider = sources, match = pluck(out, "att", ""),
-    multiple_matches = pluck(out, "multiple", logical(1)),
-    pattern_match = pluck(out, "direct", logical(1)))
-  page_ids <- unlist(pluck(out, "page_id"))
-  add_uri(ids, "https://eol.org/pages/%s/", page_ids)
+  out <- tstate$get()
+  page_ids <- pluck_un(out, "page_id", "")
+  ids <- structure(
+    pluck_un(out, "id", ""), class = "eolid",
+    pageid = page_ids,
+    provider = pluck_un(out, "source", ""),
+    match = pluck_un(out, "att", ""),
+    multiple_matches = pluck_un(out, "multiple", logical(1)),
+    pattern_match = pluck_un(out, "direct", logical(1))
+  )
+  on.exit(prog$prog_summary(), add = TRUE)
+  on.exit(tstate$exit, add = TRUE)
+  add_uri(ids, get_url_templates$eol, page_ids)
 }
 
 taxize_sort_df <- function(data, vars = names(data)) {

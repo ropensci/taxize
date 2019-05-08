@@ -8,6 +8,11 @@
 \usage{
 taxon_last()
 }
+\arguments{
+\item{class}{(character) a class name (e.g., "gbif")}
+
+\item{names}{(character) one or more taxon names}
+}
 \value{
 an object of class \code{taxon_state}, the last one used, else \code{NULL}
 if none found
@@ -20,25 +25,32 @@ results as they are accumulated.
 \strong{Methods}
 \describe{
 \item{\code{add(query, result)}}{
-add a query with it's result
+add a record with it's result; duplicates allowed
+- query (character), a taxon name
+- result (list) a named list
 }
 \item{\code{get(query)}}{
-get a result by query
+get all records matching 'query'
+- query (character), a taxon name
 }
 \item{\code{remove(query)}}{
-remove a query
+remove's all records matching 'query'
+- query (character), a taxon name
 }
 \item{\code{purge()}}{
-remove all records
+removes all records
+}
+\item{\code{taxa_remaining()}}{
+get remaining taxa
+}
+\item{\code{taxa_completed()}}{
+get remaining taxa
 }
 \item{\code{count} (active binding)}{
 count number of records
 }
 \item{\code{exit} (active binding)}{
 record date/time function exited
-}
-\item{\code{remaining_taxa}}{
-get remaining taxa
 }
 }
 }

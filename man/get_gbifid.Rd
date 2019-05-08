@@ -14,7 +14,7 @@
 \usage{
 get_gbifid(sciname, ask = TRUE, messages = TRUE, rows = NA,
   phylum = NULL, class = NULL, order = NULL, family = NULL,
-  rank = NULL, method = "backbone", state = NULL, ...)
+  rank = NULL, method = "backbone", ...)
 
 as.gbifid(x, check = FALSE)
 

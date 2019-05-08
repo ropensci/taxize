@@ -12,6 +12,7 @@ progressor
 methods for preparing/printing info for prompts for \code{get_*} functions
 }
 \examples{
+\dontrun{
 nms <- c("Quercus", "Sasdsfasdf")
 x <- progressor$new(items = nms)
 x
@@ -28,5 +29,6 @@ x$prog_summary()
 # suppress cli::cat_line
 x <- progressor$new(items = nms, suppress = TRUE)
 x$prog_summary()
+}
 }
 \keyword{internal}

@@ -33,7 +33,8 @@ get_tsn_(searchterm, messages = TRUE, searchtype = "scientific",
   accepted = TRUE, rows = NA, ...)
 }
 \arguments{
-\item{searchterm}{character; A vector of common or scientific names.}
+\item{searchterm}{character; A vector of common or scientific names.
+Or, a \code{\link[=taxon_state]{taxon_state()}} object}
 
 \item{searchtype}{character; One of 'scientific' or 'common', or any
 unique abbreviation}
@@ -82,7 +83,7 @@ get_tsn("Chironomus riparius")
 get_tsn(c("Chironomus riparius","Quercus douglasii"))
 splist <- c("annona cherimola", 'annona muricata', "quercus robur",
 		"shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")
-get_tsn(splist, verbose=FALSE)
+get_tsn(splist, messages=FALSE)
 
 # specify rows to limit choices available
 get_tsn('Arni')

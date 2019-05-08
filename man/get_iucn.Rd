@@ -28,7 +28,8 @@ as.iucn(x, check = TRUE, key = NULL)
 \method{as.data.frame}{iucn}(x, ...)
 }
 \arguments{
-\item{x}{(character) A vector of common or scientific names}
+\item{x}{(character) A vector of common or scientific names. Or, a
+\code{\link[=taxon_state]{taxon_state()}} object}
 
 \item{messages}{logical; should progress be printed?}
 

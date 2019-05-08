@@ -4,6 +4,7 @@
 #'
 #' @export
 #' @param searchterm character; A vector of common or scientific names.
+#' Or, a [taxon_state()] object
 #' @param searchtype character; One of 'scientific' or 'common', or any
 #' unique abbreviation
 #' @param accepted logical; If TRUE, removes names that are not accepted valid
@@ -33,7 +34,7 @@
 #' get_tsn(c("Chironomus riparius","Quercus douglasii"))
 #' splist <- c("annona cherimola", 'annona muricata', "quercus robur",
 #' 		"shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")
-#' get_tsn(splist, verbose=FALSE)
+#' get_tsn(splist, messages=FALSE)
 #'
 #' # specify rows to limit choices available
 #' get_tsn('Arni')
@@ -75,18 +76,33 @@
 get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE,
                     ask = TRUE, messages = TRUE, rows = NA, ...) {
 
+  assert(searchterm, c("character", "taxon_state"))
   assert(ask, "logical")
   assert(messages, "logical")
   assert(searchtype, "character")
   assert(accepted, "logical")
   assert_rows(rows)
 
-  fun <- function(x, searchtype, ask, messages, rows, ...) {
+  if (inherits(searchterm, "character")) {
+    tstate <- taxon_state$new(class = "tsn", names = searchterm)
+    items <- searchterm
+  } else {
+    tstate <- searchterm
+    searchterm <- tstate$taxa_remaining()
+    items <- c(searchterm, tstate$taxa_completed())
+  }
+
+  prog <- progressor$new(items = items, suppress = !messages)
+  done <- tstate$get()
+  for (i in seq_along(done)) prog$completed(names(done)[i], done[[i]]$att)
+  prog$prog_start()
+
+  for (i in seq_along(searchterm)) {
     direct <- FALSE
-    mssg(messages, "\nRetrieving data for taxon '", x, "'\n")
+    mssg(messages, "\nRetrieving data for taxon '", searchterm[i], "'\n")
 
     searchtype <- match.arg(searchtype, c("scientific", "common"))
-    tsn_df <- ritis::terms(x, what = searchtype, ...)
+    tsn_df <- ritis::terms(searchterm[i], what = searchtype, ...)
     mm <- NROW(tsn_df) > 1
 
     if (!inherits(tsn_df, "tbl_df") || NROW(tsn_df) == 0) {
@@ -123,7 +139,7 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE,
       if (NROW(tsn_df) > 1) {
         tsn_df <- data.frame(tsn_df, stringsAsFactors = FALSE)
         names(tsn_df)[grep(searchtype, names(tsn_df))] <- "target"
-        matchtmp <- tsn_df[tolower(tsn_df$target) %in% tolower(x), "tsn"]
+        matchtmp <- tsn_df[tolower(tsn_df$target) %in% tolower(searchterm[i]), "tsn"]
         if (length(matchtmp) == 1) {
           tsn <- matchtmp
           direct <- TRUE
@@ -150,7 +166,7 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE,
           # prompt
           message("\n\n")
           print(tsn_df)
-          message("\nMore than one TSN found for taxon '", x, "'!\n
+          message("\nMore than one TSN found for taxon '", searchterm[i], "'!\n
             Enter rownumber of taxon (other inputs will return 'NA'):\n")
           take <- scan(n = 1, quiet = TRUE, what = "raw")
 
@@ -171,7 +187,8 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE,
           }
         } else {
           if (length(tsn) != 1) {
-            warning(sprintf(m_more_than_one_found, "tsn", x), call. = FALSE)
+            warning(sprintf(m_more_than_one_found, "tsn", searchterm[i]),
+              call. = FALSE)
             tsn <- NA_character_
             att <- m_na_ask_false
           }
@@ -180,30 +197,21 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE,
 
     }
 
-    data.frame(
-      tsn = as.character(tsn),
-      att = att,
-      multiple = mm,
-      direct = direct,
-      stringsAsFactors = FALSE)
+    res <- list(id = as.character(tsn), att = att, multiple = mm,
+      direct = direct)
+    prog$completed(searchterm[i], att)
+    prog$prog(att)
+    tstate$add(searchterm[i], res)
   }
-  searchterm <- as.character(searchterm)
-  outd <- ldply(searchterm, fun, searchtype, ask, messages, rows, ...)
-  out <- outd$tsn
-  attr(out, 'match') <- outd$att
-  attr(out, 'multiple_matches') <- outd$multiple
-  attr(out, 'pattern_match') <- outd$direct
-  if ( !all(is.na(out)) ) {
-    urlmake <- na.omit(out)
-    attr(out, "uri") <-
-      sprintf(tsn_url_template, urlmake)
-  }
-  class(out) <- "tsn"
-  return(out)
+  out <- tstate$get()
+  ids <- structure(as.character(unlist(pluck(out, "id"))), class = "tsn",
+                   match = pluck_un(out, "att", ""),
+                   multiple_matches = pluck_un(out, "multiple", logical(1)),
+                   pattern_match = pluck_un(out, "direct", logical(1)))
+  on.exit(prog$prog_summary(), add = TRUE)
+  on.exit(tstate$exit, add = TRUE)
+  add_uri(ids, get_url_templates$itis)
 }
-
-tsn_url_template <-
-"https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=%s"
 
 #' @export
 #' @rdname get_tsn
@@ -246,7 +254,7 @@ as.data.frame.tsn <- function(x, ...){
 }
 
 make_tsn <- function(x, check=TRUE) {
-  make_generic(x, tsn_url_template, "tsn", check)
+  make_generic(x, get_url_templates$itis, "tsn", check)
 }
 
 check_tsn <- function(x){

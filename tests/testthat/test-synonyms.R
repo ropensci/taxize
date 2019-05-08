@@ -2,7 +2,8 @@ context("synonyms")
 
 test_that("synonyms returns the correct value", {
   vcr::use_cassette("synonyms_itis", {
-    tt <- sw(synonyms("Poa annua", db = "itis", rows = 1, verbose = FALSE))
+    tt <- sw(synonyms("Poa annua", db = "itis", rows = 1,
+      messages = FALSE))
   })
 
 	expect_match(names(tt), "Poa annua")
@@ -17,7 +18,8 @@ test_that("synonyms returns the correct value", {
 
 test_that("synonyms works with worms data", {
   vcr::use_cassette("synonyms_worms", {
-    tt <- synonyms('Pomatomus saltatrix', db = "worms", verbose = FALSE)
+    tt <- synonyms('Pomatomus saltatrix', db = "worms",
+      messages = FALSE)
   })
 
   expect_match(names(tt), 'Pomatomus saltatrix')

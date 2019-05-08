@@ -13,7 +13,7 @@ test_that("col_search returns the correct values, dimensions, and classes", {
 	expect_equal(names(temp), "Apis")
 	expect_equal(temp[[1]]$name[1], "Apis")
 
-  expect_that(is.null(dim(temp)), is_true())
+  expect_true(is.null(dim(temp)))
   expect_equal(NCOL(temp[[1]]), 10)
 
   expect_that(length(two), equals(2))

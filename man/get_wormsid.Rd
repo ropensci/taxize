@@ -33,7 +33,8 @@ get_wormsid_(query, messages = TRUE, searchtype = "scientific",
   accepted = TRUE, rows = NA, ...)
 }
 \arguments{
-\item{query}{character; A vector of common or scientific names.}
+\item{query}{character; A vector of common or scientific names. Or, a
+\code{\link[=taxon_state]{taxon_state()}} object}
 
 \item{searchtype}{character; One of 'scientific' or 'common', or any unique
 abbreviation}

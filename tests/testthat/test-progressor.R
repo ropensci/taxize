@@ -1,5 +1,7 @@
 context("progressor")
 
+taxize_options(FALSE, quiet = TRUE)
+
 test_that("progressor works", {
   nms <- c("Quercus", "Sasdsfasdf")
   aa <- progressor$new(items = nms)
@@ -39,3 +41,5 @@ test_that("progressor works", {
 test_that("progressor fails well", {
   expect_error(progressor$new(apple = 5), "unused argument")
 })
+
+taxize_options(TRUE, quiet = TRUE)

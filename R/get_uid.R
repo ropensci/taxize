@@ -3,7 +3,7 @@
 #' Retrieve the Unique Identifier (UID) of a taxon from NCBI taxonomy browser.
 #'
 #' @export
-#' @param sciname character; scientific name.
+#' @param sciname character; scientific name. Or, a [taxon_state()] object
 #' @param ask logical; should get_uid be run in interactive mode? If TRUE and
 #' more than one TSN is found for the species, the user is asked for input. If
 #' FALSE NA is returned for multiple matches.
@@ -155,6 +155,7 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
                     division_filter = NULL, rank_filter = NULL,
                     key = NULL, ...) {
 
+  assert(sciname, c("character", "taxon_state"))
   assert(ask, "logical")
   assert(messages, "logical")
   assert(modifier, "character")
@@ -164,13 +165,27 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
   assert_rows(rows)
   key <- getkey(key, service = "entrez")
 
-  fun <- function(sciname, ask, messages, rows, ...) {
+  if (inherits(sciname, "character")) {
+    tstate <- taxon_state$new(class = "uid", names = sciname)
+    items <- sciname
+  } else {
+    tstate <- sciname
+    sciname <- tstate$taxa_remaining()
+    items <- c(sciname, tstate$taxa_completed())
+  }
+
+  prog <- progressor$new(items = items, suppress = !messages)
+  done <- tstate$get()
+  for (i in seq_along(done)) prog$completed(names(done)[i], done[[i]]$att)
+  prog$prog_start()
+
+  for (i in seq_along(sciname)) {
     direct <- FALSE
-    mssg(messages, "\nRetrieving data for taxon '", sciname, "'\n")
-    sciname <- gsub(" ", "+", sciname)
+    mssg(messages, "\nRetrieving data for taxon '", sciname[i], "'\n")
+    sciname[i] <- gsub(" ", "+", sciname[i])
     if (!is.null(modifier))
-      sciname <- paste0(sciname, sprintf("[%s]", modifier))
-    term <- sciname
+      sciname[i] <- paste0(sciname[i], sprintf("[%s]", modifier))
+    term <- sciname[i]
     if (!is.null(rank_query))
       term <- paste0(term, sprintf(" AND %s[Rank]", rank_query))
     try_again_errors <- c("Could not resolve host: eutils.ncbi.nlm.nih.gov")
@@ -228,7 +243,7 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
         # check for exact match
         matchtmp <- df[
           tolower(
-            as.character(df$scientificname)) %in% tolower(sciname), "uid"]
+            as.character(df$scientificname)) %in% tolower(sciname[i]), "uid"]
         if (length(matchtmp) == 1) {
           uid <- as.character(matchtmp)
           direct <- TRUE
@@ -241,7 +256,7 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
             att <- "found"
           } else {
             warning(
-              sprintf(m_more_than_one_found, "UID", sciname),
+              sprintf(m_more_than_one_found, "UID", sciname[i]),
               call. = FALSE
             )
             uid <- NA_character_
@@ -251,7 +266,7 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
           # prompt
           rownames(df) <- 1:nrow(df)
           message("\n\n")
-          message("\nMore than one UID found for taxon '", sciname, "'!\n
+          message("\nMore than one UID found for taxon '", sciname[i], "'!\n
             Enter rownumber of taxon (other inputs will return 'NA'):\n")
           print(df)
           take <- scan(n = 1, quiet = TRUE, what = 'raw')
@@ -274,16 +289,21 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
         }
       }
     }
-    return(data.frame(uid, att, multiple = mm, direct = direct,
-                      stringsAsFactors = FALSE))
+    res <- list(id = as.character(uid), att = att, multiple = mm,
+      direct = direct)
+    prog$completed(sciname[i], att)
+    prog$prog(att)
+    tstate$add(sciname[i], res)
   }
-  sciname <- as.character(sciname)
-  outd <- ldply(sciname, fun, ask, messages, rows, ...)
-  out <- structure(outd$uid, class = "uid",
-                   match = outd$att,
-                   multiple_matches = outd$multiple,
-                   pattern_match = outd$direct)
-  add_uri(out, 'https://www.ncbi.nlm.nih.gov/taxonomy/%s')
+  out <- tstate$get()
+  ids <- structure(pluck_un(out, "id", ""), class = "uid",
+    match = pluck_un(out, "att", ""),
+    multiple_matches = pluck_un(out, "multiple", logical(1)),
+    pattern_match = pluck_un(out, "direct", logical(1))
+  )
+  on.exit(prog$prog_summary(), add = TRUE)
+  on.exit(tstate$exit, add = TRUE)
+  add_uri(ids, get_url_templates$ncbi)
 }
 
 repeat_until_it_works <- function(catch, path, query, max_tries = 3,

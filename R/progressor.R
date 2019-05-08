@@ -1,7 +1,32 @@
-#' methods for preparing/printing info for prompts for `get_*` functions 
+taxize_env <- new.env()
+taxize_env$options <- list()
+
+#' taxon state options
+#'
+#' @export
+#' @keywords internal
+#' @param taxon_state_messages (logical) allow messages. default: `TRUE`
+#' @param quiet (logical) quiet informational output from this function.
+#' default: `TRUE`
+#' @examples
+#' taxize_options()
+#' taxize_options(FALSE)
+#' taxize_options(TRUE)
+taxize_options <- function(taxon_state_messages = NULL, quiet = FALSE) {
+  taxize_env$options$taxon_state_messages <- taxon_state_messages
+  tseo <- taxize_env$options
+  if (!quiet) cat("taxize options", sep = "\n")
+  if (length(tseo) == 0) return(cat(""))
+  for (i in seq_along(tseo)) {
+    if (!quiet) cat(sprintf("  %s: %s", names(tseo)[i], tseo[[i]]),
+      sep = "\n")
+  }
+}
+
+#' methods for preparing/printing info for prompts for `get_*` functions
 #'
 #' @keywords internal
-#' @examples
+#' @examples \dontrun{
 #' nms <- c("Quercus", "Sasdsfasdf")
 #' x <- progressor$new(items = nms)
 #' x
@@ -14,10 +39,11 @@
 #' x$prog_not_found()
 #'
 #' x$prog_summary()
-#' 
+#'
 #' # suppress cli::cat_line
 #' x <- progressor$new(items = nms, suppress = TRUE)
 #' x$prog_summary()
+#' }
 progressor <- R6::R6Class(
   "progressor",
   public = list(
@@ -29,9 +55,14 @@ progressor <- R6::R6Class(
 
     initialize = function(items, suppress = FALSE) {
       if (!missing(items)) self$total <- length(items)
-      self$suppress <- suppress
+      if (!is.null(taxize_env$options$taxon_state_messages)) {
+        self$suppress <- taxize_env$options$taxon_state_messages
+      } else {
+        self$suppress <- suppress
+      }
     },
     completed = function(name, att) {
+      private$update_suppress()
       switch(att,
         "found" = self$completed_found(name),
         "not found" = self$completed_not_found(name))
@@ -41,6 +72,7 @@ progressor <- R6::R6Class(
     completed_not_found = function(name)
       self$not_found <- c(self$not_found, name),
     prog_start = function() {
+      private$update_suppress()
       private$sm(cli::cat_line(
         cli::rule(
           left = sprintf(" %s queries ", self$total),
@@ -55,6 +87,7 @@ progressor <- R6::R6Class(
       }
     },
     prog = function(att) {
+      private$update_suppress()
       switch(att,
         "found" = self$prog_found(),
         "not found" = self$prog_not_found())
@@ -74,6 +107,7 @@ progressor <- R6::R6Class(
       ))
     },
     prog_summary = function() {
+      private$update_suppress()
       private$sm(cli::cat_line(
         cli::rule(left = " Results ", line = 2, line_col = "grey", width = 30),
         "\n"
@@ -101,6 +135,11 @@ progressor <- R6::R6Class(
       cross = cli::symbol$cross
     ),
     last = function(x) x[length(x)],
-    sm = function(x) if (!self$suppress) x
+    sm = function(x) if (!self$suppress) x,
+    update_suppress = function() {
+      if (!is.null(taxize_env$options$taxon_state_messages)) {
+        self$suppress <- taxize_env$options$taxon_state_messages
+      }
+    }
   )
 )

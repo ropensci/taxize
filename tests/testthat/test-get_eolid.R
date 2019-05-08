@@ -3,7 +3,7 @@ context("get_eolid")
 test_that("get_eolid works", {
   skip_on_cran()
 
-  a <- get_eolid(sciname = "Puma concolor", message = FALSE, rows = 1)
+  a <- get_eolid(sciname = "Puma concolor", messages = FALSE, rows = 1)
 
   expect_is(a, "eolid")
   expect_is(a[[1]], "character")
@@ -39,9 +39,8 @@ Sys.sleep(1)
 test_that("get_eolid accepts ask-argument", {
   skip_on_cran()
 
-  expect_that(is.na(get_eolid(sciname = 'adsf asdf asdf', ask = FALSE,
-    messages = FALSE)[[1]]),
-              is_true())
+  expect_true(is.na(get_eolid(sciname = 'adsf asdf asdf', ask = FALSE,
+    messages = FALSE)[[1]]))
 })
 
 test_that("get_eolid fails as expected", {

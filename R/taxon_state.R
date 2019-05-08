@@ -17,29 +17,38 @@ taxon_last <- function() taxon_state_env$last
 #' @keywords internal
 #' @format NULL
 #' @usage NULL
+#' @param class (character) a class name (e.g., "gbif")
+#' @param names (character) one or more taxon names
 #' @details
 #' **Methods**
 #'   \describe{
 #'     \item{`add(query, result)`}{
-#'       add a query with it's result
+#'       add a record with it's result; duplicates allowed
+#'       - query (character), a taxon name
+#'       - result (list) a named list
 #'     }
 #'     \item{`get(query)`}{
-#'       get a result by query
+#'       get all records matching 'query'
+#'       - query (character), a taxon name
 #'     }
 #'     \item{`remove(query)`}{
-#'       remove a query
+#'       remove's all records matching 'query'
+#'       - query (character), a taxon name
 #'     }
 #'     \item{`purge()`}{
-#'       remove all records
+#'       removes all records
+#'     }
+#'     \item{`taxa_remaining()`}{
+#'       get remaining taxa
+#'     }
+#'     \item{`taxa_completed()`}{
+#'       get remaining taxa
 #'     }
 #'     \item{`count` (active binding)}{
 #'       count number of records
 #'     }
 #'     \item{`exit` (active binding)}{
 #'       record date/time function exited
-#'     }
-#'     \item{`remaining_taxa`}{
-#'       get remaining taxa
 #'     }
 #'   }
 #' @examples
@@ -123,11 +132,18 @@ taxon_state <- R6::R6Class(
       invisible(self)
     },
     
-    add = function(query, result) private$pool[[query]] <- result,
-    get = function(query = NULL) {
-      if (is.null(query)) private$pool else private$pool[[query]]
+    add = function(query, result) {
+      assert(query, "character")
+      assert(result, "list")
+      private$pool <- c(private$pool, stats::setNames(list(result), query))
     },
-    remove = function(query) private$pool[[query]] <- NULL,
+    get = function(query = NULL) {
+      if (is.null(query)) return(private$pool)
+      private$pool[names(private$pool) %in% query]
+    },
+    remove = function(query) {
+      private$pool[names(private$pool) %in% query] <- NULL
+    },
     purge = function() private$pool <- NULL,
     taxa_remaining = function() {
       done <- names(self$get())

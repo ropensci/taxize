@@ -5,7 +5,7 @@ test_that("iucn_summary returns the correct value", {
   }
 
   vcr::use_cassette("iucn_summary", {
-    temp <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
+    temp <- iucn_summary(c("Panthera uncia", "Lynx lynx"), messages = FALSE)
   })
 
   expect_that(length(temp[[1]]), equals(4))
@@ -20,14 +20,14 @@ test_that("iucn_summary gives expected result for lots of names", {
   }
 
   vcr::use_cassette("iucn_summary_other_egs", {
-    aa <- iucn_summary("Abies koreana")
-    bb <- iucn_summary("Xylopia collina")
-    cc <- iucn_summary("Brugmansia versicolor")
-    dd <- iucn_summary("Achatinella buddii")
-    ee <- iucn_summary("Annona hystricoides")
-    ff <- iucn_summary("Chamaecrista onusta")
-    gg <- iucn_summary("Cyornis lemprieri")
-    hh <- iucn_summary("Frailea pumila")
+    aa <- iucn_summary("Abies koreana", messages = FALSE)
+    bb <- iucn_summary("Xylopia collina", messages = FALSE)
+    cc <- iucn_summary("Brugmansia versicolor", messages = FALSE)
+    dd <- iucn_summary("Achatinella buddii", messages = FALSE)
+    ee <- iucn_summary("Annona hystricoides", messages = FALSE)
+    ff <- iucn_summary("Chamaecrista onusta", messages = FALSE)
+    gg <- iucn_summary("Cyornis lemprieri", messages = FALSE)
+    hh <- iucn_summary("Frailea pumila", messages = FALSE)
   })
 
   expect_equal(aa$`Abies koreana`$status, "EN")
@@ -46,5 +46,5 @@ test_that("iucn_summary curl options work", {
   if (Sys.getenv("IUCN_REDLIST_KEY") == "") {
     skip("No IUCN api key so test not run.")
   }
-  expect_error(iucn_summary("Abies koreana", timeout_ms = 1))
+  expect_error(iucn_summary("Abies koreana", timeout_ms = 1, messages = FALSE))
 })
