@@ -441,13 +441,13 @@ get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn', rows=1:3)
 #>               guid      scientificName    rank taxonomicStatus
 #> 1 NBNSYS0000027573 Chironomus riparius species        accepted
 #> 2 NHMSYS0001718585  Hypnoidus riparius species        accepted
-#> 3 NBNSYS0000023345   Paederus riparius species        accepted
+#> 3 NBNSYS0000007169   Elaphrus riparius species        accepted
 #> 
 #> $nbn$`Pinus contorta`
 #>               guid                scientificName    rank taxonomicStatus
 #> 1 NBNSYS0000004786                Pinus contorta species        accepted
-#> 2 NHMSYS0000494858 Pinus contorta var. murrayana variety        accepted
-#> 3 NHMSYS0000494848  Pinus contorta var. contorta variety        accepted
+#> 2 NHMSYS0000494848  Pinus contorta var. contorta variety        accepted
+#> 3 NHMSYS0000494858 Pinus contorta var. murrayana variety        accepted
 #> 
 #> 
 #> attr(,"class")
