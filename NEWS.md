@@ -1,3 +1,12 @@
+taxize 0.9.7
+============
+
+### MINOR IMPROVEMENTS
+
+* `class2tree()` gains node labels when present (#644) (#748) thanks @gpli
+* change documentation to use markdown (#658) (#746) thanks @Rekyt
+
+
 taxize 0.9.6
 ============
 
