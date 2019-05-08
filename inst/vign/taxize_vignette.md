@@ -317,13 +317,13 @@ get_nbnid_("Poa annua", rows = 1:10)
 #> 1  NBNSYS0000002544          Poa annua species        accepted
 #> 2  NBNSYS0200001901       Bellis annua species        accepted
 #> 3  NBNSYS0200003392   Triumfetta annua species        accepted
-#> 4  NHMSYS0000456951  Carrichtera annua species        accepted
-#> 5  NBNSYS0200002555        Lonas annua species        accepted
+#> 4  NBNSYS0200002555        Lonas annua species        accepted
+#> 5  NHMSYS0000456951  Carrichtera annua species        accepted
 #> 6  NHMSYS0000461807 Poa labillardierei species        accepted
-#> 7  NBNSYS0200002925      Poa poiformis species        accepted
-#> 8  NBNSYS0200002917          Poa ampla species        accepted
-#> 9  NHMSYS0000461806      Poa imbecilla species        accepted
-#> 10 NHMSYS0000461808      Poa ligularis species        accepted
+#> 7  NHMSYS0000461808      Poa ligularis species        accepted
+#> 8  NHMSYS0000461817     Poa sieberiana species        accepted
+#> 9  NHMSYS0000461805         Poa gunnii species        accepted
+#> 10 NHMSYS0000461801     Poa costiniana species        accepted
 ```
 
 ## Coerce numerics/alphanumerics to taxon IDs
@@ -423,7 +423,7 @@ system.time( replicate(3, as.gbifid(c("2704179","2435099","3171445"), check=TRUE
 
 ```
 #>    user  system elapsed 
-#>   0.078   0.002   1.943
+#>   0.072   0.003   1.760
 ```
 
 ```r
@@ -432,7 +432,7 @@ system.time( replicate(3, as.gbifid(c("2704179","2435099","3171445"), check=FALS
 
 ```
 #>    user  system elapsed 
-#>   0.002   0.000   0.002
+#>   0.001   0.000   0.002
 ```
 
 ## What taxa are downstream of my taxon of interest?

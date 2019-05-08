@@ -226,20 +226,21 @@ in a programmatic workflow straight away.
 ```r
 spp <- names_list(rank = "species", size = 10)
 gnr_resolve(names = spp, preferred_data_sources = 11)
-#> # A tibble: 22 x 5
+#> # A tibble: 12 x 5
 #>    user_supplied_na… submitted_name  matched_name    data_source_tit… score
 #>  * <chr>             <chr>           <chr>           <chr>            <dbl>
-#>  1 Acetosella crispa Acetosella cri… Acetosella cri… GBIF Backbone T… 0.988
-#>  2 Meteoridium tenu… Meteoridium te… Meteoridium te… GBIF Backbone T… 0.988
-#>  3 Piper attenuatum  Piper attenuat… Piper attenuat… GBIF Backbone T… 0.988
-#>  4 Piper attenuatum  Piper attenuat… Piper attenuat… GBIF Backbone T… 0.988
-#>  5 Piper attenuatum  Piper attenuat… Piper attenuat… GBIF Backbone T… 0.988
-#>  6 Piper attenuatum  Piper attenuat… Piper attenuat… GBIF Backbone T… 0.988
-#>  7 Piper attenuatum  Piper attenuat… Piper attenuat… GBIF Backbone T… 0.988
-#>  8 Piper attenuatum  Piper attenuat… Piper attenuat… GBIF Backbone T… 0.988
-#>  9 Pyrethrum corymb… Pyrethrum cory… Pyrethrum cory… GBIF Backbone T… 0.988
-#> 10 Pyrethrum corymb… Pyrethrum cory… Pyrethrum cory… GBIF Backbone T… 0.988
-#> # … with 12 more rows
+#>  1 Cassine transvaa… Cassine transv… Cassine transv… GBIF Backbone T… 0.988
+#>  2 Plantago annua    Plantago annua  Plantago annua… GBIF Backbone T… 0.988
+#>  3 Ribes tularensis  Ribes tularens… Ribes tularens… GBIF Backbone T… 0.988
+#>  4 Piper verruclifo… Piper verrucli… Piper verrucli… GBIF Backbone T… 0.988
+#>  5 Inula stricta     Inula stricta   Inula stricta … GBIF Backbone T… 0.988
+#>  6 Carex austromexi… Carex austrome… Carex austrome… GBIF Backbone T… 0.988
+#>  7 Schmidelia macro… Schmidelia mac… Schmidelia mac… GBIF Backbone T… 0.988
+#>  8 Schmidelia macro… Schmidelia mac… Schmidelia mac… GBIF Backbone T… 0.988
+#>  9 Schmidelia macro… Schmidelia mac… Schmidelia mac… GBIF Backbone T… 0.988
+#> 10 Anila sessilifol… Anila sessilif… Anila sessilif… GBIF Backbone T… 0.988
+#> 11 Glochidion muell… Glochidion mue… Glochidion mue… GBIF Backbone T… 0.988
+#> 12 Viguiera viridis  Viguiera virid… Viguiera virid… GBIF Backbone T… 0.988
 ```
 
 ## Other functions
