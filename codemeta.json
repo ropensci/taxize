@@ -10,14 +10,14 @@
   "codeRepository": "https://github.com/ropensci/taxize",
   "issueTracker": "https://github.com/ropensci/taxize/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.9.6",
+  "version": "0.9.7",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.5.2",
+    "version": "3.6.0",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.5.2 Patched (2018-12-31 r75943)",
+  "runtimePlatform": "R version 3.6.0 Patched (2019-04-30 r76446)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -103,6 +103,11 @@
       "@type": "Person",
       "givenName": "Gaopeng",
       "familyName": "Li"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Matthias",
+      "familyName": "Grenié"
     }
   ],
   "maintainer": [
@@ -416,12 +421,24 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=wikitaxa"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "phangorn",
+      "name": "phangorn",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=phangorn"
     }
   ],
   "contIntegration": "https://travis-ci.org/ropensci/taxize",
   "releaseNotes": "https://github.com/ropensci/taxize/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/taxize/blob/master/README.md",
-  "fileSize": "1287.419KB",
+  "fileSize": "1390.459KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
@@ -525,11 +542,16 @@
           "@type": "Person",
           "givenName": "Gaopeng",
           "familyName": "Li"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Matthias",
+          "familyName": "Grenié"
         }
       ],
       "name": "taxize: Taxonomic information from around the web",
       "url": "https://github.com/ropensci/taxize",
-      "description": "R package version 0.9.5"
+      "description": "R package version 0.9.7"
     }
   ],
   "applicationCategory": "Taxonomy",
@@ -541,5 +563,8 @@
       "name": "rOpenSci"
     }
   ],
-  "relatedLink": "https://ropensci.github.io/taxize-book/"
+  "relatedLink": [
+    "https://ropenscilabs.github.io/taxize-book/"
+  ],
+  "copyrightHolder": {}
 }
