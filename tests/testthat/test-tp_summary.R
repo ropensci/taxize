@@ -4,7 +4,7 @@ test_that("tp_summary returns the correct value", {
   skip_on_cran() # uses secrets
   vcr::use_cassette("tp_summary", {
     dat <- suppressMessages(tp_summary(id = 25509881))
-  })
+  }, preserve_exact_body_bytes = TRUE)
 
   if ("error" %in% names(dat)) skip("error in tp_summary call - skipping")
 

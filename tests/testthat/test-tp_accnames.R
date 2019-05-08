@@ -4,7 +4,7 @@ test_that("tp_accnames returns the correct class", {
   skip_on_cran() # uses secrets
   vcr::use_cassette("tp_accnames", {
     out <- suppressMessages(tp_accnames(id = 25503923))
-  })
+  }, preserve_exact_body_bytes = TRUE)
 
   if ("Error" %in% names(out)) skip("error in tp_accnames call - skipping")
 

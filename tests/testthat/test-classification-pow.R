@@ -38,7 +38,7 @@ test_that("rbind and cbind work correctly", {
       c("Brillantaisia vogeliana", "Aphelandra aurantiaca"),
       db = "pow", messages = FALSE)
     cl <- classification(out)
-  })
+  }, preserve_exact_body_bytes = TRUE)
 
   # rbind
   clr <- rbind(cl)
@@ -55,7 +55,7 @@ test_that("works on a variety of names", {
   vcr::use_cassette("classification_pow_more_name_egs", {
     x <- classification("Mimosa weberbaueri", db = "pow", messages = FALSE)
     z <- classification("Cyperus zollingeri", db = "pow", messages = FALSE)
-  })
+  }, preserve_exact_body_bytes = TRUE)
 
   expect_is(x, "classification")
   expect_is(z, "classification")

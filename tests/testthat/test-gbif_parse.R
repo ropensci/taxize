@@ -3,7 +3,7 @@ context("gbif_parse")
 test_that("gbif_parse returns the correct values and dimensions classes", {
   vcr::use_cassette("gbif_parse", {
     tt <- gbif_parse(scientificname = 'x Agropogon littoralis L.')
-  })
+  }, preserve_exact_body_bytes = TRUE)
 
   expect_match(as.character(tt[1,1]), 'x Agropogon littoralis')
 	expect_match(as.character(tt[1,2]), 'SCIENTIFIC')

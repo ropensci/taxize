@@ -6,7 +6,7 @@ test_that("col_children returns the correct classes and dimensions", {
     temp5 <- col_children(name="Plantae")
     temp11 <- col_children(name="Accipiter striatus")
     temp13 <- col_children(id=c(2346405,2344165,2346405), checklist = '2012')
-  })
+  }, preserve_exact_body_bytes = TRUE)
 
 	expect_is(temp4, "list")
   expect_is(temp5, "list")

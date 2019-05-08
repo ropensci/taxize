@@ -28,7 +28,7 @@ test_that("get_tpsid behaves correctly on dot inputs", {
     expect_that(get_tpsid('Pinus contorta var. yukonensis'),
                 gives_warning("detected, being URL encoded"))
     expect_warning(get_tpsid('Pinus contorta yukonensis'), NA)
-  })
+  }, preserve_exact_body_bytes = TRUE)
 })
 
 test_that("get_tpsid behaves correctly on subspecific inputs", {

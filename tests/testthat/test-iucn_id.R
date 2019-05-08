@@ -9,7 +9,7 @@ test_that("iucn_id returns the correct class", {
     aa <- iucn_id("Branta canadensis")
     bb <- iucn_id("Panthera uncia")
     cc <- iucn_id("Lynx lynx")
-  })
+  }, preserve_exact_body_bytes = TRUE)
 
   expect_is(aa, "integer")
   expect_is(bb, "integer")

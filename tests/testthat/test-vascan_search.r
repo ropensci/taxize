@@ -6,7 +6,7 @@ test_that("vascan_search returns the correct class", {
     bb <- vascan_search(q = c("Helianthus annuus", "Crataegus dodgei"), raw=TRUE)
     splist <- names_list(rank='species', size=50)
     cc <- vascan_search(q = splist)
-  })
+  }, preserve_exact_body_bytes = TRUE)
 
   expect_is(aa, "list")
   expect_is(bb, "character")
