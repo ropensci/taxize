@@ -40,7 +40,7 @@ than 1000 will be decreased to 1000) (default is 30).}
 \item{parse_names}{If \code{TRUE}, use \code{\link[=gni_parse]{gni_parse()}} to parse
 names. Default: \code{FALSE}}
 
-\item{...}{Curl options passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}}
+\item{...}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
 data.frame of results.

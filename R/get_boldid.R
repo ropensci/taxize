@@ -5,39 +5,39 @@
 #' @param searchterm character; A vector of common or scientific names.
 #' @param fuzzy (logical) Whether to use fuzzy search or not (default: FALSE).
 #' @param dataTypes (character) Specifies the datatypes that will be returned.
-#' See [`bold_search()`] for options.
+#' See [bold_search()] for options.
 #' @param includeTree (logical) If TRUE (default: FALSE), returns a list
 #' containing information for parent taxa as well as the specified taxon.
 #' @param ask logical; should get_tsn be run in interactive mode?
 #' If TRUE and more than one TSN is found for teh species, the user is asked for
 #' input. If FALSE NA is returned for multiple matches.
 #' @param verbose logical; should progress be printed?
-#' @param x Input to [`as.boldid()`]
-#' @param ... Curl options passed on to [`crul::verb-GET`]
+#' @param x Input to [as.boldid()]
+#' @param ... Curl options passed on to [crul::verb-GET]
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, all rows are
 #' considered. Note that this function still only gives back a boldid class object with one
-#' to many identifiers. See [`get_boldid_()`] to get back all, or a subset,
+#' to many identifiers. See [get_boldid_()] to get back all, or a subset,
 #' of the raw data that you are presented during the ask process.
 #' @param division (character) A division (aka phylum) name. Optional. See `Filtering`
 #' below.
 #' @param parent (character) A parent name (i.e., the parent of the target search
 #' taxon). Optional. See `Filtering` below.
-#' @param rank (character) A taxonomic rank name. See [`rank_ref()`] for possible
+#' @param rank (character) A taxonomic rank name. See [rank_ref()] for possible
 #' options. Though note that some data sources use atypical ranks, so inspect the
 #' data itself for options. Optional. See `Filtering` below.
 #' @param check logical; Check if ID matches any existing on the DB, only used in
-#' [`as.boldid()`]
+#' [as.boldid()]
 #' @template getreturn
 #'
 #' @section Filtering:
 #' The parameters `division`, `parent`, and `rank` are not used in the search to
 #' the data provider, but are used in filtering the data down to a subset that
 #' is closer to the target you want.  For all these parameters, you can use
-#' regex strings since we use [`grep()`] internally to match. Filtering narrows
+#' regex strings since we use [grep()] internally to match. Filtering narrows
 #' down to the set that matches your query, and removes the rest.
 #'
 #' @family taxonomic-ids
-#' @seealso [`classification()`]
+#' @seealso [classification()]
 #'
 #' @examples \dontrun{
 #' get_boldid(searchterm = "Agapostemon")

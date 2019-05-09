@@ -63,7 +63,8 @@ out <- classification(spnames, db='itis')
 tr <- class2tree(out)
 plot(tr)
 
-spnames <- c('Klattia flava', 'Trollius sibiricus', 'Arachis paraguariensis',
+spnames <- c('Klattia flava', 'Trollius sibiricus',
+ 'Arachis paraguariensis',
  'Tanacetum boreale', 'Gentiana yakushimensis','Sesamum schinzianum',
  'Pilea verrucosa','Tibouchina striphnocalyx','Lycium dasystemum',
  'Berkheya echinacea','Androcymbium villosum',

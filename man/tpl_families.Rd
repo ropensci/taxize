@@ -7,7 +7,7 @@
 tpl_families(...)
 }
 \arguments{
-\item{...}{(list) Curl options passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}}
+\item{...}{(list) Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
 Returns a \code{data.frame} including the names of all families

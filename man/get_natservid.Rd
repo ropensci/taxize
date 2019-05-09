@@ -87,7 +87,7 @@ You can pass your token in as an argument or store it one of two places:
 \code{NATURE_SERVE_KEY=your-natureserve-key}
 }
 
-See \code{\link[=Startup]{Startup()}} for information on how to create/find your
+See \link{Startup} for information on how to create/find your
 .Rprofile and .Renviron files
 }
 

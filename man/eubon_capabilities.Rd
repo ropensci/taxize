@@ -7,7 +7,7 @@
 eubon_capabilities(...)
 }
 \arguments{
-\item{...}{Curl options passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}}
+\item{...}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \description{
 EUBON capabilities

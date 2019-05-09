@@ -19,7 +19,7 @@ tax_agg(x, rank, db = "ncbi", verbose = FALSE, ...)
 their own identifiers, so that if you provide the wrong \code{db} value
 for the identifier you could get a result, but it will likely be wrong (not
 what you were expecting). If using ncbi we recommend getting an API key;
-see \code{\link{taxize-authentication}}}
+see \link{taxize-authentication}}
 
 \item{verbose}{(logical) If FALSE (Default) suppress messages}
 
@@ -84,5 +84,5 @@ tax_agg(mat, rank = 'family', db='itis')
 }
 }
 \seealso{
-\code{\link{tax_name}}
+\link{tax_name}
 }

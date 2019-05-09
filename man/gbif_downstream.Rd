@@ -22,7 +22,7 @@ intermediate taxonomic groups. Default: FALSE}
 
 \item{start}{Record number to start at}
 
-\item{...}{Further args passed on to \code{\link{gbif_name_usage}}}
+\item{...}{Further args passed on to \code{\link[=gbif_name_usage]{gbif_name_usage()}}}
 }
 \value{
 data.frame of taxonomic information downstream to family from e.g.,

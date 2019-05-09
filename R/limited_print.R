@@ -8,7 +8,7 @@
 #'   `chars`, on the same line.
 #' @param max_chars (`numeric` of length 1) The maximum number of
 #'   characters to print.
-#' @param type (`"error"`, `"warning"`, `"message"`, `"cat"`, `"print"`, `"silent"``)
+#' @param type (`"error"`, `"warning"`, `"message"`, `"cat"`, `"print"`, `"silent"`)
 #'
 #' @return `NULL`
 #'

@@ -119,7 +119,7 @@ about fuzzy matching.
 
 \section{Authentication}{
 
-See \code{\link{taxize-authentication}} for help on authentication
+See \link{taxize-authentication} for help on authentication
 
 Note that even though you can't pass in your key to \code{as.uid} functions,
 we still use your Entrez API key if you have it saved as an R option

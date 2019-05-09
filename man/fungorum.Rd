@@ -33,7 +33,7 @@ fg_deprecated_names(date, ...)
 \item{limit}{(integer) Number of results to return. max limit
 value appears to be 6000, not positive about that though}
 
-\item{...}{Curl options passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}}
+\item{...}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 
 \item{key}{(character) A IndexFungorum taxon key}
 

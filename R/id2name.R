@@ -7,9 +7,9 @@
 #' taxonomic data source has their own  identifiers, so that if you provide
 #' the wrong `db` value for the identifier you could get a result,
 #' but it will likely be wrong (not what you were expecting). If using ncbi
-#' we recommend getting API keys; see [`taxize-authentication`]
+#' we recommend getting API keys; see [taxize-authentication]
 #' @param ... Further args passed on to `tol_id2name` or
-#' [`itis_getrecord`], or other internal functions.
+#' [itis_getrecord], or other internal functions.
 #' See those functions for what parameters can be passed on.
 #'
 #' @return A named list of data.frames, named by the input taxonomic ids

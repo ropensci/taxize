@@ -12,17 +12,17 @@
 #' @param verbose logical; should progress be printed?
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, all
 #' rows are considered. Note that this function still only gives back a tol
-#' class object with one to many identifiers. See [`get_tolid_()`]
+#' class object with one to many identifiers. See [get_tolid_()]
 #' to get back all, or a subset, of the raw data that you are presented during
 #' the ask process.
 #' @param x Input to `as.tolid`
 #' @param ... Ignored
 #' @param check logical; Check if ID matches any existing on the DB, only
-#' used in [`as.tolid()`]
+#' used in [as.tolid()]
 #' @template getreturn
 #'
 #' @family taxonomic-ids
-#' @seealso [`classification()`]
+#' @seealso [classification()]
 #'
 #' @examples \dontrun{
 #' get_tolid(sciname = "Quercus douglasii")

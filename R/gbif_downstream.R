@@ -10,7 +10,7 @@
 #' intermediate taxonomic groups. Default: FALSE
 #' @param limit Number of records to return
 #' @param start Record number to start at
-#' @param ... Further args passed on to [`gbif_name_usage`]
+#' @param ... Further args passed on to [gbif_name_usage()]
 #' @return data.frame of taxonomic information downstream to family from e.g.,
 #' 		Order, Class, etc., or if `intermediated=TRUE`, list of length two,
 #'   	with target taxon rank names, and intermediate names.

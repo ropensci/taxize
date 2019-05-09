@@ -5,16 +5,16 @@
 #' query.
 #' @param db character; database to query. either `ncbi`, `itis`, `gbif`, `col`,
 #' `tol`. If using ncbi, we recommend getting an API key;
-#' see [`taxize-authentication`]
+#' see [taxize-authentication]
 #' @param rows (numeric) Any number from 1 to infinity. If the default NA,
 #' all rows are considered. Note that this parameter is ignored if you pass in
 #' a taxonomic id of any of the acceptable classes: tsn, colid, gbifid, tolid.
 #' NCBI has a method for this function but rows doesn't work.
 #' @param class_list (list) A list of classifications, as returned from
-#' [`classification()`]
+#' [classification()]
 #' @param low_rank (character) taxonomic rank to return, of length 1
-#' @param ... Other arguments passed to [`get_tsn()`], [`get_uid()`],
-#' [`get_colid()`], [`get_gbifid()`], [`get_tolid()`]
+#' @param ... Other arguments passed to [get_tsn()], [get_uid()],
+#' [get_colid()], [get_gbifid()], [get_tolid()]
 #'
 #' @return NA when no match, or a data.frame with columns
 #' * name
@@ -22,7 +22,7 @@
 #' * id
 #' 
 #' @section Authentication:
-#' See [`taxize-authentication`] for help on authentication
+#' See [taxize-authentication] for help on authentication
 #' 
 #' @author Jimmy O'Donnell \email{jodonnellbio@@gmail.com}
 #' Scott Chamberlain \email{myrmecocystus@@gmail.com}

@@ -96,6 +96,7 @@ Imports:
     wikitaxa (>= 0.3.0),
     phangorn
 Suggests:
+    roxygen2 (>= 6.1.1),
     testthat,
     knitr,
     vegan,

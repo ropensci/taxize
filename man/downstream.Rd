@@ -47,7 +47,7 @@ to query.}
 identifiers, so that if you provide the wrong \code{db} value for the identifier
 you could get a result, but it will likely be wrong (not what you were
 expecting). If using ncbi, we recommend getting an API key; see
-\code{\link{taxize-authentication}}}
+\link{taxize-authentication}}
 
 \item{downto}{What taxonomic rank to go down to. One of: 'superkingdom',
 'kingdom', 'subkingdom','infrakingdom','phylum','division','subphylum',
@@ -83,7 +83,7 @@ ourselves here.
 }
 \section{Authentication}{
 
-See \code{\link{taxize-authentication}} for help on authentication
+See \link{taxize-authentication} for help on authentication
 }
 
 \examples{

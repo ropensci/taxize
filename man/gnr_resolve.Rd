@@ -57,7 +57,7 @@ If \code{FALSE}, names are not modified. Default: \code{TRUE}}
 \item{fields}{(character) One of minimal (default) or all. Minimal gives
 back just four fields, whereas all gives all fields back.}
 
-\item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient}}}
+\item{...}{Curl options passed on to \link[crul:HttpClient]{crul::HttpClient}}
 }
 \value{
 A data.frame with one attribute \code{not_known}: a character
@@ -155,7 +155,7 @@ gnr_resolve("Scorzonera hispanica L. subsp. asphodeloides Wallr.",
 \url{http://gnrd.globalnames.org/}
 }
 \seealso{
-\code{\link[=gnr_datasources]{gnr_datasources()}} \code{\link{tnrs}}
+\code{\link[=gnr_datasources]{gnr_datasources()}} \link{tnrs}
 }
 \author{
 Scott Chamberlain \email{myrmecocystus@gmail.com}

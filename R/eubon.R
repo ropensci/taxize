@@ -37,7 +37,7 @@
 #' * name: compares 'taxon.taxonName.scientificName' Using the pure
 #'  'name' strategy is not recommended.
 #'
-#' @param ... Curl options passed on to [`crul::verb-GET`]
+#' @param ... Curl options passed on to [crul::verb-GET]
 #' @references <http://cybertaxonomy.eu/eu-bon/utis/1.2/doc.html>
 #' @details Note that paging is not yet implemented, so you only get the first
 #' chunk of up to 50 results for methods that require paging. We will

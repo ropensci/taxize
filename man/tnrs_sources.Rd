@@ -10,7 +10,7 @@ tnrs_sources(source = NULL, ...)
 \item{source}{The source to get information on, one of "iPlant_TNRS",
 "NCBI", or "MSW3".}
 
-\item{...}{Curl options to pass in \code{\link[crul:verb-GET]{crul::verb-GET}}}
+\item{...}{Curl options to pass in \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
 Sources for the TNRS API in a vector or list

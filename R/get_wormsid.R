@@ -17,17 +17,17 @@
 #' @param messages logical; should progress be printed?
 #' @param rows numeric; Any number from 1 to infinity. If the default NaN, all
 #' rows are considered. Note that this function still only gives back a wormsid
-#' class object with one to many identifiers. See [`get_wormsid_()`] to get back
+#' class object with one to many identifiers. See [get_wormsid_()] to get back
 #' all, or a subset, of the raw data that you are presented during the ask
 #' process.
 #' @param x Input to as.wormsid
 #' @param ... Ignored
 #' @param check logical; Check if ID matches any existing on the DB, only
-#' used in [`as.wormsid()`]
+#' used in [as.wormsid()]
 #' @template getreturn
 #'
 #' @family taxonomic-ids
-#' @seealso [`classification()`]
+#' @seealso [classification()]
 #'
 #' @examples \dontrun{
 #' (x <- get_wormsid('Platanista gangetica'))

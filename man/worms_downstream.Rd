@@ -19,7 +19,7 @@ intermediate taxonomic groups. Default: \code{FALSE}}
 
 \item{start}{(integer) Record number to start at}
 
-\item{...}{crul options passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}}
+\item{...}{crul options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
 data.frame of taxonomic information downstream to family from e.g.,

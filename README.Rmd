@@ -54,8 +54,8 @@ Note that a few data sources require SOAP web services, which are difficult to s
 <tr>
 	<td style="text-align:left;">Encylopedia of Life</td>
 	<td style="text-align:left;"><code>eol</code></td>
-	<td style="text-align:left;"><a href="http://www.eol.org/api/">link</a></td>
-	<td style="text-align:left;"><a href="http://eol.org/users/register">link</a></td>
+	<td style="text-align:left;"><a href="https://eol.org/docs/what-is-eol/data-services">link</a></td>
+	<td style="text-align:left;"><a href="https://eol.org/docs/what-is-eol/data-services">link</a></td>
 </tr>
 <tr>
 	<td style="text-align:left;">Taxonomic Name Resolution Service</td>
@@ -102,7 +102,7 @@ Note that a few data sources require SOAP web services, which are difficult to s
 <tr>
 	<td style="text-align:left;">Catalogue of Life</td>
 	<td style="text-align:left;"><code>col</code></td>
-	<td style="text-align:left;"><a href="http://www.catalogueoflife.org/colwebsite/content/web-services">link</a></td>
+	<td style="text-align:left;"><a href="http://www.catalogueoflife.org/content/web-services">link</a></td>
 	<td style="text-align:left;">none</td>
 </tr>
 <tr>

@@ -11,7 +11,7 @@
 #' printed on the console.
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, all
 #' rows are considered. Note that this function still only gives back a uid
-#' class object with one to many identifiers. See [`get_uid_()`] to get back
+#' class object with one to many identifiers. See [get_uid_()] to get back
 #' all, or a subset, of the raw data that you are presented during the ask
 #' process.
 #' @param modifier (character) A modifier to the `sciname` given. Options
@@ -20,20 +20,20 @@
 #' Subtree, Synonym, Text Word. These are not checked, so make sure they are
 #' entered correctly, as is.
 #' @param rank_query (character) A taxonomic rank name to modify the query sent
-#' to NCBI. See [`rank_ref()`] for possible options. Though note that
+#' to NCBI. See [rank_ref()] for possible options. Though note that
 #' some data sources use atypical ranks, so inspect the data itself for
 #' options. Optional. See `Querying` below.
 #' @param division_filter (character) A division (aka phylum) name to filter
 #' data after retrieved from NCBI. Optional. See `Filtering` below.
 #' @param rank_filter (character) A taxonomic rank name to filter data after
-#' retrieved from NCBI. See [`rank_ref()`] for possible options.
+#' retrieved from NCBI. See [rank_ref()] for possible options.
 #' Though note that some data sources use atypical ranks, so inspect the data
 #' itself for options. Optional. See `Filtering` below.
 #' @param key (character) NCBI Entrez API key. optional. See Details.
-#' @param x Input to [`as.uid()`]
+#' @param x Input to [as.uid()]
 #' @param ... Ignored
 #' @param check logical; Check if ID matches any existing on the DB, only used
-#'   in [`as.uid()`]
+#'   in [as.uid()]
 #' @template getreturn
 #'
 #' @section Querying: The parameter `rank_query` is used in the search sent
@@ -46,7 +46,7 @@
 #'   `rank_filter` are not used in the search to the data provider, but are
 #'   used in filtering the data down to a subset that is closer to the target
 #'   you want. For all these parameters, you can use regex strings since we use
-#'   [`grep()`] internally to match. Filtering narrows down to the set
+#'   [grep()] internally to match. Filtering narrows down to the set
 #'   that matches your query, and removes the rest.
 #'
 #' @section Beware: NCBI does funny things sometimes. E.g., if you search on
@@ -58,14 +58,14 @@
 #'   about fuzzy matching.
 #'
 #' @section Authentication:
-#' See [`taxize-authentication`] for help on authentication
+#' See [taxize-authentication] for help on authentication
 #'
 #' Note that even though you can't pass in your key to `as.uid` functions,
 #' we still use your Entrez API key if you have it saved as an R option
 #' or environment variable.
 #'
 #' @family taxonomic-ids
-#' @seealso [`classification()`]
+#' @seealso [classification()]
 #'
 #' @author Eduard Szoecs, \email{eduardszoecs@@gmail.com}
 #'

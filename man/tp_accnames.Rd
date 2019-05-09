@@ -9,10 +9,10 @@ tp_accnames(id, key = NULL, ...)
 \arguments{
 \item{id}{the taxon identifier code}
 
-\item{key}{Your Tropicos API key; See \code{\link{taxize-authentication}}
+\item{key}{Your Tropicos API key; See \link{taxize-authentication}
 for help on authentication}
 
-\item{...}{Curl options passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}}
+\item{...}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
 List or dataframe.

@@ -5,21 +5,21 @@
 #' @name get_id_details
 #'
 #' @details This document applies to the following functions:
-#' * [`get_boldid()`]
-#' * [`get_colid()`]
-#' * [`get_eolid()`]
-#' * [`get_gbifid()`]
-#' * [`get_ids()`]
-#' * [`get_iucn()`]
-#' * [`get_natservid()`]
-#' * [`get_nbnid()`]
-#' * [`get_tolid()`]
-#' * [`get_tpsid()`]
-#' * [`get_tsn()`]
-#' * [`get_ubioid()`]
-#' * [`get_uid()`]
-#' * [`get_wiki()`]
-#' * [`get_wormsid()`]
+#' * [get_boldid()]
+#' * [get_colid()]
+#' * [get_eolid()]
+#' * [get_gbifid()]
+#' * [get_ids()]
+#' * [get_iucn()]
+#' * [get_natservid()]
+#' * [get_nbnid()]
+#' * [get_tolid()]
+#' * [get_tpsid()]
+#' * [get_tsn()]
+#' * [get_ubioid()]
+#' * [get_uid()]
+#' * [get_wiki()]
+#' * [get_wormsid()]
 #'
 #' @section attributes:
 #' Each output from `get_*()` functions have the following attributes:

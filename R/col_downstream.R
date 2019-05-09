@@ -3,7 +3,7 @@
 #' @export
 #' @param name The string to search for. Only exact matches found the name given
 #' will be returned, unless one or wildcards are included in the search
-#' string. An * (asterisk) character denotes a wildcard; a % (percentage)
+#' string. An * (asterisk) character denotes a wildcard; a percent
 #' character may also be used. The name must be at least 3 characters long,
 #' not counting wildcard characters.
 #' @param id The record ID of the specific record to return (only for scientific
@@ -28,7 +28,7 @@
 #' @param extant_only (logical) keep extant taxa only? default: `FALSE`.
 #' by default we give back all taxa. set to `TRUE` to get only
 #' extant taxa
-#' @param ... Curl options passed on to [`crul::verb-GET`]
+#' @param ... Curl options passed on to [crul::verb-GET]
 #' @details Provide only names instead of id's
 #' @return A list of data.frame's, where each data.frame has columns:
 #' * childtaxa_id: (character) COL identifier

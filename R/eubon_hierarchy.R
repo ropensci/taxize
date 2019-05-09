@@ -15,7 +15,7 @@
 #' from any of the providers. If the timeout is exceeded the service will just
 #' return the responses that have been received so far. The default timeout is
 #' 0 ms (wait for ever)
-#' @param ... Curl options passed on to [`crul::verb-GET`]
+#' @param ... Curl options passed on to [crul::verb-GET]
 #' @references <http://cybertaxonomy.eu/eu-bon/utis/1.2/doc.html>
 #' @family eubon-methods
 #' @examples \dontrun{

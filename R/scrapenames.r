@@ -29,7 +29,7 @@
 #' <http://resolver.globalnames.org/data_sources>.
 #' @param return_content (logical) return OCR'ed text. returns text
 #' string in `x$meta$content` slot. Default: `FALSE`
-#' @param ... Further args passed to [`crul::verb-GET`]
+#' @param ... Further args passed to [crul::verb-GET]
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @return A list of length two, first is metadata, second is the data as a
 #' data.frame.

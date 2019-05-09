@@ -13,7 +13,7 @@ use_fxns_urls <- list(
 #' the user a detailed prompt.
 #'
 #' @name key_helpers
-#' @seealso [`taxize-authentication`]
+#' @seealso [taxize-authentication]
 NULL
 
 #' @section `use_tropicos()`:
@@ -83,7 +83,7 @@ use_entrez <- function() {
 
 #' @section `use_iucn()`:
 #' Browse IUCN Red List API key request URL and provides instruction on how
-#' to store the key. This function wraps [`rredlist::rl_use_iucn()`]
+#' to store the key. This function wraps [rredlist::rl_use_iucn()]
 #' from the `rredlist` package. After filling the form you will get
 #' the key soon, but not immediately.
 #' @export

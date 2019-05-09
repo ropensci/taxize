@@ -4,12 +4,12 @@
 #' @param id A GenBank accession alphanumeric string, or a gi numeric string.
 #' @param batch_size The number of queries to submit at a time.
 #' @param key (character) NCBI Entrez API key. optional. See Details.
-#' @param ... Curl args passed on to [`crul::HttpClient`]
+#' @param ... Curl args passed on to [crul::HttpClient]
 #' @details See <http://www.ncbi.nlm.nih.gov/Sitemap/sequenceIDs.html> for
 #' help on why there are two identifiers, and the difference between them.
 #' 
 #' @section Authentication:
-#' See [`taxize-authentication`] for help on authentication. We
+#' See [taxize-authentication] for help on authentication. We
 #' recommend getting an API key.
 #'
 #' @return one or more NCBI taxonomic IDs

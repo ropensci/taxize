@@ -4,9 +4,9 @@
 #' @param tsn One or more TSN's (taxonomic serial number)
 #' @param what One of bytsn, values, or originvalues
 #' @param ... Further arguments passed on to
-#' [`ritis::jurisdictional_origin()`],
-#' [`ritis::jurisdiction_values()`], or
-#' [`ritis::jurisdiction_origin_values()`]
+#' [ritis::jurisdictional_origin()],
+#' [ritis::jurisdiction_values()], or
+#' [ritis::jurisdiction_origin_values()]
 #' @examples \dontrun{
 #' # Get values
 #' itis_native(what="values")

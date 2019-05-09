@@ -24,7 +24,7 @@ from any of the providers. If the timeout is exceeded the service will just
 return the responses that have been received so far. The default timeout is
 0 ms (wait for ever)}
 
-\item{...}{Curl options passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}}
+\item{...}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \description{
 EUBON hierarchy

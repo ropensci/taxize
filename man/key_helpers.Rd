@@ -57,5 +57,5 @@ the key soon, but not immediately.
 }
 
 \seealso{
-\code{\link{taxize-authentication}}
+\link{taxize-authentication}
 }

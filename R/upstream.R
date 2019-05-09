@@ -23,8 +23,8 @@
 #' @param rows (numeric) Any number from 1 to infinity. If the default NA, all
 #' rows are considered. Note that this parameter is ignored if you pass in a
 #' taxonomic id of any of the acceptable classes: tsn, colid.
-#' @param ... Further args passed on to [`itis_downstream()`] or
-#' [`col_downstream()`]
+#' @param ... Further args passed on to [itis_downstream()] or
+#' [col_downstream()]
 #'
 #' @return A named list of data.frames with the upstream names of every
 #' supplied taxa. You get an NA if there was no match in the database.

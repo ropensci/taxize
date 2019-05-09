@@ -24,7 +24,6 @@
 #'  and different classification levels as columns
 #' * distmat - Distance matrix
 #' * names - The names of the tips of the phylogeny
-#' 
 #'
 #' Note that when you execute the resulting object, you only get the phylo
 #' object. You can get to the other 3 slots by calling them directly, like
@@ -40,7 +39,8 @@
 #' tr <- class2tree(out)
 #' plot(tr)
 #'
-#' spnames <- c('Klattia flava', 'Trollius sibiricus', 'Arachis paraguariensis',
+#' spnames <- c('Klattia flava', 'Trollius sibiricus',
+#'  'Arachis paraguariensis',
 #'  'Tanacetum boreale', 'Gentiana yakushimensis','Sesamum schinzianum',
 #'  'Pilea verrucosa','Tibouchina striphnocalyx','Lycium dasystemum',
 #'  'Berkheya echinacea','Androcymbium villosum',

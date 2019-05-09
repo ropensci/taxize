@@ -22,7 +22,7 @@
 #' @param language (character) Language, default is english
 #' @param sourceId (numeric) Filters by the source identifier. Not used right now.
 #' @param shortname (character) A short name..need more info on this?
-#' @param ... Curl options passed on to [`crul::HttpClient`]
+#' @param ... Curl options passed on to [crul::HttpClient]
 #' @param limit Number of records to return
 #' @param start Record number to start at
 #' @references <http://www.gbif.org/developer/summary>

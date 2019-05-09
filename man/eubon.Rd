@@ -58,7 +58,7 @@ specific properties of the taxon:
 'name' strategy is not recommended.
 }}
 
-\item{...}{Curl options passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}}
+\item{...}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \description{
 EUBON taxonomy search

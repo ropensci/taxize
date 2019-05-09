@@ -67,7 +67,7 @@ details.}
 
 \item{output}{One of minimal (default), classic, short, or extended}
 
-\item{...}{Curl options passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}
+\item{...}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}
 (Optional). Default: returns all ranks.}
 }
 \value{

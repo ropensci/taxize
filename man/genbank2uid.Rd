@@ -13,7 +13,7 @@ genbank2uid(id, batch_size = 100, key = NULL, ...)
 
 \item{key}{(character) NCBI Entrez API key. optional. See Details.}
 
-\item{...}{Curl args passed on to \code{\link[crul:HttpClient]{crul::HttpClient}}}
+\item{...}{Curl args passed on to \link[crul:HttpClient]{crul::HttpClient}}
 }
 \value{
 one or more NCBI taxonomic IDs
@@ -27,7 +27,7 @@ help on why there are two identifiers, and the difference between them.
 }
 \section{Authentication}{
 
-See \code{\link{taxize-authentication}} for help on authentication. We
+See \link{taxize-authentication} for help on authentication. We
 recommend getting an API key.
 }
 

@@ -16,16 +16,16 @@
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, all
 #' rows are considered. Note that this function still only gives back a tsn
 #' class object with one to many identifiers. See
-#' [`get_tsn_()`] to get back all, or a subset, of the raw
+#' [get_tsn_()] to get back all, or a subset, of the raw
 #' data that you are presented during the ask process.
 #' @param x Input to as.tsn
 #' @param ... Ignored
 #' @param check logical; Check if ID matches any existing on the DB, only
-#' used in [`as.tsn()`]
+#' used in [as.tsn()]
 #' @template getreturn
 #'
 #' @family taxonomic-ids
-#' @seealso [`classification()`]
+#' @seealso [classification()]
 #'
 #' @examples \dontrun{
 #' get_tsn("Quercus douglasii")

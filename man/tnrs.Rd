@@ -31,7 +31,7 @@ seconds. Use when doing many calls in a for loop ar lapply type call.}
 
 \item{messages}{Verbosity or not (default \code{TRUE})}
 
-\item{...}{Curl options to pass in \code{\link[crul:verb-GET]{crul::verb-GET}} or \code{\link[crul:verb-POST]{crul::verb-POST}}}
+\item{...}{Curl options to pass in \link[crul:verb-GET]{crul::verb-GET} or \link[crul:verb-POST]{crul::verb-POST}}
 }
 \value{
 data.frame of results from TNRS plus the name submitted, with

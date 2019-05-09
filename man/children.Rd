@@ -26,8 +26,7 @@ children(...)
 }
 \arguments{
 \item{...}{Further args passed on to \code{\link[=col_children]{col_children()}},
-\code{\link[ritis:hierarchy_down]{ritis::hierarchy_down()}}, \code{\link[=ncbi_children]{ncbi_children()}},
-or \code{\link[worrms:wm_children]{worrms::wm_children()}}
+\code{\link[ritis:hierarchy_down]{ritis::hierarchy_down()}}, \code{\link[=ncbi_children]{ncbi_children()}}, or \code{\link[worrms:wm_children]{worrms::wm_children()}}.
 See those functions for what parameters can be passed on.}
 
 \item{x}{Vector of taxa names (character) or IDs (character or numeric)
@@ -50,8 +49,8 @@ A named list of data.frames with the children names of every
 supplied taxa. You get an NA if there was no match in the database.
 }
 \description{
-This function is different from \code{\link{downstream}} in that it only
-collects immediate taxonomic children, while \code{\link{downstream}}
+This function is different from \code{\link[=downstream]{downstream()}} in that it only
+collects immediate taxonomic children, while \code{\link[=downstream]{downstream()}}
 collects taxonomic names down to a specified taxonomic rank, e.g.,
 getting all species in a family.
 }
