@@ -202,7 +202,7 @@ install.packages("taxize")
 
 ### Development version from GitHub
 
-Windows users install [Rtools](https://cran.r-project.org/bin/windows/Rtools/) first.
+Windows users install Rtools first.
 
 
 ```r
