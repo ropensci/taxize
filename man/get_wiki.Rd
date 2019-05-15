@@ -80,7 +80,7 @@ attributes and exceptions
 Get the page name for a Wiki taxon
 }
 \details{
-For \code{wiki_site = "pedia"}, we use the english language site by
+For \code{wiki_site = "pedia" }, we use the english language site by
 default. Set the \code{wiki} parameter for a different language site.
 }
 \examples{
