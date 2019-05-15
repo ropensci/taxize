@@ -5,12 +5,10 @@
 \alias{theplantlist}
 \title{Lookup-table for family, genus, and species names for ThePlantList}
 \format{A data frame with 10,000 rows and 3 variables:
-\describe{
 \itemize{
 \item \code{family} family name
 \item \code{genus} genus name
 \item \code{species} specific epithet name
-}
 }}
 \source{
 \url{http://www.theplantlist.org}

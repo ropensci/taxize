@@ -2,10 +2,10 @@
 #'
 #' @export
 #' @param names A vector of length 1 or more of taxonomic names
-#' @param ... Curl options passed on to [`crul::verb-GET`]
+#' @param ... Curl options passed on to [crul::verb-GET]
 #' @return A data.frame with results, the submitted names, and the
 #' parsed names with additional information.
-#' @seealso [`gbif_parse()`]
+#' @seealso [gbif_parse()]
 #' @references <http://gni.globalnames.org/>
 #' @examples \dontrun{
 #' gni_parse("Cyanistes caeruleus")

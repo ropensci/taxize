@@ -34,7 +34,7 @@ as.iucn(x, check = TRUE, key = NULL)
 \item{messages}{logical; should progress be printed?}
 
 \item{key}{(character) required. you IUCN Redlist API key. See
-\code{\link[rredlist:rredlist-package]{rredlist::rredlist-package}} for help on authenticating with
+\link[rredlist:rredlist-package]{rredlist::rredlist-package} for help on authenticating with
 IUCN Redlist}
 
 \item{...}{Ignored}

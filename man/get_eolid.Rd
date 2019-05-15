@@ -43,8 +43,8 @@ input. If FALSE NA is returned for multiple matches.}
 on the console.}
 
 \item{key}{API key. passed on to \code{\link[=eol_search]{eol_search()}} and
-\code{[eol_pages()}] internally. We recommend getting an API key;
-see \code{\link{taxize-authentication}}}
+`\code{\link[=eol_pages]{eol_pages()}} internally. We recommend getting an API key;
+see \link{taxize-authentication}}
 
 \item{rows}{numeric; Any number from 1 to infinity. If the default NA, all
 rows are considered. Note that this function still only gives back a eolid
@@ -93,13 +93,13 @@ provider (e.g, NCBI) to do other things, like get a higher classification
 tree. However, humans want the page id, not the taxon id. So, the
 id returned from this function is the taxon id, not the page id. You can
 get the page id for a taxon by using \code{\link[=eol_search]{eol_search()}} and
-\code{[eol_pages()}], and the URI returned in the attributes for a
+`\code{\link[=eol_pages]{eol_pages()}}, and the URI returned in the attributes for a
 taxon will lead you to the taxon page, and the ID in the URL is the
 page id.
 }
 \section{Authentication}{
 
-See \code{\link{taxize-authentication}} for help on authentication
+See \link{taxize-authentication} for help on authentication
 }
 
 \section{Filtering}{

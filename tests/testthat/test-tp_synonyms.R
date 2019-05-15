@@ -4,7 +4,7 @@ test_that("tp_synonyms returns the correct value", {
   skip_on_cran() # uses secrets
   vcr::use_cassette("tp_synonyms", {
     dat <- suppressMessages(tp_synonyms(id = 25509881))
-  })
+  }, preserve_exact_body_bytes = TRUE)
 
   expect_match(names(dat)[[1]], "accepted")
 

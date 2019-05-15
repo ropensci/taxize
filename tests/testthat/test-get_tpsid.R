@@ -27,8 +27,8 @@ test_that("get_tpsid behaves correctly on dot inputs", {
   vcr::use_cassette("get_tpsid_warnings_dots", {
     expect_that(get_tpsid('Pinus contorta var. yukonensis', messages=FALSE),
                 gives_warning("detected, being URL encoded"))
-    expect_warning(get_tpsid('Pinus contorta yukonensis', messages=FALSE), NA)
-  })
+    expect_warning(get_tpsid('Pinus contorta yukonensis'), NA)
+  }, preserve_exact_body_bytes = TRUE)
 })
 
 test_that("get_tpsid behaves correctly on subspecific inputs", {

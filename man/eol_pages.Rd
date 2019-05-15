@@ -69,10 +69,10 @@ The default is to return all content. (Default: \code{FALSE})}
 
 \item{cache_ttl}{The number of seconds you wish to have the response cached.}
 
-\item{key}{Your EOL API key; see \code{\link{taxize-authentication}}
+\item{key}{Your EOL API key; see \link{taxize-authentication}
 for help on authentication}
 
-\item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient}}}
+\item{...}{Curl options passed on to \link[crul:HttpClient]{crul::HttpClient}}
 }
 \value{
 JSON list object, or data.frame.

@@ -6,7 +6,7 @@
 #' @param names character; taxonomic names to be resolved. Doesn't work for
 #' vernacular/common names.
 #' @param data_source_ids character; IDs to specify what data source
-#'     is searched. See [`gnr_datasources()`].
+#'     is searched. See [gnr_datasources()].
 #' @param resolve_once logical; Find the first available match instead of
 #'    matches across all data sources with all possible renderings of a name.
 #'    When `TRUE`, response is rapid but incomplete.
@@ -30,7 +30,7 @@
 #' @param http The HTTP method to use, one of "get" or "post". Default: "get".
 #' Use `http="post"` with large queries. Queries with > 300 records
 #' use "post" automatically because "get" would fail
-#' @param ... Curl options passed on to [`crul::HttpClient`]
+#' @param ... Curl options passed on to [crul::HttpClient]
 #' @param cap_first (logical) For each name, fix so that the first name part is
 #' capitalized, while others are not. This web service is sensitive to
 #' capitalization, so you'll get different results depending on capitalization.
@@ -80,14 +80,14 @@
 #' @section Age of datasets in the Global Names Resolver:
 #' IMPORTANT: Datasets used in the Global Names Resolver vary in how recently
 #' they've been updated. See the `updated_at` field in the
-#' output of [`gnr_datasources()`] for dates when each dataset
+#' output of [gnr_datasources()] for dates when each dataset
 #' was last updated.
 #'
 #' @section preferred_data_sources:
 #' If `preferred_data_sources` is used, only the preferred data
 #' is returned - if it has any results.
 #'
-#' @seealso [`gnr_datasources()`] [`tnrs`]
+#' @seealso [gnr_datasources()] [tnrs]
 #' @keywords resolve names taxonomy
 #' @references <http://gnrd.globalnames.org/api>
 #' <http://gnrd.globalnames.org/>

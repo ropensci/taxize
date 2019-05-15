@@ -8,7 +8,7 @@
 #' @param intermediate (logical) If `TRUE`, return a list of length two
 #' with target taxon rank names, with additional list of data.frame's of
 #' intermediate taxonomic groups. Default: `FALSE`
-#' @param ... Further args passed on to [`ncbi_children()`]
+#' @param ... Further args passed on to [ncbi_children()]
 #' @return Data.frame of taxonomic information downstream to family from e.g.,
 #' 		Order, Class, etc., or if `intermediate=TRUE`, list of length two,
 #'   	with target taxon rank names, and intermediate names.
@@ -21,7 +21,7 @@
 #' programatically. So, no rank things will sometimes be missing.
 #' 
 #' @section Authentication:
-#' See [`taxize-authentication()`] for help on authentication. 
+#' See [taxize-authentication()] for help on authentication. 
 #' We strongly recommend getting an API key
 #' 
 #' @examples \dontrun{

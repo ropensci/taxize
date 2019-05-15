@@ -9,25 +9,25 @@
 #' @param messages logical; If TRUE the actual taxon queried is printed on the console.
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, all rows are considered.
 #' Note that this function still only gives back a gbifid class object with one to many identifiers.
-#' See [`get_gbifid_()`] to get back all, or a subset, of the raw data that you are
+#' See [get_gbifid_()] to get back all, or a subset, of the raw data that you are
 #' presented during the ask process.
 #' @param phylum (character) A phylum (aka division) name. Optional. See `Filtering`
 #' below.
 #' @param class (character) A class name. Optional. See `Filtering` below.
 #' @param order (character) An order name. Optional. See `Filtering` below.
 #' @param family (character) A family name. Optional. See `Filtering` below.
-#' @param rank (character) A taxonomic rank name. See [`rank_ref()`] for possible
+#' @param rank (character) A taxonomic rank name. See [rank_ref()] for possible
 #' options. Though note that some data sources use atypical ranks, so inspect the
 #' data itself for options. Optional. See `Filtering` below.
 #' @param method (character) one of "backbone" or "lookup". See Details.
-#' @param x Input to [`as.gbifid()`]
+#' @param x Input to [as.gbifid()]
 #' @param check logical; Check if ID matches any existing on the DB, only used in
-#' [`as.gbifid()`]
+#' [as.gbifid()]
 #' @param ... Ignored
 #' @template getreturn
 #'
 #' @family taxonomic-ids
-#' @seealso [`classification()`]
+#' @seealso [classification()]
 #'
 #' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
 #'
@@ -47,7 +47,7 @@
 #' The parameters `phylum`, `class`, `order`, `family`, and `rank` are not used
 #' in the search to the data provider, but are used in filtering the data down
 #' to a subset that is closer to the target you want.  For all these parameters,
-#' you can use regex strings since we use [`grep()`] internally to match.
+#' you can use regex strings since we use [grep()] internally to match.
 #' Filtering narrows down to the set that matches your query, and removes the rest.
 #'
 #' @examples \dontrun{

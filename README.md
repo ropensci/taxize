@@ -14,7 +14,7 @@ taxize
 
 `taxize` allows users to search over many taxonomic data sources for species names (scientific and common) and download up and downstream taxonomic hierarchical information - among other things.
 
-The `taxize` tutorial is can be found at <https://ropensci.org/tutorials/taxize.html>
+The `taxize` tutorial is can be found at <https://ropensci.org/tutorials/taxize.html> and check out the taxize book <https://ropenscilabs.github.io/taxize-book/>
 
 The functions in the package that hit a specific API have a prefix and suffix separated by an underscore. They follow the format of `service_whatitdoes`.  For example, `gnr_resolve` uses the Global Names Resolver API to resolve species names.  General functions in the package that don't hit a specific API don't have two words separated by an underscore, e.g., `classification`.
 
@@ -47,8 +47,8 @@ Note that a few data sources require SOAP web services, which are difficult to s
 <tr>
 	<td style="text-align:left;">Encylopedia of Life</td>
 	<td style="text-align:left;"><code>eol</code></td>
-	<td style="text-align:left;"><a href="http://www.eol.org/api/">link</a></td>
-	<td style="text-align:left;"><a href="http://eol.org/users/register">link</a></td>
+	<td style="text-align:left;"><a href="https://eol.org/docs/what-is-eol/data-services">link</a></td>
+	<td style="text-align:left;"><a href="https://eol.org/docs/what-is-eol/data-services">link</a></td>
 </tr>
 <tr>
 	<td style="text-align:left;">Taxonomic Name Resolution Service</td>
@@ -95,7 +95,7 @@ Note that a few data sources require SOAP web services, which are difficult to s
 <tr>
 	<td style="text-align:left;">Catalogue of Life</td>
 	<td style="text-align:left;"><code>col</code></td>
-	<td style="text-align:left;"><a href="http://www.catalogueoflife.org/colwebsite/content/web-services">link</a></td>
+	<td style="text-align:left;"><a href="http://www.catalogueoflife.org/content/web-services">link</a></td>
 	<td style="text-align:left;">none</td>
 </tr>
 <tr>
@@ -202,7 +202,7 @@ install.packages("taxize")
 
 ### Development version from GitHub
 
-Windows users install [Rtools](https://cran.r-project.org/bin/windows/Rtools/) first.
+Windows users install Rtools first.
 
 
 ```r
@@ -441,13 +441,13 @@ get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn', rows=1:3)
 #>               guid      scientificName    rank taxonomicStatus
 #> 1 NBNSYS0000027573 Chironomus riparius species        accepted
 #> 2 NHMSYS0001718585  Hypnoidus riparius species        accepted
-#> 3 NBNSYS0000023345   Paederus riparius species        accepted
+#> 3 NBNSYS0000007169   Elaphrus riparius species        accepted
 #> 
 #> $nbn$`Pinus contorta`
 #>               guid                scientificName    rank taxonomicStatus
 #> 1 NBNSYS0000004786                Pinus contorta species        accepted
-#> 2 NHMSYS0000494858 Pinus contorta var. murrayana variety        accepted
-#> 3 NHMSYS0000494848  Pinus contorta var. contorta variety        accepted
+#> 2 NHMSYS0000494848  Pinus contorta var. contorta variety        accepted
+#> 3 NHMSYS0000494858 Pinus contorta var. murrayana variety        accepted
 #> 
 #> 
 #> attr(,"class")

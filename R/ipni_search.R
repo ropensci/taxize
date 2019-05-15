@@ -41,7 +41,7 @@
 #' @param ranktoreturn One of a few options to choose the ranks returned. See
 #' details.
 #' @param output One of minimal (default), classic, short, or extended
-#' @param ... Curl options passed on to [`crul::verb-GET`]
+#' @param ... Curl options passed on to [crul::verb-GET]
 #' (Optional). Default: returns all ranks.
 #' @references http://www.ipni.org/link_to_ipni.html
 #' @details

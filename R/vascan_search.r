@@ -6,7 +6,7 @@
 #' @param format (character) One of json (default) or xml.
 #' @param raw (logical) If TRUE, raw json or xml returned, if FALSE, parsed
 #' data returned.
-#' @param ... (list) Further args passed on to [`crul::verb-GET`]
+#' @param ... (list) Further args passed on to [crul::verb-GET]
 #' @author Scott Chamberlain {myrmecocystus@@gmail.com}
 #' @return json, xml or a list.
 #' @references API docs <http://data.canadensys.net/vascan/api>

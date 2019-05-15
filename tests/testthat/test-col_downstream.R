@@ -5,7 +5,7 @@ test_that("col_downstream returns the correct class", {
     temp4 <- col_downstream(name="Animalia", downto = "Phylum", verbose = FALSE)
     temp5 <- col_downstream(name="Plantae", downto = "Phylum", verbose = FALSE)
     temp6 <- col_downstream(name="Salicaceae", downto = "Genus", verbose = FALSE)
-  })
+  }, preserve_exact_body_bytes = TRUE)
 
   expect_is(temp4, "list")
   expect_is(temp5, "list")

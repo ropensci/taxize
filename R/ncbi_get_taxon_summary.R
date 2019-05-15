@@ -7,7 +7,7 @@
 #' @param id (character) NCBI taxonomy uids to retrieve information for. 
 #' See Details.
 #' @param key (character) NCBI Entrez API key. optional. See Details.
-#' @param ... Curl options passed on to [`crul::verb-GET`]
+#' @param ... Curl options passed on to [crul::verb-GET]
 #' @return A `data.frame` with the following columns:
 #' * `uid` The uid queried for
 #' * `name` The name of the taxon; a binomial name if the taxon is of rank species
@@ -19,7 +19,7 @@
 #' will run into the HTTP 414 error "Request-URI Too Long".
 #' 
 #' @section Authentication:
-#' See [`taxize-authentication`] for help on authentication. 
+#' See [taxize-authentication] for help on authentication. 
 #' We strongly recommend getting an API key
 #' 
 #' @examples \dontrun{

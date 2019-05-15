@@ -8,8 +8,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
-      X-User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
+      X-USER-AGENT: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
   response:
     status:
       status_code: '200'
@@ -18,49 +18,16 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.10.3 (Ubuntu)
-      date: Sat, 26 Jan 2019 00:10:14 GMT
+      date: Wed, 08 May 2019 21:00:31 GMT
       content-type: application/json;charset=UTF-8
       transfer-encoding: chunked
       connection: keep-alive
       strict-transport-security: max-age=31536000
     body:
-      encoding: UTF-8
-      string: '{"apiVersion":"0.1","lastUpdatedDate":"2018-06-21\n","results":[{"searchedTerm":"Helianthus
-        annuus","numMatches":1,"matches":[{"taxonID":3189,"scientificName":"Helianthus
-        annuus Linnaeus","scientificNameAuthorship":"Linnaeus","canonicalName":"Helianthus
-        annuus","taxonRank":"species","taxonomicAssertions":[{"acceptedNameUsage":"Helianthus
-        annuus Linnaeus","acceptedNameUsageID":3189,"nameAccordingTo":"FNA Editorial
-        Committee. 2006. Flora of North America north of Mexico. Volume 21: Magnoliophyta:
-        Asteridae, part 8: Asteraceae, part 3. Oxford University Press, New York.","nameAccordingToID":"http://www.efloras.org/volume_page.aspx?volume_id=1021&flora_id=1","taxonomicStatus":"accepted","parentNameUsageID":1235,"higherClassification":"Equisetopsida;Magnoliidae;Asteranae;Asterales;Asteraceae;Asteroideae;Heliantheae;Helianthus"}],"vernacularNames":[{"vernacularName":"common
-        sunflower","language":"en","source":"FNA Editorial Committee. 2006. Flora
-        of North America north of Mexico. Volume 21: Magnoliophyta: Asteridae, part
-        8: Asteraceae, part 3. Oxford University Press, New York.","preferredName":true},{"vernacularName":"tournesol","language":"fr","source":"Darbyshire
-        S.J., M. Favreau & M. Murray (revu et augmenté par). 2000. Noms populaires
-        et scientifiques des plantes nuisibles du Canada. Agriculture et Agroalimentaire
-        Canada. Publication 1397. 132 pp.","preferredName":true},{"vernacularName":"garden
-        sunflower","language":"en","source":"Robert W. Freckmann Herbarium (UWSP),
-        University of Wisconsin-Stevens Point, Wisc.","preferredName":false},{"vernacularName":"grand
-        soleil","language":"fr","source":"Louis-Marie, P. 1953. Flore-Manuel de la
-        province de Québec. 2ième éd. Institut agricole d''Oka. 323 pp.","preferredName":false},{"vernacularName":"hélianthe
-        annuel","language":"fr","source":"Marie-Victorin, Fr. 1995. Flore laurentienne.
-        3e éd. Mise à jour et annotée par L. Brouillet, S.G. Hay, I. Goulet, M. Blondeau,
-        J. Cayouette et J. Labrecque. Gaétan Morin éditeur. 1093 pp.","preferredName":false},{"vernacularName":"soleil","language":"fr","source":"Marie-Victorin,
-        Fr. 1995. Flore laurentienne. 3e éd. Mise à jour et annotée par L. Brouillet,
-        S.G. Hay, I. Goulet, M. Blondeau, J. Cayouette et J. Labrecque. Gaétan Morin
-        éditeur. 1093 pp.","preferredName":false}],"distribution":[{"locationID":"ISO
-        3166-2:CA-NT","locality":"NT","establishmentMeans":"","occurrenceStatus":"doubtful"},{"locationID":"ISO
-        3166-2:CA-BC","locality":"BC","establishmentMeans":"introduced","occurrenceStatus":"introduced"},{"locationID":"ISO
-        3166-2:CA-SK","locality":"SK","establishmentMeans":"introduced","occurrenceStatus":"introduced"},{"locationID":"ISO
-        3166-2:CA-MB","locality":"MB","establishmentMeans":"introduced","occurrenceStatus":"introduced"},{"locationID":"ISO
-        3166-2:CA-ON","locality":"ON","establishmentMeans":"introduced","occurrenceStatus":"introduced"},{"locationID":"","locality":"NL_N","establishmentMeans":"","occurrenceStatus":"excluded"},{"locationID":"ISO
-        3166-2:CA-QC","locality":"QC","establishmentMeans":"introduced","occurrenceStatus":"introduced"},{"locationID":"ISO
-        3166-2:CA-PE","locality":"PE","establishmentMeans":"","occurrenceStatus":"excluded"},{"locationID":"ISO
-        3166-2:CA-NS","locality":"NS","establishmentMeans":"introduced","occurrenceStatus":"introduced"},{"locationID":"ISO
-        3166-2:CA-NB","locality":"NB","establishmentMeans":"introduced","occurrenceStatus":"introduced"},{"locationID":"ISO
-        3166-2:CA-AB","locality":"AB","establishmentMeans":"introduced","occurrenceStatus":"introduced"},{"locationID":"ISO
-        3166-2:FR-PM","locality":"PM","establishmentMeans":"introduced","occurrenceStatus":"ephemeral"}]}]}]}'
-  recorded_at: 2019-01-26 00:10:15 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: eyJhcGlWZXJzaW9uIjoiMC4xIiwibGFzdFVwZGF0ZWREYXRlIjoiMjAxOS0wNC0wOCIsInJlc3VsdHMiOlt7InNlYXJjaGVkVGVybSI6IkhlbGlhbnRodXMgYW5udXVzIiwibnVtTWF0Y2hlcyI6MSwibWF0Y2hlcyI6W3sidGF4b25JRCI6MzE4OSwic2NpZW50aWZpY05hbWUiOiJIZWxpYW50aHVzIGFubnV1cyBMaW5uYWV1cyIsInNjaWVudGlmaWNOYW1lQXV0aG9yc2hpcCI6Ikxpbm5hZXVzIiwiY2Fub25pY2FsTmFtZSI6IkhlbGlhbnRodXMgYW5udXVzIiwidGF4b25SYW5rIjoic3BlY2llcyIsInRheG9ub21pY0Fzc2VydGlvbnMiOlt7ImFjY2VwdGVkTmFtZVVzYWdlIjoiSGVsaWFudGh1cyBhbm51dXMgTGlubmFldXMiLCJhY2NlcHRlZE5hbWVVc2FnZUlEIjozMTg5LCJuYW1lQWNjb3JkaW5nVG8iOiJGTkEgRWRpdG9yaWFsIENvbW1pdHRlZS4gMjAwNi4gRmxvcmEgb2YgTm9ydGggQW1lcmljYSBub3J0aCBvZiBNZXhpY28uIFZvbHVtZSAyMTogTWFnbm9saW9waHl0YTogQXN0ZXJpZGFlLCBwYXJ0IDg6IEFzdGVyYWNlYWUsIHBhcnQgMy4gT3hmb3JkIFVuaXZlcnNpdHkgUHJlc3MsIE5ldyBZb3JrLiIsIm5hbWVBY2NvcmRpbmdUb0lEIjoiaHR0cDovL3d3dy5lZmxvcmFzLm9yZy92b2x1bWVfcGFnZS5hc3B4P3ZvbHVtZV9pZD0xMDIxJmZsb3JhX2lkPTEiLCJ0YXhvbm9taWNTdGF0dXMiOiJhY2NlcHRlZCIsInBhcmVudE5hbWVVc2FnZUlEIjoxMjM1LCJoaWdoZXJDbGFzc2lmaWNhdGlvbiI6IkVxdWlzZXRvcHNpZGE7TWFnbm9saWlkYWU7QXN0ZXJhbmFlO0FzdGVyYWxlcztBc3RlcmFjZWFlO0FzdGVyb2lkZWFlO0hlbGlhbnRoZWFlO0hlbGlhbnRodXMifV0sInZlcm5hY3VsYXJOYW1lcyI6W3sidmVybmFjdWxhck5hbWUiOiJjb21tb24gc3VuZmxvd2VyIiwibGFuZ3VhZ2UiOiJlbiIsInNvdXJjZSI6IkZOQSBFZGl0b3JpYWwgQ29tbWl0dGVlLiAyMDA2LiBGbG9yYSBvZiBOb3J0aCBBbWVyaWNhIG5vcnRoIG9mIE1leGljby4gVm9sdW1lIDIxOiBNYWdub2xpb3BoeXRhOiBBc3RlcmlkYWUsIHBhcnQgODogQXN0ZXJhY2VhZSwgcGFydCAzLiBPeGZvcmQgVW5pdmVyc2l0eSBQcmVzcywgTmV3IFlvcmsuIiwicHJlZmVycmVkTmFtZSI6dHJ1ZX0seyJ2ZXJuYWN1bGFyTmFtZSI6InRvdXJuZXNvbCIsImxhbmd1YWdlIjoiZnIiLCJzb3VyY2UiOiJEYXJieXNoaXJlIFMuSi4sIE0uIEZhdnJlYXUgJiBNLiBNdXJyYXkgKHJldnUgZXQgYXVnbWVudMOpIHBhcikuIDIwMDAuIE5vbXMgcG9wdWxhaXJlcyBldCBzY2llbnRpZmlxdWVzIGRlcyBwbGFudGVzIG51aXNpYmxlcyBkdSBDYW5hZGEuIEFncmljdWx0dXJlIGV0IEFncm9hbGltZW50YWlyZSBDYW5hZGEuIFB1YmxpY2F0aW9uIDEzOTcuIDEzMiBwcC4iLCJwcmVmZXJyZWROYW1lIjp0cnVlfSx7InZlcm5hY3VsYXJOYW1lIjoiZ2FyZGVuIHN1bmZsb3dlciIsImxhbmd1YWdlIjoiZW4iLCJzb3VyY2UiOiJSb2JlcnQgVy4gRnJlY2ttYW5uIEhlcmJhcml1bSAoVVdTUCksIFVuaXZlcnNpdHkgb2YgV2lzY29uc2luLVN0ZXZlbnMgUG9pbnQsIFdpc2MuIiwicHJlZmVycmVkTmFtZSI6ZmFsc2V9LHsidmVybmFjdWxhck5hbWUiOiJncmFuZCBzb2xlaWwiLCJsYW5ndWFnZSI6ImZyIiwic291cmNlIjoiTG91aXMtTWFyaWUsIFAuIDE5NTMuIEZsb3JlLU1hbnVlbCBkZSBsYSBwcm92aW5jZSBkZSBRdcOpYmVjLiAyacOobWUgw6lkLiBJbnN0aXR1dCBhZ3JpY29sZSBkJ09rYS4gMzIzIHBwLiIsInByZWZlcnJlZE5hbWUiOmZhbHNlfSx7InZlcm5hY3VsYXJOYW1lIjoiaMOpbGlhbnRoZSBhbm51ZWwiLCJsYW5ndWFnZSI6ImZyIiwic291cmNlIjoiTWFyaWUtVmljdG9yaW4sIEZyLiAxOTk1LiBGbG9yZSBsYXVyZW50aWVubmUuIDNlIMOpZC4gTWlzZSDDoCBqb3VyIGV0IGFubm90w6llIHBhciBMLiBCcm91aWxsZXQsIFMuRy4gSGF5LCBJLiBHb3VsZXQsIE0uIEJsb25kZWF1LCBKLiBDYXlvdWV0dGUgZXQgSi4gTGFicmVjcXVlLiBHYcOpdGFuIE1vcmluIMOpZGl0ZXVyLiAxMDkzIHBwLiIsInByZWZlcnJlZE5hbWUiOmZhbHNlfSx7InZlcm5hY3VsYXJOYW1lIjoic29sZWlsIiwibGFuZ3VhZ2UiOiJmciIsInNvdXJjZSI6Ik1hcmllLVZpY3RvcmluLCBGci4gMTk5NS4gRmxvcmUgbGF1cmVudGllbm5lLiAzZSDDqWQuIE1pc2Ugw6Agam91ciBldCBhbm5vdMOpZSBwYXIgTC4gQnJvdWlsbGV0LCBTLkcuIEhheSwgSS4gR291bGV0LCBNLiBCbG9uZGVhdSwgSi4gQ2F5b3VldHRlIGV0IEouIExhYnJlY3F1ZS4gR2HDqXRhbiBNb3JpbiDDqWRpdGV1ci4gMTA5MyBwcC4iLCJwcmVmZXJyZWROYW1lIjpmYWxzZX1dLCJkaXN0cmlidXRpb24iOlt7ImxvY2F0aW9uSUQiOiJJU08gMzE2Ni0yOkNBLVFDIiwibG9jYWxpdHkiOiJRQyIsImVzdGFibGlzaG1lbnRNZWFucyI6ImludHJvZHVjZWQiLCJvY2N1cnJlbmNlU3RhdHVzIjoiaW50cm9kdWNlZCJ9LHsibG9jYXRpb25JRCI6IklTTyAzMTY2LTI6Q0EtTkIiLCJsb2NhbGl0eSI6Ik5CIiwiZXN0YWJsaXNobWVudE1lYW5zIjoiaW50cm9kdWNlZCIsIm9jY3VycmVuY2VTdGF0dXMiOiJpbnRyb2R1Y2VkIn0seyJsb2NhdGlvbklEIjoiSVNPIDMxNjYtMjpDQS1TSyIsImxvY2FsaXR5IjoiU0siLCJlc3RhYmxpc2htZW50TWVhbnMiOiJpbnRyb2R1Y2VkIiwib2NjdXJyZW5jZVN0YXR1cyI6ImludHJvZHVjZWQifSx7ImxvY2F0aW9uSUQiOiJJU08gMzE2Ni0yOkNBLVBFIiwibG9jYWxpdHkiOiJQRSIsImVzdGFibGlzaG1lbnRNZWFucyI6IiIsIm9jY3VycmVuY2VTdGF0dXMiOiJleGNsdWRlZCJ9LHsibG9jYXRpb25JRCI6IklTTyAzMTY2LTI6RlItUE0iLCJsb2NhbGl0eSI6IlBNIiwiZXN0YWJsaXNobWVudE1lYW5zIjoiaW50cm9kdWNlZCIsIm9jY3VycmVuY2VTdGF0dXMiOiJlcGhlbWVyYWwifSx7ImxvY2F0aW9uSUQiOiJJU08gMzE2Ni0yOkNBLUJDIiwibG9jYWxpdHkiOiJCQyIsImVzdGFibGlzaG1lbnRNZWFucyI6ImludHJvZHVjZWQiLCJvY2N1cnJlbmNlU3RhdHVzIjoiaW50cm9kdWNlZCJ9LHsibG9jYXRpb25JRCI6IiIsImxvY2FsaXR5IjoiTkxfTiIsImVzdGFibGlzaG1lbnRNZWFucyI6IiIsIm9jY3VycmVuY2VTdGF0dXMiOiJleGNsdWRlZCJ9LHsibG9jYXRpb25JRCI6IklTTyAzMTY2LTI6Q0EtTUIiLCJsb2NhbGl0eSI6Ik1CIiwiZXN0YWJsaXNobWVudE1lYW5zIjoiaW50cm9kdWNlZCIsIm9jY3VycmVuY2VTdGF0dXMiOiJpbnRyb2R1Y2VkIn0seyJsb2NhdGlvbklEIjoiSVNPIDMxNjYtMjpDQS1PTiIsImxvY2FsaXR5IjoiT04iLCJlc3RhYmxpc2htZW50TWVhbnMiOiJpbnRyb2R1Y2VkIiwib2NjdXJyZW5jZVN0YXR1cyI6ImludHJvZHVjZWQifSx7ImxvY2F0aW9uSUQiOiJJU08gMzE2Ni0yOkNBLUFCIiwibG9jYWxpdHkiOiJBQiIsImVzdGFibGlzaG1lbnRNZWFucyI6ImludHJvZHVjZWQiLCJvY2N1cnJlbmNlU3RhdHVzIjoiaW50cm9kdWNlZCJ9LHsibG9jYXRpb25JRCI6IklTTyAzMTY2LTI6Q0EtTlQiLCJsb2NhbGl0eSI6Ik5UIiwiZXN0YWJsaXNobWVudE1lYW5zIjoiIiwib2NjdXJyZW5jZVN0YXR1cyI6ImRvdWJ0ZnVsIn0seyJsb2NhdGlvbklEIjoiSVNPIDMxNjYtMjpDQS1OUyIsImxvY2FsaXR5IjoiTlMiLCJlc3RhYmxpc2htZW50TWVhbnMiOiJpbnRyb2R1Y2VkIiwib2NjdXJyZW5jZVN0YXR1cyI6ImludHJvZHVjZWQifV19XX1dfQ==
+  recorded_at: 2019-05-08 21:00:31 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: post
     uri: http://data.canadensys.net/vascan/api/0.1/search.json
@@ -71,8 +38,8 @@ http_interactions:
       Content-Type: application/x-www-form-urlencoded
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
-      X-User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
+      X-USER-AGENT: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
   response:
     status:
       status_code: '200'
@@ -81,71 +48,16 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.10.3 (Ubuntu)
-      date: Sat, 26 Jan 2019 00:10:14 GMT
+      date: Wed, 08 May 2019 21:00:31 GMT
       content-type: application/json;charset=UTF-8
       transfer-encoding: chunked
       connection: keep-alive
       strict-transport-security: max-age=31536000
     body:
-      encoding: UTF-8
-      string: '{"apiVersion":"0.1","lastUpdatedDate":"2018-06-21\n","results":[{"searchedTerm":"Helianthus
-        annuus","numMatches":1,"matches":[{"taxonID":3189,"scientificName":"Helianthus
-        annuus Linnaeus","scientificNameAuthorship":"Linnaeus","canonicalName":"Helianthus
-        annuus","taxonRank":"species","taxonomicAssertions":[{"acceptedNameUsage":"Helianthus
-        annuus Linnaeus","acceptedNameUsageID":3189,"nameAccordingTo":"FNA Editorial
-        Committee. 2006. Flora of North America north of Mexico. Volume 21: Magnoliophyta:
-        Asteridae, part 8: Asteraceae, part 3. Oxford University Press, New York.","nameAccordingToID":"http://www.efloras.org/volume_page.aspx?volume_id=1021&flora_id=1","taxonomicStatus":"accepted","parentNameUsageID":1235,"higherClassification":"Equisetopsida;Magnoliidae;Asteranae;Asterales;Asteraceae;Asteroideae;Heliantheae;Helianthus"}],"vernacularNames":[{"vernacularName":"common
-        sunflower","language":"en","source":"FNA Editorial Committee. 2006. Flora
-        of North America north of Mexico. Volume 21: Magnoliophyta: Asteridae, part
-        8: Asteraceae, part 3. Oxford University Press, New York.","preferredName":true},{"vernacularName":"tournesol","language":"fr","source":"Darbyshire
-        S.J., M. Favreau & M. Murray (revu et augmenté par). 2000. Noms populaires
-        et scientifiques des plantes nuisibles du Canada. Agriculture et Agroalimentaire
-        Canada. Publication 1397. 132 pp.","preferredName":true},{"vernacularName":"garden
-        sunflower","language":"en","source":"Robert W. Freckmann Herbarium (UWSP),
-        University of Wisconsin-Stevens Point, Wisc.","preferredName":false},{"vernacularName":"grand
-        soleil","language":"fr","source":"Louis-Marie, P. 1953. Flore-Manuel de la
-        province de Québec. 2ième éd. Institut agricole d''Oka. 323 pp.","preferredName":false},{"vernacularName":"hélianthe
-        annuel","language":"fr","source":"Marie-Victorin, Fr. 1995. Flore laurentienne.
-        3e éd. Mise à jour et annotée par L. Brouillet, S.G. Hay, I. Goulet, M. Blondeau,
-        J. Cayouette et J. Labrecque. Gaétan Morin éditeur. 1093 pp.","preferredName":false},{"vernacularName":"soleil","language":"fr","source":"Marie-Victorin,
-        Fr. 1995. Flore laurentienne. 3e éd. Mise à jour et annotée par L. Brouillet,
-        S.G. Hay, I. Goulet, M. Blondeau, J. Cayouette et J. Labrecque. Gaétan Morin
-        éditeur. 1093 pp.","preferredName":false}],"distribution":[{"locationID":"ISO
-        3166-2:CA-ON","locality":"ON","establishmentMeans":"introduced","occurrenceStatus":"introduced"},{"locationID":"ISO
-        3166-2:CA-PE","locality":"PE","establishmentMeans":"","occurrenceStatus":"excluded"},{"locationID":"ISO
-        3166-2:CA-MB","locality":"MB","establishmentMeans":"introduced","occurrenceStatus":"introduced"},{"locationID":"ISO
-        3166-2:FR-PM","locality":"PM","establishmentMeans":"introduced","occurrenceStatus":"ephemeral"},{"locationID":"ISO
-        3166-2:CA-SK","locality":"SK","establishmentMeans":"introduced","occurrenceStatus":"introduced"},{"locationID":"","locality":"NL_N","establishmentMeans":"","occurrenceStatus":"excluded"},{"locationID":"ISO
-        3166-2:CA-BC","locality":"BC","establishmentMeans":"introduced","occurrenceStatus":"introduced"},{"locationID":"ISO
-        3166-2:CA-AB","locality":"AB","establishmentMeans":"introduced","occurrenceStatus":"introduced"},{"locationID":"ISO
-        3166-2:CA-NS","locality":"NS","establishmentMeans":"introduced","occurrenceStatus":"introduced"},{"locationID":"ISO
-        3166-2:CA-QC","locality":"QC","establishmentMeans":"introduced","occurrenceStatus":"introduced"},{"locationID":"ISO
-        3166-2:CA-NB","locality":"NB","establishmentMeans":"introduced","occurrenceStatus":"introduced"},{"locationID":"ISO
-        3166-2:CA-NT","locality":"NT","establishmentMeans":"","occurrenceStatus":"doubtful"}]}]},{"searchedTerm":"Crataegus
-        dodgei","numMatches":1,"matches":[{"taxonID":8673,"scientificName":"Crataegus
-        dodgei Ashe","scientificNameAuthorship":"Ashe","canonicalName":"Crataegus
-        dodgei","taxonRank":"species","taxonomicAssertions":[{"acceptedNameUsage":"Crataegus
-        dodgei Ashe","acceptedNameUsageID":8673,"nameAccordingTo":"FNA Editorial Committee.
-        2014. Flora of North America north of Mexico. Volume 9: Magnoliophyta: Picramniaceae
-        to Rosaceae. Oxford University Press, New York.","nameAccordingToID":"http://www.efloras.org/volume_page.aspx?volume_id=1009&flora_id=1","taxonomicStatus":"accepted","parentNameUsageID":2408,"higherClassification":"Equisetopsida;Magnoliidae;Rosanae;Rosales;Rosaceae;Amygdaloideae;Maleae;Crataegus;Crataegus
-        sect. Coccineae;Crataegus ser. Rotundifoliae"}],"vernacularNames":[{"vernacularName":"aubépine
-        de Dodge","language":"fr","source":"McMurray, S. & A. Lehela. 1999. Ontario
-        Plant List - Digital Version 1.0. Ministry of Natural Resources & Queens Printer
-        for Ontario. [CD]","preferredName":true},{"vernacularName":"Dodge''s hawthorn","language":"en","source":"Newmaster,
-        S.G., A. Lehela, M.J. Oldham, P.W.C. Uhlig & S. McMurray. 1998. Ontario Plant
-        List. Ontario Forest Research Institute, Sault Ste. Marie, Ontario. Forest
-        Information Paper No. 123. 550 pp.","preferredName":true},{"vernacularName":"aubépine
-        jaunâtre","language":"fr","source":"Cuerrier, A. Proposition de nom français.
-        (pers. comm.)","preferredName":false},{"vernacularName":"yellowish Dodge''s
-        hawthorn","language":"en","source":"FNA Editorial Committee. in prep. Flora
-        of North America north of Mexico. Volume 17. Magnoliophyta: Tetrachondraceae
-        to Orobanchaceae. Oxford University Press, New York.","preferredName":false},{"vernacularName":"yellowish
-        hawthorn","language":"en","source":"Anions, M., Proposition de nom anglais
-        (pers. comm.)","preferredName":false}],"distribution":[{"locationID":"ISO
-        3166-2:CA-ON","locality":"ON","establishmentMeans":"native","occurrenceStatus":"native"},{"locationID":"ISO
-        3166-2:CA-QC","locality":"QC","establishmentMeans":"","occurrenceStatus":"doubtful"}]}]}]}'
-  recorded_at: 2019-01-26 00:10:15 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: eyJhcGlWZXJzaW9uIjoiMC4xIiwibGFzdFVwZGF0ZWREYXRlIjoiMjAxOS0wNC0wOCIsInJlc3VsdHMiOlt7InNlYXJjaGVkVGVybSI6IkhlbGlhbnRodXMgYW5udXVzIiwibnVtTWF0Y2hlcyI6MSwibWF0Y2hlcyI6W3sidGF4b25JRCI6MzE4OSwic2NpZW50aWZpY05hbWUiOiJIZWxpYW50aHVzIGFubnV1cyBMaW5uYWV1cyIsInNjaWVudGlmaWNOYW1lQXV0aG9yc2hpcCI6Ikxpbm5hZXVzIiwiY2Fub25pY2FsTmFtZSI6IkhlbGlhbnRodXMgYW5udXVzIiwidGF4b25SYW5rIjoic3BlY2llcyIsInRheG9ub21pY0Fzc2VydGlvbnMiOlt7ImFjY2VwdGVkTmFtZVVzYWdlIjoiSGVsaWFudGh1cyBhbm51dXMgTGlubmFldXMiLCJhY2NlcHRlZE5hbWVVc2FnZUlEIjozMTg5LCJuYW1lQWNjb3JkaW5nVG8iOiJGTkEgRWRpdG9yaWFsIENvbW1pdHRlZS4gMjAwNi4gRmxvcmEgb2YgTm9ydGggQW1lcmljYSBub3J0aCBvZiBNZXhpY28uIFZvbHVtZSAyMTogTWFnbm9saW9waHl0YTogQXN0ZXJpZGFlLCBwYXJ0IDg6IEFzdGVyYWNlYWUsIHBhcnQgMy4gT3hmb3JkIFVuaXZlcnNpdHkgUHJlc3MsIE5ldyBZb3JrLiIsIm5hbWVBY2NvcmRpbmdUb0lEIjoiaHR0cDovL3d3dy5lZmxvcmFzLm9yZy92b2x1bWVfcGFnZS5hc3B4P3ZvbHVtZV9pZD0xMDIxJmZsb3JhX2lkPTEiLCJ0YXhvbm9taWNTdGF0dXMiOiJhY2NlcHRlZCIsInBhcmVudE5hbWVVc2FnZUlEIjoxMjM1LCJoaWdoZXJDbGFzc2lmaWNhdGlvbiI6IkVxdWlzZXRvcHNpZGE7TWFnbm9saWlkYWU7QXN0ZXJhbmFlO0FzdGVyYWxlcztBc3RlcmFjZWFlO0FzdGVyb2lkZWFlO0hlbGlhbnRoZWFlO0hlbGlhbnRodXMifV0sInZlcm5hY3VsYXJOYW1lcyI6W3sidmVybmFjdWxhck5hbWUiOiJjb21tb24gc3VuZmxvd2VyIiwibGFuZ3VhZ2UiOiJlbiIsInNvdXJjZSI6IkZOQSBFZGl0b3JpYWwgQ29tbWl0dGVlLiAyMDA2LiBGbG9yYSBvZiBOb3J0aCBBbWVyaWNhIG5vcnRoIG9mIE1leGljby4gVm9sdW1lIDIxOiBNYWdub2xpb3BoeXRhOiBBc3RlcmlkYWUsIHBhcnQgODogQXN0ZXJhY2VhZSwgcGFydCAzLiBPeGZvcmQgVW5pdmVyc2l0eSBQcmVzcywgTmV3IFlvcmsuIiwicHJlZmVycmVkTmFtZSI6dHJ1ZX0seyJ2ZXJuYWN1bGFyTmFtZSI6InRvdXJuZXNvbCIsImxhbmd1YWdlIjoiZnIiLCJzb3VyY2UiOiJEYXJieXNoaXJlIFMuSi4sIE0uIEZhdnJlYXUgJiBNLiBNdXJyYXkgKHJldnUgZXQgYXVnbWVudMOpIHBhcikuIDIwMDAuIE5vbXMgcG9wdWxhaXJlcyBldCBzY2llbnRpZmlxdWVzIGRlcyBwbGFudGVzIG51aXNpYmxlcyBkdSBDYW5hZGEuIEFncmljdWx0dXJlIGV0IEFncm9hbGltZW50YWlyZSBDYW5hZGEuIFB1YmxpY2F0aW9uIDEzOTcuIDEzMiBwcC4iLCJwcmVmZXJyZWROYW1lIjp0cnVlfSx7InZlcm5hY3VsYXJOYW1lIjoiZ2FyZGVuIHN1bmZsb3dlciIsImxhbmd1YWdlIjoiZW4iLCJzb3VyY2UiOiJSb2JlcnQgVy4gRnJlY2ttYW5uIEhlcmJhcml1bSAoVVdTUCksIFVuaXZlcnNpdHkgb2YgV2lzY29uc2luLVN0ZXZlbnMgUG9pbnQsIFdpc2MuIiwicHJlZmVycmVkTmFtZSI6ZmFsc2V9LHsidmVybmFjdWxhck5hbWUiOiJncmFuZCBzb2xlaWwiLCJsYW5ndWFnZSI6ImZyIiwic291cmNlIjoiTG91aXMtTWFyaWUsIFAuIDE5NTMuIEZsb3JlLU1hbnVlbCBkZSBsYSBwcm92aW5jZSBkZSBRdcOpYmVjLiAyacOobWUgw6lkLiBJbnN0aXR1dCBhZ3JpY29sZSBkJ09rYS4gMzIzIHBwLiIsInByZWZlcnJlZE5hbWUiOmZhbHNlfSx7InZlcm5hY3VsYXJOYW1lIjoiaMOpbGlhbnRoZSBhbm51ZWwiLCJsYW5ndWFnZSI6ImZyIiwic291cmNlIjoiTWFyaWUtVmljdG9yaW4sIEZyLiAxOTk1LiBGbG9yZSBsYXVyZW50aWVubmUuIDNlIMOpZC4gTWlzZSDDoCBqb3VyIGV0IGFubm90w6llIHBhciBMLiBCcm91aWxsZXQsIFMuRy4gSGF5LCBJLiBHb3VsZXQsIE0uIEJsb25kZWF1LCBKLiBDYXlvdWV0dGUgZXQgSi4gTGFicmVjcXVlLiBHYcOpdGFuIE1vcmluIMOpZGl0ZXVyLiAxMDkzIHBwLiIsInByZWZlcnJlZE5hbWUiOmZhbHNlfSx7InZlcm5hY3VsYXJOYW1lIjoic29sZWlsIiwibGFuZ3VhZ2UiOiJmciIsInNvdXJjZSI6Ik1hcmllLVZpY3RvcmluLCBGci4gMTk5NS4gRmxvcmUgbGF1cmVudGllbm5lLiAzZSDDqWQuIE1pc2Ugw6Agam91ciBldCBhbm5vdMOpZSBwYXIgTC4gQnJvdWlsbGV0LCBTLkcuIEhheSwgSS4gR291bGV0LCBNLiBCbG9uZGVhdSwgSi4gQ2F5b3VldHRlIGV0IEouIExhYnJlY3F1ZS4gR2HDqXRhbiBNb3JpbiDDqWRpdGV1ci4gMTA5MyBwcC4iLCJwcmVmZXJyZWROYW1lIjpmYWxzZX1dLCJkaXN0cmlidXRpb24iOlt7ImxvY2F0aW9uSUQiOiJJU08gMzE2Ni0yOkNBLUJDIiwibG9jYWxpdHkiOiJCQyIsImVzdGFibGlzaG1lbnRNZWFucyI6ImludHJvZHVjZWQiLCJvY2N1cnJlbmNlU3RhdHVzIjoiaW50cm9kdWNlZCJ9LHsibG9jYXRpb25JRCI6IiIsImxvY2FsaXR5IjoiTkxfTiIsImVzdGFibGlzaG1lbnRNZWFucyI6IiIsIm9jY3VycmVuY2VTdGF0dXMiOiJleGNsdWRlZCJ9LHsibG9jYXRpb25JRCI6IklTTyAzMTY2LTI6Q0EtTUIiLCJsb2NhbGl0eSI6Ik1CIiwiZXN0YWJsaXNobWVudE1lYW5zIjoiaW50cm9kdWNlZCIsIm9jY3VycmVuY2VTdGF0dXMiOiJpbnRyb2R1Y2VkIn0seyJsb2NhdGlvbklEIjoiSVNPIDMxNjYtMjpDQS1TSyIsImxvY2FsaXR5IjoiU0siLCJlc3RhYmxpc2htZW50TWVhbnMiOiJpbnRyb2R1Y2VkIiwib2NjdXJyZW5jZVN0YXR1cyI6ImludHJvZHVjZWQifSx7ImxvY2F0aW9uSUQiOiJJU08gMzE2Ni0yOkNBLVFDIiwibG9jYWxpdHkiOiJRQyIsImVzdGFibGlzaG1lbnRNZWFucyI6ImludHJvZHVjZWQiLCJvY2N1cnJlbmNlU3RhdHVzIjoiaW50cm9kdWNlZCJ9LHsibG9jYXRpb25JRCI6IklTTyAzMTY2LTI6Q0EtT04iLCJsb2NhbGl0eSI6Ik9OIiwiZXN0YWJsaXNobWVudE1lYW5zIjoiaW50cm9kdWNlZCIsIm9jY3VycmVuY2VTdGF0dXMiOiJpbnRyb2R1Y2VkIn0seyJsb2NhdGlvbklEIjoiSVNPIDMxNjYtMjpDQS1OQiIsImxvY2FsaXR5IjoiTkIiLCJlc3RhYmxpc2htZW50TWVhbnMiOiJpbnRyb2R1Y2VkIiwib2NjdXJyZW5jZVN0YXR1cyI6ImludHJvZHVjZWQifSx7ImxvY2F0aW9uSUQiOiJJU08gMzE2Ni0yOkNBLU5TIiwibG9jYWxpdHkiOiJOUyIsImVzdGFibGlzaG1lbnRNZWFucyI6ImludHJvZHVjZWQiLCJvY2N1cnJlbmNlU3RhdHVzIjoiaW50cm9kdWNlZCJ9LHsibG9jYXRpb25JRCI6IklTTyAzMTY2LTI6Q0EtQUIiLCJsb2NhbGl0eSI6IkFCIiwiZXN0YWJsaXNobWVudE1lYW5zIjoiaW50cm9kdWNlZCIsIm9jY3VycmVuY2VTdGF0dXMiOiJpbnRyb2R1Y2VkIn0seyJsb2NhdGlvbklEIjoiSVNPIDMxNjYtMjpDQS1OVCIsImxvY2FsaXR5IjoiTlQiLCJlc3RhYmxpc2htZW50TWVhbnMiOiIiLCJvY2N1cnJlbmNlU3RhdHVzIjoiZG91YnRmdWwifSx7ImxvY2F0aW9uSUQiOiJJU08gMzE2Ni0yOkNBLVBFIiwibG9jYWxpdHkiOiJQRSIsImVzdGFibGlzaG1lbnRNZWFucyI6IiIsIm9jY3VycmVuY2VTdGF0dXMiOiJleGNsdWRlZCJ9LHsibG9jYXRpb25JRCI6IklTTyAzMTY2LTI6RlItUE0iLCJsb2NhbGl0eSI6IlBNIiwiZXN0YWJsaXNobWVudE1lYW5zIjoiaW50cm9kdWNlZCIsIm9jY3VycmVuY2VTdGF0dXMiOiJlcGhlbWVyYWwifV19XX0seyJzZWFyY2hlZFRlcm0iOiJDcmF0YWVndXMgZG9kZ2VpIiwibnVtTWF0Y2hlcyI6MSwibWF0Y2hlcyI6W3sidGF4b25JRCI6ODY3Mywic2NpZW50aWZpY05hbWUiOiJDcmF0YWVndXMgZG9kZ2VpIEFzaGUiLCJzY2llbnRpZmljTmFtZUF1dGhvcnNoaXAiOiJBc2hlIiwiY2Fub25pY2FsTmFtZSI6IkNyYXRhZWd1cyBkb2RnZWkiLCJ0YXhvblJhbmsiOiJzcGVjaWVzIiwidGF4b25vbWljQXNzZXJ0aW9ucyI6W3siYWNjZXB0ZWROYW1lVXNhZ2UiOiJDcmF0YWVndXMgZG9kZ2VpIEFzaGUiLCJhY2NlcHRlZE5hbWVVc2FnZUlEIjo4NjczLCJuYW1lQWNjb3JkaW5nVG8iOiJGTkEgRWRpdG9yaWFsIENvbW1pdHRlZS4gMjAxNC4gRmxvcmEgb2YgTm9ydGggQW1lcmljYSBub3J0aCBvZiBNZXhpY28uIFZvbHVtZSA5OiBNYWdub2xpb3BoeXRhOiBQaWNyYW1uaWFjZWFlIHRvIFJvc2FjZWFlLiBPeGZvcmQgVW5pdmVyc2l0eSBQcmVzcywgTmV3IFlvcmsuIiwibmFtZUFjY29yZGluZ1RvSUQiOiJodHRwOi8vd3d3LmVmbG9yYXMub3JnL3ZvbHVtZV9wYWdlLmFzcHg/dm9sdW1lX2lkPTEwMDkmZmxvcmFfaWQ9MSIsInRheG9ub21pY1N0YXR1cyI6ImFjY2VwdGVkIiwicGFyZW50TmFtZVVzYWdlSUQiOjI0MDgsImhpZ2hlckNsYXNzaWZpY2F0aW9uIjoiRXF1aXNldG9wc2lkYTtNYWdub2xpaWRhZTtSb3NhbmFlO1Jvc2FsZXM7Um9zYWNlYWU7QW15Z2RhbG9pZGVhZTtNYWxlYWU7Q3JhdGFlZ3VzO0NyYXRhZWd1cyBzZWN0LiBDb2NjaW5lYWU7Q3JhdGFlZ3VzIHNlci4gUm90dW5kaWZvbGlhZSJ9XSwidmVybmFjdWxhck5hbWVzIjpbeyJ2ZXJuYWN1bGFyTmFtZSI6ImF1YsOpcGluZSBkZSBEb2RnZSIsImxhbmd1YWdlIjoiZnIiLCJzb3VyY2UiOiJNY011cnJheSwgUy4gJiBBLiBMZWhlbGEuIDE5OTkuIE9udGFyaW8gUGxhbnQgTGlzdCAtIERpZ2l0YWwgVmVyc2lvbiAxLjAuIE1pbmlzdHJ5IG9mIE5hdHVyYWwgUmVzb3VyY2VzICYgUXVlZW5zIFByaW50ZXIgZm9yIE9udGFyaW8uIFtDRF0iLCJwcmVmZXJyZWROYW1lIjp0cnVlfSx7InZlcm5hY3VsYXJOYW1lIjoiRG9kZ2UncyBoYXd0aG9ybiIsImxhbmd1YWdlIjoiZW4iLCJzb3VyY2UiOiJOZXdtYXN0ZXIsIFMuRy4sIEEuIExlaGVsYSwgTS5KLiBPbGRoYW0sIFAuVy5DLiBVaGxpZyAmIFMuIE1jTXVycmF5LiAxOTk4LiBPbnRhcmlvIFBsYW50IExpc3QuIE9udGFyaW8gRm9yZXN0IFJlc2VhcmNoIEluc3RpdHV0ZSwgU2F1bHQgU3RlLiBNYXJpZSwgT250YXJpby4gRm9yZXN0IEluZm9ybWF0aW9uIFBhcGVyIE5vLiAxMjMuIDU1MCBwcC4iLCJwcmVmZXJyZWROYW1lIjp0cnVlfSx7InZlcm5hY3VsYXJOYW1lIjoiYXViw6lwaW5lIGphdW7DonRyZSIsImxhbmd1YWdlIjoiZnIiLCJzb3VyY2UiOiJDdWVycmllciwgQS4gUHJvcG9zaXRpb24gZGUgbm9tIGZyYW7Dp2Fpcy4gKHBlcnMuIGNvbW0uKSIsInByZWZlcnJlZE5hbWUiOmZhbHNlfSx7InZlcm5hY3VsYXJOYW1lIjoieWVsbG93aXNoIERvZGdlJ3MgaGF3dGhvcm4iLCJsYW5ndWFnZSI6ImVuIiwic291cmNlIjoiRk5BIEVkaXRvcmlhbCBDb21taXR0ZWUuIGluIHByZXAuIEZsb3JhIG9mIE5vcnRoIEFtZXJpY2Egbm9ydGggb2YgTWV4aWNvLiBWb2x1bWUgMTcuIE1hZ25vbGlvcGh5dGE6IFRldHJhY2hvbmRyYWNlYWUgdG8gT3JvYmFuY2hhY2VhZS4gT3hmb3JkIFVuaXZlcnNpdHkgUHJlc3MsIE5ldyBZb3JrLiIsInByZWZlcnJlZE5hbWUiOmZhbHNlfSx7InZlcm5hY3VsYXJOYW1lIjoieWVsbG93aXNoIGhhd3Rob3JuIiwibGFuZ3VhZ2UiOiJlbiIsInNvdXJjZSI6IkFuaW9ucywgTS4sIFByb3Bvc2l0aW9uIGRlIG5vbSBhbmdsYWlzIChwZXJzLiBjb21tLikiLCJwcmVmZXJyZWROYW1lIjpmYWxzZX1dLCJkaXN0cmlidXRpb24iOlt7ImxvY2F0aW9uSUQiOiJJU08gMzE2Ni0yOkNBLVFDIiwibG9jYWxpdHkiOiJRQyIsImVzdGFibGlzaG1lbnRNZWFucyI6IiIsIm9jY3VycmVuY2VTdGF0dXMiOiJkb3VidGZ1bCJ9LHsibG9jYXRpb25JRCI6IklTTyAzMTY2LTI6Q0EtT04iLCJsb2NhbGl0eSI6Ik9OIiwiZXN0YWJsaXNobWVudE1lYW5zIjoibmF0aXZlIiwib2NjdXJyZW5jZVN0YXR1cyI6Im5hdGl2ZSJ9XX1dfV19
+  recorded_at: 2019-05-08 21:00:31 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: post
     uri: http://data.canadensys.net/vascan/api/0.1/search.json
@@ -156,8 +68,8 @@ http_interactions:
       Content-Type: application/x-www-form-urlencoded
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
-      X-User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
+      X-USER-AGENT: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
   response:
     status:
       status_code: '200'
@@ -166,47 +78,16 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.10.3 (Ubuntu)
-      date: Sat, 26 Jan 2019 00:10:15 GMT
+      date: Wed, 08 May 2019 21:00:31 GMT
       content-type: application/json;charset=UTF-8
       transfer-encoding: chunked
       connection: keep-alive
       strict-transport-security: max-age=31536000
     body:
-      encoding: UTF-8
-      string: '{"apiVersion":"0.1","lastUpdatedDate":"2018-06-21\n","results":[{"searchedTerm":"Melastoma
-        sieberi","numMatches":0},{"searchedTerm":"Juncus georgianus","numMatches":0},{"searchedTerm":"Ulmus
-        brandisiana","numMatches":0},{"searchedTerm":"Acantholimon muchamedshanovii","numMatches":0},{"searchedTerm":"Dracontium
-        peruvianum","numMatches":0},{"searchedTerm":"Leptotheca boliviana","numMatches":0},{"searchedTerm":"Vatica
-        mindanensis","numMatches":0},{"searchedTerm":"Opuntia xanthoglochia","numMatches":0},{"searchedTerm":"Rubus
-        oklahomus","numMatches":1,"matches":[{"taxonID":27423,"scientificName":"Rubus
-        oklahomus L.H. Bailey","scientificNameAuthorship":"L.H. Bailey","canonicalName":"Rubus
-        oklahomus","taxonRank":"species","taxonomicAssertions":[{"acceptedNameUsage":"Rubus
-        pensilvanicus Poiret","acceptedNameUsageID":8944,"nameAccordingTo":"FNA Editorial
-        Committee. 2014. Flora of North America north of Mexico. Volume 9: Magnoliophyta:
-        Picramniaceae to Rosaceae. Oxford University Press, New York.","nameAccordingToID":"http://www.efloras.org/volume_page.aspx?volume_id=1009&flora_id=1","taxonomicStatus":"synonym"}]}]},{"searchedTerm":"Schlotheimia
-        densifolia","numMatches":0},{"searchedTerm":"Anthemis wiemanniana","numMatches":0},{"searchedTerm":"Ethulia
-        divaricata","numMatches":0},{"searchedTerm":"Hieracium pseudoatratum","numMatches":0},{"searchedTerm":"Asystasia
-        hispida","numMatches":0},{"searchedTerm":"Rhododendron osakazuki","numMatches":0},{"searchedTerm":"Mimosa
-        bathyrrhena","numMatches":0},{"searchedTerm":"Freycinetia villalobosii","numMatches":0},{"searchedTerm":"Lachemilla
-        orbiculata","numMatches":0},{"searchedTerm":"Dasynema obtusum","numMatches":0},{"searchedTerm":"Euphorbia
-        rubella","numMatches":0},{"searchedTerm":"Lechenaultia tubiflora","numMatches":0},{"searchedTerm":"Stephanodaphne
-        perrieri","numMatches":0},{"searchedTerm":"Rubus althaeifolius","numMatches":0},{"searchedTerm":"Rhododendron
-        fleuryi","numMatches":0},{"searchedTerm":"Eriogonum glandulosum","numMatches":0},{"searchedTerm":"Lithocarpus
-        fordianus","numMatches":0},{"searchedTerm":"Psammisia pauciflora","numMatches":0},{"searchedTerm":"Citharexylum
-        decorum","numMatches":0},{"searchedTerm":"Tephrocactus heteromorphus","numMatches":0},{"searchedTerm":"Wendlandia
-        angustifolia","numMatches":0},{"searchedTerm":"Cyrtandra lancifolia","numMatches":0},{"searchedTerm":"Limonium
-        transwallisnum","numMatches":0},{"searchedTerm":"Swertia woodii","numMatches":0},{"searchedTerm":"Epidendrum
-        elegantissimum","numMatches":0},{"searchedTerm":"Webera saxensis","numMatches":0},{"searchedTerm":"Schwerinia
-        superba","numMatches":0},{"searchedTerm":"Anacampseros nebrownii","numMatches":0},{"searchedTerm":"Scapania
-        jensenii","numMatches":0},{"searchedTerm":"Asplenium bifrons","numMatches":0},{"searchedTerm":"Smilax
-        excelsa","numMatches":0},{"searchedTerm":"Isocaulon flavoviride","numMatches":0},{"searchedTerm":"Rondeletia
-        holdridgei","numMatches":0},{"searchedTerm":"Erysimum benthamii","numMatches":0},{"searchedTerm":"Bryum
-        dentatum","numMatches":0},{"searchedTerm":"Belmontia intermedia","numMatches":0},{"searchedTerm":"Adiantum
-        lingii","numMatches":0},{"searchedTerm":"Palicourea pensilis","numMatches":0},{"searchedTerm":"Hieracium
-        diarthrodes","numMatches":0},{"searchedTerm":"Verbesina lopez-mirandae","numMatches":0},{"searchedTerm":"Pterostylis
-        erecta","numMatches":0}]}'
-  recorded_at: 2019-01-26 00:10:15 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: eyJhcGlWZXJzaW9uIjoiMC4xIiwibGFzdFVwZGF0ZWREYXRlIjoiMjAxOS0wNC0wOCIsInJlc3VsdHMiOlt7InNlYXJjaGVkVGVybSI6IkNyYWNjYSBjYXBlbnNpcyIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiQXJpc3RvbG9jaGlhIHBldGVsb3RpaSIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiSXNvZ2xvc3NhIGl4b2RlcyIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiS29hbm9waHlsbG9uIHR1cnF1aW5lbnNlIiwibnVtTWF0Y2hlcyI6MH0seyJzZWFyY2hlZFRlcm0iOiJQZXBvbmlkaXVtIGRlbnNpZmxvcnVtIiwibnVtTWF0Y2hlcyI6MH0seyJzZWFyY2hlZFRlcm0iOiJDaGlsaWFkZW51cyBzZXJpY2V1cyIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiUHJvdGVhIHNjYWJyaXVzY3VsYSIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiTGltb25pdW0gbGltYmF0dW0iLCJudW1NYXRjaGVzIjowfSx7InNlYXJjaGVkVGVybSI6Ik11cmJlY2tpZWxsYSB6YW5vbmlpIiwibnVtTWF0Y2hlcyI6MH0seyJzZWFyY2hlZFRlcm0iOiJTY2hpc3RvZ3luZSBzeWx2ZXN0cmlzIiwibnVtTWF0Y2hlcyI6MH0seyJzZWFyY2hlZFRlcm0iOiJQb3B1bHVzIGhvYmFydGlhbmEiLCJudW1NYXRjaGVzIjowfSx7InNlYXJjaGVkVGVybSI6Ik5vdG90aGl4b3MgZmxvY2Nvc3VzIiwibnVtTWF0Y2hlcyI6MH0seyJzZWFyY2hlZFRlcm0iOiJEb3JzdGVuaWEgZ2lnYXMiLCJudW1NYXRjaGVzIjowfSx7InNlYXJjaGVkVGVybSI6IlBzeWNob3RyaWEgZm94d29ydGh5aSIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiQ2FtcHlsaWRpdW0gaGlzcGlkdWx1bSIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiQXJneXJvdGhhbW5pYSBsYW5jZW9sYXRhIiwibnVtTWF0Y2hlcyI6MH0seyJzZWFyY2hlZFRlcm0iOiJHbmFwaGFsaXVtIG5pdmV1bSIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiVGFyYXhhY3VtIHNwbGVuZGlkdW0iLCJudW1NYXRjaGVzIjowfSx7InNlYXJjaGVkVGVybSI6IlBlbGV4aWEgcGhhbGxvY2FsbG9zYSIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiU3BoaW5jdGFudGh1cyBoYXNzbGVyaWFudXMiLCJudW1NYXRjaGVzIjowfSx7InNlYXJjaGVkVGVybSI6Ikd5bW5vc3BvcmlhIGJlcmJlcm9pZGVzIiwibnVtTWF0Y2hlcyI6MH0seyJzZWFyY2hlZFRlcm0iOiJKdW5jdXMgbWVpYW50aHVzIiwibnVtTWF0Y2hlcyI6MH0seyJzZWFyY2hlZFRlcm0iOiJIeXBlcmljdW0gYmFjY2hhcm9pZGVzIiwibnVtTWF0Y2hlcyI6MH0seyJzZWFyY2hlZFRlcm0iOiJDaXNzdXMgdml0aWdpbmVhIiwibnVtTWF0Y2hlcyI6MH0seyJzZWFyY2hlZFRlcm0iOiJTZXJpZGlhIG5hcGlmb2xpYSIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiSGllcmFjaXVtIHN1Ymh5cGVyZG94dW0iLCJudW1NYXRjaGVzIjowfSx7InNlYXJjaGVkVGVybSI6IkhlbGlvY2FycHVzIHRlcmViaW50aGluYWNldXMiLCJudW1NYXRjaGVzIjowfSx7InNlYXJjaGVkVGVybSI6IlN0ZWxpcyBsYW5jZW9sYXRhIiwibnVtTWF0Y2hlcyI6MH0seyJzZWFyY2hlZFRlcm0iOiJQaWxlYSBtZW1icmFuYWNlYSIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiUGxhbnRhZ28gcm9jYWUiLCJudW1NYXRjaGVzIjowfSx7InNlYXJjaGVkVGVybSI6IlJob2RvZGVuZHJvbiBoaXJ0b2xlcGlkb3R1bSIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiQWxsb3BoeWx1cyBtYXlpbWJlbnNpcyIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiTGV1Y29wb2dvbiBwb2dvbm9jYWx5eCIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiQ2FtcGFudWxhIHZhbmRlc2lpIiwibnVtTWF0Y2hlcyI6MH0seyJzZWFyY2hlZFRlcm0iOiJEcm9zZXJhIHBvcnJlY3RhIiwibnVtTWF0Y2hlcyI6MH0seyJzZWFyY2hlZFRlcm0iOiJOZWNrZXJhIGFjaWN1bGF0YSIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiVGltb25pdXMgcm9zc2VsZW5zaXMiLCJudW1NYXRjaGVzIjowfSx7InNlYXJjaGVkVGVybSI6IkNsYXl0b25pYSBtZWdhcmhpemEiLCJudW1NYXRjaGVzIjoxLCJtYXRjaGVzIjpbeyJ0YXhvbklEIjo4MjU0LCJzY2llbnRpZmljTmFtZSI6IkNsYXl0b25pYSBtZWdhcmhpemEgKEEuIEdyYXkpIFBhcnJ5IGV4IFMuIFdhdHNvbiIsInNjaWVudGlmaWNOYW1lQXV0aG9yc2hpcCI6IihBLiBHcmF5KSBQYXJyeSBleCBTLiBXYXRzb24iLCJjYW5vbmljYWxOYW1lIjoiQ2xheXRvbmlhIG1lZ2FyaGl6YSIsInRheG9uUmFuayI6InNwZWNpZXMiLCJ0YXhvbm9taWNBc3NlcnRpb25zIjpbeyJhY2NlcHRlZE5hbWVVc2FnZSI6IkNsYXl0b25pYSBtZWdhcmhpemEgKEEuIEdyYXkpIFBhcnJ5IGV4IFMuIFdhdHNvbiIsImFjY2VwdGVkTmFtZVVzYWdlSUQiOjgyNTQsIm5hbWVBY2NvcmRpbmdUbyI6IkZOQSBFZGl0b3JpYWwgQ29tbWl0dGVlLiAyMDAzLiBGbG9yYSBvZiBOb3J0aCBBbWVyaWNhIG5vcnRoIG9mIE1leGljby4gVm9sdW1lIDQ6IE1hZ25vbGlvcGh5dGE6IENhcnlvcGh5bGxpZGFlLCBwYXJ0IDEuIE94Zm9yZCBVbml2ZXJzaXR5IFByZXNzLCBOZXcgWW9yay4iLCJuYW1lQWNjb3JkaW5nVG9JRCI6Imh0dHA6Ly93d3cuZWZsb3Jhcy5vcmcvdm9sdW1lX3BhZ2UuYXNweD92b2x1bWVfaWQ9MTAwNCZmbG9yYV9pZD0xIiwidGF4b25vbWljU3RhdHVzIjoiYWNjZXB0ZWQiLCJwYXJlbnROYW1lVXNhZ2VJRCI6MTAwNSwiaGlnaGVyQ2xhc3NpZmljYXRpb24iOiJFcXVpc2V0b3BzaWRhO01hZ25vbGlpZGFlO0NhcnlvcGh5bGxhbmFlO0NhcnlvcGh5bGxhbGVzO01vbnRpYWNlYWU7Q2xheXRvbmlhIn1dLCJ2ZXJuYWN1bGFyTmFtZXMiOlt7InZlcm5hY3VsYXJOYW1lIjoiYWxwaW5lIHNwcmluZyBiZWF1dHkiLCJsYW5ndWFnZSI6ImVuIiwic291cmNlIjoiIiwicHJlZmVycmVkTmFtZSI6dHJ1ZX0seyJ2ZXJuYWN1bGFyTmFtZSI6ImNsYXl0b25pZSDDoCBncm9zIHJoaXpvbWUiLCJsYW5ndWFnZSI6ImZyIiwic291cmNlIjoiUG9yc2lsZCwgQS5FLiAxOTc0LiBQbGFudGVzIHNhdXZhZ2VzIGRlcyBtb250YWduZXMgUm9jaGV1c2VzLiBNdXPDqWUgbmF0aW9uYWwgZGVzIHNjaWVuY2VzIG5hdHVyZWxsZXMgZXQgUGFyY3MgQ2FuYWRhLiA0NTAgcHAuIiwicHJlZmVycmVkTmFtZSI6dHJ1ZX0seyJ2ZXJuYWN1bGFyTmFtZSI6ImZlbGxmaWVsZHMgY2xheXRvbmlhIiwibGFuZ3VhZ2UiOiJlbiIsInNvdXJjZSI6IkZOQSBFZGl0b3JpYWwgQ29tbWl0dGVlLiAyMDAzLiBGbG9yYSBvZiBOb3J0aCBBbWVyaWNhIG5vcnRoIG9mIE1leGljby4gVm9sdW1lIDQ6IE1hZ25vbGlvcGh5dGE6IENhcnlvcGh5bGxpZGFlLCBwYXJ0IDEuIE94Zm9yZCBVbml2ZXJzaXR5IFByZXNzLCBOZXcgWW9yay4iLCJwcmVmZXJyZWROYW1lIjpmYWxzZX0seyJ2ZXJuYWN1bGFyTmFtZSI6ImZlbGxmaWVsZHMgc3ByaW5nIGJlYXV0eSIsImxhbmd1YWdlIjoiZW4iLCJzb3VyY2UiOiIiLCJwcmVmZXJyZWROYW1lIjpmYWxzZX1dLCJkaXN0cmlidXRpb24iOlt7ImxvY2F0aW9uSUQiOiJJU08gMzE2Ni0yOkNBLUFCIiwibG9jYWxpdHkiOiJBQiIsImVzdGFibGlzaG1lbnRNZWFucyI6Im5hdGl2ZSIsIm9jY3VycmVuY2VTdGF0dXMiOiJuYXRpdmUifSx7ImxvY2F0aW9uSUQiOiJJU08gMzE2Ni0yOkNBLU5UIiwibG9jYWxpdHkiOiJOVCIsImVzdGFibGlzaG1lbnRNZWFucyI6Im5hdGl2ZSIsIm9jY3VycmVuY2VTdGF0dXMiOiJuYXRpdmUifSx7ImxvY2F0aW9uSUQiOiJJU08gMzE2Ni0yOkNBLUJDIiwibG9jYWxpdHkiOiJCQyIsImVzdGFibGlzaG1lbnRNZWFucyI6Im5hdGl2ZSIsIm9jY3VycmVuY2VTdGF0dXMiOiJuYXRpdmUifSx7ImxvY2F0aW9uSUQiOiJJU08gMzE2Ni0yOkNBLVlUIiwibG9jYWxpdHkiOiJZVCIsImVzdGFibGlzaG1lbnRNZWFucyI6Im5hdGl2ZSIsIm9jY3VycmVuY2VTdGF0dXMiOiJuYXRpdmUifV19XX0seyJzZWFyY2hlZFRlcm0iOiJSb3NhIGRpdmVyc2lzZXBhbGEiLCJudW1NYXRjaGVzIjowfSx7InNlYXJjaGVkVGVybSI6Ik1hbGFwb2VubmEgbnVjdWxhbmFlYSIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiRGV1dHppYSBlbGVnYW50aXNzaW1hIiwibnVtTWF0Y2hlcyI6MH0seyJzZWFyY2hlZFRlcm0iOiJBbGFuc21pYSBlbGFzdGljYSIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiTWFyc2RlbmlhIHZpZWlsbGFyZGkiLCJudW1NYXRjaGVzIjowfSx7InNlYXJjaGVkVGVybSI6IlB0ZXJpcyBtaXNlcmEiLCJudW1NYXRjaGVzIjowfSx7InNlYXJjaGVkVGVybSI6IkNhcmV4IHBldHJpY29zYSIsIm51bU1hdGNoZXMiOjEsIm1hdGNoZXMiOlt7InRheG9uSUQiOjUwMzEsInNjaWVudGlmaWNOYW1lIjoiQ2FyZXggcGV0cmljb3NhIERld2V5Iiwic2NpZW50aWZpY05hbWVBdXRob3JzaGlwIjoiRGV3ZXkiLCJjYW5vbmljYWxOYW1lIjoiQ2FyZXggcGV0cmljb3NhIiwidGF4b25SYW5rIjoic3BlY2llcyIsInRheG9ub21pY0Fzc2VydGlvbnMiOlt7ImFjY2VwdGVkTmFtZVVzYWdlIjoiQ2FyZXggcGV0cmljb3NhIERld2V5IiwiYWNjZXB0ZWROYW1lVXNhZ2VJRCI6NTAzMSwibmFtZUFjY29yZGluZ1RvIjoiRk5BIEVkaXRvcmlhbCBDb21taXR0ZWUuIDIwMDIuIEZsb3JhIG9mIE5vcnRoIEFtZXJpY2Egbm9ydGggb2YgTWV4aWNvLiBWb2x1bWUgMjM6IEN5cGVyYWNlYWUuIE94Zm9yZCBVbml2ZXJzaXR5IFByZXNzLCBOZXcgWW9yay4iLCJuYW1lQWNjb3JkaW5nVG9JRCI6Imh0dHA6Ly93d3cuZWZsb3Jhcy5vcmcvdm9sdW1lX3BhZ2UuYXNweD92b2x1bWVfaWQ9MTAyMyZmbG9yYV9pZD0xIiwidGF4b25vbWljU3RhdHVzIjoiYWNjZXB0ZWQiLCJwYXJlbnROYW1lVXNhZ2VJRCI6MjExMSwiaGlnaGVyQ2xhc3NpZmljYXRpb24iOiJFcXVpc2V0b3BzaWRhO01hZ25vbGlpZGFlO0xpbGlhbmFlO1BvYWxlcztDeXBlcmFjZWFlO0Nhcmljb2lkZWFlO0NhcmV4O0NhcmV4IHNlY3QuIEF1bG9jeXN0aXMifV0sInZlcm5hY3VsYXJOYW1lcyI6W3sidmVybmFjdWxhck5hbWUiOiJjYXJleCBkZXMgY2FpbGxvdXgiLCJsYW5ndWFnZSI6ImZyIiwic291cmNlIjoiRmF2cmVhdSwgTS4gUHJvcG9zaXRpb24gZGUgbm9tIGZyYW7Dp2Fpcy4iLCJwcmVmZXJyZWROYW1lIjp0cnVlfSx7InZlcm5hY3VsYXJOYW1lIjoicm9jay1kd2VsbGluZyBzZWRnZSIsImxhbmd1YWdlIjoiZW4iLCJzb3VyY2UiOiJLbGlua2VuYmVyZywgQi4gKGVkLikuIDIwMTArLiBFLUZsb3JhIEJDOiBFbGVjdHJvbmljIEF0bGFzIG9mIHRoZSBQbGFudHMgb2YgQnJpdGlzaCBDb2x1bWJpYS4gTGFiLiBmb3IgQWR2YW5jZWQgU3BhdGlhbCBBbmFseXNpcywgRGVwYXJ0bWVudCBvZiBHZW9ncmFwaHksIFVuaXZlcnNpdHkgb2YgQnJpdGlzaCBDb2x1bWJpYSwgVmFuY291dmVyLCBCLkMuIGh0dHA6Ly93d3cuZWZsb3JhLmJjLmNhIiwicHJlZmVycmVkTmFtZSI6dHJ1ZX0seyJ2ZXJuYWN1bGFyTmFtZSI6InJvY2sgc2VkZ2UiLCJsYW5ndWFnZSI6ImVuIiwic291cmNlIjoiQ2FuYWRpYW4gRm9yZXN0IFNlcnZpY2UuIDIwMDcuIENhbmFkYSdzIFBsYW50IEhhcmRpbmVzcyBTaXRlLiBDYW5hZGlhbiBGb3Jlc3QgU2VydmljZSwgTmF0dXJhbCBSZXNvdXJjZXMgQ2FuYWRhLiBodHRwOi8vcGxhbnRoYXJkaW5lc3MuZ2MuY2EgKGNvbnN1bHRlZCAyMDEwKSIsInByZWZlcnJlZE5hbWUiOmZhbHNlfSx7InZlcm5hY3VsYXJOYW1lIjoic3RvbmUgc2VkZ2UiLCJsYW5ndWFnZSI6ImVuIiwic291cmNlIjoiS2Vyc2hhdywgTC4sIEouIEdvdWxkLCBELiBKb2huc29uICYgSi4gTGFuY2FzdGVyLCBlZHMuIDIwMDEuIFJhcmUgVmFzY3VsYXIgUGxhbnRzIG9mIEFsYmVydGEuIEFsYmVydGEgTmF0aXZlIFBsYW50IENvdW5jaWwuIiwicHJlZmVycmVkTmFtZSI6ZmFsc2V9XX1dfSx7InNlYXJjaGVkVGVybSI6Ik1vdXJpcmkgaHViZXJpIiwibnVtTWF0Y2hlcyI6MH0seyJzZWFyY2hlZFRlcm0iOiJHdWF6dW1hIHVsbWlmb2xpYSIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiUHNldWRvZ25hcGhhbGl1bSB2aWxsYXJyZWFsaSIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiRXJ5c2ltdW0gZ2VsaWR1bSIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiU3dhcnR6aWEgcGFuYWNvY28iLCJudW1NYXRjaGVzIjowfV19
+  recorded_at: 2019-05-08 21:00:31 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: post
     uri: http://data.canadensys.net/vascan/api/0.1/search.json
@@ -217,8 +98,8 @@ http_interactions:
       Content-Type: application/x-www-form-urlencoded
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
-      X-User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
+      X-USER-AGENT: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
   response:
     status:
       status_code: '200'
@@ -227,44 +108,13 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.10.3 (Ubuntu)
-      date: Sat, 26 Jan 2019 00:10:15 GMT
+      date: Wed, 08 May 2019 21:00:31 GMT
       content-type: application/json;charset=UTF-8
       transfer-encoding: chunked
       connection: keep-alive
       strict-transport-security: max-age=31536000
     body:
-      encoding: UTF-8
-      string: '{"apiVersion":"0.1","lastUpdatedDate":"2018-06-21\n","results":[{"searchedTerm":"Melastoma
-        sieberi","numMatches":0},{"searchedTerm":"Juncus georgianus","numMatches":0},{"searchedTerm":"Ulmus
-        brandisiana","numMatches":0},{"searchedTerm":"Acantholimon muchamedshanovii","numMatches":0},{"searchedTerm":"Dracontium
-        peruvianum","numMatches":0},{"searchedTerm":"Leptotheca boliviana","numMatches":0},{"searchedTerm":"Vatica
-        mindanensis","numMatches":0},{"searchedTerm":"Opuntia xanthoglochia","numMatches":0},{"searchedTerm":"Rubus
-        oklahomus","numMatches":1,"matches":[{"taxonID":27423,"scientificName":"Rubus
-        oklahomus L.H. Bailey","scientificNameAuthorship":"L.H. Bailey","canonicalName":"Rubus
-        oklahomus","taxonRank":"species","taxonomicAssertions":[{"acceptedNameUsage":"Rubus
-        pensilvanicus Poiret","acceptedNameUsageID":8944,"nameAccordingTo":"FNA Editorial
-        Committee. 2014. Flora of North America north of Mexico. Volume 9: Magnoliophyta:
-        Picramniaceae to Rosaceae. Oxford University Press, New York.","nameAccordingToID":"http://www.efloras.org/volume_page.aspx?volume_id=1009&flora_id=1","taxonomicStatus":"synonym"}]}]},{"searchedTerm":"Schlotheimia
-        densifolia","numMatches":0},{"searchedTerm":"Anthemis wiemanniana","numMatches":0},{"searchedTerm":"Ethulia
-        divaricata","numMatches":0},{"searchedTerm":"Hieracium pseudoatratum","numMatches":0},{"searchedTerm":"Asystasia
-        hispida","numMatches":0},{"searchedTerm":"Rhododendron osakazuki","numMatches":0},{"searchedTerm":"Mimosa
-        bathyrrhena","numMatches":0},{"searchedTerm":"Freycinetia villalobosii","numMatches":0},{"searchedTerm":"Lachemilla
-        orbiculata","numMatches":0},{"searchedTerm":"Dasynema obtusum","numMatches":0},{"searchedTerm":"Euphorbia
-        rubella","numMatches":0},{"searchedTerm":"Lechenaultia tubiflora","numMatches":0},{"searchedTerm":"Stephanodaphne
-        perrieri","numMatches":0},{"searchedTerm":"Rubus althaeifolius","numMatches":0},{"searchedTerm":"Rhododendron
-        fleuryi","numMatches":0},{"searchedTerm":"Eriogonum glandulosum","numMatches":0},{"searchedTerm":"Lithocarpus
-        fordianus","numMatches":0},{"searchedTerm":"Psammisia pauciflora","numMatches":0},{"searchedTerm":"Citharexylum
-        decorum","numMatches":0},{"searchedTerm":"Tephrocactus heteromorphus","numMatches":0},{"searchedTerm":"Wendlandia
-        angustifolia","numMatches":0},{"searchedTerm":"Cyrtandra lancifolia","numMatches":0},{"searchedTerm":"Limonium
-        transwallisnum","numMatches":0},{"searchedTerm":"Swertia woodii","numMatches":0},{"searchedTerm":"Epidendrum
-        elegantissimum","numMatches":0},{"searchedTerm":"Webera saxensis","numMatches":0},{"searchedTerm":"Schwerinia
-        superba","numMatches":0},{"searchedTerm":"Anacampseros nebrownii","numMatches":0},{"searchedTerm":"Scapania
-        jensenii","numMatches":0},{"searchedTerm":"Asplenium bifrons","numMatches":0},{"searchedTerm":"Smilax
-        excelsa","numMatches":0},{"searchedTerm":"Isocaulon flavoviride","numMatches":0},{"searchedTerm":"Rondeletia
-        holdridgei","numMatches":0},{"searchedTerm":"Erysimum benthamii","numMatches":0},{"searchedTerm":"Bryum
-        dentatum","numMatches":0},{"searchedTerm":"Belmontia intermedia","numMatches":0},{"searchedTerm":"Adiantum
-        lingii","numMatches":0},{"searchedTerm":"Palicourea pensilis","numMatches":0},{"searchedTerm":"Hieracium
-        diarthrodes","numMatches":0},{"searchedTerm":"Verbesina lopez-mirandae","numMatches":0},{"searchedTerm":"Pterostylis
-        erecta","numMatches":0}]}'
-  recorded_at: 2019-01-26 00:10:15 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: eyJhcGlWZXJzaW9uIjoiMC4xIiwibGFzdFVwZGF0ZWREYXRlIjoiMjAxOS0wNC0wOCIsInJlc3VsdHMiOlt7InNlYXJjaGVkVGVybSI6IkNyYWNjYSBjYXBlbnNpcyIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiQXJpc3RvbG9jaGlhIHBldGVsb3RpaSIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiSXNvZ2xvc3NhIGl4b2RlcyIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiS29hbm9waHlsbG9uIHR1cnF1aW5lbnNlIiwibnVtTWF0Y2hlcyI6MH0seyJzZWFyY2hlZFRlcm0iOiJQZXBvbmlkaXVtIGRlbnNpZmxvcnVtIiwibnVtTWF0Y2hlcyI6MH0seyJzZWFyY2hlZFRlcm0iOiJDaGlsaWFkZW51cyBzZXJpY2V1cyIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiUHJvdGVhIHNjYWJyaXVzY3VsYSIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiTGltb25pdW0gbGltYmF0dW0iLCJudW1NYXRjaGVzIjowfSx7InNlYXJjaGVkVGVybSI6Ik11cmJlY2tpZWxsYSB6YW5vbmlpIiwibnVtTWF0Y2hlcyI6MH0seyJzZWFyY2hlZFRlcm0iOiJTY2hpc3RvZ3luZSBzeWx2ZXN0cmlzIiwibnVtTWF0Y2hlcyI6MH0seyJzZWFyY2hlZFRlcm0iOiJQb3B1bHVzIGhvYmFydGlhbmEiLCJudW1NYXRjaGVzIjowfSx7InNlYXJjaGVkVGVybSI6Ik5vdG90aGl4b3MgZmxvY2Nvc3VzIiwibnVtTWF0Y2hlcyI6MH0seyJzZWFyY2hlZFRlcm0iOiJEb3JzdGVuaWEgZ2lnYXMiLCJudW1NYXRjaGVzIjowfSx7InNlYXJjaGVkVGVybSI6IlBzeWNob3RyaWEgZm94d29ydGh5aSIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiQ2FtcHlsaWRpdW0gaGlzcGlkdWx1bSIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiQXJneXJvdGhhbW5pYSBsYW5jZW9sYXRhIiwibnVtTWF0Y2hlcyI6MH0seyJzZWFyY2hlZFRlcm0iOiJHbmFwaGFsaXVtIG5pdmV1bSIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiVGFyYXhhY3VtIHNwbGVuZGlkdW0iLCJudW1NYXRjaGVzIjowfSx7InNlYXJjaGVkVGVybSI6IlBlbGV4aWEgcGhhbGxvY2FsbG9zYSIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiU3BoaW5jdGFudGh1cyBoYXNzbGVyaWFudXMiLCJudW1NYXRjaGVzIjowfSx7InNlYXJjaGVkVGVybSI6Ikd5bW5vc3BvcmlhIGJlcmJlcm9pZGVzIiwibnVtTWF0Y2hlcyI6MH0seyJzZWFyY2hlZFRlcm0iOiJKdW5jdXMgbWVpYW50aHVzIiwibnVtTWF0Y2hlcyI6MH0seyJzZWFyY2hlZFRlcm0iOiJIeXBlcmljdW0gYmFjY2hhcm9pZGVzIiwibnVtTWF0Y2hlcyI6MH0seyJzZWFyY2hlZFRlcm0iOiJDaXNzdXMgdml0aWdpbmVhIiwibnVtTWF0Y2hlcyI6MH0seyJzZWFyY2hlZFRlcm0iOiJTZXJpZGlhIG5hcGlmb2xpYSIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiSGllcmFjaXVtIHN1Ymh5cGVyZG94dW0iLCJudW1NYXRjaGVzIjowfSx7InNlYXJjaGVkVGVybSI6IkhlbGlvY2FycHVzIHRlcmViaW50aGluYWNldXMiLCJudW1NYXRjaGVzIjowfSx7InNlYXJjaGVkVGVybSI6IlN0ZWxpcyBsYW5jZW9sYXRhIiwibnVtTWF0Y2hlcyI6MH0seyJzZWFyY2hlZFRlcm0iOiJQaWxlYSBtZW1icmFuYWNlYSIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiUGxhbnRhZ28gcm9jYWUiLCJudW1NYXRjaGVzIjowfSx7InNlYXJjaGVkVGVybSI6IlJob2RvZGVuZHJvbiBoaXJ0b2xlcGlkb3R1bSIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiQWxsb3BoeWx1cyBtYXlpbWJlbnNpcyIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiTGV1Y29wb2dvbiBwb2dvbm9jYWx5eCIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiQ2FtcGFudWxhIHZhbmRlc2lpIiwibnVtTWF0Y2hlcyI6MH0seyJzZWFyY2hlZFRlcm0iOiJEcm9zZXJhIHBvcnJlY3RhIiwibnVtTWF0Y2hlcyI6MH0seyJzZWFyY2hlZFRlcm0iOiJOZWNrZXJhIGFjaWN1bGF0YSIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiVGltb25pdXMgcm9zc2VsZW5zaXMiLCJudW1NYXRjaGVzIjowfSx7InNlYXJjaGVkVGVybSI6IkNsYXl0b25pYSBtZWdhcmhpemEiLCJudW1NYXRjaGVzIjoxLCJtYXRjaGVzIjpbeyJ0YXhvbklEIjo4MjU0LCJzY2llbnRpZmljTmFtZSI6IkNsYXl0b25pYSBtZWdhcmhpemEgKEEuIEdyYXkpIFBhcnJ5IGV4IFMuIFdhdHNvbiIsInNjaWVudGlmaWNOYW1lQXV0aG9yc2hpcCI6IihBLiBHcmF5KSBQYXJyeSBleCBTLiBXYXRzb24iLCJjYW5vbmljYWxOYW1lIjoiQ2xheXRvbmlhIG1lZ2FyaGl6YSIsInRheG9uUmFuayI6InNwZWNpZXMiLCJ0YXhvbm9taWNBc3NlcnRpb25zIjpbeyJhY2NlcHRlZE5hbWVVc2FnZSI6IkNsYXl0b25pYSBtZWdhcmhpemEgKEEuIEdyYXkpIFBhcnJ5IGV4IFMuIFdhdHNvbiIsImFjY2VwdGVkTmFtZVVzYWdlSUQiOjgyNTQsIm5hbWVBY2NvcmRpbmdUbyI6IkZOQSBFZGl0b3JpYWwgQ29tbWl0dGVlLiAyMDAzLiBGbG9yYSBvZiBOb3J0aCBBbWVyaWNhIG5vcnRoIG9mIE1leGljby4gVm9sdW1lIDQ6IE1hZ25vbGlvcGh5dGE6IENhcnlvcGh5bGxpZGFlLCBwYXJ0IDEuIE94Zm9yZCBVbml2ZXJzaXR5IFByZXNzLCBOZXcgWW9yay4iLCJuYW1lQWNjb3JkaW5nVG9JRCI6Imh0dHA6Ly93d3cuZWZsb3Jhcy5vcmcvdm9sdW1lX3BhZ2UuYXNweD92b2x1bWVfaWQ9MTAwNCZmbG9yYV9pZD0xIiwidGF4b25vbWljU3RhdHVzIjoiYWNjZXB0ZWQiLCJwYXJlbnROYW1lVXNhZ2VJRCI6MTAwNSwiaGlnaGVyQ2xhc3NpZmljYXRpb24iOiJFcXVpc2V0b3BzaWRhO01hZ25vbGlpZGFlO0NhcnlvcGh5bGxhbmFlO0NhcnlvcGh5bGxhbGVzO01vbnRpYWNlYWU7Q2xheXRvbmlhIn1dLCJ2ZXJuYWN1bGFyTmFtZXMiOlt7InZlcm5hY3VsYXJOYW1lIjoiYWxwaW5lIHNwcmluZyBiZWF1dHkiLCJsYW5ndWFnZSI6ImVuIiwic291cmNlIjoiIiwicHJlZmVycmVkTmFtZSI6dHJ1ZX0seyJ2ZXJuYWN1bGFyTmFtZSI6ImNsYXl0b25pZSDDoCBncm9zIHJoaXpvbWUiLCJsYW5ndWFnZSI6ImZyIiwic291cmNlIjoiUG9yc2lsZCwgQS5FLiAxOTc0LiBQbGFudGVzIHNhdXZhZ2VzIGRlcyBtb250YWduZXMgUm9jaGV1c2VzLiBNdXPDqWUgbmF0aW9uYWwgZGVzIHNjaWVuY2VzIG5hdHVyZWxsZXMgZXQgUGFyY3MgQ2FuYWRhLiA0NTAgcHAuIiwicHJlZmVycmVkTmFtZSI6dHJ1ZX0seyJ2ZXJuYWN1bGFyTmFtZSI6ImZlbGxmaWVsZHMgY2xheXRvbmlhIiwibGFuZ3VhZ2UiOiJlbiIsInNvdXJjZSI6IkZOQSBFZGl0b3JpYWwgQ29tbWl0dGVlLiAyMDAzLiBGbG9yYSBvZiBOb3J0aCBBbWVyaWNhIG5vcnRoIG9mIE1leGljby4gVm9sdW1lIDQ6IE1hZ25vbGlvcGh5dGE6IENhcnlvcGh5bGxpZGFlLCBwYXJ0IDEuIE94Zm9yZCBVbml2ZXJzaXR5IFByZXNzLCBOZXcgWW9yay4iLCJwcmVmZXJyZWROYW1lIjpmYWxzZX0seyJ2ZXJuYWN1bGFyTmFtZSI6ImZlbGxmaWVsZHMgc3ByaW5nIGJlYXV0eSIsImxhbmd1YWdlIjoiZW4iLCJzb3VyY2UiOiIiLCJwcmVmZXJyZWROYW1lIjpmYWxzZX1dLCJkaXN0cmlidXRpb24iOlt7ImxvY2F0aW9uSUQiOiJJU08gMzE2Ni0yOkNBLUFCIiwibG9jYWxpdHkiOiJBQiIsImVzdGFibGlzaG1lbnRNZWFucyI6Im5hdGl2ZSIsIm9jY3VycmVuY2VTdGF0dXMiOiJuYXRpdmUifSx7ImxvY2F0aW9uSUQiOiJJU08gMzE2Ni0yOkNBLUJDIiwibG9jYWxpdHkiOiJCQyIsImVzdGFibGlzaG1lbnRNZWFucyI6Im5hdGl2ZSIsIm9jY3VycmVuY2VTdGF0dXMiOiJuYXRpdmUifSx7ImxvY2F0aW9uSUQiOiJJU08gMzE2Ni0yOkNBLU5UIiwibG9jYWxpdHkiOiJOVCIsImVzdGFibGlzaG1lbnRNZWFucyI6Im5hdGl2ZSIsIm9jY3VycmVuY2VTdGF0dXMiOiJuYXRpdmUifSx7ImxvY2F0aW9uSUQiOiJJU08gMzE2Ni0yOkNBLVlUIiwibG9jYWxpdHkiOiJZVCIsImVzdGFibGlzaG1lbnRNZWFucyI6Im5hdGl2ZSIsIm9jY3VycmVuY2VTdGF0dXMiOiJuYXRpdmUifV19XX0seyJzZWFyY2hlZFRlcm0iOiJSb3NhIGRpdmVyc2lzZXBhbGEiLCJudW1NYXRjaGVzIjowfSx7InNlYXJjaGVkVGVybSI6Ik1hbGFwb2VubmEgbnVjdWxhbmFlYSIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiRGV1dHppYSBlbGVnYW50aXNzaW1hIiwibnVtTWF0Y2hlcyI6MH0seyJzZWFyY2hlZFRlcm0iOiJBbGFuc21pYSBlbGFzdGljYSIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiTWFyc2RlbmlhIHZpZWlsbGFyZGkiLCJudW1NYXRjaGVzIjowfSx7InNlYXJjaGVkVGVybSI6IlB0ZXJpcyBtaXNlcmEiLCJudW1NYXRjaGVzIjowfSx7InNlYXJjaGVkVGVybSI6IkNhcmV4IHBldHJpY29zYSIsIm51bU1hdGNoZXMiOjEsIm1hdGNoZXMiOlt7InRheG9uSUQiOjUwMzEsInNjaWVudGlmaWNOYW1lIjoiQ2FyZXggcGV0cmljb3NhIERld2V5Iiwic2NpZW50aWZpY05hbWVBdXRob3JzaGlwIjoiRGV3ZXkiLCJjYW5vbmljYWxOYW1lIjoiQ2FyZXggcGV0cmljb3NhIiwidGF4b25SYW5rIjoic3BlY2llcyIsInRheG9ub21pY0Fzc2VydGlvbnMiOlt7ImFjY2VwdGVkTmFtZVVzYWdlIjoiQ2FyZXggcGV0cmljb3NhIERld2V5IiwiYWNjZXB0ZWROYW1lVXNhZ2VJRCI6NTAzMSwibmFtZUFjY29yZGluZ1RvIjoiRk5BIEVkaXRvcmlhbCBDb21taXR0ZWUuIDIwMDIuIEZsb3JhIG9mIE5vcnRoIEFtZXJpY2Egbm9ydGggb2YgTWV4aWNvLiBWb2x1bWUgMjM6IEN5cGVyYWNlYWUuIE94Zm9yZCBVbml2ZXJzaXR5IFByZXNzLCBOZXcgWW9yay4iLCJuYW1lQWNjb3JkaW5nVG9JRCI6Imh0dHA6Ly93d3cuZWZsb3Jhcy5vcmcvdm9sdW1lX3BhZ2UuYXNweD92b2x1bWVfaWQ9MTAyMyZmbG9yYV9pZD0xIiwidGF4b25vbWljU3RhdHVzIjoiYWNjZXB0ZWQiLCJwYXJlbnROYW1lVXNhZ2VJRCI6MjExMSwiaGlnaGVyQ2xhc3NpZmljYXRpb24iOiJFcXVpc2V0b3BzaWRhO01hZ25vbGlpZGFlO0xpbGlhbmFlO1BvYWxlcztDeXBlcmFjZWFlO0Nhcmljb2lkZWFlO0NhcmV4O0NhcmV4IHNlY3QuIEF1bG9jeXN0aXMifV0sInZlcm5hY3VsYXJOYW1lcyI6W3sidmVybmFjdWxhck5hbWUiOiJjYXJleCBkZXMgY2FpbGxvdXgiLCJsYW5ndWFnZSI6ImZyIiwic291cmNlIjoiRmF2cmVhdSwgTS4gUHJvcG9zaXRpb24gZGUgbm9tIGZyYW7Dp2Fpcy4iLCJwcmVmZXJyZWROYW1lIjp0cnVlfSx7InZlcm5hY3VsYXJOYW1lIjoicm9jay1kd2VsbGluZyBzZWRnZSIsImxhbmd1YWdlIjoiZW4iLCJzb3VyY2UiOiJLbGlua2VuYmVyZywgQi4gKGVkLikuIDIwMTArLiBFLUZsb3JhIEJDOiBFbGVjdHJvbmljIEF0bGFzIG9mIHRoZSBQbGFudHMgb2YgQnJpdGlzaCBDb2x1bWJpYS4gTGFiLiBmb3IgQWR2YW5jZWQgU3BhdGlhbCBBbmFseXNpcywgRGVwYXJ0bWVudCBvZiBHZW9ncmFwaHksIFVuaXZlcnNpdHkgb2YgQnJpdGlzaCBDb2x1bWJpYSwgVmFuY291dmVyLCBCLkMuIGh0dHA6Ly93d3cuZWZsb3JhLmJjLmNhIiwicHJlZmVycmVkTmFtZSI6dHJ1ZX0seyJ2ZXJuYWN1bGFyTmFtZSI6InJvY2sgc2VkZ2UiLCJsYW5ndWFnZSI6ImVuIiwic291cmNlIjoiQ2FuYWRpYW4gRm9yZXN0IFNlcnZpY2UuIDIwMDcuIENhbmFkYSdzIFBsYW50IEhhcmRpbmVzcyBTaXRlLiBDYW5hZGlhbiBGb3Jlc3QgU2VydmljZSwgTmF0dXJhbCBSZXNvdXJjZXMgQ2FuYWRhLiBodHRwOi8vcGxhbnRoYXJkaW5lc3MuZ2MuY2EgKGNvbnN1bHRlZCAyMDEwKSIsInByZWZlcnJlZE5hbWUiOmZhbHNlfSx7InZlcm5hY3VsYXJOYW1lIjoic3RvbmUgc2VkZ2UiLCJsYW5ndWFnZSI6ImVuIiwic291cmNlIjoiS2Vyc2hhdywgTC4sIEouIEdvdWxkLCBELiBKb2huc29uICYgSi4gTGFuY2FzdGVyLCBlZHMuIDIwMDEuIFJhcmUgVmFzY3VsYXIgUGxhbnRzIG9mIEFsYmVydGEuIEFsYmVydGEgTmF0aXZlIFBsYW50IENvdW5jaWwuIiwicHJlZmVycmVkTmFtZSI6ZmFsc2V9XX1dfSx7InNlYXJjaGVkVGVybSI6Ik1vdXJpcmkgaHViZXJpIiwibnVtTWF0Y2hlcyI6MH0seyJzZWFyY2hlZFRlcm0iOiJHdWF6dW1hIHVsbWlmb2xpYSIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiUHNldWRvZ25hcGhhbGl1bSB2aWxsYXJyZWFsaSIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiRXJ5c2ltdW0gZ2VsaWR1bSIsIm51bU1hdGNoZXMiOjB9LHsic2VhcmNoZWRUZXJtIjoiU3dhcnR6aWEgcGFuYWNvY28iLCJudW1NYXRjaGVzIjowfV19
+  recorded_at: 2019-05-08 21:00:31 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100

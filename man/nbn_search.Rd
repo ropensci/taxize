@@ -26,11 +26,11 @@ the fields that are queryable.}
 \item{facets}{(list) Comma separated list of the fields to create facets
 on e.g. facets=basis_of_record.}
 
-\item{...}{Further args passed on to \code{\link[crul:HttpClient]{crul::HttpClient}}.}
+\item{...}{Further args passed on to \link[crul:HttpClient]{crul::HttpClient}.}
 }
 \value{
 a list with slots for metadata (\code{meta}) with list of response
-attributes, and data (`data``) with a data.frame of results
+attributes, and data (\code{data}) with a data.frame of results
 }
 \description{
 Search UK National Biodiversity Network

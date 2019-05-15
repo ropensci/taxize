@@ -6,7 +6,7 @@ test_that("get_gbifid returns the correct value", {
       messages = FALSE)[2]
     w <- get_gbifid(c("Chironomus riparius", "Chaetopteryx"), 
       messages = FALSE)
-  })
+  }, preserve_exact_body_bytes = TRUE)
 
   expect_true(is.na(z))
   expect_is(w, "gbifid")

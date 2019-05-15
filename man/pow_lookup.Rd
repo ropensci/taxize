@@ -12,7 +12,7 @@ pow_lookup(id, include = NULL, ...)
 \item{include}{(character) vector of additional fields to include in
 results. options include 'distribution' and 'descriptions'. optional}
 
-\item{...}{Further args passed on to \code{\link[crul:HttpClient]{crul::HttpClient}}.}
+\item{...}{Further args passed on to \link[crul:HttpClient]{crul::HttpClient}.}
 }
 \description{
 Lookup taxa in Kew's Plants of the World

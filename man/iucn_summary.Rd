@@ -23,7 +23,7 @@ native, introduced, etc.}
 \code{iucn_summary}. Defaults to \code{NULL} in case you have your key
 stored (see \code{Redlist Authentication} below).}
 
-\item{...}{curl options passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}}
+\item{...}{curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
 A list (for every species one entry) of lists with the following

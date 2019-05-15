@@ -16,7 +16,7 @@ limited_print(chars, prefix = "", max_chars = getOption("width") -
 \item{max_chars}{(\code{numeric} of length 1) The maximum number of
 characters to print.}
 
-\item{type}{(\code{"error"}, \code{"warning"}, \code{"message"}, \code{"cat"}, \code{"print"}, `"silent"``)}
+\item{type}{(\code{"error"}, \code{"warning"}, \code{"message"}, \code{"cat"}, \code{"print"}, \code{"silent"})}
 }
 \value{
 \code{NULL}

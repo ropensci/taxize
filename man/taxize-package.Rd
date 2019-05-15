@@ -24,7 +24,7 @@ species names.
 General functions in the package that don't hit a specific API don't have
 two words separated by an underscore, e.g., \code{classification}
 
-You need API keys for some data sources. See \code{\link{taxize-authentication}}
+You need API keys for some data sources. See \link{taxize-authentication}
 for more information.
 }
 

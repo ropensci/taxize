@@ -4,7 +4,7 @@ test_that("gbif_downstream works", {
   vcr::use_cassette("gbif_downstream", {
     aa <- gbif_downstream(key = 198, downto = "Genus")
     bb <- gbif_downstream(key = 1227, "Family")
-  })
+  }, preserve_exact_body_bytes = TRUE)
 
   expect_is(aa, "data.frame")
   expect_is(aa$name, "character")
@@ -22,7 +22,7 @@ test_that("gbif_downstream works", {
 test_that("gbif_downstream intermediate param works", {
   vcr::use_cassette("gbif_downstream_intermediate", {
     cc <- gbif_downstream(key = 198, downto = "genus", intermediate = TRUE)
-  })
+  }, preserve_exact_body_bytes = TRUE)
 
   expect_is(cc, "list")
   expect_is(cc$target, "data.frame")

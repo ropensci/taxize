@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -17,21 +17,17 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.1.19
-      date: Thu, 24 Jan 2019 22:50:29 GMT
+      date: Wed, 08 May 2019 20:54:58 GMT
       content-type: application/json; charset=utf-8
       content-length: '762'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       vary: Accept-Encoding
     body:
-      encoding: UTF-8
-      string: '{"name":"Abies koreana","result":[{"taxonid":31244,"scientific_name":"Abies
-        koreana","kingdom":"PLANTAE","phylum":"TRACHEOPHYTA","class":"PINOPSIDA","order":"PINALES","family":"PINACEAE","genus":"Abies","main_common_name":"Korean
-        Fir","authority":"E.H.Wilson","published_year":2011,"assessment_date":"2010-09-07","category":"EN","criteria":"B2ab(ii,iii,v)","population_trend":"Decreasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"Kim,
-        Y.-S., Chang, C.-S., Kim, C.-S. & Gardner, M.","reviewer":"Thomas, P. & Farjon,
-        A.","aoo_km2":"12","eoo_km2":null,"elevation_upper":1900,"elevation_lower":1000,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":null,"amended_reason":null}]}'
-  recorded_at: 2019-01-24 22:50:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: eyJuYW1lIjoiQWJpZXMga29yZWFuYSIsInJlc3VsdCI6W3sidGF4b25pZCI6MzEyNDQsInNjaWVudGlmaWNfbmFtZSI6IkFiaWVzIGtvcmVhbmEiLCJraW5nZG9tIjoiUExBTlRBRSIsInBoeWx1bSI6IlRSQUNIRU9QSFlUQSIsImNsYXNzIjoiUElOT1BTSURBIiwib3JkZXIiOiJQSU5BTEVTIiwiZmFtaWx5IjoiUElOQUNFQUUiLCJnZW51cyI6IkFiaWVzIiwibWFpbl9jb21tb25fbmFtZSI6IktvcmVhbiBGaXIiLCJhdXRob3JpdHkiOiJFLkguV2lsc29uIiwicHVibGlzaGVkX3llYXIiOjIwMTEsImFzc2Vzc21lbnRfZGF0ZSI6IjIwMTAtMDktMDciLCJjYXRlZ29yeSI6IkVOIiwiY3JpdGVyaWEiOiJCMmFiKGlpLGlpaSx2KSIsInBvcHVsYXRpb25fdHJlbmQiOiJEZWNyZWFzaW5nIiwibWFyaW5lX3N5c3RlbSI6ZmFsc2UsImZyZXNod2F0ZXJfc3lzdGVtIjpmYWxzZSwidGVycmVzdHJpYWxfc3lzdGVtIjp0cnVlLCJhc3Nlc3NvciI6IktpbSwgWS4tUy4sIENoYW5nLCBDLi1TLiwgS2ltLCBDLi1TLiAmIEdhcmRuZXIsIE0uIiwicmV2aWV3ZXIiOiJUaG9tYXMsIFAuICYgRmFyam9uLCBBLiIsImFvb19rbTIiOiIxMiIsImVvb19rbTIiOm51bGwsImVsZXZhdGlvbl91cHBlciI6MTkwMCwiZWxldmF0aW9uX2xvd2VyIjoxMDAwLCJkZXB0aF91cHBlciI6bnVsbCwiZGVwdGhfbG93ZXIiOm51bGwsImVycmF0YV9mbGFnIjpudWxsLCJlcnJhdGFfcmVhc29uIjpudWxsLCJhbWVuZGVkX2ZsYWciOm51bGwsImFtZW5kZWRfcmVhc29uIjpudWxsfV19
+  recorded_at: 2019-05-08 20:55:18 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/id/31244?token=<<rredlist_api_token>>
@@ -39,7 +35,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -50,21 +46,17 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.1.19
-      date: Thu, 24 Jan 2019 22:50:30 GMT
+      date: Wed, 08 May 2019 20:54:59 GMT
       content-type: application/json; charset=utf-8
       content-length: '754'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       vary: Accept-Encoding
     body:
-      encoding: UTF-8
-      string: '{"name":"31244","result":[{"taxonid":31244,"scientific_name":"Abies
-        koreana","kingdom":"PLANTAE","phylum":"TRACHEOPHYTA","class":"PINOPSIDA","order":"PINALES","family":"PINACEAE","genus":"Abies","main_common_name":"Korean
-        Fir","authority":"E.H.Wilson","published_year":2011,"assessment_date":"2010-09-07","category":"EN","criteria":"B2ab(ii,iii,v)","population_trend":"Decreasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"Kim,
-        Y.-S., Chang, C.-S., Kim, C.-S. & Gardner, M.","reviewer":"Thomas, P. & Farjon,
-        A.","aoo_km2":"12","eoo_km2":null,"elevation_upper":1900,"elevation_lower":1000,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":null,"amended_reason":null}]}'
-  recorded_at: 2019-01-24 22:50:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: eyJuYW1lIjoiMzEyNDQiLCJyZXN1bHQiOlt7InRheG9uaWQiOjMxMjQ0LCJzY2llbnRpZmljX25hbWUiOiJBYmllcyBrb3JlYW5hIiwia2luZ2RvbSI6IlBMQU5UQUUiLCJwaHlsdW0iOiJUUkFDSEVPUEhZVEEiLCJjbGFzcyI6IlBJTk9QU0lEQSIsIm9yZGVyIjoiUElOQUxFUyIsImZhbWlseSI6IlBJTkFDRUFFIiwiZ2VudXMiOiJBYmllcyIsIm1haW5fY29tbW9uX25hbWUiOiJLb3JlYW4gRmlyIiwiYXV0aG9yaXR5IjoiRS5ILldpbHNvbiIsInB1Ymxpc2hlZF95ZWFyIjoyMDExLCJhc3Nlc3NtZW50X2RhdGUiOiIyMDEwLTA5LTA3IiwiY2F0ZWdvcnkiOiJFTiIsImNyaXRlcmlhIjoiQjJhYihpaSxpaWksdikiLCJwb3B1bGF0aW9uX3RyZW5kIjoiRGVjcmVhc2luZyIsIm1hcmluZV9zeXN0ZW0iOmZhbHNlLCJmcmVzaHdhdGVyX3N5c3RlbSI6ZmFsc2UsInRlcnJlc3RyaWFsX3N5c3RlbSI6dHJ1ZSwiYXNzZXNzb3IiOiJLaW0sIFkuLVMuLCBDaGFuZywgQy4tUy4sIEtpbSwgQy4tUy4gJiBHYXJkbmVyLCBNLiIsInJldmlld2VyIjoiVGhvbWFzLCBQLiAmIEZhcmpvbiwgQS4iLCJhb29fa20yIjoiMTIiLCJlb29fa20yIjpudWxsLCJlbGV2YXRpb25fdXBwZXIiOjE5MDAsImVsZXZhdGlvbl9sb3dlciI6MTAwMCwiZGVwdGhfdXBwZXIiOm51bGwsImRlcHRoX2xvd2VyIjpudWxsLCJlcnJhdGFfZmxhZyI6bnVsbCwiZXJyYXRhX3JlYXNvbiI6bnVsbCwiYW1lbmRlZF9mbGFnIjpudWxsLCJhbWVuZGVkX3JlYXNvbiI6bnVsbH1dfQ==
+  recorded_at: 2019-05-08 20:55:18 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/31244?token=<<rredlist_api_token>>
@@ -72,7 +64,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -83,18 +75,17 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.1.19
-      date: Thu, 24 Jan 2019 22:50:30 GMT
+      date: Wed, 08 May 2019 20:54:59 GMT
       content-type: application/json; charset=utf-8
       content-length: '195'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       vary: Accept-Encoding
     body:
-      encoding: UTF-8
-      string: '{"name":"31244","result":[{"year":"2011","code":"EN","category":"Endangered"},{"year":"1998","code":"LR/nt","category":"Lower
-        Risk/near threatened"},{"year":"1998","code":"R","category":"Rare"}]}'
-  recorded_at: 2019-01-24 22:50:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: eyJuYW1lIjoiMzEyNDQiLCJyZXN1bHQiOlt7InllYXIiOiIyMDExIiwiY29kZSI6IkVOIiwiY2F0ZWdvcnkiOiJFbmRhbmdlcmVkIn0seyJ5ZWFyIjoiMTk5OCIsImNvZGUiOiJMUi9udCIsImNhdGVnb3J5IjoiTG93ZXIgUmlzay9uZWFyIHRocmVhdGVuZWQifSx7InllYXIiOiIxOTk4IiwiY29kZSI6IlIiLCJjYXRlZ29yeSI6IlJhcmUifV19
+  recorded_at: 2019-05-08 20:55:18 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/31244?token=<<rredlist_api_token>>
@@ -102,7 +93,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -113,18 +104,17 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.1.19
-      date: Thu, 24 Jan 2019 22:50:31 GMT
+      date: Wed, 08 May 2019 20:55:00 GMT
       content-type: application/json; charset=utf-8
       content-length: '149'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       vary: Accept-Encoding
     body:
-      encoding: UTF-8
-      string: '{"name":"31244","count":1,"result":[{"code":"KR","country":"Korea,
-        Republic of","presence":"Extant","origin":"Native","distribution_code":"Native"}]}'
-  recorded_at: 2019-01-24 22:50:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: eyJuYW1lIjoiMzEyNDQiLCJjb3VudCI6MSwicmVzdWx0IjpbeyJjb2RlIjoiS1IiLCJjb3VudHJ5IjoiS29yZWEsIFJlcHVibGljIG9mIiwicHJlc2VuY2UiOiJFeHRhbnQiLCJvcmlnaW4iOiJOYXRpdmUiLCJkaXN0cmlidXRpb25fY29kZSI6Ik5hdGl2ZSJ9XX0=
+  recorded_at: 2019-05-08 20:55:18 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/Xylopia%20collina?token=<<rredlist_api_token>>
@@ -132,7 +122,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -143,22 +133,17 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.1.19
-      date: Thu, 24 Jan 2019 22:50:32 GMT
+      date: Wed, 08 May 2019 20:55:01 GMT
       content-type: application/json; charset=utf-8
       content-length: '935'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       vary: Accept-Encoding
     body:
-      encoding: UTF-8
-      string: '{"name":"Xylopia collina","result":[{"taxonid":158354,"scientific_name":"Xylopia
-        collina","kingdom":"PLANTAE","phylum":"TRACHEOPHYTA","class":"MAGNOLIOPSIDA","order":"MAGNOLIALES","family":"ANNONACEAE","genus":"Xylopia","main_common_name":null,"authority":"Diels","published_year":2009,"assessment_date":"2006-03-02","category":"EN","criteria":"B1ab(iii)","population_trend":"Decreasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"Eastern
-        Arc Mountains & Coastal Forests CEPF Plant Assessment Project","reviewer":"Beentje,
-        H., Gereau, R., Kabuye, C., Kalema, J., Luke, Q., Lyaruu, H., Maunder, M.,
-        Mwachala, G., Ndangalasi, H., Njau, F. & Schatz, G.  (East African Plants
-        Red List Authority)","aoo_km2":"120","eoo_km2":"4999","elevation_upper":860,"elevation_lower":200,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":null,"amended_reason":null}]}'
-  recorded_at: 2019-01-24 22:50:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: eyJuYW1lIjoiWHlsb3BpYSBjb2xsaW5hIiwicmVzdWx0IjpbeyJ0YXhvbmlkIjoxNTgzNTQsInNjaWVudGlmaWNfbmFtZSI6Ilh5bG9waWEgY29sbGluYSIsImtpbmdkb20iOiJQTEFOVEFFIiwicGh5bHVtIjoiVFJBQ0hFT1BIWVRBIiwiY2xhc3MiOiJNQUdOT0xJT1BTSURBIiwib3JkZXIiOiJNQUdOT0xJQUxFUyIsImZhbWlseSI6IkFOTk9OQUNFQUUiLCJnZW51cyI6Ilh5bG9waWEiLCJtYWluX2NvbW1vbl9uYW1lIjpudWxsLCJhdXRob3JpdHkiOiJEaWVscyIsInB1Ymxpc2hlZF95ZWFyIjoyMDA5LCJhc3Nlc3NtZW50X2RhdGUiOiIyMDA2LTAzLTAyIiwiY2F0ZWdvcnkiOiJFTiIsImNyaXRlcmlhIjoiQjFhYihpaWkpIiwicG9wdWxhdGlvbl90cmVuZCI6IkRlY3JlYXNpbmciLCJtYXJpbmVfc3lzdGVtIjpmYWxzZSwiZnJlc2h3YXRlcl9zeXN0ZW0iOmZhbHNlLCJ0ZXJyZXN0cmlhbF9zeXN0ZW0iOnRydWUsImFzc2Vzc29yIjoiRWFzdGVybiBBcmMgTW91bnRhaW5zICYgQ29hc3RhbCBGb3Jlc3RzIENFUEYgUGxhbnQgQXNzZXNzbWVudCBQcm9qZWN0IiwicmV2aWV3ZXIiOiJCZWVudGplLCBILiwgR2VyZWF1LCBSLiwgS2FidXllLCBDLiwgS2FsZW1hLCBKLiwgTHVrZSwgUS4sIEx5YXJ1dSwgSC4sIE1hdW5kZXIsIE0uLCBNd2FjaGFsYSwgRy4sIE5kYW5nYWxhc2ksIEguLCBOamF1LCBGLiAmIFNjaGF0eiwgRy4gIChFYXN0IEFmcmljYW4gUGxhbnRzIFJlZCBMaXN0IEF1dGhvcml0eSkiLCJhb29fa20yIjoiMTIwIiwiZW9vX2ttMiI6IjQ5OTkiLCJlbGV2YXRpb25fdXBwZXIiOjg2MCwiZWxldmF0aW9uX2xvd2VyIjoyMDAsImRlcHRoX3VwcGVyIjpudWxsLCJkZXB0aF9sb3dlciI6bnVsbCwiZXJyYXRhX2ZsYWciOm51bGwsImVycmF0YV9yZWFzb24iOm51bGwsImFtZW5kZWRfZmxhZyI6bnVsbCwiYW1lbmRlZF9yZWFzb24iOm51bGx9XX0=
+  recorded_at: 2019-05-08 20:55:18 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/id/158354?token=<<rredlist_api_token>>
@@ -166,7 +151,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -177,22 +162,17 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.1.19
-      date: Thu, 24 Jan 2019 22:50:32 GMT
+      date: Wed, 08 May 2019 20:55:01 GMT
       content-type: application/json; charset=utf-8
       content-length: '926'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       vary: Accept-Encoding
     body:
-      encoding: UTF-8
-      string: '{"name":"158354","result":[{"taxonid":158354,"scientific_name":"Xylopia
-        collina","kingdom":"PLANTAE","phylum":"TRACHEOPHYTA","class":"MAGNOLIOPSIDA","order":"MAGNOLIALES","family":"ANNONACEAE","genus":"Xylopia","main_common_name":null,"authority":"Diels","published_year":2009,"assessment_date":"2006-03-02","category":"EN","criteria":"B1ab(iii)","population_trend":"Decreasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"Eastern
-        Arc Mountains & Coastal Forests CEPF Plant Assessment Project","reviewer":"Beentje,
-        H., Gereau, R., Kabuye, C., Kalema, J., Luke, Q., Lyaruu, H., Maunder, M.,
-        Mwachala, G., Ndangalasi, H., Njau, F. & Schatz, G.  (East African Plants
-        Red List Authority)","aoo_km2":"120","eoo_km2":"4999","elevation_upper":860,"elevation_lower":200,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":null,"amended_reason":null}]}'
-  recorded_at: 2019-01-24 22:50:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: eyJuYW1lIjoiMTU4MzU0IiwicmVzdWx0IjpbeyJ0YXhvbmlkIjoxNTgzNTQsInNjaWVudGlmaWNfbmFtZSI6Ilh5bG9waWEgY29sbGluYSIsImtpbmdkb20iOiJQTEFOVEFFIiwicGh5bHVtIjoiVFJBQ0hFT1BIWVRBIiwiY2xhc3MiOiJNQUdOT0xJT1BTSURBIiwib3JkZXIiOiJNQUdOT0xJQUxFUyIsImZhbWlseSI6IkFOTk9OQUNFQUUiLCJnZW51cyI6Ilh5bG9waWEiLCJtYWluX2NvbW1vbl9uYW1lIjpudWxsLCJhdXRob3JpdHkiOiJEaWVscyIsInB1Ymxpc2hlZF95ZWFyIjoyMDA5LCJhc3Nlc3NtZW50X2RhdGUiOiIyMDA2LTAzLTAyIiwiY2F0ZWdvcnkiOiJFTiIsImNyaXRlcmlhIjoiQjFhYihpaWkpIiwicG9wdWxhdGlvbl90cmVuZCI6IkRlY3JlYXNpbmciLCJtYXJpbmVfc3lzdGVtIjpmYWxzZSwiZnJlc2h3YXRlcl9zeXN0ZW0iOmZhbHNlLCJ0ZXJyZXN0cmlhbF9zeXN0ZW0iOnRydWUsImFzc2Vzc29yIjoiRWFzdGVybiBBcmMgTW91bnRhaW5zICYgQ29hc3RhbCBGb3Jlc3RzIENFUEYgUGxhbnQgQXNzZXNzbWVudCBQcm9qZWN0IiwicmV2aWV3ZXIiOiJCZWVudGplLCBILiwgR2VyZWF1LCBSLiwgS2FidXllLCBDLiwgS2FsZW1hLCBKLiwgTHVrZSwgUS4sIEx5YXJ1dSwgSC4sIE1hdW5kZXIsIE0uLCBNd2FjaGFsYSwgRy4sIE5kYW5nYWxhc2ksIEguLCBOamF1LCBGLiAmIFNjaGF0eiwgRy4gIChFYXN0IEFmcmljYW4gUGxhbnRzIFJlZCBMaXN0IEF1dGhvcml0eSkiLCJhb29fa20yIjoiMTIwIiwiZW9vX2ttMiI6IjQ5OTkiLCJlbGV2YXRpb25fdXBwZXIiOjg2MCwiZWxldmF0aW9uX2xvd2VyIjoyMDAsImRlcHRoX3VwcGVyIjpudWxsLCJkZXB0aF9sb3dlciI6bnVsbCwiZXJyYXRhX2ZsYWciOm51bGwsImVycmF0YV9yZWFzb24iOm51bGwsImFtZW5kZWRfZmxhZyI6bnVsbCwiYW1lbmRlZF9yZWFzb24iOm51bGx9XX0=
+  recorded_at: 2019-05-08 20:55:18 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/158354?token=<<rredlist_api_token>>
@@ -200,7 +180,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -211,17 +191,17 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.1.19
-      date: Thu, 24 Jan 2019 22:50:33 GMT
+      date: Wed, 08 May 2019 20:55:02 GMT
       content-type: application/json; charset=utf-8
       content-length: '80'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       vary: Accept-Encoding
     body:
-      encoding: UTF-8
-      string: '{"name":"158354","result":[{"year":"2009","code":"EN","category":"Endangered"}]}'
-  recorded_at: 2019-01-24 22:50:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: eyJuYW1lIjoiMTU4MzU0IiwicmVzdWx0IjpbeyJ5ZWFyIjoiMjAwOSIsImNvZGUiOiJFTiIsImNhdGVnb3J5IjoiRW5kYW5nZXJlZCJ9XX0=
+  recorded_at: 2019-05-08 20:55:18 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/158354?token=<<rredlist_api_token>>
@@ -229,7 +209,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -240,18 +220,17 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.1.19
-      date: Thu, 24 Jan 2019 22:50:33 GMT
+      date: Wed, 08 May 2019 20:55:02 GMT
       content-type: application/json; charset=utf-8
       content-length: '264'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       vary: Accept-Encoding
     body:
-      encoding: UTF-8
-      string: '{"name":"158354","count":2,"result":[{"code":"MZ","country":"Mozambique","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"TZ","country":"Tanzania,
-        United Republic of","presence":"Extant","origin":"Native","distribution_code":"Native"}]}'
-  recorded_at: 2019-01-24 22:50:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: eyJuYW1lIjoiMTU4MzU0IiwiY291bnQiOjIsInJlc3VsdCI6W3siY29kZSI6Ik1aIiwiY291bnRyeSI6Ik1vemFtYmlxdWUiLCJwcmVzZW5jZSI6IkV4dGFudCIsIm9yaWdpbiI6Ik5hdGl2ZSIsImRpc3RyaWJ1dGlvbl9jb2RlIjoiTmF0aXZlIn0seyJjb2RlIjoiVFoiLCJjb3VudHJ5IjoiVGFuemFuaWEsIFVuaXRlZCBSZXB1YmxpYyBvZiIsInByZXNlbmNlIjoiRXh0YW50Iiwib3JpZ2luIjoiTmF0aXZlIiwiZGlzdHJpYnV0aW9uX2NvZGUiOiJOYXRpdmUifV19
+  recorded_at: 2019-05-08 20:55:18 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/Brugmansia%20versicolor?token=<<rredlist_api_token>>
@@ -259,7 +238,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -270,19 +249,17 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.1.19
-      date: Thu, 24 Jan 2019 22:50:34 GMT
+      date: Wed, 08 May 2019 20:55:03 GMT
       content-type: application/json; charset=utf-8
       content-length: '703'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       vary: Accept-Encoding
     body:
-      encoding: UTF-8
-      string: '{"name":"Brugmansia versicolor","result":[{"taxonid":38125,"scientific_name":"Brugmansia
-        versicolor","kingdom":"PLANTAE","phylum":"TRACHEOPHYTA","class":"MAGNOLIOPSIDA","order":"SOLANALES","family":"SOLANACEAE","genus":"Brugmansia","main_common_name":null,"authority":"Lagerh.","published_year":2014,"assessment_date":"2014-03-25","category":"EW","criteria":null,"population_trend":null,"marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"Hay,
-        A.","reviewer":"Scott, J.A.","aoo_km2":null,"eoo_km2":null,"elevation_upper":750,"elevation_lower":100,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":null,"amended_reason":null}]}'
-  recorded_at: 2019-01-24 22:50:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: eyJuYW1lIjoiQnJ1Z21hbnNpYSB2ZXJzaWNvbG9yIiwicmVzdWx0IjpbeyJ0YXhvbmlkIjozODEyNSwic2NpZW50aWZpY19uYW1lIjoiQnJ1Z21hbnNpYSB2ZXJzaWNvbG9yIiwia2luZ2RvbSI6IlBMQU5UQUUiLCJwaHlsdW0iOiJUUkFDSEVPUEhZVEEiLCJjbGFzcyI6Ik1BR05PTElPUFNJREEiLCJvcmRlciI6IlNPTEFOQUxFUyIsImZhbWlseSI6IlNPTEFOQUNFQUUiLCJnZW51cyI6IkJydWdtYW5zaWEiLCJtYWluX2NvbW1vbl9uYW1lIjpudWxsLCJhdXRob3JpdHkiOiJMYWdlcmguIiwicHVibGlzaGVkX3llYXIiOjIwMTQsImFzc2Vzc21lbnRfZGF0ZSI6IjIwMTQtMDMtMjUiLCJjYXRlZ29yeSI6IkVXIiwiY3JpdGVyaWEiOm51bGwsInBvcHVsYXRpb25fdHJlbmQiOm51bGwsIm1hcmluZV9zeXN0ZW0iOmZhbHNlLCJmcmVzaHdhdGVyX3N5c3RlbSI6ZmFsc2UsInRlcnJlc3RyaWFsX3N5c3RlbSI6dHJ1ZSwiYXNzZXNzb3IiOiJIYXksIEEuIiwicmV2aWV3ZXIiOiJTY290dCwgSi5BLiIsImFvb19rbTIiOm51bGwsImVvb19rbTIiOm51bGwsImVsZXZhdGlvbl91cHBlciI6NzUwLCJlbGV2YXRpb25fbG93ZXIiOjEwMCwiZGVwdGhfdXBwZXIiOm51bGwsImRlcHRoX2xvd2VyIjpudWxsLCJlcnJhdGFfZmxhZyI6bnVsbCwiZXJyYXRhX3JlYXNvbiI6bnVsbCwiYW1lbmRlZF9mbGFnIjpudWxsLCJhbWVuZGVkX3JlYXNvbiI6bnVsbH1dfQ==
+  recorded_at: 2019-05-08 20:55:18 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/id/38125?token=<<rredlist_api_token>>
@@ -290,7 +267,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -301,19 +278,17 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.1.19
-      date: Thu, 24 Jan 2019 22:50:35 GMT
+      date: Wed, 08 May 2019 20:55:04 GMT
       content-type: application/json; charset=utf-8
       content-length: '687'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       vary: Accept-Encoding
     body:
-      encoding: UTF-8
-      string: '{"name":"38125","result":[{"taxonid":38125,"scientific_name":"Brugmansia
-        versicolor","kingdom":"PLANTAE","phylum":"TRACHEOPHYTA","class":"MAGNOLIOPSIDA","order":"SOLANALES","family":"SOLANACEAE","genus":"Brugmansia","main_common_name":null,"authority":"Lagerh.","published_year":2014,"assessment_date":"2014-03-25","category":"EW","criteria":null,"population_trend":null,"marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"Hay,
-        A.","reviewer":"Scott, J.A.","aoo_km2":null,"eoo_km2":null,"elevation_upper":750,"elevation_lower":100,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":null,"amended_reason":null}]}'
-  recorded_at: 2019-01-24 22:50:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: eyJuYW1lIjoiMzgxMjUiLCJyZXN1bHQiOlt7InRheG9uaWQiOjM4MTI1LCJzY2llbnRpZmljX25hbWUiOiJCcnVnbWFuc2lhIHZlcnNpY29sb3IiLCJraW5nZG9tIjoiUExBTlRBRSIsInBoeWx1bSI6IlRSQUNIRU9QSFlUQSIsImNsYXNzIjoiTUFHTk9MSU9QU0lEQSIsIm9yZGVyIjoiU09MQU5BTEVTIiwiZmFtaWx5IjoiU09MQU5BQ0VBRSIsImdlbnVzIjoiQnJ1Z21hbnNpYSIsIm1haW5fY29tbW9uX25hbWUiOm51bGwsImF1dGhvcml0eSI6IkxhZ2VyaC4iLCJwdWJsaXNoZWRfeWVhciI6MjAxNCwiYXNzZXNzbWVudF9kYXRlIjoiMjAxNC0wMy0yNSIsImNhdGVnb3J5IjoiRVciLCJjcml0ZXJpYSI6bnVsbCwicG9wdWxhdGlvbl90cmVuZCI6bnVsbCwibWFyaW5lX3N5c3RlbSI6ZmFsc2UsImZyZXNod2F0ZXJfc3lzdGVtIjpmYWxzZSwidGVycmVzdHJpYWxfc3lzdGVtIjp0cnVlLCJhc3Nlc3NvciI6IkhheSwgQS4iLCJyZXZpZXdlciI6IlNjb3R0LCBKLkEuIiwiYW9vX2ttMiI6bnVsbCwiZW9vX2ttMiI6bnVsbCwiZWxldmF0aW9uX3VwcGVyIjo3NTAsImVsZXZhdGlvbl9sb3dlciI6MTAwLCJkZXB0aF91cHBlciI6bnVsbCwiZGVwdGhfbG93ZXIiOm51bGwsImVycmF0YV9mbGFnIjpudWxsLCJlcnJhdGFfcmVhc29uIjpudWxsLCJhbWVuZGVkX2ZsYWciOm51bGwsImFtZW5kZWRfcmVhc29uIjpudWxsfV19
+  recorded_at: 2019-05-08 20:55:18 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/38125?token=<<rredlist_api_token>>
@@ -321,7 +296,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -332,18 +307,17 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.1.19
-      date: Thu, 24 Jan 2019 22:50:35 GMT
+      date: Wed, 08 May 2019 20:55:04 GMT
       content-type: application/json; charset=utf-8
       content-length: '197'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       vary: Accept-Encoding
     body:
-      encoding: UTF-8
-      string: '{"name":"38125","result":[{"year":"2014","code":"EW","category":"Extinct
-        in the Wild"},{"year":"2004","code":"NT","category":"Near Threatened"},{"year":"1998","code":"VU","category":"Vulnerable"}]}'
-  recorded_at: 2019-01-24 22:50:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: eyJuYW1lIjoiMzgxMjUiLCJyZXN1bHQiOlt7InllYXIiOiIyMDE0IiwiY29kZSI6IkVXIiwiY2F0ZWdvcnkiOiJFeHRpbmN0IGluIHRoZSBXaWxkIn0seyJ5ZWFyIjoiMjAwNCIsImNvZGUiOiJOVCIsImNhdGVnb3J5IjoiTmVhciBUaHJlYXRlbmVkIn0seyJ5ZWFyIjoiMTk5OCIsImNvZGUiOiJWVSIsImNhdGVnb3J5IjoiVnVsbmVyYWJsZSJ9XX0=
+  recorded_at: 2019-05-08 20:55:18 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/38125?token=<<rredlist_api_token>>
@@ -351,7 +325,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -362,18 +336,17 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.1.19
-      date: Thu, 24 Jan 2019 22:50:36 GMT
+      date: Wed, 08 May 2019 20:55:05 GMT
       content-type: application/json; charset=utf-8
       content-length: '161'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       vary: Accept-Encoding
     body:
-      encoding: UTF-8
-      string: '{"name":"38125","count":1,"result":[{"code":"EC","country":"Ecuador","presence":"Extinct
-        Post-1500","origin":"Native","distribution_code":"Regionally Extinct"}]}'
-  recorded_at: 2019-01-24 22:50:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: eyJuYW1lIjoiMzgxMjUiLCJjb3VudCI6MSwicmVzdWx0IjpbeyJjb2RlIjoiRUMiLCJjb3VudHJ5IjoiRWN1YWRvciIsInByZXNlbmNlIjoiRXh0aW5jdCBQb3N0LTE1MDAiLCJvcmlnaW4iOiJOYXRpdmUiLCJkaXN0cmlidXRpb25fY29kZSI6IlJlZ2lvbmFsbHkgRXh0aW5jdCJ9XX0=
+  recorded_at: 2019-05-08 20:55:18 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/Achatinella%20buddii?token=<<rredlist_api_token>>
@@ -381,7 +354,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -392,20 +365,17 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.1.19
-      date: Thu, 24 Jan 2019 22:50:37 GMT
+      date: Wed, 08 May 2019 20:55:06 GMT
       content-type: application/json; charset=utf-8
       content-length: '714'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       vary: Accept-Encoding
     body:
-      encoding: UTF-8
-      string: '{"name":"Achatinella buddii","result":[{"taxonid":170,"scientific_name":"Achatinella
-        buddii","kingdom":"ANIMALIA","phylum":"MOLLUSCA","class":"GASTROPODA","order":"STYLOMMATOPHORA","family":"ACHATINELLIDAE","genus":"Achatinella","main_common_name":null,"authority":"Newcomb,
-        1853","published_year":1996,"assessment_date":"1996-08-01","category":"EX","criteria":null,"population_trend":null,"marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"Mollusc
-        Specialist Group","reviewer":"","aoo_km2":null,"eoo_km2":null,"elevation_upper":null,"elevation_lower":null,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":null,"amended_reason":null}]}'
-  recorded_at: 2019-01-24 22:50:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: eyJuYW1lIjoiQWNoYXRpbmVsbGEgYnVkZGlpIiwicmVzdWx0IjpbeyJ0YXhvbmlkIjoxNzAsInNjaWVudGlmaWNfbmFtZSI6IkFjaGF0aW5lbGxhIGJ1ZGRpaSIsImtpbmdkb20iOiJBTklNQUxJQSIsInBoeWx1bSI6Ik1PTExVU0NBIiwiY2xhc3MiOiJHQVNUUk9QT0RBIiwib3JkZXIiOiJTVFlMT01NQVRPUEhPUkEiLCJmYW1pbHkiOiJBQ0hBVElORUxMSURBRSIsImdlbnVzIjoiQWNoYXRpbmVsbGEiLCJtYWluX2NvbW1vbl9uYW1lIjpudWxsLCJhdXRob3JpdHkiOiJOZXdjb21iLCAxODUzIiwicHVibGlzaGVkX3llYXIiOjE5OTYsImFzc2Vzc21lbnRfZGF0ZSI6IjE5OTYtMDgtMDEiLCJjYXRlZ29yeSI6IkVYIiwiY3JpdGVyaWEiOm51bGwsInBvcHVsYXRpb25fdHJlbmQiOm51bGwsIm1hcmluZV9zeXN0ZW0iOmZhbHNlLCJmcmVzaHdhdGVyX3N5c3RlbSI6ZmFsc2UsInRlcnJlc3RyaWFsX3N5c3RlbSI6dHJ1ZSwiYXNzZXNzb3IiOiJNb2xsdXNjIFNwZWNpYWxpc3QgR3JvdXAiLCJyZXZpZXdlciI6IiIsImFvb19rbTIiOm51bGwsImVvb19rbTIiOm51bGwsImVsZXZhdGlvbl91cHBlciI6bnVsbCwiZWxldmF0aW9uX2xvd2VyIjpudWxsLCJkZXB0aF91cHBlciI6bnVsbCwiZGVwdGhfbG93ZXIiOm51bGwsImVycmF0YV9mbGFnIjpudWxsLCJlcnJhdGFfcmVhc29uIjpudWxsLCJhbWVuZGVkX2ZsYWciOm51bGwsImFtZW5kZWRfcmVhc29uIjpudWxsfV19
+  recorded_at: 2019-05-08 20:55:18 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/id/170?token=<<rredlist_api_token>>
@@ -413,7 +383,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -424,20 +394,17 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.1.19
-      date: Thu, 24 Jan 2019 22:50:38 GMT
+      date: Wed, 08 May 2019 20:55:06 GMT
       content-type: application/json; charset=utf-8
       content-length: '699'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       vary: Accept-Encoding
     body:
-      encoding: UTF-8
-      string: '{"name":"170","result":[{"taxonid":170,"scientific_name":"Achatinella
-        buddii","kingdom":"ANIMALIA","phylum":"MOLLUSCA","class":"GASTROPODA","order":"STYLOMMATOPHORA","family":"ACHATINELLIDAE","genus":"Achatinella","main_common_name":null,"authority":"Newcomb,
-        1853","published_year":1996,"assessment_date":"1996-08-01","category":"EX","criteria":null,"population_trend":null,"marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"Mollusc
-        Specialist Group","reviewer":"","aoo_km2":null,"eoo_km2":null,"elevation_upper":null,"elevation_lower":null,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":null,"amended_reason":null}]}'
-  recorded_at: 2019-01-24 22:50:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: eyJuYW1lIjoiMTcwIiwicmVzdWx0IjpbeyJ0YXhvbmlkIjoxNzAsInNjaWVudGlmaWNfbmFtZSI6IkFjaGF0aW5lbGxhIGJ1ZGRpaSIsImtpbmdkb20iOiJBTklNQUxJQSIsInBoeWx1bSI6Ik1PTExVU0NBIiwiY2xhc3MiOiJHQVNUUk9QT0RBIiwib3JkZXIiOiJTVFlMT01NQVRPUEhPUkEiLCJmYW1pbHkiOiJBQ0hBVElORUxMSURBRSIsImdlbnVzIjoiQWNoYXRpbmVsbGEiLCJtYWluX2NvbW1vbl9uYW1lIjpudWxsLCJhdXRob3JpdHkiOiJOZXdjb21iLCAxODUzIiwicHVibGlzaGVkX3llYXIiOjE5OTYsImFzc2Vzc21lbnRfZGF0ZSI6IjE5OTYtMDgtMDEiLCJjYXRlZ29yeSI6IkVYIiwiY3JpdGVyaWEiOm51bGwsInBvcHVsYXRpb25fdHJlbmQiOm51bGwsIm1hcmluZV9zeXN0ZW0iOmZhbHNlLCJmcmVzaHdhdGVyX3N5c3RlbSI6ZmFsc2UsInRlcnJlc3RyaWFsX3N5c3RlbSI6dHJ1ZSwiYXNzZXNzb3IiOiJNb2xsdXNjIFNwZWNpYWxpc3QgR3JvdXAiLCJyZXZpZXdlciI6IiIsImFvb19rbTIiOm51bGwsImVvb19rbTIiOm51bGwsImVsZXZhdGlvbl91cHBlciI6bnVsbCwiZWxldmF0aW9uX2xvd2VyIjpudWxsLCJkZXB0aF91cHBlciI6bnVsbCwiZGVwdGhfbG93ZXIiOm51bGwsImVycmF0YV9mbGFnIjpudWxsLCJlcnJhdGFfcmVhc29uIjpudWxsLCJhbWVuZGVkX2ZsYWciOm51bGwsImFtZW5kZWRfcmVhc29uIjpudWxsfV19
+  recorded_at: 2019-05-08 20:55:18 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/170?token=<<rredlist_api_token>>
@@ -445,7 +412,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -456,17 +423,17 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.1.19
-      date: Thu, 24 Jan 2019 22:50:38 GMT
+      date: Wed, 08 May 2019 20:55:07 GMT
       content-type: application/json; charset=utf-8
       content-length: '223'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       vary: Accept-Encoding
     body:
-      encoding: UTF-8
-      string: '{"name":"170","result":[{"year":"1996","code":"EX","category":"Extinct"},{"year":"1994","code":"Ex","category":"Extinct"},{"year":"1990","code":"Ex","category":"Extinct"},{"year":"1983","code":"E","category":"Endangered"}]}'
-  recorded_at: 2019-01-24 22:50:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: eyJuYW1lIjoiMTcwIiwicmVzdWx0IjpbeyJ5ZWFyIjoiMTk5NiIsImNvZGUiOiJFWCIsImNhdGVnb3J5IjoiRXh0aW5jdCJ9LHsieWVhciI6IjE5OTQiLCJjb2RlIjoiRXgiLCJjYXRlZ29yeSI6IkV4dGluY3QifSx7InllYXIiOiIxOTkwIiwiY29kZSI6IkV4IiwiY2F0ZWdvcnkiOiJFeHRpbmN0In0seyJ5ZWFyIjoiMTk4MyIsImNvZGUiOiJFIiwiY2F0ZWdvcnkiOiJFbmRhbmdlcmVkIn1dfQ==
+  recorded_at: 2019-05-08 20:55:18 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/170?token=<<rredlist_api_token>>
@@ -474,7 +441,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -485,18 +452,17 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.1.19
-      date: Thu, 24 Jan 2019 22:50:39 GMT
+      date: Wed, 08 May 2019 20:55:07 GMT
       content-type: application/json; charset=utf-8
       content-length: '165'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       vary: Accept-Encoding
     body:
-      encoding: UTF-8
-      string: '{"name":"170","count":1,"result":[{"code":"US","country":"United States","presence":"Extinct
-        Post-1500","origin":"Native","distribution_code":"Regionally Extinct"}]}'
-  recorded_at: 2019-01-24 22:50:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: eyJuYW1lIjoiMTcwIiwiY291bnQiOjEsInJlc3VsdCI6W3siY29kZSI6IlVTIiwiY291bnRyeSI6IlVuaXRlZCBTdGF0ZXMiLCJwcmVzZW5jZSI6IkV4dGluY3QgUG9zdC0xNTAwIiwib3JpZ2luIjoiTmF0aXZlIiwiZGlzdHJpYnV0aW9uX2NvZGUiOiJSZWdpb25hbGx5IEV4dGluY3QifV19
+  recorded_at: 2019-05-08 20:55:18 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/Annona%20hystricoides?token=<<rredlist_api_token>>
@@ -504,7 +470,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -515,21 +481,17 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.1.19
-      date: Thu, 24 Jan 2019 22:50:40 GMT
+      date: Wed, 08 May 2019 20:55:08 GMT
       content-type: application/json; charset=utf-8
       content-length: '816'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       vary: Accept-Encoding
     body:
-      encoding: UTF-8
-      string: '{"name":"Annona hystricoides","result":[{"taxonid":42818,"scientific_name":"Annona
-        hystricoides","kingdom":"PLANTAE","phylum":"TRACHEOPHYTA","class":"MAGNOLIOPSIDA","order":"MAGNOLIALES","family":"ANNONACEAE","genus":"Annona","main_common_name":null,"authority":"A.H.Gentry","published_year":2003,"assessment_date":"2003-04-30","category":"CR","criteria":"A4c;
-        B1ab(iii)","population_trend":null,"marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"Muriel,
-        P. & Pitman, N.","reviewer":"Valencia, R., Pitman, N., Léon-Yánez, S. & Jørgensen,
-        P.M. (Ecuador Plants Red List Authority)","aoo_km2":null,"eoo_km2":null,"elevation_upper":null,"elevation_lower":null,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":null,"amended_reason":null}]}'
-  recorded_at: 2019-01-24 22:50:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: eyJuYW1lIjoiQW5ub25hIGh5c3RyaWNvaWRlcyIsInJlc3VsdCI6W3sidGF4b25pZCI6NDI4MTgsInNjaWVudGlmaWNfbmFtZSI6IkFubm9uYSBoeXN0cmljb2lkZXMiLCJraW5nZG9tIjoiUExBTlRBRSIsInBoeWx1bSI6IlRSQUNIRU9QSFlUQSIsImNsYXNzIjoiTUFHTk9MSU9QU0lEQSIsIm9yZGVyIjoiTUFHTk9MSUFMRVMiLCJmYW1pbHkiOiJBTk5PTkFDRUFFIiwiZ2VudXMiOiJBbm5vbmEiLCJtYWluX2NvbW1vbl9uYW1lIjpudWxsLCJhdXRob3JpdHkiOiJBLkguR2VudHJ5IiwicHVibGlzaGVkX3llYXIiOjIwMDMsImFzc2Vzc21lbnRfZGF0ZSI6IjIwMDMtMDQtMzAiLCJjYXRlZ29yeSI6IkNSIiwiY3JpdGVyaWEiOiJBNGM7IEIxYWIoaWlpKSIsInBvcHVsYXRpb25fdHJlbmQiOm51bGwsIm1hcmluZV9zeXN0ZW0iOmZhbHNlLCJmcmVzaHdhdGVyX3N5c3RlbSI6ZmFsc2UsInRlcnJlc3RyaWFsX3N5c3RlbSI6dHJ1ZSwiYXNzZXNzb3IiOiJNdXJpZWwsIFAuICYgUGl0bWFuLCBOLiIsInJldmlld2VyIjoiVmFsZW5jaWEsIFIuLCBQaXRtYW4sIE4uLCBMw6lvbi1Zw6FuZXosIFMuICYgSsO4cmdlbnNlbiwgUC5NLiAoRWN1YWRvciBQbGFudHMgUmVkIExpc3QgQXV0aG9yaXR5KSIsImFvb19rbTIiOm51bGwsImVvb19rbTIiOm51bGwsImVsZXZhdGlvbl91cHBlciI6bnVsbCwiZWxldmF0aW9uX2xvd2VyIjpudWxsLCJkZXB0aF91cHBlciI6bnVsbCwiZGVwdGhfbG93ZXIiOm51bGwsImVycmF0YV9mbGFnIjpudWxsLCJlcnJhdGFfcmVhc29uIjpudWxsLCJhbWVuZGVkX2ZsYWciOm51bGwsImFtZW5kZWRfcmVhc29uIjpudWxsfV19
+  recorded_at: 2019-05-08 20:55:18 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/id/42818?token=<<rredlist_api_token>>
@@ -537,7 +499,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -548,21 +510,17 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.1.19
-      date: Thu, 24 Jan 2019 22:50:41 GMT
+      date: Wed, 08 May 2019 20:55:09 GMT
       content-type: application/json; charset=utf-8
       content-length: '802'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       vary: Accept-Encoding
     body:
-      encoding: UTF-8
-      string: '{"name":"42818","result":[{"taxonid":42818,"scientific_name":"Annona
-        hystricoides","kingdom":"PLANTAE","phylum":"TRACHEOPHYTA","class":"MAGNOLIOPSIDA","order":"MAGNOLIALES","family":"ANNONACEAE","genus":"Annona","main_common_name":null,"authority":"A.H.Gentry","published_year":2003,"assessment_date":"2003-04-30","category":"CR","criteria":"A4c;
-        B1ab(iii)","population_trend":null,"marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"Muriel,
-        P. & Pitman, N.","reviewer":"Valencia, R., Pitman, N., Léon-Yánez, S. & Jørgensen,
-        P.M. (Ecuador Plants Red List Authority)","aoo_km2":null,"eoo_km2":null,"elevation_upper":null,"elevation_lower":null,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":null,"amended_reason":null}]}'
-  recorded_at: 2019-01-24 22:50:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: eyJuYW1lIjoiNDI4MTgiLCJyZXN1bHQiOlt7InRheG9uaWQiOjQyODE4LCJzY2llbnRpZmljX25hbWUiOiJBbm5vbmEgaHlzdHJpY29pZGVzIiwia2luZ2RvbSI6IlBMQU5UQUUiLCJwaHlsdW0iOiJUUkFDSEVPUEhZVEEiLCJjbGFzcyI6Ik1BR05PTElPUFNJREEiLCJvcmRlciI6Ik1BR05PTElBTEVTIiwiZmFtaWx5IjoiQU5OT05BQ0VBRSIsImdlbnVzIjoiQW5ub25hIiwibWFpbl9jb21tb25fbmFtZSI6bnVsbCwiYXV0aG9yaXR5IjoiQS5ILkdlbnRyeSIsInB1Ymxpc2hlZF95ZWFyIjoyMDAzLCJhc3Nlc3NtZW50X2RhdGUiOiIyMDAzLTA0LTMwIiwiY2F0ZWdvcnkiOiJDUiIsImNyaXRlcmlhIjoiQTRjOyBCMWFiKGlpaSkiLCJwb3B1bGF0aW9uX3RyZW5kIjpudWxsLCJtYXJpbmVfc3lzdGVtIjpmYWxzZSwiZnJlc2h3YXRlcl9zeXN0ZW0iOmZhbHNlLCJ0ZXJyZXN0cmlhbF9zeXN0ZW0iOnRydWUsImFzc2Vzc29yIjoiTXVyaWVsLCBQLiAmIFBpdG1hbiwgTi4iLCJyZXZpZXdlciI6IlZhbGVuY2lhLCBSLiwgUGl0bWFuLCBOLiwgTMOpb24tWcOhbmV6LCBTLiAmIErDuHJnZW5zZW4sIFAuTS4gKEVjdWFkb3IgUGxhbnRzIFJlZCBMaXN0IEF1dGhvcml0eSkiLCJhb29fa20yIjpudWxsLCJlb29fa20yIjpudWxsLCJlbGV2YXRpb25fdXBwZXIiOm51bGwsImVsZXZhdGlvbl9sb3dlciI6bnVsbCwiZGVwdGhfdXBwZXIiOm51bGwsImRlcHRoX2xvd2VyIjpudWxsLCJlcnJhdGFfZmxhZyI6bnVsbCwiZXJyYXRhX3JlYXNvbiI6bnVsbCwiYW1lbmRlZF9mbGFnIjpudWxsLCJhbWVuZGVkX3JlYXNvbiI6bnVsbH1dfQ==
+  recorded_at: 2019-05-08 20:55:18 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/42818?token=<<rredlist_api_token>>
@@ -570,7 +528,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -581,18 +539,17 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.1.19
-      date: Thu, 24 Jan 2019 22:50:41 GMT
+      date: Wed, 08 May 2019 20:55:09 GMT
       content-type: application/json; charset=utf-8
       content-length: '90'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       vary: Accept-Encoding
     body:
-      encoding: UTF-8
-      string: '{"name":"42818","result":[{"year":"2003","code":"CR","category":"Critically
-        Endangered"}]}'
-  recorded_at: 2019-01-24 22:50:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: eyJuYW1lIjoiNDI4MTgiLCJyZXN1bHQiOlt7InllYXIiOiIyMDAzIiwiY29kZSI6IkNSIiwiY2F0ZWdvcnkiOiJDcml0aWNhbGx5IEVuZGFuZ2VyZWQifV19
+  recorded_at: 2019-05-08 20:55:18 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/42818?token=<<rredlist_api_token>>
@@ -600,7 +557,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -611,17 +568,17 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.1.19
-      date: Thu, 24 Jan 2019 22:50:42 GMT
+      date: Wed, 08 May 2019 20:55:10 GMT
       content-type: application/json; charset=utf-8
       content-length: '138'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       vary: Accept-Encoding
     body:
-      encoding: UTF-8
-      string: '{"name":"42818","count":1,"result":[{"code":"EC","country":"Ecuador","presence":"Extant","origin":"Native","distribution_code":"Native"}]}'
-  recorded_at: 2019-01-24 22:50:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: eyJuYW1lIjoiNDI4MTgiLCJjb3VudCI6MSwicmVzdWx0IjpbeyJjb2RlIjoiRUMiLCJjb3VudHJ5IjoiRWN1YWRvciIsInByZXNlbmNlIjoiRXh0YW50Iiwib3JpZ2luIjoiTmF0aXZlIiwiZGlzdHJpYnV0aW9uX2NvZGUiOiJOYXRpdmUifV19
+  recorded_at: 2019-05-08 20:55:18 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/Chamaecrista%20onusta?token=<<rredlist_api_token>>
@@ -629,7 +586,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -640,20 +597,17 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.1.19
-      date: Thu, 24 Jan 2019 22:50:43 GMT
+      date: Wed, 08 May 2019 20:55:11 GMT
       content-type: application/json; charset=utf-8
       content-length: '739'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       vary: Accept-Encoding
     body:
-      encoding: UTF-8
-      string: '{"name":"Chamaecrista onusta","result":[{"taxonid":19891952,"scientific_name":"Chamaecrista
-        onusta","kingdom":"PLANTAE","phylum":"TRACHEOPHYTA","class":"MAGNOLIOPSIDA","order":"FABALES","family":"FABACEAE","genus":"Chamaecrista","main_common_name":null,"authority":"H.S.Irwin
-        & Barneby","published_year":2012,"assessment_date":"2010-04-14","category":"VU","criteria":"B1ab(i,ii,iii)","population_trend":"Decreasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"Groom,
-        A.","reviewer":"Hilton-Taylor, C.","aoo_km2":null,"eoo_km2":"7380","elevation_upper":40,"elevation_lower":1,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":null,"amended_reason":null}]}'
-  recorded_at: 2019-01-24 22:50:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: eyJuYW1lIjoiQ2hhbWFlY3Jpc3RhIG9udXN0YSIsInJlc3VsdCI6W3sidGF4b25pZCI6MTk4OTE5NTIsInNjaWVudGlmaWNfbmFtZSI6IkNoYW1hZWNyaXN0YSBvbnVzdGEiLCJraW5nZG9tIjoiUExBTlRBRSIsInBoeWx1bSI6IlRSQUNIRU9QSFlUQSIsImNsYXNzIjoiTUFHTk9MSU9QU0lEQSIsIm9yZGVyIjoiRkFCQUxFUyIsImZhbWlseSI6IkZBQkFDRUFFIiwiZ2VudXMiOiJDaGFtYWVjcmlzdGEiLCJtYWluX2NvbW1vbl9uYW1lIjpudWxsLCJhdXRob3JpdHkiOiJILlMuSXJ3aW4gJiBCYXJuZWJ5IiwicHVibGlzaGVkX3llYXIiOjIwMTIsImFzc2Vzc21lbnRfZGF0ZSI6IjIwMTAtMDQtMTQiLCJjYXRlZ29yeSI6IlZVIiwiY3JpdGVyaWEiOiJCMWFiKGksaWksaWlpKSIsInBvcHVsYXRpb25fdHJlbmQiOiJEZWNyZWFzaW5nIiwibWFyaW5lX3N5c3RlbSI6ZmFsc2UsImZyZXNod2F0ZXJfc3lzdGVtIjpmYWxzZSwidGVycmVzdHJpYWxfc3lzdGVtIjp0cnVlLCJhc3Nlc3NvciI6Ikdyb29tLCBBLiIsInJldmlld2VyIjoiSGlsdG9uLVRheWxvciwgQy4iLCJhb29fa20yIjpudWxsLCJlb29fa20yIjoiNzM4MCIsImVsZXZhdGlvbl91cHBlciI6NDAsImVsZXZhdGlvbl9sb3dlciI6MSwiZGVwdGhfdXBwZXIiOm51bGwsImRlcHRoX2xvd2VyIjpudWxsLCJlcnJhdGFfZmxhZyI6bnVsbCwiZXJyYXRhX3JlYXNvbiI6bnVsbCwiYW1lbmRlZF9mbGFnIjpudWxsLCJhbWVuZGVkX3JlYXNvbiI6bnVsbH1dfQ==
+  recorded_at: 2019-05-08 20:55:18 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/id/19891952?token=<<rredlist_api_token>>
@@ -661,7 +615,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -672,20 +626,17 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.1.19
-      date: Thu, 24 Jan 2019 22:50:44 GMT
+      date: Wed, 08 May 2019 20:55:11 GMT
       content-type: application/json; charset=utf-8
       content-length: '728'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       vary: Accept-Encoding
     body:
-      encoding: UTF-8
-      string: '{"name":"19891952","result":[{"taxonid":19891952,"scientific_name":"Chamaecrista
-        onusta","kingdom":"PLANTAE","phylum":"TRACHEOPHYTA","class":"MAGNOLIOPSIDA","order":"FABALES","family":"FABACEAE","genus":"Chamaecrista","main_common_name":null,"authority":"H.S.Irwin
-        & Barneby","published_year":2012,"assessment_date":"2010-04-14","category":"VU","criteria":"B1ab(i,ii,iii)","population_trend":"Decreasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"Groom,
-        A.","reviewer":"Hilton-Taylor, C.","aoo_km2":null,"eoo_km2":"7380","elevation_upper":40,"elevation_lower":1,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":null,"amended_reason":null}]}'
-  recorded_at: 2019-01-24 22:50:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: eyJuYW1lIjoiMTk4OTE5NTIiLCJyZXN1bHQiOlt7InRheG9uaWQiOjE5ODkxOTUyLCJzY2llbnRpZmljX25hbWUiOiJDaGFtYWVjcmlzdGEgb251c3RhIiwia2luZ2RvbSI6IlBMQU5UQUUiLCJwaHlsdW0iOiJUUkFDSEVPUEhZVEEiLCJjbGFzcyI6Ik1BR05PTElPUFNJREEiLCJvcmRlciI6IkZBQkFMRVMiLCJmYW1pbHkiOiJGQUJBQ0VBRSIsImdlbnVzIjoiQ2hhbWFlY3Jpc3RhIiwibWFpbl9jb21tb25fbmFtZSI6bnVsbCwiYXV0aG9yaXR5IjoiSC5TLklyd2luICYgQmFybmVieSIsInB1Ymxpc2hlZF95ZWFyIjoyMDEyLCJhc3Nlc3NtZW50X2RhdGUiOiIyMDEwLTA0LTE0IiwiY2F0ZWdvcnkiOiJWVSIsImNyaXRlcmlhIjoiQjFhYihpLGlpLGlpaSkiLCJwb3B1bGF0aW9uX3RyZW5kIjoiRGVjcmVhc2luZyIsIm1hcmluZV9zeXN0ZW0iOmZhbHNlLCJmcmVzaHdhdGVyX3N5c3RlbSI6ZmFsc2UsInRlcnJlc3RyaWFsX3N5c3RlbSI6dHJ1ZSwiYXNzZXNzb3IiOiJHcm9vbSwgQS4iLCJyZXZpZXdlciI6IkhpbHRvbi1UYXlsb3IsIEMuIiwiYW9vX2ttMiI6bnVsbCwiZW9vX2ttMiI6IjczODAiLCJlbGV2YXRpb25fdXBwZXIiOjQwLCJlbGV2YXRpb25fbG93ZXIiOjEsImRlcHRoX3VwcGVyIjpudWxsLCJkZXB0aF9sb3dlciI6bnVsbCwiZXJyYXRhX2ZsYWciOm51bGwsImVycmF0YV9yZWFzb24iOm51bGwsImFtZW5kZWRfZmxhZyI6bnVsbCwiYW1lbmRlZF9yZWFzb24iOm51bGx9XX0=
+  recorded_at: 2019-05-08 20:55:18 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/19891952?token=<<rredlist_api_token>>
@@ -693,7 +644,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -704,17 +655,17 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.1.19
-      date: Thu, 24 Jan 2019 22:50:44 GMT
+      date: Wed, 08 May 2019 20:55:12 GMT
       content-type: application/json; charset=utf-8
       content-length: '82'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       vary: Accept-Encoding
     body:
-      encoding: UTF-8
-      string: '{"name":"19891952","result":[{"year":"2012","code":"VU","category":"Vulnerable"}]}'
-  recorded_at: 2019-01-24 22:50:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: eyJuYW1lIjoiMTk4OTE5NTIiLCJyZXN1bHQiOlt7InllYXIiOiIyMDEyIiwiY29kZSI6IlZVIiwiY2F0ZWdvcnkiOiJWdWxuZXJhYmxlIn1dfQ==
+  recorded_at: 2019-05-08 20:55:18 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/19891952?token=<<rredlist_api_token>>
@@ -722,7 +673,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -733,17 +684,17 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.1.19
-      date: Thu, 24 Jan 2019 22:50:45 GMT
+      date: Wed, 08 May 2019 20:55:13 GMT
       content-type: application/json; charset=utf-8
       content-length: '140'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       vary: Accept-Encoding
     body:
-      encoding: UTF-8
-      string: '{"name":"19891952","count":1,"result":[{"code":"BR","country":"Brazil","presence":"Extant","origin":"Native","distribution_code":"Native"}]}'
-  recorded_at: 2019-01-24 22:50:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: eyJuYW1lIjoiMTk4OTE5NTIiLCJjb3VudCI6MSwicmVzdWx0IjpbeyJjb2RlIjoiQlIiLCJjb3VudHJ5IjoiQnJhemlsIiwicHJlc2VuY2UiOiJFeHRhbnQiLCJvcmlnaW4iOiJOYXRpdmUiLCJkaXN0cmlidXRpb25fY29kZSI6Ik5hdGl2ZSJ9XX0=
+  recorded_at: 2019-05-08 20:55:18 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/Cyornis%20lemprieri?token=<<rredlist_api_token>>
@@ -751,7 +702,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -762,20 +713,17 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.1.19
-      date: Thu, 24 Jan 2019 22:50:46 GMT
+      date: Wed, 08 May 2019 20:55:14 GMT
       content-type: application/json; charset=utf-8
-      content-length: '758'
+      content-length: '757'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       vary: Accept-Encoding
     body:
-      encoding: UTF-8
-      string: '{"name":"Cyornis lemprieri","result":[{"taxonid":22709548,"scientific_name":"Cyornis
-        lemprieri","kingdom":"ANIMALIA","phylum":"CHORDATA","class":"AVES","order":"PASSERIFORMES","family":"MUSCICAPIDAE","genus":"Cyornis","main_common_name":"Palawan
-        Blue-flycatcher","authority":"(Sharpe, 1884)","published_year":2016,"assessment_date":"2016-10-01","category":"NT","criteria":null,"population_trend":"Decreasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"BirdLife
-        International","reviewer":"Butchart, S. & Symes, A.","aoo_km2":null,"eoo_km2":"50900","elevation_upper":null,"elevation_lower":null,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":null,"amended_reason":null}]}'
-  recorded_at: 2019-01-24 22:50:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: eyJuYW1lIjoiQ3lvcm5pcyBsZW1wcmllcmkiLCJyZXN1bHQiOlt7InRheG9uaWQiOjIyNzA5NTQ4LCJzY2llbnRpZmljX25hbWUiOiJDeW9ybmlzIGxlbXByaWVyaSIsImtpbmdkb20iOiJBTklNQUxJQSIsInBoeWx1bSI6IkNIT1JEQVRBIiwiY2xhc3MiOiJBVkVTIiwib3JkZXIiOiJQQVNTRVJJRk9STUVTIiwiZmFtaWx5IjoiTVVTQ0lDQVBJREFFIiwiZ2VudXMiOiJDeW9ybmlzIiwibWFpbl9jb21tb25fbmFtZSI6IlBhbGF3YW4gQmx1ZS1mbHljYXRjaGVyIiwiYXV0aG9yaXR5IjoiKFNoYXJwZSwgMTg4NCkiLCJwdWJsaXNoZWRfeWVhciI6MjAxNiwiYXNzZXNzbWVudF9kYXRlIjoiMjAxNi0xMC0wMSIsImNhdGVnb3J5IjoiTlQiLCJjcml0ZXJpYSI6bnVsbCwicG9wdWxhdGlvbl90cmVuZCI6IkRlY3JlYXNpbmciLCJtYXJpbmVfc3lzdGVtIjpmYWxzZSwiZnJlc2h3YXRlcl9zeXN0ZW0iOmZhbHNlLCJ0ZXJyZXN0cmlhbF9zeXN0ZW0iOnRydWUsImFzc2Vzc29yIjoiQmlyZExpZmUgSW50ZXJuYXRpb25hbCIsInJldmlld2VyIjoiQnV0Y2hhcnQsIFMuLCBTeW1lcywgQS4iLCJhb29fa20yIjpudWxsLCJlb29fa20yIjoiNTA5MDAiLCJlbGV2YXRpb25fdXBwZXIiOm51bGwsImVsZXZhdGlvbl9sb3dlciI6bnVsbCwiZGVwdGhfdXBwZXIiOm51bGwsImRlcHRoX2xvd2VyIjpudWxsLCJlcnJhdGFfZmxhZyI6bnVsbCwiZXJyYXRhX3JlYXNvbiI6bnVsbCwiYW1lbmRlZF9mbGFnIjpudWxsLCJhbWVuZGVkX3JlYXNvbiI6bnVsbH1dfQ==
+  recorded_at: 2019-05-08 20:55:18 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/id/22709548?token=<<rredlist_api_token>>
@@ -783,7 +731,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -794,20 +742,17 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.1.19
-      date: Thu, 24 Jan 2019 22:50:46 GMT
+      date: Wed, 08 May 2019 20:55:14 GMT
       content-type: application/json; charset=utf-8
-      content-length: '749'
+      content-length: '748'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       vary: Accept-Encoding
     body:
-      encoding: UTF-8
-      string: '{"name":"22709548","result":[{"taxonid":22709548,"scientific_name":"Cyornis
-        lemprieri","kingdom":"ANIMALIA","phylum":"CHORDATA","class":"AVES","order":"PASSERIFORMES","family":"MUSCICAPIDAE","genus":"Cyornis","main_common_name":"Palawan
-        Blue-flycatcher","authority":"(Sharpe, 1884)","published_year":2016,"assessment_date":"2016-10-01","category":"NT","criteria":null,"population_trend":"Decreasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"BirdLife
-        International","reviewer":"Butchart, S. & Symes, A.","aoo_km2":null,"eoo_km2":"50900","elevation_upper":null,"elevation_lower":null,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":null,"amended_reason":null}]}'
-  recorded_at: 2019-01-24 22:50:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: eyJuYW1lIjoiMjI3MDk1NDgiLCJyZXN1bHQiOlt7InRheG9uaWQiOjIyNzA5NTQ4LCJzY2llbnRpZmljX25hbWUiOiJDeW9ybmlzIGxlbXByaWVyaSIsImtpbmdkb20iOiJBTklNQUxJQSIsInBoeWx1bSI6IkNIT1JEQVRBIiwiY2xhc3MiOiJBVkVTIiwib3JkZXIiOiJQQVNTRVJJRk9STUVTIiwiZmFtaWx5IjoiTVVTQ0lDQVBJREFFIiwiZ2VudXMiOiJDeW9ybmlzIiwibWFpbl9jb21tb25fbmFtZSI6IlBhbGF3YW4gQmx1ZS1mbHljYXRjaGVyIiwiYXV0aG9yaXR5IjoiKFNoYXJwZSwgMTg4NCkiLCJwdWJsaXNoZWRfeWVhciI6MjAxNiwiYXNzZXNzbWVudF9kYXRlIjoiMjAxNi0xMC0wMSIsImNhdGVnb3J5IjoiTlQiLCJjcml0ZXJpYSI6bnVsbCwicG9wdWxhdGlvbl90cmVuZCI6IkRlY3JlYXNpbmciLCJtYXJpbmVfc3lzdGVtIjpmYWxzZSwiZnJlc2h3YXRlcl9zeXN0ZW0iOmZhbHNlLCJ0ZXJyZXN0cmlhbF9zeXN0ZW0iOnRydWUsImFzc2Vzc29yIjoiQmlyZExpZmUgSW50ZXJuYXRpb25hbCIsInJldmlld2VyIjoiQnV0Y2hhcnQsIFMuLCBTeW1lcywgQS4iLCJhb29fa20yIjpudWxsLCJlb29fa20yIjoiNTA5MDAiLCJlbGV2YXRpb25fdXBwZXIiOm51bGwsImVsZXZhdGlvbl9sb3dlciI6bnVsbCwiZGVwdGhfdXBwZXIiOm51bGwsImRlcHRoX2xvd2VyIjpudWxsLCJlcnJhdGFfZmxhZyI6bnVsbCwiZXJyYXRhX3JlYXNvbiI6bnVsbCwiYW1lbmRlZF9mbGFnIjpudWxsLCJhbWVuZGVkX3JlYXNvbiI6bnVsbH1dfQ==
+  recorded_at: 2019-05-08 20:55:18 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/22709548?token=<<rredlist_api_token>>
@@ -815,7 +760,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -826,22 +771,17 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.1.19
-      date: Thu, 24 Jan 2019 22:50:47 GMT
+      date: Wed, 08 May 2019 20:55:15 GMT
       content-type: application/json; charset=utf-8
       content-length: '524'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       vary: Accept-Encoding
     body:
-      encoding: UTF-8
-      string: '{"name":"22709548","result":[{"year":"2016","code":"NT","category":"Near
-        Threatened"},{"year":"2013","code":"NT","category":"Near Threatened"},{"year":"2012","code":"NT","category":"Near
-        Threatened"},{"year":"2008","code":"NT","category":"Near Threatened"},{"year":"2004","code":"NT","category":"Near
-        Threatened"},{"year":"2000","code":"LR/nt","category":"Lower Risk/near threatened"},{"year":"1994","code":"LR/lc","category":"Lower
-        Risk/least concern"},{"year":"1988","code":"LR/lc","category":"Lower Risk/least
-        concern"}]}'
-  recorded_at: 2019-01-24 22:50:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: eyJuYW1lIjoiMjI3MDk1NDgiLCJyZXN1bHQiOlt7InllYXIiOiIyMDE2IiwiY29kZSI6Ik5UIiwiY2F0ZWdvcnkiOiJOZWFyIFRocmVhdGVuZWQifSx7InllYXIiOiIyMDEzIiwiY29kZSI6Ik5UIiwiY2F0ZWdvcnkiOiJOZWFyIFRocmVhdGVuZWQifSx7InllYXIiOiIyMDEyIiwiY29kZSI6Ik5UIiwiY2F0ZWdvcnkiOiJOZWFyIFRocmVhdGVuZWQifSx7InllYXIiOiIyMDA4IiwiY29kZSI6Ik5UIiwiY2F0ZWdvcnkiOiJOZWFyIFRocmVhdGVuZWQifSx7InllYXIiOiIyMDA0IiwiY29kZSI6Ik5UIiwiY2F0ZWdvcnkiOiJOZWFyIFRocmVhdGVuZWQifSx7InllYXIiOiIyMDAwIiwiY29kZSI6IkxSL250IiwiY2F0ZWdvcnkiOiJMb3dlciBSaXNrL25lYXIgdGhyZWF0ZW5lZCJ9LHsieWVhciI6IjE5OTQiLCJjb2RlIjoiTFIvbGMiLCJjYXRlZ29yeSI6Ikxvd2VyIFJpc2svbGVhc3QgY29uY2VybiJ9LHsieWVhciI6IjE5ODgiLCJjb2RlIjoiTFIvbGMiLCJjYXRlZ29yeSI6Ikxvd2VyIFJpc2svbGVhc3QgY29uY2VybiJ9XX0=
+  recorded_at: 2019-05-08 20:55:18 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/22709548?token=<<rredlist_api_token>>
@@ -849,7 +789,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -860,17 +800,17 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.1.19
-      date: Thu, 24 Jan 2019 22:50:47 GMT
+      date: Wed, 08 May 2019 20:55:15 GMT
       content-type: application/json; charset=utf-8
       content-length: '145'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       vary: Accept-Encoding
     body:
-      encoding: UTF-8
-      string: '{"name":"22709548","count":1,"result":[{"code":"PH","country":"Philippines","presence":"Extant","origin":"Native","distribution_code":"Native"}]}'
-  recorded_at: 2019-01-24 22:50:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: eyJuYW1lIjoiMjI3MDk1NDgiLCJjb3VudCI6MSwicmVzdWx0IjpbeyJjb2RlIjoiUEgiLCJjb3VudHJ5IjoiUGhpbGlwcGluZXMiLCJwcmVzZW5jZSI6IkV4dGFudCIsIm9yaWdpbiI6Ik5hdGl2ZSIsImRpc3RyaWJ1dGlvbl9jb2RlIjoiTmF0aXZlIn1dfQ==
+  recorded_at: 2019-05-08 20:55:18 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/Frailea%20pumila?token=<<rredlist_api_token>>
@@ -878,7 +818,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -889,21 +829,17 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.1.19
-      date: Thu, 24 Jan 2019 22:50:48 GMT
+      date: Wed, 08 May 2019 20:55:16 GMT
       content-type: application/json; charset=utf-8
       content-length: '803'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       vary: Accept-Encoding
     body:
-      encoding: UTF-8
-      string: '{"name":"Frailea pumila","result":[{"taxonid":152195,"scientific_name":"Frailea
-        pumila","kingdom":"PLANTAE","phylum":"TRACHEOPHYTA","class":"MAGNOLIOPSIDA","order":"CARYOPHYLLALES","family":"CACTACEAE","genus":"Frailea","main_common_name":null,"authority":"(Lem.)
-        Britton &amp; Rose","published_year":2017,"assessment_date":"2010-06-04","category":"LC","criteria":null,"population_trend":"Stable","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"Larocca,
-        J., Machado, M. & Duarte, W.","reviewer":"Goettsch, B.K. & Superina, M.","aoo_km2":null,"eoo_km2":null,"elevation_upper":300,"elevation_lower":100,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":true,"amended_reason":"The
-        species distribution map has been added."}]}'
-  recorded_at: 2019-01-24 22:50:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: eyJuYW1lIjoiRnJhaWxlYSBwdW1pbGEiLCJyZXN1bHQiOlt7InRheG9uaWQiOjE1MjE5NSwic2NpZW50aWZpY19uYW1lIjoiRnJhaWxlYSBwdW1pbGEiLCJraW5nZG9tIjoiUExBTlRBRSIsInBoeWx1bSI6IlRSQUNIRU9QSFlUQSIsImNsYXNzIjoiTUFHTk9MSU9QU0lEQSIsIm9yZGVyIjoiQ0FSWU9QSFlMTEFMRVMiLCJmYW1pbHkiOiJDQUNUQUNFQUUiLCJnZW51cyI6IkZyYWlsZWEiLCJtYWluX2NvbW1vbl9uYW1lIjpudWxsLCJhdXRob3JpdHkiOiIoTGVtLikgQnJpdHRvbiAmYW1wOyBSb3NlIiwicHVibGlzaGVkX3llYXIiOjIwMTcsImFzc2Vzc21lbnRfZGF0ZSI6IjIwMTAtMDYtMDQiLCJjYXRlZ29yeSI6IkxDIiwiY3JpdGVyaWEiOm51bGwsInBvcHVsYXRpb25fdHJlbmQiOiJTdGFibGUiLCJtYXJpbmVfc3lzdGVtIjpmYWxzZSwiZnJlc2h3YXRlcl9zeXN0ZW0iOmZhbHNlLCJ0ZXJyZXN0cmlhbF9zeXN0ZW0iOnRydWUsImFzc2Vzc29yIjoiTGFyb2NjYSwgSi4sIE1hY2hhZG8sIE0uICYgRHVhcnRlLCBXLiIsInJldmlld2VyIjoiR29ldHRzY2gsIEIuSy4gJiBTdXBlcmluYSwgTS4iLCJhb29fa20yIjpudWxsLCJlb29fa20yIjpudWxsLCJlbGV2YXRpb25fdXBwZXIiOjMwMCwiZWxldmF0aW9uX2xvd2VyIjoxMDAsImRlcHRoX3VwcGVyIjpudWxsLCJkZXB0aF9sb3dlciI6bnVsbCwiZXJyYXRhX2ZsYWciOm51bGwsImVycmF0YV9yZWFzb24iOm51bGwsImFtZW5kZWRfZmxhZyI6dHJ1ZSwiYW1lbmRlZF9yZWFzb24iOiJUaGUgc3BlY2llcyBkaXN0cmlidXRpb24gbWFwIGhhcyBiZWVuIGFkZGVkLiJ9XX0=
+  recorded_at: 2019-05-08 20:55:18 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/id/152195?token=<<rredlist_api_token>>
@@ -911,7 +847,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -922,21 +858,17 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.1.19
-      date: Thu, 24 Jan 2019 22:50:49 GMT
+      date: Wed, 08 May 2019 20:55:17 GMT
       content-type: application/json; charset=utf-8
       content-length: '795'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       vary: Accept-Encoding
     body:
-      encoding: UTF-8
-      string: '{"name":"152195","result":[{"taxonid":152195,"scientific_name":"Frailea
-        pumila","kingdom":"PLANTAE","phylum":"TRACHEOPHYTA","class":"MAGNOLIOPSIDA","order":"CARYOPHYLLALES","family":"CACTACEAE","genus":"Frailea","main_common_name":null,"authority":"(Lem.)
-        Britton &amp; Rose","published_year":2017,"assessment_date":"2010-06-04","category":"LC","criteria":null,"population_trend":"Stable","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"Larocca,
-        J., Machado, M. & Duarte, W.","reviewer":"Goettsch, B.K. & Superina, M.","aoo_km2":null,"eoo_km2":null,"elevation_upper":300,"elevation_lower":100,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":true,"amended_reason":"The
-        species distribution map has been added."}]}'
-  recorded_at: 2019-01-24 22:50:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: eyJuYW1lIjoiMTUyMTk1IiwicmVzdWx0IjpbeyJ0YXhvbmlkIjoxNTIxOTUsInNjaWVudGlmaWNfbmFtZSI6IkZyYWlsZWEgcHVtaWxhIiwia2luZ2RvbSI6IlBMQU5UQUUiLCJwaHlsdW0iOiJUUkFDSEVPUEhZVEEiLCJjbGFzcyI6Ik1BR05PTElPUFNJREEiLCJvcmRlciI6IkNBUllPUEhZTExBTEVTIiwiZmFtaWx5IjoiQ0FDVEFDRUFFIiwiZ2VudXMiOiJGcmFpbGVhIiwibWFpbl9jb21tb25fbmFtZSI6bnVsbCwiYXV0aG9yaXR5IjoiKExlbS4pIEJyaXR0b24gJmFtcDsgUm9zZSIsInB1Ymxpc2hlZF95ZWFyIjoyMDE3LCJhc3Nlc3NtZW50X2RhdGUiOiIyMDEwLTA2LTA0IiwiY2F0ZWdvcnkiOiJMQyIsImNyaXRlcmlhIjpudWxsLCJwb3B1bGF0aW9uX3RyZW5kIjoiU3RhYmxlIiwibWFyaW5lX3N5c3RlbSI6ZmFsc2UsImZyZXNod2F0ZXJfc3lzdGVtIjpmYWxzZSwidGVycmVzdHJpYWxfc3lzdGVtIjp0cnVlLCJhc3Nlc3NvciI6Ikxhcm9jY2EsIEouLCBNYWNoYWRvLCBNLiAmIER1YXJ0ZSwgVy4iLCJyZXZpZXdlciI6IkdvZXR0c2NoLCBCLksuICYgU3VwZXJpbmEsIE0uIiwiYW9vX2ttMiI6bnVsbCwiZW9vX2ttMiI6bnVsbCwiZWxldmF0aW9uX3VwcGVyIjozMDAsImVsZXZhdGlvbl9sb3dlciI6MTAwLCJkZXB0aF91cHBlciI6bnVsbCwiZGVwdGhfbG93ZXIiOm51bGwsImVycmF0YV9mbGFnIjpudWxsLCJlcnJhdGFfcmVhc29uIjpudWxsLCJhbWVuZGVkX2ZsYWciOnRydWUsImFtZW5kZWRfcmVhc29uIjoiVGhlIHNwZWNpZXMgZGlzdHJpYnV0aW9uIG1hcCBoYXMgYmVlbiBhZGRlZC4ifV19
+  recorded_at: 2019-05-08 20:55:18 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/152195?token=<<rredlist_api_token>>
@@ -944,7 +876,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -955,18 +887,17 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.1.19
-      date: Thu, 24 Jan 2019 22:50:50 GMT
+      date: Wed, 08 May 2019 20:55:17 GMT
       content-type: application/json; charset=utf-8
       content-length: '83'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       vary: Accept-Encoding
     body:
-      encoding: UTF-8
-      string: '{"name":"152195","result":[{"year":"2013","code":"LC","category":"Least
-        Concern"}]}'
-  recorded_at: 2019-01-24 22:50:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: eyJuYW1lIjoiMTUyMTk1IiwicmVzdWx0IjpbeyJ5ZWFyIjoiMjAxMyIsImNvZGUiOiJMQyIsImNhdGVnb3J5IjoiTGVhc3QgQ29uY2VybiJ9XX0=
+  recorded_at: 2019-05-08 20:55:18 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/152195?token=<<rredlist_api_token>>
@@ -974,7 +905,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 rOpenSci(rredlist/0.5.1.9100)
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -985,14 +916,14 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.1.19
-      date: Thu, 24 Jan 2019 22:50:51 GMT
+      date: Wed, 08 May 2019 20:55:18 GMT
       content-type: application/json; charset=utf-8
       content-length: '444'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       vary: Accept-Encoding
     body:
-      encoding: UTF-8
-      string: '{"name":"152195","count":4,"result":[{"code":"AR","country":"Argentina","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"BR","country":"Brazil","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"PY","country":"Paraguay","presence":"Extant","origin":"Native","distribution_code":"Native"},{"code":"UY","country":"Uruguay","presence":"Extant","origin":"Native","distribution_code":"Native"}]}'
-  recorded_at: 2019-01-24 22:50:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: eyJuYW1lIjoiMTUyMTk1IiwiY291bnQiOjQsInJlc3VsdCI6W3siY29kZSI6IkFSIiwiY291bnRyeSI6IkFyZ2VudGluYSIsInByZXNlbmNlIjoiRXh0YW50Iiwib3JpZ2luIjoiTmF0aXZlIiwiZGlzdHJpYnV0aW9uX2NvZGUiOiJOYXRpdmUifSx7ImNvZGUiOiJCUiIsImNvdW50cnkiOiJCcmF6aWwiLCJwcmVzZW5jZSI6IkV4dGFudCIsIm9yaWdpbiI6Ik5hdGl2ZSIsImRpc3RyaWJ1dGlvbl9jb2RlIjoiTmF0aXZlIn0seyJjb2RlIjoiUFkiLCJjb3VudHJ5IjoiUGFyYWd1YXkiLCJwcmVzZW5jZSI6IkV4dGFudCIsIm9yaWdpbiI6Ik5hdGl2ZSIsImRpc3RyaWJ1dGlvbl9jb2RlIjoiTmF0aXZlIn0seyJjb2RlIjoiVVkiLCJjb3VudHJ5IjoiVXJ1Z3VheSIsInByZXNlbmNlIjoiRXh0YW50Iiwib3JpZ2luIjoiTmF0aXZlIiwiZGlzdHJpYnV0aW9uX2NvZGUiOiJOYXRpdmUifV19
+  recorded_at: 2019-05-08 20:55:18 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100

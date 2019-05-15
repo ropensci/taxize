@@ -19,7 +19,7 @@ all data sources. Note that each taxonomic data source has their own
 identifiers, so that if you give the wrong \code{db} value for the identifier you
 could get a result, it will likely be wrong (not what you were expecting).
 If using ncbi, eol, and/or tropicos we recommend getting API keys;
-see \code{\link{taxize-authentication}}}
+see \link{taxize-authentication}}
 
 \item{...}{Other arguments passed to \code{\link[=get_tsn]{get_tsn()}}, \code{\link[=get_uid]{get_uid()}},
 \code{\link[=get_eolid]{get_eolid()}}, \code{\link[=get_colid]{get_colid()}}, \code{\link[=get_tpsid]{get_tpsid()}}, \code{\link[=get_gbifid]{get_gbifid()}},
@@ -46,7 +46,7 @@ There is a timeout of 1/3 seconds between queries to NCBI.
 }
 \section{Authentication}{
 
-See \code{\link{taxize-authentication}} for help on authentication
+See \link{taxize-authentication} for help on authentication
 }
 
 \examples{

@@ -12,7 +12,7 @@ See Details.}
 
 \item{key}{(character) NCBI Entrez API key. optional. See Details.}
 
-\item{...}{Curl options passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}}
+\item{...}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
 A \code{data.frame} with the following columns:
@@ -34,7 +34,7 @@ will run into the HTTP 414 error "Request-URI Too Long".
 }
 \section{Authentication}{
 
-See \code{\link{taxize-authentication}} for help on authentication.
+See \link{taxize-authentication} for help on authentication.
 We strongly recommend getting an API key
 }
 

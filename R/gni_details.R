@@ -6,10 +6,10 @@
 #' @param id Name id. Required.
 #' @param all_records If all_records is 1, GNI returns all records from all
 #' 		repositories for the name string (takes 0, or 1 \[default\]).
-#' @param ... Curl options passed on to [`crul::verb-GET`]
+#' @param ... Curl options passed on to [crul::verb-GET]
 #' @author Scott Chamberlain {myrmecocystus@@gmail.com}
 #' @return Data.frame of results.
-#' @seealso [`gnr_datasources()`], [`gni_search()`].
+#' @seealso [gnr_datasources()], [gni_search()].
 #' @keywords globalnamesindex names taxonomy
 #' @examples \dontrun{
 #' gni_details(id = 17802847)

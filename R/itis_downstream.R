@@ -8,8 +8,8 @@
 #' @param intermediate (logical) If TRUE, return a list of length two with target
 #'    taxon rank names, with additional list of data.frame's of intermediate
 #'    taxonomic groups. Default: FALSE
-#' @param ... Further args passed on to [`ritis::rank_name()`] and
-#' [`ritis::hierarchy_down()`]
+#' @param ... Further args passed on to [ritis::rank_name()] and
+#' [ritis::hierarchy_down()]
 #' @return Data.frame of taxonomic information downstream to family from e.g.,
 #' 		Order, Class, etc., or if `intermediated=TRUE`, list of length two,
 #'   	with target taxon rank names, and intermediate names.

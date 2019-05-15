@@ -9,7 +9,7 @@ ion(x, ...)
 \arguments{
 \item{x}{An LSID number. Required.}
 
-\item{...}{Curl options passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}}
+\item{...}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
 A data.frame

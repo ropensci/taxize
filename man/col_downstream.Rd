@@ -11,7 +11,7 @@ col_downstream(name = NULL, id = NULL, downto, format = NULL,
 \arguments{
 \item{name}{The string to search for. Only exact matches found the name given
 will be returned, unless one or wildcards are included in the search
-string. An * (asterisk) character denotes a wildcard; a % (percentage)
+string. An * (asterisk) character denotes a wildcard; a percent
 character may also be used. The name must be at least 3 characters long,
 not counting wildcard characters.}
 
@@ -45,7 +45,7 @@ intermediate taxonomic groups. Default: \code{FALSE}}
 by default we give back all taxa. set to \code{TRUE} to get only
 extant taxa}
 
-\item{...}{Curl options passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}}
+\item{...}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
 A list of data.frame's, where each data.frame has columns:

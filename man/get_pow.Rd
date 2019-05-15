@@ -56,7 +56,7 @@ retrieved from NCBI. See \code{\link[=rank_ref]{rank_ref()}} for possible option
 Though note that some data sources use atypical ranks, so inspect the data
 itself for options. Optional. See \code{Filtering} below.}
 
-\item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient}}}
+\item{...}{Curl options passed on to \link[crul:HttpClient]{crul::HttpClient}}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only
 used in \code{\link[=as.pow]{as.pow()}}}

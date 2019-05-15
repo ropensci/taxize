@@ -3,9 +3,9 @@
 #' @export
 #' @param name character; taxon name
 #' @param verbose logical; should messages be printed?
-#' @param ... Further arguments passed on to [`iucn_summary()`], note
+#' @param ... Further arguments passed on to [iucn_summary()], note
 #' that you'll need an API key.
-#' @seealso [`iucn_summary()`] [`iucn_status()`]
+#' @seealso [iucn_summary()] [iucn_status()]
 #' @return Character vector of names that matched in IUCN
 #' @details Beware: IUCN functions can give back incorrect data. This isn't
 #' our fault. We do our best to get you the correct data quickly, but sometimes

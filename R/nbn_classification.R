@@ -3,7 +3,7 @@
 #'
 #' @export
 #' @param id (character) An NBN identifier.
-#' @param ... Further args passed on to [`crul::verb-GET`]
+#' @param ... Further args passed on to [crul::verb-GET]
 #' @return A data.frame
 #' @family nbn
 #' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}

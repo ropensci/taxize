@@ -10,9 +10,9 @@
 #' @param startrow Your search string. For instance "1"
 #' @param type Type of search, "wildcard" (default) will add a wildcard to the end
 #'    of your search string. "exact" will use your search string exactly.
-#' @param key Your Tropicos API key; See [`taxize-authentication`] 
+#' @param key Your Tropicos API key; See [taxize-authentication] 
 #' for help on authentication
-#' @param ... Further args passed on to [`crul::HttpClient`]
+#' @param ... Further args passed on to [crul::HttpClient]
 #' @return List or dataframe.
 #' @references <http://services.tropicos.org/help?method=SearchNameXml>
 #' @details More details on the `name` parameter: Tropicos will fail

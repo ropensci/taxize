@@ -9,7 +9,7 @@ itis_acceptname(searchtsn, ...)
 \arguments{
 \item{searchtsn}{One or more TSN for a taxon (numeric/integer)}
 
-\item{...}{Curl options passed on to\code{\link[crul:verb-GET]{crul::verb-GET}}}
+\item{...}{Curl options passed on to\link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
 data.frame with with row number equal to input vector length, and

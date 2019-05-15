@@ -12,20 +12,20 @@
 #' @param messages logical; should progress be printed?
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, all
 #' rows are considered. Note that this function still only gives back a wiki
-#' class object with one to many identifiers. See [`get_wiki_()`] to get back
+#' class object with one to many identifiers. See [get_wiki_()] to get back
 #' all, or a subset, of the raw data that you are presented during the ask
 #' process.
 #' @param limit (integer) number of records to return
 #' @param ... Ignored
 #' @param check logical; Check if ID matches any existing on the DB, only
-#' used in [`as.wiki()`]
+#' used in [as.wiki()]
 #' @template getreturn
 #'
 #' @details For `wiki_site = "pedia" `, we use the english language site by
 #' default. Set the `wiki` parameter for a different language site.
 #'
 #' @family taxonomic-ids
-#' @seealso [`classification()`]
+#' @seealso [classification()]
 #'
 #' @examples \dontrun{
 #' get_wiki(x = "Quercus douglasii")

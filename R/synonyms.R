@@ -8,9 +8,9 @@
 #' identifiers, so that if you provide the wrong `db` value for the identifier
 #' you could get a result, but it will likely be wrong (not what you were
 #' expecting). If using tropicos, we  recommend getting an API key;
-#' see [`taxize-authentication`]
-#' @param id character; identifiers, returned by [`get_tsn()`], [`get_tpsid()`],
-#' [`get_nbnid()`], [`get_colid()`] `get_wormsid()`]
+#' see [taxize-authentication]
+#' @param id character; identifiers, returned by [get_tsn()], [get_tpsid()],
+#' [get_nbnid()], [get_colid()] `get_wormsid()]
 #' @param rows (numeric) Any number from 1 to infinity. If the default NA, all
 #' rows are considered. Note that this parameter is ignored if you pass in a
 #' taxonomic id of any of the acceptable classes: tsn, tpsid, nbnid, ids.
@@ -25,11 +25,11 @@
 #' toggle whether only accepted names are used `accepted = TRUE`, or if
 #' all are used `accepted = FALSE`. The default is `accepted = FALSE`
 #'
-#' Note that IUCN requires an API key. See [`rredlist::rredlist-package`]
+#' Note that IUCN requires an API key. See [rredlist::rredlist-package]
 #' for help on authentiating with IUCN Redlist
 #'
-#' @seealso [`get_tsn()`] `get_tpsid()`], [`get_nbnid()`] `get_colid()`],
-#' [`get_wormsid()`] `get_iucn()`]
+#' @seealso [get_tsn()] `get_tpsid()], [get_nbnid()] `get_colid()],
+#' [get_wormsid()] `get_iucn()]
 #'
 #' @export
 #' @examples \dontrun{

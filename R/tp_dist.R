@@ -2,9 +2,9 @@
 #'
 #' @export
 #' @param id the taxon identifier code
-#' @param key Your Tropicos API key; See [`taxize-authentication`] 
+#' @param key Your Tropicos API key; See [taxize-authentication] 
 #' for help on authentication
-#' @param ... Curl options passed on to [`crul::HttpClient`]
+#' @param ... Curl options passed on to [crul::HttpClient]
 #' @return List of two data.frame's, one named "location", and one "reference".
 #' @references <http://services.tropicos.org/help?method=GetNameDistributionsXml>
 #'

@@ -5,19 +5,20 @@
 #' [taxon_state()] object
 #' @param messages logical; should progress be printed?
 #' @param key (character) required. you IUCN Redlist API key. See
-#' [`rredlist::rredlist-package`] for help on authenticating with
+#' [rredlist::rredlist-package] for help on authenticating with
 #' IUCN Redlist
 #' @param check (logical) Check if ID matches any existing on the DB, only
-#' used in [`as.iucn()`]
+#' used in [as.iucn()]
 #' @param ... Ignored
 #'
 #' @return A vector of taxonomic identifiers as an S3 class.
 #'
 #' Comes with the following attributes:
+#' 
 #' * *match* (character) - the reason for NA, either 'not found',
 #'  'found' or if `ask = FALSE` then 'NA due to ask=FALSE')
 #' * *name* (character) - the taxonomic name, which is needed in
-#'  [`synonyms()`] and [`sci2comm()`] methods since they
+#'  [synonyms()] and [sci2comm()] methods since they
 #'  internally use \pkg{rredlist} functions which require the taxonomic name,
 #'  and not the taxonomic identifier
 #' * *ri* (character) - The URI where more information can be
@@ -32,7 +33,7 @@
 #' a bunch of results due to fuzzy matching. If that exists in the future
 #' we'll add an underscore method here.
 #'
-#' IUCN ids only work with [`synonyms()`] and [`sci2comm()`]
+#' IUCN ids only work with [synonyms()] and [sci2comm()]
 #' methods.
 #'
 #' @family taxonomic-ids

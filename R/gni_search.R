@@ -25,12 +25,12 @@
 #' 		than 1000 will be decreased to 1000) (default is 30).
 #' @param page Page number you want to see (default is 1).
 #' @param justtotal Return only the total results found.
-#' @param parse_names If `TRUE`, use [`gni_parse()`] to parse
+#' @param parse_names If `TRUE`, use [gni_parse()] to parse
 #' names. Default: `FALSE`
-#' @param ... Curl options passed on to [`crul::verb-GET`]
+#' @param ... Curl options passed on to [crul::verb-GET]
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @return data.frame of results.
-#' @seealso [`gnr_datasources()`], [`gni_search()`]
+#' @seealso [gnr_datasources()], [gni_search()]
 #' @keywords globalnamesindex names taxonomy
 #' @references <http://gni.globalnames.org/>,
 #' <https://github.com/dimus/gni/wiki/api>

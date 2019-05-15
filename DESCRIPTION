@@ -5,10 +5,10 @@ Description: Interacts with a suite of web 'APIs' for taxonomic tasks,
     species names, getting taxonomic hierarchies, fetching downstream and
     upstream taxonomic names, getting taxonomic synonyms, converting
     scientific to common names and vice versa, and more.
-Version: 0.9.6.9321
+Version: 0.9.7.9100
 License: MIT + file LICENSE
 URL: https://github.com/ropensci/taxize (devel),
-    https://ropensci.github.io/taxize-book/ (user manual)
+    https://ropenscilabs.github.io/taxize-book/ (user manual)
 BugReports: https://github.com/ropensci/taxize/issues
 Authors@R:
     c(person(given = "Scott",
@@ -99,6 +99,7 @@ Imports:
     cli,
     phangorn
 Suggests:
+    roxygen2 (>= 6.1.1),
     testthat,
     knitr,
     vegan,

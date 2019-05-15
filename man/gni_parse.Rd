@@ -9,7 +9,7 @@ gni_parse(names, ...)
 \arguments{
 \item{names}{A vector of length 1 or more of taxonomic names}
 
-\item{...}{Curl options passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}}
+\item{...}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
 A data.frame with results, the submitted names, and the

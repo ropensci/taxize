@@ -2,7 +2,7 @@ context("pow_search")
 test_that("pow_search returns the correct class", {
   vcr::use_cassette("pow_search", {
     one <- pow_search(q = "Quercus")
-  })
+  }, preserve_exact_body_bytes = TRUE)
 
   expect_is(one, "list")
   expect_named(one, c("meta", "data"))
@@ -26,7 +26,7 @@ context("pow_lookup")
 test_that("pow_lookup works", {
   vcr::use_cassette("pow_lookup", {
     one <- pow_lookup(id = "urn:lsid:ipni.org:names:320035-2")
-  })
+  }, preserve_exact_body_bytes = TRUE)
 
   expect_is(one, "list")
   expect_named(one, c("meta", "data"))
@@ -40,7 +40,7 @@ test_that("pow_lookup works", {
   vcr::use_cassette("pow_lookup_include_param", {
     one <- pow_lookup(id = "urn:lsid:ipni.org:names:320035-2",
       include = "distribution")
-  })
+  }, preserve_exact_body_bytes = TRUE)
 
   expect_is(one, "list")
   expect_named(one, c("meta", "data"))

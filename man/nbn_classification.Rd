@@ -10,7 +10,7 @@ nbn_classification(id, ...)
 \arguments{
 \item{id}{(character) An NBN identifier.}
 
-\item{...}{Further args passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}}
+\item{...}{Further args passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
 A data.frame

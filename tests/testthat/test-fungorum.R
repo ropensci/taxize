@@ -4,7 +4,7 @@ test_that("fungorum - fg_name_search", {
   vcr::use_cassette("fg_name_search", {
     aa <- fg_name_search(q = "Gymnopus", limit = 2)
     bb <- fg_name_search(q = "Gymnopus")
-  })
+  }, preserve_exact_body_bytes = TRUE)
 
   expect_is(aa, "data.frame")
   expect_is(bb, "data.frame")
@@ -81,7 +81,7 @@ test_that("fungorum - fg_deprecated_names", {
 test_that("fungorum - fg_author_search", {
   vcr::use_cassette("fg_author_search", {
     aa <- fg_author_search(q = "Fayod", limit = 2)
-  })
+  }, preserve_exact_body_bytes = TRUE)
 
   expect_is(aa, "data.frame")
   expect_equal(NROW(aa), 2)

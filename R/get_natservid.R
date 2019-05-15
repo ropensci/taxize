@@ -14,18 +14,18 @@
 #' @param rows numeric; Any number from 1 to infinity. If the default NaN, all
 #' rows are considered. Note that this function still only gives back a
 #' natservid class object with one to many identifiers. See
-#' [`get_natservid_()`] to get back all, or a subset, of the raw
+#' [get_natservid_()] to get back all, or a subset, of the raw
 #' data that you are presented during the ask process.
 #' @param key (character) your NatureServe API key. Required. See
 #' **Authentication** below for more.
 #' @param x Input to as.natservid
 #' @param ... Ignored
 #' @param check logical; Check if ID matches any existing on the DB, only
-#' used in [`as.natservid()`]
+#' used in [as.natservid()]
 #' @template getreturn
 #'
 #' @family taxonomic-ids
-#' @seealso [`classification()`]
+#' @seealso [classification()]
 #'
 #' @section Authentication:
 #' Get an API key from NatureServe at
@@ -37,7 +37,7 @@
 #' * your .Renviron file with an entry like
 #' `NATURE_SERVE_KEY=your-natureserve-key`
 #'
-#' See [`Startup()`] for information on how to create/find your
+#' See [Startup] for information on how to create/find your
 #' .Rprofile and .Renviron files
 #'
 #' @examples \dontrun{
