@@ -219,6 +219,10 @@ remotes::install_github("ropensci/taxize")
 library('taxize')
 ```
 
+```{r echo=FALSE}
+taxize_options(FALSE, quiet = TRUE)
+```
+
 ## Get unique taxonomic identifier from NCBI
 
 Alot of `taxize` revolves around taxonomic identifiers. Because, as you know, names can be a mess (misspelled, synonyms, etc.), it's better to get an identifier that a particular data source knows about, then we can move forth acquiring more fun taxonomic data.
@@ -249,7 +253,7 @@ children("Salmo", db = 'ncbi')
 Get all species in the genus _Apis_
 
 ```{r downstream}
-downstream(as.tsn(154395), db = 'itis', downto = 'species', verbose = FALSE)
+downstream(as.tsn(154395), db = 'itis', downto = 'species', mesages = FALSE)
 ```
 
 ## Upstream taxa
@@ -257,7 +261,7 @@ downstream(as.tsn(154395), db = 'itis', downto = 'species', verbose = FALSE)
 Get all genera up from the species _Pinus contorta_ (this includes the genus of the species, and its co-genera within the same family).
 
 ```{r upstream}
-upstream("Pinus contorta", db = 'itis', upto = 'Genus', verbose=FALSE)
+upstream("Pinus contorta", db = 'itis', upto = 'Genus', mesages = FALSE)
 ```
 
 ## Get synonyms
@@ -269,7 +273,7 @@ synonyms("Acer drummondii", db="itis")
 ## Get taxonomic IDs from many sources
 
 ```{r get_ids}
-get_ids(names="Salvelinus fontinalis", db = c('itis', 'ncbi'), verbose=FALSE)
+get_ids(names="Salvelinus fontinalis", db = c('itis', 'ncbi'), mesages = FALSE)
 ```
 
 You can limit to certain rows when getting ids in any `get_*()` functions

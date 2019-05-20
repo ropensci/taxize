@@ -71,7 +71,7 @@ get_ids_dbs <- c(
 #'   rows=1:10)
 #'
 #' # use curl options
-#' get_ids("Agapostemon", db = "ncbi", verbose = TRUE)
+#' get_ids("Agapostemon", db = "ncbi", messages = TRUE)
 #' }
 
 get_ids <- function(names,

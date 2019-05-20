@@ -1,7 +1,8 @@
 #' Get a IUCN Redlist taxon
 #'
 #' @export
-#' @param x (character) A vector of common or scientific names
+#' @param x (character) A vector of common or scientific names. Or, a
+#' `taxon_state` object (see [taxon-state])
 #' @param messages logical; should progress be printed?
 #' @param key (character) required. you IUCN Redlist API key. See
 #' [rredlist::rredlist-package] for help on authenticating with
@@ -51,13 +52,28 @@
 #' }
 get_iucn <- function(x, messages = TRUE, key = NULL, ...) {
 
-  assert(x, "character")
+  assert(x, c("character", "taxon_state"))
   assert(messages, "logical")
 
-  fun <- function(x, messages, key, ...) {
+  if (inherits(x, "character")) {
+    tstate <- taxon_state$new(class = "iucn", names = x)
+    items <- x
+  } else {
+    assert_state(x, "iucn")
+    tstate <- x
+    x <- tstate$taxa_remaining()
+    items <- c(x, tstate$taxa_completed())
+  }
+
+  prog <- progressor$new(items = items, suppress = !messages)
+  done <- tstate$get()
+  for (i in seq_along(done)) prog$completed(names(done)[i], done[[i]]$att)
+  prog$prog_start()
+
+  for (i in seq_along(x)) {
     direct <- FALSE
-    mssg(messages, "\nRetrieving data for taxon '", x, "'\n")
-    df <- rredlist::rl_search(x, key = key, ...)
+    mssg(messages, "\nRetrieving data for taxon '", x[i], "'\n")
+    df <- rredlist::rl_search(x[i], key = key, ...)
 
     if (!inherits(df$result, "data.frame") || NROW(df$result) == 0) {
       id <- NA_character_
@@ -74,7 +90,7 @@ get_iucn <- function(x, messages = TRUE, key = NULL, ...) {
       }
 
       # check for direct match
-      direct <- match(tolower(df$scientific_name), tolower(x))
+      direct <- match(tolower(df$scientific_name), tolower(x[i]))
 
       if (!all(is.na(direct))) {
         id <- df$taxonid[!is.na(direct)]
@@ -87,22 +103,18 @@ get_iucn <- function(x, messages = TRUE, key = NULL, ...) {
       }
       # multiple matches not possible because no real search
     }
-
-    data.frame(
-      id = id,
-      name = x,
-      att = att,
-      stringsAsFactors = FALSE)
+    res <- list(id = id, name = x[i], att = att, direct = direct)
+    prog$completed(x[i], att)
+    prog$prog(att)
+    tstate$add(x[i], res)
   }
-  outd <- ldply(x, fun, messages = messages, key = key, ...)
-  out <- outd$id
-  attr(out, 'match') <- outd$att
-  attr(out, 'name') <- outd$name
-  if ( !all(is.na(out)) ) {
-    attr(out, 'uri') <- sprintf(iucn_base_url, out)
-  }
-  class(out) <- "iucn"
-  return(out)
+  out <- tstate$get()
+  ids <- structure(as.character(unlist(pluck(out, "id"))), class = "iucn",
+                   match = pluck_un(out, "att", ""),
+                   name = pluck_un(out, "name", ""))
+  on.exit(prog$prog_summary(), add = TRUE)
+  on.exit(tstate$exit, add = TRUE)
+  add_uri(ids, get_url_templates$iucn)
 }
 
 #' @export

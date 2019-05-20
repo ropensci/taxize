@@ -4,9 +4,9 @@ test_that("tax_name: ncbi", {
   skip_on_cran() # uses secrets
   vcr::use_cassette("tax_name_ncbi", {
     tmp_ncbi  <- tax_name(query = "Baetis", get = c("family", "order"),
-                          db = "ncbi", verbose=FALSE)
+                          db = "ncbi", messages=FALSE)
     tmp_ncbi2 <- tax_name(query = c("Helianthus annuus", 'Baetis rhodani'),
-                          get = c("genus", "kingdom"), db = "ncbi", verbose=FALSE)
+                          get = c("genus", "kingdom"), db = "ncbi", messages=FALSE)
   })
 
 	expect_is(tmp_ncbi, "data.frame")
@@ -20,9 +20,9 @@ test_that("tax_name: NA's", {
   skip_on_cran() # uses secrets
   vcr::use_cassette("tax_name_na", {
     tmp_na2 <- tax_name(query=c("Helianthus annuus", 'xxxx'),
-                        get=c("family", "order"), db="ncbi", verbose=FALSE)
+                        get=c("family", "order"), db="ncbi", messages=FALSE)
     tmp_na3 <- sw(tax_name(query = c("Helianthus annuus", 'xxxx'), rows = 1,
-                        get = c("family", "order"), db="itis", verbose = FALSE))
+                        get = c("family", "order"), db="itis", messages = FALSE))
   })
 
   expect_is(tmp_na2, "data.frame")
@@ -36,7 +36,7 @@ test_that("tax_name: NA's", {
 test_that("tax_name: itis", {
   vcr::use_cassette("tax_name_itis", {
     tmp_itis <- sw(tax_name(query = "Helianthus annuus", rows = 1,
-                        get = c("family", "order"), db="itis", verbose = FALSE))
+                        get = c("family", "order"), db="itis", messages = FALSE))
   })
 
   expect_is(tmp_itis, "data.frame")
@@ -61,7 +61,7 @@ test_that("tax_name accepts ask-argument", {
   skip_on_cran() # uses secrets
   vcr::use_cassette("tax_name_arg_arg", {
     x <- sw(tax_name(query = "Dugesia", get = "family", db = "ncbi",
-                             ask = FALSE, verbose = FALSE))$family
+                             ask = FALSE, messages = FALSE))$family
   })
 
   expect_true(is.na(x))

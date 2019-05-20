@@ -46,5 +46,5 @@ test_that("iucn_summary curl options work", {
   if (Sys.getenv("IUCN_REDLIST_KEY") == "") {
     skip("No IUCN api key so test not run.")
   }
-  expect_error(iucn_summary("Abies koreana", timeout_ms = 1))
+  expect_error(iucn_summary("Abies koreana", timeout_ms = 1, messages = FALSE))
 })

@@ -5,7 +5,7 @@
 \title{Use Catalogue of Life to get downstream taxa to a given taxonomic level}
 \usage{
 col_downstream(name = NULL, id = NULL, downto, format = NULL,
-  start = NULL, checklist = NULL, verbose = TRUE,
+  start = NULL, checklist = NULL, messages = TRUE,
   intermediate = FALSE, extant_only = FALSE, ...)
 }
 \arguments{
@@ -35,7 +35,7 @@ full queries).}
 \item{checklist}{The year of the checklist to query, if you want a specific
 year's checklist instead of the lastest as default (numeric).}
 
-\item{verbose}{Print or suppress messages.}
+\item{messages}{Print or suppress messages.}
 
 \item{intermediate}{(logical) If \code{TRUE}, return a list of length two
 with target taxon rank names, with additional list of data.frame's of

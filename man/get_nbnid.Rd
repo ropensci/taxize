@@ -30,7 +30,8 @@ get_nbnid_(name, messages = TRUE, rec_only = FALSE, rank = NULL,
   rows = NA, ...)
 }
 \arguments{
-\item{name}{character; scientific name.}
+\item{name}{character; scientific name. Or, a \code{taxon_state}
+object (see \link{taxon-state})}
 
 \item{ask}{logical; should get_nbnid be run in interactive mode?
 If TRUE and more than one ID is found for the species, the user is asked for
@@ -89,10 +90,10 @@ get_nbnid(name='Pinus contorta')
 get_nbnid(name='red-winged blackbird')
 
 # specify rows to limit choices available
-get_nbnid('Poa annua')
-get_nbnid('Poa annua', rows=1)
-get_nbnid('Poa annua', rows=25)
-get_nbnid('Poa annua', rows=1:2)
+get_nbnid('Poa ann')
+get_nbnid('Poa ann', rows=1)
+get_nbnid('Poa ann', rows=25)
+get_nbnid('Poa ann', rows=1:2)
 
 # When not found
 get_nbnid(name="uaudnadndj")

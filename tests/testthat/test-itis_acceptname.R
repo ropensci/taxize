@@ -19,7 +19,7 @@ test_that("itis_acceptname works with non-accepted tsn", {
   expect_is(temp, "data.frame")
   expect_named(temp, c('submittedtsn', 'acceptedname', 'acceptedtsn', 'author'))
   expect_equal(temp$submittedtsn, 504239)
-  expect_that(is.na(temp$acceptedname), is_false())
+  expect_false(is.na(temp$acceptedname))
 })
 
 test_that("itis_acceptname fails as expected", {

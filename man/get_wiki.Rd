@@ -13,7 +13,7 @@
 \title{Get the page name for a Wiki taxon}
 \usage{
 get_wiki(x, wiki_site = "species", wiki = "en", ask = TRUE,
-  verbose = TRUE, limit = 100, rows = NA, ...)
+  messages = TRUE, limit = 100, rows = NA, ...)
 
 as.wiki(x, check = TRUE, wiki_site = "species", wiki = "en")
 
@@ -34,11 +34,12 @@ as.wiki(x, check = TRUE, wiki_site = "species", wiki = "en")
 
 \method{as.data.frame}{wiki}(x, ...)
 
-get_wiki_(x, verbose = TRUE, wiki_site = "species", wiki = "en",
+get_wiki_(x, messages = TRUE, wiki_site = "species", wiki = "en",
   limit = 100, rows = NA, ...)
 }
 \arguments{
-\item{x}{(character) A vector of common or scientific names.}
+\item{x}{(character) A vector of common or scientific names. Or, a
+\code{taxon_state} object (see \link{taxon-state})}
 
 \item{wiki_site}{(character) Wiki site. One of species (default), pedia,
 commons}
@@ -49,7 +50,7 @@ commons}
 If \code{TRUE} and more than one wiki is found for the species, the user is
 asked for input. If \code{FALSE} NA is returned for multiple matches.}
 
-\item{verbose}{logical; should progress be printed?}
+\item{messages}{logical; should progress be printed?}
 
 \item{limit}{(integer) number of records to return}
 

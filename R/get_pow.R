@@ -1,7 +1,8 @@
 #' Get Kew's Plants of the World code for a taxon
 #'
 #' @export
-#' @param x character; A vector of common or scientific names
+#' @param x character; A vector of common or scientific names. Or, a
+#' `taxon_state` object (see [taxon-state])
 #' @param accepted logical; If TRUE, removes names that are not accepted 
 #' valid names by ITIS. Set to `FALSE` (default) to give back both 
 #' accepted and unaccepted names.
@@ -87,6 +88,7 @@
 get_pow <- function(x, accepted = FALSE, ask = TRUE, messages = TRUE,
   rows = NA, family_filter = NULL, rank_filter = NULL, ...) {
 
+  assert(x, c("character", "taxon_state"))
   assert(accepted, "logical")
   assert(ask, "logical")
   assert(messages, "logical")
@@ -94,10 +96,25 @@ get_pow <- function(x, accepted = FALSE, ask = TRUE, messages = TRUE,
   assert(rank_filter, "character")
   assert_rows(rows)
 
-  fun <- function(x, ask, messages, rows) {
+  if (inherits(x, "character")) {
+    tstate <- taxon_state$new(class = "pow", names = x)
+    items <- x
+  } else {
+    assert_state(x, "pow")
+    tstate <- x
+    x <- tstate$taxa_remaining()
+    items <- c(x, tstate$taxa_completed())
+  }
+
+  prog <- progressor$new(items = items, suppress = !messages)
+  done <- tstate$get()
+  for (i in seq_along(done)) prog$completed(names(done)[i], done[[i]]$att)
+  prog$prog_start()
+
+  for (i in seq_along(x)) {
     direct <- FALSE
-    mssg(messages, "\nRetrieving data for taxon '", x, "'\n")
-    pow_df <- pow_search(q = x, ...)$data
+    mssg(messages, "\nRetrieving data for taxon '", x[i], "'\n")
+    pow_df <- pow_search(q = x[i], ...)$data
     mm <- NROW(pow_df) > 1
 
     if (!inherits(pow_df, "data.frame")) {
@@ -125,7 +142,7 @@ get_pow <- function(x, accepted = FALSE, ask = TRUE, messages = TRUE,
       # check for direct match
       if (nrow(pow_df) > 1) {
         names(pow_df)[grep('name', names(pow_df))] <- "target"
-        di_rect <- match(tolower(pow_df$target), tolower(x))
+        di_rect <- match(tolower(pow_df$target), tolower(x[i]))
         if (length(di_rect) == 1) {
           if (!all(is.na(di_rect))) {
             pow <- pow_df$fqId[!is.na(di_rect)]
@@ -168,7 +185,7 @@ get_pow <- function(x, accepted = FALSE, ask = TRUE, messages = TRUE,
             # prompt
             message("\n\n")
             print(pow_df)
-            message("\nMore than one pow found for taxon '", x, "'!\n
+            message("\nMore than one pow found for taxon '", x[i], "'!\n
           Enter rownumber of taxon (other inputs will return 'NA'):\n") # prompt
             take <- scan(n = 1, quiet = TRUE, what = 'raw')
 
@@ -191,7 +208,7 @@ get_pow <- function(x, accepted = FALSE, ask = TRUE, messages = TRUE,
           } else {
             warning(
               sprintf("More than one pow found for taxon '%s'; refine query or set ask=TRUE",
-                      x),
+                      x[i]),
               call. = FALSE
             )
             pow <- NA_character_
@@ -200,20 +217,20 @@ get_pow <- function(x, accepted = FALSE, ask = TRUE, messages = TRUE,
         }
       }
     }
-    data.frame(
-      pow = as.character(pow),
-      att = att,
-      multiple = mm,
-      direct = direct,
-      stringsAsFactors = FALSE)
+    res <- list(id = as.character(pow), att = att, multiple = mm,
+      direct = direct)
+    prog$completed(x[i], att)
+    prog$prog(att)
+    tstate$add(x[i], res)
   }
-  x <- as.character(x)
-  outd <- ldply(x, fun, ask, messages, rows)
-  out <- structure(outd$pow, class = "pow",
-                   match = outd$att,
-                   multiple_matches = outd$multiple,
-                   pattern_match = outd$direct)
-  add_uri(out, 'http://powo.science.kew.org/taxon/%s')
+  out <- tstate$get()
+  ids <- structure(as.character(unlist(pluck(out, "id"))), class = "pow",
+                   match = pluck_un(out, "att", ""),
+                   multiple_matches = pluck_un(out, "multiple", logical(1)),
+                   pattern_match = pluck_un(out, "direct", logical(1)))
+  on.exit(prog$prog_summary(), add = TRUE)
+  on.exit(tstate$exit, add = TRUE)
+  add_uri(ids, get_url_templates$pow)
 }
 
 #' @export

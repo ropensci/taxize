@@ -21,7 +21,7 @@
 #' full queries).
 #' @param checklist The year of the checklist to query, if you want a specific
 #' year's checklist instead of the lastest as default (numeric).
-#' @param verbose Print or suppress messages.
+#' @param messages Print or suppress messages.
 #' @param intermediate (logical) If `TRUE`, return a list of length two
 #' with target taxon rank names, with additional list of data.frame's of
 #' intermediate taxonomic groups. Default: `FALSE`
@@ -61,7 +61,7 @@
 #' }
 
 col_downstream <- function(name = NULL, id = NULL, downto, format = NULL,
-  start = NULL, checklist = NULL, verbose = TRUE, intermediate = FALSE,
+  start = NULL, checklist = NULL, messages = TRUE, intermediate = FALSE,
   extant_only = FALSE, ...) {
 
   downto <- tolower(downto)
@@ -148,7 +148,7 @@ col_downstream <- function(name = NULL, id = NULL, downto, format = NULL,
 
   nas <- sapply(temp, function(z)
     NROW(na.omit( if (intermediate) z$target else z )))
-  if (verbose)
+  if (messages)
     message(
       sprintf('These taxa with no data: %s\nTry adjusting input parameters',
               names(nas[nas == 0])))

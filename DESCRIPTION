@@ -94,6 +94,9 @@ Imports:
     worrms (>= 0.3.2),
     natserv (>= 0.3.0),
     wikitaxa (>= 0.3.0),
+    R6,
+    crayon,
+    cli,
     phangorn
 Suggests:
     roxygen2 (>= 6.1.1),

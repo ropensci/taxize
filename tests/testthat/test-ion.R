@@ -18,8 +18,8 @@ test_that("ion returns the correct value", {
 
 test_that("ion fails well", {
   vcr::use_cassette("ion_fails_well", {
-    expect_error(ion(2343434434434), "Internal Server Error")
-    expect_error(ion("asdfasfs"), "Internal Server Error")
+    expect_error(ion(2343434434434), class = "error")
+    expect_error(ion("asdfasfs"), class = "error")
   })
   
   skip_on_cran()

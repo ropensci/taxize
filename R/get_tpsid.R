@@ -1,7 +1,8 @@
 #' Get the NameID codes from Tropicos for taxonomic names.
 #'
 #' @export
-#' @param sciname (character) One or more scientific name's as a vector or list.
+#' @param sciname (character) One or more scientific name's as a vector or list. Or,
+#' a `taxon_state` object (see [taxon-state])
 #' @param ask logical; should get_tpsid be run in interactive mode?
 #' If TRUE and more than one ID is found for the species, the user is asked for
 #' input. If FALSE NA is returned for multiple matches.
@@ -40,10 +41,10 @@
 #' get_tpsid(c("Poa annua", "Pinus contorta"))
 #'
 #' # specify rows to limit choices available
-#' get_tpsid('Poa annua')
-#' get_tpsid('Poa annua', rows=1)
-#' get_tpsid('Poa annua', rows=25)
-#' get_tpsid('Poa annua', rows=1:2)
+#' get_tpsid('Poa ann')
+#' get_tpsid('Poa ann', rows=1)
+#' get_tpsid('Poa ann', rows=25)
+#' get_tpsid('Poa ann', rows=1:2)
 #'
 #' # When not found, NA given (howdy is not a species name, and Chrinomus is a fly)
 #' get_tpsid("howdy")
@@ -104,22 +105,38 @@
 #' get_tpsid_(c("asdfadfasd","Pinus contorta"), rows=1:5)
 #'
 #' # use curl options
-#' invisible(get_tpsid("Quercus douglasii", verbose = TRUE))
+#' invisible(get_tpsid("Quercus douglasii", messages = TRUE))
 #' }
 
 get_tpsid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
   rows = NA, family = NULL, rank = NULL, ...) {
 
+  assert(sciname, c("character", "taxon_state"))
   assert(ask, "logical")
   assert(messages, "logical")
   assert(family, "character")
   assert(rank, "character")
   assert_rows(rows)
 
-  fun <- function(sciname, ask, messages, rows, ...) {
+  if (inherits(sciname, "character")) {
+    tstate <- taxon_state$new(class = "tpsid", names = sciname)
+    items <- sciname
+  } else {
+    assert_state(sciname, "tpsid")
+    tstate <- sciname
+    sciname <- tstate$taxa_remaining()
+    items <- c(sciname, tstate$taxa_completed())
+  }
+
+  prog <- progressor$new(items = items, suppress = !messages)
+  done <- tstate$get()
+  for (i in seq_along(done)) prog$completed(names(done)[i], done[[i]]$att)
+  prog$prog_start()
+
+  for (i in seq_along(sciname)) {
     direct <- FALSE
-    mssg(messages, "\nRetrieving data for taxon '", sciname, "'\n")
-    tmp <- tp_search(name = sciname, key = key, ...)
+    mssg(messages, "\nRetrieving data for taxon '", sciname[i], "'\n")
+    tmp <- tp_search(name = sciname[i], key = key, ...)
     mm <- NROW(tmp) > 1
 
     if (
@@ -162,7 +179,7 @@ get_tpsid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
 
         # more than one, try for direct match
         if (length(id) > 1) {
-          matchtmp <- df[tolower(df$name) %in% tolower(sciname), "tpsid"]
+          matchtmp <- df[tolower(df$name) %in% tolower(sciname[i]), "tpsid"]
           if (length(matchtmp) == 1) {
             id <- matchtmp
             direct <- TRUE
@@ -175,7 +192,7 @@ get_tpsid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
             # prompt
             rownames(df) <- 1:nrow(df)
             message("\n\n")
-            message("\nMore than one tpsid found for taxon '", sciname, "'!\n
+            message("\nMore than one tpsid found for taxon '", sciname[i], "'!\n
           Enter rownumber of taxon (other inputs will return 'NA'):\n")
             rownames(df) <- 1:nrow(df)
             print(df)
@@ -197,7 +214,7 @@ get_tpsid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
             }
           } else {
             if (length(id) != 1) {
-              warning(sprintf(m_more_than_one_found, "tpsid", sciname),
+              warning(sprintf(m_more_than_one_found, "tpsid", sciname[i]),
                 call. = FALSE)
               id <- NA_character_
               att <- m_na_ask_false
@@ -205,16 +222,19 @@ get_tpsid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
           }
         }
     }
-    list(id = as.character(id), att = att, multiple = mm, direct = direct)
+    res <- list(id = as.character(id), att = att, multiple = mm, direct = direct)
+    prog$completed(sciname[i], att)
+    prog$prog(att)
+    tstate$add(sciname[i], res)
   }
-  sciname <- as.character(sciname)
-  out <- lapply(sciname, fun, ask, messages, rows, ...)
-  ids <- pluck(out, "id", "")
-  atts <- pluck(out, "att", "")
-  ids <- structure(ids, class = "tpsid", match = atts,
-                   multiple_matches = pluck(out, "multiple", logical(1)),
-                   pattern_match = pluck(out, "direct", logical(1)))
-  add_uri(ids, 'http://tropicos.org/Name/%s')
+  out <- tstate$get()
+  ids <- structure(as.character(unlist(pluck(out, "id"))), class = "tpsid",
+                   match = pluck_un(out, "att", ""),
+                   multiple_matches = pluck_un(out, "multiple", logical(1)),
+                   pattern_match = pluck_un(out, "direct", logical(1)))
+  on.exit(prog$prog_summary(), add = TRUE)
+  on.exit(tstate$exit, add = TRUE)
+  add_uri(ids, get_url_templates$tropicos)
 }
 
 #' @export

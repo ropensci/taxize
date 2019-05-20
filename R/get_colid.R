@@ -1,7 +1,8 @@
 #' Get the Catalogue of Life ID from taxonomic names
 #'
 #' @export
-#' @param sciname character; scientific name.
+#' @param sciname character; scientific name. Or, a `taxon_state`
+#' object (see [taxon-state])
 #' @param ask logical; should get_colid be run in interactive mode?
 #' If TRUE and more than one ID is found for the species, the user is asked for
 #' input. If FALSE NA is returned for multiple matches.
@@ -125,6 +126,7 @@ get_colid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
   kingdom = NULL, phylum = NULL, class = NULL, order = NULL,
   family = NULL, rank = NULL, status = NULL, ...) {
 
+  assert(sciname, c("character", "taxon_state"))
   assert(ask, "logical")
   assert(messages, "logical")
   assert(kingdom, "character")
@@ -136,10 +138,25 @@ get_colid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
   assert(status, "character")
   assert_rows(rows)
 
-  fun <- function(sciname, ask, messages, rows, ...) {
+  if (inherits(sciname, "character")) {
+    tstate <- taxon_state$new(class = "colid", names = sciname)
+    items <- sciname
+  } else {
+    assert_state(sciname, "colid")
+    tstate <- sciname
+    sciname <- tstate$taxa_remaining()
+    items <- c(sciname, tstate$taxa_completed())
+  }
+
+  prog <- progressor$new(items = items, suppress = !messages)
+  done <- tstate$get()
+  for (i in seq_along(done)) prog$completed(names(done)[i], done[[i]]$att)
+  prog$prog_start()
+
+  for (i in seq_along(sciname)) {
     direct <- FALSE
-    mssg(messages, "\nRetrieving data for taxon '", sciname, "'\n")
-    df <- col_search_paginate(name = sciname, response = "full", ...)[[1]]
+    mssg(messages, "\nRetrieving data for taxon '", sciname[i], "'\n")
+    df <- col_search_paginate(name = sciname[i], response = "full", ...)[[1]]
     df <- data.frame(df, stringsAsFactors = FALSE)
     mm <- NROW(df) > 1
 
@@ -189,7 +206,7 @@ get_colid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
       }
 
       if (length(id) > 1) {
-        matchtmp <- df[tolower(df$name) %in% tolower(sciname), "colid"]
+        matchtmp <- df[tolower(df$name) %in% tolower(sciname[i]), "colid"]
         if (length(matchtmp) == 1) {
           id <- matchtmp
           direct <- TRUE
@@ -202,7 +219,7 @@ get_colid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
           # prompt
           rownames(df) <- 1:nrow(df)
           message("\n\n")
-          message("\nMore than one colid found for taxon '", sciname, "'!\n
+          message("\nMore than one colid found for taxon '", sciname[i], "'!\n
             Enter rownumber of taxon (other inputs will return 'NA'):\n")
           print(df)
           take <- scan(n = 1, quiet = TRUE, what = 'raw')
@@ -225,7 +242,7 @@ get_colid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
           }
         } else {
           if (length(id) != 1) {
-            warning(sprintf(m_more_than_one_found, "colid", sciname),
+            warning(sprintf(m_more_than_one_found, "colid", sciname[i]),
               call. = FALSE)
             id <- NA_character_
             att <- m_na_ask_false
@@ -233,29 +250,35 @@ get_colid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
         }
       }
     }
-    list(id = id, rank = rank_taken, att = att, multiple = mm, direct = direct)
+    res <- list(id = id, rank = rank_taken, att = att, multiple = mm,
+      direct = direct)
+    prog$completed(sciname[i], att)
+    prog$prog(att)
+    tstate$add(sciname[i], res)
   }
-  sciname <- as.character(sciname)
-  out <- lapply(sciname, fun, ask = ask, messages = messages, rows = rows, ...)
-  ids <- pluck(out, "id", "")
-  atts <- pluck(out, "att", "")
-  ids <- structure(ids, class = "colid", match = atts,
-                   multiple_matches = pluck(out, "multiple", logical(1)),
-                   pattern_match = pluck(out, "direct", logical(1)))
+  out <- tstate$get()
+  ids <- structure(as.character(unlist(pluck(out, "id"))), class = "colid",
+                   match = pluck_un(out, "att", ""),
+                   multiple_matches = pluck_un(out, "multiple", logical(1)),
+                   pattern_match = pluck_un(out, "direct", logical(1)))
   if ( !all(is.na(ids)) ) {
     urls <- sapply(out, function(z){
       if (!is.na(z[['id']])) {
         if (tolower(z['rank']) == "species") {
-          sprintf('http://www.catalogueoflife.org/col/details/species/id/%s', z[['id']])
+          sprintf('https://www.catalogueoflife.org/col/details/species/id/%s',
+            z[['id']])
         } else {
-          sprintf('http://www.catalogueoflife.org/col/browse/tree/id/%s', z[['id']])
+          sprintf('https://www.catalogueoflife.org/col/browse/tree/id/%s',
+            z[['id']])
         }
       } else {
         NA
       }
     })
-    attr(ids, 'uri') <- unlist(urls)
+    attr(ids, 'uri') <- unname(unlist(urls))
   }
+  on.exit(prog$prog_summary(), add = TRUE)
+  on.exit(tstate$exit, add = TRUE)
   return(ids)
 }
 

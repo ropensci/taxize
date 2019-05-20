@@ -85,7 +85,7 @@ get_ids_(c("Chironomus riparius", "Pinus contorta"), db = c('nbn','gbif'),
   rows=1:10)
 
 # use curl options
-get_ids("Agapostemon", db = "ncbi", verbose = TRUE)
+get_ids("Agapostemon", db = "ncbi", messages = TRUE)
 }
 }
 \seealso{

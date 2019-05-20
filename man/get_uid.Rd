@@ -33,7 +33,8 @@ as.uid(x, check = TRUE)
 get_uid_(sciname, messages = TRUE, rows = NA, key = NULL, ...)
 }
 \arguments{
-\item{sciname}{character; scientific name.}
+\item{sciname}{character; scientific name. Or, a \code{taxon_state}
+object (see \link{taxon-state})}
 
 \item{ask}{logical; should get_uid be run in interactive mode? If TRUE and
 more than one TSN is found for the species, the user is asked for input. If
