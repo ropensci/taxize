@@ -2,7 +2,7 @@
 #'
 #' @export
 #' @param x (character) A vector of common or scientific names. Or, a
-#' [taxon_state()] object
+#' `taxon_state` object (see [taxon-state])
 #' @param wiki_site (character) Wiki site. One of species (default), pedia,
 #' commons
 #' @param wiki (character) language. Default: en
@@ -59,6 +59,7 @@ get_wiki <- function(x, wiki_site = "species", wiki = "en", ask = TRUE,
     tstate <- taxon_state$new(class = "wiki", names = x)
     items <- x
   } else {
+    assert_state(x, "wiki")
     tstate <- x
     x <- tstate$taxa_remaining()
     items <- c(x, tstate$taxa_completed())

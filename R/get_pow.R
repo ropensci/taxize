@@ -2,7 +2,7 @@
 #'
 #' @export
 #' @param x character; A vector of common or scientific names. Or, a
-#' [taxon_state()] object
+#' `taxon_state` object (see [taxon-state])
 #' @param accepted logical; If TRUE, removes names that are not accepted 
 #' valid names by ITIS. Set to `FALSE` (default) to give back both 
 #' accepted and unaccepted names.
@@ -100,6 +100,7 @@ get_pow <- function(x, accepted = FALSE, ask = TRUE, messages = TRUE,
     tstate <- taxon_state$new(class = "pow", names = x)
     items <- x
   } else {
+    assert_state(x, "pow")
     tstate <- x
     x <- tstate$taxa_remaining()
     items <- c(x, tstate$taxa_completed())

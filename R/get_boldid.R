@@ -3,7 +3,7 @@
 #' @importFrom bold bold_tax_name bold_tax_id
 #' @export
 #' @param searchterm character; A vector of common or scientific names. Or,
-#' a [taxon_state()] object
+#' a `taxon_state` object (see [taxon-state])
 #' @param fuzzy (logical) Whether to use fuzzy search or not (default: FALSE).
 #' @param dataTypes (character) Specifies the datatypes that will be returned.
 #' See [bold_search()] for options.
@@ -127,6 +127,7 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes = 'basic',
     tstate <- taxon_state$new(class = "boldid", names = searchterm)
     items <- searchterm
   } else {
+    assert_state(searchterm, "boldid")
     tstate <- searchterm
     searchterm <- tstate$taxa_remaining()
     items <- c(searchterm, tstate$taxa_completed())

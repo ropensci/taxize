@@ -5,7 +5,7 @@
 #'
 #' @export
 #' @param query character; A vector of common or scientific names. Or, a
-#' [taxon_state()] object
+#' `taxon_state` object (see [taxon-state])
 #' @param searchtype character; One of 'scientific' or 'common', or any unique
 #' abbreviation
 #' @param accepted logical; If TRUE, removes names that are not accepted valid
@@ -101,6 +101,7 @@ get_wormsid <- function(query, searchtype = "scientific", accepted = FALSE,
     tstate <- taxon_state$new(class = "wormsid", names = query)
     items <- query
   } else {
+    assert_state(query, "wormsid")
     tstate <- query
     query <- tstate$taxa_remaining()
     items <- c(query, tstate$taxa_completed())

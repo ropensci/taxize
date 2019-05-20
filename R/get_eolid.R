@@ -6,8 +6,8 @@
 #' [eol_pages()] to find the actual taxon IDs.
 #'
 #' @export
-#' @param sciname character; scientific name. Or, a [taxon_state()]
-#' object
+#' @param sciname character; scientific name. Or, a `taxon_state`
+#' object (see [taxon-state])
 #' @param ask logical; should get_eolid be run in interactive mode?
 #' If TRUE and more than one ID is found for the species, the user is asked for
 #' input. If FALSE NA is returned for multiple matches.
@@ -129,6 +129,7 @@ get_eolid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
     tstate <- taxon_state$new(class = "eolid", names = sciname)
     items <- sciname
   } else {
+    assert_state(sciname, "eolid")
     tstate <- sciname
     sciname <- tstate$taxa_remaining()
     items <- c(sciname, tstate$taxa_completed())

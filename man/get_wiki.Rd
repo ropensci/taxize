@@ -39,7 +39,7 @@ get_wiki_(x, messages = TRUE, wiki_site = "species", wiki = "en",
 }
 \arguments{
 \item{x}{(character) A vector of common or scientific names. Or, a
-\code{\link[=taxon_state]{taxon_state()}} object}
+\code{taxon_state} object (see \link{taxon-state})}
 
 \item{wiki_site}{(character) Wiki site. One of species (default), pedia,
 commons}

@@ -2,7 +2,7 @@
 #'
 #' @export
 #' @param x (character) A vector of common or scientific names. Or, a
-#' [taxon_state()] object
+#' `taxon_state` object (see [taxon-state])
 #' @param messages logical; should progress be printed?
 #' @param key (character) required. you IUCN Redlist API key. See
 #' [rredlist::rredlist-package] for help on authenticating with
@@ -59,6 +59,7 @@ get_iucn <- function(x, messages = TRUE, key = NULL, ...) {
     tstate <- taxon_state$new(class = "iucn", names = x)
     items <- x
   } else {
+    assert_state(x, "iucn")
     tstate <- x
     x <- tstate$taxa_remaining()
     items <- c(x, tstate$taxa_completed())

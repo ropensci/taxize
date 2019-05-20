@@ -2,7 +2,7 @@
 #'
 #' @export
 #' @param sciname (character) One or more scientific name's as a vector or list. Or,
-#' a [taxon_state()] object
+#' a `taxon_state` object (see [taxon-state])
 #' @param ask logical; should get_tpsid be run in interactive mode?
 #' If TRUE and more than one ID is found for the species, the user is asked for
 #' input. If FALSE NA is returned for multiple matches.
@@ -122,6 +122,7 @@ get_tpsid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
     tstate <- taxon_state$new(class = "tpsid", names = sciname)
     items <- sciname
   } else {
+    assert_state(sciname, "tpsid")
     tstate <- sciname
     sciname <- tstate$taxa_remaining()
     items <- c(sciname, tstate$taxa_completed())

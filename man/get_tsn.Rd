@@ -34,7 +34,7 @@ get_tsn_(searchterm, messages = TRUE, searchtype = "scientific",
 }
 \arguments{
 \item{searchterm}{character; A vector of common or scientific names.
-Or, a \code{\link[=taxon_state]{taxon_state()}} object}
+Or, a \code{taxon_state} object (see \link{taxon-state})}
 
 \item{searchtype}{character; One of 'scientific' or 'common', or any
 unique abbreviation}

@@ -1,8 +1,8 @@
 #' Get the GBIF backbone taxon ID from taxonomic names.
 #'
 #' @export
-#' @param sciname (character) one or more scientific names. Or, a [taxon_state()]
-#' object
+#' @param sciname (character) one or more scientific names. Or, a `taxon_state`
+#' object (see [taxon-state])
 #' @param ask logical; should get_colid be run in interactive mode?
 #' If TRUE and more than one ID is found for the species, the user is asked for
 #' input. If FALSE NA is returned for multiple matches.
@@ -144,6 +144,7 @@ get_gbifid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
     tstate <- taxon_state$new(class = "gbifid", names = sciname)
     items <- sciname
   } else {
+    assert_state(sciname, "gbifid")
     tstate <- sciname
     sciname <- tstate$taxa_remaining()
     items <- c(sciname, tstate$taxa_completed())

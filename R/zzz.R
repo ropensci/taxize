@@ -194,6 +194,15 @@ assert <- function(x, y) {
   }
 }
 
+assert_state <- function(x, y) {
+  if (!is.null(x) && inherits(x, "taxon_state")) {
+    if (x$class != y) {
+      stop("taxon_state class must match the get_* function called ",
+        call. = FALSE)
+    }
+  }
+}
+
 dt2df <- function(x, idcol = TRUE) {
   (data.table::setDF(
     data.table::rbindlist(x, use.names = TRUE, fill = TRUE, idcol = idcol)))

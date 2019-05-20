@@ -33,7 +33,7 @@ get_tpsid_(sciname, messages = TRUE, key = NULL, rows = NA, ...)
 }
 \arguments{
 \item{sciname}{(character) One or more scientific name's as a vector or list. Or,
-a \code{\link[=taxon_state]{taxon_state()}} object}
+a \code{taxon_state} object (see \link{taxon-state})}
 
 \item{ask}{logical; should get_tpsid be run in interactive mode?
 If TRUE and more than one ID is found for the species, the user is asked for

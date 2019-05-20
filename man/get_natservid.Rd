@@ -33,7 +33,7 @@ get_natservid_(query, messages = TRUE, rows = NA, key = NULL, ...)
 }
 \arguments{
 \item{query}{character; A vector of common or scientific names. Or, a
-\code{\link[=taxon_state]{taxon_state()}} object}
+\code{taxon_state} object (see \link{taxon-state})}
 
 \item{searchtype}{character; One of 'scientific' (default) or 'common'.
 This doesn't affect the query to NatureServe - but rather affects what

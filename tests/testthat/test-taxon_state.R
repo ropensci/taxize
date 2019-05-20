@@ -1,4 +1,4 @@
-context("taxon_state/taxon_last")
+context("taxon_state/taxon_last/taxon_clear")
 
 taxon_state_env$last <- NULL
 

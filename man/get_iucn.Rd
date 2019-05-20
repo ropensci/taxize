@@ -29,7 +29,7 @@ as.iucn(x, check = TRUE, key = NULL)
 }
 \arguments{
 \item{x}{(character) A vector of common or scientific names. Or, a
-\code{\link[=taxon_state]{taxon_state()}} object}
+\code{taxon_state} object (see \link{taxon-state})}
 
 \item{messages}{logical; should progress be printed?}
 

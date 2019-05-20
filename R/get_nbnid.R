@@ -1,7 +1,8 @@
 #' Get the UK National Biodiversity Network ID from taxonomic names.
 #'
 #' @export
-#' @param name character; scientific name. Or, a [taxon_state()] object
+#' @param name character; scientific name. Or, a `taxon_state`
+#' object (see [taxon-state])
 #' @param ask logical; should get_nbnid be run in interactive mode?
 #' If TRUE and more than one ID is found for the species, the user is asked for
 #' input. If FALSE NA is returned for multiple matches.
@@ -96,6 +97,7 @@ get_nbnid <- function(name, ask = TRUE, messages = TRUE, rec_only = FALSE,
     tstate <- taxon_state$new(class = "nbnid", names = name)
     items <- name
   } else {
+    assert_state(name, "nbnid")
     tstate <- name
     name <- tstate$taxa_remaining()
     items <- c(name, tstate$taxa_completed())

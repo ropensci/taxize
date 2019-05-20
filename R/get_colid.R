@@ -1,8 +1,8 @@
 #' Get the Catalogue of Life ID from taxonomic names
 #'
 #' @export
-#' @param sciname character; scientific name. Or, a [taxon_state()]
-#' object
+#' @param sciname character; scientific name. Or, a `taxon_state`
+#' object (see [taxon-state])
 #' @param ask logical; should get_colid be run in interactive mode?
 #' If TRUE and more than one ID is found for the species, the user is asked for
 #' input. If FALSE NA is returned for multiple matches.
@@ -142,6 +142,7 @@ get_colid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
     tstate <- taxon_state$new(class = "colid", names = sciname)
     items <- sciname
   } else {
+    assert_state(sciname, "colid")
     tstate <- sciname
     sciname <- tstate$taxa_remaining()
     items <- c(sciname, tstate$taxa_completed())

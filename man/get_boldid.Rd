@@ -35,7 +35,7 @@ get_boldid_(searchterm, messages = TRUE, fuzzy = FALSE,
 }
 \arguments{
 \item{searchterm}{character; A vector of common or scientific names. Or,
-a \code{\link[=taxon_state]{taxon_state()}} object}
+a \code{taxon_state} object (see \link{taxon-state})}
 
 \item{fuzzy}{(logical) Whether to use fuzzy search or not (default: FALSE).}
 

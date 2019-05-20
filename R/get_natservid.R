@@ -2,7 +2,7 @@
 #'
 #' @export
 #' @param query character; A vector of common or scientific names. Or, a
-#' [taxon_state()] object
+#' `taxon_state` object (see [taxon-state])
 #' @param searchtype character; One of 'scientific' (default) or 'common'.
 #' This doesn't affect the query to NatureServe - but rather affects what
 #' column of data is targeted in name filtering post data request.
@@ -102,6 +102,7 @@ get_natservid <- function(query, searchtype = "scientific", ask = TRUE,
     tstate <- taxon_state$new(class = "natservid", names = query)
     items <- query
   } else {
+    assert_state(query, "natservid")
     tstate <- query
     query <- tstate$taxa_remaining()
     items <- c(query, tstate$taxa_completed())

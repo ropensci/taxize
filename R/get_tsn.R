@@ -4,7 +4,7 @@
 #'
 #' @export
 #' @param searchterm character; A vector of common or scientific names.
-#' Or, a [taxon_state()] object
+#' Or, a `taxon_state` object (see [taxon-state])
 #' @param searchtype character; One of 'scientific' or 'common', or any
 #' unique abbreviation
 #' @param accepted logical; If TRUE, removes names that are not accepted valid
@@ -87,6 +87,7 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE,
     tstate <- taxon_state$new(class = "tsn", names = searchterm)
     items <- searchterm
   } else {
+    assert_state(searchterm, "tsn")
     tstate <- searchterm
     searchterm <- tstate$taxa_remaining()
     items <- c(searchterm, tstate$taxa_completed())

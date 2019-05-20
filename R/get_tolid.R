@@ -5,7 +5,8 @@
 #'
 #' @export
 #' @inheritParams tol_resolve
-#' @param sciname character; scientific name. Or, a [taxon_state()] object
+#' @param sciname character; scientific name. Or, a `taxon_state`
+#' object (see [taxon-state])
 #' @param ask logical; should `get_tolid` be run in interactive mode?
 #' If `TRUE` and more than one TOL is found for the species, the user is
 #' asked for input. If `FALSE` NA is returned for multiple matches.
@@ -80,6 +81,7 @@ get_tolid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA, ...) {
     tstate <- taxon_state$new(class = "tolid", names = sciname)
     items <- sciname
   } else {
+    assert_state(sciname, "tolid")
     tstate <- sciname
     sciname <- tstate$taxa_remaining()
     items <- c(sciname, tstate$taxa_completed())

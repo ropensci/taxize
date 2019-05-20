@@ -31,7 +31,8 @@ as.tolid(x, check = TRUE)
 get_tolid_(sciname, messages = TRUE, rows = NA)
 }
 \arguments{
-\item{sciname}{character; scientific name. Or, a \code{\link[=taxon_state]{taxon_state()}} object}
+\item{sciname}{character; scientific name. Or, a \code{taxon_state}
+object (see \link{taxon-state})}
 
 \item{ask}{logical; should \code{get_tolid} be run in interactive mode?
 If \code{TRUE} and more than one TOL is found for the species, the user is
