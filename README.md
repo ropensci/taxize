@@ -215,6 +215,8 @@ remotes::install_github("ropensci/taxize")
 library('taxize')
 ```
 
+
+
 ## Get unique taxonomic identifier from NCBI
 
 Alot of `taxize` revolves around taxonomic identifiers. Because, as you know, names can be a mess (misspelled, synonyms, etc.), it's better to get an identifier that a particular data source knows about, then we can move forth acquiring more fun taxonomic data.
@@ -222,6 +224,14 @@ Alot of `taxize` revolves around taxonomic identifiers. Because, as you know, na
 
 ```r
 uids <- get_uid(c("Chironomus riparius", "Chaetopteryx"))
+#> ══  2 queries  ═══════════════
+#> ✔  Found:  Chironomus+riparius
+#> ✔  Found:  Chaetopteryx
+#> ══  Results  ═════════════════
+#> 
+#> ● Total: 2 
+#> ● Found: 2 
+#> ● Not Found: 0
 ```
 
 ## Retrieve classifications
@@ -304,7 +314,7 @@ Get all species in the genus _Apis_
 
 
 ```r
-downstream(as.tsn(154395), db = 'itis', downto = 'species', verbose = FALSE)
+downstream(as.tsn(154395), db = 'itis', downto = 'species', mesages = FALSE)
 #> $`154395`
 #>      tsn parentname parenttsn          taxonname rankid rankname
 #> 1 154396       Apis    154395     Apis mellifera    220  species
@@ -327,7 +337,14 @@ Get all genera up from the species _Pinus contorta_ (this includes the genus of 
 
 
 ```r
-upstream("Pinus contorta", db = 'itis', upto = 'Genus', verbose=FALSE)
+upstream("Pinus contorta", db = 'itis', upto = 'Genus', mesages = FALSE)
+#> ══  1 queries  ═══════════════
+#> ✔  Found:  Pinus contorta
+#> ══  Results  ═════════════════
+#> 
+#> ● Total: 1 
+#> ● Found: 1 
+#> ● Not Found: 0
 #> $`Pinus contorta`
 #>      tsn parentname parenttsn   taxonname rankid rankname
 #> 1  18031   Pinaceae     18030       Abies    180    genus
@@ -351,6 +368,13 @@ upstream("Pinus contorta", db = 'itis', upto = 'Genus', verbose=FALSE)
 
 ```r
 synonyms("Acer drummondii", db="itis")
+#> ══  1 queries  ═══════════════
+#> ✔  Found:  Acer drummondii
+#> ══  Results  ═════════════════
+#> 
+#> ● Total: 1 
+#> ● Found: 1 
+#> ● Not Found: 0
 #> $`Acer drummondii`
 #>   sub_tsn                    acc_name acc_tsn
 #> 1  183671 Acer rubrum var. drummondii  526853
@@ -375,10 +399,26 @@ synonyms("Acer drummondii", db="itis")
 
 
 ```r
-get_ids(names="Salvelinus fontinalis", db = c('itis', 'ncbi'), verbose=FALSE)
+get_ids(names="Salvelinus fontinalis", db = c('itis', 'ncbi'), mesages = FALSE)
+#> ══  1 queries  ═══════════════
+#> ✔  Found:  Salvelinus fontinalis
+#> ══  Results  ═════════════════
+#> 
+#> ● Total: 1 
+#> ● Found: 1 
+#> ● Not Found: 0
+#> ══  1 queries  ═══════════════
+#> ✔  Found:  Salvelinus+fontinalis
+#> ══  Results  ═════════════════
+#> 
+#> ● Total: 1 
+#> ● Found: 1 
+#> ● Not Found: 0
 #> $itis
 #> Salvelinus fontinalis 
 #>              "162003" 
+#> attr(,"class")
+#> [1] "tsn"
 #> attr(,"match")
 #> [1] "found"
 #> attr(,"multiple_matches")
@@ -387,8 +427,6 @@ get_ids(names="Salvelinus fontinalis", db = c('itis', 'ncbi'), verbose=FALSE)
 #> [1] FALSE
 #> attr(,"uri")
 #> [1] "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=162003"
-#> attr(,"class")
-#> [1] "tsn"
 #> 
 #> $ncbi
 #> Salvelinus fontinalis 
@@ -413,6 +451,13 @@ You can limit to certain rows when getting ids in any `get_*()` functions
 
 ```r
 get_ids(names="Poa annua", db = "gbif", rows=1)
+#> ══  1 queries  ═══════════════
+#> ✔  Found:  Poa annua
+#> ══  Results  ═════════════════
+#> 
+#> ● Total: 1 
+#> ● Found: 1 
+#> ● Not Found: 0
 #> $gbif
 #> Poa annua 
 #> "2704179" 
@@ -425,7 +470,7 @@ get_ids(names="Poa annua", db = "gbif", rows=1)
 #> attr(,"pattern_match")
 #> [1] FALSE
 #> attr(,"uri")
-#> [1] "http://www.gbif.org/species/2704179"
+#> [1] "https://www.gbif.org/species/2704179"
 #> 
 #> attr(,"class")
 #> [1] "ids"
@@ -459,6 +504,13 @@ get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn', rows=1:3)
 
 ```r
 sci2comm('Helianthus annuus', db = 'itis')
+#> ══  1 queries  ═══════════════
+#> ✔  Found:  Helianthus annuus
+#> ══  Results  ═════════════════
+#> 
+#> ● Total: 1 
+#> ● Found: 1 
+#> ● Not Found: 0
 #> $`Helianthus annuus`
 #> [1] "common sunflower" "sunflower"        "wild sunflower"  
 #> [4] "annual sunflower"
@@ -482,6 +534,15 @@ comm2sci("black bear", db = "itis")
 ```r
 spp <- c("Sus scrofa", "Homo sapiens", "Nycticebus coucang")
 lowest_common(spp, db = "ncbi")
+#> ══  3 queries  ═══════════════
+#> ✔  Found:  Sus+scrofa
+#> ✔  Found:  Homo+sapiens
+#> ✔  Found:  Nycticebus+coucang
+#> ══  Results  ═════════════════
+#> 
+#> ● Total: 3 
+#> ● Found: 3 
+#> ● Not Found: 0
 #>             name        rank      id
 #> 21 Boreoeutheria below-class 1437010
 ```
