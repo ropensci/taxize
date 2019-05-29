@@ -18,7 +18,7 @@ ranks <- c('domain','superkingdom','kingdom','subkingdom','infrakingdom,superphy
     'subfamily','tribe','subtribe','genus','subgenus','section','subsection',
     'species group','species subgroup','species','infraspecies','subspecies',
     'variety,varietas','subvariety,race','stirp','form,forma,morph','aberration',
-    'subform','unspecified,no rank,clade')
+    'subform','unspecified,no rank,unranked,clade')
 rank_ref <- data.frame(
   rankid = ids,
   ranks = ranks,
