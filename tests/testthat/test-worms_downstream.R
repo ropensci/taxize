@@ -2,7 +2,7 @@ context("worms_downstream")
 
 test_that("worms_downstream works", {
   vcr::use_cassette("worms_downstream", {
-    aa <- worms_downstream(id = 125732, downto = "species")
+    aa <- suppressWarnings(worms_downstream(id = 125732, downto = "species"))
   })
 
   expect_is(aa, "data.frame")
@@ -15,8 +15,8 @@ test_that("worms_downstream works", {
 
 test_that("worms_downstream intermediate param works", {
   vcr::use_cassette("worms_downstream_intermediate_param", {
-    cc <- worms_downstream(id = 125732, downto = "species", 
-      intermediate = TRUE)
+    cc <- suppressWarnings(worms_downstream(id = 125732, downto = "species", 
+      intermediate = TRUE))
   })
 
   expect_is(cc, "list")
@@ -33,19 +33,21 @@ test_that("worms_downstream intermediate param works", {
 test_that("worms_downstream fails well", {
   skip_on_cran()
 
-  expect_error(worms_downstream(198, "adfadf"), "'arg' should be one of")
-  expect_error(worms_downstream(198, "Genus", intermediate = "adf"),
+  expect_error(suppressWarnings(worms_downstream(198, "adfadf")),
+    "'arg' should be one of")
+  expect_error(
+    suppressWarnings(worms_downstream(198, "Genus", intermediate = "adf")),
                "'intermediate' should be of class 'logical'")
 })
 
 test_that("worms_downstream - start param", {
   vcr::use_cassette("worms_downstream_start_param", {
-    aa <- worms_downstream(125732, "species", start = 1)
-    bb <- worms_downstream(125732, "species", start = 3)
+    aa <- suppressWarnings(worms_downstream(125732, "species", start = 1))
+    bb <- suppressWarnings(worms_downstream(125732, "species", start = 3))
   })
 
   expect_is(aa, "data.frame")
   expect_is(bb, "data.frame")
-  expect_true(aa$name[2] == "Gadus aeglefinus")
-  expect_true(bb$name[1] == "Gadus aeglefinus")
+  expect_is(aa$name, "character")
+  expect_match(bb$name[1], "Gadus")
 })
