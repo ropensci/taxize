@@ -6,9 +6,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.4.9315 rOpenSci(taxize/0.9.7.9921)
+      X-USER-AGENT: r-curl/3.3 crul/0.7.4.9315 rOpenSci(taxize/0.9.7.9921)
   response:
     status:
       status_code: '200'
@@ -16,18 +17,18 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.10.3 (Ubuntu)
-      date: Thu, 21 Feb 2019 02:15:54 GMT
+      server: nginx/1.14.2
+      date: Wed, 26 Jun 2019 18:36:47 GMT
       content-type: application/json; charset=utf-8
       transfer-encoding: chunked
       connection: keep-alive
       x-ua-compatible: IE=Edge,chrome=1
       etag: '"90a4e2f8ce6fb92ec5a0bdba6589e589"'
       cache-control: max-age=0, private, must-revalidate
-      x-request-id: cff9a4bb118c8bb7036c57e6ed11ec42
-      x-runtime: '0.029534'
+      x-request-id: 69f3fa22964d46acaf386ed5780f26a0
+      x-runtime: '0.029374'
       x-rack-cache: miss
-      x-varnish: '6245456'
+      x-varnish: '8024867'
       age: '0'
       via: 1.1 varnish (Varnish/6.0)
       access-control-allow-origin: '*'
@@ -658,5 +659,5 @@ http_interactions:
         classification is primarily focused on Gymnodinium, a genus of dinoflagellate.
         I tried to include all Gymnodinium name strings (even invalid names and lexical
         variants).","id":182,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Gymno","unique_names_count":0,"updated_at":"2017-03-22T15:37:54Z","web_site_url":null}]'
-  recorded_at: 2019-02-21 02:15:54 GMT
+  recorded_at: 2019-06-26 18:36:47 GMT
   recorded_with: vcr/0.2.6, webmockr/0.3.4

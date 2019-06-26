@@ -23,7 +23,10 @@
 #' }
 gnr_datasources <- function(..., todf) {
   if (!missing(todf)) stop("todf is defunct", call. = FALSE)
-  res <- tax_GET(url = "https://resolver.globalnames.org",
-    path = "data_sources.json", ...)
+  cli <- crul::HttpClient$new(
+    url = "https://resolver.globalnames.org/data_sources.json",
+    headers = tx_ual, opts = list(...))
+  res <- cli$get()
+  res$raise_for_status()
   tibble::as_tibble(jsonlite::fromJSON(res$parse("UTF-8")))
 }
