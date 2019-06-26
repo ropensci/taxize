@@ -104,6 +104,7 @@ Suggests:
     knitr,
     vegan,
     vcr
+Remotes: ropensci/worrms
 RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)
 X-schema.org-applicationCategory: Taxonomy
