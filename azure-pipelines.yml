@@ -20,7 +20,9 @@ jobs:
            mkdir -p ${R_LIBS_USER}
         displayName: 'Installing R'
       - script: |
-           apt-get install libxml2-dev libcurl4-openssl-dev
+           sudo apt-get update
+           sudo apt-get install libxml2-dev libcurl4-openssl-dev
+        displayName: 'Install system dependencies'
       - script: |
            R -e "install.packages(c('remotes', 'rcmdcheck'))"
            Rscript -e "remotes::install_deps(dependencies = TRUE)"
