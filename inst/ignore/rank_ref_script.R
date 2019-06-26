@@ -24,4 +24,6 @@ rank_ref <- data.frame(
   ranks = ranks,
   stringsAsFactors = FALSE
 )
-save(rank_ref, file = "data/rank_ref.RData")
+save(rank_ref, file = "data/rank_ref.RData", version = 2)
+
+# NOTE: "version = 2" is so that we don't have to require R > 3.5
