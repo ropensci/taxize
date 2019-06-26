@@ -11,12 +11,12 @@
 ## Reverse dependencies
 
 * I have run R CMD check on the 22 downstream dependencies
-(<https://github.com/ropensci/taxize/blob/master/revdep/README.md>).
-There was a problem with one package, BIOMASS, unrelated to taxize.
+(<https://github.com/ropensci/taxize/blob/master/revdep/README.md>),
+no problems were found.
 
 ------
 
-This version makes a change in the output of the class2tree function, moves the package to using markdown documentation, and fixes encoding problems in test fixtures.
+This version adds some new features, and some bug fixes.
 
 Thanks!
 Scott Chamberlain
