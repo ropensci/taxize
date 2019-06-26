@@ -80,7 +80,7 @@ worms_downstream <- function(id, downto, intermediate = FALSE, start = 1,
 }
 
 worms_info <- function(x, ...) {
-  tt <- worrms::wm_record_(id = as.numeric(x), ...)[[1]]
+  tt <- worrms::wm_record(as.numeric(x), ...)
   tt <- tt[sapply(tt, length) != 0]
   data.frame(tt[c('scientificname', 'rank', 'AphiaID')], 
     stringsAsFactors = FALSE)

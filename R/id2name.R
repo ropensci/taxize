@@ -140,9 +140,8 @@ id2name.uid <- function(x, ...) {
 
 # WORMS
 worms_id2name <- function(x, ...) {
-  res <- worrms::wm_record_(id = as.numeric(x), ...)
+  res <- worrms::wm_record(as.numeric(x), ...)
   if (length(res) == 0) return(id2name_blanks$ncbi)
-  res <- res[[1]]
   data.frame(id = x, name = res$scientificname,
     rank = res$rank, status = res$status,
     stringsAsFactors = FALSE)
