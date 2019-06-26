@@ -1,6 +1,8 @@
 .gitignore
 ^Makefile$
 .travis.yml
+^appveyor\.yml$
+azure-pipelines.yml
 man-roxygen
 ^.*\.Rproj$
 ^\.Rproj\.user$
@@ -12,7 +14,6 @@ vignettes/taxize_vignette.md
 vignettes/taxize_infotable.md
 vignettes/margins.sty
 vignettes/cache/
-^appveyor\.yml$
 ^CODE_OF_CONDUCT\.md$
 ^cran-comments\.md$
 ^revdep$
