@@ -5,10 +5,6 @@ jobs:
       vmImage: 'Ubuntu-16.04'
     strategy:
       matrix:
-        R-3.2:
-          containerImage: rstudio/r-base:3.2-xenial
-        R-3.3:
-          containerImage: rstudio/r-base:3.3-xenial
         R-3.4:
           containerImage: rstudio/r-base:3.4-xenial
         R-3.5:
@@ -23,6 +19,8 @@ jobs:
            echo 'options(repos = "https://cran.rstudio.com")' > ~/.Rprofile
            mkdir -p ${R_LIBS_USER}
         displayName: 'Installing R'
+      - script: |
+           apt-get install libxml2-dev libcurl4-openssl-dev
       - script: |
            R -e "install.packages(c('remotes', 'rcmdcheck'))"
            Rscript -e "remotes::install_deps(dependencies = TRUE)"
@@ -57,6 +55,7 @@ jobs:
     variables:
       R_LIBS_USER: '$(Agent.BuildDirectory)/R/library'
       CRAN: 'https://cran.rstudio.com'
+      TZ: 'US/Pacific'
     steps:
       - script: |
       - pwsh: |
