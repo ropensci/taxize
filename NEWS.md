@@ -9,6 +9,7 @@ taxize 0.9.8
 ### MINOR IMPROVEMENTS
 
 * in `id2name()` and `worms_downstream()` use `worrms::wm_record` instead of `worrms::wm_record_` for newest version of `worrms` (#760)
+* many `get_*` functions and `col_downstream()` parameter `verbose` changed to `messages` to not conflict with a `verbose` curl options parameter passed in to `crul`
 
 ### BUG FIXES
 
