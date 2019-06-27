@@ -18,5 +18,8 @@ no problems were found.
 
 This version adds some new features, and some bug fixes.
 
+Important: this version of taxize depends on the version of worrms just 
+submitted to CRAN.
+
 Thanks!
 Scott Chamberlain
