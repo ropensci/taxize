@@ -610,7 +610,7 @@ out <- as.uid(c(315567, 3339, 9696))
 
 ## Contributing
 
-See our [CONTRIBUTING](.github/CONTRIBUTING.md) document.
+See our [CONTRIBUTING](https://github.com/ropensci/taxize/blob/master/.github/CONTRIBUTING.md) document.
 
 ## Contributors
 
@@ -661,9 +661,10 @@ Check out our [milestones](https://github.com/ropensci/taxize/milestones) to see
 * Please [report any issues or bugs](https://github.com/ropensci/taxize/issues).
 * License: MIT
 * Get citation information for `taxize` in R doing `citation(package = 'taxize')`
-* Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md).
+* Please note that this project is released with a [Contributor Code of Conduct][coc].
 By participating in this project you agree to abide by its terms.
 
 [![rofooter](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
 
 [tut]: https://ropensci.org/tutorials/taxize.html
+[coc]: https://github.com/ropensci/taxize/blob/master/CODE_OF_CONDUCT.md
