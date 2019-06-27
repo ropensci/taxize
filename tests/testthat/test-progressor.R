@@ -3,6 +3,8 @@ context("progressor")
 taxize_options(FALSE, quiet = TRUE)
 
 test_that("progressor works", {
+  skip_on_cran()
+
   nms <- c("Quercus", "Sasdsfasdf")
   aa <- progressor$new(items = nms)
 
@@ -39,6 +41,8 @@ test_that("progressor works", {
 })
 
 test_that("progressor fails well", {
+  skip_on_cran()
+  
   expect_error(progressor$new(apple = 5), "unused argument")
 })
 

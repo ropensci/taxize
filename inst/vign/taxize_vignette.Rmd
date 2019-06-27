@@ -223,8 +223,8 @@ A_clas[[1]]$rank[tolower(A_clas[[1]]$name) %in% B3]
 
 If we find a direct match (here *Gammarus roeseli*), we are lucky. But we can also match Gammaridae with *Gammarus roeseli*, but on a lower taxonomic level. A more comprehensive and realistic example (matching a trait table with an abundance table) is given in the vignette on matching.
 
-[eol]: http://www.eol.org/
-[ncbi]: http://www.ncbi.nlm.nih.gov/
-[itis]: http://www.itis.gov/
-[wikispecies]: http://species.wikimedia.org/wiki/Main_Page
+[eol]: https://www.eol.org/
+[ncbi]: https://www.ncbi.nlm.nih.gov/
+[itis]: https://www.itis.gov/
+[wikispecies]: https://species.wikimedia.org/wiki/Main_Page
 [col]: http://www.catalogueoflife.org/
