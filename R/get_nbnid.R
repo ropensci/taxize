@@ -111,7 +111,8 @@ get_nbnid <- function(name, ask = TRUE, messages = TRUE, rec_only = FALSE,
   for (i in seq_along(name)) {
     direct <- FALSE
     mssg(messages, "\nRetrieving data for taxon '", name[i], "'\n")
-    df <- nbn_search(q = name[i], rows = 500, ...)$data
+    df <- nbn_search(q = name[i], rows = 500, fq = "idxtype:TAXON",
+      ...)$data
     if (is.null(df) || length(df) == 0) df <- data.frame(NULL)
     mm <- NROW(df) > 1
 
