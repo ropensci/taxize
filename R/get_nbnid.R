@@ -268,12 +268,12 @@ as.data.frame.nbnid <- function(x, ...) {
 }
 
 make_nbnid <- function(x, check=TRUE) {
-  make_generic(x, 'https://species.nbnatlas.org/species/%s', "nbnid", check)
+  make_generic(x, 'https://species-ws.nbnatlas.org/species/%s', "nbnid", check)
 }
 
 check_nbnid <- function(x){
   url <- "https://species-ws.nbnatlas.org/species/"
-  res <- tax_GET(paste0(url, x))
+  res <- tax_GET_nocheck(paste0(url, x))
   if (res$status_code == 200) TRUE else FALSE
 }
 

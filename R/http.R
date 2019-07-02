@@ -8,6 +8,15 @@ tax_GET <- function(url, path = NULL, query = list(), headers = list(),
   return(out)
 }
 
+tax_GET_nocheck <- function(url, path = NULL, query = list(), headers = list(),
+  opts = list(), ...) {
+
+  cli <- crul::HttpClient$new(url,
+    headers = c(headers, tx_ual), opts = c(opts, list(...)))
+  out <- cli$get(path = path, query = query)
+  return(out)
+}
+
 tax_POST <- function(url, path = NULL, query = list(), body = list(),
   headers = list(), opts = list(), ...) {
 
@@ -22,6 +31,8 @@ tax_error_handle <- function(x) {
   x$raise_for_status()
   txt <- x$parse("utf-8")
   xml <- tryCatch(xml2::read_xml(txt), error = function(e) e)
+  json <- tryCatch(jsonlite::fromJSON(txt), error = function(e) e)
+  if (x$success() && !inherits(json, "error")) return(json)
   if (inherits(xml, "error")) {
     strg <- "[^\x9\xa\x20-\xD7FF\xE000-\xFFFD]"
     xml <- tryCatch(xml2::read_xml(gsub(strg, "", txt)),
