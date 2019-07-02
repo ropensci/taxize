@@ -6,9 +6,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.8.0 rOpenSci(taxize/0.9.8.9123)
+      X-USER-AGENT: r-curl/3.3 crul/0.8.0 rOpenSci(taxize/0.9.8.9123)
   response:
     status:
       status_code: '200'
@@ -16,21 +17,21 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 17:47:52 GMT
+      date: Tue, 02 Jul 2019 19:12:01 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '8'
-      ncbi-phid: 322CDAEFF3EFD7B50000139F2F376B67.1.1.m_1
+      x-ratelimit-remaining: '7'
+      ncbi-phid: 939B60D0C7AA2125000022C9B6AE8AAF.1.1.m_1
       cache-control: private
       l5d-success-class: '1.0'
-      ncbi-sid: E80B11F30A204FDD_6D35SID
+      ncbi-sid: 222BC4E5747491F8_A763SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=E80B11F30A204FDD_6D35SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 17:47:53 GMT
+      set-cookie: ncbi_sid=222BC4E5747491F8_A763SID; domain=.nih.gov; path=/; expires=Thu,
+        02 Jul 2020 19:12:01 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -40,8 +41,8 @@ http_interactions:
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
         <eSearchResult><Count>0</Count><RetMax>0</RetMax><RetStart>0</RetStart><IdList/><TranslationSet/><QueryTranslation>(Asdfafsfd[All Names])</QueryTranslation><ErrorList><PhraseNotFound>Asdfafsfd</PhraseNotFound></ErrorList><WarningList><OutputMessage>No items found.</OutputMessage></WarningList></eSearchResult>
-  recorded_at: 2019-01-26 17:48:04 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2019-07-02 19:12:34 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4
 - request:
     method: get
     uri: https://www.itis.gov/ITISWebService/jsonservice/getITISTermsFromScientificName?srchKey=Asdfafsfd
@@ -49,7 +50,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.8.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -61,7 +62,7 @@ http_interactions:
       connection: keep-alive
       content-length: '107'
       content-type: text/json;charset=ISO-8859-1
-      date: Sat, 26 Jan 2019 17:47:57 GMT
+      date: Tue, 02 Jul 2019 19:12:31 GMT
       status: 'HTTP/1.1 200 '
       strict-transport-security:
       - max-age=63072000; includeSubdomains; preload
@@ -73,8 +74,8 @@ http_interactions:
       encoding: UTF-8
       string: |
         {"class":"gov.usgs.itis.itis_service.data.SvcItisTermList","itisTerms":[null],"requestedName":"Asdfafsfd"}
-  recorded_at: 2019-01-26 17:48:04 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2019-07-02 19:12:34 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4
 - request:
     method: get
     uri: https://api.gbif.org/v1/species/match?name=Asdfafsfd&strict=FALSE&verbose=TRUE&limit=500
@@ -84,8 +85,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
-      X-User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+      User-Agent: r-curl/3.3 crul/0.8.0 rOpenSci(taxize/0.9.8.9123)
+      X-USER-AGENT: r-curl/3.3 crul/0.8.0 rOpenSci(taxize/0.9.8.9123)
   response:
     status:
       status_code: '200'
@@ -93,13 +94,13 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 17:47:59 GMT
+      date: Tue, 02 Jul 2019 19:12:32 GMT
       content-type: application/json
       access-control-allow-origin: '*'
       access-control-allow-methods: HEAD, GET, POST, DELETE, PUT
       server: Jetty(9.3.z-SNAPSHOT)
       cache-control: public, max-age=3601
-      x-varnish: 48105558 62718865
+      x-varnish: 138084532 116471949
       age: '0'
       via: 1.1 varnish (Varnish/5.2)
       accept-ranges: bytes
@@ -108,8 +109,8 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"confidence":100,"matchType":"NONE","synonym":false}'
-  recorded_at: 2019-01-26 17:48:04 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2019-07-02 19:12:34 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4
 - request:
     method: get
     uri: http://eol.org/api/search/1.0.json?q=Asdfafsfd&page=1&key=<<eol_api_token>>
@@ -117,9 +118,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.8.0 rOpenSci(taxize/0.9.8.9123)
+      X-USER-AGENT: r-curl/3.3 crul/0.8.0 rOpenSci(taxize/0.9.8.9123)
   response:
     status:
       status_code: '200'
@@ -127,15 +129,16 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 17:48:00 GMT
+      date: Tue, 02 Jul 2019 19:12:33 GMT
       content-type: application/json; charset=utf-8
       transfer-encoding: chunked
       connection: keep-alive
       x-frame-options: ALLOWALL
+      x-robots-tag: noindex
       etag: W/"85e70a49d98fa3af500ab4cabd6e178e"
       cache-control: max-age=0, private, must-revalidate
-      x-request-id: 672e4487-b210-49d9-b5fa-12007bd0c7e3
-      x-runtime: '0.036395'
+      x-request-id: b0d9530b-a862-4235-ae34-7fe9debef4c0
+      x-runtime: '0.010464'
       vary: Origin
       age: '0'
       x-cache: MISS
@@ -144,8 +147,8 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"totalResults":0,"startIndex":1,"itemsPerPage":50,"results":[]}'
-  recorded_at: 2019-01-26 17:48:04 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2019-07-02 19:12:34 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4
 - request:
     method: get
     uri: http://www.catalogueoflife.org/col/webservice?name=Asdfafsfd&response=full&format=json
@@ -153,9 +156,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.8.0 rOpenSci(taxize/0.9.8.9123)
+      X-USER-AGENT: r-curl/3.3 crul/0.8.0 rOpenSci(taxize/0.9.8.9123)
   response:
     status:
       status_code: '200'
@@ -163,14 +167,13 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.12.1
-      date: Sat, 26 Jan 2019 17:48:01 GMT
+      server: nginx/1.14.0
+      date: Tue, 02 Jul 2019 19:12:34 GMT
       content-type: application/json
       content-length: '142'
       connection: keep-alive
-      x-powered-by: PHP/5.5.9-1ubuntu4.26
       expires: Thu, 19 Nov 1981 08:52:00 GMT
-      cache-control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      cache-control: no-store, no-cache, must-revalidate
       pragma: no-cache
       vary: Accept-Encoding
       content-encoding: gzip
@@ -178,8 +181,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"id":"","name":"Asdfafsfd","total_number_of_results":0,"number_of_results_returned":0,"start":0,"error_message":"No
         names found","version":"1.9 rev 2126ab0","rank":""}'
-  recorded_at: 2019-01-26 17:48:04 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2019-07-02 19:12:34 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4
 - request:
     method: get
     uri: http://services.tropicos.org/Name/Search?format=json&name=Asdfafsfd&apikey=<<tropicos_api_token>>
@@ -189,8 +192,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
-      X-User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+      User-Agent: r-curl/3.3 crul/0.8.0 rOpenSci(taxize/0.9.8.9123)
+      X-USER-AGENT: r-curl/3.3 crul/0.8.0 rOpenSci(taxize/0.9.8.9123)
   response:
     status:
       status_code: '200'
@@ -204,23 +207,23 @@ http_interactions:
       server: Microsoft-IIS/7.5
       x-aspnet-version: 4.0.30319
       x-powered-by: ASP.NET
-      date: Sat, 26 Jan 2019 17:48:02 GMT
+      date: Tue, 02 Jul 2019 19:12:35 GMT
     body:
       encoding: UTF-8
       string: '[{"Error":"No names were found"}]'
-  recorded_at: 2019-01-26 17:48:04 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2019-07-02 19:12:34 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4
 - request:
     method: get
-    uri: https://species-ws.nbnatlas.org/search?q=Asdfafsfd&pageSize=500&startIndex=0
+    uri: https://species-ws.nbnatlas.org/search?q=Asdfafsfd&fq=idxtype%3ATAXON&pageSize=500&startIndex=0
     body:
       encoding: ''
       string: ''
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
-      X-User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+      User-Agent: r-curl/3.3 crul/0.8.0 rOpenSci(taxize/0.9.8.9123)
+      X-USER-AGENT: r-curl/3.3 crul/0.8.0 rOpenSci(taxize/0.9.8.9123)
   response:
     status:
       status_code: '200'
@@ -228,7 +231,7 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 17:48:11 GMT
+      date: Tue, 02 Jul 2019 19:13:17 GMT
       server: Apache/2.4.7 (Ubuntu)
       x-application-context: application:production
       content-type: application/json;charset=UTF-8
@@ -236,5 +239,5 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"searchResults":{"totalRecords":0,"facetResults":[],"results":[],"queryTitle":"Asdfafsfd"}}'
-  recorded_at: 2019-01-26 17:48:04 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2019-07-02 19:12:34 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4
