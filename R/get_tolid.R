@@ -45,7 +45,7 @@
 #' # Convert a tol without class information to a tol class
 #' as.tolid(get_tolid("Quercus douglasii")) # already a tol, returns the same
 #' as.tolid(get_tolid(c("Chironomus riparius","Pinus contorta"))) # same
-#' as.tolid(3930798) # numeric
+#' as.tolid(5907893) # numeric
 #' as.tolid(c(3930798,515712,872577)) # numeric vector, length > 1
 #' as.tolid("3930798") # character
 #' as.tolid(c("3930798","515712","872577")) # character vector, length > 1
@@ -245,7 +245,7 @@ make_tol <- function(x, check=TRUE) {
 }
 
 check_tolid <- function(x){
-  tt <- tryCatch(rotl::taxonomy_taxon_info(x), error = function(e) e)
+  tt <- tryCatch(rotl::taxonomy_taxon_info(as.numeric(x)), error = function(e) e)
   !inherits(tt, "error")
 }
 

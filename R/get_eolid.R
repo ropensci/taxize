@@ -367,13 +367,13 @@ make_eolid <- function(x, check=TRUE) {
 
 check_eolid <- function(x) {
   url <- sprintf("https://eol.org/api/hierarchy_entries/1.0/%s.json", x)
-  tryid <- tax_GET(url)
+  tryid <- tax_GET_nocheck(url)
   if (tryid$status_code == 200) TRUE else FALSE
 }
 
 get_eol_pageid <- function(x) {
   url <- sprintf("https://eol.org/api/hierarchy_entries/1.0/%s.json", x)
-  tt <- tax_GET(url)
+  tt <- tax_GET_nocheck(url)
   if (tt$status_code == 200) {
     jsonlite::fromJSON(tt$parse("UTF-8"), FALSE)$taxonConceptID
   } else {

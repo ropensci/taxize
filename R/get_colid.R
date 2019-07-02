@@ -325,7 +325,7 @@ make_colid <- function(x, check=TRUE) {
 
 check_colid <- function(x){
   url <- "http://www.catalogueoflife.org/col/details/species/id/"
-  res <- tax_GET(paste0(url, x))$parse("UTF-8")
+  res <- tax_GET_nocheck(paste0(url, x))$parse("UTF-8")
   !grepl("Species not found", res)
 }
 
