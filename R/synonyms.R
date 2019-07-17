@@ -245,7 +245,11 @@ col_synonyms <- function(x, ...) {
       w$references <- NULL
       data.frame(w, stringsAsFactors = FALSE)
     }))
-    df$rank <- tolower(df$rank)
+    if (!is.null(df)) {
+      df$rank <- tolower(df$rank)
+    } else {
+      df <- NA
+    }
 
     df
   } else {
