@@ -17,7 +17,13 @@
 #' @param ... Other passed arguments to internal functions `get_*()` and
 #' functions to gather synonyms.
 #'
-#' @return A named list of data.frames with the synonyms of every supplied taxa.
+#' @return A named list of results with three types of output in each slot:
+#' 
+#' - if the name was not found: `NA_character_` 
+#' - if the name was found but no synonyms found, an empty data.frame (0 rows)
+#' - if the name was found, and synonyms found, a data.frames with the
+#' synonyms - the column names vary by data source
+#' 
 #' @details If IDs are supplied directly (not from the `get_*()` functions)
 #' you must specify the type of ID.
 #'
@@ -171,7 +177,7 @@ process_syn_ids <- function(input, db, fxn, ...){
 #' @rdname synonyms
 synonyms.tsn <- function(id, ...) {
   fun <- function(x){
-    if (is.na(x)) { NA } else {
+    if (is.na(x)) { NA_character_ } else {
       is_acc <- rit_acc_name(x, ...)
       if (all(!is.na(is_acc$acceptedName))) {
         accdf <- stats::setNames(
@@ -191,16 +197,14 @@ synonyms.tsn <- function(id, ...) {
       res <- Map(function(z, w) {
         tmp <- ritis::synonym_names(z)
         if (NROW(tmp) == 0) {
-          tmp <- data.frame(syn_name = "nomatch", syn_tsn = x[1],
-                            stringsAsFactors = FALSE)
+          tibble::tibble()
         } else {
           tmp <- stats::setNames(tmp, c('syn_author', 'syn_name', 'syn_tsn'))
+          cbind(w, tmp, row.names = NULL)
         }
-        if (as.character(tmp[1,1]) == 'nomatch') {
-          tmp <- data.frame(message = "no syns found", stringsAsFactors = FALSE)
-        }
-
-        cbind(w, tmp, row.names = NULL)
+        # if (as.character(tmp[1,1]) == 'nomatch') {
+        #   tmp <- data.frame(message = "no syns found", stringsAsFactors = FALSE)
+        # }
       }, x, split(accdf, seq_len(NROW(accdf))))
       do.call("rbind", unname(res))
     }
@@ -223,9 +227,10 @@ rit_acc_name <- function(x, ...) {
 synonyms.colid <- function(id, ...) {
   fun <- function(x) {
     if (is.na(x)) {
-      NA
+      NA_character_
     } else {
-      col_synonyms(x, ...)
+      res <- col_synonyms(x, ...)
+      if (is.na(res)) tibble::tibble() else res
     }
   }
   stats::setNames(lapply(id, fun), id)
@@ -262,9 +267,10 @@ col_synonyms <- function(x, ...) {
 synonyms.tpsid <- function(id, ...) {
   fun <- function(x) {
     if (is.na(x)) {
-      NA
+      NA_character_
     } else {
-      tp_synonyms(x, ...)$synonyms
+      res <- tp_synonyms(x, ...)$synonyms
+      if (grepl("no syns found", res[1,1])) tibble::tibble() else res
     }
   }
   stats::setNames(lapply(id, fun), id)
@@ -275,9 +281,10 @@ synonyms.tpsid <- function(id, ...) {
 synonyms.nbnid <- function(id, ...) {
   fun <- function(x){
     if (is.na(x)) {
-      NA
+      NA_character_
     } else {
-      nbn_synonyms(x, ...)
+      res <- nbn_synonyms(x, ...)
+      if (length(res) == 0) tibble::tibble() else res
     }
   }
   stats::setNames(lapply(id, fun), id)
@@ -288,9 +295,11 @@ synonyms.nbnid <- function(id, ...) {
 synonyms.wormsid <- function(id, ...) {
   fun <- function(x) {
     if (is.na(x)) {
-      NA
+      NA_character_
     } else {
-      worrms::wm_synonyms(as.numeric(x), ...)
+      res <- tryCatch(worrms::wm_synonyms(as.numeric(x), ...), 
+        error = function(e) e)
+      if (inherits(res, "error")) tibble::tibble() else res
     }
   }
   stats::setNames(lapply(id, fun), id)
@@ -302,9 +311,10 @@ synonyms.iucn <- function(id, ...) {
   out <- vector(mode = "list", length = length(id))
   for (i in seq_along(id)) {
     if (is.na(id[[i]])) {
-      out[[i]] <- NA
+      out[[i]] <- NA_character_
     } else {
-      out[[i]] <- rredlist::rl_synonyms(attr(id, "name")[i], ...)$result
+      res <- rredlist::rl_synonyms(attr(id, "name")[i], ...)$result
+      out[[i]] <- if (length(res) == 0) tibble::tibble() else res
     }
   }
   stats::setNames(out, id)
@@ -320,7 +330,7 @@ synonyms.iucn <- function(id, ...) {
 synonyms.ids <- function(id, ...) {
   fun <- function(x){
     if (is.na(x)) {
-      out <- NA
+      out <- NA_character_
     } else {
       out <- synonyms(x, ...)
     }
@@ -343,7 +353,9 @@ synonyms_df.default <- function(x) {
 
 #' @export
 synonyms_df.synonyms <- function(x) {
-  x <- Filter(function(z) inherits(z[1], "data.frame"), x)
+  # x <- Filter(function(z) inherits(z[1], "data.frame"), x)
+  x <- Filter(function(z) inherits(z, "data.frame"), x)
+  x <- Filter(function(z) NROW(z) > 0, x)
   (data.table::setDF(
     data.table::rbindlist(x, use.names = TRUE, fill = TRUE, idcol = TRUE)
   ))

@@ -56,7 +56,13 @@ taxonomic id of any of the acceptable classes: tsn, tpsid, nbnid, ids.}
 \code{\link[=get_nbnid]{get_nbnid()}}, \code{\link[=get_colid]{get_colid()}} `get_wormsid()]}
 }
 \value{
-A named list of data.frames with the synonyms of every supplied taxa.
+A named list of results with three types of output:
+\itemize{
+\item if the name was not found: \code{NA_character_}
+\item if the name was found but no synonyms found, an empty data.frame (0 rows)
+\item if the name was found, and synonyms found, a data.frames with the
+synonyms - the column names vary by data source
+}
 }
 \description{
 Retrieve synonyms from various sources given input taxonomic

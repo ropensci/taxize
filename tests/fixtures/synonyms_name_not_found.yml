@@ -1,0 +1,184 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getITISTermsFromScientificName?srchKey=Foo%20bar
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.8.1.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      connection: keep-alive
+      content-length: '105'
+      content-type: text/json;charset=ISO-8859-1
+      date: Thu, 18 Jul 2019 23:39:45 GMT
+      status: 'HTTP/1.1 200 '
+      strict-transport-security:
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      x-application: itis_webservices
+      x-node-name: not shown
+      x-upstream-member: not shown
+    body:
+      encoding: UTF-8
+      string: |
+        {"class":"gov.usgs.itis.itis_service.data.SvcItisTermList","itisTerms":[null],"requestedName":"Foo bar"}
+  recorded_at: 2019-07-18 23:39:34 GMT
+  recorded_with: vcr/0.2.6.9100, webmockr/0.3.4
+- request:
+    method: get
+    uri: http://services.tropicos.org/Name/Search?format=json&name=Foo%20bar&apikey=<<tropicos_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.8.1.9100 rOpenSci(taxize/0.9.8.9125)
+      X-USER-AGENT: r-curl/3.3 crul/0.8.1.9100 rOpenSci(taxize/0.9.8.9125)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      cache-control: private
+      content-length: '33'
+      content-type: application/json; charset=utf-8
+      server: Microsoft-IIS/7.5
+      x-aspnet-version: 4.0.30319
+      x-powered-by: ASP.NET
+      date: Thu, 18 Jul 2019 23:39:47 GMT
+    body:
+      encoding: UTF-8
+      string: '[{"Error":"No names were found"}]'
+  recorded_at: 2019-07-18 23:39:34 GMT
+  recorded_with: vcr/0.2.6.9100, webmockr/0.3.4
+- request:
+    method: get
+    uri: https://species-ws.nbnatlas.org/search?q=Foo%20barasdfasdf&fq=idxtype%3ATAXON&pageSize=500&startIndex=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.8.1.9100 rOpenSci(taxize/0.9.8.9125)
+      X-USER-AGENT: r-curl/3.3 crul/0.8.1.9100 rOpenSci(taxize/0.9.8.9125)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 18 Jul 2019 23:41:45 GMT
+      server: Apache/2.4.7 (Ubuntu)
+      x-application-context: application:production
+      content-type: application/json;charset=UTF-8
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: '{"searchResults":{"totalRecords":0,"facetResults":[],"results":[],"queryTitle":"Foo
+        barasdfasdf"}}'
+  recorded_at: 2019-07-18 23:39:34 GMT
+  recorded_with: vcr/0.2.6.9100, webmockr/0.3.4
+- request:
+    method: get
+    uri: http://www.catalogueoflife.org/col/webservice?name=Foo%20bar&response=full&format=json
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.8.1.9100 rOpenSci(taxize/0.9.8.9125)
+      X-USER-AGENT: r-curl/3.3 crul/0.8.1.9100 rOpenSci(taxize/0.9.8.9125)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0
+      date: Thu, 18 Jul 2019 23:39:48 GMT
+      content-type: application/json
+      content-length: '142'
+      connection: keep-alive
+      expires: Thu, 19 Nov 1981 08:52:00 GMT
+      cache-control: no-store, no-cache, must-revalidate
+      pragma: no-cache
+      vary: Accept-Encoding
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      string: '{"id":"","name":"Foo bar","total_number_of_results":0,"number_of_results_returned":0,"start":0,"error_message":"No
+        names found","version":"1.9 rev 2126ab0","rank":""}'
+  recorded_at: 2019-07-18 23:39:34 GMT
+  recorded_with: vcr/0.2.6.9100, webmockr/0.3.4
+- request:
+    method: get
+    uri: http://www.marinespecies.org/rest/AphiaRecordsByName/Foo%20bar?like=true&marine_only=true&offset=1
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.8.1.9100
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '204'
+      message: No Content
+      explanation: Request fulfilled, nothing follows
+    headers:
+      status: HTTP/1.1 204 No Content
+      date: Thu, 18 Jul 2019 23:39:49 GMT
+      server: Apache/2.4.39 (Win64)
+      access-control-allow-origin: '*'
+      access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
+        Authorization
+      access-control-allow-methods: GET, POST, OPTIONS
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: 2019-07-18 23:39:34 GMT
+  recorded_with: vcr/0.2.6.9100, webmockr/0.3.4
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Foo%20bar?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.8.1.9100 rOpenSci(rredlist/0.5.0)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Thu, 18 Jul 2019 23:39:52 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '30'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"name":"Foo bar","result":[]}'
+  recorded_at: 2019-07-18 23:39:34 GMT
+  recorded_with: vcr/0.2.6.9100, webmockr/0.3.4
