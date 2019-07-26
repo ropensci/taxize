@@ -82,7 +82,7 @@ class2tree <- function(input, varstep = TRUE, check = TRUE, ...) {
   taxdis <- tryCatch(taxa2dist(df, varstep = varstep, check = check),
                      error = function(e) e)
 
-  tdf = t(df)
+  tdf <- t(df)
   for (i in 1:ncol(tdf)){
     tdf[,i][duplicated(tdf[,i])] <- NA
   }
