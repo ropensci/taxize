@@ -24,6 +24,17 @@ test_that("eubon_search works", {
   expect_equal(NROW(cc), 2)
 })
 
+test_that("eubon_search fails well", {
+  expect_error(eubon_search("Prionus", limit = "asdf"), 
+    "limit must be of class numeric, integer", class = "error")
+  expect_error(eubon_search("Prionus", page = "asdf"), 
+    "page must be of class numeric, integer", class = "error")
+  expect_error(eubon_search("Prionus", timeout = "adf"), 
+    "timeout must be of class numeric", class = "error")
+  expect_error(eubon_search("Prionus", addParentTaxon = 5), 
+    "addParentTaxon must be of class logical", class = "error")
+})
+
 # vcr::use_cassette("eubon_search_fails", {
 #   test_that("eubon_search fails well", {
 #     expect_error(eubon_search("Salmo", 'asdfdf'),

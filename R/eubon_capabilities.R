@@ -2,7 +2,7 @@
 #'
 #' @export
 #' @param ... Curl options passed on to [crul::verb-GET]
-#' @references <http://cybertaxonomy.eu/eu-bon/utis/1.2/doc.html>
+#' @references <http://cybertaxonomy.eu/eu-bon/utis/1.3/doc.html>
 #' @family eubon-methods
 #' @examples \dontrun{
 #' eubon_capabilities()
