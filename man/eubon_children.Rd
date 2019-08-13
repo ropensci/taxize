@@ -48,6 +48,6 @@ head(x)
 }
 \seealso{
 Other eubon-methods: \code{\link{eubon_capabilities}},
-  \code{\link{eubon_hierarchy}}, \code{\link{eubon}}
+  \code{\link{eubon_hierarchy}}, \code{\link{eubon_search}}
 }
 \concept{eubon-methods}

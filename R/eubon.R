@@ -57,8 +57,9 @@
 #' eubon_search("Salmo", "worms", addSynonymy = TRUE)
 #' eubon_search("Salmo", "worms", addParentTaxon = TRUE)
 #' }
-eubon <- function(query, providers = "pesi", searchMode = "scientificNameExact",
-  addSynonymy = FALSE, addParentTaxon = FALSE, timeout = 0,
+eubon_search <- function(query, providers = "pesi",
+  searchMode = "scientificNameExact", addSynonymy = FALSE,
+  addParentTaxon = FALSE, timeout = 0,
   dedup = NULL, limit = 20, page = 1, ...) {
 
   assert(providers, 'character')
@@ -82,9 +83,13 @@ eubon <- function(query, providers = "pesi", searchMode = "scientificNameExact",
   tmp$query$response[[1]]
 }
 
+#' DEFUNCT
 #' @export
-#' @rdname eubon
-eubon_search <- eubon
+#' @keywords internal
+#' @rdname eubon-defunct
+eubon <- function(...) {
+  .Defunct(msg = "use eubon_search()")
+}
 
 # helpers
 eubon_base <- function() "https://cybertaxonomy.eu/eu-bon/utis/1.3"

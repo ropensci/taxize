@@ -45,9 +45,9 @@ test_that("eubon_search fails well", {
 #   })
 # }, preserve_exact_body_bytes = TRUE)
 
-test_that("eubon and eubon_search are aliases of each other", {
+test_that("eubon and eubon_search are no longer aliases - eubon is defunct", {
   skip_on_cran()
 
-  expect_identical(eubon, eubon_search)
+  expect_error(eubon(), "use eubon_search", class = "error")
 })
 

@@ -22,6 +22,6 @@ eubon_capabilities()
 }
 \seealso{
 Other eubon-methods: \code{\link{eubon_children}},
-  \code{\link{eubon_hierarchy}}, \code{\link{eubon}}
+  \code{\link{eubon_hierarchy}}, \code{\link{eubon_search}}
 }
 \concept{eubon-methods}
