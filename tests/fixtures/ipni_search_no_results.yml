@@ -1,493 +1,91 @@
 http_interactions:
 - request:
     method: get
-    uri: http://www.ipni.org/ipni/advPlantNameSearch.do?output_format=delimited-minimal
+    uri: https://www.ipni.org/ipni/advPlantNameSearch.do?output_format=delimited-minimal
     body:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.0 crul/0.8.4 rOpenSci(taxize/0.9.8.9134)
+      X-USER-AGENT: r-curl/4.0 crul/0.8.4 rOpenSci(taxize/0.9.8.9134)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Thu, 24 Jan 2019 16:55:16 GMT
-      server: Apache/2.4.6 (CentOS) mod_jk/1.2.41
-      transfer-encoding: chunked
-      content-type: text/html;charset=UTF-8
-    body:
-      encoding: UTF-8
-      string: "\t\n\t\t\n\t\t\t\n\t\t\n\n\n\n\n\n<html>\n<head>\n<title>IPNI: Plant
-        Name search</title>\n<meta name=\"content-style-type\" content=\"text/css\"/>\n<meta
-        name=\"owner\" content=\"ipni.org\"/>\n<meta name=\"author\" content=\"Christine
-        Barker\"/>\n<meta name=\"created_on\" content=\"21 11 2003\"/>\n<meta name=\"last_modified\"
-        content=\"21 11 2003\"/>\n<meta name=\"review_on\" content=\"21 01 2004\"/>\n<meta
-        name=\"action\" content=\"R\"/>\n<link href=\"../ipni.css\" rel=\"stylesheet\"
-        type=\"text/css\"/>\n<meta http-equiv=\"Content-Type\" content=\"text/html;
-        charset=utf-8\"/>\n<style type=\"text/css\"> \n\tp { margin-left: 0px; }\n</style>\n</head>\n\n<body>\n
-        <table border=\"0\" width=\"100%\" cellspacing=\"0\" cellpadding=\"8\" bgcolor=\"#ffffff\">\n\t<tr>
-        \n\t\t<td width=\"135\" align=\"center\" valign=\"middle\" bgcolor=\"#FFFFFF\"><a
-        class=\"navbar\" href=\"../index.html\"><img src= \n\"../images/ipni_logoonly_sm.jpg\"
-        alt=\"IPNI logo - link to home\" width=\"89\" height=\"86\" border=\"0\"/></a>
-        \n\t\t</td>\n\t\t<td valign=\"middle\" bgcolor=\"#FFFFFF\">\n\t\t        <img
-        src=\"../images/ipni_logo4_2.gif\" alt=\"The International Plant Names Index\"
-        width=\"450\" height=\"39\"/><br/>\n\t\t</td>\n\t</tr>\n\t<tr> \n\t\t<!--
-        left hand bar begins here -->\n\t\t<td width=\"135\" valign=\"TOP\" class=\"navbar\">
-        <h4>Search the data </h4>\n\t\t\t<ul>\n\t\t\t\t<li class=\"navbar\"> <a class=\"navbar\"
-        href= \n                  \"plantsearch?request_type=search&amp;output_format=query&amp;ret_defaults=on\">Plant
-        Names</a></li>\n\t\t\t\t<li class=\"navbar\"> <a class=\"navbar\" href= \n
-        \                 \"authorsearch?request_type=search&amp;output_format=query&amp;ret_defaults=on\">Authors</a></li>\n\t\t\t\t<li
-        class=\"navbar\"> <a class=\"navbar\" href= \n                  \"publicationsearch?request_type=search&amp;output_format=query&amp;ret_defaults=on\">
-        Publications</a></li>\n\t\t\t</ul>\n\t\t\t<h4><a class=\"navbar\" href=\"../index.html\">IPNI
-        Home</a></h4>\n\t\t\t<p><a class=\"navbar\" href=\"mailto:ipnifeedback@ipni.org\">contact
-        us</a>&#160;</p>\n\t\t</td>\n\t<td valign=\"top\"> \n\t\t<h2>Plant Name Query</h2>\n\t\t<p><a
-        href=\"/ipni/editAdvPlantNameSearch.do?show_extras=&find_includePublicationAuthors=true&find_includeBasionymAuthors=true&find_isIKRecord=true&find_isGCIRecord=true&find_isAPNIRecord=true&find_sortByFamily=true\">Reset
-        search terms</a></p>\n\t\t\n\n\t\t<form action=\"/ipni/simplePlantNameSearch.do\">\n\t<table
-        width=\"100%\" cellpadding=\"2\">\n\t\t<tr> \n\t\t\t<td bgcolor=\"eeeeee\">
-        \n\t\t\t\t<table>\n\t\t\t\t\t<tr> \n\t\t\t\t  \t\t<td colspan=\"3\"><p><b>Quick
-        search</b> - enter a plant name (without authors) </p></td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>
-        \n\t\t\t\t  \t\t<td valign=\"center\"> \n\t\t\t\t\t\t\t<p> Full Name: \n  <input
-        size=\"30\" name=\"find_wholeName\" type=\"text\" value=\"\"/>\n      </p>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td
-        valign=\"center\">\n\t\t\t\t\t\t\t<p> \t\t\t\t\t\t         <small><a href=\"../sample_searches.html#name_quick\"
-        target=\"help\">What's this?</a></small>\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t</td>\t\t\t\t\n\t\t<td
-        align=\"right\" valign=\"center\">\n\t\t\t\t\t\t\t<p>Output Format \n\t\t\t\t\t\t\t\t<select
-        name=\"output_format\">\n\t\t\t\t\t\t\t\t\t\t<option value=\"normal\" selected=\"selected\">Normal</option>\n\t\t\t\t\t\t\t\t\t\t<option
-        value=\"delimited\"  >Delimited (classic)</option>\n\t\t\t\t\t\t\t\t\t\t<option
-        value=\"delimited-minimal\"  >Delimited (minimal)</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<option
-        value=\"delimited-short\"  >Delimited (short)</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<option
-        value=\"delimited-extended\"  >Delimited (extended)</option>\n\t\t\t\t\t<option
-        value=\"full\"  >Full records</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t<small>\t\t\t\t\t\t\t\t\t<a
-        href=\"delimited_help.html\" target=\"help\">What's this?</a></small>\n\t\t\t\t\t\t\t\t
-        \   \t\t\t\t\t\t\t\t<input type=\"submit\" value=\"Search\" />\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t</td>\n
-        \t\t\t\t\t</tr>\n\t\t\t  \t</table>\n\t\t\t</td>\n\t\t</tr>\n\t</table>\n\t<input
-        type=\"hidden\" name=\"query_type\" value=\"by_query\" /><input type=\"hidden\"
-        name=\"back_page\" value=\"query_ipni.html\" /><br />\n</form>\n\t\t<form
-        action=\"/ipni/advPlantNameSearch.do\">\n\t\t\t<table cellpadding=\"2\" width=\"100%\">\n\t\t\t\t<tr>
-        \n\t\t\t\t\t<td bgcolor=\"eeeeee\"> \n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t<table>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t<p><b>Full
-        search</b>\t\t\t\t\t\t\t</p></td>\n\t\t\t\t\t\t\t\t<td> </td>\n\t\t\t\t\t\t\t\t<td>
-        </td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t<tr> \n\t\t\t\t\t\t\t\t<td><p><b>Name</b></p></td>\n\t\t\t\t\t\t\t\t<td>
-        </td>\n\t\t\t\t\t\t\t\t<td> </td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>
-        \n\t\t\t\t\t\t\t\t<td valign=\"top\" align=\"right\">\n\t\t\t\t\t\t\t\t\t<p>Family
-        \n\t\t\t\t\t\t\t\t\t<input size=\"16\" name=\"find_family\" type=\"text\"
-        value=\"\"/>\n\t\t\t\t\t\t\t\t\t                        \t<div class=\"error\">
-        <img src=\"images/ipni_alert.gif\"/> At least one search term is required</div><br/>\n
-        \           \t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td
-        valign=\"top\" align=\"right\">\n\t\t\t\t\t\t\t\t\t<p>Genus \n\t\t\t\t\t\t\t\t\t<input
-        size=\"16\" name=\"find_genus\" type=\"text\" value=\"\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-        \                       \t<div class=\"error\"> <img src=\"images/ipni_alert.gif\"/>
-        At least one search term is required</div><br/>\n            \t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td
-        valign=\"top\" align=\"right\">\n\t\t\t\t\t\t\t\t\t<p>Species \n\t\t\t\t\t\t\t\t\t<input
-        size=\"16\" name=\"find_species\" type=\"text\" value=\"\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-        \                       \t<div class=\"error\"> <img src=\"images/ipni_alert.gif\"/>
-        At least one search term is required</div><br/>\n            \t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>
-        \n\t\t\t\t\t\t\t\t<td valign=\"top\" align=\"right\">\n\t\t\t\t\t\t\t\t\t<p>Infrafamilial
-        \n\t\t\t\t\t\t\t\t\t<input size=\"16\" name=\"find_infrafamily\" type=\"text\"
-        value=\"\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                        \t<div
-        class=\"error\"> <img src=\"images/ipni_alert.gif\"/> At least one search
-        term is required</div><br/>\n            \t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td
-        align=\"right\" valign=\"top\">\n\t\t\t\t\t\t\t\t\t<p>Infrageneric \n\t\t\t\t\t\t\t\t\t<input
-        size=\"16\" name=\"find_infragenus\" type=\"text\" value=\"\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-        \                       \t<div class=\"error\"> <img src=\"images/ipni_alert.gif\"/>
-        At least one search term is required</div><br/>\n            \t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td
-        valign=\"top\" align=\"right\">\n\t\t\t\t\t\t\t\t\t<p>Infraspecific \n\t\t\t\t\t\t\t\t\t<input
-        size=\"16\" name=\"find_infraspecies\" type=\"text\" value=\"\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-        \                       \t<div class=\"error\"> <img src=\"images/ipni_alert.gif\"/>
-        At least one search term is required</div><br/>\n            \t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>
-        \n\t\t\t\t\t\t\t\t<td><p><b>Author</b></p></td>\n\t\t\t\t\t\t\t\t<td> </td>\n\t\t\t\t\t\t\t\t<td>
-        </td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<tr> \n\t\t\t\t\t\t\t\t<td
-        align=\"right\" valign=\"top\"> \n\t\t\t\t\t\t\t\t\t<p>Standard form </p>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td
-        align=\"right\" valign=\"top\"> \n\t\t\t\t\t\t\t\t   <p>\n\t\t\t\t\t\t\t\t\t
-        <input size=\"30\" name=\"find_authorAbbrev\" type=\"text\" value=\"\"/>\n\t\t\t\t\t\t\t\t\t
-        \t\t\t\t\t\t\t\t\t                        \t<div class=\"error\"> <img src=\"images/ipni_alert.gif\"/>
-        At least one search term is required</div><br/>\n            \t\t\t\t\t\t\t\t
-        \  </p>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td align=\"left\" valign=\"top\">
-        \n\t\t\t\t\t\t\t\t\t<p>taxon name authors\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input
-        name=\"find_includePublicationAuthors\" type=\"checkbox\"  checked=\"checked\"
-        />\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-        \   \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!-- Actively gives us an 'off'
-        if the box is unchecked-->\n\t\t\t\t\t\t\t\t<input value=\"off\" name=\"find_includePublicationAuthors\"
-        type=\"hidden\"/> \n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\tbasionym
-        authors\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input name=\"find_includeBasionymAuthors\"
-        type=\"checkbox\"  checked=\"checked\" />\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-        \   \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!-- Actively gives us an 'off'
-        if the box is unchecked-->\n\t\t\t\t\t\t\t\t\t<input value=\"off\" name=\"find_includeBasionymAuthors\"
-        type=\"hidden\"/>\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<tr>
-        \n\t\t\t\t\t\t\t\t<td><p><b>Publication</b></p></td>\n\t\t\t\t\t\t\t\t<td>
-        </td>\n\t\t\t\t\t\t\t\t<td> </td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>
-        \n\t\t\t\t\t\t\t\t<td align=\"right\" valign=\"top\">\n\t\t\t\t\t\t\t\t\t<p>Abbreviation
-        </p>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td align=\"right\">\n\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t<input
-        size=\"30\" name=\"find_publicationTitle\" type=\"text\" value=\"\" />\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-        \                       \t<div class=\"error\"> <img src=\"images/ipni_alert.gif\"/>
-        At least one search term is required</div><br/>\n            \t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td
-        align=\"right\" valign=\"top\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-        \    \t\t\t\t     \t\t\t\t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t     \t
-        \    \t\t\t\t     \t     \t\t\t\t     \t          \t     \t\t\t\t     \t     \t\t\t\t
-        \    \t\t\t\t     \t     \t\t\t\t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t
-        \    \t\t\t\t\t\t\t          \t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t
-        \    \t\t\t\t\t\t\t          \t\t\t\t     \t     \t\t\t\t     \t     \t\t\t\t
-        \    \t          \t     \t\t\t\t     \t     \t\t\t\t     \t\t\t\t     \t     \t\t\t\t\t\t\t
-        \    \t\t\t\t\t\t\t          \t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t
-        \    \t     \t\t\t\t     \t     \t\t\t\t     \t     \t\t\t\t     \t     \t\t\t\t
-        \    \t     \t\t\t\t     \t\t\t\t     \t     \t\t\t\t\t\t\t     \t\t\t\t\t\t\t
-        \         \t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t     \t\t\t\t\t\t\t
-        \         \t\t\t\t     \t     \t\t\t\t     \t     \t\t\t\t     \t          \t
-        \    \t\t\t\t     \t     \t\t\t\t     \t\t\t\t     \t     \t\t\t\t\t\t\t     \t\t\t\t\t\t\t
-        \         \t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t     \t     \t\t\t\t
-        \    \t     \t\t\t\t     \t          \t     \t\t\t\t     \t     \t\t\t\t     \t\t\t\t
-        \    \t     \t\t\t\t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t     \t\t\t\t\t\t\t
-        \         \t\t\t\t     \t     \t\t\t\t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t
-        \    \t\t\t\t\t\t\t          \t\t\t\t     \t     \t\t\t\t     \t     \t\t\t\t
-        \    \t          \t     \t\t\t\t     \t     \t\t\t\t     \t\t\t\t     \t     \t\t\t\t\t\t\t
-        \    \t\t\t\t\t\t\t          \t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t
-        \    \t\t\t\t\t\t\t          \t\t\t\t     \t     \t\t\t\t\t\t\t     \t\t\t\t\t\t\t
-        \         \t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t     \t\t\t\t\t\t\t
-        \         \t\t\t\t     \t     \t\t\t\t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t
-        \    \t\t\t\t\t\t\t          \t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t
-        \    \t\t\t\t\t\t\t          \t\t\t\t     \t     \t\t\t\t     \t     \t\t\t\t
-        \    \t          \t     \t\t\t\t     \t     \t\t\t\t     \t\t\t\t     \t     \t\t\t\t\t\t\t
-        \    \t\t\t\t\t\t\t          \t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t
-        \    \t     \t\t\t\t     \t     \t\t\t\t     \t          \t     \t\t\t\t     \t
-        \    \t\t\t\t     \t\t\t\t     \t     \t\t\t\t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t
-        \    \t\t\t\t\t\t\t          \t\t\t\t     \t     \t\t\t\t     \t     \t\t\t\t
-        \    \t          \t     \t\t\t\t     \t     \t\t\t\t     \t\t\t\t     \t     \t\t\t\t\t\t\t
-        \    \t\t\t\t\t\t\t          \t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t
-        \    \t     \t\t\t\t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t     \t\t\t\t\t\t\t
-        \         \t\t\t\t     \t     \t\t\t\t     \t     \t\t\t\t     \t          \t
-        \    \t\t\t\t     \t     \t\t\t\t     \t\t\t\t     \t     \t\t\t\t\t\t\t     \t\t\t\t\t\t\t
-        \         \t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t     \t\t\t\t\t\t\t
-        \         \t\t\t\t     \t     \t\t\t\t     \t     \t\t\t\t     \t          \t
-        \    \t\t\t\t     \t     \t\t\t\t     \t\t\t\t     \t     \t\t\t\t\t\t\t     \t\t\t\t\t\t\t
-        \         \t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t     \t     \t\t\t\t\t\t\t
-        \    \t\t\t\t\t\t\t          \t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t
-        \    \t\t\t\t\t\t\t          \t\t\t\t     \t     \t\t\t\t     \t     \t\t\t\t
-        \    \t     \t\t\t\t     \t     \t\t\t\t     \t     \t\t\t\t     \t\t\t\t
-        \    \t     \t\t\t\t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t     \t\t\t\t\t\t\t
-        \         \t\t\t\t     \t     \t\t\t\t     \t     \t\t\t\t     \t          \t
-        \    \t\t\t\t     \t     \t\t\t\t     \t\t\t\t     \t     \t\t\t\t\t\t\t     \t\t\t\t\t\t\t
-        \         \t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t     \t\t\t\t\t\t\t
-        \         \t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t     \t     \t\t\t\t
-        \    \t     \t\t\t\t     \t          \t     \t\t\t\t     \t     \t\t\t\t     \t\t\t\t
-        \    \t     \t\t\t\t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t\t\t\t\t\t\t<p><a
-        href=\"/ipni/editAdvPlantNameSearch.do?show_extras=true&find_infragenus=&find_geoUnit=&find_includePublicationAuthors=true&find_addedSince=&find_family=&find_genus=&find_infrafamily=&find_rankToReturn=&find_publicationTitle=&find_authorAbbrev=&find_infraspecies=&find_includeBasionymAuthors=true&find_modifiedSince=&find_species=&output_format=delimited-minimal\">show
-        additional search terms ...</a></p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</td>
-        \n\t\t\t\t\t\t\t</tr>\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<tr> \n\t\t\t\t\t\t\t\t<td>
-        <p><b>Extended Options</b> </p></td>\n\t\t\t\t\t\t\t\t<td> </td>\n\t\t\t\t\t\t\t\t<td>
-        </td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr align=\"left\"> \n\t\t\t\t\t\t\t\t<td><p>Include
-        records from:<br/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tAPNI
-        \n\t\t\t\t\t\t\t\t\t<input name=\"find_isAPNIRecord\" type=\"checkbox\" />\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input
-        value=\"false\" name=\"find_isAPNIRecord\" type=\"hidden\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tGCI\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input
-        name=\"find_isGCIRecord\" type=\"checkbox\" />\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input
-        value=\"false\" name=\"find_isGCIRecord\" type=\"hidden\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tIK
-        \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input name=\"find_isIKRecord\"
-        type=\"checkbox\" />\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input
-        value=\"false\" name=\"find_isIKRecord\" type=\"hidden\"/>\n\t\t\t\t\t\t</p>\n\t\t\t\t\t\t
-        \   \t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td><p>Show Ranks \n\t\t\t\t\t\t\t\t\t<select
-        name=\"find_rankToReturn\">\n\t\t\t\t\t\t\t\t\t\t<option value=\"all\" >All</option>\n\t\t\t\t\t\t\t\t\t\t<option
-        value=\"fam\" >Familial</option>\n\t\t\t\t\t\t\t\t\t\t<option value=\"infrafam\"
-        >Infrafamilial</option>\n\t\t\t\t\t\t\t\t\t\t<option value=\"gen\" >Generic</option>\n\t\t\t\t\t\t\t\t\t\t<option
-        value=\"infragen\" >Infrageneric</option>\n\t\t\t\t\t\t\t\t\t\t<option value=\"spec\"
-        >Specific</option>\n\t\t\t\t\t\t\t\t\t\t<option value=\"infraspec\" >InfraSpecific</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-        \   \t\t\t\t\t\t\t\t\t<br/>\n\t\t\t\t\t\t\t\t\tOnly hybrids \n\t\t\t\t\t\t\t\t\t<input
-        name=\"find_isHybrid\" type=\"checkbox\" />\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td><p>Output
-        Format \n\t\t\t\t\t\t\t\t\t<select name=\"output_format\">\n\t\t\t\t\t\t\t\t\t\t<option
-        value=\"normal\"  >Normal</option>\n\t\t\t\t\t\t\t\t\t\t<option value=\"delimited\"
-        \ >Delimited (classic)</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<option
-        value=\"delimited-minimal\"  selected=\"selected\"  >Delimited (minimal)</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<option
-        value=\"delimited-short\"  >Delimited (short)</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<option
-        value=\"delimited-extended\"  >Delimited (extended)</option>\n\t\t\t\t\t\t\t\t\t\t<option
-        value=\"full\"  >Full records</option>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</select>\n<small>\t\t\t\t\t\t\t\t\t<a
-        href=\"delimited_help.html\" target=\"help\">What's this?</a></small>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-        \   \t\t\t\t\t\t\t\t\t<br/>\n\t\t\t\t\t\t\t\t\tSort by family \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input
-        name=\"find_sortByFamily\" type=\"checkbox\" />\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-        \   \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!-- Actively
-        gives us an 'off' if the box is unchecked -->\n\t\t\t\t\t\t\t\t\t<input value=\"off\"
-        name=\"find_sortByFamily\" type=\"hidden\"/>\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td></td>\n\t\t\t\t\t\t\t\t<td></td>\n\t\t\t\t\t\t\t\t<td
-        align=\"right\"><input type=\"submit\" value=\" Search \" /></td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</table>\n\t\t\t\t\t</td>\n\t\t\t\t</tr>\n\t\t\t</table>\n\t\t\t<input
-        type=\"hidden\" name=\"query_type\" value=\"by_query\" />\n\t\t\t<input type=\"hidden\"
-        name=\"back_page\" value=\"plantsearch\" />\n\t\t\t<br />\n        </form>\n\t\t<p>Can't
-        find the name you're looking for? Try our <a href=\"../search_tips.html\">search
-        \n\t\t\ttips</a>. New to IPNI? Check out our <a href=\"../sample_searches.html#name_examples\">sample
-        \n\t\t\tsearches</a> \n\t\t</p>\n\t\t<p><span class=\"c3\">Please send comments/questions
-        to <a href=\"mailto:ipnieditors@ipni.org\">the \n\t\t\teditors</a>.</span>
-        \n\t\t</p>\n\n\t\t<h4><a class=\"navbar\" href=\"../index.html\">Back to IPNI
-        Home</a></h4>\n\t\t<p> </p>\n\t</td>\n\t\n\n\n \t</tr>\n\t<tr> \n\t\t<td width=\"135\"
-        valign=\"TOP\" bgcolor=\"#99FFCC\">&#160;</td>\n\t\t<td valign=\"middle\">
-        \n\t\t\t<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\n\t\t\t\t<tr>
-        \n\t\t\t\t\t<td><p class=\"noindent\">&#169; Copyright 2005<a class=\"navbar\"
-        href=\"../copyright.html\"> \n\t\t\t\t\t\t\t\tInternational Plant Names Index</a></p></td>\n\t\t\t\t\t<td
-        align=\"right\"></td>\n\t\t\t\t</tr>\n\t\t\t</table>\n\t\t\t<script type=\"text/javascript\">\n\t\t\t
-        \  var _gaq = _gaq || [];\n\t\t\t   _gaq.push(['_setAccount', 'UA-1321334-6']);\n\t\t\t
-        \  _gaq.push(['_trackPageview']);\n\t\t\t   (function() {\n\t\t\t     var
-        ga = document.createElement('script'); ga.type =\n\t\t\t 'text/javascript';
-        ga.async = true;\n\t\t\t     ga.src = ('https:' == document.location.protocol
-        ? 'https://ssl' :\n\t\t\t 'http://www') + '.google-analytics.com/ga.js';\n\t\t\t
-        \    var s = document.getElementsByTagName('script')[0];\n\t\t\t s.parentNode.insertBefore(ga,
-        s);\n\t\t\t   })();\n\t\t\t</script>\n\t\t\t<!-- Google Tag Manager -->\n\t\t\t<noscript><iframe
-        src=\"//www.googletagmanager.com/ns.html?id=GTM-FMFK\" height=\"0\" width=\"0\"
-        style=\"display:none;visibility:hidden\"></iframe></noscript>\n\t\t\t<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-FMFK');</script>\n\t\t\t<!--
-        End Google Tag Manager -->\n\t\t</td>\n\t</tr>\n</table>\n</body>\n\n\n</html>"
-  recorded_at: 2019-01-24 16:55:18 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
-- request:
-    method: get
-    uri: http://www.ipni.org/ipni/advPlantNameSearch.do?output_format=delimited-minimal&find_family=5
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      date: Thu, 24 Jan 2019 16:55:17 GMT
-      server: Apache/2.4.6 (CentOS) mod_jk/1.2.41
-      set-cookie: JSESSIONID=7D49EB2084E3C765CD125287250C2D1A; Path=/ipni
-      transfer-encoding: chunked
-      content-type: text/html;charset=UTF-8
-    body:
-      encoding: UTF-8
-      string: "\t\n\t\t\n\t\t\t\n\t\t\n\n\n\n\n\n<html>\n<head>\n<title>IPNI: Plant
-        Name search</title>\n<meta name=\"content-style-type\" content=\"text/css\"/>\n<meta
-        name=\"owner\" content=\"ipni.org\"/>\n<meta name=\"author\" content=\"Christine
-        Barker\"/>\n<meta name=\"created_on\" content=\"21 11 2003\"/>\n<meta name=\"last_modified\"
-        content=\"21 11 2003\"/>\n<meta name=\"review_on\" content=\"21 01 2004\"/>\n<meta
-        name=\"action\" content=\"R\"/>\n<link href=\"../ipni.css\" rel=\"stylesheet\"
-        type=\"text/css\"/>\n<meta http-equiv=\"Content-Type\" content=\"text/html;
-        charset=utf-8\"/>\n<style type=\"text/css\"> \n\tp { margin-left: 0px; }\n</style>\n</head>\n\n<body>\n
-        <table border=\"0\" width=\"100%\" cellspacing=\"0\" cellpadding=\"8\" bgcolor=\"#ffffff\">\n\t<tr>
-        \n\t\t<td width=\"135\" align=\"center\" valign=\"middle\" bgcolor=\"#FFFFFF\"><a
-        class=\"navbar\" href=\"../index.html\"><img src= \n\"../images/ipni_logoonly_sm.jpg\"
-        alt=\"IPNI logo - link to home\" width=\"89\" height=\"86\" border=\"0\"/></a>
-        \n\t\t</td>\n\t\t<td valign=\"middle\" bgcolor=\"#FFFFFF\">\n\t\t        <img
-        src=\"../images/ipni_logo4_2.gif\" alt=\"The International Plant Names Index\"
-        width=\"450\" height=\"39\"/><br/>\n\t\t</td>\n\t</tr>\n\t<tr> \n\t\t<!--
-        left hand bar begins here -->\n\t\t<td width=\"135\" valign=\"TOP\" class=\"navbar\">
-        <h4>Search the data </h4>\n\t\t\t<ul>\n\t\t\t\t<li class=\"navbar\"> <a class=\"navbar\"
-        href= \n                  \"plantsearch?request_type=search&amp;output_format=query&amp;ret_defaults=on\">Plant
-        Names</a></li>\n\t\t\t\t<li class=\"navbar\"> <a class=\"navbar\" href= \n
-        \                 \"authorsearch?request_type=search&amp;output_format=query&amp;ret_defaults=on\">Authors</a></li>\n\t\t\t\t<li
-        class=\"navbar\"> <a class=\"navbar\" href= \n                  \"publicationsearch?request_type=search&amp;output_format=query&amp;ret_defaults=on\">
-        Publications</a></li>\n\t\t\t</ul>\n\t\t\t<h4><a class=\"navbar\" href=\"../index.html\">IPNI
-        Home</a></h4>\n\t\t\t<p><a class=\"navbar\" href=\"mailto:ipnifeedback@ipni.org\">contact
-        us</a>&#160;</p>\n\t\t</td>\n\t<td valign=\"top\"> \n\t\t<h2>Plant Name Query</h2>\n\t\t<p><a
-        href=\"/ipni/editAdvPlantNameSearch.do?show_extras=&find_includePublicationAuthors=true&find_includeBasionymAuthors=true&find_isIKRecord=true&find_isGCIRecord=true&find_isAPNIRecord=true&find_sortByFamily=true\">Reset
-        search terms</a></p>\n\t\t\n\n\t\t<form action=\"/ipni/simplePlantNameSearch.do\">\n\t<table
-        width=\"100%\" cellpadding=\"2\">\n\t\t<tr> \n\t\t\t<td bgcolor=\"eeeeee\">
-        \n\t\t\t\t<table>\n\t\t\t\t\t<tr> \n\t\t\t\t  \t\t<td colspan=\"3\"><p><b>Quick
-        search</b> - enter a plant name (without authors) </p></td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>
-        \n\t\t\t\t  \t\t<td valign=\"center\"> \n\t\t\t\t\t\t\t<p> Full Name: \n  <input
-        size=\"30\" name=\"find_wholeName\" type=\"text\" value=\"\"/>\n      </p>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td
-        valign=\"center\">\n\t\t\t\t\t\t\t<p> \t\t\t\t\t\t         <small><a href=\"../sample_searches.html#name_quick\"
-        target=\"help\">What's this?</a></small>\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t</td>\t\t\t\t\n\t\t<td
-        align=\"right\" valign=\"center\">\n\t\t\t\t\t\t\t<p>Output Format \n\t\t\t\t\t\t\t\t<select
-        name=\"output_format\">\n\t\t\t\t\t\t\t\t\t\t<option value=\"normal\" selected=\"selected\">Normal</option>\n\t\t\t\t\t\t\t\t\t\t<option
-        value=\"delimited\"  >Delimited (classic)</option>\n\t\t\t\t\t\t\t\t\t\t<option
-        value=\"delimited-minimal\"  >Delimited (minimal)</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<option
-        value=\"delimited-short\"  >Delimited (short)</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<option
-        value=\"delimited-extended\"  >Delimited (extended)</option>\n\t\t\t\t\t<option
-        value=\"full\"  >Full records</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t<small>\t\t\t\t\t\t\t\t\t<a
-        href=\"delimited_help.html\" target=\"help\">What's this?</a></small>\n\t\t\t\t\t\t\t\t
-        \   \t\t\t\t\t\t\t\t<input type=\"submit\" value=\"Search\" />\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t</td>\n
-        \t\t\t\t\t</tr>\n\t\t\t  \t</table>\n\t\t\t</td>\n\t\t</tr>\n\t</table>\n\t<input
-        type=\"hidden\" name=\"query_type\" value=\"by_query\" /><input type=\"hidden\"
-        name=\"back_page\" value=\"query_ipni.html\" /><br />\n</form>\n\t\t<form
-        action=\"/ipni/advPlantNameSearch.do\">\n\t\t\t<table cellpadding=\"2\" width=\"100%\">\n\t\t\t\t<tr>
-        \n\t\t\t\t\t<td bgcolor=\"eeeeee\"> \n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t<table>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t<p><b>Full
-        search</b>\t\t\t\t\t\t\t</p></td>\n\t\t\t\t\t\t\t\t<td> </td>\n\t\t\t\t\t\t\t\t<td>
-        </td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t<tr> \n\t\t\t\t\t\t\t\t<td><p><b>Name</b></p></td>\n\t\t\t\t\t\t\t\t<td>
-        </td>\n\t\t\t\t\t\t\t\t<td> </td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>
-        \n\t\t\t\t\t\t\t\t<td valign=\"top\" align=\"right\">\n\t\t\t\t\t\t\t\t\t<p>Family
-        \n\t\t\t\t\t\t\t\t\t<input size=\"16\" name=\"find_family\" type=\"text\"
-        value=\"5\"/>\n\t\t\t\t\t\t\t\t\t                        \t<div class=\"error\">
-        <img src=\"images/ipni_alert.gif\"/> Family  is invalid.</div><br/>\n            \t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td
-        valign=\"top\" align=\"right\">\n\t\t\t\t\t\t\t\t\t<p>Genus \n\t\t\t\t\t\t\t\t\t<input
-        size=\"16\" name=\"find_genus\" type=\"text\" value=\"\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-        \   \t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td valign=\"top\"
-        align=\"right\">\n\t\t\t\t\t\t\t\t\t<p>Species \n\t\t\t\t\t\t\t\t\t<input
-        size=\"16\" name=\"find_species\" type=\"text\" value=\"\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-        \   \t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>
-        \n\t\t\t\t\t\t\t\t<td valign=\"top\" align=\"right\">\n\t\t\t\t\t\t\t\t\t<p>Infrafamilial
-        \n\t\t\t\t\t\t\t\t\t<input size=\"16\" name=\"find_infrafamily\" type=\"text\"
-        value=\"\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t    \t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td
-        align=\"right\" valign=\"top\">\n\t\t\t\t\t\t\t\t\t<p>Infrageneric \n\t\t\t\t\t\t\t\t\t<input
-        size=\"16\" name=\"find_infragenus\" type=\"text\" value=\"\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-        \   \t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td valign=\"top\"
-        align=\"right\">\n\t\t\t\t\t\t\t\t\t<p>Infraspecific \n\t\t\t\t\t\t\t\t\t<input
-        size=\"16\" name=\"find_infraspecies\" type=\"text\" value=\"\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-        \   \t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>
-        \n\t\t\t\t\t\t\t\t<td><p><b>Author</b></p></td>\n\t\t\t\t\t\t\t\t<td> </td>\n\t\t\t\t\t\t\t\t<td>
-        </td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<tr> \n\t\t\t\t\t\t\t\t<td
-        align=\"right\" valign=\"top\"> \n\t\t\t\t\t\t\t\t\t<p>Standard form </p>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td
-        align=\"right\" valign=\"top\"> \n\t\t\t\t\t\t\t\t   <p>\n\t\t\t\t\t\t\t\t\t
-        <input size=\"30\" name=\"find_authorAbbrev\" type=\"text\" value=\"\"/>\n\t\t\t\t\t\t\t\t\t
-        \t\t\t\t\t\t\t\t\t    \t\t\t\t\t\t\t\t   </p>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td
-        align=\"left\" valign=\"top\"> \n\t\t\t\t\t\t\t\t\t<p>taxon name authors\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input
-        name=\"find_includePublicationAuthors\" type=\"checkbox\"  checked=\"checked\"
-        />\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-        \   \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!-- Actively gives us an 'off'
-        if the box is unchecked-->\n\t\t\t\t\t\t\t\t<input value=\"off\" name=\"find_includePublicationAuthors\"
-        type=\"hidden\"/> \n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\tbasionym
-        authors\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input name=\"find_includeBasionymAuthors\"
-        type=\"checkbox\"  checked=\"checked\" />\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-        \   \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!-- Actively gives us an 'off'
-        if the box is unchecked-->\n\t\t\t\t\t\t\t\t\t<input value=\"off\" name=\"find_includeBasionymAuthors\"
-        type=\"hidden\"/>\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<tr>
-        \n\t\t\t\t\t\t\t\t<td><p><b>Publication</b></p></td>\n\t\t\t\t\t\t\t\t<td>
-        </td>\n\t\t\t\t\t\t\t\t<td> </td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>
-        \n\t\t\t\t\t\t\t\t<td align=\"right\" valign=\"top\">\n\t\t\t\t\t\t\t\t\t<p>Abbreviation
-        </p>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td align=\"right\">\n\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t<input
-        size=\"30\" name=\"find_publicationTitle\" type=\"text\" value=\"\" />\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-        \   \t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td align=\"right\"
-        valign=\"top\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-        \    \t\t\t\t     \t\t\t\t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t     \t
-        \    \t\t\t\t     \t     \t\t\t\t     \t          \t     \t\t\t\t     \t     \t\t\t\t
-        \    \t\t\t\t     \t     \t\t\t\t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t
-        \    \t\t\t\t\t\t\t          \t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t
-        \    \t\t\t\t\t\t\t          \t\t\t\t     \t     \t\t\t\t     \t     \t\t\t\t
-        \    \t          \t     \t\t\t\t     \t     \t\t\t\t     \t\t\t\t     \t     \t\t\t\t\t\t\t
-        \    \t\t\t\t\t\t\t          \t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t
-        \    \t     \t\t\t\t     \t     \t\t\t\t     \t     \t\t\t\t     \t     \t\t\t\t
-        \    \t     \t\t\t\t     \t\t\t\t     \t     \t\t\t\t\t\t\t     \t\t\t\t\t\t\t
-        \         \t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t     \t\t\t\t\t\t\t
-        \         \t\t\t\t     \t     \t\t\t\t     \t     \t\t\t\t     \t          \t
-        \    \t\t\t\t     \t     \t\t\t\t     \t\t\t\t     \t     \t\t\t\t\t\t\t     \t\t\t\t\t\t\t
-        \         \t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t     \t     \t\t\t\t
-        \    \t     \t\t\t\t     \t          \t     \t\t\t\t     \t     \t\t\t\t     \t\t\t\t
-        \    \t     \t\t\t\t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t     \t\t\t\t\t\t\t
-        \         \t\t\t\t     \t     \t\t\t\t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t
-        \    \t\t\t\t\t\t\t          \t\t\t\t     \t     \t\t\t\t     \t     \t\t\t\t
-        \    \t          \t     \t\t\t\t     \t     \t\t\t\t     \t\t\t\t     \t     \t\t\t\t\t\t\t
-        \    \t\t\t\t\t\t\t          \t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t
-        \    \t\t\t\t\t\t\t          \t\t\t\t     \t     \t\t\t\t\t\t\t     \t\t\t\t\t\t\t
-        \         \t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t     \t\t\t\t\t\t\t
-        \         \t\t\t\t     \t     \t\t\t\t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t
-        \    \t\t\t\t\t\t\t          \t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t
-        \    \t\t\t\t\t\t\t          \t\t\t\t     \t     \t\t\t\t     \t     \t\t\t\t
-        \    \t          \t     \t\t\t\t     \t     \t\t\t\t     \t\t\t\t     \t     \t\t\t\t\t\t\t
-        \    \t\t\t\t\t\t\t          \t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t
-        \    \t     \t\t\t\t     \t     \t\t\t\t     \t          \t     \t\t\t\t     \t
-        \    \t\t\t\t     \t\t\t\t     \t     \t\t\t\t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t
-        \    \t\t\t\t\t\t\t          \t\t\t\t     \t     \t\t\t\t     \t     \t\t\t\t
-        \    \t          \t     \t\t\t\t     \t     \t\t\t\t     \t\t\t\t     \t     \t\t\t\t\t\t\t
-        \    \t\t\t\t\t\t\t          \t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t
-        \    \t     \t\t\t\t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t     \t\t\t\t\t\t\t
-        \         \t\t\t\t     \t     \t\t\t\t     \t     \t\t\t\t     \t          \t
-        \    \t\t\t\t     \t     \t\t\t\t     \t\t\t\t     \t     \t\t\t\t\t\t\t     \t\t\t\t\t\t\t
-        \         \t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t     \t\t\t\t\t\t\t
-        \         \t\t\t\t     \t     \t\t\t\t     \t     \t\t\t\t     \t          \t
-        \    \t\t\t\t     \t     \t\t\t\t     \t\t\t\t     \t     \t\t\t\t\t\t\t     \t\t\t\t\t\t\t
-        \         \t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t     \t     \t\t\t\t\t\t\t
-        \    \t\t\t\t\t\t\t          \t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t
-        \    \t\t\t\t\t\t\t          \t\t\t\t     \t     \t\t\t\t     \t     \t\t\t\t
-        \    \t     \t\t\t\t     \t     \t\t\t\t     \t     \t\t\t\t     \t\t\t\t
-        \    \t     \t\t\t\t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t     \t\t\t\t\t\t\t
-        \         \t\t\t\t     \t     \t\t\t\t     \t     \t\t\t\t     \t          \t
-        \    \t\t\t\t     \t     \t\t\t\t     \t\t\t\t     \t     \t\t\t\t\t\t\t     \t\t\t\t\t\t\t
-        \         \t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t     \t\t\t\t\t\t\t
-        \         \t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t     \t     \t\t\t\t
-        \    \t     \t\t\t\t     \t          \t     \t\t\t\t     \t     \t\t\t\t     \t\t\t\t
-        \    \t     \t\t\t\t\t\t\t     \t\t\t\t\t\t\t          \t\t\t\t\t\t\t\t\t\t<p><a
-        href=\"/ipni/editAdvPlantNameSearch.do?show_extras=true&find_infragenus=&find_geoUnit=&find_includePublicationAuthors=true&find_addedSince=&find_family=5&find_genus=&find_infrafamily=&find_rankToReturn=&find_publicationTitle=&find_authorAbbrev=&find_infraspecies=&find_includeBasionymAuthors=true&find_modifiedSince=&find_species=&output_format=delimited-minimal\">show
-        additional search terms ...</a></p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</td>
-        \n\t\t\t\t\t\t\t</tr>\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<tr> \n\t\t\t\t\t\t\t\t<td>
-        <p><b>Extended Options</b> </p></td>\n\t\t\t\t\t\t\t\t<td> </td>\n\t\t\t\t\t\t\t\t<td>
-        </td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr align=\"left\"> \n\t\t\t\t\t\t\t\t<td><p>Include
-        records from:<br/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tAPNI
-        \n\t\t\t\t\t\t\t\t\t<input name=\"find_isAPNIRecord\" type=\"checkbox\" />\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input
-        value=\"false\" name=\"find_isAPNIRecord\" type=\"hidden\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tGCI\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input
-        name=\"find_isGCIRecord\" type=\"checkbox\" />\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input
-        value=\"false\" name=\"find_isGCIRecord\" type=\"hidden\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tIK
-        \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input name=\"find_isIKRecord\"
-        type=\"checkbox\" />\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input
-        value=\"false\" name=\"find_isIKRecord\" type=\"hidden\"/>\n\t\t\t\t\t\t</p>\n\t\t\t\t\t\t
-        \   \t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td><p>Show Ranks \n\t\t\t\t\t\t\t\t\t<select
-        name=\"find_rankToReturn\">\n\t\t\t\t\t\t\t\t\t\t<option value=\"all\" >All</option>\n\t\t\t\t\t\t\t\t\t\t<option
-        value=\"fam\" >Familial</option>\n\t\t\t\t\t\t\t\t\t\t<option value=\"infrafam\"
-        >Infrafamilial</option>\n\t\t\t\t\t\t\t\t\t\t<option value=\"gen\" >Generic</option>\n\t\t\t\t\t\t\t\t\t\t<option
-        value=\"infragen\" >Infrageneric</option>\n\t\t\t\t\t\t\t\t\t\t<option value=\"spec\"
-        >Specific</option>\n\t\t\t\t\t\t\t\t\t\t<option value=\"infraspec\" >InfraSpecific</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-        \   \t\t\t\t\t\t\t\t\t<br/>\n\t\t\t\t\t\t\t\t\tOnly hybrids \n\t\t\t\t\t\t\t\t\t<input
-        name=\"find_isHybrid\" type=\"checkbox\" />\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td><p>Output
-        Format \n\t\t\t\t\t\t\t\t\t<select name=\"output_format\">\n\t\t\t\t\t\t\t\t\t\t<option
-        value=\"normal\"  >Normal</option>\n\t\t\t\t\t\t\t\t\t\t<option value=\"delimited\"
-        \ >Delimited (classic)</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<option
-        value=\"delimited-minimal\"  selected=\"selected\"  >Delimited (minimal)</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<option
-        value=\"delimited-short\"  >Delimited (short)</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<option
-        value=\"delimited-extended\"  >Delimited (extended)</option>\n\t\t\t\t\t\t\t\t\t\t<option
-        value=\"full\"  >Full records</option>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</select>\n<small>\t\t\t\t\t\t\t\t\t<a
-        href=\"delimited_help.html\" target=\"help\">What's this?</a></small>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-        \   \t\t\t\t\t\t\t\t\t<br/>\n\t\t\t\t\t\t\t\t\tSort by family \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input
-        name=\"find_sortByFamily\" type=\"checkbox\" />\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-        \   \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!-- Actively
-        gives us an 'off' if the box is unchecked -->\n\t\t\t\t\t\t\t\t\t<input value=\"off\"
-        name=\"find_sortByFamily\" type=\"hidden\"/>\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td></td>\n\t\t\t\t\t\t\t\t<td></td>\n\t\t\t\t\t\t\t\t<td
-        align=\"right\"><input type=\"submit\" value=\" Search \" /></td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</table>\n\t\t\t\t\t</td>\n\t\t\t\t</tr>\n\t\t\t</table>\n\t\t\t<input
-        type=\"hidden\" name=\"query_type\" value=\"by_query\" />\n\t\t\t<input type=\"hidden\"
-        name=\"back_page\" value=\"plantsearch\" />\n\t\t\t<br />\n        </form>\n\t\t<p>Can't
-        find the name you're looking for? Try our <a href=\"../search_tips.html\">search
-        \n\t\t\ttips</a>. New to IPNI? Check out our <a href=\"../sample_searches.html#name_examples\">sample
-        \n\t\t\tsearches</a> \n\t\t</p>\n\t\t<p><span class=\"c3\">Please send comments/questions
-        to <a href=\"mailto:ipnieditors@ipni.org\">the \n\t\t\teditors</a>.</span>
-        \n\t\t</p>\n\n\t\t<h4><a class=\"navbar\" href=\"../index.html\">Back to IPNI
-        Home</a></h4>\n\t\t<p> </p>\n\t</td>\n\t\n\n\n \t</tr>\n\t<tr> \n\t\t<td width=\"135\"
-        valign=\"TOP\" bgcolor=\"#99FFCC\">&#160;</td>\n\t\t<td valign=\"middle\">
-        \n\t\t\t<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\n\t\t\t\t<tr>
-        \n\t\t\t\t\t<td><p class=\"noindent\">&#169; Copyright 2005<a class=\"navbar\"
-        href=\"../copyright.html\"> \n\t\t\t\t\t\t\t\tInternational Plant Names Index</a></p></td>\n\t\t\t\t\t<td
-        align=\"right\"></td>\n\t\t\t\t</tr>\n\t\t\t</table>\n\t\t\t<script type=\"text/javascript\">\n\t\t\t
-        \  var _gaq = _gaq || [];\n\t\t\t   _gaq.push(['_setAccount', 'UA-1321334-6']);\n\t\t\t
-        \  _gaq.push(['_trackPageview']);\n\t\t\t   (function() {\n\t\t\t     var
-        ga = document.createElement('script'); ga.type =\n\t\t\t 'text/javascript';
-        ga.async = true;\n\t\t\t     ga.src = ('https:' == document.location.protocol
-        ? 'https://ssl' :\n\t\t\t 'http://www') + '.google-analytics.com/ga.js';\n\t\t\t
-        \    var s = document.getElementsByTagName('script')[0];\n\t\t\t s.parentNode.insertBefore(ga,
-        s);\n\t\t\t   })();\n\t\t\t</script>\n\t\t\t<!-- Google Tag Manager -->\n\t\t\t<noscript><iframe
-        src=\"//www.googletagmanager.com/ns.html?id=GTM-FMFK\" height=\"0\" width=\"0\"
-        style=\"display:none;visibility:hidden\"></iframe></noscript>\n\t\t\t<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-FMFK');</script>\n\t\t\t<!--
-        End Google Tag Manager -->\n\t\t</td>\n\t</tr>\n</table>\n</body>\n\n\n</html>"
-  recorded_at: 2019-01-24 16:55:18 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
-- request:
-    method: get
-    uri: http://www.ipni.org/ipni/advPlantNameSearch.do?output_format=delimited-minimal&find_genus=adfasdfasffd
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      date: Thu, 24 Jan 2019 16:55:17 GMT
-      server: Apache/2.4.6 (CentOS) mod_jk/1.2.41
-      set-cookie: JSESSIONID=EB6C81FC00153F92DDB21D1A4FECFD25; Path=/ipni
-      content-length: '0'
+      status: 'HTTP/2 200 '
+      server: nginx/1.14.0
+      date: Tue, 13 Aug 2019 17:30:58 GMT
       content-type: text/plain;charset=UTF-8
+      content-length: '63'
+      content-disposition: inline;filename=f.txt
+      content-language: en-US
     body:
       encoding: UTF-8
+      string: |
+        Id%Version%Family%Full name without family and authors%Authors
+  recorded_at: 2019-08-13 17:30:59 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.4.0
+- request:
+    method: get
+    uri: https://www.ipni.org/ipni/advPlantNameSearch.do?output_format=delimited-minimal&find_family=5
+    body:
+      encoding: ''
       string: ''
-  recorded_at: 2019-01-24 16:55:18 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.0 crul/0.8.4 rOpenSci(taxize/0.9.8.9134)
+      X-USER-AGENT: r-curl/4.0 crul/0.8.4 rOpenSci(taxize/0.9.8.9134)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      server: nginx/1.14.0
+      date: Tue, 13 Aug 2019 17:30:58 GMT
+      content-type: text/plain;charset=UTF-8
+      content-length: '63'
+      content-disposition: inline;filename=f.txt
+      content-language: en-US
+    body:
+      encoding: UTF-8
+      string: |
+        Id%Version%Family%Full name without family and authors%Authors
+  recorded_at: 2019-08-13 17:30:59 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.4.0
+- request:
+    method: get
+    uri: https://www.ipni.org/ipni/advPlantNameSearch.do?output_format=delimited-minimal&find_genus=adfasdfasffd
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.0 crul/0.8.4 rOpenSci(taxize/0.9.8.9134)
+      X-USER-AGENT: r-curl/4.0 crul/0.8.4 rOpenSci(taxize/0.9.8.9134)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      server: nginx/1.14.0
+      date: Tue, 13 Aug 2019 17:30:59 GMT
+      content-type: text/plain;charset=UTF-8
+      content-length: '63'
+      content-disposition: inline;filename=f.txt
+      content-language: en-US
+    body:
+      encoding: UTF-8
+      string: |
+        Id%Version%Family%Full name without family and authors%Authors
+  recorded_at: 2019-08-13 17:30:59 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.4.0

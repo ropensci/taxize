@@ -71,7 +71,7 @@ details.}
 (Optional). Default: returns all ranks.}
 }
 \value{
-A data frame
+a tibble (data.frame)
 }
 \description{
 Note: This data source is also provided in the Global Names Index (GNI)
@@ -79,7 +79,7 @@ Note: This data source is also provided in the Global Names Index (GNI)
 different among the two services though.
 }
 \details{
-\code{rankToReturn} options:
+\code{ranktoreturn} options:
 \itemize{
 \item "all" - all records
 \item "fam" - family records
@@ -94,15 +94,15 @@ different among the two services though.
 \dontrun{
 ipni_search(genus='Brintonia', isapnirecord=TRUE, isgcirecord=TRUE,
   isikrecord=TRUE)
-head(ipni_search(genus='Ceanothus'))
-head(ipni_search(genus='Pinus', species='contorta'))
+ipni_search(genus='Ceanothus')
+ipni_search(genus='Pinus', species='contorta')
 
 # Different output formats
-head(ipni_search(genus='Ceanothus'))
-head(ipni_search(genus='Ceanothus', output='short'))
-head(ipni_search(genus='Ceanothus', output='extended'))
+ipni_search(genus='Ceanothus')
+ipni_search(genus='Ceanothus', output='short')
+ipni_search(genus='Ceanothus', output='extended')
 }
 }
 \references{
-http://www.ipni.org/link_to_ipni.html
+https://web.archive.org/web/20190501132148/http://www.ipni.org/link_to_ipni.html
 }

@@ -43,9 +43,10 @@
 #' @param output One of minimal (default), classic, short, or extended
 #' @param ... Curl options passed on to [crul::verb-GET]
 #' (Optional). Default: returns all ranks.
-#' @references http://www.ipni.org/link_to_ipni.html
+#' @references
+#' https://web.archive.org/web/20190501132148/http://www.ipni.org/link_to_ipni.html
 #' @details
-#' `rankToReturn` options:
+#' `ranktoreturn` options:
 #'
 #' * "all" - all records
 #' * "fam" - family records
@@ -55,17 +56,17 @@
 #' * "spec" - species records
 #' * "infraspec" - infraspecific records
 #'
-#' @return A data frame
+#' @return a tibble (data.frame)
 #' @examples \dontrun{
 #' ipni_search(genus='Brintonia', isapnirecord=TRUE, isgcirecord=TRUE,
 #'   isikrecord=TRUE)
-#' head(ipni_search(genus='Ceanothus'))
-#' head(ipni_search(genus='Pinus', species='contorta'))
+#' ipni_search(genus='Ceanothus')
+#' ipni_search(genus='Pinus', species='contorta')
 #'
 #' # Different output formats
-#' head(ipni_search(genus='Ceanothus'))
-#' head(ipni_search(genus='Ceanothus', output='short'))
-#' head(ipni_search(genus='Ceanothus', output='extended'))
+#' ipni_search(genus='Ceanothus')
+#' ipni_search(genus='Ceanothus', output='short')
+#' ipni_search(genus='Ceanothus', output='extended')
 #' }
 
 ipni_search <- function(family=NULL, infrafamily=NULL, genus=NULL,
@@ -77,7 +78,7 @@ ipni_search <- function(family=NULL, infrafamily=NULL, genus=NULL,
 
   output <- match.arg(output, c('minimal','classic','short','extended'), FALSE)
   output_format <- sprintf('delimited-%s', output)
-  url <- "http://www.ipni.org/ipni/advPlantNameSearch.do"
+  url <- "https://www.ipni.org/ipni/advPlantNameSearch.do"
   args <- tc(list(output_format=output_format, find_family=family,
           find_infrafamily=infrafamily, find_genus=genus,
           find_infragenus=infragenus, find_species=species,
@@ -90,7 +91,7 @@ ipni_search <- function(family=NULL, infrafamily=NULL, genus=NULL,
           find_addedSince=addedsince, find_modifiedSince=modifiedsince,
           find_isAPNIRecord=l2(isapnirecord),
           find_isGCIRecord=l2(isgcirecord),
-          find_isIKRecord=l2(isikrecord), rankToReturn=ranktoreturn))
+          find_isIKRecord=l2(isikrecord), find_rankToReturn=ranktoreturn))
   cli <- crul::HttpClient$new(url, headers = tx_ual, opts = list(...))
   tt <- cli$get(query = args)
   if (
@@ -100,14 +101,15 @@ ipni_search <- function(family=NULL, infrafamily=NULL, genus=NULL,
     stop("No results", call. = FALSE)
   }
   res <- tt$parse("UTF-8")
-  if (nchar(res, keepNA = FALSE) == 0) {
+  df1 <- read.delim(text = res, sep = "%", stringsAsFactors = FALSE)
+  if (NROW(df1) == 0) {
     warning("No data found")
-    df <- NA
+    df <- tibble::tibble()
   } else {
-    df <- read.delim(text = res, sep = "%", stringsAsFactors = FALSE)
-    names(df) <- gsub("\\.", "_", tolower(names(df)))
+    names(df1) <- gsub("\\.", "_", tolower(names(df1)))
+    df <- tibble::as_tibble(df1)
   }
-  return( df )
+  return(df)
 }
 
 l2 <- function(x) {
