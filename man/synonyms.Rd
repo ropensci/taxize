@@ -56,7 +56,7 @@ taxonomic id of any of the acceptable classes: tsn, tpsid, nbnid, ids.}
 \code{\link[=get_nbnid]{get_nbnid()}}, \code{\link[=get_colid]{get_colid()}} `get_wormsid()]}
 }
 \value{
-A named list of results with three types of output:
+A named list of results with three types of output in each slot:
 \itemize{
 \item if the name was not found: \code{NA_character_}
 \item if the name was found but no synonyms found, an empty data.frame (0 rows)
