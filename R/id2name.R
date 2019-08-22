@@ -127,7 +127,7 @@ ncbi_id2name <- function(x, ...) {
 #' @export
 #' @rdname id2name
 id2name.uid <- function(x, ...) {
-  fun <- function(y) {
+  fun <- function(y, ...) {
     if (is.na(y)) NA_character_ else ncbi_id2name(y, ...)
   }
   out <- lapply(x, fun, ...)
