@@ -2,7 +2,8 @@
 #'
 #' @export
 #' @param x Vector of taxa names (character) or IDs (character or numeric)
-#' to query.
+#' to query. For `db = "eol"`, EOL expects you to pass it a taxon id, called
+#' `eolid` in the output of [get_eolid()]. 
 #' @param db character; database to query. either `ncbi`, `itis`, `eol`, `col`,
 #' `tropicos`, `gbif`, `nbn`, `worms`, `natserv`, `bold`, `wiki`, or `pow`.
 #' Note that each taxonomic data source has, their own identifiers, so that
@@ -61,6 +62,12 @@
 #'
 #' @section Authentication:
 #' See [taxize-authentication]
+#' 
+#' @section EOL:
+#' EOL does not have very good failure behavior. For example, if you submit
+#' an ID that does not exist they'll return a 500 HTTP error, which is
+#' not an appropriate error; it's probably that that ID does not exist 
+#' in their database, but we can't know for sure. Isn't that fun?
 #'
 #' @examples \dontrun{
 #' # Plug in taxon IDs
