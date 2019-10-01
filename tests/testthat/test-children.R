@@ -110,3 +110,22 @@ test_that("expected results for no query match when using get_* fxns", {
   expect_named(worms_x, NA_character_)
   expect_named(worms_y, NA_character_)
 })
+
+
+test_that("children doesn't remove ambiguous taxa", {
+  skip_on_cran()
+  vcr::use_cassette("children_ambiguous_ncbi", {
+    # 28901 = "Salmonella enterica" - DOES NOT remove "subsp."
+    subsp <- children(28901, db = "ncbi")
+    # 2508041 = "unclassified Helianthus" - DOES NOT remove "sp."
+    sp <- children(2508041, db = "ncbi")
+  })
+
+  expect_is(subsp, "children")
+  expect_is(subsp[[1]], "data.frame")
+  expect_is(sp, "children")
+  expect_is(sp[[1]], "data.frame")
+
+  expect_gt(NROW(subsp[[1]]), 3)
+  expect_gt(NROW(sp[[1]]), 3)
+})

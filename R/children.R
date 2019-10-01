@@ -22,6 +22,11 @@
 #' [ritis::hierarchy_down()], [ncbi_children()], or [worrms::wm_children()].
 #' See those functions for what parameters can be passed on.
 #'
+#' @section ncbi:
+#' note that with `db = "ncbi"`, we set `ambiguous = TRUE`; that is, children
+#' taxa with words like "unclassified", "unknown", "uncultured", "sp." are
+#' NOT removed
+#'
 #' @return A named list of data.frames with the children names of every
 #' supplied taxa. You get an NA if there was no match in the database.
 #'

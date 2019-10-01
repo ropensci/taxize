@@ -62,7 +62,7 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
   # Constants -----------------------------------------------------------------
   ambiguous_regex <- paste(
      sep = "|", "unclassified", "environmental", "uncultured", "unknown",
-     "unidentified", "candidate", "sp\\.", "s\\.l\\.", "sensu lato", "clone",
+     "unidentified", "candidate", "\\ssp\\.", "s\\.l\\.", "sensu lato", "clone",
      "miscellaneous", "candidatus", "affinis", "aff\\.", "incertae sedis",
      "mixed", "samples", "libaries")
   # Argument validation -------------------------------------------------------
