@@ -127,7 +127,7 @@ c2s_itis_ <- function(x, by='search', simplify, ...){
   )
   if (simplify) {
     as.character(tmp$combinedname)
-  } else{
+  } else {
     tmp
   }
 }
@@ -138,7 +138,7 @@ c2s_ncbi <- function(x, simplify, ...) {
   cli <- crul::HttpClient$new(url = ncbi_base(),
     headers = tx_ual, opts = list(...))
   res <- cli$get("entrez/eutils/efetch.fcgi", query = query)
-  res$raise_for_status()
+  if (!res$success()) return(character())
   tt <- res$parse("UTF-8")
   ttp <- xml2::read_xml(tt)
   # common name
