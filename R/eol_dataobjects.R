@@ -41,7 +41,3 @@ eol_dataobjects <- function(id, taxonomy = TRUE, language = NULL, usekey = TRUE,
   }
   return(tmp)
 }
-
-nmslwr <- function(x) {
-  stats::setNames(x, tolower(names(x)))
-}

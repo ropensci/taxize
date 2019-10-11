@@ -192,14 +192,10 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
 
   for (i in seq_along(sciname)) {
     direct <- FALSE
-<<<<<<< HEAD
-    mssg(messages, "\nRetrieving data for taxon '", sciname, "'\n")
-    rank <- targname <- NA_character_
-    sciname <- gsub(" ", "+", sciname)
-=======
     mssg(messages, "\nRetrieving data for taxon '", sciname[i], "'\n")
+    rank <- targname <- NA_character_
     sciname[i] <- gsub(" ", "+", sciname[i])
->>>>>>> master
+
     if (!is.null(modifier))
       sciname[i] <- paste0(sciname[i], sprintf("[%s]", modifier))
     term <- sciname[i]
@@ -323,21 +319,24 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
         }
       }
     }
-<<<<<<< HEAD
-    return(list(uid = uid, att = att, multiple = mm,
-                direct = direct, name = targname, rank = rank))
+
+    res <- list(id = as.character(uid), name = targname, rank = rank,
+      att = att, multiple = mm, direct = direct)
+    prog$completed(sciname[i], att)
+    prog$prog(att)
+    tstate$add(sciname[i], res)
   }
-  sciname <- as.character(sciname)
-  outd <- lapply(sciname, fun, ask, messages, rows, ...)
-  res <- taxa::taxa(.list = lapply(outd, function(z) {
-    if (is.na(z$uid)) {
+
+  out <- tstate$get()
+  res <- taxa::taxa(.list = lapply(out, function(z) {
+    if (is.na(z$id)) {
       out <- taxa::taxon(NULL)
     } else {
-      url <- paste0('https://www.ncbi.nlm.nih.gov/taxonomy/', z$uid)
+      url <- sprintf(get_url_templates$ncbi, z$id)
       out <- taxa::taxon(
         taxa::taxon_name(z$name %||% "", taxa::database_list$ncbi),
         taxa::taxon_rank(z$rank, taxa::database_list$ncbi),
-        taxa::taxon_id(z$uid %||% "", taxa::database_list$ncbi, url)
+        taxa::taxon_id(z$id %||% "", taxa::database_list$ncbi, url)
       )
     }
     out$attributes <- list(
@@ -347,24 +346,9 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
     )
     out
   }))
-  structure(res, class = c(class(res), "uid"))
-=======
-    res <- list(id = as.character(uid), att = att, multiple = mm,
-      direct = direct)
-    prog$completed(sciname[i], att)
-    prog$prog(att)
-    tstate$add(sciname[i], res)
-  }
-  out <- tstate$get()
-  ids <- structure(pluck_un(out, "id", ""), class = "uid",
-    match = pluck_un(out, "att", ""),
-    multiple_matches = pluck_un(out, "multiple", logical(1)),
-    pattern_match = pluck_un(out, "direct", logical(1))
-  )
   on.exit(prog$prog_summary(), add = TRUE)
   on.exit(tstate$exit, add = TRUE)
-  add_uri(ids, get_url_templates$ncbi)
->>>>>>> master
+  return(res)
 }
 
 repeat_until_it_works <- function(catch, path, query = list(), max_tries = 3,
@@ -397,6 +381,10 @@ as.uid <- function(x, check=TRUE) UseMethod("as.uid")
 #' @export
 #' @rdname get_uid
 as.uid.uid <- function(x, check=TRUE) x
+
+#' @export
+#' @rdname get_uid
+as.uid.Taxa <- as.uid.uid
 
 #' @export
 #' @rdname get_uid

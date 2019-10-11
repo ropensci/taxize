@@ -328,3 +328,5 @@ tx_ua <- function() {
 }
 
 tx_ual <- list(`User-Agent` = tx_ua(), `X-USER-AGENT` = tx_ua())
+
+nmslwr <- function(x) stats::setNames(x, tolower(names(x)))

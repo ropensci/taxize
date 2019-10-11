@@ -201,11 +201,7 @@ get_gbifid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
 
     if (length(id) > 1) {
       # check for exact match
-<<<<<<< HEAD
-      matchtmp <- df[as.character(df$canonicalname) %in% sciname, ]
-=======
-      matchtmp <- df[as.character(df$canonicalname) %in% sciname[i], "gbifid"]
->>>>>>> master
+      matchtmp <- df[as.character(df$canonicalname) %in% sciname[i], ]
       if (length(matchtmp) == 1) {
         id <- as.character(matchtmp$gbifid)
         name <- matchtmp$canonicalname
@@ -284,16 +280,19 @@ get_gbifid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
         }
       }
     }
-<<<<<<< HEAD
-    list(id = id, name = name, rank = rank_taken, att = att, multiple = mm,
-      direct = direct)
+    res <- list(id = id, name = name, rank = rank_taken,
+      att = att, multiple = mm, direct = direct)
+    prog$completed(sciname[i], att)
+    prog$prog(att)
+    tstate$add(sciname[i], res)
   }
-  outd <- lapply(as.character(sciname), fun, ask, messages, rows, ...)
-  res <- taxa::taxa(.list = lapply(outd, function(z) {
+
+  out <- tstate$get()
+  res <- taxa::taxa(.list = lapply(out, function(z) {
     if (is.na(z$id)) {
       out <- taxa::taxon(NULL)
     } else {
-      url <- paste0('http://www.gbif.org/species/', z$id)
+      url <- sprintf(get_url_templates$gbif, z$id)
       out <- taxa::taxon(
         taxa::taxon_name(z$name %||% "", taxa::database_list$gbif),
         taxa::taxon_rank(z$rank, taxa::database_list$gbif),
@@ -307,22 +306,9 @@ get_gbifid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
     )
     out
   }))
-  structure(res, class = c("gbifid", class(res)))
-=======
-    res <- list(id = id, att = att, multiple = mm, direct = direct)
-    prog$completed(sciname[i], att)
-    prog$prog(att)
-    tstate$add(sciname[i], res)
-  }
-  out <- tstate$get()
-  ids <- structure(as.character(unlist(pluck(out, "id"))), class = "gbifid",
-                   match = pluck_un(out, "att", ""),
-                   multiple_matches = pluck_un(out, "multiple", logical(1)),
-                   pattern_match = pluck_un(out, "direct", logical(1)))
   on.exit(prog$prog_summary(), add = TRUE)
   on.exit(tstate$exit, add = TRUE)
-  add_uri(ids, get_url_templates$gbif)
->>>>>>> master
+  return(res)
 }
 
 #' @export
@@ -332,6 +318,10 @@ as.gbifid <- function(x, check=FALSE) UseMethod("as.gbifid")
 #' @export
 #' @rdname get_gbifid
 as.gbifid.gbifid <- function(x, check=FALSE) x
+
+#' @export
+#' @rdname get_gbifid
+as.gbifid.Taxa <- function(x, check=FALSE) x
 
 #' @export
 #' @rdname get_gbifid
