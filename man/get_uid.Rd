@@ -4,6 +4,7 @@
 \alias{get_uid}
 \alias{as.uid}
 \alias{as.uid.uid}
+\alias{as.uid.Taxa}
 \alias{as.uid.character}
 \alias{as.uid.list}
 \alias{as.uid.numeric}
@@ -19,6 +20,8 @@ get_uid(sciname, ask = TRUE, messages = TRUE, rows = NA,
 as.uid(x, check = TRUE)
 
 \method{as.uid}{uid}(x, check = TRUE)
+
+\method{as.uid}{Taxa}(x, check = TRUE)
 
 \method{as.uid}{character}(x, check = TRUE)
 

@@ -4,6 +4,7 @@
 \alias{get_tsn}
 \alias{as.tsn}
 \alias{as.tsn.tsn}
+\alias{as.tsn.Taxa}
 \alias{as.tsn.character}
 \alias{as.tsn.list}
 \alias{as.tsn.numeric}
@@ -18,6 +19,8 @@ get_tsn(searchterm, searchtype = "scientific", accepted = FALSE,
 as.tsn(x, check = TRUE)
 
 \method{as.tsn}{tsn}(x, check = TRUE)
+
+\method{as.tsn}{Taxa}(x, check = TRUE)
 
 \method{as.tsn}{character}(x, check = TRUE)
 
@@ -87,7 +90,7 @@ x[[1]]$is_empty()
 
 splist <- c("annona cherimola", 'annona muricata', "quercus robur",
    "shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")
-res <- get_tsn(splist, messages=FALSE)
+res <- get_tsn(splist)
 lapply(res, function(w) w$name)
 vapply(res, function(w) w$name$name, "")
 vapply(res, function(w) w$attributes$pattern_match, logical(1))
@@ -100,11 +103,6 @@ get_tsn(c("Chironomus riparius","Quercus douglasii"))
 splist <- c("annona cherimola", 'annona muricata', "quercus robur",
 		"shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")
 get_tsn(splist, messages=FALSE)
-<<<<<<< HEAD
-splist <- names_list("species")
-get_tsn(splist, messages=FALSE)
-=======
->>>>>>> master
 
 # specify rows to limit choices available
 get_tsn('Arni')

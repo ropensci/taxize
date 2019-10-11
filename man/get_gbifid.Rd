@@ -4,6 +4,7 @@
 \alias{get_gbifid}
 \alias{as.gbifid}
 \alias{as.gbifid.gbifid}
+\alias{as.gbifid.Taxa}
 \alias{as.gbifid.character}
 \alias{as.gbifid.list}
 \alias{as.gbifid.numeric}
@@ -19,6 +20,8 @@ get_gbifid(sciname, ask = TRUE, messages = TRUE, rows = NA,
 as.gbifid(x, check = FALSE)
 
 \method{as.gbifid}{gbifid}(x, check = FALSE)
+
+\method{as.gbifid}{Taxa}(x, check = FALSE)
 
 \method{as.gbifid}{character}(x, check = TRUE)
 
