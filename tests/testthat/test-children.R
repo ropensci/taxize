@@ -17,14 +17,14 @@ test_that("passing in an id works", {
   skip_on_cran() # uses secrets
   vcr::use_cassette("children_with_id", {
     ch_ncbi <- children(8028, db = "ncbi")
-    ch_worms <- sw(children(254966, db='worms'))
+    ch_worms <- sw(children(125732, db='worms'))
   })
 
   expect_is(ch_worms, "children")
   expect_equal(attr(ch_worms, "db"), "worms")
-  expect_named(ch_worms, '254966')
-  expect_is(ch_worms$`254966`, "data.frame")
-  expect_named(ch_worms$`254966`, c('childtaxa_id', 'childtaxa_name', 'childtaxa_rank'))
+  expect_named(ch_worms, '125732')
+  expect_is(ch_worms$`125732`, "data.frame")
+  expect_named(ch_worms$`125732`, c('childtaxa_id', 'childtaxa_name', 'childtaxa_rank'))
 
   expect_is(ch_ncbi, "children")
   expect_equal(attr(ch_ncbi, "db"), "ncbi")
@@ -43,12 +43,12 @@ test_that("queries with no results fail well", {
 
 test_that("itis types are correct", {
   itis_expected_col_types <- c(
-      parentname = 'character',
-      parenttsn  = 'character',
-      rankname   = 'character',
-      taxonname  = 'character',
-      tsn        = 'character'
-    )
+    parentname = 'character',
+    parenttsn  = 'character',
+    rankname   = 'character',
+    taxonname  = 'character',
+    tsn        = 'character'
+  )
   
   vcr::use_cassette("children_itis_types", {
     x <- children(1234123434, "itis")

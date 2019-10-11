@@ -42,8 +42,7 @@
 #' See [taxize-authentication()] for help on authentication. 
 #' We strongly recommend getting an API key
 #'
-#' @examples
-#' \dontrun{
+#' @examples \dontrun{
 #' ncbi_children(name="Satyrium") #Satyrium is the name of two different genera
 #' ncbi_children(name="Satyrium", ancestor="Eumaeini") # A genus of butterflies
 #' ncbi_children(name="Satyrium", ancestor="Orchidaceae") # A genus of orchids
@@ -83,6 +82,8 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
     ancestor <- vapply(id_taxonomy,
                        function(x) ifelse(nrow(x) > 1, x$name[nrow(x) - 1], 
                         as.character(NA)), character(1))
+    # set id to NULL because we're using name now
+    id <- NULL
   } else if (is.null(ancestor)) {
     ancestor <- rep(NA, length(name))
   }

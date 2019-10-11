@@ -16,23 +16,23 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Tue, 01 Oct 2019 22:52:20 GMT
+      date: Fri, 11 Oct 2019 21:26:47 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       x-ratelimit-remaining: '8'
-      ncbi-phid: 322C7BBC9A1E02250000544A469D5B65.1.1.m_3
+      ncbi-phid: D0BDADD05B8C69E500005E47FF935C9A.1.1.m_3
       cache-control: private
-      ncbi-sid: EEC999F8785444F0_ECB4SID
+      ncbi-sid: 14F37ACD30AA9808_4BE2SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
+      content-length: '2231'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=EEC999F8785444F0_ECB4SID; domain=.nih.gov; path=/; expires=Thu,
-        01 Oct 2020 22:52:20 GMT
+      set-cookie: ncbi_sid=14F37ACD30AA9808_4BE2SID; domain=.nih.gov; path=/; expires=Sun,
+        11 Oct 2020 21:26:47 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
     body:
       encoding: UTF-8
       string: |-
@@ -473,16 +473,16 @@ http_interactions:
                 </Taxon>
             </LineageEx>
             <CreateDate>1995/02/27 09:24:00</CreateDate>
-            <UpdateDate>2019/04/05 12:10:45</UpdateDate>
+            <UpdateDate>2019/10/07 17:21:10</UpdateDate>
             <PubDate>1993/04/21 01:00:00</PubDate>
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2019-10-01 22:52:22 GMT
-  recorded_with: vcr/0.3.0.9100, webmockr/0.4.0
+  recorded_at: 2019-10-11 21:26:47 GMT
+  recorded_with: vcr/0.3.0, webmockr/0.4.0
 - request:
     method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=taxonomy&db=taxonomy&id=28901&term=Salmonella%20enterica%5BNext%20Level%5D&RetMax=1000&RetStart=0&api_key=<<entrez_api_token>>
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Salmonella%20enterica%5BNext%20Level%5D%20AND%20Salmonella%5Bsubtree%5D&RetMax=1000&RetStart=0&api_key=<<entrez_api_token>>
     body:
       encoding: ''
       string: ''
@@ -498,32 +498,42 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Tue, 01 Oct 2019 22:52:21 GMT
+      date: Fri, 11 Oct 2019 21:26:47 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '8'
-      ncbi-phid: 322C7BBC9A1E022500004B4A48BFEEFD.1.1.m_1
+      x-ratelimit-remaining: '6'
+      ncbi-phid: D0BDADD05B8C69E500005D480011571E.1.1.m_1
       cache-control: private
-      ncbi-sid: 8673654C5E96E4F9_6FD0SID
+      ncbi-sid: 0188AEDC41780AD7_CCD5SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
+      content-length: '438'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=8673654C5E96E4F9_6FD0SID; domain=.nih.gov; path=/; expires=Thu,
-        01 Oct 2020 22:52:21 GMT
+      set-cookie: ncbi_sid=0188AEDC41780AD7_CCD5SID; domain=.nih.gov; path=/; expires=Sun,
+        11 Oct 2020 21:26:48 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
     body:
       encoding: UTF-8
-      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eLinkResult
-        PUBLIC \"-//NLM//DTD elink 20101123//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20101123/elink.dtd\">\n<eLinkResult>\n<LinkSet>\n\t<DbFrom>taxonomy</DbFrom>\n\t<IdList>\n\t\t<Id>28901</Id>\n\t</IdList>\n\t<LinkSetDb>\n\t\t<DbTo>taxonomy</DbTo>\n\t\t<LinkName>taxonomy_taxonomy_child</LinkName>\n\t\t<Link>\n\t\t\t<Id>59208</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>59207</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>59205</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>59204</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>59203</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>59202</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>59201</Id>\n\t\t</Link>\n\t</LinkSetDb>\n\t<LinkSetDb>\n\t\t<DbTo>taxonomy</DbTo>\n\t\t<LinkName>taxonomy_taxonomy_species</LinkName>\n\t\t<Link>\n\t\t\t<Id>59208</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>59207</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>59205</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>59204</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>59203</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>59202</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>59201</Id>\n\t\t</Link>\n\t</LinkSetDb>\n</LinkSet>\n</eLinkResult>\n"
-  recorded_at: 2019-10-01 22:52:22 GMT
-  recorded_with: vcr/0.3.0.9100, webmockr/0.4.0
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>7</Count><RetMax>7</RetMax><RetStart>0</RetStart><IdList>
+        <Id>59208</Id>
+        <Id>59207</Id>
+        <Id>59205</Id>
+        <Id>59204</Id>
+        <Id>59203</Id>
+        <Id>59202</Id>
+        <Id>59201</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Salmonella enterica[Next Level]</Term>    <Field>Next Level</Field>    <Count>7</Count>    <Explode>N</Explode>   </TermSet>   <TermSet>    <Term>Salmonella[subtree]</Term>    <Field>subtree</Field>    <Count>3744</Count>    <Explode>N</Explode>   </TermSet>   <OP>AND</OP>  </TranslationStack><QueryTranslation>Salmonella enterica[Next Level] AND Salmonella[subtree]</QueryTranslation></eSearchResult>
+  recorded_at: 2019-10-11 21:26:47 GMT
+  recorded_with: vcr/0.3.0, webmockr/0.4.0
 - request:
     method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&id=59208%2B59207%2B59205%2B59204%2B59203%2B59202%2B59201%2B59208%2B59207%2B59205%2B59204%2B59203%2B59202%2B59201&api_key=<<entrez_api_token>>
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&id=59208%2B59207%2B59205%2B59204%2B59203%2B59202%2B59201&api_key=<<entrez_api_token>>
     body:
       encoding: ''
       string: ''
@@ -539,23 +549,23 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Tue, 01 Oct 2019 22:52:21 GMT
+      date: Fri, 11 Oct 2019 21:26:47 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '7'
-      ncbi-phid: 322C7BBC9A1E02250000374A4A7414C0.1.1.m_1
+      x-ratelimit-remaining: '5'
+      ncbi-phid: D0BDADD05B8C69E500005848006AEB17.1.1.m_1
       cache-control: private
-      ncbi-sid: 9D7BD84FA1B9A7FA_471ESID
+      ncbi-sid: 30739EC7C5C58659_4C7CSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
+      content-length: '615'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=9D7BD84FA1B9A7FA_471ESID; domain=.nih.gov; path=/; expires=Thu,
-        01 Oct 2020 22:52:22 GMT
+      set-cookie: ncbi_sid=30739EC7C5C58659_4C7CSID; domain=.nih.gov; path=/; expires=Sun,
+        11 Oct 2020 21:26:48 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
     body:
       encoding: UTF-8
       string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eSummaryResult
@@ -566,100 +576,51 @@ http_interactions:
         Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">59208</Item>\n\t<Item
         Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmonella</Item>\n\t<Item
         Name=\"Species\" Type=\"String\">enterica</Item>\n\t<Item Name=\"Subsp\" Type=\"String\">VII</Item>\n\t<Item
-        Name=\"ModificationDate\" Type=\"Date\">2015/06/29 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>59207</Id>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2019/10/01 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>59207</Id>\n\t<Item
         Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">subspecies</Item>\n\t<Item
         Name=\"Division\" Type=\"String\">enterobacteria</Item>\n\t<Item Name=\"ScientificName\"
         Type=\"String\">Salmonella enterica subsp. indica</Item>\n\t<Item Name=\"CommonName\"
         Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">59207</Item>\n\t<Item
         Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmonella</Item>\n\t<Item
         Name=\"Species\" Type=\"String\">enterica</Item>\n\t<Item Name=\"Subsp\" Type=\"String\">indica</Item>\n\t<Item
-        Name=\"ModificationDate\" Type=\"Date\">2018/10/31 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>59205</Id>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2019/10/01 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>59205</Id>\n\t<Item
         Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">subspecies</Item>\n\t<Item
         Name=\"Division\" Type=\"String\">enterobacteria</Item>\n\t<Item Name=\"ScientificName\"
         Type=\"String\">Salmonella enterica subsp. houtenae</Item>\n\t<Item Name=\"CommonName\"
         Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">59205</Item>\n\t<Item
         Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmonella</Item>\n\t<Item
         Name=\"Species\" Type=\"String\">enterica</Item>\n\t<Item Name=\"Subsp\" Type=\"String\">houtenae</Item>\n\t<Item
-        Name=\"ModificationDate\" Type=\"Date\">2018/10/31 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>59204</Id>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2019/10/01 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>59204</Id>\n\t<Item
         Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">subspecies</Item>\n\t<Item
         Name=\"Division\" Type=\"String\">enterobacteria</Item>\n\t<Item Name=\"ScientificName\"
         Type=\"String\">Salmonella enterica subsp. diarizonae</Item>\n\t<Item Name=\"CommonName\"
         Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">59204</Item>\n\t<Item
         Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmonella</Item>\n\t<Item
         Name=\"Species\" Type=\"String\">enterica</Item>\n\t<Item Name=\"Subsp\" Type=\"String\">diarizonae</Item>\n\t<Item
-        Name=\"ModificationDate\" Type=\"Date\">2018/10/31 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>59203</Id>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2019/10/01 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>59203</Id>\n\t<Item
         Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">subspecies</Item>\n\t<Item
         Name=\"Division\" Type=\"String\">enterobacteria</Item>\n\t<Item Name=\"ScientificName\"
         Type=\"String\">Salmonella enterica subsp. arizonae</Item>\n\t<Item Name=\"CommonName\"
         Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">59203</Item>\n\t<Item
         Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmonella</Item>\n\t<Item
         Name=\"Species\" Type=\"String\">enterica</Item>\n\t<Item Name=\"Subsp\" Type=\"String\">arizonae</Item>\n\t<Item
-        Name=\"ModificationDate\" Type=\"Date\">2019/03/27 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>59202</Id>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2019/10/01 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>59202</Id>\n\t<Item
         Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">subspecies</Item>\n\t<Item
         Name=\"Division\" Type=\"String\">enterobacteria</Item>\n\t<Item Name=\"ScientificName\"
         Type=\"String\">Salmonella enterica subsp. salamae</Item>\n\t<Item Name=\"CommonName\"
         Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">59202</Item>\n\t<Item
         Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmonella</Item>\n\t<Item
         Name=\"Species\" Type=\"String\">enterica</Item>\n\t<Item Name=\"Subsp\" Type=\"String\">salamae</Item>\n\t<Item
-        Name=\"ModificationDate\" Type=\"Date\">2018/10/31 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>59201</Id>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2019/10/01 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>59201</Id>\n\t<Item
         Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">subspecies</Item>\n\t<Item
         Name=\"Division\" Type=\"String\">enterobacteria</Item>\n\t<Item Name=\"ScientificName\"
         Type=\"String\">Salmonella enterica subsp. enterica</Item>\n\t<Item Name=\"CommonName\"
         Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">59201</Item>\n\t<Item
         Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmonella</Item>\n\t<Item
         Name=\"Species\" Type=\"String\">enterica</Item>\n\t<Item Name=\"Subsp\" Type=\"String\">enterica</Item>\n\t<Item
-        Name=\"ModificationDate\" Type=\"Date\">2019/09/30 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>59208</Id>\n\t<Item
-        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">subspecies</Item>\n\t<Item
-        Name=\"Division\" Type=\"String\">enterobacteria</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Salmonella enterica subsp. VII</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">59208</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmonella</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">enterica</Item>\n\t<Item Name=\"Subsp\" Type=\"String\">VII</Item>\n\t<Item
-        Name=\"ModificationDate\" Type=\"Date\">2015/06/29 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>59207</Id>\n\t<Item
-        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">subspecies</Item>\n\t<Item
-        Name=\"Division\" Type=\"String\">enterobacteria</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Salmonella enterica subsp. indica</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">59207</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmonella</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">enterica</Item>\n\t<Item Name=\"Subsp\" Type=\"String\">indica</Item>\n\t<Item
-        Name=\"ModificationDate\" Type=\"Date\">2018/10/31 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>59205</Id>\n\t<Item
-        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">subspecies</Item>\n\t<Item
-        Name=\"Division\" Type=\"String\">enterobacteria</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Salmonella enterica subsp. houtenae</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">59205</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmonella</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">enterica</Item>\n\t<Item Name=\"Subsp\" Type=\"String\">houtenae</Item>\n\t<Item
-        Name=\"ModificationDate\" Type=\"Date\">2018/10/31 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>59204</Id>\n\t<Item
-        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">subspecies</Item>\n\t<Item
-        Name=\"Division\" Type=\"String\">enterobacteria</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Salmonella enterica subsp. diarizonae</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">59204</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmonella</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">enterica</Item>\n\t<Item Name=\"Subsp\" Type=\"String\">diarizonae</Item>\n\t<Item
-        Name=\"ModificationDate\" Type=\"Date\">2018/10/31 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>59203</Id>\n\t<Item
-        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">subspecies</Item>\n\t<Item
-        Name=\"Division\" Type=\"String\">enterobacteria</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Salmonella enterica subsp. arizonae</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">59203</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmonella</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">enterica</Item>\n\t<Item Name=\"Subsp\" Type=\"String\">arizonae</Item>\n\t<Item
-        Name=\"ModificationDate\" Type=\"Date\">2019/03/27 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>59202</Id>\n\t<Item
-        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">subspecies</Item>\n\t<Item
-        Name=\"Division\" Type=\"String\">enterobacteria</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Salmonella enterica subsp. salamae</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">59202</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmonella</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">enterica</Item>\n\t<Item Name=\"Subsp\" Type=\"String\">salamae</Item>\n\t<Item
-        Name=\"ModificationDate\" Type=\"Date\">2018/10/31 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>59201</Id>\n\t<Item
-        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">subspecies</Item>\n\t<Item
-        Name=\"Division\" Type=\"String\">enterobacteria</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Salmonella enterica subsp. enterica</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">59201</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmonella</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">enterica</Item>\n\t<Item Name=\"Subsp\" Type=\"String\">enterica</Item>\n\t<Item
-        Name=\"ModificationDate\" Type=\"Date\">2019/09/30 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
-  recorded_at: 2019-10-01 22:52:22 GMT
-  recorded_with: vcr/0.3.0.9100, webmockr/0.4.0
+        Name=\"ModificationDate\" Type=\"Date\">2019/10/04 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
+  recorded_at: 2019-10-11 21:26:47 GMT
+  recorded_with: vcr/0.3.0, webmockr/0.4.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=2508041&api_key=<<entrez_api_token>>
@@ -677,23 +638,23 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Tue, 01 Oct 2019 22:52:22 GMT
+      date: Fri, 11 Oct 2019 21:26:48 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '6'
-      ncbi-phid: D0BD3722822E6D650000584E35C38133.1.1.m_3
+      x-ratelimit-remaining: '4'
+      ncbi-phid: D0BDADD05B8C69E50000554800BED04B.1.1.m_3
       cache-control: private
-      ncbi-sid: 6804DA73146B7738_0CC2SID
+      ncbi-sid: 68B056B934AEAD67_EC40SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
+      content-length: '980'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=6804DA73146B7738_0CC2SID; domain=.nih.gov; path=/; expires=Thu,
-        01 Oct 2020 22:52:22 GMT
+      set-cookie: ncbi_sid=68B056B934AEAD67_EC40SID; domain=.nih.gov; path=/; expires=Sun,
+        11 Oct 2020 21:26:48 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
     body:
       encoding: UTF-8
       string: |-
@@ -838,11 +799,11 @@ http_interactions:
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2019-10-01 22:52:22 GMT
-  recorded_with: vcr/0.3.0.9100, webmockr/0.4.0
+  recorded_at: 2019-10-11 21:26:47 GMT
+  recorded_with: vcr/0.3.0, webmockr/0.4.0
 - request:
     method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=taxonomy&db=taxonomy&id=2508041&term=unclassified%20Helianthus%5BNext%20Level%5D&RetMax=1000&RetStart=0&api_key=<<entrez_api_token>>
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=unclassified%20Helianthus%5BNext%20Level%5D%20AND%20Helianthus%5Bsubtree%5D&RetMax=1000&RetStart=0&api_key=<<entrez_api_token>>
     body:
       encoding: ''
       string: ''
@@ -858,29 +819,49 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Tue, 01 Oct 2019 22:52:23 GMT
+      date: Fri, 11 Oct 2019 21:26:48 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '6'
-      ncbi-phid: D0BD3722822E6D6500003D4E3698646E.1.1.m_1
+      x-ratelimit-remaining: '3'
+      ncbi-phid: D0BDADD05B8C69E50000384800FAEA6C.1.1.m_1
       cache-control: private
-      ncbi-sid: 5CC9AB1080D1272D_BC34SID
+      ncbi-sid: 58BC37B7D5068A1B_58D9SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
+      content-length: '502'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=5CC9AB1080D1272D_BC34SID; domain=.nih.gov; path=/; expires=Thu,
-        01 Oct 2020 22:52:23 GMT
+      set-cookie: ncbi_sid=58BC37B7D5068A1B_58D9SID; domain=.nih.gov; path=/; expires=Sun,
+        11 Oct 2020 21:26:48 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
     body:
       encoding: UTF-8
-      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eLinkResult
-        PUBLIC \"-//NLM//DTD elink 20101123//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20101123/elink.dtd\">\n<eLinkResult>\n<LinkSet>\n\t<DbFrom>taxonomy</DbFrom>\n\t<IdList>\n\t\t<Id>2508041</Id>\n\t</IdList>\n\t<LinkSetDb>\n\t\t<DbTo>taxonomy</DbTo>\n\t\t<LinkName>taxonomy_taxonomy_child</LinkName>\n\t\t<Link>\n\t\t\t<Id>2508000</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>2507999</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>2507998</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>2507997</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>2507996</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>2507995</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>2507994</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>2507993</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>2507992</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>2507991</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>2507990</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>2507989</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>1720378</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>1577454</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>1261137</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>585498</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>50471</Id>\n\t\t</Link>\n\t</LinkSetDb>\n</LinkSet>\n</eLinkResult>\n"
-  recorded_at: 2019-10-01 22:52:22 GMT
-  recorded_with: vcr/0.3.0.9100, webmockr/0.4.0
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>17</Count><RetMax>17</RetMax><RetStart>0</RetStart><IdList>
+        <Id>2508000</Id>
+        <Id>2507999</Id>
+        <Id>2507998</Id>
+        <Id>2507997</Id>
+        <Id>2507996</Id>
+        <Id>2507995</Id>
+        <Id>2507994</Id>
+        <Id>2507993</Id>
+        <Id>2507992</Id>
+        <Id>2507991</Id>
+        <Id>2507990</Id>
+        <Id>2507989</Id>
+        <Id>1720378</Id>
+        <Id>1577454</Id>
+        <Id>1261137</Id>
+        <Id>585498</Id>
+        <Id>50471</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>unclassified Helianthus[Next Level]</Term>    <Field>Next Level</Field>    <Count>17</Count>    <Explode>N</Explode>   </TermSet>   <TermSet>    <Term>Helianthus[subtree]</Term>    <Field>subtree</Field>    <Count>100</Count>    <Explode>N</Explode>   </TermSet>   <OP>AND</OP>  </TranslationStack><QueryTranslation>unclassified Helianthus[Next Level] AND Helianthus[subtree]</QueryTranslation></eSearchResult>
+  recorded_at: 2019-10-11 21:26:47 GMT
+  recorded_with: vcr/0.3.0, webmockr/0.4.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&id=2508000%2B2507999%2B2507998%2B2507997%2B2507996%2B2507995%2B2507994%2B2507993%2B2507992%2B2507991%2B2507990%2B2507989%2B1720378%2B1577454%2B1261137%2B585498%2B50471&api_key=<<entrez_api_token>>
@@ -899,23 +880,23 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Tue, 01 Oct 2019 22:52:23 GMT
+      date: Fri, 11 Oct 2019 21:26:48 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '4'
-      ncbi-phid: D0BD3722822E6D6500003B4E372E2C59.1.1.m_1
+      x-ratelimit-remaining: '3'
+      ncbi-phid: D0BDADD05B8C69E500002E480144292E.1.1.m_1
       cache-control: private
-      ncbi-sid: B99E75571B47819D_77C9SID
+      ncbi-sid: 787227DC24B3DF5A_8F50SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
+      content-length: '874'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=B99E75571B47819D_77C9SID; domain=.nih.gov; path=/; expires=Thu,
-        01 Oct 2020 22:52:23 GMT
+      set-cookie: ncbi_sid=787227DC24B3DF5A_8F50SID; domain=.nih.gov; path=/; expires=Sun,
+        11 Oct 2020 21:26:49 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
     body:
       encoding: UTF-8
       string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eSummaryResult
@@ -1055,5 +1036,5 @@ http_interactions:
         Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item Name=\"Species\"
         Type=\"String\">sp.</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
         Name=\"ModificationDate\" Type=\"Date\">2005/01/19 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
-  recorded_at: 2019-10-01 22:52:22 GMT
-  recorded_with: vcr/0.3.0.9100, webmockr/0.4.0
+  recorded_at: 2019-10-11 21:26:47 GMT
+  recorded_with: vcr/0.3.0, webmockr/0.4.0

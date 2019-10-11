@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      User-Agent: libcurl/7.54.0 r-curl/4.2 crul/0.8.4
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -16,24 +16,23 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 24 Jan 2019 22:53:58 GMT
+      date: Fri, 11 Oct 2019 21:23:42 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       x-ratelimit-remaining: '8'
-      ncbi-phid: 939B131039D6F975000026C83AEB3CD2.1.1.m_3
+      ncbi-phid: 939BF42FA436F75500005F46CE364B9C.1.1.m_3
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: E36ECAE26E0E4CA4_2398SID
+      ncbi-sid: 0CCDFA5FF8EB4E75_E282SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
+      content-length: '643'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=E36ECAE26E0E4CA4_2398SID; domain=.nih.gov; path=/; expires=Fri,
-        24 Jan 2020 22:53:58 GMT
+      set-cookie: ncbi_sid=0CCDFA5FF8EB4E75_E282SID; domain=.nih.gov; path=/; expires=Sun,
+        11 Oct 2020 21:23:42 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
     body:
       encoding: UTF-8
       string: |-
@@ -81,18 +80,19 @@ http_interactions:
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2019-01-24 22:54:25 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2019-10-11 21:23:43 GMT
+  recorded_with: vcr/0.3.0, webmockr/0.4.0
 - request:
     method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=taxonomy&db=taxonomy&id=4751&term=Fungi%5BNext%20Level%5D&RetMax=1000&RetStart=0&api_key=<<entrez_api_token>>
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Fungi%5BNext%20Level%5D%20AND%20Opisthokonta%5Bsubtree%5D&RetMax=1000&RetStart=0&api_key=<<entrez_api_token>>
     body:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.2 crul/0.8.4 rOpenSci(taxize/0.9.8.9144)
+      X-USER-AGENT: r-curl/4.2 crul/0.8.4 rOpenSci(taxize/0.9.8.9144)
   response:
     status:
       status_code: '200'
@@ -100,30 +100,37 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 24 Jan 2019 22:54:10 GMT
+      date: Fri, 11 Oct 2019 21:23:43 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '9'
-      ncbi-phid: 322CDAEFF3EFD7B5000021CCF3C50CF0.1.1.m_1
+      x-ratelimit-remaining: '7'
+      ncbi-phid: 939BF42FA436F75500002946CF499898.1.1.m_1
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 8179F45EE93404EE_5E3ESID
+      ncbi-sid: 1785B4B96638AC3C_FE21SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
+      content-length: '446'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=8179F45EE93404EE_5E3ESID; domain=.nih.gov; path=/; expires=Fri,
-        24 Jan 2020 22:54:05 GMT
+      set-cookie: ncbi_sid=1785B4B96638AC3C_FE21SID; domain=.nih.gov; path=/; expires=Sun,
+        11 Oct 2020 21:23:43 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
     body:
       encoding: UTF-8
-      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eLinkResult
-        PUBLIC \"-//NLM//DTD elink 20101123//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20101123/elink.dtd\">\n<eLinkResult>\n<LinkSet>\n\t<DbFrom>taxonomy</DbFrom>\n\t<IdList>\n\t\t<Id>4751</Id>\n\t</IdList>\n\t<LinkSetDb>\n\t\t<DbTo>taxonomy</DbTo>\n\t\t<LinkName>taxonomy_taxonomy_child</LinkName>\n\t\t<Link>\n\t\t\t<Id>584652</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>451864</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>112252</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>89443</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>57731</Id>\n\t\t</Link>\n\t</LinkSetDb>\n</LinkSet>\n</eLinkResult>\n"
-  recorded_at: 2019-01-24 22:54:25 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>5</Count><RetMax>5</RetMax><RetStart>0</RetStart><IdList>
+        <Id>584652</Id>
+        <Id>451864</Id>
+        <Id>112252</Id>
+        <Id>89443</Id>
+        <Id>57731</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Fungi[Next Level]</Term>    <Field>Next Level</Field>    <Count>5</Count>    <Explode>N</Explode>   </TermSet>   <TermSet>    <Term>Opisthokonta[subtree]</Term>    <Field>subtree</Field>    <Count>1178826</Count>    <Explode>N</Explode>   </TermSet>   <OP>AND</OP>  </TranslationStack><QueryTranslation>Fungi[Next Level] AND Opisthokonta[subtree]</QueryTranslation></eSearchResult>
+  recorded_at: 2019-10-11 21:23:43 GMT
+  recorded_with: vcr/0.3.0, webmockr/0.4.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&id=584652%2B451864%2B112252%2B89443%2B57731&api_key=<<entrez_api_token>>
@@ -131,9 +138,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.2 crul/0.8.4 rOpenSci(taxize/0.9.8.9144)
+      X-USER-AGENT: r-curl/4.2 crul/0.8.4 rOpenSci(taxize/0.9.8.9144)
   response:
     status:
       status_code: '200'
@@ -141,24 +149,23 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 24 Jan 2019 22:54:10 GMT
+      date: Fri, 11 Oct 2019 21:23:43 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '8'
-      ncbi-phid: 322CDAEFF3EFD7B500001ACCF8028CC2.1.1.m_1
+      x-ratelimit-remaining: '6'
+      ncbi-phid: 939BF42FA436F75500002946CFC543E8.1.1.m_1
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 4D379228013CC702_EC34SID
+      ncbi-sid: 837DF8727DFAB1D7_D771SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
+      content-length: '619'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=4D379228013CC702_EC34SID; domain=.nih.gov; path=/; expires=Fri,
-        24 Jan 2020 22:54:11 GMT
+      set-cookie: ncbi_sid=837DF8727DFAB1D7_D771SID; domain=.nih.gov; path=/; expires=Sun,
+        11 Oct 2020 21:23:44 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
     body:
       encoding: UTF-8
       string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eSummaryResult
@@ -198,8 +205,8 @@ http_interactions:
         Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\"></Item>\n\t<Item
         Name=\"Species\" Type=\"String\"></Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
         Name=\"ModificationDate\" Type=\"Date\">2018/10/18 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
-  recorded_at: 2019-01-24 22:54:25 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2019-10-11 21:23:43 GMT
+  recorded_with: vcr/0.3.0, webmockr/0.4.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=4751&api_key=<<entrez_api_token>>
@@ -207,7 +214,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      User-Agent: libcurl/7.54.0 r-curl/4.2 crul/0.8.4
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -217,108 +224,23 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 24 Jan 2019 22:54:11 GMT
-      server: Finatra
-      strict-transport-security: max-age=31536000; includeSubDomains; preload
-      content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '7'
-      ncbi-phid: 939B131039D6F975000025C8448A7BBA.1.1.m_3
-      cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 27702039535D2996_9E80SID
-      content-encoding: gzip
-      x-ratelimit-limit: '10'
-      access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=27702039535D2996_9E80SID; domain=.nih.gov; path=/; expires=Fri,
-        24 Jan 2020 22:54:11 GMT
-      x-ua-compatible: IE=Edge
-      x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
-    body:
-      encoding: UTF-8
-      string: |-
-        <?xml version="1.0" ?>
-        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
-        <TaxaSet><Taxon>
-            <TaxId>4751</TaxId>
-            <ScientificName>Fungi</ScientificName>
-            <OtherNames>
-                <GenbankCommonName>fungi</GenbankCommonName>
-                <BlastName>fungi</BlastName>
-            </OtherNames>
-            <ParentTaxId>33154</ParentTaxId>
-            <Rank>kingdom</Rank>
-            <Division>Plants and Fungi</Division>
-            <GeneticCode>
-                <GCId>1</GCId>
-                <GCName>Standard</GCName>
-            </GeneticCode>
-            <MitoGeneticCode>
-                <MGCId>4</MGCId>
-                <MGCName>Mold Mitochondrial; Protozoan Mitochondrial; Coelenterate Mitochondrial; Mycoplasma; Spiroplasma</MGCName>
-            </MitoGeneticCode>
-            <Lineage>cellular organisms; Eukaryota; Opisthokonta</Lineage>
-            <LineageEx>
-                <Taxon>
-                    <TaxId>131567</TaxId>
-                    <ScientificName>cellular organisms</ScientificName>
-                    <Rank>no rank</Rank>
-                </Taxon>
-                <Taxon>
-                    <TaxId>2759</TaxId>
-                    <ScientificName>Eukaryota</ScientificName>
-                    <Rank>superkingdom</Rank>
-                </Taxon>
-                <Taxon>
-                    <TaxId>33154</TaxId>
-                    <ScientificName>Opisthokonta</ScientificName>
-                    <Rank>no rank</Rank>
-                </Taxon>
-            </LineageEx>
-            <CreateDate>1995/02/27 09:24:00</CreateDate>
-            <UpdateDate>2017/06/14 10:56:24</UpdateDate>
-            <PubDate>1993/04/20 01:00:00</PubDate>
-        </Taxon>
-
-        </TaxaSet>
-  recorded_at: 2019-01-24 22:54:25 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
-- request:
-    method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=4751&api_key=<<entrez_api_token>>
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      date: Thu, 24 Jan 2019 22:54:11 GMT
+      date: Fri, 11 Oct 2019 21:23:43 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       x-ratelimit-remaining: '6'
-      ncbi-phid: 939B131039D6F975000025C844A8084B.1.1.m_3
+      ncbi-phid: 939BF42FA436F75500005E46D0144949.1.1.m_3
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 27702039535D2996_9E80SID
+      ncbi-sid: E8085D4381797195_7B1CSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
+      content-length: '643'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=27702039535D2996_9E80SID; domain=.nih.gov; path=/; expires=Fri,
-        24 Jan 2020 22:54:11 GMT
+      set-cookie: ncbi_sid=E8085D4381797195_7B1CSID; domain=.nih.gov; path=/; expires=Sun,
+        11 Oct 2020 21:23:44 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
     body:
       encoding: UTF-8
       string: |-
@@ -366,16 +288,16 @@ http_interactions:
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2019-01-24 22:54:25 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2019-10-11 21:23:43 GMT
+  recorded_with: vcr/0.3.0, webmockr/0.4.0
 - request:
     method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=taxonomy&db=taxonomy&id=4751&term=Fungi%5BNext%20Level%5D&RetMax=1000&RetStart=0&api_key=<<entrez_api_token>>
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=4751&api_key=<<entrez_api_token>>
     body:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      User-Agent: libcurl/7.54.0 r-curl/4.2 crul/0.8.4
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -385,40 +307,83 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 24 Jan 2019 22:54:18 GMT
+      date: Fri, 11 Oct 2019 21:23:44 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       x-ratelimit-remaining: '5'
-      ncbi-phid: 322CDAEFF3EFD7B5000013CCF87DD635.1.1.m_1
+      ncbi-phid: 939BF42FA436F75500005846D03B768D.1.1.m_3
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: D60EF65ADAAF3A7F_B109SID
+      ncbi-sid: E8085D4381797195_7B1CSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
+      content-length: '643'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=D60EF65ADAAF3A7F_B109SID; domain=.nih.gov; path=/; expires=Fri,
-        24 Jan 2020 22:54:12 GMT
+      set-cookie: ncbi_sid=E8085D4381797195_7B1CSID; domain=.nih.gov; path=/; expires=Sun,
+        11 Oct 2020 21:23:44 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
     body:
       encoding: UTF-8
-      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eLinkResult
-        PUBLIC \"-//NLM//DTD elink 20101123//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20101123/elink.dtd\">\n<eLinkResult>\n<LinkSet>\n\t<DbFrom>taxonomy</DbFrom>\n\t<IdList>\n\t\t<Id>4751</Id>\n\t</IdList>\n\t<LinkSetDb>\n\t\t<DbTo>taxonomy</DbTo>\n\t\t<LinkName>taxonomy_taxonomy_child</LinkName>\n\t\t<Link>\n\t\t\t<Id>584652</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>451864</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>112252</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>89443</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>57731</Id>\n\t\t</Link>\n\t</LinkSetDb>\n</LinkSet>\n</eLinkResult>\n"
-  recorded_at: 2019-01-24 22:54:25 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      string: |-
+        <?xml version="1.0" ?>
+        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
+        <TaxaSet><Taxon>
+            <TaxId>4751</TaxId>
+            <ScientificName>Fungi</ScientificName>
+            <OtherNames>
+                <GenbankCommonName>fungi</GenbankCommonName>
+                <BlastName>fungi</BlastName>
+            </OtherNames>
+            <ParentTaxId>33154</ParentTaxId>
+            <Rank>kingdom</Rank>
+            <Division>Plants and Fungi</Division>
+            <GeneticCode>
+                <GCId>1</GCId>
+                <GCName>Standard</GCName>
+            </GeneticCode>
+            <MitoGeneticCode>
+                <MGCId>4</MGCId>
+                <MGCName>Mold Mitochondrial; Protozoan Mitochondrial; Coelenterate Mitochondrial; Mycoplasma; Spiroplasma</MGCName>
+            </MitoGeneticCode>
+            <Lineage>cellular organisms; Eukaryota; Opisthokonta</Lineage>
+            <LineageEx>
+                <Taxon>
+                    <TaxId>131567</TaxId>
+                    <ScientificName>cellular organisms</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2759</TaxId>
+                    <ScientificName>Eukaryota</ScientificName>
+                    <Rank>superkingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33154</TaxId>
+                    <ScientificName>Opisthokonta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+            </LineageEx>
+            <CreateDate>1995/02/27 09:24:00</CreateDate>
+            <UpdateDate>2017/06/14 10:56:24</UpdateDate>
+            <PubDate>1993/04/20 01:00:00</PubDate>
+        </Taxon>
+
+        </TaxaSet>
+  recorded_at: 2019-10-11 21:23:43 GMT
+  recorded_with: vcr/0.3.0, webmockr/0.4.0
 - request:
     method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=taxonomy&db=taxonomy&id=4751&term=Fungi%5BNext%20Level%5D&RetMax=1000&RetStart=0&api_key=<<entrez_api_token>>
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Fungi%5BNext%20Level%5D%20AND%20Opisthokonta%5Bsubtree%5D&RetMax=1000&RetStart=0&api_key=<<entrez_api_token>>
     body:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.2 crul/0.8.4 rOpenSci(taxize/0.9.8.9144)
+      X-USER-AGENT: r-curl/4.2 crul/0.8.4 rOpenSci(taxize/0.9.8.9144)
   response:
     status:
       status_code: '200'
@@ -426,27 +391,83 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 24 Jan 2019 22:54:24 GMT
+      date: Fri, 11 Oct 2019 21:23:44 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '9'
-      ncbi-phid: 939B131039D6F975000022C84A0EB988.1.1.m_1
+      x-ratelimit-remaining: '5'
+      ncbi-phid: 939BF42FA436F75500003E46D07FA011.1.1.m_1
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: D60EF65ADAAF3A7F_B109SID
+      ncbi-sid: FC3C67BF9AE292E1_301ASID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
+      content-length: '446'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=D60EF65ADAAF3A7F_B109SID; domain=.nih.gov; path=/; expires=Fri,
-        24 Jan 2020 22:54:18 GMT
+      set-cookie: ncbi_sid=FC3C67BF9AE292E1_301ASID; domain=.nih.gov; path=/; expires=Sun,
+        11 Oct 2020 21:23:44 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
     body:
       encoding: UTF-8
-      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eLinkResult
-        PUBLIC \"-//NLM//DTD elink 20101123//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20101123/elink.dtd\">\n<eLinkResult>\n<LinkSet>\n\t<DbFrom>taxonomy</DbFrom>\n\t<IdList>\n\t\t<Id>4751</Id>\n\t</IdList>\n\t<LinkSetDb>\n\t\t<DbTo>taxonomy</DbTo>\n\t\t<LinkName>taxonomy_taxonomy_child</LinkName>\n\t\t<Link>\n\t\t\t<Id>584652</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>451864</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>112252</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>89443</Id>\n\t\t</Link>\n\t\t<Link>\n\t\t\t<Id>57731</Id>\n\t\t</Link>\n\t</LinkSetDb>\n</LinkSet>\n</eLinkResult>\n"
-  recorded_at: 2019-01-24 22:54:25 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>5</Count><RetMax>5</RetMax><RetStart>0</RetStart><IdList>
+        <Id>584652</Id>
+        <Id>451864</Id>
+        <Id>112252</Id>
+        <Id>89443</Id>
+        <Id>57731</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Fungi[Next Level]</Term>    <Field>Next Level</Field>    <Count>5</Count>    <Explode>N</Explode>   </TermSet>   <TermSet>    <Term>Opisthokonta[subtree]</Term>    <Field>subtree</Field>    <Count>1178826</Count>    <Explode>N</Explode>   </TermSet>   <OP>AND</OP>  </TranslationStack><QueryTranslation>Fungi[Next Level] AND Opisthokonta[subtree]</QueryTranslation></eSearchResult>
+  recorded_at: 2019-10-11 21:23:43 GMT
+  recorded_with: vcr/0.3.0, webmockr/0.4.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Fungi%5BNext%20Level%5D%20AND%20Opisthokonta%5Bsubtree%5D&RetMax=1000&RetStart=0&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.2 crul/0.8.4 rOpenSci(taxize/0.9.8.9144)
+      X-USER-AGENT: r-curl/4.2 crul/0.8.4 rOpenSci(taxize/0.9.8.9144)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 11 Oct 2019 21:23:44 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '5'
+      ncbi-phid: 939BF42FA436F75500003546D0A5B34D.1.1.m_1
+      cache-control: private
+      ncbi-sid: FC3C67BF9AE292E1_301ASID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-length: '446'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=FC3C67BF9AE292E1_301ASID; domain=.nih.gov; path=/; expires=Sun,
+        11 Oct 2020 21:23:45 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>5</Count><RetMax>5</RetMax><RetStart>0</RetStart><IdList>
+        <Id>584652</Id>
+        <Id>451864</Id>
+        <Id>112252</Id>
+        <Id>89443</Id>
+        <Id>57731</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Fungi[Next Level]</Term>    <Field>Next Level</Field>    <Count>5</Count>    <Explode>N</Explode>   </TermSet>   <TermSet>    <Term>Opisthokonta[subtree]</Term>    <Field>subtree</Field>    <Count>1178826</Count>    <Explode>N</Explode>   </TermSet>   <OP>AND</OP>  </TranslationStack><QueryTranslation>Fungi[Next Level] AND Opisthokonta[subtree]</QueryTranslation></eSearchResult>
+  recorded_at: 2019-10-11 21:23:43 GMT
+  recorded_with: vcr/0.3.0, webmockr/0.4.0
