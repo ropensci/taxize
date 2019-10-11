@@ -13,7 +13,7 @@
 \title{Get the BOLD (Barcode of Life) code for a search term.}
 \usage{
 get_boldid(searchterm, fuzzy = FALSE, dataTypes = "basic",
-  includeTree = FALSE, ask = TRUE, verbose = TRUE, rows = NA,
+  includeTree = FALSE, ask = TRUE, messages = TRUE, rows = NA,
   rank = NULL, division = NULL, parent = NULL, ...)
 
 as.boldid(x, check = TRUE)
@@ -30,11 +30,12 @@ as.boldid(x, check = TRUE)
 
 \method{as.data.frame}{boldid}(x, ...)
 
-get_boldid_(searchterm, verbose = TRUE, fuzzy = FALSE,
+get_boldid_(searchterm, messages = TRUE, fuzzy = FALSE,
   dataTypes = "basic", includeTree = FALSE, rows = NA, ...)
 }
 \arguments{
-\item{searchterm}{character; A vector of common or scientific names.}
+\item{searchterm}{character; A vector of common or scientific names. Or,
+a \code{taxon_state} object (see \link{taxon-state})}
 
 \item{fuzzy}{(logical) Whether to use fuzzy search or not (default: FALSE).}
 
@@ -48,7 +49,7 @@ containing information for parent taxa as well as the specified taxon.}
 If TRUE and more than one TSN is found for teh species, the user is asked for
 input. If FALSE NA is returned for multiple matches.}
 
-\item{verbose}{logical; should progress be printed?}
+\item{messages}{logical; should progress be printed?}
 
 \item{rows}{numeric; Any number from 1 to infinity. If the default NA, all rows are
 considered. Note that this function still only gives back a boldid class object with one
@@ -101,7 +102,7 @@ get_boldid(searchterm = "Agapostemon")
 get_boldid(searchterm = "Chironomus riparius")
 get_boldid(c("Chironomus riparius","Quercus douglasii"))
 splist <- names_list('species')
-get_boldid(splist, verbose=FALSE)
+get_boldid(splist, messages=FALSE)
 
 # Fuzzy searching
 get_boldid(searchterm="Osmi", fuzzy=TRUE)

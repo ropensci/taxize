@@ -6,7 +6,7 @@ test_that("downstream basic usage works", {
       db = "col", downto = "Species")
     cc <- downstream("Ursus", db = "gbif", downto = "Species", 
       messages = FALSE)
-  })
+  }, preserve_exact_body_bytes = TRUE)
 
   expect_is(aa, "downstream")
   expect_is(cc, "downstream")
@@ -34,7 +34,7 @@ test_that("downstream - taxonomic id input", {
   vcr::use_cassette("downstream_id_input", {
     aa <- downstream(get_gbifid("Ursus", messages = FALSE), 
       db = "gbif", downto = "Species")
-  })
+  }, preserve_exact_body_bytes = TRUE)
 
   expect_is(aa, "downstream")
   expect_is(aa[[1]], "data.frame")
@@ -46,7 +46,7 @@ test_that("downstream - multiple data sources", {
     ids <- sw(get_ids("Ursus", db = c("gbif", 'itis'), rows = 1, 
       messages = FALSE))
     aa <- downstream(ids, downto = "Species")
-  })
+  }, preserve_exact_body_bytes = TRUE)
 
   expect_is(aa, "downstream_ids")
   expect_is(aa[[1]], "downstream")

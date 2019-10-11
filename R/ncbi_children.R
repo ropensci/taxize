@@ -31,15 +31,15 @@
 #' removed from the output. NOTE: This option only applies when 
 #' `out_type= "summary"`.
 #' @param key (character) NCBI Entrez API key. optional. See Details.
-#' @param ... Curl options passed on to [`crul::HttpClient`]
+#' @param ... Curl options passed on to [crul::HttpClient]
 #' @return The output type depends on the value of the `out_type` 
 #' parameter. Taxa that cannot be found will result in `NA`s and a lack 
 #' of children results in an empty data structure.
-#' @seealso [`ncbi_get_taxon_summary()`], [`children()`]
+#' @seealso [ncbi_get_taxon_summary()], [children()]
 #' @author Zachary Foster \email{zacharyfoster1989@@gmail.com}
 #' 
 #' @section Authentication:
-#' See [`taxize-authentication()`] for help on authentication. 
+#' See [taxize-authentication()] for help on authentication. 
 #' We strongly recommend getting an API key
 #'
 #' @examples

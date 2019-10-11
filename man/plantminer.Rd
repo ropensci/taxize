@@ -14,7 +14,7 @@ flora (for Brazilian Flora Checklist). Required. Default: \code{tpl}}
 
 \item{messages}{(logical) informative messages or not. Default: \code{TRUE}}
 
-\item{...}{curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient}}}
+\item{...}{curl options passed on to \link[crul:HttpClient]{crul::HttpClient}}
 }
 \value{
 data.frame of results.

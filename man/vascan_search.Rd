@@ -15,7 +15,7 @@ taxon identifier (e.g. 861)}
 \item{raw}{(logical) If TRUE, raw json or xml returned, if FALSE, parsed
 data returned.}
 
-\item{...}{(list) Further args passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}}
+\item{...}{(list) Further args passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
 json, xml or a list.

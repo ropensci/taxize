@@ -7,9 +7,9 @@
 #' taxonomic data source has their own  identifiers, so that if you provide
 #' the wrong `db` value for the identifier you could get a result,
 #' but it will likely be wrong (not what you were expecting). If using ncbi
-#' we recommend getting API keys; see [`taxize-authentication`]
+#' we recommend getting API keys; see [taxize-authentication]
 #' @param ... Further args passed on to `tol_id2name` or
-#' [`itis_getrecord`], or other internal functions.
+#' [itis_getrecord], or other internal functions.
 #' See those functions for what parameters can be passed on.
 #'
 #' @return A named list of data.frames, named by the input taxonomic ids
@@ -127,7 +127,7 @@ ncbi_id2name <- function(x, ...) {
 #' @export
 #' @rdname id2name
 id2name.uid <- function(x, ...) {
-  fun <- function(y) {
+  fun <- function(y, ...) {
     if (is.na(y)) NA_character_ else ncbi_id2name(y, ...)
   }
   out <- lapply(x, fun, ...)
@@ -140,9 +140,8 @@ id2name.uid <- function(x, ...) {
 
 # WORMS
 worms_id2name <- function(x, ...) {
-  res <- worrms::wm_record_(id = as.numeric(x), ...)
+  res <- worrms::wm_record(as.numeric(x), ...)
   if (length(res) == 0) return(id2name_blanks$ncbi)
-  res <- res[[1]]
   data.frame(id = x, name = res$scientificname,
     rank = res$rank, status = res$status,
     stringsAsFactors = FALSE)

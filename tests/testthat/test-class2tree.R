@@ -13,7 +13,7 @@ dupnames <- c("Mus musculus", "Escherichia coli",
 test_that("class2tree returns the correct value and class", {
   skip_on_cran() # uses secrets
   vcr::use_cassette("class2tree_classification_call", {
-    out <- classification(spnames, db = "ncbi", verbose = FALSE)
+    out <- classification(spnames, db = "ncbi", messages = FALSE)
   })
 
   out <- out[!is.na(out)]
@@ -36,7 +36,7 @@ test_that("class2tree returns the correct value and class", {
 test_that("class2tree will abort when input contains duplicate taxa", {
   skip_on_cran() # uses secrets
   vcr::use_cassette("class2tree_classification_dup_call", {
-    out <- classification(dupnames, db = "ncbi", verbose = FALSE)
+    out <- classification(dupnames, db = "ncbi", messages = FALSE)
   })
   expect_error(class2tree(out),
     "Input list of classifications contains duplicates")

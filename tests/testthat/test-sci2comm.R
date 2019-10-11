@@ -3,11 +3,11 @@ context("sci2comm")
 test_that("sci2comm returns the correct value", {
   skip_on_cran() # uses secrets
   vcr::use_cassette("sci2comm", {
-    tt <- sci2comm(scinames = 'Helianthus annuus', db = 'ncbi', verbose = FALSE)
+    tt <- sci2comm(scinames = 'Helianthus annuus', db = 'ncbi', messages = FALSE)
     uu <- sw(sci2comm(scinames = 'Helianthus annuus', db = 'itis', rows = 1,
-                      verbose = FALSE))
+                      messages = FALSE))
     zz <- sci2comm(scinames = 'Pomatomus saltatrix', db = 'worms',
-                   verbose = FALSE)
+                   messages = FALSE)
   })
 
   expect_that(names(tt), equals('Helianthus annuus'))

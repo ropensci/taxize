@@ -13,7 +13,7 @@
 \title{Get NatureServe taxonomic ID for a taxon name}
 \usage{
 get_natservid(query, searchtype = "scientific", ask = TRUE,
-  verbose = TRUE, rows = NA, key = NULL, ...)
+  messages = TRUE, rows = NA, key = NULL, ...)
 
 as.natservid(x, check = TRUE)
 
@@ -29,10 +29,11 @@ as.natservid(x, check = TRUE)
 
 \method{as.data.frame}{natservid}(x, ...)
 
-get_natservid_(query, verbose = TRUE, rows = NA, key = NULL, ...)
+get_natservid_(query, messages = TRUE, rows = NA, key = NULL, ...)
 }
 \arguments{
-\item{query}{character; A vector of common or scientific names.}
+\item{query}{character; A vector of common or scientific names. Or, a
+\code{taxon_state} object (see \link{taxon-state})}
 
 \item{searchtype}{character; One of 'scientific' (default) or 'common'.
 This doesn't affect the query to NatureServe - but rather affects what
@@ -43,7 +44,7 @@ If \code{TRUE} and more than one wormsid is found for the species, the
 user is asked for input. If \code{FALSE} NA is returned for
 multiple matches.}
 
-\item{verbose}{logical; should progress be printed?}
+\item{messages}{logical; should progress be printed?}
 
 \item{rows}{numeric; Any number from 1 to infinity. If the default NaN, all
 rows are considered. Note that this function still only gives back a
@@ -87,7 +88,7 @@ You can pass your token in as an argument or store it one of two places:
 \code{NATURE_SERVE_KEY=your-natureserve-key}
 }
 
-See \code{\link[=Startup]{Startup()}} for information on how to create/find your
+See \link{Startup} for information on how to create/find your
 .Rprofile and .Renviron files
 }
 

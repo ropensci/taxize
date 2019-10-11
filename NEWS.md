@@ -1,3 +1,31 @@
+taxize 0.9.8
+============
+
+### NEW FEATURES
+
+* all `get_*` functions gain some new features (associated new fxns are `taxon_last` and `taxon_clear`): a) nicer messages printed to the console when iterating through taxa, and a summary at the end of what was done; and b) state is now saved when running `get_*` functions. That is, in an object external to the `get_*` function call we keep track of what happened, so that if an error is encountered, you can easily restart where you left off; this is especially useful when dealing with a large number of inputs to a `get_*` function. To utilize, pass the output of `taxon_last()` to a `get_*` function call. Associated with these changes are new package imports: R6, crayon and cli (#736) (#757)
+* gains a new function `taxize_options()` to set options when using taxize. the first reason for the function is to set two options for the above item for `get_*` functions: `taxon_state_messages` to allow taxon state tracking messages in `get_*` functions or not, and `quiet=TRUE` quiets output from the `taxize_options()` function itself
+
+### MINOR IMPROVEMENTS
+
+* in `id2name()` and `worms_downstream()` use `worrms::wm_record` instead of `worrms::wm_record_` for newest version of `worrms` (#760)
+* many `get_*` functions and `col_downstream()` parameter `verbose` changed to `messages` to not conflict with a `verbose` curl options parameter passed in to `crul`
+
+### BUG FIXES
+
+* fix to http request processing for COL - sometimes errors, and gives a message in the response body, but DOES NOT give the appropriate error HTTP status code - need to always do a check for COL responses (#755) (#756) thanks @dougwyu
+* fix to `gbif_downstream()` - GBIF in some cases returns a rank of "unranked", which we hadn't accounted for in internal rank processing code (#758) thanks @ocstringham
+
+
+taxize 0.9.7
+============
+
+### MINOR IMPROVEMENTS
+
+* `class2tree()` gains node labels when present (#644) (#748) thanks @gpli
+* change documentation to use markdown (#658) (#746) thanks @Rekyt
+
+
 taxize 0.9.6
 ============
 

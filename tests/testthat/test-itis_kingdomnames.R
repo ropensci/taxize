@@ -26,7 +26,6 @@ test_that("itis_kingdomnames - with TSN's", {
 
 test_that("itis_kingdomnames returns error when not found", {
   vcr::use_cassette("itis_kingdomnames_fail_well", {
-    expect_error(length(itis_kingdomnames("stuff")[[1]]),
-      "Bad Request \\(HTTP 400\\)")
+    expect_error(itis_kingdomnames("stuff"), class = "error")
   })
 })

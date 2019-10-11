@@ -28,12 +28,13 @@ as.iucn(x, check = TRUE, key = NULL)
 \method{as.data.frame}{iucn}(x, ...)
 }
 \arguments{
-\item{x}{(character) A vector of common or scientific names}
+\item{x}{(character) A vector of common or scientific names. Or, a
+\code{taxon_state} object (see \link{taxon-state})}
 
 \item{messages}{logical; should progress be printed?}
 
 \item{key}{(character) required. you IUCN Redlist API key. See
-\code{\link[rredlist:rredlist-package]{rredlist::rredlist-package}} for help on authenticating with
+\link[rredlist:rredlist-package]{rredlist::rredlist-package} for help on authenticating with
 IUCN Redlist}
 
 \item{...}{Ignored}

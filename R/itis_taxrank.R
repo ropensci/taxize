@@ -3,10 +3,10 @@
 #' @export
 #' @param query TSN for a taxonomic group (numeric). If query is left as default
 #' (NULL), you get all possible rank names, and their TSN's (using function
-#' [`ritis::rank_names()`]. There is slightly different terminology for
+#' [ritis::rank_names()]. There is slightly different terminology for
 #' Monera vs. Plantae vs. Fungi vs. Animalia vs. Chromista, so there are
 #' separate terminologies for each group.
-#' @param ... Further arguments passed on to [`ritis::rank_name()`]
+#' @param ... Further arguments passed on to [ritis::rank_name()]
 #' @details You can print messages by setting `verbose=FALSE`.
 #' @return Taxonomic rank names or data.frame of all ranks.
 #' @examples \dontrun{

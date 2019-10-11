@@ -39,7 +39,7 @@ removed from the output. NOTE: This option only applies when
 
 \item{key}{(character) NCBI Entrez API key. optional. See Details.}
 
-\item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient}}}
+\item{...}{Curl options passed on to \link[crul:HttpClient]{crul::HttpClient}}
 }
 \value{
 The output type depends on the value of the \code{out_type}

@@ -1,7 +1,7 @@
 #' Retrieve immediate children taxa for a given taxon name or ID.
 #'
-#' This function is different from [`downstream`] in that it only
-#' collects immediate taxonomic children, while [`downstream`]
+#' This function is different from [downstream()] in that it only
+#' collects immediate taxonomic children, while [downstream()]
 #' collects taxonomic names down to a specified taxonomic rank, e.g.,
 #' getting all species in a family.
 #'
@@ -19,8 +19,7 @@
 #' taxonomic id of any of the acceptable classes: tsn, colid. NCBI has a
 #' method for this function but rows doesn't work.
 #' @param ... Further args passed on to [col_children()],
-#' [ritis::hierarchy_down()], [ncbi_children()],
-#' or [worrms::wm_children()]
+#' [ritis::hierarchy_down()], [ncbi_children()], or [worrms::wm_children()].
 #' See those functions for what parameters can be passed on.
 #'
 #' @return A named list of data.frames with the children names of every

@@ -33,7 +33,8 @@ as.gbifid(x, check = FALSE)
 get_gbifid_(sciname, messages = TRUE, rows = NA, method = "backbone")
 }
 \arguments{
-\item{sciname}{character; scientific name.}
+\item{sciname}{(character) one or more scientific names. Or, a \code{taxon_state}
+object (see \link{taxon-state})}
 
 \item{ask}{logical; should get_colid be run in interactive mode?
 If TRUE and more than one ID is found for the species, the user is asked for
@@ -120,6 +121,13 @@ if (interactive()) x[[1]]$browse()
 get_gbifid(sciname='Poa annua')
 get_gbifid(sciname='Pinus contorta')
 get_gbifid(sciname='Puma concolor')
+
+#lots of queries
+spp <- names_list("species", 10)
+res <- get_gbifid(spp)
+res
+xx <- taxon_last()
+xx
 
 # multiple names
 get_gbifid(c("Poa annua", "Pinus contorta"))

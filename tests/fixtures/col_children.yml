@@ -6,9 +6,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
+      X-USER-AGENT: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
   response:
     status:
       status_code: '200'
@@ -16,384 +17,19 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.12.1
-      date: Thu, 24 Jan 2019 01:18:28 GMT
+      server: nginx/1.14.0
+      date: Wed, 08 May 2019 20:48:28 GMT
       content-type: application/xml
       transfer-encoding: chunked
       connection: keep-alive
-      x-powered-by: PHP/5.5.9-1ubuntu4.26
       expires: Thu, 19 Nov 1981 08:52:00 GMT
-      cache-control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      cache-control: no-store, no-cache, must-revalidate
       pragma: no-cache
     body:
-      encoding: UTF-8
-      string: |
-        <?xml version="1.0" encoding="UTF-8"?>
-        <results id="" name="Animalia" total_number_of_results="2" number_of_results_returned="2" start="0" error_message="" version="1.9 rev 2126ab0" rank="">
-          <result>
-            <id>5ede24b0534ebd5e1f552d5b9f874a6a</id>
-            <name>Animalia</name>
-            <rank>Kingdom</rank>
-            <name_status>accepted name</name_status>
-            <name_html>Animalia</name_html>
-            <url>http://www.catalogueoflife.org/col/browse/tree/id/5ede24b0534ebd5e1f552d5b9f874a6a</url>
-            <is_extinct>false</is_extinct>
-            <classification/>
-            <child_taxa>
-              <taxon>
-                <id>29cf5a3a0cad337a0216edca32bab745</id>
-                <name>Acanthocephala</name>
-                <rank>Phylum</rank>
-                <name_html>Acanthocephala</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/29cf5a3a0cad337a0216edca32bab745</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>fcdf92d44b508e2ee14838083684b7b7</id>
-                <name>Annelida</name>
-                <rank>Phylum</rank>
-                <name_html>Annelida</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/fcdf92d44b508e2ee14838083684b7b7</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>89ac18bfcf1654a9662a600ba06bb494</id>
-                <name>Arthropoda</name>
-                <rank>Phylum</rank>
-                <name_html>Arthropoda</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/89ac18bfcf1654a9662a600ba06bb494</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>5c062fb4291afc8a64753480c6c93e82</id>
-                <name>Brachiopoda</name>
-                <rank>Phylum</rank>
-                <name_html>Brachiopoda</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/5c062fb4291afc8a64753480c6c93e82</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>7b1e35876b52066a5d55f00fd69108d9</id>
-                <name>Bryozoa</name>
-                <rank>Phylum</rank>
-                <name_html>Bryozoa</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/7b1e35876b52066a5d55f00fd69108d9</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>e2bf5efe2da14788e417d12bb568eff0</id>
-                <name>Cephalorhyncha</name>
-                <rank>Phylum</rank>
-                <name_html>Cephalorhyncha</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/e2bf5efe2da14788e417d12bb568eff0</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>ce21b81341da9972f0da2f710bbe8d87</id>
-                <name>Chaetognatha</name>
-                <rank>Phylum</rank>
-                <name_html>Chaetognatha</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/ce21b81341da9972f0da2f710bbe8d87</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>4313bc7637e1fc1feb316a4dea2b668b</id>
-                <name>Chordata</name>
-                <rank>Phylum</rank>
-                <name_html>Chordata</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/4313bc7637e1fc1feb316a4dea2b668b</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>8c2be99ba793b29d8d0baaf9f92dd8a1</id>
-                <name>Cnidaria</name>
-                <rank>Phylum</rank>
-                <name_html>Cnidaria</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/8c2be99ba793b29d8d0baaf9f92dd8a1</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>1062a42f4b5f41785003a240405e4b70</id>
-                <name>Ctenophora</name>
-                <rank>Phylum</rank>
-                <name_html>Ctenophora</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/1062a42f4b5f41785003a240405e4b70</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>0c9f8a0112b8d2766df921bf5fa4fa8a</id>
-                <name>Cycliophora</name>
-                <rank>Phylum</rank>
-                <name_html>Cycliophora</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/0c9f8a0112b8d2766df921bf5fa4fa8a</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>a80c8da0d5a747beefac3e3190cd3818</id>
-                <name>Dicyemida</name>
-                <rank>Phylum</rank>
-                <name_html>Dicyemida</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/a80c8da0d5a747beefac3e3190cd3818</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>5cee9aa56584709495f3e5e356e9bc61</id>
-                <name>Echinodermata</name>
-                <rank>Phylum</rank>
-                <name_html>Echinodermata</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/5cee9aa56584709495f3e5e356e9bc61</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>fa5617309ce7b9c2f9f216c9d2c58992</id>
-                <name>Entoprocta</name>
-                <rank>Phylum</rank>
-                <name_html>Entoprocta</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/fa5617309ce7b9c2f9f216c9d2c58992</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>d4d8c9a5bf97b23eb54617c1aec95142</id>
-                <name>Gastrotricha</name>
-                <rank>Phylum</rank>
-                <name_html>Gastrotricha</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/d4d8c9a5bf97b23eb54617c1aec95142</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>f86ac033065c4c083e39fb249db1650c</id>
-                <name>Gnathostomulida</name>
-                <rank>Phylum</rank>
-                <name_html>Gnathostomulida</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/f86ac033065c4c083e39fb249db1650c</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>7a08c8c531c3702b7e36d08a8a99b752</id>
-                <name>Hemichordata</name>
-                <rank>Phylum</rank>
-                <name_html>Hemichordata</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/7a08c8c531c3702b7e36d08a8a99b752</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>fbff4b952928e16d62d6583716adf0ef</id>
-                <name>Micrognathozoa</name>
-                <rank>Phylum</rank>
-                <name_html>Micrognathozoa</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/fbff4b952928e16d62d6583716adf0ef</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>70a72224d52b24f5ee0b1d09387d1703</id>
-                <name>Mollusca</name>
-                <rank>Phylum</rank>
-                <name_html>Mollusca</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/70a72224d52b24f5ee0b1d09387d1703</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>cdd8c5b8e3b440ede49f98909464c68f</id>
-                <name>Myxozoa</name>
-                <rank>Phylum</rank>
-                <name_html>Myxozoa</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/cdd8c5b8e3b440ede49f98909464c68f</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>562405d59c95f93423494a00939ae2ff</id>
-                <name>Nematoda</name>
-                <rank>Phylum</rank>
-                <name_html>Nematoda</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/562405d59c95f93423494a00939ae2ff</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>01fd7a9b3375bbc8061db7b28f2009e1</id>
-                <name>Nematomorpha</name>
-                <rank>Phylum</rank>
-                <name_html>Nematomorpha</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/01fd7a9b3375bbc8061db7b28f2009e1</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>73a7108915b4076f322e2f4d126845b6</id>
-                <name>Nemertea</name>
-                <rank>Phylum</rank>
-                <name_html>Nemertea</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/73a7108915b4076f322e2f4d126845b6</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>f920d91e27bc1e1542d58913f1000280</id>
-                <name>Onychophora</name>
-                <rank>Phylum</rank>
-                <name_html>Onychophora</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/f920d91e27bc1e1542d58913f1000280</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>a3f0b7a0a0cf02fe07f492d8e360168c</id>
-                <name>Orthonectida</name>
-                <rank>Phylum</rank>
-                <name_html>Orthonectida</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/a3f0b7a0a0cf02fe07f492d8e360168c</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>823f03d8521f6d0d57aa95019b88870b</id>
-                <name>Phoronida</name>
-                <rank>Phylum</rank>
-                <name_html>Phoronida</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/823f03d8521f6d0d57aa95019b88870b</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>5b00629c35b9f783ba3753e467c7b3fc</id>
-                <name>Placozoa</name>
-                <rank>Phylum</rank>
-                <name_html>Placozoa</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/5b00629c35b9f783ba3753e467c7b3fc</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>7253b0d111fd5eb0c6a9856e0d8d1cad</id>
-                <name>Platyhelminthes</name>
-                <rank>Phylum</rank>
-                <name_html>Platyhelminthes</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/7253b0d111fd5eb0c6a9856e0d8d1cad</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>f2c55cc181b4a6afed0dee552086196d</id>
-                <name>Porifera</name>
-                <rank>Phylum</rank>
-                <name_html>Porifera</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/f2c55cc181b4a6afed0dee552086196d</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>4cb8cef206b1da8ae99d2ee871c3f185</id>
-                <name>Rotifera</name>
-                <rank>Phylum</rank>
-                <name_html>Rotifera</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/4cb8cef206b1da8ae99d2ee871c3f185</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>5ded8ae72fd6241b13f3cd27bf18d477</id>
-                <name>Sipuncula</name>
-                <rank>Phylum</rank>
-                <name_html>Sipuncula</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/5ded8ae72fd6241b13f3cd27bf18d477</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>62a2db383aabb83aa76470096073f7a3</id>
-                <name>Tardigrada</name>
-                <rank>Phylum</rank>
-                <name_html>Tardigrada</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/62a2db383aabb83aa76470096073f7a3</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>d4617cdffad896e2f51837fd5607e8c7</id>
-                <name>Xenacoelomorpha</name>
-                <rank>Phylum</rank>
-                <name_html>Xenacoelomorpha</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/d4617cdffad896e2f51837fd5607e8c7</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-            </child_taxa>
-          </result>
-          <result>
-            <id>08a1087d6a9d09e4ee6f4ff5c28efc65</id>
-            <name>Australimoosella et-animalia</name>
-            <rank>Species</rank>
-            <name_status>accepted name</name_status>
-            <genus>Australimoosella</genus>
-            <subgenus></subgenus>
-            <species>et-animalia</species>
-            <infraspecies_marker></infraspecies_marker>
-            <infraspecies></infraspecies>
-            <author><![CDATA[Hu & Tao, 2008]]></author>
-            <record_scrutiny_date>
-              <scrutiny>25-Apr-2016</scrutiny>
-            </record_scrutiny_date>
-            <online_resource><![CDATA[http://www.marinespecies.org/ostracoda/aphia.php?p=taxdetails&id=874383]]></online_resource>
-            <is_extinct>false</is_extinct>
-            <source_database>WoRMS Ostracoda: World Ostracoda Database</source_database>
-            <source_database_url>http://www.marinespecies.org/ostracoda</source_database_url>
-            <bibliographic_citation><![CDATA[Brand (2019). WoRMS Ostracoda: World Ostracoda Database (version 2018-04-01). In: Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds. (2019). Species 2000 & ITIS Catalogue of Life, 24th December 2018. Digital resource at www.catalogueoflife.org/col. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-8858.]]></bibliographic_citation>
-            <name_html><![CDATA[<i>Australimoosella et-animalia</i> Hu & Tao, 2008]]></name_html>
-            <url>http://www.catalogueoflife.org/col/details/species/id/08a1087d6a9d09e4ee6f4ff5c28efc65</url>
-            <distribution></distribution>
-            <references>
-              <reference>
-                <author>Hu, C.-H.; H-Tao, J.</author>
-                <year>2008</year>
-                <title>Studies on the ostracod fauna of Taiwan and its adjacent seas</title>
-                <source>National Taiwan Museum Special Publication Series. 13 (part 1), 1-655 [In Chinese]</source>
-              </reference>
-            </references>
-            <classification>
-              <taxon>
-                <id>5ede24b0534ebd5e1f552d5b9f874a6a</id>
-                <name>Animalia</name>
-                <rank>Kingdom</rank>
-                <name_html>Animalia</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/5ede24b0534ebd5e1f552d5b9f874a6a</url>
-              </taxon>
-              <taxon>
-                <id>89ac18bfcf1654a9662a600ba06bb494</id>
-                <name>Arthropoda</name>
-                <rank>Phylum</rank>
-                <name_html>Arthropoda</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/89ac18bfcf1654a9662a600ba06bb494</url>
-              </taxon>
-              <taxon>
-                <id>7b5ecb0b1a8ca650f6c9658e891f54da</id>
-                <name>Ostracoda</name>
-                <rank>Class</rank>
-                <name_html>Ostracoda</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/7b5ecb0b1a8ca650f6c9658e891f54da</url>
-              </taxon>
-              <taxon>
-                <id>8f7632ebbc5043382f65a9ffad5fde87</id>
-                <name>Podocopida</name>
-                <rank>Order</rank>
-                <name_html>Podocopida</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/8f7632ebbc5043382f65a9ffad5fde87</url>
-              </taxon>
-              <taxon>
-                <id>f359e44ff9cf85ee47312e7d9716d31e</id>
-                <name>Cytheroidea</name>
-                <rank>Superfamily</rank>
-                <name_html>Cytheroidea</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/f359e44ff9cf85ee47312e7d9716d31e</url>
-              </taxon>
-              <taxon>
-                <id>9ed20cd129a76de64fd149d83bca97e1</id>
-                <name>Trachyleberididae</name>
-                <rank>Family</rank>
-                <name_html>Trachyleberididae</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/9ed20cd129a76de64fd149d83bca97e1</url>
-              </taxon>
-              <taxon>
-                <id>5c4e15e3ef2b5f0efe156901c6dd59f0</id>
-                <name>Australimoosella</name>
-                <rank>Genus</rank>
-                <name_html><i>Australimoosella</i></name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/5c4e15e3ef2b5f0efe156901c6dd59f0</url>
-              </taxon>
-            </classification>
-            <child_taxa/>
-            <synonyms/>
-            <common_names/>
-          </result>
-        </results>
-  recorded_at: 2019-01-24 01:18:31 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc3VsdHMgaWQ9IiIgbmFtZT0iQW5pbWFsaWEiIHRvdGFsX251bWJlcl9vZl9yZXN1bHRzPSIyIiBudW1iZXJfb2ZfcmVzdWx0c19yZXR1cm5lZD0iMiIgc3RhcnQ9IjAiIGVycm9yX21lc3NhZ2U9IiIgdmVyc2lvbj0iMS45IHJldiAyMTI2YWIwIiByYW5rPSIiPgogIDxyZXN1bHQ+CiAgICA8aWQ+NWVkZTI0YjA1MzRlYmQ1ZTFmNTUyZDViOWY4NzRhNmE8L2lkPgogICAgPG5hbWU+QW5pbWFsaWE8L25hbWU+CiAgICA8cmFuaz5LaW5nZG9tPC9yYW5rPgogICAgPG5hbWVfc3RhdHVzPmFjY2VwdGVkIG5hbWU8L25hbWVfc3RhdHVzPgogICAgPG5hbWVfaHRtbD5BbmltYWxpYTwvbmFtZV9odG1sPgogICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2Jyb3dzZS90cmVlL2lkLzVlZGUyNGIwNTM0ZWJkNWUxZjU1MmQ1YjlmODc0YTZhPC91cmw+CiAgICA8aXNfZXh0aW5jdD5mYWxzZTwvaXNfZXh0aW5jdD4KICAgIDxjbGFzc2lmaWNhdGlvbi8+CiAgICA8Y2hpbGRfdGF4YT4KICAgICAgPHRheG9uPgogICAgICAgIDxpZD4yOWNmNWEzYTBjYWQzMzdhMDIxNmVkY2EzMmJhYjc0NTwvaWQ+CiAgICAgICAgPG5hbWU+QWNhbnRob2NlcGhhbGE8L25hbWU+CiAgICAgICAgPHJhbms+UGh5bHVtPC9yYW5rPgogICAgICAgIDxuYW1lX2h0bWw+QWNhbnRob2NlcGhhbGE8L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvYnJvd3NlL3RyZWUvaWQvMjljZjVhM2EwY2FkMzM3YTAyMTZlZGNhMzJiYWI3NDU8L3VybD4KICAgICAgICA8aXNfZXh0aW5jdD5mYWxzZTwvaXNfZXh0aW5jdD4KICAgICAgPC90YXhvbj4KICAgICAgPHRheG9uPgogICAgICAgIDxpZD5mY2RmOTJkNDRiNTA4ZTJlZTE0ODM4MDgzNjg0YjdiNzwvaWQ+CiAgICAgICAgPG5hbWU+QW5uZWxpZGE8L25hbWU+CiAgICAgICAgPHJhbms+UGh5bHVtPC9yYW5rPgogICAgICAgIDxuYW1lX2h0bWw+QW5uZWxpZGE8L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvYnJvd3NlL3RyZWUvaWQvZmNkZjkyZDQ0YjUwOGUyZWUxNDgzODA4MzY4NGI3Yjc8L3VybD4KICAgICAgICA8aXNfZXh0aW5jdD5mYWxzZTwvaXNfZXh0aW5jdD4KICAgICAgPC90YXhvbj4KICAgICAgPHRheG9uPgogICAgICAgIDxpZD44OWFjMThiZmNmMTY1NGE5NjYyYTYwMGJhMDZiYjQ5NDwvaWQ+CiAgICAgICAgPG5hbWU+QXJ0aHJvcG9kYTwvbmFtZT4KICAgICAgICA8cmFuaz5QaHlsdW08L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD5BcnRocm9wb2RhPC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2Jyb3dzZS90cmVlL2lkLzg5YWMxOGJmY2YxNjU0YTk2NjJhNjAwYmEwNmJiNDk0PC91cmw+CiAgICAgICAgPGlzX2V4dGluY3Q+ZmFsc2U8L2lzX2V4dGluY3Q+CiAgICAgIDwvdGF4b24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+NWMwNjJmYjQyOTFhZmM4YTY0NzUzNDgwYzZjOTNlODI8L2lkPgogICAgICAgIDxuYW1lPkJyYWNoaW9wb2RhPC9uYW1lPgogICAgICAgIDxyYW5rPlBoeWx1bTwvcmFuaz4KICAgICAgICA8bmFtZV9odG1sPkJyYWNoaW9wb2RhPC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2Jyb3dzZS90cmVlL2lkLzVjMDYyZmI0MjkxYWZjOGE2NDc1MzQ4MGM2YzkzZTgyPC91cmw+CiAgICAgICAgPGlzX2V4dGluY3Q+ZmFsc2U8L2lzX2V4dGluY3Q+CiAgICAgIDwvdGF4b24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+N2IxZTM1ODc2YjUyMDY2YTVkNTVmMDBmZDY5MTA4ZDk8L2lkPgogICAgICAgIDxuYW1lPkJyeW96b2E8L25hbWU+CiAgICAgICAgPHJhbms+UGh5bHVtPC9yYW5rPgogICAgICAgIDxuYW1lX2h0bWw+QnJ5b3pvYTwvbmFtZV9odG1sPgogICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9icm93c2UvdHJlZS9pZC83YjFlMzU4NzZiNTIwNjZhNWQ1NWYwMGZkNjkxMDhkOTwvdXJsPgogICAgICAgIDxpc19leHRpbmN0PmZhbHNlPC9pc19leHRpbmN0PgogICAgICA8L3RheG9uPgogICAgICA8dGF4b24+CiAgICAgICAgPGlkPmUyYmY1ZWZlMmRhMTQ3ODhlNDE3ZDEyYmI1NjhlZmYwPC9pZD4KICAgICAgICA8bmFtZT5DZXBoYWxvcmh5bmNoYTwvbmFtZT4KICAgICAgICA8cmFuaz5QaHlsdW08L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD5DZXBoYWxvcmh5bmNoYTwvbmFtZV9odG1sPgogICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9icm93c2UvdHJlZS9pZC9lMmJmNWVmZTJkYTE0Nzg4ZTQxN2QxMmJiNTY4ZWZmMDwvdXJsPgogICAgICAgIDxpc19leHRpbmN0PmZhbHNlPC9pc19leHRpbmN0PgogICAgICA8L3RheG9uPgogICAgICA8dGF4b24+CiAgICAgICAgPGlkPmNlMjFiODEzNDFkYTk5NzJmMGRhMmY3MTBiYmU4ZDg3PC9pZD4KICAgICAgICA8bmFtZT5DaGFldG9nbmF0aGE8L25hbWU+CiAgICAgICAgPHJhbms+UGh5bHVtPC9yYW5rPgogICAgICAgIDxuYW1lX2h0bWw+Q2hhZXRvZ25hdGhhPC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2Jyb3dzZS90cmVlL2lkL2NlMjFiODEzNDFkYTk5NzJmMGRhMmY3MTBiYmU4ZDg3PC91cmw+CiAgICAgICAgPGlzX2V4dGluY3Q+ZmFsc2U8L2lzX2V4dGluY3Q+CiAgICAgIDwvdGF4b24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+NDMxM2JjNzYzN2UxZmMxZmViMzE2YTRkZWEyYjY2OGI8L2lkPgogICAgICAgIDxuYW1lPkNob3JkYXRhPC9uYW1lPgogICAgICAgIDxyYW5rPlBoeWx1bTwvcmFuaz4KICAgICAgICA8bmFtZV9odG1sPkNob3JkYXRhPC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2Jyb3dzZS90cmVlL2lkLzQzMTNiYzc2MzdlMWZjMWZlYjMxNmE0ZGVhMmI2NjhiPC91cmw+CiAgICAgICAgPGlzX2V4dGluY3Q+ZmFsc2U8L2lzX2V4dGluY3Q+CiAgICAgIDwvdGF4b24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+OGMyYmU5OWJhNzkzYjI5ZDhkMGJhYWY5ZjkyZGQ4YTE8L2lkPgogICAgICAgIDxuYW1lPkNuaWRhcmlhPC9uYW1lPgogICAgICAgIDxyYW5rPlBoeWx1bTwvcmFuaz4KICAgICAgICA8bmFtZV9odG1sPkNuaWRhcmlhPC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2Jyb3dzZS90cmVlL2lkLzhjMmJlOTliYTc5M2IyOWQ4ZDBiYWFmOWY5MmRkOGExPC91cmw+CiAgICAgICAgPGlzX2V4dGluY3Q+ZmFsc2U8L2lzX2V4dGluY3Q+CiAgICAgIDwvdGF4b24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+MTA2MmE0MmY0YjVmNDE3ODUwMDNhMjQwNDA1ZTRiNzA8L2lkPgogICAgICAgIDxuYW1lPkN0ZW5vcGhvcmE8L25hbWU+CiAgICAgICAgPHJhbms+UGh5bHVtPC9yYW5rPgogICAgICAgIDxuYW1lX2h0bWw+Q3Rlbm9waG9yYTwvbmFtZV9odG1sPgogICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9icm93c2UvdHJlZS9pZC8xMDYyYTQyZjRiNWY0MTc4NTAwM2EyNDA0MDVlNGI3MDwvdXJsPgogICAgICAgIDxpc19leHRpbmN0PmZhbHNlPC9pc19leHRpbmN0PgogICAgICA8L3RheG9uPgogICAgICA8dGF4b24+CiAgICAgICAgPGlkPjBjOWY4YTAxMTJiOGQyNzY2ZGY5MjFiZjVmYTRmYThhPC9pZD4KICAgICAgICA8bmFtZT5DeWNsaW9waG9yYTwvbmFtZT4KICAgICAgICA8cmFuaz5QaHlsdW08L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD5DeWNsaW9waG9yYTwvbmFtZV9odG1sPgogICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9icm93c2UvdHJlZS9pZC8wYzlmOGEwMTEyYjhkMjc2NmRmOTIxYmY1ZmE0ZmE4YTwvdXJsPgogICAgICAgIDxpc19leHRpbmN0PmZhbHNlPC9pc19leHRpbmN0PgogICAgICA8L3RheG9uPgogICAgICA8dGF4b24+CiAgICAgICAgPGlkPmE4MGM4ZGEwZDVhNzQ3YmVlZmFjM2UzMTkwY2QzODE4PC9pZD4KICAgICAgICA8bmFtZT5EaWN5ZW1pZGE8L25hbWU+CiAgICAgICAgPHJhbms+UGh5bHVtPC9yYW5rPgogICAgICAgIDxuYW1lX2h0bWw+RGljeWVtaWRhPC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2Jyb3dzZS90cmVlL2lkL2E4MGM4ZGEwZDVhNzQ3YmVlZmFjM2UzMTkwY2QzODE4PC91cmw+CiAgICAgICAgPGlzX2V4dGluY3Q+ZmFsc2U8L2lzX2V4dGluY3Q+CiAgICAgIDwvdGF4b24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+NWNlZTlhYTU2NTg0NzA5NDk1ZjNlNWUzNTZlOWJjNjE8L2lkPgogICAgICAgIDxuYW1lPkVjaGlub2Rlcm1hdGE8L25hbWU+CiAgICAgICAgPHJhbms+UGh5bHVtPC9yYW5rPgogICAgICAgIDxuYW1lX2h0bWw+RWNoaW5vZGVybWF0YTwvbmFtZV9odG1sPgogICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9icm93c2UvdHJlZS9pZC81Y2VlOWFhNTY1ODQ3MDk0OTVmM2U1ZTM1NmU5YmM2MTwvdXJsPgogICAgICAgIDxpc19leHRpbmN0PmZhbHNlPC9pc19leHRpbmN0PgogICAgICA8L3RheG9uPgogICAgICA8dGF4b24+CiAgICAgICAgPGlkPmZhNTYxNzMwOWNlN2I5YzJmOWYyMTZjOWQyYzU4OTkyPC9pZD4KICAgICAgICA8bmFtZT5FbnRvcHJvY3RhPC9uYW1lPgogICAgICAgIDxyYW5rPlBoeWx1bTwvcmFuaz4KICAgICAgICA8bmFtZV9odG1sPkVudG9wcm9jdGE8L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvYnJvd3NlL3RyZWUvaWQvZmE1NjE3MzA5Y2U3YjljMmY5ZjIxNmM5ZDJjNTg5OTI8L3VybD4KICAgICAgICA8aXNfZXh0aW5jdD5mYWxzZTwvaXNfZXh0aW5jdD4KICAgICAgPC90YXhvbj4KICAgICAgPHRheG9uPgogICAgICAgIDxpZD5kNGQ4YzlhNWJmOTdiMjNlYjU0NjE3YzFhZWM5NTE0MjwvaWQ+CiAgICAgICAgPG5hbWU+R2FzdHJvdHJpY2hhPC9uYW1lPgogICAgICAgIDxyYW5rPlBoeWx1bTwvcmFuaz4KICAgICAgICA8bmFtZV9odG1sPkdhc3Ryb3RyaWNoYTwvbmFtZV9odG1sPgogICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9icm93c2UvdHJlZS9pZC9kNGQ4YzlhNWJmOTdiMjNlYjU0NjE3YzFhZWM5NTE0MjwvdXJsPgogICAgICAgIDxpc19leHRpbmN0PmZhbHNlPC9pc19leHRpbmN0PgogICAgICA8L3RheG9uPgogICAgICA8dGF4b24+CiAgICAgICAgPGlkPmY4NmFjMDMzMDY1YzRjMDgzZTM5ZmIyNDlkYjE2NTBjPC9pZD4KICAgICAgICA8bmFtZT5HbmF0aG9zdG9tdWxpZGE8L25hbWU+CiAgICAgICAgPHJhbms+UGh5bHVtPC9yYW5rPgogICAgICAgIDxuYW1lX2h0bWw+R25hdGhvc3RvbXVsaWRhPC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2Jyb3dzZS90cmVlL2lkL2Y4NmFjMDMzMDY1YzRjMDgzZTM5ZmIyNDlkYjE2NTBjPC91cmw+CiAgICAgICAgPGlzX2V4dGluY3Q+ZmFsc2U8L2lzX2V4dGluY3Q+CiAgICAgIDwvdGF4b24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+N2EwOGM4YzUzMWMzNzAyYjdlMzZkMDhhOGE5OWI3NTI8L2lkPgogICAgICAgIDxuYW1lPkhlbWljaG9yZGF0YTwvbmFtZT4KICAgICAgICA8cmFuaz5QaHlsdW08L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD5IZW1pY2hvcmRhdGE8L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvYnJvd3NlL3RyZWUvaWQvN2EwOGM4YzUzMWMzNzAyYjdlMzZkMDhhOGE5OWI3NTI8L3VybD4KICAgICAgICA8aXNfZXh0aW5jdD5mYWxzZTwvaXNfZXh0aW5jdD4KICAgICAgPC90YXhvbj4KICAgICAgPHRheG9uPgogICAgICAgIDxpZD5mYmZmNGI5NTI5MjhlMTZkNjJkNjU4MzcxNmFkZjBlZjwvaWQ+CiAgICAgICAgPG5hbWU+TWljcm9nbmF0aG96b2E8L25hbWU+CiAgICAgICAgPHJhbms+UGh5bHVtPC9yYW5rPgogICAgICAgIDxuYW1lX2h0bWw+TWljcm9nbmF0aG96b2E8L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvYnJvd3NlL3RyZWUvaWQvZmJmZjRiOTUyOTI4ZTE2ZDYyZDY1ODM3MTZhZGYwZWY8L3VybD4KICAgICAgICA8aXNfZXh0aW5jdD5mYWxzZTwvaXNfZXh0aW5jdD4KICAgICAgPC90YXhvbj4KICAgICAgPHRheG9uPgogICAgICAgIDxpZD43MGE3MjIyNGQ1MmIyNGY1ZWUwYjFkMDkzODdkMTcwMzwvaWQ+CiAgICAgICAgPG5hbWU+TW9sbHVzY2E8L25hbWU+CiAgICAgICAgPHJhbms+UGh5bHVtPC9yYW5rPgogICAgICAgIDxuYW1lX2h0bWw+TW9sbHVzY2E8L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvYnJvd3NlL3RyZWUvaWQvNzBhNzIyMjRkNTJiMjRmNWVlMGIxZDA5Mzg3ZDE3MDM8L3VybD4KICAgICAgICA8aXNfZXh0aW5jdD5mYWxzZTwvaXNfZXh0aW5jdD4KICAgICAgPC90YXhvbj4KICAgICAgPHRheG9uPgogICAgICAgIDxpZD5jZGQ4YzViOGUzYjQ0MGVkZTQ5Zjk4OTA5NDY0YzY4ZjwvaWQ+CiAgICAgICAgPG5hbWU+TXl4b3pvYTwvbmFtZT4KICAgICAgICA8cmFuaz5QaHlsdW08L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD5NeXhvem9hPC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2Jyb3dzZS90cmVlL2lkL2NkZDhjNWI4ZTNiNDQwZWRlNDlmOTg5MDk0NjRjNjhmPC91cmw+CiAgICAgICAgPGlzX2V4dGluY3Q+ZmFsc2U8L2lzX2V4dGluY3Q+CiAgICAgIDwvdGF4b24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+NTYyNDA1ZDU5Yzk1ZjkzNDIzNDk0YTAwOTM5YWUyZmY8L2lkPgogICAgICAgIDxuYW1lPk5lbWF0b2RhPC9uYW1lPgogICAgICAgIDxyYW5rPlBoeWx1bTwvcmFuaz4KICAgICAgICA8bmFtZV9odG1sPk5lbWF0b2RhPC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2Jyb3dzZS90cmVlL2lkLzU2MjQwNWQ1OWM5NWY5MzQyMzQ5NGEwMDkzOWFlMmZmPC91cmw+CiAgICAgICAgPGlzX2V4dGluY3Q+ZmFsc2U8L2lzX2V4dGluY3Q+CiAgICAgIDwvdGF4b24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+MDFmZDdhOWIzMzc1YmJjODA2MWRiN2IyOGYyMDA5ZTE8L2lkPgogICAgICAgIDxuYW1lPk5lbWF0b21vcnBoYTwvbmFtZT4KICAgICAgICA8cmFuaz5QaHlsdW08L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD5OZW1hdG9tb3JwaGE8L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvYnJvd3NlL3RyZWUvaWQvMDFmZDdhOWIzMzc1YmJjODA2MWRiN2IyOGYyMDA5ZTE8L3VybD4KICAgICAgICA8aXNfZXh0aW5jdD5mYWxzZTwvaXNfZXh0aW5jdD4KICAgICAgPC90YXhvbj4KICAgICAgPHRheG9uPgogICAgICAgIDxpZD43M2E3MTA4OTE1YjQwNzZmMzIyZTJmNGQxMjY4NDViNjwvaWQ+CiAgICAgICAgPG5hbWU+TmVtZXJ0ZWE8L25hbWU+CiAgICAgICAgPHJhbms+UGh5bHVtPC9yYW5rPgogICAgICAgIDxuYW1lX2h0bWw+TmVtZXJ0ZWE8L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvYnJvd3NlL3RyZWUvaWQvNzNhNzEwODkxNWI0MDc2ZjMyMmUyZjRkMTI2ODQ1YjY8L3VybD4KICAgICAgICA8aXNfZXh0aW5jdD5mYWxzZTwvaXNfZXh0aW5jdD4KICAgICAgPC90YXhvbj4KICAgICAgPHRheG9uPgogICAgICAgIDxpZD5mOTIwZDkxZTI3YmMxZTE1NDJkNTg5MTNmMTAwMDI4MDwvaWQ+CiAgICAgICAgPG5hbWU+T255Y2hvcGhvcmE8L25hbWU+CiAgICAgICAgPHJhbms+UGh5bHVtPC9yYW5rPgogICAgICAgIDxuYW1lX2h0bWw+T255Y2hvcGhvcmE8L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvYnJvd3NlL3RyZWUvaWQvZjkyMGQ5MWUyN2JjMWUxNTQyZDU4OTEzZjEwMDAyODA8L3VybD4KICAgICAgICA8aXNfZXh0aW5jdD5mYWxzZTwvaXNfZXh0aW5jdD4KICAgICAgPC90YXhvbj4KICAgICAgPHRheG9uPgogICAgICAgIDxpZD5hM2YwYjdhMGEwY2YwMmZlMDdmNDkyZDhlMzYwMTY4YzwvaWQ+CiAgICAgICAgPG5hbWU+T3J0aG9uZWN0aWRhPC9uYW1lPgogICAgICAgIDxyYW5rPlBoeWx1bTwvcmFuaz4KICAgICAgICA8bmFtZV9odG1sPk9ydGhvbmVjdGlkYTwvbmFtZV9odG1sPgogICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9icm93c2UvdHJlZS9pZC9hM2YwYjdhMGEwY2YwMmZlMDdmNDkyZDhlMzYwMTY4YzwvdXJsPgogICAgICAgIDxpc19leHRpbmN0PmZhbHNlPC9pc19leHRpbmN0PgogICAgICA8L3RheG9uPgogICAgICA8dGF4b24+CiAgICAgICAgPGlkPjgyM2YwM2Q4NTIxZjZkMGQ1N2FhOTUwMTliODg4NzBiPC9pZD4KICAgICAgICA8bmFtZT5QaG9yb25pZGE8L25hbWU+CiAgICAgICAgPHJhbms+UGh5bHVtPC9yYW5rPgogICAgICAgIDxuYW1lX2h0bWw+UGhvcm9uaWRhPC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2Jyb3dzZS90cmVlL2lkLzgyM2YwM2Q4NTIxZjZkMGQ1N2FhOTUwMTliODg4NzBiPC91cmw+CiAgICAgICAgPGlzX2V4dGluY3Q+ZmFsc2U8L2lzX2V4dGluY3Q+CiAgICAgIDwvdGF4b24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+NWIwMDYyOWMzNWI5Zjc4M2JhMzc1M2U0NjdjN2IzZmM8L2lkPgogICAgICAgIDxuYW1lPlBsYWNvem9hPC9uYW1lPgogICAgICAgIDxyYW5rPlBoeWx1bTwvcmFuaz4KICAgICAgICA8bmFtZV9odG1sPlBsYWNvem9hPC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2Jyb3dzZS90cmVlL2lkLzViMDA2MjljMzViOWY3ODNiYTM3NTNlNDY3YzdiM2ZjPC91cmw+CiAgICAgICAgPGlzX2V4dGluY3Q+ZmFsc2U8L2lzX2V4dGluY3Q+CiAgICAgIDwvdGF4b24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+NzI1M2IwZDExMWZkNWViMGM2YTk4NTZlMGQ4ZDFjYWQ8L2lkPgogICAgICAgIDxuYW1lPlBsYXR5aGVsbWludGhlczwvbmFtZT4KICAgICAgICA8cmFuaz5QaHlsdW08L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD5QbGF0eWhlbG1pbnRoZXM8L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvYnJvd3NlL3RyZWUvaWQvNzI1M2IwZDExMWZkNWViMGM2YTk4NTZlMGQ4ZDFjYWQ8L3VybD4KICAgICAgICA8aXNfZXh0aW5jdD5mYWxzZTwvaXNfZXh0aW5jdD4KICAgICAgPC90YXhvbj4KICAgICAgPHRheG9uPgogICAgICAgIDxpZD5mMmM1NWNjMTgxYjRhNmFmZWQwZGVlNTUyMDg2MTk2ZDwvaWQ+CiAgICAgICAgPG5hbWU+UG9yaWZlcmE8L25hbWU+CiAgICAgICAgPHJhbms+UGh5bHVtPC9yYW5rPgogICAgICAgIDxuYW1lX2h0bWw+UG9yaWZlcmE8L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvYnJvd3NlL3RyZWUvaWQvZjJjNTVjYzE4MWI0YTZhZmVkMGRlZTU1MjA4NjE5NmQ8L3VybD4KICAgICAgICA8aXNfZXh0aW5jdD5mYWxzZTwvaXNfZXh0aW5jdD4KICAgICAgPC90YXhvbj4KICAgICAgPHRheG9uPgogICAgICAgIDxpZD40Y2I4Y2VmMjA2YjFkYThhZTk5ZDJlZTg3MWMzZjE4NTwvaWQ+CiAgICAgICAgPG5hbWU+Um90aWZlcmE8L25hbWU+CiAgICAgICAgPHJhbms+UGh5bHVtPC9yYW5rPgogICAgICAgIDxuYW1lX2h0bWw+Um90aWZlcmE8L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvYnJvd3NlL3RyZWUvaWQvNGNiOGNlZjIwNmIxZGE4YWU5OWQyZWU4NzFjM2YxODU8L3VybD4KICAgICAgICA8aXNfZXh0aW5jdD5mYWxzZTwvaXNfZXh0aW5jdD4KICAgICAgPC90YXhvbj4KICAgICAgPHRheG9uPgogICAgICAgIDxpZD41ZGVkOGFlNzJmZDYyNDFiMTNmM2NkMjdiZjE4ZDQ3NzwvaWQ+CiAgICAgICAgPG5hbWU+U2lwdW5jdWxhPC9uYW1lPgogICAgICAgIDxyYW5rPlBoeWx1bTwvcmFuaz4KICAgICAgICA8bmFtZV9odG1sPlNpcHVuY3VsYTwvbmFtZV9odG1sPgogICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9icm93c2UvdHJlZS9pZC81ZGVkOGFlNzJmZDYyNDFiMTNmM2NkMjdiZjE4ZDQ3NzwvdXJsPgogICAgICAgIDxpc19leHRpbmN0PmZhbHNlPC9pc19leHRpbmN0PgogICAgICA8L3RheG9uPgogICAgICA8dGF4b24+CiAgICAgICAgPGlkPjYyYTJkYjM4M2FhYmI4M2FhNzY0NzAwOTYwNzNmN2EzPC9pZD4KICAgICAgICA8bmFtZT5UYXJkaWdyYWRhPC9uYW1lPgogICAgICAgIDxyYW5rPlBoeWx1bTwvcmFuaz4KICAgICAgICA8bmFtZV9odG1sPlRhcmRpZ3JhZGE8L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvYnJvd3NlL3RyZWUvaWQvNjJhMmRiMzgzYWFiYjgzYWE3NjQ3MDA5NjA3M2Y3YTM8L3VybD4KICAgICAgICA8aXNfZXh0aW5jdD5mYWxzZTwvaXNfZXh0aW5jdD4KICAgICAgPC90YXhvbj4KICAgICAgPHRheG9uPgogICAgICAgIDxpZD5kNDYxN2NkZmZhZDg5NmUyZjUxODM3ZmQ1NjA3ZThjNzwvaWQ+CiAgICAgICAgPG5hbWU+WGVuYWNvZWxvbW9ycGhhPC9uYW1lPgogICAgICAgIDxyYW5rPlBoeWx1bTwvcmFuaz4KICAgICAgICA8bmFtZV9odG1sPlhlbmFjb2Vsb21vcnBoYTwvbmFtZV9odG1sPgogICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9icm93c2UvdHJlZS9pZC9kNDYxN2NkZmZhZDg5NmUyZjUxODM3ZmQ1NjA3ZThjNzwvdXJsPgogICAgICAgIDxpc19leHRpbmN0PmZhbHNlPC9pc19leHRpbmN0PgogICAgICA8L3RheG9uPgogICAgPC9jaGlsZF90YXhhPgogIDwvcmVzdWx0PgogIDxyZXN1bHQ+CiAgICA8aWQ+MDhhMTA4N2Q2YTlkMDllNGVlNmY0ZmY1YzI4ZWZjNjU8L2lkPgogICAgPG5hbWU+QXVzdHJhbGltb29zZWxsYSBldC1hbmltYWxpYTwvbmFtZT4KICAgIDxyYW5rPlNwZWNpZXM8L3Jhbms+CiAgICA8bmFtZV9zdGF0dXM+YWNjZXB0ZWQgbmFtZTwvbmFtZV9zdGF0dXM+CiAgICA8Z2VudXM+QXVzdHJhbGltb29zZWxsYTwvZ2VudXM+CiAgICA8c3ViZ2VudXM+PC9zdWJnZW51cz4KICAgIDxzcGVjaWVzPmV0LWFuaW1hbGlhPC9zcGVjaWVzPgogICAgPGluZnJhc3BlY2llc19tYXJrZXI+PC9pbmZyYXNwZWNpZXNfbWFya2VyPgogICAgPGluZnJhc3BlY2llcz48L2luZnJhc3BlY2llcz4KICAgIDxhdXRob3I+PCFbQ0RBVEFbSHUgJiBUYW8sIDIwMDhdXT48L2F1dGhvcj4KICAgIDxyZWNvcmRfc2NydXRpbnlfZGF0ZT4KICAgICAgPHNjcnV0aW55PjI1LUFwci0yMDE2PC9zY3J1dGlueT4KICAgIDwvcmVjb3JkX3NjcnV0aW55X2RhdGU+CiAgICA8b25saW5lX3Jlc291cmNlPjwhW0NEQVRBW2h0dHA6Ly93d3cubWFyaW5lc3BlY2llcy5vcmcvb3N0cmFjb2RhL2FwaGlhLnBocD9wPXRheGRldGFpbHMmaWQ9ODc0MzgzXV0+PC9vbmxpbmVfcmVzb3VyY2U+CiAgICA8aXNfZXh0aW5jdD5mYWxzZTwvaXNfZXh0aW5jdD4KICAgIDxzb3VyY2VfZGF0YWJhc2U+V29STVMgT3N0cmFjb2RhOiBXb3JsZCBPc3RyYWNvZGEgRGF0YWJhc2U8L3NvdXJjZV9kYXRhYmFzZT4KICAgIDxzb3VyY2VfZGF0YWJhc2VfdXJsPmh0dHA6Ly93d3cubWFyaW5lc3BlY2llcy5vcmcvb3N0cmFjb2RhPC9zb3VyY2VfZGF0YWJhc2VfdXJsPgogICAgPGJpYmxpb2dyYXBoaWNfY2l0YXRpb24+PCFbQ0RBVEFbQnJhbmTDo28gUy5OLiwgQW5nZWwgTS5WLiwgS2FyYW5vdmljIEkuLCBQZXJyaWVyIFYuICYgTWVpZGxhIFQuICgyMDE5KS4gV29STVMgT3N0cmFjb2RhOiBXb3JsZCBPc3RyYWNvZGEgRGF0YWJhc2UgKHZlcnNpb24gMjAxOC0wMy0wNSkuIEluOiBTcGVjaWVzIDIwMDAgJiBJVElTIENhdGFsb2d1ZSBvZiBMaWZlLCAyMDE5IEFubnVhbCBDaGVja2xpc3QgKFJvc2tvdiBZLiwgT3dlciBHLiwgT3JyZWxsIFQuLCBOaWNvbHNvbiBELiwgQmFpbGx5IE4uLCBLaXJrIFAuTS4sIEJvdXJnb2luIFQuLCBEZVdhbHQgUi5FLiwgRGVjb2NrIFcuLCBOaWV1a2Vya2VuIEUuIHZhbiwgWmFydWNjaGkgSi4sIFBlbmV2IEwuLCBlZHMuKS4gRGlnaXRhbCByZXNvdXJjZSBhdCB3d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9hbm51YWwtY2hlY2tsaXN0LzIwMTkuIFNwZWNpZXMgMjAwMDogTmF0dXJhbGlzLCBMZWlkZW4sIHRoZSBOZXRoZXJsYW5kcy4gSVNTTiAyNDA1LTg4NFguXV0+PC9iaWJsaW9ncmFwaGljX2NpdGF0aW9uPgogICAgPG5hbWVfaHRtbD48IVtDREFUQVs8aT5BdXN0cmFsaW1vb3NlbGxhIGV0LWFuaW1hbGlhPC9pPiBIdSAmIFRhbywgMjAwOF1dPjwvbmFtZV9odG1sPgogICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2RldGFpbHMvc3BlY2llcy9pZC8wOGExMDg3ZDZhOWQwOWU0ZWU2ZjRmZjVjMjhlZmM2NTwvdXJsPgogICAgPGRpc3RyaWJ1dGlvbj48L2Rpc3RyaWJ1dGlvbj4KICAgIDxyZWZlcmVuY2VzPgogICAgICA8cmVmZXJlbmNlPgogICAgICAgIDxhdXRob3I+SHUsIEMuLUguOyBILVRhbywgSi48L2F1dGhvcj4KICAgICAgICA8eWVhcj4yMDA4PC95ZWFyPgogICAgICAgIDx0aXRsZT5TdHVkaWVzIG9uIHRoZSBvc3RyYWNvZCBmYXVuYSBvZiBUYWl3YW4gYW5kIGl0cyBhZGphY2VudCBzZWFzPC90aXRsZT4KICAgICAgICA8c291cmNlPk5hdGlvbmFsIFRhaXdhbiBNdXNldW0gU3BlY2lhbCBQdWJsaWNhdGlvbiBTZXJpZXMuIDEzIChwYXJ0IDEpLCAxLTY1NSBbSW4gQ2hpbmVzZV08L3NvdXJjZT4KICAgICAgPC9yZWZlcmVuY2U+CiAgICA8L3JlZmVyZW5jZXM+CiAgICA8Y2xhc3NpZmljYXRpb24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+NWVkZTI0YjA1MzRlYmQ1ZTFmNTUyZDViOWY4NzRhNmE8L2lkPgogICAgICAgIDxuYW1lPkFuaW1hbGlhPC9uYW1lPgogICAgICAgIDxyYW5rPktpbmdkb208L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD5BbmltYWxpYTwvbmFtZV9odG1sPgogICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9icm93c2UvdHJlZS9pZC81ZWRlMjRiMDUzNGViZDVlMWY1NTJkNWI5Zjg3NGE2YTwvdXJsPgogICAgICA8L3RheG9uPgogICAgICA8dGF4b24+CiAgICAgICAgPGlkPjg5YWMxOGJmY2YxNjU0YTk2NjJhNjAwYmEwNmJiNDk0PC9pZD4KICAgICAgICA8bmFtZT5BcnRocm9wb2RhPC9uYW1lPgogICAgICAgIDxyYW5rPlBoeWx1bTwvcmFuaz4KICAgICAgICA8bmFtZV9odG1sPkFydGhyb3BvZGE8L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvYnJvd3NlL3RyZWUvaWQvODlhYzE4YmZjZjE2NTRhOTY2MmE2MDBiYTA2YmI0OTQ8L3VybD4KICAgICAgPC90YXhvbj4KICAgICAgPHRheG9uPgogICAgICAgIDxpZD43YjVlY2IwYjFhOGNhNjUwZjZjOTY1OGU4OTFmNTRkYTwvaWQ+CiAgICAgICAgPG5hbWU+T3N0cmFjb2RhPC9uYW1lPgogICAgICAgIDxyYW5rPkNsYXNzPC9yYW5rPgogICAgICAgIDxuYW1lX2h0bWw+T3N0cmFjb2RhPC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2Jyb3dzZS90cmVlL2lkLzdiNWVjYjBiMWE4Y2E2NTBmNmM5NjU4ZTg5MWY1NGRhPC91cmw+CiAgICAgIDwvdGF4b24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+OGY3NjMyZWJiYzUwNDMzODJmNjVhOWZmYWQ1ZmRlODc8L2lkPgogICAgICAgIDxuYW1lPlBvZG9jb3BpZGE8L25hbWU+CiAgICAgICAgPHJhbms+T3JkZXI8L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD5Qb2RvY29waWRhPC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2Jyb3dzZS90cmVlL2lkLzhmNzYzMmViYmM1MDQzMzgyZjY1YTlmZmFkNWZkZTg3PC91cmw+CiAgICAgIDwvdGF4b24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+ZjM1OWU0NGZmOWNmODVlZTQ3MzEyZTdkOTcxNmQzMWU8L2lkPgogICAgICAgIDxuYW1lPkN5dGhlcm9pZGVhPC9uYW1lPgogICAgICAgIDxyYW5rPlN1cGVyZmFtaWx5PC9yYW5rPgogICAgICAgIDxuYW1lX2h0bWw+Q3l0aGVyb2lkZWE8L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvYnJvd3NlL3RyZWUvaWQvZjM1OWU0NGZmOWNmODVlZTQ3MzEyZTdkOTcxNmQzMWU8L3VybD4KICAgICAgPC90YXhvbj4KICAgICAgPHRheG9uPgogICAgICAgIDxpZD45ZWQyMGNkMTI5YTc2ZGU2NGZkMTQ5ZDgzYmNhOTdlMTwvaWQ+CiAgICAgICAgPG5hbWU+VHJhY2h5bGViZXJpZGlkYWU8L25hbWU+CiAgICAgICAgPHJhbms+RmFtaWx5PC9yYW5rPgogICAgICAgIDxuYW1lX2h0bWw+VHJhY2h5bGViZXJpZGlkYWU8L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvYnJvd3NlL3RyZWUvaWQvOWVkMjBjZDEyOWE3NmRlNjRmZDE0OWQ4M2JjYTk3ZTE8L3VybD4KICAgICAgPC90YXhvbj4KICAgICAgPHRheG9uPgogICAgICAgIDxpZD41YzRlMTVlM2VmMmI1ZjBlZmUxNTY5MDFjNmRkNTlmMDwvaWQ+CiAgICAgICAgPG5hbWU+QXVzdHJhbGltb29zZWxsYTwvbmFtZT4KICAgICAgICA8cmFuaz5HZW51czwvcmFuaz4KICAgICAgICA8bmFtZV9odG1sPjxpPkF1c3RyYWxpbW9vc2VsbGE8L2k+PC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2Jyb3dzZS90cmVlL2lkLzVjNGUxNWUzZWYyYjVmMGVmZTE1NjkwMWM2ZGQ1OWYwPC91cmw+CiAgICAgIDwvdGF4b24+CiAgICA8L2NsYXNzaWZpY2F0aW9uPgogICAgPGNoaWxkX3RheGEvPgogICAgPHN5bm9ueW1zLz4KICAgIDxjb21tb25fbmFtZXMvPgogIDwvcmVzdWx0Pgo8L3Jlc3VsdHM+Cg==
+  recorded_at: 2019-05-08 20:48:31 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: get
     uri: http://www.catalogueoflife.org/col/webservice?name=Plantae&response=full
@@ -401,9 +37,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
+      X-USER-AGENT: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
   response:
     status:
       status_code: '200'
@@ -411,438 +48,19 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.12.1
-      date: Thu, 24 Jan 2019 01:18:29 GMT
+      server: nginx/1.14.0
+      date: Wed, 08 May 2019 20:48:29 GMT
       content-type: application/xml
       transfer-encoding: chunked
       connection: keep-alive
-      x-powered-by: PHP/5.5.9-1ubuntu4.26
       expires: Thu, 19 Nov 1981 08:52:00 GMT
-      cache-control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      cache-control: no-store, no-cache, must-revalidate
       pragma: no-cache
     body:
-      encoding: UTF-8
-      string: |
-        <?xml version="1.0" encoding="UTF-8"?>
-        <results id="" name="Plantae" total_number_of_results="2" number_of_results_returned="2" start="0" error_message="" version="1.9 rev 2126ab0" rank="">
-          <result>
-            <id>208cf441fe2e1662376a9ce9e80782e1</id>
-            <name>Plantae</name>
-            <rank>Kingdom</rank>
-            <name_status>accepted name</name_status>
-            <name_html>Plantae</name_html>
-            <url>http://www.catalogueoflife.org/col/browse/tree/id/208cf441fe2e1662376a9ce9e80782e1</url>
-            <is_extinct>false</is_extinct>
-            <classification/>
-            <child_taxa>
-              <taxon>
-                <id>3ae23a6ffe49d1f7fe2968afb6c2ea81</id>
-                <name>Anthocerotophyta</name>
-                <rank>Phylum</rank>
-                <name_html>Anthocerotophyta</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/3ae23a6ffe49d1f7fe2968afb6c2ea81</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>9b7799c90f8fb358bac8f4c137016db1</id>
-                <name>Bryophyta</name>
-                <rank>Phylum</rank>
-                <name_html>Bryophyta</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/9b7799c90f8fb358bac8f4c137016db1</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>4ae2b93f0a300ceca9d6f764b254384c</id>
-                <name>Charophyta</name>
-                <rank>Phylum</rank>
-                <name_html>Charophyta</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/4ae2b93f0a300ceca9d6f764b254384c</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>36815f6707e6bf71cea53140ab004f06</id>
-                <name>Chlorophyta</name>
-                <rank>Phylum</rank>
-                <name_html>Chlorophyta</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/36815f6707e6bf71cea53140ab004f06</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>66b028a67ee4a287b186d5edefdb66b1</id>
-                <name>Glaucophyta</name>
-                <rank>Phylum</rank>
-                <name_html>Glaucophyta</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/66b028a67ee4a287b186d5edefdb66b1</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>d4389a37663cdc9bfc82c2e5d10fa653</id>
-                <name>Marchantiophyta</name>
-                <rank>Phylum</rank>
-                <name_html>Marchantiophyta</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/d4389a37663cdc9bfc82c2e5d10fa653</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>e75c713bcb7c473dfafe52b25b15a8d6</id>
-                <name>Rhodophyta</name>
-                <rank>Phylum</rank>
-                <name_html>Rhodophyta</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/e75c713bcb7c473dfafe52b25b15a8d6</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>73328ba4e1446e1ee3602956b66eb127</id>
-                <name>Tracheophyta</name>
-                <rank>Phylum</rank>
-                <name_html>Tracheophyta</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/73328ba4e1446e1ee3602956b66eb127</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-            </child_taxa>
-          </result>
-          <result>
-            <id>485ae7ff493e48c21d814fc0258136b1</id>
-            <name>Primula plantae</name>
-            <rank>Species</rank>
-            <name_status>synonym</name_status>
-            <genus>Primula</genus>
-            <subgenus></subgenus>
-            <species>plantae</species>
-            <infraspecies_marker></infraspecies_marker>
-            <infraspecies></infraspecies>
-            <author>Brügger</author>
-            <record_scrutiny_date></record_scrutiny_date>
-            <online_resource></online_resource>
-            <source_database>World Plants: Synonymic Checklists of the Vascular Plants of the World</source_database>
-            <source_database_url>http://worldplants.webarchiv.kit.edu/</source_database_url>
-            <bibliographic_citation><![CDATA[Hassler M. (2019). World Plants: Synonymic Checklists of the Vascular Plants of the World (version Apr 2018). In: Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds. (2019). Species 2000 & ITIS Catalogue of Life, 24th December 2018. Digital resource at www.catalogueoflife.org/col. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-8858.]]></bibliographic_citation>
-            <name_html><i>Primula plantae</i> Brügger</name_html>
-            <url>http://www.catalogueoflife.org/col/details/species/id/e8b702a18bb3c55b6974a68270779b51/synonym/485ae7ff493e48c21d814fc0258136b1</url>
-            <distribution></distribution>
-            <references>
-              <reference>
-                <author>Brügger</author>
-                <year>1880</year>
-                <title></title>
-                <source>In: Jahresb. Naturf. Ges. Graub. II. 23-24: 100</source>
-              </reference>
-            </references>
-            <accepted_name>
-              <id>e8b702a18bb3c55b6974a68270779b51</id>
-              <name>Primula daonensis</name>
-              <rank>Species</rank>
-              <name_status>accepted name</name_status>
-              <genus>Primula</genus>
-              <subgenus></subgenus>
-              <species>daonensis</species>
-              <infraspecies_marker></infraspecies_marker>
-              <infraspecies></infraspecies>
-              <author>(Leybold) Leybold</author>
-              <record_scrutiny_date>
-                <scrutiny>May-2018</scrutiny>
-              </record_scrutiny_date>
-              <online_resource></online_resource>
-              <is_extinct>false</is_extinct>
-              <source_database>World Plants: Synonymic Checklists of the Vascular Plants of the World</source_database>
-              <source_database_url>http://worldplants.webarchiv.kit.edu/</source_database_url>
-              <bibliographic_citation><![CDATA[Hassler M. (2019). World Plants: Synonymic Checklists of the Vascular Plants of the World (version Apr 2018). In: Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds. (2019). Species 2000 & ITIS Catalogue of Life, 24th December 2018. Digital resource at www.catalogueoflife.org/col. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-8858.]]></bibliographic_citation>
-              <name_html><i>Primula daonensis</i> (Leybold) Leybold</name_html>
-              <url>http://www.catalogueoflife.org/col/details/species/id/e8b702a18bb3c55b6974a68270779b51</url>
-              <distribution>Austria, E-Switzerland, N-Italy (E-Alps) 111408 0</distribution>
-              <references>
-                <reference>
-                  <author>Leybold</author>
-                  <year>1855</year>
-                  <title></title>
-                  <source>In: Flora (Regensburg) 38: 345</source>
-                </reference>
-              </references>
-              <classification>
-                <taxon>
-                  <id>208cf441fe2e1662376a9ce9e80782e1</id>
-                  <name>Plantae</name>
-                  <rank>Kingdom</rank>
-                  <name_html>Plantae</name_html>
-                  <url>http://www.catalogueoflife.org/col/browse/tree/id/208cf441fe2e1662376a9ce9e80782e1</url>
-                </taxon>
-                <taxon>
-                  <id>73328ba4e1446e1ee3602956b66eb127</id>
-                  <name>Tracheophyta</name>
-                  <rank>Phylum</rank>
-                  <name_html>Tracheophyta</name_html>
-                  <url>http://www.catalogueoflife.org/col/browse/tree/id/73328ba4e1446e1ee3602956b66eb127</url>
-                </taxon>
-                <taxon>
-                  <id>53497bb664b89c28e60f020f7f21f882</id>
-                  <name>Magnoliopsida</name>
-                  <rank>Class</rank>
-                  <name_html>Magnoliopsida</name_html>
-                  <url>http://www.catalogueoflife.org/col/browse/tree/id/53497bb664b89c28e60f020f7f21f882</url>
-                </taxon>
-                <taxon>
-                  <id>1cf1fd90d9326849ef78426e68358674</id>
-                  <name>Ericales</name>
-                  <rank>Order</rank>
-                  <name_html>Ericales</name_html>
-                  <url>http://www.catalogueoflife.org/col/browse/tree/id/1cf1fd90d9326849ef78426e68358674</url>
-                </taxon>
-                <taxon>
-                  <id>2f2a5e0b20218a28b876143b0233b8eb</id>
-                  <name>Primulaceae</name>
-                  <rank>Family</rank>
-                  <name_html>Primulaceae</name_html>
-                  <url>http://www.catalogueoflife.org/col/browse/tree/id/2f2a5e0b20218a28b876143b0233b8eb</url>
-                </taxon>
-                <taxon>
-                  <id>da8226a1dc3064e1b5d6c665b69d9019</id>
-                  <name>Primula</name>
-                  <rank>Genus</rank>
-                  <name_html><i>Primula</i></name_html>
-                  <url>http://www.catalogueoflife.org/col/browse/tree/id/da8226a1dc3064e1b5d6c665b69d9019</url>
-                </taxon>
-              </classification>
-              <child_taxa/>
-              <synonyms>
-                <synonym>
-                  <id>117b6eb7eca2d8bca8720338e055e8f5</id>
-                  <name>Auricula-ursi daonensis</name>
-                  <rank>Species</rank>
-                  <name_status>synonym</name_status>
-                  <genus>Auricula-ursi</genus>
-                  <subgenus></subgenus>
-                  <species>daonensis</species>
-                  <infraspecies_marker></infraspecies_marker>
-                  <infraspecies></infraspecies>
-                  <author>(Leyb.) J. Sojak</author>
-                  <record_scrutiny_date></record_scrutiny_date>
-                  <online_resource></online_resource>
-                  <is_extinct>0</is_extinct>
-                  <name_html><i>Auricula-ursi daonensis</i> (Leyb.) J. Sojak</name_html>
-                  <url>http://www.catalogueoflife.org/col/details/species/id/e8b702a18bb3c55b6974a68270779b51/synonym/117b6eb7eca2d8bca8720338e055e8f5</url>
-                  <references>
-                    <reference>
-                      <author>J. Sojak</author>
-                      <year>1980</year>
-                      <title></title>
-                      <source>In: Cas. Nar. Muz. (Prague), 148(3-4): 209 1979</source>
-                    </reference>
-                  </references>
-                </synonym>
-                <synonym>
-                  <id>909cae5c74559af06c19222119f80c70</id>
-                  <name>Primula cadinensis</name>
-                  <rank>Species</rank>
-                  <name_status>synonym</name_status>
-                  <genus>Primula</genus>
-                  <subgenus></subgenus>
-                  <species>cadinensis</species>
-                  <infraspecies_marker></infraspecies_marker>
-                  <infraspecies></infraspecies>
-                  <author>Porta</author>
-                  <record_scrutiny_date></record_scrutiny_date>
-                  <online_resource></online_resource>
-                  <is_extinct>0</is_extinct>
-                  <name_html><i>Primula cadinensis</i> Porta</name_html>
-                  <url>http://www.catalogueoflife.org/col/details/species/id/e8b702a18bb3c55b6974a68270779b51/synonym/909cae5c74559af06c19222119f80c70</url>
-                  <references>
-                    <reference>
-                      <author>Porta</author>
-                      <year>1890</year>
-                      <title></title>
-                      <source>In: Kolb. Europ. Alpenpflanz. 234</source>
-                    </reference>
-                  </references>
-                </synonym>
-                <synonym>
-                  <id>2ecc14ffddd83dff93e4c17a32f20da5</id>
-                  <name>Primula coronata</name>
-                  <rank>Species</rank>
-                  <name_status>synonym</name_status>
-                  <genus>Primula</genus>
-                  <subgenus></subgenus>
-                  <species>coronata</species>
-                  <infraspecies_marker></infraspecies_marker>
-                  <infraspecies></infraspecies>
-                  <author>Porta</author>
-                  <record_scrutiny_date></record_scrutiny_date>
-                  <online_resource></online_resource>
-                  <is_extinct>0</is_extinct>
-                  <name_html><i>Primula coronata</i> Porta</name_html>
-                  <url>http://www.catalogueoflife.org/col/details/species/id/e8b702a18bb3c55b6974a68270779b51/synonym/2ecc14ffddd83dff93e4c17a32f20da5</url>
-                  <references>
-                    <reference>
-                      <author>Porta</author>
-                      <year>1890</year>
-                      <title></title>
-                      <source>In: Kolb, Europ. Alpenpflanz. 237</source>
-                    </reference>
-                  </references>
-                </synonym>
-                <synonym>
-                  <id>d5c717d0222a42e56b01697320528d89</id>
-                  <name>Primula daonensis</name>
-                  <rank>Species</rank>
-                  <name_status>ambiguous synonym</name_status>
-                  <genus>Primula</genus>
-                  <subgenus></subgenus>
-                  <species>daonensis</species>
-                  <infraspecies_marker></infraspecies_marker>
-                  <infraspecies></infraspecies>
-                  <author>Leyb.</author>
-                  <record_scrutiny_date></record_scrutiny_date>
-                  <online_resource></online_resource>
-                  <is_extinct>0</is_extinct>
-                  <name_html><i>Primula daonensis</i> Leyb.</name_html>
-                  <url>http://www.catalogueoflife.org/col/details/species/id/e8b702a18bb3c55b6974a68270779b51/synonym/d5c717d0222a42e56b01697320528d89</url>
-                  <references>
-                    <reference>
-                      <author>Leyb.</author>
-                      <year>1854</year>
-                      <title></title>
-                      <source>In: Österr. Bot. Wiochenbl. 4: 10</source>
-                    </reference>
-                  </references>
-                </synonym>
-                <synonym>
-                  <id>8ec77b852af2725f18508079e064dcba</id>
-                  <name>Primula hirsuta</name>
-                  <rank>Species</rank>
-                  <name_status>synonym</name_status>
-                  <genus>Primula</genus>
-                  <subgenus></subgenus>
-                  <species>hirsuta</species>
-                  <infraspecies_marker></infraspecies_marker>
-                  <infraspecies></infraspecies>
-                  <author>Rchb. ex Nym.</author>
-                  <record_scrutiny_date></record_scrutiny_date>
-                  <online_resource></online_resource>
-                  <is_extinct>0</is_extinct>
-                  <name_html><i>Primula hirsuta</i> Rchb. ex Nym.</name_html>
-                  <url>http://www.catalogueoflife.org/col/details/species/id/e8b702a18bb3c55b6974a68270779b51/synonym/8ec77b852af2725f18508079e064dcba</url>
-                  <references>
-                    <reference>
-                      <author>Nym.</author>
-                      <year>1881</year>
-                      <title></title>
-                      <source>In: Consp. 604</source>
-                    </reference>
-                  </references>
-                </synonym>
-                <synonym>
-                  <id>d3b8c0640e2d021b30ae5e3cf6d50eda</id>
-                  <name>Primula oenensis</name>
-                  <rank>Species</rank>
-                  <name_status>synonym</name_status>
-                  <genus>Primula</genus>
-                  <subgenus></subgenus>
-                  <species>oenensis</species>
-                  <infraspecies_marker></infraspecies_marker>
-                  <infraspecies></infraspecies>
-                  <author>Gremli</author>
-                  <record_scrutiny_date></record_scrutiny_date>
-                  <online_resource></online_resource>
-                  <is_extinct>0</is_extinct>
-                  <name_html><i>Primula oenensis</i> Gremli</name_html>
-                  <url>http://www.catalogueoflife.org/col/details/species/id/e8b702a18bb3c55b6974a68270779b51/synonym/d3b8c0640e2d021b30ae5e3cf6d50eda</url>
-                  <references>
-                    <reference>
-                      <author>Gremli</author>
-                      <year>1867</year>
-                      <title></title>
-                      <source>In: Excursionsfl. Schweiz: 284</source>
-                    </reference>
-                  </references>
-                </synonym>
-                <synonym>
-                  <id>485ae7ff493e48c21d814fc0258136b1</id>
-                  <name>Primula plantae</name>
-                  <rank>Species</rank>
-                  <name_status>synonym</name_status>
-                  <genus>Primula</genus>
-                  <subgenus></subgenus>
-                  <species>plantae</species>
-                  <infraspecies_marker></infraspecies_marker>
-                  <infraspecies></infraspecies>
-                  <author>Brügger</author>
-                  <record_scrutiny_date></record_scrutiny_date>
-                  <online_resource></online_resource>
-                  <is_extinct>0</is_extinct>
-                  <name_html><i>Primula plantae</i> Brügger</name_html>
-                  <url>http://www.catalogueoflife.org/col/details/species/id/e8b702a18bb3c55b6974a68270779b51/synonym/485ae7ff493e48c21d814fc0258136b1</url>
-                  <references>
-                    <reference>
-                      <author>Brügger</author>
-                      <year>1880</year>
-                      <title></title>
-                      <source>In: Jahresb. Naturf. Ges. Graub. II. 23-24: 100</source>
-                    </reference>
-                  </references>
-                </synonym>
-                <synonym>
-                  <id>778c78da7d68d2d3128ad89b19dab356</id>
-                  <name>Primula stelviana</name>
-                  <rank>Species</rank>
-                  <name_status>synonym</name_status>
-                  <genus>Primula</genus>
-                  <subgenus></subgenus>
-                  <species>stelviana</species>
-                  <infraspecies_marker></infraspecies_marker>
-                  <infraspecies></infraspecies>
-                  <author>Vulp.</author>
-                  <record_scrutiny_date></record_scrutiny_date>
-                  <online_resource></online_resource>
-                  <is_extinct>0</is_extinct>
-                  <name_html><i>Primula stelviana</i> Vulp.</name_html>
-                  <url>http://www.catalogueoflife.org/col/details/species/id/e8b702a18bb3c55b6974a68270779b51/synonym/778c78da7d68d2d3128ad89b19dab356</url>
-                  <references>
-                    <reference>
-                      <author>Vulp.</author>
-                      <year>1858</year>
-                      <title></title>
-                      <source>In: Flora, 41: 549</source>
-                    </reference>
-                  </references>
-                </synonym>
-                <synonym>
-                  <id>9dffc33613b3eda8b024fad10a64a069</id>
-                  <name>Primula villosa daonensis</name>
-                  <rank>Infraspecies</rank>
-                  <name_status>synonym</name_status>
-                  <genus>Primula</genus>
-                  <subgenus></subgenus>
-                  <species>villosa</species>
-                  <infraspecies_marker>var.</infraspecies_marker>
-                  <infraspecies>daonensis</infraspecies>
-                  <author>Leybold</author>
-                  <record_scrutiny_date></record_scrutiny_date>
-                  <online_resource></online_resource>
-                  <is_extinct>0</is_extinct>
-                  <name_html><i>Primula villosa daonensis</i> Leybold</name_html>
-                  <url>http://www.catalogueoflife.org/col/details/species/id/e8b702a18bb3c55b6974a68270779b51/synonym/9dffc33613b3eda8b024fad10a64a069</url>
-                  <references>
-                    <reference>
-                      <author>Leybold</author>
-                      <year>1854</year>
-                      <title></title>
-                      <source>In: Österr. Bot. Wochenbl. 4: 10</source>
-                    </reference>
-                  </references>
-                </synonym>
-              </synonyms>
-              <common_names>
-                <common_name>
-                  <name>Innprimel</name>
-                  <language></language>
-                  <country></country>
-                  <references/>
-                </common_name>
-              </common_names>
-            </accepted_name>
-          </result>
-        </results>
-  recorded_at: 2019-01-24 01:18:31 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc3VsdHMgaWQ9IiIgbmFtZT0iUGxhbnRhZSIgdG90YWxfbnVtYmVyX29mX3Jlc3VsdHM9IjIiIG51bWJlcl9vZl9yZXN1bHRzX3JldHVybmVkPSIyIiBzdGFydD0iMCIgZXJyb3JfbWVzc2FnZT0iIiB2ZXJzaW9uPSIxLjkgcmV2IDIxMjZhYjAiIHJhbms9IiI+CiAgPHJlc3VsdD4KICAgIDxpZD4yMDhjZjQ0MWZlMmUxNjYyMzc2YTljZTllODA3ODJlMTwvaWQ+CiAgICA8bmFtZT5QbGFudGFlPC9uYW1lPgogICAgPHJhbms+S2luZ2RvbTwvcmFuaz4KICAgIDxuYW1lX3N0YXR1cz5hY2NlcHRlZCBuYW1lPC9uYW1lX3N0YXR1cz4KICAgIDxuYW1lX2h0bWw+UGxhbnRhZTwvbmFtZV9odG1sPgogICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2Jyb3dzZS90cmVlL2lkLzIwOGNmNDQxZmUyZTE2NjIzNzZhOWNlOWU4MDc4MmUxPC91cmw+CiAgICA8aXNfZXh0aW5jdD5mYWxzZTwvaXNfZXh0aW5jdD4KICAgIDxjbGFzc2lmaWNhdGlvbi8+CiAgICA8Y2hpbGRfdGF4YT4KICAgICAgPHRheG9uPgogICAgICAgIDxpZD4zYWUyM2E2ZmZlNDlkMWY3ZmUyOTY4YWZiNmMyZWE4MTwvaWQ+CiAgICAgICAgPG5hbWU+QW50aG9jZXJvdG9waHl0YTwvbmFtZT4KICAgICAgICA8cmFuaz5QaHlsdW08L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD5BbnRob2Nlcm90b3BoeXRhPC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2Jyb3dzZS90cmVlL2lkLzNhZTIzYTZmZmU0OWQxZjdmZTI5NjhhZmI2YzJlYTgxPC91cmw+CiAgICAgICAgPGlzX2V4dGluY3Q+ZmFsc2U8L2lzX2V4dGluY3Q+CiAgICAgIDwvdGF4b24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+OWI3Nzk5YzkwZjhmYjM1OGJhYzhmNGMxMzcwMTZkYjE8L2lkPgogICAgICAgIDxuYW1lPkJyeW9waHl0YTwvbmFtZT4KICAgICAgICA8cmFuaz5QaHlsdW08L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD5CcnlvcGh5dGE8L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvYnJvd3NlL3RyZWUvaWQvOWI3Nzk5YzkwZjhmYjM1OGJhYzhmNGMxMzcwMTZkYjE8L3VybD4KICAgICAgICA8aXNfZXh0aW5jdD5mYWxzZTwvaXNfZXh0aW5jdD4KICAgICAgPC90YXhvbj4KICAgICAgPHRheG9uPgogICAgICAgIDxpZD40YWUyYjkzZjBhMzAwY2VjYTlkNmY3NjRiMjU0Mzg0YzwvaWQ+CiAgICAgICAgPG5hbWU+Q2hhcm9waHl0YTwvbmFtZT4KICAgICAgICA8cmFuaz5QaHlsdW08L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD5DaGFyb3BoeXRhPC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2Jyb3dzZS90cmVlL2lkLzRhZTJiOTNmMGEzMDBjZWNhOWQ2Zjc2NGIyNTQzODRjPC91cmw+CiAgICAgICAgPGlzX2V4dGluY3Q+ZmFsc2U8L2lzX2V4dGluY3Q+CiAgICAgIDwvdGF4b24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+MzY4MTVmNjcwN2U2YmY3MWNlYTUzMTQwYWIwMDRmMDY8L2lkPgogICAgICAgIDxuYW1lPkNobG9yb3BoeXRhPC9uYW1lPgogICAgICAgIDxyYW5rPlBoeWx1bTwvcmFuaz4KICAgICAgICA8bmFtZV9odG1sPkNobG9yb3BoeXRhPC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2Jyb3dzZS90cmVlL2lkLzM2ODE1ZjY3MDdlNmJmNzFjZWE1MzE0MGFiMDA0ZjA2PC91cmw+CiAgICAgICAgPGlzX2V4dGluY3Q+ZmFsc2U8L2lzX2V4dGluY3Q+CiAgICAgIDwvdGF4b24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+NjZiMDI4YTY3ZWU0YTI4N2IxODZkNWVkZWZkYjY2YjE8L2lkPgogICAgICAgIDxuYW1lPkdsYXVjb3BoeXRhPC9uYW1lPgogICAgICAgIDxyYW5rPlBoeWx1bTwvcmFuaz4KICAgICAgICA8bmFtZV9odG1sPkdsYXVjb3BoeXRhPC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2Jyb3dzZS90cmVlL2lkLzY2YjAyOGE2N2VlNGEyODdiMTg2ZDVlZGVmZGI2NmIxPC91cmw+CiAgICAgICAgPGlzX2V4dGluY3Q+ZmFsc2U8L2lzX2V4dGluY3Q+CiAgICAgIDwvdGF4b24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+ZDQzODlhMzc2NjNjZGM5YmZjODJjMmU1ZDEwZmE2NTM8L2lkPgogICAgICAgIDxuYW1lPk1hcmNoYW50aW9waHl0YTwvbmFtZT4KICAgICAgICA8cmFuaz5QaHlsdW08L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD5NYXJjaGFudGlvcGh5dGE8L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvYnJvd3NlL3RyZWUvaWQvZDQzODlhMzc2NjNjZGM5YmZjODJjMmU1ZDEwZmE2NTM8L3VybD4KICAgICAgICA8aXNfZXh0aW5jdD5mYWxzZTwvaXNfZXh0aW5jdD4KICAgICAgPC90YXhvbj4KICAgICAgPHRheG9uPgogICAgICAgIDxpZD5lNzVjNzEzYmNiN2M0NzNkZmFmZTUyYjI1YjE1YThkNjwvaWQ+CiAgICAgICAgPG5hbWU+UmhvZG9waHl0YTwvbmFtZT4KICAgICAgICA8cmFuaz5QaHlsdW08L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD5SaG9kb3BoeXRhPC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2Jyb3dzZS90cmVlL2lkL2U3NWM3MTNiY2I3YzQ3M2RmYWZlNTJiMjViMTVhOGQ2PC91cmw+CiAgICAgICAgPGlzX2V4dGluY3Q+ZmFsc2U8L2lzX2V4dGluY3Q+CiAgICAgIDwvdGF4b24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+NzMzMjhiYTRlMTQ0NmUxZWUzNjAyOTU2YjY2ZWIxMjc8L2lkPgogICAgICAgIDxuYW1lPlRyYWNoZW9waHl0YTwvbmFtZT4KICAgICAgICA8cmFuaz5QaHlsdW08L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD5UcmFjaGVvcGh5dGE8L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvYnJvd3NlL3RyZWUvaWQvNzMzMjhiYTRlMTQ0NmUxZWUzNjAyOTU2YjY2ZWIxMjc8L3VybD4KICAgICAgICA8aXNfZXh0aW5jdD5mYWxzZTwvaXNfZXh0aW5jdD4KICAgICAgPC90YXhvbj4KICAgIDwvY2hpbGRfdGF4YT4KICA8L3Jlc3VsdD4KICA8cmVzdWx0PgogICAgPGlkPmQ2MGU5YWI3ODVjMzdiMTlhNmZlMjkyMTY3MmU0MjdiPC9pZD4KICAgIDxuYW1lPlByaW11bGEgcGxhbnRhZTwvbmFtZT4KICAgIDxyYW5rPlNwZWNpZXM8L3Jhbms+CiAgICA8bmFtZV9zdGF0dXM+c3lub255bTwvbmFtZV9zdGF0dXM+CiAgICA8Z2VudXM+UHJpbXVsYTwvZ2VudXM+CiAgICA8c3ViZ2VudXM+PC9zdWJnZW51cz4KICAgIDxzcGVjaWVzPnBsYW50YWU8L3NwZWNpZXM+CiAgICA8aW5mcmFzcGVjaWVzX21hcmtlcj48L2luZnJhc3BlY2llc19tYXJrZXI+CiAgICA8aW5mcmFzcGVjaWVzPjwvaW5mcmFzcGVjaWVzPgogICAgPGF1dGhvcj5CcsO8Z2dlcjwvYXV0aG9yPgogICAgPHJlY29yZF9zY3J1dGlueV9kYXRlPjwvcmVjb3JkX3NjcnV0aW55X2RhdGU+CiAgICA8b25saW5lX3Jlc291cmNlPjwvb25saW5lX3Jlc291cmNlPgogICAgPHNvdXJjZV9kYXRhYmFzZT5Xb3JsZCBQbGFudHM6IFN5bm9ueW1pYyBDaGVja2xpc3RzIG9mIHRoZSBWYXNjdWxhciBQbGFudHMgb2YgdGhlIFdvcmxkPC9zb3VyY2VfZGF0YWJhc2U+CiAgICA8c291cmNlX2RhdGFiYXNlX3VybD5odHRwOi8vd29ybGRwbGFudHMud2ViYXJjaGl2LmtpdC5lZHUvPC9zb3VyY2VfZGF0YWJhc2VfdXJsPgogICAgPGJpYmxpb2dyYXBoaWNfY2l0YXRpb24+PCFbQ0RBVEFbSGFzc2xlciBNLiAoMjAxOSkuIFdvcmxkIFBsYW50czogU3lub255bWljIENoZWNrbGlzdHMgb2YgdGhlIFZhc2N1bGFyIFBsYW50cyBvZiB0aGUgV29ybGQgKHZlcnNpb24gTm92IDIwMTgpLiBJbjogU3BlY2llcyAyMDAwICYgSVRJUyBDYXRhbG9ndWUgb2YgTGlmZSwgMjAxOSBBbm51YWwgQ2hlY2tsaXN0IChSb3Nrb3YgWS4sIE93ZXIgRy4sIE9ycmVsbCBULiwgTmljb2xzb24gRC4sIEJhaWxseSBOLiwgS2lyayBQLk0uLCBCb3VyZ29pbiBULiwgRGVXYWx0IFIuRS4sIERlY29jayBXLiwgTmlldWtlcmtlbiBFLiB2YW4sIFphcnVjY2hpIEouLCBQZW5ldiBMLiwgZWRzLikuIERpZ2l0YWwgcmVzb3VyY2UgYXQgd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvYW5udWFsLWNoZWNrbGlzdC8yMDE5LiBTcGVjaWVzIDIwMDA6IE5hdHVyYWxpcywgTGVpZGVuLCB0aGUgTmV0aGVybGFuZHMuIElTU04gMjQwNS04ODRYLl1dPjwvYmlibGlvZ3JhcGhpY19jaXRhdGlvbj4KICAgIDxuYW1lX2h0bWw+PGk+UHJpbXVsYSBwbGFudGFlPC9pPiBCcsO8Z2dlcjwvbmFtZV9odG1sPgogICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2RldGFpbHMvc3BlY2llcy9pZC9lOGI3MDJhMThiYjNjNTViNjk3NGE2ODI3MDc3OWI1MS9zeW5vbnltL2Q2MGU5YWI3ODVjMzdiMTlhNmZlMjkyMTY3MmU0MjdiPC91cmw+CiAgICA8ZGlzdHJpYnV0aW9uPjwvZGlzdHJpYnV0aW9uPgogICAgPHJlZmVyZW5jZXM+CiAgICAgIDxyZWZlcmVuY2U+CiAgICAgICAgPGF1dGhvcj5CcsO8Z2dlcjwvYXV0aG9yPgogICAgICAgIDx5ZWFyPjE4ODA8L3llYXI+CiAgICAgICAgPHRpdGxlPjwvdGl0bGU+CiAgICAgICAgPHNvdXJjZT5JbjogSmFocmVzYi4gTmF0dXJmLiBHZXMuIEdyYXViLiBJSS4gMjMtMjQ6IDEwMDwvc291cmNlPgogICAgICA8L3JlZmVyZW5jZT4KICAgIDwvcmVmZXJlbmNlcz4KICAgIDxhY2NlcHRlZF9uYW1lPgogICAgICA8aWQ+ZThiNzAyYTE4YmIzYzU1YjY5NzRhNjgyNzA3NzliNTE8L2lkPgogICAgICA8bmFtZT5QcmltdWxhIGRhb25lbnNpczwvbmFtZT4KICAgICAgPHJhbms+U3BlY2llczwvcmFuaz4KICAgICAgPG5hbWVfc3RhdHVzPmFjY2VwdGVkIG5hbWU8L25hbWVfc3RhdHVzPgogICAgICA8Z2VudXM+UHJpbXVsYTwvZ2VudXM+CiAgICAgIDxzdWJnZW51cz48L3N1YmdlbnVzPgogICAgICA8c3BlY2llcz5kYW9uZW5zaXM8L3NwZWNpZXM+CiAgICAgIDxpbmZyYXNwZWNpZXNfbWFya2VyPjwvaW5mcmFzcGVjaWVzX21hcmtlcj4KICAgICAgPGluZnJhc3BlY2llcz48L2luZnJhc3BlY2llcz4KICAgICAgPGF1dGhvcj4oTGV5Ym9sZCkgTGV5Ym9sZDwvYXV0aG9yPgogICAgICA8cmVjb3JkX3NjcnV0aW55X2RhdGU+CiAgICAgICAgPHNjcnV0aW55Pk5vdiAyMDE4PC9zY3J1dGlueT4KICAgICAgPC9yZWNvcmRfc2NydXRpbnlfZGF0ZT4KICAgICAgPG9ubGluZV9yZXNvdXJjZT48L29ubGluZV9yZXNvdXJjZT4KICAgICAgPGlzX2V4dGluY3Q+ZmFsc2U8L2lzX2V4dGluY3Q+CiAgICAgIDxzb3VyY2VfZGF0YWJhc2U+V29ybGQgUGxhbnRzOiBTeW5vbnltaWMgQ2hlY2tsaXN0cyBvZiB0aGUgVmFzY3VsYXIgUGxhbnRzIG9mIHRoZSBXb3JsZDwvc291cmNlX2RhdGFiYXNlPgogICAgICA8c291cmNlX2RhdGFiYXNlX3VybD5odHRwOi8vd29ybGRwbGFudHMud2ViYXJjaGl2LmtpdC5lZHUvPC9zb3VyY2VfZGF0YWJhc2VfdXJsPgogICAgICA8YmlibGlvZ3JhcGhpY19jaXRhdGlvbj48IVtDREFUQVtIYXNzbGVyIE0uICgyMDE5KS4gV29ybGQgUGxhbnRzOiBTeW5vbnltaWMgQ2hlY2tsaXN0cyBvZiB0aGUgVmFzY3VsYXIgUGxhbnRzIG9mIHRoZSBXb3JsZCAodmVyc2lvbiBOb3YgMjAxOCkuIEluOiBTcGVjaWVzIDIwMDAgJiBJVElTIENhdGFsb2d1ZSBvZiBMaWZlLCAyMDE5IEFubnVhbCBDaGVja2xpc3QgKFJvc2tvdiBZLiwgT3dlciBHLiwgT3JyZWxsIFQuLCBOaWNvbHNvbiBELiwgQmFpbGx5IE4uLCBLaXJrIFAuTS4sIEJvdXJnb2luIFQuLCBEZVdhbHQgUi5FLiwgRGVjb2NrIFcuLCBOaWV1a2Vya2VuIEUuIHZhbiwgWmFydWNjaGkgSi4sIFBlbmV2IEwuLCBlZHMuKS4gRGlnaXRhbCByZXNvdXJjZSBhdCB3d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9hbm51YWwtY2hlY2tsaXN0LzIwMTkuIFNwZWNpZXMgMjAwMDogTmF0dXJhbGlzLCBMZWlkZW4sIHRoZSBOZXRoZXJsYW5kcy4gSVNTTiAyNDA1LTg4NFguXV0+PC9iaWJsaW9ncmFwaGljX2NpdGF0aW9uPgogICAgICA8bmFtZV9odG1sPjxpPlByaW11bGEgZGFvbmVuc2lzPC9pPiAoTGV5Ym9sZCkgTGV5Ym9sZDwvbmFtZV9odG1sPgogICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvZGV0YWlscy9zcGVjaWVzL2lkL2U4YjcwMmExOGJiM2M1NWI2OTc0YTY4MjcwNzc5YjUxPC91cmw+CiAgICAgIDxkaXN0cmlidXRpb24+QXVzdHJpYSwgRS1Td2l0emVybGFuZCwgTi1JdGFseSAoRS1BbHBzKSAxMzM4ODUgMDwvZGlzdHJpYnV0aW9uPgogICAgICA8cmVmZXJlbmNlcz4KICAgICAgICA8cmVmZXJlbmNlPgogICAgICAgICAgPGF1dGhvcj5MZXlib2xkPC9hdXRob3I+CiAgICAgICAgICA8eWVhcj4xODU1PC95ZWFyPgogICAgICAgICAgPHRpdGxlPjwvdGl0bGU+CiAgICAgICAgICA8c291cmNlPkluOiBGbG9yYSAoUmVnZW5zYnVyZykgMzg6IDM0NTwvc291cmNlPgogICAgICAgIDwvcmVmZXJlbmNlPgogICAgICA8L3JlZmVyZW5jZXM+CiAgICAgIDxjbGFzc2lmaWNhdGlvbj4KICAgICAgICA8dGF4b24+CiAgICAgICAgICA8aWQ+MjA4Y2Y0NDFmZTJlMTY2MjM3NmE5Y2U5ZTgwNzgyZTE8L2lkPgogICAgICAgICAgPG5hbWU+UGxhbnRhZTwvbmFtZT4KICAgICAgICAgIDxyYW5rPktpbmdkb208L3Jhbms+CiAgICAgICAgICA8bmFtZV9odG1sPlBsYW50YWU8L25hbWVfaHRtbD4KICAgICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9icm93c2UvdHJlZS9pZC8yMDhjZjQ0MWZlMmUxNjYyMzc2YTljZTllODA3ODJlMTwvdXJsPgogICAgICAgIDwvdGF4b24+CiAgICAgICAgPHRheG9uPgogICAgICAgICAgPGlkPjczMzI4YmE0ZTE0NDZlMWVlMzYwMjk1NmI2NmViMTI3PC9pZD4KICAgICAgICAgIDxuYW1lPlRyYWNoZW9waHl0YTwvbmFtZT4KICAgICAgICAgIDxyYW5rPlBoeWx1bTwvcmFuaz4KICAgICAgICAgIDxuYW1lX2h0bWw+VHJhY2hlb3BoeXRhPC9uYW1lX2h0bWw+CiAgICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvYnJvd3NlL3RyZWUvaWQvNzMzMjhiYTRlMTQ0NmUxZWUzNjAyOTU2YjY2ZWIxMjc8L3VybD4KICAgICAgICA8L3RheG9uPgogICAgICAgIDx0YXhvbj4KICAgICAgICAgIDxpZD41MzQ5N2JiNjY0Yjg5YzI4ZTYwZjAyMGY3ZjIxZjg4MjwvaWQ+CiAgICAgICAgICA8bmFtZT5NYWdub2xpb3BzaWRhPC9uYW1lPgogICAgICAgICAgPHJhbms+Q2xhc3M8L3Jhbms+CiAgICAgICAgICA8bmFtZV9odG1sPk1hZ25vbGlvcHNpZGE8L25hbWVfaHRtbD4KICAgICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9icm93c2UvdHJlZS9pZC81MzQ5N2JiNjY0Yjg5YzI4ZTYwZjAyMGY3ZjIxZjg4MjwvdXJsPgogICAgICAgIDwvdGF4b24+CiAgICAgICAgPHRheG9uPgogICAgICAgICAgPGlkPjFjZjFmZDkwZDkzMjY4NDllZjc4NDI2ZTY4MzU4Njc0PC9pZD4KICAgICAgICAgIDxuYW1lPkVyaWNhbGVzPC9uYW1lPgogICAgICAgICAgPHJhbms+T3JkZXI8L3Jhbms+CiAgICAgICAgICA8bmFtZV9odG1sPkVyaWNhbGVzPC9uYW1lX2h0bWw+CiAgICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvYnJvd3NlL3RyZWUvaWQvMWNmMWZkOTBkOTMyNjg0OWVmNzg0MjZlNjgzNTg2NzQ8L3VybD4KICAgICAgICA8L3RheG9uPgogICAgICAgIDx0YXhvbj4KICAgICAgICAgIDxpZD4yZjJhNWUwYjIwMjE4YTI4Yjg3NjE0M2IwMjMzYjhlYjwvaWQ+CiAgICAgICAgICA8bmFtZT5QcmltdWxhY2VhZTwvbmFtZT4KICAgICAgICAgIDxyYW5rPkZhbWlseTwvcmFuaz4KICAgICAgICAgIDxuYW1lX2h0bWw+UHJpbXVsYWNlYWU8L25hbWVfaHRtbD4KICAgICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9icm93c2UvdHJlZS9pZC8yZjJhNWUwYjIwMjE4YTI4Yjg3NjE0M2IwMjMzYjhlYjwvdXJsPgogICAgICAgIDwvdGF4b24+CiAgICAgICAgPHRheG9uPgogICAgICAgICAgPGlkPmRhODIyNmExZGMzMDY0ZTFiNWQ2YzY2NWI2OWQ5MDE5PC9pZD4KICAgICAgICAgIDxuYW1lPlByaW11bGE8L25hbWU+CiAgICAgICAgICA8cmFuaz5HZW51czwvcmFuaz4KICAgICAgICAgIDxuYW1lX2h0bWw+PGk+UHJpbXVsYTwvaT48L25hbWVfaHRtbD4KICAgICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9icm93c2UvdHJlZS9pZC9kYTgyMjZhMWRjMzA2NGUxYjVkNmM2NjViNjlkOTAxOTwvdXJsPgogICAgICAgIDwvdGF4b24+CiAgICAgIDwvY2xhc3NpZmljYXRpb24+CiAgICAgIDxjaGlsZF90YXhhLz4KICAgICAgPHN5bm9ueW1zPgogICAgICAgIDxzeW5vbnltPgogICAgICAgICAgPGlkPjExN2I2ZWI3ZWNhMmQ4YmNhODcyMDMzOGUwNTVlOGY1PC9pZD4KICAgICAgICAgIDxuYW1lPkF1cmljdWxhLXVyc2kgZGFvbmVuc2lzPC9uYW1lPgogICAgICAgICAgPHJhbms+U3BlY2llczwvcmFuaz4KICAgICAgICAgIDxuYW1lX3N0YXR1cz5zeW5vbnltPC9uYW1lX3N0YXR1cz4KICAgICAgICAgIDxnZW51cz5BdXJpY3VsYS11cnNpPC9nZW51cz4KICAgICAgICAgIDxzdWJnZW51cz48L3N1YmdlbnVzPgogICAgICAgICAgPHNwZWNpZXM+ZGFvbmVuc2lzPC9zcGVjaWVzPgogICAgICAgICAgPGluZnJhc3BlY2llc19tYXJrZXI+PC9pbmZyYXNwZWNpZXNfbWFya2VyPgogICAgICAgICAgPGluZnJhc3BlY2llcz48L2luZnJhc3BlY2llcz4KICAgICAgICAgIDxhdXRob3I+KExleWIuKSBKLiBTb2phazwvYXV0aG9yPgogICAgICAgICAgPHJlY29yZF9zY3J1dGlueV9kYXRlPjwvcmVjb3JkX3NjcnV0aW55X2RhdGU+CiAgICAgICAgICA8b25saW5lX3Jlc291cmNlPjwvb25saW5lX3Jlc291cmNlPgogICAgICAgICAgPGlzX2V4dGluY3Q+MDwvaXNfZXh0aW5jdD4KICAgICAgICAgIDxuYW1lX2h0bWw+PGk+QXVyaWN1bGEtdXJzaSBkYW9uZW5zaXM8L2k+IChMZXliLikgSi4gU29qYWs8L25hbWVfaHRtbD4KICAgICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9kZXRhaWxzL3NwZWNpZXMvaWQvZThiNzAyYTE4YmIzYzU1YjY5NzRhNjgyNzA3NzliNTEvc3lub255bS8xMTdiNmViN2VjYTJkOGJjYTg3MjAzMzhlMDU1ZThmNTwvdXJsPgogICAgICAgICAgPHJlZmVyZW5jZXM+CiAgICAgICAgICAgIDxyZWZlcmVuY2U+CiAgICAgICAgICAgICAgPGF1dGhvcj5KLiBTb2phazwvYXV0aG9yPgogICAgICAgICAgICAgIDx5ZWFyPjE5ODA8L3llYXI+CiAgICAgICAgICAgICAgPHRpdGxlPjwvdGl0bGU+CiAgICAgICAgICAgICAgPHNvdXJjZT5JbjogQ2FzLiBOYXIuIE11ei4gKFByYWd1ZSksIDE0OCgzLTQpOiAyMDkgMTk3OTwvc291cmNlPgogICAgICAgICAgICA8L3JlZmVyZW5jZT4KICAgICAgICAgIDwvcmVmZXJlbmNlcz4KICAgICAgICA8L3N5bm9ueW0+CiAgICAgICAgPHN5bm9ueW0+CiAgICAgICAgICA8aWQ+OTA5Y2FlNWM3NDU1OWFmMDZjMTkyMjIxMTlmODBjNzA8L2lkPgogICAgICAgICAgPG5hbWU+UHJpbXVsYSBjYWRpbmVuc2lzPC9uYW1lPgogICAgICAgICAgPHJhbms+U3BlY2llczwvcmFuaz4KICAgICAgICAgIDxuYW1lX3N0YXR1cz5zeW5vbnltPC9uYW1lX3N0YXR1cz4KICAgICAgICAgIDxnZW51cz5QcmltdWxhPC9nZW51cz4KICAgICAgICAgIDxzdWJnZW51cz48L3N1YmdlbnVzPgogICAgICAgICAgPHNwZWNpZXM+Y2FkaW5lbnNpczwvc3BlY2llcz4KICAgICAgICAgIDxpbmZyYXNwZWNpZXNfbWFya2VyPjwvaW5mcmFzcGVjaWVzX21hcmtlcj4KICAgICAgICAgIDxpbmZyYXNwZWNpZXM+PC9pbmZyYXNwZWNpZXM+CiAgICAgICAgICA8YXV0aG9yPlBvcnRhPC9hdXRob3I+CiAgICAgICAgICA8cmVjb3JkX3NjcnV0aW55X2RhdGU+PC9yZWNvcmRfc2NydXRpbnlfZGF0ZT4KICAgICAgICAgIDxvbmxpbmVfcmVzb3VyY2U+PC9vbmxpbmVfcmVzb3VyY2U+CiAgICAgICAgICA8aXNfZXh0aW5jdD4wPC9pc19leHRpbmN0PgogICAgICAgICAgPG5hbWVfaHRtbD48aT5QcmltdWxhIGNhZGluZW5zaXM8L2k+IFBvcnRhPC9uYW1lX2h0bWw+CiAgICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvZGV0YWlscy9zcGVjaWVzL2lkL2U4YjcwMmExOGJiM2M1NWI2OTc0YTY4MjcwNzc5YjUxL3N5bm9ueW0vOTA5Y2FlNWM3NDU1OWFmMDZjMTkyMjIxMTlmODBjNzA8L3VybD4KICAgICAgICAgIDxyZWZlcmVuY2VzPgogICAgICAgICAgICA8cmVmZXJlbmNlPgogICAgICAgICAgICAgIDxhdXRob3I+UG9ydGE8L2F1dGhvcj4KICAgICAgICAgICAgICA8eWVhcj4xODkwPC95ZWFyPgogICAgICAgICAgICAgIDx0aXRsZT48L3RpdGxlPgogICAgICAgICAgICAgIDxzb3VyY2U+SW46IEtvbGIuIEV1cm9wLiBBbHBlbnBmbGFuei4gMjM0PC9zb3VyY2U+CiAgICAgICAgICAgIDwvcmVmZXJlbmNlPgogICAgICAgICAgPC9yZWZlcmVuY2VzPgogICAgICAgIDwvc3lub255bT4KICAgICAgICA8c3lub255bT4KICAgICAgICAgIDxpZD4yZWNjMTRmZmRkZDgzZGZmOTNlNGMxN2EzMmYyMGRhNTwvaWQ+CiAgICAgICAgICA8bmFtZT5QcmltdWxhIGNvcm9uYXRhPC9uYW1lPgogICAgICAgICAgPHJhbms+U3BlY2llczwvcmFuaz4KICAgICAgICAgIDxuYW1lX3N0YXR1cz5zeW5vbnltPC9uYW1lX3N0YXR1cz4KICAgICAgICAgIDxnZW51cz5QcmltdWxhPC9nZW51cz4KICAgICAgICAgIDxzdWJnZW51cz48L3N1YmdlbnVzPgogICAgICAgICAgPHNwZWNpZXM+Y29yb25hdGE8L3NwZWNpZXM+CiAgICAgICAgICA8aW5mcmFzcGVjaWVzX21hcmtlcj48L2luZnJhc3BlY2llc19tYXJrZXI+CiAgICAgICAgICA8aW5mcmFzcGVjaWVzPjwvaW5mcmFzcGVjaWVzPgogICAgICAgICAgPGF1dGhvcj5Qb3J0YTwvYXV0aG9yPgogICAgICAgICAgPHJlY29yZF9zY3J1dGlueV9kYXRlPjwvcmVjb3JkX3NjcnV0aW55X2RhdGU+CiAgICAgICAgICA8b25saW5lX3Jlc291cmNlPjwvb25saW5lX3Jlc291cmNlPgogICAgICAgICAgPGlzX2V4dGluY3Q+MDwvaXNfZXh0aW5jdD4KICAgICAgICAgIDxuYW1lX2h0bWw+PGk+UHJpbXVsYSBjb3JvbmF0YTwvaT4gUG9ydGE8L25hbWVfaHRtbD4KICAgICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9kZXRhaWxzL3NwZWNpZXMvaWQvZThiNzAyYTE4YmIzYzU1YjY5NzRhNjgyNzA3NzliNTEvc3lub255bS8yZWNjMTRmZmRkZDgzZGZmOTNlNGMxN2EzMmYyMGRhNTwvdXJsPgogICAgICAgICAgPHJlZmVyZW5jZXM+CiAgICAgICAgICAgIDxyZWZlcmVuY2U+CiAgICAgICAgICAgICAgPGF1dGhvcj5Qb3J0YTwvYXV0aG9yPgogICAgICAgICAgICAgIDx5ZWFyPjE4OTA8L3llYXI+CiAgICAgICAgICAgICAgPHRpdGxlPjwvdGl0bGU+CiAgICAgICAgICAgICAgPHNvdXJjZT5JbjogS29sYiwgRXVyb3AuIEFscGVucGZsYW56LiAyMzc8L3NvdXJjZT4KICAgICAgICAgICAgPC9yZWZlcmVuY2U+CiAgICAgICAgICA8L3JlZmVyZW5jZXM+CiAgICAgICAgPC9zeW5vbnltPgogICAgICAgIDxzeW5vbnltPgogICAgICAgICAgPGlkPjQzNmM3N2M5MmU4YzMyZTVhYzAwMmYxZDY1MGMyODlmPC9pZD4KICAgICAgICAgIDxuYW1lPlByaW11bGEgZGFvbmVuc2lzPC9uYW1lPgogICAgICAgICAgPHJhbms+U3BlY2llczwvcmFuaz4KICAgICAgICAgIDxuYW1lX3N0YXR1cz5zeW5vbnltPC9uYW1lX3N0YXR1cz4KICAgICAgICAgIDxnZW51cz5QcmltdWxhPC9nZW51cz4KICAgICAgICAgIDxzdWJnZW51cz48L3N1YmdlbnVzPgogICAgICAgICAgPHNwZWNpZXM+ZGFvbmVuc2lzPC9zcGVjaWVzPgogICAgICAgICAgPGluZnJhc3BlY2llc19tYXJrZXI+PC9pbmZyYXNwZWNpZXNfbWFya2VyPgogICAgICAgICAgPGluZnJhc3BlY2llcz48L2luZnJhc3BlY2llcz4KICAgICAgICAgIDxhdXRob3I+TGV5Yi48L2F1dGhvcj4KICAgICAgICAgIDxyZWNvcmRfc2NydXRpbnlfZGF0ZT48L3JlY29yZF9zY3J1dGlueV9kYXRlPgogICAgICAgICAgPG9ubGluZV9yZXNvdXJjZT48L29ubGluZV9yZXNvdXJjZT4KICAgICAgICAgIDxpc19leHRpbmN0PjA8L2lzX2V4dGluY3Q+CiAgICAgICAgICA8bmFtZV9odG1sPjxpPlByaW11bGEgZGFvbmVuc2lzPC9pPiBMZXliLjwvbmFtZV9odG1sPgogICAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2RldGFpbHMvc3BlY2llcy9pZC9lOGI3MDJhMThiYjNjNTViNjk3NGE2ODI3MDc3OWI1MS9zeW5vbnltLzQzNmM3N2M5MmU4YzMyZTVhYzAwMmYxZDY1MGMyODlmPC91cmw+CiAgICAgICAgICA8cmVmZXJlbmNlcz4KICAgICAgICAgICAgPHJlZmVyZW5jZT4KICAgICAgICAgICAgICA8YXV0aG9yPkxleWIuPC9hdXRob3I+CiAgICAgICAgICAgICAgPHllYXI+MTg1NDwveWVhcj4KICAgICAgICAgICAgICA8dGl0bGU+PC90aXRsZT4KICAgICAgICAgICAgICA8c291cmNlPkluOiDDlnN0ZXJyLiBCb3QuIFdpb2NoZW5ibC4gNDogMTA8L3NvdXJjZT4KICAgICAgICAgICAgPC9yZWZlcmVuY2U+CiAgICAgICAgICA8L3JlZmVyZW5jZXM+CiAgICAgICAgPC9zeW5vbnltPgogICAgICAgIDxzeW5vbnltPgogICAgICAgICAgPGlkPjM0MDdlZWZjYjAwNzU1YTNiYTA4ZTExMDJhYTlmNDMzPC9pZD4KICAgICAgICAgIDxuYW1lPlByaW11bGEgaGlyc3V0YTwvbmFtZT4KICAgICAgICAgIDxyYW5rPlNwZWNpZXM8L3Jhbms+CiAgICAgICAgICA8bmFtZV9zdGF0dXM+YW1iaWd1b3VzIHN5bm9ueW08L25hbWVfc3RhdHVzPgogICAgICAgICAgPGdlbnVzPlByaW11bGE8L2dlbnVzPgogICAgICAgICAgPHN1YmdlbnVzPjwvc3ViZ2VudXM+CiAgICAgICAgICA8c3BlY2llcz5oaXJzdXRhPC9zcGVjaWVzPgogICAgICAgICAgPGluZnJhc3BlY2llc19tYXJrZXI+PC9pbmZyYXNwZWNpZXNfbWFya2VyPgogICAgICAgICAgPGluZnJhc3BlY2llcz48L2luZnJhc3BlY2llcz4KICAgICAgICAgIDxhdXRob3I+UmNoYi4gZXggTnltLjwvYXV0aG9yPgogICAgICAgICAgPHJlY29yZF9zY3J1dGlueV9kYXRlPjwvcmVjb3JkX3NjcnV0aW55X2RhdGU+CiAgICAgICAgICA8b25saW5lX3Jlc291cmNlPjwvb25saW5lX3Jlc291cmNlPgogICAgICAgICAgPGlzX2V4dGluY3Q+MDwvaXNfZXh0aW5jdD4KICAgICAgICAgIDxuYW1lX2h0bWw+PGk+UHJpbXVsYSBoaXJzdXRhPC9pPiBSY2hiLiBleCBOeW0uPC9uYW1lX2h0bWw+CiAgICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvZGV0YWlscy9zcGVjaWVzL2lkL2U4YjcwMmExOGJiM2M1NWI2OTc0YTY4MjcwNzc5YjUxL3N5bm9ueW0vMzQwN2VlZmNiMDA3NTVhM2JhMDhlMTEwMmFhOWY0MzM8L3VybD4KICAgICAgICAgIDxyZWZlcmVuY2VzPgogICAgICAgICAgICA8cmVmZXJlbmNlPgogICAgICAgICAgICAgIDxhdXRob3I+TnltLjwvYXV0aG9yPgogICAgICAgICAgICAgIDx5ZWFyPjE4ODE8L3llYXI+CiAgICAgICAgICAgICAgPHRpdGxlPjwvdGl0bGU+CiAgICAgICAgICAgICAgPHNvdXJjZT5JbjogQ29uc3AuIDYwNDwvc291cmNlPgogICAgICAgICAgICA8L3JlZmVyZW5jZT4KICAgICAgICAgIDwvcmVmZXJlbmNlcz4KICAgICAgICA8L3N5bm9ueW0+CiAgICAgICAgPHN5bm9ueW0+CiAgICAgICAgICA8aWQ+ZDNiOGMwNjQwZTJkMDIxYjMwYWU1ZTNjZjZkNTBlZGE8L2lkPgogICAgICAgICAgPG5hbWU+UHJpbXVsYSBvZW5lbnNpczwvbmFtZT4KICAgICAgICAgIDxyYW5rPlNwZWNpZXM8L3Jhbms+CiAgICAgICAgICA8bmFtZV9zdGF0dXM+c3lub255bTwvbmFtZV9zdGF0dXM+CiAgICAgICAgICA8Z2VudXM+UHJpbXVsYTwvZ2VudXM+CiAgICAgICAgICA8c3ViZ2VudXM+PC9zdWJnZW51cz4KICAgICAgICAgIDxzcGVjaWVzPm9lbmVuc2lzPC9zcGVjaWVzPgogICAgICAgICAgPGluZnJhc3BlY2llc19tYXJrZXI+PC9pbmZyYXNwZWNpZXNfbWFya2VyPgogICAgICAgICAgPGluZnJhc3BlY2llcz48L2luZnJhc3BlY2llcz4KICAgICAgICAgIDxhdXRob3I+R3JlbWxpPC9hdXRob3I+CiAgICAgICAgICA8cmVjb3JkX3NjcnV0aW55X2RhdGU+PC9yZWNvcmRfc2NydXRpbnlfZGF0ZT4KICAgICAgICAgIDxvbmxpbmVfcmVzb3VyY2U+PC9vbmxpbmVfcmVzb3VyY2U+CiAgICAgICAgICA8aXNfZXh0aW5jdD4wPC9pc19leHRpbmN0PgogICAgICAgICAgPG5hbWVfaHRtbD48aT5QcmltdWxhIG9lbmVuc2lzPC9pPiBHcmVtbGk8L25hbWVfaHRtbD4KICAgICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9kZXRhaWxzL3NwZWNpZXMvaWQvZThiNzAyYTE4YmIzYzU1YjY5NzRhNjgyNzA3NzliNTEvc3lub255bS9kM2I4YzA2NDBlMmQwMjFiMzBhZTVlM2NmNmQ1MGVkYTwvdXJsPgogICAgICAgICAgPHJlZmVyZW5jZXM+CiAgICAgICAgICAgIDxyZWZlcmVuY2U+CiAgICAgICAgICAgICAgPGF1dGhvcj5HcmVtbGk8L2F1dGhvcj4KICAgICAgICAgICAgICA8eWVhcj4xODY3PC95ZWFyPgogICAgICAgICAgICAgIDx0aXRsZT48L3RpdGxlPgogICAgICAgICAgICAgIDxzb3VyY2U+SW46IEV4Y3Vyc2lvbnNmbC4gU2Nod2VpejogMjg0PC9zb3VyY2U+CiAgICAgICAgICAgIDwvcmVmZXJlbmNlPgogICAgICAgICAgPC9yZWZlcmVuY2VzPgogICAgICAgIDwvc3lub255bT4KICAgICAgICA8c3lub255bT4KICAgICAgICAgIDxpZD5kNjBlOWFiNzg1YzM3YjE5YTZmZTI5MjE2NzJlNDI3YjwvaWQ+CiAgICAgICAgICA8bmFtZT5QcmltdWxhIHBsYW50YWU8L25hbWU+CiAgICAgICAgICA8cmFuaz5TcGVjaWVzPC9yYW5rPgogICAgICAgICAgPG5hbWVfc3RhdHVzPnN5bm9ueW08L25hbWVfc3RhdHVzPgogICAgICAgICAgPGdlbnVzPlByaW11bGE8L2dlbnVzPgogICAgICAgICAgPHN1YmdlbnVzPjwvc3ViZ2VudXM+CiAgICAgICAgICA8c3BlY2llcz5wbGFudGFlPC9zcGVjaWVzPgogICAgICAgICAgPGluZnJhc3BlY2llc19tYXJrZXI+PC9pbmZyYXNwZWNpZXNfbWFya2VyPgogICAgICAgICAgPGluZnJhc3BlY2llcz48L2luZnJhc3BlY2llcz4KICAgICAgICAgIDxhdXRob3I+QnLDvGdnZXI8L2F1dGhvcj4KICAgICAgICAgIDxyZWNvcmRfc2NydXRpbnlfZGF0ZT48L3JlY29yZF9zY3J1dGlueV9kYXRlPgogICAgICAgICAgPG9ubGluZV9yZXNvdXJjZT48L29ubGluZV9yZXNvdXJjZT4KICAgICAgICAgIDxpc19leHRpbmN0PjA8L2lzX2V4dGluY3Q+CiAgICAgICAgICA8bmFtZV9odG1sPjxpPlByaW11bGEgcGxhbnRhZTwvaT4gQnLDvGdnZXI8L25hbWVfaHRtbD4KICAgICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9kZXRhaWxzL3NwZWNpZXMvaWQvZThiNzAyYTE4YmIzYzU1YjY5NzRhNjgyNzA3NzliNTEvc3lub255bS9kNjBlOWFiNzg1YzM3YjE5YTZmZTI5MjE2NzJlNDI3YjwvdXJsPgogICAgICAgICAgPHJlZmVyZW5jZXM+CiAgICAgICAgICAgIDxyZWZlcmVuY2U+CiAgICAgICAgICAgICAgPGF1dGhvcj5CcsO8Z2dlcjwvYXV0aG9yPgogICAgICAgICAgICAgIDx5ZWFyPjE4ODA8L3llYXI+CiAgICAgICAgICAgICAgPHRpdGxlPjwvdGl0bGU+CiAgICAgICAgICAgICAgPHNvdXJjZT5JbjogSmFocmVzYi4gTmF0dXJmLiBHZXMuIEdyYXViLiBJSS4gMjMtMjQ6IDEwMDwvc291cmNlPgogICAgICAgICAgICA8L3JlZmVyZW5jZT4KICAgICAgICAgIDwvcmVmZXJlbmNlcz4KICAgICAgICA8L3N5bm9ueW0+CiAgICAgICAgPHN5bm9ueW0+CiAgICAgICAgICA8aWQ+Nzc4Yzc4ZGE3ZDY4ZDJkMzEyOGFkODliMTlkYWIzNTY8L2lkPgogICAgICAgICAgPG5hbWU+UHJpbXVsYSBzdGVsdmlhbmE8L25hbWU+CiAgICAgICAgICA8cmFuaz5TcGVjaWVzPC9yYW5rPgogICAgICAgICAgPG5hbWVfc3RhdHVzPnN5bm9ueW08L25hbWVfc3RhdHVzPgogICAgICAgICAgPGdlbnVzPlByaW11bGE8L2dlbnVzPgogICAgICAgICAgPHN1YmdlbnVzPjwvc3ViZ2VudXM+CiAgICAgICAgICA8c3BlY2llcz5zdGVsdmlhbmE8L3NwZWNpZXM+CiAgICAgICAgICA8aW5mcmFzcGVjaWVzX21hcmtlcj48L2luZnJhc3BlY2llc19tYXJrZXI+CiAgICAgICAgICA8aW5mcmFzcGVjaWVzPjwvaW5mcmFzcGVjaWVzPgogICAgICAgICAgPGF1dGhvcj5WdWxwLjwvYXV0aG9yPgogICAgICAgICAgPHJlY29yZF9zY3J1dGlueV9kYXRlPjwvcmVjb3JkX3NjcnV0aW55X2RhdGU+CiAgICAgICAgICA8b25saW5lX3Jlc291cmNlPjwvb25saW5lX3Jlc291cmNlPgogICAgICAgICAgPGlzX2V4dGluY3Q+MDwvaXNfZXh0aW5jdD4KICAgICAgICAgIDxuYW1lX2h0bWw+PGk+UHJpbXVsYSBzdGVsdmlhbmE8L2k+IFZ1bHAuPC9uYW1lX2h0bWw+CiAgICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvZGV0YWlscy9zcGVjaWVzL2lkL2U4YjcwMmExOGJiM2M1NWI2OTc0YTY4MjcwNzc5YjUxL3N5bm9ueW0vNzc4Yzc4ZGE3ZDY4ZDJkMzEyOGFkODliMTlkYWIzNTY8L3VybD4KICAgICAgICAgIDxyZWZlcmVuY2VzPgogICAgICAgICAgICA8cmVmZXJlbmNlPgogICAgICAgICAgICAgIDxhdXRob3I+VnVscC48L2F1dGhvcj4KICAgICAgICAgICAgICA8eWVhcj4xODU4PC95ZWFyPgogICAgICAgICAgICAgIDx0aXRsZT48L3RpdGxlPgogICAgICAgICAgICAgIDxzb3VyY2U+SW46IEZsb3JhLCA0MTogNTQ5PC9zb3VyY2U+CiAgICAgICAgICAgIDwvcmVmZXJlbmNlPgogICAgICAgICAgPC9yZWZlcmVuY2VzPgogICAgICAgIDwvc3lub255bT4KICAgICAgICA8c3lub255bT4KICAgICAgICAgIDxpZD45ZGZmYzMzNjEzYjNlZGE4YjAyNGZhZDEwYTY0YTA2OTwvaWQ+CiAgICAgICAgICA8bmFtZT5QcmltdWxhIHZpbGxvc2EgZGFvbmVuc2lzPC9uYW1lPgogICAgICAgICAgPHJhbms+SW5mcmFzcGVjaWVzPC9yYW5rPgogICAgICAgICAgPG5hbWVfc3RhdHVzPnN5bm9ueW08L25hbWVfc3RhdHVzPgogICAgICAgICAgPGdlbnVzPlByaW11bGE8L2dlbnVzPgogICAgICAgICAgPHN1YmdlbnVzPjwvc3ViZ2VudXM+CiAgICAgICAgICA8c3BlY2llcz52aWxsb3NhPC9zcGVjaWVzPgogICAgICAgICAgPGluZnJhc3BlY2llc19tYXJrZXI+dmFyLjwvaW5mcmFzcGVjaWVzX21hcmtlcj4KICAgICAgICAgIDxpbmZyYXNwZWNpZXM+ZGFvbmVuc2lzPC9pbmZyYXNwZWNpZXM+CiAgICAgICAgICA8YXV0aG9yPkxleWJvbGQ8L2F1dGhvcj4KICAgICAgICAgIDxyZWNvcmRfc2NydXRpbnlfZGF0ZT48L3JlY29yZF9zY3J1dGlueV9kYXRlPgogICAgICAgICAgPG9ubGluZV9yZXNvdXJjZT48L29ubGluZV9yZXNvdXJjZT4KICAgICAgICAgIDxpc19leHRpbmN0PjA8L2lzX2V4dGluY3Q+CiAgICAgICAgICA8bmFtZV9odG1sPjxpPlByaW11bGEgdmlsbG9zYSBkYW9uZW5zaXM8L2k+IExleWJvbGQ8L25hbWVfaHRtbD4KICAgICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9kZXRhaWxzL3NwZWNpZXMvaWQvZThiNzAyYTE4YmIzYzU1YjY5NzRhNjgyNzA3NzliNTEvc3lub255bS85ZGZmYzMzNjEzYjNlZGE4YjAyNGZhZDEwYTY0YTA2OTwvdXJsPgogICAgICAgICAgPHJlZmVyZW5jZXM+CiAgICAgICAgICAgIDxyZWZlcmVuY2U+CiAgICAgICAgICAgICAgPGF1dGhvcj5MZXlib2xkPC9hdXRob3I+CiAgICAgICAgICAgICAgPHllYXI+MTg1NDwveWVhcj4KICAgICAgICAgICAgICA8dGl0bGU+PC90aXRsZT4KICAgICAgICAgICAgICA8c291cmNlPkluOiDDlnN0ZXJyLiBCb3QuIFdvY2hlbmJsLiA0OiAxMDwvc291cmNlPgogICAgICAgICAgICA8L3JlZmVyZW5jZT4KICAgICAgICAgIDwvcmVmZXJlbmNlcz4KICAgICAgICA8L3N5bm9ueW0+CiAgICAgIDwvc3lub255bXM+CiAgICAgIDxjb21tb25fbmFtZXM+CiAgICAgICAgPGNvbW1vbl9uYW1lPgogICAgICAgICAgPG5hbWU+SW5ucHJpbWVsPC9uYW1lPgogICAgICAgICAgPGxhbmd1YWdlPjwvbGFuZ3VhZ2U+CiAgICAgICAgICA8Y291bnRyeT48L2NvdW50cnk+CiAgICAgICAgICA8cmVmZXJlbmNlcy8+CiAgICAgICAgPC9jb21tb25fbmFtZT4KICAgICAgPC9jb21tb25fbmFtZXM+CiAgICA8L2FjY2VwdGVkX25hbWU+CiAgPC9yZXN1bHQ+CjwvcmVzdWx0cz4K
+  recorded_at: 2019-05-08 20:48:31 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: get
     uri: http://www.catalogueoflife.org/col/webservice?name=Accipiter%20striatus&response=full
@@ -850,9 +68,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
+      X-USER-AGENT: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
   response:
     status:
       status_code: '200'
@@ -860,962 +79,19 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.12.1
-      date: Thu, 24 Jan 2019 01:18:30 GMT
+      server: nginx/1.14.0
+      date: Wed, 08 May 2019 20:48:29 GMT
       content-type: application/xml
       transfer-encoding: chunked
       connection: keep-alive
-      x-powered-by: PHP/5.5.9-1ubuntu4.26
       expires: Thu, 19 Nov 1981 08:52:00 GMT
-      cache-control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      cache-control: no-store, no-cache, must-revalidate
       pragma: no-cache
     body:
-      encoding: UTF-8
-      string: |
-        <?xml version="1.0" encoding="UTF-8"?>
-        <results id="" name="Accipiter striatus" total_number_of_results="9" number_of_results_returned="9" start="0" error_message="" version="1.9 rev 2126ab0" rank="">
-          <result>
-            <id>d349b58e7b60be92c17e5d10fedac0c1</id>
-            <name>Accipiter striatus</name>
-            <rank>Species</rank>
-            <name_status>accepted name</name_status>
-            <genus>Accipiter</genus>
-            <subgenus></subgenus>
-            <species>striatus</species>
-            <infraspecies_marker></infraspecies_marker>
-            <infraspecies></infraspecies>
-            <author>Vieillot, 1808</author>
-            <record_scrutiny_date>
-              <scrutiny>22-Sep-2011</scrutiny>
-            </record_scrutiny_date>
-            <online_resource><![CDATA[http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=175304]]></online_resource>
-            <is_extinct>false</is_extinct>
-            <source_database>ITIS Global: The Integrated Taxonomic Information System</source_database>
-            <source_database_url>http://www.itis.gov;
-        http://www.cbif.gc.ca/acp/eng/itis/search (Canada)</source_database_url>
-            <bibliographic_citation><![CDATA[Tom Orrell (custodian), Dave Nicolson (ed). (2019). ITIS Global: The Integrated Taxonomic Information System (version Jun 2017). In: Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds. (2019). Species 2000 & ITIS Catalogue of Life, 24th December 2018. Digital resource at www.catalogueoflife.org/col. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-8858.]]></bibliographic_citation>
-            <name_html><i>Accipiter striatus</i> Vieillot, 1808</name_html>
-            <url>http://www.catalogueoflife.org/col/details/species/id/d349b58e7b60be92c17e5d10fedac0c1</url>
-            <distribution>Caribbean 133 0; North America 132 0</distribution>
-            <references>
-              <reference>
-                <author>Gill, Frank, and Minturn Wright</author>
-                <year>2006</year>
-                <title></title>
-                <source>Birds of the World: Recommended English Names</source>
-              </reference>
-              <reference>
-                <author>Banks, R. C., R. W. McDiarmid, and A. L. Gardner</author>
-                <year>1987</year>
-                <title>Checklist of Vertebrates of the United States, the U.S. Territories, and Canada</title>
-                <source>Resource Publication, no. 166</source>
-              </reference>
-              <reference>
-                <author>Banks, R. C., R. W. McDiarmid, A. L. Gardner, and W. C. Starnes</author>
-                <year>2003</year>
-                <title></title>
-                <source>Checklist of Vertebrates of the United States, the U.S. Territories, and Canada</source>
-              </reference>
-              <reference>
-                <author></author>
-                <year>1996</year>
-                <title></title>
-                <source>NODC Taxonomic Code</source>
-              </reference>
-              <reference>
-                <author></author>
-                <year>2011</year>
-                <title></title>
-                <source>IOC World Bird List, Master List v2.9</source>
-              </reference>
-              <reference>
-                <author></author>
-                <year>2011</year>
-                <title></title>
-                <source>AOU Check-List (08-2011)</source>
-              </reference>
-              <reference>
-                <author></author>
-                <year>2011</year>
-                <title></title>
-                <source>Zoonomen - Zoological Nomenclature Resource, 2011.02.25</source>
-              </reference>
-            </references>
-            <classification>
-              <taxon>
-                <id>5ede24b0534ebd5e1f552d5b9f874a6a</id>
-                <name>Animalia</name>
-                <rank>Kingdom</rank>
-                <name_html>Animalia</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/5ede24b0534ebd5e1f552d5b9f874a6a</url>
-              </taxon>
-              <taxon>
-                <id>4313bc7637e1fc1feb316a4dea2b668b</id>
-                <name>Chordata</name>
-                <rank>Phylum</rank>
-                <name_html>Chordata</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/4313bc7637e1fc1feb316a4dea2b668b</url>
-              </taxon>
-              <taxon>
-                <id>67847d320573ff18b0384e22afe97ed8</id>
-                <name>Aves</name>
-                <rank>Class</rank>
-                <name_html>Aves</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/67847d320573ff18b0384e22afe97ed8</url>
-              </taxon>
-              <taxon>
-                <id>b555241e73b541bdb5e4e976284b8ae9</id>
-                <name>Accipitriformes</name>
-                <rank>Order</rank>
-                <name_html>Accipitriformes</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/b555241e73b541bdb5e4e976284b8ae9</url>
-              </taxon>
-              <taxon>
-                <id>4edf7906db38144f0d48754d283de50a</id>
-                <name>Accipitridae</name>
-                <rank>Family</rank>
-                <name_html>Accipitridae</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/4edf7906db38144f0d48754d283de50a</url>
-              </taxon>
-              <taxon>
-                <id>8e6a94988edec781d3c32051cc69f4d9</id>
-                <name>Accipiter</name>
-                <rank>Genus</rank>
-                <name_html><i>Accipiter</i></name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/8e6a94988edec781d3c32051cc69f4d9</url>
-              </taxon>
-            </classification>
-            <child_taxa>
-              <taxon>
-                <id>064545deafb882a33f97782758e5af32</id>
-                <name>Accipiter striatus fringilloides</name>
-                <rank>Infraspecies</rank>
-                <name_html><i>Accipiter striatus fringilloides</i> Vigors, 1827</name_html>
-                <url>http://www.catalogueoflife.org/col/details/species/id/064545deafb882a33f97782758e5af32</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>5306dab3abc740ae2a43a24091ede79a</id>
-                <name>Accipiter striatus madrensis</name>
-                <rank>Infraspecies</rank>
-                <name_html><i>Accipiter striatus madrensis</i> Storer, 1952</name_html>
-                <url>http://www.catalogueoflife.org/col/details/species/id/5306dab3abc740ae2a43a24091ede79a</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>2a3778b4580b5f241546975160251edf</id>
-                <name>Accipiter striatus perobscurus</name>
-                <rank>Infraspecies</rank>
-                <name_html><i>Accipiter striatus perobscurus</i> Snyder, 1938</name_html>
-                <url>http://www.catalogueoflife.org/col/details/species/id/2a3778b4580b5f241546975160251edf</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>36d984f35739da9c381717b0bd5474c6</id>
-                <name>Accipiter striatus striatus</name>
-                <rank>Infraspecies</rank>
-                <name_html><i>Accipiter striatus striatus</i> Vieillot, 1808</name_html>
-                <url>http://www.catalogueoflife.org/col/details/species/id/36d984f35739da9c381717b0bd5474c6</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>7f98522fe8c7d540a265765cdd2148c1</id>
-                <name>Accipiter striatus suttoni</name>
-                <rank>Infraspecies</rank>
-                <name_html><i>Accipiter striatus suttoni</i> van Rossem, 1939</name_html>
-                <url>http://www.catalogueoflife.org/col/details/species/id/7f98522fe8c7d540a265765cdd2148c1</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>a3c318a8da184f36dd39dabb2dfc08c4</id>
-                <name>Accipiter striatus velox</name>
-                <rank>Infraspecies</rank>
-                <name_html><i>Accipiter striatus velox</i> (A. Wilson, 1812)</name_html>
-                <url>http://www.catalogueoflife.org/col/details/species/id/a3c318a8da184f36dd39dabb2dfc08c4</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-              <taxon>
-                <id>5caf3ae655b4006d31d75c2bcdbb12c5</id>
-                <name>Accipiter striatus venator</name>
-                <rank>Infraspecies</rank>
-                <name_html><i>Accipiter striatus venator</i> Wetmore, 1914</name_html>
-                <url>http://www.catalogueoflife.org/col/details/species/id/5caf3ae655b4006d31d75c2bcdbb12c5</url>
-                <is_extinct>false</is_extinct>
-              </taxon>
-            </child_taxa>
-            <synonyms/>
-            <common_names>
-              <common_name>
-                <name>Sharp-shinned Hawk</name>
-                <language>English</language>
-                <country></country>
-                <references>
-                  <reference>
-                    <author>Gill, Frank, and Minturn Wright</author>
-                    <year>2006</year>
-                    <title></title>
-                    <source>Birds of the World: Recommended English Names</source>
-                  </reference>
-                  <reference>
-                    <author></author>
-                    <year>2005</year>
-                    <title></title>
-                    <source>website, AOU Check-List (07-2005)</source>
-                  </reference>
-                  <reference>
-                    <author></author>
-                    <year>2003</year>
-                    <title></title>
-                    <source>database, http://www.menv.gouv.qc.ca/biodiversite/centre.htm</source>
-                  </reference>
-                  <reference>
-                    <author></author>
-                    <year>2011</year>
-                    <title></title>
-                    <source>IOC World Bird List, Master List v2.9</source>
-                  </reference>
-                  <reference>
-                    <author></author>
-                    <year>2011</year>
-                    <title></title>
-                    <source>AOU Check-List (08-2011)</source>
-                  </reference>
-                </references>
-              </common_name>
-              <common_name>
-                <name>Épervier brun</name>
-                <language>French</language>
-                <country></country>
-                <references>
-                  <reference>
-                    <author></author>
-                    <year>2003</year>
-                    <title></title>
-                    <source>database, http://www.menv.gouv.qc.ca/biodiversite/centre.htm</source>
-                  </reference>
-                  <reference>
-                    <author></author>
-                    <year>2011</year>
-                    <title></title>
-                    <source>AOU Check-List (08-2011)</source>
-                  </reference>
-                </references>
-              </common_name>
-              <common_name>
-                <name>Gavilán pecho rufo</name>
-                <language>Spanish</language>
-                <country></country>
-                <references>
-                  <reference>
-                    <author></author>
-                    <year>2001</year>
-                    <title></title>
-                    <source>database, Comisión Nacional para el Conocimiento y Uso de la Biodiversidad</source>
-                  </reference>
-                </references>
-              </common_name>
-            </common_names>
-          </result>
-          <result>
-            <id>6bdae6292947985db81f834f333dc435</id>
-            <name>Accipiter striatus</name>
-            <rank>Species</rank>
-            <name_status>accepted name</name_status>
-            <genus>Accipiter</genus>
-            <subgenus></subgenus>
-            <species>striatus</species>
-            <infraspecies_marker></infraspecies_marker>
-            <infraspecies></infraspecies>
-            <author>Vieillot, 1897</author>
-            <record_scrutiny_date>
-              <scrutiny>Jan-2017</scrutiny>
-            </record_scrutiny_date>
-            <online_resource>https://paleobiodb.org/classic/basicTaxonInfo?taxon_no=129155</online_resource>
-            <is_extinct>true</is_extinct>
-            <source_database>PaleoBioDB: The Paleobiology Database</source_database>
-            <source_database_url>https://paleobiodb.org</source_database_url>
-            <bibliographic_citation><![CDATA[Paleobiology Database contributors (2019). PaleoBioDB: The Paleobiology Database (version Feb 2018). In: Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds. (2019). Species 2000 & ITIS Catalogue of Life, 24th December 2018. Digital resource at www.catalogueoflife.org/col. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-8858.]]></bibliographic_citation>
-            <name_html><i>Accipiter striatus</i> Vieillot, 1897</name_html>
-            <url>http://www.catalogueoflife.org/col/details/species/id/6bdae6292947985db81f834f333dc435</url>
-            <distribution>US (Alabama, Florida, Utah, Virginia, Wyoming) 154611 0</distribution>
-            <references/>
-            <classification>
-              <taxon>
-                <id>5ede24b0534ebd5e1f552d5b9f874a6a</id>
-                <name>Animalia</name>
-                <rank>Kingdom</rank>
-                <name_html>Animalia</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/5ede24b0534ebd5e1f552d5b9f874a6a</url>
-              </taxon>
-              <taxon>
-                <id>4313bc7637e1fc1feb316a4dea2b668b</id>
-                <name>Chordata</name>
-                <rank>Phylum</rank>
-                <name_html>Chordata</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/4313bc7637e1fc1feb316a4dea2b668b</url>
-              </taxon>
-              <taxon>
-                <id>67847d320573ff18b0384e22afe97ed8</id>
-                <name>Aves</name>
-                <rank>Class</rank>
-                <name_html>Aves</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/67847d320573ff18b0384e22afe97ed8</url>
-              </taxon>
-              <taxon>
-                <id>b555241e73b541bdb5e4e976284b8ae9</id>
-                <name>Accipitriformes</name>
-                <rank>Order</rank>
-                <name_html>Accipitriformes</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/b555241e73b541bdb5e4e976284b8ae9</url>
-              </taxon>
-              <taxon>
-                <id>4edf7906db38144f0d48754d283de50a</id>
-                <name>Accipitridae</name>
-                <rank>Family</rank>
-                <name_html>Accipitridae</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/4edf7906db38144f0d48754d283de50a</url>
-              </taxon>
-              <taxon>
-                <id>8e6a94988edec781d3c32051cc69f4d9</id>
-                <name>Accipiter</name>
-                <rank>Genus</rank>
-                <name_html><i>Accipiter</i></name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/8e6a94988edec781d3c32051cc69f4d9</url>
-              </taxon>
-            </classification>
-            <child_taxa/>
-            <synonyms/>
-            <common_names/>
-          </result>
-          <result>
-            <id>064545deafb882a33f97782758e5af32</id>
-            <name>Accipiter striatus fringilloides</name>
-            <rank>Infraspecies</rank>
-            <name_status>accepted name</name_status>
-            <genus>Accipiter</genus>
-            <subgenus></subgenus>
-            <species>striatus</species>
-            <infraspecies_marker></infraspecies_marker>
-            <infraspecies>fringilloides</infraspecies>
-            <author>Vigors, 1827</author>
-            <record_scrutiny_date>
-              <scrutiny>22-Sep-2011</scrutiny>
-            </record_scrutiny_date>
-            <online_resource><![CDATA[http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=824332]]></online_resource>
-            <is_extinct>false</is_extinct>
-            <source_database>ITIS Global: The Integrated Taxonomic Information System</source_database>
-            <source_database_url>http://www.itis.gov;
-        http://www.cbif.gc.ca/acp/eng/itis/search (Canada)</source_database_url>
-            <bibliographic_citation><![CDATA[Tom Orrell (custodian), Dave Nicolson (ed). (2019). ITIS Global: The Integrated Taxonomic Information System (version Jun 2017). In: Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds. (2019). Species 2000 & ITIS Catalogue of Life, 24th December 2018. Digital resource at www.catalogueoflife.org/col. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-8858.]]></bibliographic_citation>
-            <name_html><i>Accipiter striatus fringilloides</i> Vigors, 1827</name_html>
-            <url>http://www.catalogueoflife.org/col/browse/tree/id/064545deafb882a33f97782758e5af32</url>
-            <distribution></distribution>
-            <references>
-              <reference>
-                <author></author>
-                <year>2011</year>
-                <title></title>
-                <source>Zoonomen - Zoological Nomenclature Resource, 2011.02.25</source>
-              </reference>
-            </references>
-            <classification>
-              <taxon>
-                <id>5ede24b0534ebd5e1f552d5b9f874a6a</id>
-                <name>Animalia</name>
-                <rank>Kingdom</rank>
-                <name_html>Animalia</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/5ede24b0534ebd5e1f552d5b9f874a6a</url>
-              </taxon>
-              <taxon>
-                <id>4313bc7637e1fc1feb316a4dea2b668b</id>
-                <name>Chordata</name>
-                <rank>Phylum</rank>
-                <name_html>Chordata</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/4313bc7637e1fc1feb316a4dea2b668b</url>
-              </taxon>
-              <taxon>
-                <id>67847d320573ff18b0384e22afe97ed8</id>
-                <name>Aves</name>
-                <rank>Class</rank>
-                <name_html>Aves</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/67847d320573ff18b0384e22afe97ed8</url>
-              </taxon>
-              <taxon>
-                <id>b555241e73b541bdb5e4e976284b8ae9</id>
-                <name>Accipitriformes</name>
-                <rank>Order</rank>
-                <name_html>Accipitriformes</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/b555241e73b541bdb5e4e976284b8ae9</url>
-              </taxon>
-              <taxon>
-                <id>4edf7906db38144f0d48754d283de50a</id>
-                <name>Accipitridae</name>
-                <rank>Family</rank>
-                <name_html>Accipitridae</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/4edf7906db38144f0d48754d283de50a</url>
-              </taxon>
-              <taxon>
-                <id>8e6a94988edec781d3c32051cc69f4d9</id>
-                <name>Accipiter</name>
-                <rank>Genus</rank>
-                <name_html><i>Accipiter</i></name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/8e6a94988edec781d3c32051cc69f4d9</url>
-              </taxon>
-              <taxon>
-                <id>d349b58e7b60be92c17e5d10fedac0c1</id>
-                <name>striatus</name>
-                <rank>Species</rank>
-                <name_html><i>Accipiter striatus fringilloides</i> Vigors, 1827</name_html>
-                <url>http://www.catalogueoflife.org/col/details/species/id/d349b58e7b60be92c17e5d10fedac0c1</url>
-              </taxon>
-            </classification>
-            <child_taxa/>
-            <synonyms/>
-            <common_names/>
-          </result>
-          <result>
-            <id>5306dab3abc740ae2a43a24091ede79a</id>
-            <name>Accipiter striatus madrensis</name>
-            <rank>Infraspecies</rank>
-            <name_status>accepted name</name_status>
-            <genus>Accipiter</genus>
-            <subgenus></subgenus>
-            <species>striatus</species>
-            <infraspecies_marker></infraspecies_marker>
-            <infraspecies>madrensis</infraspecies>
-            <author>Storer, 1952</author>
-            <record_scrutiny_date>
-              <scrutiny>22-Sep-2011</scrutiny>
-            </record_scrutiny_date>
-            <online_resource><![CDATA[http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=824333]]></online_resource>
-            <is_extinct>false</is_extinct>
-            <source_database>ITIS Global: The Integrated Taxonomic Information System</source_database>
-            <source_database_url>http://www.itis.gov;
-        http://www.cbif.gc.ca/acp/eng/itis/search (Canada)</source_database_url>
-            <bibliographic_citation><![CDATA[Tom Orrell (custodian), Dave Nicolson (ed). (2019). ITIS Global: The Integrated Taxonomic Information System (version Jun 2017). In: Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds. (2019). Species 2000 & ITIS Catalogue of Life, 24th December 2018. Digital resource at www.catalogueoflife.org/col. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-8858.]]></bibliographic_citation>
-            <name_html><i>Accipiter striatus madrensis</i> Storer, 1952</name_html>
-            <url>http://www.catalogueoflife.org/col/browse/tree/id/5306dab3abc740ae2a43a24091ede79a</url>
-            <distribution></distribution>
-            <references>
-              <reference>
-                <author></author>
-                <year>2011</year>
-                <title></title>
-                <source>Zoonomen - Zoological Nomenclature Resource, 2011.02.25</source>
-              </reference>
-            </references>
-            <classification>
-              <taxon>
-                <id>5ede24b0534ebd5e1f552d5b9f874a6a</id>
-                <name>Animalia</name>
-                <rank>Kingdom</rank>
-                <name_html>Animalia</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/5ede24b0534ebd5e1f552d5b9f874a6a</url>
-              </taxon>
-              <taxon>
-                <id>4313bc7637e1fc1feb316a4dea2b668b</id>
-                <name>Chordata</name>
-                <rank>Phylum</rank>
-                <name_html>Chordata</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/4313bc7637e1fc1feb316a4dea2b668b</url>
-              </taxon>
-              <taxon>
-                <id>67847d320573ff18b0384e22afe97ed8</id>
-                <name>Aves</name>
-                <rank>Class</rank>
-                <name_html>Aves</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/67847d320573ff18b0384e22afe97ed8</url>
-              </taxon>
-              <taxon>
-                <id>b555241e73b541bdb5e4e976284b8ae9</id>
-                <name>Accipitriformes</name>
-                <rank>Order</rank>
-                <name_html>Accipitriformes</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/b555241e73b541bdb5e4e976284b8ae9</url>
-              </taxon>
-              <taxon>
-                <id>4edf7906db38144f0d48754d283de50a</id>
-                <name>Accipitridae</name>
-                <rank>Family</rank>
-                <name_html>Accipitridae</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/4edf7906db38144f0d48754d283de50a</url>
-              </taxon>
-              <taxon>
-                <id>8e6a94988edec781d3c32051cc69f4d9</id>
-                <name>Accipiter</name>
-                <rank>Genus</rank>
-                <name_html><i>Accipiter</i></name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/8e6a94988edec781d3c32051cc69f4d9</url>
-              </taxon>
-              <taxon>
-                <id>d349b58e7b60be92c17e5d10fedac0c1</id>
-                <name>striatus</name>
-                <rank>Species</rank>
-                <name_html><i>Accipiter striatus madrensis</i> Storer, 1952</name_html>
-                <url>http://www.catalogueoflife.org/col/details/species/id/d349b58e7b60be92c17e5d10fedac0c1</url>
-              </taxon>
-            </classification>
-            <child_taxa/>
-            <synonyms/>
-            <common_names/>
-          </result>
-          <result>
-            <id>2a3778b4580b5f241546975160251edf</id>
-            <name>Accipiter striatus perobscurus</name>
-            <rank>Infraspecies</rank>
-            <name_status>accepted name</name_status>
-            <genus>Accipiter</genus>
-            <subgenus></subgenus>
-            <species>striatus</species>
-            <infraspecies_marker></infraspecies_marker>
-            <infraspecies>perobscurus</infraspecies>
-            <author>Snyder, 1938</author>
-            <record_scrutiny_date>
-              <scrutiny>22-Sep-2011</scrutiny>
-            </record_scrutiny_date>
-            <online_resource><![CDATA[http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=175307]]></online_resource>
-            <is_extinct>false</is_extinct>
-            <source_database>ITIS Global: The Integrated Taxonomic Information System</source_database>
-            <source_database_url>http://www.itis.gov;
-        http://www.cbif.gc.ca/acp/eng/itis/search (Canada)</source_database_url>
-            <bibliographic_citation><![CDATA[Tom Orrell (custodian), Dave Nicolson (ed). (2019). ITIS Global: The Integrated Taxonomic Information System (version Jun 2017). In: Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds. (2019). Species 2000 & ITIS Catalogue of Life, 24th December 2018. Digital resource at www.catalogueoflife.org/col. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-8858.]]></bibliographic_citation>
-            <name_html><i>Accipiter striatus perobscurus</i> Snyder, 1938</name_html>
-            <url>http://www.catalogueoflife.org/col/browse/tree/id/2a3778b4580b5f241546975160251edf</url>
-            <distribution></distribution>
-            <references>
-              <reference>
-                <author></author>
-                <year>1996</year>
-                <title></title>
-                <source>NODC Taxonomic Code</source>
-              </reference>
-              <reference>
-                <author></author>
-                <year>2011</year>
-                <title></title>
-                <source>Zoonomen - Zoological Nomenclature Resource, 2011.02.25</source>
-              </reference>
-            </references>
-            <classification>
-              <taxon>
-                <id>5ede24b0534ebd5e1f552d5b9f874a6a</id>
-                <name>Animalia</name>
-                <rank>Kingdom</rank>
-                <name_html>Animalia</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/5ede24b0534ebd5e1f552d5b9f874a6a</url>
-              </taxon>
-              <taxon>
-                <id>4313bc7637e1fc1feb316a4dea2b668b</id>
-                <name>Chordata</name>
-                <rank>Phylum</rank>
-                <name_html>Chordata</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/4313bc7637e1fc1feb316a4dea2b668b</url>
-              </taxon>
-              <taxon>
-                <id>67847d320573ff18b0384e22afe97ed8</id>
-                <name>Aves</name>
-                <rank>Class</rank>
-                <name_html>Aves</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/67847d320573ff18b0384e22afe97ed8</url>
-              </taxon>
-              <taxon>
-                <id>b555241e73b541bdb5e4e976284b8ae9</id>
-                <name>Accipitriformes</name>
-                <rank>Order</rank>
-                <name_html>Accipitriformes</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/b555241e73b541bdb5e4e976284b8ae9</url>
-              </taxon>
-              <taxon>
-                <id>4edf7906db38144f0d48754d283de50a</id>
-                <name>Accipitridae</name>
-                <rank>Family</rank>
-                <name_html>Accipitridae</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/4edf7906db38144f0d48754d283de50a</url>
-              </taxon>
-              <taxon>
-                <id>8e6a94988edec781d3c32051cc69f4d9</id>
-                <name>Accipiter</name>
-                <rank>Genus</rank>
-                <name_html><i>Accipiter</i></name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/8e6a94988edec781d3c32051cc69f4d9</url>
-              </taxon>
-              <taxon>
-                <id>d349b58e7b60be92c17e5d10fedac0c1</id>
-                <name>striatus</name>
-                <rank>Species</rank>
-                <name_html><i>Accipiter striatus perobscurus</i> Snyder, 1938</name_html>
-                <url>http://www.catalogueoflife.org/col/details/species/id/d349b58e7b60be92c17e5d10fedac0c1</url>
-              </taxon>
-            </classification>
-            <child_taxa/>
-            <synonyms/>
-            <common_names/>
-          </result>
-          <result>
-            <id>36d984f35739da9c381717b0bd5474c6</id>
-            <name>Accipiter striatus striatus</name>
-            <rank>Infraspecies</rank>
-            <name_status>accepted name</name_status>
-            <genus>Accipiter</genus>
-            <subgenus></subgenus>
-            <species>striatus</species>
-            <infraspecies_marker></infraspecies_marker>
-            <infraspecies>striatus</infraspecies>
-            <author>Vieillot, 1808</author>
-            <record_scrutiny_date>
-              <scrutiny>22-Sep-2011</scrutiny>
-            </record_scrutiny_date>
-            <online_resource><![CDATA[http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=175308]]></online_resource>
-            <is_extinct>false</is_extinct>
-            <source_database>ITIS Global: The Integrated Taxonomic Information System</source_database>
-            <source_database_url>http://www.itis.gov;
-        http://www.cbif.gc.ca/acp/eng/itis/search (Canada)</source_database_url>
-            <bibliographic_citation><![CDATA[Tom Orrell (custodian), Dave Nicolson (ed). (2019). ITIS Global: The Integrated Taxonomic Information System (version Jun 2017). In: Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds. (2019). Species 2000 & ITIS Catalogue of Life, 24th December 2018. Digital resource at www.catalogueoflife.org/col. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-8858.]]></bibliographic_citation>
-            <name_html><i>Accipiter striatus striatus</i> Vieillot, 1808</name_html>
-            <url>http://www.catalogueoflife.org/col/browse/tree/id/36d984f35739da9c381717b0bd5474c6</url>
-            <distribution></distribution>
-            <references>
-              <reference>
-                <author></author>
-                <year>1996</year>
-                <title></title>
-                <source>NODC Taxonomic Code</source>
-              </reference>
-              <reference>
-                <author></author>
-                <year>2011</year>
-                <title></title>
-                <source>Zoonomen - Zoological Nomenclature Resource, 2011.02.25</source>
-              </reference>
-            </references>
-            <classification>
-              <taxon>
-                <id>5ede24b0534ebd5e1f552d5b9f874a6a</id>
-                <name>Animalia</name>
-                <rank>Kingdom</rank>
-                <name_html>Animalia</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/5ede24b0534ebd5e1f552d5b9f874a6a</url>
-              </taxon>
-              <taxon>
-                <id>4313bc7637e1fc1feb316a4dea2b668b</id>
-                <name>Chordata</name>
-                <rank>Phylum</rank>
-                <name_html>Chordata</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/4313bc7637e1fc1feb316a4dea2b668b</url>
-              </taxon>
-              <taxon>
-                <id>67847d320573ff18b0384e22afe97ed8</id>
-                <name>Aves</name>
-                <rank>Class</rank>
-                <name_html>Aves</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/67847d320573ff18b0384e22afe97ed8</url>
-              </taxon>
-              <taxon>
-                <id>b555241e73b541bdb5e4e976284b8ae9</id>
-                <name>Accipitriformes</name>
-                <rank>Order</rank>
-                <name_html>Accipitriformes</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/b555241e73b541bdb5e4e976284b8ae9</url>
-              </taxon>
-              <taxon>
-                <id>4edf7906db38144f0d48754d283de50a</id>
-                <name>Accipitridae</name>
-                <rank>Family</rank>
-                <name_html>Accipitridae</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/4edf7906db38144f0d48754d283de50a</url>
-              </taxon>
-              <taxon>
-                <id>8e6a94988edec781d3c32051cc69f4d9</id>
-                <name>Accipiter</name>
-                <rank>Genus</rank>
-                <name_html><i>Accipiter</i></name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/8e6a94988edec781d3c32051cc69f4d9</url>
-              </taxon>
-              <taxon>
-                <id>d349b58e7b60be92c17e5d10fedac0c1</id>
-                <name>striatus</name>
-                <rank>Species</rank>
-                <name_html><i>Accipiter striatus striatus</i> Vieillot, 1808</name_html>
-                <url>http://www.catalogueoflife.org/col/details/species/id/d349b58e7b60be92c17e5d10fedac0c1</url>
-              </taxon>
-            </classification>
-            <child_taxa/>
-            <synonyms/>
-            <common_names/>
-          </result>
-          <result>
-            <id>7f98522fe8c7d540a265765cdd2148c1</id>
-            <name>Accipiter striatus suttoni</name>
-            <rank>Infraspecies</rank>
-            <name_status>accepted name</name_status>
-            <genus>Accipiter</genus>
-            <subgenus></subgenus>
-            <species>striatus</species>
-            <infraspecies_marker></infraspecies_marker>
-            <infraspecies>suttoni</infraspecies>
-            <author>van Rossem, 1939</author>
-            <record_scrutiny_date>
-              <scrutiny>22-Sep-2011</scrutiny>
-            </record_scrutiny_date>
-            <online_resource><![CDATA[http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=175306]]></online_resource>
-            <is_extinct>false</is_extinct>
-            <source_database>ITIS Global: The Integrated Taxonomic Information System</source_database>
-            <source_database_url>http://www.itis.gov;
-        http://www.cbif.gc.ca/acp/eng/itis/search (Canada)</source_database_url>
-            <bibliographic_citation><![CDATA[Tom Orrell (custodian), Dave Nicolson (ed). (2019). ITIS Global: The Integrated Taxonomic Information System (version Jun 2017). In: Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds. (2019). Species 2000 & ITIS Catalogue of Life, 24th December 2018. Digital resource at www.catalogueoflife.org/col. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-8858.]]></bibliographic_citation>
-            <name_html><i>Accipiter striatus suttoni</i> van Rossem, 1939</name_html>
-            <url>http://www.catalogueoflife.org/col/browse/tree/id/7f98522fe8c7d540a265765cdd2148c1</url>
-            <distribution></distribution>
-            <references>
-              <reference>
-                <author></author>
-                <year>1996</year>
-                <title></title>
-                <source>NODC Taxonomic Code</source>
-              </reference>
-              <reference>
-                <author></author>
-                <year>2011</year>
-                <title></title>
-                <source>Zoonomen - Zoological Nomenclature Resource, 2011.02.25</source>
-              </reference>
-            </references>
-            <classification>
-              <taxon>
-                <id>5ede24b0534ebd5e1f552d5b9f874a6a</id>
-                <name>Animalia</name>
-                <rank>Kingdom</rank>
-                <name_html>Animalia</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/5ede24b0534ebd5e1f552d5b9f874a6a</url>
-              </taxon>
-              <taxon>
-                <id>4313bc7637e1fc1feb316a4dea2b668b</id>
-                <name>Chordata</name>
-                <rank>Phylum</rank>
-                <name_html>Chordata</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/4313bc7637e1fc1feb316a4dea2b668b</url>
-              </taxon>
-              <taxon>
-                <id>67847d320573ff18b0384e22afe97ed8</id>
-                <name>Aves</name>
-                <rank>Class</rank>
-                <name_html>Aves</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/67847d320573ff18b0384e22afe97ed8</url>
-              </taxon>
-              <taxon>
-                <id>b555241e73b541bdb5e4e976284b8ae9</id>
-                <name>Accipitriformes</name>
-                <rank>Order</rank>
-                <name_html>Accipitriformes</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/b555241e73b541bdb5e4e976284b8ae9</url>
-              </taxon>
-              <taxon>
-                <id>4edf7906db38144f0d48754d283de50a</id>
-                <name>Accipitridae</name>
-                <rank>Family</rank>
-                <name_html>Accipitridae</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/4edf7906db38144f0d48754d283de50a</url>
-              </taxon>
-              <taxon>
-                <id>8e6a94988edec781d3c32051cc69f4d9</id>
-                <name>Accipiter</name>
-                <rank>Genus</rank>
-                <name_html><i>Accipiter</i></name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/8e6a94988edec781d3c32051cc69f4d9</url>
-              </taxon>
-              <taxon>
-                <id>d349b58e7b60be92c17e5d10fedac0c1</id>
-                <name>striatus</name>
-                <rank>Species</rank>
-                <name_html><i>Accipiter striatus suttoni</i> van Rossem, 1939</name_html>
-                <url>http://www.catalogueoflife.org/col/details/species/id/d349b58e7b60be92c17e5d10fedac0c1</url>
-              </taxon>
-            </classification>
-            <child_taxa/>
-            <synonyms/>
-            <common_names/>
-          </result>
-          <result>
-            <id>a3c318a8da184f36dd39dabb2dfc08c4</id>
-            <name>Accipiter striatus velox</name>
-            <rank>Infraspecies</rank>
-            <name_status>accepted name</name_status>
-            <genus>Accipiter</genus>
-            <subgenus></subgenus>
-            <species>striatus</species>
-            <infraspecies_marker></infraspecies_marker>
-            <infraspecies>velox</infraspecies>
-            <author>(A. Wilson, 1812)</author>
-            <record_scrutiny_date>
-              <scrutiny>22-Sep-2011</scrutiny>
-            </record_scrutiny_date>
-            <online_resource><![CDATA[http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=175305]]></online_resource>
-            <is_extinct>false</is_extinct>
-            <source_database>ITIS Global: The Integrated Taxonomic Information System</source_database>
-            <source_database_url>http://www.itis.gov;
-        http://www.cbif.gc.ca/acp/eng/itis/search (Canada)</source_database_url>
-            <bibliographic_citation><![CDATA[Tom Orrell (custodian), Dave Nicolson (ed). (2019). ITIS Global: The Integrated Taxonomic Information System (version Jun 2017). In: Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds. (2019). Species 2000 & ITIS Catalogue of Life, 24th December 2018. Digital resource at www.catalogueoflife.org/col. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-8858.]]></bibliographic_citation>
-            <name_html><i>Accipiter striatus velox</i> (A. Wilson, 1812)</name_html>
-            <url>http://www.catalogueoflife.org/col/browse/tree/id/a3c318a8da184f36dd39dabb2dfc08c4</url>
-            <distribution></distribution>
-            <references>
-              <reference>
-                <author></author>
-                <year>1996</year>
-                <title></title>
-                <source>NODC Taxonomic Code</source>
-              </reference>
-              <reference>
-                <author></author>
-                <year>2011</year>
-                <title></title>
-                <source>Zoonomen - Zoological Nomenclature Resource, 2011.02.25</source>
-              </reference>
-            </references>
-            <classification>
-              <taxon>
-                <id>5ede24b0534ebd5e1f552d5b9f874a6a</id>
-                <name>Animalia</name>
-                <rank>Kingdom</rank>
-                <name_html>Animalia</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/5ede24b0534ebd5e1f552d5b9f874a6a</url>
-              </taxon>
-              <taxon>
-                <id>4313bc7637e1fc1feb316a4dea2b668b</id>
-                <name>Chordata</name>
-                <rank>Phylum</rank>
-                <name_html>Chordata</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/4313bc7637e1fc1feb316a4dea2b668b</url>
-              </taxon>
-              <taxon>
-                <id>67847d320573ff18b0384e22afe97ed8</id>
-                <name>Aves</name>
-                <rank>Class</rank>
-                <name_html>Aves</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/67847d320573ff18b0384e22afe97ed8</url>
-              </taxon>
-              <taxon>
-                <id>b555241e73b541bdb5e4e976284b8ae9</id>
-                <name>Accipitriformes</name>
-                <rank>Order</rank>
-                <name_html>Accipitriformes</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/b555241e73b541bdb5e4e976284b8ae9</url>
-              </taxon>
-              <taxon>
-                <id>4edf7906db38144f0d48754d283de50a</id>
-                <name>Accipitridae</name>
-                <rank>Family</rank>
-                <name_html>Accipitridae</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/4edf7906db38144f0d48754d283de50a</url>
-              </taxon>
-              <taxon>
-                <id>8e6a94988edec781d3c32051cc69f4d9</id>
-                <name>Accipiter</name>
-                <rank>Genus</rank>
-                <name_html><i>Accipiter</i></name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/8e6a94988edec781d3c32051cc69f4d9</url>
-              </taxon>
-              <taxon>
-                <id>d349b58e7b60be92c17e5d10fedac0c1</id>
-                <name>striatus</name>
-                <rank>Species</rank>
-                <name_html><i>Accipiter striatus velox</i> (A. Wilson, 1812)</name_html>
-                <url>http://www.catalogueoflife.org/col/details/species/id/d349b58e7b60be92c17e5d10fedac0c1</url>
-              </taxon>
-            </classification>
-            <child_taxa/>
-            <synonyms/>
-            <common_names/>
-          </result>
-          <result>
-            <id>5caf3ae655b4006d31d75c2bcdbb12c5</id>
-            <name>Accipiter striatus venator</name>
-            <rank>Infraspecies</rank>
-            <name_status>accepted name</name_status>
-            <genus>Accipiter</genus>
-            <subgenus></subgenus>
-            <species>striatus</species>
-            <infraspecies_marker></infraspecies_marker>
-            <infraspecies>venator</infraspecies>
-            <author>Wetmore, 1914</author>
-            <record_scrutiny_date>
-              <scrutiny>22-Sep-2011</scrutiny>
-            </record_scrutiny_date>
-            <online_resource><![CDATA[http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=824334]]></online_resource>
-            <is_extinct>false</is_extinct>
-            <source_database>ITIS Global: The Integrated Taxonomic Information System</source_database>
-            <source_database_url>http://www.itis.gov;
-        http://www.cbif.gc.ca/acp/eng/itis/search (Canada)</source_database_url>
-            <bibliographic_citation><![CDATA[Tom Orrell (custodian), Dave Nicolson (ed). (2019). ITIS Global: The Integrated Taxonomic Information System (version Jun 2017). In: Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds. (2019). Species 2000 & ITIS Catalogue of Life, 24th December 2018. Digital resource at www.catalogueoflife.org/col. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-8858.]]></bibliographic_citation>
-            <name_html><i>Accipiter striatus venator</i> Wetmore, 1914</name_html>
-            <url>http://www.catalogueoflife.org/col/browse/tree/id/5caf3ae655b4006d31d75c2bcdbb12c5</url>
-            <distribution></distribution>
-            <references>
-              <reference>
-                <author></author>
-                <year>2011</year>
-                <title></title>
-                <source>Zoonomen - Zoological Nomenclature Resource, 2011.02.25</source>
-              </reference>
-            </references>
-            <classification>
-              <taxon>
-                <id>5ede24b0534ebd5e1f552d5b9f874a6a</id>
-                <name>Animalia</name>
-                <rank>Kingdom</rank>
-                <name_html>Animalia</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/5ede24b0534ebd5e1f552d5b9f874a6a</url>
-              </taxon>
-              <taxon>
-                <id>4313bc7637e1fc1feb316a4dea2b668b</id>
-                <name>Chordata</name>
-                <rank>Phylum</rank>
-                <name_html>Chordata</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/4313bc7637e1fc1feb316a4dea2b668b</url>
-              </taxon>
-              <taxon>
-                <id>67847d320573ff18b0384e22afe97ed8</id>
-                <name>Aves</name>
-                <rank>Class</rank>
-                <name_html>Aves</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/67847d320573ff18b0384e22afe97ed8</url>
-              </taxon>
-              <taxon>
-                <id>b555241e73b541bdb5e4e976284b8ae9</id>
-                <name>Accipitriformes</name>
-                <rank>Order</rank>
-                <name_html>Accipitriformes</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/b555241e73b541bdb5e4e976284b8ae9</url>
-              </taxon>
-              <taxon>
-                <id>4edf7906db38144f0d48754d283de50a</id>
-                <name>Accipitridae</name>
-                <rank>Family</rank>
-                <name_html>Accipitridae</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/4edf7906db38144f0d48754d283de50a</url>
-              </taxon>
-              <taxon>
-                <id>8e6a94988edec781d3c32051cc69f4d9</id>
-                <name>Accipiter</name>
-                <rank>Genus</rank>
-                <name_html><i>Accipiter</i></name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/8e6a94988edec781d3c32051cc69f4d9</url>
-              </taxon>
-              <taxon>
-                <id>d349b58e7b60be92c17e5d10fedac0c1</id>
-                <name>striatus</name>
-                <rank>Species</rank>
-                <name_html><i>Accipiter striatus venator</i> Wetmore, 1914</name_html>
-                <url>http://www.catalogueoflife.org/col/details/species/id/d349b58e7b60be92c17e5d10fedac0c1</url>
-              </taxon>
-            </classification>
-            <child_taxa/>
-            <synonyms/>
-            <common_names/>
-          </result>
-        </results>
-  recorded_at: 2019-01-24 01:18:31 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc3VsdHMgaWQ9IiIgbmFtZT0iQWNjaXBpdGVyIHN0cmlhdHVzIiB0b3RhbF9udW1iZXJfb2ZfcmVzdWx0cz0iOCIgbnVtYmVyX29mX3Jlc3VsdHNfcmV0dXJuZWQ9IjgiIHN0YXJ0PSIwIiBlcnJvcl9tZXNzYWdlPSIiIHZlcnNpb249IjEuOSByZXYgMjEyNmFiMCIgcmFuaz0iIj4KICA8cmVzdWx0PgogICAgPGlkPmQzNDliNThlN2I2MGJlOTJjMTdlNWQxMGZlZGFjMGMxPC9pZD4KICAgIDxuYW1lPkFjY2lwaXRlciBzdHJpYXR1czwvbmFtZT4KICAgIDxyYW5rPlNwZWNpZXM8L3Jhbms+CiAgICA8bmFtZV9zdGF0dXM+YWNjZXB0ZWQgbmFtZTwvbmFtZV9zdGF0dXM+CiAgICA8Z2VudXM+QWNjaXBpdGVyPC9nZW51cz4KICAgIDxzdWJnZW51cz48L3N1YmdlbnVzPgogICAgPHNwZWNpZXM+c3RyaWF0dXM8L3NwZWNpZXM+CiAgICA8aW5mcmFzcGVjaWVzX21hcmtlcj48L2luZnJhc3BlY2llc19tYXJrZXI+CiAgICA8aW5mcmFzcGVjaWVzPjwvaW5mcmFzcGVjaWVzPgogICAgPGF1dGhvcj5WaWVpbGxvdCwgMTgwODwvYXV0aG9yPgogICAgPHJlY29yZF9zY3J1dGlueV9kYXRlPgogICAgICA8c2NydXRpbnk+MjItU2VwLTIwMTE8L3NjcnV0aW55PgogICAgPC9yZWNvcmRfc2NydXRpbnlfZGF0ZT4KICAgIDxvbmxpbmVfcmVzb3VyY2U+PCFbQ0RBVEFbaHR0cDovL3d3dy5pdGlzLmdvdi9zZXJ2bGV0L1NpbmdsZVJwdC9TaW5nbGVScHQ/c2VhcmNoX3RvcGljPVRTTiZzZWFyY2hfdmFsdWU9MTc1MzA0XV0+PC9vbmxpbmVfcmVzb3VyY2U+CiAgICA8aXNfZXh0aW5jdD5mYWxzZTwvaXNfZXh0aW5jdD4KICAgIDxzb3VyY2VfZGF0YWJhc2U+SVRJUyBHbG9iYWw6IFRoZSBJbnRlZ3JhdGVkIFRheG9ub21pYyBJbmZvcm1hdGlvbiBTeXN0ZW08L3NvdXJjZV9kYXRhYmFzZT4KICAgIDxzb3VyY2VfZGF0YWJhc2VfdXJsPmh0dHA6Ly93d3cuaXRpcy5nb3Y7Cmh0dHA6Ly93d3cuY2JpZi5nYy5jYS9hY3AvZW5nL2l0aXMvc2VhcmNoIChDYW5hZGEpPC9zb3VyY2VfZGF0YWJhc2VfdXJsPgogICAgPGJpYmxpb2dyYXBoaWNfY2l0YXRpb24+PCFbQ0RBVEFbVG9tIE9ycmVsbCAoY3VzdG9kaWFuKSwgRGF2ZSBOaWNvbHNvbiAoZWQpLiAoMjAxOSkuIElUSVMgR2xvYmFsOiBUaGUgSW50ZWdyYXRlZCBUYXhvbm9taWMgSW5mb3JtYXRpb24gU3lzdGVtICh2ZXJzaW9uIEp1biAyMDE3KS4gSW46IFNwZWNpZXMgMjAwMCAmIElUSVMgQ2F0YWxvZ3VlIG9mIExpZmUsIDIwMTkgQW5udWFsIENoZWNrbGlzdCAoUm9za292IFkuLCBPd2VyIEcuLCBPcnJlbGwgVC4sIE5pY29sc29uIEQuLCBCYWlsbHkgTi4sIEtpcmsgUC5NLiwgQm91cmdvaW4gVC4sIERlV2FsdCBSLkUuLCBEZWNvY2sgVy4sIE5pZXVrZXJrZW4gRS4gdmFuLCBaYXJ1Y2NoaSBKLiwgUGVuZXYgTC4sIGVkcy4pLiBEaWdpdGFsIHJlc291cmNlIGF0IHd3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2FubnVhbC1jaGVja2xpc3QvMjAxOS4gU3BlY2llcyAyMDAwOiBOYXR1cmFsaXMsIExlaWRlbiwgdGhlIE5ldGhlcmxhbmRzLiBJU1NOIDI0MDUtODg0WC5dXT48L2JpYmxpb2dyYXBoaWNfY2l0YXRpb24+CiAgICA8bmFtZV9odG1sPjxpPkFjY2lwaXRlciBzdHJpYXR1czwvaT4gVmllaWxsb3QsIDE4MDg8L25hbWVfaHRtbD4KICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9kZXRhaWxzL3NwZWNpZXMvaWQvZDM0OWI1OGU3YjYwYmU5MmMxN2U1ZDEwZmVkYWMwYzE8L3VybD4KICAgIDxkaXN0cmlidXRpb24+Q2FyaWJiZWFuIDEzMSAwOyBOb3J0aCBBbWVyaWNhIDEzMCAwPC9kaXN0cmlidXRpb24+CiAgICA8cmVmZXJlbmNlcz4KICAgICAgPHJlZmVyZW5jZT4KICAgICAgICA8YXV0aG9yPkdpbGwsIEZyYW5rLCBhbmQgTWludHVybiBXcmlnaHQ8L2F1dGhvcj4KICAgICAgICA8eWVhcj4yMDA2PC95ZWFyPgogICAgICAgIDx0aXRsZT48L3RpdGxlPgogICAgICAgIDxzb3VyY2U+QmlyZHMgb2YgdGhlIFdvcmxkOiBSZWNvbW1lbmRlZCBFbmdsaXNoIE5hbWVzPC9zb3VyY2U+CiAgICAgIDwvcmVmZXJlbmNlPgogICAgICA8cmVmZXJlbmNlPgogICAgICAgIDxhdXRob3I+PC9hdXRob3I+CiAgICAgICAgPHllYXI+MTk5NjwveWVhcj4KICAgICAgICA8dGl0bGU+PC90aXRsZT4KICAgICAgICA8c291cmNlPmRhdGFiYXNlLCBOT0RDIFRheG9ub21pYyBDb2RlPC9zb3VyY2U+CiAgICAgIDwvcmVmZXJlbmNlPgogICAgICA8cmVmZXJlbmNlPgogICAgICAgIDxhdXRob3I+QmFua3MsIFIuIEMuLCBSLiBXLiBNY0RpYXJtaWQsIEEuIEwuIEdhcmRuZXIsIGFuZCBXLiBDLiBTdGFybmVzPC9hdXRob3I+CiAgICAgICAgPHllYXI+MjAwMzwveWVhcj4KICAgICAgICA8dGl0bGU+PC90aXRsZT4KICAgICAgICA8c291cmNlPkNoZWNrbGlzdCBvZiBWZXJ0ZWJyYXRlcyBvZiB0aGUgVW5pdGVkIFN0YXRlcywgdGhlIFUuUy4gVGVycml0b3JpZXMsIGFuZCBDYW5hZGE8L3NvdXJjZT4KICAgICAgPC9yZWZlcmVuY2U+CiAgICAgIDxyZWZlcmVuY2U+CiAgICAgICAgPGF1dGhvcj5CYW5rcywgUi4gQy4sIFIuIFcuIE1jRGlhcm1pZCwgYW5kIEEuIEwuIEdhcmRuZXI8L2F1dGhvcj4KICAgICAgICA8eWVhcj4xOTg3PC95ZWFyPgogICAgICAgIDx0aXRsZT5DaGVja2xpc3Qgb2YgVmVydGVicmF0ZXMgb2YgdGhlIFVuaXRlZCBTdGF0ZXMsIHRoZSBVLlMuIFRlcnJpdG9yaWVzLCBhbmQgQ2FuYWRhPC90aXRsZT4KICAgICAgICA8c291cmNlPlJlc291cmNlIFB1YmxpY2F0aW9uLCBuby4gMTY2PC9zb3VyY2U+CiAgICAgIDwvcmVmZXJlbmNlPgogICAgICA8cmVmZXJlbmNlPgogICAgICAgIDxhdXRob3I+PC9hdXRob3I+CiAgICAgICAgPHllYXI+MjAxMTwveWVhcj4KICAgICAgICA8dGl0bGU+PC90aXRsZT4KICAgICAgICA8c291cmNlPklPQyBXb3JsZCBCaXJkIExpc3QsIE1hc3RlciBMaXN0IHYyLjk8L3NvdXJjZT4KICAgICAgPC9yZWZlcmVuY2U+CiAgICAgIDxyZWZlcmVuY2U+CiAgICAgICAgPGF1dGhvcj48L2F1dGhvcj4KICAgICAgICA8eWVhcj4yMDExPC95ZWFyPgogICAgICAgIDx0aXRsZT48L3RpdGxlPgogICAgICAgIDxzb3VyY2U+QU9VIENoZWNrLUxpc3QgKDA4LTIwMTEpPC9zb3VyY2U+CiAgICAgIDwvcmVmZXJlbmNlPgogICAgICA8cmVmZXJlbmNlPgogICAgICAgIDxhdXRob3I+PC9hdXRob3I+CiAgICAgICAgPHllYXI+MjAxMTwveWVhcj4KICAgICAgICA8dGl0bGU+PC90aXRsZT4KICAgICAgICA8c291cmNlPlpvb25vbWVuIC0gWm9vbG9naWNhbCBOb21lbmNsYXR1cmUgUmVzb3VyY2UsIDIwMTEuMDIuMjU8L3NvdXJjZT4KICAgICAgPC9yZWZlcmVuY2U+CiAgICA8L3JlZmVyZW5jZXM+CiAgICA8Y2xhc3NpZmljYXRpb24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+NWVkZTI0YjA1MzRlYmQ1ZTFmNTUyZDViOWY4NzRhNmE8L2lkPgogICAgICAgIDxuYW1lPkFuaW1hbGlhPC9uYW1lPgogICAgICAgIDxyYW5rPktpbmdkb208L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD5BbmltYWxpYTwvbmFtZV9odG1sPgogICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9icm93c2UvdHJlZS9pZC81ZWRlMjRiMDUzNGViZDVlMWY1NTJkNWI5Zjg3NGE2YTwvdXJsPgogICAgICA8L3RheG9uPgogICAgICA8dGF4b24+CiAgICAgICAgPGlkPjQzMTNiYzc2MzdlMWZjMWZlYjMxNmE0ZGVhMmI2NjhiPC9pZD4KICAgICAgICA8bmFtZT5DaG9yZGF0YTwvbmFtZT4KICAgICAgICA8cmFuaz5QaHlsdW08L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD5DaG9yZGF0YTwvbmFtZV9odG1sPgogICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9icm93c2UvdHJlZS9pZC80MzEzYmM3NjM3ZTFmYzFmZWIzMTZhNGRlYTJiNjY4YjwvdXJsPgogICAgICA8L3RheG9uPgogICAgICA8dGF4b24+CiAgICAgICAgPGlkPjY3ODQ3ZDMyMDU3M2ZmMThiMDM4NGUyMmFmZTk3ZWQ4PC9pZD4KICAgICAgICA8bmFtZT5BdmVzPC9uYW1lPgogICAgICAgIDxyYW5rPkNsYXNzPC9yYW5rPgogICAgICAgIDxuYW1lX2h0bWw+QXZlczwvbmFtZV9odG1sPgogICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9icm93c2UvdHJlZS9pZC82Nzg0N2QzMjA1NzNmZjE4YjAzODRlMjJhZmU5N2VkODwvdXJsPgogICAgICA8L3RheG9uPgogICAgICA8dGF4b24+CiAgICAgICAgPGlkPmI1NTUyNDFlNzNiNTQxYmRiNWU0ZTk3NjI4NGI4YWU5PC9pZD4KICAgICAgICA8bmFtZT5BY2NpcGl0cmlmb3JtZXM8L25hbWU+CiAgICAgICAgPHJhbms+T3JkZXI8L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD5BY2NpcGl0cmlmb3JtZXM8L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvYnJvd3NlL3RyZWUvaWQvYjU1NTI0MWU3M2I1NDFiZGI1ZTRlOTc2Mjg0YjhhZTk8L3VybD4KICAgICAgPC90YXhvbj4KICAgICAgPHRheG9uPgogICAgICAgIDxpZD40ZWRmNzkwNmRiMzgxNDRmMGQ0ODc1NGQyODNkZTUwYTwvaWQ+CiAgICAgICAgPG5hbWU+QWNjaXBpdHJpZGFlPC9uYW1lPgogICAgICAgIDxyYW5rPkZhbWlseTwvcmFuaz4KICAgICAgICA8bmFtZV9odG1sPkFjY2lwaXRyaWRhZTwvbmFtZV9odG1sPgogICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9icm93c2UvdHJlZS9pZC80ZWRmNzkwNmRiMzgxNDRmMGQ0ODc1NGQyODNkZTUwYTwvdXJsPgogICAgICA8L3RheG9uPgogICAgICA8dGF4b24+CiAgICAgICAgPGlkPjhlNmE5NDk4OGVkZWM3ODFkM2MzMjA1MWNjNjlmNGQ5PC9pZD4KICAgICAgICA8bmFtZT5BY2NpcGl0ZXI8L25hbWU+CiAgICAgICAgPHJhbms+R2VudXM8L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD48aT5BY2NpcGl0ZXI8L2k+PC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2Jyb3dzZS90cmVlL2lkLzhlNmE5NDk4OGVkZWM3ODFkM2MzMjA1MWNjNjlmNGQ5PC91cmw+CiAgICAgIDwvdGF4b24+CiAgICA8L2NsYXNzaWZpY2F0aW9uPgogICAgPGNoaWxkX3RheGE+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+MDY0NTQ1ZGVhZmI4ODJhMzNmOTc3ODI3NThlNWFmMzI8L2lkPgogICAgICAgIDxuYW1lPkFjY2lwaXRlciBzdHJpYXR1cyBmcmluZ2lsbG9pZGVzPC9uYW1lPgogICAgICAgIDxyYW5rPkluZnJhc3BlY2llczwvcmFuaz4KICAgICAgICA8bmFtZV9odG1sPjxpPkFjY2lwaXRlciBzdHJpYXR1cyBmcmluZ2lsbG9pZGVzPC9pPiBWaWdvcnMsIDE4Mjc8L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvZGV0YWlscy9zcGVjaWVzL2lkLzA2NDU0NWRlYWZiODgyYTMzZjk3NzgyNzU4ZTVhZjMyPC91cmw+CiAgICAgICAgPGlzX2V4dGluY3Q+ZmFsc2U8L2lzX2V4dGluY3Q+CiAgICAgIDwvdGF4b24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+NTMwNmRhYjNhYmM3NDBhZTJhNDNhMjQwOTFlZGU3OWE8L2lkPgogICAgICAgIDxuYW1lPkFjY2lwaXRlciBzdHJpYXR1cyBtYWRyZW5zaXM8L25hbWU+CiAgICAgICAgPHJhbms+SW5mcmFzcGVjaWVzPC9yYW5rPgogICAgICAgIDxuYW1lX2h0bWw+PGk+QWNjaXBpdGVyIHN0cmlhdHVzIG1hZHJlbnNpczwvaT4gU3RvcmVyLCAxOTUyPC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2RldGFpbHMvc3BlY2llcy9pZC81MzA2ZGFiM2FiYzc0MGFlMmE0M2EyNDA5MWVkZTc5YTwvdXJsPgogICAgICAgIDxpc19leHRpbmN0PmZhbHNlPC9pc19leHRpbmN0PgogICAgICA8L3RheG9uPgogICAgICA8dGF4b24+CiAgICAgICAgPGlkPjJhMzc3OGI0NTgwYjVmMjQxNTQ2OTc1MTYwMjUxZWRmPC9pZD4KICAgICAgICA8bmFtZT5BY2NpcGl0ZXIgc3RyaWF0dXMgcGVyb2JzY3VydXM8L25hbWU+CiAgICAgICAgPHJhbms+SW5mcmFzcGVjaWVzPC9yYW5rPgogICAgICAgIDxuYW1lX2h0bWw+PGk+QWNjaXBpdGVyIHN0cmlhdHVzIHBlcm9ic2N1cnVzPC9pPiBTbnlkZXIsIDE5Mzg8L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvZGV0YWlscy9zcGVjaWVzL2lkLzJhMzc3OGI0NTgwYjVmMjQxNTQ2OTc1MTYwMjUxZWRmPC91cmw+CiAgICAgICAgPGlzX2V4dGluY3Q+ZmFsc2U8L2lzX2V4dGluY3Q+CiAgICAgIDwvdGF4b24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+MzZkOTg0ZjM1NzM5ZGE5YzM4MTcxN2IwYmQ1NDc0YzY8L2lkPgogICAgICAgIDxuYW1lPkFjY2lwaXRlciBzdHJpYXR1cyBzdHJpYXR1czwvbmFtZT4KICAgICAgICA8cmFuaz5JbmZyYXNwZWNpZXM8L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD48aT5BY2NpcGl0ZXIgc3RyaWF0dXMgc3RyaWF0dXM8L2k+IFZpZWlsbG90LCAxODA4PC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2RldGFpbHMvc3BlY2llcy9pZC8zNmQ5ODRmMzU3MzlkYTljMzgxNzE3YjBiZDU0NzRjNjwvdXJsPgogICAgICAgIDxpc19leHRpbmN0PmZhbHNlPC9pc19leHRpbmN0PgogICAgICA8L3RheG9uPgogICAgICA8dGF4b24+CiAgICAgICAgPGlkPjdmOTg1MjJmZThjN2Q1NDBhMjY1NzY1Y2RkMjE0OGMxPC9pZD4KICAgICAgICA8bmFtZT5BY2NpcGl0ZXIgc3RyaWF0dXMgc3V0dG9uaTwvbmFtZT4KICAgICAgICA8cmFuaz5JbmZyYXNwZWNpZXM8L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD48aT5BY2NpcGl0ZXIgc3RyaWF0dXMgc3V0dG9uaTwvaT4gdmFuIFJvc3NlbSwgMTkzOTwvbmFtZV9odG1sPgogICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9kZXRhaWxzL3NwZWNpZXMvaWQvN2Y5ODUyMmZlOGM3ZDU0MGEyNjU3NjVjZGQyMTQ4YzE8L3VybD4KICAgICAgICA8aXNfZXh0aW5jdD5mYWxzZTwvaXNfZXh0aW5jdD4KICAgICAgPC90YXhvbj4KICAgICAgPHRheG9uPgogICAgICAgIDxpZD5hM2MzMThhOGRhMTg0ZjM2ZGQzOWRhYmIyZGZjMDhjNDwvaWQ+CiAgICAgICAgPG5hbWU+QWNjaXBpdGVyIHN0cmlhdHVzIHZlbG94PC9uYW1lPgogICAgICAgIDxyYW5rPkluZnJhc3BlY2llczwvcmFuaz4KICAgICAgICA8bmFtZV9odG1sPjxpPkFjY2lwaXRlciBzdHJpYXR1cyB2ZWxveDwvaT4gKEEuIFdpbHNvbiwgMTgxMik8L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvZGV0YWlscy9zcGVjaWVzL2lkL2EzYzMxOGE4ZGExODRmMzZkZDM5ZGFiYjJkZmMwOGM0PC91cmw+CiAgICAgICAgPGlzX2V4dGluY3Q+ZmFsc2U8L2lzX2V4dGluY3Q+CiAgICAgIDwvdGF4b24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+NWNhZjNhZTY1NWI0MDA2ZDMxZDc1YzJiY2RiYjEyYzU8L2lkPgogICAgICAgIDxuYW1lPkFjY2lwaXRlciBzdHJpYXR1cyB2ZW5hdG9yPC9uYW1lPgogICAgICAgIDxyYW5rPkluZnJhc3BlY2llczwvcmFuaz4KICAgICAgICA8bmFtZV9odG1sPjxpPkFjY2lwaXRlciBzdHJpYXR1cyB2ZW5hdG9yPC9pPiBXZXRtb3JlLCAxOTE0PC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2RldGFpbHMvc3BlY2llcy9pZC81Y2FmM2FlNjU1YjQwMDZkMzFkNzVjMmJjZGJiMTJjNTwvdXJsPgogICAgICAgIDxpc19leHRpbmN0PmZhbHNlPC9pc19leHRpbmN0PgogICAgICA8L3RheG9uPgogICAgPC9jaGlsZF90YXhhPgogICAgPHN5bm9ueW1zLz4KICAgIDxjb21tb25fbmFtZXM+CiAgICAgIDxjb21tb25fbmFtZT4KICAgICAgICA8bmFtZT5TaGFycC1zaGlubmVkIEhhd2s8L25hbWU+CiAgICAgICAgPGxhbmd1YWdlPkVuZ2xpc2g8L2xhbmd1YWdlPgogICAgICAgIDxjb3VudHJ5PjwvY291bnRyeT4KICAgICAgICA8cmVmZXJlbmNlcz4KICAgICAgICAgIDxyZWZlcmVuY2U+CiAgICAgICAgICAgIDxhdXRob3I+R2lsbCwgRnJhbmssIGFuZCBNaW50dXJuIFdyaWdodDwvYXV0aG9yPgogICAgICAgICAgICA8eWVhcj4yMDA2PC95ZWFyPgogICAgICAgICAgICA8dGl0bGU+PC90aXRsZT4KICAgICAgICAgICAgPHNvdXJjZT5CaXJkcyBvZiB0aGUgV29ybGQ6IFJlY29tbWVuZGVkIEVuZ2xpc2ggTmFtZXM8L3NvdXJjZT4KICAgICAgICAgIDwvcmVmZXJlbmNlPgogICAgICAgICAgPHJlZmVyZW5jZT4KICAgICAgICAgICAgPGF1dGhvcj48L2F1dGhvcj4KICAgICAgICAgICAgPHllYXI+MjAwNTwveWVhcj4KICAgICAgICAgICAgPHRpdGxlPjwvdGl0bGU+CiAgICAgICAgICAgIDxzb3VyY2U+d2Vic2l0ZSwgQU9VIENoZWNrLUxpc3QgKDA3LTIwMDUpPC9zb3VyY2U+CiAgICAgICAgICA8L3JlZmVyZW5jZT4KICAgICAgICAgIDxyZWZlcmVuY2U+CiAgICAgICAgICAgIDxhdXRob3I+PC9hdXRob3I+CiAgICAgICAgICAgIDx5ZWFyPjIwMDM8L3llYXI+CiAgICAgICAgICAgIDx0aXRsZT48L3RpdGxlPgogICAgICAgICAgICA8c291cmNlPmRhdGFiYXNlLCBodHRwOi8vd3d3Lm1lbnYuZ291di5xYy5jYS9iaW9kaXZlcnNpdGUvY2VudHJlLmh0bTwvc291cmNlPgogICAgICAgICAgPC9yZWZlcmVuY2U+CiAgICAgICAgICA8cmVmZXJlbmNlPgogICAgICAgICAgICA8YXV0aG9yPjwvYXV0aG9yPgogICAgICAgICAgICA8eWVhcj4yMDExPC95ZWFyPgogICAgICAgICAgICA8dGl0bGU+PC90aXRsZT4KICAgICAgICAgICAgPHNvdXJjZT5JT0MgV29ybGQgQmlyZCBMaXN0LCBNYXN0ZXIgTGlzdCB2Mi45PC9zb3VyY2U+CiAgICAgICAgICA8L3JlZmVyZW5jZT4KICAgICAgICAgIDxyZWZlcmVuY2U+CiAgICAgICAgICAgIDxhdXRob3I+PC9hdXRob3I+CiAgICAgICAgICAgIDx5ZWFyPjIwMTE8L3llYXI+CiAgICAgICAgICAgIDx0aXRsZT48L3RpdGxlPgogICAgICAgICAgICA8c291cmNlPkFPVSBDaGVjay1MaXN0ICgwOC0yMDExKTwvc291cmNlPgogICAgICAgICAgPC9yZWZlcmVuY2U+CiAgICAgICAgPC9yZWZlcmVuY2VzPgogICAgICA8L2NvbW1vbl9uYW1lPgogICAgICA8Y29tbW9uX25hbWU+CiAgICAgICAgPG5hbWU+w4lwZXJ2aWVyIGJydW48L25hbWU+CiAgICAgICAgPGxhbmd1YWdlPkZyZW5jaDwvbGFuZ3VhZ2U+CiAgICAgICAgPGNvdW50cnk+PC9jb3VudHJ5PgogICAgICAgIDxyZWZlcmVuY2VzPgogICAgICAgICAgPHJlZmVyZW5jZT4KICAgICAgICAgICAgPGF1dGhvcj48L2F1dGhvcj4KICAgICAgICAgICAgPHllYXI+MjAwMzwveWVhcj4KICAgICAgICAgICAgPHRpdGxlPjwvdGl0bGU+CiAgICAgICAgICAgIDxzb3VyY2U+ZGF0YWJhc2UsIGh0dHA6Ly93d3cubWVudi5nb3V2LnFjLmNhL2Jpb2RpdmVyc2l0ZS9jZW50cmUuaHRtPC9zb3VyY2U+CiAgICAgICAgICA8L3JlZmVyZW5jZT4KICAgICAgICAgIDxyZWZlcmVuY2U+CiAgICAgICAgICAgIDxhdXRob3I+PC9hdXRob3I+CiAgICAgICAgICAgIDx5ZWFyPjIwMTE8L3llYXI+CiAgICAgICAgICAgIDx0aXRsZT48L3RpdGxlPgogICAgICAgICAgICA8c291cmNlPkFPVSBDaGVjay1MaXN0ICgwOC0yMDExKTwvc291cmNlPgogICAgICAgICAgPC9yZWZlcmVuY2U+CiAgICAgICAgPC9yZWZlcmVuY2VzPgogICAgICA8L2NvbW1vbl9uYW1lPgogICAgICA8Y29tbW9uX25hbWU+CiAgICAgICAgPG5hbWU+R2F2aWzDoW4gcGVjaG8gcnVmbzwvbmFtZT4KICAgICAgICA8bGFuZ3VhZ2U+U3BhbmlzaDwvbGFuZ3VhZ2U+CiAgICAgICAgPGNvdW50cnk+PC9jb3VudHJ5PgogICAgICAgIDxyZWZlcmVuY2VzPgogICAgICAgICAgPHJlZmVyZW5jZT4KICAgICAgICAgICAgPGF1dGhvcj48L2F1dGhvcj4KICAgICAgICAgICAgPHllYXI+MjAwMTwveWVhcj4KICAgICAgICAgICAgPHRpdGxlPjwvdGl0bGU+CiAgICAgICAgICAgIDxzb3VyY2U+ZGF0YWJhc2UsIENvbWlzacOzbiBOYWNpb25hbCBwYXJhIGVsIENvbm9jaW1pZW50byB5IFVzbyBkZSBsYSBCaW9kaXZlcnNpZGFkPC9zb3VyY2U+CiAgICAgICAgICA8L3JlZmVyZW5jZT4KICAgICAgICA8L3JlZmVyZW5jZXM+CiAgICAgIDwvY29tbW9uX25hbWU+CiAgICA8L2NvbW1vbl9uYW1lcz4KICA8L3Jlc3VsdD4KICA8cmVzdWx0PgogICAgPGlkPjA2NDU0NWRlYWZiODgyYTMzZjk3NzgyNzU4ZTVhZjMyPC9pZD4KICAgIDxuYW1lPkFjY2lwaXRlciBzdHJpYXR1cyBmcmluZ2lsbG9pZGVzPC9uYW1lPgogICAgPHJhbms+SW5mcmFzcGVjaWVzPC9yYW5rPgogICAgPG5hbWVfc3RhdHVzPmFjY2VwdGVkIG5hbWU8L25hbWVfc3RhdHVzPgogICAgPGdlbnVzPkFjY2lwaXRlcjwvZ2VudXM+CiAgICA8c3ViZ2VudXM+PC9zdWJnZW51cz4KICAgIDxzcGVjaWVzPnN0cmlhdHVzPC9zcGVjaWVzPgogICAgPGluZnJhc3BlY2llc19tYXJrZXI+PC9pbmZyYXNwZWNpZXNfbWFya2VyPgogICAgPGluZnJhc3BlY2llcz5mcmluZ2lsbG9pZGVzPC9pbmZyYXNwZWNpZXM+CiAgICA8YXV0aG9yPlZpZ29ycywgMTgyNzwvYXV0aG9yPgogICAgPHJlY29yZF9zY3J1dGlueV9kYXRlPgogICAgICA8c2NydXRpbnk+MjItU2VwLTIwMTE8L3NjcnV0aW55PgogICAgPC9yZWNvcmRfc2NydXRpbnlfZGF0ZT4KICAgIDxvbmxpbmVfcmVzb3VyY2U+PCFbQ0RBVEFbaHR0cDovL3d3dy5pdGlzLmdvdi9zZXJ2bGV0L1NpbmdsZVJwdC9TaW5nbGVScHQ/c2VhcmNoX3RvcGljPVRTTiZzZWFyY2hfdmFsdWU9ODI0MzMyXV0+PC9vbmxpbmVfcmVzb3VyY2U+CiAgICA8aXNfZXh0aW5jdD5mYWxzZTwvaXNfZXh0aW5jdD4KICAgIDxzb3VyY2VfZGF0YWJhc2U+SVRJUyBHbG9iYWw6IFRoZSBJbnRlZ3JhdGVkIFRheG9ub21pYyBJbmZvcm1hdGlvbiBTeXN0ZW08L3NvdXJjZV9kYXRhYmFzZT4KICAgIDxzb3VyY2VfZGF0YWJhc2VfdXJsPmh0dHA6Ly93d3cuaXRpcy5nb3Y7Cmh0dHA6Ly93d3cuY2JpZi5nYy5jYS9hY3AvZW5nL2l0aXMvc2VhcmNoIChDYW5hZGEpPC9zb3VyY2VfZGF0YWJhc2VfdXJsPgogICAgPGJpYmxpb2dyYXBoaWNfY2l0YXRpb24+PCFbQ0RBVEFbVG9tIE9ycmVsbCAoY3VzdG9kaWFuKSwgRGF2ZSBOaWNvbHNvbiAoZWQpLiAoMjAxOSkuIElUSVMgR2xvYmFsOiBUaGUgSW50ZWdyYXRlZCBUYXhvbm9taWMgSW5mb3JtYXRpb24gU3lzdGVtICh2ZXJzaW9uIEp1biAyMDE3KS4gSW46IFNwZWNpZXMgMjAwMCAmIElUSVMgQ2F0YWxvZ3VlIG9mIExpZmUsIDIwMTkgQW5udWFsIENoZWNrbGlzdCAoUm9za292IFkuLCBPd2VyIEcuLCBPcnJlbGwgVC4sIE5pY29sc29uIEQuLCBCYWlsbHkgTi4sIEtpcmsgUC5NLiwgQm91cmdvaW4gVC4sIERlV2FsdCBSLkUuLCBEZWNvY2sgVy4sIE5pZXVrZXJrZW4gRS4gdmFuLCBaYXJ1Y2NoaSBKLiwgUGVuZXYgTC4sIGVkcy4pLiBEaWdpdGFsIHJlc291cmNlIGF0IHd3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2FubnVhbC1jaGVja2xpc3QvMjAxOS4gU3BlY2llcyAyMDAwOiBOYXR1cmFsaXMsIExlaWRlbiwgdGhlIE5ldGhlcmxhbmRzLiBJU1NOIDI0MDUtODg0WC5dXT48L2JpYmxpb2dyYXBoaWNfY2l0YXRpb24+CiAgICA8bmFtZV9odG1sPjxpPkFjY2lwaXRlciBzdHJpYXR1cyBmcmluZ2lsbG9pZGVzPC9pPiBWaWdvcnMsIDE4Mjc8L25hbWVfaHRtbD4KICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9icm93c2UvdHJlZS9pZC8wNjQ1NDVkZWFmYjg4MmEzM2Y5Nzc4Mjc1OGU1YWYzMjwvdXJsPgogICAgPGRpc3RyaWJ1dGlvbj48L2Rpc3RyaWJ1dGlvbj4KICAgIDxyZWZlcmVuY2VzPgogICAgICA8cmVmZXJlbmNlPgogICAgICAgIDxhdXRob3I+PC9hdXRob3I+CiAgICAgICAgPHllYXI+MjAxMTwveWVhcj4KICAgICAgICA8dGl0bGU+PC90aXRsZT4KICAgICAgICA8c291cmNlPlpvb25vbWVuIC0gWm9vbG9naWNhbCBOb21lbmNsYXR1cmUgUmVzb3VyY2UsIDIwMTEuMDIuMjU8L3NvdXJjZT4KICAgICAgPC9yZWZlcmVuY2U+CiAgICA8L3JlZmVyZW5jZXM+CiAgICA8Y2xhc3NpZmljYXRpb24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+NWVkZTI0YjA1MzRlYmQ1ZTFmNTUyZDViOWY4NzRhNmE8L2lkPgogICAgICAgIDxuYW1lPkFuaW1hbGlhPC9uYW1lPgogICAgICAgIDxyYW5rPktpbmdkb208L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD5BbmltYWxpYTwvbmFtZV9odG1sPgogICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9icm93c2UvdHJlZS9pZC81ZWRlMjRiMDUzNGViZDVlMWY1NTJkNWI5Zjg3NGE2YTwvdXJsPgogICAgICA8L3RheG9uPgogICAgICA8dGF4b24+CiAgICAgICAgPGlkPjQzMTNiYzc2MzdlMWZjMWZlYjMxNmE0ZGVhMmI2NjhiPC9pZD4KICAgICAgICA8bmFtZT5DaG9yZGF0YTwvbmFtZT4KICAgICAgICA8cmFuaz5QaHlsdW08L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD5DaG9yZGF0YTwvbmFtZV9odG1sPgogICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9icm93c2UvdHJlZS9pZC80MzEzYmM3NjM3ZTFmYzFmZWIzMTZhNGRlYTJiNjY4YjwvdXJsPgogICAgICA8L3RheG9uPgogICAgICA8dGF4b24+CiAgICAgICAgPGlkPjY3ODQ3ZDMyMDU3M2ZmMThiMDM4NGUyMmFmZTk3ZWQ4PC9pZD4KICAgICAgICA8bmFtZT5BdmVzPC9uYW1lPgogICAgICAgIDxyYW5rPkNsYXNzPC9yYW5rPgogICAgICAgIDxuYW1lX2h0bWw+QXZlczwvbmFtZV9odG1sPgogICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9icm93c2UvdHJlZS9pZC82Nzg0N2QzMjA1NzNmZjE4YjAzODRlMjJhZmU5N2VkODwvdXJsPgogICAgICA8L3RheG9uPgogICAgICA8dGF4b24+CiAgICAgICAgPGlkPmI1NTUyNDFlNzNiNTQxYmRiNWU0ZTk3NjI4NGI4YWU5PC9pZD4KICAgICAgICA8bmFtZT5BY2NpcGl0cmlmb3JtZXM8L25hbWU+CiAgICAgICAgPHJhbms+T3JkZXI8L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD5BY2NpcGl0cmlmb3JtZXM8L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvYnJvd3NlL3RyZWUvaWQvYjU1NTI0MWU3M2I1NDFiZGI1ZTRlOTc2Mjg0YjhhZTk8L3VybD4KICAgICAgPC90YXhvbj4KICAgICAgPHRheG9uPgogICAgICAgIDxpZD40ZWRmNzkwNmRiMzgxNDRmMGQ0ODc1NGQyODNkZTUwYTwvaWQ+CiAgICAgICAgPG5hbWU+QWNjaXBpdHJpZGFlPC9uYW1lPgogICAgICAgIDxyYW5rPkZhbWlseTwvcmFuaz4KICAgICAgICA8bmFtZV9odG1sPkFjY2lwaXRyaWRhZTwvbmFtZV9odG1sPgogICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9icm93c2UvdHJlZS9pZC80ZWRmNzkwNmRiMzgxNDRmMGQ0ODc1NGQyODNkZTUwYTwvdXJsPgogICAgICA8L3RheG9uPgogICAgICA8dGF4b24+CiAgICAgICAgPGlkPjhlNmE5NDk4OGVkZWM3ODFkM2MzMjA1MWNjNjlmNGQ5PC9pZD4KICAgICAgICA8bmFtZT5BY2NpcGl0ZXI8L25hbWU+CiAgICAgICAgPHJhbms+R2VudXM8L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD48aT5BY2NpcGl0ZXI8L2k+PC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2Jyb3dzZS90cmVlL2lkLzhlNmE5NDk4OGVkZWM3ODFkM2MzMjA1MWNjNjlmNGQ5PC91cmw+CiAgICAgIDwvdGF4b24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+ZDM0OWI1OGU3YjYwYmU5MmMxN2U1ZDEwZmVkYWMwYzE8L2lkPgogICAgICAgIDxuYW1lPnN0cmlhdHVzPC9uYW1lPgogICAgICAgIDxyYW5rPlNwZWNpZXM8L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD48aT5BY2NpcGl0ZXIgc3RyaWF0dXMgZnJpbmdpbGxvaWRlczwvaT4gVmlnb3JzLCAxODI3PC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2RldGFpbHMvc3BlY2llcy9pZC9kMzQ5YjU4ZTdiNjBiZTkyYzE3ZTVkMTBmZWRhYzBjMTwvdXJsPgogICAgICA8L3RheG9uPgogICAgPC9jbGFzc2lmaWNhdGlvbj4KICAgIDxjaGlsZF90YXhhLz4KICAgIDxzeW5vbnltcy8+CiAgICA8Y29tbW9uX25hbWVzLz4KICA8L3Jlc3VsdD4KICA8cmVzdWx0PgogICAgPGlkPjUzMDZkYWIzYWJjNzQwYWUyYTQzYTI0MDkxZWRlNzlhPC9pZD4KICAgIDxuYW1lPkFjY2lwaXRlciBzdHJpYXR1cyBtYWRyZW5zaXM8L25hbWU+CiAgICA8cmFuaz5JbmZyYXNwZWNpZXM8L3Jhbms+CiAgICA8bmFtZV9zdGF0dXM+YWNjZXB0ZWQgbmFtZTwvbmFtZV9zdGF0dXM+CiAgICA8Z2VudXM+QWNjaXBpdGVyPC9nZW51cz4KICAgIDxzdWJnZW51cz48L3N1YmdlbnVzPgogICAgPHNwZWNpZXM+c3RyaWF0dXM8L3NwZWNpZXM+CiAgICA8aW5mcmFzcGVjaWVzX21hcmtlcj48L2luZnJhc3BlY2llc19tYXJrZXI+CiAgICA8aW5mcmFzcGVjaWVzPm1hZHJlbnNpczwvaW5mcmFzcGVjaWVzPgogICAgPGF1dGhvcj5TdG9yZXIsIDE5NTI8L2F1dGhvcj4KICAgIDxyZWNvcmRfc2NydXRpbnlfZGF0ZT4KICAgICAgPHNjcnV0aW55PjIyLVNlcC0yMDExPC9zY3J1dGlueT4KICAgIDwvcmVjb3JkX3NjcnV0aW55X2RhdGU+CiAgICA8b25saW5lX3Jlc291cmNlPjwhW0NEQVRBW2h0dHA6Ly93d3cuaXRpcy5nb3Yvc2VydmxldC9TaW5nbGVScHQvU2luZ2xlUnB0P3NlYXJjaF90b3BpYz1UU04mc2VhcmNoX3ZhbHVlPTgyNDMzM11dPjwvb25saW5lX3Jlc291cmNlPgogICAgPGlzX2V4dGluY3Q+ZmFsc2U8L2lzX2V4dGluY3Q+CiAgICA8c291cmNlX2RhdGFiYXNlPklUSVMgR2xvYmFsOiBUaGUgSW50ZWdyYXRlZCBUYXhvbm9taWMgSW5mb3JtYXRpb24gU3lzdGVtPC9zb3VyY2VfZGF0YWJhc2U+CiAgICA8c291cmNlX2RhdGFiYXNlX3VybD5odHRwOi8vd3d3Lml0aXMuZ292OwpodHRwOi8vd3d3LmNiaWYuZ2MuY2EvYWNwL2VuZy9pdGlzL3NlYXJjaCAoQ2FuYWRhKTwvc291cmNlX2RhdGFiYXNlX3VybD4KICAgIDxiaWJsaW9ncmFwaGljX2NpdGF0aW9uPjwhW0NEQVRBW1RvbSBPcnJlbGwgKGN1c3RvZGlhbiksIERhdmUgTmljb2xzb24gKGVkKS4gKDIwMTkpLiBJVElTIEdsb2JhbDogVGhlIEludGVncmF0ZWQgVGF4b25vbWljIEluZm9ybWF0aW9uIFN5c3RlbSAodmVyc2lvbiBKdW4gMjAxNykuIEluOiBTcGVjaWVzIDIwMDAgJiBJVElTIENhdGFsb2d1ZSBvZiBMaWZlLCAyMDE5IEFubnVhbCBDaGVja2xpc3QgKFJvc2tvdiBZLiwgT3dlciBHLiwgT3JyZWxsIFQuLCBOaWNvbHNvbiBELiwgQmFpbGx5IE4uLCBLaXJrIFAuTS4sIEJvdXJnb2luIFQuLCBEZVdhbHQgUi5FLiwgRGVjb2NrIFcuLCBOaWV1a2Vya2VuIEUuIHZhbiwgWmFydWNjaGkgSi4sIFBlbmV2IEwuLCBlZHMuKS4gRGlnaXRhbCByZXNvdXJjZSBhdCB3d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9hbm51YWwtY2hlY2tsaXN0LzIwMTkuIFNwZWNpZXMgMjAwMDogTmF0dXJhbGlzLCBMZWlkZW4sIHRoZSBOZXRoZXJsYW5kcy4gSVNTTiAyNDA1LTg4NFguXV0+PC9iaWJsaW9ncmFwaGljX2NpdGF0aW9uPgogICAgPG5hbWVfaHRtbD48aT5BY2NpcGl0ZXIgc3RyaWF0dXMgbWFkcmVuc2lzPC9pPiBTdG9yZXIsIDE5NTI8L25hbWVfaHRtbD4KICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9icm93c2UvdHJlZS9pZC81MzA2ZGFiM2FiYzc0MGFlMmE0M2EyNDA5MWVkZTc5YTwvdXJsPgogICAgPGRpc3RyaWJ1dGlvbj48L2Rpc3RyaWJ1dGlvbj4KICAgIDxyZWZlcmVuY2VzPgogICAgICA8cmVmZXJlbmNlPgogICAgICAgIDxhdXRob3I+PC9hdXRob3I+CiAgICAgICAgPHllYXI+MjAxMTwveWVhcj4KICAgICAgICA8dGl0bGU+PC90aXRsZT4KICAgICAgICA8c291cmNlPlpvb25vbWVuIC0gWm9vbG9naWNhbCBOb21lbmNsYXR1cmUgUmVzb3VyY2UsIDIwMTEuMDIuMjU8L3NvdXJjZT4KICAgICAgPC9yZWZlcmVuY2U+CiAgICA8L3JlZmVyZW5jZXM+CiAgICA8Y2xhc3NpZmljYXRpb24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+NWVkZTI0YjA1MzRlYmQ1ZTFmNTUyZDViOWY4NzRhNmE8L2lkPgogICAgICAgIDxuYW1lPkFuaW1hbGlhPC9uYW1lPgogICAgICAgIDxyYW5rPktpbmdkb208L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD5BbmltYWxpYTwvbmFtZV9odG1sPgogICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9icm93c2UvdHJlZS9pZC81ZWRlMjRiMDUzNGViZDVlMWY1NTJkNWI5Zjg3NGE2YTwvdXJsPgogICAgICA8L3RheG9uPgogICAgICA8dGF4b24+CiAgICAgICAgPGlkPjQzMTNiYzc2MzdlMWZjMWZlYjMxNmE0ZGVhMmI2NjhiPC9pZD4KICAgICAgICA8bmFtZT5DaG9yZGF0YTwvbmFtZT4KICAgICAgICA8cmFuaz5QaHlsdW08L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD5DaG9yZGF0YTwvbmFtZV9odG1sPgogICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9icm93c2UvdHJlZS9pZC80MzEzYmM3NjM3ZTFmYzFmZWIzMTZhNGRlYTJiNjY4YjwvdXJsPgogICAgICA8L3RheG9uPgogICAgICA8dGF4b24+CiAgICAgICAgPGlkPjY3ODQ3ZDMyMDU3M2ZmMThiMDM4NGUyMmFmZTk3ZWQ4PC9pZD4KICAgICAgICA8bmFtZT5BdmVzPC9uYW1lPgogICAgICAgIDxyYW5rPkNsYXNzPC9yYW5rPgogICAgICAgIDxuYW1lX2h0bWw+QXZlczwvbmFtZV9odG1sPgogICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9icm93c2UvdHJlZS9pZC82Nzg0N2QzMjA1NzNmZjE4YjAzODRlMjJhZmU5N2VkODwvdXJsPgogICAgICA8L3RheG9uPgogICAgICA8dGF4b24+CiAgICAgICAgPGlkPmI1NTUyNDFlNzNiNTQxYmRiNWU0ZTk3NjI4NGI4YWU5PC9pZD4KICAgICAgICA8bmFtZT5BY2NpcGl0cmlmb3JtZXM8L25hbWU+CiAgICAgICAgPHJhbms+T3JkZXI8L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD5BY2NpcGl0cmlmb3JtZXM8L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvYnJvd3NlL3RyZWUvaWQvYjU1NTI0MWU3M2I1NDFiZGI1ZTRlOTc2Mjg0YjhhZTk8L3VybD4KICAgICAgPC90YXhvbj4KICAgICAgPHRheG9uPgogICAgICAgIDxpZD40ZWRmNzkwNmRiMzgxNDRmMGQ0ODc1NGQyODNkZTUwYTwvaWQ+CiAgICAgICAgPG5hbWU+QWNjaXBpdHJpZGFlPC9uYW1lPgogICAgICAgIDxyYW5rPkZhbWlseTwvcmFuaz4KICAgICAgICA8bmFtZV9odG1sPkFjY2lwaXRyaWRhZTwvbmFtZV9odG1sPgogICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9icm93c2UvdHJlZS9pZC80ZWRmNzkwNmRiMzgxNDRmMGQ0ODc1NGQyODNkZTUwYTwvdXJsPgogICAgICA8L3RheG9uPgogICAgICA8dGF4b24+CiAgICAgICAgPGlkPjhlNmE5NDk4OGVkZWM3ODFkM2MzMjA1MWNjNjlmNGQ5PC9pZD4KICAgICAgICA8bmFtZT5BY2NpcGl0ZXI8L25hbWU+CiAgICAgICAgPHJhbms+R2VudXM8L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD48aT5BY2NpcGl0ZXI8L2k+PC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2Jyb3dzZS90cmVlL2lkLzhlNmE5NDk4OGVkZWM3ODFkM2MzMjA1MWNjNjlmNGQ5PC91cmw+CiAgICAgIDwvdGF4b24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+ZDM0OWI1OGU3YjYwYmU5MmMxN2U1ZDEwZmVkYWMwYzE8L2lkPgogICAgICAgIDxuYW1lPnN0cmlhdHVzPC9uYW1lPgogICAgICAgIDxyYW5rPlNwZWNpZXM8L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD48aT5BY2NpcGl0ZXIgc3RyaWF0dXMgbWFkcmVuc2lzPC9pPiBTdG9yZXIsIDE5NTI8L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvZGV0YWlscy9zcGVjaWVzL2lkL2QzNDliNThlN2I2MGJlOTJjMTdlNWQxMGZlZGFjMGMxPC91cmw+CiAgICAgIDwvdGF4b24+CiAgICA8L2NsYXNzaWZpY2F0aW9uPgogICAgPGNoaWxkX3RheGEvPgogICAgPHN5bm9ueW1zLz4KICAgIDxjb21tb25fbmFtZXMvPgogIDwvcmVzdWx0PgogIDxyZXN1bHQ+CiAgICA8aWQ+MmEzNzc4YjQ1ODBiNWYyNDE1NDY5NzUxNjAyNTFlZGY8L2lkPgogICAgPG5hbWU+QWNjaXBpdGVyIHN0cmlhdHVzIHBlcm9ic2N1cnVzPC9uYW1lPgogICAgPHJhbms+SW5mcmFzcGVjaWVzPC9yYW5rPgogICAgPG5hbWVfc3RhdHVzPmFjY2VwdGVkIG5hbWU8L25hbWVfc3RhdHVzPgogICAgPGdlbnVzPkFjY2lwaXRlcjwvZ2VudXM+CiAgICA8c3ViZ2VudXM+PC9zdWJnZW51cz4KICAgIDxzcGVjaWVzPnN0cmlhdHVzPC9zcGVjaWVzPgogICAgPGluZnJhc3BlY2llc19tYXJrZXI+PC9pbmZyYXNwZWNpZXNfbWFya2VyPgogICAgPGluZnJhc3BlY2llcz5wZXJvYnNjdXJ1czwvaW5mcmFzcGVjaWVzPgogICAgPGF1dGhvcj5TbnlkZXIsIDE5Mzg8L2F1dGhvcj4KICAgIDxyZWNvcmRfc2NydXRpbnlfZGF0ZT4KICAgICAgPHNjcnV0aW55PjIyLVNlcC0yMDExPC9zY3J1dGlueT4KICAgIDwvcmVjb3JkX3NjcnV0aW55X2RhdGU+CiAgICA8b25saW5lX3Jlc291cmNlPjwhW0NEQVRBW2h0dHA6Ly93d3cuaXRpcy5nb3Yvc2VydmxldC9TaW5nbGVScHQvU2luZ2xlUnB0P3NlYXJjaF90b3BpYz1UU04mc2VhcmNoX3ZhbHVlPTE3NTMwN11dPjwvb25saW5lX3Jlc291cmNlPgogICAgPGlzX2V4dGluY3Q+ZmFsc2U8L2lzX2V4dGluY3Q+CiAgICA8c291cmNlX2RhdGFiYXNlPklUSVMgR2xvYmFsOiBUaGUgSW50ZWdyYXRlZCBUYXhvbm9taWMgSW5mb3JtYXRpb24gU3lzdGVtPC9zb3VyY2VfZGF0YWJhc2U+CiAgICA8c291cmNlX2RhdGFiYXNlX3VybD5odHRwOi8vd3d3Lml0aXMuZ292OwpodHRwOi8vd3d3LmNiaWYuZ2MuY2EvYWNwL2VuZy9pdGlzL3NlYXJjaCAoQ2FuYWRhKTwvc291cmNlX2RhdGFiYXNlX3VybD4KICAgIDxiaWJsaW9ncmFwaGljX2NpdGF0aW9uPjwhW0NEQVRBW1RvbSBPcnJlbGwgKGN1c3RvZGlhbiksIERhdmUgTmljb2xzb24gKGVkKS4gKDIwMTkpLiBJVElTIEdsb2JhbDogVGhlIEludGVncmF0ZWQgVGF4b25vbWljIEluZm9ybWF0aW9uIFN5c3RlbSAodmVyc2lvbiBKdW4gMjAxNykuIEluOiBTcGVjaWVzIDIwMDAgJiBJVElTIENhdGFsb2d1ZSBvZiBMaWZlLCAyMDE5IEFubnVhbCBDaGVja2xpc3QgKFJvc2tvdiBZLiwgT3dlciBHLiwgT3JyZWxsIFQuLCBOaWNvbHNvbiBELiwgQmFpbGx5IE4uLCBLaXJrIFAuTS4sIEJvdXJnb2luIFQuLCBEZVdhbHQgUi5FLiwgRGVjb2NrIFcuLCBOaWV1a2Vya2VuIEUuIHZhbiwgWmFydWNjaGkgSi4sIFBlbmV2IEwuLCBlZHMuKS4gRGlnaXRhbCByZXNvdXJjZSBhdCB3d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9hbm51YWwtY2hlY2tsaXN0LzIwMTkuIFNwZWNpZXMgMjAwMDogTmF0dXJhbGlzLCBMZWlkZW4sIHRoZSBOZXRoZXJsYW5kcy4gSVNTTiAyNDA1LTg4NFguXV0+PC9iaWJsaW9ncmFwaGljX2NpdGF0aW9uPgogICAgPG5hbWVfaHRtbD48aT5BY2NpcGl0ZXIgc3RyaWF0dXMgcGVyb2JzY3VydXM8L2k+IFNueWRlciwgMTkzODwvbmFtZV9odG1sPgogICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2Jyb3dzZS90cmVlL2lkLzJhMzc3OGI0NTgwYjVmMjQxNTQ2OTc1MTYwMjUxZWRmPC91cmw+CiAgICA8ZGlzdHJpYnV0aW9uPjwvZGlzdHJpYnV0aW9uPgogICAgPHJlZmVyZW5jZXM+CiAgICAgIDxyZWZlcmVuY2U+CiAgICAgICAgPGF1dGhvcj48L2F1dGhvcj4KICAgICAgICA8eWVhcj4xOTk2PC95ZWFyPgogICAgICAgIDx0aXRsZT48L3RpdGxlPgogICAgICAgIDxzb3VyY2U+ZGF0YWJhc2UsIE5PREMgVGF4b25vbWljIENvZGU8L3NvdXJjZT4KICAgICAgPC9yZWZlcmVuY2U+CiAgICAgIDxyZWZlcmVuY2U+CiAgICAgICAgPGF1dGhvcj48L2F1dGhvcj4KICAgICAgICA8eWVhcj4yMDExPC95ZWFyPgogICAgICAgIDx0aXRsZT48L3RpdGxlPgogICAgICAgIDxzb3VyY2U+Wm9vbm9tZW4gLSBab29sb2dpY2FsIE5vbWVuY2xhdHVyZSBSZXNvdXJjZSwgMjAxMS4wMi4yNTwvc291cmNlPgogICAgICA8L3JlZmVyZW5jZT4KICAgIDwvcmVmZXJlbmNlcz4KICAgIDxjbGFzc2lmaWNhdGlvbj4KICAgICAgPHRheG9uPgogICAgICAgIDxpZD41ZWRlMjRiMDUzNGViZDVlMWY1NTJkNWI5Zjg3NGE2YTwvaWQ+CiAgICAgICAgPG5hbWU+QW5pbWFsaWE8L25hbWU+CiAgICAgICAgPHJhbms+S2luZ2RvbTwvcmFuaz4KICAgICAgICA8bmFtZV9odG1sPkFuaW1hbGlhPC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2Jyb3dzZS90cmVlL2lkLzVlZGUyNGIwNTM0ZWJkNWUxZjU1MmQ1YjlmODc0YTZhPC91cmw+CiAgICAgIDwvdGF4b24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+NDMxM2JjNzYzN2UxZmMxZmViMzE2YTRkZWEyYjY2OGI8L2lkPgogICAgICAgIDxuYW1lPkNob3JkYXRhPC9uYW1lPgogICAgICAgIDxyYW5rPlBoeWx1bTwvcmFuaz4KICAgICAgICA8bmFtZV9odG1sPkNob3JkYXRhPC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2Jyb3dzZS90cmVlL2lkLzQzMTNiYzc2MzdlMWZjMWZlYjMxNmE0ZGVhMmI2NjhiPC91cmw+CiAgICAgIDwvdGF4b24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+Njc4NDdkMzIwNTczZmYxOGIwMzg0ZTIyYWZlOTdlZDg8L2lkPgogICAgICAgIDxuYW1lPkF2ZXM8L25hbWU+CiAgICAgICAgPHJhbms+Q2xhc3M8L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD5BdmVzPC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2Jyb3dzZS90cmVlL2lkLzY3ODQ3ZDMyMDU3M2ZmMThiMDM4NGUyMmFmZTk3ZWQ4PC91cmw+CiAgICAgIDwvdGF4b24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+YjU1NTI0MWU3M2I1NDFiZGI1ZTRlOTc2Mjg0YjhhZTk8L2lkPgogICAgICAgIDxuYW1lPkFjY2lwaXRyaWZvcm1lczwvbmFtZT4KICAgICAgICA8cmFuaz5PcmRlcjwvcmFuaz4KICAgICAgICA8bmFtZV9odG1sPkFjY2lwaXRyaWZvcm1lczwvbmFtZV9odG1sPgogICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9icm93c2UvdHJlZS9pZC9iNTU1MjQxZTczYjU0MWJkYjVlNGU5NzYyODRiOGFlOTwvdXJsPgogICAgICA8L3RheG9uPgogICAgICA8dGF4b24+CiAgICAgICAgPGlkPjRlZGY3OTA2ZGIzODE0NGYwZDQ4NzU0ZDI4M2RlNTBhPC9pZD4KICAgICAgICA8bmFtZT5BY2NpcGl0cmlkYWU8L25hbWU+CiAgICAgICAgPHJhbms+RmFtaWx5PC9yYW5rPgogICAgICAgIDxuYW1lX2h0bWw+QWNjaXBpdHJpZGFlPC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2Jyb3dzZS90cmVlL2lkLzRlZGY3OTA2ZGIzODE0NGYwZDQ4NzU0ZDI4M2RlNTBhPC91cmw+CiAgICAgIDwvdGF4b24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+OGU2YTk0OTg4ZWRlYzc4MWQzYzMyMDUxY2M2OWY0ZDk8L2lkPgogICAgICAgIDxuYW1lPkFjY2lwaXRlcjwvbmFtZT4KICAgICAgICA8cmFuaz5HZW51czwvcmFuaz4KICAgICAgICA8bmFtZV9odG1sPjxpPkFjY2lwaXRlcjwvaT48L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvYnJvd3NlL3RyZWUvaWQvOGU2YTk0OTg4ZWRlYzc4MWQzYzMyMDUxY2M2OWY0ZDk8L3VybD4KICAgICAgPC90YXhvbj4KICAgICAgPHRheG9uPgogICAgICAgIDxpZD5kMzQ5YjU4ZTdiNjBiZTkyYzE3ZTVkMTBmZWRhYzBjMTwvaWQ+CiAgICAgICAgPG5hbWU+c3RyaWF0dXM8L25hbWU+CiAgICAgICAgPHJhbms+U3BlY2llczwvcmFuaz4KICAgICAgICA8bmFtZV9odG1sPjxpPkFjY2lwaXRlciBzdHJpYXR1cyBwZXJvYnNjdXJ1czwvaT4gU255ZGVyLCAxOTM4PC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2RldGFpbHMvc3BlY2llcy9pZC9kMzQ5YjU4ZTdiNjBiZTkyYzE3ZTVkMTBmZWRhYzBjMTwvdXJsPgogICAgICA8L3RheG9uPgogICAgPC9jbGFzc2lmaWNhdGlvbj4KICAgIDxjaGlsZF90YXhhLz4KICAgIDxzeW5vbnltcy8+CiAgICA8Y29tbW9uX25hbWVzLz4KICA8L3Jlc3VsdD4KICA8cmVzdWx0PgogICAgPGlkPjM2ZDk4NGYzNTczOWRhOWMzODE3MTdiMGJkNTQ3NGM2PC9pZD4KICAgIDxuYW1lPkFjY2lwaXRlciBzdHJpYXR1cyBzdHJpYXR1czwvbmFtZT4KICAgIDxyYW5rPkluZnJhc3BlY2llczwvcmFuaz4KICAgIDxuYW1lX3N0YXR1cz5hY2NlcHRlZCBuYW1lPC9uYW1lX3N0YXR1cz4KICAgIDxnZW51cz5BY2NpcGl0ZXI8L2dlbnVzPgogICAgPHN1YmdlbnVzPjwvc3ViZ2VudXM+CiAgICA8c3BlY2llcz5zdHJpYXR1czwvc3BlY2llcz4KICAgIDxpbmZyYXNwZWNpZXNfbWFya2VyPjwvaW5mcmFzcGVjaWVzX21hcmtlcj4KICAgIDxpbmZyYXNwZWNpZXM+c3RyaWF0dXM8L2luZnJhc3BlY2llcz4KICAgIDxhdXRob3I+VmllaWxsb3QsIDE4MDg8L2F1dGhvcj4KICAgIDxyZWNvcmRfc2NydXRpbnlfZGF0ZT4KICAgICAgPHNjcnV0aW55PjIyLVNlcC0yMDExPC9zY3J1dGlueT4KICAgIDwvcmVjb3JkX3NjcnV0aW55X2RhdGU+CiAgICA8b25saW5lX3Jlc291cmNlPjwhW0NEQVRBW2h0dHA6Ly93d3cuaXRpcy5nb3Yvc2VydmxldC9TaW5nbGVScHQvU2luZ2xlUnB0P3NlYXJjaF90b3BpYz1UU04mc2VhcmNoX3ZhbHVlPTE3NTMwOF1dPjwvb25saW5lX3Jlc291cmNlPgogICAgPGlzX2V4dGluY3Q+ZmFsc2U8L2lzX2V4dGluY3Q+CiAgICA8c291cmNlX2RhdGFiYXNlPklUSVMgR2xvYmFsOiBUaGUgSW50ZWdyYXRlZCBUYXhvbm9taWMgSW5mb3JtYXRpb24gU3lzdGVtPC9zb3VyY2VfZGF0YWJhc2U+CiAgICA8c291cmNlX2RhdGFiYXNlX3VybD5odHRwOi8vd3d3Lml0aXMuZ292OwpodHRwOi8vd3d3LmNiaWYuZ2MuY2EvYWNwL2VuZy9pdGlzL3NlYXJjaCAoQ2FuYWRhKTwvc291cmNlX2RhdGFiYXNlX3VybD4KICAgIDxiaWJsaW9ncmFwaGljX2NpdGF0aW9uPjwhW0NEQVRBW1RvbSBPcnJlbGwgKGN1c3RvZGlhbiksIERhdmUgTmljb2xzb24gKGVkKS4gKDIwMTkpLiBJVElTIEdsb2JhbDogVGhlIEludGVncmF0ZWQgVGF4b25vbWljIEluZm9ybWF0aW9uIFN5c3RlbSAodmVyc2lvbiBKdW4gMjAxNykuIEluOiBTcGVjaWVzIDIwMDAgJiBJVElTIENhdGFsb2d1ZSBvZiBMaWZlLCAyMDE5IEFubnVhbCBDaGVja2xpc3QgKFJvc2tvdiBZLiwgT3dlciBHLiwgT3JyZWxsIFQuLCBOaWNvbHNvbiBELiwgQmFpbGx5IE4uLCBLaXJrIFAuTS4sIEJvdXJnb2luIFQuLCBEZVdhbHQgUi5FLiwgRGVjb2NrIFcuLCBOaWV1a2Vya2VuIEUuIHZhbiwgWmFydWNjaGkgSi4sIFBlbmV2IEwuLCBlZHMuKS4gRGlnaXRhbCByZXNvdXJjZSBhdCB3d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9hbm51YWwtY2hlY2tsaXN0LzIwMTkuIFNwZWNpZXMgMjAwMDogTmF0dXJhbGlzLCBMZWlkZW4sIHRoZSBOZXRoZXJsYW5kcy4gSVNTTiAyNDA1LTg4NFguXV0+PC9iaWJsaW9ncmFwaGljX2NpdGF0aW9uPgogICAgPG5hbWVfaHRtbD48aT5BY2NpcGl0ZXIgc3RyaWF0dXMgc3RyaWF0dXM8L2k+IFZpZWlsbG90LCAxODA4PC9uYW1lX2h0bWw+CiAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvYnJvd3NlL3RyZWUvaWQvMzZkOTg0ZjM1NzM5ZGE5YzM4MTcxN2IwYmQ1NDc0YzY8L3VybD4KICAgIDxkaXN0cmlidXRpb24+PC9kaXN0cmlidXRpb24+CiAgICA8cmVmZXJlbmNlcz4KICAgICAgPHJlZmVyZW5jZT4KICAgICAgICA8YXV0aG9yPjwvYXV0aG9yPgogICAgICAgIDx5ZWFyPjE5OTY8L3llYXI+CiAgICAgICAgPHRpdGxlPjwvdGl0bGU+CiAgICAgICAgPHNvdXJjZT5kYXRhYmFzZSwgTk9EQyBUYXhvbm9taWMgQ29kZTwvc291cmNlPgogICAgICA8L3JlZmVyZW5jZT4KICAgICAgPHJlZmVyZW5jZT4KICAgICAgICA8YXV0aG9yPjwvYXV0aG9yPgogICAgICAgIDx5ZWFyPjIwMTE8L3llYXI+CiAgICAgICAgPHRpdGxlPjwvdGl0bGU+CiAgICAgICAgPHNvdXJjZT5ab29ub21lbiAtIFpvb2xvZ2ljYWwgTm9tZW5jbGF0dXJlIFJlc291cmNlLCAyMDExLjAyLjI1PC9zb3VyY2U+CiAgICAgIDwvcmVmZXJlbmNlPgogICAgPC9yZWZlcmVuY2VzPgogICAgPGNsYXNzaWZpY2F0aW9uPgogICAgICA8dGF4b24+CiAgICAgICAgPGlkPjVlZGUyNGIwNTM0ZWJkNWUxZjU1MmQ1YjlmODc0YTZhPC9pZD4KICAgICAgICA8bmFtZT5BbmltYWxpYTwvbmFtZT4KICAgICAgICA8cmFuaz5LaW5nZG9tPC9yYW5rPgogICAgICAgIDxuYW1lX2h0bWw+QW5pbWFsaWE8L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvYnJvd3NlL3RyZWUvaWQvNWVkZTI0YjA1MzRlYmQ1ZTFmNTUyZDViOWY4NzRhNmE8L3VybD4KICAgICAgPC90YXhvbj4KICAgICAgPHRheG9uPgogICAgICAgIDxpZD40MzEzYmM3NjM3ZTFmYzFmZWIzMTZhNGRlYTJiNjY4YjwvaWQ+CiAgICAgICAgPG5hbWU+Q2hvcmRhdGE8L25hbWU+CiAgICAgICAgPHJhbms+UGh5bHVtPC9yYW5rPgogICAgICAgIDxuYW1lX2h0bWw+Q2hvcmRhdGE8L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvYnJvd3NlL3RyZWUvaWQvNDMxM2JjNzYzN2UxZmMxZmViMzE2YTRkZWEyYjY2OGI8L3VybD4KICAgICAgPC90YXhvbj4KICAgICAgPHRheG9uPgogICAgICAgIDxpZD42Nzg0N2QzMjA1NzNmZjE4YjAzODRlMjJhZmU5N2VkODwvaWQ+CiAgICAgICAgPG5hbWU+QXZlczwvbmFtZT4KICAgICAgICA8cmFuaz5DbGFzczwvcmFuaz4KICAgICAgICA8bmFtZV9odG1sPkF2ZXM8L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvYnJvd3NlL3RyZWUvaWQvNjc4NDdkMzIwNTczZmYxOGIwMzg0ZTIyYWZlOTdlZDg8L3VybD4KICAgICAgPC90YXhvbj4KICAgICAgPHRheG9uPgogICAgICAgIDxpZD5iNTU1MjQxZTczYjU0MWJkYjVlNGU5NzYyODRiOGFlOTwvaWQ+CiAgICAgICAgPG5hbWU+QWNjaXBpdHJpZm9ybWVzPC9uYW1lPgogICAgICAgIDxyYW5rPk9yZGVyPC9yYW5rPgogICAgICAgIDxuYW1lX2h0bWw+QWNjaXBpdHJpZm9ybWVzPC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2Jyb3dzZS90cmVlL2lkL2I1NTUyNDFlNzNiNTQxYmRiNWU0ZTk3NjI4NGI4YWU5PC91cmw+CiAgICAgIDwvdGF4b24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+NGVkZjc5MDZkYjM4MTQ0ZjBkNDg3NTRkMjgzZGU1MGE8L2lkPgogICAgICAgIDxuYW1lPkFjY2lwaXRyaWRhZTwvbmFtZT4KICAgICAgICA8cmFuaz5GYW1pbHk8L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD5BY2NpcGl0cmlkYWU8L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvYnJvd3NlL3RyZWUvaWQvNGVkZjc5MDZkYjM4MTQ0ZjBkNDg3NTRkMjgzZGU1MGE8L3VybD4KICAgICAgPC90YXhvbj4KICAgICAgPHRheG9uPgogICAgICAgIDxpZD44ZTZhOTQ5ODhlZGVjNzgxZDNjMzIwNTFjYzY5ZjRkOTwvaWQ+CiAgICAgICAgPG5hbWU+QWNjaXBpdGVyPC9uYW1lPgogICAgICAgIDxyYW5rPkdlbnVzPC9yYW5rPgogICAgICAgIDxuYW1lX2h0bWw+PGk+QWNjaXBpdGVyPC9pPjwvbmFtZV9odG1sPgogICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9icm93c2UvdHJlZS9pZC84ZTZhOTQ5ODhlZGVjNzgxZDNjMzIwNTFjYzY5ZjRkOTwvdXJsPgogICAgICA8L3RheG9uPgogICAgICA8dGF4b24+CiAgICAgICAgPGlkPmQzNDliNThlN2I2MGJlOTJjMTdlNWQxMGZlZGFjMGMxPC9pZD4KICAgICAgICA8bmFtZT5zdHJpYXR1czwvbmFtZT4KICAgICAgICA8cmFuaz5TcGVjaWVzPC9yYW5rPgogICAgICAgIDxuYW1lX2h0bWw+PGk+QWNjaXBpdGVyIHN0cmlhdHVzIHN0cmlhdHVzPC9pPiBWaWVpbGxvdCwgMTgwODwvbmFtZV9odG1sPgogICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9kZXRhaWxzL3NwZWNpZXMvaWQvZDM0OWI1OGU3YjYwYmU5MmMxN2U1ZDEwZmVkYWMwYzE8L3VybD4KICAgICAgPC90YXhvbj4KICAgIDwvY2xhc3NpZmljYXRpb24+CiAgICA8Y2hpbGRfdGF4YS8+CiAgICA8c3lub255bXMvPgogICAgPGNvbW1vbl9uYW1lcy8+CiAgPC9yZXN1bHQ+CiAgPHJlc3VsdD4KICAgIDxpZD43Zjk4NTIyZmU4YzdkNTQwYTI2NTc2NWNkZDIxNDhjMTwvaWQ+CiAgICA8bmFtZT5BY2NpcGl0ZXIgc3RyaWF0dXMgc3V0dG9uaTwvbmFtZT4KICAgIDxyYW5rPkluZnJhc3BlY2llczwvcmFuaz4KICAgIDxuYW1lX3N0YXR1cz5hY2NlcHRlZCBuYW1lPC9uYW1lX3N0YXR1cz4KICAgIDxnZW51cz5BY2NpcGl0ZXI8L2dlbnVzPgogICAgPHN1YmdlbnVzPjwvc3ViZ2VudXM+CiAgICA8c3BlY2llcz5zdHJpYXR1czwvc3BlY2llcz4KICAgIDxpbmZyYXNwZWNpZXNfbWFya2VyPjwvaW5mcmFzcGVjaWVzX21hcmtlcj4KICAgIDxpbmZyYXNwZWNpZXM+c3V0dG9uaTwvaW5mcmFzcGVjaWVzPgogICAgPGF1dGhvcj52YW4gUm9zc2VtLCAxOTM5PC9hdXRob3I+CiAgICA8cmVjb3JkX3NjcnV0aW55X2RhdGU+CiAgICAgIDxzY3J1dGlueT4yMi1TZXAtMjAxMTwvc2NydXRpbnk+CiAgICA8L3JlY29yZF9zY3J1dGlueV9kYXRlPgogICAgPG9ubGluZV9yZXNvdXJjZT48IVtDREFUQVtodHRwOi8vd3d3Lml0aXMuZ292L3NlcnZsZXQvU2luZ2xlUnB0L1NpbmdsZVJwdD9zZWFyY2hfdG9waWM9VFNOJnNlYXJjaF92YWx1ZT0xNzUzMDZdXT48L29ubGluZV9yZXNvdXJjZT4KICAgIDxpc19leHRpbmN0PmZhbHNlPC9pc19leHRpbmN0PgogICAgPHNvdXJjZV9kYXRhYmFzZT5JVElTIEdsb2JhbDogVGhlIEludGVncmF0ZWQgVGF4b25vbWljIEluZm9ybWF0aW9uIFN5c3RlbTwvc291cmNlX2RhdGFiYXNlPgogICAgPHNvdXJjZV9kYXRhYmFzZV91cmw+aHR0cDovL3d3dy5pdGlzLmdvdjsKaHR0cDovL3d3dy5jYmlmLmdjLmNhL2FjcC9lbmcvaXRpcy9zZWFyY2ggKENhbmFkYSk8L3NvdXJjZV9kYXRhYmFzZV91cmw+CiAgICA8YmlibGlvZ3JhcGhpY19jaXRhdGlvbj48IVtDREFUQVtUb20gT3JyZWxsIChjdXN0b2RpYW4pLCBEYXZlIE5pY29sc29uIChlZCkuICgyMDE5KS4gSVRJUyBHbG9iYWw6IFRoZSBJbnRlZ3JhdGVkIFRheG9ub21pYyBJbmZvcm1hdGlvbiBTeXN0ZW0gKHZlcnNpb24gSnVuIDIwMTcpLiBJbjogU3BlY2llcyAyMDAwICYgSVRJUyBDYXRhbG9ndWUgb2YgTGlmZSwgMjAxOSBBbm51YWwgQ2hlY2tsaXN0IChSb3Nrb3YgWS4sIE93ZXIgRy4sIE9ycmVsbCBULiwgTmljb2xzb24gRC4sIEJhaWxseSBOLiwgS2lyayBQLk0uLCBCb3VyZ29pbiBULiwgRGVXYWx0IFIuRS4sIERlY29jayBXLiwgTmlldWtlcmtlbiBFLiB2YW4sIFphcnVjY2hpIEouLCBQZW5ldiBMLiwgZWRzLikuIERpZ2l0YWwgcmVzb3VyY2UgYXQgd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvYW5udWFsLWNoZWNrbGlzdC8yMDE5LiBTcGVjaWVzIDIwMDA6IE5hdHVyYWxpcywgTGVpZGVuLCB0aGUgTmV0aGVybGFuZHMuIElTU04gMjQwNS04ODRYLl1dPjwvYmlibGlvZ3JhcGhpY19jaXRhdGlvbj4KICAgIDxuYW1lX2h0bWw+PGk+QWNjaXBpdGVyIHN0cmlhdHVzIHN1dHRvbmk8L2k+IHZhbiBSb3NzZW0sIDE5Mzk8L25hbWVfaHRtbD4KICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9icm93c2UvdHJlZS9pZC83Zjk4NTIyZmU4YzdkNTQwYTI2NTc2NWNkZDIxNDhjMTwvdXJsPgogICAgPGRpc3RyaWJ1dGlvbj48L2Rpc3RyaWJ1dGlvbj4KICAgIDxyZWZlcmVuY2VzPgogICAgICA8cmVmZXJlbmNlPgogICAgICAgIDxhdXRob3I+PC9hdXRob3I+CiAgICAgICAgPHllYXI+MTk5NjwveWVhcj4KICAgICAgICA8dGl0bGU+PC90aXRsZT4KICAgICAgICA8c291cmNlPmRhdGFiYXNlLCBOT0RDIFRheG9ub21pYyBDb2RlPC9zb3VyY2U+CiAgICAgIDwvcmVmZXJlbmNlPgogICAgICA8cmVmZXJlbmNlPgogICAgICAgIDxhdXRob3I+PC9hdXRob3I+CiAgICAgICAgPHllYXI+MjAxMTwveWVhcj4KICAgICAgICA8dGl0bGU+PC90aXRsZT4KICAgICAgICA8c291cmNlPlpvb25vbWVuIC0gWm9vbG9naWNhbCBOb21lbmNsYXR1cmUgUmVzb3VyY2UsIDIwMTEuMDIuMjU8L3NvdXJjZT4KICAgICAgPC9yZWZlcmVuY2U+CiAgICA8L3JlZmVyZW5jZXM+CiAgICA8Y2xhc3NpZmljYXRpb24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+NWVkZTI0YjA1MzRlYmQ1ZTFmNTUyZDViOWY4NzRhNmE8L2lkPgogICAgICAgIDxuYW1lPkFuaW1hbGlhPC9uYW1lPgogICAgICAgIDxyYW5rPktpbmdkb208L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD5BbmltYWxpYTwvbmFtZV9odG1sPgogICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9icm93c2UvdHJlZS9pZC81ZWRlMjRiMDUzNGViZDVlMWY1NTJkNWI5Zjg3NGE2YTwvdXJsPgogICAgICA8L3RheG9uPgogICAgICA8dGF4b24+CiAgICAgICAgPGlkPjQzMTNiYzc2MzdlMWZjMWZlYjMxNmE0ZGVhMmI2NjhiPC9pZD4KICAgICAgICA8bmFtZT5DaG9yZGF0YTwvbmFtZT4KICAgICAgICA8cmFuaz5QaHlsdW08L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD5DaG9yZGF0YTwvbmFtZV9odG1sPgogICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9icm93c2UvdHJlZS9pZC80MzEzYmM3NjM3ZTFmYzFmZWIzMTZhNGRlYTJiNjY4YjwvdXJsPgogICAgICA8L3RheG9uPgogICAgICA8dGF4b24+CiAgICAgICAgPGlkPjY3ODQ3ZDMyMDU3M2ZmMThiMDM4NGUyMmFmZTk3ZWQ4PC9pZD4KICAgICAgICA8bmFtZT5BdmVzPC9uYW1lPgogICAgICAgIDxyYW5rPkNsYXNzPC9yYW5rPgogICAgICAgIDxuYW1lX2h0bWw+QXZlczwvbmFtZV9odG1sPgogICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9icm93c2UvdHJlZS9pZC82Nzg0N2QzMjA1NzNmZjE4YjAzODRlMjJhZmU5N2VkODwvdXJsPgogICAgICA8L3RheG9uPgogICAgICA8dGF4b24+CiAgICAgICAgPGlkPmI1NTUyNDFlNzNiNTQxYmRiNWU0ZTk3NjI4NGI4YWU5PC9pZD4KICAgICAgICA8bmFtZT5BY2NpcGl0cmlmb3JtZXM8L25hbWU+CiAgICAgICAgPHJhbms+T3JkZXI8L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD5BY2NpcGl0cmlmb3JtZXM8L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvYnJvd3NlL3RyZWUvaWQvYjU1NTI0MWU3M2I1NDFiZGI1ZTRlOTc2Mjg0YjhhZTk8L3VybD4KICAgICAgPC90YXhvbj4KICAgICAgPHRheG9uPgogICAgICAgIDxpZD40ZWRmNzkwNmRiMzgxNDRmMGQ0ODc1NGQyODNkZTUwYTwvaWQ+CiAgICAgICAgPG5hbWU+QWNjaXBpdHJpZGFlPC9uYW1lPgogICAgICAgIDxyYW5rPkZhbWlseTwvcmFuaz4KICAgICAgICA8bmFtZV9odG1sPkFjY2lwaXRyaWRhZTwvbmFtZV9odG1sPgogICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9icm93c2UvdHJlZS9pZC80ZWRmNzkwNmRiMzgxNDRmMGQ0ODc1NGQyODNkZTUwYTwvdXJsPgogICAgICA8L3RheG9uPgogICAgICA8dGF4b24+CiAgICAgICAgPGlkPjhlNmE5NDk4OGVkZWM3ODFkM2MzMjA1MWNjNjlmNGQ5PC9pZD4KICAgICAgICA8bmFtZT5BY2NpcGl0ZXI8L25hbWU+CiAgICAgICAgPHJhbms+R2VudXM8L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD48aT5BY2NpcGl0ZXI8L2k+PC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2Jyb3dzZS90cmVlL2lkLzhlNmE5NDk4OGVkZWM3ODFkM2MzMjA1MWNjNjlmNGQ5PC91cmw+CiAgICAgIDwvdGF4b24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+ZDM0OWI1OGU3YjYwYmU5MmMxN2U1ZDEwZmVkYWMwYzE8L2lkPgogICAgICAgIDxuYW1lPnN0cmlhdHVzPC9uYW1lPgogICAgICAgIDxyYW5rPlNwZWNpZXM8L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD48aT5BY2NpcGl0ZXIgc3RyaWF0dXMgc3V0dG9uaTwvaT4gdmFuIFJvc3NlbSwgMTkzOTwvbmFtZV9odG1sPgogICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9kZXRhaWxzL3NwZWNpZXMvaWQvZDM0OWI1OGU3YjYwYmU5MmMxN2U1ZDEwZmVkYWMwYzE8L3VybD4KICAgICAgPC90YXhvbj4KICAgIDwvY2xhc3NpZmljYXRpb24+CiAgICA8Y2hpbGRfdGF4YS8+CiAgICA8c3lub255bXMvPgogICAgPGNvbW1vbl9uYW1lcy8+CiAgPC9yZXN1bHQ+CiAgPHJlc3VsdD4KICAgIDxpZD5hM2MzMThhOGRhMTg0ZjM2ZGQzOWRhYmIyZGZjMDhjNDwvaWQ+CiAgICA8bmFtZT5BY2NpcGl0ZXIgc3RyaWF0dXMgdmVsb3g8L25hbWU+CiAgICA8cmFuaz5JbmZyYXNwZWNpZXM8L3Jhbms+CiAgICA8bmFtZV9zdGF0dXM+YWNjZXB0ZWQgbmFtZTwvbmFtZV9zdGF0dXM+CiAgICA8Z2VudXM+QWNjaXBpdGVyPC9nZW51cz4KICAgIDxzdWJnZW51cz48L3N1YmdlbnVzPgogICAgPHNwZWNpZXM+c3RyaWF0dXM8L3NwZWNpZXM+CiAgICA8aW5mcmFzcGVjaWVzX21hcmtlcj48L2luZnJhc3BlY2llc19tYXJrZXI+CiAgICA8aW5mcmFzcGVjaWVzPnZlbG94PC9pbmZyYXNwZWNpZXM+CiAgICA8YXV0aG9yPihBLiBXaWxzb24sIDE4MTIpPC9hdXRob3I+CiAgICA8cmVjb3JkX3NjcnV0aW55X2RhdGU+CiAgICAgIDxzY3J1dGlueT4yMi1TZXAtMjAxMTwvc2NydXRpbnk+CiAgICA8L3JlY29yZF9zY3J1dGlueV9kYXRlPgogICAgPG9ubGluZV9yZXNvdXJjZT48IVtDREFUQVtodHRwOi8vd3d3Lml0aXMuZ292L3NlcnZsZXQvU2luZ2xlUnB0L1NpbmdsZVJwdD9zZWFyY2hfdG9waWM9VFNOJnNlYXJjaF92YWx1ZT0xNzUzMDVdXT48L29ubGluZV9yZXNvdXJjZT4KICAgIDxpc19leHRpbmN0PmZhbHNlPC9pc19leHRpbmN0PgogICAgPHNvdXJjZV9kYXRhYmFzZT5JVElTIEdsb2JhbDogVGhlIEludGVncmF0ZWQgVGF4b25vbWljIEluZm9ybWF0aW9uIFN5c3RlbTwvc291cmNlX2RhdGFiYXNlPgogICAgPHNvdXJjZV9kYXRhYmFzZV91cmw+aHR0cDovL3d3dy5pdGlzLmdvdjsKaHR0cDovL3d3dy5jYmlmLmdjLmNhL2FjcC9lbmcvaXRpcy9zZWFyY2ggKENhbmFkYSk8L3NvdXJjZV9kYXRhYmFzZV91cmw+CiAgICA8YmlibGlvZ3JhcGhpY19jaXRhdGlvbj48IVtDREFUQVtUb20gT3JyZWxsIChjdXN0b2RpYW4pLCBEYXZlIE5pY29sc29uIChlZCkuICgyMDE5KS4gSVRJUyBHbG9iYWw6IFRoZSBJbnRlZ3JhdGVkIFRheG9ub21pYyBJbmZvcm1hdGlvbiBTeXN0ZW0gKHZlcnNpb24gSnVuIDIwMTcpLiBJbjogU3BlY2llcyAyMDAwICYgSVRJUyBDYXRhbG9ndWUgb2YgTGlmZSwgMjAxOSBBbm51YWwgQ2hlY2tsaXN0IChSb3Nrb3YgWS4sIE93ZXIgRy4sIE9ycmVsbCBULiwgTmljb2xzb24gRC4sIEJhaWxseSBOLiwgS2lyayBQLk0uLCBCb3VyZ29pbiBULiwgRGVXYWx0IFIuRS4sIERlY29jayBXLiwgTmlldWtlcmtlbiBFLiB2YW4sIFphcnVjY2hpIEouLCBQZW5ldiBMLiwgZWRzLikuIERpZ2l0YWwgcmVzb3VyY2UgYXQgd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvYW5udWFsLWNoZWNrbGlzdC8yMDE5LiBTcGVjaWVzIDIwMDA6IE5hdHVyYWxpcywgTGVpZGVuLCB0aGUgTmV0aGVybGFuZHMuIElTU04gMjQwNS04ODRYLl1dPjwvYmlibGlvZ3JhcGhpY19jaXRhdGlvbj4KICAgIDxuYW1lX2h0bWw+PGk+QWNjaXBpdGVyIHN0cmlhdHVzIHZlbG94PC9pPiAoQS4gV2lsc29uLCAxODEyKTwvbmFtZV9odG1sPgogICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2Jyb3dzZS90cmVlL2lkL2EzYzMxOGE4ZGExODRmMzZkZDM5ZGFiYjJkZmMwOGM0PC91cmw+CiAgICA8ZGlzdHJpYnV0aW9uPjwvZGlzdHJpYnV0aW9uPgogICAgPHJlZmVyZW5jZXM+CiAgICAgIDxyZWZlcmVuY2U+CiAgICAgICAgPGF1dGhvcj48L2F1dGhvcj4KICAgICAgICA8eWVhcj4xOTk2PC95ZWFyPgogICAgICAgIDx0aXRsZT48L3RpdGxlPgogICAgICAgIDxzb3VyY2U+ZGF0YWJhc2UsIE5PREMgVGF4b25vbWljIENvZGU8L3NvdXJjZT4KICAgICAgPC9yZWZlcmVuY2U+CiAgICAgIDxyZWZlcmVuY2U+CiAgICAgICAgPGF1dGhvcj48L2F1dGhvcj4KICAgICAgICA8eWVhcj4yMDExPC95ZWFyPgogICAgICAgIDx0aXRsZT48L3RpdGxlPgogICAgICAgIDxzb3VyY2U+Wm9vbm9tZW4gLSBab29sb2dpY2FsIE5vbWVuY2xhdHVyZSBSZXNvdXJjZSwgMjAxMS4wMi4yNTwvc291cmNlPgogICAgICA8L3JlZmVyZW5jZT4KICAgIDwvcmVmZXJlbmNlcz4KICAgIDxjbGFzc2lmaWNhdGlvbj4KICAgICAgPHRheG9uPgogICAgICAgIDxpZD41ZWRlMjRiMDUzNGViZDVlMWY1NTJkNWI5Zjg3NGE2YTwvaWQ+CiAgICAgICAgPG5hbWU+QW5pbWFsaWE8L25hbWU+CiAgICAgICAgPHJhbms+S2luZ2RvbTwvcmFuaz4KICAgICAgICA8bmFtZV9odG1sPkFuaW1hbGlhPC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2Jyb3dzZS90cmVlL2lkLzVlZGUyNGIwNTM0ZWJkNWUxZjU1MmQ1YjlmODc0YTZhPC91cmw+CiAgICAgIDwvdGF4b24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+NDMxM2JjNzYzN2UxZmMxZmViMzE2YTRkZWEyYjY2OGI8L2lkPgogICAgICAgIDxuYW1lPkNob3JkYXRhPC9uYW1lPgogICAgICAgIDxyYW5rPlBoeWx1bTwvcmFuaz4KICAgICAgICA8bmFtZV9odG1sPkNob3JkYXRhPC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2Jyb3dzZS90cmVlL2lkLzQzMTNiYzc2MzdlMWZjMWZlYjMxNmE0ZGVhMmI2NjhiPC91cmw+CiAgICAgIDwvdGF4b24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+Njc4NDdkMzIwNTczZmYxOGIwMzg0ZTIyYWZlOTdlZDg8L2lkPgogICAgICAgIDxuYW1lPkF2ZXM8L25hbWU+CiAgICAgICAgPHJhbms+Q2xhc3M8L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD5BdmVzPC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2Jyb3dzZS90cmVlL2lkLzY3ODQ3ZDMyMDU3M2ZmMThiMDM4NGUyMmFmZTk3ZWQ4PC91cmw+CiAgICAgIDwvdGF4b24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+YjU1NTI0MWU3M2I1NDFiZGI1ZTRlOTc2Mjg0YjhhZTk8L2lkPgogICAgICAgIDxuYW1lPkFjY2lwaXRyaWZvcm1lczwvbmFtZT4KICAgICAgICA8cmFuaz5PcmRlcjwvcmFuaz4KICAgICAgICA8bmFtZV9odG1sPkFjY2lwaXRyaWZvcm1lczwvbmFtZV9odG1sPgogICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9icm93c2UvdHJlZS9pZC9iNTU1MjQxZTczYjU0MWJkYjVlNGU5NzYyODRiOGFlOTwvdXJsPgogICAgICA8L3RheG9uPgogICAgICA8dGF4b24+CiAgICAgICAgPGlkPjRlZGY3OTA2ZGIzODE0NGYwZDQ4NzU0ZDI4M2RlNTBhPC9pZD4KICAgICAgICA8bmFtZT5BY2NpcGl0cmlkYWU8L25hbWU+CiAgICAgICAgPHJhbms+RmFtaWx5PC9yYW5rPgogICAgICAgIDxuYW1lX2h0bWw+QWNjaXBpdHJpZGFlPC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2Jyb3dzZS90cmVlL2lkLzRlZGY3OTA2ZGIzODE0NGYwZDQ4NzU0ZDI4M2RlNTBhPC91cmw+CiAgICAgIDwvdGF4b24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+OGU2YTk0OTg4ZWRlYzc4MWQzYzMyMDUxY2M2OWY0ZDk8L2lkPgogICAgICAgIDxuYW1lPkFjY2lwaXRlcjwvbmFtZT4KICAgICAgICA8cmFuaz5HZW51czwvcmFuaz4KICAgICAgICA8bmFtZV9odG1sPjxpPkFjY2lwaXRlcjwvaT48L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvYnJvd3NlL3RyZWUvaWQvOGU2YTk0OTg4ZWRlYzc4MWQzYzMyMDUxY2M2OWY0ZDk8L3VybD4KICAgICAgPC90YXhvbj4KICAgICAgPHRheG9uPgogICAgICAgIDxpZD5kMzQ5YjU4ZTdiNjBiZTkyYzE3ZTVkMTBmZWRhYzBjMTwvaWQ+CiAgICAgICAgPG5hbWU+c3RyaWF0dXM8L25hbWU+CiAgICAgICAgPHJhbms+U3BlY2llczwvcmFuaz4KICAgICAgICA8bmFtZV9odG1sPjxpPkFjY2lwaXRlciBzdHJpYXR1cyB2ZWxveDwvaT4gKEEuIFdpbHNvbiwgMTgxMik8L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvZGV0YWlscy9zcGVjaWVzL2lkL2QzNDliNThlN2I2MGJlOTJjMTdlNWQxMGZlZGFjMGMxPC91cmw+CiAgICAgIDwvdGF4b24+CiAgICA8L2NsYXNzaWZpY2F0aW9uPgogICAgPGNoaWxkX3RheGEvPgogICAgPHN5bm9ueW1zLz4KICAgIDxjb21tb25fbmFtZXMvPgogIDwvcmVzdWx0PgogIDxyZXN1bHQ+CiAgICA8aWQ+NWNhZjNhZTY1NWI0MDA2ZDMxZDc1YzJiY2RiYjEyYzU8L2lkPgogICAgPG5hbWU+QWNjaXBpdGVyIHN0cmlhdHVzIHZlbmF0b3I8L25hbWU+CiAgICA8cmFuaz5JbmZyYXNwZWNpZXM8L3Jhbms+CiAgICA8bmFtZV9zdGF0dXM+YWNjZXB0ZWQgbmFtZTwvbmFtZV9zdGF0dXM+CiAgICA8Z2VudXM+QWNjaXBpdGVyPC9nZW51cz4KICAgIDxzdWJnZW51cz48L3N1YmdlbnVzPgogICAgPHNwZWNpZXM+c3RyaWF0dXM8L3NwZWNpZXM+CiAgICA8aW5mcmFzcGVjaWVzX21hcmtlcj48L2luZnJhc3BlY2llc19tYXJrZXI+CiAgICA8aW5mcmFzcGVjaWVzPnZlbmF0b3I8L2luZnJhc3BlY2llcz4KICAgIDxhdXRob3I+V2V0bW9yZSwgMTkxNDwvYXV0aG9yPgogICAgPHJlY29yZF9zY3J1dGlueV9kYXRlPgogICAgICA8c2NydXRpbnk+MjItU2VwLTIwMTE8L3NjcnV0aW55PgogICAgPC9yZWNvcmRfc2NydXRpbnlfZGF0ZT4KICAgIDxvbmxpbmVfcmVzb3VyY2U+PCFbQ0RBVEFbaHR0cDovL3d3dy5pdGlzLmdvdi9zZXJ2bGV0L1NpbmdsZVJwdC9TaW5nbGVScHQ/c2VhcmNoX3RvcGljPVRTTiZzZWFyY2hfdmFsdWU9ODI0MzM0XV0+PC9vbmxpbmVfcmVzb3VyY2U+CiAgICA8aXNfZXh0aW5jdD5mYWxzZTwvaXNfZXh0aW5jdD4KICAgIDxzb3VyY2VfZGF0YWJhc2U+SVRJUyBHbG9iYWw6IFRoZSBJbnRlZ3JhdGVkIFRheG9ub21pYyBJbmZvcm1hdGlvbiBTeXN0ZW08L3NvdXJjZV9kYXRhYmFzZT4KICAgIDxzb3VyY2VfZGF0YWJhc2VfdXJsPmh0dHA6Ly93d3cuaXRpcy5nb3Y7Cmh0dHA6Ly93d3cuY2JpZi5nYy5jYS9hY3AvZW5nL2l0aXMvc2VhcmNoIChDYW5hZGEpPC9zb3VyY2VfZGF0YWJhc2VfdXJsPgogICAgPGJpYmxpb2dyYXBoaWNfY2l0YXRpb24+PCFbQ0RBVEFbVG9tIE9ycmVsbCAoY3VzdG9kaWFuKSwgRGF2ZSBOaWNvbHNvbiAoZWQpLiAoMjAxOSkuIElUSVMgR2xvYmFsOiBUaGUgSW50ZWdyYXRlZCBUYXhvbm9taWMgSW5mb3JtYXRpb24gU3lzdGVtICh2ZXJzaW9uIEp1biAyMDE3KS4gSW46IFNwZWNpZXMgMjAwMCAmIElUSVMgQ2F0YWxvZ3VlIG9mIExpZmUsIDIwMTkgQW5udWFsIENoZWNrbGlzdCAoUm9za292IFkuLCBPd2VyIEcuLCBPcnJlbGwgVC4sIE5pY29sc29uIEQuLCBCYWlsbHkgTi4sIEtpcmsgUC5NLiwgQm91cmdvaW4gVC4sIERlV2FsdCBSLkUuLCBEZWNvY2sgVy4sIE5pZXVrZXJrZW4gRS4gdmFuLCBaYXJ1Y2NoaSBKLiwgUGVuZXYgTC4sIGVkcy4pLiBEaWdpdGFsIHJlc291cmNlIGF0IHd3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2FubnVhbC1jaGVja2xpc3QvMjAxOS4gU3BlY2llcyAyMDAwOiBOYXR1cmFsaXMsIExlaWRlbiwgdGhlIE5ldGhlcmxhbmRzLiBJU1NOIDI0MDUtODg0WC5dXT48L2JpYmxpb2dyYXBoaWNfY2l0YXRpb24+CiAgICA8bmFtZV9odG1sPjxpPkFjY2lwaXRlciBzdHJpYXR1cyB2ZW5hdG9yPC9pPiBXZXRtb3JlLCAxOTE0PC9uYW1lX2h0bWw+CiAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvYnJvd3NlL3RyZWUvaWQvNWNhZjNhZTY1NWI0MDA2ZDMxZDc1YzJiY2RiYjEyYzU8L3VybD4KICAgIDxkaXN0cmlidXRpb24+PC9kaXN0cmlidXRpb24+CiAgICA8cmVmZXJlbmNlcz4KICAgICAgPHJlZmVyZW5jZT4KICAgICAgICA8YXV0aG9yPjwvYXV0aG9yPgogICAgICAgIDx5ZWFyPjIwMTE8L3llYXI+CiAgICAgICAgPHRpdGxlPjwvdGl0bGU+CiAgICAgICAgPHNvdXJjZT5ab29ub21lbiAtIFpvb2xvZ2ljYWwgTm9tZW5jbGF0dXJlIFJlc291cmNlLCAyMDExLjAyLjI1PC9zb3VyY2U+CiAgICAgIDwvcmVmZXJlbmNlPgogICAgPC9yZWZlcmVuY2VzPgogICAgPGNsYXNzaWZpY2F0aW9uPgogICAgICA8dGF4b24+CiAgICAgICAgPGlkPjVlZGUyNGIwNTM0ZWJkNWUxZjU1MmQ1YjlmODc0YTZhPC9pZD4KICAgICAgICA8bmFtZT5BbmltYWxpYTwvbmFtZT4KICAgICAgICA8cmFuaz5LaW5nZG9tPC9yYW5rPgogICAgICAgIDxuYW1lX2h0bWw+QW5pbWFsaWE8L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvYnJvd3NlL3RyZWUvaWQvNWVkZTI0YjA1MzRlYmQ1ZTFmNTUyZDViOWY4NzRhNmE8L3VybD4KICAgICAgPC90YXhvbj4KICAgICAgPHRheG9uPgogICAgICAgIDxpZD40MzEzYmM3NjM3ZTFmYzFmZWIzMTZhNGRlYTJiNjY4YjwvaWQ+CiAgICAgICAgPG5hbWU+Q2hvcmRhdGE8L25hbWU+CiAgICAgICAgPHJhbms+UGh5bHVtPC9yYW5rPgogICAgICAgIDxuYW1lX2h0bWw+Q2hvcmRhdGE8L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvYnJvd3NlL3RyZWUvaWQvNDMxM2JjNzYzN2UxZmMxZmViMzE2YTRkZWEyYjY2OGI8L3VybD4KICAgICAgPC90YXhvbj4KICAgICAgPHRheG9uPgogICAgICAgIDxpZD42Nzg0N2QzMjA1NzNmZjE4YjAzODRlMjJhZmU5N2VkODwvaWQ+CiAgICAgICAgPG5hbWU+QXZlczwvbmFtZT4KICAgICAgICA8cmFuaz5DbGFzczwvcmFuaz4KICAgICAgICA8bmFtZV9odG1sPkF2ZXM8L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvYnJvd3NlL3RyZWUvaWQvNjc4NDdkMzIwNTczZmYxOGIwMzg0ZTIyYWZlOTdlZDg8L3VybD4KICAgICAgPC90YXhvbj4KICAgICAgPHRheG9uPgogICAgICAgIDxpZD5iNTU1MjQxZTczYjU0MWJkYjVlNGU5NzYyODRiOGFlOTwvaWQ+CiAgICAgICAgPG5hbWU+QWNjaXBpdHJpZm9ybWVzPC9uYW1lPgogICAgICAgIDxyYW5rPk9yZGVyPC9yYW5rPgogICAgICAgIDxuYW1lX2h0bWw+QWNjaXBpdHJpZm9ybWVzPC9uYW1lX2h0bWw+CiAgICAgICAgPHVybD5odHRwOi8vd3d3LmNhdGFsb2d1ZW9mbGlmZS5vcmcvY29sL2Jyb3dzZS90cmVlL2lkL2I1NTUyNDFlNzNiNTQxYmRiNWU0ZTk3NjI4NGI4YWU5PC91cmw+CiAgICAgIDwvdGF4b24+CiAgICAgIDx0YXhvbj4KICAgICAgICA8aWQ+NGVkZjc5MDZkYjM4MTQ0ZjBkNDg3NTRkMjgzZGU1MGE8L2lkPgogICAgICAgIDxuYW1lPkFjY2lwaXRyaWRhZTwvbmFtZT4KICAgICAgICA8cmFuaz5GYW1pbHk8L3Jhbms+CiAgICAgICAgPG5hbWVfaHRtbD5BY2NpcGl0cmlkYWU8L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvYnJvd3NlL3RyZWUvaWQvNGVkZjc5MDZkYjM4MTQ0ZjBkNDg3NTRkMjgzZGU1MGE8L3VybD4KICAgICAgPC90YXhvbj4KICAgICAgPHRheG9uPgogICAgICAgIDxpZD44ZTZhOTQ5ODhlZGVjNzgxZDNjMzIwNTFjYzY5ZjRkOTwvaWQ+CiAgICAgICAgPG5hbWU+QWNjaXBpdGVyPC9uYW1lPgogICAgICAgIDxyYW5rPkdlbnVzPC9yYW5rPgogICAgICAgIDxuYW1lX2h0bWw+PGk+QWNjaXBpdGVyPC9pPjwvbmFtZV9odG1sPgogICAgICAgIDx1cmw+aHR0cDovL3d3dy5jYXRhbG9ndWVvZmxpZmUub3JnL2NvbC9icm93c2UvdHJlZS9pZC84ZTZhOTQ5ODhlZGVjNzgxZDNjMzIwNTFjYzY5ZjRkOTwvdXJsPgogICAgICA8L3RheG9uPgogICAgICA8dGF4b24+CiAgICAgICAgPGlkPmQzNDliNThlN2I2MGJlOTJjMTdlNWQxMGZlZGFjMGMxPC9pZD4KICAgICAgICA8bmFtZT5zdHJpYXR1czwvbmFtZT4KICAgICAgICA8cmFuaz5TcGVjaWVzPC9yYW5rPgogICAgICAgIDxuYW1lX2h0bWw+PGk+QWNjaXBpdGVyIHN0cmlhdHVzIHZlbmF0b3I8L2k+IFdldG1vcmUsIDE5MTQ8L25hbWVfaHRtbD4KICAgICAgICA8dXJsPmh0dHA6Ly93d3cuY2F0YWxvZ3Vlb2ZsaWZlLm9yZy9jb2wvZGV0YWlscy9zcGVjaWVzL2lkL2QzNDliNThlN2I2MGJlOTJjMTdlNWQxMGZlZGFjMGMxPC91cmw+CiAgICAgIDwvdGF4b24+CiAgICA8L2NsYXNzaWZpY2F0aW9uPgogICAgPGNoaWxkX3RheGEvPgogICAgPHN5bm9ueW1zLz4KICAgIDxjb21tb25fbmFtZXMvPgogIDwvcmVzdWx0Pgo8L3Jlc3VsdHM+Cg==
+  recorded_at: 2019-05-08 20:48:31 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: get
     uri: http://www.catalogueoflife.org/col/webservice?id=2346405&response=full
@@ -1823,9 +99,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
+      X-USER-AGENT: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
   response:
     status:
       status_code: '200'
@@ -1833,22 +110,19 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.12.1
-      date: Thu, 24 Jan 2019 01:18:30 GMT
+      server: nginx/1.14.0
+      date: Wed, 08 May 2019 20:48:30 GMT
       content-type: application/xml
       content-length: '205'
       connection: keep-alive
-      x-powered-by: PHP/5.5.9-1ubuntu4.26
       expires: Thu, 19 Nov 1981 08:52:00 GMT
-      cache-control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      cache-control: no-store, no-cache, must-revalidate
       pragma: no-cache
     body:
-      encoding: UTF-8
-      string: |
-        <?xml version="1.0" encoding="UTF-8"?>
-        <results id="2346405" name="" total_number_of_results="0" number_of_results_returned="0" start="0" error_message="No names found" version="1.9 rev 2126ab0" rank=""/>
-  recorded_at: 2019-01-24 01:18:31 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc3VsdHMgaWQ9IjIzNDY0MDUiIG5hbWU9IiIgdG90YWxfbnVtYmVyX29mX3Jlc3VsdHM9IjAiIG51bWJlcl9vZl9yZXN1bHRzX3JldHVybmVkPSIwIiBzdGFydD0iMCIgZXJyb3JfbWVzc2FnZT0iTm8gbmFtZXMgZm91bmQiIHZlcnNpb249IjEuOSByZXYgMjEyNmFiMCIgcmFuaz0iIi8+Cg==
+  recorded_at: 2019-05-08 20:48:31 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: get
     uri: http://www.catalogueoflife.org/col/webservice?id=2344165&response=full
@@ -1856,9 +130,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
+      X-USER-AGENT: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
   response:
     status:
       status_code: '200'
@@ -1866,22 +141,19 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.12.1
-      date: Thu, 24 Jan 2019 01:18:31 GMT
+      server: nginx/1.14.0
+      date: Wed, 08 May 2019 20:48:30 GMT
       content-type: application/xml
       content-length: '205'
       connection: keep-alive
-      x-powered-by: PHP/5.5.9-1ubuntu4.26
       expires: Thu, 19 Nov 1981 08:52:00 GMT
-      cache-control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      cache-control: no-store, no-cache, must-revalidate
       pragma: no-cache
     body:
-      encoding: UTF-8
-      string: |
-        <?xml version="1.0" encoding="UTF-8"?>
-        <results id="2344165" name="" total_number_of_results="0" number_of_results_returned="0" start="0" error_message="No names found" version="1.9 rev 2126ab0" rank=""/>
-  recorded_at: 2019-01-24 01:18:31 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc3VsdHMgaWQ9IjIzNDQxNjUiIG5hbWU9IiIgdG90YWxfbnVtYmVyX29mX3Jlc3VsdHM9IjAiIG51bWJlcl9vZl9yZXN1bHRzX3JldHVybmVkPSIwIiBzdGFydD0iMCIgZXJyb3JfbWVzc2FnZT0iTm8gbmFtZXMgZm91bmQiIHZlcnNpb249IjEuOSByZXYgMjEyNmFiMCIgcmFuaz0iIi8+Cg==
+  recorded_at: 2019-05-08 20:48:31 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: get
     uri: http://www.catalogueoflife.org/col/webservice?id=2346405&response=full
@@ -1889,35 +161,33 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
+      X-USER-AGENT: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      cache-control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      cache-control: no-store, no-cache, must-revalidate
       connection: keep-alive
       content-length: '205'
       content-type: application/xml
-      date: Thu, 24 Jan 2019 01:18:31 GMT
+      date: Wed, 08 May 2019 20:48:30 GMT
       expires: Thu, 19 Nov 1981 08:52:00 GMT
       pragma: no-cache
-      server: nginx/1.12.1
+      server: nginx/1.14.0
       set-cookie:
-      - aci_language=en; expires=Thu, 07-Feb-2019 01:18:31 GMT; Max-Age=1209600; path=/
-      - PHPSESSID=24hj5ls1em1bn5qr3tv7c6vrm5; path=/
+      - aci_language=en; expires=Wed, 22-May-2019 20:48:30 GMT; Max-Age=1209600; path=/
+      - PHPSESSID=m6u1uv5hqkuu42oha5ou3d39f0; path=/
       status: HTTP/1.1 200 OK
-      x-powered-by: PHP/5.5.9-1ubuntu4.26
     body:
-      encoding: UTF-8
-      string: |
-        <?xml version="1.0" encoding="UTF-8"?>
-        <results id="2346405" name="" total_number_of_results="0" number_of_results_returned="0" start="0" error_message="No names found" version="1.9 rev 2126ab0" rank=""/>
-  recorded_at: 2019-01-24 01:18:31 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc3VsdHMgaWQ9IjIzNDY0MDUiIG5hbWU9IiIgdG90YWxfbnVtYmVyX29mX3Jlc3VsdHM9IjAiIG51bWJlcl9vZl9yZXN1bHRzX3JldHVybmVkPSIwIiBzdGFydD0iMCIgZXJyb3JfbWVzc2FnZT0iTm8gbmFtZXMgZm91bmQiIHZlcnNpb249IjEuOSByZXYgMjEyNmFiMCIgcmFuaz0iIi8+Cg==
+  recorded_at: 2019-05-08 20:48:31 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
 - request:
     method: get
     uri: http://www.catalogueoflife.org/col/webservice?id=2346405&response=full
@@ -1925,9 +195,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
+      X-USER-AGENT: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
   response:
     status:
       status_code: '200'
@@ -1935,19 +206,16 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.12.1
-      date: Thu, 24 Jan 2019 01:18:31 GMT
+      server: nginx/1.14.0
+      date: Wed, 08 May 2019 20:48:31 GMT
       content-type: application/xml
       content-length: '205'
       connection: keep-alive
-      x-powered-by: PHP/5.5.9-1ubuntu4.26
       expires: Thu, 19 Nov 1981 08:52:00 GMT
-      cache-control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      cache-control: no-store, no-cache, must-revalidate
       pragma: no-cache
     body:
-      encoding: UTF-8
-      string: |
-        <?xml version="1.0" encoding="UTF-8"?>
-        <results id="2346405" name="" total_number_of_results="0" number_of_results_returned="0" start="0" error_message="No names found" version="1.9 rev 2126ab0" rank=""/>
-  recorded_at: 2019-01-24 01:18:31 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc3VsdHMgaWQ9IjIzNDY0MDUiIG5hbWU9IiIgdG90YWxfbnVtYmVyX29mX3Jlc3VsdHM9IjAiIG51bWJlcl9vZl9yZXN1bHRzX3JldHVybmVkPSIwIiBzdGFydD0iMCIgZXJyb3JfbWVzc2FnZT0iTm8gbmFtZXMgZm91bmQiIHZlcnNpb249IjEuOSByZXYgMjEyNmFiMCIgcmFuaz0iIi8+Cg==
+  recorded_at: 2019-05-08 20:48:31 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100

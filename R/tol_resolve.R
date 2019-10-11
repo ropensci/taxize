@@ -4,7 +4,7 @@
 #' @param names (character vector) taxon names to be queried
 #' @param context_name name of the taxonomic context to be searched
 #' (length-one character vector). Must match (case sensitive) one
-#' of the values returned by [`rotl::tnrs_contexts()`].
+#' of the values returned by [rotl::tnrs_contexts()].
 #' @param do_approximate_matching (logical) A logical indicating whether or not
 #' to perform approximate string (a.k.a. \dQuote{fuzzy}) matching. Using `FALSE`
 #' will greatly improve speed. Default: `TRUE`
@@ -22,10 +22,10 @@
 #' `attr(object, "original_response")`).
 #'
 #' @param ... Curl options passed on to `httr::POST` within
-#' [`rotl::tnrs_match_names()`]
+#' [rotl::tnrs_match_names()]
 #' @author Francois Michonneau \email{francois.michonneau@@gmail.com}
 #' Scott Chamberlain \email{myrmecocystus@@gmail.com}
-#' @seealso [`gnr_resolve()`], [`tnrs()`]
+#' @seealso [gnr_resolve()], [tnrs()]
 #' @references
 #' <https://github.com/OpenTreeOfLife/germinator/wiki/TNRS-API-v3#match_names>
 #' @keywords resolve names taxonomy

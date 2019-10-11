@@ -29,7 +29,8 @@ as.pow(x, check = TRUE)
 get_pow_(x, messages = TRUE, rows = NA, ...)
 }
 \arguments{
-\item{x}{character; A vector of common or scientific names}
+\item{x}{character; A vector of common or scientific names. Or, a
+\code{taxon_state} object (see \link{taxon-state})}
 
 \item{accepted}{logical; If TRUE, removes names that are not accepted
 valid names by ITIS. Set to \code{FALSE} (default) to give back both
@@ -55,7 +56,7 @@ retrieved from NCBI. See \code{\link[=rank_ref]{rank_ref()}} for possible option
 Though note that some data sources use atypical ranks, so inspect the data
 itself for options. Optional. See \code{Filtering} below.}
 
-\item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient}}}
+\item{...}{Curl options passed on to \link[crul:HttpClient]{crul::HttpClient}}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only
 used in \code{\link[=as.pow]{as.pow()}}}

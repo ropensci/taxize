@@ -7,7 +7,7 @@
 gnr_datasources(..., todf)
 }
 \arguments{
-\item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient}}}
+\item{...}{Curl options passed on to \link[crul:HttpClient]{crul::HttpClient}}
 
 \item{todf}{defunct, always get a data.frame back now}
 }

@@ -13,7 +13,7 @@ iplant_resolve(query, retrieve = "all", ...)
 names submitted. One of 'best' (retrieves only the single best match
 for each name submitted) or 'all' (retrieves all matches)}
 
-\item{...}{Curl options passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}}
+\item{...}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
 A data.frame

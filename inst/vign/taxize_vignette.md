@@ -84,6 +84,8 @@ mynames <- c("Helianthus annuus ssp. jaegeri", "Helianthus annuus ssp. lenticula
 
 ```
 [1] "525928" "525929" "525930"
+attr(,"class")
+[1] "tsn"
 attr(,"match")
 [1] "found" "found" "found"
 attr(,"multiple_matches")
@@ -94,8 +96,6 @@ attr(,"uri")
 [1] "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=525928"
 [2] "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=525929"
 [3] "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=525930"
-attr(,"class")
-[1] "tsn"
 ```
 
 ```r
@@ -167,7 +167,7 @@ classification(specieslist, db = 'itis')
 
 It turns out both species are in the family Pinaceae. You can also get this type of information from the NCBI by doing `classification(specieslist, db = 'ncbi')`.
 
-Instead of a full classification, you may only want a single name, say a family name for your species of interest. The function *tax_name} is built just for this purpose. As with the `classification` function you can specify the data source with the `db` argument, either ITIS or NCBI.
+Instead of a full classification, you may only want a single name, say a family name for your species of interest. The function `tax_name` is built just for this purpose. As with the `classification` function you can specify the data source with the `db` argument, either ITIS or NCBI.
 
 
 ```r
@@ -179,7 +179,7 @@ tax_name(query = "Helianthus annuus", get = "family", db = "ncbi")
 #> 1 ncbi Helianthus annuus Asteraceae
 ```
 
-I may happen that a data source does not provide information on the queried species, than one could take the result from another source and union the results from the different sources.
+It may happen that a data source does not provide information on the queried species, than one could take the result from another source and union the results from the different sources.
 
 ## Interactive name selection
 
@@ -225,6 +225,8 @@ get_tsn(searchterm = splist, searchtype = "scientific")
 
 ```
 #> [1] "506198" "18098"  "19405" 
+#> attr(,"class")
+#> [1] "tsn"
 #> attr(,"match")
 #> [1] "found" "found" "found"
 #> attr(,"multiple_matches")
@@ -234,9 +236,7 @@ get_tsn(searchterm = splist, searchtype = "scientific")
 #> attr(,"uri")
 #> [1] "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=506198"
 #> [2] "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=18098" 
-#> [3] "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=19405" 
-#> attr(,"class")
-#> [1] "tsn"
+#> [3] "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=19405"
 ```
 
 There are functions for many other sources
@@ -317,13 +317,13 @@ get_nbnid_("Poa annua", rows = 1:10)
 #> 1  NBNSYS0000002544          Poa annua species        accepted
 #> 2  NBNSYS0200001901       Bellis annua species        accepted
 #> 3  NBNSYS0200003392   Triumfetta annua species        accepted
-#> 4  NHMSYS0000456951  Carrichtera annua species        accepted
-#> 5  NBNSYS0200002555        Lonas annua species        accepted
+#> 4  NBNSYS0200002555        Lonas annua species        accepted
+#> 5  NHMSYS0000456951  Carrichtera annua species        accepted
 #> 6  NHMSYS0000461807 Poa labillardierei species        accepted
-#> 7  NBNSYS0200002925      Poa poiformis species        accepted
-#> 8  NBNSYS0200002917          Poa ampla species        accepted
-#> 9  NHMSYS0000461806      Poa imbecilla species        accepted
-#> 10 NHMSYS0000461808      Poa ligularis species        accepted
+#> 7  NHMSYS0000461808      Poa ligularis species        accepted
+#> 8  NHMSYS0000461817     Poa sieberiana species        accepted
+#> 9  NHMSYS0000461805         Poa gunnii species        accepted
+#> 10 NHMSYS0000461801     Poa costiniana species        accepted
 ```
 
 ## Coerce numerics/alphanumerics to taxon IDs
@@ -355,7 +355,7 @@ as.gbifid(get_gbifid("Poa annua")) # already a uid, returns the same
 #> attr(,"pattern_match")
 #> [1] FALSE
 #> attr(,"uri")
-#> [1] "http://www.gbif.org/species/2704179"
+#> [1] "https://www.gbif.org/species/2704179"
 ```
 
 ```r
@@ -423,7 +423,7 @@ system.time( replicate(3, as.gbifid(c("2704179","2435099","3171445"), check=TRUE
 
 ```
 #>    user  system elapsed 
-#>   0.078   0.002   1.943
+#>   0.072   0.004   3.376
 ```
 
 ```r
@@ -652,8 +652,8 @@ A_clas[[1]]$rank[tolower(A_clas[[1]]$name) %in% B3]
 
 If we find a direct match (here *Gammarus roeseli*), we are lucky. But we can also match Gammaridae with *Gammarus roeseli*, but on a lower taxonomic level. A more comprehensive and realistic example (matching a trait table with an abundance table) is given in the vignette on matching.
 
-[eol]: http://www.eol.org/
-[ncbi]: http://www.ncbi.nlm.nih.gov/
-[itis]: http://www.itis.gov/
-[wikispecies]: http://species.wikimedia.org/wiki/Main_Page
+[eol]: https://www.eol.org/
+[ncbi]: https://www.ncbi.nlm.nih.gov/
+[itis]: https://www.itis.gov/
+[wikispecies]: https://species.wikimedia.org/wiki/Main_Page
 [col]: http://www.catalogueoflife.org/

@@ -5,7 +5,7 @@
 #'
 #' @param source The source to get information on, one of "iPlant_TNRS",
 #' "NCBI", or "MSW3".
-#' @param ... Curl options to pass in [`crul::verb-GET`]
+#' @param ... Curl options to pass in [crul::verb-GET]
 #' @return Sources for the TNRS API in a vector or list
 #' @export
 #' @examples \dontrun{

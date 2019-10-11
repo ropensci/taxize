@@ -13,7 +13,7 @@ test_that("col_search returns the correct values, dimensions, and classes", {
 	expect_equal(names(temp), "Apis")
 	expect_equal(temp[[1]]$name[1], "Apis")
 
-  expect_that(is.null(dim(temp)), is_true())
+  expect_true(is.null(dim(temp)))
   expect_equal(NCOL(temp[[1]]), 10)
 
   expect_that(length(two), equals(2))
@@ -22,11 +22,11 @@ test_that("col_search returns the correct values, dimensions, and classes", {
   expect_is(byid, "list")
   expect_is(byid[[1]], "data.frame")
 
-	expect_that(temp, is_a("list"))
-	expect_that(temp[[1]], is_a("data.frame"))
+	expect_is(temp, "list")
+	expect_is(temp[[1]], "data.frame")
 
-	expect_that(two, is_a("list"))
-	expect_that(two[[1]], is_a("data.frame"))
+	expect_is(two, "list")
+	expect_is(two[[1]], "data.frame")
 })
 
 # don't do HTTP tests

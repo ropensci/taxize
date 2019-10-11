@@ -33,7 +33,8 @@ get_wormsid_(query, messages = TRUE, searchtype = "scientific",
   accepted = TRUE, rows = NA, ...)
 }
 \arguments{
-\item{query}{character; A vector of common or scientific names.}
+\item{query}{character; A vector of common or scientific names. Or, a
+\code{taxon_state} object (see \link{taxon-state})}
 
 \item{searchtype}{character; One of 'scientific' or 'common', or any unique
 abbreviation}
@@ -79,16 +80,15 @@ Species (WORMS).
 }
 \examples{
 \dontrun{
-(x <- get_wormsid('Platanista gangetica'))
+(x <- get_wormsid('Gadus morhua'))
 attributes(x)
 attr(x, "match")
 attr(x, "multiple_matches")
 attr(x, "pattern_match")
 attr(x, "uri")
 
-get_wormsid('Gadus morhua')
 get_wormsid('Pomatomus saltatrix')
-get_wormsid(c("Platanista gangetica", "Lichenopora neapolitana"))
+get_wormsid(c("Gadus morhua", "Lichenopora neapolitana"))
 
 # by common name
 get_wormsid("dolphin", 'common')

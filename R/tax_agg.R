@@ -4,13 +4,13 @@
 #' @param x Community data matrix. Taxa in columns, samples in rows.
 #' @param rank character; Taxonomic rank to aggregate by.
 #' @param db character; taxonomic API to use, 'ncbi, 'itis' or both, see
-#' [`tax_name()`]. Note that each taxonomic data source has
+#' [tax_name()]. Note that each taxonomic data source has
 #' their own identifiers, so that if you provide the wrong `db` value
 #' for the identifier you could get a result, but it will likely be wrong (not
 #' what you were expecting). If using ncbi we recommend getting an API key;
-#' see [`taxize-authentication`]
+#' see [taxize-authentication]
 #' @param verbose (logical) If FALSE (Default) suppress messages
-#' @param ... Other arguments passed to [`get_tsn()`] or [`get_uid()`]
+#' @param ... Other arguments passed to [get_tsn()] or [get_uid()]
 #'
 #' @details `tax_agg` aggregates (sum) taxa to a specific taxonomic level.
 #' If a taxon is not found in the database (ITIS or NCBI) or the supplied taxon
@@ -23,7 +23,7 @@
 #' * `n_pre` Number of taxa before aggregation.
 #' * `rank` Rank at which taxa have been aggregated.
 #'
-#' @seealso [`tax_name`]
+#' @seealso [tax_name]
 #' @examples \dontrun{
 #' if (requireNamespace("vegan", quietly = TRUE)) {
 #'   # use dune dataset
@@ -77,7 +77,7 @@ tax_agg <- function(x, rank, db = 'ncbi', verbose=FALSE, ...)
 
   # aggregate to family level (by querying NCBI for taxonomic classification)
   uniq_tax <- as.character(unique(df_m$variable))
-  agg <- tax_name(uniq_tax, get = rank, db = db, verbose = verbose, ...)
+  agg <- tax_name(uniq_tax, get = rank, db = db, messages = verbose, ...)
   lookup <- data.frame(variable = uniq_tax, agg = agg[ , 3], stringsAsFactors = FALSE)
 
   # merge lookup with orig.

@@ -19,10 +19,10 @@ zh-Hans, zh-Hant, ko}
 
 \item{usekey}{(logical) use your API key or not (\code{TRUE} or \code{FALSE})}
 
-\item{key}{(character) Your EOL API key; ; see \code{\link{taxize-authentication}}
+\item{key}{(character) Your EOL API key; ; see \link{taxize-authentication}
 for help on authentication}
 
-\item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient}}}
+\item{...}{Curl options passed on to \link[crul:HttpClient]{crul::HttpClient}}
 }
 \value{
 A list, optionally with a data.frame if \code{taxonomy=TRUE}

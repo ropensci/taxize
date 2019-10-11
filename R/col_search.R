@@ -3,7 +3,7 @@
 #' @export
 #' @param name The string to search for. Only exact matches found the name given
 #'   	will be returned, unless one or wildcards are included in the search
-#'   	string. An * (asterisk) character denotes a wildcard; a % (percentage)
+#'   	string. An * (asterisk) character denotes a wildcard; a percent
 #'    character may also be used. The name must be at least 3 characters long,
 #'    not counting wildcard characters.
 #' @param id The record ID of the specific record to return (only for scientific
@@ -16,7 +16,7 @@
 #' @param checklist The year of the checklist to query, if you want a specific
 #' 		year's checklist instead of the lastest as default (numeric).
 #' @param response (character) one of "terse" or "full"
-#' @param ... Curl options passed on to [`crul::HttpClient`]
+#' @param ... Curl options passed on to [crul::HttpClient]
 #' @details You must provide one of name or id. The other parameters (format
 #' 		and start) are optional.
 #' @references <http://webservice.catalogueoflife.org/>

@@ -33,7 +33,8 @@ as.uid(x, check = TRUE)
 get_uid_(sciname, messages = TRUE, rows = NA, key = NULL, ...)
 }
 \arguments{
-\item{sciname}{character; scientific name.}
+\item{sciname}{character; scientific name. Or, a \code{taxon_state}
+object (see \link{taxon-state})}
 
 \item{ask}{logical; should get_uid be run in interactive mode? If TRUE and
 more than one TSN is found for the species, the user is asked for input. If
@@ -119,7 +120,7 @@ about fuzzy matching.
 
 \section{Authentication}{
 
-See \code{\link{taxize-authentication}} for help on authentication
+See \link{taxize-authentication} for help on authentication
 
 Note that even though you can't pass in your key to \code{as.uid} functions,
 we still use your Entrez API key if you have it saved as an R option

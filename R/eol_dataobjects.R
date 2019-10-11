@@ -8,9 +8,9 @@
 #' one of ms, de, en, es, fr, gl, it, nl, nb, oc, pt-BR, sv, tl, mk, sr, uk, ar,
 #' zh-Hans, zh-Hant, ko
 #' @param usekey (logical) use your API key or not (`TRUE` or `FALSE`)
-#' @param key (character) Your EOL API key; ; see [`taxize-authentication`]
+#' @param key (character) Your EOL API key; ; see [taxize-authentication]
 #' for help on authentication
-#' @param ... Curl options passed on to [`crul::HttpClient`]
+#' @param ... Curl options passed on to [crul::HttpClient]
 #' @details It's possible to return JSON or XML with the EOL API. However,
 #' 		this function only returns JSON for now.
 #' @return A list, optionally with a data.frame if `taxonomy=TRUE`

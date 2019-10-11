@@ -16,25 +16,25 @@ get_ids_dbs <- c(
 #' identifiers, so that if you give the wrong `db` value for the identifier you
 #' could get a result, it will likely be wrong (not what you were expecting).
 #' If using ncbi, eol, and/or tropicos we recommend getting API keys;
-#' see [`taxize-authentication`]
+#' see [taxize-authentication]
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, all
 #' rows are returned. When used in `get_ids` this function still only
 #' gives back a ids class object with one to many identifiers. See
 #' `get_ids_` to get back all, or a subset, of the raw data that you
 #' are presented during the ask process.
-#' @param ... Other arguments passed to [`get_tsn()`], [`get_uid()`],
-#' [`get_eolid()`], [`get_colid()`], [`get_tpsid()`], [`get_gbifid()`],
-#' [`get_nbnid()`].
+#' @param ... Other arguments passed to [get_tsn()], [get_uid()],
+#' [get_eolid()], [get_colid()], [get_tpsid()], [get_gbifid()],
+#' [get_nbnid()].
 #' @return A vector of taxonomic identifiers, each retaining their respective
 #' S3 classes so that each element can be passed on to another function
 #' (see e.g.'s).
 #' @note There is a timeout of 1/3 seconds between queries to NCBI.
 #'
 #' @family taxonomic-ids
-#' @seealso [`classification()`]
+#' @seealso [classification()]
 #'
 #' @section Authentication:
-#' See [`taxize-authentication`] for help on authentication
+#' See [taxize-authentication] for help on authentication
 #'
 #' @examples \dontrun{
 #' # Plug in taxon names directly
@@ -71,7 +71,7 @@ get_ids_dbs <- c(
 #'   rows=1:10)
 #'
 #' # use curl options
-#' get_ids("Agapostemon", db = "ncbi", verbose = TRUE)
+#' get_ids("Agapostemon", db = "ncbi", messages = TRUE)
 #' }
 
 get_ids <- function(names,

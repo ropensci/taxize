@@ -17,7 +17,7 @@
 #' General functions in the package that don't hit a specific API don't have
 #' two words separated by an underscore, e.g., `classification`
 #'
-#' You need API keys for some data sources. See [`taxize-authentication`]
+#' You need API keys for some data sources. See [taxize-authentication]
 #' for more information.
 #'
 #' @section Currently supported APIs:
@@ -68,6 +68,9 @@
 #' @importFrom reshape2 melt dcast
 #' @importFrom xml2 xml_text xml_find_first xml_find_all xml_children read_xml
 #' xml_name xml_ns as_list
+#' @importFrom R6 R6Class
+#' @importFrom crayon style
+#' @importFrom cli symbol cat_line rule
 #' @name taxize-package
 #' @aliases taxize
 #' @docType package
@@ -106,15 +109,15 @@ NULL
 #'
 #' These names are from http://www.theplantlist.org, and are from
 #' version 1.1 of their data. This data is used in the function
-#' [`names_list()`]. This is a randomly selected subset of the ~350K
+#' [names_list()]. This is a randomly selected subset of the ~350K
 #' accepted species names in Theplantlist.
 #'
 #' @format A data frame with 10,000 rows and 3 variables:
-#' \describe{
+#' 
 #'   * `family` family name
 #'   * `genus` genus name
 #'   * `species` specific epithet name
-#' }
+#' 
 #' @source <http://www.theplantlist.org>
 #' @name theplantlist
 #' @docType data
@@ -129,12 +132,12 @@ NULL
 #' This dataset is from Version 13, incorporated on 2015-04-29.
 #'
 #' @format A data frame with 1597 rows and 4 variables:
-#' \describe{
+#' 
 #'   * `original` original data record from APG website
 #'   * `this` Order name
 #'   * `that` Replacement order name
 #'   * `order` Order name
-#' }
+#' 
 #' @source <http://www.mobot.org/MOBOT/research/APweb/>
 #' @name apg_families
 #' @docType data
@@ -149,11 +152,11 @@ NULL
 #' This dataset is from Version 13, incorporated on 2015-04-29.
 #'
 #' @format A data frame with 494 rows and 3 variables:
-#' \describe{
+#' 
 #'   * `original` original data record from APG website
 #'   * `this` Order name
 #'   * `that` Replacement order name
-#' }
+#' 
 #' @source <http://www.mobot.org/MOBOT/research/APweb/>
 #' @name apg_orders
 #' @docType data
@@ -190,38 +193,38 @@ NULL
 #' Defunct functions in taxize
 #'
 #' The following functions are now defunct (no longer available):
-#' * [`col_classification()`]: See`classification()`()]
-#' * [`eol_hierarchy()`]: See`classification()`()]
-#' * [`tp_classification()`]: See`classification()`()]
-#' * [`tpl_search()`]: Use the \pkg{Taxonstand} functions `TPL` or `TPLck` directly.
-#' * [`get_seqs()`]: This function changed name to`ncbi_getbyname()`()].
-#' * [`get_genes()`]: This function changed name to`ncbi_getbyid()`()].
-#' * [`get_genes_avail()`]: This function changed name to`ncbi_search()`()].
-#' * [`ncbi_getbyname()`]: See `ncbi_byname` in the \pkg{traits} package.
-#' * [`ncbi_getbyid()`]: See `ncbi_byid` in the \pkg{traits} package.
-#' * [`ncbi_search()`]: See `ncbi_searcher` in the \pkg{traits} package.
-#' * [`eol_invasive()`]: See `eol` in the \pkg{originr} package.
-#' * [`gisd_isinvasive()`]: See `gisd` in the \pkg{originr} package.
-#' * [`ubio_classification()`]:  The uBio web services was down for quite a while, is
+#' * [col_classification()]: See`classification()`()]
+#' * [eol_hierarchy()]: See`classification()`()]
+#' * [tp_classification()]: See`classification()`()]
+#' * [tpl_search()]: Use the \pkg{Taxonstand} functions `TPL` or `TPLck` directly.
+#' * [get_seqs()]: This function changed name to`ncbi_getbyname()`()].
+#' * [get_genes()]: This function changed name to`ncbi_getbyid()`()].
+#' * [get_genes_avail()]: This function changed name to`ncbi_search()`()].
+#' * [ncbi_getbyname()]: See `ncbi_byname` in the \pkg{traits} package.
+#' * [ncbi_getbyid()]: See `ncbi_byid` in the \pkg{traits} package.
+#' * [ncbi_search()]: See `ncbi_searcher` in the \pkg{traits} package.
+#' * [eol_invasive()]: See `eol` in the \pkg{originr} package.
+#' * [gisd_isinvasive()]: See `gisd` in the \pkg{originr} package.
+#' * [ubio_classification()]:  The uBio web services was down for quite a while, is
 #'  now (as of 2016-05-09) back up, but we don't trust that it will stay up and available.
-#' * [`ubio_classification_search()`]: The uBio web services was down for quite
+#' * [ubio_classification_search()]: The uBio web services was down for quite
 #'  a while, is now (as of 2016-05-09) back up, but we don't trust that it will stay up
 #'  and available.
-#' * [`ubio_id()`]: The uBio web services was down for quite a while, is
+#' * [ubio_id()]: The uBio web services was down for quite a while, is
 #'  now (as of 2016-05-09) back up, but we don't trust that it will stay up and available.
-#' * [`ubio_ping()`]:  The uBio web services was down for quite a while, is
+#' * [ubio_ping()]:  The uBio web services was down for quite a while, is
 #'  now (as of 2016-05-09) back up, but we don't trust that it will stay up and available.
-#' * [`ubio_search()`]:  The uBio web services was down for quite a while, is
+#' * [ubio_search()]:  The uBio web services was down for quite a while, is
 #'  now (as of 2016-05-09) back up, but we don't trust that it will stay up and available.
-#' * [`ubio_synonyms()`]:  The uBio web services was down for quite a while, is
+#' * [ubio_synonyms()]:  The uBio web services was down for quite a while, is
 #'  now (as of 2016-05-09) back up, but we don't trust that it will stay up and available.
-#' * [`get_ubioid()`]: The uBio web services are apparently down indefinitely.
-#' * [`phylomatic_tree()`]: This function is defunct. See
+#' * [get_ubioid()]: The uBio web services are apparently down indefinitely.
+#' * [phylomatic_tree()]: This function is defunct. See
 #'  `phylomatic` in the package \pkg{brranching}
-#' * [`phylomatic_format()`]: This function is defunct. See
+#' * [phylomatic_format()]: This function is defunct. See
 #'  `phylomatic_names` in the package \pkg{brranching}
-#' * [`iucn_summary_id()`]: This function is defunct. Use 
-#'  [`iucn_summary()`]
+#' * [iucn_summary_id()]: This function is defunct. Use [iucn_summary()]
+#' * [eubon()]: This function is defunct. Use [eubon_search()]
 #'
 #' @name taxize-defunct
 #' @aliases defunct
@@ -240,19 +243,24 @@ NULL
 #' useful reference point to see how taxonomic names have changed since their
 #' inception. The names were transcribed by Robert W. Kiger.
 #'
-#' @format A data frame with 5940 rows and 3 variables: \describe{
-#'   \item{genus}{First part of the binomial species name for each species
-#'   within the [genus](https://en.wikipedia.org/wiki/Genus)}
-#'   \item{epithet}{specific epithet or second part of the binomial species name
-#'   for each [species](https://en.wikipedia.org/wiki/Species)}
-#'   \item{page_number}{The following abbreviations sometimes are used in the
-#'   page_number field.  \itemize{\item{"add."} {refers to addenda that appear
-#'   on the unnumbered last page of the index in volume
-#'   two.}\item{"err."}{refers to the unnumbered page of errata that appears
-#'   following the index in volume two.}\item{"canc."}{following a page number
-#'   indicates that the binomial appeared on the cancelled version of that page
-#'   and does not appear on its replacement (as in the 1957-1959 facsimile
-#'   edition).}}}}
+#' @format A data frame with 5940 rows and 3 variables:
+#' 
+#' - genus First part of the binomial species name for each species
+#' within the [genus](https://en.wikipedia.org/wiki/Genus)
+#' 
+#' - epithet specific epithet or second part of the binomial species name
+#'   for each [species](https://en.wikipedia.org/wiki/Species)
+#' 
+#' - page_number The following abbreviations sometimes are used in the
+#'   page_number field.  
+#'     - "add." refers to addenda that appear on the unnumbered last page of
+#'       the index in volume two.
+#'     - "err." refers to the unnumbered page of errata that appears following
+#'       the index in volume two.
+#'     - "canc." following a page number indicates that the binomial appeared
+#'       on the cancelled version of that page and does not appear on its
+#'       replacement (as in the 1957-1959 facsimile edition.
+#' 
 #' @source [Hunt Institute for Botanical Documentation](http://fmhibd.library.cmu.edu/HIBD-DB/Species/home.php)
 #' @name species_plantarum_binomials
 #' @references Linnaeus, C. 1753. Species Plantarum. 2 vols. Salvius, Stockholm.

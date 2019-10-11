@@ -1,7 +1,8 @@
 #' Get the UK National Biodiversity Network ID from taxonomic names.
 #'
 #' @export
-#' @param name character; scientific name.
+#' @param name character; scientific name. Or, a `taxon_state`
+#' object (see [taxon-state])
 #' @param ask logical; should get_nbnid be run in interactive mode?
 #' If TRUE and more than one ID is found for the species, the user is asked for
 #' input. If FALSE NA is returned for multiple matches.
@@ -15,12 +16,12 @@
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, all
 #' rows are considered. Note that this function still only gives back a nbnid
 #' class object with one to many identifiers. See
-#' [`get_nbnid_()`] to get back all, or a subset, of the raw
+#' [get_nbnid_()] to get back all, or a subset, of the raw
 #' data that you are presented during the ask process.
 #' @param ... Further args passed on to `nbn_search`
-#' @param x Input to [`as.nbnid()`]
+#' @param x Input to [as.nbnid()]
 #' @param check logical; Check if ID matches any existing on the DB, only
-#' used in [`as.nbnid()`]
+#' used in [as.nbnid()]
 #' @template getreturn
 #'
 #' @references <https://api.nbnatlas.org/>
@@ -29,7 +30,7 @@
 #' metadata
 #' @family taxonomic-ids
 #' @family nbn
-#' @seealso [`classification()`]
+#' @seealso [classification()]
 #'
 #' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
 #'
@@ -44,10 +45,10 @@
 #' get_nbnid(name='red-winged blackbird')
 #'
 #' # specify rows to limit choices available
-#' get_nbnid('Poa annua')
-#' get_nbnid('Poa annua', rows=1)
-#' get_nbnid('Poa annua', rows=25)
-#' get_nbnid('Poa annua', rows=1:2)
+#' get_nbnid('Poa ann')
+#' get_nbnid('Poa ann', rows=1)
+#' get_nbnid('Poa ann', rows=25)
+#' get_nbnid('Poa ann', rows=1:2)
 #'
 #' # When not found
 #' get_nbnid(name="uaudnadndj")
@@ -85,16 +86,33 @@
 get_nbnid <- function(name, ask = TRUE, messages = TRUE, rec_only = FALSE,
                       rank = NULL, rows = NA, ...){
 
+  assert(name, c("character", "taxon_state"))
   assert(ask, "logical")
   assert(rec_only, "logical")
   assert(rank, "character")
   assert(messages, "logical")
   assert_rows(rows)
 
-  fun <- function(name, ask, messages, rows, ...) {
+  if (inherits(name, "character")) {
+    tstate <- taxon_state$new(class = "nbnid", names = name)
+    items <- name
+  } else {
+    assert_state(name, "nbnid")
+    tstate <- name
+    name <- tstate$taxa_remaining()
+    items <- c(name, tstate$taxa_completed())
+  }
+
+  prog <- progressor$new(items = items, suppress = !messages)
+  done <- tstate$get()
+  for (i in seq_along(done)) prog$completed(names(done)[i], done[[i]]$att)
+  prog$prog_start()
+
+  for (i in seq_along(name)) {
     direct <- FALSE
-    mssg(messages, "\nRetrieving data for taxon '", name, "'\n")
-    df <- nbn_search(q = name, rows = 500, ...)$data
+    mssg(messages, "\nRetrieving data for taxon '", name[i], "'\n")
+    df <- nbn_search(q = name[i], rows = 500, fq = "idxtype:TAXON",
+      ...)$data
     if (is.null(df) || length(df) == 0) df <- data.frame(NULL)
     mm <- NROW(df) > 1
 
@@ -122,7 +140,7 @@ get_nbnid <- function(name, ask = TRUE, messages = TRUE, rec_only = FALSE,
     }
     # more than one, try for direct match
     if (length(id) > 1) {
-      matchtmp <- df[tolower(df$scientificName) %in% tolower(name),]
+      matchtmp <- df[tolower(df$scientificName) %in% tolower(name[i]),]
       if (NROW(matchtmp) == 1) {
         id <- matchtmp$nbnid
         rank_taken <- as.character(matchtmp$rank)
@@ -137,7 +155,7 @@ get_nbnid <- function(name, ask = TRUE, messages = TRUE, rec_only = FALSE,
         rownames(df) <- seq_len(NROW(df))
         # prompt
         message("\n\n")
-        message("\nMore than one NBN ID found for taxon '", name, "'!\n
+        message("\nMore than one NBN ID found for taxon '", name[i], "'!\n
             Enter rownumber of taxon (other inputs will return 'NA'):\n")
         print(df)
         take <- scan(n = 1, quiet = TRUE, what = 'raw')
@@ -160,32 +178,45 @@ get_nbnid <- function(name, ask = TRUE, messages = TRUE, rec_only = FALSE,
         }
       } else{
         if (length(id) != 1) {
-          warning(sprintf(m_more_than_one_found, "NBN ID", name),
+          warning(sprintf(m_more_than_one_found, "NBN ID", name[i]),
             call. = FALSE)
           id <- NA_character_
           att <- m_na_ask_false
         }
       }
     }
-    list(id = id, rank = rank_taken, att = att, multiple = mm, direct = direct)
+    # list(id = id, rank = rank_taken, att = att, multiple = mm, direct = direct)
+    res <- list(id = id, rank = rank_taken, att = att, multiple = mm,
+      direct = direct)
+    prog$completed(name[i], att)
+    prog$prog(att)
+    tstate$add(name[i], res)
   }
-  name <- as.character(name)
-  out <- lapply(name, fun, ask = ask, messages = messages, rows = rows, ...)
-  ids <- pluck(out, "id", "")
-  atts <- pluck(out, "att", "")
-  ids <- structure(ids, class = "nbnid", match = atts,
-                   multiple_matches = pluck(out, "multiple", logical(1)),
-                   pattern_match = pluck(out, "direct", logical(1)))
-  if ( !all(is.na(ids)) ) {
-    urls <- sapply(out, function(z){
-      if (!is.na(z[['id']]))
-        sprintf('https://species.nbnatlas.org/species/%s', z[['id']])
-      else
-        NA
-    })
-    attr(ids, 'uri') <- unlist(urls)
-  }
-  return(ids)
+  # name <- as.character(name)
+  # out <- lapply(name, fun, ask = ask, messages = messages, rows = rows, ...)
+  # ids <- pluck(out, "id", "")
+  # atts <- pluck(out, "att", "")
+  # ids <- structure(ids, class = "nbnid", match = atts,
+  #                  multiple_matches = pluck(out, "multiple", logical(1)),
+  #                  pattern_match = pluck(out, "direct", logical(1)))
+  # if ( !all(is.na(ids)) ) {
+  #   urls <- sapply(out, function(z){
+  #     if (!is.na(z[['id']]))
+  #       sprintf('https://species.nbnatlas.org/species/%s', z[['id']])
+  #     else
+  #       NA
+  #   })
+  #   attr(ids, 'uri') <- unlist(urls)
+  # }
+  # return(ids)
+  out <- tstate$get()
+  ids <- structure(as.character(unlist(pluck(out, "id"))), class = "nbnid",
+                   match = pluck_un(out, "att", ""),
+                   multiple_matches = pluck_un(out, "multiple", logical(1)),
+                   pattern_match = pluck_un(out, "direct", logical(1)))
+  on.exit(prog$prog_summary(), add = TRUE)
+  on.exit(tstate$exit, add = TRUE)
+  add_uri(ids, get_url_templates$nbn)
 }
 
 #' @export
@@ -237,12 +268,12 @@ as.data.frame.nbnid <- function(x, ...) {
 }
 
 make_nbnid <- function(x, check=TRUE) {
-  make_generic(x, 'https://species.nbnatlas.org/species/%s', "nbnid", check)
+  make_generic(x, 'https://species-ws.nbnatlas.org/species/%s', "nbnid", check)
 }
 
 check_nbnid <- function(x){
   url <- "https://species-ws.nbnatlas.org/species/"
-  res <- tax_GET(paste0(url, x))
+  res <- tax_GET_nocheck(paste0(url, x))
   if (res$status_code == 200) TRUE else FALSE
 }
 

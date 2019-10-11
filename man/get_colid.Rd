@@ -30,7 +30,8 @@ as.colid(x, check = TRUE)
 get_colid_(sciname, messages = TRUE, rows = NA)
 }
 \arguments{
-\item{sciname}{character; scientific name.}
+\item{sciname}{character; scientific name. Or, a \code{taxon_state}
+object (see \link{taxon-state})}
 
 \item{ask}{logical; should get_colid be run in interactive mode?
 If TRUE and more than one ID is found for the species, the user is asked for
@@ -87,7 +88,7 @@ Get the Catalogue of Life ID from taxonomic names
 }
 \section{Number of results}{
 
-We didn't used to, but as of \pkg{taxize} version `v0.9.6`` we paginate
+We didn't used to, but as of \pkg{taxize} version \code{v0.9.6} we paginate
 through results for any queries so that you get all results. For example,
 COL allows only 50 records per request for full responses that we request,
 so if a query results in 100 records, we make two requests to get all the

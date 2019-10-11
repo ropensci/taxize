@@ -74,13 +74,13 @@ classification(specieslist, db = 'itis')
 
 It turns out both species are in the family Pinaceae. You can also get this type of information from the NCBI by doing `classification(specieslist, db = 'ncbi')`.
 
-Instead of a full classification, you may only want a single name, say a family name for your species of interest. The function *tax_name} is built just for this purpose. As with the `classification` function you can specify the data source with the `db` argument, either ITIS or NCBI.
+Instead of a full classification, you may only want a single name, say a family name for your species of interest. The function `tax_name` is built just for this purpose. As with the `classification` function you can specify the data source with the `db` argument, either ITIS or NCBI.
 
 ```{r taxname, eval=TRUE,cache=TRUE}
 tax_name(query = "Helianthus annuus", get = "family", db = "ncbi")
 ```
 
-I may happen that a data source does not provide information on the queried species, than one could take the result from another source and union the results from the different sources.
+It may happen that a data source does not provide information on the queried species, than one could take the result from another source and union the results from the different sources.
 
 ## Interactive name selection
 
@@ -223,8 +223,8 @@ A_clas[[1]]$rank[tolower(A_clas[[1]]$name) %in% B3]
 
 If we find a direct match (here *Gammarus roeseli*), we are lucky. But we can also match Gammaridae with *Gammarus roeseli*, but on a lower taxonomic level. A more comprehensive and realistic example (matching a trait table with an abundance table) is given in the vignette on matching.
 
-[eol]: http://www.eol.org/
-[ncbi]: http://www.ncbi.nlm.nih.gov/
-[itis]: http://www.itis.gov/
-[wikispecies]: http://species.wikimedia.org/wiki/Main_Page
+[eol]: https://www.eol.org/
+[ncbi]: https://www.ncbi.nlm.nih.gov/
+[itis]: https://www.itis.gov/
+[wikispecies]: https://species.wikimedia.org/wiki/Main_Page
 [col]: http://www.catalogueoflife.org/

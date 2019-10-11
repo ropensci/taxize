@@ -8,59 +8,25 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
-      X-User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
+      X-USER-AGENT: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Thu, 21 Feb 2019 00:49:49 GMT
-      server: Apache/2.4.38 (Unix)
-      content-disposition: inline;filename=f.txt
-      etag: '"0e78d027ee15c1f68c65c8e7836382fab-gzip"'
+      status: 'HTTP/1.1 200 '
+      server: nginx/1.15.12
+      date: Wed, 08 May 2019 20:55:48 GMT
       content-type: application/json;charset=UTF-8
-      vary: Accept-Encoding
-      content-encoding: gzip
-      cache-control: max-age=0, must-revalidate, proxy-revalidate
       transfer-encoding: chunked
+      connection: keep-alive
+      content-disposition: inline;filename=f.txt
+      etag: W/"0ad84b62bcdf812869887078110e73ddf"
+      content-encoding: gzip
     body:
-      encoding: UTF-8
-      string: '{"modified":"2018-02-02T13:59:16.000Z","bibliographicCitation":"IPNI
-        2019. Published on the Internet http://www.ipni.org; WCSP 2019. WCSP. Facilitated
-        by the Royal Botanic Gardens, Kew. Published on the Internet; http://apps.kew.org/wcsp/
-        Retrieved 2011 onwards","genus":"Poa","taxonomicStatus":"Accepted","kingdom":"Plantae","phylum":"Magnoliophyta","family":"Poaceae","nomenclaturalCode":"Botanical","source":"http://apps.kew.org/wcsp/namedetail.do?name_id=435194","namePublishedInYear":1753,"taxonRemarks":"Temp.
-        Old World to Trop. Mts.","nomenclaturalStatus":"Available","synonym":false,"plantae":true,"fungi":false,"fqId":"urn:lsid:ipni.org:names:320035-2","name":"Poa
-        annua","authors":"L.","species":"annua","rank":"SPECIES","reference":"Sp.
-        Pl.: 68 (1753)","classification":[{"fqId":"urn:lsid:ipni.org:names:320035-2","name":"Poa
-        annua","author":"L.","rank":"SPECIES","taxonomicStatus":"Accepted"}],"basionymOf":[{"fqId":"urn:lsid:ipni.org:names:77075710-1","name":"Ochlopoa
-        annua","author":"(L.) H.Scholz","rank":"SPECIES","taxonomicStatus":"Homotypic_Synonym"}],"synonyms":[{"fqId":"urn:lsid:ipni.org:names:204089-2","name":"Poa
-        annua var. eriolepis","author":"É.Desv.","rank":"VARIETY","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:417222-1","name":"Poa
-        humilis","author":"Lej.","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:417204-1","name":"Poa
-        hohenackeri","author":"Trin.","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:104087-2","name":"Festuca
-        tenuiculmis","author":"Tovar","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:204090-2","name":"Poa
-        annua var. rigidiuscula","author":"Dewey","rank":"VARIETY","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:77075712-1","name":"Ochlopoa
-        annua subsp. notabilis","author":"(Chrtek & V.Jirásek) H.Scholz & Valdés","rank":"SUBSPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:77075713-1","name":"Poa
-        annua var. pilantha","author":"Ronniger","rank":"VARIETY","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:77075714-1","name":"Ochlopoa
-        annua subsp. pilantha","author":"(Ronniger) H.Scholz & Valdés","rank":"SUBSPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:77075711-1","name":"Poa
-        annua subsp. notabilis","author":"Chrtek & V.Jirásek","rank":"SUBSPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:77075710-1","name":"Ochlopoa
-        annua","author":"(L.) H.Scholz","rank":"SPECIES","taxonomicStatus":"Homotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:77075715-1","name":"Ochlopoa
-        annua subsp. raniglumis","author":"(S.E.Fröhner) H.Scholz & Valdés","rank":"SUBSPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:417173-1","name":"Poa
-        hansiana","author":"Nees","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:70029671-1","name":"Poa
-        annua f. purpurea","author":"Mike L.Grant","rank":"Form","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:954162-1","name":"Poa
-        annua f. reptans","author":"(Hausskn.) T.Koyama","rank":"Form","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:418322-1","name":"Poa
-        variegata","author":"Haller f.","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:325335-2","name":"Aira
-        pumila","author":"Pursh","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:416609-1","name":"Poa
-        bipollicaris","author":"Hochst.","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:416452-1","name":"Poa
-        algida","author":"Trin.","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:416432-1","name":"Poa
-        aestivalis","author":"J.Presl","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:1142346-2","name":"Catabrosa
-        pumila","author":"(Pursh) Roem. & Schult.","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:77118295-1","name":"Ochlopoa
-        raniglumis","author":"(S.E.Fröhner) Bomble","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:417838-1","name":"Poa
-        puberula","author":"Steud.","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:417494-1","name":"Poa
-        meyenii","author":"Nees & Meyen","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:417642-1","name":"Poa
-        ovalis","author":"Tineo","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:51017674-1","name":"Poa
-        annua var. raniglumis","author":"S.E.Fröhner","rank":"VARIETY","taxonomicStatus":"Synonym"}]}'
-  recorded_at: 2019-02-21 00:49:49 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4
+      encoding: ASCII-8BIT
+      string: eyJtb2RpZmllZCI6IjIwMTktMDItMjFUMTg6MTI6MjcuMDAwWiIsImJpYmxpb2dyYXBoaWNDaXRhdGlvbiI6IklQTkkgMjAxOS4gUHVibGlzaGVkIG9uIHRoZSBJbnRlcm5ldCBodHRwOi8vd3d3Lmlwbmkub3JnOyBXQ1NQIDIwMTkuIFdDU1AuIEZhY2lsaXRhdGVkIGJ5IHRoZSBSb3lhbCBCb3RhbmljIEdhcmRlbnMsIEtldy4gUHVibGlzaGVkIG9uIHRoZSBJbnRlcm5ldDsgaHR0cDovL2FwcHMua2V3Lm9yZy93Y3NwLyBSZXRyaWV2ZWQgMjAxMSBvbndhcmRzIiwiZ2VudXMiOiJQb2EiLCJ0YXhvbm9taWNTdGF0dXMiOiJBY2NlcHRlZCIsImtpbmdkb20iOiJQbGFudGFlIiwicGh5bHVtIjoiTWFnbm9saW9waHl0YSIsImZhbWlseSI6IlBvYWNlYWUiLCJub21lbmNsYXR1cmFsQ29kZSI6IkJvdGFuaWNhbCIsInNvdXJjZSI6Imh0dHA6Ly9hcHBzLmtldy5vcmcvd2NzcC9uYW1lZGV0YWlsLmRvP25hbWVfaWQ9NDM1MTk0IiwibmFtZVB1Ymxpc2hlZEluWWVhciI6MTc1MywidGF4b25SZW1hcmtzIjoiVGVtcC4gT2xkIFdvcmxkIHRvIFRyb3AuIE10cy4iLCJub21lbmNsYXR1cmFsU3RhdHVzIjoiQXZhaWxhYmxlIiwic3lub255bSI6ZmFsc2UsInBsYW50YWUiOnRydWUsImZ1bmdpIjpmYWxzZSwiZnFJZCI6InVybjpsc2lkOmlwbmkub3JnOm5hbWVzOjMyMDAzNS0yIiwibmFtZSI6IlBvYSBhbm51YSIsImF1dGhvcnMiOiJMLiIsInNwZWNpZXMiOiJhbm51YSIsInJhbmsiOiJTUEVDSUVTIiwicmVmZXJlbmNlIjoiU3AuIFBsLjogNjggKDE3NTMpIiwiY2xhc3NpZmljYXRpb24iOlt7ImZxSWQiOiJ1cm46bHNpZDppcG5pLm9yZzpuYW1lczozMDAwMDAzMi0yIiwibmFtZSI6IlBvYWNlYWUiLCJhdXRob3IiOiJCYXJuaGFydCIsInJhbmsiOiJGQU1JTFkiLCJ0YXhvbm9taWNTdGF0dXMiOiJBY2NlcHRlZCJ9LHsiZnFJZCI6InVybjpsc2lkOmlwbmkub3JnOm5hbWVzOjMwMDAxNDA0LTIiLCJuYW1lIjoiUG9hIiwiYXV0aG9yIjoiTC4iLCJyYW5rIjoiR0VOVVMiLCJ0YXhvbm9taWNTdGF0dXMiOiJBY2NlcHRlZCJ9LHsiZnFJZCI6InVybjpsc2lkOmlwbmkub3JnOm5hbWVzOjMyMDAzNS0yIiwibmFtZSI6IlBvYSBhbm51YSIsImF1dGhvciI6IkwuIiwicmFuayI6IlNQRUNJRVMiLCJ0YXhvbm9taWNTdGF0dXMiOiJBY2NlcHRlZCJ9XSwiYmFzaW9ueW1PZiI6W3siZnFJZCI6InVybjpsc2lkOmlwbmkub3JnOm5hbWVzOjc3MDc1NzEwLTEiLCJuYW1lIjoiT2NobG9wb2EgYW5udWEiLCJhdXRob3IiOiIoTC4pIEguU2Nob2x6IiwicmFuayI6IlNQRUNJRVMiLCJ0YXhvbm9taWNTdGF0dXMiOiJIb21vdHlwaWNfU3lub255bSJ9XSwic3lub255bXMiOlt7ImZxSWQiOiJ1cm46bHNpZDppcG5pLm9yZzpuYW1lczoyMDQwODktMiIsIm5hbWUiOiJQb2EgYW5udWEgdmFyLiBlcmlvbGVwaXMiLCJhdXRob3IiOiLDiS5EZXN2LiIsInJhbmsiOiJWQVJJRVRZIiwidGF4b25vbWljU3RhdHVzIjoiU3lub255bSJ9LHsiZnFJZCI6InVybjpsc2lkOmlwbmkub3JnOm5hbWVzOjQxNzIyMi0xIiwibmFtZSI6IlBvYSBodW1pbGlzIiwiYXV0aG9yIjoiTGVqLiIsInJhbmsiOiJTUEVDSUVTIiwidGF4b25vbWljU3RhdHVzIjoiU3lub255bSJ9LHsiZnFJZCI6InVybjpsc2lkOmlwbmkub3JnOm5hbWVzOjQxNzIwNC0xIiwibmFtZSI6IlBvYSBob2hlbmFja2VyaSIsImF1dGhvciI6IlRyaW4uIiwicmFuayI6IlNQRUNJRVMiLCJ0YXhvbm9taWNTdGF0dXMiOiJTeW5vbnltIn0seyJmcUlkIjoidXJuOmxzaWQ6aXBuaS5vcmc6bmFtZXM6MTA0MDg3LTIiLCJuYW1lIjoiRmVzdHVjYSB0ZW51aWN1bG1pcyIsImF1dGhvciI6IlRvdmFyIiwicmFuayI6IlNQRUNJRVMiLCJ0YXhvbm9taWNTdGF0dXMiOiJTeW5vbnltIn0seyJmcUlkIjoidXJuOmxzaWQ6aXBuaS5vcmc6bmFtZXM6MjA0MDkwLTIiLCJuYW1lIjoiUG9hIGFubnVhIHZhci4gcmlnaWRpdXNjdWxhIiwiYXV0aG9yIjoiRGV3ZXkiLCJyYW5rIjoiVkFSSUVUWSIsInRheG9ub21pY1N0YXR1cyI6IlN5bm9ueW0ifSx7ImZxSWQiOiJ1cm46bHNpZDppcG5pLm9yZzpuYW1lczo3NzA3NTcxMi0xIiwibmFtZSI6Ik9jaGxvcG9hIGFubnVhIHN1YnNwLiBub3RhYmlsaXMiLCJhdXRob3IiOiIoQ2hydGVrICYgVi5KaXLDoXNlaykgSC5TY2hvbHogJiBWYWxkw6lzIiwicmFuayI6IlNVQlNQRUNJRVMiLCJ0YXhvbm9taWNTdGF0dXMiOiJTeW5vbnltIn0seyJmcUlkIjoidXJuOmxzaWQ6aXBuaS5vcmc6bmFtZXM6NzcwNzU3MTMtMSIsIm5hbWUiOiJQb2EgYW5udWEgdmFyLiBwaWxhbnRoYSIsImF1dGhvciI6IlJvbm5pZ2VyIiwicmFuayI6IlZBUklFVFkiLCJ0YXhvbm9taWNTdGF0dXMiOiJTeW5vbnltIn0seyJmcUlkIjoidXJuOmxzaWQ6aXBuaS5vcmc6bmFtZXM6NzcwNzU3MTQtMSIsIm5hbWUiOiJPY2hsb3BvYSBhbm51YSBzdWJzcC4gcGlsYW50aGEiLCJhdXRob3IiOiIoUm9ubmlnZXIpIEguU2Nob2x6ICYgVmFsZMOpcyIsInJhbmsiOiJTVUJTUEVDSUVTIiwidGF4b25vbWljU3RhdHVzIjoiU3lub255bSJ9LHsiZnFJZCI6InVybjpsc2lkOmlwbmkub3JnOm5hbWVzOjc3MDc1NzExLTEiLCJuYW1lIjoiUG9hIGFubnVhIHN1YnNwLiBub3RhYmlsaXMiLCJhdXRob3IiOiJDaHJ0ZWsgJiBWLkppcsOhc2VrIiwicmFuayI6IlNVQlNQRUNJRVMiLCJ0YXhvbm9taWNTdGF0dXMiOiJTeW5vbnltIn0seyJmcUlkIjoidXJuOmxzaWQ6aXBuaS5vcmc6bmFtZXM6NzcwNzU3MTAtMSIsIm5hbWUiOiJPY2hsb3BvYSBhbm51YSIsImF1dGhvciI6IihMLikgSC5TY2hvbHoiLCJyYW5rIjoiU1BFQ0lFUyIsInRheG9ub21pY1N0YXR1cyI6IkhvbW90eXBpY19TeW5vbnltIn0seyJmcUlkIjoidXJuOmxzaWQ6aXBuaS5vcmc6bmFtZXM6NzcwNzU3MTUtMSIsIm5hbWUiOiJPY2hsb3BvYSBhbm51YSBzdWJzcC4gcmFuaWdsdW1pcyIsImF1dGhvciI6IihTLkUuRnLDtmhuZXIpIEguU2Nob2x6ICYgVmFsZMOpcyIsInJhbmsiOiJTVUJTUEVDSUVTIiwidGF4b25vbWljU3RhdHVzIjoiU3lub255bSJ9LHsiZnFJZCI6InVybjpsc2lkOmlwbmkub3JnOm5hbWVzOjQxNzE3My0xIiwibmFtZSI6IlBvYSBoYW5zaWFuYSIsImF1dGhvciI6Ik5lZXMiLCJyYW5rIjoiU1BFQ0lFUyIsInRheG9ub21pY1N0YXR1cyI6IlN5bm9ueW0ifSx7ImZxSWQiOiJ1cm46bHNpZDppcG5pLm9yZzpuYW1lczo3MDAyOTY3MS0xIiwibmFtZSI6IlBvYSBhbm51YSBmLiBwdXJwdXJlYSIsImF1dGhvciI6Ik1pa2UgTC5HcmFudCIsInJhbmsiOiJGb3JtIiwidGF4b25vbWljU3RhdHVzIjoiU3lub255bSJ9LHsiZnFJZCI6InVybjpsc2lkOmlwbmkub3JnOm5hbWVzOjk1NDE2Mi0xIiwibmFtZSI6IlBvYSBhbm51YSBmLiByZXB0YW5zIiwiYXV0aG9yIjoiKEhhdXNza24uKSBULktveWFtYSIsInJhbmsiOiJGb3JtIiwidGF4b25vbWljU3RhdHVzIjoiU3lub255bSJ9LHsiZnFJZCI6InVybjpsc2lkOmlwbmkub3JnOm5hbWVzOjQxODMyMi0xIiwibmFtZSI6IlBvYSB2YXJpZWdhdGEiLCJhdXRob3IiOiJIYWxsZXIgZi4iLCJyYW5rIjoiU1BFQ0lFUyIsInRheG9ub21pY1N0YXR1cyI6IlN5bm9ueW0ifSx7ImZxSWQiOiJ1cm46bHNpZDppcG5pLm9yZzpuYW1lczozMjUzMzUtMiIsIm5hbWUiOiJBaXJhIHB1bWlsYSIsImF1dGhvciI6IlB1cnNoIiwicmFuayI6IlNQRUNJRVMiLCJ0YXhvbm9taWNTdGF0dXMiOiJTeW5vbnltIn0seyJmcUlkIjoidXJuOmxzaWQ6aXBuaS5vcmc6bmFtZXM6NDE2NjA5LTEiLCJuYW1lIjoiUG9hIGJpcG9sbGljYXJpcyIsImF1dGhvciI6IkhvY2hzdC4iLCJyYW5rIjoiU1BFQ0lFUyIsInRheG9ub21pY1N0YXR1cyI6IlN5bm9ueW0ifSx7ImZxSWQiOiJ1cm46bHNpZDppcG5pLm9yZzpuYW1lczo0MTY0NTItMSIsIm5hbWUiOiJQb2EgYWxnaWRhIiwiYXV0aG9yIjoiVHJpbi4iLCJyYW5rIjoiU1BFQ0lFUyIsInRheG9ub21pY1N0YXR1cyI6IlN5bm9ueW0ifSx7ImZxSWQiOiJ1cm46bHNpZDppcG5pLm9yZzpuYW1lczo0MTY0MzItMSIsIm5hbWUiOiJQb2EgYWVzdGl2YWxpcyIsImF1dGhvciI6IkouUHJlc2wiLCJyYW5rIjoiU1BFQ0lFUyIsInRheG9ub21pY1N0YXR1cyI6IlN5bm9ueW0ifSx7ImZxSWQiOiJ1cm46bHNpZDppcG5pLm9yZzpuYW1lczoxMTQyMzQ2LTIiLCJuYW1lIjoiQ2F0YWJyb3NhIHB1bWlsYSIsImF1dGhvciI6IihQdXJzaCkgUm9lbS4gJiBTY2h1bHQuIiwicmFuayI6IlNQRUNJRVMiLCJ0YXhvbm9taWNTdGF0dXMiOiJTeW5vbnltIn0seyJmcUlkIjoidXJuOmxzaWQ6aXBuaS5vcmc6bmFtZXM6NzcxMTgyOTUtMSIsIm5hbWUiOiJPY2hsb3BvYSByYW5pZ2x1bWlzIiwiYXV0aG9yIjoiKFMuRS5GcsO2aG5lcikgQm9tYmxlIiwicmFuayI6IlNQRUNJRVMiLCJ0YXhvbm9taWNTdGF0dXMiOiJTeW5vbnltIn0seyJmcUlkIjoidXJuOmxzaWQ6aXBuaS5vcmc6bmFtZXM6NDE3ODM4LTEiLCJuYW1lIjoiUG9hIHB1YmVydWxhIiwiYXV0aG9yIjoiU3RldWQuIiwicmFuayI6IlNQRUNJRVMiLCJ0YXhvbm9taWNTdGF0dXMiOiJTeW5vbnltIn0seyJmcUlkIjoidXJuOmxzaWQ6aXBuaS5vcmc6bmFtZXM6NDE3NDk0LTEiLCJuYW1lIjoiUG9hIG1leWVuaWkiLCJhdXRob3IiOiJOZWVzICYgTWV5ZW4iLCJyYW5rIjoiU1BFQ0lFUyIsInRheG9ub21pY1N0YXR1cyI6IlN5bm9ueW0ifSx7ImZxSWQiOiJ1cm46bHNpZDppcG5pLm9yZzpuYW1lczo1MTAxNzY3NC0xIiwibmFtZSI6IlBvYSBhbm51YSB2YXIuIHJhbmlnbHVtaXMiLCJhdXRob3IiOiJTLkUuRnLDtmhuZXIiLCJyYW5rIjoiVkFSSUVUWSIsInRheG9ub21pY1N0YXR1cyI6IlN5bm9ueW0ifSx7ImZxSWQiOiJ1cm46bHNpZDppcG5pLm9yZzpuYW1lczo0MTc2NDItMSIsIm5hbWUiOiJQb2Egb3ZhbGlzIiwiYXV0aG9yIjoiVGluZW8iLCJyYW5rIjoiU1BFQ0lFUyIsInRheG9ub21pY1N0YXR1cyI6IlN5bm9ueW0ifV19
+  recorded_at: 2019-05-08 20:55:48 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100

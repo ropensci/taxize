@@ -8,22 +8,22 @@
 #' provide the wrong `db` value for the identifier you could get a
 #' result, but it will likely be wrong (not what you were expecting). 
 #' If using ncbi, eol or iucn we recommend getting an API key; 
-#' see [`taxize-authentication`]
+#' see [taxize-authentication]
 #' @param simplify (logical) If TRUE, simplify output to a vector of names.
 #' If FALSE, return variable formats from different sources, usually a
 #' data.frame. Only applies to eol and itis. Specify `FALSE` to obtain
 #' the language of each vernacular in the output for eol and itis.
-#' @param ... Further arguments passed on to functions [`get_uid()`],
-#' [`get_tsn()`].
-#' @param id character; identifiers, as returned by [`get_tsn()`],
-#' [`get_uid()`].
+#' @param ... Further arguments passed on to functions [get_uid()],
+#' [get_tsn()].
+#' @param id character; identifiers, as returned by [get_tsn()],
+#' [get_uid()].
 #'
 #' @section Authentication:
-#' See [`taxize-authentication`] for help on authentication
+#' See [taxize-authentication] for help on authentication
 #' 
 #' @return List of character vectors, named by input taxon name, or taxon ID
 #'
-#' @seealso [`comm2sci()`]
+#' @seealso [comm2sci()]
 #'
 #' @author Scott Chamberlain (myrmecocystus@@gmail.com)
 #'

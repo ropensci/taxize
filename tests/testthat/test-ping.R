@@ -17,7 +17,7 @@ vcr::use_cassette("trpicos_ping", {
     expect_true(tropicos_ping())
     expect_true(tropicos_ping("content"))
   })
-})
+}, preserve_exact_body_bytes = TRUE)
 
 vcr::use_cassette("nbn_ping", {
   test_that("nbn_ping returns the correct value", {
@@ -57,4 +57,4 @@ vcr::use_cassette("vascan_ping", {
     expect_false(vascan_ping(503))
     expect_true(vascan_ping("content"))
   })
-})
+}, preserve_exact_body_bytes = TRUE)

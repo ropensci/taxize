@@ -2,49 +2,50 @@
 #'
 #' @importFrom bold bold_tax_name bold_tax_id
 #' @export
-#' @param searchterm character; A vector of common or scientific names.
+#' @param searchterm character; A vector of common or scientific names. Or,
+#' a `taxon_state` object (see [taxon-state])
 #' @param fuzzy (logical) Whether to use fuzzy search or not (default: FALSE).
 #' @param dataTypes (character) Specifies the datatypes that will be returned.
-#' See [`bold_search()`] for options.
+#' See [bold_search()] for options.
 #' @param includeTree (logical) If TRUE (default: FALSE), returns a list
 #' containing information for parent taxa as well as the specified taxon.
 #' @param ask logical; should get_tsn be run in interactive mode?
 #' If TRUE and more than one TSN is found for teh species, the user is asked for
 #' input. If FALSE NA is returned for multiple matches.
-#' @param verbose logical; should progress be printed?
+#' @param messages logical; should progress be printed?
 #' @param x Input to [`as.boldid()`]
 #' @param ... Curl options passed on to [`crul::verb-GET`]
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, all rows are
 #' considered. Note that this function still only gives back a boldid class object with one
-#' to many identifiers. See [`get_boldid_()`] to get back all, or a subset,
+#' to many identifiers. See [get_boldid_()] to get back all, or a subset,
 #' of the raw data that you are presented during the ask process.
 #' @param division (character) A division (aka phylum) name. Optional. See `Filtering`
 #' below.
 #' @param parent (character) A parent name (i.e., the parent of the target search
 #' taxon). Optional. See `Filtering` below.
-#' @param rank (character) A taxonomic rank name. See [`rank_ref()`] for possible
+#' @param rank (character) A taxonomic rank name. See [rank_ref()] for possible
 #' options. Though note that some data sources use atypical ranks, so inspect the
 #' data itself for options. Optional. See `Filtering` below.
 #' @param check logical; Check if ID matches any existing on the DB, only used in
-#' [`as.boldid()`]
+#' [as.boldid()]
 #' @template getreturn
 #'
 #' @section Filtering:
 #' The parameters `division`, `parent`, and `rank` are not used in the search to
 #' the data provider, but are used in filtering the data down to a subset that
 #' is closer to the target you want.  For all these parameters, you can use
-#' regex strings since we use [`grep()`] internally to match. Filtering narrows
+#' regex strings since we use [grep()] internally to match. Filtering narrows
 #' down to the set that matches your query, and removes the rest.
 #'
 #' @family taxonomic-ids
-#' @seealso [`classification()`]
+#' @seealso [classification()]
 #'
 #' @examples \dontrun{
 #' get_boldid(searchterm = "Agapostemon")
 #' get_boldid(searchterm = "Chironomus riparius")
 #' get_boldid(c("Chironomus riparius","Quercus douglasii"))
 #' splist <- names_list('species')
-#' get_boldid(splist, verbose=FALSE)
+#' get_boldid(splist, messages=FALSE)
 #'
 #' # Fuzzy searching
 #' get_boldid(searchterm="Osmi", fuzzy=TRUE)
@@ -107,12 +108,13 @@
 #' }
 
 get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes = 'basic',
-                       includeTree = FALSE, ask = TRUE, verbose = TRUE,
+                       includeTree = FALSE, ask = TRUE, messages = TRUE,
                        rows = NA, rank = NULL, division = NULL,
                        parent = NULL, ...) {
 
+  assert(searchterm, c("character", "taxon_state"))
   assert(ask, "logical")
-  assert(verbose, "logical")
+  assert(messages, "logical")
   assert(fuzzy, "logical")
   assert(dataTypes, "character")
   assert(includeTree, "logical")
@@ -121,10 +123,25 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes = 'basic',
   assert(parent, "character")
   assert_rows(rows)
 
-  fun <- function(x, ask, verbose, rows) {
+  if (inherits(searchterm, "character")) {
+    tstate <- taxon_state$new(class = "boldid", names = searchterm)
+    items <- searchterm
+  } else {
+    assert_state(searchterm, "boldid")
+    tstate <- searchterm
+    searchterm <- tstate$taxa_remaining()
+    items <- c(searchterm, tstate$taxa_completed())
+  }
+
+  prog <- progressor$new(items = items, suppress = !messages)
+  done <- tstate$get()
+  for (i in seq_along(done)) prog$completed(names(done)[i], done[[i]]$att)
+  prog$prog_start()
+
+  for (i in seq_along(searchterm)) {
     direct <- FALSE
-    mssg(verbose, "\nRetrieving data for taxon '", x, "'\n")
-    bold_df <- bold_search(name = x, fuzzy = fuzzy,
+    mssg(messages, "\nRetrieving data for taxon '", searchterm[i], "'\n")
+    bold_df <- bold_search(name = searchterm[i], fuzzy = fuzzy,
                            dataTypes = dataTypes,
                            includeTree = includeTree, ...)
     mm <- NROW(bold_df) > 1
@@ -153,7 +170,7 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes = 'basic',
 
         # should return NA if spec not found
         if (nrow(bold_df) == 0) {
-          mssg(verbose, m_not_found_sp_altclass)
+          mssg(messages, m_not_found_sp_altclass)
           boldid <- NA_character_
           att <- 'not found'
         }
@@ -165,7 +182,7 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes = 'basic',
         # check for direct match
         if (nrow(bold_df) > 1) {
           names(bold_df)[grep('taxon', names(bold_df))] <- "target"
-          di_rect <- match(tolower(bold_df$target), tolower(x))
+          di_rect <- match(tolower(bold_df$target), tolower(searchterm[i]))
           if (length(di_rect) == 1) {
             if (!all(is.na(di_rect))) {
               boldid <- bold_df$taxid[!is.na(di_rect)]
@@ -209,7 +226,7 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes = 'basic',
               # prompt
               message("\n\n")
               print(bold_df)
-              message("\nMore than one TSN found for taxon '", x, "'!\n
+              message("\nMore than one TSN found for taxon '", searchterm[i], "'!\n
             Enter rownumber of taxon (other inputs will return 'NA'):\n") # prompt
               take <- scan(n = 1, quiet = TRUE, what = 'raw')
 
@@ -217,12 +234,13 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes = 'basic',
                 take <- 'notake'
               if (take %in% seq_len(nrow(bold_df))) {
                 take <- as.numeric(take)
-                message("Input accepted, took taxon '", as.character(bold_df$target[take]), "'.\n")
+                message("Input accepted, took taxon '",
+                  as.character(bold_df$target[take]), "'.\n")
                 boldid <-  bold_df$taxid[take]
                 att <- "found"
               } else {
                 boldid <- NA_character_
-                mssg(verbose, "\nReturned 'NA'!\n\n")
+                mssg(messages, "\nReturned 'NA'!\n\n")
                 att <- "not found"
               }
             }
@@ -230,7 +248,8 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes = 'basic',
             if (length(boldid) == 1) {
               att <- "found"
             } else {
-              warning(sprintf(m_more_than_one_found, "boldid", x), call. = FALSE)
+              warning(sprintf(m_more_than_one_found, "boldid", searchterm[i]),
+                call. = FALSE)
               boldid <- NA_character_
               att <- m_na_ask_false
             }
@@ -238,20 +257,20 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes = 'basic',
         }
       }
     }
-    data.frame(
-      boldid = as.character(boldid),
-      att = att,
-      multiple = mm,
-      direct = direct,
-      stringsAsFactors = FALSE)
+    res <- list(id = as.character(boldid), att = att, multiple = mm,
+      direct = direct)
+    prog$completed(searchterm[i], att)
+    prog$prog(att)
+    tstate$add(searchterm[i], res)
   }
-  searchterm <- as.character(searchterm)
-  outd <- ldply(searchterm, fun, ask, verbose, rows)
-  out <- structure(outd$boldid, class = "boldid",
-                   match = outd$att,
-                   multiple_matches = outd$multiple,
-                   pattern_match = outd$direct)
-  add_uri(out, 'http://boldsystems.org/index.php/Taxbrowser_Taxonpage?taxid=%s')
+  out <- tstate$get()
+  ids <- structure(as.character(unlist(pluck(out, "id"))), class = "boldid",
+                   match = pluck_un(out, "att", ""),
+                   multiple_matches = pluck_un(out, "multiple", logical(1)),
+                   pattern_match = pluck_un(out, "direct", logical(1)))
+  on.exit(prog$prog_summary(), add = TRUE)
+  on.exit(tstate$exit, add = TRUE)
+  add_uri(ids, get_url_templates$bold)
 }
 
 #' @export
@@ -303,12 +322,12 @@ check_boldid <- function(x){
 
 #' @export
 #' @rdname get_boldid
-get_boldid_ <- function(searchterm, verbose = TRUE, fuzzy = FALSE, dataTypes='basic', includeTree=FALSE, rows = NA, ...){
-  setNames(lapply(searchterm, get_boldid_help, verbose = verbose, fuzzy = fuzzy, dataTypes=dataTypes, includeTree=includeTree, rows = rows, ...), searchterm)
+get_boldid_ <- function(searchterm, messages = TRUE, fuzzy = FALSE, dataTypes='basic', includeTree=FALSE, rows = NA, ...){
+  setNames(lapply(searchterm, get_boldid_help, messages = messages, fuzzy = fuzzy, dataTypes=dataTypes, includeTree=includeTree, rows = rows, ...), searchterm)
 }
 
-get_boldid_help <- function(searchterm, verbose, fuzzy, dataTypes, includeTree, rows, ...){
-  mssg(verbose, "\nRetrieving data for taxon '", searchterm, "'\n")
+get_boldid_help <- function(searchterm, messages, fuzzy, dataTypes, includeTree, rows, ...){
+  mssg(messages, "\nRetrieving data for taxon '", searchterm, "'\n")
   df <- bold_search(name = searchterm, fuzzy = fuzzy, dataTypes = dataTypes, includeTree = includeTree)
   if(NROW(df) == 0) NULL else sub_rows(df, rows)
 }

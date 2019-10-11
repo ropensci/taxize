@@ -9,7 +9,7 @@
 #' with target taxon rank names, with additional list of data.frame's of
 #' intermediate taxonomic groups. Default: `FALSE`
 #' @param start (integer) Record number to start at
-#' @param ... crul options passed on to [`crul::verb-GET`]
+#' @param ... crul options passed on to [crul::verb-GET]
 #' @return data.frame of taxonomic information downstream to family from e.g.,
 #'    Order, Class, etc., or if `intermediated=TRUE`, list of length two,
 #'    with target taxon rank names, and intermediate names.
@@ -80,7 +80,7 @@ worms_downstream <- function(id, downto, intermediate = FALSE, start = 1,
 }
 
 worms_info <- function(x, ...) {
-  tt <- worrms::wm_record_(id = as.numeric(x), ...)[[1]]
+  tt <- worrms::wm_record(as.numeric(x), ...)
   tt <- tt[sapply(tt, length) != 0]
   data.frame(tt[c('scientificname', 'rank', 'AphiaID')], 
     stringsAsFactors = FALSE)

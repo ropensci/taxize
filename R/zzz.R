@@ -10,6 +10,9 @@ pluck <- function(x, name, type) {
   }
 }
 
+# pluck with unname
+pluck_un <- function(x, name, type) unname(pluck(x, name, type))
+
 switch_taxa_db <- function(x) taxa::database_list[[fetch_db_entry(x)]]
 switch_url <- function(x) {
   switch(fetch_db_entry(x), 
@@ -247,6 +250,15 @@ assert <- function(x, y) {
     if (!inherits(x, y)) {
       stop(deparse(substitute(x)), " must be of class ",
            paste0(y, collapse = ", "), call. = FALSE)
+    }
+  }
+}
+
+assert_state <- function(x, y) {
+  if (!is.null(x) && inherits(x, "taxon_state")) {
+    if (x$class != y) {
+      stop("taxon_state class must match the get_* function called ",
+        call. = FALSE)
     }
   }
 }

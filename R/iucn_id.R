@@ -4,9 +4,9 @@
 #' @param sciname character; Scientific name. Should be cleand and in the
 #' format *<Genus> <Species>*. One or more.
 #' @param key (character) required. you IUCN Redlist API key. See
-#' [`rredlist::rredlist-package`] for help on authenticating with
+#' [rredlist::rredlist-package] for help on authenticating with
 #' IUCN Redlist
-#' @param ... Curl options passed on to [`crul::HttpClient`]
+#' @param ... Curl options passed on to [crul::HttpClient]
 #' @return A named list (names are input taxa names) of one or more IUCN IDs.
 #' Taxa that aren't found are silently dropped.
 #' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}

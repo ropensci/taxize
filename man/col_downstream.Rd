@@ -5,13 +5,13 @@
 \title{Use Catalogue of Life to get downstream taxa to a given taxonomic level}
 \usage{
 col_downstream(name = NULL, id = NULL, downto, format = NULL,
-  start = NULL, checklist = NULL, verbose = TRUE,
+  start = NULL, checklist = NULL, messages = TRUE,
   intermediate = FALSE, extant_only = FALSE, ...)
 }
 \arguments{
 \item{name}{The string to search for. Only exact matches found the name given
 will be returned, unless one or wildcards are included in the search
-string. An * (asterisk) character denotes a wildcard; a % (percentage)
+string. An * (asterisk) character denotes a wildcard; a percent
 character may also be used. The name must be at least 3 characters long,
 not counting wildcard characters.}
 
@@ -35,7 +35,7 @@ full queries).}
 \item{checklist}{The year of the checklist to query, if you want a specific
 year's checklist instead of the lastest as default (numeric).}
 
-\item{verbose}{Print or suppress messages.}
+\item{messages}{Print or suppress messages.}
 
 \item{intermediate}{(logical) If \code{TRUE}, return a list of length two
 with target taxon rank names, with additional list of data.frame's of
@@ -45,7 +45,7 @@ intermediate taxonomic groups. Default: \code{FALSE}}
 by default we give back all taxa. set to \code{TRUE} to get only
 extant taxa}
 
-\item{...}{Curl options passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}}
+\item{...}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
 A list of data.frame's, where each data.frame has columns:

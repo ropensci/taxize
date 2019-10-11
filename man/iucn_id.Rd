@@ -11,10 +11,10 @@ iucn_id(sciname, key = NULL, ...)
 format \emph{<Genus> <Species>}. One or more.}
 
 \item{key}{(character) required. you IUCN Redlist API key. See
-\code{\link[rredlist:rredlist-package]{rredlist::rredlist-package}} for help on authenticating with
+\link[rredlist:rredlist-package]{rredlist::rredlist-package} for help on authenticating with
 IUCN Redlist}
 
-\item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient}}}
+\item{...}{Curl options passed on to \link[crul:HttpClient]{crul::HttpClient}}
 }
 \value{
 A named list (names are input taxa names) of one or more IUCN IDs.

@@ -18,10 +18,12 @@ ranks <- c('domain','superkingdom','kingdom','subkingdom','infrakingdom,superphy
     'subfamily','tribe','subtribe','genus','subgenus','section','subsection',
     'species group','species subgroup','species','infraspecies','subspecies',
     'variety,varietas','subvariety,race','stirp','form,forma,morph','aberration',
-    'subform','unspecified,no rank,clade')
+    'subform','unspecified,no rank,unranked,clade')
 rank_ref <- data.frame(
   rankid = ids,
   ranks = ranks,
   stringsAsFactors = FALSE
 )
-save(rank_ref, file = "data/rank_ref.RData")
+save(rank_ref, file = "data/rank_ref.RData", version = 2)
+
+# NOTE: "version = 2" is so that we don't have to require R > 3.5

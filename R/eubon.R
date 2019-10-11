@@ -13,9 +13,9 @@
 #' can also be restricted to one or more subproviders by using the following
 #' syntax: parent-id\[sub-id-1,sub-id2,...\]
 #' @param searchMode (character) Specifies the searchMode. Possible search
-#' modes are: scientificNameExact, scientificNameLike (begins with),
-#' vernacularNameExact, vernacularNameLike
-#' (contains), findByIdentifier. If the a provider does not support the
+#' modes are: `scientificNameExact`, `scientificNameLike` (begins with),
+#' `vernacularNameExact`, `vernacularNameLike`
+#' (contains), `findByIdentifier`. If the a provider does not support the
 #' chosen searchMode it will be skipped and the status message in the
 #' tnrClientStatus will be set to 'unsupported search mode' in this case.
 #' @param addSynonymy (logical) Indicates whether the synonymy of the accepted
@@ -37,27 +37,44 @@
 #' * name: compares 'taxon.taxonName.scientificName' Using the pure
 #'  'name' strategy is not recommended.
 #'
-#' @param ... Curl options passed on to [`crul::verb-GET`]
-#' @references <http://cybertaxonomy.eu/eu-bon/utis/1.2/doc.html>
-#' @details Note that paging is not yet implemented, so you only get the first
-#' chunk of up to 50 results for methods that require paging. We will
-#' implement paging here when it is available in the EU BON API.
+#' @param limit (numeric/integer) number of records to retrieve. default: 20.
+#' This only affects the search mode `scientificNameLike` and
+#' `vernacularNameLike`; other search modes are expected to return only one
+#' record per check list
+#' @param page (numeric/integer) page to retrieve. default: 1. This only
+#' affects the search mode `scientificNameLike` and `vernacularNameLike`; other
+#' search modes are expected to return only one record per check list
+#' @param ... Curl options passed on to [crul::verb-GET]
+#' @references <http://cybertaxonomy.eu/eu-bon/utis/1.3/doc.html>
 #' @family eubon-methods
 #' @examples \dontrun{
 #' eubon_search("Prionus")
 #' eubon_search("Salmo", "pesi")
 #' eubon_search("Salmo", c("pesi", "worms"))
 #' eubon_search("Salmo", "worms", "scientificNameLike")
+#' eubon_search("Salmo", "worms", "scientificNameLike", limit = 3)
+#' eubon_search("Salmo", "worms", "scientificNameLike", limit = 20, page = 2)
 #' eubon_search("Salmo", "worms", addSynonymy = TRUE)
 #' eubon_search("Salmo", "worms", addParentTaxon = TRUE)
 #' }
-eubon <- function(query, providers = "pesi", searchMode = "scientificNameExact",
-                  addSynonymy = FALSE, addParentTaxon = FALSE, timeout = 0,
-                  dedup = NULL, ...) {
+eubon_search <- function(query, providers = "pesi",
+  searchMode = "scientificNameExact", addSynonymy = FALSE,
+  addParentTaxon = FALSE, timeout = 0,
+  dedup = NULL, limit = 20, page = 1, ...) {
 
+  assert(providers, 'character')
+  assert(searchMode, 'character')
+  assert(addSynonymy, 'logical')
+  assert(addParentTaxon, 'logical')
+  assert(timeout, 'numeric')
+  assert(dedup, 'character')
+  assert(limit, c('numeric', 'integer'))
+  assert(page, c('numeric', 'integer'))
+  page <- page - 1
   args <- tc(list(query = query, providers = paste0(providers, collapse = ","),
                   searchMode = searchMode, addSynonymy = as_l(addSynonymy),
-                  addParentTaxon = as_l(addParentTaxon), timeout = timeout))
+                  addParentTaxon = as_l(addParentTaxon), timeout = timeout,
+                  pageSize = limit, pageIndex = page))
   cli <- crul::HttpClient$new(file.path(eubon_base(), "search"),
     headers = tx_ual, opts = list(...))
   res <- cli$get(query = args)
@@ -66,12 +83,16 @@ eubon <- function(query, providers = "pesi", searchMode = "scientificNameExact",
   tmp$query$response[[1]]
 }
 
+#' DEFUNCT
 #' @export
-#' @rdname eubon
-eubon_search <- eubon
+#' @keywords internal
+#' @rdname eubon-defunct
+eubon <- function(...) {
+  .Defunct(msg = "use eubon_search()")
+}
 
 # helpers
-eubon_base <- function() "https://cybertaxonomy.eu/eu-bon/utis/1.2"
+eubon_base <- function() "https://cybertaxonomy.eu/eu-bon/utis/1.3"
 
 eubon_error <- function(x) {
   if (grepl("json", x$response_headers$`content-type`)) {

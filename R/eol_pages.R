@@ -37,9 +37,9 @@
 #' unreviewed content will be returned (untrusted content will not be returned).
 #' The default is to return all content. (Default: `FALSE`)
 #' @param cache_ttl The number of seconds you wish to have the response cached.
-#' @param key Your EOL API key; see [`taxize-authentication`]
+#' @param key Your EOL API key; see [taxize-authentication]
 #' for help on authentication
-#' @param ... Curl options passed on to [`crul::HttpClient`]
+#' @param ... Curl options passed on to [crul::HttpClient]
 #' @details It's possible to return JSON or XML with the EOL API. However,
 #' 		this function only returns JSON for now.
 #' @return JSON list object, or data.frame.

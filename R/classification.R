@@ -2,7 +2,8 @@
 #'
 #' @export
 #' @param x Vector of taxa names (character) or IDs (character or numeric)
-#' to query.
+#' to query. For `db = "eol"`, EOL expects you to pass it a taxon id, called
+#' `eolid` in the output of [get_eolid()]. 
 #' @param db character; database to query. either `ncbi`, `itis`, `eol`, `col`,
 #' `tropicos`, `gbif`, `nbn`, `worms`, `natserv`, `bold`, `wiki`, or `pow`.
 #' Note that each taxonomic data source has, their own identifiers, so that
@@ -61,6 +62,12 @@
 #'
 #' @section Authentication:
 #' See [taxize-authentication]
+#' 
+#' @section EOL:
+#' EOL does not have very good failure behavior. For example, if you submit
+#' an ID that does not exist they'll return a 500 HTTP error, which is
+#' not an appropriate error; it's probably that that ID does not exist 
+#' in their database, but we can't know for sure. Isn't that fun?
 #'
 #' @examples \dontrun{
 #' # Plug in taxon IDs
@@ -430,14 +437,13 @@ classification.colid <- function(id, start = NULL, checklist = NULL,
     } else {
       url <- make_url(checklist)
       args <- tc(list(id = x, response = "full", start = start))
-      out <- tax_GET(url, query = args, opts = callopts)
-      tt <- xml2::read_xml(out$parse("UTF-8"))
-      out <- search_col_classification_df(tt)
+      res <- tax_GET(url, query = args, opts = callopts)
+      out <- search_col_classification_df(res)
       # add query-ied taxon
       out <- rbind(out, c(
-        xml2::xml_text(xml2::xml_find_first(tt, "//result/name")),
-        xml2::xml_text(xml2::xml_find_first(tt, "//result/rank")),
-        xml2::xml_text(xml2::xml_find_first(tt, "//result/id"))))
+        xml2::xml_text(xml2::xml_find_first(res, "//result/name")),
+        xml2::xml_text(xml2::xml_find_first(res, "//result/rank")),
+        xml2::xml_text(xml2::xml_find_first(res, "//result/id"))))
       # Optionally return id of lineage
       if (!return_id) out <- out[, c('name', 'rank')]
       out$rank <- tolower(out$rank)

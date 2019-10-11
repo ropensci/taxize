@@ -46,17 +46,23 @@ query.}
 identifiers, so that if you provide the wrong \code{db} value for the identifier
 you could get a result, but it will likely be wrong (not what you were
 expecting). If using tropicos, we  recommend getting an API key;
-see \code{\link{taxize-authentication}}}
+see \link{taxize-authentication}}
 
 \item{rows}{(numeric) Any number from 1 to infinity. If the default NA, all
 rows are considered. Note that this parameter is ignored if you pass in a
 taxonomic id of any of the acceptable classes: tsn, tpsid, nbnid, ids.}
 
 \item{id}{character; identifiers, returned by \code{\link[=get_tsn]{get_tsn()}}, \code{\link[=get_tpsid]{get_tpsid()}},
-\code{\link[=get_nbnid]{get_nbnid()}}, \code{\link[=get_colid]{get_colid()}} \code{get_wormsid()}]}
+\code{\link[=get_nbnid]{get_nbnid()}}, \code{\link[=get_colid]{get_colid()}} `get_wormsid()]}
 }
 \value{
-A named list of data.frames with the synonyms of every supplied taxa.
+A named list of results with three types of output in each slot:
+\itemize{
+\item if the name was not found: \code{NA_character_}
+\item if the name was found but no synonyms found, an empty data.frame (0 rows)
+\item if the name was found, and synonyms found, a data.frames with the
+synonyms - the column names vary by data source
+}
 }
 \description{
 Retrieve synonyms from various sources given input taxonomic
@@ -70,7 +76,7 @@ For \code{db = "itis"} you can pass in a parameter \code{accepted} to
 toggle whether only accepted names are used \code{accepted = TRUE}, or if
 all are used \code{accepted = FALSE}. The default is \code{accepted = FALSE}
 
-Note that IUCN requires an API key. See \code{\link[rredlist:rredlist-package]{rredlist::rredlist-package}}
+Note that IUCN requires an API key. See \link[rredlist:rredlist-package]{rredlist::rredlist-package}
 for help on authentiating with IUCN Redlist
 }
 \examples{
@@ -146,6 +152,6 @@ synonyms_df(x)
 }
 }
 \seealso{
-\code{\link[=get_tsn]{get_tsn()}} \code{get_tpsid()}], \code{\link[=get_nbnid]{get_nbnid()}} \code{get_colid()}],
-\code{\link[=get_wormsid]{get_wormsid()}} \code{get_iucn()}]
+\code{\link[=get_tsn]{get_tsn()}} \code{get_tpsid()], [get_nbnid()] }get_colid()],
+\code{\link[=get_wormsid]{get_wormsid()}} `get_iucn()]
 }

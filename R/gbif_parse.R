@@ -2,13 +2,13 @@
 #'
 #' @export
 #' @param scientificname (character) scientific names
-#' @param ... Further args passed on to [`crul::verb-POST`]
+#' @param ... Further args passed on to [crul::verb-POST]
 #' @return A `data.frame` containing fields extracted from parsed
 #' taxon names. Fields returned are the union of fields extracted from
 #' all species names in `scientificname`.
 #' @author John Baumgartner \email{johnbb@@student.unimelb.edu.au}
 #' @references https://www.gbif.org/tools/name-parser/about
-#' @seealso [`gni_parse()`]
+#' @seealso [gni_parse()]
 #' @examples \dontrun{
 #' gbif_parse(scientificname='x Agropogon littoralis')
 #' gbif_parse(c('Arrhenatherum elatius var. elatius',

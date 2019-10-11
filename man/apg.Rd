@@ -11,7 +11,7 @@ apgOrders(...)
 apgFamilies(...)
 }
 \arguments{
-\item{...}{Curl args passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}}
+\item{...}{Curl args passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \description{
 Generic names and their replacements from the Angiosperm Phylogeny

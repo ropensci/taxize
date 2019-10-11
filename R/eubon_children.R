@@ -15,9 +15,11 @@
 #' from any of the providers. If the timeout is exceeded the service will just
 #' return the responses that have been received so far. The default timeout is
 #' 0 ms (wait for ever)
-#' @param ... Curl options passed on to [`crul::verb-GET`]
-#' @references <http://cybertaxonomy.eu/eu-bon/utis/1.2/doc.html>
+#' @param ... Curl options passed on to [crul::verb-GET]
+#' @references <http://cybertaxonomy.eu/eu-bon/utis/1.3/doc.html>
 #' @return a data.frame or an empty list if no results found
+#' @note There is no pagination in this method, so you may or may not be
+#' getting all the results for a search. Sorry, out of our control
 #' @family eubon-methods
 #' @examples \dontrun{
 #' x <- eubon_children(id = "urn:lsid:marinespecies.org:taxname:126141",
@@ -26,7 +28,7 @@
 #' }
 eubon_children <- function(id, providers = NULL, timeout = 0, ...) {
   args <- tc(list(providers = paste0(providers, collapse = ","),
-                  timeout = timeout))
+    timeout = timeout))
   url <- file.path(eubon_base(), "classification", id, "children")
   cli <- crul::HttpClient$new(url, headers = tx_ual, opts = list(...))
   res <- cli$get(query = args)

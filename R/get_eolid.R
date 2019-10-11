@@ -1,42 +1,43 @@
 #' Get the EOL ID from Encyclopedia of Life from taxonomic names.
 #'
 #' Note that EOL doesn't expose an API endpoint for directly querying for EOL
-#' taxon ID's, so we first use the function [`eol_search()`]
+#' taxon ID's, so we first use the function [eol_search()]
 #' to find pages that deal with the species of interest, then use
-#' [`eol_pages()`] to find the actual taxon IDs.
+#' [eol_pages()] to find the actual taxon IDs.
 #'
 #' @export
-#' @param sciname character; scientific name.
+#' @param sciname character; scientific name. Or, a `taxon_state`
+#' object (see [taxon-state])
 #' @param ask logical; should get_eolid be run in interactive mode?
 #' If TRUE and more than one ID is found for the species, the user is asked for
 #' input. If FALSE NA is returned for multiple matches.
-#' @param key API key. passed on to [`eol_search()`] and
-#' `[eol_pages()`] internally. We recommend getting an API key;
-#' see [`taxize-authentication`]
-#' @param ... Further args passed on to [`eol_search()`]
+#' @param key API key. passed on to [eol_search()] and
+#' `[eol_pages()] internally. We recommend getting an API key;
+#' see [taxize-authentication]
+#' @param ... Further args passed on to [eol_search()]
 #' @param messages logical; If `TRUE` the actual taxon queried is printed
 #' on the console.
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, all
 #' rows are considered. Note that this function still only gives back a eolid
 #' class object with one to many identifiers. See
-#' [`get_eolid_()`] to get back all, or a subset, of the raw
+#' [get_eolid_()] to get back all, or a subset, of the raw
 #' data that you are presented during the ask process.
-#' @param rank (character) A taxonomic rank name. See [`rank_ref()`]
+#' @param rank (character) A taxonomic rank name. See [rank_ref()]
 #' for possible options. Though note that some data sources use atypical ranks,
 #' so inspect the data itself for options. Optional. See `Filtering` below.
 #' @param data_source (character) A data source inside of EOL. These are
 #' longish names like e.g., "Barcode of Life Data Systems" or
 #' "USDA PLANTS images". Optional. See `Filtering` below.
-#' @param x Input to [`as.eolid()`]
+#' @param x Input to [as.eolid()]
 #' @param check logical; Check if ID matches any existing on the DB, only
-#' used in [`as.eolid()`]
+#' used in [as.eolid()]
 #' @template getreturn
 #'
 #' @section Authentication:
-#' See [`taxize-authentication`] for help on authentication
+#' See [taxize-authentication] for help on authentication
 #'
 #' @family taxonomic-ids
-#' @seealso [`classification()`]
+#' @seealso [classification()]
 #'
 #' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
 #'
@@ -47,8 +48,8 @@
 #' provider (e.g, NCBI) to do other things, like get a higher classification
 #' tree. However, humans want the page id, not the taxon id. So, the
 #' id returned from this function is the taxon id, not the page id. You can
-#' get the page id for a taxon by using [`eol_search()`] and
-#' `[eol_pages()`], and the URI returned in the attributes for a
+#' get the page id for a taxon by using [eol_search()] and
+#' `[eol_pages()], and the URI returned in the attributes for a
 #' taxon will lead you to the taxon page, and the ID in the URL is the
 #' page id.
 #'
@@ -56,7 +57,7 @@
 #' The parameters `rank` and `data_source` are not used in the
 #' search to the data provider, but are used in filtering the data down to a
 #' subset that is closer to the target you want.  For all these parameters,
-#' you can use regex strings since we use [`grep()`] internally to
+#' you can use regex strings since we use [grep()] internally to
 #' match. Filtering narrows down to the set that matches your query, and
 #' removes the rest.
 #'
@@ -117,16 +118,32 @@
 get_eolid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
   rows = NA, rank = NULL, data_source = NULL, ...) {
 
+  assert(sciname, c("character", "taxon_state"))
   assert(ask, "logical")
   assert(messages, "logical")
   assert(rank, "character")
   assert(data_source, "character")
   assert_rows(rows)
 
-  fun <- function(sciname, ask, messages, rows, ...) {
+  if (inherits(sciname, "character")) {
+    tstate <- taxon_state$new(class = "eolid", names = sciname)
+    items <- sciname
+  } else {
+    assert_state(sciname, "eolid")
+    tstate <- sciname
+    sciname <- tstate$taxa_remaining()
+    items <- c(sciname, tstate$taxa_completed())
+  }
+
+  prog <- progressor$new(items = items, suppress = !messages)
+  done <- tstate$get()
+  for (i in seq_along(done)) prog$completed(names(done)[i], done[[i]]$att)
+  prog$prog_start()
+
+  for (i in seq_along(sciname)) {
     direct <- FALSE
-    mssg(messages, "\nRetrieving data for taxon '", sciname, "'\n")
-    tmp <- eol_search(terms = sciname, key = key, ...)
+    mssg(messages, "\nRetrieving data for taxon '", sciname[i], "'\n")
+    tmp <- eol_search(terms = sciname[i], key = key, ...)
     datasource <- NA_character_
     if (all(is.na(tmp))) {
       mssg(messages, m_not_found_sp_altclass)
@@ -135,7 +152,7 @@ get_eolid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
       att <- "not found"
       mm <- FALSE
     } else {
-      pageids <- tmp[grep(tolower(sciname), tolower(tmp$name)), "pageid"]
+      pageids <- tmp[grep(tolower(sciname[i]), tolower(tmp$name)), "pageid"]
 
       if (length(pageids) == 0) {
         if (nrow(tmp) > 0)
@@ -199,7 +216,7 @@ get_eolid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
     }
 
     if (length(id) > 1) {
-      matchtmp <- df[tolower(df$name) %in% tolower(sciname), ]
+      matchtmp <- df[tolower(df$name) %in% tolower(sciname[i]), ]
       if (NROW(matchtmp) == 1) {
         id <- matchtmp$eolid
         direct <- TRUE
@@ -215,7 +232,7 @@ get_eolid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
         rownames(df) <- 1:nrow(df)
         # prompt
         message("\n\n")
-        message("\nMore than one eolid found for taxon '", sciname, "'!\n
+        message("\nMore than one eolid found for taxon '", sciname[i], "'!\n
             Enter rownumber of taxon (other inputs will return 'NA'):\n")
         print(df)
         take <- scan(n = 1, quiet = TRUE, what = "raw")
@@ -240,7 +257,7 @@ get_eolid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
         }
       } else {
         if (length(id) != 1) {
-          warning(sprintf(m_more_than_one_found, "eolid", sciname),
+          warning(sprintf(m_more_than_one_found, "eolid", sciname[i]),
             call. = FALSE)
           id <- NA_character_
           page_id <- NA_character_
@@ -248,19 +265,25 @@ get_eolid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
         }
       }
     }
-    list(id = as.character(id), page_id = page_id, source = datasource,
-         att = att, multiple = mm, direct = direct)
+    res <- list(id = as.character(id), page_id = page_id, source = datasource, 
+      att = att, multiple = mm, direct = direct)
+    prog$completed(sciname[i], att)
+    prog$prog(att)
+    tstate$add(sciname[i], res)
   }
-  sciname <- as.character(sciname)
-  out <- lapply(sciname, fun, ask = ask, messages = messages, rows = rows, ...)
-  ids <- unname(sapply(out, "[[", "id"))
-  sources <- pluck(out, "source", "")
-  ids <- structure(ids, class = "eolid", pageid = pluck(out, "page_id", ""),
-    provider = sources, match = pluck(out, "att", ""),
-    multiple_matches = pluck(out, "multiple", logical(1)),
-    pattern_match = pluck(out, "direct", logical(1)))
-  page_ids <- unlist(pluck(out, "page_id"))
-  add_uri(ids, "https://eol.org/pages/%s/", page_ids)
+  out <- tstate$get()
+  page_ids <- pluck_un(out, "page_id", "")
+  ids <- structure(
+    pluck_un(out, "id", ""), class = "eolid",
+    pageid = page_ids,
+    provider = pluck_un(out, "source", ""),
+    match = pluck_un(out, "att", ""),
+    multiple_matches = pluck_un(out, "multiple", logical(1)),
+    pattern_match = pluck_un(out, "direct", logical(1))
+  )
+  on.exit(prog$prog_summary(), add = TRUE)
+  on.exit(tstate$exit, add = TRUE)
+  add_uri(ids, get_url_templates$eol, page_ids)
 }
 
 taxize_sort_df <- function(data, vars = names(data)) {
@@ -344,13 +367,13 @@ make_eolid <- function(x, check=TRUE) {
 
 check_eolid <- function(x) {
   url <- sprintf("https://eol.org/api/hierarchy_entries/1.0/%s.json", x)
-  tryid <- tax_GET(url)
+  tryid <- tax_GET_nocheck(url)
   if (tryid$status_code == 200) TRUE else FALSE
 }
 
 get_eol_pageid <- function(x) {
   url <- sprintf("https://eol.org/api/hierarchy_entries/1.0/%s.json", x)
-  tt <- tax_GET(url)
+  tt <- tax_GET_nocheck(url)
   if (tt$status_code == 200) {
     jsonlite::fromJSON(tt$parse("UTF-8"), FALSE)$taxonConceptID
   } else {

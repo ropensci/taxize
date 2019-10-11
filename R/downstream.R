@@ -15,7 +15,7 @@
 #' identifiers, so that if you provide the wrong `db` value for the identifier
 #' you could get a result, but it will likely be wrong (not what you were
 #' expecting). If using ncbi, we recommend getting an API key; see
-#' [`taxize-authentication`]
+#' [taxize-authentication]
 #' @param downto What taxonomic rank to go down to. One of: 'superkingdom',
 #' 'kingdom', 'subkingdom','infrakingdom','phylum','division','subphylum',
 #' 'subdivision','infradivision', 'superclass','class','subclass','infraclass',
@@ -31,15 +31,15 @@
 #' taxonomic id of any of the acceptable classes: tsn, colid.
 #' @param limit Number of records to return
 #' @param start Record number to start at
-#' @param ... Further args passed on to [`itis_downstream()`],
-#' [`col_downstream()`], [`gbif_downstream()`], [`ncbi_downstream()`],
-#' or [`worms_downstream()`]
+#' @param ... Further args passed on to [itis_downstream()],
+#' [col_downstream()], [gbif_downstream()], [ncbi_downstream()],
+#' or [worms_downstream()]
 #'
 #' @return A named list of data.frames with the downstream names of every
 #' supplied taxa. You get an NA if there was no match in the database.
 #' 
 #' @section Authentication:
-#' See [`taxize-authentication`] for help on authentication
+#' See [taxize-authentication] for help on authentication
 #'
 #' @examples \dontrun{
 #' # Plug in taxon IDs

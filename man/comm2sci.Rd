@@ -12,7 +12,7 @@ comm2sci(commnames, db = "ncbi", itisby = "search", simplify = TRUE,
 
 \item{db}{Data source, one of \emph{"ncbi"} (default), \emph{"itis"},
 \emph{"tropicos"}, \emph{"eol"}, or \emph{"worms"}. If using ncbi, we
-recommend getting an API key; see \code{\link{taxize-authentication}}}
+recommend getting an API key; see \link{taxize-authentication}}
 
 \item{itisby}{Search for common names across entire names (search, default),
 at beginning of names (begin), or at end of names (end).}
@@ -40,7 +40,7 @@ For the other data sources, you can only pass in common names directly.
 }
 \section{Authentication}{
 
-See \code{\link{taxize-authentication}} for help on authentication
+See \link{taxize-authentication} for help on authentication
 }
 
 \examples{

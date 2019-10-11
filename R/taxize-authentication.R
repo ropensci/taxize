@@ -4,7 +4,7 @@
 #'
 #' @name taxize-authentication
 #' @aliases authentication
-#' @seealso [`key_helpers()`]
+#' @seealso [key_helpers()]
 #' 
 #' @section What is an API?:
 #' An API is an Application Programming Interface. The term "API" can be used
@@ -21,14 +21,14 @@
 #'
 #' \pkg{taxize} won't get these keys for you; rather, you have to
 #' go get a key for each service, but we do provide information on how
-#' to get those keys. See [`key_helpers()`] for help on how to
+#' to get those keys. See [key_helpers()] for help on how to
 #' obtain keys for this package.
 #'
 #' @section Using API keys:
 #' You can store API keys as R options in your `.Rprofile` file, or
 #' as environment variables in either your `.Renviron` file or
 #' `.bash_profile` file, o`.zshrc` file (if you use oh-my-zsh) or
-#' similar. See [`Startup`] for help on R options and environment
+#' similar. See [Startup] for help on R options and environment
 #' variables.
 #'
 #' Save your API keys with the following names:

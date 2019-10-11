@@ -2,7 +2,7 @@
 #'
 #' @export
 #' @param searchtsn One or more TSN for a taxon (numeric/integer)
-#' @param ... Curl options passed on to[`crul::verb-GET`]
+#' @param ... Curl options passed on to[crul::verb-GET]
 #'
 #' @return data.frame with with row number equal to input vector length, and
 #' with three columns:

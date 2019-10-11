@@ -3,7 +3,8 @@
 #' Retrieve the Unique Identifier (UID) of a taxon from NCBI taxonomy browser.
 #'
 #' @export
-#' @param sciname character; scientific name.
+#' @param sciname character; scientific name. Or, a `taxon_state`
+#' object (see [taxon-state])
 #' @param ask logical; should get_uid be run in interactive mode? If TRUE and
 #' more than one TSN is found for the species, the user is asked for input. If
 #' FALSE NA is returned for multiple matches.
@@ -11,7 +12,7 @@
 #' printed on the console.
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, all
 #' rows are considered. Note that this function still only gives back a uid
-#' class object with one to many identifiers. See [`get_uid_()`] to get back
+#' class object with one to many identifiers. See [get_uid_()] to get back
 #' all, or a subset, of the raw data that you are presented during the ask
 #' process.
 #' @param modifier (character) A modifier to the `sciname` given. Options
@@ -20,20 +21,20 @@
 #' Subtree, Synonym, Text Word. These are not checked, so make sure they are
 #' entered correctly, as is.
 #' @param rank_query (character) A taxonomic rank name to modify the query sent
-#' to NCBI. See [`rank_ref()`] for possible options. Though note that
+#' to NCBI. See [rank_ref()] for possible options. Though note that
 #' some data sources use atypical ranks, so inspect the data itself for
 #' options. Optional. See `Querying` below.
 #' @param division_filter (character) A division (aka phylum) name to filter
 #' data after retrieved from NCBI. Optional. See `Filtering` below.
 #' @param rank_filter (character) A taxonomic rank name to filter data after
-#' retrieved from NCBI. See [`rank_ref()`] for possible options.
+#' retrieved from NCBI. See [rank_ref()] for possible options.
 #' Though note that some data sources use atypical ranks, so inspect the data
 #' itself for options. Optional. See `Filtering` below.
 #' @param key (character) NCBI Entrez API key. optional. See Details.
-#' @param x Input to [`as.uid()`]
+#' @param x Input to [as.uid()]
 #' @param ... Ignored
 #' @param check logical; Check if ID matches any existing on the DB, only used
-#'   in [`as.uid()`]
+#'   in [as.uid()]
 #' @template getreturn
 #'
 #' @section Querying: The parameter `rank_query` is used in the search sent
@@ -46,7 +47,7 @@
 #'   `rank_filter` are not used in the search to the data provider, but are
 #'   used in filtering the data down to a subset that is closer to the target
 #'   you want. For all these parameters, you can use regex strings since we use
-#'   [`grep()`] internally to match. Filtering narrows down to the set
+#'   [grep()] internally to match. Filtering narrows down to the set
 #'   that matches your query, and removes the rest.
 #'
 #' @section Beware: NCBI does funny things sometimes. E.g., if you search on
@@ -58,14 +59,14 @@
 #'   about fuzzy matching.
 #'
 #' @section Authentication:
-#' See [`taxize-authentication`] for help on authentication
+#' See [taxize-authentication] for help on authentication
 #'
 #' Note that even though you can't pass in your key to `as.uid` functions,
 #' we still use your Entrez API key if you have it saved as an R option
 #' or environment variable.
 #'
 #' @family taxonomic-ids
-#' @seealso [`classification()`]
+#' @seealso [classification()]
 #'
 #' @author Eduard Szoecs, \email{eduardszoecs@@gmail.com}
 #'
@@ -164,6 +165,7 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
                     division_filter = NULL, rank_filter = NULL,
                     key = NULL, ...) {
 
+  assert(sciname, c("character", "taxon_state"))
   assert(ask, "logical")
   assert(messages, "logical")
   assert(modifier, "character")
@@ -173,14 +175,34 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
   assert_rows(rows)
   key <- getkey(key, service = "entrez")
 
-  fun <- function(sciname, ask, messages, rows, ...) {
+  if (inherits(sciname, "character")) {
+    tstate <- taxon_state$new(class = "uid", names = sciname)
+    items <- sciname
+  } else {
+    assert_state(sciname, "uid")
+    tstate <- sciname
+    sciname <- tstate$taxa_remaining()
+    items <- c(sciname, tstate$taxa_completed())
+  }
+
+  prog <- progressor$new(items = items, suppress = !messages)
+  done <- tstate$get()
+  for (i in seq_along(done)) prog$completed(names(done)[i], done[[i]]$att)
+  prog$prog_start()
+
+  for (i in seq_along(sciname)) {
     direct <- FALSE
+<<<<<<< HEAD
     mssg(messages, "\nRetrieving data for taxon '", sciname, "'\n")
     rank <- targname <- NA_character_
     sciname <- gsub(" ", "+", sciname)
+=======
+    mssg(messages, "\nRetrieving data for taxon '", sciname[i], "'\n")
+    sciname[i] <- gsub(" ", "+", sciname[i])
+>>>>>>> master
     if (!is.null(modifier))
-      sciname <- paste0(sciname, sprintf("[%s]", modifier))
-    term <- sciname
+      sciname[i] <- paste0(sciname[i], sprintf("[%s]", modifier))
+    term <- sciname[i]
     if (!is.null(rank_query))
       term <- paste0(term, sprintf(" AND %s[Rank]", rank_query))
     try_again_errors <- c("Could not resolve host: eutils.ncbi.nlm.nih.gov")
@@ -252,7 +274,7 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
         # check for exact match
         matchtmp <- df[
           tolower(
-            as.character(df$scientificname)) %in% tolower(sciname), "uid"]
+            as.character(df$scientificname)) %in% tolower(sciname[i]), "uid"]
         if (length(matchtmp) == 1) {
           uid <- as.character(matchtmp)
           direct <- TRUE
@@ -265,7 +287,7 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
             att <- "found"
           } else {
             warning(
-              sprintf(m_more_than_one_found, "UID", sciname),
+              sprintf(m_more_than_one_found, "UID", sciname[i]),
               call. = FALSE
             )
             uid <- NA_character_
@@ -275,7 +297,7 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
           # prompt
           rownames(df) <- 1:nrow(df)
           message("\n\n")
-          message("\nMore than one UID found for taxon '", sciname, "'!\n
+          message("\nMore than one UID found for taxon '", sciname[i], "'!\n
             Enter rownumber of taxon (other inputs will return 'NA'):\n")
           print(df)
           take <- scan(n = 1, quiet = TRUE, what = 'raw')
@@ -301,6 +323,7 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
         }
       }
     }
+<<<<<<< HEAD
     return(list(uid = uid, att = att, multiple = mm,
                 direct = direct, name = targname, rank = rank))
   }
@@ -325,6 +348,23 @@ get_uid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
     out
   }))
   structure(res, class = c(class(res), "uid"))
+=======
+    res <- list(id = as.character(uid), att = att, multiple = mm,
+      direct = direct)
+    prog$completed(sciname[i], att)
+    prog$prog(att)
+    tstate$add(sciname[i], res)
+  }
+  out <- tstate$get()
+  ids <- structure(pluck_un(out, "id", ""), class = "uid",
+    match = pluck_un(out, "att", ""),
+    multiple_matches = pluck_un(out, "multiple", logical(1)),
+    pattern_match = pluck_un(out, "direct", logical(1))
+  )
+  on.exit(prog$prog_summary(), add = TRUE)
+  on.exit(tstate$exit, add = TRUE)
+  add_uri(ids, get_url_templates$ncbi)
+>>>>>>> master
 }
 
 repeat_until_it_works <- function(catch, path, query = list(), max_tries = 3,

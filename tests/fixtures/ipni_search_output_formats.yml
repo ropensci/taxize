@@ -1,128 +1,130 @@
 http_interactions:
 - request:
     method: get
-    uri: http://www.ipni.org/ipni/advPlantNameSearch.do?output_format=delimited-minimal&find_genus=Brintonia
+    uri: https://www.ipni.org/ipni/advPlantNameSearch.do?output_format=delimited-minimal&find_genus=Brintonia
     body:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.0 crul/0.8.4 rOpenSci(taxize/0.9.8.9134)
+      X-USER-AGENT: r-curl/4.0 crul/0.8.4 rOpenSci(taxize/0.9.8.9134)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Thu, 24 Jan 2019 16:55:13 GMT
-      server: Apache/2.4.6 (CentOS) mod_jk/1.2.41
-      set-cookie: JSESSIONID=82910CCC2E4FD9EEB145A93859E56373; Path=/ipni
-      content-length: '254'
+      status: 'HTTP/2 200 '
+      server: nginx/1.14.0
+      date: Tue, 13 Aug 2019 17:30:57 GMT
       content-type: text/plain;charset=UTF-8
+      content-length: '164'
+      content-disposition: inline;filename=f.txt
+      content-language: en-US
     body:
       encoding: UTF-8
       string: |
         Id%Version%Family%Full name without family and authors%Authors
-        7996-1%1.3%Asteraceae%Brintonia%Greene
         296073-2%1.3%Asteraceae%Brintonia%Greene
-        186337-1%1.3%Asteraceae%Brintonia discoidea%Greene
         36551-2%1.3%Asteraceae%Brintonia discoidea%(Elliott) Greene
-  recorded_at: 2019-01-24 16:55:16 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2019-08-13 17:30:58 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.4.0
 - request:
     method: get
-    uri: http://www.ipni.org/ipni/advPlantNameSearch.do?output_format=delimited-short&find_genus=Brintonia
+    uri: https://www.ipni.org/ipni/advPlantNameSearch.do?output_format=delimited-short&find_genus=Brintonia
     body:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.0 crul/0.8.4 rOpenSci(taxize/0.9.8.9134)
+      X-USER-AGENT: r-curl/4.0 crul/0.8.4 rOpenSci(taxize/0.9.8.9134)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Thu, 24 Jan 2019 16:55:14 GMT
-      server: Apache/2.4.6 (CentOS) mod_jk/1.2.41
-      content-length: '840'
+      status: 'HTTP/2 200 '
+      server: nginx/1.14.0
+      date: Tue, 13 Aug 2019 17:30:57 GMT
       content-type: text/plain;charset=UTF-8
+      content-length: '520'
+      content-disposition: inline;filename=f.txt
+      content-language: en-US
     body:
       encoding: UTF-8
       string: |
-        Id%Version%Family%Infra family%Hybrid genus%Genus%Infra genus%Hybrid%Species%Infra species%Rank%Authors%Basionym author%Publishing author%Full name without family and authors%Publication%Collation%Publication year full%Name status%Remarks%Basionym%Replaced synonym%Nomenclatural synonym%Distribution%Citation type
-        7996-1%1.3%Asteraceae%%N%Brintonia%%N%%%gen.%Greene%%Greene%Brintonia%Erythea%iii. (1895) 89%%%%%%%%unknown
-        296073-2%1.3%Asteraceae%%N%Brintonia%%N%%%gen.%Greene%%Greene%Brintonia%Erythea%3: 89%1895%%%%%%%tax. nov.
-        186337-1%1.3%Asteraceae%%N%Brintonia%%N%discoidea%%spec.%Greene%%Greene%Brintonia discoidea%Erythea%iii. (1895) 89%%%%%%%%unknown
-        36551-2%1.3%Asteraceae%%N%Brintonia%%N%discoidea%%spec.%(Elliott) Greene%(Elliott) %Greene%Brintonia discoidea%Erythea%3: 89%1895%%%%%Asteraceae Aster discoideus Elliott%%tax. nov.
-  recorded_at: 2019-01-24 16:55:16 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+        Id%Version%Family%Infra family%Hybrid genus%Genus%Infra genus%Rank%Authors%Basionym author%Publishing author%Full name without family and authors%Publication%Collation%Publication year full%Name status%Remarks%Basionym%Replaced synonym%Nomenclatural synonym%Distribution%Citation type
+        296073-2%1.3%Asteraceae%%N%Brintonia%%gen.%Greene%%Greene%Brintonia%Erythea%3: 89%1895%%%%%%%tax. nov.
+        36551-2%1.3%Asteraceae%%N%Brintonia%%spec.%(Elliott) Greene%(Elliott)%Greene%Brintonia discoidea%Erythea%3: 89%1895%%%%%%%tax. nov.
+  recorded_at: 2019-08-13 17:30:58 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.4.0
 - request:
     method: get
-    uri: http://www.ipni.org/ipni/advPlantNameSearch.do?output_format=delimited-classic&find_genus=Brintonia
+    uri: https://www.ipni.org/ipni/advPlantNameSearch.do?output_format=delimited-classic&find_genus=Brintonia
     body:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.0 crul/0.8.4 rOpenSci(taxize/0.9.8.9134)
+      X-USER-AGENT: r-curl/4.0 crul/0.8.4 rOpenSci(taxize/0.9.8.9134)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Thu, 24 Jan 2019 16:55:14 GMT
-      server: Apache/2.4.6 (CentOS) mod_jk/1.2.41
-      set-cookie: JSESSIONID=38DF72D8D9065143E464EA857F17DAC5; Path=/ipni
-      content-length: '2516'
+      status: 'HTTP/2 200 '
+      server: nginx/1.14.0
+      date: Tue, 13 Aug 2019 17:30:57 GMT
       content-type: text/plain;charset=UTF-8
+      content-length: '1690'
+      content-disposition: inline;filename=f.txt
+      content-language: en-US
     body:
       encoding: UTF-8
       string: |
         Id%Version%Family%Infra family%Hybrid genus%Genus%Infra genus%Hybrid%Species%Species author%Infra species%Rank%Authors%Basionym author%Publishing author%Full name%Full name without family%Full name without authors%Full name without family and authors%Reference%Publication%Collation%Remarks%Hybrid parents%Basionym%Replaced synonym%Distribution%Citation type%Bibliographic reference%Bibliographic type info%Collection date as text%Collection day1%Collection month1%Collection year1%Collection day2%Collection month2%Collection year2%Collection number%Collector team as text%Geographic unit as text%Locality%Latitude degrees%Latitude minutes%Latitude seconds%North or south%Longitude degrees%Longitude minutes%Longitude seconds%East or west%Type remarks%Type name%Type locations%Name status%Original taxon name%Original taxon name author team%Original replaced synonym%Original replaced synonym author team%Original basionym%Original basionym author team%Original parent citation taxon name author team%Original taxon distribution%Original hybrid parentage%Original cited type%Original remarks%Nomenclatural synonym%Other links
-        7996-1%1.3%Asteraceae%%N%Brintonia%%N%%%%gen.%Greene%%Greene%Asteraceae Brintonia Greene%Brintonia Greene%Asteraceae Brintonia%Brintonia%Erythea iii. (1895) 89. %Erythea%iii. (1895) 89%%%%%%unknown%%%%%%%%%%%%%%%%%%%%%%%%%%Compositae Brintonia%Greene,%%%%%%%%%=Solidago Vaill%%
-        296073-2%1.3%Asteraceae%%N%Brintonia%%N%%%%gen.%Greene%%Greene%Asteraceae Brintonia Greene%Brintonia Greene%Asteraceae Brintonia%Brintonia%Erythea 3: 89. 1895 %Erythea%3: 89%%%%%%tax. nov.%%%%0%0%0%0%0%0%%%%%0%0%0%%0%0%0%%%B. discoidea (Elliott) Greene (based on Aster discoideus Elliott)%%%%%%%%%%%%%%%same citation as:Asteraceae Brintonia Greene
-        186337-1%1.3%Asteraceae%%N%Brintonia%%N%discoidea%%%spec.%Greene%%Greene%Asteraceae Brintonia discoidea Greene%Brintonia discoidea Greene%Asteraceae Brintonia discoidea%Brintonia discoidea%Erythea iii. (1895) 89. %Erythea%iii. (1895) 89%%%%%%unknown%%%%%%%%%%%%%%%%%%%%%%%%%%Compositae Brintonia discoidea%Greene,%%%%%%%%%=Solidago discoidea Torr. et Gray%%
-        36551-2%1.3%Asteraceae%%N%Brintonia%%N%discoidea%%%spec.%(Elliott) Greene%(Elliott) %Greene%Asteraceae Brintonia discoidea (Elliott) Greene%Brintonia discoidea (Elliott) Greene%Asteraceae Brintonia discoidea%Brintonia discoidea%Erythea 3: 89. 1895 %Erythea%3: 89%%%%%%tax. nov.%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Asteraceae Aster discoideus Elliott%same citation as:Asteraceae Brintonia discoidea Greene
-  recorded_at: 2019-01-24 16:55:16 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+        296073-2%1.3%Asteraceae%%N%Brintonia%%N%%%%gen.%Greene%%Greene%Brintonia Greene%Brintonia Greene%Brintonia%Brintonia%Erythea 3: 89. 1895 %Erythea%3: 89%%%%%%tax. nov.%%%%%%%%%%%%%%%%%%%%%%%B. discoidea (Elliott) Greene (based on Aster discoideus Elliott)%%%%%%%%%%%%%%%
+        36551-2%1.3%Asteraceae%%N%Brintonia%%N%discoidea%%%spec.%(Elliott) Greene%(Elliott)%Greene%Brintonia discoidea (Elliott) Greene%Brintonia discoidea (Elliott) Greene%Brintonia discoidea%Brintonia discoidea%Erythea 3: 89. 1895 %Erythea%3: 89%%%%%%tax. nov.%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  recorded_at: 2019-08-13 17:30:58 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.4.0
 - request:
     method: get
-    uri: http://www.ipni.org/ipni/advPlantNameSearch.do?output_format=delimited-extended&find_genus=Brintonia
+    uri: https://www.ipni.org/ipni/advPlantNameSearch.do?output_format=delimited-extended&find_genus=Brintonia
     body:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.0 crul/0.8.4 rOpenSci(taxize/0.9.8.9134)
+      X-USER-AGENT: r-curl/4.0 crul/0.8.4 rOpenSci(taxize/0.9.8.9134)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Thu, 24 Jan 2019 16:55:15 GMT
-      server: Apache/2.4.6 (CentOS) mod_jk/1.2.41
-      set-cookie: JSESSIONID=87E0D8CC856BE1B8BEEEA050A27838B0; Path=/ipni
-      content-length: '2943'
+      status: 'HTTP/2 200 '
+      server: nginx/1.14.0
+      date: Tue, 13 Aug 2019 17:30:58 GMT
       content-type: text/plain;charset=UTF-8
+      content-disposition: inline;filename=f.txt
+      content-language: en-US
+      content-encoding: gzip
+      vary: Accept-Encoding
     body:
       encoding: UTF-8
       string: |
-        Id%Version%Family%Infra family%Hybrid genus%Genus%Infra genus%Hybrid%Species%Species author%Infra species%Rank%Authors%Basionym author%Standardised basionym author flag%Publishing author%Standardised publishing author flag%Full name%Full name without family%Full name without authors%Full name without family and authors%Reference%Publication%Standardised publication flag%Collation%Publication year full%Publication year%Publication year note%Publication year text%Volume%Start page%End page%Primary pagination%Secondary pagination%Reference remarks%Name status%Remarks%Hybrid parents%Basionym%Replaced synonym%Replaced synonym author team%Nomenclatural synonym%Other links%Same citation as%Distribution%Citation type%Bibliographic reference%Bibliographic type info%Collection date as text%Collection day1%Collection month1%Collection year1%Collection day2%Collection month2%Collection year2%Collection number%Collector team as text%Geographic unit as text%Locality%Latitude degrees%Latitude minutes%Latitude seconds%North or south%Longitude degrees%Longitude minutes%Longitude seconds%East or west%Type remarks%Type name%Type locations%Original taxon name%Original taxon name author team%Original replaced synonym%Original replaced synonym author team%Original basionym%Original basionym author team%Original parent citation taxon name author team%Original taxon distribution%Original hybrid parentage%Original cited type%Original remarks
-        7996-1%1.3%Asteraceae%%N%Brintonia%%N%%%%gen.%Greene%%%Greene%Y%Asteraceae Brintonia Greene%Brintonia Greene%Asteraceae Brintonia%Brintonia%Erythea iii. (1895) 89. %Erythea%Y%iii. (1895) 89%%0%%%%%%89%%%%%%%%%%%%%unknown%%%%%%%%%%%%%%%%%%%%%%%%%Compositae Brintonia%Greene,%%%%%%%%%=Solidago Vaill
-        296073-2%1.3%Asteraceae%%N%Brintonia%%N%%%%gen.%Greene%%%Greene%Y%Asteraceae Brintonia Greene%Brintonia Greene%Asteraceae Brintonia%Brintonia%Erythea 3: 89. 1895 %Erythea%Y%3: 89%1895%1895%%1895%%%%%%%%%%%%%%same citation as:Asteraceae Brintonia Greene%7996-1%%tax. nov.%%%%0%0%0%0%0%0%%%%%0%0%0%%0%0%0%%%B. discoidea (Elliott) Greene (based on Aster discoideus Elliott)%%%%%%%%%%%%
-        186337-1%1.3%Asteraceae%%N%Brintonia%%N%discoidea%%%spec.%Greene%%%Greene%Y%Asteraceae Brintonia discoidea Greene%Brintonia discoidea Greene%Asteraceae Brintonia discoidea%Brintonia discoidea%Erythea iii. (1895) 89. %Erythea%Y%iii. (1895) 89%%0%%%%%%89%%%%%%%%%%%%%unknown%%%%%%%%%%%%%%%%%%%%%%%%%Compositae Brintonia discoidea%Greene,%%%%%%%%%=Solidago discoidea Torr. et Gray
-        36551-2%1.3%Asteraceae%%N%Brintonia%%N%discoidea%%%spec.%(Elliott) Greene%(Elliott) %Y%Greene%Y%Asteraceae Brintonia discoidea (Elliott) Greene%Brintonia discoidea (Elliott) Greene%Asteraceae Brintonia discoidea%Brintonia discoidea%Erythea 3: 89. 1895 %Erythea%Y%3: 89%1895%1895%%1895%%%%%%%%%%%%%Asteraceae Aster discoideus Elliott%same citation as:Asteraceae Brintonia discoidea Greene%186337-1%%tax. nov.%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  recorded_at: 2019-01-24 16:55:16 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+        Id%Version%Family%Infra family%Hybrid genus%Genus%Infra genus%Hybrid%Species%Species author%Infra species%Rank%Authors%Basionym author%Standardised basionym author flag%Publishing author%Standardised publishing author flag%Full name%Full name without family%Full name without authors%Full name without family and authors%Reference%Publication%Standardised publication flag%Collation%Publication year full%Publication year%publication year note%Publication year text%Volume%Start page%End page%Primary pagination%Secondary pagination%Reference remarks%Name status%Remarks%Hybrid parents%Basionym%Replaced synonym%Replaced synonym Author team%Nomenclatural synonym%Other links%Same citation as%Distribution%Citation type%Bibliographic reference%Bibliographic type info%Collection date as text%Collection day1%Collection month1%Collection year1%Collection day2%Collection month2%Collection year2%Collection number%Collector team as text%Geographic unit as text%Locality%Latitude degrees%Latitude minutes%Latitude seconds%North or south%Longitude degrees%Longitude minutes%Longitude seconds%East or west%Type remarks%Type name%Type locations%Original taxon name%Original taxon name author team%Original replaced synonym%Original replaced synonym author team%Original basionym%Original basionym author team%Original parent citation taxon name author team%Original taxon distribution%Original hybrid parentage%Original cited type%Original remarks
+        296073-2%1.3%Asteraceae%%N%Brintonia%%N%%%%gen.%Greene%%%Greene%%Brintonia Greene%Brintonia Greene%Brintonia%Brintonia%Erythea 3: 89. 1895 %Erythea%%3: 89%1895%1895%%1895%%%%%%%%%%%%%%%%%tax. nov.%%%%%%%%%%%%%%%%%%%%%%%B. discoidea (Elliott) Greene (based on Aster discoideus Elliott)%%%%%%%%%%%%
+        36551-2%1.3%Asteraceae%%N%Brintonia%%N%discoidea%%%spec.%(Elliott) Greene%(Elliott)%%Greene%%Brintonia discoidea (Elliott) Greene%Brintonia discoidea (Elliott) Greene%Brintonia discoidea%Brintonia discoidea%Erythea 3: 89. 1895 %Erythea%%3: 89%1895%1895%%1895%%%%%%%%%%%%%%%%%tax. nov.%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  recorded_at: 2019-08-13 17:30:58 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.4.0

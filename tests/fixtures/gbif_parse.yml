@@ -6,10 +6,11 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
       Content-Type: application/json
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
+      X-USER-AGENT: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
   response:
     status:
       status_code: '201'
@@ -17,22 +18,19 @@ http_interactions:
       explanation: Document created, URL follows
     headers:
       status: HTTP/1.1 201 Created
-      date: Thu, 24 Jan 2019 01:46:16 GMT
+      date: Wed, 08 May 2019 20:52:40 GMT
       content-type: application/json
       access-control-allow-origin: '*'
       access-control-allow-methods: HEAD, GET, POST, DELETE, PUT
       server: Jetty(9.3.z-SNAPSHOT)
-      x-api-url: /v1/parser/name
       cache-control: public, max-age=3601
-      x-varnish: '787153082'
+      x-varnish: '560464171'
       age: '0'
       via: 1.1 varnish (Varnish/5.2)
-      transfer-encoding: chunked
+      content-length: '361'
       connection: keep-alive
     body:
-      encoding: UTF-8
-      string: '[{"scientificName":"x Agropogon littoralis L.","type":"SCIENTIFIC","genusOrAbove":"Agropogon","specificEpithet":"littoralis","notho":"GENERIC","authorship":"L.","parsed":true,"parsedPartially":false,"canonicalName":"Agropogon
-        littoralis","canonicalNameWithMarker":"×Agropogon littoralis","canonicalNameComplete":"×Agropogon
-        littoralis L.","rankMarker":"sp."}]'
-  recorded_at: 2019-01-24 01:46:16 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ASCII-8BIT
+      string: W3sic2NpZW50aWZpY05hbWUiOiJ4IEFncm9wb2dvbiBsaXR0b3JhbGlzIEwuIiwidHlwZSI6IlNDSUVOVElGSUMiLCJnZW51c09yQWJvdmUiOiJBZ3JvcG9nb24iLCJzcGVjaWZpY0VwaXRoZXQiOiJsaXR0b3JhbGlzIiwibm90aG8iOiJHRU5FUklDIiwiYXV0aG9yc2hpcCI6IkwuIiwicGFyc2VkIjp0cnVlLCJwYXJzZWRQYXJ0aWFsbHkiOmZhbHNlLCJjYW5vbmljYWxOYW1lIjoiQWdyb3BvZ29uIGxpdHRvcmFsaXMiLCJjYW5vbmljYWxOYW1lV2l0aE1hcmtlciI6IsOXQWdyb3BvZ29uIGxpdHRvcmFsaXMiLCJjYW5vbmljYWxOYW1lQ29tcGxldGUiOiLDl0Fncm9wb2dvbiBsaXR0b3JhbGlzIEwuIiwicmFua01hcmtlciI6InNwLiJ9XQ==
+  recorded_at: 2019-05-08 20:52:40 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100

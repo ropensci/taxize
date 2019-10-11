@@ -77,7 +77,7 @@ test_that("rows parameter, when used, works", {
 test_that("expected results for no query match when using get_* fxns", {
   skip_on_cran() # uses secrets
   vcr::use_cassette("children_no_results_structure_ncbi_x", {
-    ncbi_x <- children(get_uid(23424234234, messages = FALSE))
+    ncbi_x <- children(get_uid("23424234234", messages = FALSE))
   })
 
   vcr::use_cassette("children_no_results_structure_ncbi_y", {
@@ -90,15 +90,15 @@ test_that("expected results for no query match when using get_* fxns", {
 
 test_that("expected results for no query match when using get_* fxns", {
   vcr::use_cassette("children_no_results_structure_x", {
-    itis_x <- children(get_tsn(23424234234, messages = FALSE))
-    col_x <- children(get_colid(23424234234, messages = FALSE))
-    worms_x <- children(get_wormsid(23424234234, messages = FALSE))
+    itis_x <- children(get_tsn("23424234234", messages = FALSE))
+    col_x <- children(get_colid("23424234234", messages = FALSE))
+    worms_x <- children(get_wormsid("23424234234", messages = FALSE))
   })
 
   vcr::use_cassette("children_no_results_structure_y", {
-    itis_y <- children(23424234234, db = "itis", messages = FALSE)
+    itis_y <- children("23424234234", db = "itis", messages = FALSE)
     col_y <- children('23424234234', db = "col", messages = FALSE)
-    worms_y <- children(get_wormsid(23424234234, messages = FALSE))
+    worms_y <- children(get_wormsid("23424234234", messages = FALSE))
   })
   
   expect_named(itis_x, NA_character_)

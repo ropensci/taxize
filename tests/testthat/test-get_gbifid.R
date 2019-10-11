@@ -6,7 +6,7 @@ test_that("get_gbifid returns the correct value", {
       messages = FALSE)[2]
     w <- get_gbifid(c("Chironomus riparius", "Chaetopteryx"), 
       messages = FALSE)
-  })
+  }, preserve_exact_body_bytes = TRUE)
 
   expect_true(is.na(z))
   expect_is(w, "gbifid")
@@ -104,3 +104,27 @@ test_that("get_gbifid fails as expected", {
                "all\\(rows > 0\\) is not TRUE")
 })
 
+
+test_that("get_gbifid works with state input", {
+  taxon_clear()
+  
+  # species list
+  # spp <- names_list("species", size = 3)
+  spp <- c("Ilex zygophylla", "Astronia shungolensis", "Uromorus anthopophagorum")
+  xx <- taxon_last()
+  # make sure last taxon is null
+  expect_null(xx)
+
+  vcr::use_cassette("get_gbifid_state", {
+    res <- get_gbifid(spp, messages = FALSE)
+  }, preserve_exact_body_bytes = TRUE)
+
+  # now it's not NULL
+  expect_is(taxon_last(), "taxon_state")
+
+  # & get_gbifid output is all good
+  expect_is(res, "gbifid")
+
+  # passing taxon_last to get_gbifid: already done, so should be identical
+  expect_identical(res, get_gbifid(taxon_last()))
+})

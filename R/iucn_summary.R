@@ -14,7 +14,7 @@
 #' <http://apiv3.iucnredlist.org/api/v3/token>. Required for 
 #' `iucn_summary`. Defaults to `NULL` in case you have your key 
 #' stored (see `Redlist Authentication` below).
-#' @param ... curl options passed on to [`crul::verb-GET`]
+#' @param ... curl options passed on to [crul::verb-GET]
 #'
 #' @return A list (for every species one entry) of lists with the following
 #' items:
@@ -25,10 +25,10 @@
 #'
 #' @note Not all entries (history, distr, trend) are available for every species
 #' and NA is returned.
-#' [`iucn_status()`] is an extractor function to easily extract
+#' [iucn_status()] is an extractor function to easily extract
 #' status into a vector.
 #'
-#' @seealso [`iucn_status()`]
+#' @seealso [iucn_status()]
 #'
 #' @details Beware: IUCN functions can give back incorrect data. This isn't our fault.
 #' We do our best to get you the correct data quickly, but sometimes IUCN gives
@@ -40,7 +40,7 @@
 #' passed in that's not `character` or `iucn` class - a
 #' `iucn_summary.character` method for when you pass in taxon names -
 #' and a `iucn_summary.iucn` method so you can pass in iucn class objects
-#' as output from [`get_iucn()`] or [`as.iucn()`]. If you
+#' as output from [get_iucn()] or [as.iucn()]. If you
 #' already have IUCN IDs, coerce them to `iucn` class via
 #' `as.iucn(..., check = FALSE)`
 #'
@@ -50,7 +50,7 @@
 #'
 #' @section Redlist Authentication:
 #' `iucn_summary` uses the new Redlist API for searching for a IUCN ID, so we
-#' use the [`rl_search()`] function internally. This function
+#' use the [rl_search()] function internally. This function
 #' requires an API key. Get the key at <http://apiv3.iucnredlist.org/api/v3/token>,
 #' and pass it to the `key` parameter, or store in your `.Renviron` file like
 #' `IUCN_REDLIST_KEY=yourkey` or in your `.Rprofile` file like
@@ -186,7 +186,7 @@ get_iucn_summary2 <- function(query, parallel, distr_detail, key = NULL, ...) {
 #' @param x an `iucn`-object as returned b`iucn_summary`ry
 #' @param ... Currently not used
 #' @return A character vector with the status.
-#' @seealso [`iucn_summary()`]
+#' @seealso [iucn_summary()]
 #' @examples \dontrun{
 #' ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
 #' iucn_status(ia)}

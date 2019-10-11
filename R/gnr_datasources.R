@@ -3,10 +3,10 @@
 #' Retrieve data sources used in the Global Names Resolver
 #'
 #' @export
-#' @param ... Curl options passed on to [`crul::HttpClient`]
+#' @param ... Curl options passed on to [crul::HttpClient]
 #' @param todf defunct, always get a data.frame back now
 #' @return data.frame/tibble
-#' @seealso [`gnr_resolve()`], [`gni_search()`]
+#' @seealso [gnr_resolve()], [gni_search()]
 #' @keywords resolve names taxonomy
 #' @references <https://resolver.globalnames.org/data_sources>
 #' @examples \dontrun{
@@ -23,7 +23,10 @@
 #' }
 gnr_datasources <- function(..., todf) {
   if (!missing(todf)) stop("todf is defunct", call. = FALSE)
-  res <- tax_GET(url = "https://resolver.globalnames.org",
-    path = "data_sources.json", ...)
+  cli <- crul::HttpClient$new(
+    url = "https://resolver.globalnames.org/data_sources.json",
+    headers = tx_ual, opts = list(...))
+  res <- cli$get()
+  res$raise_for_status()
   tibble::as_tibble(jsonlite::fromJSON(res$parse("UTF-8")))
 }

@@ -3,20 +3,20 @@
 #' @export
 #' @param x (character) Vector of one or more taxon names (character) or
 #' IDs (character or numeric) to query. Or objects returned from `get_*()`
-#' functions like [`get_tsn()`]
+#' functions like [get_tsn()]
 #' @param db (character) database to query. either `ncbi`, `itis`, `eol`, `col`,
 #' `tropicos`, `gbif`,`nbn`, `worms`, `natserv`, `bold`. Note that each
 #' taxonomic data source has their own identifiers, so that if you provide the
 #' wrong `db` value for the identifier you may get a result, but it will
 #' likely be wrong (not what you were expecting). If using ncbi or eol we
-#' recommend getting an API key; see [`taxize-authentication`]
+#' recommend getting an API key; see [taxize-authentication]
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, 
 #' all rows are considered. passed down to `get_*()` functions.
-#' @param ... Additional arguments to [`classification()`]
+#' @param ... Additional arguments to [classification()]
 #' @return A named list of character vectors with ranks (all lower-cased)
-#' @note While [`tax_name()`] returns the name of a specified
-#' rank, [`tax_rank()`] returns the actual rank of the taxon.
-#' @seealso [`classification()`],[`tax_name()`]
+#' @note While [tax_name()] returns the name of a specified
+#' rank, [tax_rank()] returns the actual rank of the taxon.
+#' @seealso [classification()],[tax_name()]
 #' @examples \dontrun{
 #' tax_rank(x = "Helianthus annuus", db = "itis")
 #' tax_rank(get_tsn("Helianthus annuus"))

@@ -37,7 +37,7 @@ now (as of 2016-05-09) back up, but we don't trust that it will stay up and avai
 \code{phylomatic} in the package \pkg{brranching}
 \item \code{\link[=phylomatic_format]{phylomatic_format()}}: This function is defunct. See
 \code{phylomatic_names} in the package \pkg{brranching}
-\item \code{\link[=iucn_summary_id]{iucn_summary_id()}}: This function is defunct. Use
-\code{\link[=iucn_summary]{iucn_summary()}}
+\item \code{\link[=iucn_summary_id]{iucn_summary_id()}}: This function is defunct. Use \code{\link[=iucn_summary]{iucn_summary()}}
+\item \code{\link[=eubon]{eubon()}}: This function is defunct. Use \code{\link[=eubon_search]{eubon_search()}}
 }
 }

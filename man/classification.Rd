@@ -84,7 +84,8 @@ classification(...)
 more objects of class \code{classification}}
 
 \item{x}{Vector of taxa names (character) or IDs (character or numeric)
-to query.}
+to query. For \code{db = "eol"}, EOL expects you to pass it a taxon id, called
+\code{eolid} in the output of \code{\link[=get_eolid]{get_eolid()}}.}
 
 \item{db}{character; database to query. either \code{ncbi}, \code{itis}, \code{eol}, \code{col},
 \code{tropicos}, \code{gbif}, \code{nbn}, \code{worms}, \code{natserv}, \code{bold}, \code{wiki}, or \code{pow}.
@@ -149,6 +150,14 @@ we can do.
 \section{Authentication}{
 
 See \link{taxize-authentication}
+}
+
+\section{EOL}{
+
+EOL does not have very good failure behavior. For example, if you submit
+an ID that does not exist they'll return a 500 HTTP error, which is
+not an appropriate error; it's probably that that ID does not exist
+in their database, but we can't know for sure. Isn't that fun?
 }
 
 \examples{

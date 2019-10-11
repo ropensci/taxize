@@ -4,7 +4,7 @@
 #' @param commnames One or more common names or partial names.
 #' @param db Data source, one of *"ncbi"* (default), *"itis"*,
 #' *"tropicos"*, *"eol"*, or *"worms"*. If using ncbi, we
-#' recommend getting an API key; see [`taxize-authentication`]
+#' recommend getting an API key; see [taxize-authentication]
 #' @param itisby Search for common names across entire names (search, default),
 #' at beginning of names (begin), or at end of names (end).
 #' @param simplify (logical) If `TRUE`, simplify output to a vector of names.
@@ -14,15 +14,15 @@
 #' @return If `simplify=TRUE`, a list of scientific names, with list
 #' labeled by your input names. If `simplify=FALSE`, a data.frame with
 #' columns that vary by data source
-#' @seealso [`sci2comm()`]
+#' @seealso [sci2comm()]
 #' @details For data sources ITIS and NCBI you can pass in common names
-#' directly, and use [`get_uid()`] or [`get_tsn()`] to get ids first, then pass in
+#' directly, and use [get_uid()] or [get_tsn()] to get ids first, then pass in
 #' to this fxn.
 #'
 #' For the other data sources, you can only pass in common names directly.
 #'
 #' @section Authentication:
-#' See [`taxize-authentication`] for help on authentication
+#' See [taxize-authentication] for help on authentication
 #'
 #' @author Scott Chamberlain
 #' @examples \dontrun{
@@ -127,7 +127,7 @@ c2s_itis_ <- function(x, by='search', simplify, ...){
   )
   if (simplify) {
     as.character(tmp$combinedname)
-  } else{
+  } else {
     tmp
   }
 }
@@ -138,7 +138,7 @@ c2s_ncbi <- function(x, simplify, ...) {
   cli <- crul::HttpClient$new(url = ncbi_base(),
     headers = tx_ual, opts = list(...))
   res <- cli$get("entrez/eutils/efetch.fcgi", query = query)
-  res$raise_for_status()
+  if (!res$success()) return(character())
   tt <- res$parse("UTF-8")
   ttp <- xml2::read_xml(tt)
   # common name
