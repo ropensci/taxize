@@ -20,3 +20,4 @@ revdep/checks.noindex
 revdep/data.sqlite
 revdep/library.noindex
 inst/doc
+taxa-ids-notes.R
