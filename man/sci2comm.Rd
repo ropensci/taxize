@@ -44,7 +44,8 @@ the language of each vernacular in the output for eol and itis.}
 \code{\link[=get_uid]{get_uid()}}.}
 }
 \value{
-List of character vectors, named by input taxon name, or taxon ID
+List of character vectors, named by input taxon name,
+or taxon ID. \code{character(0)} on no match
 }
 \description{
 Get common names from scientific names.
