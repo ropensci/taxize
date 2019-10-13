@@ -14,7 +14,7 @@ taxize
 
 `taxize` allows users to search over many taxonomic data sources for species names (scientific and common) and download up and downstream taxonomic hierarchical information - among other things.
 
-The `taxize` tutorial is can be found at <https://ropensci.org/tutorials/taxize.html> and check out the taxize book <https://taxize.dev>
+The taxize book => <https://taxize.dev>
 
 The functions in the package that hit a specific API have a prefix and suffix separated by an underscore. They follow the format of `service_whatitdoes`.  For example, `gnr_resolve` uses the Global Names Resolver API to resolve species names.  General functions in the package that don't hit a specific API don't have two words separated by an underscore, e.g., `classification`.
 
@@ -486,7 +486,7 @@ get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn', rows=1:3)
 #>               guid      scientificName    rank taxonomicStatus
 #> 1 NBNSYS0000027573 Chironomus riparius species        accepted
 #> 2 NHMSYS0001718585  Hypnoidus riparius species        accepted
-#> 3 NBNSYS0000007169   Elaphrus riparius species        accepted
+#> 3 NBNSYS0000023573    Quedius riparius species        accepted
 #> 
 #> $nbn$`Pinus contorta`
 #>               guid                scientificName    rank taxonomicStatus
