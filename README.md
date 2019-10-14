@@ -187,9 +187,7 @@ Note that a few data sources require SOAP web services, which are difficult to s
 
 See the [newdatasource](https://github.com/ropensci/taxize/labels/newdatasource) tag in the issue tracker
 
-## Tutorial
-
-For more examples see the [tutorial][tut]
+<br>
 
 ## Installation
 
@@ -666,5 +664,4 @@ By participating in this project you agree to abide by its terms.
 
 [![rofooter](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
 
-[tut]: https://ropensci.org/tutorials/taxize.html
 [coc]: https://github.com/ropensci/taxize/blob/master/CODE_OF_CONDUCT.md
