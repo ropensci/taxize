@@ -1,7 +1,7 @@
 ## Test environments
 
-* local OS X install, R 3.6.0 Patched
-* ubuntu 14.04 (on travis-ci), R 3.6.0
+* local OS X install, R 3.6.1 Patched
+* ubuntu 14.04 (on travis-ci), R 3.6.1
 * win-builder (devel and release)
 
 ## R CMD check results
@@ -16,10 +16,7 @@ no problems were found.
 
 ------
 
-This version adds some new features, and some bug fixes.
-
-Important: this version of taxize depends on the version of worrms just 
-submitted to CRAN.
+This version includes one function with changed parameters; many improvements and bug fixes.
 
 Thanks!
 Scott Chamberlain

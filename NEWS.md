@@ -1,3 +1,31 @@
+taxize 0.9.9
+============
+
+### NEW FEATURES
+
+* update all EUBON functions to use their new API version; `eubon_search()` gains new params `limit` and `page`; other eubon functions have no pagination  (#766)
+* change base url in `ipni_search()` from http to https, via (#773)
+
+### MINOR IMPROVEMENTS
+
+* change `synonyms()` to always return `NA` for name not found, and always return a zero row data.frame when name found BUT no synonyms found; updated docs to indicate better what's returned (#763) (#765)
+* COL sometimes returns control characters in the XML payload; these can't be parsed by the `xml2` package, so we have to remove them using regex; we throw a message when we're doing this so the user knows (#768)
+* docs typos fixes (#770)
+* update `classification()` docs with a new `EOL` section discussing that EOL does not have good failure behavior, and what to expect from them (#775)
+* the following datasets are now available when the package is not loaded, so functions that use these datasets can now be called with package namespace like `taxize::downstream()`: `rank_ref`, `theplantlist`, `apg_families`, `apg_orders`  (#777)
+* `sci2comm()` and `comm2sci()` improvements: for `db="ncbi"` we no longer stop with error when when there's no results for a query; instead we return `character(0)`. In addition, now all data source options for both functions now return `character(0)` when there's no results for a query (#778)
+* `id2name.uid()` now actually passes on `...` internally for curl options
+
+### BUG FIXES
+
+* fix `get_nbnid()`: was returning non-taxon entities, have ot add `idxtype:TAXON` to the `fq` query (#761)
+* fixes for `as.eolid()` and `as.colid()` - don't run through helper function that was raising error on HTTP 404/etc., dont want to fail  (#762)
+* fix to `class2tree()`: set root node name to NA if it does not exist, ITIS does not set a root node (#767) (#769) work by @gpli
+* fix to `ipni_search()`: IPNI changed parameter names, fixes for that; and now returning tibble's instead of data.frame's (#773) thanks @joelnitta !
+* fix `ncbi_children()`: fixed regex that was supposed to flag ambiguous taxa only, it was supposed to flag `sp.` and `spp.`, but was including `subsp.`, which we didn't want included (#777)
+* another fix to `ncbi_children()`: when ID is passed rather than a name, we need to then set `id=NULL` after switching to the equivalent taxononmic name internally to avoid getting duplicate data back (#777)
+
+
 taxize 0.9.8
 ============
 
