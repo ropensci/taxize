@@ -5,6 +5,7 @@
 #'
 #' @rdname ubio_classification_search-defunct
 #' @export
+#' @keywords internal 
 #' @param ... Parameters, ignored
 ubio_classification_search <- function(...) {
   .Defunct(msg = "the uBio API is down, for good as far as we know")

@@ -4,6 +4,7 @@
 #' THIS FUNCTION IS DEFUNCT.
 #'
 #' @export
+#' @keywords internal
 #' @rdname phylomatic_format-defunct
 #' @param ... Parameters, ignored
 phylomatic_format <- function(...) {

@@ -3,6 +3,7 @@
 #' THIS FUNCTION IS DEFUNCT.
 #'
 #' @export
+#' @keywords internal
 #' @rdname phylomatic_tree-defunct
 #' @param ... Parameters, ignored
 phylomatic_tree <- function(...) {

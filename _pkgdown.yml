@@ -119,5 +119,4 @@ reference:
       - taxize_capwords
   - title: "Defunct methods"
     contents:
-      - starts_with("ubio_")
-      - starts_with("phylomatic_")
+      - taxize-defunct
