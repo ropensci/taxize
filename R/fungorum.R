@@ -11,8 +11,8 @@
 #' @param lsid (character) an LSID, e.,g. "urn:lsid:indexfungorum.org:names:81085"
 #' @param date (character) Date, of the form YYYMMDD
 #' @param ... Curl options passed on to [crul::verb-GET]
-#' @references <http://www.indexfungorum.org/>, API docs:
-#' <http://www.indexfungorum.org/ixfwebservice/fungus.asmx>
+#' @references http://www.indexfungorum.org/, API docs:
+#' http://www.indexfungorum.org/ixfwebservice/fungus.asmx
 #' @return A `data.frame`, or `NULL` if no results
 #' @examples \dontrun{
 #' # NameSearch

@@ -131,7 +131,7 @@ Note that a few data sources require SOAP web services, which are difficult to s
 <tr>
 	<td style="text-align:left;">Index Fungorum</td>
 	<td style="text-align:left;"><code>fg</code></td>
-	<td style="text-align:left;"><a href="http://www.indexfungorum.org/ixfwebservice/fungus.asmx">link</a></td>
+	<td style="text-align:left;">none</td>
 	<td style="text-align:left;">none</td>
 </tr>
 <tr>
