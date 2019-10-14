@@ -12,3 +12,4 @@ phylomatic_tree(...)
 \description{
 THIS FUNCTION IS DEFUNCT.
 }
+\keyword{internal}

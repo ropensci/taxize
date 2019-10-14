@@ -13,3 +13,4 @@ phylomatic_format(...)
 \description{
 THIS FUNCTION IS DEFUNCT.
 }
+\keyword{internal}
