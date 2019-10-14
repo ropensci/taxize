@@ -1,6 +1,6 @@
 #' @title Get a summary from the IUCN Red List
 #'
-#' @description Get a summary from the IUCN Red List (<http://www.iucnredlist.org/>).
+#' @description Get a summary from the IUCN Red List (https://www.iucnredlist.org/).
 #'
 #' @export
 #' @param x character; Scientific name. Should be cleaned and in the
@@ -11,7 +11,7 @@
 #' returned as a list of vectors corresponding to the different range types:
 #' native, introduced, etc.
 #' @param key a Redlist API key, get one from 
-#' <http://apiv3.iucnredlist.org/api/v3/token>. Required for 
+#' http://apiv3.iucnredlist.org/api/v3/token Required for 
 #' `iucn_summary`. Defaults to `NULL` in case you have your key 
 #' stored (see `Redlist Authentication` below).
 #' @param ... curl options passed on to [crul::verb-GET]

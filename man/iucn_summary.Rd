@@ -19,7 +19,7 @@ returned as a list of vectors corresponding to the different range types:
 native, introduced, etc.}
 
 \item{key}{a Redlist API key, get one from
-\url{http://apiv3.iucnredlist.org/api/v3/token}. Required for
+http://apiv3.iucnredlist.org/api/v3/token Required for
 \code{iucn_summary}. Defaults to \code{NULL} in case you have your key
 stored (see \code{Redlist Authentication} below).}
 
@@ -36,7 +36,7 @@ items:
 }
 }
 \description{
-Get a summary from the IUCN Red List (\url{http://www.iucnredlist.org/}).
+Get a summary from the IUCN Red List (https://www.iucnredlist.org/).
 }
 \details{
 Beware: IUCN functions can give back incorrect data. This isn't our fault.
