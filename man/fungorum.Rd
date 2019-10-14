@@ -73,6 +73,6 @@ fg_author_search(q = "Fayod", limit = 2)
 }
 }
 \references{
-\url{http://www.indexfungorum.org/}, API docs:
-\url{http://www.indexfungorum.org/ixfwebservice/fungus.asmx}
+http://www.indexfungorum.org/, API docs:
+http://www.indexfungorum.org/ixfwebservice/fungus.asmx
 }
