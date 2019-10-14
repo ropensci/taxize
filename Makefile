@@ -19,6 +19,9 @@ rmd2md:
 		mv name_cleaning.md name_cleaning.Rmd;\
 		mv taxize_case_study.md taxize_case_study.Rmd
 
+install_vign: doc build
+	${RSCRIPT} -e "Sys.setenv(NOT_CRAN = TRUE); library(devtools); document(); install(build_vignettes=TRUE, dependencies=FALSE)"
+
 install: doc build
 	R CMD INSTALL . && rm *.tar.gz
 
