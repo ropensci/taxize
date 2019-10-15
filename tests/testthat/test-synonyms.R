@@ -30,6 +30,13 @@ test_that("synonyms works with worms data", {
 })
 
 test_that("synonyms: data sources return consistent outputs", {
+  if (Sys.getenv('IUCN_REDLIST_KEY') == "") {
+    skip("No IUCN api key so test not run.")
+  }
+  if (Sys.getenv('TROPICOS_KEY') == "") {
+    skip("No Tropicos api key so test not run.")
+  }
+  
   # when name not found, returns NA
   vcr::use_cassette("synonyms_name_not_found", {
     aa <- synonyms("Foo bar", db="itis", messages = FALSE)
