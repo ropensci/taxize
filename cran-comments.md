@@ -18,5 +18,7 @@ no errors or warnings were found on reverse dependency check.
 
 This version includes one function with changed parameters; many improvements and bug fixes.
 
+This is a re-submission with fixes to broken links.
+
 Thanks!
 Scott Chamberlain
