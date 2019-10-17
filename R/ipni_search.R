@@ -1,7 +1,7 @@
 #' Search for names in the International Plant Names Index (IPNI).
 #'
 #' Note: This data source is also provided in the Global Names Index (GNI)
-#' (<http://gni.globalnames.org/data_sources>). The interface to the data is
+#' (http://gni.globalnames.org/data_sources). The interface to the data is
 #' different among the two services though.
 #'
 #' @export

@@ -113,7 +113,7 @@ Note that a few data sources require SOAP web services, which are difficult to s
 <tr>
 	<td style="text-align:left;">International Plant Names Index (IPNI)</td>
 	<td style="text-align:left;"><code>ipni</code></td>
-	<td style="text-align:left;"><a href="http://www.ipni.org/link_to_ipni.html">link</a></td>
+	<td style="text-align:left;">none</td>
 	<td style="text-align:left;">none</td>
 </tr>
 <tr>
