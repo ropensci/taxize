@@ -11,12 +11,6 @@
 #' @param type (`"error"`, `"warning"`, `"message"`, `"cat"`, `"print"`, `"silent"`)
 #'
 #' @return `NULL`
-#'
-#' @examples \dontrun{
-#' taxa:::limited_print(1:100)
-#' taxa:::limited_print(1:10000)
-#' taxa:::limited_print(1:10000, prefix = "stuff:")
-#' }
 #' @keywords internal
 limited_print <- function(chars, prefix = "",
                           max_chars = getOption("width") - nchar(prefix) - 5,
