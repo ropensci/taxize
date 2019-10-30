@@ -22,3 +22,5 @@ vignettes/cache/
 docs
 .github
 ^codemeta\.json$
+^_pkgdown\.yml$
+taxa-ids-notes.R

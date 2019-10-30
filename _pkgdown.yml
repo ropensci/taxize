@@ -1,0 +1,122 @@
+reference:
+  - title: "taxize"
+    contents:
+      - taxize
+      - taxize-defunct
+      - taxize_cite
+  - title: "Authentication"
+    contents:
+      - taxize-authentication
+      - getkey
+      - key_helpers
+  - title: "High level functions"
+    desc: >
+      Functions that work across sources
+    contents:
+      - children
+      - classification
+      - downstream
+      - upstream
+      - comm2sci
+      - sci2comm
+      - id2name
+      - lowest_common
+      - resolve
+      - synonyms
+      - tax_name
+      - tax_rank
+  - title: "Ping"
+    contents:
+      - ends_with("_ping")
+      - status_codes
+      - -ubio_ping
+  - title: "Get taxon identifiers"
+    contents:
+      - get_id_details
+      - taxon-state
+      - starts_with("get_")
+  - title: "Datasets"
+    contents:
+      - apg_families
+      - apg_orders
+      - plantGenusNames
+      - plantNames
+      - rank_ref
+      - species_plantarum_binomials
+      - theplantlist
+  - title: "Random names"
+    contents:
+      - names_list
+  - title: "Name Resolution Services"
+    contents:
+      - starts_with("gni_")
+      - starts_with("gnr_")
+      - iplant_resolve
+      - tnrs
+      - tnrs_sources
+      - tol_resolve
+  - title: "NCBI Taxonomy"
+    contents:
+      - starts_with("ncbi_")
+      - -matches("ping")
+      - genbank2uid
+  - title: "Catalogue of Life"
+    contents:
+      - starts_with("col_")
+      - -matches("ping")
+  - title: "Global Biodiversity Information Facility"
+    contents:
+      - starts_with("gbif_")
+      - scrapenames
+      - -matches("ping")
+  - title: "Encyclopedia of Life"
+    contents:
+      - starts_with("eol_")
+      - -matches("ping")
+  - title: "EUBON"
+    contents:
+      - starts_with("eubon_")
+  - title: "Index Fungorum"
+    contents:
+      - starts_with("fg_")
+      - -matches("ping")
+  - title: "Integrated Taxonomic Information Service"
+    contents:
+      - starts_with("itis_")
+      - -matches("ping")
+  - title: "UK National Biodiversity Network"
+    contents:
+      - starts_with("nbn_")
+      - -matches("ping")
+  - title: "Tropicos"
+    contents:
+      - starts_with("tp_")
+  - title: "The Plant List"
+    contents:
+      - starts_with("tpl_")
+  - title: "Kew's Plants of the World"
+    contents:
+      - starts_with("pow_")
+  - title: "IUCN"
+    contents:
+      - starts_with("iucn_")
+  - title: "Angiosperm Phylogeny Group"
+    contents:
+      - starts_with("apg")
+  - title: "Other data sources"
+    contents:
+      - bold_search
+      - ion
+      - ipni_search
+      - plantminer
+      - vascan_search
+      - worms_downstream
+  - title: "Utilities"
+    contents:
+      - class2tree
+      - rankagg
+      - tax_agg
+      - taxize_capwords
+  - title: "Defunct methods"
+    contents:
+      - taxize-defunct

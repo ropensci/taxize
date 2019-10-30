@@ -14,7 +14,7 @@ taxize
 
 `taxize` allows users to search over many taxonomic data sources for species names (scientific and common) and download up and downstream taxonomic hierarchical information - among other things.
 
-The `taxize` tutorial is can be found at <https://ropensci.org/tutorials/taxize.html> and check out the taxize book <https://taxize.dev>
+The taxize book => <https://taxize.dev>
 
 The functions in the package that hit a specific API have a prefix and suffix separated by an underscore. They follow the format of `service_whatitdoes`.  For example, `gnr_resolve` uses the Global Names Resolver API to resolve species names.  General functions in the package that don't hit a specific API don't have two words separated by an underscore, e.g., `classification`.
 
@@ -113,7 +113,7 @@ Note that a few data sources require SOAP web services, which are difficult to s
 <tr>
 	<td style="text-align:left;">International Plant Names Index (IPNI)</td>
 	<td style="text-align:left;"><code>ipni</code></td>
-	<td style="text-align:left;"><a href="http://www.ipni.org/link_to_ipni.html">link</a></td>
+	<td style="text-align:left;">none</td>
 	<td style="text-align:left;">none</td>
 </tr>
 <tr>
@@ -131,7 +131,7 @@ Note that a few data sources require SOAP web services, which are difficult to s
 <tr>
 	<td style="text-align:left;">Index Fungorum</td>
 	<td style="text-align:left;"><code>fg</code></td>
-	<td style="text-align:left;"><a href="http://www.indexfungorum.org/ixfwebservice/fungus.asmx">link</a></td>
+	<td style="text-align:left;">none</td>
 	<td style="text-align:left;">none</td>
 </tr>
 <tr>
@@ -187,9 +187,7 @@ Note that a few data sources require SOAP web services, which are difficult to s
 
 See the [newdatasource](https://github.com/ropensci/taxize/labels/newdatasource) tag in the issue tracker
 
-## Tutorial
-
-For more examples see the [tutorial][tut]
+<br>
 
 ## Installation
 
@@ -486,7 +484,7 @@ get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn', rows=1:3)
 #>               guid      scientificName    rank taxonomicStatus
 #> 1 NBNSYS0000027573 Chironomus riparius species        accepted
 #> 2 NHMSYS0001718585  Hypnoidus riparius species        accepted
-#> 3 NBNSYS0000007169   Elaphrus riparius species        accepted
+#> 3 NBNSYS0000023573    Quedius riparius species        accepted
 #> 
 #> $nbn$`Pinus contorta`
 #>               guid                scientificName    rank taxonomicStatus
@@ -666,5 +664,4 @@ By participating in this project you agree to abide by its terms.
 
 [![rofooter](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
 
-[tut]: https://ropensci.org/tutorials/taxize.html
 [coc]: https://github.com/ropensci/taxize/blob/master/CODE_OF_CONDUCT.md

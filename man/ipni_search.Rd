@@ -75,7 +75,7 @@ a tibble (data.frame)
 }
 \description{
 Note: This data source is also provided in the Global Names Index (GNI)
-(\url{http://gni.globalnames.org/data_sources}). The interface to the data is
+(http://gni.globalnames.org/data_sources). The interface to the data is
 different among the two services though.
 }
 \details{

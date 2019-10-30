@@ -13,7 +13,7 @@
 #' @param ... Further arguments passed on to internal methods.
 #' @return If `simplify=TRUE`, a list of scientific names, with list
 #' labeled by your input names. If `simplify=FALSE`, a data.frame with
-#' columns that vary by data source
+#' columns that vary by data source. `character(0)` on no match
 #' @seealso [sci2comm()]
 #' @details For data sources ITIS and NCBI you can pass in common names
 #' directly, and use [get_uid()] or [get_tsn()] to get ids first, then pass in
@@ -127,7 +127,7 @@ c2s_itis_ <- function(x, by='search', simplify, ...){
   )
   if (simplify) {
     as.character(tmp$combinedname)
-  } else{
+  } else {
     tmp
   }
 }
@@ -138,7 +138,7 @@ c2s_ncbi <- function(x, simplify, ...) {
   cli <- crul::HttpClient$new(url = ncbi_base(),
     headers = tx_ual, opts = list(...))
   res <- cli$get("entrez/eutils/efetch.fcgi", query = query)
-  res$raise_for_status()
+  if (!res$success()) return(character())
   tt <- res$parse("UTF-8")
   ttp <- xml2::read_xml(tt)
   # common name
@@ -150,6 +150,7 @@ c2s_ncbi <- function(x, simplify, ...) {
 
 c2s_eol <- function(simplify, ...){
   tmp <- eol_search(...)
+  if (all(is.na(tmp))) return(character(0))
   if (simplify) {
     as.character(tmp$name)
   } else {

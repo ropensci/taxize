@@ -26,7 +26,7 @@ data.frame.}
 \value{
 If \code{simplify=TRUE}, a list of scientific names, with list
 labeled by your input names. If \code{simplify=FALSE}, a data.frame with
-columns that vary by data source
+columns that vary by data source. \code{character(0)} on no match
 }
 \description{
 Get scientific names from common names.

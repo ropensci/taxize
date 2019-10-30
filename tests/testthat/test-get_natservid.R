@@ -1,6 +1,10 @@
 context("get_natservid")
 
 test_that("get_natservid returns the correct value", {
+  if (Sys.getenv('NATURE_SERVE_KEY') == "") {
+    skip("No NatureServe api key so test not run.")
+  }
+
   vcr::use_cassette("get_natservid", {
     x <- get_natservid(c('Gadus morhua', "howdy"), messages=FALSE)[2]
     w <- get_natservid(c("Helianthus annuus", 'Gadus morhua'), 
@@ -12,6 +16,10 @@ test_that("get_natservid returns the correct value", {
 })
 
 test_that("get_natservid accepts ask-argument", {
+  if (Sys.getenv('NATURE_SERVE_KEY') == "") {
+    skip("No NatureServe api key so test not run.")
+  }
+
   vcr::use_cassette("get_natservid_ask_arg", {
     x <- get_natservid('asdasf', ask = FALSE, messages=FALSE)
   })
@@ -21,6 +29,10 @@ test_that("get_natservid accepts ask-argument", {
 
 test_that("get_natservid fails well", {
   skip_on_cran()
+
+  if (Sys.getenv('NATURE_SERVE_KEY') == "") {
+    skip("No NatureServe api key so test not run.")
+  }
 
   expect_true(is.na(get_natservid("asdfadsf", messages = FALSE)))
 

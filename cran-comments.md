@@ -1,7 +1,7 @@
 ## Test environments
 
-* local OS X install, R 3.6.0 Patched
-* ubuntu 14.04 (on travis-ci), R 3.6.0
+* local OS X install, R 3.6.1 Patched
+* ubuntu 14.04 (on travis-ci), R 3.6.1
 * win-builder (devel and release)
 
 ## R CMD check results
@@ -10,16 +10,15 @@
 
 ## Reverse dependencies
 
-* I have run R CMD check on the 22 downstream dependencies
+* I have run R CMD check on the 24 downstream dependencies
 (<https://github.com/ropensci/taxize/blob/master/revdep/README.md>),
-no problems were found.
+no errors or warnings were found on reverse dependency check.
 
 ------
 
-This version adds some new features, and some bug fixes.
+This version includes one function with changed parameters; many improvements and bug fixes.
 
-Important: this version of taxize depends on the version of worrms just 
-submitted to CRAN.
+This is a re-submission with fixes to broken links.
 
 Thanks!
 Scott Chamberlain

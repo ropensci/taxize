@@ -21,7 +21,8 @@
 #' @section Authentication:
 #' See [taxize-authentication] for help on authentication
 #' 
-#' @return List of character vectors, named by input taxon name, or taxon ID
+#' @return List of character vectors, named by input taxon name,
+#' or taxon ID. `character(0)` on no match
 #'
 #' @seealso [comm2sci()]
 #'
@@ -158,13 +159,11 @@ getsci <- function(nn, db, simplify, ...){
 itis_foo <- function(x, simplify=TRUE, ...){
   # if tsn is not found
   if (is.na(x)) {
-    out <- NA
+    return(character(0))
   } else {
     out <- ritis::common_names(x)
-    #if common name is not found
-    if (nrow(out) == 0) {
-      out <- NA
-    }
+    # if common name is not found
+    if (nrow(out) == 0) return(character(0))
   }
   if (simplify) {
     if (!inherits(out, "tbl_df")) out else as.character(out$commonName)
@@ -179,7 +178,7 @@ ncbi_foo <- function(x, ...){
   cli <- crul::HttpClient$new(url = ncbi_base(), headers = tx_ual,
     opts = list(...))
   res <- cli$get("entrez/eutils/efetch.fcgi", query = query)
-  res$raise_for_status()
+  if (!res$success()) return(character(0))
   tt <- res$parse("UTF-8")
   ttp <- xml2::read_xml(tt)
   # common name
@@ -194,13 +193,11 @@ ncbi_foo <- function(x, ...){
 worms_foo <- function(x, simplify=TRUE, ...){
   # if id is not found
   if (is.na(x)) {
-    out <- NA
+    return(character(0))
   } else {
     out <- worrms::wm_common_id(as.numeric(x))
     #if common name is not found
-    if (nrow(out) == 0) {
-      out <- NA
-    }
+    if (nrow(out) == 0) return(character(0))
   }
   if (simplify) {
     if (!inherits(out, "tbl_df")) out else as.character(out$vernacular)
@@ -212,13 +209,11 @@ worms_foo <- function(x, simplify=TRUE, ...){
 iucn_foo <- function(x, simplify=TRUE, ...){
   # if id is not found
   if (is.na(x)) {
-    out <- NA
+    return(character(0))
   } else {
     out <- rredlist::rl_common_names(name = x, ...)
     # if common name is not found
-    if (NROW(out$result) == 0) {
-      out <- NA
-    }
+    if (NROW(out$result) == 0) return(character(0))
   }
   if (simplify) {
     if (!inherits(out$result, "data.frame")) {

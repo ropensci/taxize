@@ -228,8 +228,8 @@ c_gnames <- list(url_home = "http://gnrd.globalnames.org/", apidocs = "http://gn
 c_gni <- list(url_home = "http://gni.globalnames.org/", apidocs = "https://github.com/dimus/gni/wiki/api", citation = NULL)
 c_bold <- list(url_home = "http://www.boldsystems.org/", apidocs = "http://www.boldsystems.org/index.php/resources/api",
                citation = "Ratnasingham, S., & Hebert, P. D. (2007). BOLD: The Barcode of Life Data System (http://www. barcodinglife. org). Molecular ecology notes, 7(3), 355-364.")
-c_iucn <- list(url_home = "http://www.iucn.org/", apidocs = NULL,
-               citation = "IUCN 2015. The IUCN Red List of Threatened Species. Version 2015.1. <http://www.iucnredlist.org>. Downloaded on <date>.")
+c_iucn <- list(url_home = "https://www.iucn.org/", apidocs = NULL,
+               citation = "IUCN 2015. The IUCN Red List of Threatened Species. Version 2015.1. <https://www.iucnredlist.org>. Downloaded on <date>.")
 c_ipni <- list(url_home = "http://www.ipni.org/", apidocs = "http://www.ipni.org/ipni/advPlantNameSearch.do",
                citation = "The International Plant Names Index (<year>). Published on the Internet http://www.ipni.org [accessed <date>]")
 c_apg <- list(url_home = "http://www.mobot.org/MOBOT/research/APweb/", apidocs = NULL,

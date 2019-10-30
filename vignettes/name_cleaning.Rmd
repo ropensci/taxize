@@ -79,7 +79,16 @@ to know which one you want:
 
 ```r
 get_tsn(searchterm = 'Quercus b', rows = 3)
+#> ══  1 queries  ═══════════════
+#> ✔  Found:  Quercus b
+#> ══  Results  ═════════════════
+#> 
+#> ● Total: 1 
+#> ● Found: 1 
+#> ● Not Found: 0
 #> [1] "19303"
+#> attr(,"class")
+#> [1] "tsn"
 #> attr(,"match")
 #> [1] "found"
 #> attr(,"multiple_matches")
@@ -88,8 +97,6 @@ get_tsn(searchterm = 'Quercus b', rows = 3)
 #> [1] FALSE
 #> attr(,"uri")
 #> [1] "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=19303"
-#> attr(,"class")
-#> [1] "tsn"
 ```
 
 In reality it is unlikely you'll know which row you want, unless perhaps you
@@ -154,7 +161,16 @@ Already a tsn, returns the same
 
 ```r
 as.tsn(get_tsn("Quercus douglasii"))
+#> ══  1 queries  ═══════════════
+#> ✔  Found:  Quercus douglasii
+#> ══  Results  ═════════════════
+#> 
+#> ● Total: 1 
+#> ● Found: 1 
+#> ● Not Found: 0
 #> [1] "19322"
+#> attr(,"class")
+#> [1] "tsn"
 #> attr(,"match")
 #> [1] "found"
 #> attr(,"multiple_matches")
@@ -163,8 +179,6 @@ as.tsn(get_tsn("Quercus douglasii"))
 #> [1] FALSE
 #> attr(,"uri")
 #> [1] "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=19322"
-#> attr(,"class")
-#> [1] "tsn"
 ```
 
 numeric
@@ -226,21 +240,22 @@ in a programmatic workflow straight away.
 ```r
 spp <- names_list(rank = "species", size = 10)
 gnr_resolve(names = spp, preferred_data_sources = 11)
-#> # A tibble: 12 x 5
+#> # A tibble: 13 x 5
 #>    user_supplied_na… submitted_name  matched_name    data_source_tit… score
 #>  * <chr>             <chr>           <chr>           <chr>            <dbl>
-#>  1 Cassine transvaa… Cassine transv… Cassine transv… GBIF Backbone T… 0.988
-#>  2 Plantago annua    Plantago annua  Plantago annua… GBIF Backbone T… 0.988
-#>  3 Ribes tularensis  Ribes tularens… Ribes tularens… GBIF Backbone T… 0.988
-#>  4 Piper verruclifo… Piper verrucli… Piper verrucli… GBIF Backbone T… 0.988
-#>  5 Inula stricta     Inula stricta   Inula stricta … GBIF Backbone T… 0.988
-#>  6 Carex austromexi… Carex austrome… Carex austrome… GBIF Backbone T… 0.988
-#>  7 Schmidelia macro… Schmidelia mac… Schmidelia mac… GBIF Backbone T… 0.988
-#>  8 Schmidelia macro… Schmidelia mac… Schmidelia mac… GBIF Backbone T… 0.988
-#>  9 Schmidelia macro… Schmidelia mac… Schmidelia mac… GBIF Backbone T… 0.988
-#> 10 Anila sessilifol… Anila sessilif… Anila sessilif… GBIF Backbone T… 0.988
-#> 11 Glochidion muell… Glochidion mue… Glochidion mue… GBIF Backbone T… 0.988
-#> 12 Viguiera viridis  Viguiera virid… Viguiera virid… GBIF Backbone T… 0.988
+#>  1 Camptochaete exc… Camptochaete e… Camptochaete e… GBIF Backbone T… 0.988
+#>  2 Hieracium opsian… Hieracium opsi… Hieracium opsi… GBIF Backbone T… 0.988
+#>  3 Hieracium opsian… Hieracium opsi… Hieracium opsi… GBIF Backbone T… 0.988
+#>  4 Acacia metroside… Acacia metrosi… Acacia metrosi… GBIF Backbone T… 0.988
+#>  5 Acacia metroside… Acacia metrosi… Acacia metrosi… GBIF Backbone T… 0.988
+#>  6 Acacia metroside… Acacia metrosi… Acacia metrosi… GBIF Backbone T… 0.988
+#>  7 Banksia cuneata   Banksia cuneata Banksia cuneat… GBIF Backbone T… 0.988
+#>  8 Entodon zikaiwei… Entodon zikaiw… Entodon zikaiw… GBIF Backbone T… 0.988
+#>  9 Allotropa virgata Allotropa virg… Allotropa virg… GBIF Backbone T… 0.988
+#> 10 Platanthera alpi… Platanthera al… Platanthera al… GBIF Backbone T… 0.988
+#> 11 Crepidophyllum m… Crepidophyllum… Crepidophyllum… GBIF Backbone T… 0.988
+#> 12 Cordia glaziovii  Cordia glaziov… Cordia glaziov… GBIF Backbone T… 0.988
+#> 13 Ophrys neocamusii Ophrys neocamu… Ophrys neocamu… GBIF Backbone T… 0.988
 ```
 
 ## Other functions
