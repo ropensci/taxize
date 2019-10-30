@@ -65,7 +65,7 @@ Authors@R:
              role = "fnd",
              comment = "https://ropensci.org/"))
 LazyLoad: yes
-LazyData: yes
+LazyData: true
 VignetteBuilder: knitr
 Encoding: UTF-8
 Language: en-US

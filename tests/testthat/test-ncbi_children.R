@@ -20,3 +20,21 @@ test_that("ncbi_children returns correct class and result", {
     c('character', 'character', 'character')
   )
 })
+
+test_that("ncbi_children does remove some ambiguous taxa", {
+  skip_on_cran()
+  vcr::use_cassette("ncbi_children_ambiguous", {
+    # 28901 = "Salmonella enterica" - DOES NOT remove "subsp."
+    subsp <- ncbi_children(id = 28901)
+    # 2508041 = "unclassified Helianthus" - DOES remove "sp."
+    sp <- ncbi_children(id = 2508041)
+  })
+
+  expect_is(subsp, "list")
+  expect_is(subsp[[1]], "data.frame")
+  expect_is(sp, "list")
+  expect_is(sp[[1]], "data.frame")
+
+  expect_gt(NROW(subsp[[1]]), 3)
+  expect_equal(NROW(sp[[1]]), 0)
+})

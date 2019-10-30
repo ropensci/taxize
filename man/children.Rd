@@ -54,6 +54,13 @@ collects immediate taxonomic children, while \code{\link[=downstream]{downstream
 collects taxonomic names down to a specified taxonomic rank, e.g.,
 getting all species in a family.
 }
+\section{ncbi}{
+
+note that with \code{db = "ncbi"}, we set \code{ambiguous = TRUE}; that is, children
+taxa with words like "unclassified", "unknown", "uncultured", "sp." are
+NOT removed
+}
+
 \examples{
 \dontrun{
 # Plug in taxonomic IDs
