@@ -7,7 +7,8 @@ Description: Interacts with a suite of web 'APIs' for taxonomic tasks,
     scientific to common names and vice versa, and more.
 Version: 0.9.9.9110
 License: MIT + file LICENSE
-URL: https://github.com/ropensci/taxize (devel),
+URL: https://docs.ropensci.org/taxize (website),
+    https://github.com/ropensci/taxize (devel),
     https://taxize.dev (user manual)
 BugReports: https://github.com/ropensci/taxize/issues
 Authors@R:
