@@ -1,3 +1,20 @@
+taxize 0.9.92
+=============
+
+### NEW FEATURES
+
+* xx (#xxx)
+
+### MINOR IMPROVEMENTS
+
+* the following datasets are now available when the package is not loaded, so functions that use these datasets can now be called with package namespace like `taxize::downstream()`: `rank_ref`, `theplantlist`, `apg_families`, `apg_orders`  (#777)
+
+### BUG FIXES
+
+* fix `ncbi_children()`: fixed regex that was supposed to flag ambiguous taxa only, it was supposed to flag `sp.` and `spp.`, but was including `subsp.`, which we didn't want included (#777)
+* another fix to `ncbi_children()`: when ID is passed rather than a name, we need to then set `id=NULL` after switching to the equivalent taxononmic name internally to avoid getting duplicate data back (#777)
+
+
 taxize 0.9.9
 ============
 
