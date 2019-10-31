@@ -192,7 +192,7 @@ Note that a few data sources require SOAP web services, which are difficult to s
 
 ### May be in taxize in the future...
 
-See the [newdatasource](https://github.com/ropensci/taxize/labels/newdatasource) tag in the issue tracker
+See the [datasources](https://github.com/ropensci/taxize/labels/datasources) tag in the issue tracker
 
 <br>
 
