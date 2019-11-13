@@ -9,7 +9,7 @@
 #' for the identifier you could get a result, but it will likely be wrong (not
 #' what you were expecting). If using ncbi we recommend getting an API key;
 #' see [taxize-authentication]
-#' @param verbose (logical) If FALSE (Default) suppress messages
+#' @param messages (logical) If FALSE (Default) suppress messages
 #' @param ... Other arguments passed to [get_tsn()] or [get_uid()]
 #'
 #' @details `tax_agg` aggregates (sum) taxa to a specific taxonomic level.
@@ -64,7 +64,7 @@
 #' tax_agg(mat, rank = 'family', db='itis')
 #' }
 
-tax_agg <- function(x, rank, db = 'ncbi', verbose=FALSE, ...)
+tax_agg <- function(x, rank, db = 'ncbi', messages=FALSE, ...)
 {
   if (is.matrix(x)) {
     if (is.null(colnames(x)))
@@ -77,7 +77,7 @@ tax_agg <- function(x, rank, db = 'ncbi', verbose=FALSE, ...)
 
   # aggregate to family level (by querying NCBI for taxonomic classification)
   uniq_tax <- as.character(unique(df_m$variable))
-  agg <- tax_name(uniq_tax, get = rank, db = db, messages = verbose, ...)
+  agg <- tax_name(uniq_tax, get = rank, db = db, messages = messages, ...)
   lookup <- data.frame(variable = uniq_tax, agg = agg[ , 3], stringsAsFactors = FALSE)
 
   # merge lookup with orig.

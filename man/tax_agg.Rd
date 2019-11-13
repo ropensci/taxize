@@ -5,7 +5,7 @@
 \alias{print.tax_agg}
 \title{Aggregate species data to given taxonomic rank}
 \usage{
-tax_agg(x, rank, db = "ncbi", verbose = FALSE, ...)
+tax_agg(x, rank, db = "ncbi", messages = FALSE, ...)
 
 \method{print}{tax_agg}(x, ...)
 }
@@ -21,7 +21,7 @@ for the identifier you could get a result, but it will likely be wrong (not
 what you were expecting). If using ncbi we recommend getting an API key;
 see \link{taxize-authentication}}
 
-\item{verbose}{(logical) If FALSE (Default) suppress messages}
+\item{messages}{(logical) If FALSE (Default) suppress messages}
 
 \item{...}{Other arguments passed to \code{\link[=get_tsn]{get_tsn()}} or \code{\link[=get_uid]{get_uid()}}}
 }
