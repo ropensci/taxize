@@ -50,7 +50,7 @@ tax_rank(c("Helianthus annuus", "Quercus", "Fabaceae"), db = 'tropicos')
 tax_rank(names_list("species"), db = 'gbif')
 tax_rank(names_list("family"), db = 'gbif')
 
-tax_rank(c("Platanista gangetica", "Lichenopora neapolitana"),
+tax_rank(c("Gadus morhua", "Lichenopora neapolitana"),
   db = "worms")
 }
 }

@@ -33,16 +33,11 @@
 #' tax_rank(names_list("species"), db = 'gbif')
 #' tax_rank(names_list("family"), db = 'gbif')
 #'
-#' tax_rank(c("Platanista gangetica", "Lichenopora neapolitana"),
+#' tax_rank(c("Gadus morhua", "Lichenopora neapolitana"),
 #'   db = "worms")
 #' }
 tax_rank <- function(x, db = NULL, rows = NA, ...) {
   UseMethod("tax_rank")
-}
-
-#' @export
-tax_rank.default <- function(x, db = NULL, rows = NA, ...) {
-  stop("no 'tax_rank' method for ", class(x), call. = FALSE)
 }
 
 #' @export
