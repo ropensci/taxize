@@ -166,6 +166,7 @@ process_children_ids <- function(input, db, fxn, ...){
 #' @export
 #' @rdname children
 children.tsn <- function(x, db = NULL, ...) {
+  warn_db(list(db = db), "itis")
   fun <- function(y){
     # return NA if NA is supplied
     if (is.na(y)) {
@@ -183,7 +184,8 @@ children.tsn <- function(x, db = NULL, ...) {
 
 #' @export
 #' @rdname children
-children.colid <- function(x,  db = NULL, ...) {
+children.colid <- function(x, db = NULL, ...) {
+  warn_db(list(db = db), "col")
   fun <- function(y){
     # return NA if NA is supplied
     if (is.na(y)) {
@@ -214,6 +216,7 @@ df2dt2tbl <- function(x) {
 #' @export
 #' @rdname children
 children.wormsid <- function(x, db = NULL, ...) {
+  warn_db(list(db = db), "worms")
   fun <- function(y){
     # return NA if NA is supplied
     if (is.na(y)) {
@@ -262,6 +265,7 @@ children.ids <- function(x, db = NULL, ...) {
 #' @export
 #' @rdname children
 children.uid <- function(x, db = NULL, ...) {
+  warn_db(list(db = db), "uid")
   out <- if (is.na(x)) {
     stats::setNames(list(ncbi_blank), x)
   } else {

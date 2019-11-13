@@ -35,3 +35,11 @@ test_that("missing/wrong data given returns result", {
   expect_warning(id2name(55555555, db = "tol"), "Bad Request")
   expect_equal(NROW(suppressWarnings(id2name(55555555, db = "tol"))[[1]]), 0)
 })
+
+test_that("warn on mismatch 'db'", {
+  vcr::use_cassette("id2name_warn_on_db_mismatch", {
+    expect_warning(
+      id2name(
+        get_uid('Apis', messages = FALSE), db = "gbif"))
+  })
+})

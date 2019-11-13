@@ -201,3 +201,11 @@ test_that("rows parameter, when used, works", {
   expect_is(g, "classification")
   expect_is(h, "classification")
 })
+
+test_that("warn on mismatch 'db'", {
+  vcr::use_cassette("classification_warn_on_db_mismatch", {
+    expect_warning(
+      classification(
+        get_uid("Chironomus riparius", messages = FALSE), db = "itis"))
+  })
+})

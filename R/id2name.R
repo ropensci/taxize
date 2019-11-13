@@ -68,6 +68,7 @@ process_idn_ids <- function(input, db) {
 #' @export
 #' @rdname id2name
 id2name.tolid <- function(x, ...) {
+  warn_db(list(...), "tol")
   fun <- function(y) {
     if (is.na(y)) NA_character_ else tol_id2name(as.numeric(y))
   }
@@ -93,6 +94,7 @@ itis_id2name <- function(x, ...) {
 #' @export
 #' @rdname id2name
 id2name.tsn <- function(x, ...) {
+  warn_db(list(...), "itis")
   fun <- function(y) {
     if (is.na(y)) NA_character_ else itis_id2name(y, ...)
   }
@@ -127,6 +129,7 @@ ncbi_id2name <- function(x, ...) {
 #' @export
 #' @rdname id2name
 id2name.uid <- function(x, ...) {
+  warn_db(list(...), "ncbi")
   fun <- function(y, ...) {
     if (is.na(y)) NA_character_ else ncbi_id2name(y, ...)
   }
@@ -150,6 +153,7 @@ worms_id2name <- function(x, ...) {
 #' @export
 #' @rdname id2name
 id2name.wormsid <- function(x, ...) {
+  warn_db(list(...), "worms")
   fun <- function(y) {
     if (is.na(y)) NA_character_ else worms_id2name(y, ...)
   }
@@ -173,6 +177,7 @@ gbif_id2name <- function(x, ...) {
 #' @export
 #' @rdname id2name
 id2name.gbifid <- function(x, ...) {
+  warn_db(list(...), "gbif")
   fun <- function(y) {
     if (is.na(y)) NA_character_ else gbif_id2name(y, ...)
   }
@@ -196,6 +201,7 @@ col_id2name <- function(x, ...) {
 #' @export
 #' @rdname id2name
 id2name.colid <- function(x, ...) {
+  warn_db(list(...), "col")
   fun <- function(y) {
     if (is.na(y)) NA_character_ else col_id2name(y, ...)
   }
@@ -219,6 +225,7 @@ bold_id2name <- function(x, ...) {
 #' @export
 #' @rdname id2name
 id2name.boldid <- function(x, ...) {
+  warn_db(list(...), "bold")
   fun <- function(y) {
     if (is.na(y)) NA_character_ else bold_id2name(y, ...)
   }

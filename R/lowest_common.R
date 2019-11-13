@@ -222,6 +222,7 @@ next_best_taxon <- function(x){
 
 get_class <- function(x, y, db, ...) {
   if (is.null(y)) {
+    if (db == "uid") db <- "ncbi"
     classification(x, db = db, ...)
   } else {
     yattr <- str_replace(attr(y, "db"), "ncbi", "uid")

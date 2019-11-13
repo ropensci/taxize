@@ -84,3 +84,12 @@ test_that("downstream fails well", {
   expect_error(downstream("Ursus", downto = "Species", db = "asdfdsf"),
                "the provided db value was not recognised")
 })
+
+test_that("warn on mismatch 'db'", {
+  vcr::use_cassette("downstream_warn_on_db_mismatch", {
+    expect_warning(
+      downstream(
+        get_uid('Apis', messages = FALSE), downto = "species",
+        db = "itis"))
+  })
+})

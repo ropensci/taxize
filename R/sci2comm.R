@@ -67,6 +67,7 @@ sci2comm.default <- function(scinames, db='ncbi', simplify=TRUE, ...) {
 #' @export
 #' @rdname sci2comm
 sci2comm.uid <- function(id, ...) {
+  warn_db(list(...), "ncbi")
   out <- lapply(id, function(x) ncbi_foo(x, ...))
   names(out) <- id
   return(out)
@@ -75,6 +76,7 @@ sci2comm.uid <- function(id, ...) {
 #' @export
 #' @rdname sci2comm
 sci2comm.tsn <- function(id, simplify=TRUE, ...) {
+  warn_db(list(...), "itis")
   out <- lapply(id, function(x) itis_foo(x, simplify, ...))
   names(out) <- id
   return(out)
@@ -83,6 +85,7 @@ sci2comm.tsn <- function(id, simplify=TRUE, ...) {
 #' @export
 #' @rdname sci2comm
 sci2comm.wormsid <- function(id, simplify=TRUE, ...) {
+  warn_db(list(...), "worms")
   out <- lapply(id, function(x) worms_foo(x, simplify, ...))
   names(out) <- id
   return(out)
@@ -91,7 +94,7 @@ sci2comm.wormsid <- function(id, simplify=TRUE, ...) {
 #' @export
 #' @rdname sci2comm
 sci2comm.iucn <- function(id, simplify=TRUE, ...) {
-  #out <- lapply(id, function(x) iucn_foo(x, simplify, ...))
+  warn_db(list(...), "iucn")
   out <- vector("list", length(id))
   for (i in seq_along(id)) {
     out[[i]] <- iucn_foo(attr(id, "name")[i], simplify, ...)

@@ -78,6 +78,7 @@ upstream.default <- function(x, db = NULL, upto = NULL, rows = NA, ...){
 #' @export
 #' @rdname upstream
 upstream.tsn <- function(x, db = NULL, upto = NULL, ...) {
+  warn_db(list(db = db), "itis")
   fun <- function(y, ...){
     # return NA if NA is supplied
     if (is.na(y)) {
@@ -95,6 +96,7 @@ upstream.tsn <- function(x, db = NULL, upto = NULL, ...) {
 #' @export
 #' @rdname upstream
 upstream.colid <- function(x, db = NULL, upto = NULL, ...) {
+  warn_db(list(db = db), "col")
   fun <- function(y, ...){
     # return NA if NA is supplied
     if (is.na(y)) { NA } else {

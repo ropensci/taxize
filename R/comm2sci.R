@@ -82,6 +82,7 @@ sci_from_comm <- function(nn, db, simplify, itisby, ...) {
 #' @export
 comm2sci.tsn <- function(commnames, db='ncbi', itisby='search',
                          simplify=TRUE, ...) {
+  warn_db(list(db = db), "itis")
   temp <- lapply(commnames, c2s_itis_, simplify = simplify, ...)
   stats::setNames(temp, commnames)
 }
@@ -89,6 +90,7 @@ comm2sci.tsn <- function(commnames, db='ncbi', itisby='search',
 #' @export
 comm2sci.uid <- function(commnames, db='ncbi', itisby='search',
                          simplify=TRUE, ...) {
+  warn_db(list(db = db), "ncbi")
   temp <- lapply(commnames, c2s_ncbi, simplify = simplify, ...)
   stats::setNames(temp, commnames)
 }

@@ -68,3 +68,10 @@ test_that("synonyms: data sources return consistent outputs", {
   for (i in list(gg, hh, ii, jj, kk, ll)) expect_equal(length(names(i[[1]])), 0)
 })
 
+test_that("warn on mismatch 'db'", {
+  vcr::use_cassette("synonyms_warn_on_db_mismatch", {
+    expect_warning(
+      synonyms(
+        get_tsn("Poa annua"), db = "col"))
+  })
+})

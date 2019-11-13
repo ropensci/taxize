@@ -267,3 +267,16 @@ tx_ua <- function() {
 }
 
 tx_ual <- list(`User-Agent` = tx_ua(), `X-USER-AGENT` = tx_ua())
+
+warn_db <- function(x, type) {
+  if ("db" %in% names(x)) {
+    if (!is.null(x$db)) {
+      if (x$db != type) {
+      warning(
+      sprintf("'db' value '%s' ignored; does not match dispatched method '%s'",
+            x$db, type),
+          call. = FALSE, immediate. = TRUE)
+      }
+    }
+  }
+}

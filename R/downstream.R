@@ -162,6 +162,7 @@ process_stream_ids <- function(input, db, fxn, ...){
 #' @rdname downstream
 downstream.tsn <- function(x, db = NULL, downto = NULL,
                            intermediate = FALSE, ...) {
+  warn_db(list(db = db), "itis")
   fun <- function(y, downto, intermediate, ...) {
     # return NA if NA is supplied
     if (is.na(y)) {
@@ -179,6 +180,7 @@ downstream.tsn <- function(x, db = NULL, downto = NULL,
 #' @rdname downstream
 downstream.colid <- function(x, db = NULL, downto = NULL,
                              intermediate = FALSE, ...) {
+  warn_db(list(db = db), "col")
   fun <- function(y, downto, intermediate, ...){
     # return NA if NA is supplied
     if (is.na(y)) {
@@ -196,6 +198,7 @@ downstream.colid <- function(x, db = NULL, downto = NULL,
 downstream.gbifid <- function(x, db = NULL, downto = NULL,
                               intermediate = FALSE, limit = 100,
                               start = NULL, ...) {
+  warn_db(list(db = db), "gbif")
   fun <- function(y, downto, intermediate, limit, start, ...){
     # return NA if NA is supplied
     if (is.na(y)) {
@@ -215,6 +218,7 @@ downstream.gbifid <- function(x, db = NULL, downto = NULL,
 #' @rdname downstream
 downstream.uid <- function(x, db = NULL, downto = NULL,
                               intermediate = FALSE, ...) {
+  warn_db(list(db = db), "ncbi")
   fun <- function(y, downto, intermediate, ...){
     # return NA if NA is supplied
     if (is.na(y)) {
@@ -232,6 +236,7 @@ downstream.uid <- function(x, db = NULL, downto = NULL,
 #' @rdname downstream
 downstream.wormsid <- function(x, db = NULL, downto = NULL,
                               intermediate = FALSE, ...) {
+  warn_db(list(db = db), "worms")
   fun <- function(y, downto, intermediate, ...){
     # return NA if NA is supplied
     if (is.na(y)) {

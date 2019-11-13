@@ -1,10 +1,12 @@
 context("lowest_common")
 
+force_http1_1 <- list(http_version = 2L)
+
 test_that("lowest_common works with ncbi, passing in classifications and doing internally", {
   skip_on_cran()
 
   id <- c("9031", "9823", "9606", "9470")
-  idc <- classification(id, db = 'ncbi')
+  idc <- classification(id, db = 'ncbi', callopts = force_http1_1)
   aa <- lowest_common(id[2:4], db = "ncbi")
   bb <- lowest_common(id[2:4], db = "ncbi", low_rank = 'class')
   cc <- lowest_common(id[2:4], db = "ncbi", class_list = idc, low_rank = 'class')

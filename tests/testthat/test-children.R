@@ -129,3 +129,11 @@ test_that("children doesn't remove ambiguous taxa", {
   expect_gt(NROW(subsp[[1]]), 3)
   expect_gt(NROW(sp[[1]]), 3)
 })
+
+test_that("warn on mismatch 'db'", {
+  vcr::use_cassette("children_warn_on_db_mismatch", {
+    expect_warning(
+      children(
+        get_uid("Chironomus riparius", messages = FALSE), db = "itis"))
+  })
+})

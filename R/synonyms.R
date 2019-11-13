@@ -176,6 +176,7 @@ process_syn_ids <- function(input, db, fxn, ...){
 #' @export
 #' @rdname synonyms
 synonyms.tsn <- function(id, ...) {
+  warn_db(list(...), "itis")
   fun <- function(x){
     if (is.na(x)) { NA_character_ } else {
       is_acc <- rit_acc_name(x, ...)
@@ -225,6 +226,7 @@ rit_acc_name <- function(x, ...) {
 #' @export
 #' @rdname synonyms
 synonyms.colid <- function(id, ...) {
+  warn_db(list(...), "col")
   fun <- function(x) {
     if (is.na(x)) {
       NA_character_
@@ -265,6 +267,7 @@ col_synonyms <- function(x, ...) {
 #' @export
 #' @rdname synonyms
 synonyms.tpsid <- function(id, ...) {
+  warn_db(list(...), "topicos")
   fun <- function(x) {
     if (is.na(x)) {
       NA_character_
@@ -279,6 +282,7 @@ synonyms.tpsid <- function(id, ...) {
 #' @export
 #' @rdname synonyms
 synonyms.nbnid <- function(id, ...) {
+  warn_db(list(...), "nbn")
   fun <- function(x){
     if (is.na(x)) {
       NA_character_
@@ -293,6 +297,7 @@ synonyms.nbnid <- function(id, ...) {
 #' @export
 #' @rdname synonyms
 synonyms.wormsid <- function(id, ...) {
+  warn_db(list(...), "worms")
   fun <- function(x) {
     if (is.na(x)) {
       NA_character_
@@ -308,6 +313,7 @@ synonyms.wormsid <- function(id, ...) {
 #' @export
 #' @rdname synonyms
 synonyms.iucn <- function(id, ...) {
+  warn_db(list(...), "iucn")
   out <- vector(mode = "list", length = length(id))
   for (i in seq_along(id)) {
     if (is.na(id[[i]])) {
