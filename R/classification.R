@@ -68,6 +68,10 @@
 #' an ID that does not exist they'll return a 500 HTTP error, which is
 #' not an appropriate error; it's probably that that ID does not exist 
 #' in their database, but we can't know for sure. Isn't that fun?
+#' 
+#' @section HTTP version for NCBI requests:
+#' We hard code `http_version = 2L` to use HTTP/1.1 in HTTP requests to
+#' the Entrez API. See `curl::curl_symbols('CURL_HTTP_VERSION')` 
 #'
 #' @examples \dontrun{
 #' # Plug in taxon IDs
@@ -350,7 +354,8 @@ classification.uid <- function(id, callopts = list(), return_id = TRUE, ...) {
       out <- NA
     } else {
       query <- tc(list(db = "taxonomy", ID = x, api_key = key))
-      cli <- crul::HttpClient$new(url = ncbi_base(), opts = callopts)
+      cli <- crul::HttpClient$new(url = ncbi_base(),
+        opts = c(http_version = 2L, callopts))
       res <- cli$get("entrez/eutils/efetch.fcgi", query = query)
       res$raise_for_status()
       tt <- res$parse("UTF-8")

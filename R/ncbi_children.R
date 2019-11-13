@@ -41,6 +41,10 @@
 #' @section Authentication:
 #' See [taxize-authentication()] for help on authentication. 
 #' We strongly recommend getting an API key
+#' 
+#' @section HTTP version:
+#' We hard code `http_version = 2L` to use HTTP/1.1 in HTTP requests to
+#' the Entrez API. See `curl::curl_symbols('CURL_HTTP_VERSION')` 
 #'
 #' @examples \dontrun{
 #' ncbi_children(name="Satyrium") #Satyrium is the name of two different genera
@@ -108,7 +112,8 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
       args$term <- gsub("\\+", " ", args$term)
       
       # Search ncbi for children - - - - - - - - - - - - - - - - - - - - - - - 
-      cli <- crul::HttpClient$new(ncbi_base(), headers = tx_ual, opts = list(...))
+      cli <- crul::HttpClient$new(ncbi_base(), headers = tx_ual,
+        opts = list(http_version = 2L, ...))
       rr <- cli$get('entrez/eutils/esearch.fcgi', query = args)
       rr$raise_for_status()
       raw_results <- rr$parse("UTF-8")
@@ -130,7 +135,8 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
       args$term <- gsub("\\+", " ", args$term)
       
       # Search ncbi for children - - - - - - - - - - - - - - - - - - - - - - - 
-      cli <- crul::HttpClient$new(ncbi_base(), headers = tx_ual, opts = list(...))
+      cli <- crul::HttpClient$new(ncbi_base(), headers = tx_ual,
+        opts = list(http_version = 2L, ...))
       rr <- cli$get('entrez/eutils/elink.fcgi', query = args)
       rr$raise_for_status()
       raw_results <- rr$parse("UTF-8")

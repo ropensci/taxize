@@ -11,6 +11,9 @@
 #' @return A logical, TRUE or FALSE
 #' @details For ITIS, see [ritis::description], which provides number of
 #' scientific and common names in a character string.
+#' @section HTTP version for NCBI requests:
+#' We hard code `http_version = 2L` to use HTTP/1.1 in HTTP requests to
+#' the Entrez API. See `curl::curl_symbols('CURL_HTTP_VERSION')` 
 #' @examples \dontrun{
 #' col_ping()
 #' col_ping("content")
@@ -93,7 +96,8 @@ ncbi_ping <- function(what = "status", key = NULL, ...) {
   key <- getkey(key, "ENTREZ_KEY")
   args <- tc(list(api_key = key))
   res <- pGET(paste0(ncbi_base(), 
-    "/entrez/eutils/efetch.fcgi?db=taxonomy&ID=4232"), args = args, ...)
+    "/entrez/eutils/efetch.fcgi?db=taxonomy&ID=4232"), args = args, 
+    http_version = 2L, ...)
   switch(
     matchwhat(what),
     status = match_status(res),

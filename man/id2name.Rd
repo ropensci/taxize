@@ -50,6 +50,12 @@ A named list of data.frames, named by the input taxonomic ids
 \description{
 Taxonomic IDs to taxonomic names
 }
+\section{HTTP version for NCBI requests}{
+
+We hard code \code{http_version = 2L} to use HTTP/1.1 in HTTP requests to
+the Entrez API. See \code{curl::curl_symbols('CURL_HTTP_VERSION')}
+}
+
 \examples{
 \dontrun{
 # ITIS

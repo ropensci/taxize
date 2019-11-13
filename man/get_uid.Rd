@@ -127,6 +127,12 @@ we still use your Entrez API key if you have it saved as an R option
 or environment variable.
 }
 
+\section{HTTP version}{
+
+We hard code \code{http_version = 2L} to use HTTP/1.1 in HTTP requests to
+the Entrez API. See \code{curl::curl_symbols('CURL_HTTP_VERSION')}
+}
+
 \examples{
 \dontrun{
 get_uid(c("Chironomus riparius", "Chaetopteryx"))

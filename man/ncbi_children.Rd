@@ -63,6 +63,12 @@ See \code{\link[=taxize-authentication]{taxize-authentication()}} for help on au
 We strongly recommend getting an API key
 }
 
+\section{HTTP version}{
+
+We hard code \code{http_version = 2L} to use HTTP/1.1 in HTTP requests to
+the Entrez API. See \code{curl::curl_symbols('CURL_HTTP_VERSION')}
+}
+
 \examples{
 \dontrun{
 ncbi_children(name="Satyrium") #Satyrium is the name of two different genera

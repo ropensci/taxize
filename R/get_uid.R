@@ -64,6 +64,10 @@
 #' Note that even though you can't pass in your key to `as.uid` functions,
 #' we still use your Entrez API key if you have it saved as an R option
 #' or environment variable.
+#' 
+#' @section HTTP version:
+#' We hard code `http_version = 2L` to use HTTP/1.1 in HTTP requests to
+#' the Entrez API. See `curl::curl_symbols('CURL_HTTP_VERSION')` 
 #'
 #' @family taxonomic-ids
 #' @seealso [classification()]
@@ -321,7 +325,7 @@ repeat_until_it_works <- function(catch, path, query, max_tries = 3,
   }
   for (count in 1:max_tries) {
     cli <- crul::HttpClient$new(url = ncbi_base(),
-      headers = tx_ual, opts = list(...))
+      headers = tx_ual, opts = list(http_version = 2L, ...))
     res <- cli$get(sprintf("entrez/eutils/%s.fcgi", path),
       query = tc(query))
     output <- tryCatch(res$parse("UTF-8"), error = error_handler)
@@ -378,7 +382,8 @@ make_uid <- function(x, check=TRUE) {
 
 check_uid <- function(x){
   key <- getkey(NULL, "ENTREZ_KEY")
-  cli <- crul::HttpClient$new(url = ncbi_base(), headers = tx_ual)
+  cli <- crul::HttpClient$new(url = ncbi_base(), headers = tx_ual,
+    opts = list(http_version = 2L))
   args <- tc(list(db = "taxonomy", id = x, api_key = key))
   res <- cli$get("entrez/eutils/esummary.fcgi", query = args)
   res$raise_for_status()
@@ -399,7 +404,7 @@ get_uid_ <- function(sciname, messages = TRUE, rows = NA, key = NULL, ...){
 get_uid_help <- function(sciname, messages, rows, key, ...) {
   mssg(messages, "\nRetrieving data for taxon '", sciname, "'\n")
   cli <- crul::HttpClient$new(url = ncbi_base(), headers = tx_ual,
-    opts = list(...))
+    opts = list(http_version = 2L, ...))
   res <- cli$get(
     "entrez/eutils/esearch.fcgi",
     query = tc(list(api_key = key,

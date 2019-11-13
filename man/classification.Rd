@@ -160,6 +160,12 @@ not an appropriate error; it's probably that that ID does not exist
 in their database, but we can't know for sure. Isn't that fun?
 }
 
+\section{HTTP version for NCBI requests}{
+
+We hard code \code{http_version = 2L} to use HTTP/1.1 in HTTP requests to
+the Entrez API. See \code{curl::curl_symbols('CURL_HTTP_VERSION')}
+}
+
 \examples{
 \dontrun{
 # Plug in taxon IDs

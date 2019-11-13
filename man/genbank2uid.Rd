@@ -31,6 +31,12 @@ See \link{taxize-authentication} for help on authentication. We
 recommend getting an API key.
 }
 
+\section{HTTP version}{
+
+We hard code \code{http_version = 2L} to use HTTP/1.1 in HTTP requests to
+the Entrez API. See \code{curl::curl_symbols('CURL_HTTP_VERSION')}
+}
+
 \examples{
 \dontrun{
 # with accession numbers

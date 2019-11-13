@@ -43,6 +43,12 @@ For the other data sources, you can only pass in common names directly.
 See \link{taxize-authentication} for help on authentication
 }
 
+\section{HTTP version for NCBI requests}{
+
+We hard code \code{http_version = 2L} to use HTTP/1.1 in HTTP requests to
+the Entrez API. See \code{curl::curl_symbols('CURL_HTTP_VERSION')}
+}
+
 \examples{
 \dontrun{
 comm2sci(commnames='american black bear')

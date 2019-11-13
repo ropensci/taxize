@@ -11,6 +11,10 @@
 #' @section Authentication:
 #' See [taxize-authentication] for help on authentication. We
 #' recommend getting an API key.
+#' 
+#' @section HTTP version:
+#' We hard code `http_version = 2L` to use HTTP/1.1 in HTTP requests to
+#' the Entrez API. See `curl::curl_symbols('CURL_HTTP_VERSION')` 
 #'
 #' @return one or more NCBI taxonomic IDs
 #' @examples \dontrun{
@@ -46,7 +50,7 @@ genbank2uid <- function(id, batch_size = 100, key = NULL, ...) {
 
     # Execute query
     cli <- crul::HttpClient$new(url = ncbi_base(), headers = tx_ual,
-      opts = list(...))
+      opts = list(http_version = 2L, ...))
     res <- cli$get("entrez/eutils/esummary.fcgi", query = query)
     res$raise_for_status()
     parsed_xml <- read_xml(res$parse('UTF-8'))

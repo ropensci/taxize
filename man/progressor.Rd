@@ -4,7 +4,7 @@
 \name{progressor}
 \alias{progressor}
 \title{methods for preparing/printing info for prompts for \code{get_*} functions}
-\format{An object of class \code{R6ClassGenerator} of length 24.}
+\format{An object of class \code{R6ClassGenerator} of length 25.}
 \usage{
 progressor
 }

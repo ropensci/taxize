@@ -58,6 +58,12 @@ Ping an API used in taxize to see if it's working.
 For ITIS, see \link[ritis:description]{ritis::description}, which provides number of
 scientific and common names in a character string.
 }
+\section{HTTP version for NCBI requests}{
+
+We hard code \code{http_version = 2L} to use HTTP/1.1 in HTTP requests to
+the Entrez API. See \code{curl::curl_symbols('CURL_HTTP_VERSION')}
+}
+
 \examples{
 \dontrun{
 col_ping()

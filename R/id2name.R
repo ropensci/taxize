@@ -13,6 +13,10 @@
 #' See those functions for what parameters can be passed on.
 #'
 #' @return A named list of data.frames, named by the input taxonomic ids
+#' 
+#' @section HTTP version for NCBI requests:
+#' We hard code `http_version = 2L` to use HTTP/1.1 in HTTP requests to
+#' the Entrez API. See `curl::curl_symbols('CURL_HTTP_VERSION')` 
 #'
 #' @examples \dontrun{
 #' # ITIS
@@ -110,7 +114,7 @@ id2name.tsn <- function(x, ...) {
 ncbi_id2name <- function(x, ...) {
   key <- getkey(NULL, "ENTREZ_KEY")
   cli <- crul::HttpClient$new(url = ncbi_base(), headers = tx_ual,
-    opts = list(...))
+    opts = list(http_version = 2L, ...))
   args <- tc(list(db = "taxonomy", id = x, api_key = key))
   res <- cli$get("entrez/eutils/esummary.fcgi", query = args)
   res$raise_for_status()

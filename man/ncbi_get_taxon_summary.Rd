@@ -32,6 +32,12 @@ If your input vector or list of NCBI IDs is longer than about
 the list up into chunks since at about that number of characters you
 will run into the HTTP 414 error "Request-URI Too Long".
 }
+\section{HTTP version}{
+
+We hard code \code{http_version = 2L} to use HTTP/1.1 in HTTP requests to
+the Entrez API. See \code{curl::curl_symbols('CURL_HTTP_VERSION')}
+}
+
 \section{Authentication}{
 
 See \link{taxize-authentication} for help on authentication.
