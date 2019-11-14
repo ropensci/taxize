@@ -150,6 +150,7 @@ test_that("works on a variety of names", {
 })
 
 test_that("queries with no results fail well", {
+  skip_on_cran()
   vcr::use_cassette("classification_no_results", {
     aa <- classification(x = "foobar", db = "itis", messages = FALSE)
     bb <- classification(get_tsn("foobar", messages = FALSE), messages = FALSE)
@@ -203,6 +204,7 @@ test_that("rows parameter, when used, works", {
 })
 
 test_that("warn on mismatch 'db'", {
+  skip_on_cran()
   vcr::use_cassette("classification_warn_on_db_mismatch", {
     expect_warning(
       classification(

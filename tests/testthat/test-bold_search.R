@@ -1,6 +1,7 @@
 context("bold_search")
 
 test_that("bold_search returns the correct value, dimensions, and classes", {
+  skip_on_cran()
   vcr::use_cassette("bold_search", {
     a <- bold_search(name = "Apis")
     b <- bold_search(name = "Aga", fuzzy = TRUE)

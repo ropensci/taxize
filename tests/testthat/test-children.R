@@ -42,6 +42,7 @@ test_that("queries with no results fail well", {
 })
 
 test_that("itis types are correct", {
+  skip_on_cran()
   itis_expected_col_types <- c(
     parentname = 'character',
     parenttsn  = 'character',
@@ -89,6 +90,7 @@ test_that("expected results for no query match when using get_* fxns", {
 })
 
 test_that("expected results for no query match when using get_* fxns", {
+  skip_on_cran()
   vcr::use_cassette("children_no_results_structure_x", {
     itis_x <- children(get_tsn("23424234234", messages = FALSE))
     col_x <- children(get_colid("23424234234", messages = FALSE))
@@ -131,6 +133,7 @@ test_that("children doesn't remove ambiguous taxa", {
 })
 
 test_that("warn on mismatch 'db'", {
+  skip_on_cran()
   vcr::use_cassette("children_warn_on_db_mismatch", {
     expect_warning(
       children(

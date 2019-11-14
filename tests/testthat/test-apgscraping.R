@@ -1,6 +1,7 @@
 context("apg* functions")
 
 test_that("apgOrders works", {
+  skip_on_cran()
   vcr::use_cassette("apgOrders", {
     orders <- apgOrders()
   })
@@ -12,6 +13,7 @@ test_that("apgOrders works", {
 })
 
 test_that("apgFamilies works", {
+  skip_on_cran()
   vcr::use_cassette("apgFamilies", {
     families <- apgFamilies()
   })
