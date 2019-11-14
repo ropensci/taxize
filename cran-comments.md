@@ -10,9 +10,9 @@
 
 ## Reverse dependencies
 
-* I have run R CMD check on the 24 downstream dependencies
+* I have run R CMD check on the 23 downstream dependencies
 (<https://github.com/ropensci/taxize/blob/master/revdep/README.md>),
-no errors or warnings were found on reverse dependency check.
+no errors or warnings were found related to this package.
 
 ------
 
