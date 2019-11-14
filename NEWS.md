@@ -15,6 +15,7 @@ taxize 0.9.91
 
 ### BUG FIXES
 
+* fixes to `col_search()`: COL now does rate limiting (if you make too many requests within a time period they will stop allowing requests from your IP address/your computer); documented rate limiting, what I know at least; changed `checklist` parameter behavior: years 2014 and back dont provide JSON, so we return `xml_document` objects now for those years that the user can parse themselves (#786)
 * `tax_rank` somehow (my bad) had two `.default` methods. previous behavior is the same as current behavior (this version) (#784)
 * fix `ncbi_children()`: fixed regex that was supposed to flag ambiguous taxa only, it was supposed to flag `sp.` and `spp.`, but was including `subsp.`, which we didn't want included (#777) (#781)
 * another fix to `ncbi_children()`: when ID is passed rather than a name, we need to then set `id=NULL` after switching to the equivalent taxononmic name internally to avoid getting duplicate data back (#777) (#781)
