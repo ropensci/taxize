@@ -1,6 +1,7 @@
 context("get_gbifid")
 
 test_that("get_gbifid returns the correct value", {
+  skip_on_cran()
   vcr::use_cassette("get_gbifid", {
     z <- get_gbifid(c("Chironomus riparius", "aaasdfadsfasdf"), 
       messages = FALSE)[2]
@@ -13,6 +14,7 @@ test_that("get_gbifid returns the correct value", {
 })
 
 test_that("get_gbifid accepts ask-argument", {
+  skip_on_cran()
   vcr::use_cassette("get_gbifid_ask_arg", {
     a <- sw(get_gbifid('Dugesia', ask = FALSE, messages = FALSE))
   })
@@ -20,6 +22,7 @@ test_that("get_gbifid accepts ask-argument", {
 })
 
 test_that("get_gbifid method parameter works", {
+  skip_on_cran()
   vcr::use_cassette("get_gbifid_method_param", {
     mod1 <- get_gbifid_(sciname = "Z*", method = "backbone", messages = FALSE, 
       rows = 1:100)
@@ -33,6 +36,7 @@ test_that("get_gbifid method parameter works", {
 })
 
 test_that("get_gbifid phylum/class/order/family parameters work", {
+  skip_on_cran()
   vcr::use_cassette("get_gbifid_phylum_param", {
     aa <- get_gbifid("Satyrium", phylum = "Tracheophyta", rows = 1, 
       messages = FALSE)
@@ -60,6 +64,7 @@ test_that("get_gbifid phylum/class/order/family parameters work", {
 # })
 
 test_that("works regardless of character or numeric GGBIF ID given back", {
+  skip_on_cran()
   vcr::use_cassette("get_gbifid_class_doesnt_matter", {
     aa <- get_gbifid("Chironomus riparius", messages = FALSE)
     bb <- get_gbifid("Pinus contorta", messages = FALSE, rows = 1)
@@ -106,6 +111,8 @@ test_that("get_gbifid fails as expected", {
 
 
 test_that("get_gbifid works with state input", {
+  skip_on_cran()
+  
   taxon_clear()
   
   # species list

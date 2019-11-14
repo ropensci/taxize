@@ -1,6 +1,7 @@
 context("itis_terms")
 
 test_that("itis_terms returns the correct class", {
+  skip_on_cran()
   vcr::use_cassette("itis_terms", {
     one <- itis_terms(query='bear', verbose=FALSE)
     two <- itis_terms(query='tarweed', "common", verbose=FALSE)

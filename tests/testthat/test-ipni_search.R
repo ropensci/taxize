@@ -1,6 +1,7 @@
 context("ipni_search")
 
 test_that("ipni_search works", {
+  skip_on_cran()
   vcr::use_cassette("ipni_search", {
       aa <- ipni_search(genus = 'Brintonia', isapnirecord = TRUE,
                         isgcirecord = TRUE, isikrecord = TRUE)
@@ -17,6 +18,7 @@ test_that("ipni_search works", {
 })
 
 test_that("ipni_search works with different output formats", {
+  skip_on_cran()
   vcr::use_cassette("ipni_search_output_formats", {
     aa <- ipni_search(genus = 'Brintonia')
     bb <- ipni_search(genus = 'Brintonia', output = 'short')
@@ -39,6 +41,7 @@ test_that("ipni_search works with different output formats", {
 test_that("ipni_search fails correctly", {
   expect_error(ipni_search(output = "foobar"), "'arg' should be one of")
 
+  skip_on_cran()
   vcr::use_cassette("ipni_search_no_results", {
     expect_warning(ipni_search(), "No data")
     expect_warning(ipni_search(family = 5), "No data")

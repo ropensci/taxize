@@ -1,6 +1,7 @@
 context("itis_refs")
 
 test_that("itis_refs returns the correct class", {
+  skip_on_cran()
   vcr::use_cassette("itis_refs", {
     one <- itis_refs(202385, verbose=FALSE)
     two <- itis_refs(c(202385,70340), verbose=FALSE)

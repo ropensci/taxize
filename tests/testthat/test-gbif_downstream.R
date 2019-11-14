@@ -1,6 +1,7 @@
 context("gbif_downstream")
 
 test_that("gbif_downstream works", {
+  skip_on_cran()
   vcr::use_cassette("gbif_downstream", {
     aa <- gbif_downstream(key = 198, downto = "Genus")
     bb <- gbif_downstream(key = 1227, "Family")
@@ -20,6 +21,7 @@ test_that("gbif_downstream works", {
 })
 
 test_that("gbif_downstream intermediate param works", {
+  skip_on_cran()
   vcr::use_cassette("gbif_downstream_intermediate", {
     cc <- gbif_downstream(key = 198, downto = "genus", intermediate = TRUE)
   }, preserve_exact_body_bytes = TRUE)
@@ -36,6 +38,7 @@ test_that("gbif_downstream intermediate param works", {
 })
 
 test_that("gbif_downstream - limit and start params", {
+  skip_on_cran()
   vcr::use_cassette("gbif_downstream_pagination", {
     aa <- gbif_downstream(2978223, "species", limit = 3)
     bb <- gbif_downstream(2978223, "species", limit = 3, start = 3)

@@ -1,6 +1,7 @@
 context("worms_downstream")
 
 test_that("worms_downstream works", {
+  skip_on_cran()
   vcr::use_cassette("worms_downstream", {
     aa <- suppressWarnings(worms_downstream(id = 125732, downto = "species"))
   })
@@ -14,6 +15,7 @@ test_that("worms_downstream works", {
 })
 
 test_that("worms_downstream intermediate param works", {
+  skip_on_cran()
   vcr::use_cassette("worms_downstream_intermediate_param", {
     cc <- suppressWarnings(worms_downstream(id = 125732, downto = "species", 
       intermediate = TRUE))
@@ -41,6 +43,7 @@ test_that("worms_downstream fails well", {
 })
 
 test_that("worms_downstream - start param", {
+  skip_on_cran()
   vcr::use_cassette("worms_downstream_start_param", {
     aa <- suppressWarnings(worms_downstream(125732, "species", start = 1))
     bb <- suppressWarnings(worms_downstream(125732, "species", start = 3))

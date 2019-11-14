@@ -1,4 +1,5 @@
 test_that("synonyms returns the correct value", {
+  skip_on_cran()
   vcr::use_cassette("synonyms_itis", {
     tt <- sw(synonyms("Poa annua", db = "itis", rows = 1,
       messages = FALSE))
@@ -15,6 +16,7 @@ test_that("synonyms returns the correct value", {
 })
 
 test_that("synonyms works with worms data", {
+  skip_on_cran()
   vcr::use_cassette("synonyms_worms", {
     tt <- synonyms('Pomatomus saltatrix', db = "worms",
       messages = FALSE)
@@ -30,6 +32,7 @@ test_that("synonyms works with worms data", {
 })
 
 test_that("synonyms: data sources return consistent outputs", {
+  skip_on_cran()
   if (Sys.getenv('IUCN_REDLIST_KEY') == "") {
     skip("No IUCN api key so test not run.")
   }
@@ -69,6 +72,7 @@ test_that("synonyms: data sources return consistent outputs", {
 })
 
 test_that("warn on mismatch 'db'", {
+  skip_on_cran()
   vcr::use_cassette("synonyms_warn_on_db_mismatch", {
     expect_warning(
       synonyms(

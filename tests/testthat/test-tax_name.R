@@ -34,6 +34,7 @@ test_that("tax_name: NA's", {
 })
 
 test_that("tax_name: itis", {
+  skip_on_cran()
   vcr::use_cassette("tax_name_itis", {
     tmp_itis <- sw(tax_name(query = "Helianthus annuus", rows = 1,
                         get = c("family", "order"), db="itis", messages = FALSE))

@@ -1,6 +1,7 @@
 context("itis_native")
 
 test_that("itis_native returns the correct class", {
+  skip_on_cran()
   vcr::use_cassette("itis_native", {
     one <- itis_native(what="values")
     two <- itis_native(what="originvalues")

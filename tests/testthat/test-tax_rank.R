@@ -24,6 +24,7 @@ test_that("tax_rank returns the correct class", {
 })
 
 test_that("works with get_*() input", {
+  skip_on_cran()
   vcr::use_cassette("tax_rank_get_star_input", {
     aa <- suppressMessages(tax_rank(get_boldid("Helianthus annuus")))
   })

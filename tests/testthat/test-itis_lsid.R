@@ -1,6 +1,7 @@
 context("itis_lsid")
 
 test_that("itis_lsid returns the correct value", {
+  skip_on_cran()
   vcr::use_cassette("itis_lsid", {
     one <- itis_lsid("urn:lsid:itis.gov:itis_tsn:180543")
     two <- itis_lsid("urn:lsid:itis.gov:itis_tsn:180543", "record")

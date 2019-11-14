@@ -1,6 +1,7 @@
 context("itis_hierarchy")
 
 test_that("itis_hierarchy returns the correct class", {
+  skip_on_cran()
   vcr::use_cassette("itis_hierarchy", {
     one <- itis_hierarchy(tsn=180543, verbose=FALSE)
     two <- itis_hierarchy(tsn=180543, "up", verbose=FALSE)

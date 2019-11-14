@@ -37,6 +37,7 @@ test_that("missing/wrong data given returns result", {
 })
 
 test_that("warn on mismatch 'db'", {
+  skip_on_cran()
   vcr::use_cassette("id2name_warn_on_db_mismatch", {
     expect_warning(
       id2name(

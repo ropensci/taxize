@@ -1,5 +1,6 @@
 context("pow_search")
 test_that("pow_search returns the correct class", {
+  skip_on_cran()
   vcr::use_cassette("pow_search", {
     one <- pow_search(q = "Quercus")
   }, preserve_exact_body_bytes = TRUE)
@@ -24,6 +25,7 @@ test_that("pow_search fails well", {
 
 context("pow_lookup")
 test_that("pow_lookup works", {
+  skip_on_cran()
   vcr::use_cassette("pow_lookup", {
     one <- pow_lookup(id = "urn:lsid:ipni.org:names:320035-2")
   }, preserve_exact_body_bytes = TRUE)
@@ -37,6 +39,7 @@ test_that("pow_lookup works", {
 })
 
 test_that("pow_lookup works", {
+  skip_on_cran()
   vcr::use_cassette("pow_lookup_include_param", {
     one <- pow_lookup(id = "urn:lsid:ipni.org:names:320035-2",
       include = "distribution")

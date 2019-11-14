@@ -1,6 +1,8 @@
 context("get_natservid")
 
 test_that("get_natservid returns the correct value", {
+  skip_on_cran()
+
   if (Sys.getenv('NATURE_SERVE_KEY') == "") {
     skip("No NatureServe api key so test not run.")
   }
@@ -16,6 +18,8 @@ test_that("get_natservid returns the correct value", {
 })
 
 test_that("get_natservid accepts ask-argument", {
+  skip_on_cran()
+  
   if (Sys.getenv('NATURE_SERVE_KEY') == "") {
     skip("No NatureServe api key so test not run.")
   }

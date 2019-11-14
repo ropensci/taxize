@@ -1,6 +1,7 @@
 context("plantminer")
 
 test_that("plantminer returns the correct value", {
+  skip_on_cran()
   vcr::use_cassette("plantminer", {
     plants <- c("Myrcia lingua", "Myrcia bella", "Ocotea pulchella",
                 "Miconia", "Coffea arabica var. amarella", "Bleh")
@@ -16,6 +17,7 @@ test_that("plantminer returns the correct value", {
 test_that("plantminer fails well", {
   expect_error(plantminer(), "argument \"plants\" is missing")
   
+  skip_on_cran()
   vcr::use_cassette("plantminer_not_found", {
     expect_equal(plantminer("foo bar", messages=FALSE)$note, "not found")
   })

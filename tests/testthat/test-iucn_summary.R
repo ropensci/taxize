@@ -3,6 +3,7 @@ test_that("iucn_summary returns the correct value", {
   if (Sys.getenv("IUCN_REDLIST_KEY") == "") {
     skip("No IUCN api key so test not run.")
   }
+  skip_on_cran()
 
   vcr::use_cassette("iucn_summary", {
     temp <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
@@ -18,6 +19,7 @@ test_that("iucn_summary gives expected result for lots of names", {
   if (Sys.getenv("IUCN_REDLIST_KEY") == "") {
     skip("No IUCN api key so test not run.")
   }
+  skip_on_cran()
 
   vcr::use_cassette("iucn_summary_other_egs", {
     aa <- iucn_summary("Abies koreana")

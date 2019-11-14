@@ -1,6 +1,7 @@
 context("fungorum")
 
 test_that("fungorum - fg_name_search", {
+  skip_on_cran()
   vcr::use_cassette("fg_name_search", {
     aa <- fg_name_search(q = "Gymnopus", limit = 2)
     bb <- fg_name_search(q = "Gymnopus")
@@ -19,6 +20,7 @@ test_that("fungorum - fg_name_search", {
 })
 
 test_that("fungorum - fg_epithet_search", {
+  skip_on_cran()
   vcr::use_cassette("fg_epithet_search", {
     aa <- fg_epithet_search(q = "phalloides", limit = 2)
   })
@@ -30,6 +32,7 @@ test_that("fungorum - fg_epithet_search", {
 })
 
 test_that("fungorum - fg_name_by_key", {
+  skip_on_cran()
   vcr::use_cassette("fg_name_by_key", {
     aa <- fg_name_by_key(17703)
   })
@@ -41,6 +44,7 @@ test_that("fungorum - fg_name_by_key", {
 })
 
 test_that("fungorum - fg_name_full_by_lsid", {
+  skip_on_cran()
   vcr::use_cassette("fg_name_full_by_lsid", {
     aa <- fg_name_full_by_lsid("urn:lsid:indexfungorum.org:names:81085")
   })
@@ -82,6 +86,7 @@ test_that("fungorum - fg_name_full_by_lsid", {
 # })
 
 test_that("fungorum - fg_author_search", {
+  skip_on_cran()
   vcr::use_cassette("fg_author_search", {
     aa <- fg_author_search(q = "Fayod", limit = 2)
   }, preserve_exact_body_bytes = TRUE)

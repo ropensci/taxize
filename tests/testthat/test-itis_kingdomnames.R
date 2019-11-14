@@ -1,6 +1,7 @@
 context("itis_kingdomnames")
 
 test_that("itis_kingdomnames - all", {
+  skip_on_cran()
   vcr::use_cassette("itis_kingdomnames", {
     aa <- itis_kingdomnames()
   })
@@ -12,6 +13,7 @@ test_that("itis_kingdomnames - all", {
 })
 
 test_that("itis_kingdomnames - with TSN's", {
+  skip_on_cran()
   vcr::use_cassette("itis_kingdomnames_with_tsns", {
     one <- itis_kingdomnames(202385)
     two <- itis_kingdomnames(tsn = c(202385, 183833, 180543))
@@ -25,6 +27,7 @@ test_that("itis_kingdomnames - with TSN's", {
 })
 
 test_that("itis_kingdomnames returns error when not found", {
+  skip_on_cran()
   vcr::use_cassette("itis_kingdomnames_fail_well", {
     expect_error(itis_kingdomnames("stuff"), class = "error")
   })

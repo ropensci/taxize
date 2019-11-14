@@ -1,6 +1,7 @@
 context("vascan_search")
 
 test_that("vascan_search returns the correct class", {
+  skip_on_cran()
   vcr::use_cassette("vascan_search", {
     aa <- vascan_search(q = "Helianthus annuus")
     bb <- vascan_search(q = c("Helianthus annuus", "Crataegus dodgei"), raw=TRUE)

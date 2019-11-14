@@ -1,6 +1,7 @@
 context("ion")
 
 test_that("ion returns the correct value", {
+  skip_on_cran()
   vcr::use_cassette("ion", {
     aa <- ion(155166)
     bb <- ion(298678)
@@ -17,6 +18,7 @@ test_that("ion returns the correct value", {
 })
 
 test_that("ion fails well", {
+  skip_on_cran()
   vcr::use_cassette("ion_fails_well", {
     expect_error(ion(2343434434434), class = "error")
     expect_error(ion("asdfasfs"), class = "error")

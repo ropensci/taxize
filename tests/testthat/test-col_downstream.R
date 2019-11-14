@@ -1,6 +1,7 @@
 context("col_downstream")
 
 test_that("col_downstream returns the correct class", {
+  skip_on_cran()
   vcr::use_cassette("col_downstream", {
     temp4 <- col_downstream(name="Animalia", downto = "Phylum", verbose = FALSE)
     temp5 <- col_downstream(name="Plantae", downto = "Phylum", verbose = FALSE)
@@ -16,6 +17,7 @@ test_that("col_downstream returns the correct class", {
 })
 
 test_that("gives what's expected on input errors", {
+  skip_on_cran()
   library("plyr")
   expect_message(col_downstream(name="Pinus contorta", downto = "Species")[[1]], 
     "Try adjusting")

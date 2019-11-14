@@ -1,6 +1,7 @@
 context("get_wormsid")
 
 test_that("get_wormsid returns the correct value", {
+  skip_on_cran()
   vcr::use_cassette("get_wormsid", {
     x <- sw(get_wormsid("Gadus morhua", rows = 1, messages = FALSE))
     z <- sw(get_wormsid(c("Platanista gangetica", "Lichenopora neapolitana"),
@@ -17,6 +18,7 @@ test_that("get_wormsid returns the correct value", {
 })
 
 test_that("get_wormsid accepts ask-argument", {
+  skip_on_cran()
   vcr::use_cassette("get_wormsid_ask_arg", {
     x <- sw(get_wormsid("Platanista gangetica", ask = FALSE, messages = FALSE))
     z <- get_wormsid("asdasf", ask = FALSE, messages = FALSE)
@@ -27,6 +29,7 @@ test_that("get_wormsid accepts ask-argument", {
 })
 
 test_that("get_wormsid query modifiers work", {
+  skip_on_cran()
   vcr::use_cassette("get_wormsid_query_modifiers", {
     mod2 <- sw(get_wormsid("asiatic clam", "common", messages = FALSE))
   })
@@ -36,6 +39,7 @@ test_that("get_wormsid query modifiers work", {
 })
 
 test_that("get_wormsid fails well", {
+  skip_on_cran()
   vcr::use_cassette("get_wormsid_fail_with_rows_unknown", {
     expect_error(sw(get_wormsid("howdy", rows = 1, messages = FALSE)))
   })
@@ -53,6 +57,7 @@ test_that("get_wormsid fails well", {
 })
 
 test_that("get_wormsid exact match with more than 1 exact match found", {
+  skip_on_cran()
   vcr::use_cassette("get_wormsid_multiple_exact_matches_found", {
     x <- get_wormsid("Gadus", messages = FALSE, rows = 1:2)
     1

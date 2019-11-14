@@ -1,5 +1,6 @@
 context("classification.pow")
 test_that("classification works for POW data", {
+  skip_on_cran()
   vcr::use_cassette("classification_pow", {
     clas_pow <- classification(c("Quercus douglasii", "aaa vva"), db = "pow",
                                 messages = FALSE)
@@ -23,6 +24,7 @@ test_that("classification works for POW data", {
 })
 
 test_that("passing in an id works", {
+  skip_on_cran()
   vcr::use_cassette("classification_pow_passing_id", {
     fromid_pow <- classification("urn:lsid:ipni.org:names:119003-2",
       db = "pow")
@@ -33,10 +35,11 @@ test_that("passing in an id works", {
 })
 
 test_that("rbind and cbind work correctly", {
+  skip_on_cran()
   vcr::use_cassette("classification_pow_cbind_rbind", {
     out <- get_ids( 
       c("Brillantaisia vogeliana", "Aphelandra aurantiaca"),
-      db = "pow", messages = FALSE)
+      db = "pow", messages = FALSE, suppress = TRUE)
     cl <- classification(out)
   }, preserve_exact_body_bytes = TRUE)
 
@@ -52,6 +55,7 @@ test_that("rbind and cbind work correctly", {
 })
 
 test_that("works on a variety of names", {
+  skip_on_cran()
   vcr::use_cassette("classification_pow_more_name_egs", {
     x <- classification("Mimosa weberbaueri", db = "pow", messages = FALSE)
     z <- classification("Cyperus zollingeri", db = "pow", messages = FALSE)
@@ -62,6 +66,7 @@ test_that("works on a variety of names", {
 })
 
 test_that("queries with no results fail well", {
+  skip_on_cran()
   vcr::use_cassette("classification_pow_no_results", {
     aa <- classification(x = "foobar", db = "pow", messages = FALSE)
     bb <- classification(get_pow("foobar", messages = FALSE), messages = FALSE)

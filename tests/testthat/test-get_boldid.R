@@ -1,8 +1,9 @@
 # tests for get_boldid fxn in taxize
 context("get_boldid")
 
-vcr::use_cassette("get_boldid", {
-  test_that("get_boldid returns the correct value", {
+test_that("get_boldid returns the correct value", {
+  skip_on_cran()
+  vcr::use_cassette("get_boldid", {
     expect_equal(get_boldid(searchterm = 'Helianthus', messages = FALSE)[[1]], '125295')
     expect_true(is.na(get_boldid(searchterm='adsf asdf asdf', messages=FALSE)[[1]]))
     expect_is(get_boldid(c("Helianthus excubitor", "adsf asdf asdf"), messages=FALSE), 
@@ -11,6 +12,7 @@ vcr::use_cassette("get_boldid", {
 })
 
 test_that("get_boldid accepts ask-argument", {
+  skip_on_cran()
   vcr::use_cassette("get_boldid_ask_false", {
     expect_true(is.na(
       get_boldid('adsf asdf asdf', ask=FALSE, messages=FALSE)[[1]]))
@@ -18,6 +20,7 @@ test_that("get_boldid accepts ask-argument", {
 })
 
 test_that("get_boldid works when there's no parent name", {
+  skip_on_cran()
   vcr::use_cassette("get_boldid_no_parent_name", {
     x <- get_boldid("Chordata", messages = FALSE)
   })

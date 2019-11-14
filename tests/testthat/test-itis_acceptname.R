@@ -1,6 +1,7 @@
 context("itis_acceptname")
 
 test_that("itis_acceptname works with accepted tsn", {
+  skip_on_cran()
   vcr::use_cassette("itis_acceptname", {
     temp <- itis_acceptname(208527)
   })
@@ -12,6 +13,7 @@ test_that("itis_acceptname works with accepted tsn", {
 })
 
 test_that("itis_acceptname works with non-accepted tsn", {
+  skip_on_cran()
   vcr::use_cassette("itis_acceptname_non_accepted_tsn", {
     temp <- itis_acceptname(504239)
   })

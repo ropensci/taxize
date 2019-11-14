@@ -1,6 +1,7 @@
 context("itis_getrecord")
 
 test_that("itis_getrecord returns the correct class", {
+  skip_on_cran()
   vcr::use_cassette("itis_getrecord", {
       one <- itis_getrecord(202385, verbose=FALSE)
       two <- itis_getrecord(c(202385,70340), verbose=FALSE)

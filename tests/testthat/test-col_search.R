@@ -1,6 +1,7 @@
 context("col_search")
 
 test_that("col_search returns the correct values, dimensions, and classes", {
+  skip_on_cran()
   vcr::use_cassette("col_search", {
     temp <- col_search(name = "Apis")
     two <- col_search(name = c("Apis","Puma concolor"))
@@ -30,10 +31,10 @@ test_that("col_search returns the correct values, dimensions, and classes", {
 })
 
 # don't do HTTP tests
-test_that("col_search is robust to user error", {
-  expect_is(col_search(name = "asdfsdf")[[1]], "data.frame")
-  expect_is(col_search(name = "")[[1]], "data.frame")
-  expect_is(col_search(id = "asdfsdf")[[1]], "data.frame")
-  expect_is(col_search(), "list")
-  expect_equal(length(col_search()), 0)
-})
+# test_that("col_search is robust to user error", {
+#   expect_is(col_search(name = "asdfsdf")[[1]], "data.frame")
+#   expect_is(col_search(name = "")[[1]], "data.frame")
+#   expect_is(col_search(id = "asdfsdf")[[1]], "data.frame")
+#   expect_is(col_search(), "list")
+#   expect_equal(length(col_search()), 0)
+# })

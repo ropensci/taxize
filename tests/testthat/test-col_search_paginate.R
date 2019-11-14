@@ -1,6 +1,7 @@
 context("col_search_paginate_paginate")
 
 test_that("col_search_paginate works", {
+  skip_on_cran()
   vcr::use_cassette("col_search_paginate", {
     temp <- col_search_paginate(name = "Apis")
     two <- col_search_paginate(name = c("Apis", "Puma concolor"))

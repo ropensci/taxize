@@ -1,5 +1,6 @@
 context("gnr_datasources")
 test_that("gnr_datasources returns the correct class", {
+  skip_on_cran()
   vcr::use_cassette("gnr_datasources", {
     tmp <- gnr_datasources()
   })

@@ -1,8 +1,8 @@
 context("ping")
 
-vcr::use_cassette("ncbi_ping", {
+test_that("ncbi_ping returns the correct value", {
   skip_on_cran() # uses secrets
-  test_that("ncbi_ping returns the correct value", {
+  vcr::use_cassette("ncbi_ping", {
     expect_true(ncbi_ping())
     Sys.sleep(1)
     expect_false(ncbi_ping(503))
@@ -11,32 +11,35 @@ vcr::use_cassette("ncbi_ping", {
   })
 })
 
-vcr::use_cassette("trpicos_ping", {
+test_that("trpicos_ping returns the correct value", {
   skip_on_cran() # uses secrets
-  test_that("trpicos_ping returns the correct value", {
+  vcr::use_cassette("trpicos_ping", {
     expect_true(tropicos_ping())
     expect_true(tropicos_ping("content"))
-  })
-}, preserve_exact_body_bytes = TRUE)
+  }, preserve_exact_body_bytes = TRUE)
+})
 
-vcr::use_cassette("nbn_ping", {
-  test_that("nbn_ping returns the correct value", {
+test_that("nbn_ping returns the correct value", {
+  skip_on_cran()
+  vcr::use_cassette("nbn_ping", {
     expect_true(nbn_ping())
     expect_false(nbn_ping(503))
     expect_true(nbn_ping("content"))
   })
 })
 
-vcr::use_cassette("gbif_ping", {
-  test_that("gbif_ping returns the correct value", {
+test_that("gbif_ping returns the correct value", {
+  skip_on_cran()
+  vcr::use_cassette("gbif_ping", {
     expect_true(gbif_ping())
     expect_false(gbif_ping(503))
     expect_true(gbif_ping("content"))
   })
 })
 
-vcr::use_cassette("bold_ping", {
-  test_that("bold_ping returns the correct value", {
+test_that("bold_ping returns the correct value", {
+  skip_on_cran()
+  vcr::use_cassette("bold_ping", {
     expect_true(bold_ping())
     expect_false(bold_ping(503))
     expect_true(bold_ping("content"))
@@ -51,10 +54,11 @@ vcr::use_cassette("bold_ping", {
 #   expect_true(ipni_ping("content"))
 # })
 
-vcr::use_cassette("vascan_ping", {
-  test_that("vascan_ping returns the correct value", {
+test_that("vascan_ping returns the correct value", {
+  skip_on_cran()
+  vcr::use_cassette("vascan_ping", {
     expect_true(vascan_ping())
     expect_false(vascan_ping(503))
     expect_true(vascan_ping("content"))
-  })
-}, preserve_exact_body_bytes = TRUE)
+  }, preserve_exact_body_bytes = TRUE)
+})

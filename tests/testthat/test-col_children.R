@@ -1,6 +1,7 @@
 context("col_children")
 
 test_that("col_children returns the correct classes and dimensions", {
+  skip_on_cran()
   vcr::use_cassette("col_children", {
     temp4 <- col_children(name="Animalia")
     temp5 <- col_children(name="Plantae")
@@ -22,6 +23,7 @@ test_that("col_children returns the correct classes and dimensions", {
 	expect_equal(length(temp11), 1)
 })
 
+skip_on_cran()
 vcr::use_cassette("col_children_bad", {
   test_that("missing/wrong data given returns result", {
     expect_equal(nrow(col_children(name="")[[1]]), 0)

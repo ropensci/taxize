@@ -4,6 +4,7 @@ test_that("iucn_id returns the correct class", {
   if (Sys.getenv('IUCN_REDLIST_KEY') == "") {
     skip("No IUCN api key so test not run.")
   }
+  skip_on_cran()
 
   vcr::use_cassette("iucn_id", {
     aa <- iucn_id("Branta canadensis")

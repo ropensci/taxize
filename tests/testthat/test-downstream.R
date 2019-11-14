@@ -1,6 +1,7 @@
 context("downstream")
 
 test_that("downstream basic usage works", {
+  skip_on_cran()
   vcr::use_cassette("downstream", {
     aa <- downstream("015be25f6b061ba517f495394b80f108", 
       db = "col", downto = "Species")
@@ -19,6 +20,7 @@ test_that("downstream basic usage works", {
 })
 
 test_that("downstream - many names input", {
+  skip_on_cran()
   ids <- c("015be25f6b061ba517f495394b80f108", 
     "6df38b73c53ce9e2982f3e1883305fc4")
 
@@ -31,6 +33,7 @@ test_that("downstream - many names input", {
 })
 
 test_that("downstream - taxonomic id input", {
+  skip_on_cran()
   vcr::use_cassette("downstream_id_input", {
     aa <- downstream(get_gbifid("Ursus", messages = FALSE), 
       db = "gbif", downto = "Species")
@@ -42,9 +45,10 @@ test_that("downstream - taxonomic id input", {
 })
 
 test_that("downstream - multiple data sources", {
+  skip_on_cran()
   vcr::use_cassette("downstream_multiple_data_sources", {
     ids <- sw(get_ids("Ursus", db = c("gbif", 'itis'), rows = 1, 
-      messages = FALSE))
+      messages = FALSE, suppress = TRUE))
     aa <- downstream(ids, downto = "Species")
   }, preserve_exact_body_bytes = TRUE)
 
@@ -54,6 +58,7 @@ test_that("downstream - multiple data sources", {
 })
 
 test_that("downstream - Use the rows parameter", {
+  skip_on_cran()
   vcr::use_cassette("downstream_rows_param", {
     aa <- downstream("Hereroa", db = 'col', downto = "species", 
       rows = 1, messages = FALSE)
@@ -66,6 +71,8 @@ test_that("downstream - Use the rows parameter", {
 
 test_that("downstream - Works with COL which previously failed
           due to lack of infraspecies value in rank_ref dataset", {
+
+  skip_on_cran()
   vcr::use_cassette("downstream_col_infraspecies_problem", {
     x <- as.colid("d324f3777e98688584cf8b68d0f06e5f", FALSE)
     aa <- downstream(x, db = 'col', downto = "suborder", messages = FALSE)
@@ -86,6 +93,7 @@ test_that("downstream fails well", {
 })
 
 test_that("warn on mismatch 'db'", {
+  skip_on_cran()
   vcr::use_cassette("downstream_warn_on_db_mismatch", {
     expect_warning(
       downstream(

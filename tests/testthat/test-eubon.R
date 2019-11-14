@@ -1,6 +1,7 @@
 context("eubon_search")
 
 test_that("eubon_search works", {
+  skip_on_cran()
   vcr::use_cassette("eubon_search", {
     aa <- eubon_search("Prionus")
     bb <- eubon_search("Salmo", providers = 'worms')

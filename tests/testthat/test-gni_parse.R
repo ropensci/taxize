@@ -1,6 +1,7 @@
 context("gni_parse")
 
 test_that("gni_parse returns the correct value", {
+  skip_on_cran()
   vcr::use_cassette("gni_parse", {
     tt <- gni_parse("Cyanistes caeruleus")
   })

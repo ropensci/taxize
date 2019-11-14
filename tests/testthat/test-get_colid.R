@@ -1,6 +1,7 @@
 context("get_colid")
 
 test_that("get_colid: not found", {
+  skip_on_cran()
   vcr::use_cassette("get_colid", {
     z <- get_colid(sciname='adsf asdf asdf', messages=FALSE)[[1]]
     w <- get_colid(c("Helianthus excubitor", "adsf asdf asdf"), 
@@ -12,6 +13,7 @@ test_that("get_colid: not found", {
 })
 
 test_that("get_colid accepts ask-argument", {
+  skip_on_cran()
   vcr::use_cassette("get_colid_ask_arg", {
     z <- get_colid(sciname='adsf asdf asdf', ask=FALSE, messages=FALSE)[[1]]
     expect_true(is.na(z))

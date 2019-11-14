@@ -1,6 +1,7 @@
 context("upstream")
 
 test_that("upstream basic usage works", {
+  skip_on_cran()
   vcr::use_cassette("upstream", {
     aa <- upstream("Pinus contorta", db = 'col', upto = 'genus',
         messages = FALSE)
@@ -14,6 +15,7 @@ test_that("upstream basic usage works", {
 })
 
 test_that("warn on mismatch 'db'", {
+  skip_on_cran()
   expect_warning(
     upstream(
       get_tsn('Pinus contorta', messages = FALSE), db = 'col',

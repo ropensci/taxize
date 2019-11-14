@@ -121,7 +121,7 @@ test_that("rbind and cbind work correctly", {
   skip_on_cran() # uses secrets
   vcr::use_cassette("classification_cbind_rbind", {
     out <- get_ids(names = c("Puma concolor", "Accipiter striatus"),
-                   db = 'ncbi', messages = FALSE)
+                   db = 'ncbi', messages = FALSE, suppress = TRUE)
     cl <- classification(out)
   })
 

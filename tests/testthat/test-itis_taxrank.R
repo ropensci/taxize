@@ -1,6 +1,7 @@
 context("itis_taxrank")
 
 test_that("itis_taxrank returns the correct value", {
+  skip_on_cran()
   vcr::use_cassette("itis_taxrank", {
     temp <- itis_taxrank(query=202385, verbose=FALSE)
   })

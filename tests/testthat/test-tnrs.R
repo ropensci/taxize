@@ -1,6 +1,7 @@
 context("tnrs")
 
 test_that("tnrs works", {
+  skip_on_cran()
   mynames <- c("Helianthus annuus", "Poa annua", "Mimulus bicolor")
   vcr::use_cassette("tnrs", {
     out <- tnrs(query = mynames, source = "iPlant_TNRS", messages = FALSE)
@@ -11,6 +12,7 @@ test_that("tnrs works", {
 })
 
 test_that("tnrs returns user supplied order and row.names NULLed", {
+  skip_on_cran()
   xxx <- c("Abies concolor", "Abies lasiocarpa",
            "Acer sp.", "Acer campestre",
            "Artemisia borealis", "Artemisia cana",

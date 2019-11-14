@@ -1,6 +1,7 @@
 context("get_tsn")
 
 test_that("get_tsn returns the correct value", {
+  skip_on_cran()
   vcr::use_cassette("get_tsn", {
     x <- get_tsn("asdfasdf", messages=FALSE)[[1]]
     z <- get_tsn("Chironomus riparius", messages=FALSE)
@@ -11,6 +12,7 @@ test_that("get_tsn returns the correct value", {
 })
 
 test_that("get_tsn accepts ask and verbose arguments", {
+  skip_on_cran()
   vcr::use_cassette("get_tsn_ask_verbose_args", {
     expect_message(sw(get_tsn('Dugesia', messages=TRUE, ask = FALSE)))
     expect_true(all(is.na(sw(get_tsn('black bear', searchtype="common",
