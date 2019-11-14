@@ -45,7 +45,7 @@ test_that("synonyms: data sources return consistent outputs", {
     aa <- synonyms("Foo bar", db="itis", messages = FALSE)
     bb <- synonyms("Foo bar", db="tropicos", messages = FALSE)
     cc <- synonyms("Foo barasdfasdf", db="nbn", messages = FALSE)
-    dd <- synonyms("Foo bar", db="col", messages = FALSE)
+    dd <- sw(synonyms("Foo bar", db="col", messages = FALSE))
     ee <- synonyms("Foo bar", db="worms", messages = FALSE)
     ff <- synonyms("Foo bar", db="iucn", messages = FALSE)
   })

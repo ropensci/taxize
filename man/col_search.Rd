@@ -24,24 +24,33 @@ Web service query (currently the maximum number of results returned by a
 single query is 500 for terse queries and 50 for full queries).}
 
 \item{checklist}{The year of the checklist to query, if you want a specific
-year's checklist instead of the lastest as default (numeric).}
+year's checklist instead of the lastest as default (numeric). Options include
+2007 to whatever the current year is. By default, the current year is used.
+Using 2014 and older we only give back an XML object the user can parse
+on their own}
 
 \item{response}{(character) one of "terse" or "full"}
 
 \item{...}{Curl options passed on to \link[crul:HttpClient]{crul::HttpClient}}
 }
 \value{
-A list of data.frame's, each data.frame has the attributes:
+When checklist is 2015 or great, a list of data.frame's, named
+with the input vector of name's
+or id's, each data.frame has attributes you can access like
+\code{attr(df, "error_message")}:
 \itemize{
-\item id:
-\item name:
-\item total_number_of_results:
-\item number_of_results_returned:
-\item start:
-\item error_message:
-\item version:
-\item rank:
+\item id
+\item name
+\item total_number_of_results
+\item number_of_results_returned
+\item start
+\item error_message
+\item version
+\item rank
 }
+
+If checklist is 2014 or less, COL did not provide JSON as a response
+format, so we return \code{xml_document} objects for each input name or id
 }
 \description{
 Search Catalogue of Life for taxonomic IDs
@@ -50,6 +59,15 @@ Search Catalogue of Life for taxonomic IDs
 You must provide one of name or id. The other parameters (format
 and start) are optional.
 }
+\section{Rate limiting}{
+
+COL introduced rate limiting recently (writing this on 2019-11-14),
+but we've no information on what the rate limits are. If you do run into
+this you'll see an error like "Error: Too Many Requests (HTTP 429)",
+you'll need to time your requests to avoid the rate limiting, for
+example, by putting \code{Sys.sleep()} in between simultaneous requests.
+}
+
 \examples{
 \dontrun{
 # A basic example
@@ -64,6 +82,10 @@ col_search(name="Poa", response="full")
 # Many names
 col_search(name=c("Apis","Puma concolor"))
 col_search(name=c("Apis","Puma concolor"), response = "full")
+
+# checklist year 2014 or earlier returns an xml_document
+col_search(name="Agapostemon", checklist=2012)
+col_search(name=c("Agapostemon", "Megachile"), checklist=2011)
 
 # An example where there is no data
 col_search(id = "36c623ad9e3da39c2e978fa3576ad415")

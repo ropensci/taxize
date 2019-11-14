@@ -2,33 +2,49 @@
 #'
 #' @export
 #' @param name The string to search for. Only exact matches found the name given
-#'   	will be returned, unless one or wildcards are included in the search
-#'   	string. An * (asterisk) character denotes a wildcard; a percent
-#'    character may also be used. The name must be at least 3 characters long,
-#'    not counting wildcard characters.
+#' will be returned, unless one or wildcards are included in the search
+#' string. An * (asterisk) character denotes a wildcard; a percent
+#' character may also be used. The name must be at least 3 characters long,
+#' not counting wildcard characters.
 #' @param id The record ID of the specific record to return (only for scientific
-#' 		names of species or infraspecific taxa)
+#' names of species or infraspecific taxa)
 #' @param start The first record to return. If omitted, the results are returned
-#' 		from the first record (start=0). This is useful if the total number of
-#' 		results is larger than the maximum number of results returned by a single
-#' 		Web service query (currently the maximum number of results returned by a
-#' 		single query is 500 for terse queries and 50 for full queries).
+#' from the first record (start=0). This is useful if the total number of
+#' results is larger than the maximum number of results returned by a single
+#' Web service query (currently the maximum number of results returned by a
+#' single query is 500 for terse queries and 50 for full queries).
 #' @param checklist The year of the checklist to query, if you want a specific
-#' 		year's checklist instead of the lastest as default (numeric).
+#' year's checklist instead of the lastest as default (numeric). Options include
+#' 2007 to whatever the current year is. By default, the current year is used.
+#' Using 2014 and older we only give back an XML object the user can parse
+#' on their own
 #' @param response (character) one of "terse" or "full"
 #' @param ... Curl options passed on to [crul::HttpClient]
 #' @details You must provide one of name or id. The other parameters (format
-#' 		and start) are optional.
+#' and start) are optional.
 #' @references <http://webservice.catalogueoflife.org/>
-#' @return A list of data.frame's, each data.frame has the attributes:
-#' * id:
-#' * name:
-#' * total_number_of_results:
-#' * number_of_results_returned:
-#' * start:
-#' * error_message:
-#' * version:
-#' * rank:
+#' @section Rate limiting:
+#' COL introduced rate limiting recently (writing this on 2019-11-14),
+#' but we've no information on what the rate limits are. If you do run into
+#' this you'll see an error like "Error: Too Many Requests (HTTP 429)",
+#' you'll need to time your requests to avoid the rate limiting, for
+#' example, by putting `Sys.sleep()` in between simultaneous requests.
+#' @return When checklist is 2015 or great, a list of data.frame's, named
+#' with the input vector of name's 
+#' or id's, each data.frame has attributes you can access like 
+#' `attr(df, "error_message")`:
+#' 
+#' * id
+#' * name
+#' * total_number_of_results
+#' * number_of_results_returned
+#' * start
+#' * error_message
+#' * version
+#' * rank
+#' 
+#' If checklist is 2014 or less, COL did not provide JSON as a response
+#' format, so we return `xml_document` objects for each input name or id
 #'
 #' @examples \dontrun{
 #' # A basic example
@@ -43,6 +59,10 @@
 #' # Many names
 #' col_search(name=c("Apis","Puma concolor"))
 #' col_search(name=c("Apis","Puma concolor"), response = "full")
+#' 
+#' # checklist year 2014 or earlier returns an xml_document
+#' col_search(name="Agapostemon", checklist=2012)
+#' col_search(name=c("Agapostemon", "Megachile"), checklist=2011)
 #'
 #' # An example where there is no data
 #' col_search(id = "36c623ad9e3da39c2e978fa3576ad415")
@@ -66,22 +86,40 @@ col_search <- function(name = NULL, id = NULL, start = NULL, checklist = NULL,
                     format = "json"))
     cli <- crul::HttpClient$new(url = url, headers = tx_ual, opts = list(...))
     out <- cli$get(query = argsnull(args))
-    if (out$status_code >= 300) {
-      warning("COL taxon not found", call. = FALSE)
-    } else {
-      tt <- jsonlite::fromJSON(out$parse("UTF-8"), FALSE)
-      switch(
-        response,
-        terse = col_meta(parse_terse(tt), tt),
-        full = col_meta(parse_full(tt), tt)
-      )
+    out$raise_for_status()
+
+    if (
+      as.numeric(checklist) <= 2014 &&
+      grepl("xml", out$response_headers$`content-type`)
+    ) {
+      txt <- out$parse("UTF-8")
+      return(xml2::read_xml(txt))
     }
+    tt <- tryCatch(jsonlite::fromJSON(out$parse("UTF-8"), FALSE),
+      error = function(e) e)
+    mssg <- ""
+    if (inherits(tt, "error") || nzchar(tt$error_message)) {
+      if (nzchar(tt$error_message)) {
+        mssg <- tt$error_message
+      } else {
+        hs <- out$status_http()
+        mssg <- sprintf("%s: %s", hs$status_code, hs$explanation)
+      }
+    } else {
+      mssg <- tt$error_message
+    }
+    if (nzchar(mssg)) warning(mssg, call. = FALSE)
+    switch(
+      response,
+      terse = col_meta(parse_terse(tt), tt),
+      full = col_meta(parse_full(tt), tt)
+    )
   }
-  safe_func <- plyr::failwith(NULL, func)
+  # safe_func <- plyr::failwith(NULL, func)
   if (is.null(id)) {
-    stats::setNames(lapply(name, safe_func, y = NULL, ...), name)
+    stats::setNames(lapply(name, func, y = NULL, ...), name)
   } else {
-    stats::setNames(lapply(id, safe_func, x = NULL, ...), id)
+    stats::setNames(lapply(id, func, x = NULL, ...), id)
   }
 }
 
@@ -89,7 +127,8 @@ make_url <- function(checklist) {
   if (is.null(checklist)) {
     col_base()
   } else {
-    cc <- match.arg(as.character(checklist), choices = 2015:2007)
+    year_current <- as.numeric(format(Sys.Date(), "%Y")) - 1
+    cc <- match.arg(as.character(checklist), choices = 2007:year_current)
     sprintf("http://catalogueoflife.org/annual-checklist/%s/webservice", cc)
   }
 }

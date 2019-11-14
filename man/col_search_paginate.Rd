@@ -24,7 +24,10 @@ Web service query (currently the maximum number of results returned by a
 single query is 500 for terse queries and 50 for full queries).}
 
 \item{checklist}{The year of the checklist to query, if you want a specific
-year's checklist instead of the lastest as default (numeric).}
+year's checklist instead of the lastest as default (numeric). Options include
+2007 to whatever the current year is. By default, the current year is used.
+Using 2014 and older we only give back an XML object the user can parse
+on their own}
 
 \item{response}{(character) one of "terse" or "full"}
 

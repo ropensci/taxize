@@ -93,7 +93,7 @@ test_that("expected results for no query match when using get_* fxns", {
   skip_on_cran()
   vcr::use_cassette("children_no_results_structure_x", {
     itis_x <- children(get_tsn("23424234234", messages = FALSE))
-    col_x <- children(get_colid("23424234234", messages = FALSE))
+    col_x <- children(sw(get_colid("23424234234", messages = FALSE)))
     worms_x <- children(get_wormsid("23424234234", messages = FALSE))
   })
 

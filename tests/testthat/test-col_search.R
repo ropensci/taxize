@@ -30,11 +30,24 @@ test_that("col_search returns the correct values, dimensions, and classes", {
 	expect_is(two[[1]], "data.frame")
 })
 
-# don't do HTTP tests
-# test_that("col_search is robust to user error", {
-#   expect_is(col_search(name = "asdfsdf")[[1]], "data.frame")
-#   expect_is(col_search(name = "")[[1]], "data.frame")
-#   expect_is(col_search(id = "asdfsdf")[[1]], "data.frame")
-#   expect_is(col_search(), "list")
-#   expect_equal(length(col_search()), 0)
-# })
+test_that("2014 year or older returns xmls", {
+  skip_on_cran()
+  vcr::use_cassette("col_search_older_checklist_xml", {
+    aa <- col_search(name = "Apis", checklist = 2013)
+  })
+
+  expect_equal(names(aa), "Apis")
+  expect_is(aa[[1]], "xml_document")
+})
+
+test_that("col_search is robust to user error", {
+  skip_on_cran()
+
+  Sys.sleep(1)
+  expect_is(sw(col_search(name = "asdfsdf"))[[1]], "data.frame")
+  Sys.sleep(1)
+  expect_is(sw(col_search(name = ""))[[1]], "data.frame")
+  Sys.sleep(0.5)
+  expect_is(col_search(), "list")
+  expect_equal(length(col_search()), 0)
+})

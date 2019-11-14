@@ -1,0 +1,43 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://catalogueoflife.org/annual-checklist/2013/webservice?name=Apis&response=terse&format=json
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.2 crul/0.9.0 rOpenSci(taxize/0.9.91)
+      X-USER-AGENT: r-curl/4.2 crul/0.9.0 rOpenSci(taxize/0.9.91)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0
+      date: Thu, 14 Nov 2019 22:33:46 GMT
+      content-type: application/xml
+      content-length: '450'
+      connection: keep-alive
+      expires: Thu, 19 Nov 1981 08:52:00 GMT
+      cache-control: no-store, no-cache, must-revalidate
+      pragma: no-cache
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <results id="" name="Apis" total_number_of_results="1" number_of_results_returned="1" start="0" error_message="" version="1.8.1 rev 1397">
+          <result>
+            <id>13091062</id>
+            <name>Apis</name>
+            <rank>Genus</rank>
+            <name_status>accepted name</name_status>
+            <name_html><i>Apis</i></name_html>
+            <url>http://www.catalogueoflife.org/annual-checklist/browse/tree/id/13091062</url>
+          </result>
+        </results>
+  recorded_at: 2019-11-14 22:33:45 GMT
+  recorded_with: vcr/0.3.0, webmockr/0.4.0
