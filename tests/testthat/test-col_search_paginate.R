@@ -32,6 +32,7 @@ test_that("col_search_paginate works", {
 
 # doesn't do HTTP requests
 test_that("col_search_paginate is robust to user error", {
+  skip_on_cran()
   expect_is(col_search_paginate(name = "asdfsdf")[[1]], "data.frame")
   expect_is(col_search_paginate(name = "")[[1]], "data.frame")
   expect_is(col_search_paginate(id = "asdfsdf")[[1]], "data.frame")
