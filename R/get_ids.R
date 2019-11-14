@@ -9,15 +9,17 @@ get_ids_dbs <- c(
 #' sources if you like.
 #'
 #' @export
-#' @param names character; Taxonomic name to query.
-#' @param db character; database to query. One or more of `ncbi`, `itis`, `eol`,
+#' @param names (character) Taxonomic name to query.
+#' @param db (character) database to query. One or more of `ncbi`, `itis`, `eol`,
 #' `col`, `tropicos`, `gbif`, `nbn`, or `pow`. By default db is set to search
 #' all data sources. Note that each taxonomic data source has their own
 #' identifiers, so that if you give the wrong `db` value for the identifier you
 #' could get a result, it will likely be wrong (not what you were expecting).
 #' If using ncbi, eol, and/or tropicos we recommend getting API keys;
 #' see [taxize-authentication]
-#' @param rows numeric; Any number from 1 to infinity. If the default NA, all
+#' @param suppress (logical) suppress \pkg{cli} separators with the database
+#' name being queried. default: `FALSE`
+#' @param rows (numeric) Any number from 1 to infinity. If the default NA, all
 #' rows are returned. When used in `get_ids` this function still only
 #' gives back a ids class object with one to many identifiers. See
 #' `get_ids_` to get back all, or a subset, of the raw data that you
@@ -71,17 +73,18 @@ get_ids_dbs <- c(
 #'   rows=1:10)
 #'
 #' # use curl options
-#' get_ids("Agapostemon", db = "ncbi", messages = TRUE)
+#' get_ids("Agapostemon", db = "ncbi", verbose = TRUE)
 #' }
 
 get_ids <- function(names,
   db = c("itis", "ncbi", "eol", "col", "tropicos", "gbif", "nbn",
-    "pow"), ...) {
-  if (is.null(db)) {
-    stop("Must specify on or more values for db!")
-  }
+    "pow"), suppress = FALSE, ...) {
+  
+  assert(suppress, "logical")
+  if (is.null(db)) stop("Must specify one or more values for db!")
   db <- match.arg(db, choices = get_ids_dbs, several.ok = TRUE)
   foo <- function(x, names, ...){
+    if (!suppress) cat_db(x)
     ids <- switch(x,
                   itis = get_tsn(names, ...),
                   ncbi = get_uid(names, ...),
@@ -103,10 +106,13 @@ get_ids <- function(names,
 
 #' @export
 #' @rdname get_ids
-get_ids_ <- function(names, db = get_ids_dbs, rows = NA, ...) {
+get_ids_ <- function(names, db = get_ids_dbs, rows = NA,
+  suppress = FALSE, ...) {
+
   if (is.null(db)) stop("Must specify on or more values for db!")
   db <- match.arg(db, choices = get_ids_dbs, several.ok = TRUE)
   foo <- function(x, names, rows, ...){
+    if (!suppress) cat_db(x)
     ids <- switch(x,
                   itis = get_tsn_(names, rows = rows, ...),
                   ncbi = get_uid_(names, rows = rows, ...),
@@ -120,4 +126,11 @@ get_ids_ <- function(names, db = get_ids_dbs, rows = NA, ...) {
   structure(stats::setNames(
     lapply(db, function(x) foo(x, names = names, rows = rows, ...)), db),
   class = "ids")
+}
+
+cat_db <- function(x) {
+  cli::cat_line(
+    cli::rule(left = paste0(" db: ", x),
+      line = 2, line_col = "blue", width = 30)
+  )
 }

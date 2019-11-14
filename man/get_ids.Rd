@@ -6,14 +6,14 @@
 \title{Retrieve taxonomic identifiers for a given taxon name.}
 \usage{
 get_ids(names, db = c("itis", "ncbi", "eol", "col", "tropicos", "gbif",
-  "nbn", "pow"), ...)
+  "nbn", "pow"), suppress = FALSE, ...)
 
-get_ids_(names, db = get_ids_dbs, rows = NA, ...)
+get_ids_(names, db = get_ids_dbs, rows = NA, suppress = FALSE, ...)
 }
 \arguments{
-\item{names}{character; Taxonomic name to query.}
+\item{names}{(character) Taxonomic name to query.}
 
-\item{db}{character; database to query. One or more of \code{ncbi}, \code{itis}, \code{eol},
+\item{db}{(character) database to query. One or more of \code{ncbi}, \code{itis}, \code{eol},
 \code{col}, \code{tropicos}, \code{gbif}, \code{nbn}, or \code{pow}. By default db is set to search
 all data sources. Note that each taxonomic data source has their own
 identifiers, so that if you give the wrong \code{db} value for the identifier you
@@ -21,11 +21,14 @@ could get a result, it will likely be wrong (not what you were expecting).
 If using ncbi, eol, and/or tropicos we recommend getting API keys;
 see \link{taxize-authentication}}
 
+\item{suppress}{(logical) suppress \pkg{cli} separators with the database
+name being queried. default: \code{FALSE}}
+
 \item{...}{Other arguments passed to \code{\link[=get_tsn]{get_tsn()}}, \code{\link[=get_uid]{get_uid()}},
 \code{\link[=get_eolid]{get_eolid()}}, \code{\link[=get_colid]{get_colid()}}, \code{\link[=get_tpsid]{get_tpsid()}}, \code{\link[=get_gbifid]{get_gbifid()}},
 \code{\link[=get_nbnid]{get_nbnid()}}.}
 
-\item{rows}{numeric; Any number from 1 to infinity. If the default NA, all
+\item{rows}{(numeric) Any number from 1 to infinity. If the default NA, all
 rows are returned. When used in \code{get_ids} this function still only
 gives back a ids class object with one to many identifiers. See
 \code{get_ids_} to get back all, or a subset, of the raw data that you
@@ -85,7 +88,7 @@ get_ids_(c("Chironomus riparius", "Pinus contorta"), db = c('nbn','gbif'),
   rows=1:10)
 
 # use curl options
-get_ids("Agapostemon", db = "ncbi", messages = TRUE)
+get_ids("Agapostemon", db = "ncbi", verbose = TRUE)
 }
 }
 \seealso{
