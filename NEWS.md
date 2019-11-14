@@ -1,18 +1,23 @@
-taxize 0.9.92
+taxize 0.9.91
 =============
 
 ### NEW FEATURES
 
-* xx (#xxx)
+* `get_ids()` gains a new parameter `suppress` (default:`FALSE`) to toggle pakage `cli` messages stating which database is being worked on (#719)
 
 ### MINOR IMPROVEMENTS
 
-* the following datasets are now available when the package is not loaded, so functions that use these datasets can now be called with package namespace like `taxize::downstream()`: `rank_ref`, `theplantlist`, `apg_families`, `apg_orders`  (#777)
+* the following datasets are now available when the package is not loaded, so functions that use these datasets can now be called with package namespace like `taxize::downstream()`: `rank_ref`, `theplantlist`, `apg_families`, `apg_orders`  (#777) (#781)
+* add new documentation site url (https://docs.ropensci.org/taxize/) to DESCRITPION file (#774) (@jeroen)
+* fix links in README to issues label of new potential data sources (#782) (@katrinleinweber)
+* more or less all functions that take as input the output of `get_*` functions have S3 methods that dispatch on those `get_*` output classes. however, you can still pass in a `db` parameter, which is IGNORED when dispatching on the input class. the `db` parameter is used (not ignored) when passing in a taxon id as character/numeric/etc. now these functions (children, classification, comm2sci, sci2comm, downstream, id2name, synonyms, upstream) warn when the user passes a `db` value which will be ignored (#780)
+* The NCBI Entrez API often throws errors for users of this and other packages related to HTTP version used by the client; we now hard code the http version to HTTP/1.1 via the curl option `http_version=2L` across all Entrez requests (#783)
 
 ### BUG FIXES
 
-* fix `ncbi_children()`: fixed regex that was supposed to flag ambiguous taxa only, it was supposed to flag `sp.` and `spp.`, but was including `subsp.`, which we didn't want included (#777)
-* another fix to `ncbi_children()`: when ID is passed rather than a name, we need to then set `id=NULL` after switching to the equivalent taxononmic name internally to avoid getting duplicate data back (#777)
+* `tax_rank` somehow (my bad) had two `.default` methods. previous behavior is the same as current behavior (this version) (#784)
+* fix `ncbi_children()`: fixed regex that was supposed to flag ambiguous taxa only, it was supposed to flag `sp.` and `spp.`, but was including `subsp.`, which we didn't want included (#777) (#781)
+* another fix to `ncbi_children()`: when ID is passed rather than a name, we need to then set `id=NULL` after switching to the equivalent taxononmic name internally to avoid getting duplicate data back (#777) (#781)
 
 
 taxize 0.9.9

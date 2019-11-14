@@ -10,14 +10,14 @@
   "codeRepository": "https://github.com/ropensci/taxize",
   "issueTracker": "https://github.com/ropensci/taxize/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.9.9",
+  "version": "0.9.91",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "version": "3.6.1",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.6.1 Patched (2019-09-05 r77154)",
+  "runtimePlatform": "R version 3.6.1 Patched (2019-09-23 r77210)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -614,7 +614,8 @@
   ],
   "relatedLink": [
     "https://ropenscilabs.github.io/taxize-book/",
-    "https://taxize.dev"
+    "https://taxize.dev",
+    "https://docs.ropensci.org/taxize"
   ],
   "copyrightHolder": {}
 }
