@@ -105,6 +105,15 @@ internally to match. Filtering narrows down to the set that matches your
 query, and removes the rest.
 }
 
+\section{Rate limiting}{
+
+COL introduced rate limiting recently (writing this on 2019-11-14),
+but we've no information on what the rate limits are. If you do run into
+this you'll see an error like "Error: Too Many Requests (HTTP 429)",
+you'll need to time your requests to avoid the rate limiting, for
+example, by putting \code{Sys.sleep()} in between simultaneous requests.
+}
+
 \examples{
 \dontrun{
 get_colid(sciname='Poa annua')

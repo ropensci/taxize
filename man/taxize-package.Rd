@@ -63,6 +63,16 @@ in this package. They are available from a different package called \strong{taxi
 See the GitHub repo for how to install \url{https://github.com/ropensci/taxizesoap}
 }
 
+\section{Catalogue of Life (COL) Rate limiting}{
+
+COL introduced rate limiting recently (writing this on 2019-11-14),
+but we've no information on what the rate limits are. If you do run into
+this you'll see an error like "Error: Too Many Requests (HTTP 429)",
+you'll need to time your requests to avoid the rate limiting, for
+example, by putting \code{Sys.sleep()} in between simultaneous requests.
+This affects any functions that work with COL data.
+}
+
 \author{
 Scott Chamberlain \email{myrmecocystus@gmail.com}
 
