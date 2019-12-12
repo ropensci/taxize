@@ -12,8 +12,9 @@
 \alias{get_wormsid_}
 \title{Get Worms ID for a taxon name}
 \usage{
-get_wormsid(query, searchtype = "scientific", accepted = FALSE,
-  ask = TRUE, messages = TRUE, rows = NA, ...)
+get_wormsid(query, searchtype = "scientific", marine_only = TRUE,
+  fuzzy = NULL, accepted = FALSE, ask = TRUE, messages = TRUE,
+  rows = NA, ...)
 
 as.wormsid(x, check = TRUE)
 
@@ -38,6 +39,14 @@ get_wormsid_(query, messages = TRUE, searchtype = "scientific",
 
 \item{searchtype}{character; One of 'scientific' or 'common', or any unique
 abbreviation}
+
+\item{marine_only}{logical; marine only? default: ‘TRUE (only used
+when \code{searchtype="scientific"}); passed on to \code{\link[worrms:wm_records_name]{worrms::wm_records_name()}}}
+
+\item{fuzzy}{logical; fuzzy search. default: \code{NULL} (\code{TRUE} for
+\code{searchtype="scientific"} and \code{FALSE} for \code{searchtype="common"} to match
+the default values for those parameters in \pkg{worrms} package); passed on
+to \code{\link[worrms:wm_records_name]{worrms::wm_records_name()}} or \code{\link[worrms:wm_records_common]{worrms::wm_records_common()}}}
 
 \item{accepted}{logical; If TRUE, removes names that are not accepted valid
 names by WORMS. Set to \code{FALSE} (default) to give back both accepted
@@ -89,6 +98,18 @@ attr(x, "uri")
 
 get_wormsid('Pomatomus saltatrix')
 get_wormsid(c("Gadus morhua", "Lichenopora neapolitana"))
+
+# marine_only
+get_wormsid("Apedinella", marine_only=TRUE)
+get_wormsid("Apedinella", marine_only=FALSE)
+
+# fuzzy
+## searchtype="scientific": fuzzy is TRUE by default
+get_wormsid("Platypro", searchtype="scientific", fuzzy=TRUE)
+get_wormsid("Platypro", searchtype="scientific", fuzzy=FALSE)
+## searchtype="common": fuzzy is FALSE by default
+get_wormsid("clam", searchtype="common", fuzzy=FALSE)
+get_wormsid("clam", searchtype="common", fuzzy=TRUE)
 
 # by common name
 get_wormsid("dolphin", 'common')

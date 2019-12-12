@@ -28,7 +28,7 @@ test_that("get_wormsid accepts ask-argument", {
   expect_true(is.na(z))
 })
 
-test_that("get_wormsid query modifiers work", {
+test_that("get_wormsid searchtype param works", {
   skip_on_cran()
   vcr::use_cassette("get_wormsid_query_modifiers", {
     mod2 <- sw(get_wormsid("asiatic clam", "common", messages = FALSE))
@@ -36,6 +36,32 @@ test_that("get_wormsid query modifiers work", {
 
   expect_is(mod2, "wormsid")
   expect_equal(mod2[1], "181580")
+})
+
+test_that("get_wormsid marine_only param works", {
+  skip_on_cran()
+  vcr::use_cassette("get_wormsid_marine_only", {
+    a <- sw(get_wormsid("Apedinella", marine_only = TRUE, accepted = TRUE, messages = FALSE))
+    b <- sw(get_wormsid("Apedinella", marine_only = FALSE, messages = FALSE))
+  })
+
+  expect_is(a, "wormsid")
+  expect_is(b, "wormsid")
+  expect_equal(a[1], "248097")
+  expect_equal(b[1], "248096")
+})
+
+test_that("get_wormsid fuzzy param works", {
+  skip_on_cran()
+  vcr::use_cassette("get_wormsid_fuzzy", {
+    a <- sw(get_wormsid("Platypleu", fuzzy = TRUE, accepted = TRUE, messages = FALSE))
+    b <- sw(get_wormsid("Platypleu", fuzzy = FALSE, messages = FALSE))
+  })
+
+  expect_is(a, "wormsid")
+  expect_is(b, "wormsid")
+  expect_equal(a[1], "105519")
+  expect_true(is.na(b[1]))
 })
 
 test_that("get_wormsid fails well", {
@@ -54,6 +80,10 @@ test_that("get_wormsid fails well", {
                "accepted must be of class logical")
   expect_error(get_wormsid("clam", ask = 4, messages = FALSE),
                "ask must be of class logical")
+  expect_error(get_wormsid("clam", marine_only = 4, messages = FALSE),
+               "marine_only must be of class logical")
+  expect_error(get_wormsid("clam", fuzzy = 4, messages = FALSE),
+               "fuzzy must be of class logical")
 })
 
 test_that("get_wormsid exact match with more than 1 exact match found", {

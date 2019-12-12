@@ -8,6 +8,12 @@
 #' `taxon_state` object (see [taxon-state])
 #' @param searchtype character; One of 'scientific' or 'common', or any unique
 #' abbreviation
+#' @param marine_only logical; marine only? default: ‘TRUE (only used
+#' when `searchtype="scientific"`); passed on to [worrms::wm_records_name()]
+#' @param fuzzy logical; fuzzy search. default: `NULL` (`TRUE` for
+#' `searchtype="scientific"` and `FALSE` for `searchtype="common"` to match
+#' the default values for those parameters in \pkg{worrms} package); passed on
+#' to [worrms::wm_records_name()] or [worrms::wm_records_common()]
 #' @param accepted logical; If TRUE, removes names that are not accepted valid
 #' names by WORMS. Set to `FALSE` (default) to give back both accepted
 #' and unaccepted names.
@@ -37,10 +43,22 @@
 #' attr(x, "multiple_matches")
 #' attr(x, "pattern_match")
 #' attr(x, "uri")
-#'
+#' 
 #' get_wormsid('Pomatomus saltatrix')
 #' get_wormsid(c("Gadus morhua", "Lichenopora neapolitana"))
 #'
+#' # marine_only
+#' get_wormsid("Apedinella", marine_only=TRUE)
+#' get_wormsid("Apedinella", marine_only=FALSE)
+#' 
+#' # fuzzy
+#' ## searchtype="scientific": fuzzy is TRUE by default
+#' get_wormsid("Platypro", searchtype="scientific", fuzzy=TRUE)
+#' get_wormsid("Platypro", searchtype="scientific", fuzzy=FALSE)
+#' ## searchtype="common": fuzzy is FALSE by default
+#' get_wormsid("clam", searchtype="common", fuzzy=FALSE)
+#' get_wormsid("clam", searchtype="common", fuzzy=TRUE)
+#' 
 #' # by common name
 #' get_wormsid("dolphin", 'common')
 #' get_wormsid("clam", 'common')
@@ -86,11 +104,14 @@
 #' get_wormsid_("Plat", rows=1:75)
 #' # get_wormsid_(c("asdfadfasd","Plat"), rows=1:5)
 #' }
-get_wormsid <- function(query, searchtype = "scientific", accepted = FALSE,
-                      ask = TRUE, messages = TRUE, rows = NA, ...) {
+get_wormsid <- function(query, searchtype = "scientific", marine_only = TRUE,
+  fuzzy = NULL, accepted = FALSE, ask = TRUE, messages = TRUE,
+  rows = NA, ...) {
 
   assert(query, c("character", "taxon_state"))
   assert(searchtype, "character")
+  assert(marine_only, "logical")
+  assert(fuzzy, "logical")
   assert(accepted, "logical")
   assert(ask, "logical")
   assert(messages, "logical")
@@ -120,8 +141,10 @@ get_wormsid <- function(query, searchtype = "scientific", accepted = FALSE,
     }
     wmdf <- switch(
       searchtype,
-      scientific = worms_worker(query[i], worrms::wm_records_name, rows, ...),
-      common = worms_worker(query[i], worrms::wm_records_common, rows, ...)
+      scientific = worms_worker(query[i], worrms::wm_records_name, rows,
+        marine_only, fuzzy %||% TRUE, ...),
+      common = worms_worker(query[i], worrms::wm_records_common, rows,
+        marine_only, fuzzy %||% FALSE, ...)
     )
     mm <- NROW(wmdf) > 1
 
@@ -312,35 +335,37 @@ get_wormsid_help <- function(query, messages, searchtype, accepted, rows, ...) {
 
 # WORMS WORKER
 # worms_worker(x = "Plat", expr = worrms::wm_records_name)
-worms_worker <- function(x, expr, rows, ...) {
+worms_worker <- function(x, expr, rows, marine_only, fuzzy, ...) {
   if (
     all(!is.na(rows)) &&
     class(rows) %in% c('numeric', 'integer') &&
     rows[length(rows)] <= 50
   ) {
-    expr(x, ...)
+    expr(x, marine_only = marine_only, fuzzy = fuzzy, ...)
   } else if (
     all(!is.na(rows)) &&
     class(rows) %in% c('numeric', 'integer') &&
     rows[length(rows)] > 50
   ) {
-    out <- try_df(expr(x))
+    out <- try_df(expr(x, marine_only = marine_only, fuzzy = fuzzy, ...))
     out <- list(out)
     i <- 1
     total <- 0
     while (NROW(out[[length(out)]]) == 50 && total < rows[length(rows)]) {
       i <- i + 1
-      out[[i]] <- try_df(expr(x, offset = sum(unlist(sapply(out, NROW)))))
+      out[[i]] <- try_df(expr(x, marine_only = marine_only, fuzzy = fuzzy,
+        offset = sum(unlist(sapply(out, NROW))), ...))
       total <- sum(unlist(sapply(out, NROW)))
     }
     df2dt2tbl(out)[rows,]
   } else {
-    out <- try_df(expr(x))
+    out <- try_df(expr(x, marine_only = marine_only, fuzzy = fuzzy, ...))
     out <- list(out)
     i <- 1
     while (NROW(out[[length(out)]]) == 50) {
       i <- i + 1
-      out[[i]] <- try_df(expr(x, offset = sum(unlist(sapply(out, NROW))), ...))
+      out[[i]] <- try_df(expr(x, marine_only = marine_only, fuzzy = fuzzy,
+        offset = sum(unlist(sapply(out, NROW))), ...))
     }
     df2dt2tbl(out)
   }
