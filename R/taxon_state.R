@@ -31,7 +31,7 @@ taxon_state_env <- new.env()
 #' @return `taxon_last()` returns an object of class `taxon_state`, the last
 #' one used, else `NULL` if none found. `taxon_clear()` clears the saved state
 #' 
-#' @examples
+#' @examples \dontrun{
 #' spp <- names_list("species", 3)
 #' res <- get_gbifid(spp)
 #' z <- taxon_last()
@@ -42,6 +42,7 @@ taxon_state_env <- new.env()
 #' 
 #' # cleanup
 #' taxon_clear()
+#' }
 taxon_last <- function() taxon_state_env$last
 
 #' @export

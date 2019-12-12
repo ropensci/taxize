@@ -44,6 +44,7 @@ See the internal method \link{progressor} for information on how we control mess
 in \code{get*} functions
 }
 \examples{
+\dontrun{
 spp <- names_list("species", 3)
 res <- get_gbifid(spp)
 z <- taxon_last()
@@ -54,4 +55,5 @@ z$count # active binding; no parens needed
 
 # cleanup
 taxon_clear()
+}
 }
