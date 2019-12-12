@@ -1,0 +1,98 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://www.marinespecies.org/rest/AphiaRecordsByName/Apedinella?like=true&marine_only=true&offset=1
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 12 Dec 2019 22:01:37 GMT
+      server: Apache/2.4.39 (Win64)
+      access-control-allow-origin: '*'
+      access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
+        Authorization
+      access-control-allow-methods: GET, POST, OPTIONS
+      content-length: '2240'
+      content-type: application/json
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"AphiaID":248097,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=248097","scientificname":"Apedinella
+        radians","authority":"(Lohmann) P.H.Campbell, 1973","status":"accepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":248097,"valid_name":"Apedinella
+        radians","valid_authority":"(Lohmann) P.H.Campbell, 1973","parentNameUsageID":248096,"kingdom":"Chromista","phylum":"Ochrophyta","class":"Dictyochophyceae","order":"Pedinellales","family":"Pedinellaceae","genus":"Apedinella","citation":"Guiry,
+        M.D. & Guiry, G.M. (2019). AlgaeBase. World-wide electronic publication, National
+        University of Ireland, Galway (taxonomic information republished from AlgaeBase
+        with permission of M.D. Guiry). Apedinella radians (Lohmann) P.H.Campbell,
+        1973. Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=248097
+        on 2019-12-12","lsid":"urn:lsid:marinespecies.org:taxname:248097","isMarine":1,"isBrackish":1,"isFreshwater":null,"isTerrestrial":0,"isExtinct":null,"match_type":"like","modified":"2015-06-26T12:00:51.270Z"},{"AphiaID":248098,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=248098","scientificname":"Apedinella
+        spinifera","authority":"(Throndsen) Throndsen, 1971","status":"unaccepted","unacceptreason":"synonym","taxonRankID":220,"rank":"Species","valid_AphiaID":248097,"valid_name":"Apedinella
+        radians","valid_authority":"(Lohmann) P.H.Campbell, 1973","parentNameUsageID":248096,"kingdom":"Chromista","phylum":"Ochrophyta","class":"Dictyochophyceae","order":"Pedinellales","family":"Pedinellaceae","genus":"Apedinella","citation":"Guiry,
+        M.D. & Guiry, G.M. (2019). AlgaeBase. World-wide electronic publication, National
+        University of Ireland, Galway (taxonomic information republished from AlgaeBase
+        with permission of M.D. Guiry). Apedinella spinifera (Throndsen) Throndsen,
+        1971. Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=248098
+        on 2019-12-12","lsid":"urn:lsid:marinespecies.org:taxname:248098","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"like","modified":"2015-06-26T12:00:51.270Z"}]'
+  recorded_at: 2019-12-12 22:01:39 GMT
+  recorded_with: vcr/0.4.1.91, webmockr/0.5.1.91
+- request:
+    method: get
+    uri: http://www.marinespecies.org/rest/AphiaRecordsByName/Apedinella?like=true&marine_only=false&offset=1
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 12 Dec 2019 22:01:39 GMT
+      server: Apache/2.4.39 (Win64)
+      access-control-allow-origin: '*'
+      access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
+        Authorization
+      access-control-allow-methods: GET, POST, OPTIONS
+      content-length: '3296'
+      content-type: application/json
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"AphiaID":248096,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=248096","scientificname":"Apedinella","authority":"Throndsen,
+        1971","status":"accepted","unacceptreason":null,"taxonRankID":180,"rank":"Genus","valid_AphiaID":248096,"valid_name":"Apedinella","valid_authority":"Throndsen,
+        1971","parentNameUsageID":160598,"kingdom":"Chromista","phylum":"Ochrophyta","class":"Dictyochophyceae","order":"Pedinellales","family":"Pedinellaceae","genus":"Apedinella","citation":"Guiry,
+        M.D. & Guiry, G.M. (2019). AlgaeBase. World-wide electronic publication, National
+        University of Ireland, Galway (taxonomic information republished from AlgaeBase
+        with permission of M.D. Guiry). Apedinella Throndsen, 1971. Accessed through:
+        World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=248096
+        on 2019-12-12","lsid":"urn:lsid:marinespecies.org:taxname:248096","isMarine":null,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"like","modified":"2010-08-12T12:41:00.430Z"},{"AphiaID":248097,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=248097","scientificname":"Apedinella
+        radians","authority":"(Lohmann) P.H.Campbell, 1973","status":"accepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":248097,"valid_name":"Apedinella
+        radians","valid_authority":"(Lohmann) P.H.Campbell, 1973","parentNameUsageID":248096,"kingdom":"Chromista","phylum":"Ochrophyta","class":"Dictyochophyceae","order":"Pedinellales","family":"Pedinellaceae","genus":"Apedinella","citation":"Guiry,
+        M.D. & Guiry, G.M. (2019). AlgaeBase. World-wide electronic publication, National
+        University of Ireland, Galway (taxonomic information republished from AlgaeBase
+        with permission of M.D. Guiry). Apedinella radians (Lohmann) P.H.Campbell,
+        1973. Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=248097
+        on 2019-12-12","lsid":"urn:lsid:marinespecies.org:taxname:248097","isMarine":1,"isBrackish":1,"isFreshwater":null,"isTerrestrial":0,"isExtinct":null,"match_type":"like","modified":"2015-06-26T12:00:51.270Z"},{"AphiaID":248098,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=248098","scientificname":"Apedinella
+        spinifera","authority":"(Throndsen) Throndsen, 1971","status":"unaccepted","unacceptreason":"synonym","taxonRankID":220,"rank":"Species","valid_AphiaID":248097,"valid_name":"Apedinella
+        radians","valid_authority":"(Lohmann) P.H.Campbell, 1973","parentNameUsageID":248096,"kingdom":"Chromista","phylum":"Ochrophyta","class":"Dictyochophyceae","order":"Pedinellales","family":"Pedinellaceae","genus":"Apedinella","citation":"Guiry,
+        M.D. & Guiry, G.M. (2019). AlgaeBase. World-wide electronic publication, National
+        University of Ireland, Galway (taxonomic information republished from AlgaeBase
+        with permission of M.D. Guiry). Apedinella spinifera (Throndsen) Throndsen,
+        1971. Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=248098
+        on 2019-12-12","lsid":"urn:lsid:marinespecies.org:taxname:248098","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"like","modified":"2015-06-26T12:00:51.270Z"}]'
+  recorded_at: 2019-12-12 22:01:39 GMT
+  recorded_with: vcr/0.4.1.91, webmockr/0.5.1.91
