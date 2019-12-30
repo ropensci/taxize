@@ -4,9 +4,20 @@
 \alias{gbif_name_usage}
 \title{Lookup details for specific names in all taxonomies in GBIF.}
 \usage{
-gbif_name_usage(key = NULL, name = NULL, data = "all",
-  language = NULL, datasetKey = NULL, uuid = NULL, sourceId = NULL,
-  rank = NULL, shortname = NULL, start = NULL, limit = 20, ...)
+gbif_name_usage(
+  key = NULL,
+  name = NULL,
+  data = "all",
+  language = NULL,
+  datasetKey = NULL,
+  uuid = NULL,
+  sourceId = NULL,
+  rank = NULL,
+  shortname = NULL,
+  start = NULL,
+  limit = 20,
+  ...
+)
 }
 \arguments{
 \item{key}{(numeric) A GBIF key for a taxon}

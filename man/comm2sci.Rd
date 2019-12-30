@@ -4,8 +4,7 @@
 \alias{comm2sci}
 \title{Get scientific names from common names.}
 \usage{
-comm2sci(commnames, db = "ncbi", itisby = "search", simplify = TRUE,
-  ...)
+comm2sci(commnames, db = "ncbi", itisby = "search", simplify = TRUE, ...)
 }
 \arguments{
 \item{commnames}{One or more common names or partial names.}

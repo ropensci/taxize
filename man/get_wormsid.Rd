@@ -12,9 +12,17 @@
 \alias{get_wormsid_}
 \title{Get Worms ID for a taxon name}
 \usage{
-get_wormsid(query, searchtype = "scientific", marine_only = TRUE,
-  fuzzy = NULL, accepted = FALSE, ask = TRUE, messages = TRUE,
-  rows = NA, ...)
+get_wormsid(
+  query,
+  searchtype = "scientific",
+  marine_only = TRUE,
+  fuzzy = NULL,
+  accepted = FALSE,
+  ask = TRUE,
+  messages = TRUE,
+  rows = NA,
+  ...
+)
 
 as.wormsid(x, check = TRUE)
 
@@ -30,8 +38,14 @@ as.wormsid(x, check = TRUE)
 
 \method{as.data.frame}{wormsid}(x, ...)
 
-get_wormsid_(query, messages = TRUE, searchtype = "scientific",
-  accepted = TRUE, rows = NA, ...)
+get_wormsid_(
+  query,
+  messages = TRUE,
+  searchtype = "scientific",
+  accepted = TRUE,
+  rows = NA,
+  ...
+)
 }
 \arguments{
 \item{query}{character; A vector of common or scientific names. Or, a
@@ -160,13 +174,20 @@ get_wormsid_("Plat", rows=1:75)
 \seealso{
 \code{\link[=classification]{classification()}}
 
-Other taxonomic-ids: \code{\link{get_boldid}},
-  \code{\link{get_colid}}, \code{\link{get_eolid}},
-  \code{\link{get_gbifid}}, \code{\link{get_ids}},
-  \code{\link{get_iucn}}, \code{\link{get_natservid}},
-  \code{\link{get_nbnid}}, \code{\link{get_pow}},
-  \code{\link{get_tolid}}, \code{\link{get_tpsid}},
-  \code{\link{get_tsn}}, \code{\link{get_uid}},
-  \code{\link{get_wiki}}
+Other taxonomic-ids: 
+\code{\link{get_boldid}()},
+\code{\link{get_colid}()},
+\code{\link{get_eolid}()},
+\code{\link{get_gbifid}()},
+\code{\link{get_ids}()},
+\code{\link{get_iucn}()},
+\code{\link{get_natservid}()},
+\code{\link{get_nbnid}()},
+\code{\link{get_pow}()},
+\code{\link{get_tolid}()},
+\code{\link{get_tpsid}()},
+\code{\link{get_tsn}()},
+\code{\link{get_uid}()},
+\code{\link{get_wiki}()}
 }
 \concept{taxonomic-ids}

@@ -48,7 +48,7 @@ Save your API keys with the following names:
 If you save in .Renviron it looks like: \code{ENTREZ_KEY=somekey}
 
 If you save in a .bash_profile, .zshrc, or similar file it looks like:
-\code{export ENTREZ_KEY=somekey}
+\verb{export ENTREZ_KEY=somekey}
 
 If you save in a .Rprofile it looks like: \code{options(ENTREZ_KEY = "somekey")}
 

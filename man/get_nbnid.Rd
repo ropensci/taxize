@@ -11,8 +11,15 @@
 \alias{get_nbnid_}
 \title{Get the UK National Biodiversity Network ID from taxonomic names.}
 \usage{
-get_nbnid(name, ask = TRUE, messages = TRUE, rec_only = FALSE,
-  rank = NULL, rows = NA, ...)
+get_nbnid(
+  name,
+  ask = TRUE,
+  messages = TRUE,
+  rec_only = FALSE,
+  rank = NULL,
+  rows = NA,
+  ...
+)
 
 as.nbnid(x, check = TRUE)
 
@@ -26,8 +33,14 @@ as.nbnid(x, check = TRUE)
 
 \method{as.data.frame}{nbnid}(x, ...)
 
-get_nbnid_(name, messages = TRUE, rec_only = FALSE, rank = NULL,
-  rows = NA, ...)
+get_nbnid_(
+  name,
+  messages = TRUE,
+  rec_only = FALSE,
+  rank = NULL,
+  rows = NA,
+  ...
+)
 }
 \arguments{
 \item{name}{character; scientific name. Or, a \code{taxon_state}
@@ -134,17 +147,26 @@ invisible(get_nbnid("Quercus douglasii", verbose = TRUE))
 \seealso{
 \code{\link[=classification]{classification()}}
 
-Other taxonomic-ids: \code{\link{get_boldid}},
-  \code{\link{get_colid}}, \code{\link{get_eolid}},
-  \code{\link{get_gbifid}}, \code{\link{get_ids}},
-  \code{\link{get_iucn}}, \code{\link{get_natservid}},
-  \code{\link{get_pow}}, \code{\link{get_tolid}},
-  \code{\link{get_tpsid}}, \code{\link{get_tsn}},
-  \code{\link{get_uid}}, \code{\link{get_wiki}},
-  \code{\link{get_wormsid}}
+Other taxonomic-ids: 
+\code{\link{get_boldid}()},
+\code{\link{get_colid}()},
+\code{\link{get_eolid}()},
+\code{\link{get_gbifid}()},
+\code{\link{get_ids}()},
+\code{\link{get_iucn}()},
+\code{\link{get_natservid}()},
+\code{\link{get_pow}()},
+\code{\link{get_tolid}()},
+\code{\link{get_tpsid}()},
+\code{\link{get_tsn}()},
+\code{\link{get_uid}()},
+\code{\link{get_wiki}()},
+\code{\link{get_wormsid}()}
 
-Other nbn: \code{\link{nbn_classification}},
-  \code{\link{nbn_search}}, \code{\link{nbn_synonyms}}
+Other nbn: 
+\code{\link{nbn_classification}()},
+\code{\link{nbn_search}()},
+\code{\link{nbn_synonyms}()}
 }
 \author{
 Scott Chamberlain, \email{myrmecocystus@gmail.com}

@@ -13,26 +13,27 @@
 \usage{
 downstream(...)
 
-\method{downstream}{default}(x, db = NULL, downto = NULL,
-  intermediate = FALSE, rows = NA, ...)
+\method{downstream}{default}(x, db = NULL, downto = NULL, intermediate = FALSE, rows = NA, ...)
 
-\method{downstream}{tsn}(x, db = NULL, downto = NULL,
-  intermediate = FALSE, ...)
+\method{downstream}{tsn}(x, db = NULL, downto = NULL, intermediate = FALSE, ...)
 
-\method{downstream}{colid}(x, db = NULL, downto = NULL,
-  intermediate = FALSE, ...)
+\method{downstream}{colid}(x, db = NULL, downto = NULL, intermediate = FALSE, ...)
 
-\method{downstream}{gbifid}(x, db = NULL, downto = NULL,
-  intermediate = FALSE, limit = 100, start = NULL, ...)
+\method{downstream}{gbifid}(
+  x,
+  db = NULL,
+  downto = NULL,
+  intermediate = FALSE,
+  limit = 100,
+  start = NULL,
+  ...
+)
 
-\method{downstream}{uid}(x, db = NULL, downto = NULL,
-  intermediate = FALSE, ...)
+\method{downstream}{uid}(x, db = NULL, downto = NULL, intermediate = FALSE, ...)
 
-\method{downstream}{wormsid}(x, db = NULL, downto = NULL,
-  intermediate = FALSE, ...)
+\method{downstream}{wormsid}(x, db = NULL, downto = NULL, intermediate = FALSE, ...)
 
-\method{downstream}{ids}(x, db = NULL, downto = NULL,
-  intermediate = FALSE, ...)
+\method{downstream}{ids}(x, db = NULL, downto = NULL, intermediate = FALSE, ...)
 }
 \arguments{
 \item{...}{Further args passed on to \code{\link[=itis_downstream]{itis_downstream()}},

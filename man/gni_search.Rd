@@ -4,8 +4,14 @@
 \alias{gni_search}
 \title{Search for taxonomic names using the Global Names Index}
 \usage{
-gni_search(search_term = NULL, per_page = NULL, page = NULL,
-  justtotal = FALSE, parse_names = FALSE, ...)
+gni_search(
+  search_term = NULL,
+  per_page = NULL,
+  page = NULL,
+  justtotal = FALSE,
+  parse_names = FALSE,
+  ...
+)
 }
 \arguments{
 \item{search_term}{Name pattern you want to search for. WARNING: Does

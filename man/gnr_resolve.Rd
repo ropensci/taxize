@@ -4,11 +4,21 @@
 \alias{gnr_resolve}
 \title{Resolve names using Global Names Resolver}
 \usage{
-gnr_resolve(names, data_source_ids = NULL, resolve_once = FALSE,
-  with_context = FALSE, canonical = FALSE, highestscore = TRUE,
-  best_match_only = FALSE, preferred_data_sources = NULL,
-  with_canonical_ranks = FALSE, http = "get", cap_first = TRUE,
-  fields = "minimal", ...)
+gnr_resolve(
+  names,
+  data_source_ids = NULL,
+  resolve_once = FALSE,
+  with_context = FALSE,
+  canonical = FALSE,
+  highestscore = TRUE,
+  best_match_only = FALSE,
+  preferred_data_sources = NULL,
+  with_canonical_ranks = FALSE,
+  http = "get",
+  cap_first = TRUE,
+  fields = "minimal",
+  ...
+)
 }
 \arguments{
 \item{names}{character; taxonomic names to be resolved. Doesn't work for

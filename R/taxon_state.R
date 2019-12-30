@@ -55,42 +55,6 @@ taxon_clear <- function() taxon_state_env$last <- NULL
 #' results as they are accumulated.
 #'
 #' @keywords internal
-#' @format NULL
-#' @usage NULL
-#' @param class (character) a class name (e.g., "gbif")
-#' @param names (character) one or more taxon names
-#' @details
-#' **Methods**
-#'   \describe{
-#'     \item{`add(query, result)`}{
-#'       add a record with it's result; duplicates allowed
-#'       - query (character), a taxon name
-#'       - result (list) a named list
-#'     }
-#'     \item{`get(query)`}{
-#'       get all records matching 'query'
-#'       - query (character), a taxon name
-#'     }
-#'     \item{`remove(query)`}{
-#'       remove's all records matching 'query'
-#'       - query (character), a taxon name
-#'     }
-#'     \item{`purge()`}{
-#'       removes all records
-#'     }
-#'     \item{`taxa_remaining()`}{
-#'       get remaining taxa
-#'     }
-#'     \item{`taxa_completed()`}{
-#'       get remaining taxa
-#'     }
-#'     \item{`count` (active binding)}{
-#'       count number of records
-#'     }
-#'     \item{`exit` (active binding)}{
-#'       record date/time function exited
-#'     }
-#'   }
 #' @examples \dontrun{
 #' ts <- taxon_state$new()
 #' taxon_last()
@@ -138,11 +102,19 @@ taxon_clear <- function() taxon_state_env$last <- NULL
 taxon_state <- R6::R6Class(
   "taxon_state",
   public = list(
+    #' @field initialized (time) time job started
     initialized = NULL,
+    #' @field finalized (time) time job finished
     finalized = NULL,
+    #' @field class (character) a class name (e.g., "gbif")
     class = NULL,
+    #' @field names (character) one or more taxon names
     names = NULL,
 
+    #' @description Create a new `taxon_state` object
+    #' @param class (character) a class name (e.g., "gbif")
+    #' @param names (character) one or more taxon names
+    #' @return A new `taxon_state` object
     initialize = function(class, names) {
       taxon_state_env$last <- self
       self$initialized <- Sys.time()
@@ -150,6 +122,9 @@ taxon_state <- R6::R6Class(
       if (!missing(names)) self$names <- names
     },
 
+    #' @description print method for the `taxon_state` class
+    #' @param x self
+    #' @param ... ignored
     print = function(x, ...) {
       cat("<taxon state> ", sep = "\n")
       cat(paste0(" class: ", self$class %||% "none"), sep = "\n")
@@ -173,29 +148,48 @@ taxon_state <- R6::R6Class(
       invisible(self)
     },
     
+    #' @description add a record with it's result; duplicates allowed
+    #' @param query (character), a taxon name
+    #' @param result (list) a named list
+    #' @return nothing returned; sets only
     add = function(query, result) {
       assert(query, "character")
       assert(result, "list")
       private$pool <- c(private$pool, stats::setNames(list(result), query))
     },
+    #' @description get all records matching 'query'
+    #' @param query (character), a taxon name
+    #' @return a named list, with slots for the taxon id, and other attributes,
+    #' named by the taxon name
     get = function(query = NULL) {
       if (is.null(query)) return(private$pool)
       private$pool[names(private$pool) %in% query]
     },
+    #' @description remove's all records matching 'query'
+    #' @param query (character), a taxon name
+    #' @return nothing, removes records matching query
     remove = function(query) {
       private$pool[names(private$pool) %in% query] <- NULL
     },
+    #' @description removes all records
+    #' @return nothing returned; sets only
     purge = function() private$pool <- NULL,
+    #' @description get remaining taxa
+    #' @return sorted taxon names
     taxa_remaining = function() {
       done <- names(self$get())
       sort(self$names)[!sort(self$names) %in% sort(done)]
     },
+    #' @description get completed taxa
+    #' @return sorted taxon names
     taxa_completed = function() {
       sort(names(self$get()))
     }
   ),
   active = list(
+    #' @field count (integer) count number of records
     count = function() length(private$pool),
+    #' @field exit record date/time function exited
     exit = function() self$finalized <- Sys.time()
   ),
   private = list(

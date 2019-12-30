@@ -4,7 +4,7 @@
 \alias{taxon-state}
 \alias{taxon_last}
 \alias{taxon_clear}
-\title{Last taxon state object from a \code{get_*} function call}
+\title{Last taxon state object from a \verb{get_*} function call}
 \usage{
 taxon_last()
 
@@ -15,7 +15,7 @@ taxon_clear()
 one used, else \code{NULL} if none found. \code{taxon_clear()} clears the saved state
 }
 \description{
-Last taxon state object from a \code{get_*} function call
+Last taxon state object from a \verb{get_*} function call
 }
 \details{
 \itemize{
@@ -24,24 +24,24 @@ Last taxon state object from a \code{get_*} function call
 }
 
 The \code{taxon_state} object is an R6 object that holds data and methods
-used for keeping track of results gathered within a \code{get_*} function.
+used for keeping track of results gathered within a \verb{get_*} function.
 You shouldn't create \code{taxon_state} R6 objects yourself.
 
 Behaviors to be aware of:
 \itemize{
 \item If a \code{taxon_state} object is not passed you don't need to worry about
-a previously run \code{get_*} function interfering with another \code{get_*}
+a previously run \verb{get_*} function interfering with another \verb{get_*}
 function call - you have to explicitly pass a \code{taxon_state} object
 to use \code{taxon_state}
-\item The passed in \code{taxon_state} object must have a \code{$class} matching that of
-the \code{get_*} function being called. For example, you can only pass a
-\code{taxon_state} with \code{$class} of \code{gbifid} to \code{get_gbifid()}, and so on.
-\item If you run \code{taxon_clear()} while a \code{get*} function is running, you may
+\item The passed in \code{taxon_state} object must have a \verb{$class} matching that of
+the \verb{get_*} function being called. For example, you can only pass a
+\code{taxon_state} with \verb{$class} of \code{gbifid} to \code{get_gbifid()}, and so on.
+\item If you run \code{taxon_clear()} while a \verb{get*} function is running, you may
 lose track of any state known to this package before it was cleared
 }
 
 See the internal method \link{progressor} for information on how we control messages
-in \code{get*} functions
+in \verb{get*} functions
 }
 \examples{
 \dontrun{

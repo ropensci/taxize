@@ -4,13 +4,27 @@
 \alias{ipni_search}
 \title{Search for names in the International Plant Names Index (IPNI).}
 \usage{
-ipni_search(family = NULL, infrafamily = NULL, genus = NULL,
-  infragenus = NULL, species = NULL, infraspecies = NULL,
-  publicationtitle = NULL, authorabbrev = NULL,
-  includepublicationauthors = NULL, includebasionymauthors = NULL,
-  geounit = NULL, addedsince = NULL, modifiedsince = NULL,
-  isapnirecord = NULL, isgcirecord = NULL, isikrecord = NULL,
-  ranktoreturn = NULL, output = "minimal", ...)
+ipni_search(
+  family = NULL,
+  infrafamily = NULL,
+  genus = NULL,
+  infragenus = NULL,
+  species = NULL,
+  infraspecies = NULL,
+  publicationtitle = NULL,
+  authorabbrev = NULL,
+  includepublicationauthors = NULL,
+  includebasionymauthors = NULL,
+  geounit = NULL,
+  addedsince = NULL,
+  modifiedsince = NULL,
+  isapnirecord = NULL,
+  isgcirecord = NULL,
+  isikrecord = NULL,
+  ranktoreturn = NULL,
+  output = "minimal",
+  ...
+)
 }
 \arguments{
 \item{family}{Family name to search on (Optional)}

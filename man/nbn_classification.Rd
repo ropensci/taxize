@@ -34,8 +34,10 @@ nbn_classification(id="NHMSYS0000502940", verbose = TRUE)
 \url{https://api.nbnatlas.org/}
 }
 \seealso{
-Other nbn: \code{\link{get_nbnid}},
-  \code{\link{nbn_search}}, \code{\link{nbn_synonyms}}
+Other nbn: 
+\code{\link{get_nbnid}()},
+\code{\link{nbn_search}()},
+\code{\link{nbn_synonyms}()}
 }
 \author{
 Scott Chamberlain, \email{myrmecocystus@gmail.com}

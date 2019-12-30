@@ -4,9 +4,17 @@
 \alias{eol_search}
 \title{Search for terms in EOL database.}
 \usage{
-eol_search(terms, page = 1, exact = NULL, filter_tid = NULL,
-  filter_heid = NULL, filter_by_string = NULL, cache_ttl = NULL,
-  key = NULL, ...)
+eol_search(
+  terms,
+  page = 1,
+  exact = NULL,
+  filter_tid = NULL,
+  filter_heid = NULL,
+  filter_by_string = NULL,
+  cache_ttl = NULL,
+  key = NULL,
+  ...
+)
 }
 \arguments{
 \item{terms}{search terms (character)}

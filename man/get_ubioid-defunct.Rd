@@ -12,8 +12,16 @@
 \alias{get_ubioid_}
 \title{Get the uBio id for a search term}
 \usage{
-get_ubioid(searchterm, searchtype = "scientific", ask = TRUE,
-  verbose = TRUE, rows = NA, family = NULL, rank = NULL, ...)
+get_ubioid(
+  searchterm,
+  searchtype = "scientific",
+  ask = TRUE,
+  verbose = TRUE,
+  rows = NA,
+  family = NULL,
+  rank = NULL,
+  ...
+)
 
 as.ubioid(x, check = TRUE)
 
@@ -29,8 +37,7 @@ as.ubioid(x, check = TRUE)
 
 \method{as.data.frame}{ubioid}(x, ...)
 
-get_ubioid_(searchterm, verbose = TRUE, searchtype = "scientific",
-  rows = NA)
+get_ubioid_(searchterm, verbose = TRUE, searchtype = "scientific", rows = NA)
 }
 \arguments{
 \item{searchterm}{character; A vector of common or scientific names.}

@@ -4,8 +4,14 @@
 \alias{col_search_paginate}
 \title{col_search wrapper to iterate to get more than default results}
 \usage{
-col_search_paginate(name = NULL, id = NULL, start = NULL,
-  checklist = NULL, response = "terse", ...)
+col_search_paginate(
+  name = NULL,
+  id = NULL,
+  start = NULL,
+  checklist = NULL,
+  response = "terse",
+  ...
+)
 }
 \arguments{
 \item{name}{The string to search for. Only exact matches found the name given

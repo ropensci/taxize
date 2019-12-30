@@ -12,9 +12,18 @@
 \alias{get_uid_}
 \title{Get the UID codes from NCBI for taxonomic names.}
 \usage{
-get_uid(sciname, ask = TRUE, messages = TRUE, rows = NA,
-  modifier = NULL, rank_query = NULL, division_filter = NULL,
-  rank_filter = NULL, key = NULL, ...)
+get_uid(
+  sciname,
+  ask = TRUE,
+  messages = TRUE,
+  rows = NA,
+  modifier = NULL,
+  rank_query = NULL,
+  division_filter = NULL,
+  rank_filter = NULL,
+  key = NULL,
+  ...
+)
 
 as.uid(x, check = TRUE)
 
@@ -218,14 +227,21 @@ get_uid("Quercus douglasii", verbose = TRUE)
 \seealso{
 \code{\link[=classification]{classification()}}
 
-Other taxonomic-ids: \code{\link{get_boldid}},
-  \code{\link{get_colid}}, \code{\link{get_eolid}},
-  \code{\link{get_gbifid}}, \code{\link{get_ids}},
-  \code{\link{get_iucn}}, \code{\link{get_natservid}},
-  \code{\link{get_nbnid}}, \code{\link{get_pow}},
-  \code{\link{get_tolid}}, \code{\link{get_tpsid}},
-  \code{\link{get_tsn}}, \code{\link{get_wiki}},
-  \code{\link{get_wormsid}}
+Other taxonomic-ids: 
+\code{\link{get_boldid}()},
+\code{\link{get_colid}()},
+\code{\link{get_eolid}()},
+\code{\link{get_gbifid}()},
+\code{\link{get_ids}()},
+\code{\link{get_iucn}()},
+\code{\link{get_natservid}()},
+\code{\link{get_nbnid}()},
+\code{\link{get_pow}()},
+\code{\link{get_tolid}()},
+\code{\link{get_tpsid}()},
+\code{\link{get_tsn}()},
+\code{\link{get_wiki}()},
+\code{\link{get_wormsid}()}
 }
 \author{
 Eduard Szoecs, \email{eduardszoecs@gmail.com}

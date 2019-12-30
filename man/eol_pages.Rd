@@ -4,13 +4,30 @@
 \alias{eol_pages}
 \title{Search for pages in EOL database using a taxonconceptID.}
 \usage{
-eol_pages(taxonconceptID, images_per_page = NULL, images_page = NULL,
-  videos_per_page = NULL, videos_page = NULL, sounds_per_page = NULL,
-  sounds_page = NULL, maps_per_page = NULL, maps_page = NULL,
-  texts_per_page = NULL, texts_page = NULL, subjects = "overview",
-  licenses = "all", details = FALSE, common_names = FALSE,
-  synonyms = FALSE, references = FALSE, taxonomy = TRUE,
-  vetted = 0, cache_ttl = NULL, key = NULL, ...)
+eol_pages(
+  taxonconceptID,
+  images_per_page = NULL,
+  images_page = NULL,
+  videos_per_page = NULL,
+  videos_page = NULL,
+  sounds_per_page = NULL,
+  sounds_page = NULL,
+  maps_per_page = NULL,
+  maps_page = NULL,
+  texts_per_page = NULL,
+  texts_page = NULL,
+  subjects = "overview",
+  licenses = "all",
+  details = FALSE,
+  common_names = FALSE,
+  synonyms = FALSE,
+  references = FALSE,
+  taxonomy = TRUE,
+  vetted = 0,
+  cache_ttl = NULL,
+  key = NULL,
+  ...
+)
 }
 \arguments{
 \item{taxonconceptID}{(numeric) a taxonconceptID, which is also the page

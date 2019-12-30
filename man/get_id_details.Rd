@@ -2,9 +2,9 @@
 % Please edit documentation in R/get-id-details.R
 \name{get_id_details}
 \alias{get_id_details}
-\title{Details on \code{get_*()} functions}
+\title{Details on \verb{get_*()} functions}
 \description{
-Including outputs from \code{get_*()} functions, as well as their
+Including outputs from \verb{get_*()} functions, as well as their
 attributes, and all exception behaviors.
 }
 \details{
@@ -29,7 +29,7 @@ This document applies to the following functions:
 }
 \section{attributes}{
 
-Each output from \code{get_*()} functions have the following attributes:
+Each output from \verb{get_*()} functions have the following attributes:
 \itemize{
 \item \emph{match} (character) - the reason for NA, either 'not found', 'found' or
 if \code{ask = FALSE} then 'NA due to ask=FALSE')
@@ -54,7 +54,7 @@ if the value returned is \code{NA}
 
 \section{exceptions}{
 
-The following are the various ways in which \code{get_*()} functions behave:
+The following are the various ways in which \verb{get_*()} functions behave:
 \itemize{
 \item success - the value returned is a character string or numeric
 \item no matches found - you'll get an NA, refine your search or possible the
@@ -62,9 +62,9 @@ taxon searched for does not exist in the database you're using
 \item more than on match and \code{ask = FALSE} - if there's more than one matching
 result, and you have set \code{ask = FALSE}, then we can't determine the single
 match to return, so we give back \code{NA}. However, in this case we do set the
-\code{match} attribute to say \code{NA due to ask=FALSE & > 1 result} so it's very
+\code{match} attribute to say \verb{NA due to ask=FALSE & > 1 result} so it's very
 clear what happened - and you can even programatically check this as well
-\item NA due to some other reason - some \code{get_*()} functions have additional
+\item NA due to some other reason - some \verb{get_*()} functions have additional
 parameters for filtering taxa. It's possible that even though there's
 results (that is, \code{found} will say \code{TRUE}), you can get back an NA. This is
 most likely if the parameter filters taxa after they are returned from the

@@ -4,8 +4,16 @@
 \alias{tnrs}
 \title{Phylotastic Taxonomic Name Resolution Service.}
 \usage{
-tnrs(query = NA, source = NULL, code = NULL, getpost = "POST",
-  sleep = 0, splitby = 30, messages = TRUE, ...)
+tnrs(
+  query = NA,
+  source = NULL,
+  code = NULL,
+  getpost = "POST",
+  sleep = 0,
+  splitby = 30,
+  messages = TRUE,
+  ...
+)
 }
 \arguments{
 \item{query}{Vector of quoted taxonomic names to search (character).}

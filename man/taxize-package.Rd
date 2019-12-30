@@ -58,7 +58,7 @@ World Register of Marine Species (WoRMS) \tab worms \tab FALSE \cr
 NatureServe \tab natserv \tab FALSE \cr
 }
 
-If the source above has a \code{TRUE} in the \code{SOAP?} column, it is not available
+If the source above has a \code{TRUE} in the \verb{SOAP?} column, it is not available
 in this package. They are available from a different package called \strong{taxizesoap}.
 See the GitHub repo for how to install \url{https://github.com/ropensci/taxizesoap}
 }

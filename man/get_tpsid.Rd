@@ -12,8 +12,16 @@
 \alias{get_tpsid_}
 \title{Get the NameID codes from Tropicos for taxonomic names.}
 \usage{
-get_tpsid(sciname, ask = TRUE, messages = TRUE, key = NULL,
-  rows = NA, family = NULL, rank = NULL, ...)
+get_tpsid(
+  sciname,
+  ask = TRUE,
+  messages = TRUE,
+  key = NULL,
+  rows = NA,
+  family = NULL,
+  rank = NULL,
+  ...
+)
 
 as.tpsid(x, check = TRUE)
 
@@ -162,14 +170,21 @@ invisible(get_tpsid("Quercus douglasii", messages = TRUE))
 \seealso{
 \code{\link[=classification]{classification()}}
 
-Other taxonomic-ids: \code{\link{get_boldid}},
-  \code{\link{get_colid}}, \code{\link{get_eolid}},
-  \code{\link{get_gbifid}}, \code{\link{get_ids}},
-  \code{\link{get_iucn}}, \code{\link{get_natservid}},
-  \code{\link{get_nbnid}}, \code{\link{get_pow}},
-  \code{\link{get_tolid}}, \code{\link{get_tsn}},
-  \code{\link{get_uid}}, \code{\link{get_wiki}},
-  \code{\link{get_wormsid}}
+Other taxonomic-ids: 
+\code{\link{get_boldid}()},
+\code{\link{get_colid}()},
+\code{\link{get_eolid}()},
+\code{\link{get_gbifid}()},
+\code{\link{get_ids}()},
+\code{\link{get_iucn}()},
+\code{\link{get_natservid}()},
+\code{\link{get_nbnid}()},
+\code{\link{get_pow}()},
+\code{\link{get_tolid}()},
+\code{\link{get_tsn}()},
+\code{\link{get_uid}()},
+\code{\link{get_wiki}()},
+\code{\link{get_wormsid}()}
 }
 \author{
 Scott Chamberlain, \email{myrmecocystus@gmail.com}

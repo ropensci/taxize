@@ -43,7 +43,9 @@ eubon_hierarchy(id = "urn:lsid:marinespecies.org:taxname:274350", 'worms')
 \url{http://cybertaxonomy.eu/eu-bon/utis/1.3/doc.html}
 }
 \seealso{
-Other eubon-methods: \code{\link{eubon_capabilities}},
-  \code{\link{eubon_children}}, \code{\link{eubon_search}}
+Other eubon-methods: 
+\code{\link{eubon_capabilities}()},
+\code{\link{eubon_children}()},
+\code{\link{eubon_search}()}
 }
 \concept{eubon-methods}

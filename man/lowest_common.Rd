@@ -12,21 +12,17 @@
 \usage{
 lowest_common(...)
 
-\method{lowest_common}{default}(x, db = NULL, rows = NA,
-  class_list = NULL, low_rank = NULL, ...)
+\method{lowest_common}{default}(x, db = NULL, rows = NA, class_list = NULL, low_rank = NULL, ...)
 
 \method{lowest_common}{uid}(x, class_list = NULL, low_rank = NULL, ...)
 
 \method{lowest_common}{tsn}(x, class_list = NULL, low_rank = NULL, ...)
 
-\method{lowest_common}{gbifid}(x, class_list = NULL, low_rank = NULL,
-  ...)
+\method{lowest_common}{gbifid}(x, class_list = NULL, low_rank = NULL, ...)
 
-\method{lowest_common}{colid}(x, class_list = NULL, low_rank = NULL,
-  ...)
+\method{lowest_common}{colid}(x, class_list = NULL, low_rank = NULL, ...)
 
-\method{lowest_common}{tolid}(x, class_list = NULL, low_rank = NULL,
-  ...)
+\method{lowest_common}{tolid}(x, class_list = NULL, low_rank = NULL, ...)
 }
 \arguments{
 \item{...}{Other arguments passed to \code{\link[=get_tsn]{get_tsn()}}, \code{\link[=get_uid]{get_uid()}},

@@ -4,8 +4,12 @@
 \alias{limited_print}
 \title{Print a subset of a character vector}
 \usage{
-limited_print(chars, prefix = "", max_chars = getOption("width") -
-  nchar(prefix) - 5, type = "message")
+limited_print(
+  chars,
+  prefix = "",
+  max_chars = getOption("width") - nchar(prefix) - 5,
+  type = "message"
+)
 }
 \arguments{
 \item{chars}{(\code{character}) What to print.}

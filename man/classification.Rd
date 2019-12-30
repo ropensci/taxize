@@ -25,46 +25,47 @@
 \usage{
 classification(...)
 
-\method{classification}{default}(x, db = NULL, callopts = list(),
-  return_id = TRUE, rows = NA, ...)
+\method{classification}{default}(
+  x,
+  db = NULL,
+  callopts = list(),
+  return_id = TRUE,
+  rows = NA,
+  ...
+)
 
 \method{classification}{tsn}(id, return_id = TRUE, ...)
 
-\method{classification}{uid}(id, callopts = list(), return_id = TRUE,
-  ...)
+\method{classification}{uid}(id, callopts = list(), return_id = TRUE, ...)
 
-\method{classification}{eolid}(id, callopts = list(), return_id = TRUE,
-  ...)
+\method{classification}{eolid}(id, callopts = list(), return_id = TRUE, ...)
 
-\method{classification}{colid}(id, start = NULL, checklist = NULL,
-  callopts = list(), return_id = TRUE, ...)
+\method{classification}{colid}(
+  id,
+  start = NULL,
+  checklist = NULL,
+  callopts = list(),
+  return_id = TRUE,
+  ...
+)
 
-\method{classification}{tpsid}(id, callopts = list(), return_id = TRUE,
-  ...)
+\method{classification}{tpsid}(id, callopts = list(), return_id = TRUE, ...)
 
-\method{classification}{gbifid}(id, callopts = list(),
-  return_id = TRUE, ...)
+\method{classification}{gbifid}(id, callopts = list(), return_id = TRUE, ...)
 
-\method{classification}{nbnid}(id, callopts = list(), return_id = TRUE,
-  ...)
+\method{classification}{nbnid}(id, callopts = list(), return_id = TRUE, ...)
 
-\method{classification}{tolid}(id, callopts = list(), return_id = TRUE,
-  ...)
+\method{classification}{tolid}(id, callopts = list(), return_id = TRUE, ...)
 
-\method{classification}{wormsid}(id, callopts = list(),
-  return_id = TRUE, ...)
+\method{classification}{wormsid}(id, callopts = list(), return_id = TRUE, ...)
 
-\method{classification}{natservid}(id, callopts = list(),
-  return_id = TRUE, ...)
+\method{classification}{natservid}(id, callopts = list(), return_id = TRUE, ...)
 
-\method{classification}{boldid}(id, callopts = list(),
-  return_id = TRUE, ...)
+\method{classification}{boldid}(id, callopts = list(), return_id = TRUE, ...)
 
-\method{classification}{wiki}(id, callopts = list(), return_id = TRUE,
-  ...)
+\method{classification}{wiki}(id, callopts = list(), return_id = TRUE, ...)
 
-\method{classification}{pow}(id, callopts = list(), return_id = TRUE,
-  ...)
+\method{classification}{pow}(id, callopts = list(), return_id = TRUE, ...)
 
 \method{classification}{ids}(id, ...)
 
@@ -128,7 +129,7 @@ every supplied taxa.
 Retrieve the taxonomic hierarchy for a given taxon ID.
 }
 \details{
-If IDs are supplied directly (not from the \code{get_*} functions)
+If IDs are supplied directly (not from the \verb{get_*} functions)
 you must specify the type of ID. There is a timeout of 1/3 seconds between
 queries to NCBI.
 

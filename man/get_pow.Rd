@@ -11,8 +11,16 @@
 \alias{get_pow_}
 \title{Get Kew's Plants of the World code for a taxon}
 \usage{
-get_pow(x, accepted = FALSE, ask = TRUE, messages = TRUE,
-  rows = NA, family_filter = NULL, rank_filter = NULL, ...)
+get_pow(
+  x,
+  accepted = FALSE,
+  ask = TRUE,
+  messages = TRUE,
+  rows = NA,
+  family_filter = NULL,
+  rank_filter = NULL,
+  ...
+)
 
 as.pow(x, check = TRUE)
 
@@ -135,17 +143,25 @@ get_pow_(c("Pinus", "Abies"), rows = 1:3)
 \seealso{
 \code{\link[=classification]{classification()}}
 
-Other pow: \code{\link{pow_lookup}},
-  \code{\link{pow_search}}
+Other pow: 
+\code{\link{pow_lookup}()},
+\code{\link{pow_search}()}
 
-Other taxonomic-ids: \code{\link{get_boldid}},
-  \code{\link{get_colid}}, \code{\link{get_eolid}},
-  \code{\link{get_gbifid}}, \code{\link{get_ids}},
-  \code{\link{get_iucn}}, \code{\link{get_natservid}},
-  \code{\link{get_nbnid}}, \code{\link{get_tolid}},
-  \code{\link{get_tpsid}}, \code{\link{get_tsn}},
-  \code{\link{get_uid}}, \code{\link{get_wiki}},
-  \code{\link{get_wormsid}}
+Other taxonomic-ids: 
+\code{\link{get_boldid}()},
+\code{\link{get_colid}()},
+\code{\link{get_eolid}()},
+\code{\link{get_gbifid}()},
+\code{\link{get_ids}()},
+\code{\link{get_iucn}()},
+\code{\link{get_natservid}()},
+\code{\link{get_nbnid}()},
+\code{\link{get_tolid}()},
+\code{\link{get_tpsid}()},
+\code{\link{get_tsn}()},
+\code{\link{get_uid}()},
+\code{\link{get_wiki}()},
+\code{\link{get_wormsid}()}
 }
 \concept{pow}
 \concept{taxonomic-ids}

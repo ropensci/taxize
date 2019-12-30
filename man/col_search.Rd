@@ -4,8 +4,14 @@
 \alias{col_search}
 \title{Search Catalogue of Life for taxonomic IDs}
 \usage{
-col_search(name = NULL, id = NULL, start = NULL, checklist = NULL,
-  response = "terse", ...)
+col_search(
+  name = NULL,
+  id = NULL,
+  start = NULL,
+  checklist = NULL,
+  response = "terse",
+  ...
+)
 }
 \arguments{
 \item{name}{The string to search for. Only exact matches found the name given

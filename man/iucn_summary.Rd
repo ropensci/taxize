@@ -4,12 +4,11 @@
 \alias{iucn_summary}
 \title{Get a summary from the IUCN Red List}
 \usage{
-iucn_summary(x, parallel = FALSE, distr_detail = FALSE, key = NULL,
-  ...)
+iucn_summary(x, parallel = FALSE, distr_detail = FALSE, key = NULL, ...)
 }
 \arguments{
 \item{x}{character; Scientific name. Should be cleaned and in the
-format \emph{<Genus> <Species>}.}
+format \verb{*<Genus> <Species>*}.}
 
 \item{parallel}{logical; Search in parallel to speed up search. You have to
 register a parallel backend if \code{TRUE}. See e.g., doMC, doSNOW, etc.}
@@ -21,7 +20,7 @@ native, introduced, etc.}
 \item{key}{a Redlist API key, get one from
 http://apiv3.iucnredlist.org/api/v3/token Required for
 \code{iucn_summary}. Defaults to \code{NULL} in case you have your key
-stored (see \code{Redlist Authentication} below).}
+stored (see \verb{Redlist Authentication} below).}
 
 \item{...}{curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }

@@ -12,9 +12,19 @@
 \alias{get_gbifid_}
 \title{Get the GBIF backbone taxon ID from taxonomic names.}
 \usage{
-get_gbifid(sciname, ask = TRUE, messages = TRUE, rows = NA,
-  phylum = NULL, class = NULL, order = NULL, family = NULL,
-  rank = NULL, method = "backbone", ...)
+get_gbifid(
+  sciname,
+  ask = TRUE,
+  messages = TRUE,
+  rows = NA,
+  phylum = NULL,
+  class = NULL,
+  order = NULL,
+  family = NULL,
+  rank = NULL,
+  method = "backbone",
+  ...
+)
 
 as.gbifid(x, check = FALSE)
 
@@ -90,9 +100,9 @@ exact match we return the options to you to pick from.
 }
 \section{method parameter}{
 
-"backbone" uses the \code{/species/match} GBIF API route, matching against their
+"backbone" uses the \verb{/species/match} GBIF API route, matching against their
 backbone taxonomy. We turn on fuzzy matching by default, as the search without
-fuzzy against backbone is quite narrow. "lookup" uses the \code{/species/search}
+fuzzy against backbone is quite narrow. "lookup" uses the \verb{/species/search}
 GBIF API route, doing a full text search of name usages covering scientific
 and vernacular named, species descriptions, distributions and the entire
 classification.
@@ -185,14 +195,21 @@ invisible(get_gbifid("Quercus douglasii", verbose = TRUE))
 \seealso{
 \code{\link[=classification]{classification()}}
 
-Other taxonomic-ids: \code{\link{get_boldid}},
-  \code{\link{get_colid}}, \code{\link{get_eolid}},
-  \code{\link{get_ids}}, \code{\link{get_iucn}},
-  \code{\link{get_natservid}}, \code{\link{get_nbnid}},
-  \code{\link{get_pow}}, \code{\link{get_tolid}},
-  \code{\link{get_tpsid}}, \code{\link{get_tsn}},
-  \code{\link{get_uid}}, \code{\link{get_wiki}},
-  \code{\link{get_wormsid}}
+Other taxonomic-ids: 
+\code{\link{get_boldid}()},
+\code{\link{get_colid}()},
+\code{\link{get_eolid}()},
+\code{\link{get_ids}()},
+\code{\link{get_iucn}()},
+\code{\link{get_natservid}()},
+\code{\link{get_nbnid}()},
+\code{\link{get_pow}()},
+\code{\link{get_tolid}()},
+\code{\link{get_tpsid}()},
+\code{\link{get_tsn}()},
+\code{\link{get_uid}()},
+\code{\link{get_wiki}()},
+\code{\link{get_wormsid}()}
 }
 \author{
 Scott Chamberlain, \email{myrmecocystus@gmail.com}

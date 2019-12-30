@@ -4,9 +4,14 @@
 \alias{tol_resolve}
 \title{Resolve names using Open Tree of Life (OTL) resolver}
 \usage{
-tol_resolve(names = NULL, context_name = NULL,
-  do_approximate_matching = TRUE, ids = NULL,
-  include_suppressed = FALSE, ...)
+tol_resolve(
+  names = NULL,
+  context_name = NULL,
+  do_approximate_matching = TRUE,
+  ids = NULL,
+  include_suppressed = FALSE,
+  ...
+)
 }
 \arguments{
 \item{names}{(character vector) taxon names to be queried}

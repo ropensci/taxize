@@ -4,8 +4,14 @@
 \alias{gbif_downstream}
 \title{Retrieve all taxa names downstream in hierarchy for GBIF}
 \usage{
-gbif_downstream(key, downto, intermediate = FALSE, limit = 100,
-  start = NULL, ...)
+gbif_downstream(
+  key,
+  downto,
+  intermediate = FALSE,
+  limit = 100,
+  start = NULL,
+  ...
+)
 }
 \arguments{
 \item{key}{A taxonomic serial number.}

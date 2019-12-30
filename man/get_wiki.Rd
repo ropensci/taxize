@@ -12,30 +12,40 @@
 \alias{get_wiki_}
 \title{Get the page name for a Wiki taxon}
 \usage{
-get_wiki(x, wiki_site = "species", wiki = "en", ask = TRUE,
-  messages = TRUE, limit = 100, rows = NA, ...)
+get_wiki(
+  x,
+  wiki_site = "species",
+  wiki = "en",
+  ask = TRUE,
+  messages = TRUE,
+  limit = 100,
+  rows = NA,
+  ...
+)
 
 as.wiki(x, check = TRUE, wiki_site = "species", wiki = "en")
 
-\method{as.wiki}{wiki}(x, check = TRUE, wiki_site = "species",
-  wiki = "en")
+\method{as.wiki}{wiki}(x, check = TRUE, wiki_site = "species", wiki = "en")
 
-\method{as.wiki}{character}(x, check = TRUE, wiki_site = "species",
-  wiki = "en")
+\method{as.wiki}{character}(x, check = TRUE, wiki_site = "species", wiki = "en")
 
-\method{as.wiki}{list}(x, check = TRUE, wiki_site = "species",
-  wiki = "en")
+\method{as.wiki}{list}(x, check = TRUE, wiki_site = "species", wiki = "en")
 
-\method{as.wiki}{numeric}(x, check = TRUE, wiki_site = "species",
-  wiki = "en")
+\method{as.wiki}{numeric}(x, check = TRUE, wiki_site = "species", wiki = "en")
 
-\method{as.wiki}{data.frame}(x, check = TRUE, wiki_site = "species",
-  wiki = "en")
+\method{as.wiki}{data.frame}(x, check = TRUE, wiki_site = "species", wiki = "en")
 
 \method{as.data.frame}{wiki}(x, ...)
 
-get_wiki_(x, messages = TRUE, wiki_site = "species", wiki = "en",
-  limit = 100, rows = NA, ...)
+get_wiki_(
+  x,
+  messages = TRUE,
+  wiki_site = "species",
+  wiki = "en",
+  limit = 100,
+  rows = NA,
+  ...
+)
 }
 \arguments{
 \item{x}{(character) A vector of common or scientific names. Or, a
@@ -105,13 +115,20 @@ as.wiki("Malus_domestica", wiki_site = "pedia", wiki = "da")
 \seealso{
 \code{\link[=classification]{classification()}}
 
-Other taxonomic-ids: \code{\link{get_boldid}},
-  \code{\link{get_colid}}, \code{\link{get_eolid}},
-  \code{\link{get_gbifid}}, \code{\link{get_ids}},
-  \code{\link{get_iucn}}, \code{\link{get_natservid}},
-  \code{\link{get_nbnid}}, \code{\link{get_pow}},
-  \code{\link{get_tolid}}, \code{\link{get_tpsid}},
-  \code{\link{get_tsn}}, \code{\link{get_uid}},
-  \code{\link{get_wormsid}}
+Other taxonomic-ids: 
+\code{\link{get_boldid}()},
+\code{\link{get_colid}()},
+\code{\link{get_eolid}()},
+\code{\link{get_gbifid}()},
+\code{\link{get_ids}()},
+\code{\link{get_iucn}()},
+\code{\link{get_natservid}()},
+\code{\link{get_nbnid}()},
+\code{\link{get_pow}()},
+\code{\link{get_tolid}()},
+\code{\link{get_tpsid}()},
+\code{\link{get_tsn}()},
+\code{\link{get_uid}()},
+\code{\link{get_wormsid}()}
 }
 \concept{taxonomic-ids}

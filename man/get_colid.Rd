@@ -11,9 +11,20 @@
 \alias{get_colid_}
 \title{Get the Catalogue of Life ID from taxonomic names}
 \usage{
-get_colid(sciname, ask = TRUE, messages = TRUE, rows = NA,
-  kingdom = NULL, phylum = NULL, class = NULL, order = NULL,
-  family = NULL, rank = NULL, status = NULL, ...)
+get_colid(
+  sciname,
+  ask = TRUE,
+  messages = TRUE,
+  rows = NA,
+  kingdom = NULL,
+  phylum = NULL,
+  class = NULL,
+  order = NULL,
+  family = NULL,
+  rank = NULL,
+  status = NULL,
+  ...
+)
 
 as.colid(x, check = TRUE)
 
@@ -189,14 +200,21 @@ get_colid("Quercus douglasii", verbose = TRUE)
 \seealso{
 \code{\link[=classification]{classification()}}
 
-Other taxonomic-ids: \code{\link{get_boldid}},
-  \code{\link{get_eolid}}, \code{\link{get_gbifid}},
-  \code{\link{get_ids}}, \code{\link{get_iucn}},
-  \code{\link{get_natservid}}, \code{\link{get_nbnid}},
-  \code{\link{get_pow}}, \code{\link{get_tolid}},
-  \code{\link{get_tpsid}}, \code{\link{get_tsn}},
-  \code{\link{get_uid}}, \code{\link{get_wiki}},
-  \code{\link{get_wormsid}}
+Other taxonomic-ids: 
+\code{\link{get_boldid}()},
+\code{\link{get_eolid}()},
+\code{\link{get_gbifid}()},
+\code{\link{get_ids}()},
+\code{\link{get_iucn}()},
+\code{\link{get_natservid}()},
+\code{\link{get_nbnid}()},
+\code{\link{get_pow}()},
+\code{\link{get_tolid}()},
+\code{\link{get_tpsid}()},
+\code{\link{get_tsn}()},
+\code{\link{get_uid}()},
+\code{\link{get_wiki}()},
+\code{\link{get_wormsid}()}
 }
 \author{
 Scott Chamberlain, \email{myrmecocystus@gmail.com}

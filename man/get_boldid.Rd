@@ -12,9 +12,19 @@
 \alias{get_boldid_}
 \title{Get the BOLD (Barcode of Life) code for a search term.}
 \usage{
-get_boldid(searchterm, fuzzy = FALSE, dataTypes = "basic",
-  includeTree = FALSE, ask = TRUE, messages = TRUE, rows = NA,
-  rank = NULL, division = NULL, parent = NULL, ...)
+get_boldid(
+  searchterm,
+  fuzzy = FALSE,
+  dataTypes = "basic",
+  includeTree = FALSE,
+  ask = TRUE,
+  messages = TRUE,
+  rows = NA,
+  rank = NULL,
+  division = NULL,
+  parent = NULL,
+  ...
+)
 
 as.boldid(x, check = TRUE)
 
@@ -30,8 +40,15 @@ as.boldid(x, check = TRUE)
 
 \method{as.data.frame}{boldid}(x, ...)
 
-get_boldid_(searchterm, messages = TRUE, fuzzy = FALSE,
-  dataTypes = "basic", includeTree = FALSE, rows = NA, ...)
+get_boldid_(
+  searchterm,
+  messages = TRUE,
+  fuzzy = FALSE,
+  dataTypes = "basic",
+  includeTree = FALSE,
+  rows = NA,
+  ...
+)
 }
 \arguments{
 \item{searchterm}{character; A vector of common or scientific names. Or,
@@ -167,13 +184,20 @@ get_boldid_(c("Osmi","Aga"), fuzzy=TRUE, rows = 1:3)
 \seealso{
 \code{\link[=classification]{classification()}}
 
-Other taxonomic-ids: \code{\link{get_colid}},
-  \code{\link{get_eolid}}, \code{\link{get_gbifid}},
-  \code{\link{get_ids}}, \code{\link{get_iucn}},
-  \code{\link{get_natservid}}, \code{\link{get_nbnid}},
-  \code{\link{get_pow}}, \code{\link{get_tolid}},
-  \code{\link{get_tpsid}}, \code{\link{get_tsn}},
-  \code{\link{get_uid}}, \code{\link{get_wiki}},
-  \code{\link{get_wormsid}}
+Other taxonomic-ids: 
+\code{\link{get_colid}()},
+\code{\link{get_eolid}()},
+\code{\link{get_gbifid}()},
+\code{\link{get_ids}()},
+\code{\link{get_iucn}()},
+\code{\link{get_natservid}()},
+\code{\link{get_nbnid}()},
+\code{\link{get_pow}()},
+\code{\link{get_tolid}()},
+\code{\link{get_tpsid}()},
+\code{\link{get_tsn}()},
+\code{\link{get_uid}()},
+\code{\link{get_wiki}()},
+\code{\link{get_wormsid}()}
 }
 \concept{taxonomic-ids}

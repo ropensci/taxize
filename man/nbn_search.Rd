@@ -4,8 +4,16 @@
 \alias{nbn_search}
 \title{Search UK National Biodiversity Network}
 \usage{
-nbn_search(q, fq = NULL, order = NULL, sort = NULL, start = 0,
-  rows = 25, facets = NULL, ...)
+nbn_search(
+  q,
+  fq = NULL,
+  order = NULL,
+  sort = NULL,
+  start = 0,
+  rows = 25,
+  facets = NULL,
+  ...
+)
 }
 \arguments{
 \item{q}{(character) The query terms(s)}
@@ -54,9 +62,10 @@ nbn_search(q = "blackbird", verbose = TRUE)
 \url{https://api.nbnatlas.org/}
 }
 \seealso{
-Other nbn: \code{\link{get_nbnid}},
-  \code{\link{nbn_classification}},
-  \code{\link{nbn_synonyms}}
+Other nbn: 
+\code{\link{get_nbnid}()},
+\code{\link{nbn_classification}()},
+\code{\link{nbn_synonyms}()}
 }
 \author{
 Scott Chamberlain, \email{myrmecocystus@gmail.com}

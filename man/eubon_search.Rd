@@ -4,10 +4,18 @@
 \alias{eubon_search}
 \title{EUBON taxonomy search}
 \usage{
-eubon_search(query, providers = "pesi",
-  searchMode = "scientificNameExact", addSynonymy = FALSE,
-  addParentTaxon = FALSE, timeout = 0, dedup = NULL, limit = 20,
-  page = 1, ...)
+eubon_search(
+  query,
+  providers = "pesi",
+  searchMode = "scientificNameExact",
+  addSynonymy = FALSE,
+  addParentTaxon = FALSE,
+  timeout = 0,
+  dedup = NULL,
+  limit = 20,
+  page = 1,
+  ...
+)
 }
 \arguments{
 \item{query}{(character) The scientific name to search for. For example:
@@ -84,8 +92,9 @@ eubon_search("Salmo", "worms", addParentTaxon = TRUE)
 \url{http://cybertaxonomy.eu/eu-bon/utis/1.3/doc.html}
 }
 \seealso{
-Other eubon-methods: \code{\link{eubon_capabilities}},
-  \code{\link{eubon_children}},
-  \code{\link{eubon_hierarchy}}
+Other eubon-methods: 
+\code{\link{eubon_capabilities}()},
+\code{\link{eubon_children}()},
+\code{\link{eubon_hierarchy}()}
 }
 \concept{eubon-methods}

@@ -30,8 +30,9 @@ nbn_synonyms(id = 'NHMSYS0000502940')
 \url{https://api.nbnatlas.org/}
 }
 \seealso{
-Other nbn: \code{\link{get_nbnid}},
-  \code{\link{nbn_classification}},
-  \code{\link{nbn_search}}
+Other nbn: 
+\code{\link{get_nbnid}()},
+\code{\link{nbn_classification}()},
+\code{\link{nbn_search}()}
 }
 \concept{nbn}

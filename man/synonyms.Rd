@@ -35,7 +35,7 @@ synonyms(...)
 synonyms_df(x)
 }
 \arguments{
-\item{...}{Other passed arguments to internal functions \code{get_*()} and
+\item{...}{Other passed arguments to internal functions \verb{get_*()} and
 functions to gather synonyms.}
 
 \item{x}{Vector of taxa names (character) or IDs (character or numeric) to
@@ -69,7 +69,7 @@ Retrieve synonyms from various sources given input taxonomic
 names or identifiers
 }
 \details{
-If IDs are supplied directly (not from the \code{get_*()} functions)
+If IDs are supplied directly (not from the \verb{get_*()} functions)
 you must specify the type of ID.
 
 For \code{db = "itis"} you can pass in a parameter \code{accepted} to
@@ -152,6 +152,6 @@ synonyms_df(x)
 }
 }
 \seealso{
-\code{\link[=get_tsn]{get_tsn()}} \code{get_tpsid()], [get_nbnid()] }get_colid()],
+\code{\link[=get_tsn]{get_tsn()}} \verb{get_tpsid()], [get_nbnid()] }get_colid()],
 \code{\link[=get_wormsid]{get_wormsid()}} `get_iucn()]
 }

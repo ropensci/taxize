@@ -4,7 +4,6 @@
 #' OpenTreeOfLife
 #'
 #' @export
-#' @inheritParams tol_resolve
 #' @param sciname character; scientific name. Or, a `taxon_state`
 #' object (see [taxon-state])
 #' @param ask logical; should `get_tolid` be run in interactive mode?

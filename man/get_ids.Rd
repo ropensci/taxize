@@ -5,8 +5,12 @@
 \alias{get_ids_}
 \title{Retrieve taxonomic identifiers for a given taxon name.}
 \usage{
-get_ids(names, db = c("itis", "ncbi", "eol", "col", "tropicos", "gbif",
-  "nbn", "pow"), suppress = FALSE, ...)
+get_ids(
+  names,
+  db = c("itis", "ncbi", "eol", "col", "tropicos", "gbif", "nbn", "pow"),
+  suppress = FALSE,
+  ...
+)
 
 get_ids_(names, db = get_ids_dbs, rows = NA, suppress = FALSE, ...)
 }
@@ -41,7 +45,7 @@ S3 classes so that each element can be passed on to another function
 }
 \description{
 This is a convenience function to get identifiers across all data sources.
-You can use other \code{get_*} functions to get identifiers from specific
+You can use other \verb{get_*} functions to get identifiers from specific
 sources if you like.
 }
 \note{
@@ -94,13 +98,20 @@ get_ids("Agapostemon", db = "ncbi", verbose = TRUE)
 \seealso{
 \code{\link[=classification]{classification()}}
 
-Other taxonomic-ids: \code{\link{get_boldid}},
-  \code{\link{get_colid}}, \code{\link{get_eolid}},
-  \code{\link{get_gbifid}}, \code{\link{get_iucn}},
-  \code{\link{get_natservid}}, \code{\link{get_nbnid}},
-  \code{\link{get_pow}}, \code{\link{get_tolid}},
-  \code{\link{get_tpsid}}, \code{\link{get_tsn}},
-  \code{\link{get_uid}}, \code{\link{get_wiki}},
-  \code{\link{get_wormsid}}
+Other taxonomic-ids: 
+\code{\link{get_boldid}()},
+\code{\link{get_colid}()},
+\code{\link{get_eolid}()},
+\code{\link{get_gbifid}()},
+\code{\link{get_iucn}()},
+\code{\link{get_natservid}()},
+\code{\link{get_nbnid}()},
+\code{\link{get_pow}()},
+\code{\link{get_tolid}()},
+\code{\link{get_tpsid}()},
+\code{\link{get_tsn}()},
+\code{\link{get_uid}()},
+\code{\link{get_wiki}()},
+\code{\link{get_wormsid}()}
 }
 \concept{taxonomic-ids}

@@ -27,6 +27,8 @@ pow_lookup(id = 'urn:lsid:ipni.org:names:320035-2',
 }
 }
 \seealso{
-Other pow: \code{\link{get_pow}}, \code{\link{pow_search}}
+Other pow: 
+\code{\link{get_pow}()},
+\code{\link{pow_search}()}
 }
 \concept{pow}

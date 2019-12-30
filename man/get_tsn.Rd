@@ -12,8 +12,15 @@
 \alias{get_tsn_}
 \title{Get the TSN code for a search term.}
 \usage{
-get_tsn(searchterm, searchtype = "scientific", accepted = FALSE,
-  ask = TRUE, messages = TRUE, rows = NA, ...)
+get_tsn(
+  searchterm,
+  searchtype = "scientific",
+  accepted = FALSE,
+  ask = TRUE,
+  messages = TRUE,
+  rows = NA,
+  ...
+)
 
 as.tsn(x, check = TRUE)
 
@@ -29,8 +36,14 @@ as.tsn(x, check = TRUE)
 
 \method{as.data.frame}{tsn}(x, ...)
 
-get_tsn_(searchterm, messages = TRUE, searchtype = "scientific",
-  accepted = TRUE, rows = NA, ...)
+get_tsn_(
+  searchterm,
+  messages = TRUE,
+  searchtype = "scientific",
+  accepted = TRUE,
+  rows = NA,
+  ...
+)
 }
 \arguments{
 \item{searchterm}{character; A vector of common or scientific names.
@@ -125,13 +138,20 @@ get_tsn_(c("asdfadfasd","Pinus contorta"), rows=1:5)
 \seealso{
 \code{\link[=classification]{classification()}}
 
-Other taxonomic-ids: \code{\link{get_boldid}},
-  \code{\link{get_colid}}, \code{\link{get_eolid}},
-  \code{\link{get_gbifid}}, \code{\link{get_ids}},
-  \code{\link{get_iucn}}, \code{\link{get_natservid}},
-  \code{\link{get_nbnid}}, \code{\link{get_pow}},
-  \code{\link{get_tolid}}, \code{\link{get_tpsid}},
-  \code{\link{get_uid}}, \code{\link{get_wiki}},
-  \code{\link{get_wormsid}}
+Other taxonomic-ids: 
+\code{\link{get_boldid}()},
+\code{\link{get_colid}()},
+\code{\link{get_eolid}()},
+\code{\link{get_gbifid}()},
+\code{\link{get_ids}()},
+\code{\link{get_iucn}()},
+\code{\link{get_natservid}()},
+\code{\link{get_nbnid}()},
+\code{\link{get_pow}()},
+\code{\link{get_tolid}()},
+\code{\link{get_tpsid}()},
+\code{\link{get_uid}()},
+\code{\link{get_wiki}()},
+\code{\link{get_wormsid}()}
 }
 \concept{taxonomic-ids}

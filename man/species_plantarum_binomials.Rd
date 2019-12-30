@@ -27,7 +27,7 @@ replacement (as in the 1957-1959 facsimile edition.
 }
 \description{
 These names have been compiled from
-\href{https://en.wikipedia.org/wiki/Species_Plantarum}{Species Plantarum} by
+\href{https://en.wikipedia.org/wiki/Species_Plantarum}{\emph{Species Plantarum}} by
 \href{https://en.wikipedia.org/wiki/Carl_Linnaeus}{Carl Linnaeus} originally
 published in 1753. It is the first work to consistently apply
 \href{https://en.wikipedia.org/wiki/Binomial_nomenclature}{binomial names}

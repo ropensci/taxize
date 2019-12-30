@@ -4,8 +4,14 @@
 \alias{eol_dataobjects}
 \title{Given the identifier for a data object, return all metadata about the object}
 \usage{
-eol_dataobjects(id, taxonomy = TRUE, language = NULL, usekey = TRUE,
-  key = NULL, ...)
+eol_dataobjects(
+  id,
+  taxonomy = TRUE,
+  language = NULL,
+  usekey = TRUE,
+  key = NULL,
+  ...
+)
 }
 \arguments{
 \item{id}{(character) The EOL data object identifier}

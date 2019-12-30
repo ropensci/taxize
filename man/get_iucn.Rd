@@ -57,7 +57,7 @@ and not the taxonomic identifier
 read on the taxon - includes the taxonomic identifier in the URL somewhere
 }
 
-\emph{multiple_matches} and \emph{pattern_match} do not apply here as in other \code{get_*}
+\emph{multiple_matches} and \emph{pattern_match} do not apply here as in other \verb{get_*}
 methods since there is no IUCN Redlist search, so you either get a match or
 you do not get a match.
 }
@@ -88,13 +88,20 @@ as.iucn(data.frame(res))
 }
 }
 \seealso{
-Other taxonomic-ids: \code{\link{get_boldid}},
-  \code{\link{get_colid}}, \code{\link{get_eolid}},
-  \code{\link{get_gbifid}}, \code{\link{get_ids}},
-  \code{\link{get_natservid}}, \code{\link{get_nbnid}},
-  \code{\link{get_pow}}, \code{\link{get_tolid}},
-  \code{\link{get_tpsid}}, \code{\link{get_tsn}},
-  \code{\link{get_uid}}, \code{\link{get_wiki}},
-  \code{\link{get_wormsid}}
+Other taxonomic-ids: 
+\code{\link{get_boldid}()},
+\code{\link{get_colid}()},
+\code{\link{get_eolid}()},
+\code{\link{get_gbifid}()},
+\code{\link{get_ids}()},
+\code{\link{get_natservid}()},
+\code{\link{get_nbnid}()},
+\code{\link{get_pow}()},
+\code{\link{get_tolid}()},
+\code{\link{get_tpsid}()},
+\code{\link{get_tsn}()},
+\code{\link{get_uid}()},
+\code{\link{get_wiki}()},
+\code{\link{get_wormsid}()}
 }
 \concept{taxonomic-ids}

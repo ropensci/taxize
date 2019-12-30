@@ -4,7 +4,7 @@
 #'
 #' @export
 #' @param x character; Scientific name. Should be cleaned and in the
-#' format *<Genus> <Species>*.
+#' format `*<Genus> <Species>*`.
 #' @param parallel logical; Search in parallel to speed up search. You have to
 #' register a parallel backend if `TRUE`. See e.g., doMC, doSNOW, etc.
 #' @param distr_detail logical; If `TRUE`, the geographic distribution is

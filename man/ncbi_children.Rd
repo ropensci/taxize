@@ -4,9 +4,17 @@
 \alias{ncbi_children}
 \title{Search NCBI for children of a taxon}
 \usage{
-ncbi_children(name = NULL, id = NULL, start = 0, max_return = 1000,
-  ancestor = NULL, out_type = c("summary", "uid"), ambiguous = FALSE,
-  key = NULL, ...)
+ncbi_children(
+  name = NULL,
+  id = NULL,
+  start = 0,
+  max_return = 1000,
+  ancestor = NULL,
+  out_type = c("summary", "uid"),
+  ambiguous = FALSE,
+  key = NULL,
+  ...
+)
 }
 \arguments{
 \item{name}{(\code{character}) The string to search for. Only exact matches
@@ -18,7 +26,7 @@ found the name given will be returned. Not compatible with \code{id}.}
 \item{start}{The first record to return. If omitted, the results are
 returned from the first record (start=0).}
 
-\item{max_return}{(\code{numeric; length=1}) The maximum number of children
+\item{max_return}{(\verb{numeric; length=1}) The maximum number of children
 to return.}
 
 \item{ancestor}{(\code{character}) The ancestor of the taxon being searched
@@ -32,7 +40,7 @@ and rank.
 \item \code{uid} A list of character vectors of children uids
 }}
 
-\item{ambiguous}{\code{logical; length 1} If \code{FALSE}, children taxa
+\item{ambiguous}{\verb{logical; length 1} If \code{FALSE}, children taxa
 with words like "unclassified", "unknown", "uncultured", or "sp." are
 removed from the output. NOTE: This option only applies when
 \code{out_type= "summary"}.}

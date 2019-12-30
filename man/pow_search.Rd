@@ -53,7 +53,9 @@ asc$data$name
 \url{http://powo.science.kew.org/}
 }
 \seealso{
-Other pow: \code{\link{get_pow}}, \code{\link{pow_lookup}}
+Other pow: 
+\code{\link{get_pow}()},
+\code{\link{pow_lookup}()}
 }
 \author{
 Scott Chamberlain, \email{myrmecocystus@gmail.com}

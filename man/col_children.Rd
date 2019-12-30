@@ -4,8 +4,15 @@
 \alias{col_children}
 \title{Search Catalogue of Life for for direct children of a particular taxon.}
 \usage{
-col_children(name = NULL, id = NULL, format = NULL, start = NULL,
-  checklist = NULL, extant_only = FALSE, ...)
+col_children(
+  name = NULL,
+  id = NULL,
+  format = NULL,
+  start = NULL,
+  checklist = NULL,
+  extant_only = FALSE,
+  ...
+)
 }
 \arguments{
 \item{name}{The string to search for. Only exact matches found the name given
