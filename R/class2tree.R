@@ -325,7 +325,8 @@ taxonomy_table_creator <- function(nameList,rankList){
 
     ### convert into long format
     # mTaxonDf <- suppressWarnings(melt(taxonDf,id = "tip"))
-    mTaxonDf <- setDF(suppressWarnings(data.table::melt(as.data.table(taxonDf), id = "tip")))
+    mTaxonDf <- setDF(suppressWarnings(data.table::melt(as.data.table(taxonDf),
+      id = "tip")))
 
     ### get rank names and corresponding IDs
     splitCol <- data.frame(do.call('rbind',
