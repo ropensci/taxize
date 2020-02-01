@@ -100,7 +100,6 @@ Imports:
     cli,
     phangorn
 Suggests:
-    roxygen2 (>= 6.1.1),
     testthat,
     knitr,
     vegan,
