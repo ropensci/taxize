@@ -69,11 +69,10 @@
 #' @importFrom utils URLencode citation download.file read.delim write.table tail
 #' @importFrom ape read.tree as.phylo.hclust plot.phylo
 #' @importFrom jsonlite fromJSON toJSON
-#' @importFrom data.table rbindlist setDF transpose
+#' @importFrom data.table rbindlist setDF transpose melt dcast as.data.table
 #' @importFrom foreach foreach %do%
 #' @importFrom stringr str_extract str_split str_replace str_replace_all
 #' @importFrom plyr failwith rbind.fill llply ldply ddply l_ply summarise colwise .
-#' @importFrom reshape2 melt dcast
 #' @importFrom xml2 xml_text xml_find_first xml_find_all xml_children read_xml
 #' xml_name xml_ns as_list
 #' @importFrom R6 R6Class

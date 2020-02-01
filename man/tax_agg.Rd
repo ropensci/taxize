@@ -74,7 +74,7 @@ if (requireNamespace("vegan", quietly = TRUE)) {
 spnames <- c('Puma','Ursus americanus','Ursidae')
 df <- data.frame(c(1,2,3), c(11,12,13), c(1,4,50))
 names(df) <- spnames
-out <- tax_agg(df, rank = 'family', db='itis')
+out <- tax_agg(x=df, rank = 'family', db='itis')
 out$x
 
 # You can input a matrix too

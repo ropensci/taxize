@@ -55,7 +55,7 @@
 #' spnames <- c('Puma','Ursus americanus','Ursidae')
 #' df <- data.frame(c(1,2,3), c(11,12,13), c(1,4,50))
 #' names(df) <- spnames
-#' out <- tax_agg(df, rank = 'family', db='itis')
+#' out <- tax_agg(x=df, rank = 'family', db='itis')
 #' out$x
 #'
 #' # You can input a matrix too
@@ -72,8 +72,9 @@ tax_agg <- function(x, rank, db = 'ncbi', messages=FALSE, ...)
     x <- data.frame(x, check.names = FALSE)
   }
   # bring to long format
+  # df_m <- data.table::melt(x)
   x$rownames <- rownames(x)
-  df_m <- melt(x, id = 'rownames')
+  df_m <- setDF(suppressWarnings(data.table::melt(as.data.table(x))))
 
   # aggregate to family level (by querying NCBI for taxonomic classification)
   uniq_tax <- as.character(unique(df_m$variable))
@@ -87,8 +88,8 @@ tax_agg <- function(x, rank, db = 'ncbi', messages=FALSE, ...)
   df_merged$agg <- ifelse(is.na(df_merged$agg), df_merged$variable, df_merged$agg)
 
   # bring back to long format and aggregate
-  df_l <- dcast(df_merged, rownames ~ agg,
-                value.var = 'value', fun.aggregate = sum)
+  df_l <- setDF(data.table::dcast(as.data.table(df_merged),
+    rownames ~ agg, value.var = 'value', fun.aggregate = sum))
 
   rownames(df_l) <- df_l$rownames
   df_l$rownames <- NULL
