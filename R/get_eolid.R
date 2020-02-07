@@ -167,7 +167,7 @@ get_eolid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
         names(dfs) <- pageids
         dfs <- tc(dfs)
         if (length(dfs) > 1) dfs <- dfs[!sapply(dfs, nrow) == 0]
-        df <- ldply(dfs)
+        df <- dt2df(dfs)
         df <- rename(df, c(".id" = "pageid", "identifier" = "eolid",
           "scientificname" = "name", "nameaccordingto" = "source",
           "taxonrank" = "rank"))
@@ -406,7 +406,7 @@ get_eolid_help <- function(sciname, messages, key, rows, ...){
       names(dfs) <- pageids
       dfs <- tc(dfs)
       if (length(dfs) > 1) dfs <- dfs[!sapply(dfs, nrow) == 0]
-      dfs <- ldply(dfs)
+      dfs <- dt2df(dfs)
       df <- dfs[,c('.id','identifier','scientificname','nameaccordingto')]
       names(df) <- c('pageid','eolid','name','source')
       if (NROW(df) == 0) NULL else sub_rows(df, rows)

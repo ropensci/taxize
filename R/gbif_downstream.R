@@ -63,9 +63,10 @@ gbif_downstream <- function(key, downto, intermediate = FALSE, limit = 100,
   iter <- 0
   while (stop_ == "not") {
     iter <- iter + 1
-    temp <- ldply(key, function(x) gbif_name_usage_clean(x))
-    tt <- ldply(temp$key, function(x) gbif_name_usage_children(x,
-      limit = limit, start = start, ...))
+    temp <- dt2df(lapply(key, function(x) gbif_name_usage_clean(x)),
+      idcol = FALSE)
+    tt <- dt2df(lapply(temp$key, function(x) gbif_name_usage_children(x,
+      limit = limit, start = start, ...)), idcol = FALSE)
     tt <- prune_too_low(tt, downto)
 
     if (NROW(tt) == 0) {
@@ -91,7 +92,7 @@ gbif_downstream <- function(key, downto, intermediate = FALSE, limit = 100,
     if (intermediate) intermed[[iter]] <- intermed[[iter]]
   } # end while loop
 
-  tmp <- ldply(out)
+  tmp <- dt2df(out, idcol = FALSE)
   if (intermediate) {
     list(target = tmp, intermediate = intermed)
   } else {
@@ -109,7 +110,7 @@ gbif_name_usage_clean <- function(x, ...) {
 
 gbif_name_usage_children <- function(x, limit = 100, start = NULL, ...) {
   tt <- gbif_name_usage(x, data = 'children', limit = limit, start = start, ...)$results
-  rbind.fill(lapply(tt, function(z) {
+  dt2df(lapply(tt, function(z) {
     z <- z[sapply(z, length) != 0]
     df <- data.frame(z, stringsAsFactors = FALSE)
     df$rank <- tolower(df$rank)
@@ -126,5 +127,5 @@ gbif_name_usage_children <- function(x, limit = 100, start = NULL, ...) {
     dd <- stats::setNames(dd, c('name', 'rank', 'key'))
     dd$name_type <- type
     dd
-  }))
+  }), idcol = FALSE)
 }

@@ -46,7 +46,7 @@ tp_search <- function(name=NULL, commonname=NULL, nameid=NULL, orderby=NULL,
                   pagesize=pagesize, startrow=startrow, type=type, apikey=key))
   tt <- tp_GET(url, args, raise = FALSE, ...)
   out <- jsonlite::fromJSON(tt, FALSE)
-  tmp <- do.call(rbind.fill, lapply(out, data.frame, stringsAsFactors = FALSE))
+  tmp <- dt2df(lapply(out, data.frame, stringsAsFactors = FALSE), idcol = FALSE)
   stats::setNames(tmp, tolower(names(tmp)))
 }
 

@@ -127,24 +127,6 @@ filt <- function(df, rank, z) {
   }
 }
 
-# failwith replacment ------------------
-try_default <- function(expr, default, quiet = FALSE){
-  result <- default
-  if (quiet) {
-    tryCatch(result <- expr, error = function(e) {
-    })
-  }
-  else {
-    try(result <- expr)
-  }
-  result
-}
-
-failwith <- function(default = NULL, f, quiet = FALSE){
-  f <- match.fun(f)
-  function(...) try_default(f(...), default, quiet = quiet)
-}
-
 argsnull <- function(x) {
   if (length(x) == 0) {
     NULL
@@ -280,3 +262,6 @@ warn_db <- function(x, type) {
     }
   }
 }
+
+strextract <- function(str, pattern) regmatches(str, regexpr(pattern, str))
+strexec <- function(str, pattern) regmatches(str, regexec(pattern, str))

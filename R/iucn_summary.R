@@ -5,8 +5,6 @@
 #' @export
 #' @param x character; Scientific name. Should be cleaned and in the
 #' format `*<Genus> <Species>*`.
-#' @param parallel logical; Search in parallel to speed up search. You have to
-#' register a parallel backend if `TRUE`. See e.g., doMC, doSNOW, etc.
 #' @param distr_detail logical; If `TRUE`, the geographic distribution is
 #' returned as a list of vectors corresponding to the different range types:
 #' native, introduced, etc.
@@ -75,27 +73,18 @@
 #' # If you pass in an IUCN ID, you don't need to pass in a Redlist API Key
 #' # extract status
 #' iucn_status(iac)
-#'
-#' # using parallel, e.g., with doMC package, register cores first
-#' # library(doMC)
-#' # registerDoMC(cores = 2)
-#' # nms <- c("Panthera uncia", "Lynx lynx", "Ara chloropterus", "Lutra lutra")
-#' # (res <- iucn_summary(nms, parallel = TRUE))
 #' }
-iucn_summary <- function(x, parallel = FALSE, distr_detail = FALSE,
-                         key = NULL, ...) {
+iucn_summary <- function(x, distr_detail = FALSE, key = NULL, ...) {
   UseMethod("iucn_summary")
 }
 
 #' @export
-iucn_summary.default <- function(x, parallel = FALSE, distr_detail = FALSE,
-                                 key = NULL, ...) {
+iucn_summary.default <- function(x, distr_detail = FALSE, key = NULL, ...) {
   stop("no 'iucn_summary' method for ", class(x), call. = FALSE)
 }
 
 #' @export
-iucn_summary.character <- function(x, parallel = FALSE, distr_detail = FALSE,
-                                   key = NULL, ...) {
+iucn_summary.character <- function(x, distr_detail = FALSE, key = NULL, ...) {
   xid <- get_iucn(x, key = key, ...)
   if (any(is.na(xid))) {
     nas <- x[is.na(xid)]
@@ -109,14 +98,13 @@ iucn_summary.character <- function(x, parallel = FALSE, distr_detail = FALSE,
     }
   }
   xid <- as.numeric(xid)
-  res <- get_iucn_summary2(xid, parallel, distr_detail, key = key, ...)
+  res <- get_iucn_summary2(xid, distr_detail, key = key, ...)
   structure(stats::setNames(res, x), class = "iucn_summary")
 }
 
 #' @export
-iucn_summary.iucn <- function(x, parallel = FALSE, distr_detail = FALSE,
-                              key = NULL, ...) {
-  res <- get_iucn_summary2(x, parallel, distr_detail, key = key, ...)
+iucn_summary.iucn <- function(x, distr_detail = FALSE, key = NULL, ...) {
+  res <- get_iucn_summary2(x, distr_detail, key = key, ...)
   structure(stats::setNames(res, x), class = "iucn_summary")
 }
 
@@ -136,8 +124,8 @@ try_red <- function(fun, x, key, ...) {
 
 null_res <- list(status = NA, history = NA, distr = NA, trend = NA)
 
-get_iucn_summary2 <- function(query, parallel, distr_detail, key = NULL, ...) {
-  fun <- function(z) {
+get_iucn_summary2 <- function(query, distr_detail, key = NULL, ...) {
+  fun <- function(z, ...) {
     if (is.na(z)) return(null_res)
     res <- try_red(rredlist::rl_search, z, key, ...)
     if (!inherits(res, "error")) {
@@ -172,12 +160,7 @@ get_iucn_summary2 <- function(query, parallel, distr_detail, key = NULL, ...) {
     }
     return(out)
   }
-
-  if (parallel) {
-    llply(query, fun, .parallel = TRUE)
-  } else {
-    lapply(query, fun)
-  }
+  lapply(query, fun, ...)
 }
 
 #' Extractor functions for `iucn`-class.

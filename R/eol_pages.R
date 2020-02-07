@@ -105,7 +105,6 @@ eol_pages <- function(taxonconceptID, images_per_page=NULL, images_page=NULL,
   syns <- parseeoldata('synonyms', res)
   vernac <- parseeoldata('vernacularNames', res)
   refs <- parseeoldata('references', res)
-  # names(refs) <- "references"
   dataobj <- parseeoldata('dataObjects', res)
   list(scinames=scinames, synonyms=syns, vernacular=vernac, refs=refs,
     data_objects=dataobj)
@@ -120,7 +119,7 @@ parseeoldata <- function(x, y) {
     if (length(tmp) == 1) {
       tmp2 <- tmp[[1]]
     } else {
-      tmp2 <- ldply(tmp)
+      tmp2 <- dt2df(tmp, idcol = FALSE)
     }
     names(tmp2) <- tolower(names(tmp2))
     tmp2

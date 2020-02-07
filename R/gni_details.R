@@ -13,8 +13,6 @@
 #' @keywords globalnamesindex names taxonomy
 #' @examples \dontrun{
 #' gni_details(id = 17802847)
-#' library("plyr")
-#' ldply(list(1265133, 17802847), gni_details)
 #'
 #' # pass on curl options
 #' gni_details(id = 17802847, verbose = TRUE)
@@ -31,7 +29,7 @@ gni_details <- function(id, all_records = 1, ...) {
 	tt$raise_for_status()
   out <- jsonlite::fromJSON(tt$parse("UTF-8"), FALSE)
 	outdf <-
-		ldply(out$data, function(x)
+		dt2df(lapply(out$data, function(x)
 			data.frame(t(c(checknull(x$records[[1]]$created_at),
 				checknull(x$records[[1]]$updated_at),
 				checknull(x$records[[1]]$global_id),
@@ -43,7 +41,7 @@ gni_details <- function(id, all_records = 1, ...) {
 				checknull(x$records[[1]]$name_index_id),
 				checknull(x$records[[1]]$record_hash),
 				checknull(x$records[[1]]$local_id),
-				checknull(x$records[[1]]$nomenclatural_code_id) ))))
+				checknull(x$records[[1]]$nomenclatural_code_id) )))), idcol = FALSE)
 	stats::setNames(outdf, c(
 	  "created_at","updated_at","global_id","url","kingdom_id",
 	  "original_name_string","id","name_rank_id","name_index_id","record_hash",

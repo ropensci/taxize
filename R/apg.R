@@ -34,14 +34,14 @@ apgOrders <- function(...) {
   syn <- sapply(strsplit(syn, "=|\\s-"), strtrim)
   syn <- syn[vapply(syn, length, 1) != 0]
   synorig <- synorig[nchar(synorig) != 0]
-  syndf <- rbind.fill(lapply(syn, function(x) {
+  syndf <- dt2df(lapply(syn, function(x) {
     tmpdf <- rbind.data.frame(x)
     if (NCOL(tmpdf) == 2) {
       setNames(tmpdf, c("order", "synonym"))
     } else {
       setNames(tmpdf, c("order", "synonym", "comment"))
     }
-  }))
+  }), idcol = FALSE)
   syndf$accepted <- FALSE
   syndf$original <- synorig
 
@@ -72,14 +72,14 @@ apgFamilies <- function(...) {
   syn <- sapply(strsplit(tmp5, "=|\\s-"), strtrim)
   syn <- syn[vapply(syn, length, 1) != 0]
   synorig <- tmp5[nchar(tmp5) != 0]
-  syndf <- rbind.fill(lapply(syn, function(x) {
+  syndf <- dt2df(lapply(syn, function(x) {
     tmpdf <- rbind.data.frame(x)
     if (NCOL(tmpdf) == 2) {
       setNames(tmpdf, c("family", "order"))
     } else {
       setNames(tmpdf, c("family", "synonym", "order"))
     }
-  }))
+  }), idcol = FALSE)
   syndf[] <- lapply(syndf, as.character)
   syndf$accepted <- syndf$synonym
   syndf$accepted[is.na(syndf$accepted)] <- TRUE

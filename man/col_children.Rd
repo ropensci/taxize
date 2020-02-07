@@ -87,15 +87,11 @@ col_children(name="Apis", checklist=2009)
 out <- col_children(name=c("Buteo","Apis","Accipiter","asdf"),
   checklist = "2012")
 out$Apis # get just the output you want
-library("plyr")
-ldply(out) # or combine to one data.frame
 
 # or pass many id's
 ids <- c('abe977b1d27007a76dd12a5c93a637bf',
   'b2f88f382aa5568f93a97472c6be6516')
 out <- col_children(id = ids, checklist=2012)
-library("plyr")
-ldply(out) # combine to one data.frame
 
 # keep extant taxa only, prunes out extinct taxa
 col_children(name = "Insecta")

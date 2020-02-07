@@ -64,13 +64,11 @@ eol_search <- function(terms, page=1, exact=NULL, filter_tid=NULL,
   if (out$totalResults == 0 | length(out$results) == 0) {
     data.frame(pageid = NA, name = NA, stringsAsFactors = FALSE)
   } else {
-    tmp <- do.call(
-      "rbind.fill",
+    tmp <- dt2df(
       lapply(out$results, function(z) {
         z$content <- unique(unlist(z$content))
         data.frame(z, stringsAsFactors = FALSE)
-      })
-    )
+      }), idcol = FALSE)
     stats::setNames(tmp, c("pageid", "name", "link", "content"))
   }
 }

@@ -126,7 +126,7 @@ eol2comm <- function(x, simplify, ...){
       if (inherits(tmp, "error")) NULL else tmp$vernacular
     })
   )
-  tt <- ldply(dfs[sapply(dfs, class) == "data.frame"])
+  tt <- dt2df(dfs[sapply(dfs, class) == "data.frame"], idcol = FALSE)
   tt <- tt[!duplicated(tt), ]
   if (simplify) {
     ss <- as.character(tt$vernacularname)

@@ -16,11 +16,11 @@ tp_refs <- function(id, key = NULL, ...) {
   args <- tc(list(apikey = key, format = 'json'))
   tt <- tp_GET(url, args, ...)
   res <- jsonlite::fromJSON(tt, FALSE)
-  do.call(rbind.fill, lapply(res, function(x){
+  dt2df(lapply(res, function(x){
     x <- x$Reference
     names(x) <- tolower(names(x))
     data.frame(x, stringsAsFactors = FALSE)
-  }))
+  }), idcol = FALSE)
 }
 
 #' Return all reference records for for a taxon name with a given id.

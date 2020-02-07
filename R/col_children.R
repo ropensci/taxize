@@ -56,15 +56,11 @@
 #' out <- col_children(name=c("Buteo","Apis","Accipiter","asdf"),
 #'   checklist = "2012")
 #' out$Apis # get just the output you want
-#' library("plyr")
-#' ldply(out) # or combine to one data.frame
 #'
 #' # or pass many id's
 #' ids <- c('abe977b1d27007a76dd12a5c93a637bf',
 #'   'b2f88f382aa5568f93a97472c6be6516')
 #' out <- col_children(id = ids, checklist=2012)
-#' library("plyr")
-#' ldply(out) # combine to one data.frame
 #'
 #' # keep extant taxa only, prunes out extinct taxa
 #' col_children(name = "Insecta")
@@ -74,11 +70,11 @@ col_children <- function(name = NULL, id = NULL, format = NULL, start = NULL,
                          checklist = NULL, extant_only = FALSE, ...) {
 
 	if (is.null(id)) {
-		temp <- llply(name, search_col_safe, id = NULL, checklist = checklist,
+		temp <- lapply(name, search_col_safe, id = NULL, checklist = checklist,
 		              format = format, start = start, extant_only = extant_only, ...)
 		stats::setNames(temp, name)
 	} else {
-		temp <- llply(id, search_col_safe, name = NULL, checklist = checklist,
+		temp <- lapply(id, search_col_safe, name = NULL, checklist = checklist,
 		              format = format, start = start, extant_only = extant_only, ...)
 		stats::setNames(temp, id)
 	}
@@ -94,7 +90,7 @@ search_col <- function(name, id, checklist, format, start, extant_only, ...) {
   tt <- xml2::read_xml(out$parse("UTF-8"))
   search_col_child_df(tt, extant_only)
 }
-search_col_safe <- plyr::failwith(NULL, search_col)
+search_col_safe <- fail_with(NULL, search_col)
 
 search_col_child_df <- function(x, extant_only) {
   childtaxa_id <- xml_text(xml_find_all(x, "//child_taxa//id"))

@@ -68,8 +68,10 @@ genbank2uid <- function(id, batch_size = 100, key = NULL, ...) {
     if (length(raw_errors) > 0) {
       error_regexes <- c('^Invalid uid (.+) at position=[0-9]+$', 
                          '^Failed uid="(.+)"$')
-      error_ids <- lapply(error_regexes,
-                          function(r) stringr::str_match(raw_errors, r)[,2])
+      error_ids <- lapply(error_regexes, function(r) {
+        vapply(raw_errors, function(z) strexec(z, r)[[1]][2], "",
+          USE.NAMES=FALSE)
+      })
       error_ids <- unlist(error_ids)
       error_ids <- error_ids[!is.na(error_ids)]
       error_ids <- unique(error_ids)

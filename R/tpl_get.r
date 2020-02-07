@@ -64,7 +64,7 @@ tpl_get <- function(x, family = NULL, ...) {
 
   message("Downloading csv files to ", x, "...")
   dir.create(x, showWarnings = FALSE, recursive = TRUE)
-  plyr::l_ply(csvlinks, getcsv, x = x, .progress = "text")
+  invisible(lapply(csvlinks, getcsv, x = x))
   message("...el fin")
 }
 

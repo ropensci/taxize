@@ -51,6 +51,3 @@ itis_downstream(tsns = 154394, downto="tribe")
 itis_downstream(tsns = 154394, downto="tribe", intermediate=TRUE)
 }
 }
-\author{
-Scott Chamberlain \email{myrmecocystus@gmail.com}
-}

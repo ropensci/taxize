@@ -41,6 +41,3 @@ worms_downstream(id = 51, downto="subclass", intermediate=TRUE)
 worms_downstream(id = 105, downto="subclass")
 }
 }
-\author{
-Scott Chamberlain \email{myrmecocystus@gmail.com}
-}

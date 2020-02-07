@@ -18,7 +18,6 @@ test_that("col_downstream returns the correct class", {
 
 test_that("gives what's expected on input errors", {
   skip_on_cran()
-  library("plyr")
   expect_message(col_downstream(name="Pinus contorta", downto = "Species")[[1]], 
     "Try adjusting")
 })

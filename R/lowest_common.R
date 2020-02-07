@@ -225,7 +225,7 @@ get_class <- function(x, y, db, ...) {
     if (db == "uid") db <- "ncbi"
     classification(x, db = db, ...)
   } else {
-    yattr <- str_replace(attr(y, "db"), "ncbi", "uid")
+    yattr <- sub("ncbi", "uid", attr(y, "db"))
     if (yattr != db) {
       stop(sprintf("class_list input must be of class '%s'", db), call. = FALSE)
     }

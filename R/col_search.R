@@ -115,7 +115,6 @@ col_search <- function(name = NULL, id = NULL, start = NULL, checklist = NULL,
       full = col_meta(parse_full(tt), tt)
     )
   }
-  # safe_func <- plyr::failwith(NULL, func)
   if (is.null(id)) {
     stats::setNames(lapply(name, func, y = NULL, ...), name)
   } else {
@@ -142,7 +141,7 @@ col_meta <- function(y, x) {
 
 parse_terse <- function(x) {
   nodes <- x$results
-  ldply(nodes, parsecoldata)
+  dt2df(lapply(nodes, parsecoldata), idcol = FALSE)
 }
 
 parsecoldata <- function(x){

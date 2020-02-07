@@ -4,14 +4,11 @@
 \alias{iucn_summary}
 \title{Get a summary from the IUCN Red List}
 \usage{
-iucn_summary(x, parallel = FALSE, distr_detail = FALSE, key = NULL, ...)
+iucn_summary(x, distr_detail = FALSE, key = NULL, ...)
 }
 \arguments{
 \item{x}{character; Scientific name. Should be cleaned and in the
 format \verb{*<Genus> <Species>*}.}
-
-\item{parallel}{logical; Search in parallel to speed up search. You have to
-register a parallel backend if \code{TRUE}. See e.g., doMC, doSNOW, etc.}
 
 \item{distr_detail}{logical; If \code{TRUE}, the geographic distribution is
 returned as a list of vectors corresponding to the different range types:
@@ -88,12 +85,6 @@ iac[[1]]$distr
 # If you pass in an IUCN ID, you don't need to pass in a Redlist API Key
 # extract status
 iucn_status(iac)
-
-# using parallel, e.g., with doMC package, register cores first
-# library(doMC)
-# registerDoMC(cores = 2)
-# nms <- c("Panthera uncia", "Lynx lynx", "Ara chloropterus", "Lutra lutra")
-# (res <- iucn_summary(nms, parallel = TRUE))
 }
 }
 \seealso{

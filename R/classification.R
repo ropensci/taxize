@@ -415,7 +415,7 @@ classification.eolid <- function(id, callopts = list(), return_id = TRUE, ...) {
           z[sapply(z, is.null)] <- NA_character_
           data.frame(z, stringsAsFactors = FALSE)
         })
-        out <- do.call(rbind.fill, fff)[,c('scientificName',
+        out <- dt2df(fff, idcol = FALSE)[,c('scientificName',
           'taxonRank', 'taxonID')]
         # add querried taxon
         tr <- res$taxonRank
@@ -493,8 +493,8 @@ classification.tpsid <- function(id, callopts = list(), return_id = TRUE, ...) {
       if (names(out[[1]])[[1]] == "Error") {
         out <- data.frame(ScientificName = NA, Rank = NA)
       } else {
-        out <- do.call(rbind.fill,
-          lapply(out, data.frame))[,c('ScientificName','Rank', 'NameId')]
+        out <- dt2df(lapply(out, data.frame),
+          idcol = FALSE)[,c('ScientificName','Rank', 'NameId')]
       }
       names(out) <- c('name', 'rank', 'id')
       # Optionally return id of lineage
@@ -524,7 +524,7 @@ classification.gbifid <- function(id, callopts = list(),
       if (is(out, "simpleError")) {
         NA
       } else {
-        nms <- ldply(out[c('kingdom','phylum','class',
+        nms <- nmdlst2df(out[c('kingdom','phylum','class',
           'order','family','genus','species')])
         keys <- unname(unlist(out[paste0(c('kingdom','phylum','class',
           'order','family','genus','species'), "Key")]))
@@ -796,7 +796,7 @@ cbind.classification <- function(...) {
   }
   input <- x <- c(...)
   input <- input[vapply(x, function(z) inherits(z, "data.frame"), logical(1))]
-  tmp <- do.call(rbind.fill, lapply(input, gethiernames))
+  tmp <- dt2df(lapply(input, gethiernames), idcol = FALSE)
   tmp$query <- names(x)
   tmp$db <- attr(x, "db")
   tmp
@@ -811,7 +811,7 @@ rbind.classification <- function(...) {
   for (i in seq_along(x)) {
     x[[i]]$query <- names(x[i])
   }
-  df <- do.call(rbind.fill, x)
+  df <- dt2df(x, idcol = FALSE)
   df$db <- db
   return( df )
 }
@@ -839,14 +839,13 @@ cbind.classification_ids <- function(...) {
       values
     }
   }
-  dat <- do.call(rbind.fill, lapply(input, function(h){
+  dat <- dt2df(lapply(input, function(h){
     tmp <- lapply(h, gethiernames)
-    tmp <- do.call(rbind.fill, tmp)
+    tmp <- dt2df(tmp, idcol = FALSE)
     tmp$query <- names(h)
     tmp$db <- attr(h, "db")
     tmp
-  })
-  )
+  }), idcol = FALSE)
   move_col(tt = dat, y = c('query','db'))
 }
 
@@ -877,6 +876,6 @@ rbind.classification_ids <- function(...) {
     get[[i]] <- tmp
   }
 
-  tt <- if (length(get) == 1) get[[1]] else do.call(rbind.fill, get)
+  tt <- if (length(get) == 1) get[[1]] else dt2df(get, idcol = FALSE)
   move_col(tt, c('query', 'db'))
 }

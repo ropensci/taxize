@@ -29,9 +29,9 @@ tp_dist <- function(id, key=NULL, ...) {
   tt <- tp_GET(url, args, ...)
   out <- jsonlite::fromJSON(tt, FALSE)
   getdata <- function(x, which) data.frame(x[[which]])
-  locs <- do.call(rbind.fill, lapply(out, getdata, which = "Location"))
+  locs <- dt2df(lapply(out, getdata, which = "Location"), idcol = FALSE)
   names(locs) <- tolower(names(locs))
-  refs <- do.call(rbind.fill, lapply(out, getdata, which = "Reference"))
+  refs <- dt2df(lapply(out, getdata, which = "Reference"), idcol = FALSE)
   names(refs) <- tolower(names(refs))
 
   list(location = locs, reference = refs)

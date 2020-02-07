@@ -24,7 +24,7 @@ gbif_name_backbone <- function(name, rank = NULL, kingdom = NULL, phylum = NULL,
     dat <- data.frame(tt[!names(tt) %in% c("alternatives",
                                            "note")], stringsAsFactors = FALSE)
     if (!all(names(dat) %in% c('confidence', 'synonym', 'matchType'))) {
-      dd <- rbind.fill(dat, dd)
+      dd <- dt2df(list(dat, dd), idcol = FALSE)
     }
     if (limit > 0) {
       dd <- cols_move(dd, back_cols_use)

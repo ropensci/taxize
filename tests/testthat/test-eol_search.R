@@ -4,7 +4,11 @@ context("eol_search")
 test_that("eol_search returns the correct value", {
   skip_on_cran()
 
-	expect_that(eol_search(terms='Ursus americanus')$pageid[1], equals(328582))
+  aa <- eol_search(terms='Ursus americanus')
+  expect_is(aa, "data.frame")
+	expect_type(aa$pageid, "integer")
+  expect_type(aa$name, "character")
+  expect_type(aa$link, "character")
 })
 
 test_that("eol_search returns the correct class", {

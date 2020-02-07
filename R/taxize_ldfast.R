@@ -14,8 +14,8 @@ taxize_ldfast <- function(x, convertvec=FALSE){
   }
 
   if (convertvec) {
-    do.call(rbind.fill, lapply(x, convert2df))
+    dt2df(lapply(x, convert2df), idcol = FALSE)
   } else {
-    do.call(rbind.fill, x)
+    dt2df(x, idcol = FALSE)
   }
 }

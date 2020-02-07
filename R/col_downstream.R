@@ -89,17 +89,17 @@ col_downstream <- function(name = NULL, id = NULL, downto, format = NULL,
     while (stop_ == "not") {
       iter <- iter + 1
       if (is.null(x)) {
-        tt <- ldply(toget, function(z) {
+        tt <- dt2df(lapply(toget, function(z) {
           search_col_safe(name = NULL, id = z, checklist = checklist,
                           format = format, start = start,
                           extant_only = extant_only, ...)
-        })
+        }), idcol = FALSE)
       } else {
-        tt <- ldply(toget, function(z) {
+        tt <- dt2df(lapply(toget, function(z) {
           search_col_safe(name = z, id = NULL, checklist = checklist,
                           format = format, start = start,
                           extant_only = extant_only, ...)
-        })
+        }), idcol = FALSE)
       }
       # prune if too low
       tt <- prune_too_low_col(tt, downto)
@@ -135,12 +135,12 @@ col_downstream <- function(name = NULL, id = NULL, downto, format = NULL,
                          childtaxa_rank = NA)
     } else {
       res <- tc(out)
-      ret <- do.call(rbind.fill, res)
+      ret <- dt2df(res, idcol = FALSE)
     }
     if (intermediate) list(target = ret, intermediate = intermed) else ret
   } # end fxn func
 
-  safe_func <- plyr::failwith(NULL, func)
+  safe_func <- fail_with(NULL, func)
   if (is.null(id)) {
     temp <- setNames(lapply(name, safe_func, y = NULL,
                             checklist = checklist, format = format,

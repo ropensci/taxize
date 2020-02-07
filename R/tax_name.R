@@ -67,12 +67,13 @@ tax_name <- function(query, get, db = "itis", pref = 'ncbi', messages = TRUE,
     if (db == 'both') {
       match_uid <- do_ncbi(query, get, messages, TRUE, ...)
       match_tsn <- do_itis(query, get, messages, TRUE, ...)
-      setNames(
+      stats::setNames(
         data.frame(rbind(t(c("itis", match_tsn)), t(c("ncbi", match_uid))),
                    stringsAsFactors = FALSE), c("db", "query", get))
     }
   }
-  plyr::ldply(query, .fun = fun, get = get, db = db, messages = messages, ...)
+  tmp = lapply(query, fun, get = get, db = db, messages = messages, ...)
+  dt2df(tmp, idcol = FALSE)
 }
 
 do_ncbi <- function(query, get, messages, both=FALSE, rows = NA, ...) {

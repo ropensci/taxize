@@ -167,9 +167,7 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
     nms <- split(names, ceiling(seq_along(names)/500))
     datbits <- list()
     for (i in seq_along(nms)) {
-      tt <- data.frame(num = 1:length(nms[[i]]), names = nms[[i]])
-      tt <- data.frame(ddply(tt, .(num), summarise,
-                             paste0(num, "|", names))[,2])
+      tt <- data.frame(paste0(seq_along(nms[[i]]), "|", names))
       file <- tempfile(fileext = ".txt")
       write.table(tt, file = file, row.names = FALSE,
                   col.names = FALSE, quote = FALSE)
@@ -216,13 +214,13 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
   if (inherits(drill, "simpleError")) {
     out <- data.frame(NULL)
   } else {
-    data_2 <- ldply(data_, function(x)
-      data.frame(x[[1]], ldply( if (length(x[[2]]) == 0) {
+    data_2 <- dt2df(lapply(data_, function(x)
+      data.frame(x[[1]], dt2df( if (length(x[[2]]) == 0) {
       list(data.frame(name_string = "", data_source_title = "", score = NaN,
                       canonical_form = ""))
     } else {
       x[[2]]
-    }), stringsAsFactors = FALSE))
+    }, idcol = FALSE), stringsAsFactors = FALSE)), idcol = FALSE)
     names(data_2)[names(data_2) %in% to_rename] <-
       c("user_supplied_name", "submitted_name",
         "matched_name", "matched_name2")

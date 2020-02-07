@@ -227,15 +227,15 @@ rit_acc_name <- function(x, ...) {
 #' @rdname synonyms
 synonyms.colid <- function(id, ...) {
   warn_db(list(...), "col")
-  fun <- function(x) {
+  fun <- function(x, ...) {
     if (is.na(x)) {
       NA_character_
     } else {
       res <- col_synonyms(x, ...)
-      if (is.na(res)) tibble::tibble() else res
+      if (NROW(res) == 0) tibble::tibble() else res
     }
   }
-  stats::setNames(lapply(id, fun), id)
+  stats::setNames(lapply(id, fun, ...), id)
 }
 
 col_synonyms <- function(x, ...) {
@@ -255,12 +255,12 @@ col_synonyms <- function(x, ...) {
     if (!is.null(df)) {
       df$rank <- tolower(df$rank)
     } else {
-      df <- NA
+      df <- data.frame(NULL)
     }
 
     df
   } else {
-    NULL
+    data.frame(NULL)
   }
 }
 

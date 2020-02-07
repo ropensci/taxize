@@ -25,9 +25,9 @@ tp_accnames <- function(id, key = NULL, ...) {
     res[[1]]
   } else {
     vvv <- lapply(res, getdata)
-    syns <- do.call(rbind.fill, lapply(vvv, "[[", "syn"))
-    accs <- do.call(rbind.fill, lapply(vvv, "[[", "acc"))
-    refs <- do.call(rbind.fill, lapply(vvv, "[[", "ref"))
+    syns <- dt2df(lapply(vvv, "[[", "syn"), idcol = FALSE)
+    accs <- dt2df(lapply(vvv, "[[", "acc"), idcol = FALSE)
+    refs <- dt2df(lapply(vvv, "[[", "ref"), idcol = FALSE)
     list(synonyms = syns, acceptednames = accs, reference = refs)
   }
 }

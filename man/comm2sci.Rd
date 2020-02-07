@@ -59,11 +59,6 @@ comm2sci(commnames=c('annual blue grass','tree of heaven'), db='tropicos')
 comm2sci('blue whale', db = "worms")
 comm2sci(c('blue whale', 'dwarf surfclam'), db = "worms")
 
-# Output easily converts to a data.frame with plyr::ldply
-library(plyr)
-ldply(comm2sci(commnames=c('annual blue grass','tree of heaven'),
-  db='tropicos'))
-
 # ncbi: pass in uid's from get_uid() directly
 x <- get_uid("western capercaillie", modifier = "Common Name")
 comm2sci(x)

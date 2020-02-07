@@ -23,8 +23,6 @@ Uses the Global Names Index, see http://gni.globalnames.org/
 \examples{
 \dontrun{
 gni_details(id = 17802847)
-library("plyr")
-ldply(list(1265133, 17802847), gni_details)
 
 # pass on curl options
 gni_details(id = 17802847, verbose = TRUE)

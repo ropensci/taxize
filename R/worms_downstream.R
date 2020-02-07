@@ -11,9 +11,8 @@
 #' @param start (integer) Record number to start at
 #' @param ... crul options passed on to [crul::verb-GET]
 #' @return data.frame of taxonomic information downstream to family from e.g.,
-#'    Order, Class, etc., or if `intermediated=TRUE`, list of length two,
-#'    with target taxon rank names, and intermediate names.
-#' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
+#' Order, Class, etc., or if `intermediated=TRUE`, list of length two,
+#' with target taxon rank names, and intermediate names.
 #' @examples \dontrun{
 #' ## the genus Gadus
 #' worms_downstream(id = 125732, downto="species")
@@ -43,9 +42,9 @@ worms_downstream <- function(id, downto, intermediate = FALSE, start = 1,
   iter <- 0
   while (stop_ == "not") {
     iter <- iter + 1
-    temp <- ldply(id, worms_info, ...)
-    tt <- ldply(temp$AphiaID, function(x) worms_children(x, start = start, 
-      ...))
+    temp <- dt2df(lapply(id, worms_info, ...), idcol = FALSE)
+    tt <- dt2df(lapply(temp$AphiaID, function(x)
+      worms_children(x, start = start, ...)), idcol = FALSE)
     tt <- prune_too_low(tt, downto)
 
     if (NROW(tt) == 0) {
@@ -71,7 +70,7 @@ worms_downstream <- function(id, downto, intermediate = FALSE, start = 1,
     }
   } # end while loop
 
-  tmp <- ldply(out)
+  tmp <- dt2df(out, idcol = FALSE)
   if (intermediate) {
     list(target = tmp, intermediate = intermed)
   } else {

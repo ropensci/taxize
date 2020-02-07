@@ -25,7 +25,7 @@ tp_synonyms <- function(id, key = NULL, ...) {
   } else {
     dat <- lapply(res, function(x) lapply(x, data.frame, stringsAsFactors = FALSE))
     accepted <- dat[[1]]$AcceptedName
-    df <- do.call(rbind.fill, lapply(dat, "[[", "SynonymName"))
+    df <- dt2df(lapply(dat, "[[", "SynonymName"), idcol = FALSE)
     synonyms <- df[!duplicated.data.frame(df), ]
     names(accepted) <- tolower(names(accepted))
     names(synonyms) <- tolower(names(synonyms))

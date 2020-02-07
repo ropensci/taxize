@@ -78,7 +78,7 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
 
     if (getpost == "get") {
       if (!any(is.na(x))) {
-        query2 <- paste(str_replace_all(x, ' ', '+'), collapse = '%0A')
+        query2 <- paste(gsub(' ', '+', x), collapse = '%0A')
         args <- tc(list(query = query2, source = source, code = code))
         out <- cli$get("submit", query = args)
         error_handle(out)
@@ -120,8 +120,8 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
 
     # Parse results into data.frame
     df <- data.frame(rbindlist(lapply(out$names, parseres)))
-    f <- function(x) str_replace_all(x, pattern = "\\+", replacement = " ")
-    df2 <- colwise(f)(df)
+    f <- function(x) gsub("\\+", " ", x)
+    df2 <- data.frame(apply(df, 2, f), stringsAsFactors = FALSE)
 
     # replace quotes
     data.frame(apply(df2, c(1, 2), function(x) {
@@ -176,7 +176,7 @@ error_handle <- function(x, checkcontent = FALSE) {
     if ( "metadata" %in% names(jsonlite::fromJSON(x$parse("UTF-8"), FALSE)) ) {
       codes <- sapply(jsonlite::fromJSON(x$parse("UTF-8"), 
         FALSE)$metadata$sources, "[[", "status")
-      codes <- as.numeric(str_extract(codes, "[0-9]+"))
+      codes <- as.numeric(strextract(codes, "[0-9]+"))
       tocheck <- c(tocheck, codes)
     }
   }

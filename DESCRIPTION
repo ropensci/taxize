@@ -5,7 +5,7 @@ Description: Interacts with a suite of web 'APIs' for taxonomic tasks,
     species names, getting taxonomic hierarchies, fetching downstream and
     upstream taxonomic names, getting taxonomic synonyms, converting
     scientific to common names and vice versa, and more.
-Version: 0.9.91.93
+Version: 0.9.91.94
 License: MIT + file LICENSE
 URL: https://docs.ropensci.org/taxize (website),
     https://github.com/ropensci/taxize (devel),
@@ -80,17 +80,15 @@ Imports:
     crul (>= 0.7.0),
     xml2 (>= 1.2.0),
     jsonlite,
-    stringr,
-    plyr,
     foreach,
     ape,
     zoo,
-    bold (>= 0.8.6),
     data.table,
+    tibble (>= 1.2),
+    bold (>= 0.8.6),
     rredlist (>= 0.5.0),
     rotl (>= 3.0.0),
     ritis (>= 0.7.6),
-    tibble (>= 1.2),
     worrms (>= 0.4.0),
     natserv (>= 0.3.0),
     wikitaxa (>= 0.3.0),

@@ -23,7 +23,7 @@ gni_parse <- function(names, ...) {
   tt <- cli$get(query = list(names = names))
   tt$raise_for_status()
   out <- jsonlite::fromJSON(tt$parse("UTF-8"), FALSE)
-  rbind.fill(lapply(out, gni_parser))
+  dt2df(lapply(out, gni_parser), idcol = FALSE)
 }
 
 gni_parser <- function(x) {
@@ -38,8 +38,9 @@ gni_parser <- function(x) {
     "normalized","hybrid","parsed")], stringsAsFactors = FALSE)
   details_ <- x$scientificName$details[[1]]
   details_ <- details_[!names(details_) %in% 'status']
-  details <- rbind.fill(Map(function(x, y) data.frame(y, x,
-    stringsAsFactors = FALSE), details_, names(details_)))[,-3]
+  details <- dt2df(Map(function(x, y) data.frame(y, x,
+    stringsAsFactors = FALSE), details_, names(details_)),
+    idcol = FALSE)[,-3]
   details2 <- as.data.frame(t(data.frame(details[,2])))
   names(details2) <- details[,1]
   row.names(details2) <- NULL

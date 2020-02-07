@@ -31,9 +31,6 @@
 #' ## get intermediate taxa as a separate object
 #' ncbi_downstream(id = 7459, downto="species", intermediate = TRUE)
 #'
-#' ## get intermediate taxa as a separate object
-#' ncbi_downstream(id = 7459, downto="species", intermediate = TRUE)
-#'
 #' ## Lepidoptera
 #' ncbi_downstream(id = 7088, downto="superfamily")
 #'
@@ -88,7 +85,7 @@ ncbi_downstream <- function(id, downto, intermediate = FALSE, ...) {
     if (intermediate) intermed[[iter]] <- intermed[[iter]]
   } # end while loop
 
-  tmp <- ldply(out)
+  tmp <- dt2df(out, idcol = FALSE)
   if (intermediate) {
     list(target = tmp, intermediate = intermed)
   } else {

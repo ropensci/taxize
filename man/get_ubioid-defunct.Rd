@@ -3,89 +3,16 @@
 \name{get_ubioid}
 \alias{get_ubioid}
 \alias{as.ubioid}
-\alias{as.ubioid.ubioid}
-\alias{as.ubioid.character}
-\alias{as.ubioid.list}
-\alias{as.ubioid.numeric}
-\alias{as.ubioid.data.frame}
-\alias{as.data.frame.ubioid}
 \alias{get_ubioid_}
 \title{Get the uBio id for a search term}
 \usage{
-get_ubioid(
-  searchterm,
-  searchtype = "scientific",
-  ask = TRUE,
-  verbose = TRUE,
-  rows = NA,
-  family = NULL,
-  rank = NULL,
-  ...
-)
+get_ubioid(...)
 
-as.ubioid(x, check = TRUE)
+as.ubioid(...)
 
-\method{as.ubioid}{ubioid}(x, check = TRUE)
-
-\method{as.ubioid}{character}(x, check = TRUE)
-
-\method{as.ubioid}{list}(x, check = TRUE)
-
-\method{as.ubioid}{numeric}(x, check = TRUE)
-
-\method{as.ubioid}{data.frame}(x, check = TRUE)
-
-\method{as.data.frame}{ubioid}(x, ...)
-
-get_ubioid_(searchterm, verbose = TRUE, searchtype = "scientific", rows = NA)
-}
-\arguments{
-\item{searchterm}{character; A vector of common or scientific names.}
-
-\item{searchtype}{character; One of 'scientific' or 'common', or any unique abbreviation}
-
-\item{ask}{logical; should get_tsn be run in interactive mode?
-If TRUE and more than one TSN is found for teh species, the user is asked for
-input. If FALSE NA is returned for multiple matches.}
-
-\item{verbose}{logical; should progress be printed?}
-
-\item{rows}{numeric; Any number from 1 to infinity. If the default NA, all rows are considered.
-Note that this function still only gives back a ubioid class object with one to many identifiers.
-See \code{\link[=get_ubioid_]{get_ubioid_()}} to get back all, or a subset, of the raw data that you are
-presented during the ask process.}
-
-\item{family}{(character) A family name. Optional. See \code{Filtering} below.}
-
-\item{rank}{(character) A taxonomic rank name. See \code{\link[=rank_ref]{rank_ref()}} for possible
-options. Though note that some data sources use atypical ranks, so inspect the
-data itself for options. Optional. See \code{Filtering} below.}
-
-\item{...}{Ignored}
-
-\item{x}{Input to \code{\link[=as.ubioid]{as.ubioid()}}}
-
-\item{check}{logical; Check if ID matches any existing on the DB, only used in
-\code{\link[=as.ubioid]{as.ubioid()}}}
-}
-\value{
-A vector of uBio ids. If a taxon is not found NA is given. If more than one uBio
-id is found the function asks for user input (if ask = TRUE), otherwise returns NA.
-Comes with an attribute \emph{match} to investigate the reason for NA (either 'not found',
-'found' or if ask = FALSE 'NA due to ask=FALSE')
+get_ubioid_(...)
 }
 \description{
 THIS FUNCTION IS DEFUNCT.
 }
-\section{Filtering}{
-
-The parameters \code{family} an\code{rank}nk are not used in the search to the data
-provider, but are used in filtering the data down to a subset that is closer to the
-target you want.  For all these parameters,
-you can use regex strings since we use \code{\link[=grep]{grep()}} internally to match.
-Filtering narrows down to the set that matches your query, and removes the rest.
-}
-
-\seealso{
-\code{\link[=get_uid]{get_uid()}},\code{\link[=ubio_search]{ubio_search()}}
-}
+\keyword{internal}
