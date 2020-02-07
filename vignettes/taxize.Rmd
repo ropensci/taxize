@@ -1,13 +1,15 @@
-<!--
-%\VignetteEngine{knitr::knitr}
-%\VignetteIndexEntry{taxize vignette}
-%\VignetteEncoding{UTF-8}
--->
+---
+title: Introduction to taxize
+author: Scott Chamberlain
+date: "2020-02-07"
+output: rmarkdown::html_vignette
+vignette: >
+    %\VignetteIndexEntry{Introduction to taxize}
+    %\VignetteEngine{knitr::rmarkdown}
+    %\VignetteEncoding{UTF-8}
+---
 
 
-
-taxize vignette - a taxonomic toolbelt for R
-======
 
 `taxize` is a taxonomic toolbelt for R. `taxize` wraps APIs for a large suite of taxonomic databases availab on the web.
 
@@ -35,18 +37,15 @@ This is a common task in biology. We often have a list of species names and we w
 ```r
 temp <- gnr_resolve(names = c("Helianthos annus", "Homo saapiens"))
 head(temp)
-```
-
-```
 #> # A tibble: 6 x 5
-#>   user_supplied_na… submitted_name  matched_name     data_source_tit… score
-#>   <chr>             <chr>           <chr>            <chr>            <dbl>
-#> 1 Helianthos annus  Helianthos ann… Helianthus annus EOL               0.75
-#> 2 Helianthos annus  Helianthos ann… Helianthus annu… EOL               0.75
-#> 3 Helianthos annus  Helianthos ann… Helianthus annus uBio NameBank     0.75
-#> 4 Helianthos annus  Helianthos ann… Helianthus annu… Catalogue of Li…  0.75
-#> 5 Helianthos annus  Helianthos ann… Helianthus annu… ITIS              0.75
-#> 6 Helianthos annus  Helianthos ann… Helianthus annu… NCBI              0.75
+#>   user_supplied_name submitted_name  matched_name     data_source_title    score
+#>   <chr>              <chr>           <chr>            <chr>                <dbl>
+#> 1 Helianthos annus   Helianthos ann… Helianthus annus uBio NameBank         0.75
+#> 2 Helianthos annus   Helianthos ann… Helianthus annu… Catalogue of Life     0.75
+#> 3 Helianthos annus   Helianthos ann… Helianthus annu… ITIS                  0.75
+#> 4 Helianthos annus   Helianthos ann… Helianthus annu… NCBI                  0.75
+#> 5 Helianthos annus   Helianthos ann… Helianthus annu… GRIN Taxonomy for P…  0.75
+#> 6 Helianthos annus   Helianthos ann… Helianthus annu… Union 4               0.75
 ```
 
 The correct spellings are *Helianthus annuus* and *Homo sapiens*. Another approach uses the Taxonomic Name Resolution Service via the Taxosaurus API developed by iPLant and the Phylotastic organization. In this example, we provide a list of species names, some of which are misspelled, and we'll call the API with the *tnrs* function.
@@ -56,18 +55,15 @@ The correct spellings are *Helianthus annuus* and *Homo sapiens*. Another approa
 mynames <- c("Helianthus annuus", "Pinus contort", "Poa anua", "Abis magnifica",
   	"Rosa california", "Festuca arundinace", "Sorbus occidentalos","Madia sateva")
 tnrs(query = mynames, source = "iPlant_TNRS")[ , -c(5:7)]
-```
-
-```
 #>         submittedname        acceptedname    sourceid score
-#> 1 Sorbus occidentalos Sorbus occidentalis iPlant_TNRS  0.99
-#> 2  Festuca arundinace Festuca arundinacea iPlant_TNRS  0.99
-#> 3      Abis magnifica     Abies magnifica iPlant_TNRS  0.96
-#> 4       Pinus contort      Pinus contorta iPlant_TNRS  0.98
-#> 5            Poa anua           Poa annua iPlant_TNRS  0.96
-#> 6        Madia sateva        Madia sativa iPlant_TNRS  0.97
-#> 7   Helianthus annuus   Helianthus annuus iPlant_TNRS     1
-#> 8     Rosa california    Rosa californica iPlant_TNRS  0.99
+#> 1   Helianthus annuus   Helianthus annuus iPlant_TNRS  1.00
+#> 2       Pinus contort      Pinus contorta iPlant_TNRS  0.98
+#> 3            Poa anua           Poa annua iPlant_TNRS  0.96
+#> 4      Abis magnifica     Abies magnifica iPlant_TNRS  0.96
+#> 5     Rosa california    Rosa californica iPlant_TNRS  0.99
+#> 6  Festuca arundinace Festuca arundinacea iPlant_TNRS  0.99
+#> 7 Sorbus occidentalos Sorbus occidentalis iPlant_TNRS  0.99
+#> 8        Madia sateva        Madia sativa iPlant_TNRS  0.97
 ```
 
 It turns out there are a few corrections: e.g., *Madia sateva* should be *Madia sativa*, and *Rosa california* should be *Rosa californica*. Note that this search worked because fuzzy matching was employed to retrieve names that were close, but not exact matches. Fuzzy matching is only available for plants in the TNRS service, so we advise using EOL's Global Names Resolver if you need to resolve animal names.
@@ -80,9 +76,6 @@ Another common use case is when there are many synonyms for a species. In this e
 ```r
 mynames <- c("Helianthus annuus ssp. jaegeri", "Helianthus annuus ssp. lenticularis", "Helianthus annuus ssp. texanus")
 (tsn <- get_tsn(mynames, accepted = FALSE))
-```
-
-```
 ══  3 queries  ═══════════════
 ✔  Found:  Helianthus annuus ssp. jaegeri
 ✔  Found:  Helianthus annuus ssp. lenticularis
@@ -92,9 +85,6 @@ mynames <- c("Helianthus annuus ssp. jaegeri", "Helianthus annuus ssp. lenticula
 ● Total: 3 
 ● Found: 3 
 ● Not Found: 0
-```
-
-```
 [1] "525928" "525929" "525930"
 attr(,"class")
 [1] "tsn"
@@ -108,13 +98,7 @@ attr(,"uri")
 [1] "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=525928"
 [2] "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=525929"
 [3] "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=525930"
-```
-
-```r
 lapply(tsn, itis_acceptname)
-```
-
-```
 [[1]]
   submittedtsn      acceptedname acceptedtsn author
 1       525928 Helianthus annuus       36616     L.
@@ -138,9 +122,6 @@ A number of data sources in taxize provide the capability to retrieve higher tax
 ```r
 specieslist <- c("Abies procera","Pinus contorta")
 classification(specieslist, db = 'itis')
-```
-
-```
 #> ══  2 queries  ═══════════════
 #> ✔  Found:  Abies procera
 #> ✔  Found:  Pinus contorta
@@ -149,9 +130,6 @@ classification(specieslist, db = 'itis')
 #> ● Total: 2 
 #> ● Found: 2 
 #> ● Not Found: 0
-```
-
-```
 #> $`Abies procera`
 #>               name          rank     id
 #> 1          Plantae       kingdom 202422
@@ -195,9 +173,13 @@ Instead of a full classification, you may only want a single name, say a family 
 
 ```r
 tax_name(query = "Helianthus annuus", get = "family", db = "ncbi")
-```
-
-```
+#> ══  1 queries  ═══════════════
+#> ✔  Found:  Helianthus+annuus
+#> ══  Results  ═════════════════
+#> 
+#> ● Total: 1 
+#> ● Found: 1 
+#> ● Not Found: 0
 #>     db             query     family
 #> 1 ncbi Helianthus annuus Asteraceae
 ```
@@ -213,36 +195,27 @@ Below are a few examples. When you run these examples in R, you are presented wi
 
 ```r
 get_uid(sciname = "Pinus")
-```
-
-```
 #> ══  1 queries  ═══════════════
-#>   status     rank    division scientificname commonname    uid genus
-#> 1 active subgenus seed plants          Pinus hard pines 139271      
-#> 2 active    genus seed plants          Pinus              3337      
-#>   species subsp modificationdate
-#> 1               2017/06/14 00:00
-#> 2               2016/03/25 00:00
-#> ✔  Found:  Pinus
+#>   status     rank    division scientificname commonname    uid genus species
+#> 1 active subgenus seed plants          Pinus hard pines 139271              
+#> 2 active    genus seed plants          Pinus              3337              
+#>   subsp modificationdate
+#> 1       2017/06/14 00:00
+#> 2       2016/03/25 00:00
 #> ══  Results  ═════════════════
 #> 
 #> ● Total: 1 
-#> ● Found: 1 
+#> ● Found: 0 
 #> ● Not Found: 0
-```
-
-```
-#> [1] "139271"
+#> [1] NA
 #> attr(,"class")
 #> [1] "uid"
 #> attr(,"match")
-#> [1] "found"
+#> [1] "NA due to user input out of range"
 #> attr(,"multiple_matches")
 #> [1] TRUE
 #> attr(,"pattern_match")
 #> [1] FALSE
-#> attr(,"uri")
-#> [1] "https://www.ncbi.nlm.nih.gov/taxonomy/139271"
 ```
 
 In another example, you can pass in a long character vector of taxonomic names (although this one is rather short for demo purposes):
@@ -251,9 +224,6 @@ In another example, you can pass in a long character vector of taxonomic names (
 ```r
 splist <- c("annona cherimola", 'annona muricata', "quercus robur")
 get_tsn(searchterm = splist, searchtype = "scientific")
-```
-
-```
 #> ══  3 queries  ═══════════════
 #> ✔  Found:  annona cherimola
 #> ✔  Found:  annona muricata
@@ -263,9 +233,6 @@ get_tsn(searchterm = splist, searchtype = "scientific")
 #> ● Total: 3 
 #> ● Found: 3 
 #> ● Not Found: 0
-```
-
-```
 #> [1] "506198" "18098"  "19405" 
 #> attr(,"class")
 #> [1] "tsn"
@@ -295,9 +262,6 @@ Sometimes with these functions you get a lot of data back. In these cases you ma
 
 ```r
 get_nbnid(c("Zootoca vivipara","Pinus contorta"), rows = 1)
-```
-
-```
 #> ══  2 queries  ═══════════════
 #> ✔  Found:  Zootoca vivipara
 #> ✔  Found:  Pinus contorta
@@ -306,9 +270,6 @@ get_nbnid(c("Zootoca vivipara","Pinus contorta"), rows = 1)
 #> ● Total: 2 
 #> ● Found: 2 
 #> ● Not Found: 0
-```
-
-```
 #> [1] "NHMSYS0001706186" "NBNSYS0000004786"
 #> attr(,"class")
 #> [1] "nbnid"
@@ -328,9 +289,6 @@ Or you can select a range of rows
 
 ```r
 get_nbnid(c("Zootoca vivipara","Pinus contorta"), rows = 1:3)
-```
-
-```
 #> ══  2 queries  ═══════════════
 #> ✔  Found:  Zootoca vivipara
 #> ✔  Found:  Pinus contorta
@@ -339,9 +297,6 @@ get_nbnid(c("Zootoca vivipara","Pinus contorta"), rows = 1:3)
 #> ● Total: 2 
 #> ● Found: 2 
 #> ● Not Found: 0
-```
-
-```
 #> [1] "NHMSYS0001706186" "NBNSYS0000004786"
 #> attr(,"class")
 #> [1] "nbnid"
@@ -362,9 +317,6 @@ In addition, in case you don't want to do interactive name selection in the case
 ```r
 out <- get_nbnid_("Poa annua")
 NROW(out$`Poa annua`)
-```
-
-```
 #> [1] 25
 ```
 
@@ -373,9 +325,6 @@ That's a lot of data, so we can get only certain rows back
 
 ```r
 get_nbnid_("Poa annua", rows = 1:10)
-```
-
-```
 #> $`Poa annua`
 #>                guid     scientificName    rank taxonomicStatus
 #> 1  NBNSYS0000002544          Poa annua species        accepted
@@ -383,11 +332,11 @@ get_nbnid_("Poa annua", rows = 1:10)
 #> 3  NBNSYS0200003392   Triumfetta annua species        accepted
 #> 4  NBNSYS0200002555        Lonas annua species        accepted
 #> 5  NHMSYS0000456951  Carrichtera annua species        accepted
-#> 6  NHMSYS0000461801     Poa costiniana species        accepted
-#> 7  NHMSYS0000461805         Poa gunnii species        accepted
-#> 8  NHMSYS0000461817     Poa sieberiana species        accepted
-#> 9  NHMSYS0000461808      Poa ligularis species        accepted
-#> 10 NHMSYS0000461807 Poa labillardierei species        accepted
+#> 6  NHMSYS0000461817     Poa sieberiana species        accepted
+#> 7  NHMSYS0000461808      Poa ligularis species        accepted
+#> 8  NHMSYS0000461807 Poa labillardierei species        accepted
+#> 9  NHMSYS0000461805         Poa gunnii species        accepted
+#> 10 NHMSYS0000461801     Poa costiniana species        accepted
 ```
 
 ## Coerce numerics/alphanumerics to taxon IDs
@@ -399,41 +348,27 @@ For example, adfafd
 
 ```r
 as.gbifid(get_gbifid("Poa annua")) # already a uid, returns the same
-```
-
-```
 #> ══  1 queries  ═══════════════
 #>    gbifid             scientificname    rank   status matchtype
 #> 1 2704179               Poa annua L. species ACCEPTED     EXACT
 #> 2 8422205 Poa annua Cham. & Schltdl. species  SYNONYM     EXACT
 #> 3 7730008           Poa annua Steud. species DOUBTFUL     EXACT
-#> ✔  Found:  Poa annua
+#> ✖  Not Found:  Poa annua
 #> ══  Results  ═════════════════
 #> 
 #> ● Total: 1 
-#> ● Found: 1 
-#> ● Not Found: 0
-```
-
-```
-#> [1] "2704179"
+#> ● Found: 0 
+#> ● Not Found: 1
+#> [1] NA
 #> attr(,"class")
 #> [1] "gbifid"
 #> attr(,"match")
-#> [1] "found"
+#> [1] "not found"
 #> attr(,"multiple_matches")
 #> [1] TRUE
 #> attr(,"pattern_match")
 #> [1] FALSE
-#> attr(,"uri")
-#> [1] "https://www.gbif.org/species/2704179"
-```
-
-```r
 as.gbifid(2704179) # numeric
-```
-
-```
 #> [1] "2704179"
 #> attr(,"class")
 #> [1] "gbifid"
@@ -445,13 +380,7 @@ as.gbifid(2704179) # numeric
 #> [1] FALSE
 #> attr(,"uri")
 #> [1] "http://www.gbif.org/species/2704179"
-```
-
-```r
 as.gbifid("2704179") # character
-```
-
-```
 #> [1] "2704179"
 #> attr(,"class")
 #> [1] "gbifid"
@@ -463,13 +392,7 @@ as.gbifid("2704179") # character
 #> [1] FALSE
 #> attr(,"uri")
 #> [1] "http://www.gbif.org/species/2704179"
-```
-
-```r
 as.gbifid(list("2704179","2435099","3171445")) # list, either numeric or character
-```
-
-```
 #> [1] "2704179" "2435099" "3171445"
 #> attr(,"class")
 #> [1] "gbifid"
@@ -480,8 +403,7 @@ as.gbifid(list("2704179","2435099","3171445")) # list, either numeric or charact
 #> attr(,"pattern_match")
 #> [1] FALSE FALSE FALSE
 #> attr(,"uri")
-#> [1] "http://www.gbif.org/species/2704179"
-#> [2] "http://www.gbif.org/species/2435099"
+#> [1] "http://www.gbif.org/species/2704179" "http://www.gbif.org/species/2435099"
 #> [3] "http://www.gbif.org/species/3171445"
 ```
 
@@ -490,18 +412,9 @@ These `as.*()` functions do a quick check of the web resource to make sure it's 
 
 ```r
 system.time( replicate(3, as.gbifid(c("2704179","2435099","3171445"), check=TRUE)) )
-```
-
-```
 #>    user  system elapsed 
-#>   0.054   0.002   2.055
-```
-
-```r
+#>   0.048   0.001   2.761
 system.time( replicate(3, as.gbifid(c("2704179","2435099","3171445"), check=FALSE)) )
-```
-
-```
 #>    user  system elapsed 
 #>   0.002   0.000   0.002
 ```
@@ -514,9 +427,6 @@ If someone is not a taxonomic specialist on a particular taxon he likely does no
 ```r
 apis_col_id <- "015be25f6b061ba517f495394b80f108" # id for Apis, fetched beforehand to save time here
 downstream(apis_col_id, downto = "species", db = "col")
-```
-
-```
 #> $`015be25f6b061ba517f495394b80f108`
 #>                       childtaxa_id     childtaxa_name childtaxa_rank
 #> 1 7a4a38c5095963949d6d6ec917d471de Apis andreniformis        species
@@ -547,18 +457,15 @@ We can also request data from ITIS
 ```r
 apis_itis_id <- 154395 # id for Apis, fetched beforehand to save time here
 downstream(apis_itis_id, downto = "species", db = "itis")
-```
-
-```
 #> $`154395`
-#>      tsn parentname parenttsn          taxonname rankid rankname
-#> 1 154396       Apis    154395     Apis mellifera    220  species
-#> 2 763550       Apis    154395 Apis andreniformis    220  species
-#> 3 763551       Apis    154395        Apis cerana    220  species
-#> 4 763552       Apis    154395       Apis dorsata    220  species
-#> 5 763553       Apis    154395        Apis florea    220  species
-#> 6 763554       Apis    154395 Apis koschevnikovi    220  species
-#> 7 763555       Apis    154395   Apis nigrocincta    220  species
+#>      tsn parentname parenttsn rankname          taxonname rankid
+#> 1 154396       Apis    154395  species     Apis mellifera    220
+#> 2 763550       Apis    154395  species Apis andreniformis    220
+#> 3 763551       Apis    154395  species        Apis cerana    220
+#> 4 763552       Apis    154395  species       Apis dorsata    220
+#> 5 763553       Apis    154395  species        Apis florea    220
+#> 6 763554       Apis    154395  species Apis koschevnikovi    220
+#> 7 763555       Apis    154395  species   Apis nigrocincta    220
 #> 
 #> attr(,"class")
 #> [1] "downstream"
@@ -574,9 +481,6 @@ You may sometimes only want the direct children. We got you covered on that fron
 ```r
 # using the id for Apis we defined above for COL
 children(apis_col_id, db = "col")
-```
-
-```
 #> $`015be25f6b061ba517f495394b80f108`
 #>                       childtaxa_id     childtaxa_name childtaxa_rank
 #> 1 7a4a38c5095963949d6d6ec917d471de Apis andreniformis        species
@@ -606,9 +510,6 @@ The direct children (genera in this case) of _Pinaceae_ using NCBI data:
 
 ```r
 children("Pinaceae", db = "ncbi")
-```
-
-```
 #> $Pinaceae
 #>    childtaxa_id childtaxa_name childtaxa_rank
 #> 1        123600     Nothotsuga          genus
@@ -636,9 +537,6 @@ With accession numbers
 
 ```r
 genbank2uid(id = 'AJ748748')
-```
-
-```
 #> [[1]]
 #> [1] "282199"
 #> attr(,"class")
@@ -660,9 +558,6 @@ With gi numbers
 
 ```r
 genbank2uid(id = 62689767)
-```
-
-```
 #> [[1]]
 #> [1] "282199"
 #> attr(,"class")
@@ -694,9 +589,6 @@ B2 <- "gammarus"
 B3 <- "gammaridae"
 
 A_clas <- classification(A, db = 'ncbi')
-```
-
-```
 #> ══  1 queries  ═══════════════
 #> ✔  Found:  gammarus+roeseli
 #> ══  Results  ═════════════════
@@ -704,13 +596,7 @@ A_clas <- classification(A, db = 'ncbi')
 #> ● Total: 1 
 #> ● Found: 1 
 #> ● Not Found: 0
-```
-
-```r
 B1_clas <- classification(B1, db = 'ncbi')
-```
-
-```
 #> ══  1 queries  ═══════════════
 #> ✔  Found:  gammarus+roeseli
 #> ══  Results  ═════════════════
@@ -718,13 +604,7 @@ B1_clas <- classification(B1, db = 'ncbi')
 #> ● Total: 1 
 #> ● Found: 1 
 #> ● Not Found: 0
-```
-
-```r
 B2_clas <- classification(B2, db = 'ncbi')
-```
-
-```
 #> ══  1 queries  ═══════════════
 #> ✔  Found:  gammarus
 #> ══  Results  ═════════════════
@@ -732,13 +612,7 @@ B2_clas <- classification(B2, db = 'ncbi')
 #> ● Total: 1 
 #> ● Found: 1 
 #> ● Not Found: 0
-```
-
-```r
 B3_clas <- classification(B3, db = 'ncbi')
-```
-
-```
 #> ══  1 queries  ═══════════════
 #> ✔  Found:  gammaridae
 #> ══  Results  ═════════════════
@@ -746,29 +620,12 @@ B3_clas <- classification(B3, db = 'ncbi')
 #> ● Total: 1 
 #> ● Found: 1 
 #> ● Not Found: 0
-```
 
-```r
 B1[match(A, B1)]
-```
-
-```
 #> [1] "gammarus roeseli"
-```
-
-```r
 A_clas[[1]]$rank[tolower(A_clas[[1]]$name) %in% B2]
-```
-
-```
 #> [1] "genus"
-```
-
-```r
 A_clas[[1]]$rank[tolower(A_clas[[1]]$name) %in% B3]
-```
-
-```
 #> [1] "family"
 ```
 

@@ -1,30 +1,37 @@
-<!--
-%\VignetteEngine{knitr::knitr}
-%\VignetteIndexEntry{Case study - resolving Species Plantarum names}
-%\VignetteEncoding{UTF-8}
--->
+---
+title: Case study - resolving Species Plantarum names
+author: Tim (@fozy81)
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+    %\VignetteIndexEntry{Case study}
+    %\VignetteEngine{knitr::rmarkdown}
+    %\VignetteEncoding{UTF-8}
+---
 
-```{r, eval=TRUE, echo=FALSE}
+```{r echo=FALSE}
+NOT_CRAN <- identical(tolower(Sys.getenv("NOT_CRAN")), "true")
 knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE,
   warning = FALSE,
   message = FALSE,
   error = FALSE,
-  cache = TRUE
+  cache = TRUE,
+  purl = NOT_CRAN,
+  eval = NOT_CRAN
 )
 ```
 
-Case study - resolving Species Plantarum names
-==============================================
-
-*Species Plantarum* by Carl Linnaeus originally published in 1753 and was the first work to consistently describe species using binominal names. It provides a reference point to chart how the usage of 5940 taxa described within have changed over time. So let's use the taxize package see if we can resolve these names and see their current status. 
+*Species Plantarum* by Carl Linnaeus originally published in 1753 and was the first work to consistently describe species using binominal names. It provides a reference point to chart how the usage of 5940 taxa (a subset of 500 used below) described within have changed over time. So let's use the taxize package see if we can resolve these names and see their current status. 
 
 Firstly, let's see how many of the names still exist in modern species catologues today. We can use the `resolve` function to query the Global Name Resolver.
 
 ```{r resolve}
 library("taxize")
 library("knitr")
-# load dataset of Species Plantarum names from the taxize package
-names <- species_plantarum_binomials
+# load a subset of Species Plantarum names from the taxize package
+names <- species_plantarum_binomials[1:500,]
 # Species Plantarum names are split into Genus and Species qualifier so need to be paste them
 # together to allow the full binominal names to be sent to the global name resolver
 names$species <- paste(names$genus, names$epithet)
@@ -48,7 +55,7 @@ The table above shows none of the data sources provided can resolve all of the n
 
 ```{r combine_resolve}
 gnr_names <- resolved_names[, c("submitted_name", "score")] 
-gnr_names <-  unique(gnr_names)
+gnr_names <- unique(gnr_names)
 
 merge_gnr_plantarum <- merge(names, gnr_names,
   by.x = "species", by.y = "submitted_name", all.x = TRUE)
@@ -73,7 +80,7 @@ set.seed(42)
 itis_sample <- itis_resolved[sample(rep(1:length(unique(itis_resolved))), 200)]
 # query ITIS (this may take some time)
 its_names <- get_tsn_(itis_sample)
-its_names_bind <- do.call("rbind",its_names)
+its_names_bind <- do.call("rbind", its_names)
 its_names_bind$n <- 1
 # count the number of names in each nameUsage category 
 its_names_agg <- aggregate(its_names_bind$n,
@@ -82,6 +89,6 @@ its_names_agg <- aggregate(its_names_bind$n,
 kable(its_names_agg)
 ```
 
-Of the thousands of *Species Plantarum* names found in the ITIS data source, a high number (of 200 randomly selected names) are still the 'accepted' name. This indicates Carl Linnaeus, as widely acknowledged, identified well-thought-out and pragmatic taxonomic concepts which have proved useful until the present day. 
+Of all the *Species Plantarum* names found in the ITIS data source, a high number (of 200 randomly selected names) are still the 'accepted' name. This indicates Carl Linnaeus, as widely acknowledged, identified well-thought-out and pragmatic taxonomic concepts which have proved useful until the present day. 
 
 Further research may discover why some names appear not to be used today in some data sources and where they are used, why some are no longer the accepted name.

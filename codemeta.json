@@ -10,7 +10,7 @@
   "codeRepository": "https://github.com/ropensci/taxize",
   "issueTracker": "https://github.com/ropensci/taxize/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.9.91.94",
+  "version": "0.9.92",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -143,6 +143,18 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=knitr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "rmarkdown",
+      "name": "rmarkdown",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=rmarkdown"
     },
     {
       "@type": "SoftwareApplication",
@@ -438,7 +450,7 @@
   "contIntegration": ["https://travis-ci.org/ropensci/taxize", "https://ci.appveyor.com/project/sckott/taxize-175/branch/master", "https://codecov.io/github/ropensci/taxize?branch=master"],
   "releaseNotes": "https://github.com/ropensci/taxize/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/taxize/blob/master/README.md",
-  "fileSize": "1465.429KB",
+  "fileSize": "1445.895KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
@@ -466,7 +478,7 @@
     },
     {
       "@type": "SoftwareSourceCode",
-      "datePublished": "2019",
+      "datePublished": "2020",
       "author": [
         {
           "@type": "Person",
@@ -551,7 +563,7 @@
       ],
       "name": "taxize: Taxonomic information from around the web",
       "url": "https://github.com/ropensci/taxize",
-      "description": "R package version 0.9.9"
+      "description": "R package version 0.9.92"
     }
   ],
   "applicationCategory": "Taxonomy",

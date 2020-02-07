@@ -10,7 +10,7 @@ CONTRIBUTING.md
 README.html
 README.Rmd
 inst/stuff/
-vignettes/taxize_vignette.md
+vignettes/taxize.md
 vignettes/taxize_infotable.md
 vignettes/margins.sty
 vignettes/cache/

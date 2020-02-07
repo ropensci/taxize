@@ -1,20 +1,26 @@
-<!--
-%\VignetteEngine{knitr::knitr}
-%\VignetteIndexEntry{taxize vignette}
-%\VignetteEncoding{UTF-8}
--->
+---
+title: Introduction to taxize
+author: Scott Chamberlain
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+    %\VignetteIndexEntry{Introduction to taxize}
+    %\VignetteEngine{knitr::rmarkdown}
+    %\VignetteEncoding{UTF-8}
+---
 
-```{r, eval=TRUE, echo=FALSE}
+```{r echo=FALSE}
+NOT_CRAN <- identical(tolower(Sys.getenv("NOT_CRAN")), "true")
 knitr::opts_chunk$set(
   comment = "#>",
+  collapse = TRUE,
   warning = FALSE,
   message = FALSE,
-  cache.path = "cache/"
+  cache.path = "cache/",
+  purl = NOT_CRAN,
+  eval = NOT_CRAN
 )
 ```
-
-taxize vignette - a taxonomic toolbelt for R
-======
 
 `taxize` is a taxonomic toolbelt for R. `taxize` wraps APIs for a large suite of taxonomic databases availab on the web.
 

@@ -1,13 +1,15 @@
-<!--
-%\VignetteEngine{knitr::knitr}
-%\VignetteIndexEntry{Strategies for programmatic name cleaning}
-%\VignetteEncoding{UTF-8}
--->
+---
+title: Strategies for programmatic name cleaning
+author: Scott Chamberlain
+date: "2020-02-07"
+output: rmarkdown::html_vignette
+vignette: >
+    %\VignetteIndexEntry{Strategies for programmatic name cleaning}
+    %\VignetteEngine{knitr::rmarkdown}
+    %\VignetteEncoding{UTF-8}
+---
 
 
-
-Strategies for programmatic name cleaning
-=========================================
 
 `taxize` offers interactive prompts when using `get_*()` functions (e.g., `get_tsn()`).
 These prompts make it easy in interactive use to select choices when there are more
@@ -112,13 +114,13 @@ has a sister method with and trailing underscore, e.g., `get_tsn()` and `get_tsn
 get_tsn_(searchterm = "Quercus b")
 #> $`Quercus b`
 #> # A tibble: 5 x 4
-#>   tsn    scientificName        commonNames                        nameUsage
-#>   <chr>  <chr>                 <chr>                              <chr>    
-#> 1 19300  Quercus bicolor       swamp white oak,chêne bicolore     accepted 
-#> 2 195166 Quercus boyntonii     Boynton's sand post oak,Boynton's… accepted 
-#> 3 195168 Quercus buckleyi      Texas oak,Buckley's oak            accepted 
-#> 4 506533 Quercus brantii       Brant's oak                        accepted 
-#> 5 507263 Quercus berberidifol… scrub oak                          accepted
+#>   tsn    scientificName         commonNames                           nameUsage
+#>   <chr>  <chr>                  <chr>                                 <chr>    
+#> 1 19300  Quercus bicolor        swamp white oak,chêne bicolore        accepted 
+#> 2 195166 Quercus boyntonii      Boynton's sand post oak,Boynton's oak accepted 
+#> 3 195168 Quercus buckleyi       Texas oak,Buckley's oak               accepted 
+#> 4 506533 Quercus brantii        Brant's oak                           accepted 
+#> 5 507263 Quercus berberidifolia scrub oak                             accepted
 ```
 
 The result is a single data.frame for each taxon queried, which can be
@@ -240,22 +242,21 @@ in a programmatic workflow straight away.
 ```r
 spp <- names_list(rank = "species", size = 10)
 gnr_resolve(names = spp, preferred_data_sources = 11)
-#> # A tibble: 13 x 5
-#>    user_supplied_na… submitted_name  matched_name    data_source_tit… score
-#>  * <chr>             <chr>           <chr>           <chr>            <dbl>
-#>  1 Camptochaete exc… Camptochaete e… Camptochaete e… GBIF Backbone T… 0.988
-#>  2 Hieracium opsian… Hieracium opsi… Hieracium opsi… GBIF Backbone T… 0.988
-#>  3 Hieracium opsian… Hieracium opsi… Hieracium opsi… GBIF Backbone T… 0.988
-#>  4 Acacia metroside… Acacia metrosi… Acacia metrosi… GBIF Backbone T… 0.988
-#>  5 Acacia metroside… Acacia metrosi… Acacia metrosi… GBIF Backbone T… 0.988
-#>  6 Acacia metroside… Acacia metrosi… Acacia metrosi… GBIF Backbone T… 0.988
-#>  7 Banksia cuneata   Banksia cuneata Banksia cuneat… GBIF Backbone T… 0.988
-#>  8 Entodon zikaiwei… Entodon zikaiw… Entodon zikaiw… GBIF Backbone T… 0.988
-#>  9 Allotropa virgata Allotropa virg… Allotropa virg… GBIF Backbone T… 0.988
-#> 10 Platanthera alpi… Platanthera al… Platanthera al… GBIF Backbone T… 0.988
-#> 11 Crepidophyllum m… Crepidophyllum… Crepidophyllum… GBIF Backbone T… 0.988
-#> 12 Cordia glaziovii  Cordia glaziov… Cordia glaziov… GBIF Backbone T… 0.988
-#> 13 Ophrys neocamusii Ophrys neocamu… Ophrys neocamu… GBIF Backbone T… 0.988
+#> # A tibble: 12 x 5
+#>    user_supplied_name submitted_name   matched_name       data_source_tit… score
+#>  * <chr>              <chr>            <chr>              <chr>            <dbl>
+#>  1 Cuscuta peduncula… Cuscuta peduncu… Cuscuta peduncula… GBIF Backbone T… 0.988
+#>  2 Cuscuta peduncula… Cuscuta peduncu… Cuscuta peduncula… GBIF Backbone T… 0.988
+#>  3 Draba jucunda      Draba jucunda    Draba jucunda W.W… GBIF Backbone T… 0.988
+#>  4 Bupleurum libanot… Bupleurum liban… Bupleurum libanot… GBIF Backbone T… 0.988
+#>  5 Penstemon ambiguus Penstemon ambig… Penstemon ambiguu… GBIF Backbone T… 0.988
+#>  6 Brachiolejeunea r… Brachiolejeunea… Brachiolejeunea r… GBIF Backbone T… 0.988
+#>  7 Echioides alba     Echioides alba   Echioides alba Po… GBIF Backbone T… 0.988
+#>  8 Festuca pseudogig… Festuca pseudog… Festuca pseudogig… GBIF Backbone T… 0.988
+#>  9 Festuca pseudogig… Festuca pseudog… Festuca pseudogig… GBIF Backbone T… 0.988
+#> 10 Orobanche medicag… Orobanche medic… Orobanche medicag… GBIF Backbone T… 0.988
+#> 11 Echeveria paradox… Echeveria parad… Echeveria paradox… GBIF Backbone T… 0.988
+#> 12 Deiregyne chartac… Deiregyne chart… Deiregyne chartac… GBIF Backbone T… 0.988
 ```
 
 ## Other functions

@@ -1,20 +1,25 @@
-<!--
-%\VignetteEngine{knitr::knitr}
-%\VignetteIndexEntry{Strategies for programmatic name cleaning}
-%\VignetteEncoding{UTF-8}
--->
+---
+title: Strategies for programmatic name cleaning
+author: Scott Chamberlain
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+    %\VignetteIndexEntry{Strategies for programmatic name cleaning}
+    %\VignetteEngine{knitr::rmarkdown}
+    %\VignetteEncoding{UTF-8}
+---
 
 ```{r echo=FALSE}
+NOT_CRAN <- identical(tolower(Sys.getenv("NOT_CRAN")), "true")
 knitr::opts_chunk$set(
   comment = "#>",
   collapse = TRUE,
   warning = FALSE,
-  message = FALSE
+  message = FALSE,
+  purl = NOT_CRAN,
+  eval = NOT_CRAN
 )
 ```
-
-Strategies for programmatic name cleaning
-=========================================
 
 `taxize` offers interactive prompts when using `get_*()` functions (e.g., `get_tsn()`).
 These prompts make it easy in interactive use to select choices when there are more

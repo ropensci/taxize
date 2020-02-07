@@ -1,11 +1,13 @@
-<!--
-%\VignetteEngine{knitr::knitr}
-%\VignetteIndexEntry{Key functions}
-%\VignetteEncoding{UTF-8}
--->
-
-Some key functions in taxize, what they do, and their data sources.
-======
+---
+title: Key functions in taxize
+author: Scott Chamberlain
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+    %\VignetteIndexEntry{Key functions in taxize}
+    %\VignetteEngine{knitr::rmarkdown}
+    %\VignetteEncoding{UTF-8}
+---
 
 Function name | What it does | Source |
 ----------- | ----------- | ----------- |
