@@ -1,7 +1,7 @@
 ## Test environments
 
-* local OS X install, R 3.6.1 Patched
-* ubuntu 14.04 (on travis-ci), R 3.6.1
+* local OS X install, R 3.6.2 Patched
+* ubuntu 16.04 (on travis-ci), R 3.6.2
 * win-builder (devel and release)
 
 ## R CMD check results
@@ -16,7 +16,7 @@ no errors or warnings were found related to this package.
 
 ------
 
-This version includes one function with a new parameter to toggle messages; many improvements and bug fixes.
+This version includes a new function for parsing scientific names, and drops 3 package imports.
 
 Thanks!
 Scott Chamberlain

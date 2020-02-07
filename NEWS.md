@@ -1,3 +1,18 @@
+taxize 0.9.92
+=============
+
+### NEW FEATURES
+
+* gains new function `gn_parse()` to access the Global Names scientific name parser. it's a super fast parser. see the section on name parsers (https://docs.ropensci.org/taxize/reference/index.html#section-name-parsers) for the 3 functions that do name parsing  (#794)
+* dropped packages from imports: reshape2, stringr, plyr (#795)
+* `get_wormsid()` gains two new parameters: `fuzzy` and `marine_only`; both are passed through to `worrms::wm_records_name()`/`worrms::wm_records_name()` (#790)
+
+### MINOR IMPROVEMENTS
+
+* no longer running taxon state examples on check (#791)
+* vignettes have names now in the pkg docs site (#772)
+* update docs for new roxygen2 version that suppoprts R6 (#793)
+
 taxize 0.9.91
 =============
 
