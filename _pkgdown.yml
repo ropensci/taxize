@@ -49,12 +49,18 @@ reference:
       - names_list
   - title: "Name Resolution Services"
     contents:
-      - starts_with("gni_")
+      - gni_details
+      - gni_search
       - starts_with("gnr_")
       - iplant_resolve
       - tnrs
       - tnrs_sources
       - tol_resolve
+  - title: "Name Parsers"
+    contents:
+      - gn_parse
+      - gni_parse
+      - gbif_parse
   - title: "NCBI Taxonomy"
     contents:
       - starts_with("ncbi_")
