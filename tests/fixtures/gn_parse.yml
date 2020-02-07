@@ -1,0 +1,38 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://parser.globalnames.org/api?q=Cyanistes%20caeruleus
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.91.96)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.91.96)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.2
+      date: Fri, 07 Feb 2020 19:46:08 GMT
+      content-type: text/plain; charset=utf-8
+      content-length: '486'
+      connection: keep-alive
+      x-varnish: 26489333 25230104
+      age: '0'
+      via: 1.1 varnish (Varnish/6.0)
+      access-control-allow-origin: '*'
+      access-control-allow-credentials: 'true'
+      accept-ranges: bytes
+    body:
+      encoding: UTF-8
+      file: no
+      string: |
+        [
+        {"parsed":true,"quality":1,"verbatim":"Cyanistes caeruleus","normalized":"Cyanistes caeruleus","canonicalName":{"full":"Cyanistes caeruleus","simple":"Cyanistes caeruleus","stem":"Cyanistes caerule"},"details":[{"genus":{"value":"Cyanistes"},"specificEpithet":{"value":"caeruleus"}}],"positions":[["genus",0,9],["specificEpithet",10,19]],"surrogate":false,"virus":false,"hybrid":false,"bacteria":false,"nameStringId":"88e91191-2617-571d-94ef-bf3fafd32c1e","parserVersion":"v0.12.0"}]
+  recorded_at: 2020-02-07 19:46:09 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
