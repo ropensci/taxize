@@ -450,7 +450,7 @@
   "contIntegration": ["https://travis-ci.org/ropensci/taxize", "https://ci.appveyor.com/project/sckott/taxize-175/branch/master", "https://codecov.io/github/ropensci/taxize?branch=master"],
   "releaseNotes": "https://github.com/ropensci/taxize/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/taxize/blob/master/README.md",
-  "fileSize": "1446.072KB",
+  "fileSize": "1446.094KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",

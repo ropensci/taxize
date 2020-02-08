@@ -7,7 +7,7 @@
 * URL: https://github.com/ropensci/spocc (devel), https://ropensci.github.io/spocc/ (user manual)
 * BugReports: https://github.com/ropensci/spocc/issues
 * Date/Publication: 2019-11-02 09:30:02 UTC
-* Number of recursive dependencies: 119
+* Number of recursive dependencies: 120
 
 Run `revdep_details(,"spocc")` for more info
 
@@ -30,7 +30,7 @@ Run `revdep_details(,"spocc")` for more info
        4. spocc:::foo_ecoengine(sources, x, y, p, z, hc, d, w, ecoengineopts)
       
       ══ testthat results  ═══════════════════════════════════════════════════════════
-      [ OK: 112 | SKIPPED: 9 | WARNINGS: 0 | FAILED: 1 ]
+      [ OK: 112 | SKIPPED: 9 | WARNINGS: 2 | FAILED: 1 ]
       1. Error: has_coords works with all data sources as planned (@test-has_coords.R#22) 
       
       Error: testthat unit tests failed

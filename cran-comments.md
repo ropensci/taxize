@@ -10,9 +10,9 @@
 
 ## Reverse dependencies
 
-* I have run R CMD check on the 23 downstream dependencies
-(<https://github.com/ropensci/taxize/blob/master/revdep/README.md>),
-no errors or warnings were found related to this package.
+* I have run R CMD check on the 22 downstream dependencies
+(<https://github.com/ropensci/taxize/blob/master/revdep/README.md>);
+there was an error in one package (spocc, also maintained by me) but only in the development version on GitHub, which I've fixed.
 
 ------
 
