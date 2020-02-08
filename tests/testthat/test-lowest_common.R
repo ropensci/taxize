@@ -4,6 +4,7 @@ force_http1_1 <- list(http_version = 2L)
 
 test_that("lowest_common works with ncbi, passing in classifications and doing internally", {
   skip_on_cran()
+  skip_on_travis()
 
   id <- c("9031", "9823", "9606", "9470")
   idc <- classification(id, db = 'ncbi', callopts = force_http1_1)

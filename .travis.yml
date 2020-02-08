@@ -30,5 +30,5 @@ notifications:
 
 env:
   global:
-    - R_CHECK_ARGS="--no-build-vignettes --no-manual --timings --as-cran --run-donttest"
+    - R_CHECK_ARGS="--no-build-vignettes --no-manual --timings --as-cran"
     - _R_CHECK_TIMINGS_="0"

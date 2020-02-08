@@ -2,6 +2,7 @@ context("tax_agg")
 
 test_that("tax_agg returns the correct class", {
   skip_on_cran()
+  skip_on_travis()
 
   suppressPackageStartupMessages(library("vegan"))
   data(dune, package='vegan')
