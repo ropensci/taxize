@@ -18,7 +18,9 @@ test_that("taxon_last", {
   # in more real context: get_gbifid call
   spp <- c("Spruceanthus marianus", "Bomarea costaricensis",
     "Rubus mindanaensis", "Columnea mira")
-  res <- get_gbifid(spp, messages = FALSE)
+  vcr::use_cassette("taxon_state_get_gbifid", {
+    res <- get_gbifid(spp, messages = FALSE)
+  })
   tl <- taxon_last()
   expect_is(tl, "taxon_state")
   expect_equal(tl$count, 4)
@@ -27,7 +29,9 @@ test_that("taxon_last", {
   # test another get_* fxn
   spp <- c("Spruceanthus marianus", "Bomarea costaricensis",
     "Rubus mindanaensis", "Columnea mira")
-  res <- get_uid(spp, messages = FALSE)
+  vcr::use_cassette("taxon_state_get_uid", {
+    res <- get_uid(spp, messages = FALSE)
+  })
   tl <- taxon_last()
   expect_is(tl, "taxon_state")
   expect_equal(tl$count, 4)

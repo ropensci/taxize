@@ -42,6 +42,7 @@ test_that("2014 year or older returns xmls", {
 
 test_that("col_search is robust to user error", {
   skip_on_cran()
+  skip_on_travis()
 
   Sys.sleep(1)
   expect_is(sw(col_search(name = "asdfsdf"))[[1]], "data.frame")

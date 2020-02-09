@@ -2,6 +2,7 @@ context("col_search_paginate_paginate")
 
 test_that("col_search_paginate works", {
   skip_on_cran()
+  skip_on_travis()
   
   temp <- col_search_paginate(name = "Apis")
   # two <- col_search_paginate(name = c("Apis", "Puma concolor"))
@@ -32,6 +33,7 @@ test_that("col_search_paginate works", {
 # some of these do HTTP requests
 test_that("col_search_paginate is robust to user error", {
   skip_on_cran()
+  skip_on_travis()
   expect_is(sw(col_search_paginate(name = "asdfsdf"))[[1]], "data.frame")
   # expect_is(sw(col_search_paginate(name = ""))[[1]], "data.frame")
   expect_is(col_search_paginate(), "list")
