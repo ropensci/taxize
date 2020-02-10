@@ -154,7 +154,8 @@ set_output_types <- function(x, x_names, db){
 
 process_children_ids <- function(input, db, fxn, ...){
   g <- tryCatch(as.numeric(as.character(input)), warning = function(e) e)
-  if (is(g, "numeric") || is.character(input) && grepl("[[:digit:]]", input)) {
+  if (inherits(g, "condition")) eval(fxn)(input, ...)
+  if (is.numeric(g) || is.character(input) && grepl("[[:digit:]]", input)) {
     as_fxn <- switch(db, itis = as.tsn, col = as.colid, worms = as.wormsid)
     as_fxn(input, check = FALSE)
   } else {
