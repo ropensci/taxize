@@ -209,6 +209,9 @@ parse_full <- function(x) {
         },
         `synonym` = {
          h <- parse_one(z)
+         # drop not accepted vars
+         h$id <- h$name <- h$rank <- h$name_status <- NULL
+         # set accepted name vars
          name <- z$accepted_name$name
          rank <- z$accepted_name$rank
          id <- z$accepted_name$id
@@ -237,8 +240,8 @@ parse_full <- function(x) {
       )
       target <- setNames(rbind.data.frame(
         c(z$name,
-          rank,
-          id,
+          z$rank,
+          z$id,
           z$name_status)),
         c("name", "rank", "id", "name_status"))
       target$rank <- tolower(target$rank)
@@ -257,11 +260,12 @@ parse_one <- function(z) {
   refs <- z$references
   refsie <- if (is.null(refs) || length(refs) == 0) FALSE else TRUE
   if (refsie) refs <- data.frame(tc(refs[[1]]), stringsAsFactors = FALSE)
-  lst <- pop(z, c("distribution", "classification", "synonyms", "common_names",
+  lst <- pop(z, c("id", "name", "rank", "name_status", "genus", "species",
+    "subgenus", "distribution", "classification", "synonyms", "common_names",
     "record_scrutiny_date", "references", "accepted_name", "child_taxa",
     "name_html"))
   df <- data.frame(lst, stringsAsFactors = FALSE)
-  if (is(scrut, "data.frame")) df <- cbind(df, scrut)
-  if (is(refs, "data.frame")) df <- cbind(df, refs)
+  if (is.data.frame(scrut)) df <- cbind(df, scrut)
+  # if (is.data.frame(refs)) df <- cbind(df, refs)
   df
 }

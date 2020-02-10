@@ -1,5 +1,5 @@
 #' col_search wrapper to iterate to get more than default results
-#' 
+#'
 #' @keywords internal
 #' @inheritParams col_search
 #' @examples
@@ -7,7 +7,7 @@
 col_search_paginate <- function(name = NULL, id = NULL, start = NULL,
   checklist = NULL, response = "terse", ...) {
 
-  res <- col_search(name = name, id = id, start = start, checklist = checklist, 
+  res <- col_search(name = name, id = id, start = start, checklist = checklist,
     response = response, ...)
 
   lapply(res, function(v) {
