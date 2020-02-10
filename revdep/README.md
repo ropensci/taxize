@@ -10,7 +10,7 @@
 |collate  |en_US.UTF-8                                 |
 |ctype    |en_US.UTF-8                                 |
 |tz       |US/Pacific                                  |
-|date     |2020-02-07                                  |
+|date     |2020-02-10                                  |
 
 # Dependencies
 
@@ -22,7 +22,7 @@
 
 ## New problems (1)
 
-|package                    |version |error  |warning |note |
-|:--------------------------|:-------|:------|:-------|:----|
-|[spocc](problems.md#spocc) |1.0.2   |__+1__ |        |     |
+|package                  |version |error |warning |note   |
+|:------------------------|:-------|:-----|:-------|:------|
+|[aptg](problems.md#aptg) |0.1.0   |      |        |__+1__ |
 
