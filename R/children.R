@@ -39,7 +39,6 @@
 #' children("161994", db = "itis")
 #'
 #' # Plug in taxon names
-#' children("Salmo", db = 'col')
 #' children("Salmo", db = 'itis')
 #' children("Salmo", db = 'ncbi')
 #' children("Salmo", db = 'worms')

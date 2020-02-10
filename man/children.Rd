@@ -71,7 +71,6 @@ children("578cbfd2674a9b589f19af71a33b89b6", db = "col")
 children("161994", db = "itis")
 
 # Plug in taxon names
-children("Salmo", db = 'col')
 children("Salmo", db = 'itis')
 children("Salmo", db = 'ncbi')
 children("Salmo", db = 'worms')
