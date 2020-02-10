@@ -197,7 +197,6 @@ invisible(get_gbifid("Quercus douglasii", verbose = TRUE))
 
 Other taxonomic-ids: 
 \code{\link{get_boldid}()},
-\code{\link{get_colid}()},
 \code{\link{get_eolid}()},
 \code{\link{get_ids}()},
 \code{\link{get_iucn}()},

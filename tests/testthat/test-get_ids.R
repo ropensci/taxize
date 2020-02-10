@@ -40,10 +40,10 @@ nn <- c('Imperata brasiliensis','Hylebates cordatus','Apocopis intermedius',
 test_that("works on a variety of names", {
   skip_on_cran()
 
-  expect_is(sw(get_ids(nn[13], db = c("ncbi", "itis", "col", "tropicos"),
+  expect_is(sw(get_ids(nn[13], db = c("ncbi", "itis", "tropicos"),
     suppress = TRUE, ask = FALSE, messages = FALSE)), "ids")
-  expect_is(sw(get_ids(nn[14], db = c("ncbi", "itis", "col", "tropicos"),
+  expect_is(sw(get_ids(nn[14], db = c("ncbi", "itis", "tropicos"),
     suppress = TRUE, ask = FALSE, messages = FALSE)), "ids")
-  expect_is(sw(get_ids(nn[15], db = c("ncbi", "itis", "col", "tropicos"),
+  expect_is(sw(get_ids(nn[15], db = c("ncbi", "itis", "tropicos"),
     suppress = TRUE, ask = FALSE, messages = FALSE)), "ids")
 })

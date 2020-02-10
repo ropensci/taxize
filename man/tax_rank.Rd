@@ -11,7 +11,7 @@ tax_rank(x, db = NULL, rows = NA, ...)
 IDs (character or numeric) to query. Or objects returned from \verb{get_*()}
 functions like \code{\link[=get_tsn]{get_tsn()}}}
 
-\item{db}{(character) database to query. either \code{ncbi}, \code{itis}, \code{eol}, \code{col},
+\item{db}{(character) database to query. either \code{ncbi}, \code{itis}, \code{eol},
 \code{tropicos}, \code{gbif},\code{nbn}, \code{worms}, \code{natserv}, \code{bold}. Note that each
 taxonomic data source has their own identifiers, so that if you provide the
 wrong \code{db} value for the identifier you may get a result, but it will

@@ -1,7 +1,7 @@
 ---
 title: Strategies for programmatic name cleaning
 author: Scott Chamberlain
-date: "2020-02-07"
+date: "2020-02-10"
 output: rmarkdown::html_vignette
 vignette: >
     %\VignetteIndexEntry{Strategies for programmatic name cleaning}
@@ -242,21 +242,20 @@ in a programmatic workflow straight away.
 ```r
 spp <- names_list(rank = "species", size = 10)
 gnr_resolve(names = spp, preferred_data_sources = 11)
-#> # A tibble: 12 x 5
-#>    user_supplied_name submitted_name   matched_name       data_source_tit… score
-#>  * <chr>              <chr>            <chr>              <chr>            <dbl>
-#>  1 Cuscuta peduncula… Cuscuta peduncu… Cuscuta peduncula… GBIF Backbone T… 0.988
-#>  2 Cuscuta peduncula… Cuscuta peduncu… Cuscuta peduncula… GBIF Backbone T… 0.988
-#>  3 Draba jucunda      Draba jucunda    Draba jucunda W.W… GBIF Backbone T… 0.988
-#>  4 Bupleurum libanot… Bupleurum liban… Bupleurum libanot… GBIF Backbone T… 0.988
-#>  5 Penstemon ambiguus Penstemon ambig… Penstemon ambiguu… GBIF Backbone T… 0.988
-#>  6 Brachiolejeunea r… Brachiolejeunea… Brachiolejeunea r… GBIF Backbone T… 0.988
-#>  7 Echioides alba     Echioides alba   Echioides alba Po… GBIF Backbone T… 0.988
-#>  8 Festuca pseudogig… Festuca pseudog… Festuca pseudogig… GBIF Backbone T… 0.988
-#>  9 Festuca pseudogig… Festuca pseudog… Festuca pseudogig… GBIF Backbone T… 0.988
-#> 10 Orobanche medicag… Orobanche medic… Orobanche medicag… GBIF Backbone T… 0.988
-#> 11 Echeveria paradox… Echeveria parad… Echeveria paradox… GBIF Backbone T… 0.988
-#> 12 Deiregyne chartac… Deiregyne chart… Deiregyne chartac… GBIF Backbone T… 0.988
+#> # A tibble: 11 x 5
+#>    user_supplied_name submitted_name   matched_name      data_source_title score
+#>  * <chr>              <chr>            <chr>             <chr>             <dbl>
+#>  1 Cordia borinquens… Cordia borinque… Cordia borinquen… GBIF Backbone Ta… 0.988
+#>  2 Lycianthes acidoc… Lycianthes acid… Lycianthes acido… GBIF Backbone Ta… 0.988
+#>  3 Physalis ampla     Physalis ampla   Physalis ampla W… GBIF Backbone Ta… 0.988
+#>  4 Cissus gastropus   Cissus gastropus Cissus gastropus… GBIF Backbone Ta… 0.988
+#>  5 Cissus gastropus   Cissus gastropus Cissus gastropus… GBIF Backbone Ta… 0.988
+#>  6 Pandanus insolitus Pandanus insoli… Pandanus insolit… GBIF Backbone Ta… 0.988
+#>  7 Calydorea nuda     Calydorea nuda   Calydorea nuda B… GBIF Backbone Ta… 0.988
+#>  8 Asarum tohokuense  Asarum tohokuen… Asarum tohokuens… GBIF Backbone Ta… 0.988
+#>  9 Acuan lata         Acuan lata       Acuan Medik.      GBIF Backbone Ta… 0.75 
+#> 10 Nothocestrum long… Nothocestrum lo… Nothocestrum lon… GBIF Backbone Ta… 0.988
+#> 11 Coccinia intermed… Coccinia interm… Coccinia interme… GBIF Backbone Ta… 0.988
 ```
 
 ## Other functions

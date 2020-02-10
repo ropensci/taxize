@@ -7,7 +7,7 @@
 \usage{
 get_ids(
   names,
-  db = c("itis", "ncbi", "eol", "col", "tropicos", "gbif", "nbn", "pow"),
+  db = c("itis", "ncbi", "eol", "tropicos", "gbif", "nbn", "pow"),
   suppress = FALSE,
   ...
 )
@@ -18,7 +18,7 @@ get_ids_(names, db = get_ids_dbs, rows = NA, suppress = FALSE, ...)
 \item{names}{(character) Taxonomic name to query.}
 
 \item{db}{(character) database to query. One or more of \code{ncbi}, \code{itis}, \code{eol},
-\code{col}, \code{tropicos}, \code{gbif}, \code{nbn}, or \code{pow}. By default db is set to search
+\code{tropicos}, \code{gbif}, \code{nbn}, or \code{pow}. By default db is set to search
 all data sources. Note that each taxonomic data source has their own
 identifiers, so that if you give the wrong \code{db} value for the identifier you
 could get a result, it will likely be wrong (not what you were expecting).
@@ -29,7 +29,7 @@ see \link{taxize-authentication}}
 name being queried. default: \code{FALSE}}
 
 \item{...}{Other arguments passed to \code{\link[=get_tsn]{get_tsn()}}, \code{\link[=get_uid]{get_uid()}},
-\code{\link[=get_eolid]{get_eolid()}}, \code{\link[=get_colid]{get_colid()}}, \code{\link[=get_tpsid]{get_tpsid()}}, \code{\link[=get_gbifid]{get_gbifid()}},
+\code{\link[=get_eolid]{get_eolid()}}, \code{\link[=get_tpsid]{get_tpsid()}}, \code{\link[=get_gbifid]{get_gbifid()}},
 \code{\link[=get_nbnid]{get_nbnid()}}.}
 
 \item{rows}{(numeric) Any number from 1 to infinity. If the default NA, all
@@ -63,8 +63,8 @@ See \link{taxize-authentication} for help on authentication
 get_ids(names="Chironomus riparius")
 
 # specify rows to limit choices available
-get_ids(names="Poa annua", db=c("col", "eol"), rows=1)
-get_ids(names="Poa annua", db=c("col", "eol"), rows=1:2)
+get_ids(names="Poa annua", db="eol", rows=1)
+get_ids(names="Poa annua", db="eol", rows=1:2)
 
 ## Or you can specify which source you want via the db parameter
 get_ids(names="Chironomus riparius", db = 'ncbi')
@@ -74,14 +74,14 @@ get_ids(names=c("Chironomus riparius", "Pinus contorta"), db = 'ncbi')
 get_ids(names=c("Chironomus riparius", "Pinus contorta"),
   db = c('ncbi','itis'))
 get_ids(names=c("Chironomus riparius", "Pinus contorta"),
-  db = c('ncbi','itis','col'))
+  db = c('ncbi','itis'))
 get_ids(names="Pinus contorta",
-  db = c('ncbi','itis','col','eol','tropicos'))
-get_ids(names="ava avvva", db = c('ncbi','itis','col','eol','tropicos'))
+  db = c('ncbi','itis','eol','tropicos'))
+get_ids(names="ava avvva", db = c('ncbi','itis','eol','tropicos'))
 
 # Pass on to other functions
 out <- get_ids(names="Pinus contorta",
- db = c('ncbi','itis','col','eol','tropicos'))
+ db = c('ncbi','itis','eol','tropicos'))
 classification(out$itis)
 synonyms(out$tropicos)
 
@@ -100,7 +100,6 @@ get_ids("Agapostemon", db = "ncbi", verbose = TRUE)
 
 Other taxonomic-ids: 
 \code{\link{get_boldid}()},
-\code{\link{get_colid}()},
 \code{\link{get_eolid}()},
 \code{\link{get_gbifid}()},
 \code{\link{get_iucn}()},

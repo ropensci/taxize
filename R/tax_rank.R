@@ -4,7 +4,7 @@
 #' @param x (character) Vector of one or more taxon names (character) or
 #' IDs (character or numeric) to query. Or objects returned from `get_*()`
 #' functions like [get_tsn()]
-#' @param db (character) database to query. either `ncbi`, `itis`, `eol`, `col`,
+#' @param db (character) database to query. either `ncbi`, `itis`, `eol`,
 #' `tropicos`, `gbif`,`nbn`, `worms`, `natserv`, `bold`. Note that each
 #' taxonomic data source has their own identifiers, so that if you provide the
 #' wrong `db` value for the identifier you may get a result, but it will
@@ -52,8 +52,6 @@ tax_rank.character <- function(x, db = NULL, rows = NA, ...) {
   switch(
     db,
     bold = stats::setNames(tax_rank_(process_ids(x, db, get_boldid,
-      rows = rows), ...), x),
-    col = stats::setNames(tax_rank_(process_ids(x, db, get_colid,
       rows = rows), ...), x),
     eol = stats::setNames(tax_rank_(process_ids(x, db, get_eolid,
       rows = rows), ...), x),

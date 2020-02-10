@@ -1,6 +1,11 @@
 taxize 0.9.92
 =============
 
+### DEFUNCT
+
+COL introduced rate limiting recently in 2019 - which has made the API
+essentially unusable - COL+ is coming soon and we'll incorporate it here when it's stable.
+
 ### NEW FEATURES
 
 * gains new function `gn_parse()` to access the Global Names scientific name parser. it's a super fast parser. see the section on name parsers (https://docs.ropensci.org/taxize/reference/index.html#section-name-parsers) for the 3 functions that do name parsing  (#794)

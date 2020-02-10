@@ -1,7 +1,7 @@
 ---
 title: Case study - resolving Species Plantarum names
 author: Tim (@fozy81)
-date: "2020-02-07"
+date: "2020-02-10"
 output: rmarkdown::html_vignette
 vignette: >
     %\VignetteIndexEntry{Case study}

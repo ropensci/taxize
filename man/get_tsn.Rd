@@ -140,7 +140,6 @@ get_tsn_(c("asdfadfasd","Pinus contorta"), rows=1:5)
 
 Other taxonomic-ids: 
 \code{\link{get_boldid}()},
-\code{\link{get_colid}()},
 \code{\link{get_eolid}()},
 \code{\link{get_gbifid}()},
 \code{\link{get_ids}()},

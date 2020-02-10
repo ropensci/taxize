@@ -4,7 +4,6 @@
 \alias{children}
 \alias{children.default}
 \alias{children.tsn}
-\alias{children.colid}
 \alias{children.wormsid}
 \alias{children.ids}
 \alias{children.uid}
@@ -16,8 +15,6 @@ children(...)
 
 \method{children}{tsn}(x, db = NULL, ...)
 
-\method{children}{colid}(x, db = NULL, ...)
-
 \method{children}{wormsid}(x, db = NULL, ...)
 
 \method{children}{ids}(x, db = NULL, ...)
@@ -25,15 +22,15 @@ children(...)
 \method{children}{uid}(x, db = NULL, ...)
 }
 \arguments{
-\item{...}{Further args passed on to \code{\link[=col_children]{col_children()}},
-\code{\link[ritis:hierarchy_down]{ritis::hierarchy_down()}}, \code{\link[=ncbi_children]{ncbi_children()}}, or \code{\link[worrms:wm_children]{worrms::wm_children()}}.
+\item{...}{Further args passed on to \code{\link[ritis:hierarchy_down]{ritis::hierarchy_down()}},
+\code{\link[=ncbi_children]{ncbi_children()}}, or \code{\link[worrms:wm_children]{worrms::wm_children()}}.
 See those functions for what parameters can be passed on.}
 
 \item{x}{Vector of taxa names (character) or IDs (character or numeric)
 to query.}
 
 \item{db}{character; database to query. One or more of \code{itis},
-\code{col}, \code{ncbi}, or \code{worms}. Note that each taxonomic data
+\code{ncbi}, or \code{worms}. Note that each taxonomic data
 source has their own identifiers, so that if you provide the wrong
 \code{db} value for the identifier you could get a result, but it will
 likely be wrong (not what you were expecting). If using ncbi, we recommend
@@ -41,7 +38,7 @@ getting an API key; see \link{taxize-authentication}}
 
 \item{rows}{(numeric) Any number from 1 to infinity. If the default NA, all
 rows are considered. Note that this parameter is ignored if you pass in a
-taxonomic id of any of the acceptable classes: tsn, colid. NCBI has a
+taxonomic id of any of the acceptable classes: tsn. NCBI has a
 method for this function but rows doesn't work.}
 }
 \value{
@@ -66,7 +63,6 @@ NOT removed
 # Plug in taxonomic IDs
 children(161994, db = "itis")
 children(8028, db = "ncbi")
-children("578cbfd2674a9b589f19af71a33b89b6", db = "col")
 ## works with numeric if as character as well
 children("161994", db = "itis")
 
@@ -76,34 +72,24 @@ children("Salmo", db = 'ncbi')
 children("Salmo", db = 'worms')
 
 # Plug in IDs
-(id <- get_colid("Apis"))
-children(id)
-
 (id <- get_wormsid("Platanista"))
 children(id)
 
-## Equivalently, plug in the call to get the id via e.g., get_colid
-## into children
-(id <- get_colid("Apis"))
-children(id)
-children(get_colid("Apis"))
-
 # Many taxa
 sp <- c("Tragia", "Schistocarpha", "Encalypta")
-children(sp, db = 'col')
 children(sp, db = 'itis')
 
 # Two data sources
-(ids <- get_ids("Apis", db = c('col','itis')))
+(ids <- get_ids("Apis", db = c('ncbi','itis')))
 children(ids)
 ## same result
-children(get_ids("Apis", db = c('col','itis')))
+children(get_ids("Apis", db = c('ncbi','itis')))
 
 # Use the rows parameter
-children("Poa", db = 'col')
-children("Poa", db = 'col', rows=1)
+children("Poa", db = 'itis')
+children("Poa", db = 'itis', rows=1)
 
 # use curl options
-res <- children("Poa", db = 'col', rows=1, verbose = TRUE)
+res <- children("Poa", db = 'itis', rows=1, verbose = TRUE)
 }
 }

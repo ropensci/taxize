@@ -6,7 +6,6 @@
 #'
 #' @details This document applies to the following functions:
 #' * [get_boldid()]
-#' * [get_colid()]
 #' * [get_eolid()]
 #' * [get_gbifid()]
 #' * [get_ids()]

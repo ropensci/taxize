@@ -41,7 +41,6 @@ Global Names Index (from EOL/GBIF) \tab gni \tab FALSE \cr
 IUCN Red List \tab iucn \tab FALSE \cr
 Tropicos (from Missouri Botanical Garden) \tab tp \tab FALSE \cr
 Theplantlist.org \tab tpl \tab FALSE \cr
-Catalogue of Life \tab col \tab FALSE \cr
 National Center for Biotechnology Information \tab ncbi \tab FALSE \cr
 CANADENSYS Vascan name search API \tab vascan \tab FALSE \cr
 International Plant Names Index (IPNI) \tab ipni \tab FALSE \cr
@@ -63,14 +62,11 @@ in this package. They are available from a different package called \strong{taxi
 See the GitHub repo for how to install \url{https://github.com/ropensci/taxizesoap}
 }
 
-\section{Catalogue of Life (COL) Rate limiting}{
+\section{Catalogue of Life (COL)}{
 
-COL introduced rate limiting recently (writing this on 2019-11-14),
-but we've no information on what the rate limits are. If you do run into
-this you'll see an error like "Error: Too Many Requests (HTTP 429)",
-you'll need to time your requests to avoid the rate limiting, for
-example, by putting \code{Sys.sleep()} in between simultaneous requests.
-This affects any functions that work with COL data.
+COL introduced rate limiting recently in 2019 - which has made the API
+essentially unusable - COL+ is coming soon and we'll incorporate it here
+when it's stable
 }
 
 \author{

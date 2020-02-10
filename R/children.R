@@ -9,17 +9,17 @@
 #' @param x Vector of taxa names (character) or IDs (character or numeric)
 #' to query.
 #' @param db character; database to query. One or more of `itis`,
-#' `col`, `ncbi`, or `worms`. Note that each taxonomic data
+#' `ncbi`, or `worms`. Note that each taxonomic data
 #' source has their own identifiers, so that if you provide the wrong
 #' `db` value for the identifier you could get a result, but it will
 #' likely be wrong (not what you were expecting). If using ncbi, we recommend
 #' getting an API key; see [taxize-authentication]
 #' @param rows (numeric) Any number from 1 to infinity. If the default NA, all
 #' rows are considered. Note that this parameter is ignored if you pass in a
-#' taxonomic id of any of the acceptable classes: tsn, colid. NCBI has a
+#' taxonomic id of any of the acceptable classes: tsn. NCBI has a
 #' method for this function but rows doesn't work.
-#' @param ... Further args passed on to [col_children()],
-#' [ritis::hierarchy_down()], [ncbi_children()], or [worrms::wm_children()].
+#' @param ... Further args passed on to [ritis::hierarchy_down()],
+#' [ncbi_children()], or [worrms::wm_children()].
 #' See those functions for what parameters can be passed on.
 #'
 #' @section ncbi:
@@ -34,7 +34,6 @@
 #' # Plug in taxonomic IDs
 #' children(161994, db = "itis")
 #' children(8028, db = "ncbi")
-#' children("578cbfd2674a9b589f19af71a33b89b6", db = "col")
 #' ## works with numeric if as character as well
 #' children("161994", db = "itis")
 #'
@@ -44,35 +43,25 @@
 #' children("Salmo", db = 'worms')
 #'
 #' # Plug in IDs
-#' (id <- get_colid("Apis"))
-#' children(id)
-#'
 #' (id <- get_wormsid("Platanista"))
 #' children(id)
 #'
-#' ## Equivalently, plug in the call to get the id via e.g., get_colid
-#' ## into children
-#' (id <- get_colid("Apis"))
-#' children(id)
-#' children(get_colid("Apis"))
-#'
 #' # Many taxa
 #' sp <- c("Tragia", "Schistocarpha", "Encalypta")
-#' children(sp, db = 'col')
 #' children(sp, db = 'itis')
 #'
 #' # Two data sources
-#' (ids <- get_ids("Apis", db = c('col','itis')))
+#' (ids <- get_ids("Apis", db = c('ncbi','itis')))
 #' children(ids)
 #' ## same result
-#' children(get_ids("Apis", db = c('col','itis')))
+#' children(get_ids("Apis", db = c('ncbi','itis')))
 #'
 #' # Use the rows parameter
-#' children("Poa", db = 'col')
-#' children("Poa", db = 'col', rows=1)
+#' children("Poa", db = 'itis')
+#' children("Poa", db = 'itis', rows=1)
 #'
 #' # use curl options
-#' res <- children("Poa", db = 'col', rows=1, verbose = TRUE)
+#' res <- children("Poa", db = 'itis', rows=1, verbose = TRUE)
 #' }
 
 children <- function(...){
@@ -87,11 +76,6 @@ children.default <- function(x, db = NULL, rows = NA, ...) {
     db,
     itis = {
       id <- process_children_ids(x, db, get_tsn, rows = rows, ...)
-      stats::setNames(children(id, ...), x)
-    },
-
-    col = {
-      id <- process_children_ids(x, db, get_colid, rows = rows, ...)
       stats::setNames(children(id, ...), x)
     },
 
@@ -126,7 +110,7 @@ itis_blank <- data.frame(
   tsn        = character(0),
   stringsAsFactors = FALSE
 )
-worms_blank <- col_blank <- ncbi_blank <-
+worms_blank <- ncbi_blank <-
   data.frame(
     childtaxa_id     = character(0),
     childtaxa_name   = character(0),
@@ -138,10 +122,6 @@ set_output_types <- function(x, x_names, db){
   blank_fun <- switch(
     db,
     itis  = function(w) if (nrow(w) == 0 || all(is.na(w))) itis_blank else w,
-    col   = function(w) {
-      if (inherits(w, "list")) w <- w[[1]]
-      if (nrow(w) == 0 || all(is.na(w))) col_blank else w
-    },
     ncbi  = function(w) if (nrow(w) == 0 || all(is.na(w))) ncbi_blank else w,
     worms = function(w) if (nrow(w) == 0 || all(is.na(w))) worms_blank else w
   )
@@ -156,7 +136,7 @@ process_children_ids <- function(input, db, fxn, ...){
   g <- tryCatch(as.numeric(as.character(input)), warning = function(e) e)
   if (inherits(g, "condition")) eval(fxn)(input, ...)
   if (is.numeric(g) || is.character(input) && grepl("[[:digit:]]", input)) {
-    as_fxn <- switch(db, itis = as.tsn, col = as.colid, worms = as.wormsid)
+    as_fxn <- switch(db, itis = as.tsn, worms = as.wormsid)
     as_fxn(input, check = FALSE)
   } else {
     eval(fxn)(input, ...)
@@ -179,28 +159,6 @@ children.tsn <- function(x, db = NULL, ...) {
   names(out) <- x
   class(out) <- 'children'
   attr(out, 'db') <- 'itis'
-  return(out)
-}
-
-#' @export
-#' @rdname children
-children.colid <- function(x, db = NULL, ...) {
-  warn_db(list(db = db), "col")
-  fun <- function(y){
-    # return NA if NA is supplied
-    if (is.na(y)) {
-      out <- NA
-    } else {
-      out <- col_children(id = y, ...)
-    }
-    return(out)
-  }
-  out <- lapply(x, fun)
-  if (length(out) == 1) {
-    out = out[[1]]
-  }
-  class(out) <- 'children'
-  attr(out, 'db') <- 'col'
   return(out)
 }
 

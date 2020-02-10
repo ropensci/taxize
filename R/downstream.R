@@ -2,15 +2,15 @@
 #'
 #' This function uses a while loop to continually collect children taxa down
 #' to the taxonomic rank that you specify in the `downto` parameter. You
-#' can get data from ITIS (itis), Catalogue of Life (col), GBIF (gbif),
-#' NCBI (ncbi) or WORMS (worms). There is no method exposed by these four 
+#' can get data from ITIS (itis), GBIF (gbif), NCBI (ncbi) or WORMS (worms).
+#' There is no method exposed by these four 
 #' services for getting taxa at a specific taxonomic rank, so we do it 
 #' ourselves here.
 #'
 #' @export
 #' @param x Vector of taxa names (character) or IDs (character or numeric)
 #' to query.
-#' @param db character; database to query. One or more of `itis`, `col`, `gbif`,
+#' @param db character; database to query. One or more of `itis`, `gbif`,
 #' `ncbi` or `worms`. Note that each taxonomic  data source has their own
 #' identifiers, so that if you provide the wrong `db` value for the identifier
 #' you could get a result, but it will likely be wrong (not what you were
@@ -28,11 +28,11 @@
 #' intermediate taxonomic groups. Default: `FALSE`
 #' @param rows (numeric) Any number from 1 to infinity. If the default NA, all
 #' rows are considered. Note that this parameter is ignored if you pass in a
-#' taxonomic id of any of the acceptable classes: tsn, colid.
+#' taxonomic id of any of the acceptable classes: tsn.
 #' @param limit Number of records to return
 #' @param start Record number to start at
 #' @param ... Further args passed on to [itis_downstream()],
-#' [col_downstream()], [gbif_downstream()], [ncbi_downstream()],
+#' [gbif_downstream()], [ncbi_downstream()],
 #' or [worms_downstream()]
 #'
 #' @return A named list of data.frames with the downstream names of every
@@ -43,45 +43,26 @@
 #'
 #' @examples \dontrun{
 #' # Plug in taxon IDs
-#' downstream("015be25f6b061ba517f495394b80f108", db = "col",
-#'   downto = "species")
 #' downstream(125732, db = 'worms', downto = 'species')
 #'
 #' # Plug in taxon names
-#' downstream("Insecta", db = 'col', downto = 'order')
-#' downstream("Apis", db = 'col', downto = 'species')
 #' downstream("Apis", db = 'ncbi', downto = 'species')
 #' downstream("Apis", db = 'itis', downto = 'species')
 #' downstream("Gadus", db = 'worms', downto = 'species')
 #' downstream(c("Apis","Epeoloides"), db = 'itis', downto = 'species')
-#' downstream(c("Apis","Epeoloides"), db = 'col', downto = 'species')
 #' downstream("Ursus", db = 'gbif', downto = 'species')
 #' downstream(get_gbifid("Ursus"), db = 'gbif', downto = 'species')
 #'
-#' # Plug in IDs
-#' id <- get_colid("Apis")
-#' downstream(id, downto = 'species')
-#'
-#' ## Equivalently, plug in the call to get the id via e.g., get_colid
-#' ## into downstream
-#' identical(downstream(id, downto = 'species'),
-#'          downstream(get_colid("Apis"), downto = 'species'))
-#'
-#' id <- get_colid("Apis")
-#' downstream(id, downto = 'species')
-#' downstream(get_colid("Apis"), downto = 'species')
-#'
 #' # Many taxa
 #' sp <- names_list("genus", 3)
-#' downstream(sp, db = 'col', downto = 'species')
 #' downstream(sp, db = 'itis', downto = 'species')
 #' downstream(sp, db = 'gbif', downto = 'species')
 #'
 #' # Both data sources
-#' ids <- get_ids("Apis", db = c('col','itis'))
+#' ids <- get_ids("Apis", db = c('gbif','itis'))
 #' downstream(ids, downto = 'species')
 #' ## same result
-#' downstream(get_ids("Apis", db = c('col','itis')), downto = 'species')
+#' downstream(get_ids("Apis", db = c('gbif','itis')), downto = 'species')
 #'
 #' # Collect intermediate names
 #' ## itis
@@ -89,17 +70,14 @@
 #' downstream('Bangiophyceae', db="itis", downto="genus", intermediate=TRUE)
 #' downstream(get_tsn('Bangiophyceae'), downto="genus")
 #' downstream(get_tsn('Bangiophyceae'), downto="genus", intermediate=TRUE)
-#' ## col
-#' downstream(get_colid("Animalia"), downto="class")
-#' downstream(get_colid("Animalia"), downto="class", intermediate=TRUE)
 #'
 #' # Use the rows parameter
 #' ## note how in the second function call you don't get the prompt
-#' downstream("Poa", db = 'col', downto="species")
-#' downstream("Poa", db = 'col', downto="species", rows=1)
+#' downstream("Poa", db = 'gbif', downto="species")
+#' downstream("Poa", db = 'gbif', downto="species", rows=1)
 #'
 #' # use curl options
-#' res <- downstream("Apis", db = 'col', downto = 'species', verbose = TRUE)
+#' res <- downstream("Apis", db = 'gbif', downto = 'species', verbose = TRUE)
 #' }
 downstream <- function(...){
   UseMethod("downstream")
@@ -115,11 +93,6 @@ downstream.default <- function(x, db = NULL, downto = NULL,
     db,
     itis = {
       id <- process_stream_ids(x, db, get_tsn, rows = rows, ...)
-      stats::setNames(downstream(id, downto = tolower(downto),
-                                 intermediate = intermediate, ...), x)
-    },
-    col = {
-      id <- process_stream_ids(x, db, get_colid, rows = rows, ...)
       stats::setNames(downstream(id, downto = tolower(downto),
                                  intermediate = intermediate, ...), x)
     },
@@ -150,7 +123,7 @@ process_stream_ids <- function(input, db, fxn, ...){
     is.character(input) &&
     all(grepl("[[:digit:]]", input))
   ) {
-    as_fxn <- switch(db, itis = as.tsn, col = as.colid, gbif = as.gbifid,
+    as_fxn <- switch(db, itis = as.tsn, gbif = as.gbifid,
       ncbi = as.uid, worms = as.wormsid)
     as_fxn(input, check = FALSE)
   } else {
@@ -174,23 +147,6 @@ downstream.tsn <- function(x, db = NULL, downto = NULL,
   }
   out <- lapply(x, fun, downto = downto, intermediate = intermediate, ...)
   structure(out, class = 'downstream', db = 'itis', .Names = x)
-}
-
-#' @export
-#' @rdname downstream
-downstream.colid <- function(x, db = NULL, downto = NULL,
-                             intermediate = FALSE, ...) {
-  warn_db(list(db = db), "col")
-  fun <- function(y, downto, intermediate, ...){
-    # return NA if NA is supplied
-    if (is.na(y)) {
-      NA
-    } else {
-      col_downstream(id = y, downto = downto, intermediate = intermediate, ...)
-    }
-  }
-  out <- lapply(x, fun, downto = downto, intermediate = intermediate, ...)
-  structure(simp(out), class = 'downstream', db = 'col')
 }
 
 #' @export
