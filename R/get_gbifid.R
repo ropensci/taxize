@@ -3,7 +3,7 @@
 #' @export
 #' @param sciname (character) one or more scientific names. Or, a `taxon_state`
 #' object (see [taxon-state])
-#' @param ask logical; should get_colid be run in interactive mode?
+#' @param ask logical; should get_gbifid be run in interactive mode?
 #' If TRUE and more than one ID is found for the species, the user is asked for
 #' input. If FALSE NA is returned for multiple matches.
 #' @param messages logical; If TRUE the actual taxon queried is printed on the console.

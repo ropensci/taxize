@@ -65,8 +65,9 @@ See the GitHub repo for how to install \url{https://github.com/ropensci/taxizeso
 \section{Catalogue of Life (COL)}{
 
 COL introduced rate limiting recently in 2019 - which has made the API
-essentially unusable - COL+ is coming soon and we'll incorporate it here
-when it's stable
+essentially unusable - CoL+ is coming soon and we'll incorporate it here
+when it's stable. See https://github.com/ropensci/colpluz for the
+R implementation for CoL+
 }
 
 \author{
