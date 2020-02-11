@@ -4,7 +4,7 @@ taxize 0.9.92
 ### DEFUNCT
 
 COL introduced rate limiting recently in 2019 - which has made the API
-essentially unusable - COL+ is coming soon and we'll incorporate it here when it's stable.
+essentially unusable - CoL+ is coming soon and we'll incorporate it here when it's stable. see https://github.com/ropensci/colpluz for the in development R client (#796)
 
 ### NEW FEATURES
 

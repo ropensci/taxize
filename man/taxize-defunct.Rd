@@ -7,9 +7,10 @@
 \description{
 The following functions are now defunct (no longer available):
 \itemize{
-\item 
-\item 
-\item 
+\item All COL functions are defunct: \verb{as.colid, }col_children\verb{, }col_classification\verb{, }col_downstream\verb{, }col_search\verb{, }get_colid\verb{, }get_colid_\verb{, }as.data.frame.colid\verb{, }children.colid\verb{, }classification.colid\verb{, }downstream.colid\verb{, }id2name.colid\verb{, }lowest_common.colid\verb{, }synonyms.colid\verb{, }upstream.colid`
+\item \code{col_classification()}: See\code{classification()}
+\item \code{eol_hierarchy()}: See\code{classification()}
+\item \code{tp_classification()}: See\code{classification()}
 \item \code{\link[=tpl_search]{tpl_search()}}: Use the \pkg{Taxonstand} functions \code{TPL} or \code{TPLck} directly.
 \item \code{\link[=get_seqs]{get_seqs()}}: This function changed name to\code{ncbi_getbyname()}()].
 \item \code{\link[=get_genes]{get_genes()}}: This function changed name to\code{ncbi_getbyid()}()].

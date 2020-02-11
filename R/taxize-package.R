@@ -54,8 +54,9 @@
 #' 
 #' @section Catalogue of Life (COL):
 #' COL introduced rate limiting recently in 2019 - which has made the API
-#' essentially unusable - COL+ is coming soon and we'll incorporate it here
-#' when it's stable
+#' essentially unusable - CoL+ is coming soon and we'll incorporate it here
+#' when it's stable. See https://github.com/ropensci/colpluz for the
+#' R implementation for CoL+
 #'
 #' @importFrom graphics plot
 #' @importFrom methods as is
@@ -194,9 +195,14 @@ NULL
 #' Defunct functions in taxize
 #'
 #' The following functions are now defunct (no longer available):
-#' * [col_classification()]: See`classification()`()]
-#' * [eol_hierarchy()]: See`classification()`()]
-#' * [tp_classification()]: See`classification()`()]
+#' * All COL functions are defunct: `as.colid, `col_children`,
+#' `col_classification`, `col_downstream`, `col_search`, `get_colid`,
+#' `get_colid_`, `as.data.frame.colid`, `children.colid`,
+#' `classification.colid`, `downstream.colid`, `id2name.colid`,
+#' `lowest_common.colid`, `synonyms.colid`, `upstream.colid`
+#' * `col_classification()`: See`classification()`
+#' * `eol_hierarchy()`: See`classification()`
+#' * `tp_classification()`: See`classification()`
 #' * [tpl_search()]: Use the \pkg{Taxonstand} functions `TPL` or `TPLck` directly.
 #' * [get_seqs()]: This function changed name to`ncbi_getbyname()`()].
 #' * [get_genes()]: This function changed name to`ncbi_getbyid()`()].
