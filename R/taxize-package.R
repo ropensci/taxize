@@ -192,6 +192,24 @@ NULL
 #' @keywords data
 NULL
 
+#' WORMS ranks
+#'
+#' Created using `worrms::wm_ranks_id(-1)` on 2020-02-11.
+#'
+#' Present in taxize in the case where WORMS does not
+#' return rank names - with this dataset we can fill
+#' in rank information as long as rank ids are returned
+#'
+#' @format A data frame with 494 rows and 3 variables:
+#'
+#'   * `id`: rank id
+#'   * `rank`: rank name
+#'
+#' @name worrms_ranks
+#' @docType data
+#' @keywords data
+NULL
+
 #' Defunct functions in taxize
 #'
 #' The following functions are now defunct (no longer available):

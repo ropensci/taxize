@@ -91,6 +91,12 @@ worms_children <- function(x, start = 1, ...) {
     error = function(e) e
   )
   if (inherits(bb, "error")) return(data.frame(NULL))
+  # handle missing rank information
+  if (all(is.na(bb$rank))) {
+    # drop rank column with no data
+    bb$rank <- NULL
+    bb <- merge(bb, worrms_ranks, by.x = "taxonRankID", by.y = "id")
+  }
   bb$rank <- tolower(bb$rank)
   names(bb)[names(bb) %in% "AphiaID"] <- "id"
   names(bb)[names(bb) %in% "scientificname"] <- "name"
