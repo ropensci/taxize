@@ -43,14 +43,14 @@
 #' attr(x, "multiple_matches")
 #' attr(x, "pattern_match")
 #' attr(x, "uri")
-#' 
+#'
 #' get_wormsid('Pomatomus saltatrix')
 #' get_wormsid(c("Gadus morhua", "Lichenopora neapolitana"))
 #'
 #' # marine_only
 #' get_wormsid("Apedinella", marine_only=TRUE)
 #' get_wormsid("Apedinella", marine_only=FALSE)
-#' 
+#'
 #' # fuzzy
 #' ## searchtype="scientific": fuzzy is TRUE by default
 #' get_wormsid("Platypro", searchtype="scientific", fuzzy=TRUE)
@@ -58,7 +58,7 @@
 #' ## searchtype="common": fuzzy is FALSE by default
 #' get_wormsid("clam", searchtype="common", fuzzy=FALSE)
 #' get_wormsid("clam", searchtype="common", fuzzy=TRUE)
-#' 
+#'
 #' # by common name
 #' get_wormsid("dolphin", 'common')
 #' get_wormsid("clam", 'common')
@@ -223,7 +223,7 @@ get_wormsid <- function(query, searchtype = "scientific", marine_only = TRUE,
           }
         } else {
           if (length(wmid) != 1) {
-            warning(sprintf(m_more_than_one_found, "Worms ID", query[i]), 
+            warning(sprintf(m_more_than_one_found, "Worms ID", query[i]),
               call. = FALSE)
             wmid <- NA_character_
             att <- m_na_ask_false
@@ -308,21 +308,27 @@ check_wormsid <- function(x){
 #' @export
 #' @rdname get_wormsid
 get_wormsid_ <- function(query, messages = TRUE, searchtype = "scientific",
-                       accepted = TRUE, rows = NA, ...) {
+  marine_only = TRUE, fuzzy = NULL, accepted = TRUE, rows = NA, ...) {
+
   stats::setNames(
     lapply(query, get_wormsid_help, messages = messages,
-           searchtype = searchtype, accepted = accepted, rows = rows, ...),
+           searchtype = searchtype, marine_only = marine_only, fuzzy = fuzzy,
+           accepted = accepted, rows = rows, ...),
     query
   )
 }
 
-get_wormsid_help <- function(query, messages, searchtype, accepted, rows, ...) {
+get_wormsid_help <- function(query, messages, searchtype, marine_only,
+  fuzzy, accepted, rows, ...) {
+
   mssg(messages, "\nRetrieving data for taxon '", query, "'\n")
   searchtype <- match.arg(searchtype, c("scientific", "common"))
   df <- switch(
     searchtype,
-    scientific = worms_worker(query, worrms::wm_records_name, rows, ...),
-    common = worms_worker(query, worrms::wm_records_common, rows, ...)
+    scientific = worms_worker(query, worrms::wm_records_name, rows = rows,
+      marine_only = marine_only, fuzzy = fuzzy, ...),
+    common = worms_worker(query, worrms::wm_records_common, rows = rows,
+      marine_only = marine_only, fuzzy = fuzzy, ...)
   )
   if (!inherits(df, "tbl_df") || NROW(df) == 0) {
     NULL

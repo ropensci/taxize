@@ -42,6 +42,8 @@ get_wormsid_(
   query,
   messages = TRUE,
   searchtype = "scientific",
+  marine_only = TRUE,
+  fuzzy = NULL,
   accepted = TRUE,
   rows = NA,
   ...
