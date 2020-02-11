@@ -16,7 +16,7 @@ there was an error in one package (spocc, also maintained by me) but only in the
 
 ------
 
-This version includes a new function for parsing scientific names, and drops 3 package imports.
+This version includes a new function for parsing scientific names, drops 3 package imports, and makes many bug fixes.
 
 Thanks!
 Scott Chamberlain

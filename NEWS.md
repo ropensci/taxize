@@ -17,6 +17,18 @@ essentially unusable - CoL+ is coming soon and we'll incorporate it here when it
 * no longer running taxon state examples on check (#791)
 * vignettes have names now in the pkg docs site (#772)
 * update docs for new roxygen2 version that suppoprts R6 (#793)
+* gains dataset `worrms_ranks` to apply rank names in cases where WORMS fails to return rank names in their data
+* remove a `get_tpsid()` example that passes in names as factors; `get_*` functions no longer accept factors
+
+### BUG FIXES
+
+* fix to `classification.tpsid()`: change to an internal fxn changed its output; fix for that (#797)
+* fix `get_boldid()`: when filtering (e.g., w/ `rank`, `division`, `parent`) returned no match, `get_boldid` was failing on downstream parsing; return NA now
+* fix `get_wormsid_()`: was missing `marine_only` and `fuzzy` parameters
+* fix `pow_search()`: an if statement was leading to length > 1 booleans
+* fix `synonyms()`: an if statement in internal fxn `process_syn_ids` was leading to length > 1 booleans
+* fix `classification.gbifid`: select columns only if they exist instead of failing on plucking non-existtent columns
+
 
 taxize 0.9.91
 =============
