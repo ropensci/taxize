@@ -8,8 +8,8 @@ taxize
 [![Build Status](https://travis-ci.org/ropensci/taxize.svg?branch=master)](https://travis-ci.org/ropensci/taxize)
 [![Build status](https://ci.appveyor.com/api/projects/status/6mgc02mkd8j4sq3g/branch/master)](https://ci.appveyor.com/project/sckott/taxize-175/branch/master)
 [![codecov.io](https://codecov.io/github/ropensci/taxize/coverage.svg?branch=master)](https://codecov.io/github/ropensci/taxize?branch=master)
-[![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/taxize)](https://github.com/metacran/cranlogs.app)
-[![cran version](http://www.r-pkg.org/badges/version/taxize)](https://cran.r-project.org/package=taxize)
+[![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/taxize)](https://github.com/metacran/cranlogs.app)
+[![cran version](https://www.r-pkg.org/badges/version/taxize)](https://cran.r-project.org/package=taxize)
 
 
 `taxize` allows users to search over many taxonomic data sources for species names (scientific and common) and download up and downstream taxonomic hierarchical information - among other things.
@@ -90,12 +90,6 @@ Note that a few data sources require SOAP web services, which are difficult to s
 	<td style="text-align:left;">Theplantlist dot org</td>
 	<td style="text-align:left;"><code>tpl</code></td>
 	<td style="text-align:left;">**</td>
-	<td style="text-align:left;">none</td>
-</tr>
-<tr>
-	<td style="text-align:left;">Catalogue of Life</td>
-	<td style="text-align:left;"><code>col</code></td>
-	<td style="text-align:left;"><a href="http://www.catalogueoflife.org/content/web-services">link</a></td>
 	<td style="text-align:left;">none</td>
 </tr>
 <tr>
@@ -268,37 +262,38 @@ Get immediate children of _Salmo_. In this case, _Salmo_ is a genus, so this giv
 children("Salmo", db = 'ncbi')
 #> $Salmo
 #>    childtaxa_id                   childtaxa_name childtaxa_rank
-#> 1       2304090                  Salmo abanticus        species
-#> 2       2126688              Salmo ciscaucasicus        species
-#> 3       1509524  Salmo marmoratus x Salmo trutta        species
-#> 4       1484545 Salmo cf. cenerinus BOLD:AAB3872        species
-#> 5       1483130               Salmo zrmanjaensis        species
-#> 6       1483129               Salmo visovacensis        species
-#> 7       1483128                Salmo rhodanensis        species
-#> 8       1483127                 Salmo pellegrini        species
-#> 9       1483126                     Salmo opimus        species
-#> 10      1483125                Salmo macedonicus        species
-#> 11      1483124                Salmo lourosensis        species
-#> 12      1483123                   Salmo labecula        species
-#> 13      1483122                  Salmo farioides        species
-#> 14      1483121                      Salmo chilo        species
-#> 15      1483120                     Salmo cettii        species
-#> 16      1483119                  Salmo cenerinus        species
-#> 17      1483118                   Salmo aphelios        species
-#> 18      1483117                    Salmo akairos        species
-#> 19      1201173               Salmo peristericus        species
-#> 20      1035833                   Salmo ischchan        species
-#> 21       700588                     Salmo labrax        species
-#> 22       602068                    Salmo caspius     subspecies
-#> 23       237411              Salmo obtusirostris        species
-#> 24       235141              Salmo platycephalus        species
-#> 25       234793                    Salmo letnica        species
-#> 26        62065                  Salmo ohridanus        species
-#> 27        33518                 Salmo marmoratus        species
-#> 28        33516                    Salmo fibreni        species
-#> 29        33515                     Salmo carpio        species
-#> 30         8032                     Salmo trutta        species
-#> 31         8030                      Salmo salar        species
+#> 1       2705433                     Salmo ghigii        species
+#> 2       2304090                  Salmo abanticus        species
+#> 3       2126688              Salmo ciscaucasicus        species
+#> 4       1509524  Salmo marmoratus x Salmo trutta        species
+#> 5       1484545 Salmo cf. cenerinus BOLD:AAB3872        species
+#> 6       1483130               Salmo zrmanjaensis        species
+#> 7       1483129               Salmo visovacensis        species
+#> 8       1483128                Salmo rhodanensis        species
+#> 9       1483127                 Salmo pellegrini        species
+#> 10      1483126                     Salmo opimus        species
+#> 11      1483125                Salmo macedonicus        species
+#> 12      1483124                Salmo lourosensis        species
+#> 13      1483123                   Salmo labecula        species
+#> 14      1483122                  Salmo farioides        species
+#> 15      1483121                      Salmo chilo        species
+#> 16      1483120                     Salmo cettii        species
+#> 17      1483119                  Salmo cenerinus        species
+#> 18      1483118                   Salmo aphelios        species
+#> 19      1483117                    Salmo akairos        species
+#> 20      1201173               Salmo peristericus        species
+#> 21      1035833                   Salmo ischchan        species
+#> 22       700588                     Salmo labrax        species
+#> 23       602068                    Salmo caspius     subspecies
+#> 24       237411              Salmo obtusirostris        species
+#> 25       235141              Salmo platycephalus        species
+#> 26       234793                    Salmo letnica        species
+#> 27        62065                  Salmo ohridanus        species
+#> 28        33518                 Salmo marmoratus        species
+#> 29        33516                    Salmo fibreni        species
+#> 30        33515                     Salmo carpio        species
+#> 31         8032                     Salmo trutta        species
+#> 32         8030                      Salmo salar        species
 #> 
 #> attr(,"class")
 #> [1] "children"
@@ -314,14 +309,14 @@ Get all species in the genus _Apis_
 ```r
 downstream(as.tsn(154395), db = 'itis', downto = 'species', mesages = FALSE)
 #> $`154395`
-#>      tsn parentname parenttsn          taxonname rankid rankname
-#> 1 154396       Apis    154395     Apis mellifera    220  species
-#> 2 763550       Apis    154395 Apis andreniformis    220  species
-#> 3 763551       Apis    154395        Apis cerana    220  species
-#> 4 763552       Apis    154395       Apis dorsata    220  species
-#> 5 763553       Apis    154395        Apis florea    220  species
-#> 6 763554       Apis    154395 Apis koschevnikovi    220  species
-#> 7 763555       Apis    154395   Apis nigrocincta    220  species
+#>      tsn parentname parenttsn rankname          taxonname rankid
+#> 1 154396       Apis    154395  species     Apis mellifera    220
+#> 2 763550       Apis    154395  species Apis andreniformis    220
+#> 3 763551       Apis    154395  species        Apis cerana    220
+#> 4 763552       Apis    154395  species       Apis dorsata    220
+#> 5 763553       Apis    154395  species        Apis florea    220
+#> 6 763554       Apis    154395  species Apis koschevnikovi    220
+#> 7 763555       Apis    154395  species   Apis nigrocincta    220
 #> 
 #> attr(,"class")
 #> [1] "downstream"
@@ -344,16 +339,16 @@ upstream("Pinus contorta", db = 'itis', upto = 'Genus', mesages = FALSE)
 #> ● Found: 1 
 #> ● Not Found: 0
 #> $`Pinus contorta`
-#>      tsn parentname parenttsn   taxonname rankid rankname
-#> 1  18031   Pinaceae     18030       Abies    180    genus
-#> 2  18033   Pinaceae     18030       Picea    180    genus
-#> 3  18035   Pinaceae     18030       Pinus    180    genus
-#> 4 183396   Pinaceae     18030       Tsuga    180    genus
-#> 5 183405   Pinaceae     18030      Cedrus    180    genus
-#> 6 183409   Pinaceae     18030       Larix    180    genus
-#> 7 183418   Pinaceae     18030 Pseudotsuga    180    genus
-#> 8 822529   Pinaceae     18030  Keteleeria    180    genus
-#> 9 822530   Pinaceae     18030 Pseudolarix    180    genus
+#>      tsn parentname parenttsn rankname   taxonname rankid
+#> 1  18031   Pinaceae     18030    genus       Abies    180
+#> 2  18033   Pinaceae     18030    genus       Picea    180
+#> 3  18035   Pinaceae     18030    genus       Pinus    180
+#> 4 183396   Pinaceae     18030    genus       Tsuga    180
+#> 5 183405   Pinaceae     18030    genus      Cedrus    180
+#> 6 183409   Pinaceae     18030    genus       Larix    180
+#> 7 183418   Pinaceae     18030    genus Pseudotsuga    180
+#> 8 822529   Pinaceae     18030    genus  Keteleeria    180
+#> 9 822530   Pinaceae     18030    genus Pseudolarix    180
 #> 
 #> attr(,"class")
 #> [1] "upstream"
@@ -374,18 +369,14 @@ synonyms("Acer drummondii", db="itis")
 #> ● Found: 1 
 #> ● Not Found: 0
 #> $`Acer drummondii`
-#>   sub_tsn                    acc_name acc_tsn
-#> 1  183671 Acer rubrum var. drummondii  526853
-#> 2  183671 Acer rubrum var. drummondii  526853
-#> 3  183671 Acer rubrum var. drummondii  526853
-#>                      acc_author                        syn_author
-#> 1 (Hook. & Arn. ex Nutt.) Sarg. (Hook. & Arn. ex Nutt.) E. Murray
-#> 2 (Hook. & Arn. ex Nutt.) Sarg.             Hook. & Arn. ex Nutt.
-#> 3 (Hook. & Arn. ex Nutt.) Sarg.     (Hook. & Arn. ex Nutt.) Small
-#>                      syn_name syn_tsn
-#> 1 Acer rubrum ssp. drummondii   28730
-#> 2             Acer drummondii  183671
-#> 3          Rufacer drummondii  183672
+#>   sub_tsn                    acc_name acc_tsn                    acc_author
+#> 1  183671 Acer rubrum var. drummondii  526853 (Hook. & Arn. ex Nutt.) Sarg.
+#> 2  183671 Acer rubrum var. drummondii  526853 (Hook. & Arn. ex Nutt.) Sarg.
+#> 3  183671 Acer rubrum var. drummondii  526853 (Hook. & Arn. ex Nutt.) Sarg.
+#>                          syn_author                    syn_name syn_tsn
+#> 1 (Hook. & Arn. ex Nutt.) E. Murray Acer rubrum ssp. drummondii   28730
+#> 2             Hook. & Arn. ex Nutt.             Acer drummondii  183671
+#> 3     (Hook. & Arn. ex Nutt.) Small          Rufacer drummondii  183672
 #> 
 #> attr(,"class")
 #> [1] "synonyms"
@@ -398,6 +389,7 @@ synonyms("Acer drummondii", db="itis")
 
 ```r
 get_ids(names="Salvelinus fontinalis", db = c('itis', 'ncbi'), mesages = FALSE)
+#> ══  db: itis ═════════════════
 #> ══  1 queries  ═══════════════
 #> ✔  Found:  Salvelinus fontinalis
 #> ══  Results  ═════════════════
@@ -405,6 +397,7 @@ get_ids(names="Salvelinus fontinalis", db = c('itis', 'ncbi'), mesages = FALSE)
 #> ● Total: 1 
 #> ● Found: 1 
 #> ● Not Found: 0
+#> ══  db: ncbi ═════════════════
 #> ══  1 queries  ═══════════════
 #> ✔  Found:  Salvelinus+fontinalis
 #> ══  Results  ═════════════════
@@ -449,6 +442,7 @@ You can limit to certain rows when getting ids in any `get_*()` functions
 
 ```r
 get_ids(names="Poa annua", db = "gbif", rows=1)
+#> ══  db: gbif ═════════════════
 #> ══  1 queries  ═══════════════
 #> ✔  Found:  Poa annua
 #> ══  Results  ═════════════════
@@ -479,11 +473,12 @@ Furthermore, you can just back all ids if that's your jam with the `get_*_()` fu
 
 ```r
 get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn', rows=1:3)
+#> ══  db: nbn ══════════════════
 #> $nbn
 #> $nbn$`Chironomus riparius`
 #>               guid      scientificName    rank taxonomicStatus
 #> 1 NBNSYS0000027573 Chironomus riparius species        accepted
-#> 2 NHMSYS0001718585  Hypnoidus riparius species        accepted
+#> 2 NBNSYS0000007169   Elaphrus riparius species        accepted
 #> 3 NBNSYS0000023573    Quedius riparius species        accepted
 #> 
 #> $nbn$`Pinus contorta`
@@ -510,8 +505,7 @@ sci2comm('Helianthus annuus', db = 'itis')
 #> ● Found: 1 
 #> ● Not Found: 0
 #> $`Helianthus annuus`
-#> [1] "common sunflower" "sunflower"        "wild sunflower"  
-#> [4] "annual sunflower"
+#> [1] "common sunflower" "sunflower"        "wild sunflower"   "annual sunflower"
 ```
 
 ## Scientific names from common names

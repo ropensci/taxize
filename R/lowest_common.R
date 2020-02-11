@@ -222,10 +222,10 @@ check_lowest_ids <- function(x) {
 
 process_lowest_ids <- function(input, db, fxn, ...) {
   g <- tryCatch(as.numeric(as.character(input)), warning = function(e) e)
-  if (inherits(g, "numeric") || is.character(input) &&
-      grepl("[[:digit:]]", input)) {
+  if (inherits(g, "condition")) eval(fxn)(input, ...)
+  if (is.numeric(g) || is.character(input) && all(grepl("[[:digit:]]", input))) {
     as_fxn <- switch(db, itis = as.tsn, gbif = as.gbifid,
-                     ncbi = as.uid, tol = as.tolid)
+      ncbi = as.uid, tol = as.tolid)
     as_fxn(input, check = FALSE)
   } else {
     eval(fxn)(input, ...)
