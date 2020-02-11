@@ -347,47 +347,49 @@ classification.tsn <- function(id, return_id = TRUE, ...) {
 #' @rdname classification
 classification.uid <- function(id, callopts = list(), return_id = TRUE, ...) {
   warn_db(list(...), "ncbi")
-  fun <- function(x, callopts){
+  fun <- function(x, callopts) {
     key <- getkey(NULL, service="entrez")
-    # return NA if NA is supplied
-    if (is.na(x)) {
-      out <- NA
-    } else {
-      query <- tc(list(db = "taxonomy", ID = x, api_key = key))
+    
+    query_ncbi <- function(ids) {
+      query <- tc(list(db = "taxonomy", ID = paste0(ids, collapse = ','), api_key = key))
       cli <- crul::HttpClient$new(url = ncbi_base(),
-        opts = c(http_version = 2L, callopts))
+                                  opts = c(http_version = 2L, callopts))
       res <- cli$get("entrez/eutils/efetch.fcgi", query = query)
       res$raise_for_status()
       tt <- res$parse("UTF-8")
       ttp <- xml2::read_xml(tt)
-      out <- data.frame(
-        name = xml_text_all(ttp,
-          "//TaxaSet/Taxon/LineageEx/Taxon/ScientificName"),
-        rank = xml_text_all(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/Rank"),
-        id = xml_text_all(ttp, "//TaxaSet/Taxon/LineageEx/Taxon/TaxId"),
-        stringsAsFactors = FALSE)
+      out <- lapply(xml2::xml_find_all(ttp, '//TaxaSet/Taxon'), function(tax_node) {
+        data.frame(
+          name = xml_text_all(tax_node, ".//LineageEx/Taxon/ScientificName"),
+          rank = xml_text_all(tax_node, ".//LineageEx/Taxon/Rank"),
+          id = xml_text_all(tax_node, ".//LineageEx/Taxon/TaxId"),
+          stringsAsFactors = FALSE)
+      })
       parent_id <- xml_text_all(ttp, "//TaxaSet/Taxon/ParentTaxId") %||% ""
       # Is not directly below root and no lineage info
-      if (NROW(out) == 0 && parent_id != "1") {
-        out <- NA
-      } else {
-        out <- rbind(out,
-          data.frame(
-            name = xml_text_all(ttp, "//TaxaSet/Taxon/ScientificName"),
-            rank = xml_text_all(ttp, "//TaxaSet/Taxon/Rank"),
-            id = xml_text_all(ttp, "//TaxaSet/Taxon/TaxId"),
-            stringsAsFactors = FALSE))
-        # Optionally return tsn of lineage
-        if (!return_id) out <- out[, c('name', 'rank')]
-        out$rank <- tolower(out$rank)
-        return(out)
-      }
+      out[vapply(out, NROW, numeric(1)) == 0 & parent_id != "1"] <- NA
+      return(out)
     }
+    # return NA if NA is supplied
+    out <- rep(list(NA), length(x))
+    out[! is.na(x)] <- query_ncbi(x[! is.na(x)])
+    # Optionally return taxon id of lineage taxa
+    if (!return_id) {
+      out[! is.na(out)] <- lapply(out[! is.na(out)], function(o) o[, c('name', 'rank')])
+    }
+    # Return ranks in all lower case
+    out[! is.na(out)] <- lapply(out[! is.na(out)], function(o) {
+      o$rank <- tolower(o$rank)
+      return(o)
+    })
     # NCBI limits requests to three per second
     if (is.null(key)) Sys.sleep(0.34)
     return(out)
   }
-  out <- lapply(id, fun, callopts = callopts)
+  chunk_size <- 10
+  id_chunks <- split(id, ceiling(seq_along(id)/chunk_size))
+  out <- lapply(id_chunks, fun, callopts = callopts)
+  out <- unlist(out, recursive = FALSE)
   names(out) <- id
   structure(out, class = 'classification', db = 'ncbi')
 }
