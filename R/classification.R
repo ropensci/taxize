@@ -421,12 +421,10 @@ classification.tpsid <- function(id, callopts = list(), return_id = TRUE, ...) {
       key <- getkey(NULL, "TROPICOS_KEY")
       args <- tc(list(format = 'json', apikey = key))
       tt <- tax_GET(url, query = args, opts = callopts)
-      out <- jsonlite::fromJSON(tt$parse("UTF-8"), FALSE)
-      if (names(out[[1]])[[1]] == "Error") {
+      if ("Error" %in% names(tt)) {
         out <- data.frame(ScientificName = NA, Rank = NA)
       } else {
-        out <- dt2df(lapply(out, data.frame),
-          idcol = FALSE)[,c('ScientificName','Rank', 'NameId')]
+        out <- tt[,c('ScientificName','Rank', 'NameId')]
       }
       names(out) <- c('name', 'rank', 'id')
       # Optionally return id of lineage
