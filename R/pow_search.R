@@ -61,7 +61,7 @@ pow_search <- function(q, limit = 100, cursor = "*", sort = NULL, ...) {
 pow_lookup <- function(id, include = NULL, ...) {
   assert(include, "character")
   if (!is.null(include)) {
-    if (!include %in% pow_include_fields) {
+    if (!all(include %in% pow_include_fields)) {
       stop("'include' must be one of ", paste0(pow_include_fields, collapse=","))
     }
   }

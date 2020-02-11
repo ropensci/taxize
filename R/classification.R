@@ -451,13 +451,12 @@ classification.gbifid <- function(id, callopts = list(),
       out <- suppressWarnings(tryCatch(
         gbif_name_usage(key = x, callopts = callopts),
         error = function(e) e))
-      if (is(out, "simpleError")) {
+      if (inherits(out, "simpleError")) {
         NA
       } else {
-        nms <- nmdlst2df(out[c('kingdom','phylum','class',
-          'order','family','genus','species')])
-        keys <- unname(unlist(out[paste0(c('kingdom','phylum','class',
-          'order','family','genus','species'), "Key")]))
+        cls = c('kingdom','phylum','class', 'order','family','genus','species')
+        nms <- nmdlst2df(out[names(out) %in% cls])
+        keys <- unname(unlist(out[names(out) %in% paste0(cls, "Key")]))
         df <- data.frame(name = nms$V1, rank = nms$.id, id = keys,
           stringsAsFactors = FALSE)
         df$rank <- tolower(df$rank)

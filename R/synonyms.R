@@ -18,12 +18,12 @@
 #' functions to gather synonyms.
 #'
 #' @return A named list of results with three types of output in each slot:
-#' 
-#' - if the name was not found: `NA_character_` 
+#'
+#' - if the name was not found: `NA_character_`
 #' - if the name was found but no synonyms found, an empty data.frame (0 rows)
 #' - if the name was found, and synonyms found, a data.frames with the
 #' synonyms - the column names vary by data source
-#' 
+#'
 #' @details If IDs are supplied directly (not from the `get_*()` functions)
 #' you must specify the type of ID.
 #'
@@ -141,9 +141,11 @@ synonyms.default <- function(x, db = NULL, rows = NA, ...) {
 
 process_syn_ids <- function(input, db, fxn, ...){
   g <- tryCatch(as.numeric(as.character(input)), warning = function(e) e)
+  if (inherits(g, "condition")) eval(fxn)(input, ...)
   if (
-    inherits(g,"numeric") || is.character(input) && grepl("N[HB]", input) ||
-      is.character(input) && grepl("[[:digit:]]", input)
+    is.numeric(g) ||
+    is.character(input) && all(grepl("N[HB]", input)) ||
+    is.character(input) && all(grepl("[[:digit:]]", input))
   ) {
     as_fxn <- switch(db,
                      itis = as.tsn,
@@ -246,7 +248,7 @@ synonyms.wormsid <- function(id, ...) {
     if (is.na(x)) {
       NA_character_
     } else {
-      res <- tryCatch(worrms::wm_synonyms(as.numeric(x), ...), 
+      res <- tryCatch(worrms::wm_synonyms(as.numeric(x), ...),
         error = function(e) e)
       if (inherits(res, "error")) tibble::tibble() else res
     }
