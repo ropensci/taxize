@@ -72,11 +72,6 @@
 #' # pass to classification function to get a taxonomic hierarchy
 #' classification(get_tpsid(sciname='Poa annua'))
 #'
-#' # factor class names are converted to character internally
-#' spnames <- as.factor(c("Poa annua", "Pinus contorta"))
-#' class(spnames)
-#' get_tpsid(spnames)
-#'
 #' # pass in a list, works fine
 #' get_tpsid(list("Poa annua", "Pinus contorta"))
 #'
