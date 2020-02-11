@@ -59,4 +59,10 @@ test_that("get_boldid fails as expected", {
                "rows must be of class numeric, integer")
   expect_error(get_boldid("Achlya", rows = 0, messages = FALSE),
                "all\\(rows > 0\\) is not TRUE")
+
+  # filter param doesn't match any values - returns NA and warns
+  expect_warning(
+    (z=get_boldid("Satyrium", division = "Plants", messages = FALSE)),
+    "check spelling")
+  expect_equal(z[1], NA_character_)
 })

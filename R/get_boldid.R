@@ -71,8 +71,8 @@
 #' ### Results w/o narrowing
 #' get_boldid("Satyrium")
 #' ### w/ phylum
-#' get_boldid("Satyrium", division = "Plants")
-#' get_boldid("Satyrium", division = "Animals")
+#' get_boldid("Satyrium", division = "Plantae")
+#' get_boldid("Satyrium", division = "Animalia")
 #'
 #' ## Rank example
 #' get_boldid("Osmia", fuzzy = TRUE)
@@ -146,7 +146,7 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes = 'basic',
                            includeTree = includeTree, ...)
     mm <- NROW(bold_df) > 1
 
-    if (!class(bold_df) == "data.frame") {
+    if (!is.data.frame(bold_df)) {
       boldid <- NA_character_
       att <- "not found"
     } else {
@@ -209,19 +209,30 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes = 'basic',
             bold_df <- filt(bold_df, "division", division)
             bold_df <- filt(bold_df, "parent", parent)
             bold_df <- filt(bold_df, "rank", rank)
+
+            if (NROW(bold_df) == 0) {
+              boldid <- NA_character_
+              att <- 'not found'
+              warning("filters 'division', 'parent', or 'rank' gave no records\n",
+                "  check spelling or try a different filter value")
+            }
           }
 
-          bold_df <- sub_rows(bold_df, rows)
-          boldid <- id <- bold_df$taxid
-          if (length(id) == 1) {
-            direct <- TRUE
-            att <- "found"
+          if (NROW(bold_df) > 0) {
+            bold_df <- sub_rows(bold_df, rows)
+            boldid <- id <- bold_df$taxid
+            if (length(id) == 1) {
+              direct <- TRUE
+              att <- "found"
+            }
           }
 
           if (ask) {
             # user prompt
-            bold_df <- bold_df[order(bold_df$target), ]
-            rownames(bold_df) <- 1:nrow(bold_df)
+            if (NROW(bold_df) > 0) {
+              bold_df <- bold_df[order(bold_df$target), ]
+              rownames(bold_df) <- 1:nrow(bold_df)
+            }
             if (length(boldid) > 1 || NROW(bold_df) > 1) {
               # prompt
               message("\n\n")
