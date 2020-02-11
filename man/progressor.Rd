@@ -10,22 +10,22 @@ methods for preparing/printing info for prompts for \verb{get_*} functions
 }
 \examples{
 \dontrun{
-nms <- c("Quercus", "Sasdsfasdf")
-x <- progressor$new(items = nms)
-x
-x$prog_start()
+# nms <- c("Quercus", "Sasdsfasdf")
+# x <- progressor$new(items = nms)
+# x
+# x$prog_start()
 
-x$completed(nms[1], "found")
-x$prog_found()
+# x$completed(nms[1], "found")
+# x$prog_found()
 
-x$completed(nms[2], "not found")
-x$prog_not_found()
+# x$completed(nms[2], "not found")
+# x$prog_not_found()
 
-x$prog_summary()
+# x$prog_summary()
 
 # suppress cli::cat_line
-x <- progressor$new(items = nms, suppress = TRUE)
-x$prog_summary()
+# x <- progressor$new(items = nms, suppress = TRUE)
+# x$prog_summary()
 }
 }
 \keyword{internal}
