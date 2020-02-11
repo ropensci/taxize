@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -16,26 +16,26 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 17:47:45 GMT
+      date: Mon, 10 Feb 2020 22:16:01 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '8'
-      ncbi-phid: 939B131039D6F9750000209A4AC80366.1.1.m_5
+      x-ratelimit-remaining: '6'
+      ncbi-phid: D0BD591C6591225500002623A7BFDEE8.1.1.m_3
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 13C062D214D5FD8C_A0BBSID
+      ncbi-sid: CB19E40ABE9F155B_ADC6SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=13C062D214D5FD8C_A0BBSID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 17:47:45 GMT
+      set-cookie: ncbi_sid=CB19E40ABE9F155B_ADC6SID; domain=.nih.gov; path=/; expires=Wed,
+        10 Feb 2021 22:16:02 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
       encoding: UTF-8
+      file: no
       string: |-
         <?xml version="1.0" ?>
         <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
@@ -267,13 +267,13 @@ http_interactions:
                 </Taxon>
             </LineageEx>
             <CreateDate>1995/02/27 09:24:00</CreateDate>
-            <UpdateDate>2018/11/23 13:57:51</UpdateDate>
+            <UpdateDate>2019/07/24 16:25:25</UpdateDate>
             <PubDate>1992/05/26 01:00:00</PubDate>
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2019-01-26 17:47:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2020-02-10 22:16:03 GMT
+  recorded_with: vcr/0.4.1.94, webmockr/0.5.1.98
 - request:
     method: get
     uri: https://www.itis.gov/ITISWebService/jsonservice/getFullHierarchyFromTSN?tsn=129313
@@ -281,7 +281,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -293,7 +293,7 @@ http_interactions:
       connection: keep-alive
       content-length: '3475'
       content-type: text/json;charset=ISO-8859-1
-      date: Sat, 26 Jan 2019 17:47:46 GMT
+      date: Mon, 10 Feb 2020 22:16:02 GMT
       status: 'HTTP/1.1 200 '
       strict-transport-security:
       - max-age=63072000; includeSubdomains; preload
@@ -303,10 +303,11 @@ http_interactions:
       x-upstream-member: not shown
     body:
       encoding: UTF-8
+      file: no
       string: |
         {"author":"","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecordList","hierarchyList":[{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"","parentTsn":"","rankName":"Kingdom","taxonName":"Animalia","tsn":"202423"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Animalia","parentTsn":"202423","rankName":"Subkingdom","taxonName":"Bilateria","tsn":"914154"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Bilateria","parentTsn":"914154","rankName":"Infrakingdom","taxonName":"Protostomia","tsn":"914155"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Protostomia","parentTsn":"914155","rankName":"Superphylum","taxonName":"Ecdysozoa","tsn":"914158"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ecdysozoa","parentTsn":"914158","rankName":"Phylum","taxonName":"Arthropoda","tsn":"82696"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Arthropoda","parentTsn":"82696","rankName":"Subphylum","taxonName":"Hexapoda","tsn":"563886"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Hexapoda","parentTsn":"563886","rankName":"Class","taxonName":"Insecta","tsn":"99208"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Insecta","parentTsn":"99208","rankName":"Subclass","taxonName":"Pterygota","tsn":"100500"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Pterygota","parentTsn":"100500","rankName":"Infraclass","taxonName":"Neoptera","tsn":"563890"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Neoptera","parentTsn":"563890","rankName":"Superorder","taxonName":"Holometabola","tsn":"914213"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Holometabola","parentTsn":"914213","rankName":"Order","taxonName":"Diptera","tsn":"118831"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Diptera","parentTsn":"118831","rankName":"Suborder","taxonName":"Nematocera","tsn":"118832"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Nematocera","parentTsn":"118832","rankName":"Infraorder","taxonName":"Culicomorpha","tsn":"125808"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Culicomorpha","parentTsn":"125808","rankName":"Family","taxonName":"Chironomidae","tsn":"127917"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Chironomidae","parentTsn":"127917","rankName":"Subfamily","taxonName":"Chironominae","tsn":"129228"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Chironominae","parentTsn":"129228","rankName":"Tribe","taxonName":"Chironomini","tsn":"129229"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Chironomini","parentTsn":"129229","rankName":"Genus","taxonName":"Chironomus","tsn":"129254"},{"author":"Meigen, 1804","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Chironomus","parentTsn":"129254","rankName":"Species","taxonName":"Chironomus riparius","tsn":"129313"}],"rankName":"","sciName":"","tsn":"129313"}
-  recorded_at: 2019-01-26 17:47:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2020-02-10 22:16:03 GMT
+  recorded_with: vcr/0.4.1.94, webmockr/0.5.1.98
 - request:
     method: get
     uri: http://api.gbif.org/v1/species/2441176?limit=20
@@ -314,9 +315,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
   response:
     status:
       status_code: '200'
@@ -324,574 +326,25 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 17:47:34 GMT
+      date: Mon, 10 Feb 2020 22:16:03 GMT
       content-type: application/json
       access-control-allow-origin: '*'
-      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
       server: Jetty(9.3.z-SNAPSHOT)
       cache-control: public, max-age=3601
-      x-varnish: 67436828 39717490
-      age: '13'
+      x-varnish: '786039321'
+      age: '0'
       via: 1.1 varnish (Varnish/5.2)
       accept-ranges: bytes
       content-length: '992'
       connection: keep-alive
     body:
       encoding: UTF-8
+      file: no
       string: '{"key":2441176,"nubKey":2441176,"nameKey":1485726,"taxonID":"gbif:2441176","sourceTaxonKey":132079608,"kingdom":"Animalia","phylum":"Chordata","order":"Artiodactyla","family":"Bovidae","genus":"Bison","species":"Bison
         bison","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":731,"familyKey":9614,"genusKey":2441175,"speciesKey":2441176,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":2441175,"parent":"Bison","basionymKey":2441178,"basionym":"Bos
         bison Linnaeus, 1758","scientificName":"Bison bison (Linnaeus, 1758)","canonicalName":"Bison
         bison","authorship":" (Linnaeus, 1758)","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","publishedIn":"Syst.
-        Nat., 10th ed. vol.1 p.72","numDescendants":0,"lastCrawled":"2018-06-20T14:41:51.801+0000","lastInterpreted":"2018-06-20T13:42:37.560+0000","issues":[],"synonym":false,"class":"Mammalia"}'
-  recorded_at: 2019-01-26 17:47:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
-- request:
-    method: get
-    uri: http://www.catalogueoflife.org/col/webservice?name=Chironomus%20riparius&response=full&format=json
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      server: nginx/1.12.1
-      date: Sat, 26 Jan 2019 17:47:50 GMT
-      content-type: application/json
-      content-length: '2189'
-      connection: keep-alive
-      x-powered-by: PHP/5.5.9-1ubuntu4.26
-      expires: Thu, 19 Nov 1981 08:52:00 GMT
-      cache-control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
-      pragma: no-cache
-      vary: Accept-Encoding
-      content-encoding: gzip
-    body:
-      encoding: UTF-8
-      string: '{"id":"","name":"Chironomus riparius","total_number_of_results":1,"number_of_results_returned":1,"start":0,"error_message":"","version":"1.9
-        rev 2126ab0","rank":"","results":[{"id":"714831352ad94741e4321eccdeb29f58","name":"Chironomus
-        riparius","rank":"Species","name_status":"accepted name","genus":"Chironomus","subgenus":"","species":"riparius","infraspecies_marker":"","infraspecies":"","author":"Meigen,
-        1804","record_scrutiny_date":{"scrutiny":"2010"},"online_resource":"","is_extinct":"false","source_database":"Systema
-        Dipterorum","source_database_url":"http:\/\/www.diptera.org","bibliographic_citation":"Pape
-        T. & Thompson F.C. (eds). (2019). Systema Dipterorum (version 2.0, Jan 2011).
-        In: Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin
-        T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds.
-        (2019). Species 2000 & ITIS Catalogue of Life, 24th December 2018. Digital
-        resource at www.catalogueoflife.org\/col. Species 2000: Naturalis, Leiden,
-        the Netherlands. ISSN 2405-8858.","name_html":"<i>Chironomus riparius<\/i>
-        Meigen, 1804","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/714831352ad94741e4321eccdeb29f58","distribution":"Alask
-        to Northwest Territories & Newfoundland, s. to California &Florida 29404 0","references":[],"classification":[{"id":"5ede24b0534ebd5e1f552d5b9f874a6a","name":"Animalia","rank":"Kingdom","name_html":"Animalia","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/5ede24b0534ebd5e1f552d5b9f874a6a"},{"id":"89ac18bfcf1654a9662a600ba06bb494","name":"Arthropoda","rank":"Phylum","name_html":"Arthropoda","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/89ac18bfcf1654a9662a600ba06bb494"},{"id":"ae304a1e0beadcfec04932589049bb5a","name":"Insecta","rank":"Class","name_html":"Insecta","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/ae304a1e0beadcfec04932589049bb5a"},{"id":"2bda68991ddbf2b55b5c7e66c8a125ad","name":"Diptera","rank":"Order","name_html":"Diptera","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/2bda68991ddbf2b55b5c7e66c8a125ad"},{"id":"df82bd09428672183007dc400917c267","name":"Chironomidae","rank":"Family","name_html":"Chironomidae","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/df82bd09428672183007dc400917c267"},{"id":"2de1fd1e351f59f289ab6263e385f718","name":"Chironomus","rank":"Genus","name_html":"<i>Chironomus<\/i>","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/2de1fd1e351f59f289ab6263e385f718"}],"child_taxa":[],"synonyms":[{"id":"3d0237eeb7899c554867368618597e00","name":"Chironomus
-        albistria","rank":"Species","name_status":"synonym","genus":"Chironomus","subgenus":"","species":"albistria","infraspecies_marker":"","infraspecies":"","author":"Walker,
-        1848","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Chironomus
-        albistria<\/i> Walker, 1848","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/714831352ad94741e4321eccdeb29f58\/synonym\/3d0237eeb7899c554867368618597e00","references":[]},{"id":"b14fce0f1be25ff464d8155262af4732","name":"Chironomus
-        bifilis","rank":"Species","name_status":"synonym","genus":"Chironomus","subgenus":"","species":"bifilis","infraspecies_marker":"","infraspecies":"","author":"Thienemann
-        & Kieffer, 1916","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Chironomus
-        bifilis<\/i> Thienemann & Kieffer, 1916","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/714831352ad94741e4321eccdeb29f58\/synonym\/b14fce0f1be25ff464d8155262af4732","references":[]},{"id":"6b8e96d2a3e95f42cefb92f11396bb02","name":"Chironomus
-        curtibarba","rank":"Species","name_status":"synonym","genus":"Chironomus","subgenus":"","species":"curtibarba","infraspecies_marker":"","infraspecies":"","author":"Kieffer,
-        1922","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Chironomus
-        curtibarba<\/i> Kieffer, 1922","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/714831352ad94741e4321eccdeb29f58\/synonym\/6b8e96d2a3e95f42cefb92f11396bb02","references":[]},{"id":"114ff6644bc01a63f963b73a254d4fa5","name":"Chironomus
-        curtiforceps","rank":"Species","name_status":"synonym","genus":"Chironomus","subgenus":"","species":"curtiforceps","infraspecies_marker":"","infraspecies":"","author":"Thienemann
-        & Kieffer, 1916","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Chironomus
-        curtiforceps<\/i> Thienemann & Kieffer, 1916","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/714831352ad94741e4321eccdeb29f58\/synonym\/114ff6644bc01a63f963b73a254d4fa5","references":[]},{"id":"26d1652268339c785329a273528a151b","name":"Chironomus
-        gregarius","rank":"Species","name_status":"synonym","genus":"Chironomus","subgenus":"","species":"gregarius","infraspecies_marker":"","infraspecies":"","author":"Kieffer,
-        1909","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Chironomus
-        gregarius<\/i> Kieffer, 1909","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/714831352ad94741e4321eccdeb29f58\/synonym\/26d1652268339c785329a273528a151b","references":[]},{"id":"25782bd5254492c15a16c2def7ba52d7","name":"Chironomus
-        halochares","rank":"Species","name_status":"synonym","genus":"Chironomus","subgenus":"","species":"halochares","infraspecies_marker":"","infraspecies":"","author":"Kieffer,
-        1915","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Chironomus
-        halochares<\/i> Kieffer, 1915","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/714831352ad94741e4321eccdeb29f58\/synonym\/25782bd5254492c15a16c2def7ba52d7","references":[]},{"id":"358609cfd87b379e3a39ca36550f0023","name":"Chironomus
-        interruptus","rank":"Species","name_status":"synonym","genus":"Chironomus","subgenus":"","species":"interruptus","infraspecies_marker":"","infraspecies":"","author":"Kieffer,
-        1909","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Chironomus
-        interruptus<\/i> Kieffer, 1909","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/714831352ad94741e4321eccdeb29f58\/synonym\/358609cfd87b379e3a39ca36550f0023","references":[]},{"id":"aca984d45fbca4601001bd2756d9ec90","name":"Chironomus
-        kochianus","rank":"Species","name_status":"synonym","genus":"Chironomus","subgenus":"","species":"kochianus","infraspecies_marker":"","infraspecies":"","author":"Kieffer
-        & Thienemann, 1919","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Chironomus
-        kochianus<\/i> Kieffer & Thienemann, 1919","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/714831352ad94741e4321eccdeb29f58\/synonym\/aca984d45fbca4601001bd2756d9ec90","references":[]},{"id":"c6bf9f0423c39d5fd8f7e912bc6868fe","name":"Chironomus
-        militaris","rank":"Species","name_status":"synonym","genus":"Chironomus","subgenus":"","species":"militaris","infraspecies_marker":"","infraspecies":"","author":"Johannsen,
-        1937","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Chironomus
-        militaris<\/i> Johannsen, 1937","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/714831352ad94741e4321eccdeb29f58\/synonym\/c6bf9f0423c39d5fd8f7e912bc6868fe","references":[]},{"id":"fe37e1c13955f1b7c379e0f8c156cb12","name":"Chironomus
-        pentatomus","rank":"Species","name_status":"synonym","genus":"Chironomus","subgenus":"","species":"pentatomus","infraspecies_marker":"","infraspecies":"","author":"Kieffer,
-        1909","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Chironomus
-        pentatomus<\/i> Kieffer, 1909","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/714831352ad94741e4321eccdeb29f58\/synonym\/fe37e1c13955f1b7c379e0f8c156cb12","references":[]},{"id":"f9d20066b0221ae7d0a4eb6f0b06ee77","name":"Chironomus
-        serus","rank":"Species","name_status":"synonym","genus":"Chironomus","subgenus":"","species":"serus","infraspecies_marker":"","infraspecies":"","author":"Malloch,
-        1915","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Chironomus
-        serus<\/i> Malloch, 1915","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/714831352ad94741e4321eccdeb29f58\/synonym\/f9d20066b0221ae7d0a4eb6f0b06ee77","references":[]},{"id":"b69fdb97f194356715c16fcbbbc71f2f","name":"Chironomus
-        subriparius","rank":"Species","name_status":"synonym","genus":"Chironomus","subgenus":"","species":"subriparius","infraspecies_marker":"","infraspecies":"","author":"Kieffer,
-        1918","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Chironomus
-        subriparius<\/i> Kieffer, 1918","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/714831352ad94741e4321eccdeb29f58\/synonym\/b69fdb97f194356715c16fcbbbc71f2f","references":[]},{"id":"84bf6574da08da0b2df61374dab8dc43","name":"Chironomus
-        zonulus","rank":"Species","name_status":"synonym","genus":"Chironomus","subgenus":"","species":"zonulus","infraspecies_marker":"","infraspecies":"","author":"Zetterstedt,
-        1838","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Chironomus
-        zonulus<\/i> Zetterstedt, 1838","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/714831352ad94741e4321eccdeb29f58\/synonym\/84bf6574da08da0b2df61374dab8dc43","references":[]},{"id":"fee0a6e8189b929557e53a95e7610add","name":"Tendipes
-        dichromocerus","rank":"Species","name_status":"synonym","genus":"Tendipes","subgenus":"","species":"dichromocerus","infraspecies_marker":"","infraspecies":"","author":"Kieffer,
-        1911","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Tendipes
-        dichromocerus<\/i> Kieffer, 1911","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/714831352ad94741e4321eccdeb29f58\/synonym\/fee0a6e8189b929557e53a95e7610add","references":[]},{"id":"a1c31d1a11e428c8714ba40210545c7d","name":"Tendipes
-        ichtyobrota","rank":"Species","name_status":"synonym","genus":"Tendipes","subgenus":"","species":"ichtyobrota","infraspecies_marker":"","infraspecies":"","author":"Kieffer,
-        1911","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Tendipes
-        ichtyobrota<\/i> Kieffer, 1911","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/714831352ad94741e4321eccdeb29f58\/synonym\/a1c31d1a11e428c8714ba40210545c7d","references":[]},{"id":"a39adf6bdfa28ce72c751cf5b8887240","name":"Tendipes
-        indivisus","rank":"Species","name_status":"synonym","genus":"Tendipes","subgenus":"","species":"indivisus","infraspecies_marker":"","infraspecies":"","author":"Kieffer,
-        1911","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Tendipes
-        indivisus<\/i> Kieffer, 1911","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/714831352ad94741e4321eccdeb29f58\/synonym\/a39adf6bdfa28ce72c751cf5b8887240","references":[]},{"id":"5b9a1616ccd9b1cea5e17a41123cbc04","name":"Tendipes
-        rhyparobius","rank":"Species","name_status":"synonym","genus":"Tendipes","subgenus":"","species":"rhyparobius","infraspecies_marker":"","infraspecies":"","author":"Kieffer,
-        1911","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Tendipes
-        rhyparobius<\/i> Kieffer, 1911","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/714831352ad94741e4321eccdeb29f58\/synonym\/5b9a1616ccd9b1cea5e17a41123cbc04","references":[]},{"id":"74d682170bd57b7d49e2b3e2d233d27b","name":"Tendipes
-        subproductus","rank":"Species","name_status":"synonym","genus":"Tendipes","subgenus":"","species":"subproductus","infraspecies_marker":"","infraspecies":"","author":"Kieffer,
-        1911","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Tendipes
-        subproductus<\/i> Kieffer, 1911","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/714831352ad94741e4321eccdeb29f58\/synonym\/74d682170bd57b7d49e2b3e2d233d27b","references":[]},{"id":"b23883ee81301de2e22f7a52bed05ed8","name":"Tendipes
-        thummi","rank":"Species","name_status":"synonym","genus":"Tendipes","subgenus":"","species":"thummi","infraspecies_marker":"","infraspecies":"","author":"Kieffer,
-        1911","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Tendipes
-        thummi<\/i> Kieffer, 1911","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/714831352ad94741e4321eccdeb29f58\/synonym\/b23883ee81301de2e22f7a52bed05ed8","references":[]}],"common_names":[]}]}'
-  recorded_at: 2019-01-26 17:47:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
-- request:
-    method: get
-    uri: http://www.catalogueoflife.org/col/webservice?id=714831352ad94741e4321eccdeb29f58&response=full
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      server: nginx/1.12.1
-      date: Sat, 26 Jan 2019 17:47:51 GMT
-      content-type: application/xml
-      transfer-encoding: chunked
-      connection: keep-alive
-      x-powered-by: PHP/5.5.9-1ubuntu4.26
-      expires: Thu, 19 Nov 1981 08:52:00 GMT
-      cache-control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
-      pragma: no-cache
-    body:
-      encoding: UTF-8
-      string: |
-        <?xml version="1.0" encoding="UTF-8"?>
-        <results id="714831352ad94741e4321eccdeb29f58" name="" total_number_of_results="1" number_of_results_returned="1" start="0" error_message="" version="1.9 rev 2126ab0" rank="">
-          <result>
-            <id>714831352ad94741e4321eccdeb29f58</id>
-            <name>Chironomus riparius</name>
-            <rank>Species</rank>
-            <name_status>accepted name</name_status>
-            <genus>Chironomus</genus>
-            <subgenus></subgenus>
-            <species>riparius</species>
-            <infraspecies_marker></infraspecies_marker>
-            <infraspecies></infraspecies>
-            <author>Meigen, 1804</author>
-            <record_scrutiny_date>
-              <scrutiny>2010</scrutiny>
-            </record_scrutiny_date>
-            <online_resource></online_resource>
-            <is_extinct>false</is_extinct>
-            <source_database>Systema Dipterorum</source_database>
-            <source_database_url>http://www.diptera.org</source_database_url>
-            <bibliographic_citation><![CDATA[Pape T. & Thompson F.C. (eds). (2019). Systema Dipterorum (version 2.0, Jan 2011). In: Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds. (2019). Species 2000 & ITIS Catalogue of Life, 24th December 2018. Digital resource at www.catalogueoflife.org/col. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-8858.]]></bibliographic_citation>
-            <name_html><i>Chironomus riparius</i> Meigen, 1804</name_html>
-            <url>http://www.catalogueoflife.org/col/details/species/id/714831352ad94741e4321eccdeb29f58</url>
-            <distribution><![CDATA[Alask to Northwest Territories & Newfoundland, s. to California &Florida 29404 0]]></distribution>
-            <references/>
-            <classification>
-              <taxon>
-                <id>5ede24b0534ebd5e1f552d5b9f874a6a</id>
-                <name>Animalia</name>
-                <rank>Kingdom</rank>
-                <name_html>Animalia</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/5ede24b0534ebd5e1f552d5b9f874a6a</url>
-              </taxon>
-              <taxon>
-                <id>89ac18bfcf1654a9662a600ba06bb494</id>
-                <name>Arthropoda</name>
-                <rank>Phylum</rank>
-                <name_html>Arthropoda</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/89ac18bfcf1654a9662a600ba06bb494</url>
-              </taxon>
-              <taxon>
-                <id>ae304a1e0beadcfec04932589049bb5a</id>
-                <name>Insecta</name>
-                <rank>Class</rank>
-                <name_html>Insecta</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/ae304a1e0beadcfec04932589049bb5a</url>
-              </taxon>
-              <taxon>
-                <id>2bda68991ddbf2b55b5c7e66c8a125ad</id>
-                <name>Diptera</name>
-                <rank>Order</rank>
-                <name_html>Diptera</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/2bda68991ddbf2b55b5c7e66c8a125ad</url>
-              </taxon>
-              <taxon>
-                <id>df82bd09428672183007dc400917c267</id>
-                <name>Chironomidae</name>
-                <rank>Family</rank>
-                <name_html>Chironomidae</name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/df82bd09428672183007dc400917c267</url>
-              </taxon>
-              <taxon>
-                <id>2de1fd1e351f59f289ab6263e385f718</id>
-                <name>Chironomus</name>
-                <rank>Genus</rank>
-                <name_html><i>Chironomus</i></name_html>
-                <url>http://www.catalogueoflife.org/col/browse/tree/id/2de1fd1e351f59f289ab6263e385f718</url>
-              </taxon>
-            </classification>
-            <child_taxa/>
-            <synonyms>
-              <synonym>
-                <id>3d0237eeb7899c554867368618597e00</id>
-                <name>Chironomus albistria</name>
-                <rank>Species</rank>
-                <name_status>synonym</name_status>
-                <genus>Chironomus</genus>
-                <subgenus></subgenus>
-                <species>albistria</species>
-                <infraspecies_marker></infraspecies_marker>
-                <infraspecies></infraspecies>
-                <author>Walker, 1848</author>
-                <record_scrutiny_date></record_scrutiny_date>
-                <online_resource></online_resource>
-                <is_extinct>0</is_extinct>
-                <name_html><i>Chironomus albistria</i> Walker, 1848</name_html>
-                <url>http://www.catalogueoflife.org/col/details/species/id/714831352ad94741e4321eccdeb29f58/synonym/3d0237eeb7899c554867368618597e00</url>
-                <references/>
-              </synonym>
-              <synonym>
-                <id>b14fce0f1be25ff464d8155262af4732</id>
-                <name>Chironomus bifilis</name>
-                <rank>Species</rank>
-                <name_status>synonym</name_status>
-                <genus>Chironomus</genus>
-                <subgenus></subgenus>
-                <species>bifilis</species>
-                <infraspecies_marker></infraspecies_marker>
-                <infraspecies></infraspecies>
-                <author><![CDATA[Thienemann & Kieffer, 1916]]></author>
-                <record_scrutiny_date></record_scrutiny_date>
-                <online_resource></online_resource>
-                <is_extinct>0</is_extinct>
-                <name_html><![CDATA[<i>Chironomus bifilis</i> Thienemann & Kieffer, 1916]]></name_html>
-                <url>http://www.catalogueoflife.org/col/details/species/id/714831352ad94741e4321eccdeb29f58/synonym/b14fce0f1be25ff464d8155262af4732</url>
-                <references/>
-              </synonym>
-              <synonym>
-                <id>6b8e96d2a3e95f42cefb92f11396bb02</id>
-                <name>Chironomus curtibarba</name>
-                <rank>Species</rank>
-                <name_status>synonym</name_status>
-                <genus>Chironomus</genus>
-                <subgenus></subgenus>
-                <species>curtibarba</species>
-                <infraspecies_marker></infraspecies_marker>
-                <infraspecies></infraspecies>
-                <author>Kieffer, 1922</author>
-                <record_scrutiny_date></record_scrutiny_date>
-                <online_resource></online_resource>
-                <is_extinct>0</is_extinct>
-                <name_html><i>Chironomus curtibarba</i> Kieffer, 1922</name_html>
-                <url>http://www.catalogueoflife.org/col/details/species/id/714831352ad94741e4321eccdeb29f58/synonym/6b8e96d2a3e95f42cefb92f11396bb02</url>
-                <references/>
-              </synonym>
-              <synonym>
-                <id>114ff6644bc01a63f963b73a254d4fa5</id>
-                <name>Chironomus curtiforceps</name>
-                <rank>Species</rank>
-                <name_status>synonym</name_status>
-                <genus>Chironomus</genus>
-                <subgenus></subgenus>
-                <species>curtiforceps</species>
-                <infraspecies_marker></infraspecies_marker>
-                <infraspecies></infraspecies>
-                <author><![CDATA[Thienemann & Kieffer, 1916]]></author>
-                <record_scrutiny_date></record_scrutiny_date>
-                <online_resource></online_resource>
-                <is_extinct>0</is_extinct>
-                <name_html><![CDATA[<i>Chironomus curtiforceps</i> Thienemann & Kieffer, 1916]]></name_html>
-                <url>http://www.catalogueoflife.org/col/details/species/id/714831352ad94741e4321eccdeb29f58/synonym/114ff6644bc01a63f963b73a254d4fa5</url>
-                <references/>
-              </synonym>
-              <synonym>
-                <id>26d1652268339c785329a273528a151b</id>
-                <name>Chironomus gregarius</name>
-                <rank>Species</rank>
-                <name_status>synonym</name_status>
-                <genus>Chironomus</genus>
-                <subgenus></subgenus>
-                <species>gregarius</species>
-                <infraspecies_marker></infraspecies_marker>
-                <infraspecies></infraspecies>
-                <author>Kieffer, 1909</author>
-                <record_scrutiny_date></record_scrutiny_date>
-                <online_resource></online_resource>
-                <is_extinct>0</is_extinct>
-                <name_html><i>Chironomus gregarius</i> Kieffer, 1909</name_html>
-                <url>http://www.catalogueoflife.org/col/details/species/id/714831352ad94741e4321eccdeb29f58/synonym/26d1652268339c785329a273528a151b</url>
-                <references/>
-              </synonym>
-              <synonym>
-                <id>25782bd5254492c15a16c2def7ba52d7</id>
-                <name>Chironomus halochares</name>
-                <rank>Species</rank>
-                <name_status>synonym</name_status>
-                <genus>Chironomus</genus>
-                <subgenus></subgenus>
-                <species>halochares</species>
-                <infraspecies_marker></infraspecies_marker>
-                <infraspecies></infraspecies>
-                <author>Kieffer, 1915</author>
-                <record_scrutiny_date></record_scrutiny_date>
-                <online_resource></online_resource>
-                <is_extinct>0</is_extinct>
-                <name_html><i>Chironomus halochares</i> Kieffer, 1915</name_html>
-                <url>http://www.catalogueoflife.org/col/details/species/id/714831352ad94741e4321eccdeb29f58/synonym/25782bd5254492c15a16c2def7ba52d7</url>
-                <references/>
-              </synonym>
-              <synonym>
-                <id>358609cfd87b379e3a39ca36550f0023</id>
-                <name>Chironomus interruptus</name>
-                <rank>Species</rank>
-                <name_status>synonym</name_status>
-                <genus>Chironomus</genus>
-                <subgenus></subgenus>
-                <species>interruptus</species>
-                <infraspecies_marker></infraspecies_marker>
-                <infraspecies></infraspecies>
-                <author>Kieffer, 1909</author>
-                <record_scrutiny_date></record_scrutiny_date>
-                <online_resource></online_resource>
-                <is_extinct>0</is_extinct>
-                <name_html><i>Chironomus interruptus</i> Kieffer, 1909</name_html>
-                <url>http://www.catalogueoflife.org/col/details/species/id/714831352ad94741e4321eccdeb29f58/synonym/358609cfd87b379e3a39ca36550f0023</url>
-                <references/>
-              </synonym>
-              <synonym>
-                <id>aca984d45fbca4601001bd2756d9ec90</id>
-                <name>Chironomus kochianus</name>
-                <rank>Species</rank>
-                <name_status>synonym</name_status>
-                <genus>Chironomus</genus>
-                <subgenus></subgenus>
-                <species>kochianus</species>
-                <infraspecies_marker></infraspecies_marker>
-                <infraspecies></infraspecies>
-                <author><![CDATA[Kieffer & Thienemann, 1919]]></author>
-                <record_scrutiny_date></record_scrutiny_date>
-                <online_resource></online_resource>
-                <is_extinct>0</is_extinct>
-                <name_html><![CDATA[<i>Chironomus kochianus</i> Kieffer & Thienemann, 1919]]></name_html>
-                <url>http://www.catalogueoflife.org/col/details/species/id/714831352ad94741e4321eccdeb29f58/synonym/aca984d45fbca4601001bd2756d9ec90</url>
-                <references/>
-              </synonym>
-              <synonym>
-                <id>c6bf9f0423c39d5fd8f7e912bc6868fe</id>
-                <name>Chironomus militaris</name>
-                <rank>Species</rank>
-                <name_status>synonym</name_status>
-                <genus>Chironomus</genus>
-                <subgenus></subgenus>
-                <species>militaris</species>
-                <infraspecies_marker></infraspecies_marker>
-                <infraspecies></infraspecies>
-                <author>Johannsen, 1937</author>
-                <record_scrutiny_date></record_scrutiny_date>
-                <online_resource></online_resource>
-                <is_extinct>0</is_extinct>
-                <name_html><i>Chironomus militaris</i> Johannsen, 1937</name_html>
-                <url>http://www.catalogueoflife.org/col/details/species/id/714831352ad94741e4321eccdeb29f58/synonym/c6bf9f0423c39d5fd8f7e912bc6868fe</url>
-                <references/>
-              </synonym>
-              <synonym>
-                <id>fe37e1c13955f1b7c379e0f8c156cb12</id>
-                <name>Chironomus pentatomus</name>
-                <rank>Species</rank>
-                <name_status>synonym</name_status>
-                <genus>Chironomus</genus>
-                <subgenus></subgenus>
-                <species>pentatomus</species>
-                <infraspecies_marker></infraspecies_marker>
-                <infraspecies></infraspecies>
-                <author>Kieffer, 1909</author>
-                <record_scrutiny_date></record_scrutiny_date>
-                <online_resource></online_resource>
-                <is_extinct>0</is_extinct>
-                <name_html><i>Chironomus pentatomus</i> Kieffer, 1909</name_html>
-                <url>http://www.catalogueoflife.org/col/details/species/id/714831352ad94741e4321eccdeb29f58/synonym/fe37e1c13955f1b7c379e0f8c156cb12</url>
-                <references/>
-              </synonym>
-              <synonym>
-                <id>f9d20066b0221ae7d0a4eb6f0b06ee77</id>
-                <name>Chironomus serus</name>
-                <rank>Species</rank>
-                <name_status>synonym</name_status>
-                <genus>Chironomus</genus>
-                <subgenus></subgenus>
-                <species>serus</species>
-                <infraspecies_marker></infraspecies_marker>
-                <infraspecies></infraspecies>
-                <author>Malloch, 1915</author>
-                <record_scrutiny_date></record_scrutiny_date>
-                <online_resource></online_resource>
-                <is_extinct>0</is_extinct>
-                <name_html><i>Chironomus serus</i> Malloch, 1915</name_html>
-                <url>http://www.catalogueoflife.org/col/details/species/id/714831352ad94741e4321eccdeb29f58/synonym/f9d20066b0221ae7d0a4eb6f0b06ee77</url>
-                <references/>
-              </synonym>
-              <synonym>
-                <id>b69fdb97f194356715c16fcbbbc71f2f</id>
-                <name>Chironomus subriparius</name>
-                <rank>Species</rank>
-                <name_status>synonym</name_status>
-                <genus>Chironomus</genus>
-                <subgenus></subgenus>
-                <species>subriparius</species>
-                <infraspecies_marker></infraspecies_marker>
-                <infraspecies></infraspecies>
-                <author>Kieffer, 1918</author>
-                <record_scrutiny_date></record_scrutiny_date>
-                <online_resource></online_resource>
-                <is_extinct>0</is_extinct>
-                <name_html><i>Chironomus subriparius</i> Kieffer, 1918</name_html>
-                <url>http://www.catalogueoflife.org/col/details/species/id/714831352ad94741e4321eccdeb29f58/synonym/b69fdb97f194356715c16fcbbbc71f2f</url>
-                <references/>
-              </synonym>
-              <synonym>
-                <id>84bf6574da08da0b2df61374dab8dc43</id>
-                <name>Chironomus zonulus</name>
-                <rank>Species</rank>
-                <name_status>synonym</name_status>
-                <genus>Chironomus</genus>
-                <subgenus></subgenus>
-                <species>zonulus</species>
-                <infraspecies_marker></infraspecies_marker>
-                <infraspecies></infraspecies>
-                <author>Zetterstedt, 1838</author>
-                <record_scrutiny_date></record_scrutiny_date>
-                <online_resource></online_resource>
-                <is_extinct>0</is_extinct>
-                <name_html><i>Chironomus zonulus</i> Zetterstedt, 1838</name_html>
-                <url>http://www.catalogueoflife.org/col/details/species/id/714831352ad94741e4321eccdeb29f58/synonym/84bf6574da08da0b2df61374dab8dc43</url>
-                <references/>
-              </synonym>
-              <synonym>
-                <id>fee0a6e8189b929557e53a95e7610add</id>
-                <name>Tendipes dichromocerus</name>
-                <rank>Species</rank>
-                <name_status>synonym</name_status>
-                <genus>Tendipes</genus>
-                <subgenus></subgenus>
-                <species>dichromocerus</species>
-                <infraspecies_marker></infraspecies_marker>
-                <infraspecies></infraspecies>
-                <author>Kieffer, 1911</author>
-                <record_scrutiny_date></record_scrutiny_date>
-                <online_resource></online_resource>
-                <is_extinct>0</is_extinct>
-                <name_html><i>Tendipes dichromocerus</i> Kieffer, 1911</name_html>
-                <url>http://www.catalogueoflife.org/col/details/species/id/714831352ad94741e4321eccdeb29f58/synonym/fee0a6e8189b929557e53a95e7610add</url>
-                <references/>
-              </synonym>
-              <synonym>
-                <id>a1c31d1a11e428c8714ba40210545c7d</id>
-                <name>Tendipes ichtyobrota</name>
-                <rank>Species</rank>
-                <name_status>synonym</name_status>
-                <genus>Tendipes</genus>
-                <subgenus></subgenus>
-                <species>ichtyobrota</species>
-                <infraspecies_marker></infraspecies_marker>
-                <infraspecies></infraspecies>
-                <author>Kieffer, 1911</author>
-                <record_scrutiny_date></record_scrutiny_date>
-                <online_resource></online_resource>
-                <is_extinct>0</is_extinct>
-                <name_html><i>Tendipes ichtyobrota</i> Kieffer, 1911</name_html>
-                <url>http://www.catalogueoflife.org/col/details/species/id/714831352ad94741e4321eccdeb29f58/synonym/a1c31d1a11e428c8714ba40210545c7d</url>
-                <references/>
-              </synonym>
-              <synonym>
-                <id>a39adf6bdfa28ce72c751cf5b8887240</id>
-                <name>Tendipes indivisus</name>
-                <rank>Species</rank>
-                <name_status>synonym</name_status>
-                <genus>Tendipes</genus>
-                <subgenus></subgenus>
-                <species>indivisus</species>
-                <infraspecies_marker></infraspecies_marker>
-                <infraspecies></infraspecies>
-                <author>Kieffer, 1911</author>
-                <record_scrutiny_date></record_scrutiny_date>
-                <online_resource></online_resource>
-                <is_extinct>0</is_extinct>
-                <name_html><i>Tendipes indivisus</i> Kieffer, 1911</name_html>
-                <url>http://www.catalogueoflife.org/col/details/species/id/714831352ad94741e4321eccdeb29f58/synonym/a39adf6bdfa28ce72c751cf5b8887240</url>
-                <references/>
-              </synonym>
-              <synonym>
-                <id>5b9a1616ccd9b1cea5e17a41123cbc04</id>
-                <name>Tendipes rhyparobius</name>
-                <rank>Species</rank>
-                <name_status>synonym</name_status>
-                <genus>Tendipes</genus>
-                <subgenus></subgenus>
-                <species>rhyparobius</species>
-                <infraspecies_marker></infraspecies_marker>
-                <infraspecies></infraspecies>
-                <author>Kieffer, 1911</author>
-                <record_scrutiny_date></record_scrutiny_date>
-                <online_resource></online_resource>
-                <is_extinct>0</is_extinct>
-                <name_html><i>Tendipes rhyparobius</i> Kieffer, 1911</name_html>
-                <url>http://www.catalogueoflife.org/col/details/species/id/714831352ad94741e4321eccdeb29f58/synonym/5b9a1616ccd9b1cea5e17a41123cbc04</url>
-                <references/>
-              </synonym>
-              <synonym>
-                <id>74d682170bd57b7d49e2b3e2d233d27b</id>
-                <name>Tendipes subproductus</name>
-                <rank>Species</rank>
-                <name_status>synonym</name_status>
-                <genus>Tendipes</genus>
-                <subgenus></subgenus>
-                <species>subproductus</species>
-                <infraspecies_marker></infraspecies_marker>
-                <infraspecies></infraspecies>
-                <author>Kieffer, 1911</author>
-                <record_scrutiny_date></record_scrutiny_date>
-                <online_resource></online_resource>
-                <is_extinct>0</is_extinct>
-                <name_html><i>Tendipes subproductus</i> Kieffer, 1911</name_html>
-                <url>http://www.catalogueoflife.org/col/details/species/id/714831352ad94741e4321eccdeb29f58/synonym/74d682170bd57b7d49e2b3e2d233d27b</url>
-                <references/>
-              </synonym>
-              <synonym>
-                <id>b23883ee81301de2e22f7a52bed05ed8</id>
-                <name>Tendipes thummi</name>
-                <rank>Species</rank>
-                <name_status>synonym</name_status>
-                <genus>Tendipes</genus>
-                <subgenus></subgenus>
-                <species>thummi</species>
-                <infraspecies_marker></infraspecies_marker>
-                <infraspecies></infraspecies>
-                <author>Kieffer, 1911</author>
-                <record_scrutiny_date></record_scrutiny_date>
-                <online_resource></online_resource>
-                <is_extinct>0</is_extinct>
-                <name_html><i>Tendipes thummi</i> Kieffer, 1911</name_html>
-                <url>http://www.catalogueoflife.org/col/details/species/id/714831352ad94741e4321eccdeb29f58/synonym/b23883ee81301de2e22f7a52bed05ed8</url>
-                <references/>
-              </synonym>
-            </synonyms>
-            <common_names/>
-          </result>
-        </results>
-  recorded_at: 2019-01-26 17:47:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+        Nat., 10th ed. vol.1 p.72","numDescendants":1,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:02:42.116+0000","issues":[],"synonym":false,"class":"Mammalia"}'
+  recorded_at: 2020-02-10 22:16:03 GMT
+  recorded_with: vcr/0.4.1.94, webmockr/0.5.1.98

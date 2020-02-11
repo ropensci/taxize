@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -18,7 +18,7 @@ http_interactions:
       connection: keep-alive
       content-length: '266'
       content-type: text/json;charset=ISO-8859-1
-      date: Sat, 26 Jan 2019 17:32:46 GMT
+      date: Mon, 10 Feb 2020 22:14:50 GMT
       status: 'HTTP/1.1 200 '
       strict-transport-security:
       - max-age=63072000; includeSubdomains; preload
@@ -28,10 +28,45 @@ http_interactions:
       x-upstream-member: not shown
     body:
       encoding: UTF-8
+      file: no
       string: |
         {"class":"gov.usgs.itis.itis_service.data.SvcItisTermList","itisTerms":[{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Saurauiaceae","tsn":"897114"}],"requestedName":"Saurauia"}
-  recorded_at: 2019-01-26 17:32:47 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2020-02-10 22:14:55 GMT
+  recorded_with: vcr/0.4.1.94, webmockr/0.5.1.98
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getITISTermsFromScientificName?srchKey=Saurauia
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      connection: keep-alive
+      content-length: '266'
+      content-type: text/json;charset=ISO-8859-1
+      date: Mon, 10 Feb 2020 22:14:54 GMT
+      status: 'HTTP/1.1 200 '
+      strict-transport-security:
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      x-application: itis_webservices
+      x-node-name: not shown
+      x-upstream-member: not shown
+    body:
+      encoding: UTF-8
+      file: no
+      string: |
+        {"class":"gov.usgs.itis.itis_service.data.SvcItisTermList","itisTerms":[{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Saurauiaceae","tsn":"897114"}],"requestedName":"Saurauia"}
+  recorded_at: 2020-02-10 22:14:55 GMT
+  recorded_with: vcr/0.4.1.94, webmockr/0.5.1.98
 - request:
     method: get
     uri: https://www.itis.gov/ITISWebService/jsonservice/getHierarchyDownFromTSN?tsn=897114
@@ -39,7 +74,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -51,7 +86,7 @@ http_interactions:
       connection: keep-alive
       content-length: '144'
       content-type: text/json;charset=ISO-8859-1
-      date: Sat, 26 Jan 2019 17:32:47 GMT
+      date: Mon, 10 Feb 2020 22:14:55 GMT
       status: 'HTTP/1.1 200 '
       strict-transport-security:
       - max-age=63072000; includeSubdomains; preload
@@ -61,7 +96,8 @@ http_interactions:
       x-upstream-member: not shown
     body:
       encoding: UTF-8
+      file: no
       string: |
         {"author":"","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecordList","hierarchyList":[null],"rankName":"","sciName":"","tsn":"897114"}
-  recorded_at: 2019-01-26 17:32:47 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2020-02-10 22:14:55 GMT
+  recorded_with: vcr/0.4.1.94, webmockr/0.5.1.98

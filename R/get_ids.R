@@ -1,5 +1,5 @@
 get_ids_dbs <- c(
-  "itis", "ncbi", "eol", "col", "tropicos", "gbif", "nbn", "pow"
+  "itis", "ncbi", "eol", "tropicos", "gbif", "nbn", "pow"
 )
 
 #' Retrieve taxonomic identifiers for a given taxon name.
@@ -11,7 +11,7 @@ get_ids_dbs <- c(
 #' @export
 #' @param names (character) Taxonomic name to query.
 #' @param db (character) database to query. One or more of `ncbi`, `itis`, `eol`,
-#' `col`, `tropicos`, `gbif`, `nbn`, or `pow`. By default db is set to search
+#' `tropicos`, `gbif`, `nbn`, or `pow`. By default db is set to search
 #' all data sources. Note that each taxonomic data source has their own
 #' identifiers, so that if you give the wrong `db` value for the identifier you
 #' could get a result, it will likely be wrong (not what you were expecting).
@@ -25,7 +25,7 @@ get_ids_dbs <- c(
 #' `get_ids_` to get back all, or a subset, of the raw data that you
 #' are presented during the ask process.
 #' @param ... Other arguments passed to [get_tsn()], [get_uid()],
-#' [get_eolid()], [get_colid()], [get_tpsid()], [get_gbifid()],
+#' [get_eolid()], [get_tpsid()], [get_gbifid()],
 #' [get_nbnid()].
 #' @return A vector of taxonomic identifiers, each retaining their respective
 #' S3 classes so that each element can be passed on to another function
@@ -44,8 +44,8 @@ get_ids_dbs <- c(
 #' get_ids(names="Chironomus riparius")
 #'
 #' # specify rows to limit choices available
-#' get_ids(names="Poa annua", db=c("col", "eol"), rows=1)
-#' get_ids(names="Poa annua", db=c("col", "eol"), rows=1:2)
+#' get_ids(names="Poa annua", db="eol", rows=1)
+#' get_ids(names="Poa annua", db="eol", rows=1:2)
 #'
 #' ## Or you can specify which source you want via the db parameter
 #' get_ids(names="Chironomus riparius", db = 'ncbi')
@@ -55,14 +55,14 @@ get_ids_dbs <- c(
 #' get_ids(names=c("Chironomus riparius", "Pinus contorta"),
 #'   db = c('ncbi','itis'))
 #' get_ids(names=c("Chironomus riparius", "Pinus contorta"),
-#'   db = c('ncbi','itis','col'))
+#'   db = c('ncbi','itis'))
 #' get_ids(names="Pinus contorta",
-#'   db = c('ncbi','itis','col','eol','tropicos'))
-#' get_ids(names="ava avvva", db = c('ncbi','itis','col','eol','tropicos'))
+#'   db = c('ncbi','itis','eol','tropicos'))
+#' get_ids(names="ava avvva", db = c('ncbi','itis','eol','tropicos'))
 #'
 #' # Pass on to other functions
 #' out <- get_ids(names="Pinus contorta",
-#'  db = c('ncbi','itis','col','eol','tropicos'))
+#'  db = c('ncbi','itis','eol','tropicos'))
 #' classification(out$itis)
 #' synonyms(out$tropicos)
 #'
@@ -77,7 +77,7 @@ get_ids_dbs <- c(
 #' }
 
 get_ids <- function(names,
-  db = c("itis", "ncbi", "eol", "col", "tropicos", "gbif", "nbn",
+  db = c("itis", "ncbi", "eol", "tropicos", "gbif", "nbn",
     "pow"), suppress = FALSE, ...) {
   
   assert(suppress, "logical")
@@ -89,7 +89,6 @@ get_ids <- function(names,
                   itis = get_tsn(names, ...),
                   ncbi = get_uid(names, ...),
                   eol = get_eolid(names, ...),
-                  col = get_colid(names, ...),
                   tropicos = get_tpsid(names, ...),
                   gbif = get_gbifid(names, ...),
                   nbn = get_nbnid(names, ...),
@@ -117,7 +116,6 @@ get_ids_ <- function(names, db = get_ids_dbs, rows = NA,
                   itis = get_tsn_(names, rows = rows, ...),
                   ncbi = get_uid_(names, rows = rows, ...),
                   eol = get_eolid_(names, rows = rows, ...),
-                  col = get_colid_(names, rows = rows, ...),
                   tropicos = get_tpsid_(names, rows = rows, ...),
                   gbif = get_gbifid_(names, rows = rows, ...),
                   nbn = get_nbnid_(names, rows = rows, ...))

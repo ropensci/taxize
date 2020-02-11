@@ -11,7 +11,6 @@ attributes, and all exception behaviors.
 This document applies to the following functions:
 \itemize{
 \item \code{\link[=get_boldid]{get_boldid()}}
-\item \code{\link[=get_colid]{get_colid()}}
 \item \code{\link[=get_eolid]{get_eolid()}}
 \item \code{\link[=get_gbifid]{get_gbifid()}}
 \item \code{\link[=get_ids]{get_ids()}}

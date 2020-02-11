@@ -12,10 +12,3 @@ prune_too_low <- function(x, rank, ignore_no_rank = FALSE) {
   if (ignore_no_rank) rank_nos[rank_nos %in% c(300, 400)] <- 0
   x[!rank_nos > rank_target_no, ]
 }
-
-prune_too_low_col <- function(x, rank, ignore_no_rank = FALSE) {
-  rank_target_no <- as.numeric(rank_ref[which_rank(rank), "rankid"])
-  rank_nos <- as.numeric(rank_ref[unlist(sapply(x$childtaxa_rank, function(z) which_rank(z))),
-                                  "rankid"])
-  x[!rank_nos > rank_target_no, ]
-}

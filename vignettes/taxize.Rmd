@@ -1,7 +1,7 @@
 ---
 title: Introduction to taxize
 author: Scott Chamberlain
-date: "2020-02-07"
+date: "2020-02-10"
 output: rmarkdown::html_vignette
 vignette: >
     %\VignetteIndexEntry{Introduction to taxize}
@@ -251,7 +251,6 @@ get_tsn(searchterm = splist, searchtype = "scientific")
 There are functions for many other sources
 
 * `get_boldid()`
-* `get_colid()`
 * `get_eolid()`
 * `get_gbifid()`
 * `get_nbnid()`
@@ -413,7 +412,7 @@ These `as.*()` functions do a quick check of the web resource to make sure it's 
 ```r
 system.time( replicate(3, as.gbifid(c("2704179","2435099","3171445"), check=TRUE)) )
 #>    user  system elapsed 
-#>   0.048   0.001   2.761
+#>   0.077   0.002   4.616
 system.time( replicate(3, as.gbifid(c("2704179","2435099","3171445"), check=FALSE)) )
 #>    user  system elapsed 
 #>   0.002   0.000   0.002
@@ -421,37 +420,7 @@ system.time( replicate(3, as.gbifid(c("2704179","2435099","3171445"), check=FALS
 
 ## What taxa are downstream of my taxon of interest?
 
-If someone is not a taxonomic specialist on a particular taxon he likely does not know what children taxa are within a family, or within a genus. This task becomes especially unwieldy when there are a large number of taxa downstream. You can of course go to a website like [Wikispecies][wikispecies] or [Encyclopedia of Life][eol] to get downstream names. However, taxize provides an easy way to programatically search for downstream taxa, both for the [Catalogue of Life (CoL)][col] and the [Integrated Taxonomic Information System][itis]. Here is a short example using the CoL in which we want to find all the species within the genus *Apis* (honey bees).
-
-
-```r
-apis_col_id <- "015be25f6b061ba517f495394b80f108" # id for Apis, fetched beforehand to save time here
-downstream(apis_col_id, downto = "species", db = "col")
-#> $`015be25f6b061ba517f495394b80f108`
-#>                       childtaxa_id     childtaxa_name childtaxa_rank
-#> 1 7a4a38c5095963949d6d6ec917d471de Apis andreniformis        species
-#> 2 39610a4ceff7e5244e334a3fbc5e47e5        Apis cerana        species
-#> 3 e1d4cbf3872c6c310b7a1c17ddd00ebc       Apis dorsata        species
-#> 4 92dca82a063fedd1da94b3f3972d7b22        Apis florea        species
-#> 5 4bbc06b9dfbde0b72c619810b564c6e6 Apis koschevnikovi        species
-#> 6 67cbbcf92cd60748759e58e802d98518     Apis mellifera        species
-#> 7 213668a26ba6d2aad9575218f10d422f   Apis nigrocincta        species
-#>   childtaxa_extinct
-#> 1             FALSE
-#> 2             FALSE
-#> 3             FALSE
-#> 4             FALSE
-#> 5             FALSE
-#> 6             FALSE
-#> 7             FALSE
-#> 
-#> attr(,"class")
-#> [1] "downstream"
-#> attr(,"db")
-#> [1] "col"
-```
-
-We can also request data from ITIS
+If someone is not a taxonomic specialist on a particular taxon he likely does not know what children taxa are within a family, or within a genus. This task becomes especially unwieldy when there are a large number of taxa downstream. You can of course go to a website like [Wikispecies][wikispecies] or [Encyclopedia of Life][eol] to get downstream names. However, taxize provides an easy way to programatically search for downstream taxa for the [Integrated Taxonomic Information System][itis].
 
 
 ```r
@@ -475,35 +444,7 @@ downstream(apis_itis_id, downto = "species", db = "itis")
 
 ## Direct children
 
-You may sometimes only want the direct children. We got you covered on that front, with methods for ITIS, NCBI, and Catalogue of Life. For example, let's get direct children (species in this case) of the bee genus _Apis_ using COL data:
-
-
-```r
-# using the id for Apis we defined above for COL
-children(apis_col_id, db = "col")
-#> $`015be25f6b061ba517f495394b80f108`
-#>                       childtaxa_id     childtaxa_name childtaxa_rank
-#> 1 7a4a38c5095963949d6d6ec917d471de Apis andreniformis        species
-#> 2 39610a4ceff7e5244e334a3fbc5e47e5        Apis cerana        species
-#> 3 e1d4cbf3872c6c310b7a1c17ddd00ebc       Apis dorsata        species
-#> 4 92dca82a063fedd1da94b3f3972d7b22        Apis florea        species
-#> 5 4bbc06b9dfbde0b72c619810b564c6e6 Apis koschevnikovi        species
-#> 6 67cbbcf92cd60748759e58e802d98518     Apis mellifera        species
-#> 7 213668a26ba6d2aad9575218f10d422f   Apis nigrocincta        species
-#>   childtaxa_extinct
-#> 1             FALSE
-#> 2             FALSE
-#> 3             FALSE
-#> 4             FALSE
-#> 5             FALSE
-#> 6             FALSE
-#> 7             FALSE
-#> 
-#> attr(,"class")
-#> [1] "children"
-#> attr(,"db")
-#> [1] "col"
-```
+You may sometimes only want the direct children. We got you covered on that front, with methods for ITIS and NCBI.
 
 The direct children (genera in this case) of _Pinaceae_ using NCBI data:
 
@@ -635,4 +576,3 @@ If we find a direct match (here *Gammarus roeseli*), we are lucky. But we can al
 [ncbi]: https://www.ncbi.nlm.nih.gov/
 [itis]: https://www.itis.gov/
 [wikispecies]: https://species.wikimedia.org/wiki/Main_Page
-[col]: http://www.catalogueoflife.org/

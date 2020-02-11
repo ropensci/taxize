@@ -200,7 +200,6 @@ dbswap <- function(x) {
   switch(
     x,
     boldid = "bold",
-    colid = "col",
     eolid = "eol",
     gbifid = "gbif",
     natservid = "natserv",

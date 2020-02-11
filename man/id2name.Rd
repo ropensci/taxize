@@ -8,7 +8,6 @@
 \alias{id2name.uid}
 \alias{id2name.wormsid}
 \alias{id2name.gbifid}
-\alias{id2name.colid}
 \alias{id2name.boldid}
 \title{Taxonomic IDs to taxonomic names}
 \usage{
@@ -26,15 +25,13 @@ id2name(x, db = NULL, ...)
 
 \method{id2name}{gbifid}(x, ...)
 
-\method{id2name}{colid}(x, ...)
-
 \method{id2name}{boldid}(x, ...)
 }
 \arguments{
 \item{x}{vector of taxonomic IDs (character or numeric)}
 
 \item{db}{(character) database to query. One or more of \code{tol}, \code{itis},
-\code{ncbi}, \code{worms}, \code{gbif}, \code{col}, or \code{bold}. Note that each
+\code{ncbi}, \code{worms}, \code{gbif}, or \code{bold}. Note that each
 taxonomic data source has their own  identifiers, so that if you provide
 the wrong \code{db} value for the identifier you could get a result,
 but it will likely be wrong (not what you were expecting). If using ncbi
@@ -78,9 +75,6 @@ id2name(105706, db = "worms")
 
 # GBIF
 id2name(2441176, db = "gbif")
-
-# COL
-id2name("36c623ad9e3da39c2e978fa3576ad415", db = "col")
 
 # BOLD
 id2name(88899, db = "bold")

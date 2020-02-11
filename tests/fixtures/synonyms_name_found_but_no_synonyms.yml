@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.8.1.9100
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -16,7 +16,7 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 18 Jul 2019 23:39:52 GMT
+      date: Mon, 10 Feb 2020 22:20:50 GMT
       server: Apache/2.4.39 (Win64)
       access-control-allow-origin: '*'
       access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
@@ -26,14 +26,15 @@ http_interactions:
       content-type: application/json
     body:
       encoding: UTF-8
+      file: no
       string: '[{"AphiaID":834973,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=834973","scientificname":"Epigonus
         thai","authority":"Prokofiev & Bussarawit, 2012","status":"accepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":834973,"valid_name":"Epigonus
         thai","valid_authority":"Prokofiev & Bussarawit, 2012","parentNameUsageID":125967,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Perciformes","family":"Epigonidae","genus":"Epigonus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Epigonus thai Prokofiev & Bussarawit,
+        R. and D. Pauly. Editors. (2020). FishBase. Epigonus thai Prokofiev & Bussarawit,
         2012. Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=834973
-        on 2019-07-19","lsid":"urn:lsid:marinespecies.org:taxname:834973","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"like","modified":"2017-07-04T08:16:25.400Z"}]'
-  recorded_at: 2019-07-18 23:39:44 GMT
-  recorded_with: vcr/0.2.6.9100, webmockr/0.3.4
+        on 2020-02-10","lsid":"urn:lsid:marinespecies.org:taxname:834973","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"like","modified":"2017-07-04T08:16:25.400Z"}]'
+  recorded_at: 2020-02-10 22:21:05 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
 - request:
     method: get
     uri: http://www.marinespecies.org/rest/AphiaSynonymsByAphiaID/834973?offset=1
@@ -41,7 +42,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.8.1.9100
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -51,7 +52,7 @@ http_interactions:
       explanation: Request fulfilled, nothing follows
     headers:
       status: HTTP/1.1 204 No Content
-      date: Thu, 18 Jul 2019 23:39:53 GMT
+      date: Mon, 10 Feb 2020 22:20:51 GMT
       server: Apache/2.4.39 (Win64)
       access-control-allow-origin: '*'
       access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
@@ -59,9 +60,10 @@ http_interactions:
       access-control-allow-methods: GET, POST, OPTIONS
     body:
       encoding: UTF-8
+      file: no
       string: ''
-  recorded_at: 2019-07-18 23:39:44 GMT
-  recorded_with: vcr/0.2.6.9100, webmockr/0.3.4
+  recorded_at: 2020-02-10 22:21:05 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
 - request:
     method: get
     uri: https://species-ws.nbnatlas.org/search?q=Ursus%20arctos&fq=idxtype%3ATAXON&pageSize=500&startIndex=0
@@ -71,8 +73,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.8.1.9100 rOpenSci(taxize/0.9.8.9125)
-      X-USER-AGENT: r-curl/3.3 crul/0.8.1.9100 rOpenSci(taxize/0.9.8.9125)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
   response:
     status:
       status_code: '200'
@@ -80,185 +82,196 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 18 Jul 2019 23:41:51 GMT
+      date: Mon, 10 Feb 2020 22:20:53 GMT
       server: Apache/2.4.7 (Ubuntu)
       x-application-context: application:production
       content-type: application/json;charset=UTF-8
       transfer-encoding: chunked
     body:
       encoding: UTF-8
-      string: '{"searchResults":{"totalRecords":25,"facetResults":[],"results":[{"id":"c7619db1-c921-41e6-90c5-078387cb3a1c","guid":"NBNSYS0000005185","linkIdentifier":"Ursus
+      file: no
+      string: '{"searchResults":{"totalRecords":25,"facetResults":[],"results":[{"id":"f5a41dc1-0600-4c7d-808a-466678f1b468","guid":"NBNSYS0000005185","linkIdentifier":"Ursus
         arctos","idxtype":"TAXON","name":"Ursus arctos","kingdom":"Animalia","nomenclaturalCode":null,"scientificName":"Ursus
         arctos","scientificNameAuthorship":"Linnaeus, 1758","author":"Linnaeus, 1758","nameComplete":"Ursus
         arctos Linnaeus, 1758","nameFormatted":"<span class=\"scientific-name rank-species\"><span
         class=\"name\">Ursus arctos<\u002fspan> <span class=\"author\">Linnaeus, 1758<\u002fspan><\u002fspan>","taxonomicStatus":"accepted","nomenclaturalStatus":null,"parentGuid":"NHMSYS0000377313","rank":"species","rankID":7000,"commonName":"Brown
         Bear","commonNameSingle":"Brown Bear","occurrenceCount":0,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","taxonGroup_s":"terrestrial
-        mammal","establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":"terrestrial","speciesGroup":["Mammals"],"kingdomGuid":"NBNSYS0100001342","orderGuid":"NHMSYS0000376165","order":"Carnivora","subphylumGuid":"NBNSYS0100005954","class":"Mammalia","genus":"Ursus","phylum":"Chordata","subphylum":"Vertebrata","genusGuid":"NHMSYS0000377313","family":"Ursidae","classGuid":"NHMSYS0000376154","familyGuid":"NHMSYS0000377309","phylumGuid":"NBNSYS0100002380","species":"Ursus
+        mammal","establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":"terrestrial","speciesGroup":["Mammals"],"synonymComplete":null,"kingdomGuid":"NBNSYS0100001342","orderGuid":"NHMSYS0000376165","order":"Carnivora","subphylumGuid":"NBNSYS0100005954","class":"Mammalia","genus":"Ursus","phylum":"Chordata","subphylum":"Vertebrata","genusGuid":"NHMSYS0000377313","family":"Ursidae","classGuid":"NHMSYS0000376154","familyGuid":"NHMSYS0000377309","phylumGuid":"NBNSYS0100002380","species":"Ursus
         arctos","speciesGuid":"NBNSYS0000005185","highlight":"<b>Ursus arctos<\u002fb><br><b>Ursus<\u002fb>
-        <b>arctos<\u002fb> Linnaeus, 1758<br><b>Ursus<\u002fb> <b>arctos<\u002fb>"},{"id":"cad97318-b48d-40eb-ad84-e36be329bd4c","guid":"NHMSYS0020636842","linkIdentifier":null,"idxtype":"TAXON","name":"Arctoa
-        anderssonii","kingdom":"Plantae","nomenclaturalCode":null,"scientificName":"Arctoa
+        <b>arctos<\u002fb> Linnaeus, 1758<br><b>Ursus<\u002fb> <b>arctos<\u002fb>"},{"id":"05905feb-e3dd-4f39-b53c-07642007d265","guid":"NHMSYS0020636842","linkIdentifier":"Arctoa
+        anderssonii","idxtype":"TAXON","name":"Arctoa anderssonii","kingdom":"Plantae","nomenclaturalCode":null,"scientificName":"Arctoa
         anderssonii","scientificNameAuthorship":"Wich.","author":"Wich.","nameComplete":"Arctoa
         anderssonii Wich.","nameFormatted":"<span class=\"scientific-name rank-species\"><span
-        class=\"name\">Arctoa anderssonii<\u002fspan> <span class=\"author\">Wich.<\u002fspan><\u002fspan>","taxonomicStatus":"accepted","nomenclaturalStatus":null,"parentGuid":"NHMSYS0000309379","rank":"species","rankID":7000,"commonName":"","commonNameSingle":"","occurrenceCount":2,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","taxonGroup_s":"moss","establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":null,"speciesGroup":["Plants"],"kingdomGuid":"NBNSYS0100004757","orderGuid":"NHMSYS0000066017","order":"Dicranales","class":"Bryopsida","genus":"Arctoa","phylum":"Bryophyta","genusGuid":"NHMSYS0000309379","family":"Rhabdoweisiaceae","classGuid":"NBNSYS0000173038","familyGuid":"NHMSYS0020959458","phylumGuid":"NBNSYS0000172125","species":"Arctoa
+        class=\"name\">Arctoa anderssonii<\u002fspan> <span class=\"author\">Wich.<\u002fspan><\u002fspan>","taxonomicStatus":"accepted","nomenclaturalStatus":null,"parentGuid":"NHMSYS0000309379","rank":"species","rankID":7000,"commonName":"","commonNameSingle":"","occurrenceCount":2,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","taxonGroup_s":"moss","establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":null,"speciesGroup":["Plants"],"synonymComplete":null,"kingdomGuid":"NBNSYS0100004757","orderGuid":"NHMSYS0000066017","order":"Dicranales","class":"Bryopsida","genus":"Arctoa","phylum":"Bryophyta","genusGuid":"NHMSYS0000309379","family":"Rhabdoweisiaceae","classGuid":"NBNSYS0000173038","familyGuid":"NHMSYS0020959458","phylumGuid":"NBNSYS0000172125","species":"Arctoa
         anderssonii","speciesGuid":"NHMSYS0020636842","highlight":"<b>Arctoa<\u002fb>
         anderssonii Wich.<br><b>Arctoa anderssonii<\u002fb><br><b>Arctoa<\u002fb>
-        anderssonii"},{"id":"0b1e4402-6083-4977-ae9c-323ab9f13bc9","guid":"NBNSYS0000008822","linkIdentifier":null,"idxtype":"TAXON","name":"Arctosa
+        anderssonii"},{"id":"32961393-a6f4-4a41-950e-493bb2ffcc83","guid":"NBNSYS0000008822","linkIdentifier":null,"idxtype":"TAXON","name":"Arctosa
         alpigena","kingdom":"Animalia","nomenclaturalCode":null,"scientificName":"Arctosa
         alpigena","scientificNameAuthorship":"(Doleschall, 1852)","author":"(Doleschall,
         1852)","nameComplete":"Arctosa alpigena (Doleschall, 1852)","nameFormatted":"<span
         class=\"scientific-name rank-species\"><span class=\"name\">Arctosa alpigena<\u002fspan>
         <span class=\"author\">(Doleschall, 1852)<\u002fspan><\u002fspan>","taxonomicStatus":"accepted","nomenclaturalStatus":null,"parentGuid":"NHMSYS0020706347","rank":"species","rankID":7000,"commonName":"","commonNameSingle":"","occurrenceCount":0,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","taxonGroup_s":"spider
         (Araneae)","establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":"terrestrial","speciesGroup":["Spiders
-        and allies"],"kingdomGuid":"NBNSYS0100001342","orderGuid":"NHMSYS0000841308","order":"Araneae","subphylumGuid":"NHMSYS0000842068","class":"Arachnida","genus":"Arctosa","phylum":"Arthropoda","subphylum":"Chelicerata","genusGuid":"NHMSYS0020706347","family":"Lycosidae","classGuid":"NHMSYS0021049469","familyGuid":"NBNSYS0000160354","phylumGuid":"NHMSYS0020470198","species":"Arctosa
+        and allies"],"synonymComplete":["Arctosa biunguiculata (O.P.-Cambridge, 1873)","Tricca
+        alpigena (Doleschall, 1852)"],"kingdomGuid":"NBNSYS0100001342","orderGuid":"NHMSYS0000841308","order":"Araneae","subphylumGuid":"NHMSYS0000842068","class":"Arachnida","genus":"Arctosa","phylum":"Arthropoda","subphylum":"Chelicerata","genusGuid":"NHMSYS0020706347","family":"Lycosidae","classGuid":"NHMSYS0021049469","familyGuid":"NBNSYS0000160354","phylumGuid":"NHMSYS0020470198","species":"Arctosa
         alpigena","speciesGuid":"NBNSYS0000008822","highlight":"<b>Arctosa<\u002fb>
-        alpigena (Doleschall, 1852)<br><b>Arctosa alpigena<\u002fb><br><b>Arctosa<\u002fb>
-        alpigena"},{"id":"8a1aaa80-9f96-4492-b1c3-86fd5ad9644d","guid":"NBNSYS0000008819","linkIdentifier":null,"idxtype":"TAXON","name":"Arctosa
-        perita","kingdom":"Animalia","nomenclaturalCode":null,"scientificName":"Arctosa
-        perita","scientificNameAuthorship":"(Latreille, 1799)","author":"(Latreille,
-        1799)","nameComplete":"Arctosa perita (Latreille, 1799)","nameFormatted":"<span
-        class=\"scientific-name rank-species\"><span class=\"name\">Arctosa perita<\u002fspan>
-        <span class=\"author\">(Latreille, 1799)<\u002fspan><\u002fspan>","taxonomicStatus":"accepted","nomenclaturalStatus":null,"parentGuid":"NHMSYS0020706347","rank":"species","rankID":7000,"commonName":"","commonNameSingle":"","occurrenceCount":525,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","taxonGroup_s":"spider
-        (Araneae)","establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":"terrestrial","speciesGroup":["Spiders
-        and allies"],"kingdomGuid":"NBNSYS0100001342","orderGuid":"NHMSYS0000841308","order":"Araneae","subphylumGuid":"NHMSYS0000842068","class":"Arachnida","genus":"Arctosa","phylum":"Arthropoda","subphylum":"Chelicerata","genusGuid":"NHMSYS0020706347","family":"Lycosidae","classGuid":"NHMSYS0021049469","familyGuid":"NBNSYS0000160354","phylumGuid":"NHMSYS0020470198","species":"Arctosa
-        perita","speciesGuid":"NBNSYS0000008819","highlight":"<b>Arctosa<\u002fb>
-        perita<br><b>Arctosa<\u002fb> perita (Latreille, 1799)<br><b>Arctosa perita<\u002fb>"},{"id":"2c0e8a9b-ef8e-45a6-ae66-f7f5b8b65a40","guid":"NBNSYS0000008820","linkIdentifier":null,"idxtype":"TAXON","name":"Arctosa
+        biunguiculata (O.P.-Cambridge, 1873)<br><b>Arctosa<\u002fb> alpigena<br><b>Arctosa<\u002fb>
+        biunguiculata<br><b>Arctosa<\u002fb> alpigena (Doleschall, 1852)<br><b>Arctosa
+        alpigena<\u002fb>"},{"id":"01b71ade-e02c-4c69-8bc2-309b11560902","guid":"NBNSYS0000008820","linkIdentifier":null,"idxtype":"TAXON","name":"Arctosa
         leopardus","kingdom":"Animalia","nomenclaturalCode":null,"scientificName":"Arctosa
         leopardus","scientificNameAuthorship":"(Sundevall, 1833)","author":"(Sundevall,
         1833)","nameComplete":"Arctosa leopardus (Sundevall, 1833)","nameFormatted":"<span
         class=\"scientific-name rank-species\"><span class=\"name\">Arctosa leopardus<\u002fspan>
-        <span class=\"author\">(Sundevall, 1833)<\u002fspan><\u002fspan>","taxonomicStatus":"accepted","nomenclaturalStatus":null,"parentGuid":"NHMSYS0020706347","rank":"species","rankID":7000,"commonName":"","commonNameSingle":"","occurrenceCount":533,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","taxonGroup_s":"spider
+        <span class=\"author\">(Sundevall, 1833)<\u002fspan><\u002fspan>","taxonomicStatus":"accepted","nomenclaturalStatus":null,"parentGuid":"NHMSYS0020706347","rank":"species","rankID":7000,"commonName":"","commonNameSingle":"","occurrenceCount":542,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","taxonGroup_s":"spider
         (Araneae)","establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":"terrestrial","speciesGroup":["Spiders
-        and allies"],"kingdomGuid":"NBNSYS0100001342","orderGuid":"NHMSYS0000841308","order":"Araneae","subphylumGuid":"NHMSYS0000842068","class":"Arachnida","genus":"Arctosa","phylum":"Arthropoda","subphylum":"Chelicerata","genusGuid":"NHMSYS0020706347","family":"Lycosidae","classGuid":"NHMSYS0021049469","familyGuid":"NBNSYS0000160354","phylumGuid":"NHMSYS0020470198","species":"Arctosa
+        and allies"],"synonymComplete":["Arctosa cambrica Blackwall"],"kingdomGuid":"NBNSYS0100001342","orderGuid":"NHMSYS0000841308","order":"Araneae","subphylumGuid":"NHMSYS0000842068","class":"Arachnida","genus":"Arctosa","phylum":"Arthropoda","subphylum":"Chelicerata","genusGuid":"NHMSYS0020706347","family":"Lycosidae","classGuid":"NHMSYS0021049469","familyGuid":"NBNSYS0000160354","phylumGuid":"NHMSYS0020470198","species":"Arctosa
         leopardus","speciesGuid":"NBNSYS0000008820","highlight":"<b>Arctosa<\u002fb>
-        leopardus<br><b>Arctosa<\u002fb> leopardus (Sundevall, 1833)<br><b>Arctosa
-        leopardus<\u002fb>"},{"id":"5c4e99d9-916c-4747-ba71-bb70444f4249","guid":"NBNSYS0000008821","linkIdentifier":null,"idxtype":"TAXON","name":"Arctosa
+        leopardus (Sundevall, 1833)<br><b>Arctosa leopardus<\u002fb><br><b>Arctosa<\u002fb>
+        leopardus<br><b>Arctosa<\u002fb> cambrica Blackwall<br><b>Arctosa<\u002fb>
+        cambrica"},{"id":"0c7fa9f7-f9f7-4f71-9b15-3081cf632c20","guid":"NBNSYS0000188516","linkIdentifier":"Scyllarus
+        arctus","idxtype":"TAXON","name":"Scyllarus arctus","kingdom":"Animalia","nomenclaturalCode":null,"scientificName":"Scyllarus
+        arctus","scientificNameAuthorship":"(Linnaeus, 1758)","author":"(Linnaeus,
+        1758)","nameComplete":"Scyllarus arctus (Linnaeus, 1758)","nameFormatted":"<span
+        class=\"scientific-name rank-species\"><span class=\"name\">Scyllarus arctus<\u002fspan>
+        <span class=\"author\">(Linnaeus, 1758)<\u002fspan><\u002fspan>","taxonomicStatus":"accepted","nomenclaturalStatus":null,"parentGuid":"NBNSYS0000186966","rank":"species","rankID":7000,"commonName":"","commonNameSingle":"","occurrenceCount":3,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","image":"302726ee-07e9-4707-9a4a-d99769b72c3d","imageUrl":"https://images.nbnatlas.org/image/proxyImageThumbnailLarge?imageId=302726ee-07e9-4707-9a4a-d99769b72c3d","thumbnailUrl":"https://images.nbnatlas.org/image/proxyImageThumbnail?imageId=302726ee-07e9-4707-9a4a-d99769b72c3d","smallImageUrl":"https://images.nbnatlas.org/image/proxyImageThumbnailLarge?imageId=302726ee-07e9-4707-9a4a-d99769b72c3d","largeImageUrl":"https://images.nbnatlas.org/image/proxyImage?imageId=302726ee-07e9-4707-9a4a-d99769b72c3d","taxonGroup_s":"crustacean","establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":"marine","speciesGroup":["Crustaceans"],"synonymComplete":null,"kingdomGuid":"NBNSYS0100001342","orderGuid":"NHMSYS0021049528","order":"Decapoda","subphylumGuid":"NHMSYS0001592352","class":"Malacostraca","genus":"Scyllarus","phylum":"Arthropoda","subphylum":"Crustacea","genusGuid":"NBNSYS0000186966","family":"Scyllaridae","classGuid":"NHMSYS0021049526","familyGuid":"NHMSYS0021049548","phylumGuid":"NHMSYS0020470198","species":"Scyllarus
+        arctus","speciesGuid":"NBNSYS0000188516","highlight":"Scyllarus <b>arctus<\u002fb><br>Scyllarus
+        <b>arctus<\u002fb> (Linnaeus, 1758)"},{"id":"ad71eb4e-0af6-4fb7-b418-2fd3a67145db","guid":"NBNSYS0000008819","linkIdentifier":null,"idxtype":"TAXON","name":"Arctosa
+        perita","kingdom":"Animalia","nomenclaturalCode":null,"scientificName":"Arctosa
+        perita","scientificNameAuthorship":"(Latreille, 1799)","author":"(Latreille,
+        1799)","nameComplete":"Arctosa perita (Latreille, 1799)","nameFormatted":"<span
+        class=\"scientific-name rank-species\"><span class=\"name\">Arctosa perita<\u002fspan>
+        <span class=\"author\">(Latreille, 1799)<\u002fspan><\u002fspan>","taxonomicStatus":"accepted","nomenclaturalStatus":null,"parentGuid":"NHMSYS0020706347","rank":"species","rankID":7000,"commonName":"","commonNameSingle":"","occurrenceCount":534,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","taxonGroup_s":"spider
+        (Araneae)","establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":"terrestrial","speciesGroup":["Spiders
+        and allies"],"synonymComplete":["Arctosa picta Blackwall"],"kingdomGuid":"NBNSYS0100001342","orderGuid":"NHMSYS0000841308","order":"Araneae","subphylumGuid":"NHMSYS0000842068","class":"Arachnida","genus":"Arctosa","phylum":"Arthropoda","subphylum":"Chelicerata","genusGuid":"NHMSYS0020706347","family":"Lycosidae","classGuid":"NHMSYS0021049469","familyGuid":"NBNSYS0000160354","phylumGuid":"NHMSYS0020470198","species":"Arctosa
+        perita","speciesGuid":"NBNSYS0000008819","highlight":"<b>Arctosa<\u002fb>
+        perita<br><b>Arctosa<\u002fb> perita (Latreille, 1799)<br><b>Arctosa perita<\u002fb><br><b>Arctosa<\u002fb>
+        picta<br><b>Arctosa<\u002fb> picta Blackwall"},{"id":"adde8bc3-097f-4d5b-a11b-f7b454c52047","guid":"NBNSYS0000008821","linkIdentifier":null,"idxtype":"TAXON","name":"Arctosa
         cinerea","kingdom":"Animalia","nomenclaturalCode":null,"scientificName":"Arctosa
         cinerea","scientificNameAuthorship":"(Fabricius, 1777)","author":"(Fabricius,
         1777)","nameComplete":"Arctosa cinerea (Fabricius, 1777)","nameFormatted":"<span
         class=\"scientific-name rank-species\"><span class=\"name\">Arctosa cinerea<\u002fspan>
-        <span class=\"author\">(Fabricius, 1777)<\u002fspan><\u002fspan>","taxonomicStatus":"accepted","nomenclaturalStatus":null,"parentGuid":"NHMSYS0020706347","rank":"species","rankID":7000,"commonName":"","commonNameSingle":"","occurrenceCount":139,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","taxonGroup_s":"spider
+        <span class=\"author\">(Fabricius, 1777)<\u002fspan><\u002fspan>","taxonomicStatus":"accepted","nomenclaturalStatus":null,"parentGuid":"NHMSYS0020706347","rank":"species","rankID":7000,"commonName":"","commonNameSingle":"","occurrenceCount":138,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","taxonGroup_s":"spider
         (Araneae)","establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":"terrestrial","speciesGroup":["Spiders
-        and allies"],"kingdomGuid":"NBNSYS0100001342","orderGuid":"NHMSYS0000841308","order":"Araneae","subphylumGuid":"NHMSYS0000842068","class":"Arachnida","genus":"Arctosa","phylum":"Arthropoda","subphylum":"Chelicerata","genusGuid":"NHMSYS0020706347","family":"Lycosidae","classGuid":"NHMSYS0021049469","familyGuid":"NBNSYS0000160354","phylumGuid":"NHMSYS0020470198","species":"Arctosa
+        and allies"],"synonymComplete":["Arctosa allodroma Blackwall"],"kingdomGuid":"NBNSYS0100001342","orderGuid":"NHMSYS0000841308","order":"Araneae","subphylumGuid":"NHMSYS0000842068","class":"Arachnida","genus":"Arctosa","phylum":"Arthropoda","subphylum":"Chelicerata","genusGuid":"NHMSYS0020706347","family":"Lycosidae","classGuid":"NHMSYS0021049469","familyGuid":"NBNSYS0000160354","phylumGuid":"NHMSYS0020470198","species":"Arctosa
         cinerea","speciesGuid":"NBNSYS0000008821","highlight":"<b>Arctosa cinerea<\u002fb><br><b>Arctosa<\u002fb>
-        cinerea (Fabricius, 1777)<br><b>Arctosa<\u002fb> cinerea"},{"id":"553ee4d1-5b58-4f13-9fde-3737b4d71101","guid":"NBNSYS0000188516","linkIdentifier":null,"idxtype":"TAXON","name":"Scyllarus
-        arctus","kingdom":"Animalia","nomenclaturalCode":null,"scientificName":"Scyllarus
-        arctus","scientificNameAuthorship":"(Linnaeus, 1758)","author":"(Linnaeus,
-        1758)","nameComplete":"Scyllarus arctus (Linnaeus, 1758)","nameFormatted":"<span
-        class=\"scientific-name rank-species\"><span class=\"name\">Scyllarus arctus<\u002fspan>
-        <span class=\"author\">(Linnaeus, 1758)<\u002fspan><\u002fspan>","taxonomicStatus":"accepted","nomenclaturalStatus":null,"parentGuid":"NBNSYS0000186966","rank":"species","rankID":7000,"commonName":"","commonNameSingle":"","occurrenceCount":3,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","image":"302726ee-07e9-4707-9a4a-d99769b72c3d","imageUrl":"https://images.nbnatlas.org/image/proxyImageThumbnailLarge?imageId=302726ee-07e9-4707-9a4a-d99769b72c3d","thumbnailUrl":"https://images.nbnatlas.org/image/proxyImageThumbnail?imageId=302726ee-07e9-4707-9a4a-d99769b72c3d","smallImageUrl":"https://images.nbnatlas.org/image/proxyImageThumbnailLarge?imageId=302726ee-07e9-4707-9a4a-d99769b72c3d","largeImageUrl":"https://images.nbnatlas.org/image/proxyImage?imageId=302726ee-07e9-4707-9a4a-d99769b72c3d","taxonGroup_s":"crustacean","establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":"marine","speciesGroup":["Crustaceans"],"kingdomGuid":"NBNSYS0100001342","orderGuid":"NHMSYS0021049528","order":"Decapoda","subphylumGuid":"NHMSYS0001592352","class":"Malacostraca","genus":"Scyllarus","phylum":"Arthropoda","subphylum":"Crustacea","genusGuid":"NBNSYS0000186966","family":"Scyllaridae","classGuid":"NHMSYS0021049526","familyGuid":"NHMSYS0021049548","phylumGuid":"NHMSYS0020470198","species":"Scyllarus
-        arctus","speciesGuid":"NBNSYS0000188516","highlight":"Scyllarus <b>arctus<\u002fb><br>Scyllarus
-        <b>arctus<\u002fb> (Linnaeus, 1758)"},{"id":"474ebfd0-173e-4b3d-aec1-69b4f053c55e","guid":"NBNSYS0000008818","linkIdentifier":null,"idxtype":"TAXON","name":"Arctosa
+        cinerea (Fabricius, 1777)<br><b>Arctosa<\u002fb> allodroma Blackwall<br><b>Arctosa<\u002fb>
+        cinerea<br><b>Arctosa<\u002fb> allodroma"},{"id":"92f6f848-cd20-4d89-b421-62e85e2641e5","guid":"NBNSYS0000008818","linkIdentifier":null,"idxtype":"TAXON","name":"Arctosa
         fulvolineata","kingdom":"Animalia","nomenclaturalCode":null,"scientificName":"Arctosa
         fulvolineata","scientificNameAuthorship":"(Lucas, 1846)","author":"(Lucas,
         1846)","nameComplete":"Arctosa fulvolineata (Lucas, 1846)","nameFormatted":"<span
         class=\"scientific-name rank-species\"><span class=\"name\">Arctosa fulvolineata<\u002fspan>
-        <span class=\"author\">(Lucas, 1846)<\u002fspan><\u002fspan>","taxonomicStatus":"accepted","nomenclaturalStatus":null,"parentGuid":"NHMSYS0020706347","rank":"species","rankID":7000,"commonName":"Yellow-Striped
-        Bear-Spider","commonNameSingle":"Yellow-Striped Bear-Spider","occurrenceCount":21,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","taxonGroup_s":"spider
+        <span class=\"author\">(Lucas, 1846)<\u002fspan><\u002fspan>","taxonomicStatus":"accepted","nomenclaturalStatus":null,"parentGuid":"NHMSYS0020706347","rank":"species","rankID":7000,"commonName":"Yellow-striped
+        Bear-spider","commonNameSingle":"Yellow-striped Bear-spider","occurrenceCount":18,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","taxonGroup_s":"spider
         (Araneae)","establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":"terrestrial","speciesGroup":["Spiders
-        and allies"],"kingdomGuid":"NBNSYS0100001342","orderGuid":"NHMSYS0000841308","order":"Araneae","subphylumGuid":"NHMSYS0000842068","class":"Arachnida","genus":"Arctosa","phylum":"Arthropoda","subphylum":"Chelicerata","genusGuid":"NHMSYS0020706347","family":"Lycosidae","classGuid":"NHMSYS0021049469","familyGuid":"NBNSYS0000160354","phylumGuid":"NHMSYS0020470198","species":"Arctosa
-        fulvolineata","speciesGuid":"NBNSYS0000008818","highlight":"<b>Arctosa fulvolineata<\u002fb><br><b>Arctosa<\u002fb>
-        fulvolineata<br><b>Arctosa<\u002fb> fulvolineata (Lucas, 1846)"},{"id":"5ae96470-af50-425a-9112-5d3008c3d7e1","guid":"NHMSYS0000309380","linkIdentifier":null,"idxtype":"TAXON","name":"Arctoa
+        and allies"],"synonymComplete":["Arctosa subterranea (L. Koch)","Trochosa
+        fulvolineata (Lucas, 1846)"],"kingdomGuid":"NBNSYS0100001342","orderGuid":"NHMSYS0000841308","order":"Araneae","subphylumGuid":"NHMSYS0000842068","class":"Arachnida","genus":"Arctosa","phylum":"Arthropoda","subphylum":"Chelicerata","genusGuid":"NHMSYS0020706347","family":"Lycosidae","classGuid":"NHMSYS0021049469","familyGuid":"NBNSYS0000160354","phylumGuid":"NHMSYS0020470198","species":"Arctosa
+        fulvolineata","speciesGuid":"NBNSYS0000008818","highlight":"<b>Arctosa<\u002fb>
+        fulvolineata<br><b>Arctosa<\u002fb> subterranea<br><b>Arctosa<\u002fb> fulvolineata
+        (Lucas, 1846)<br><b>Arctosa fulvolineata<\u002fb><br><b>Arctosa<\u002fb> subterranea
+        (L. Koch)"},{"id":"0c9dd44d-8188-4f32-bd7f-90eaf2749a78","guid":"NHMSYS0000309380","linkIdentifier":null,"idxtype":"TAXON","name":"Arctoa
         fulvella","kingdom":"Plantae","nomenclaturalCode":null,"scientificName":"Arctoa
         fulvella","scientificNameAuthorship":"(Dicks.) Bruch, Schimp. & W.Guembel","author":"(Dicks.)
         Bruch, Schimp. & W.Guembel","nameComplete":"Arctoa fulvella (Dicks.) Bruch,
         Schimp. & W.Guembel","nameFormatted":"<span class=\"scientific-name rank-species\"><span
         class=\"name\">Arctoa fulvella<\u002fspan> <span class=\"author\">(Dicks.)
         Bruch, Schimp. &amp; W.Guembel<\u002fspan><\u002fspan>","taxonomicStatus":"accepted","nomenclaturalStatus":null,"parentGuid":"NHMSYS0000309379","rank":"species","rankID":7000,"commonName":"Arctic
-        Fork-Moss","commonNameSingle":"Arctic Fork-Moss","occurrenceCount":335,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","taxonGroup_s":"moss","establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":null,"speciesGroup":["Plants"],"kingdomGuid":"NBNSYS0100004757","orderGuid":"NHMSYS0000066017","order":"Dicranales","class":"Bryopsida","genus":"Arctoa","phylum":"Bryophyta","genusGuid":"NHMSYS0000309379","family":"Rhabdoweisiaceae","classGuid":"NBNSYS0000173038","familyGuid":"NHMSYS0020959458","phylumGuid":"NBNSYS0000172125","species":"Arctoa
+        Fork-moss","commonNameSingle":"Arctic Fork-moss","occurrenceCount":335,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","taxonGroup_s":"moss","establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":null,"speciesGroup":["Plants"],"synonymComplete":["Arctoa
+        fulvella (Dicks.) Br.Eur.","Dicranum fulvellum (Dicks.) Sm."],"kingdomGuid":"NBNSYS0100004757","orderGuid":"NHMSYS0000066017","order":"Dicranales","class":"Bryopsida","genus":"Arctoa","phylum":"Bryophyta","genusGuid":"NHMSYS0000309379","family":"Rhabdoweisiaceae","classGuid":"NBNSYS0000173038","familyGuid":"NHMSYS0020959458","phylumGuid":"NBNSYS0000172125","species":"Arctoa
         fulvella","speciesGuid":"NHMSYS0000309380","highlight":"<b>Arctoa<\u002fb>
         fulvella (Dicks.) Bruch, Schimp. & W.Guembel<br><b>Arctoa fulvella<\u002fb><br><b>Arctoa<\u002fb>
-        fulvella"},{"id":"a26e528a-fd86-4d0f-bf56-63c1871e8ba0","guid":"NHMSYS0000377313","linkIdentifier":null,"idxtype":"TAXON","name":"Ursus","kingdom":"Animalia","nomenclaturalCode":null,"scientificName":"Ursus","scientificNameAuthorship":"Linnaeus,
+        fulvella<br><b>Arctoa<\u002fb> fulvella (Dicks.) Br.Eur."},{"id":"1b0fa8c7-4051-4823-8685-0ea715bed108","guid":"NHMSYS0000377313","linkIdentifier":null,"idxtype":"TAXON","name":"Ursus","kingdom":"Animalia","nomenclaturalCode":null,"scientificName":"Ursus","scientificNameAuthorship":"Linnaeus,
         1758","author":"Linnaeus, 1758","nameComplete":"Ursus Linnaeus, 1758","nameFormatted":"<span
         class=\"scientific-name rank-genus\"><span class=\"name\">Ursus<\u002fspan>
         <span class=\"author\">Linnaeus, 1758<\u002fspan><\u002fspan>","taxonomicStatus":"accepted","nomenclaturalStatus":null,"parentGuid":"NHMSYS0000377309","rank":"genus","rankID":6000,"commonName":"","commonNameSingle":"","occurrenceCount":0,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","taxonGroup_s":"terrestrial
-        mammal","establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":"terrestrial","speciesGroup":["Mammals"],"kingdomGuid":"NBNSYS0100001342","orderGuid":"NHMSYS0000376165","order":"Carnivora","subphylumGuid":"NBNSYS0100005954","class":"Mammalia","phylum":"Chordata","subphylum":"Vertebrata","family":"Ursidae","classGuid":"NHMSYS0000376154","familyGuid":"NHMSYS0000377309","phylumGuid":"NBNSYS0100002380","genus":"Ursus","genusGuid":"NHMSYS0000377313","highlight":"<b>Ursus<\u002fb>
-        Linnaeus, 1758<br><b>Ursus<\u002fb>"},{"id":"a90dbdff-b077-4d4f-9b59-0ca97b585964","guid":"NHMSYS0000309379","linkIdentifier":null,"idxtype":"TAXON","name":"Arctoa","kingdom":"Plantae","nomenclaturalCode":null,"scientificName":"Arctoa","scientificNameAuthorship":"Bruch,
+        mammal","establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":"terrestrial","speciesGroup":["Mammals"],"synonymComplete":["Ursus"],"kingdomGuid":"NBNSYS0100001342","orderGuid":"NHMSYS0000376165","order":"Carnivora","subphylumGuid":"NBNSYS0100005954","class":"Mammalia","phylum":"Chordata","subphylum":"Vertebrata","family":"Ursidae","classGuid":"NHMSYS0000376154","familyGuid":"NHMSYS0000377309","phylumGuid":"NBNSYS0100002380","genus":"Ursus","genusGuid":"NHMSYS0000377313","highlight":"<b>Ursus<\u002fb><br><b>Ursus<\u002fb>
+        Linnaeus, 1758"},{"id":"463098e6-e3fd-4c2d-b322-f0b3dbba4672","guid":"NHMSYS0000309379","linkIdentifier":null,"idxtype":"TAXON","name":"Arctoa","kingdom":"Plantae","nomenclaturalCode":null,"scientificName":"Arctoa","scientificNameAuthorship":"Bruch,
         Schimp. & W.Guembel","author":"Bruch, Schimp. & W.Guembel","nameComplete":"Arctoa
         Bruch, Schimp. & W.Guembel","nameFormatted":"<span class=\"scientific-name
         rank-genus\"><span class=\"name\">Arctoa<\u002fspan> <span class=\"author\">Bruch,
-        Schimp. &amp; W.Guembel<\u002fspan><\u002fspan>","taxonomicStatus":"accepted","nomenclaturalStatus":null,"parentGuid":"NHMSYS0020959458","rank":"genus","rankID":6000,"commonName":"","commonNameSingle":"","occurrenceCount":337,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","taxonGroup_s":"moss","establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":null,"speciesGroup":["Plants"],"kingdomGuid":"NBNSYS0100004757","orderGuid":"NHMSYS0000066017","order":"Dicranales","class":"Bryopsida","phylum":"Bryophyta","family":"Rhabdoweisiaceae","classGuid":"NBNSYS0000173038","familyGuid":"NHMSYS0020959458","phylumGuid":"NBNSYS0000172125","genus":"Arctoa","genusGuid":"NHMSYS0000309379","highlight":"<b>Arctoa<\u002fb>
-        Bruch, Schimp. & W.Guembel<br><b>Arctoa<\u002fb>"},{"id":"b230ae04-8b9e-4b45-8d80-043525c2328d","guid":"NHMSYS0020706347","linkIdentifier":null,"idxtype":"TAXON","name":"Arctosa","kingdom":"Animalia","nomenclaturalCode":null,"scientificName":"Arctosa","scientificNameAuthorship":"C.L.
+        Schimp. &amp; W.Guembel<\u002fspan><\u002fspan>","taxonomicStatus":"accepted","nomenclaturalStatus":null,"parentGuid":"NHMSYS0020959458","rank":"genus","rankID":6000,"commonName":"","commonNameSingle":"","occurrenceCount":337,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","taxonGroup_s":"moss","establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":null,"speciesGroup":["Plants"],"synonymComplete":["Arctoa"],"kingdomGuid":"NBNSYS0100004757","orderGuid":"NHMSYS0000066017","order":"Dicranales","class":"Bryopsida","phylum":"Bryophyta","family":"Rhabdoweisiaceae","classGuid":"NBNSYS0000173038","familyGuid":"NHMSYS0020959458","phylumGuid":"NBNSYS0000172125","genus":"Arctoa","genusGuid":"NHMSYS0000309379","highlight":"<b>Arctoa<\u002fb>
+        Bruch, Schimp. & W.Guembel<br><b>Arctoa<\u002fb>"},{"id":"c5854b01-c665-4eb1-a169-51305f3b490d","guid":"NHMSYS0020706347","linkIdentifier":null,"idxtype":"TAXON","name":"Arctosa","kingdom":"Animalia","nomenclaturalCode":null,"scientificName":"Arctosa","scientificNameAuthorship":"C.L.
         Koch, 1847","author":"C.L. Koch, 1847","nameComplete":"Arctosa C.L. Koch,
         1847","nameFormatted":"<span class=\"scientific-name rank-genus\"><span class=\"name\">Arctosa<\u002fspan>
-        <span class=\"author\">C.L. Koch, 1847<\u002fspan><\u002fspan>","taxonomicStatus":"accepted","nomenclaturalStatus":null,"parentGuid":"NBNSYS0000160354","rank":"genus","rankID":6000,"commonName":"","commonNameSingle":"","occurrenceCount":1224,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","taxonGroup_s":"spider
+        <span class=\"author\">C.L. Koch, 1847<\u002fspan><\u002fspan>","taxonomicStatus":"accepted","nomenclaturalStatus":null,"parentGuid":"NBNSYS0000160354","rank":"genus","rankID":6000,"commonName":"","commonNameSingle":"","occurrenceCount":1238,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","taxonGroup_s":"spider
         (Araneae)","establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":"terrestrial","speciesGroup":["Spiders
-        and allies"],"kingdomGuid":"NBNSYS0100001342","orderGuid":"NHMSYS0000841308","order":"Araneae","subphylumGuid":"NHMSYS0000842068","class":"Arachnida","phylum":"Arthropoda","subphylum":"Chelicerata","family":"Lycosidae","classGuid":"NHMSYS0021049469","familyGuid":"NBNSYS0000160354","phylumGuid":"NHMSYS0020470198","genus":"Arctosa","genusGuid":"NHMSYS0020706347","highlight":"<b>Arctosa<\u002fb><br><b>Arctosa<\u002fb>
-        C.L. Koch, 1847"},{"id":"2dec3f1b-e8de-448c-8101-7dfb0661193e","guid":"NBNSYS0000142230","linkIdentifier":null,"idxtype":"TAXON","name":"Arctosa
+        and allies"],"synonymComplete":["Arctosa","Tricca"],"kingdomGuid":"NBNSYS0100001342","orderGuid":"NHMSYS0000841308","order":"Araneae","subphylumGuid":"NHMSYS0000842068","class":"Arachnida","phylum":"Arthropoda","subphylum":"Chelicerata","family":"Lycosidae","classGuid":"NHMSYS0021049469","familyGuid":"NBNSYS0000160354","phylumGuid":"NHMSYS0020470198","genus":"Arctosa","genusGuid":"NHMSYS0020706347","highlight":"<b>Arctosa<\u002fb><br><b>Arctosa<\u002fb>
+        C.L. Koch, 1847"},{"id":"aac1bd62-c9bb-4a67-a5bb-f097f2c9132a","guid":"NBNSYS0000142230","linkIdentifier":null,"idxtype":"TAXON","name":"Arctosa
         picta","kingdom":null,"nomenclaturalCode":null,"scientificName":"Arctosa picta","scientificNameAuthorship":"Blackwall","author":"Blackwall","nameComplete":"Arctosa
         picta Blackwall","nameFormatted":"<span class=\"scientific-name rank-species\"><span
         class=\"name\">Arctosa picta<\u002fspan> <span class=\"author\">Blackwall<\u002fspan><\u002fspan>","taxonomicStatus":"synonym","nomenclaturalStatus":null,"parentGuid":null,"rank":"species","rankID":7000,"commonName":"","commonNameSingle":"","occurrenceCount":null,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","acceptedConceptID":"NBNSYS0000008819","acceptedConceptName":"Arctosa
-        perita (Latreille, 1799)","taxonGroup_s":null,"establishmentMeans":null,"establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":null,"speciesGroup":null,"species":"Arctosa
+        perita (Latreille, 1799)","taxonGroup_s":"spider (Araneae)","establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":"terrestrial","speciesGroup":null,"synonymComplete":null,"species":"Arctosa
         picta","speciesGuid":"NBNSYS0000142230","highlight":"<b>Arctosa picta<\u002fb><br><b>Arctosa<\u002fb>
-        picta<br><b>Arctosa<\u002fb> picta Blackwall"},{"id":"0d4f6312-153c-43f9-8110-5ba20e089673","guid":"NBNSYS0000036219","linkIdentifier":null,"idxtype":"TAXON","name":"Arctoa
-        fulvella","kingdom":null,"nomenclaturalCode":null,"scientificName":"Arctoa
-        fulvella","scientificNameAuthorship":"(Dicks.) Br.Eur.","author":"(Dicks.)
-        Br.Eur.","nameComplete":"Arctoa fulvella (Dicks.) Br.Eur.","nameFormatted":"<span
-        class=\"scientific-name rank-species\"><span class=\"name\">Arctoa fulvella<\u002fspan>
-        <span class=\"author\">(Dicks.) Br.Eur.<\u002fspan><\u002fspan>","taxonomicStatus":"synonym","nomenclaturalStatus":null,"parentGuid":null,"rank":"species","rankID":7000,"commonName":"","commonNameSingle":"","occurrenceCount":null,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","acceptedConceptID":"NHMSYS0000309380","acceptedConceptName":"Arctoa
-        fulvella (Dicks.) Bruch, Schimp. & W.Guembel","taxonGroup_s":null,"establishmentMeans":null,"establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":null,"speciesGroup":null,"species":"Arctoa
-        fulvella","speciesGuid":"NBNSYS0000036219","highlight":"<b>Arctoa<\u002fb>
-        fulvella (Dicks.) Br.Eur.<br><b>Arctoa fulvella<\u002fb><br><b>Arctoa<\u002fb>
-        fulvella"},{"id":"5edaac4d-305f-43e3-a709-895032a7380f","guid":"NHMSYS0100000556","linkIdentifier":null,"idxtype":"TAXON","name":"Arctous
-        alpina","kingdom":null,"nomenclaturalCode":null,"scientificName":"Arctous
-        alpina","scientificNameAuthorship":"(L.) Nied.","author":"(L.) Nied.","nameComplete":"Arctous
-        alpina (L.) Nied.","nameFormatted":"<span class=\"scientific-name rank-species\"><span
-        class=\"name\">Arctous alpina<\u002fspan> <span class=\"author\">(L.) Nied.<\u002fspan><\u002fspan>","taxonomicStatus":"synonym","nomenclaturalStatus":null,"parentGuid":null,"rank":"species","rankID":7000,"commonName":"","commonNameSingle":"","occurrenceCount":null,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","acceptedConceptID":"NHMSYS0000456035","acceptedConceptName":"Arctostaphylos
-        alpinus (L.) Spreng.","taxonGroup_s":null,"establishmentMeans":null,"establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":null,"speciesGroup":null,"species":"Arctous
-        alpina","speciesGuid":"NHMSYS0100000556","highlight":"<b>Arctous<\u002fb>
-        alpina (L.) Nied.<br><b>Arctous alpina<\u002fb><br><b>Arctous<\u002fb> alpina"},{"id":"335c47e7-50bc-4e31-b7a8-80d16fbdfa01","guid":"NBNSYS0000142229","linkIdentifier":null,"idxtype":"TAXON","name":"Arctosa
+        picta<br><b>Arctosa<\u002fb> picta Blackwall"},{"id":"b852c7e1-4e02-49be-af17-d161d9bf0999","guid":"NBNSYS0000142227","linkIdentifier":null,"idxtype":"TAXON","name":"Arctosa
+        allodroma","kingdom":null,"nomenclaturalCode":null,"scientificName":"Arctosa
+        allodroma","scientificNameAuthorship":"Blackwall","author":"Blackwall","nameComplete":"Arctosa
+        allodroma Blackwall","nameFormatted":"<span class=\"scientific-name rank-species\"><span
+        class=\"name\">Arctosa allodroma<\u002fspan> <span class=\"author\">Blackwall<\u002fspan><\u002fspan>","taxonomicStatus":"synonym","nomenclaturalStatus":null,"parentGuid":null,"rank":"species","rankID":7000,"commonName":"","commonNameSingle":"","occurrenceCount":null,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","acceptedConceptID":"NBNSYS0000008821","acceptedConceptName":"Arctosa
+        cinerea (Fabricius, 1777)","taxonGroup_s":"spider (Araneae)","establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":"terrestrial","speciesGroup":null,"synonymComplete":null,"species":"Arctosa
+        allodroma","speciesGuid":"NBNSYS0000142227","highlight":"<b>Arctosa allodroma<\u002fb><br><b>Arctosa<\u002fb>
+        allodroma Blackwall<br><b>Arctosa<\u002fb> allodroma"},{"id":"ad8a7aa6-cf85-40bd-8674-1c50ff3d466c","guid":"NBNSYS0000142229","linkIdentifier":null,"idxtype":"TAXON","name":"Arctosa
         cambrica","kingdom":null,"nomenclaturalCode":null,"scientificName":"Arctosa
         cambrica","scientificNameAuthorship":"Blackwall","author":"Blackwall","nameComplete":"Arctosa
         cambrica Blackwall","nameFormatted":"<span class=\"scientific-name rank-species\"><span
         class=\"name\">Arctosa cambrica<\u002fspan> <span class=\"author\">Blackwall<\u002fspan><\u002fspan>","taxonomicStatus":"synonym","nomenclaturalStatus":null,"parentGuid":null,"rank":"species","rankID":7000,"commonName":"","commonNameSingle":"","occurrenceCount":null,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","acceptedConceptID":"NBNSYS0000008820","acceptedConceptName":"Arctosa
-        leopardus (Sundevall, 1833)","taxonGroup_s":null,"establishmentMeans":null,"establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":null,"speciesGroup":null,"species":"Arctosa
+        leopardus (Sundevall, 1833)","taxonGroup_s":"spider (Araneae)","establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":"terrestrial","speciesGroup":null,"synonymComplete":null,"species":"Arctosa
         cambrica","speciesGuid":"NBNSYS0000142229","highlight":"<b>Arctosa<\u002fb>
-        cambrica Blackwall<br><b>Arctosa<\u002fb> cambrica<br><b>Arctosa cambrica<\u002fb>"},{"id":"8b43edcf-7967-4e1c-8d2d-bcb76af6aab5","guid":"NBNSYS0000142231","linkIdentifier":null,"idxtype":"TAXON","name":"Arctosa
+        cambrica Blackwall<br><b>Arctosa<\u002fb> cambrica<br><b>Arctosa cambrica<\u002fb>"},{"id":"8acf163b-0b70-4115-9417-0d87893031d6","guid":"NBNSYS0000142231","linkIdentifier":null,"idxtype":"TAXON","name":"Arctosa
         subterranea","kingdom":null,"nomenclaturalCode":null,"scientificName":"Arctosa
         subterranea","scientificNameAuthorship":"(L. Koch)","author":"(L. Koch)","nameComplete":"Arctosa
         subterranea (L. Koch)","nameFormatted":"<span class=\"scientific-name rank-species\"><span
         class=\"name\">Arctosa subterranea<\u002fspan> <span class=\"author\">(L.
         Koch)<\u002fspan><\u002fspan>","taxonomicStatus":"synonym","nomenclaturalStatus":null,"parentGuid":null,"rank":"species","rankID":7000,"commonName":"","commonNameSingle":"","occurrenceCount":null,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","acceptedConceptID":"NBNSYS0000008818","acceptedConceptName":"Arctosa
-        fulvolineata (Lucas, 1846)","taxonGroup_s":null,"establishmentMeans":null,"establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":null,"speciesGroup":null,"species":"Arctosa
+        fulvolineata (Lucas, 1846)","taxonGroup_s":"spider (Araneae)","establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":"terrestrial","speciesGroup":null,"synonymComplete":null,"species":"Arctosa
         subterranea","speciesGuid":"NBNSYS0000142231","highlight":"<b>Arctosa subterranea<\u002fb><br><b>Arctosa<\u002fb>
-        subterranea (L. Koch)<br><b>Arctosa<\u002fb> subterranea"},{"id":"ae05236f-3d64-4952-bb44-8a6505588181","guid":"NBNSYS0000142227","linkIdentifier":null,"idxtype":"TAXON","name":"Arctosa
-        allodroma","kingdom":null,"nomenclaturalCode":null,"scientificName":"Arctosa
-        allodroma","scientificNameAuthorship":"Blackwall","author":"Blackwall","nameComplete":"Arctosa
-        allodroma Blackwall","nameFormatted":"<span class=\"scientific-name rank-species\"><span
-        class=\"name\">Arctosa allodroma<\u002fspan> <span class=\"author\">Blackwall<\u002fspan><\u002fspan>","taxonomicStatus":"synonym","nomenclaturalStatus":null,"parentGuid":null,"rank":"species","rankID":7000,"commonName":"","commonNameSingle":"","occurrenceCount":null,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","acceptedConceptID":"NBNSYS0000008821","acceptedConceptName":"Arctosa
-        cinerea (Fabricius, 1777)","taxonGroup_s":null,"establishmentMeans":null,"establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":null,"speciesGroup":null,"species":"Arctosa
-        allodroma","speciesGuid":"NBNSYS0000142227","highlight":"<b>Arctosa allodroma<\u002fb><br><b>Arctosa<\u002fb>
-        allodroma Blackwall<br><b>Arctosa<\u002fb> allodroma"},{"id":"685246e1-aa5c-49ff-813c-d514ecb0a5df","guid":"NBNSYS0000142232","linkIdentifier":null,"idxtype":"TAXON","name":"Arctous
-        alpinus","kingdom":null,"nomenclaturalCode":null,"scientificName":"Arctous
-        alpinus","scientificNameAuthorship":"(L.) Niedenzu","author":"(L.) Niedenzu","nameComplete":"Arctous
-        alpinus (L.) Niedenzu","nameFormatted":"<span class=\"scientific-name rank-species\"><span
-        class=\"name\">Arctous alpinus<\u002fspan> <span class=\"author\">(L.) Niedenzu<\u002fspan><\u002fspan>","taxonomicStatus":"synonym","nomenclaturalStatus":null,"parentGuid":null,"rank":"species","rankID":7000,"commonName":"","commonNameSingle":"","occurrenceCount":null,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","acceptedConceptID":"NHMSYS0000456035","acceptedConceptName":"Arctostaphylos
-        alpinus (L.) Spreng.","taxonGroup_s":null,"establishmentMeans":null,"establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":null,"speciesGroup":null,"species":"Arctous
-        alpinus","speciesGuid":"NBNSYS0000142232","highlight":"<b>Arctous alpinus<\u002fb><br><b>Arctous<\u002fb>
-        alpinus<br><b>Arctous<\u002fb> alpinus (L.) Niedenzu"},{"id":"854b0bf6-4bce-4672-b2b8-6788dcc4a67b","guid":"NBNSYS0000142228","linkIdentifier":null,"idxtype":"TAXON","name":"Arctosa
+        subterranea (L. Koch)<br><b>Arctosa<\u002fb> subterranea"},{"id":"cbb387df-6181-42d0-a9d6-b4373236beaf","guid":"NHMSYS0100000556","linkIdentifier":null,"idxtype":"TAXON","name":"Arctous
+        alpina","kingdom":null,"nomenclaturalCode":null,"scientificName":"Arctous
+        alpina","scientificNameAuthorship":"(L.) Nied.","author":"(L.) Nied.","nameComplete":"Arctous
+        alpina (L.) Nied.","nameFormatted":"<span class=\"scientific-name rank-species\"><span
+        class=\"name\">Arctous alpina<\u002fspan> <span class=\"author\">(L.) Nied.<\u002fspan><\u002fspan>","taxonomicStatus":"synonym","nomenclaturalStatus":null,"parentGuid":null,"rank":"species","rankID":7000,"commonName":"","commonNameSingle":"","occurrenceCount":null,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","acceptedConceptID":"NHMSYS0000456035","acceptedConceptName":"Arctostaphylos
+        alpinus (L.) Spreng.","taxonGroup_s":"flowering plant","establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":null,"speciesGroup":null,"synonymComplete":null,"species":"Arctous
+        alpina","speciesGuid":"NHMSYS0100000556","highlight":"<b>Arctous<\u002fb>
+        alpina (L.) Nied.<br><b>Arctous alpina<\u002fb><br><b>Arctous<\u002fb> alpina"},{"id":"9384f1cb-02fe-4742-8bd3-16d4edc742f2","guid":"NBNSYS0000036219","linkIdentifier":null,"idxtype":"TAXON","name":"Arctoa
+        fulvella","kingdom":null,"nomenclaturalCode":null,"scientificName":"Arctoa
+        fulvella","scientificNameAuthorship":"(Dicks.) Br.Eur.","author":"(Dicks.)
+        Br.Eur.","nameComplete":"Arctoa fulvella (Dicks.) Br.Eur.","nameFormatted":"<span
+        class=\"scientific-name rank-species\"><span class=\"name\">Arctoa fulvella<\u002fspan>
+        <span class=\"author\">(Dicks.) Br.Eur.<\u002fspan><\u002fspan>","taxonomicStatus":"synonym","nomenclaturalStatus":null,"parentGuid":null,"rank":"species","rankID":7000,"commonName":"","commonNameSingle":"","occurrenceCount":null,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","acceptedConceptID":"NHMSYS0000309380","acceptedConceptName":"Arctoa
+        fulvella (Dicks.) Bruch, Schimp. & W.Guembel","taxonGroup_s":"moss","establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":null,"speciesGroup":null,"synonymComplete":null,"species":"Arctoa
+        fulvella","speciesGuid":"NBNSYS0000036219","highlight":"<b>Arctoa<\u002fb>
+        fulvella (Dicks.) Br.Eur.<br><b>Arctoa fulvella<\u002fb><br><b>Arctoa<\u002fb>
+        fulvella"},{"id":"4bdfadae-01ef-46b0-bfc4-33cc4d96291a","guid":"NBNSYS0000142228","linkIdentifier":null,"idxtype":"TAXON","name":"Arctosa
         biunguiculata","kingdom":null,"nomenclaturalCode":null,"scientificName":"Arctosa
         biunguiculata","scientificNameAuthorship":"(O.P.-Cambridge, 1873)","author":"(O.P.-Cambridge,
         1873)","nameComplete":"Arctosa biunguiculata (O.P.-Cambridge, 1873)","nameFormatted":"<span
         class=\"scientific-name rank-species\"><span class=\"name\">Arctosa biunguiculata<\u002fspan>
         <span class=\"author\">(O.P.-Cambridge, 1873)<\u002fspan><\u002fspan>","taxonomicStatus":"synonym","nomenclaturalStatus":null,"parentGuid":null,"rank":"species","rankID":7000,"commonName":"","commonNameSingle":"","occurrenceCount":null,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","acceptedConceptID":"NBNSYS0000008822","acceptedConceptName":"Arctosa
-        alpigena (Doleschall, 1852)","taxonGroup_s":null,"establishmentMeans":null,"establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":null,"speciesGroup":null,"species":"Arctosa
+        alpigena (Doleschall, 1852)","taxonGroup_s":"spider (Araneae)","establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":"terrestrial","speciesGroup":null,"synonymComplete":null,"species":"Arctosa
         biunguiculata","speciesGuid":"NBNSYS0000142228","highlight":"<b>Arctosa<\u002fb>
         biunguiculata (O.P.-Cambridge, 1873)<br><b>Arctosa biunguiculata<\u002fb><br><b>Arctosa<\u002fb>
-        biunguiculata"},{"id":"f6f72eae-e8a6-415a-a29c-015b8b07441b","guid":"NBNSYS0000138797","linkIdentifier":null,"idxtype":"TAXON","name":"Ursus","kingdom":null,"nomenclaturalCode":null,"scientificName":"Ursus","scientificNameAuthorship":null,"author":null,"nameComplete":"Ursus","nameFormatted":"<span
+        biunguiculata"},{"id":"6feb2d95-c6c0-4934-a232-684359854496","guid":"NBNSYS0000142232","linkIdentifier":null,"idxtype":"TAXON","name":"Arctous
+        alpinus","kingdom":null,"nomenclaturalCode":null,"scientificName":"Arctous
+        alpinus","scientificNameAuthorship":"(L.) Niedenzu","author":"(L.) Niedenzu","nameComplete":"Arctous
+        alpinus (L.) Niedenzu","nameFormatted":"<span class=\"scientific-name rank-species\"><span
+        class=\"name\">Arctous alpinus<\u002fspan> <span class=\"author\">(L.) Niedenzu<\u002fspan><\u002fspan>","taxonomicStatus":"synonym","nomenclaturalStatus":null,"parentGuid":null,"rank":"species","rankID":7000,"commonName":"","commonNameSingle":"","occurrenceCount":null,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","acceptedConceptID":"NHMSYS0000456035","acceptedConceptName":"Arctostaphylos
+        alpinus (L.) Spreng.","taxonGroup_s":"flowering plant","establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":null,"speciesGroup":null,"synonymComplete":null,"species":"Arctous
+        alpinus","speciesGuid":"NBNSYS0000142232","highlight":"<b>Arctous alpinus<\u002fb><br><b>Arctous<\u002fb>
+        alpinus<br><b>Arctous<\u002fb> alpinus (L.) Niedenzu"},{"id":"b7a781f1-cbfc-49e7-8109-f92ead170e6a","guid":"NBNSYS0000138797","linkIdentifier":null,"idxtype":"TAXON","name":"Ursus","kingdom":null,"nomenclaturalCode":null,"scientificName":"Ursus","scientificNameAuthorship":null,"author":null,"nameComplete":"Ursus","nameFormatted":"<span
         class=\"scientific-name rank-genus\"><span class=\"name\">Ursus<\u002fspan><\u002fspan>","taxonomicStatus":"synonym","nomenclaturalStatus":null,"parentGuid":null,"rank":"genus","rankID":6000,"commonName":"","commonNameSingle":"","occurrenceCount":null,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","acceptedConceptID":"NHMSYS0000377313","acceptedConceptName":"Ursus
-        Linnaeus, 1758","taxonGroup_s":null,"establishmentMeans":null,"establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":null,"speciesGroup":null,"genus":"Ursus","genusGuid":"NBNSYS0000138797","highlight":"<b>Ursus<\u002fb>"},{"id":"5ba70f57-4d2b-4bf4-b297-1f3bd7dcb960","guid":"NBNSYS0000130493","linkIdentifier":null,"idxtype":"TAXON","name":"Arctoa","kingdom":null,"nomenclaturalCode":null,"scientificName":"Arctoa","scientificNameAuthorship":null,"author":null,"nameComplete":"Arctoa","nameFormatted":"<span
-        class=\"scientific-name rank-genus\"><span class=\"name\">Arctoa<\u002fspan><\u002fspan>","taxonomicStatus":"synonym","nomenclaturalStatus":null,"parentGuid":null,"rank":"genus","rankID":6000,"commonName":"","commonNameSingle":"","occurrenceCount":null,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","acceptedConceptID":"NHMSYS0000309379","acceptedConceptName":"Arctoa
-        Bruch, Schimp. & W.Guembel","taxonGroup_s":null,"establishmentMeans":null,"establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":null,"speciesGroup":null,"genus":"Arctoa","genusGuid":"NBNSYS0000130493","highlight":"<b>Arctoa<\u002fb>"},{"id":"e7b22dcf-6e2b-47ef-b969-c2d93989aaa7","guid":"NBNSYS0000130500","linkIdentifier":null,"idxtype":"TAXON","name":"Arctosa","kingdom":null,"nomenclaturalCode":null,"scientificName":"Arctosa","scientificNameAuthorship":null,"author":null,"nameComplete":"Arctosa","nameFormatted":"<span
-        class=\"scientific-name rank-genus\"><span class=\"name\">Arctosa<\u002fspan><\u002fspan>","taxonomicStatus":"synonym","nomenclaturalStatus":null,"parentGuid":null,"rank":"genus","rankID":6000,"commonName":"","commonNameSingle":"","occurrenceCount":null,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","acceptedConceptID":"NHMSYS0020706347","acceptedConceptName":"Arctosa
-        C.L. Koch, 1847","taxonGroup_s":null,"establishmentMeans":null,"establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":null,"speciesGroup":null,"genus":"Arctosa","genusGuid":"NBNSYS0000130500","highlight":"<b>Arctosa<\u002fb>"},{"id":"b74c7479-47b5-4ee1-bc16-5d3d2fe0c85c","guid":"NHMSYS0100000033","linkIdentifier":null,"idxtype":"TAXON","name":"Arctous","kingdom":null,"nomenclaturalCode":null,"scientificName":"Arctous","scientificNameAuthorship":null,"author":null,"nameComplete":"Arctous","nameFormatted":"<span
+        Linnaeus, 1758","taxonGroup_s":"terrestrial mammal","establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":"terrestrial","speciesGroup":null,"synonymComplete":null,"genus":"Ursus","genusGuid":"NBNSYS0000138797","highlight":"<b>Ursus<\u002fb>"},{"id":"c5eb5cdd-091c-4094-8e55-fb32b85d8dd9","guid":"NHMSYS0100000033","linkIdentifier":null,"idxtype":"TAXON","name":"Arctous","kingdom":null,"nomenclaturalCode":null,"scientificName":"Arctous","scientificNameAuthorship":null,"author":null,"nameComplete":"Arctous","nameFormatted":"<span
         class=\"scientific-name rank-genus\"><span class=\"name\">Arctous<\u002fspan><\u002fspan>","taxonomicStatus":"synonym","nomenclaturalStatus":null,"parentGuid":null,"rank":"genus","rankID":6000,"commonName":"","commonNameSingle":"","occurrenceCount":null,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","acceptedConceptID":"NHMSYS0000456034","acceptedConceptName":"Arctostaphylos
-        Adans.","taxonGroup_s":null,"establishmentMeans":null,"establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":null,"speciesGroup":null,"genus":"Arctous","genusGuid":"NHMSYS0100000033","highlight":"<b>Arctous<\u002fb>"},{"id":"9f4a94f6-1553-4737-97df-95d7602a21f2","guid":"NHMSYS0000456040","linkIdentifier":null,"idxtype":"TAXON","name":"Arctous","kingdom":null,"nomenclaturalCode":null,"scientificName":"Arctous","scientificNameAuthorship":"(A.
+        Adans.","taxonGroup_s":"flowering plant","establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":null,"speciesGroup":null,"synonymComplete":null,"genus":"Arctous","genusGuid":"NHMSYS0100000033","highlight":"<b>Arctous<\u002fb>"},{"id":"f18ea044-7065-4971-a62e-892b3b4da2a5","guid":"NHMSYS0000456040","linkIdentifier":null,"idxtype":"TAXON","name":"Arctous","kingdom":null,"nomenclaturalCode":null,"scientificName":"Arctous","scientificNameAuthorship":"(A.
         Gray) Nied.","author":"(A. Gray) Nied.","nameComplete":"Arctous (A. Gray)
         Nied.","nameFormatted":"<span class=\"scientific-name rank-genus\"><span class=\"name\">Arctous<\u002fspan>
-        <span class=\"author\">(A. Gray) Nied.<\u002fspan><\u002fspan>","taxonomicStatus":"synonym","nomenclaturalStatus":null,"parentGuid":null,"rank":"genus","rankID":6000,"commonName":"","commonNameSingle":"","occurrenceCount":0,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","acceptedConceptID":"NHMSYS0000456034","acceptedConceptName":"Arctostaphylos
-        Adans.","taxonGroup_s":null,"establishmentMeans":null,"establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":null,"speciesGroup":null,"genus":"Arctous","genusGuid":"NHMSYS0000456040","highlight":"<b>Arctous<\u002fb><br><b>Arctous<\u002fb>
-        (A. Gray) Nied."}],"queryTitle":"Ursus arctos"}}'
-  recorded_at: 2019-07-18 23:39:44 GMT
-  recorded_with: vcr/0.2.6.9100, webmockr/0.3.4
+        <span class=\"author\">(A. Gray) Nied.<\u002fspan><\u002fspan>","taxonomicStatus":"synonym","nomenclaturalStatus":null,"parentGuid":null,"rank":"genus","rankID":6000,"commonName":"","commonNameSingle":"","occurrenceCount":null,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","acceptedConceptID":"NHMSYS0000456034","acceptedConceptName":"Arctostaphylos
+        Adans.","taxonGroup_s":"flowering plant","establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":null,"speciesGroup":null,"synonymComplete":null,"genus":"Arctous","genusGuid":"NHMSYS0000456040","highlight":"<b>Arctous<\u002fb><br><b>Arctous<\u002fb>
+        (A. Gray) Nied."},{"id":"0ce56ea3-e322-4ba3-9239-1bb6d00ecae2","guid":"NBNSYS0000130500","linkIdentifier":null,"idxtype":"TAXON","name":"Arctosa","kingdom":null,"nomenclaturalCode":null,"scientificName":"Arctosa","scientificNameAuthorship":null,"author":null,"nameComplete":"Arctosa","nameFormatted":"<span
+        class=\"scientific-name rank-genus\"><span class=\"name\">Arctosa<\u002fspan><\u002fspan>","taxonomicStatus":"synonym","nomenclaturalStatus":null,"parentGuid":null,"rank":"genus","rankID":6000,"commonName":"","commonNameSingle":"","occurrenceCount":null,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","acceptedConceptID":"NHMSYS0020706347","acceptedConceptName":"Arctosa
+        C.L. Koch, 1847","taxonGroup_s":"spider (Araneae)","establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":"terrestrial","speciesGroup":null,"synonymComplete":null,"genus":"Arctosa","genusGuid":"NBNSYS0000130500","highlight":"<b>Arctosa<\u002fb>"},{"id":"500d3b6f-1a73-49d0-8511-f7b97077941b","guid":"NBNSYS0000130493","linkIdentifier":null,"idxtype":"TAXON","name":"Arctoa","kingdom":null,"nomenclaturalCode":null,"scientificName":"Arctoa","scientificNameAuthorship":null,"author":null,"nameComplete":"Arctoa","nameFormatted":"<span
+        class=\"scientific-name rank-genus\"><span class=\"name\">Arctoa<\u002fspan><\u002fspan>","taxonomicStatus":"synonym","nomenclaturalStatus":null,"parentGuid":null,"rank":"genus","rankID":6000,"commonName":"","commonNameSingle":"","occurrenceCount":0,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","acceptedConceptID":"NHMSYS0000309379","acceptedConceptName":"Arctoa
+        Bruch, Schimp. & W.Guembel","taxonGroup_s":"moss","establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":null,"speciesGroup":null,"synonymComplete":null,"genus":"Arctoa","genusGuid":"NBNSYS0000130493","highlight":"<b>Arctoa<\u002fb>"}],"queryTitle":"Ursus
+        arctos"}}'
+  recorded_at: 2020-02-10 22:21:05 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
 - request:
     method: get
     uri: https://species-ws.nbnatlas.org/species/NBNSYS0000005185
@@ -268,8 +281,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.8.1.9100 rOpenSci(taxize/0.9.8.9125)
-      X-USER-AGENT: r-curl/3.3 crul/0.8.1.9100 rOpenSci(taxize/0.9.8.9125)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
   response:
     status:
       status_code: '200'
@@ -277,13 +290,14 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 18 Jul 2019 23:41:52 GMT
+      date: Mon, 10 Feb 2020 22:20:54 GMT
       server: Apache/2.4.7 (Ubuntu)
       x-application-context: application:production
       content-type: application/json;charset=UTF-8
       transfer-encoding: chunked
     body:
       encoding: UTF-8
+      file: no
       string: '{"taxonConcept":{"guid":"NBNSYS0000005185","parentGuid":"NHMSYS0000377313","nameString":"Ursus
         arctos","nameComplete":"Ursus arctos Linnaeus, 1758","nameFormatted":"<span
         class=\"scientific-name rank-species\"><span class=\"name\">Ursus arctos<\u002fspan>
@@ -292,8 +306,8 @@ http_interactions:
         arctos","guid":"NBNSYS0000005185","species":"Ursus arctos","speciesGuid":"NBNSYS0000005185"},"synonyms":[],"commonNames":[{"nameString":"Brown
         Bear","status":"preferred","priority":300,"language":"en","temporal":null,"locationID":null,"locality":null,"countryCode":null,"sex":null,"lifeStage":null,"isPlural":null,"organismPart":null,"taxonRemarks":null,"labels":null,"infoSourceName":"UKSI","infoSourceURL":null,"datasetURL":null}],"imageIdentifier":null,"conservationStatuses":null,"extantStatuses":[],"habitats":[],"categories":[],"simpleProperties":[],"images":[],"identifiers":[],"variants":[],"taxonGroup_s":"terrestrial
         mammal","establishmentMeans":"Native","habitat_s":"terrestrial","speciesGroup":["Mammals"]}'
-  recorded_at: 2019-07-18 23:39:44 GMT
-  recorded_with: vcr/0.2.6.9100, webmockr/0.3.4
+  recorded_at: 2020-02-10 22:21:05 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/Ursus%20americanus?token=<<rredlist_api_token>>
@@ -301,7 +315,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.8.1.9100 rOpenSci(rredlist/0.5.0)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(rredlist/0.6.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -311,25 +325,27 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.1.19
-      date: Thu, 18 Jul 2019 23:39:56 GMT
+      server: nginx/1.14.0 (Ubuntu)
+      date: Mon, 10 Feb 2020 22:20:56 GMT
       content-type: application/json; charset=utf-8
-      content-length: '954'
+      content-length: '955'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
+      etag: W/"3bb-rI+kBM1qcrtMfXsXoG/2Gg"
       vary: Accept-Encoding
     body:
       encoding: UTF-8
+      file: no
       string: '{"name":"Ursus americanus","result":[{"taxonid":41687,"scientific_name":"Ursus
         americanus","kingdom":"ANIMALIA","phylum":"CHORDATA","class":"MAMMALIA","order":"CARNIVORA","family":"URSIDAE","genus":"Ursus","main_common_name":"American
-        Black Bear","authority":"Pallas, 1780","published_year":2016,"assessment_date":"2016-03-18","category":"LC","criteria":null,"population_trend":"Increasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"Beecham,
-        J.J., Garshelis, D.L., Obbard, M.E., Scheick, B.K., Doan-Crider, D.L.","reviewer":"van
+        Black Bear","authority":"Pallas, 1780","published_year":2016,"assessment_date":"2016-03-18","category":"LC","criteria":null,"population_trend":"Increasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"Garshelis,
+        D.L., Scheick, B.K., Doan-Crider, D.L., Beecham, J.J. & Obbard, M.E.","reviewer":"van
         Manen, F.T.","aoo_km2":null,"eoo_km2":null,"elevation_upper":3500,"elevation_lower":0,"depth_upper":null,"depth_lower":null,"errata_flag":true,"errata_reason":"The
         previous version of this assessment accidentally used the estimated total
         number of American Black Bears as the number of mature individuals. That error
         is corrected here.","amended_flag":null,"amended_reason":null}]}'
-  recorded_at: 2019-07-18 23:39:44 GMT
-  recorded_with: vcr/0.2.6.9100, webmockr/0.3.4
+  recorded_at: 2020-02-10 22:21:05 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/synonym/Ursus%20americanus?token=<<rredlist_api_token>>
@@ -337,7 +353,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.8.1.9100 rOpenSci(rredlist/0.5.0)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(rredlist/0.6.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -347,574 +363,20 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.1.19
-      date: Thu, 18 Jul 2019 23:39:56 GMT
+      server: nginx/1.14.0 (Ubuntu)
+      date: Mon, 10 Feb 2020 22:20:58 GMT
       content-type: application/json; charset=utf-8
       content-length: '49'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
+      etag: W/"31-4bcud6dAQo26/rDFhOJJjA"
       vary: Accept-Encoding
     body:
       encoding: UTF-8
+      file: no
       string: '{"name":"Ursus americanus","count":0,"result":[]}'
-  recorded_at: 2019-07-18 23:39:44 GMT
-  recorded_with: vcr/0.2.6.9100, webmockr/0.3.4
-- request:
-    method: get
-    uri: http://www.catalogueoflife.org/col/webservice?name=Pinus%20contorta&response=full&format=json
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.8.1.9100 rOpenSci(taxize/0.9.8.9125)
-      X-USER-AGENT: r-curl/3.3 crul/0.8.1.9100 rOpenSci(taxize/0.9.8.9125)
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      server: nginx/1.14.0
-      date: Thu, 18 Jul 2019 23:39:57 GMT
-      content-type: application/json
-      content-length: '5535'
-      connection: keep-alive
-      expires: Thu, 19 Nov 1981 08:52:00 GMT
-      cache-control: no-store, no-cache, must-revalidate
-      pragma: no-cache
-      vary: Accept-Encoding
-      content-encoding: gzip
-    body:
-      encoding: UTF-8
-      string: '{"id":"","name":"Pinus contorta","total_number_of_results":10,"number_of_results_returned":10,"start":0,"error_message":"","version":"1.9
-        rev 2126ab0","rank":"","results":[{"id":"13c40c3f2be0b0965bddf948d2b3115f","name":"Pinus
-        contorta","rank":"Species","name_status":"accepted name","genus":"Pinus","subgenus":"","species":"contorta","infraspecies_marker":"","infraspecies":"","author":"Douglas
-        ex Loudon","record_scrutiny_date":{"scrutiny":"31-Jan-2014"},"online_resource":"","is_extinct":"false","source_database":"Conifer
-        Database","source_database_url":"","bibliographic_citation":"Farjon A., Gardner
-        M. & Thomas P. (2019). Conifer Database (version Jan 2014). In: Species 2000
-        & ITIS Catalogue of Life, 2019 Annual Checklist (Roskov Y., Ower G., Orrell
-        T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W.,
-        Nieukerken E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org\/annual-checklist\/2019.
-        Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-884X.","name_html":"<i>Pinus
-        contorta<\/i> Douglas ex Loudon","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/13c40c3f2be0b0965bddf948d2b3115f","distribution":"70
-        ASK NWT-MK YUK 71 ABT BRC 73 74 SDA 76 79 MXN-BC 68815 0; Western North America,
-        from Yukon to Baja California and S Colorado. 68814 0","references":[{"author":"Farjon,
-        A. & D. Filer","year":"2013","title":null,"source":"In: An Atlas of the World\u2019s
-        conifers. An analysis of their distribution, biogeography, diversity and conservation
-        status. \nBrill, Leiden & Boston. 512 pp."},{"author":"Farjon, A.","year":"2010","title":null,"source":"In:
-        A Handbook of the World\u2019s Conifers.\nVol. 1 & 2. E. J. Brill, Leiden
-        & Boston. 1112 pp."},{"author":"Bean, W.J.","year":"1980","title":"Trees and
-        shrubs hardy in the British Isles, ed. 8, Vols. 1-4","source":"John Murray,
-        London"},{"author":"Farjon, A. & Styles, B.T. ","year":"1997","title":"Pinus
-        (Pinaceae) (Flora Neotropica Monograph 75)","source":"The New York Botanical
-        Garden, New York"},{"author":"Douglas ex Loudon","year":"1838","title":null,"source":"In:
-        Arbor. Frut. Brit. 4: 2292. "}],"classification":[{"id":"208cf441fe2e1662376a9ce9e80782e1","name":"Plantae","rank":"Kingdom","name_html":"Plantae","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/208cf441fe2e1662376a9ce9e80782e1"},{"id":"73328ba4e1446e1ee3602956b66eb127","name":"Tracheophyta","rank":"Phylum","name_html":"Tracheophyta","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/73328ba4e1446e1ee3602956b66eb127"},{"id":"b60c43b274b1d5f46c8c900add799766","name":"Pinopsida","rank":"Class","name_html":"Pinopsida","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/b60c43b274b1d5f46c8c900add799766"},{"id":"844f3ce878b11544be19b2da1c2f03dc","name":"Pinales","rank":"Order","name_html":"Pinales","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/844f3ce878b11544be19b2da1c2f03dc"},{"id":"b385e5b1bd137efbb9a5387821127481","name":"Pinaceae","rank":"Family","name_html":"Pinaceae","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/b385e5b1bd137efbb9a5387821127481"},{"id":"5802b2ad2dad3a3bb507f5838a16833e","name":"Pinus","rank":"Genus","name_html":"<i>Pinus<\/i>","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/5802b2ad2dad3a3bb507f5838a16833e"}],"child_taxa":[{"id":"5002b62472fd69875e2e1ed9cdb46654","name":"Pinus
-        contorta var. contorta","rank":"Infraspecies","name_html":"<i>Pinus contorta
-        contorta<\/i>","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/5002b62472fd69875e2e1ed9cdb46654","is_extinct":"false"},{"id":"101a09a805ae665cc4fc58a36634011b","name":"Pinus
-        contorta var. latifolia","rank":"Infraspecies","name_html":"<i>Pinus contorta
-        latifolia<\/i> Engelm.","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b","is_extinct":"false"},{"id":"cb561ff9a21649d0b301e3ea98fbe0ed","name":"Pinus
-        contorta var. murrayana","rank":"Infraspecies","name_html":"<i>Pinus contorta
-        murrayana<\/i> (Balf.) Engelm.","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/cb561ff9a21649d0b301e3ea98fbe0ed","is_extinct":"false"}],"synonyms":[],"common_names":[{"name":"borovice
-        pokroucen\u00e1","language":"Cze","country":"CZE","references":[{"author":"Hejn\u00fd,
-        S. & Slav\u00edc, B.","year":"1988","title":"Kvetena Cesk\u00e9 socialistick\u00e9
-        republiky 1","source":"Ceskoslovensk\u00e1 akademie ved, Praha"}]},{"name":"Lodgepole
-        pine","language":"Eng","country":"CAN, GBR, USA","references":[{"author":"Farjon,
-        A.","year":"2010","title":"A Handbook of the World''s Conifers","source":"E.J.
-        Brill, Leiden"},{"author":"Burns, R.M. & Honkala, B.H.","year":"1990","title":"Silvics
-        of North America. Vol. 1. Conifers (Agriculture Handbook 654)","source":"USDA
-        Forest Service, Washington, D.C."},{"author":"Little, E.L.","year":"1979","title":"Checklist
-        of United States trees (native and naturalized)","source":"Forest Service,
-        USDA, Washington, D.C."}]},{"name":"Shore pine","language":"Eng","country":"CAN,
-        USA","references":[{"author":"Farjon, A.","year":"2010","title":"A Handbook
-        of the World''s Conifers","source":"E.J. Brill, Leiden"},{"author":"Eckenwalder,
-        J.","year":"2009","title":"Conifers of the world","source":"Timber Press,
-        Portland, Oregon"}]},{"name":"Tamarack pine","language":"Eng","country":"USA","references":[{"author":"Farjon,
-        A.","year":"2010","title":"A Handbook of the World''s Conifers","source":"E.J.
-        Brill, Leiden"},{"author":"Eckenwalder, J.","year":"2009","title":"Conifers
-        of the world","source":"Timber Press, Portland, Oregon"}]},{"name":"pin de
-        Murray","language":"Fre","country":"CAN","references":[{"author":"Grandtner,
-        M.M.","year":"2005","title":"Elsevier''s dictionary of trees","source":"Elsevier,
-        Amsterdam"}]},{"name":"pin lodgepole","language":"Fre","country":"CAN","references":[{"author":"Grandtner,
-        M.M.","year":"2005","title":"Elsevier''s dictionary of trees","source":"Elsevier,
-        Amsterdam"}]},{"name":"pin tordu","language":"Fre","country":"CAN, FRA","references":[{"author":"Grandtner,
-        M.M.","year":"2005","title":"Elsevier''s dictionary of trees","source":"Elsevier,
-        Amsterdam"}]},{"name":"pin tortill\u00e9","language":"Fre","country":"CAN,
-        FRA","references":[{"author":"Grandtner, M.M.","year":"2005","title":"Elsevier''s
-        dictionary of trees","source":"Elsevier, Amsterdam"}]},{"name":"Dreh-Kiefer","language":"Ger","country":"DEU","references":[{"author":"Hegi,
-        G.","year":"1981","title":"Illustrierte Flora von Mittel-europa, Band 1, Teil
-        2 [third edition]","source":"Verlag Paul Parey, Berlin - Hamburg"},{"author":"Kr\u00fcssmann,
-        G.","year":"1983","title":"Handbuch der Nadelgeh\u00f6lze, 2. Auflage","source":"Paul
-        Parey, Berlin & Hamburg"}]},{"name":"usukani bor","language":"Hrv, Srp","country":"HRV,
-        SRB","references":[{"author":"Vidakovic, M.","year":"1982","title":"Cetinjace
-        \u2013 morfologija I varijabilnost","source":"Jugoslavenska Akademija Znanosti
-        I Umjetnosti; SNL, Zagreb"}]},{"name":"Csavarttus fenyo","language":"Hun","country":"HUN","references":[{"author":"Zsolt,
-        D. & R\u00e1cz, I.","year":"2000","title":"Fenyok a f\u00f6ld k\u00f6r\u00fcl","source":"Dendrol\u00f3giai
-        Alap\u00edtv\u00e1ny, Budapest"}]},{"name":"Pino contorto","language":"Ita","country":"ITA","references":[{"author":"Grandtner,
-        M.M.","year":"2005","title":"Elsevier''s dictionary of trees","source":"Elsevier,
-        Amsterdam"},{"author":"Wrobel, M. & Creber, G.","year":"1996","title":"Elsevier''s
-        dictionary of plant names","source":"Elsevier, Amsterdam"}]},{"name":"Vrifuru","language":"Nor","country":"NOR","references":[{"author":"Grey-Wilson,
-        C. & Blamey, M.","year":"1992","title":"Store illustrerte Flora for Norge
-        og Nord-Europa","source":"Teknologisk Forlag, N.W. Damm & S\u00f8n, a.s."}]},{"name":"Contortatall","language":"Swe","country":"SWE","references":[{"author":"Mossberg,
-        B. & Stenberg, L.","year":"1992","title":"Den Nordiska Floran","source":"Wahlstr\u00f6m
-        & Widstrand, Stockholm"}]}]},{"id":"7a5223714e7080fdaf107111d8e5d0b1","name":"Pinus
-        contorta bolanderi","rank":"Infraspecies","name_status":"synonym","genus":"Pinus","subgenus":"","species":"contorta","infraspecies_marker":"subsp.","infraspecies":"bolanderi","author":"(Parl.)
-        Critchf.","record_scrutiny_date":false,"online_resource":"","source_database":"Conifer
-        Database","source_database_url":"","bibliographic_citation":"Farjon A., Gardner
-        M. & Thomas P. (2019). Conifer Database (version Jan 2014). In: Species 2000
-        & ITIS Catalogue of Life, 2019 Annual Checklist (Roskov Y., Ower G., Orrell
-        T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W.,
-        Nieukerken E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org\/annual-checklist\/2019.
-        Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-884X.","name_html":"<i>Pinus
-        contorta bolanderi<\/i> (Parl.) Critchf.","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/5002b62472fd69875e2e1ed9cdb46654\/synonym\/7a5223714e7080fdaf107111d8e5d0b1","distribution":"","references":[{"author":"Critchf.","year":"1957","title":null,"source":"In:
-        Publ. Maria Moors Cabot Found. Bot. Res. 3: 106. "}],"accepted_name":{"id":"5002b62472fd69875e2e1ed9cdb46654","name":"Pinus
-        contorta contorta","rank":"Infraspecies","name_status":"accepted name","genus":"Pinus","subgenus":"","species":"contorta","infraspecies_marker":"var.","infraspecies":"contorta","author":"","record_scrutiny_date":{"scrutiny":"31-Jan-2014"},"online_resource":"","is_extinct":"false","source_database":"Conifer
-        Database","source_database_url":"","bibliographic_citation":"Farjon A., Gardner
-        M. & Thomas P. (2019). Conifer Database (version Jan 2014). In: Species 2000
-        & ITIS Catalogue of Life, 2019 Annual Checklist (Roskov Y., Ower G., Orrell
-        T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W.,
-        Nieukerken E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org\/annual-checklist\/2019.
-        Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-884X.","name_html":"<i>Pinus
-        contorta contorta<\/i>","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/5002b62472fd69875e2e1ed9cdb46654","distribution":"70
-        ASK 71 BRC 73 ORE WAS 76 CAL 34901 0; NW coast of North America, from S Alaska
-        to N California 204673 0","references":[],"classification":[{"id":"208cf441fe2e1662376a9ce9e80782e1","name":"Plantae","rank":"Kingdom","name_html":"Plantae","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/208cf441fe2e1662376a9ce9e80782e1"},{"id":"73328ba4e1446e1ee3602956b66eb127","name":"Tracheophyta","rank":"Phylum","name_html":"Tracheophyta","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/73328ba4e1446e1ee3602956b66eb127"},{"id":"b60c43b274b1d5f46c8c900add799766","name":"Pinopsida","rank":"Class","name_html":"Pinopsida","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/b60c43b274b1d5f46c8c900add799766"},{"id":"844f3ce878b11544be19b2da1c2f03dc","name":"Pinales","rank":"Order","name_html":"Pinales","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/844f3ce878b11544be19b2da1c2f03dc"},{"id":"b385e5b1bd137efbb9a5387821127481","name":"Pinaceae","rank":"Family","name_html":"Pinaceae","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/b385e5b1bd137efbb9a5387821127481"},{"id":"5802b2ad2dad3a3bb507f5838a16833e","name":"Pinus","rank":"Genus","name_html":"<i>Pinus<\/i>","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/5802b2ad2dad3a3bb507f5838a16833e"},{"id":"13c40c3f2be0b0965bddf948d2b3115f","name":"contorta","rank":"Species","name_html":"<i>Pinus
-        contorta contorta<\/i>","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/13c40c3f2be0b0965bddf948d2b3115f"}],"child_taxa":[],"synonyms":[{"id":"a2727249b7872929d83f3c509b8ea107","name":"Pinus
-        bolanderi","rank":"Species","name_status":"synonym","genus":"Pinus","subgenus":"","species":"bolanderi","infraspecies_marker":"","infraspecies":"","author":"Parl.","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        bolanderi<\/i> Parl.","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/5002b62472fd69875e2e1ed9cdb46654\/synonym\/a2727249b7872929d83f3c509b8ea107","references":[{"author":"Parl.","year":"1868","title":null,"source":"In:
-        Candolle, Prodr. 16 (2): 379."}]},{"id":"7a5223714e7080fdaf107111d8e5d0b1","name":"Pinus
-        contorta bolanderi","rank":"Infraspecies","name_status":"synonym","genus":"Pinus","subgenus":"","species":"contorta","infraspecies_marker":"subsp.","infraspecies":"bolanderi","author":"(Parl.)
-        Critchf.","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        contorta bolanderi<\/i> (Parl.) Critchf.","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/5002b62472fd69875e2e1ed9cdb46654\/synonym\/7a5223714e7080fdaf107111d8e5d0b1","references":[{"author":"Critchf.","year":"1957","title":null,"source":"In:
-        Publ. Maria Moors Cabot Found. Bot. Res. 3: 106. "}]},{"id":"c730e12b3742da6fc78e85dae3a31812","name":"Pinus
-        contorta bolanderi","rank":"Infraspecies","name_status":"synonym","genus":"Pinus","subgenus":"","species":"contorta","infraspecies_marker":"var.","infraspecies":"bolanderi","author":"(Parl.)
-        Koehne","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        contorta bolanderi<\/i> (Parl.) Koehne","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/5002b62472fd69875e2e1ed9cdb46654\/synonym\/c730e12b3742da6fc78e85dae3a31812","references":[{"author":"Koehne","year":"1893","title":null,"source":"In:
-        Deutsche Dendrol.: 37. "}]},{"id":"c5a5771e008d0c639ea10479e5d21412","name":"Pinus
-        inops","rank":"Species","name_status":"synonym","genus":"Pinus","subgenus":"","species":"inops","infraspecies_marker":"","infraspecies":"","author":"Bong.","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        inops<\/i> Bong.","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/5002b62472fd69875e2e1ed9cdb46654\/synonym\/c5a5771e008d0c639ea10479e5d21412","references":[{"author":"Bong.","year":"1832","title":null,"source":"In:
-        M\u00e9m. Acad. Imp. Sci. Saint-Petersbourg, s\u00e9r. 6, Sci. Math. 2: 168.
-        "}]}],"common_names":[]}},{"id":"80e7753ea700845ab36e83153ca2d5a9","name":"Pinus
-        contorta latifolia","rank":"Infraspecies","name_status":"synonym","genus":"Pinus","subgenus":"","species":"contorta","infraspecies_marker":"subsp.","infraspecies":"latifolia","author":"(Engelm.)
-        Critchf.","record_scrutiny_date":false,"online_resource":"","source_database":"Conifer
-        Database","source_database_url":"","bibliographic_citation":"Farjon A., Gardner
-        M. & Thomas P. (2019). Conifer Database (version Jan 2014). In: Species 2000
-        & ITIS Catalogue of Life, 2019 Annual Checklist (Roskov Y., Ower G., Orrell
-        T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W.,
-        Nieukerken E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org\/annual-checklist\/2019.
-        Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-884X.","name_html":"<i>Pinus
-        contorta latifolia<\/i> (Engelm.) Critchf.","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/80e7753ea700845ab36e83153ca2d5a9","distribution":"","references":[{"author":"Critchf.","year":"1957","title":null,"source":"In:
-        Publ. Maria Moors Cabot Found. Bot. Res. 3: 107. "}],"accepted_name":{"id":"101a09a805ae665cc4fc58a36634011b","name":"Pinus
-        contorta latifolia","rank":"Infraspecies","name_status":"accepted name","genus":"Pinus","subgenus":"","species":"contorta","infraspecies_marker":"var.","infraspecies":"latifolia","author":"Engelm.","record_scrutiny_date":{"scrutiny":"31-Jan-2014"},"online_resource":"","is_extinct":"false","source_database":"Conifer
-        Database","source_database_url":"","bibliographic_citation":"Farjon A., Gardner
-        M. & Thomas P. (2019). Conifer Database (version Jan 2014). In: Species 2000
-        & ITIS Catalogue of Life, 2019 Annual Checklist (Roskov Y., Ower G., Orrell
-        T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W.,
-        Nieukerken E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org\/annual-checklist\/2019.
-        Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-884X.","name_html":"<i>Pinus
-        contorta latifolia<\/i> Engelm.","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/101a09a805ae665cc4fc58a36634011b","distribution":"70
-        ASK NWT-MK YUK 71 ABT BRC SAS 73 COL IDA MNT ORE WAS WYO 74 SDA 76 UTA 204807
-        0; NW North America, from Yukon to Colorado 204806 0","references":[{"author":"Engelm.","year":"1871","title":null,"source":"In:
-        Watson, Botany (Fortieth Parallel): 331."}],"classification":[{"id":"208cf441fe2e1662376a9ce9e80782e1","name":"Plantae","rank":"Kingdom","name_html":"Plantae","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/208cf441fe2e1662376a9ce9e80782e1"},{"id":"73328ba4e1446e1ee3602956b66eb127","name":"Tracheophyta","rank":"Phylum","name_html":"Tracheophyta","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/73328ba4e1446e1ee3602956b66eb127"},{"id":"b60c43b274b1d5f46c8c900add799766","name":"Pinopsida","rank":"Class","name_html":"Pinopsida","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/b60c43b274b1d5f46c8c900add799766"},{"id":"844f3ce878b11544be19b2da1c2f03dc","name":"Pinales","rank":"Order","name_html":"Pinales","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/844f3ce878b11544be19b2da1c2f03dc"},{"id":"b385e5b1bd137efbb9a5387821127481","name":"Pinaceae","rank":"Family","name_html":"Pinaceae","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/b385e5b1bd137efbb9a5387821127481"},{"id":"5802b2ad2dad3a3bb507f5838a16833e","name":"Pinus","rank":"Genus","name_html":"<i>Pinus<\/i>","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/5802b2ad2dad3a3bb507f5838a16833e"},{"id":"13c40c3f2be0b0965bddf948d2b3115f","name":"contorta","rank":"Species","name_html":"<i>Pinus
-        contorta latifolia<\/i> Engelm.","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/13c40c3f2be0b0965bddf948d2b3115f"}],"child_taxa":[],"synonyms":[{"id":"8034303997c8347a13598f7d5b07567b","name":"Pinus
-        bourcieri","rank":"Species","name_status":"synonym","genus":"Pinus","subgenus":"","species":"bourcieri","infraspecies_marker":"","infraspecies":"","author":"Carri\u00e8re","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        bourcieri<\/i> Carri\u00e8re","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/8034303997c8347a13598f7d5b07567b","references":[{"author":"Carri\u00e8re","year":"1854","title":null,"source":"In:
-        Rev. Hort., s\u00e9r. 4, 3: 225. "}]},{"id":"c43df364a26ceb75ed759f2d636daa66","name":"Pinus
-        boursieri","rank":"Species","name_status":"synonym","genus":"Pinus","subgenus":"","species":"boursieri","infraspecies_marker":"","infraspecies":"","author":"Carri\u00e8re","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        boursieri<\/i> Carri\u00e8re","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/c43df364a26ceb75ed759f2d636daa66","references":[{"author":"Carri\u00e8re","year":"1855","title":null,"source":"In:
-        Trait\u00e9 G\u00e9n. Conif.: 398. "}]},{"id":"3c3402aef5ea0037f42b9001c70097c4","name":"Pinus
-        contorta hendersonii","rank":"Infraspecies","name_status":"synonym","genus":"Pinus","subgenus":"","species":"contorta","infraspecies_marker":"var.","infraspecies":"hendersonii","author":"Lemmon","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        contorta hendersonii<\/i> Lemmon","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/3c3402aef5ea0037f42b9001c70097c4","references":[{"author":"Lemmon","year":"1894","title":null,"source":"In:
-        Erythea 2: 176. "}]},{"id":"80e7753ea700845ab36e83153ca2d5a9","name":"Pinus
-        contorta latifolia","rank":"Infraspecies","name_status":"synonym","genus":"Pinus","subgenus":"","species":"contorta","infraspecies_marker":"subsp.","infraspecies":"latifolia","author":"(Engelm.)
-        Critchf.","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        contorta latifolia<\/i> (Engelm.) Critchf.","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/80e7753ea700845ab36e83153ca2d5a9","references":[{"author":"Critchf.","year":"1957","title":null,"source":"In:
-        Publ. Maria Moors Cabot Found. Bot. Res. 3: 107. "}]},{"id":"184ac625e2f71cdad717e49605408513","name":"Pinus
-        contorta yukonensis","rank":"Infraspecies","name_status":"synonym","genus":"Pinus","subgenus":"","species":"contorta","infraspecies_marker":"var.","infraspecies":"yukonensis","author":"W.L.
-        Strong","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        contorta yukonensis<\/i> W.L. Strong","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/184ac625e2f71cdad717e49605408513","references":[]},{"id":"ac8a39954a65b5968b32f592c700c471","name":"Pinus
-        divaricata latifolia","rank":"Infraspecies","name_status":"synonym","genus":"Pinus","subgenus":"","species":"divaricata","infraspecies_marker":"var.","infraspecies":"latifolia","author":"(Engelm.)
-        Boivin","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        divaricata latifolia<\/i> (Engelm.) Boivin","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/ac8a39954a65b5968b32f592c700c471","references":[{"author":"Boivin","year":"1966","title":null,"source":"In:
-        Naturaliste Canad. 93: 272. "}]},{"id":"96a8c60159c26d873a2bc1b337e5d076","name":"Pinus
-        murrayana sargentii","rank":"Infraspecies","name_status":"synonym","genus":"Pinus","subgenus":"","species":"murrayana","infraspecies_marker":"var.","infraspecies":"sargentii","author":"Mayr","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        murrayana sargentii<\/i> Mayr","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/96a8c60159c26d873a2bc1b337e5d076","references":[{"author":"Mayr","year":"1889","title":null,"source":"In:
-        Wald. Nordamer.: 349. "}]},{"id":"7df366c4d5658a7ccc0fc67869c28aed","name":"Pinus
-        tamrac","rank":"Species","name_status":"synonym","genus":"Pinus","subgenus":"","species":"tamrac","infraspecies_marker":"","infraspecies":"","author":"A.
-        Murray bis","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        tamrac<\/i> A. Murray bis","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/7df366c4d5658a7ccc0fc67869c28aed","references":[{"author":"A.
-        Murray bis","year":"1869","title":null,"source":"In: Gard. Chron. 1869: 191.
-        "}]},{"id":"ecb495b39a70c58f6a9ff012ca43976c","name":"Pinus tenuis","rank":"Species","name_status":"synonym","genus":"Pinus","subgenus":"","species":"tenuis","infraspecies_marker":"","infraspecies":"","author":"Lemmon","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        tenuis<\/i> Lemmon","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/ecb495b39a70c58f6a9ff012ca43976c","references":[{"author":"Lemmon","year":"1898","title":null,"source":"In:
-        Erythea 6 (8): 77. "}]}],"common_names":[]}},{"id":"f8bde55499739e9ee77b26dcc53a2d91","name":"Pinus
-        contorta murrayana","rank":"Infraspecies","name_status":"synonym","genus":"Pinus","subgenus":"","species":"contorta","infraspecies_marker":"subsp.","infraspecies":"murrayana","author":"(Balf.)
-        Engelm.","record_scrutiny_date":false,"online_resource":"","source_database":"Conifer
-        Database","source_database_url":"","bibliographic_citation":"Farjon A., Gardner
-        M. & Thomas P. (2019). Conifer Database (version Jan 2014). In: Species 2000
-        & ITIS Catalogue of Life, 2019 Annual Checklist (Roskov Y., Ower G., Orrell
-        T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W.,
-        Nieukerken E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org\/annual-checklist\/2019.
-        Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-884X.","name_html":"<i>Pinus
-        contorta murrayana<\/i> (Balf.) Engelm.","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/cb561ff9a21649d0b301e3ea98fbe0ed\/synonym\/f8bde55499739e9ee77b26dcc53a2d91","distribution":"","references":[{"author":"Engelm.","year":"1880","title":null,"source":"In:
-        Trans. St. Louis Acad. Sci. 4: 177. "}],"accepted_name":{"id":"cb561ff9a21649d0b301e3ea98fbe0ed","name":"Pinus
-        contorta murrayana","rank":"Infraspecies","name_status":"accepted name","genus":"Pinus","subgenus":"","species":"contorta","infraspecies_marker":"var.","infraspecies":"murrayana","author":"(Balf.)
-        Engelm.","record_scrutiny_date":{"scrutiny":"31-Jan-2014"},"online_resource":"","is_extinct":"false","source_database":"Conifer
-        Database","source_database_url":"","bibliographic_citation":"Farjon A., Gardner
-        M. & Thomas P. (2019). Conifer Database (version Jan 2014). In: Species 2000
-        & ITIS Catalogue of Life, 2019 Annual Checklist (Roskov Y., Ower G., Orrell
-        T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W.,
-        Nieukerken E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org\/annual-checklist\/2019.
-        Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-884X.","name_html":"<i>Pinus
-        contorta murrayana<\/i> (Balf.) Engelm.","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/cb561ff9a21649d0b301e3ea98fbe0ed","distribution":"73
-        ORE WAS 76 CAL NEV 79 MXN-BC 204859 0; USA: California, Nevada, Oregon, S
-        Washington; NW Mexico: Baja California Norte. 204858 0","references":[{"author":"Engelm.","year":"1880","title":null,"source":"In:
-        Watson, Bot. California 2: 126."}],"classification":[{"id":"208cf441fe2e1662376a9ce9e80782e1","name":"Plantae","rank":"Kingdom","name_html":"Plantae","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/208cf441fe2e1662376a9ce9e80782e1"},{"id":"73328ba4e1446e1ee3602956b66eb127","name":"Tracheophyta","rank":"Phylum","name_html":"Tracheophyta","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/73328ba4e1446e1ee3602956b66eb127"},{"id":"b60c43b274b1d5f46c8c900add799766","name":"Pinopsida","rank":"Class","name_html":"Pinopsida","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/b60c43b274b1d5f46c8c900add799766"},{"id":"844f3ce878b11544be19b2da1c2f03dc","name":"Pinales","rank":"Order","name_html":"Pinales","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/844f3ce878b11544be19b2da1c2f03dc"},{"id":"b385e5b1bd137efbb9a5387821127481","name":"Pinaceae","rank":"Family","name_html":"Pinaceae","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/b385e5b1bd137efbb9a5387821127481"},{"id":"5802b2ad2dad3a3bb507f5838a16833e","name":"Pinus","rank":"Genus","name_html":"<i>Pinus<\/i>","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/5802b2ad2dad3a3bb507f5838a16833e"},{"id":"13c40c3f2be0b0965bddf948d2b3115f","name":"contorta","rank":"Species","name_html":"<i>Pinus
-        contorta murrayana<\/i> (Balf.) Engelm.","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/13c40c3f2be0b0965bddf948d2b3115f"}],"child_taxa":[],"synonyms":[{"id":"f8bde55499739e9ee77b26dcc53a2d91","name":"Pinus
-        contorta murrayana","rank":"Infraspecies","name_status":"synonym","genus":"Pinus","subgenus":"","species":"contorta","infraspecies_marker":"subsp.","infraspecies":"murrayana","author":"(Balf.)
-        Engelm.","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        contorta murrayana<\/i> (Balf.) Engelm.","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/cb561ff9a21649d0b301e3ea98fbe0ed\/synonym\/f8bde55499739e9ee77b26dcc53a2d91","references":[{"author":"Engelm.","year":"1880","title":null,"source":"In:
-        Trans. St. Louis Acad. Sci. 4: 177. "}]},{"id":"e69bb3a3a6affc5cffce171490ce4ba8","name":"Pinus
-        muricata","rank":"Species","name_status":"ambiguous synonym","genus":"Pinus","subgenus":"","species":"muricata","infraspecies_marker":"","infraspecies":"","author":"Bol.","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        muricata<\/i> Bol.","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/cb561ff9a21649d0b301e3ea98fbe0ed\/synonym\/e69bb3a3a6affc5cffce171490ce4ba8","references":[{"author":"Bol.","year":"1866","title":null,"source":"In:
-        Proc. Calif. Acad. Sci. 3: 227. "}]},{"id":"cb5298108251edc5a34e90e778c4f761","name":"Pinus
-        murrayana","rank":"Species","name_status":"synonym","genus":"Pinus","subgenus":"","species":"murrayana","infraspecies_marker":"","infraspecies":"","author":"Balf.","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        murrayana<\/i> Balf.","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/cb561ff9a21649d0b301e3ea98fbe0ed\/synonym\/cb5298108251edc5a34e90e778c4f761","references":[{"author":"Balf.","year":"1853","title":null,"source":"In:
-        Murray, Bot. Exped. Oregon 8: 2."}]}],"common_names":[]}},{"id":"c730e12b3742da6fc78e85dae3a31812","name":"Pinus
-        contorta bolanderi","rank":"Infraspecies","name_status":"synonym","genus":"Pinus","subgenus":"","species":"contorta","infraspecies_marker":"var.","infraspecies":"bolanderi","author":"(Parl.)
-        Koehne","record_scrutiny_date":false,"online_resource":"","source_database":"Conifer
-        Database","source_database_url":"","bibliographic_citation":"Farjon A., Gardner
-        M. & Thomas P. (2019). Conifer Database (version Jan 2014). In: Species 2000
-        & ITIS Catalogue of Life, 2019 Annual Checklist (Roskov Y., Ower G., Orrell
-        T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W.,
-        Nieukerken E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org\/annual-checklist\/2019.
-        Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-884X.","name_html":"<i>Pinus
-        contorta bolanderi<\/i> (Parl.) Koehne","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/5002b62472fd69875e2e1ed9cdb46654\/synonym\/c730e12b3742da6fc78e85dae3a31812","distribution":"","references":[{"author":"Koehne","year":"1893","title":null,"source":"In:
-        Deutsche Dendrol.: 37. "}],"accepted_name":{"id":"5002b62472fd69875e2e1ed9cdb46654","name":"Pinus
-        contorta contorta","rank":"Infraspecies","name_status":"accepted name","genus":"Pinus","subgenus":"","species":"contorta","infraspecies_marker":"var.","infraspecies":"contorta","author":"","record_scrutiny_date":{"scrutiny":"31-Jan-2014"},"online_resource":"","is_extinct":"false","source_database":"Conifer
-        Database","source_database_url":"","bibliographic_citation":"Farjon A., Gardner
-        M. & Thomas P. (2019). Conifer Database (version Jan 2014). In: Species 2000
-        & ITIS Catalogue of Life, 2019 Annual Checklist (Roskov Y., Ower G., Orrell
-        T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W.,
-        Nieukerken E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org\/annual-checklist\/2019.
-        Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-884X.","name_html":"<i>Pinus
-        contorta contorta<\/i>","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/5002b62472fd69875e2e1ed9cdb46654","distribution":"70
-        ASK 71 BRC 73 ORE WAS 76 CAL 34901 0; NW coast of North America, from S Alaska
-        to N California 204673 0","references":[],"classification":[{"id":"208cf441fe2e1662376a9ce9e80782e1","name":"Plantae","rank":"Kingdom","name_html":"Plantae","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/208cf441fe2e1662376a9ce9e80782e1"},{"id":"73328ba4e1446e1ee3602956b66eb127","name":"Tracheophyta","rank":"Phylum","name_html":"Tracheophyta","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/73328ba4e1446e1ee3602956b66eb127"},{"id":"b60c43b274b1d5f46c8c900add799766","name":"Pinopsida","rank":"Class","name_html":"Pinopsida","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/b60c43b274b1d5f46c8c900add799766"},{"id":"844f3ce878b11544be19b2da1c2f03dc","name":"Pinales","rank":"Order","name_html":"Pinales","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/844f3ce878b11544be19b2da1c2f03dc"},{"id":"b385e5b1bd137efbb9a5387821127481","name":"Pinaceae","rank":"Family","name_html":"Pinaceae","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/b385e5b1bd137efbb9a5387821127481"},{"id":"5802b2ad2dad3a3bb507f5838a16833e","name":"Pinus","rank":"Genus","name_html":"<i>Pinus<\/i>","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/5802b2ad2dad3a3bb507f5838a16833e"},{"id":"13c40c3f2be0b0965bddf948d2b3115f","name":"contorta","rank":"Species","name_html":"<i>Pinus
-        contorta contorta<\/i>","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/13c40c3f2be0b0965bddf948d2b3115f"}],"child_taxa":[],"synonyms":[{"id":"a2727249b7872929d83f3c509b8ea107","name":"Pinus
-        bolanderi","rank":"Species","name_status":"synonym","genus":"Pinus","subgenus":"","species":"bolanderi","infraspecies_marker":"","infraspecies":"","author":"Parl.","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        bolanderi<\/i> Parl.","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/5002b62472fd69875e2e1ed9cdb46654\/synonym\/a2727249b7872929d83f3c509b8ea107","references":[{"author":"Parl.","year":"1868","title":null,"source":"In:
-        Candolle, Prodr. 16 (2): 379."}]},{"id":"7a5223714e7080fdaf107111d8e5d0b1","name":"Pinus
-        contorta bolanderi","rank":"Infraspecies","name_status":"synonym","genus":"Pinus","subgenus":"","species":"contorta","infraspecies_marker":"subsp.","infraspecies":"bolanderi","author":"(Parl.)
-        Critchf.","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        contorta bolanderi<\/i> (Parl.) Critchf.","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/5002b62472fd69875e2e1ed9cdb46654\/synonym\/7a5223714e7080fdaf107111d8e5d0b1","references":[{"author":"Critchf.","year":"1957","title":null,"source":"In:
-        Publ. Maria Moors Cabot Found. Bot. Res. 3: 106. "}]},{"id":"c730e12b3742da6fc78e85dae3a31812","name":"Pinus
-        contorta bolanderi","rank":"Infraspecies","name_status":"synonym","genus":"Pinus","subgenus":"","species":"contorta","infraspecies_marker":"var.","infraspecies":"bolanderi","author":"(Parl.)
-        Koehne","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        contorta bolanderi<\/i> (Parl.) Koehne","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/5002b62472fd69875e2e1ed9cdb46654\/synonym\/c730e12b3742da6fc78e85dae3a31812","references":[{"author":"Koehne","year":"1893","title":null,"source":"In:
-        Deutsche Dendrol.: 37. "}]},{"id":"c5a5771e008d0c639ea10479e5d21412","name":"Pinus
-        inops","rank":"Species","name_status":"synonym","genus":"Pinus","subgenus":"","species":"inops","infraspecies_marker":"","infraspecies":"","author":"Bong.","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        inops<\/i> Bong.","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/5002b62472fd69875e2e1ed9cdb46654\/synonym\/c5a5771e008d0c639ea10479e5d21412","references":[{"author":"Bong.","year":"1832","title":null,"source":"In:
-        M\u00e9m. Acad. Imp. Sci. Saint-Petersbourg, s\u00e9r. 6, Sci. Math. 2: 168.
-        "}]}],"common_names":[]}},{"id":"5002b62472fd69875e2e1ed9cdb46654","name":"Pinus
-        contorta contorta","rank":"Infraspecies","name_status":"accepted name","genus":"Pinus","subgenus":"","species":"contorta","infraspecies_marker":"var.","infraspecies":"contorta","author":"","record_scrutiny_date":{"scrutiny":"31-Jan-2014"},"online_resource":"","is_extinct":"false","source_database":"Conifer
-        Database","source_database_url":"","bibliographic_citation":"Farjon A., Gardner
-        M. & Thomas P. (2019). Conifer Database (version Jan 2014). In: Species 2000
-        & ITIS Catalogue of Life, 2019 Annual Checklist (Roskov Y., Ower G., Orrell
-        T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W.,
-        Nieukerken E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org\/annual-checklist\/2019.
-        Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-884X.","name_html":"<i>Pinus
-        contorta contorta<\/i>","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/5002b62472fd69875e2e1ed9cdb46654","distribution":"70
-        ASK 71 BRC 73 ORE WAS 76 CAL 34901 0; NW coast of North America, from S Alaska
-        to N California 204673 0","references":[],"classification":[{"id":"208cf441fe2e1662376a9ce9e80782e1","name":"Plantae","rank":"Kingdom","name_html":"Plantae","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/208cf441fe2e1662376a9ce9e80782e1"},{"id":"73328ba4e1446e1ee3602956b66eb127","name":"Tracheophyta","rank":"Phylum","name_html":"Tracheophyta","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/73328ba4e1446e1ee3602956b66eb127"},{"id":"b60c43b274b1d5f46c8c900add799766","name":"Pinopsida","rank":"Class","name_html":"Pinopsida","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/b60c43b274b1d5f46c8c900add799766"},{"id":"844f3ce878b11544be19b2da1c2f03dc","name":"Pinales","rank":"Order","name_html":"Pinales","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/844f3ce878b11544be19b2da1c2f03dc"},{"id":"b385e5b1bd137efbb9a5387821127481","name":"Pinaceae","rank":"Family","name_html":"Pinaceae","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/b385e5b1bd137efbb9a5387821127481"},{"id":"5802b2ad2dad3a3bb507f5838a16833e","name":"Pinus","rank":"Genus","name_html":"<i>Pinus<\/i>","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/5802b2ad2dad3a3bb507f5838a16833e"},{"id":"13c40c3f2be0b0965bddf948d2b3115f","name":"contorta","rank":"Species","name_html":"<i>Pinus
-        contorta contorta<\/i>","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/13c40c3f2be0b0965bddf948d2b3115f"}],"child_taxa":[],"synonyms":[{"id":"a2727249b7872929d83f3c509b8ea107","name":"Pinus
-        bolanderi","rank":"Species","name_status":"synonym","genus":"Pinus","subgenus":"","species":"bolanderi","infraspecies_marker":"","infraspecies":"","author":"Parl.","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        bolanderi<\/i> Parl.","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/5002b62472fd69875e2e1ed9cdb46654\/synonym\/a2727249b7872929d83f3c509b8ea107","references":[{"author":"Parl.","year":"1868","title":null,"source":"In:
-        Candolle, Prodr. 16 (2): 379."}]},{"id":"7a5223714e7080fdaf107111d8e5d0b1","name":"Pinus
-        contorta bolanderi","rank":"Infraspecies","name_status":"synonym","genus":"Pinus","subgenus":"","species":"contorta","infraspecies_marker":"subsp.","infraspecies":"bolanderi","author":"(Parl.)
-        Critchf.","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        contorta bolanderi<\/i> (Parl.) Critchf.","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/5002b62472fd69875e2e1ed9cdb46654\/synonym\/7a5223714e7080fdaf107111d8e5d0b1","references":[{"author":"Critchf.","year":"1957","title":null,"source":"In:
-        Publ. Maria Moors Cabot Found. Bot. Res. 3: 106. "}]},{"id":"c730e12b3742da6fc78e85dae3a31812","name":"Pinus
-        contorta bolanderi","rank":"Infraspecies","name_status":"synonym","genus":"Pinus","subgenus":"","species":"contorta","infraspecies_marker":"var.","infraspecies":"bolanderi","author":"(Parl.)
-        Koehne","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        contorta bolanderi<\/i> (Parl.) Koehne","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/5002b62472fd69875e2e1ed9cdb46654\/synonym\/c730e12b3742da6fc78e85dae3a31812","references":[{"author":"Koehne","year":"1893","title":null,"source":"In:
-        Deutsche Dendrol.: 37. "}]},{"id":"c5a5771e008d0c639ea10479e5d21412","name":"Pinus
-        inops","rank":"Species","name_status":"synonym","genus":"Pinus","subgenus":"","species":"inops","infraspecies_marker":"","infraspecies":"","author":"Bong.","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        inops<\/i> Bong.","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/5002b62472fd69875e2e1ed9cdb46654\/synonym\/c5a5771e008d0c639ea10479e5d21412","references":[{"author":"Bong.","year":"1832","title":null,"source":"In:
-        M\u00e9m. Acad. Imp. Sci. Saint-Petersbourg, s\u00e9r. 6, Sci. Math. 2: 168.
-        "}]}],"common_names":[]},{"id":"3c3402aef5ea0037f42b9001c70097c4","name":"Pinus
-        contorta hendersonii","rank":"Infraspecies","name_status":"synonym","genus":"Pinus","subgenus":"","species":"contorta","infraspecies_marker":"var.","infraspecies":"hendersonii","author":"Lemmon","record_scrutiny_date":false,"online_resource":"","source_database":"Conifer
-        Database","source_database_url":"","bibliographic_citation":"Farjon A., Gardner
-        M. & Thomas P. (2019). Conifer Database (version Jan 2014). In: Species 2000
-        & ITIS Catalogue of Life, 2019 Annual Checklist (Roskov Y., Ower G., Orrell
-        T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W.,
-        Nieukerken E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org\/annual-checklist\/2019.
-        Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-884X.","name_html":"<i>Pinus
-        contorta hendersonii<\/i> Lemmon","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/3c3402aef5ea0037f42b9001c70097c4","distribution":"","references":[{"author":"Lemmon","year":"1894","title":null,"source":"In:
-        Erythea 2: 176. "}],"accepted_name":{"id":"101a09a805ae665cc4fc58a36634011b","name":"Pinus
-        contorta latifolia","rank":"Infraspecies","name_status":"accepted name","genus":"Pinus","subgenus":"","species":"contorta","infraspecies_marker":"var.","infraspecies":"latifolia","author":"Engelm.","record_scrutiny_date":{"scrutiny":"31-Jan-2014"},"online_resource":"","is_extinct":"false","source_database":"Conifer
-        Database","source_database_url":"","bibliographic_citation":"Farjon A., Gardner
-        M. & Thomas P. (2019). Conifer Database (version Jan 2014). In: Species 2000
-        & ITIS Catalogue of Life, 2019 Annual Checklist (Roskov Y., Ower G., Orrell
-        T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W.,
-        Nieukerken E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org\/annual-checklist\/2019.
-        Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-884X.","name_html":"<i>Pinus
-        contorta latifolia<\/i> Engelm.","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/101a09a805ae665cc4fc58a36634011b","distribution":"70
-        ASK NWT-MK YUK 71 ABT BRC SAS 73 COL IDA MNT ORE WAS WYO 74 SDA 76 UTA 204807
-        0; NW North America, from Yukon to Colorado 204806 0","references":[{"author":"Engelm.","year":"1871","title":null,"source":"In:
-        Watson, Botany (Fortieth Parallel): 331."}],"classification":[{"id":"208cf441fe2e1662376a9ce9e80782e1","name":"Plantae","rank":"Kingdom","name_html":"Plantae","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/208cf441fe2e1662376a9ce9e80782e1"},{"id":"73328ba4e1446e1ee3602956b66eb127","name":"Tracheophyta","rank":"Phylum","name_html":"Tracheophyta","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/73328ba4e1446e1ee3602956b66eb127"},{"id":"b60c43b274b1d5f46c8c900add799766","name":"Pinopsida","rank":"Class","name_html":"Pinopsida","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/b60c43b274b1d5f46c8c900add799766"},{"id":"844f3ce878b11544be19b2da1c2f03dc","name":"Pinales","rank":"Order","name_html":"Pinales","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/844f3ce878b11544be19b2da1c2f03dc"},{"id":"b385e5b1bd137efbb9a5387821127481","name":"Pinaceae","rank":"Family","name_html":"Pinaceae","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/b385e5b1bd137efbb9a5387821127481"},{"id":"5802b2ad2dad3a3bb507f5838a16833e","name":"Pinus","rank":"Genus","name_html":"<i>Pinus<\/i>","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/5802b2ad2dad3a3bb507f5838a16833e"},{"id":"13c40c3f2be0b0965bddf948d2b3115f","name":"contorta","rank":"Species","name_html":"<i>Pinus
-        contorta latifolia<\/i> Engelm.","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/13c40c3f2be0b0965bddf948d2b3115f"}],"child_taxa":[],"synonyms":[{"id":"8034303997c8347a13598f7d5b07567b","name":"Pinus
-        bourcieri","rank":"Species","name_status":"synonym","genus":"Pinus","subgenus":"","species":"bourcieri","infraspecies_marker":"","infraspecies":"","author":"Carri\u00e8re","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        bourcieri<\/i> Carri\u00e8re","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/8034303997c8347a13598f7d5b07567b","references":[{"author":"Carri\u00e8re","year":"1854","title":null,"source":"In:
-        Rev. Hort., s\u00e9r. 4, 3: 225. "}]},{"id":"c43df364a26ceb75ed759f2d636daa66","name":"Pinus
-        boursieri","rank":"Species","name_status":"synonym","genus":"Pinus","subgenus":"","species":"boursieri","infraspecies_marker":"","infraspecies":"","author":"Carri\u00e8re","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        boursieri<\/i> Carri\u00e8re","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/c43df364a26ceb75ed759f2d636daa66","references":[{"author":"Carri\u00e8re","year":"1855","title":null,"source":"In:
-        Trait\u00e9 G\u00e9n. Conif.: 398. "}]},{"id":"3c3402aef5ea0037f42b9001c70097c4","name":"Pinus
-        contorta hendersonii","rank":"Infraspecies","name_status":"synonym","genus":"Pinus","subgenus":"","species":"contorta","infraspecies_marker":"var.","infraspecies":"hendersonii","author":"Lemmon","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        contorta hendersonii<\/i> Lemmon","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/3c3402aef5ea0037f42b9001c70097c4","references":[{"author":"Lemmon","year":"1894","title":null,"source":"In:
-        Erythea 2: 176. "}]},{"id":"80e7753ea700845ab36e83153ca2d5a9","name":"Pinus
-        contorta latifolia","rank":"Infraspecies","name_status":"synonym","genus":"Pinus","subgenus":"","species":"contorta","infraspecies_marker":"subsp.","infraspecies":"latifolia","author":"(Engelm.)
-        Critchf.","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        contorta latifolia<\/i> (Engelm.) Critchf.","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/80e7753ea700845ab36e83153ca2d5a9","references":[{"author":"Critchf.","year":"1957","title":null,"source":"In:
-        Publ. Maria Moors Cabot Found. Bot. Res. 3: 107. "}]},{"id":"184ac625e2f71cdad717e49605408513","name":"Pinus
-        contorta yukonensis","rank":"Infraspecies","name_status":"synonym","genus":"Pinus","subgenus":"","species":"contorta","infraspecies_marker":"var.","infraspecies":"yukonensis","author":"W.L.
-        Strong","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        contorta yukonensis<\/i> W.L. Strong","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/184ac625e2f71cdad717e49605408513","references":[]},{"id":"ac8a39954a65b5968b32f592c700c471","name":"Pinus
-        divaricata latifolia","rank":"Infraspecies","name_status":"synonym","genus":"Pinus","subgenus":"","species":"divaricata","infraspecies_marker":"var.","infraspecies":"latifolia","author":"(Engelm.)
-        Boivin","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        divaricata latifolia<\/i> (Engelm.) Boivin","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/ac8a39954a65b5968b32f592c700c471","references":[{"author":"Boivin","year":"1966","title":null,"source":"In:
-        Naturaliste Canad. 93: 272. "}]},{"id":"96a8c60159c26d873a2bc1b337e5d076","name":"Pinus
-        murrayana sargentii","rank":"Infraspecies","name_status":"synonym","genus":"Pinus","subgenus":"","species":"murrayana","infraspecies_marker":"var.","infraspecies":"sargentii","author":"Mayr","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        murrayana sargentii<\/i> Mayr","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/96a8c60159c26d873a2bc1b337e5d076","references":[{"author":"Mayr","year":"1889","title":null,"source":"In:
-        Wald. Nordamer.: 349. "}]},{"id":"7df366c4d5658a7ccc0fc67869c28aed","name":"Pinus
-        tamrac","rank":"Species","name_status":"synonym","genus":"Pinus","subgenus":"","species":"tamrac","infraspecies_marker":"","infraspecies":"","author":"A.
-        Murray bis","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        tamrac<\/i> A. Murray bis","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/7df366c4d5658a7ccc0fc67869c28aed","references":[{"author":"A.
-        Murray bis","year":"1869","title":null,"source":"In: Gard. Chron. 1869: 191.
-        "}]},{"id":"ecb495b39a70c58f6a9ff012ca43976c","name":"Pinus tenuis","rank":"Species","name_status":"synonym","genus":"Pinus","subgenus":"","species":"tenuis","infraspecies_marker":"","infraspecies":"","author":"Lemmon","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        tenuis<\/i> Lemmon","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/ecb495b39a70c58f6a9ff012ca43976c","references":[{"author":"Lemmon","year":"1898","title":null,"source":"In:
-        Erythea 6 (8): 77. "}]}],"common_names":[]}},{"id":"101a09a805ae665cc4fc58a36634011b","name":"Pinus
-        contorta latifolia","rank":"Infraspecies","name_status":"accepted name","genus":"Pinus","subgenus":"","species":"contorta","infraspecies_marker":"var.","infraspecies":"latifolia","author":"Engelm.","record_scrutiny_date":{"scrutiny":"31-Jan-2014"},"online_resource":"","is_extinct":"false","source_database":"Conifer
-        Database","source_database_url":"","bibliographic_citation":"Farjon A., Gardner
-        M. & Thomas P. (2019). Conifer Database (version Jan 2014). In: Species 2000
-        & ITIS Catalogue of Life, 2019 Annual Checklist (Roskov Y., Ower G., Orrell
-        T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W.,
-        Nieukerken E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org\/annual-checklist\/2019.
-        Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-884X.","name_html":"<i>Pinus
-        contorta latifolia<\/i> Engelm.","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/101a09a805ae665cc4fc58a36634011b","distribution":"70
-        ASK NWT-MK YUK 71 ABT BRC SAS 73 COL IDA MNT ORE WAS WYO 74 SDA 76 UTA 204807
-        0; NW North America, from Yukon to Colorado 204806 0","references":[{"author":"Engelm.","year":"1871","title":null,"source":"In:
-        Watson, Botany (Fortieth Parallel): 331."}],"classification":[{"id":"208cf441fe2e1662376a9ce9e80782e1","name":"Plantae","rank":"Kingdom","name_html":"Plantae","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/208cf441fe2e1662376a9ce9e80782e1"},{"id":"73328ba4e1446e1ee3602956b66eb127","name":"Tracheophyta","rank":"Phylum","name_html":"Tracheophyta","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/73328ba4e1446e1ee3602956b66eb127"},{"id":"b60c43b274b1d5f46c8c900add799766","name":"Pinopsida","rank":"Class","name_html":"Pinopsida","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/b60c43b274b1d5f46c8c900add799766"},{"id":"844f3ce878b11544be19b2da1c2f03dc","name":"Pinales","rank":"Order","name_html":"Pinales","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/844f3ce878b11544be19b2da1c2f03dc"},{"id":"b385e5b1bd137efbb9a5387821127481","name":"Pinaceae","rank":"Family","name_html":"Pinaceae","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/b385e5b1bd137efbb9a5387821127481"},{"id":"5802b2ad2dad3a3bb507f5838a16833e","name":"Pinus","rank":"Genus","name_html":"<i>Pinus<\/i>","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/5802b2ad2dad3a3bb507f5838a16833e"},{"id":"13c40c3f2be0b0965bddf948d2b3115f","name":"contorta","rank":"Species","name_html":"<i>Pinus
-        contorta latifolia<\/i> Engelm.","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/13c40c3f2be0b0965bddf948d2b3115f"}],"child_taxa":[],"synonyms":[{"id":"8034303997c8347a13598f7d5b07567b","name":"Pinus
-        bourcieri","rank":"Species","name_status":"synonym","genus":"Pinus","subgenus":"","species":"bourcieri","infraspecies_marker":"","infraspecies":"","author":"Carri\u00e8re","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        bourcieri<\/i> Carri\u00e8re","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/8034303997c8347a13598f7d5b07567b","references":[{"author":"Carri\u00e8re","year":"1854","title":null,"source":"In:
-        Rev. Hort., s\u00e9r. 4, 3: 225. "}]},{"id":"c43df364a26ceb75ed759f2d636daa66","name":"Pinus
-        boursieri","rank":"Species","name_status":"synonym","genus":"Pinus","subgenus":"","species":"boursieri","infraspecies_marker":"","infraspecies":"","author":"Carri\u00e8re","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        boursieri<\/i> Carri\u00e8re","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/c43df364a26ceb75ed759f2d636daa66","references":[{"author":"Carri\u00e8re","year":"1855","title":null,"source":"In:
-        Trait\u00e9 G\u00e9n. Conif.: 398. "}]},{"id":"3c3402aef5ea0037f42b9001c70097c4","name":"Pinus
-        contorta hendersonii","rank":"Infraspecies","name_status":"synonym","genus":"Pinus","subgenus":"","species":"contorta","infraspecies_marker":"var.","infraspecies":"hendersonii","author":"Lemmon","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        contorta hendersonii<\/i> Lemmon","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/3c3402aef5ea0037f42b9001c70097c4","references":[{"author":"Lemmon","year":"1894","title":null,"source":"In:
-        Erythea 2: 176. "}]},{"id":"80e7753ea700845ab36e83153ca2d5a9","name":"Pinus
-        contorta latifolia","rank":"Infraspecies","name_status":"synonym","genus":"Pinus","subgenus":"","species":"contorta","infraspecies_marker":"subsp.","infraspecies":"latifolia","author":"(Engelm.)
-        Critchf.","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        contorta latifolia<\/i> (Engelm.) Critchf.","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/80e7753ea700845ab36e83153ca2d5a9","references":[{"author":"Critchf.","year":"1957","title":null,"source":"In:
-        Publ. Maria Moors Cabot Found. Bot. Res. 3: 107. "}]},{"id":"184ac625e2f71cdad717e49605408513","name":"Pinus
-        contorta yukonensis","rank":"Infraspecies","name_status":"synonym","genus":"Pinus","subgenus":"","species":"contorta","infraspecies_marker":"var.","infraspecies":"yukonensis","author":"W.L.
-        Strong","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        contorta yukonensis<\/i> W.L. Strong","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/184ac625e2f71cdad717e49605408513","references":[]},{"id":"ac8a39954a65b5968b32f592c700c471","name":"Pinus
-        divaricata latifolia","rank":"Infraspecies","name_status":"synonym","genus":"Pinus","subgenus":"","species":"divaricata","infraspecies_marker":"var.","infraspecies":"latifolia","author":"(Engelm.)
-        Boivin","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        divaricata latifolia<\/i> (Engelm.) Boivin","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/ac8a39954a65b5968b32f592c700c471","references":[{"author":"Boivin","year":"1966","title":null,"source":"In:
-        Naturaliste Canad. 93: 272. "}]},{"id":"96a8c60159c26d873a2bc1b337e5d076","name":"Pinus
-        murrayana sargentii","rank":"Infraspecies","name_status":"synonym","genus":"Pinus","subgenus":"","species":"murrayana","infraspecies_marker":"var.","infraspecies":"sargentii","author":"Mayr","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        murrayana sargentii<\/i> Mayr","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/96a8c60159c26d873a2bc1b337e5d076","references":[{"author":"Mayr","year":"1889","title":null,"source":"In:
-        Wald. Nordamer.: 349. "}]},{"id":"7df366c4d5658a7ccc0fc67869c28aed","name":"Pinus
-        tamrac","rank":"Species","name_status":"synonym","genus":"Pinus","subgenus":"","species":"tamrac","infraspecies_marker":"","infraspecies":"","author":"A.
-        Murray bis","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        tamrac<\/i> A. Murray bis","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/7df366c4d5658a7ccc0fc67869c28aed","references":[{"author":"A.
-        Murray bis","year":"1869","title":null,"source":"In: Gard. Chron. 1869: 191.
-        "}]},{"id":"ecb495b39a70c58f6a9ff012ca43976c","name":"Pinus tenuis","rank":"Species","name_status":"synonym","genus":"Pinus","subgenus":"","species":"tenuis","infraspecies_marker":"","infraspecies":"","author":"Lemmon","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        tenuis<\/i> Lemmon","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/ecb495b39a70c58f6a9ff012ca43976c","references":[{"author":"Lemmon","year":"1898","title":null,"source":"In:
-        Erythea 6 (8): 77. "}]}],"common_names":[]},{"id":"cb561ff9a21649d0b301e3ea98fbe0ed","name":"Pinus
-        contorta murrayana","rank":"Infraspecies","name_status":"accepted name","genus":"Pinus","subgenus":"","species":"contorta","infraspecies_marker":"var.","infraspecies":"murrayana","author":"(Balf.)
-        Engelm.","record_scrutiny_date":{"scrutiny":"31-Jan-2014"},"online_resource":"","is_extinct":"false","source_database":"Conifer
-        Database","source_database_url":"","bibliographic_citation":"Farjon A., Gardner
-        M. & Thomas P. (2019). Conifer Database (version Jan 2014). In: Species 2000
-        & ITIS Catalogue of Life, 2019 Annual Checklist (Roskov Y., Ower G., Orrell
-        T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W.,
-        Nieukerken E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org\/annual-checklist\/2019.
-        Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-884X.","name_html":"<i>Pinus
-        contorta murrayana<\/i> (Balf.) Engelm.","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/cb561ff9a21649d0b301e3ea98fbe0ed","distribution":"73
-        ORE WAS 76 CAL NEV 79 MXN-BC 204859 0; USA: California, Nevada, Oregon, S
-        Washington; NW Mexico: Baja California Norte. 204858 0","references":[{"author":"Engelm.","year":"1880","title":null,"source":"In:
-        Watson, Bot. California 2: 126."}],"classification":[{"id":"208cf441fe2e1662376a9ce9e80782e1","name":"Plantae","rank":"Kingdom","name_html":"Plantae","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/208cf441fe2e1662376a9ce9e80782e1"},{"id":"73328ba4e1446e1ee3602956b66eb127","name":"Tracheophyta","rank":"Phylum","name_html":"Tracheophyta","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/73328ba4e1446e1ee3602956b66eb127"},{"id":"b60c43b274b1d5f46c8c900add799766","name":"Pinopsida","rank":"Class","name_html":"Pinopsida","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/b60c43b274b1d5f46c8c900add799766"},{"id":"844f3ce878b11544be19b2da1c2f03dc","name":"Pinales","rank":"Order","name_html":"Pinales","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/844f3ce878b11544be19b2da1c2f03dc"},{"id":"b385e5b1bd137efbb9a5387821127481","name":"Pinaceae","rank":"Family","name_html":"Pinaceae","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/b385e5b1bd137efbb9a5387821127481"},{"id":"5802b2ad2dad3a3bb507f5838a16833e","name":"Pinus","rank":"Genus","name_html":"<i>Pinus<\/i>","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/5802b2ad2dad3a3bb507f5838a16833e"},{"id":"13c40c3f2be0b0965bddf948d2b3115f","name":"contorta","rank":"Species","name_html":"<i>Pinus
-        contorta murrayana<\/i> (Balf.) Engelm.","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/13c40c3f2be0b0965bddf948d2b3115f"}],"child_taxa":[],"synonyms":[{"id":"f8bde55499739e9ee77b26dcc53a2d91","name":"Pinus
-        contorta murrayana","rank":"Infraspecies","name_status":"synonym","genus":"Pinus","subgenus":"","species":"contorta","infraspecies_marker":"subsp.","infraspecies":"murrayana","author":"(Balf.)
-        Engelm.","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        contorta murrayana<\/i> (Balf.) Engelm.","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/cb561ff9a21649d0b301e3ea98fbe0ed\/synonym\/f8bde55499739e9ee77b26dcc53a2d91","references":[{"author":"Engelm.","year":"1880","title":null,"source":"In:
-        Trans. St. Louis Acad. Sci. 4: 177. "}]},{"id":"e69bb3a3a6affc5cffce171490ce4ba8","name":"Pinus
-        muricata","rank":"Species","name_status":"ambiguous synonym","genus":"Pinus","subgenus":"","species":"muricata","infraspecies_marker":"","infraspecies":"","author":"Bol.","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        muricata<\/i> Bol.","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/cb561ff9a21649d0b301e3ea98fbe0ed\/synonym\/e69bb3a3a6affc5cffce171490ce4ba8","references":[{"author":"Bol.","year":"1866","title":null,"source":"In:
-        Proc. Calif. Acad. Sci. 3: 227. "}]},{"id":"cb5298108251edc5a34e90e778c4f761","name":"Pinus
-        murrayana","rank":"Species","name_status":"synonym","genus":"Pinus","subgenus":"","species":"murrayana","infraspecies_marker":"","infraspecies":"","author":"Balf.","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        murrayana<\/i> Balf.","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/cb561ff9a21649d0b301e3ea98fbe0ed\/synonym\/cb5298108251edc5a34e90e778c4f761","references":[{"author":"Balf.","year":"1853","title":null,"source":"In:
-        Murray, Bot. Exped. Oregon 8: 2."}]}],"common_names":[]},{"id":"184ac625e2f71cdad717e49605408513","name":"Pinus
-        contorta yukonensis","rank":"Infraspecies","name_status":"synonym","genus":"Pinus","subgenus":"","species":"contorta","infraspecies_marker":"var.","infraspecies":"yukonensis","author":"W.L.
-        Strong","record_scrutiny_date":false,"online_resource":"","source_database":"Conifer
-        Database","source_database_url":"","bibliographic_citation":"Farjon A., Gardner
-        M. & Thomas P. (2019). Conifer Database (version Jan 2014). In: Species 2000
-        & ITIS Catalogue of Life, 2019 Annual Checklist (Roskov Y., Ower G., Orrell
-        T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W.,
-        Nieukerken E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org\/annual-checklist\/2019.
-        Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-884X.","name_html":"<i>Pinus
-        contorta yukonensis<\/i> W.L. Strong","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/184ac625e2f71cdad717e49605408513","distribution":"","references":[],"accepted_name":{"id":"101a09a805ae665cc4fc58a36634011b","name":"Pinus
-        contorta latifolia","rank":"Infraspecies","name_status":"accepted name","genus":"Pinus","subgenus":"","species":"contorta","infraspecies_marker":"var.","infraspecies":"latifolia","author":"Engelm.","record_scrutiny_date":{"scrutiny":"31-Jan-2014"},"online_resource":"","is_extinct":"false","source_database":"Conifer
-        Database","source_database_url":"","bibliographic_citation":"Farjon A., Gardner
-        M. & Thomas P. (2019). Conifer Database (version Jan 2014). In: Species 2000
-        & ITIS Catalogue of Life, 2019 Annual Checklist (Roskov Y., Ower G., Orrell
-        T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W.,
-        Nieukerken E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org\/annual-checklist\/2019.
-        Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-884X.","name_html":"<i>Pinus
-        contorta latifolia<\/i> Engelm.","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/101a09a805ae665cc4fc58a36634011b","distribution":"70
-        ASK NWT-MK YUK 71 ABT BRC SAS 73 COL IDA MNT ORE WAS WYO 74 SDA 76 UTA 204807
-        0; NW North America, from Yukon to Colorado 204806 0","references":[{"author":"Engelm.","year":"1871","title":null,"source":"In:
-        Watson, Botany (Fortieth Parallel): 331."}],"classification":[{"id":"208cf441fe2e1662376a9ce9e80782e1","name":"Plantae","rank":"Kingdom","name_html":"Plantae","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/208cf441fe2e1662376a9ce9e80782e1"},{"id":"73328ba4e1446e1ee3602956b66eb127","name":"Tracheophyta","rank":"Phylum","name_html":"Tracheophyta","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/73328ba4e1446e1ee3602956b66eb127"},{"id":"b60c43b274b1d5f46c8c900add799766","name":"Pinopsida","rank":"Class","name_html":"Pinopsida","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/b60c43b274b1d5f46c8c900add799766"},{"id":"844f3ce878b11544be19b2da1c2f03dc","name":"Pinales","rank":"Order","name_html":"Pinales","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/844f3ce878b11544be19b2da1c2f03dc"},{"id":"b385e5b1bd137efbb9a5387821127481","name":"Pinaceae","rank":"Family","name_html":"Pinaceae","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/b385e5b1bd137efbb9a5387821127481"},{"id":"5802b2ad2dad3a3bb507f5838a16833e","name":"Pinus","rank":"Genus","name_html":"<i>Pinus<\/i>","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/5802b2ad2dad3a3bb507f5838a16833e"},{"id":"13c40c3f2be0b0965bddf948d2b3115f","name":"contorta","rank":"Species","name_html":"<i>Pinus
-        contorta latifolia<\/i> Engelm.","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/13c40c3f2be0b0965bddf948d2b3115f"}],"child_taxa":[],"synonyms":[{"id":"8034303997c8347a13598f7d5b07567b","name":"Pinus
-        bourcieri","rank":"Species","name_status":"synonym","genus":"Pinus","subgenus":"","species":"bourcieri","infraspecies_marker":"","infraspecies":"","author":"Carri\u00e8re","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        bourcieri<\/i> Carri\u00e8re","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/8034303997c8347a13598f7d5b07567b","references":[{"author":"Carri\u00e8re","year":"1854","title":null,"source":"In:
-        Rev. Hort., s\u00e9r. 4, 3: 225. "}]},{"id":"c43df364a26ceb75ed759f2d636daa66","name":"Pinus
-        boursieri","rank":"Species","name_status":"synonym","genus":"Pinus","subgenus":"","species":"boursieri","infraspecies_marker":"","infraspecies":"","author":"Carri\u00e8re","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        boursieri<\/i> Carri\u00e8re","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/c43df364a26ceb75ed759f2d636daa66","references":[{"author":"Carri\u00e8re","year":"1855","title":null,"source":"In:
-        Trait\u00e9 G\u00e9n. Conif.: 398. "}]},{"id":"3c3402aef5ea0037f42b9001c70097c4","name":"Pinus
-        contorta hendersonii","rank":"Infraspecies","name_status":"synonym","genus":"Pinus","subgenus":"","species":"contorta","infraspecies_marker":"var.","infraspecies":"hendersonii","author":"Lemmon","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        contorta hendersonii<\/i> Lemmon","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/3c3402aef5ea0037f42b9001c70097c4","references":[{"author":"Lemmon","year":"1894","title":null,"source":"In:
-        Erythea 2: 176. "}]},{"id":"80e7753ea700845ab36e83153ca2d5a9","name":"Pinus
-        contorta latifolia","rank":"Infraspecies","name_status":"synonym","genus":"Pinus","subgenus":"","species":"contorta","infraspecies_marker":"subsp.","infraspecies":"latifolia","author":"(Engelm.)
-        Critchf.","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        contorta latifolia<\/i> (Engelm.) Critchf.","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/80e7753ea700845ab36e83153ca2d5a9","references":[{"author":"Critchf.","year":"1957","title":null,"source":"In:
-        Publ. Maria Moors Cabot Found. Bot. Res. 3: 107. "}]},{"id":"184ac625e2f71cdad717e49605408513","name":"Pinus
-        contorta yukonensis","rank":"Infraspecies","name_status":"synonym","genus":"Pinus","subgenus":"","species":"contorta","infraspecies_marker":"var.","infraspecies":"yukonensis","author":"W.L.
-        Strong","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        contorta yukonensis<\/i> W.L. Strong","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/184ac625e2f71cdad717e49605408513","references":[]},{"id":"ac8a39954a65b5968b32f592c700c471","name":"Pinus
-        divaricata latifolia","rank":"Infraspecies","name_status":"synonym","genus":"Pinus","subgenus":"","species":"divaricata","infraspecies_marker":"var.","infraspecies":"latifolia","author":"(Engelm.)
-        Boivin","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        divaricata latifolia<\/i> (Engelm.) Boivin","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/ac8a39954a65b5968b32f592c700c471","references":[{"author":"Boivin","year":"1966","title":null,"source":"In:
-        Naturaliste Canad. 93: 272. "}]},{"id":"96a8c60159c26d873a2bc1b337e5d076","name":"Pinus
-        murrayana sargentii","rank":"Infraspecies","name_status":"synonym","genus":"Pinus","subgenus":"","species":"murrayana","infraspecies_marker":"var.","infraspecies":"sargentii","author":"Mayr","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        murrayana sargentii<\/i> Mayr","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/96a8c60159c26d873a2bc1b337e5d076","references":[{"author":"Mayr","year":"1889","title":null,"source":"In:
-        Wald. Nordamer.: 349. "}]},{"id":"7df366c4d5658a7ccc0fc67869c28aed","name":"Pinus
-        tamrac","rank":"Species","name_status":"synonym","genus":"Pinus","subgenus":"","species":"tamrac","infraspecies_marker":"","infraspecies":"","author":"A.
-        Murray bis","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        tamrac<\/i> A. Murray bis","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/7df366c4d5658a7ccc0fc67869c28aed","references":[{"author":"A.
-        Murray bis","year":"1869","title":null,"source":"In: Gard. Chron. 1869: 191.
-        "}]},{"id":"ecb495b39a70c58f6a9ff012ca43976c","name":"Pinus tenuis","rank":"Species","name_status":"synonym","genus":"Pinus","subgenus":"","species":"tenuis","infraspecies_marker":"","infraspecies":"","author":"Lemmon","record_scrutiny_date":"","online_resource":"","is_extinct":0,"name_html":"<i>Pinus
-        tenuis<\/i> Lemmon","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b\/synonym\/ecb495b39a70c58f6a9ff012ca43976c","references":[{"author":"Lemmon","year":"1898","title":null,"source":"In:
-        Erythea 6 (8): 77. "}]}],"common_names":[]}}]}'
-  recorded_at: 2019-07-18 23:39:44 GMT
-  recorded_with: vcr/0.2.6.9100, webmockr/0.3.4
-- request:
-    method: get
-    uri: http://www.catalogueoflife.org/col/webservice?id=13c40c3f2be0b0965bddf948d2b3115f&response=full&format=json
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.8.1.9100 rOpenSci(taxize/0.9.8.9125)
-      X-USER-AGENT: r-curl/3.3 crul/0.8.1.9100 rOpenSci(taxize/0.9.8.9125)
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      server: nginx/1.14.0
-      date: Thu, 18 Jul 2019 23:39:58 GMT
-      content-type: application/json
-      content-length: '2703'
-      connection: keep-alive
-      expires: Thu, 19 Nov 1981 08:52:00 GMT
-      cache-control: no-store, no-cache, must-revalidate
-      pragma: no-cache
-      vary: Accept-Encoding
-      content-encoding: gzip
-    body:
-      encoding: UTF-8
-      string: '{"id":"13c40c3f2be0b0965bddf948d2b3115f","name":"","total_number_of_results":1,"number_of_results_returned":1,"start":0,"error_message":"","version":"1.9
-        rev 2126ab0","rank":"","results":[{"id":"13c40c3f2be0b0965bddf948d2b3115f","name":"Pinus
-        contorta","rank":"Species","name_status":"accepted name","genus":"Pinus","subgenus":"","species":"contorta","infraspecies_marker":"","infraspecies":"","author":"Douglas
-        ex Loudon","record_scrutiny_date":{"scrutiny":"31-Jan-2014"},"online_resource":"","is_extinct":"false","source_database":"Conifer
-        Database","source_database_url":"","bibliographic_citation":"Farjon A., Gardner
-        M. & Thomas P. (2019). Conifer Database (version Jan 2014). In: Species 2000
-        & ITIS Catalogue of Life, 2019 Annual Checklist (Roskov Y., Ower G., Orrell
-        T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W.,
-        Nieukerken E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org\/annual-checklist\/2019.
-        Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-884X.","name_html":"<i>Pinus
-        contorta<\/i> Douglas ex Loudon","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/13c40c3f2be0b0965bddf948d2b3115f","distribution":"70
-        ASK NWT-MK YUK 71 ABT BRC 73 74 SDA 76 79 MXN-BC 68815 0; Western North America,
-        from Yukon to Baja California and S Colorado. 68814 0","references":[{"author":"Farjon,
-        A. & D. Filer","year":"2013","title":null,"source":"In: An Atlas of the World\u2019s
-        conifers. An analysis of their distribution, biogeography, diversity and conservation
-        status. \nBrill, Leiden & Boston. 512 pp."},{"author":"Farjon, A.","year":"2010","title":null,"source":"In:
-        A Handbook of the World\u2019s Conifers.\nVol. 1 & 2. E. J. Brill, Leiden
-        & Boston. 1112 pp."},{"author":"Bean, W.J.","year":"1980","title":"Trees and
-        shrubs hardy in the British Isles, ed. 8, Vols. 1-4","source":"John Murray,
-        London"},{"author":"Farjon, A. & Styles, B.T. ","year":"1997","title":"Pinus
-        (Pinaceae) (Flora Neotropica Monograph 75)","source":"The New York Botanical
-        Garden, New York"},{"author":"Douglas ex Loudon","year":"1838","title":null,"source":"In:
-        Arbor. Frut. Brit. 4: 2292. "}],"classification":[{"id":"208cf441fe2e1662376a9ce9e80782e1","name":"Plantae","rank":"Kingdom","name_html":"Plantae","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/208cf441fe2e1662376a9ce9e80782e1"},{"id":"73328ba4e1446e1ee3602956b66eb127","name":"Tracheophyta","rank":"Phylum","name_html":"Tracheophyta","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/73328ba4e1446e1ee3602956b66eb127"},{"id":"b60c43b274b1d5f46c8c900add799766","name":"Pinopsida","rank":"Class","name_html":"Pinopsida","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/b60c43b274b1d5f46c8c900add799766"},{"id":"844f3ce878b11544be19b2da1c2f03dc","name":"Pinales","rank":"Order","name_html":"Pinales","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/844f3ce878b11544be19b2da1c2f03dc"},{"id":"b385e5b1bd137efbb9a5387821127481","name":"Pinaceae","rank":"Family","name_html":"Pinaceae","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/b385e5b1bd137efbb9a5387821127481"},{"id":"5802b2ad2dad3a3bb507f5838a16833e","name":"Pinus","rank":"Genus","name_html":"<i>Pinus<\/i>","url":"http:\/\/www.catalogueoflife.org\/col\/browse\/tree\/id\/5802b2ad2dad3a3bb507f5838a16833e"}],"child_taxa":[{"id":"5002b62472fd69875e2e1ed9cdb46654","name":"Pinus
-        contorta var. contorta","rank":"Infraspecies","name_html":"<i>Pinus contorta
-        contorta<\/i>","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/5002b62472fd69875e2e1ed9cdb46654","is_extinct":"false"},{"id":"101a09a805ae665cc4fc58a36634011b","name":"Pinus
-        contorta var. latifolia","rank":"Infraspecies","name_html":"<i>Pinus contorta
-        latifolia<\/i> Engelm.","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/101a09a805ae665cc4fc58a36634011b","is_extinct":"false"},{"id":"cb561ff9a21649d0b301e3ea98fbe0ed","name":"Pinus
-        contorta var. murrayana","rank":"Infraspecies","name_html":"<i>Pinus contorta
-        murrayana<\/i> (Balf.) Engelm.","url":"http:\/\/www.catalogueoflife.org\/col\/details\/species\/id\/cb561ff9a21649d0b301e3ea98fbe0ed","is_extinct":"false"}],"synonyms":[],"common_names":[{"name":"borovice
-        pokroucen\u00e1","language":"Cze","country":"CZE","references":[{"author":"Hejn\u00fd,
-        S. & Slav\u00edc, B.","year":"1988","title":"Kvetena Cesk\u00e9 socialistick\u00e9
-        republiky 1","source":"Ceskoslovensk\u00e1 akademie ved, Praha"}]},{"name":"Lodgepole
-        pine","language":"Eng","country":"CAN, GBR, USA","references":[{"author":"Farjon,
-        A.","year":"2010","title":"A Handbook of the World''s Conifers","source":"E.J.
-        Brill, Leiden"},{"author":"Burns, R.M. & Honkala, B.H.","year":"1990","title":"Silvics
-        of North America. Vol. 1. Conifers (Agriculture Handbook 654)","source":"USDA
-        Forest Service, Washington, D.C."},{"author":"Little, E.L.","year":"1979","title":"Checklist
-        of United States trees (native and naturalized)","source":"Forest Service,
-        USDA, Washington, D.C."}]},{"name":"Shore pine","language":"Eng","country":"CAN,
-        USA","references":[{"author":"Farjon, A.","year":"2010","title":"A Handbook
-        of the World''s Conifers","source":"E.J. Brill, Leiden"},{"author":"Eckenwalder,
-        J.","year":"2009","title":"Conifers of the world","source":"Timber Press,
-        Portland, Oregon"}]},{"name":"Tamarack pine","language":"Eng","country":"USA","references":[{"author":"Farjon,
-        A.","year":"2010","title":"A Handbook of the World''s Conifers","source":"E.J.
-        Brill, Leiden"},{"author":"Eckenwalder, J.","year":"2009","title":"Conifers
-        of the world","source":"Timber Press, Portland, Oregon"}]},{"name":"pin de
-        Murray","language":"Fre","country":"CAN","references":[{"author":"Grandtner,
-        M.M.","year":"2005","title":"Elsevier''s dictionary of trees","source":"Elsevier,
-        Amsterdam"}]},{"name":"pin lodgepole","language":"Fre","country":"CAN","references":[{"author":"Grandtner,
-        M.M.","year":"2005","title":"Elsevier''s dictionary of trees","source":"Elsevier,
-        Amsterdam"}]},{"name":"pin tordu","language":"Fre","country":"CAN, FRA","references":[{"author":"Grandtner,
-        M.M.","year":"2005","title":"Elsevier''s dictionary of trees","source":"Elsevier,
-        Amsterdam"}]},{"name":"pin tortill\u00e9","language":"Fre","country":"CAN,
-        FRA","references":[{"author":"Grandtner, M.M.","year":"2005","title":"Elsevier''s
-        dictionary of trees","source":"Elsevier, Amsterdam"}]},{"name":"Dreh-Kiefer","language":"Ger","country":"DEU","references":[{"author":"Hegi,
-        G.","year":"1981","title":"Illustrierte Flora von Mittel-europa, Band 1, Teil
-        2 [third edition]","source":"Verlag Paul Parey, Berlin - Hamburg"},{"author":"Kr\u00fcssmann,
-        G.","year":"1983","title":"Handbuch der Nadelgeh\u00f6lze, 2. Auflage","source":"Paul
-        Parey, Berlin & Hamburg"}]},{"name":"usukani bor","language":"Hrv, Srp","country":"HRV,
-        SRB","references":[{"author":"Vidakovic, M.","year":"1982","title":"Cetinjace
-        \u2013 morfologija I varijabilnost","source":"Jugoslavenska Akademija Znanosti
-        I Umjetnosti; SNL, Zagreb"}]},{"name":"Csavarttus fenyo","language":"Hun","country":"HUN","references":[{"author":"Zsolt,
-        D. & R\u00e1cz, I.","year":"2000","title":"Fenyok a f\u00f6ld k\u00f6r\u00fcl","source":"Dendrol\u00f3giai
-        Alap\u00edtv\u00e1ny, Budapest"}]},{"name":"Pino contorto","language":"Ita","country":"ITA","references":[{"author":"Grandtner,
-        M.M.","year":"2005","title":"Elsevier''s dictionary of trees","source":"Elsevier,
-        Amsterdam"},{"author":"Wrobel, M. & Creber, G.","year":"1996","title":"Elsevier''s
-        dictionary of plant names","source":"Elsevier, Amsterdam"}]},{"name":"Vrifuru","language":"Nor","country":"NOR","references":[{"author":"Grey-Wilson,
-        C. & Blamey, M.","year":"1992","title":"Store illustrerte Flora for Norge
-        og Nord-Europa","source":"Teknologisk Forlag, N.W. Damm & S\u00f8n, a.s."}]},{"name":"Contortatall","language":"Swe","country":"SWE","references":[{"author":"Mossberg,
-        B. & Stenberg, L.","year":"1992","title":"Den Nordiska Floran","source":"Wahlstr\u00f6m
-        & Widstrand, Stockholm"}]}]}]}'
-  recorded_at: 2019-07-18 23:39:44 GMT
-  recorded_with: vcr/0.2.6.9100, webmockr/0.3.4
+  recorded_at: 2020-02-10 22:21:05 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
 - request:
     method: get
     uri: https://www.itis.gov/ITISWebService/jsonservice/getITISTermsFromScientificName?srchKey=Pinus%20balfouriana
@@ -922,7 +384,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.8.1.9100
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -934,7 +396,7 @@ http_interactions:
       connection: keep-alive
       content-length: '918'
       content-type: text/json;charset=ISO-8859-1
-      date: Thu, 18 Jul 2019 23:39:59 GMT
+      date: Mon, 10 Feb 2020 22:21:02 GMT
       status: 'HTTP/1.1 200 '
       strict-transport-security:
       - max-age=63072000; includeSubdomains; preload
@@ -944,10 +406,11 @@ http_interactions:
       x-upstream-member: not shown
     body:
       encoding: UTF-8
+      file: no
       string: |
         {"class":"gov.usgs.itis.itis_service.data.SvcItisTermList","itisTerms":[{"author":"(Engelm.) Engelm.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Pinus balfouriana var. aristata","tsn":"183314"},{"author":"Balf.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["foxtailed pine","foxtail pine"],"nameUsage":"accepted","scientificName":"Pinus balfouriana","tsn":"183316"},{"author":"Balf.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["foxtail pine"],"nameUsage":"accepted","scientificName":"Pinus balfouriana ssp. balfouriana","tsn":"183317"},{"author":"R.J. Mastrog. & J.D. Mastrog.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["foxtail pine"],"nameUsage":"accepted","scientificName":"Pinus balfouriana ssp. austrina","tsn":"183318"}],"requestedName":"Pinus balfouriana"}
-  recorded_at: 2019-07-18 23:39:44 GMT
-  recorded_with: vcr/0.2.6.9100, webmockr/0.3.4
+  recorded_at: 2020-02-10 22:21:05 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
 - request:
     method: get
     uri: https://www.itis.gov/ITISWebService/jsonservice/getAcceptedNamesFromTSN?tsn=183316
@@ -955,7 +418,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.8.1.9100
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -967,7 +430,7 @@ http_interactions:
       connection: keep-alive
       content-length: '102'
       content-type: text/json;charset=ISO-8859-1
-      date: Thu, 18 Jul 2019 23:39:59 GMT
+      date: Mon, 10 Feb 2020 22:21:02 GMT
       status: 'HTTP/1.1 200 '
       strict-transport-security:
       - max-age=63072000; includeSubdomains; preload
@@ -977,10 +440,11 @@ http_interactions:
       x-upstream-member: not shown
     body:
       encoding: UTF-8
+      file: no
       string: |
         {"acceptedNames":[null],"class":"gov.usgs.itis.itis_service.data.SvcAcceptedNameList","tsn":"183316"}
-  recorded_at: 2019-07-18 23:39:44 GMT
-  recorded_with: vcr/0.2.6.9100, webmockr/0.3.4
+  recorded_at: 2020-02-10 22:21:05 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
 - request:
     method: get
     uri: https://www.itis.gov/ITISWebService/jsonservice/getSynonymNamesFromTSN?tsn=183316
@@ -988,7 +452,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.8.1.9100
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -1000,7 +464,7 @@ http_interactions:
       connection: keep-alive
       content-length: '96'
       content-type: text/json;charset=ISO-8859-1
-      date: Thu, 18 Jul 2019 23:40:00 GMT
+      date: Mon, 10 Feb 2020 22:21:03 GMT
       status: 'HTTP/1.1 200 '
       strict-transport-security:
       - max-age=63072000; includeSubdomains; preload
@@ -1010,10 +474,11 @@ http_interactions:
       x-upstream-member: not shown
     body:
       encoding: UTF-8
+      file: no
       string: |
         {"class":"gov.usgs.itis.itis_service.data.SvcSynonymNameList","synonyms":[null],"tsn":"183316"}
-  recorded_at: 2019-07-18 23:39:44 GMT
-  recorded_with: vcr/0.2.6.9100, webmockr/0.3.4
+  recorded_at: 2020-02-10 22:21:05 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
 - request:
     method: get
     uri: http://services.tropicos.org/Name/Search?format=json&name=Pinus%20contorta&apikey=<<tropicos_api_token>>
@@ -1023,8 +488,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.8.1.9100 rOpenSci(taxize/0.9.8.9125)
-      X-USER-AGENT: r-curl/3.3 crul/0.8.1.9100 rOpenSci(taxize/0.9.8.9125)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
   response:
     status:
       status_code: '200'
@@ -1038,9 +503,10 @@ http_interactions:
       server: Microsoft-IIS/7.5
       x-aspnet-version: 4.0.30319
       x-powered-by: ASP.NET
-      date: Thu, 18 Jul 2019 23:40:00 GMT
+      date: Mon, 10 Feb 2020 22:21:05 GMT
     body:
       encoding: UTF-8
+      file: no
       string: '[{"NameId":24900183,"ScientificName":"Pinus contorta","ScientificNameWithAuthors":"Pinus
         contorta Douglas ex Loudon","Family":"Pinaceae","RankAbbreviation":"sp.","NomenclatureStatusName":"No
         opinion","Author":"Douglas ex Loudon","DisplayReference":"Arbor. Frutic. Brit.
@@ -1097,8 +563,8 @@ http_interactions:
         yukonensis W.L. Strong","Family":"Pinaceae","RankAbbreviation":"var.","NomenclatureStatusName":"No
         opinion","Author":"W.L. Strong","DisplayReference":"Nordic J. Bot. 28: 448–452,
         f. 1, 2A–C","DisplayDate":"2010","TotalRows":16}]'
-  recorded_at: 2019-07-18 23:39:44 GMT
-  recorded_with: vcr/0.2.6.9100, webmockr/0.3.4
+  recorded_at: 2020-02-10 22:21:05 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
 - request:
     method: get
     uri: http://services.tropicos.org/Name/24900183/Synonyms?apikey=<<tropicos_api_token>>&format=json
@@ -1108,8 +574,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.8.1.9100 rOpenSci(taxize/0.9.8.9125)
-      X-USER-AGENT: r-curl/3.3 crul/0.8.1.9100 rOpenSci(taxize/0.9.8.9125)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
   response:
     status:
       status_code: '200'
@@ -1123,9 +589,10 @@ http_interactions:
       server: Microsoft-IIS/7.5
       x-aspnet-version: 4.0.30319
       x-powered-by: ASP.NET
-      date: Thu, 18 Jul 2019 23:40:02 GMT
+      date: Mon, 10 Feb 2020 22:21:05 GMT
     body:
       encoding: UTF-8
+      file: no
       string: '[{"Error":"No synonyms were found"}]'
-  recorded_at: 2019-07-18 23:39:44 GMT
-  recorded_with: vcr/0.2.6.9100, webmockr/0.3.4
+  recorded_at: 2020-02-10 22:21:05 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0

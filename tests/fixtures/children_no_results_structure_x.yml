@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -18,7 +18,7 @@ http_interactions:
       connection: keep-alive
       content-length: '109'
       content-type: text/json;charset=ISO-8859-1
-      date: Tue, 29 Jan 2019 19:50:54 GMT
+      date: Mon, 10 Feb 2020 22:14:16 GMT
       status: 'HTTP/1.1 200 '
       strict-transport-security:
       - max-age=63072000; includeSubdomains; preload
@@ -28,43 +28,11 @@ http_interactions:
       x-upstream-member: not shown
     body:
       encoding: UTF-8
+      file: no
       string: |
         {"class":"gov.usgs.itis.itis_service.data.SvcItisTermList","itisTerms":[null],"requestedName":"23424234234"}
-  recorded_at: 2019-01-29 19:50:53 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
-- request:
-    method: get
-    uri: http://www.catalogueoflife.org/col/webservice?name=23424234234&response=full&format=json
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      server: nginx/1.14.0
-      date: Tue, 29 Jan 2019 19:50:53 GMT
-      content-type: application/json
-      content-length: '143'
-      connection: keep-alive
-      expires: Thu, 19 Nov 1981 08:52:00 GMT
-      cache-control: no-store, no-cache, must-revalidate
-      pragma: no-cache
-      vary: Accept-Encoding
-      content-encoding: gzip
-    body:
-      encoding: UTF-8
-      string: '{"id":"","name":"23424234234","total_number_of_results":0,"number_of_results_returned":0,"start":0,"error_message":"No
-        names found","version":"1.9 rev 2126ab0","rank":""}'
-  recorded_at: 2019-01-29 19:50:53 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2020-02-10 22:14:18 GMT
+  recorded_with: vcr/0.4.1.94, webmockr/0.5.1.98
 - request:
     method: get
     uri: http://www.marinespecies.org/rest/AphiaRecordsByName/23424234234?like=true&marine_only=true&offset=1
@@ -72,7 +40,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -82,16 +50,16 @@ http_interactions:
       explanation: Request fulfilled, nothing follows
     headers:
       status: HTTP/1.1 204 No Content
-      date: Tue, 29 Jan 2019 19:50:55 GMT
-      server: Apache/2.4.25 (Win32) PHP/5.6.29
-      x-powered-by: PHP/5.6.29
+      date: Mon, 10 Feb 2020 22:14:17 GMT
+      server: Apache/2.4.39 (Win64)
       access-control-allow-origin: '*'
       access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
         Authorization
       access-control-allow-methods: GET, POST, OPTIONS
-      content-type: text/html; charset=UTF-8;
+      set-cookie: vliz_webc=vliz_webc1; path=/
     body:
       encoding: UTF-8
+      file: no
       string: ''
-  recorded_at: 2019-01-29 19:50:53 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2020-02-10 22:14:18 GMT
+  recorded_with: vcr/0.4.1.94, webmockr/0.5.1.98

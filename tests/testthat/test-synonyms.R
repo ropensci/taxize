@@ -45,12 +45,11 @@ test_that("synonyms: data sources return consistent outputs", {
     aa <- synonyms("Foo bar", db="itis", messages = FALSE)
     bb <- synonyms("Foo bar", db="tropicos", messages = FALSE)
     cc <- synonyms("Foo barasdfasdf", db="nbn", messages = FALSE)
-    dd <- sw(synonyms("Foo bar", db="col", messages = FALSE))
     ee <- synonyms("Foo bar", db="worms", messages = FALSE)
     ff <- synonyms("Foo bar", db="iucn", messages = FALSE)
   })
 
-  for (i in list(aa, bb, cc, dd, ee, ff)) expect_true(is.na(i[[1]]))
+  for (i in list(aa, bb, cc, ee, ff)) expect_true(is.na(i[[1]]))
   
 
   # when name found, but no synonyms found, returns empty data.frame
@@ -58,17 +57,16 @@ test_that("synonyms: data sources return consistent outputs", {
     gg <- synonyms("Epigonus thai", db="worms", messages = FALSE)
     hh <- synonyms("Ursus arctos", db="nbn", messages = FALSE)
     ii <- synonyms(get_iucn('Ursus americanus'), db="iucn", messages = FALSE)
-    jj <- synonyms("Pinus contorta", db="col", messages = FALSE)
     kk <- synonyms("Pinus balfouriana", db="itis", messages = FALSE)
     ll <- synonyms("Pinus contorta", db="tropicos", messages = FALSE)
   })
   
   # type is data.frame
-  for (i in list(gg, hh, ii, jj, kk, ll)) expect_is(i[[1]], "data.frame")
+  for (i in list(gg, hh, ii, kk, ll)) expect_is(i[[1]], "data.frame")
   # no rows
-  for (i in list(gg, hh, ii, jj, kk, ll)) expect_equal(NROW(i[[1]]), 0)
+  for (i in list(gg, hh, ii, kk, ll)) expect_equal(NROW(i[[1]]), 0)
   # no names
-  for (i in list(gg, hh, ii, jj, kk, ll)) expect_equal(length(names(i[[1]])), 0)
+  for (i in list(gg, hh, ii, kk, ll)) expect_equal(length(names(i[[1]])), 0)
 })
 
 test_that("warn on mismatch 'db'", {
@@ -76,6 +74,6 @@ test_that("warn on mismatch 'db'", {
   vcr::use_cassette("synonyms_warn_on_db_mismatch", {
     expect_warning(
       synonyms(
-        get_tsn("Poa annua"), db = "col"))
+        get_tsn("Poa annua"), db = "tropicos"))
   })
 })

@@ -46,7 +46,7 @@ get_gbifid_(sciname, messages = TRUE, rows = NA, method = "backbone")
 \item{sciname}{(character) one or more scientific names. Or, a \code{taxon_state}
 object (see \link{taxon-state})}
 
-\item{ask}{logical; should get_colid be run in interactive mode?
+\item{ask}{logical; should get_gbifid be run in interactive mode?
 If TRUE and more than one ID is found for the species, the user is asked for
 input. If FALSE NA is returned for multiple matches.}
 
@@ -197,7 +197,6 @@ invisible(get_gbifid("Quercus douglasii", verbose = TRUE))
 
 Other taxonomic-ids: 
 \code{\link{get_boldid}()},
-\code{\link{get_colid}()},
 \code{\link{get_eolid}()},
 \code{\link{get_ids}()},
 \code{\link{get_iucn}()},

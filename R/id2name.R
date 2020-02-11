@@ -3,7 +3,7 @@
 #' @export
 #' @param x vector of taxonomic IDs (character or numeric)
 #' @param db (character) database to query. One or more of `tol`, `itis`,
-#' `ncbi`, `worms`, `gbif`, `col`, or `bold`. Note that each
+#' `ncbi`, `worms`, `gbif`, or `bold`. Note that each
 #' taxonomic data source has their own  identifiers, so that if you provide
 #' the wrong `db` value for the identifier you could get a result,
 #' but it will likely be wrong (not what you were expecting). If using ncbi
@@ -40,9 +40,6 @@
 #' # GBIF
 #' id2name(2441176, db = "gbif")
 #'
-#' # COL
-#' id2name("36c623ad9e3da39c2e978fa3576ad415", db = "col")
-#'
 #' # BOLD
 #' id2name(88899, db = "bold")
 #' }
@@ -59,11 +56,11 @@ id2name.default <- function(x, db = NULL, ...) {
   stats::setNames(id2name(id, ...), x)
 }
 
-id2name_sources <- c('tol', 'itis', 'ncbi', 'worms', 'gbif', 'col', 'bold')
+id2name_sources <- c('tol', 'itis', 'ncbi', 'worms', 'gbif', 'bold')
 
 process_idn_ids <- function(input, db) {
   as_fxn <- switch(db, tol = as.tolid, itis = as.tsn, ncbi = as.uid,
-    worms = as.wormsid, gbif = as.gbifid, col = as.colid,
+    worms = as.wormsid, gbif = as.gbifid,
     bold = as.boldid)
   as_fxn(input, check = FALSE)
 }
@@ -191,31 +188,6 @@ id2name.gbifid <- function(x, ...) {
   attr(out, 'db') <- 'gbif'
   return(out)
 }
-
-
-# COL
-col_id2name <- function(x, ...) {
-  z <- col_search(id = x, ...)
-  if (NROW(z[[1]]) == 0) return(id2name_blanks$ncbi)
-  data.frame(id = x, name = z[[1]]$name,
-    rank = tolower(z[[1]]$rank), status = tolower(z[[1]]$status),
-    stringsAsFactors = FALSE)
-}
-
-#' @export
-#' @rdname id2name
-id2name.colid <- function(x, ...) {
-  warn_db(list(...), "col")
-  fun <- function(y) {
-    if (is.na(y)) NA_character_ else col_id2name(y, ...)
-  }
-  out <- lapply(x, fun, ...)
-  names(out) <- x
-  class(out) <- 'id2name'
-  attr(out, 'db') <- 'col'
-  return(out)
-}
-
 
 # BOLD
 bold_id2name <- function(x, ...) {

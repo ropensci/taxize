@@ -4,7 +4,6 @@
 \alias{upstream}
 \alias{upstream.default}
 \alias{upstream.tsn}
-\alias{upstream.colid}
 \alias{upstream.ids}
 \title{Retrieve the upstream taxa for a given taxon name or ID.}
 \usage{
@@ -14,18 +13,15 @@ upstream(...)
 
 \method{upstream}{tsn}(x, db = NULL, upto = NULL, ...)
 
-\method{upstream}{colid}(x, db = NULL, upto = NULL, ...)
-
 \method{upstream}{ids}(x, db = NULL, upto = NULL, ...)
 }
 \arguments{
-\item{...}{Further args passed on to \code{\link[=itis_downstream]{itis_downstream()}} or
-\code{\link[=col_downstream]{col_downstream()}}}
+\item{...}{Further args passed on to \code{\link[=itis_downstream]{itis_downstream()}}}
 
 \item{x}{Vector of taxa names (character) or IDs (character or numeric) to
 query.}
 
-\item{db}{character; database to query. One or both of \code{itis}, \code{col}. Note
+\item{db}{character; database to query. One or both of \code{itis}. Note
 that each taxonomic data source has their own identifiers, so that if you
 provide the wrong \code{db} value for the identifier you could get a result, but
 it will likely be wrong (not what you were expecting).}
@@ -40,7 +36,7 @@ it will likely be wrong (not what you were expecting).}
 
 \item{rows}{(numeric) Any number from 1 to infinity. If the default NA, all
 rows are considered. Note that this parameter is ignored if you pass in a
-taxonomic id of any of the acceptable classes: tsn, colid.}
+taxonomic id of any of the acceptable classes: tsn.}
 }
 \value{
 A named list of data.frames with the upstream names of every
@@ -49,32 +45,12 @@ supplied taxa. You get an NA if there was no match in the database.
 \description{
 This function uses a while loop to continually collect taxa up to the
 taxonomic rank that you specify in the \code{upto} parameter. You can get data
-from ITIS (itis) or Catalogue of Life (col). There is no method exposed by itis
-or col for getting taxa at a specific taxonomic rank, so we do it ourselves inside
+from ITIS (itis) only currently. There is no method exposed by itis
+for getting taxa at a specific taxonomic rank, so we do it ourselves inside
 the function.
 }
 \examples{
 \dontrun{
-## col
-### get all genera at one level up
-upstream("Pinus contorta", db = 'col', upto = 'genus')
-### goes to same level, Abies is a genus
-upstream("Abies", db = 'col', upto = 'genus')
-upstream('Pinus contorta', db = 'col', upto = 'family')
-upstream('Poa annua', db = 'col', upto = 'family')
-upstream('Poa annua', db = 'col', upto = 'order')
-
-## itis
 upstream(x='Pinus contorta', db = 'itis', upto = 'genus')
-
-## both
-upstream(get_ids('Pinus contorta', db = c('col','itis')), upto = 'genus')
-
-# Use rows parameter to select certain
-upstream('Poa annua', db = 'col', upto = 'genus')
-upstream('Poa annua', db = 'col', upto = 'genus', rows=1)
-
-# use curl options
-res <- upstream('Poa annua', db = 'col', upto = 'genus', verbose = TRUE)
 }
 }

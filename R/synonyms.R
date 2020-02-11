@@ -3,14 +3,14 @@
 #'
 #' @param x Vector of taxa names (character) or IDs (character or numeric) to
 #' query.
-#' @param db character; database to query. either `itis`, `tropicos`, `col`,
+#' @param db character; database to query. either `itis`, `tropicos`,
 #' `nbn`, `worms`. Note that each taxonomic data source has their own
 #' identifiers, so that if you provide the wrong `db` value for the identifier
 #' you could get a result, but it will likely be wrong (not what you were
 #' expecting). If using tropicos, we  recommend getting an API key;
 #' see [taxize-authentication]
 #' @param id character; identifiers, returned by [get_tsn()], [get_tpsid()],
-#' [get_nbnid()], [get_colid()] `get_wormsid()]
+#' [get_nbnid()], `get_wormsid()]
 #' @param rows (numeric) Any number from 1 to infinity. If the default NA, all
 #' rows are considered. Note that this parameter is ignored if you pass in a
 #' taxonomic id of any of the acceptable classes: tsn, tpsid, nbnid, ids.
@@ -34,8 +34,8 @@
 #' Note that IUCN requires an API key. See [rredlist::rredlist-package]
 #' for help on authentiating with IUCN Redlist
 #'
-#' @seealso [get_tsn()] `get_tpsid()], [get_nbnid()] `get_colid()],
-#' [get_wormsid()] `get_iucn()]
+#' @seealso [get_tsn()] [get_tpsid()] [get_nbnid()]
+#' [get_wormsid()] [get_iucn()]
 #'
 #' @export
 #' @examples \dontrun{
@@ -43,7 +43,6 @@
 #' synonyms(183327, db="itis")
 #' synonyms("25509881", db="tropicos")
 #' synonyms("NBNSYS0000004629", db='nbn')
-#' # synonyms("87e986b0873f648711900866fa8abde7", db='col') # FIXME
 #' synonyms(105706, db='worms')
 #' synonyms(12392, db='iucn')
 #'
@@ -55,9 +54,6 @@
 #' synonyms("Pinus contorta", db="tropicos")
 #' synonyms(c("Poa annua",'Pinus contorta'), db="tropicos")
 #' synonyms("Pinus sylvestris", db='nbn')
-#' synonyms("Puma concolor", db='col')
-#' synonyms("Ursus americanus", db='col')
-#' synonyms("Amblyomma rotundatum", db='col')
 #' synonyms('Pomatomus', db='worms')
 #' synonyms('Pomatomus saltatrix', db='worms')
 #'
@@ -71,7 +67,6 @@
 #' synonyms(get_tsn("Poa annua"))
 #' synonyms(get_tpsid("Poa annua"))
 #' synonyms(get_nbnid("Carcharodon carcharias"))
-#' synonyms(get_colid("Ornithodoros lagophilus"))
 #' synonyms(get_iucn('Loxodonta africana'))
 #'
 #' # Pass many ids from class "ids"
@@ -82,13 +77,10 @@
 #' synonyms("Poa annua", db='tropicos', rows=1)
 #' synonyms("Poa annua", db='tropicos', rows=1:3)
 #' synonyms("Pinus sylvestris", db='nbn', rows=1:3)
-#' synonyms("Amblyomma rotundatum", db='col', rows=2)
-#' synonyms("Amblyomma rotundatum", db='col', rows=2:3)
 #'
 #' # Use curl options
 #' synonyms("Poa annua", db='tropicos', rows=1, verbose = TRUE)
 #' synonyms("Poa annua", db='itis', rows=1, verbose = TRUE)
-#' synonyms("Poa annua", db='col', rows=1, verbose = TRUE)
 #'
 #'
 #' # combine many outputs together
@@ -96,7 +88,6 @@
 #' synonyms_df(x)
 #'
 #' ## note here how Pinus contorta is dropped due to no synonyms found
-#' x <- synonyms(c("Poa annua",'Pinus contorta','Puma concolor'), db="col")
 #' synonyms_df(x)
 #'
 #' ## note here that ids are taxon identifiers b/c you start with them
@@ -134,11 +125,6 @@ synonyms.default <- function(x, db = NULL, rows = NA, ...) {
       structure(stats::setNames(synonyms(id, ...), x),
                 class = "synonyms", db = "nbn")
     },
-    col = {
-      id <- process_syn_ids(x, db, get_colid, rows = rows, ...)
-      structure(stats::setNames(synonyms(id, ...), x),
-                class = "synonyms", db = "col")
-    },
     worms = {
       id <- process_syn_ids(x, db, get_wormsid, rows = rows, ...)
       structure(stats::setNames(synonyms(id, ...), x),
@@ -163,7 +149,6 @@ process_syn_ids <- function(input, db, fxn, ...){
                      itis = as.tsn,
                      tropicos = as.tpsid,
                      nbn = as.nbnid,
-                     col = as.colid,
                      worms = as.wormsid,
                      iucn = as.iucn)
     if (db == "iucn") return(as_fxn(input, check = TRUE))
@@ -220,47 +205,6 @@ rit_acc_name <- function(x, ...) {
                stringsAsFactors = FALSE)
   } else {
     tmp
-  }
-}
-
-#' @export
-#' @rdname synonyms
-synonyms.colid <- function(id, ...) {
-  warn_db(list(...), "col")
-  fun <- function(x, ...) {
-    if (is.na(x)) {
-      NA_character_
-    } else {
-      res <- col_synonyms(x, ...)
-      if (NROW(res) == 0) tibble::tibble() else res
-    }
-  }
-  stats::setNames(lapply(id, fun, ...), id)
-}
-
-col_synonyms <- function(x, ...) {
-  base <- "http://www.catalogueoflife.org/col/webservice"
-  args <- list(id = x[1], response = "full", format = "json")
-  cli <- crul::HttpClient$new(base, headers = tx_ual)
-  res <- cli$get(query = args)
-  res$raise_for_status()
-  out <- jsonlite::fromJSON(res$parse("UTF-8"), FALSE)
-  tmp <- out$results[[1]]
-  if ("synonyms" %in% names(tmp)) {
-    df <- taxize_ldfast(lapply(tmp$synonyms, function(w) {
-      w[sapply(w, length) == 0] <- NA
-      w$references <- NULL
-      data.frame(w, stringsAsFactors = FALSE)
-    }))
-    if (!is.null(df)) {
-      df$rank <- tolower(df$rank)
-    } else {
-      df <- data.frame(NULL)
-    }
-
-    df
-  } else {
-    data.frame(NULL)
   }
 }
 

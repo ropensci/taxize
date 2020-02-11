@@ -1,39 +1,22 @@
-# spocc
+# aptg
 
 <details>
 
-* Version: 1.0.2
-* Source code: https://github.com/cran/spocc
-* URL: https://github.com/ropensci/spocc (devel), https://ropensci.github.io/spocc/ (user manual)
-* BugReports: https://github.com/ropensci/spocc/issues
-* Date/Publication: 2019-11-02 09:30:02 UTC
-* Number of recursive dependencies: 120
+* Version: 0.1.0
+* Source code: https://github.com/cran/aptg
+* Date/Publication: 2017-03-31 06:12:38 UTC
+* Number of recursive dependencies: 101
 
-Run `revdep_details(,"spocc")` for more info
+Run `revdep_details(,"aptg")` for more info
 
 </details>
 
 ## Newly broken
 
-*   checking tests ...
+*   checking R code for possible problems ... NOTE
     ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      Loading required package: spocc
-      ── 1. Error: has_coords works with all data sources as planned (@test-has_coords
-      missing value where TRUE/FALSE needed
-      Backtrace:
-       1. spocc::occ(...)
-       2. base::lapply(...)
-       3. spocc:::FUN(X[[i]], ...)
-       4. spocc:::foo_ecoengine(sources, x, y, p, z, hc, d, w, ecoengineopts)
-      
-      ══ testthat results  ═══════════════════════════════════════════════════════════
-      [ OK: 112 | SKIPPED: 9 | WARNINGS: 2 | FAILED: 1 ]
-      1. Error: has_coords works with all data sources as planned (@test-has_coords.R#22) 
-      
-      Error: testthat unit tests failed
-      Execution halted
+    downto.tree: no visible global function definition for ‘col_downstream’
+    Undefined global functions or variables:
+      col_downstream
     ```
 

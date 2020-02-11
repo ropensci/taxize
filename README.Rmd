@@ -100,12 +100,6 @@ Note that a few data sources require SOAP web services, which are difficult to s
 	<td style="text-align:left;">none</td>
 </tr>
 <tr>
-	<td style="text-align:left;">Catalogue of Life</td>
-	<td style="text-align:left;"><code>col</code></td>
-	<td style="text-align:left;"><a href="http://www.catalogueoflife.org/content/web-services">link</a></td>
-	<td style="text-align:left;">none</td>
-</tr>
-<tr>
 	<td style="text-align:left;">National Center for Biotechnology Information</td>
 	<td style="text-align:left;"><code>ncbi</code></td>
 	<td style="text-align:left;">none</td>
