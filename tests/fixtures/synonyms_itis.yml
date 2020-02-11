@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -18,7 +18,7 @@ http_interactions:
       connection: keep-alive
       content-length: '3095'
       content-type: text/json;charset=ISO-8859-1
-      date: Fri, 25 Jan 2019 23:03:31 GMT
+      date: Tue, 11 Feb 2020 20:08:58 GMT
       status: 'HTTP/1.1 200 '
       strict-transport-security:
       - max-age=63072000; includeSubdomains; preload
@@ -28,10 +28,79 @@ http_interactions:
       x-upstream-member: not shown
     body:
       encoding: UTF-8
+      file: no
       string: |
         {"class":"gov.usgs.itis.itis_service.data.SvcItisTermList","itisTerms":[{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["annual bluegrass","annual blue grass","walkgrass"],"nameUsage":"accepted","scientificName":"Poa annua","tsn":"41107"},{"author":"Asch.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua var. aquatica","tsn":"538978"},{"author":"Hausskn.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua var. reptans","tsn":"538979"},{"author":"(L.) H. Scholz","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Ochlopoa annua","tsn":"791574"},{"author":"(Tomm. ex Freyn) Asch. & Graebn.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua ssp. exilis","tsn":"798026"},{"author":"(Schrad.) Husn.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua ssp. supina","tsn":"798027"},{"author":"(Gaudin) Gaudin","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua ssp. varia","tsn":"798028"},{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua var. annua","tsn":"802116"},{"author":"E. Desv.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua var. eriolepis","tsn":"802117"},{"author":"Tomm. ex Freyn","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua var. exilis","tsn":"802118"},{"author":"L.H. Dewey","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua var. rigidiuscula","tsn":"802119"},{"author":"Vasey ex Scribn.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua var. stricta","tsn":"802120"},{"author":"(Gaudin) Spenn.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua var. supina","tsn":"802121"},{"author":"(Schrad.) Link","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua var. supina","tsn":"802122"},{"author":"Asch. & Graebn.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua var. tommasinii","tsn":"802123"},{"author":"(Hausskn.) T. Koyama","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua f. reptans","tsn":"803667"}],"requestedName":"Poa annua"}
-  recorded_at: 2019-01-25 23:03:31 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2020-02-11 20:09:05 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getITISTermsFromScientificName?srchKey=Poa%20annua
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      connection: keep-alive
+      content-length: '3095'
+      content-type: text/json;charset=ISO-8859-1
+      date: Tue, 11 Feb 2020 20:09:02 GMT
+      status: 'HTTP/1.1 200 '
+      strict-transport-security:
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      x-application: itis_webservices
+      x-node-name: not shown
+      x-upstream-member: not shown
+    body:
+      encoding: UTF-8
+      file: no
+      string: |
+        {"class":"gov.usgs.itis.itis_service.data.SvcItisTermList","itisTerms":[{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["annual bluegrass","annual blue grass","walkgrass"],"nameUsage":"accepted","scientificName":"Poa annua","tsn":"41107"},{"author":"Asch.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua var. aquatica","tsn":"538978"},{"author":"Hausskn.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua var. reptans","tsn":"538979"},{"author":"(L.) H. Scholz","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Ochlopoa annua","tsn":"791574"},{"author":"(Tomm. ex Freyn) Asch. & Graebn.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua ssp. exilis","tsn":"798026"},{"author":"(Schrad.) Husn.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua ssp. supina","tsn":"798027"},{"author":"(Gaudin) Gaudin","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua ssp. varia","tsn":"798028"},{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua var. annua","tsn":"802116"},{"author":"E. Desv.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua var. eriolepis","tsn":"802117"},{"author":"Tomm. ex Freyn","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua var. exilis","tsn":"802118"},{"author":"L.H. Dewey","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua var. rigidiuscula","tsn":"802119"},{"author":"Vasey ex Scribn.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua var. stricta","tsn":"802120"},{"author":"(Gaudin) Spenn.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua var. supina","tsn":"802121"},{"author":"(Schrad.) Link","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua var. supina","tsn":"802122"},{"author":"Asch. & Graebn.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua var. tommasinii","tsn":"802123"},{"author":"(Hausskn.) T. Koyama","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua f. reptans","tsn":"803667"}],"requestedName":"Poa annua"}
+  recorded_at: 2020-02-11 20:09:05 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getITISTermsFromScientificName?srchKey=Poa%20annua
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      connection: keep-alive
+      content-length: '3095'
+      content-type: text/json;charset=ISO-8859-1
+      date: Tue, 11 Feb 2020 20:09:04 GMT
+      status: 'HTTP/1.1 200 '
+      strict-transport-security:
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      x-application: itis_webservices
+      x-node-name: not shown
+      x-upstream-member: not shown
+    body:
+      encoding: UTF-8
+      file: no
+      string: |
+        {"class":"gov.usgs.itis.itis_service.data.SvcItisTermList","itisTerms":[{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["annual bluegrass","annual blue grass","walkgrass"],"nameUsage":"accepted","scientificName":"Poa annua","tsn":"41107"},{"author":"Asch.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua var. aquatica","tsn":"538978"},{"author":"Hausskn.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua var. reptans","tsn":"538979"},{"author":"(L.) H. Scholz","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Ochlopoa annua","tsn":"791574"},{"author":"(Tomm. ex Freyn) Asch. & Graebn.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua ssp. exilis","tsn":"798026"},{"author":"(Schrad.) Husn.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua ssp. supina","tsn":"798027"},{"author":"(Gaudin) Gaudin","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua ssp. varia","tsn":"798028"},{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua var. annua","tsn":"802116"},{"author":"E. Desv.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua var. eriolepis","tsn":"802117"},{"author":"Tomm. ex Freyn","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua var. exilis","tsn":"802118"},{"author":"L.H. Dewey","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua var. rigidiuscula","tsn":"802119"},{"author":"Vasey ex Scribn.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua var. stricta","tsn":"802120"},{"author":"(Gaudin) Spenn.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua var. supina","tsn":"802121"},{"author":"(Schrad.) Link","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua var. supina","tsn":"802122"},{"author":"Asch. & Graebn.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua var. tommasinii","tsn":"802123"},{"author":"(Hausskn.) T. Koyama","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Poa annua f. reptans","tsn":"803667"}],"requestedName":"Poa annua"}
+  recorded_at: 2020-02-11 20:09:05 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
 - request:
     method: get
     uri: https://www.itis.gov/ITISWebService/jsonservice/getAcceptedNamesFromTSN?tsn=41107
@@ -39,7 +108,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -51,7 +120,7 @@ http_interactions:
       connection: keep-alive
       content-length: '101'
       content-type: text/json;charset=ISO-8859-1
-      date: Fri, 25 Jan 2019 23:03:31 GMT
+      date: Tue, 11 Feb 2020 20:09:05 GMT
       status: 'HTTP/1.1 200 '
       strict-transport-security:
       - max-age=63072000; includeSubdomains; preload
@@ -61,10 +130,11 @@ http_interactions:
       x-upstream-member: not shown
     body:
       encoding: UTF-8
+      file: no
       string: |
         {"acceptedNames":[null],"class":"gov.usgs.itis.itis_service.data.SvcAcceptedNameList","tsn":"41107"}
-  recorded_at: 2019-01-25 23:03:31 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2020-02-11 20:09:05 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
 - request:
     method: get
     uri: https://www.itis.gov/ITISWebService/jsonservice/getSynonymNamesFromTSN?tsn=41107
@@ -72,7 +142,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -84,7 +154,7 @@ http_interactions:
       connection: keep-alive
       content-length: '1466'
       content-type: text/json;charset=ISO-8859-1
-      date: Fri, 25 Jan 2019 23:03:31 GMT
+      date: Tue, 11 Feb 2020 20:09:05 GMT
       status: 'HTTP/1.1 200 '
       strict-transport-security:
       - max-age=63072000; includeSubdomains; preload
@@ -94,7 +164,8 @@ http_interactions:
       x-upstream-member: not shown
     body:
       encoding: UTF-8
+      file: no
       string: |
         {"class":"gov.usgs.itis.itis_service.data.SvcSynonymNameList","synonyms":[{"author":"Asch.","class":"gov.usgs.itis.itis_service.data.SvcTaxonName","sciName":"Poa annua var. aquatica","tsn":"538978"},{"author":"Hausskn.","class":"gov.usgs.itis.itis_service.data.SvcTaxonName","sciName":"Poa annua var. reptans","tsn":"538979"},{"author":"Pursh","class":"gov.usgs.itis.itis_service.data.SvcTaxonName","sciName":"Aira pumila","tsn":"785854"},{"author":"(Pursh) Roem. & Schult.","class":"gov.usgs.itis.itis_service.data.SvcTaxonName","sciName":"Catabrosa pumila","tsn":"787993"},{"author":"(L.) H. Scholz","class":"gov.usgs.itis.itis_service.data.SvcTaxonName","sciName":"Ochlopoa annua","tsn":"791574"},{"author":"J. Presl","class":"gov.usgs.itis.itis_service.data.SvcTaxonName","sciName":"Poa aestivalis","tsn":"793946"},{"author":"Trin.","class":"gov.usgs.itis.itis_service.data.SvcTaxonName","sciName":"Poa algida","tsn":"793954"},{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcTaxonName","sciName":"Poa annua var. annua","tsn":"802116"},{"author":"E. Desv.","class":"gov.usgs.itis.itis_service.data.SvcTaxonName","sciName":"Poa annua var. eriolepis","tsn":"802117"},{"author":"L.H. Dewey","class":"gov.usgs.itis.itis_service.data.SvcTaxonName","sciName":"Poa annua var. rigidiuscula","tsn":"802119"},{"author":"(Hausskn.) T. Koyama","class":"gov.usgs.itis.itis_service.data.SvcTaxonName","sciName":"Poa annua f. reptans","tsn":"803667"}],"tsn":"41107"}
-  recorded_at: 2019-01-25 23:03:31 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2020-02-11 20:09:05 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
