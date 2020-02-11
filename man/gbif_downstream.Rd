@@ -65,7 +65,8 @@ gbif_downstream(key = 7799978, downto="species")
 gbif_downstream(key = 7799978, downto="species", intermediate=TRUE)
 
 # names that don't have canonicalname entries for some results
-key <- get_gbifid("Myosotis")
+# Myosotis: key 2925668
+key <- 2925668
 res <- gbif_downstream(key, downto = "species")
 res2 <- downstream(key, db = "gbif", downto = "species")
 }
