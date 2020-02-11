@@ -3,4 +3,5 @@
   utils::data("theplantlist", package = "taxize")
   utils::data("apg_families", package = "taxize")
   utils::data("apg_orders", package = "taxize")
+  utils::data("worrms_ranks", package = "taxize")
 }
