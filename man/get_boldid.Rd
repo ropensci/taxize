@@ -145,8 +145,8 @@ get_boldid("Nasiaeshna pentacantha")
 ### Results w/o narrowing
 get_boldid("Satyrium")
 ### w/ phylum
-get_boldid("Satyrium", division = "Plants")
-get_boldid("Satyrium", division = "Animals")
+get_boldid("Satyrium", division = "Plantae")
+get_boldid("Satyrium", division = "Animalia")
 
 ## Rank example
 get_boldid("Osmia", fuzzy = TRUE)
