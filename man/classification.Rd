@@ -35,7 +35,14 @@ classification(...)
 
 \method{classification}{tsn}(id, return_id = TRUE, ...)
 
-\method{classification}{uid}(id, callopts = list(), return_id = TRUE, ...)
+\method{classification}{uid}(
+  id,
+  callopts = list(),
+  return_id = TRUE,
+  batch_size = 50,
+  max_tries = 3,
+  ...
+)
 
 \method{classification}{eolid}(id, callopts = list(), return_id = TRUE, ...)
 
@@ -101,6 +108,12 @@ in a taxonomic id instead of a name of class character.}
 \code{\link[=get_eolid]{get_eolid()}}, \code{\link[=get_tpsid]{get_tpsid()}}, \code{\link[=get_gbifid]{get_gbifid()}}, \code{\link[=get_tolid]{get_tolid()}},
 \code{\link[=get_wormsid]{get_wormsid()}}, \code{\link[=get_natservid]{get_natservid()}}, \code{\link[=get_wormsid]{get_wormsid()}}, \code{\link[=get_wiki]{get_wiki()}},
 \code{\link[=get_pow]{get_pow()}}}
+
+\item{batch_size}{(numeric) For NCBI queries, specify the number of IDs to
+lookup for each query.}
+
+\item{max_tries}{(numeric) For NCBI queries, the number of times a particular
+query will be attempted, assuming the first does not work.}
 }
 \value{
 A named list of data.frames with the taxonomic classification of
