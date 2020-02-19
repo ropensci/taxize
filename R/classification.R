@@ -28,6 +28,10 @@
 #' @param rows (numeric) Any number from 1 to infinity. If the default NA,
 #' all rows are considered. Note that this parameter is ignored if you pass
 #' in a taxonomic id instead of a name of class character.
+#' @param batch_size (numeric) For NCBI queries, specify the number of IDs to
+#'   lookup for each query.
+#' @param max_tries (numeric) For NCBI queries, the number of times a particular
+#'   query will be attempted, assuming the first does not work.
 #'
 #' @return A named list of data.frames with the taxonomic classification of
 #'    every supplied taxa.
@@ -320,7 +324,7 @@ classification.tsn <- function(id, return_id = TRUE, ...) {
 
 #' @export
 #' @rdname classification
-classification.uid <- function(id, callopts = list(), return_id = TRUE, ...) {
+classification.uid <- function(id, callopts = list(), return_id = TRUE, batch_size = 50, max_tries = 3, ...) {
   warn_db(list(...), "ncbi")
   fun <- function(x, callopts) {
     key <- getkey(NULL, service="entrez")
@@ -329,20 +333,44 @@ classification.uid <- function(id, callopts = list(), return_id = TRUE, ...) {
       query <- tc(list(db = "taxonomy", ID = paste0(ids, collapse = ','), api_key = key))
       cli <- crul::HttpClient$new(url = ncbi_base(),
                                   opts = c(http_version = 2L, callopts))
-      res <- cli$get("entrez/eutils/efetch.fcgi", query = query)
-      res$raise_for_status()
-      tt <- res$parse("UTF-8")
-      ttp <- xml2::read_xml(tt)
-      out <- lapply(xml2::xml_find_all(ttp, '//TaxaSet/Taxon'), function(tax_node) {
-        data.frame(
-          name = xml_text_all(tax_node, ".//LineageEx/Taxon/ScientificName"),
-          rank = xml_text_all(tax_node, ".//LineageEx/Taxon/Rank"),
-          id = xml_text_all(tax_node, ".//LineageEx/Taxon/TaxId"),
-          stringsAsFactors = FALSE)
-      })
-      parent_id <- xml_text_all(ttp, "//TaxaSet/Taxon/ParentTaxId") %||% ""
-      # Is not directly below root and no lineage info
-      out[vapply(out, NROW, numeric(1)) == 0 & parent_id != "1"] <- NA
+      success <- FALSE
+      tries <- 1
+      while (success == FALSE && tries <= max_tries) {
+        res <- cli$get("entrez/eutils/efetch.fcgi", query = query)
+        res$raise_for_status()
+        tt <- res$parse("UTF-8")
+        ttp <- xml2::read_xml(tt)
+        out <- lapply(xml2::xml_find_all(ttp, '//TaxaSet/Taxon'), function(tax_node) {
+          data.frame(
+            name = xml_text_all(tax_node, ".//LineageEx/Taxon/ScientificName"),
+            rank = xml_text_all(tax_node, ".//LineageEx/Taxon/Rank"),
+            id = xml_text_all(tax_node, ".//LineageEx/Taxon/TaxId"),
+            stringsAsFactors = FALSE)
+        })
+        # Is not directly below root and no lineage info
+        parent_id <- xml_text_all(ttp, "//TaxaSet/Taxon/ParentTaxId") %||% ""
+        out[vapply(out, NROW, numeric(1)) == 0 & parent_id != "1"] <- NA
+        # Add NA where the taxon ID was not found
+        names(out) <- xml_text(xml2::xml_find_all(ttp, '//TaxaSet/Taxon/TaxId'))
+        out <- unname(out[ids])
+        success <- ! grepl(tt, pattern = 'error', ignore.case = TRUE)
+        tries <- tries + 1
+        # NCBI limits requests to three per second without key or 10 per second with key
+        if (is.null(key)) {
+          Sys.sleep(0.34)
+        } else {
+          Sys.sleep(0.11)
+        }
+        # Wait longer if query failed
+        if (success == FALSE) {
+          Sys.sleep(1)
+        }
+      }
+      # Return NA if cannot get information
+      if (success == FALSE) {
+        out <- rep(list(NA), length(ids))
+        warning(call. = FALSE, 'Giving up on query after ', max_tries, ' tries. NAs will be returned.')
+      }
       return(out)
     }
     # return NA if NA is supplied
@@ -357,12 +385,9 @@ classification.uid <- function(id, callopts = list(), return_id = TRUE, ...) {
       o$rank <- tolower(o$rank)
       return(o)
     })
-    # NCBI limits requests to three per second
-    if (is.null(key)) Sys.sleep(0.34)
     return(out)
   }
-  chunk_size <- 10
-  id_chunks <- split(id, ceiling(seq_along(id)/chunk_size))
+  id_chunks <- split(id, ceiling(seq_along(id)/batch_size))
   out <- lapply(id_chunks, fun, callopts = callopts)
   out <- unlist(out, recursive = FALSE)
   names(out) <- id
