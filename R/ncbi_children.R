@@ -173,7 +173,7 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
       rownames(output) <- NULL 
     }
     # NCBI limits requests to three per second
-    if (is.null(key)) Sys.sleep(0.34)
+    ncbi_rate_limit_pause(key)
     return(output)
   }
   # Combine the result of multiple searches -----------------------------------

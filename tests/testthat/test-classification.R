@@ -121,14 +121,15 @@ test_that("rbind and cbind work correctly", {
   expect_gt(length(names(clc)), 50)
 })
 
+set.seed(1)
 df <- theplantlist[sample(1:nrow(theplantlist), 50), ]
 nn <- apply(df, 1, function(x) paste(x["genus"], x["species"], collapse = " "))
 
 test_that("works on a variety of names", {
   skip_on_cran()
-  
-  x <- classification(nn[1], db = "ncbi", messages = FALSE)
-  z <- classification(nn[2], db = "ncbi", messages = FALSE)
+  browser()
+  x <- classification(nn[5], db = "ncbi", messages = FALSE)
+  z <- classification(nn[6], db = "ncbi", messages = FALSE)
 
 	expect_is(x, "classification")
 	expect_is(z, "classification")

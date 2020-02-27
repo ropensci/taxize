@@ -264,3 +264,13 @@ warn_db <- function(x, type) {
 
 strextract <- function(str, pattern) regmatches(str, regexpr(pattern, str))
 strexec <- function(str, pattern) regmatches(str, regexec(pattern, str))
+
+
+ncbi_rate_limit_pause <- function(key) {
+  # NCBI limits requests to three per second when no key and ten per second with key
+  if (is.null(key)) {
+    Sys.sleep(0.334)
+  } else {
+    Sys.sleep(0.101)
+  }
+}

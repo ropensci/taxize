@@ -6,9 +6,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
   response:
     status:
       status_code: '200'
@@ -16,34 +17,34 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 17:47:35 GMT
+      date: Mon, 24 Feb 2020 23:37:56 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '8'
-      ncbi-phid: 322CDAEFF3EFD7B50000259F1F1D169D.1.1.m_1
+      x-ratelimit-remaining: '9'
+      ncbi-phid: D0BD57157EF9A68500001F37C383BDD6.1.1.m_1
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: A0FB3AA4105F0D4F_3867SID
+      ncbi-sid: C4DC67FCA4F90483_E73ASID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=A0FB3AA4105F0D4F_3867SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 17:47:35 GMT
+      set-cookie: ncbi_sid=C4DC67FCA4F90483_E73ASID; domain=.nih.gov; path=/; expires=Wed,
+        24 Feb 2021 23:37:57 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
       encoding: UTF-8
+      file: no
       string: |
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>9696</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Puma+concolor[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Puma+concolor[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2019-01-26 17:47:38 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2020-02-24 23:37:58 GMT
+  recorded_with: vcr/0.4.2.91, webmockr/0.5.1.98
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Accipiter%2Bstriatus&api_key=<<entrez_api_token>>
@@ -51,9 +52,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
   response:
     status:
       status_code: '200'
@@ -61,42 +63,42 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 17:47:35 GMT
+      date: Mon, 24 Feb 2020 23:37:56 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '6'
-      ncbi-phid: 322CDAEFF3EFD7B50000239F1F61CB53.1.1.m_1
+      x-ratelimit-remaining: '8'
+      ncbi-phid: D0BD57157EF9A68500005337C3C444C1.1.1.m_1
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: FC35E367632A5ADF_70E5SID
+      ncbi-sid: 33BDD96E6E3DA45F_BF8CSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=FC35E367632A5ADF_70E5SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 17:47:35 GMT
+      set-cookie: ncbi_sid=33BDD96E6E3DA45F_BF8CSID; domain=.nih.gov; path=/; expires=Wed,
+        24 Feb 2021 23:37:57 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
       encoding: UTF-8
+      file: no
       string: |
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>56330</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Accipiter+striatus[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Accipiter+striatus[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2019-01-26 17:47:38 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2020-02-24 23:37:58 GMT
+  recorded_with: vcr/0.4.2.91, webmockr/0.5.1.98
 - request:
     method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=9696&api_key=<<entrez_api_token>>
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=9696%2C56330&api_key=<<entrez_api_token>>
     body:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      User-Agent: libcurl/7.47.0 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -106,26 +108,26 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 17:47:35 GMT
+      date: Mon, 24 Feb 2020 23:37:57 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '5'
-      ncbi-phid: 939B131039D6F9750000239A4266A32D.1.1.m_5
+      x-ratelimit-remaining: '7'
+      ncbi-phid: 939B1ADCACB471850000283A42EBE925.1.1.m_3
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: F2A641D09658C359_6AB8SID
+      ncbi-sid: C6E1829CE36CACB0_4A6ESID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=F2A641D09658C359_6AB8SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 17:47:36 GMT
+      set-cookie: ncbi_sid=C6E1829CE36CACB0_4A6ESID; domain=.nih.gov; path=/; expires=Wed,
+        24 Feb 2021 23:37:58 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
       encoding: UTF-8
+      file: no
       string: |-
         <?xml version="1.0" ?>
         <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
@@ -290,51 +292,7 @@ http_interactions:
             <UpdateDate>2018/10/29 19:32:20</UpdateDate>
             <PubDate>1995/11/16 00:00:00</PubDate>
         </Taxon>
-
-        </TaxaSet>
-  recorded_at: 2019-01-26 17:47:38 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
-- request:
-    method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=56330&api_key=<<entrez_api_token>>
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 17:47:37 GMT
-      server: Finatra
-      strict-transport-security: max-age=31536000; includeSubDomains; preload
-      content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '8'
-      ncbi-phid: 939B131039D6F9750000259A438D4695.1.1.m_5
-      cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 010A511C234A53B4_113ESID
-      content-encoding: gzip
-      x-ratelimit-limit: '10'
-      access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=010A511C234A53B4_113ESID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 17:47:37 GMT
-      x-ua-compatible: IE=Edge
-      x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
-    body:
-      encoding: UTF-8
-      string: |-
-        <?xml version="1.0" ?>
-        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
-        <TaxaSet><Taxon>
+        <Taxon>
             <TaxId>56330</TaxId>
             <ScientificName>Accipiter striatus</ScientificName>
             <OtherNames>
@@ -355,7 +313,7 @@ http_interactions:
                 <MGCId>2</MGCId>
                 <MGCName>Vertebrate Mitochondrial</MGCName>
             </MitoGeneticCode>
-            <Lineage>cellular organisms; Eukaryota; Opisthokonta; Metazoa; Eumetazoa; Bilateria; Deuterostomia; Chordata; Craniata; Vertebrata; Gnathostomata; Teleostomi; Euteleostomi; Sarcopterygii; Dipnotetrapodomorpha; Tetrapoda; Amniota; Sauropsida; Sauria; Archelosauria; Archosauria; Dinosauria; Saurischia; Theropoda; Coelurosauria; Aves; Neognathae; Falconiformes; Accipitridae; Accipitrinae; Accipiter</Lineage>
+            <Lineage>cellular organisms; Eukaryota; Opisthokonta; Metazoa; Eumetazoa; Bilateria; Deuterostomia; Chordata; Craniata; Vertebrata; Gnathostomata; Teleostomi; Euteleostomi; Sarcopterygii; Dipnotetrapodomorpha; Tetrapoda; Amniota; Sauropsida; Sauria; Archelosauria; Archosauria; Dinosauria; Saurischia; Theropoda; Coelurosauria; Aves; Neognathae; Accipitriformes; Accipitridae; Accipitrinae; Accipiter</Lineage>
             <LineageEx>
                 <Taxon>
                     <TaxId>131567</TaxId>
@@ -490,11 +448,11 @@ http_interactions:
                 <Taxon>
                     <TaxId>8825</TaxId>
                     <ScientificName>Neognathae</ScientificName>
-                    <Rank>superorder</Rank>
+                    <Rank>infraclass</Rank>
                 </Taxon>
                 <Taxon>
-                    <TaxId>8948</TaxId>
-                    <ScientificName>Falconiformes</ScientificName>
+                    <TaxId>2558200</TaxId>
+                    <ScientificName>Accipitriformes</ScientificName>
                     <Rank>order</Rank>
                 </Taxon>
                 <Taxon>
@@ -519,5 +477,5 @@ http_interactions:
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2019-01-26 17:47:38 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2020-02-24 23:37:58 GMT
+  recorded_with: vcr/0.4.2.91, webmockr/0.5.1.98
