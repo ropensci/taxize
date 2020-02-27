@@ -145,7 +145,7 @@ c2s_ncbi <- function(x, simplify, ...) {
   # common name
   out <- xml_text(xml_find_all(ttp, "//TaxaSet/Taxon/ScientificName"))
   # NCBI limits requests to three per second
-  if (is.null(key)) Sys.sleep(0.34)
+  ncbi_rate_limit_pause(key)
   return(out)
 }
 
