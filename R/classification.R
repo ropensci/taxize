@@ -460,6 +460,8 @@ classification.gbifid <- function(id, callopts = list(),
         df <- data.frame(name = nms$V1, rank = nms$.id, id = keys,
           stringsAsFactors = FALSE)
         df$rank <- tolower(df$rank)
+        # sort to make sure ranks are in correct descending order
+        df <- df[order(vapply(df$rank, which_rank, 1)), ]
         # Optionally return id of lineage
         if (!return_id) df[, c('name', 'rank')] else df
       }
