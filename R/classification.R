@@ -343,15 +343,18 @@ classification.tsn <- function(id, return_id = TRUE, ...) {
 
 #' @export
 #' @rdname classification
-classification.uid <- function(id, callopts = list(), return_id = TRUE, batch_size = 50, max_tries = 3, ...) {
+classification.uid <- function(id, callopts = list(), return_id = TRUE,
+  batch_size = 50, max_tries = 3, ...) {
+
   warn_db(list(...), "ncbi")
   fun <- function(x, callopts) {
     key <- getkey(NULL, service="entrez")
     
     query_ncbi <- function(ids) {
-      query <- tc(list(db = "taxonomy", ID = paste0(ids, collapse = ','), api_key = key))
+      query <- tc(list(db = "taxonomy", ID = paste0(ids, collapse = ','),
+        api_key = key))
       cli <- crul::HttpClient$new(url = ncbi_base(),
-                                  opts = c(http_version = 2L, callopts))
+        opts = c(http_version = 2L, callopts))
       success <- FALSE
       tries <- 1
       while (success == FALSE && tries <= max_tries) {
@@ -359,22 +362,32 @@ classification.uid <- function(id, callopts = list(), return_id = TRUE, batch_si
         res$raise_for_status()
         tt <- res$parse("UTF-8")
         ttp <- xml2::read_xml(tt)
-        out <- lapply(xml2::xml_find_all(ttp, '//TaxaSet/Taxon'), function(tax_node) {
-          data.frame(
-            name = xml_text_all(tax_node, ".//LineageEx/Taxon/ScientificName"),
+        out <- lapply(xml2::xml_find_all(ttp, '//TaxaSet/Taxon'),
+          function(tax_node) {
+          lin <- data.frame(
+            name = xml_text_all(tax_node,
+              ".//LineageEx/Taxon/ScientificName"),
             rank = xml_text_all(tax_node, ".//LineageEx/Taxon/Rank"),
             id = xml_text_all(tax_node, ".//LineageEx/Taxon/TaxId"),
             stringsAsFactors = FALSE)
+          targ_tax <- data.frame(
+            name = xml_text_all(tax_node, "./ScientificName"),
+            rank = xml_text_all(tax_node, "./Rank"),
+            id = xml_text_all(tax_node, "./TaxId"),
+            stringsAsFactors = FALSE)
+          rbind(lin, targ_tax)
         })
         # Is not directly below root and no lineage info
         parent_id <- xml_text_all(ttp, "//TaxaSet/Taxon/ParentTaxId") %||% ""
         out[vapply(out, NROW, numeric(1)) == 0 & parent_id != "1"] <- NA
         # Add NA where the taxon ID was not found
-        names(out) <- xml_text(xml2::xml_find_all(ttp, '//TaxaSet/Taxon/TaxId'))
+        names(out) <- xml_text(xml2::xml_find_all(ttp,
+          '//TaxaSet/Taxon/TaxId'))
         out <- unname(out[ids])
         success <- ! grepl(tt, pattern = 'error', ignore.case = TRUE)
         tries <- tries + 1
-        # NCBI limits requests to three per second without key or 10 per second with key
+        # NCBI limits requests to three per second without key or 10 per
+        # second with key
         ncbi_rate_limit_pause(key)
         # Wait longer if query failed
         if (success == FALSE) {
@@ -384,7 +397,8 @@ classification.uid <- function(id, callopts = list(), return_id = TRUE, batch_si
       # Return NA if cannot get information
       if (success == FALSE) {
         out <- rep(list(NA), length(ids))
-        warning(call. = FALSE, 'Giving up on query after ', max_tries, ' tries. NAs will be returned.')
+        warning(call. = FALSE, 'Giving up on query after ',
+          max_tries, ' tries. NAs will be returned.')
       }
       return(out)
     }
@@ -393,7 +407,8 @@ classification.uid <- function(id, callopts = list(), return_id = TRUE, batch_si
     out[! is.na(x)] <- query_ncbi(x[! is.na(x)])
     # Optionally return taxon id of lineage taxa
     if (!return_id) {
-      out[! is.na(out)] <- lapply(out[! is.na(out)], function(o) o[, c('name', 'rank')])
+      out[! is.na(out)] <- lapply(out[! is.na(out)],
+        function(o) o[, c('name', 'rank')])
     }
     # Return ranks in all lower case
     out[! is.na(out)] <- lapply(out[! is.na(out)], function(o) {

@@ -17,20 +17,20 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Fri, 06 Mar 2020 01:27:12 GMT
+      date: Fri, 06 Mar 2020 16:42:27 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       x-ratelimit-remaining: '9'
-      ncbi-phid: 322C9E4055AFCB550000623AB06E69D5.1.1.m_1
+      ncbi-phid: 939B6CBF14E4C84500002DB7B1A2DD86.1.1.m_1
       cache-control: private
-      ncbi-sid: 6D928BC8887A6F73_443DSID
+      ncbi-sid: 997E676B85280B92_DCA0SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=6D928BC8887A6F73_443DSID; domain=.nih.gov; path=/; expires=Sat,
-        06 Mar 2021 01:27:13 GMT
+      set-cookie: ncbi_sid=997E676B85280B92_DCA0SID; domain=.nih.gov; path=/; expires=Sat,
+        06 Mar 2021 16:42:27 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -43,7 +43,7 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>315576</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Chironomus+riparius[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Chironomus+riparius[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2020-03-06 01:27:14 GMT
+  recorded_at: 2020-03-06 16:42:28 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -62,20 +62,20 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Fri, 06 Mar 2020 01:27:13 GMT
+      date: Fri, 06 Mar 2020 16:42:27 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       x-ratelimit-remaining: '8'
-      ncbi-phid: 939B359643F5AE950000234721FCF84A.1.1.m_5
+      ncbi-phid: 939B6CBF14E4C84500003EB7B2F26F75.1.1.m_3
       cache-control: private
-      ncbi-sid: 25A28DA1248AB89F_8783SID
+      ncbi-sid: CBAD0795B323D535_30CCSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=25A28DA1248AB89F_8783SID; domain=.nih.gov; path=/; expires=Sat,
-        06 Mar 2021 01:27:13 GMT
+      set-cookie: ncbi_sid=CBAD0795B323D535_30CCSID; domain=.nih.gov; path=/; expires=Sat,
+        06 Mar 2021 16:42:28 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -243,11 +243,11 @@ http_interactions:
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2020-03-06 01:27:14 GMT
+  recorded_at: 2020-03-06 16:42:28 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Chironomus%20incertae%20sedis%5BNext%20Level%5D%20AND%20Chironomus%5Bsubtree%5D&RetMax=1000&RetStart=0&api_key=<<entrez_api_token>>
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Chironomus%20riparius%5BNext%20Level%5D%20AND%20Chironomus%20incertae%20sedis%5Bsubtree%5D&RetMax=1000&RetStart=0&api_key=<<entrez_api_token>>
     body:
       encoding: ''
       string: ''
@@ -263,20 +263,20 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Fri, 06 Mar 2020 01:27:13 GMT
+      date: Fri, 06 Mar 2020 16:42:28 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       x-ratelimit-remaining: '8'
-      ncbi-phid: D0BD321EAD513EE50000464C09C76FBA.1.1.m_1
+      ncbi-phid: 939B6CBF14E4C84500005EB7B3AA7FAE.1.1.m_1
       cache-control: private
-      ncbi-sid: F0E92921FFB81273_BB93SID
+      ncbi-sid: E99BAE18B4652C89_66CASID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=F0E92921FFB81273_BB93SID; domain=.nih.gov; path=/; expires=Sat,
-        06 Mar 2021 01:27:14 GMT
+      set-cookie: ncbi_sid=E99BAE18B4652C89_66CASID; domain=.nih.gov; path=/; expires=Sat,
+        06 Mar 2021 16:42:28 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -286,145 +286,6 @@ http_interactions:
       string: |
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
-        <eSearchResult><Count>11</Count><RetMax>11</RetMax><RetStart>0</RetStart><IdList>
-        <Id>2116731</Id>
-        <Id>1988068</Id>
-        <Id>1941199</Id>
-        <Id>1768614</Id>
-        <Id>1671608</Id>
-        <Id>1404320</Id>
-        <Id>586675</Id>
-        <Id>586673</Id>
-        <Id>315576</Id>
-        <Id>169422</Id>
-        <Id>153375</Id>
-        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Chironomus incertae sedis[Next Level]</Term>    <Field>Next Level</Field>    <Count>11</Count>    <Explode>N</Explode>   </TermSet>   <TermSet>    <Term>Chironomus[subtree]</Term>    <Field>subtree</Field>    <Count>2741</Count>    <Explode>N</Explode>   </TermSet>   <OP>AND</OP>  </TranslationStack><QueryTranslation>Chironomus incertae sedis[Next Level] AND Chironomus[subtree]</QueryTranslation></eSearchResult>
-  recorded_at: 2020-03-06 01:27:14 GMT
-  recorded_with: vcr/0.5.0, webmockr/0.6.0
-- request:
-    method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&id=2116731%2B1988068%2B1941199%2B1768614%2B1671608%2B1404320%2B586675%2B586673%2B315576%2B169422%2B153375&api_key=<<entrez_api_token>>
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      date: Fri, 06 Mar 2020 01:27:14 GMT
-      server: Finatra
-      strict-transport-security: max-age=31536000; includeSubDomains; preload
-      content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '7'
-      ncbi-phid: D0BD321EAD513EE500005B4C09D496F3.1.1.m_1
-      cache-control: private
-      ncbi-sid: 769E14892D822117_C90BSID
-      content-encoding: gzip
-      x-ratelimit-limit: '10'
-      access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=769E14892D822117_C90BSID; domain=.nih.gov; path=/; expires=Sat,
-        06 Mar 2021 01:27:14 GMT
-      x-ua-compatible: IE=Edge
-      x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
-    body:
-      encoding: UTF-8
-      file: no
-      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eSummaryResult
-        PUBLIC \"-//NLM//DTD esummary v1 20041029//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20041029/esummary-v1.dtd\">\n<eSummaryResult>\n<DocSum>\n\t<Id>2116731</Id>\n\t<Item
-        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
-        Name=\"Division\" Type=\"String\">flies</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Chironomus acerbus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
-        Name=\"TaxId\" Type=\"Integer\">2116731</Item>\n\t<Item Name=\"AkaTaxId\"
-        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Chironomus</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">acerbus</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
-        Name=\"ModificationDate\" Type=\"Date\">2018/03/23 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1988068</Id>\n\t<Item
-        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
-        Name=\"Division\" Type=\"String\">flies</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Chironomus incertipenis</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">1988068</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Chironomus</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">incertipenis</Item>\n\t<Item Name=\"Subsp\"
-        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2017/05/29
-        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1941199</Id>\n\t<Item Name=\"Status\"
-        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
-        Name=\"Division\" Type=\"String\">flies</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Chironomus ramosus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
-        Name=\"TaxId\" Type=\"Integer\">1941199</Item>\n\t<Item Name=\"AkaTaxId\"
-        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Chironomus</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">ramosus</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
-        Name=\"ModificationDate\" Type=\"Date\">2017/02/09 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1768614</Id>\n\t<Item
-        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
-        Name=\"Division\" Type=\"String\">flies</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Chironomus striatipennis</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">1768614</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Chironomus</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">striatipennis</Item>\n\t<Item Name=\"Subsp\"
-        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2016/06/10
-        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1671608</Id>\n\t<Item Name=\"Status\"
-        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
-        Name=\"Division\" Type=\"String\">flies</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Chironomus crassicaudatus</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">1671608</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Chironomus</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">crassicaudatus</Item>\n\t<Item Name=\"Subsp\"
-        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2015/06/30
-        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1404320</Id>\n\t<Item Name=\"Status\"
-        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
-        Name=\"Division\" Type=\"String\">flies</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Chironomus pseudoppositus (nomen nudum)</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">1404320</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Chironomus</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">pseudoppositus (nomen nudum)</Item>\n\t<Item
-        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
-        Type=\"Date\">2019/12/20 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>586675</Id>\n\t<Item
-        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
-        Name=\"Division\" Type=\"String\">flies</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Chironomus nipponensis</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">586675</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Chironomus</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">nipponensis</Item>\n\t<Item Name=\"Subsp\"
-        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2009/10/01
-        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>586673</Id>\n\t<Item Name=\"Status\"
-        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
-        Name=\"Division\" Type=\"String\">flies</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Chironomus flaviplumus</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">586673</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Chironomus</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">flaviplumus</Item>\n\t<Item Name=\"Subsp\"
-        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2009/09/01
-        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>315576</Id>\n\t<Item Name=\"Status\"
-        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
-        Name=\"Division\" Type=\"String\">flies</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Chironomus riparius</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
-        Name=\"TaxId\" Type=\"Integer\">315576</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
-        Name=\"Genus\" Type=\"String\">Chironomus</Item>\n\t<Item Name=\"Species\"
-        Type=\"String\">riparius</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
-        Name=\"ModificationDate\" Type=\"Date\">2005/12/31 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>169422</Id>\n\t<Item
-        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
-        Name=\"Division\" Type=\"String\">flies</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Chironomus yoshimatsui</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">169422</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Chironomus</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">yoshimatsui</Item>\n\t<Item Name=\"Subsp\"
-        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2005/01/19
-        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>153375</Id>\n\t<Item Name=\"Status\"
-        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
-        Name=\"Division\" Type=\"String\">flies</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Chironomus calligraphus</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">153375</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Chironomus</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">calligraphus</Item>\n\t<Item Name=\"Subsp\"
-        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2005/01/19
-        00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
-  recorded_at: 2020-03-06 01:27:14 GMT
+        <eSearchResult><Count>0</Count><RetMax>0</RetMax><RetStart>0</RetStart><IdList/><TranslationSet/><QueryTranslation>Chironomus riparius[Next Level] AND Chironomus incertae sedis[subtree]</QueryTranslation><ErrorList><PhraseNotFound>Chironomus riparius[Next Level]</PhraseNotFound></ErrorList><WarningList><OutputMessage>No items found.</OutputMessage></WarningList></eSearchResult>
+  recorded_at: 2020-03-06 16:42:28 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
