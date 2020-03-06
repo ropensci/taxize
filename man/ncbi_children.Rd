@@ -20,7 +20,7 @@ ncbi_children(
 \item{name}{(\code{character}) The string to search for. Only exact matches
 found the name given will be returned. Not compatible with \code{id}.}
 
-\item{id}{(\code{character}) The uid to search for. Not compatible with
+\item{id}{(\code{character}/\code{numeric}) The uid to search for. Not compatible with
 \code{name}.}
 
 \item{start}{The first record to return. If omitted, the results are

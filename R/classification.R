@@ -230,9 +230,9 @@ classification.default <- function(x, db = NULL, callopts = list(),
       stats::setNames(classification(id, return_id = return_id, ...), x)
     },
     ncbi = {
-      id <- process_ids(x, db, get_uid, rows = rows, ...)
+      id <- process_ids(x, db, get_uid, rows = rows)
       stats::setNames(classification(id, callopts = callopts,
-        return_id = return_id, ...), x)
+        return_id = return_id), x)
     },
     eol = {
       id <- process_ids(x, db, get_eolid, rows = rows, ...)
@@ -395,7 +395,7 @@ classification.uid <- function(id, callopts = list(), return_id = TRUE,
         }
       }
       # Return NA if cannot get information
-      if (success == FALSE) {
+      if (!success) {
         out <- rep(list(NA), length(ids))
         warning(call. = FALSE, 'Giving up on query after ',
           max_tries, ' tries. NAs will be returned.')
@@ -417,6 +417,7 @@ classification.uid <- function(id, callopts = list(), return_id = TRUE,
     })
     return(out)
   }
+  id <- as.character(id) # force to character
   id_chunks <- split(id, ceiling(seq_along(id)/batch_size))
   out <- lapply(id_chunks, fun, callopts = callopts)
   out <- unlist(out, recursive = FALSE)

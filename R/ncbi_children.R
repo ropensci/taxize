@@ -13,7 +13,7 @@
 #' @export
 #' @param name (`character`) The string to search for. Only exact matches 
 #' found the name given will be returned. Not compatible with `id`.
-#' @param id (`character`) The uid to search for. Not compatible with 
+#' @param id (`character`/`numeric`) The uid to search for. Not compatible with 
 #' `name`.
 #' @param start The first record to return. If omitted, the results are 
 #' returned from the first record (start=0).
@@ -60,6 +60,8 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
                           ancestor = NULL, out_type = c("summary", "uid"), 
                           ambiguous = FALSE, key = NULL, ...) {
 
+  assert(name, "character")
+  assert(id, c("character", "numeric", "uid"))
   key <- getkey(key, "ENTREZ_KEY")
 
   # Constants -----------------------------------------------------------------
@@ -75,7 +77,7 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
   out_type <- match.arg(out_type)
   # Get name from id ----------------------------------------------------------
   if (is.null(name)) {
-    if (class(id) != 'uid') attr(id, 'class') <- 'uid'
+    if (!inherits(id, 'uid')) attr(id, 'class') <- 'uid'
     id_taxonomy <- classification(id, db = 'ncbi')
     id_taxonomy <- lapply(id_taxonomy, function(z) {
       if (!(inherits(z, "data.frame"))) data.frame(NULL) else z

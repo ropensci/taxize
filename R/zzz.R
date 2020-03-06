@@ -168,12 +168,18 @@ pop <- function(x, nms) {
 }
 
 assert <- function(x, y) {
-  if (!is.null(x)) {
+  if (!is.null(x) && !is_na(x)) {
     if (!inherits(x, y)) {
       stop(deparse(substitute(x)), " must be of class ",
            paste0(y, collapse = ", "), call. = FALSE)
     }
   }
+}
+
+is_na <- function(x) {
+  if (is.list(x)) return(FALSE)
+  if (is.environment(x)) return(FALSE)
+  return(is.na(x))
 }
 
 assert_state <- function(x, y) {

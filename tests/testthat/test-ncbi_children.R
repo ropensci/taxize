@@ -35,3 +35,13 @@ test_that("ncbi_children does remove some ambiguous taxa", {
   expect_is(sp, "list")
   expect_is(sp[[1]], "data.frame")
 })
+
+test_that("ncbi_children accepts numeric and character class ids", {
+  skip_on_cran() # uses secrets
+  vcr::use_cassette("ncbi_children_id_class_check", {
+    tt <- ncbi_children(id = 4751)
+    tt2 <- ncbi_children(id = '4751')
+  })
+
+  expect_identical(tt, tt2)
+})
