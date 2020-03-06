@@ -3,14 +3,11 @@
 \name{key_helpers}
 \alias{key_helpers}
 \alias{use_tropicos}
-\alias{use_eol}
 \alias{use_entrez}
 \alias{use_iucn}
 \title{Helpers to set up authentication for the different providers.}
 \usage{
 use_tropicos()
-
-use_eol()
 
 use_entrez()
 

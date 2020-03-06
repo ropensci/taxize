@@ -34,8 +34,10 @@ use_tropicos <- function() {
   invisible(use_fxns_urls$tropicos)
 }
 
+#' use eol
 #' @export
-#' @rdname key_helpers
+#' @name use_eol-defunct
+#' @keywords internal
 use_eol <- function() {
   .Defunct(msg = "EOL no longer requires an API key")
 }
