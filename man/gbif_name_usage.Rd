@@ -61,5 +61,5 @@ This is a taxize version of the same function in the \code{rgbif} package so as 
 import rgbif and thus require GDAL binary installation.
 }
 \references{
-\url{http://www.gbif.org/developer/summary}
+\url{https://www.gbif.org/developer/summary}
 }

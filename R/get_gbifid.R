@@ -309,7 +309,7 @@ as.data.frame.gbifid <- function(x, ...){
              stringsAsFactors = FALSE)
 }
 
-make_gbifid <- function(x, check=TRUE) make_generic(x, 'http://www.gbif.org/species/%s', "gbifid", check)
+make_gbifid <- function(x, check=TRUE) make_generic(x, 'https://www.gbif.org/species/%s', "gbifid", check)
 
 check_gbifid <- function(x){
   tryid <- tryCatch(gbif_name_usage(key = x), error = function(e) e)

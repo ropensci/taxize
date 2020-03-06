@@ -15,7 +15,7 @@ returned as a list of vectors corresponding to the different range types:
 native, introduced, etc.}
 
 \item{key}{a Redlist API key, get one from
-http://apiv3.iucnredlist.org/api/v3/token Required for
+https://apiv3.iucnredlist.org/api/v3/token Required for
 \code{iucn_summary}. Defaults to \code{NULL} in case you have your key
 stored (see \verb{Redlist Authentication} below).}
 
@@ -59,7 +59,7 @@ status into a vector.
 
 \code{iucn_summary} uses the new Redlist API for searching for a IUCN ID, so we
 use the \code{\link[=rl_search]{rl_search()}} function internally. This function
-requires an API key. Get the key at \url{http://apiv3.iucnredlist.org/api/v3/token},
+requires an API key. Get the key at \url{https://apiv3.iucnredlist.org/api/v3/token},
 and pass it to the \code{key} parameter, or store in your \code{.Renviron} file like
 \code{IUCN_REDLIST_KEY=yourkey} or in your \code{.Rprofile} file like
 \code{options(iucn_redlist_key="yourkey")}. We strongly encourage you to not pass

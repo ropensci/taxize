@@ -58,7 +58,7 @@ Note that a few data sources require SOAP web services, which are difficult to s
 <tr>
 	<td style="text-align:left;">Integrated Taxonomic Information Service</td>
 	<td style="text-align:left;"><code>itis</code></td>
-	<td style="text-align:left;"><a href="http://www.itis.gov/ws_description.html">link</a></td>
+	<td style="text-align:left;"><a href="https://www.itis.gov/ws_description.html">link</a></td>
 	<td style="text-align:left;">none</td>
 </tr>
 <tr>
@@ -76,8 +76,8 @@ Note that a few data sources require SOAP web services, which are difficult to s
 <tr>
 	<td style="text-align:left;">IUCN Red List</td>
 	<td style="text-align:left;"><code>iucn</code></td>
-	<td style="text-align:left;"><a href="http://apiv3.iucnredlist.org/api/v3/docs">link</a></td>
-	<td style="text-align:left;"><a href="http://apiv3.iucnredlist.org/api/v3/token">link</a></td>
+	<td style="text-align:left;"><a href="https://apiv3.iucnredlist.org/api/v3/docs">link</a></td>
+	<td style="text-align:left;"><a href="https://apiv3.iucnredlist.org/api/v3/token">link</a></td>
 </tr>
 <tr>
 	<td style="text-align:left;">Tropicos</td>
@@ -100,7 +100,7 @@ Note that a few data sources require SOAP web services, which are difficult to s
 <tr>
 	<td style="text-align:left;">CANADENSYS Vascan name search API</td>
 	<td style="text-align:left;"><code>vascan</code></td>
-	<td style="text-align:left;"><a href="http://data.canadensys.net/vascan/api">link</a></td>
+	<td style="text-align:left;"><a href="https://data.canadensys.net/vascan/api">link</a></td>
 	<td style="text-align:left;">none</td>
 </tr>
 <tr>
@@ -130,7 +130,7 @@ Note that a few data sources require SOAP web services, which are difficult to s
 <tr>
 	<td style="text-align:left;">EU BON</td>
 	<td style="text-align:left;"><code>eubon</code></td>
-	<td style="text-align:left;"><a href="http://cybertaxonomy.eu/eubon-utis/doc.html">link</a></td>
+	<td style="text-align:left;"><a href="https://cybertaxonomy.eu/eubon-utis/doc.html">link</a></td>
 	<td style="text-align:left;">none</td>
 </tr>
 <tr>
@@ -148,7 +148,7 @@ Note that a few data sources require SOAP web services, which are difficult to s
 <tr>
 	<td style="text-align:left;">World Register of Marine Species (WoRMS)</td>
 	<td style="text-align:left;"><code>worms</code></td>
-	<td style="text-align:left;"><a href="http://www.marinespecies.org/aphia.php?p=webservice">link</a></td>
+	<td style="text-align:left;"><a href="https://www.marinespecies.org/aphia.php?p=webservice">link</a></td>
 	<td style="text-align:left;">none</td>
 </tr>
 <tr>

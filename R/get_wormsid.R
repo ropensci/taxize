@@ -298,7 +298,10 @@ as.data.frame.wormsid <- function(x, ...){
              stringsAsFactors = FALSE)
 }
 
-make_worms <- function(x, check=TRUE) make_generic(x, 'http://www.marinespecies.org/aphia.php?p=taxdetails&id=%s', "wormsid", check)
+make_worms <- function(x, check=TRUE) {
+  make_generic(x, 'https://www.marinespecies.org/aphia.php?p=taxdetails&id=%s',
+    "wormsid", check)
+}
 
 check_wormsid <- function(x){
   tt <- worrms::wm_record(as.numeric(x))

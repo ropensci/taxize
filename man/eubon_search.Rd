@@ -89,7 +89,7 @@ eubon_search("Salmo", "worms", addParentTaxon = TRUE)
 }
 }
 \references{
-\url{http://cybertaxonomy.eu/eu-bon/utis/1.3/doc.html}
+\url{https://cybertaxonomy.eu/eu-bon/utis/1.3/doc.html}
 }
 \seealso{
 Other eubon-methods: 

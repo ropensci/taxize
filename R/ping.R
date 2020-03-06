@@ -50,7 +50,7 @@
 #' @export
 #' @rdname ping
 col_ping <- function(what = "status", ...) {
-  res <- pGET('http://www.catalogueoflife.org/col/webservice?name=Apis', ...)
+  res <- pGET('https://www.catalogueoflife.org/col/webservice?name=Apis', ...)
   switch(
     matchwhat(what),
     status = match_status(res),
@@ -80,7 +80,7 @@ eol_ping <- function(what = "status", ...) {
 #' @export
 #' @rdname ping
 itis_ping <- function(what = "status", ...) {
-  res <- pGET("http://www.itis.gov/ITISWebService/services/ITISService/getDescription", ...)
+  res <- pGET("https://www.itis.gov/ITISWebService/services/ITISService/getDescription", ...)
   switch(matchwhat(what),
          status = match_status(res),
          code = match_code(res, what),
@@ -147,7 +147,7 @@ nbn_ping <- function(what = "status", ...) {
 #' @export
 #' @rdname ping
 gbif_ping <- function(what = "status", ...) {
-  res <- pGET("http://api.gbif.org/v1/species/1", ...)
+  res <- pGET("https://api.gbif.org/v1/species/1", ...)
   switch(matchwhat(what),
          status = match_status(res),
          code = match_code(res, what),
@@ -171,7 +171,7 @@ bold_ping <- function(what = "status", ...) {
 #' @export
 #' @rdname ping
 ipni_ping <- function(what = "status", ...) {
-  res <- pGET("http://www.ipni.org/ipni/advPlantNameSearch.do?find_genus=Brintonia&output_format=delimited-minimal", ...)
+  res <- pGET("https://www.ipni.org/ipni/advPlantNameSearch.do?find_genus=Brintonia&output_format=delimited-minimal", ...)
   switch(matchwhat(what),
          status = match_status(res),
          code = match_code(res, what),
@@ -186,7 +186,7 @@ ipni_ping <- function(what = "status", ...) {
 #' @export
 #' @rdname ping
 vascan_ping <- function(what = "status", ...) {
-  res <- pGET("http://data.canadensys.net/vascan/api/0.1/search.json?q=Crataegus", ...)
+  res <- pGET("https://data.canadensys.net/vascan/api/0.1/search.json?q=Crataegus", ...)
   switch(matchwhat(what),
          status = match_status(res),
          code = match_code(res, what),

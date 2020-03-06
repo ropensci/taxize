@@ -9,7 +9,7 @@
 #' returned as a list of vectors corresponding to the different range types:
 #' native, introduced, etc.
 #' @param key a Redlist API key, get one from 
-#' http://apiv3.iucnredlist.org/api/v3/token Required for 
+#' https://apiv3.iucnredlist.org/api/v3/token Required for 
 #' `iucn_summary`. Defaults to `NULL` in case you have your key 
 #' stored (see `Redlist Authentication` below).
 #' @param ... curl options passed on to [crul::verb-GET]
@@ -49,7 +49,7 @@
 #' @section Redlist Authentication:
 #' `iucn_summary` uses the new Redlist API for searching for a IUCN ID, so we
 #' use the [rl_search()] function internally. This function
-#' requires an API key. Get the key at <http://apiv3.iucnredlist.org/api/v3/token>,
+#' requires an API key. Get the key at <https://apiv3.iucnredlist.org/api/v3/token>,
 #' and pass it to the `key` parameter, or store in your `.Renviron` file like
 #' `IUCN_REDLIST_KEY=yourkey` or in your `.Rprofile` file like
 #' `options(iucn_redlist_key="yourkey")`. We strongly encourage you to not pass

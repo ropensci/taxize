@@ -269,7 +269,9 @@ as.data.frame.pow <- function(x, ...){
              stringsAsFactors = FALSE)
 }
 
-make_pow <- function(x, check=TRUE) make_generic(x, 'http://powo.science.kew.org/taxon/%s', "pow", check)
+make_pow <- function(x, check=TRUE) {
+  make_generic(x, 'http://powo.science.kew.org/taxon/%s', "pow", check)
+}
 
 check_pow <- function(x){
   tryid <- tryCatch(pow_lookup(x), error = function(e) e)

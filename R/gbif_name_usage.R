@@ -25,7 +25,7 @@
 #' @param ... Curl options passed on to [crul::HttpClient]
 #' @param limit Number of records to return
 #' @param start Record number to start at
-#' @references <http://www.gbif.org/developer/summary>
+#' @references <https://www.gbif.org/developer/summary>
 #' @return A list of length two. The first element is metadata. The second is
 #' either a data.frame (verbose=FALSE, default) or a list (verbose=TRUE)
 
@@ -53,19 +53,19 @@ gbif_name_usage <- function(key=NULL, name=NULL, data='all', language=NULL, data
     }
 
     if (x == 'all' && is.null(key)) {
-      url <- 'http://api.gbif.org/v1/species'
+      url <- 'https://api.gbif.org/v1/species'
     } else {
       if (x == 'all' && !is.null(key)) {
-        url <- sprintf('http://api.gbif.org/v1/species/%s', key)
+        url <- sprintf('https://api.gbif.org/v1/species/%s', key)
       } else
         if (x %in% c('verbatim', 'name', 'parents', 'children',
                      'related', 'synonyms', 'descriptions',
                      'distributions', 'images', 'references', 'species_profiles',
                      'vernacular_names', 'type_specimens')) {
-          url <- sprintf('http://api.gbif.org/v1/species/%s/%s', key, x)
+          url <- sprintf('https://api.gbif.org/v1/species/%s/%s', key, x)
         } else
           if (x == 'root') {
-            url <- sprintf('http://api.gbif.org/v1/species/root/%s/%s', uuid, shortname)
+            url <- sprintf('https://api.gbif.org/v1/species/root/%s/%s', uuid, shortname)
           }
     }
     cli <- crul::HttpClient$new(url = url, headers = tx_ual, opts = list(...))

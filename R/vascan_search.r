@@ -9,7 +9,7 @@
 #' @param ... (list) Further args passed on to [crul::verb-GET]
 #' @author Scott Chamberlain {myrmecocystus@@gmail.com}
 #' @return json, xml or a list.
-#' @references API docs <http://data.canadensys.net/vascan/api>
+#' @references API docs <https://data.canadensys.net/vascan/api>
 #' @keywords names taxonomy
 #' @details Note that we lowercase all outputs in data.frame's, but when a
 #' list is given back, we don't touch the list names.
@@ -37,7 +37,7 @@
 #' invisible(vascan_search(q = "Helianthus annuus", verbose = TRUE))
 #' }
 vascan_search <- function(q, format='json', raw=FALSE, ...) {
-  url <- sprintf("http://data.canadensys.net/vascan/api/0.1/search.%s",
+  url <- sprintf("https://data.canadensys.net/vascan/api/0.1/search.%s",
     format)
   cli <- crul::HttpClient$new(url = url, headers = tx_ual,
     opts = list(...))

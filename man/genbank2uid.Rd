@@ -22,7 +22,7 @@ one or more NCBI taxonomic IDs
 Get NCBI taxonomy UID from GenBankID
 }
 \details{
-See \url{http://www.ncbi.nlm.nih.gov/Sitemap/sequenceIDs.html} for
+See \url{https://www.ncbi.nlm.nih.gov/Sitemap/sequenceIDs.html} for
 help on why there are two identifiers, and the difference between them.
 }
 \section{Authentication}{

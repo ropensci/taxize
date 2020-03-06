@@ -294,11 +294,21 @@ as.boldid.boldid <- function(x, check=TRUE) x
 
 #' @export
 #' @rdname get_boldid
-as.boldid.character <- function(x, check=TRUE) if(length(x) == 1) make_boldid(x, check) else collapse(x, make_boldid, "boldid", check=check)
+as.boldid.character <- function(x, check=TRUE) {
+  if (length(x) == 1) 
+    make_boldid(x, check) 
+  else 
+    collapse(x, make_boldid, "boldid", check=check)
+}
 
 #' @export
 #' @rdname get_boldid
-as.boldid.list <- function(x, check=TRUE) if(length(x) == 1) make_boldid(x, check) else collapse(x, make_boldid, "boldid", check=check)
+as.boldid.list <- function(x, check=TRUE) {
+  if (length(x) == 1) 
+    make_boldid(x, check) 
+  else 
+    collapse(x, make_boldid, "boldid", check=check)
+}
 
 #' @export
 #' @rdname get_boldid
@@ -324,7 +334,11 @@ as.data.frame.boldid <- function(x, ...){
              stringsAsFactors = FALSE)
 }
 
-make_boldid <- function(x, check=TRUE) make_generic(x, 'http://boldsystems.org/index.php/Taxbrowser_Taxonpage?taxid=%s', "boldid", check)
+make_boldid <- function(x, check=TRUE) {
+  make_generic(x,
+    'http://boldsystems.org/index.php/Taxbrowser_Taxonpage?taxid=%s',
+    "boldid", check)
+}
 
 check_boldid <- function(x){
   tryid <- bold_tax_id(x)
@@ -333,12 +347,19 @@ check_boldid <- function(x){
 
 #' @export
 #' @rdname get_boldid
-get_boldid_ <- function(searchterm, messages = TRUE, fuzzy = FALSE, dataTypes='basic', includeTree=FALSE, rows = NA, ...){
-  setNames(lapply(searchterm, get_boldid_help, messages = messages, fuzzy = fuzzy, dataTypes=dataTypes, includeTree=includeTree, rows = rows, ...), searchterm)
+get_boldid_ <- function(searchterm, messages = TRUE, fuzzy = FALSE,
+  dataTypes='basic', includeTree=FALSE, rows = NA, ...) {
+
+  stats::setNames(lapply(searchterm, get_boldid_help, messages = messages,
+    fuzzy = fuzzy, dataTypes=dataTypes, includeTree=includeTree,
+    rows = rows, ...), searchterm)
 }
 
-get_boldid_help <- function(searchterm, messages, fuzzy, dataTypes, includeTree, rows, ...){
+get_boldid_help <- function(searchterm, messages, fuzzy, dataTypes,
+  includeTree, rows, ...){
+  
   mssg(messages, "\nRetrieving data for taxon '", searchterm, "'\n")
-  df <- bold_search(name = searchterm, fuzzy = fuzzy, dataTypes = dataTypes, includeTree = includeTree)
+  df <- bold_search(name = searchterm, fuzzy = fuzzy, dataTypes = dataTypes,
+    includeTree = includeTree)
   if(NROW(df) == 0) NULL else sub_rows(df, rows)
 }
