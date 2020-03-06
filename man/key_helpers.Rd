@@ -30,14 +30,6 @@ store the key. After filling the form you will get the key soon, but
 not immediately.
 }
 
-\section{\code{use_eol()}}{
-
-Browse EOL to help make an API key request and provides instruction on how
-to store the key. There's no direct URL to request a key, one first needs
-to log in or register and then to generate a key from one's Preferences
-page.
-}
-
 \section{\code{use_entrez()}}{
 
 Browse NCBI Entrez to help make an API key request and provides instruction

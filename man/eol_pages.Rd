@@ -25,7 +25,6 @@ eol_pages(
   taxonomy = TRUE,
   vetted = 0,
   cache_ttl = NULL,
-  key = NULL,
   ...
 )
 }
@@ -85,9 +84,6 @@ unreviewed content will be returned (untrusted content will not be returned).
 The default is to return all content. (Default: \code{FALSE})}
 
 \item{cache_ttl}{The number of seconds you wish to have the response cached.}
-
-\item{key}{Your EOL API key; see \link{taxize-authentication}
-for help on authentication}
 
 \item{...}{Curl options passed on to \link[crul:HttpClient]{crul::HttpClient}}
 }

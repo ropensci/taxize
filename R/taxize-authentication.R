@@ -33,7 +33,6 @@
 #'
 #' Save your API keys with the following names:
 #' * Tropicos: R option or env var as 'TROPICOS_KEY'
-#' * EOL: R option or env var as 'EOL_KEY'
 #' * IUCN: R option or env var as 'IUCN_REDLIST_KEY'
 #' * ENTREZ: R option or env var as 'ENTREZ_KEY'
 #'

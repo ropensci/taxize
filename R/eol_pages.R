@@ -37,11 +37,9 @@
 #' unreviewed content will be returned (untrusted content will not be returned).
 #' The default is to return all content. (Default: `FALSE`)
 #' @param cache_ttl The number of seconds you wish to have the response cached.
-#' @param key Your EOL API key; see [taxize-authentication]
-#' for help on authentication
 #' @param ... Curl options passed on to [crul::HttpClient]
 #' @details It's possible to return JSON or XML with the EOL API. However,
-#' 		this function only returns JSON for now.
+#' this function only returns JSON for now.
 #' @return JSON list object, or data.frame.
 #' @examples \dontrun{
 #' (pageid <- eol_search('Pomatomus')$pageid[1])
@@ -61,14 +59,13 @@ eol_pages <- function(taxonconceptID, images_per_page=NULL, images_page=NULL,
   maps_per_page=NULL, maps_page=NULL, texts_per_page=NULL, texts_page=NULL,
   subjects='overview', licenses='all', details=FALSE,
   common_names=FALSE, synonyms=FALSE, references=FALSE, taxonomy=TRUE, vetted=0,
-  cache_ttl=NULL, key = NULL, ...) {
+  cache_ttl=NULL, ...) {
 
   details <- tolower(details)
   common_names <- tolower(common_names)
   synonyms <- tolower(synonyms)
   references <- tolower(references)
 
-	key <- getkey(key, "EOL_KEY")
 	args <- tc(list(images_per_page=images_per_page, images_page=images_page,
     videos_per_page=videos_per_page, videos_page=videos_page,
     sounds_per_page=sounds_per_page, sounds_page=sounds_page,
@@ -76,7 +73,7 @@ eol_pages <- function(taxonconceptID, images_per_page=NULL, images_page=NULL,
     texts_per_page=texts_per_page, texts_page=texts_page,
     subjects=subjects, licenses=licenses, details=details,
     common_names=common_names, synonyms=synonyms, references=references,
-    taxonomy=taxonomy, vetted=vetted, cache_ttl=cache_ttl, key=key))
+    taxonomy=taxonomy, vetted=vetted, cache_ttl=cache_ttl))
   cli <- crul::HttpClient$new(
     url = file.path(eol_url("pages"), paste0(taxonconceptID, ".json")),
     headers = tx_ual,

@@ -40,7 +40,6 @@ variables.
 Save your API keys with the following names:
 \itemize{
 \item Tropicos: R option or env var as 'TROPICOS_KEY'
-\item EOL: R option or env var as 'EOL_KEY'
 \item IUCN: R option or env var as 'IUCN_REDLIST_KEY'
 \item ENTREZ: R option or env var as 'ENTREZ_KEY'
 }

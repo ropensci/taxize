@@ -15,14 +15,9 @@
 #' and that matching page will be used as the taxonomic group against which
 #' to filter search results
 #' @param cache_ttl The number of seconds you wish to have the response cached.
-#' @param key Your EOL API key. See [taxize-authentication] for
-#' help on authentication
 #' @param ... Curl options passed on to [crul::HttpClient]
 #' @details It's possible to return JSON or XML with the EOL API. However,
 #' 		this function only returns JSON for now.
-#'
-#' @section Authentication:
-#' See [taxize-authentication] for help on authentication
 #'
 #' @return A data frame with four columns:
 #'
@@ -42,15 +37,14 @@
 #' }
 
 eol_search <- function(terms, page=1, exact=NULL, filter_tid=NULL,
-  filter_heid=NULL, filter_by_string=NULL, cache_ttl=NULL, key = NULL, ...) {
+  filter_heid=NULL, filter_by_string=NULL, cache_ttl=NULL, ...) {
 
-	key <- getkey(key, "EOL_KEY")
 	query <- gsub("\\s", "+", terms)
   args <- tc(list(q = query, page = page, exact = exact,
                   filter_by_taxon_concept_id = filter_tid,
                   filter_by_hierarchy_entry_id = filter_heid,
                   filter_by_string = filter_by_string,
-                  cache_ttl = cache_ttl, key = key))
+                  cache_ttl = cache_ttl))
   cli <- crul::HttpClient$new(
     url = paste0(eol_url("search"), ".json"),
     headers = tx_ual,

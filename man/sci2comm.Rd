@@ -32,7 +32,7 @@ sci2comm(...)
 each taxonomic data source has their own identifiers,  so that if you
 provide the wrong \code{db} value for the identifier you could get a
 result, but it will likely be wrong (not what you were expecting).
-If using ncbi, eol or iucn we recommend getting an API key;
+If using ncbi or iucn we recommend getting an API key;
 see \link{taxize-authentication}}
 
 \item{simplify}{(logical) If TRUE, simplify output to a vector of names.

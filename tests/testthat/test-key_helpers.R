@@ -12,9 +12,8 @@ test_that("use_tropicos produces expected URL and message", {
 })
 
 
-test_that("use_eol produces expected URL and message", {
-  expect_equal(use_eol(), "https://eol.org/users/sign_up")
-  expect_message(use_eol(), "Generate your key")
+test_that("use_eol is defunct", {
+  expect_error(use_eol())
 })
 
 test_that("use_entrez produces expected URL and message", {

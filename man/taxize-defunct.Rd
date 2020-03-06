@@ -9,8 +9,10 @@ The following functions are now defunct (no longer available):
 \itemize{
 \item All COL functions are defunct: \verb{as.colid, }col_children\verb{, }col_classification\verb{, }col_downstream\verb{, }col_search\verb{, }get_colid\verb{, }get_colid_\verb{, }as.data.frame.colid\verb{, }children.colid\verb{, }classification.colid\verb{, }downstream.colid\verb{, }id2name.colid\verb{, }lowest_common.colid\verb{, }synonyms.colid\verb{, }upstream.colid`
 \item \code{col_classification()}: See\code{classification()}
-\item \code{eol_hierarchy()}: See\code{classification()}
 \item \code{tp_classification()}: See\code{classification()}
+\item \code{eol_hierarchy()}: See\code{classification()}
+\item \code{\link[=eol_invasive]{eol_invasive()}}: See \code{eol} in the \pkg{originr} package.
+\item \code{\link[=use_eol]{use_eol()}}: EOL no longer requires an API key
 \item \code{\link[=tpl_search]{tpl_search()}}: Use the \pkg{Taxonstand} functions \code{TPL} or \code{TPLck} directly.
 \item \code{\link[=get_seqs]{get_seqs()}}: This function changed name to\code{ncbi_getbyname()}()].
 \item \code{\link[=get_genes]{get_genes()}}: This function changed name to\code{ncbi_getbyid()}()].
@@ -18,7 +20,6 @@ The following functions are now defunct (no longer available):
 \item \code{\link[=ncbi_getbyname]{ncbi_getbyname()}}: See \code{ncbi_byname} in the \pkg{traits} package.
 \item \code{\link[=ncbi_getbyid]{ncbi_getbyid()}}: See \code{ncbi_byid} in the \pkg{traits} package.
 \item \code{\link[=ncbi_search]{ncbi_search()}}: See \code{ncbi_searcher} in the \pkg{traits} package.
-\item \code{\link[=eol_invasive]{eol_invasive()}}: See \code{eol} in the \pkg{originr} package.
 \item \code{\link[=gisd_isinvasive]{gisd_isinvasive()}}: See \code{gisd} in the \pkg{originr} package.
 \item \code{\link[=ubio_classification]{ubio_classification()}}:  The uBio web services was down for quite a while, is
 now (as of 2016-05-09) back up, but we don't trust that it will stay up and available.

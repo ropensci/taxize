@@ -1,0 +1,1534 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://eol.org/api/search/1.0.json?q=Puma%2Bconcolor&page=1
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 06 Mar 2020 18:06:56 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '3071'
+      connection: keep-alive
+      x-frame-options: ALLOWALL
+      x-robots-tag: noindex
+      etag: W/"62e785ef54c2e38d7b4ead2798a43756"
+      cache-control: max-age=0, private, must-revalidate
+      x-request-id: 6239694a-5a48-40f3-b44b-2a36d0398d02
+      x-runtime: '0.365062'
+      age: '0'
+      x-cache: MISS
+      x-cache-hits: '0'
+      accept-ranges: bytes
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"totalResults":29,"startIndex":1,"itemsPerPage":50,"results":[{"id":49994165,"title":"Puma
+        concolor coryi","link":"https://eol.org/pages/49994165","content":""},{"id":52384445,"title":"Puma
+        concolor coryi","link":"https://eol.org/pages/52384445","content":""},{"id":1244081,"title":"Puma
+        concolor puma","link":"https://eol.org/pages/1244081","content":""},{"id":311910,"title":"Puma
+        concolor","link":"https://eol.org/pages/311910","content":""},{"id":47364954,"title":"Puma
+        concolor coryi","link":"https://eol.org/pages/47364954","content":""},{"id":1268505,"title":"Puma
+        concolor concolor","link":"https://eol.org/pages/1268505","content":""},{"id":51907120,"title":"\u003ci\u003ePuma
+        \u003ci\u003econcolor\u003c/i\u003e\u003c/i\u003e concolor","link":"https://eol.org/pages/51907120","content":""},{"id":1244082,"title":"Puma
+        concolor cabrerae","link":"https://eol.org/pages/1244082","content":""},{"id":1271362,"title":"Puma
+        concolor anthonyi","link":"https://eol.org/pages/1271362","content":""},{"id":1240079,"title":"Puma
+        concolor couguar","link":"https://eol.org/pages/1240079","content":""},{"id":51907122,"title":"\u003ci\u003ePuma
+        concolor couguar\u003c/i\u003e","link":"https://eol.org/pages/51907122","content":""},{"id":1276463,"title":"Puma
+        concolor costaricensis","link":"https://eol.org/pages/1276463","content":""},{"id":51380606,"title":"Puma
+        concolor coryi","link":"https://eol.org/pages/51380606","content":""},{"id":52477261,"title":"Puma
+        concolor coryi","link":"https://eol.org/pages/52477261","content":""},{"id":51618901,"title":"Puma
+        concolor coryi","link":"https://eol.org/pages/51618901","content":""},{"id":51621924,"title":"Puma
+        concolor coryi","link":"https://eol.org/pages/51621924","content":""},{"id":51127638,"title":"Puma
+        concolor coryi","link":"https://eol.org/pages/51127638","content":""},{"id":52454127,"title":"Puma
+        concolor coryi","link":"https://eol.org/pages/52454127","content":""},{"id":52458602,"title":"Puma
+        concolor coryi","link":"https://eol.org/pages/52458602","content":""},{"id":52445508,"title":"Puma
+        concolor coryi","link":"https://eol.org/pages/52445508","content":""},{"id":52484308,"title":"Puma
+        concolor coryi","link":"https://eol.org/pages/52484308","content":""},{"id":52370902,"title":"Puma
+        concolor coryi","link":"https://eol.org/pages/52370902","content":""},{"id":47054107,"title":"Puma
+        concolor discolor","link":"https://eol.org/pages/47054107","content":""},{"id":51907121,"title":"\u003ci\u003ePuma
+        concolor costaricensis\u003c/i\u003e","link":"https://eol.org/pages/51907121","content":""},{"id":51952749,"title":"Puma
+        concolor papillomavirus type 1","link":"https://eol.org/pages/51952749","content":""},{"id":51399478,"title":"Felis
+        concolor","link":"https://eol.org/pages/51399478","content":""},{"id":52384446,"title":"Puma
+        concolor coryi","link":"https://eol.org/pages/52384446","content":""},{"id":47364953,"title":"Puma
+        concolor stanleyana","link":"https://eol.org/pages/47364953","content":""},{"id":52384447,"title":"Puma
+        concolor coryi","link":"https://eol.org/pages/52384447","content":""}]}'
+  recorded_at: 2020-03-06 18:07:03 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://eol.org/api/pages/1.0/49994165.json?subjects=overview&licenses=all&details=false&common_names=false&synonyms=false&references=false&taxonomy=TRUE&vetted=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 06 Mar 2020 18:06:57 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '608'
+      connection: keep-alive
+      x-frame-options: ALLOWALL
+      x-robots-tag: noindex
+      etag: W/"80bb71e131085baf883bfae933758e62"
+      cache-control: max-age=0, private, must-revalidate
+      x-request-id: 491c9835-0e2b-434e-bd8a-006d6e34f02b
+      x-runtime: '0.019314'
+      age: '0'
+      x-cache: MISS
+      x-cache-hits: '0'
+      accept-ranges: bytes
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"taxonConcept":{"identifier":49994165,"scientificName":"Puma concolor
+        coryi","richness_score":null,"taxonConcepts":[{"identifier":10196321,"scientificName":"Puma
+        concolor coryi","name":"Puma concolor coryi","nameAccordingTo":"iNaturalist","canonicalForm":"\u003ci\u003ePuma
+        concolor coryi\u003c/i\u003e","sourceIdentifier":"https://www.inaturalist.org/taxa/198919"},{"identifier":31391334,"scientificName":"Puma
+        concolor coryi","name":"Puma concolor coryi","nameAccordingTo":"Animal Diversity
+        Web","canonicalForm":"\u003ci\u003ePuma concolor coryi\u003c/i\u003e","sourceIdentifier":"Puma_concolor_coryi"}]}}'
+  recorded_at: 2020-03-06 18:07:03 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://eol.org/api/pages/1.0/52384445.json?subjects=overview&licenses=all&details=false&common_names=false&synonyms=false&references=false&taxonomy=TRUE&vetted=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 06 Mar 2020 18:06:57 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '359'
+      connection: keep-alive
+      x-frame-options: ALLOWALL
+      x-robots-tag: noindex
+      etag: W/"148a817b6449d103c60233fdc1da3e3e"
+      cache-control: max-age=0, private, must-revalidate
+      x-request-id: 5e3411e5-aea0-4c64-89a3-c08c32b39fba
+      x-runtime: '0.018783'
+      age: '0'
+      x-cache: MISS
+      x-cache-hits: '0'
+      accept-ranges: bytes
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"taxonConcept":{"identifier":52384445,"scientificName":"Puma concolor
+        coryi","richness_score":null,"taxonConcepts":[{"identifier":39051943,"scientificName":"Puma
+        concolor coryi","name":"Puma concolor coryi","nameAccordingTo":"Wikidata","canonicalForm":"\u003ci\u003ePuma
+        concolor coryi\u003c/i\u003e","sourceIdentifier":"Q776670","taxonRank":"subspecies"}]}}'
+  recorded_at: 2020-03-06 18:07:03 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://eol.org/api/pages/1.0/1244081.json?subjects=overview&licenses=all&details=false&common_names=false&synonyms=false&references=false&taxonomy=TRUE&vetted=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 06 Mar 2020 18:06:57 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '2294'
+      connection: keep-alive
+      x-frame-options: ALLOWALL
+      x-robots-tag: noindex
+      etag: W/"31390ae9edab48db8342499cfb4a3a4d"
+      cache-control: max-age=0, private, must-revalidate
+      x-request-id: d53026f3-000a-4ef8-b434-8fff0b8a02fc
+      x-runtime: '0.039607'
+      age: '0'
+      x-cache: MISS
+      x-cache-hits: '0'
+      accept-ranges: bytes
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"taxonConcept":{"identifier":1244081,"scientificName":"Puma concolor
+        puma (Molina, 1782)","richness_score":null,"taxonConcepts":[{"identifier":7197707,"scientificName":"Puma
+        concolor subsp. puma (Molina, 1782)","name":"Puma concolor subsp. puma (Molina,
+        1782)","nameAccordingTo":"EOL Dynamic Hierarchy 0.9","canonicalForm":"\u003ci\u003ePuma
+        concolor puma\u003c/i\u003e","sourceIdentifier":"-2423815","taxonRank":"subspecies"},{"identifier":20112942,"scientificName":"Puma
+        concolor puma","name":"Puma concolor puma","nameAccordingTo":"NMNH Mammals","canonicalForm":"\u003ci\u003ePuma
+        concolor puma\u003c/i\u003e","sourceIdentifier":"5188df630d6d36ad36f5ceb7951691bc"},{"identifier":29321923,"scientificName":"Puma
+        concolor puma","name":"Puma concolor puma","nameAccordingTo":"wikipedia ES","canonicalForm":"\u003ci\u003ePuma
+        concolor puma\u003c/i\u003e","sourceIdentifier":"Q9064709","taxonRank":"subspecies"},{"identifier":35005202,"scientificName":"Puma
+        concolor puma (Molina, 1782)","name":"Puma concolor puma (Molina, 1782)","nameAccordingTo":"Integrated
+        Taxonomic Information System (ITIS) Taxonomic Hierarchy","canonicalForm":"\u003ci\u003ePuma
+        concolor puma\u003c/i\u003e","sourceIdentifier":"726433","taxonRank":"subspecies"},{"identifier":40727659,"scientificName":"Puma
+        concolor puma","name":"Puma concolor puma","nameAccordingTo":"wikipedia PT","canonicalForm":"\u003ci\u003ePuma
+        concolor puma\u003c/i\u003e","sourceIdentifier":"Q9064709","taxonRank":"subspecies"},{"identifier":41621255,"scientificName":"Puma
+        concolor puma (Molina, 1782)","name":"Puma concolor puma (Molina, 1782)","nameAccordingTo":"EOL
+        Dynamic Hierarchy 1.1","canonicalForm":"\u003ci\u003ePuma concolor puma\u003c/i\u003e","sourceIdentifier":"EOL-000000631936","taxonRank":"infraspecies"},{"identifier":59492958,"scientificName":"Puma
+        concolor puma","name":"Puma concolor puma","nameAccordingTo":"wikipedia EU","canonicalForm":"\u003ci\u003ePuma
+        concolor puma\u003c/i\u003e","sourceIdentifier":"Q9064709","taxonRank":"subspecies"},{"identifier":63353806,"scientificName":"Puma
+        concolor puma (Molina, 1782)","name":"Puma concolor puma (Molina, 1782)","nameAccordingTo":"GBIF
+        classification","canonicalForm":"\u003ci\u003ePuma concolor puma\u003c/i\u003e","sourceIdentifier":"6164622","taxonRank":"subspecies"}]}}'
+  recorded_at: 2020-03-06 18:07:03 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://eol.org/api/pages/1.0/311910.json?subjects=overview&licenses=all&details=false&common_names=false&synonyms=false&references=false&taxonomy=TRUE&vetted=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 06 Mar 2020 18:06:58 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '24248'
+      connection: keep-alive
+      x-frame-options: ALLOWALL
+      x-robots-tag: noindex
+      etag: W/"20b979ff3b59d175394ff081a8dfd64d"
+      cache-control: max-age=0, private, must-revalidate
+      x-request-id: 22693d7d-7c88-4a01-a62e-55b1a48ff120
+      x-runtime: '0.242404'
+      age: '0'
+      x-cache: MISS
+      x-cache-hits: '0'
+      accept-ranges: bytes
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"taxonConcept":{"identifier":311910,"scientificName":"Puma concolor
+        (Linnaeus, 1771)","richness_score":null,"taxonConcepts":[{"identifier":2738249,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Flickr BHL","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"8b0f4643f237f0897160a746ac437506"},{"identifier":7158868,"scientificName":"Puma
+        concolor (Linnaeus, 1771)","name":"Puma concolor (Linnaeus, 1771)","nameAccordingTo":"EOL
+        Dynamic Hierarchy 0.9","canonicalForm":"\u003ci\u003ePuma concolor\u003c/i\u003e","sourceIdentifier":"-2388770","taxonRank":"species"},{"identifier":10230473,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"iNaturalist","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"https://www.inaturalist.org/taxa/42007"},{"identifier":17641589,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"SI Wild","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"8b0f4643f237f0897160a746ac437506"},{"identifier":20914078,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Barcode of Life Data Systems","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"12521","taxonRank":"species"},{"identifier":21310451,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"AnAge","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"543f4ea4c125be5a516ece776c7d17ca"},{"identifier":21437996,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Flickr Group","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"8b0f4643f237f0897160a746ac437506"},{"identifier":21569526,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Wikimedia Commons","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":21659332,"scientificName":null,"name":null,"nameAccordingTo":"Wikimedia
+        Commons","canonicalForm":null,"sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":22214988,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"CalPhotos","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"8b0f4643f237f0897160a746ac437506"},{"identifier":26030109,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"AnAge articles","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Puma_concolor"},{"identifier":26252810,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia IT","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":29271176,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia ES","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":31155238,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia EN","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":31391333,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Animal Diversity Web","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Puma_concolor"},{"identifier":31505276,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"EOL authors","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"311910","taxonRank":"species"},{"identifier":31542648,"scientificName":"Puma
+        concolor (Linnaeus, 1771) 1771","name":"Puma concolor (Linnaeus, 1771) 1771","nameAccordingTo":"INBio","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"1693"},{"identifier":31610084,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Fire Effects Information
+        System Animals","canonicalForm":"\u003ci\u003ePuma concolor\u003c/i\u003e","sourceIdentifier":"PUCO"},{"identifier":31768015,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia 中文维基百科","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":31916307,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia FR","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":31966585,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia 日本語","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":32084701,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia русскую Википедию","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":32130716,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia 한국어 위키백과","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":32269285,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia DE","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":32970110,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Morgan Ernest 2003","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Puma_concolor","taxonRank":"species"},{"identifier":37770060,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia NL","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":38010650,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia POL","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":38744946,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia VI","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":38900919,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia CZ","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":39010116,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Wikidata","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":39138792,"scientificName":null,"name":null,"nameAccordingTo":"Wikidata","canonicalForm":null,"sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":39267468,"scientificName":null,"name":null,"nameAccordingTo":"Wikidata","canonicalForm":null,"sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":40139445,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia FI","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":40181538,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia NO","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":40247804,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia RO","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":40306925,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia UK","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":40361979,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia CA","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":40594966,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia SV","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":40692275,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia PT","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":40760585,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia TR","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":40770828,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"VERA","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Puma concolor"},{"identifier":40884955,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Kappeler et al 2013","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Puma_concolor","taxonRank":"species"},{"identifier":41621252,"scientificName":"Puma
+        concolor (Linnaeus, 1771)","name":"Puma concolor (Linnaeus, 1771)","nameAccordingTo":"EOL
+        Dynamic Hierarchy 1.1","canonicalForm":"\u003ci\u003ePuma concolor\u003c/i\u003e","sourceIdentifier":"EOL-000000631933","taxonRank":"species"},{"identifier":44471881,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Kissling et al, 2014","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"2466","taxonRank":"species"},{"identifier":45674016,"scientificName":"Puma
+        concolor (Linnaeus, 1771)","name":"Puma concolor (Linnaeus, 1771)","nameAccordingTo":"IUCN","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"18868"},{"identifier":49819883,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"micro*scope","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"block_id:24-child_id:2099"},{"identifier":50910637,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Belize Species List","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"T106174","taxonRank":"species"},{"identifier":51070899,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Bolivia Species List","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"T107694","taxonRank":"species"},{"identifier":51174559,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Brazil Species List","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"T101499","taxonRank":"species"},{"identifier":51390599,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Canada Species List","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"T116594","taxonRank":"species"},{"identifier":51527423,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Chile Species List","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"T101888","taxonRank":"species"},{"identifier":51705380,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Colombia Species List","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"T107807","taxonRank":"species"},{"identifier":51872835,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Costa Rica Species List","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"T146441","taxonRank":"species"},{"identifier":52046254,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Ecuador Species List","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"T107192","taxonRank":"species"},{"identifier":52113369,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"El Salvador Species List","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"T108787","taxonRank":"species"},{"identifier":52529847,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Germany Species List","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"T158614","taxonRank":"species"},{"identifier":52709642,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Guatemala Species List","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"T109962","taxonRank":"species"},{"identifier":52851844,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Guyana Species List","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"T102110","taxonRank":"species"},{"identifier":54102864,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Nicaragua Species List","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"T115733","taxonRank":"species"},{"identifier":54989700,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Panama Species List","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"T119755","taxonRank":"species"},{"identifier":55506044,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Peru Species List","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"T111865","taxonRank":"species"},{"identifier":55567187,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Paraguay Species List","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"T107453","taxonRank":"species"},{"identifier":56565992,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Suriname Species List","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"T106125","taxonRank":"species"},{"identifier":57272166,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Venezuela Species List","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"T121033","taxonRank":"species"},{"identifier":58909825,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia ID","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":58936590,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Argentina Species List","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"T100438","taxonRank":"species"},{"identifier":59466601,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia EU","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":59565043,"scientificName":"Felis
+        concolor","name":"Felis concolor","nameAccordingTo":"Wildfinder (WWF)","canonicalForm":"\u003ci\u003eFelis
+        concolor\u003c/i\u003e","sourceIdentifier":"Felis_concolor","taxonRank":"species"},{"identifier":59580404,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Wildfinder (WWF)","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Puma_concolor","taxonRank":"species"},{"identifier":59866729,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Pantheria","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Puma concolor"},{"identifier":60454986,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia CY","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":60778537,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"CITES","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"6330","taxonRank":"species"},{"identifier":61017825,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"FEIS Invasiveness structured
+        data in DwCA","canonicalForm":"\u003ci\u003ePuma concolor\u003c/i\u003e","sourceIdentifier":"puma_concolor"},{"identifier":61115796,"scientificName":"Puma
+        concolor (Linnaeus, 1771)","name":"Puma concolor (Linnaeus, 1771)","nameAccordingTo":"Environments
+        EOL","canonicalForm":"\u003ci\u003ePuma concolor\u003c/i\u003e","sourceIdentifier":"EOL:311910"},{"identifier":62133639,"scientificName":"Puma
+        concolor (Linnaeus, 1771)","name":"Puma concolor (Linnaeus, 1771)","nameAccordingTo":"GBIF
+        classification","canonicalForm":"\u003ci\u003ePuma concolor\u003c/i\u003e","sourceIdentifier":"2435099","taxonRank":"species"},{"identifier":65143138,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Paleobiology Database","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"46513","taxonRank":"species"},{"identifier":65723375,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Mexico Species List","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"T103297","taxonRank":"species"},{"identifier":65829512,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"United States Species
+        List","canonicalForm":"\u003ci\u003ePuma concolor\u003c/i\u003e","sourceIdentifier":"T106276","taxonRank":"species"},{"identifier":66579034,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Global Biotic Interactions","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"EOL:311910","taxonRank":"species"},{"identifier":66708298,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Global Biotic Interactions","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"GBIF:2435099","taxonRank":"species"},{"identifier":66768502,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Global Biotic Interactions","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"INAT_TAXON:42007","taxonRank":"species"},{"identifier":66804031,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Global Biotic Interactions","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"NCBI:9696","taxonRank":"species"},{"identifier":67665096,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"North Atlantic Species
+        List","canonicalForm":"\u003ci\u003ePuma concolor\u003c/i\u003e","sourceIdentifier":"T161106","taxonRank":"species"},{"identifier":67755422,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"North Pacific Species
+        List","canonicalForm":"\u003ci\u003ePuma concolor\u003c/i\u003e","sourceIdentifier":"T112127","taxonRank":"species"},{"identifier":68144040,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"South Atlantic Species
+        List","canonicalForm":"\u003ci\u003ePuma concolor\u003c/i\u003e","sourceIdentifier":"T125726","taxonRank":"species"},{"identifier":68346490,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"South Pacific Species
+        List","canonicalForm":"\u003ci\u003ePuma concolor\u003c/i\u003e","sourceIdentifier":"T164391","taxonRank":"species"},{"identifier":68423581,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Arkive","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"puma_concolor"},{"identifier":68439133,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia AST","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":68467673,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia AZ","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":68518327,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia AF","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":68530902,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia LT","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":68546750,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia ET","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":68582932,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia BR","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":68600554,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia hr Croatian","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":68611960,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"MADtraits","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"puma_concolor"},{"identifier":68689174,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia DA","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":68703199,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia LA","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":68706607,"scientificName":null,"name":null,"nameAccordingTo":"wikipedia
+        LA","canonicalForm":null,"sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":68716565,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"Smith et al 2011","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Puma_concolor","taxonRank":"species"},{"identifier":68724321,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia MS","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":68735964,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia SK","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":68744188,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia NN","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":68752203,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia LV","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":68761442,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia IS","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":68768844,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia SL","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":68793555,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"wikipedia GA","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"Q35255","taxonRank":"species"},{"identifier":69638263,"scientificName":"Puma
+        concolor","name":"Puma concolor","nameAccordingTo":"NCBI","canonicalForm":"\u003ci\u003ePuma
+        concolor\u003c/i\u003e","sourceIdentifier":"9696","taxonRank":"species"}]}}'
+  recorded_at: 2020-03-06 18:07:03 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://eol.org/api/pages/1.0/47364954.json?subjects=overview&licenses=all&details=false&common_names=false&synonyms=false&references=false&taxonomy=TRUE&vetted=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 06 Mar 2020 18:06:58 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '539'
+      connection: keep-alive
+      x-frame-options: ALLOWALL
+      x-robots-tag: noindex
+      etag: W/"84ba3ab564aeee88332cd4324b5d5b32"
+      cache-control: max-age=0, private, must-revalidate
+      x-request-id: 31788ace-7b9b-4aed-b626-da51fd7b2192
+      x-runtime: '0.019511'
+      age: '0'
+      x-cache: MISS
+      x-cache-hits: '0'
+      accept-ranges: bytes
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"taxonConcept":{"identifier":47364954,"scientificName":"Puma concolor
+        coryi","richness_score":null,"taxonConcepts":[{"identifier":21596698,"scientificName":"Puma
+        concolor coryi","name":"Puma concolor coryi","nameAccordingTo":"Wikimedia
+        Commons","canonicalForm":"\u003ci\u003ePuma concolor coryi\u003c/i\u003e","sourceIdentifier":"Q776670","taxonRank":"subspecies"},{"identifier":21686504,"scientificName":null,"name":null,"nameAccordingTo":"Wikimedia
+        Commons","canonicalForm":null,"sourceIdentifier":"Q776670","taxonRank":"subspecies"}]}}'
+  recorded_at: 2020-03-06 18:07:03 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://eol.org/api/pages/1.0/1268505.json?subjects=overview&licenses=all&details=false&common_names=false&synonyms=false&references=false&taxonomy=TRUE&vetted=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 06 Mar 2020 18:06:58 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '2751'
+      connection: keep-alive
+      x-frame-options: ALLOWALL
+      x-robots-tag: noindex
+      etag: W/"ed5152c96da0432a54300f62daf144ab"
+      cache-control: max-age=0, private, must-revalidate
+      x-request-id: 4cb5af94-42e1-4c7a-8190-b3bda5b360ac
+      x-runtime: '0.034097'
+      age: '0'
+      x-cache: MISS
+      x-cache-hits: '0'
+      accept-ranges: bytes
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"taxonConcept":{"identifier":1268505,"scientificName":"Puma concolor
+        concolor (Linnaeus, 1771)","richness_score":null,"taxonConcepts":[{"identifier":2734207,"scientificName":"Puma
+        concolor concolor","name":"Puma concolor concolor","nameAccordingTo":"Flickr
+        BHL","canonicalForm":"\u003ci\u003ePuma \u003ci\u003econcolor\u003c/i\u003e\u003c/i\u003e
+        concolor","sourceIdentifier":"6110a3524b9d053e465b4ebad6bb8b33"},{"identifier":7197706,"scientificName":"Puma
+        concolor subsp. concolor","name":"Puma concolor subsp. concolor","nameAccordingTo":"EOL
+        Dynamic Hierarchy 0.9","canonicalForm":"\u003ci\u003ePuma \u003ci\u003econcolor\u003c/i\u003e\u003c/i\u003e
+        concolor","sourceIdentifier":"-2423814","taxonRank":"subspecies"},{"identifier":20113184,"scientificName":"Puma
+        concolor concolor","name":"Puma concolor concolor","nameAccordingTo":"NMNH
+        Mammals","canonicalForm":"\u003ci\u003ePuma \u003ci\u003econcolor\u003c/i\u003e\u003c/i\u003e
+        concolor","sourceIdentifier":"6110a3524b9d053e465b4ebad6bb8b33"},{"identifier":29295344,"scientificName":"Puma
+        concolor concolor","name":"Puma concolor concolor","nameAccordingTo":"wikipedia
+        ES","canonicalForm":"\u003ci\u003ePuma \u003ci\u003econcolor\u003c/i\u003e\u003c/i\u003e
+        concolor","sourceIdentifier":"Q5692144","taxonRank":"subspecies"},{"identifier":31238608,"scientificName":"Puma
+        concolor concolor","name":"Puma concolor concolor","nameAccordingTo":"wikipedia
+        EN","canonicalForm":"\u003ci\u003ePuma \u003ci\u003econcolor\u003c/i\u003e\u003c/i\u003e
+        concolor","sourceIdentifier":"Q5692144","taxonRank":"subspecies"},{"identifier":40714537,"scientificName":"Puma
+        concolor concolor","name":"Puma concolor concolor","nameAccordingTo":"wikipedia
+        PT","canonicalForm":"\u003ci\u003ePuma \u003ci\u003econcolor\u003c/i\u003e\u003c/i\u003e
+        concolor","sourceIdentifier":"Q5692144","taxonRank":"subspecies"},{"identifier":41621257,"scientificName":"Puma
+        concolor concolor (Linnaeus, 1771)","name":"Puma concolor concolor (Linnaeus,
+        1771)","nameAccordingTo":"EOL Dynamic Hierarchy 1.1","canonicalForm":"\u003ci\u003ePuma
+        \u003ci\u003econcolor\u003c/i\u003e\u003c/i\u003e concolor","sourceIdentifier":"EOL-000000631938","taxonRank":"infraspecies"},{"identifier":59480902,"scientificName":"Puma
+        concolor concolor","name":"Puma concolor concolor","nameAccordingTo":"wikipedia
+        EU","canonicalForm":"\u003ci\u003ePuma \u003ci\u003econcolor\u003c/i\u003e\u003c/i\u003e
+        concolor","sourceIdentifier":"Q5692144","taxonRank":"subspecies"},{"identifier":63505965,"scientificName":"Puma
+        concolor concolor","name":"Puma concolor concolor","nameAccordingTo":"GBIF
+        classification","canonicalForm":"\u003ci\u003ePuma \u003ci\u003econcolor\u003c/i\u003e\u003c/i\u003e
+        concolor","sourceIdentifier":"7193927","taxonRank":"subspecies"}]}}'
+  recorded_at: 2020-03-06 18:07:03 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://eol.org/api/pages/1.0/1244082.json?subjects=overview&licenses=all&details=false&common_names=false&synonyms=false&references=false&taxonomy=TRUE&vetted=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 06 Mar 2020 18:06:59 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '2662'
+      connection: keep-alive
+      x-frame-options: ALLOWALL
+      x-robots-tag: noindex
+      etag: W/"180d5ad3b02574983e3cd7a24bf0d1eb"
+      cache-control: max-age=0, private, must-revalidate
+      x-request-id: b77a5d8b-6af1-4e3e-833f-edebb84f1857
+      x-runtime: '0.034561'
+      age: '0'
+      x-cache: MISS
+      x-cache-hits: '0'
+      accept-ranges: bytes
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"taxonConcept":{"identifier":1244082,"scientificName":"Puma concolor
+        cabrerae Pocock, 1940","richness_score":null,"taxonConcepts":[{"identifier":7197702,"scientificName":"Puma
+        concolor subsp. cabrerae Pocock, 1940","name":"Puma concolor subsp. cabrerae
+        Pocock, 1940","nameAccordingTo":"EOL Dynamic Hierarchy 0.9","canonicalForm":"\u003ci\u003ePuma
+        concolor cabrerae\u003c/i\u003e","sourceIdentifier":"-2423810","taxonRank":"subspecies"},{"identifier":29321922,"scientificName":"Puma
+        concolor cabrerae","name":"Puma concolor cabrerae","nameAccordingTo":"wikipedia
+        ES","canonicalForm":"\u003ci\u003ePuma concolor cabrerae\u003c/i\u003e","sourceIdentifier":"Q9064708","taxonRank":"subspecies"},{"identifier":31302958,"scientificName":"Puma
+        concolor cabrerae","name":"Puma concolor cabrerae","nameAccordingTo":"wikipedia
+        EN","canonicalForm":"\u003ci\u003ePuma concolor cabrerae\u003c/i\u003e","sourceIdentifier":"Q9064708","taxonRank":"subspecies"},{"identifier":32100531,"scientificName":"Puma
+        concolor cabrerae","name":"Puma concolor cabrerae","nameAccordingTo":"wikipedia
+        русскую Википедию","canonicalForm":"\u003ci\u003ePuma concolor cabrerae\u003c/i\u003e","sourceIdentifier":"Q9064708","taxonRank":"subspecies"},{"identifier":35005201,"scientificName":"Puma
+        concolor cabrerae Pocock, 1940","name":"Puma concolor cabrerae Pocock, 1940","nameAccordingTo":"Integrated
+        Taxonomic Information System (ITIS) Taxonomic Hierarchy","canonicalForm":"\u003ci\u003ePuma
+        concolor cabrerae\u003c/i\u003e","sourceIdentifier":"726432","taxonRank":"subspecies"},{"identifier":40727658,"scientificName":"Puma
+        concolor cabrerae","name":"Puma concolor cabrerae","nameAccordingTo":"wikipedia
+        PT","canonicalForm":"\u003ci\u003ePuma concolor cabrerae\u003c/i\u003e","sourceIdentifier":"Q9064708","taxonRank":"subspecies"},{"identifier":41621256,"scientificName":"Puma
+        concolor cabrerae Pocock, 1940","name":"Puma concolor cabrerae Pocock, 1940","nameAccordingTo":"EOL
+        Dynamic Hierarchy 1.1","canonicalForm":"\u003ci\u003ePuma concolor cabrerae\u003c/i\u003e","sourceIdentifier":"EOL-000000631937","taxonRank":"infraspecies"},{"identifier":59492957,"scientificName":"Puma
+        concolor cabrerae","name":"Puma concolor cabrerae","nameAccordingTo":"wikipedia
+        EU","canonicalForm":"\u003ci\u003ePuma concolor cabrerae\u003c/i\u003e","sourceIdentifier":"Q9064708","taxonRank":"subspecies"},{"identifier":63353807,"scientificName":"Puma
+        concolor cabrerae Pocock, 1940","name":"Puma concolor cabrerae Pocock, 1940","nameAccordingTo":"GBIF
+        classification","canonicalForm":"\u003ci\u003ePuma concolor cabrerae\u003c/i\u003e","sourceIdentifier":"6164623","taxonRank":"subspecies"}]}}'
+  recorded_at: 2020-03-06 18:07:03 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://eol.org/api/pages/1.0/1271362.json?subjects=overview&licenses=all&details=false&common_names=false&synonyms=false&references=false&taxonomy=TRUE&vetted=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 06 Mar 2020 18:06:59 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '2260'
+      connection: keep-alive
+      x-frame-options: ALLOWALL
+      x-robots-tag: noindex
+      etag: W/"753e51777698cd400c6eb8d4e414f5da"
+      cache-control: max-age=0, private, must-revalidate
+      x-request-id: ac005582-dbda-4156-a199-2a8f597316c9
+      x-runtime: '0.036596'
+      age: '0'
+      x-cache: MISS
+      x-cache-hits: '0'
+      accept-ranges: bytes
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"taxonConcept":{"identifier":1271362,"scientificName":"Puma concolor
+        anthonyi (Nelson and Goldman, 1931)","richness_score":null,"taxonConcepts":[{"identifier":7197705,"scientificName":"Puma
+        concolor subsp. anthonyi (Nelson \u0026 Goldman, 1931)","name":"Puma concolor
+        subsp. anthonyi (Nelson \u0026 Goldman, 1931)","nameAccordingTo":"EOL Dynamic
+        Hierarchy 0.9","canonicalForm":"\u003ci\u003ePuma concolor anthonyi\u003c/i\u003e","sourceIdentifier":"-2423813","taxonRank":"subspecies"},{"identifier":20113697,"scientificName":"Puma
+        concolor anthonyi","name":"Puma concolor anthonyi","nameAccordingTo":"NMNH
+        Mammals","canonicalForm":"\u003ci\u003ePuma concolor anthonyi\u003c/i\u003e","sourceIdentifier":"8c75a1a4a6c1364a2f1c1377514ad45d"},{"identifier":29303118,"scientificName":"Puma
+        concolor anthonyi","name":"Puma concolor anthonyi","nameAccordingTo":"wikipedia
+        ES","canonicalForm":"\u003ci\u003ePuma concolor anthonyi\u003c/i\u003e","sourceIdentifier":"Q6092774","taxonRank":"subspecies"},{"identifier":35005200,"scientificName":"Puma
+        concolor anthonyi (Nelson and Goldman, 1931)","name":"Puma concolor anthonyi
+        (Nelson and Goldman, 1931)","nameAccordingTo":"Integrated Taxonomic Information
+        System (ITIS) Taxonomic Hierarchy","canonicalForm":"\u003ci\u003ePuma concolor
+        anthonyi\u003c/i\u003e","sourceIdentifier":"726431","taxonRank":"subspecies"},{"identifier":41621253,"scientificName":"Puma
+        concolor anthonyi (Nelson and Goldman, 1931)","name":"Puma concolor anthonyi
+        (Nelson and Goldman, 1931)","nameAccordingTo":"EOL Dynamic Hierarchy 1.1","canonicalForm":"\u003ci\u003ePuma
+        concolor anthonyi\u003c/i\u003e","sourceIdentifier":"EOL-000000631934","taxonRank":"infraspecies"},{"identifier":59483296,"scientificName":"Puma
+        concolor anthonyi","name":"Puma concolor anthonyi","nameAccordingTo":"wikipedia
+        EU","canonicalForm":"\u003ci\u003ePuma concolor anthonyi\u003c/i\u003e","sourceIdentifier":"Q6092774","taxonRank":"subspecies"},{"identifier":63353804,"scientificName":"Puma
+        concolor anthonyi (Nelson \u0026 Goldman, 1931)","name":"Puma concolor anthonyi
+        (Nelson \u0026 Goldman, 1931)","nameAccordingTo":"GBIF classification","canonicalForm":"\u003ci\u003ePuma
+        concolor anthonyi\u003c/i\u003e","sourceIdentifier":"6164589","taxonRank":"subspecies"}]}}'
+  recorded_at: 2020-03-06 18:07:03 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://eol.org/api/pages/1.0/1240079.json?subjects=overview&licenses=all&details=false&common_names=false&synonyms=false&references=false&taxonomy=TRUE&vetted=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 06 Mar 2020 18:06:59 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '6368'
+      connection: keep-alive
+      x-frame-options: ALLOWALL
+      x-robots-tag: noindex
+      etag: W/"5e62c85afec08ce9ef0d9f48c8ac3043"
+      cache-control: max-age=0, private, must-revalidate
+      x-request-id: aa8786d8-e167-4813-8be5-fa30ed8563c7
+      x-runtime: '0.079193'
+      age: '0'
+      x-cache: MISS
+      x-cache-hits: '0'
+      accept-ranges: bytes
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"taxonConcept":{"identifier":1240079,"scientificName":"Puma concolor
+        couguar (Kerr, 1792)","richness_score":null,"taxonConcepts":[{"identifier":7197703,"scientificName":"Puma
+        concolor subsp. couguar (Kerr, 1792)","name":"Puma concolor subsp. couguar
+        (Kerr, 1792)","nameAccordingTo":"EOL Dynamic Hierarchy 0.9","canonicalForm":"\u003ci\u003ePuma
+        concolor couguar\u003c/i\u003e","sourceIdentifier":"-2423811","taxonRank":"subspecies"},{"identifier":10184881,"scientificName":"Puma
+        concolor couguar","name":"Puma concolor couguar","nameAccordingTo":"iNaturalist","canonicalForm":"\u003ci\u003ePuma
+        concolor couguar\u003c/i\u003e","sourceIdentifier":"https://www.inaturalist.org/taxa/143589"},{"identifier":20114598,"scientificName":"Puma
+        concolor couguar","name":"Puma concolor couguar","nameAccordingTo":"NMNH Mammals","canonicalForm":"\u003ci\u003ePuma
+        concolor couguar\u003c/i\u003e","sourceIdentifier":"d52047290d09d071aa20b61d86a8c598"},{"identifier":26242590,"scientificName":"Puma
+        concolor couguar","name":"Puma concolor couguar","nameAccordingTo":"wikipedia
+        IT","canonicalForm":"\u003ci\u003ePuma concolor couguar\u003c/i\u003e","sourceIdentifier":"Q2044439","taxonRank":"subspecies"},{"identifier":29213443,"scientificName":"Puma
+        concolor couguar","name":"Puma concolor couguar","nameAccordingTo":"wikipedia
+        ES","canonicalForm":"\u003ci\u003ePuma concolor couguar\u003c/i\u003e","sourceIdentifier":"Q2044439","taxonRank":"subspecies"},{"identifier":31081334,"scientificName":"Puma
+        concolor couguar","name":"Puma concolor couguar","nameAccordingTo":"wikipedia
+        EN","canonicalForm":"\u003ci\u003ePuma concolor couguar\u003c/i\u003e","sourceIdentifier":"Q2044439","taxonRank":"subspecies"},{"identifier":31500548,"scientificName":"Puma
+        concolor couguar","name":"Puma concolor couguar","nameAccordingTo":"EOL authors","canonicalForm":"\u003ci\u003ePuma
+        concolor couguar\u003c/i\u003e","sourceIdentifier":"1240079","taxonRank":"infraspecies"},{"identifier":31747944,"scientificName":"Puma
+        concolor couguar","name":"Puma concolor couguar","nameAccordingTo":"wikipedia
+        中文维基百科","canonicalForm":"\u003ci\u003ePuma concolor couguar\u003c/i\u003e","sourceIdentifier":"Q2044439","taxonRank":"subspecies"},{"identifier":31862845,"scientificName":"Puma
+        concolor couguar","name":"Puma concolor couguar","nameAccordingTo":"wikipedia
+        FR","canonicalForm":"\u003ci\u003ePuma concolor couguar\u003c/i\u003e","sourceIdentifier":"Q2044439","taxonRank":"subspecies"},{"identifier":32073375,"scientificName":"Puma
+        concolor couguar","name":"Puma concolor couguar","nameAccordingTo":"wikipedia
+        русскую Википедию","canonicalForm":"\u003ci\u003ePuma concolor couguar\u003c/i\u003e","sourceIdentifier":"Q2044439","taxonRank":"subspecies"},{"identifier":38979657,"scientificName":"Puma
+        concolor couguar","name":"Puma concolor couguar","nameAccordingTo":"Wikidata","canonicalForm":"\u003ci\u003ePuma
+        concolor couguar\u003c/i\u003e","sourceIdentifier":"Q2044439","taxonRank":"subspecies"},{"identifier":39108333,"scientificName":null,"name":null,"nameAccordingTo":"Wikidata","canonicalForm":null,"sourceIdentifier":"Q2044439","taxonRank":"subspecies"},{"identifier":39237009,"scientificName":null,"name":null,"nameAccordingTo":"Wikidata","canonicalForm":null,"sourceIdentifier":"Q2044439","taxonRank":"subspecies"},{"identifier":40669293,"scientificName":"Puma
+        concolor couguar","name":"Puma concolor couguar","nameAccordingTo":"wikipedia
+        PT","canonicalForm":"\u003ci\u003ePuma concolor couguar\u003c/i\u003e","sourceIdentifier":"Q2044439","taxonRank":"subspecies"},{"identifier":40758101,"scientificName":"Puma
+        concolor couguar","name":"Puma concolor couguar","nameAccordingTo":"wikipedia
+        TR","canonicalForm":"\u003ci\u003ePuma concolor couguar\u003c/i\u003e","sourceIdentifier":"Q2044439","taxonRank":"subspecies"},{"identifier":41621254,"scientificName":"Puma
+        concolor couguar (Kerr, 1792)","name":"Puma concolor couguar (Kerr, 1792)","nameAccordingTo":"EOL
+        Dynamic Hierarchy 1.1","canonicalForm":"\u003ci\u003ePuma concolor couguar\u003c/i\u003e","sourceIdentifier":"EOL-000000631935","taxonRank":"infraspecies"},{"identifier":59435618,"scientificName":"Puma
+        concolor couguar","name":"Puma concolor couguar","nameAccordingTo":"wikipedia
+        EU","canonicalForm":"\u003ci\u003ePuma concolor couguar\u003c/i\u003e","sourceIdentifier":"Q2044439","taxonRank":"subspecies"},{"identifier":60756478,"scientificName":"Puma
+        concolor couguar","name":"Puma concolor couguar","nameAccordingTo":"CITES","canonicalForm":"\u003ci\u003ePuma
+        concolor couguar\u003c/i\u003e","sourceIdentifier":"12325","taxonRank":"subspecies"},{"identifier":61026604,"scientificName":"Puma
+        concolor coryi","name":"Puma concolor coryi","nameAccordingTo":"Environments
+        EOL","canonicalForm":"\u003ci\u003ePuma concolor coryi\u003c/i\u003e","sourceIdentifier":"EOL:10465959"},{"identifier":63353805,"scientificName":"Puma
+        concolor couguar (Kerr, 1792)","name":"Puma concolor couguar (Kerr, 1792)","nameAccordingTo":"GBIF
+        classification","canonicalForm":"\u003ci\u003ePuma concolor couguar\u003c/i\u003e","sourceIdentifier":"6164590","taxonRank":"subspecies"},{"identifier":66765510,"scientificName":"Puma
+        concolor couguar","name":"Puma concolor couguar","nameAccordingTo":"Global
+        Biotic Interactions","canonicalForm":"\u003ci\u003ePuma concolor couguar\u003c/i\u003e","sourceIdentifier":"INAT_TAXON:143589","taxonRank":"subspecies"},{"identifier":68476317,"scientificName":"Puma
+        concolor coryi","name":"Puma concolor coryi","nameAccordingTo":"wikipedia
+        AZ","canonicalForm":"\u003ci\u003ePuma concolor coryi\u003c/i\u003e","sourceIdentifier":"Q776670","taxonRank":"subspecies"},{"identifier":68792080,"scientificName":"Puma
+        concolor couguar","name":"Puma concolor couguar","nameAccordingTo":"wikipedia
+        GA","canonicalForm":"\u003ci\u003ePuma concolor couguar\u003c/i\u003e","sourceIdentifier":"Q2044439","taxonRank":"subspecies"},{"identifier":69335760,"scientificName":"Puma
+        concolor coryi","name":"Puma concolor coryi","nameAccordingTo":"NCBI","canonicalForm":"\u003ci\u003ePuma
+        concolor coryi\u003c/i\u003e","sourceIdentifier":"29062","taxonRank":"subspecies"},{"identifier":69558542,"scientificName":"Puma
+        concolor couguar","name":"Puma concolor couguar","nameAccordingTo":"NCBI","canonicalForm":"\u003ci\u003ePuma
+        concolor couguar\u003c/i\u003e","sourceIdentifier":"694476","taxonRank":"subspecies"}]}}'
+  recorded_at: 2020-03-06 18:07:03 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://eol.org/api/pages/1.0/51907122.json?subjects=overview&licenses=all&details=false&common_names=false&synonyms=false&references=false&taxonomy=TRUE&vetted=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 06 Mar 2020 18:06:59 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '463'
+      connection: keep-alive
+      x-frame-options: ALLOWALL
+      x-robots-tag: noindex
+      etag: W/"07e1f19266028281b9af2fc9e4ceae4e"
+      cache-control: max-age=0, private, must-revalidate
+      x-request-id: 0b601059-f88e-47e9-90bc-4e8d3bbb0e96
+      x-runtime: '0.021494'
+      age: '0'
+      x-cache: MISS
+      x-cache-hits: '0'
+      accept-ranges: bytes
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"taxonConcept":{"identifier":51907122,"scientificName":"Puma concolor
+        couguar (Kerr, 1792)","richness_score":null,"taxonConcepts":[{"identifier":34910291,"scientificName":"Puma
+        concolor couguar (Kerr, 1792)","name":"Puma concolor couguar (Kerr, 1792)","nameAccordingTo":"Integrated
+        Taxonomic Information System (ITIS) Taxonomic Hierarchy","canonicalForm":"\u003ci\u003ePuma
+        concolor couguar\u003c/i\u003e","sourceIdentifier":"622093","taxonRank":"subspecies"}]}}'
+  recorded_at: 2020-03-06 18:07:03 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://eol.org/api/pages/1.0/1276463.json?subjects=overview&licenses=all&details=false&common_names=false&synonyms=false&references=false&taxonomy=TRUE&vetted=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 06 Mar 2020 18:06:59 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '3556'
+      connection: keep-alive
+      x-frame-options: ALLOWALL
+      x-robots-tag: noindex
+      etag: W/"d2000b787fa617246d23c65c491a6d5c"
+      cache-control: max-age=0, private, must-revalidate
+      x-request-id: 291d2b7e-6197-4c10-aee1-0d65fa870a38
+      x-runtime: '0.043191'
+      age: '0'
+      x-cache: MISS
+      x-cache-hits: '0'
+      accept-ranges: bytes
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"taxonConcept":{"identifier":1276463,"scientificName":"Puma concolor
+        costaricensis (Merriam, 1901)","richness_score":null,"taxonConcepts":[{"identifier":7197700,"scientificName":"Puma
+        concolor subsp. costaricensis (Merriam, 1901)","name":"Puma concolor subsp.
+        costaricensis (Merriam, 1901)","nameAccordingTo":"EOL Dynamic Hierarchy 0.9","canonicalForm":"\u003ci\u003ePuma
+        concolor costaricensis\u003c/i\u003e","sourceIdentifier":"-2423809","taxonRank":"subspecies"},{"identifier":29266963,"scientificName":"Puma
+        concolor costaricensis","name":"Puma concolor costaricensis","nameAccordingTo":"wikipedia
+        ES","canonicalForm":"\u003ci\u003ePuma concolor costaricensis\u003c/i\u003e","sourceIdentifier":"Q3235287","taxonRank":"subspecies"},{"identifier":31149183,"scientificName":"Puma
+        concolor costaricensis","name":"Puma concolor costaricensis","nameAccordingTo":"wikipedia
+        EN","canonicalForm":"\u003ci\u003ePuma concolor costaricensis\u003c/i\u003e","sourceIdentifier":"Q3235287","taxonRank":"subspecies"},{"identifier":31765882,"scientificName":"Puma
+        concolor costaricensis","name":"Puma concolor costaricensis","nameAccordingTo":"wikipedia
+        中文维基百科","canonicalForm":"\u003ci\u003ePuma concolor costaricensis\u003c/i\u003e","sourceIdentifier":"Q3235287","taxonRank":"subspecies"},{"identifier":38009432,"scientificName":"Puma
+        concolor costaricensis","name":"Puma concolor costaricensis","nameAccordingTo":"wikipedia
+        POL","canonicalForm":"\u003ci\u003ePuma concolor costaricensis\u003c/i\u003e","sourceIdentifier":"Q3235287","taxonRank":"subspecies"},{"identifier":40689175,"scientificName":"Puma
+        concolor costaricensis","name":"Puma concolor costaricensis","nameAccordingTo":"wikipedia
+        PT","canonicalForm":"\u003ci\u003ePuma concolor costaricensis\u003c/i\u003e","sourceIdentifier":"Q3235287","taxonRank":"subspecies"},{"identifier":40760345,"scientificName":"Puma
+        concolor costaricensis","name":"Puma concolor costaricensis","nameAccordingTo":"wikipedia
+        TR","canonicalForm":"\u003ci\u003ePuma concolor costaricensis\u003c/i\u003e","sourceIdentifier":"Q3235287","taxonRank":"subspecies"},{"identifier":41621258,"scientificName":"Puma
+        concolor costaricensis (Merriam, 1901)","name":"Puma concolor costaricensis
+        (Merriam, 1901)","nameAccordingTo":"EOL Dynamic Hierarchy 1.1","canonicalForm":"\u003ci\u003ePuma
+        concolor costaricensis\u003c/i\u003e","sourceIdentifier":"EOL-000000631939","taxonRank":"infraspecies"},{"identifier":59463408,"scientificName":"Puma
+        concolor costaricensis","name":"Puma concolor costaricensis","nameAccordingTo":"wikipedia
+        EU","canonicalForm":"\u003ci\u003ePuma concolor costaricensis\u003c/i\u003e","sourceIdentifier":"Q3235287","taxonRank":"subspecies"},{"identifier":63353808,"scientificName":"Puma
+        concolor costaricensis (Merriam, 1901)","name":"Puma concolor costaricensis
+        (Merriam, 1901)","nameAccordingTo":"GBIF classification","canonicalForm":"\u003ci\u003ePuma
+        concolor costaricensis\u003c/i\u003e","sourceIdentifier":"6164624","taxonRank":"subspecies"},{"identifier":66743135,"scientificName":"Puma
+        concolor costaricensis","name":"Puma concolor costaricensis","nameAccordingTo":"Global
+        Biotic Interactions","canonicalForm":"\u003ci\u003ePuma concolor costaricensis\u003c/i\u003e","sourceIdentifier":"GBIF:6164624","taxonRank":"subspecies"},{"identifier":68517089,"scientificName":"Puma
+        concolor costaricensis","name":"Puma concolor costaricensis","nameAccordingTo":"wikipedia
+        AF","canonicalForm":"\u003ci\u003ePuma concolor costaricensis\u003c/i\u003e","sourceIdentifier":"Q3235287","taxonRank":"subspecies"}]}}'
+  recorded_at: 2020-03-06 18:07:03 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://eol.org/api/pages/1.0/51380606.json?subjects=overview&licenses=all&details=false&common_names=false&synonyms=false&references=false&taxonomy=TRUE&vetted=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 06 Mar 2020 18:07:00 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '1619'
+      connection: keep-alive
+      x-frame-options: ALLOWALL
+      x-robots-tag: noindex
+      etag: W/"c0ffe2d1c3016792c352f80653613d2e"
+      cache-control: max-age=0, private, must-revalidate
+      x-request-id: 61ce926e-9387-4df7-b650-265370947be4
+      x-runtime: '0.027331'
+      age: '0'
+      x-cache: MISS
+      x-cache-hits: '0'
+      accept-ranges: bytes
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"taxonConcept":{"identifier":51380606,"scientificName":"Puma concolor
+        coryi","richness_score":null,"taxonConcepts":[{"identifier":29314896,"scientificName":"Puma
+        concolor coryi","name":"Puma concolor coryi","nameAccordingTo":"wikipedia
+        ES","canonicalForm":"\u003ci\u003ePuma concolor coryi\u003c/i\u003e","sourceIdentifier":"Q776670","taxonRank":"subspecies"},{"identifier":31290791,"scientificName":"Puma
+        concolor coryi","name":"Puma concolor coryi","nameAccordingTo":"wikipedia
+        EN","canonicalForm":"\u003ci\u003ePuma concolor coryi\u003c/i\u003e","sourceIdentifier":"Q776670","taxonRank":"subspecies"},{"identifier":31790366,"scientificName":"Puma
+        concolor coryi","name":"Puma concolor coryi","nameAccordingTo":"wikipedia
+        中文维基百科","canonicalForm":"\u003ci\u003ePuma concolor coryi\u003c/i\u003e","sourceIdentifier":"Q776670","taxonRank":"subspecies"},{"identifier":31942395,"scientificName":"Puma
+        concolor coryi","name":"Puma concolor coryi","nameAccordingTo":"wikipedia
+        FR","canonicalForm":"\u003ci\u003ePuma concolor coryi\u003c/i\u003e","sourceIdentifier":"Q776670","taxonRank":"subspecies"},{"identifier":32134609,"scientificName":"Puma
+        concolor coryi","name":"Puma concolor coryi","nameAccordingTo":"wikipedia
+        한국어 위키백과","canonicalForm":"\u003ci\u003ePuma concolor coryi\u003c/i\u003e","sourceIdentifier":"Q776670","taxonRank":"subspecies"},{"identifier":37921201,"scientificName":"Puma
+        concolor coryi","name":"Puma concolor coryi","nameAccordingTo":"wikipedia
+        NL","canonicalForm":"\u003ci\u003ePuma concolor coryi\u003c/i\u003e","sourceIdentifier":"Q776670","taxonRank":"subspecies"}]}}'
+  recorded_at: 2020-03-06 18:07:03 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://eol.org/api/pages/1.0/52477261.json?subjects=overview&licenses=all&details=false&common_names=false&synonyms=false&references=false&taxonomy=TRUE&vetted=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 06 Mar 2020 18:07:00 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '363'
+      connection: keep-alive
+      x-frame-options: ALLOWALL
+      x-robots-tag: noindex
+      etag: W/"196d24fb0f192ffea819ad8d3a1be9f7"
+      cache-control: max-age=0, private, must-revalidate
+      x-request-id: 32dab6a5-5663-443b-991c-fcd79a399de8
+      x-runtime: '0.016663'
+      age: '0'
+      x-cache: MISS
+      x-cache-hits: '0'
+      accept-ranges: bytes
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"taxonConcept":{"identifier":52477261,"scientificName":"Puma concolor
+        coryi","richness_score":null,"taxonConcepts":[{"identifier":40723201,"scientificName":"Puma
+        concolor coryi","name":"Puma concolor coryi","nameAccordingTo":"wikipedia
+        PT","canonicalForm":"\u003ci\u003ePuma concolor coryi\u003c/i\u003e","sourceIdentifier":"Q776670","taxonRank":"subspecies"}]}}'
+  recorded_at: 2020-03-06 18:07:03 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://eol.org/api/pages/1.0/51618901.json?subjects=overview&licenses=all&details=false&common_names=false&synonyms=false&references=false&taxonomy=TRUE&vetted=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 06 Mar 2020 18:07:00 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '370'
+      connection: keep-alive
+      x-frame-options: ALLOWALL
+      x-robots-tag: noindex
+      etag: W/"cd61ed252fdb639341a67abc2a34985e"
+      cache-control: max-age=0, private, must-revalidate
+      x-request-id: 37a88b85-d095-44d3-a0d3-be1b967ac9c6
+      x-runtime: '0.018370'
+      age: '0'
+      x-cache: MISS
+      x-cache-hits: '0'
+      accept-ranges: bytes
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"taxonConcept":{"identifier":51618901,"scientificName":"Puma concolor
+        coryi","richness_score":null,"taxonConcepts":[{"identifier":31971682,"scientificName":"Puma
+        concolor coryi","name":"Puma concolor coryi","nameAccordingTo":"wikipedia
+        日本語","canonicalForm":"\u003ci\u003ePuma concolor coryi\u003c/i\u003e","sourceIdentifier":"Q776670","taxonRank":"subspecies"}]}}'
+  recorded_at: 2020-03-06 18:07:03 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://eol.org/api/pages/1.0/51621924.json?subjects=overview&licenses=all&details=false&common_names=false&synonyms=false&references=false&taxonomy=TRUE&vetted=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 06 Mar 2020 18:07:00 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '394'
+      connection: keep-alive
+      x-frame-options: ALLOWALL
+      x-robots-tag: noindex
+      etag: W/"c07627cb31bc9ae61cb6513c9ed39eb7"
+      cache-control: max-age=0, private, must-revalidate
+      x-request-id: 804f6d5f-e3d8-4fc5-a3a6-8c6a7b0fc5d2
+      x-runtime: '0.018092'
+      age: '0'
+      x-cache: MISS
+      x-cache-hits: '0'
+      accept-ranges: bytes
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"taxonConcept":{"identifier":51621924,"scientificName":"Puma concolor
+        coryi","richness_score":null,"taxonConcepts":[{"identifier":32098560,"scientificName":"Puma
+        concolor coryi","name":"Puma concolor coryi","nameAccordingTo":"wikipedia
+        русскую Википедию","canonicalForm":"\u003ci\u003ePuma concolor coryi\u003c/i\u003e","sourceIdentifier":"Q776670","taxonRank":"subspecies"}]}}'
+  recorded_at: 2020-03-06 18:07:03 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://eol.org/api/pages/1.0/51127638.json?subjects=overview&licenses=all&details=false&common_names=false&synonyms=false&references=false&taxonomy=TRUE&vetted=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 06 Mar 2020 18:07:00 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '363'
+      connection: keep-alive
+      x-frame-options: ALLOWALL
+      x-robots-tag: noindex
+      etag: W/"f27318c3ae21b15f4294fa502ad053fd"
+      cache-control: max-age=0, private, must-revalidate
+      x-request-id: fa84d915-bedb-47e5-aba4-69e1a8f4a708
+      x-runtime: '0.017624'
+      age: '0'
+      x-cache: MISS
+      x-cache-hits: '0'
+      accept-ranges: bytes
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"taxonConcept":{"identifier":51127638,"scientificName":"Puma concolor
+        coryi","richness_score":null,"taxonConcepts":[{"identifier":26263655,"scientificName":"Puma
+        concolor coryi","name":"Puma concolor coryi","nameAccordingTo":"wikipedia
+        IT","canonicalForm":"\u003ci\u003ePuma concolor coryi\u003c/i\u003e","sourceIdentifier":"Q776670","taxonRank":"subspecies"}]}}'
+  recorded_at: 2020-03-06 18:07:03 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://eol.org/api/pages/1.0/52454127.json?subjects=overview&licenses=all&details=false&common_names=false&synonyms=false&references=false&taxonomy=TRUE&vetted=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 06 Mar 2020 18:07:01 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '363'
+      connection: keep-alive
+      x-frame-options: ALLOWALL
+      x-robots-tag: noindex
+      etag: W/"d8c39cb56f56d79b0985c762c65c4459"
+      cache-control: max-age=0, private, must-revalidate
+      x-request-id: 268e0901-36e6-4675-a1b5-eaf941981bed
+      x-runtime: '0.018680'
+      age: '0'
+      x-cache: MISS
+      x-cache-hits: '0'
+      accept-ranges: bytes
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"taxonConcept":{"identifier":52454127,"scientificName":"Puma concolor
+        coryi","richness_score":null,"taxonConcepts":[{"identifier":40313829,"scientificName":"Puma
+        concolor coryi","name":"Puma concolor coryi","nameAccordingTo":"wikipedia
+        UK","canonicalForm":"\u003ci\u003ePuma concolor coryi\u003c/i\u003e","sourceIdentifier":"Q776670","taxonRank":"subspecies"}]}}'
+  recorded_at: 2020-03-06 18:07:03 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://eol.org/api/pages/1.0/52458602.json?subjects=overview&licenses=all&details=false&common_names=false&synonyms=false&references=false&taxonomy=TRUE&vetted=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 06 Mar 2020 18:07:01 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '363'
+      connection: keep-alive
+      x-frame-options: ALLOWALL
+      x-robots-tag: noindex
+      etag: W/"ae531426e03bbdc70d804b603a46d75d"
+      cache-control: max-age=0, private, must-revalidate
+      x-request-id: b70a0e52-a06c-45dc-a0d5-9d223c49f884
+      x-runtime: '0.017310'
+      age: '0'
+      x-cache: MISS
+      x-cache-hits: '0'
+      accept-ranges: bytes
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"taxonConcept":{"identifier":52458602,"scientificName":"Puma concolor
+        coryi","richness_score":null,"taxonConcepts":[{"identifier":40383056,"scientificName":"Puma
+        concolor coryi","name":"Puma concolor coryi","nameAccordingTo":"wikipedia
+        CA","canonicalForm":"\u003ci\u003ePuma concolor coryi\u003c/i\u003e","sourceIdentifier":"Q776670","taxonRank":"subspecies"}]}}'
+  recorded_at: 2020-03-06 18:07:03 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://eol.org/api/pages/1.0/52445508.json?subjects=overview&licenses=all&details=false&common_names=false&synonyms=false&references=false&taxonomy=TRUE&vetted=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 06 Mar 2020 18:07:01 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '363'
+      connection: keep-alive
+      x-frame-options: ALLOWALL
+      x-robots-tag: noindex
+      etag: W/"d8d26838a9fee695c34ddba8d0499325"
+      cache-control: max-age=0, private, must-revalidate
+      x-request-id: 58583d0b-a9e9-4576-97ce-33b07716c5bd
+      x-runtime: '0.017943'
+      age: '0'
+      x-cache: MISS
+      x-cache-hits: '0'
+      accept-ranges: bytes
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"taxonConcept":{"identifier":52445508,"scientificName":"Puma concolor
+        coryi","richness_score":null,"taxonConcepts":[{"identifier":40145013,"scientificName":"Puma
+        concolor coryi","name":"Puma concolor coryi","nameAccordingTo":"wikipedia
+        FI","canonicalForm":"\u003ci\u003ePuma concolor coryi\u003c/i\u003e","sourceIdentifier":"Q776670","taxonRank":"subspecies"}]}}'
+  recorded_at: 2020-03-06 18:07:03 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://eol.org/api/pages/1.0/52484308.json?subjects=overview&licenses=all&details=false&common_names=false&synonyms=false&references=false&taxonomy=TRUE&vetted=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 06 Mar 2020 18:07:01 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '363'
+      connection: keep-alive
+      x-frame-options: ALLOWALL
+      x-robots-tag: noindex
+      etag: W/"8f40801244d27f6fc66f698bf63a0fd2"
+      cache-control: max-age=0, private, must-revalidate
+      x-request-id: 951e3683-20b9-4812-b29d-76834f373a15
+      x-runtime: '0.015566'
+      age: '0'
+      x-cache: MISS
+      x-cache-hits: '0'
+      accept-ranges: bytes
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"taxonConcept":{"identifier":52484308,"scientificName":"Puma concolor
+        coryi","richness_score":null,"taxonConcepts":[{"identifier":40762693,"scientificName":"Puma
+        concolor coryi","name":"Puma concolor coryi","nameAccordingTo":"wikipedia
+        TR","canonicalForm":"\u003ci\u003ePuma concolor coryi\u003c/i\u003e","sourceIdentifier":"Q776670","taxonRank":"subspecies"}]}}'
+  recorded_at: 2020-03-06 18:07:03 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://eol.org/api/pages/1.0/52370902.json?subjects=overview&licenses=all&details=false&common_names=false&synonyms=false&references=false&taxonomy=TRUE&vetted=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 06 Mar 2020 18:07:01 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '363'
+      connection: keep-alive
+      x-frame-options: ALLOWALL
+      x-robots-tag: noindex
+      etag: W/"bac9c2dce5b42e76708175da96a88df0"
+      cache-control: max-age=0, private, must-revalidate
+      x-request-id: 388d78ad-2695-46df-8bdd-ec064a53adf5
+      x-runtime: '0.017139'
+      age: '0'
+      x-cache: MISS
+      x-cache-hits: '0'
+      accept-ranges: bytes
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"taxonConcept":{"identifier":52370902,"scientificName":"Puma concolor
+        coryi","richness_score":null,"taxonConcepts":[{"identifier":38904718,"scientificName":"Puma
+        concolor coryi","name":"Puma concolor coryi","nameAccordingTo":"wikipedia
+        CZ","canonicalForm":"\u003ci\u003ePuma concolor coryi\u003c/i\u003e","sourceIdentifier":"Q776670","taxonRank":"subspecies"}]}}'
+  recorded_at: 2020-03-06 18:07:03 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://eol.org/api/pages/1.0/47054107.json?subjects=overview&licenses=all&details=false&common_names=false&synonyms=false&references=false&taxonomy=TRUE&vetted=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 06 Mar 2020 18:07:01 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '669'
+      connection: keep-alive
+      x-frame-options: ALLOWALL
+      x-robots-tag: noindex
+      etag: W/"5d4de912b81625badf4fde5b0bdca049"
+      cache-control: max-age=0, private, must-revalidate
+      x-request-id: 8aaa3cff-755e-403f-bd29-b1febc44b502
+      x-runtime: '0.019214'
+      age: '0'
+      x-cache: MISS
+      x-cache-hits: '0'
+      accept-ranges: bytes
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"taxonConcept":{"identifier":47054107,"scientificName":"Puma concolor
+        subsp. discolor","richness_score":null,"taxonConcepts":[{"identifier":7197704,"scientificName":"Puma
+        concolor subsp. discolor","name":"Puma concolor subsp. discolor","nameAccordingTo":"EOL
+        Dynamic Hierarchy 0.9","canonicalForm":"\u003ci\u003ePuma concolor discolor\u003c/i\u003e","sourceIdentifier":"-2423812","taxonRank":"subspecies"},{"identifier":64095638,"scientificName":"Puma
+        concolor discolor","name":"Puma concolor discolor","nameAccordingTo":"GBIF
+        classification","canonicalForm":"\u003ci\u003ePuma concolor discolor\u003c/i\u003e","sourceIdentifier":"8836300","taxonRank":"subspecies"}]}}'
+  recorded_at: 2020-03-06 18:07:03 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://eol.org/api/pages/1.0/51907121.json?subjects=overview&licenses=all&details=false&common_names=false&synonyms=false&references=false&taxonomy=TRUE&vetted=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 06 Mar 2020 18:07:02 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '496'
+      connection: keep-alive
+      x-frame-options: ALLOWALL
+      x-robots-tag: noindex
+      etag: W/"c036db5e427902b049e8c12dff9b4337"
+      cache-control: max-age=0, private, must-revalidate
+      x-request-id: 49be60c0-3075-4204-a84e-04974d057643
+      x-runtime: '0.016816'
+      age: '0'
+      x-cache: MISS
+      x-cache-hits: '0'
+      accept-ranges: bytes
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"taxonConcept":{"identifier":51907121,"scientificName":"Puma concolor
+        costaricensis (Merriam, 1901)","richness_score":null,"taxonConcepts":[{"identifier":34842971,"scientificName":"Puma
+        concolor costaricensis (Merriam, 1901)","name":"Puma concolor costaricensis
+        (Merriam, 1901)","nameAccordingTo":"Integrated Taxonomic Information System
+        (ITIS) Taxonomic Hierarchy","canonicalForm":"\u003ci\u003ePuma concolor costaricensis\u003c/i\u003e","sourceIdentifier":"552782","taxonRank":"subspecies"}]}}'
+  recorded_at: 2020-03-06 18:07:03 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://eol.org/api/pages/1.0/51952749.json?subjects=overview&licenses=all&details=false&common_names=false&synonyms=false&references=false&taxonomy=TRUE&vetted=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 06 Mar 2020 18:07:02 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '645'
+      connection: keep-alive
+      x-frame-options: ALLOWALL
+      x-robots-tag: noindex
+      etag: W/"cb2150e1d0e05c4006c35a02f10c818b"
+      cache-control: max-age=0, private, must-revalidate
+      x-request-id: e9b31025-a148-411f-99d4-4872a06be354
+      x-runtime: '0.019511'
+      age: '0'
+      x-cache: MISS
+      x-cache-hits: '0'
+      accept-ranges: bytes
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"taxonConcept":{"identifier":51952749,"scientificName":"Puma concolor
+        papillomavirus type 1","richness_score":null,"taxonConcepts":[{"identifier":66795392,"scientificName":"Puma
+        concolor papillomavirus type 1","name":"Puma concolor papillomavirus type
+        1","nameAccordingTo":"Global Biotic Interactions","canonicalForm":"Puma concolor
+        papillomavirus type 1","sourceIdentifier":"NCBI:323365"},{"identifier":69357503,"scientificName":"Puma
+        concolor papillomavirus type 1","name":"Puma concolor papillomavirus type
+        1","nameAccordingTo":"NCBI","canonicalForm":"Puma concolor papillomavirus
+        type 1","sourceIdentifier":"323365","taxonRank":"norank"}]}}'
+  recorded_at: 2020-03-06 18:07:03 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://eol.org/api/pages/1.0/52384446.json?subjects=overview&licenses=all&details=false&common_names=false&synonyms=false&references=false&taxonomy=TRUE&vetted=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+  response:
+    status:
+      status_code: '500'
+      message: Internal Server Error
+      explanation: Server got itself in trouble
+    headers:
+      status: HTTP/1.1 500 Internal Server Error
+      date: Fri, 06 Mar 2020 18:07:02 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '41'
+      connection: keep-alive
+      x-frame-options: ALLOWALL
+      x-request-id: 0be572f1-5dc6-4727-a828-fe1ce4edbc0b
+      x-runtime: '0.015712'
+      age: '0'
+      x-cache: MISS
+      x-cache-hits: '0'
+    body:
+      encoding: UTF-8
+      file: no
+      string: |
+        {"error": "Internal server error - 500"}
+  recorded_at: 2020-03-06 18:07:03 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://eol.org/api/pages/1.0/47364953.json?subjects=overview&licenses=all&details=false&common_names=false&synonyms=false&references=false&taxonomy=TRUE&vetted=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 06 Mar 2020 18:07:02 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '125'
+      connection: keep-alive
+      x-frame-options: ALLOWALL
+      x-robots-tag: noindex
+      etag: W/"1e55631e67f9acb44f3761e88f755bd1"
+      cache-control: max-age=0, private, must-revalidate
+      x-request-id: a4237306-3a11-4abc-b9d5-3de7f352bba6
+      x-runtime: '0.011916'
+      age: '0'
+      x-cache: MISS
+      x-cache-hits: '0'
+      accept-ranges: bytes
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"taxonConcept":{"identifier":47364953,"scientificName":"Puma concolor
+        stanleyana","richness_score":null,"taxonConcepts":[]}}'
+  recorded_at: 2020-03-06 18:07:03 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://eol.org/api/pages/1.0/52384447.json?subjects=overview&licenses=all&details=false&common_names=false&synonyms=false&references=false&taxonomy=TRUE&vetted=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+  response:
+    status:
+      status_code: '500'
+      message: Internal Server Error
+      explanation: Server got itself in trouble
+    headers:
+      status: HTTP/1.1 500 Internal Server Error
+      date: Fri, 06 Mar 2020 18:07:02 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '41'
+      connection: keep-alive
+      x-frame-options: ALLOWALL
+      x-request-id: 1d3aed8d-f6ef-45bf-987c-8e71718364b6
+      x-runtime: '0.016631'
+      age: '0'
+      x-cache: MISS
+      x-cache-hits: '0'
+    body:
+      encoding: UTF-8
+      file: no
+      string: |
+        {"error": "Internal server error - 500"}
+  recorded_at: 2020-03-06 18:07:03 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0

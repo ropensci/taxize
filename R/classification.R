@@ -9,7 +9,7 @@
 #' Note that each taxonomic data source has, their own identifiers, so that
 #' if you provide the wrong `db` value for the identifier you could get a
 #' result, but it will likely be wrong (not what you were expecting). If using
-#' ncbi, eol, and/or tropicos, we recommend getting an API key; see
+#' ncbi, and/or tropicos, we recommend getting an API key; see
 #' [taxize-authentication]
 #' @param id character; identifiers, returned by [get_tsn()], [get_uid()],
 #' [get_eolid()], [get_tpsid()], [get_gbifid()], [get_tolid()],
@@ -434,7 +434,6 @@ classification.eolid <- function(id, callopts = list(), return_id = TRUE, ...) {
     if (is.na(x)) {
       out <- NA
     } else {
-      key <- getkey(NULL, "EOL_KEY")
       args <- tc(list(common_names = common_names, synonyms = synonyms))
       cli <- crul::HttpClient$new(url = 'https://eol.org', opts = callopts)
       tt <- cli$get(file.path('api/hierarchy_entries/1.0', paste0(x, ".json")),

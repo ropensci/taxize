@@ -16,7 +16,6 @@ get_eolid(
   sciname,
   ask = TRUE,
   messages = TRUE,
-  key = NULL,
   rows = NA,
   rank = NULL,
   data_source = NULL,
@@ -37,7 +36,7 @@ as.eolid(x, check = TRUE)
 
 \method{as.data.frame}{eolid}(x, ...)
 
-get_eolid_(sciname, messages = TRUE, key = NULL, rows = NA, ...)
+get_eolid_(sciname, messages = TRUE, rows = NA, ...)
 }
 \arguments{
 \item{sciname}{character; scientific name. Or, a \code{taxon_state}
@@ -49,10 +48,6 @@ input. If FALSE NA is returned for multiple matches.}
 
 \item{messages}{logical; If \code{TRUE} the actual taxon queried is printed
 on the console.}
-
-\item{key}{API key. passed on to \code{\link[=eol_search]{eol_search()}} and
-`\code{\link[=eol_pages]{eol_pages()}} internally. We recommend getting an API key;
-see \link{taxize-authentication}}
 
 \item{rows}{numeric; Any number from 1 to infinity. If the default NA, all
 rows are considered. Note that this function still only gives back a eolid
@@ -105,11 +100,6 @@ get the page id for a taxon by using \code{\link[=eol_search]{eol_search()}} and
 taxon will lead you to the taxon page, and the ID in the URL is the
 page id.
 }
-\section{Authentication}{
-
-See \link{taxize-authentication} for help on authentication
-}
-
 \section{Filtering}{
 
 The parameters \code{rank} and \code{data_source} are not used in the

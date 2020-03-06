@@ -12,7 +12,6 @@ eol_search(
   filter_heid = NULL,
   filter_by_string = NULL,
   cache_ttl = NULL,
-  key = NULL,
   ...
 )
 }
@@ -38,9 +37,6 @@ to filter search results}
 
 \item{cache_ttl}{The number of seconds you wish to have the response cached.}
 
-\item{key}{Your EOL API key. See \link{taxize-authentication} for
-help on authentication}
-
 \item{...}{Curl options passed on to \link[crul:HttpClient]{crul::HttpClient}}
 }
 \value{
@@ -62,11 +58,6 @@ Search for terms in EOL database.
 It's possible to return JSON or XML with the EOL API. However,
 this function only returns JSON for now.
 }
-\section{Authentication}{
-
-See \link{taxize-authentication} for help on authentication
-}
-
 \examples{
 \dontrun{
 eol_search(terms='Homo')

@@ -219,8 +219,10 @@ NULL
 #' `classification.colid`, `downstream.colid`, `id2name.colid`,
 #' `lowest_common.colid`, `synonyms.colid`, `upstream.colid`
 #' * `col_classification()`: See`classification()`
-#' * `eol_hierarchy()`: See`classification()`
 #' * `tp_classification()`: See`classification()`
+#' * `eol_hierarchy()`: See`classification()`
+#' * [eol_invasive()]: See `eol` in the \pkg{originr} package.
+#' * [use_eol()]: EOL no longer requires an API key
 #' * [tpl_search()]: Use the \pkg{Taxonstand} functions `TPL` or `TPLck` directly.
 #' * [get_seqs()]: This function changed name to`ncbi_getbyname()`()].
 #' * [get_genes()]: This function changed name to`ncbi_getbyid()`()].
@@ -228,7 +230,6 @@ NULL
 #' * [ncbi_getbyname()]: See `ncbi_byname` in the \pkg{traits} package.
 #' * [ncbi_getbyid()]: See `ncbi_byid` in the \pkg{traits} package.
 #' * [ncbi_search()]: See `ncbi_searcher` in the \pkg{traits} package.
-#' * [eol_invasive()]: See `eol` in the \pkg{originr} package.
 #' * [gisd_isinvasive()]: See `gisd` in the \pkg{originr} package.
 #' * [ubio_classification()]:  The uBio web services was down for quite a while, is
 #'  now (as of 2016-05-09) back up, but we don't trust that it will stay up and available.

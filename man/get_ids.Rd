@@ -22,7 +22,7 @@ get_ids_(names, db = get_ids_dbs, rows = NA, suppress = FALSE, ...)
 all data sources. Note that each taxonomic data source has their own
 identifiers, so that if you give the wrong \code{db} value for the identifier you
 could get a result, it will likely be wrong (not what you were expecting).
-If using ncbi, eol, and/or tropicos we recommend getting API keys;
+If using ncbi and/or tropicos we recommend getting API keys;
 see \link{taxize-authentication}}
 
 \item{suppress}{(logical) suppress \pkg{cli} separators with the database

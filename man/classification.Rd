@@ -90,7 +90,7 @@ to query. For \code{db = "eol"}, EOL expects you to pass it a taxon id, called
 Note that each taxonomic data source has, their own identifiers, so that
 if you provide the wrong \code{db} value for the identifier you could get a
 result, but it will likely be wrong (not what you were expecting). If using
-ncbi, eol, and/or tropicos, we recommend getting an API key; see
+ncbi, and/or tropicos, we recommend getting an API key; see
 \link{taxize-authentication}}
 
 \item{callopts}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}

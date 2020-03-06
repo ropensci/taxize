@@ -5,17 +5,16 @@
 #' @export
 #' @param x (character) An API key, defaults to `NULL`
 #' @param service (character) The API data provider, used to match to
-#' default guest key (for Tropicos and EOL; there's no guest
+#' default guest key (for Tropicos; there's no guest
 #' key for NCBI or IUCN, for which you have to get your own)
 #' @examples \dontrun{
 #' getkey(service="tropicos")
-#' getkey(service="eol")
 #' getkey(service="iucn")
 #' getkey(service="entrez")
 #' }
 getkey <- function(x = NULL, service) {
   if (is.null(x)) {
-    keynames <- c("TROPICOS_KEY", "EOL_KEY", "IUCN_REDLIST_KEY", "ENTREZ_KEY")
+    keynames <- c("TROPICOS_KEY", "IUCN_REDLIST_KEY", "ENTREZ_KEY")
     service <- grep(service, keynames, ignore.case = TRUE, value = TRUE)
     key <- getOption(service)
     if (is.null(key)) key <- Sys.getenv(service, "")
@@ -43,8 +42,7 @@ getkey <- function(x = NULL, service) {
                 "44f1a53227f1c0b6238a997fcfe7513415f948d2")
       names(keys) <- keynames[1:2]
       key <- keys[[service]]
-      key_helpers <- c("taxize::use_tropicos()",
-                       "taxize::use_eol()")
+      key_helpers <- c("taxize::use_tropicos()")
       names(key_helpers) <- keynames[1:2]
       message(paste("Using default key: Please get your own API key via ",
                     key_helpers[service], sep = ""))

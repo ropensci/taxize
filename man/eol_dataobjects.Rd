@@ -4,14 +4,7 @@
 \alias{eol_dataobjects}
 \title{Given the identifier for a data object, return all metadata about the object}
 \usage{
-eol_dataobjects(
-  id,
-  taxonomy = TRUE,
-  language = NULL,
-  usekey = TRUE,
-  key = NULL,
-  ...
-)
+eol_dataobjects(id, taxonomy = TRUE, language = NULL, ...)
 }
 \arguments{
 \item{id}{(character) The EOL data object identifier}
@@ -20,13 +13,8 @@ eol_dataobjects(
 different taxon hierarchy providers, in an array named \code{taxonconcepts}}
 
 \item{language}{(character) provides the results in the specified language.
-one of ms, de, en, es, fr, gl, it, nl, nb, oc, pt-BR, sv, tl, mk, sr, uk, ar,
-zh-Hans, zh-Hant, ko}
-
-\item{usekey}{(logical) use your API key or not (\code{TRUE} or \code{FALSE})}
-
-\item{key}{(character) Your EOL API key; ; see \link{taxize-authentication}
-for help on authentication}
+one of ms, de, en, es, fr, gl, it, nl, nb, oc, pt-BR, sv, tl, mk, sr, uk,
+ar, zh-Hans, zh-Hant, ko}
 
 \item{...}{Curl options passed on to \link[crul:HttpClient]{crul::HttpClient}}
 }

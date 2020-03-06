@@ -8,7 +8,7 @@
 #' `tropicos`, `gbif`,`nbn`, `worms`, `natserv`, `bold`. Note that each
 #' taxonomic data source has their own identifiers, so that if you provide the
 #' wrong `db` value for the identifier you may get a result, but it will
-#' likely be wrong (not what you were expecting). If using ncbi or eol we
+#' likely be wrong (not what you were expecting). If using ncbi we
 #' recommend getting an API key; see [taxize-authentication]
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, 
 #' all rows are considered. passed down to `get_*()` functions.

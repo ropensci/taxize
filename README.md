@@ -17,7 +17,7 @@ The taxize book => <https://taxize.dev>
 
 The functions in the package that hit a specific API have a prefix and suffix separated by an underscore. They follow the format of `service_whatitdoes`.  For example, `gnr_resolve` uses the Global Names Resolver API to resolve species names.  General functions in the package that don't hit a specific API don't have two words separated by an underscore, e.g., `classification`.
 
-You need API keys for Encyclopedia of Life (EOL), Tropicos, IUCN, and NatureServe.
+You need API keys for Tropicos, IUCN, and NatureServe.
 
 ## SOAP
 
@@ -47,7 +47,7 @@ Note that a few data sources require SOAP web services, which are difficult to s
 	<td style="text-align:left;">Encylopedia of Life</td>
 	<td style="text-align:left;"><code>eol</code></td>
 	<td style="text-align:left;"><a href="https://eol.org/docs/what-is-eol/data-services">link</a></td>
-	<td style="text-align:left;"><a href="https://eol.org/docs/what-is-eol/data-services">link</a></td>
+	<td style="text-align:left;">none</td>
 </tr>
 <tr>
 	<td style="text-align:left;">Taxonomic Name Resolution Service</td>
@@ -367,6 +367,13 @@ synonyms("Acer drummondii", db="itis")
 #> ● Total: 1 
 #> ● Found: 1 
 #> ● Not Found: 0
+#> ══  1 queries  ═══════════════
+#> ✔  Found:  Acer drummondii
+#> ══  Results  ═════════════════
+#> 
+#> ● Total: 1 
+#> ● Found: 1 
+#> ● Not Found: 0
 #> $`Acer drummondii`
 #>   sub_tsn                    acc_name acc_tsn                    acc_author
 #> 1  183671 Acer rubrum var. drummondii  526853 (Hook. & Arn. ex Nutt.) Sarg.
@@ -477,8 +484,8 @@ get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn', rows=1:3)
 #> $nbn$`Chironomus riparius`
 #>               guid      scientificName    rank taxonomicStatus
 #> 1 NBNSYS0000027573 Chironomus riparius species        accepted
-#> 2 NBNSYS0000007169   Elaphrus riparius species        accepted
-#> 3 NBNSYS0000023573    Quedius riparius species        accepted
+#> 2 NBNSYS0000023573    Quedius riparius species        accepted
+#> 3 NHMSYS0001718585  Hypnoidus riparius species        accepted
 #> 
 #> $nbn$`Pinus contorta`
 #>               guid                scientificName    rank taxonomicStatus
@@ -525,6 +532,15 @@ comm2sci("black bear", db = "itis")
 ```r
 spp <- c("Sus scrofa", "Homo sapiens", "Nycticebus coucang")
 lowest_common(spp, db = "ncbi")
+#> ══  3 queries  ═══════════════
+#> ✔  Found:  Sus+scrofa
+#> ✔  Found:  Homo+sapiens
+#> ✔  Found:  Nycticebus+coucang
+#> ══  Results  ═════════════════
+#> 
+#> ● Total: 3 
+#> ● Found: 3 
+#> ● Not Found: 0
 #> ══  3 queries  ═══════════════
 #> ✔  Found:  Sus+scrofa
 #> ✔  Found:  Homo+sapiens

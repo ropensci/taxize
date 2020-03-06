@@ -1,6 +1,5 @@
 use_fxns_urls <- list(
   tropicos = "http://services.tropicos.org/help?requestkey",
-  eol = "https://eol.org/users/sign_up",
   entrez = "https://www.ncbi.nlm.nih.gov/account/"
 )
 
@@ -35,26 +34,10 @@ use_tropicos <- function() {
   invisible(use_fxns_urls$tropicos)
 }
 
-#' @section `use_eol()`:
-#' Browse EOL to help make an API key request and provides instruction on how
-#' to store the key. There's no direct URL to request a key, one first needs
-#' to log in or register and then to generate a key from one's Preferences
-#' page.
-#'
 #' @export
 #' @rdname key_helpers
 use_eol <- function() {
-  if (interactive()) {
-    utils::browseURL(use_fxns_urls$eol)
-  }
-
-  message(paste0(
-    "Generate your key in your (brand-new) account's Preferences page.\n ",
-    "After generating your key set it as EOL_KEY in .Renviron.\n ",
-    "EOL_KEY='youractualkeynotthisstring'\n ",
-    "For that, use usethis::edit_r_environ()"))
-
-  invisible(use_fxns_urls$eol)
+  .Defunct(msg = "EOL no longer requires an API key")
 }
 
 #' @section `use_entrez()`:
@@ -64,7 +47,6 @@ use_eol <- function() {
 #'
 #' Note that NCBI Entrez doesn't require that you use an API key,
 #' but you should get higher rate limit with a key, so do get one.
-#'
 #' @export
 #' @rdname key_helpers
 use_entrez <- function() {

@@ -15,7 +15,7 @@ get_ids_dbs <- c(
 #' all data sources. Note that each taxonomic data source has their own
 #' identifiers, so that if you give the wrong `db` value for the identifier you
 #' could get a result, it will likely be wrong (not what you were expecting).
-#' If using ncbi, eol, and/or tropicos we recommend getting API keys;
+#' If using ncbi and/or tropicos we recommend getting API keys;
 #' see [taxize-authentication]
 #' @param suppress (logical) suppress \pkg{cli} separators with the database
 #' name being queried. default: `FALSE`

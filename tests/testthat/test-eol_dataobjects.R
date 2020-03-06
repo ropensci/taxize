@@ -3,7 +3,9 @@ context("eol_dataobjects")
 test_that("eol_dataobjects with taxonomy TRUE", {
   skip_on_cran()
 
-  temp <- sm(eol_dataobjects(id = "7561533", verbose = FALSE))
+  vcr::use_cassette("eol_dataobjects", {
+    temp <- sm(eol_dataobjects(id = "7561533", verbose = FALSE))
+  })
 
   expect_is(temp, "list")
 	expect_is(temp$taxonconcepts$scientificname, "character")
@@ -14,8 +16,10 @@ test_that("eol_dataobjects with taxonomy TRUE", {
 test_that("eol_dataobjects with taxonomy FALSE", {
   skip_on_cran()
 
-	temp2 <- sm(eol_dataobjects(id = "7561533", 
-    taxonomy = FALSE, verbose = FALSE))
+  vcr::use_cassette("eol_dataobjects_taxonomy_param", {
+  	temp2 <- sm(eol_dataobjects(id = "7561533", 
+      taxonomy = FALSE, verbose = FALSE))
+  })
 
 	expect_is(temp2, "list")
 	expect_null(temp2$taxonconcepts$scientificname)
