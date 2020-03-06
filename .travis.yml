@@ -1,7 +1,6 @@
 language: r
-sudo: false
 cache: packages
-dist: trusty
+os: linux
 
 cran: https://cloud.r-project.org
 
@@ -9,7 +8,7 @@ r_binary_packages:
   - vegan
   - covr
 
-matrix:
+jobs:
   include:
     - os: linux
       r: release
