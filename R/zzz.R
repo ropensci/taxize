@@ -179,7 +179,7 @@ assert <- function(x, y) {
 is_na <- function(x) {
   if (is.list(x)) return(FALSE)
   if (is.environment(x)) return(FALSE)
-  return(is.na(x))
+  return(all(is.na(x)))
 }
 
 assert_state <- function(x, y) {
