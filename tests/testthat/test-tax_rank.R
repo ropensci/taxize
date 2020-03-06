@@ -7,8 +7,8 @@ test_that("tax_rank returns the correct class", {
       db = "ncbi", messages = FALSE))
     B <- suppressMessages(sw(tax_rank("Helianthus", db = "itis",
       messages = FALSE, rows = 1)))
-    C <- suppressMessages(tax_rank(c("Helianthus annuus", "xxxxxx"),
-      db = "ncbi", messages = FALSE))
+    C <- suppressMessages(sw(tax_rank(c("Helianthus annuus", "xxxxxx"),
+      db = "ncbi", messages = FALSE)))
   })
 
   expect_is(A, "list")

@@ -63,7 +63,7 @@ test_that("warn on mismatch 'db'", {
   vcr::use_cassette("downstream_warn_on_db_mismatch", {
     expect_warning(
       downstream(
-        get_uid('Apis', messages = FALSE), downto = "species",
+        get_gbifid('Apis', messages = FALSE, rows = 1), downto = "species",
         db = "itis"))
   })
 })

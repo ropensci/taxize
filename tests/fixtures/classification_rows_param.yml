@@ -8,8 +8,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
   response:
     status:
       status_code: '200'
@@ -17,20 +17,20 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Mon, 24 Feb 2020 23:38:07 GMT
+      date: Fri, 06 Mar 2020 01:30:39 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '9'
-      ncbi-phid: 939B1ADCACB471850000563A4F211989.1.1.m_1
+      x-ratelimit-remaining: '7'
+      ncbi-phid: 322C9E4055AFCB550000373B9895378C.1.1.m_1
       cache-control: private
-      ncbi-sid: 3BCE2EEA11F05470_3EA0SID
+      ncbi-sid: 1D4CD6BA257E97D7_7BBCSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=3BCE2EEA11F05470_3EA0SID; domain=.nih.gov; path=/; expires=Wed,
-        24 Feb 2021 23:38:07 GMT
+      set-cookie: ncbi_sid=1D4CD6BA257E97D7_7BBCSID; domain=.nih.gov; path=/; expires=Sat,
+        06 Mar 2021 01:30:40 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -41,8 +41,8 @@ http_interactions:
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
         <eSearchResult><Count>0</Count><RetMax>0</RetMax><RetStart>0</RetStart><IdList/><TranslationSet/><QueryTranslation>(Asdfafsfd[All Names])</QueryTranslation><ErrorList><PhraseNotFound>Asdfafsfd</PhraseNotFound></ErrorList><WarningList><OutputMessage>No items found.</OutputMessage></WarningList></eSearchResult>
-  recorded_at: 2020-02-24 23:38:16 GMT
-  recorded_with: vcr/0.4.2.91, webmockr/0.5.1.98
+  recorded_at: 2020-03-06 01:30:50 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=&api_key=<<entrez_api_token>>
@@ -50,7 +50,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.47.0 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -60,20 +60,20 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Mon, 24 Feb 2020 23:38:07 GMT
+      date: Fri, 06 Mar 2020 01:30:39 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       x-ratelimit-remaining: '8'
-      ncbi-phid: D0BD57157EF9A68500005137C8E9DE6F.1.1.m_1
+      ncbi-phid: 322C9E4055AFCB550000483B99128E8A.1.1.m_1
       cache-control: private
-      ncbi-sid: 82D68EEFD1F09B9A_CEA9SID
+      ncbi-sid: 1D22C8FA719DC63B_4690SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=82D68EEFD1F09B9A_CEA9SID; domain=.nih.gov; path=/; expires=Wed,
-        24 Feb 2021 23:38:07 GMT
+      set-cookie: ncbi_sid=1D22C8FA719DC63B_4690SID; domain=.nih.gov; path=/; expires=Sat,
+        06 Mar 2021 01:30:40 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -83,8 +83,8 @@ http_interactions:
       string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eEfetchResult
         PUBLIC \"-//NLM//DTD efetch 20131226//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20131226/efetch.dtd\">\n<eFetchResult>\n\t<ERROR>Supplied
         id parameter is empty.</ERROR>\n</eFetchResult>\n"
-  recorded_at: 2020-02-24 23:38:16 GMT
-  recorded_with: vcr/0.4.2.91, webmockr/0.5.1.98
+  recorded_at: 2020-03-06 01:30:50 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=&api_key=<<entrez_api_token>>
@@ -92,7 +92,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.47.0 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -102,20 +102,20 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Mon, 24 Feb 2020 23:38:08 GMT
+      date: Fri, 06 Mar 2020 01:30:41 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       x-ratelimit-remaining: '9'
-      ncbi-phid: D0BD57157EF9A68500005737C9F8666B.1.1.m_1
+      ncbi-phid: D0BD321EAD513EE50000204CB062038A.1.1.m_1
       cache-control: private
-      ncbi-sid: 82D68EEFD1F09B9A_CEA9SID
+      ncbi-sid: 1D22C8FA719DC63B_4690SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=82D68EEFD1F09B9A_CEA9SID; domain=.nih.gov; path=/; expires=Wed,
-        24 Feb 2021 23:38:09 GMT
+      set-cookie: ncbi_sid=1D22C8FA719DC63B_4690SID; domain=.nih.gov; path=/; expires=Sat,
+        06 Mar 2021 01:30:42 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -125,8 +125,8 @@ http_interactions:
       string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eEfetchResult
         PUBLIC \"-//NLM//DTD efetch 20131226//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20131226/efetch.dtd\">\n<eFetchResult>\n\t<ERROR>Supplied
         id parameter is empty.</ERROR>\n</eFetchResult>\n"
-  recorded_at: 2020-02-24 23:38:16 GMT
-  recorded_with: vcr/0.4.2.91, webmockr/0.5.1.98
+  recorded_at: 2020-03-06 01:30:50 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=&api_key=<<entrez_api_token>>
@@ -134,7 +134,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.47.0 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -144,20 +144,20 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Mon, 24 Feb 2020 23:38:10 GMT
+      date: Fri, 06 Mar 2020 01:30:43 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       x-ratelimit-remaining: '9'
-      ncbi-phid: D0BD57157EF9A68500005D37CBE5AFAE.1.1.m_1
+      ncbi-phid: D0BD321EAD513EE50000544CB2C4CDCF.1.1.m_1
       cache-control: private
-      ncbi-sid: 82D68EEFD1F09B9A_CEA9SID
+      ncbi-sid: 1D22C8FA719DC63B_4690SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=82D68EEFD1F09B9A_CEA9SID; domain=.nih.gov; path=/; expires=Wed,
-        24 Feb 2021 23:38:10 GMT
+      set-cookie: ncbi_sid=1D22C8FA719DC63B_4690SID; domain=.nih.gov; path=/; expires=Sat,
+        06 Mar 2021 01:30:44 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -167,8 +167,8 @@ http_interactions:
       string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eEfetchResult
         PUBLIC \"-//NLM//DTD efetch 20131226//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20131226/efetch.dtd\">\n<eFetchResult>\n\t<ERROR>Supplied
         id parameter is empty.</ERROR>\n</eFetchResult>\n"
-  recorded_at: 2020-02-24 23:38:16 GMT
-  recorded_with: vcr/0.4.2.91, webmockr/0.5.1.98
+  recorded_at: 2020-03-06 01:30:50 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
     uri: https://www.itis.gov/ITISWebService/jsonservice/getITISTermsFromScientificName?srchKey=Asdfafsfd
@@ -176,7 +176,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.47.0 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -188,7 +188,7 @@ http_interactions:
       connection: keep-alive
       content-length: '107'
       content-type: text/json;charset=ISO-8859-1
-      date: Mon, 24 Feb 2020 23:38:13 GMT
+      date: Fri, 06 Mar 2020 01:30:47 GMT
       status: 'HTTP/1.1 200 '
       strict-transport-security:
       - max-age=63072000; includeSubdomains; preload
@@ -201,8 +201,8 @@ http_interactions:
       file: no
       string: |
         {"class":"gov.usgs.itis.itis_service.data.SvcItisTermList","itisTerms":[null],"requestedName":"Asdfafsfd"}
-  recorded_at: 2020-02-24 23:38:16 GMT
-  recorded_with: vcr/0.4.2.91, webmockr/0.5.1.98
+  recorded_at: 2020-03-06 01:30:50 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
     uri: https://api.gbif.org/v1/species/match?name=Asdfafsfd&strict=FALSE&verbose=TRUE&limit=500
@@ -212,8 +212,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
   response:
     status:
       status_code: '200'
@@ -221,13 +221,13 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Mon, 24 Feb 2020 23:38:14 GMT
+      date: Fri, 06 Mar 2020 01:30:48 GMT
       content-type: application/json
       access-control-allow-origin: '*'
       access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
       server: Jetty(9.3.z-SNAPSHOT)
       cache-control: public, max-age=3601
-      x-varnish: '1030329248'
+      x-varnish: '719192784'
       age: '0'
       via: 1.1 varnish (Varnish/5.2)
       accept-ranges: bytes
@@ -237,19 +237,19 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '{"confidence":100,"matchType":"NONE","synonym":false}'
-  recorded_at: 2020-02-24 23:38:16 GMT
-  recorded_with: vcr/0.4.2.91, webmockr/0.5.1.98
+  recorded_at: 2020-03-06 01:30:50 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
-    uri: http://eol.org/api/search/1.0.json?q=Asdfafsfd&page=1&key=44f1a53227f1c0b6238a997fcfe7513415f948d2
+    uri: http://eol.org/api/search/1.0.json?q=Asdfafsfd&page=1&key=<<eol_api_token>>
     body:
       encoding: ''
       string: ''
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
   response:
     status:
       status_code: '200'
@@ -257,17 +257,16 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Mon, 24 Feb 2020 23:38:15 GMT
+      date: Fri, 06 Mar 2020 01:30:49 GMT
       content-type: application/json; charset=utf-8
-      transfer-encoding: chunked
+      content-length: '64'
       connection: keep-alive
       x-frame-options: ALLOWALL
       x-robots-tag: noindex
-      etag: W/"85e70a49d98fa3af500ab4cabd6e178e"
+      etag: W/"dc0e79a0d15459ce916f533908820166"
       cache-control: max-age=0, private, must-revalidate
-      x-request-id: 7a4fc1cf-98ec-499b-a3ce-604d4e5d3e30
-      x-runtime: '0.043313'
-      vary: Origin
+      x-request-id: c77eedcd-5d9d-4abe-a1d1-59caccced30f
+      x-runtime: '0.036266'
       age: '0'
       x-cache: MISS
       x-cache-hits: '0'
@@ -276,19 +275,19 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '{"totalResults":0,"startIndex":1,"itemsPerPage":50,"results":[]}'
-  recorded_at: 2020-02-24 23:38:16 GMT
-  recorded_with: vcr/0.4.2.91, webmockr/0.5.1.98
+  recorded_at: 2020-03-06 01:30:50 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
-    uri: http://services.tropicos.org/Name/Search?format=json&name=Asdfafsfd&apikey=00ca3d6a-cbcc-4924-b882-c26b16d54446
+    uri: http://services.tropicos.org/Name/Search?format=json&name=Asdfafsfd&apikey=<<tropicos_api_token>>
     body:
       encoding: ''
       string: ''
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
   response:
     status:
       status_code: '200'
@@ -302,13 +301,13 @@ http_interactions:
       server: Microsoft-IIS/7.5
       x-aspnet-version: 4.0.30319
       x-powered-by: ASP.NET
-      date: Mon, 24 Feb 2020 23:38:15 GMT
+      date: Fri, 06 Mar 2020 01:30:49 GMT
     body:
       encoding: UTF-8
       file: no
       string: '[{"Error":"No names were found"}]'
-  recorded_at: 2020-02-24 23:38:16 GMT
-  recorded_with: vcr/0.4.2.91, webmockr/0.5.1.98
+  recorded_at: 2020-03-06 01:30:50 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
     uri: https://species-ws.nbnatlas.org/search?q=Asdfafsfd&fq=idxtype%3ATAXON&pageSize=500&startIndex=0
@@ -318,8 +317,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
   response:
     status:
       status_code: '200'
@@ -327,7 +326,7 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Mon, 24 Feb 2020 23:38:21 GMT
+      date: Fri, 06 Mar 2020 01:30:59 GMT
       server: Apache/2.4.7 (Ubuntu)
       x-application-context: application:production
       content-type: application/json;charset=UTF-8
@@ -336,5 +335,5 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '{"searchResults":{"totalRecords":0,"facetResults":[],"results":[],"queryTitle":"Asdfafsfd"}}'
-  recorded_at: 2020-02-24 23:38:16 GMT
-  recorded_with: vcr/0.4.2.91, webmockr/0.5.1.98
+  recorded_at: 2020-03-06 01:30:50 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0

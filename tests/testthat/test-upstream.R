@@ -2,10 +2,10 @@ context("upstream")
 
 test_that("upstream basic usage works", {
   skip_on_cran()
-  vcr::use_cassette("upstream", {
-    aa <- upstream("Pinus contorta", db = 'itis', upto = 'genus',
-        messages = FALSE)
-  }, preserve_exact_body_bytes = TRUE)
+  sw(vcr::use_cassette("upstream", {
+    aa <- sw(upstream("Pinus contorta", db = 'itis', upto = 'genus',
+      messages = FALSE))
+  }, preserve_exact_body_bytes = TRUE))
 
   expect_is(aa, "upstream")
   expect_named(aa, "Pinus contorta")

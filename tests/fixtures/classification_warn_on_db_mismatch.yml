@@ -8,41 +8,43 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.2.9000 crul/0.9.0 rOpenSci(taxize/0.9.9.9110)
-      X-USER-AGENT: r-curl/4.2.9000 crul/0.9.0 rOpenSci(taxize/0.9.9.9110)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: 'HTTP/2 200 '
-      date: Sat, 09 Nov 2019 19:32:48 GMT
+      status: HTTP/1.1 200 OK
+      date: Fri, 06 Mar 2020 01:30:50 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '8'
-      ncbi-phid: 939B7BB7E6388EF500002C15410737C7.1.1.m_1
+      x-ratelimit-remaining: '9'
+      ncbi-phid: 322C9E4055AFCB5500003B3B9FE206B9.1.1.m_1
       cache-control: private
-      ncbi-sid: 495F3C5146A973D2_CAE0SID
+      ncbi-sid: 7A0E2781C6707FB1_4A73SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=495F3C5146A973D2_CAE0SID; domain=.nih.gov; path=/; expires=Mon,
-        09 Nov 2020 19:32:48 GMT
+      set-cookie: ncbi_sid=7A0E2781C6707FB1_4A73SID; domain=.nih.gov; path=/; expires=Sat,
+        06 Mar 2021 01:30:51 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
     body:
       encoding: UTF-8
+      file: no
       string: |
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>315576</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Chironomus+riparius[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Chironomus+riparius[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2019-11-09 19:32:49 GMT
-  recorded_with: vcr/0.3.0, webmockr/0.4.0
+  recorded_at: 2020-03-06 01:30:52 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=315576&api_key=<<entrez_api_token>>
@@ -50,7 +52,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/4.2.9000 crul/0.9.0
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -59,25 +61,27 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: 'HTTP/2 200 '
-      date: Sat, 09 Nov 2019 19:32:48 GMT
+      status: HTTP/1.1 200 OK
+      date: Fri, 06 Mar 2020 01:30:52 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '6'
-      ncbi-phid: 939B7BB7E6388EF50000561543D2B6D0.1.1.m_3
+      x-ratelimit-remaining: '8'
+      ncbi-phid: D0BD321EAD513EE50000294CC30563B0.1.1.m_3
       cache-control: private
-      ncbi-sid: EF23ED0F419EEF99_D465SID
+      ncbi-sid: 90F67BE391C2AD4E_63B0SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=EF23ED0F419EEF99_D465SID; domain=.nih.gov; path=/; expires=Mon,
-        09 Nov 2020 19:32:49 GMT
+      set-cookie: ncbi_sid=90F67BE391C2AD4E_63B0SID; domain=.nih.gov; path=/; expires=Sat,
+        06 Mar 2021 01:30:52 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
     body:
       encoding: UTF-8
+      file: no
       string: |-
         <?xml version="1.0" ?>
         <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
@@ -239,5 +243,5 @@ http_interactions:
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2019-11-09 19:32:49 GMT
-  recorded_with: vcr/0.3.0, webmockr/0.4.0
+  recorded_at: 2020-03-06 01:30:52 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0

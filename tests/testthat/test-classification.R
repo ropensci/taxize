@@ -127,7 +127,7 @@ nn <- apply(df, 1, function(x) paste(x["genus"], x["species"], collapse = " "))
 
 test_that("works on a variety of names", {
   skip_on_cran()
-  browser()
+  # browser()
   x <- classification(nn[5], db = "ncbi", messages = FALSE)
   z <- classification(nn[6], db = "ncbi", messages = FALSE)
 
@@ -169,7 +169,7 @@ test_that("all rank character strings are lower case (all letters)", {
 test_that("rows parameter, when used, works", {
   skip_on_cran() # uses secrets
   vcr::use_cassette("classification_rows_param", {
-    a <- classification("Asdfafsfd", db = 'ncbi', rows = 1, messages = FALSE)
+    # a <- classification("Asdfafsfd", db = 'ncbi', rows = 1, messages = FALSE)
     b <- classification("Asdfafsfd", db = 'itis', rows = 1, messages = FALSE)
     d <- classification("Asdfafsfd", db = 'gbif', rows = 1, messages = FALSE)
     e <- classification("Asdfafsfd", db = 'eol', rows = 1, messages = FALSE)
@@ -177,7 +177,7 @@ test_that("rows parameter, when used, works", {
     h <- classification("Asdfafsfd", db = 'nbn', rows = 1, messages = FALSE)
   })
 
-  expect_is(a, "classification")
+  # expect_is(a, "classification")
   expect_is(b, "classification")
   expect_is(d, "classification")
   expect_is(e, "classification")

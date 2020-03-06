@@ -6,9 +6,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
   response:
     status:
       status_code: '200'
@@ -16,34 +17,34 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:02:21 GMT
+      date: Fri, 06 Mar 2020 01:28:24 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '8'
-      ncbi-phid: 939B131039D6F975000023AF8FF4B9A3.1.1.m_1
+      x-ratelimit-remaining: '9'
+      ncbi-phid: D0BD321EAD513EE500003F4C3F34ECDE.1.1.m_1
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: E1E0D7241890D04B_8418SID
+      ncbi-sid: ECCE7B8080C31EF6_97C4SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=E1E0D7241890D04B_8418SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:02:22 GMT
+      set-cookie: ncbi_sid=ECCE7B8080C31EF6_97C4SID; domain=.nih.gov; path=/; expires=Sat,
+        06 Mar 2021 01:28:25 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
       encoding: UTF-8
+      file: no
       string: |
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>152733</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Klattia+flava[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Klattia+flava[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2019-01-26 20:02:40 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2020-03-06 01:28:30 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Trollius%2Bsibiricus&api_key=<<entrez_api_token>>
@@ -51,9 +52,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
   response:
     status:
       status_code: '200'
@@ -61,34 +63,34 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:02:22 GMT
+      date: Fri, 06 Mar 2020 01:28:25 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '6'
-      ncbi-phid: 322CDAEFF3EFD7B5000026B4AC1E4A93.1.1.m_1
+      x-ratelimit-remaining: '8'
+      ncbi-phid: 939B359643F5AE9500005C47555CF697.1.1.m_1
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: C71F6A869B9F1873_5712SID
+      ncbi-sid: AEB8BD4C361CC2D6_BABFSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=C71F6A869B9F1873_5712SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:02:22 GMT
+      set-cookie: ncbi_sid=AEB8BD4C361CC2D6_BABFSID; domain=.nih.gov; path=/; expires=Sat,
+        06 Mar 2021 01:28:26 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
       encoding: UTF-8
+      file: no
       string: |
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>944286</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Trollius+sibiricus[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Trollius+sibiricus[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2019-01-26 20:02:40 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2020-03-06 01:28:30 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Arachis%2Bparaguariensis&api_key=<<entrez_api_token>>
@@ -96,9 +98,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
   response:
     status:
       status_code: '200'
@@ -106,34 +109,34 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:02:22 GMT
+      date: Fri, 06 Mar 2020 01:28:25 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       x-ratelimit-remaining: '7'
-      ncbi-phid: 322CDAEFF3EFD7B5000023B4AC7845C5.1.1.m_1
+      ncbi-phid: 939B359643F5AE950000544755A3D57A.1.1.m_1
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 5A32EABCF58663C2_163BSID
+      ncbi-sid: C222F7F9528082E2_E5F8SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=5A32EABCF58663C2_163BSID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:02:23 GMT
+      set-cookie: ncbi_sid=C222F7F9528082E2_E5F8SID; domain=.nih.gov; path=/; expires=Sat,
+        06 Mar 2021 01:28:26 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
       encoding: UTF-8
+      file: no
       string: |
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>224337</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Arachis+paraguariensis[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Arachis+paraguariensis[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2019-01-26 20:02:40 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2020-03-06 01:28:30 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Tanacetum%2Bboreale&api_key=<<entrez_api_token>>
@@ -141,9 +144,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
   response:
     status:
       status_code: '200'
@@ -151,34 +155,34 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:02:23 GMT
+      date: Fri, 06 Mar 2020 01:28:25 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '6'
-      ncbi-phid: D0BD37B365326FC5000025852C99DB0E.1.1.m_1
+      x-ratelimit-remaining: '7'
+      ncbi-phid: 939B359643F5AE950000224755F57AAA.1.1.m_1
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 24DD28219FAB2D2D_F4A0SID
+      ncbi-sid: C8EF0FB9F68B361F_74C9SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=24DD28219FAB2D2D_F4A0SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:02:23 GMT
+      set-cookie: ncbi_sid=C8EF0FB9F68B361F_74C9SID; domain=.nih.gov; path=/; expires=Sat,
+        06 Mar 2021 01:28:26 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
       encoding: UTF-8
+      file: no
       string: |
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>128002</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Tanacetum+boreale[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Tanacetum+boreale[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2019-01-26 20:02:40 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2020-03-06 01:28:30 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Gentiana%2Byakushimensis&api_key=<<entrez_api_token>>
@@ -186,9 +190,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
   response:
     status:
       status_code: '200'
@@ -196,34 +201,34 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:02:23 GMT
+      date: Fri, 06 Mar 2020 01:28:26 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '4'
-      ncbi-phid: 939B131039D6F975000023AF90EB0234.1.1.m_1
+      x-ratelimit-remaining: '6'
+      ncbi-phid: 939B359643F5AE9500002F475623CDAD.1.1.m_1
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: FC79046DE5622E52_FA91SID
+      ncbi-sid: DECF44A10D4A50A3_E7B6SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=FC79046DE5622E52_FA91SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:02:23 GMT
+      set-cookie: ncbi_sid=DECF44A10D4A50A3_E7B6SID; domain=.nih.gov; path=/; expires=Sat,
+        06 Mar 2021 01:28:26 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
       encoding: UTF-8
+      file: no
       string: |
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>553063</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Gentiana+yakushimensis[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Gentiana+yakushimensis[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2019-01-26 20:02:40 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2020-03-06 01:28:30 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Sesamum%2Bschinzianum&api_key=<<entrez_api_token>>
@@ -231,9 +236,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
   response:
     status:
       status_code: '200'
@@ -241,34 +247,34 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:02:23 GMT
+      date: Fri, 06 Mar 2020 01:28:26 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '4'
-      ncbi-phid: 322CDAEFF3EFD7B5000026B4AD25C2D9.1.1.m_1
+      x-ratelimit-remaining: '6'
+      ncbi-phid: 939B359643F5AE9500004547565787BD.1.1.m_1
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: B086002A3851DEC7_D30CSID
+      ncbi-sid: 1249B5A889F50C1D_D4F9SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=B086002A3851DEC7_D30CSID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:02:24 GMT
+      set-cookie: ncbi_sid=1249B5A889F50C1D_D4F9SID; domain=.nih.gov; path=/; expires=Sat,
+        06 Mar 2021 01:28:27 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
       encoding: UTF-8
+      file: no
       string: |
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>768545</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Sesamum+schinzianum[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Sesamum+schinzianum[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2019-01-26 20:02:40 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2020-03-06 01:28:30 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Pilea%2Bverrucosa&api_key=<<entrez_api_token>>
@@ -276,9 +282,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
   response:
     status:
       status_code: '200'
@@ -286,34 +293,34 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:02:24 GMT
+      date: Fri, 06 Mar 2020 01:28:26 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '4'
-      ncbi-phid: D0BD37B365326FC500001B852D7DD35F.1.1.m_1
+      x-ratelimit-remaining: '6'
+      ncbi-phid: 939B359643F5AE9500002747569267BA.1.1.m_1
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 876DE388C948093F_8993SID
+      ncbi-sid: 11610C6021113FFF_18FFSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=876DE388C948093F_8993SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:02:24 GMT
+      set-cookie: ncbi_sid=11610C6021113FFF_18FFSID; domain=.nih.gov; path=/; expires=Sat,
+        06 Mar 2021 01:28:27 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
       encoding: UTF-8
+      file: no
       string: |
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>1399730</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Pilea+verrucosa[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Pilea+verrucosa[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2019-01-26 20:02:40 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2020-03-06 01:28:30 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Tibouchina%2Bstriphnocalyx&api_key=<<entrez_api_token>>
@@ -321,9 +328,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
   response:
     status:
       status_code: '200'
@@ -331,34 +339,34 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:02:24 GMT
+      date: Fri, 06 Mar 2020 01:28:27 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '4'
-      ncbi-phid: 322CDAEFF3EFD7B5000023B4AD7E62B6.1.1.m_1
+      x-ratelimit-remaining: '6'
+      ncbi-phid: 939B359643F5AE950000384756C27B1B.1.1.m_1
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 4AE1704BBA1F0AAF_A738SID
+      ncbi-sid: F284482E7734610C_2F1DSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=4AE1704BBA1F0AAF_A738SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:02:25 GMT
+      set-cookie: ncbi_sid=F284482E7734610C_2F1DSID; domain=.nih.gov; path=/; expires=Sat,
+        06 Mar 2021 01:28:27 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
       encoding: UTF-8
+      file: no
       string: |
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>1160690</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Tibouchina+striphnocalyx[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Tibouchina+striphnocalyx[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2019-01-26 20:02:40 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2020-03-06 01:28:30 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Lycium%2Bdasystemum&api_key=<<entrez_api_token>>
@@ -366,9 +374,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
   response:
     status:
       status_code: '200'
@@ -376,34 +385,34 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:02:24 GMT
+      date: Fri, 06 Mar 2020 01:28:27 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '3'
-      ncbi-phid: D0BD37B365326FC5000025852E03E8C0.1.1.m_1
+      x-ratelimit-remaining: '6'
+      ncbi-phid: 939B359643F5AE9500005947572E966A.1.1.m_1
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 57B8F02DAA40EDBA_2F78SID
+      ncbi-sid: 0AFFB85E479D7310_B586SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=57B8F02DAA40EDBA_2F78SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:02:25 GMT
+      set-cookie: ncbi_sid=0AFFB85E479D7310_B586SID; domain=.nih.gov; path=/; expires=Sat,
+        06 Mar 2021 01:28:28 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
       encoding: UTF-8
+      file: no
       string: |
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>942185</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Lycium+dasystemum[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Lycium+dasystemum[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2019-01-26 20:02:40 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2020-03-06 01:28:30 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Berkheya%2Bechinacea&api_key=<<entrez_api_token>>
@@ -411,9 +420,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
   response:
     status:
       status_code: '200'
@@ -421,34 +431,34 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:02:25 GMT
+      date: Fri, 06 Mar 2020 01:28:27 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '3'
-      ncbi-phid: D0BD37B365326FC5000023852E381A93.1.1.m_1
+      x-ratelimit-remaining: '6'
+      ncbi-phid: 939B359643F5AE9500004547579FE5EB.1.1.m_1
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: D15C462461B36948_9074SID
+      ncbi-sid: 759671CDD9191091_DF00SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=D15C462461B36948_9074SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:02:25 GMT
+      set-cookie: ncbi_sid=759671CDD9191091_DF00SID; domain=.nih.gov; path=/; expires=Sat,
+        06 Mar 2021 01:28:28 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
       encoding: UTF-8
+      file: no
       string: |
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>527996</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Berkheya+echinacea[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Berkheya+echinacea[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2019-01-26 20:02:40 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2020-03-06 01:28:30 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Androcymbium%2Bvillosum&api_key=<<entrez_api_token>>
@@ -456,9 +466,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
   response:
     status:
       status_code: '200'
@@ -466,34 +477,34 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:02:25 GMT
+      date: Fri, 06 Mar 2020 01:28:28 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '5'
-      ncbi-phid: 322CDAEFF3EFD7B5000013B4AE0503D3.1.1.m_1
+      x-ratelimit-remaining: '6'
+      ncbi-phid: 939B359643F5AE95000055475802E003.1.1.m_1
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 898235D7BE9A3DC7_1B37SID
+      ncbi-sid: 6C0593350F5B7858_B531SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=898235D7BE9A3DC7_1B37SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:02:26 GMT
+      set-cookie: ncbi_sid=6C0593350F5B7858_B531SID; domain=.nih.gov; path=/; expires=Sat,
+        06 Mar 2021 01:28:28 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
       encoding: UTF-8
+      file: no
       string: |
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>279457</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Androcymbium+villosum[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Androcymbium+villosum[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2019-01-26 20:02:40 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2020-03-06 01:28:30 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Helianthus%2Bannuus&api_key=<<entrez_api_token>>
@@ -501,9 +512,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
   response:
     status:
       status_code: '200'
@@ -511,34 +523,34 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:02:26 GMT
+      date: Fri, 06 Mar 2020 01:28:28 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '5'
-      ncbi-phid: D0BD37B365326FC5000023852EEB47AC.1.1.m_1
+      x-ratelimit-remaining: '6'
+      ncbi-phid: 939B359643F5AE950000294758B7C6D9.1.1.m_1
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 862DDE05CA9DB36F_B1BFSID
+      ncbi-sid: 9AD7ADDF9535CF91_365FSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=862DDE05CA9DB36F_B1BFSID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:02:26 GMT
+      set-cookie: ncbi_sid=9AD7ADDF9535CF91_365FSID; domain=.nih.gov; path=/; expires=Sat,
+        06 Mar 2021 01:28:28 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
       encoding: UTF-8
+      file: no
       string: |
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>4232</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Helianthus+annuus[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Helianthus+annuus[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2019-01-26 20:02:40 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2020-03-06 01:28:30 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Madia%2Belegans&api_key=<<entrez_api_token>>
@@ -546,9 +558,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
   response:
     status:
       status_code: '200'
@@ -556,34 +569,34 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:02:26 GMT
+      date: Fri, 06 Mar 2020 01:28:28 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '5'
-      ncbi-phid: 939B131039D6F975000025AF928CB08D.1.1.m_1
+      x-ratelimit-remaining: '6'
+      ncbi-phid: 939B359643F5AE9500005847594B2F99.1.1.m_1
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 2AA214CD3AAABE66_6094SID
+      ncbi-sid: 162E82F3052337CB_413FSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=2AA214CD3AAABE66_6094SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:02:27 GMT
+      set-cookie: ncbi_sid=162E82F3052337CB_413FSID; domain=.nih.gov; path=/; expires=Sat,
+        06 Mar 2021 01:28:29 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
       encoding: UTF-8
+      file: no
       string: |
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>4255</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Madia+elegans[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Madia+elegans[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2019-01-26 20:02:40 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2020-03-06 01:28:30 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Lupinus%2Balbicaulis&api_key=<<entrez_api_token>>
@@ -591,9 +604,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
   response:
     status:
       status_code: '200'
@@ -601,34 +615,34 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:02:27 GMT
+      date: Fri, 06 Mar 2020 01:28:29 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '5'
-      ncbi-phid: 939B131039D6F975000025AF92D60E1C.1.1.m_1
+      x-ratelimit-remaining: '7'
+      ncbi-phid: 939B359643F5AE9500002B475A23D250.1.1.m_1
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 98201E0F17310F92_0FCASID
+      ncbi-sid: D218272CFC192FE1_6920SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=98201E0F17310F92_0FCASID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:02:27 GMT
+      set-cookie: ncbi_sid=D218272CFC192FE1_6920SID; domain=.nih.gov; path=/; expires=Sat,
+        06 Mar 2021 01:28:29 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
       encoding: UTF-8
+      file: no
       string: |
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>377318</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Lupinus+albicaulis[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Lupinus+albicaulis[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2019-01-26 20:02:40 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2020-03-06 01:28:30 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Pinus%2Blambertiana&api_key=<<entrez_api_token>>
@@ -636,9 +650,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
   response:
     status:
       status_code: '200'
@@ -646,34 +661,34 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:02:27 GMT
+      date: Fri, 06 Mar 2020 01:28:28 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '5'
-      ncbi-phid: 939B131039D6F97500001FAF930DCA40.1.1.m_1
+      x-ratelimit-remaining: '6'
+      ncbi-phid: 939B359643F5AE95000052475AB3F629.1.1.m_1
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 2E41FD2BF04CAE34_7CB4SID
+      ncbi-sid: 51966F5062331BE3_CC6BSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=2E41FD2BF04CAE34_7CB4SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:02:28 GMT
+      set-cookie: ncbi_sid=51966F5062331BE3_CC6BSID; domain=.nih.gov; path=/; expires=Sat,
+        06 Mar 2021 01:28:29 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
       encoding: UTF-8
+      file: no
       string: |
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>3343</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Pinus+lambertiana[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Pinus+lambertiana[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2019-01-26 20:02:40 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2020-03-06 01:28:30 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Haloarcula%2Bamylolytica%2BJCM%2B13557&api_key=<<entrez_api_token>>
@@ -681,9 +696,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
   response:
     status:
       status_code: '200'
@@ -691,34 +707,34 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:02:27 GMT
+      date: Fri, 06 Mar 2020 01:28:30 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '5'
-      ncbi-phid: 939B131039D6F975000025AF933FBE07.1.1.m_1
+      x-ratelimit-remaining: '7'
+      ncbi-phid: 939B359643F5AE9500004E475BA31C11.1.1.m_1
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 179064F3B1E0B735_4F39SID
+      ncbi-sid: 1AC351952FEDC5B9_D630SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=179064F3B1E0B735_4F39SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:02:28 GMT
+      set-cookie: ncbi_sid=1AC351952FEDC5B9_D630SID; domain=.nih.gov; path=/; expires=Sat,
+        06 Mar 2021 01:28:30 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
       encoding: UTF-8
+      file: no
       string: |
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>1227452</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Haloarcula+amylolytica+JCM+13557[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Haloarcula+amylolytica+JCM+13557[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2019-01-26 20:02:40 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2020-03-06 01:28:30 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Halomonas%2Bsp.%2B%27Soap%2BLake%2B%236%27&api_key=<<entrez_api_token>>
@@ -726,9 +742,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
   response:
     status:
       status_code: '200'
@@ -736,42 +753,42 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:02:28 GMT
+      date: Fri, 06 Mar 2020 01:28:29 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '4'
-      ncbi-phid: D0BD37B365326FC500002585308A7182.1.1.m_1
+      x-ratelimit-remaining: '6'
+      ncbi-phid: 939B359643F5AE9500002C475C315E6D.1.1.m_1
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 1FB00EB43032AD1F_F886SID
+      ncbi-sid: FD3EAF4E0FDFA628_60C3SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=1FB00EB43032AD1F_F886SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:02:28 GMT
+      set-cookie: ncbi_sid=FD3EAF4E0FDFA628_60C3SID; domain=.nih.gov; path=/; expires=Sat,
+        06 Mar 2021 01:28:30 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
       encoding: UTF-8
+      file: no
       string: |
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>1949203</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Halomonas+sp.+'Soap+Lake+#6'[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Halomonas+sp.+'Soap+Lake+#6'[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2019-01-26 20:02:40 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2020-03-06 01:28:30 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=152733&api_key=<<entrez_api_token>>
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=152733%2C944286%2C224337%2C128002%2C553063%2C768545%2C1399730%2C1160690%2C942185%2C527996%2C279457%2C4232%2C4255%2C377318%2C3343%2C1227452%2C1949203&api_key=<<entrez_api_token>>
     body:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -781,26 +798,26 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:02:29 GMT
+      date: Fri, 06 Mar 2020 01:28:30 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       x-ratelimit-remaining: '6'
-      ncbi-phid: 322CDAEFF3EFD7B5000025B4AFBCFB78.1.1.m_3
+      ncbi-phid: 939B359643F5AE9500004F475CF4FF1C.1.1.m_3
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 10484239B79E5B2D_18B8SID
+      ncbi-sid: 520BA015C2313677_D06ASID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=10484239B79E5B2D_18B8SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:02:29 GMT
+      set-cookie: ncbi_sid=520BA015C2313677_D06ASID; domain=.nih.gov; path=/; expires=Sat,
+        06 Mar 2021 01:28:30 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
       encoding: UTF-8
+      file: no
       string: |-
         <?xml version="1.0" ?>
         <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
@@ -824,7 +841,7 @@ http_interactions:
                 <MGCId>1</MGCId>
                 <MGCName>Standard</MGCName>
             </MitoGeneticCode>
-            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliophyta; Mesangiospermae; Liliopsida; Petrosaviidae; Asparagales; Iridaceae; Nivenioideae; Klattia</Lineage>
+            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliopsida; Mesangiospermae; Liliopsida; Petrosaviidae; Asparagales; Iridaceae; Nivenioideae; Klattia</Lineage>
             <LineageEx>
                 <Taxon>
                     <TaxId>131567</TaxId>
@@ -873,8 +890,8 @@ http_interactions:
                 </Taxon>
                 <Taxon>
                     <TaxId>3398</TaxId>
-                    <ScientificName>Magnoliophyta</ScientificName>
-                    <Rank>no rank</Rank>
+                    <ScientificName>Magnoliopsida</ScientificName>
+                    <Rank>class</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>1437183</TaxId>
@@ -884,7 +901,7 @@ http_interactions:
                 <Taxon>
                     <TaxId>4447</TaxId>
                     <ScientificName>Liliopsida</ScientificName>
-                    <Rank>class</Rank>
+                    <Rank>no rank</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>1437197</TaxId>
@@ -922,51 +939,7 @@ http_interactions:
             <UpdateDate>2005/01/19 15:15:00</UpdateDate>
             <PubDate>2001/12/01 18:01:00</PubDate>
         </Taxon>
-
-        </TaxaSet>
-  recorded_at: 2019-01-26 20:02:40 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
-- request:
-    method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=944286&api_key=<<entrez_api_token>>
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:02:30 GMT
-      server: Finatra
-      strict-transport-security: max-age=31536000; includeSubDomains; preload
-      content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '7'
-      ncbi-phid: 322CDAEFF3EFD7B5000013B4B03E44C3.1.1.m_3
-      cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 205C31355976F4FE_0703SID
-      content-encoding: gzip
-      x-ratelimit-limit: '10'
-      access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=205C31355976F4FE_0703SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:02:30 GMT
-      x-ua-compatible: IE=Edge
-      x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
-    body:
-      encoding: UTF-8
-      string: |-
-        <?xml version="1.0" ?>
-        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
-        <TaxaSet><Taxon>
+        <Taxon>
             <TaxId>944286</TaxId>
             <ScientificName>Trollius sibiricus</ScientificName>
             <OtherNames>
@@ -986,7 +959,7 @@ http_interactions:
                 <MGCId>1</MGCId>
                 <MGCName>Standard</MGCName>
             </MitoGeneticCode>
-            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliophyta; Mesangiospermae; eudicotyledons; early-diverging eudicotyledons; Ranunculales; Ranunculaceae; Ranunculoideae; Adonideae; Trollius</Lineage>
+            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliopsida; Mesangiospermae; Ranunculales; Ranunculaceae; Ranunculoideae; Adonideae; Trollius</Lineage>
             <LineageEx>
                 <Taxon>
                     <TaxId>131567</TaxId>
@@ -1035,22 +1008,12 @@ http_interactions:
                 </Taxon>
                 <Taxon>
                     <TaxId>3398</TaxId>
-                    <ScientificName>Magnoliophyta</ScientificName>
-                    <Rank>no rank</Rank>
+                    <ScientificName>Magnoliopsida</ScientificName>
+                    <Rank>class</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>1437183</TaxId>
                     <ScientificName>Mesangiospermae</ScientificName>
-                    <Rank>no rank</Rank>
-                </Taxon>
-                <Taxon>
-                    <TaxId>71240</TaxId>
-                    <ScientificName>eudicotyledons</ScientificName>
-                    <Rank>no rank</Rank>
-                </Taxon>
-                <Taxon>
-                    <TaxId>71241</TaxId>
-                    <ScientificName>early-diverging eudicotyledons</ScientificName>
                     <Rank>no rank</Rank>
                 </Taxon>
                 <Taxon>
@@ -1089,57 +1052,17 @@ http_interactions:
             <UpdateDate>2011/01/18 18:31:39</UpdateDate>
             <PubDate>2011/01/18 18:00:28</PubDate>
         </Taxon>
-
-        </TaxaSet>
-  recorded_at: 2019-01-26 20:02:41 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
-- request:
-    method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=224337&api_key=<<entrez_api_token>>
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:02:30 GMT
-      server: Finatra
-      strict-transport-security: max-age=31536000; includeSubDomains; preload
-      content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '7'
-      ncbi-phid: 322CDAEFF3EFD7B500001AB4B08F7D13.1.1.m_3
-      cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 2D5B2A2DD1BD5983_FADFSID
-      content-encoding: gzip
-      x-ratelimit-limit: '10'
-      access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=2D5B2A2DD1BD5983_FADFSID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:02:30 GMT
-      x-ua-compatible: IE=Edge
-      x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
-    body:
-      encoding: UTF-8
-      string: |-
-        <?xml version="1.0" ?>
-        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
-        <TaxaSet><Taxon>
+        <Taxon>
             <TaxId>224337</TaxId>
             <ScientificName>Arachis paraguariensis</ScientificName>
             <OtherNames>
                 <Name>
                     <ClassCDE>authority</ClassCDE>
                     <DispName>Arachis paraguariensis Chodat &amp; Hassl.</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Arach paraguariensis</DispName>
                 </Name>
                 <Name>
                     <ClassCDE>misspelling</ClassCDE>
@@ -1157,7 +1080,7 @@ http_interactions:
                 <MGCId>1</MGCId>
                 <MGCName>Standard</MGCName>
             </MitoGeneticCode>
-            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliophyta; Mesangiospermae; eudicotyledons; Gunneridae; Pentapetalae; rosids; fabids; Fabales; Fabaceae; Papilionoideae; 50 kb inversion clade; dalbergioids sensu lato; Dalbergieae; Pterocarpus clade; Arachis</Lineage>
+            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliopsida; Mesangiospermae; eudicotyledons; Gunneridae; Pentapetalae; rosids; fabids; Fabales; Fabaceae; Papilionoideae; 50 kb inversion clade; dalbergioids sensu lato; Dalbergieae; Pterocarpus clade; Arachis</Lineage>
             <LineageEx>
                 <Taxon>
                     <TaxId>131567</TaxId>
@@ -1206,8 +1129,8 @@ http_interactions:
                 </Taxon>
                 <Taxon>
                     <TaxId>3398</TaxId>
-                    <ScientificName>Magnoliophyta</ScientificName>
-                    <Rank>no rank</Rank>
+                    <ScientificName>Magnoliopsida</ScientificName>
+                    <Rank>class</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>1437183</TaxId>
@@ -1232,7 +1155,7 @@ http_interactions:
                 <Taxon>
                     <TaxId>71275</TaxId>
                     <ScientificName>rosids</ScientificName>
-                    <Rank>subclass</Rank>
+                    <Rank>no rank</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>91835</TaxId>
@@ -1287,54 +1210,10 @@ http_interactions:
                 </Property>
             </Properties>
             <CreateDate>2002/05/08 12:00:00</CreateDate>
-            <UpdateDate>2018/11/23 13:57:51</UpdateDate>
+            <UpdateDate>2019/11/06 18:41:13</UpdateDate>
             <PubDate>2005/05/02 18:03:23</PubDate>
         </Taxon>
-
-        </TaxaSet>
-  recorded_at: 2019-01-26 20:02:41 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
-- request:
-    method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=128002&api_key=<<entrez_api_token>>
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:02:31 GMT
-      server: Finatra
-      strict-transport-security: max-age=31536000; includeSubDomains; preload
-      content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '7'
-      ncbi-phid: 322CDAEFF3EFD7B5000023B4B0EE159E.1.1.m_3
-      cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: BA325FF42A529CF5_94D0SID
-      content-encoding: gzip
-      x-ratelimit-limit: '10'
-      access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=BA325FF42A529CF5_94D0SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:02:31 GMT
-      x-ua-compatible: IE=Edge
-      x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
-    body:
-      encoding: UTF-8
-      string: |-
-        <?xml version="1.0" ?>
-        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
-        <TaxaSet><Taxon>
+        <Taxon>
             <TaxId>128002</TaxId>
             <ScientificName>Tanacetum vulgare</ScientificName>
             <OtherNames>
@@ -1365,7 +1244,7 @@ http_interactions:
                 <MGCId>1</MGCId>
                 <MGCName>Standard</MGCName>
             </MitoGeneticCode>
-            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliophyta; Mesangiospermae; eudicotyledons; Gunneridae; Pentapetalae; asterids; campanulids; Asterales; Asteraceae; Asteroideae; Anthemideae; Anthemidinae; Tanacetum</Lineage>
+            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliopsida; Mesangiospermae; eudicotyledons; Gunneridae; Pentapetalae; asterids; campanulids; Asterales; Asteraceae; Asteroideae; Anthemideae; Anthemidinae; Tanacetum</Lineage>
             <LineageEx>
                 <Taxon>
                     <TaxId>131567</TaxId>
@@ -1414,8 +1293,8 @@ http_interactions:
                 </Taxon>
                 <Taxon>
                     <TaxId>3398</TaxId>
-                    <ScientificName>Magnoliophyta</ScientificName>
-                    <Rank>no rank</Rank>
+                    <ScientificName>Magnoliopsida</ScientificName>
+                    <Rank>class</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>1437183</TaxId>
@@ -1440,7 +1319,7 @@ http_interactions:
                 <Taxon>
                     <TaxId>71274</TaxId>
                     <ScientificName>asterids</ScientificName>
-                    <Rank>subclass</Rank>
+                    <Rank>no rank</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>91882</TaxId>
@@ -1488,51 +1367,7 @@ http_interactions:
             <UpdateDate>2017/06/14 10:56:24</UpdateDate>
             <PubDate>2001/03/08 18:02:00</PubDate>
         </Taxon>
-
-        </TaxaSet>
-  recorded_at: 2019-01-26 20:02:41 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
-- request:
-    method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=553063&api_key=<<entrez_api_token>>
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:02:32 GMT
-      server: Finatra
-      strict-transport-security: max-age=31536000; includeSubDomains; preload
-      content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '7'
-      ncbi-phid: 939B131039D6F975000024AF957B68B4.1.1.m_5
-      cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 8FD6E86CEFD2C3B3_B7D0SID
-      content-encoding: gzip
-      x-ratelimit-limit: '10'
-      access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=8FD6E86CEFD2C3B3_B7D0SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:02:32 GMT
-      x-ua-compatible: IE=Edge
-      x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
-    body:
-      encoding: UTF-8
-      string: |-
-        <?xml version="1.0" ?>
-        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
-        <TaxaSet><Taxon>
+        <Taxon>
             <TaxId>553063</TaxId>
             <ScientificName>Gentiana yakushimensis</ScientificName>
             <OtherNames>
@@ -1552,7 +1387,7 @@ http_interactions:
                 <MGCId>1</MGCId>
                 <MGCName>Standard</MGCName>
             </MitoGeneticCode>
-            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliophyta; Mesangiospermae; eudicotyledons; Gunneridae; Pentapetalae; asterids; lamiids; Gentianales; Gentianaceae; Gentianeae; Gentiana</Lineage>
+            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliopsida; Mesangiospermae; eudicotyledons; Gunneridae; Pentapetalae; asterids; lamiids; Gentianales; Gentianaceae; Gentianeae; Gentianinae; Gentiana</Lineage>
             <LineageEx>
                 <Taxon>
                     <TaxId>131567</TaxId>
@@ -1601,8 +1436,8 @@ http_interactions:
                 </Taxon>
                 <Taxon>
                     <TaxId>3398</TaxId>
-                    <ScientificName>Magnoliophyta</ScientificName>
-                    <Rank>no rank</Rank>
+                    <ScientificName>Magnoliopsida</ScientificName>
+                    <Rank>class</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>1437183</TaxId>
@@ -1627,7 +1462,7 @@ http_interactions:
                 <Taxon>
                     <TaxId>71274</TaxId>
                     <ScientificName>asterids</ScientificName>
-                    <Rank>subclass</Rank>
+                    <Rank>no rank</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>91888</TaxId>
@@ -1650,6 +1485,11 @@ http_interactions:
                     <Rank>tribe</Rank>
                 </Taxon>
                 <Taxon>
+                    <TaxId>2546017</TaxId>
+                    <ScientificName>Gentianinae</ScientificName>
+                    <Rank>subtribe</Rank>
+                </Taxon>
+                <Taxon>
                     <TaxId>21496</TaxId>
                     <ScientificName>Gentiana</ScientificName>
                     <Rank>genus</Rank>
@@ -1665,51 +1505,7 @@ http_interactions:
             <UpdateDate>2009/06/23 18:27:11</UpdateDate>
             <PubDate>2009/06/23 18:00:32</PubDate>
         </Taxon>
-
-        </TaxaSet>
-  recorded_at: 2019-01-26 20:02:41 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
-- request:
-    method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=768545&api_key=<<entrez_api_token>>
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:02:32 GMT
-      server: Finatra
-      strict-transport-security: max-age=31536000; includeSubDomains; preload
-      content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '7'
-      ncbi-phid: 939B131039D6F975000026AF9624BD62.1.1.m_5
-      cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: BE30EEDB1A6F6344_B9E1SID
-      content-encoding: gzip
-      x-ratelimit-limit: '10'
-      access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=BE30EEDB1A6F6344_B9E1SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:02:33 GMT
-      x-ua-compatible: IE=Edge
-      x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
-    body:
-      encoding: UTF-8
-      string: |-
-        <?xml version="1.0" ?>
-        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
-        <TaxaSet><Taxon>
+        <Taxon>
             <TaxId>768545</TaxId>
             <ScientificName>Sesamum schinzianum</ScientificName>
             <OtherNames>
@@ -1733,7 +1529,7 @@ http_interactions:
                 <MGCId>1</MGCId>
                 <MGCName>Standard</MGCName>
             </MitoGeneticCode>
-            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliophyta; Mesangiospermae; eudicotyledons; Gunneridae; Pentapetalae; asterids; lamiids; Lamiales; Pedaliaceae; Sesamum</Lineage>
+            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliopsida; Mesangiospermae; eudicotyledons; Gunneridae; Pentapetalae; asterids; lamiids; Lamiales; Pedaliaceae; Sesamum</Lineage>
             <LineageEx>
                 <Taxon>
                     <TaxId>131567</TaxId>
@@ -1782,8 +1578,8 @@ http_interactions:
                 </Taxon>
                 <Taxon>
                     <TaxId>3398</TaxId>
-                    <ScientificName>Magnoliophyta</ScientificName>
-                    <Rank>no rank</Rank>
+                    <ScientificName>Magnoliopsida</ScientificName>
+                    <Rank>class</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>1437183</TaxId>
@@ -1808,7 +1604,7 @@ http_interactions:
                 <Taxon>
                     <TaxId>71274</TaxId>
                     <ScientificName>asterids</ScientificName>
-                    <Rank>subclass</Rank>
+                    <Rank>no rank</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>91888</TaxId>
@@ -1841,51 +1637,7 @@ http_interactions:
             <UpdateDate>2018/11/23 13:57:51</UpdateDate>
             <PubDate>2010/06/05 18:00:42</PubDate>
         </Taxon>
-
-        </TaxaSet>
-  recorded_at: 2019-01-26 20:02:41 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
-- request:
-    method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=1399730&api_key=<<entrez_api_token>>
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:02:33 GMT
-      server: Finatra
-      strict-transport-security: max-age=31536000; includeSubDomains; preload
-      content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '6'
-      ncbi-phid: D0BD37B365326FC500002285342760D8.1.1.m_3
-      cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 99F884498024B563_6DA0SID
-      content-encoding: gzip
-      x-ratelimit-limit: '10'
-      access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=99F884498024B563_6DA0SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:02:33 GMT
-      x-ua-compatible: IE=Edge
-      x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
-    body:
-      encoding: UTF-8
-      string: |-
-        <?xml version="1.0" ?>
-        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
-        <TaxaSet><Taxon>
+        <Taxon>
             <TaxId>1399730</TaxId>
             <ScientificName>Pilea verrucosa</ScientificName>
             <OtherNames>
@@ -1905,7 +1657,7 @@ http_interactions:
                 <MGCId>1</MGCId>
                 <MGCName>Standard</MGCName>
             </MitoGeneticCode>
-            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliophyta; Mesangiospermae; eudicotyledons; Gunneridae; Pentapetalae; rosids; fabids; Rosales; Urticaceae; Pilea</Lineage>
+            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliopsida; Mesangiospermae; eudicotyledons; Gunneridae; Pentapetalae; rosids; fabids; Rosales; Urticaceae; Pilea</Lineage>
             <LineageEx>
                 <Taxon>
                     <TaxId>131567</TaxId>
@@ -1954,8 +1706,8 @@ http_interactions:
                 </Taxon>
                 <Taxon>
                     <TaxId>3398</TaxId>
-                    <ScientificName>Magnoliophyta</ScientificName>
-                    <Rank>no rank</Rank>
+                    <ScientificName>Magnoliopsida</ScientificName>
+                    <Rank>class</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>1437183</TaxId>
@@ -1980,7 +1732,7 @@ http_interactions:
                 <Taxon>
                     <TaxId>71275</TaxId>
                     <ScientificName>rosids</ScientificName>
-                    <Rank>subclass</Rank>
+                    <Rank>no rank</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>91835</TaxId>
@@ -2013,51 +1765,7 @@ http_interactions:
             <UpdateDate>2013/11/12 11:09:05</UpdateDate>
             <PubDate>2013/11/12 10:54:51</PubDate>
         </Taxon>
-
-        </TaxaSet>
-  recorded_at: 2019-01-26 20:02:41 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
-- request:
-    method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=1160690&api_key=<<entrez_api_token>>
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:02:34 GMT
-      server: Finatra
-      strict-transport-security: max-age=31536000; includeSubDomains; preload
-      content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '6'
-      ncbi-phid: 939B131039D6F975000025AF96F9751F.1.1.m_3
-      cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 45EDB45A38A02ABB_9825SID
-      content-encoding: gzip
-      x-ratelimit-limit: '10'
-      access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=45EDB45A38A02ABB_9825SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:02:34 GMT
-      x-ua-compatible: IE=Edge
-      x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
-    body:
-      encoding: UTF-8
-      string: |-
-        <?xml version="1.0" ?>
-        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
-        <TaxaSet><Taxon>
+        <Taxon>
             <TaxId>1160690</TaxId>
             <ScientificName>Tibouchina striphnocalyx</ScientificName>
             <OtherNames>
@@ -2077,7 +1785,7 @@ http_interactions:
                 <MGCId>1</MGCId>
                 <MGCName>Standard</MGCName>
             </MitoGeneticCode>
-            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliophyta; Mesangiospermae; eudicotyledons; Gunneridae; Pentapetalae; rosids; malvids; Myrtales; Melastomataceae; Tibouchina</Lineage>
+            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliopsida; Mesangiospermae; eudicotyledons; Gunneridae; Pentapetalae; rosids; malvids; Myrtales; Melastomataceae; Melastomatoideae; Melastomateae; Tibouchina</Lineage>
             <LineageEx>
                 <Taxon>
                     <TaxId>131567</TaxId>
@@ -2126,8 +1834,8 @@ http_interactions:
                 </Taxon>
                 <Taxon>
                     <TaxId>3398</TaxId>
-                    <ScientificName>Magnoliophyta</ScientificName>
-                    <Rank>no rank</Rank>
+                    <ScientificName>Magnoliopsida</ScientificName>
+                    <Rank>class</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>1437183</TaxId>
@@ -2152,7 +1860,7 @@ http_interactions:
                 <Taxon>
                     <TaxId>71275</TaxId>
                     <ScientificName>rosids</ScientificName>
-                    <Rank>subclass</Rank>
+                    <Rank>no rank</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>91836</TaxId>
@@ -2170,6 +1878,16 @@ http_interactions:
                     <Rank>family</Rank>
                 </Taxon>
                 <Taxon>
+                    <TaxId>2653904</TaxId>
+                    <ScientificName>Melastomatoideae</ScientificName>
+                    <Rank>subfamily</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2653920</TaxId>
+                    <ScientificName>Melastomateae</ScientificName>
+                    <Rank>tribe</Rank>
+                </Taxon>
+                <Taxon>
                     <TaxId>40008</TaxId>
                     <ScientificName>Tibouchina</ScientificName>
                     <Rank>genus</Rank>
@@ -2185,51 +1903,7 @@ http_interactions:
             <UpdateDate>2012/03/29 18:47:21</UpdateDate>
             <PubDate>2012/03/29 18:00:52</PubDate>
         </Taxon>
-
-        </TaxaSet>
-  recorded_at: 2019-01-26 20:02:41 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
-- request:
-    method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=942185&api_key=<<entrez_api_token>>
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:02:34 GMT
-      server: Finatra
-      strict-transport-security: max-age=31536000; includeSubDomains; preload
-      content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '5'
-      ncbi-phid: D0BD37B365326FC500002485349B9CDB.1.1.m_3
-      cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 8D53E8ED6D912A65_AE4FSID
-      content-encoding: gzip
-      x-ratelimit-limit: '10'
-      access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=8D53E8ED6D912A65_AE4FSID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:02:34 GMT
-      x-ua-compatible: IE=Edge
-      x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
-    body:
-      encoding: UTF-8
-      string: |-
-        <?xml version="1.0" ?>
-        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
-        <TaxaSet><Taxon>
+        <Taxon>
             <TaxId>942185</TaxId>
             <ScientificName>Lycium dasystemum</ScientificName>
             <OtherNames>
@@ -2249,7 +1923,7 @@ http_interactions:
                 <MGCId>1</MGCId>
                 <MGCName>Standard</MGCName>
             </MitoGeneticCode>
-            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliophyta; Mesangiospermae; eudicotyledons; Gunneridae; Pentapetalae; asterids; lamiids; Solanales; Solanaceae; Solanoideae; Lycieae; Lycium</Lineage>
+            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliopsida; Mesangiospermae; eudicotyledons; Gunneridae; Pentapetalae; asterids; lamiids; Solanales; Solanaceae; Solanoideae; Lycieae; Lycium</Lineage>
             <LineageEx>
                 <Taxon>
                     <TaxId>131567</TaxId>
@@ -2298,8 +1972,8 @@ http_interactions:
                 </Taxon>
                 <Taxon>
                     <TaxId>3398</TaxId>
-                    <ScientificName>Magnoliophyta</ScientificName>
-                    <Rank>no rank</Rank>
+                    <ScientificName>Magnoliopsida</ScientificName>
+                    <Rank>class</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>1437183</TaxId>
@@ -2324,7 +1998,7 @@ http_interactions:
                 <Taxon>
                     <TaxId>71274</TaxId>
                     <ScientificName>asterids</ScientificName>
-                    <Rank>subclass</Rank>
+                    <Rank>no rank</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>91888</TaxId>
@@ -2367,51 +2041,7 @@ http_interactions:
             <UpdateDate>2011/01/11 18:28:59</UpdateDate>
             <PubDate>2011/01/11 18:00:27</PubDate>
         </Taxon>
-
-        </TaxaSet>
-  recorded_at: 2019-01-26 20:02:41 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
-- request:
-    method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=527996&api_key=<<entrez_api_token>>
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:02:35 GMT
-      server: Finatra
-      strict-transport-security: max-age=31536000; includeSubDomains; preload
-      content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '6'
-      ncbi-phid: 939B131039D6F975000020AF97DBC325.1.1.m_3
-      cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: B51EC1A0F290BEE4_52CFSID
-      content-encoding: gzip
-      x-ratelimit-limit: '10'
-      access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=B51EC1A0F290BEE4_52CFSID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:02:35 GMT
-      x-ua-compatible: IE=Edge
-      x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
-    body:
-      encoding: UTF-8
-      string: |-
-        <?xml version="1.0" ?>
-        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
-        <TaxaSet><Taxon>
+        <Taxon>
             <TaxId>527996</TaxId>
             <ScientificName>Berkheya echinacea</ScientificName>
             <OtherNames>
@@ -2431,7 +2061,7 @@ http_interactions:
                 <MGCId>1</MGCId>
                 <MGCName>Standard</MGCName>
             </MitoGeneticCode>
-            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliophyta; Mesangiospermae; eudicotyledons; Gunneridae; Pentapetalae; asterids; campanulids; Asterales; Asteraceae; Cichorioideae; Arctotideae; Gorteriinae; Berkheya</Lineage>
+            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliopsida; Mesangiospermae; eudicotyledons; Gunneridae; Pentapetalae; asterids; campanulids; Asterales; Asteraceae; Cichorioideae; Arctotideae; Gorteriinae; Berkheya</Lineage>
             <LineageEx>
                 <Taxon>
                     <TaxId>131567</TaxId>
@@ -2480,8 +2110,8 @@ http_interactions:
                 </Taxon>
                 <Taxon>
                     <TaxId>3398</TaxId>
-                    <ScientificName>Magnoliophyta</ScientificName>
-                    <Rank>no rank</Rank>
+                    <ScientificName>Magnoliopsida</ScientificName>
+                    <Rank>class</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>1437183</TaxId>
@@ -2506,7 +2136,7 @@ http_interactions:
                 <Taxon>
                     <TaxId>71274</TaxId>
                     <ScientificName>asterids</ScientificName>
-                    <Rank>subclass</Rank>
+                    <Rank>no rank</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>91882</TaxId>
@@ -2554,51 +2184,7 @@ http_interactions:
             <UpdateDate>2016/08/18 17:43:11</UpdateDate>
             <PubDate>2008/07/01 18:00:17</PubDate>
         </Taxon>
-
-        </TaxaSet>
-  recorded_at: 2019-01-26 20:02:41 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
-- request:
-    method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=279457&api_key=<<entrez_api_token>>
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:02:36 GMT
-      server: Finatra
-      strict-transport-security: max-age=31536000; includeSubDomains; preload
-      content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '6'
-      ncbi-phid: D0BD37B365326FC500002385354EAE6C.1.1.m_5
-      cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 0D14D51415AEFF54_E6E6SID
-      content-encoding: gzip
-      x-ratelimit-limit: '10'
-      access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=0D14D51415AEFF54_E6E6SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:02:36 GMT
-      x-ua-compatible: IE=Edge
-      x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
-    body:
-      encoding: UTF-8
-      string: |-
-        <?xml version="1.0" ?>
-        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
-        <TaxaSet><Taxon>
+        <Taxon>
             <TaxId>279457</TaxId>
             <ScientificName>Androcymbium villosum</ScientificName>
             <OtherNames>
@@ -2618,7 +2204,7 @@ http_interactions:
                 <MGCId>1</MGCId>
                 <MGCName>Standard</MGCName>
             </MitoGeneticCode>
-            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliophyta; Mesangiospermae; Liliopsida; Petrosaviidae; Liliales; Colchicaceae; Androcymbium</Lineage>
+            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliopsida; Mesangiospermae; Liliopsida; Petrosaviidae; Liliales; Colchicaceae; Androcymbium</Lineage>
             <LineageEx>
                 <Taxon>
                     <TaxId>131567</TaxId>
@@ -2667,8 +2253,8 @@ http_interactions:
                 </Taxon>
                 <Taxon>
                     <TaxId>3398</TaxId>
-                    <ScientificName>Magnoliophyta</ScientificName>
-                    <Rank>no rank</Rank>
+                    <ScientificName>Magnoliopsida</ScientificName>
+                    <Rank>class</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>1437183</TaxId>
@@ -2678,7 +2264,7 @@ http_interactions:
                 <Taxon>
                     <TaxId>4447</TaxId>
                     <ScientificName>Liliopsida</ScientificName>
-                    <Rank>class</Rank>
+                    <Rank>no rank</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>1437197</TaxId>
@@ -2711,51 +2297,7 @@ http_interactions:
             <UpdateDate>2016/08/18 15:04:53</UpdateDate>
             <PubDate>2004/06/02 18:02:50</PubDate>
         </Taxon>
-
-        </TaxaSet>
-  recorded_at: 2019-01-26 20:02:41 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
-- request:
-    method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=4232&api_key=<<entrez_api_token>>
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:02:36 GMT
-      server: Finatra
-      strict-transport-security: max-age=31536000; includeSubDomains; preload
-      content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '8'
-      ncbi-phid: 322CDAEFF3EFD7B5000026B4B3CC51DA.1.1.m_5
-      cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 5D794FB70DD1EA19_87E4SID
-      content-encoding: gzip
-      x-ratelimit-limit: '10'
-      access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=5D794FB70DD1EA19_87E4SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:02:37 GMT
-      x-ua-compatible: IE=Edge
-      x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
-    body:
-      encoding: UTF-8
-      string: |-
-        <?xml version="1.0" ?>
-        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
-        <TaxaSet><Taxon>
+        <Taxon>
             <TaxId>4232</TaxId>
             <ScientificName>Helianthus annuus</ScientificName>
             <OtherNames>
@@ -2788,7 +2330,7 @@ http_interactions:
                 <MGCId>1</MGCId>
                 <MGCName>Standard</MGCName>
             </MitoGeneticCode>
-            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliophyta; Mesangiospermae; eudicotyledons; Gunneridae; Pentapetalae; asterids; campanulids; Asterales; Asteraceae; Asteroideae; Heliantheae alliance; Heliantheae; Helianthus</Lineage>
+            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliopsida; Mesangiospermae; eudicotyledons; Gunneridae; Pentapetalae; asterids; campanulids; Asterales; Asteraceae; Asteroideae; Heliantheae alliance; Heliantheae; Helianthus</Lineage>
             <LineageEx>
                 <Taxon>
                     <TaxId>131567</TaxId>
@@ -2837,8 +2379,8 @@ http_interactions:
                 </Taxon>
                 <Taxon>
                     <TaxId>3398</TaxId>
-                    <ScientificName>Magnoliophyta</ScientificName>
-                    <Rank>no rank</Rank>
+                    <ScientificName>Magnoliopsida</ScientificName>
+                    <Rank>class</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>1437183</TaxId>
@@ -2863,7 +2405,7 @@ http_interactions:
                 <Taxon>
                     <TaxId>71274</TaxId>
                     <ScientificName>asterids</ScientificName>
-                    <Rank>subclass</Rank>
+                    <Rank>no rank</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>91882</TaxId>
@@ -2911,51 +2453,7 @@ http_interactions:
             <UpdateDate>2018/11/23 13:57:51</UpdateDate>
             <PubDate>1993/08/03 01:00:00</PubDate>
         </Taxon>
-
-        </TaxaSet>
-  recorded_at: 2019-01-26 20:02:41 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
-- request:
-    method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=4255&api_key=<<entrez_api_token>>
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:02:37 GMT
-      server: Finatra
-      strict-transport-security: max-age=31536000; includeSubDomains; preload
-      content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '7'
-      ncbi-phid: 939B131039D6F975000022AF9A0C8B47.1.1.m_3
-      cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 9F94F52B0FE16233_AA51SID
-      content-encoding: gzip
-      x-ratelimit-limit: '10'
-      access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=9F94F52B0FE16233_AA51SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:02:38 GMT
-      x-ua-compatible: IE=Edge
-      x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
-    body:
-      encoding: UTF-8
-      string: |-
-        <?xml version="1.0" ?>
-        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
-        <TaxaSet><Taxon>
+        <Taxon>
             <TaxId>4255</TaxId>
             <ScientificName>Madia elegans</ScientificName>
             <OtherNames>
@@ -2976,7 +2474,7 @@ http_interactions:
                 <MGCId>1</MGCId>
                 <MGCName>Standard</MGCName>
             </MitoGeneticCode>
-            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliophyta; Mesangiospermae; eudicotyledons; Gunneridae; Pentapetalae; asterids; campanulids; Asterales; Asteraceae; Asteroideae; Heliantheae alliance; Madieae; Madiinae; Madia</Lineage>
+            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliopsida; Mesangiospermae; eudicotyledons; Gunneridae; Pentapetalae; asterids; campanulids; Asterales; Asteraceae; Asteroideae; Heliantheae alliance; Madieae; Madiinae; Madia</Lineage>
             <LineageEx>
                 <Taxon>
                     <TaxId>131567</TaxId>
@@ -3025,8 +2523,8 @@ http_interactions:
                 </Taxon>
                 <Taxon>
                     <TaxId>3398</TaxId>
-                    <ScientificName>Magnoliophyta</ScientificName>
-                    <Rank>no rank</Rank>
+                    <ScientificName>Magnoliopsida</ScientificName>
+                    <Rank>class</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>1437183</TaxId>
@@ -3051,7 +2549,7 @@ http_interactions:
                 <Taxon>
                     <TaxId>71274</TaxId>
                     <ScientificName>asterids</ScientificName>
-                    <Rank>subclass</Rank>
+                    <Rank>no rank</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>91882</TaxId>
@@ -3104,51 +2602,7 @@ http_interactions:
             <UpdateDate>2017/06/14 10:56:24</UpdateDate>
             <PubDate>1993/04/27 01:00:00</PubDate>
         </Taxon>
-
-        </TaxaSet>
-  recorded_at: 2019-01-26 20:02:41 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
-- request:
-    method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=377318&api_key=<<entrez_api_token>>
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:02:38 GMT
-      server: Finatra
-      strict-transport-security: max-age=31536000; includeSubDomains; preload
-      content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '6'
-      ncbi-phid: 322CDAEFF3EFD7B500001AB4B47DCF92.1.1.m_3
-      cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: B1F9B5FBCF553319_4383SID
-      content-encoding: gzip
-      x-ratelimit-limit: '10'
-      access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=B1F9B5FBCF553319_4383SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:02:38 GMT
-      x-ua-compatible: IE=Edge
-      x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
-    body:
-      encoding: UTF-8
-      string: |-
-        <?xml version="1.0" ?>
-        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
-        <TaxaSet><Taxon>
+        <Taxon>
             <TaxId>377318</TaxId>
             <ScientificName>Lupinus albicaulis</ScientificName>
             <OtherNames>
@@ -3168,7 +2622,7 @@ http_interactions:
                 <MGCId>1</MGCId>
                 <MGCName>Standard</MGCName>
             </MitoGeneticCode>
-            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliophyta; Mesangiospermae; eudicotyledons; Gunneridae; Pentapetalae; rosids; fabids; Fabales; Fabaceae; Papilionoideae; 50 kb inversion clade; genistoids sensu lato; core genistoids; Genisteae; Lupinus</Lineage>
+            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliopsida; Mesangiospermae; eudicotyledons; Gunneridae; Pentapetalae; rosids; fabids; Fabales; Fabaceae; Papilionoideae; 50 kb inversion clade; genistoids sensu lato; core genistoids; Genisteae; Lupinus</Lineage>
             <LineageEx>
                 <Taxon>
                     <TaxId>131567</TaxId>
@@ -3217,8 +2671,8 @@ http_interactions:
                 </Taxon>
                 <Taxon>
                     <TaxId>3398</TaxId>
-                    <ScientificName>Magnoliophyta</ScientificName>
-                    <Rank>no rank</Rank>
+                    <ScientificName>Magnoliopsida</ScientificName>
+                    <Rank>class</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>1437183</TaxId>
@@ -3243,7 +2697,7 @@ http_interactions:
                 <Taxon>
                     <TaxId>71275</TaxId>
                     <ScientificName>rosids</ScientificName>
-                    <Rank>subclass</Rank>
+                    <Rank>no rank</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>91835</TaxId>
@@ -3301,51 +2755,7 @@ http_interactions:
             <UpdateDate>2016/08/18 15:04:53</UpdateDate>
             <PubDate>2007/02/28 18:00:22</PubDate>
         </Taxon>
-
-        </TaxaSet>
-  recorded_at: 2019-01-26 20:02:41 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
-- request:
-    method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=3343&api_key=<<entrez_api_token>>
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:02:39 GMT
-      server: Finatra
-      strict-transport-security: max-age=31536000; includeSubDomains; preload
-      content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '6'
-      ncbi-phid: D0BD37B365326FC50000148537132ECE.1.1.m_3
-      cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: D652CF5EC830C356_F7B9SID
-      content-encoding: gzip
-      x-ratelimit-limit: '10'
-      access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=D652CF5EC830C356_F7B9SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:02:39 GMT
-      x-ua-compatible: IE=Edge
-      x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
-    body:
-      encoding: UTF-8
-      string: |-
-        <?xml version="1.0" ?>
-        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
-        <TaxaSet><Taxon>
+        <Taxon>
             <TaxId>3343</TaxId>
             <ScientificName>Pinus lambertiana</ScientificName>
             <OtherNames>
@@ -3366,7 +2776,7 @@ http_interactions:
                 <MGCId>1</MGCId>
                 <MGCName>Standard</MGCName>
             </MitoGeneticCode>
-            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Acrogymnospermae; Pinidae; Pinales; Pinaceae; Pinus; Strobus</Lineage>
+            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Acrogymnospermae; Pinopsida; Pinidae; Pinales; Pinaceae; Pinus; Strobus</Lineage>
             <LineageEx>
                 <Taxon>
                     <TaxId>131567</TaxId>
@@ -3419,6 +2829,11 @@ http_interactions:
                     <Rank>no rank</Rank>
                 </Taxon>
                 <Taxon>
+                    <TaxId>58019</TaxId>
+                    <ScientificName>Pinopsida</ScientificName>
+                    <Rank>class</Rank>
+                </Taxon>
+                <Taxon>
                     <TaxId>3313</TaxId>
                     <ScientificName>Pinidae</ScientificName>
                     <Rank>subclass</Rank>
@@ -3454,51 +2869,7 @@ http_interactions:
             <UpdateDate>2017/06/14 10:56:24</UpdateDate>
             <PubDate>1998/09/24 01:00:00</PubDate>
         </Taxon>
-
-        </TaxaSet>
-  recorded_at: 2019-01-26 20:02:41 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
-- request:
-    method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=1227452&api_key=<<entrez_api_token>>
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:02:39 GMT
-      server: Finatra
-      strict-transport-security: max-age=31536000; includeSubDomains; preload
-      content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '6'
-      ncbi-phid: 939B131039D6F975000025AF9B8346DC.1.1.m_3
-      cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 5C3BA20A412FDA7D_48CESID
-      content-encoding: gzip
-      x-ratelimit-limit: '10'
-      access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=5C3BA20A412FDA7D_48CESID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:02:40 GMT
-      x-ua-compatible: IE=Edge
-      x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
-    body:
-      encoding: UTF-8
-      string: |-
-        <?xml version="1.0" ?>
-        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
-        <TaxaSet><Taxon>
+        <Taxon>
             <TaxId>1227452</TaxId>
             <ScientificName>Haloarcula amylolytica JCM 13557</ScientificName>
             <ParentTaxId>396317</ParentTaxId>
@@ -3564,54 +2935,10 @@ http_interactions:
             <UpdateDate>2012/09/12 18:37:45</UpdateDate>
             <PubDate>2012/09/12 18:00:20</PubDate>
         </Taxon>
-
-        </TaxaSet>
-  recorded_at: 2019-01-26 20:02:41 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
-- request:
-    method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=1949203&api_key=<<entrez_api_token>>
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:02:40 GMT
-      server: Finatra
-      strict-transport-security: max-age=31536000; includeSubDomains; preload
-      content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '6'
-      ncbi-phid: D0BD37B365326FC500001B8537BD0E34.1.1.m_3
-      cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 1050DEB8BEF3378C_DD37SID
-      content-encoding: gzip
-      x-ratelimit-limit: '10'
-      access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=1050DEB8BEF3378C_DD37SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:02:40 GMT
-      x-ua-compatible: IE=Edge
-      x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
-    body:
-      encoding: UTF-8
-      string: |-
-        <?xml version="1.0" ?>
-        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
-        <TaxaSet><Taxon>
+        <Taxon>
             <TaxId>1949203</TaxId>
             <ScientificName>Halomonas sp. 'Soap Lake #6'</ScientificName>
-            <ParentTaxId>2745</ParentTaxId>
+            <ParentTaxId>2609666</ParentTaxId>
             <Rank>species</Rank>
             <Division>Bacteria</Division>
             <GeneticCode>
@@ -3622,7 +2949,7 @@ http_interactions:
                 <MGCId>0</MGCId>
                 <MGCName>Unspecified</MGCName>
             </MitoGeneticCode>
-            <Lineage>cellular organisms; Bacteria; Proteobacteria; Gammaproteobacteria; Oceanospirillales; Halomonadaceae; Halomonas</Lineage>
+            <Lineage>cellular organisms; Bacteria; Proteobacteria; Gammaproteobacteria; Oceanospirillales; Halomonadaceae; Halomonas; unclassified Halomonas</Lineage>
             <LineageEx>
                 <Taxon>
                     <TaxId>131567</TaxId>
@@ -3659,6 +2986,11 @@ http_interactions:
                     <ScientificName>Halomonas</ScientificName>
                     <Rank>genus</Rank>
                 </Taxon>
+                <Taxon>
+                    <TaxId>2609666</TaxId>
+                    <ScientificName>unclassified Halomonas</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
             </LineageEx>
             <CreateDate>2017/02/06 13:10:59</CreateDate>
             <UpdateDate>2017/02/21 18:17:44</UpdateDate>
@@ -3666,5 +2998,5 @@ http_interactions:
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2019-01-26 20:02:41 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2020-03-06 01:28:30 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0

@@ -113,9 +113,9 @@ test_that("children doesn't remove ambiguous taxa", {
   skip_on_cran()
   vcr::use_cassette("children_ambiguous_ncbi", {
     # 28901 = "Salmonella enterica" - DOES NOT remove "subsp."
-    subsp <- children(28901, db = "ncbi")
+    subsp <- children('28901', db = "ncbi")
     # 2508041 = "unclassified Helianthus" - DOES NOT remove "sp."
-    sp <- children(2508041, db = "ncbi")
+    sp <- children('2508041', db = "ncbi")
   })
 
   expect_is(subsp, "children")

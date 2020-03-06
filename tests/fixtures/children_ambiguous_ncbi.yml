@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/4.2 crul/0.8.4
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -16,25 +16,26 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Fri, 11 Oct 2019 21:26:47 GMT
+      date: Fri, 06 Mar 2020 01:27:09 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '8'
-      ncbi-phid: D0BDADD05B8C69E500005E47FF935C9A.1.1.m_3
+      x-ratelimit-remaining: '9'
+      ncbi-phid: 939B359643F5AE9500005F471C9174ED.1.1.m_3
       cache-control: private
-      ncbi-sid: 14F37ACD30AA9808_4BE2SID
+      ncbi-sid: C0DC4FE8323ACED5_C0F5SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
-      content-length: '2231'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=14F37ACD30AA9808_4BE2SID; domain=.nih.gov; path=/; expires=Sun,
-        11 Oct 2020 21:26:47 GMT
+      set-cookie: ncbi_sid=C0DC4FE8323ACED5_C0F5SID; domain=.nih.gov; path=/; expires=Sat,
+        06 Mar 2021 01:27:09 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
     body:
       encoding: UTF-8
+      file: no
       string: |-
         <?xml version="1.0" ?>
         <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
@@ -478,19 +479,19 @@ http_interactions:
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2019-10-11 21:26:47 GMT
-  recorded_with: vcr/0.3.0, webmockr/0.4.0
+  recorded_at: 2020-03-06 01:27:12 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Salmonella%20enterica%5BNext%20Level%5D%20AND%20Salmonella%5Bsubtree%5D&RetMax=1000&RetStart=0&api_key=<<entrez_api_token>>
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Salmonella%5BNext%20Level%5D%20AND%20Enterobacteriaceae%5Bsubtree%5D&RetMax=1000&RetStart=0&api_key=<<entrez_api_token>>
     body:
       encoding: ''
       string: ''
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.2 crul/0.8.4 rOpenSci(taxize/0.9.8.9144)
-      X-USER-AGENT: r-curl/4.2 crul/0.8.4 rOpenSci(taxize/0.9.8.9144)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
   response:
     status:
       status_code: '200'
@@ -498,50 +499,49 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Fri, 11 Oct 2019 21:26:47 GMT
+      date: Fri, 06 Mar 2020 01:27:09 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '6'
-      ncbi-phid: D0BDADD05B8C69E500005D480011571E.1.1.m_1
+      x-ratelimit-remaining: '8'
+      ncbi-phid: 939B359643F5AE95000028471DF5CDA1.1.1.m_1
       cache-control: private
-      ncbi-sid: 0188AEDC41780AD7_CCD5SID
+      ncbi-sid: DB60B43239C2E2D5_95E9SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
-      content-length: '438'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=0188AEDC41780AD7_CCD5SID; domain=.nih.gov; path=/; expires=Sun,
-        11 Oct 2020 21:26:48 GMT
+      set-cookie: ncbi_sid=DB60B43239C2E2D5_95E9SID; domain=.nih.gov; path=/; expires=Sat,
+        06 Mar 2021 01:27:10 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
     body:
       encoding: UTF-8
+      file: no
       string: |
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
-        <eSearchResult><Count>7</Count><RetMax>7</RetMax><RetStart>0</RetStart><IdList>
-        <Id>59208</Id>
-        <Id>59207</Id>
-        <Id>59205</Id>
-        <Id>59204</Id>
-        <Id>59203</Id>
-        <Id>59202</Id>
-        <Id>59201</Id>
-        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Salmonella enterica[Next Level]</Term>    <Field>Next Level</Field>    <Count>7</Count>    <Explode>N</Explode>   </TermSet>   <TermSet>    <Term>Salmonella[subtree]</Term>    <Field>subtree</Field>    <Count>3744</Count>    <Explode>N</Explode>   </TermSet>   <OP>AND</OP>  </TranslationStack><QueryTranslation>Salmonella enterica[Next Level] AND Salmonella[subtree]</QueryTranslation></eSearchResult>
-  recorded_at: 2019-10-11 21:26:47 GMT
-  recorded_with: vcr/0.3.0, webmockr/0.4.0
+        <eSearchResult><Count>5</Count><RetMax>5</RetMax><RetStart>0</RetStart><IdList>
+        <Id>2614656</Id>
+        <Id>2588448</Id>
+        <Id>263770</Id>
+        <Id>54736</Id>
+        <Id>28901</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Salmonella[Next Level]</Term>    <Field>Next Level</Field>    <Count>5</Count>    <Explode>N</Explode>   </TermSet>   <TermSet>    <Term>Enterobacteriaceae[subtree]</Term>    <Field>subtree</Field>    <Count>20377</Count>    <Explode>N</Explode>   </TermSet>   <OP>AND</OP>  </TranslationStack><QueryTranslation>Salmonella[Next Level] AND Enterobacteriaceae[subtree]</QueryTranslation></eSearchResult>
+  recorded_at: 2020-03-06 01:27:12 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&id=59208%2B59207%2B59205%2B59204%2B59203%2B59202%2B59201&api_key=<<entrez_api_token>>
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&id=2614656%2B2588448%2B263770%2B54736%2B28901&api_key=<<entrez_api_token>>
     body:
       encoding: ''
       string: ''
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.2 crul/0.8.4 rOpenSci(taxize/0.9.8.9144)
-      X-USER-AGENT: r-curl/4.2 crul/0.8.4 rOpenSci(taxize/0.9.8.9144)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
   response:
     status:
       status_code: '200'
@@ -549,78 +549,65 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Fri, 11 Oct 2019 21:26:47 GMT
+      date: Fri, 06 Mar 2020 01:27:10 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '5'
-      ncbi-phid: D0BDADD05B8C69E500005848006AEB17.1.1.m_1
+      x-ratelimit-remaining: '8'
+      ncbi-phid: 939B359643F5AE9500003B471E52455A.1.1.m_1
       cache-control: private
-      ncbi-sid: 30739EC7C5C58659_4C7CSID
+      ncbi-sid: 384796D7EFEAFB4C_31CBSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
-      content-length: '615'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=30739EC7C5C58659_4C7CSID; domain=.nih.gov; path=/; expires=Sun,
-        11 Oct 2020 21:26:48 GMT
+      set-cookie: ncbi_sid=384796D7EFEAFB4C_31CBSID; domain=.nih.gov; path=/; expires=Sat,
+        06 Mar 2021 01:27:10 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
     body:
       encoding: UTF-8
+      file: no
       string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eSummaryResult
-        PUBLIC \"-//NLM//DTD esummary v1 20041029//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20041029/esummary-v1.dtd\">\n<eSummaryResult>\n<DocSum>\n\t<Id>59208</Id>\n\t<Item
-        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">subspecies</Item>\n\t<Item
+        PUBLIC \"-//NLM//DTD esummary v1 20041029//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20041029/esummary-v1.dtd\">\n<eSummaryResult>\n<DocSum>\n\t<Id>2614656</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\"></Item>\n\t<Item
         Name=\"Division\" Type=\"String\">enterobacteria</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Salmonella enterica subsp. VII</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">59208</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmonella</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">enterica</Item>\n\t<Item Name=\"Subsp\" Type=\"String\">VII</Item>\n\t<Item
-        Name=\"ModificationDate\" Type=\"Date\">2019/10/01 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>59207</Id>\n\t<Item
-        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">subspecies</Item>\n\t<Item
+        Type=\"String\">unclassified Salmonella</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2614656</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Species\" Type=\"String\"></Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2019/09/22 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2588448</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\"></Item>\n\t<Item
         Name=\"Division\" Type=\"String\">enterobacteria</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Salmonella enterica subsp. indica</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">59207</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmonella</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">enterica</Item>\n\t<Item Name=\"Subsp\" Type=\"String\">indica</Item>\n\t<Item
-        Name=\"ModificationDate\" Type=\"Date\">2019/10/01 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>59205</Id>\n\t<Item
-        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">subspecies</Item>\n\t<Item
+        Type=\"String\">Salmonella sp. SH11G0791</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2588448</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Species\" Type=\"String\"></Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2019/06/13 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>263770</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\"></Item>\n\t<Item
         Name=\"Division\" Type=\"String\">enterobacteria</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Salmonella enterica subsp. houtenae</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">59205</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmonella</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">enterica</Item>\n\t<Item Name=\"Subsp\" Type=\"String\">houtenae</Item>\n\t<Item
-        Name=\"ModificationDate\" Type=\"Date\">2019/10/01 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>59204</Id>\n\t<Item
-        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">subspecies</Item>\n\t<Item
+        Type=\"String\">environmental samples</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">263770</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Species\" Type=\"String\"></Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2018/10/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>54736</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
         Name=\"Division\" Type=\"String\">enterobacteria</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Salmonella enterica subsp. diarizonae</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">59204</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmonella</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">enterica</Item>\n\t<Item Name=\"Subsp\" Type=\"String\">diarizonae</Item>\n\t<Item
-        Name=\"ModificationDate\" Type=\"Date\">2019/10/01 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>59203</Id>\n\t<Item
-        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">subspecies</Item>\n\t<Item
+        Type=\"String\">Salmonella bongori</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">54736</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Salmonella</Item>\n\t<Item Name=\"Species\"
+        Type=\"String\">bongori</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2018/10/31 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>28901</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
         Name=\"Division\" Type=\"String\">enterobacteria</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Salmonella enterica subsp. arizonae</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">59203</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmonella</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">enterica</Item>\n\t<Item Name=\"Subsp\" Type=\"String\">arizonae</Item>\n\t<Item
-        Name=\"ModificationDate\" Type=\"Date\">2019/10/01 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>59202</Id>\n\t<Item
-        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">subspecies</Item>\n\t<Item
-        Name=\"Division\" Type=\"String\">enterobacteria</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Salmonella enterica subsp. salamae</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">59202</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmonella</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">enterica</Item>\n\t<Item Name=\"Subsp\" Type=\"String\">salamae</Item>\n\t<Item
-        Name=\"ModificationDate\" Type=\"Date\">2019/10/01 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>59201</Id>\n\t<Item
-        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">subspecies</Item>\n\t<Item
-        Name=\"Division\" Type=\"String\">enterobacteria</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Salmonella enterica subsp. enterica</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">59201</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmonella</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">enterica</Item>\n\t<Item Name=\"Subsp\" Type=\"String\">enterica</Item>\n\t<Item
-        Name=\"ModificationDate\" Type=\"Date\">2019/10/04 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
-  recorded_at: 2019-10-11 21:26:47 GMT
-  recorded_with: vcr/0.3.0, webmockr/0.4.0
+        Type=\"String\">Salmonella enterica</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">28901</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Salmonella</Item>\n\t<Item Name=\"Species\"
+        Type=\"String\">enterica</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2019/10/07 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
+  recorded_at: 2020-03-06 01:27:12 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=2508041&api_key=<<entrez_api_token>>
@@ -628,7 +615,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/4.2 crul/0.8.4
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -638,25 +625,26 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Fri, 11 Oct 2019 21:26:48 GMT
+      date: Fri, 06 Mar 2020 01:27:10 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '4'
-      ncbi-phid: D0BDADD05B8C69E50000554800BED04B.1.1.m_3
+      x-ratelimit-remaining: '7'
+      ncbi-phid: 939B359643F5AE95000052471F39E21D.1.1.m_3
       cache-control: private
-      ncbi-sid: 68B056B934AEAD67_EC40SID
+      ncbi-sid: 1723F22E6464F497_472DSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
-      content-length: '980'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=68B056B934AEAD67_EC40SID; domain=.nih.gov; path=/; expires=Sun,
-        11 Oct 2020 21:26:48 GMT
+      set-cookie: ncbi_sid=1723F22E6464F497_472DSID; domain=.nih.gov; path=/; expires=Sat,
+        06 Mar 2021 01:27:11 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
     body:
       encoding: UTF-8
+      file: no
       string: |-
         <?xml version="1.0" ?>
         <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
@@ -724,7 +712,7 @@ http_interactions:
                 <Taxon>
                     <TaxId>3398</TaxId>
                     <ScientificName>Magnoliopsida</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>class</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>1437183</TaxId>
@@ -799,19 +787,19 @@ http_interactions:
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2019-10-11 21:26:47 GMT
-  recorded_with: vcr/0.3.0, webmockr/0.4.0
+  recorded_at: 2020-03-06 01:27:12 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=unclassified%20Helianthus%5BNext%20Level%5D%20AND%20Helianthus%5Bsubtree%5D&RetMax=1000&RetStart=0&api_key=<<entrez_api_token>>
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Helianthus%5BNext%20Level%5D%20AND%20Heliantheae%5Bsubtree%5D&RetMax=1000&RetStart=0&api_key=<<entrez_api_token>>
     body:
       encoding: ''
       string: ''
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.2 crul/0.8.4 rOpenSci(taxize/0.9.8.9144)
-      X-USER-AGENT: r-curl/4.2 crul/0.8.4 rOpenSci(taxize/0.9.8.9144)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
   response:
     status:
       status_code: '200'
@@ -819,60 +807,105 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Fri, 11 Oct 2019 21:26:48 GMT
+      date: Fri, 06 Mar 2020 01:27:11 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '3'
-      ncbi-phid: D0BDADD05B8C69E50000384800FAEA6C.1.1.m_1
+      x-ratelimit-remaining: '8'
+      ncbi-phid: 939B359643F5AE95000038472050D297.1.1.m_1
       cache-control: private
-      ncbi-sid: 58BC37B7D5068A1B_58D9SID
+      ncbi-sid: D18707D4F257D835_10E7SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
-      content-length: '502'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=58BC37B7D5068A1B_58D9SID; domain=.nih.gov; path=/; expires=Sun,
-        11 Oct 2020 21:26:48 GMT
+      set-cookie: ncbi_sid=D18707D4F257D835_10E7SID; domain=.nih.gov; path=/; expires=Sat,
+        06 Mar 2021 01:27:12 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
     body:
       encoding: UTF-8
+      file: no
       string: |
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
-        <eSearchResult><Count>17</Count><RetMax>17</RetMax><RetStart>0</RetStart><IdList>
-        <Id>2508000</Id>
-        <Id>2507999</Id>
-        <Id>2507998</Id>
-        <Id>2507997</Id>
-        <Id>2507996</Id>
-        <Id>2507995</Id>
-        <Id>2507994</Id>
-        <Id>2507993</Id>
-        <Id>2507992</Id>
-        <Id>2507991</Id>
-        <Id>2507990</Id>
-        <Id>2507989</Id>
-        <Id>1720378</Id>
-        <Id>1577454</Id>
-        <Id>1261137</Id>
-        <Id>585498</Id>
-        <Id>50471</Id>
-        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>unclassified Helianthus[Next Level]</Term>    <Field>Next Level</Field>    <Count>17</Count>    <Explode>N</Explode>   </TermSet>   <TermSet>    <Term>Helianthus[subtree]</Term>    <Field>subtree</Field>    <Count>100</Count>    <Explode>N</Explode>   </TermSet>   <OP>AND</OP>  </TranslationStack><QueryTranslation>unclassified Helianthus[Next Level] AND Helianthus[subtree]</QueryTranslation></eSearchResult>
-  recorded_at: 2019-10-11 21:26:47 GMT
-  recorded_with: vcr/0.3.0, webmockr/0.4.0
+        <eSearchResult><Count>61</Count><RetMax>61</RetMax><RetStart>0</RetStart><IdList>
+        <Id>2584715</Id>
+        <Id>2508041</Id>
+        <Id>2065898</Id>
+        <Id>2010334</Id>
+        <Id>1702218</Id>
+        <Id>1312851</Id>
+        <Id>1048930</Id>
+        <Id>400408</Id>
+        <Id>382522</Id>
+        <Id>382521</Id>
+        <Id>382520</Id>
+        <Id>382519</Id>
+        <Id>193314</Id>
+        <Id>187455</Id>
+        <Id>140109</Id>
+        <Id>73313</Id>
+        <Id>73312</Id>
+        <Id>73311</Id>
+        <Id>73310</Id>
+        <Id>73309</Id>
+        <Id>73308</Id>
+        <Id>73307</Id>
+        <Id>73306</Id>
+        <Id>73305</Id>
+        <Id>73304</Id>
+        <Id>73303</Id>
+        <Id>73302</Id>
+        <Id>73301</Id>
+        <Id>73300</Id>
+        <Id>73299</Id>
+        <Id>73298</Id>
+        <Id>73297</Id>
+        <Id>73296</Id>
+        <Id>73295</Id>
+        <Id>73294</Id>
+        <Id>73293</Id>
+        <Id>73292</Id>
+        <Id>73291</Id>
+        <Id>73290</Id>
+        <Id>73289</Id>
+        <Id>73288</Id>
+        <Id>73287</Id>
+        <Id>73286</Id>
+        <Id>73285</Id>
+        <Id>73284</Id>
+        <Id>73283</Id>
+        <Id>73282</Id>
+        <Id>73281</Id>
+        <Id>73280</Id>
+        <Id>73279</Id>
+        <Id>73278</Id>
+        <Id>73277</Id>
+        <Id>73276</Id>
+        <Id>73275</Id>
+        <Id>73274</Id>
+        <Id>73273</Id>
+        <Id>73272</Id>
+        <Id>53583</Id>
+        <Id>4234</Id>
+        <Id>4233</Id>
+        <Id>4232</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Helianthus[Next Level]</Term>    <Field>Next Level</Field>    <Count>61</Count>    <Explode>N</Explode>   </TermSet>   <TermSet>    <Term>Heliantheae[subtree]</Term>    <Field>subtree</Field>    <Count>846</Count>    <Explode>N</Explode>   </TermSet>   <OP>AND</OP>  </TranslationStack><QueryTranslation>Helianthus[Next Level] AND Heliantheae[subtree]</QueryTranslation></eSearchResult>
+  recorded_at: 2020-03-06 01:27:12 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&id=2508000%2B2507999%2B2507998%2B2507997%2B2507996%2B2507995%2B2507994%2B2507993%2B2507992%2B2507991%2B2507990%2B2507989%2B1720378%2B1577454%2B1261137%2B585498%2B50471&api_key=<<entrez_api_token>>
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&id=2584715%2B2508041%2B2065898%2B2010334%2B1702218%2B1312851%2B1048930%2B400408%2B382522%2B382521%2B382520%2B382519%2B193314%2B187455%2B140109%2B73313%2B73312%2B73311%2B73310%2B73309%2B73308%2B73307%2B73306%2B73305%2B73304%2B73303%2B73302%2B73301%2B73300%2B73299%2B73298%2B73297%2B73296%2B73295%2B73294%2B73293%2B73292%2B73291%2B73290%2B73289%2B73288%2B73287%2B73286%2B73285%2B73284%2B73283%2B73282%2B73281%2B73280%2B73279%2B73278%2B73277%2B73276%2B73275%2B73274%2B73273%2B73272%2B53583%2B4234%2B4233%2B4232&api_key=<<entrez_api_token>>
     body:
       encoding: ''
       string: ''
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.2 crul/0.8.4 rOpenSci(taxize/0.9.8.9144)
-      X-USER-AGENT: r-curl/4.2 crul/0.8.4 rOpenSci(taxize/0.9.8.9144)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
   response:
     status:
       status_code: '200'
@@ -880,161 +913,482 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Fri, 11 Oct 2019 21:26:48 GMT
+      date: Fri, 06 Mar 2020 01:27:11 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '3'
-      ncbi-phid: D0BDADD05B8C69E500002E480144292E.1.1.m_1
+      x-ratelimit-remaining: '7'
+      ncbi-phid: 939B359643F5AE9500003847207AA048.1.1.m_1
       cache-control: private
-      ncbi-sid: 787227DC24B3DF5A_8F50SID
+      ncbi-sid: 6E7110C398F675C1_AECASID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
-      content-length: '874'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=787227DC24B3DF5A_8F50SID; domain=.nih.gov; path=/; expires=Sun,
-        11 Oct 2020 21:26:49 GMT
+      set-cookie: ncbi_sid=6E7110C398F675C1_AECASID; domain=.nih.gov; path=/; expires=Sat,
+        06 Mar 2021 01:27:12 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
     body:
       encoding: UTF-8
+      file: no
       string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eSummaryResult
-        PUBLIC \"-//NLM//DTD esummary v1 20041029//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20041029/esummary-v1.dtd\">\n<eSummaryResult>\n<DocSum>\n\t<Id>2508000</Id>\n\t<Item
+        PUBLIC \"-//NLM//DTD esummary v1 20041029//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20041029/esummary-v1.dtd\">\n<eSummaryResult>\n<DocSum>\n\t<Id>2584715</Id>\n\t<Item
         Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
         Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Helianthus sp. 9 KS-2019</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2508000</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">sp. 9 KS-2019</Item>\n\t<Item Name=\"Subsp\"
-        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2019/02/04
-        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2507999</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">Helianthus divaricatus x Helianthus microcephalus</Item>\n\t<Item
+        Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2584715</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Species\" Type=\"String\"></Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2019/09/02 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2508041</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">unclassified Helianthus</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2508041</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Species\" Type=\"String\"></Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2019/01/19 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2065898</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus uniflorus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">2065898</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">uniflorus</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2017/12/28
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2010334</Id>\n\t<Item Name=\"Status\"
         Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
         Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Helianthus sp. 8 KS-2019</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2507999</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">sp. 8 KS-2019</Item>\n\t<Item Name=\"Subsp\"
-        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2019/02/04
-        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2507998</Id>\n\t<Item Name=\"Status\"
-        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Type=\"String\">Helianthus x laetiflorus</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2010334</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Species\" Type=\"String\"></Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2017/06/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1702218</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
         Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Helianthus sp. 7 KS-2019</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2507998</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">sp. 7 KS-2019</Item>\n\t<Item Name=\"Subsp\"
-        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2019/02/04
-        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2507997</Id>\n\t<Item Name=\"Status\"
-        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Type=\"String\">Helianthus winteri</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">1702218</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">winteri</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2015/08/19 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1312851</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
         Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Helianthus sp. 6 KS-2019</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2507997</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">sp. 6 KS-2019</Item>\n\t<Item Name=\"Subsp\"
-        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2019/02/04
-        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2507996</Id>\n\t<Item Name=\"Status\"
-        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Type=\"String\">Helianthus annuus x Helianthus petiolaris</Item>\n\t<Item
+        Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">1312851</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Species\" Type=\"String\"></Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2013/04/03 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1048930</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
         Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Helianthus sp. 5 KS-2019</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2507996</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">sp. 5 KS-2019</Item>\n\t<Item Name=\"Subsp\"
-        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2019/02/04
-        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2507995</Id>\n\t<Item Name=\"Status\"
-        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Type=\"String\">Helianthus x multiflorus</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">1048930</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Species\" Type=\"String\"></Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2011/07/04 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>400408</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
         Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Helianthus sp. 4 KS-2019</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2507995</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">sp. 4 KS-2019</Item>\n\t<Item Name=\"Subsp\"
-        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2019/02/04
-        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2507994</Id>\n\t<Item Name=\"Status\"
-        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
-        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Helianthus sp. 3 KS-2019</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2507994</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">sp. 3 KS-2019</Item>\n\t<Item Name=\"Subsp\"
-        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2019/02/04
-        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2507993</Id>\n\t<Item Name=\"Status\"
-        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
-        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Helianthus sp. 2 KS-2019</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2507993</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">sp. 2 KS-2019</Item>\n\t<Item Name=\"Subsp\"
-        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2019/02/04
-        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2507992</Id>\n\t<Item Name=\"Status\"
-        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
-        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Helianthus sp. 1 KS-20192</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2507992</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">sp. 1 KS-20192</Item>\n\t<Item Name=\"Subsp\"
-        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2019/02/04
-        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2507991</Id>\n\t<Item Name=\"Status\"
-        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
-        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Helianthus sp. 1 KS-20191</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2507991</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">sp. 1 KS-20191</Item>\n\t<Item Name=\"Subsp\"
-        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2019/02/04
-        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2507990</Id>\n\t<Item Name=\"Status\"
-        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
-        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Helianthus sp. 1 KS-20190</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2507990</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">sp. 1 KS-20190</Item>\n\t<Item Name=\"Subsp\"
-        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2019/02/04
-        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2507989</Id>\n\t<Item Name=\"Status\"
-        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
-        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Helianthus sp. 1 KS-2019</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2507989</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">sp. 1 KS-2019</Item>\n\t<Item Name=\"Subsp\"
-        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2019/02/04
-        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1720378</Id>\n\t<Item Name=\"Status\"
-        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
-        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Helianthus sp. BIOUG24048-D10</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">1720378</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">sp. BIOUG24048-D10</Item>\n\t<Item Name=\"Subsp\"
-        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2015/10/01
-        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1577454</Id>\n\t<Item Name=\"Status\"
-        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
-        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Helianthus sp. ASM-2014</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">1577454</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">sp. ASM-2014</Item>\n\t<Item Name=\"Subsp\"
-        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2015/07/25
-        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1261137</Id>\n\t<Item Name=\"Status\"
-        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
-        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Helianthus sp. DH-2012</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">1261137</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">sp. DH-2012</Item>\n\t<Item Name=\"Subsp\"
-        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2012/12/10
-        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>585498</Id>\n\t<Item Name=\"Status\"
-        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
-        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Helianthus sp. WO2008062049</Item>\n\t<Item Name=\"CommonName\"
-        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">585498</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
-        Name=\"Species\" Type=\"String\">sp. WO2008062049</Item>\n\t<Item Name=\"Subsp\"
-        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2009/01/07
-        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>50471</Id>\n\t<Item Name=\"Status\"
-        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
-        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Helianthus sp.</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
-        Name=\"TaxId\" Type=\"Integer\">50471</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Type=\"String\">Helianthus exilis</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">400408</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
         Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item Name=\"Species\"
-        Type=\"String\">sp.</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
-        Name=\"ModificationDate\" Type=\"Date\">2005/01/19 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
-  recorded_at: 2019-10-11 21:26:47 GMT
-  recorded_with: vcr/0.3.0, webmockr/0.4.0
+        Type=\"String\">exilis</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2016/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>382522</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus strumosus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">382522</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item Name=\"Species\"
+        Type=\"String\">strumosus</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2016/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>382521</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus pauciflorus</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">382521</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">pauciflorus</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2015/07/28
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>382520</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus grandiflorus</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">382520</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">grandiflorus</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2007/04/16
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>382519</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus californicus</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">382519</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">californicus</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2016/08/18
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>193314</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus annuus x Helianthus debilis subsp. debilis</Item>\n\t<Item
+        Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">193314</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Species\" Type=\"String\"></Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2005/01/19 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>187455</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus annuus x Helianthus argophyllus</Item>\n\t<Item
+        Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">187455</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Species\" Type=\"String\"></Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2005/01/19 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>140109</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus verticillatus</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">140109</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">verticillatus</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2016/08/18
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73313</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus smithii</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">73313</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item Name=\"Species\"
+        Type=\"String\">smithii</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2016/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73312</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus silphioides</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">73312</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">silphioides</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2016/08/18
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73311</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus schweinitzii</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">73311</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">schweinitzii</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2016/08/18
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73310</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus salicifolius</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">73310</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">salicifolius</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2016/08/18
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73309</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus resinosus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">73309</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item Name=\"Species\"
+        Type=\"String\">resinosus</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2016/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73308</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus radula</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">73308</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item Name=\"Species\"
+        Type=\"String\">radula</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2016/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73307</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus pumilus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">73307</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item Name=\"Species\"
+        Type=\"String\">pumilus</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2016/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73306</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus praecox</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">73306</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item Name=\"Species\"
+        Type=\"String\">praecox</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2016/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73305</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus porteri</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">73305</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item Name=\"Species\"
+        Type=\"String\">porteri</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2016/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73304</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus paradoxus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">73304</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item Name=\"Species\"
+        Type=\"String\">paradoxus</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2016/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73303</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus occidentalis</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">73303</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">occidentalis</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2016/08/18
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73302</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus nuttallii</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">73302</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item Name=\"Species\"
+        Type=\"String\">nuttallii</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2015/07/28 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73301</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus niveus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">73301</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item Name=\"Species\"
+        Type=\"String\">niveus</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2016/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73300</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus neglectus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">73300</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item Name=\"Species\"
+        Type=\"String\">neglectus</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2016/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73299</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus mollis</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">73299</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item Name=\"Species\"
+        Type=\"String\">mollis</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2016/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73298</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus microcephalus</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">73298</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">microcephalus</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2016/08/18
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73297</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus maximiliani</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">73297</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">maximiliani</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2018/11/23
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73296</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus longifolius</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">73296</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">longifolius</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2016/08/18
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73295</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus laevigatus</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">73295</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">laevigatus</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2016/08/18
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73294</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus laciniatus</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">73294</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">laciniatus</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2016/08/18
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73293</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus hirsutus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">73293</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item Name=\"Species\"
+        Type=\"String\">hirsutus</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2016/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73292</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus heterophyllus</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">73292</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">heterophyllus</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2016/08/18
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73291</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus grosseserratus</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">73291</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">grosseserratus</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2016/08/18
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73290</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus gracilentus</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">73290</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">gracilentus</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2016/08/18
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73289</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus glaucophyllus</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">73289</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">glaucophyllus</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2016/08/18
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73288</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus giganteus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">73288</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item Name=\"Species\"
+        Type=\"String\">giganteus</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2016/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73287</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus floridanus</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">73287</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">floridanus</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2016/08/18
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73286</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus eggertii</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">73286</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item Name=\"Species\"
+        Type=\"String\">eggertii</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2016/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73285</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus divaricatus</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">73285</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">divaricatus</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2016/08/18
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73284</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus deserticola</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">73284</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">deserticola</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2016/08/18
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73283</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus decapetalus</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">73283</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">decapetalus</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2016/08/18
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73282</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus debilis</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">cucumberleaf
+        sunflower</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">73282</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">debilis</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2017/06/14 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73281</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus cusickii</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">73281</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item Name=\"Species\"
+        Type=\"String\">cusickii</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2016/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73280</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus ciliaris</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">73280</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item Name=\"Species\"
+        Type=\"String\">ciliaris</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2018/11/23 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73279</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus carnosus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">73279</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item Name=\"Species\"
+        Type=\"String\">carnosus</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2016/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73278</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus bolanderi</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">73278</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item Name=\"Species\"
+        Type=\"String\">bolanderi</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2016/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73277</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus atrorubens</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">73277</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">atrorubens</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2016/08/18
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73276</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus arizonensis</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">73276</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">arizonensis</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2016/08/18
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73275</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus argophyllus</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">73275</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">argophyllus</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2016/08/18
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73274</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus anomalus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">73274</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item Name=\"Species\"
+        Type=\"String\">anomalus</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2016/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73273</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus angustifolius</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">73273</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">angustifolius</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2016/08/18
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>73272</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus agrestis</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">73272</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item Name=\"Species\"
+        Type=\"String\">agrestis</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2016/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>53583</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus simulans</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">53583</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item Name=\"Species\"
+        Type=\"String\">simulans</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2016/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>4234</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus petiolaris</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">4234</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">petiolaris</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2016/08/18
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>4233</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus tuberosus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">Jerusalem
+        artichoke</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">4233</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">tuberosus</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2018/11/23
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>4232</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus annuus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">common
+        sunflower</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">4232</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">annuus</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2018/11/23 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
+  recorded_at: 2020-03-06 01:27:12 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
