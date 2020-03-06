@@ -16,20 +16,20 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Mon, 10 Feb 2020 22:16:01 GMT
+      date: Fri, 06 Mar 2020 19:17:30 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '6'
-      ncbi-phid: D0BD591C6591225500002623A7BFDEE8.1.1.m_3
+      x-ratelimit-remaining: '8'
+      ncbi-phid: 939B6CBF14E4C845000031DF64DC4AB5.1.1.m_3
       cache-control: private
-      ncbi-sid: CB19E40ABE9F155B_ADC6SID
+      ncbi-sid: 027F470FF1EA3A29_82C5SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=CB19E40ABE9F155B_ADC6SID; domain=.nih.gov; path=/; expires=Wed,
-        10 Feb 2021 22:16:02 GMT
+      set-cookie: ncbi_sid=027F470FF1EA3A29_82C5SID; domain=.nih.gov; path=/; expires=Sat,
+        06 Mar 2021 19:17:30 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -272,8 +272,8 @@ http_interactions:
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2020-02-10 22:16:03 GMT
-  recorded_with: vcr/0.4.1.94, webmockr/0.5.1.98
+  recorded_at: 2020-03-06 19:17:33 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
     uri: https://www.itis.gov/ITISWebService/jsonservice/getFullHierarchyFromTSN?tsn=129313
@@ -293,7 +293,7 @@ http_interactions:
       connection: keep-alive
       content-length: '3475'
       content-type: text/json;charset=ISO-8859-1
-      date: Mon, 10 Feb 2020 22:16:02 GMT
+      date: Fri, 06 Mar 2020 19:17:30 GMT
       status: 'HTTP/1.1 200 '
       strict-transport-security:
       - max-age=63072000; includeSubdomains; preload
@@ -306,19 +306,19 @@ http_interactions:
       file: no
       string: |
         {"author":"","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecordList","hierarchyList":[{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"","parentTsn":"","rankName":"Kingdom","taxonName":"Animalia","tsn":"202423"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Animalia","parentTsn":"202423","rankName":"Subkingdom","taxonName":"Bilateria","tsn":"914154"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Bilateria","parentTsn":"914154","rankName":"Infrakingdom","taxonName":"Protostomia","tsn":"914155"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Protostomia","parentTsn":"914155","rankName":"Superphylum","taxonName":"Ecdysozoa","tsn":"914158"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ecdysozoa","parentTsn":"914158","rankName":"Phylum","taxonName":"Arthropoda","tsn":"82696"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Arthropoda","parentTsn":"82696","rankName":"Subphylum","taxonName":"Hexapoda","tsn":"563886"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Hexapoda","parentTsn":"563886","rankName":"Class","taxonName":"Insecta","tsn":"99208"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Insecta","parentTsn":"99208","rankName":"Subclass","taxonName":"Pterygota","tsn":"100500"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Pterygota","parentTsn":"100500","rankName":"Infraclass","taxonName":"Neoptera","tsn":"563890"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Neoptera","parentTsn":"563890","rankName":"Superorder","taxonName":"Holometabola","tsn":"914213"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Holometabola","parentTsn":"914213","rankName":"Order","taxonName":"Diptera","tsn":"118831"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Diptera","parentTsn":"118831","rankName":"Suborder","taxonName":"Nematocera","tsn":"118832"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Nematocera","parentTsn":"118832","rankName":"Infraorder","taxonName":"Culicomorpha","tsn":"125808"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Culicomorpha","parentTsn":"125808","rankName":"Family","taxonName":"Chironomidae","tsn":"127917"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Chironomidae","parentTsn":"127917","rankName":"Subfamily","taxonName":"Chironominae","tsn":"129228"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Chironominae","parentTsn":"129228","rankName":"Tribe","taxonName":"Chironomini","tsn":"129229"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Chironomini","parentTsn":"129229","rankName":"Genus","taxonName":"Chironomus","tsn":"129254"},{"author":"Meigen, 1804","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Chironomus","parentTsn":"129254","rankName":"Species","taxonName":"Chironomus riparius","tsn":"129313"}],"rankName":"","sciName":"","tsn":"129313"}
-  recorded_at: 2020-02-10 22:16:03 GMT
-  recorded_with: vcr/0.4.1.94, webmockr/0.5.1.98
+  recorded_at: 2020-03-06 19:17:33 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
-    uri: http://api.gbif.org/v1/species/2441176?limit=20
+    uri: https://api.gbif.org/v1/species/2441176?limit=20
     body:
       encoding: ''
       string: ''
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
   response:
     status:
       status_code: '200'
@@ -326,13 +326,13 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Mon, 10 Feb 2020 22:16:03 GMT
+      date: Fri, 06 Mar 2020 19:17:33 GMT
       content-type: application/json
       access-control-allow-origin: '*'
       access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
       server: Jetty(9.3.z-SNAPSHOT)
       cache-control: public, max-age=3601
-      x-varnish: '786039321'
+      x-varnish: '278202002'
       age: '0'
       via: 1.1 varnish (Varnish/5.2)
       accept-ranges: bytes
@@ -346,5 +346,5 @@ http_interactions:
         bison Linnaeus, 1758","scientificName":"Bison bison (Linnaeus, 1758)","canonicalName":"Bison
         bison","authorship":" (Linnaeus, 1758)","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","publishedIn":"Syst.
         Nat., 10th ed. vol.1 p.72","numDescendants":1,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:02:42.116+0000","issues":[],"synonym":false,"class":"Mammalia"}'
-  recorded_at: 2020-02-10 22:16:03 GMT
-  recorded_with: vcr/0.4.1.94, webmockr/0.5.1.98
+  recorded_at: 2020-03-06 19:17:33 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0

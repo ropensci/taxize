@@ -8,8 +8,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
   response:
     status:
       status_code: '200'
@@ -17,17 +17,17 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Fri, 06 Mar 2020 01:55:49 GMT
+      date: Fri, 06 Mar 2020 19:18:35 GMT
       content-type: application/json
       access-control-allow-origin: '*'
       access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
       server: Jetty(9.3.z-SNAPSHOT)
       cache-control: public, max-age=3601
-      x-varnish: 747635140 748290635
-      age: '40'
+      x-varnish: '288524431'
+      age: '0'
       via: 1.1 varnish (Varnish/5.2)
       accept-ranges: bytes
-      content-length: '15729'
+      transfer-encoding: chunked
       connection: keep-alive
     body:
       encoding: UTF-8
@@ -102,19 +102,19 @@ http_interactions:
         sedis","genus":"Aspis","kingdomKey":0,"genusKey":2443747,"synonym":false},{"usageKey":7573228,"scientificName":"Aspis
         Nishimura, 1992","canonicalName":"Aspis","rank":"GENUS","status":"DOUBTFUL","confidence":0,"note":"Similarity:
         name=-5; authorship=0; classification=-2; rank=0; status=-5","matchType":"FUZZY","kingdom":"Chromista","genus":"Aspis","kingdomKey":4,"genusKey":7573228,"synonym":false}],"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"synonym":false,"class":"Insecta"}'
-  recorded_at: 2020-03-06 01:56:30 GMT
+  recorded_at: 2020-03-06 19:18:39 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
-    uri: http://api.gbif.org/v1/species/7799978?limit=20
+    uri: https://api.gbif.org/v1/species/7799978?limit=20
     body:
       encoding: ''
       string: ''
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
   response:
     status:
       status_code: '200'
@@ -122,14 +122,14 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Fri, 06 Mar 2020 01:56:09 GMT
+      date: Fri, 06 Mar 2020 19:18:36 GMT
       content-type: application/json
       access-control-allow-origin: '*'
       access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
       server: Jetty(9.3.z-SNAPSHOT)
       cache-control: public, max-age=3601
-      x-varnish: 718603300 751208045
-      age: '20'
+      x-varnish: '291736038'
+      age: '0'
       via: 1.1 varnish (Varnish/5.2)
       accept-ranges: bytes
       content-length: '761'
@@ -139,19 +139,19 @@ http_interactions:
       file: no
       string: '{"key":7799978,"nameKey":837464,"taxonID":"gbif:7799978","kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":4334,"parent":"Apidae","scientificName":"Apis
         Fabricius","canonicalName":"Apis","authorship":"Fabricius","nameType":"SCIENTIFIC","rank":"GENUS","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":62,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.604+0000","issues":[],"synonym":false,"class":"Insecta"}'
-  recorded_at: 2020-03-06 01:56:30 GMT
+  recorded_at: 2020-03-06 19:18:39 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
-    uri: http://api.gbif.org/v1/species/7799978/children?limit=100
+    uri: https://api.gbif.org/v1/species/7799978/children?limit=100
     body:
       encoding: ''
       string: ''
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
   response:
     status:
       status_code: '200'
@@ -159,17 +159,17 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Fri, 06 Mar 2020 01:56:09 GMT
+      date: Fri, 06 Mar 2020 19:18:38 GMT
       content-type: application/json
       access-control-allow-origin: '*'
       access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
       server: Jetty(9.3.z-SNAPSHOT)
       cache-control: public, max-age=3601
-      x-varnish: 722734521 747143576
-      age: '20'
+      x-varnish: '301203797'
+      age: '0'
       via: 1.1 varnish (Varnish/5.2)
       accept-ranges: bytes
-      content-length: '35897'
+      transfer-encoding: chunked
       connection: keep-alive
     body:
       encoding: UTF-8
@@ -331,5 +331,5 @@ http_interactions:
         Johann C. 1793. Entomologia systematica emendata et aucta. Secundum classes,
         ordines, genera, species, adjectis synonimis, locis, observationibus, descriptionibus.
         C.G. Proft, Fil. et Soc., Hafniae. Vol. 2: 1-519.","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.815+0000","issues":[],"synonym":false,"class":"Insecta"},{"key":9893672,"nameKey":30081223,"taxonID":"gbif:9893672","sourceTaxonKey":157813318,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"4cec8fef-f129-4966-89b7-4f8439aba058","parentKey":7799978,"parent":"Apis","scientificName":"BOLD:ACP2245","authorship":"","nameType":"OTU","rank":"UNRANKED","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.637+0000","issues":[],"synonym":false,"class":"Insecta"}]}'
-  recorded_at: 2020-03-06 01:56:30 GMT
+  recorded_at: 2020-03-06 19:18:39 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0

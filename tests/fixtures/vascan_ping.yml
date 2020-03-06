@@ -1,15 +1,15 @@
 http_interactions:
 - request:
     method: get
-    uri: http://data.canadensys.net/vascan/api/0.1/search.json?q=Crataegus
+    uri: https://data.canadensys.net/vascan/api/0.1/search.json?q=Crataegus
     body:
       encoding: ''
       string: ''
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
-      X-USER-AGENT: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
   response:
     status:
       status_code: '200'
@@ -18,27 +18,28 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.10.3 (Ubuntu)
-      date: Wed, 08 May 2019 21:00:09 GMT
+      date: Fri, 06 Mar 2020 19:32:21 GMT
       content-type: application/json;charset=UTF-8
       transfer-encoding: chunked
       connection: keep-alive
       strict-transport-security: max-age=31536000
     body:
       encoding: ASCII-8BIT
-      string: eyJhcGlWZXJzaW9uIjoiMC4xIiwibGFzdFVwZGF0ZWREYXRlIjoiMjAxOS0wNC0wOCIsInJlc3VsdHMiOlt7InNlYXJjaGVkVGVybSI6IkNyYXRhZWd1cyIsIm51bU1hdGNoZXMiOjEsIm1hdGNoZXMiOlt7InRheG9uSUQiOjEwNDcsInNjaWVudGlmaWNOYW1lIjoiQ3JhdGFlZ3VzIExpbm5hZXVzIG5vbS4gY29ucy4iLCJzY2llbnRpZmljTmFtZUF1dGhvcnNoaXAiOiJMaW5uYWV1cyBub20uIGNvbnMuIiwiY2Fub25pY2FsTmFtZSI6IkNyYXRhZWd1cyIsInRheG9uUmFuayI6ImdlbnVzIiwidGF4b25vbWljQXNzZXJ0aW9ucyI6W3siYWNjZXB0ZWROYW1lVXNhZ2UiOiJDcmF0YWVndXMgTGlubmFldXMgbm9tLiBjb25zLiIsImFjY2VwdGVkTmFtZVVzYWdlSUQiOjEwNDcsIm5hbWVBY2NvcmRpbmdUbyI6IkZOQSBFZGl0b3JpYWwgQ29tbWl0dGVlLiAyMDE0LiBGbG9yYSBvZiBOb3J0aCBBbWVyaWNhIG5vcnRoIG9mIE1leGljby4gVm9sdW1lIDk6IE1hZ25vbGlvcGh5dGE6IFBpY3JhbW5pYWNlYWUgdG8gUm9zYWNlYWUuIE94Zm9yZCBVbml2ZXJzaXR5IFByZXNzLCBOZXcgWW9yay4iLCJuYW1lQWNjb3JkaW5nVG9JRCI6Imh0dHA6Ly93d3cuZWZsb3Jhcy5vcmcvdm9sdW1lX3BhZ2UuYXNweD92b2x1bWVfaWQ9MTAwOSZmbG9yYV9pZD0xIiwidGF4b25vbWljU3RhdHVzIjoiYWNjZXB0ZWQiLCJwYXJlbnROYW1lVXNhZ2VJRCI6NDE2LCJoaWdoZXJDbGFzc2lmaWNhdGlvbiI6IkVxdWlzZXRvcHNpZGE7TWFnbm9saWlkYWU7Um9zYW5hZTtSb3NhbGVzO1Jvc2FjZWFlO0FteWdkYWxvaWRlYWU7TWFsZWFlIn1dLCJ2ZXJuYWN1bGFyTmFtZXMiOlt7InZlcm5hY3VsYXJOYW1lIjoiaGF3dGhvcm4iLCJsYW5ndWFnZSI6ImVuIiwic291cmNlIjoiRmFycmFyLCBKLkwuIDE5OTYuIExlcyBBcmJyZXMgZHUgQ2FuYWRhLiBGaWRlcyBldCBTZXJ2aWNlIGNhbmFkaWVuIGRlcyBmb3LDqnRzLiA1MDIgcHAuIiwicHJlZmVycmVkTmFtZSI6dHJ1ZX1dfV19XX0=
-  recorded_at: 2019-05-08 21:00:10 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+      file: no
+      string: eyJhcGlWZXJzaW9uIjoiMC4xIiwibGFzdFVwZGF0ZWREYXRlIjoiMjAxOS0wOC0xOSIsInJlc3VsdHMiOlt7InNlYXJjaGVkVGVybSI6IkNyYXRhZWd1cyIsIm51bU1hdGNoZXMiOjEsIm1hdGNoZXMiOlt7InRheG9uSUQiOjEwNDcsInNjaWVudGlmaWNOYW1lIjoiQ3JhdGFlZ3VzIExpbm5hZXVzIG5vbS4gY29ucy4iLCJzY2llbnRpZmljTmFtZUF1dGhvcnNoaXAiOiJMaW5uYWV1cyBub20uIGNvbnMuIiwiY2Fub25pY2FsTmFtZSI6IkNyYXRhZWd1cyIsInRheG9uUmFuayI6ImdlbnVzIiwidGF4b25vbWljQXNzZXJ0aW9ucyI6W3siYWNjZXB0ZWROYW1lVXNhZ2UiOiJDcmF0YWVndXMgTGlubmFldXMgbm9tLiBjb25zLiIsImFjY2VwdGVkTmFtZVVzYWdlSUQiOjEwNDcsIm5hbWVBY2NvcmRpbmdUbyI6IkZOQSBFZGl0b3JpYWwgQ29tbWl0dGVlLiAyMDE0LiBGbG9yYSBvZiBOb3J0aCBBbWVyaWNhIG5vcnRoIG9mIE1leGljby4gVm9sdW1lIDk6IE1hZ25vbGlvcGh5dGE6IFBpY3JhbW5pYWNlYWUgdG8gUm9zYWNlYWUuIE94Zm9yZCBVbml2ZXJzaXR5IFByZXNzLCBOZXcgWW9yay4iLCJuYW1lQWNjb3JkaW5nVG9JRCI6Imh0dHA6Ly93d3cuZWZsb3Jhcy5vcmcvdm9sdW1lX3BhZ2UuYXNweD92b2x1bWVfaWQ9MTAwOSZmbG9yYV9pZD0xIiwidGF4b25vbWljU3RhdHVzIjoiYWNjZXB0ZWQiLCJwYXJlbnROYW1lVXNhZ2VJRCI6NDE2LCJoaWdoZXJDbGFzc2lmaWNhdGlvbiI6IkVxdWlzZXRvcHNpZGE7TWFnbm9saWlkYWU7Um9zYW5hZTtSb3NhbGVzO1Jvc2FjZWFlO0FteWdkYWxvaWRlYWU7TWFsZWFlIn1dLCJ2ZXJuYWN1bGFyTmFtZXMiOlt7InZlcm5hY3VsYXJOYW1lIjoiaGF3dGhvcm4iLCJsYW5ndWFnZSI6ImVuIiwic291cmNlIjoiRmFycmFyLCBKLkwuIDE5OTYuIExlcyBBcmJyZXMgZHUgQ2FuYWRhLiBGaWRlcyBldCBTZXJ2aWNlIGNhbmFkaWVuIGRlcyBmb3LDqnRzLiA1MDIgcHAuIiwicHJlZmVycmVkTmFtZSI6dHJ1ZX1dfV19XX0=
+  recorded_at: 2020-03-06 19:32:21 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
-    uri: http://data.canadensys.net/vascan/api/0.1/search.json?q=Crataegus
+    uri: https://data.canadensys.net/vascan/api/0.1/search.json?q=Crataegus
     body:
       encoding: ''
       string: ''
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
-      X-USER-AGENT: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
   response:
     status:
       status_code: '200'
@@ -47,27 +48,28 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.10.3 (Ubuntu)
-      date: Wed, 08 May 2019 21:00:09 GMT
+      date: Fri, 06 Mar 2020 19:32:21 GMT
       content-type: application/json;charset=UTF-8
       transfer-encoding: chunked
       connection: keep-alive
       strict-transport-security: max-age=31536000
     body:
       encoding: ASCII-8BIT
-      string: eyJhcGlWZXJzaW9uIjoiMC4xIiwibGFzdFVwZGF0ZWREYXRlIjoiMjAxOS0wNC0wOCIsInJlc3VsdHMiOlt7InNlYXJjaGVkVGVybSI6IkNyYXRhZWd1cyIsIm51bU1hdGNoZXMiOjEsIm1hdGNoZXMiOlt7InRheG9uSUQiOjEwNDcsInNjaWVudGlmaWNOYW1lIjoiQ3JhdGFlZ3VzIExpbm5hZXVzIG5vbS4gY29ucy4iLCJzY2llbnRpZmljTmFtZUF1dGhvcnNoaXAiOiJMaW5uYWV1cyBub20uIGNvbnMuIiwiY2Fub25pY2FsTmFtZSI6IkNyYXRhZWd1cyIsInRheG9uUmFuayI6ImdlbnVzIiwidGF4b25vbWljQXNzZXJ0aW9ucyI6W3siYWNjZXB0ZWROYW1lVXNhZ2UiOiJDcmF0YWVndXMgTGlubmFldXMgbm9tLiBjb25zLiIsImFjY2VwdGVkTmFtZVVzYWdlSUQiOjEwNDcsIm5hbWVBY2NvcmRpbmdUbyI6IkZOQSBFZGl0b3JpYWwgQ29tbWl0dGVlLiAyMDE0LiBGbG9yYSBvZiBOb3J0aCBBbWVyaWNhIG5vcnRoIG9mIE1leGljby4gVm9sdW1lIDk6IE1hZ25vbGlvcGh5dGE6IFBpY3JhbW5pYWNlYWUgdG8gUm9zYWNlYWUuIE94Zm9yZCBVbml2ZXJzaXR5IFByZXNzLCBOZXcgWW9yay4iLCJuYW1lQWNjb3JkaW5nVG9JRCI6Imh0dHA6Ly93d3cuZWZsb3Jhcy5vcmcvdm9sdW1lX3BhZ2UuYXNweD92b2x1bWVfaWQ9MTAwOSZmbG9yYV9pZD0xIiwidGF4b25vbWljU3RhdHVzIjoiYWNjZXB0ZWQiLCJwYXJlbnROYW1lVXNhZ2VJRCI6NDE2LCJoaWdoZXJDbGFzc2lmaWNhdGlvbiI6IkVxdWlzZXRvcHNpZGE7TWFnbm9saWlkYWU7Um9zYW5hZTtSb3NhbGVzO1Jvc2FjZWFlO0FteWdkYWxvaWRlYWU7TWFsZWFlIn1dLCJ2ZXJuYWN1bGFyTmFtZXMiOlt7InZlcm5hY3VsYXJOYW1lIjoiaGF3dGhvcm4iLCJsYW5ndWFnZSI6ImVuIiwic291cmNlIjoiRmFycmFyLCBKLkwuIDE5OTYuIExlcyBBcmJyZXMgZHUgQ2FuYWRhLiBGaWRlcyBldCBTZXJ2aWNlIGNhbmFkaWVuIGRlcyBmb3LDqnRzLiA1MDIgcHAuIiwicHJlZmVycmVkTmFtZSI6dHJ1ZX1dfV19XX0=
-  recorded_at: 2019-05-08 21:00:10 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+      file: no
+      string: eyJhcGlWZXJzaW9uIjoiMC4xIiwibGFzdFVwZGF0ZWREYXRlIjoiMjAxOS0wOC0xOSIsInJlc3VsdHMiOlt7InNlYXJjaGVkVGVybSI6IkNyYXRhZWd1cyIsIm51bU1hdGNoZXMiOjEsIm1hdGNoZXMiOlt7InRheG9uSUQiOjEwNDcsInNjaWVudGlmaWNOYW1lIjoiQ3JhdGFlZ3VzIExpbm5hZXVzIG5vbS4gY29ucy4iLCJzY2llbnRpZmljTmFtZUF1dGhvcnNoaXAiOiJMaW5uYWV1cyBub20uIGNvbnMuIiwiY2Fub25pY2FsTmFtZSI6IkNyYXRhZWd1cyIsInRheG9uUmFuayI6ImdlbnVzIiwidGF4b25vbWljQXNzZXJ0aW9ucyI6W3siYWNjZXB0ZWROYW1lVXNhZ2UiOiJDcmF0YWVndXMgTGlubmFldXMgbm9tLiBjb25zLiIsImFjY2VwdGVkTmFtZVVzYWdlSUQiOjEwNDcsIm5hbWVBY2NvcmRpbmdUbyI6IkZOQSBFZGl0b3JpYWwgQ29tbWl0dGVlLiAyMDE0LiBGbG9yYSBvZiBOb3J0aCBBbWVyaWNhIG5vcnRoIG9mIE1leGljby4gVm9sdW1lIDk6IE1hZ25vbGlvcGh5dGE6IFBpY3JhbW5pYWNlYWUgdG8gUm9zYWNlYWUuIE94Zm9yZCBVbml2ZXJzaXR5IFByZXNzLCBOZXcgWW9yay4iLCJuYW1lQWNjb3JkaW5nVG9JRCI6Imh0dHA6Ly93d3cuZWZsb3Jhcy5vcmcvdm9sdW1lX3BhZ2UuYXNweD92b2x1bWVfaWQ9MTAwOSZmbG9yYV9pZD0xIiwidGF4b25vbWljU3RhdHVzIjoiYWNjZXB0ZWQiLCJwYXJlbnROYW1lVXNhZ2VJRCI6NDE2LCJoaWdoZXJDbGFzc2lmaWNhdGlvbiI6IkVxdWlzZXRvcHNpZGE7TWFnbm9saWlkYWU7Um9zYW5hZTtSb3NhbGVzO1Jvc2FjZWFlO0FteWdkYWxvaWRlYWU7TWFsZWFlIn1dLCJ2ZXJuYWN1bGFyTmFtZXMiOlt7InZlcm5hY3VsYXJOYW1lIjoiaGF3dGhvcm4iLCJsYW5ndWFnZSI6ImVuIiwic291cmNlIjoiRmFycmFyLCBKLkwuIDE5OTYuIExlcyBBcmJyZXMgZHUgQ2FuYWRhLiBGaWRlcyBldCBTZXJ2aWNlIGNhbmFkaWVuIGRlcyBmb3LDqnRzLiA1MDIgcHAuIiwicHJlZmVycmVkTmFtZSI6dHJ1ZX1dfV19XX0=
+  recorded_at: 2020-03-06 19:32:21 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
-    uri: http://data.canadensys.net/vascan/api/0.1/search.json?q=Crataegus
+    uri: https://data.canadensys.net/vascan/api/0.1/search.json?q=Crataegus
     body:
       encoding: ''
       string: ''
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
-      X-USER-AGENT: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
   response:
     status:
       status_code: '200'
@@ -76,71 +78,14 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.10.3 (Ubuntu)
-      date: Wed, 08 May 2019 21:00:09 GMT
+      date: Fri, 06 Mar 2020 19:32:21 GMT
       content-type: application/json;charset=UTF-8
       transfer-encoding: chunked
       connection: keep-alive
       strict-transport-security: max-age=31536000
     body:
       encoding: ASCII-8BIT
-      string: eyJhcGlWZXJzaW9uIjoiMC4xIiwibGFzdFVwZGF0ZWREYXRlIjoiMjAxOS0wNC0wOCIsInJlc3VsdHMiOlt7InNlYXJjaGVkVGVybSI6IkNyYXRhZWd1cyIsIm51bU1hdGNoZXMiOjEsIm1hdGNoZXMiOlt7InRheG9uSUQiOjEwNDcsInNjaWVudGlmaWNOYW1lIjoiQ3JhdGFlZ3VzIExpbm5hZXVzIG5vbS4gY29ucy4iLCJzY2llbnRpZmljTmFtZUF1dGhvcnNoaXAiOiJMaW5uYWV1cyBub20uIGNvbnMuIiwiY2Fub25pY2FsTmFtZSI6IkNyYXRhZWd1cyIsInRheG9uUmFuayI6ImdlbnVzIiwidGF4b25vbWljQXNzZXJ0aW9ucyI6W3siYWNjZXB0ZWROYW1lVXNhZ2UiOiJDcmF0YWVndXMgTGlubmFldXMgbm9tLiBjb25zLiIsImFjY2VwdGVkTmFtZVVzYWdlSUQiOjEwNDcsIm5hbWVBY2NvcmRpbmdUbyI6IkZOQSBFZGl0b3JpYWwgQ29tbWl0dGVlLiAyMDE0LiBGbG9yYSBvZiBOb3J0aCBBbWVyaWNhIG5vcnRoIG9mIE1leGljby4gVm9sdW1lIDk6IE1hZ25vbGlvcGh5dGE6IFBpY3JhbW5pYWNlYWUgdG8gUm9zYWNlYWUuIE94Zm9yZCBVbml2ZXJzaXR5IFByZXNzLCBOZXcgWW9yay4iLCJuYW1lQWNjb3JkaW5nVG9JRCI6Imh0dHA6Ly93d3cuZWZsb3Jhcy5vcmcvdm9sdW1lX3BhZ2UuYXNweD92b2x1bWVfaWQ9MTAwOSZmbG9yYV9pZD0xIiwidGF4b25vbWljU3RhdHVzIjoiYWNjZXB0ZWQiLCJwYXJlbnROYW1lVXNhZ2VJRCI6NDE2LCJoaWdoZXJDbGFzc2lmaWNhdGlvbiI6IkVxdWlzZXRvcHNpZGE7TWFnbm9saWlkYWU7Um9zYW5hZTtSb3NhbGVzO1Jvc2FjZWFlO0FteWdkYWxvaWRlYWU7TWFsZWFlIn1dLCJ2ZXJuYWN1bGFyTmFtZXMiOlt7InZlcm5hY3VsYXJOYW1lIjoiaGF3dGhvcm4iLCJsYW5ndWFnZSI6ImVuIiwic291cmNlIjoiRmFycmFyLCBKLkwuIDE5OTYuIExlcyBBcmJyZXMgZHUgQ2FuYWRhLiBGaWRlcyBldCBTZXJ2aWNlIGNhbmFkaWVuIGRlcyBmb3LDqnRzLiA1MDIgcHAuIiwicHJlZmVycmVkTmFtZSI6dHJ1ZX1dfV19XX0=
-  recorded_at: 2019-05-08 21:00:10 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
-- request:
-    method: get
-    uri: http://data.canadensys.net/vascan/api/0.1/search.json?q=Crataegus
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
-      X-USER-AGENT: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      server: nginx/1.10.3 (Ubuntu)
-      date: Wed, 08 May 2019 21:00:10 GMT
-      content-type: application/json;charset=UTF-8
-      transfer-encoding: chunked
-      connection: keep-alive
-      strict-transport-security: max-age=31536000
-    body:
-      encoding: ASCII-8BIT
-      string: eyJhcGlWZXJzaW9uIjoiMC4xIiwibGFzdFVwZGF0ZWREYXRlIjoiMjAxOS0wNC0wOCIsInJlc3VsdHMiOlt7InNlYXJjaGVkVGVybSI6IkNyYXRhZWd1cyIsIm51bU1hdGNoZXMiOjEsIm1hdGNoZXMiOlt7InRheG9uSUQiOjEwNDcsInNjaWVudGlmaWNOYW1lIjoiQ3JhdGFlZ3VzIExpbm5hZXVzIG5vbS4gY29ucy4iLCJzY2llbnRpZmljTmFtZUF1dGhvcnNoaXAiOiJMaW5uYWV1cyBub20uIGNvbnMuIiwiY2Fub25pY2FsTmFtZSI6IkNyYXRhZWd1cyIsInRheG9uUmFuayI6ImdlbnVzIiwidGF4b25vbWljQXNzZXJ0aW9ucyI6W3siYWNjZXB0ZWROYW1lVXNhZ2UiOiJDcmF0YWVndXMgTGlubmFldXMgbm9tLiBjb25zLiIsImFjY2VwdGVkTmFtZVVzYWdlSUQiOjEwNDcsIm5hbWVBY2NvcmRpbmdUbyI6IkZOQSBFZGl0b3JpYWwgQ29tbWl0dGVlLiAyMDE0LiBGbG9yYSBvZiBOb3J0aCBBbWVyaWNhIG5vcnRoIG9mIE1leGljby4gVm9sdW1lIDk6IE1hZ25vbGlvcGh5dGE6IFBpY3JhbW5pYWNlYWUgdG8gUm9zYWNlYWUuIE94Zm9yZCBVbml2ZXJzaXR5IFByZXNzLCBOZXcgWW9yay4iLCJuYW1lQWNjb3JkaW5nVG9JRCI6Imh0dHA6Ly93d3cuZWZsb3Jhcy5vcmcvdm9sdW1lX3BhZ2UuYXNweD92b2x1bWVfaWQ9MTAwOSZmbG9yYV9pZD0xIiwidGF4b25vbWljU3RhdHVzIjoiYWNjZXB0ZWQiLCJwYXJlbnROYW1lVXNhZ2VJRCI6NDE2LCJoaWdoZXJDbGFzc2lmaWNhdGlvbiI6IkVxdWlzZXRvcHNpZGE7TWFnbm9saWlkYWU7Um9zYW5hZTtSb3NhbGVzO1Jvc2FjZWFlO0FteWdkYWxvaWRlYWU7TWFsZWFlIn1dLCJ2ZXJuYWN1bGFyTmFtZXMiOlt7InZlcm5hY3VsYXJOYW1lIjoiaGF3dGhvcm4iLCJsYW5ndWFnZSI6ImVuIiwic291cmNlIjoiRmFycmFyLCBKLkwuIDE5OTYuIExlcyBBcmJyZXMgZHUgQ2FuYWRhLiBGaWRlcyBldCBTZXJ2aWNlIGNhbmFkaWVuIGRlcyBmb3LDqnRzLiA1MDIgcHAuIiwicHJlZmVycmVkTmFtZSI6dHJ1ZX1dfV19XX0=
-  recorded_at: 2019-05-08 21:00:10 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
-- request:
-    method: get
-    uri: http://data.canadensys.net/vascan/api/0.1/search.json?q=Crataegus
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
-      X-USER-AGENT: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      server: nginx/1.10.3 (Ubuntu)
-      date: Wed, 08 May 2019 21:00:10 GMT
-      content-type: application/json;charset=UTF-8
-      transfer-encoding: chunked
-      connection: keep-alive
-      strict-transport-security: max-age=31536000
-    body:
-      encoding: ASCII-8BIT
-      string: eyJhcGlWZXJzaW9uIjoiMC4xIiwibGFzdFVwZGF0ZWREYXRlIjoiMjAxOS0wNC0wOCIsInJlc3VsdHMiOlt7InNlYXJjaGVkVGVybSI6IkNyYXRhZWd1cyIsIm51bU1hdGNoZXMiOjEsIm1hdGNoZXMiOlt7InRheG9uSUQiOjEwNDcsInNjaWVudGlmaWNOYW1lIjoiQ3JhdGFlZ3VzIExpbm5hZXVzIG5vbS4gY29ucy4iLCJzY2llbnRpZmljTmFtZUF1dGhvcnNoaXAiOiJMaW5uYWV1cyBub20uIGNvbnMuIiwiY2Fub25pY2FsTmFtZSI6IkNyYXRhZWd1cyIsInRheG9uUmFuayI6ImdlbnVzIiwidGF4b25vbWljQXNzZXJ0aW9ucyI6W3siYWNjZXB0ZWROYW1lVXNhZ2UiOiJDcmF0YWVndXMgTGlubmFldXMgbm9tLiBjb25zLiIsImFjY2VwdGVkTmFtZVVzYWdlSUQiOjEwNDcsIm5hbWVBY2NvcmRpbmdUbyI6IkZOQSBFZGl0b3JpYWwgQ29tbWl0dGVlLiAyMDE0LiBGbG9yYSBvZiBOb3J0aCBBbWVyaWNhIG5vcnRoIG9mIE1leGljby4gVm9sdW1lIDk6IE1hZ25vbGlvcGh5dGE6IFBpY3JhbW5pYWNlYWUgdG8gUm9zYWNlYWUuIE94Zm9yZCBVbml2ZXJzaXR5IFByZXNzLCBOZXcgWW9yay4iLCJuYW1lQWNjb3JkaW5nVG9JRCI6Imh0dHA6Ly93d3cuZWZsb3Jhcy5vcmcvdm9sdW1lX3BhZ2UuYXNweD92b2x1bWVfaWQ9MTAwOSZmbG9yYV9pZD0xIiwidGF4b25vbWljU3RhdHVzIjoiYWNjZXB0ZWQiLCJwYXJlbnROYW1lVXNhZ2VJRCI6NDE2LCJoaWdoZXJDbGFzc2lmaWNhdGlvbiI6IkVxdWlzZXRvcHNpZGE7TWFnbm9saWlkYWU7Um9zYW5hZTtSb3NhbGVzO1Jvc2FjZWFlO0FteWdkYWxvaWRlYWU7TWFsZWFlIn1dLCJ2ZXJuYWN1bGFyTmFtZXMiOlt7InZlcm5hY3VsYXJOYW1lIjoiaGF3dGhvcm4iLCJsYW5ndWFnZSI6ImVuIiwic291cmNlIjoiRmFycmFyLCBKLkwuIDE5OTYuIExlcyBBcmJyZXMgZHUgQ2FuYWRhLiBGaWRlcyBldCBTZXJ2aWNlIGNhbmFkaWVuIGRlcyBmb3LDqnRzLiA1MDIgcHAuIiwicHJlZmVycmVkTmFtZSI6dHJ1ZX1dfV19XX0=
-  recorded_at: 2019-05-08 21:00:10 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+      file: no
+      string: eyJhcGlWZXJzaW9uIjoiMC4xIiwibGFzdFVwZGF0ZWREYXRlIjoiMjAxOS0wOC0xOSIsInJlc3VsdHMiOlt7InNlYXJjaGVkVGVybSI6IkNyYXRhZWd1cyIsIm51bU1hdGNoZXMiOjEsIm1hdGNoZXMiOlt7InRheG9uSUQiOjEwNDcsInNjaWVudGlmaWNOYW1lIjoiQ3JhdGFlZ3VzIExpbm5hZXVzIG5vbS4gY29ucy4iLCJzY2llbnRpZmljTmFtZUF1dGhvcnNoaXAiOiJMaW5uYWV1cyBub20uIGNvbnMuIiwiY2Fub25pY2FsTmFtZSI6IkNyYXRhZWd1cyIsInRheG9uUmFuayI6ImdlbnVzIiwidGF4b25vbWljQXNzZXJ0aW9ucyI6W3siYWNjZXB0ZWROYW1lVXNhZ2UiOiJDcmF0YWVndXMgTGlubmFldXMgbm9tLiBjb25zLiIsImFjY2VwdGVkTmFtZVVzYWdlSUQiOjEwNDcsIm5hbWVBY2NvcmRpbmdUbyI6IkZOQSBFZGl0b3JpYWwgQ29tbWl0dGVlLiAyMDE0LiBGbG9yYSBvZiBOb3J0aCBBbWVyaWNhIG5vcnRoIG9mIE1leGljby4gVm9sdW1lIDk6IE1hZ25vbGlvcGh5dGE6IFBpY3JhbW5pYWNlYWUgdG8gUm9zYWNlYWUuIE94Zm9yZCBVbml2ZXJzaXR5IFByZXNzLCBOZXcgWW9yay4iLCJuYW1lQWNjb3JkaW5nVG9JRCI6Imh0dHA6Ly93d3cuZWZsb3Jhcy5vcmcvdm9sdW1lX3BhZ2UuYXNweD92b2x1bWVfaWQ9MTAwOSZmbG9yYV9pZD0xIiwidGF4b25vbWljU3RhdHVzIjoiYWNjZXB0ZWQiLCJwYXJlbnROYW1lVXNhZ2VJRCI6NDE2LCJoaWdoZXJDbGFzc2lmaWNhdGlvbiI6IkVxdWlzZXRvcHNpZGE7TWFnbm9saWlkYWU7Um9zYW5hZTtSb3NhbGVzO1Jvc2FjZWFlO0FteWdkYWxvaWRlYWU7TWFsZWFlIn1dLCJ2ZXJuYWN1bGFyTmFtZXMiOlt7InZlcm5hY3VsYXJOYW1lIjoiaGF3dGhvcm4iLCJsYW5ndWFnZSI6ImVuIiwic291cmNlIjoiRmFycmFyLCBKLkwuIDE5OTYuIExlcyBBcmJyZXMgZHUgQ2FuYWRhLiBGaWRlcyBldCBTZXJ2aWNlIGNhbmFkaWVuIGRlcyBmb3LDqnRzLiA1MDIgcHAuIiwicHJlZmVycmVkTmFtZSI6dHJ1ZX1dfV19XX0=
+  recorded_at: 2020-03-06 19:32:21 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0

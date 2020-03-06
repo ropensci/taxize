@@ -8,8 +8,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
   response:
     status:
       status_code: '200'
@@ -17,14 +17,14 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Mon, 10 Feb 2020 22:07:36 GMT
+      date: Fri, 06 Mar 2020 19:18:34 GMT
       content-type: application/json
       access-control-allow-origin: '*'
       access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
       server: Jetty(9.3.z-SNAPSHOT)
       cache-control: public, max-age=3601
-      x-varnish: 769754876 775751340
-      age: '558'
+      x-varnish: '302809811'
+      age: '0'
       via: 1.1 varnish (Varnish/5.2)
       accept-ranges: bytes
       content-length: '489'
@@ -34,19 +34,19 @@ http_interactions:
       file: no
       string: '{"usageKey":7329478,"scientificName":"Hereroa","canonicalName":"Hereroa","rank":"GENUS","status":"ACCEPTED","confidence":94,"note":"Similarity:
         name=100; authorship=0; classification=-2; rank=0; status=1; singleMatch=5","matchType":"EXACT","kingdom":"Plantae","phylum":"Tracheophyta","order":"Caryophyllales","family":"Aizoaceae","genus":"Hereroa","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":422,"familyKey":6752,"genusKey":7329478,"synonym":false,"class":"Magnoliopsida"}'
-  recorded_at: 2020-02-10 22:16:56 GMT
-  recorded_with: vcr/0.4.1.94, webmockr/0.5.1.98
+  recorded_at: 2020-03-06 19:18:35 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
-    uri: http://api.gbif.org/v1/species/7329478?limit=20
+    uri: https://api.gbif.org/v1/species/7329478?limit=20
     body:
       encoding: ''
       string: ''
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
   response:
     status:
       status_code: '200'
@@ -54,14 +54,14 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Mon, 10 Feb 2020 22:07:38 GMT
+      date: Fri, 06 Mar 2020 19:18:34 GMT
       content-type: application/json
       access-control-allow-origin: '*'
       access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
       server: Jetty(9.3.z-SNAPSHOT)
       cache-control: public, max-age=3601
-      x-varnish: 764054075 749669817
-      age: '557'
+      x-varnish: '264409909'
+      age: '0'
       via: 1.1 varnish (Varnish/5.2)
       accept-ranges: bytes
       content-length: '816'
@@ -70,19 +70,19 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '{"key":7329478,"nubKey":7329478,"nameKey":5146728,"taxonID":"gbif:7329478","sourceTaxonKey":155824226,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Caryophyllales","family":"Aizoaceae","genus":"Hereroa","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":422,"familyKey":6752,"genusKey":7329478,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":6752,"parent":"Aizoaceae","scientificName":"Hereroa","canonicalName":"Hereroa","authorship":"","nameType":"SCIENTIFIC","rank":"GENUS","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":29,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:27:58.902+0000","issues":[],"synonym":false,"class":"Magnoliopsida"}'
-  recorded_at: 2020-02-10 22:16:56 GMT
-  recorded_with: vcr/0.4.1.94, webmockr/0.5.1.98
+  recorded_at: 2020-03-06 19:18:35 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
-    uri: http://api.gbif.org/v1/species/7329478/children?limit=100
+    uri: https://api.gbif.org/v1/species/7329478/children?limit=100
     body:
       encoding: ''
       string: ''
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
   response:
     status:
       status_code: '200'
@@ -90,14 +90,14 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Mon, 10 Feb 2020 22:07:38 GMT
+      date: Fri, 06 Mar 2020 19:18:35 GMT
       content-type: application/json
       access-control-allow-origin: '*'
       access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
       server: Jetty(9.3.z-SNAPSHOT)
       cache-control: public, max-age=3601
-      x-varnish: 783450593 743411309
-      age: '556'
+      x-varnish: '299106849'
+      age: '0'
       via: 1.1 varnish (Varnish/5.2)
       accept-ranges: bytes
       content-length: '26781'
@@ -173,5 +173,5 @@ http_interactions:
         willowmorensis L.Bolus","canonicalName":"Hereroa willowmorensis","authorship":"L.Bolus","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:27:58.969+0000","issues":[],"synonym":false,"class":"Magnoliopsida"},{"key":3707207,"nubKey":3707207,"nameKey":5146843,"taxonID":"gbif:3707207","sourceTaxonKey":153408121,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Caryophyllales","family":"Aizoaceae","genus":"Hereroa","species":"Hereroa
         wilmaniae","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":422,"familyKey":6752,"genusKey":7329478,"speciesKey":3707207,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":7329478,"parent":"Hereroa","scientificName":"Hereroa
         wilmaniae L.Bolus","canonicalName":"Hereroa wilmaniae","authorship":"L.Bolus","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:27:58.984+0000","issues":[],"synonym":false,"class":"Magnoliopsida"}]}'
-  recorded_at: 2020-02-10 22:16:56 GMT
-  recorded_with: vcr/0.4.1.94, webmockr/0.5.1.98
+  recorded_at: 2020-03-06 19:18:35 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
