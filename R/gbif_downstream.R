@@ -51,11 +51,12 @@ gbif_downstream <- function(key, downto, intermediate = FALSE, limit = 100,
   should_be('intermediate', intermediate, 'logical')
 
   downto <- tolower(downto)
-  poss_ranks <- unique(do.call(c, sapply(rank_ref$ranks, strsplit, split = ",",
-                                         USE.NAMES = FALSE)))
+  poss_ranks <- unique(do.call(c,
+    sapply(taxize_ds$rank_ref$ranks, strsplit, split = ",",
+      USE.NAMES = FALSE)))
   downto <- match.arg(downto, choices = poss_ranks)
-  torank <- sapply(rank_ref[which_rank(downto), "ranks"],
-                   function(x) strsplit(x, ",")[[1]][[1]], USE.NAMES = FALSE)
+  torank <- sapply(taxize_ds$rank_ref[which_rank(downto), "ranks"],
+    function(x) strsplit(x, ",")[[1]][[1]], USE.NAMES = FALSE)
 
   stop_ <- "not"
   notout <- data.frame(rank = "", stringsAsFactors = FALSE)

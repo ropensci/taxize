@@ -4,7 +4,7 @@
 \name{worrms_ranks}
 \alias{worrms_ranks}
 \title{WORMS ranks}
-\format{A data frame with 494 rows and 3 variables:
+\format{A data frame with 216 rows and 2 variables:
 \itemize{
 \item \code{id}: rank id
 \item \code{rank}: rank name

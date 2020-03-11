@@ -1,11 +1,11 @@
 #' Get a random vector of species names.
 #'
-#' Family and order names come from the APG plant names list. Genus and species names
-#' come from Theplantlist.org.
+#' Family and order names come from the APG plant names list. Genus and
+#' species names come from Theplantlist.org.
 #'
 #' @export
-#' @param rank Taxonomic rank, one of species, genus (default), family, order.
-#' @param size Number of names to get. Maximum depends on the rank.
+#' @param rank Taxonomic rank, one of species, genus (default), family, order
+#' @param size Number of names to get. Maximum depends on the rank
 #' @return Vector of taxonomic names.
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @examples
@@ -22,15 +22,16 @@
 #' names_list('genus', 500)
 names_list <-  function(rank='genus', size=10) {
   getsp <- function(size){
-    tmp <- apply(theplantlist[sample(1:nrow(theplantlist), size), c('genus','species')], 1,
-                 function(y) paste(y, collapse = " "))
+    tmp <- apply(taxize_ds$theplantlist[
+      sample(1:nrow(taxize_ds$theplantlist), size), c('genus','species')], 1,
+      function(y) paste(y, collapse = " "))
     names(tmp) <- NULL
     tmp
   }
   switch(rank,
-         family = as.character(sample(apg_families$this, size)),
-         order = as.character(sample(apg_orders$this, size)),
-         genus = sample(unique(theplantlist$genus), size),
-         species = getsp(size)
-         )
+    family = as.character(sample(taxize_ds$apg_families$this, size)),
+    order = as.character(sample(taxize_ds$apg_orders$this, size)),
+    genus = sample(unique(taxize_ds$theplantlist$genus), size),
+    species = getsp(size)
+  )
 }

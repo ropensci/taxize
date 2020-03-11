@@ -23,7 +23,8 @@ apg_lookup <- function(taxa, rank = "family") {
     stop("rank must be one of family or order")
   }
   if (rank == "family") {
-    temp <- as.character(apg_families[apg_families$this %in% taxa, "that"])
+    temp <- as.character(
+      taxize_ds$apg_families[taxize_ds$apg_families$this %in% taxa, "that"])
     if (nchar(temp) == 0) {
       message("no match found...")
       out <- taxa
@@ -33,7 +34,8 @@ apg_lookup <- function(taxa, rank = "family") {
     }
   } else {
     if (rank == "order") {
-      temp <- as.character(apg_orders[apg_orders$this %in% taxa, "that"])
+      temp <- as.character(
+        taxize_ds$apg_orders[taxize_ds$apg_orders$this %in% taxa, "that"])
       if (nchar(temp) == 0) {
         message("no match found...")
         out <- taxa

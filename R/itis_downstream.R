@@ -37,8 +37,9 @@
 
 itis_downstream <- function(tsns, downto, intermediate = FALSE, ...) {
   downto <- tolower(downto)
-  downto2 <- rank_ref[which_rank(downto), "rankid"]
-  torank_ids <- rank_ref[which_rank(downto):NROW(rank_ref), "rankid"]
+  downto2 <- taxize_ds$rank_ref[which_rank(downto), "rankid"]
+  torank_ids <- taxize_ds$rank_ref[
+  	which_rank(downto):NROW(taxize_ds$rank_ref), "rankid"]
 
 	stop_ <- "not"
 	notout <- data.frame(rankname = "")

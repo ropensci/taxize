@@ -29,11 +29,12 @@ worms_downstream <- function(id, downto, intermediate = FALSE, start = 1,
   should_be('intermediate', intermediate, 'logical')
 
   downto <- tolower(downto)
-  poss_ranks <- unique(do.call(c, sapply(rank_ref$ranks, strsplit, split = ",",
-                                         USE.NAMES = FALSE)))
+  poss_ranks <- unique(do.call(c,
+    sapply(taxize_ds$rank_ref$ranks, strsplit, split = ",",
+      USE.NAMES = FALSE)))
   downto <- match.arg(downto, choices = poss_ranks)
-  torank <- sapply(rank_ref[which_rank(downto), "ranks"],
-                   function(x) strsplit(x, ",")[[1]][[1]], USE.NAMES = FALSE)
+  torank <- sapply(taxize_ds$rank_ref[which_rank(downto), "ranks"],
+    function(x) strsplit(x, ",")[[1]][[1]], USE.NAMES = FALSE)
 
   stop_ <- "not"
   notout <- data.frame(rank = "", stringsAsFactors = FALSE)
@@ -95,7 +96,7 @@ worms_children <- function(x, start = 1, ...) {
   if (all(is.na(bb$rank))) {
     # drop rank column with no data
     bb$rank <- NULL
-    bb <- merge(bb, worrms_ranks, by.x = "taxonRankID", by.y = "id")
+    bb <- merge(bb, taxize_ds$worrms_ranks, by.x = "taxonRankID", by.y = "id")
   }
   bb$rank <- tolower(bb$rank)
   names(bb)[names(bb) %in% "AphiaID"] <- "id"

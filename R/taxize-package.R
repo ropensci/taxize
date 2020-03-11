@@ -200,7 +200,7 @@ NULL
 #' return rank names - with this dataset we can fill
 #' in rank information as long as rank ids are returned
 #'
-#' @format A data frame with 494 rows and 3 variables:
+#' @format A data frame with 216 rows and 2 variables:
 #'
 #'   * `id`: rank id
 #'   * `rank`: rank name
