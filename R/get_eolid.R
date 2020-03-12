@@ -347,13 +347,13 @@ as.data.frame.eolid <- function(x, ...){
 make_eolid <- function(x, check=TRUE) {
   tmp <- make_generic(x, 'https://eol.org/pages/%s/overview', "eolid", check)
   if (!check) {
-    attr(tmp, "uri") <- NULL
+    attr(tmp, "uri") <- NA_character_
   } else {
     z <- get_eol_pageid(x)
     if (!is.na(z)) {
       attr(tmp, "uri") <- sprintf('https://eol.org/pages/%s/overview', z)
     } else {
-      attr(tmp, "uri") <- NULL
+      attr(tmp, "uri") <- NA_character_
     }
   }
   tmp
