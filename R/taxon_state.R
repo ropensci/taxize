@@ -56,6 +56,7 @@ taxon_clear <- function() taxon_state_env$last <- NULL
 #'
 #' @keywords internal
 #' @examples \dontrun{
+#' if (interactive()) {
 #' ts <- taxon_state$new()
 #' taxon_last()
 #' ts
@@ -98,6 +99,7 @@ taxon_clear <- function() taxon_state_env$last <- NULL
 #' # cleanup
 #' ts$purge()
 #' ts$count
+#' }
 #' }
 taxon_state <- R6::R6Class(
   "taxon_state",

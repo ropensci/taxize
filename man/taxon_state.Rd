@@ -14,6 +14,7 @@ results as they are accumulated.
 }
 \examples{
 \dontrun{
+if (interactive()) {
 ts <- taxon_state$new()
 taxon_last()
 ts
@@ -56,6 +57,7 @@ ts$get()
 # cleanup
 ts$purge()
 ts$count
+}
 }
 }
 \keyword{internal}
