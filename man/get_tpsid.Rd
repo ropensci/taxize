@@ -131,9 +131,6 @@ get_tpsid("Aga", fuzzy = TRUE, parent = "*idae")
 # pass to classification function to get a taxonomic hierarchy
 classification(get_tpsid(sciname='Poa annua'))
 
-# pass in a list, works fine
-get_tpsid(list("Poa annua", "Pinus contorta"))
-
 # Convert a tpsid without class information to a tpsid class
 as.tpsid(get_tpsid("Pinus contorta")) # already a tpsid, returns the same
 as.tpsid(get_tpsid(c("Chironomus riparius","Pinus contorta"))) # same
