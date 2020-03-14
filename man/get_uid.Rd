@@ -12,8 +12,18 @@
 \alias{get_uid_}
 \title{Get the UID codes from NCBI for taxonomic names.}
 \usage{
-get_uid(sciname, ask = TRUE, verbose = TRUE, rows = NA, modifier = NULL,
-  rank_query = NULL, division_filter = NULL, rank_filter = NULL, ...)
+get_uid(
+  sciname,
+  ask = TRUE,
+  messages = TRUE,
+  rows = NA,
+  modifier = NULL,
+  rank_query = NULL,
+  division_filter = NULL,
+  rank_filter = NULL,
+  key = NULL,
+  ...
+)
 
 as.uid(x, check = TRUE)
 
@@ -29,23 +39,24 @@ as.uid(x, check = TRUE)
 
 \method{as.data.frame}{uid}(x, ...)
 
-get_uid_(sciname, verbose = TRUE, rows = NA)
+get_uid_(sciname, messages = TRUE, rows = NA, key = NULL, ...)
 }
 \arguments{
-\item{sciname}{character; scientific name.}
+\item{sciname}{character; scientific name. Or, a \code{taxon_state}
+object (see \link{taxon-state})}
 
 \item{ask}{logical; should get_uid be run in interactive mode? If TRUE and
 more than one TSN is found for the species, the user is asked for input. If
 FALSE NA is returned for multiple matches.}
 
-\item{verbose}{logical; If TRUE the actual taxon queried is printed on the
-console.}
+\item{messages}{logical; If \code{TRUE} (default) the actual taxon queried is
+printed on the console.}
 
 \item{rows}{numeric; Any number from 1 to infinity. If the default NA, all
 rows are considered. Note that this function still only gives back a uid
-class object with one to many identifiers. See
-\code{\link[taxize]{get_uid_}} to get back all, or a subset, of the raw
-data that you are presented during the ask process.}
+class object with one to many identifiers. See \code{\link[=get_uid_]{get_uid_()}} to get back
+all, or a subset, of the raw data that you are presented during the ask
+process.}
 
 \item{modifier}{(character) A modifier to the \code{sciname} given. Options
 include: Organism, Scientific Name, Common Name, All Names, Division,
@@ -54,7 +65,7 @@ Subtree, Synonym, Text Word. These are not checked, so make sure they are
 entered correctly, as is.}
 
 \item{rank_query}{(character) A taxonomic rank name to modify the query sent
-to NCBI. See \code{\link{rank_ref}} for possible options. Though note that
+to NCBI. See \code{\link[=rank_ref]{rank_ref()}} for possible options. Though note that
 some data sources use atypical ranks, so inspect the data itself for
 options. Optional. See \code{Querying} below.}
 
@@ -62,16 +73,18 @@ options. Optional. See \code{Querying} below.}
 data after retrieved from NCBI. Optional. See \code{Filtering} below.}
 
 \item{rank_filter}{(character) A taxonomic rank name to filter data after
-retrieved from NCBI. See \code{\link{rank_ref}} for possible options.
+retrieved from NCBI. See \code{\link[=rank_ref]{rank_ref()}} for possible options.
 Though note that some data sources use atypical ranks, so inspect the data
 itself for options. Optional. See \code{Filtering} below.}
 
+\item{key}{(character) NCBI Entrez API key. optional. See Details.}
+
 \item{...}{Ignored}
 
-\item{x}{Input to \code{\link{as.uid}}}
+\item{x}{Input to \code{\link[=as.uid]{as.uid()}}}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only used
-in \code{\link{as.uid}}}
+in \code{\link[=as.uid]{as.uid()}}}
 }
 \value{
 A vector of taxonomic identifiers as an S3 class.
@@ -89,29 +102,44 @@ Retrieve the Unique Identifier (UID) of a taxon from NCBI taxonomy browser.
 }
 \section{Querying}{
  The parameter \code{rank_query} is used in the search sent
-  to NCBI, whereas \code{rank_filter} filters data after it comes back. The
-  parameter \code{modifier} adds modifiers to the name. For example,
-  \code{modifier="Organism"} adds that to the name, giving e.g.,
-  \code{Helianthus[Organism]}.
+to NCBI, whereas \code{rank_filter} filters data after it comes back. The
+parameter \code{modifier} adds modifiers to the name. For example,
+\code{modifier="Organism"} adds that to the name, giving e.g.,
+\code{Helianthus[Organism]}.
 }
 
 \section{Filtering}{
  The parameters \code{division_filter} and
-  \code{rank_filter} are not used in the search to the data provider, but are
-  used in filtering the data down to a subset that is closer to the target
-  you want. For all these parameters, you can use regex strings since we use
-  \code{\link{grep}} internally to match. Filtering narrows down to the set
-  that matches your query, and removes the rest.
+\code{rank_filter} are not used in the search to the data provider, but are
+used in filtering the data down to a subset that is closer to the target
+you want. For all these parameters, you can use regex strings since we use
+\code{\link[=grep]{grep()}} internally to match. Filtering narrows down to the set
+that matches your query, and removes the rest.
 }
 
 \section{Beware}{
  NCBI does funny things sometimes. E.g., if you search on
-  Fringella morel, a slight misspelling of the genus name, and a non-existent
-  epithet, NCBI gives back a morel fungal species. In addition, NCBI doesn't
-  really do fuzzy searching very well, so if there is a slight mis-spelling
-  in your names, you likely won't get what you are expecting. The lesson:
-  clean your names before using this function. Other data sources are better
-  about fuzzy matching.
+Fringella morel, a slight misspelling of the genus name, and a non-existent
+epithet, NCBI gives back a morel fungal species. In addition, NCBI doesn't
+really do fuzzy searching very well, so if there is a slight mis-spelling
+in your names, you likely won't get what you are expecting. The lesson:
+clean your names before using this function. Other data sources are better
+about fuzzy matching.
+}
+
+\section{Authentication}{
+
+See \link{taxize-authentication} for help on authentication
+
+Note that even though you can't pass in your key to \code{as.uid} functions,
+we still use your Entrez API key if you have it saved as an R option
+or environment variable.
+}
+
+\section{HTTP version}{
+
+We hard code \code{http_version = 2L} to use HTTP/1.1 in HTTP requests to
+the Entrez API. See \code{curl::curl_symbols('CURL_HTTP_VERSION')}
 }
 
 \examples{
@@ -193,22 +221,28 @@ get_uid_("Dugesia", rows=1:2)
 get_uid_(c("asdfadfasd","Pinus contorta"))
 
 # use curl options
-library("httr")
-get_uid("Quercus douglasii", config=verbose())
-bb <- get_uid("Quercus douglasii", config=progress())
+get_uid("Quercus douglasii", verbose = TRUE)
 }
 }
 \seealso{
-\code{\link[taxize]{classification}}
+\code{\link[=classification]{classification()}}
 
-Other taxonomic-ids: \code{\link{get_boldid}},
-  \code{\link{get_colid}}, \code{\link{get_eolid}},
-  \code{\link{get_gbifid}}, \code{\link{get_ids}},
-  \code{\link{get_iucn}}, \code{\link{get_natservid}},
-  \code{\link{get_nbnid}}, \code{\link{get_tolid}},
-  \code{\link{get_tpsid}}, \code{\link{get_tsn}},
-  \code{\link{get_wiki}}, \code{\link{get_wormsid}}
+Other taxonomic-ids: 
+\code{\link{get_boldid}()},
+\code{\link{get_eolid}()},
+\code{\link{get_gbifid}()},
+\code{\link{get_ids}()},
+\code{\link{get_iucn}()},
+\code{\link{get_natservid}()},
+\code{\link{get_nbnid}()},
+\code{\link{get_pow}()},
+\code{\link{get_tolid}()},
+\code{\link{get_tpsid}()},
+\code{\link{get_tsn}()},
+\code{\link{get_wiki}()},
+\code{\link{get_wormsid}()}
 }
 \author{
 Eduard Szoecs, \email{eduardszoecs@gmail.com}
 }
+\concept{taxonomic-ids}

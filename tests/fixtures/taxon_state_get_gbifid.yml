@@ -1,0 +1,166 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://api.gbif.org/v1/species/match?name=Spruceanthus%20marianus&strict=FALSE&verbose=TRUE&limit=500
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Sun, 09 Feb 2020 15:51:06 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
+      server: Jetty(9.3.z-SNAPSHOT)
+      cache-control: public, max-age=3601
+      x-varnish: '743182144'
+      age: '0'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      content-length: '625'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"usageKey":6136250,"acceptedUsageKey":7362076,"scientificName":"Spruceanthus
+        marianus (Gottsche) Mizut.","canonicalName":"Spruceanthus marianus","rank":"SPECIES","status":"SYNONYM","confidence":98,"note":"Similarity:
+        name=110; authorship=0; classification=-2; rank=5; status=0; singleMatch=5","matchType":"EXACT","kingdom":"Plantae","phylum":"Marchantiophyta","order":"Porellales","family":"Lejeuneaceae","genus":"Cheilolejeunea","species":"Cheilolejeunea
+        mariana","kingdomKey":6,"phylumKey":9,"classKey":126,"orderKey":377,"familyKey":6118,"genusKey":9189034,"speciesKey":7362076,"synonym":true,"class":"Jungermanniopsida"}'
+  recorded_at: 2020-02-09 15:51:07 GMT
+  recorded_with: vcr/0.4.1.94, webmockr/0.5.1.98
+- request:
+    method: get
+    uri: https://api.gbif.org/v1/species/match?name=Bomarea%20costaricensis&strict=FALSE&verbose=TRUE&limit=500
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Sun, 09 Feb 2020 15:51:06 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
+      server: Jetty(9.3.z-SNAPSHOT)
+      cache-control: public, max-age=3601
+      x-varnish: '780339844'
+      age: '0'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      content-length: '582'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"usageKey":2753985,"scientificName":"Bomarea costaricensis Kraenzl.","canonicalName":"Bomarea
+        costaricensis","rank":"SPECIES","status":"ACCEPTED","confidence":98,"note":"Similarity:
+        name=110; authorship=0; classification=-2; rank=5; status=1; singleMatch=5","matchType":"EXACT","kingdom":"Plantae","phylum":"Tracheophyta","order":"Liliales","family":"Alstroemeriaceae","genus":"Bomarea","species":"Bomarea
+        costaricensis","kingdomKey":6,"phylumKey":7707728,"classKey":196,"orderKey":1172,"familyKey":7695,"genusKey":2753928,"speciesKey":2753985,"synonym":false,"class":"Liliopsida"}'
+  recorded_at: 2020-02-09 15:51:07 GMT
+  recorded_with: vcr/0.4.1.94, webmockr/0.5.1.98
+- request:
+    method: get
+    uri: https://api.gbif.org/v1/species/match?name=Rubus%20mindanaensis&strict=FALSE&verbose=TRUE&limit=500
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Sun, 09 Feb 2020 15:51:06 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
+      server: Jetty(9.3.z-SNAPSHOT)
+      cache-control: public, max-age=3601
+      x-varnish: '789152150'
+      age: '0'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      transfer-encoding: chunked
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"usageKey":2997235,"scientificName":"Rubus mindanaensis Focke","canonicalName":"Rubus
+        mindanaensis","rank":"SPECIES","status":"ACCEPTED","confidence":98,"note":"Similarity:
+        name=110; authorship=0; classification=-2; rank=5; status=1; singleMatch=5","matchType":"EXACT","kingdom":"Plantae","phylum":"Tracheophyta","order":"Rosales","family":"Rosaceae","genus":"Rubus","species":"Rubus
+        mindanaensis","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":691,"familyKey":5015,"genusKey":2988638,"speciesKey":2997235,"synonym":false,"class":"Magnoliopsida"}'
+  recorded_at: 2020-02-09 15:51:07 GMT
+  recorded_with: vcr/0.4.1.94, webmockr/0.5.1.98
+- request:
+    method: get
+    uri: https://api.gbif.org/v1/species/match?name=Columnea%20mira&strict=FALSE&verbose=TRUE&limit=500
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Sun, 09 Feb 2020 15:51:07 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
+      server: Jetty(9.3.z-SNAPSHOT)
+      cache-control: public, max-age=3601
+      x-varnish: '780503270'
+      age: '0'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      content-length: '2245'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"usageKey":5589428,"scientificName":"Columnea mira B.Morley","canonicalName":"Columnea
+        mira","rank":"SPECIES","status":"ACCEPTED","confidence":98,"note":"Similarity:
+        name=110; authorship=0; classification=-2; rank=5; status=1; nextMatch=5","matchType":"EXACT","alternatives":[{"usageKey":6365355,"scientificName":"Columnea
+        hirta Klotzsch & Hanst.","canonicalName":"Columnea hirta","rank":"SPECIES","status":"ACCEPTED","confidence":9,"note":"Similarity:
+        name=5; authorship=0; classification=-2; rank=5; status=1","matchType":"FUZZY","kingdom":"Plantae","phylum":"Tracheophyta","order":"Lamiales","family":"Gesneriaceae","genus":"Columnea","species":"Columnea
+        hirta","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":408,"familyKey":6654,"genusKey":3172890,"speciesKey":6365355,"synonym":false,"class":"Magnoliopsida"},{"usageKey":5589396,"scientificName":"Columnea
+        moorei Morton","canonicalName":"Columnea moorei","rank":"SPECIES","status":"ACCEPTED","confidence":9,"note":"Similarity:
+        name=5; authorship=0; classification=-2; rank=5; status=1","matchType":"FUZZY","kingdom":"Plantae","phylum":"Tracheophyta","order":"Lamiales","family":"Gesneriaceae","genus":"Columnea","species":"Columnea
+        moorei","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":408,"familyKey":6654,"genusKey":3172890,"speciesKey":5589396,"synonym":false,"class":"Magnoliopsida"},{"usageKey":5163912,"acceptedUsageKey":8404492,"scientificName":"Columnea
+        mierii Targioni Tozzetti, 1866","canonicalName":"Columnea mierii","rank":"SPECIES","status":"SYNONYM","confidence":8,"note":"Similarity:
+        name=5; authorship=0; classification=-2; rank=5; status=0","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Hemiptera","family":"Coccidae","genus":"Ceroplastes","species":"Ceroplastes
+        mierii","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":809,"familyKey":6963,"genusKey":2092293,"speciesKey":8404492,"synonym":true,"class":"Insecta"}],"kingdom":"Plantae","phylum":"Tracheophyta","order":"Lamiales","family":"Gesneriaceae","genus":"Columnea","species":"Columnea
+        mira","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":408,"familyKey":6654,"genusKey":3172890,"speciesKey":5589428,"synonym":false,"class":"Magnoliopsida"}'
+  recorded_at: 2020-02-09 15:51:07 GMT
+  recorded_with: vcr/0.4.1.94, webmockr/0.5.1.98

@@ -2,39 +2,38 @@
 #'
 #' @export
 #' @param scinames character; One or more scientific names or partial names.
-#' @param db character; Data source, one of \emph{"eol"} (default),
-#' \emph{"itis"} \emph{"ncbi"}, \emph{"worms"}, or \emph{"iucn"}. Note that
+#' @param db character; Data source, one of `"ncbi"` (default),
+#' `"itis"` `"eol"`, `"worms"`, or `"iucn"`. Note that
 #' each taxonomic data source has their own identifiers,  so that if you
-#' provide the wrong \code{db} value for the identifier you could get a
-#' result, but it will likely be wrong (not what you were expecting).
+#' provide the wrong `db` value for the identifier you could get a
+#' result, but it will likely be wrong (not what you were expecting). 
+#' If using ncbi or iucn we recommend getting an API key; 
+#' see [taxize-authentication]
 #' @param simplify (logical) If TRUE, simplify output to a vector of names.
 #' If FALSE, return variable formats from different sources, usually a
-#' data.frame. Only applies to eol and itis. Specify \code{FALSE} to obtain
+#' data.frame. Only applies to eol and itis. Specify `FALSE` to obtain
 #' the language of each vernacular in the output for eol and itis.
-#' @param ... Further arguments passed on to functions
-#' \code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_tsn}}.
-#' @param id character; identifiers, as returned by
-#' \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_uid}}.
+#' @param ... Further arguments passed on to functions [get_uid()],
+#' [get_tsn()].
+#' @param id character; identifiers, as returned by [get_tsn()],
+#' [get_uid()].
 #'
-#' @details Note that EOL requires an API key. You can pass in your EOL api
-#' key in the function call like
-#' \code{sci2comm('Helianthus annuus', key="<your eol api key>")}. You can
-#' also store your EOL API key in your .Rprofile file as
-#' \code{options(eolApiKey = "<your eol api key>")}, or just for the current
-#' session by running \code{options(eolApiKey = "<your eol api key>")} in
-#' the console.
+#' @section Authentication:
+#' See [taxize-authentication] for help on authentication
+#' 
+#' @section HTTP version for NCBI requests:
+#' We hard code `http_version = 2L` to use HTTP/1.1 in HTTP requests to
+#' the Entrez API. See `curl::curl_symbols('CURL_HTTP_VERSION')` 
+#' 
+#' @return List of character vectors, named by input taxon name,
+#' or taxon ID. `character(0)` on no match
 #'
-#' Note that IUCN also requires an API key. See
-#' \code{\link[rredlist]{rredlist-package}} for help on authentiating with
-#' IUCN Redlist
-#'
-#' @return List of character vectors, named by input taxon name, or taxon ID
-#'
-#' @seealso \code{\link[taxize]{comm2sci}}
+#' @seealso [comm2sci()]
 #'
 #' @author Scott Chamberlain (myrmecocystus@@gmail.com)
 #'
 #' @examples \dontrun{
+#' sci2comm(scinames='Helianthus annuus')
 #' sci2comm(scinames='Helianthus annuus', db='eol')
 #' sci2comm(scinames='Helianthus annuus', db='itis')
 #' sci2comm(scinames=c('Helianthus annuus', 'Poa annua'))
@@ -54,8 +53,7 @@
 #' sci2comm(get_iucn('Loxodonta africana'), simplify=FALSE)
 #'
 #' # Use curl options
-#' library("httr")
-#' sci2comm('Helianthus annuus', db="ncbi", config=verbose())
+#' sci2comm('Helianthus annuus', db="ncbi", verbose = TRUE)
 #' }
 #' @rdname sci2comm
 sci2comm <- function(...){
@@ -65,7 +63,7 @@ sci2comm <- function(...){
 #' @method sci2comm default
 #' @export
 #' @rdname sci2comm
-sci2comm.default <- function(scinames, db='eol', simplify=TRUE, ...) {
+sci2comm.default <- function(scinames, db='ncbi', simplify=TRUE, ...) {
   temp <- lapply(scinames, getsci, db = db, simplify = simplify, ...)
   stats::setNames(temp, scinames)
 }
@@ -73,6 +71,7 @@ sci2comm.default <- function(scinames, db='eol', simplify=TRUE, ...) {
 #' @export
 #' @rdname sci2comm
 sci2comm.uid <- function(id, ...) {
+  warn_db(list(...), "ncbi")
   out <- lapply(id, function(x) ncbi_foo(x, ...))
   names(out) <- id
   return(out)
@@ -81,6 +80,7 @@ sci2comm.uid <- function(id, ...) {
 #' @export
 #' @rdname sci2comm
 sci2comm.tsn <- function(id, simplify=TRUE, ...) {
+  warn_db(list(...), "itis")
   out <- lapply(id, function(x) itis_foo(x, simplify, ...))
   names(out) <- id
   return(out)
@@ -89,6 +89,7 @@ sci2comm.tsn <- function(id, simplify=TRUE, ...) {
 #' @export
 #' @rdname sci2comm
 sci2comm.wormsid <- function(id, simplify=TRUE, ...) {
+  warn_db(list(...), "worms")
   out <- lapply(id, function(x) worms_foo(x, simplify, ...))
   names(out) <- id
   return(out)
@@ -97,7 +98,7 @@ sci2comm.wormsid <- function(id, simplify=TRUE, ...) {
 #' @export
 #' @rdname sci2comm
 sci2comm.iucn <- function(id, simplify=TRUE, ...) {
-  #out <- lapply(id, function(x) iucn_foo(x, simplify, ...))
+  warn_db(list(...), "iucn")
   out <- vector("list", length(id))
   for (i in seq_along(id)) {
     out[[i]] <- iucn_foo(attr(id, "name")[i], simplify, ...)
@@ -122,10 +123,10 @@ eol2comm <- function(x, simplify, ...){
         eol_pages(taxonconceptID = x, common_names = TRUE, ...),
         error = function(e) e
       )
-      if (inherits(tmp, "error")) NULL else tmp$vernac
+      if (inherits(tmp, "error")) NULL else tmp$vernacular
     })
   )
-  tt <- ldply(dfs[sapply(dfs, class) == "data.frame"])
+  tt <- dt2df(dfs[sapply(dfs, class) == "data.frame"], idcol = FALSE)
   tt <- tt[!duplicated(tt), ]
   if (simplify) {
     ss <- as.character(tt$vernacularname)
@@ -165,13 +166,11 @@ getsci <- function(nn, db, simplify, ...){
 itis_foo <- function(x, simplify=TRUE, ...){
   # if tsn is not found
   if (is.na(x)) {
-    out <- NA
+    return(character(0))
   } else {
     out <- ritis::common_names(x)
-    #if common name is not found
-    if (nrow(out) == 0) {
-      out <- NA
-    }
+    # if common name is not found
+    if (nrow(out) == 0) return(character(0))
   }
   if (simplify) {
     if (!inherits(out, "tbl_df")) out else as.character(out$commonName)
@@ -181,31 +180,31 @@ itis_foo <- function(x, simplify=TRUE, ...){
 }
 
 ncbi_foo <- function(x, ...){
-  baseurl <- paste0(ncbi_base(), "/entrez/eutils/efetch.fcgi?db=taxonomy")
-  ID <- paste("ID=", x, sep = "")
-  searchurl <- paste(baseurl, ID, sep = "&")
-  tt <- GET(searchurl, ...)
-  stop_for_status(tt)
-  res <- con_utf8(tt)
-  ttp <- xml2::read_xml(res)
+  key <- getkey(NULL, "ENTREZ_KEY")
+  query <- tc(list(db = "taxonomy", ID = x, api_key = key))
+  cli <- crul::HttpClient$new(url = ncbi_base(), headers = tx_ual,
+    opts = list(http_version = 2L, ...))
+  res <- cli$get("entrez/eutils/efetch.fcgi", query = query)
+  if (!res$success()) return(character(0))
+  tt <- res$parse("UTF-8")
+  ttp <- xml2::read_xml(tt)
   # common name
-  out <- xml_text(xml_find_all(ttp,
-                               "//TaxaSet/Taxon/OtherNames/GenbankCommonName"))
+  out <- xml_text(
+    xml_find_all(ttp,
+      "//TaxaSet/Taxon/OtherNames/GenbankCommonName"))
   # NCBI limits requests to three per second
-  Sys.sleep(0.33)
+  if (is.null(key)) Sys.sleep(0.33)
   return(out)
 }
 
 worms_foo <- function(x, simplify=TRUE, ...){
   # if id is not found
   if (is.na(x)) {
-    out <- NA
+    return(character(0))
   } else {
     out <- worrms::wm_common_id(as.numeric(x))
     #if common name is not found
-    if (nrow(out) == 0) {
-      out <- NA
-    }
+    if (nrow(out) == 0) return(character(0))
   }
   if (simplify) {
     if (!inherits(out, "tbl_df")) out else as.character(out$vernacular)
@@ -217,13 +216,11 @@ worms_foo <- function(x, simplify=TRUE, ...){
 iucn_foo <- function(x, simplify=TRUE, ...){
   # if id is not found
   if (is.na(x)) {
-    out <- NA
+    return(character(0))
   } else {
     out <- rredlist::rl_common_names(name = x, ...)
     # if common name is not found
-    if (NROW(out$result) == 0) {
-      out <- NA
-    }
+    if (NROW(out$result) == 0) return(character(0))
   }
   if (simplify) {
     if (!inherits(out$result, "data.frame")) {

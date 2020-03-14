@@ -12,33 +12,44 @@
 \alias{get_wiki_}
 \title{Get the page name for a Wiki taxon}
 \usage{
-get_wiki(x, wiki_site = "species", wiki = "en", ask = TRUE,
-  verbose = TRUE, limit = 100, rows = NA, ...)
+get_wiki(
+  x,
+  wiki_site = "species",
+  wiki = "en",
+  ask = TRUE,
+  messages = TRUE,
+  limit = 100,
+  rows = NA,
+  ...
+)
 
 as.wiki(x, check = TRUE, wiki_site = "species", wiki = "en")
 
-\method{as.wiki}{wiki}(x, check = TRUE, wiki_site = "species",
-  wiki = "en")
+\method{as.wiki}{wiki}(x, check = TRUE, wiki_site = "species", wiki = "en")
 
-\method{as.wiki}{character}(x, check = TRUE, wiki_site = "species",
-  wiki = "en")
+\method{as.wiki}{character}(x, check = TRUE, wiki_site = "species", wiki = "en")
 
-\method{as.wiki}{list}(x, check = TRUE, wiki_site = "species",
-  wiki = "en")
+\method{as.wiki}{list}(x, check = TRUE, wiki_site = "species", wiki = "en")
 
-\method{as.wiki}{numeric}(x, check = TRUE, wiki_site = "species",
-  wiki = "en")
+\method{as.wiki}{numeric}(x, check = TRUE, wiki_site = "species", wiki = "en")
 
-\method{as.wiki}{data.frame}(x, check = TRUE, wiki_site = "species",
-  wiki = "en")
+\method{as.wiki}{data.frame}(x, check = TRUE, wiki_site = "species", wiki = "en")
 
 \method{as.data.frame}{wiki}(x, ...)
 
-get_wiki_(x, verbose = TRUE, wiki_site = "species", wiki = "en",
-  limit = 100, rows = NA, ...)
+get_wiki_(
+  x,
+  messages = TRUE,
+  wiki_site = "species",
+  wiki = "en",
+  limit = 100,
+  rows = NA,
+  ...
+)
 }
 \arguments{
-\item{x}{(character) A vector of common or scientific names.}
+\item{x}{(character) A vector of common or scientific names. Or, a
+\code{taxon_state} object (see \link{taxon-state})}
 
 \item{wiki_site}{(character) Wiki site. One of species (default), pedia,
 commons}
@@ -49,20 +60,20 @@ commons}
 If \code{TRUE} and more than one wiki is found for the species, the user is
 asked for input. If \code{FALSE} NA is returned for multiple matches.}
 
-\item{verbose}{logical; should progress be printed?}
+\item{messages}{logical; should progress be printed?}
 
 \item{limit}{(integer) number of records to return}
 
 \item{rows}{numeric; Any number from 1 to infinity. If the default NA, all
 rows are considered. Note that this function still only gives back a wiki
-class object with one to many identifiers. See
-\code{\link[taxize]{get_wiki_}} to get back all, or a subset, of the
-raw data that you are presented during the ask process.}
+class object with one to many identifiers. See \code{\link[=get_wiki_]{get_wiki_()}} to get back
+all, or a subset, of the raw data that you are presented during the ask
+process.}
 
 \item{...}{Ignored}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only
-used in \code{\link{as.wiki}}}
+used in \code{\link[=as.wiki]{as.wiki()}}}
 }
 \value{
 A vector of taxonomic identifiers as an S3 class.
@@ -79,8 +90,8 @@ attributes and exceptions
 Get the page name for a Wiki taxon
 }
 \details{
-For \code{type = pedia}, we use the english language site by
-default. Set the \code{language} parameter for a different language site.
+For \code{wiki_site = "pedia" }, we use the english language site by
+default. Set the \code{wiki} parameter for a different language site.
 }
 \examples{
 \dontrun{
@@ -102,13 +113,21 @@ as.wiki("Malus_domestica", wiki_site = "pedia", wiki = "da")
 }
 }
 \seealso{
-\code{\link[taxize]{classification}}
+\code{\link[=classification]{classification()}}
 
-Other taxonomic-ids: \code{\link{get_boldid}},
-  \code{\link{get_colid}}, \code{\link{get_eolid}},
-  \code{\link{get_gbifid}}, \code{\link{get_ids}},
-  \code{\link{get_iucn}}, \code{\link{get_natservid}},
-  \code{\link{get_nbnid}}, \code{\link{get_tolid}},
-  \code{\link{get_tpsid}}, \code{\link{get_tsn}},
-  \code{\link{get_uid}}, \code{\link{get_wormsid}}
+Other taxonomic-ids: 
+\code{\link{get_boldid}()},
+\code{\link{get_eolid}()},
+\code{\link{get_gbifid}()},
+\code{\link{get_ids}()},
+\code{\link{get_iucn}()},
+\code{\link{get_natservid}()},
+\code{\link{get_nbnid}()},
+\code{\link{get_pow}()},
+\code{\link{get_tolid}()},
+\code{\link{get_tpsid}()},
+\code{\link{get_tsn}()},
+\code{\link{get_uid}()},
+\code{\link{get_wormsid}()}
 }
+\concept{taxonomic-ids}

@@ -1,47 +1,36 @@
-# tests for downstream fxn in taxize
 context("downstream")
 
 test_that("downstream basic usage works", {
   skip_on_cran()
+  vcr::use_cassette("downstream", {
+    cc <- downstream("Ursus", db = "gbif", downto = "Species", 
+      messages = FALSE)
+  }, preserve_exact_body_bytes = TRUE)
 
-  aa <- downstream("015be25f6b061ba517f495394b80f108", db = "col", downto = "Species")
-  cc <- downstream("Ursus", db = 'gbif', downto = 'Species', verbose = FALSE)
-
-  expect_is(aa, "downstream")
   expect_is(cc, "downstream")
-
-  expect_named(aa, "015be25f6b061ba517f495394b80f108")
   expect_named(cc, "Ursus")
-
-  expect_is(aa$`015be25f6b061ba517f495394b80f108`$childtaxa_id, "character")
   expect_is(cc$Ursus$rank, "character")
-})
-
-test_that("downstream - many names input", {
-  skip_on_cran()
-
-  aa <- downstream(c("015be25f6b061ba517f495394b80f108", "6df38b73c53ce9e2982f3e1883305fc4"),
-                   db = "col", downto = 'Species', verbose = FALSE)
-
-  expect_is(aa, "downstream")
-  expect_named(aa, c("015be25f6b061ba517f495394b80f108", "6df38b73c53ce9e2982f3e1883305fc4"))
 })
 
 test_that("downstream - taxonomic id input", {
   skip_on_cran()
-
-  aa <- downstream(get_gbifid("Ursus", verbose = FALSE), db = 'gbif', downto = 'Species')
+  vcr::use_cassette("downstream_id_input", {
+    aa <- downstream(get_gbifid("Ursus", messages = FALSE), 
+      db = "gbif", downto = "Species")
+  }, preserve_exact_body_bytes = TRUE)
 
   expect_is(aa, "downstream")
   expect_is(aa[[1]], "data.frame")
-  expect_is(aa[[1]]$canonicalname, "character")
+  expect_is(aa[[1]]$name_type, "character")
 })
 
 test_that("downstream - multiple data sources", {
   skip_on_cran()
-
-  ids <- get_ids("Ursus", db = c('gbif', 'itis'), verbose = FALSE)
-  aa <- downstream(ids, downto = 'Species')
+  vcr::use_cassette("downstream_multiple_data_sources", {
+    ids <- sw(get_ids("Ursus", db = c("gbif", 'itis'), rows = 1, 
+      messages = FALSE, suppress = TRUE))
+    aa <- downstream(ids, downto = "Species")
+  }, preserve_exact_body_bytes = TRUE)
 
   expect_is(aa, "downstream_ids")
   expect_is(aa[[1]], "downstream")
@@ -50,27 +39,15 @@ test_that("downstream - multiple data sources", {
 
 test_that("downstream - Use the rows parameter", {
   skip_on_cran()
-
-  aa <- downstream("Carya", db = 'col', downto = "Species", rows = 1, verbose = FALSE)
-
-  expect_is(aa, "downstream")
-  expect_is(aa[[1]], "data.frame")
-  expect_is(aa[[1]]$childtaxa_id, "character")
-})
-
-
-test_that("downstream - Works with COL which previously failed
-          due to lack of infraspecies value in rank_ref dataset", {
-  skip_on_cran()
-
-  x <- as.colid("d324f3777e98688584cf8b68d0f06e5f", FALSE)
-  aa <- downstream(x, db = 'col', downto = "suborder", verbose = FALSE)
+  vcr::use_cassette("downstream_rows_param", {
+    aa <- downstream("Hereroa", db = 'gbif', downto = "species", 
+      rows = 1, messages = FALSE)
+  })
 
   expect_is(aa, "downstream")
   expect_is(aa[[1]], "data.frame")
-  expect_equal(NROW(aa[[1]]), 0)
+  expect_is(aa[[1]]$name, "character")
 })
-
 
 test_that("downstream fails well", {
   skip_on_cran()
@@ -79,4 +56,14 @@ test_that("downstream fails well", {
   expect_error(downstream("Ursus", downto = "adfasdf"), "Must specify db")
   expect_error(downstream("Ursus", downto = "Species", db = "asdfdsf"),
                "the provided db value was not recognised")
+})
+
+test_that("warn on mismatch 'db'", {
+  skip_on_cran()
+  vcr::use_cassette("downstream_warn_on_db_mismatch", {
+    expect_warning(
+      downstream(
+        get_gbifid('Apis', messages = FALSE, rows = 1), downto = "species",
+        db = "itis"))
+  })
 })

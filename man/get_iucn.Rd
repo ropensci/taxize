@@ -11,7 +11,7 @@
 \alias{as.data.frame.iucn}
 \title{Get a IUCN Redlist taxon}
 \usage{
-get_iucn(x, verbose = TRUE, key = NULL, ...)
+get_iucn(x, messages = TRUE, key = NULL, ...)
 
 as.iucn(x, check = TRUE, key = NULL)
 
@@ -28,37 +28,38 @@ as.iucn(x, check = TRUE, key = NULL)
 \method{as.data.frame}{iucn}(x, ...)
 }
 \arguments{
-\item{x}{(character) A vector of common or scientific names}
+\item{x}{(character) A vector of common or scientific names. Or, a
+\code{taxon_state} object (see \link{taxon-state})}
 
-\item{verbose}{logical; should progress be printed?}
+\item{messages}{logical; should progress be printed?}
 
 \item{key}{(character) required. you IUCN Redlist API key. See
-\code{\link[rredlist]{rredlist-package}} for help on authenticating with
+\link[rredlist:rredlist-package]{rredlist::rredlist-package} for help on authenticating with
 IUCN Redlist}
 
 \item{...}{Ignored}
 
 \item{check}{(logical) Check if ID matches any existing on the DB, only
-used in \code{\link{as.iucn}}}
+used in \code{\link[=as.iucn]{as.iucn()}}}
 }
 \value{
 A vector of taxonomic identifiers as an S3 class.
 
 Comes with the following attributes:
 \itemize{
- \item \emph{match} (character) - the reason for NA, either 'not found',
- 'found' or if \code{ask = FALSE} then 'NA due to ask=FALSE')
- \item \emph{name} (character) - the taxonomic name, which is needed in
- \code{\link{synonyms}} and \code{\link{sci2comm}} methods since they
- internally use \pkg{rredlist} functions which require the taxonomic name,
- and not the taxonomic identifier
- \item \emph{uri} (character) - The URI where more information can be
- read on the taxon - includes the taxonomic identifier in the URL somewhere
+\item \emph{match} (character) - the reason for NA, either 'not found',
+'found' or if \code{ask = FALSE} then 'NA due to ask=FALSE')
+\item \emph{name} (character) - the taxonomic name, which is needed in
+\code{\link[=synonyms]{synonyms()}} and \code{\link[=sci2comm]{sci2comm()}} methods since they
+internally use \pkg{rredlist} functions which require the taxonomic name,
+and not the taxonomic identifier
+\item \emph{ri} (character) - The URI where more information can be
+read on the taxon - includes the taxonomic identifier in the URL somewhere
 }
 
-\emph{multiple_matches} and \emph{pattern_match} do not apply here as in
-other \code{get_*} methods since there is no IUCN Redlist search,
-so you either get a match or you do not get a match.
+\emph{multiple_matches} and \emph{pattern_match} do not apply here as in other \verb{get_*}
+methods since there is no IUCN Redlist search, so you either get a match or
+you do not get a match.
 }
 \description{
 Get a IUCN Redlist taxon
@@ -69,7 +70,7 @@ search for IUCN, that is, where you search for a string, and get back
 a bunch of results due to fuzzy matching. If that exists in the future
 we'll add an underscore method here.
 
-IUCN ids only work with \code{\link{synonyms}} and \code{\link{sci2comm}}
+IUCN ids only work with \code{\link[=synonyms]{synonyms()}} and \code{\link[=sci2comm]{sci2comm()}}
 methods.
 }
 \examples{
@@ -87,11 +88,19 @@ as.iucn(data.frame(res))
 }
 }
 \seealso{
-Other taxonomic-ids: \code{\link{get_boldid}},
-  \code{\link{get_colid}}, \code{\link{get_eolid}},
-  \code{\link{get_gbifid}}, \code{\link{get_ids}},
-  \code{\link{get_natservid}}, \code{\link{get_nbnid}},
-  \code{\link{get_tolid}}, \code{\link{get_tpsid}},
-  \code{\link{get_tsn}}, \code{\link{get_uid}},
-  \code{\link{get_wiki}}, \code{\link{get_wormsid}}
+Other taxonomic-ids: 
+\code{\link{get_boldid}()},
+\code{\link{get_eolid}()},
+\code{\link{get_gbifid}()},
+\code{\link{get_ids}()},
+\code{\link{get_natservid}()},
+\code{\link{get_nbnid}()},
+\code{\link{get_pow}()},
+\code{\link{get_tolid}()},
+\code{\link{get_tpsid}()},
+\code{\link{get_tsn}()},
+\code{\link{get_uid}()},
+\code{\link{get_wiki}()},
+\code{\link{get_wormsid}()}
 }
+\concept{taxonomic-ids}

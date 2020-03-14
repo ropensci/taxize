@@ -3,15 +3,19 @@
 #' @export
 #' @param id A GenBank accession alphanumeric string, or a gi numeric string.
 #' @param batch_size The number of queries to submit at a time.
-#' @param ... Curl args passed on to \code{\link[httr]{GET}}
-#' @details See \url{http://www.ncbi.nlm.nih.gov/Sitemap/sequenceIDs.html} for
+#' @param key (character) NCBI Entrez API key. optional. See Details.
+#' @param ... Curl args passed on to [crul::HttpClient]
+#' @details See <https://www.ncbi.nlm.nih.gov/Sitemap/sequenceIDs.html> for
 #' help on why there are two identifiers, and the difference between them.
+#' 
+#' @section Authentication:
+#' See [taxize-authentication] for help on authentication. We
+#' recommend getting an API key.
+#' 
+#' @section HTTP version:
+#' We hard code `http_version = 2L` to use HTTP/1.1 in HTTP requests to
+#' the Entrez API. See `curl::curl_symbols('CURL_HTTP_VERSION')` 
 #'
-#' Note that if you pass in > 1 item, if one or more of your items is not
-#' found, the entire batch will return \code{NA}'s. To get around this,
-#' set \code{batch_size = 1} - so each is sent separtaely to NCBI.
-#' However, this of course is much slower than the default, which is to send
-#' up to 100 at a time.
 #' @return one or more NCBI taxonomic IDs
 #' @examples \dontrun{
 #' # with accession numbers
@@ -31,69 +35,91 @@
 #' genbank2uid(list('X78312',156446673))
 #'
 #' # curl options
-#' library('httr')
-#' genbank2uid(id = 156446673, config=verbose())
+#' res <- genbank2uid(id = 156446673, verbose = TRUE)
 #' }
-genbank2uid <- function(id, batch_size = 100, ...) {
+genbank2uid <- function(id, batch_size = 100, key = NULL, ...) {
   assert(batch_size, c("integer", "numeric"))
-  process_batch <- function(id, ...) {
+  process_batch <- function(id, key, ...) {
     #removes version number of accession ids
     id <- gsub(pattern = "\\.[0-9]+$", "", id)
-    url2 <- paste0(
-      ncbi_base(),
-      "/entrez/eutils/elink.fcgi?dbfrom=nucleotide&db=taxonomy&id=")
-    query <- paste0(url2, paste(id, collapse = "&id="))
-    res <- GET(query, ...)
-    stop_for_status(res)
-    result <- xml_text(xml_find_all(read_xml(con_utf8(res)),
-                                    "//LinkSetDb//Link//Id"))
-    if (length(result) > length(id)) {
-      url3 <- paste0(
-        ncbi_base(),
-        "/entrez/eutils/esummary.fcgi?db=taxonomy&id=")
-      query <- paste0(url3, paste(result, collapse = ","))
-      res <- GET(query, ...)
-      stop_for_status(res)
-      nn <- xml_find_all(read_xml(con_utf8(res)), "//eSummaryResult//DocSum")
-      result <- lapply(nn, function(z) {
-        list(
-          name = xml_text(xml_find_all(z, "Item[@Name=\"ScientificName\"]")),
-          id = xml_text(xml_find_all(z, "Item[@Name=\"TaxId\"]"))
-        )
+    
+    key <- getkey(key, "ENTREZ_KEY")
+    
+    # Make NCBI eutils query
+    query <- tc(list(db = "nucleotide", id = paste(id, collapse = ","), api_key = key))
+
+    # Execute query
+    cli <- crul::HttpClient$new(url = ncbi_base(), headers = tx_ual,
+      opts = list(http_version = 2L, ...))
+    res <- cli$get("entrez/eutils/esummary.fcgi", query = query)
+    res$raise_for_status()
+    parsed_xml <- read_xml(res$parse('UTF-8'))
+    
+    # Extract taxon ID and sequences name
+    taxon_ids <- xml_text(
+      xml_find_all(parsed_xml,
+        "//eSummaryResult//DocSum//Item[@Name='TaxId']"))
+    titles <- xml_text(
+      xml_find_all(parsed_xml,
+        "//eSummaryResult//DocSum//Item[@Name='Title']"))
+    
+    # Add NAs for failed queries
+    raw_errors <- xml_text(xml_find_all(parsed_xml, "//eSummaryResult//ERROR"))
+    if (length(raw_errors) > 0) {
+      error_regexes <- c('^Invalid uid (.+) at position=[0-9]+$', 
+                         '^Failed uid="(.+)"$')
+      error_ids <- lapply(error_regexes, function(r) {
+        vapply(raw_errors, function(z) strexec(z, r)[[1]][2], "",
+          USE.NAMES=FALSE)
       })
+      error_ids <- unlist(error_ids)
+      error_ids <- error_ids[!is.na(error_ids)]
+      error_ids <- unique(error_ids)
+      add_error_na <- function(values) {
+        output <- rep(NA, length(id))
+        output[- match(error_ids, id)] <- values
+        return(output)
+      }
+      taxon_ids <- add_error_na(taxon_ids)
+      titles <- add_error_na(titles)
     }
-    if (length(result) < length(id)) {
-      result <- rep(NA_character_, length(id))
-    }
-    Sys.sleep(0.34) # NCBI limits requests to three per second
+    
+    # combine results into a data.frame and return
+    result <- data.frame(id = taxon_ids, name = titles,
+                         stringsAsFactors = FALSE)
+    # NCBI limits requests to three per second when no key
+    ncbi_rate_limit_pause(key)
     return(result)
   }
+  # Run each batch and combine
   batches <- split(id, ceiling(seq_along(id) / batch_size))
-  result <- lapply(batches, function(x) map_unique(x, process_batch, ...))
-
-  if (!is.null(names(result[[1]][[1]]))) {
-    result <- lapply(result[[1]], function(z) {
-      m <- rep("found", length(z$id))
-      m[is.na(z$id)] <- "not found"
-      f <- as.uid(z$id, check = FALSE)
-      attr(f, "match") <- m
-      attr(f, "name") <- z$name
-      f
-    })
-  } else {
-    result <- as.uid(unname(unlist(result)))
-    matched <- rep("found", length(result))
-    matched[is.na(result)] <- "not found"
-    attr(result, "match") <- matched
-  }
-
-  if (any(is.na(result))) {
-    warning("An error occurred looking up taxon ID(s).")
-    if (batch_size > 1 && length(id) > 1) {
-      warning("NOTE: This function looks up IDs in batches to save time. However, the way that NCBI has implemented the API we use makes it so we cannot tell which IDs failed when a batch failed. Therefore, as few as one ID could be invalid yet still cause the whole batch to be NA. To identify the invalid IDs, set the 'batch_size' option to 1 and rerun the command.")
+  batch_results <- lapply(batches,
+                          function(x) map_unique(x, process_batch, 
+                            key = key, ...))
+  result <- do.call(rbind, batch_results)
+  
+  # Convert to list format
+  output <- lapply(seq_len(nrow(result)), function(i) {
+    my_uid <- result[i, "id"]
+    my_uid <- as.uid(result[i, "id"], check = FALSE)
+    if (is.na(my_uid)) {
+      attr(my_uid, "match") <- "not found"
+      attr(my_uid, "name") <- "unknown"
+    } else {
+      attr(my_uid, "match") <- "found"
+      attr(my_uid, "name") <- result[i, "name"]
     }
-  }
-  return(result)
+    return(my_uid)
+  })
+  
+  # Alert user to errors
+  if (any(is.na(result$id))) {
+    failed <- paste0("[", which(is.na(result$id)), "] ", id[is.na(result$id)])
+    warning(paste0("The following ", sum(is.na(result$id)), " of ", nrow(result),
+                   " queries could not be found:\n  ",
+                   limited_print(failed, type = "silent")), call. = FALSE)
+   }
+  return(output)
 }
 
 is_acc <- function(x){

@@ -1,0 +1,119 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://cybertaxonomy.eu/eu-bon/utis/1.3/search?query=Prionus&providers=pesi&searchMode=scientificNameExact&addSynonymy=false&addParentTaxon=false&timeout=0&pageSize=20&pageIndex=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.0 crul/0.8.4 rOpenSci(taxize/0.9.8.9139)
+      X-USER-AGENT: r-curl/4.0 crul/0.8.4 rOpenSci(taxize/0.9.8.9139)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Tue, 13 Aug 2019 18:35:39 GMT
+      server: Jetty(8.1.16.v20140903)
+      access-control-allow-origin: '*'
+      access-control-allow-methods: POST, GET, OPTIONS, DELETE
+      access-control-max-age: '3600'
+      access-control-allow-headers: x-requested-with
+      content-type: application/json;charset=UTF-8
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: '{"query":[{"request":{"queryString":"Prionus","searchMode":"scientificNameExact","addSynonymy":false,"addParentTaxon":false,"pageSize":20,"pageIndex":0},"response":[{"taxon":{"taxonName":{"scientificName":"Prionus
+        Geoffroy, 1762","canonicalName":"Prionus","atomisedName":null,"authorship":"Geoffroy,
+        1762","rank":"Genus","nomenclaturalReference":null},"accordingTo":"FaEu_v2.6.1
+        export for PESI","url":"http://www.eu-nomen.eu/portal/taxon.php?GUID=urn:lsid:faunaeur.org:taxname:115091","taxonomicStatus":"accepted","identifier":"urn:lsid:faunaeur.org:taxname:115091"},"otherNames":[],"vernacularNames":[],"checklist":"PESI","checklistId":"pesi","checklistUrl":"http://www.eu-nomen.eu/portal/index.php","checklistVersion":null,"checklistCitation":null,"matchingNameString":"Prionus
+        Geoffroy, 1762","matchingNameType":"TAXON","synonyms":[]}],"clientStatus":[{"checklistId":"pesi","duration":281,"statusMessage":"ok"}]}]}'
+  recorded_at: 2019-08-13 18:35:42 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.4.0
+- request:
+    method: get
+    uri: https://cybertaxonomy.eu/eu-bon/utis/1.3/search?query=Salmo&providers=worms&searchMode=scientificNameExact&addSynonymy=false&addParentTaxon=false&timeout=0&pageSize=20&pageIndex=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.0 crul/0.8.4 rOpenSci(taxize/0.9.8.9139)
+      X-USER-AGENT: r-curl/4.0 crul/0.8.4 rOpenSci(taxize/0.9.8.9139)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Tue, 13 Aug 2019 18:35:40 GMT
+      server: Jetty(8.1.16.v20140903)
+      access-control-allow-origin: '*'
+      access-control-allow-methods: POST, GET, OPTIONS, DELETE
+      access-control-max-age: '3600'
+      access-control-allow-headers: x-requested-with
+      content-type: application/json;charset=UTF-8
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: '{"query":[{"request":{"queryString":"Salmo","searchMode":"scientificNameExact","addSynonymy":false,"addParentTaxon":false,"pageSize":20,"pageIndex":0},"response":[{"taxon":{"taxonName":{"scientificName":"Salmo
+        Linnaeus, 1758","canonicalName":"Salmo","atomisedName":null,"authorship":"Linnaeus,
+        1758","rank":"Genus","nomenclaturalReference":null},"url":"http://www.marinespecies.org/aphia.php?p=taxdetails&id=126141","taxonomicStatus":"accepted","sources":[{"url":"http://www.marinespecies.org/aphia.php?p=taxdetails&id=126141","identifier":"","datasetName":"","name":"","title":null}],"identifier":"urn:lsid:marinespecies.org:taxname:126141"},"otherNames":[],"vernacularNames":[],"checklist":"WoRMS","checklistId":"worms","checklistUrl":"http://www.marinespecies.org/index.php","checklistVersion":null,"checklistCitation":null,"matchingNameString":"Salmo
+        Linnaeus, 1758","matchingNameType":"TAXON","synonyms":[]}],"clientStatus":[{"checklistId":"worms","duration":407,"statusMessage":"ok"}]}]}'
+  recorded_at: 2019-08-13 18:35:42 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.4.0
+- request:
+    method: get
+    uri: https://cybertaxonomy.eu/eu-bon/utis/1.3/search?query=Salmo&providers=pesi%2Cworms&searchMode=scientificNameExact&addSynonymy=false&addParentTaxon=false&timeout=0&pageSize=20&pageIndex=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.0 crul/0.8.4 rOpenSci(taxize/0.9.8.9139)
+      X-USER-AGENT: r-curl/4.0 crul/0.8.4 rOpenSci(taxize/0.9.8.9139)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Tue, 13 Aug 2019 18:35:41 GMT
+      server: Jetty(8.1.16.v20140903)
+      access-control-allow-origin: '*'
+      access-control-allow-methods: POST, GET, OPTIONS, DELETE
+      access-control-max-age: '3600'
+      access-control-allow-headers: x-requested-with
+      content-type: application/json;charset=UTF-8
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      string: '{"query":[{"request":{"queryString":"Salmo","searchMode":"scientificNameExact","addSynonymy":false,"addParentTaxon":false,"pageSize":20,"pageIndex":0},"response":[{"taxon":{"taxonName":{"scientificName":"Salmo
+        Linnaeus, 1758","canonicalName":"Salmo","atomisedName":null,"authorship":"Linnaeus,
+        1758","rank":"Genus","nomenclaturalReference":null},"accordingTo":"ERMS export
+        for PESI","url":"http://www.eu-nomen.eu/portal/taxon.php?GUID=urn:lsid:marinespecies.org:taxname:126141","taxonomicStatus":"accepted","sources":[{"url":null,"identifier":"http://gdz.sub.uni-goettingen.de/no_cache/dms/load/toc/?IDDOC=265100","datasetName":null,"name":null,"title":"Linnaeus,
+        C. (1758). Systema Naturae per regna tria naturae, secundum classes, ordines,
+        genera, species, cum characteribus, differentiis, synonymis, locis. Editio
+        decima, reformata. Laurentius Salvius: Holmiae. ii, 824 pp."},{"url":null,"identifier":null,"datasetName":null,"name":null,"title":"FishBase,
+        version october 2012"},{"url":null,"identifier":"http://researcharchive.calacademy.org/research/Ichthyology/catalog/fishcatmain.asp","datasetName":null,"name":null,"title":"Eschmeyer,
+        W.: Catalog of fishes; California Academy of Sciences, department Ichtyology."},{"url":null,"identifier":null,"datasetName":null,"name":null,"title":"van
+        der Land, J.; Costello, M.J.; Zavodnik, D.; Santos, R.S.; Porteiro, F.M.;
+        Bailly, N.; Eschmeyer, W.N.; Froese, R. (2001). Pisces, <B><I>in</I></B>:
+        Costello, M.J. <i>et al.</i> (Ed.) (2001). <i>European register of marine
+        species: a check-list of the marine species in Europe and a bibliography of
+        guides to their identification. Collection Patrimoines Naturels,</i> 50: pp.
+        357-374"}],"identifier":"urn:lsid:marinespecies.org:taxname:126141"},"otherNames":[],"vernacularNames":[],"checklist":"PESI","checklistId":"pesi","checklistUrl":"http://www.eu-nomen.eu/portal/index.php","checklistVersion":null,"checklistCitation":null,"matchingNameString":"Salmo
+        Linnaeus, 1758","matchingNameType":"TAXON","synonyms":[]},{"taxon":{"taxonName":{"scientificName":"Salmo
+        Linnaeus, 1758","canonicalName":"Salmo","atomisedName":null,"authorship":"Linnaeus,
+        1758","rank":"Genus","nomenclaturalReference":null},"url":"http://www.marinespecies.org/aphia.php?p=taxdetails&id=126141","taxonomicStatus":"accepted","sources":[{"url":"http://www.marinespecies.org/aphia.php?p=taxdetails&id=126141","identifier":"","datasetName":"","name":"","title":null}],"identifier":"urn:lsid:marinespecies.org:taxname:126141"},"otherNames":[],"vernacularNames":[],"checklist":"WoRMS","checklistId":"worms","checklistUrl":"http://www.marinespecies.org/index.php","checklistVersion":null,"checklistCitation":null,"matchingNameString":"Salmo
+        Linnaeus, 1758","matchingNameType":"TAXON","synonyms":[]}],"clientStatus":[{"checklistId":"pesi","duration":259,"statusMessage":"ok"},{"checklistId":"worms","duration":365,"statusMessage":"ok"}]}]}'
+  recorded_at: 2019-08-13 18:35:42 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.4.0

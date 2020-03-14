@@ -7,10 +7,10 @@
 #' @param tsn One or more TSN's (taxonomic serial number). Required.
 #' @param what One of full (full hierarchy), up (immediate upstream), or down
 #'    (immediate downstream)
-#' @param ... Further arguments passed on to \code{\link[ritis]{hierarchy_full}},
-#' \code{\link[ritis]{hierarchy_up}}, or \code{\link[ritis]{hierarchy_down}}
-#' @seealso \code{\link{itis_downstream}}
-#' @details Note that \code{\link{itis_downstream}} gets taxa downstream to a
+#' @param ... Further arguments passed on to [ritis::hierarchy_full()]
+#' [ritis::hierarchy_up()] or [ritis::hierarchy_down()]
+#' @seealso [itis_downstream()]
+#' @details Note that [itis_downstream()] gets taxa downstream to a
 #' particular rank, while this function only gets immediate names downstream.
 #' @examples \dontrun{
 #' # Get full hierarchy

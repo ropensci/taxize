@@ -4,9 +4,20 @@
 \alias{gbif_name_usage}
 \title{Lookup details for specific names in all taxonomies in GBIF.}
 \usage{
-gbif_name_usage(key = NULL, name = NULL, data = "all", language = NULL,
-  datasetKey = NULL, uuid = NULL, sourceId = NULL, rank = NULL,
-  shortname = NULL, start = NULL, limit = 20, ...)
+gbif_name_usage(
+  key = NULL,
+  name = NULL,
+  data = "all",
+  language = NULL,
+  datasetKey = NULL,
+  uuid = NULL,
+  sourceId = NULL,
+  rank = NULL,
+  shortname = NULL,
+  start = NULL,
+  limit = 20,
+  ...
+)
 }
 \arguments{
 \item{key}{(numeric) A GBIF key for a taxon}
@@ -27,7 +38,7 @@ below.}
 
 \item{rank}{(character) Taxonomic rank. Filters by taxonomic rank as one of:
 CLASS, CULTIVAR, CULTIVAR_GROUP, DOMAIN, FAMILY, FORM, GENUS, INFORMAL,
-  INFRAGENERIC_NAME, INFRAORDER, INFRASPECIFIC_NAME, INFRASUBSPECIFIC_NAME,
+INFRAGENERIC_NAME, INFRAORDER, INFRASPECIFIC_NAME, INFRASUBSPECIFIC_NAME,
 KINGDOM, ORDER, PHYLUM, SECTION, SERIES, SPECIES, STRAIN, SUBCLASS, SUBFAMILY,
 SUBFORM, SUBGENUS, SUBKINGDOM, SUBORDER, SUBPHYLUM, SUBSECTION, SUBSERIES,
 SUBSPECIES, SUBTRIBE, SUBVARIETY, SUPERCLASS, SUPERFAMILY, SUPERORDER,
@@ -39,7 +50,7 @@ SUPERPHYLUM, SUPRAGENERIC_NAME, TRIBE, UNRANKED, VARIETY}
 
 \item{limit}{Number of records to return}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options passed on to \link[crul:HttpClient]{crul::HttpClient}}
 }
 \value{
 A list of length two. The first element is metadata. The second is
@@ -50,5 +61,5 @@ This is a taxize version of the same function in the \code{rgbif} package so as 
 import rgbif and thus require GDAL binary installation.
 }
 \references{
-\url{http://www.gbif.org/developer/summary}
+\url{https://www.gbif.org/developer/summary}
 }

@@ -11,7 +11,8 @@ iucn_getname(name, verbose = TRUE, ...)
 
 \item{verbose}{logical; should messages be printed?}
 
-\item{...}{Further arguments passed on to \code{\link{iucn_summary}}}
+\item{...}{Further arguments passed on to \code{\link[=iucn_summary]{iucn_summary()}}, note
+that you'll need an API key.}
 }
 \value{
 Character vector of names that matched in IUCN
@@ -39,5 +40,5 @@ iucn_getname(name = "Acacia allenii")
 }
 }
 \seealso{
-\code{\link{iucn_summary}} \code{\link{iucn_status}}
+\code{\link[=iucn_summary]{iucn_summary()}} \code{\link[=iucn_status]{iucn_status()}}
 }

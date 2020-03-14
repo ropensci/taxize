@@ -4,15 +4,20 @@
 #' @param key A taxonomic serial number.
 #' @param downto The taxonomic level you want to go down to. See examples below.
 #' 		The taxonomic level IS case sensitive, and you do have to spell it
-#' 		correctly. See \code{data(rank_ref)} for spelling.
+#' 		correctly. See `data(rank_ref)` for spelling.
 #' @param intermediate (logical) If TRUE, return a list of length two with
 #' target taxon rank names, with additional list of data.frame's of
 #' intermediate taxonomic groups. Default: FALSE
-#' @param ... Further args passed on to \code{\link{gbif_name_usage}}
-#' @return Data.frame of taxonomic information downstream to family from e.g.,
-#' 		Order, Class, etc., or if \code{intermediated=TRUE}, list of length two,
+#' @param limit Number of records to return
+#' @param start Record number to start at
+#' @param ... Further args passed on to [gbif_name_usage()]
+#' @return data.frame of taxonomic information downstream to family from e.g.,
+#' 		Order, Class, etc., or if `intermediated=TRUE`, list of length two,
 #'   	with target taxon rank names, and intermediate names.
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
+#' @details Sometimes records don't have a `canonicalName` entry which is 
+#' what we look for. In that case we grab the `scientificName` entry. 
+#' You can see the type of name colleceted in the column `name_type`
 #' @examples \dontrun{
 #' ## the plant class Bangiophyceae
 #' gbif_downstream(key = 198, downto="genus")
@@ -32,18 +37,26 @@
 #' # get tribes down from the family Apidae
 #' gbif_downstream(key = 7799978, downto="species")
 #' gbif_downstream(key = 7799978, downto="species", intermediate=TRUE)
+#' 
+#' # names that don't have canonicalname entries for some results
+#' # Myosotis: key 2925668
+#' key <- 2925668
+#' res <- gbif_downstream(key, downto = "species")
+#' res2 <- downstream(key, db = "gbif", downto = "species")
 #' }
 
-gbif_downstream <- function(key, downto, intermediate = FALSE, ...) {
+gbif_downstream <- function(key, downto, intermediate = FALSE, limit = 100,
+  start = NULL, ...) {
 
   should_be('intermediate', intermediate, 'logical')
 
   downto <- tolower(downto)
-  poss_ranks <- unique(do.call(c, sapply(rank_ref$ranks, strsplit, split = ",",
-                                         USE.NAMES = FALSE)))
+  poss_ranks <- unique(do.call(c,
+    sapply(taxize_ds$rank_ref$ranks, strsplit, split = ",",
+      USE.NAMES = FALSE)))
   downto <- match.arg(downto, choices = poss_ranks)
-  torank <- sapply(rank_ref[which_rank(downto), "ranks"],
-                   function(x) strsplit(x, ",")[[1]][[1]], USE.NAMES = FALSE)
+  torank <- sapply(taxize_ds$rank_ref[which_rank(downto), "ranks"],
+    function(x) strsplit(x, ",")[[1]][[1]], USE.NAMES = FALSE)
 
   stop_ <- "not"
   notout <- data.frame(rank = "", stringsAsFactors = FALSE)
@@ -52,8 +65,10 @@ gbif_downstream <- function(key, downto, intermediate = FALSE, ...) {
   iter <- 0
   while (stop_ == "not") {
     iter <- iter + 1
-    temp <- ldply(key, function(x) gbif_name_usage_clean(x))
-    tt <- ldply(temp$key, function(x) gbif_name_usage_children(x))
+    temp <- dt2df(lapply(key, function(x) gbif_name_usage_clean(x)),
+      idcol = FALSE)
+    tt <- dt2df(lapply(temp$key, function(x) gbif_name_usage_children(x,
+      limit = limit, start = start, ...)), idcol = FALSE)
     tt <- prune_too_low(tt, downto)
 
     if (NROW(tt) == 0) {
@@ -79,7 +94,7 @@ gbif_downstream <- function(key, downto, intermediate = FALSE, ...) {
     if (intermediate) intermed[[iter]] <- intermed[[iter]]
   } # end while loop
 
-  tmp <- ldply(out)
+  tmp <- dt2df(out, idcol = FALSE)
   if (intermediate) {
     list(target = tmp, intermediate = intermed)
   } else {
@@ -95,13 +110,24 @@ gbif_name_usage_clean <- function(x, ...) {
   data.frame(tt, stringsAsFactors = FALSE)[, c('canonicalname', 'rank', 'key')]
 }
 
-gbif_name_usage_children <- function(x, ...) {
-  tt <- gbif_name_usage(x, data = 'children', limit = 100, ...)$results
-  rbind.fill(lapply(tt, function(z) {
+gbif_name_usage_children <- function(x, limit = 100, start = NULL, ...) {
+  tt <- gbif_name_usage(x, data = 'children', limit = limit, start = start, ...)$results
+  dt2df(lapply(tt, function(z) {
     z <- z[sapply(z, length) != 0]
     df <- data.frame(z, stringsAsFactors = FALSE)
     df$rank <- tolower(df$rank)
-    df <- setNames(df, tolower(names(df)))
-    df[, c('canonicalname', 'rank', 'key')]
-  }))
+    df <- stats::setNames(df, tolower(names(df)))
+    nms <- c('rank', 'key')
+    if ('canonicalname' %in% names(df)) {
+      nms <- c('canonicalname', nms) 
+      type <- "canonicalname"
+    } else {
+      nms <- c('scientificname', nms)
+      type <- "scientificname"
+    }
+    dd <- df[, nms]
+    dd <- stats::setNames(dd, c('name', 'rank', 'key'))
+    dd$name_type <- type
+    dd
+  }), idcol = FALSE)
 }

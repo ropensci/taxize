@@ -4,20 +4,20 @@ taxize
 
 
 
+[![cran checks](https://cranchecks.info/badges/worst/taxize)](https://cranchecks.info/pkgs/taxize)
 [![Build Status](https://travis-ci.org/ropensci/taxize.svg?branch=master)](https://travis-ci.org/ropensci/taxize)
 [![Build status](https://ci.appveyor.com/api/projects/status/6mgc02mkd8j4sq3g/branch/master)](https://ci.appveyor.com/project/sckott/taxize-175/branch/master)
-[![codecov.io](https://codecov.io/github/ropensci/taxize/coverage.svg?branch=master)](https://codecov.io/github/ropensci/taxize?branch=master)
-[![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/taxize)](https://github.com/metacran/cranlogs.app)
-[![cran version](http://www.r-pkg.org/badges/version/taxize)](https://cran.r-project.org/package=taxize)
+[![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/taxize)](https://github.com/metacran/cranlogs.app)
+[![cran version](https://www.r-pkg.org/badges/version/taxize)](https://cran.r-project.org/package=taxize)
 
 
 `taxize` allows users to search over many taxonomic data sources for species names (scientific and common) and download up and downstream taxonomic hierarchical information - among other things.
 
-The `taxize` tutorial is can be found at <https://ropensci.org/tutorials/taxize.html>
+The taxize book => <https://taxize.dev>
 
 The functions in the package that hit a specific API have a prefix and suffix separated by an underscore. They follow the format of `service_whatitdoes`.  For example, `gnr_resolve` uses the Global Names Resolver API to resolve species names.  General functions in the package that don't hit a specific API don't have two words separated by an underscore, e.g., `classification`.
 
-You need API keys for Encyclopedia of Life (EOL), Tropicos, IUCN, and NatureServe.
+You need API keys for Tropicos, IUCN, and NatureServe.
 
 ## SOAP
 
@@ -46,8 +46,8 @@ Note that a few data sources require SOAP web services, which are difficult to s
 <tr>
 	<td style="text-align:left;">Encylopedia of Life</td>
 	<td style="text-align:left;"><code>eol</code></td>
-	<td style="text-align:left;"><a href="http://www.eol.org/api/">link</a></td>
-	<td style="text-align:left;"><a href="http://eol.org/users/register">link</a></td>
+	<td style="text-align:left;"><a href="https://eol.org/docs/what-is-eol/data-services">link</a></td>
+	<td style="text-align:left;">none</td>
 </tr>
 <tr>
 	<td style="text-align:left;">Taxonomic Name Resolution Service</td>
@@ -58,7 +58,7 @@ Note that a few data sources require SOAP web services, which are difficult to s
 <tr>
 	<td style="text-align:left;">Integrated Taxonomic Information Service</td>
 	<td style="text-align:left;"><code>itis</code></td>
-	<td style="text-align:left;"><a href="http://www.itis.gov/ws_description.html">link</a></td>
+	<td style="text-align:left;"><a href="https://www.itis.gov/ws_description.html">link</a></td>
 	<td style="text-align:left;">none</td>
 </tr>
 <tr>
@@ -76,8 +76,8 @@ Note that a few data sources require SOAP web services, which are difficult to s
 <tr>
 	<td style="text-align:left;">IUCN Red List</td>
 	<td style="text-align:left;"><code>iucn</code></td>
-	<td style="text-align:left;"><a href="https://www.assembla.com/spaces/sis/wiki/Red_List_API?version=3">link</a></td>
-	<td style="text-align:left;"><a href="http://apiv3.iucnredlist.org/api/v3/token">link</a></td>
+	<td style="text-align:left;"><a href="https://apiv3.iucnredlist.org/api/v3/docs">link</a></td>
+	<td style="text-align:left;"><a href="https://apiv3.iucnredlist.org/api/v3/token">link</a></td>
 </tr>
 <tr>
 	<td style="text-align:left;">Tropicos</td>
@@ -92,12 +92,6 @@ Note that a few data sources require SOAP web services, which are difficult to s
 	<td style="text-align:left;">none</td>
 </tr>
 <tr>
-	<td style="text-align:left;">Catalogue of Life</td>
-	<td style="text-align:left;"><code>col</code></td>
-	<td style="text-align:left;"><a href="http://www.catalogueoflife.org/colwebsite/content/web-services">link</a></td>
-	<td style="text-align:left;">none</td>
-</tr>
-<tr>
 	<td style="text-align:left;">National Center for Biotechnology Information</td>
 	<td style="text-align:left;"><code>ncbi</code></td>
 	<td style="text-align:left;">none</td>
@@ -106,13 +100,13 @@ Note that a few data sources require SOAP web services, which are difficult to s
 <tr>
 	<td style="text-align:left;">CANADENSYS Vascan name search API</td>
 	<td style="text-align:left;"><code>vascan</code></td>
-	<td style="text-align:left;"><a href="http://data.canadensys.net/vascan/api">link</a></td>
+	<td style="text-align:left;"><a href="https://data.canadensys.net/vascan/api">link</a></td>
 	<td style="text-align:left;">none</td>
 </tr>
 <tr>
 	<td style="text-align:left;">International Plant Names Index (IPNI)</td>
 	<td style="text-align:left;"><code>ipni</code></td>
-	<td style="text-align:left;"><a href="http://www.ipni.org/link_to_ipni.html">link</a></td>
+	<td style="text-align:left;">none</td>
 	<td style="text-align:left;">none</td>
 </tr>
 <tr>
@@ -130,13 +124,13 @@ Note that a few data sources require SOAP web services, which are difficult to s
 <tr>
 	<td style="text-align:left;">Index Fungorum</td>
 	<td style="text-align:left;"><code>fg</code></td>
-	<td style="text-align:left;"><a href="http://www.indexfungorum.org/ixfwebservice/fungus.asmx">link</a></td>
+	<td style="text-align:left;">none</td>
 	<td style="text-align:left;">none</td>
 </tr>
 <tr>
 	<td style="text-align:left;">EU BON</td>
 	<td style="text-align:left;"><code>eubon</code></td>
-	<td style="text-align:left;"><a href="http://cybertaxonomy.eu/eubon-utis/doc.html">link</a></td>
+	<td style="text-align:left;"><a href="https://cybertaxonomy.eu/eubon-utis/doc.html">link</a></td>
 	<td style="text-align:left;">none</td>
 </tr>
 <tr>
@@ -148,13 +142,13 @@ Note that a few data sources require SOAP web services, which are difficult to s
 <tr>
 	<td style="text-align:left;">Open Tree of Life (TOL)</td>
 	<td style="text-align:left;"><code>tol</code></td>
-	<td style="text-align:left;"><a href="https://opentreeoflife.org">link</a></td>
+	<td style="text-align:left;"><a href="https://github.com/OpenTreeOfLife/germinator/wiki/Open-Tree-of-Life-Web-APIs">link</a></td>
 	<td style="text-align:left;">none</td>
 </tr>
 <tr>
 	<td style="text-align:left;">World Register of Marine Species (WoRMS)</td>
 	<td style="text-align:left;"><code>worms</code></td>
-	<td style="text-align:left;"><a href="http://www.marinespecies.org/aphia.php?p=webservice">link</a></td>
+	<td style="text-align:left;"><a href="https://www.marinespecies.org/aphia.php?p=webservice">link</a></td>
 	<td style="text-align:left;">none</td>
 </tr>
 <tr>
@@ -169,20 +163,24 @@ Note that a few data sources require SOAP web services, which are difficult to s
 	<td style="text-align:left;"><a href="https://www.mediawiki.org/wiki/API:Main_page">link</a></td>
 	<td style="text-align:left;">none</td>
 </tr>
+<tr>
+	<td style="text-align:left;">Kew's Plants of the World</td>
+	<td style="text-align:left;"><code>pow</code></td>
+	<td style="text-align:left;">none</td>
+	<td style="text-align:left;">none</td>
+</tr>
 </tbody>
 </table>
 
-**: There are none! We suggest using `TPL` and `TPLck` functions in the [taxonstand package](https://cran.r-project.org/package=Taxonstand). We provide two functions to get bullk data: `tpl_families` and `tpl_get`.
+**: There are none! We suggest using `TPL` and `TPLck` functions in the [taxonstand package](https://cran.r-project.org/package=Taxonstand). We provide two functions to get bulk data: `tpl_families` and `tpl_get`.
 
 \***: There are none! The function scrapes the web directly.
 
 ### May be in taxize in the future...
 
-See the [newdatasource](https://github.com/ropensci/taxize/labels/newdatasource) tag in the issue tracker
+See the [datasources](https://github.com/ropensci/taxize/labels/datasources) tag in the issue tracker
 
-## Tutorial
-
-For more examples see the [tutorial][tut]
+<br>
 
 ## Installation
 
@@ -195,12 +193,12 @@ install.packages("taxize")
 
 ### Development version from GitHub
 
-Windows users install [Rtools](https://cran.r-project.org/bin/windows/Rtools/) first.
+Windows users install Rtools first.
 
 
 ```r
-install.packages("devtools")
-devtools::install_github("ropensci/taxize")
+install.packages("remotes")
+remotes::install_github("ropensci/taxize")
 ```
 
 
@@ -208,13 +206,23 @@ devtools::install_github("ropensci/taxize")
 library('taxize')
 ```
 
+
+
 ## Get unique taxonomic identifier from NCBI
 
-Alot of `taxize` revolves around taxonomic identifiers. Because, as you know, names can be a mess (misspelled, synonyms, etc.), it's better to get an identifier that a particular data sources knows about, then we can move forth acquiring more fun taxonomic data.
+Alot of `taxize` revolves around taxonomic identifiers. Because, as you know, names can be a mess (misspelled, synonyms, etc.), it's better to get an identifier that a particular data source knows about, then we can move forth acquiring more fun taxonomic data.
 
 
 ```r
 uids <- get_uid(c("Chironomus riparius", "Chaetopteryx"))
+#> ══  2 queries  ═══════════════
+#> ✔  Found:  Chironomus+riparius
+#> ✔  Found:  Chaetopteryx
+#> ══  Results  ═════════════════
+#> 
+#> ● Total: 2 
+#> ● Found: 2 
+#> ● Not Found: 0
 ```
 
 ## Retrieve classifications
@@ -253,34 +261,38 @@ Get immediate children of _Salmo_. In this case, _Salmo_ is a genus, so this giv
 children("Salmo", db = 'ncbi')
 #> $Salmo
 #>    childtaxa_id                   childtaxa_name childtaxa_rank
-#> 1       1509524  Salmo marmoratus x Salmo trutta        species
-#> 2       1484545 Salmo cf. cenerinus BOLD:AAB3872        species
-#> 3       1483130               Salmo zrmanjaensis        species
-#> 4       1483129               Salmo visovacensis        species
-#> 5       1483128                Salmo rhodanensis        species
-#> 6       1483127                 Salmo pellegrini        species
-#> 7       1483126                     Salmo opimus        species
-#> 8       1483125                Salmo macedonicus        species
-#> 9       1483124                Salmo lourosensis        species
-#> 10      1483123                   Salmo labecula        species
-#> 11      1483122                  Salmo farioides        species
-#> 12      1483121                      Salmo chilo        species
-#> 13      1483120                     Salmo cettii        species
-#> 14      1483119                  Salmo cenerinus        species
-#> 15      1483118                   Salmo aphelios        species
-#> 16      1483117                    Salmo akairos        species
-#> 17      1201173               Salmo peristericus        species
-#> 18      1035833                   Salmo ischchan        species
-#> 19       700588                     Salmo labrax        species
-#> 20       237411              Salmo obtusirostris        species
-#> 21       235141              Salmo platycephalus        species
-#> 22       234793                    Salmo letnica        species
-#> 23        62065                  Salmo ohridanus        species
-#> 24        33518                 Salmo marmoratus        species
-#> 25        33516                    Salmo fibreni        species
-#> 26        33515                     Salmo carpio        species
-#> 27         8032                     Salmo trutta        species
-#> 28         8030                      Salmo salar        species
+#> 1       2705433                     Salmo ghigii        species
+#> 2       2304090                  Salmo abanticus        species
+#> 3       2126688              Salmo ciscaucasicus        species
+#> 4       1509524  Salmo marmoratus x Salmo trutta        species
+#> 5       1484545 Salmo cf. cenerinus BOLD:AAB3872        species
+#> 6       1483130               Salmo zrmanjaensis        species
+#> 7       1483129               Salmo visovacensis        species
+#> 8       1483128                Salmo rhodanensis        species
+#> 9       1483127                 Salmo pellegrini        species
+#> 10      1483126                     Salmo opimus        species
+#> 11      1483125                Salmo macedonicus        species
+#> 12      1483124                Salmo lourosensis        species
+#> 13      1483123                   Salmo labecula        species
+#> 14      1483122                  Salmo farioides        species
+#> 15      1483121                      Salmo chilo        species
+#> 16      1483120                     Salmo cettii        species
+#> 17      1483119                  Salmo cenerinus        species
+#> 18      1483118                   Salmo aphelios        species
+#> 19      1483117                    Salmo akairos        species
+#> 20      1201173               Salmo peristericus        species
+#> 21      1035833                   Salmo ischchan        species
+#> 22       700588                     Salmo labrax        species
+#> 23       602068                    Salmo caspius     subspecies
+#> 24       237411              Salmo obtusirostris        species
+#> 25       235141              Salmo platycephalus        species
+#> 26       234793                    Salmo letnica        species
+#> 27        62065                  Salmo ohridanus        species
+#> 28        33518                 Salmo marmoratus        species
+#> 29        33516                    Salmo fibreni        species
+#> 30        33515                     Salmo carpio        species
+#> 31         8032                     Salmo trutta        species
+#> 32         8030                      Salmo salar        species
 #> 
 #> attr(,"class")
 #> [1] "children"
@@ -294,16 +306,16 @@ Get all species in the genus _Apis_
 
 
 ```r
-downstream(as.tsn(154395), db = 'itis', downto = 'species', verbose = FALSE)
+downstream(as.tsn(154395), db = 'itis', downto = 'species', mesages = FALSE)
 #> $`154395`
-#>      tsn parentname parenttsn          taxonname rankid rankname
-#> 1 154396       Apis    154395     Apis mellifera    220  species
-#> 2 763550       Apis    154395 Apis andreniformis    220  species
-#> 3 763551       Apis    154395        Apis cerana    220  species
-#> 4 763552       Apis    154395       Apis dorsata    220  species
-#> 5 763553       Apis    154395        Apis florea    220  species
-#> 6 763554       Apis    154395 Apis koschevnikovi    220  species
-#> 7 763555       Apis    154395   Apis nigrocincta    220  species
+#>      tsn parentname parenttsn rankname          taxonname rankid
+#> 1 154396       Apis    154395  species     Apis mellifera    220
+#> 2 763550       Apis    154395  species Apis andreniformis    220
+#> 3 763551       Apis    154395  species        Apis cerana    220
+#> 4 763552       Apis    154395  species       Apis dorsata    220
+#> 5 763553       Apis    154395  species        Apis florea    220
+#> 6 763554       Apis    154395  species Apis koschevnikovi    220
+#> 7 763555       Apis    154395  species   Apis nigrocincta    220
 #> 
 #> attr(,"class")
 #> [1] "downstream"
@@ -317,48 +329,25 @@ Get all genera up from the species _Pinus contorta_ (this includes the genus of 
 
 
 ```r
-upstream("Pinus contorta", db = 'itis', upto = 'Genus', verbose=FALSE)
-#>      tsn                        target
-#> 1 183327                Pinus contorta
-#> 2 183332 Pinus contorta ssp. bolanderi
-#> 3 822698  Pinus contorta ssp. contorta
-#> 4 183329 Pinus contorta ssp. latifolia
-#> 5 183330 Pinus contorta ssp. murrayana
-#> 6 529672 Pinus contorta var. bolanderi
-#> 7 183328  Pinus contorta var. contorta
-#> 8 529673 Pinus contorta var. latifolia
-#> 9 529674 Pinus contorta var. murrayana
-#>                                                        commonNames
-#> 1               scrub pine,shore pine,tamarack pine,lodgepole pine
-#> 2                                            Bolander's beach pine
-#> 3                                                               NA
-#> 4                         black pine,Rocky Mountain lodgepole pine
-#> 5                              tamarack pine,Sierra lodgepole pine
-#> 6                                              Bolander beach pine
-#> 7                  coast pine,lodgepole pine,beach pine,shore pine
-#> 8 tall lodgepole pine,lodgepole pine,Rocky Mountain lodgepole pine
-#> 9      Murray's lodgepole pine,Sierra lodgepole pine,tamarack pine
-#>      nameUsage
-#> 1     accepted
-#> 2 not accepted
-#> 3 not accepted
-#> 4 not accepted
-#> 5 not accepted
-#> 6     accepted
-#> 7     accepted
-#> 8     accepted
-#> 9     accepted
+upstream("Pinus contorta", db = 'itis', upto = 'Genus', mesages = FALSE)
+#> ══  1 queries  ═══════════════
+#> ✔  Found:  Pinus contorta
+#> ══  Results  ═════════════════
+#> 
+#> ● Total: 1 
+#> ● Found: 1 
+#> ● Not Found: 0
 #> $`Pinus contorta`
-#>      tsn parentname parenttsn   taxonname rankid rankname
-#> 1  18031   Pinaceae     18030       Abies    180    genus
-#> 2  18033   Pinaceae     18030       Picea    180    genus
-#> 3  18035   Pinaceae     18030       Pinus    180    genus
-#> 4 183396   Pinaceae     18030       Tsuga    180    genus
-#> 5 183405   Pinaceae     18030      Cedrus    180    genus
-#> 6 183409   Pinaceae     18030       Larix    180    genus
-#> 7 183418   Pinaceae     18030 Pseudotsuga    180    genus
-#> 8 822529   Pinaceae     18030  Keteleeria    180    genus
-#> 9 822530   Pinaceae     18030 Pseudolarix    180    genus
+#>      tsn parentname parenttsn rankname   taxonname rankid
+#> 1  18031   Pinaceae     18030    genus       Abies    180
+#> 2  18033   Pinaceae     18030    genus       Picea    180
+#> 3  18035   Pinaceae     18030    genus       Pinus    180
+#> 4 183396   Pinaceae     18030    genus       Tsuga    180
+#> 5 183405   Pinaceae     18030    genus      Cedrus    180
+#> 6 183409   Pinaceae     18030    genus       Larix    180
+#> 7 183418   Pinaceae     18030    genus Pseudotsuga    180
+#> 8 822529   Pinaceae     18030    genus  Keteleeria    180
+#> 9 822530   Pinaceae     18030    genus Pseudolarix    180
 #> 
 #> attr(,"class")
 #> [1] "upstream"
@@ -371,22 +360,29 @@ upstream("Pinus contorta", db = 'itis', upto = 'Genus', verbose=FALSE)
 
 ```r
 synonyms("Acer drummondii", db="itis")
-#>      tsn             target commonNames    nameUsage
-#> 1 183671    Acer drummondii          NA not accepted
-#> 2 183672 Rufacer drummondii          NA not accepted
+#> ══  1 queries  ═══════════════
+#> ✔  Found:  Acer drummondii
+#> ══  Results  ═════════════════
+#> 
+#> ● Total: 1 
+#> ● Found: 1 
+#> ● Not Found: 0
+#> ══  1 queries  ═══════════════
+#> ✔  Found:  Acer drummondii
+#> ══  Results  ═════════════════
+#> 
+#> ● Total: 1 
+#> ● Found: 1 
+#> ● Not Found: 0
 #> $`Acer drummondii`
-#>   sub_tsn                    acc_name acc_tsn
-#> 1  183671 Acer rubrum var. drummondii  526853
-#> 2  183671 Acer rubrum var. drummondii  526853
-#> 3  183671 Acer rubrum var. drummondii  526853
-#>                      acc_author                        syn_author
-#> 1 (Hook. & Arn. ex Nutt.) Sarg. (Hook. & Arn. ex Nutt.) E. Murray
-#> 2 (Hook. & Arn. ex Nutt.) Sarg.             Hook. & Arn. ex Nutt.
-#> 3 (Hook. & Arn. ex Nutt.) Sarg.     (Hook. & Arn. ex Nutt.) Small
-#>                      syn_name syn_tsn
-#> 1 Acer rubrum ssp. drummondii   28730
-#> 2             Acer drummondii  183671
-#> 3          Rufacer drummondii  183672
+#>   sub_tsn                    acc_name acc_tsn                    acc_author
+#> 1  183671 Acer rubrum var. drummondii  526853 (Hook. & Arn. ex Nutt.) Sarg.
+#> 2  183671 Acer rubrum var. drummondii  526853 (Hook. & Arn. ex Nutt.) Sarg.
+#> 3  183671 Acer rubrum var. drummondii  526853 (Hook. & Arn. ex Nutt.) Sarg.
+#>                          syn_author                    syn_name syn_tsn
+#> 1 (Hook. & Arn. ex Nutt.) E. Murray Acer rubrum ssp. drummondii   28730
+#> 2             Hook. & Arn. ex Nutt.             Acer drummondii  183671
+#> 3     (Hook. & Arn. ex Nutt.) Small          Rufacer drummondii  183672
 #> 
 #> attr(,"class")
 #> [1] "synonyms"
@@ -398,10 +394,28 @@ synonyms("Acer drummondii", db="itis")
 
 
 ```r
-get_ids(names="Salvelinus fontinalis", db = c('itis', 'ncbi'), verbose=FALSE)
+get_ids(names="Salvelinus fontinalis", db = c('itis', 'ncbi'), mesages = FALSE)
+#> ══  db: itis ═════════════════
+#> ══  1 queries  ═══════════════
+#> ✔  Found:  Salvelinus fontinalis
+#> ══  Results  ═════════════════
+#> 
+#> ● Total: 1 
+#> ● Found: 1 
+#> ● Not Found: 0
+#> ══  db: ncbi ═════════════════
+#> ══  1 queries  ═══════════════
+#> ✔  Found:  Salvelinus+fontinalis
+#> ══  Results  ═════════════════
+#> 
+#> ● Total: 1 
+#> ● Found: 1 
+#> ● Not Found: 0
 #> $itis
 #> Salvelinus fontinalis 
 #>              "162003" 
+#> attr(,"class")
+#> [1] "tsn"
 #> attr(,"match")
 #> [1] "found"
 #> attr(,"multiple_matches")
@@ -409,9 +423,7 @@ get_ids(names="Salvelinus fontinalis", db = c('itis', 'ncbi'), verbose=FALSE)
 #> attr(,"pattern_match")
 #> [1] FALSE
 #> attr(,"uri")
-#> [1] "http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=162003"
-#> attr(,"class")
-#> [1] "tsn"
+#> [1] "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=162003"
 #> 
 #> $ncbi
 #> Salvelinus fontinalis 
@@ -436,6 +448,14 @@ You can limit to certain rows when getting ids in any `get_*()` functions
 
 ```r
 get_ids(names="Poa annua", db = "gbif", rows=1)
+#> ══  db: gbif ═════════════════
+#> ══  1 queries  ═══════════════
+#> ✔  Found:  Poa annua
+#> ══  Results  ═════════════════
+#> 
+#> ● Total: 1 
+#> ● Found: 1 
+#> ● Not Found: 0
 #> $gbif
 #> Poa annua 
 #> "2704179" 
@@ -448,7 +468,7 @@ get_ids(names="Poa annua", db = "gbif", rows=1)
 #> attr(,"pattern_match")
 #> [1] FALSE
 #> attr(,"uri")
-#> [1] "http://www.gbif.org/species/2704179"
+#> [1] "https://www.gbif.org/species/2704179"
 #> 
 #> attr(,"class")
 #> [1] "ids"
@@ -459,18 +479,19 @@ Furthermore, you can just back all ids if that's your jam with the `get_*_()` fu
 
 ```r
 get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn', rows=1:3)
+#> ══  db: nbn ══════════════════
 #> $nbn
 #> $nbn$`Chironomus riparius`
-#>               guid             scientificName    rank taxonomicStatus
-#> 1 NBNSYS0000027573        Chironomus riparius species        accepted
-#> 2 NHMSYS0000864966 Damaeus (Damaeus) riparius species        accepted
-#> 3 NHMSYS0021059238      Rhizoclonium riparium species        accepted
+#>               guid      scientificName    rank taxonomicStatus
+#> 1 NBNSYS0000027573 Chironomus riparius species        accepted
+#> 2 NBNSYS0000023573    Quedius riparius species        accepted
+#> 3 NHMSYS0001718585  Hypnoidus riparius species        accepted
 #> 
 #> $nbn$`Pinus contorta`
 #>               guid                scientificName    rank taxonomicStatus
 #> 1 NBNSYS0000004786                Pinus contorta species        accepted
-#> 2 NHMSYS0000494858 Pinus contorta var. murrayana variety        accepted
-#> 3 NHMSYS0000494848  Pinus contorta var. contorta variety        accepted
+#> 2 NHMSYS0000494848  Pinus contorta var. contorta variety        accepted
+#> 3 NHMSYS0000494858 Pinus contorta var. murrayana variety        accepted
 #> 
 #> 
 #> attr(,"class")
@@ -482,25 +503,15 @@ get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn', rows=1:3)
 
 ```r
 sci2comm('Helianthus annuus', db = 'itis')
-#>      tsn                              target
-#> 1  36616                   Helianthus annuus
-#> 2 525928      Helianthus annuus ssp. jaegeri
-#> 3 525929 Helianthus annuus ssp. lenticularis
-#> 4 525930      Helianthus annuus ssp. texanus
-#> 5 536095 Helianthus annuus var. lenticularis
-#> 6 536096  Helianthus annuus var. macrocarpus
-#> 7 536097      Helianthus annuus var. texanus
-#>                                                  commonNames    nameUsage
-#> 1 annual sunflower,sunflower,wild sunflower,common sunflower     accepted
-#> 2                                                         NA not accepted
-#> 3                                                         NA not accepted
-#> 4                                                         NA not accepted
-#> 5                                                         NA not accepted
-#> 6                                                         NA not accepted
-#> 7                                                         NA not accepted
+#> ══  1 queries  ═══════════════
+#> ✔  Found:  Helianthus annuus
+#> ══  Results  ═════════════════
+#> 
+#> ● Total: 1 
+#> ● Found: 1 
+#> ● Not Found: 0
 #> $`Helianthus annuus`
-#> [1] "common sunflower" "sunflower"        "wild sunflower"  
-#> [4] "annual sunflower"
+#> [1] "common sunflower" "sunflower"        "wild sunflower"   "annual sunflower"
 ```
 
 ## Scientific names from common names
@@ -509,10 +520,10 @@ sci2comm('Helianthus annuus', db = 'itis')
 ```r
 comm2sci("black bear", db = "itis")
 #> $`black bear`
-#> [1] "Chiropotes satanas"          "Ursus thibetanus"           
-#> [3] "Ursus thibetanus"            "Ursus americanus luteolus"  
-#> [5] "Ursus americanus"            "Ursus americanus"           
-#> [7] "Ursus americanus americanus"
+#> [1] "Ursus americanus luteolus"   "Ursus americanus"           
+#> [3] "Ursus americanus"            "Ursus americanus americanus"
+#> [5] "Chiropotes satanas"          "Ursus thibetanus"           
+#> [7] "Ursus thibetanus"
 ```
 
 ## Lowest common rank among taxa
@@ -521,6 +532,24 @@ comm2sci("black bear", db = "itis")
 ```r
 spp <- c("Sus scrofa", "Homo sapiens", "Nycticebus coucang")
 lowest_common(spp, db = "ncbi")
+#> ══  3 queries  ═══════════════
+#> ✔  Found:  Sus+scrofa
+#> ✔  Found:  Homo+sapiens
+#> ✔  Found:  Nycticebus+coucang
+#> ══  Results  ═════════════════
+#> 
+#> ● Total: 3 
+#> ● Found: 3 
+#> ● Not Found: 0
+#> ══  3 queries  ═══════════════
+#> ✔  Found:  Sus+scrofa
+#> ✔  Found:  Homo+sapiens
+#> ✔  Found:  Nycticebus+coucang
+#> ══  Results  ═════════════════
+#> 
+#> ● Total: 3 
+#> ● Found: 3 
+#> ● Not Found: 0
 #>             name        rank      id
 #> 21 Boreoeutheria below-class 1437010
 ```
@@ -542,7 +571,7 @@ as.uid(315567)
 #> attr(,"pattern_match")
 #> [1] FALSE
 #> attr(,"uri")
-#> [1] "http://www.ncbi.nlm.nih.gov/taxonomy/315567"
+#> [1] "https://www.ncbi.nlm.nih.gov/taxonomy/315567"
 ```
 
 `list` to `uid`
@@ -560,9 +589,9 @@ as.uid(list("315567", "3339", "9696"))
 #> attr(,"pattern_match")
 #> [1] FALSE FALSE FALSE
 #> attr(,"uri")
-#> [1] "http://www.ncbi.nlm.nih.gov/taxonomy/315567"
-#> [2] "http://www.ncbi.nlm.nih.gov/taxonomy/3339"  
-#> [3] "http://www.ncbi.nlm.nih.gov/taxonomy/9696"
+#> [1] "https://www.ncbi.nlm.nih.gov/taxonomy/315567"
+#> [2] "https://www.ncbi.nlm.nih.gov/taxonomy/3339"  
+#> [3] "https://www.ncbi.nlm.nih.gov/taxonomy/9696"
 ```
 
 ## Coerce taxonomic id classes to a data.frame
@@ -575,35 +604,26 @@ out <- as.uid(c(315567, 3339, 9696))
 #> 1 315567   uid found            FALSE         FALSE
 #> 2   3339   uid found            FALSE         FALSE
 #> 3   9696   uid found            FALSE         FALSE
-#>                                           uri
-#> 1 http://www.ncbi.nlm.nih.gov/taxonomy/315567
-#> 2   http://www.ncbi.nlm.nih.gov/taxonomy/3339
-#> 3   http://www.ncbi.nlm.nih.gov/taxonomy/9696
+#>                                            uri
+#> 1 https://www.ncbi.nlm.nih.gov/taxonomy/315567
+#> 2   https://www.ncbi.nlm.nih.gov/taxonomy/3339
+#> 3   https://www.ncbi.nlm.nih.gov/taxonomy/9696
 ```
+
+## Screencast
+
+<a href="https://vimeo.com/92883063"><img src="tools/screencast.png" width="400"></a>
+
+
+## Contributing
+
+See our [CONTRIBUTING](https://github.com/ropensci/taxize/blob/master/.github/CONTRIBUTING.md) document.
 
 ## Contributors
 
-Alphebetical
+Collected via GitHub Issues: honors all contributors in alphabetical order. Code contributors are in bold.
 
-+ [Ignasi Bartomeus](https://github.com/ibartomeus)
-+ [John Baumgartner](https://github.com/johnbaums)
-+ [Carl Boettiger](https://github.com/cboettig)
-+ [Joseph Brown](https://github.com/josephwb)
-+ [Scott Chamberlain](https://github.com/sckott)
-+ [Anirvan Chatterjee](https://github.com/anirvan)
-+ [Zachary Foster](https://github.com/zachary-foster)
-+ [Oliver Keyes](https://github.com/Ironholds)
-+ [David LeBauer](https://github.com/dlebauer)
-+ [Philippe Marchand](https://github.com/pmarchand1)
-+ [Ben Marwick](https://github.com/benmarwick)
-+ [Francois Michonneau](https://github.com/fmichonneau)
-+ [James O'Donnell](https://github.com/jimmyodonnell)
-+ [Jari Oksanen](https://github.com/jarioksa)
-+ [Karthik Ram](https://github.com/karthik)
-+ [raredd](https://github.com/raredd)
-+ [Eduard Szöcs](https://github.com/EDiLD)
-+ [Luis Villanueva](https://github.com/ljvillanueva)
-+ [Jakub Wilk](https://github.com/jwilk)
+[afkoeppel](https://github.com/afkoeppel) - [afredstonhermann](https://github.com/afredstonhermann) - [ahhurlbert](https://github.com/ahhurlbert) - [albnd](https://github.com/albnd) - [Alectoria](https://github.com/Alectoria) - [andzandz11](https://github.com/andzandz11) - [antagomir](https://github.com/antagomir) - **[arendsee](https://github.com/arendsee)** - [ArielGreiner](https://github.com/ArielGreiner) - [arw36](https://github.com/arw36) - [ashenkin](https://github.com/ashenkin) - **[ashiklom](https://github.com/ashiklom)** - [benjaminschwetz](https://github.com/benjaminschwetz) - **[benmarwick](https://github.com/benmarwick)** - [bienflorencia](https://github.com/bienflorencia) - [binkySallly](https://github.com/binkySallly) - [bomeara](https://github.com/bomeara) - [BridgettCollis](https://github.com/BridgettCollis) - [bw4sz](https://github.com/bw4sz) - **[cboettig](https://github.com/cboettig)** - [cdeterman](https://github.com/cdeterman) - [ChrKoenig](https://github.com/ChrKoenig) - [chuckrp](https://github.com/chuckrp) - [clarson2191](https://github.com/clarson2191) - [claudenozeres](https://github.com/claudenozeres) - [cmzambranat](https://github.com/cmzambranat) - [cparsania](https://github.com/cparsania) - [daattali](https://github.com/daattali) - [DanielGMead](https://github.com/DanielGMead) - [DarrenObbard](https://github.com/DarrenObbard) - [davharris](https://github.com/davharris) - [davidvilanova](https://github.com/davidvilanova) - [diogoprov](https://github.com/diogoprov) - **[dlebauer](https://github.com/dlebauer)** - [dlenz1](https://github.com/dlenz1) - [dougwyu](https://github.com/dougwyu) - [dschlaep](https://github.com/dschlaep) - **[EDiLD](https://github.com/EDiLD)** - [edwbaker](https://github.com/edwbaker) - [emhart](https://github.com/emhart) - [eregenyi](https://github.com/eregenyi) - [fdschneider](https://github.com/fdschneider) - [fgabriel1891](https://github.com/fgabriel1891) - [fischhoff](https://github.com/fischhoff) - **[fmichonneau](https://github.com/fmichonneau)** - **[fozy81](https://github.com/fozy81)** - **[gedankenstuecke](https://github.com/gedankenstuecke)** - [GISKid](https://github.com/GISKid) - [git-og](https://github.com/git-og) - [glaroc](https://github.com/glaroc) - **[gpli](https://github.com/gpli)** - [gustavobio](https://github.com/gustavobio) - [hlapp](https://github.com/hlapp) - **[ibartomeus](https://github.com/ibartomeus)** - **[Ironholds](https://github.com/Ironholds)** - [jabard89](https://github.com/jabard89) - [jangorecki](https://github.com/jangorecki) - **[jarioksa](https://github.com/jarioksa)** - [jebyrnes](https://github.com/jebyrnes) - **[jeroen](https://github.com/jeroen)** - **[jimmyodonnell](https://github.com/jimmyodonnell)** - [joelnitta](https://github.com/joelnitta) - [johnbaums](https://github.com/johnbaums) - [jonmcalder](https://github.com/jonmcalder) - [jordancasey](https://github.com/jordancasey) - **[josephwb](https://github.com/josephwb)** - [jsgosnell](https://github.com/jsgosnell) - [JulietteLgls](https://github.com/JulietteLgls) - **[jwilk](https://github.com/jwilk)** - [kamapu](https://github.com/kamapu) - **[karthik](https://github.com/karthik)** - **[katrinleinweber](https://github.com/katrinleinweber)** - [KevCaz](https://github.com/KevCaz) - [kgturner](https://github.com/kgturner) - [kmeverson](https://github.com/kmeverson) - [Koalha](https://github.com/Koalha) - **[ljvillanueva](https://github.com/ljvillanueva)** - **[maelle](https://github.com/maelle)** - [Markus2015](https://github.com/Markus2015) - [matutosi](https://github.com/matutosi) - [mcsiple](https://github.com/mcsiple) - [MikkoVihtakari](https://github.com/MikkoVihtakari) - [millerjef](https://github.com/millerjef) - [miriamgrace](https://github.com/miriamgrace) - [MK212](https://github.com/MK212) - [mpnelsen](https://github.com/mpnelsen) - [MUSEZOOLVERT](https://github.com/MUSEZOOLVERT) - [nate-d-olson](https://github.com/nate-d-olson) - [nmatzke](https://github.com/nmatzke) - [npch](https://github.com/npch) - [ocstringham](https://github.com/ocstringham) - [p-neves](https://github.com/p-neves) - [p-schaefer](https://github.com/p-schaefer) - [padpadpadpad](https://github.com/padpadpadpad) - [paternogbc](https://github.com/paternogbc) - **[patperu](https://github.com/patperu)** - [pederengelstad](https://github.com/pederengelstad) - [philippi](https://github.com/philippi) - [Phylloxera](https://github.com/Phylloxera) - **[pmarchand1](https://github.com/pmarchand1)** - [pozsgaig](https://github.com/pozsgaig) - [PrincessPi314](https://github.com/PrincessPi314) - **[raredd](https://github.com/raredd)** - [rec3141](https://github.com/rec3141) - **[Rekyt](https://github.com/Rekyt)** - [RodgerG](https://github.com/RodgerG) - [rossmounce](https://github.com/rossmounce) - [sariya](https://github.com/sariya) - [sastoudt](https://github.com/sastoudt) - [scelmendorf](https://github.com/scelmendorf) - **[sckott](https://github.com/sckott)** - [SimonGoring](https://github.com/SimonGoring) - [snsheth](https://github.com/snsheth) - [snubian](https://github.com/snubian) - **[taddallas](https://github.com/taddallas)** - [tdjames1](https://github.com/tdjames1) - [tmkurobe](https://github.com/tmkurobe) - [toczydlowski](https://github.com/toczydlowski) - [tpaulson1](https://github.com/tpaulson1) - [tpoisot](https://github.com/tpoisot) - **[TrashBirdEcology](https://github.com/TrashBirdEcology)** - **[vijaybarve](https://github.com/vijaybarve)** - [wcornwell](https://github.com/wcornwell) - [wpetry](https://github.com/wpetry) - [yhg926](https://github.com/yhg926) - **[zachary-foster](https://github.com/zachary-foster)**
 
 ## Road map
 
@@ -614,7 +634,9 @@ Check out our [milestones](https://github.com/ropensci/taxize/milestones) to see
 * Please [report any issues or bugs](https://github.com/ropensci/taxize/issues).
 * License: MIT
 * Get citation information for `taxize` in R doing `citation(package = 'taxize')`
-* Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md).
+* Please note that this project is released with a [Contributor Code of Conduct][coc].
 By participating in this project you agree to abide by its terms.
 
-[tut]: https://ropensci.org/tutorials/taxize.html
+[![rofooter](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
+
+[coc]: https://github.com/ropensci/taxize/blob/master/CODE_OF_CONDUCT.md

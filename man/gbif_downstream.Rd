@@ -4,7 +4,14 @@
 \alias{gbif_downstream}
 \title{Retrieve all taxa names downstream in hierarchy for GBIF}
 \usage{
-gbif_downstream(key, downto, intermediate = FALSE, ...)
+gbif_downstream(
+  key,
+  downto,
+  intermediate = FALSE,
+  limit = 100,
+  start = NULL,
+  ...
+)
 }
 \arguments{
 \item{key}{A taxonomic serial number.}
@@ -17,15 +24,24 @@ correctly. See \code{data(rank_ref)} for spelling.}
 target taxon rank names, with additional list of data.frame's of
 intermediate taxonomic groups. Default: FALSE}
 
-\item{...}{Further args passed on to \code{\link{gbif_name_usage}}}
+\item{limit}{Number of records to return}
+
+\item{start}{Record number to start at}
+
+\item{...}{Further args passed on to \code{\link[=gbif_name_usage]{gbif_name_usage()}}}
 }
 \value{
-Data.frame of taxonomic information downstream to family from e.g.,
-		Order, Class, etc., or if \code{intermediated=TRUE}, list of length two,
-  	with target taxon rank names, and intermediate names.
+data.frame of taxonomic information downstream to family from e.g.,
+Order, Class, etc., or if \code{intermediated=TRUE}, list of length two,
+with target taxon rank names, and intermediate names.
 }
 \description{
 Retrieve all taxa names downstream in hierarchy for GBIF
+}
+\details{
+Sometimes records don't have a \code{canonicalName} entry which is
+what we look for. In that case we grab the \code{scientificName} entry.
+You can see the type of name colleceted in the column \code{name_type}
 }
 \examples{
 \dontrun{
@@ -47,6 +63,12 @@ gbif_downstream(key = 2433406, "species")
 # get tribes down from the family Apidae
 gbif_downstream(key = 7799978, downto="species")
 gbif_downstream(key = 7799978, downto="species", intermediate=TRUE)
+
+# names that don't have canonicalname entries for some results
+# Myosotis: key 2925668
+key <- 2925668
+res <- gbif_downstream(key, downto = "species")
+res2 <- downstream(key, db = "gbif", downto = "species")
 }
 }
 \author{

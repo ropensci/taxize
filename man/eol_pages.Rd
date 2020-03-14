@@ -4,27 +4,53 @@
 \alias{eol_pages}
 \title{Search for pages in EOL database using a taxonconceptID.}
 \usage{
-eol_pages(taxonconceptID, iucn = FALSE, images = 0, videos = 0,
-  sounds = 0, maps = 0, text = 0, subjects = "overview",
-  licenses = "all", details = FALSE, common_names = FALSE,
-  synonyms = FALSE, references = FALSE, taxonomy = TRUE, vetted = 0,
-  cache_ttl = NULL, key = NULL, ...)
+eol_pages(
+  taxonconceptID,
+  images_per_page = NULL,
+  images_page = NULL,
+  videos_per_page = NULL,
+  videos_page = NULL,
+  sounds_per_page = NULL,
+  sounds_page = NULL,
+  maps_per_page = NULL,
+  maps_page = NULL,
+  texts_per_page = NULL,
+  texts_page = NULL,
+  subjects = "overview",
+  licenses = "all",
+  details = FALSE,
+  common_names = FALSE,
+  synonyms = FALSE,
+  references = FALSE,
+  taxonomy = TRUE,
+  vetted = 0,
+  cache_ttl = NULL,
+  ...
+)
 }
 \arguments{
-\item{taxonconceptID}{The taxonconceptID (numeric), which is also the page
-number.}
+\item{taxonconceptID}{(numeric) a taxonconceptID, which is also the page
+number}
 
-\item{iucn}{Include the IUCN Red List status object (Default: \code{FALSE})}
+\item{images_per_page}{(integer) number of returned image objects (0-75)}
 
-\item{images}{Limits the number of returned image objects (values 0 - 75)}
+\item{images_page}{(integer) images page}
 
-\item{videos}{Limits the number of returned video objects (values 0 - 75)}
+\item{videos_per_page}{(integer) number of returned video objects (0-75)}
 
-\item{sounds}{Limits the number of returned sound objects (values 0 - 75)}
+\item{videos_page}{(integer) videos page}
 
-\item{maps}{Limits the number of returned map objects (values 0 - 75)}
+\item{sounds_per_page}{(integer) number of returned sound objects (0-75)}
 
-\item{text}{Limits the number of returned text objects (values 0 - 75)}
+\item{sounds_page}{(integer) sounds page}
+
+\item{maps_per_page}{(integer) number of returned map objects (0-75)}
+
+\item{maps_page}{(integer) maps page}
+
+\item{texts_per_page}{(integer) number of returned text objects (0-75)}
+
+\item{texts_page}{(integer) texts page}
 
 \item{subjects}{'overview' (default) to return the overview text
 (if exists), a pipe | delimited list of subject names from the list of EOL
@@ -59,10 +85,7 @@ The default is to return all content. (Default: \code{FALSE})}
 
 \item{cache_ttl}{The number of seconds you wish to have the response cached.}
 
-\item{key}{Your EOL API key; loads from .Rprofile, or you can specify the
-key manually the in the function call.}
-
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options passed on to \link[crul:HttpClient]{crul::HttpClient}}
 }
 \value{
 JSON list object, or data.frame.
@@ -72,11 +95,19 @@ Search for pages in EOL database using a taxonconceptID.
 }
 \details{
 It's possible to return JSON or XML with the EOL API. However,
-		this function only returns JSON for now.
+this function only returns JSON for now.
 }
 \examples{
 \dontrun{
 (pageid <- eol_search('Pomatomus')$pageid[1])
-eol_pages(taxonconceptID=pageid)$scinames
+x <- eol_pages(taxonconceptID = pageid)
+x
+x$scinames
+
+z <- eol_pages(taxonconceptID = pageid, synonyms = TRUE)
+z$synonyms
+
+z <- eol_pages(taxonconceptID = pageid, common_names = TRUE)
+z$vernacular
 }
 }

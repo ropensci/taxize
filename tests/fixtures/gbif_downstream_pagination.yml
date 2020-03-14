@@ -1,0 +1,161 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://api.gbif.org/v1/species/2978223?limit=20
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 06 Mar 2020 19:19:29 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
+      server: Jetty(9.3.z-SNAPSHOT)
+      cache-control: public, max-age=3601
+      x-varnish: '273419348'
+      age: '0'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      content-length: '816'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"key":2978223,"nubKey":2978223,"nameKey":51035,"taxonID":"gbif:2978223","sourceTaxonKey":157044647,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Fabales","family":"Fabaceae","genus":"Acacia","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":1370,"familyKey":5386,"genusKey":2978223,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":5386,"parent":"Fabaceae","scientificName":"Acacia
+        Mill.","canonicalName":"Acacia","authorship":"Mill.","nameType":"SCIENTIFIC","rank":"GENUS","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":2222,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:40:08.419+0000","issues":[],"synonym":false,"class":"Magnoliopsida"}'
+  recorded_at: 2020-03-06 19:19:31 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.gbif.org/v1/species/2978223/children?limit=3
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 06 Mar 2020 19:19:29 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
+      server: Jetty(9.3.z-SNAPSHOT)
+      cache-control: public, max-age=3601
+      x-varnish: '273419357'
+      age: '0'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      content-length: '2739'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"offset":0,"limit":3,"endOfRecords":false,"results":[{"key":3980165,"nubKey":3980165,"nameKey":51060,"taxonID":"gbif:3980165","sourceTaxonKey":143435623,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Fabales","family":"Fabaceae","genus":"Acacia","species":"Acacia
+        abbatiana","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":1370,"familyKey":5386,"genusKey":2978223,"speciesKey":3980165,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":2978223,"parent":"Acacia","scientificName":"Acacia
+        abbatiana Pedley","canonicalName":"Acacia abbatiana","authorship":"Pedley","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:40:13.061+0000","issues":[],"synonym":false,"class":"Magnoliopsida"},{"key":2980248,"nubKey":2980248,"nameKey":51066,"taxonID":"gbif:2980248","sourceTaxonKey":143434851,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Fabales","family":"Fabaceae","genus":"Acacia","species":"Acacia
+        abbreviata","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":1370,"familyKey":5386,"genusKey":2978223,"speciesKey":2980248,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":2978223,"parent":"Acacia","scientificName":"Acacia
+        abbreviata Maslin","canonicalName":"Acacia abbreviata","authorship":"Maslin","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:40:10.679+0000","issues":[],"synonym":false,"class":"Magnoliopsida"},{"key":2979854,"nubKey":2979854,"nameKey":51083,"taxonID":"gbif:2979854","sourceTaxonKey":143436468,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Fabales","family":"Fabaceae","genus":"Acacia","species":"Acacia
+        abrupta","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":1370,"familyKey":5386,"genusKey":2978223,"speciesKey":2979854,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":2978223,"parent":"Acacia","scientificName":"Acacia
+        abrupta Maiden & Blakely","canonicalName":"Acacia abrupta","authorship":"Maiden
+        & Blakely","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:40:13.500+0000","issues":[],"synonym":false,"class":"Magnoliopsida"}]}'
+  recorded_at: 2020-03-06 19:19:31 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.gbif.org/v1/species/2978223?limit=20
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 06 Mar 2020 19:19:29 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
+      server: Jetty(9.3.z-SNAPSHOT)
+      cache-control: public, max-age=3601
+      x-varnish: 300843802 273419349
+      age: '1'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      content-length: '816'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"key":2978223,"nubKey":2978223,"nameKey":51035,"taxonID":"gbif:2978223","sourceTaxonKey":157044647,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Fabales","family":"Fabaceae","genus":"Acacia","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":1370,"familyKey":5386,"genusKey":2978223,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":5386,"parent":"Fabaceae","scientificName":"Acacia
+        Mill.","canonicalName":"Acacia","authorship":"Mill.","nameType":"SCIENTIFIC","rank":"GENUS","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":2222,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:40:08.419+0000","issues":[],"synonym":false,"class":"Magnoliopsida"}'
+  recorded_at: 2020-03-06 19:19:31 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.gbif.org/v1/species/2978223/children?offset=3&limit=3
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 06 Mar 2020 19:19:30 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
+      server: Jetty(9.3.z-SNAPSHOT)
+      cache-control: public, max-age=3601
+      x-varnish: '300843807'
+      age: '0'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      content-length: '2780'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"offset":3,"limit":3,"endOfRecords":false,"results":[{"key":3980152,"nubKey":3980152,"nameKey":51086,"taxonID":"gbif:3980152","sourceTaxonKey":118997273,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Fabales","family":"Fabaceae","genus":"Acacia","species":"Acacia
+        abstergens","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":1370,"familyKey":5386,"genusKey":2978223,"speciesKey":3980152,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"d9a4eedb-e985-4456-ad46-3df8472e00e8","parentKey":2978223,"parent":"Acacia","scientificName":"Acacia
+        abstergens Steud.","canonicalName":"Acacia abstergens","authorship":"Steud.","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:40:09.969+0000","issues":[],"synonym":false,"class":"Magnoliopsida"},{"key":2979852,"nubKey":2979852,"nameKey":51132,"taxonID":"gbif:2979852","sourceTaxonKey":143436469,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Fabales","family":"Fabaceae","genus":"Acacia","species":"Acacia
+        acanthaster","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":1370,"familyKey":5386,"genusKey":2978223,"speciesKey":2979852,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":2978223,"parent":"Acacia","scientificName":"Acacia
+        acanthaster Maslin","canonicalName":"Acacia acanthaster","authorship":"Maslin","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:40:13.487+0000","issues":[],"synonym":false,"class":"Magnoliopsida"},{"key":2980159,"nubKey":2980159,"nameKey":51158,"taxonID":"gbif:2980159","sourceTaxonKey":143435595,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Fabales","family":"Fabaceae","genus":"Acacia","species":"Acacia
+        acanthoclada","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":1370,"familyKey":5386,"genusKey":2978223,"speciesKey":2980159,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":2978223,"parent":"Acacia","scientificName":"Acacia
+        acanthoclada F.Muell.","canonicalName":"Acacia acanthoclada","authorship":"F.Muell.","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","publishedIn":"Fragm.
+        3:127.  1863","numDescendants":2,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:40:12.919+0000","issues":[],"synonym":false,"class":"Magnoliopsida"}]}'
+  recorded_at: 2020-03-06 19:19:31 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0

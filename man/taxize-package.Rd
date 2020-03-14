@@ -24,7 +24,8 @@ species names.
 General functions in the package that don't hit a specific API don't have
 two words separated by an underscore, e.g., \code{classification}
 
-You need API keys for Encyclopedia of Life (EOL), and Tropicos.
+You need API keys for some data sources. See \link{taxize-authentication}
+for more information.
 }
 
 \section{Currently supported APIs}{
@@ -40,7 +41,6 @@ Global Names Index (from EOL/GBIF) \tab gni \tab FALSE \cr
 IUCN Red List \tab iucn \tab FALSE \cr
 Tropicos (from Missouri Botanical Garden) \tab tp \tab FALSE \cr
 Theplantlist.org \tab tpl \tab FALSE \cr
-Catalogue of Life \tab col \tab FALSE \cr
 National Center for Biotechnology Information \tab ncbi \tab FALSE \cr
 CANADENSYS Vascan name search API \tab vascan \tab FALSE \cr
 International Plant Names Index (IPNI) \tab ipni \tab FALSE \cr
@@ -57,9 +57,17 @@ World Register of Marine Species (WoRMS) \tab worms \tab FALSE \cr
 NatureServe \tab natserv \tab FALSE \cr
 }
 
-If the source above has a \code{TRUE} in the \code{SOAP?} column, it is not available
+If the source above has a \code{TRUE} in the \verb{SOAP?} column, it is not available
 in this package. They are available from a different package called \strong{taxizesoap}.
 See the GitHub repo for how to install \url{https://github.com/ropensci/taxizesoap}
+}
+
+\section{Catalogue of Life (COL)}{
+
+COL introduced rate limiting recently in 2019 - which has made the API
+essentially unusable - CoL+ is coming soon and we'll incorporate it here
+when it's stable. See https://github.com/ropensci/colpluz for the
+R implementation for CoL+
 }
 
 \author{

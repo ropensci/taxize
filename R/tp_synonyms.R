@@ -2,8 +2,9 @@
 #'
 #' @export
 #' @param id the taxon identifier code
-#' @param key Your Tropicos API key; loads from .Rprofile.
-#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' @param key Your Tropicos API key; See [taxize-authentication] 
+#' for help on authentication
+#' @param ... Curl options passed on to [crul::HttpClient]
 #' @return List or dataframe.
 #' @examples \dontrun{
 #' tp_synonyms(id = 25509881)
@@ -11,12 +12,10 @@
 
 tp_synonyms <- function(id, key = NULL, ...) {
   url = sprintf('http://services.tropicos.org/Name/%s/Synonyms', id)
-	key <- getkey(key, "tropicosApiKey")
+	key <- getkey(key, "TROPICOS_KEY")
   args <- tc(list(apikey = key, format = 'json'))
-  tmp <- GET(url, query = args, ...)
-  stop_for_status(tmp)
-  tmp2 <- con_utf8(tmp)
-  res <- jsonlite::fromJSON(tmp2, FALSE)
+  tt <- tp_GET(url, args, ...)
+  res <- jsonlite::fromJSON(tt, FALSE)
 
   if (names(res[[1]])[[1]] == "Error") {
     nonedf <- data.frame(nameid = "no syns found", scientificname = "no syns found",
@@ -26,7 +25,7 @@ tp_synonyms <- function(id, key = NULL, ...) {
   } else {
     dat <- lapply(res, function(x) lapply(x, data.frame, stringsAsFactors = FALSE))
     accepted <- dat[[1]]$AcceptedName
-    df <- do.call(rbind.fill, lapply(dat, "[[", "SynonymName"))
+    df <- dt2df(lapply(dat, "[[", "SynonymName"), idcol = FALSE)
     synonyms <- df[!duplicated.data.frame(df), ]
     names(accepted) <- tolower(names(accepted))
     names(synonyms) <- tolower(names(synonyms))

@@ -43,7 +43,7 @@ test_that("canonical works correctly", {
   expect_is(z, "data.frame")
   expect_named(w, c("user_supplied_name", "submitted_name", "data_source_title", "score", "matched_name2"))
   expect_named(z, c("user_supplied_name", "submitted_name", "matched_name", "data_source_title", "score"))
-  expect_equal(NROW(x), 2)
+  expect_equal(NROW(x), 1)
   expect_true(is.na(x$matched_name2[2]))
 })
 
@@ -59,7 +59,7 @@ test_that("fields parameter works correctly", {
   expect_is(tmp2, "data.frame")
   expect_is(tmp2$matched_name, "character")
   expect_true(any(grepl("Asteraceae", tmp2$matched_name)))
-  expect_true(identical(tmp1$matched_name, tmp2$matched_name))
+  expect_false(identical(tmp1$matched_name, tmp2$matched_name))
 
   expect_lt(NCOL(tmp2), NCOL(tmp1))
 })
@@ -67,9 +67,10 @@ test_that("fields parameter works correctly", {
 test_that("works correctly when no data found for preferred data source", {
   skip_on_cran()
 
-  aa <- gnr_resolve("Scabiosa triandra", preferred_data_sources = c(3,12), best_match_only = TRUE)
+  aa <- gnr_resolve("Scabiosa triandra", preferred_data_sources = c(21,24),
+    best_match_only = TRUE)
 
   expect_is(aa, "data.frame")
-  expect_equal(NROW(aa), 1)
-  expect_equal(length(attributes(aa)$not_known), 0)
+  expect_equal(NROW(aa), 0)
+  expect_equal(length(attributes(aa)$not_known), 1)
 })

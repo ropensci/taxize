@@ -4,9 +4,18 @@
 \alias{tp_search}
 \title{Search Tropicos by scientific name, common name, or Tropicos ID.}
 \usage{
-tp_search(name = NULL, commonname = NULL, nameid = NULL, orderby = NULL,
-  sortorder = NULL, pagesize = NULL, startrow = NULL, type = NULL,
-  key = NULL, ...)
+tp_search(
+  name = NULL,
+  commonname = NULL,
+  nameid = NULL,
+  orderby = NULL,
+  sortorder = NULL,
+  pagesize = NULL,
+  startrow = NULL,
+  type = NULL,
+  key = NULL,
+  ...
+)
 }
 \arguments{
 \item{name}{Your search string. For instance "poa annua". See Details.}
@@ -26,9 +35,10 @@ tp_search(name = NULL, commonname = NULL, nameid = NULL, orderby = NULL,
 \item{type}{Type of search, "wildcard" (default) will add a wildcard to the end
 of your search string. "exact" will use your search string exactly.}
 
-\item{key}{Your Tropicos API key; loads from .Rprofile.}
+\item{key}{Your Tropicos API key; See \link{taxize-authentication}
+for help on authentication}
 
-\item{...}{Further args passed on to \code{\link[httr]{GET}}}
+\item{...}{Further args passed on to \link[crul:HttpClient]{crul::HttpClient}}
 }
 \value{
 List or dataframe.

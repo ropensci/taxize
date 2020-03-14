@@ -12,3 +12,4 @@ ubio_search(...)
 \description{
 THIS FUNCTION IS DEFUNCT.
 }
+\keyword{internal}

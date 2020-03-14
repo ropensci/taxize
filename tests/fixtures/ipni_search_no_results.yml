@@ -1,0 +1,91 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://www.ipni.org/ipni/advPlantNameSearch.do?output_format=delimited-minimal
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.0 crul/0.8.4 rOpenSci(taxize/0.9.8.9134)
+      X-USER-AGENT: r-curl/4.0 crul/0.8.4 rOpenSci(taxize/0.9.8.9134)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      server: nginx/1.14.0
+      date: Tue, 13 Aug 2019 17:30:58 GMT
+      content-type: text/plain;charset=UTF-8
+      content-length: '63'
+      content-disposition: inline;filename=f.txt
+      content-language: en-US
+    body:
+      encoding: UTF-8
+      string: |
+        Id%Version%Family%Full name without family and authors%Authors
+  recorded_at: 2019-08-13 17:30:59 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.4.0
+- request:
+    method: get
+    uri: https://www.ipni.org/ipni/advPlantNameSearch.do?output_format=delimited-minimal&find_family=5
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.0 crul/0.8.4 rOpenSci(taxize/0.9.8.9134)
+      X-USER-AGENT: r-curl/4.0 crul/0.8.4 rOpenSci(taxize/0.9.8.9134)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      server: nginx/1.14.0
+      date: Tue, 13 Aug 2019 17:30:58 GMT
+      content-type: text/plain;charset=UTF-8
+      content-length: '63'
+      content-disposition: inline;filename=f.txt
+      content-language: en-US
+    body:
+      encoding: UTF-8
+      string: |
+        Id%Version%Family%Full name without family and authors%Authors
+  recorded_at: 2019-08-13 17:30:59 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.4.0
+- request:
+    method: get
+    uri: https://www.ipni.org/ipni/advPlantNameSearch.do?output_format=delimited-minimal&find_genus=adfasdfasffd
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.0 crul/0.8.4 rOpenSci(taxize/0.9.8.9134)
+      X-USER-AGENT: r-curl/4.0 crul/0.8.4 rOpenSci(taxize/0.9.8.9134)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      server: nginx/1.14.0
+      date: Tue, 13 Aug 2019 17:30:59 GMT
+      content-type: text/plain;charset=UTF-8
+      content-length: '63'
+      content-disposition: inline;filename=f.txt
+      content-language: en-US
+    body:
+      encoding: UTF-8
+      string: |
+        Id%Version%Family%Full name without family and authors%Authors
+  recorded_at: 2019-08-13 17:30:59 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.4.0

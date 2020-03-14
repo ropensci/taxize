@@ -12,9 +12,19 @@
 \alias{get_boldid_}
 \title{Get the BOLD (Barcode of Life) code for a search term.}
 \usage{
-get_boldid(searchterm, fuzzy = FALSE, dataTypes = "basic",
-  includeTree = FALSE, ask = TRUE, verbose = TRUE, rows = NA,
-  rank = NULL, division = NULL, parent = NULL, ...)
+get_boldid(
+  searchterm,
+  fuzzy = FALSE,
+  dataTypes = "basic",
+  includeTree = FALSE,
+  ask = TRUE,
+  messages = TRUE,
+  rows = NA,
+  rank = NULL,
+  division = NULL,
+  parent = NULL,
+  ...
+)
 
 as.boldid(x, check = TRUE)
 
@@ -30,16 +40,24 @@ as.boldid(x, check = TRUE)
 
 \method{as.data.frame}{boldid}(x, ...)
 
-get_boldid_(searchterm, verbose = TRUE, fuzzy = FALSE,
-  dataTypes = "basic", includeTree = FALSE, rows = NA, ...)
+get_boldid_(
+  searchterm,
+  messages = TRUE,
+  fuzzy = FALSE,
+  dataTypes = "basic",
+  includeTree = FALSE,
+  rows = NA,
+  ...
+)
 }
 \arguments{
-\item{searchterm}{character; A vector of common or scientific names.}
+\item{searchterm}{character; A vector of common or scientific names. Or,
+a \code{taxon_state} object (see \link{taxon-state})}
 
 \item{fuzzy}{(logical) Whether to use fuzzy search or not (default: FALSE).}
 
 \item{dataTypes}{(character) Specifies the datatypes that will be returned.
-See \code{\link{bold_search}} for options.}
+See \code{\link[=bold_search]{bold_search()}} for options.}
 
 \item{includeTree}{(logical) If TRUE (default: FALSE), returns a list
 containing information for parent taxa as well as the specified taxon.}
@@ -48,14 +66,14 @@ containing information for parent taxa as well as the specified taxon.}
 If TRUE and more than one TSN is found for teh species, the user is asked for
 input. If FALSE NA is returned for multiple matches.}
 
-\item{verbose}{logical; should progress be printed?}
+\item{messages}{logical; should progress be printed?}
 
 \item{rows}{numeric; Any number from 1 to infinity. If the default NA, all rows are
 considered. Note that this function still only gives back a boldid class object with one
-to many identifiers. See \code{\link[taxize]{get_boldid_}} to get back all, or a subset,
+to many identifiers. See \code{\link[=get_boldid_]{get_boldid_()}} to get back all, or a subset,
 of the raw data that you are presented during the ask process.}
 
-\item{rank}{(character) A taxonomic rank name. See \code{\link{rank_ref}} for possible
+\item{rank}{(character) A taxonomic rank name. See \code{\link[=rank_ref]{rank_ref()}} for possible
 options. Though note that some data sources use atypical ranks, so inspect the
 data itself for options. Optional. See \code{Filtering} below.}
 
@@ -65,12 +83,12 @@ below.}
 \item{parent}{(character) A parent name (i.e., the parent of the target search
 taxon). Optional. See \code{Filtering} below.}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}}
 
-\item{x}{Input to \code{\link{as.boldid}}}
+\item{x}{Input to \code{\link[=as.boldid]{as.boldid()}}}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only used in
-\code{\link{as.boldid}}}
+\code{\link[=as.boldid]{as.boldid()}}}
 }
 \value{
 A vector of taxonomic identifiers as an S3 class.
@@ -88,11 +106,11 @@ Get the BOLD (Barcode of Life) code for a search term.
 }
 \section{Filtering}{
 
-The parameters \code{division}, \code{parent}, and \code{rank} are not
-used in the search to the data provider, but are used in filtering the data down to a
-subset that is closer to the target you want.  For all these parameters,
-you can use regex strings since we use \code{\link{grep}} internally to match.
-Filtering narrows down to the set that matches your query, and removes the rest.
+The parameters \code{division}, \code{parent}, and \code{rank} are not used in the search to
+the data provider, but are used in filtering the data down to a subset that
+is closer to the target you want.  For all these parameters, you can use
+regex strings since we use \code{\link[=grep]{grep()}} internally to match. Filtering narrows
+down to the set that matches your query, and removes the rest.
 }
 
 \examples{
@@ -101,7 +119,7 @@ get_boldid(searchterm = "Agapostemon")
 get_boldid(searchterm = "Chironomus riparius")
 get_boldid(c("Chironomus riparius","Quercus douglasii"))
 splist <- names_list('species')
-get_boldid(splist, verbose=FALSE)
+get_boldid(splist, messages=FALSE)
 
 # Fuzzy searching
 get_boldid(searchterm="Osmi", fuzzy=TRUE)
@@ -112,11 +130,13 @@ get_boldid(searchterm="Osmi", fuzzy=TRUE, rows = 1:10)
 get_boldid(searchterm=c("Osmi","Aga"), fuzzy=TRUE, rows = 1)
 get_boldid(searchterm=c("Osmi","Aga"), fuzzy=TRUE, rows = 1:3)
 
+# found
+get_boldid('Epicordulia princeps')
+get_boldid('Arigomphus furcifer')
+
 # When not found
 get_boldid("howdy")
 get_boldid(c("Chironomus riparius", "howdy"))
-get_boldid('Epicordulia princeps')
-get_boldid('Arigomphus furcifer')
 get_boldid("Cordulegaster erronea")
 get_boldid("Nasiaeshna pentacantha")
 
@@ -125,8 +145,8 @@ get_boldid("Nasiaeshna pentacantha")
 ### Results w/o narrowing
 get_boldid("Satyrium")
 ### w/ phylum
-get_boldid("Satyrium", division = "Plants")
-get_boldid("Satyrium", division = "Animals")
+get_boldid("Satyrium", division = "Plantae")
+get_boldid("Satyrium", division = "Animalia")
 
 ## Rank example
 get_boldid("Osmia", fuzzy = TRUE)
@@ -162,13 +182,21 @@ get_boldid_(c("Osmi","Aga"), fuzzy=TRUE, rows = 1:3)
 }
 }
 \seealso{
-\code{\link[taxize]{classification}}
+\code{\link[=classification]{classification()}}
 
-Other taxonomic-ids: \code{\link{get_colid}},
-  \code{\link{get_eolid}}, \code{\link{get_gbifid}},
-  \code{\link{get_ids}}, \code{\link{get_iucn}},
-  \code{\link{get_natservid}}, \code{\link{get_nbnid}},
-  \code{\link{get_tolid}}, \code{\link{get_tpsid}},
-  \code{\link{get_tsn}}, \code{\link{get_uid}},
-  \code{\link{get_wiki}}, \code{\link{get_wormsid}}
+Other taxonomic-ids: 
+\code{\link{get_eolid}()},
+\code{\link{get_gbifid}()},
+\code{\link{get_ids}()},
+\code{\link{get_iucn}()},
+\code{\link{get_natservid}()},
+\code{\link{get_nbnid}()},
+\code{\link{get_pow}()},
+\code{\link{get_tolid}()},
+\code{\link{get_tpsid}()},
+\code{\link{get_tsn}()},
+\code{\link{get_uid}()},
+\code{\link{get_wiki}()},
+\code{\link{get_wormsid}()}
 }
+\concept{taxonomic-ids}

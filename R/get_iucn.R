@@ -1,39 +1,39 @@
 #' Get a IUCN Redlist taxon
 #'
 #' @export
-#' @param x (character) A vector of common or scientific names
-#' @param verbose logical; should progress be printed?
+#' @param x (character) A vector of common or scientific names. Or, a
+#' `taxon_state` object (see [taxon-state])
+#' @param messages logical; should progress be printed?
 #' @param key (character) required. you IUCN Redlist API key. See
-#' \code{\link[rredlist]{rredlist-package}} for help on authenticating with
+#' [rredlist::rredlist-package] for help on authenticating with
 #' IUCN Redlist
 #' @param check (logical) Check if ID matches any existing on the DB, only
-#' used in \code{\link{as.iucn}}
+#' used in [as.iucn()]
 #' @param ... Ignored
 #'
 #' @return A vector of taxonomic identifiers as an S3 class.
 #'
 #' Comes with the following attributes:
-#' \itemize{
-#'  \item \emph{match} (character) - the reason for NA, either 'not found',
-#'  'found' or if \code{ask = FALSE} then 'NA due to ask=FALSE')
-#'  \item \emph{name} (character) - the taxonomic name, which is needed in
-#'  \code{\link{synonyms}} and \code{\link{sci2comm}} methods since they
+#' 
+#' * *match* (character) - the reason for NA, either 'not found',
+#'  'found' or if `ask = FALSE` then 'NA due to ask=FALSE')
+#' * *name* (character) - the taxonomic name, which is needed in
+#'  [synonyms()] and [sci2comm()] methods since they
 #'  internally use \pkg{rredlist} functions which require the taxonomic name,
 #'  and not the taxonomic identifier
-#'  \item \emph{uri} (character) - The URI where more information can be
+#' * *ri* (character) - The URI where more information can be
 #'  read on the taxon - includes the taxonomic identifier in the URL somewhere
-#' }
 #'
-#' \emph{multiple_matches} and \emph{pattern_match} do not apply here as in
-#' other \code{get_*} methods since there is no IUCN Redlist search,
-#' so you either get a match or you do not get a match.
+#' *multiple_matches* and *pattern_match* do not apply here as in other `get_*`
+#' methods since there is no IUCN Redlist search, so you either get a match or
+#' you do not get a match.
 #'
 #' @details There is no underscore method, because there's no real
 #' search for IUCN, that is, where you search for a string, and get back
 #' a bunch of results due to fuzzy matching. If that exists in the future
 #' we'll add an underscore method here.
 #'
-#' IUCN ids only work with \code{\link{synonyms}} and \code{\link{sci2comm}}
+#' IUCN ids only work with [synonyms()] and [sci2comm()]
 #' methods.
 #'
 #' @family taxonomic-ids
@@ -50,15 +50,30 @@
 #' data.frame(res)
 #' as.iucn(data.frame(res))
 #' }
-get_iucn <- function(x, verbose = TRUE, key = NULL, ...) {
+get_iucn <- function(x, messages = TRUE, key = NULL, ...) {
 
-  assert(x, "character")
-  assert(verbose, "logical")
+  assert(x, c("character", "taxon_state"))
+  assert(messages, "logical")
 
-  fun <- function(x, verbose, key, ...) {
+  if (inherits(x, "character")) {
+    tstate <- taxon_state$new(class = "iucn", names = x)
+    items <- x
+  } else {
+    assert_state(x, "iucn")
+    tstate <- x
+    x <- tstate$taxa_remaining()
+    items <- c(x, tstate$taxa_completed())
+  }
+
+  prog <- progressor$new(items = items, suppress = !messages)
+  done <- tstate$get()
+  for (i in seq_along(done)) prog$completed(names(done)[i], done[[i]]$att)
+  prog$prog_start()
+
+  for (i in seq_along(x)) {
     direct <- FALSE
-    mssg(verbose, "\nRetrieving data for taxon '", x, "'\n")
-    df <- rredlist::rl_search(x, key = key, ...)
+    mssg(messages, "\nRetrieving data for taxon '", x[i], "'\n")
+    df <- rredlist::rl_search(x[i], key = key, ...)
 
     if (!inherits(df$result, "data.frame") || NROW(df$result) == 0) {
       id <- NA_character_
@@ -69,41 +84,37 @@ get_iucn <- function(x, verbose = TRUE, key = NULL, ...) {
 
       # should return NA if species not found
       if (NROW(df) == 0) {
-        mssg(verbose, tx_msg_not_found)
+        mssg(messages, tx_msg_not_found)
         id <- NA_character_
-        att <- 'not found'
+        att <- "not found"
       }
 
       # check for direct match
-      direct <- match(tolower(df$scientific_name), tolower(x))
+      direct <- match(tolower(df$scientific_name), tolower(x[i]))
 
       if (!all(is.na(direct))) {
         id <- df$taxonid[!is.na(direct)]
         direct <- TRUE
-        att <- 'found'
+        att <- "found"
       } else {
         direct <- FALSE
         id <- df$taxonid
-        att <- 'found'
+        att <- "found"
       }
       # multiple matches not possible because no real search
     }
-
-    data.frame(
-      id = id,
-      name = x,
-      att = att,
-      stringsAsFactors = FALSE)
+    res <- list(id = id, name = x[i], att = att, direct = direct)
+    prog$completed(x[i], att)
+    prog$prog(att)
+    tstate$add(x[i], res)
   }
-  outd <- ldply(x, fun, verbose = verbose, key = key, ...)
-  out <- outd$id
-  attr(out, 'match') <- outd$att
-  attr(out, 'name') <- outd$name
-  if ( !all(is.na(out)) ) {
-    attr(out, 'uri') <- sprintf("http://www.iucnredlist.org/details/%s/0", out)
-  }
-  class(out) <- "iucn"
-  return(out)
+  out <- tstate$get()
+  ids <- structure(as.character(unlist(pluck(out, "id"))), class = "iucn",
+                   match = pluck_un(out, "att", ""),
+                   name = pluck_un(out, "name", ""))
+  on.exit(prog$prog_summary(), add = TRUE)
+  on.exit(tstate$exit, add = TRUE)
+  add_uri(ids, get_url_templates$iucn)
 }
 
 #' @export
@@ -161,15 +172,17 @@ as.data.frame.iucn <- function(x, ...){
 }
 
 make_iucn <- function(x, check = TRUE, key = NULL) {
-  url <- 'http://www.iucnredlist.org/details/%s/0'
-  make_iucn_generic(x, uu = url, clz = "iucn", check, key)
+  make_iucn_generic(x, uu = iucn_base_url, clz = "iucn", check, key)
 }
 
 check_iucn <- function(x) {
-  tt <- httr::GET(sprintf("http://www.iucnredlist.org/details/%s/0", x))
+  cli <- crul::HttpClient$new(sprintf(iucn_base_url, x), headers = tx_ual)
+  tt <- cli$get()
   tt$status_code == 200
 }
 
 check_iucn_getname <- function(x, key = NULL) {
   rredlist::rl_search(id = as.numeric(x), key = key)
 }
+
+iucn_base_url <- "https://www.iucnredlist.org/details/%s/0"

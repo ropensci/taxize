@@ -10,14 +10,15 @@
 #' and many other things.
 #'
 #' The functions in the package that hit a specific API have a prefix and suffix
-#' separated by an underscore. They follow the format of \code{service_whatitdoes}.
-#' For example, \code{gnr_resolve} uses the Global Names Resolver API to resolve
+#' separated by an underscore. They follow the format of `service_whatitdoes`.
+#' For example, `gnr_resolve` uses the Global Names Resolver API to resolve
 #' species names.
 #'
 #' General functions in the package that don't hit a specific API don't have
-#' two words separated by an underscore, e.g., \code{classification}
+#' two words separated by an underscore, e.g., `classification`
 #'
-#' You need API keys for Encyclopedia of Life (EOL), and Tropicos.
+#' You need API keys for some data sources. See [taxize-authentication]
+#' for more information.
 #'
 #' @section Currently supported APIs:
 #'
@@ -31,7 +32,6 @@
 #' IUCN Red List \tab iucn \tab FALSE \cr
 #' Tropicos (from Missouri Botanical Garden) \tab tp \tab FALSE \cr
 #' Theplantlist.org \tab tpl \tab FALSE \cr
-#' Catalogue of Life \tab col \tab FALSE \cr
 #' National Center for Biotechnology Information \tab ncbi \tab FALSE \cr
 #' CANADENSYS Vascan name search API \tab vascan \tab FALSE \cr
 #' International Plant Names Index (IPNI) \tab ipni \tab FALSE \cr
@@ -48,25 +48,31 @@
 #' NatureServe \tab natserv \tab FALSE \cr
 #' }
 #'
-#' If the source above has a \code{TRUE} in the \code{SOAP?} column, it is not available
-#' in this package. They are available from a different package called \strong{taxizesoap}.
-#' See the GitHub repo for how to install \url{https://github.com/ropensci/taxizesoap}
+#' If the source above has a `TRUE` in the `SOAP?` column, it is not available
+#' in this package. They are available from a different package called **taxizesoap**.
+#' See the GitHub repo for how to install <https://github.com/ropensci/taxizesoap>
+#' 
+#' @section Catalogue of Life (COL):
+#' COL introduced rate limiting recently in 2019 - which has made the API
+#' essentially unusable - CoL+ is coming soon and we'll incorporate it here
+#' when it's stable. See https://github.com/ropensci/colpluz for the
+#' R implementation for CoL+
 #'
 #' @importFrom graphics plot
 #' @importFrom methods as is
-#' @importFrom stats as.dist hclust na.omit setNames aggregate
+#' @importFrom stats as.dist hclust na.omit setNames aggregate complete.cases
+#' @importFrom crul HttpClient HttpRequest AsyncVaried upload
+#' @importFrom zoo na.locf
 #' @importFrom utils URLencode citation download.file read.delim write.table tail
 #' @importFrom ape read.tree as.phylo.hclust plot.phylo
 #' @importFrom jsonlite fromJSON toJSON
-#' @importFrom httr GET POST content stop_for_status upload_file warn_for_status
-#' add_headers timeout config
-#' @importFrom data.table rbindlist setDF
+#' @importFrom data.table rbindlist setDF transpose melt dcast as.data.table
 #' @importFrom foreach foreach %do%
-#' @importFrom stringr str_extract str_split str_replace str_replace_all
-#' @importFrom plyr failwith rbind.fill llply ldply ddply l_ply summarise colwise .
-#' @importFrom reshape2 melt dcast
 #' @importFrom xml2 xml_text xml_find_first xml_find_all xml_children read_xml
 #' xml_name xml_ns as_list
+#' @importFrom R6 R6Class
+#' @importFrom crayon style
+#' @importFrom cli symbol cat_line rule
 #' @name taxize-package
 #' @aliases taxize
 #' @docType package
@@ -83,20 +89,18 @@ NULL
 
 #' Lookup-table for IDs of taxonomic ranks
 #'
-#' data.frame of 36 rows, with 2 columns:
-#' \itemize{
-#'  \item rankid - a numeric rank id, consecutive
-#'  \item ranks - a comma separated vector of names that are considered
+#' data.frame of 43 rows, with 2 columns:
+#' * rankid - a numeric rank id, consecutive
+#' * ranks - a comma separated vector of names that are considered
 #'  equal to one another within the row
-#' }
 #'
 #' We use this data.frame to do data sorting/filtering based on the ordering
 #' of ranks.
 #'
 #' Please let us know if there is a rank that occurs from one of the data
-#' sources \pkg{taxize} that we don't have in \code{rank_ref} dataset.
+#' sources \pkg{taxize} that we don't have in `rank_ref` dataset.
 #'
-#' Also let us know if you disagree with the ordering of ranks.
+#' Let us know if you disagree with the ordering of ranks.
 #'
 #' @name rank_ref
 #' @docType data
@@ -107,16 +111,16 @@ NULL
 #'
 #' These names are from http://www.theplantlist.org, and are from
 #' version 1.1 of their data. This data is used in the function
-#' \code{\link{names_list}}. This is a randomly selected subset of the ~350K
+#' [names_list()]. This is a randomly selected subset of the ~350K
 #' accepted species names in Theplantlist.
 #'
 #' @format A data frame with 10,000 rows and 3 variables:
-#' \describe{
-#'   \item{family}{family name}
-#'   \item{genus}{genus name}
-#'   \item{species}{specific epithet name}
-#' }
-#' @source http://www.theplantlist.org
+#' 
+#'   * `family` family name
+#'   * `genus` genus name
+#'   * `species` specific epithet name
+#' 
+#' @source <http://www.theplantlist.org>
 #' @name theplantlist
 #' @docType data
 #' @keywords data
@@ -130,13 +134,13 @@ NULL
 #' This dataset is from Version 13, incorporated on 2015-04-29.
 #'
 #' @format A data frame with 1597 rows and 4 variables:
-#' \describe{
-#'   \item{original}{original data record from APG website}
-#'   \item{this}{Order name}
-#'   \item{that}{Replacement order name}
-#'   \item{order}{Order name}
-#' }
-#' @source \url{http://www.mobot.org/MOBOT/research/APweb/}
+#' 
+#'   * `original` original data record from APG website
+#'   * `this` Order name
+#'   * `that` Replacement order name
+#'   * `order` Order name
+#' 
+#' @source <http://www.mobot.org/MOBOT/research/APweb/>
 #' @name apg_families
 #' @docType data
 #' @keywords data
@@ -150,12 +154,12 @@ NULL
 #' This dataset is from Version 13, incorporated on 2015-04-29.
 #'
 #' @format A data frame with 494 rows and 3 variables:
-#' \describe{
-#'   \item{original}{original data record from APG website}
-#'   \item{this}{Order name}
-#'   \item{that}{Replacement order name}
-#' }
-#' @source \url{http://www.mobot.org/MOBOT/research/APweb/}
+#' 
+#'   * `original` original data record from APG website
+#'   * `this` Order name
+#'   * `that` Replacement order name
+#' 
+#' @source <http://www.mobot.org/MOBOT/research/APweb/>
 #' @name apg_orders
 #' @docType data
 #' @keywords data
@@ -188,44 +192,106 @@ NULL
 #' @keywords data
 NULL
 
+#' WORMS ranks
+#'
+#' Created using `worrms::wm_ranks_id(-1)` on 2020-02-11.
+#'
+#' Present in taxize in the case where WORMS does not
+#' return rank names - with this dataset we can fill
+#' in rank information as long as rank ids are returned
+#'
+#' @format A data frame with 216 rows and 2 variables:
+#'
+#'   * `id`: rank id
+#'   * `rank`: rank name
+#'
+#' @name worrms_ranks
+#' @docType data
+#' @keywords data
+NULL
+
 #' Defunct functions in taxize
 #'
 #' The following functions are now defunct (no longer available):
-#'
-#' \itemize{
-#'  \item \code{\link{col_classification}}: See \code{\link{classification}}
-#'  \item \code{\link{eol_hierarchy}}: See \code{\link{classification}}
-#'  \item \code{\link{tp_classification}}: See \code{\link{classification}}
-#'  \item \code{\link{tpl_search}}: Use the \pkg{Taxonstand} functions
-#'  \code{TPL} or \code{TPLck} directly.
-#'  \item \code{\link{get_seqs}}: This function changed name to \code{\link{ncbi_getbyname}}.
-#'  \item \code{\link{get_genes}}: This function changed name to \code{\link{ncbi_getbyid}}.
-#'  \item \code{\link{get_genes_avail}}: This function changed name to \code{\link{ncbi_search}}.
-#'  \item \code{\link{ncbi_getbyname}}: See \code{ncbi_byname} in the \pkg{traits} package.
-#'  \item \code{\link{ncbi_getbyid}}: See \code{ncbi_byid} in the \pkg{traits} package.
-#'  \item \code{\link{ncbi_search}}: See \code{ncbi_searcher} in the \pkg{traits} package.
-#'  \item \code{\link{eol_invasive}}: See \code{eol} in the \pkg{originr} package.
-#'  \item \code{\link{gisd_isinvasive}}: See \code{gisd} in the \pkg{originr} package.
-#'  \item \code{\link{ubio_classification}}:  The uBio web services was down for quite a while, is
+#' * All COL functions are defunct: `as.colid, `col_children`,
+#' `col_classification`, `col_downstream`, `col_search`, `get_colid`,
+#' `get_colid_`, `as.data.frame.colid`, `children.colid`,
+#' `classification.colid`, `downstream.colid`, `id2name.colid`,
+#' `lowest_common.colid`, `synonyms.colid`, `upstream.colid`
+#' * `col_classification()`: See`classification()`
+#' * `tp_classification()`: See`classification()`
+#' * `eol_hierarchy()`: See`classification()`
+#' * [eol_invasive()]: See `eol` in the \pkg{originr} package.
+#' * [use_eol()]: EOL no longer requires an API key
+#' * [tpl_search()]: Use the \pkg{Taxonstand} functions `TPL` or `TPLck` directly.
+#' * [get_seqs()]: This function changed name to`ncbi_getbyname()`()].
+#' * [get_genes()]: This function changed name to`ncbi_getbyid()`()].
+#' * [get_genes_avail()]: This function changed name to`ncbi_search()`()].
+#' * [ncbi_getbyname()]: See `ncbi_byname` in the \pkg{traits} package.
+#' * [ncbi_getbyid()]: See `ncbi_byid` in the \pkg{traits} package.
+#' * [ncbi_search()]: See `ncbi_searcher` in the \pkg{traits} package.
+#' * [gisd_isinvasive()]: See `gisd` in the \pkg{originr} package.
+#' * [ubio_classification()]:  The uBio web services was down for quite a while, is
 #'  now (as of 2016-05-09) back up, but we don't trust that it will stay up and available.
-#'  \item \code{\link{ubio_classification_search}}: The uBio web services was down for quite
+#' * [ubio_classification_search()]: The uBio web services was down for quite
 #'  a while, is now (as of 2016-05-09) back up, but we don't trust that it will stay up
 #'  and available.
-#'  \item \code{\link{ubio_id}}: The uBio web services was down for quite a while, is
+#' * [ubio_id()]: The uBio web services was down for quite a while, is
 #'  now (as of 2016-05-09) back up, but we don't trust that it will stay up and available.
-#'  \item \code{\link{ubio_ping}}:  The uBio web services was down for quite a while, is
+#' * [ubio_ping()]:  The uBio web services was down for quite a while, is
 #'  now (as of 2016-05-09) back up, but we don't trust that it will stay up and available.
-#'  \item \code{\link{ubio_search}}:  The uBio web services was down for quite a while, is
+#' * [ubio_search()]:  The uBio web services was down for quite a while, is
 #'  now (as of 2016-05-09) back up, but we don't trust that it will stay up and available.
-#'  \item \code{\link{ubio_synonyms}}:  The uBio web services was down for quite a while, is
+#' * [ubio_synonyms()]:  The uBio web services was down for quite a while, is
 #'  now (as of 2016-05-09) back up, but we don't trust that it will stay up and available.
-#'  \item \code{\link{get_ubioid}}: The uBio web services are apparently down indefinitely.
-#'  \item \code{\link{phylomatic_tree}}: This function is defunct. See
-#'  \code{phylomatic} in the package \pkg{brranching}
-#'  \item \code{\link{phylomatic_format}}: This function is defunct. See
-#'  \code{phylomatic_names} in the package \pkg{brranching}
-#' }
+#' * [get_ubioid()]: The uBio web services are apparently down indefinitely.
+#' * [phylomatic_tree()]: This function is defunct. See
+#'  `phylomatic` in the package \pkg{brranching}
+#' * [phylomatic_format()]: This function is defunct. See
+#'  `phylomatic_names` in the package \pkg{brranching}
+#' * [iucn_summary_id()]: This function is defunct. Use [iucn_summary()]
+#' * [eubon()]: This function is defunct. Use [eubon_search()]
 #'
 #' @name taxize-defunct
 #' @aliases defunct
+NULL
+
+#' Species names from Species Plantarum
+#'
+#' These names have been compiled from
+#' [*Species Plantarum*](https://en.wikipedia.org/wiki/Species_Plantarum) by
+#' [Carl Linnaeus](https://en.wikipedia.org/wiki/Carl_Linnaeus) originally
+#' published in 1753. It is the first work to consistently apply
+#' [binomial names](https://en.wikipedia.org/wiki/Binomial_nomenclature)
+#' and was the starting point for the naming of plants. The book lists every
+#' species of plant known at the time, classified into
+#' [genera](https://en.wikipedia.org/wiki/Genus). The dataset provides a
+#' useful reference point to see how taxonomic names have changed since their
+#' inception. The names were transcribed by Robert W. Kiger.
+#'
+#' @format A data frame with 5940 rows and 3 variables:
+#' 
+#' - genus First part of the binomial species name for each species
+#' within the [genus](https://en.wikipedia.org/wiki/Genus)
+#' 
+#' - epithet specific epithet or second part of the binomial species name
+#'   for each [species](https://en.wikipedia.org/wiki/Species)
+#' 
+#' - page_number The following abbreviations sometimes are used in the
+#'   page_number field.  
+#'     - "add." refers to addenda that appear on the unnumbered last page of
+#'       the index in volume two.
+#'     - "err." refers to the unnumbered page of errata that appears following
+#'       the index in volume two.
+#'     - "canc." following a page number indicates that the binomial appeared
+#'       on the cancelled version of that page and does not appear on its
+#'       replacement (as in the 1957-1959 facsimile edition.
+#' 
+#' @source [Hunt Institute for Botanical Documentation](http://fmhibd.library.cmu.edu/HIBD-DB/Species/home.php)
+#' @name species_plantarum_binomials
+#' @references Linnaeus, C. 1753. Species Plantarum. 2 vols. Salvius, Stockholm.
+#'   \[Facsimile edition, 1957-1959, Ray Society, London.\]
+#' @author Carl Linnaeus
+#' @docType data
+#' @keywords data
 NULL

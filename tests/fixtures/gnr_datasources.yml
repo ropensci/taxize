@@ -1,0 +1,663 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://resolver.globalnames.org/data_sources.json
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.4.9315 rOpenSci(taxize/0.9.7.9921)
+      X-USER-AGENT: r-curl/3.3 crul/0.7.4.9315 rOpenSci(taxize/0.9.7.9921)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.2
+      date: Wed, 26 Jun 2019 18:36:47 GMT
+      content-type: application/json; charset=utf-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      x-ua-compatible: IE=Edge,chrome=1
+      etag: '"90a4e2f8ce6fb92ec5a0bdba6589e589"'
+      cache-control: max-age=0, private, must-revalidate
+      x-request-id: 69f3fa22964d46acaf386ed5780f26a0
+      x-runtime: '0.029374'
+      x-rack-cache: miss
+      x-varnish: '8024867'
+      age: '0'
+      via: 1.1 varnish (Varnish/6.0)
+      access-control-allow-origin: '*'
+      access-control-allow-credentials: 'true'
+      accept-ranges: bytes
+    body:
+      encoding: UTF-8
+      string: '[{"created_at":"2012-07-06T11:36:36Z","data_hash":null,"data_url":null,"description":"[\"This
+        release of the Catalogue of Life contains contributions from 169 databases
+        with information on 1,803,488 species, 158,708 infraspecific taxa and also
+        includes 1,638,520 synonyms and 428,289 common names covering the following
+        groups:\", \"Viruses * Viruses and Subviral agents from ICTV_MSL\\nBacteria
+        and Archaea from BIOS\\nChromista * Chromistan fungi from Species Fungorum\\nProtozoa
+        * Major groups from ITIS Regional, * Ciliates from CilCat, * Polycystines
+        from WoRMS Polycystina UPDATED!, * Protozoan fungi from Species Fungorum and
+        Trichomycetes database * Slime moulds from Nomen.eumycetozoa.com\\nFungi *
+        Various taxa in whole or in part from CABI Bioservices databases (Species
+        Fungorum, Phyllachorales, Rhytismatales, Saccharomycetes and Zygomycetes databases)
+        and from three other databases covering Xylariaceae, Glomeromycota, Trichomycetes,
+        Dothideomycetes * Lichens from LIAS\\nPlantae (Plants) * Mosses from MOST
+        * Liverworts and hornworts from ELPT * Conifers from Conifer Database * Cycads
+        and 6 flowering plant families from IOPI-GPC, and 99 families from WCSP *
+        Plus individual flowering plants families from AnnonBase, Brassicaceae, ChenoBase,
+        Droseraceae Database, EbenaBase, GCC, ILDIS, LecyPages, LHD, MELnet, RJB Geranium,
+        Solanaceae Source, Umbellifers.\\nAnimalia (Animals) * Marine groups from
+        URMO, ITIS Global, Hexacorals, ETI WBD (Euphausiacea), WoRMS: WoRMS Asteroidea
+        UPDATED!, WoRMS Bochusacea UPDATED!, WoRMS Brachiopoda UPDATED!, WoRMS Brachypoda
+        UPDATED!, WoRMS Brachyura UPDATED!, WoRMS Bryozoa UPDATED!, WoRMS Cestoda
+        UPDATED!, WoRMS Chaetognatha UPDATED!, WoRMS Cumacea UPDATED!, WoRMS Echinoidea
+        UPDATED!, WoRMS Gastrotricha UPDATED!, WoRMS Gnathostomulida UPDATED!, WoRMS
+        Holothuroidea UPDATED!, WoRMS Hydrozoa UPDATED!, WoRMS Isopoda UPDATED!, WoRMS
+        Leptostraca UPDATED!, WoRMS Monogenea UPDATED!, WoRMS Mystacocarida UPDATED!,
+        WoRMS Myxozoa UPDATED!, WoRMS Nemertea UPDATED!, WoRMS Oligochaeta UPDATED!,
+        WoRMS Ophiuroidea UPDATED!, WoRMS Phoronida UPDATED!, WoRMS Placozoa UPDATED!,
+        WoRMS Polychaeta UPDATED!, WoRMS Polycystina UPDATED!, WoRMS Porifera UPDATED!,
+        WoRMS Priapulida UPDATED!, WoRMS Proseriata-Kalyptorhynchia UPDATED!, WoRMS
+        Remipedia UPDATED!, WoRMS Scaphopoda UPDATED!, WoRMS Tanaidacea UPDATED!,
+        WoRMS Tantulocarida UPDATED!, WoRMS Thermosbaenacea UPDATED!, WoRMS Trematoda
+        UPDATED!, WoRMS Xenoturbellida UPDATED! * Rotifers, mayflies, freshwater hairworms,
+        planarians from FADA databases: FADA Rotifera, FADA Ephemeroptera, FADA Nematomorpha
+        & FADA Turbellaria * Entoprocts, water bears from ITIS Global * Spiders, scorpions,
+        ticks & mites from SpidCat via ITIS, SalticidDB , ITIS Global, TicksBase,
+        SpmWeb BdelloideaBase UPDATED! & Mites GSDs: OlogamasidBase, PhytoseiidBase,
+        RhodacaridBase & TenuipalpidBase * Diplopods, centipedes, pauropods and symphylans
+        from SysMyr UPDATED! & ChiloBase * Dragonflies and damselflies from Odonata
+        database * Stoneflies from PlecopteraSF * Cockroaches from BlattodeaSF * Praying
+        mantids from MantodeaSF * Stick and leaf insects from PhasmidaSF * Grasshoppers,
+        locusts, katydids and crickets from OrthopteraSF * Webspinners from EmbiopteraSF
+        * Bark & parasitic lices from PsocodeaSF * Some groups of true bugs from ScaleNet,
+        FLOW, COOL, Psyllist, AphidSF , MBB, 3i Cicadellinae, 3i Typhlocybinae, MOWD
+        & CoreoideaSF* Twisted-wing parasites from Strepsiptera Database * Lacewings,
+        antlions, owlflies, fishflies, dobsonflies & snakeflies from LDL Neuropterida
+        * Some beetle groups from the Scarabs UPDATED!, TITAN, WTaxa & ITIS Global
+        * Fleas from Parhost * Flies, mosquitoes, bots, midges and gnats from Systema
+        Dipterorum, CCW & CIPA * Butterflies and moths from LepIndex, GloBIS (GART),
+        Tineidae NHM, World Gracillariidae * Bees & wasps from ITIS Bees, Taxapad
+        Ichneumonoidea, UCD, ZOBODAT Vespoidea & HymIS Rhopalosomatidae* Molluscs
+        from WoRMS Mollusca UPDATED!, FADA Bivalvia, MolluscaFW & AFD (Pulmonata)
+        * Fishes from FishBase * Reptiles from ReptileDB UPDATED! * Amphibians, birds
+        and mammals from ITIS Global PLUS additional species of many groups from ITIS
+        Regional, NZIB and CoL China\"]","id":1,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Catalogue
+        of Life","unique_names_count":0,"updated_at":"2018-07-16T18:31:45Z","web_site_url":null},{"created_at":"2012-07-06T11:38:14Z","data_hash":null,"data_url":null,"description":"The
+        free species directory that anyone can edit.","id":2,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Wikispecies","unique_names_count":0,"updated_at":"2016-06-28T22:17:44Z","web_site_url":null},{"created_at":"2012-02-09T10:31:13Z","data_hash":null,"data_url":null,"description":"The
+        White House Subcommittee on Biodiversity and Ecosystem Dynamics has identified
+        systematics as a research priority that is fundamental to ecosystem management
+        and biodiversity conservation. This primary need identified by the Subcommittee
+        requires improvements in the organization of, and access to, standardized
+        nomenclature. ITIS (originally referred to as the Interagency Taxonomic Information
+        System) was designed to fulfill these requirements. In the future, the ITIS
+        will provide taxonomic data and a directory of taxonomic expertise that will
+        support the system","id":3,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"ITIS","unique_names_count":0,"updated_at":"2018-07-05T18:37:29Z","web_site_url":null},{"created_at":"2012-02-09T10:47:55Z","data_hash":null,"data_url":null,"description":"The
+        National Center for Biotechnology Information advances science and health
+        by providing access to biomedical and genomic information.","id":4,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"NCBI","unique_names_count":0,"updated_at":"2018-07-05T21:26:56Z","web_site_url":null},{"created_at":"2012-02-09T11:16:43Z","data_hash":null,"data_url":null,"description":"Classification
+        of Fungi","id":5,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Index
+        Fungorum","unique_names_count":0,"updated_at":"2012-02-09T06:28:49Z","web_site_url":null},{"created_at":"2012-02-09T11:28:38Z","data_hash":null,"data_url":null,"description":"GRIN
+        taxonomic data provide the structure and nomeclature for accessions of the
+        National Plant Germplasm System (NPGS), part of the National Genetic Resources
+        Program (NGRP) of the United States Department of Agriculture''s (USDA''s)
+        Agricultural Research Service (ARS). In GRIN Taxonomy for Plants all families
+        and genera of vascular plants and over 46,000 species from throughout the
+        world are represented, especially economic plants and their relatives. Information
+        on scientific and common names, classification, distribution, references,
+        and economic impacts are provided.","id":6,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"GRIN
+        Taxonomy for Plants","unique_names_count":0,"updated_at":"2012-02-09T06:29:53Z","web_site_url":null},{"created_at":"2012-02-09T11:32:18Z","data_hash":null,"data_url":null,"description":"This
+        classification seeks to include all taxa and to access all names of clades
+        including variant forms of names. It will include content developed as IRMNG,
+        and a framework developed as CU*STAR for microscope.mbl.edu that was modified
+        in eutree.lifedesks.org. It is a work in progress.","id":7,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Union
+        4","unique_names_count":0,"updated_at":"2012-08-21T16:54:48Z","web_site_url":null},{"created_at":"2012-02-09T12:08:54Z","data_hash":null,"data_url":null,"description":"The
+        Interim Register of Marine and Nonmarine Genera is a provisional (or \u2018interim\u2019)
+        compilation of genus names \u2013 including species names in many cases \u2013
+        and covers both living and extinct biota into a single system to support taxonomic
+        and other queries dealing with e.g. homonyms, authorities, parent-child relationships,
+        spelling variations and distinctions between marine and non-marine or fossil
+        and recent taxa","id":8,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"The
+        Interim Register of Marine and Nonmarine Genera","unique_names_count":0,"updated_at":"2016-10-21T20:54:21Z","web_site_url":null},{"created_at":"2012-02-09T12:40:45Z","data_hash":null,"data_url":null,"description":"An
+        authoritative classification and catalogue of marine names","id":9,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"World
+        Register of Marine Species","unique_names_count":0,"updated_at":"2018-07-05T16:31:51Z","web_site_url":null},{"created_at":"2012-02-09T12:55:04Z","data_hash":null,"data_url":null,"description":"An
+        entity graph of people, places and things, built by a community that loves
+        open data.","id":10,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Freebase","unique_names_count":0,"updated_at":"2012-08-01T14:10:26Z","web_site_url":null},{"created_at":"2012-02-09T13:01:40Z","data_hash":null,"data_url":null,"description":"The
+        GBIF Backbone Taxonomy, often called the Nub taxonomy, is a single synthetic
+        management classification with the goal of covering all names GBIF is dealing
+        with. It&#39;s the taxonomic backbone that allows GBIF to integrate name based
+        information from different resources, no matter if these are occurrence datasets,
+        species pages, names from nomenclators or external sources like EOL, Genbank
+        or IUCN. This backbone allows taxonomic search, browse and reporting operations
+        across all those resources in a consistent way and to provide means to crosswalk
+        names from one source to another. It is updated regulary through an automated
+        process in which the Catalogue of Life acts as a starting point also providing
+        the complete higher classification above families.","id":11,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"GBIF
+        Backbone Taxonomy","unique_names_count":0,"updated_at":"2017-09-20T12:41:16Z","web_site_url":null},{"created_at":"2012-02-09T15:36:33Z","data_hash":null,"data_url":null,"description":"Encyclopedia
+        of Life, page for every species on Earth","id":12,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"EOL","unique_names_count":0,"updated_at":"2012-05-08T03:02:34Z","web_site_url":null},{"created_at":"2012-02-09T18:21:08Z","data_hash":null,"data_url":null,"description":"Passiflora
+        vernacular names","id":93,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Passiflora
+        vernacular names","unique_names_count":0,"updated_at":"2012-02-09T13:21:28Z","web_site_url":null},{"created_at":"2012-02-09T18:21:09Z","data_hash":null,"data_url":null,"description":"Inventory
+        of fish fauna for use in assessing the environmental flow of the Wami River
+        Sub-Basin i.e. how much water is needed for human uses and sustaining ecological
+        integrity of the river?","id":94,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Inventory
+        of Fish Species in the Wami River Basin","unique_names_count":0,"updated_at":"2012-02-09T13:21:28Z","web_site_url":null},{"created_at":"2012-02-09T18:21:09Z","data_hash":null,"data_url":null,"description":"A
+        jouranal article that describes about the status of Phaesant species diversity
+        in the Mt. Gaologongshan region in Yunnan, P. R. China","id":95,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Pheasant
+        Diversity and Conservation in the Mt. Gaoligonshan Region","unique_names_count":0,"updated_at":"2012-02-09T13:21:29Z","web_site_url":null},{"created_at":"2012-02-09T18:21:09Z","data_hash":null,"data_url":null,"description":"Uses
+        compelling and original professional-grade photographic images, technology,
+        and on-the-ground field experience to \u201cgive a face to biodiversity,\u201d
+        promoting the conservation of threatened species and habitats.","id":96,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Finding
+        Species","unique_names_count":0,"updated_at":"2012-02-09T13:21:29Z","web_site_url":null},{"created_at":"2012-02-09T18:21:10Z","data_hash":null,"data_url":null,"description":"The
+        survey was conducted around Lindi Forests plantation mainly to identify birds
+        of the area fo better management and conservation of the forest.","id":97,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Birds
+        of Lindi Forests Plantation","unique_names_count":0,"updated_at":"2012-02-09T13:21:30Z","web_site_url":null},{"created_at":"2012-02-09T18:21:11Z","data_hash":null,"data_url":null,"description":"{}","id":98,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Nemertea","unique_names_count":0,"updated_at":"2012-02-09T13:21:31Z","web_site_url":null},{"created_at":"2012-02-09T18:21:12Z","data_hash":null,"data_url":null,"description":"This
+        is a checklist of Amphibian Species in the Kihansi Gorge in the Udzungwa Tanzania.
+        It is an important information on Biodiversity status of the Udzungwa Mountains
+        as a Mega Biodiverse Hotspot of the Eastern Arc Mountains. It contains endemic
+        and species with the risk of extinction (endangered, critically endangered,
+        extinct in the wild). The studies on amphibian species commenced with the
+        discovery of the Kihansi Spray Toad (KST) (Nectophrynoides asperginis) in
+        December 1996 and its description in 1998 (Poynton et al., 1998). To date
+        several species of amphibians in the Order Anura in Five different Families
+        have been identified to exist in the Kihansi Gorge. Unfortunately Nectophrynoides
+        asperginis went extinct in the wild mainly due to habitat alteration by the
+        Kihansi River water abstraction where water is used for Hydro power project.
+        Further studies are underway to establish the exact cause of the population
+        crash of KST in the Kihansi Gorge as one of the effort to bring back the KST
+        population in the  wild. These include the studies on Chytrid fungus, sediments
+        flush from the reservoir,agricultural pesticide residue and water quality
+        changes. Thanks to the Captive breeding programs that the species is under
+        control for reintroduction back to its original habitat. This description
+        therefore intends to report the amphibians occurring in the Kihansi Gorge
+        i.e. amphibians occurring in the Spray Wetlands, at the edges of the spray
+        wetlands as well as those appearing in other areas of the gorge. These are
+        important for testing different scientific scenarios related to KSTs disappearance
+        in the Kihansi Gorge since 2003.","id":99,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Kihansi
+        Gorge Amphibian Species Checklist","unique_names_count":0,"updated_at":"2012-02-09T13:21:32Z","web_site_url":null},{"created_at":"2012-02-09T18:21:12Z","data_hash":null,"data_url":null,"description":"Purpose:
+        record observations about mushrooms, help people identify mushrooms they aren\u2019t
+        familiar with, and expand the community around the scientific exploration
+        of mushrooms (mycology)","id":100,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Mushroom
+        Observer","unique_names_count":0,"updated_at":"2012-02-09T13:21:33Z","web_site_url":null},{"created_at":"2012-02-09T18:21:14Z","data_hash":null,"data_url":null,"description":"TaxonConcept
+        provides human and machine readable species description documents that help
+        describe the attributes and variation within a species. These documents stabilize
+        the \"meaning\" of these species identifiers to improve large scale data integration.","id":101,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"TaxonConcept","unique_names_count":0,"updated_at":"2012-02-09T13:21:34Z","web_site_url":null},{"created_at":"2012-02-09T18:21:15Z","data_hash":null,"data_url":null,"description":"A
+        book edited by Yang Datong (Chief editor) and Rao Dingqi (Deputy editor),
+        and published by Yunnan Publishing Group Corporation, Yunnan Science and Technology
+        Press, Kunming, 2008.\n\nIn this book, 115 speies of amphibinas and 162 species
+        of reptiles are described. Among them are seven new species of Frog. All of
+        the species described in the book are based on over 20,000 specimens that
+        occurs in Yunnan, described by staff of herbpetology section of Kunming Institue
+        of Zoology. The book lists amphibian and reptile species from 6 natural geographial
+        regions and 12 natural reservs of Yunnan. \n\nPreface to the book is in English.
+        Also includes 240 colour photographs.","id":102,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Amphibia
+        and Reptilia of Yunnan","unique_names_count":0,"updated_at":"2012-02-09T13:21:36Z","web_site_url":null},{"created_at":"2012-02-09T18:21:17Z","data_hash":null,"data_url":null,"description":"Common
+        names of Chilean Plants www.florachilena.cl","id":103,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Common
+        names of Chilean Plants","unique_names_count":0,"updated_at":"2012-02-09T13:21:38Z","web_site_url":null},{"created_at":"2012-07-06T11:49:07Z","data_hash":null,"data_url":null,"description":"The
+        Belgian Forum on Invasive Species (BFIS) is an informal structure animated
+        by the Belgian Biodiversity Platform where in scientists interested in biological
+        invasions are involved.","id":104,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Invasive
+        Species of Belgium","unique_names_count":0,"updated_at":"2012-02-09T13:21:39Z","web_site_url":null},{"created_at":"2012-02-09T18:21:20Z","data_hash":null,"data_url":null,"description":"ZooKeys
+        is a peer-reviewed, open-access, rapidly produced journal launched to support
+        free exchange of ideas and information in systematic zoology.","id":105,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"ZooKeys","unique_names_count":0,"updated_at":"2012-02-09T13:21:42Z","web_site_url":null},{"created_at":"2012-02-09T18:21:23Z","data_hash":null,"data_url":null,"description":"Taiwan''s
+        unique geographical location and varied topography resulted in diverse fauna
+        on this beautiful island. However, excessive land development and resource
+        utilization have incessantly squeezed the space for the survival of wildlife.
+        Wildlife conservation is not just a simple act of protection, it warrants
+        reasonable and sustainable use of natural resources.\n\nThe Wildlife Conservation
+        Act, enacted by Council of Agriculture, Executive Yuan, is an important legal
+        basis for wildlife management and habitat protection. Its purpose is to maintain
+        species diversity and ecological balance. The government and related conservation
+        organizations have designated 17 wildlife refuges. Not only are they the subject
+        of academic researches, they are also the indicators of environmental quality.
+        The checklist of Taiwan (TaiBNET) lists 238 endangered, rare, and other protected
+        species of wildlife in Taiwan. The database also provides information on these
+        species, such as their scientific names (including authors and years), common
+        names, and synonyms. Through Taiwan Biodiversity Information Facility (TaiBIF),
+        the information can be shared and exchanged with other GBIF participants.
+        Users can use keywords to link to other websites with relevant information.
+        All these efforts will result in the circulation of information in the fields
+        of research, education and conservation, which in turn will arouse global
+        attention to the protection of wildlife.","id":106,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"COA
+        Wildlife Conservation List","unique_names_count":0,"updated_at":"2012-02-09T13:21:44Z","web_site_url":null},{"created_at":"2012-02-09T18:21:25Z","data_hash":null,"data_url":null,"description":"AskNature''s
+        goal is to connect innovative minds with life''s best ideas, and in the process,
+        inspire technologies that create conditions conducive to life.","id":107,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"AskNature","unique_names_count":0,"updated_at":"2012-02-09T13:21:49Z","web_site_url":null},{"created_at":"2012-02-09T18:21:31Z","data_hash":null,"data_url":null,"description":"Rapid
+        biological inventories are meant to catalyze effective action for conservation
+        in threatened regions of high biological diversity and uniqueness. The book
+        summarises the result of rapid biological and social inventories carried out
+        by team of scientists in the Southern GaoligongShan of Yunnan in China. The
+        biological inventories do not attempt to produce an exhaustive list of species
+        or higher taxa. Rather, the rapid surveys (1) identify the important biological
+        communities in the site or region of interest and (2) determine whether these
+        communities are of outstanding quality and significance in a regional\nor
+        global context. During rapid social asset inventories, scientists and local
+        communities collaborate to identify patterns of social organization and opportunities
+        for capacity building.","id":108,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"China:
+        Yunnan, Southern Gaoligongshan, Rapid Biological Inventories Report No. 04","unique_names_count":0,"updated_at":"2012-02-09T13:21:53Z","web_site_url":null},{"created_at":"2012-02-09T18:21:34Z","data_hash":null,"data_url":null,"description":"Describes
+        about 352 species of Orchids from the Gaoligong Mountain in Yunnan, P.R China,
+        also provides coloured photographs and brief description.","id":109,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Native
+        Orchids from Gaoligongshan Mountains, China","unique_names_count":0,"updated_at":"2012-02-09T13:21:55Z","web_site_url":null},{"created_at":"2012-02-09T18:21:37Z","data_hash":null,"data_url":null,"description":"Contains
+        descriptions, photographs, and range maps of many wildflowers in Illinois.","id":110,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Illinois
+        Wildflowers","unique_names_count":0,"updated_at":"2012-02-09T13:21:59Z","web_site_url":null},{"created_at":"2012-02-09T18:21:45Z","data_hash":null,"data_url":null,"description":"This
+        file contains taxon names and related nomenclatural information for the suborder
+        Coleorrhyncha originating from the Coleorrhyncha Species File maintained by
+        the Species File Group (http://software.speciesfile.org) at the University
+        of Illinois, Illinois Natural History Survey.","id":112,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Coleorrhyncha
+        Species File","unique_names_count":0,"updated_at":"2012-02-09T13:22:05Z","web_site_url":null},{"created_at":"2012-02-09T18:21:46Z","data_hash":null,"data_url":null,"description":null,"id":113,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"/home/dimus/files/dwca/zoological
+        names.zip","unique_names_count":0,"updated_at":"2012-02-09T13:22:14Z","web_site_url":null},{"created_at":"2012-02-09T18:21:57Z","data_hash":null,"data_url":null,"description":"Se
+        registra un total de 753 especies para la zona hidrogeogr\u00e1fica del Amazonas,
+        agrupadas en 14 \u00f3rdenes y 47 familias. Los \u00f3rdenes con mayor representaci\u00f3n
+        espec\u00edfica fueron: Characiformes (367 spp.), Siluriformes (228 spp.)
+        y Perciformes (87 spp.). Los 11 \u00f3rdenes restantes presentaron de 34 a
+        una sola especie. La familia con la mayor riqueza fue Characidae (208 spp.)
+        que representa el 27,6% del total de las especies.","id":114,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Peces
+        de la zona hidrogeogr\u00e1fica de la Amazonia, Colombia (Spreadsheet)","unique_names_count":0,"updated_at":"2012-02-09T13:22:22Z","web_site_url":null},{"created_at":"2012-02-09T18:22:04Z","data_hash":null,"data_url":null,"description":"Occurence
+        records of Syllidae (Annelida:Polychaeta) from three locations in the Eastern
+        Mediterranean Sea (Crete (Greece) and Israel).","id":115,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Eastern
+        Mediterranean Syllidae","unique_names_count":0,"updated_at":"2012-02-09T13:22:24Z","web_site_url":null},{"created_at":"2012-02-09T18:22:06Z","data_hash":null,"data_url":null,"description":"The
+        book is the fifth volume of the Gaoligong Shan Research Series. The Editors
+        are Qian Zigang and Li Anhua, and is published by Science Press,China, published
+        in 2008.","id":116,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Gaoligong
+        Shan Medicinal Plants Checklist","unique_names_count":0,"updated_at":"2012-02-09T13:22:32Z","web_site_url":null},{"created_at":"2012-02-09T18:22:14Z","data_hash":null,"data_url":null,"description":"Tanzania
+        has the richest bird life which now stands at 1,148 known species. However,
+        this information is currently not freely available for public use. A checklist
+        presented here is the first reading online for anyone interested in understanding
+        of the birds of Tanzania. The nomenclature is based on Britton, P.E. (Ed.)
+        (1980) Birds of East Africa (EANHS) with update versions provided in Tanzania
+        Bird Atlas. Endemic species are marked by a letter E. Although this list is
+        subject to changes due to usual taxonomic revisions and/or new records provided
+        it is a useful guidance especially to those without access to recent literature.
+        Kiswahili names are from Mlingwa, C.O.F. (2000) Checklist of Kiswahili names
+        of the Birds of Tanzania, Wildlife Conservation Society of Tanzania. \nWe
+        are privileged to have the opportunity to compile the checklist for Tanzania
+        Biodiversity Information Facility (TanBIF) under COSTECH. We commend this
+        initiative meant to reach a wider audience.","id":117,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"birds_of_tanzania","unique_names_count":0,"updated_at":"2012-02-09T13:22:41Z","web_site_url":null},{"created_at":"2012-02-09T18:22:23Z","data_hash":null,"data_url":null,"description":"AmphibiaWeb
+        is an online system that provides access to information on amphibian declines,
+        conservation, natural history, and taxonomy.","id":118,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"AmphibiaWeb","unique_names_count":0,"updated_at":"2012-02-09T13:22:56Z","web_site_url":null},{"created_at":"2012-02-09T18:22:38Z","data_hash":null,"data_url":null,"description":"Plants
+        are a vital part of the world\u2019s biodiversity, yet they are endangered
+        by a combination of factors: over-exploitation, agricultural activities and
+        forestry practices, urbanization, land use changes and spread of invasive
+        species. Therefore, the need for data basing and digitizing the rich flora
+        of Tanzania is equally important in order to catch up with an alarming rate
+        of natural habitats degradation. Also The   available data is not easily accessible
+        to the public and other institutions for use.","id":119,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"tanzania_plant_sepecimens","unique_names_count":0,"updated_at":"2012-02-09T13:23:03Z","web_site_url":null},{"created_at":"2012-02-09T18:22:45Z","data_hash":null,"data_url":null,"description":"PMNM
+        initial species list test data.","id":120,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Papahanaumokuakea
+        Marine National Monument","unique_names_count":0,"updated_at":"2012-02-09T13:23:36Z","web_site_url":null},{"created_at":"2012-02-09T18:23:21Z","data_hash":null,"data_url":null,"description":"The
+        Red List of Threatened Species, published by International Union for Conservation
+        of Nature (IUCN), lists the conservation status of a representative selection
+        of plant and animal species according to the level of threat to their survival.
+        A species may have a limited distribution or be found only in a small area
+        in a country. From the point of view of biodiversity, however, the extinction
+        of any species can prompt a global impact. Therefore, the related information
+        of an endangered species should be recognized and its conservation effort
+        be executed.\n\nIUCN estimates that there are 20,000 endangered species. The
+        checklist of Taiwan (TaiBNET) lists 127 species as vulnerable (VU) or higher
+        levels. The scientific name (including author and year), common names, synonyms,
+        assessment level, and other information of these species are also included
+        in the database. Taiwan, even the whole world, needs to actively promote the
+        conservation work of these species. Through Taiwan Biodiversity Information
+        Facility (TaiBIF), the information of Taiwan\u2019s endangered species can
+        be shared and exchanged with other GBIF participants. Users can use keywords
+        to link to other websites with relevant information. All these efforts are
+        to draw the world''s attention to the conservation issue of endangered animals
+        and plants.","id":121,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Taiwanese
+        IUCN species list","unique_names_count":0,"updated_at":"2012-02-09T13:23:45Z","web_site_url":null},{"created_at":"2012-02-09T18:23:27Z","data_hash":null,"data_url":null,"description":"Bio*pedia
+        is a communal repository of descriptions of organisms. Bio*pedia works in
+        conjunction with the STAR biodiversity web sites, such as micro*scope, and
+        with the Encyclopedia of Life.","id":122,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"BioPedia","unique_names_count":0,"updated_at":"2012-02-09T13:24:21Z","web_site_url":null},{"created_at":"2012-02-09T18:24:06Z","data_hash":null,"data_url":null,"description":"AnAge
+        is a database of longevity and ageing in animals. It features quantitative
+        life history data for over 4,000 species, including extensive longevity records,
+        body masses at different developmental stages, reproductive data, and physiological
+        traits re","id":123,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"AnAge","unique_names_count":0,"updated_at":"2012-02-09T13:24:40Z","web_site_url":null},{"created_at":"2012-02-09T18:24:25Z","data_hash":null,"data_url":null,"description":"This
+        file contains taxon names and related nomenclatural information for the order
+        Embioptera originating from the Embioptera Species File maintained by the
+        Species File Group (http://software.speciesfile.org) at the University of
+        Illinois, Illinois Natural History Survey.","id":124,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Embioptera
+        Species File","unique_names_count":0,"updated_at":"2012-02-09T13:24:46Z","web_site_url":null},{"created_at":"2012-02-09T18:24:28Z","data_hash":null,"data_url":null,"description":"The
+        Global Invasive Species Database is a free, online searchable source of information
+        about species that negatively impact biodiversity. The GISD aims to increase
+        public awareness about invasive species and to facilitate effective prevention
+        and management activities by disseminating specialist\u2019s knowledge and
+        experience to a broad global audience. It focuses on invasive alien species
+        that threaten native biodiversity and covers all taxonomic groups from micro-organisms
+        to animals and plants.","id":125,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Global
+        Invasive Species Database","unique_names_count":0,"updated_at":"2012-02-09T13:24:54Z","web_site_url":null},{"created_at":"2012-02-09T18:24:38Z","data_hash":null,"data_url":null,"description":"Se
+        presenta una lista sinon\u00edmica de las subfamilias, tribus, g\u00e9neros
+        y de las especies de hormigas presentes en todo el neotr\u00f3pico, considerando
+        las regiones incluidas desde el sur de los Estados Unidos hasta Argentina,
+        (incluyendo el caribe). La mayoria de los registros anteriores a 1995 est\u00e1n
+        basados en el cat\u00e1logo Bolton (1995), por lo que se recomienda su consulta
+        para informaci\u00f3n m\u00e1s detallada.","id":126,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Sendoya
+        S., Fern\u00e1ndez F. AAT de hormigas (Hymenoptera: Formicidae) del Neotr\u00f3pico
+        1.0 2004 (Spreadsheet)","unique_names_count":0,"updated_at":"2012-02-09T13:25:12Z","web_site_url":null},{"created_at":"2012-02-09T18:25:00Z","data_hash":null,"data_url":null,"description":"The
+        Book covers all the seed plants found in the Gaoligong Mountains, including
+        2 phyla, 210 families, 1086 genera and 4303 species and varieties. Each species
+        is listed with scientific name, distribution, collection number, life form,
+        habitat, altitude, economic uses and scientific value.","id":127,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Flora
+        of Gaoligong Mountains","unique_names_count":0,"updated_at":"2012-02-09T13:25:32Z","web_site_url":null},{"created_at":"2012-02-09T18:25:16Z","data_hash":null,"data_url":null,"description":"ARKive
+        is a Wildscreen initiative \u2013 a non-profit charitable organization dedicated
+        to promoting the public understanding of biodiversity and the need for its
+        conservation.","id":128,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"ARKive","unique_names_count":0,"updated_at":"2012-02-09T13:25:44Z","web_site_url":null},{"created_at":"2012-02-09T18:25:27Z","data_hash":null,"data_url":null,"description":"This
+        checklist covers all relevant information of the major dacine fruit fly genera
+        of Africa.\nInitially established under the ENBI project, it provides a list
+        current taxonomic status of species involved, as well as synonymy.\nLimitations
+        of scope: the pilot study is focusing on a group of Afrotropical fruit flies
+        only. Reason is that, over the last decade years several projects have focused
+        on this group (cf. above) and that a mass of specimen related data are available.
+        Afrotropical is used here in the biogeographical sense, hence the region below
+        of the Sahara dessert. However, some additional records from northern Africa
+        and the Middle East are included but not as exhaustive as those for the true
+        Afrotropical region.","id":129,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"True
+        Fruit Flies (Diptera, Tephritidae) of the Afrotropical Region","unique_names_count":0,"updated_at":"2012-02-09T13:25:49Z","web_site_url":null},{"created_at":"2012-02-09T18:25:30Z","data_hash":null,"data_url":null,"description":"3I
+        (Internet-accessible Interactive Identification) is a set of software tools
+        for creating on-line identification keys, taxonomic databases, and virtual
+        taxonomic revisions.","id":130,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"3i
+        - Typhlocybinae Database","unique_names_count":0,"updated_at":"2012-02-09T13:26:17Z","web_site_url":null},{"created_at":"2012-02-09T18:26:09Z","data_hash":null,"data_url":null,"description":"An
+        open-access taxonomic web-revision of the Sphingidae (Hawkmoths)","id":131,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"CATE
+        Sphingidae","unique_names_count":0,"updated_at":"2012-02-09T13:26:43Z","web_site_url":null},{"created_at":"2012-02-09T18:26:28Z","data_hash":null,"data_url":null,"description":"ZooBank
+        Registered Names.","id":132,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"ZooBank","unique_names_count":0,"updated_at":"2012-02-09T13:26:57Z","web_site_url":null},{"created_at":"2012-02-09T18:26:44Z","data_hash":null,"data_url":null,"description":"Kociolek,
+        P., P. Hargraves, D. Williams, M. Sullivan, A. Witkowski, E. Theriot, M. Ashworth,
+        A. Thessen and D. Patterson. 2010. The Diatoms Classification. http://diatoms.lifedesks.org..\r\nThis
+        is a global, consensus-based classification for diatoms first","id":133,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Diatoms","unique_names_count":0,"updated_at":"2012-02-09T13:27:22Z","web_site_url":null},{"created_at":"2012-02-09T18:27:14Z","data_hash":null,"data_url":null,"description":"AntWeb
+        is generally recognized as the most advanced biodiversity information system
+        at species level dedicated to ants.","id":134,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"AntWeb","unique_names_count":0,"updated_at":"2012-02-09T13:27:45Z","web_site_url":null},{"created_at":"2012-02-09T18:27:40Z","data_hash":null,"data_url":null,"description":"Taiwan
+        is a continental island, located between the southeastern coastline of mainland
+        China and Japan''s Ryukyu Islands. With diverse terrain and wide range of
+        vertical elevations, Taiwan has tropical, subtropical, temperate, and frigid
+        climate zones. These unique geographical conditions, coupled with the effect
+        of habitat isolation, gave Taiwan its high biodiversity.\n\nThe endemic species
+        of Taiwan denotes the native plants and animals of Taiwan and its offshore
+        islands such as Penghu Archipelago, Orchid Island, Green Island, etc. Even
+        though the areas are small, the Checklist of Taiwan (TaiBNET) lists around
+        50,000 valid species scientific names. Among them, 8,000 are endemic species
+        (including endemic subspecies and varietas), showing the abundance of Taiwan\u2019s
+        endemic Species. TaiBNET also provides information on these species, such
+        as their scientific names (including authors and years), common names, and
+        synonyms. Through Taiwan Biodiversity Information Facility (TaiBIF), the information
+        on these endemic species are published and then shared and exchanged with
+        other GBIF participants. Users can use keywords to link to other websites
+        with relevant information. All these efforts will result in the circulation
+        and utilization of information in the areas of research, education and conservation.","id":135,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Endemic
+        species in Taiwan","unique_names_count":0,"updated_at":"2012-02-09T13:28:29Z","web_site_url":null},{"created_at":"2012-02-09T18:28:15Z","data_hash":null,"data_url":null,"description":"This
+        file contains taxon names and related nomenclatural information for the order
+        Dermaptera originating from the Dermaptera Species File maintained by the
+        Species File Group (http://software.speciesfile.org) at the University of
+        Illinois, Illinois Natural History Survey.","id":136,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Dermaptera
+        Species File","unique_names_count":0,"updated_at":"2012-02-09T13:28:37Z","web_site_url":null},{"created_at":"2012-02-09T18:28:21Z","data_hash":null,"data_url":null,"description":"This
+        file contains taxon names and related nomenclatural information for the order
+        Mantodea originating from the Mantodea Species File maintained by the Species
+        File Group (http://software.speciesfile.org) at the University of Illinois,
+        Illinois Natural History Survey.","id":137,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Mantodea
+        Species File","unique_names_count":0,"updated_at":"2012-02-09T13:28:45Z","web_site_url":null},{"created_at":"2012-02-09T18:28:29Z","data_hash":null,"data_url":null,"description":"This
+        initiative provides a set of unique English-language names for the extant
+        species of the birds of the world. The names are based on a consensus of leading
+        ornithologists worldwide and conform to standard rules of construction.<br/><br/>The
+        English names recommended here are:<br/><br/>based on explicit guidelines
+        and spelling rules<br/>selected to involve minimal use of hyphens for group
+        names<br/>anglicized without glottal stops, accents, and the like<br/>based
+        on interregional agreement and global consensus, with compromises<br/>selected
+        with deference to long-established names<br/>aligned with current species
+        taxonomy<br/>available for general adoption<br/>sponsored and endorsed by
+        the IOC and by committee members<br/>This was a volunteer, community effort
+        on behalf of the International Ornithological Congress (IOC).<br/><br/>Commissioned
+        in 1991, the project took 15 years to complete. All participants gave freely
+        and generously of their valuable time and resources. We waived royalty rights
+        and subsidized the publication of the work to maximize its quality and affordability.<br/><br/>Wide
+        dissemination, use, and improvement of the recommended International English
+        names are our only goals. Gratis license to use this list in derivative works
+        can be obtained by writing Frank Gill, P.O. Box 428 , Rushland PA 18956.<br/><br/>In
+        the spirit of realized humility, we dedicate this work to Burt L. Monroe Jr.
+        We just finished the first phase of what he started.<br/><br/>Frank Gill and
+        Minturn Wright <br/>Co-chairs, IOC Standing Committee on English Names  <br/>April
+        2007","id":138,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Birds
+        of the World: Recommended English Names","unique_names_count":0,"updated_at":"2012-02-09T13:29:01Z","web_site_url":null},{"created_at":"2012-02-09T18:29:01Z","data_hash":null,"data_url":null,"description":"{}","id":139,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"New
+        Zealand Animalia","unique_names_count":0,"updated_at":"2012-02-09T13:30:28Z","web_site_url":null},{"created_at":"2012-02-09T18:30:39Z","data_hash":null,"data_url":null,"description":"This
+        file contains taxon names and related nomenclatural information for the order
+        Blattodea originating from the Blattodea Species File maintained by the Species
+        File Group (http://software.speciesfile.org) at the University of Illinois,
+        Illinois Natural History Survey.","id":140,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Blattodea
+        Species File","unique_names_count":0,"updated_at":"2012-02-09T13:31:10Z","web_site_url":null},{"created_at":"2012-02-09T18:30:57Z","data_hash":null,"data_url":null,"description":"This
+        file contains taxon names and related nomenclatural information for the order
+        Plecoptera originating from the Plecoptera Species File maintained by the
+        Species File Group (http://software.speciesfile.org) at the University of
+        Illinois, Illinois Natural History Survey.","id":141,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Plecoptera
+        Species File","unique_names_count":0,"updated_at":"2012-02-09T13:31:20Z","web_site_url":null},{"created_at":"2012-02-09T18:31:06Z","data_hash":null,"data_url":null,"description":"The
+        Clements Checklist of Birds of the World, 6th Edition was published and released
+        by Cornell University Press in June 2007. The book was produced from a nearly
+        completed manuscript left by James Clements upon his death in 2005.<br/>The
+        Cornell Lab of Ornithology has accepted the job of maintaining the ever-changing
+        list of species, subspecies, English names, and approximate distributions,
+        beginning with publication of the 6th Edition. Our procedures for accomplishing
+        this ongoing task include using the considerable expertise of our research
+        ornithologists on staff, aided enormously by input from knowledgeable professional
+        and amateur cooperators worldwide. We invite input on known or suspected errors
+        or updates at any time.<br/>This web site serves as the clearinghouse for
+        keeping your Clements Checklist up to date. We will post all corrections once
+        a year in October. At the same time, we''ll post updates to the taxonomy,
+        scientific and English nomenclature, and range descriptions, to incorporate
+        changes that have made their way into the literature and are generally accepted
+        by the appropriate scientific body or community. In the future, we will also
+        be posting a list of alternative English names.","id":142,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"/home/dimus/files/dwca/clemens.zip","unique_names_count":0,"updated_at":"2012-02-09T13:31:42Z","web_site_url":null},{"created_at":"2012-02-09T18:31:58Z","data_hash":null,"data_url":null,"description":"This
+        file contains taxon names and related nomenclatural information for the superfamily
+        Coreoidea originating from the Coreoidea Species File maintained by the Species
+        File Group (http://software.speciesfile.org) at the University of Illinois,
+        Illinois Natural History Survey.","id":143,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Coreoidea
+        Species File","unique_names_count":0,"updated_at":"2012-02-09T13:32:47Z","web_site_url":null},{"created_at":"2012-02-09T18:32:28Z","data_hash":null,"data_url":null,"description":"The
+        Freshwater Animal Diversity Assessment (FADA) database contains authoritative
+        species lists for several taxonomic groups and distribution data at the level
+        of faunistic regions. The groups currently published (27-05-2011) include
+        Halacaridae, Cnidaria-Hydroida, Cladocera, Copepoda, Mysidaceae, Ephemeroptera,
+        Plecoptera, Macrophytes, Bivalvia, Nematomorpha, Rotifera, Fish and Mammals","id":144,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Freshwater
+        Animal Diversity Assessment - Normalized export","unique_names_count":0,"updated_at":"2012-02-09T13:33:55Z","web_site_url":null},{"created_at":"2012-02-09T18:33:38Z","data_hash":null,"data_url":null,"description":"NY
+        Botanical Garden''s International Plant Science Center is one of the few institutions
+        worldwide with the resources, collections, and expertise to develop the information
+        needed to understand and manage plant diversity","id":145,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Catalogue
+        of Vascular Plant Species of Central and Northeastern Brazil","unique_names_count":0,"updated_at":"2012-02-09T13:34:39Z","web_site_url":null},{"created_at":"2012-02-09T18:35:12Z","data_hash":null,"data_url":null,"description":"The
+        free encyclopedia.","id":146,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Wikipedia
+        in EOL","unique_names_count":0,"updated_at":"2012-02-09T13:36:35Z","web_site_url":null},{"created_at":"2012-02-09T18:36:49Z","data_hash":null,"data_url":null,"description":"VASCAN
+        is the Database of Vascular Plants of Canada (http://data.canadensys.net/vascan).
+        It is a comprehensive list of all vascular plants reported in Canada, Greenland
+        (Denmark) and Saint Pierre and Miquelon (France). VASCAN is literature-based,
+        though recent additions are sometimes specimen-based.\n\nFor every core taxon
+        (species, subspecies or variety) we provide the accepted scientific name (Latin),
+        the accepted French and English vernacular name, and their synonyms/alternatives
+        in Canada. We indicate the distribution status (native, introduced, etc.)
+        of the plant for each province or territory, and the habit (tree, shrub, herb
+        or vine) of the plant in Canada. For reported hybrids (nothotaxa or hybrid
+        formulas), we also provide the hybrid parents (not included in the dataset
+        for technical reasons), except for introduced hybrids. All taxa are linked
+        to a classification. We refer to a source for all name, classification and
+        distribution information.","id":147,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Database
+        of Vascular Plants of Canada (VASCAN)","unique_names_count":0,"updated_at":"2012-02-09T13:38:20Z","web_site_url":null},{"created_at":"2012-02-09T18:38:13Z","data_hash":null,"data_url":null,"description":"This
+        file contains taxon names and related nomenclatural information for the order
+        Phasmida originating from the Phasmida Species File maintained by the Species
+        File Group (http://software.speciesfile.org) at the University of Illinois,
+        Illinois Natural History Survey.","id":148,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Phasmida
+        Species File","unique_names_count":0,"updated_at":"2012-02-09T13:38:43Z","web_site_url":null},{"created_at":"2012-02-09T18:38:29Z","data_hash":null,"data_url":null,"description":"OBIS
+        was established by the Census of Marine Life program (www.coml.org). It is
+        an evolving strategic alliance of people and organizations sharing a vision
+        to make marine biogeographic data, from all over the world, available over
+        the World Wide Web.","id":149,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"OBIS","unique_names_count":0,"updated_at":"2012-02-09T13:39:47Z","web_site_url":null},{"created_at":"2012-02-09T18:40:09Z","data_hash":null,"data_url":null,"description":"The
+        PLANTS Database provides standardized information about the vascular plants,
+        mosses, liverworts, hornworts, and lichens of the U.S. and its territories.","id":150,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"USDA
+        NRCS PLANTS Database","unique_names_count":0,"updated_at":"2012-02-09T13:41:29Z","web_site_url":null},{"created_at":"2012-02-09T18:42:04Z","data_hash":null,"data_url":null,"description":"The
+        Catalog of Fishes is a comprehensive compilation of the scientific names for
+        fishes, edited William N. Eschmeyer.","id":151,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Catalog
+        of Fishes","unique_names_count":0,"updated_at":"2012-02-09T13:42:52Z","web_site_url":null},{"created_at":"2012-02-09T18:43:41Z","data_hash":null,"data_url":null,"description":"This
+        file contains taxon names and related nomenclatural information for the infraorder
+        Aphidomorpha, including aphids and their relatives, originating from Aphid
+        Species File maintained by the Species File Group (http://software.speciesfile.org)
+        at the University of Illinois, Illinois Natural History Survey.","id":152,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Aphid
+        Species File","unique_names_count":0,"updated_at":"2012-02-09T13:44:21Z","web_site_url":null},{"created_at":"2012-02-09T18:44:03Z","data_hash":null,"data_url":null,"description":"The
+        catalog of Taiwanese species is call \"TaiBNET\" and the national node of
+        GBIF (Global Biodiversity Information Facility) in Taiwan is called \"TaiBIF\".
+        Currently, the websites have been established at Academia Sinica (http://taibnet.sinica.edu.tw
+        and http://www.gbif.org.tw). Both of the Biodiversity Research Center and
+        the Computing Center of Academia Sinica are in charge of the maintenance and
+        the updating biodiversity related information and data.\n\nThrough the node,
+        the background of participating GBIF, related documents, news, upcoming conferences,
+        name list of Taiwanese taxonomists, catalog of life in Taiwan, specimen database,
+        biodiversity related organization, team research projects, independent biological
+        databases, natural heritage, and local publications etc. can be accessed.
+        Among them, \"Name list of Taiwanese taxonomists\" and \"Catalog of Life of
+        Taiwan\" are one promoting project sponsored by the National Science Council.
+        So far, 236 local taxonomists have included their titles, telephones, e-mail
+        addresses, and the taxa that they are expertised. In the future, we hope to
+        include all of the ecologists or the applied scientists in agriculture, forestry,
+        fishery, and animal husbandry in the name list.\n\nThe first phase of Catalog
+        of Life in Taiwan will contain the following items of animals (including insects),
+        plants, and fungi: species names, authors and year, suggested Chinese names,
+        endemic in Taiwan or not, their classification hierarchy, the most authorized
+        citation proving that particular species has occurred in Taiwan. Users can
+        get the name list of one group of organisms through keywords search, species
+        name searching, or image searching etc. Further information of each species
+        can be obtained through the hyperlink to more than 18 well-known global databases
+        or networks, such as Species2000 and ITIS etc. Right now, more than 30,000
+        species have been compiled, and we hope to collect more than 60,000 species
+        by July 2004. Species checklist of the microorganisms will be included next
+        year. We hope to get more funding and collaborators in the next phase to collect
+        specimen or ecological photos (endemic species first), description (morphology,
+        ecology and biology), geographical distribution, synonyms, literatures, as
+        well as deposited specimen data for each species.\n\nThrough this node, the
+        most authorized information of high biodiversity and endemism of Taiwan can
+        be exchanged and shared with other GBIF participants. This mission is also
+        requested by both of the Convention on Biological Diversity and GBIF to each
+        member because in such a way, education, research, and conservation of biodiversity
+        in the world could be promoted effectively.","id":153,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"The
+        National Checklist of Taiwan","unique_names_count":0,"updated_at":"2012-02-09T13:46:18Z","web_site_url":null},{"created_at":"2012-02-09T18:46:06Z","data_hash":null,"data_url":null,"description":"This
+        file contains taxon names and related nomenclatural information for the order
+        Psocodea originating from the Psocodea Species File maintained by the Species
+        File Group (http://software.speciesfile.org) at the University of Illinois,
+        Illinois Natural History Survey.","id":154,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Psocodea
+        Species File","unique_names_count":0,"updated_at":"2012-02-09T13:46:36Z","web_site_url":null},{"created_at":"2012-02-09T18:46:24Z","data_hash":null,"data_url":null,"description":"FishBase,
+        a  global information system with all you ever wanted to know about fishes.
+        FishBase is a relational database with information to cater to different professionals
+        such as research scientists, fisheries managers, zoologists and many more.","id":155,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"FishBase","unique_names_count":0,"updated_at":"2012-02-09T13:47:22Z","web_site_url":null},{"created_at":"2012-02-09T18:48:19Z","data_hash":null,"data_url":null,"description":"World
+        Typhlocybinae database","id":156,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"3i
+        - Typhlocybinae Database","unique_names_count":0,"updated_at":"2012-02-09T13:48:50Z","web_site_url":null},{"created_at":"2012-02-09T18:48:44Z","data_hash":null,"data_url":null,"description":"This
+        resource was created by publishing the backend database of the Belgian Species
+        List website (www.species.be). This publishing work has been done by the Belgian
+        Biodiversity Platform (http://www.biodiversity.be) in the framework of the
+        \"GBIF award for evaluating checklist publication format\" during May 2011.\n\nData
+        extracted by Francis Strobbe on May 27th 2011.\n\nAbstract of the Belgian
+        Species List project:\nSince almost a year now, people of all ages can access
+        the Belgian Species List for an extensive overview of the biodiversity in
+        Belgium. Animals, plants, fungi: you can make your way through a total of
+        more than 32.000 species!\n\nThe Belgian species list was set up by the RBINS
+        \u2013 the research institution behind the Museum of Natural Sciences \u2013
+        in cooperation with different Belgian and international institutions and organizations.\n\nThe
+        purpose of the species list is to become the online reference in naming and
+        occurrence of species in Belgium, easy to consult in just one website that
+        centralizes and standardizes the information. For every species that''s been
+        described, information is given on among other things the conservation status,
+        the distribution, the habitat and much more. More and more species index cards
+        are fitted with pictures and interesting links.\n\nThe website is aimed at
+        a broad audience: researchers, decision makers, students, journalists, nature
+        conversationists and all nature lovers.\n\nWant to know more? \nLog on to
+        www.species.be!","id":157,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Belgian
+        Species List","unique_names_count":0,"updated_at":"2012-02-09T13:51:22Z","web_site_url":null},{"created_at":"2012-02-09T18:51:49Z","data_hash":null,"data_url":null,"description":"EUNIS
+        data are collected for the European Environment Agency. EUNIS consists of
+        information on Species, Habitat types and Sites.","id":158,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"EUNIS","unique_names_count":0,"updated_at":"2012-02-09T13:54:49Z","web_site_url":null},{"created_at":"2012-02-09T18:58:36Z","data_hash":null,"data_url":null,"description":"CU*STAR
+        is the indexing backbone to the star websites for biology - such as micro*scope.","id":159,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"CU*STAR","unique_names_count":0,"updated_at":"2012-02-09T14:03:17Z","web_site_url":null},{"created_at":"2012-02-09T19:10:42Z","data_hash":null,"data_url":null,"description":"This
+        file contains taxon names and related nomenclatural information for the order
+        Orthoptera originating from the Orthoptera Species File maintained by the
+        Species File Group (http://software.speciesfile.org) at the University of
+        Illinois, Illinois Natural History Survey.","id":161,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Orthoptera
+        Species File","unique_names_count":0,"updated_at":"2012-02-09T14:11:18Z","web_site_url":null},{"created_at":"2012-02-09T19:11:37Z","data_hash":null,"data_url":null,"description":"Bishop
+        Museum Taxonomic Database","id":162,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Bishop
+        Museum","unique_names_count":0,"updated_at":"2012-02-09T14:13:28Z","web_site_url":null},{"created_at":"2012-02-09T19:18:20Z","data_hash":null,"data_url":null,"description":"The
+        IUCN Red List of Threatened Species\u2122 is widely recognized as the most
+        comprehensive, objective global approach for evaluating the conservation status
+        of plant and animal species. From its small beginning, the IUCN Red List has
+        grown in size and complexity and now plays an increasingly prominent role
+        in guiding conservation activities of governments, NGOs and scientific institutions.
+        The introduction in 1994 of a scientifically rigorous approach to determine
+        risks of extinction that is applicable to all species, has become a world
+        standard. In order to produce the IUCN Red List of Threatened Species\u2122,
+        the IUCN Species Programme working with the IUCN Survival Commission (SSC)
+        and with members of IUCN draws on and mobilizes a network of scientists and
+        partner organizations working in almost every country in the world, who collectively
+        hold what is likely the most complete scientific knowledge base on the biology
+        and conservation status of species.","id":163,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"IUCN
+        Red List of Threatened Species","unique_names_count":0,"updated_at":"2012-02-09T14:19:41Z","web_site_url":null},{"created_at":"2012-02-09T19:20:46Z","data_hash":null,"data_url":null,"description":"BioLib
+        is an international encyclopedia of plants, fungi and animals.","id":164,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"BioLib.cz","unique_names_count":0,"updated_at":"2012-02-09T14:29:57Z","web_site_url":null},{"created_at":"2012-02-09T19:43:03Z","data_hash":null,"data_url":null,"description":"{}","id":165,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Tropicos
+        - Missouri Botanical Garden","unique_names_count":0,"updated_at":"2012-02-09T14:48:33Z","web_site_url":null},{"created_at":"2012-02-09T20:05:41Z","data_hash":null,"data_url":null,"description":"NLBIF
+        is the Dutch Node of the Global Biodiversity Information Facility network.","id":166,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"nlbif","unique_names_count":0,"updated_at":"2012-02-09T15:27:38Z","web_site_url":null},{"created_at":"2012-02-09T20:36:27Z","data_hash":null,"data_url":null,"description":"The
+        International Plant Names Index (IPNI) is a database of the names and associated
+        basic bibliographical details of seed plants, ferns and lycophytes. Its goal
+        is to eliminate the need for repeated reference to primary sources for basic
+        bibliographic information about plant names. The data are freely available
+        and are gradually being standardized and checked. IPNI will be a dynamic resource,
+        depending on direct contributions by all members of the botanical community.","id":167,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"The
+        International Plant Names Index","unique_names_count":0,"updated_at":"2012-07-31T10:21:41Z","web_site_url":null},{"created_at":"2012-05-07T13:45:07Z","data_hash":null,"data_url":null,"description":"ION
+        will ultimately contain all the organism names related data found within the
+        Thomson Reuters life science literature databases.","id":168,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Index
+        to Organism Names","unique_names_count":0,"updated_at":"2012-02-09T16:34:11Z","web_site_url":null},{"created_at":"2012-05-07T13:50:15Z","data_hash":null,"data_url":null,"description":"uBio
+        uses names and taxonomic intelligence to manage information about organisms.","id":169,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"uBio
+        NameBank","unique_names_count":0,"updated_at":"2013-05-31T13:36:47Z","web_site_url":null},{"created_at":"2013-05-31T01:17:28Z","data_hash":null,"data_url":null,"description":"Arctos
+        is an ongoing effort to integrate access to specimen data, collection-management
+        tools, and external resources on the internet.","id":170,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Arctos","unique_names_count":0,"updated_at":"2013-06-04T00:34:16Z","web_site_url":null},{"created_at":"2013-12-10T03:02:58Z","data_hash":null,"data_url":null,"description":"All
+        8238 species-group taxa of Coleoptera known to occur in Canada and Alaska
+        are recorded by province/territory or state, along with their author(s) and
+        year of publication, in a classification framework. Only presence of taxa
+        in each Canadian province or territory and Alaska is noted. Labrador is considered
+        a distinct geographical entity. Adventive and Holarctic species-group taxa
+        are indicated. References to pertinent identification keys are given under
+        the corresponding supraspecific taxa.","id":171,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Checklist
+        of Beetles (Coleoptera) of Canada and Alaska. Second Edition.","unique_names_count":0,"updated_at":"2014-03-11T10:32:26Z","web_site_url":null},{"created_at":"2014-12-08T11:17:24Z","data_hash":null,"data_url":null,"description":"Thanks
+        to our membership, which includes 350 scientists from 133 institutions in
+        24 countries, the Paleobiology Database is able to provide scientists and
+        the public with information about the fossil record.","id":172,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"The
+        Paleobiology Database","unique_names_count":0,"updated_at":"2014-12-08T07:24:16Z","web_site_url":"http://paleobiodb.org"},{"created_at":"2014-12-08T19:50:56Z","data_hash":null,"data_url":null,"description":"This
+        database provides a catalogue of all living reptile species and their classification.
+        The database covers all living snakes, lizards, turtles, amphisbaenians, tuataras,
+        and crocodiles. Currently there are about 9,500 species including another
+        2,800 subspecies (statistics). The database focuses on taxonomic data, i.e.
+        names and synonyms, distribution and type data and literature references.","id":173,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"The
+        Reptile Database","unique_names_count":0,"updated_at":"2014-12-08T19:24:19Z","web_site_url":"http://www.reptile-database.org"},{"created_at":"2014-12-09T21:27:18Z","data_hash":null,"data_url":null,"description":"Mammal
+        Species of the World, 3rd edition (MSW3) is a database of mammalian taxonomy,
+        based upon the 2005 book Mammal Species of the World. A Taxonomic and Geographic
+        Reference (3rd ed). Don E. Wilson & DeeAnn M. Reeder (editors).","id":174,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"The
+        Mammal Species of The World","unique_names_count":0,"updated_at":"2018-08-04T20:49:43Z","web_site_url":null},{"created_at":"2014-12-11T00:19:59Z","data_hash":null,"data_url":null,"description":"BirdLife
+        is widely recognised as the world leader in bird conservation. Rigorous science
+        informed by practical feedback from projects on the ground in important sites
+        and habitats enables us to implement successful conservation programmes for
+        birds and all nature.","id":175,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"BirdLife
+        International","unique_names_count":0,"updated_at":"2014-12-10T18:46:00Z","web_site_url":null},{"created_at":"2015-03-03T13:48:51Z","data_hash":null,"data_url":null,"description":"The
+        checklist of vascular plants of Portugal, including Mainland Portugal, Azores
+        and Madeira, was published in 2012 by ALFA (Associa\u00e7\u00e3o Lusitana
+        de Fitossociologia), and adopted formally by the Instituto de Conserva\u00e7\u00e3o
+        da Natureza e da Biodiversidade (presently ICNF). The checklist covers Continental
+        Portugal, Azores and Madeira. It includes a total of 3995 taxa (including
+        infraspecific taxa), of which 3314 are for Mainland Portugal, 1006 for Azores
+        and 1233 for Madeira. These taxa are distributed among 185 families and 1066
+        genera. The checklist also includes establishment means, identifying native,
+        introduced of endemic taxa.","id":176,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Checklist
+        da Flora de Portugal (Continental, A\u00e7ores e Madeira)","unique_names_count":0,"updated_at":"2015-03-03T09:09:07Z","web_site_url":null},{"created_at":"2016-07-20T11:13:25Z","data_hash":null,"data_url":null,"description":"FishBase
+        is a global species database of fish species(specifically finfish). It is
+        the largest and the mostextensively accessed online database of finfish","id":177,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"FishBase
+        Cache","unique_names_count":0,"updated_at":"2017-05-08T21:56:28Z","web_site_url":null},{"created_at":"2016-10-18T20:00:31Z","data_hash":null,"data_url":null,"description":"High
+        quality ribosomal RNA databases","id":178,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Silva","unique_names_count":0,"updated_at":"2016-10-18T20:00:31Z","web_site_url":"https://www.arb-silva.de/"},{"created_at":"2016-10-19T10:13:10Z","data_hash":null,"data_url":null,"description":"Open
+        Tree of Life aims to construct a comprehensive, dynamic and digitally-available
+        tree of life by synthesizing published phylogenetic trees along withtaxonomic
+        data. The project is a collaborative effortbetween 11 PIs across 10 institutions.","id":179,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Open
+        Tree of Life Reference Taxonomy","unique_names_count":0,"updated_at":"2018-07-17T16:33:49Z","web_site_url":null},{"created_at":"2016-10-30T00:46:40Z","data_hash":null,"data_url":null,"description":"iNaturalist.org
+        is a place where you can record what you see in nature, meet other nature
+        lovers, and learn about the natural world.","id":180,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"iNaturalist","unique_names_count":0,"updated_at":"2016-10-30T00:55:27Z","web_site_url":null},{"created_at":"2016-11-03T16:09:05Z","data_hash":null,"data_url":null,"description":"The
+        Interim Register of Marine and Nonmarine Genera is a provisional (or \u2018interim\u2019)
+        compilation of genus names \u2013 including species names in many cases \u2013
+        and covers both living and extinct biota into a single system to support taxonomic
+        and other queries dealing with e.g. homonyms, authorities, parent-child relationships,
+        spelling variations and distinctions between marine and non-marine or fossil
+        and recent taxa","id":181,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"The
+        Interim Register of Marine and Nonmarine Genera","unique_names_count":0,"updated_at":"2018-07-05T16:52:18Z","web_site_url":null},{"created_at":"2017-03-22T15:26:50Z","data_hash":null,"data_url":null,"description":"This
+        classification is primarily focused on Gymnodinium, a genus of dinoflagellate.
+        I tried to include all Gymnodinium name strings (even invalid names and lexical
+        variants).","id":182,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Gymno","unique_names_count":0,"updated_at":"2017-03-22T15:37:54Z","web_site_url":null}]'
+  recorded_at: 2019-06-26 18:36:47 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4

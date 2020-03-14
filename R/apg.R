@@ -3,8 +3,8 @@
 #' Generic names and their replacements from the Angiosperm Phylogeny
 #' Group III system of flowering plant classification.
 #'
-#' @param ... Curl args passed on to \code{\link[httr]{GET}}
-#' @references \url{http://www.mobot.org/MOBOT/research/APweb/}
+#' @param ... Curl args passed on to [crul::verb-GET]
+#' @references <http://www.mobot.org/MOBOT/research/APweb/>
 #' @name apg
 #' @examples \dontrun{
 #' head(apgOrders())
@@ -34,14 +34,14 @@ apgOrders <- function(...) {
   syn <- sapply(strsplit(syn, "=|\\s-"), strtrim)
   syn <- syn[vapply(syn, length, 1) != 0]
   synorig <- synorig[nchar(synorig) != 0]
-  syndf <- rbind.fill(lapply(syn, function(x) {
+  syndf <- dt2df(lapply(syn, function(x) {
     tmpdf <- rbind.data.frame(x)
     if (NCOL(tmpdf) == 2) {
       setNames(tmpdf, c("order", "synonym"))
     } else {
       setNames(tmpdf, c("order", "synonym", "comment"))
     }
-  }))
+  }), idcol = FALSE)
   syndf$accepted <- FALSE
   syndf$original <- synorig
 
@@ -72,14 +72,14 @@ apgFamilies <- function(...) {
   syn <- sapply(strsplit(tmp5, "=|\\s-"), strtrim)
   syn <- syn[vapply(syn, length, 1) != 0]
   synorig <- tmp5[nchar(tmp5) != 0]
-  syndf <- rbind.fill(lapply(syn, function(x) {
+  syndf <- dt2df(lapply(syn, function(x) {
     tmpdf <- rbind.data.frame(x)
     if (NCOL(tmpdf) == 2) {
       setNames(tmpdf, c("family", "order"))
     } else {
       setNames(tmpdf, c("family", "synonym", "order"))
     }
-  }))
+  }), idcol = FALSE)
   syndf[] <- lapply(syndf, as.character)
   syndf$accepted <- syndf$synonym
   syndf$accepted[is.na(syndf$accepted)] <- TRUE
@@ -90,9 +90,11 @@ apgFamilies <- function(...) {
 }
 
 apg_GET <- function(x, ...) {
-  res <- GET(paste0(apg_base(), sprintf("top/synonymy%s.html", x)), ...)
-  stop_for_status(res)
-  con_utf8(res)
+  cli <- crul::HttpClient$new(apg_base(),
+    headers = tx_ual, opts = list(...))
+  res <- cli$get(sprintf("MOBOT/research/APweb/top/synonymy%s.html", x))
+  res$raise_for_status()
+  res$parse("UTF-8")
 }
 
-apg_base <- function() "http://www.mobot.org/MOBOT/research/APweb/"
+apg_base <- function() "http://www.mobot.org"

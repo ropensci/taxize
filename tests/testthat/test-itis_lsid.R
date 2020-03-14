@@ -1,14 +1,13 @@
-# tests for itis_lsid fxn in taxize
 context("itis_lsid")
-
 
 test_that("itis_lsid returns the correct value", {
   skip_on_cran()
-
-  one <- itis_lsid("urn:lsid:itis.gov:itis_tsn:180543")
-  two <- itis_lsid("urn:lsid:itis.gov:itis_tsn:180543", "record")
-  three <- itis_lsid("urn:lsid:itis.gov:itis_tsn:202385", "fullrecord")
-  four <- itis_lsid(202385)
+  vcr::use_cassette("itis_lsid", {
+    one <- itis_lsid("urn:lsid:itis.gov:itis_tsn:180543")
+    two <- itis_lsid("urn:lsid:itis.gov:itis_tsn:180543", "record")
+    three <- itis_lsid("urn:lsid:itis.gov:itis_tsn:202385", "fullrecord")
+    four <- itis_lsid(202385)
+  })
 
   expect_equal(one, "180543")
   expect_match(as.character(two[1, "genuspart"]), "Ursus")

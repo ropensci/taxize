@@ -6,7 +6,6 @@
 \alias{classification.tsn}
 \alias{classification.uid}
 \alias{classification.eolid}
-\alias{classification.colid}
 \alias{classification.tpsid}
 \alias{classification.gbifid}
 \alias{classification.nbnid}
@@ -15,6 +14,7 @@
 \alias{classification.natservid}
 \alias{classification.boldid}
 \alias{classification.wiki}
+\alias{classification.pow}
 \alias{classification.ids}
 \alias{cbind.classification}
 \alias{rbind.classification}
@@ -24,39 +24,45 @@
 \usage{
 classification(...)
 
-\method{classification}{default}(x, db = NULL, callopts = list(),
-  return_id = TRUE, rows = NA, ...)
+\method{classification}{default}(
+  x,
+  db = NULL,
+  callopts = list(),
+  return_id = TRUE,
+  rows = NA,
+  ...
+)
 
 \method{classification}{tsn}(id, return_id = TRUE, ...)
 
-\method{classification}{uid}(id, callopts = list(), return_id = TRUE, ...)
+\method{classification}{uid}(
+  id,
+  callopts = list(),
+  return_id = TRUE,
+  batch_size = 50,
+  max_tries = 3,
+  ...
+)
 
-\method{classification}{eolid}(id, key = NULL, callopts = list(),
-  return_id = TRUE, ...)
+\method{classification}{eolid}(id, callopts = list(), return_id = TRUE, ...)
 
-\method{classification}{colid}(id, start = NULL, checklist = NULL,
-  callopts = list(), return_id = TRUE, ...)
+\method{classification}{tpsid}(id, callopts = list(), return_id = TRUE, ...)
 
-\method{classification}{tpsid}(id, key = NULL, callopts = list(),
-  return_id = TRUE, ...)
-
-\method{classification}{gbifid}(id, callopts = list(), return_id = TRUE,
-  ...)
+\method{classification}{gbifid}(id, callopts = list(), return_id = TRUE, ...)
 
 \method{classification}{nbnid}(id, callopts = list(), return_id = TRUE, ...)
 
 \method{classification}{tolid}(id, callopts = list(), return_id = TRUE, ...)
 
-\method{classification}{wormsid}(id, callopts = list(), return_id = TRUE,
-  ...)
+\method{classification}{wormsid}(id, callopts = list(), return_id = TRUE, ...)
 
-\method{classification}{natservid}(id, callopts = list(), return_id = TRUE,
-  ...)
+\method{classification}{natservid}(id, callopts = list(), return_id = TRUE, ...)
 
-\method{classification}{boldid}(id, callopts = list(), return_id = TRUE,
-  ...)
+\method{classification}{boldid}(id, callopts = list(), return_id = TRUE, ...)
 
 \method{classification}{wiki}(id, callopts = list(), return_id = TRUE, ...)
+
+\method{classification}{pow}(id, callopts = list(), return_id = TRUE, ...)
 
 \method{classification}{ids}(id, ...)
 
@@ -69,27 +75,25 @@ classification(...)
 \method{rbind}{classification_ids}(...)
 }
 \arguments{
-\item{...}{For \code{classification}: other arguments passed to
-\code{\link{get_tsn}},
-\code{\link{get_uid}}, \code{\link{get_eolid}},
-\code{\link{get_colid}}, \code{\link{get_tpsid}},
-\code{\link{get_gbifid}}, \code{\link{get_wormsid}},
-\code{\link{get_natservid}}, \code{\link{get_wormsid}},
-\code{\link{get_wiki}}. For \code{rbind.classification} and
-\code{cbind.classification}: one or more objects of class
-\code{classification}}
+\item{...}{For \code{classification}: other arguments passed to \code{\link[=get_tsn]{get_tsn()}},
+\code{\link[=get_uid]{get_uid()}}, \code{\link[=get_eolid]{get_eolid()}}, \code{\link[=get_tpsid]{get_tpsid()}}, \code{\link[=get_gbifid]{get_gbifid()}},
+\code{\link[=get_wormsid]{get_wormsid()}}, \code{\link[=get_natservid]{get_natservid()}}, \code{\link[=get_wormsid]{get_wormsid()}}, \code{\link[=get_wiki]{get_wiki()}},
+\code{\link[=get_pow]{get_pow()}}. For \code{rbind.classification} and \code{cbind.classification}: one or
+more objects of class \code{classification}}
 
 \item{x}{Vector of taxa names (character) or IDs (character or numeric)
-to query.}
+to query. For \code{db = "eol"}, EOL expects you to pass it a taxon id, called
+\code{eolid} in the output of \code{\link[=get_eolid]{get_eolid()}}.}
 
-\item{db}{character; database to query. either \code{ncbi}, \code{itis},
-\code{eol}, \code{col}, \code{tropicos}, \code{gbif}, \code{nbn},
-\code{worms}, \code{natserv}, \code{bold}, or \code{wiki}. Note that each
-taxonomic data source has, their own identifiers, so that if you provide
-the wrong \code{db} value for the identifier you could get a result, but
-it will likely be wrong (not what you were expecting).}
+\item{db}{character; database to query. either \code{ncbi}, \code{itis}, \code{eol},
+\code{tropicos}, \code{gbif}, \code{nbn}, \code{worms}, \code{natserv}, \code{bold}, \code{wiki}, or \code{pow}.
+Note that each taxonomic data source has, their own identifiers, so that
+if you provide the wrong \code{db} value for the identifier you could get a
+result, but it will likely be wrong (not what you were expecting). If using
+ncbi, and/or tropicos, we recommend getting an API key; see
+\link{taxize-authentication}}
 
-\item{callopts}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{callopts}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 
 \item{return_id}{(logical) If \code{TRUE} (default), return the taxon id
 as well as the name and rank of taxa in the lineage returned.
@@ -100,33 +104,26 @@ classification data.}
 all rows are considered. Note that this parameter is ignored if you pass
 in a taxonomic id instead of a name of class character.}
 
-\item{id}{character; identifiers, returned by \code{\link{get_tsn}},
-\code{\link{get_uid}}, \code{\link{get_eolid}},
-\code{\link{get_colid}}, \code{\link{get_tpsid}},
-\code{\link{get_gbifid}}, \code{\link{get_tolid}},
-\code{\link{get_wormsid}}, \code{\link{get_natservid}},
-\code{\link{get_wormsid}}, \code{\link{get_wiki}}}
+\item{id}{character; identifiers, returned by \code{\link[=get_tsn]{get_tsn()}}, \code{\link[=get_uid]{get_uid()}},
+\code{\link[=get_eolid]{get_eolid()}}, \code{\link[=get_tpsid]{get_tpsid()}}, \code{\link[=get_gbifid]{get_gbifid()}}, \code{\link[=get_tolid]{get_tolid()}},
+\code{\link[=get_wormsid]{get_wormsid()}}, \code{\link[=get_natservid]{get_natservid()}}, \code{\link[=get_wormsid]{get_wormsid()}}, \code{\link[=get_wiki]{get_wiki()}},
+\code{\link[=get_pow]{get_pow()}}}
 
-\item{key}{Your API key; loads from .Rprofile.}
+\item{batch_size}{(numeric) For NCBI queries, specify the number of IDs to
+lookup for each query.}
 
-\item{start}{The first record to return. If omitted, the results are returned
-from the first record (start=0). This is useful if the total number of
-results is larger than the maximum number of results returned by a single
-Web service query (currently the maximum number of results returned by a
-single query is 500 for terse queries and 50 for full queries).}
-
-\item{checklist}{character; The year of the checklist to query, if you want
-a specific year's checklist instead of the lastest as default (numeric).}
+\item{max_tries}{(numeric) For NCBI queries, the number of times a particular
+query will be attempted, assuming the first does not work.}
 }
 \value{
 A named list of data.frames with the taxonomic classification of
-   every supplied taxa.
+every supplied taxa.
 }
 \description{
 Retrieve the taxonomic hierarchy for a given taxon ID.
 }
 \details{
-If IDs are supplied directly (not from the \code{get_*} functions)
+If IDs are supplied directly (not from the \verb{get_*} functions)
 you must specify the type of ID. There is a timeout of 1/3 seconds between
 queries to NCBI.
 
@@ -145,20 +142,43 @@ let us know if you run into too many results problem and we'll see what
 we can do.
 }
 
+\section{Authentication}{
+
+See \link{taxize-authentication}
+}
+
+\section{EOL}{
+
+EOL does not have very good failure behavior. For example, if you submit
+an ID that does not exist they'll return a 500 HTTP error, which is
+not an appropriate error; it's probably that that ID does not exist
+in their database, but we can't know for sure. Isn't that fun?
+}
+
+\section{HTTP version for NCBI requests}{
+
+We hard code \code{http_version = 2L} to use HTTP/1.1 in HTTP requests to
+the Entrez API. See \code{curl::curl_symbols('CURL_HTTP_VERSION')}
+}
+
 \examples{
 \dontrun{
 # Plug in taxon IDs
 classification(9606, db = 'ncbi')
 classification(c(9606, 55062), db = 'ncbi')
 classification(129313, db = 'itis')
-classification(57361017, db = 'eol')
+classification(6985636, db = 'eol')
 classification(126436, db = 'worms')
+classification('Helianthus annuus', db = 'pow')
+classification('Helianthus', db = 'pow')
+classification('Asteraceae', db = 'pow')
 classification("ELEMENT_GLOBAL.2.134717", db = 'natserv')
 classification(c(2704179, 2441176), db = 'gbif')
 classification(25509881, db = 'tropicos')
 classification("NBNSYS0000004786", db = 'nbn')
 classification(as.nbnid("NBNSYS0000004786"), db = 'nbn')
 classification(3930798, db = 'tol')
+
 ## works the same if IDs are in class character
 classification(c("2704179", "2441176"), db = 'gbif')
 classification("Agapostemon", db = "bold")
@@ -168,7 +188,8 @@ classification("Malus domestica", db = "wiki")
 classification("Pinus contorta", db = "wiki")
 classification("Pinus contorta", db = "wiki", wiki_site = "commons")
 classification("Pinus contorta", db = "wiki", wiki_site = "pedia")
-classification("Pinus contorta", db = "wiki", wiki_site = "pedia", wiki = "fr")
+classification("Pinus contorta", db = "wiki", wiki_site = "pedia",
+  wiki = "fr")
 
 classification(get_wiki("Malus domestica", "commons"))
 classification(get_wiki("Malus domestica", "species"))
@@ -176,35 +197,32 @@ classification(c("Pinus contorta", "Malus domestica"), db = "wiki")
 
 # Plug in taxon names
 ## in this case, we use get_*() fxns internally to first get taxon IDs
+classification("Oncorhynchus mykiss", db = "eol")
 classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi')
 classification(c("Chironomus riparius", "aaa vva"), db = 'ncbi',
-  verbose=FALSE)
+  messages=FALSE)
 classification(c("Chironomus riparius", "aaa vva"), db = 'itis')
 classification(c("Chironomus riparius", "aaa vva"), db = 'itis',
-  verbose=FALSE)
+  messages=FALSE)
 classification(c("Chironomus riparius", "aaa vva"), db = 'eol')
-classification(c("Chironomus riparius", "aaa vva"), db = 'col')
 classification("Alopias vulpinus", db = 'nbn')
 classification('Gadus morhua', db = 'worms')
 classification('Aquila chrysaetos', db = 'natserv')
 classification('Gadus morhua', db = 'natserv')
 classification('Pomatomus saltatrix', db = 'natserv')
 classification('Aquila chrysaetos', db = 'natserv')
-classification(c("Chironomus riparius", "aaa vva"), db = 'col',
-  verbose=FALSE)
 classification(c("Chironomus riparius", "asdfasdfsfdfsd"), db = 'gbif')
 classification("Chironomus", db = 'tol')
 classification("Poa annua", db = 'tropicos')
 
-# Use methods for get_uid, get_tsn, get_eolid, get_colid, get_tpsid
+# Use methods for get_uid, get_tsn, get_eolid, get_tpsid
 classification(get_uid(c("Chironomus riparius", "Puma concolor")))
 
 classification(get_uid(c("Chironomus riparius", "aaa vva")))
 classification(get_tsn(c("Chironomus riparius", "aaa vva")))
 classification(get_tsn(c("Chironomus riparius", "aaa vva"),
-  verbose = FALSE))
+  messages = FALSE))
 classification(get_eolid(c("Chironomus riparius", "aaa vva")))
-classification(get_colid(c("Chironomus riparius", "aaa vva")))
 classification(get_tpsid(c("Poa annua", "aaa vva")))
 classification(get_gbifid(c("Poa annua", "Bison bison")))
 
@@ -220,7 +238,7 @@ rbind(cl)
 
 # Many names to get_ids
 (out <- get_ids(names=c("Puma concolor","Accipiter striatus"),
-  db = c('ncbi','itis','col')))
+  db = c('ncbi','itis')))
 (cl <- classification(out))
 rbind(cl)
 ## cbind with so many names results in some messy data
@@ -228,15 +246,8 @@ cbind(cl)
 ## so you can turn off return_id
 cbind( classification(out, return_id=FALSE) )
 
-# rbind and cbind on class classification (from a
-# call to get_colid, get_tsn, etc. other than get_ids)
-(cl_col <- classification(
-  get_colid(c("Puma concolor","Accipiter striatus"))))
-rbind(cl_col)
-cbind(cl_col)
-
-(cl_uid <- classification(get_uid(c("Puma concolor","Accipiter striatus")),
-  return_id=FALSE))
+(cl_uid <- classification(get_uid(c("Puma concolor",
+  "Accipiter striatus")), return_id=FALSE))
 rbind(cl_uid)
 cbind(cl_uid)
 ## cbind works a bit odd when there are lots of ranks without names
@@ -271,6 +282,25 @@ classification('Poa annua', db = 'tropicos')
 classification('Poa annua', db = 'tropicos', rows=1:4)
 classification('Poa annua', db = 'tropicos', rows=1)
 classification('Poa annua', db = 'tropicos', rows=6)
+
+# Queries of many IDs are processed in batches for NCBI
+ids <- c("13083", "2650392", "1547764", "230054", "353934", "656984", 
+"271789", "126272", "184644", "73213", "662816", "1161803", "1239353", 
+"59420", "665675", "866969", "1091219", "1431218", "1471898", 
+"864321", "251768", "2486276", "2068772", "1825808", "2006532", 
+"128287", "1195738", "1084683", "1886461", "508296", "377247", 
+"1489665", "329325", "219243", "1176946", "339893", "197933", 
+"174510", "1704048", "212897", "154842", "1239280", "260135", 
+"405735", "1566412", "2083462", "651348", "983204", "165380", 
+"2338856", "2068760", "167262", "34229", "1213340", "478939", 
+"1933585", "49951", "1277794", "1671089", "1502538", "362355", 
+"746473", "242879", "158219", "313664", "2093188", "1541232", 
+"584742", "1331091", "147639", "284492", "75642", "1412882", 
+"391782", "1406855", "434506", "2053357", "217315", "1444328", 
+"329249", "2294004", "84942", "324458", "538247", "69452", "49170", 
+"1993845", "261646", "127633", "228146", "1420004", "1629772", 
+"577055", "697062", "231660", "648380", "554953", "746496", "2602969")
+result <- classification(ids, db = 'ncbi')
 }
 
 \dontrun{
@@ -279,9 +309,7 @@ classification('Poa annua', db = 'tropicos', rows=6)
 }
 }
 \seealso{
-\code{\link{get_tsn}}, \code{\link{get_uid}},
-   \code{\link{get_eolid}}, \code{\link{get_colid}},
-   \code{\link{get_tpsid}}, \code{\link{get_gbifid}}
-   \code{\link{get_wormsid}}, \code{\link{get_natservid}},
-   \code{\link{get_boldid}}, \code{\link{get_wiki}}
+\code{\link[=get_tsn]{get_tsn()}}, \code{\link[=get_uid]{get_uid()}}, \code{\link[=get_eolid]{get_eolid()}},
+\code{\link[=get_tpsid]{get_tpsid()}}, \code{\link[=get_gbifid]{get_gbifid()}}, \code{\link[=get_wormsid]{get_wormsid()}}, \code{\link[=get_natservid]{get_natservid()}},
+\code{\link[=get_boldid]{get_boldid()}}, \code{\link[=get_wiki]{get_wiki()}}, \code{\link[=get_pow]{get_pow()}}
 }

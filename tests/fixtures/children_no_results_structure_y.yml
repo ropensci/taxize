@@ -1,0 +1,65 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getHierarchyDownFromTSN?tsn=23424234234
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      connection: keep-alive
+      content-length: '149'
+      content-type: text/json;charset=ISO-8859-1
+      date: Mon, 10 Feb 2020 22:14:18 GMT
+      status: 'HTTP/1.1 200 '
+      strict-transport-security:
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      x-application: itis_webservices
+      x-node-name: not shown
+      x-upstream-member: not shown
+    body:
+      encoding: UTF-8
+      file: no
+      string: |
+        {"author":"","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecordList","hierarchyList":[null],"rankName":"","sciName":"","tsn":"23424234234"}
+  recorded_at: 2020-02-10 22:14:19 GMT
+  recorded_with: vcr/0.4.1.94, webmockr/0.5.1.98
+- request:
+    method: get
+    uri: http://www.marinespecies.org/rest/AphiaRecordsByName/23424234234?like=true&marine_only=true&offset=1
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '204'
+      message: No Content
+      explanation: Request fulfilled, nothing follows
+    headers:
+      status: HTTP/1.1 204 No Content
+      date: Mon, 10 Feb 2020 22:14:18 GMT
+      server: Apache/2.4.39 (Win64)
+      access-control-allow-origin: '*'
+      access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
+        Authorization
+      access-control-allow-methods: GET, POST, OPTIONS
+      set-cookie: vliz_webc=vliz_webc1; path=/
+    body:
+      encoding: UTF-8
+      file: no
+      string: ''
+  recorded_at: 2020-02-10 22:14:19 GMT
+  recorded_with: vcr/0.4.1.94, webmockr/0.5.1.98

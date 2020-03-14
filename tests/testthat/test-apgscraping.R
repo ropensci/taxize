@@ -2,8 +2,9 @@ context("apg* functions")
 
 test_that("apgOrders works", {
   skip_on_cran()
-
-	orders <- apgOrders()
+  vcr::use_cassette("apgOrders", {
+    orders <- apgOrders()
+  })
 
   expect_is(orders, "data.frame")
   expect_is(orders$order, "character")
@@ -13,8 +14,9 @@ test_that("apgOrders works", {
 
 test_that("apgFamilies works", {
   skip_on_cran()
-
-	families <- apgFamilies()
+  vcr::use_cassette("apgFamilies", {
+    families <- apgFamilies()
+  })
 
   expect_is(families, "data.frame")
   expect_is(families$family, "character")

@@ -2,38 +2,42 @@
 #'
 #' @export
 #' @param commnames One or more common names or partial names.
-#' @param db Data source, one of \emph{"eol"} (default), \emph{"itis"},
-#' \emph{"tropicos"}, \emph{"ncbi"}, or \emph{"worms"}.
+#' @param db Data source, one of *"ncbi"* (default), *"itis"*,
+#' *"tropicos"*, *"eol"*, or *"worms"*. If using ncbi, we
+#' recommend getting an API key; see [taxize-authentication]
 #' @param itisby Search for common names across entire names (search, default),
 #' at beginning of names (begin), or at end of names (end).
-#' @param simplify (logical) If \code{TRUE}, simplify output to a vector
-#' of names. If \code{FALSE}, return variable formats from different sources,
-#' usually a data.frame.
+#' @param simplify (logical) If `TRUE`, simplify output to a vector of names.
+#' If `FALSE`, return variable formats from different sources, usually a
+#' data.frame.
 #' @param ... Further arguments passed on to internal methods.
-#' @return If \code{simplify=TRUE}, a list of scientific names, with list
-#' labeled by your input names. If \code{simplify=FALSE}, a data.frame with
-#' columns that vary by data source
-#' @seealso \code{\link[taxize]{sci2comm}}
+#' @return If `simplify=TRUE`, a list of scientific names, with list
+#' labeled by your input names. If `simplify=FALSE`, a data.frame with
+#' columns that vary by data source. `character(0)` on no match
+#' @seealso [sci2comm()]
 #' @details For data sources ITIS and NCBI you can pass in common names
-#' directly, and use \code{\link[taxize]{get_uid}} or
-#' \code{\link[taxize]{get_tsn}} to get ids first, then pass in to this fxn.
+#' directly, and use [get_uid()] or [get_tsn()] to get ids first, then pass in
+#' to this fxn.
 #'
 #' For the other data sources, you can only pass in common names directly.
+#'
+#' @section Authentication:
+#' See [taxize-authentication] for help on authentication
+#' 
+#' @section HTTP version for NCBI requests:
+#' We hard code `http_version = 2L` to use HTTP/1.1 in HTTP requests to
+#' the Entrez API. See `curl::curl_symbols('CURL_HTTP_VERSION')` 
+#'
 #' @author Scott Chamberlain
 #' @examples \dontrun{
-#' comm2sci(commnames='black bear')
-#' comm2sci(commnames='black bear', simplify = FALSE)
+#' comm2sci(commnames='american black bear')
+#' comm2sci(commnames='american black bear', simplify = FALSE)
 #' comm2sci(commnames='black bear', db='itis')
+#' comm2sci(commnames='american black bear', db='itis')
 #' comm2sci(commnames='annual blue grass', db='tropicos')
 #' comm2sci(commnames=c('annual blue grass','tree of heaven'), db='tropicos')
-#' comm2sci(commnames=c('black bear', 'roe deer'))
 #' comm2sci('blue whale', db = "worms")
 #' comm2sci(c('blue whale', 'dwarf surfclam'), db = "worms")
-#'
-#' # Output easily converts to a data.frame with plyr::ldply
-#' library(plyr)
-#' ldply(comm2sci(commnames=c('annual blue grass','tree of heaven'),
-#'   db='tropicos'))
 #'
 #' # ncbi: pass in uid's from get_uid() directly
 #' x <- get_uid("western capercaillie", modifier = "Common Name")
@@ -43,13 +47,13 @@
 #'   searchtype = "common")
 #' comm2sci(x)
 #' }
-comm2sci <- function(commnames, db='eol', itisby='search',
+comm2sci <- function(commnames, db='ncbi', itisby='search',
                      simplify=TRUE, ...) {
   UseMethod("comm2sci")
 }
 
 #' @export
-comm2sci.default <- function(commnames, db='eol', itisby='search',
+comm2sci.default <- function(commnames, db='ncbi', itisby='search',
                              simplify=TRUE, ...) {
   assert(commnames, "character")
   assert(simplify, "logical")
@@ -69,21 +73,23 @@ sci_from_comm <- function(nn, db, simplify, itisby, ...) {
       c2s_ncbi(ids, ...)
     },
     worms = c2s_worms(nn, simplify, ...),
-    stop("'db' must be one of 'eol', 'itis', 'tropicos', 'ncbi', 'worms'",
+    stop("'db' must be one of 'ncbi', 'itis', 'tropicos', 'eol', 'worms'",
          call. = FALSE)
   )
 }
 
 #' @export
-comm2sci.tsn <- function(commnames, db='eol', itisby='search',
+comm2sci.tsn <- function(commnames, db='ncbi', itisby='search',
                          simplify=TRUE, ...) {
+  warn_db(list(db = db), "itis")
   temp <- lapply(commnames, c2s_itis_, simplify = simplify, ...)
   stats::setNames(temp, commnames)
 }
 
 #' @export
-comm2sci.uid <- function(commnames, db='eol', itisby='search',
+comm2sci.uid <- function(commnames, db='ncbi', itisby='search',
                          simplify=TRUE, ...) {
+  warn_db(list(db = db), "ncbi")
   temp <- lapply(commnames, c2s_ncbi, simplify = simplify, ...)
   stats::setNames(temp, commnames)
 }
@@ -122,28 +128,30 @@ c2s_itis_ <- function(x, by='search', simplify, ...){
   )
   if (simplify) {
     as.character(tmp$combinedname)
-  } else{
+  } else {
     tmp
   }
 }
 
 c2s_ncbi <- function(x, simplify, ...) {
-  baseurl <- paste0(ncbi_base(), "/entrez/eutils/efetch.fcgi?db=taxonomy")
-  ID <- paste("ID=", x, sep = "")
-  searchurl <- paste(baseurl, ID, sep = "&")
-  tt <- GET(searchurl)
-  stop_for_status(tt)
-  res <- con_utf8(tt)
-  ttp <- xml2::read_xml(res)
+  key <- getkey(NULL, "ENTREZ_KEY")
+  query <- tc(list(db = "taxonomy", ID = x, api_key = key))
+  cli <- crul::HttpClient$new(url = ncbi_base(),
+    headers = tx_ual, opts = list(http_version = 2L, ...))
+  res <- cli$get("entrez/eutils/efetch.fcgi", query = query)
+  if (!res$success()) return(character())
+  tt <- res$parse("UTF-8")
+  ttp <- xml2::read_xml(tt)
   # common name
   out <- xml_text(xml_find_all(ttp, "//TaxaSet/Taxon/ScientificName"))
   # NCBI limits requests to three per second
-  Sys.sleep(0.33)
+  ncbi_rate_limit_pause(key)
   return(out)
 }
 
 c2s_eol <- function(simplify, ...){
   tmp <- eol_search(...)
+  if (all(is.na(tmp))) return(character(0))
   if (simplify) {
     as.character(tmp$name)
   } else {

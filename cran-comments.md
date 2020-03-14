@@ -1,32 +1,22 @@
 ## Test environments
 
-* local OS X install, R 3.4.1 patched
-* ubuntu 12.04 (on travis-ci), R 3.4.1
+* local OS X install, R 3.6.2 Patched
+* ubuntu 16.04 (on travis-ci), R 3.6.2
 * win-builder (devel and release)
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
-
-* Note about license:
-License components with restrictions and base license permitting such:
-  MIT + file LICENSE
-File 'LICENSE':
-  YEAR: 2017
-  COPYRIGHT HOLDER: Scott Chamberlain
+0 errors | 0 warnings | 0 notes
 
 ## Reverse dependencies
 
-* I have run R CMD check on the 18 downstream dependencies
-(<https://github.com/ropensci/taxize/blob/master/revdep/README.md>).
-All revdep maintainers were notified of the release. There was one
-problem with a vignette build with the test suite for myTAI - but is
-unrelated to this package.
+* I have run R CMD check on the 22 downstream dependencies
+(<https://github.com/ropensci/taxize/blob/master/revdep/README.md>);
+there was an error in one package (spocc, also maintained by me) but only in the development version on GitHub, which I've fixed and a new version will be submitted soon.
 
 ------
 
-This version fixes a number of bugs and makes a number of changes
-to how some functions behave.
+This version includes a new function for parsing scientific names, drops 3 package imports, and makes many bug fixes.
 
 Thanks!
 Scott Chamberlain

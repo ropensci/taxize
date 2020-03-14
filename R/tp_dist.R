@@ -2,11 +2,11 @@
 #'
 #' @export
 #' @param id the taxon identifier code
-#' @param key Your Tropicos API key; loads from .Rprofile. Or you can passin your
-#' key in this arg.
-#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' @param key Your Tropicos API key; See [taxize-authentication] 
+#' for help on authentication
+#' @param ... Curl options passed on to [crul::HttpClient]
 #' @return List of two data.frame's, one named "location", and one "reference".
-#' @references \url{http://services.tropicos.org/help?method=GetNameDistributionsXml}
+#' @references <http://services.tropicos.org/help?method=GetNameDistributionsXml>
 #'
 #' @examples \dontrun{
 #' # Query using a taxon name Id
@@ -24,15 +24,14 @@ tp_dist <- function(id, key=NULL, ...) {
   }
 
   url = sprintf('http://services.tropicos.org/Name/%s/Distributions', id)
-	key <- getkey(key, "tropicosApiKey")
+	key <- getkey(key, "TROPICOS_KEY")
   args <- tc(list(format = 'json', apikey = key))
-  tt <- GET(url, query = args, ...)
-  stop_for_status(tt)
-  out <- jsonlite::fromJSON(con_utf8(tt), FALSE)
+  tt <- tp_GET(url, args, ...)
+  out <- jsonlite::fromJSON(tt, FALSE)
   getdata <- function(x, which) data.frame(x[[which]])
-  locs <- do.call(rbind.fill, lapply(out, getdata, which = "Location"))
+  locs <- dt2df(lapply(out, getdata, which = "Location"), idcol = FALSE)
   names(locs) <- tolower(names(locs))
-  refs <- do.call(rbind.fill, lapply(out, getdata, which = "Reference"))
+  refs <- dt2df(lapply(out, getdata, which = "Reference"), idcol = FALSE)
   names(refs) <- tolower(names(refs))
 
   list(location = locs, reference = refs)
@@ -42,14 +41,10 @@ tp_dist <- function(id, key=NULL, ...) {
 #'
 #' Function name changed to tp_dist.
 #'
-#' @param id the taxon identifier code
-#' @param key Your Tropicos API key; loads from .Rprofile. Or you can passin your
-#' key in this arg.
-#' @param callopts Further args passed on to httr::GET
 #' @export
 #' @keywords internal
+#' @param ... ignored
 #' @rdname tp_namedistributions-deprecated
-tp_namedistributions <- function(id, key=NULL, callopts=list())
-{
+tp_namedistributions <- function(...) {
   .Deprecated("tp_dist", "taxize", "Function name changed. See tp_dist", "tp_namedistributions")
 }

@@ -11,9 +11,9 @@ eubon_children(id, providers = NULL, timeout = 0, ...)
 other identifier used by the checklist provider)}
 
 \item{providers}{(character) A list of provider id strings concatenated by
-comma characters. The default : "pesi,bgbm-cdm-server[col]" will be used if
-this parameter is not set. A list of all available provider ids can be
-obtained from the '/capabilities' service end point. Providers can be
+comma characters. The default : "pesi,bgbm-cdm-server[col] will
+be used if this parameter is not set. A list of all available provider ids
+can be obtained from the '/capabilities' service end point. Providers can be
 nested, that is a parent provider can have sub providers. If the id of the
 parent provider is supplied all subproviders will be queried. The query
 can also be restricted to one or more subproviders by using the following
@@ -24,13 +24,17 @@ from any of the providers. If the timeout is exceeded the service will just
 return the responses that have been received so far. The default timeout is
 0 ms (wait for ever)}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
 a data.frame or an empty list if no results found
 }
 \description{
 EUBON children
+}
+\note{
+There is no pagination in this method, so you may or may not be
+getting all the results for a search. Sorry, out of our control
 }
 \examples{
 \dontrun{
@@ -40,9 +44,12 @@ head(x)
 }
 }
 \references{
-\url{http://cybertaxonomy.eu/eu-bon/utis/1.2/doc.html}
+\url{https://cybertaxonomy.eu/eu-bon/utis/1.3/doc.html}
 }
 \seealso{
-Other eubon-methods: \code{\link{eubon_capabilities}},
-  \code{\link{eubon_hierarchy}}, \code{\link{eubon}}
+Other eubon-methods: 
+\code{\link{eubon_capabilities}()},
+\code{\link{eubon_hierarchy}()},
+\code{\link{eubon_search}()}
 }
+\concept{eubon-methods}

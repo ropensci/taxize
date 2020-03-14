@@ -7,24 +7,27 @@
 resolve(query, db = "gnr", ...)
 }
 \arguments{
-\item{query}{Vector of one or more taxonomic names (common names not supported)}
+\item{query}{Vector of one or more taxonomic names (common names not
+supported)}
 
-\item{db}{Source to check names against. One of iplant, tnrs, or gnr. Default: gnr
-Note that each taxonomic data source has their own identifiers, so that if you
-provide the wrong \code{db} value for the identifier you could get a result,
-but it will likely be wrong (not what you were expecting).}
+\item{db}{Source to check names against. One of iplant, tnrs, or gnr.
+Default: gnr. Note that each taxonomic data source has their own
+identifiers, so that if you provide the wrong \code{db} value for the
+identifier you could get a result, but it will likely be wrong (not
+what you were expecting).}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}} or \code{\link[httr]{POST}}.
-In addition, further named args passed on to each respective function. See examples}
+\item{...}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET} or
+\link[crul:verb-POST]{crul::verb-POST}. In addition, further named args passed
+on to  each respective function. See examples}
 }
 \value{
-A list with length equal to length of the db parameter (number of
-sources requested), with each element being a data.frame or list with results
-from that source.
+A list with length equal to length of the db parameter (number
+of sources requested), with each element being a data.frame or list
+with results from that source.
 }
 \description{
-Resolve names from iPlant's name resolver, the Taxonomic Name
-Resolution Service (TNRS), and the Global Names Resolver (GNR)
+Resolve names from iPlant's name resolver, the Taxonomic
+Name Resolution Service (TNRS), and the Global Names Resolver (GNR)
 }
 \examples{
 \dontrun{
@@ -52,8 +55,6 @@ identical(
 )
 
 # pass in curl options
-library("httr")
-resolve(query="Qercuss", db = "iplant", config=verbose())
-res <- resolve(query=c("Helianthus annuus", "Homo sapiens"), config=progress())
+resolve(query="Qercuss", db = "iplant", verbose = TRUE)
 }
 }

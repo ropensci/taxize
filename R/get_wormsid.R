@@ -4,42 +4,60 @@
 #' Species (WORMS).
 #'
 #' @export
-#' @param query character; A vector of common or scientific names.
+#' @param query character; A vector of common or scientific names. Or, a
+#' `taxon_state` object (see [taxon-state])
 #' @param searchtype character; One of 'scientific' or 'common', or any unique
 #' abbreviation
+#' @param marine_only logical; marine only? default: ‘TRUE (only used
+#' when `searchtype="scientific"`); passed on to [worrms::wm_records_name()]
+#' @param fuzzy logical; fuzzy search. default: `NULL` (`TRUE` for
+#' `searchtype="scientific"` and `FALSE` for `searchtype="common"` to match
+#' the default values for those parameters in \pkg{worrms} package); passed on
+#' to [worrms::wm_records_name()] or [worrms::wm_records_common()]
 #' @param accepted logical; If TRUE, removes names that are not accepted valid
-#' names by WORMS. Set to \code{FALSE} (default) to give back both accepted
+#' names by WORMS. Set to `FALSE` (default) to give back both accepted
 #' and unaccepted names.
 #' @param ask logical; should get_wormsid be run in interactive mode?
-#' If \code{TRUE} and more than one wormsid is found for the species, the
-#' user is asked for input. If \code{FALSE} NA is returned for
+#' If `TRUE` and more than one wormsid is found for the species, the
+#' user is asked for input. If `FALSE` NA is returned for
 #' multiple matches.
-#' @param verbose logical; should progress be printed?
+#' @param messages logical; should progress be printed?
 #' @param rows numeric; Any number from 1 to infinity. If the default NaN, all
 #' rows are considered. Note that this function still only gives back a wormsid
-#' class object with one to many identifiers. See
-#' \code{\link[taxize]{get_wormsid_}} to get back all, or a subset, of the raw
-#' data that you are presented during the ask process.
+#' class object with one to many identifiers. See [get_wormsid_()] to get back
+#' all, or a subset, of the raw data that you are presented during the ask
+#' process.
 #' @param x Input to as.wormsid
 #' @param ... Ignored
 #' @param check logical; Check if ID matches any existing on the DB, only
-#' used in \code{\link{as.wormsid}}
+#' used in [as.wormsid()]
 #' @template getreturn
 #'
 #' @family taxonomic-ids
-#' @seealso \code{\link[taxize]{classification}}
+#' @seealso [classification()]
 #'
 #' @examples \dontrun{
-#' (x <- get_wormsid('Platanista gangetica'))
+#' (x <- get_wormsid('Gadus morhua'))
 #' attributes(x)
 #' attr(x, "match")
 #' attr(x, "multiple_matches")
 #' attr(x, "pattern_match")
 #' attr(x, "uri")
 #'
-#' get_wormsid('Gadus morhua')
 #' get_wormsid('Pomatomus saltatrix')
-#' get_wormsid(c("Platanista gangetica", "Lichenopora neapolitana"))
+#' get_wormsid(c("Gadus morhua", "Lichenopora neapolitana"))
+#'
+#' # marine_only
+#' get_wormsid("Apedinella", marine_only=TRUE)
+#' get_wormsid("Apedinella", marine_only=FALSE)
+#'
+#' # fuzzy
+#' ## searchtype="scientific": fuzzy is TRUE by default
+#' get_wormsid("Platypro", searchtype="scientific", fuzzy=TRUE)
+#' get_wormsid("Platypro", searchtype="scientific", fuzzy=FALSE)
+#' ## searchtype="common": fuzzy is FALSE by default
+#' get_wormsid("clam", searchtype="common", fuzzy=FALSE)
+#' get_wormsid("clam", searchtype="common", fuzzy=TRUE)
 #'
 #' # by common name
 #' get_wormsid("dolphin", 'common')
@@ -86,25 +104,47 @@
 #' get_wormsid_("Plat", rows=1:75)
 #' # get_wormsid_(c("asdfadfasd","Plat"), rows=1:5)
 #' }
-get_wormsid <- function(query, searchtype = "scientific", accepted = FALSE,
-                      ask = TRUE, verbose = TRUE, rows = NA, ...) {
+get_wormsid <- function(query, searchtype = "scientific", marine_only = TRUE,
+  fuzzy = NULL, accepted = FALSE, ask = TRUE, messages = TRUE,
+  rows = NA, ...) {
 
+  assert(query, c("character", "taxon_state"))
   assert(searchtype, "character")
+  assert(marine_only, "logical")
+  assert(fuzzy, "logical")
   assert(accepted, "logical")
   assert(ask, "logical")
-  assert(verbose, "logical")
+  assert(messages, "logical")
+  assert_rows(rows)
 
-  fun <- function(x, searchtype, ask, verbose, ...) {
+  if (inherits(query, "character")) {
+    tstate <- taxon_state$new(class = "wormsid", names = query)
+    items <- query
+  } else {
+    assert_state(query, "wormsid")
+    tstate <- query
+    query <- tstate$taxa_remaining()
+    items <- c(query, tstate$taxa_completed())
+  }
+
+  prog <- progressor$new(items = items, suppress = !messages)
+  done <- tstate$get()
+  for (i in seq_along(done)) prog$completed(names(done)[i], done[[i]]$att)
+  prog$prog_start()
+
+  for (i in seq_along(query)) {
     direct <- FALSE
-    mssg(verbose, "\nRetrieving data for taxon '", x, "'\n")
+    mssg(messages, "\nRetrieving data for taxon '", query[i], "'\n")
 
     if (!searchtype %in% c("scientific", "common")) {
       stop("'searchtype' must be one of 'scientific' or 'common'", call. = FALSE)
     }
     wmdf <- switch(
       searchtype,
-      scientific = worms_worker(x, worrms::wm_records_name, rows, ...),
-      common = worms_worker(x, worrms::wm_records_common, rows, ...)
+      scientific = worms_worker(query[i], worrms::wm_records_name, rows,
+        marine_only, fuzzy %||% TRUE, ...),
+      common = worms_worker(query[i], worrms::wm_records_common, rows,
+        marine_only, fuzzy %||% FALSE, ...)
     )
     mm <- NROW(wmdf) > 1
 
@@ -113,7 +153,7 @@ get_wormsid <- function(query, searchtype = "scientific", accepted = FALSE,
       att <- "not found"
     } else {
       wmdf <- suppressWarnings(data.frame(wmdf))
-      wmdf <- wmdf[, c("AphiaID","scientificname","authority","status")]
+      wmdf <- wmdf[, c("AphiaID", "scientificname", "authority", "status")]
       names(wmdf)[1] <- "id"
 
       if (accepted) {
@@ -124,42 +164,29 @@ get_wormsid <- function(query, searchtype = "scientific", accepted = FALSE,
 
       # should return NA if spec not found
       if (nrow(wmdf) == 0) {
-        mssg(
-          verbose,
-          "Not found. Consider checking the spelling or alternate classification")
+        mssg(messages, m_not_found_sp_altclass)
         wmid <- NA_character_
-        att <- 'not found'
+        att <- "not found"
       }
 
       # take the one wmid from data.frame
       if (nrow(wmdf) == 1) {
         wmid <- wmdf$id
-        att <- 'found'
+        att <- "found"
       }
 
       # check for direct match
       if (nrow(wmdf) > 1) {
-
         names(wmdf)[grep("scientificname", names(wmdf))] <- "target"
-        direct <- match(tolower(wmdf$target), tolower(x))
-
-        if (length(direct) == 1) {
-          if (!all(is.na(direct))) {
-            wmid <- wmdf$id[!is.na(direct)]
-            direct <- TRUE
-            att <- 'found'
-          } else {
-            direct <- FALSE
-            wmid <- NA_character_
-            att <- 'not found'
-          }
+        matchtmp <- wmdf[tolower(wmdf$target) %in% tolower(query[i]), "id"]
+        if (length(matchtmp) == 1) {
+          wmid <- matchtmp
+          direct <- TRUE
+          att <- "found"
         } else {
-          direct <- FALSE
           wmid <- NA_character_
-          att <- 'NA due to ask=FALSE & no direct match found'
-          warning("> 1 result; no direct match found", call. = FALSE)
+          att <- "not found"
         }
-
       }
 
       # multiple matches
@@ -176,7 +203,7 @@ get_wormsid <- function(query, searchtype = "scientific", accepted = FALSE,
           # prompt
           message("\n\n")
           print(wmdf)
-          message("\nMore than one WORMS ID found for taxon '", x, "'!\n
+          message("\nMore than one WORMS ID found for taxon '", query[i], "'!\n
                   Enter rownumber of taxon (other inputs will return 'NA'):\n") # prompt
           take <- scan(n = 1, quiet = TRUE, what = 'raw')
 
@@ -188,47 +215,38 @@ get_wormsid <- function(query, searchtype = "scientific", accepted = FALSE,
             take <- as.numeric(take)
             message("Input accepted, took taxon '", as.character(wmdf$target[take]), "'.\n")
             wmid <-  wmdf$id[take]
-            att <- 'found'
+            att <- "found"
           } else {
             wmid <- NA_character_
-            mssg(verbose, "\nReturned 'NA'!\n\n")
-            att <- 'not found'
+            mssg(messages, "\nReturned 'NA'!\n\n")
+            att <- "not found"
           }
         } else {
           if (length(wmid) != 1) {
-            warning(
-              sprintf("More than one WORMS ID found for taxon '%s'; refine query or set ask=TRUE",
-                      x),
-              call. = FALSE
-            )
+            warning(sprintf(m_more_than_one_found, "Worms ID", query[i]),
+              call. = FALSE)
             wmid <- NA_character_
-            att <- 'NA due to ask=FALSE & > 1 result'
+            att <- m_na_ask_false
           }
         }
       }
 
     }
-
-    data.frame(
-      wmid = as.character(wmid),
-      att = att,
-      multiple = mm,
-      direct = direct,
-      stringsAsFactors = FALSE)
+    res <- list(id = as.character(wmid), att = att, multiple = mm,
+      direct = direct)
+    prog$completed(query[i], att)
+    prog$prog(att)
+    tstate$add(query[i], res)
   }
-  query <- as.character(query)
-  outd <- ldply(query, fun, searchtype, ask, verbose, ...)
-  out <- outd$wmid
-  attr(out, 'match') <- outd$att
-  attr(out, 'multiple_matches') <- outd$multiple
-  attr(out, 'pattern_match') <- outd$direct
-  if ( !all(is.na(out)) ) {
-    urlmake <- na.omit(out)
-    attr(out, 'uri') <-
-      sprintf('http://www.marinespecies.org/aphia.php?p=taxdetails&id=%s', urlmake)
-  }
-  class(out) <- "wormsid"
-  return(out)
+  out <- tstate$get()
+  ids <- structure(pluck_un(out, "id", ""), class = "wormsid",
+    match = pluck_un(out, "att", ""),
+    multiple_matches = pluck_un(out, "multiple", logical(1)),
+    pattern_match = pluck_un(out, "direct", logical(1))
+  )
+  on.exit(prog$prog_summary(), add = TRUE)
+  on.exit(tstate$exit, add = TRUE)
+  add_uri(ids, get_url_templates$worms)
 }
 
 try_df <- function(expr) {
@@ -280,7 +298,10 @@ as.data.frame.wormsid <- function(x, ...){
              stringsAsFactors = FALSE)
 }
 
-make_worms <- function(x, check=TRUE) make_generic(x, 'http://www.marinespecies.org/aphia.php?p=taxdetails&id=%s', "wormsid", check)
+make_worms <- function(x, check=TRUE) {
+  make_generic(x, 'https://www.marinespecies.org/aphia.php?p=taxdetails&id=%s',
+    "wormsid", check)
+}
 
 check_wormsid <- function(x){
   tt <- worrms::wm_record(as.numeric(x))
@@ -289,22 +310,28 @@ check_wormsid <- function(x){
 
 #' @export
 #' @rdname get_wormsid
-get_wormsid_ <- function(query, verbose = TRUE, searchtype = "scientific",
-                       accepted = TRUE, rows = NA, ...) {
+get_wormsid_ <- function(query, messages = TRUE, searchtype = "scientific",
+  marine_only = TRUE, fuzzy = NULL, accepted = TRUE, rows = NA, ...) {
+
   stats::setNames(
-    lapply(query, get_wormsid_help, verbose = verbose,
-           searchtype = searchtype, accepted = accepted, rows = rows, ...),
+    lapply(query, get_wormsid_help, messages = messages,
+           searchtype = searchtype, marine_only = marine_only, fuzzy = fuzzy,
+           accepted = accepted, rows = rows, ...),
     query
   )
 }
 
-get_wormsid_help <- function(query, verbose, searchtype, accepted, rows, ...) {
-  mssg(verbose, "\nRetrieving data for taxon '", query, "'\n")
+get_wormsid_help <- function(query, messages, searchtype, marine_only,
+  fuzzy, accepted, rows, ...) {
+
+  mssg(messages, "\nRetrieving data for taxon '", query, "'\n")
   searchtype <- match.arg(searchtype, c("scientific", "common"))
   df <- switch(
     searchtype,
-    scientific = worms_worker(query, worrms::wm_records_name, rows, ...),
-    common = worms_worker(query, worrms::wm_records_common, rows, ...)
+    scientific = worms_worker(query, worrms::wm_records_name, rows = rows,
+      marine_only = marine_only, fuzzy = fuzzy, ...),
+    common = worms_worker(query, worrms::wm_records_common, rows = rows,
+      marine_only = marine_only, fuzzy = fuzzy, ...)
   )
   if (!inherits(df, "tbl_df") || NROW(df) == 0) {
     NULL
@@ -317,35 +344,37 @@ get_wormsid_help <- function(query, verbose, searchtype, accepted, rows, ...) {
 
 # WORMS WORKER
 # worms_worker(x = "Plat", expr = worrms::wm_records_name)
-worms_worker <- function(x, expr, rows, ...) {
+worms_worker <- function(x, expr, rows, marine_only, fuzzy, ...) {
   if (
     all(!is.na(rows)) &&
     class(rows) %in% c('numeric', 'integer') &&
     rows[length(rows)] <= 50
   ) {
-    expr(x, ...)
+    expr(x, marine_only = marine_only, fuzzy = fuzzy, ...)
   } else if (
     all(!is.na(rows)) &&
     class(rows) %in% c('numeric', 'integer') &&
     rows[length(rows)] > 50
   ) {
-    out <- try_df(expr(x))
+    out <- try_df(expr(x, marine_only = marine_only, fuzzy = fuzzy, ...))
     out <- list(out)
     i <- 1
     total <- 0
     while (NROW(out[[length(out)]]) == 50 && total < rows[length(rows)]) {
       i <- i + 1
-      out[[i]] <- try_df(expr(x, offset = sum(unlist(sapply(out, NROW)))))
+      out[[i]] <- try_df(expr(x, marine_only = marine_only, fuzzy = fuzzy,
+        offset = sum(unlist(sapply(out, NROW))), ...))
       total <- sum(unlist(sapply(out, NROW)))
     }
     df2dt2tbl(out)[rows,]
   } else {
-    out <- try_df(expr(x))
+    out <- try_df(expr(x, marine_only = marine_only, fuzzy = fuzzy, ...))
     out <- list(out)
     i <- 1
     while (NROW(out[[length(out)]]) == 50) {
       i <- i + 1
-      out[[i]] <- try_df(expr(x, offset = sum(unlist(sapply(out, NROW))), ...))
+      out[[i]] <- try_df(expr(x, marine_only = marine_only, fuzzy = fuzzy,
+        offset = sum(unlist(sapply(out, NROW))), ...))
     }
     df2dt2tbl(out)
   }

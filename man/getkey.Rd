@@ -7,18 +7,19 @@
 getkey(x = NULL, service)
 }
 \arguments{
-\item{x}{An API key, defaults to NULL.}
+\item{x}{(character) An API key, defaults to \code{NULL}}
 
-\item{service}{The API data provider, used to match to default guest key.}
+\item{service}{(character) The API data provider, used to match to
+default guest key (for Tropicos; there's no guest
+key for NCBI or IUCN, for which you have to get your own)}
 }
 \description{
-Checks first to get key from your .Rprofile file for an API key with the
-		name 'tropicoskey'. If it is not found, the default key is used.
+Checks first to get key from your .Rprofile or .Renviron (or similar) file
 }
 \examples{
 \dontrun{
 getkey(service="tropicos")
-getkey(service="eol")
+getkey(service="iucn")
+getkey(service="entrez")
 }
 }
-\keyword{internal}

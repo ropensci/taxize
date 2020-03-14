@@ -1,0 +1,231 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://www.marinespecies.org/rest/AphiaRecordsByName/Pomatomus%20saltatrix?like=true&marine_only=true&offset=1
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Tue, 11 Feb 2020 20:09:07 GMT
+      server: Apache/2.4.39 (Win64)
+      access-control-allow-origin: '*'
+      access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
+        Authorization
+      access-control-allow-methods: GET, POST, OPTIONS
+      content-length: '919'
+      content-type: application/json
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"AphiaID":151482,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=151482","scientificname":"Pomatomus
+        saltatrix","authority":"(Linnaeus, 1766)","status":"accepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":151482,"valid_name":"Pomatomus
+        saltatrix","valid_authority":"(Linnaeus, 1766)","parentNameUsageID":126046,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Perciformes","family":"Pomatomidae","genus":"Pomatomus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Pomatomus saltatrix (Linnaeus,
+        1766). Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=151482
+        on 2020-02-11","lsid":"urn:lsid:marinespecies.org:taxname:151482","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"like","modified":"2008-01-15T17:27:08.177Z"}]'
+  recorded_at: 2020-02-11 20:09:12 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
+- request:
+    method: get
+    uri: http://www.marinespecies.org/rest/AphiaRecordsByName/Pomatomus%20saltatrix?like=true&marine_only=true&offset=1
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Tue, 11 Feb 2020 20:09:07 GMT
+      server: Apache/2.4.39 (Win64)
+      access-control-allow-origin: '*'
+      access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
+        Authorization
+      access-control-allow-methods: GET, POST, OPTIONS
+      content-length: '919'
+      content-type: application/json
+      set-cookie: vliz_webc=vliz_webc1; path=/
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"AphiaID":151482,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=151482","scientificname":"Pomatomus
+        saltatrix","authority":"(Linnaeus, 1766)","status":"accepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":151482,"valid_name":"Pomatomus
+        saltatrix","valid_authority":"(Linnaeus, 1766)","parentNameUsageID":126046,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Perciformes","family":"Pomatomidae","genus":"Pomatomus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Pomatomus saltatrix (Linnaeus,
+        1766). Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=151482
+        on 2020-02-11","lsid":"urn:lsid:marinespecies.org:taxname:151482","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"like","modified":"2008-01-15T17:27:08.177Z"}]'
+  recorded_at: 2020-02-11 20:09:12 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
+- request:
+    method: get
+    uri: http://www.marinespecies.org/rest/AphiaRecordsByName/Pomatomus%20saltatrix?like=true&marine_only=true&offset=1
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Tue, 11 Feb 2020 20:09:08 GMT
+      server: Apache/2.4.39 (Win64)
+      access-control-allow-origin: '*'
+      access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
+        Authorization
+      access-control-allow-methods: GET, POST, OPTIONS
+      content-length: '919'
+      content-type: application/json
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"AphiaID":151482,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=151482","scientificname":"Pomatomus
+        saltatrix","authority":"(Linnaeus, 1766)","status":"accepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":151482,"valid_name":"Pomatomus
+        saltatrix","valid_authority":"(Linnaeus, 1766)","parentNameUsageID":126046,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Perciformes","family":"Pomatomidae","genus":"Pomatomus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Pomatomus saltatrix (Linnaeus,
+        1766). Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=151482
+        on 2020-02-11","lsid":"urn:lsid:marinespecies.org:taxname:151482","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"like","modified":"2008-01-15T17:27:08.177Z"}]'
+  recorded_at: 2020-02-11 20:09:12 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
+- request:
+    method: get
+    uri: http://www.marinespecies.org/rest/AphiaSynonymsByAphiaID/151482?offset=1
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Tue, 11 Feb 2020 20:09:11 GMT
+      server: Apache/2.4.39 (Win64)
+      access-control-allow-origin: '*'
+      access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
+        Authorization
+      access-control-allow-methods: GET, POST, OPTIONS
+      transfer-encoding: chunked
+      content-type: application/json
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"AphiaID":312701,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=312701","scientificname":"Cheilodipterus
+        heptacanthus","authority":"Lacep\u00e8de, 1801","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":151482,"valid_name":"Pomatomus
+        saltatrix","valid_authority":"(Linnaeus, 1766)","parentNameUsageID":206449,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Perciformes","family":"Apogonidae","genus":"Cheilodipterus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Cheilodipterus heptacanthus Lacep\u00e8de,
+        1801. Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=312701
+        on 2020-02-11","lsid":"urn:lsid:marinespecies.org:taxname:312701","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":312708,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=312708","scientificname":"Cheilodipterus
+        saltatrix","authority":"(Linnaeus, 1766)","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":151482,"valid_name":"Pomatomus
+        saltatrix","valid_authority":"(Linnaeus, 1766)","parentNameUsageID":206449,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Perciformes","family":"Apogonidae","genus":"Cheilodipterus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Cheilodipterus saltatrix (Linnaeus,
+        1766). Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=312708
+        on 2020-02-11","lsid":"urn:lsid:marinespecies.org:taxname:312708","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":304154,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=304154","scientificname":"Chromis
+        epicurorum","authority":"Gronow, 1854","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":151482,"valid_name":"Pomatomus
+        saltatrix","valid_authority":"(Linnaeus, 1766)","parentNameUsageID":126045,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Perciformes","family":"Pomacentridae","genus":"Chromis","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Chromis epicurorum Gronow, 1854.
+        Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=304154
+        on 2020-02-11","lsid":"urn:lsid:marinespecies.org:taxname:304154","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":301162,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=301162","scientificname":"Gasterosteus
+        saltatrix","authority":"Linnaeus, 1766","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":151482,"valid_name":"Pomatomus
+        saltatrix","valid_authority":"(Linnaeus, 1766)","parentNameUsageID":125775,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gasterosteiformes","family":"Gasterosteidae","genus":"Gasterosteus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gasterosteus saltatrix Linnaeus,
+        1766. Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=301162
+        on 2020-02-11","lsid":"urn:lsid:marinespecies.org:taxname:301162","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":318226,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=318226","scientificname":"Gonenion
+        serra","authority":"Rafinesque, 1810","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":151482,"valid_name":"Pomatomus
+        saltatrix","valid_authority":"(Linnaeus, 1766)","parentNameUsageID":296706,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Perciformes","family":"Pomatomidae","genus":"Gonenion","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gonenion serra Rafinesque, 1810.
+        Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=318226
+        on 2020-02-11","lsid":"urn:lsid:marinespecies.org:taxname:318226","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":318924,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=318924","scientificname":"Lopharis
+        mediterraneus","authority":"Rafinesque, 1810","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":151482,"valid_name":"Pomatomus
+        saltatrix","valid_authority":"(Linnaeus, 1766)","parentNameUsageID":297014,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Perciformes","family":"Pomatomidae","genus":"Lopharis","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Lopharis mediterraneus Rafinesque,
+        1810. Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=318924
+        on 2020-02-11","lsid":"urn:lsid:marinespecies.org:taxname:318924","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":307327,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=307327","scientificname":"Perca
+        lophar","authority":"Forssk\u00e5l, 1775","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":151482,"valid_name":"Pomatomus
+        saltatrix","valid_authority":"(Linnaeus, 1766)","parentNameUsageID":151313,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Perciformes","family":"Percidae","genus":"Perca","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Perca lophar Forssk\u00e5l, 1775.
+        Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=307327
+        on 2020-02-11","lsid":"urn:lsid:marinespecies.org:taxname:307327","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":401541,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=401541","scientificname":"Pomatomix
+        saltatrix","authority":"(Linnaeus, 1766)","status":"unaccepted","unacceptreason":"misspelling","taxonRankID":220,"rank":"Species","valid_AphiaID":151482,"valid_name":"Pomatomus
+        saltatrix","valid_authority":"(Linnaeus, 1766)","parentNameUsageID":398018,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Perciformes","family":"Pomatomidae","genus":"Pomatomix","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Pomatomix saltatrix (Linnaeus,
+        1766). Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=401541
+        on 2020-02-11","lsid":"urn:lsid:marinespecies.org:taxname:401541","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2009-06-15T12:24:27.480Z"},{"AphiaID":304209,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=304209","scientificname":"Pomatomus
+        pedica","authority":"Whitley, 1931","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":151482,"valid_name":"Pomatomus
+        saltatrix","valid_authority":"(Linnaeus, 1766)","parentNameUsageID":126046,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Perciformes","family":"Pomatomidae","genus":"Pomatomus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Pomatomus pedica Whitley, 1931.
+        Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=304209
+        on 2020-02-11","lsid":"urn:lsid:marinespecies.org:taxname:304209","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":127002,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=127002","scientificname":"Pomatomus
+        saltator","authority":"(Linnaeus, 1766)","status":"unaccepted","unacceptreason":"misspelling","taxonRankID":220,"rank":"Species","valid_AphiaID":151482,"valid_name":"Pomatomus
+        saltatrix","valid_authority":"(Linnaeus, 1766)","parentNameUsageID":126046,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Perciformes","family":"Pomatomidae","genus":"Pomatomus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Pomatomus saltator (Linnaeus,
+        1766). Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=127002
+        on 2020-02-11","lsid":"urn:lsid:marinespecies.org:taxname:127002","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":304210,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=304210","scientificname":"Pomatomus
+        skib","authority":"Lacep\u00e8de, 1802","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":151482,"valid_name":"Pomatomus
+        saltatrix","valid_authority":"(Linnaeus, 1766)","parentNameUsageID":126046,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Perciformes","family":"Pomatomidae","genus":"Pomatomus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Pomatomus skib Lacep\u00e8de,
+        1802. Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=304210
+        on 2020-02-11","lsid":"urn:lsid:marinespecies.org:taxname:304210","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":1417831,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1417831","scientificname":"Scomber
+        sypterus","authority":"Pallas, 1814","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":151482,"valid_name":"Pomatomus
+        saltatrix","valid_authority":"(Linnaeus, 1766)","parentNameUsageID":126063,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Perciformes","family":"Scombridae","genus":"Scomber","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Scomber sypterus Pallas, 1814.
+        Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1417831
+        on 2020-02-11","lsid":"urn:lsid:marinespecies.org:taxname:1417831","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2020-02-03T06:40:01.910Z"},{"AphiaID":321302,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=321302","scientificname":"Scomer
+        sypterus","authority":"Pallas, 1814","status":"unaccepted","unacceptreason":"synonym","taxonRankID":220,"rank":"Species","valid_AphiaID":151482,"valid_name":"Pomatomus
+        saltatrix","valid_authority":"(Linnaeus, 1766)","parentNameUsageID":297772,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Perciformes","family":"Scombridae","genus":"Scomer","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Scomer sypterus Pallas, 1814.
+        Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=321302
+        on 2020-02-11","lsid":"urn:lsid:marinespecies.org:taxname:321302","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2017-08-18T10:28:24.920Z"},{"AphiaID":321589,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=321589","scientificname":"Sparactodon
+        nalnal","authority":"Rochebrune, 1880","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":151482,"valid_name":"Pomatomus
+        saltatrix","valid_authority":"(Linnaeus, 1766)","parentNameUsageID":297833,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Perciformes","family":"Pomatomidae","genus":"Sparactodon","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Sparactodon nalnal Rochebrune,
+        1880. Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=321589
+        on 2020-02-11","lsid":"urn:lsid:marinespecies.org:taxname:321589","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":321742,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=321742","scientificname":"Sypterus
+        pallasii","authority":"Eichwald, 1831","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":151482,"valid_name":"Pomatomus
+        saltatrix","valid_authority":"(Linnaeus, 1766)","parentNameUsageID":297892,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Perciformes","family":"Pomatomidae","genus":"Sypterus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Sypterus pallasii Eichwald, 1831.
+        Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=321742
+        on 2020-02-11","lsid":"urn:lsid:marinespecies.org:taxname:321742","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":321804,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=321804","scientificname":"Temnodon
+        conidens","authority":"Castelnau, 1861","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":151482,"valid_name":"Pomatomus
+        saltatrix","valid_authority":"(Linnaeus, 1766)","parentNameUsageID":297912,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Perciformes","family":"Pomatomidae","genus":"Temnodon","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Temnodon conidens Castelnau, 1861.
+        Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=321804
+        on 2020-02-11","lsid":"urn:lsid:marinespecies.org:taxname:321804","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":321806,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=321806","scientificname":"Temnodon
+        saltator","authority":"(Linnaeus, 1766)","status":"unaccepted","unacceptreason":"misspelling","taxonRankID":220,"rank":"Species","valid_AphiaID":151482,"valid_name":"Pomatomus
+        saltatrix","valid_authority":"(Linnaeus, 1766)","parentNameUsageID":297912,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Perciformes","family":"Pomatomidae","genus":"Temnodon","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Temnodon saltator (Linnaeus, 1766).
+        Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=321806
+        on 2020-02-11","lsid":"urn:lsid:marinespecies.org:taxname:321806","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":321807,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=321807","scientificname":"Temnodon
+        tubulus","authority":"Saville-Kent, 1893","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":151482,"valid_name":"Pomatomus
+        saltatrix","valid_authority":"(Linnaeus, 1766)","parentNameUsageID":297912,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Perciformes","family":"Pomatomidae","genus":"Temnodon","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Temnodon tubulus Saville-Kent,
+        1893. Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=321807
+        on 2020-02-11","lsid":"urn:lsid:marinespecies.org:taxname:321807","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"}]'
+  recorded_at: 2020-02-11 20:09:12 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0

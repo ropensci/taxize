@@ -7,16 +7,16 @@
 names_list(rank = "genus", size = 10)
 }
 \arguments{
-\item{rank}{Taxonomic rank, one of species, genus (default), family, order.}
+\item{rank}{Taxonomic rank, one of species, genus (default), family, order}
 
-\item{size}{Number of names to get. Maximum depends on the rank.}
+\item{size}{Number of names to get. Maximum depends on the rank}
 }
 \value{
 Vector of taxonomic names.
 }
 \description{
-Family and order names come from the APG plant names list. Genus and species names
-come from Theplantlist.org.
+Family and order names come from the APG plant names list. Genus and
+species names come from Theplantlist.org.
 }
 \examples{
 names_list()

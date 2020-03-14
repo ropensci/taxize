@@ -1,0 +1,177 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://api.gbif.org/v1/species/match?name=Hereroa&strict=FALSE&verbose=TRUE&limit=500
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 06 Mar 2020 19:18:34 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
+      server: Jetty(9.3.z-SNAPSHOT)
+      cache-control: public, max-age=3601
+      x-varnish: '302809811'
+      age: '0'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      content-length: '489'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"usageKey":7329478,"scientificName":"Hereroa","canonicalName":"Hereroa","rank":"GENUS","status":"ACCEPTED","confidence":94,"note":"Similarity:
+        name=100; authorship=0; classification=-2; rank=0; status=1; singleMatch=5","matchType":"EXACT","kingdom":"Plantae","phylum":"Tracheophyta","order":"Caryophyllales","family":"Aizoaceae","genus":"Hereroa","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":422,"familyKey":6752,"genusKey":7329478,"synonym":false,"class":"Magnoliopsida"}'
+  recorded_at: 2020-03-06 19:18:35 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.gbif.org/v1/species/7329478?limit=20
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 06 Mar 2020 19:18:34 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
+      server: Jetty(9.3.z-SNAPSHOT)
+      cache-control: public, max-age=3601
+      x-varnish: '264409909'
+      age: '0'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      content-length: '816'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"key":7329478,"nubKey":7329478,"nameKey":5146728,"taxonID":"gbif:7329478","sourceTaxonKey":155824226,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Caryophyllales","family":"Aizoaceae","genus":"Hereroa","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":422,"familyKey":6752,"genusKey":7329478,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":6752,"parent":"Aizoaceae","scientificName":"Hereroa","canonicalName":"Hereroa","authorship":"","nameType":"SCIENTIFIC","rank":"GENUS","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":29,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:27:58.902+0000","issues":[],"synonym":false,"class":"Magnoliopsida"}'
+  recorded_at: 2020-03-06 19:18:35 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.gbif.org/v1/species/7329478/children?limit=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 06 Mar 2020 19:18:35 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
+      server: Jetty(9.3.z-SNAPSHOT)
+      cache-control: public, max-age=3601
+      x-varnish: '299106849'
+      age: '0'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      content-length: '26781'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"offset":0,"limit":100,"endOfRecords":true,"results":[{"key":3707493,"nubKey":3707493,"nameKey":5146734,"taxonID":"gbif:3707493","sourceTaxonKey":153408278,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Caryophyllales","family":"Aizoaceae","genus":"Hereroa","species":"Hereroa
+        acuminata","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":422,"familyKey":6752,"genusKey":7329478,"speciesKey":3707493,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":7329478,"parent":"Hereroa","scientificName":"Hereroa
+        acuminata L.Bolus","canonicalName":"Hereroa acuminata","authorship":"L.Bolus","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:27:58.995+0000","issues":[],"synonym":false,"class":"Magnoliopsida"},{"key":3707472,"nubKey":3707472,"nameKey":5146741,"taxonID":"gbif:3707472","sourceTaxonKey":153408275,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Caryophyllales","family":"Aizoaceae","genus":"Hereroa","species":"Hereroa
+        aspera","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":422,"familyKey":6752,"genusKey":7329478,"speciesKey":3707472,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":7329478,"parent":"Hereroa","scientificName":"Hereroa
+        aspera L.Bolus","canonicalName":"Hereroa aspera","authorship":"L.Bolus","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:27:58.997+0000","issues":[],"synonym":false,"class":"Magnoliopsida"},{"key":3707464,"nubKey":3707464,"nameKey":5146744,"taxonID":"gbif:3707464","sourceTaxonKey":153408271,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Caryophyllales","family":"Aizoaceae","genus":"Hereroa","species":"Hereroa
+        brevifolia","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":422,"familyKey":6752,"genusKey":7329478,"speciesKey":3707464,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":7329478,"parent":"Hereroa","scientificName":"Hereroa
+        brevifolia L.Bolus","canonicalName":"Hereroa brevifolia","authorship":"L.Bolus","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:27:58.980+0000","issues":[],"synonym":false,"class":"Magnoliopsida"},{"key":3707458,"nubKey":3707458,"nameKey":5146747,"taxonID":"gbif:3707458","sourceTaxonKey":153408268,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Caryophyllales","family":"Aizoaceae","genus":"Hereroa","species":"Hereroa
+        calycina","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":422,"familyKey":6752,"genusKey":7329478,"speciesKey":3707458,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":7329478,"parent":"Hereroa","scientificName":"Hereroa
+        calycina L.Bolus","canonicalName":"Hereroa calycina","authorship":"L.Bolus","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:27:58.982+0000","issues":[],"synonym":false,"class":"Magnoliopsida"},{"key":7707516,"nameKey":5146752,"taxonID":"gbif:7707516","sourceTaxonKey":153408254,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Caryophyllales","family":"Aizoaceae","genus":"Hereroa","species":"Hereroa
+        carinans","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":422,"familyKey":6752,"genusKey":7329478,"speciesKey":7707516,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":7329478,"parent":"Hereroa","basionymKey":3707145,"basionym":"Mesembryanthemum
+        carinans Haw.","scientificName":"Hereroa carinans (Haw.) Dinter & Schwantes
+        ex Jacobsen","canonicalName":"Hereroa carinans","authorship":"Dinter & Schwantes
+        ex Jacobsen (Haw.)","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:27:58.971+0000","issues":["ORIGINAL_NAME_DERIVED"],"synonym":false,"class":"Magnoliopsida"},{"key":3707428,"nubKey":3707428,"nameKey":5146758,"taxonID":"gbif:3707428","sourceTaxonKey":153408250,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Caryophyllales","family":"Aizoaceae","genus":"Hereroa","species":"Hereroa
+        concava","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":422,"familyKey":6752,"genusKey":7329478,"speciesKey":3707428,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":7329478,"parent":"Hereroa","scientificName":"Hereroa
+        concava L.Bolus","canonicalName":"Hereroa concava","authorship":"L.Bolus","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:27:58.964+0000","issues":[],"synonym":false,"class":"Magnoliopsida"},{"key":3707420,"nubKey":3707420,"nameKey":5146762,"taxonID":"gbif:3707420","sourceTaxonKey":153408246,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Caryophyllales","family":"Aizoaceae","genus":"Hereroa","species":"Hereroa
+        crassa","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":422,"familyKey":6752,"genusKey":7329478,"speciesKey":3707420,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":7329478,"parent":"Hereroa","scientificName":"Hereroa
+        crassa L.Bolus","canonicalName":"Hereroa crassa","authorship":"L.Bolus","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:27:58.966+0000","issues":[],"synonym":false,"class":"Magnoliopsida"},{"key":3707397,"nubKey":3707397,"nameKey":5146771,"taxonID":"gbif:3707397","sourceTaxonKey":153408244,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Caryophyllales","family":"Aizoaceae","genus":"Hereroa","species":"Hereroa
+        fimbriata","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":422,"familyKey":6752,"genusKey":7329478,"speciesKey":3707397,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":7329478,"parent":"Hereroa","scientificName":"Hereroa
+        fimbriata L.Bolus","canonicalName":"Hereroa fimbriata","authorship":"L.Bolus","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:27:58.967+0000","issues":[],"synonym":false,"class":"Magnoliopsida"},{"key":3707390,"nubKey":3707390,"nameKey":5146773,"taxonID":"gbif:3707390","sourceTaxonKey":153408238,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Caryophyllales","family":"Aizoaceae","genus":"Hereroa","species":"Hereroa
+        glenensis","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":422,"familyKey":6752,"genusKey":7329478,"speciesKey":3707390,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":7329478,"parent":"Hereroa","basionymKey":3704181,"basionym":"Bergeranthus
+        glenensis N.E.Br.","scientificName":"Hereroa glenensis (N.E.Br.) L.Bolus","canonicalName":"Hereroa
+        glenensis","authorship":"L.Bolus (N.E.Br.)","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:27:58.991+0000","issues":["ORIGINAL_NAME_DERIVED"],"synonym":false,"class":"Magnoliopsida"},{"key":3707383,"nubKey":3707383,"nameKey":5146775,"taxonID":"gbif:3707383","sourceTaxonKey":153408231,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Caryophyllales","family":"Aizoaceae","genus":"Hereroa","species":"Hereroa
+        gracilis","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":422,"familyKey":6752,"genusKey":7329478,"speciesKey":3707383,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":7329478,"parent":"Hereroa","scientificName":"Hereroa
+        gracilis L.Bolus","canonicalName":"Hereroa gracilis","authorship":"L.Bolus","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:27:58.939+0000","issues":[],"synonym":false,"class":"Magnoliopsida"},{"key":3707374,"nubKey":3707374,"nameKey":5146780,"taxonID":"gbif:3707374","sourceTaxonKey":153408224,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Caryophyllales","family":"Aizoaceae","genus":"Hereroa","species":"Hereroa
+        granulata","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":422,"familyKey":6752,"genusKey":7329478,"speciesKey":3707374,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":7329478,"parent":"Hereroa","scientificName":"Hereroa
+        granulata Dinter & Schwantes","canonicalName":"Hereroa granulata","authorship":"Dinter
+        & Schwantes","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","publishedIn":"Z.
+        Sukkulentenk. 3:24.  1927","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:27:58.945+0000","issues":[],"synonym":false,"class":"Magnoliopsida"},{"key":3707369,"nubKey":3707369,"nameKey":5146782,"taxonID":"gbif:3707369","sourceTaxonKey":153408220,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Caryophyllales","family":"Aizoaceae","genus":"Hereroa","species":"Hereroa
+        herrei","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":422,"familyKey":6752,"genusKey":7329478,"speciesKey":3707369,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":7329478,"parent":"Hereroa","scientificName":"Hereroa
+        herrei Schwantes","canonicalName":"Hereroa herrei","authorship":"Schwantes","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:27:58.943+0000","issues":[],"synonym":false,"class":"Magnoliopsida"},{"key":3707362,"nubKey":3707362,"nameKey":5146784,"taxonID":"gbif:3707362","sourceTaxonKey":153408211,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Caryophyllales","family":"Aizoaceae","genus":"Hereroa","species":"Hereroa
+        hesperantha","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":422,"familyKey":6752,"genusKey":7329478,"speciesKey":3707362,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":7329478,"parent":"Hereroa","scientificName":"Hereroa
+        hesperantha Dinter & Schwantes","canonicalName":"Hereroa hesperantha","authorship":"Dinter
+        & Schwantes","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:27:58.959+0000","issues":[],"synonym":false,"class":"Magnoliopsida"},{"key":3707353,"nubKey":3707353,"nameKey":5146787,"taxonID":"gbif:3707353","sourceTaxonKey":153408209,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Caryophyllales","family":"Aizoaceae","genus":"Hereroa","species":"Hereroa
+        incurva","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":422,"familyKey":6752,"genusKey":7329478,"speciesKey":3707353,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":7329478,"parent":"Hereroa","scientificName":"Hereroa
+        incurva L.Bolus","canonicalName":"Hereroa incurva","authorship":"L.Bolus","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:27:58.957+0000","issues":[],"synonym":false,"class":"Magnoliopsida"},{"key":3707345,"nubKey":3707345,"nameKey":5146790,"taxonID":"gbif:3707345","sourceTaxonKey":153408207,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Caryophyllales","family":"Aizoaceae","genus":"Hereroa","species":"Hereroa
+        joubertii","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":422,"familyKey":6752,"genusKey":7329478,"speciesKey":3707345,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":7329478,"parent":"Hereroa","scientificName":"Hereroa
+        joubertii L.Bolus","canonicalName":"Hereroa joubertii","authorship":"L.Bolus","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:27:58.954+0000","issues":[],"synonym":false,"class":"Magnoliopsida"},{"key":3707337,"nubKey":3707337,"nameKey":5146793,"taxonID":"gbif:3707337","sourceTaxonKey":153408202,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Caryophyllales","family":"Aizoaceae","genus":"Hereroa","species":"Hereroa
+        latipetala","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":422,"familyKey":6752,"genusKey":7329478,"speciesKey":3707337,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":7329478,"parent":"Hereroa","scientificName":"Hereroa
+        latipetala L.Bolus","canonicalName":"Hereroa latipetala","authorship":"L.Bolus","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:27:58.956+0000","issues":[],"synonym":false,"class":"Magnoliopsida"},{"key":3707329,"nubKey":3707329,"nameKey":5146796,"taxonID":"gbif:3707329","sourceTaxonKey":153408199,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Caryophyllales","family":"Aizoaceae","genus":"Hereroa","species":"Hereroa
+        muirii","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":422,"familyKey":6752,"genusKey":7329478,"speciesKey":3707329,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":7329478,"parent":"Hereroa","scientificName":"Hereroa
+        muirii L.Bolus","canonicalName":"Hereroa muirii","authorship":"L.Bolus","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:27:58.953+0000","issues":[],"synonym":false,"class":"Magnoliopsida"},{"key":3707322,"nubKey":3707322,"nameKey":5146798,"taxonID":"gbif:3707322","sourceTaxonKey":153408197,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Caryophyllales","family":"Aizoaceae","genus":"Hereroa","species":"Hereroa
+        nelii","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":422,"familyKey":6752,"genusKey":7329478,"speciesKey":3707322,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":7329478,"parent":"Hereroa","scientificName":"Hereroa
+        nelii Schwantes","canonicalName":"Hereroa nelii","authorship":"Schwantes","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:27:58.951+0000","issues":[],"synonym":false,"class":"Magnoliopsida"},{"key":3707314,"nubKey":3707314,"nameKey":5146800,"taxonID":"gbif:3707314","sourceTaxonKey":153408179,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Caryophyllales","family":"Aizoaceae","genus":"Hereroa","species":"Hereroa
+        odorata","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":422,"familyKey":6752,"genusKey":7329478,"speciesKey":3707314,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":7329478,"parent":"Hereroa","basionymKey":7526644,"basionym":"Mesembryanthemum
+        odoratum L.Bol.","scientificName":"Hereroa odorata (L.Bolus) L.Bolus","canonicalName":"Hereroa
+        odorata","authorship":"L.Bolus (L.Bolus)","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:27:58.923+0000","issues":["ORIGINAL_NAME_DERIVED"],"synonym":false,"class":"Magnoliopsida"},{"key":3707307,"nubKey":3707307,"nameKey":5146802,"taxonID":"gbif:3707307","sourceTaxonKey":153408176,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Caryophyllales","family":"Aizoaceae","genus":"Hereroa","species":"Hereroa
+        pallens","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":422,"familyKey":6752,"genusKey":7329478,"speciesKey":3707307,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":7329478,"parent":"Hereroa","scientificName":"Hereroa
+        pallens L.Bolus","canonicalName":"Hereroa pallens","authorship":"L.Bolus","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:27:58.931+0000","issues":[],"synonym":false,"class":"Magnoliopsida"},{"key":3707301,"nubKey":3707301,"nameKey":5146805,"taxonID":"gbif:3707301","sourceTaxonKey":153408162,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Caryophyllales","family":"Aizoaceae","genus":"Hereroa","species":"Hereroa
+        puttkameriana","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":422,"familyKey":6752,"genusKey":7329478,"speciesKey":3707301,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":7329478,"parent":"Hereroa","scientificName":"Hereroa
+        puttkameriana Dinter & Schwantes","canonicalName":"Hereroa puttkameriana","authorship":"Dinter
+        & Schwantes","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:27:58.906+0000","issues":[],"synonym":false,"class":"Magnoliopsida"},{"key":3707293,"nubKey":3707293,"nameKey":5146810,"taxonID":"gbif:3707293","sourceTaxonKey":153408153,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Caryophyllales","family":"Aizoaceae","genus":"Hereroa","species":"Hereroa
+        rehneltiana","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":422,"familyKey":6752,"genusKey":7329478,"speciesKey":3707293,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":7329478,"parent":"Hereroa","scientificName":"Hereroa
+        rehneltiana Dinter & Schwantes","canonicalName":"Hereroa rehneltiana","authorship":"Dinter
+        & Schwantes","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:27:58.918+0000","issues":[],"synonym":false,"class":"Magnoliopsida"},{"key":3707287,"nubKey":3707287,"nameKey":5146813,"taxonID":"gbif:3707287","sourceTaxonKey":153408150,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Caryophyllales","family":"Aizoaceae","genus":"Hereroa","species":"Hereroa
+        stanfordiae","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":422,"familyKey":6752,"genusKey":7329478,"speciesKey":3707287,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":7329478,"parent":"Hereroa","scientificName":"Hereroa
+        stanfordiae L.Bolus","canonicalName":"Hereroa stanfordiae","authorship":"L.Bolus","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:27:58.934+0000","issues":[],"synonym":false,"class":"Magnoliopsida"},{"key":3707273,"nubKey":3707273,"nameKey":5146821,"taxonID":"gbif:3707273","sourceTaxonKey":153408147,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Caryophyllales","family":"Aizoaceae","genus":"Hereroa","species":"Hereroa
+        stenophylla","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":422,"familyKey":6752,"genusKey":7329478,"speciesKey":3707273,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":7329478,"parent":"Hereroa","scientificName":"Hereroa
+        stenophylla L.Bolus","canonicalName":"Hereroa stenophylla","authorship":"L.Bolus","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:27:58.933+0000","issues":[],"synonym":false,"class":"Magnoliopsida"},{"key":3707265,"nubKey":3707265,"nameKey":5146825,"taxonID":"gbif:3707265","sourceTaxonKey":153408144,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Caryophyllales","family":"Aizoaceae","genus":"Hereroa","species":"Hereroa
+        tenuifolia","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":422,"familyKey":6752,"genusKey":7329478,"speciesKey":3707265,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":7329478,"parent":"Hereroa","scientificName":"Hereroa
+        tenuifolia L.Bolus","canonicalName":"Hereroa tenuifolia","authorship":"L.Bolus","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:27:58.938+0000","issues":[],"synonym":false,"class":"Magnoliopsida"},{"key":3707257,"nubKey":3707257,"nameKey":5146828,"taxonID":"gbif:3707257","sourceTaxonKey":153408141,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Caryophyllales","family":"Aizoaceae","genus":"Hereroa","species":"Hereroa
+        teretifolia","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":422,"familyKey":6752,"genusKey":7329478,"speciesKey":3707257,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":7329478,"parent":"Hereroa","scientificName":"Hereroa
+        teretifolia L.Bolus","canonicalName":"Hereroa teretifolia","authorship":"L.Bolus","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:27:58.936+0000","issues":[],"synonym":false,"class":"Magnoliopsida"},{"key":3707249,"nubKey":3707249,"nameKey":5146829,"taxonID":"gbif:3707249","sourceTaxonKey":103262264,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Caryophyllales","family":"Aizoaceae","genus":"Hereroa","species":"Hereroa
+        triebneri","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":422,"familyKey":6752,"genusKey":7329478,"speciesKey":3707249,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"046bbc50-cae2-47ff-aa43-729fbf53f7c5","parentKey":7329478,"parent":"Hereroa","scientificName":"Hereroa
+        triebneri Graessn.","canonicalName":"Hereroa triebneri","authorship":"Graessn.","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:27:58.904+0000","issues":[],"synonym":false,"class":"Magnoliopsida"},{"key":3707218,"nubKey":3707218,"nameKey":5146841,"taxonID":"gbif:3707218","sourceTaxonKey":153408133,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Caryophyllales","family":"Aizoaceae","genus":"Hereroa","species":"Hereroa
+        willowmorensis","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":422,"familyKey":6752,"genusKey":7329478,"speciesKey":3707218,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":7329478,"parent":"Hereroa","scientificName":"Hereroa
+        willowmorensis L.Bolus","canonicalName":"Hereroa willowmorensis","authorship":"L.Bolus","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:27:58.969+0000","issues":[],"synonym":false,"class":"Magnoliopsida"},{"key":3707207,"nubKey":3707207,"nameKey":5146843,"taxonID":"gbif:3707207","sourceTaxonKey":153408121,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Caryophyllales","family":"Aizoaceae","genus":"Hereroa","species":"Hereroa
+        wilmaniae","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":422,"familyKey":6752,"genusKey":7329478,"speciesKey":3707207,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":7329478,"parent":"Hereroa","scientificName":"Hereroa
+        wilmaniae L.Bolus","canonicalName":"Hereroa wilmaniae","authorship":"L.Bolus","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:27:58.984+0000","issues":[],"synonym":false,"class":"Magnoliopsida"}]}'
+  recorded_at: 2020-03-06 19:18:35 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0

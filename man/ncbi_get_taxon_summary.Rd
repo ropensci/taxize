@@ -4,38 +4,52 @@
 \alias{ncbi_get_taxon_summary}
 \title{NCBI taxon information from uids}
 \usage{
-ncbi_get_taxon_summary(id, ...)
+ncbi_get_taxon_summary(id, key = NULL, ...)
 }
 \arguments{
-\item{id}{(character) NCBI taxonomy uids to retrieve information for. See Details.}
+\item{id}{(character) NCBI taxonomy uids to retrieve information for.
+See Details.}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{key}{(character) NCBI Entrez API key. optional. See Details.}
+
+\item{...}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
 A \code{data.frame} with the following columns:
-  \describe{
-    \item{uid}{The uid queried for}
-    \item{name}{The name of the taxon; a binomial name if the taxon is of rank species}
-    \item{rank}{The taxonomic rank (e.g. 'Genus')}
-  }
+\itemize{
+\item \code{uid} The uid queried for
+\item \code{name} The name of the taxon; a binomial name if the taxon is of rank species
+\item \code{rank} The taxonomic rank (e.g. 'Genus')
+}
 }
 \description{
-Downloads summary taxon information from the NCBI taxonomy databases
-for a set of taxonomy UIDs using eutils esummary.
+Downloads summary taxon information from the NCBI taxonomy
+databases for a set of taxonomy UIDs using eutils esummary.
 }
 \details{
-If your input vector or list of NCBI IDs is longer than about 8000 characters
-(use \code{nchar(paste(ids, collapse = "+"))}), split the list up into chunks since
-at about that number of characters you will run into the HTTP 414 error
-"Request-URI Too Long".
+If your input vector or list of NCBI IDs is longer than about
+2500 characters (use \code{nchar(paste(ids, collapse = "+"))}), split
+the list up into chunks since at about that number of characters you
+will run into the HTTP 414 error "Request-URI Too Long".
 }
+\section{HTTP version}{
+
+We hard code \code{http_version = 2L} to use HTTP/1.1 in HTTP requests to
+the Entrez API. See \code{curl::curl_symbols('CURL_HTTP_VERSION')}
+}
+
+\section{Authentication}{
+
+See \link{taxize-authentication} for help on authentication.
+We strongly recommend getting an API key
+}
+
 \examples{
 \dontrun{
 ncbi_get_taxon_summary(c(1430660, 4751))
 
 # use curl options
-library("httr")
-ncbi_get_taxon_summary(c(1430660, 4751), config = verbose())
+ncbi_get_taxon_summary(c(1430660, 4751), verbose = TRUE)
 }
 }
 \author{

@@ -1,0 +1,31 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://services.tropicos.org/Name/25509881?apikey=<<tropicos_api_token>>&format=json
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
+      X-USER-AGENT: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      cache-control: private
+      content-length: '1106'
+      content-type: application/json; charset=utf-8
+      server: Microsoft-IIS/7.5
+      x-aspnet-version: 4.0.30319
+      x-powered-by: ASP.NET
+      date: Wed, 08 May 2019 20:58:27 GMT
+    body:
+      encoding: ASCII-8BIT
+      string: eyJOYW1lSWQiOjI1NTA5ODgxLCJTY2llbnRpZmljTmFtZSI6IlBvYSBhbm51YSIsIlNjaWVudGlmaWNOYW1lV2l0aEF1dGhvcnMiOiJQb2EgYW5udWEgTC4iLCJGYW1pbHkiOiJQb2FjZWFlIiwiU3lub255bUNvdW50IjoiMTAwIiwiQWNjZXB0ZWROYW1lQ291bnQiOiIwIiwiUmFuayI6InNwZWNpZXMiLCJSYW5rQWJicmV2aWF0aW9uIjoic3AuIiwiTm9tZW5jbGF0dXJlU3RhdHVzSUQiOjEsIk5vbWVuY2xhdHVyZVN0YXR1c05hbWUiOiJMZWdpdGltYXRlIiwiU3ltYm9sIjoiISIsIkdlbnVzIjoiUG9hIiwiU3BlY2llc0VwaXRoZXQiOiJhbm51YSIsIlNvdXJjZSI6Imh0dHA6XC9cL3d3dy50cm9waWNvcy5vcmdcL05hbWVcLzI1NTA5ODgxIiwiQ2l0YXRpb24iOiJUcm9waWNvcy5vcmcuIE1pc3NvdXJpIEJvdGFuaWNhbCBHYXJkZW4uIDA4IE1heSAyMDE5ICZsdDtodHRwOlwvXC93d3cudHJvcGljb3Mub3JnXC9OYW1lXC8yNTUwOTg4MSZndDsiLCJDb3B5cmlnaHQiOiLCqSAyMDE5IE1pc3NvdXJpIEJvdGFuaWNhbCBHYXJkZW4gLSA0MzQ0IFNoYXcgQm91bGV2YXJkIC0gU2FpbnQgTG91aXMsIE1pc3NvdXJpIDYzMTEwIiwiQXV0aG9yIjoiTC4iLCJOYW1lUHVibGlzaGVkQ2l0YXRpb24iOiJTcGVjaWVzIFBsYW50YXJ1bSAxOiA2OC4gMTc1My4gKDEgTWF5IDE3NTMpIChTcC4gUGwuKSAiLCJUeXBlU3BlY2ltZW5zIjpbeyJLaW5kT2ZUeXBlQWJicmV2IjoiTFQiLCJLaW5kT2ZUeXBlTmFtZSI6IkxlY3RvdHlwZSIsIkNvbGxlY3Rpb25OdW1iZXIiOiI4Ny4xNyIsIkNvbGxlY3Rvck5hbWUiOiJIZXJiLiBMaW5uLiIsIkluc3RpdHV0aW9uIjoiTElOTiIsIlR5cGVOb3RlIjoiIn0seyJLaW5kT2ZUeXBlQWJicmV2IjoiTFQiLCJLaW5kT2ZUeXBlTmFtZSI6IkxlY3RvdHlwZSIsIkluc3RpdHV0aW9uIjoiTElOTi04Ny4xNyAocmlnaHQtaGFuZCBwbGFudCkiLCJUeXBlTm90ZSI6IkxUIGRlc2lnbmF0ZWQgYnkgU29yZW5nIGluIENhZmZlcnR5IGV0IGFsLiwgVGF4b24gNDkoMik6IDI1NCAoMjAwMCk7IHNhbWUgc3BlY2ltZW4gaW5kaWNhdGVkIHdpdGggdW5jZXJ0YWludHkgYXMgSFQgYnkgVmVsZGthbXAsIEJsdW1lYSAzODogNDIxICgxOTk0KSJ9XX0=
+  recorded_at: 2019-05-08 20:58:27 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100

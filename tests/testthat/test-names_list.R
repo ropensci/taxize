@@ -1,4 +1,3 @@
-# tests for names_list fxn in taxize
 context("names_list")
 
 test_that("names_list returns the correct dimensions", {

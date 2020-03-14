@@ -4,7 +4,7 @@
 \alias{plantminer}
 \title{Search for taxonomy data from Plantminer.com}
 \usage{
-plantminer(plants, from = "tpl", key = NULL, verbose = TRUE)
+plantminer(plants, from = "tpl", messages = TRUE, ...)
 }
 \arguments{
 \item{plants}{(character) Vector of plant species names. Required.}
@@ -12,20 +12,18 @@ plantminer(plants, from = "tpl", key = NULL, verbose = TRUE)
 \item{from}{(character) One of tpl (for theplantlist.com data), or
 flora (for Brazilian Flora Checklist). Required. Default: \code{tpl}}
 
-\item{key}{(character) Your api key for the plantminer.com site.  Go to
-http://www.plantminer.com/ to get your api key.  Two options for
-inputting your key.  1) You can input it manually within the function as
-the second argument, or 2) you can put the key in your .Rprofile file,
-which will then be loaded when you start R. See
-http://bit.ly/135eG0b for help on how to put api keys in your .Rprofile file.}
+\item{messages}{(logical) informative messages or not. Default: \code{TRUE}}
 
-\item{verbose}{(logical) Verbose or not. Default: \code{TRUE}}
+\item{...}{curl options passed on to \link[crul:HttpClient]{crul::HttpClient}}
 }
 \value{
 data.frame of results.
 }
 \description{
 Search for taxonomy data from Plantminer.com
+}
+\note{
+you used to need an API key for Plantminer; it's no longer needed
 }
 \examples{
 \dontrun{

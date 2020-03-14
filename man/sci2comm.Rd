@@ -11,7 +11,7 @@
 \usage{
 sci2comm(...)
 
-\method{sci2comm}{default}(scinames, db = "eol", simplify = TRUE, ...)
+\method{sci2comm}{default}(scinames, db = "ncbi", simplify = TRUE, ...)
 
 \method{sci2comm}{uid}(id, ...)
 
@@ -22,46 +22,48 @@ sci2comm(...)
 \method{sci2comm}{iucn}(id, simplify = TRUE, ...)
 }
 \arguments{
-\item{...}{Further arguments passed on to functions
-\code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_tsn}}.}
+\item{...}{Further arguments passed on to functions \code{\link[=get_uid]{get_uid()}},
+\code{\link[=get_tsn]{get_tsn()}}.}
 
 \item{scinames}{character; One or more scientific names or partial names.}
 
-\item{db}{character; Data source, one of \emph{"eol"} (default),
-\emph{"itis"} \emph{"ncbi"}, \emph{"worms"}, or \emph{"iucn"}. Note that
+\item{db}{character; Data source, one of \code{"ncbi"} (default),
+\code{"itis"} \code{"eol"}, \code{"worms"}, or \code{"iucn"}. Note that
 each taxonomic data source has their own identifiers,  so that if you
 provide the wrong \code{db} value for the identifier you could get a
-result, but it will likely be wrong (not what you were expecting).}
+result, but it will likely be wrong (not what you were expecting).
+If using ncbi or iucn we recommend getting an API key;
+see \link{taxize-authentication}}
 
 \item{simplify}{(logical) If TRUE, simplify output to a vector of names.
 If FALSE, return variable formats from different sources, usually a
 data.frame. Only applies to eol and itis. Specify \code{FALSE} to obtain
 the language of each vernacular in the output for eol and itis.}
 
-\item{id}{character; identifiers, as returned by
-\code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_uid}}.}
+\item{id}{character; identifiers, as returned by \code{\link[=get_tsn]{get_tsn()}},
+\code{\link[=get_uid]{get_uid()}}.}
 }
 \value{
-List of character vectors, named by input taxon name, or taxon ID
+List of character vectors, named by input taxon name,
+or taxon ID. \code{character(0)} on no match
 }
 \description{
 Get common names from scientific names.
 }
-\details{
-Note that EOL requires an API key. You can pass in your EOL api
-key in the function call like
-\code{sci2comm('Helianthus annuus', key="<your eol api key>")}. You can
-also store your EOL API key in your .Rprofile file as
-\code{options(eolApiKey = "<your eol api key>")}, or just for the current
-session by running \code{options(eolApiKey = "<your eol api key>")} in
-the console.
+\section{Authentication}{
 
-Note that IUCN also requires an API key. See
-\code{\link[rredlist]{rredlist-package}} for help on authentiating with
-IUCN Redlist
+See \link{taxize-authentication} for help on authentication
 }
+
+\section{HTTP version for NCBI requests}{
+
+We hard code \code{http_version = 2L} to use HTTP/1.1 in HTTP requests to
+the Entrez API. See \code{curl::curl_symbols('CURL_HTTP_VERSION')}
+}
+
 \examples{
 \dontrun{
+sci2comm(scinames='Helianthus annuus')
 sci2comm(scinames='Helianthus annuus', db='eol')
 sci2comm(scinames='Helianthus annuus', db='itis')
 sci2comm(scinames=c('Helianthus annuus', 'Poa annua'))
@@ -81,12 +83,11 @@ sci2comm(get_tsn('Helianthus annuus'), simplify=FALSE)
 sci2comm(get_iucn('Loxodonta africana'), simplify=FALSE)
 
 # Use curl options
-library("httr")
-sci2comm('Helianthus annuus', db="ncbi", config=verbose())
+sci2comm('Helianthus annuus', db="ncbi", verbose = TRUE)
 }
 }
 \seealso{
-\code{\link[taxize]{comm2sci}}
+\code{\link[=comm2sci]{comm2sci()}}
 }
 \author{
 Scott Chamberlain (myrmecocystus@gmail.com)

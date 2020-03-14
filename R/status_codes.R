@@ -1,7 +1,7 @@
 #' Get HTTP status codes
 #'
 #' @export
-#' @seealso \code{\link{ping}}
+#' @seealso [ping()]
 #' @examples
 #' status_codes()
 status_codes <- function() {

@@ -1,0 +1,463 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getITISTermsFromScientificName?srchKey=Pinus%20contorta
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      connection: keep-alive
+      content-length: '2204'
+      content-type: text/json;charset=ISO-8859-1
+      date: Mon, 10 Feb 2020 22:12:40 GMT
+      status: 'HTTP/1.1 200 '
+      strict-transport-security:
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      x-application: itis_webservices
+      x-node-name: not shown
+      x-upstream-member: not shown
+    body:
+      encoding: ASCII-8BIT
+      file: no
+      string: eyJjbGFzcyI6Imdvdi51c2dzLml0aXMuaXRpc19zZXJ2aWNlLmRhdGEuU3ZjSXRpc1Rlcm1MaXN0IiwiaXRpc1Rlcm1zIjpbeyJhdXRob3IiOiJEb3VnbGFzIGV4IExvdWRvbiIsImNsYXNzIjoiZ292LnVzZ3MuaXRpcy5pdGlzX3NlcnZpY2UuZGF0YS5TdmNJdGlzVGVybSIsImNvbW1vbk5hbWVzIjpbInNjcnViIHBpbmUiLCJzaG9yZSBwaW5lIiwidGFtYXJhY2sgcGluZSIsImxvZGdlcG9sZSBwaW5lIl0sIm5hbWVVc2FnZSI6ImFjY2VwdGVkIiwic2NpZW50aWZpY05hbWUiOiJQaW51cyBjb250b3J0YSIsInRzbiI6IjE4MzMyNyJ9LHsiYXV0aG9yIjoiRG91Z2xhcyBleCBMb3Vkb24iLCJjbGFzcyI6Imdvdi51c2dzLml0aXMuaXRpc19zZXJ2aWNlLmRhdGEuU3ZjSXRpc1Rlcm0iLCJjb21tb25OYW1lcyI6WyJjb2FzdCBwaW5lIiwibG9kZ2Vwb2xlIHBpbmUiLCJiZWFjaCBwaW5lIiwic2hvcmUgcGluZSJdLCJuYW1lVXNhZ2UiOiJhY2NlcHRlZCIsInNjaWVudGlmaWNOYW1lIjoiUGludXMgY29udG9ydGEgdmFyLiBjb250b3J0YSIsInRzbiI6IjE4MzMyOCJ9LHsiYXV0aG9yIjoiKEVuZ2VsbS4gZXggUy4gV2F0c29uKSBDcml0Y2hmaWVsZCIsImNsYXNzIjoiZ292LnVzZ3MuaXRpcy5pdGlzX3NlcnZpY2UuZGF0YS5TdmNJdGlzVGVybSIsImNvbW1vbk5hbWVzIjpbImJsYWNrIHBpbmUiLCJSb2NreSBNb3VudGFpbiBsb2RnZXBvbGUgcGluZSJdLCJuYW1lVXNhZ2UiOiJub3QgYWNjZXB0ZWQiLCJzY2llbnRpZmljTmFtZSI6IlBpbnVzIGNvbnRvcnRhIHNzcC4gbGF0aWZvbGlhIiwidHNuIjoiMTgzMzI5In0seyJhdXRob3IiOiIoQmFsZi4pIENyaXRjaGZpZWxkIiwiY2xhc3MiOiJnb3YudXNncy5pdGlzLml0aXNfc2VydmljZS5kYXRhLlN2Y0l0aXNUZXJtIiwiY29tbW9uTmFtZXMiOlsidGFtYXJhY2sgcGluZSIsIlNpZXJyYSBsb2RnZXBvbGUgcGluZSJdLCJuYW1lVXNhZ2UiOiJub3QgYWNjZXB0ZWQiLCJzY2llbnRpZmljTmFtZSI6IlBpbnVzIGNvbnRvcnRhIHNzcC4gbXVycmF5YW5hIiwidHNuIjoiMTgzMzMwIn0seyJhdXRob3IiOiIoUGFybC4pIENyaXRjaGZpZWxkIiwiY2xhc3MiOiJnb3YudXNncy5pdGlzLml0aXNfc2VydmljZS5kYXRhLlN2Y0l0aXNUZXJtIiwiY29tbW9uTmFtZXMiOlsiQm9sYW5kZXIncyBiZWFjaCBwaW5lIl0sIm5hbWVVc2FnZSI6Im5vdCBhY2NlcHRlZCIsInNjaWVudGlmaWNOYW1lIjoiUGludXMgY29udG9ydGEgc3NwLiBib2xhbmRlcmkiLCJ0c24iOiIxODMzMzIifSx7ImF1dGhvciI6IihQYXJsLikgVmFzZXkiLCJjbGFzcyI6Imdvdi51c2dzLml0aXMuaXRpc19zZXJ2aWNlLmRhdGEuU3ZjSXRpc1Rlcm0iLCJjb21tb25OYW1lcyI6WyJCb2xhbmRlciBiZWFjaCBwaW5lIl0sIm5hbWVVc2FnZSI6ImFjY2VwdGVkIiwic2NpZW50aWZpY05hbWUiOiJQaW51cyBjb250b3J0YSB2YXIuIGJvbGFuZGVyaSIsInRzbiI6IjUyOTY3MiJ9LHsiYXV0aG9yIjoiRW5nZWxtLiBleCBTLiBXYXRzb24iLCJjbGFzcyI6Imdvdi51c2dzLml0aXMuaXRpc19zZXJ2aWNlLmRhdGEuU3ZjSXRpc1Rlcm0iLCJjb21tb25OYW1lcyI6WyJ0YWxsIGxvZGdlcG9sZSBwaW5lIiwibG9kZ2Vwb2xlIHBpbmUiLCJSb2NreSBNb3VudGFpbiBsb2RnZXBvbGUgcGluZSJdLCJuYW1lVXNhZ2UiOiJhY2NlcHRlZCIsInNjaWVudGlmaWNOYW1lIjoiUGludXMgY29udG9ydGEgdmFyLiBsYXRpZm9saWEiLCJ0c24iOiI1Mjk2NzMifSx7ImF1dGhvciI6IihCYWxmLikgRW5nZWxtLiIsImNsYXNzIjoiZ292LnVzZ3MuaXRpcy5pdGlzX3NlcnZpY2UuZGF0YS5TdmNJdGlzVGVybSIsImNvbW1vbk5hbWVzIjpbIk11cnJheSdzIGxvZGdlcG9sZSBwaW5lIiwiU2llcnJhIGxvZGdlcG9sZSBwaW5lIiwidGFtYXJhY2sgcGluZSJdLCJuYW1lVXNhZ2UiOiJhY2NlcHRlZCIsInNjaWVudGlmaWNOYW1lIjoiUGludXMgY29udG9ydGEgdmFyLiBtdXJyYXlhbmEiLCJ0c24iOiI1Mjk2NzQifSx7ImF1dGhvciI6IkRvdWdsYXMgZXggTG91ZG9uIiwiY2xhc3MiOiJnb3YudXNncy5pdGlzLml0aXNfc2VydmljZS5kYXRhLlN2Y0l0aXNUZXJtIiwiY29tbW9uTmFtZXMiOltudWxsXSwibmFtZVVzYWdlIjoibm90IGFjY2VwdGVkIiwic2NpZW50aWZpY05hbWUiOiJQaW51cyBjb250b3J0YSBzc3AuIGNvbnRvcnRhIiwidHNuIjoiODIyNjk4In1dLCJyZXF1ZXN0ZWROYW1lIjoiUGludXMgY29udG9ydGEifQo=
+  recorded_at: 2020-02-10 22:12:44 GMT
+  recorded_with: vcr/0.4.1.94, webmockr/0.5.1.98
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getFullHierarchyFromTSN?tsn=183327
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      connection: keep-alive
+      content-length: '3251'
+      content-type: text/json;charset=ISO-8859-1
+      date: Mon, 10 Feb 2020 22:12:41 GMT
+      status: 'HTTP/1.1 200 '
+      strict-transport-security:
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      x-application: itis_webservices
+      x-node-name: not shown
+      x-upstream-member: not shown
+    body:
+      encoding: ASCII-8BIT
+      file: no
+      string: eyJhdXRob3IiOiIiLCJjbGFzcyI6Imdvdi51c2dzLml0aXMuaXRpc19zZXJ2aWNlLmRhdGEuU3ZjSGllcmFyY2h5UmVjb3JkTGlzdCIsImhpZXJhcmNoeUxpc3QiOlt7ImF1dGhvciI6bnVsbCwiY2xhc3MiOiJnb3YudXNncy5pdGlzLml0aXNfc2VydmljZS5kYXRhLlN2Y0hpZXJhcmNoeVJlY29yZCIsInBhcmVudE5hbWUiOiIiLCJwYXJlbnRUc24iOiIiLCJyYW5rTmFtZSI6Iktpbmdkb20iLCJ0YXhvbk5hbWUiOiJQbGFudGFlIiwidHNuIjoiMjAyNDIyIn0seyJhdXRob3IiOm51bGwsImNsYXNzIjoiZ292LnVzZ3MuaXRpcy5pdGlzX3NlcnZpY2UuZGF0YS5TdmNIaWVyYXJjaHlSZWNvcmQiLCJwYXJlbnROYW1lIjoiUGxhbnRhZSIsInBhcmVudFRzbiI6IjIwMjQyMiIsInJhbmtOYW1lIjoiU3Via2luZ2RvbSIsInRheG9uTmFtZSI6IlZpcmlkaXBsYW50YWUiLCJ0c24iOiI5NTQ4OTgifSx7ImF1dGhvciI6bnVsbCwiY2xhc3MiOiJnb3YudXNncy5pdGlzLml0aXNfc2VydmljZS5kYXRhLlN2Y0hpZXJhcmNoeVJlY29yZCIsInBhcmVudE5hbWUiOiJWaXJpZGlwbGFudGFlIiwicGFyZW50VHNuIjoiOTU0ODk4IiwicmFua05hbWUiOiJJbmZyYWtpbmdkb20iLCJ0YXhvbk5hbWUiOiJTdHJlcHRvcGh5dGEiLCJ0c24iOiI4NDY0OTQifSx7ImF1dGhvciI6bnVsbCwiY2xhc3MiOiJnb3YudXNncy5pdGlzLml0aXNfc2VydmljZS5kYXRhLlN2Y0hpZXJhcmNoeVJlY29yZCIsInBhcmVudE5hbWUiOiJTdHJlcHRvcGh5dGEiLCJwYXJlbnRUc24iOiI4NDY0OTQiLCJyYW5rTmFtZSI6IlN1cGVyZGl2aXNpb24iLCJ0YXhvbk5hbWUiOiJFbWJyeW9waHl0YSIsInRzbiI6Ijk1NDkwMCJ9LHsiYXV0aG9yIjpudWxsLCJjbGFzcyI6Imdvdi51c2dzLml0aXMuaXRpc19zZXJ2aWNlLmRhdGEuU3ZjSGllcmFyY2h5UmVjb3JkIiwicGFyZW50TmFtZSI6IkVtYnJ5b3BoeXRhIiwicGFyZW50VHNuIjoiOTU0OTAwIiwicmFua05hbWUiOiJEaXZpc2lvbiIsInRheG9uTmFtZSI6IlRyYWNoZW9waHl0YSIsInRzbiI6Ijg0NjQ5NiJ9LHsiYXV0aG9yIjpudWxsLCJjbGFzcyI6Imdvdi51c2dzLml0aXMuaXRpc19zZXJ2aWNlLmRhdGEuU3ZjSGllcmFyY2h5UmVjb3JkIiwicGFyZW50TmFtZSI6IlRyYWNoZW9waHl0YSIsInBhcmVudFRzbiI6Ijg0NjQ5NiIsInJhbmtOYW1lIjoiU3ViZGl2aXNpb24iLCJ0YXhvbk5hbWUiOiJTcGVybWF0b3BoeXRpbmEiLCJ0c24iOiI4NDY1MDQifSx7ImF1dGhvciI6bnVsbCwiY2xhc3MiOiJnb3YudXNncy5pdGlzLml0aXNfc2VydmljZS5kYXRhLlN2Y0hpZXJhcmNoeVJlY29yZCIsInBhcmVudE5hbWUiOiJTcGVybWF0b3BoeXRpbmEiLCJwYXJlbnRUc24iOiI4NDY1MDQiLCJyYW5rTmFtZSI6IkNsYXNzIiwidGF4b25OYW1lIjoiUGlub3BzaWRhIiwidHNuIjoiNTAwMDA5In0seyJhdXRob3IiOm51bGwsImNsYXNzIjoiZ292LnVzZ3MuaXRpcy5pdGlzX3NlcnZpY2UuZGF0YS5TdmNIaWVyYXJjaHlSZWNvcmQiLCJwYXJlbnROYW1lIjoiUGlub3BzaWRhIiwicGFyZW50VHNuIjoiNTAwMDA5IiwicmFua05hbWUiOiJTdWJjbGFzcyIsInRheG9uTmFtZSI6IlBpbmlkYWUiLCJ0c24iOiI5NTQ5MTYifSx7ImF1dGhvciI6bnVsbCwiY2xhc3MiOiJnb3YudXNncy5pdGlzLml0aXNfc2VydmljZS5kYXRhLlN2Y0hpZXJhcmNoeVJlY29yZCIsInBhcmVudE5hbWUiOiJQaW5pZGFlIiwicGFyZW50VHNuIjoiOTU0OTE2IiwicmFua05hbWUiOiJPcmRlciIsInRheG9uTmFtZSI6IlBpbmFsZXMiLCJ0c24iOiI1MDAwMjgifSx7ImF1dGhvciI6bnVsbCwiY2xhc3MiOiJnb3YudXNncy5pdGlzLml0aXNfc2VydmljZS5kYXRhLlN2Y0hpZXJhcmNoeVJlY29yZCIsInBhcmVudE5hbWUiOiJQaW5hbGVzIiwicGFyZW50VHNuIjoiNTAwMDI4IiwicmFua05hbWUiOiJGYW1pbHkiLCJ0YXhvbk5hbWUiOiJQaW5hY2VhZSIsInRzbiI6IjE4MDMwIn0seyJhdXRob3IiOiJMLiIsImNsYXNzIjoiZ292LnVzZ3MuaXRpcy5pdGlzX3NlcnZpY2UuZGF0YS5TdmNIaWVyYXJjaHlSZWNvcmQiLCJwYXJlbnROYW1lIjoiUGluYWNlYWUiLCJwYXJlbnRUc24iOiIxODAzMCIsInJhbmtOYW1lIjoiR2VudXMiLCJ0YXhvbk5hbWUiOiJQaW51cyIsInRzbiI6IjE4MDM1In0seyJhdXRob3IiOiJEb3VnbGFzIGV4IExvdWRvbiIsImNsYXNzIjoiZ292LnVzZ3MuaXRpcy5pdGlzX3NlcnZpY2UuZGF0YS5TdmNIaWVyYXJjaHlSZWNvcmQiLCJwYXJlbnROYW1lIjoiUGludXMiLCJwYXJlbnRUc24iOiIxODAzNSIsInJhbmtOYW1lIjoiU3BlY2llcyIsInRheG9uTmFtZSI6IlBpbnVzIGNvbnRvcnRhIiwidHNuIjoiMTgzMzI3In0seyJhdXRob3IiOiIoUGFybC4pIFZhc2V5IiwiY2xhc3MiOiJnb3YudXNncy5pdGlzLml0aXNfc2VydmljZS5kYXRhLlN2Y0hpZXJhcmNoeVJlY29yZCIsInBhcmVudE5hbWUiOiJQaW51cyBjb250b3J0YSIsInBhcmVudFRzbiI6IjE4MzMyNyIsInJhbmtOYW1lIjoiVmFyaWV0eSIsInRheG9uTmFtZSI6IlBpbnVzIGNvbnRvcnRhIHZhci4gYm9sYW5kZXJpIiwidHNuIjoiNTI5NjcyIn0seyJhdXRob3IiOiJEb3VnbGFzIGV4IExvdWRvbiIsImNsYXNzIjoiZ292LnVzZ3MuaXRpcy5pdGlzX3NlcnZpY2UuZGF0YS5TdmNIaWVyYXJjaHlSZWNvcmQiLCJwYXJlbnROYW1lIjoiUGludXMgY29udG9ydGEiLCJwYXJlbnRUc24iOiIxODMzMjciLCJyYW5rTmFtZSI6IlZhcmlldHkiLCJ0YXhvbk5hbWUiOiJQaW51cyBjb250b3J0YSB2YXIuIGNvbnRvcnRhIiwidHNuIjoiMTgzMzI4In0seyJhdXRob3IiOiJFbmdlbG0uIGV4IFMuIFdhdHNvbiIsImNsYXNzIjoiZ292LnVzZ3MuaXRpcy5pdGlzX3NlcnZpY2UuZGF0YS5TdmNIaWVyYXJjaHlSZWNvcmQiLCJwYXJlbnROYW1lIjoiUGludXMgY29udG9ydGEiLCJwYXJlbnRUc24iOiIxODMzMjciLCJyYW5rTmFtZSI6IlZhcmlldHkiLCJ0YXhvbk5hbWUiOiJQaW51cyBjb250b3J0YSB2YXIuIGxhdGlmb2xpYSIsInRzbiI6IjUyOTY3MyJ9LHsiYXV0aG9yIjoiKEJhbGYuKSBFbmdlbG0uIiwiY2xhc3MiOiJnb3YudXNncy5pdGlzLml0aXNfc2VydmljZS5kYXRhLlN2Y0hpZXJhcmNoeVJlY29yZCIsInBhcmVudE5hbWUiOiJQaW51cyBjb250b3J0YSIsInBhcmVudFRzbiI6IjE4MzMyNyIsInJhbmtOYW1lIjoiVmFyaWV0eSIsInRheG9uTmFtZSI6IlBpbnVzIGNvbnRvcnRhIHZhci4gbXVycmF5YW5hIiwidHNuIjoiNTI5Njc0In1dLCJyYW5rTmFtZSI6IiIsInNjaU5hbWUiOiIiLCJ0c24iOiIxODMzMjcifQo=
+  recorded_at: 2020-02-10 22:12:44 GMT
+  recorded_with: vcr/0.4.1.94, webmockr/0.5.1.98
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getFullRecordFromTSN?tsn=18030
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      connection: keep-alive
+      content-length: '6085'
+      content-type: text/json;charset=ISO-8859-1
+      date: Mon, 10 Feb 2020 22:12:41 GMT
+      status: 'HTTP/1.1 200 '
+      strict-transport-security:
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      x-application: itis_webservices
+      x-node-name: not shown
+      x-upstream-member: not shown
+    body:
+      encoding: ASCII-8BIT
+      file: no
+      string: eyJhY2NlcHRlZE5hbWVMaXN0Ijp7ImFjY2VwdGVkTmFtZXMiOltudWxsXSwiY2xhc3MiOiJnb3YudXNncy5pdGlzLml0aXNfc2VydmljZS5kYXRhLlN2Y0FjY2VwdGVkTmFtZUxpc3QiLCJ0c24iOiIxODAzMCJ9LCJjbGFzcyI6Imdvdi51c2dzLml0aXMuaXRpc19zZXJ2aWNlLmRhdGEuU3ZjRnVsbFJlY29yZCIsImNvbW1lbnRMaXN0Ijp7ImNsYXNzIjoiZ292LnVzZ3MuaXRpcy5pdGlzX3NlcnZpY2UuZGF0YS5TdmNUYXhvbkNvbW1lbnRMaXN0IiwiY29tbWVudHMiOltudWxsXSwidHNuIjoiMTgwMzAifSwiY29tbW9uTmFtZUxpc3QiOnsiY2xhc3MiOiJnb3YudXNncy5pdGlzLml0aXNfc2VydmljZS5kYXRhLlN2Y0NvbW1vbk5hbWVMaXN0IiwiY29tbW9uTmFtZXMiOlt7ImNsYXNzIjoiZ292LnVzZ3MuaXRpcy5pdGlzX3NlcnZpY2UuZGF0YS5TdmNDb21tb25OYW1lIiwiY29tbW9uTmFtZSI6InBpbmVzIiwibGFuZ3VhZ2UiOiJFbmdsaXNoIiwidHNuIjoiMTgwMzAifV0sInRzbiI6IjE4MDMwIn0sImNvbXBsZXRlbmVzc1JhdGluZyI6eyJjbGFzcyI6Imdvdi51c2dzLml0aXMuaXRpc19zZXJ2aWNlLmRhdGEuU3ZjR2xvYmFsU3BlY2llc0NvbXBsZXRlbmVzcyIsImNvbXBsZXRlbmVzcyI6InBhcnRpYWwiLCJyYW5rSWQiOjE0MCwidHNuIjoiMTgwMzAifSwiY29yZU1ldGFkYXRhIjp7ImNsYXNzIjoiZ292LnVzZ3MuaXRpcy5pdGlzX3NlcnZpY2UuZGF0YS5TdmNDb3JlTWV0YWRhdGEiLCJjcmVkUmF0aW5nIjoiVFdHIHN0YW5kYXJkcyBtZXQiLCJyYW5rSWQiOjE0MCwidGF4b25Db3ZlcmFnZSI6InBhcnRpYWwiLCJ0YXhvbkN1cnJlbmN5IjoiMjAxNCIsInRheG9uVXNhZ2VSYXRpbmciOiJhY2NlcHRlZCIsInRzbiI6IjE4MDMwIiwidW5hY2NlcHRSZWFzb24iOiIifSwiY3JlZGliaWxpdHlSYXRpbmciOnsiY2xhc3MiOiJnb3YudXNncy5pdGlzLml0aXNfc2VydmljZS5kYXRhLlN2Y0NyZWRpYmlsaXR5RGF0YSIsImNyZWRSYXRpbmciOiJUV0cgc3RhbmRhcmRzIG1ldCIsInRzbiI6IjE4MDMwIn0sImN1cnJlbmN5UmF0aW5nIjp7ImNsYXNzIjoiZ292LnVzZ3MuaXRpcy5pdGlzX3NlcnZpY2UuZGF0YS5TdmNDdXJyZW5jeURhdGEiLCJyYW5rSWQiOjE0MCwidGF4b25DdXJyZW5jeSI6IjIwMTQiLCJ0c24iOiIxODAzMCJ9LCJkYXRlRGF0YSI6eyJjbGFzcyI6Imdvdi51c2dzLml0aXMuaXRpc19zZXJ2aWNlLmRhdGEuU3ZjVGF4b25EYXRlRGF0YSIsImluaXRpYWxUaW1lU3RhbXAiOiIxOTk2LTA2LTEzIDE0OjUxOjA4LjAiLCJ0c24iOiIxODAzMCIsInVwZGF0ZURhdGUiOiIyMDE0LTEyLTIyIn0sImV4cGVydExpc3QiOnsiY2xhc3MiOiJnb3YudXNncy5pdGlzLml0aXNfc2VydmljZS5kYXRhLlN2Y1RheG9uRXhwZXJ0TGlzdCIsImV4cGVydHMiOltudWxsXSwidHNuIjoiMTgwMzAifSwiZ2VvZ3JhcGhpY0RpdmlzaW9uTGlzdCI6eyJjbGFzcyI6Imdvdi51c2dzLml0aXMuaXRpc19zZXJ2aWNlLmRhdGEuU3ZjVGF4b25HZW9EaXZpc2lvbkxpc3QiLCJnZW9EaXZpc2lvbnMiOltudWxsXSwidHNuIjoiMTgwMzAifSwiaGllcmFyY2h5VXAiOnsiYXV0aG9yIjpudWxsLCJjbGFzcyI6Imdvdi51c2dzLml0aXMuaXRpc19zZXJ2aWNlLmRhdGEuU3ZjSGllcmFyY2h5UmVjb3JkIiwicGFyZW50TmFtZSI6IlBpbmFsZXMiLCJwYXJlbnRUc24iOiI1MDAwMjgiLCJyYW5rTmFtZSI6IkZhbWlseSIsInRheG9uTmFtZSI6IlBpbmFjZWFlIiwidHNuIjoiMTgwMzAifSwianVyaXNkaWN0aW9uYWxPcmlnaW5MaXN0Ijp7ImNsYXNzIjoiZ292LnVzZ3MuaXRpcy5pdGlzX3NlcnZpY2UuZGF0YS5TdmNUYXhvbkp1cmlzZGljdGlvbmFsT3JpZ2luTGlzdCIsImp1cmlzZGljdGlvbmFsT3JpZ2lucyI6W251bGxdLCJ0c24iOiIxODAzMCJ9LCJraW5nZG9tIjp7ImNsYXNzIjoiZ292LnVzZ3MuaXRpcy5pdGlzX3NlcnZpY2UuZGF0YS5TdmNLaW5nZG9tSW5mbyIsImtpbmdkb21JZCI6IjMiLCJraW5nZG9tTmFtZSI6IlBsYW50YWUgICAiLCJ0c24iOiIxODAzMCJ9LCJvdGhlclNvdXJjZUxpc3QiOnsiY2xhc3MiOiJnb3YudXNncy5pdGlzLml0aXNfc2VydmljZS5kYXRhLlN2Y1RheG9uT3RoZXJTb3VyY2VMaXN0Iiwib3RoZXJTb3VyY2VzIjpbeyJhY3F1aXNpdGlvbkRhdGUiOiIxOTk2LTA3LTI5IiwiY2xhc3MiOiJnb3YudXNncy5pdGlzLml0aXNfc2VydmljZS5kYXRhLlN2Y1RheG9uT3RoZXJTb3VyY2UiLCJyZWZlcmVuY2VGb3IiOlt7ImNsYXNzIjoiZ292LnVzZ3MuaXRpcy5pdGlzX3NlcnZpY2UuZGF0YS5TdmNSZWZlcmVuY2VGb3JFbGVtZW50IiwibmFtZSI6IlBpbmFjZWFlIiwicmVmTGFuZ3VhZ2UiOm51bGwsInJlZmVycmVkVHNuIjoiMTgwMzAifV0sInNvdXJjZSI6Ik5PREMgVGF4b25vbWljIENvZGUiLCJzb3VyY2VDb21tZW50IjoiIiwic291cmNlVHlwZSI6ImRhdGFiYXNlIiwidXBkYXRlRGF0ZSI6IjIwMTAtMDEtMTQiLCJ2ZXJzaW9uIjoiOC4wIn0seyJhY3F1aXNpdGlvbkRhdGUiOiIyMDE0LTExLTE5IiwiY2xhc3MiOiJnb3YudXNncy5pdGlzLml0aXNfc2VydmljZS5kYXRhLlN2Y1RheG9uT3RoZXJTb3VyY2UiLCJyZWZlcmVuY2VGb3IiOlt7ImNsYXNzIjoiZ292LnVzZ3MuaXRpcy5pdGlzX3NlcnZpY2UuZGF0YS5TdmNSZWZlcmVuY2VGb3JFbGVtZW50IiwibmFtZSI6IlBpbmFjZWFlIiwicmVmTGFuZ3VhZ2UiOm51bGwsInJlZmVycmVkVHNuIjoiMTgwMzAifV0sInNvdXJjZSI6IkFuZ2lvc3Blcm0gUGh5bG9nZW55IFdlYnNpdGUsIDIwMTQiLCJzb3VyY2VDb21tZW50IjoiQW5naW9zcGVybSBQaHlsb2dlbnkgV2Vic2l0ZSwgYm90YW5pY2FsIGluZm9ybWF0aW9uIHN5c3RlbSBhdCB0aGUgTWlzc291cmkgQm90YW5pY2FsIEdhcmRlbiwgYXZhaWxhYmxlIGF0IGh0dHA6Ly93d3cubW9ib3Qub3JnL01PQk9UL3Jlc2VhcmNoL0FQd2ViLyIsInNvdXJjZVR5cGUiOiJ3ZWJzaXRlIiwidXBkYXRlRGF0ZSI6IjIwMTQtMTItMjIiLCJ2ZXJzaW9uIjoiMjAxNCJ9LHsiYWNxdWlzaXRpb25EYXRlIjoiMjAwMC0wMS0yMSIsImNsYXNzIjoiZ292LnVzZ3MuaXRpcy5pdGlzX3NlcnZpY2UuZGF0YS5TdmNUYXhvbk90aGVyU291cmNlIiwicmVmZXJlbmNlRm9yIjpbeyJjbGFzcyI6Imdvdi51c2dzLml0aXMuaXRpc19zZXJ2aWNlLmRhdGEuU3ZjUmVmZXJlbmNlRm9yRWxlbWVudCIsIm5hbWUiOiJQaW5hY2VhZSIsInJlZkxhbmd1YWdlIjpudWxsLCJyZWZlcnJlZFRzbiI6IjE4MDMwIn1dLCJzb3VyY2UiOiJUaGUgUExBTlRTIERhdGFiYXNlIiwic291cmNlQ29tbWVudCI6Ik5hdGlvbmFsIFBsYW50IERhdGEgQ2VudGVyLCBOUkNTLCBVU0RBLiBCYXRvbiBSb3VnZSwgTEEgNzA4NzQtNDQ5MCBVU0EuIGh0dHA6Ly9wbGFudHMudXNkYS5nb3YiLCJzb3VyY2VUeXBlIjoiZGF0YWJhc2UiLCJ1cGRhdGVEYXRlIjoiMjAwNC0wMi0yMyIsInZlcnNpb24iOiI1LjEuMSJ9LHsiYWNxdWlzaXRpb25EYXRlIjoiMjAxMi0wMy0yMiIsImNsYXNzIjoiZ292LnVzZ3MuaXRpcy5pdGlzX3NlcnZpY2UuZGF0YS5TdmNUYXhvbk90aGVyU291cmNlIiwicmVmZXJlbmNlRm9yIjpbeyJjbGFzcyI6Imdvdi51c2dzLml0aXMuaXRpc19zZXJ2aWNlLmRhdGEuU3ZjUmVmZXJlbmNlRm9yRWxlbWVudCIsIm5hbWUiOiJQaW5hY2VhZSIsInJlZkxhbmd1YWdlIjpudWxsLCJyZWZlcnJlZFRzbiI6IjE4MDMwIn1dLCJzb3VyY2UiOiJUaGUgR3ltbm9zcGVybSBEYXRhYmFzZSIsInNvdXJjZUNvbW1lbnQiOiJBdmFpbGFibGUgYXQgaHR0cDovL3d3dy5jb25pZmVycy5vcmcvaW5kZXgucGhwIiwic291cmNlVHlwZSI6ImRhdGFiYXNlIiwidXBkYXRlRGF0ZSI6IjIwMTItMDMtMjkiLCJ2ZXJzaW9uIjoiMjAxMS0wNS0yNyJ9LHsiYWNxdWlzaXRpb25EYXRlIjoiMjAxMC0xMS0xMiIsImNsYXNzIjoiZ292LnVzZ3MuaXRpcy5pdGlzX3NlcnZpY2UuZGF0YS5TdmNUYXhvbk90aGVyU291cmNlIiwicmVmZXJlbmNlRm9yIjpbeyJjbGFzcyI6Imdvdi51c2dzLml0aXMuaXRpc19zZXJ2aWNlLmRhdGEuU3ZjUmVmZXJlbmNlRm9yRWxlbWVudCIsIm5hbWUiOiJQaW5hY2VhZSIsInJlZkxhbmd1YWdlIjpudWxsLCJyZWZlcnJlZFRzbiI6IjE4MDMwIn1dLCJzb3VyY2UiOiJHeW1ub3NwZXJtcyBvZiBOb3J0aCBBbWVyaWNhIFVwZGF0ZSIsInNvdXJjZUNvbW1lbnQiOiJVcGRhdGVkIGZvciBJVElTIGJ5IHRoZSBGbG9yYSBvZiBOb3J0aCBBbWVyaWNhIEV4cGVydGlzZSBOZXR3b3JrLCBpbiBjb25uZWN0aW9uIHdpdGggYW4gdXBkYXRlIGZvciBVU0RBIFBMQU5UUyAoMjAwNy0yMDEwKSIsInNvdXJjZVR5cGUiOiJkYXRhYmFzZSIsInVwZGF0ZURhdGUiOiIyMDExLTA3LTI1IiwidmVyc2lvbiI6IjIwMTAifSx7ImFjcXVpc2l0aW9uRGF0ZSI6IjE5OTYtMDctMjYiLCJjbGFzcyI6Imdvdi51c2dzLml0aXMuaXRpc19zZXJ2aWNlLmRhdGEuU3ZjVGF4b25PdGhlclNvdXJjZSIsInJlZmVyZW5jZUZvciI6W3siY2xhc3MiOiJnb3YudXNncy5pdGlzLml0aXNfc2VydmljZS5kYXRhLlN2Y1JlZmVyZW5jZUZvckVsZW1lbnQiLCJuYW1lIjoiUGluYWNlYWUiLCJyZWZMYW5ndWFnZSI6bnVsbCwicmVmZXJyZWRUc24iOiIxODAzMCJ9XSwic291cmNlIjoiVGhlIFBMQU5UUyBEYXRhYmFzZSIsInNvdXJjZUNvbW1lbnQiOiJOYXRpb25hbCBQbGFudCBEYXRhIENlbnRlciwgTlJDUywgVVNEQS4gQmF0b24gUm91Z2UsIExBIDcwODc0LTQ0OTAgVVNBLiBodHRwOi8vcGxhbnRzLnVzZGEuZ292Iiwic291cmNlVHlwZSI6ImRhdGFiYXNlIiwidXBkYXRlRGF0ZSI6IjIwMDQtMDItMjMiLCJ2ZXJzaW9uIjoiNC4wLjQifV0sInRzbiI6IjE4MDMwIn0sInBhcmVudFRTTiI6eyJjbGFzcyI6Imdvdi51c2dzLml0aXMuaXRpc19zZXJ2aWNlLmRhdGEuU3ZjUGFyZW50VHNuIiwicGFyZW50VHNuIjoiNTAwMDI4IiwidHNuIjoiMTgwMzAifSwicHVibGljYXRpb25MaXN0Ijp7ImNsYXNzIjoiZ292LnVzZ3MuaXRpcy5pdGlzX3NlcnZpY2UuZGF0YS5TdmNUYXhvblB1YmxpY2F0aW9uTGlzdCIsInB1YmxpY2F0aW9ucyI6W251bGxdLCJ0c24iOiIxODAzMCJ9LCJzY2llbnRpZmljTmFtZSI6eyJhdXRob3IiOm51bGwsImNsYXNzIjoiZ292LnVzZ3MuaXRpcy5pdGlzX3NlcnZpY2UuZGF0YS5TdmNTY2llbnRpZmljTmFtZSIsImNvbWJpbmVkTmFtZSI6IlBpbmFjZWFlIiwia2luZ2RvbSI6bnVsbCwidHNuIjoiMTgwMzAiLCJ1bml0SW5kMSI6bnVsbCwidW5pdEluZDIiOm51bGwsInVuaXRJbmQzIjpudWxsLCJ1bml0SW5kNCI6bnVsbCwidW5pdE5hbWUxIjoiUGluYWNlYWUgICAgICAgICAgICAgICAgICAgICAgICAgICAiLCJ1bml0TmFtZTIiOm51bGwsInVuaXROYW1lMyI6bnVsbCwidW5pdE5hbWU0IjpudWxsfSwic3lub255bUxpc3QiOnsiY2xhc3MiOiJnb3YudXNncy5pdGlzLml0aXNfc2VydmljZS5kYXRhLlN2Y1N5bm9ueW1OYW1lTGlzdCIsInN5bm9ueW1zIjpbeyJhdXRob3IiOm51bGwsImNsYXNzIjoiZ292LnVzZ3MuaXRpcy5pdGlzX3NlcnZpY2UuZGF0YS5TdmNUYXhvbk5hbWUiLCJzY2lOYW1lIjoiQWJpZXRhY2VhZSIsInRzbiI6IjE4MDI5In1dLCJ0c24iOiIxODAzMCJ9LCJ0YXhSYW5rIjp7ImNsYXNzIjoiZ292LnVzZ3MuaXRpcy5pdGlzX3NlcnZpY2UuZGF0YS5TdmNUYXhvblJhbmtJbmZvIiwia2luZ2RvbUlkIjoiMyIsImtpbmdkb21OYW1lIjoiUGxhbnRhZSAgICIsInJhbmtJZCI6IjE0MCIsInJhbmtOYW1lIjoiRmFtaWx5ICAgICAgICAgIiwidHNuIjoiMTgwMzAifSwidGF4b25BdXRob3IiOnsiYXV0aG9yc2hpcCI6IiIsImNsYXNzIjoiZ292LnVzZ3MuaXRpcy5pdGlzX3NlcnZpY2UuZGF0YS5TdmNUYXhvbkF1dGhvcnNoaXAiLCJ0c24iOiIxODAzMCIsInVwZGF0ZURhdGUiOiIifSwidHNuIjoiMTgwMzAiLCJ1bmFjY2VwdFJlYXNvbiI6eyJjbGFzcyI6Imdvdi51c2dzLml0aXMuaXRpc19zZXJ2aWNlLmRhdGEuU3ZjVW5hY2NlcHREYXRhIiwidHNuIjoiMTgwMzAiLCJ1bmFjY2VwdFJlYXNvbiI6bnVsbH0sInVzYWdlIjp7ImNsYXNzIjoiZ292LnVzZ3MuaXRpcy5pdGlzX3NlcnZpY2UuZGF0YS5TdmNUYXhvblVzYWdlRGF0YSIsInRheG9uVXNhZ2VSYXRpbmciOiJhY2NlcHRlZCIsInRzbiI6IjE4MDMwIn19Cg==
+  recorded_at: 2020-02-10 22:12:44 GMT
+  recorded_with: vcr/0.4.1.94, webmockr/0.5.1.98
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getTaxonomicRankNameFromTSN?tsn=18030
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      connection: keep-alive
+      content-length: '150'
+      content-type: text/json;charset=ISO-8859-1
+      date: Mon, 10 Feb 2020 22:12:42 GMT
+      status: 'HTTP/1.1 200 '
+      strict-transport-security:
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      x-application: itis_webservices
+      x-node-name: not shown
+      x-upstream-member: not shown
+    body:
+      encoding: ASCII-8BIT
+      file: no
+      string: eyJjbGFzcyI6Imdvdi51c2dzLml0aXMuaXRpc19zZXJ2aWNlLmRhdGEuU3ZjVGF4b25SYW5rSW5mbyIsImtpbmdkb21JZCI6IjMiLCJraW5nZG9tTmFtZSI6IlBsYW50YWUiLCJyYW5rSWQiOiIxNDAiLCJyYW5rTmFtZSI6IkZhbWlseSIsInRzbiI6IjE4MDMwIn0K
+  recorded_at: 2020-02-10 22:12:44 GMT
+  recorded_with: vcr/0.4.1.94, webmockr/0.5.1.98
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getHierarchyDownFromTSN?tsn=18030
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      connection: keep-alive
+      content-length: '1781'
+      content-type: text/json;charset=ISO-8859-1
+      date: Mon, 10 Feb 2020 22:12:42 GMT
+      status: 'HTTP/1.1 200 '
+      strict-transport-security:
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      x-application: itis_webservices
+      x-node-name: not shown
+      x-upstream-member: not shown
+    body:
+      encoding: ASCII-8BIT
+      file: no
+      string: eyJhdXRob3IiOm51bGwsImNsYXNzIjoiZ292LnVzZ3MuaXRpcy5pdGlzX3NlcnZpY2UuZGF0YS5TdmNIaWVyYXJjaHlSZWNvcmRMaXN0IiwiaGllcmFyY2h5TGlzdCI6W3siYXV0aG9yIjoiTWlsbC4iLCJjbGFzcyI6Imdvdi51c2dzLml0aXMuaXRpc19zZXJ2aWNlLmRhdGEuU3ZjSGllcmFyY2h5UmVjb3JkIiwicGFyZW50TmFtZSI6IlBpbmFjZWFlIiwicGFyZW50VHNuIjoiMTgwMzAiLCJyYW5rTmFtZSI6IkdlbnVzIiwidGF4b25OYW1lIjoiQWJpZXMiLCJ0c24iOiIxODAzMSJ9LHsiYXV0aG9yIjoiQS4gRGlldHIuIiwiY2xhc3MiOiJnb3YudXNncy5pdGlzLml0aXNfc2VydmljZS5kYXRhLlN2Y0hpZXJhcmNoeVJlY29yZCIsInBhcmVudE5hbWUiOiJQaW5hY2VhZSIsInBhcmVudFRzbiI6IjE4MDMwIiwicmFua05hbWUiOiJHZW51cyIsInRheG9uTmFtZSI6IlBpY2VhIiwidHNuIjoiMTgwMzMifSx7ImF1dGhvciI6IkwuIiwiY2xhc3MiOiJnb3YudXNncy5pdGlzLml0aXNfc2VydmljZS5kYXRhLlN2Y0hpZXJhcmNoeVJlY29yZCIsInBhcmVudE5hbWUiOiJQaW5hY2VhZSIsInBhcmVudFRzbiI6IjE4MDMwIiwicmFua05hbWUiOiJHZW51cyIsInRheG9uTmFtZSI6IlBpbnVzIiwidHNuIjoiMTgwMzUifSx7ImF1dGhvciI6IkNhcnJp6HJlIiwiY2xhc3MiOiJnb3YudXNncy5pdGlzLml0aXNfc2VydmljZS5kYXRhLlN2Y0hpZXJhcmNoeVJlY29yZCIsInBhcmVudE5hbWUiOiJQaW5hY2VhZSIsInBhcmVudFRzbiI6IjE4MDMwIiwicmFua05hbWUiOiJHZW51cyIsInRheG9uTmFtZSI6IlRzdWdhIiwidHNuIjoiMTgzMzk2In0seyJhdXRob3IiOiJUcmV3IiwiY2xhc3MiOiJnb3YudXNncy5pdGlzLml0aXNfc2VydmljZS5kYXRhLlN2Y0hpZXJhcmNoeVJlY29yZCIsInBhcmVudE5hbWUiOiJQaW5hY2VhZSIsInBhcmVudFRzbiI6IjE4MDMwIiwicmFua05hbWUiOiJHZW51cyIsInRheG9uTmFtZSI6IkNlZHJ1cyIsInRzbiI6IjE4MzQwNSJ9LHsiYXV0aG9yIjoiTWlsbC4iLCJjbGFzcyI6Imdvdi51c2dzLml0aXMuaXRpc19zZXJ2aWNlLmRhdGEuU3ZjSGllcmFyY2h5UmVjb3JkIiwicGFyZW50TmFtZSI6IlBpbmFjZWFlIiwicGFyZW50VHNuIjoiMTgwMzAiLCJyYW5rTmFtZSI6IkdlbnVzIiwidGF4b25OYW1lIjoiTGFyaXgiLCJ0c24iOiIxODM0MDkifSx7ImF1dGhvciI6IkNhcnJp6HJlIiwiY2xhc3MiOiJnb3YudXNncy5pdGlzLml0aXNfc2VydmljZS5kYXRhLlN2Y0hpZXJhcmNoeVJlY29yZCIsInBhcmVudE5hbWUiOiJQaW5hY2VhZSIsInBhcmVudFRzbiI6IjE4MDMwIiwicmFua05hbWUiOiJHZW51cyIsInRheG9uTmFtZSI6IlBzZXVkb3RzdWdhIiwidHNuIjoiMTgzNDE4In0seyJhdXRob3IiOiJDYXJyaehyZSIsImNsYXNzIjoiZ292LnVzZ3MuaXRpcy5pdGlzX3NlcnZpY2UuZGF0YS5TdmNIaWVyYXJjaHlSZWNvcmQiLCJwYXJlbnROYW1lIjoiUGluYWNlYWUiLCJwYXJlbnRUc24iOiIxODAzMCIsInJhbmtOYW1lIjoiR2VudXMiLCJ0YXhvbk5hbWUiOiJLZXRlbGVlcmlhIiwidHNuIjoiODIyNTI5In0seyJhdXRob3IiOiJHb3Jkb24iLCJjbGFzcyI6Imdvdi51c2dzLml0aXMuaXRpc19zZXJ2aWNlLmRhdGEuU3ZjSGllcmFyY2h5UmVjb3JkIiwicGFyZW50TmFtZSI6IlBpbmFjZWFlIiwicGFyZW50VHNuIjoiMTgwMzAiLCJyYW5rTmFtZSI6IkdlbnVzIiwidGF4b25OYW1lIjoiUHNldWRvbGFyaXgiLCJ0c24iOiI4MjI1MzAifV0sInJhbmtOYW1lIjoiRmFtaWx5Iiwic2NpTmFtZSI6IlBpbmFjZWFlIiwidHNuIjoiMTgwMzAifQo=
+  recorded_at: 2020-02-10 22:12:44 GMT
+  recorded_with: vcr/0.4.1.94, webmockr/0.5.1.98
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getTaxonomicRankNameFromTSN?tsn=18031
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      connection: keep-alive
+      content-length: '149'
+      content-type: text/json;charset=ISO-8859-1
+      date: Mon, 10 Feb 2020 22:12:42 GMT
+      status: 'HTTP/1.1 200 '
+      strict-transport-security:
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      x-application: itis_webservices
+      x-node-name: not shown
+      x-upstream-member: not shown
+    body:
+      encoding: ASCII-8BIT
+      file: no
+      string: eyJjbGFzcyI6Imdvdi51c2dzLml0aXMuaXRpc19zZXJ2aWNlLmRhdGEuU3ZjVGF4b25SYW5rSW5mbyIsImtpbmdkb21JZCI6IjMiLCJraW5nZG9tTmFtZSI6IlBsYW50YWUiLCJyYW5rSWQiOiIxODAiLCJyYW5rTmFtZSI6IkdlbnVzIiwidHNuIjoiMTgwMzEifQo=
+  recorded_at: 2020-02-10 22:12:44 GMT
+  recorded_with: vcr/0.4.1.94, webmockr/0.5.1.98
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getTaxonomicRankNameFromTSN?tsn=18033
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      connection: keep-alive
+      content-length: '149'
+      content-type: text/json;charset=ISO-8859-1
+      date: Mon, 10 Feb 2020 22:12:42 GMT
+      status: 'HTTP/1.1 200 '
+      strict-transport-security:
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      x-application: itis_webservices
+      x-node-name: not shown
+      x-upstream-member: not shown
+    body:
+      encoding: ASCII-8BIT
+      file: no
+      string: eyJjbGFzcyI6Imdvdi51c2dzLml0aXMuaXRpc19zZXJ2aWNlLmRhdGEuU3ZjVGF4b25SYW5rSW5mbyIsImtpbmdkb21JZCI6IjMiLCJraW5nZG9tTmFtZSI6IlBsYW50YWUiLCJyYW5rSWQiOiIxODAiLCJyYW5rTmFtZSI6IkdlbnVzIiwidHNuIjoiMTgwMzMifQo=
+  recorded_at: 2020-02-10 22:12:44 GMT
+  recorded_with: vcr/0.4.1.94, webmockr/0.5.1.98
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getTaxonomicRankNameFromTSN?tsn=18035
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      connection: keep-alive
+      content-length: '149'
+      content-type: text/json;charset=ISO-8859-1
+      date: Mon, 10 Feb 2020 22:12:43 GMT
+      status: 'HTTP/1.1 200 '
+      strict-transport-security:
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      x-application: itis_webservices
+      x-node-name: not shown
+      x-upstream-member: not shown
+    body:
+      encoding: ASCII-8BIT
+      file: no
+      string: eyJjbGFzcyI6Imdvdi51c2dzLml0aXMuaXRpc19zZXJ2aWNlLmRhdGEuU3ZjVGF4b25SYW5rSW5mbyIsImtpbmdkb21JZCI6IjMiLCJraW5nZG9tTmFtZSI6IlBsYW50YWUiLCJyYW5rSWQiOiIxODAiLCJyYW5rTmFtZSI6IkdlbnVzIiwidHNuIjoiMTgwMzUifQo=
+  recorded_at: 2020-02-10 22:12:44 GMT
+  recorded_with: vcr/0.4.1.94, webmockr/0.5.1.98
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getTaxonomicRankNameFromTSN?tsn=183396
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      connection: keep-alive
+      content-length: '150'
+      content-type: text/json;charset=ISO-8859-1
+      date: Mon, 10 Feb 2020 22:12:43 GMT
+      status: 'HTTP/1.1 200 '
+      strict-transport-security:
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      x-application: itis_webservices
+      x-node-name: not shown
+      x-upstream-member: not shown
+    body:
+      encoding: ASCII-8BIT
+      file: no
+      string: eyJjbGFzcyI6Imdvdi51c2dzLml0aXMuaXRpc19zZXJ2aWNlLmRhdGEuU3ZjVGF4b25SYW5rSW5mbyIsImtpbmdkb21JZCI6IjMiLCJraW5nZG9tTmFtZSI6IlBsYW50YWUiLCJyYW5rSWQiOiIxODAiLCJyYW5rTmFtZSI6IkdlbnVzIiwidHNuIjoiMTgzMzk2In0K
+  recorded_at: 2020-02-10 22:12:44 GMT
+  recorded_with: vcr/0.4.1.94, webmockr/0.5.1.98
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getTaxonomicRankNameFromTSN?tsn=183405
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      connection: keep-alive
+      content-length: '150'
+      content-type: text/json;charset=ISO-8859-1
+      date: Mon, 10 Feb 2020 22:12:43 GMT
+      status: 'HTTP/1.1 200 '
+      strict-transport-security:
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      x-application: itis_webservices
+      x-node-name: not shown
+      x-upstream-member: not shown
+    body:
+      encoding: ASCII-8BIT
+      file: no
+      string: eyJjbGFzcyI6Imdvdi51c2dzLml0aXMuaXRpc19zZXJ2aWNlLmRhdGEuU3ZjVGF4b25SYW5rSW5mbyIsImtpbmdkb21JZCI6IjMiLCJraW5nZG9tTmFtZSI6IlBsYW50YWUiLCJyYW5rSWQiOiIxODAiLCJyYW5rTmFtZSI6IkdlbnVzIiwidHNuIjoiMTgzNDA1In0K
+  recorded_at: 2020-02-10 22:12:44 GMT
+  recorded_with: vcr/0.4.1.94, webmockr/0.5.1.98
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getTaxonomicRankNameFromTSN?tsn=183409
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      connection: keep-alive
+      content-length: '150'
+      content-type: text/json;charset=ISO-8859-1
+      date: Mon, 10 Feb 2020 22:12:43 GMT
+      status: 'HTTP/1.1 200 '
+      strict-transport-security:
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      x-application: itis_webservices
+      x-node-name: not shown
+      x-upstream-member: not shown
+    body:
+      encoding: ASCII-8BIT
+      file: no
+      string: eyJjbGFzcyI6Imdvdi51c2dzLml0aXMuaXRpc19zZXJ2aWNlLmRhdGEuU3ZjVGF4b25SYW5rSW5mbyIsImtpbmdkb21JZCI6IjMiLCJraW5nZG9tTmFtZSI6IlBsYW50YWUiLCJyYW5rSWQiOiIxODAiLCJyYW5rTmFtZSI6IkdlbnVzIiwidHNuIjoiMTgzNDA5In0K
+  recorded_at: 2020-02-10 22:12:44 GMT
+  recorded_with: vcr/0.4.1.94, webmockr/0.5.1.98
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getTaxonomicRankNameFromTSN?tsn=183418
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      connection: keep-alive
+      content-length: '150'
+      content-type: text/json;charset=ISO-8859-1
+      date: Mon, 10 Feb 2020 22:12:43 GMT
+      status: 'HTTP/1.1 200 '
+      strict-transport-security:
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      x-application: itis_webservices
+      x-node-name: not shown
+      x-upstream-member: not shown
+    body:
+      encoding: ASCII-8BIT
+      file: no
+      string: eyJjbGFzcyI6Imdvdi51c2dzLml0aXMuaXRpc19zZXJ2aWNlLmRhdGEuU3ZjVGF4b25SYW5rSW5mbyIsImtpbmdkb21JZCI6IjMiLCJraW5nZG9tTmFtZSI6IlBsYW50YWUiLCJyYW5rSWQiOiIxODAiLCJyYW5rTmFtZSI6IkdlbnVzIiwidHNuIjoiMTgzNDE4In0K
+  recorded_at: 2020-02-10 22:12:44 GMT
+  recorded_with: vcr/0.4.1.94, webmockr/0.5.1.98
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getTaxonomicRankNameFromTSN?tsn=822529
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      connection: keep-alive
+      content-length: '150'
+      content-type: text/json;charset=ISO-8859-1
+      date: Mon, 10 Feb 2020 22:12:44 GMT
+      status: 'HTTP/1.1 200 '
+      strict-transport-security:
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      x-application: itis_webservices
+      x-node-name: not shown
+      x-upstream-member: not shown
+    body:
+      encoding: ASCII-8BIT
+      file: no
+      string: eyJjbGFzcyI6Imdvdi51c2dzLml0aXMuaXRpc19zZXJ2aWNlLmRhdGEuU3ZjVGF4b25SYW5rSW5mbyIsImtpbmdkb21JZCI6IjMiLCJraW5nZG9tTmFtZSI6IlBsYW50YWUiLCJyYW5rSWQiOiIxODAiLCJyYW5rTmFtZSI6IkdlbnVzIiwidHNuIjoiODIyNTI5In0K
+  recorded_at: 2020-02-10 22:12:44 GMT
+  recorded_with: vcr/0.4.1.94, webmockr/0.5.1.98
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getTaxonomicRankNameFromTSN?tsn=822530
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      connection: keep-alive
+      content-length: '150'
+      content-type: text/json;charset=ISO-8859-1
+      date: Mon, 10 Feb 2020 22:12:44 GMT
+      status: 'HTTP/1.1 200 '
+      strict-transport-security:
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      x-application: itis_webservices
+      x-node-name: not shown
+      x-upstream-member: not shown
+    body:
+      encoding: ASCII-8BIT
+      file: no
+      string: eyJjbGFzcyI6Imdvdi51c2dzLml0aXMuaXRpc19zZXJ2aWNlLmRhdGEuU3ZjVGF4b25SYW5rSW5mbyIsImtpbmdkb21JZCI6IjMiLCJraW5nZG9tTmFtZSI6IlBsYW50YWUiLCJyYW5rSWQiOiIxODAiLCJyYW5rTmFtZSI6IkdlbnVzIiwidHNuIjoiODIyNTMwIn0K
+  recorded_at: 2020-02-10 22:12:44 GMT
+  recorded_with: vcr/0.4.1.94, webmockr/0.5.1.98

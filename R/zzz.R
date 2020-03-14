@@ -1,5 +1,3 @@
-con_utf8 <- function(x) content(x, "text", encoding = "UTF-8")
-
 mssg <- function(v, ...) if (v) message(...)
 tc <- function(l) Filter(Negate(is.null), l)
 tcnull <- function(x) if (all(sapply(x, is.null))) NULL else x
@@ -11,6 +9,9 @@ pluck <- function(x, name, type) {
     vapply(x, "[[", name, FUN.VALUE = type)
   }
 }
+
+# pluck with unname
+pluck_un <- function(x, name, type) unname(pluck(x, name, type))
 
 collapse <- function(x, fxn, class, match=TRUE, ...) {
   tmp <- lapply(x, fxn, ...)
@@ -45,13 +46,20 @@ add_uri <- function(ids, url, z = NULL){
   ids
 }
 
-check_rows <- function(x){
-  if (!is.numeric(x) && !any(is.na(x))) {
+assert_rows <- function(rows) {
+  if (!all(is.na(rows))) {
+    assert(rows, c("numeric", "integer"))
+    stopifnot(all(rows > 0))
+  }
+}
+
+check_rows <- function(z) {
+  if (!is.numeric(z) && !any(is.na(z))) {
     stop("'rows' must be numeric or NA", call. = FALSE)
   }
-  if (is.numeric(x)) {
-    if (length(x) == 1) {
-      if (x < 1) {
+  if (is.numeric(z)) {
+    if (length(z) == 1) {
+      if (z < 1) {
         stop("'rows' value must be an integer 1 or greater",
              call. = FALSE)
       }
@@ -81,17 +89,19 @@ sub_vector <- function(x, rows){
   if ( any(is.na(rows)) ) x else x[rows]
 }
 
-nstop <- function(x, arg='db') if (is.null(x)) stop(sprintf("Must specify %s!", arg), call. = FALSE)
+nstop <- function(x, arg='db') {
+  if (is.null(x)) stop(sprintf("Must specify %s!", arg), call. = FALSE)
+}
 
 colClasses <- function(d, colClasses) {
   colClasses <- rep(colClasses, len=length(d))
   d[] <- lapply(seq_along(d), function(i) switch(colClasses[i],
-                                                 numeric=as.numeric(d[[i]]),
-                                                 character=as.character(d[[i]]),
-                                                 Date=as.Date(d[[i]], origin='1970-01-01'),
-                                                 POSIXct=as.POSIXct(d[[i]], origin='1970-01-01'),
-                                                 factor=as.factor(d[[i]]),
-                                                 as(d[[i]], colClasses[i]) ))
+    numeric=as.numeric(d[[i]]),
+    character=as.character(d[[i]]),
+    Date=as.Date(d[[i]], origin='1970-01-01'),
+    POSIXct=as.POSIXct(d[[i]], origin='1970-01-01'),
+    factor=as.factor(d[[i]]),
+    as(d[[i]], colClasses[i]) ))
   d
 }
 
@@ -99,13 +109,12 @@ strtrim <- function(str) {
   gsub("^\\s+|\\s+$", "", str)
 }
 
-# function to help filter get_*() functions for a rank name or rank itself --------------
+# function to help filter get_*() functions for a rank name or rank itself ----
 filt <- function(df, rank, z) {
   if (NROW(df) == 0) {
     df
   } else {
     if (!is.null(z)) {
-      #mtch <- grep(tolower(z), tolower(df[,rank]))
       mtch <- grep(sprintf("%s", tolower(z)), tolower(df[,rank]))
       if (length(mtch) != 0) {
         df[mtch, ]
@@ -116,24 +125,6 @@ filt <- function(df, rank, z) {
       df
     }
   }
-}
-
-# failwith replacment ------------------
-try_default <- function(expr, default, quiet = FALSE){
-  result <- default
-  if (quiet) {
-    tryCatch(result <- expr, error = function(e) {
-    })
-  }
-  else {
-    try(result <- expr)
-  }
-  result
-}
-
-failwith <- function(default = NULL, f, quiet = FALSE){
-  f <- match.fun(f)
-  function(...) try_default(f(...), default, quiet = quiet)
 }
 
 argsnull <- function(x) {
@@ -177,24 +168,44 @@ pop <- function(x, nms) {
 }
 
 assert <- function(x, y) {
-  if (!is.null(x)) {
-    if (!class(x) %in% y) {
+  if (!is.null(x) && !is_na(x)) {
+    if (!inherits(x, y)) {
       stop(deparse(substitute(x)), " must be of class ",
            paste0(y, collapse = ", "), call. = FALSE)
     }
   }
 }
 
-dt2df <- function(x) {
+is_na <- function(x) {
+  if (is.list(x)) return(FALSE)
+  if (is.environment(x)) return(FALSE)
+  return(all(is.na(x)))
+}
+
+assert_state <- function(x, y) {
+  if (!is.null(x) && inherits(x, "taxon_state")) {
+    if (x$class != y) {
+      stop("taxon_state class must match the get_* function called ",
+        call. = FALSE)
+    }
+  }
+}
+
+dt2df <- function(x, idcol = TRUE) {
   (data.table::setDF(
-    data.table::rbindlist(x, use.names = TRUE, fill = TRUE, idcol = TRUE)))
+    data.table::rbindlist(x, use.names = TRUE, fill = TRUE, idcol = idcol)))
+}
+
+dt2tibble <- function(x) {
+  tibble::as_tibble(data.table::setDF(
+    data.table::rbindlist(x, use.names = TRUE, fill = TRUE))
+  )
 }
 
 dbswap <- function(x) {
   switch(
     x,
     boldid = "bold",
-    colid = "col",
     eolid = "eol",
     gbifid = "gbif",
     natservid = "natserv",
@@ -206,4 +217,66 @@ dbswap <- function(x) {
     wormsid = "worms",
     stop("'db' not recognized", call. = FALSE)
   )
+}
+
+check_entrez_key <- function (x) {
+  tmp <- if (is.null(x)) Sys.getenv("ENTREZ_KEY", "") else x
+  if (tmp == "") {
+    getOption("entrez_key",
+      warning("no API key found for Entrez, proceeding w/o key",
+        call. = FALSE))
+  } else {
+    tmp
+  }
+}
+
+taxize_ua <- function(x) {
+  versions <- c(
+    `r-curl` = as.character(utils::packageVersion("curl")),
+    crul = as.character(utils::packageVersion("crul")),
+    taxize = as.character(utils::packageVersion("taxize"))
+  )
+  paste0(names(versions), "/", versions, collapse = " ")
+}
+
+`%||%` <- function (x, y) if (is.null(x) || length(x) == 0) y else x
+
+# a common set of functions used together, so a helper fxn to do that
+xml_text_all <- function(x, xpath) {
+  xml2::xml_text(xml2::xml_find_all(x, xpath))
+}
+
+tx_ua <- function() {
+  versions <- c(paste0("r-curl/", utils::packageVersion("curl")),
+    paste0("crul/", utils::packageVersion("crul")),
+    sprintf("rOpenSci(taxize/%s)", utils::packageVersion("taxize")))
+  paste0(versions, collapse = " ")
+}
+
+tx_ual <- list(`User-Agent` = tx_ua(), `X-USER-AGENT` = tx_ua())
+
+warn_db <- function(x, type) {
+  if ("db" %in% names(x)) {
+    if (!is.null(x$db)) {
+      if (x$db != type) {
+      warning(
+      sprintf("'db' value '%s' ignored; does not match dispatched method '%s'",
+            x$db, type),
+          call. = FALSE, immediate. = TRUE)
+      }
+    }
+  }
+}
+
+strextract <- function(str, pattern) regmatches(str, regexpr(pattern, str))
+strexec <- function(str, pattern) regmatches(str, regexec(pattern, str))
+
+
+ncbi_rate_limit_pause <- function(key) {
+  # NCBI limits requests to three per second when no key and ten per second with key
+  if (is.null(key)) {
+    Sys.sleep(0.334)
+  } else {
+    Sys.sleep(0.101)
+  }
 }

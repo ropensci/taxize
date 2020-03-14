@@ -9,7 +9,7 @@ nbn_synonyms(id, ...)
 \arguments{
 \item{id}{the taxon identifier code}
 
-\item{...}{Further args passed on to \code{\link[httr]{GET}}}
+\item{...}{Further args passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
 A data.frame
@@ -27,10 +27,12 @@ nbn_synonyms(id = 'NHMSYS0000502940')
 }
 }
 \references{
-<https://api.nbnatlas.org/>
+\url{https://api.nbnatlas.org/}
 }
 \seealso{
-Other nbn: \code{\link{get_nbnid}},
-  \code{\link{nbn_classification}},
-  \code{\link{nbn_search}}
+Other nbn: 
+\code{\link{get_nbnid}()},
+\code{\link{nbn_classification}()},
+\code{\link{nbn_search}()}
 }
+\concept{nbn}

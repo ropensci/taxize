@@ -5,24 +5,71 @@ Description: Interacts with a suite of web 'APIs' for taxonomic tasks,
     species names, getting taxonomic hierarchies, fetching downstream and
     upstream taxonomic names, getting taxonomic synonyms, converting
     scientific to common names and vice versa, and more.
-Version: 0.9.0.9100
+Version: 0.9.92.95
 License: MIT + file LICENSE
-URL: https://github.com/ropensci/taxize
+URL: https://docs.ropensci.org/taxize (website),
+    https://github.com/ropensci/taxize (devel),
+    https://taxize.dev (user manual)
 BugReports: https://github.com/ropensci/taxize/issues
-Authors@R: c(
-    person("Scott", "Chamberlain", role = c("aut", "cre"), email = "myrmecocystus@gmail.com"),
-    person("Eduard", "Szoecs", role = "aut"),
-    person("Zachary", "Foster", role = "aut"),
-    person("Carl", "Boettiger", role = "ctb"),
-    person("Karthik", "Ram", role = "ctb"),
-    person("Ignasi", "Bartomeus", role = "ctb"),
-    person("John", "Baumgartner", role = "ctb"),
-    person("James", "O'Donnell", role = "ctb"),
-    person("Jari", "Oksanen", role = "ctb")
-  )
+Authors@R:
+    c(person(given = "Scott",
+             family = "Chamberlain",
+             role = c("aut", "cre"),
+             email = "myrmecocystus@gmail.com",
+             comment = c(ORCID = "0000-0003-1444-9135")),
+      person(given = "Eduard",
+             family = "Szoecs",
+             role = "aut"),
+      person(given = "Zachary",
+             family = "Foster",
+             role = "aut"),
+      person(given = "Zebulun",
+             family = "Arendsee",
+             role = "aut"),
+      person(given = "Carl",
+             family = "Boettiger",
+             role = "ctb"),
+      person(given = "Karthik",
+             family = "Ram",
+             role = "ctb"),
+      person(given = "Ignasi",
+             family = "Bartomeus",
+             role = "ctb"),
+      person(given = "John",
+             family = "Baumgartner",
+             role = "ctb"),
+      person(given = "James",
+             family = "O'Donnell",
+             role = "ctb"),
+      person(given = "Jari",
+             family = "Oksanen",
+             role = "ctb"),
+      person(given = "Bastian Greshake",
+             family = "Tzovaras",
+             role = "ctb"),
+      person(given = "Philippe",
+             family = "Marchand",
+             role = "ctb"),
+      person(given = "Vinh",
+             family = "Tran",
+             role = "ctb"),
+      person(given = "Maëlle",
+             family = "Salmon",
+             role = "ctb"),
+      person(given = "Gaopeng",
+             family = "Li",
+             role = "ctb"),
+      person(given = "Matthias",
+             family = "Grenié",
+             role = "ctb"),
+      person(given = "rOpenSci",
+             role = "fnd",
+             comment = "https://ropensci.org/"))
 LazyLoad: yes
-LazyData: yes
+LazyData: true
 VignetteBuilder: knitr
+Encoding: UTF-8
+Language: en-US
 Depends:
     R(>= 3.2.1)
 Imports:
@@ -30,26 +77,33 @@ Imports:
     methods,
     stats,
     utils,
-    httr (>= 1.2.1),
-    xml2 (>= 1.0.0),
+    crul (>= 0.7.0),
+    xml2 (>= 1.2.0),
     jsonlite,
-    reshape2,
-    stringr,
-    plyr,
     foreach,
     ape,
-    bold (>= 0.3.5),
+    zoo,
     data.table,
-    rredlist (>= 0.3.0),
-    rotl (>= 3.0.0),
-    ritis (>= 0.5.0),
     tibble (>= 1.2),
-    worrms (>= 0.1.0),
-    natserv (>= 0.1.4),
-    wikitaxa (>= 0.1.4)
+    bold (>= 0.8.6),
+    rredlist (>= 0.5.0),
+    rotl (>= 3.0.0),
+    ritis (>= 0.7.6),
+    worrms (>= 0.4.0),
+    natserv (>= 0.3.0),
+    wikitaxa (>= 0.3.0),
+    R6,
+    crayon,
+    cli,
+    phangorn
 Suggests:
     testthat,
-    roxygen2 (>= 6.0.1),
     knitr,
-    vegan
-RoxygenNote: 6.0.1
+    rmarkdown,
+    vegan,
+    vcr
+RoxygenNote: 7.0.2
+Roxygen: list(markdown = TRUE)
+X-schema.org-applicationCategory: Taxonomy
+X-schema.org-keywords: taxonomy, biology, nomenclature, JSON, API, web, api-client, identifiers, species, names
+X-schema.org-isPartOf: https://ropensci.org

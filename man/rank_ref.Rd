@@ -5,11 +5,11 @@
 \alias{rank_ref}
 \title{Lookup-table for IDs of taxonomic ranks}
 \description{
-data.frame of 36 rows, with 2 columns:
+data.frame of 43 rows, with 2 columns:
 \itemize{
- \item rankid - a numeric rank id, consecutive
- \item ranks - a comma separated vector of names that are considered
- equal to one another within the row
+\item rankid - a numeric rank id, consecutive
+\item ranks - a comma separated vector of names that are considered
+equal to one another within the row
 }
 }
 \details{
@@ -19,6 +19,6 @@ of ranks.
 Please let us know if there is a rank that occurs from one of the data
 sources \pkg{taxize} that we don't have in \code{rank_ref} dataset.
 
-Also let us know if you disagree with the ordering of ranks.
+Let us know if you disagree with the ordering of ranks.
 }
 \keyword{data}

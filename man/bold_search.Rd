@@ -4,28 +4,37 @@
 \alias{bold_search}
 \title{Search Barcode of Life for taxonomic IDs}
 \usage{
-bold_search(name = NULL, id = NULL, fuzzy = FALSE, dataTypes = "basic",
-  includeTree = FALSE, response = FALSE, ...)
+bold_search(
+  name = NULL,
+  id = NULL,
+  fuzzy = FALSE,
+  dataTypes = "basic",
+  includeTree = FALSE,
+  response = FALSE,
+  ...
+)
 }
 \arguments{
 \item{name}{(character) One or more scientific names.}
 
 \item{id}{(integer) One or more BOLD taxonomic identifiers.}
 
-\item{fuzzy}{(logical) Whether to use fuzzy search or not (default: FALSE). Only used if
-\code{name} passed.}
+\item{fuzzy}{(logical) Whether to use fuzzy search or not (default: \code{FALSE}).
+Only used if \code{name} passed.}
 
-\item{dataTypes}{(character) Specifies the datatypes that will be returned. See Details for
-options. This variable is ignored if \code{name} parameter is passed, but is used if the
-\code{id} parameter is passed.}
+\item{dataTypes}{(character) Specifies the datatypes that will be returned.
+See Details for options. This variable is ignored if \code{name} parameter is passed,
+but is used if the \code{id} parameter is passed.}
 
-\item{includeTree}{(logical) If TRUE (default: FALSE), returns a list containing information
-for parent taxa as well as the specified taxon. Only used if \code{id} passed.}
+\item{includeTree}{(logical) If TRUE (default: FALSE), returns a list containing
+information for parent taxa as well as the specified taxon. Only used if \code{id}
+passed.}
 
-\item{response}{(logical) Note that response is the object that returns from the Curl call,
-useful for debugging, and getting detailed info on the API call.}
+\item{response}{(logical) Note that response is the object that returns from the
+curl call, useful for debugging, and getting detailed info on the API call.}
 
-\item{...}{Further args passed on to \code{\link[httr]{GET}}, main purpose being curl debugging}
+\item{...}{Further args passed on to \link[crul:verb-GET]{crul::verb-GET}, main purpose being curl
+debugging}
 }
 \value{
 A list of data.frame's.
@@ -34,24 +43,28 @@ A list of data.frame's.
 Search Barcode of Life for taxonomic IDs
 }
 \details{
-You must provide one of name or id to this function. The other parameters are optional.
-Note that when passing in \code{name}, \code{fuzzy} can be used as well, while if \code{id}
-is passed, then \code{fuzzy} is ignored, and \code{dataTypes} \code{includeTree} can be used.
+You must provide one of name or id to this function. The other
+parameters are optional. Note that when passing in \code{name}, \code{fuzzy} can be used
+as well, while if \code{id} is passed, then \code{fuzzy} is ignored, and \code{dataTypes}
+\code{includeTree} can be used.
 
 Options for \code{dataTypes} parameter:
-
 \itemize{
- \item all returns all data
- \item basic returns basic taxon information
- \item images returns specimen image. Includes copyright information, image URL, image metadata.
- \item stats Returns specimen and sequence statistics. Includes public species count, public BIN
- count, public marker counts, public record count, specimen count, sequenced specimen count,
- barcode specimen count, species count, barcode species count.
- \item geo Returns collection site information. Includes country, collection site map.
- \item sequencinglabs Returns sequencing labs. Includes lab name, record count.
- \item depository Returns specimen depositories. Includes depository name, record count.
- \item thirdparty Returns information from third parties. Includes wikipedia summary, wikipedia
- URL, GBIF map.
+\item all returns all data
+\item basic returns basic taxon information
+\item images returns specimen image. Includes copyright information, image URL,
+image metadata.
+\item stats Returns specimen and sequence statistics. Includes public species
+count, public BIN count, public marker counts, public record count,
+specimen count, sequenced specimen count, barcode specimen count, species
+count, barcode species count.
+\item geo Returns collection site information. Includes country, collection
+site map.
+\item sequencinglabs Returns sequencing labs. Includes lab name, record count.
+\item depository Returns specimen depositories. Includes depository name,
+record count.
+\item thirdparty Returns information from third parties. Includes wikipedia
+summary, wikipedia URL, GBIF map.
 }
 }
 \examples{

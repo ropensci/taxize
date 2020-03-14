@@ -4,10 +4,19 @@
 \alias{scrapenames}
 \title{Resolve names using Global Names Recognition and Discovery.}
 \usage{
-scrapenames(url = NULL, file = NULL, text = NULL, engine = NULL,
-  unique = NULL, verbatim = NULL, detect_language = NULL,
-  all_data_sources = NULL, data_source_ids = NULL, return_content = FALSE,
-  ...)
+scrapenames(
+  url = NULL,
+  file = NULL,
+  text = NULL,
+  engine = NULL,
+  unique = NULL,
+  verbatim = NULL,
+  detect_language = NULL,
+  all_data_sources = NULL,
+  data_source_ids = NULL,
+  return_content = FALSE,
+  ...
+)
 }
 \arguments{
 \item{url}{An encoded URL for a web page, PDF, Microsoft Office document, or
@@ -42,7 +51,7 @@ data source ids to resolve found names against. See list of Data Sources
 \item{return_content}{(logical) return OCR'ed text. returns text
 string in \code{x$meta$content} slot. Default: \code{FALSE}}
 
-\item{...}{Further args passed to \code{\link[httr]{GET}}}
+\item{...}{Further args passed to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
 A list of length two, first is metadata, second is the data as a
@@ -70,7 +79,7 @@ scrapenames('http://ucjeps.berkeley.edu/cgi-bin/get_JM_treatment.pl?CARYOPHYLLAC
 # Scrape names from a pdf at a URL
 url <- 'http://www.plosone.org/article/fetchObject.action?uri=
 info\%3Adoi\%2F10.1371\%2Fjournal.pone.0058268&representation=PDF'
-scrapenames(url = sub('\\n', '', url))
+scrapenames(url = sub('\n', '', url))
 
 # With arguments
 scrapenames(url = 'http://www.mapress.com/zootaxa/2012/f/z03372p265f.pdf',
@@ -82,7 +91,7 @@ scrapenames(url = 'http://en.wikipedia.org/wiki/Araneae',
 speciesfile <- system.file("examples", "species.txt", package = "taxize")
 scrapenames(file = speciesfile)
 
-nms <- paste0(names_list("species"), collapse="\\n")
+nms <- paste0(names_list("species"), collapse="\n")
 file <- tempfile(fileext = ".txt")
 writeLines(nms, file)
 scrapenames(file = file)
@@ -93,12 +102,8 @@ scrapenames(text='A spider named Pardosa moesta Banks, 1892')
 # return OCR content
 scrapenames(url='http://www.mapress.com/zootaxa/2012/f/z03372p265f.pdf',
   return_content = TRUE)
-
-# use curl options
-library("httr")
-scrapenames(text='A spider named Pardosa moesta Banks, 1892')
 }
 }
 \author{
-Scott Chamberlain {myrmecocystus@gmail.com}
+Scott Chamberlain \email{myrmecocystus@gmail.com}
 }

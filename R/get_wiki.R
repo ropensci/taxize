@@ -1,30 +1,31 @@
 #' Get the page name for a Wiki taxon
 #'
 #' @export
-#' @param x (character) A vector of common or scientific names.
+#' @param x (character) A vector of common or scientific names. Or, a
+#' `taxon_state` object (see [taxon-state])
 #' @param wiki_site (character) Wiki site. One of species (default), pedia,
 #' commons
 #' @param wiki (character) language. Default: en
 #' @param ask logical; should get_wiki be run in interactive mode?
-#' If \code{TRUE} and more than one wiki is found for the species, the user is
-#' asked for input. If \code{FALSE} NA is returned for multiple matches.
-#' @param verbose logical; should progress be printed?
+#' If `TRUE` and more than one wiki is found for the species, the user is
+#' asked for input. If `FALSE` NA is returned for multiple matches.
+#' @param messages logical; should progress be printed?
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, all
 #' rows are considered. Note that this function still only gives back a wiki
-#' class object with one to many identifiers. See
-#' \code{\link[taxize]{get_wiki_}} to get back all, or a subset, of the
-#' raw data that you are presented during the ask process.
+#' class object with one to many identifiers. See [get_wiki_()] to get back
+#' all, or a subset, of the raw data that you are presented during the ask
+#' process.
 #' @param limit (integer) number of records to return
 #' @param ... Ignored
 #' @param check logical; Check if ID matches any existing on the DB, only
-#' used in \code{\link{as.wiki}}
+#' used in [as.wiki()]
 #' @template getreturn
 #'
-#' @details For \code{type = pedia}, we use the english language site by
-#' default. Set the \code{language} parameter for a different language site.
+#' @details For `wiki_site = "pedia" `, we use the english language site by
+#' default. Set the `wiki` parameter for a different language site.
 #'
 #' @family taxonomic-ids
-#' @seealso \code{\link[taxize]{classification}}
+#' @seealso [classification()]
 #'
 #' @examples \dontrun{
 #' get_wiki(x = "Quercus douglasii")
@@ -45,23 +46,39 @@
 #' }
 
 get_wiki <- function(x, wiki_site = "species", wiki = "en", ask = TRUE,
-                     verbose = TRUE, limit = 100, rows = NA, ...) {
+                     messages = TRUE, limit = 100, rows = NA, ...) {
 
+  assert(x, c("character", "taxon_state"))
   assert(ask, "logical")
-  assert(x, "character")
   assert(wiki_site, "character")
   assert(wiki, "character")
-  assert(verbose, "logical")
+  assert(messages, "logical")
+  assert_rows(rows)
 
-  fun <- function(x, wiki_site, wiki, ask, verbose, limit, rows, ...) {
+  if (inherits(x, "character")) {
+    tstate <- taxon_state$new(class = "wiki", names = x)
+    items <- x
+  } else {
+    assert_state(x, "wiki")
+    tstate <- x
+    x <- tstate$taxa_remaining()
+    items <- c(x, tstate$taxa_completed())
+  }
+
+  prog <- progressor$new(items = items, suppress = !messages)
+  done <- tstate$get()
+  for (i in seq_along(done)) prog$completed(names(done)[i], done[[i]]$att)
+  prog$prog_start()
+
+  for (i in seq_along(x)) {
     direct <- FALSE
-    mssg(verbose, "\nRetrieving data for taxon '", x, "'\n")
+    mssg(messages, "\nRetrieving data for taxon '", x, "'\n")
     df <- switch(
       wiki_site,
-      species = wikitaxa::wt_wikispecies_search(query = x, limit = limit, ...),
-      pedia = wikitaxa::wt_wikipedia_search(query = x, wiki = wiki,
+      species = wikitaxa::wt_wikispecies_search(query = x[i], limit = limit, ...),
+      pedia = wikitaxa::wt_wikipedia_search(query = x[i], wiki = wiki,
                                             limit = limit, ...),
-      commons = wikitaxa::wt_wikicommons_search(query = x, limit = limit, ...)
+      commons = wikitaxa::wt_wikicommons_search(query = x[i], limit = limit, ...)
     )$query$search
     mm <- NROW(df) > 1
 
@@ -74,9 +91,9 @@ get_wiki <- function(x, wiki_site = "species", wiki = "en", ask = TRUE,
 
       # should return NA if spec not found
       if (NROW(df) == 0) {
-        mssg(verbose, tx_msg_not_found)
+        mssg(messages, tx_msg_not_found)
         id <- NA_character_
-        att <- 'not found'
+        att <- "not found"
       }
 
       df$title <- gsub("\\s", "_", df$title)
@@ -84,29 +101,21 @@ get_wiki <- function(x, wiki_site = "species", wiki = "en", ask = TRUE,
       # take the one wiki from data.frame
       if (NROW(df) == 1) {
         id <- df$title
-        att <- 'found'
+        att <- "found"
       }
 
       # check for direct match
       if (NROW(df) > 1) {
         df <- data.frame(df, stringsAsFactors = FALSE)
-
-        direct <- match(tolower(df$title), gsub("\\s", "_", tolower(x)))
-
-        if (length(direct) == 1) {
-          if (!all(is.na(direct))) {
-            id <- df$title[!is.na(direct)]
-            direct <- TRUE
-            att <- 'found'
-          } else {
-            direct <- FALSE
-            id <- NA_character_
-            att <- 'not found'
-          }
+        matchtmp <- df[tolower(df$title) %in% tolower(x[i]), "title"]
+        if (length(matchtmp) == 1) {
+          id <- matchtmp
+          direct <- TRUE
+          att <- "found"
         } else {
           direct <- FALSE
           id <- NA_character_
-          att <- 'NA due to ask=FALSE & no direct match found'
+          att <- m_na_ask_false_no_direct
           warning("> 1 result; no direct match found", call. = FALSE)
         }
       }
@@ -124,7 +133,7 @@ get_wiki <- function(x, wiki_site = "species", wiki = "en", ask = TRUE,
           # prompt
           message("\n\n")
           print(df)
-          message("\nMore than one wiki ID found for taxon '", x, "'!\n
+          message("\nMore than one wiki ID found for taxon '", x[i], "'!\n
                   Enter rownumber of taxon (other inputs will return 'NA'):\n")
           take <- scan(n = 1, quiet = TRUE, what = 'raw')
 
@@ -137,53 +146,51 @@ get_wiki <- function(x, wiki_site = "species", wiki = "en", ask = TRUE,
             message("Input accepted, took taxon '",
                     as.character(df$title[take]), "'.\n")
             id <-  df$title[take]
-            att <- 'found'
+            att <- "found"
           } else {
             id <- NA_character_
-            mssg(verbose, "\nReturned 'NA'!\n\n")
-            att <- 'not found'
+            mssg(messages, "\nReturned 'NA'!\n\n")
+            att <- "not found"
           }
         } else {
           if (length(id) != 1) {
-            warning(
-              sprintf("More than one wiki ID found for taxon '%s'; refine query or set ask=TRUE",
-                      x),
-              call. = FALSE
-            )
+            warning(sprintf(m_more_than_one_found, "Wiki ID", x),
+              call. = FALSE)
             id <- NA_character_
-            att <- 'NA due to ask=FALSE & > 1 result'
+            att <- m_na_ask_false
           }
         }
       }
 
     }
 
-    data.frame(
-      id = id,
-      att = att,
-      multiple = mm,
-      direct = direct,
-      stringsAsFactors = FALSE)
+    res <- list(id = as.character(id), att = att, multiple = mm,
+      direct = direct)
+    prog$completed(x[i], att)
+    prog$prog(att)
+    tstate$add(x[i], res)
   }
-  outd <- ldply(x, fun, wiki_site, wiki, ask, verbose, limit, rows, ...)
-  out <- outd$id
-  attr(out, 'match') <- outd$att
-  attr(out, 'multiple_matches') <- outd$multiple
-  attr(out, 'pattern_match') <- outd$direct
-  attr(out, 'wiki_site') <- wiki_site
-  attr(out, 'wiki_lang') <- wiki
-  if ( !all(is.na(out)) ) {
-    zz <- gsub("\\s", "_", na.omit(out))
+  out <- tstate$get()
+  ids <- structure(pluck_un(out, "id", ""), class = "wiki",
+    match = pluck_un(out, "att", ""),
+    multiple_matches = pluck_un(out, "multiple", logical(1)),
+    pattern_match = pluck_un(out, "direct", logical(1))
+  )
+  on.exit(prog$prog_summary(), add = TRUE)
+  on.exit(tstate$exit, add = TRUE)
+  attr(ids, 'wiki_site') <- wiki_site
+  attr(ids, 'wiki_lang') <- wiki
+  if ( !all(is.na(ids)) ) {
+    zz <- gsub("\\s", "_", na.omit(ids))
     base_url <- switch(
       wiki_site,
       species = 'https://species.wikimedia.org/wiki/',
       pedia = sprintf('https://%s.wikipedia.org/wiki/', wiki),
       commons = 'https://commons.wikimedia.org/wiki/'
     )
-    attr(out, 'uri') <- paste0(base_url, zz)
+    attr(ids, 'uri') <- paste0(base_url, zz)
   }
-  class(out) <- "wiki"
-  return(out)
+  return(ids)
 }
 
 #' @export
@@ -269,19 +276,19 @@ check_wiki <- function(x) {
 
 #' @export
 #' @rdname get_wiki
-get_wiki_ <- function(x, verbose = TRUE, wiki_site = "species",
+get_wiki_ <- function(x, messages = TRUE, wiki_site = "species",
                       wiki = "en", limit = 100, rows = NA, ...) {
   stats::setNames(
-    lapply(x, get_wiki_help, verbose = verbose, wiki_site = wiki_site,
+    lapply(x, get_wiki_help, messages = messages, wiki_site = wiki_site,
            wiki = wiki, limit = limit, rows = rows, ...),
     x
   )
 }
 
-get_wiki_help <- function(x, verbose, wiki_site = "species", wiki = "en",
+get_wiki_help <- function(x, messages, wiki_site = "species", wiki = "en",
                           limit = 100, rows, ...) {
 
-  mssg(verbose, "\nRetrieving data for taxon '", x, "'\n")
+  mssg(messages, "\nRetrieving data for taxon '", x, "'\n")
   assert(x, "character")
   assert(wiki_site, "character")
   assert(wiki, "character")

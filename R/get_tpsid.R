@@ -1,35 +1,36 @@
 #' Get the NameID codes from Tropicos for taxonomic names.
 #'
 #' @export
-#' @param sciname (character) One or more scientific name's as a vector or list.
+#' @param sciname (character) One or more scientific name's as a vector or list. Or,
+#' a `taxon_state` object (see [taxon-state])
 #' @param ask logical; should get_tpsid be run in interactive mode?
 #' If TRUE and more than one ID is found for the species, the user is asked for
 #' input. If FALSE NA is returned for multiple matches.
-#' @param verbose logical; If TRUE the actual taxon queried is printed on the console.
-#' @param key Your API key; loads from .Rprofile.
+#' @param messages logical; If TRUE the actual taxon queried is printed on the console.
+#' @param key Your API key; see [taxize-authentication]
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, all rows are considered.
 #' Note that this function still only gives back a tpsid class object with one to many identifiers.
-#' See \code{\link[taxize]{get_tpsid_}} to get back all, or a subset, of the raw data that you are
+#' See [get_tpsid_()] to get back all, or a subset, of the raw data that you are
 #' presented during the ask process.
-#' @param family (character) A family name. Optional. See \code{Filtering} below.
-#' @param rank (character) A taxonomic rank name. See \code{\link{rank_ref}} for possible
+#' @param family (character) A family name. Optional. See `Filtering` below.
+#' @param rank (character) A taxonomic rank name. See [rank_ref()] for possible
 #' options. Though note that some data sources use atypical ranks, so inspect the
-#' data itself for options. Optional. See \code{Filtering} below.
-#' @param ... Other arguments passed to \code{\link[taxize]{tp_search}}.
-#' @param x Input to \code{\link{as.tpsid}}
+#' data itself for options. Optional. See `Filtering` below.
+#' @param ... Other arguments passed to [tp_search()].
+#' @param x Input to [as.tpsid()]
 #' @param check logical; Check if ID matches any existing on the DB, only used in
-#' \code{\link{as.tpsid}}
+#' [as.tpsid()]
 #' @template getreturn
 #'
 #' @section Filtering:
-#' The parameters \code{family} and \code{rank} are not used in the search to the data
+#' The parameters `family` an`rank`nk are not used in the search to the data
 #' provider, but are used in filtering the data down to a subset that is closer to the
 #' target you want.  For all these parameters,
-#' you can use regex strings since we use \code{\link{grep}} internally to match.
+#' you can use regex strings since we use [grep()] internally to match.
 #' Filtering narrows down to the set that matches your query, and removes the rest.
 #'
 #' @family taxonomic-ids
-#' @seealso \code{\link[taxize]{classification}}
+#' @seealso [classification()]
 #'
 #' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
 #'
@@ -40,10 +41,10 @@
 #' get_tpsid(c("Poa annua", "Pinus contorta"))
 #'
 #' # specify rows to limit choices available
-#' get_tpsid('Poa annua')
-#' get_tpsid('Poa annua', rows=1)
-#' get_tpsid('Poa annua', rows=25)
-#' get_tpsid('Poa annua', rows=1:2)
+#' get_tpsid('Poa ann')
+#' get_tpsid('Poa ann', rows=1)
+#' get_tpsid('Poa ann', rows=25)
+#' get_tpsid('Poa ann', rows=1:2)
 #'
 #' # When not found, NA given (howdy is not a species name, and Chrinomus is a fly)
 #' get_tpsid("howdy")
@@ -71,14 +72,6 @@
 #' # pass to classification function to get a taxonomic hierarchy
 #' classification(get_tpsid(sciname='Poa annua'))
 #'
-#' # factor class names are converted to character internally
-#' spnames <- as.factor(c("Poa annua", "Pinus contorta"))
-#' class(spnames)
-#' get_tpsid(spnames)
-#'
-#' # pass in a list, works fine
-#' get_tpsid(list("Poa annua", "Pinus contorta"))
-#'
 #' # Convert a tpsid without class information to a tpsid class
 #' as.tpsid(get_tpsid("Pinus contorta")) # already a tpsid, returns the same
 #' as.tpsid(get_tpsid(c("Chironomus riparius","Pinus contorta"))) # same
@@ -104,43 +97,61 @@
 #' get_tpsid_(c("asdfadfasd","Pinus contorta"), rows=1:5)
 #'
 #' # use curl options
-#' library("httr")
-#' get_tpsid("Quercus douglasii", config=verbose())
-#' bb <- get_tpsid("Quercus douglasii", config=progress())
+#' invisible(get_tpsid("Quercus douglasii", messages = TRUE))
 #' }
 
-get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA,
-                      family = NULL, rank = NULL, ...){
+get_tpsid <- function(sciname, ask = TRUE, messages = TRUE, key = NULL,
+  rows = NA, family = NULL, rank = NULL, ...) {
 
+  assert(sciname, c("character", "taxon_state"))
   assert(ask, "logical")
-  assert(verbose, "logical")
+  assert(messages, "logical")
   assert(family, "character")
   assert(rank, "character")
+  assert_rows(rows)
 
-  fun <- function(sciname, ask, verbose, rows, ...) {
+  if (inherits(sciname, "character")) {
+    tstate <- taxon_state$new(class = "tpsid", names = sciname)
+    items <- sciname
+  } else {
+    assert_state(sciname, "tpsid")
+    tstate <- sciname
+    sciname <- tstate$taxa_remaining()
+    items <- c(sciname, tstate$taxa_completed())
+  }
+
+  prog <- progressor$new(items = items, suppress = !messages)
+  done <- tstate$get()
+  for (i in seq_along(done)) prog$completed(names(done)[i], done[[i]]$att)
+  prog$prog_start()
+
+  for (i in seq_along(sciname)) {
     direct <- FALSE
-    mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
-    tmp <- tp_search(name = sciname, key = key, ...)
+    mssg(messages, "\nRetrieving data for taxon '", sciname[i], "'\n")
+    tmp <- tp_search(name = sciname[i], key = key, ...)
     mm <- NROW(tmp) > 1
-    # tmp <- sub_rows(tmp, rows)
 
-    if (names(tmp)[[1]] == 'error' || is.na(tmp) || inherits(tmp, "character")) {
-      mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
+    if (
+      all(names(tmp)[[1]] == "error") ||
+      all(is.na(tmp)) ||
+      inherits(tmp, "character")
+    ) {
+      mssg(messages, m_not_found_sp_altclass)
       id <- NA_character_
-      att <- 'not found'
+      att <- "not found"
     } else {
-      df <- tmp[,c('nameid','scientificname','family','rankabbreviation',
+      df <- tmp[, c('nameid','scientificname','family','rankabbreviation',
                    'nomenclaturestatusname','author','displaydate')]
       names(df) <- c('tpsid','name','family','rank','status','author','date')
       id <- df$tpsid
-      att <- 'found'
+      att <- "found"
     }
 
     # not found on tropicos
     if (length(id) == 0) {
-      mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
+      mssg(messages, m_not_found_sp_altclass)
       id <- NA_character_
-      att <- 'not found'
+      att <- "not found"
     }
     # more than one found on tropicos -> user input
     if (length(id) > 1) {
@@ -158,12 +169,22 @@ get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
           att <- "found"
         }
 
+        # more than one, try for direct match
+        if (length(id) > 1) {
+          matchtmp <- df[tolower(df$name) %in% tolower(sciname[i]), "tpsid"]
+          if (length(matchtmp) == 1) {
+            id <- matchtmp
+            direct <- TRUE
+            att <- "found"
+          }
+        }
+
         if (length(id) > 1) {
           if (ask) {
             # prompt
             rownames(df) <- 1:nrow(df)
             message("\n\n")
-            message("\nMore than one tpsid found for taxon '", sciname, "'!\n
+            message("\nMore than one tpsid found for taxon '", sciname[i], "'!\n
           Enter rownumber of taxon (other inputs will return 'NA'):\n")
             rownames(df) <- 1:nrow(df)
             print(df)
@@ -177,35 +198,35 @@ get_tpsid <- function(sciname, ask = TRUE, verbose = TRUE, key = NULL, rows = NA
               take <- as.numeric(take)
               message("Input accepted, took tpsid '", as.character(df$tpsid[take]), "'.\n")
               id <- as.character(df$tpsid[take])
-              att <- 'found'
+              att <- "found"
             } else {
               id <- NA_character_
-              mssg(verbose, "\nReturned 'NA'!\n\n")
-              att <- 'not found'
+              mssg(messages, "\nReturned 'NA'!\n\n")
+              att <- "not found"
             }
           } else {
             if (length(id) != 1) {
-              warning(
-                sprintf("More than one tpsid found for taxon '%s'; refine query or set ask=TRUE",
-                        sciname),
-                call. = FALSE
-              )
+              warning(sprintf(m_more_than_one_found, "tpsid", sciname[i]),
+                call. = FALSE)
               id <- NA_character_
-              att <- 'NA due to ask=FALSE & > 1 result'
+              att <- m_na_ask_false
             }
           }
         }
     }
-    list(id = as.character(id), att = att, multiple = mm, direct = direct)
+    res <- list(id = as.character(id), att = att, multiple = mm, direct = direct)
+    prog$completed(sciname[i], att)
+    prog$prog(att)
+    tstate$add(sciname[i], res)
   }
-  sciname <- as.character(sciname)
-  out <- lapply(sciname, fun, ask, verbose, rows, ...)
-  ids <- pluck(out, "id", "")
-  atts <- pluck(out, "att", "")
-  ids <- structure(ids, class = "tpsid", match = atts,
-                   multiple_matches = pluck(out, "multiple", logical(1)),
-                   pattern_match = pluck(out, "direct", logical(1)))
-  add_uri(ids, 'http://tropicos.org/Name/%s')
+  out <- tstate$get()
+  ids <- structure(as.character(unlist(pluck(out, "id"))), class = "tpsid",
+                   match = pluck_un(out, "att", ""),
+                   multiple_matches = pluck_un(out, "multiple", logical(1)),
+                   pattern_match = pluck_un(out, "direct", logical(1)))
+  on.exit(prog$prog_summary(), add = TRUE)
+  on.exit(tstate$exit, add = TRUE)
+  add_uri(ids, get_url_templates$tropicos)
 }
 
 #' @export
@@ -257,12 +278,12 @@ check_tpsid <- function(x){
 
 #' @export
 #' @rdname get_tpsid
-get_tpsid_ <- function(sciname, verbose = TRUE, key = NULL, rows = NA, ...){
-  setNames(lapply(sciname, get_tpsid_help, verbose = verbose, key=key, rows = rows, ...), sciname)
+get_tpsid_ <- function(sciname, messages = TRUE, key = NULL, rows = NA, ...){
+  setNames(lapply(sciname, get_tpsid_help, messages = messages, key=key, rows = rows, ...), sciname)
 }
 
-get_tpsid_help <- function(sciname, verbose, key, rows, ...){
-  mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
+get_tpsid_help <- function(sciname, messages, key, rows, ...){
+  mssg(messages, "\nRetrieving data for taxon '", sciname, "'\n")
   df <- tp_search(name=sciname, key=key, ...)
   if("error" %in% names(df)) NULL else sub_rows(df, rows)
 }

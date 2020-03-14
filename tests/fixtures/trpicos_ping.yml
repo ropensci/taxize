@@ -1,0 +1,63 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://services.tropicos.org/Name/25509881?apikey=<<tropicos_api_token>>&format=xml
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      cache-control: private
+      content-length: '1635'
+      content-type: application/xml; charset=utf-8
+      server: Microsoft-IIS/7.5
+      x-aspnet-version: 4.0.30319
+      x-powered-by: ASP.NET
+      date: Fri, 06 Mar 2020 19:32:15 GMT
+    body:
+      encoding: ASCII-8BIT
+      file: no
+      string: PE5hbWUgeG1sbnM9Imh0dHA6Ly9zY2hlbWFzLmRhdGFjb250cmFjdC5vcmcvMjAwNC8wNy9NT0JPVC5Ucm9waWNvcy5XZWIuU2VydmljZS5EYXRhVHJhbnNmZXIiIHhtbG5zOmk9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIj48TmFtZUlkPjI1NTA5ODgxPC9OYW1lSWQ+PFNjaWVudGlmaWNOYW1lPlBvYSBhbm51YTwvU2NpZW50aWZpY05hbWU+PFNjaWVudGlmaWNOYW1lV2l0aEF1dGhvcnM+UG9hIGFubnVhIEwuPC9TY2llbnRpZmljTmFtZVdpdGhBdXRob3JzPjxGYW1pbHk+UG9hY2VhZTwvRmFtaWx5PjxTeW5vbnltQ291bnQ+MTAwPC9TeW5vbnltQ291bnQ+PEFjY2VwdGVkTmFtZUNvdW50PjA8L0FjY2VwdGVkTmFtZUNvdW50PjxSYW5rPnNwZWNpZXM8L1Jhbms+PFJhbmtBYmJyZXZpYXRpb24+c3AuPC9SYW5rQWJicmV2aWF0aW9uPjxOb21lbmNsYXR1cmVTdGF0dXNJRD4xPC9Ob21lbmNsYXR1cmVTdGF0dXNJRD48Tm9tZW5jbGF0dXJlU3RhdHVzTmFtZT5MZWdpdGltYXRlPC9Ob21lbmNsYXR1cmVTdGF0dXNOYW1lPjxTeW1ib2w+ITwvU3ltYm9sPjxHZW51cz5Qb2E8L0dlbnVzPjxTcGVjaWVzRXBpdGhldD5hbm51YTwvU3BlY2llc0VwaXRoZXQ+PFNvdXJjZT5odHRwOi8vd3d3LnRyb3BpY29zLm9yZy9OYW1lLzI1NTA5ODgxPC9Tb3VyY2U+PENpdGF0aW9uPlRyb3BpY29zLm9yZy4gTWlzc291cmkgQm90YW5pY2FsIEdhcmRlbi4gMDYgTWFyIDIwMjAgJmFtcDtsdDtodHRwOi8vd3d3LnRyb3BpY29zLm9yZy9OYW1lLzI1NTA5ODgxJmFtcDtndDs8L0NpdGF0aW9uPjxDb3B5cmlnaHQ+wqkgMjAyMCBNaXNzb3VyaSBCb3RhbmljYWwgR2FyZGVuIC0gNDM0NCBTaGF3IEJvdWxldmFyZCAtIFNhaW50IExvdWlzLCBNaXNzb3VyaSA2MzExMDwvQ29weXJpZ2h0PjxBdXRob3I+TC48L0F1dGhvcj48TmFtZVB1Ymxpc2hlZENpdGF0aW9uPlNwZWNpZXMgUGxhbnRhcnVtIDE6IDY4LiAxNzUzLiAoMSBNYXkgMTc1MykgKFNwLiBQbC4pIDwvTmFtZVB1Ymxpc2hlZENpdGF0aW9uPjxUeXBlU3BlY2ltZW5zPjxUeXBlU3BlY2ltZW4+PEtpbmRPZlR5cGVBYmJyZXY+TFQ8L0tpbmRPZlR5cGVBYmJyZXY+PEtpbmRPZlR5cGVOYW1lPkxlY3RvdHlwZTwvS2luZE9mVHlwZU5hbWU+PENvbGxlY3Rpb25OdW1iZXI+ODcuMTc8L0NvbGxlY3Rpb25OdW1iZXI+PENvbGxlY3Rvck5hbWU+SGVyYi4gTGlubi48L0NvbGxlY3Rvck5hbWU+PEluc3RpdHV0aW9uPkxJTk48L0luc3RpdHV0aW9uPjxUeXBlTm90ZS8+PC9UeXBlU3BlY2ltZW4+PFR5cGVTcGVjaW1lbj48S2luZE9mVHlwZUFiYnJldj5MVDwvS2luZE9mVHlwZUFiYnJldj48S2luZE9mVHlwZU5hbWU+TGVjdG90eXBlPC9LaW5kT2ZUeXBlTmFtZT48SW5zdGl0dXRpb24+TElOTi04Ny4xNyAocmlnaHQtaGFuZCBwbGFudCk8L0luc3RpdHV0aW9uPjxUeXBlTm90ZT5MVCBkZXNpZ25hdGVkIGJ5IFNvcmVuZyBpbiBDYWZmZXJ0eSBldCBhbC4sIFRheG9uIDQ5KDIpOiAyNTQgKDIwMDApOyBzYW1lIHNwZWNpbWVuIGluZGljYXRlZCB3aXRoIHVuY2VydGFpbnR5IGFzIEhUIGJ5IFZlbGRrYW1wLCBCbHVtZWEgMzg6IDQyMSAoMTk5NCk8L1R5cGVOb3RlPjwvVHlwZVNwZWNpbWVuPjwvVHlwZVNwZWNpbWVucz48L05hbWU+
+  recorded_at: 2020-03-06 19:32:16 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: http://services.tropicos.org/Name/25509881?apikey=<<tropicos_api_token>>&format=xml
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      cache-control: private
+      content-length: '1635'
+      content-type: application/xml; charset=utf-8
+      server: Microsoft-IIS/7.5
+      x-aspnet-version: 4.0.30319
+      x-powered-by: ASP.NET
+      date: Fri, 06 Mar 2020 19:32:15 GMT
+    body:
+      encoding: ASCII-8BIT
+      file: no
+      string: PE5hbWUgeG1sbnM9Imh0dHA6Ly9zY2hlbWFzLmRhdGFjb250cmFjdC5vcmcvMjAwNC8wNy9NT0JPVC5Ucm9waWNvcy5XZWIuU2VydmljZS5EYXRhVHJhbnNmZXIiIHhtbG5zOmk9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIj48TmFtZUlkPjI1NTA5ODgxPC9OYW1lSWQ+PFNjaWVudGlmaWNOYW1lPlBvYSBhbm51YTwvU2NpZW50aWZpY05hbWU+PFNjaWVudGlmaWNOYW1lV2l0aEF1dGhvcnM+UG9hIGFubnVhIEwuPC9TY2llbnRpZmljTmFtZVdpdGhBdXRob3JzPjxGYW1pbHk+UG9hY2VhZTwvRmFtaWx5PjxTeW5vbnltQ291bnQ+MTAwPC9TeW5vbnltQ291bnQ+PEFjY2VwdGVkTmFtZUNvdW50PjA8L0FjY2VwdGVkTmFtZUNvdW50PjxSYW5rPnNwZWNpZXM8L1Jhbms+PFJhbmtBYmJyZXZpYXRpb24+c3AuPC9SYW5rQWJicmV2aWF0aW9uPjxOb21lbmNsYXR1cmVTdGF0dXNJRD4xPC9Ob21lbmNsYXR1cmVTdGF0dXNJRD48Tm9tZW5jbGF0dXJlU3RhdHVzTmFtZT5MZWdpdGltYXRlPC9Ob21lbmNsYXR1cmVTdGF0dXNOYW1lPjxTeW1ib2w+ITwvU3ltYm9sPjxHZW51cz5Qb2E8L0dlbnVzPjxTcGVjaWVzRXBpdGhldD5hbm51YTwvU3BlY2llc0VwaXRoZXQ+PFNvdXJjZT5odHRwOi8vd3d3LnRyb3BpY29zLm9yZy9OYW1lLzI1NTA5ODgxPC9Tb3VyY2U+PENpdGF0aW9uPlRyb3BpY29zLm9yZy4gTWlzc291cmkgQm90YW5pY2FsIEdhcmRlbi4gMDYgTWFyIDIwMjAgJmFtcDtsdDtodHRwOi8vd3d3LnRyb3BpY29zLm9yZy9OYW1lLzI1NTA5ODgxJmFtcDtndDs8L0NpdGF0aW9uPjxDb3B5cmlnaHQ+wqkgMjAyMCBNaXNzb3VyaSBCb3RhbmljYWwgR2FyZGVuIC0gNDM0NCBTaGF3IEJvdWxldmFyZCAtIFNhaW50IExvdWlzLCBNaXNzb3VyaSA2MzExMDwvQ29weXJpZ2h0PjxBdXRob3I+TC48L0F1dGhvcj48TmFtZVB1Ymxpc2hlZENpdGF0aW9uPlNwZWNpZXMgUGxhbnRhcnVtIDE6IDY4LiAxNzUzLiAoMSBNYXkgMTc1MykgKFNwLiBQbC4pIDwvTmFtZVB1Ymxpc2hlZENpdGF0aW9uPjxUeXBlU3BlY2ltZW5zPjxUeXBlU3BlY2ltZW4+PEtpbmRPZlR5cGVBYmJyZXY+TFQ8L0tpbmRPZlR5cGVBYmJyZXY+PEtpbmRPZlR5cGVOYW1lPkxlY3RvdHlwZTwvS2luZE9mVHlwZU5hbWU+PENvbGxlY3Rpb25OdW1iZXI+ODcuMTc8L0NvbGxlY3Rpb25OdW1iZXI+PENvbGxlY3Rvck5hbWU+SGVyYi4gTGlubi48L0NvbGxlY3Rvck5hbWU+PEluc3RpdHV0aW9uPkxJTk48L0luc3RpdHV0aW9uPjxUeXBlTm90ZS8+PC9UeXBlU3BlY2ltZW4+PFR5cGVTcGVjaW1lbj48S2luZE9mVHlwZUFiYnJldj5MVDwvS2luZE9mVHlwZUFiYnJldj48S2luZE9mVHlwZU5hbWU+TGVjdG90eXBlPC9LaW5kT2ZUeXBlTmFtZT48SW5zdGl0dXRpb24+TElOTi04Ny4xNyAocmlnaHQtaGFuZCBwbGFudCk8L0luc3RpdHV0aW9uPjxUeXBlTm90ZT5MVCBkZXNpZ25hdGVkIGJ5IFNvcmVuZyBpbiBDYWZmZXJ0eSBldCBhbC4sIFRheG9uIDQ5KDIpOiAyNTQgKDIwMDApOyBzYW1lIHNwZWNpbWVuIGluZGljYXRlZCB3aXRoIHVuY2VydGFpbnR5IGFzIEhUIGJ5IFZlbGRrYW1wLCBCbHVtZWEgMzg6IDQyMSAoMTk5NCk8L1R5cGVOb3RlPjwvVHlwZVNwZWNpbWVuPjwvVHlwZVNwZWNpbWVucz48L05hbWU+
+  recorded_at: 2020-03-06 19:32:16 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0

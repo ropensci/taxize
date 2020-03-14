@@ -4,13 +4,13 @@
 #' @param id (numeric/integer) An NCBI taxonomic identifier
 #' @param downto The taxonomic level you want to go down to. See examples below.
 #' 		The taxonomic level IS case sensitive, and you do have to spell it
-#' 		correctly. See \code{data(rank_ref)} for spelling.
-#' @param intermediate (logical) If \code{TRUE}, return a list of length two
+#' 		correctly. See `data(rank_ref)` for spelling.
+#' @param intermediate (logical) If `TRUE`, return a list of length two
 #' with target taxon rank names, with additional list of data.frame's of
-#' intermediate taxonomic groups. Default: \code{FALSE}
-#' @param ... Further args passed on to \code{\link{ncbi_children}}
+#' intermediate taxonomic groups. Default: `FALSE`
+#' @param ... Further args passed on to [ncbi_children()]
 #' @return Data.frame of taxonomic information downstream to family from e.g.,
-#' 		Order, Class, etc., or if \code{intermediate=TRUE}, list of length two,
+#' 		Order, Class, etc., or if `intermediate=TRUE`, list of length two,
 #'   	with target taxon rank names, and intermediate names.
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @section No Rank:
@@ -19,6 +19,11 @@
 #' do with that taxon. Of course one can manually look at a name and perhaps
 #' know what it is, or look it up on the web - but we can't do anything
 #' programatically. So, no rank things will sometimes be missing.
+#' 
+#' @section Authentication:
+#' See [taxize-authentication()] for help on authentication. 
+#' We strongly recommend getting an API key
+#' 
 #' @examples \dontrun{
 #' ## genus Apis
 #' ncbi_downstream(id = 7459, downto="species")
@@ -38,11 +43,12 @@ ncbi_downstream <- function(id, downto, intermediate = FALSE, ...) {
   should_be('intermediate', intermediate, 'logical')
 
   downto <- tolower(downto)
-  poss_ranks <- unique(do.call(c, sapply(rank_ref$ranks, strsplit, split = ",",
-                                         USE.NAMES = FALSE)))
+  poss_ranks <- unique(do.call(c,
+    sapply(taxize_ds$rank_ref$ranks, strsplit, split = ",",
+      USE.NAMES = FALSE)))
   downto <- match.arg(downto, choices = poss_ranks)
-  torank <- sapply(rank_ref[which_rank(downto), "ranks"],
-                   function(x) strsplit(x, ",")[[1]][[1]], USE.NAMES = FALSE)
+  torank <- sapply(taxize_ds$rank_ref[which_rank(downto), "ranks"],
+    function(x) strsplit(x, ",")[[1]][[1]], USE.NAMES = FALSE)
 
   stop_ <- "not"
   notout <- data.frame(rank = "", stringsAsFactors = FALSE)
@@ -51,7 +57,7 @@ ncbi_downstream <- function(id, downto, intermediate = FALSE, ...) {
   iter <- 0
   while (stop_ == "not") {
     iter <- iter + 1
-    tt <- dt2df(lapply(id, function(x) ncbi_children(id = x)[[1]]))
+    tt <- dt2df(lapply(id, function(x) ncbi_children(id = x, ...)[[1]]))
     tt$.id <- NULL
     tt <- rename(tt, c('childtaxa_rank' = 'rank'))
     tt <- prune_too_low(tt, downto, ignore_no_rank = TRUE)
@@ -80,7 +86,7 @@ ncbi_downstream <- function(id, downto, intermediate = FALSE, ...) {
     if (intermediate) intermed[[iter]] <- intermed[[iter]]
   } # end while loop
 
-  tmp <- ldply(out)
+  tmp <- dt2df(out, idcol = FALSE)
   if (intermediate) {
     list(target = tmp, intermediate = intermed)
   } else {

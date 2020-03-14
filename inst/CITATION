@@ -15,11 +15,12 @@ citEntry(entry = "Article",
 
 citEntry(entry = "Manual",
   title   = "taxize: Taxonomic information from around the web",
-  author  = "Scott Chamberlain and Eduard Szocs and Carl Boettiger and Karthik Ram and Ignasi Bartomeus and John Baumgartner and Zachary Foster and James O'Donnell",
-  year    = "2016",
-  note    = "R package version 0.7.8",
+  author  = "Scott Chamberlain, Eduard Szoecs, Zachary Foster, Zebulun Arendsee, Carl Boettiger, Karthik Ram, Ignasi Bartomeus, John Baumgartner, James O'Donnell, Jari Oksanen, Bastian Greshake Tzovaras, Philippe Marchand, Vinh Tran, Maëlle Salmon, Gaopeng Li, and Matthias Grenié",
+  year    = "2020",
+  note    = "R package version 0.9.92",
   url     = "https://github.com/ropensci/taxize",
 
   textVersion =
-  paste("Scott Chamberlain, Eduard Szocs, Carl Boettiger, Karthik Ram, Ignasi Bartomeus, John Baumgartner, Zachary Foster, and James O'Donnell (2016) taxize: Taxonomic information from around the web. R package version 0.7.8. https://github.com/ropensci/taxize")
+  paste("Scott Chamberlain, Eduard Szoecs, Zachary Foster, Zebulun Arendsee, Carl Boettiger, Karthik Ram, Ignasi Bartomeus, John Baumgartner, James O'Donnell, Jari Oksanen, Bastian Greshake Tzovaras, Philippe Marchand, Vinh Tran, Maëlle Salmon, Gaopeng Li, and Matthias Grenié. (2020) taxize: Taxonomic information from around the web. R package version 0.9.92. https://github.com/ropensci/taxize")
 )
+

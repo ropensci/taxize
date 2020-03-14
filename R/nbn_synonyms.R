@@ -2,7 +2,7 @@
 #'
 #' @export
 #' @param id the taxon identifier code
-#' @param ... Further args passed on to \code{\link[httr]{GET}}
+#' @param ... Further args passed on to [crul::verb-GET]
 #' @return A data.frame
 #' @family nbn
 #' @references <https://api.nbnatlas.org/>

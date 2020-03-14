@@ -4,14 +4,16 @@
 \alias{genbank2uid}
 \title{Get NCBI taxonomy UID from GenBankID}
 \usage{
-genbank2uid(id, batch_size = 100, ...)
+genbank2uid(id, batch_size = 100, key = NULL, ...)
 }
 \arguments{
 \item{id}{A GenBank accession alphanumeric string, or a gi numeric string.}
 
 \item{batch_size}{The number of queries to submit at a time.}
 
-\item{...}{Curl args passed on to \code{\link[httr]{GET}}}
+\item{key}{(character) NCBI Entrez API key. optional. See Details.}
+
+\item{...}{Curl args passed on to \link[crul:HttpClient]{crul::HttpClient}}
 }
 \value{
 one or more NCBI taxonomic IDs
@@ -20,15 +22,21 @@ one or more NCBI taxonomic IDs
 Get NCBI taxonomy UID from GenBankID
 }
 \details{
-See \url{http://www.ncbi.nlm.nih.gov/Sitemap/sequenceIDs.html} for
+See \url{https://www.ncbi.nlm.nih.gov/Sitemap/sequenceIDs.html} for
 help on why there are two identifiers, and the difference between them.
-
-Note that if you pass in > 1 item, if one or more of your items is not
-found, the entire batch will return \code{NA}'s. To get around this,
-set \code{batch_size = 1} - so each is sent separtaely to NCBI.
-However, this of course is much slower than the default, which is to send
-up to 100 at a time.
 }
+\section{Authentication}{
+
+See \link{taxize-authentication} for help on authentication. We
+recommend getting an API key.
+}
+
+\section{HTTP version}{
+
+We hard code \code{http_version = 2L} to use HTTP/1.1 in HTTP requests to
+the Entrez API. See \code{curl::curl_symbols('CURL_HTTP_VERSION')}
+}
+
 \examples{
 \dontrun{
 # with accession numbers
@@ -48,7 +56,6 @@ genbank2uid(c('X78312','KM495596'))
 genbank2uid(list('X78312',156446673))
 
 # curl options
-library('httr')
-genbank2uid(id = 156446673, config=verbose())
+res <- genbank2uid(id = 156446673, verbose = TRUE)
 }
 }

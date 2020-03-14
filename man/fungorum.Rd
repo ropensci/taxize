@@ -33,7 +33,7 @@ fg_deprecated_names(date, ...)
 \item{limit}{(integer) Number of results to return. max limit
 value appears to be 6000, not positive about that though}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 
 \item{key}{(character) A IndexFungorum taxon key}
 
@@ -50,7 +50,7 @@ Search for taxonomic names in Index Fungorum
 \examples{
 \dontrun{
 # NameSearch
-fg_name_search(q = "Gymnopus", limit = 2)
+fg_name_search(q = "Gymnopus", limit = 2, verbose = TRUE)
 fg_name_search(q = "Gymnopus")
 
 # EpithetSearch
@@ -73,6 +73,6 @@ fg_author_search(q = "Fayod", limit = 2)
 }
 }
 \references{
-\url{http://www.indexfungorum.org/}, API docs:
-\url{http://www.indexfungorum.org/ixfwebservice/fungus.asmx}
+http://www.indexfungorum.org/, API docs:
+http://www.indexfungorum.org/ixfwebservice/fungus.asmx
 }

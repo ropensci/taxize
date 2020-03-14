@@ -11,8 +11,15 @@
 \alias{get_nbnid_}
 \title{Get the UK National Biodiversity Network ID from taxonomic names.}
 \usage{
-get_nbnid(name, ask = TRUE, verbose = TRUE, rec_only = FALSE,
-  rank = NULL, rows = NA, ...)
+get_nbnid(
+  name,
+  ask = TRUE,
+  messages = TRUE,
+  rec_only = FALSE,
+  rank = NULL,
+  rows = NA,
+  ...
+)
 
 as.nbnid(x, check = TRUE)
 
@@ -26,17 +33,24 @@ as.nbnid(x, check = TRUE)
 
 \method{as.data.frame}{nbnid}(x, ...)
 
-get_nbnid_(name, verbose = TRUE, rec_only = FALSE, rank = NULL,
-  rows = NA, ...)
+get_nbnid_(
+  name,
+  messages = TRUE,
+  rec_only = FALSE,
+  rank = NULL,
+  rows = NA,
+  ...
+)
 }
 \arguments{
-\item{name}{character; scientific name.}
+\item{name}{character; scientific name. Or, a \code{taxon_state}
+object (see \link{taxon-state})}
 
 \item{ask}{logical; should get_nbnid be run in interactive mode?
 If TRUE and more than one ID is found for the species, the user is asked for
 input. If FALSE NA is returned for multiple matches.}
 
-\item{verbose}{logical; If TRUE the actual taxon queried is printed on the
+\item{messages}{logical; If TRUE the actual taxon queried is printed on the
 console.}
 
 \item{rec_only}{(logical) If \code{TRUE} ids of recommended names are
@@ -49,15 +63,15 @@ taxa with the matching rank.}
 \item{rows}{numeric; Any number from 1 to infinity. If the default NA, all
 rows are considered. Note that this function still only gives back a nbnid
 class object with one to many identifiers. See
-\code{\link[taxize]{get_nbnid_}} to get back all, or a subset, of the raw
+\code{\link[=get_nbnid_]{get_nbnid_()}} to get back all, or a subset, of the raw
 data that you are presented during the ask process.}
 
 \item{...}{Further args passed on to \code{nbn_search}}
 
-\item{x}{Input to \code{\link{as.nbnid}}}
+\item{x}{Input to \code{\link[=as.nbnid]{as.nbnid()}}}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only
-used in \code{\link{as.nbnid}}}
+used in \code{\link[=as.nbnid]{as.nbnid()}}}
 }
 \value{
 A vector of taxonomic identifiers as an S3 class.
@@ -89,10 +103,10 @@ get_nbnid(name='Pinus contorta')
 get_nbnid(name='red-winged blackbird')
 
 # specify rows to limit choices available
-get_nbnid('Poa annua')
-get_nbnid('Poa annua', rows=1)
-get_nbnid('Poa annua', rows=25)
-get_nbnid('Poa annua', rows=1:2)
+get_nbnid('Poa ann')
+get_nbnid('Poa ann', rows=1)
+get_nbnid('Poa ann', rows=25)
+get_nbnid('Poa ann', rows=1:2)
 
 # When not found
 get_nbnid(name="uaudnadndj")
@@ -124,28 +138,37 @@ get_nbnid_("Poa annua", rows=1:2)
 get_nbnid_(c("asdfadfasd","Pinus contorta"), rows=1:5)
 
 # use curl options
-library("httr")
-get_nbnid("Quercus douglasii", config=verbose())
-bb <- get_nbnid("Quercus douglasii", config=progress())
+invisible(get_nbnid("Quercus douglasii", verbose = TRUE))
 }
 }
 \references{
-<https://api.nbnatlas.org/>
+\url{https://api.nbnatlas.org/}
 }
 \seealso{
-\code{\link[taxize]{classification}}
+\code{\link[=classification]{classification()}}
 
-Other taxonomic-ids: \code{\link{get_boldid}},
-  \code{\link{get_colid}}, \code{\link{get_eolid}},
-  \code{\link{get_gbifid}}, \code{\link{get_ids}},
-  \code{\link{get_iucn}}, \code{\link{get_natservid}},
-  \code{\link{get_tolid}}, \code{\link{get_tpsid}},
-  \code{\link{get_tsn}}, \code{\link{get_uid}},
-  \code{\link{get_wiki}}, \code{\link{get_wormsid}}
+Other taxonomic-ids: 
+\code{\link{get_boldid}()},
+\code{\link{get_eolid}()},
+\code{\link{get_gbifid}()},
+\code{\link{get_ids}()},
+\code{\link{get_iucn}()},
+\code{\link{get_natservid}()},
+\code{\link{get_pow}()},
+\code{\link{get_tolid}()},
+\code{\link{get_tpsid}()},
+\code{\link{get_tsn}()},
+\code{\link{get_uid}()},
+\code{\link{get_wiki}()},
+\code{\link{get_wormsid}()}
 
-Other nbn: \code{\link{nbn_classification}},
-  \code{\link{nbn_search}}, \code{\link{nbn_synonyms}}
+Other nbn: 
+\code{\link{nbn_classification}()},
+\code{\link{nbn_search}()},
+\code{\link{nbn_synonyms}()}
 }
 \author{
 Scott Chamberlain, \email{myrmecocystus@gmail.com}
 }
+\concept{nbn}
+\concept{taxonomic-ids}

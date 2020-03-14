@@ -20,9 +20,8 @@
 #' @param sleep Number of seconds by which to pause between calls. Defaults to 0
 #' 		seconds. Use when doing many calls in a for loop ar lapply type call.
 #' @param splitby Number by which to split species list for querying the TNRS.
-#' @param verbose Verbosity or not (default \code{TRUE})
-#' @param ... Curl options to pass in \code{\link[httr]{GET}} or
-#' \code{\link[httr]{POST}}
+#' @param messages Verbosity or not (default `TRUE`)
+#' @param ... Curl options to pass in [crul::verb-GET] or [crul::verb-POST]
 #'
 #' @return data.frame of results from TNRS plus the name submitted, with
 #' rows in order of user supplied names, though those with no matches are
@@ -33,15 +32,15 @@
 #' TNRS doesn't provide any advice about the occurrence of homonyms when
 #' queries have no indication of a taxonomic name's authority. So if there
 #' is any chance of a homonym, you probably want to send the authority as
-#' well, or use \code{\link{gnr_resolve}}. For example,
-#' \code{tnrs(query="Jussiaea linearis", source="iPlant_TNRS")} gives result of
-#' \emph{Jussiaea linearis (Willd.) Oliv. ex Kuntze}, but there is a
+#' well, or use [gnr_resolve()]. For example,
+#' `tnrs(query="Jussiaea linearis", source="iPlant_TNRS")` gives result of
+#' *Jussiaea linearis (Willd.) Oliv. ex Kuntze*, but there is a
 #' homonym. If you do
-#' \code{tnrs(query="Jussiaea linearis Hochst.", source="iPlant_TNRS")} you
+#' `tnrs(query="Jussiaea linearis Hochst.", source="iPlant_TNRS")` you
 #' get a direct match for that name. So, beware that there's no indication
 #' of homonyms.
-#' @references \url{http://taxosaurus.org/}
-#' @seealso \code{\link{gnr_resolve}}
+#' @references <http://taxosaurus.org/>
+#' @seealso [gnr_resolve()]
 #' @examples \dontrun{
 #' mynames <- c("Helianthus annuus", "Poa annua", "Mimulus bicolor")
 #' tnrs(query = mynames, source = "iPlant_TNRS")
@@ -63,27 +62,25 @@
 #' tnrs(mynames, source = "NCBI")
 #'
 #' # Pass on curl options
-#' library("httr")
 #' mynames <- c("Helianthus annuus", "Poa annua", "Mimulus bicolor")
-#' tnrs(query = mynames, source = "iPlant_TNRS", config = verbose())
+#' tnrs(query = mynames, source = "iPlant_TNRS", verbose = TRUE)
 #' }
 
 tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
-                 sleep = 0, splitby = 30, verbose = TRUE, ...) {
+                 sleep = 0, splitby = 30, messages = TRUE, ...) {
 
   getpost <- tolower(getpost)
   getpost <- match.arg(getpost, c('get', 'post'))
 
   mainfunc <- function(x, ...) {
-    url = "http://taxosaurus.org/submit"
-
+    cli <- crul::HttpClient$new(tnrs_url, headers = tx_ual, opts = list(...))
     Sys.sleep(time = sleep) # set amount of sleep to pause by
 
     if (getpost == "get") {
       if (!any(is.na(x))) {
-        query2 <- paste(str_replace_all(x, ' ', '+'), collapse = '%0A')
+        query2 <- paste(gsub(' ', '+', x), collapse = '%0A')
         args <- tc(list(query = query2, source = source, code = code))
-        out <- GET(url, query = args, ...)
+        out <- cli$get("submit", query = args)
         error_handle(out)
         retrieve <- out$url
       } else {
@@ -91,27 +88,28 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
       }
     } else {
       loc <- tempfile(fileext = ".txt")
-      write.table(data.frame(x), file = loc, col.names = FALSE, row.names = FALSE)
+      write.table(data.frame(x), file = loc, col.names = FALSE, 
+        row.names = FALSE)
       args <- tc(list(source = source, code = code))
-      body <- tc(list(file = upload_file(loc)))
-      out <- POST(url, query = args, body = body, config(followlocation = 0), ...)
+      body <- tc(list(file = crul::upload(loc)))
+      out <- cli$post("submit", query = args, body = body, followlocation = 0)
       error_handle(out)
-      tt <- con_utf8(out)
+      tt <- out$parse("UTF-8")
       message <- jsonlite::fromJSON(tt, FALSE)[["message"]]
       retrieve <- jsonlite::fromJSON(tt, FALSE)[["uri"]]
     }
 
-    mssg(verbose, sprintf("Calling %s", retrieve))
+    mssg(messages, sprintf("Calling %s", retrieve))
 
     iter <- 0
     output <- list()
     timeout <- "wait"
     while (timeout == "wait") {
       iter <- iter + 1
-      ss <- GET(retrieve)
+      ss <- crul::HttpClient$new(retrieve, headers = tx_ual)$get()
       error_handle(ss, TRUE)
-      temp <- jsonlite::fromJSON(con_utf8(ss), FALSE)
-      if (grepl("is still being processed", temp["message"]) == TRUE) {
+      temp <- jsonlite::fromJSON(ss$parse("UTF-8"), FALSE)
+      if (grepl("is still being processed", temp["message"])) {
         timeout <- "wait"
       } else {
         output[[iter]] <- temp
@@ -122,27 +120,29 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
 
     # Parse results into data.frame
     df <- data.frame(rbindlist(lapply(out$names, parseres)))
-    f <- function(x) str_replace_all(x, pattern = "\\+", replacement = " ")
-    df2 <- colwise(f)(df)
+    f <- function(x) gsub("\\+", " ", x)
+    df2 <- data.frame(apply(df, 2, f), stringsAsFactors = FALSE)
 
     # replace quotes
-    data.frame(apply(df2, c(1,2), function(x){
+    data.frame(apply(df2, c(1, 2), function(x) {
       if (grepl('\"', x)) gsub('\"', "", x) else x
     }), stringsAsFactors = FALSE)
   }
 
-  if (length(query) < 1 || is.na(query)) stop("Please supply at least one name", call. = FALSE)
+  if (length(query) < 1 || all(is.na(query)))
+    stop("Please supply at least one name", call. = FALSE)
 
-  if (getpost == "get" && length(query) > 75 |
-      length(query) > 30 && getpost == "post") {
+  if (
+    getpost == "get" && length(query) > 75 ||
+    length(query) > 30 && getpost == "post"
+  ) {
     species_split <- slice(query, by = splitby)
-
     out <- lapply(species_split, function(x) mainfunc(x, ...))
     tmp <- data.frame(rbindlist(out), stringsAsFactors = FALSE)
   } else {
     tmp <- mainfunc(query, ...)
   }
-  tmp <- tmp[match(query, tmp$submittedName), ]
+  tmp <- tmp[match(query, gsub("\r", "", tmp$submittedName)), ]
   tmp <- na.omit(tmp)
   row.names(tmp) <- NULL
   stats::setNames(tmp, tolower(names(tmp)))
@@ -153,10 +153,12 @@ parseres <- function(w){
   matches <- w$matches
   foome <- function(z) {
     z[sapply(z, length) == 0] <- "none"
-    data.frame(z)
+    data.frame(z, stringsAsFactors = FALSE)
   }
-  matches2 <- data.frame(rbindlist(lapply(matches, foome)))
-  df <- data.frame(submittedName = w$submittedName, matches2)
+  matches2 <- data.frame(rbindlist(lapply(matches, foome)), 
+    stringsAsFactors = FALSE)
+  df <- data.frame(submittedName = w$submittedName, matches2, 
+    stringsAsFactors = FALSE)
   df$score <- round(as.numeric(as.character(df$score)), 2)
   df
 }
@@ -168,27 +170,28 @@ slice <- function(input, by = 2) {
   lapply(tt, function(x) x[!is.na(x)])
 }
 
-error_handle <- function(x, checkcontent=FALSE){
+error_handle <- function(x, checkcontent = FALSE) {
   tocheck <- x$status_code
   if (checkcontent) {
-    if ( "metadata" %in% names(jsonlite::fromJSON(con_utf8(x), FALSE)) ) {
-      codes <- sapply(jsonlite::fromJSON(con_utf8(x), FALSE)$metadata$sources, "[[", "status")
-      codes <- as.numeric(str_extract(codes, "[0-9]+"))
+    if ( "metadata" %in% names(jsonlite::fromJSON(x$parse("UTF-8"), FALSE)) ) {
+      codes <- sapply(jsonlite::fromJSON(x$parse("UTF-8"), 
+        FALSE)$metadata$sources, "[[", "status")
+      codes <- as.numeric(strextract(codes, "[0-9]+"))
       tocheck <- c(tocheck, codes)
     }
   }
   if (any(tocheck >= 400)) {
     it <- tocheck[ tocheck >= 400 ]
     mssg <- switch(as.character(it),
-                   '400' = "Bad Request. The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modifications.",
-                   '401' = 'Unauthorized',
-                   '403' = 'Forbidden',
-                   '404' = 'Not Found',
-                   '500' = 'Internal Server Error. The server encountered an unexpected condition which prevented it from fulfilling the request.',
-                   '501' = 'Not Implemented',
-                   '502' = 'Bad Gateway',
-                   '503' = 'Service Unavailable',
-                   '504' = 'Gateway Timeout'
+      "400" = "Bad Request. The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modifications.",
+      "401" = "Unauthorized",
+      "403" = "Forbidden",
+      "404" = "Not Found",
+      "500" = "Internal Server Error. The server encountered an unexpected condition which prevented it from fulfilling the request.",
+      "501" = "Not Implemented",
+      "502" = "Bad Gateway",
+      "503" = "Service Unavailable",
+      "504" = "Gateway Timeout"
     )
     stop(sprintf("HTTP status %s - %s", it, mssg), call. = FALSE)
   }

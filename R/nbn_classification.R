@@ -3,7 +3,7 @@
 #'
 #' @export
 #' @param id (character) An NBN identifier.
-#' @param ... Further args passed on to \code{\link[httr]{GET}}.
+#' @param ... Further args passed on to [crul::verb-GET]
 #' @return A data.frame
 #' @family nbn
 #' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
@@ -15,8 +15,7 @@
 #' id <- get_nbnid("Zootoca vivipara", rec_only = TRUE, rank = "Species")
 #' nbn_classification(id)
 #'
-#' library('httr')
-#' nbn_classification(id="NHMSYS0000502940", config=verbose())
+#' nbn_classification(id="NHMSYS0000502940", verbose = TRUE)
 #' }
 nbn_classification <- function(id, ...) {
   url <- file.path(nbn_base(), "classification", id)
@@ -24,8 +23,8 @@ nbn_classification <- function(id, ...) {
 }
 
 nbn_GET_2 <- function(url, ...) {
-  res <- GET(url, ...)
-  stop_for_status(res)
-  tt <- con_utf8(res)
-  nmslwr(jsonlite::fromJSON(tt, TRUE))
+  cli <- crul::HttpClient$new(url, headers = tx_ual, opts = list(...))
+  res <- cli$get()
+  res$raise_for_status()
+  nmslwr(jsonlite::fromJSON(res$parse("UTF-8"), TRUE))
 }

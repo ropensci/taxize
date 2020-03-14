@@ -3,17 +3,16 @@
 #' @export
 #' @param tsns A taxonomic serial number.
 #' @param downto The taxonomic level you want to go down to. See examples below.
-#' 		The taxonomic level IS case sensitive, and you do have to spell it
-#' 		correctly. See \code{data(rank_ref)} for spelling.
+#' The taxonomic level IS case sensitive, and you do have to spell it
+#' correctly. See `data(rank_ref)` for spelling.
 #' @param intermediate (logical) If TRUE, return a list of length two with target
-#'    taxon rank names, with additional list of data.frame's of intermediate
-#'    taxonomic groups. Default: FALSE
-#' @param ... Further args passed on to \code{\link[ritis]{rank_name}} and
-#'    \code{\link[ritis]{hierarchy_down}}
+#' taxon rank names, with additional list of data.frame's of intermediate
+#' taxonomic groups. Default: FALSE
+#' @param ... Further args passed on to [ritis::rank_name()] and
+#' [ritis::hierarchy_down()]
 #' @return Data.frame of taxonomic information downstream to family from e.g.,
-#' 		Order, Class, etc., or if \code{intermediated=TRUE}, list of length two,
-#'   	with target taxon rank names, and intermediate names.
-#' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
+#' Order, Class, etc., or if `intermediated=TRUE`, list of length two,
+#' with target taxon rank names, and intermediate names.
 #' @examples \dontrun{
 #' ## the plant class Bangiophyceae, tsn 846509
 #' itis_downstream(tsns = 846509, downto="genus")
@@ -38,26 +37,29 @@
 
 itis_downstream <- function(tsns, downto, intermediate = FALSE, ...) {
   downto <- tolower(downto)
-  downto2 <- rank_ref[which_rank(downto), "rankid"]
-  torank_ids <- rank_ref[which_rank(downto):NROW(rank_ref), "rankid"]
+  downto2 <- taxize_ds$rank_ref[which_rank(downto), "rankid"]
+  torank_ids <- taxize_ds$rank_ref[
+  	which_rank(downto):NROW(taxize_ds$rank_ref), "rankid"]
 
 	stop_ <- "not"
 	notout <- data.frame(rankname = "")
 	out <- list()
-  if (intermediate) intermed <- list()
+	if (intermediate) intermed <- list()
 	iter <- 0
 	while (stop_ == "not") {
 		iter <- iter + 1
 		if (!nchar(as.character(notout$rankname[[1]])) > 0) {
-			temp <- ldply(as.character(tsns), ritis::rank_name)
+			temp <- dt2df(lapply(as.character(tsns), ritis::rank_name),
+				idcol = FALSE)
 		} else {
 		  temp <- notout
 		}
-		tt <- ldply(as.character(temp$tsn), ritis::hierarchy_down)
-		## FIXME - do we need this since rank is given above in `tt`
-		names_ <- ldply(split(tt, row.names(tt)), function(x) {
+		tt <- dt2df(lapply(as.character(temp$tsn), ritis::hierarchy_down),
+			idcol = FALSE)
+		## we need to run rank_name() to get 'rankid'
+		names_ <- dt2df(lapply(split(tt, row.names(tt)), function(x) {
 		  ritis::rank_name(as.character(x$tsn))[,c("rankid","rankname","tsn")]
-		})
+		}), idcol = FALSE)
 		##
 		if (nrow(names_) == 0) {
 		  out[[iter]] <- data.frame(tsn = "No data", parentname = "No data",
@@ -65,15 +67,18 @@ itis_downstream <- function(tsns, downto, intermediate = FALSE, ...) {
 		                            rankid = "No data", rankname = "No data")
 		  stop_ <- "nodata"
 		} else {
-		  tt <- merge(tt[,-3], names_[,-1], by = "tsn")
+		  tt <- merge(tt, names_[,-2], by = "tsn")
 		  if (intermediate) intermed[[iter]] <- tt
-		  if (nrow(tt[tt$rankid == downto2, ]) > 0) out[[iter]] <- tt[tt$rankid == downto2, ]
+		  if (nrow(tt[tt$rankid == downto2, ]) > 0)
+		  	out[[iter]] <- tt[tt$rankid == downto2, ]
 		  if (nrow(tt[!tt$rankid == downto2, ]) > 0) {
 		    notout <- tt[!tt$rankid %in% torank_ids, ]
 		  } else {
 		    notout <- data.frame(rankname = downto)
 		  }
 
+		  if (length(notout$rankname) > 0)
+		  	notout$rankname <- tolower(notout$rankname)
 		  if (all(notout$rankname == downto)) {
 		    stop_ <- "fam"
 		  } else {
@@ -82,22 +87,17 @@ itis_downstream <- function(tsns, downto, intermediate = FALSE, ...) {
 		  }
 		}
 		if (intermediate) {
-		  intermed[[iter]] <- stats::setNames(intermed[[iter]], tolower(names(intermed[[iter]])))
+		  intermed[[iter]] <- stats::setNames(intermed[[iter]],
+		  	tolower(names(intermed[[iter]])))
 		  intermed[[iter]]$rankname <- tolower(intermed[[iter]]$rankname)
 		}
 	}
-  tmp <- ldply(out)
+  tmp <- dt2df(out, idcol = FALSE)
   tmp$rankname <- tolower(tmp$rankname)
 	if (intermediate) {
-	  list(target = stats::setNames(tmp, tolower(names(tmp))), intermediate = intermed)
+	  list(target = stats::setNames(tmp, tolower(names(tmp))),
+	  	intermediate = intermed)
   } else {
     stats::setNames(tmp, tolower(names(tmp)))
   }
-}
-
-which_rank <- function(x) {
-  which(sapply(rank_ref$ranks, function(z) {
-    any(unlist(strsplit(z, split = ",")) == x)
-  }, USE.NAMES = FALSE)
-  )
 }

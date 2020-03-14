@@ -6,14 +6,12 @@
 \alias{lowest_common.uid}
 \alias{lowest_common.tsn}
 \alias{lowest_common.gbifid}
-\alias{lowest_common.colid}
 \alias{lowest_common.tolid}
 \title{Retrieve the lowest common taxon and rank for a given taxon name or ID}
 \usage{
 lowest_common(...)
 
-\method{lowest_common}{default}(x, db = NULL, rows = NA,
-  class_list = NULL, low_rank = NULL, ...)
+\method{lowest_common}{default}(x, db = NULL, rows = NA, class_list = NULL, low_rank = NULL, ...)
 
 \method{lowest_common}{uid}(x, class_list = NULL, low_rank = NULL, ...)
 
@@ -21,42 +19,45 @@ lowest_common(...)
 
 \method{lowest_common}{gbifid}(x, class_list = NULL, low_rank = NULL, ...)
 
-\method{lowest_common}{colid}(x, class_list = NULL, low_rank = NULL, ...)
-
 \method{lowest_common}{tolid}(x, class_list = NULL, low_rank = NULL, ...)
 }
 \arguments{
-\item{...}{Other arguments passed to \code{\link[taxize]{get_tsn}},
-\code{\link[taxize]{get_uid}}, \code{\link[taxize]{get_colid}},
-\code{\link[taxize]{get_gbifid}}, \code{\link[taxize]{get_tolid}}}
+\item{...}{Other arguments passed to \code{\link[=get_tsn]{get_tsn()}}, \code{\link[=get_uid]{get_uid()}},
+\code{\link[=get_gbifid]{get_gbifid()}}, \code{\link[=get_tolid]{get_tolid()}}}
 
 \item{x}{Vector of taxa names (character) or id (character or numeric) to
 query.}
 
-\item{db}{character; database to query. either \code{ncbi}, \code{itis},
-\code{gbif}, \code{col}, or \code{tol}}
+\item{db}{character; database to query. either \code{ncbi}, \code{itis}, \code{gbif},
+\code{tol}. If using ncbi, we recommend getting an API key;
+see \link{taxize-authentication}}
 
 \item{rows}{(numeric) Any number from 1 to infinity. If the default NA,
 all rows are considered. Note that this parameter is ignored if you pass in
-a taxonomic id of any of the acceptable classes: tsn, colid, gbifid, tolid.
+a taxonomic id of any of the acceptable classes: tsn, gbifid, tolid.
 NCBI has a method for this function but rows doesn't work.}
 
 \item{class_list}{(list) A list of classifications, as returned from
-\code{\link[taxize]{classification}}}
+\code{\link[=classification]{classification()}}}
 
 \item{low_rank}{(character) taxonomic rank to return, of length 1}
 }
 \value{
 NA when no match, or a data.frame with columns
 \itemize{
- \item name
- \item rank
- \item id
+\item name
+\item rank
+\item id
 }
 }
 \description{
 Retrieve the lowest common taxon and rank for a given taxon name or ID
 }
+\section{Authentication}{
+
+See \link{taxize-authentication} for help on authentication
+}
+
 \examples{
 \dontrun{
 id <- c("9031", "9823", "9606", "9470")
@@ -67,14 +68,6 @@ lowest_common(id[2:4], db = "ncbi", low_rank = 'family')
 lowest_common(id[2:4], class_list = id_class)
 lowest_common(id[2:4], class_list = id_class, low_rank = 'class')
 lowest_common(id[2:4], class_list = id_class, low_rank = 'family')
-
-# COL
-taxa <- c('Nycticebus coucang', 'Homo sapiens', 'Sus scrofa')
-cls <- classification(taxa, db = "col")
-lowest_common(taxa, class_list = cls, db = "col")
-lowest_common(get_colid(taxa), class_list = cls)
-xx <- get_colid(taxa)
-lowest_common(xx, class_list = cls)
 
 # TOL
 taxa <- c("Angraecum sesquipedale", "Dracula vampira",

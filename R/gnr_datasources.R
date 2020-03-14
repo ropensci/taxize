@@ -1,14 +1,14 @@
-#' Get data sources for the Global Names Resolver.
+#' Global Names Resolver Data Sources
 #'
-#' Retrieve data sources used in Global Names Index, see
-#' \url{http://gni.globalnames.org/} for information.
+#' Retrieve data sources used in the Global Names Resolver
 #'
-#' @param todf logical; Should a data.frame be returned?
-#' @author Scott Chamberlain {myrmecocystus@@gmail.com}
-#' @return json or a data.frame
-#' @seealso \code{\link[taxize]{gnr_resolve}}
-#' @keywords resolve names taxonomy
 #' @export
+#' @param ... Curl options passed on to [crul::HttpClient]
+#' @param todf defunct, always get a data.frame back now
+#' @return data.frame/tibble
+#' @seealso [gnr_resolve()], [gni_search()]
+#' @keywords resolve names taxonomy
+#' @references <https://resolver.globalnames.org/data_sources>
 #' @examples \dontrun{
 #' # all data sources
 #' gnr_datasources()
@@ -20,16 +20,13 @@
 #' # Fuzzy search for sources with the word zoo
 #' out <- gnr_datasources()
 #' out[agrep("zoo", out$title, ignore.case = TRUE), ]
-#'
-#' # Output as a list
-#' gnr_datasources(FALSE)
 #' }
-gnr_datasources <- function(todf = TRUE) {
-  url <- "http://resolver.globalnames.org/data_sources.json"
-	if (todf == FALSE) {
-		out <- jsonlite::fromJSON(url, FALSE)
-	} else {
-    out <- ldply(jsonlite::fromJSON(url, FALSE), function(x) data.frame(x["id"], x["title"], stringsAsFactors = FALSE))
-	}
-  return(out)
+gnr_datasources <- function(..., todf) {
+  if (!missing(todf)) stop("todf is defunct", call. = FALSE)
+  cli <- crul::HttpClient$new(
+    url = "https://resolver.globalnames.org/data_sources.json",
+    headers = tx_ual, opts = list(...))
+  res <- cli$get()
+  res$raise_for_status()
+  tibble::as_tibble(jsonlite::fromJSON(res$parse("UTF-8")))
 }

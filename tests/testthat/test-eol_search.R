@@ -4,12 +4,12 @@ context("eol_search")
 test_that("eol_search returns the correct value", {
   skip_on_cran()
 
-	expect_that(eol_search(terms='Ursus americanus luteolus')[[1]], equals(1273844))
-})
+  vcr::use_cassette("eol_search", {
+    aa <- eol_search(terms='Ursus americanus')
+  })
 
-test_that("eol_search returns the correct class", {
-  skip_on_cran()
-
-	expect_is(eol_search(terms='Salix')[[1]], "integer")
-	expect_is(eol_search('Homo'), "data.frame")
+  expect_is(aa, "data.frame")
+	expect_type(aa$pageid, "integer")
+  expect_type(aa$name, "character")
+  expect_type(aa$link, "character")
 })

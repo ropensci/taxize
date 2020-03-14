@@ -10,15 +10,16 @@
 #' @param startrow Your search string. For instance "1"
 #' @param type Type of search, "wildcard" (default) will add a wildcard to the end
 #'    of your search string. "exact" will use your search string exactly.
-#' @param key Your Tropicos API key; loads from .Rprofile.
-#' @param ... Further args passed on to \code{\link[httr]{GET}}
+#' @param key Your Tropicos API key; See [taxize-authentication] 
+#' for help on authentication
+#' @param ... Further args passed on to [crul::HttpClient]
 #' @return List or dataframe.
-#' @references \url{http://services.tropicos.org/help?method=SearchNameXml}
-#' @details More details on the \code{name} parameter: Tropicos will fail
-#' if you include a period (\code{.}) in your name string, e.g., \code{var.},
+#' @references <http://services.tropicos.org/help?method=SearchNameXml>
+#' @details More details on the `name` parameter: Tropicos will fail
+#' if you include a period (`.`) in your name string, e.g., `var.`,
 #' so we replace periods before the request is made to the Tropicos web service.
 #' In addition, Tropicos for some reason doesn't want to see sub-specific rank
-#' names like \code{var}/\code{subsp}, so remove those from your query.
+#' names like `var`/`subsp`, so remove those from your query.
 #' @examples \dontrun{
 #' tp_search(name = 'Poa annua')
 #' tp_search(name = 'Poa annua subsp. annua')
@@ -30,7 +31,7 @@ tp_search <- function(name=NULL, commonname=NULL, nameid=NULL, orderby=NULL,
   sortorder=NULL, pagesize=NULL, startrow=NULL, type=NULL, key=NULL, ...) {
 
   url = 'http://services.tropicos.org/Name/Search'
-  key <- getkey(key, "tropicosApiKey")
+  key <- getkey(key, "TROPICOS_KEY")
   if (!is.null(name)) {
     if (grepl(paste(sprintf("\\s%s\\.?\\s", subsp_ranks), collapse = "|"), name)) {
       warning("Tropicos doesn't like sub-specific ranks - remove them in your query", call. = FALSE)
@@ -43,15 +44,10 @@ tp_search <- function(name=NULL, commonname=NULL, nameid=NULL, orderby=NULL,
   args <- tc(list(format='json', name=name, nameid=nameid,
                   commonname=commonname, orderby=orderby, sortorder=sortorder,
                   pagesize=pagesize, startrow=startrow, type=type, apikey=key))
-  tt <- GET(url, query = args, ...)
-  warn_for_status(tt)
-  if (tt$status_code > 202) {
-    NA
-  } else {
-    out <- jsonlite::fromJSON(con_utf8(tt), FALSE)
-    tmp <- do.call(rbind.fill, lapply(out, data.frame, stringsAsFactors = FALSE))
-    setNames(tmp, tolower(names(tmp)))
-  }
+  tt <- tp_GET(url, args, raise = FALSE, ...)
+  out <- jsonlite::fromJSON(tt, FALSE)
+  tmp <- dt2df(lapply(out, data.frame, stringsAsFactors = FALSE), idcol = FALSE)
+  stats::setNames(tmp, tolower(names(tmp)))
 }
 
 subsp_ranks <- c('sp', 'ssp', 'subsp', 'subspecies', 'var', 'varietas', 'fo', 'f', 'forma')

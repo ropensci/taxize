@@ -12,10 +12,10 @@
 #' @param order (character) Supports "asc" or "desc"
 #' @param facets (list) Comma separated list of the fields to create facets
 #' on e.g. facets=basis_of_record.
-#' @param ... Further args passed on to \code{\link[httr]{GET}}.
+#' @param ... Further args passed on to [crul::HttpClient].
 #' @family nbn
 #' @return a list with slots for metadata (`meta`) with list of response
-#' attributes, and data (`data``) with a data.frame of results
+#' attributes, and data (`data`) with a data.frame of results
 #' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
 #' @references <https://api.nbnatlas.org/>
 #'
@@ -30,8 +30,7 @@
 #' nbn_search(q = "blackbird", start = 4)
 #'
 #' # debug curl stuff
-#' library('httr')
-#' nbn_search(q = "blackbird", config = verbose())
+#' nbn_search(q = "blackbird", verbose = TRUE)
 #' }
 nbn_search <- function(q, fq = NULL, order = NULL, sort = NULL, start = 0,
                        rows = 25, facets = NULL, ...) {
@@ -44,10 +43,10 @@ nbn_search <- function(q, fq = NULL, order = NULL, sort = NULL, start = 0,
 }
 
 nbn_GET <- function(url, args, ...){
-  res <- GET(url, query = argsnull(args), ...)
-  stop_for_status(res)
-  tt <- con_utf8(res)
-  json <- jsonlite::fromJSON(tt)$searchResults
+  cli <- crul::HttpClient$new(url = url, headers = tx_ual,)
+  tt <- cli$get(query = argsnull(args), ...)
+  tt$raise_for_status()
+  json <- jsonlite::fromJSON(tt$parse("UTF-8"))$searchResults
   list(meta = pop(json, "results"), data = json$results)
 }
 

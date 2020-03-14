@@ -6,7 +6,8 @@
 #' @keywords internal
 #' @export
 ncbi_search <- function(...) {
-  .Defunct("ncbi_searcher", "traits", msg = "This function is defunct. See traits::ncbi_searcher()")
+  .Defunct("ncbi_searcher", "traits",
+    msg = "This function is defunct. See traits::ncbi_searcher()")
 }
 
 #' Retrieve gene sequences from NCBI by accession number.

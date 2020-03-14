@@ -4,26 +4,25 @@
 #' OpenTreeOfLife
 #'
 #' @export
-#' @inheritParams tol_resolve
-#' @param sciname character; scientific name.
-#' @param ask logical; should \code{get_tolid} be run in interactive mode?
-#' If \code{TRUE} and more than one TOL is found for the species, the user is
-#' asked for input. If \code{FALSE} NA is returned for multiple matches.
-#' @param verbose logical; should progress be printed?
+#' @param sciname character; scientific name. Or, a `taxon_state`
+#' object (see [taxon-state])
+#' @param ask logical; should `get_tolid` be run in interactive mode?
+#' If `TRUE` and more than one TOL is found for the species, the user is
+#' asked for input. If `FALSE` NA is returned for multiple matches.
+#' @param messages logical; should progress be printed?
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, all
 #' rows are considered. Note that this function still only gives back a tol
-#' class object with one to many identifiers. See \code{\link[taxize]{get_tolid_}}
+#' class object with one to many identifiers. See [get_tolid_()]
 #' to get back all, or a subset, of the raw data that you are presented during
 #' the ask process.
-#' @param x Input to \code{as.tolid}
+#' @param x Input to `as.tolid`
 #' @param ... Ignored
 #' @param check logical; Check if ID matches any existing on the DB, only
-#' used in
-#' \code{\link{as.tolid}}
+#' used in [as.tolid()]
 #' @template getreturn
 #'
 #' @family taxonomic-ids
-#' @seealso \code{\link[taxize]{classification}}
+#' @seealso [classification()]
 #'
 #' @examples \dontrun{
 #' get_tolid(sciname = "Quercus douglasii")
@@ -31,7 +30,7 @@
 #' get_tolid(c("Chironomus riparius","Quercus douglasii"))
 #' splist <- c("annona cherimola", 'annona muricata', "quercus robur",
 #' 		"shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")
-#' get_tolid(splist, verbose=FALSE)
+#' get_tolid(splist, messages=FALSE)
 #'
 #' # specify rows to limit choices available
 #' get_tolid('Arni')
@@ -45,7 +44,7 @@
 #' # Convert a tol without class information to a tol class
 #' as.tolid(get_tolid("Quercus douglasii")) # already a tol, returns the same
 #' as.tolid(get_tolid(c("Chironomus riparius","Pinus contorta"))) # same
-#' as.tolid(3930798) # numeric
+#' as.tolid(5907893) # numeric
 #' as.tolid(c(3930798,515712,872577)) # numeric vector, length > 1
 #' as.tolid("3930798") # character
 #' as.tolid(c("3930798","515712","872577")) # character vector, length > 1
@@ -67,17 +66,41 @@
 #' get_tolid_(c("asdfadfasd","Pinus contorta"))
 #' }
 
-get_tolid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, ...) {
+get_tolid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA, ...) {
 
+  assert(sciname, c("character", "taxon_state"))
   assert(ask, "logical")
-  assert(verbose, "logical")
+  assert(messages, "logical")
+  if (!all(is.na(rows))) {
+    assert(rows, c("numeric", "integer"))
+    stopifnot(rows > 0)
+  }
 
-  fun <- function(x, ask, verbose, rows, ...) {
-    mssg(verbose, "\nRetrieving data for taxon '", x, "'\n")
+  if (inherits(sciname, "character")) {
+    tstate <- taxon_state$new(class = "tolid", names = sciname)
+    items <- sciname
+  } else {
+    assert_state(sciname, "tolid")
+    tstate <- sciname
+    sciname <- tstate$taxa_remaining()
+    items <- c(sciname, tstate$taxa_completed())
+  }
 
-    tol_df <- tryCatch(tol_resolve(x, ...), error = function(e) e)
+  prog <- progressor$new(items = items, suppress = !messages)
+  done <- tstate$get()
+  for (i in seq_along(done)) prog$completed(names(done)[i], done[[i]]$att)
+  prog$prog_start()
 
-    if (!inherits(tol_df, "data.frame") || NROW(tol_df) == 0 || inherits(tol_df, "error")) {
+  for (i in seq_along(sciname)) {
+    mssg(messages, "\nRetrieving data for taxon '", sciname[i], "'\n")
+
+    tol_df <- tryCatch(tol_resolve(sciname[i], ...), error = function(e) e)
+
+    if (
+      !inherits(tol_df, "data.frame") ||
+      NROW(tol_df) == 0 ||
+      inherits(tol_df, "error")
+    ) {
       id <- NA_character_
       att <- "not found"
     } else {
@@ -86,7 +109,7 @@ get_tolid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, ...) {
 
       # should return NA if spec not found
       if (NROW(tol_df) == 0) {
-        mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
+        mssg(messages, m_not_found_sp_altclass)
         id <- NA_character_
         att <- 'not found'
       }
@@ -100,10 +123,11 @@ get_tolid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, ...) {
       # more than one found -> user input
       if (NROW(tol_df) > 1) {
         # check for exact match
-        matchtmp <- tol_df[tol_df$unique_name %in% x, "ott_id"]
+        matchtmp <- tol_df[tolower(tol_df$unique_name) %in% tolower(sciname[i]), "ott_id"]
         if (length(matchtmp) == 1) {
           id <- as.character(matchtmp)
           direct <- TRUE
+          att <- "found"
         } else {
           tol_df <- sub_rows(tol_df, rows)
           if (NROW(tol_df) == 0) {
@@ -121,7 +145,7 @@ get_tolid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, ...) {
             if (ask) {
               # prompt
               message("\n\n")
-              message("\nMore than one ToL ID found for taxon '", x, "'!\n
+              message("\nMore than one ToL ID found for taxon '", sciname[i], "'!\n
                       Enter rownumber of taxon (other inputs will return 'NA'):\n")
               rownames(tol_df) <- 1:nrow(tol_df)
               print(tol_df)
@@ -133,51 +157,42 @@ get_tolid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA, ...) {
               }
               if (take %in% seq_len(nrow(tol_df))) {
                 take <- as.numeric(take)
-                message("Input accepted, took tol ID '", as.character(tol_df$ott_id[take]), "'.\n")
+                message("Input accepted, took tol ID '",
+                  as.character(tol_df$ott_id[take]), "'.\n")
                 id <- as.character(tol_df$ott_id[take])
                 att <- "found"
               } else {
                 id <- NA_character_
                 att <- "not found"
-                mssg(verbose, "\nReturned 'NA'!\n\n")
+                mssg(messages, "\nReturned 'NA'!\n\n")
               }
             }
             else {
               if (length(id) != 1) {
-                warning(
-                  sprintf("More than one ToL ID found for taxon '%s'; refine query or set ask=TRUE",
-                          x),
-                  call. = FALSE
-                )
+                warning(sprintf(m_more_than_one_found, "ToL ID", sciname[i]),
+                  call. = FALSE)
                 id <- NA_character_
-                att <- 'NA due to ask=FALSE & > 1 result'
+                att <- m_na_ask_false
               }
             }
           }
         }
       }
     }
-
-    data.frame(
-      tol = as.character(id),
-      att = att,
-      multiple = FALSE,
-      direct = FALSE,
-      stringsAsFactors = FALSE)
+    res <- list(id = as.character(id), att = att, multiple = FALSE,
+      direct = FALSE)
+    prog$completed(sciname[i], att)
+    prog$prog(att)
+    tstate$add(sciname[i], res)
   }
-  sciname <- as.character(sciname)
-  outd <- ldply(sciname, fun, ask, verbose, rows, ...)
-  out <- outd$tol
-  attr(out, 'match') <- outd$att
-  attr(out, 'multiple_matches') <- outd$multiple
-  attr(out, 'pattern_match') <- outd$direct
-  if ( !all(is.na(out)) ) {
-    urlmake <- na.omit(out)
-    attr(out, 'uri') <-
-      paste0('https://tree.opentreeoflife.org/opentree/argus/ottol@', urlmake)
-  }
-  class(out) <- "tolid"
-  return(out)
+  out <- tstate$get()
+  ids <- structure(as.character(unlist(pluck(out, "id"))), class = "tolid",
+                   match = pluck_un(out, "att", ""),
+                   multiple_matches = pluck_un(out, "multiple", logical(1)),
+                   pattern_match = pluck_un(out, "direct", logical(1)))
+  on.exit(prog$prog_summary(), add = TRUE)
+  on.exit(tstate$exit, add = TRUE)
+  add_uri(ids, get_url_templates$tol)
 }
 
 #' @export
@@ -229,21 +244,21 @@ make_tol <- function(x, check=TRUE) {
 }
 
 check_tolid <- function(x){
-  tt <- tryCatch(rotl::taxonomy_taxon_info(x), error = function(e) e)
+  tt <- tryCatch(rotl::taxonomy_taxon_info(as.numeric(x)), error = function(e) e)
   !inherits(tt, "error")
 }
 
 #' @export
 #' @rdname get_tolid
-get_tolid_ <- function(sciname, verbose = TRUE, rows = NA){
+get_tolid_ <- function(sciname, messages = TRUE, rows = NA){
   stats::setNames(
-    lapply(sciname, get_tolid_help, verbose = verbose, rows = rows),
+    lapply(sciname, get_tolid_help, messages = messages, rows = rows),
     sciname
   )
 }
 
-get_tolid_help <- function(sciname, verbose, rows, ...){
-  mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
+get_tolid_help <- function(sciname, messages, rows, ...){
+  mssg(messages, "\nRetrieving data for taxon '", sciname, "'\n")
   tol_df <- tryCatch(tol_resolve(sciname, ...), error = function(e) e)
   if (!inherits(tol_df, "data.frame") || NROW(tol_df) == 0 || inherits(tol_df, "error")) {
     NULL
@@ -275,10 +290,19 @@ tol_fetch_fuzzy <- function(x) {
   }))
   df <- move_col_begin(df, "matched_name")
   df <- move_col_begin(df, "unique_name")
+  df$tax_sources <- NULL
+  df$synonyms <- NULL
+  df$is_suppressed <- NULL
+  df$search_string <- NULL
+  df$name <- NULL
   df
 }
 
 dtrbsetdf <- function(x) {
+  x <- lapply(x, function(a) {
+    a[sapply(a, is.null)] <- NA_character_
+    a
+  })
   (out <- data.table::setDF(
     data.table::rbindlist(x, use.names = TRUE, fill = TRUE)
   ))

@@ -1,3 +1,253 @@
+taxize 0.9.92
+=============
+
+### DEFUNCT
+
+COL introduced rate limiting recently in 2019 - which has made the API
+essentially unusable - CoL+ is coming soon and we'll incorporate it here when it's stable. see https://github.com/ropensci/colpluz for the in development R client (#796)
+
+### NEW FEATURES
+
+* gains new function `gn_parse()` to access the Global Names scientific name parser. it's a super fast parser. see the section on name parsers (https://docs.ropensci.org/taxize/reference/index.html#section-name-parsers) for the 3 functions that do name parsing  (#794)
+* dropped packages from imports: reshape2, stringr, plyr (#795)
+* `get_wormsid()` gains two new parameters: `fuzzy` and `marine_only`; both are passed through to `worrms::wm_records_name()`/`worrms::wm_records_name()` (#790)
+
+### MINOR IMPROVEMENTS
+
+* no longer running taxon state examples on check (#791)
+* vignettes have names now in the pkg docs site (#772)
+* update docs for new roxygen2 version that suppoprts R6 (#793)
+* gains dataset `worrms_ranks` to apply rank names in cases where WORMS fails to return rank names in their data
+* remove a `get_tpsid()` example that passes in names as factors; `get_*` functions no longer accept factors
+
+### BUG FIXES
+
+* fix to `classification.tpsid()`: change to an internal fxn changed its output; fix for that (#797)
+* fix `get_boldid()`: when filtering (e.g., w/ `rank`, `division`, `parent`) returned no match, `get_boldid` was failing on downstream parsing; return NA now
+* fix `get_wormsid_()`: was missing `marine_only` and `fuzzy` parameters
+* fix `pow_search()`: an if statement was leading to length > 1 booleans
+* fix `synonyms()`: an if statement in internal fxn `process_syn_ids` was leading to length > 1 booleans
+* fix `classification.gbifid`: select columns only if they exist instead of failing on plucking non-existtent columns
+
+
+taxize 0.9.91
+=============
+
+### NEW FEATURES
+
+* `get_ids()` gains a new parameter `suppress` (default:`FALSE`) to toggle pakage `cli` messages stating which database is being worked on (#719)
+
+### MINOR IMPROVEMENTS
+
+* the following datasets are now available when the package is not loaded, so functions that use these datasets can now be called with package namespace like `taxize::downstream()`: `rank_ref`, `theplantlist`, `apg_families`, `apg_orders`  (#777) (#781)
+* add new documentation site url (https://docs.ropensci.org/taxize/) to DESCRITPION file (#774) (@jeroen)
+* fix links in README to issues label of new potential data sources (#782) (@katrinleinweber)
+* more or less all functions that take as input the output of `get_*` functions have S3 methods that dispatch on those `get_*` output classes. however, you can still pass in a `db` parameter, which is IGNORED when dispatching on the input class. the `db` parameter is used (not ignored) when passing in a taxon id as character/numeric/etc. now these functions (children, classification, comm2sci, sci2comm, downstream, id2name, synonyms, upstream) warn when the user passes a `db` value which will be ignored (#780)
+* The NCBI Entrez API often throws errors for users of this and other packages related to HTTP version used by the client; we now hard code the http version to HTTP/1.1 via the curl option `http_version=2L` across all Entrez requests (#783)
+
+### BUG FIXES
+
+* fixes to `col_search()`: COL now does rate limiting (if you make too many requests within a time period they will stop allowing requests from your IP address/your computer); documented rate limiting, what I know at least; changed `checklist` parameter behavior: years 2014 and back dont provide JSON, so we return `xml_document` objects now for those years that the user can parse themselves (#786)
+* `tax_rank` somehow (my bad) had two `.default` methods. previous behavior is the same as current behavior (this version) (#784)
+* fix `ncbi_children()`: fixed regex that was supposed to flag ambiguous taxa only, it was supposed to flag `sp.` and `spp.`, but was including `subsp.`, which we didn't want included (#777) (#781)
+* another fix to `ncbi_children()`: when ID is passed rather than a name, we need to then set `id=NULL` after switching to the equivalent taxononmic name internally to avoid getting duplicate data back (#777) (#781)
+
+
+taxize 0.9.9
+============
+
+### NEW FEATURES
+
+* update all EUBON functions to use their new API version; `eubon_search()` gains new params `limit` and `page`; other eubon functions have no pagination  (#766)
+* change base url in `ipni_search()` from http to https, via (#773)
+
+### MINOR IMPROVEMENTS
+
+* change `synonyms()` to always return `NA` for name not found, and always return a zero row data.frame when name found BUT no synonyms found; updated docs to indicate better what's returned (#763) (#765)
+* COL sometimes returns control characters in the XML payload; these can't be parsed by the `xml2` package, so we have to remove them using regex; we throw a message when we're doing this so the user knows (#768)
+* docs typos fixes (#770)
+* update `classification()` docs with a new `EOL` section discussing that EOL does not have good failure behavior, and what to expect from them (#775)
+* the following datasets are now available when the package is not loaded, so functions that use these datasets can now be called with package namespace like `taxize::downstream()`: `rank_ref`, `theplantlist`, `apg_families`, `apg_orders`  (#777)
+* `sci2comm()` and `comm2sci()` improvements: for `db="ncbi"` we no longer stop with error when when there's no results for a query; instead we return `character(0)`. In addition, now all data source options for both functions now return `character(0)` when there's no results for a query (#778)
+* `id2name.uid()` now actually passes on `...` internally for curl options
+
+### BUG FIXES
+
+* fix `get_nbnid()`: was returning non-taxon entities, have ot add `idxtype:TAXON` to the `fq` query (#761)
+* fixes for `as.eolid()` and `as.colid()` - don't run through helper function that was raising error on HTTP 404/etc., dont want to fail  (#762)
+* fix to `class2tree()`: set root node name to NA if it does not exist, ITIS does not set a root node (#767) (#769) work by @gpli
+* fix to `ipni_search()`: IPNI changed parameter names, fixes for that; and now returning tibble's instead of data.frame's (#773) thanks @joelnitta !
+* fix `ncbi_children()`: fixed regex that was supposed to flag ambiguous taxa only, it was supposed to flag `sp.` and `spp.`, but was including `subsp.`, which we didn't want included (#777)
+* another fix to `ncbi_children()`: when ID is passed rather than a name, we need to then set `id=NULL` after switching to the equivalent taxononmic name internally to avoid getting duplicate data back (#777)
+
+
+taxize 0.9.8
+============
+
+### NEW FEATURES
+
+* all `get_*` functions gain some new features (associated new fxns are `taxon_last` and `taxon_clear`): a) nicer messages printed to the console when iterating through taxa, and a summary at the end of what was done; and b) state is now saved when running `get_*` functions. That is, in an object external to the `get_*` function call we keep track of what happened, so that if an error is encountered, you can easily restart where you left off; this is especially useful when dealing with a large number of inputs to a `get_*` function. To utilize, pass the output of `taxon_last()` to a `get_*` function call. Associated with these changes are new package imports: R6, crayon and cli (#736) (#757)
+* gains a new function `taxize_options()` to set options when using taxize. the first reason for the function is to set two options for the above item for `get_*` functions: `taxon_state_messages` to allow taxon state tracking messages in `get_*` functions or not, and `quiet=TRUE` quiets output from the `taxize_options()` function itself
+
+### MINOR IMPROVEMENTS
+
+* in `id2name()` and `worms_downstream()` use `worrms::wm_record` instead of `worrms::wm_record_` for newest version of `worrms` (#760)
+* many `get_*` functions and `col_downstream()` parameter `verbose` changed to `messages` to not conflict with a `verbose` curl options parameter passed in to `crul`
+
+### BUG FIXES
+
+* fix to http request processing for COL - sometimes errors, and gives a message in the response body, but DOES NOT give the appropriate error HTTP status code - need to always do a check for COL responses (#755) (#756) thanks @dougwyu
+* fix to `gbif_downstream()` - GBIF in some cases returns a rank of "unranked", which we hadn't accounted for in internal rank processing code (#758) thanks @ocstringham
+
+
+taxize 0.9.7
+============
+
+### MINOR IMPROVEMENTS
+
+* `class2tree()` gains node labels when present (#644) (#748) thanks @gpli
+* change documentation to use markdown (#658) (#746) thanks @Rekyt
+
+
+taxize 0.9.6
+============
+
+### NEW FEATURES
+
+* gains new functions for Kew's Plants of the World: `get_pow()`, `get_pow_()`, `as.pow()`, `classification.pow()`, `pow_search()`, and `pow_lookup()` (#598) (#739)
+* we now pass a user agent string in all HTTP requests to the various data sources so they know its coming from `taxize`. the string will look something like `r-curl/3.3 crul/0.7.0 rOpenSci(taxize/0.9.6)`, including the versions of the `curl` R pkg, the `crul` package, and the `taxize` package (#662)
+* change to `get_colid` functionality: we weren't paginating for the user when there were more than 50 results for a query; we now paginate for the user using async HTTP requests; this means that some requests will take longer than they did before if they have more than 50 results; this is a good change given that you get all the results for your query now (#743)
+* change across most `get_*` functions: in some of the `get_*` functions we tried for a direct match (e.g., `"Poa" == "Poa"`) and if one was found, then we were done and returned that record. however, we didn't deploy the same logic across all `get_*` functions. Now all `get_*` functions check for a direct match. Of course if there is a direct match with more than 1 result, you still get the prompt asking you which name you want. (#631) (#734)
+
+### MINOR IMPROVEMENTS
+
+* Make separate `taxize-authentication` manual file covering authentication information across the package (#681)
+* new case study vignette added (#544) (#721) thanks @fozy81
+* add note to `gnr_resolve()` docs about age of datasets used in the Global Names Resolver, and how to access age of datasets (#737)
+* `get_eolid()` fixes: gains new attribute `pageid`; `uri`'s given are updated to EOL's new URL format; `rank` and `datasource` parameters were not documented, now are; we no longer use short names for data sources within EOL, but instead use their full names  (#702) (#742)
+* `col_search()` now returns attributes on the output data.frame's with number of results found and returned, and other metadata about the search 
+* `gnr_datasources()` loses the `todf` parameter; now always returns a data.frame and the data.frame has all the columns, whereas the default call returned a limited set of columns in previous versions
+
+### BUG FIXES
+
+* fix bug in `get_wormsid()`, was failing when there was a direct match found with more than 1 result (#740)
+* fix across all `get_*` functions: linting of the input to the `rows` parmeter was failing with a vector of values in some cases (#741)
+* fix to `iucn_summary()`; we weren't passing on the API key internally correctly (#735) thanks @PrincessPi314 for the report
+
+taxize 0.9.5
+============
+
+### DEFUNCT
+
+* `iucn_summary_id()` is defunct, use `iucn_summary()` instead
+
+### NEW FEATURES
+
+* `col_downstream()` gains parameter `extant_only` (logical) to optionally keep extant taxa only (#714) thanks @ArielGreiner for the inquiry
+* `downstream()` gains another `db` options: Worms. You can now set `db="worms"` to use Worms to get taxa downstream from a target taxon. In addition, `taxize` gains new function `worms_downstream()`, which is used under the hood in `downstream(..., db="worms")` (#713) (#715)
+* gains new function `id2name()` with `db` options for tol, itis, ncbi, worms, gbif, col, and bold. the function converts taxonomid IDs to names. It's sort of the inverse of the `get_*()` family of functions. (#712) (#716)
+* `tax_rank()` gains new parameter `rows` so that one can pass `rows` down to `get_*()` functions
+
+### MINOR IMPROVEMENTS
+
+* `synonyms()` warning from an internal `cbind()` call now fixed (#704) (#705) thanks @vijaybarve
+* namespace `taxize` function calls thrown when notifying users about API keys (e.g., `taxize::use_tropicos()`) to make it very clear where the functions live (to avoid confusion with `usethis`) (#724) (#725) thanks @maelle
+* changed `iucn_summary()` to output the same structure when no match is found as when a match is found so that when output is passed to `iucn_status()` behavior is the same (#708) thanks @Rekyt
+* skip `tax_name()` tests on CRAN (#728)
+* `httr` replaced by `crul` throughout (#590)
+* most unit tests that make HTTP requests now cached with `vcr`, making tests much faster and not prone to errors to remote services being down (#729)
+* EOL: The EOL API underwent major changes, and we've attempted to get things in working order. `eol_dataobjects()` gains new parameter `language`. `eol_pages()` loses `iucn`, `images`, `videos`, `sounds`, `maps`, and `text` parameters, and gains `images_per_page`, `videos_per_page`, `sounds_per_page`, `maps_per_page`, `texts_per_page`, and `texts_page`. Please do let us know if you find any problems with any EOL functions (#717) (#718)
+* As part of EOL changes, the default `db` value for `comm2sci()` and `sci2comm()` is now `ncbi` instead of `eol`
+* EUBON base URL now https instead of http
+* A number of `get_*()` functions changed parameter `verbose` to `messages` to not conflict with `verbose` passed down to `crul::HttpClient`
+* ping functions: `ncbi_ping()` reworked to allow use of your api key as a parameter or pulled from your environemnt; `eol_ping()` using https instead of http, and parsing JSON instead of XML.
+
+### BUG FIXES
+
+* `get_eolid()` was erroring when no results found for a query due to not assigning an internal variable (#701) (#709) thanks for the fix @taddallas
+* `get_tolid()` was erroring when values were `NULL` - now replacing all `NULLL` with `NA_character_` to make `data.table::rbindlist()` happy (#710) (#711) thanks @gpli for the fix
+* add additional rows to the `rank_ref` data.frame of taxonomic ranks: species subgroup, forma, varietas, clade, megacohort, supercohort, cohort, subcohort, infracohort. when there's no matched rank errors can result in many of the downstream functions. The data.frame now has 43 rows. (#720) (#727)
+* fix to `downstream()` and `ncbi_get_taxon_summary()`: change in `ncbi_get_taxon_summary` to break up queries into smaller chunks to avoid HTTP 414 errors ("URI too long") (#727) (#730) thanks for reporting @fischhoff and  @benjaminschwetz 
+* a number of fixes internally (not user facing) to comply with upcoming R-devel changes for checking length greater than 1 in logical statements (#731)
+
+
+taxize 0.9.4
+============
+
+### NEW FEATURES
+
+* new contributor: [Gaopeng Li](https://github.com/gpli)
+* gains new functions for helping the user get authentication keys/tokens: `use_entrez()`, `use_eol()`, `use_iucn()` (which uses internally `rredlist::rl_use_iucn()`), and `use_tropicos()` (#682) (#691) (#693) By @maelle
+ 
+### MINOR IMPROVEMENTS
+
+* remove commented out code
+
+### BUG FIXES
+
+* fix `tropicos_ping()`
+* fixed `downstream()` and `gbif_downstream()`: some of the results don't have a `canonicalName`, so now safely try to get that field  (#673)
+* fixed `as.uid()`, was erroring when passing in a taxon ID (#674) (#675) by @zachary-foster
+* fix in `get_boldid()` (and by extension `classification(..., db = "bold")`): was failing when no parent taxon found, just fill in with NA now (#680)
+* fix to `synonyms()`: was failing for some TSNs for `db="itis"` (#685)
+* fix to `tax_name()`: `rows` arg wasn't being passed on internally (#686)
+* fix to `gnr_resolve()` and `gnr_datasources()`: problems were caused by http scheme, switched to use https instead of http (#687)
+* fix to `class2tree()`: organisms with unique rank lower than non-unique ranks will give extra wrong rows (#689) (#690) thanks @gpli
+* fix in `ncbi_get_taxon_summary()`: changes in the NCBI API most likely lead to HTTP 414 (URI Too Long) errors. we now loop internally for the user. By extension this helps problems upsteam in `downstream()`/`ncbi_downstream()`/`ncbi_children()` (#698)
+* fix in `class2tree()`: was erroring when name strings contained pound signs (e.g., `#`) (#699) (#700) thanks @gpli
+
+
+taxize 0.9.3
+============
+
+### MINOR IMPROVEMENTS
+
+* package gains three new authors: Bastian Greshake Tzovaras, Philippe Marchand, and Vinh Tran
+* Don't enforce rate limiting via `Sys.sleep` for NCBI requests if the user has an API key (#667)
+* Fix to all functions that do NCBI requests to work whether or not a user has an NCBI API key (#668)
+* Increased documentation on authentication, see `?taxize-authentication`
+* Further conversion of `verbose` to `messages` across the package so that supressing calls to `message()` do not conflict with curl options passed in
+* Converted `genbank2uid()` and `ncbi_get_taxon_summary()` to use `crul` instead of `httr` for HTTP requests
+
+### BUG FIXES
+
+* Fix to `get_tolid()`: it was missing assignment of the `att` attribute internally, causing failures in some cases (#663) (#672)
+* Fix to `ncbi_children()` (and thus `children()` when requesting NCBI data) to not fail when there is an empty result from the internal call to `classification()` (#664) thanks @arendsee
+
+
+
+taxize 0.9.2
+===================
+
+### NEW FEATURES
+
+* `class2tree()` gets a major overhaul thanks to @gedankenstuecke and @trvinh (!!). The function now takes unnamed ranks into account when clustering, which fixes problem where trees were unresolved for many splits as the named taxonomy levels were shared between them. Now it makes full use of the NCBI Taxonomy string, including the unnamed ranks, leading to higher resolution trees that have less multifurcations (#611) (#634)
+* Added support throughout package for use of NCBI Entrez API keys - NCBI now strongly encourages their use and you get a higher rate limit when you use one. See `?taxize-authentication` for help. Importantly, note that API key names (both R options and environment variables) have changed. They are now the same for R options and env vars: TROPICOS_KEY, EOL_KEY, PLANTMINER_KEY, ENTREZ_KEY. You no longer need an API key for Plantminer. (#640) (#646)
+* New author Zebulun Arendsee (@arendsee)
+* New package dependencies: `crul` and `zoo`
+
+### MINOR IMPROVEMENTS
+
+* In `downstream()` we now pass on `limit` and `start` parameters to `gbif_downstream()`; we weren't doing that before; the two parameters control pagination (#638)
+*  `genbank2uid()` now returns the correct ID when there are multiple possibilities and invalid IDs no longer make whole batches fail (#642) thanks @zachary-foster
+* `children()` outputs made more consistent for certain cases when no results found for searches (#648) (#649) thanks @arendsee
+* Improve `downstream()` by passing `...` (additional parameters) down to `ncbi_children()` used internally. allows e.g., use of `ambiguous` parameter in `ncbi_children()` allows you to remove ambiguousl named nodes (#653) (#654) thanks @arendsee
+* swapped out use of `httr` for `crul` in EOL and Tropics functions - note that this won't affect you unless you're passing curl options. see package `crul` for help on curl options. Along with this change, the parameter `verbose` has changed to `messages` (for toggling printing of information messages)
+
+### DOCUMENTATION
+
+* Added additional text to the `CONTRIBUTING.md` file for how to contribute to the test suite (#635)
+
+### BUG FIXES
+
+* `genbank2uid` now returns the correct ID when there are multiple possibilities and invalid IDs no longer make whole batches fail.
+* Fix to `downstream()`: passing numeric taxon ids to the function while using `db="ncbi"` wasn't working (#641) thanks @arendsee
+* Fix to `children()`: passing numeric taxon ids to the function while using `db="worms"` wasn't working (#650) (#651) thanks @arendsee
+* `synonyms_df()` - that attemps to combine many outputs from the `synonyms()` function -  now removes NA/NULL/empy outputs before attempting the combination (#636)
+* Fix to `gnr_resolve()`: before if `preferred_data_sources` was used, you would get the preferred data but only a few columns of the response. We now return all fields; however, we only return the preferred data part when that parameter is used  (#656)
+* Fixes to `children()`. It was returning unexpected results for amgiguous taxonomic names (e.g., there's some insects that are returned when searching within Bacteria). It was also failing when one tried to get the children of a root taxon (e.g., the children of the NCBI id 131567). (#639) (#647) fixed via PR (#659) thanks @arendsee and @zachary-foster
+
+
 taxize 0.9.0
 ============
 

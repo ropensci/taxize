@@ -9,7 +9,7 @@ gbif_parse(scientificname, ...)
 \arguments{
 \item{scientificname}{(character) scientific names}
 
-\item{...}{Further args passed on to \code{\link[httr]{POST}}}
+\item{...}{Further args passed on to \link[crul:verb-POST]{crul::verb-POST}}
 }
 \value{
 A \code{data.frame} containing fields extracted from parsed
@@ -28,11 +28,11 @@ gbif_parse(c('Arrhenatherum elatius var. elatius',
 }
 }
 \references{
-\url{http://tools.gbif.org/nameparser/api.do}
+https://www.gbif.org/tools/name-parser/about
 }
 \seealso{
-\code{\link{gni_parse}}
+\code{\link[=gni_parse]{gni_parse()}}, \code{\link[=gn_parse]{gn_parse()}}
 }
 \author{
-John Baumgartner (johnbb@student.unimelb.edu.au)
+John Baumgartner \email{johnbb@student.unimelb.edu.au}
 }

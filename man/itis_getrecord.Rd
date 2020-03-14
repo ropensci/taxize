@@ -12,7 +12,7 @@ taxonomic group}
 
 \item{by}{(character) By "tsn" (default) or "lsid"}
 
-\item{...}{Further arguments passed on to \code{\link[ritis]{full_record}}}
+\item{...}{Further arguments passed on to \link[ritis:full_record]{ritis::full_record}}
 }
 \description{
 Get full ITIS record for one or more ITIS TSN's or lsid's.

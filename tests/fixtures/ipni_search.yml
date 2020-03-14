@@ -1,0 +1,79 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://www.ipni.org/ipni/advPlantNameSearch.do?output_format=delimited-minimal&find_genus=Brintonia&find_isAPNIRecord=on&find_isGCIRecord=on&find_isIKRecord=on
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.0 crul/0.8.4 rOpenSci(taxize/0.9.8.9134)
+      X-USER-AGENT: r-curl/4.0 crul/0.8.4 rOpenSci(taxize/0.9.8.9134)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      server: nginx/1.14.0
+      date: Tue, 13 Aug 2019 17:30:56 GMT
+      content-type: text/plain;charset=UTF-8
+      content-length: '164'
+      content-disposition: inline;filename=f.txt
+      content-language: en-US
+    body:
+      encoding: UTF-8
+      string: |
+        Id%Version%Family%Full name without family and authors%Authors
+        296073-2%1.3%Asteraceae%Brintonia%Greene
+        36551-2%1.3%Asteraceae%Brintonia discoidea%(Elliott) Greene
+  recorded_at: 2019-08-13 17:30:56 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.4.0
+- request:
+    method: get
+    uri: https://www.ipni.org/ipni/advPlantNameSearch.do?output_format=delimited-minimal&find_genus=Pinus&find_species=contorta
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.0 crul/0.8.4 rOpenSci(taxize/0.9.8.9134)
+      X-USER-AGENT: r-curl/4.0 crul/0.8.4 rOpenSci(taxize/0.9.8.9134)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      server: nginx/1.14.0
+      date: Tue, 13 Aug 2019 17:30:56 GMT
+      content-type: text/plain;charset=UTF-8
+      content-length: '1194'
+      content-disposition: inline;filename=f.txt
+      content-language: en-US
+    body:
+      encoding: UTF-8
+      string: |
+        Id%Version%Family%Full name without family and authors%Authors
+        262872-1%1.2.2.1.1.2.2.1%Pinaceae%Pinus contorta%Bol.
+        262873-1%1.1.2.1.1.2.2.2%Pinaceae%Pinus contorta%Douglas ex Loudon
+        30000492-2%1.1.2.1%Pinaceae%Pinus contorta%Douglas ex Loudon
+        196949-2%1.6%Pinaceae%Pinus contorta subsp. bolanderi%(Parl.) A.E.Murray
+        196950-2%1.4%Pinaceae%Pinus contorta subsp. bolanderi%(Parl.) Critchf.
+        196951-2%1.3%Pinaceae%Pinus contorta var. bolanderi%Lemmon
+        196952-2%1.3%Pinaceae%Pinus contorta var. boursieri%House
+        196953-2%1.3%Pinaceae%Pinus contorta var. hendersonii%Lemmon
+        196954-2%1.4.2.2.1.1%Pinaceae%Pinus contorta subsp. latifolia%(Engelm. ex S.Watson) Critchf.
+        196955-2%1.3.2.2.1.1%Pinaceae%Pinus contorta subsp. latifolia%(Engelm. ex S.Watson) A.E.Murray
+        196956-2%1.3.2.1.1.1%Pinaceae%Pinus contorta var. latifolia%Engelm. ex S.Watson
+        1156144-2%1.4.2.1%Pinaceae%Pinus contorta var. murrayana%(Balf.) Engelm.
+        196957-2%1.6%Pinaceae%Pinus contorta subsp. murrayana%(Balf.) A.E.Murray
+        196958-2%1.1.1.3%Pinaceae%Pinus contorta subsp. murrayana%(Balf.) Critchf.
+        196959-2%1.4.2.2%Pinaceae%Pinus contorta var. murrayana%(Balf.) Engelm.
+        77107384-1%1.3%Pinaceae%Pinus contorta var. yukonensis%W.L.Strong
+  recorded_at: 2019-08-13 17:30:56 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.4.0

@@ -9,11 +9,11 @@ gni_parse(names, ...)
 \arguments{
 \item{names}{A vector of length 1 or more of taxonomic names}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
-A data.frame with results, the submitted names, and the parsed names
-   with additional information.
+A data.frame with results, the submitted names, and the
+parsed names with additional information.
 }
 \description{
 Parse scientific names using EOL's name parser.
@@ -25,14 +25,13 @@ gni_parse("Plantago minor")
 gni_parse("Plantago minor minor")
 gni_parse(c("Plantago minor minor","Helianthus annuus texanus"))
 
-# pass on curl options to httr
-library("httr")
-gni_parse("Cyanistes caeruleus", config = verbose())
+# pass on curl options
+gni_parse("Cyanistes caeruleus", verbose = TRUE)
 }
 }
 \references{
 \url{http://gni.globalnames.org/}
 }
 \seealso{
-\code{\link{gbif_parse}}
+\code{\link[=gbif_parse]{gbif_parse()}}, \code{\link[=gn_parse]{gn_parse()}}
 }

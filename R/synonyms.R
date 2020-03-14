@@ -3,35 +3,39 @@
 #'
 #' @param x Vector of taxa names (character) or IDs (character or numeric) to
 #' query.
-#' @param db character; database to query. either \code{itis}, \code{tropicos},
-#' \code{col}, \code{nbn}, or \code{worms}. Note that each taxonomic data
-#' source has their own identifiers, so that if you provide the wrong
-#' \code{db} value for the identifier you could get a result, but it will
-#' likely be wrong (not what you were expecting).
-#' @param id character; identifiers, returned by \code{\link[taxize]{get_tsn}},
-#' \code{\link[taxize]{get_tpsid}}, \code{\link[taxize]{get_nbnid}},
-#' \code{\link[taxize]{get_colid}}, \code{\link[taxize]{get_wormsid}}
+#' @param db character; database to query. either `itis`, `tropicos`,
+#' `nbn`, `worms`. Note that each taxonomic data source has their own
+#' identifiers, so that if you provide the wrong `db` value for the identifier
+#' you could get a result, but it will likely be wrong (not what you were
+#' expecting). If using tropicos, we  recommend getting an API key;
+#' see [taxize-authentication]
+#' @param id character; identifiers, returned by [get_tsn()], [get_tpsid()],
+#' [get_nbnid()], `get_wormsid()]
 #' @param rows (numeric) Any number from 1 to infinity. If the default NA, all
 #' rows are considered. Note that this parameter is ignored if you pass in a
 #' taxonomic id of any of the acceptable classes: tsn, tpsid, nbnid, ids.
-#' @param ... Other passed arguments to internal functions \code{get_*()} and
+#' @param ... Other passed arguments to internal functions `get_*()` and
 #' functions to gather synonyms.
 #'
-#' @return A named list of data.frames with the synonyms of every supplied taxa.
-#' @details If IDs are supplied directly (not from the \code{get_*} functions)
+#' @return A named list of results with three types of output in each slot:
+#'
+#' - if the name was not found: `NA_character_`
+#' - if the name was found but no synonyms found, an empty data.frame (0 rows)
+#' - if the name was found, and synonyms found, a data.frames with the
+#' synonyms - the column names vary by data source
+#'
+#' @details If IDs are supplied directly (not from the `get_*()` functions)
 #' you must specify the type of ID.
 #'
-#' For \code{db = "itis"} you can pass in a parameter \code{accepted} to
-#' toggle whether only accepted names are used \code{accepted = TRUE}, or if
-#' all are used \code{accepted = FALSE}. The default is \code{accepted = FALSE}
+#' For `db = "itis"` you can pass in a parameter `accepted` to
+#' toggle whether only accepted names are used `accepted = TRUE`, or if
+#' all are used `accepted = FALSE`. The default is `accepted = FALSE`
 #'
-#' Note that IUCN requires an API key. See
-#' \code{\link[rredlist]{rredlist-package}} for help on authentiating with
-#' IUCN Redlist
+#' Note that IUCN requires an API key. See [rredlist::rredlist-package]
+#' for help on authentiating with IUCN Redlist
 #'
-#' @seealso \code{\link[taxize]{get_tsn}}, \code{\link[taxize]{get_tpsid}},
-#' \code{\link[taxize]{get_nbnid}}, \code{\link[taxize]{get_colid}},
-#' \code{\link[taxize]{get_wormsid}}, \code{\link[taxize]{get_iucn}}
+#' @seealso [get_tsn()] [get_tpsid()] [get_nbnid()]
+#' [get_wormsid()] [get_iucn()]
 #'
 #' @export
 #' @examples \dontrun{
@@ -39,7 +43,6 @@
 #' synonyms(183327, db="itis")
 #' synonyms("25509881", db="tropicos")
 #' synonyms("NBNSYS0000004629", db='nbn')
-#' # synonyms("87e986b0873f648711900866fa8abde7", db='col') # FIXME
 #' synonyms(105706, db='worms')
 #' synonyms(12392, db='iucn')
 #'
@@ -51,9 +54,6 @@
 #' synonyms("Pinus contorta", db="tropicos")
 #' synonyms(c("Poa annua",'Pinus contorta'), db="tropicos")
 #' synonyms("Pinus sylvestris", db='nbn')
-#' synonyms("Puma concolor", db='col')
-#' synonyms("Ursus americanus", db='col')
-#' synonyms("Amblyomma rotundatum", db='col')
 #' synonyms('Pomatomus', db='worms')
 #' synonyms('Pomatomus saltatrix', db='worms')
 #'
@@ -67,7 +67,6 @@
 #' synonyms(get_tsn("Poa annua"))
 #' synonyms(get_tpsid("Poa annua"))
 #' synonyms(get_nbnid("Carcharodon carcharias"))
-#' synonyms(get_colid("Ornithodoros lagophilus"))
 #' synonyms(get_iucn('Loxodonta africana'))
 #'
 #' # Pass many ids from class "ids"
@@ -78,13 +77,10 @@
 #' synonyms("Poa annua", db='tropicos', rows=1)
 #' synonyms("Poa annua", db='tropicos', rows=1:3)
 #' synonyms("Pinus sylvestris", db='nbn', rows=1:3)
-#' synonyms("Amblyomma rotundatum", db='col', rows=2)
-#' synonyms("Amblyomma rotundatum", db='col', rows=2:3)
 #'
 #' # Use curl options
-#' synonyms("Poa annua", db='tropicos', rows=1, config=verbose())
-#' synonyms("Poa annua", db='itis', rows=1, config=verbose())
-#' synonyms("Poa annua", db='col', rows=1, config=verbose())
+#' synonyms("Poa annua", db='tropicos', rows=1, verbose = TRUE)
+#' synonyms("Poa annua", db='itis', rows=1, verbose = TRUE)
 #'
 #'
 #' # combine many outputs together
@@ -92,14 +88,13 @@
 #' synonyms_df(x)
 #'
 #' ## note here how Pinus contorta is dropped due to no synonyms found
-#' x <- synonyms(c("Poa annua",'Pinus contorta','Puma concolor'), db="col")
 #' synonyms_df(x)
 #'
 #' ## note here that ids are taxon identifiers b/c you start with them
 #' x <- synonyms(c(25509881, 13100094), db="tropicos")
 #' synonyms_df(x)
 #'
-#' ## xxx
+#' ## NBN
 #' x <- synonyms(c('Aglais io', 'Usnea hirta', 'Arctostaphylos uva-ursi'),
 #'   db="nbn")
 #' synonyms_df(x)
@@ -130,11 +125,6 @@ synonyms.default <- function(x, db = NULL, rows = NA, ...) {
       structure(stats::setNames(synonyms(id, ...), x),
                 class = "synonyms", db = "nbn")
     },
-    col = {
-      id <- process_syn_ids(x, db, get_colid, rows = rows, ...)
-      structure(stats::setNames(synonyms(id, ...), x),
-                class = "synonyms", db = "col")
-    },
     worms = {
       id <- process_syn_ids(x, db, get_wormsid, rows = rows, ...)
       structure(stats::setNames(synonyms(id, ...), x),
@@ -151,13 +141,16 @@ synonyms.default <- function(x, db = NULL, rows = NA, ...) {
 
 process_syn_ids <- function(input, db, fxn, ...){
   g <- tryCatch(as.numeric(as.character(input)), warning = function(e) e)
-  if (inherits(g,"numeric") || is.character(input) && grepl("N[HB]", input) ||
-      is.character(input) && grepl("[[:digit:]]", input)) {
+  if (inherits(g, "condition")) eval(fxn)(input, ...)
+  if (
+    is.numeric(g) ||
+    is.character(input) && all(grepl("N[HB]", input)) ||
+    is.character(input) && all(grepl("[[:digit:]]", input))
+  ) {
     as_fxn <- switch(db,
                      itis = as.tsn,
                      tropicos = as.tpsid,
                      nbn = as.nbnid,
-                     col = as.colid,
                      worms = as.wormsid,
                      iucn = as.iucn)
     if (db == "iucn") return(as_fxn(input, check = TRUE))
@@ -170,8 +163,9 @@ process_syn_ids <- function(input, db, fxn, ...){
 #' @export
 #' @rdname synonyms
 synonyms.tsn <- function(id, ...) {
+  warn_db(list(...), "itis")
   fun <- function(x){
-    if (is.na(x)) { NA } else {
+    if (is.na(x)) { NA_character_ } else {
       is_acc <- rit_acc_name(x, ...)
       if (all(!is.na(is_acc$acceptedName))) {
         accdf <- stats::setNames(
@@ -187,17 +181,20 @@ synonyms.tsn <- function(id, ...) {
         accdf <- data.frame(sub_tsn = x[1], acc_tsn = x[1],
                             stringsAsFactors = FALSE)
       }
-      out <- do.call("rbind", lapply(x, ritis::synonym_names, ...))
-      if (NROW(out) == 0) {
-        out <- data.frame(syn_name = "nomatch", syn_tsn = x[1],
-                          stringsAsFactors = FALSE)
-      } else {
-        out <- stats::setNames(out, c('syn_author', 'syn_name', 'syn_tsn'))
-      }
-      if (as.character(out[1,1]) == 'nomatch') {
-        out <- data.frame(message = "no syns found", stringsAsFactors = FALSE)
-      }
-      cbind(accdf, out)
+
+      res <- Map(function(z, w) {
+        tmp <- ritis::synonym_names(z)
+        if (NROW(tmp) == 0) {
+          tibble::tibble()
+        } else {
+          tmp <- stats::setNames(tmp, c('syn_author', 'syn_name', 'syn_tsn'))
+          cbind(w, tmp, row.names = NULL)
+        }
+        # if (as.character(tmp[1,1]) == 'nomatch') {
+        #   tmp <- data.frame(message = "no syns found", stringsAsFactors = FALSE)
+        # }
+      }, x, split(accdf, seq_len(NROW(accdf))))
+      do.call("rbind", unname(res))
     }
   }
   stats::setNames(lapply(id, fun), id)
@@ -215,46 +212,14 @@ rit_acc_name <- function(x, ...) {
 
 #' @export
 #' @rdname synonyms
-synonyms.colid <- function(id, ...) {
-  fun <- function(x) {
-    if (is.na(x)) {
-      NA
-    } else {
-      col_synonyms(x, ...)
-    }
-  }
-  stats::setNames(lapply(id, fun), id)
-}
-
-col_synonyms <- function(x, ...) {
-  base <- "http://www.catalogueoflife.org/col/webservice"
-  args <- list(id = x[1], response = "full", format = "json")
-  res <- httr::GET(base, query = args, ...)
-  httr::stop_for_status(res)
-  out <- jsonlite::fromJSON(con_utf8(res), FALSE)
-  tmp <- out$results[[1]]
-  if ("synonyms" %in% names(tmp)) {
-    df <- taxize_ldfast(lapply(tmp$synonyms, function(w) {
-      w[sapply(w, length) == 0] <- NA
-      w$references <- NULL
-      data.frame(w, stringsAsFactors = FALSE)
-    }))
-    df$rank <- tolower(df$rank)
-
-    df
-  } else {
-    NULL
-  }
-}
-
-#' @export
-#' @rdname synonyms
 synonyms.tpsid <- function(id, ...) {
+  warn_db(list(...), "topicos")
   fun <- function(x) {
     if (is.na(x)) {
-      NA
+      NA_character_
     } else {
-      tp_synonyms(x, ...)$synonyms
+      res <- tp_synonyms(x, ...)$synonyms
+      if (grepl("no syns found", res[1,1])) tibble::tibble() else res
     }
   }
   stats::setNames(lapply(id, fun), id)
@@ -263,11 +228,13 @@ synonyms.tpsid <- function(id, ...) {
 #' @export
 #' @rdname synonyms
 synonyms.nbnid <- function(id, ...) {
+  warn_db(list(...), "nbn")
   fun <- function(x){
     if (is.na(x)) {
-      NA
+      NA_character_
     } else {
-      nbn_synonyms(x, ...)
+      res <- nbn_synonyms(x, ...)
+      if (length(res) == 0) tibble::tibble() else res
     }
   }
   stats::setNames(lapply(id, fun), id)
@@ -276,11 +243,14 @@ synonyms.nbnid <- function(id, ...) {
 #' @export
 #' @rdname synonyms
 synonyms.wormsid <- function(id, ...) {
+  warn_db(list(...), "worms")
   fun <- function(x) {
     if (is.na(x)) {
-      NA
+      NA_character_
     } else {
-      worrms::wm_synonyms(as.numeric(x), ...)
+      res <- tryCatch(worrms::wm_synonyms(as.numeric(x), ...),
+        error = function(e) e)
+      if (inherits(res, "error")) tibble::tibble() else res
     }
   }
   stats::setNames(lapply(id, fun), id)
@@ -289,12 +259,14 @@ synonyms.wormsid <- function(id, ...) {
 #' @export
 #' @rdname synonyms
 synonyms.iucn <- function(id, ...) {
+  warn_db(list(...), "iucn")
   out <- vector(mode = "list", length = length(id))
   for (i in seq_along(id)) {
     if (is.na(id[[i]])) {
-      out[[i]] <- NA
+      out[[i]] <- NA_character_
     } else {
-      out[[i]] <- rredlist::rl_synonyms(attr(id, "name")[i], ...)$result
+      res <- rredlist::rl_synonyms(attr(id, "name")[i], ...)$result
+      out[[i]] <- if (length(res) == 0) tibble::tibble() else res
     }
   }
   stats::setNames(out, id)
@@ -310,7 +282,7 @@ synonyms.iucn <- function(id, ...) {
 synonyms.ids <- function(id, ...) {
   fun <- function(x){
     if (is.na(x)) {
-      out <- NA
+      out <- NA_character_
     } else {
       out <- synonyms(x, ...)
     }
@@ -333,6 +305,9 @@ synonyms_df.default <- function(x) {
 
 #' @export
 synonyms_df.synonyms <- function(x) {
+  # x <- Filter(function(z) inherits(z[1], "data.frame"), x)
+  x <- Filter(function(z) inherits(z, "data.frame"), x)
+  x <- Filter(function(z) NROW(z) > 0, x)
   (data.table::setDF(
     data.table::rbindlist(x, use.names = TRUE, fill = TRUE, idcol = TRUE)
   ))

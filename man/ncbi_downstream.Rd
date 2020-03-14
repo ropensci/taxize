@@ -17,12 +17,12 @@ correctly. See \code{data(rank_ref)} for spelling.}
 with target taxon rank names, with additional list of data.frame's of
 intermediate taxonomic groups. Default: \code{FALSE}}
 
-\item{...}{Further args passed on to \code{\link{ncbi_children}}}
+\item{...}{Further args passed on to \code{\link[=ncbi_children]{ncbi_children()}}}
 }
 \value{
 Data.frame of taxonomic information downstream to family from e.g.,
-		Order, Class, etc., or if \code{intermediate=TRUE}, list of length two,
-  	with target taxon rank names, and intermediate names.
+Order, Class, etc., or if \code{intermediate=TRUE}, list of length two,
+with target taxon rank names, and intermediate names.
 }
 \description{
 Retrieve all taxa names downstream in hierarchy for NCBI
@@ -34,6 +34,12 @@ rank of "No Rank". So we have no way of programatically knowing what to
 do with that taxon. Of course one can manually look at a name and perhaps
 know what it is, or look it up on the web - but we can't do anything
 programatically. So, no rank things will sometimes be missing.
+}
+
+\section{Authentication}{
+
+See \code{\link[=taxize-authentication]{taxize-authentication()}} for help on authentication.
+We strongly recommend getting an API key
 }
 
 \examples{

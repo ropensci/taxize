@@ -1,0 +1,88 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Branta%20canadensis?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Wed, 08 May 2019 20:54:16 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '733'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: ASCII-8BIT
+      string: eyJuYW1lIjoiQnJhbnRhIGNhbmFkZW5zaXMiLCJyZXN1bHQiOlt7InRheG9uaWQiOjIyNjc5OTM1LCJzY2llbnRpZmljX25hbWUiOiJCcmFudGEgY2FuYWRlbnNpcyIsImtpbmdkb20iOiJBTklNQUxJQSIsInBoeWx1bSI6IkNIT1JEQVRBIiwiY2xhc3MiOiJBVkVTIiwib3JkZXIiOiJBTlNFUklGT1JNRVMiLCJmYW1pbHkiOiJBTkFUSURBRSIsImdlbnVzIjoiQnJhbnRhIiwibWFpbl9jb21tb25fbmFtZSI6IkNhbmFkYSBHb29zZSIsImF1dGhvcml0eSI6IihMaW5uYWV1cywgMTc1OCkiLCJwdWJsaXNoZWRfeWVhciI6MjAxOCwiYXNzZXNzbWVudF9kYXRlIjoiMjAxOC0wOC0wOSIsImNhdGVnb3J5IjoiTEMiLCJjcml0ZXJpYSI6bnVsbCwicG9wdWxhdGlvbl90cmVuZCI6IkluY3JlYXNpbmciLCJtYXJpbmVfc3lzdGVtIjpmYWxzZSwiZnJlc2h3YXRlcl9zeXN0ZW0iOnRydWUsInRlcnJlc3RyaWFsX3N5c3RlbSI6dHJ1ZSwiYXNzZXNzb3IiOiJCaXJkTGlmZSBJbnRlcm5hdGlvbmFsIiwicmV2aWV3ZXIiOiJXaGVhdGxleSwgSC4iLCJhb29fa20yIjpudWxsLCJlb29fa20yIjoiMTI4MDAwMDAiLCJlbGV2YXRpb25fdXBwZXIiOjIwMDAsImVsZXZhdGlvbl9sb3dlciI6bnVsbCwiZGVwdGhfdXBwZXIiOm51bGwsImRlcHRoX2xvd2VyIjpudWxsLCJlcnJhdGFfZmxhZyI6bnVsbCwiZXJyYXRhX3JlYXNvbiI6bnVsbCwiYW1lbmRlZF9mbGFnIjpudWxsLCJhbWVuZGVkX3JlYXNvbiI6bnVsbH1dfQ==
+  recorded_at: 2019-05-08 20:54:18 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Panthera%20uncia?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Wed, 08 May 2019 20:54:17 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '865'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: ASCII-8BIT
+      string: eyJuYW1lIjoiUGFudGhlcmEgdW5jaWEiLCJyZXN1bHQiOlt7InRheG9uaWQiOjIyNzMyLCJzY2llbnRpZmljX25hbWUiOiJQYW50aGVyYSB1bmNpYSIsImtpbmdkb20iOiJBTklNQUxJQSIsInBoeWx1bSI6IkNIT1JEQVRBIiwiY2xhc3MiOiJNQU1NQUxJQSIsIm9yZGVyIjoiQ0FSTklWT1JBIiwiZmFtaWx5IjoiRkVMSURBRSIsImdlbnVzIjoiUGFudGhlcmEiLCJtYWluX2NvbW1vbl9uYW1lIjoiU25vdyBMZW9wYXJkIiwiYXV0aG9yaXR5IjoiKFNjaHJlYmVyLCAxNzc1KSIsInB1Ymxpc2hlZF95ZWFyIjoyMDE3LCJhc3Nlc3NtZW50X2RhdGUiOiIyMDE2LTExLTA4IiwiY2F0ZWdvcnkiOiJWVSIsImNyaXRlcmlhIjoiQzEiLCJwb3B1bGF0aW9uX3RyZW5kIjoiRGVjcmVhc2luZyIsIm1hcmluZV9zeXN0ZW0iOmZhbHNlLCJmcmVzaHdhdGVyX3N5c3RlbSI6ZmFsc2UsInRlcnJlc3RyaWFsX3N5c3RlbSI6dHJ1ZSwiYXNzZXNzb3IiOiJKYWNrc29uLCBSLiwgTWNDYXJ0aHksIFQuLCBNY0NhcnRoeSwgSy4sIE1hbGxvbiwgRC4sIFphaGxlciwgUC4iLCJyZXZpZXdlciI6IkLDtmhtLCBNLiwgUm9zZW4sIFQuLCBCcmVpdGVubW9zZXItV8O8cnN0ZW4sIEMuLCBOb3dlbGwsIEsuLCBMYW56LCBULiwgSGFycmlzLCBSLiwgQnJlaXRlbm1vc2VyLCBVLiwgSHVudGVyLCBMLiIsImFvb19rbTIiOm51bGwsImVvb19rbTIiOiI2Nzg2MjcyIiwiZWxldmF0aW9uX3VwcGVyIjo1ODAwLCJlbGV2YXRpb25fbG93ZXIiOjUwMCwiZGVwdGhfdXBwZXIiOm51bGwsImRlcHRoX2xvd2VyIjpudWxsLCJlcnJhdGFfZmxhZyI6bnVsbCwiZXJyYXRhX3JlYXNvbiI6bnVsbCwiYW1lbmRlZF9mbGFnIjpudWxsLCJhbWVuZGVkX3JlYXNvbiI6bnVsbH1dfQ==
+  recorded_at: 2019-05-08 20:54:18 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Lynx%20lynx?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.1.19
+      date: Wed, 08 May 2019 20:54:18 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '950'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      vary: Accept-Encoding
+    body:
+      encoding: ASCII-8BIT
+      string: eyJuYW1lIjoiTHlueCBseW54IiwicmVzdWx0IjpbeyJ0YXhvbmlkIjoxMjUxOSwic2NpZW50aWZpY19uYW1lIjoiTHlueCBseW54Iiwia2luZ2RvbSI6IkFOSU1BTElBIiwicGh5bHVtIjoiQ0hPUkRBVEEiLCJjbGFzcyI6Ik1BTU1BTElBIiwib3JkZXIiOiJDQVJOSVZPUkEiLCJmYW1pbHkiOiJGRUxJREFFIiwiZ2VudXMiOiJMeW54IiwibWFpbl9jb21tb25fbmFtZSI6IkV1cmFzaWFuIEx5bngiLCJhdXRob3JpdHkiOiIoTGlubmFldXMsIDE3NTgpIiwicHVibGlzaGVkX3llYXIiOjIwMTUsImFzc2Vzc21lbnRfZGF0ZSI6IjIwMTQtMDQtMjAiLCJjYXRlZ29yeSI6IkxDIiwiY3JpdGVyaWEiOm51bGwsInBvcHVsYXRpb25fdHJlbmQiOiJTdGFibGUiLCJtYXJpbmVfc3lzdGVtIjpmYWxzZSwiZnJlc2h3YXRlcl9zeXN0ZW0iOmZhbHNlLCJ0ZXJyZXN0cmlhbF9zeXN0ZW0iOnRydWUsImFzc2Vzc29yIjoiQnJlaXRlbm1vc2VyLCBVLiwgQnJlaXRlbm1vc2VyLVfDvHJzdGVuLCBDLiwgTGFueiwgVC4sIHZvbiBBcngsIE0uLCBBbnRvbmV2aWNoLCBBLiwgQmFvLCBXLiAmIEF2Z2FuLCBCLiIsInJldmlld2VyIjoiTm93ZWxsLCBLLiwgSHVudGVyLCBMLiAmIE1hbGxvbiwgRC4iLCJhb29fa20yIjpudWxsLCJlb29fa20yIjoiNDI3NjUyOTgiLCJlbGV2YXRpb25fdXBwZXIiOjU1MDAsImVsZXZhdGlvbl9sb3dlciI6MCwiZGVwdGhfdXBwZXIiOm51bGwsImRlcHRoX2xvd2VyIjpudWxsLCJlcnJhdGFfZmxhZyI6dHJ1ZSwiZXJyYXRhX3JlYXNvbiI6IkFuIGVycmF0YSB2ZXJzaW9uIG9mIHRoZSBvcmlnaW5hbCBhc3Nlc3NtZW50IGhhcyBiZWVuIHB1Ymxpc2hlZCB0byBjb3JyZWN0IHRoZSB0eXBvIFwiTW1vdW50YWluIEhhcmVzXCIgd2hpY2ggc2hvdWxkIHJlYWQgXCJNb3VudGFpbiBIYXJlc1wiLiIsImFtZW5kZWRfZmxhZyI6bnVsbCwiYW1lbmRlZF9yZWFzb24iOm51bGx9XX0=
+  recorded_at: 2019-05-08 20:54:18 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100

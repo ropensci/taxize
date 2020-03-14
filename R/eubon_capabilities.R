@@ -1,16 +1,17 @@
 #' EUBON capabilities
 #'
 #' @export
-#' @param ... Curl options passed on to \code{\link[httr]{GET}}
-#' @references \url{http://cybertaxonomy.eu/eu-bon/utis/1.2/doc.html}
+#' @param ... Curl options passed on to [crul::verb-GET]
+#' @references <https://cybertaxonomy.eu/eu-bon/utis/1.3/doc.html>
 #' @family eubon-methods
 #' @examples \dontrun{
 #' eubon_capabilities()
 #' }
 eubon_capabilities <- function(...) {
-  res <- httr::GET(file.path(eubon_base(), "capabilities"), ...)
-  httr::stop_for_status(res)
-  tibble::as_data_frame(
-    jsonlite::fromJSON(con_utf8(res), TRUE, flatten = TRUE)
+  res <- crul::HttpClient$new(file.path(eubon_base(), "capabilities"),
+    headers = tx_ual, opts = list(...))$get()
+  res$raise_for_status()
+  tibble::as_tibble(
+    jsonlite::fromJSON(res$parse("UTF-8"), TRUE, flatten = TRUE)
   )
 }

@@ -1,32 +1,33 @@
 #' Get the GBIF backbone taxon ID from taxonomic names.
 #'
 #' @export
-#' @param sciname character; scientific name.
-#' @param ask logical; should get_colid be run in interactive mode?
+#' @param sciname (character) one or more scientific names. Or, a `taxon_state`
+#' object (see [taxon-state])
+#' @param ask logical; should get_gbifid be run in interactive mode?
 #' If TRUE and more than one ID is found for the species, the user is asked for
 #' input. If FALSE NA is returned for multiple matches.
-#' @param verbose logical; If TRUE the actual taxon queried is printed on the console.
+#' @param messages logical; If TRUE the actual taxon queried is printed on the console.
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, all rows are considered.
 #' Note that this function still only gives back a gbifid class object with one to many identifiers.
-#' See \code{\link[taxize]{get_gbifid_}} to get back all, or a subset, of the raw data that you are
+#' See [get_gbifid_()] to get back all, or a subset, of the raw data that you are
 #' presented during the ask process.
-#' @param phylum (character) A phylum (aka division) name. Optional. See \code{Filtering}
+#' @param phylum (character) A phylum (aka division) name. Optional. See `Filtering`
 #' below.
-#' @param class (character) A class name. Optional. See \code{Filtering} below.
-#' @param order (character) An order name. Optional. See \code{Filtering} below.
-#' @param family (character) A family name. Optional. See \code{Filtering} below.
-#' @param rank (character) A taxonomic rank name. See \code{\link{rank_ref}} for possible
+#' @param class (character) A class name. Optional. See `Filtering` below.
+#' @param order (character) An order name. Optional. See `Filtering` below.
+#' @param family (character) A family name. Optional. See `Filtering` below.
+#' @param rank (character) A taxonomic rank name. See [rank_ref()] for possible
 #' options. Though note that some data sources use atypical ranks, so inspect the
-#' data itself for options. Optional. See \code{Filtering} below.
+#' data itself for options. Optional. See `Filtering` below.
 #' @param method (character) one of "backbone" or "lookup". See Details.
-#' @param x Input to \code{\link{as.gbifid}}
+#' @param x Input to [as.gbifid()]
 #' @param check logical; Check if ID matches any existing on the DB, only used in
-#' \code{\link{as.gbifid}}
+#' [as.gbifid()]
 #' @param ... Ignored
 #' @template getreturn
 #'
 #' @family taxonomic-ids
-#' @seealso \code{\link[taxize]{classification}}
+#' @seealso [classification()]
 #'
 #' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
 #'
@@ -35,24 +36,31 @@
 #' exact match we return the options to you to pick from.
 #'
 #' @section method parameter:
-#' "backbone" uses the \code{/species/match} GBIF API route, matching against their
+#' "backbone" uses the `/species/match` GBIF API route, matching against their
 #' backbone taxonomy. We turn on fuzzy matching by default, as the search without
-#' fuzzy against backbone is quite narrow. "lookup" uses the \code{/species/search}
+#' fuzzy against backbone is quite narrow. "lookup" uses the `/species/search`
 #' GBIF API route, doing a full text search of name usages covering scientific
 #' and vernacular named, species descriptions, distributions and the entire
 #' classification.
 #'
 #' @section Filtering:
-#' The parameters \code{phylum}, \code{class}, \code{order}, \code{family}, and \code{rank}
-#' are not used in the search to the data provider, but are used in filtering the data down
+#' The parameters `phylum`, `class`, `order`, `family`, and `rank` are not used
+#' in the search to the data provider, but are used in filtering the data down
 #' to a subset that is closer to the target you want.  For all these parameters,
-#' you can use regex strings since we use \code{\link{grep}} internally to match.
+#' you can use regex strings since we use [grep()] internally to match.
 #' Filtering narrows down to the set that matches your query, and removes the rest.
 #'
 #' @examples \dontrun{
 #' get_gbifid(sciname='Poa annua')
 #' get_gbifid(sciname='Pinus contorta')
 #' get_gbifid(sciname='Puma concolor')
+#' 
+#' #lots of queries
+#' spp <- names_list("species", 10)
+#' res <- get_gbifid(spp)
+#' res
+#' xx <- taxon_last()
+#' xx
 #'
 #' # multiple names
 #' get_gbifid(c("Poa annua", "Pinus contorta"))
@@ -113,57 +121,72 @@
 #' get_gbifid_(c("Pinus", "Puma"), rows=1:5)
 #'
 #' # use curl options
-#' library("httr")
-#' get_gbifid("Quercus douglasii", config=verbose())
-#' bb <- get_gbifid("Quercus douglasii", config=progress())
+#' invisible(get_gbifid("Quercus douglasii", verbose = TRUE))
 #' }
 
-get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
+get_gbifid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA,
                        phylum = NULL, class = NULL, order = NULL,
-                       family = NULL, rank = NULL, method = "backbone", ...) {
+                       family = NULL, rank = NULL, method = "backbone", 
+                       ...) {
 
+  assert(sciname, c("character", "taxon_state"))
   assert(ask, "logical")
-  assert(verbose, "logical")
+  assert(messages, "logical")
   assert(phylum, "character")
   assert(class, "character")
   assert(order, "character")
   assert(family, "character")
   assert(rank, "character")
   assert(method, "character")
+  assert_rows(rows)
 
-  fun <- function(sciname, ask, verbose, rows, ...) {
+  if (inherits(sciname, "character")) {
+    tstate <- taxon_state$new(class = "gbifid", names = sciname)
+    items <- sciname
+  } else {
+    assert_state(sciname, "gbifid")
+    tstate <- sciname
+    sciname <- tstate$taxa_remaining()
+    items <- c(sciname, tstate$taxa_completed())
+  }
+
+  prog <- progressor$new(items = items, suppress = !messages)
+  done <- tstate$get()
+  for (i in seq_along(done)) prog$completed(names(done)[i], done[[i]]$att)
+  prog$prog_start()
+
+  for (i in seq_along(sciname)) {
     direct <- FALSE
-    mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
+    mssg(messages, "\nRetrieving data for taxon '", sciname[i], "'\n")
     df <- switch(
       method,
-      backbone = gbif_name_backbone(sciname, ...),
-      lookup = gbif_name_lookup(sciname, ...)
+      backbone = gbif_name_backbone(sciname[i], ...),
+      lookup = gbif_name_lookup(sciname[i], ...)
     )
     mm <- NROW(df) > 1
 
     if (is.null(df)) df <- data.frame(NULL)
 
     if (nrow(df) == 0) {
-      mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
+      mssg(messages, m_not_found_sp_altclass)
       id <- NA_character_
       att <- "not found"
     } else {
-      names(df)[1] <- 'gbifid'
+      names(df)[1] <- "gbifid"
       id <- df$gbifid
       att <- "found"
     }
 
     # not found
     if (length(id) == 0) {
-      mssg(verbose, "Not found. Consider checking the spelling or alternate classification")
+      mssg(messages, m_not_found_sp_altclass)
       id <- NA_character_
       att <- "not found"
     }
 
-    # more than one found -> user input
     if (length(id) > 1) {
       # check for exact match
-      matchtmp <- df[as.character(df$canonicalname) %in% sciname, "gbifid"]
+      matchtmp <- df[as.character(df$canonicalname) %in% sciname[i], "gbifid"]
       if (length(matchtmp) == 1) {
         id <- as.character(matchtmp)
         direct <- TRUE
@@ -189,6 +212,7 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
           }
         }
 
+        # more than one found -> user input
         if (length(id) > 1) {
           if (ask) {
             # limit to subset of columns for ease of use
@@ -198,7 +222,7 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
 
             # prompt
             message("\n\n")
-            message("\nMore than one GBIF ID found for taxon '", sciname, "'!\n
+            message("\nMore than one GBIF ID found for taxon '", sciname[i], "'!\n
             Enter rownumber of taxon (other inputs will return 'NA'):\n")
             rownames(df) <- 1:nrow(df)
             print(df)
@@ -217,30 +241,32 @@ get_gbifid <- function(sciname, ask = TRUE, verbose = TRUE, rows = NA,
             } else {
               id <- NA_character_
               att <- "not found"
-              mssg(verbose, "\nReturned 'NA'!\n\n")
+              mssg(messages, "\nReturned 'NA'!\n\n")
             }
           } else {
             if (length(id) != 1) {
-              warning(
-                sprintf("More than one GBIF ID found for taxon '%s'; refine query or set ask=TRUE",
-                        sciname),
-                call. = FALSE
-              )
+              warning(sprintf(m_more_than_one_found, "gbifid", sciname[i]),
+                call. = FALSE)
               id <- NA_character_
-              att <- 'NA due to ask=FALSE & > 1 result'
+              att <- m_na_ask_false
             }
           }
         }
       }
     }
-    list(id = id, att = att, multiple = mm, direct = direct)
+    res <- list(id = id, att = att, multiple = mm, direct = direct)
+    prog$completed(sciname[i], att)
+    prog$prog(att)
+    tstate$add(sciname[i], res)
   }
-  out <- lapply(as.character(sciname), fun, ask, verbose, rows, ...)
+  out <- tstate$get()
   ids <- structure(as.character(unlist(pluck(out, "id"))), class = "gbifid",
-                   match = pluck(out, "att", ""),
-                   multiple_matches = pluck(out, "multiple", logical(1)),
-                   pattern_match = pluck(out, "direct", logical(1)))
-  add_uri(ids, 'http://www.gbif.org/species/%s')
+                   match = pluck_un(out, "att", ""),
+                   multiple_matches = pluck_un(out, "multiple", logical(1)),
+                   pattern_match = pluck_un(out, "direct", logical(1)))
+  on.exit(prog$prog_summary(), add = TRUE)
+  on.exit(tstate$exit, add = TRUE)
+  add_uri(ids, get_url_templates$gbif)
 }
 
 #' @export
@@ -283,7 +309,7 @@ as.data.frame.gbifid <- function(x, ...){
              stringsAsFactors = FALSE)
 }
 
-make_gbifid <- function(x, check=TRUE) make_generic(x, 'http://www.gbif.org/species/%s', "gbifid", check)
+make_gbifid <- function(x, check=TRUE) make_generic(x, 'https://www.gbif.org/species/%s', "gbifid", check)
 
 check_gbifid <- function(x){
   tryid <- tryCatch(gbif_name_usage(key = x), error = function(e) e)
@@ -292,12 +318,12 @@ check_gbifid <- function(x){
 
 #' @export
 #' @rdname get_gbifid
-get_gbifid_ <- function(sciname, verbose = TRUE, rows = NA, method = "backbone"){
-  setNames(lapply(sciname, get_gbifd_help, verbose = verbose, rows = rows, method = method), sciname)
+get_gbifid_ <- function(sciname, messages = TRUE, rows = NA, method = "backbone"){
+  setNames(lapply(sciname, get_gbifd_help, messages = messages, rows = rows, method = method), sciname)
 }
 
-get_gbifd_help <- function(sciname, verbose, rows, method){
-  mssg(verbose, "\nRetrieving data for taxon '", sciname, "'\n")
+get_gbifd_help <- function(sciname, messages, rows, method){
+  mssg(messages, "\nRetrieving data for taxon '", sciname, "'\n")
   df <- switch(
     method,
     backbone = gbif_name_backbone(sciname),

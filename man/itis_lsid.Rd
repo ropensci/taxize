@@ -11,8 +11,8 @@ itis_lsid(lsid = NULL, what = "tsn", ...)
 
 \item{what}{What to retrieve. One of tsn, record, or fullrecord}
 
-\item{...}{Further arguments passed on to \code{\link[ritis]{lsid2tsn}},
-\code{\link[ritis]{record}}, or \code{\link[ritis]{full_record}}}
+\item{...}{Further arguments passed on to \code{\link[ritis:lsid2tsn]{ritis::lsid2tsn()}},
+\code{\link[ritis:record]{ritis::record()}}, or \code{\link[ritis:full_record]{ritis::full_record()}}}
 }
 \description{
 Get TSN from LSID

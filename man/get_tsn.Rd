@@ -12,8 +12,15 @@
 \alias{get_tsn_}
 \title{Get the TSN code for a search term.}
 \usage{
-get_tsn(searchterm, searchtype = "scientific", accepted = FALSE,
-  ask = TRUE, verbose = TRUE, rows = NA, ...)
+get_tsn(
+  searchterm,
+  searchtype = "scientific",
+  accepted = FALSE,
+  ask = TRUE,
+  messages = TRUE,
+  rows = NA,
+  ...
+)
 
 as.tsn(x, check = TRUE)
 
@@ -29,34 +36,44 @@ as.tsn(x, check = TRUE)
 
 \method{as.data.frame}{tsn}(x, ...)
 
-get_tsn_(searchterm, verbose = TRUE, searchtype = "scientific",
-  accepted = TRUE, rows = NA, ...)
+get_tsn_(
+  searchterm,
+  messages = TRUE,
+  searchtype = "scientific",
+  accepted = TRUE,
+  rows = NA,
+  ...
+)
 }
 \arguments{
-\item{searchterm}{character; A vector of common or scientific names.}
+\item{searchterm}{character; A vector of common or scientific names.
+Or, a \code{taxon_state} object (see \link{taxon-state})}
 
-\item{searchtype}{character; One of 'scientific' or 'common', or any unique abbreviation}
+\item{searchtype}{character; One of 'scientific' or 'common', or any
+unique abbreviation}
 
-\item{accepted}{logical; If TRUE, removes names that are not accepted valid names
-by ITIS. Set to \code{FALSE} (default) to give back both accepted and unaccepted names.}
+\item{accepted}{logical; If TRUE, removes names that are not accepted valid
+names by ITIS. Set to \code{FALSE} (default) to give back both accepted
+and unaccepted names.}
 
 \item{ask}{logical; should get_tsn be run in interactive mode?
-If \code{TRUE} and more than one TSN is found for the species, the user is asked for
-input. If \code{FALSE} NA is returned for multiple matches.}
+If \code{TRUE} and more than one TSN is found for the species, the user is
+asked for input. If \code{FALSE} NA is returned for multiple matches.}
 
-\item{verbose}{logical; should progress be printed?}
+\item{messages}{logical; should progress be printed?}
 
-\item{rows}{numeric; Any number from 1 to infinity. If the default NA, all rows are considered.
-Note that this function still only gives back a tsn class object with one to many identifiers.
-See \code{\link[taxize]{get_tsn_}} to get back all, or a subset, of the raw data that you are
-presented during the ask process.}
+\item{rows}{numeric; Any number from 1 to infinity. If the default NA, all
+rows are considered. Note that this function still only gives back a tsn
+class object with one to many identifiers. See
+\code{\link[=get_tsn_]{get_tsn_()}} to get back all, or a subset, of the raw
+data that you are presented during the ask process.}
 
 \item{...}{Ignored}
 
 \item{x}{Input to as.tsn}
 
-\item{check}{logical; Check if ID matches any existing on the DB, only used in
-\code{\link{as.tsn}}}
+\item{check}{logical; Check if ID matches any existing on the DB, only
+used in \code{\link[=as.tsn]{as.tsn()}}}
 }
 \value{
 A vector of taxonomic identifiers as an S3 class.
@@ -79,7 +96,7 @@ get_tsn("Chironomus riparius")
 get_tsn(c("Chironomus riparius","Quercus douglasii"))
 splist <- c("annona cherimola", 'annona muricata', "quercus robur",
 		"shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")
-get_tsn(splist, verbose=FALSE)
+get_tsn(splist, messages=FALSE)
 
 # specify rows to limit choices available
 get_tsn('Arni')
@@ -119,13 +136,21 @@ get_tsn_(c("asdfadfasd","Pinus contorta"), rows=1:5)
 }
 }
 \seealso{
-\code{\link[taxize]{classification}}
+\code{\link[=classification]{classification()}}
 
-Other taxonomic-ids: \code{\link{get_boldid}},
-  \code{\link{get_colid}}, \code{\link{get_eolid}},
-  \code{\link{get_gbifid}}, \code{\link{get_ids}},
-  \code{\link{get_iucn}}, \code{\link{get_natservid}},
-  \code{\link{get_nbnid}}, \code{\link{get_tolid}},
-  \code{\link{get_tpsid}}, \code{\link{get_uid}},
-  \code{\link{get_wiki}}, \code{\link{get_wormsid}}
+Other taxonomic-ids: 
+\code{\link{get_boldid}()},
+\code{\link{get_eolid}()},
+\code{\link{get_gbifid}()},
+\code{\link{get_ids}()},
+\code{\link{get_iucn}()},
+\code{\link{get_natservid}()},
+\code{\link{get_nbnid}()},
+\code{\link{get_pow}()},
+\code{\link{get_tolid}()},
+\code{\link{get_tpsid}()},
+\code{\link{get_uid}()},
+\code{\link{get_wiki}()},
+\code{\link{get_wormsid}()}
 }
+\concept{taxonomic-ids}

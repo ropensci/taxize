@@ -77,7 +77,6 @@ data_citations <- function(x){
     itis_terms = list(itis = c_itis),
     apg_lookup = list(apg = c_apg),
     as.boldid = list(bold = c_bold),
-    as.colid = list(col = c_col),
     as.eolid = list(eol = c_eol),
     as.gbifid = list(gbif = c_gbif),
     as.natservid = list(natserv = c_natureserve),
@@ -90,18 +89,13 @@ data_citations <- function(x){
     bold_search = list(bold = c_bold),
     cbind.classification = list(none = c_none),
     cbind.classification_ids = list(none = c_none),
-    children = list(itis = c_itis, col = c_col, ncbi = c_ncbi, worms = c_worms),
+    children = list(itis = c_itis, ncbi = c_ncbi, worms = c_worms),
     class2tree = list(none = c_none),
-    classification = list(itis = c_itis, col = c_col, ncbi = c_ncbi,
+    classification = list(itis = c_itis, ncbi = c_ncbi,
                           gbif = c_gbif, eol = c_eol, troicos = c_tropicos,
                           nbn = c_nbn, worms = c_worms, natserv = c_natureserve),
-    col_children = list(col = c_col),
-    col_classification = list(col = c_col),
-    col_downstream = list(col = c_col),
-    col_ping = list(col = c_col),
-    col_search = list(col = c_col),
     comm2sci = list(c_itis, c_ncbi, c_eol, c_tropicos, worms = c_worms),
-    downstream = list(itis = c_itis, col = c_col),
+    downstream = list(itis = c_itis),
     eol_dataobjects = list(eol = c_eol),
     eol_hierarchy = list(eol = c_eol),
     eol_invasive = list(eol = c_eol),
@@ -114,15 +108,13 @@ data_citations <- function(x){
     genbank2uid = list(genbank = c_genbank),
     get_boldid = list(bold = c_bold),
     get_boldid_ = list(bold = c_bold),
-    get_colid = list(col = c_col),
-    get_colid_ = list(col = c_col),
     get_eolid = list(eol = c_eol),
     get_eolid_ = list(eol = c_eol),
     get_gbifid = list(gbif = c_gbif),
     get_gbifid_ = list(gbif = c_gbif),
-    get_ids = list(itis = c_itis, col = c_col, ncbi = c_ncbi, gbif = c_gbif, eol = c_eol,
+    get_ids = list(itis = c_itis, ncbi = c_ncbi, gbif = c_gbif, eol = c_eol,
                    tropicos = c_tropicos, nbn = c_nbn),
-    get_ids_ = list(itis = c_itis, col = c_col, ncbi = c_ncbi, gbif = c_gbif, eol = c_eol,
+    get_ids_ = list(itis = c_itis, ncbi = c_ncbi, gbif = c_gbif, eol = c_eol,
                     tropicos = c_tropicos, nbn = c_nbn),
     get_natservid = list(natserv = c_natureserve),
     get_natservid_ = list(natserv = c_natureserve),
@@ -167,7 +159,7 @@ data_citations <- function(x){
     resolve = list(global_names = c_gnames, iplant = c_iplant),
     sci2comm = list(itis = c_itis, ncbi = c_ncbi, eol = c_eol, worms = c_worms),
     scrapenames = list(global_names = c_gnames),
-    synonyms = list(itis = c_itis, col = c_col, tropicos = c_tropicos,
+    synonyms = list(itis = c_itis, tropicos = c_tropicos,
                     nbn = c_nbn, worms = c_worms),
     tax_agg = list(itis = c_itis, ncbi = c_ncbi),
     tax_name = list(itis = c_itis, ncbi = c_ncbi),
@@ -186,7 +178,7 @@ data_citations <- function(x){
     tpl_get = list(theplantlist = c_plist),
     tpl_search = list(theplantlist = c_plist),
     tropicos_ping = list(theplantlist = c_plist),
-    upstream = list(c_itis, c_col),
+    upstream = list(c_itis),
     vascan_ping = list(vascan = c_vascan),
     vascan_search = list(vascan = c_vascan),
     taxize = citation("taxize")
@@ -195,13 +187,13 @@ data_citations <- function(x){
 
 data_licenses <- function(x){
   switch(x,
-    taxize = list(license = "MIT", url = "http://opensource.org/licenses/MIT")
+    taxize = list(license = "MIT", url = "https://opensource.org/licenses/MIT")
   )
 }
 
-c_itis_url <- "http://www.itis.gov/"
-c_itis_api <- "http://www.itis.gov/ws_description.html"
-c_itis_citation <- "Retrieved [month, day, year], from the Integrated Taxonomic Information System on-line database, http://www.itis.gov."
+c_itis_url <- "https://www.itis.gov/"
+c_itis_api <- "https://www.itis.gov/ws_description.html"
+c_itis_citation <- "Retrieved [month, day, year], from the Integrated Taxonomic Information System on-line database, https://www.itis.gov."
 c_itis <- list(url_home = c_itis_url, apidocs = c_itis_api, citation = c_itis_citation)
 c_eol <- list(url_home = 'http://eol.org/', apidocs = 'http://eol.org/api/')
 c_gbif = list(url_home = 'http://www.gbif.org', apidocs = 'http://www.gbif.org/developer/summary',
@@ -220,16 +212,14 @@ c_ncbi <- list(url_home = "http://www.ncbi.nlm.nih.gov/taxonomy", apidocs = "htt
                citation = "Federhen S: The NCBI Taxonomy database. Nucleic Acids Res 2012, 40 (Database issue): D136-D143.")
 c_genbank <- list(url_home = "http://www.ncbi.nlm.nih.gov/genbank/", apidocs = "http://www.ncbi.nlm.nih.gov/books/NBK25501/",
                   citation = 'Bilofsky, Howard S., and Burks Christian. "The GenBank genetic sequence data bank." Nucleic acids research 16.5 (1988): 1861-1863.')
-c_col <- list(url_home = "http://www.catalogueoflife.org/", apidocs = "http://www.catalogueoflife.org/content/web-services",
-              citation = "See > http://www.catalogueoflife.org/col/info/cite")
 c_iplant <- list(url_home = "http://tnrs.iplantcollaborative.org/", apidocs = "http://tnrs.iplantcollaborative.org/api.html",
               citation = 'Boyle, B. et al. 2013. The taxonomic name resolution service: an online tool for automated standardization of plant names. BMC bioinformatics 14:16. doi:10.1186/1471-2105-14-16')
 c_gnames <- list(url_home = "http://gnrd.globalnames.org/", apidocs = "http://gnrd.globalnames.org/api", citation = NULL)
 c_gni <- list(url_home = "http://gni.globalnames.org/", apidocs = "https://github.com/dimus/gni/wiki/api", citation = NULL)
 c_bold <- list(url_home = "http://www.boldsystems.org/", apidocs = "http://www.boldsystems.org/index.php/resources/api",
                citation = "Ratnasingham, S., & Hebert, P. D. (2007). BOLD: The Barcode of Life Data System (http://www. barcodinglife. org). Molecular ecology notes, 7(3), 355-364.")
-c_iucn <- list(url_home = "http://www.iucn.org/", apidocs = NULL,
-               citation = "IUCN 2015. The IUCN Red List of Threatened Species. Version 2015.1. <http://www.iucnredlist.org>. Downloaded on <date>.")
+c_iucn <- list(url_home = "https://www.iucn.org/", apidocs = NULL,
+               citation = "IUCN 2015. The IUCN Red List of Threatened Species. Version 2015.1. <https://www.iucnredlist.org>. Downloaded on <date>.")
 c_ipni <- list(url_home = "http://www.ipni.org/", apidocs = "http://www.ipni.org/ipni/advPlantNameSearch.do",
                citation = "The International Plant Names Index (<year>). Published on the Internet http://www.ipni.org [accessed <date>]")
 c_apg <- list(url_home = "http://www.mobot.org/MOBOT/research/APweb/", apidocs = NULL,

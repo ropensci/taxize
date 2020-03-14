@@ -7,27 +7,29 @@
 tpl_families(...)
 }
 \arguments{
-\item{...}{(list) Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{(list) Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
-Returns a \code{data.frame} including the names of all families indexed
-by The Plant List, and the major groups into which they fall (i.e. Angiosperms,
-Gymnosperms, Bryophytes and Pteridophytes).
+Returns a \code{data.frame} including the names of all families
+indexed by The Plant List, and the major groups into which they fall
+(i.e. Angiosperms, Gymnosperms, Bryophytes and Pteridophytes).
 }
 \description{
 Get The Plant List families.
 }
 \details{
-Requires an internet connection in order to connect to www.theplantlist.org.
+Requires an internet connection in order to connect to
+<www.theplantlist.org>.
 }
 \examples{
 \dontrun{
-# Get a data.frame of plant families, with the group name (Angiosperms, etc.)
-head( tpl_families() )
+# Get a data.frame of plant families, with the group name 
+# (Angiosperms, etc.)
+head(tpl_families())
 }
 }
 \seealso{
-\code{\link{tpl_get}}
+\code{\link[=tpl_get]{tpl_get()}}
 }
 \author{
 John Baumgartner (johnbb@student.unimelb.edu.au)
