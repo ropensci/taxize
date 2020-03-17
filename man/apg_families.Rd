@@ -4,13 +4,15 @@
 \name{apg_families}
 \alias{apg_families}
 \title{MOBOT family names}
-\format{A data frame with 1597 rows and 4 variables:
+\format{
+A data frame with 1597 rows and 4 variables:
 \itemize{
 \item \code{original} original data record from APG website
 \item \code{this} Order name
 \item \code{that} Replacement order name
 \item \code{order} Order name
-}}
+}
+}
 \source{
 \url{http://www.mobot.org/MOBOT/research/APweb/}
 }

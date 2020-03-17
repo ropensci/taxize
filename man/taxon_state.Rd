@@ -99,6 +99,7 @@ ts$count
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
 \subsection{Method \code{new()}}{
 Create a new \code{taxon_state} object
 \subsection{Usage}{
@@ -120,6 +121,7 @@ A new \code{taxon_state} object
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-print"></a>}}
+\if{latex}{\out{\hypertarget{method-print}{}}}
 \subsection{Method \code{print()}}{
 print method for the \code{taxon_state} class
 \subsection{Usage}{
@@ -138,6 +140,7 @@ print method for the \code{taxon_state} class
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-add"></a>}}
+\if{latex}{\out{\hypertarget{method-add}{}}}
 \subsection{Method \code{add()}}{
 add a record with it's result; duplicates allowed
 \subsection{Usage}{
@@ -159,6 +162,7 @@ nothing returned; sets only
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-get"></a>}}
+\if{latex}{\out{\hypertarget{method-get}{}}}
 \subsection{Method \code{get()}}{
 get all records matching 'query'
 \subsection{Usage}{
@@ -179,6 +183,7 @@ named by the taxon name
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-remove"></a>}}
+\if{latex}{\out{\hypertarget{method-remove}{}}}
 \subsection{Method \code{remove()}}{
 remove's all records matching 'query'
 \subsection{Usage}{
@@ -198,6 +203,7 @@ nothing, removes records matching query
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-purge"></a>}}
+\if{latex}{\out{\hypertarget{method-purge}{}}}
 \subsection{Method \code{purge()}}{
 removes all records
 \subsection{Usage}{
@@ -210,6 +216,7 @@ nothing returned; sets only
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-taxa_remaining"></a>}}
+\if{latex}{\out{\hypertarget{method-taxa_remaining}{}}}
 \subsection{Method \code{taxa_remaining()}}{
 get remaining taxa
 \subsection{Usage}{
@@ -222,6 +229,7 @@ sorted taxon names
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-taxa_completed"></a>}}
+\if{latex}{\out{\hypertarget{method-taxa_completed}{}}}
 \subsection{Method \code{taxa_completed()}}{
 get completed taxa
 \subsection{Usage}{
@@ -234,6 +242,7 @@ sorted taxon names
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

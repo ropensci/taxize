@@ -70,6 +70,7 @@ methods for preparing/printing info for prompts for \verb{get_*} functions
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
 \subsection{Method \code{new()}}{
 Create a new \code{progressor} object
 \subsection{Usage}{
@@ -91,6 +92,7 @@ A new \code{progressor} object
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-completed"></a>}}
+\if{latex}{\out{\hypertarget{method-completed}{}}}
 \subsection{Method \code{completed()}}{
 add results to found or not found
 \subsection{Usage}{
@@ -112,6 +114,7 @@ nothing returned; adds to \verb{$found} or \verb{$not_found}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-completed_found"></a>}}
+\if{latex}{\out{\hypertarget{method-completed_found}{}}}
 \subsection{Method \code{completed_found()}}{
 add to found results
 \subsection{Usage}{
@@ -131,6 +134,7 @@ nothing returned; adds to \verb{$found}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-completed_not_found"></a>}}
+\if{latex}{\out{\hypertarget{method-completed_not_found}{}}}
 \subsection{Method \code{completed_not_found()}}{
 add to not found results
 \subsection{Usage}{
@@ -150,6 +154,7 @@ nothing returned; adds to \verb{$not_found}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-prog_start"></a>}}
+\if{latex}{\out{\hypertarget{method-prog_start}{}}}
 \subsection{Method \code{prog_start()}}{
 print messages of total queries to do, and
 percent completed
@@ -160,6 +165,7 @@ percent completed
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-prog"></a>}}
+\if{latex}{\out{\hypertarget{method-prog}{}}}
 \subsection{Method \code{prog()}}{
 prints message of found or not found using packages
 cli and crayon
@@ -180,6 +186,7 @@ messages
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-prog_found"></a>}}
+\if{latex}{\out{\hypertarget{method-prog_found}{}}}
 \subsection{Method \code{prog_found()}}{
 prints found message using packages cli and crayon
 \subsection{Usage}{
@@ -192,6 +199,7 @@ messages
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-prog_not_found"></a>}}
+\if{latex}{\out{\hypertarget{method-prog_not_found}{}}}
 \subsection{Method \code{prog_not_found()}}{
 prints not found message using packages cli and crayon
 \subsection{Usage}{
@@ -204,6 +212,7 @@ messages
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-prog_summary"></a>}}
+\if{latex}{\out{\hypertarget{method-prog_summary}{}}}
 \subsection{Method \code{prog_summary()}}{
 prints summary at end of result with total found and
 not found
@@ -217,6 +226,7 @@ messages
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

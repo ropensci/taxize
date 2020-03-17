@@ -4,12 +4,14 @@
 \name{apg_orders}
 \alias{apg_orders}
 \title{MOBOT order names}
-\format{A data frame with 494 rows and 3 variables:
+\format{
+A data frame with 494 rows and 3 variables:
 \itemize{
 \item \code{original} original data record from APG website
 \item \code{this} Order name
 \item \code{that} Replacement order name
-}}
+}
+}
 \source{
 \url{http://www.mobot.org/MOBOT/research/APweb/}
 }

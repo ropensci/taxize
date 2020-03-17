@@ -4,7 +4,9 @@
 \name{plantGenusNames}
 \alias{plantGenusNames}
 \title{Vector of plant genus names from ThePlantList}
-\format{A vector of length 793}
+\format{
+A vector of length 793
+}
 \source{
 http://www.theplantlist.org
 }

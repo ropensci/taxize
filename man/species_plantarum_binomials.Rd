@@ -4,7 +4,8 @@
 \name{species_plantarum_binomials}
 \alias{species_plantarum_binomials}
 \title{Species names from Species Plantarum}
-\format{A data frame with 5940 rows and 3 variables:
+\format{
+A data frame with 5940 rows and 3 variables:
 \itemize{
 \item genus First part of the binomial species name for each species
 within the \href{https://en.wikipedia.org/wiki/Genus}{genus}
@@ -21,7 +22,8 @@ the index in volume two.
 on the cancelled version of that page and does not appear on its
 replacement (as in the 1957-1959 facsimile edition.
 }
-}}
+}
+}
 \source{
 \href{http://fmhibd.library.cmu.edu/HIBD-DB/Species/home.php}{Hunt Institute for Botanical Documentation}
 }
