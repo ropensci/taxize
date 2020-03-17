@@ -185,6 +185,7 @@ taxa2dist <- function(x, varstep = FALSE, check = TRUE, labels) {
 }
 
 #' Get full taxonomy ranks and IDs
+#' @noRd
 #' @author Vinh Tran {tran@bio.uni-frankfurt.de}
 get_rank <- function (x) {
   rank_df <- x[, 'rank']
@@ -207,6 +208,7 @@ get_rank <- function (x) {
 }
 
 #' Get taxonomy names and IDs for all ranks
+#' @noRd
 #' @author Vinh Tran {tran@bio.uni-frankfurt.de}
 get_name <- function (x) {
   rank_df <- x[, 'rank']
@@ -231,6 +233,7 @@ get_name <- function (x) {
 }
 
 #' Indexing all available ranks (including norank)
+#' @noRd
 #' @param rankList dataframe, whose each row is a rank list of a taxon
 #' @return A dataframe containing a list of all possible ranks and their indexed
 #' values.
@@ -315,12 +318,12 @@ rank_indexing <- function (rankList) {
 }
 
 #' Align NCBI taxonomy IDs of list of taxa into a sorted rank list
+#' @noRd
 #' @param nameList a dataframe whose each row is a rank+ID list of a taxon
 #' @param rankList a dataframe whose each row is a rank list of a taxon
 #' @return An aligned taxonomy dataframe which contains all the available
 #' taxonomy ranks from the id list and rank list
 #' @author Vinh Tran {tran@bio.uni-frankfurt.de}
-#' @import data.table
 taxonomy_table_creator <- function (nameList, rankList) {
   colnames(nameList)[1] <- "tip"
   # get indexed rank list
