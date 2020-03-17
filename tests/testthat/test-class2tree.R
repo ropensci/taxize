@@ -1,14 +1,12 @@
 context("class2tree")
 
-spnames <- c('Homo_sapiens','Pan_troglodytes','Macaca_mulatta','Mus_musculus',
-             'Rattus_norvegicus','Bos_taurus','Canis_lupus',
-             'Ornithorhynchus_anatinus','Xenopus_tropicalis',
-             'Takifugu_rubripes','Gallus_gallus','Ciona_intestinalis',
-             'Branchiostoma_floridae','Schistosoma_mansoni',
-             'Caenorhabditis_elegans','Anopheles_gambiae',
-             'Drosophila_melanogaster','Ixodes_scapularis',
-             'Ustilago_maydis','Neurospora_crassa','Monodelphis_domestica',
-             'Danio_rerio','Nematostella_vectensis','Cryptococcus_neoformans')
+spnames <- c("Klattia flava", "Trollius sibiricus", "Arachis paraguariensis",
+             "Tanacetum boreale", "Gentiana yakushimensis", "Sesamum schinzianum",
+             "Pilea verrucosa", "Tibouchina striphnocalyx", "Lycium dasystemum",
+             "Berkheya echinacea", "Androcymbium villosum",
+             "Helianthus annuus", "Madia elegans", "Lupinus albicaulis",
+             "Pinus lambertiana", "Haloarcula amylolytica JCM 13557",
+             "Halomonas sp. 'Soap Lake #6'")
 
 dupnames <- c("Mus musculus", "Escherichia coli",
               "Haloferax denitrificans", "Mus musculus")
