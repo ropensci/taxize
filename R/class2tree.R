@@ -266,6 +266,7 @@ rank_indexing <- function (rankList) {
     subList <- subList[filter]
     ## indexing
     tmpEnv <- new.env(hash = TRUE)
+    flag <- 0
     for (i in seq_len(length(subList))) {
       iRank <- subList[i]
       if (is.null(rank2index[[iRank]])) {
@@ -281,23 +282,40 @@ rank_indexing <- function (rankList) {
       } else {
         # for old rank
         if (i > 1) {
-          if (rank2index[[iRank]] < tmpEnv[[subList[i-1]]]) {
-            tmpEnv[[iRank]] <- tmpEnv[[subList[i-1]]] + 1
-            for (
-              r in 
-              ls(rank2index)[!(ls(rank2index) %in% ls(tmpEnv))]
-            ) {
-              if (rank2index[[r]] >= tmpEnv[[subList[i-1]]]) {
-                tmpEnv[[r]] <- 
-                  rank2index[[r]] + tmpEnv[[iRank]] - 
-                  rank2index[[iRank]]
+          if (flag == 0) {
+            currentIndex <- rank2index[[iRank]]
+          } else {
+            currentIndex <- tmpEnv[[iRank]]
+          }
+          if (currentIndex <= tmpEnv[[subList[i-1]]]) {
+            if (flag == 0) {
+              tmpEnv[[iRank]] <- tmpEnv[[subList[i-1]]] + 1
+              for (
+                r in ls(rank2index)[!(ls(rank2index) %in% ls(tmpEnv))]
+              ) {
+                if (rank2index[[r]] >= tmpEnv[[subList[i-1]]]) {
+                  tmpEnv[[r]] <- 
+                    rank2index[[r]] + (tmpEnv[[iRank]] - rank2index[[iRank]])
+                  flag <- 1
+                }
+              }
+            } else {
+              step <- tmpEnv[[subList[i-1]]] - currentIndex + 1
+              for (n in ls(rank2index)) {
+                if (rank2index[[n]] >= currentIndex) {
+                  tmpEnv[[n]] <- rank2index[[n]] + step
+                }
               }
             }
+            assignHash(ls(tmpEnv), getHash(ls(tmpEnv), tmpEnv), rank2index)
           } else {
-            if (is.null(tmpEnv[[iRank]]))
+            if (is.null(tmpEnv[[iRank]])) {
               tmpEnv[[iRank]] <- rank2index[[iRank]]
+            }
           }
-        } else tmpEnv[[iRank]] <- rank2index[[iRank]]
+        } else {
+          tmpEnv[[iRank]] <- rank2index[[iRank]]
+        }
       }
     }
     assignHash(ls(tmpEnv), getHash(ls(tmpEnv), tmpEnv), rank2index)
@@ -346,9 +364,9 @@ taxonomy_table_creator <- function (nameList, rankList) {
   for (i in 1:nrow(nameList)) {
     ### get list of all IDs for this taxon
     taxonDf <- data.frame(nameList[i,])
-    taxonName <- unlist(strsplit(as.character(nameList[i,]$tip),
-                                "##",
-                                fixed = TRUE))
+    taxonName <- unlist(
+      strsplit(as.character(nameList[i,]$tip), "##", fixed = TRUE)
+    )
 
     ### convert into long format
     # mTaxonDf <- suppressWarnings(melt(taxonDf,id = "tip"))
@@ -359,10 +377,11 @@ taxonomy_table_creator <- function (nameList, rankList) {
     )
 
     ### get rank names and corresponding IDs
-    splitCol <- data.frame(do.call('rbind',
-                                   strsplit(as.character(mTaxonDf$value),
-                                   "##",
-                                   fixed=TRUE)))
+    splitCol <- data.frame(
+      do.call(
+        'rbind', strsplit(as.character(mTaxonDf$value), "##", fixed=TRUE)
+      )
+    )
     mTaxonDf <- cbind(mTaxonDf,splitCol)
 
     ### remove NA cases
@@ -372,16 +391,18 @@ taxonomy_table_creator <- function (nameList, rankList) {
     mTaxonDf <- mTaxonDf[,c("X1","X2")]
     if(mTaxonDf$X2[1] != index2RankDf$rank[1] &&
        !index2RankDf$rank[1] %in% mTaxonDf$X2){
-      mTaxonDf <- rbind(data.frame("X1"=mTaxonDf$X1[1],
-                                   "X2"=index2RankDf$rank[1]),
-                                   mTaxonDf)
+      mTaxonDf <- rbind(
+        data.frame("X1"=mTaxonDf$X1[1], "X2"=index2RankDf$rank[1]), mTaxonDf
+      )
     }
 
     ### rename columns
     colnames(mTaxonDf) <- c(taxonName[1],"rank")
 
     ### merge with index2RankDf (Df contains all available ranks of input data)
-    full_rank_name_df <- merge(full_rank_name_df,mTaxonDf, by=c("rank"), all.x = TRUE)
+    full_rank_name_df <- merge(
+      full_rank_name_df,mTaxonDf, by=c("rank"), all.x = TRUE
+    )
 
     ### reorder ranks
     full_rank_name_df <- full_rank_name_df[order(full_rank_name_df$index),]
@@ -402,7 +423,8 @@ taxonomy_table_creator <- function (nameList, rankList) {
 
   ### replace NA values in the dataframe t_full_rank_name_df
   if(nrow(t_full_rank_name_df[is.na(t_full_rank_name_df),]) > 0){
-    t_full_rank_name_dfTMP <- t_full_rank_name_df[complete.cases(t_full_rank_name_df),]
+    t_full_rank_name_dfTMP <- 
+      t_full_rank_name_df[complete.cases(t_full_rank_name_df),]
     t_full_rank_name_dfEdit <- t_full_rank_name_df[is.na(t_full_rank_name_df),]
 
     for(i in 1:nrow(t_full_rank_name_dfEdit)){
