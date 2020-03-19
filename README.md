@@ -3,7 +3,7 @@ taxize
 
 
 
-
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![cran checks](https://cranchecks.info/badges/worst/taxize)](https://cranchecks.info/pkgs/taxize)
 [![Build Status](https://travis-ci.org/ropensci/taxize.svg?branch=master)](https://travis-ci.org/ropensci/taxize)
 [![Build status](https://ci.appveyor.com/api/projects/status/6mgc02mkd8j4sq3g/branch/master)](https://ci.appveyor.com/project/sckott/taxize-175/branch/master)
@@ -15,13 +15,9 @@ taxize
 
 The taxize book => <https://taxize.dev>
 
-The functions in the package that hit a specific API have a prefix and suffix separated by an underscore. They follow the format of `service_whatitdoes`.  For example, `gnr_resolve` uses the Global Names Resolver API to resolve species names.  General functions in the package that don't hit a specific API don't have two words separated by an underscore, e.g., `classification`.
+The functions in the package that work with a specific API have a prefix and suffix separated by an underscore. They follow the format of `service_whatitdoes`.  For example, `gnr_resolve` uses the Global Names Resolver API to resolve species names.  General functions in the package that don't hit a specific API don't have two words separated by an underscore, e.g., `classification`.
 
 You need API keys for Tropicos, IUCN, and NatureServe.
-
-## SOAP
-
-Note that a few data sources require SOAP web services, which are difficult to support in R across all operating systems. These include: Pan-European Species directories Infrastructure and Mycobank. Data sources that use SOAP web services have been moved to `taxizesoap` at <https://github.com/ropensci/taxizesoap>.
 
 ## Currently implemented in `taxize`
 
@@ -52,7 +48,7 @@ Note that a few data sources require SOAP web services, which are difficult to s
 <tr>
 	<td style="text-align:left;">Taxonomic Name Resolution Service</td>
 	<td style="text-align:left;"><code>tnrs</code></td>
-	<td style="text-align:left;">"api.phylotastic.org/tnrs"</td>
+	<td style="text-align:left;">none</td>
 	<td style="text-align:left;">none</td>
 </tr>
 <tr>
@@ -484,8 +480,8 @@ get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn', rows=1:3)
 #> $nbn$`Chironomus riparius`
 #>               guid      scientificName    rank taxonomicStatus
 #> 1 NBNSYS0000027573 Chironomus riparius species        accepted
-#> 2 NBNSYS0000023573    Quedius riparius species        accepted
-#> 3 NHMSYS0001718585  Hypnoidus riparius species        accepted
+#> 2 NBNSYS0000007169   Elaphrus riparius species        accepted
+#> 3 NBNSYS0000023573    Quedius riparius species        accepted
 #> 
 #> $nbn$`Pinus contorta`
 #>               guid                scientificName    rank taxonomicStatus
@@ -612,7 +608,7 @@ out <- as.uid(c(315567, 3339, 9696))
 
 ## Screencast
 
-<a href="https://vimeo.com/92883063"><img src="tools/screencast.png" width="400"></a>
+<a href="https://vimeo.com/92883063"><img src="man/figures/screencast.png" width="400"></a>
 
 
 ## Contributing
