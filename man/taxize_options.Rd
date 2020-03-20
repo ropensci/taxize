@@ -7,7 +7,9 @@
 taxize_options(taxon_state_messages = NULL, quiet = FALSE)
 }
 \arguments{
-\item{taxon_state_messages}{(logical) allow messages. default: \code{TRUE}}
+\item{taxon_state_messages}{(logical) suppress messages? default: \code{NULL}
+(same as setting \code{FALSE}). Set to \code{TRUE} to suppress messages, and \code{FALSE}
+to not suppress messages}
 
 \item{quiet}{(logical) quiet informational output from this function.
 default: \code{TRUE}}

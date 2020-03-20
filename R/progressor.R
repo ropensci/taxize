@@ -5,7 +5,9 @@ taxize_env$options <- list()
 #'
 #' @export
 #' @keywords internal
-#' @param taxon_state_messages (logical) allow messages. default: `TRUE`
+#' @param taxon_state_messages (logical) suppress messages? default: `NULL`
+#' (same as setting `FALSE`). Set to `TRUE` to suppress messages, and `FALSE`
+#' to not suppress messages
 #' @param quiet (logical) quiet informational output from this function.
 #' default: `TRUE`
 #' @examples
