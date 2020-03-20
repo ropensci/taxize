@@ -8,7 +8,7 @@
 #' `taxon_state` object (see [taxon-state])
 #' @param searchtype character; One of 'scientific' or 'common', or any unique
 #' abbreviation
-#' @param marine_only logical; marine only? default: ‘TRUE (only used
+#' @param marine_only logical; marine only? default: `TRUE` (only used
 #' when `searchtype="scientific"`); passed on to [worrms::wm_records_name()]
 #' @param fuzzy logical; fuzzy search. default: `NULL` (`TRUE` for
 #' `searchtype="scientific"` and `FALSE` for `searchtype="common"` to match

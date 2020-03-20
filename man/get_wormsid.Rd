@@ -56,7 +56,7 @@ get_wormsid_(
 \item{searchtype}{character; One of 'scientific' or 'common', or any unique
 abbreviation}
 
-\item{marine_only}{logical; marine only? default: ‘TRUE (only used
+\item{marine_only}{logical; marine only? default: \code{TRUE} (only used
 when \code{searchtype="scientific"}); passed on to \code{\link[worrms:wm_records_name]{worrms::wm_records_name()}}}
 
 \item{fuzzy}{logical; fuzzy search. default: \code{NULL} (\code{TRUE} for
