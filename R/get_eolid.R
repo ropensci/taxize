@@ -75,7 +75,8 @@
 #' get_eolid("Satyrium")
 #' get_eolid("Satyrium", rank = "genus")
 #' get_eolid("Satyrium", data_source = "INAT")
-#' get_eolid("Satyrium", rank = "genus", data_source = "North Pacific")
+#' get_eolid("Satyrium", rank = "genus",
+#'   data_source = "North Pacific Species List")
 #'
 #' # Convert a eolid without class information to a eolid class
 #' # already a eolid, returns the same
@@ -207,6 +208,15 @@ get_eolid <- function(sciname, ask = TRUE, messages = TRUE,
       page_id <- df$pageid
       datasource <- df$source
       att <- "found"
+    }
+
+    if (length(id) == 0 || all(is.na(id))) {
+      mssg(messages, m_not_found_sp_altclass)
+      id <- NA_character_
+      page_id <- NA_character_
+      datasource <- NA_character_
+      mm <- FALSE
+      att <- "not found"
     }
 
     if (length(id) > 1) {

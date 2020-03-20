@@ -131,7 +131,8 @@ get_eolid(c("Chironomus riparius", "uaudnadndj"))
 get_eolid("Satyrium")
 get_eolid("Satyrium", rank = "genus")
 get_eolid("Satyrium", data_source = "INAT")
-get_eolid("Satyrium", rank = "genus", data_source = "North Pacific")
+get_eolid("Satyrium", rank = "genus",
+  data_source = "North Pacific Species List")
 
 # Convert a eolid without class information to a eolid class
 # already a eolid, returns the same
