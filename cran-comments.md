@@ -1,7 +1,7 @@
 ## Test environments
 
-* local OS X install, R 3.6.2 Patched
-* ubuntu 16.04 (on travis-ci), R 3.6.2
+* local OS X install, R 3.6.3 Patched
+* ubuntu 16.04 (on travis-ci), R 3.6.3
 * win-builder (devel and release)
 
 ## R CMD check results
@@ -12,11 +12,11 @@
 
 * I have run R CMD check on the 22 downstream dependencies
 (<https://github.com/ropensci/taxize/blob/master/revdep/README.md>);
-there was an error in one package (spocc, also maintained by me) but only in the development version on GitHub, which I've fixed and a new version will be submitted soon.
+there was no errors.
 
 ------
 
-This version includes a new function for parsing scientific names, drops 3 package imports, and makes many bug fixes.
+This version includes a defunction function, and many bug fixes.
 
 Thanks!
 Scott Chamberlain

@@ -1,3 +1,31 @@
+taxize 0.9.93
+=============
+
+### DEFUNCT
+
+* `use_eol()` is now defunct; EOL no longer requires an API key (#749) (#803) thanks @padpadpadpad
+
+### NEW FEATURES
+
+* http to https upgrades for the following functions: `vascan_search()`, `taxize_cite()`, all `*_ping()` functions, `get_wormsid()`, `get_pow()`, `get_eolid()`, `get_gbifid()`, `get_boldid()`, `gbif_name_usage()`; and in various places in documentation (#799)
+
+### MINOR IMPROVEMENTS
+
+* `classification.uid()` now does batch HTTP requests. NCBI Entrez web service allows requests with up to 50 identifiers; @zachary-foster did the work to make this method now use batch queries so its much faster (#678) (#798)
+* `class2tree()` improvement in taxonomy rank indexing (#805) work by @trvinh
+* fix to description of `taxon_state_messages` parameter in the `taxize_options` help file  (#806)
+* taxize package datasets now loaded into a package environment (#792)
+
+### BUG FIXES
+
+* `ncbi_children()` now accepts numeric and character class ids (#800)
+* fix `classification.gbifid()`, was failing because GBIF changed the order of results (#802)
+* `class2tree()` fix: problem was due ultimately to a bug in `classification.gbifid()` (see line above)  (#801)
+* `tax_rank()` fix - for `db="ncbi"` was not giving correct ranks for queried names - was due to a change in `classification.uid` (#804)
+* fix bug in `get_eolid()` when filtering by data source lead to no results (#808)
+* fix for `ncbi_downstream` (and thereby fix for `downstream()` with `db="ncbi"`): for some taxa a query to NCBI resulted in children as well the queried name itself, and the next query would give the same results, leading to an endless while loop - now we remove the taxon itself that was queried to prevent this (#807)
+
+
 taxize 0.9.92
 =============
 
