@@ -42,3 +42,35 @@ test_that("ranks are in the correct order", {
     2704179
   )
 })
+
+test_that("searches for ranks below species work", {
+  skip_on_cran()
+  
+  vcr::use_cassette("classification_gbif_ranks_below_species_subsp", {
+    subsp <- classification(6162875, db = "gbif")
+  })
+  expect_is(subsp, "classification")
+  expect_equal(attr(subsp, "db"), "gbif")
+  rank_seq <- vapply(subsp[[1]]$rank, which_rank, 1)
+  expect_true(identical(rank_seq, sort(rank_seq)))
+  # subspecies rank is expected value
+  df <- subsp[[1]]
+  expect_equal(
+    df[df$name == "Boa constrictor nebulosa", "id"],
+    6162875
+  )
+
+  vcr::use_cassette("classification_gbif_ranks_below_species_var", {
+    var <- classification(8286319, db = "gbif")
+  })
+  expect_is(var, "classification")
+  expect_equal(attr(var, "db"), "gbif")
+  rank_seq <- vapply(var[[1]]$rank, which_rank, 1)
+  expect_true(identical(rank_seq, sort(rank_seq)))
+  # variety rank is expected value
+  df <- var[[1]]
+  expect_equal(
+    df[df$name == "Poa annua annua", "id"],
+    8286319
+  )
+})

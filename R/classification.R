@@ -80,7 +80,7 @@
 #' classification('Helianthus', db = 'pow')
 #' classification('Asteraceae', db = 'pow')
 #' classification("ELEMENT_GLOBAL.2.134717", db = 'natserv')
-#' classification(c(2704179, 2441176), db = 'gbif')
+#' classification(c(2704179, 6162875, 8286319), db = 'gbif')
 #' classification(25509881, db = 'tropicos')
 #' classification("NBNSYS0000004786", db = 'nbn')
 #' classification(as.nbnid("NBNSYS0000004786"), db = 'nbn')
@@ -526,6 +526,12 @@ classification.gbifid <- function(id, callopts = list(),
         # column order
         df <- data.frame(name = df$name, rank = df$rank, id = df$id,
           stringsAsFactors = FALSE)
+        # check if target taxon is sub-specific
+        if (which_rank(tolower(out$rank)) > 34) {
+          df <- rbind(df,
+            c(out$canonicalName, tolower(out$rank), out$key))
+        }
+        df$id <- as.integer(df$id)
         # Optionally return id of lineage
         if (!return_id) df[, c('name', 'rank')] else df
       }

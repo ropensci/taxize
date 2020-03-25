@@ -1,3 +1,4 @@
+# param: x (character) a rank name (e.g., "variety")
 which_rank <- function(x) {
   which(sapply(taxize_ds$rank_ref$ranks, function(z) {
     any(unlist(strsplit(z, split = ",")) == x)

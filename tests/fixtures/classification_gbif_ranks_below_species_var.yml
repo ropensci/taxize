@@ -1,0 +1,39 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://api.gbif.org/v1/species/8286319?limit=20
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.93.91)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.93.91)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      date: Wed, 25 Mar 2020 20:50:32 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
+      server: Jetty(9.3.z-SNAPSHOT)
+      cache-control: public, max-age=3601
+      x-varnish: 72909061 71074015
+      age: '626'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      content-length: '851'
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"key":8286319,"nameKey":8951632,"taxonID":"gbif:8286319","sourceTaxonKey":116779161,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Poales","family":"Poaceae","genus":"Poa","species":"Poa
+        annua","kingdomKey":6,"phylumKey":7707728,"classKey":196,"orderKey":1369,"familyKey":3073,"genusKey":2704173,"speciesKey":2704179,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"d027759f-84bc-4dfc-a5ea-b17a50793451","parentKey":2704179,"parent":"Poa
+        annua","scientificName":"Poa annua var. annua","canonicalName":"Poa annua
+        annua","authorship":"","nameType":"SCIENTIFIC","rank":"VARIETY","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:20:35.318+0000","issues":[],"synonym":false,"class":"Liliopsida"}'
+  recorded_at: 2020-03-25 21:00:58 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.2

@@ -1,0 +1,40 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://api.gbif.org/v1/species/6162875?limit=20
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.93.91)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.93.91)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      date: Wed, 25 Mar 2020 21:00:58 GMT
+      content-type: application/json
+      access-control-allow-origin: '*'
+      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
+      server: Jetty(9.3.z-SNAPSHOT)
+      cache-control: public, max-age=3601
+      x-varnish: '72909060'
+      age: '0'
+      via: 1.1 varnish (Varnish/5.2)
+      accept-ranges: bytes
+      content-length: '1048'
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"key":6162875,"nubKey":6162875,"nameKey":16733358,"taxonID":"gbif:6162875","sourceTaxonKey":128875198,"kingdom":"Animalia","phylum":"Chordata","order":"Squamata","family":"Boidae","genus":"Boa","species":"Boa
+        constrictor","kingdomKey":1,"phylumKey":44,"classKey":358,"orderKey":715,"familyKey":2464897,"genusKey":2444141,"speciesKey":2464899,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":2464899,"parent":"Boa
+        constrictor","basionymKey":6162876,"basionym":"Constrictor constrictor nebulosus
+        Lazell, 1964","scientificName":"Boa constrictor nebulosa (Lazell, 1964)","canonicalName":"Boa
+        constrictor nebulosa","authorship":" (Lazell, 1964)","nameType":"SCIENTIFIC","rank":"SUBSPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:03:30.446+0000","issues":["ORIGINAL_NAME_DERIVED","NAME_PARENT_MISMATCH"],"synonym":false,"class":"Reptilia"}'
+  recorded_at: 2020-03-25 21:00:58 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.2
