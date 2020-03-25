@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -18,7 +18,7 @@ http_interactions:
       connection: keep-alive
       content-length: '107'
       content-type: text/json;charset=ISO-8859-1
-      date: Fri, 06 Mar 2020 17:59:51 GMT
+      date: Wed, 25 Mar 2020 20:19:31 GMT
       status: 'HTTP/1.1 200 '
       strict-transport-security:
       - max-age=63072000; includeSubdomains; preload
@@ -31,8 +31,8 @@ http_interactions:
       file: no
       string: |
         {"class":"gov.usgs.itis.itis_service.data.SvcItisTermList","itisTerms":[null],"requestedName":"Asdfafsfd"}
-  recorded_at: 2020-03-06 17:59:59 GMT
-  recorded_with: vcr/0.5.0, webmockr/0.6.0
+  recorded_at: 2020-03-25 20:19:36 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.2
 - request:
     method: get
     uri: https://api.gbif.org/v1/species/match?name=Asdfafsfd&strict=FALSE&verbose=TRUE&limit=500
@@ -42,44 +42,43 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.93.91)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.93.91)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Fri, 06 Mar 2020 17:59:55 GMT
+      status: 'HTTP/2 200 '
+      date: Wed, 25 Mar 2020 20:19:33 GMT
       content-type: application/json
       access-control-allow-origin: '*'
       access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
       server: Jetty(9.3.z-SNAPSHOT)
       cache-control: public, max-age=3601
-      x-varnish: '271647601'
+      x-varnish: '48332879'
       age: '0'
       via: 1.1 varnish (Varnish/5.2)
       accept-ranges: bytes
       content-length: '53'
-      connection: keep-alive
     body:
       encoding: UTF-8
       file: no
       string: '{"confidence":100,"matchType":"NONE","synonym":false}'
-  recorded_at: 2020-03-06 17:59:59 GMT
-  recorded_with: vcr/0.5.0, webmockr/0.6.0
+  recorded_at: 2020-03-25 20:19:36 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.2
 - request:
     method: get
-    uri: http://services.tropicos.org/Name/Search?format=json&name=Asdfafsfd&apikey=<<tropicos_api_token>>
+    uri: http://services.tropicos.org/Name/Search?format=json&name=Asdfafsfd&apikey=f3e499d4-1519-42c9-afd1-685a16882f5a
     body:
       encoding: ''
       string: ''
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.93.91)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.93.91)
   response:
     status:
       status_code: '200'
@@ -93,13 +92,13 @@ http_interactions:
       server: Microsoft-IIS/7.5
       x-aspnet-version: 4.0.30319
       x-powered-by: ASP.NET
-      date: Fri, 06 Mar 2020 17:59:55 GMT
+      date: Wed, 25 Mar 2020 20:19:34 GMT
     body:
       encoding: UTF-8
       file: no
       string: '[{"Error":"No names were found"}]'
-  recorded_at: 2020-03-06 17:59:59 GMT
-  recorded_with: vcr/0.5.0, webmockr/0.6.0
+  recorded_at: 2020-03-25 20:19:36 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.2
 - request:
     method: get
     uri: https://species-ws.nbnatlas.org/search?q=Asdfafsfd&fq=idxtype%3ATAXON&pageSize=500&startIndex=0
@@ -109,8 +108,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.93.91)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.93.91)
   response:
     status:
       status_code: '200'
@@ -118,7 +117,7 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Fri, 06 Mar 2020 18:00:07 GMT
+      date: Wed, 25 Mar 2020 20:19:40 GMT
       server: Apache/2.4.7 (Ubuntu)
       x-application-context: application:production
       content-type: application/json;charset=UTF-8
@@ -127,5 +126,5 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '{"searchResults":{"totalRecords":0,"facetResults":[],"results":[],"queryTitle":"Asdfafsfd"}}'
-  recorded_at: 2020-03-06 17:59:59 GMT
-  recorded_with: vcr/0.5.0, webmockr/0.6.0
+  recorded_at: 2020-03-25 20:19:36 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.2
