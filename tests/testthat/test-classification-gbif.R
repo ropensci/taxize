@@ -35,4 +35,10 @@ test_that("ranks are in the correct order", {
   expect_equal(attr(fromid_gbif, "db"), "gbif")
   rank_seq <- vapply(fromid_gbif[[1]]$rank, which_rank, 1)
   expect_true(identical(rank_seq, sort(rank_seq)))
+  # species rank is expected value
+  df <- fromid_gbif[[1]]
+  expect_equal(
+    df[df$name == "Poa annua", "id"],
+    2704179
+  )
 })

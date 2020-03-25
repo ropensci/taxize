@@ -8,27 +8,25 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.93.91)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.93.91)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Fri, 06 Mar 2020 19:17:03 GMT
+      status: 'HTTP/2 200 '
+      date: Wed, 25 Mar 2020 19:15:41 GMT
       content-type: application/json
       access-control-allow-origin: '*'
       access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
       server: Jetty(9.3.z-SNAPSHOT)
       cache-control: public, max-age=3601
-      x-varnish: '298190079'
+      x-varnish: '1061913118'
       age: '0'
       via: 1.1 varnish (Varnish/5.2)
       accept-ranges: bytes
-      content-length: '1680'
-      connection: keep-alive
     body:
       encoding: UTF-8
       file: no
@@ -42,8 +40,8 @@ http_interactions:
         name=65; authorship=0; classification=-2; rank=5; status=1","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Coleoptera","family":"Staphylinidae","genus":"Quedius","species":"Quedius
         douglasi","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1470,"familyKey":7854,"genusKey":4290501,"speciesKey":7203493,"synonym":false,"class":"Insecta"}],"kingdom":"Plantae","phylum":"Tracheophyta","order":"Fagales","family":"Fagaceae","genus":"Quercus","species":"Quercus
         douglasii","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":1354,"familyKey":4689,"genusKey":2877951,"speciesKey":2878266,"synonym":false,"class":"Magnoliopsida"}'
-  recorded_at: 2020-03-06 19:17:04 GMT
-  recorded_with: vcr/0.5.0, webmockr/0.6.0
+  recorded_at: 2020-03-25 19:15:43 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.2
 - request:
     method: get
     uri: https://api.gbif.org/v1/species/match?name=aaa%20vva&strict=FALSE&verbose=TRUE&limit=500
@@ -53,33 +51,32 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.93.91)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.93.91)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Fri, 06 Mar 2020 19:17:03 GMT
+      status: 'HTTP/2 200 '
+      date: Wed, 25 Mar 2020 19:15:42 GMT
       content-type: application/json
       access-control-allow-origin: '*'
       access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
       server: Jetty(9.3.z-SNAPSHOT)
       cache-control: public, max-age=3601
-      x-varnish: '291276472'
+      x-varnish: '1061913119'
       age: '0'
       via: 1.1 varnish (Varnish/5.2)
       accept-ranges: bytes
       content-length: '53'
-      connection: keep-alive
     body:
       encoding: UTF-8
       file: no
       string: '{"confidence":100,"matchType":"NONE","synonym":false}'
-  recorded_at: 2020-03-06 19:17:04 GMT
-  recorded_with: vcr/0.5.0, webmockr/0.6.0
+  recorded_at: 2020-03-25 19:15:43 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.2
 - request:
     method: get
     uri: https://api.gbif.org/v1/species/2878266?limit=20
@@ -89,27 +86,26 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.93.91)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.93.91)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Fri, 06 Mar 2020 19:17:03 GMT
+      status: 'HTTP/2 200 '
+      date: Wed, 25 Mar 2020 19:15:42 GMT
       content-type: application/json
       access-control-allow-origin: '*'
       access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
       server: Jetty(9.3.z-SNAPSHOT)
       cache-control: public, max-age=3601
-      x-varnish: '263098829'
+      x-varnish: '1061913120'
       age: '0'
       via: 1.1 varnish (Varnish/5.2)
       accept-ranges: bytes
       content-length: '952'
-      connection: keep-alive
     body:
       encoding: UTF-8
       file: no
@@ -118,5 +114,5 @@ http_interactions:
         douglasii Hook. & Arn.","canonicalName":"Quercus douglasii","authorship":"Hook.
         & Arn.","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","publishedIn":"Bot.
         Beechey Voy. 391.  1840","numDescendants":2,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:30:13.844+0000","issues":[],"synonym":false,"class":"Magnoliopsida"}'
-  recorded_at: 2020-03-06 19:17:04 GMT
-  recorded_with: vcr/0.5.0, webmockr/0.6.0
+  recorded_at: 2020-03-25 19:15:43 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.2
