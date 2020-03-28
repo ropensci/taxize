@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
+      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -16,18 +16,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.1.19
-      date: Wed, 08 May 2019 20:54:58 GMT
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 28 Mar 2020 00:23:04 GMT
       content-type: application/json; charset=utf-8
       content-length: '762'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
+      etag: W/"2fa-Dasnns+azfAosdYyzVKMfQ"
       vary: Accept-Encoding
+      set-cookie: sails.sid=s%3APkoHTeGrN73KJn0P8-TJ4gGvKd9hulv4.ljThK0XwqpGxr3bA6wpbteL%2BNiNqFDRkqjOiM8j6t8c;
+        Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
+      file: no
       string: eyJuYW1lIjoiQWJpZXMga29yZWFuYSIsInJlc3VsdCI6W3sidGF4b25pZCI6MzEyNDQsInNjaWVudGlmaWNfbmFtZSI6IkFiaWVzIGtvcmVhbmEiLCJraW5nZG9tIjoiUExBTlRBRSIsInBoeWx1bSI6IlRSQUNIRU9QSFlUQSIsImNsYXNzIjoiUElOT1BTSURBIiwib3JkZXIiOiJQSU5BTEVTIiwiZmFtaWx5IjoiUElOQUNFQUUiLCJnZW51cyI6IkFiaWVzIiwibWFpbl9jb21tb25fbmFtZSI6IktvcmVhbiBGaXIiLCJhdXRob3JpdHkiOiJFLkguV2lsc29uIiwicHVibGlzaGVkX3llYXIiOjIwMTEsImFzc2Vzc21lbnRfZGF0ZSI6IjIwMTAtMDktMDciLCJjYXRlZ29yeSI6IkVOIiwiY3JpdGVyaWEiOiJCMmFiKGlpLGlpaSx2KSIsInBvcHVsYXRpb25fdHJlbmQiOiJEZWNyZWFzaW5nIiwibWFyaW5lX3N5c3RlbSI6ZmFsc2UsImZyZXNod2F0ZXJfc3lzdGVtIjpmYWxzZSwidGVycmVzdHJpYWxfc3lzdGVtIjp0cnVlLCJhc3Nlc3NvciI6IktpbSwgWS4tUy4sIENoYW5nLCBDLi1TLiwgS2ltLCBDLi1TLiAmIEdhcmRuZXIsIE0uIiwicmV2aWV3ZXIiOiJUaG9tYXMsIFAuICYgRmFyam9uLCBBLiIsImFvb19rbTIiOiIxMiIsImVvb19rbTIiOm51bGwsImVsZXZhdGlvbl91cHBlciI6MTkwMCwiZWxldmF0aW9uX2xvd2VyIjoxMDAwLCJkZXB0aF91cHBlciI6bnVsbCwiZGVwdGhfbG93ZXIiOm51bGwsImVycmF0YV9mbGFnIjpudWxsLCJlcnJhdGFfcmVhc29uIjpudWxsLCJhbWVuZGVkX2ZsYWciOm51bGwsImFtZW5kZWRfcmVhc29uIjpudWxsfV19
-  recorded_at: 2019-05-08 20:55:18 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+  recorded_at: 2020-03-28 00:23:16 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/id/31244?token=<<rredlist_api_token>>
@@ -35,7 +39,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
+      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -45,18 +49,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.1.19
-      date: Wed, 08 May 2019 20:54:59 GMT
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 28 Mar 2020 00:23:05 GMT
       content-type: application/json; charset=utf-8
       content-length: '754'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
+      etag: W/"2f2-5Tode1cHmZO0nes/thKmow"
       vary: Accept-Encoding
+      set-cookie: sails.sid=s%3Azu2aQkhDpzMhuwG-6gdK0_A-4RicGgVB.%2B%2Fs1noNGQ9uex8Ywc20juuvF0VVZ1cXnC3FmwpjoDcQ;
+        Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
+      file: no
       string: eyJuYW1lIjoiMzEyNDQiLCJyZXN1bHQiOlt7InRheG9uaWQiOjMxMjQ0LCJzY2llbnRpZmljX25hbWUiOiJBYmllcyBrb3JlYW5hIiwia2luZ2RvbSI6IlBMQU5UQUUiLCJwaHlsdW0iOiJUUkFDSEVPUEhZVEEiLCJjbGFzcyI6IlBJTk9QU0lEQSIsIm9yZGVyIjoiUElOQUxFUyIsImZhbWlseSI6IlBJTkFDRUFFIiwiZ2VudXMiOiJBYmllcyIsIm1haW5fY29tbW9uX25hbWUiOiJLb3JlYW4gRmlyIiwiYXV0aG9yaXR5IjoiRS5ILldpbHNvbiIsInB1Ymxpc2hlZF95ZWFyIjoyMDExLCJhc3Nlc3NtZW50X2RhdGUiOiIyMDEwLTA5LTA3IiwiY2F0ZWdvcnkiOiJFTiIsImNyaXRlcmlhIjoiQjJhYihpaSxpaWksdikiLCJwb3B1bGF0aW9uX3RyZW5kIjoiRGVjcmVhc2luZyIsIm1hcmluZV9zeXN0ZW0iOmZhbHNlLCJmcmVzaHdhdGVyX3N5c3RlbSI6ZmFsc2UsInRlcnJlc3RyaWFsX3N5c3RlbSI6dHJ1ZSwiYXNzZXNzb3IiOiJLaW0sIFkuLVMuLCBDaGFuZywgQy4tUy4sIEtpbSwgQy4tUy4gJiBHYXJkbmVyLCBNLiIsInJldmlld2VyIjoiVGhvbWFzLCBQLiAmIEZhcmpvbiwgQS4iLCJhb29fa20yIjoiMTIiLCJlb29fa20yIjpudWxsLCJlbGV2YXRpb25fdXBwZXIiOjE5MDAsImVsZXZhdGlvbl9sb3dlciI6MTAwMCwiZGVwdGhfdXBwZXIiOm51bGwsImRlcHRoX2xvd2VyIjpudWxsLCJlcnJhdGFfZmxhZyI6bnVsbCwiZXJyYXRhX3JlYXNvbiI6bnVsbCwiYW1lbmRlZF9mbGFnIjpudWxsLCJhbWVuZGVkX3JlYXNvbiI6bnVsbH1dfQ==
-  recorded_at: 2019-05-08 20:55:18 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+  recorded_at: 2020-03-28 00:23:16 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/31244?token=<<rredlist_api_token>>
@@ -64,7 +72,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
+      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -74,18 +82,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.1.19
-      date: Wed, 08 May 2019 20:54:59 GMT
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 28 Mar 2020 00:23:05 GMT
       content-type: application/json; charset=utf-8
       content-length: '195'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
+      etag: W/"c3-ZwjABrnrndFjN2UFTQAk4w"
       vary: Accept-Encoding
+      set-cookie: sails.sid=s%3AQDJrfsRuTX7zDd8y92rwuaALlAiWYByf.kKNlnLG1hBOTJJniiXYgX4LlAjIhEsFa8yXzhPBcabM;
+        Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
+      file: no
       string: eyJuYW1lIjoiMzEyNDQiLCJyZXN1bHQiOlt7InllYXIiOiIyMDExIiwiY29kZSI6IkVOIiwiY2F0ZWdvcnkiOiJFbmRhbmdlcmVkIn0seyJ5ZWFyIjoiMTk5OCIsImNvZGUiOiJMUi9udCIsImNhdGVnb3J5IjoiTG93ZXIgUmlzay9uZWFyIHRocmVhdGVuZWQifSx7InllYXIiOiIxOTk4IiwiY29kZSI6IlIiLCJjYXRlZ29yeSI6IlJhcmUifV19
-  recorded_at: 2019-05-08 20:55:18 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+  recorded_at: 2020-03-28 00:23:16 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/31244?token=<<rredlist_api_token>>
@@ -93,7 +105,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
+      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -103,18 +115,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.1.19
-      date: Wed, 08 May 2019 20:55:00 GMT
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 28 Mar 2020 00:23:05 GMT
       content-type: application/json; charset=utf-8
       content-length: '149'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
+      etag: W/"95-+3ZBCOLM8vKOiPl/rVa/BQ"
       vary: Accept-Encoding
+      set-cookie: sails.sid=s%3AOdeMr0T8pXG5krqyQRICjpnpo_MZjDSK.YiiQBjE0vxb7nchS5hd62UcJj%2FTR2EtWNOTx3h0s0l4;
+        Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
+      file: no
       string: eyJuYW1lIjoiMzEyNDQiLCJjb3VudCI6MSwicmVzdWx0IjpbeyJjb2RlIjoiS1IiLCJjb3VudHJ5IjoiS29yZWEsIFJlcHVibGljIG9mIiwicHJlc2VuY2UiOiJFeHRhbnQiLCJvcmlnaW4iOiJOYXRpdmUiLCJkaXN0cmlidXRpb25fY29kZSI6Ik5hdGl2ZSJ9XX0=
-  recorded_at: 2019-05-08 20:55:18 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+  recorded_at: 2020-03-28 00:23:16 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/Xylopia%20collina?token=<<rredlist_api_token>>
@@ -122,7 +138,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
+      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -132,18 +148,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.1.19
-      date: Wed, 08 May 2019 20:55:01 GMT
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 28 Mar 2020 00:23:06 GMT
       content-type: application/json; charset=utf-8
-      content-length: '935'
+      content-length: '737'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
+      etag: W/"2e1-YCh+R21HLMRlSzy26bbinw"
       vary: Accept-Encoding
+      set-cookie: sails.sid=s%3AhggosCcqrD8WEfIUl_SHYRIzD744gDV_.%2BKiDiWzFEhc7Bqx6H2UT4HuFFpYnBwd%2FnC6rfSjwiXs;
+        Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
-      string: eyJuYW1lIjoiWHlsb3BpYSBjb2xsaW5hIiwicmVzdWx0IjpbeyJ0YXhvbmlkIjoxNTgzNTQsInNjaWVudGlmaWNfbmFtZSI6Ilh5bG9waWEgY29sbGluYSIsImtpbmdkb20iOiJQTEFOVEFFIiwicGh5bHVtIjoiVFJBQ0hFT1BIWVRBIiwiY2xhc3MiOiJNQUdOT0xJT1BTSURBIiwib3JkZXIiOiJNQUdOT0xJQUxFUyIsImZhbWlseSI6IkFOTk9OQUNFQUUiLCJnZW51cyI6Ilh5bG9waWEiLCJtYWluX2NvbW1vbl9uYW1lIjpudWxsLCJhdXRob3JpdHkiOiJEaWVscyIsInB1Ymxpc2hlZF95ZWFyIjoyMDA5LCJhc3Nlc3NtZW50X2RhdGUiOiIyMDA2LTAzLTAyIiwiY2F0ZWdvcnkiOiJFTiIsImNyaXRlcmlhIjoiQjFhYihpaWkpIiwicG9wdWxhdGlvbl90cmVuZCI6IkRlY3JlYXNpbmciLCJtYXJpbmVfc3lzdGVtIjpmYWxzZSwiZnJlc2h3YXRlcl9zeXN0ZW0iOmZhbHNlLCJ0ZXJyZXN0cmlhbF9zeXN0ZW0iOnRydWUsImFzc2Vzc29yIjoiRWFzdGVybiBBcmMgTW91bnRhaW5zICYgQ29hc3RhbCBGb3Jlc3RzIENFUEYgUGxhbnQgQXNzZXNzbWVudCBQcm9qZWN0IiwicmV2aWV3ZXIiOiJCZWVudGplLCBILiwgR2VyZWF1LCBSLiwgS2FidXllLCBDLiwgS2FsZW1hLCBKLiwgTHVrZSwgUS4sIEx5YXJ1dSwgSC4sIE1hdW5kZXIsIE0uLCBNd2FjaGFsYSwgRy4sIE5kYW5nYWxhc2ksIEguLCBOamF1LCBGLiAmIFNjaGF0eiwgRy4gIChFYXN0IEFmcmljYW4gUGxhbnRzIFJlZCBMaXN0IEF1dGhvcml0eSkiLCJhb29fa20yIjoiMTIwIiwiZW9vX2ttMiI6IjQ5OTkiLCJlbGV2YXRpb25fdXBwZXIiOjg2MCwiZWxldmF0aW9uX2xvd2VyIjoyMDAsImRlcHRoX3VwcGVyIjpudWxsLCJkZXB0aF9sb3dlciI6bnVsbCwiZXJyYXRhX2ZsYWciOm51bGwsImVycmF0YV9yZWFzb24iOm51bGwsImFtZW5kZWRfZmxhZyI6bnVsbCwiYW1lbmRlZF9yZWFzb24iOm51bGx9XX0=
-  recorded_at: 2019-05-08 20:55:18 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+      file: no
+      string: eyJuYW1lIjoiWHlsb3BpYSBjb2xsaW5hIiwicmVzdWx0IjpbeyJ0YXhvbmlkIjoxNTgzNTQsInNjaWVudGlmaWNfbmFtZSI6Ilh5bG9waWEgY29sbGluYSIsImtpbmdkb20iOiJQTEFOVEFFIiwicGh5bHVtIjoiVFJBQ0hFT1BIWVRBIiwiY2xhc3MiOiJNQUdOT0xJT1BTSURBIiwib3JkZXIiOiJNQUdOT0xJQUxFUyIsImZhbWlseSI6IkFOTk9OQUNFQUUiLCJnZW51cyI6Ilh5bG9waWEiLCJtYWluX2NvbW1vbl9uYW1lIjpudWxsLCJhdXRob3JpdHkiOiJEaWVscyIsInB1Ymxpc2hlZF95ZWFyIjoyMDE5LCJhc3Nlc3NtZW50X2RhdGUiOiIyMDE4LTExLTIxIiwiY2F0ZWdvcnkiOiJOVCIsImNyaXRlcmlhIjpudWxsLCJwb3B1bGF0aW9uX3RyZW5kIjoiVW5rbm93biIsIm1hcmluZV9zeXN0ZW0iOmZhbHNlLCJmcmVzaHdhdGVyX3N5c3RlbSI6ZmFsc2UsInRlcnJlc3RyaWFsX3N5c3RlbSI6dHJ1ZSwiYXNzZXNzb3IiOiJDb3NpYXV4LCBBLiwgQ291dnJldXIsIFQuTC5QLiAmIEVya2VucywgUi5ILkouIiwicmV2aWV3ZXIiOiJHZXJlYXUsIFIuRS4iLCJhb29fa20yIjoiODAiLCJlb29fa20yIjoiMTYwNzEiLCJlbGV2YXRpb25fdXBwZXIiOjkwMCwiZWxldmF0aW9uX2xvd2VyIjoyMDAsImRlcHRoX3VwcGVyIjpudWxsLCJkZXB0aF9sb3dlciI6bnVsbCwiZXJyYXRhX2ZsYWciOm51bGwsImVycmF0YV9yZWFzb24iOm51bGwsImFtZW5kZWRfZmxhZyI6bnVsbCwiYW1lbmRlZF9yZWFzb24iOm51bGx9XX0=
+  recorded_at: 2020-03-28 00:23:16 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/id/158354?token=<<rredlist_api_token>>
@@ -151,7 +171,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
+      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -161,18 +181,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.1.19
-      date: Wed, 08 May 2019 20:55:01 GMT
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 28 Mar 2020 00:23:06 GMT
       content-type: application/json; charset=utf-8
-      content-length: '926'
+      content-length: '728'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
+      etag: W/"2d8-gja+3OgiCPRQ77oE98YCzg"
       vary: Accept-Encoding
+      set-cookie: sails.sid=s%3AO_-VNCTb_dzdohTi-CPjKkU7Neq1ruyB.ysnxxQIQYdRAQIXQBeFZbR7auLOXYgemmmznT%2FQVnr8;
+        Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
-      string: eyJuYW1lIjoiMTU4MzU0IiwicmVzdWx0IjpbeyJ0YXhvbmlkIjoxNTgzNTQsInNjaWVudGlmaWNfbmFtZSI6Ilh5bG9waWEgY29sbGluYSIsImtpbmdkb20iOiJQTEFOVEFFIiwicGh5bHVtIjoiVFJBQ0hFT1BIWVRBIiwiY2xhc3MiOiJNQUdOT0xJT1BTSURBIiwib3JkZXIiOiJNQUdOT0xJQUxFUyIsImZhbWlseSI6IkFOTk9OQUNFQUUiLCJnZW51cyI6Ilh5bG9waWEiLCJtYWluX2NvbW1vbl9uYW1lIjpudWxsLCJhdXRob3JpdHkiOiJEaWVscyIsInB1Ymxpc2hlZF95ZWFyIjoyMDA5LCJhc3Nlc3NtZW50X2RhdGUiOiIyMDA2LTAzLTAyIiwiY2F0ZWdvcnkiOiJFTiIsImNyaXRlcmlhIjoiQjFhYihpaWkpIiwicG9wdWxhdGlvbl90cmVuZCI6IkRlY3JlYXNpbmciLCJtYXJpbmVfc3lzdGVtIjpmYWxzZSwiZnJlc2h3YXRlcl9zeXN0ZW0iOmZhbHNlLCJ0ZXJyZXN0cmlhbF9zeXN0ZW0iOnRydWUsImFzc2Vzc29yIjoiRWFzdGVybiBBcmMgTW91bnRhaW5zICYgQ29hc3RhbCBGb3Jlc3RzIENFUEYgUGxhbnQgQXNzZXNzbWVudCBQcm9qZWN0IiwicmV2aWV3ZXIiOiJCZWVudGplLCBILiwgR2VyZWF1LCBSLiwgS2FidXllLCBDLiwgS2FsZW1hLCBKLiwgTHVrZSwgUS4sIEx5YXJ1dSwgSC4sIE1hdW5kZXIsIE0uLCBNd2FjaGFsYSwgRy4sIE5kYW5nYWxhc2ksIEguLCBOamF1LCBGLiAmIFNjaGF0eiwgRy4gIChFYXN0IEFmcmljYW4gUGxhbnRzIFJlZCBMaXN0IEF1dGhvcml0eSkiLCJhb29fa20yIjoiMTIwIiwiZW9vX2ttMiI6IjQ5OTkiLCJlbGV2YXRpb25fdXBwZXIiOjg2MCwiZWxldmF0aW9uX2xvd2VyIjoyMDAsImRlcHRoX3VwcGVyIjpudWxsLCJkZXB0aF9sb3dlciI6bnVsbCwiZXJyYXRhX2ZsYWciOm51bGwsImVycmF0YV9yZWFzb24iOm51bGwsImFtZW5kZWRfZmxhZyI6bnVsbCwiYW1lbmRlZF9yZWFzb24iOm51bGx9XX0=
-  recorded_at: 2019-05-08 20:55:18 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+      file: no
+      string: eyJuYW1lIjoiMTU4MzU0IiwicmVzdWx0IjpbeyJ0YXhvbmlkIjoxNTgzNTQsInNjaWVudGlmaWNfbmFtZSI6Ilh5bG9waWEgY29sbGluYSIsImtpbmdkb20iOiJQTEFOVEFFIiwicGh5bHVtIjoiVFJBQ0hFT1BIWVRBIiwiY2xhc3MiOiJNQUdOT0xJT1BTSURBIiwib3JkZXIiOiJNQUdOT0xJQUxFUyIsImZhbWlseSI6IkFOTk9OQUNFQUUiLCJnZW51cyI6Ilh5bG9waWEiLCJtYWluX2NvbW1vbl9uYW1lIjpudWxsLCJhdXRob3JpdHkiOiJEaWVscyIsInB1Ymxpc2hlZF95ZWFyIjoyMDE5LCJhc3Nlc3NtZW50X2RhdGUiOiIyMDE4LTExLTIxIiwiY2F0ZWdvcnkiOiJOVCIsImNyaXRlcmlhIjpudWxsLCJwb3B1bGF0aW9uX3RyZW5kIjoiVW5rbm93biIsIm1hcmluZV9zeXN0ZW0iOmZhbHNlLCJmcmVzaHdhdGVyX3N5c3RlbSI6ZmFsc2UsInRlcnJlc3RyaWFsX3N5c3RlbSI6dHJ1ZSwiYXNzZXNzb3IiOiJDb3NpYXV4LCBBLiwgQ291dnJldXIsIFQuTC5QLiAmIEVya2VucywgUi5ILkouIiwicmV2aWV3ZXIiOiJHZXJlYXUsIFIuRS4iLCJhb29fa20yIjoiODAiLCJlb29fa20yIjoiMTYwNzEiLCJlbGV2YXRpb25fdXBwZXIiOjkwMCwiZWxldmF0aW9uX2xvd2VyIjoyMDAsImRlcHRoX3VwcGVyIjpudWxsLCJkZXB0aF9sb3dlciI6bnVsbCwiZXJyYXRhX2ZsYWciOm51bGwsImVycmF0YV9yZWFzb24iOm51bGwsImFtZW5kZWRfZmxhZyI6bnVsbCwiYW1lbmRlZF9yZWFzb24iOm51bGx9XX0=
+  recorded_at: 2020-03-28 00:23:16 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/158354?token=<<rredlist_api_token>>
@@ -180,7 +204,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
+      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -190,18 +214,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.1.19
-      date: Wed, 08 May 2019 20:55:02 GMT
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 28 Mar 2020 00:23:07 GMT
       content-type: application/json; charset=utf-8
-      content-length: '80'
+      content-length: '137'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
+      etag: W/"89-DMzRcmpk5lDKBRFXDmOA9Q"
       vary: Accept-Encoding
+      set-cookie: sails.sid=s%3AMidNiLR4GEHpOx7qJQW1IPE_SIEsVi9C.O%2FNsopQ9pqxXpFMX6fqVSxJx%2FNrRvnxkQ3YyxzhrG4A;
+        Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
-      string: eyJuYW1lIjoiMTU4MzU0IiwicmVzdWx0IjpbeyJ5ZWFyIjoiMjAwOSIsImNvZGUiOiJFTiIsImNhdGVnb3J5IjoiRW5kYW5nZXJlZCJ9XX0=
-  recorded_at: 2019-05-08 20:55:18 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+      file: no
+      string: eyJuYW1lIjoiMTU4MzU0IiwicmVzdWx0IjpbeyJ5ZWFyIjoiMjAxOSIsImNvZGUiOiJOVCIsImNhdGVnb3J5IjoiTmVhciBUaHJlYXRlbmVkIn0seyJ5ZWFyIjoiMjAwOSIsImNvZGUiOiJFTiIsImNhdGVnb3J5IjoiRW5kYW5nZXJlZCJ9XX0=
+  recorded_at: 2020-03-28 00:23:16 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/158354?token=<<rredlist_api_token>>
@@ -209,7 +237,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
+      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -219,18 +247,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.1.19
-      date: Wed, 08 May 2019 20:55:02 GMT
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 28 Mar 2020 00:23:07 GMT
       content-type: application/json; charset=utf-8
       content-length: '264'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
+      etag: W/"108-WVuKGNK5QfN+I0Pkrfv+Aw"
       vary: Accept-Encoding
+      set-cookie: sails.sid=s%3AD-PVPuOdiwOBojtaTgkxxapeznbE7UIM.vP1WfCxX6Sr7DVhL%2FqJT1zsks%2BOjrEEoC%2BUtlM8t4gQ;
+        Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
+      file: no
       string: eyJuYW1lIjoiMTU4MzU0IiwiY291bnQiOjIsInJlc3VsdCI6W3siY29kZSI6Ik1aIiwiY291bnRyeSI6Ik1vemFtYmlxdWUiLCJwcmVzZW5jZSI6IkV4dGFudCIsIm9yaWdpbiI6Ik5hdGl2ZSIsImRpc3RyaWJ1dGlvbl9jb2RlIjoiTmF0aXZlIn0seyJjb2RlIjoiVFoiLCJjb3VudHJ5IjoiVGFuemFuaWEsIFVuaXRlZCBSZXB1YmxpYyBvZiIsInByZXNlbmNlIjoiRXh0YW50Iiwib3JpZ2luIjoiTmF0aXZlIiwiZGlzdHJpYnV0aW9uX2NvZGUiOiJOYXRpdmUifV19
-  recorded_at: 2019-05-08 20:55:18 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+  recorded_at: 2020-03-28 00:23:16 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/Brugmansia%20versicolor?token=<<rredlist_api_token>>
@@ -238,7 +270,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
+      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -248,18 +280,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.1.19
-      date: Wed, 08 May 2019 20:55:03 GMT
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 28 Mar 2020 00:23:07 GMT
       content-type: application/json; charset=utf-8
       content-length: '703'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
+      etag: W/"2bf-bnZ3KVtnm/v1/x78ECi+qw"
       vary: Accept-Encoding
+      set-cookie: sails.sid=s%3ANxCNpYZC0F1QN45Rzd3MeE4dbTA4c5MC.Osn0jLKM4XSnWW07iXSiu69aVskgAv8NvcVSfzGW6Jw;
+        Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
+      file: no
       string: eyJuYW1lIjoiQnJ1Z21hbnNpYSB2ZXJzaWNvbG9yIiwicmVzdWx0IjpbeyJ0YXhvbmlkIjozODEyNSwic2NpZW50aWZpY19uYW1lIjoiQnJ1Z21hbnNpYSB2ZXJzaWNvbG9yIiwia2luZ2RvbSI6IlBMQU5UQUUiLCJwaHlsdW0iOiJUUkFDSEVPUEhZVEEiLCJjbGFzcyI6Ik1BR05PTElPUFNJREEiLCJvcmRlciI6IlNPTEFOQUxFUyIsImZhbWlseSI6IlNPTEFOQUNFQUUiLCJnZW51cyI6IkJydWdtYW5zaWEiLCJtYWluX2NvbW1vbl9uYW1lIjpudWxsLCJhdXRob3JpdHkiOiJMYWdlcmguIiwicHVibGlzaGVkX3llYXIiOjIwMTQsImFzc2Vzc21lbnRfZGF0ZSI6IjIwMTQtMDMtMjUiLCJjYXRlZ29yeSI6IkVXIiwiY3JpdGVyaWEiOm51bGwsInBvcHVsYXRpb25fdHJlbmQiOm51bGwsIm1hcmluZV9zeXN0ZW0iOmZhbHNlLCJmcmVzaHdhdGVyX3N5c3RlbSI6ZmFsc2UsInRlcnJlc3RyaWFsX3N5c3RlbSI6dHJ1ZSwiYXNzZXNzb3IiOiJIYXksIEEuIiwicmV2aWV3ZXIiOiJTY290dCwgSi5BLiIsImFvb19rbTIiOm51bGwsImVvb19rbTIiOm51bGwsImVsZXZhdGlvbl91cHBlciI6NzUwLCJlbGV2YXRpb25fbG93ZXIiOjEwMCwiZGVwdGhfdXBwZXIiOm51bGwsImRlcHRoX2xvd2VyIjpudWxsLCJlcnJhdGFfZmxhZyI6bnVsbCwiZXJyYXRhX3JlYXNvbiI6bnVsbCwiYW1lbmRlZF9mbGFnIjpudWxsLCJhbWVuZGVkX3JlYXNvbiI6bnVsbH1dfQ==
-  recorded_at: 2019-05-08 20:55:18 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+  recorded_at: 2020-03-28 00:23:16 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/id/38125?token=<<rredlist_api_token>>
@@ -267,7 +303,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
+      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -277,18 +313,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.1.19
-      date: Wed, 08 May 2019 20:55:04 GMT
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 28 Mar 2020 00:23:08 GMT
       content-type: application/json; charset=utf-8
       content-length: '687'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
+      etag: W/"2af-ejVzYRdPjlgOjwEQuyrvGA"
       vary: Accept-Encoding
+      set-cookie: sails.sid=s%3A-OzOgvC8r2jLa4o20ogFu1CBBqOGPvK4.wMXLM3ccfHMRyK1bsUXi7%2BnnYeafNUVXIwqhX5qcfU4;
+        Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
+      file: no
       string: eyJuYW1lIjoiMzgxMjUiLCJyZXN1bHQiOlt7InRheG9uaWQiOjM4MTI1LCJzY2llbnRpZmljX25hbWUiOiJCcnVnbWFuc2lhIHZlcnNpY29sb3IiLCJraW5nZG9tIjoiUExBTlRBRSIsInBoeWx1bSI6IlRSQUNIRU9QSFlUQSIsImNsYXNzIjoiTUFHTk9MSU9QU0lEQSIsIm9yZGVyIjoiU09MQU5BTEVTIiwiZmFtaWx5IjoiU09MQU5BQ0VBRSIsImdlbnVzIjoiQnJ1Z21hbnNpYSIsIm1haW5fY29tbW9uX25hbWUiOm51bGwsImF1dGhvcml0eSI6IkxhZ2VyaC4iLCJwdWJsaXNoZWRfeWVhciI6MjAxNCwiYXNzZXNzbWVudF9kYXRlIjoiMjAxNC0wMy0yNSIsImNhdGVnb3J5IjoiRVciLCJjcml0ZXJpYSI6bnVsbCwicG9wdWxhdGlvbl90cmVuZCI6bnVsbCwibWFyaW5lX3N5c3RlbSI6ZmFsc2UsImZyZXNod2F0ZXJfc3lzdGVtIjpmYWxzZSwidGVycmVzdHJpYWxfc3lzdGVtIjp0cnVlLCJhc3Nlc3NvciI6IkhheSwgQS4iLCJyZXZpZXdlciI6IlNjb3R0LCBKLkEuIiwiYW9vX2ttMiI6bnVsbCwiZW9vX2ttMiI6bnVsbCwiZWxldmF0aW9uX3VwcGVyIjo3NTAsImVsZXZhdGlvbl9sb3dlciI6MTAwLCJkZXB0aF91cHBlciI6bnVsbCwiZGVwdGhfbG93ZXIiOm51bGwsImVycmF0YV9mbGFnIjpudWxsLCJlcnJhdGFfcmVhc29uIjpudWxsLCJhbWVuZGVkX2ZsYWciOm51bGwsImFtZW5kZWRfcmVhc29uIjpudWxsfV19
-  recorded_at: 2019-05-08 20:55:18 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+  recorded_at: 2020-03-28 00:23:16 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/38125?token=<<rredlist_api_token>>
@@ -296,7 +336,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
+      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -306,18 +346,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.1.19
-      date: Wed, 08 May 2019 20:55:04 GMT
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 28 Mar 2020 00:23:08 GMT
       content-type: application/json; charset=utf-8
       content-length: '197'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
+      etag: W/"c5-rfK1WkLDAm155L/zcBMJDQ"
       vary: Accept-Encoding
+      set-cookie: sails.sid=s%3A0PJpJpC3r-3TLT3uCLJK_f1u2RsN0t9M.HUjj9SbtFEun9rN3X1dJv2zPgU7HfHEW2psMhkEB2WM;
+        Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
+      file: no
       string: eyJuYW1lIjoiMzgxMjUiLCJyZXN1bHQiOlt7InllYXIiOiIyMDE0IiwiY29kZSI6IkVXIiwiY2F0ZWdvcnkiOiJFeHRpbmN0IGluIHRoZSBXaWxkIn0seyJ5ZWFyIjoiMjAwNCIsImNvZGUiOiJOVCIsImNhdGVnb3J5IjoiTmVhciBUaHJlYXRlbmVkIn0seyJ5ZWFyIjoiMTk5OCIsImNvZGUiOiJWVSIsImNhdGVnb3J5IjoiVnVsbmVyYWJsZSJ9XX0=
-  recorded_at: 2019-05-08 20:55:18 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+  recorded_at: 2020-03-28 00:23:16 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/38125?token=<<rredlist_api_token>>
@@ -325,7 +369,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
+      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -335,18 +379,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.1.19
-      date: Wed, 08 May 2019 20:55:05 GMT
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 28 Mar 2020 00:23:08 GMT
       content-type: application/json; charset=utf-8
       content-length: '161'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
+      etag: W/"a1-oKtZeptFZxSjDHMoECXQaQ"
       vary: Accept-Encoding
+      set-cookie: sails.sid=s%3Ae0MFekFQvIsGDul2B624nokY3ApQwJKp.n%2BqJvNpE78%2F3JAJ5j16aW9NP7RaoE1BtiMG4DLXvKCs;
+        Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
+      file: no
       string: eyJuYW1lIjoiMzgxMjUiLCJjb3VudCI6MSwicmVzdWx0IjpbeyJjb2RlIjoiRUMiLCJjb3VudHJ5IjoiRWN1YWRvciIsInByZXNlbmNlIjoiRXh0aW5jdCBQb3N0LTE1MDAiLCJvcmlnaW4iOiJOYXRpdmUiLCJkaXN0cmlidXRpb25fY29kZSI6IlJlZ2lvbmFsbHkgRXh0aW5jdCJ9XX0=
-  recorded_at: 2019-05-08 20:55:18 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+  recorded_at: 2020-03-28 00:23:16 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/Achatinella%20buddii?token=<<rredlist_api_token>>
@@ -354,7 +402,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
+      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -364,18 +412,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.1.19
-      date: Wed, 08 May 2019 20:55:06 GMT
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 28 Mar 2020 00:23:09 GMT
       content-type: application/json; charset=utf-8
       content-length: '714'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
+      etag: W/"2ca-A+dWGRWazZVhq4Mia4m/IQ"
       vary: Accept-Encoding
+      set-cookie: sails.sid=s%3ATOEgDAEFSZ4HD4rnm8j1in_Aa_m3TL9m.alXS%2BctmWdZGogtrOQe%2FGWJFFnZy4w7Aw9FUgRjDIqg;
+        Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
+      file: no
       string: eyJuYW1lIjoiQWNoYXRpbmVsbGEgYnVkZGlpIiwicmVzdWx0IjpbeyJ0YXhvbmlkIjoxNzAsInNjaWVudGlmaWNfbmFtZSI6IkFjaGF0aW5lbGxhIGJ1ZGRpaSIsImtpbmdkb20iOiJBTklNQUxJQSIsInBoeWx1bSI6Ik1PTExVU0NBIiwiY2xhc3MiOiJHQVNUUk9QT0RBIiwib3JkZXIiOiJTVFlMT01NQVRPUEhPUkEiLCJmYW1pbHkiOiJBQ0hBVElORUxMSURBRSIsImdlbnVzIjoiQWNoYXRpbmVsbGEiLCJtYWluX2NvbW1vbl9uYW1lIjpudWxsLCJhdXRob3JpdHkiOiJOZXdjb21iLCAxODUzIiwicHVibGlzaGVkX3llYXIiOjE5OTYsImFzc2Vzc21lbnRfZGF0ZSI6IjE5OTYtMDgtMDEiLCJjYXRlZ29yeSI6IkVYIiwiY3JpdGVyaWEiOm51bGwsInBvcHVsYXRpb25fdHJlbmQiOm51bGwsIm1hcmluZV9zeXN0ZW0iOmZhbHNlLCJmcmVzaHdhdGVyX3N5c3RlbSI6ZmFsc2UsInRlcnJlc3RyaWFsX3N5c3RlbSI6dHJ1ZSwiYXNzZXNzb3IiOiJNb2xsdXNjIFNwZWNpYWxpc3QgR3JvdXAiLCJyZXZpZXdlciI6IiIsImFvb19rbTIiOm51bGwsImVvb19rbTIiOm51bGwsImVsZXZhdGlvbl91cHBlciI6bnVsbCwiZWxldmF0aW9uX2xvd2VyIjpudWxsLCJkZXB0aF91cHBlciI6bnVsbCwiZGVwdGhfbG93ZXIiOm51bGwsImVycmF0YV9mbGFnIjpudWxsLCJlcnJhdGFfcmVhc29uIjpudWxsLCJhbWVuZGVkX2ZsYWciOm51bGwsImFtZW5kZWRfcmVhc29uIjpudWxsfV19
-  recorded_at: 2019-05-08 20:55:18 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+  recorded_at: 2020-03-28 00:23:16 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/id/170?token=<<rredlist_api_token>>
@@ -383,7 +435,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
+      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -393,18 +445,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.1.19
-      date: Wed, 08 May 2019 20:55:06 GMT
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 28 Mar 2020 00:23:09 GMT
       content-type: application/json; charset=utf-8
       content-length: '699'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
+      etag: W/"2bb-dIA/Debx/OuTm3DufHgs2g"
       vary: Accept-Encoding
+      set-cookie: sails.sid=s%3Ajy7bnE1Mq3DXN77RBzyZIs23KP4CT6K5.GnlTL3nS4JgXOf2d%2F%2BVd%2BRIS5e%2BGbLXiXSxumXTi7WY;
+        Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
+      file: no
       string: eyJuYW1lIjoiMTcwIiwicmVzdWx0IjpbeyJ0YXhvbmlkIjoxNzAsInNjaWVudGlmaWNfbmFtZSI6IkFjaGF0aW5lbGxhIGJ1ZGRpaSIsImtpbmdkb20iOiJBTklNQUxJQSIsInBoeWx1bSI6Ik1PTExVU0NBIiwiY2xhc3MiOiJHQVNUUk9QT0RBIiwib3JkZXIiOiJTVFlMT01NQVRPUEhPUkEiLCJmYW1pbHkiOiJBQ0hBVElORUxMSURBRSIsImdlbnVzIjoiQWNoYXRpbmVsbGEiLCJtYWluX2NvbW1vbl9uYW1lIjpudWxsLCJhdXRob3JpdHkiOiJOZXdjb21iLCAxODUzIiwicHVibGlzaGVkX3llYXIiOjE5OTYsImFzc2Vzc21lbnRfZGF0ZSI6IjE5OTYtMDgtMDEiLCJjYXRlZ29yeSI6IkVYIiwiY3JpdGVyaWEiOm51bGwsInBvcHVsYXRpb25fdHJlbmQiOm51bGwsIm1hcmluZV9zeXN0ZW0iOmZhbHNlLCJmcmVzaHdhdGVyX3N5c3RlbSI6ZmFsc2UsInRlcnJlc3RyaWFsX3N5c3RlbSI6dHJ1ZSwiYXNzZXNzb3IiOiJNb2xsdXNjIFNwZWNpYWxpc3QgR3JvdXAiLCJyZXZpZXdlciI6IiIsImFvb19rbTIiOm51bGwsImVvb19rbTIiOm51bGwsImVsZXZhdGlvbl91cHBlciI6bnVsbCwiZWxldmF0aW9uX2xvd2VyIjpudWxsLCJkZXB0aF91cHBlciI6bnVsbCwiZGVwdGhfbG93ZXIiOm51bGwsImVycmF0YV9mbGFnIjpudWxsLCJlcnJhdGFfcmVhc29uIjpudWxsLCJhbWVuZGVkX2ZsYWciOm51bGwsImFtZW5kZWRfcmVhc29uIjpudWxsfV19
-  recorded_at: 2019-05-08 20:55:18 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+  recorded_at: 2020-03-28 00:23:16 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/170?token=<<rredlist_api_token>>
@@ -412,7 +468,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
+      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -422,18 +478,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.1.19
-      date: Wed, 08 May 2019 20:55:07 GMT
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 28 Mar 2020 00:23:09 GMT
       content-type: application/json; charset=utf-8
       content-length: '223'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
+      etag: W/"df-7ioNfdkDM4GgiT/07WQVhg"
       vary: Accept-Encoding
+      set-cookie: sails.sid=s%3AUMSHYUaCBy4ktZPCSiz408uriNNXPcxq.Sof7ZXFJ2%2BSjtRvaH43hihb2V%2Fp9bA92%2FL4SRmKtdc4;
+        Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
+      file: no
       string: eyJuYW1lIjoiMTcwIiwicmVzdWx0IjpbeyJ5ZWFyIjoiMTk5NiIsImNvZGUiOiJFWCIsImNhdGVnb3J5IjoiRXh0aW5jdCJ9LHsieWVhciI6IjE5OTQiLCJjb2RlIjoiRXgiLCJjYXRlZ29yeSI6IkV4dGluY3QifSx7InllYXIiOiIxOTkwIiwiY29kZSI6IkV4IiwiY2F0ZWdvcnkiOiJFeHRpbmN0In0seyJ5ZWFyIjoiMTk4MyIsImNvZGUiOiJFIiwiY2F0ZWdvcnkiOiJFbmRhbmdlcmVkIn1dfQ==
-  recorded_at: 2019-05-08 20:55:18 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+  recorded_at: 2020-03-28 00:23:16 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/170?token=<<rredlist_api_token>>
@@ -441,7 +501,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
+      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -451,18 +511,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.1.19
-      date: Wed, 08 May 2019 20:55:07 GMT
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 28 Mar 2020 00:23:10 GMT
       content-type: application/json; charset=utf-8
       content-length: '165'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
+      etag: W/"a5-0pbtjUug6TIOWpq966Oj3Q"
       vary: Accept-Encoding
+      set-cookie: sails.sid=s%3AAPkEA1cMDgOdMYn-gZns99h_baoBs11c.gd4q9ro2WPcjYPRg07F6Lk5X%2BfKov98F4Cjw02MnCUw;
+        Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
+      file: no
       string: eyJuYW1lIjoiMTcwIiwiY291bnQiOjEsInJlc3VsdCI6W3siY29kZSI6IlVTIiwiY291bnRyeSI6IlVuaXRlZCBTdGF0ZXMiLCJwcmVzZW5jZSI6IkV4dGluY3QgUG9zdC0xNTAwIiwib3JpZ2luIjoiTmF0aXZlIiwiZGlzdHJpYnV0aW9uX2NvZGUiOiJSZWdpb25hbGx5IEV4dGluY3QifV19
-  recorded_at: 2019-05-08 20:55:18 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+  recorded_at: 2020-03-28 00:23:16 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/Annona%20hystricoides?token=<<rredlist_api_token>>
@@ -470,7 +534,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
+      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -480,18 +544,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.1.19
-      date: Wed, 08 May 2019 20:55:08 GMT
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 28 Mar 2020 00:23:11 GMT
       content-type: application/json; charset=utf-8
       content-length: '816'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
+      etag: W/"330-q0kDjaohOruGH+I9V1axRg"
       vary: Accept-Encoding
+      set-cookie: sails.sid=s%3ApM4eQjULJUTC2VKtR9C-kkPS7yFQm5u0.ABcPgyAcM0kC13MgYJPQ3P0Pzn1LCq5PRib89zjRU3c;
+        Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
+      file: no
       string: eyJuYW1lIjoiQW5ub25hIGh5c3RyaWNvaWRlcyIsInJlc3VsdCI6W3sidGF4b25pZCI6NDI4MTgsInNjaWVudGlmaWNfbmFtZSI6IkFubm9uYSBoeXN0cmljb2lkZXMiLCJraW5nZG9tIjoiUExBTlRBRSIsInBoeWx1bSI6IlRSQUNIRU9QSFlUQSIsImNsYXNzIjoiTUFHTk9MSU9QU0lEQSIsIm9yZGVyIjoiTUFHTk9MSUFMRVMiLCJmYW1pbHkiOiJBTk5PTkFDRUFFIiwiZ2VudXMiOiJBbm5vbmEiLCJtYWluX2NvbW1vbl9uYW1lIjpudWxsLCJhdXRob3JpdHkiOiJBLkguR2VudHJ5IiwicHVibGlzaGVkX3llYXIiOjIwMDMsImFzc2Vzc21lbnRfZGF0ZSI6IjIwMDMtMDQtMzAiLCJjYXRlZ29yeSI6IkNSIiwiY3JpdGVyaWEiOiJBNGM7IEIxYWIoaWlpKSIsInBvcHVsYXRpb25fdHJlbmQiOm51bGwsIm1hcmluZV9zeXN0ZW0iOmZhbHNlLCJmcmVzaHdhdGVyX3N5c3RlbSI6ZmFsc2UsInRlcnJlc3RyaWFsX3N5c3RlbSI6dHJ1ZSwiYXNzZXNzb3IiOiJNdXJpZWwsIFAuICYgUGl0bWFuLCBOLiIsInJldmlld2VyIjoiVmFsZW5jaWEsIFIuLCBQaXRtYW4sIE4uLCBMw6lvbi1Zw6FuZXosIFMuICYgSsO4cmdlbnNlbiwgUC5NLiAoRWN1YWRvciBQbGFudHMgUmVkIExpc3QgQXV0aG9yaXR5KSIsImFvb19rbTIiOm51bGwsImVvb19rbTIiOm51bGwsImVsZXZhdGlvbl91cHBlciI6bnVsbCwiZWxldmF0aW9uX2xvd2VyIjpudWxsLCJkZXB0aF91cHBlciI6bnVsbCwiZGVwdGhfbG93ZXIiOm51bGwsImVycmF0YV9mbGFnIjpudWxsLCJlcnJhdGFfcmVhc29uIjpudWxsLCJhbWVuZGVkX2ZsYWciOm51bGwsImFtZW5kZWRfcmVhc29uIjpudWxsfV19
-  recorded_at: 2019-05-08 20:55:18 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+  recorded_at: 2020-03-28 00:23:16 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/id/42818?token=<<rredlist_api_token>>
@@ -499,7 +567,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
+      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -509,18 +577,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.1.19
-      date: Wed, 08 May 2019 20:55:09 GMT
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 28 Mar 2020 00:23:11 GMT
       content-type: application/json; charset=utf-8
       content-length: '802'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
+      etag: W/"322-FCOYJzsmni2KIm2/RNuX7A"
       vary: Accept-Encoding
+      set-cookie: sails.sid=s%3Ar96GSwE2eod98D8tntoKapA0ZbwILKx-.n509LwN%2FVvnsNA44cYNE59QJrtDl4Jbeb%2FMHuB4lB94;
+        Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
+      file: no
       string: eyJuYW1lIjoiNDI4MTgiLCJyZXN1bHQiOlt7InRheG9uaWQiOjQyODE4LCJzY2llbnRpZmljX25hbWUiOiJBbm5vbmEgaHlzdHJpY29pZGVzIiwia2luZ2RvbSI6IlBMQU5UQUUiLCJwaHlsdW0iOiJUUkFDSEVPUEhZVEEiLCJjbGFzcyI6Ik1BR05PTElPUFNJREEiLCJvcmRlciI6Ik1BR05PTElBTEVTIiwiZmFtaWx5IjoiQU5OT05BQ0VBRSIsImdlbnVzIjoiQW5ub25hIiwibWFpbl9jb21tb25fbmFtZSI6bnVsbCwiYXV0aG9yaXR5IjoiQS5ILkdlbnRyeSIsInB1Ymxpc2hlZF95ZWFyIjoyMDAzLCJhc3Nlc3NtZW50X2RhdGUiOiIyMDAzLTA0LTMwIiwiY2F0ZWdvcnkiOiJDUiIsImNyaXRlcmlhIjoiQTRjOyBCMWFiKGlpaSkiLCJwb3B1bGF0aW9uX3RyZW5kIjpudWxsLCJtYXJpbmVfc3lzdGVtIjpmYWxzZSwiZnJlc2h3YXRlcl9zeXN0ZW0iOmZhbHNlLCJ0ZXJyZXN0cmlhbF9zeXN0ZW0iOnRydWUsImFzc2Vzc29yIjoiTXVyaWVsLCBQLiAmIFBpdG1hbiwgTi4iLCJyZXZpZXdlciI6IlZhbGVuY2lhLCBSLiwgUGl0bWFuLCBOLiwgTMOpb24tWcOhbmV6LCBTLiAmIErDuHJnZW5zZW4sIFAuTS4gKEVjdWFkb3IgUGxhbnRzIFJlZCBMaXN0IEF1dGhvcml0eSkiLCJhb29fa20yIjpudWxsLCJlb29fa20yIjpudWxsLCJlbGV2YXRpb25fdXBwZXIiOm51bGwsImVsZXZhdGlvbl9sb3dlciI6bnVsbCwiZGVwdGhfdXBwZXIiOm51bGwsImRlcHRoX2xvd2VyIjpudWxsLCJlcnJhdGFfZmxhZyI6bnVsbCwiZXJyYXRhX3JlYXNvbiI6bnVsbCwiYW1lbmRlZF9mbGFnIjpudWxsLCJhbWVuZGVkX3JlYXNvbiI6bnVsbH1dfQ==
-  recorded_at: 2019-05-08 20:55:18 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+  recorded_at: 2020-03-28 00:23:16 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/42818?token=<<rredlist_api_token>>
@@ -528,7 +600,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
+      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -538,18 +610,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.1.19
-      date: Wed, 08 May 2019 20:55:09 GMT
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 28 Mar 2020 00:23:12 GMT
       content-type: application/json; charset=utf-8
       content-length: '90'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
+      etag: W/"5a-IWOCCBAkDYrvGd7FdeZy1g"
       vary: Accept-Encoding
+      set-cookie: sails.sid=s%3AqpbO9Zoh-ytzkCJggHVKmH0Q-O9gsqsz.q4YU9U6aUZqUT3mUsowcvzySibpgzhgR0M1hfoUYK8k;
+        Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
+      file: no
       string: eyJuYW1lIjoiNDI4MTgiLCJyZXN1bHQiOlt7InllYXIiOiIyMDAzIiwiY29kZSI6IkNSIiwiY2F0ZWdvcnkiOiJDcml0aWNhbGx5IEVuZGFuZ2VyZWQifV19
-  recorded_at: 2019-05-08 20:55:18 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+  recorded_at: 2020-03-28 00:23:16 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/42818?token=<<rredlist_api_token>>
@@ -557,7 +633,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
+      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -567,18 +643,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.1.19
-      date: Wed, 08 May 2019 20:55:10 GMT
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 28 Mar 2020 00:23:12 GMT
       content-type: application/json; charset=utf-8
       content-length: '138'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
+      etag: W/"8a-4Wr/DbHFq2CybkEEc0EC9A"
       vary: Accept-Encoding
+      set-cookie: sails.sid=s%3A3ByLvjLuB59bp_qbgYyDwKXLxoobYXwG.mQsAx50SwwE8o4Emnfh4crFYzeVhQVuH56%2FszOudk5c;
+        Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
+      file: no
       string: eyJuYW1lIjoiNDI4MTgiLCJjb3VudCI6MSwicmVzdWx0IjpbeyJjb2RlIjoiRUMiLCJjb3VudHJ5IjoiRWN1YWRvciIsInByZXNlbmNlIjoiRXh0YW50Iiwib3JpZ2luIjoiTmF0aXZlIiwiZGlzdHJpYnV0aW9uX2NvZGUiOiJOYXRpdmUifV19
-  recorded_at: 2019-05-08 20:55:18 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+  recorded_at: 2020-03-28 00:23:16 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/Chamaecrista%20onusta?token=<<rredlist_api_token>>
@@ -586,7 +666,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
+      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -596,18 +676,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.1.19
-      date: Wed, 08 May 2019 20:55:11 GMT
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 28 Mar 2020 00:23:13 GMT
       content-type: application/json; charset=utf-8
       content-length: '739'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
+      etag: W/"2e3-n+e5V5uFWNNhWyaCcK5zUg"
       vary: Accept-Encoding
+      set-cookie: sails.sid=s%3A2_hBMcglV0banJaTFYS_eEaJLToIZQf3.t%2BuWzacn%2F5Sdd8B8kKEPsERoxvdwK4nMeNYpSgmk6CI;
+        Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
+      file: no
       string: eyJuYW1lIjoiQ2hhbWFlY3Jpc3RhIG9udXN0YSIsInJlc3VsdCI6W3sidGF4b25pZCI6MTk4OTE5NTIsInNjaWVudGlmaWNfbmFtZSI6IkNoYW1hZWNyaXN0YSBvbnVzdGEiLCJraW5nZG9tIjoiUExBTlRBRSIsInBoeWx1bSI6IlRSQUNIRU9QSFlUQSIsImNsYXNzIjoiTUFHTk9MSU9QU0lEQSIsIm9yZGVyIjoiRkFCQUxFUyIsImZhbWlseSI6IkZBQkFDRUFFIiwiZ2VudXMiOiJDaGFtYWVjcmlzdGEiLCJtYWluX2NvbW1vbl9uYW1lIjpudWxsLCJhdXRob3JpdHkiOiJILlMuSXJ3aW4gJiBCYXJuZWJ5IiwicHVibGlzaGVkX3llYXIiOjIwMTIsImFzc2Vzc21lbnRfZGF0ZSI6IjIwMTAtMDQtMTQiLCJjYXRlZ29yeSI6IlZVIiwiY3JpdGVyaWEiOiJCMWFiKGksaWksaWlpKSIsInBvcHVsYXRpb25fdHJlbmQiOiJEZWNyZWFzaW5nIiwibWFyaW5lX3N5c3RlbSI6ZmFsc2UsImZyZXNod2F0ZXJfc3lzdGVtIjpmYWxzZSwidGVycmVzdHJpYWxfc3lzdGVtIjp0cnVlLCJhc3Nlc3NvciI6Ikdyb29tLCBBLiIsInJldmlld2VyIjoiSGlsdG9uLVRheWxvciwgQy4iLCJhb29fa20yIjpudWxsLCJlb29fa20yIjoiNzM4MCIsImVsZXZhdGlvbl91cHBlciI6NDAsImVsZXZhdGlvbl9sb3dlciI6MSwiZGVwdGhfdXBwZXIiOm51bGwsImRlcHRoX2xvd2VyIjpudWxsLCJlcnJhdGFfZmxhZyI6bnVsbCwiZXJyYXRhX3JlYXNvbiI6bnVsbCwiYW1lbmRlZF9mbGFnIjpudWxsLCJhbWVuZGVkX3JlYXNvbiI6bnVsbH1dfQ==
-  recorded_at: 2019-05-08 20:55:18 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+  recorded_at: 2020-03-28 00:23:16 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/id/19891952?token=<<rredlist_api_token>>
@@ -615,7 +699,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
+      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -625,18 +709,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.1.19
-      date: Wed, 08 May 2019 20:55:11 GMT
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 28 Mar 2020 00:23:13 GMT
       content-type: application/json; charset=utf-8
       content-length: '728'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
+      etag: W/"2d8-E0nKuSTZnti064u420gfQg"
       vary: Accept-Encoding
+      set-cookie: sails.sid=s%3AmCrbm-uI4nKGVhlMYdaa09kFhHlEDWcW.slIWR4KOdhI3c6Ppihm5rIAJqLbGSuvDojfasnjNwj4;
+        Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
+      file: no
       string: eyJuYW1lIjoiMTk4OTE5NTIiLCJyZXN1bHQiOlt7InRheG9uaWQiOjE5ODkxOTUyLCJzY2llbnRpZmljX25hbWUiOiJDaGFtYWVjcmlzdGEgb251c3RhIiwia2luZ2RvbSI6IlBMQU5UQUUiLCJwaHlsdW0iOiJUUkFDSEVPUEhZVEEiLCJjbGFzcyI6Ik1BR05PTElPUFNJREEiLCJvcmRlciI6IkZBQkFMRVMiLCJmYW1pbHkiOiJGQUJBQ0VBRSIsImdlbnVzIjoiQ2hhbWFlY3Jpc3RhIiwibWFpbl9jb21tb25fbmFtZSI6bnVsbCwiYXV0aG9yaXR5IjoiSC5TLklyd2luICYgQmFybmVieSIsInB1Ymxpc2hlZF95ZWFyIjoyMDEyLCJhc3Nlc3NtZW50X2RhdGUiOiIyMDEwLTA0LTE0IiwiY2F0ZWdvcnkiOiJWVSIsImNyaXRlcmlhIjoiQjFhYihpLGlpLGlpaSkiLCJwb3B1bGF0aW9uX3RyZW5kIjoiRGVjcmVhc2luZyIsIm1hcmluZV9zeXN0ZW0iOmZhbHNlLCJmcmVzaHdhdGVyX3N5c3RlbSI6ZmFsc2UsInRlcnJlc3RyaWFsX3N5c3RlbSI6dHJ1ZSwiYXNzZXNzb3IiOiJHcm9vbSwgQS4iLCJyZXZpZXdlciI6IkhpbHRvbi1UYXlsb3IsIEMuIiwiYW9vX2ttMiI6bnVsbCwiZW9vX2ttMiI6IjczODAiLCJlbGV2YXRpb25fdXBwZXIiOjQwLCJlbGV2YXRpb25fbG93ZXIiOjEsImRlcHRoX3VwcGVyIjpudWxsLCJkZXB0aF9sb3dlciI6bnVsbCwiZXJyYXRhX2ZsYWciOm51bGwsImVycmF0YV9yZWFzb24iOm51bGwsImFtZW5kZWRfZmxhZyI6bnVsbCwiYW1lbmRlZF9yZWFzb24iOm51bGx9XX0=
-  recorded_at: 2019-05-08 20:55:18 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+  recorded_at: 2020-03-28 00:23:16 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/19891952?token=<<rredlist_api_token>>
@@ -644,7 +732,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
+      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -654,18 +742,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.1.19
-      date: Wed, 08 May 2019 20:55:12 GMT
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 28 Mar 2020 00:23:13 GMT
       content-type: application/json; charset=utf-8
       content-length: '82'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
+      etag: W/"52-VL7IxZebVvVxt2fUj+nzxw"
       vary: Accept-Encoding
+      set-cookie: sails.sid=s%3AOoSqzPYx_IUQI7vYHoezGUs-VFu6XXEH.fe62LmyEzr6EAkGGjDoI3oUk4fj68OacTaZEQL2JbCk;
+        Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
+      file: no
       string: eyJuYW1lIjoiMTk4OTE5NTIiLCJyZXN1bHQiOlt7InllYXIiOiIyMDEyIiwiY29kZSI6IlZVIiwiY2F0ZWdvcnkiOiJWdWxuZXJhYmxlIn1dfQ==
-  recorded_at: 2019-05-08 20:55:18 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+  recorded_at: 2020-03-28 00:23:16 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/19891952?token=<<rredlist_api_token>>
@@ -673,7 +765,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
+      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -683,18 +775,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.1.19
-      date: Wed, 08 May 2019 20:55:13 GMT
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 28 Mar 2020 00:23:13 GMT
       content-type: application/json; charset=utf-8
       content-length: '140'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
+      etag: W/"8c-c5NY0Wi4ZfGx77UER0e02A"
       vary: Accept-Encoding
+      set-cookie: sails.sid=s%3AVT1RIC25HkHoq_FybeNO022Adx5ShyXu.sMY0L9NChz7kMm2PWmaoCs5xnsOcsfL1lbh89xOjnvg;
+        Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
+      file: no
       string: eyJuYW1lIjoiMTk4OTE5NTIiLCJjb3VudCI6MSwicmVzdWx0IjpbeyJjb2RlIjoiQlIiLCJjb3VudHJ5IjoiQnJhemlsIiwicHJlc2VuY2UiOiJFeHRhbnQiLCJvcmlnaW4iOiJOYXRpdmUiLCJkaXN0cmlidXRpb25fY29kZSI6Ik5hdGl2ZSJ9XX0=
-  recorded_at: 2019-05-08 20:55:18 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+  recorded_at: 2020-03-28 00:23:16 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/Cyornis%20lemprieri?token=<<rredlist_api_token>>
@@ -702,7 +798,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
+      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -712,18 +808,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.1.19
-      date: Wed, 08 May 2019 20:55:14 GMT
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 28 Mar 2020 00:23:14 GMT
       content-type: application/json; charset=utf-8
-      content-length: '757'
+      content-length: '762'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
+      etag: W/"2fa-sQ9omAfQfQ6V/kGOGAgz1g"
       vary: Accept-Encoding
+      set-cookie: sails.sid=s%3A-JCIMBHyUw2lxkIk0vSYwzK3cVJhYF6W.rfA4Wdatq3FCVgTPQo8H5b8fzmF0n9HL9pf0Oo1ItKA;
+        Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
-      string: eyJuYW1lIjoiQ3lvcm5pcyBsZW1wcmllcmkiLCJyZXN1bHQiOlt7InRheG9uaWQiOjIyNzA5NTQ4LCJzY2llbnRpZmljX25hbWUiOiJDeW9ybmlzIGxlbXByaWVyaSIsImtpbmdkb20iOiJBTklNQUxJQSIsInBoeWx1bSI6IkNIT1JEQVRBIiwiY2xhc3MiOiJBVkVTIiwib3JkZXIiOiJQQVNTRVJJRk9STUVTIiwiZmFtaWx5IjoiTVVTQ0lDQVBJREFFIiwiZ2VudXMiOiJDeW9ybmlzIiwibWFpbl9jb21tb25fbmFtZSI6IlBhbGF3YW4gQmx1ZS1mbHljYXRjaGVyIiwiYXV0aG9yaXR5IjoiKFNoYXJwZSwgMTg4NCkiLCJwdWJsaXNoZWRfeWVhciI6MjAxNiwiYXNzZXNzbWVudF9kYXRlIjoiMjAxNi0xMC0wMSIsImNhdGVnb3J5IjoiTlQiLCJjcml0ZXJpYSI6bnVsbCwicG9wdWxhdGlvbl90cmVuZCI6IkRlY3JlYXNpbmciLCJtYXJpbmVfc3lzdGVtIjpmYWxzZSwiZnJlc2h3YXRlcl9zeXN0ZW0iOmZhbHNlLCJ0ZXJyZXN0cmlhbF9zeXN0ZW0iOnRydWUsImFzc2Vzc29yIjoiQmlyZExpZmUgSW50ZXJuYXRpb25hbCIsInJldmlld2VyIjoiQnV0Y2hhcnQsIFMuLCBTeW1lcywgQS4iLCJhb29fa20yIjpudWxsLCJlb29fa20yIjoiNTA5MDAiLCJlbGV2YXRpb25fdXBwZXIiOm51bGwsImVsZXZhdGlvbl9sb3dlciI6bnVsbCwiZGVwdGhfdXBwZXIiOm51bGwsImRlcHRoX2xvd2VyIjpudWxsLCJlcnJhdGFfZmxhZyI6bnVsbCwiZXJyYXRhX3JlYXNvbiI6bnVsbCwiYW1lbmRlZF9mbGFnIjpudWxsLCJhbWVuZGVkX3JlYXNvbiI6bnVsbH1dfQ==
-  recorded_at: 2019-05-08 20:55:18 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+      file: no
+      string: eyJuYW1lIjoiQ3lvcm5pcyBsZW1wcmllcmkiLCJyZXN1bHQiOlt7InRheG9uaWQiOjIyNzA5NTQ4LCJzY2llbnRpZmljX25hbWUiOiJDeW9ybmlzIGxlbXByaWVyaSIsImtpbmdkb20iOiJBTklNQUxJQSIsInBoeWx1bSI6IkNIT1JEQVRBIiwiY2xhc3MiOiJBVkVTIiwib3JkZXIiOiJQQVNTRVJJRk9STUVTIiwiZmFtaWx5IjoiTVVTQ0lDQVBJREFFIiwiZ2VudXMiOiJDeW9ybmlzIiwibWFpbl9jb21tb25fbmFtZSI6IlBhbGF3YW4gQmx1ZS1mbHljYXRjaGVyIiwiYXV0aG9yaXR5IjoiKFNoYXJwZSwgMTg4NCkiLCJwdWJsaXNoZWRfeWVhciI6MjAxNiwiYXNzZXNzbWVudF9kYXRlIjoiMjAxNi0xMC0wMSIsImNhdGVnb3J5IjoiTlQiLCJjcml0ZXJpYSI6bnVsbCwicG9wdWxhdGlvbl90cmVuZCI6IkRlY3JlYXNpbmciLCJtYXJpbmVfc3lzdGVtIjpmYWxzZSwiZnJlc2h3YXRlcl9zeXN0ZW0iOmZhbHNlLCJ0ZXJyZXN0cmlhbF9zeXN0ZW0iOnRydWUsImFzc2Vzc29yIjoiQmlyZExpZmUgSW50ZXJuYXRpb25hbCIsInJldmlld2VyIjoiQnV0Y2hhcnQsIFMuSC5NLiAmIFN5bWVzLCBBLiIsImFvb19rbTIiOm51bGwsImVvb19rbTIiOiI1MDkwMCIsImVsZXZhdGlvbl91cHBlciI6bnVsbCwiZWxldmF0aW9uX2xvd2VyIjpudWxsLCJkZXB0aF91cHBlciI6bnVsbCwiZGVwdGhfbG93ZXIiOm51bGwsImVycmF0YV9mbGFnIjpudWxsLCJlcnJhdGFfcmVhc29uIjpudWxsLCJhbWVuZGVkX2ZsYWciOm51bGwsImFtZW5kZWRfcmVhc29uIjpudWxsfV19
+  recorded_at: 2020-03-28 00:23:16 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/id/22709548?token=<<rredlist_api_token>>
@@ -731,7 +831,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
+      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -741,18 +841,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.1.19
-      date: Wed, 08 May 2019 20:55:14 GMT
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 28 Mar 2020 00:23:14 GMT
       content-type: application/json; charset=utf-8
-      content-length: '748'
+      content-length: '753'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
+      etag: W/"2f1-P4b2tXhtVLdvCUwf1MTmJg"
       vary: Accept-Encoding
+      set-cookie: sails.sid=s%3AaCOjyJnTiOu_SAW1VT7V0TzJrDsI5T_C.okEHLsY6T3bwiiRpUBQ8Vy0f3hH5M0pYOj6%2B%2FOkJLmU;
+        Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
-      string: eyJuYW1lIjoiMjI3MDk1NDgiLCJyZXN1bHQiOlt7InRheG9uaWQiOjIyNzA5NTQ4LCJzY2llbnRpZmljX25hbWUiOiJDeW9ybmlzIGxlbXByaWVyaSIsImtpbmdkb20iOiJBTklNQUxJQSIsInBoeWx1bSI6IkNIT1JEQVRBIiwiY2xhc3MiOiJBVkVTIiwib3JkZXIiOiJQQVNTRVJJRk9STUVTIiwiZmFtaWx5IjoiTVVTQ0lDQVBJREFFIiwiZ2VudXMiOiJDeW9ybmlzIiwibWFpbl9jb21tb25fbmFtZSI6IlBhbGF3YW4gQmx1ZS1mbHljYXRjaGVyIiwiYXV0aG9yaXR5IjoiKFNoYXJwZSwgMTg4NCkiLCJwdWJsaXNoZWRfeWVhciI6MjAxNiwiYXNzZXNzbWVudF9kYXRlIjoiMjAxNi0xMC0wMSIsImNhdGVnb3J5IjoiTlQiLCJjcml0ZXJpYSI6bnVsbCwicG9wdWxhdGlvbl90cmVuZCI6IkRlY3JlYXNpbmciLCJtYXJpbmVfc3lzdGVtIjpmYWxzZSwiZnJlc2h3YXRlcl9zeXN0ZW0iOmZhbHNlLCJ0ZXJyZXN0cmlhbF9zeXN0ZW0iOnRydWUsImFzc2Vzc29yIjoiQmlyZExpZmUgSW50ZXJuYXRpb25hbCIsInJldmlld2VyIjoiQnV0Y2hhcnQsIFMuLCBTeW1lcywgQS4iLCJhb29fa20yIjpudWxsLCJlb29fa20yIjoiNTA5MDAiLCJlbGV2YXRpb25fdXBwZXIiOm51bGwsImVsZXZhdGlvbl9sb3dlciI6bnVsbCwiZGVwdGhfdXBwZXIiOm51bGwsImRlcHRoX2xvd2VyIjpudWxsLCJlcnJhdGFfZmxhZyI6bnVsbCwiZXJyYXRhX3JlYXNvbiI6bnVsbCwiYW1lbmRlZF9mbGFnIjpudWxsLCJhbWVuZGVkX3JlYXNvbiI6bnVsbH1dfQ==
-  recorded_at: 2019-05-08 20:55:18 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+      file: no
+      string: eyJuYW1lIjoiMjI3MDk1NDgiLCJyZXN1bHQiOlt7InRheG9uaWQiOjIyNzA5NTQ4LCJzY2llbnRpZmljX25hbWUiOiJDeW9ybmlzIGxlbXByaWVyaSIsImtpbmdkb20iOiJBTklNQUxJQSIsInBoeWx1bSI6IkNIT1JEQVRBIiwiY2xhc3MiOiJBVkVTIiwib3JkZXIiOiJQQVNTRVJJRk9STUVTIiwiZmFtaWx5IjoiTVVTQ0lDQVBJREFFIiwiZ2VudXMiOiJDeW9ybmlzIiwibWFpbl9jb21tb25fbmFtZSI6IlBhbGF3YW4gQmx1ZS1mbHljYXRjaGVyIiwiYXV0aG9yaXR5IjoiKFNoYXJwZSwgMTg4NCkiLCJwdWJsaXNoZWRfeWVhciI6MjAxNiwiYXNzZXNzbWVudF9kYXRlIjoiMjAxNi0xMC0wMSIsImNhdGVnb3J5IjoiTlQiLCJjcml0ZXJpYSI6bnVsbCwicG9wdWxhdGlvbl90cmVuZCI6IkRlY3JlYXNpbmciLCJtYXJpbmVfc3lzdGVtIjpmYWxzZSwiZnJlc2h3YXRlcl9zeXN0ZW0iOmZhbHNlLCJ0ZXJyZXN0cmlhbF9zeXN0ZW0iOnRydWUsImFzc2Vzc29yIjoiQmlyZExpZmUgSW50ZXJuYXRpb25hbCIsInJldmlld2VyIjoiQnV0Y2hhcnQsIFMuSC5NLiAmIFN5bWVzLCBBLiIsImFvb19rbTIiOm51bGwsImVvb19rbTIiOiI1MDkwMCIsImVsZXZhdGlvbl91cHBlciI6bnVsbCwiZWxldmF0aW9uX2xvd2VyIjpudWxsLCJkZXB0aF91cHBlciI6bnVsbCwiZGVwdGhfbG93ZXIiOm51bGwsImVycmF0YV9mbGFnIjpudWxsLCJlcnJhdGFfcmVhc29uIjpudWxsLCJhbWVuZGVkX2ZsYWciOm51bGwsImFtZW5kZWRfcmVhc29uIjpudWxsfV19
+  recorded_at: 2020-03-28 00:23:16 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/22709548?token=<<rredlist_api_token>>
@@ -760,7 +864,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
+      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -770,18 +874,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.1.19
-      date: Wed, 08 May 2019 20:55:15 GMT
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 28 Mar 2020 00:23:15 GMT
       content-type: application/json; charset=utf-8
       content-length: '524'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
+      etag: W/"20c-fMu2yZbOem1A8JrQePAaQw"
       vary: Accept-Encoding
+      set-cookie: sails.sid=s%3AS6x9TQcxbjX5K7uy3P_5UXNg441uXvlr.7D%2BCm7YumRWHUbcfbyf%2FuNh6J3l25ihu%2FFefH5AjBi8;
+        Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
+      file: no
       string: eyJuYW1lIjoiMjI3MDk1NDgiLCJyZXN1bHQiOlt7InllYXIiOiIyMDE2IiwiY29kZSI6Ik5UIiwiY2F0ZWdvcnkiOiJOZWFyIFRocmVhdGVuZWQifSx7InllYXIiOiIyMDEzIiwiY29kZSI6Ik5UIiwiY2F0ZWdvcnkiOiJOZWFyIFRocmVhdGVuZWQifSx7InllYXIiOiIyMDEyIiwiY29kZSI6Ik5UIiwiY2F0ZWdvcnkiOiJOZWFyIFRocmVhdGVuZWQifSx7InllYXIiOiIyMDA4IiwiY29kZSI6Ik5UIiwiY2F0ZWdvcnkiOiJOZWFyIFRocmVhdGVuZWQifSx7InllYXIiOiIyMDA0IiwiY29kZSI6Ik5UIiwiY2F0ZWdvcnkiOiJOZWFyIFRocmVhdGVuZWQifSx7InllYXIiOiIyMDAwIiwiY29kZSI6IkxSL250IiwiY2F0ZWdvcnkiOiJMb3dlciBSaXNrL25lYXIgdGhyZWF0ZW5lZCJ9LHsieWVhciI6IjE5OTQiLCJjb2RlIjoiTFIvbGMiLCJjYXRlZ29yeSI6Ikxvd2VyIFJpc2svbGVhc3QgY29uY2VybiJ9LHsieWVhciI6IjE5ODgiLCJjb2RlIjoiTFIvbGMiLCJjYXRlZ29yeSI6Ikxvd2VyIFJpc2svbGVhc3QgY29uY2VybiJ9XX0=
-  recorded_at: 2019-05-08 20:55:18 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+  recorded_at: 2020-03-28 00:23:16 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/22709548?token=<<rredlist_api_token>>
@@ -789,7 +897,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
+      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -799,18 +907,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.1.19
-      date: Wed, 08 May 2019 20:55:15 GMT
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 28 Mar 2020 00:23:15 GMT
       content-type: application/json; charset=utf-8
       content-length: '145'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
+      etag: W/"91-DeiqXw6iuI08mD65WSerrw"
       vary: Accept-Encoding
+      set-cookie: sails.sid=s%3AGhA-fxMbxWPMWB82PthqG0ywNU2ZrN4k.t%2BvZvQWIGYar%2BNfclXJo62pQULB8xqY8DFOkTCC1bxU;
+        Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
+      file: no
       string: eyJuYW1lIjoiMjI3MDk1NDgiLCJjb3VudCI6MSwicmVzdWx0IjpbeyJjb2RlIjoiUEgiLCJjb3VudHJ5IjoiUGhpbGlwcGluZXMiLCJwcmVzZW5jZSI6IkV4dGFudCIsIm9yaWdpbiI6Ik5hdGl2ZSIsImRpc3RyaWJ1dGlvbl9jb2RlIjoiTmF0aXZlIn1dfQ==
-  recorded_at: 2019-05-08 20:55:18 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+  recorded_at: 2020-03-28 00:23:16 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/Frailea%20pumila?token=<<rredlist_api_token>>
@@ -818,7 +930,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
+      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -828,18 +940,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.1.19
-      date: Wed, 08 May 2019 20:55:16 GMT
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 28 Mar 2020 00:23:15 GMT
       content-type: application/json; charset=utf-8
       content-length: '803'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
+      etag: W/"323-4Tg5zxb/JOc9fs6EeMPt5Q"
       vary: Accept-Encoding
+      set-cookie: sails.sid=s%3ADOZnJbiHaA-5XNdP2hrSYlnCdYo7VdI5.vOherZSjNPRshehPOkbONbFSoJ7Bc8%2BfvAymxJBhDqs;
+        Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
+      file: no
       string: eyJuYW1lIjoiRnJhaWxlYSBwdW1pbGEiLCJyZXN1bHQiOlt7InRheG9uaWQiOjE1MjE5NSwic2NpZW50aWZpY19uYW1lIjoiRnJhaWxlYSBwdW1pbGEiLCJraW5nZG9tIjoiUExBTlRBRSIsInBoeWx1bSI6IlRSQUNIRU9QSFlUQSIsImNsYXNzIjoiTUFHTk9MSU9QU0lEQSIsIm9yZGVyIjoiQ0FSWU9QSFlMTEFMRVMiLCJmYW1pbHkiOiJDQUNUQUNFQUUiLCJnZW51cyI6IkZyYWlsZWEiLCJtYWluX2NvbW1vbl9uYW1lIjpudWxsLCJhdXRob3JpdHkiOiIoTGVtLikgQnJpdHRvbiAmYW1wOyBSb3NlIiwicHVibGlzaGVkX3llYXIiOjIwMTcsImFzc2Vzc21lbnRfZGF0ZSI6IjIwMTAtMDYtMDQiLCJjYXRlZ29yeSI6IkxDIiwiY3JpdGVyaWEiOm51bGwsInBvcHVsYXRpb25fdHJlbmQiOiJTdGFibGUiLCJtYXJpbmVfc3lzdGVtIjpmYWxzZSwiZnJlc2h3YXRlcl9zeXN0ZW0iOmZhbHNlLCJ0ZXJyZXN0cmlhbF9zeXN0ZW0iOnRydWUsImFzc2Vzc29yIjoiTGFyb2NjYSwgSi4sIE1hY2hhZG8sIE0uICYgRHVhcnRlLCBXLiIsInJldmlld2VyIjoiR29ldHRzY2gsIEIuSy4gJiBTdXBlcmluYSwgTS4iLCJhb29fa20yIjpudWxsLCJlb29fa20yIjpudWxsLCJlbGV2YXRpb25fdXBwZXIiOjMwMCwiZWxldmF0aW9uX2xvd2VyIjoxMDAsImRlcHRoX3VwcGVyIjpudWxsLCJkZXB0aF9sb3dlciI6bnVsbCwiZXJyYXRhX2ZsYWciOm51bGwsImVycmF0YV9yZWFzb24iOm51bGwsImFtZW5kZWRfZmxhZyI6dHJ1ZSwiYW1lbmRlZF9yZWFzb24iOiJUaGUgc3BlY2llcyBkaXN0cmlidXRpb24gbWFwIGhhcyBiZWVuIGFkZGVkLiJ9XX0=
-  recorded_at: 2019-05-08 20:55:18 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+  recorded_at: 2020-03-28 00:23:16 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/id/152195?token=<<rredlist_api_token>>
@@ -847,7 +963,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
+      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -857,18 +973,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.1.19
-      date: Wed, 08 May 2019 20:55:17 GMT
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 28 Mar 2020 00:23:16 GMT
       content-type: application/json; charset=utf-8
       content-length: '795'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
+      etag: W/"31b-uITq0PmzvAB1Iqjv3S9ZFg"
       vary: Accept-Encoding
+      set-cookie: sails.sid=s%3Axs-Y1tvakGizdgyv4ap8TLljycXq2i3C.ak89u3%2Bu9UDZzYo45QZvhXdVgfof7I29OXwgfAjZw%2Fk;
+        Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
+      file: no
       string: eyJuYW1lIjoiMTUyMTk1IiwicmVzdWx0IjpbeyJ0YXhvbmlkIjoxNTIxOTUsInNjaWVudGlmaWNfbmFtZSI6IkZyYWlsZWEgcHVtaWxhIiwia2luZ2RvbSI6IlBMQU5UQUUiLCJwaHlsdW0iOiJUUkFDSEVPUEhZVEEiLCJjbGFzcyI6Ik1BR05PTElPUFNJREEiLCJvcmRlciI6IkNBUllPUEhZTExBTEVTIiwiZmFtaWx5IjoiQ0FDVEFDRUFFIiwiZ2VudXMiOiJGcmFpbGVhIiwibWFpbl9jb21tb25fbmFtZSI6bnVsbCwiYXV0aG9yaXR5IjoiKExlbS4pIEJyaXR0b24gJmFtcDsgUm9zZSIsInB1Ymxpc2hlZF95ZWFyIjoyMDE3LCJhc3Nlc3NtZW50X2RhdGUiOiIyMDEwLTA2LTA0IiwiY2F0ZWdvcnkiOiJMQyIsImNyaXRlcmlhIjpudWxsLCJwb3B1bGF0aW9uX3RyZW5kIjoiU3RhYmxlIiwibWFyaW5lX3N5c3RlbSI6ZmFsc2UsImZyZXNod2F0ZXJfc3lzdGVtIjpmYWxzZSwidGVycmVzdHJpYWxfc3lzdGVtIjp0cnVlLCJhc3Nlc3NvciI6Ikxhcm9jY2EsIEouLCBNYWNoYWRvLCBNLiAmIER1YXJ0ZSwgVy4iLCJyZXZpZXdlciI6IkdvZXR0c2NoLCBCLksuICYgU3VwZXJpbmEsIE0uIiwiYW9vX2ttMiI6bnVsbCwiZW9vX2ttMiI6bnVsbCwiZWxldmF0aW9uX3VwcGVyIjozMDAsImVsZXZhdGlvbl9sb3dlciI6MTAwLCJkZXB0aF91cHBlciI6bnVsbCwiZGVwdGhfbG93ZXIiOm51bGwsImVycmF0YV9mbGFnIjpudWxsLCJlcnJhdGFfcmVhc29uIjpudWxsLCJhbWVuZGVkX2ZsYWciOnRydWUsImFtZW5kZWRfcmVhc29uIjoiVGhlIHNwZWNpZXMgZGlzdHJpYnV0aW9uIG1hcCBoYXMgYmVlbiBhZGRlZC4ifV19
-  recorded_at: 2019-05-08 20:55:18 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+  recorded_at: 2020-03-28 00:23:16 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/152195?token=<<rredlist_api_token>>
@@ -876,7 +996,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
+      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -886,18 +1006,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.1.19
-      date: Wed, 08 May 2019 20:55:17 GMT
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 28 Mar 2020 00:23:16 GMT
       content-type: application/json; charset=utf-8
       content-length: '83'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
+      etag: W/"53-wWFqrKcDvXBVBiAhvZsPyw"
       vary: Accept-Encoding
+      set-cookie: sails.sid=s%3AsuiLhzeY-919F3NSSFm2tCFL-OamBPAF.8SwTtDmIeCYQAYRuC4OFH0CKivLUUcic32z1kS%2F0g0A;
+        Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
+      file: no
       string: eyJuYW1lIjoiMTUyMTk1IiwicmVzdWx0IjpbeyJ5ZWFyIjoiMjAxMyIsImNvZGUiOiJMQyIsImNhdGVnb3J5IjoiTGVhc3QgQ29uY2VybiJ9XX0=
-  recorded_at: 2019-05-08 20:55:18 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+  recorded_at: 2020-03-28 00:23:16 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
     uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/152195?token=<<rredlist_api_token>>
@@ -905,7 +1029,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(rredlist/0.5.0)
+      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -915,15 +1039,19 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.1.19
-      date: Wed, 08 May 2019 20:55:18 GMT
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 28 Mar 2020 00:23:16 GMT
       content-type: application/json; charset=utf-8
       content-length: '444'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
+      etag: W/"1bc-lDDcW7QEXw8d3gdzlA8PXw"
       vary: Accept-Encoding
+      set-cookie: sails.sid=s%3AhyaTa-8j0eDRxPze0s9-qmlyImblK1tE.d2FBREPSZQ2jy2CgoSMKehWYyZFZT2OTZP53ckVKtwk;
+        Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
+      file: no
       string: eyJuYW1lIjoiMTUyMTk1IiwiY291bnQiOjQsInJlc3VsdCI6W3siY29kZSI6IkFSIiwiY291bnRyeSI6IkFyZ2VudGluYSIsInByZXNlbmNlIjoiRXh0YW50Iiwib3JpZ2luIjoiTmF0aXZlIiwiZGlzdHJpYnV0aW9uX2NvZGUiOiJOYXRpdmUifSx7ImNvZGUiOiJCUiIsImNvdW50cnkiOiJCcmF6aWwiLCJwcmVzZW5jZSI6IkV4dGFudCIsIm9yaWdpbiI6Ik5hdGl2ZSIsImRpc3RyaWJ1dGlvbl9jb2RlIjoiTmF0aXZlIn0seyJjb2RlIjoiUFkiLCJjb3VudHJ5IjoiUGFyYWd1YXkiLCJwcmVzZW5jZSI6IkV4dGFudCIsIm9yaWdpbiI6Ik5hdGl2ZSIsImRpc3RyaWJ1dGlvbl9jb2RlIjoiTmF0aXZlIn0seyJjb2RlIjoiVVkiLCJjb3VudHJ5IjoiVXJ1Z3VheSIsInByZXNlbmNlIjoiRXh0YW50Iiwib3JpZ2luIjoiTmF0aXZlIiwiZGlzdHJpYnV0aW9uX2NvZGUiOiJOYXRpdmUifV19
-  recorded_at: 2019-05-08 20:55:18 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+  recorded_at: 2020-03-28 00:23:16 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.91

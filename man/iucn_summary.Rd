@@ -76,6 +76,8 @@ iucn_summary("Lutra lutra")
 
 ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
 ia <- iucn_summary(c("Panthera uncia", "Lynx lynx", "aaa"))
+iucn_summary("Muntiacus rooseveltorum/truongsonensis")
+iucn_summary(c("Muntiacus rooseveltorum/truongsonensis", "Lynx lynx"))
 
 ## get detailed distribution
 iac <- iucn_summary(x="Ara chloropterus", distr_detail = TRUE)

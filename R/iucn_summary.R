@@ -64,6 +64,8 @@
 #'
 #' ia <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
 #' ia <- iucn_summary(c("Panthera uncia", "Lynx lynx", "aaa"))
+#' iucn_summary("Muntiacus rooseveltorum/truongsonensis")
+#' iucn_summary(c("Muntiacus rooseveltorum/truongsonensis", "Lynx lynx"))
 #'
 #' ## get detailed distribution
 #' iac <- iucn_summary(x="Ara chloropterus", distr_detail = TRUE)
@@ -85,18 +87,21 @@ iucn_summary.default <- function(x, distr_detail = FALSE, key = NULL, ...) {
 
 #' @export
 iucn_summary.character <- function(x, distr_detail = FALSE, key = NULL, ...) {
-  xid <- get_iucn(x, key = key, ...)
-  if (any(is.na(xid))) {
-    nas <- x[is.na(xid)]
-    warning("taxa '", paste0(nas, collapse = ", ") ,
-            "' not found!\n Returning NAs!")
-    if (all(is.na(xid))) {
-      tmp <- list(status = NA, history = NA, distr = NA, trend = NA)
-      tmp <- stats::setNames(replicate(length(x), tmp, simplify = FALSE), x)
-      class(tmp) <- "iucn_summary"
-      return(tmp)
+  safe_get_iucn <- function(x, key, ...) {
+    tmp <- tryCatch(get_iucn(x, key = key, ...), error = function(e) e)
+    if (any(is.na(tmp)) || inherits(tmp, "error")) {
+      if (inherits(tmp, "error")) {
+        nas <- x
+      } else {
+        nas <- x[is.na(tmp)]
+      }
+      warning("taxa '", paste0(nas, collapse = ", ") ,
+              "' not found!\n Returning NA!", call. = FALSE)
+      return(NA_character_)
     }
+    return(tmp)
   }
+  xid <- lapply(x, safe_get_iucn, key = key)
   xid <- as.numeric(xid)
   res <- get_iucn_summary2(xid, distr_detail, key = key, ...)
   structure(stats::setNames(res, x), class = "iucn_summary")

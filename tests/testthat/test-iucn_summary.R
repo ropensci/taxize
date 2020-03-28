@@ -33,20 +33,11 @@ test_that("iucn_summary gives expected result for lots of names", {
   }, preserve_exact_body_bytes = TRUE)
 
   expect_equal(aa$`Abies koreana`$status, "EN")
-  expect_equal(bb$`Xylopia collina`$status, "EN")
+  expect_equal(bb$`Xylopia collina`$status, "NT")
   expect_equal(cc$`Brugmansia versicolor`$status, "EW")
   expect_equal(dd$`Achatinella buddii`$status, "EX")
   expect_equal(ee$`Annona hystricoides`$status, "CR")
   expect_equal(ff$`Chamaecrista onusta`$status, "VU")
   expect_equal(gg$`Cyornis lemprieri`$status, "NT")
   expect_equal(hh$`Frailea pumila`$status, "LC")
-})
-
-context("iucn_summary: curl options work")
-test_that("iucn_summary curl options work", {
-  skip_on_cran()
-  if (Sys.getenv("IUCN_REDLIST_KEY") == "") {
-    skip("No IUCN api key so test not run.")
-  }
-  expect_error(iucn_summary("Abies koreana", timeout_ms = 1, messages = FALSE))
 })
