@@ -151,7 +151,7 @@ synonyms.default <- function(x, db = NULL, rows = NA, ...) {
 
 process_syn_ids <- function(input, db, fxn, ...){
   g <- tryCatch(as.numeric(as.character(input)), warning = function(e) e)
-  if (inherits(g, "condition") && !grepl("ipni\\.org", input)) {
+  if (inherits(g, "condition") && all(!grepl("ipni\\.org", input))) {
     return(eval(fxn)(input, ...))
   }
   if (

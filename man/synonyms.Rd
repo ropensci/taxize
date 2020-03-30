@@ -101,6 +101,7 @@ synonyms('Pomatomus', db='worms')
 synonyms('Pomatomus saltatrix', db='worms')
 synonyms('Lithocarpus mindanaensis', db='pow')
 synonyms('Poa annua', db='pow')
+synonyms(c('Poa annua', 'Pinus contorta', 'foo bar'), db='pow')
 
 # not accepted names, with ITIS
 ## looks for whether the name given is an accepted name,
@@ -113,6 +114,7 @@ synonyms(get_tsn("Poa annua"))
 synonyms(get_tpsid("Poa annua"))
 synonyms(get_nbnid("Carcharodon carcharias"))
 synonyms(get_iucn('Loxodonta africana'))
+synonyms(get_pow('Lithocarpus mindanaensis'))
 
 # Pass many ids from class "ids"
 out <- get_ids(names="Poa annua", db = c('itis','tropicos'))
