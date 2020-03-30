@@ -20,15 +20,16 @@ Lookup taxa in Kew's Plants of the World
 \examples{
 \dontrun{
 pow_lookup(id = 'urn:lsid:ipni.org:names:320035-2')
-pow_lookup(id = 'urn:lsid:ipni.org:names:320035-2', 
+pow_lookup(id = 'urn:lsid:ipni.org:names:320035-2',
   include = "distribution")
-pow_lookup(id = 'urn:lsid:ipni.org:names:320035-2', 
+pow_lookup(id = 'urn:lsid:ipni.org:names:320035-2',
   include = c("distribution", "descriptions"))
 }
 }
 \seealso{
 Other pow: 
 \code{\link{get_pow}()},
-\code{\link{pow_search}()}
+\code{\link{pow_search}()},
+\code{\link{pow_synonyms}()}
 }
 \concept{pow}

@@ -145,7 +145,8 @@ get_pow_(c("Pinus", "Abies"), rows = 1:3)
 
 Other pow: 
 \code{\link{pow_lookup}()},
-\code{\link{pow_search}()}
+\code{\link{pow_search}()},
+\code{\link{pow_synonyms}()}
 
 Other taxonomic-ids: 
 \code{\link{get_boldid}()},

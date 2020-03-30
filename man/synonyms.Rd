@@ -8,6 +8,7 @@
 \alias{synonyms.nbnid}
 \alias{synonyms.wormsid}
 \alias{synonyms.iucn}
+\alias{synonyms.pow}
 \alias{synonyms.ids}
 \alias{synonyms_df}
 \title{Retrieve synonyms from various sources given input taxonomic
@@ -27,6 +28,8 @@ synonyms(...)
 
 \method{synonyms}{iucn}(id, ...)
 
+\method{synonyms}{pow}(id, ...)
+
 \method{synonyms}{ids}(id, ...)
 
 synonyms_df(x)
@@ -39,7 +42,7 @@ functions to gather synonyms.}
 query.}
 
 \item{db}{character; database to query. either \code{itis}, \code{tropicos},
-\code{nbn}, \code{worms}. Note that each taxonomic data source has their own
+\code{nbn}, \code{worms}, or \code{pow}. Note that each taxonomic data source has their own
 identifiers, so that if you provide the wrong \code{db} value for the identifier
 you could get a result, but it will likely be wrong (not what you were
 expecting). If using tropicos, we  recommend getting an API key;
@@ -50,7 +53,7 @@ rows are considered. Note that this parameter is ignored if you pass in a
 taxonomic id of any of the acceptable classes: tsn, tpsid, nbnid, ids.}
 
 \item{id}{character; identifiers, returned by \code{\link[=get_tsn]{get_tsn()}}, \code{\link[=get_tpsid]{get_tpsid()}},
-\code{\link[=get_nbnid]{get_nbnid()}}, `get_wormsid()]}
+\code{\link[=get_nbnid]{get_nbnid()}}, \code{\link[=get_wormsid]{get_wormsid()}}, \code{\link[=get_pow]{get_pow()}}}
 }
 \value{
 A named list of results with three types of output in each slot:
@@ -84,6 +87,7 @@ synonyms("25509881", db="tropicos")
 synonyms("NBNSYS0000004629", db='nbn')
 synonyms(105706, db='worms')
 synonyms(12392, db='iucn')
+synonyms('urn:lsid:ipni.org:names:358881-1', db='pow')
 
 # Plug in taxon names directly
 synonyms("Pinus contorta", db="itis")
@@ -95,6 +99,8 @@ synonyms(c("Poa annua",'Pinus contorta'), db="tropicos")
 synonyms("Pinus sylvestris", db='nbn')
 synonyms('Pomatomus', db='worms')
 synonyms('Pomatomus saltatrix', db='worms')
+synonyms('Lithocarpus mindanaensis', db='pow')
+synonyms('Poa annua', db='pow')
 
 # not accepted names, with ITIS
 ## looks for whether the name given is an accepted name,
@@ -141,5 +147,5 @@ synonyms_df(x)
 }
 \seealso{
 \code{\link[=get_tsn]{get_tsn()}} \code{\link[=get_tpsid]{get_tpsid()}} \code{\link[=get_nbnid]{get_nbnid()}}
-\code{\link[=get_wormsid]{get_wormsid()}} \code{\link[=get_iucn]{get_iucn()}}
+\code{\link[=get_wormsid]{get_wormsid()}} \code{\link[=get_iucn]{get_iucn()}} \code{\link[=get_pow]{get_pow()}}
 }

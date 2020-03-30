@@ -47,9 +47,10 @@ test_that("synonyms: data sources return consistent outputs", {
     cc <- synonyms("Foo barasdfasdf", db="nbn", messages = FALSE)
     ee <- synonyms("Foo bar", db="worms", messages = FALSE)
     ff <- synonyms("Foo bar", db="iucn", messages = FALSE)
+    gg <- synonyms("Foo bar", db="pow", messages = FALSE)
   })
 
-  for (i in list(aa, bb, cc, ee, ff)) expect_true(is.na(i[[1]]))
+  for (i in list(aa, bb, cc, ee, ff, gg)) expect_true(is.na(i[[1]]))
   
 
   # when name found, but no synonyms found, returns empty data.frame
@@ -59,14 +60,15 @@ test_that("synonyms: data sources return consistent outputs", {
     ii <- synonyms(get_iucn('Ursus americanus'), db="iucn", messages = FALSE)
     kk <- synonyms("Pinus balfouriana", db="itis", messages = FALSE)
     ll <- synonyms("Pinus contorta", db="tropicos", messages = FALSE)
+    mm <- synonyms("Quercus ransomii", db="pow", accepted=FALSE, messages = FALSE)
   })
   
   # type is data.frame
-  for (i in list(gg, hh, ii, kk, ll)) expect_is(i[[1]], "data.frame")
+  for (i in list(gg, hh, ii, kk, ll, mm)) expect_is(i[[1]], "data.frame")
   # no rows
-  for (i in list(gg, hh, ii, kk, ll)) expect_equal(NROW(i[[1]]), 0)
+  for (i in list(gg, hh, ii, kk, ll, mm)) expect_equal(NROW(i[[1]]), 0)
   # no names
-  for (i in list(gg, hh, ii, kk, ll)) expect_equal(length(names(i[[1]])), 0)
+  for (i in list(gg, hh, ii, kk, ll, mm)) expect_equal(length(names(i[[1]])), 0)
 })
 
 test_that("warn on mismatch 'db'", {

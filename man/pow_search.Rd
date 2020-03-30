@@ -55,7 +55,8 @@ asc$data$name
 \seealso{
 Other pow: 
 \code{\link{get_pow}()},
-\code{\link{pow_lookup}()}
+\code{\link{pow_lookup}()},
+\code{\link{pow_synonyms}()}
 }
 \author{
 Scott Chamberlain, \email{myrmecocystus@gmail.com}

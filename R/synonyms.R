@@ -4,13 +4,13 @@
 #' @param x Vector of taxa names (character) or IDs (character or numeric) to
 #' query.
 #' @param db character; database to query. either `itis`, `tropicos`,
-#' `nbn`, `worms`. Note that each taxonomic data source has their own
+#' `nbn`, `worms`, or `pow`. Note that each taxonomic data source has their own
 #' identifiers, so that if you provide the wrong `db` value for the identifier
 #' you could get a result, but it will likely be wrong (not what you were
 #' expecting). If using tropicos, we  recommend getting an API key;
 #' see [taxize-authentication]
 #' @param id character; identifiers, returned by [get_tsn()], [get_tpsid()],
-#' [get_nbnid()], `get_wormsid()]
+#' [get_nbnid()], [get_wormsid()], [get_pow()]
 #' @param rows (numeric) Any number from 1 to infinity. If the default NA, all
 #' rows are considered. Note that this parameter is ignored if you pass in a
 #' taxonomic id of any of the acceptable classes: tsn, tpsid, nbnid, ids.
@@ -35,7 +35,7 @@
 #' for help on authentiating with IUCN Redlist
 #'
 #' @seealso [get_tsn()] [get_tpsid()] [get_nbnid()]
-#' [get_wormsid()] [get_iucn()]
+#' [get_wormsid()] [get_iucn()] [get_pow()]
 #'
 #' @export
 #' @examples \dontrun{
@@ -45,6 +45,7 @@
 #' synonyms("NBNSYS0000004629", db='nbn')
 #' synonyms(105706, db='worms')
 #' synonyms(12392, db='iucn')
+#' synonyms('urn:lsid:ipni.org:names:358881-1', db='pow')
 #'
 #' # Plug in taxon names directly
 #' synonyms("Pinus contorta", db="itis")
@@ -56,6 +57,9 @@
 #' synonyms("Pinus sylvestris", db='nbn')
 #' synonyms('Pomatomus', db='worms')
 #' synonyms('Pomatomus saltatrix', db='worms')
+#' synonyms('Lithocarpus mindanaensis', db='pow')
+#' synonyms('Poa annua', db='pow')
+#' synonyms(c('Poa annua', 'Pinus contorta', 'foo bar'), db='pow')
 #'
 #' # not accepted names, with ITIS
 #' ## looks for whether the name given is an accepted name,
@@ -68,6 +72,7 @@
 #' synonyms(get_tpsid("Poa annua"))
 #' synonyms(get_nbnid("Carcharodon carcharias"))
 #' synonyms(get_iucn('Loxodonta africana'))
+#' synonyms(get_pow('Lithocarpus mindanaensis'))
 #'
 #' # Pass many ids from class "ids"
 #' out <- get_ids(names="Poa annua", db = c('itis','tropicos'))
@@ -135,24 +140,33 @@ synonyms.default <- function(x, db = NULL, rows = NA, ...) {
       structure(stats::setNames(synonyms(id, ...), x),
                 class = "synonyms", db = "iucn")
     },
+    pow = {
+      id <- process_syn_ids(x, db, get_pow, ...)
+      structure(stats::setNames(synonyms(id, ...), x),
+                class = "synonyms", db = "pow")
+    },
     stop("the provided db value was not recognised", call. = FALSE)
   )
 }
 
 process_syn_ids <- function(input, db, fxn, ...){
   g <- tryCatch(as.numeric(as.character(input)), warning = function(e) e)
-  if (inherits(g, "condition")) eval(fxn)(input, ...)
+  if (inherits(g, "condition") && !grepl("ipni\\.org", input)) {
+    return(eval(fxn)(input, ...))
+  }
   if (
     is.numeric(g) ||
     is.character(input) && all(grepl("N[HB]", input)) ||
+    is.character(input) && all(grepl("ipni\\.org", input)) ||
     is.character(input) && all(grepl("[[:digit:]]", input))
   ) {
     as_fxn <- switch(db,
-                     itis = as.tsn,
-                     tropicos = as.tpsid,
-                     nbn = as.nbnid,
-                     worms = as.wormsid,
-                     iucn = as.iucn)
+      itis = as.tsn,
+      tropicos = as.tpsid,
+      nbn = as.nbnid,
+      worms = as.wormsid,
+      iucn = as.iucn,
+      pow = as.pow)
     if (db == "iucn") return(as_fxn(input, check = TRUE))
     return(as_fxn(input, check = FALSE))
   } else {
@@ -190,9 +204,6 @@ synonyms.tsn <- function(id, ...) {
           tmp <- stats::setNames(tmp, c('syn_author', 'syn_name', 'syn_tsn'))
           cbind(w, tmp, row.names = NULL)
         }
-        # if (as.character(tmp[1,1]) == 'nomatch') {
-        #   tmp <- data.frame(message = "no syns found", stringsAsFactors = FALSE)
-        # }
       }, x, split(accdf, seq_len(NROW(accdf))))
       do.call("rbind", unname(res))
     }
@@ -272,7 +283,26 @@ synonyms.iucn <- function(id, ...) {
   stats::setNames(out, id)
 }
 
-
+#' @export
+#' @rdname synonyms
+synonyms.pow <- function(id, ...) {
+  warn_db(list(...), "pow")
+  out <- vector(mode = "list", length = length(id))
+  for (i in seq_along(id)) {
+    if (is.na(id[[i]])) {
+      out[[i]] <- NA_character_
+    } else {
+      res <- pow_synonyms(id[i], ...)
+      out[[i]] <- if (length(res) == 0) {
+        tibble::tibble() 
+      } else {
+        names(res)[1] <- "id"
+        res
+      }
+    }
+  }
+  stats::setNames(out, id)
+}
 
 
 
@@ -305,7 +335,6 @@ synonyms_df.default <- function(x) {
 
 #' @export
 synonyms_df.synonyms <- function(x) {
-  # x <- Filter(function(z) inherits(z[1], "data.frame"), x)
   x <- Filter(function(z) inherits(z, "data.frame"), x)
   x <- Filter(function(z) NROW(z) > 0, x)
   (data.table::setDF(

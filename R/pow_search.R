@@ -4,7 +4,7 @@
 #' @param q (character) query terms
 #' @param limit (integer) Number of records to return. default: 100
 #' @param cursor (character) cursor string
-#' @param sort (character) The field to sort by and sort order separted with 
+#' @param sort (character) The field to sort by and sort order separted with
 #' underscore, e.g., `sort="name_desc"`
 #' @param ... Further args passed on to [crul::HttpClient].
 #' @return a list with slots for metadata (`meta`) with list of response
@@ -27,7 +27,7 @@
 #'
 #' # debug curl stuff
 #' invisible(pow_search(q = "Helianthus annuus", verbose = TRUE))
-#' 
+#'
 #' # sort
 #' desc <- pow_search(q = "Helianthus", sort = "name_desc")
 #' desc$data$name
@@ -44,18 +44,18 @@ pow_search <- function(q, limit = 100, cursor = "*", sort = NULL, ...) {
 }
 
 #' Lookup taxa in Kew's Plants of the World
-#' 
+#'
 #' @export
 #' @param id (character) taxon id. required
-#' @param include (character) vector of additional fields to include in 
+#' @param include (character) vector of additional fields to include in
 #' results. options include 'distribution' and 'descriptions'. optional
 #' @param ... Further args passed on to [crul::HttpClient].
 #' @family pow
 #' @examples \dontrun{
 #' pow_lookup(id = 'urn:lsid:ipni.org:names:320035-2')
-#' pow_lookup(id = 'urn:lsid:ipni.org:names:320035-2', 
+#' pow_lookup(id = 'urn:lsid:ipni.org:names:320035-2',
 #'   include = "distribution")
-#' pow_lookup(id = 'urn:lsid:ipni.org:names:320035-2', 
+#' pow_lookup(id = 'urn:lsid:ipni.org:names:320035-2',
 #'   include = c("distribution", "descriptions"))
 #' }
 pow_lookup <- function(id, include = NULL, ...) {
@@ -70,10 +70,30 @@ pow_lookup <- function(id, include = NULL, ...) {
   pow_GET(file.path(pow_base(), "api/2/taxon", id), args, ...)
 }
 
+#' Lookup synonyms in Kew's Plants of the World
+#'
+#' @export
+#' @param id (character) taxon id. required
+#' @param ... Further args passed on to [pow_lookup()]
+#' @family pow
+#' @examples \dontrun{
+#' pow_synonyms(id = 'urn:lsid:ipni.org:names:320035-2')
+#' pow_synonyms(id = 'urn:lsid:ipni.org:names:358881-1')
+#' pow_synonyms(id = 'urn:lsid:ipni.org:names:359855-1')
+#' }
+pow_synonyms <- function(id, ...) {
+  res <- pow_lookup(id, ...)
+  if ("synonyms" %in% names(res$meta)) {
+    tibble::as_tibble(res$meta$synonyms)
+  } else {
+    tibble::tibble()
+  }
+}
+
 pow_include_fields <- c("distribution", "descriptions")
 
 pow_GET <- function(url, args, ...){
-  cli <- crul::HttpClient$new(url = url, 
+  cli <- crul::HttpClient$new(url = url,
                               headers = tx_ual, opts = list(...))
   tt <- cli$get(query = argsnull(args))
   tt$raise_for_status()

@@ -142,19 +142,14 @@ get_pow <- function(x, accepted = FALSE, ask = TRUE, messages = TRUE,
       # check for direct match
       if (nrow(pow_df) > 1) {
         names(pow_df)[grep('name', names(pow_df))] <- "target"
-        di_rect <- match(tolower(pow_df$target), tolower(x[i]))
+        di_rect <- pow_df[tolower(pow_df$target) %in% tolower(x[i]), "fqId"]
         if (length(di_rect) == 1) {
-          if (!all(is.na(di_rect))) {
-            pow <- pow_df$fqId[!is.na(di_rect)]
-            direct <- TRUE
-            att <- 'found'
-          } else {
-            pow <- NA_character_
-            att <- 'not found'
-          }
+          pow <- di_rect
+          direct <- TRUE
+          att <- 'found'
         } else {
-          direct <- FALSE
           pow <- NA_character_
+          direct <- FALSE
           att <- 'found'
         }
       }
