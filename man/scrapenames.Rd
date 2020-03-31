@@ -70,21 +70,21 @@ One of url, file, or text must be specified - and only one of them.
 \examples{
 \dontrun{
 # Get data from a website using its URL
-scrapenames('http://en.wikipedia.org/wiki/Araneae')
-scrapenames('http://en.wikipedia.org/wiki/Animalia')
-scrapenames('http://www.plosone.org/article/info\%3Adoi\%2F10.1371\%2Fjournal.pone.0095068')
-scrapenames('http://www.plosone.org/article/info\%3Adoi\%2F10.1371\%2Fjournal.pone.0080498')
+scrapenames('https://en.wikipedia.org/wiki/Spider')
+scrapenames('https://en.wikipedia.org/wiki/Animal')
+scrapenames('https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0095068')
+scrapenames('https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0080498')
 scrapenames('http://ucjeps.berkeley.edu/cgi-bin/get_JM_treatment.pl?CARYOPHYLLACEAE')
 
 # Scrape names from a pdf at a URL
-url <- 'http://www.plosone.org/article/fetchObject.action?uri=
-info\%3Adoi\%2F10.1371\%2Fjournal.pone.0058268&representation=PDF'
+url <- 'https://journals.plos.org/plosone/article/file?id=
+10.1371/journal.pone.0058268&type=printable'
 scrapenames(url = sub('\n', '', url))
 
 # With arguments
-scrapenames(url = 'http://www.mapress.com/zootaxa/2012/f/z03372p265f.pdf',
+scrapenames(url = 'https://www.mapress.com/zootaxa/2012/f/z03372p265f.pdf',
   unique=TRUE)
-scrapenames(url = 'http://en.wikipedia.org/wiki/Araneae',
+scrapenames(url = 'https://en.wikipedia.org/wiki/Spider',
   data_source_ids=c(1, 169))
 
 # Get data from a file
@@ -100,7 +100,7 @@ scrapenames(file = file)
 scrapenames(text='A spider named Pardosa moesta Banks, 1892')
 
 # return OCR content
-scrapenames(url='http://www.mapress.com/zootaxa/2012/f/z03372p265f.pdf',
+scrapenames(url='https://www.mapress.com/zootaxa/2012/f/z03372p265f.pdf',
   return_content = TRUE)
 }
 }
