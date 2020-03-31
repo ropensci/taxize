@@ -1,7 +1,7 @@
 ---
 title: Introduction to taxize
 author: Scott Chamberlain
-date: "2020-02-10"
+date: "2020-03-31"
 output: rmarkdown::html_vignette
 vignette: >
     %\VignetteIndexEntry{Introduction to taxize}
@@ -325,17 +325,17 @@ That's a lot of data, so we can get only certain rows back
 ```r
 get_nbnid_("Poa annua", rows = 1:10)
 #> $`Poa annua`
-#>                guid     scientificName    rank taxonomicStatus
-#> 1  NBNSYS0000002544          Poa annua species        accepted
-#> 2  NBNSYS0200001901       Bellis annua species        accepted
-#> 3  NBNSYS0200003392   Triumfetta annua species        accepted
-#> 4  NBNSYS0200002555        Lonas annua species        accepted
-#> 5  NHMSYS0000456951  Carrichtera annua species        accepted
-#> 6  NHMSYS0000461817     Poa sieberiana species        accepted
-#> 7  NHMSYS0000461808      Poa ligularis species        accepted
-#> 8  NHMSYS0000461807 Poa labillardierei species        accepted
-#> 9  NHMSYS0000461805         Poa gunnii species        accepted
-#> 10 NHMSYS0000461801     Poa costiniana species        accepted
+#>                guid    scientificName    rank taxonomicStatus
+#> 1  NBNSYS0000002544         Poa annua species        accepted
+#> 2  NBNSYS0200003392  Triumfetta annua species        accepted
+#> 3  NBNSYS0200001901      Bellis annua species        accepted
+#> 4  NBNSYS0200002555       Lonas annua species        accepted
+#> 5  NHMSYS0000456951 Carrichtera annua species        accepted
+#> 6  NBNSYS0200002925     Poa poiformis species        accepted
+#> 7  NBNSYS0200002923    Poa leptoclada species        accepted
+#> 8  NHMSYS0000461817    Poa sieberiana species        accepted
+#> 9  NHMSYS0000461808     Poa ligularis species        accepted
+#> 10 NBNSYS0000163602     Poa granitica species        accepted
 ```
 
 ## Coerce numerics/alphanumerics to taxon IDs
@@ -378,7 +378,7 @@ as.gbifid(2704179) # numeric
 #> attr(,"pattern_match")
 #> [1] FALSE
 #> attr(,"uri")
-#> [1] "http://www.gbif.org/species/2704179"
+#> [1] "https://www.gbif.org/species/2704179"
 as.gbifid("2704179") # character
 #> [1] "2704179"
 #> attr(,"class")
@@ -390,7 +390,7 @@ as.gbifid("2704179") # character
 #> attr(,"pattern_match")
 #> [1] FALSE
 #> attr(,"uri")
-#> [1] "http://www.gbif.org/species/2704179"
+#> [1] "https://www.gbif.org/species/2704179"
 as.gbifid(list("2704179","2435099","3171445")) # list, either numeric or character
 #> [1] "2704179" "2435099" "3171445"
 #> attr(,"class")
@@ -402,8 +402,9 @@ as.gbifid(list("2704179","2435099","3171445")) # list, either numeric or charact
 #> attr(,"pattern_match")
 #> [1] FALSE FALSE FALSE
 #> attr(,"uri")
-#> [1] "http://www.gbif.org/species/2704179" "http://www.gbif.org/species/2435099"
-#> [3] "http://www.gbif.org/species/3171445"
+#> [1] "https://www.gbif.org/species/2704179"
+#> [2] "https://www.gbif.org/species/2435099"
+#> [3] "https://www.gbif.org/species/3171445"
 ```
 
 These `as.*()` functions do a quick check of the web resource to make sure it's a real ID. However, you can turn this check off, making this coercion much faster:
@@ -412,10 +413,10 @@ These `as.*()` functions do a quick check of the web resource to make sure it's 
 ```r
 system.time( replicate(3, as.gbifid(c("2704179","2435099","3171445"), check=TRUE)) )
 #>    user  system elapsed 
-#>   0.077   0.002   4.616
+#>   0.070   0.002   3.302
 system.time( replicate(3, as.gbifid(c("2704179","2435099","3171445"), check=FALSE)) )
 #>    user  system elapsed 
-#>   0.002   0.000   0.002
+#>   0.001   0.000   0.001
 ```
 
 ## What taxa are downstream of my taxon of interest?

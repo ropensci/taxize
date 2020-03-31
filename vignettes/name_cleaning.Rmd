@@ -1,7 +1,7 @@
 ---
 title: Strategies for programmatic name cleaning
 author: Scott Chamberlain
-date: "2020-02-10"
+date: "2020-03-31"
 output: rmarkdown::html_vignette
 vignette: >
     %\VignetteIndexEntry{Strategies for programmatic name cleaning}
@@ -242,20 +242,23 @@ in a programmatic workflow straight away.
 ```r
 spp <- names_list(rank = "species", size = 10)
 gnr_resolve(names = spp, preferred_data_sources = 11)
-#> # A tibble: 11 x 5
-#>    user_supplied_name submitted_name   matched_name      data_source_title score
-#>  * <chr>              <chr>            <chr>             <chr>             <dbl>
-#>  1 Cordia borinquens… Cordia borinque… Cordia borinquen… GBIF Backbone Ta… 0.988
-#>  2 Lycianthes acidoc… Lycianthes acid… Lycianthes acido… GBIF Backbone Ta… 0.988
-#>  3 Physalis ampla     Physalis ampla   Physalis ampla W… GBIF Backbone Ta… 0.988
-#>  4 Cissus gastropus   Cissus gastropus Cissus gastropus… GBIF Backbone Ta… 0.988
-#>  5 Cissus gastropus   Cissus gastropus Cissus gastropus… GBIF Backbone Ta… 0.988
-#>  6 Pandanus insolitus Pandanus insoli… Pandanus insolit… GBIF Backbone Ta… 0.988
-#>  7 Calydorea nuda     Calydorea nuda   Calydorea nuda B… GBIF Backbone Ta… 0.988
-#>  8 Asarum tohokuense  Asarum tohokuen… Asarum tohokuens… GBIF Backbone Ta… 0.988
-#>  9 Acuan lata         Acuan lata       Acuan Medik.      GBIF Backbone Ta… 0.75 
-#> 10 Nothocestrum long… Nothocestrum lo… Nothocestrum lon… GBIF Backbone Ta… 0.988
-#> 11 Coccinia intermed… Coccinia interm… Coccinia interme… GBIF Backbone Ta… 0.988
+#> # A tibble: 14 x 5
+#>    user_supplied_name submitted_name   matched_name       data_source_tit… score
+#>  * <chr>              <chr>            <chr>              <chr>            <dbl>
+#>  1 Asperula conferta  Asperula confer… Asperula conferta… GBIF Backbone T… 0.988
+#>  2 Asperula conferta  Asperula confer… Asperula conferta… GBIF Backbone T… 0.988
+#>  3 Scutellaria titov… Scutellaria tit… Scutellaria titov… GBIF Backbone T… 0.988
+#>  4 Polypodium prolon… Polypodium prol… Polypodium prolon… GBIF Backbone T… 0.988
+#>  5 Steinchisma decip… Steinchisma dec… Steinchisma decip… GBIF Backbone T… 0.988
+#>  6 Hieracium lepidot… Hieracium lepid… Hieracium lepidot… GBIF Backbone T… 0.988
+#>  7 Neolitsea archbol… Neolitsea archb… Neolitsea archbol… GBIF Backbone T… 0.988
+#>  8 Biscutella rupest… Biscutella rupe… Biscutella rupest… GBIF Backbone T… 0.988
+#>  9 Biscutella rupest… Biscutella rupe… Biscutella rupest… GBIF Backbone T… 0.988
+#> 10 Biscutella rupest… Biscutella rupe… Biscutella rupest… GBIF Backbone T… 0.988
+#> 11 Lastreopsis hornei Lastreopsis hor… Lastreopsis horne… GBIF Backbone T… 0.988
+#> 12 Dianthus morisian… Dianthus morisi… Dianthus morisian… GBIF Backbone T… 0.988
+#> 13 Mesembryanthemum … Mesembryanthemu… Mesembryanthemum … GBIF Backbone T… 0.988
+#> 14 Mesembryanthemum … Mesembryanthemu… Mesembryanthemum … GBIF Backbone T… 0.988
 ```
 
 ## Other functions
