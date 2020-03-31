@@ -1,3 +1,21 @@
+taxize 0.9.94
+=============
+
+### NEW FEATURES
+
+* `synonyms()` gains a method for Plants of the World Online (`synonyms.pow`); and new associated helper function `pow_synonyms()` used within `synonyms.pow` (#812)
+
+### MINOR IMPROVEMENTS
+
+* change to `iucn_summary()` to allow `get_iucn()` failures and the function to still proceed - to make a better experience when passing in more than 1 name (#810)
+* fixed non-ASCII string in the `species_plantarum_binomials` dataset
+
+### BUG FIXES
+
+* `classification()` for data source GBIF wasn't working when the queried taxon rank was below species (e.g., subspecies or variety); GBIF didn't return the same fields for ranks below species, so we tack on that information with a bit of extra code (#809)
+* fix sorting of results in `classification()` with data source GBIF; at some point introduced bug in how results were sorted  (#811)
+
+
 taxize 0.9.93
 =============
 

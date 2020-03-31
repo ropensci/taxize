@@ -10,13 +10,13 @@
 
 ## Reverse dependencies
 
-* I have run R CMD check on the 22 downstream dependencies
+* I have run R CMD check on the 23 downstream dependencies
 (<https://github.com/ropensci/taxize/blob/master/revdep/README.md>);
-there was no errors.
+there were no errors.
 
 ------
 
-This version includes a defunction function, and many bug fixes.
+This version includes a few bug fixes, a fix for a non-ASCII string in one of the package datasets, and the package gains a new S3 method.
 
 Thanks!
 Scott Chamberlain
