@@ -24,10 +24,6 @@ environment:
     - R_VERSION: release
       R_ARCH: x64
       USE_RTOOLS: true
-    - R_VERSION: devel
-      R_ARCH: x64
-      _R_CHECK_LENGTH_1_LOGIC2_: FALSE
-      USE_RTOOLS: false
 
 artifacts:
   - path: '*.Rcheck\**\*.log'
