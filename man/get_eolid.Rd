@@ -170,6 +170,7 @@ get_eolid_(c("asdfadfasd", "Pinus contorta"))
 \code{\link[=classification]{classification()}}
 
 Other taxonomic-ids: 
+\code{\link{get_apni}()},
 \code{\link{get_boldid}()},
 \code{\link{get_gbifid}()},
 \code{\link{get_ids}()},

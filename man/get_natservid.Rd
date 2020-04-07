@@ -153,6 +153,7 @@ get_natservid_("Ruby*", rows=1:3)
 \code{\link[=classification]{classification()}}
 
 Other taxonomic-ids: 
+\code{\link{get_apni}()},
 \code{\link{get_boldid}()},
 \code{\link{get_eolid}()},
 \code{\link{get_gbifid}()},

@@ -148,6 +148,7 @@ invisible(get_nbnid("Quercus douglasii", verbose = TRUE))
 \code{\link[=classification]{classification()}}
 
 Other taxonomic-ids: 
+\code{\link{get_apni}()},
 \code{\link{get_boldid}()},
 \code{\link{get_eolid}()},
 \code{\link{get_gbifid}()},
