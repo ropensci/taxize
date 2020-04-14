@@ -22,11 +22,17 @@
 #' # Acacia 
 #' apni_classification(id = 56859)
 #' 
+#' # children
+#' apni_children(id = 51311124)
+#' 
+#' # family?
 #' apni_family(id = 158548)
 #' 
+#' # acceptable names
 #' acceptable_names(q = 'Poa fax')
 #' acceptable_names(q = 'Poa fa')
 #' acceptable_names(q = 'Poa')
+#' acceptable_names(q = 'Acacia')
 #' }
 
 #' @export
@@ -68,6 +74,38 @@ apni_classification <- function(id, ...) {
     hierarchy = branch
   )
 }
+
+#' @export
+#' @rdname apni
+apni_children <- function(id, ...) {
+  assert(id, c('numeric', 'integer'))
+  x <- apni_GET(file.path(apni_base(),
+    sprintf("nsl/services/rest/taxon/apni/%s.json", id)),
+    args = list(), ...)
+  txt <- x$parse("UTF-8")
+  json <- jsonlite::fromJSON(txt, FALSE)
+  children <- json$treeElement$children
+  branch <- dt2tibble(lapply(children, function(z) {
+    html <- xml2::read_html(z$displayHtml)
+    xml2::xml_find_all(html, "//scientific//element")
+    list(
+      link_element = z$elementLink,
+      link_name = z$nameLink,
+      link_instance = z$instanceLink,
+      # type = z$type,
+      # status = z$status,
+      # parent = z$parent$nameElement,
+      # author = z$author$name
+    )
+  }))
+  list(
+    name = json$name$nameElement,
+    link = json$name$`_links`$permalink$link,
+    hierarchy = branch
+  )
+}
+# https://biodiversity.org.au/nsl/services/rest/taxon/apni/51311124.json
+
 
 #' @export
 #' @rdname apni

@@ -4,6 +4,7 @@
 \alias{apni}
 \alias{apni_search}
 \alias{apni_classification}
+\alias{apni_children}
 \alias{apni_family}
 \alias{acceptable_names}
 \title{Search Australian Plant Names Index}
@@ -11,6 +12,8 @@
 apni_search(q, ...)
 
 apni_classification(id, ...)
+
+apni_children(id, ...)
 
 apni_family(id, ...)
 
@@ -44,8 +47,13 @@ apni_classification(id = 61294)
 # Acacia 
 apni_classification(id = 56859)
 
+# children
+apni_children(id = 51311124)
+
+# family?
 apni_family(id = 158548)
 
+# acceptable names
 acceptable_names(q = 'Poa fax')
 acceptable_names(q = 'Poa fa')
 acceptable_names(q = 'Poa')
