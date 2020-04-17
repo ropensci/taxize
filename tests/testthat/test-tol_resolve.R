@@ -1,12 +1,10 @@
 context("tol_resolve")
 
-## FIXME: use vcr once body request matching in vcr fixed
-
 test_that("tol_resolve basic usage works", {
-  skip_on_cran()
-
-  xx <- c("echinodermata", "xenacoelomorpha", "chordata", "hemichordata")
-  tmp <- tol_resolve(names = xx)
+  vcr::use_cassette("tol_resolve", {
+    xx <- c("echinodermata", "xenacoelomorpha", "chordata", "hemichordata")
+    tmp <- tol_resolve(names = xx)
+  })
 
   expect_is(tmp, "data.frame")
   expect_is(tmp$search_string, "character")
@@ -23,8 +21,11 @@ test_that("tol_resolve basic usage works", {
 test_that("context_name works correctly", {
   skip_on_cran()
 
-  aa <- tol_resolve(c("Hyla", "Salmo", "Diadema", "Nautilus"),
-              context_name = "Animals")
+  vcr::use_cassette("tol_resolve_context_name", {
+    aa <- tol_resolve(c("Hyla", "Salmo", "Diadema", "Nautilus"),
+                context_name = "Animals")
+  })
+
   expect_is(aa, "data.frame")
   expect_is(aa$search_string, "character")
   expect_type(aa$number_matches, "integer")
@@ -40,14 +41,19 @@ test_that("context_name works correctly", {
 test_that("do_approximate_matching works correctly", {
   skip_on_cran()
 
-  aa <- tol_resolve("Nautilas", do_approximate_matching = TRUE)
+  vcr::use_cassette("tol_resolve_do_approximate_matching", {
+    aa <- tol_resolve("Nautilas", do_approximate_matching = TRUE)
+  })
+
   expect_is(aa, "data.frame")
   expect_equal(aa$unique_name, "Nautilus")
 
-  expect_error(
-    tol_resolve("Nautilas", do_approximate_matching = FALSE),
-    "No matches for any of the provided taxa"
-  )
+  # FIXME: this used to work, bug in rotl::tnrs_match_names
+  #   for do_approximate_matching param=FALSE
+  # expect_error(
+  #   tol_resolve("Nautilas", do_approximate_matching = FALSE),
+  #   "No matches for any of the provided taxa"
+  # )
 })
 
 test_that("fails well", {
@@ -57,9 +63,3 @@ test_that("fails well", {
   expect_error(tol_resolve(names = 5), "must be of class")
 })
 
-test_that("fails well - HTTP needed", {
-  skip_on_cran()
-
-  expect_error(tol_resolve(c("Hyla", "Salmo", "Diadema", 5)),
-               "HTTP failure")
-})

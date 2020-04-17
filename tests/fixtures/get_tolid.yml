@@ -1,0 +1,276 @@
+http_interactions:
+- request:
+    method: post
+    uri: https://api.opentreeoflife.org/v3/tnrs/match_names
+    body:
+      encoding: ''
+      string: '{"names":["Quercus douglasii"],"do_approximate_matching":true,"include_suppressed":false}'
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-Type: ''
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      date: Fri, 17 Apr 2020 14:55:54 GMT
+      server: waitress
+      access-control-allow-credentials: 'true'
+      access-control-allow-origin: '*'
+      access-control-max-age: '86400'
+      cache-control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      content-length: '1307'
+      content-type: application/json;
+      expires: Fri, 17 Apr 2020 14:55:54 GMT
+      pragma: no-cache
+      vary: Accept-Encoding
+      x-powered-by: otc-tol-ws
+    body:
+      encoding: UTF-8
+      file: no
+      string: |-
+        {
+         "context": "Rosids",
+         "governing_code": "ICN",
+         "includes_approximate_matches": true,
+         "includes_deprecated_taxa": false,
+         "includes_suppressed_names": false,
+         "matched_names": [
+          "Quercus douglasii"
+         ],
+         "results": [
+          {
+           "matches": [
+            {
+             "is_approximate_match": false,
+             "is_synonym": false,
+             "matched_name": "Quercus douglasii",
+             "nomenclature_code": "ICN",
+             "score": 1.0,
+             "search_string": "quercus douglasii",
+             "taxon": {
+              "flags": [],
+              "is_suppressed": false,
+              "is_suppressed_from_synth": false,
+              "name": "Quercus douglasii",
+              "ott_id": 3930798,
+              "rank": "species",
+              "source": "ott3.2draft9",
+              "synonyms": [
+               "Quercus oblongifolia brevilobata",
+               "Quercus gambelii",
+               "Quercus ransomii",
+               "Quercus douglasii ransomii"
+              ],
+              "tax_sources": [
+               "ncbi:465759",
+               "gbif:2878266",
+               "irmng:10607676"
+              ],
+              "unique_name": "Quercus douglasii"
+             }
+            }
+           ],
+           "name": "Quercus douglasii"
+          }
+         ],
+         "taxonomy": {
+          "author": "open tree of life project",
+          "name": "ott",
+          "source": "ott3.2draft9",
+          "version": "3.2",
+          "weburl": "https://tree.opentreeoflife.org/about/taxonomy-version/ott3.2"
+         },
+         "unambiguous_names": [
+          "Quercus douglasii"
+         ],
+         "unmatched_names": []
+        }
+  recorded_at: 2020-04-17 14:55:58 GMT
+  recorded_with: vcr/0.5.4.91, webmockr/0.6.2.92
+- request:
+    method: post
+    uri: https://api.opentreeoflife.org/v3/tnrs/match_names
+    body:
+      encoding: ''
+      string: '{"names":["Chironomus"],"do_approximate_matching":true,"include_suppressed":false}'
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-Type: ''
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      date: Fri, 17 Apr 2020 14:55:56 GMT
+      server: waitress
+      access-control-allow-credentials: 'true'
+      access-control-allow-origin: '*'
+      access-control-max-age: '86400'
+      cache-control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      content-length: '1373'
+      content-type: application/json;
+      expires: Fri, 17 Apr 2020 14:55:56 GMT
+      pragma: no-cache
+      vary: Accept-Encoding
+      x-powered-by: otc-tol-ws
+    body:
+      encoding: UTF-8
+      file: no
+      string: |-
+        {
+         "context": "Insects",
+         "governing_code": "ICZN",
+         "includes_approximate_matches": true,
+         "includes_deprecated_taxa": false,
+         "includes_suppressed_names": false,
+         "matched_names": [
+          "Chironomus"
+         ],
+         "results": [
+          {
+           "matches": [
+            {
+             "is_approximate_match": false,
+             "is_synonym": false,
+             "matched_name": "Chironomus",
+             "nomenclature_code": "ICZN",
+             "score": 1.0,
+             "search_string": "chironomus",
+             "taxon": {
+              "flags": [],
+              "is_suppressed": false,
+              "is_suppressed_from_synth": false,
+              "name": "Chironomus",
+              "ott_id": 269685,
+              "rank": "genus",
+              "source": "ott3.2draft9",
+              "synonyms": [
+               "Chaetolabis",
+               "Limnochironomus",
+               "Lobochironomus",
+               "Cheironomus",
+               "Benthalia",
+               "Tendipes",
+               "Camptochironomus",
+               "Holtedahlia",
+               "Chioronomus"
+              ],
+              "tax_sources": [
+               "ncbi:7150",
+               "worms:146802",
+               "gbif:1448033",
+               "irmng:1101463",
+               "irmng:1350216"
+              ],
+              "unique_name": "Chironomus"
+             }
+            }
+           ],
+           "name": "Chironomus"
+          }
+         ],
+         "taxonomy": {
+          "author": "open tree of life project",
+          "name": "ott",
+          "source": "ott3.2draft9",
+          "version": "3.2",
+          "weburl": "https://tree.opentreeoflife.org/about/taxonomy-version/ott3.2"
+         },
+         "unambiguous_names": [
+          "Chironomus"
+         ],
+         "unmatched_names": []
+        }
+  recorded_at: 2020-04-17 14:55:58 GMT
+  recorded_with: vcr/0.5.4.91, webmockr/0.6.2.92
+- request:
+    method: post
+    uri: https://api.opentreeoflife.org/v3/tnrs/match_names
+    body:
+      encoding: ''
+      string: '{"names":["Chaetopteryx"],"do_approximate_matching":true,"include_suppressed":false}'
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-Type: ''
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      date: Fri, 17 Apr 2020 14:55:56 GMT
+      server: waitress
+      access-control-allow-credentials: 'true'
+      access-control-allow-origin: '*'
+      access-control-max-age: '86400'
+      cache-control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      content-length: '1130'
+      content-type: application/json;
+      expires: Fri, 17 Apr 2020 14:55:56 GMT
+      pragma: no-cache
+      vary: Accept-Encoding
+      x-powered-by: otc-tol-ws
+    body:
+      encoding: UTF-8
+      file: no
+      string: |-
+        {
+         "context": "Insects",
+         "governing_code": "ICZN",
+         "includes_approximate_matches": true,
+         "includes_deprecated_taxa": false,
+         "includes_suppressed_names": false,
+         "matched_names": [
+          "Chaetopteryx"
+         ],
+         "results": [
+          {
+           "matches": [
+            {
+             "is_approximate_match": false,
+             "is_synonym": false,
+             "matched_name": "Chaetopteryx",
+             "nomenclature_code": "ICZN",
+             "score": 1.0,
+             "search_string": "chaetopteryx",
+             "taxon": {
+              "flags": [],
+              "is_suppressed": false,
+              "is_suppressed_from_synth": false,
+              "name": "Chaetopteryx",
+              "ott_id": 93051,
+              "rank": "genus",
+              "source": "ott3.2draft9",
+              "synonyms": [],
+              "tax_sources": [
+               "ncbi:492549",
+               "gbif:1442276",
+               "irmng:1400451"
+              ],
+              "unique_name": "Chaetopteryx"
+             }
+            }
+           ],
+           "name": "Chaetopteryx"
+          }
+         ],
+         "taxonomy": {
+          "author": "open tree of life project",
+          "name": "ott",
+          "source": "ott3.2draft9",
+          "version": "3.2",
+          "weburl": "https://tree.opentreeoflife.org/about/taxonomy-version/ott3.2"
+         },
+         "unambiguous_names": [
+          "Chaetopteryx"
+         ],
+         "unmatched_names": []
+        }
+  recorded_at: 2020-04-17 14:55:58 GMT
+  recorded_with: vcr/0.5.4.91, webmockr/0.6.2.92

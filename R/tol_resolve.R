@@ -1,7 +1,7 @@
 #' Resolve names using Open Tree of Life (OTL) resolver
 #'
 #' @export
-#' @param names (character vector) taxon names to be queried
+#' @param names (character) taxon names to be queried
 #' @param context_name name of the taxonomic context to be searched
 #' (length-one character vector). Must match (case sensitive) one
 #' of the values returned by [rotl::tnrs_contexts()].
