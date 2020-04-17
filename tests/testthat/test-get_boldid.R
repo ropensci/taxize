@@ -60,6 +60,7 @@ test_that("get_boldid fails as expected", {
   expect_error(get_boldid("Achlya", rows = 0, messages = FALSE),
                "all\\(rows > 0\\) is not TRUE")
 
+  skip('BOLD API down right now, SSL issue')
   # filter param doesn't match any values - returns NA and warns
   expect_warning(
     (z=get_boldid("Satyrium", division = "Plants", messages = FALSE)),
