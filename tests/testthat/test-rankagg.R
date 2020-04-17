@@ -1,9 +1,8 @@
-# tests for rankagg fxn in taxize
 context("rankagg")
-
 
 test_that("rankagg throws error", {
   skip_on_cran()
+  skip_if_not_installed("vegan")
 
   data(dune.taxon, package = 'vegan')
   dat <- dune.taxon
