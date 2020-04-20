@@ -50,6 +50,7 @@ test_that("do_approximate_matching works correctly", {
 
   # FIXME: this used to work, bug in rotl::tnrs_match_names
   #   for do_approximate_matching param=FALSE
+  #   re-instate when new rotl on CRAN
   # expect_error(
   #   tol_resolve("Nautilas", do_approximate_matching = FALSE),
   #   "No matches for any of the provided taxa"
