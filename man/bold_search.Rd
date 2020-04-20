@@ -33,8 +33,7 @@ passed.}
 \item{response}{(logical) Note that response is the object that returns from the
 curl call, useful for debugging, and getting detailed info on the API call.}
 
-\item{...}{Further args passed on to \link[crul:verb-GET]{crul::verb-GET}, main purpose being curl
-debugging}
+\item{...}{named curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
 A list of data.frame's.

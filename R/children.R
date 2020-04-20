@@ -9,7 +9,7 @@
 #' @param x Vector of taxa names (character) or IDs (character or numeric)
 #' to query.
 #' @param db character; database to query. One or more of `itis`,
-#' `ncbi`, or `worms`. Note that each taxonomic data
+#' `ncbi`, `worms`, or `bold`. Note that each taxonomic data
 #' source has their own identifiers, so that if you provide the wrong
 #' `db` value for the identifier you could get a result, but it will
 #' likely be wrong (not what you were expecting). If using ncbi, we recommend
@@ -19,13 +19,18 @@
 #' taxonomic id of any of the acceptable classes: tsn. NCBI has a
 #' method for this function but rows doesn't work.
 #' @param ... Further args passed on to [ritis::hierarchy_down()],
-#' [ncbi_children()], or [worrms::wm_children()].
+#' [ncbi_children()], [worrms::wm_children()], [bold_children()]
 #' See those functions for what parameters can be passed on.
 #'
 #' @section ncbi:
 #' note that with `db = "ncbi"`, we set `ambiguous = TRUE`; that is, children
 #' taxa with words like "unclassified", "unknown", "uncultured", "sp." are
 #' NOT removed
+#' 
+#' @section bold:
+#' BEWARE: `db="bold"` scrapes the BOLD website, so may be unstable. That is,
+#' one day it may work, and the next it may fail. Open an issue if you
+#' encounter an error: https://github.com/ropensci/taxize/issues
 #'
 #' @return A named list of data.frames with the children names of every
 #' supplied taxa. You get an NA if there was no match in the database.
@@ -35,12 +40,15 @@
 #' children(161994, db = "itis")
 #' children(8028, db = "ncbi")
 #' ## works with numeric if as character as well
-#' children("161994", db = "itis")
+#' children(161994, db = "itis")
+#' children(88899, db = "bold")
+#' children(as.boldid(88899))
 #'
 #' # Plug in taxon names
 #' children("Salmo", db = 'itis')
 #' children("Salmo", db = 'ncbi')
 #' children("Salmo", db = 'worms')
+#' children("Salmo", db = 'bold')
 #'
 #' # Plug in IDs
 #' (id <- get_wormsid("Platanista"))
@@ -95,6 +103,12 @@ children.default <- function(x, db = NULL, rows = NA, ...) {
       stats::setNames(children(id, ...), x)
     },
 
+    bold = {
+      id <- process_children_ids(as.character(x), db, get_boldid,
+        rows = rows, ...)
+      stats::setNames(children(id, ...), x)
+    },
+
     stop("the provided db value was not recognised", call. = FALSE)
   )
 
@@ -110,7 +124,7 @@ itis_blank <- data.frame(
   tsn        = character(0),
   stringsAsFactors = FALSE
 )
-worms_blank <- ncbi_blank <-
+worms_blank <- ncbi_blank <- bold_blank <-
   data.frame(
     childtaxa_id     = character(0),
     childtaxa_name   = character(0),
@@ -123,7 +137,8 @@ set_output_types <- function(x, x_names, db){
     db,
     itis  = function(w) if (nrow(w) == 0 || all(is.na(w))) itis_blank else w,
     ncbi  = function(w) if (nrow(w) == 0 || all(is.na(w))) ncbi_blank else w,
-    worms = function(w) if (nrow(w) == 0 || all(is.na(w))) worms_blank else w
+    worms = function(w) if (nrow(w) == 0 || all(is.na(w))) worms_blank else w,
+    bold = function(w) if (nrow(w) == 0 || all(is.na(w))) bold_blank else w
   )
 
   typed_results <- lapply(seq_along(x), function(i) blank_fun(x[[i]]))
@@ -136,7 +151,7 @@ process_children_ids <- function(input, db, fxn, ...){
   g <- tryCatch(as.numeric(as.character(input)), warning = function(e) e)
   if (inherits(g, "condition")) eval(fxn)(input, ...)
   if (is.numeric(g) || is.character(input) && all(grepl("[[:digit:]]", input))) {
-    as_fxn <- switch(db, itis = as.tsn, worms = as.wormsid)
+    as_fxn <- switch(db, itis = as.tsn, worms = as.wormsid, bold = as.boldid)
     as_fxn(input, check = FALSE)
   } else {
     eval(fxn)(input, ...)
@@ -231,5 +246,19 @@ children.uid <- function(x, db = NULL, ...) {
   }
   class(out) <- 'children'
   attr(out, 'db') <- 'ncbi'
+  return(out)
+}
+
+#' @export
+#' @rdname children
+children.boldid <- function(x, db = NULL, ...) {
+  warn_db(list(db = db), "bold")
+  out <- if (is.na(x)) {
+    stats::setNames(list(bold_blank), x)
+  } else {
+    bold_children(id = x, ...)
+  }
+  class(out) <- 'children'
+  attr(out, 'db') <- 'bold'
   return(out)
 }

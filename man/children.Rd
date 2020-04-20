@@ -7,6 +7,7 @@
 \alias{children.wormsid}
 \alias{children.ids}
 \alias{children.uid}
+\alias{children.boldid}
 \title{Retrieve immediate children taxa for a given taxon name or ID.}
 \usage{
 children(...)
@@ -20,17 +21,19 @@ children(...)
 \method{children}{ids}(x, db = NULL, ...)
 
 \method{children}{uid}(x, db = NULL, ...)
+
+\method{children}{boldid}(x, db = NULL, ...)
 }
 \arguments{
 \item{...}{Further args passed on to \code{\link[ritis:hierarchy_down]{ritis::hierarchy_down()}},
-\code{\link[=ncbi_children]{ncbi_children()}}, or \code{\link[worrms:wm_children]{worrms::wm_children()}}.
+\code{\link[=ncbi_children]{ncbi_children()}}, \code{\link[worrms:wm_children]{worrms::wm_children()}}, \code{\link[=bold_children]{bold_children()}}
 See those functions for what parameters can be passed on.}
 
 \item{x}{Vector of taxa names (character) or IDs (character or numeric)
 to query.}
 
 \item{db}{character; database to query. One or more of \code{itis},
-\code{ncbi}, or \code{worms}. Note that each taxonomic data
+\code{ncbi}, \code{worms}, or \code{bold}. Note that each taxonomic data
 source has their own identifiers, so that if you provide the wrong
 \code{db} value for the identifier you could get a result, but it will
 likely be wrong (not what you were expecting). If using ncbi, we recommend
@@ -58,18 +61,28 @@ taxa with words like "unclassified", "unknown", "uncultured", "sp." are
 NOT removed
 }
 
+\section{bold}{
+
+BEWARE: \code{db="bold"} scrapes the BOLD website, so may be unstable. That is,
+one day it may work, and the next it may fail. Open an issue if you
+encounter an error: https://github.com/ropensci/taxize/issues
+}
+
 \examples{
 \dontrun{
 # Plug in taxonomic IDs
 children(161994, db = "itis")
 children(8028, db = "ncbi")
 ## works with numeric if as character as well
-children("161994", db = "itis")
+children(161994, db = "itis")
+children(88899, db = "bold")
+children(as.boldid(88899))
 
 # Plug in taxon names
 children("Salmo", db = 'itis')
 children("Salmo", db = 'ncbi')
 children("Salmo", db = 'worms')
+children("Salmo", db = 'bold')
 
 # Plug in IDs
 (id <- get_wormsid("Platanista"))

@@ -2,17 +2,18 @@
 #'
 #' This function uses a while loop to continually collect children taxa down
 #' to the taxonomic rank that you specify in the `downto` parameter. You
-#' can get data from ITIS (itis), GBIF (gbif), NCBI (ncbi) or WORMS (worms).
-#' There is no method exposed by these four 
-#' services for getting taxa at a specific taxonomic rank, so we do it 
+#' can get data from ITIS (itis), GBIF (gbif), NCBI (ncbi), WORMS (worms),
+#' or BOLD (bold). There is no method exposed by these four
+#' services for getting taxa at a specific taxonomic rank, so we do it
 #' ourselves here.
 #'
 #' @export
 #' @param x Vector of taxa names (character) or IDs (character or numeric)
 #' to query.
 #' @param db character; database to query. One or more of `itis`, `gbif`,
-#' `ncbi` or `worms`. Note that each taxonomic  data source has their own
-#' identifiers, so that if you provide the wrong `db` value for the identifier
+#' `ncbi`, `worms`, or `bold`. Note that each taxonomic  data source has
+#' their own identifiers, so that if you provide the wrong `db` value for
+#' the identifier
 #' you could get a result, but it will likely be wrong (not what you were
 #' expecting). If using ncbi, we recommend getting an API key; see
 #' [taxize-authentication]
@@ -33,21 +34,28 @@
 #' @param start Record number to start at
 #' @param ... Further args passed on to [itis_downstream()],
 #' [gbif_downstream()], [ncbi_downstream()],
-#' or [worms_downstream()]
+#' [worms_downstream()], or [bold_downstream()]
 #'
 #' @return A named list of data.frames with the downstream names of every
 #' supplied taxa. You get an NA if there was no match in the database.
-#' 
+#'
 #' @section Authentication:
 #' See [taxize-authentication] for help on authentication
+#' 
+#' @section bold:
+#' BEWARE: `db="bold"` scrapes the BOLD website, so may be unstable. That is,
+#' one day it may work, and the next it may fail. Open an issue if you
+#' encounter an error: https://github.com/ropensci/taxize/issues
 #'
 #' @examples \dontrun{
 #' # Plug in taxon IDs
 #' downstream(125732, db = 'worms', downto = 'species')
+#' downstream(3451, db = 'bold', downto = 'species')
 #'
 #' # Plug in taxon names
 #' downstream("Apis", db = 'ncbi', downto = 'species')
 #' downstream("Apis", db = 'itis', downto = 'species')
+#' downstream("Apis", db = 'bold', downto = 'species')
 #' downstream("Gadus", db = 'worms', downto = 'species')
 #' downstream(c("Apis","Epeoloides"), db = 'itis', downto = 'species')
 #' downstream("Ursus", db = 'gbif', downto = 'species')
@@ -111,6 +119,11 @@ downstream.default <- function(x, db = NULL, downto = NULL,
       stats::setNames(downstream(id, downto = tolower(downto),
                                  intermediate = intermediate, ...), x)
     },
+    bold = {
+      id <- process_stream_ids(as.character(x), db, get_boldid, rows = rows, ...)
+      stats::setNames(downstream(id, downto = tolower(downto),
+                                 intermediate = intermediate, ...), x)
+    },
     stop("the provided db value was not recognised/is not supported",
          call. = FALSE)
   )
@@ -124,7 +137,7 @@ process_stream_ids <- function(input, db, fxn, ...){
     all(grepl("[[:digit:]]", input))
   ) {
     as_fxn <- switch(db, itis = as.tsn, gbif = as.gbifid,
-      ncbi = as.uid, worms = as.wormsid)
+      ncbi = as.uid, worms = as.wormsid, bold = as.boldid)
     as_fxn(input, check = FALSE)
   } else {
     eval(fxn)(input, ...)
@@ -204,6 +217,24 @@ downstream.wormsid <- function(x, db = NULL, downto = NULL,
   }
   out <- lapply(x, fun, downto = downto, intermediate = intermediate, ...)
   structure(out, class = 'downstream', db = 'worms')
+}
+
+#' @export
+#' @rdname downstream
+downstream.boldid <- function(x, db = NULL, downto = NULL,
+                              intermediate = FALSE, ...) {
+  warn_db(list(db = db), "bold")
+  fun <- function(y, downto, intermediate, ...){
+    # return NA if NA is supplied
+    if (is.na(y)) {
+      NA
+    } else {
+      bold_downstream(id = y, downto = downto,
+                      intermediate = intermediate, ...)
+    }
+  }
+  out <- lapply(x, fun, downto = downto, intermediate = intermediate, ...)
+  structure(out, class = 'downstream', db = 'bold')
 }
 
 #' @export
