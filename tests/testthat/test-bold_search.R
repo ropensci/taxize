@@ -26,7 +26,6 @@ test_that("bold_search returns the correct value, dimensions, and classes", {
 
 test_that("bold_search is robust to user error", {
   skip_on_cran()
-  skip('BOLD API down right now, SSL issue')
 
   expect_is(bold_search(name = "asdfsdf"), "data.frame")
   expect_is(bold_search(name = ""), "data.frame")

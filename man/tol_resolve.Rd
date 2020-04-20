@@ -14,7 +14,7 @@ tol_resolve(
 )
 }
 \arguments{
-\item{names}{(character vector) taxon names to be queried}
+\item{names}{(character) taxon names to be queried}
 
 \item{context_name}{name of the taxonomic context to be searched
 (length-one character vector). Must match (case sensitive) one
