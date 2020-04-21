@@ -8,7 +8,6 @@
 #' @param intermediate (logical) If `TRUE`, return a list of length two 
 #' with target taxon rank names, with additional list of data.frame's of
 #' intermediate taxonomic groups. Default: `FALSE`
-#' @param start (integer) Record number to start at
 #' @param ... crul options passed on to [crul::verb-GET]
 #' @return data.frame of taxonomic information downstream to family from e.g.,
 #' Order, Class, etc., or if `intermediated=TRUE`, list of length two,

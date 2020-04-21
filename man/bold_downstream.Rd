@@ -18,8 +18,6 @@ with target taxon rank names, with additional list of data.frame's of
 intermediate taxonomic groups. Default: \code{FALSE}}
 
 \item{...}{crul options passed on to \link[crul:verb-GET]{crul::verb-GET}}
-
-\item{start}{(integer) Record number to start at}
 }
 \value{
 data.frame of taxonomic information downstream to family from e.g.,
