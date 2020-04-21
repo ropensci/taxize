@@ -7,7 +7,7 @@
 bold_children(id, ...)
 }
 \arguments{
-\item{id}{(integer) A BOLD taxonomic identifier}
+\item{id}{(integer) A BOLD taxonomic identifier. length=1. required}
 
 \item{...}{named curl options passed on to \link[crul:verb-GET]{crul::verb-GET}
 debugging}
